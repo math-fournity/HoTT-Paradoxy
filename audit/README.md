@@ -1,6 +1,6 @@
 # 审计资产入口
 
-`user-message-disposition.jsonl`、`ai-response-ledger.jsonl`、`tool-event-ledger.jsonl`、`webgpt-section-ledger.jsonl`、`gemini-thought-ledger.jsonl`、`gemini-execution-ledger.jsonl`、`work-product-ledger.jsonl` 和 `claim-evidence-ledger.jsonl` 是本次历史整合生成的 machine-managed ledger。`ledger-summary.json` 与 `verification-report.json` 给出分母和结构校验，但不认证数学真理或 AI 理解。`治理框架对比审计与核心认知增补评估-20260912.md` 拥有本轮 WebGPT/当前框架的逐维度审计；`方向追踪.md` 和 `全景视野.md` 是跨 AI 的人读投影，不替代这些原始 ledger。
+`user-message-disposition.jsonl`、`ai-response-ledger.jsonl`、`tool-event-ledger.jsonl`、`webgpt-section-ledger.jsonl`、`gemini-thought-ledger.jsonl`、`gemini-execution-ledger.jsonl`、`work-product-ledger.jsonl` 和 `claim-evidence-ledger.jsonl` 是本次历史整合生成的 machine-managed ledger。`ledger-summary.json` 与 `verification-report.json` 给出分母和结构校验，但不认证数学真理或 AI 理解。`治理框架对比审计与核心认知增补评估-20260912.md` 拥有本轮 WebGPT/当前框架的逐维度审计；`治理框架自反馈行为分析与未来优化依据-20260912.md` 拥有本轮操作行为、框架捕获/遗漏和候选优化的反思审计；`方向追踪.md` 和 `全景视野.md` 是跨 AI 的人读投影，不替代这些原始 ledger。
 
 本轮新增的综合证据入口：
 
