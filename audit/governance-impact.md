@@ -15,10 +15,10 @@
 | C03 | `UPDATE` | 在新 repo 建项目级 `.codex` governance/business Skill 和 local protocol；本轮将三件套全文加载、投影依赖边界和交叉审视接入本地 Skill；不改共享 canonical workflow。 |
 | C04 | `UPDATE` | 新建并更新顶层 `AGENTS.md`、`.codex/AGENTS.md` 和确定性三件套启动路由；全局 AGENTS 不变。 |
 | C05 | `UPDATE` | 新建 root README/docs/MEMORY/Feature/rulings、LOAD_SET、source manifest 和 cross-session 路由；本轮新增 `方向追踪.md`、`全景视野.md`、比较审计和唯一职责入口。 |
-| C06 | `UPDATE` | 新建 core extraction、source/hash/locator、逐 ID audit、stale/missing/truncation/recovery 验证；本轮新增三件套顺序/孤儿链接正负测试；fresh Session 理解验收在后续单独执行。 |
+| C06 | `UPDATE` | 新建 core extraction、source/hash/locator、逐 ID audit、stale/missing/truncation/recovery 验证；本轮新增三件套顺序/孤儿链接、逐文件 merge、22,226 行 source register 和 fresh/负向测试。 |
 | C07 | `NO_CHANGE` | 不改 `~/.codex` 配置、Rules、Hooks、Plugins、凭据或 host 权限；本 repo 内的 `.codex` 文件不改变 host runtime 本身。 |
 | C08 | `NO_CHANGE` | 不改 OpenCode、BrowserOS、Devin、ZCode 等产品专属主库或 host adapter。 |
-| C09 | `UPDATE` | 顶层新 Git 历史、精确提交、版本/回滚和 clean-clone 收据属于本 repo；本轮治理 checkpoint 已由 STATE revision 4→9 逐次封存，后续需精确 commit；不打共享 `governance-v*` tag，不 push。 |
+| C09 | `UPDATE` | 顶层新 Git 历史、精确提交、版本/回滚和 clean-clone 收据属于本 repo；本轮治理 checkpoint 已由 STATE revision 4→11 逐次封存，失败收据和 before/after 保留；后续需精确 commit；不打共享 `governance-v*` tag，不 push。 |
 | C10 | `UPDATE` | 保存 LocalGPT/WebGPT/Gemini/理解章节的历史身份、removed `aistudio-docs` 边界、dirty/untracked provenance、旧版本冲突和残余未知；本轮额外保留 projection 容量修复和孤儿引用失败证据。 |
 
 影响组 remainder：`0`。

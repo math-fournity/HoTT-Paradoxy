@@ -117,6 +117,7 @@ def main() -> None:
         explicit_file(ROOT / "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md", "USER_PROMPT_EXTRACT"),
         explicit_file(ROOT / "sources/prompts/Codex-HoTT父线程-01a059c1-用户消息提取-20260911.md", "CODEX_LINEAGE_SUPPLEMENT"),
         explicit_file(ROOT / "sources/prompts/Codex-并行会话-素数与归档-用户消息提取-20260911.md", "CODEX_AUXILIARY_LINEAGE"),
+        explicit_file(ROOT / "sources/prompts/治理三件套与历史融合要求-用户消息提取-20260912.md", "USER_GOVERNANCE_REQUIREMENT_INPUT"),
         explicit_file(ROOT / "sources/webgpt/ChatGPT-HoTT - Main-20260911-1222.md", "WEBGPT_VISIBLE_EXPORT"),
         explicit_file(ROOT / "sources/gemini/Gemini - AI 对话录.json", "GEMINI_RAW_EXPORT"),
         explicit_file(ROOT / "sources/local-gpt/Codex-HoTT-2-完整38轮-用户与AI-20260911.md", "CODEX_VISIBLE_MERGED_EXPORT"),

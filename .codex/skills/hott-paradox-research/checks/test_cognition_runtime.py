@@ -28,7 +28,7 @@ class RuntimeTests(unittest.TestCase):
         self.put(c.SKILL,'---\nname: hott-paradox-research\n---\nBusiness test fixture.\n')
         self.put(c.GOVERNANCE_SKILL,'---\nname: hott-local-session-governance\n---\nGovernance test fixture.\n')
         self.put(c.ROLES,c.dump({'schema_version':'hott-skill-roles/v1','roles':{'business':{'name':'hott-paradox-research','path':c.SKILL},'governance':{'name':'hott-local-session-governance','path':c.GOVERNANCE_SKILL}}}))
-        self.put(c.CLOSURE,'# TEST FIXTURE ONLY\n'+c.CLOSURE_ID+'\n甲\n乙\n丙\n')
+        self.put(c.CLOSURE,'# TEST FIXTURE ONLY\n'+c.CLOSURE_ID+'1\n甲\n乙\n丙\n')
         self.put(c.DIRECTION,'<!-- integrated-direction-portfolio:v1\nsource_state_revision: 1\n-->\n')
         self.put(c.PANORAMA,'<!-- integrated-outcome-panorama:v1\nsource_state_revision: 1\n-->\n')
         config={'schema_version':'cognition-load-set/v2','fixed_full_text':fixed,'dynamic_state':c.STATE,

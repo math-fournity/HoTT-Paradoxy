@@ -1,0 +1,33 @@
+{
+  "schema_version": "core-cognition-generation-transition/v1",
+  "transition_id": "core-cognition-generation-1-to-2-20260912",
+  "source_generation": "core-cognition-generation-1",
+  "source_document_sha256": "928949447249b2f2e70081c2c2f2f82b83c1289bf3f7666167613c43b04ffad3",
+  "source_core_units": 903,
+  "source_messages_parsed": 125,
+  "source_manifest_recovery": {
+    "git_commit": "6a6743e3b5dd73b2114da9e9663a069d8e5b870b",
+    "path": "核心认知.md",
+    "recovery_command": "git show 6a6743e3b5dd73b2114da9e9663a069d8e5b870b:核心认知.md"
+  },
+  "target_generation": "core-cognition-generation-2",
+  "target_document": "核心认知.md",
+  "target_manifest": "核心认知.manifest.json",
+  "target_core_units": 913,
+  "target_messages_parsed": 127,
+  "target_document_sha256": "7986ed26eab032ae2b79e02a5d64addf1f70b1f3e46bcb35d49b1e839d2ea16d",
+  "new_source_input": "sources/prompts/治理三件套与历史融合要求-用户消息提取-20260912.md",
+  "new_source_input_identity": "USER_OWNED_CONVERSATION_INPUT",
+  "prefix_identity_check": {
+    "old_units_reparsed": 903,
+    "new_prefix_units_compared": 903,
+    "metadata_and_payload_equal": true
+  },
+  "semantic_policy": "Only user-authored working-consciousness and handoff requirements are added; AI results, status, Git, artifacts, and audit inferences remain outside core.",
+  "verification": {
+    "command": "rtk python3 scripts/audit/verify_core_cognition.py",
+    "status": "PASS"
+  },
+  "rollback_policy": "Restore the source generation from the recorded Git commit; do not edit individual generated KC units by hand.",
+  "as_of_date": "2026-09-12"
+}

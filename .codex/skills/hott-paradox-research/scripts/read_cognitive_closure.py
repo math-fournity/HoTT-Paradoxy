@@ -10,10 +10,12 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 
 CLOSURE_RELATIVE_PATH = "核心认知.md"
-CLOSURE_ID = "core-cognition-generation-1"
+CLOSURE_ID = "core-cognition-generation-"
+CLOSURE_GENERATION_RE = re.compile(r"core-cognition-generation-[0-9]+")
 
 class ClosureReadError(RuntimeError):
     """No partial/summary fallback is permitted."""
@@ -72,8 +74,10 @@ def read_chunk(
         raise ClosureReadError("Closure is not valid UTF-8; no replacement/summary allowed.") from exc
     if not text.strip():
         raise ClosureReadError("Closure file is empty.")
-    if CLOSURE_ID not in "\n".join(text.splitlines()[:12]):
+    match = CLOSURE_GENERATION_RE.search("\n".join(text.splitlines()[:12]))
+    if not match:
         raise ClosureReadError("The file at the designated path has a different core generation ID.")
+    closure_id = match.group(0)
 
     lines = text.splitlines(keepends=True)
     if start_line > len(lines):
@@ -94,7 +98,7 @@ def read_chunk(
     return {
         "project_root": str(root),
         "path": str(path),
-        "closure_id": CLOSURE_ID,
+        "closure_id": closure_id,
         "file_sha256": digest,
         "total_bytes": len(data),
         "total_lines": len(lines),

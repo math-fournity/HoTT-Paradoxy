@@ -5,7 +5,7 @@
 ## 当前工作根与来源边界
 
 - 当前工作根必须是本目录的顶层 Git repo。开始前确认 `git rev-parse --show-toplevel` 等于本目录；`AI对话录/` 和 `workspace/` 是磁盘上保留的嵌套历史 repo，已由顶层 `.gitignore` 排除，不是当前工作根。
-- `核心认知.md` 是用户指定的三份提问提取文件的原文整合账本。每次工作开始必须从第一行连续读到 EOF；`核心认知.manifest.json` 只提供哈希、编号、定位和处置索引，不能代替原文。与它共同构成固定前三项的 `方向追踪.md`、`全景视野.md` 也必须全文加载：前者统筹方向，后者组织成果；二者不是 core 的替代品。
+- `核心认知.md` 是三份历史提问提取、Codex supplemental 和明确登记的用户治理原文的原文整合账本，当前为 generation-2/913 个 `KC-*`。每次工作开始必须从第一行连续读到 EOF；`核心认知.manifest.json` 只提供哈希、编号、定位和处置索引，不能代替原文。与它共同构成固定前三项的 `方向追踪.md`、`全景视野.md` 也必须全文加载：前者统筹方向，后者组织成果；二者不是 core 的替代品。
 - `理解章节/` 是历史认知闭包及本次 transform 的主要工作成果；它是需要继续审计、修订和分层的当前知识候选，不自动凌驾于底层代码、原始来源和 Git。
 - `sources/` 是来源快照和提取原件区。除非用户明确授权，不在其中改写历史来源；需要修复提取规则时改 `scripts/audit/`，重建派生文件，并保留旧 hash/差异。
 - `/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求已移走且不恢复。`sources/local-gpt/HoTT_is_GONE_COMPLETE.md` 是有 hash 的历史 AI 产物，不是已经证明覆盖原目录的事实；覆盖结论必须标为 `NOT_PROVEN`，不得将旧 validator 的缺源 PASS 当成认证。

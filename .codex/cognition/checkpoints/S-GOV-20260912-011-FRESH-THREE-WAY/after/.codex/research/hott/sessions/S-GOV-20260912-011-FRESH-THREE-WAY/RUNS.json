@@ -1,0 +1,33 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260912-011-FRESH-THREE-WAY",
+  "runs": [
+    {
+      "command": "rtk python3 scripts/audit/verify_fresh_three_way.py",
+      "status": "PASS_WITH_SCOPE",
+      "scope": "fresh process; complete 96-document load graph; three-way full read and negative cases"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_three_way_cognition.py",
+      "status": "PASS",
+      "scope": "post-checkpoint state revision 11; 24 directions; 22 outcomes"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_core_cognition.py",
+      "status": "PASS",
+      "scope": "generation-2; 913 KC"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_history_ledgers.py",
+      "status": "PASS",
+      "scope": "historical ledger counts retained; core denominator read from manifest"
+    },
+    {
+      "command": "rtk git diff --check",
+      "status": "PASS",
+      "scope": "current patch whitespace"
+    }
+  ],
+  "model_context": "NOT_CERTIFIED_BY_TOOL",
+  "mathematics": "NOT_CERTIFIED"
+}

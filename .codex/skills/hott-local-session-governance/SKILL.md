@@ -4,7 +4,7 @@ description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Ses
 metadata:
   version: "2.1.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v1"
+  protocol_version: "handoff-cognition/v1.1"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---

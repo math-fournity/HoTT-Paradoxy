@@ -2,8 +2,8 @@
 
 > **当前审计层（2026-09-12）**：先读 [`C0-当前整合审计与证据边界-20260912.md`](C0-当前整合审计与证据边界-20260912.md)、顶层 [`核心认知.md`](../核心认知.md) 和 [`audit/`](../audit/README.md)。C0 是本次三 AI 整合后的当前分母/证据边界 owner；下面 A/B 章节和旧“读态终态”保留为历史 transform，遇到冲突不能用旧表覆盖 C0、manifest、ledger 或底层实物。
 
-> 架构：A 系列（用户认知章，逐轮应答式）+ B 系列（AI 工作编年史）+ C0 当前审计层 + 机器 ledger。旧 v2 的 171/119 等数字属于当时不同分母的历史记录；当前指定 primary 提取为 88 条，Codex supplemental 为 37 条，core 为 903 个 KC 单元，LocalGPT parent/main 为 220 条 visible assistant，WebGPT 为 55 Response，Gemini 为 24 ordinary text。具体分母与证据等级见 C0。
-> v3 变更：顶层综合 repo 已建立；新增 `核心认知.md`、source manifest、逐消息/逐回答/逐工具/逐产物/逐 claim ledger、LocalGPT canonical trajectory 证据和本地 `.codex` 治理。旧 `verify_ai_coverage.py` 仍保留为历史验证器，不替代新账本。
+> 架构：A 系列（用户认知章，逐轮应答式）+ B 系列（AI 工作编年史）+ C0 当前审计层 + 机器 ledger。旧 v2 的 171/119 等数字属于当时不同分母的历史记录；当前指定 primary 提取为 88 条，Codex supplemental 为 37 条，generation-2 core 为 913 个 KC（127 条登记消息、94 条进入核心），LocalGPT parent/main 为 220 条 visible assistant，WebGPT 为 55 Response，Gemini 为 24 ordinary text。具体分母与证据等级见 C0、`audit/` 和 generation transition receipt。
+> v3 变更：顶层综合 repo 已建立；新增 `核心认知.md`、source manifest、逐消息/逐回答/逐工具/逐产物/逐 claim ledger、LocalGPT canonical trajectory 证据和本地 `.codex` 治理。当前还增加 `方向追踪.md`、`全景视野.md`、逐文件 merge manifest、22,226 行 cross-source register 和 fresh load receipt。旧 `verify_ai_coverage.py` 仍保留为历史验证器，不替代新账本。
 > 版本链：v1=1d12edb（结构与账本）→ v2=1ccb299（B系列+锚点）→ 9ee73e2（Gemini 24 chunk 全文精读）→ 46bf864（网页GPT前21节）→ f815e65（网页GPT 55/55 全部完成）→ 7e77168（Codex 13 关键轮精读）。
 > 读态总账（读遍账本.md）：用户侧 119 条 F=100%；网页 GPT 55/55 节回复 F=100%；Gemini 24 实质 chunk F=100%；Codex 13 哲学锻造关键轮 F + 其余 ~200 条 M（实质内容由 F 级闭包文档承载，重读边际价值低，已登记重开路径）。
 
@@ -51,4 +51,4 @@
 批次 1（7113aa8）RP-B01+论辩实物 → 批次 2（876adc9）代码 305 测试重执行 → 批次 3（0178b9c）artifacts 四计数 → 批次 4（9b14759）44 SESSION+19 份数学正文 → 批次 5（a83f9e1）Codex 38 轮 AI 回复 100% F → 批次 6（bdd2dc4）五闭包+owner 全读+A1–A4 零差异 → 批次 7（7be5805）ALL-Markdown 其余+HOTT_Z 台账+archive 处置表+R006–R015 收据核验关闭 → 批次 8（45d78fa）git/Gemini/onboarding/exec 边角清零 → 批次 9（本 commit）B5 终稿+verify 扩展+README 版本链。读遍账本终态见其"批次 1–8 汇总"表。
 
 ## 使用指南
-新 AI 接手顺序：B5（有什么）→ A0（找什么）→ A11（接什么）→ B0（总线）→ 按需深入 A/B 各章；任何主张沿锚点回源。
+新 AI 接手顺序：先按顶层 `.codex` 读取 `核心认知.md` → `方向追踪.md` → `全景视野.md` 和动态 STATE；再读 B5（有什么）→ A0（找什么）→ A11（接什么）→ B0（总线），按需深入 A/B 各章。任何主张沿 merge manifest、cross-source register 和原始锚点回源。

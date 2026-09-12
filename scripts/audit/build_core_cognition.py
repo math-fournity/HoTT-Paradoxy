@@ -34,6 +34,14 @@ SUPPLEMENTAL = [
     ("LocalGPT", "supplemental", Path("sources/prompts/Codex-HoTT父线程-01a059c1-用户消息提取-20260911.md"), 0),
     ("LocalGPT", "supplemental", Path("sources/prompts/Codex-并行会话-素数与归档-用户消息提取-20260911.md"), 0),
 ]
+USER_REQUIREMENT_SUPPLEMENTAL = [
+    (
+        "User",
+        "user_requirement_supplemental",
+        Path("sources/prompts/治理三件套与历史融合要求-用户消息提取-20260912.md"),
+        3,
+    ),
+]
 
 THEME_PATTERNS: list[tuple[str, str]] = [
     ("HOTT_OBJECT", r"HoTT|HOTT|同伦类型|类型理论|类型构造|Theory Schema"),
@@ -181,10 +189,14 @@ def fenced_payload(text: str) -> str:
     return f"{marker}text\n{text}\n{marker}"
 
 
-def parse_sources(root: Path) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+def parse_sources(
+    root: Path, include_user_requirements: bool = False
+) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
     messages: list[dict[str, object]] = []
     files: list[dict[str, object]] = []
     all_inputs = PRIMARY + SUPPLEMENTAL
+    if include_user_requirements:
+        all_inputs += USER_REQUIREMENT_SUPPLEMENTAL
     for platform, role, rel, rank in all_inputs:
         path = root / rel
         text, file_sha = read_utf8(path)
@@ -254,8 +266,10 @@ def parse_sources(root: Path) -> tuple[list[dict[str, object]], list[dict[str, o
     return messages, files
 
 
-def build(root: Path) -> tuple[dict[str, object], str, str]:
-    messages, files = parse_sources(root)
+def build(
+    root: Path, generation: str = "core-cognition-generation-1", include_user_requirements: bool = False
+) -> tuple[dict[str, object], str, str]:
+    messages, files = parse_sources(root, include_user_requirements=include_user_requirements)
     included = [m for m in messages if m["disposition"] == "INCLUDED"]
     included.sort(
         key=lambda m: (
@@ -304,10 +318,13 @@ def build(root: Path) -> tuple[dict[str, object], str, str]:
 
     manifest: dict[str, object] = {
         "schema_version": "core-cognition/v1",
-        "generation": "core-cognition-generation-1",
+        "generation": generation,
         "build_policy": {
             "primary_inputs": [rel.as_posix() for _, _, rel, _ in PRIMARY],
             "supplemental_inputs": [rel.as_posix() for _, _, rel, _ in SUPPLEMENTAL],
+            "user_requirement_inputs": [rel.as_posix() for _, _, rel, _ in USER_REQUIREMENT_SUPPLEMENTAL]
+            if include_user_requirements
+            else [],
             "unit_boundary": "paragraph outside fenced code; exact UTF-8 payload; metadata-only classification",
             "business_filter": "high-recall keyword themes; excluded messages remain in disposition",
             "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York",
@@ -321,6 +338,7 @@ def build(root: Path) -> tuple[dict[str, object], str, str]:
         "counts": {
             "primary_files": len(PRIMARY),
             "supplemental_files": len(SUPPLEMENTAL),
+            "user_requirement_files": len(USER_REQUIREMENT_SUPPLEMENTAL) if include_user_requirements else 0,
             "messages_parsed": len(messages),
             "messages_included": sum(1 for row in messages if row["disposition"] == "INCLUDED"),
             "messages_excluded": sum(1 for row in messages if row["disposition"] != "INCLUDED"),
@@ -332,8 +350,8 @@ def build(root: Path) -> tuple[dict[str, object], str, str]:
     lines = [
         "# 核心认知",
         "",
-        "> 机器生成的原文认知账本。Schema：`core-cognition/v1`；generation：`core-cognition-generation-1`。",
-        "> 本文件的原文单元只从 `sources/prompts/` 中三份用户提问提取文件及明确登记的 Codex 补充提取文件复制；不要把这里的原文改写成 AI 摘要。",
+        f"> 机器生成的原文认知账本。Schema：`core-cognition/v1`；generation：`{generation}`。",
+        "> 本文件的原文单元只从 `sources/prompts/` 中登记的用户消息提取文件复制；不要把这里的原文改写成 AI 摘要。",
         "> 每次工作开始必须从第 1 行读到 EOF；每次工作结束必须逐一回评所有 `KC-*` 编号。机器清单 `核心认知.manifest.json` 保存哈希、定位和处置记录。",
         "",
         "## 0. 读取与证据规则",
@@ -344,7 +362,7 @@ def build(root: Path) -> tuple[dict[str, object], str, str]:
         "",
         "## 1. 输入与计数",
         "",
-        f"本次生成解析了 `{manifest['counts']['messages_parsed']}` 条消息，收录 `{manifest['counts']['core_units']}` 个核心单元；其中三份用户指定提取文件为 primary，Codex 父线程和并行会话是为完整处理 38-turn lineage 而登记的 supplemental。完整逐消息处置见 `核心认知.manifest.json`。",
+        f"本次生成解析了 `{manifest['counts']['messages_parsed']}` 条消息，收录 `{manifest['counts']['core_units']}` 个核心单元；三份用户指定提取文件为 primary，Codex 父线程和并行会话是为完整处理 38-turn lineage 而登记的 supplemental；本代若存在用户治理补充，则按单独的 `user_requirement_supplemental` 身份登记。完整逐消息处置见 `核心认知.manifest.json`。",
         "",
         "## 2. 按时间顺序的核心认知原文",
         "",
@@ -371,9 +389,26 @@ def main() -> int:
     parser.add_argument("--project-root", type=Path, default=ROOT)
     parser.add_argument("--core", type=Path, default=Path("核心认知.md"))
     parser.add_argument("--manifest", type=Path, default=Path("核心认知.manifest.json"))
+    parser.add_argument("--generation")
+    parser.add_argument("--include-user-requirements", action="store_true")
     args = parser.parse_args()
     root = args.project_root.resolve()
-    manifest, core_text, manifest_text = build(root)
+    existing_generation = None
+    existing_user_inputs = False
+    if (root / args.manifest).is_file():
+        try:
+            existing_manifest = json.loads((root / args.manifest).read_text(encoding="utf-8"))
+            existing_generation = existing_manifest.get("generation")
+            existing_user_inputs = bool(existing_manifest.get("build_policy", {}).get("user_requirement_inputs"))
+        except (OSError, ValueError, TypeError, AttributeError):
+            existing_generation = None
+    generation = args.generation or existing_generation or "core-cognition-generation-1"
+    include_user_requirements = args.include_user_requirements or (args.generation is None and existing_user_inputs)
+    manifest, core_text, manifest_text = build(
+        root,
+        generation=generation,
+        include_user_requirements=include_user_requirements,
+    )
     (root / args.core).write_text(core_text, encoding="utf-8")
     (root / args.manifest).write_text(manifest_text, encoding="utf-8")
     print(json.dumps({"status": "BUILT", "counts": manifest["counts"], "core_sha256": manifest["core_document_sha256"]}, ensure_ascii=False))

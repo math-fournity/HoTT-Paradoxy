@@ -121,8 +121,13 @@ def main() -> int:
             raise SystemExit(f"FAIL ledger summary {key}: {expected_summary.get(key)} != {value}")
     if not summary.get("trajectory_sources") or summary.get("errors"):
         raise SystemExit("FAIL trajectory summary has no sources or contains errors")
-    if len(core.get("units", [])) != 903:
-        raise SystemExit("FAIL core denominator changed unexpectedly")
+    core_units = len(core.get("units", []))
+    declared_core_units = core.get("counts", {}).get("core_units")
+    if not isinstance(declared_core_units, int) or core_units != declared_core_units:
+        raise SystemExit(f"FAIL core manifest unit count: {core_units} != {declared_core_units}")
+    generation = core.get("generation")
+    if not isinstance(generation, str) or not generation.startswith("core-cognition-generation-"):
+        raise SystemExit("FAIL core generation identity")
     if any(not isinstance(row.get("claim_text"), str) or not row.get("claim_text") for row in claims):
         raise SystemExit("FAIL empty claim row")
     report = {
@@ -139,6 +144,8 @@ def main() -> int:
             "gemini_execution": dict(execution_counts),
             "work_products": len(products),
             "claims": len(claims),
+            "core_units": core_units,
+            "core_generation": generation,
         },
         "checks": [
             "primary and supplemental user-message denominators",
@@ -146,7 +153,7 @@ def main() -> int:
             "LocalGPT tool call/result count and bidirectional call_id pairing",
             "WebGPT 56 prompt + 55 response + 111 section count",
             "Gemini 21 thought + 17 executableCode + 17 codeExecutionResult + 2 inlineFile",
-            "unique IDs, nonempty claims, source manifest and core generation boundary",
+            "unique IDs, nonempty claims, source manifest and generation-relative core boundary",
         ],
         "scope": "Structural/provenance verification only; no mathematical truth or model understanding certification",
     }

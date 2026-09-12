@@ -32,7 +32,11 @@ CLOSURE = '核心认知.md'
 DIRECTION = '方向追踪.md'
 PANORAMA = '全景视野.md'
 QUESTIONS = 'HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md'
+# Kept as a fixture/backward-compatibility symbol for the inherited synthetic
+# tests.  The live graph accepts any explicitly numbered generation and binds
+# it to the current manifest via the core validator.
 CLOSURE_ID = 'core-cognition-generation-1'
+CLOSURE_GENERATION_RE = re.compile(r'core-cognition-generation-[0-9]+')
 THREE_WAY = (CLOSURE, DIRECTION, PANORAMA)
 MUTABLE = ('MEMORY.md', DIRECTION, PANORAMA, PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
 REQUIRED = (CLOSURE, QUESTIONS, 'AGENTS.md', 'README.md', 'MEMORY.md', 'feature-list.md', 'rulings.md',
@@ -45,10 +49,13 @@ REQUIRED = (CLOSURE, QUESTIONS, 'AGENTS.md', 'README.md', 'MEMORY.md', 'feature-
             '理解章节/B1-本地GPT工作史.md', '理解章节/B2-网页GPT工作史-I.md', '理解章节/B3-网页GPT工作史-II.md',
             '理解章节/B4-Gemini工作史.md', '理解章节/B5-成果总账.md', 'audit/governance-impact.md',
             'audit/coverage-summary.json', 'audit/README.md', 'audit/LEDGER_SCHEMA.md', 'audit/ledger-summary.json', 'audit/verification-report.json',
-            'audit/external-validation-20260912.json',
+            'audit/external-validation-20260912.json', 'audit/core-cognition-generation-transition-20260912.json',
+            'audit/understanding-chapter-merge-manifest.json', 'audit/cross-source-reconciliation-report.md',
             'sources/SOURCE_MANIFEST.json', 'sources/README.md', '.codex/tools/cognition_runtime.py', 'scripts/audit/README.md',
             'scripts/audit/verify_core_cognition.py', 'scripts/audit/verify_history_ledgers.py', DIRECTION, PANORAMA,
-            'scripts/audit/verify_three_way_cognition.py')
+            'scripts/audit/verify_three_way_cognition.py', 'scripts/audit/verify_understanding_merge.py',
+            'scripts/audit/verify_cross_source_reconciliation.py', 'scripts/audit/verify_fresh_three_way.py',
+            'scripts/audit/verify_projection_freshness.py')
 ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,100}$')
 
 class CognitionError(RuntimeError):
@@ -196,8 +203,9 @@ def graph(config, state, get):
     for k in seeds:visit(k)
     # Directly declared dependencies are complete textual sources, not summaries.
     for p in ordered:text(get(p),p)
-    if CLOSURE_ID not in '\n'.join(text(get(CLOSURE),CLOSURE).splitlines()[:12]):
-        raise CognitionError('WRONG_CLOSURE_ID')
+    closure_header = '\n'.join(text(get(CLOSURE), CLOSURE).splitlines()[:12])
+    if not CLOSURE_GENERATION_RE.search(closure_header):
+        raise CognitionError('WRONG_CLOSURE_GENERATION')
     for projection, marker in ((DIRECTION, 'integrated-direction-portfolio:v1'), (PANORAMA, 'integrated-outcome-panorama:v1')):
         if marker not in text(get(projection), projection):
             raise CognitionError('PROJECTION_MARKER_MISSING: '+projection)

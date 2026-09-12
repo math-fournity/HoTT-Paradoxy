@@ -1,0 +1,43 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260912-010-HISTORY-RECONCILIATION",
+  "runs": [
+    {
+      "command": "rtk python3 scripts/audit/verify_core_cognition.py",
+      "status": "PASS",
+      "scope": "core-cognition-generation-2; 913 KC; generation-1 prefix identity checked"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_history_ledgers.py",
+      "status": "PASS",
+      "scope": "historical ledger source counts retained"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_understanding_merge.py",
+      "status": "PASS",
+      "scope": "25/24 union files; 15 identical pairs; 10 different/unique entries; no destructive action"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_cross_source_reconciliation.py",
+      "status": "PASS",
+      "scope": "22,226 source rows; all have direction/result link or reason; ID domains closed"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_three_way_cognition.py",
+      "status": "PASS",
+      "scope": "post-checkpoint three-way order and projection cross-links"
+    },
+    {
+      "command": "rtk python3 -B .codex/skills/hott-paradox-research/checks/test_cognition_runtime.py",
+      "status": "PASS",
+      "scope": "current runtime regression suite"
+    },
+    {
+      "command": "rtk git diff --check",
+      "status": "PASS",
+      "scope": "current patch whitespace"
+    }
+  ],
+  "model_context": "NOT_CERTIFIED",
+  "mathematics": "NOT_CERTIFIED"
+}

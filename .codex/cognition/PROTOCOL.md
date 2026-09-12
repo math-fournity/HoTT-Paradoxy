@@ -53,8 +53,9 @@
 | 方向与结果冲突 | 保留冲突，降低状态并核直接证据 | 不追加“最新版”覆盖块 |
 
 三件套的当前 projection 只应保留稳定 ID、范围、关系和证据入口；原始响应、工具事件、代码、Git 和
-运行产物仍由 `audit/`、`sources/`、`HoTT/`、`artifacts/` 和 Git 拥有。`方向追踪.md` 和 `全景视野.md`
-的状态为 `INITIAL_INTEGRATED_PROJECTION` 时，必须显式显示尚未完成的 record/claim 语义 reconciliation。
+运行产物仍由 `audit/`、`sources/`、`HoTT/`、`artifacts/` 和 Git 拥有。当前 `方向追踪.md` 和 `全景视野.md`
+已经有 22,226 行 source register 的可发现性收据，但仍必须显式显示 `PENDING_DIRECT_SENTENCE_ADJUDICATION`、
+数学复核和模型理解未认证；“全量登记”不能替代语义/数学结论。
 
 ## 4. 每次结束的逐编号回评
 
