@@ -61,6 +61,25 @@ def main() -> int:
             fail(errors, f"DECISION_WITHOUT_TOP:{name}")
         if entry.get("destructive_action") != "NOT_PERFORMED":
             fail(errors, f"DESTRUCTIVE_ACTION_NOT_PROVEN_SAFE:{name}")
+    expected_counts = {
+        "same_name_pairs": sum(
+            1 for entry in entries if entry.get("top_level") is not None and entry.get("nested_source") is not None
+        ),
+        "identical_pairs": sum(1 for entry in entries if entry.get("comparison") == "IDENTICAL"),
+        "different_pairs": sum(
+            1
+            for entry in entries
+            if entry.get("top_level") is not None
+            and entry.get("nested_source") is not None
+            and entry.get("comparison") != "IDENTICAL"
+        ),
+        "nonidentical_union_entries": sum(1 for entry in entries if entry.get("comparison") != "IDENTICAL"),
+        "top_level_unique": sum(1 for entry in entries if entry.get("nested_source") is None),
+        "nested_unique": sum(1 for entry in entries if entry.get("top_level") is None),
+    }
+    for key, expected in expected_counts.items():
+        if manifest.get("counts", {}).get(key) != expected:
+            fail(errors, f"COUNT_{key.upper()}_MISMATCH:{manifest.get('counts', {}).get(key)}:{expected}")
     if errors:
         print(json.dumps({"status": "FAIL", "errors": errors}, ensure_ascii=False))
         return 1
@@ -70,6 +89,7 @@ def main() -> int:
         "same_name_pairs": manifest["counts"]["same_name_pairs"],
         "identical_pairs": manifest["counts"]["identical_pairs"],
         "different_pairs": manifest["counts"]["different_pairs"],
+        "nonidentical_union_entries": manifest["counts"]["nonidentical_union_entries"],
         "canonical": manifest["canonical_directory"],
         "historical_source_retained": True,
         "semantic_claim": "NO_MATHEMATICAL_EQUIVALENCE_CLAIM",

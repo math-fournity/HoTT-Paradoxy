@@ -111,12 +111,13 @@ class FullClosureLoadingTests(unittest.TestCase):
         self.assertEqual(p["model_context_completeness"],"NOT_CERTIFIED_BY_READER")
         self.assertEqual(body,self.raw)
 
-    def test_12_file_growth_has_no_fixed_2115_limit(self):
+    def test_12_file_growth_uses_current_eof_not_historical_line_floor(self):
+        original_lines=len(self.raw.decode("utf-8").splitlines())
         self.path.write_bytes(self.raw+b"\nAFTER THE OLD END\n")
         p, body=self.read_all()
         self.assertTrue(p["file_eof"])
         self.assertIn("AFTER THE OLD END",body.decode("utf-8"))
-        self.assertGreater(p["end_line"],2115)
+        self.assertGreater(p["end_line"],original_lines)
 
     def test_13_invalid_start_range_is_rejected(self):
         for n in (0,-1):
@@ -141,8 +142,8 @@ class FullClosureLoadingTests(unittest.TestCase):
     def test_16_main_gate_precedes_research(self):
         text=(SKILL_ROOT/"SKILL.md").read_text(encoding="utf-8")
         self.assertLess(text.index("## -1."),text.index("## 0."))
-        for term in ("EVERY_INVOCATION_FULL_TEXT_PLUS_DYNAMIC_STATE",REL,"上下文压缩",
-                     "第1行","BLOCKED_FULL_COGNITION","当前模型上下文"):
+        for term in ("FULL_TRIO_PLUS_RESEARCH_PROFILE_AND_EXPLICIT_TASK_HYDRATION",REL,"上下文压缩",
+                     "第1行","BLOCKED_FULL_TRIO_COGNITION","当前模型上下文"):
             self.assertIn(term,text)
         self.assertNotIn("再核最新第五闭包 §7/§14/§19",text)
         self.assertNotIn("已读且未变化的来源可复用可回查记录，不每轮重新阅读全文",text)

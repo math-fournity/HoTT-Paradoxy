@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[2]
 STATE = ROOT / ".codex/research/hott/STATE.json"
 TRACKED = [
     ROOT / "MEMORY.md",
+    ROOT / "方向追踪.md",
+    ROOT / "全景视野.md",
     ROOT / ".codex/research/hott/FRONTIER.md",
     ROOT / ".codex/research/hott/LESSONS.md",
     ROOT / ".codex/research/hott/RESUME.md",
@@ -25,7 +27,7 @@ def sha(path: Path) -> str:
 
 def main() -> int:
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if state.get("schema_version") != "hott-working-state/v1":
+    if state.get("schema_version") not in {"hott-working-state/v1", "hott-working-state/v2"}:
         raise SystemExit("STATE_SCHEMA")
     if not state.get("latest_session"):
         raise SystemExit("LATEST_SESSION_MISSING")

@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v1.1`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v2.0`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
 
 ## 1. 目标和边界
 
@@ -10,7 +10,7 @@
 
 | 层 | 当前 owner | 可信含义 |
 |---|---|---|
-| 用户方向/裁定 | `rulings.md`、`核心认知.md` | 用户原文和当前裁定；不是数学真理 |
+| 用户方向/裁定 | `rulings.md`、`核心认知.md` | rulings 拥有治理裁定；generation-3 core 只拥有三份 primary 中用户直接悖论/元数学原文；不是数学真理 |
 | 方向组合/统筹 | `方向追踪.md` | 跨 LocalGPT/WebGPT 的候选、优先级、依赖和下一动作；不是机器记录真值 |
 | 成果全景/决策支持 | `全景视野.md` | 跨来源的结果、正反例、失败、未知和证据边界；不是数学主张矩阵 |
 | 当前需求/状态 | `feature-list.md`、`MEMORY.md`、`STATE.json` | 可修订当前真值 |
@@ -24,20 +24,21 @@
 每个新 Session、上下文压缩恢复、跨 repo 接手、用户改变范围或 source hash 变化后，必须：
 
 1. 确认当前 root 是本目录，读取顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
-2. 完整读取本地治理 Skill、业务 Skill、角色表、此协议、`LOAD_SET.json` 和 `STATE.json`。
-3. 按 `LOAD_SET.fixed_full_text` 的顺序逐文件读到真实 EOF；前三文件必须严格是 `核心认知.md`、`方向追踪.md`、`全景视野.md`，第四文件才是三问。核心账本不能用 manifest、摘要、关键词命中或旧 Session 收据替代。
-4. 读取 STATE 自动纳入所有 `open`、`active`、`pending`、`blocked`、`in_progress`、`review_required` 记录，递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。不能只读手工 active 列表而让开放记录隐身。
-5. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
-6. 记录 load snapshot：每个文件相对路径、SHA-256、bytes、lines、实际读入范围、总 bytes/lines、Git HEAD 和 dirty 状态。加载途中发生变化或截断，重新开始或降级为 `BLOCKED_FULL_CORE_COGNITION`。
-7. 形成本轮 closure statement：目标、范围、授权（read/write/execute/network/external mutation）、涉及的 KC 范围、理论配置、证据缺口、三件套交叉结果、风险最高的误判和本轮最小可验动作。
+2. 完整读取本地治理 Skill、角色表、此协议、`LOAD_SET.json` 和 `STATE.json`。纯治理无需自动加载业务 Skill；研究 profile 才全文加载它。
+3. 无条件按 `always_full_three_way` 把 `核心认知.md`、`方向追踪.md`、`全景视野.md` 逐文件读到真实 EOF。manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research/task profile 也不能删减或重排。
+4. governance profile 加载三件套、启动核和最新短 Session；research profile 再加载业务 Skill、三问、FRONTIER、LESSONS、RESUME。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
+5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。显式水合后的正文必须全文读，不能用 query 输出替代。
+6. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
+7. 记录 load snapshot：profile/task、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、总 bytes/lines、Git HEAD 和 dirty。加载变化或截断时重启；三件套无法全文保有则 `BLOCKED_FULL_TRIO_COGNITION`，优先移出非三件套载荷而非裁剪 core。
+8. 形成本轮 closure statement：目标、范围、授权、当前完整 KC 范围、profile/task hydration、理论配置、证据缺口、三件套交叉结果、风险最高的误判和最小可验动作。
 
 工具报告 `FULL_EMITTED_BYTES_MATCH` 只表示读出字节与文件 hash 匹配，字段 `model_context` 必须保持 `NOT_CERTIFIED_BY_TOOL`。模型不能保留全文时必须公开降级，不能把“读过摘要”写成全文闭包。
 
 ## 3. 核心认知账本的使用
 
-`核心认知.md` 的原文正文由 `scripts/audit/build_core_cognition.py` 生成，`核心认知.manifest.json` 是其机器清单。每个 `KC-xxxxxx` 具有原文 payload hash、source message、platform、timestamp、author class、themes、lifecycle 和关系。元数据是索引，不是对用户语义的自动裁决。
+`scripts/audit/core-cognition-curation-v3.json` 是逐消息纳入/排除与精确语义范围的人工 owner；`scripts/audit/build_core_cognition.py` 默认 check、显式 `--write` 生成 `核心认知.md`、manifest 和 transition。当前 generation-3 的每个 `KC-xxxxxx` 都是 `USER_OWNED_DIRECT` 精确原文，完整 hash/locator/themes 在 manifest，core 只留紧凑来源行。
 
-工作中引用 KC 时必须保留精确 ID；若引用历史用户转发的 AI 内容，注明 `USER_RELAYED_CONTEXT`，不冒充用户已采纳。重复、修订、矛盾和时序邻接都保留；不得因为后来的 AI 说法而删除早期用户原文。
+工作中引用 KC 时必须保留当前精确 ID。转发 AI、附件、supplemental 和一般治理对话只能从 source/history 引用并标明身份，不得进入 core 或冒充用户已采纳。重复中的语义演化保留；无新增认识的跨平台复读可在 disposition 中显式去重。旧 generation-2/913 KC 由 `governance-v2.1.0` 与 913/913 transition 保存，不因退出当前全文输入而丢失。
 
 ## 3A. 三件套交叉审视与更新归属
 
@@ -78,7 +79,7 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 ## 6. 写入与 checkpoint
 
-当前可变状态包括根 `MEMORY.md`、三件套投影 `方向追踪.md`/`全景视野.md`、`.codex/research/hott/FRONTIER.md`、`LESSONS.md`、`RESUME.md`、`STATE.json`，以及对应 session/candidate 路径。核心原文、来源快照和历史 ledger 默认 machine-managed 或 append-only；修改它们须走生成器/精确审核并记录新 generation。三件套投影若由人工综合，应保留 `asset_class`、source revision、projection generation 和未完成语义范围。
+当前可变状态包括根 `MEMORY.md`、三件套投影 `方向追踪.md`/`全景视野.md`、`.codex/research/hott/FRONTIER.md`、`LESSONS.md`、`RESUME.md`、`STATE.json`，以及对应 session/candidate 路径。STATE v2 必须分别记录 `lifecycle_status` 与 `evidence_status`；历史 Session 的待复核主张由独立 issue/result 持有。core 语义决策属于 HUMAN_EDITED curation，core/manifest/transition 属 MACHINE_MANAGED；修改须走 manager 并建立新 generation。
 
 `.codex/tools/cognition_runtime.py plan/read/check` 使用 source hash、乐观 snapshot、路径白名单、事务 journal、before/after backup 和锁。`checkpoint` 默认 dry-run；只有当前用户明确授权的写操作再使用 `--apply`。`STATE.revision`、`HEAD.json`、latest session、旧 record identity 和 resolution evidence 必须一致。遇 stale base、活动 writer、未完成 transaction、第三方写入或冲突，fail closed；恢复必须确认旧 owner 已停止，选择 finish/rollback 并保存 receipt。
 

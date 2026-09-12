@@ -23,19 +23,19 @@ class ThreeWayTests(unittest.TestCase):
         (self.root / ".codex/cognition").mkdir(parents=True)
         (self.root / ".codex/research/hott").mkdir(parents=True)
         load_set = {
-            "schema_version": "cognition-load-set/v2",
-            "fixed_full_text": ["核心认知.md", "方向追踪.md", "全景视野.md"],
+            "schema_version": "cognition-load-set/v3",
+            "always_full_three_way": ["核心认知.md", "方向追踪.md", "全景视野.md"],
             "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
         }
         state = {"revision": 1}
-        core_manifest = {"schema_version": "core-cognition/v1", "units": [{"id": "KC-000001"}]}
+        core_manifest = {"schema_version": "core-cognition/v2", "generation": "core-cognition-generation-3", "units": [{"id": "KC-000001", "author_class": "USER_OWNED_DIRECT", "themes": ["THEME_A"]}]}
         self.write(".codex/cognition/LOAD_SET.json", load_set)
         self.write(".codex/research/hott/STATE.json", state)
         self.write("核心认知.manifest.json", core_manifest)
         self.write("核心认知.md", "# core\n")
         self.write(
             "方向追踪.md",
-            """<!-- integrated-direction-portfolio:v1\nsource_state_revision: 1\n-->\n| direction_id | 方向 | 结果 |\n|---|---|---|\n| `DIR-A` | a | `OUT-A` |\n""",
+            """<!-- integrated-direction-portfolio:v1\nsource_state_revision: 1\n-->\n| direction_id | 方向 | 来源 | 状态 | 核心关联 | 结果 | 下一步 | 证据 |\n|---|---|---|---|---|---|---|---|\n| `DIR-A` | a | test | `ACTIVE` | `THEME_A` | `OUT-A` | next | evidence |\n""",
         )
         self.write(
             "全景视野.md",
@@ -59,7 +59,7 @@ class ThreeWayTests(unittest.TestCase):
     def test_wrong_fixed_order_rejected(self) -> None:
         path = self.root / ".codex/cognition/LOAD_SET.json"
         value = json.loads(path.read_text(encoding="utf-8"))
-        value["fixed_full_text"] = ["方向追踪.md", "核心认知.md", "全景视野.md"]
+        value["always_full_three_way"] = ["方向追踪.md", "核心认知.md", "全景视野.md"]
         path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
         with self.assertRaisesRegex(MODULE.ThreeWayError, "FIXED_ORDER"):
             MODULE.validate(self.root)
@@ -68,6 +68,12 @@ class ThreeWayTests(unittest.TestCase):
         path = self.root / "全景视野.md"
         path.write_text(path.read_text(encoding="utf-8").replace("DIR-A", "DIR-MISSING"), encoding="utf-8")
         with self.assertRaisesRegex(MODULE.ThreeWayError, "ORPHAN"):
+            MODULE.validate(self.root)
+
+    def test_obsolete_core_theme_rejected(self) -> None:
+        path = self.root / "方向追踪.md"
+        path.write_text(path.read_text(encoding="utf-8").replace("`THEME_A`", "`OBSOLETE_THEME`"), encoding="utf-8")
+        with self.assertRaisesRegex(MODULE.ThreeWayError, "CORE_THEME_NOT_IN_CURRENT_MANIFEST"):
             MODULE.validate(self.root)
 
 

@@ -14,20 +14,20 @@
 
 关键入口：
 
-- `核心认知.md`：按时间顺序编号的、由三份历史 primary、Codex supplemental 和明确登记的用户治理原文组成的悖论/HoTT 悖论业务原文认知账本；当前为 `core-cognition-generation-2`、913 个 `KC-*`。每次工作开始全文加载，结束逐编号回评。它拥有用户原始研究意识，不拥有 AI 结果。
+- `核心认知.md`：三份用户指定 primary 的 88 条消息经逐项人工 curation 后，按 UTC 编号的用户直接悖论/元数学原文账本；当前为 `core-cognition-generation-3`、27 个 `KC-*`。每次工作开始全文加载，结束逐编号回评。转发 AI、supplemental、一般治理和重复继续指令只在 source/manifest/Git 历史中保留，不进入当前 core。
 - `方向追踪.md`：跨 LocalGPT/WebGPT 的研究方向、候选、依赖、优先级和下一判别动作的当前投影；不替代 STATE 或 core。
 - `全景视野.md`：跨 LocalGPT/WebGPT 的结果、正反例、失败、未知、产物、Git 和验证范围的当前投影；不替代数学主张矩阵。
 - `理解章节/`：历史认知闭包及本次 transform 的主要成果；它是当前研究知识的 owner 候选，不以原始对话录替代。
 - `sources/`：只读历史来源快照、提问原文、WebGPT 工作目录、本地 GPT `ALL-Markdown` 工作及 Gemini/WebGPT 导出。
 - `audit/` 与 `scripts/audit/`：来源 manifest、覆盖矩阵、22,226 行跨源 reconciliation register、理解章节 merge receipt、fresh load receipt、提取重放与验证脚本；“完整”只以这里的可复现证据为准。
-- `.codex/`：本 repo 的本地 Codex 治理框架；项目级规则补充全局规则，不替代全局规则。固定加载前三项为 `核心认知.md` → `方向追踪.md` → `全景视野.md`，然后才加载 HoTT 三问和其它动态依赖。
+- `.codex/`：本 repo 的本地 Codex 治理框架 3.0；固定全文前三项为 core → direction → panorama；governance/research profile 分开，底层证据按 stable record 显式 query/task hydrate，历史 Session 不因 evidence review 自动复活。
 - `HoTT/`：从 `/Volumes/D/ALL-Markdown/HoTT/` 收录的研究工作副本；它保留本地 GPT 的工作记录，不自动等于当前数学真值。
 
 `AI对话录/` 和 `workspace/` 仍保留在磁盘上作为原始嵌套 repo，但已由顶层 `.gitignore` 排除；顶层 `sources/` 是归档快照，后续修改不得直接把这两个嵌套工作树当作当前工作根。`/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求不恢复；`HoTT_is_GONE_COMPLETE.md` 只作为有 provenance 的历史 AI 产物保存，是否覆盖原目录的事实仍标为未证明。
 
-本轮框架对比和 core 内容边界见 [治理框架对比审计与核心认知增补评估-20260912.md](治理框架对比审计与核心认知增补评估-20260912.md)；三件套的实施/融合方案见 [实施方案-三件套研究连续性治理与理解章节融合-20260912.md](实施方案-三件套研究连续性治理与理解章节融合-20260912.md)；本轮自我行为与未来治理优化依据见 `audit/治理框架自反馈行为分析与未来优化依据-20260912.md`；针对“连续压缩后如同未压缩”的独立复审、过度设计判断和分层精简方案见 `audit/治理框架跨压缩连续性独立复审与精简升级方案-20260912.md`。
+当前已采纳的跨压缩/core 重建方案见 `audit/治理框架跨压缩连续性独立复审与精简升级方案-20260912.md`；generation-3、STATE/load v3、C01–C10 和测试实物见 `audit/核心认知generation-3与加载治理v3实施证据-20260912.md`；本轮自我行为依据见 `audit/治理框架自反馈行为分析与未来优化依据-20260912.md`。generation-2 时期的框架对比与三件套实施方案已按用户授权以 Git rename 归档到 `history/governance-v2.1.0/`，只作历史证据，不与 current owner 竞争。
 
-**交给接手 AI 与用户。建立日期：2026-09-11。最后实际数学研究：R039。交接治理状态：顶层本地 STATE revision 12；R040/R041 只做 WebGPT 交接/治理工程，不是新的数学突破。**
+**交给接手 AI 与用户。建立日期：2026-09-11。最后实际数学研究：R039。交接治理状态：顶层 STATE v2 / project-local governance 3.0；当前 revision/latest session 以 `MEMORY.md` 与 STATE 为准。本轮治理 Session 不是新的数学突破。**
 
 本包原本是当前沙箱可取得的项目材料的完整、可验证交接，不只是一份摘要。现在它已被提升为顶层综合 repo：最新可工作目录、完整原治理框架、Git历史、当前挂载原件、逐轮研究/审计/失败记录、历史对话提取和未来增量交换工具均在同一个顶层目录。原 `workspace/` 仍是 WebGPT 交接时的嵌套工作副本，供历史核对和来源快照使用；不要把它误当作当前顶层工作根，也不要在其它历史副本中继续工作。
 

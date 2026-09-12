@@ -1,32 +1,42 @@
 {
-  "schema_version": "cognition-load-set/v2",
-  "version": "2.1.0",
-  "policy": "EVERY_INVOCATION_FULL_TEXT_CORE_PLUS_DYNAMIC_STATE",
-  "fixed_full_text": [
+  "schema_version": "cognition-load-set/v3",
+  "version": "3.0.0",
+  "policy": "FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
+  "default_profile": "governance",
+  "always_full_three_way": [
     "核心认知.md",
     "方向追踪.md",
-    "全景视野.md",
-    "HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md",
+    "全景视野.md"
+  ],
+  "always_full_boot": [
     "AGENTS.md",
     "README.md",
     "MEMORY.md",
     "feature-list.md",
     "rulings.md",
-    "核心认知.manifest.json",
     ".codex/AGENTS.md",
     ".codex/skills/SKILL_ROLES.json",
     ".codex/skills/hott-local-session-governance/SKILL.md",
-    ".codex/skills/hott-paradox-research/SKILL.md",
-    ".codex/skills/hott-paradox-research/references/top-level-repo-adaptation.md",
     ".codex/cognition/PROTOCOL.md",
     ".codex/cognition/LOAD_SET.json",
-    ".codex/cognition/CORE_COGNITION.schema.json",
-    ".codex/cognition/SOURCE_MANIFEST.schema.json",
-    ".codex/verification/README.md",
-    ".codex/research/hott/STATE.json",
+    ".codex/research/hott/STATE.json"
+  ],
+  "research_full": [
+    ".codex/skills/hott-paradox-research/SKILL.md",
+    "HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md",
     ".codex/research/hott/FRONTIER.md",
     ".codex/research/hott/LESSONS.md",
-    ".codex/research/hott/RESUME.md",
+    ".codex/research/hott/RESUME.md"
+  ],
+  "query_first": [
+    "核心认知.manifest.json",
+    "sources/SOURCE_MANIFEST.json",
+    "audit/cross-source-reconciliation.json",
+    "audit/understanding-chapter-merge-manifest.json",
+    "audit/coverage-summary.json",
+    "audit/ledger-summary.json"
+  ],
+  "task_expand": [
     "理解章节/README.md",
     "理解章节/C0-当前整合审计与证据边界-20260912.md",
     "理解章节/A0-总目标.md",
@@ -37,33 +47,26 @@
     "理解章节/B3-网页GPT工作史-II.md",
     "理解章节/B4-Gemini工作史.md",
     "理解章节/B5-成果总账.md",
-    "audit/governance-impact.md",
-    "audit/coverage-summary.json",
-    "audit/README.md",
-    "audit/LEDGER_SCHEMA.md",
-    "audit/ledger-summary.json",
-    "audit/verification-report.json",
-    "audit/external-validation-20260912.json",
+    "HoTT/README.md",
+    "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+  ],
+  "archive_verify_only": [
     "audit/core-cognition-generation-transition-20260912.json",
-    "audit/understanding-chapter-merge-manifest.json",
-    "audit/cross-source-reconciliation-report.md",
-    "sources/SOURCE_MANIFEST.json",
-    "sources/README.md",
-    ".codex/tools/cognition_runtime.py",
-    "scripts/audit/README.md",
+    "audit/core-cognition-generation-3-transition-20260912.json",
     "scripts/audit/verify_core_cognition.py",
     "scripts/audit/verify_history_ledgers.py",
-    "scripts/audit/verify_three_way_cognition.py",
     "scripts/audit/verify_understanding_merge.py",
     "scripts/audit/verify_cross_source_reconciliation.py",
     "scripts/audit/verify_fresh_three_way.py",
-    "scripts/audit/verify_projection_freshness.py"
+    ".codex/tools/cognition_runtime.py"
   ],
   "dynamic_state": ".codex/research/hott/STATE.json",
-  "auto_open_statuses": ["open", "active", "pending", "blocked", "in_progress", "review_required"],
+  "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
+  "historical_session_auto_load": false,
+  "evidence_status_grants_load_eligibility": false,
+  "explicit_hydration": "plan --profile research --task <stable-record-id>",
   "model_context_certification": "NOT_PROVIDED_BY_TOOLS",
   "source_removal_policy": "USER_REMOVED_PATHS_REMAIN_EXPLICIT_AND_UNPROVEN",
   "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research",
-  "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
-  "projection_status": "PROVENANCE_LABELS_CORRECTED_WITH_SCOPED_SEMANTIC_REVIEW"
+  "projection_status": "CORE_GENERATION_3_AND_LAYERED_LOAD_V3_MECHANICALLY_VERIFIED"
 }

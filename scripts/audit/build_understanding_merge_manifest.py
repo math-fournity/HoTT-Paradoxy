@@ -124,8 +124,18 @@ def build(root: Path) -> dict[str, object]:
                 "destructive_action": "NOT_PERFORMED",
             }
         )
+    same_name_pairs = sum(
+        1 for e in entries if e["top_level"] is not None and e["nested_source"] is not None
+    )
     identical = sum(1 for e in entries if e["comparison"] == "IDENTICAL")
-    different = len(entries) - identical
+    different_pairs = sum(
+        1
+        for e in entries
+        if e["top_level"] is not None
+        and e["nested_source"] is not None
+        and e["comparison"] != "IDENTICAL"
+    )
+    nonidentical_union_entries = len(entries) - identical
     return {
         "schema_version": "understanding-chapter-merge/v1",
         "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -142,9 +152,10 @@ def build(root: Path) -> dict[str, object]:
             "top_level_files": sum(1 for p in top.iterdir() if p.is_file()),
             "nested_files": sum(1 for p in nested.iterdir() if p.is_file()),
             "union_files": len(entries),
-            "same_name_pairs": sum(1 for e in entries if e["top_level"] is not None and e["nested_source"] is not None),
+            "same_name_pairs": same_name_pairs,
             "identical_pairs": identical,
-            "different_pairs": different,
+            "different_pairs": different_pairs,
+            "nonidentical_union_entries": nonidentical_union_entries,
             "top_level_unique": sum(1 for e in entries if e["nested_source"] is None),
             "nested_unique": sum(1 for e in entries if e["top_level"] is None),
             "unresolved_nontrivial": sum(1 for e in entries if e["comparison"] == "NONTRIVIAL_REQUIRES_MANUAL_DECISION"),

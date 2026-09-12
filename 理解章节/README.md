@@ -2,7 +2,7 @@
 
 > **当前审计层（2026-09-12）**：先读 [`C0-当前整合审计与证据边界-20260912.md`](C0-当前整合审计与证据边界-20260912.md)、顶层 [`核心认知.md`](../核心认知.md) 和 [`audit/`](../audit/README.md)。C0 是本次三 AI 整合后的当前分母/证据边界 owner；下面 A/B 章节和旧“读态终态”保留为历史 transform，遇到冲突不能用旧表覆盖 C0、manifest、ledger 或底层实物。
 
-> 架构：A 系列（用户认知章，逐轮应答式）+ B 系列（AI 工作编年史）+ C0 当前审计层 + 机器 ledger。旧 v2 的 171/119 等数字属于当时不同分母的历史记录；当前指定 primary 提取为 88 条，Codex supplemental 为 37 条，generation-2 core 为 913 个 KC（127 条登记消息、94 条进入核心），LocalGPT parent/main 为 220 条 visible assistant，WebGPT 为 55 Response，Gemini 为 24 ordinary text。具体分母与证据等级见 C0、`audit/` 和 generation transition receipt。
+> 架构：A 系列（用户认知章，逐轮应答式）+ B 系列（AI 工作编年史）+ C0 当前审计层 + 机器 ledger。旧 v2 的 171/119、generation-2 的 127/94/913 等数字属于历史分母；当前指定 primary 仍为 88 条消息，但 generation-3 经逐消息人工 curation 选出 23 条、27 个用户直接原文语义单元。Codex supplemental 37 条与转发 AI 内容仍保留为历史，不进入当前 core。LocalGPT parent/main 220 条 visible assistant、WebGPT 55 Response、Gemini 24 ordinary text 的历史审计分母不因 core 重建改变。具体边界见 C0、manifest 和两代 transition receipt。
 > v3 变更：顶层综合 repo 已建立；新增 `核心认知.md`、source manifest、逐消息/逐回答/逐工具/逐产物/逐 claim ledger、LocalGPT canonical trajectory 证据和本地 `.codex` 治理。当前还增加 `方向追踪.md`、`全景视野.md`、逐文件 merge manifest、22,226 行 cross-source register 和 fresh load receipt。旧 `verify_ai_coverage.py` 仍保留为历史验证器，不替代新账本。
 > 版本链：v1=1d12edb（结构与账本）→ v2=1ccb299（B系列+锚点）→ 9ee73e2（Gemini 24 chunk 全文精读）→ 46bf864（网页GPT前21节）→ f815e65（网页GPT 55/55 全部完成）→ 7e77168（Codex 13 关键轮精读）。
 > 读态总账（读遍账本.md）：用户侧 119 条 F=100%；网页 GPT 55/55 节回复 F=100%；Gemini 24 实质 chunk F=100%；Codex 13 哲学锻造关键轮 F + 其余 ~200 条 M（实质内容由 F 级闭包文档承载，重读边际价值低，已登记重开路径）。

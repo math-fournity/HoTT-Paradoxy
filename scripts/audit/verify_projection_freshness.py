@@ -42,25 +42,29 @@ def main() -> int:
             errors.append(f"PROJECTION_REVISION_STALE:{rel}")
     core_manifest = read_json(root, "核心认知.manifest.json")
     core_path = root / "核心认知.md"
+    if core_manifest.get("schema_version") != "core-cognition/v2":
+        errors.append("CORE_SCHEMA_NOT_V2")
     if core_manifest.get("core_document_sha256") != sha256(core_path):
         errors.append("CORE_HASH_MISMATCH")
     header = "\n".join(core_path.read_text(encoding="utf-8").splitlines()[:12])
     generation = core_manifest.get("generation")
-    if not isinstance(generation, str) or f"generation：`{generation}`" not in header:
+    if not isinstance(generation, str) or generation not in header:
         errors.append("CORE_GENERATION_HEADER_MISMATCH")
-    source_manifest = read_json(root, "sources/SOURCE_MANIFEST.json")
-    explicit = {
-        str(row.get("path")): row
-        for row in source_manifest.get("explicit_files", [])
-        if isinstance(row, dict)
-    }
-    user_input = "sources/prompts/治理三件套与历史融合要求-用户消息提取-20260912.md"
-    if user_input not in explicit:
-        errors.append("CORE_USER_INPUT_NOT_IN_SOURCE_MANIFEST")
-    elif not (root / user_input).is_file() or explicit[user_input].get("sha256") != sha256(root / user_input):
-        errors.append("CORE_USER_INPUT_SOURCE_HASH_MISMATCH")
-    if user_input not in core_manifest.get("build_policy", {}).get("user_requirement_inputs", []):
-        errors.append("CORE_USER_INPUT_NOT_IN_CORE_BUILD_POLICY")
+    expected_primary = [
+        "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
+        "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
+        "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md",
+    ]
+    if core_manifest.get("build_policy", {}).get("primary_inputs_only") != expected_primary:
+        errors.append("CORE_PRIMARY_INPUT_POLICY_MISMATCH")
+    curation_path = root / str(core_manifest.get("curation_authority", ""))
+    if not curation_path.is_file() or core_manifest.get("curation_sha256") != sha256(curation_path):
+        errors.append("CORE_CURATION_STALE")
+    transition = read_json(root, "audit/core-cognition-generation-3-transition-20260912.json")
+    if transition.get("mapping_count") != 913 or transition.get("mapping_remainder") != 0:
+        errors.append("CORE_GENERATION_TRANSITION_INCOMPLETE")
+    if transition.get("current", {}).get("core_sha256") != sha256(core_path):
+        errors.append("CORE_GENERATION_TRANSITION_STALE")
     merge = read_json(root, "audit/understanding-chapter-merge-manifest.json")
     for entry in merge.get("entries", []):
         for key in ("top_level", "nested_source"):
@@ -77,7 +81,7 @@ def main() -> int:
     if reconciliation.get("counts", {}).get("total_register_entries") != 22226:
         errors.append("RECONCILIATION_DENOMINATOR_UNEXPECTED")
     fresh = read_json(root, "audit/fresh-three-way-verification-20260912.json")
-    if fresh.get("status") != "PASS_WITH_SCOPE" or fresh.get("revision") != revision:
+    if fresh.get("schema_version") != "fresh-three-way-verification/v2" or fresh.get("status") != "PASS_WITH_SCOPE" or fresh.get("revision") != revision:
         errors.append("FRESH_RECEIPT_STALE_OR_FAILED")
     if fresh.get("model_context") != "NOT_CERTIFIED_BY_TOOL":
         errors.append("MODEL_CONTEXT_BOUNDARY_MISSING")
@@ -88,6 +92,7 @@ def main() -> int:
         "status": "PASS_WITH_SCOPE",
         "state_revision": revision,
         "core_generation": generation,
+        "core_units": core_manifest.get("counts", {}).get("core_units"),
         "reconciliation_entries": reconciliation["counts"]["total_register_entries"],
         "merge_entries": merge["counts"]["union_files"],
         "fresh_receipt_revision": fresh["revision"],

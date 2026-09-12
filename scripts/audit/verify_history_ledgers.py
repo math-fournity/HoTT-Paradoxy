@@ -70,7 +70,12 @@ def main() -> int:
             raise SystemExit(f"FAIL user denominator {key}: {message_counts[key]} != {expected}")
     if len(user) != 125:
         raise SystemExit(f"FAIL user total: {len(user)} != 125")
-    if not any(row.get("disposition") == "ATTACHMENT_REFERENCE_ONLY" and row.get("attachment_reference") for row in core["message_disposition"]):
+    if not any(
+        row.get("platform") == "Gemini"
+        and row.get("disposition") == "ATTACHMENT_REFERENCE_ONLY"
+        and row.get("attachment_reference")
+        for row in user
+    ):
         raise SystemExit("FAIL Gemini Drive attachment reference was not preserved")
 
     response_counts = Counter(row.get("platform") for row in responses)

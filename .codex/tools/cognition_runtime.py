@@ -17,7 +17,7 @@ import re
 import sys
 import uuid
 
-VERSION = '2.1.0'
+VERSION = '3.0.0'
 PREFIX = '.codex/research/hott/'
 CONFIG = '.codex/cognition/LOAD_SET.json'
 STATE = PREFIX + 'STATE.json'
@@ -27,7 +27,10 @@ TXN = '.codex/cognition/TRANSACTION.json'
 SKILL = '.codex/skills/hott-paradox-research/SKILL.md'
 GOVERNANCE_SKILL = '.codex/skills/hott-local-session-governance/SKILL.md'
 ROLES = '.codex/skills/SKILL_ROLES.json'
-OPEN_STATUSES = frozenset(('open','active','pending','blocked','in_progress','review_required'))
+LEGACY_OPEN_STATUSES = frozenset(('open','active','pending','blocked','in_progress','review_required'))
+LIVE_LIFECYCLES = frozenset(('ACTIVE_WORK','CURRENT','OPEN_ISSUE'))
+EVIDENCE_REVIEW_STATUSES = frozenset(('UNREVIEWED','REVIEW_REQUIRED','UNKNOWN','NOT_RUN'))
+PROFILES = frozenset(('governance','research'))
 CLOSURE = '核心认知.md'
 DIRECTION = '方向追踪.md'
 PANORAMA = '全景视野.md'
@@ -35,27 +38,15 @@ QUESTIONS = 'HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md'
 # Kept as a fixture/backward-compatibility symbol for the inherited synthetic
 # tests.  The live graph accepts any explicitly numbered generation and binds
 # it to the current manifest via the core validator.
-CLOSURE_ID = 'core-cognition-generation-1'
+CLOSURE_ID = 'core-cognition-generation-3'
 CLOSURE_GENERATION_RE = re.compile(r'core-cognition-generation-[0-9]+')
 THREE_WAY = (CLOSURE, DIRECTION, PANORAMA)
 MUTABLE = ('MEMORY.md', DIRECTION, PANORAMA, PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
-REQUIRED = (CLOSURE, QUESTIONS, 'AGENTS.md', 'README.md', 'MEMORY.md', 'feature-list.md', 'rulings.md',
-            '核心认知.manifest.json', SKILL, GOVERNANCE_SKILL, ROLES, CONFIG, STATE,
-            '.codex/skills/hott-paradox-research/references/top-level-repo-adaptation.md',
-            '.codex/AGENTS.md', '.codex/cognition/PROTOCOL.md', '.codex/cognition/CORE_COGNITION.schema.json',
-            '.codex/cognition/SOURCE_MANIFEST.schema.json', '.codex/verification/README.md',
-            PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', '理解章节/README.md',
-            '理解章节/C0-当前整合审计与证据边界-20260912.md', '理解章节/A0-总目标.md', '理解章节/A11-开放问题与悬空接头.md', '理解章节/B0-工作史总览.md',
-            '理解章节/B1-本地GPT工作史.md', '理解章节/B2-网页GPT工作史-I.md', '理解章节/B3-网页GPT工作史-II.md',
-            '理解章节/B4-Gemini工作史.md', '理解章节/B5-成果总账.md', 'audit/governance-impact.md',
-            'audit/coverage-summary.json', 'audit/README.md', 'audit/LEDGER_SCHEMA.md', 'audit/ledger-summary.json', 'audit/verification-report.json',
-            'audit/external-validation-20260912.json', 'audit/core-cognition-generation-transition-20260912.json',
-            'audit/understanding-chapter-merge-manifest.json', 'audit/cross-source-reconciliation-report.md',
-            'sources/SOURCE_MANIFEST.json', 'sources/README.md', '.codex/tools/cognition_runtime.py', 'scripts/audit/README.md',
-            'scripts/audit/verify_core_cognition.py', 'scripts/audit/verify_history_ledgers.py', DIRECTION, PANORAMA,
-            'scripts/audit/verify_three_way_cognition.py', 'scripts/audit/verify_understanding_merge.py',
-            'scripts/audit/verify_cross_source_reconciliation.py', 'scripts/audit/verify_fresh_three_way.py',
-            'scripts/audit/verify_projection_freshness.py')
+REQUIRED_BOOT = (
+    'AGENTS.md','README.md','MEMORY.md','feature-list.md','rulings.md','.codex/AGENTS.md',
+    ROLES,GOVERNANCE_SKILL,'.codex/cognition/PROTOCOL.md',CONFIG,STATE,
+)
+REQUIRED_RESEARCH = (SKILL,QUESTIONS,PREFIX+'FRONTIER.md',PREFIX+'LESSONS.md',PREFIX+'RESUME.md')
 ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,100}$')
 
 class CognitionError(RuntimeError):
@@ -134,8 +125,22 @@ def validate_roles(get):
         if not front or not re.search(r'^name: '+re.escape(name)+r'$',front[1],re.M):
             raise CognitionError('SKILL_FRONTMATTER_NAME_MISMATCH: '+role)
 
-def is_open(record):
-    return isinstance(record,dict) and isinstance(record.get('status'),str) and record['status'].casefold() in OPEN_STATUSES
+def legacy_is_open(record):
+    return isinstance(record,dict) and isinstance(record.get('status'),str) and record['status'].casefold() in LEGACY_OPEN_STATUSES
+
+def lifecycle_of(record,key,state):
+    if state.get('schema_version')=='hott-working-state/v2':
+        return record.get('lifecycle_status')
+    if key in state.get('active',[]):return 'ACTIVE_WORK'
+    if record.get('kind')=='session':return 'HISTORICAL'
+    if legacy_is_open(record):return 'OPEN_ISSUE'
+    if record.get('status') in ('closed','complete'):return 'CLOSED'
+    return 'HISTORICAL'
+
+def evidence_of(record):
+    value=record.get('evidence_status')
+    if isinstance(value,str):return value
+    return 'REVIEW_REQUIRED' if record.get('status')=='review_required' else 'VERIFIED_WITH_SCOPE'
 
 def resolution_sources(record,key):
     value=record.get('resolution')
@@ -147,38 +152,69 @@ def resolution_sources(record,key):
         raise CognitionError('RESOLUTION_EVIDENCE_REQUIRED: '+key)
     return paths
 
-def graph(config, state, get):
-    if config.get('schema_version') not in ('cognition-load-set/v1', 'cognition-load-set/v2'):raise CognitionError('CONFIG_SCHEMA')
-    fixed=config.get('fixed_full_text')
-    if not isinstance(fixed,list) or any(not isinstance(x,str) for x in fixed) or len(set(fixed))!=len(fixed):raise CognitionError('FIXED_LIST_INVALID')
-    if fixed[:3]!=list(THREE_WAY) or not set(REQUIRED)<=set(fixed):
-        raise CognitionError('REQUIRED_COGNITION_REMOVED_OR_REORDERED')
+def config_paths(config,key):
+    value=config.get(key)
+    if not isinstance(value,list) or any(not isinstance(x,str) or not x for x in value) or len(set(value))!=len(value):
+        raise CognitionError('CONFIG_PATH_LIST_INVALID: '+key)
+    return value
+
+def graph(config, state, get, profile='governance', task_ids=()):
+    if config.get('schema_version')!='cognition-load-set/v3':raise CognitionError('CONFIG_SCHEMA')
+    if profile not in PROFILES:raise CognitionError('LOAD_PROFILE_INVALID: '+str(profile))
+    trio=config_paths(config,'always_full_three_way')
+    boot=config_paths(config,'always_full_boot')
+    research=config_paths(config,'research_full')
+    query_first=config_paths(config,'query_first')
+    task_expand=config_paths(config,'task_expand')
+    archive=config_paths(config,'archive_verify_only')
+    if trio!=list(THREE_WAY):raise CognitionError('THREE_WAY_ORDER_INVALID')
+    if not set(REQUIRED_BOOT)<=set(boot):raise CognitionError('REQUIRED_BOOT_COGNITION_REMOVED')
+    if not set(REQUIRED_RESEARCH)<=set(research):raise CognitionError('REQUIRED_RESEARCH_COGNITION_REMOVED')
+    categorized=trio+boot+research+query_first+task_expand+archive
+    duplicates=sorted({path for path in categorized if categorized.count(path)>1})
+    if duplicates:raise CognitionError('LOAD_LAYER_OVERLAP: '+','.join(duplicates))
     if config.get('three_way_order') != list(THREE_WAY):
         raise CognitionError('THREE_WAY_ORDER_INVALID')
     if config.get('dynamic_state')!=STATE:raise CognitionError('STATE_PATH_CHANGED')
     validate_roles(get)
-    if state.get('schema_version')!='hott-working-state/v1' or type(state.get('revision')) is not int or state['revision']<1:
+    if state.get('schema_version') not in ('hott-working-state/v1','hott-working-state/v2') or type(state.get('revision')) is not int or state['revision']<1:
         raise CognitionError('STATE_SCHEMA')
     records=state.get('records')
     if not isinstance(records,dict):raise CognitionError('RECORDS_OBJECT_REQUIRED')
-    seeds=[]
     latest=state.get('latest_session')
     if not isinstance(latest,str) or latest not in records or not isinstance(records[latest],dict) or records[latest].get('kind')!='session':
         raise CognitionError('LATEST_SESSION_MISSING')
-    seeds.append(latest)
     for group in ('active','review_due','unresolved'):
         xs=state.get(group)
         if not isinstance(xs,list) or any(not isinstance(x,str) for x in xs) or len(set(xs))!=len(xs):raise CognitionError('SEED_LIST_INVALID: '+group)
-        seeds.extend(xs)
-    # Open records cannot disappear merely by omission from manually maintained seed lists.
+    available=[]
     for key,record in records.items():
         if not isinstance(key,str) or not ID.fullmatch(key) or not isinstance(record,dict):
             raise CognitionError('INVALID_RECORD: '+str(key))
-        if is_open(record):seeds.append(key)
-    ordered=list(fixed);visited=set();visiting=set();selected=[];stale=set()
-    def add(p):
+        lifecycle=lifecycle_of(record,key,state);evidence=evidence_of(record)
+        if lifecycle not in LIVE_LIFECYCLES|{'CLOSED','HISTORICAL','SUPERSEDED'}:
+            raise CognitionError('LIFECYCLE_STATUS_INVALID: '+key)
+        if state.get('schema_version')=='hott-working-state/v2' and (not isinstance(record.get('evidence_status'),str) or not record['evidence_status']):
+            raise CognitionError('EVIDENCE_STATUS_REQUIRED: '+key)
+        available.append({'id':key,'kind':record.get('kind'),'path':record.get('path'),
+                          'lifecycle_status':lifecycle,'evidence_status':evidence})
+    if any(not isinstance(k,str) or k not in records for k in task_ids) or len(set(task_ids))!=len(tuple(task_ids)):
+        raise CognitionError('TASK_RECORD_SELECTION_INVALID')
+    ordered=[];selection={};visited=set();visiting=set();selected=[];stale=set()
+    def add(p,layer,selected_by):
         if not isinstance(p,str):raise CognitionError('PATH_STRING_REQUIRED')
-        if p not in ordered:ordered.append(p)
+        if p not in ordered:
+            ordered.append(p);selection[p]={'layer':layer,'selected_by':[selected_by]}
+        elif selected_by not in selection[p]['selected_by']:
+            selection[p]['selected_by'].append(selected_by)
+    for p in trio:add(p,'always_full_three_way','fixed-trio')
+    for p in boot:add(p,'always_full_boot','boot-policy')
+    if profile=='research':
+        for p in research:add(p,'research_full','profile:research')
+    add(records[latest].get('path'),'current_summary','latest-session:'+latest)
+    for key in state.get('active',[]):
+        if key not in records:raise CognitionError('MISSING_ACTIVE_RECORD: '+key)
+        add(records[key].get('path'),'current_record','active:'+key)
     def visit(k):
         if k in visiting:raise CognitionError('DEPENDENCY_CYCLE: '+str(k))
         if k in visited:return
@@ -186,32 +222,31 @@ def graph(config, state, get):
             raise CognitionError('MISSING_RECORD: '+str(k))
         record=records[k]
         if not isinstance(record,dict):raise CognitionError('INVALID_RECORD: '+k)
-        visiting.add(k);add(record.get('path'))
+        visiting.add(k);add(record.get('path'),'task_expand','task:'+k)
         deps=record.get('depends_on',[]); sources=record.get('full_sources',[]); hashes=record.get('source_hashes',{})
         if not isinstance(deps,list) or not isinstance(sources,list) or not isinstance(hashes,dict):
             raise CognitionError('INVALID_DEPENDENCIES: '+k)
         for d in deps:visit(d)
-        for p in sources:add(p)
-        for p in resolution_sources(record,k):add(p)
+        for p in sources:add(p,'task_expand','full-source:'+k)
+        for p in resolution_sources(record,k):add(p,'task_expand','resolution:'+k)
         for p,h in hashes.items():
-            add(p)
+            add(p,'task_expand','source-hash:'+k)
             if not isinstance(h,str) or not re.fullmatch('[0-9a-f]{64}',h):raise CognitionError('INVALID_SOURCE_HASH: '+k)
             if sha(get(p))!=h:stale.add(k)
         if any(d in stale for d in deps):stale.add(k)
-        if record.get('status')=='review_required':stale.add(k)
+        if evidence_of(record) in EVIDENCE_REVIEW_STATUSES:stale.add(k)
         visiting.remove(k);visited.add(k);selected.append(k)
-    for k in seeds:visit(k)
-    # Directly declared dependencies are complete textual sources, not summaries.
+    for k in task_ids:visit(k)
     for p in ordered:text(get(p),p)
     closure_header = '\n'.join(text(get(CLOSURE), CLOSURE).splitlines()[:12])
-    if not CLOSURE_GENERATION_RE.search(closure_header):
+    if CLOSURE_ID not in closure_header or not CLOSURE_GENERATION_RE.search(closure_header):
         raise CognitionError('WRONG_CLOSURE_GENERATION')
     for projection, marker in ((DIRECTION, 'integrated-direction-portfolio:v1'), (PANORAMA, 'integrated-outcome-panorama:v1')):
         if marker not in text(get(projection), projection):
             raise CognitionError('PROJECTION_MARKER_MISSING: '+projection)
-    return ordered,selected,sorted(stale)
+    return ordered,selection,selected,sorted(stale),available
 
-def plan(project_root=None, *, _allow_busy=False):
+def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=False):
     root=root_path(project_root)
     if not _allow_busy and (path_of(root,LOCK).exists() or path_of(root,TXN).exists()):
         raise CognitionError('CHECKPOINT_INCOMPLETE_OR_WRITER_ACTIVE')
@@ -228,27 +263,32 @@ def plan(project_root=None, *, _allow_busy=False):
     if not isinstance(tracked,dict) or not set(MUTABLE)<=set(tracked):raise CognitionError('HEAD_TRACKING_INCOMPLETE')
     for rel,h in tracked.items():
         if sha(get(rel))!=h:raise CognitionError('UNCOMMITTED_STATE: '+rel)
-    paths,records,stale=graph(config,state,get)
+    task_ids=tuple(task_ids)
+    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids)
     entries=[]
     for rel in paths:
         b=get(rel);t=text(b,rel)
-        entries.append({'path':rel,'sha256':sha(b),'bytes':len(b),'lines':len(t.splitlines(keepends=True))})
+        entries.append({'path':rel,'sha256':sha(b),'bytes':len(b),'lines':len(t.splitlines(keepends=True)),
+                        'layer':selection[rel]['layer'],'selected_by':selection[rel]['selected_by']})
     for rel,b in cache.items():
         if read_bytes(root,rel)!=b:raise CognitionError('SNAPSHOT_CHANGED: '+rel)
     if read_bytes(root,HEAD)!=head_bytes:raise CognitionError('HEAD_CHANGED')
     if not _allow_busy and (path_of(root,LOCK).exists() or path_of(root,TXN).exists()):raise CognitionError('WRITER_STARTED')
-    signature=sha(dump({'head_sha256':sha(head_bytes),'files':entries}))
-    return {'schema_version':'cognition-plan/v1','snapshot':signature,'revision':head['revision'],
-            'latest_session':state['latest_session'],'documents':entries,'dynamic_records':records,
-            'automatically_included_open_records':[k for k,r in state['records'].items() if is_open(r)],
+    signature=sha(dump({'head_sha256':sha(head_bytes),'profile':profile,'task_ids':list(task_ids),'files':entries}))
+    return {'schema_version':'cognition-plan/v2','snapshot':signature,'revision':head['revision'],
+            'latest_session':state['latest_session'],'profile':profile,'task_ids':list(task_ids),
+            'documents':entries,'hydrated_records':records,'available_records':available,
+            'automatically_included_historical_sessions':[],
             'review_required':stale,'total_bytes':sum(x['bytes'] for x in entries),
             'total_lines':sum(x['lines'] for x in entries),'model_context':'NOT_CERTIFIED_BY_TOOL',
-            'policy':'NEW_FULL_READ_EVERY_INVOCATION_AND_AFTER_COMPACTION',
+            'policy':'FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION',
             'three_way_documents':list(THREE_WAY),
+            'query_first_documents':query_first if (query_first:=config.get('query_first')) else [],
+            'archive_verify_only_documents':archive if (archive:=config.get('archive_verify_only')) else [],
             'projection_status':config.get('projection_status','UNDECLARED')}
 
-def read_chunk(project_root, snapshot, path, start_line=1, max_bytes=10000):
-    root=root_path(project_root);p=plan(root)
+def read_chunk(project_root, snapshot, path, start_line=1, max_bytes=10000, *, profile='governance', task_ids=()):
+    root=root_path(project_root);p=plan(root,profile=profile,task_ids=task_ids)
     if snapshot!=p['snapshot']:raise CognitionError('STALE_SNAPSHOT_RESTART_ALL')
     entry=next((x for x in p['documents'] if x['path']==path),None)
     if entry is None:raise CognitionError('PATH_NOT_IN_CURRENT_LOAD_SET')
@@ -265,7 +305,7 @@ def read_chunk(project_root, snapshot, path, start_line=1, max_bytes=10000):
             if not out:raise CognitionError('LINE_TOO_LARGE_INCREASE_BUDGET')
             break
         out.append(ls[i]);used+=size;i+=1
-    if plan(root)['snapshot']!=snapshot:raise CognitionError('SNAPSHOT_CHANGED_RESTART_ALL')
+    if plan(root,profile=profile,task_ids=task_ids)['snapshot']!=snapshot:raise CognitionError('SNAPSHOT_CHANGED_RESTART_ALL')
     body=''.join(out)
     return {'snapshot':snapshot,'path':path,'file_sha256':entry['sha256'],'start_line':start_line,
             'end_line':i,'total_lines':len(ls),'next_start_line':None if i==len(ls) else i+1,
@@ -290,6 +330,18 @@ def check_coverage(p, chunks):
             raise CognitionError('COVERAGE_INCOMPLETE: '+f['path'])
     return {'status':'FULL_EMITTED_BYTES_MATCH','documents':len(by),'model_context':'NOT_CERTIFIED_BY_TOOL'}
 
+def query_record(project_root,record_id):
+    root=root_path(project_root);base=plan(root)
+    state=obj(read_bytes(root,STATE));records=state.get('records',{})
+    if not isinstance(record_id,str) or not ID.fullmatch(record_id) or record_id not in records:
+        raise CognitionError('RECORD_NOT_FOUND: '+str(record_id))
+    record=records[record_id]
+    return {'schema_version':'cognition-record-query/v1','record_id':record_id,
+            'lifecycle_status':lifecycle_of(record,record_id,state),'evidence_status':evidence_of(record),
+            'record':record,'base_snapshot':base['snapshot'],
+            'hydrate_with':{'profile':'research','task_ids':[record_id]},
+            'model_context':'NOT_CERTIFIED_BY_TOOL'}
+
 def atomic(path: Path, data: bytes):
     path.parent.mkdir(parents=True,exist_ok=True)
     temp=path.with_name('.'+path.name+'.tmp-'+uuid.uuid4().hex)
@@ -309,7 +361,10 @@ def allowed_write(rel,sid):
     return False
 
 def prepare(root, snapshot, payload, *, busy=False):
-    p=plan(root,_allow_busy=busy)
+    profile=payload.get('load_profile','governance')
+    task_ids=payload.get('task_ids',[])
+    if not isinstance(task_ids,list):raise CognitionError('CHECKPOINT_TASK_IDS_INVALID')
+    p=plan(root,profile=profile,task_ids=task_ids,_allow_busy=busy)
     if snapshot!=p['snapshot']:raise CognitionError('STALE_BASE')
     if payload.get('schema_version')!='cognition-checkpoint/v1':raise CognitionError('PAYLOAD_SCHEMA')
     sid=payload.get('session_id')
@@ -334,17 +389,30 @@ def prepare(root, snapshot, payload, *, busy=False):
     state=obj(get(STATE)); prior=obj(read_bytes(root,STATE))
     if state.get('revision')!=prior['revision']+1 or state.get('latest_session')!=sid:
         raise CognitionError('REVISION_OR_LATEST_SESSION_INVALID')
+    if prior.get('schema_version')=='hott-working-state/v1' and state.get('schema_version')=='hott-working-state/v2':
+        migration=state.get('schema_migration')
+        if not isinstance(migration,dict) or migration.get('from')!='hott-working-state/v1' or migration.get('to')!='hott-working-state/v2':
+            raise CognitionError('STATE_SCHEMA_MIGRATION_RECEIPT_REQUIRED')
+        if not isinstance(migration.get('rollback_ref'),str) or not migration['rollback_ref']:
+            raise CognitionError('STATE_SCHEMA_MIGRATION_ROLLBACK_REQUIRED')
+        receipt=migration.get('receipt')
+        if not isinstance(receipt,str):raise CognitionError('STATE_SCHEMA_MIGRATION_PATH_REQUIRED')
+        text(get(receipt),receipt)
+    elif state.get('schema_version')!=prior.get('schema_version'):
+        raise CognitionError('STATE_SCHEMA_TRANSITION_INVALID')
     if state.get('records',{}).get(sid,{}).get('path')!=session_path:raise CognitionError('SESSION_ROUTE_INVALID')
-    _,_,stale=graph(obj(get(CONFIG)),state,get)
+    _,_,_,stale,_=graph(obj(get(CONFIG)),state,get,profile,tuple(task_ids))
     for k in stale:
-        if state['records'][k].get('status')!='review_required':raise CognitionError('DEPENDENCY_REVIEW_REQUIRED: '+k)
+        if evidence_of(state['records'][k])!='REVIEW_REQUIRED':raise CognitionError('DEPENDENCY_REVIEW_REQUIRED: '+k)
     # Removing old records would silently delete historical routing.
     if not set(prior['records'])<=set(state['records']):raise CognitionError('OLD_RECORD_ROUTING_REMOVED')
     for k,rec in prior['records'].items():
         new=state['records'][k]
         if not isinstance(new,dict) or new.get('path')!=rec.get('path') or new.get('kind')!=rec.get('kind'):
             raise CognitionError('RECORD_IDENTITY_CHANGED: '+k)
-        if is_open(rec) and not is_open(new):
+        old_live=lifecycle_of(rec,k,prior) in LIVE_LIFECYCLES
+        new_live=lifecycle_of(new,k,state) in LIVE_LIFECYCLES
+        if (legacy_is_open(rec) and not legacy_is_open(new)) or (old_live and not new_live):
             if not resolution_sources(new,k):raise CognitionError('RESOLUTION_REQUIRED_TO_CLOSE: '+k)
             for evidence_path in resolution_sources(new,k):text(get(evidence_path),evidence_path)
         if rec.get('source_hashes')!=new.get('source_hashes') and not str(new.get('revalidation','')).strip():
@@ -443,23 +511,25 @@ def recover(project_root,action,*,confirm_owner_stopped=False):
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project-root',type=Path)
     sub=ap.add_subparsers(dest='command',required=True)
-    sub.add_parser('plan')
-    p=sub.add_parser('read');p.add_argument('--snapshot',required=True);p.add_argument('--path',required=True);p.add_argument('--start-line',type=int,default=1);p.add_argument('--max-bytes',type=int,default=10000)
-    p=sub.add_parser('check');p.add_argument('--snapshot',required=True)
+    p=sub.add_parser('plan');p.add_argument('--profile',choices=sorted(PROFILES),default='governance');p.add_argument('--task',action='append',default=[])
+    p=sub.add_parser('read');p.add_argument('--snapshot',required=True);p.add_argument('--path',required=True);p.add_argument('--start-line',type=int,default=1);p.add_argument('--max-bytes',type=int,default=10000);p.add_argument('--profile',choices=sorted(PROFILES),default='governance');p.add_argument('--task',action='append',default=[])
+    p=sub.add_parser('check');p.add_argument('--snapshot',required=True);p.add_argument('--profile',choices=sorted(PROFILES),default='governance');p.add_argument('--task',action='append',default=[])
+    p=sub.add_parser('query');p.add_argument('--record',required=True)
     p=sub.add_parser('checkpoint');p.add_argument('--snapshot',required=True);p.add_argument('--payload',type=Path,required=True);p.add_argument('--apply',action='store_true')
     p=sub.add_parser('recover');p.add_argument('--action',choices=['finish','rollback'],required=True);p.add_argument('--confirm-owner-stopped',action='store_true')
     a=ap.parse_args()
     try:
-        if a.command=='plan':r=plan(a.project_root);r['invocation_nonce']=uuid.uuid4().hex
+        if a.command=='plan':r=plan(a.project_root,profile=a.profile,task_ids=a.task);r['invocation_nonce']=uuid.uuid4().hex
         elif a.command=='read':
-            r=read_chunk(a.project_root,a.snapshot,a.path,a.start_line,a.max_bytes);body=r.pop('text')
+            r=read_chunk(a.project_root,a.snapshot,a.path,a.start_line,a.max_bytes,profile=a.profile,task_ids=a.task);body=r.pop('text')
             print('BEGIN_COGNITION_CHUNK');print(json.dumps(r,ensure_ascii=False));print('BEGIN_FULL_TEXT');sys.stdout.write(body)
             if not body.endswith('\n'):print()
             print('END_FULL_TEXT\nEND_COGNITION_CHUNK');return 0
         elif a.command=='check':
-            r=plan(a.project_root)
+            r=plan(a.project_root,profile=a.profile,task_ids=a.task)
             if r['snapshot']!=a.snapshot:raise CognitionError('STALE_SNAPSHOT_RESTART_ALL')
             r={'status':'SNAPSHOT_UNCHANGED','model_context':'NOT_CERTIFIED_BY_TOOL','snapshot':a.snapshot}
+        elif a.command=='query':r=query_record(a.project_root,a.record)
         elif a.command=='checkpoint':r=checkpoint(a.project_root,a.snapshot,obj(a.payload.read_bytes()),apply=a.apply)
         else:r=recover(a.project_root,a.action,confirm_owner_stopped=a.confirm_owner_stopped)
         print(json.dumps(r,ensure_ascii=False,indent=2));return 0

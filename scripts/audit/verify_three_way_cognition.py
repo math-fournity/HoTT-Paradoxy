@@ -69,8 +69,10 @@ def projection_state_revision(body: str, label: str) -> int:
 def validate(root: Path) -> dict[str, object]:
     root = root.resolve()
     load_set = read_json(root, LOAD_SET)
-    fixed = load_set.get("fixed_full_text")
-    if not isinstance(fixed, list) or fixed[:3] != THREE_WAY:
+    if load_set.get("schema_version") != "cognition-load-set/v3":
+        raise ThreeWayError("LOAD_SET_SCHEMA_INVALID")
+    fixed = load_set.get("always_full_three_way")
+    if fixed != THREE_WAY:
         raise ThreeWayError("THREE_WAY_FIXED_ORDER_INVALID")
     if load_set.get("three_way_order") != THREE_WAY:
         raise ThreeWayError("THREE_WAY_DECLARED_ORDER_INVALID")
@@ -78,11 +80,20 @@ def validate(root: Path) -> dict[str, object]:
         read_text(root, rel)
 
     core_manifest = read_json(root, CORE_MANIFEST)
-    if core_manifest.get("schema_version") != "core-cognition/v1":
+    if core_manifest.get("schema_version") != "core-cognition/v2":
         raise ThreeWayError("CORE_MANIFEST_SCHEMA_INVALID")
+    if core_manifest.get("generation") != "core-cognition-generation-3":
+        raise ThreeWayError("CORE_GENERATION_INVALID")
     units = core_manifest.get("units")
     if not isinstance(units, list) or not units:
         raise ThreeWayError("CORE_UNITS_MISSING")
+    if any(row.get("author_class") != "USER_OWNED_DIRECT" for row in units if isinstance(row, dict)):
+        raise ThreeWayError("CORE_NON_DIRECT_USER_UNIT")
+    core_themes = {
+        str(theme)
+        for row in units if isinstance(row, dict)
+        for theme in row.get("themes", []) if isinstance(theme, str)
+    }
 
     state = read_json(root, STATE)
     revision = state.get("revision")
@@ -107,6 +118,12 @@ def validate(root: Path) -> dict[str, object]:
 
     direction_rows = [line for line in direction_body.splitlines() if line.startswith("| `DIR-")]
     for line in direction_rows:
+        cells = [cell.strip() for cell in line.split("|")]
+        core_cell = cells[5] if len(cells) > 5 else ""
+        declared_themes = set(re.findall(r"`([A-Z][A-Z0-9_/]+)`", core_cell))
+        invalid_themes = sorted(declared_themes - core_themes - {"CORE_UNRELATED/GOVERNANCE_RULING"})
+        if invalid_themes:
+            raise ThreeWayError(f"DIRECTION_CORE_THEME_NOT_IN_CURRENT_MANIFEST:{','.join(invalid_themes)}")
         referenced = set(re.findall(r"OUT-[A-Z0-9-]+", line))
         if not referenced and "NO_RESULT_YET" not in line:
             raise ThreeWayError(f"DIRECTION_WITHOUT_RESULT_OR_REASON:{line[:80]}")

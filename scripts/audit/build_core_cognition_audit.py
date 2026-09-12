@@ -1,80 +1,109 @@
 #!/usr/bin/env python3
-"""Create a full per-KC end-of-session assessment for a named session.
+"""Create or verify a complete per-KC assessment table.
 
-The generated assessment is intentionally conservative.  It does not use
-semantic similarity to claim that a mathematical insight was proved.
-Governance, evidence and continuity units are marked deepened when the named
-session has created concrete audit assets; all other units remain not touched
-by new mathematical reasoning.
+Generation is deliberately mechanical only.  The scaffold marks every row as
+pending; it never infers semantic alignment from keywords.  A human/current AI
+must replace each placeholder and the three-way decision, then ``--verify-only``
+checks denominator, enums and non-placeholder evidence.
 """
 from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+import re
+import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[2]
+ALLOWED = {"ALIGNED", "DEEPENED", "CORRECTED", "TENSION", "DEVIATED", "NOT_TOUCHED"}
+ROW_RE = re.compile(r"^\| `(?P<id>KC-[0-9]{6})` \| .*? \| `(?P<relation>[A-Z_]+)` \|(?P<rest>.*)$")
+
+
+def manifest_units(root: Path) -> tuple[str, list[dict]]:
+    manifest = json.loads((root / "核心认知.manifest.json").read_text(encoding="utf-8"))
+    units = manifest.get("units")
+    if not isinstance(units, list) or not units:
+        raise ValueError("CORE_UNITS_MISSING")
+    return str(manifest.get("generation")), units
+
+
+def build_scaffold(root: Path, session_id: str) -> Path:
+    generation, units = manifest_units(root)
+    target = root / ".codex/research/hott/sessions" / session_id / "CORE_COGNITION_AUDIT.md"
+    if target.exists():
+        raise ValueError(f"SESSION_AUDIT_ALREADY_EXISTS:{target}")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        f"# 核心认知逐编号回评：{session_id}", "",
+        f"> 状态：`DRAFT_REQUIRES_MANUAL_SEMANTIC_REVIEW`；generation：`{generation}`；KC 总数：`{len(units)}`。", "",
+        "| KC | 来源/语义标签 | 与本轮关系 | 本轮评估 | 证据定位 | 未决 |",
+        "|---|---|---|---|---|---|",
+    ]
+    for unit in units:
+        label = str(unit.get("semantic_label", "—")).replace("|", "\\|")
+        lines.append(
+            f"| `{unit['id']}` | `{unit.get('platform')}` / {label} | `NOT_TOUCHED` | "
+            "REVIEW_REQUIRED_PLACEHOLDER | — | 逐项人工评估待完成。 |"
+        )
+    lines.extend([
+        "", "## 三件套交叉与更新归属", "",
+        "- core_change: `REVIEW_REQUIRED_PLACEHOLDER`",
+        "- direction_change: `REVIEW_REQUIRED_PLACEHOLDER`",
+        "- panorama_change: `REVIEW_REQUIRED_PLACEHOLDER`",
+        "- update_decision: `REVIEW_REQUIRED_PLACEHOLDER`",
+        "- cross_conflicts: `REVIEW_REQUIRED_PLACEHOLDER`",
+        "- unresolved: `REVIEW_REQUIRED_PLACEHOLDER`", "",
+    ])
+    target.write_text("\n".join(lines), encoding="utf-8")
+    return target
+
+
+def verify(root: Path, session_id: str) -> dict[str, object]:
+    generation, units = manifest_units(root)
+    expected = [str(unit["id"]) for unit in units]
+    target = root / ".codex/research/hott/sessions" / session_id / "CORE_COGNITION_AUDIT.md"
+    body = target.read_text(encoding="utf-8")
+    if "REVIEW_REQUIRED_PLACEHOLDER" in body:
+        raise ValueError("AUDIT_PLACEHOLDER_REMAINS")
+    rows = []
+    for line in body.splitlines():
+        match = ROW_RE.match(line)
+        if match:
+            rows.append((match.group("id"), match.group("relation"), match.group("rest")))
+    actual = [row[0] for row in rows]
+    if actual != expected:
+        raise ValueError(f"KC_DENOMINATOR_OR_ORDER_MISMATCH:expected={len(expected)}:actual={len(actual)}")
+    if any(relation not in ALLOWED for _, relation, _ in rows):
+        raise ValueError("AUDIT_RELATION_INVALID")
+    if any(" | — |" in rest or not rest.strip() for _, _, rest in rows):
+        raise ValueError("AUDIT_EVIDENCE_MISSING")
+    for field in ("core_change", "direction_change", "panorama_change", "update_decision", "cross_conflicts", "unresolved"):
+        if not re.search(rf"(?m)^- {field}: `?.+", body):
+            raise ValueError(f"THREE_WAY_DECISION_MISSING:{field}")
+    counts = {value: sum(1 for _, relation, _ in rows if relation == value) for value in sorted(ALLOWED)}
+    return {"status": "PASS", "session_id": session_id, "generation": generation,
+            "kc_count": len(rows), "relation_counts": counts,
+            "semantic_review": "PUBLIC_TEXT_PRESENT_NOT_MODEL_HIDDEN_STATE_CERTIFICATION"}
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=ROOT)
-    parser.add_argument("--session-id", default="S-INTEGRATION-20260912-001")
+    parser.add_argument("--session-id", required=True)
+    parser.add_argument("--verify-only", action="store_true")
     args = parser.parse_args()
     root = args.project_root.resolve()
-    manifest = json.loads((root / "核心认知.manifest.json").read_text(encoding="utf-8"))
-    units = manifest.get("units", [])
-    target = root / ".codex/research/hott/sessions" / args.session_id / "CORE_COGNITION_AUDIT.md"
-    target.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        f"# 核心认知逐编号回评：{args.session_id}",
-        "",
-        f"> 本回评针对命名为 `{args.session_id}` 的具体工作单元；具体动作和证据见同目录 `SESSION.md`。它不是数学证明，也不以关键词命中认证 AI 理解。",
-        f"> 生成时间：{datetime.now(timezone.utc).isoformat()}；输入 generation：`{manifest.get('generation')}`；KC 总数：`{len(units)}`。",
-        "",
-        "## 判定枚举",
-        "",
-        "`DEEPENED` = 本轮把用户已提出的交接/证据/连续性要求落成了可复核资产；`ALIGNED` = 遵守但没有新增理解；`NOT_TOUCHED` = 本轮没有对相应数学/业务主张做新推演；`TENSION`/`CORRECTED`/`DEVIATED` 只在证据支持时使用。",
-        "",
-        "## 全量逐编号表",
-        "",
-        "| KC | 来源 | 主题 | 与本轮关系 | 本轮评估 | 证据定位 | 未决 |",
-        "|---|---|---|---|---|---|---|",
-    ]
-    counts = {key: 0 for key in ("DEEPENED", "ALIGNED", "CORRECTED", "TENSION", "DEVIATED", "NOT_TOUCHED")}
-    governance_themes = {"HANDOFF_GOVERNANCE", "SESSION_CONTINUITY", "EVIDENCE_DISCIPLINE"}
-    for unit in units:
-        themes = set(unit.get("themes", []))
-        if themes & governance_themes:
-            relation = "DEEPENED"
-            assessment = "本轮将该交接/连续性/证据要求落成 core manifest、历史 ledger、runtime 或逐编号回评入口；没有改写该 KC 原文，也没有把它提升为数学认证。"
+    try:
+        if args.verify_only:
+            result = verify(root, args.session_id)
         else:
-            relation = "NOT_TOUCHED"
-            assessment = "本轮是来源保全与治理整合，没有对该 HoTT/悖论业务主张进行新的合法推演、反解释或现实桥梁验证；原文仅被保留并建立定位。"
-        if unit.get("author_class") == "USER_RELAYED_CONTEXT":
-            assessment += " 该单元在来源中是 USER_RELAYED_CONTEXT，本轮不将其冒充用户已采纳结论。"
-        counts[relation] += 1
-        source = str(unit.get("source_locator", "")).replace("|", "\\|")
-        themes_text = ", ".join(unit.get("themes", [])) or "—"
-        lines.append(
-            f"| `{unit['id']}` | `{unit.get('platform')}` / `{unit.get('timestamp_original')}` | {themes_text} | `{relation}` | {assessment} | `{source}`; `audit/ledger-summary.json` | 数学真值、外部覆盖和 AI 理解仍需独立核验。 |"
-        )
-    lines.extend(
-        [
-            "",
-            "## 本轮总评",
-            "",
-            f"本轮逐一处理了 `{len(units)}` 个 KC：`{json.dumps(counts, ensure_ascii=False, sort_keys=True)}`。没有 `DEVIATED`、`CORRECTED` 或 `TENSION` 的证据性判定；这不等于所有历史观点一致，而是本轮没有进行足以裁决它们的数学工作。后续历史章节修订必须把 ledger 的可见回答、工具事件、代码/Git 和当前理解逐条连回这些 KC。",
-            "",
-            "全量机械结构可由 `scripts/audit/verify_core_cognition.py` 验证；逐编号语义回评由本文件的公开文字承担，脚本不把它认证为模型理解。",
-            "",
-        ]
-    )
-    target.write_text("\n".join(lines), encoding="utf-8")
-    print(json.dumps({"status": "BUILT", "session_id": args.session_id, "kc_count": len(units), "relation_counts": counts, "path": str(target)}, ensure_ascii=False))
-    return 0
+            path = build_scaffold(root, args.session_id)
+            result = {"status": "SCAFFOLD_BUILT", "path": str(path), "semantic_review": "REQUIRED"}
+        print(json.dumps(result, ensure_ascii=False))
+        return 0
+    except (OSError, UnicodeError, ValueError, TypeError, KeyError) as exc:
+        print(json.dumps({"status": "FAIL", "error": str(exc)}, ensure_ascii=False), file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

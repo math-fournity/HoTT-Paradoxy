@@ -1,6 +1,6 @@
 # 核心认知单文件分页组件（当前三件套加载中的子步骤）
 
-`核心认知.md` 的每次全文重读要求不变。完整入口现为根AGENTS→Skill→LOAD_SET/STATE；必须先全文加载 `核心认知.md`、`方向追踪.md`、`全景视野.md` 三件套，再读三问和动态记忆/最近Session/活动依赖。下面的单文件协议只说明如何读取 core，不是全部启动条件；不得单独拿它的EOF作为全套完成。
+`核心认知.md` 的每次全文重读要求不变。完整入口现为根AGENTS→治理Skill→LOAD_SET/STATE；必须先全文加载 `核心认知.md`、`方向追踪.md`、`全景视野.md` 三件套。研究任务再用 research profile 加载三问/FRONTIER/LESSONS/RESUME，并按 stable record 显式水合证据。下面的单文件协议只说明如何读取 core，不是全部启动条件；不得单独拿它的EOF作为全套完成。
 
 # 每次执行的第五认知闭包全文加载协议
 
@@ -12,7 +12,7 @@
 
 `核心认知.md`
 
-当前路径为顶层综合 repo 的 `核心认知.md`。它是从三份用户提问提取文件和明确 supplemental 输入生成的 machine-managed 原文账本；不访问原主机，不把三件套 projection 或 WebGPT 历史副本混入 core。
+当前路径为顶层综合 repo 的 `核心认知.md`。generation-3 由人工 curation 对三份用户指定 primary 做逐消息处置，再由生成器精确复制 27 个 `USER_OWNED_DIRECT` 语义单元；supplemental、转发 AI 和治理对话只留在来源/历史，不混入 core。
 
 ## 执行顺序
 
@@ -40,11 +40,11 @@ python3 -B .codex/skills/hott-paradox-research/scripts/read_cognitive_closure.py
 
 完整正文提供认知。行号、哈希和EOF只用于检测遗漏/变化；它们从不证明正文已进入模型上下文。不能把 `file_eof=true` 误写成“全文已加载”。
 
-版本变化、内容截断、上下文压缩或实际全文不再可用时，旧加载状态失效，从头再读。固定的2115行、110375字节只是本次观测值，不作为未来截断上限或永不更新的预期。
+版本变化、内容截断、上下文压缩或实际全文不再可用时，旧加载状态失效，从头再读。任何旧代际的 2115 行、913 KC 或当前 27 KC 都只是代际事实，不是未来长度下限/上限；读取永远以当前 generation 的实际 EOF 为准。
 
 ## 失败行为
 
-读不到文件、内容身份不符、无法排除截断、读取过程中内容变化、总上下文不能保留全文：`BLOCKED_FULL_CLOSURE_LOAD`，仅做恢复诊断，不开展研究。不能为了继续而以摘要或节选替代。
+读不到文件、内容身份不符、无法排除截断、读取过程中内容变化：单文件 reader 报 `BLOCKED_FULL_CLOSURE_LOAD`。完整启动中任一三件套全文无法保留则升级为 `BLOCKED_FULL_TRIO_COGNITION`，仅做恢复诊断，不开展研究；不能以摘要或节选替代。
 
 ## 规则优先关系
 

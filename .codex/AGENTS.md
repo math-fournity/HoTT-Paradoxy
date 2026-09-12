@@ -7,8 +7,9 @@
 拥有跨 LocalGPT/WebGPT 的候选组合与下一判别动作；`全景视野.md` 拥有研究结果、正反例、失败和未知的
 可读综合投影；三者不得互相覆盖成为“最新版”。
 
-核心 invariant：核心原文单元和来源 hash 不被手工重写；动态 open/active/pending/blocked/review_required
-记录不能从加载集合隐身；每轮结束时产生逐 `KC-*` 的 `CORE_COGNITION_AUDIT.md`，并记录三件套之间的
-一致性、冲突和更新归属；工具只能证明字节覆盖、引用和版本边界，不能证明模型理解或数学真理。
+核心 invariant：generation-3 的 27 个用户直接原文单元由 curation+生成器管理，不手工改写；全部 record
+在 STATE 全文中可见，但只有 lifecycle 给予当前任务资格，evidence review 不得自动复活历史 Session。治理任务用
+governance profile，数学研究用 research profile，底层证据按 stable ID 显式水合。每轮结束仍产生当前全部
+`KC-*` 回评；旧回评归档而不常驻。工具只能证明字节覆盖、引用和版本边界，不能证明模型理解或数学真理。
 
 业务研究入口是 `.codex/skills/hott-paradox-research/SKILL.md`。历史 WebGPT `.codex` 框架在 `sources/webgpt/workspace-snapshot/.codex/`，只作为参考来源。
