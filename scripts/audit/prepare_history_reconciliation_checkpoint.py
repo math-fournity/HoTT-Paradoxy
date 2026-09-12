@@ -91,7 +91,7 @@ def direction_text(root: Path) -> str:
     )
     section = """## 6.5 全量来源登记与人工复核边界
 
-`audit/cross-source-reconciliation.json` 对纳入范围的每个来源行保留 `source_class`、稳定 `source_id`、原始 locator、行 hash、候选 direction/result IDs、映射依据和语义状态。当前覆盖分母为 WebGPT STATE 91、LocalGPT response 384、tool event 3,146、work product 16,209、understanding claim 2,396，合计 22,226。
+`audit/cross-source-reconciliation.json` 对纳入范围的每个来源行保留 `source_class`、稳定 `source_id`、原始 locator、行 hash、候选 direction/result IDs、映射依据和语义状态。当前覆盖分母为 WebGPT STATE 91、AI response ledger 384（LocalGPT 305 + WebGPT 55 + Gemini 24）、tool event 3,146、work product 16,209、understanding claim 2,396，合计 22,226。
 
 这一步的设计理由是把“没有被看板提到”与“已经人工判断过但暂不归类”区分开：所有行都可发现、可回源、可按方向/结果检索；`understanding_claim` 仍标 `PENDING_DIRECT_SENTENCE_ADJUDICATION`，因为路径/关键词路由不能证明句子的真实语义，也不能提高数学证据等级。该 register 是 provenance 导航层，不是第二个数学主张矩阵；原始账本和结果 owner 仍是证据来源。
 
@@ -170,7 +170,7 @@ def memory_text() -> str:
 - `核心认知.md` 已从 generation-1 迁移到 `core-cognition-generation-2`：127 条登记消息、94 条含核心单元消息、913 个连续 `KC-*`；generation-1 的 903 个 KC 前缀逐项保持一致。新增输入是用户关于三件套、压缩恢复、跨 GPT 综观和理解章节逐文件融合的原文。
 - 三件套当前固定顺序为 `核心认知.md` → `方向追踪.md` → `全景视野.md`；两个 projection 已从有界初始投影升级为“全量 source register + scoped manual review”。这不证明模型上下文实际保有全文。
 - `audit/understanding-chapter-merge-manifest.json` 已覆盖顶层 25 文件与 nested 24 文件；顶层 `理解章节/` 是 canonical，nested `/AI对话录/理解章节/` 仍保留为历史源，没有删除。
-- `audit/cross-source-reconciliation.json` 已登记 WebGPT 91、LocalGPT response 384、tool event 3,146、work product 16,209、understanding claim 2,396，共 22,226 个来源行；每行有 locator 和方向/结果链接或理由。2,396 条 claim 仍是 `PENDING_DIRECT_SENTENCE_ADJUDICATION`，不把规则匹配写成语义结论。
+- `audit/cross-source-reconciliation.json` 已登记 WebGPT 91、AI response ledger 384（LocalGPT 305 + WebGPT 55 + Gemini 24）、tool event 3,146、work product 16,209、understanding claim 2,396，共 22,226 个来源行；每行有 locator 和方向/结果链接或理由。2,396 条 claim 仍是 `PENDING_DIRECT_SENTENCE_ADJUDICATION`，不把规则匹配写成语义结论。
 - `/Volumes/D/ALL-Markdown` 的当前工作树仍 dirty、HEAD `8470721a07f28f842895a67f5fd885ab12c1ee33`；WebGPT workspace snapshot HEAD `26fcecfbfecf6db66a70c1bf3e067159bce3eb6a`、revision 41；二者都没有被本轮修改。
 
 ## 当前仍开放 / 未完成
@@ -328,7 +328,7 @@ def session_text() -> str:
 ## 实际执行
 
 1. 生成 `audit/understanding-chapter-merge-manifest.json`：顶层目录 25 文件、nested 目录 24 文件、24 个同名，其中 15 对字节相同，9 个同名差异，顶层独有 C0；所有文件均有 hash、line diff、处置理由、rollback source。顶层 `理解章节/` 作为 canonical，nested 物理源保留，未执行删除。
-2. 生成 `audit/cross-source-reconciliation.json` 和人读报告：WebGPT revision 41 的 91 条 STATE record、LocalGPT 384 response、3,146 tool event、16,209 work product、2,396 understanding claim，共 22,226 条逐项登记；每项均有 locator、方向/成果候选链接和显式语义状态。
+2. 生成 `audit/cross-source-reconciliation.json` 和人读报告：WebGPT revision 41 的 91 条 STATE record、AI response ledger 384（LocalGPT 305 + WebGPT 55 + Gemini 24）、3,146 tool event、16,209 work product、2,396 understanding claim，共 22,226 条逐项登记；每项均有 locator、方向/成果候选链接和显式语义状态。
 3. 将 WebGPT R006–R017 的时间/有效交付结果族补入全景入口；保留 `REVIEW_REQUIRED` 和 `NOT_PERFORMED_BY_THIS_REGISTER` 边界。
 4. 将用户关于三件套、压缩恢复、跨 LocalGPT/WebGPT 综观和逐文件融合的原文保存到新的 `sources/prompts/` 输入，由生成器生成 `core-cognition-generation-2`；旧 903 个 KC 的 payload/metadata 前缀逐项保持一致，新版本为 913 个 KC。
 

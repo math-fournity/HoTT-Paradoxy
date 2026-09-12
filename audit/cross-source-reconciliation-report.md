@@ -9,7 +9,7 @@
 | 来源 | 行数 | 处理方式 |
 |---|---:|---|
 | WebGPT STATE revision 41 | 91 | 全部 record 逐项登记；保留历史状态和 source path |
-| LocalGPT visible response | 384 | 逐行 locator + 内容/owner 路由 |
+| AI response ledger（LocalGPT 305 + WebGPT 55 + Gemini 24） | 384 | 逐行 locator + 内容/owner 路由 |
 | LocalGPT tool event | 3146 | 逐行 event locator；不把工具调用当结果 |
 | work product | 16209 | 逐项 artifact/file/tree locator |
 | understanding claim | 2396 | 逐句/逐行 claim locator；全部保留直接语义复核状态 |

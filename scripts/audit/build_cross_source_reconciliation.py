@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 WEB_STATE = Path("sources/webgpt/workspace-snapshot/.codex/research/hott/STATE.json")
 WEB_ROOT = Path("sources/webgpt/workspace-snapshot")
 LEDGERS = {
-    "local_response": Path("audit/ai-response-ledger.jsonl"),
+    "ai_response": Path("audit/ai-response-ledger.jsonl"),
     "local_tool_event": Path("audit/tool-event-ledger.jsonl"),
     "local_work_product": Path("audit/work-product-ledger.jsonl"),
     "understanding_claim": Path("audit/claim-evidence-ledger.jsonl"),
@@ -281,7 +281,7 @@ def register_row(
         source_file_hash = row.get("source_file_sha256")
     else:
         id_key = {
-            "local_response": "response_id",
+            "ai_response": "response_id",
             "local_tool_event": "tool_event_id",
             "local_work_product": "artifact_id",
             "understanding_claim": "claim_id",
@@ -369,7 +369,7 @@ def build(root: Path, as_of: str) -> tuple[dict[str, object], str]:
         "counts": {
             "total_register_entries": len(entries),
             "webgpt_state_records": len(web_data["records"]),
-            "local_response_rows": class_counts["local_response"],
+            "ai_response_rows": class_counts["ai_response"],
             "local_tool_event_rows": class_counts["local_tool_event"],
             "local_work_product_rows": class_counts["local_work_product"],
             "understanding_claim_rows": class_counts["understanding_claim"],
@@ -399,7 +399,7 @@ def build(root: Path, as_of: str) -> tuple[dict[str, object], str]:
         "| 来源 | 行数 | 处理方式 |",
         "|---|---:|---|",
         f"| WebGPT STATE revision {web_data.get('revision')} | {len(web_data['records'])} | 全部 record 逐项登记；保留历史状态和 source path |",
-        f"| LocalGPT visible response | {class_counts['local_response']} | 逐行 locator + 内容/owner 路由 |",
+        f"| AI response ledger（LocalGPT 305 + WebGPT 55 + Gemini 24） | {class_counts['ai_response']} | 逐行 locator + 内容/owner 路由 |",
         f"| LocalGPT tool event | {class_counts['local_tool_event']} | 逐行 event locator；不把工具调用当结果 |",
         f"| work product | {class_counts['local_work_product']} | 逐项 artifact/file/tree locator |",
         f"| understanding claim | {class_counts['understanding_claim']} | 逐句/逐行 claim locator；全部保留直接语义复核状态 |",

@@ -4,7 +4,7 @@
 
 | 槽位 | 当前对象 | 状态 | 下一判别动作 |
 |---|---|---|---|
-| 收敛 | 22,226 条跨来源 register + 理解章节 merge receipt + fresh EOF/hash receipt | active | 抽样核对关键 response→artifact/code/Git 因果，并保留 claim 句级待审状态 |
+| 收敛 | 22,226 条跨来源 register + 理解章节 merge receipt + fresh EOF/hash receipt + provenance-label correction | active | 抽样核对关键 response→artifact/code/Git 因果，并保留 claim 句级待审状态 |
 | 探索 | `理解章节/A11-开放问题与悬空接头.md` 的未闭合接头 | active | 将精确 KC、方向、结果和 source locator 逐项连回，不把主题匹配当结论 |
 | 深层 | HoTT 时间/ASK/现实相对候选 | historical-review | 先完成历史数学主张范围复核，再选择一项真正构造/反例 |
 

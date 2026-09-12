@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 WEB_STATE = Path("sources/webgpt/workspace-snapshot/.codex/research/hott/STATE.json")
 LEDGERS = {
-    "local_response": Path("audit/ai-response-ledger.jsonl"),
+    "ai_response": Path("audit/ai-response-ledger.jsonl"),
     "local_tool_event": Path("audit/tool-event-ledger.jsonl"),
     "local_work_product": Path("audit/work-product-ledger.jsonl"),
     "understanding_claim": Path("audit/claim-evidence-ledger.jsonl"),

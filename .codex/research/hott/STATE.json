@@ -6,20 +6,20 @@
   "execution_control": {
     "background_work": false,
     "checkpoint_result": "CHECKPOINT_COMMITTED",
-    "last_checkpoint_session": "S-GOV-20260912-011-FRESH-THREE-WAY",
+    "last_checkpoint_session": "S-GOV-20260912-012-PROVENANCE-LABEL-FIX",
     "new_math_research_started": false,
     "next_minimal_verification": "direct sentence review of 2396 understanding claims; aistudio coverage; historical mathematics review",
     "source_policy": "preserve historical snapshots; do not restore user-removed aistudio-docs",
-    "status": "FRESH_THREE_WAY_VALIDATED_WITH_SCOPE_AND_SCOPED_SEMANTIC_REVIEW"
+    "status": "PROVENANCE_LABELS_CORRECTED_WITH_SCOPED_SEMANTIC_REVIEW"
   },
-  "latest_session": "S-GOV-20260912-011-FRESH-THREE-WAY",
+  "latest_session": "S-GOV-20260912-012-PROVENANCE-LABEL-FIX",
   "projection": {
     "direction_path": "方向追踪.md",
     "direction_record": "I-DIRECTION-PORTFOLIO-20260912",
     "outcome_path": "全景视野.md",
     "outcome_record": "I-OUTCOME-PANORAMA-20260912",
     "schema_version": "integrated-projection-index/v1",
-    "status": "FRESH_THREE_WAY_VALIDATED_WITH_SCOPED_SEMANTIC_REVIEW"
+    "status": "PROVENANCE_LABELS_CORRECTED_WITH_SCOPED_SEMANTIC_REVIEW"
   },
   "records": {
     "A-AISTUDIO-COVERAGE-001": {
@@ -122,6 +122,25 @@
       "path": "audit/coverage-summary.json",
       "scope": "Visible AI responses, canonical trajectory events, WebGPT sections, Gemini executable/inline records, artifacts and claims; exhaustive cross-source row register is now built, with direct semantic review remaining scoped.",
       "status": "review_required"
+    },
+    "A-PROVENANCE-LABEL-FIX-001": {
+      "full_sources": [
+        "audit/cross-source-reconciliation-report.md",
+        "audit/cross-source-reconciliation.json",
+        "scripts/audit/verify_cross_source_reconciliation.py"
+      ],
+      "kind": "provenance_label_correction",
+      "path": "audit/cross-source-reconciliation-report.md",
+      "resolution": {
+        "evidence": [
+          "audit/cross-source-reconciliation-report.md",
+          "audit/cross-source-reconciliation.json",
+          "scripts/audit/verify_cross_source_reconciliation.py"
+        ],
+        "reason": "The register builder and verifier now use ai_response; the generated register reports LocalGPT 305 + WebGPT 55 + Gemini 24 and passes row/hash validation."
+      },
+      "scope": "Correct source-class wording so the 384 response rows are represented as the three-platform AI response ledger; count and row coverage remain unchanged.",
+      "status": "closed"
     },
     "A-UNDERSTANDING-RECONCILIATION-001": {
       "depends_on": [
@@ -371,6 +390,24 @@
       "scope": "Fresh process and complete load-graph verification, fail-closed negative rehearsal and post-change governance checkpoint; no new mathematics.",
       "status": "review_required"
     },
+    "S-GOV-20260912-012-PROVENANCE-LABEL-FIX": {
+      "cognition_status": "PROVENANCE_LABELS_CORRECTED_WITH_SCOPED_SEMANTIC_REVIEW",
+      "depends_on": [
+        "S-GOV-20260912-011-FRESH-THREE-WAY"
+      ],
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/RUNS.json",
+        "audit/cross-source-reconciliation-report.md",
+        "scripts/audit/verify_cross_source_reconciliation.py"
+      ],
+      "kind": "session",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/SESSION.md",
+      "scope": "Correct cross-source response provenance labels, revalidate register and persist the correction through the cognition checkpoint; no new mathematics.",
+      "status": "review_required"
+    },
     "S-INTEGRATION-20260912-001": {
       "depends_on": [],
       "full_sources": [
@@ -470,7 +507,7 @@
     "A-UNDERSTANDING-RECONCILIATION-001",
     "A-CROSS-SOURCE-RECONCILIATION-001"
   ],
-  "revision": 11,
+  "revision": 12,
   "schema_version": "hott-working-state/v1",
   "unresolved": [
     "A-AISTUDIO-COVERAGE-001",
