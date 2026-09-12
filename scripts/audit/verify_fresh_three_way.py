@@ -128,7 +128,6 @@ def main() -> int:
     receipt = {
         "schema_version": "fresh-three-way-verification/v1",
         "status": "PASS_WITH_SCOPE",
-        "runtime_plan_snapshot": plan["snapshot"],
         "revision": plan["revision"],
         "fresh_process_child": fresh_child,
         "three_way_order": list(THREE_WAY),
