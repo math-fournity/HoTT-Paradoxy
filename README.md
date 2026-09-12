@@ -20,7 +20,7 @@
 - `理解章节/`：历史认知闭包及本次 transform 的主要成果；它是当前研究知识的 owner 候选，不以原始对话录替代。
 - `sources/`：只读历史来源快照、提问原文、WebGPT 工作目录、本地 GPT `ALL-Markdown` 工作及 Gemini/WebGPT 导出。
 - `audit/` 与 `scripts/audit/`：来源 manifest、覆盖矩阵、22,226 行跨源 reconciliation register、理解章节 merge receipt、fresh load receipt、提取重放与验证脚本；“完整”只以这里的可复现证据为准。
-- `.codex/`：本 repo 的本地 Codex 治理框架 3.0；固定全文前三项为 core → direction → panorama；governance/research profile 分开，底层证据按 stable record 显式 query/task hydrate，历史 Session 不因 evidence review 自动复活。
+- `.codex/`：本 repo 的本地 Codex 治理框架 3.0（版本边界 `governance-v3.0.0`）；固定全文前三项为 core → direction → panorama；governance/research profile 分开，底层证据按 stable record 显式 query/task hydrate，历史 Session 不因 evidence review 自动复活。
 - `HoTT/`：从 `/Volumes/D/ALL-Markdown/HoTT/` 收录的研究工作副本；它保留本地 GPT 的工作记录，不自动等于当前数学真值。
 
 `AI对话录/` 和 `workspace/` 仍保留在磁盘上作为原始嵌套 repo，但已由顶层 `.gitignore` 排除；顶层 `sources/` 是归档快照，后续修改不得直接把这两个嵌套工作树当作当前工作根。`/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求不恢复；`HoTT_is_GONE_COMPLETE.md` 只作为有 provenance 的历史 AI 产物保存，是否覆盖原目录的事实仍标为未证明。

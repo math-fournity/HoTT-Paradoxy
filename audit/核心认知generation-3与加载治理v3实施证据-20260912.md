@@ -4,7 +4,7 @@
 
 日期：2026-09-12
 
-状态：`IMPLEMENTED_AND_CHECKPOINTED_REVISION_18 / MECHANICAL_FULL_SUITE_PASS / FRESH_MODEL_BEHAVIOR_NOT_RUN / GIT_CLOSE_PENDING`
+状态：`IMPLEMENTED_AND_CHECKPOINTED_REVISION_18 / MECHANICAL_FULL_SUITE_PASS / FRESH_MODEL_BEHAVIOR_NOT_RUN / GIT_VERSION_CLOSED`
 
 ## 1. 本轮接受的纠偏
 
@@ -85,8 +85,8 @@ revision 18 的 final fresh receipt 得到：
 
 | Profile | documents | bytes | lines | 历史 Session 自动加载 | 冷资产自动加载 |
 |---|---:|---:|---:|---:|---:|
-| governance | 15 | 176,957 | 1,979 | 0 | 0 |
-| research | 20 | 247,888 | 2,843 | 0 | 0 |
+| governance | 15 | 176,961 | 1,979 | 0 | 0 |
+| research | 20 | 247,892 | 2,843 | 0 | 0 |
 
 相对旧 9,424,036-byte 治理计划，governance 默认字节减少 98.12%，research 默认字节减少 97.37%；这不是以 byte 下降证明治理成功，而是证明被移除的是 manifest/历史收据/旧 Session 等非三件套载荷，三件套本身保持完整。
 
@@ -121,7 +121,7 @@ read/check 绑定同一 profile/task snapshot
 | C06 | `UPDATE` | 新 core 7 tests、layered runtime 27 tests、reader 17 tests、three-way 4 tests（含 obsolete theme 负向）、fresh byte/profile/task/4-negative receipt、S005/S007 历史 task 对新归档路径的水合、S017 current narrative 修正，以及 merge-count 正/负向验证；fresh model behavior 仍 NOT_RUN |
 | C07 | `NO_CHANGE` | 不新增 Hook/Plugin/Rule/config/权限或 secret 接触；当前 host context 只读发现为 1,000,000/900,000 tokens，不写 config |
 | C08 | `NO_CHANGE` | WebGPT 快照、OpenCode、`/Volumes/D/ALL-Markdown` 及其 dirty 状态不改；本次是项目专属实现 |
-| C09 | `UPDATE_PROJECT_ONLY` | 旧 tag `governance-v2.1.0` 已建；完成后精确 commit 并打 `governance-v3.0.0`，不 push |
+| C09 | `UPDATE_PROJECT_ONLY` | 旧 tag `governance-v2.1.0` 保留；实现提交为 `e18c0a1ae5298006351760be55bcd7e087f8780d`；本文件的最终状态提交由 annotated tag `governance-v3.0.0` 指向，不 push |
 | C10 | `UPDATE` | 913/913 transition、旧 Session 冷存、两份历史报告的 Git rename/replacement、未认证模型行为/数学状态和共享主库 dirty 边界全部保留 |
 
 remainder：`0`。
@@ -144,6 +144,8 @@ remainder：`0`。
 - history ledger、understanding merge、cross-source reconciliation、projection freshness 均 PASS。history verifier 首次仍从 current core manifest 检查 Gemini Drive attachment，因 core 正确换代而失败；改为检查历史 `user-message-disposition.jsonl` owner 后 125/384/3,146/111/21/17+17+2/16,209/2,396 分母 PASS。
 - understanding merge 的 `different_pairs` 已从“所有非 identical union 项”收窄为真正的同名差异对：24 个同名对=15 identical+9 different；另有 1 top-level unique，因此新增 `nonidentical_union_entries=10`。伪造 `different_pairs=10` 的 fixture 被稳定拒绝。
 - `核心认知.md` 的 Gemini primary 原文有一处源末尾空格；`/.gitattributes` 仅对该 canonical 原文关闭 `trailing-space` 报警，使 `git diff --check` 仍可检查其他路径，同时避免违反 exact-source 合同。该例外不改变 payload 或扩大到其他文件。
+
+Git 版本闭合分两步：`e18c0a1ae5298006351760be55bcd7e087f8780d` 保存全部实现、迁移、测试与 checkpoint；随后只更新交付状态和最终 fresh receipt，并以 annotated `governance-v3.0.0` 标记该状态提交。状态提交无法在自身正文中自指其完整 OID，实际身份必须以 `git rev-parse governance-v3.0.0^{commit}` 查询。
 
 证据上限：
 
