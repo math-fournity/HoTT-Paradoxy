@@ -1,5 +1,7 @@
 # B2 网页 GPT 工作史 I：治理建造与自主研究（W1-W34 ↔ R004-R019）
 
+> **历史 transform 状态**：本章保存 WebGPT 前半段的历史 R/W 叙述；当前 56 Prompt、55 Response、111 section 和 workspace snapshot provenance 以 C0 与 `audit/webgpt-section-ledger.jsonl` 为准。
+
 > 锚点系：W 节、R:W{节}（AI 回复，原始 md 可回源）、A:R{xxx}（workspace 会话）、G:WS（git）。关键机制（探4）：每轮在新 /mnt/data 目录从用户上传的 revision ZIP 恢复——用户经 ChatGPT 上传通道搬运工作区。
 
 ## 一、治理建造期（W1-W16 ↔ R001-R005，09-09 12:17 → 09-10 凌晨）

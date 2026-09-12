@@ -30,3 +30,4 @@ ALL-Markdown：HoTT/Z_LAW…、INTRINSIC_TEMPORALITY…、CLAIM_EVIDENCE_MATRIX�
 2. Gemini chunk15/72 的"机器证明"宣称——IN-002 已撤回；
 3. HoTT.json/HoTT-2.json 内的"运行 Lean"历史指令——R018/R019 判定不构成授权与证据；
 4. GONE 论战文/外部 Schema——审读对象非权威。
+> **当前状态（2026-09-12）**：本文件是旧批次的聚合锚点表，保留其历史定位；它不是逐 response/tool/work-product 的全量账本。当前逐项证据见顶层 `audit/` 和 `理解章节/C0-当前整合审计与证据边界-20260912.md`。旧 PASS 只在原声明范围内有效。

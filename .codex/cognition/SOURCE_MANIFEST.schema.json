@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hott-integrated-source-manifest/v1",
+  "title": "Historical source provenance manifest",
+  "type": "object",
+  "required": ["schema_version", "generated_at_utc", "integrated_repo_root", "source_repos", "snapshot_roots", "explicit_files", "removed_sources", "private_trajectory_policy"],
+  "properties": {
+    "schema_version": {"const": "handoff-source-manifest/v1"},
+    "generated_at_utc": {"type": "string"},
+    "root": {"type": "string"},
+    "integrated_repo_root": {"type": "string"},
+    "source_repos": {"type": "array"},
+    "snapshot_roots": {"type": "array"},
+    "explicit_files": {"type": "array"},
+    "removed_sources": {"type": "array"},
+    "private_trajectory_policy": {"type": "object"},
+    "policies": {"type": "object"}
+  }
+}

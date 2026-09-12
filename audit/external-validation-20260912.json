@@ -1,0 +1,39 @@
+{
+  "schema_version": "external-validation-record/v1",
+  "run_date": "2026-09-12",
+  "scope": "read-only regression against the live /Volumes/D/ALL-Markdown source repo; no external files modified",
+  "results": [
+    {
+      "command": "rtk python3 HoTT/tools/matrix_book_paradox_extract.py validate",
+      "cwd": "/Volumes/D/ALL-Markdown",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "schema matrix-book-paradox-extract/v1; source_sha256 24530b89725d4043a7a5292a403ab50d48feed5417351c348790150726ae9409; uncovered_hit_count 0",
+      "interpretation": "This validator's bounded matrix source was internally consistent for its declared scope; it does not prove all historical HoTT sources were covered."
+    },
+    {
+      "command": "rtk python3 HoTT/tools/hott_discussion_corpus.py validate",
+      "cwd": "/Volumes/D/ALL-Markdown",
+      "exit_code": 3,
+      "status": "BLOCKED_SOURCE_REMOVED",
+      "observed": "missing source: /Volumes/D/ALL-Markdown/aistudio-docs/【✅】普罗米修斯 - 动态类型理论 (DTT).md",
+      "interpretation": "The validator still requires the user-removed aistudio-docs path; its failure is retained as a real coverage boundary, not repaired by restoring the directory."
+    },
+    {
+      "command": "rtk bash HoTT/verification/discover_sources.sh",
+      "cwd": "/Volumes/D/ALL-Markdown",
+      "exit_code": 0,
+      "status": "PASS_WITH_SOURCE_REMOVAL_DIAGNOSTIC",
+      "observed": "baseline_commit dc1e369a6a74; filename_hit_count_at_baseline 8; relocated_source_count 16; remaining_filename_hit_count 0; missing-path find/rg diagnostics emitted",
+      "interpretation": "The script reports no remaining filename hits after relocation in its bounded search, but its zero exit is not a proof that the removed directory's content is fully represented."
+    },
+    {
+      "command": "rtk ls -ld aistudio-docs",
+      "cwd": "/Volumes/D/ALL-Markdown",
+      "exit_code": 1,
+      "status": "ABSENT_AS_EXPECTED",
+      "observed": "aistudio-docs: No such file or directory",
+      "interpretation": "Confirms the user-specified removal in the current external workspace."
+    }
+  ]
+}

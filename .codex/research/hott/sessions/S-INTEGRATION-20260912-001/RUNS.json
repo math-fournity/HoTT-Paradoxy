@@ -1,0 +1,43 @@
+{
+  "schema_version": "session-runs/v1",
+  "session_id": "S-INTEGRATION-20260912-001",
+  "runs": [
+    {
+      "run_id": "RUN-CORE-BUILD-001",
+      "command": "rtk python3 scripts/audit/build_core_cognition.py",
+      "status": "PASS",
+      "result": "125 parsed messages; 92 included messages; 903 core units",
+      "evidence": ["核心认知.manifest.json"]
+    },
+    {
+      "run_id": "RUN-CORE-VERIFY-001",
+      "command": "rtk python3 scripts/audit/verify_core_cognition.py",
+      "status": "PASS",
+      "result": "903 contiguous IDs, exact payload hashes, five source-file hashes",
+      "evidence": ["核心认知.manifest.json"]
+    },
+    {
+      "run_id": "RUN-HISTORY-BUILD-001",
+      "command": "rtk python3 scripts/audit/build_history_ledgers.py",
+      "status": "PASS",
+      "result": "220 LocalGPT parent/main assistant responses; 305 including auxiliary raw; 3146 tool events; 55 WebGPT responses; 24 Gemini text; 21 thoughts; 17/17/2 execution records",
+      "evidence": ["audit/ledger-summary.json"]
+    },
+    {
+      "run_id": "RUN-HISTORY-VERIFY-001",
+      "command": "rtk python3 scripts/audit/verify_history_ledgers.py",
+      "status": "PASS",
+      "result": "all denominator and call/result pairing contracts passed",
+      "evidence": ["audit/ledger-summary.json", "audit/verification-report.json"]
+    },
+    {
+      "run_id": "RUN-COGNITION-PLAN-001",
+      "command": "rtk python3 .codex/tools/cognition_runtime.py plan",
+      "status": "PASS",
+      "result": "fixed plus dynamic load set expanded; model_context NOT_CERTIFIED_BY_TOOL",
+      "evidence": [".codex/cognition/LOAD_SET.json", ".codex/research/hott/STATE.json"]
+    }
+  ],
+  "mathematics": "NOT_RUN_IN_THIS_INTEGRATION_SESSION",
+  "model_understanding": "NOT_CERTIFIED"
+}

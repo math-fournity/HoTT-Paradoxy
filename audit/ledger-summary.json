@@ -1,0 +1,979 @@
+{
+  "canonical_trajectory_reader": "/Users/aurolafly/codex/tools/session_trajectory.py",
+  "counts": {
+    "ai_response_ledger": 384,
+    "claim_evidence_rows": 2397,
+    "gemini_code_execution_results": 17,
+    "gemini_executable_code": 17,
+    "gemini_execution_records": 36,
+    "gemini_inline_files": 2,
+    "gemini_ordinary_text_responses": 24,
+    "gemini_thought_records": 21,
+    "local_gpt_assistant_responses_total": 305,
+    "local_gpt_auxiliary_lineage_assistant_responses": 85,
+    "local_gpt_primary_lineage_assistant_responses": 220,
+    "tool_event_ledger": 3146,
+    "user_message_disposition": 125,
+    "webgpt_responses": 55,
+    "webgpt_sections": 111,
+    "work_products": 16209
+  },
+  "coverage_status": "STRUCTURALLY_BUILT; SEMANTIC_CLAIM_MAPPING_AND_MANUAL_REVIEW_PENDING",
+  "errors": [],
+  "generated_at_utc": "2026-09-12T11:23:01.958407+00:00",
+  "schema_version": "historical-ledgers/v1",
+  "source_manifest": "sources/SOURCE_MANIFEST.json",
+  "trajectory_sources": [
+    {
+      "reader": "CAP-TRAJ-MULTIHOST:/Users/aurolafly/codex/tools/session_trajectory.py",
+      "source_id": "codex-parent",
+      "source_path": "private-audit/local-gpt/rollout-2026-08-31T17-37-21-01a059c1-6322-7f90-a2f9-427cae4b590d.jsonl",
+      "source_sha256": "23dcdb6e862f3333f0ac9d5e9f8daed55f93ccbadab6ed3e8fad21ddb60094a0",
+      "tree": {
+        "host": "codex",
+        "schema_version": "agent-session-trajectory/v1",
+        "sessions": [
+          {
+            "branches": [
+              "01a059c1-6322-7f90-a2f9-427cae4b590d"
+            ],
+            "events": 7462,
+            "parents": [],
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d"
+          }
+        ],
+        "turns": [
+          {
+            "event_counts": {
+              "assistant_message": 10,
+              "developer_prompt": 4,
+              "instruction_context": 1,
+              "item_completed": 263,
+              "reasoning": 133,
+              "settings": 1,
+              "tool_call": 123,
+              "tool_result": 123,
+              "turn_aborted": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 123,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a059c4-0325-7cb2-8fad-649a7a7b763e"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "developer_prompt": 1,
+              "item_completed": 8,
+              "reasoning": 4,
+              "settings": 1,
+              "tool_call": 1,
+              "tool_result": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 2,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05a04-d138-7c40-8685-823c37d03695"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 21,
+              "compaction": 1,
+              "item_completed": 316,
+              "reasoning": 169,
+              "settings": 1,
+              "tool_call": 143,
+              "tool_result": 143,
+              "turn_completed": 1,
+              "turn_context": 2,
+              "turn_started": 1,
+              "usage": 146,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05a05-e1e0-7d81-915d-4200e86cb5a2"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "item_completed": 35,
+              "reasoning": 19,
+              "settings": 1,
+              "tool_call": 12,
+              "tool_result": 12,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 13,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05a3c-1f49-7433-a6d9-a57ce4bfb8a4"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 9,
+              "item_completed": 81,
+              "reasoning": 41,
+              "settings": 1,
+              "tool_call": 30,
+              "tool_result": 30,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 31,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05a3f-8576-7821-b6c6-0279c2cfbe84"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 8,
+              "item_completed": 55,
+              "reasoning": 30,
+              "settings": 1,
+              "tool_call": 16,
+              "tool_result": 16,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 17,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05a4a-969a-73a2-a643-65fc711f3936"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 7,
+              "instruction_context": 1,
+              "item_completed": 35,
+              "reasoning": 15,
+              "settings": 1,
+              "tool_call": 12,
+              "tool_result": 12,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 13,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05c2a-0b88-7b52-8e28-b2864faf1537"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "compaction": 1,
+              "item_completed": 33,
+              "reasoning": 25,
+              "settings": 1,
+              "tool_call": 3,
+              "tool_result": 3,
+              "turn_completed": 1,
+              "turn_context": 2,
+              "turn_started": 1,
+              "usage": 5,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05c33-c047-77c2-a7fa-6d48db08e609"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "item_completed": 30,
+              "reasoning": 23,
+              "settings": 1,
+              "tool_call": 3,
+              "tool_result": 3,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 4,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05c40-9be2-7921-bf53-a39392bfd6bf"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 6,
+              "item_completed": 149,
+              "reasoning": 65,
+              "settings": 1,
+              "tool_call": 43,
+              "tool_result": 43,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 44,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05c51-b8ee-74e0-98d8-ceba8e4ae716"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 1,
+              "item_completed": 8,
+              "reasoning": 6,
+              "settings": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 1,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05ca0-cba3-7d42-ba5f-ed774c41db9f"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 17,
+              "reasoning": 13,
+              "settings": 1,
+              "tool_call": 1,
+              "tool_result": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 2,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05cad-4f3f-7fd0-bf3e-0c862eaabcfd"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 1,
+              "item_completed": 13,
+              "reasoning": 11,
+              "settings": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 1,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05cb7-c8b5-7cb2-a0b3-719f2a3a2b0a"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 13,
+              "reasoning": 9,
+              "settings": 1,
+              "tool_call": 1,
+              "tool_result": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 2,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05cce-472a-7c32-9a82-55111378b155"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "item_completed": 51,
+              "reasoning": 33,
+              "settings": 1,
+              "tool_call": 13,
+              "tool_result": 13,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 14,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05ce0-e99b-7500-8dfd-8a84995de0f7"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 28,
+              "reasoning": 16,
+              "settings": 1,
+              "tool_call": 4,
+              "tool_result": 4,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 5,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05ceb-1836-7e32-a3ba-e75a87312c70"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 7,
+              "item_completed": 143,
+              "reasoning": 70,
+              "settings": 1,
+              "tool_call": 67,
+              "tool_result": 67,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 68,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05cef-befd-7050-baf5-c953fa549ee9"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 29,
+              "compaction": 1,
+              "item_completed": 337,
+              "reasoning": 182,
+              "settings": 1,
+              "tool_call": 164,
+              "tool_result": 164,
+              "turn_completed": 1,
+              "turn_context": 2,
+              "turn_started": 1,
+              "usage": 166,
+              "user_message": 2,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05d07-adf9-70f0-a27a-7e6108b1655b"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 19,
+              "item_completed": 148,
+              "reasoning": 80,
+              "settings": 1,
+              "tool_call": 75,
+              "tool_result": 75,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 77,
+              "user_message": 2
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05d48-f641-7d53-932b-b98103dd6dcb"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "item_completed": 41,
+              "reasoning": 20,
+              "settings": 1,
+              "tool_call": 16,
+              "tool_result": 16,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 17,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05d66-74ec-7710-b51d-bdffc0905b72"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 9,
+              "item_completed": 121,
+              "reasoning": 65,
+              "settings": 1,
+              "tool_call": 51,
+              "tool_result": 51,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 52,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05d76-3a50-74f0-94da-6cd247183543"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 13,
+              "item_completed": 201,
+              "reasoning": 109,
+              "settings": 1,
+              "tool_call": 79,
+              "tool_result": 79,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 80,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05d95-349b-7b33-b226-b652d35f4309"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 5,
+              "compaction": 1,
+              "item_completed": 130,
+              "reasoning": 71,
+              "settings": 1,
+              "tool_call": 56,
+              "tool_result": 56,
+              "turn_completed": 1,
+              "turn_context": 2,
+              "turn_started": 1,
+              "usage": 58,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05db5-5c01-78b0-9b8f-9b5750a91384"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 4,
+              "item_completed": 79,
+              "reasoning": 50,
+              "settings": 1,
+              "tool_call": 27,
+              "tool_result": 27,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 28,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05dcd-793b-7131-9943-deab8114ef53"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 4,
+              "item_completed": 103,
+              "reasoning": 56,
+              "settings": 1,
+              "tool_call": 47,
+              "tool_result": 47,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 49,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05dde-abe8-7842-ae9a-92bd935b8d89"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 11,
+              "reasoning": 6,
+              "settings": 1,
+              "tool_call": 2,
+              "tool_result": 2,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 3,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05df1-661d-7d80-a089-313e6030388d"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 66,
+              "reasoning": 34,
+              "settings": 8,
+              "tool_call": 31,
+              "tool_result": 31,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 33,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a05dfb-271e-7ce1-95f8-0bfd2ab9cb87"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 5,
+              "developer_prompt": 4,
+              "instruction_context": 1,
+              "item_completed": 41,
+              "reasoning": 14,
+              "settings": 1,
+              "token_usage_record": 17,
+              "tool_call": 16,
+              "tool_result": 16,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 17,
+              "user_message": 2,
+              "world_state": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a0868c-4c72-7f90-8680-bec6229d1949"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 1,
+              "developer_prompt": 1,
+              "item_completed": 3,
+              "token_usage_record": 1,
+              "tool_call": 1,
+              "tool_result": 1,
+              "turn_aborted": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 1,
+              "user_message": 1
+            },
+            "session_id": "01a059c1-6322-7f90-a2f9-427cae4b590d",
+            "turn_id": "01a08697-158c-7ca1-bddb-e13b491150f3"
+          }
+        ]
+      },
+      "tree_status": "PASS"
+    },
+    {
+      "reader": "CAP-TRAJ-MULTIHOST:/Users/aurolafly/codex/tools/session_trajectory.py",
+      "source_id": "codex-prime-line",
+      "source_path": "private-audit/local-gpt/rollout-2026-08-31T18-07-48-01a059dd-458c-74f0-b167-8a2ff16307d7.jsonl",
+      "source_sha256": "527b02166c10903d5bd3fba2e438d4ad955eaaac727be8bfa8a32583c52a67e0",
+      "tree": {
+        "host": "codex",
+        "schema_version": "agent-session-trajectory/v1",
+        "sessions": [
+          {
+            "branches": [
+              "01a059dd-458c-74f0-b167-8a2ff16307d7"
+            ],
+            "events": 96,
+            "parents": [],
+            "session_id": "01a059dd-458c-74f0-b167-8a2ff16307d7"
+          }
+        ],
+        "turns": [
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "developer_prompt": 4,
+              "instruction_context": 1,
+              "item_completed": 45,
+              "reasoning": 12,
+              "tool_call": 8,
+              "tool_result": 8,
+              "turn_aborted": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 9,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a059dd-458c-74f0-b167-8a2ff16307d7",
+            "turn_id": "01a059de-65ca-7792-98b6-36143abd1355"
+          }
+        ]
+      },
+      "tree_status": "PASS"
+    },
+    {
+      "reader": "CAP-TRAJ-MULTIHOST:/Users/aurolafly/codex/tools/session_trajectory.py",
+      "source_id": "codex-prime-worktree",
+      "source_path": "private-audit/local-gpt/rollout-2026-08-31T19-03-46-01a05a10-8378-7cc0-a323-6339e03aa3bd.jsonl",
+      "source_sha256": "af7a24df1480489bfba36de56e21a22a2e18dfd027c5cde8c24d0674994b0a90",
+      "tree": {
+        "host": "codex",
+        "schema_version": "agent-session-trajectory/v1",
+        "sessions": [
+          {
+            "branches": [
+              "01a05a10-8378-7cc0-a323-6339e03aa3bd"
+            ],
+            "events": 2972,
+            "parents": [],
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd"
+          }
+        ],
+        "turns": [
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "developer_prompt": 3,
+              "instruction_context": 1,
+              "item_completed": 10,
+              "reasoning": 4,
+              "settings": 1,
+              "tool_call": 3,
+              "tool_result": 3,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 4,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd",
+            "turn_id": "01a05a10-84d8-7ef2-a242-792d9f48cdeb"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 9,
+              "item_completed": 165,
+              "reasoning": 84,
+              "settings": 1,
+              "tool_call": 55,
+              "tool_result": 55,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 56,
+              "user_message": 1
+            },
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd",
+            "turn_id": "01a05a14-39a5-7690-ab7e-42eb105590ec"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 5,
+              "goal": 1,
+              "item_completed": 99,
+              "reasoning": 56,
+              "tool_call": 36,
+              "tool_result": 36,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 37,
+              "user_message": 1
+            },
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd",
+            "turn_id": "01a05a3a-44a1-7b31-9faf-ccd068196fdf"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 34,
+              "item_completed": 316,
+              "reasoning": 171,
+              "tool_call": 132,
+              "tool_result": 132,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 133,
+              "user_message": 1
+            },
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd",
+            "turn_id": "01a05a4b-b623-7b12-bdde-a20f1ae168d3"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 22,
+              "compaction": 1,
+              "item_completed": 311,
+              "reasoning": 176,
+              "tool_call": 138,
+              "tool_result": 138,
+              "turn_completed": 1,
+              "turn_context": 2,
+              "turn_started": 1,
+              "usage": 141,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd",
+            "turn_id": "01a05a7f-e614-7c70-b0b6-5a11ade86dd6"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 10,
+              "item_completed": 125,
+              "reasoning": 63,
+              "tool_call": 58,
+              "tool_result": 58,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 59,
+              "user_message": 1
+            },
+            "session_id": "01a05a10-8378-7cc0-a323-6339e03aa3bd",
+            "turn_id": "01a05ab3-ceec-7ee0-830d-dcc915d38af2"
+          }
+        ]
+      },
+      "tree_status": "PASS"
+    },
+    {
+      "reader": "CAP-TRAJ-MULTIHOST:/Users/aurolafly/codex/tools/session_trajectory.py",
+      "source_id": "codex-hott2-root",
+      "source_path": "private-audit/local-gpt/rollout-2026-09-09T10-37-05-01a08699-dbe0-7ad2-b1d1-c4fd36321a35.jsonl",
+      "source_sha256": "7b3812712de6aca2172e145082c10fe463c0d8f8c0786b7e23df01840a26e79a",
+      "tree": {
+        "host": "codex",
+        "schema_version": "agent-session-trajectory/v1",
+        "sessions": [
+          {
+            "branches": [
+              "01a08699-dbe0-7ad2-b1d1-c4fd36321a35"
+            ],
+            "events": 21,
+            "parents": [
+              "01a059c1-6322-7f90-a2f9-427cae4b590d"
+            ],
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35"
+          }
+        ],
+        "turns": [
+          {
+            "event_counts": {
+              "compaction": 1,
+              "item_completed": 1,
+              "settings": 2,
+              "token_usage_record": 1,
+              "turn_completed": 1,
+              "turn_started": 1,
+              "usage": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a08699-f6a8-7081-880b-7e69f1a604c0"
+          },
+          {
+            "event_counts": {
+              "developer_prompt": 4,
+              "instruction_context": 1,
+              "item_completed": 1,
+              "turn_aborted": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a0869c-63b7-79b0-b8bb-2567299d628b"
+          }
+        ]
+      },
+      "tree_status": "PASS"
+    },
+    {
+      "reader": "CAP-TRAJ-MULTIHOST:/Users/aurolafly/codex/tools/session_trajectory.py",
+      "source_id": "codex-hott2-main",
+      "source_path": "private-audit/local-gpt/rollout-2026-09-09T10-43-44-01a08699-dbe0-7ad2-b1d1-c4fd36321a35_01a0869f-f467-7bc2-81d4-abf91cf20739.jsonl",
+      "source_sha256": "2e0fef446f5eb58d7c843fc9e8cd852834e5c771ec68c589e737a457a2489f51",
+      "tree": {
+        "host": "codex",
+        "schema_version": "agent-session-trajectory/v1",
+        "sessions": [
+          {
+            "branches": [
+              "01a08699-dbe0-7ad2-b1d1-c4fd36321a35"
+            ],
+            "events": 1010,
+            "parents": [
+              "01a059c1-6322-7f90-a2f9-427cae4b590d"
+            ],
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35"
+          }
+        ],
+        "turns": [
+          {
+            "event_counts": {
+              "assistant_message": 6,
+              "developer_prompt": 3,
+              "instruction_context": 1,
+              "item_completed": 55,
+              "reasoning": 11,
+              "settings": 1,
+              "token_usage_record": 18,
+              "tool_call": 17,
+              "tool_result": 17,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 18,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a0869f-f57e-7673-96e6-6000979b2a13"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 6,
+              "item_completed": 111,
+              "reasoning": 24,
+              "settings": 1,
+              "token_usage_record": 27,
+              "tool_call": 26,
+              "tool_result": 26,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 27,
+              "user_message": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086a9-22d4-7e31-99dd-f26dcf79c41f"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 11,
+              "reasoning": 3,
+              "settings": 1,
+              "token_usage_record": 3,
+              "tool_call": 2,
+              "tool_result": 2,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 3,
+              "user_message": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086c3-b457-7990-bc5f-dc71d4aa5ac8"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "item_completed": 27,
+              "reasoning": 8,
+              "settings": 3,
+              "token_usage_record": 10,
+              "tool_call": 9,
+              "tool_result": 9,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 10,
+              "user_message": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086cd-02ff-7141-b0d5-7340b18d1a07"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "developer_prompt": 1,
+              "item_completed": 8,
+              "reasoning": 2,
+              "settings": 1,
+              "token_usage_record": 2,
+              "tool_call": 1,
+              "tool_result": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 2,
+              "user_message": 1,
+              "world_state": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086d7-193e-7ca3-8f2e-bc85967323ab"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 2,
+              "item_completed": 7,
+              "reasoning": 2,
+              "settings": 1,
+              "token_usage_record": 2,
+              "tool_call": 1,
+              "tool_result": 1,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 2,
+              "user_message": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086d9-4465-7dd2-9f0e-f626f8dc392d"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 4,
+              "item_completed": 46,
+              "reasoning": 12,
+              "settings": 1,
+              "token_usage_record": 13,
+              "tool_call": 12,
+              "tool_result": 12,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 13,
+              "user_message": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086da-97b6-7ae0-a045-eeb164d91e81"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 3,
+              "item_completed": 26,
+              "reasoning": 6,
+              "settings": 1,
+              "token_usage_record": 8,
+              "tool_call": 7,
+              "tool_result": 7,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 8,
+              "user_message": 1
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086e5-68fe-73a1-9225-f9f34bf171b8"
+          },
+          {
+            "event_counts": {
+              "assistant_message": 6,
+              "item_completed": 90,
+              "reasoning": 30,
+              "token_usage_record": 31,
+              "tool_call": 31,
+              "tool_result": 31,
+              "turn_completed": 1,
+              "turn_context": 1,
+              "turn_started": 1,
+              "usage": 32,
+              "user_message": 2
+            },
+            "session_id": "01a08699-dbe0-7ad2-b1d1-c4fd36321a35",
+            "turn_id": "01a086e9-e7c1-7eb3-bcb6-6a626c2c6e9a"
+          }
+        ]
+      },
+      "tree_status": "PASS"
+    }
+  ],
+  "visibility_policy": {
+    "gemini_drive_document": "body unavailable remains in user-message disposition",
+    "gemini_inline_file": "base64 decoded to UTF-8 where possible; not classified empty",
+    "gemini_thought": "exported thought field retained as source-visible record, not public answer/proof",
+    "local_gpt_assistant": "full visible text requested through canonical inspect; raw tool output remains locator-backed and bounded",
+    "local_gpt_reasoning": "not included; hidden reasoning is not inferred",
+    "webgpt": "exported visible Prompt/Response sections retained"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "core-cognition/v1",
+  "title": "Chronological user core cognition ledger",
+  "type": "object",
+  "required": ["schema_version", "generation", "build_policy", "files", "message_disposition", "counts", "units", "core_document_sha256"],
+  "properties": {
+    "schema_version": {"const": "core-cognition/v1"},
+    "generation": {"type": "string", "pattern": "^core-cognition-generation-[0-9]+$"},
+    "core_document_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "build_policy": {"type": "object"},
+    "files": {"type": "array", "items": {"$ref": "#/$defs/file"}},
+    "message_disposition": {"type": "array", "items": {"$ref": "#/$defs/message"}},
+    "counts": {"type": "object", "required": ["messages_parsed", "core_units"]},
+    "units": {"type": "array", "items": {"$ref": "#/$defs/unit"}}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "file": {
+      "type": "object",
+      "required": ["path", "platform", "input_role", "sha256", "bytes", "message_count_parsed"],
+      "properties": {
+        "path": {"type": "string"}, "platform": {"type": "string"}, "input_role": {"enum": ["primary", "supplemental"]},
+        "sha256": {"$ref": "#/$defs/hash"}, "bytes": {"type": "integer", "minimum": 0}, "message_count_parsed": {"type": "integer", "minimum": 0}
+      }
+    },
+    "message": {
+      "type": "object",
+      "required": ["source_message_id", "platform", "source_file", "source_file_sha256", "source_message_ordinal", "timestamp_utc", "message_text_sha256", "disposition", "unit_count"],
+      "properties": {
+        "source_message_id": {"type": "string"}, "platform": {"type": "string"}, "input_role": {"type": "string"}, "source_file": {"type": "string"},
+        "source_file_sha256": {"$ref": "#/$defs/hash"}, "source_message_ordinal": {"type": "integer", "minimum": 1}, "timestamp_utc": {"type": "string"},
+        "message_text_sha256": {"$ref": "#/$defs/hash"}, "disposition": {"type": "string"}, "unit_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "unit": {
+      "type": "object",
+      "required": ["id", "source_message_id", "platform", "timestamp_original", "timestamp_utc", "source_file", "source_locator", "source_sha256", "unit_sha256", "author_class", "themes", "lifecycle", "relations"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^KC-[0-9]{6}$"}, "source_message_id": {"type": "string"}, "platform": {"type": "string"},
+        "timestamp_original": {"type": "string"}, "timestamp_utc": {"type": "string"}, "source_file": {"type": "string"}, "source_locator": {"type": "string"},
+        "source_sha256": {"$ref": "#/$defs/hash"}, "source_message_sha256": {"$ref": "#/$defs/hash"}, "unit_sha256": {"$ref": "#/$defs/hash"},
+        "unit_bytes": {"type": "integer", "minimum": 1}, "author_class": {"enum": ["USER_OWNED", "USER_RELAYED_CONTEXT"]}, "themes": {"type": "array", "items": {"type": "string"}},
+        "lifecycle": {"type": "string"}, "relations": {"type": "array", "items": {"type": "object"}}
+      }
+    }
+  }
+}

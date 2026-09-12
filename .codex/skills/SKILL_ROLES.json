@@ -1,0 +1,18 @@
+{
+  "schema_version": "hott-skill-roles/v2",
+  "version": "2.0.0",
+  "roles": {
+    "governance": {
+      "name": "hott-local-session-governance",
+      "path": ".codex/skills/hott-local-session-governance/SKILL.md"
+    },
+    "business": {
+      "name": "hott-paradox-research",
+      "path": ".codex/skills/hott-paradox-research/SKILL.md"
+    }
+  },
+  "entry": "AGENTS.md",
+  "automatic_host_discovery": "NOT_ASSUMED; root entry routes the two roles",
+  "same_invocation": "Governance and business form one invocation; internal routing is not recursive restart",
+  "source_reference": "WebGPT historical design is preserved under sources/webgpt/workspace-snapshot/.codex"
+}

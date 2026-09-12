@@ -1,5 +1,7 @@
 # B4 Gemini 工作史（2026-09-10 14:50 → 09-11 09:30）
 
+> **历史 transform 状态**：本章的 24 ordinary text、17/17 code/result、21 thought 和原沙箱出处判断由当前 `audit/gemini-*.jsonl` 逐 chunk 账本补证；其中两个 inlineFile 不再按旧文字“empty”处理。
+
 > 锚点系：R:G{chunk}（24 条实质文本，原始 json chunk 索引可回源）＋17 code/17 execresult/21 thought。仅有对话录，无 git/落盘——且**沙箱自述不可信**（见 §三）。
 
 ## 一、24 条实质 chunk 逐段登记（时序弧线）

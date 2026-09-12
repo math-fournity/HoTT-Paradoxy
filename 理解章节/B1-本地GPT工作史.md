@@ -1,5 +1,7 @@
 # B1 本地 GPT 工作史（2026-08-31 → 09-09：GPT-6 Astra @ ChatGPT App）
 
+> **历史 transform 状态**：本章保存 LocalGPT 的研究叙事和旧批次精读；当前 38-turn/220 visible assistant/1143 主线 tool-pair 分母与辅助 raw 分支由 [`C0-当前整合审计与证据边界-20260912.md`](C0-当前整合审计与证据边界-20260912.md) 和 `audit/` ledger owner。`F/M` 读态不是模型理解认证。
+
 > 锚点系：E 轴（ALL-Markdown MEMORY 事件）、T 轴（trajectory 工具调用）、G:ALL（git）、C-T 轮次。本 era 的 AI 回复全文在《Codex-HoTT-2-完整38轮-用户与AI》中带源行号可回源（父线程 186 条 agentMessage + HoTT-2 主 34 条，`R:C-T{n}-L{行}`）。
 
 ## 一、它建造了什么（产物总账）

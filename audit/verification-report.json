@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "primary and supplemental user-message denominators",
+    "LocalGPT parent/main visible response count and full inspect availability",
+    "LocalGPT tool call/result count and bidirectional call_id pairing",
+    "WebGPT 56 prompt + 55 response + 111 section count",
+    "Gemini 21 thought + 17 executableCode + 17 codeExecutionResult + 2 inlineFile",
+    "unique IDs, nonempty claims, source manifest and core generation boundary"
+  ],
+  "counts": {
+    "claims": 2397,
+    "gemini_execution": {
+      "codeExecutionResult": 17,
+      "executableCode": 17,
+      "inlineFile": 2
+    },
+    "gemini_thoughts": 21,
+    "local_primary_responses": 220,
+    "responses": 384,
+    "tool_events": 3146,
+    "user_messages": 125,
+    "webgpt_sections": 111,
+    "work_products": 16209
+  },
+  "schema_version": "history-ledger-verification/v1",
+  "scope": "Structural/provenance verification only; no mathematical truth or model understanding certification",
+  "source_summary": "audit/ledger-summary.json",
+  "status": "PASS"
+}
