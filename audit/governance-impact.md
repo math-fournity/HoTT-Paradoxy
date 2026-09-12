@@ -18,7 +18,7 @@
 | C06 | `UPDATE` | 新建 core extraction、source/hash/locator、逐 ID audit、stale/missing/truncation/recovery 验证；本轮新增三件套顺序/孤儿链接正负测试；fresh Session 理解验收在后续单独执行。 |
 | C07 | `NO_CHANGE` | 不改 `~/.codex` 配置、Rules、Hooks、Plugins、凭据或 host 权限；本 repo 内的 `.codex` 文件不改变 host runtime 本身。 |
 | C08 | `NO_CHANGE` | 不改 OpenCode、BrowserOS、Devin、ZCode 等产品专属主库或 host adapter。 |
-| C09 | `UPDATE` | 顶层新 Git 历史、精确提交、版本/回滚和 clean-clone 收据属于本 repo；本轮治理 checkpoint 已由 STATE revision 4→7 逐次封存，后续需精确 commit；不打共享 `governance-v*` tag，不 push。 |
+| C09 | `UPDATE` | 顶层新 Git 历史、精确提交、版本/回滚和 clean-clone 收据属于本 repo；本轮治理 checkpoint 已由 STATE revision 4→9 逐次封存，后续需精确 commit；不打共享 `governance-v*` tag，不 push。 |
 | C10 | `UPDATE` | 保存 LocalGPT/WebGPT/Gemini/理解章节的历史身份、removed `aistudio-docs` 边界、dirty/untracked provenance、旧版本冲突和残余未知；本轮额外保留 projection 容量修复和孤儿引用失败证据。 |
 
 影响组 remainder：`0`。
