@@ -1,0 +1,29 @@
+# The top-level repo is the integrated workspace. The two existing nested repos
+# remain physical source islands and are represented by snapshots/provenance.
+AI对话录/
+workspace/
+
+# Host/runtime and operating-system artifacts.
+.DS_Store
+__pycache__/
+*.py[cod]
+*.agdai
+
+# Private raw trajectory/context material. Public visible evidence belongs under
+# sources/ and audit/ with explicit provenance; do not commit hidden reasoning.
+private-audit/
+sources/private-trajectory/
+*.secret
+*.pem
+
+# Temporary generated output and local virtual environments.
+.venv/
+venv/
+tmp/
+*.tmp
+*.partial
+
+# Generated export boxes are kept outside the Git tree unless explicitly
+# accepted as a source artifact.
+exchange/outbox/*.zip
+exchange/outbox/*.receipt.json
