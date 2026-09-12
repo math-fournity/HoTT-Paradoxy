@@ -17,7 +17,7 @@ import re
 import sys
 import uuid
 
-VERSION = '2.0.0'
+VERSION = '2.1.0'
 PREFIX = '.codex/research/hott/'
 CONFIG = '.codex/cognition/LOAD_SET.json'
 STATE = PREFIX + 'STATE.json'
@@ -29,9 +29,12 @@ GOVERNANCE_SKILL = '.codex/skills/hott-local-session-governance/SKILL.md'
 ROLES = '.codex/skills/SKILL_ROLES.json'
 OPEN_STATUSES = frozenset(('open','active','pending','blocked','in_progress','review_required'))
 CLOSURE = '核心认知.md'
+DIRECTION = '方向追踪.md'
+PANORAMA = '全景视野.md'
 QUESTIONS = 'HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md'
 CLOSURE_ID = 'core-cognition-generation-1'
-MUTABLE = ('MEMORY.md', PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
+THREE_WAY = (CLOSURE, DIRECTION, PANORAMA)
+MUTABLE = ('MEMORY.md', DIRECTION, PANORAMA, PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
 REQUIRED = (CLOSURE, QUESTIONS, 'AGENTS.md', 'README.md', 'MEMORY.md', 'feature-list.md', 'rulings.md',
             '核心认知.manifest.json', SKILL, GOVERNANCE_SKILL, ROLES, CONFIG, STATE,
             '.codex/skills/hott-paradox-research/references/top-level-repo-adaptation.md',
@@ -44,7 +47,8 @@ REQUIRED = (CLOSURE, QUESTIONS, 'AGENTS.md', 'README.md', 'MEMORY.md', 'feature-
             'audit/coverage-summary.json', 'audit/README.md', 'audit/LEDGER_SCHEMA.md', 'audit/ledger-summary.json', 'audit/verification-report.json',
             'audit/external-validation-20260912.json',
             'sources/SOURCE_MANIFEST.json', 'sources/README.md', '.codex/tools/cognition_runtime.py', 'scripts/audit/README.md',
-            'scripts/audit/verify_core_cognition.py', 'scripts/audit/verify_history_ledgers.py')
+            'scripts/audit/verify_core_cognition.py', 'scripts/audit/verify_history_ledgers.py', DIRECTION, PANORAMA,
+            'scripts/audit/verify_three_way_cognition.py')
 ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,100}$')
 
 class CognitionError(RuntimeError):
@@ -140,8 +144,10 @@ def graph(config, state, get):
     if config.get('schema_version') not in ('cognition-load-set/v1', 'cognition-load-set/v2'):raise CognitionError('CONFIG_SCHEMA')
     fixed=config.get('fixed_full_text')
     if not isinstance(fixed,list) or any(not isinstance(x,str) for x in fixed) or len(set(fixed))!=len(fixed):raise CognitionError('FIXED_LIST_INVALID')
-    if fixed[:2]!=[CLOSURE,QUESTIONS] or not set(REQUIRED)<=set(fixed):
+    if fixed[:3]!=list(THREE_WAY) or not set(REQUIRED)<=set(fixed):
         raise CognitionError('REQUIRED_COGNITION_REMOVED_OR_REORDERED')
+    if config.get('three_way_order') != list(THREE_WAY):
+        raise CognitionError('THREE_WAY_ORDER_INVALID')
     if config.get('dynamic_state')!=STATE:raise CognitionError('STATE_PATH_CHANGED')
     validate_roles(get)
     if state.get('schema_version')!='hott-working-state/v1' or type(state.get('revision')) is not int or state['revision']<1:
@@ -192,6 +198,9 @@ def graph(config, state, get):
     for p in ordered:text(get(p),p)
     if CLOSURE_ID not in '\n'.join(text(get(CLOSURE),CLOSURE).splitlines()[:12]):
         raise CognitionError('WRONG_CLOSURE_ID')
+    for projection, marker in ((DIRECTION, 'integrated-direction-portfolio:v1'), (PANORAMA, 'integrated-outcome-panorama:v1')):
+        if marker not in text(get(projection), projection):
+            raise CognitionError('PROJECTION_MARKER_MISSING: '+projection)
     return ordered,selected,sorted(stale)
 
 def plan(project_root=None, *, _allow_busy=False):
@@ -226,7 +235,9 @@ def plan(project_root=None, *, _allow_busy=False):
             'automatically_included_open_records':[k for k,r in state['records'].items() if is_open(r)],
             'review_required':stale,'total_bytes':sum(x['bytes'] for x in entries),
             'total_lines':sum(x['lines'] for x in entries),'model_context':'NOT_CERTIFIED_BY_TOOL',
-            'policy':'NEW_FULL_READ_EVERY_INVOCATION_AND_AFTER_COMPACTION'}
+            'policy':'NEW_FULL_READ_EVERY_INVOCATION_AND_AFTER_COMPACTION',
+            'three_way_documents':list(THREE_WAY),
+            'projection_status':config.get('projection_status','UNDECLARED')}
 
 def read_chunk(project_root, snapshot, path, start_line=1, max_bytes=10000):
     root=root_path(project_root);p=plan(root)

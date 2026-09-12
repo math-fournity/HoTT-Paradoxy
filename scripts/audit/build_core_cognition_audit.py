@@ -2,10 +2,10 @@
 """Create a full per-KC end-of-session assessment for a named session.
 
 The generated assessment is intentionally conservative.  It does not use
-semantic similarity to claim that a mathematical insight was proved.  For the
-current integration session it marks governance/evidence/continuity KC units
-as deepened because concrete audit assets were created, and marks all other
-units as not touched by new mathematical reasoning.
+semantic similarity to claim that a mathematical insight was proved.
+Governance, evidence and continuity units are marked deepened when the named
+session has created concrete audit assets; all other units remain not touched
+by new mathematical reasoning.
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ def main() -> int:
     lines = [
         f"# 核心认知逐编号回评：{args.session_id}",
         "",
-        "> 本回评针对本次“顶层 repo 初始化、来源固化、核心账本生成、历史 ledger 和本地治理搭建”工作单元。它不是数学证明，也不以关键词命中认证 AI 理解。",
+        f"> 本回评针对命名为 `{args.session_id}` 的具体工作单元；具体动作和证据见同目录 `SESSION.md`。它不是数学证明，也不以关键词命中认证 AI 理解。",
         f"> 生成时间：{datetime.now(timezone.utc).isoformat()}；输入 generation：`{manifest.get('generation')}`；KC 总数：`{len(units)}`。",
         "",
         "## 判定枚举",

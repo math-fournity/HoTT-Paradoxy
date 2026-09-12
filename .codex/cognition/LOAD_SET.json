@@ -1,9 +1,11 @@
 {
   "schema_version": "cognition-load-set/v2",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "policy": "EVERY_INVOCATION_FULL_TEXT_CORE_PLUS_DYNAMIC_STATE",
   "fixed_full_text": [
     "核心认知.md",
+    "方向追踪.md",
+    "全景视野.md",
     "HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md",
     "AGENTS.md",
     "README.md",
@@ -47,11 +49,14 @@
     ".codex/tools/cognition_runtime.py",
     "scripts/audit/README.md",
     "scripts/audit/verify_core_cognition.py",
-    "scripts/audit/verify_history_ledgers.py"
+    "scripts/audit/verify_history_ledgers.py",
+    "scripts/audit/verify_three_way_cognition.py"
   ],
   "dynamic_state": ".codex/research/hott/STATE.json",
   "auto_open_statuses": ["open", "active", "pending", "blocked", "in_progress", "review_required"],
   "model_context_certification": "NOT_PROVIDED_BY_TOOLS",
   "source_removal_policy": "USER_REMOVED_PATHS_REMAIN_EXPLICIT_AND_UNPROVEN",
-  "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research"
+  "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research",
+  "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
+  "projection_status": "INITIAL_INTEGRATED_PROJECTION_SEMANTIC_RECONCILIATION_PENDING"
 }

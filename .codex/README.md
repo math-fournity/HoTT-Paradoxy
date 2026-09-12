@@ -7,6 +7,8 @@
 | `skills/hott-paradox-research/SKILL.md` | HoTT 悖论研究业务方法和证据边界 |
 | `cognition/LOAD_SET.json` | 固定全文入口和动态状态路由 |
 | `cognition/PROTOCOL.md` | 可执行的读入、写回、checkpoint 和失败合同 |
+| `../方向追踪.md` | 跨 LocalGPT/WebGPT 的当前研究方向组合与下一判别动作 |
+| `../全景视野.md` | 跨 LocalGPT/WebGPT 的结果、正反例、失败、未知和证据边界投影 |
 | `research/hott/STATE.json` | 当前状态、开放依赖和 session 路由唯一机器 owner |
 | `tools/cognition_runtime.py` | 相对路径、snapshot、完整读出、乐观 checkpoint 的机械实现 |
 | `verification/` | 本地治理和历史覆盖验证结果 |

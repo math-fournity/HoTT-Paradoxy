@@ -23,13 +23,16 @@ class RuntimeTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(prefix='hott-cognition-test-')
         self.root=Path(self.tmp.name)
-        fixed=[c.CLOSURE,c.QUESTIONS]+[x for x in c.REQUIRED if x not in (c.CLOSURE,c.QUESTIONS)]
+        fixed=list(c.THREE_WAY)+[c.QUESTIONS]+[x for x in c.REQUIRED if x not in (*c.THREE_WAY,c.QUESTIONS)]
         for rel in fixed:self.put(rel,'TEST FIXTURE ONLY\n'+rel+'\n')
         self.put(c.SKILL,'---\nname: hott-paradox-research\n---\nBusiness test fixture.\n')
-        self.put(c.GOVERNANCE_SKILL,'---\nname: hott-session-governance\n---\nGovernance test fixture.\n')
-        self.put(c.ROLES,c.dump({'schema_version':'hott-skill-roles/v1','roles':{'business':{'name':'hott-paradox-research','path':c.SKILL},'governance':{'name':'hott-session-governance','path':c.GOVERNANCE_SKILL}}}))
+        self.put(c.GOVERNANCE_SKILL,'---\nname: hott-local-session-governance\n---\nGovernance test fixture.\n')
+        self.put(c.ROLES,c.dump({'schema_version':'hott-skill-roles/v1','roles':{'business':{'name':'hott-paradox-research','path':c.SKILL},'governance':{'name':'hott-local-session-governance','path':c.GOVERNANCE_SKILL}}}))
         self.put(c.CLOSURE,'# TEST FIXTURE ONLY\n'+c.CLOSURE_ID+'\n甲\n乙\n丙\n')
-        config={'schema_version':'cognition-load-set/v1','fixed_full_text':fixed,'dynamic_state':c.STATE}
+        self.put(c.DIRECTION,'<!-- integrated-direction-portfolio:v1\nsource_state_revision: 1\n-->\n')
+        self.put(c.PANORAMA,'<!-- integrated-outcome-panorama:v1\nsource_state_revision: 1\n-->\n')
+        config={'schema_version':'cognition-load-set/v2','fixed_full_text':fixed,'dynamic_state':c.STATE,
+                'three_way_order':list(c.THREE_WAY)}
         self.put(c.CONFIG,c.dump(config))
         state={'schema_version':'hott-working-state/v1','revision':1,'latest_session':'S0',
                'active':[],'review_due':[],'unresolved':[],
@@ -87,7 +90,7 @@ class RuntimeTests(unittest.TestCase):
                 'full_sources':[],'source_hashes':{'sources/lemma.md':c.sha((self.root/'sources/lemma.md').read_bytes())} if key=='A' else {}}
         state['active']=['B'];self.set_state(state)
     def test_initial_plan_and_order(self):
-        p=self.plan();self.assertEqual([x['path'] for x in p['documents'][:2]],[c.CLOSURE,c.QUESTIONS])
+        p=self.plan();self.assertEqual([x['path'] for x in p['documents'][:3]],list(c.THREE_WAY))
         self.assertIn('S0',p['dynamic_records']);self.assertEqual(p['model_context'],'NOT_CERTIFIED_BY_TOOL')
     def test_complete_chunk_coverage(self):
         p=self.plan();chunks=[]

@@ -20,12 +20,23 @@ class FullClosureLoadingTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix="closure-loading-test-")
         self.root = Path(self.temp.name)
         self.path = self.root / REL
-        self.path.parent.mkdir(parents=True)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
         self.raw = ACTUAL.read_bytes()
         self.path.write_bytes(self.raw)
 
     def tearDown(self):
         self.temp.cleanup()
+
+    def read_all(self):
+        start, expected, pieces = 1, None, []
+        while True:
+            part = read_chunk(self.root, start_line=start, max_bytes=131072,
+                              expected_sha256=expected)
+            expected = part["file_sha256"]
+            pieces.append(part)
+            if part["file_eof"]:
+                return part, b"".join(p["text"].encode("utf-8") for p in pieces)
+            start = part["next_start_line"]
 
     def test_01_default_path_resolves_from_script(self):
         self.assertEqual(infer_root(), PROJECT_ROOT)
@@ -82,7 +93,7 @@ class FullClosureLoadingTests(unittest.TestCase):
 
     def test_08_wrong_closure_id_is_rejected(self):
         self.path.write_text("# Not the selected closure\n",encoding="utf-8")
-        with self.assertRaisesRegex(ReadError,"Closure ID"):
+        with self.assertRaisesRegex(ReadError,"core generation ID"):
             read_chunk(self.root)
 
     def test_09_oversized_line_is_not_sliced(self):
@@ -95,16 +106,16 @@ class FullClosureLoadingTests(unittest.TestCase):
             read_chunk(self.root)
 
     def test_11_eof_is_not_model_context_certificate(self):
-        p=read_chunk(self.root,max_bytes=131072)
+        p, body=self.read_all()
         self.assertTrue(p["file_eof"])
         self.assertEqual(p["model_context_completeness"],"NOT_CERTIFIED_BY_READER")
-        self.assertEqual(p["text"].encode(),self.raw)
+        self.assertEqual(body,self.raw)
 
     def test_12_file_growth_has_no_fixed_2115_limit(self):
         self.path.write_bytes(self.raw+b"\nAFTER THE OLD END\n")
-        p=read_chunk(self.root,max_bytes=131072)
+        p, body=self.read_all()
         self.assertTrue(p["file_eof"])
-        self.assertIn("AFTER THE OLD END",p["text"])
+        self.assertIn("AFTER THE OLD END",body.decode("utf-8"))
         self.assertGreater(p["end_line"],2115)
 
     def test_13_invalid_start_range_is_rejected(self):
@@ -130,8 +141,8 @@ class FullClosureLoadingTests(unittest.TestCase):
     def test_16_main_gate_precedes_research(self):
         text=(SKILL_ROOT/"SKILL.md").read_text(encoding="utf-8")
         self.assertLess(text.index("## -1."),text.index("## 0."))
-        for term in ("EVERY_INVOCATION_FULL_TEXT_NO_CACHE",REL,"上下文压缩",
-                     "第1行","BLOCKED_FULL_CLOSURE_LOAD","当前模型上下文"):
+        for term in ("EVERY_INVOCATION_FULL_TEXT_PLUS_DYNAMIC_STATE",REL,"上下文压缩",
+                     "第1行","BLOCKED_FULL_COGNITION","当前模型上下文"):
             self.assertIn(term,text)
         self.assertNotIn("再核最新第五闭包 §7/§14/§19",text)
         self.assertNotIn("已读且未变化的来源可复用可回查记录，不每轮重新阅读全文",text)

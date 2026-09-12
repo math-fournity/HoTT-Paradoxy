@@ -12,8 +12,8 @@ import json
 from pathlib import Path
 import sys
 
-CLOSURE_RELATIVE_PATH = "认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md"
-CLOSURE_ID = "CC-20260901-z-law-final-temporal-negation-naive-set-hott"
+CLOSURE_RELATIVE_PATH = "核心认知.md"
+CLOSURE_ID = "core-cognition-generation-1"
 
 class ClosureReadError(RuntimeError):
     """No partial/summary fallback is permitted."""
@@ -72,8 +72,8 @@ def read_chunk(
         raise ClosureReadError("Closure is not valid UTF-8; no replacement/summary allowed.") from exc
     if not text.strip():
         raise ClosureReadError("Closure file is empty.")
-    if f"Closure ID：`{CLOSURE_ID}`" not in "\n".join(text.splitlines()[:12]):
-        raise ClosureReadError("The file at the designated path has a different Closure ID.")
+    if CLOSURE_ID not in "\n".join(text.splitlines()[:12]):
+        raise ClosureReadError("The file at the designated path has a different core generation ID.")
 
     lines = text.splitlines(keepends=True)
     if start_line > len(lines):

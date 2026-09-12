@@ -1,6 +1,6 @@
 # 当前回源与历史登记
 
-本版v1.2.0已从两个用户ZIP恢复完整可用目录，当前根为 `/mnt/data/ALL-Markdown-snapshot`。实际数量与来源见 `.codex/verification/governance-v1.2.0/restoration.json`。不存在的.git不伪造；原主机权限不继承。
+本版本地治理以顶层 `/Volumes/D/HoTT_AI_HANDOFF_20260911` 为当前根；WebGPT workspace 和 `/Volumes/D/ALL-Markdown` 是只读历史/来源边界，原主机权限不继承。
 
 每次启动依据 `.codex/cognition/LOAD_SET.json` 与 STATE，必须全文读稳定原文和动态最新记录。旧单文件/14文件读取边界是2026-09-09历史，不是当前目录状态。ROOT MEMORY为当前唯一概况；历史包、旧哈希和此前权限不覆盖新指令。
 
@@ -10,12 +10,11 @@
 
 ## 每次执行的第一个内容读取任务
 
-严格执行 [全文加载协议](full-closure-loading.md)：从已解包项目目录全文加载以下文件，不能只读指定章节或依赖旧记忆：
+当前完整启动器严格执行三件套顺序：先全文加载 `核心认知.md`、`方向追踪.md`、`全景视野.md`，再按 `LOAD_SET/STATE` 读取其它文件；不能只读指定章节或依赖旧记忆。单文件 [分页协议](full-closure-loading.md) 只用于 core compatibility reader：
 
-`认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md`
+`核心认知.md`
 
-当前路径：`/mnt/data/ALL-Markdown-snapshot/认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md`。
-自动定位方法：根据 `SKILL.md` 的真实位置找到项目根，再拼接固定相对路径；不依赖当前shell工作目录，不用旧主机地址。
+当前路径：顶层综合 repo 的 `核心认知.md`。自动定位方法：根据 `SKILL.md`/runtime 的真实位置找到项目根，再拼接固定相对路径；不依赖当前 shell 工作目录，不用旧主机地址。
 
 本次已从 `/mnt/data/Archive.zip` 恢复工作目录 `/mnt/data/ALL-Markdown-snapshot`，实际提取7319个非元数据文件；原ZIP不含此前新增的`.codex`。Skill关键原文从当前对话可见版本恢复，主文件、完整策略和手册的基线哈希均与此前保留值一致，详见安装核验。没有Git目录，不声称当前HEAD、暂存区或dirty已核。
 

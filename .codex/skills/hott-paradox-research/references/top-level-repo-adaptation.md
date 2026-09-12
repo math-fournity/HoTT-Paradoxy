@@ -7,6 +7,8 @@
 | 历史 WebGPT 角色 | 当前顶层 owner |
 |---|---|
 | 第五闭包/用户哲学原文 | `核心认知.md`（每次全文加载） |
+| 跨 AI 研究方向组合 | `方向追踪.md`（每次全文加载；当前投影，非 STATE 替代） |
+| 跨 AI 研究成果全景 | `全景视野.md`（每次全文加载；当前投影，非数学主张矩阵替代） |
 | HoTT 三问 | `HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md` |
 | 跨 Session governance | `.codex/skills/hott-local-session-governance/SKILL.md` |
 | 动态状态 | `.codex/research/hott/STATE.json` |

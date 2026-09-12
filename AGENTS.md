@@ -5,7 +5,7 @@
 ## 当前工作根与来源边界
 
 - 当前工作根必须是本目录的顶层 Git repo。开始前确认 `git rev-parse --show-toplevel` 等于本目录；`AI对话录/` 和 `workspace/` 是磁盘上保留的嵌套历史 repo，已由顶层 `.gitignore` 排除，不是当前工作根。
-- `核心认知.md` 是用户指定的三份提问提取文件的原文整合账本。每次工作开始必须从第一行连续读到 EOF；`核心认知.manifest.json` 只提供哈希、编号、定位和处置索引，不能代替原文。
+- `核心认知.md` 是用户指定的三份提问提取文件的原文整合账本。每次工作开始必须从第一行连续读到 EOF；`核心认知.manifest.json` 只提供哈希、编号、定位和处置索引，不能代替原文。与它共同构成固定前三项的 `方向追踪.md`、`全景视野.md` 也必须全文加载：前者统筹方向，后者组织成果；二者不是 core 的替代品。
 - `理解章节/` 是历史认知闭包及本次 transform 的主要工作成果；它是需要继续审计、修订和分层的当前知识候选，不自动凌驾于底层代码、原始来源和 Git。
 - `sources/` 是来源快照和提取原件区。除非用户明确授权，不在其中改写历史来源；需要修复提取规则时改 `scripts/audit/`，重建派生文件，并保留旧 hash/差异。
 - `/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求已移走且不恢复。`sources/local-gpt/HoTT_is_GONE_COMPLETE.md` 是有 hash 的历史 AI 产物，不是已经证明覆盖原目录的事实；覆盖结论必须标为 `NOT_PROVEN`，不得将旧 validator 的缺源 PASS 当成认证。
@@ -15,8 +15,8 @@
 
 1. 先读本文件、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`，确认当前需求、当前状态、开放问题和来源边界。
 2. 读 `.codex/skills/hott-local-session-governance/SKILL.md`、`.codex/cognition/LOAD_SET.json`、`.codex/cognition/PROTOCOL.md`、`.codex/skills/SKILL_ROLES.json`，再读 `.codex/research/hott/STATE.json` 及其动态依赖。
-3. 全文读取 `核心认知.md`，记录 generation、SHA-256、字节数、行数和实际 EOF；读取不是哈希检查，工具输出也不证明模型理解。
-4. 按任务读取 `理解章节/README.md`、`A0-总目标.md`、`A11-开放问题与悬空接头.md`、`B0-B5` 成果/工作史、`HoTT/` 对应 Theory Schema、代码、测试、运行产物和 Git 历史。索引只负责定位，不能替代决定性证据。
+3. 按 `核心认知.md` → `方向追踪.md` → `全景视野.md` 的固定顺序全文读取三件套，记录各自 generation/版本、SHA-256、字节数、行数和实际 EOF；读取不是哈希检查，工具输出也不证明模型理解。
+4. 按任务读取 `方向追踪.md`、`全景视野.md`、`理解章节/README.md`、`A0-总目标.md`、`A11-开放问题与悬空接头.md`、`B0-B5` 成果/工作史、`HoTT/` 对应 Theory Schema、代码、测试、运行产物和 Git 历史。索引只负责定位，不能替代决定性证据。
 5. 需要历史轨迹时，先使用 `audit/` 的覆盖入口、`sources/SOURCE_MANIFEST.json` 和 canonical reader 的输出，再回到原始文件。不能因“没有看到”断言不存在。
 
 任何必读文件缺失、发生截断、源 hash 改变、Git 状态与记录不一致或无法区分历史/当前事实时，降低结论或进入 `BLOCKED_FULL_CORE_COGNITION`，不要开始数学研究或用摘要补洞。
@@ -32,7 +32,7 @@
 
 ## 写入、Git 与交接
 
-- 新增或修改需求、当前状态、稳定设计、审计账本、验证结果时，按 `.codex` 的唯一 owner 路由写回；不要制造第二份当前真值。
+- 新增或修改需求、当前状态、稳定设计、审计账本、验证结果、研究方向或研究成果投影时，按 `.codex` 的唯一 owner 路由写回；不要制造第二份当前真值。用户原文/工作意识进入 core generation，候选/优先级/下一动作进入 `方向追踪.md` + STATE，结果/证据/失败/未知进入 `全景视野.md` + 底层 evidence owner。
 - `核心认知.md` 的历史原文区由 `scripts/audit/build_core_cognition.py` 生成和校验，不手工润色；新一代用户认知应追加 generation 并保留旧 generation。
 - 每个工作单元结束前，生成 `.codex/research/hott/sessions/<session-id>/CORE_COGNITION_AUDIT.md`，逐一列出全部 `KC-*`：对齐、深化、纠偏、张力、偏航或不适用，并附本轮证据定位。不能用“总体一致”替代逐编号遍历。
 - `.codex/tools/cognition_runtime.py` 的 `plan/read/check` 是只读加载器；checkpoint 默认 dry-run，只有用户已授予的写权限和显式 `--apply` 才能写入状态。不要伪造模型理解认证。

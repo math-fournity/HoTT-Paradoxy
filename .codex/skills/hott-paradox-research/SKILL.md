@@ -1,8 +1,8 @@
 ---
 name: hott-paradox-research
-description: 每次执行与压缩恢复先全文加载顶层 repo 的核心认知、三问和最新 MEMORY 及动态候选依赖；结束前同步 checkpoint 并逐 KC 回读，保证可追溯的跨 Session 认知连续性，禁止摘要/旧收据替代；在本综合 handoff repo 中，自主生成、调度、证明和反驳 HoTT 时间/ASK/现实相对悖论候选。用于用户要求开始、继续或系统探索 HoTT 的过程、落定、可用性、形成、成本、历史、不可逆、自指及运动问题；保留研究授权边界与独立证据状态。
+description: 每次执行与压缩恢复先按核心认知→方向追踪→全景视野顺序全文加载顶层 repo 的三件套、三问和最新 MEMORY 及动态候选依赖；开始前交叉审视核心航向、方向组合和成果状态，结束前同步 checkpoint 并逐 KC 回读，保证可追溯的跨 Session 认知连续性，禁止摘要/旧收据替代；在本综合 handoff repo 中，自主生成、调度、证明和反驳 HoTT 时间/ASK/现实相对悖论候选。用于用户要求开始、继续或系统探索 HoTT 的过程、落定、可用性、形成、成本、历史、不可逆、自指及运动问题；保留研究授权边界与独立证据状态。
 metadata:
-  version: "1.3.4"
+  version: "1.4.0"
   role: "business"
   governance_skill: "hott-local-session-governance"
   language: "zh-CN"
@@ -11,6 +11,8 @@ metadata:
   cognition_manifest: ".codex/cognition/LOAD_SET.json"
   state_index: ".codex/research/hott/STATE.json"
   closure_relative_path: "核心认知.md"
+  direction_projection: "方向追踪.md"
+  outcome_projection: "全景视野.md"
 ---
 
 # HoTT 自主悖论研究
@@ -23,9 +25,13 @@ metadata:
 
 项目根由当前SKILL所在 `.codex/skills/hott-paradox-research/` 向上三级确定，实际路径以当前文件位置为准。不依赖旧主机路径或shell的cwd。
 
-先完整读取根 `AGENTS.md`、本 Skill 和本地治理 Skill，再读取 `.codex/cognition/LOAD_SET.json` 与当次 `.codex/research/hott/STATE.json` 来确定全文集合。首先全文读取指定核心账本：
+先完整读取根 `AGENTS.md`、本 Skill 和本地治理 Skill，再读取 `.codex/cognition/LOAD_SET.json` 与当次 `.codex/research/hott/STATE.json` 来确定全文集合。首先按固定顺序全文读取三件套：
 
 `核心认知.md`
+
+`方向追踪.md`
+
+`全景视野.md`
 
 其次是已对齐的当前问题说明：
 
@@ -37,9 +43,9 @@ metadata:
 
 每个块绑定同一次snapshot；文件、索引或HEAD改变，或上下文被压缩，均重新计划并重读。只读工具 `scripts/cognition_runtime.py` 提供 plan/read/check；它不认证模型理解，不能突破实际上下文容量。缺件、输出无法排除截断或容量不足，明确 BLOCKED_FULL_COGNITION；不得悄悄减读。
 
-全文加载后说明当前任务、九方向、规则配置、证据范围、最近纠偏和下一自主动作；该简短解释不是全文替代品。完整协议见 [PROTOCOL.md](../../cognition/PROTOCOL.md)（项目路径 `.codex/cognition/PROTOCOL.md`）。
+全文加载后说明当前任务、核心航向、方向组合、结果全景、九方向、规则配置、证据范围、最近纠偏和下一自主动作；该简短解释不是全文替代品。必须明确三方交叉结果：哪些方向服务哪些核心主题，哪些方向尚无结果，哪些结果是历史/未知/未映射，以及本轮更新 core、direction、panorama 中哪一个。完整协议见 [PROTOCOL.md](../../cognition/PROTOCOL.md)（项目路径 `.codex/cognition/PROTOCOL.md`）。
 
-旧 `read_cognitive_closure.py` 仅作为 WebGPT 历史快照工具保留，不是当前完整启动器。当前完整启动器是本地治理 Skill、`LOAD_SET.json` 与 `.codex/tools/cognition_runtime.py`。只有其他非必读参考资料在当前上下文确实仍在、未变化且无独立重读要求时才可复用。
+`read_cognitive_closure.py` 仅是读取 `核心认知.md` 单文件的 compatibility reader，不是当前三件套完整启动器；不能用它替代本地治理 Skill、`LOAD_SET.json` 与 `.codex/tools/cognition_runtime.py`。只有其他非必读参考资料在当前上下文确实仍在、未变化且无独立重读要求时才可复用。
 
 ## 0. 执行合同
 

@@ -1,0 +1,32 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260912-005-FRAMEWORK-AUDIT",
+  "runs": [
+    {
+      "command": "rtk python3 scripts/audit/verify_core_cognition.py",
+      "status": "PASS",
+      "scope": "903 KC core ledger"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_history_ledgers.py",
+      "status": "PASS",
+      "scope": "four historical ledgers"
+    },
+    {
+      "command": "rtk python3 scripts/audit/test_three_way_cognition.py",
+      "status": "PENDING_POST_CHECKPOINT",
+      "scope": "positive and negative three-way projection tests"
+    },
+    {
+      "command": "rtk python3 .codex/tools/cognition_runtime.py plan",
+      "status": "PASS_PRE_CHECKPOINT",
+      "scope": "fixed three-way order and revision-4 baseline"
+    },
+    {
+      "command": "rtk git diff --check",
+      "status": "PASS_PRE_CHECKPOINT",
+      "scope": "working tree patch whitespace"
+    }
+  ],
+  "model_context": "NOT_CERTIFIED_BY_TOOL"
+}
