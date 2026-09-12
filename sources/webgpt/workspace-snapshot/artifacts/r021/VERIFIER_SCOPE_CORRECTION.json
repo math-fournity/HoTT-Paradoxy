@@ -1,0 +1,11 @@
+{
+  "original_report": "FILE_CHECKS.json",
+  "original_failures": [
+    "V01_prior_file_scope",
+    ".git/index changed during actual git status",
+    "V29_local_links: inherited missing sources/aistudio-discussions/README.md"
+  ],
+  "change": "Exclude .git internals from old source byte immutability; validate Git through git fsck/clean/history. Keep inherited missing reference as explicit WARNING; check new links separately.",
+  "no_source_placeholder_created": true,
+  "no_original_failure_removed": true
+}

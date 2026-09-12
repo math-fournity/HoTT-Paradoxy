@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "hott.audit-delta.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "round_id",
+    "base_commit",
+    "head_commit",
+    "base_tree",
+    "head_tree",
+    "members",
+    "review_status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "hott.audit-delta.v1"
+    },
+    "round_id": {
+      "type": "string"
+    },
+    "base_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "head_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "members": {
+      "type": "object"
+    },
+    "review_status": {
+      "const": "NOT_AUDITED"
+    }
+  },
+  "additionalProperties": true
+}

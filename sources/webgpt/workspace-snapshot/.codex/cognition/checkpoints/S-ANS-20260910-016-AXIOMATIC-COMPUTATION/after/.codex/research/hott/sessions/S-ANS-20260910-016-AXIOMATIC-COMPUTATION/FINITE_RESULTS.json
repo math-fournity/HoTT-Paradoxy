@@ -1,0 +1,213 @@
+{
+  "schema_version": "hott-r016-operational-fragment/v1",
+  "status": "PASS_DECLARED_FRAGMENT_ONLY",
+  "max_depth": 6,
+  "family_inputs": 254,
+  "basic_family_values": 2,
+  "basic_family_noncanonical": 252,
+  "examples": {
+    "direct_not_false": {
+      "status": "VALUE",
+      "type": "Bool",
+      "initial": "((lambda:Bool. (if #0 then false else true)) false)",
+      "normal_form": "true",
+      "value": 1,
+      "steps": 2,
+      "trace": [
+        {
+          "rule": "BETA",
+          "before": "((lambda:Bool. (if #0 then false else true)) false)",
+          "after": "(if false then false else true)"
+        },
+        {
+          "rule": "IOTA_BOOL",
+          "before": "(if false then false else true)",
+          "after": "true"
+        }
+      ],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "refl_transport_false": {
+      "status": "VALUE",
+      "type": "Bool",
+      "initial": "coe(refl_Bool, false)",
+      "normal_form": "false",
+      "value": 0,
+      "steps": 1,
+      "trace": [
+        {
+          "rule": "IOTA_TRANSPORT_REFL",
+          "before": "coe(refl_Bool, false)",
+          "after": "false"
+        }
+      ],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "opaque_ua_transport_false": {
+      "status": "NORMAL_NONCANONICAL",
+      "type": "Bool",
+      "initial": "coe(ua(not), false)",
+      "normal_form": "coe(ua(not), false)",
+      "value": null,
+      "steps": 0,
+      "trace": [],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "opaque_ua_identity_still_not_refl": {
+      "status": "NORMAL_NONCANONICAL",
+      "type": "Bool",
+      "initial": "coe(ua(identity), false)",
+      "normal_form": "coe(ua(identity), false)",
+      "value": null,
+      "steps": 0,
+      "trace": [],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "dependent_observer_blocked": {
+      "status": "NORMAL_NONCANONICAL",
+      "type": "Bool",
+      "initial": "(if coe(ua(not), false) then false else true)",
+      "normal_form": "(if coe(ua(not), false) then false else true)",
+      "value": null,
+      "steps": 0,
+      "trace": [],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "discarded_transport_does_not_block": {
+      "status": "VALUE",
+      "type": "Bool",
+      "initial": "((lambda:Bool. false) coe(ua(not), false))",
+      "normal_form": "false",
+      "value": 0,
+      "steps": 1,
+      "trace": [
+        {
+          "rule": "BETA",
+          "before": "((lambda:Bool. false) coe(ua(not), false))",
+          "after": "false"
+        }
+      ],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "theorem_rewrite_recovers_true": {
+      "status": "VALUE",
+      "type": "Bool",
+      "initial": "coe(ua(not), false)",
+      "normal_form": "true",
+      "value": 1,
+      "steps": 3,
+      "trace": [
+        {
+          "rule": "PROPOSITIONAL_UA_BETA_REWRITE_NOT_KERNEL_REDUCTION",
+          "before": "coe(ua(not), false)",
+          "after": "((lambda:Bool. (if #0 then false else true)) false)"
+        },
+        {
+          "rule": "BETA",
+          "before": "((lambda:Bool. (if #0 then false else true)) false)",
+          "after": "(if false then false else true)"
+        },
+        {
+          "rule": "IOTA_BOOL",
+          "before": "(if false then false else true)",
+          "after": "true"
+        }
+      ],
+      "mode": "PROOF_GUIDED_REWRITE",
+      "divergence_proved": false
+    },
+    "insufficient_fuel_is_not_divergence": {
+      "status": "FUEL_EXHAUSTED",
+      "type": "Bool",
+      "initial": "((lambda:Bool. (if #0 then false else true)) false)",
+      "current": "((lambda:Bool. (if #0 then false else true)) false)",
+      "steps": 0,
+      "trace": [],
+      "mode": "BASIC",
+      "divergence_proved": false
+    },
+    "illtyped_transport_is_rejected": {
+      "status": "ILL_TYPED",
+      "error": "Transport endpoint mismatch",
+      "trace": [],
+      "mode": "BASIC"
+    }
+  },
+  "finite_families": [
+    {
+      "depth": 0,
+      "inputs": 2,
+      "basic_values": 2,
+      "basic_noncanonical_normal_forms": 0,
+      "proof_guided_values": 2,
+      "actual_propositional_rewrite_steps": 0
+    },
+    {
+      "depth": 1,
+      "inputs": 4,
+      "basic_values": 0,
+      "basic_noncanonical_normal_forms": 4,
+      "proof_guided_values": 4,
+      "actual_propositional_rewrite_steps": 4
+    },
+    {
+      "depth": 2,
+      "inputs": 8,
+      "basic_values": 0,
+      "basic_noncanonical_normal_forms": 8,
+      "proof_guided_values": 8,
+      "actual_propositional_rewrite_steps": 16
+    },
+    {
+      "depth": 3,
+      "inputs": 16,
+      "basic_values": 0,
+      "basic_noncanonical_normal_forms": 16,
+      "proof_guided_values": 16,
+      "actual_propositional_rewrite_steps": 48
+    },
+    {
+      "depth": 4,
+      "inputs": 32,
+      "basic_values": 0,
+      "basic_noncanonical_normal_forms": 32,
+      "proof_guided_values": 32,
+      "actual_propositional_rewrite_steps": 128
+    },
+    {
+      "depth": 5,
+      "inputs": 64,
+      "basic_values": 0,
+      "basic_noncanonical_normal_forms": 64,
+      "proof_guided_values": 64,
+      "actual_propositional_rewrite_steps": 320
+    },
+    {
+      "depth": 6,
+      "inputs": 128,
+      "basic_values": 0,
+      "basic_noncanonical_normal_forms": 128,
+      "proof_guided_values": 128,
+      "actual_propositional_rewrite_steps": 768
+    }
+  ],
+  "scope": {
+    "language": "simply typed Bool/arrow fragment plus opaque Bool-universe path and coercion",
+    "ua_argument": "actual two-element permutation data, not a general isEquiv elaborator",
+    "evaluation": "leftmost-outermost strong beta/iota under a fixed finite step bound",
+    "proof_guided_mode": "explicit mathematical theorem rewrite, NOT a new judgemental rule",
+    "full_hott_kernel": false,
+    "cubical_implementation": false,
+    "general_normalization_proof": false,
+    "internal_inconsistency_claim": false,
+    "undecidability_or_divergence_claim": false,
+    "external_search": false
+  },
+  "source_sha256": "33b626ef8ca3672928787b88665e598ee2c8d0e1e1c56b74f9650676d5d8deca"
+}

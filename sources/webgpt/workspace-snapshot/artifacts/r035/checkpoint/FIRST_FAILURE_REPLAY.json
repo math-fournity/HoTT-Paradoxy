@@ -1,0 +1,7 @@
+{
+  "error": "LATEST_SESSION_MISSING",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/data/HoTT_pause_rev35/scripts/session/r035_apply_checkpoint.py\", line 19, in main\n    try:rt.checkpoint(ROOT,base['snapshot'],payload,apply=False)\n        ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/HoTT_pause_rev35/.codex/skills/hott-paradox-research/scripts/cognition_runtime.py\", line 326, in checkpoint\n    p,sid,changes,old=prepare(root,snapshot,payload)\n                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/HoTT_pause_rev35/.codex/skills/hott-paradox-research/scripts/cognition_runtime.py\", line 305, in prepare\n    _,_,stale=graph(obj(get(CONFIG)),state,get)\n              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/HoTT_pause_rev35/.codex/skills/hott-paradox-research/scripts/cognition_runtime.py\", line 140, in graph\n    raise CognitionError('LATEST_SESSION_MISSING')\nr035_apply_runtime.CognitionError: LATEST_SESSION_MISSING\n",
+  "scope": "Reproduced dry-run rejection of original saved payload; first tool call exited 1.",
+  "reason": "latest record kind must be session, not pause_checkpoint",
+  "writes": false
+}

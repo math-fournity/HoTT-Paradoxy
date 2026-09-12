@@ -1,0 +1,335 @@
+{
+  "checks": [
+    {
+      "detail": null,
+      "id": "inherited_git_head",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "no_remote",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "letter_utf8_nonempty",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "txt_same_bytes",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "math_delimiters",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "six_original_topics",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "six_new_questions",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "standalone_sources",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "not_sent_not_received",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "outgoing_hash",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "no_peer_gate",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "checkpoint_committed",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "stale_base_rejected",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "fresh_process_routes_letter",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "allowed_changed": [
+          ".codex/cognition/HEAD.json",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/dialogues/GEMINI-001/DEBATE_LEDGER.json",
+          ".codex/research/hott/dialogues/GEMINI-001/README.md",
+          "MEMORY.md",
+          "scripts/README.md"
+        ],
+        "baseline_files": 1207,
+        "unexpected": []
+      },
+      "id": "baseline_protection",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "scripts/session/r022_checkpoint.py",
+        "scripts/session/r022_checkpoint_retry.py",
+        "scripts/session/r022_plan_check.py",
+        "scripts/session/r022_prepare.py",
+        "scripts/session/r022_restore.py",
+        "scripts/tools/r022_verify_package.py"
+      ],
+      "id": "new_scripts_parse",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "new_json_parse",
+      "status": "PASS"
+    },
+    {
+      "detail": [],
+      "id": "local_links_exist",
+      "status": "PASS"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:39.308722+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:39.306786+00:00",
+      "stderr": "",
+      "stdout": "8e6641dd9b229e39875017e6a56732c2b8019af3\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "remote"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:39.310219+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:39.308732+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/mnt/data/HoTT_Gemini_reply_rev22/scripts/session/r022_plan_check.py"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:39.952105+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:39.310640+00:00",
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"PASS_ROUTE_ONLY\",\n  \"root\": \"/mnt/data/HoTT_Gemini_reply_rev22\",\n  \"snapshot\": \"f3c70d839d347ada6cd4e8a2e889b5b9744bffe9b8366524eafc1710f0f51654\",\n  \"revision\": 22,\n  \"latest_session\": \"S-DISC-20260911-022-GEMINI-OUT002\",\n  \"documents\": 216,\n  \"letter_in_route\": true,\n  \"incoming_count\": 2,\n  \"outgoing_sent\": false,\n  \"new_peer_reply\": false,\n  \"full_model_reading_or_understanding\": \"NOT_CERTIFIED\"\n}\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "add",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.024013+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:39.997425+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "commit",
+        "-m",
+        "docs: reply to Gemini IN-002 and preserve OUT-002 with research questions"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.040876+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:40.024052+00:00",
+      "stderr": "",
+      "stdout": "[main 595be74] docs: reply to Gemini IN-002 and preserve OUT-002 with research questions\n 60 files changed, 23051 insertions(+), 192 deletions(-)\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/.codex/cognition/HEAD.json\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/.codex/research/hott/FRONTIER.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/.codex/research/hott/LESSONS.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/.codex/research/hott/RESUME.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/.codex/research/hott/STATE.json\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/.codex/research/hott/sessions/S-DISC-20260911-022-GEMINI-OUT002/SESSION.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/after/MEMORY.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/before/.codex/cognition/HEAD.json\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/before/.codex/research/hott/FRONTIER.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/before/.codex/research/hott/LESSONS.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/before/.codex/research/hott/RESUME.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/before/.codex/research/hott/STATE.json\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/before/MEMORY.md\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/result.json\n create mode 100644 .codex/cognition/checkpoints/S-DISC-20260911-022-GEMINI-OUT002/transaction.json\n create mode 100644 .codex/history/r022-before/.codex/research/hott/dialogues/GEMINI-001/DEBATE_LEDGER.json\n create mode 100644 .codex/history/r022-before/.codex/research/hott/dialogues/GEMINI-001/README.md\n create mode 100644 .codex/history/r022-before/scripts/README.md\n create mode 100644 .codex/research/hott/dialogues/GEMINI-001/TO_GEMINI_002.md\n create mode 100644 .codex/research/hott/dialogues/GEMINI-001/TO_GEMINI_002.txt\n create mode 100644 .codex/research/hott/dialogues/GEMINI-001/rounds/003/RELAY_NOTE.txt\n create mode 100644 .codex/research/hott/dialogues/GEMINI-001/rounds/003/RESPONSE_MAP.json\n create mode 100644 .codex/research/hott/dialogues/GEMINI-001/rounds/003/SOURCES.md\n create mode 100644 .codex/research/hott/dialogues/GEMINI-001/rounds/003/USER_REQUEST.md\n create mode 100644 .codex/research/hott/sessions/S-DISC-20260911-022-GEMINI-OUT002/SESSION.md\n create mode 100644 artifacts/r022/CHECKPOINT_EXECUTION.json\n create mode 100644 artifacts/r022/CHECKPOINT_RETRY_EXECUTION.json\n create mode 100644 artifacts/r022/CHECKPOINT_SUMMARY.json\n create mode 100644 artifacts/r022/FILE_CHECKS.json\n create mode 100644 artifacts/r022/FRESH_PLAN_CHECK.json\n create mode 100644 artifacts/r022/PRECOMMIT_COMMANDS.json\n create mode 100644 artifacts/r022/PREPARED.json\n create mode 100644 artifacts/r022/PREPARE_EXECUTION.json\n create mode 100644 artifacts/r022/PREPARE_RETRY_EXECUTION.json\n create mode 100644 artifacts/r022/READ_SCOPE.json\n create mode 100644 artifacts/r022/REPORT.md\n create mode 100644 artifacts/r022/RESTORE.json\n create mode 100644 artifacts/r022/checkpoint-final/AFTER_PLAN.json\n create mode 100644 artifacts/r022/checkpoint-final/BASE_PLAN.json\n create mode 100644 artifacts/r022/checkpoint-final/COMMIT.json\n create mode 100644 artifacts/r022/checkpoint-final/DRY_RUN.json\n create mode 100644 artifacts/r022/checkpoint-final/PAYLOAD.json\n create mode 100644 artifacts/r022/checkpoint-final/STALE_BASE.json\n create mode 100644 artifacts/r022/checkpoint/BASE_PLAN.json\n create mode 100644 artifacts/r022/checkpoint/PAYLOAD.json\n create mode 100644 scripts/session/r022_checkpoint.py\n create mode 100644 scripts/session/r022_checkpoint_retry.py\n create mode 100644 scripts/session/r022_plan_check.py\n create mode 100644 scripts/session/r022_prepare.py\n create mode 100644 scripts/session/r022_restore.py\n create mode 100644 scripts/tools/r022_verify_package.py\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.042342+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:40.040889+00:00",
+      "stderr": "",
+      "stdout": "595be74d303f5f095f9d6fb5d13cdff0a880a0cb\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.049155+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:40.042351+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "fsck",
+        "--full"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.174137+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:40.049165+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "create",
+        "/mnt/data/HoTT_Gemini_reply_rev22.bundle",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.788873+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:40.174232+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "verify",
+        "/mnt/data/HoTT_Gemini_reply_rev22.bundle"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:40.790891+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:40.788901+00:00",
+      "stderr": "/mnt/data/HoTT_Gemini_reply_rev22.bundle is okay\n",
+      "stdout": "The bundle contains these 3 refs:\n595be74d303f5f095f9d6fb5d13cdff0a880a0cb refs/heads/main\n320d5362a8c96f597d0d6458ec70802f35384239 refs/tags/checkpoint-rev15-import\n595be74d303f5f095f9d6fb5d13cdff0a880a0cb HEAD\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r022-restore-6lupr3el/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:42.128920+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:42.126953+00:00",
+      "stderr": "",
+      "stdout": "595be74d303f5f095f9d6fb5d13cdff0a880a0cb\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r022-restore-6lupr3el/HoTT_Gemini_reply_rev22",
+      "ended_utc": "2026-09-11T05:57:42.193752+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:42.128934+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/tmp/hott-r022-restore-6lupr3el/HoTT_Gemini_reply_rev22/scripts/session/r022_plan_check.py"
+      ],
+      "cwd": "/tmp/hott-r022-restore-6lupr3el",
+      "ended_utc": "2026-09-11T05:57:43.020067+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-09-11T05:57:42.193806+00:00",
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"PASS_ROUTE_ONLY\",\n  \"root\": \"/tmp/hott-r022-restore-6lupr3el/HoTT_Gemini_reply_rev22\",\n  \"snapshot\": \"5b98876d32e0011ccb50952d2c28150eb1cf2758d1542c1a5ed82efb51018725\",\n  \"revision\": 22,\n  \"latest_session\": \"S-DISC-20260911-022-GEMINI-OUT002\",\n  \"documents\": 216,\n  \"letter_in_route\": true,\n  \"incoming_count\": 2,\n  \"outgoing_sent\": false,\n  \"new_peer_reply\": false,\n  \"full_model_reading_or_understanding\": \"NOT_CERTIFIED\"\n}\n"
+    }
+  ],
+  "error": "",
+  "type": "AssertionError"
+}

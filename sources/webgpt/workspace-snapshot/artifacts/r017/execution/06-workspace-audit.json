@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "scripts/tools/audit_r017.py",
+    "--out",
+    "artifacts/r017/AUDIT.json"
+  ],
+  "cwd": "/mnt/data/HoTT_workspace_rev17",
+  "started_utc": "2026-09-10T15:05:18.700086+00:00",
+  "ended_utc": "2026-09-10T15:05:21.517858+00:00",
+  "duration_seconds": 2.8177352909999627,
+  "exit_code": 0,
+  "timeout": false,
+  "stdout": "{\n  \"schema_version\": \"hott-r017-workspace-audit/v1\",\n  \"status\": \"PASS_DEFINED_SCOPE\",\n  \"baseline_git\": \"b07ac7ecc084a58be814995931b9706f955e4d95\",\n  \"inherited_files_checked\": 785,\n  \"changed_inherited_paths\": [\n    \".codex/cognition/HEAD.json\",\n    \".codex/research/hott/FRONTIER.md\",\n    \".codex/research/hott/LESSONS.md\",\n    \".codex/research/hott/RESUME.md\",\n    \".codex/research/hott/STATE.json\",\n    \"AGENTS.md\",\n    \"DELIVERY_README.md\",\n    \"MEMORY.md\",\n    \"scripts/README.md\"\n  ],\n  \"protected_unchanged_inherited_count\": 776,\n  \"unexpected_inherited_changes\": [],\n  \"new_code_outside_scripts\": [],\n  \"new_files_count\": 82,\n  \"python_ast_parsed_count\": 23,\n  \"retained_recovered_payloads\": 68,\n  \"retained_source_occurrences\": 300,\n  \"tests_passed\": 42,\n  \"finite_counts\": {\n    \"base_programs\": 256,\n    \"fixed_inputs\": 4,\n    \"wrapper_inputs\": 9,\n    \"wrapper_runs\": 9216,\n    \"local_zero_certificates\": 1024,\n    \"halted_positive\": 6746,\n    \"reachable_spins\": 1446,\n    \"base_trace_certificates\": 1446\n  },\n  \"result_sha_matches_source\": true,\n  \"checkpoint_revision\": 17,\n  \"old_state_records_unmodified\": true,\n  \"stale_base_rejected\": true,\n  \"fresh_plan_documents\": 134,\n  \"fresh_plan_includes_r017_proof_and_scripts\": true,\n  \"full_cognition_gate\": \"NOT_PASSED\",\n  \"proof_assistant\": \"NOT_RUN\",\n  \"independent_review\": \"NOT_RUN\",\n  \"credential_signal_hits\": [],\n  \"credential_scan_scope\": \"Only listed strong regexes; no general secret guarantee\",\n  \"source_archive_unchanged\": true,\n  \"source_archive_sha256\": \"1f9502a5eb2280dd702891670b557cdfa98d652e2052233df4913033912be4f6\",\n  \"code_policy_scope\": \"Checks saved new script paths and recorded argv, not hidden interpreter history\",\n  \"scripts_executed_by_audit\": \"None; AST and byte reading only; local git read commands used\"\n}\n",
+  "stderr": ""
+}

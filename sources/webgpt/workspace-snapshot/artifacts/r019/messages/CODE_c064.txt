@@ -1,0 +1,131 @@
+0001 | # 构建一个极其严格的极简 HoTT 核心引擎 (Minimal HoTT Kernel)
+0002 | 
+0003 | class Term: pass
+0004 | 
+0005 | # --- 1. 语法树定义 (AST) ---
+0006 | class BoolType(Term): 
+0007 |     def __str__(self): return "Bool"
+0008 | 
+0009 | class TrueVal(Term): 
+0010 |     def __str__(self): return "true"
+0011 | 
+0012 | class FalseVal(Term): 
+0013 |     def __str__(self): return "false"
+0014 | 
+0015 | class NotFunc(Term):
+0016 |     def __str__(self): return "not"
+0017 | 
+0018 | class App(Term):
+0019 |     def __init__(self, func, arg): self.func = func; self.arg = arg
+0020 |     def __str__(self): return f"{self.func}({self.arg})"
+0021 | 
+0022 | class PathType(Term):
+0023 |     def __init__(self, A, B): self.A = A; self.B = B
+0024 |     def __str__(self): return f"({self.A} = {self.B})"
+0025 | 
+0026 | class Refl(Term):
+0027 |     def __init__(self, A): self.A = A
+0028 |     def __str__(self): return f"refl_{self.A}"
+0029 | 
+0030 | class UnivalenceAxiom(Term):
+0031 |     # 单价公理：将等价关系（这里是不仅可逆而且等价的not）异化为静态的相等路径
+0032 |     def __init__(self, equiv_func): self.equiv_func = equiv_func
+0033 |     def __str__(self): return f"ua({self.equiv_func})"
+0034 | 
+0035 | class Transport(Term):
+0036 |     # 路径运输：沿着某条路径，把项从A转运到B
+0037 |     def __init__(self, path, term): self.path = path; self.term = term
+0038 |     def __str__(self): return f"transport({self.path}, {self.term})"
+0039 | 
+0040 | # --- 2. 静态类型检查器 (Type Checker - 代表 HoTT 的静态逻辑) ---
+0041 | def type_check(term):
+0042 |     if isinstance(term, TrueVal) or isinstance(term, FalseVal):
+0043 |         return BoolType()
+0044 |     elif isinstance(term, NotFunc):
+0045 |         return "Bool -> Bool"
+0046 |     elif isinstance(term, App):
+0047 |         func_type = type_check(term.func)
+0048 |         arg_type = type_check(term.arg)
+0049 |         if func_type == "Bool -> Bool" and isinstance(arg_type, BoolType):
+0050 |             return BoolType()
+0051 |         raise Exception("Type Error in App")
+0052 |     elif isinstance(term, UnivalenceAxiom):
+0053 |         # 单价公理神谕：只要传入的是合法的等价(如not)，直接返回类型相等的Path
+0054 |         # 这里绕过了"它怎么运算"，直接发放逻辑通行证
+0055 |         if isinstance(term.equiv_func, NotFunc):
+0056 |             return PathType(BoolType(), BoolType())
+0057 |         raise Exception("Type Error in UA")
+0058 |     elif isinstance(term, Transport):
+0059 |         path_type = type_check(term.path)
+0060 |         term_type = type_check(term.term)
+0061 |         # 如果路径是 A = B，且项的类型是 A，则运输后的类型是 B
+0062 |         if isinstance(path_type, PathType) and isinstance(term_type, type(path_type.A)):
+0063 |             return path_type.B
+0064 |         raise Exception("Type Error in Transport")
+0065 |     else:
+0066 |         raise Exception(f"Unknown term: {term}")
+0067 | 
+0068 | # --- 3. 操作语义求值器 (Evaluator - 代表现实的时间与时序执行) ---
+0069 | def evaluate(term):
+0070 |     if isinstance(term, App):
+0071 |         func_eval = evaluate(term.func)
+0072 |         arg_eval = evaluate(term.arg)
+0073 |         # 真实的计算动作：遇到 not(true) 就变成 false
+0074 |         if isinstance(func_eval, NotFunc):
+0075 |             if isinstance(arg_eval, TrueVal): return FalseVal()
+0076 |             if isinstance(arg_eval, FalseVal): return TrueVal()
+0077 |         return App(func_eval, arg_eval)
+0078 |         
+0079 |     elif isinstance(term, Transport):
+0080 |         path_eval = evaluate(term.path)
+0081 |         term_eval = evaluate(term.term)
+0082 |         
+0083 |         # 如果路径是平凡的 refl，不需要异化，直接返回原值
+0084 |         if isinstance(path_eval, Refl):
+0085 |             return term_eval
+0086 |             
+0087 |         # 【致死打击点】：如果是 ua 公理生成的路径，求值器根本不知道怎么走！
+0088 |         # 因为 ua 是一条静态的拓扑空间公理，它没有赋予底层时序执行的 step 规则。
+0089 |         # 此时，计算彻底卡死（Stuck）
+0090 |         return Transport(path_eval, term_eval)
+0091 |         
+0092 |     return term
+0093 | 
+0094 | # --- 4. 运行证明剧本 ---
+0095 | print("==================================================")
+0096 | print("【机器证明报告】HoTT 中“时间被异化”引发的不可计算悖论")
+0097 | print("==================================================\n")
+0098 | 
+0099 | # 场景A：现实中遵循时序的计算
+0100 | print(">>> 场景 A：现实中的时序计算 (不使用单价性异化)")
+0101 | real_calc = App(NotFunc(), TrueVal())
+0102 | print(f"1. 表达式: {real_calc}")
+0103 | print(f"2. ASK预审 (Type Check): 它的类型是 {type_check(real_calc)}")
+0104 | print(f"3. 现实时序执行 (Evaluate): 计算得出结果为 {evaluate(real_calc)}")
+0105 | print("结论：现实计算完美结束，瞬间停机。\n")
+0106 | 
+0107 | # 场景B：Think in HoTT 产生的非现实性悖论
+0108 | print(">>> 场景 B：Think in HoTT 产生的“时空异化”悖论")
+0109 | # 构造：用单价公理把 not 动作异化为空间路径，然后强迫 true 沿着路径移动
+0110 | hott_path = UnivalenceAxiom(NotFunc())
+0111 | hott_calc = Transport(hott_path, TrueVal())
+0112 | 
+0113 | print(f"1. 表达式: {hott_calc}")
+0114 | print("2. HoTT 的静态逻辑审查 (Type Check):")
+0115 | try:
+0116 |     calc_type = type_check(hott_calc)
+0117 |     print(f"   [通过] HoTT类型系统确认：它是一个完美合法的 {calc_type}！")
+0118 |     print("   (理论傲慢地宣布：它是一个布尔值，逻辑上它就是存在的，绕过了ASK！)")
+0119 | except Exception as e:
+0120 |     print(f"   [失败] {e}")
+0121 | 
+0122 | print("3. 时序引擎强制执行 (Evaluate):")
+0123 | final_result = evaluate(hott_calc)
+0124 | print(f"   [结果] 机器输出: {final_result}")
+0125 | 
+0126 | if isinstance(final_result, Transport):
+0127 |     print("\n【反证法矛盾 / 悖论爆发】")
+0128 |     print("理论层面 (Type Check) 说：它是一个布尔值 (Bool)。")
+0129 |     print("现实层面 (Evaluate) 说：它既不是 true，也不是 false，计算引擎被死死卡住 (Stuck)！")
+0130 |     print("一个本该瞬间停机的问题，在 HoTT 理论推演下，变成了永远无法给出答案的非现实怪物。")
+0131 | print("==================================================")

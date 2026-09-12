@@ -1,0 +1,190 @@
+{
+  "actual_replayed_simulators": 3,
+  "audit_id": "A-HOTT2-JSON-001",
+  "claims": [
+    {
+      "basis": "73chunk，前16chunk逐对象相同；57新chunk。",
+      "claim": "完整新文件和旧文件关系",
+      "id": "A01",
+      "verdict": "VERIFIED_BYTES"
+    },
+    {
+      "basis": "用户c004原话；不是已证明两个HoTT缺陷。",
+      "claim": "双向现实相对目标",
+      "id": "A02",
+      "verdict": "PRESERVE_USER_INTENT"
+    },
+    {
+      "basis": "只表示至多一个；Empty反例。",
+      "claim": "isProp代表存在的单元素类型",
+      "id": "A03",
+      "verdict": "FALSE_AS_STATED"
+    },
+    {
+      "basis": "需实际h:||A||。",
+      "claim": "唯一选择从isProp与截断存在提取",
+      "id": "A04",
+      "verdict": "VALID_WITH_BOTH_PREMISES"
+    },
+    {
+      "basis": "析取不能无条件选择正分支。",
+      "claim": "LEM自动给出不停机程序的停机时刻存在",
+      "id": "A05",
+      "verdict": "INVALID_INFERENCE"
+    },
+    {
+      "basis": "旧代码直接axiom，未提供存在证明。",
+      "claim": "oracle_existence已经被HoTT证明",
+      "id": "A06",
+      "verdict": "NOT_PROVED"
+    },
+    {
+      "basis": "末版没有相应规则/谓词/证明检查。",
+      "claim": "TruncProof字符串是证明",
+      "id": "A07",
+      "verdict": "FALSE_IMPLEMENTATION_CLAIM"
+    },
+    {
+      "basis": "false和None均被判Nat。",
+      "claim": "UniqueChoice任意节点为Nat",
+      "id": "A08",
+      "verdict": "COUNTERTESTED_INVALID"
+    },
+    {
+      "basis": "不是全HoTT不可计算；原规则已说明公理不添加判断等式。",
+      "claim": "公理化UA基本归约可能停在非规范项",
+      "id": "A09",
+      "verdict": "VALID_NARROW_PHENOMENON"
+    },
+    {
+      "basis": "三份示意程序均正常退出；直接not仍可算。",
+      "claim": "stuck等于无限循环/任务不可计算",
+      "id": "A10",
+      "verdict": "FALSE_GENERALIZATION"
+    },
+    {
+      "basis": "Refl定义但无type_check规则；合法refl运输被拒。",
+      "claim": "新Minimal Kernel严格实现其规则",
+      "id": "A11",
+      "verdict": "INCOMPLETE"
+    },
+    {
+      "basis": "Transport/UniqueChoice忽略全部子项。",
+      "claim": "双向Kernel具有更强检查",
+      "id": "A12",
+      "verdict": "REGRESSION_COUNTERTESTED"
+    },
+    {
+      "basis": "while n<3后return固定字符串，没有实际搜索。",
+      "claim": "现实搜索实际无限执行",
+      "id": "A13",
+      "verdict": "FALSE_FOR_CODE"
+    },
+    {
+      "basis": "无超时异常或计时判断；只是返回常量。",
+      "claim": "TIMEOUT_ERROR表示检测到超时",
+      "id": "A14",
+      "verdict": "FALSE_FOR_CODE"
+    },
+    {
+      "basis": "源码连Nat数值构造子/证书都没有。",
+      "claim": "机器提取了不存在的自然数",
+      "id": "A15",
+      "verdict": "NOT_ESTABLISHED"
+    },
+    {
+      "basis": "仅原c015；含sorry/ellipsis和未定义条件。",
+      "claim": "两段Lean已实际证明",
+      "id": "A16",
+      "verdict": "NOT_EXECUTED_AND_INCOMPLETE"
+    },
+    {
+      "basis": "proof irrelevance使self cast保持值；加flip规律矛盾。弱ua单独不因此被判不一致。",
+      "claim": "普通Lean Eq可直接承载HoTT翻转宇宙路径",
+      "id": "A17",
+      "verdict": "INVALID_ENCODING"
+    },
+    {
+      "basis": "ua要求已给等价。",
+      "claim": "单价性判断任意无限对象相等",
+      "id": "A18",
+      "verdict": "FALSE"
+    },
+    {
+      "basis": "提供尊重关系的f即可商递归；本稿无新商反例。",
+      "claim": "商/HIT消去必须先无限枚举",
+      "id": "A19",
+      "verdict": "UNSUPPORTED_GENERALIZATION"
+    },
+    {
+      "basis": "具体cubical构造性/规范性结果为反向对照。",
+      "claim": "路径化必丧失全部计算性",
+      "id": "A20",
+      "verdict": "FALSE_UNIVERSAL_ATTRIBUTION"
+    },
+    {
+      "basis": "反例K假C真；需必要条件或C本身就是K。",
+      "claim": "K→C且某Ti为假故¬C",
+      "id": "A21",
+      "verdict": "INVALID_INFERENCE"
+    },
+    {
+      "basis": "尚缺模拟器保真及真实任务/额外假设归属。",
+      "claim": "找到任一模拟器卡住就反证HoTT前提",
+      "id": "A22",
+      "verdict": "INVALID_ATTRIBUTION"
+    },
+    {
+      "basis": "原文没有实验/模型证明；不是本轮数学证据。",
+      "claim": "量子化直接认证离散运动/普朗克瞬移",
+      "id": "A23",
+      "verdict": "UNSUPPORTED_PHYSICAL_PREMISE"
+    },
+    {
+      "basis": "先查不到、再创建同名空文件；未恢复原正文。",
+      "claim": "已完整更新原第五闭包",
+      "id": "A24",
+      "verdict": "FALSE_SCOPE"
+    },
+    {
+      "basis": "c055拼接、删改、重复字串；本轮原消息另存。",
+      "claim": "原文逐字保全",
+      "id": "A25",
+      "verdict": "NOT_VERBATIM"
+    },
+    {
+      "basis": "无commit身份，不检查返回码；故障注入失败仍打印成功。",
+      "claim": "Git提交已核验",
+      "id": "A26",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "basis": "两份真实base64附件已解码；它们是更新脚本不是证明。",
+      "claim": "代码附件不存在",
+      "id": "A27",
+      "verdict": "NOT_A_CLAIM_WE_ADOPT"
+    },
+    {
+      "basis": "三版原输出可复现；否定的是推论，不否定实际Python运行。",
+      "claim": "Python记录是未执行编造的",
+      "id": "A28",
+      "verdict": "NOT_A_CLAIM_WE_ADOPT"
+    },
+    {
+      "basis": "没有闭合的HoTT证明项/内核/语义对应。",
+      "claim": "完全严格机器证明两个目标悖论",
+      "id": "A29",
+      "verdict": "NOT_ESTABLISHED"
+    }
+  ],
+  "decoded_attachments": 2,
+  "diagnostic_scope": "Software evidence audit, not HoTT kernel proof",
+  "diagnostic_tests": 32,
+  "full_business_cognition_gate": "NOT_CLAIMED_SCOPED_ATTACHMENT_AUDIT",
+  "governance_fault_probe": "SIMULATED_GIT_FAILURE_UNCONDITIONAL_SUCCESS_PRINT",
+  "lean_compilation": "NOT_RUN",
+  "new_hott_paradox_proved": false,
+  "schema_version": "hott-external-audit-claims/v1",
+  "source_chunks": 73,
+  "source_sha256": "c2da542fdcc7b7a691242d991c21f7778c5c0ecda7e9a26cb2ab598dbab5ed27"
+}

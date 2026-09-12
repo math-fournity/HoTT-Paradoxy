@@ -1,0 +1,11 @@
+# R038 研究与交接报告
+
+当前revision38；继承revision37完整.git。旧85项记录逐值保留，当前87项。2178份旧tracked文件逐字节未变；变化仅7项当前治理/索引。
+
+新结果是后继下降/当前态提升条件、仅截断见证的Acc迁移、有限前缀与无限相容性的区别。28项程序检查通过；17个前缀是有限演示，未用作无界证明。一般HoTT论证是纸笔，未认证内核、原创或物理实例。
+
+原政策/引擎/闭包/三问/Schema/矩阵不变；实际压缩导致418份原动态材料未完整同窗加载，保持NOT_CERTIFIED_FULL。新的433份计划路由不等于已读完。
+
+原checkpoint已提交，旧snapshot测试被拒绝。完整ZIP/bundle及异目录恢复结果在包外HoTT_path_lifting_rev38_delivery_verification.json，避免自身哈希循环。
+
+参考来源两次cache miss与未经本地编译范围保存在SOURCES。首次测试28项全部通过；无伪造失败修复。r038_run收据的source_hashes在结束时对argv文件取哈希，MODEL收据包含输出RESULTS；RESEARCH_MANIFEST另明确记录import的R036源码。

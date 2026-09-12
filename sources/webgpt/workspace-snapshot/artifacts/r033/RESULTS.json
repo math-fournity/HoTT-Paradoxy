@@ -1,0 +1,311 @@
+{
+  "schema": "r033-finite-actions/v1",
+  "scope": "Finite C2-groupoid set-action diagnostics; not a HoTT kernel or proof of univalence",
+  "same_swap_family": [
+    {
+      "table": [
+        "0",
+        "0"
+      ],
+      "natural": false,
+      "checks": 3,
+      "witness": {
+        "source": "base",
+        "target": "base",
+        "twist": 1,
+        "input": "0",
+        "target_after_map": "1",
+        "map_after_source": "0"
+      }
+    },
+    {
+      "table": [
+        "0",
+        "1"
+      ],
+      "natural": true,
+      "checks": 4
+    },
+    {
+      "table": [
+        "1",
+        "0"
+      ],
+      "natural": true,
+      "checks": 4
+    },
+    {
+      "table": [
+        "1",
+        "1"
+      ],
+      "natural": false,
+      "checks": 3,
+      "witness": {
+        "source": "base",
+        "target": "base",
+        "twist": 1,
+        "input": "0",
+        "target_after_map": "0",
+        "map_after_source": "1"
+      }
+    }
+  ],
+  "trivial_to_swap": [
+    {
+      "table": [
+        "0",
+        "0"
+      ],
+      "natural": false,
+      "checks": 3,
+      "witness": {
+        "source": "base",
+        "target": "base",
+        "twist": 1,
+        "input": "0",
+        "target_after_map": "1",
+        "map_after_source": "0"
+      }
+    },
+    {
+      "table": [
+        "0",
+        "1"
+      ],
+      "natural": false,
+      "checks": 3,
+      "witness": {
+        "source": "base",
+        "target": "base",
+        "twist": 1,
+        "input": "0",
+        "target_after_map": "1",
+        "map_after_source": "0"
+      }
+    },
+    {
+      "table": [
+        "1",
+        "0"
+      ],
+      "natural": false,
+      "checks": 3,
+      "witness": {
+        "source": "base",
+        "target": "base",
+        "twist": 1,
+        "input": "0",
+        "target_after_map": "0",
+        "map_after_source": "1"
+      }
+    },
+    {
+      "table": [
+        "1",
+        "1"
+      ],
+      "natural": false,
+      "checks": 3,
+      "witness": {
+        "source": "base",
+        "target": "base",
+        "twist": 1,
+        "input": "0",
+        "target_after_map": "0",
+        "map_after_source": "1"
+      }
+    }
+  ],
+  "two_objects": {
+    "local_tables": 16,
+    "natural_tables": 2
+  },
+  "pair_path": {
+    "source": "0",
+    "via_identity": "0",
+    "via_swap": "1"
+  },
+  "order": {
+    "alpha_then_beta": [
+      2,
+      0,
+      1
+    ],
+    "beta_then_alpha": [
+      1,
+      2,
+      0
+    ],
+    "on_0_first_order": 2,
+    "on_0_reverse_order": 1
+  },
+  "loop_action_criterion_checks": [
+    {
+      "size": 0,
+      "permutation": [],
+      "erasable": true
+    },
+    {
+      "size": 1,
+      "permutation": [
+        0
+      ],
+      "erasable": true
+    },
+    {
+      "size": 2,
+      "permutation": [
+        0,
+        1
+      ],
+      "erasable": true
+    },
+    {
+      "size": 2,
+      "permutation": [
+        1,
+        0
+      ],
+      "erasable": false
+    },
+    {
+      "size": 3,
+      "permutation": [
+        0,
+        1,
+        2
+      ],
+      "erasable": true
+    },
+    {
+      "size": 3,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "erasable": false
+    },
+    {
+      "size": 3,
+      "permutation": [
+        1,
+        0,
+        2
+      ],
+      "erasable": false
+    },
+    {
+      "size": 3,
+      "permutation": [
+        2,
+        1,
+        0
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "erasable": true
+    },
+    {
+      "size": 4,
+      "permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "erasable": false
+    },
+    {
+      "size": 4,
+      "permutation": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "erasable": false
+    }
+  ],
+  "general_theorems": "Paper proofs separate; no extrapolation from enumeration",
+  "native_formal_status": "NOT_RUN"
+}

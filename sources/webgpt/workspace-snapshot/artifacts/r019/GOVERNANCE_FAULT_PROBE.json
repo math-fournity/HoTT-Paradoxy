@@ -1,0 +1,43 @@
+{
+  "scope": "controlled fault injection, not replay of historical Git outcome",
+  "all_git_commands_simulated": true,
+  "real_git_executed": false,
+  "original_absolute_paths_redirected_to_temporary_directory": true,
+  "calls": [
+    {
+      "argv": [
+        "git",
+        "init"
+      ],
+      "declared_cwd": "/mnt/data/HoTT_workspace_rev16",
+      "simulated_returncode": 1
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "."
+      ],
+      "declared_cwd": "/mnt/data/HoTT_workspace_rev16",
+      "simulated_returncode": 1
+    },
+    {
+      "argv": [
+        "git",
+        "commit",
+        "-m",
+        "docs(closure): append section 23 on Z-law, conjunction negation, and proof by contradiction, rev 18"
+      ],
+      "declared_cwd": "/mnt/data/HoTT_workspace_rev16",
+      "simulated_returncode": 1
+    }
+  ],
+  "stdout": "✅ Z铁律深度认知更新完毕，并已提交至工作目录的 Git (Revision 18)\n",
+  "success_claim_printed_despite_failure": true,
+  "temporary_files": {
+    "MEMORY.md": 347,
+    "认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md": 8365
+  },
+  "temp_cleaned": true,
+  "original_commit_status": "UNVERIFIED; source ignores return codes, log contains only init and print, no commit hash"
+}

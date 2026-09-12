@@ -1,0 +1,52 @@
+{
+  "schema_version": "hott-done-observability-finite/v1",
+  "status": "PASS_FINITE_SCOPE",
+  "groups": [
+    {
+      "id": "G1",
+      "claim": "DONE monitor returns on every sampled finite trace",
+      "traces": 8191,
+      "max_queries": 13,
+      "pass_": true
+    },
+    {
+      "id": "G2",
+      "claim": "erasure fibers agree on task value",
+      "inputs": 8191,
+      "padded_classes": 4096,
+      "pass_": true
+    },
+    {
+      "id": "G3",
+      "claim": "canonical finite traces have distinct padded behaviors",
+      "canonical_traces": 4096,
+      "pass_": true
+    },
+    {
+      "id": "G4",
+      "claim": "for every sampled finite query set a same-domain counterexample",
+      "query_sets": 1024,
+      "pass_": true
+    },
+    {
+      "id": "G5",
+      "claim": "silence never certifies no event at tested lengths; seeing 1 does",
+      "silence_lengths": 129,
+      "positive_prefix_checks": 258,
+      "pass_": true
+    },
+    {
+      "id": "G6",
+      "claim": "enumerated finite certificates recover marked-trace task",
+      "traces": 511,
+      "max_certificates_tested": 511,
+      "pass_": true
+    }
+  ],
+  "group_count": 6,
+  "scope": "Finite regression only. Infinite impossibility and certificate iff theorem have separate paper proofs.",
+  "full_cognition_gate": "NOT_PASSED",
+  "proof_assistant": "NOT_RUN",
+  "independent_review": "NOT_RUN",
+  "totality_of_all_hott_terms": "NOT_CLAIMED"
+}

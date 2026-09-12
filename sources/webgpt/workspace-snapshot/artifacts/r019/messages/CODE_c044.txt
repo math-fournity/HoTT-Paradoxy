@@ -1,0 +1,13 @@
+0001 | import os
+0002 | 
+0003 | scripts_dir = os.path.join(os.getcwd(), 'scripts', 'governance')
+0004 | os.makedirs(scripts_dir, exist_ok=True)
+0005 | script_path = os.path.join(scripts_dir, 'r018_update_zlaw_closure.py')
+0006 | 
+0007 | with open(script_path, 'w', encoding='utf-8') as f:
+0008 |     f.write(script_content)
+0009 | 
+0010 | result = subprocess.run(['python3', script_path], capture_output=True, text=True)
+0011 | print(result.stdout)
+0012 | if result.stderr:
+0013 |     print("stderr:", result.stderr)

@@ -1,0 +1,27 @@
+{
+  "incoming": "IN-005",
+  "outgoing": "OUT-005",
+  "items": [
+    {
+      "id": "K01",
+      "verdict": "ACCEPT_PAPER_SCOPE_NOT_KERNEL_PROOF",
+      "reason": "ReachTrap、固定点非终态、返回吸收一起支撑D1；非布尔返回2是约定，不是必要条件。"
+    },
+    {
+      "id": "K02",
+      "verdict": "USE_AS_DEPENDENCY_PLAN_CORRECT_DECIDABILITY",
+      "reason": "总step确定不足以保证配置相等可判定；还需程序环境、有限配置、编码与往返及模拟。"
+    },
+    {
+      "id": "K03",
+      "verdict": "ACCEPT_EMH_SPLIT_REJECT_ALLREALIZABLE_ROUTING",
+      "reason": "条件反证无需LEM；实际接口先检查Rep(f)／局部证书，不预设Πf Rep(f)。"
+    }
+  ],
+  "kernel_verification": "NOT_RUN",
+  "next_optional_questions": [
+    "L01",
+    "L02"
+  ],
+  "peer_reply_required_to_continue": false
+}

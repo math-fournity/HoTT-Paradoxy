@@ -1,0 +1,10 @@
+{
+  "failure": "lru_cache(typed=False) can reuse natural-number (0,1) entry for Boolean (0,True) before body validation",
+  "fix": "typed=True on both caches",
+  "original_sources": "scripts/research/history/r030_initial",
+  "original_receipts": [
+    "artifacts/r030/EXECUTION.json",
+    "artifacts/r030/RESULTS.json"
+  ],
+  "mathematical_claims_affected": "Does not alter intended natural-number semantics. Runtime input-validation fault; not a HoTT result."
+}

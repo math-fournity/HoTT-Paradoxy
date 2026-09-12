@@ -1,0 +1,12 @@
+0001 | import os
+0002 | 
+0003 | print("Files in /mnt/data:")
+0004 | if os.path.exists('/mnt/data'):
+0005 |     for f in os.listdir('/mnt/data'):
+0006 |         print(f)
+0007 | else:
+0008 |     print("/mnt/data does not exist.")
+0009 | 
+0010 | print("\nFiles in current dir:", os.getcwd())
+0011 | for f in os.listdir('.'):
+0012 |     print(f)

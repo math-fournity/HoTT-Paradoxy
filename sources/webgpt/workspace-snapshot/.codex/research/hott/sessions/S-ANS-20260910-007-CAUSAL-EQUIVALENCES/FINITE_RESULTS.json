@@ -1,0 +1,351 @@
+{
+  "schema_version": "hott-causal-equiv-finite/v1",
+  "status": "PASS_FINITE_SCOPE",
+  "checks": [
+    {
+      "id": "T01",
+      "status": "PASS",
+      "scope": "old swap and transported-observation control"
+    },
+    {
+      "id": "T02",
+      "status": "PASS",
+      "scope": "all 24 Boolean permutations × all 64 causal maps",
+      "conjugations_checked": 1536,
+      "histogram": {
+        "64": 8,
+        "16": 16
+      }
+    },
+    {
+      "id": "T03",
+      "status": "PASS",
+      "scope": "exact triangular description of the eight permutations"
+    },
+    {
+      "id": "T04",
+      "status": "PASS",
+      "scope": "invariant-equivalence lemma for all n≤4",
+      "relation_pairs_checked": 255,
+      "sizes": [
+        {
+          "n": 1,
+          "partitions": 1,
+          "functions": 1
+        },
+        {
+          "n": 2,
+          "partitions": 2,
+          "functions": 4
+        },
+        {
+          "n": 3,
+          "partitions": 5,
+          "functions": 27
+        },
+        {
+          "n": 4,
+          "partitions": 15,
+          "functions": 256
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "status": "PASS",
+      "scope": "one-way conjugation criterion for all n≤4",
+      "partition_permutation_cases": 395
+    },
+    {
+      "id": "T06",
+      "status": "PASS",
+      "scope": "Nat model, each coordinate 0..63",
+      "points": 4096,
+      "inverse_equations_per_point": 2,
+      "conjugation_formula_per_point": 1
+    },
+    {
+      "id": "T07",
+      "status": "PASS",
+      "scope": "forward-causality samples",
+      "input_pairs": 32768,
+      "maps_checked": 2
+    },
+    {
+      "id": "T08",
+      "status": "PASS",
+      "scope": "exact witnesses refuting inverse and transported causality",
+      "x": [
+        0,
+        0
+      ],
+      "y": [
+        0,
+        1
+      ],
+      "inverse_images": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "T09",
+      "status": "PASS",
+      "scope": "all 40320 permutations of three-bit strings; prefix relation only",
+      "prefix_preserving_permutations": 128,
+      "all_function_transport_on_B3": "NOT_TESTED"
+    }
+  ],
+  "boolean_permutations": [
+    {
+      "e": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "kept": 16,
+      "bicausal": false
+    },
+    {
+      "e": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "kept": 64,
+      "bicausal": true
+    },
+    {
+      "e": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "kept": 64,
+      "bicausal": true
+    }
+  ],
+  "general_proof": "SEPARATE_PAPER_ARGUMENT",
+  "proof_assistant": "NOT_RUN",
+  "novelty": "NOT_ESTABLISHED",
+  "full_cognition_gate": "NOT_CERTIFIED"
+}

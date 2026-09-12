@@ -1,0 +1,70 @@
+0001 | class Term: pass
+0002 | 
+0003 | class Bool(Term):
+0004 |     def __init__(self, val): self.val = val
+0005 |     def __repr__(self): return "true" if self.val else "false"
+0006 | 
+0007 | class Not(Term):
+0008 |     def __repr__(self): return "not"
+0009 | 
+0010 | class App(Term):
+0011 |     def __init__(self, f, arg): self.f = f; self.arg = arg
+0012 |     def __repr__(self): return f"{self.f}({self.arg})"
+0013 | 
+0014 | class UA(Term):
+0015 |     def __init__(self, equiv): self.equiv = equiv
+0016 |     def __repr__(self): return f"ua({self.equiv})"
+0017 | 
+0018 | class Transport(Term):
+0019 |     def __init__(self, path, val): self.path = path; self.val = val
+0020 |     def __repr__(self): return f"transport({self.path}, {self.val})"
+0021 | 
+0022 | class Trunc(Term):
+0023 |     def __init__(self, val): self.val = val
+0024 |     def __repr__(self): return f"|{self.val}|"
+0025 | 
+0026 | class Unquot(Term):
+0027 |     def __init__(self, trunc_val): self.trunc_val = trunc_val
+0028 |     def __repr__(self): return f"unquot({self.trunc_val})"
+0029 | 
+0030 | class OracleProof(Term):
+0031 |     def __repr__(self): return "Oracle_Proof_From_Logic"
+0032 | 
+0033 | def reduce_eval(term):
+0034 |     """模拟底层形式化系统（如Lean/Coq）的判断归约（Judgmental Reduction）过程"""
+0035 |     if isinstance(term, App):
+0036 |         f_red = reduce_eval(term.f)
+0037 |         arg_red = reduce_eval(term.arg)
+0038 |         if isinstance(f_red, Not) and isinstance(arg_red, Bool):
+0039 |             return Bool(not arg_red.val)
+0040 |         return App(f_red, arg_red)
+0041 |         
+0042 |     elif isinstance(term, Transport):
+0043 |         path_red = reduce_eval(term.path)
+0044 |         val_red = reduce_eval(term.val)
+0045 |         # 悖论2的核心：书本版HoTT中，ua（单价公理）是公理，没有对应的执行规则！
+0046 |         # 即使逻辑上它等同于执行 not，但在机器底层，求值器无法让它“走”过去，卡死了。
+0047 |         return Transport(path_red, val_red)
+0048 |         
+0049 |     elif isinstance(term, Unquot):
+0050 |         trunc_red = reduce_eval(term.trunc_val)
+0051 |         # 如果是真正构造出来的截断值，可以提取
+0052 |         if isinstance(trunc_red, Trunc):
+0053 |             return reduce_eval(trunc_red.val)
+0054 |         # 悖论1的核心：如果是通过纯逻辑（Oracle/排中律）得到的截断证明，底层没有见证人！
+0055 |         return Unquot(trunc_red)
+0056 |         
+0057 |     return term
+0058 | 
+0059 | print("=== 机器求值器运行结果 ===")
+0060 | # 正常的时间计算
+0061 | normal_calc = App(Not(), Bool(True))
+0062 | print(f"正常计算 (ASK 合法): {normal_calc}  --->  {reduce_eval(normal_calc)}")
+0063 | 
+0064 | # 悖论2：单价公理异化时间的卡死
+0065 | hott_ua_calc = Transport(UA(Not()), Bool(True))
+0066 | print(f"HoTT单价公理计算 : {hott_ua_calc}  --->  {reduce_eval(hott_ua_calc)}")
+0067 | 
+0068 | # 悖论1：命题截断掩盖不停机的卡死
+0069 | hott_trunc_calc = Unquot(OracleProof())
+0070 | print(f"HoTT命题截断提取 : {hott_trunc_calc}  --->  {reduce_eval(hott_trunc_calc)}")

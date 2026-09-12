@@ -1,0 +1,871 @@
+{
+  "schema_version": "hott-r017-results/v1",
+  "status": "PASS_FINITE_OPERATIONAL_SCOPE",
+  "counts": {
+    "base_programs": 256,
+    "fixed_inputs": 4,
+    "wrapper_inputs": 9,
+    "wrapper_runs": 9216,
+    "local_zero_certificates": 1024,
+    "halted_positive": 6746,
+    "reachable_spins": 1446,
+    "base_trace_certificates": 1446
+  },
+  "finite_prefix_counterexamples": [
+    {
+      "tested_inputs": [
+        0,
+        0
+      ],
+      "all_tests_terminate": true,
+      "next_input": 1,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        1
+      ],
+      "all_tests_terminate": true,
+      "next_input": 2,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        2
+      ],
+      "all_tests_terminate": true,
+      "next_input": 3,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        3
+      ],
+      "all_tests_terminate": true,
+      "next_input": 4,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        4
+      ],
+      "all_tests_terminate": true,
+      "next_input": 5,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        5
+      ],
+      "all_tests_terminate": true,
+      "next_input": 6,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        6
+      ],
+      "all_tests_terminate": true,
+      "next_input": 7,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        7
+      ],
+      "all_tests_terminate": true,
+      "next_input": 8,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    },
+    {
+      "tested_inputs": [
+        0,
+        8
+      ],
+      "all_tests_terminate": true,
+      "next_input": 9,
+      "next_input_has_reachable_nonterminal_fixed_state": true
+    }
+  ],
+  "examples": [
+    {
+      "name": "halts_immediately",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "HALT",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 0,
+      "result": {
+        "status": "HALTED",
+        "transitions": 1,
+        "machine_steps": 0,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 0,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "done",
+            "remaining": 0,
+            "inner": null,
+            "output": 0
+          }
+        ]
+      },
+      "local_certificate": true,
+      "separate_spin_certificate": false
+    },
+    {
+      "name": "halts_immediately",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "HALT",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 1,
+      "result": {
+        "status": "FUEL_EXHAUSTED",
+        "transitions": 4,
+        "machine_steps": 1,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 1,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 1,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          }
+        ]
+      },
+      "local_certificate": false,
+      "separate_spin_certificate": true
+    },
+    {
+      "name": "halts_immediately",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "HALT",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 4,
+      "result": {
+        "status": "FUEL_EXHAUSTED",
+        "transitions": 7,
+        "machine_steps": 1,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 4,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 4,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          }
+        ]
+      },
+      "local_certificate": false,
+      "separate_spin_certificate": true
+    },
+    {
+      "name": "nonterminating_increment",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "INC",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 0,
+      "result": {
+        "status": "HALTED",
+        "transitions": 1,
+        "machine_steps": 0,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 0,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "done",
+            "remaining": 0,
+            "inner": null,
+            "output": 0
+          }
+        ]
+      },
+      "local_certificate": true,
+      "separate_spin_certificate": false
+    },
+    {
+      "name": "nonterminating_increment",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "INC",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 1,
+      "result": {
+        "status": "HALTED",
+        "transitions": 3,
+        "machine_steps": 1,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 1,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 1,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                1
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "done",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                1
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": 0
+          }
+        ]
+      },
+      "local_certificate": true,
+      "separate_spin_certificate": false
+    },
+    {
+      "name": "nonterminating_increment",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "INC",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 4,
+      "result": {
+        "status": "HALTED",
+        "transitions": 6,
+        "machine_steps": 4,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 4,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 4,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 3,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                1
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 2,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                2
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 1,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                3
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                4
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "done",
+            "remaining": 0,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                4
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": 0
+          }
+        ]
+      },
+      "local_certificate": true,
+      "separate_spin_certificate": false
+    },
+    {
+      "name": "halts_after_four_steps",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 1,
+              "zero": 0
+            },
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 2,
+              "zero": 0
+            },
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 3,
+              "zero": 0
+            },
+            {
+              "op": "HALT",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 0,
+      "result": {
+        "status": "HALTED",
+        "transitions": 1,
+        "machine_steps": 0,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 0,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "done",
+            "remaining": 0,
+            "inner": null,
+            "output": 0
+          }
+        ]
+      },
+      "local_certificate": true,
+      "separate_spin_certificate": false
+    },
+    {
+      "name": "halts_after_four_steps",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 1,
+              "zero": 0
+            },
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 2,
+              "zero": 0
+            },
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 3,
+              "zero": 0
+            },
+            {
+              "op": "HALT",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 1,
+      "result": {
+        "status": "HALTED",
+        "transitions": 3,
+        "machine_steps": 1,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 1,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 1,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 0,
+            "inner": {
+              "pc": 1,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "done",
+            "remaining": 0,
+            "inner": {
+              "pc": 1,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": 0
+          }
+        ]
+      },
+      "local_certificate": true,
+      "separate_spin_certificate": false
+    },
+    {
+      "name": "halts_after_four_steps",
+      "base": {
+        "base": {
+          "registers": 1,
+          "code": [
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 1,
+              "zero": 0
+            },
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 2,
+              "zero": 0
+            },
+            {
+              "op": "JUMP",
+              "reg": 0,
+              "target": 3,
+              "zero": 0
+            },
+            {
+              "op": "HALT",
+              "reg": 0,
+              "target": 0,
+              "zero": 0
+            }
+          ]
+        },
+        "fixed_input": 0
+      },
+      "wrapper_input": 4,
+      "result": {
+        "status": "FUEL_EXHAUSTED",
+        "transitions": 7,
+        "machine_steps": 4,
+        "trace": [
+          {
+            "phase": "branch",
+            "remaining": 4,
+            "inner": null,
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 4,
+            "inner": {
+              "pc": 0,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 3,
+            "inner": {
+              "pc": 1,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 2,
+            "inner": {
+              "pc": 2,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 1,
+            "inner": {
+              "pc": 3,
+              "registers": [
+                0
+              ],
+              "halted": false,
+              "output": null
+            },
+            "output": null
+          },
+          {
+            "phase": "probe",
+            "remaining": 0,
+            "inner": {
+              "pc": 3,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 0,
+            "inner": {
+              "pc": 3,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          },
+          {
+            "phase": "spin",
+            "remaining": 0,
+            "inner": {
+              "pc": 3,
+              "registers": [
+                0
+              ],
+              "halted": true,
+              "output": 0
+            },
+            "output": null
+          }
+        ]
+      },
+      "local_certificate": false,
+      "separate_spin_certificate": true
+    }
+  ],
+  "checks": [
+    "local_zero_short_circuit",
+    "finite_trace_verifier",
+    "positive_input_bounded_probe",
+    "explicit_nonterminal_cycle",
+    "finite_prefix_does_not_certify_totality",
+    "whole_source_available"
+  ],
+  "infinite_theorems": "PAPER_ARGUMENTS_ONLY; enumeration is not a proof of undecidability",
+  "machine_universality": "NOT_PROVED_BY_THIS_PROGRAM; metatheorem separately assumes effective universal programming model",
+  "proof_assistant": "NOT_RUN",
+  "no_totality_oracle": true,
+  "source_sha256": "77a234a2de1949e68cc6a80b29425b953120b272ac94c4b3a59793d02f29931d"
+}

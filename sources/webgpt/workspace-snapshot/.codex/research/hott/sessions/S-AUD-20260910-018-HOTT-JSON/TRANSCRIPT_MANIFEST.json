@@ -1,0 +1,56 @@
+{
+  "input_path": "/mnt/data/HoTT.json",
+  "input_sha256": "25eb28f4dbcdf09cf5ebd4eb8722acc97715707b0e21c61015e265b36b182bba",
+  "input_bytes": 170122,
+  "chunks": 16,
+  "public_message_count": 9,
+  "thought_chunks_excluded_from_audit_projection": 4,
+  "text_parts_policy": "top-level text only; parts are duplicated streaming content; thoughtSignature preserved in raw only",
+  "external_document_references": [
+    {
+      "chunk_index": 0,
+      "kind": "driveDocument",
+      "content_present": false
+    }
+  ],
+  "extracted_code": [
+    {
+      "chunk_index": 13,
+      "language": "PYTHON",
+      "origin": "executableCode",
+      "name": "transcript_c013.py",
+      "path": "scripts/recovered/HoTT_json/transcript_c013.py",
+      "bytes": 2704,
+      "sha256": "b42da906216103c4cd3756d99aee79147a65b8de72eac189d17650d20ae17dc8"
+    },
+    {
+      "chunk_index": 15,
+      "role": "model",
+      "language": "lean",
+      "origin": "text_fence",
+      "name": "transcript_c015_1.lean",
+      "path": "scripts/recovered/HoTT_json/transcript_c015_1.lean",
+      "bytes": 637,
+      "sha256": "c69de3ccce33332855f79151881f716960eab59c2d0d958d5409961eeb960c96"
+    },
+    {
+      "chunk_index": 15,
+      "role": "model",
+      "language": "lean",
+      "origin": "text_fence",
+      "name": "transcript_c015_2.lean",
+      "path": "scripts/recovered/HoTT_json/transcript_c015_2.lean",
+      "bytes": 598,
+      "sha256": "d2fb9a8abd5ab65b6342ab41ff295bd0f0c75abb3a1e3ed00e997137a13d7715"
+    }
+  ],
+  "embedded_execution_results": [
+    {
+      "chunk_index": 14,
+      "outcome": "OUTCOME_OK",
+      "output": "=== 机器求值器运行结果 ===\n正常计算 (ASK 合法): not(true)  --->  false\nHoTT单价公理计算 : transport(ua(not), true)  --->  transport(ua(not), true)\nHoTT命题截断提取 : unquot(Oracle_Proof_From_Logic)  --->  unquot(Oracle_Proof_From_Logic)\n"
+    }
+  ],
+  "model_runtime_identity": "Not independently verifiable from exported model alias",
+  "lean_execution_records_in_export": 0
+}

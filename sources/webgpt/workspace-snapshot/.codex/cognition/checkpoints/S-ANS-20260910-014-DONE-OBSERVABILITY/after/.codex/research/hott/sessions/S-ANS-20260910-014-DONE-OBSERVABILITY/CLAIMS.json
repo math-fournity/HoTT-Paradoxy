@@ -1,0 +1,48 @@
+{
+  "schema_version": "hott-r014-claims/v1",
+  "session_id": "S-ANS-20260910-014-DONE-OBSERVABILITY",
+  "task_version": "DONE-OBS/v1",
+  "candidate": "C-DONE-OBSERVABILITY-001",
+  "status": "review_required",
+  "claims": [
+    {
+      "id": "T1",
+      "claim": "Finite Done-marked traces admit a total event-report monitor without a pre-given uniform end time",
+      "proof": "PROOF_NOTE.md §2",
+      "status": "PAPER_ARGUMENT_WITH_FINITE_REGRESSION"
+    },
+    {
+      "id": "T2",
+      "claim": "Done erased into zero-padding has no total correct finite-query decoder even on the exact original finite-trace image; canonical source can be injective",
+      "proof": "PROOF_NOTE.md §§3-4",
+      "status": "PAPER_NO_GO_FOR_SPECIFIED_ORACLE_INTERFACE",
+      "boundary": "Not all code-visible inputs; explicit evidence/interface change, not source-domain expansion"
+    },
+    {
+      "id": "T3",
+      "claim": "Total effective oracle classification iff sound covering finite answer certificates are effectively enumerable",
+      "proof": "PROOF_NOTE.md §5",
+      "status": "PAPER_PROOF_WITH_EXPLICIT_EFFECTIVITY",
+      "boundary": "Effective enumerability cannot be replaced by bare local existence"
+    },
+    {
+      "id": "T4",
+      "claim": "Task-constant fibers admit a Bool-valued map on the true image by truncation elimination through a unique-answer proposition, even when raw fibers are not propositions",
+      "proof": "PROOF_NOTE.md §6",
+      "status": "PAPER_CONSTRUCTION_FROM_PRIMARY_RULE",
+      "boundary": "Actual image proof is input; not same as oracle-only promise; no global canonicity claim"
+    },
+    {
+      "id": "TARGET",
+      "claim": "A standard HoTT rule or actual application is shown to force the harmful erasure while promising unchanged completion",
+      "status": "OPEN_NOT_ESTABLISHED"
+    }
+  ],
+  "logical_configuration": "MLTT/HoTT fragment with Bool Nat Lists Sigma Pi Id funext and propositional truncation; no LPO/DNE/EM/UA used for T4",
+  "machine_verification": "FINITE_REGRESSION_ONLY; kernel NOT_RUN",
+  "full_cognition": "NOT_PASSED",
+  "independent_review": "NOT_RUN",
+  "novelty": "NOT_CHECKED_NOT_CLAIMED",
+  "proof_delta": "Same input domain Done erasure; effective finite-answer-certificate criterion; unique output graph rather than unique raw inverse",
+  "unchanged_original_claim_matrix": true
+}

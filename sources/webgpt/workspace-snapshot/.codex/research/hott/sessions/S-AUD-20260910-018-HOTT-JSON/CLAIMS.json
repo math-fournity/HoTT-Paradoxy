@@ -1,0 +1,105 @@
+{
+  "audit_id": "A-HOTT-JSON-001",
+  "claims": [
+    {
+      "id": "A01",
+      "reason": "Preserve exact user correction; not a proof that either defect exists in all HoTT.",
+      "source_claim": "user chunk4: two directions of temporal/operational mismatch",
+      "verdict": "RESEARCH_SCOPE_EXTENSION_SUPPORTED"
+    },
+    {
+      "id": "A02",
+      "reason": "isProp means at most one; the empty type qualifies.",
+      "source_claim": "isProp means single inhabited type",
+      "verdict": "FALSE_AS_STATED"
+    },
+    {
+      "id": "A03",
+      "reason": "The existence premise is essential and not supplied by uniqueness.",
+      "source_claim": "unique choice extracts A from isProp(A) and ||A||",
+      "verdict": "CORRECT_WITH_BOTH_PREMISES"
+    },
+    {
+      "id": "A04",
+      "reason": "LEM gives a disjunction, not its positive branch.",
+      "source_claim": "LEM supplies the positive existence of a nonhalting step",
+      "verdict": "INVALID_INFERENCE"
+    },
+    {
+      "id": "A05",
+      "reason": "If incompatible with known nonhalting, inconsistency is introduced by the added premise.",
+      "source_claim": "oracle_existence proves a nonexistent step exists",
+      "verdict": "UNSUPPORTED_NEW_AXIOM"
+    },
+    {
+      "id": "A06",
+      "reason": "The supplied simulator contains no such algorithm.",
+      "source_claim": "evaluation is forced to launch an infinite search",
+      "verdict": "NOT_IN_CODE_OR_PROOF"
+    },
+    {
+      "id": "A07",
+      "reason": "Not divergence, task noncomputability, or universal fact about computational univalence.",
+      "source_claim": "axiomatic univalence can leave a noncanonical irreducible term",
+      "verdict": "VALID_PRESENTATION_SPECIFIC_PHENOMENON"
+    },
+    {
+      "id": "A08",
+      "reason": "Proof-irrelevance implies cast(p,a)=a for p:A=A.",
+      "source_claim": "ordinary Lean Eq faithfully encodes HoTT universe paths",
+      "verdict": "FALSE_FOR_THE_GIVEN_ENCODING"
+    },
+    {
+      "id": "A09",
+      "reason": "The key line is sorry; the equivalence body is ellipsis; no Lean execution is present.",
+      "source_claim": "hott_is_false has been proved in Lean",
+      "verdict": "NOT_PROVED"
+    },
+    {
+      "id": "A10",
+      "reason": "Missing P, imports, library version and subsingleton evidence; check actual APIs.",
+      "source_claim": "Trunc.unquot example is complete executable Lean4",
+      "verdict": "UNSUPPORTED_AND_INCOMPLETE"
+    },
+    {
+      "id": "A11",
+      "reason": "All supplied examples return finitely; model has no type checker or HoTT semantics correspondence.",
+      "source_claim": "Python output proves HoTT or Lean nontermination",
+      "verdict": "FALSE"
+    },
+    {
+      "id": "A12",
+      "reason": "ua requires an equivalence already supplied; it is not an equivalence decision algorithm.",
+      "source_claim": "univalence decides equivalence of infinite objects",
+      "verdict": "FALSE"
+    },
+    {
+      "id": "A13",
+      "reason": "Set quotient recursion accepts a respecting function and computes on its constructor.",
+      "source_claim": "HIT/quotient elimination requires enumerating representatives",
+      "verdict": "FALSE_AS_GENERAL_CLAIM"
+    },
+    {
+      "id": "A14",
+      "reason": "No proper HoTT machine proof is present; model praise is not evidence.",
+      "source_claim": "the user philosophy is absolutely machine-verified",
+      "verdict": "NOT_SUPPORTED"
+    }
+  ],
+  "diagnostic_tests": {
+    "errors": 0,
+    "failures": 0,
+    "native_lean": "NOT_RUN_UNAVAILABLE",
+    "passed": true,
+    "scope": "Confirms defects and finite outputs in supplied Python; not a HoTT proof",
+    "technical_note": "Ordinary Lean proof-irrelevance argument is checked against official definitions, not by this simulator.",
+    "tests_run": 10
+  },
+  "full_business_cognition_gate": "NOT_CLAIMED_FOR_SCOPED_SOURCE_AUDIT",
+  "native_lean": "NOT_RUN_UNAVAILABLE",
+  "new_hott_paradox_proved": false,
+  "python_replay": "MATCHED_EXPORTED_OUTPUT",
+  "raw_source_sha256": "25eb28f4dbcdf09cf5ebd4eb8722acc97715707b0e21c61015e265b36b182bba",
+  "schema_version": "hott-external-audit-claims/v1",
+  "scope": "Public dialogue and exact code in HoTT.json; attached Drive body absent"
+}

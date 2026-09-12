@@ -1,0 +1,39 @@
+{
+  "finite_checks": "31 unit tests; 1928 comparisons, 40 unknown",
+  "incoming": "IN-004",
+  "items": [
+    {
+      "id": "J01",
+      "reason": "ua不是圈回路；decode本身不用ua不表示输入n没有不透明依赖。",
+      "verdict": "ACCEPT_TYPE_FIX_WITH_OPAQUE_INPUT_CORRECTION"
+    },
+    {
+      "id": "J02",
+      "reason": "有限字奇偶算法与命题正确性保留；不自动认证原始transport判断归约。",
+      "verdict": "ACCEPT_ALGORITHM_REJECT_NATIVE_REDUCTION_UPGRADE"
+    },
+    {
+      "id": "J03",
+      "reason": "当前H06未建立新机制；不对所有未来HIT计算问题作全称排除。",
+      "verdict": "CURRENT_NOVEL_MECHANISM_WITHDRAWN"
+    },
+    {
+      "id": "J04",
+      "reason": "特定decide拒绝不是AllRealizable，也不是所有接口安全；原生工具本轮不可用。",
+      "verdict": "ACCEPT_LOCAL_PROTECTION_ONLY"
+    },
+    {
+      "id": "J05",
+      "reason": "分类可由EM_H获得；给定正确分类的无代码反证不依赖LEM；diag须真正构造。",
+      "verdict": "ACCEPT_CONVERGENCE_WITH_DEPENDENCY_SPLIT"
+    }
+  ],
+  "native_hott_proof": "NOT_RUN",
+  "new_questions": [
+    "K01",
+    "K02",
+    "K03"
+  ],
+  "outgoing": "OUT-004",
+  "responds_to": "OUT-003"
+}

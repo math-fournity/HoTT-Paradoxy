@@ -1,0 +1,69 @@
+{
+  "schema_version": "hott-rev8-claims/v1",
+  "session_id": "S-ANS-20260910-008-RELATIONAL-SIP",
+  "revision": 8,
+  "governance_full_load": "NOT_COMPLETED_COMPACTION_OCCURRED",
+  "proof_assistant": "NOT_RUN",
+  "independent_review": "NOT_RUN",
+  "novelty": "NOT_CERTIFIED",
+  "claims": [
+    {
+      "id": "AUDIT-REL-001",
+      "statement": "Fixed Book §9.8 structure isomorphism requires both H(f) and H(inverse f)",
+      "status": "SOURCE_VERIFIED_WITH_SCOPE",
+      "evidence": "SOURCE_EXCERPTS.md",
+      "negative_finding": "Hypothesis of missing inverse condition rejected for this Book interface only"
+    },
+    {
+      "id": "OBS-ID-001",
+      "statement": "Fixed-index prop-valued observation structure identity corresponds to carrier equivalence preserving and reflecting every relation",
+      "status": "PAPER_ARGUMENT_PENDING_REVIEW",
+      "evidence": "PROOF_NOTE.md §§3-4",
+      "assumptions": [
+        "set carriers",
+        "univalent universe levels used",
+        "funext",
+        "prop ext",
+        "fixed time index",
+        "prop-valued laws"
+      ]
+    },
+    {
+      "id": "SCHED-001",
+      "statement": "Bool³ protocols L=(K1,K1,K2,K3), E=(K1,K2,K2,K3) have the identical causal endofunction monoid but distinct fixed-clock observation structures",
+      "status": "PAPER_ARGUMENT_WITH_FINITE_CHECKS_PENDING_REVIEW",
+      "evidence": "PROOF_NOTE.md §5",
+      "limits": "Only endofunctions with the same protocol on both input and output; not all external observations/contexts"
+    },
+    {
+      "id": "SCHED-002",
+      "statement": "At time1 the query q(a,b,c)=b is available under E and unavailable under L",
+      "status": "EXPLICIT_FINITE_COUNTEREXAMPLE",
+      "evidence": "PROOF_NOTE.md §5.3; FINITE_RESULTS.json T07",
+      "same_deadline": "time index1 fixed in both tasks"
+    },
+    {
+      "id": "SCHED-003",
+      "statement": "Exact availability cannot be uniformly decoded from that unindexed endofunction representation alone",
+      "status": "CONDITIONAL_REPRESENTATION_LIMIT_PAPER_ARGUMENT",
+      "evidence": "PROOF_NOTE.md §6",
+      "actual_library_claim_found": false
+    },
+    {
+      "id": "PROBE-001",
+      "statement": "All Bool observations indexed by time recover a decidable equivalence relation at each time",
+      "status": "PAPER_ARGUMENT_PENDING_REVIEW",
+      "evidence": "PROOF_NOTE.md §7",
+      "assumptions": [
+        "decidable prop-valued equivalence relation",
+        "Boolean class indicator allowed"
+      ]
+    },
+    {
+      "id": "TARGET",
+      "statement": "HoTT internal inconsistency or actual erroneous standard time application",
+      "status": "NOT_ESTABLISHED",
+      "notes": "No scalar PASS upgrades this status; new concrete time-erasure example is representation-relative."
+    }
+  ]
+}

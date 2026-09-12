@@ -1,0 +1,144 @@
+{
+  "schema": "r034-results/v1",
+  "source_output": 1,
+  "erased_output": 0,
+  "erased_value_still_has_fibre_type": true,
+  "dependent_receipt_rejected": "computed equality is false",
+  "original_indexed_equation": {
+    "kind": "eq",
+    "left": {
+      "op": "cast",
+      "path": {
+        "op": "gen",
+        "name": "p"
+      },
+      "value": {
+        "op": "lit",
+        "object": "B",
+        "value": 0
+      }
+    },
+    "right": {
+      "op": "lit",
+      "object": "B",
+      "value": 1
+    }
+  },
+  "r032_roundtrip_checked": [
+    "atom",
+    0
+  ],
+  "compressed_path_word": {
+    "op": "seq",
+    "first": {
+      "op": "gen",
+      "name": "p"
+    },
+    "second": {
+      "op": "seq",
+      "first": {
+        "op": "inv",
+        "path": {
+          "op": "gen",
+          "name": "p"
+        }
+      },
+      "second": {
+        "op": "gen",
+        "name": "p"
+      }
+    }
+  },
+  "retained_action": [
+    1,
+    0
+  ],
+  "compression_checked": {
+    "kind": "eq",
+    "left": {
+      "op": "cast",
+      "path": {
+        "op": "gen",
+        "name": "p"
+      },
+      "value": {
+        "op": "lit",
+        "object": "B",
+        "value": 0
+      }
+    },
+    "right": {
+      "op": "lit",
+      "object": "B",
+      "value": 1
+    }
+  },
+  "same_action_migration": {
+    "schema": "r034-path-certificate/v1",
+    "environment": {
+      "fibres": {
+        "B": 2
+      },
+      "generators": {
+        "p": {
+          "source": "B",
+          "target": "B",
+          "table": [
+            1,
+            0
+          ]
+        }
+      }
+    },
+    "environment_hash": "c168ca6b883285a61c9fd38d81f2fef237f8406130526929c0ee9f1e19586807",
+    "proof": {
+      "rule": "calc",
+      "left": {
+        "op": "cast",
+        "path": {
+          "op": "gen",
+          "name": "p"
+        },
+        "value": {
+          "op": "lit",
+          "object": "B",
+          "value": 0
+        }
+      },
+      "right": {
+        "op": "lit",
+        "object": "B",
+        "value": 1
+      }
+    },
+    "goal": {
+      "kind": "eq",
+      "left": {
+        "op": "cast",
+        "path": {
+          "op": "gen",
+          "name": "p"
+        },
+        "value": {
+          "op": "lit",
+          "object": "B",
+          "value": 0
+        }
+      },
+      "right": {
+        "op": "lit",
+        "object": "B",
+        "value": 1
+      }
+    },
+    "path_support": [
+      "p"
+    ]
+  },
+  "local_bool_functions": 4,
+  "natural_under_target_flip": [],
+  "fixed_input_2_replay_succeeds_under_changed_action": true,
+  "full_polymorphic_no_selector": "paper proof via univalence and a Sigma loop; finite enumeration is not its proof",
+  "native_kernel": "NOT_RUN",
+  "core_source_sha256": "bbf0f68905e3ff05d9ea4de7c3a201f23b032ad051a281f110203ec5c8f610f5"
+}
