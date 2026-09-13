@@ -1,0 +1,135 @@
+{
+  "schema_version": "semantic-overview-worktree-portability-check/v1",
+  "observed_at_utc": "2026-09-13T20:01:20Z",
+  "top_level_commit": "a22f41ecf5c3becdd192383ff6cdbc846982813b",
+  "contributor": {
+    "root": "/Volumes/D/HoTT-semantic-overview",
+    "branch": "codex/semantic-overview",
+    "head_at_check": "3bc33daa1ff2ebf447d9c880f32b7a00a6acb6f9"
+  },
+  "canonical_checkout": {
+    "root": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "branch": "main",
+    "head_at_check": "a22f41ecf5c3becdd192383ff6cdbc846982813b"
+  },
+  "checks": [
+    {
+      "name": "governance_shards",
+      "command": "python3 -B scripts/audit/verify_governance_shards.py --project-root /Volumes/D/HoTT-semantic-overview",
+      "contributor_exit_code": 0,
+      "contributor_status": "PASS",
+      "details": {
+        "indexes": 274,
+        "soft_target_notices": 0,
+        "canonical_indexes_checked": 11
+      }
+    },
+    {
+      "name": "three_way_cognition",
+      "command": "python3 -B scripts/audit/verify_three_way_cognition.py --root /Volumes/D/HoTT-semantic-overview",
+      "contributor_exit_code": 0,
+      "contributor_status": "PASS",
+      "details": {
+        "revision": 129,
+        "core_units": 36,
+        "directions": 30,
+        "outcomes": 110
+      }
+    },
+    {
+      "name": "understanding_merge",
+      "command": "python3 -B scripts/audit/verify_understanding_merge.py --project-root <root>",
+      "contributor_exit_code": 1,
+      "contributor_status": "FAIL",
+      "contributor_errors": {
+        "MISSING_HISTORICAL_SOURCE_DIRECTORY": 1,
+        "MANIFEST_UNION_MISMATCH": 1,
+        "NESTED_SOURCE_MISSING": 24
+      },
+      "canonical_checkout_exit_code": 0,
+      "canonical_checkout_status": "PASS",
+      "canonical_checkout_details": {
+        "union_files": 36,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 21
+      },
+      "missing_input": "AI对话录/理解章节"
+    },
+    {
+      "name": "fresh_three_way",
+      "command": "python3 -B scripts/audit/verify_fresh_three_way.py --project-root <root>",
+      "contributor_exit_code": 1,
+      "contributor_status": "FAIL",
+      "contributor_error": "MISSING_OR_UNREADABLE: sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md",
+      "canonical_checkout_exit_code": 0,
+      "canonical_checkout_status": "PASS_WITH_SCOPE",
+      "canonical_checkout_details": {
+        "revision": 129,
+        "governance_documents": 41,
+        "research_documents": 46,
+        "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+      }
+    },
+    {
+      "name": "c11_ledger_retrodiction",
+      "command": "python3 -B scripts/audit/verify_ledger_retrodiction.py --project-root /Volumes/D/HoTT-semantic-overview",
+      "contributor_exit_code": 0,
+      "contributor_status": "PASS",
+      "details": {
+        "packages_checked": 18,
+        "device_available": 17,
+        "device_absent": [
+          "MP-NOCANONICAL-001"
+        ]
+      }
+    },
+    {
+      "name": "proof_version_closure",
+      "command": "python3 -B scripts/audit/verify_proof_version_closure.py --project-root /Volumes/D/HoTT-semantic-overview",
+      "contributor_exit_code": 0,
+      "contributor_status": "PASS_WITH_SCOPE",
+      "details": {
+        "frozen_packages": 17,
+        "frozen_claims": 90,
+        "later_packages": 11,
+        "later_claims": 39,
+        "later_source_manifest_rows": 85,
+        "later_index_rows": 50,
+        "dependency_gap_allowlisted": 6
+      }
+    }
+  ],
+  "ignored_inputs": [
+    {
+      "path": "AI对话录/理解章节",
+      "ignore_owner": ".gitignore:3:AI对话录/",
+      "canonical_checkout_present": true,
+      "contributor_present": false,
+      "nested_repo_head": "c70b01ca26c01c2078a4c0cd31a65d5fbda27fb0",
+      "nested_repo_clean": false
+    },
+    {
+      "path": "sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md",
+      "ignore_owner": "sources/local-gpt/ALL-Markdown-root/.gitignore:2:/*",
+      "canonical_checkout_present": true,
+      "contributor_present": false,
+      "sha256": "ec2fe644c608637ec9465342f4948140494662706b5861bfea5dff712a0980fa",
+      "tracked_identical_replacement": "sources/local-gpt/HoTT_is_GONE_COMPLETE.md"
+    },
+    {
+      "path": "workspace/.codex/research/hott",
+      "ignore_owner": ".gitignore:4:workspace/",
+      "canonical_checkout_present": true,
+      "contributor_present": false,
+      "nested_repo_head": "26fcecfbfecf6db66a70c1bf3e067159bce3eb6a",
+      "nested_repo_clean": true,
+      "state_full_source_references": 8,
+      "unique_required_files": 6,
+      "affected_records": 3
+    }
+  ],
+  "interpretation": "Four verifier classes pass in the linked worktree and two fail only because ignored checkout-local evidence is absent. The two failing classes pass in the canonical checkout. This receipt records filesystem and command behavior; it does not certify model understanding or mathematical truth.",
+  "status": "WORKTREE_PORTABILITY_GAP_REPRODUCED"
+}
