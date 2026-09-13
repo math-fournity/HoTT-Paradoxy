@@ -25,6 +25,8 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 CANONICAL_TRAJECTORY = Path("/Users/aurolafly/codex/tools/session_trajectory.py")
 CORE_MANIFEST = Path("核心认知.manifest.json")
 SOURCE_MANIFEST = Path("sources/SOURCE_MANIFEST.json")
@@ -691,8 +693,12 @@ def build_claims() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     number = 1
     for path in sorted((ROOT / "理解章节").glob("*.md")):
+        rel = path.relative_to(ROOT).as_posix()
+        body_text = logical_text(ROOT, rel)
+        if body_text is None:
+            body_text = path.read_text(encoding="utf-8")
         in_fence = False
-        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        for line_number, line in enumerate(body_text.splitlines(), start=1):
             stripped = line.strip()
             if stripped.startswith("```") or stripped.startswith("~~~"):
                 in_fence = not in_fence

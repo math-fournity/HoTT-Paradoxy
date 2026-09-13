@@ -41,10 +41,10 @@ def split_sections(lines: list[str]) -> tuple[list[str], list[tuple[str, int]]]:
 
 
 def build_index(logical_id: str, mode: str, stem: str, shards: list[dict], title: str) -> str:
-    last = f"{stem}/{shards[-1]['id']} - {shards[-1]['title']}.md"
+    last = shards[-1]["link"]
     append = last if mode == "sequential" else "-"
     rows = "\n".join(
-        f"| {row['id']} | [{row['title']}](<{stem}/{row['id']} - {row['title']}.md>) | {row['scope']} | current |"
+        f"| {row['id']} | [{row['title']}](<{row['link']}>) | {row['scope']} | current |"
         for row in shards
     )
     return (
@@ -78,6 +78,8 @@ def main() -> int:
     parser.add_argument("--path", required=True, help="canonical Markdown path, relative to the repo root")
     parser.add_argument("--plan", type=Path, required=True, help="shard plan JSON")
     parser.add_argument("--report", type=Path, required=True, help="reconciliation report JSON")
+    parser.add_argument("--emit-bundle", type=Path,
+                        help="write generated index/shard texts to JSON without touching the repo")
     parser.add_argument("--apply", action="store_true", help="write index and shard files")
     args = parser.parse_args()
     root = args.project_root.resolve()
@@ -98,49 +100,76 @@ def main() -> int:
     built: list[dict] = []
     for row in plan["shards"]:
         body: list[str] = []
-        for title in row["sections"]:
+        if "range" in row:
+            start_index, end_index = row["range"]
+            if not (0 <= start_index <= end_index < len(sections)):
+                raise SystemExit(f"RANGE_OUT_OF_BOUNDS:{row['id']}")
+            row_titles = [title for title, _, _ in sections[start_index:end_index + 1]]
+        else:
+            row_titles = list(row["sections"])
+        for title in row_titles:
             if title not in by_title:
                 raise SystemExit(f"SECTION_NOT_FOUND:{title}")
             if title in used:
                 raise SystemExit(f"SECTION_REUSED:{title}")
             used.append(title)
-        first = by_title[row["sections"][0]][0]
-        last = by_title[row["sections"][-1]][1]
+        first = by_title[row_titles[0]][0]
+        last = by_title[row_titles[-1]][1]
         body.append("".join(lines[first:last]))
         if row["id"] == plan["shards"][0]["id"]:
             body.insert(0, "".join(preamble))
         text = shard_text(logical_id, args.path, row["id"], row["title"], body)
-        rel = f"{stem}/{row['id']} - {row['title']}.md"
+        link = f"{stem}/{row['id']} - {row['title']}.md"
+        disk_rel = (PurePosixPath(args.path).parent / link).as_posix()
         built.append({"id": row["id"], "title": row["title"], "scope": row.get("scope", row["title"]),
-                      "path": rel, "text": text, "body": "".join(body)})
+                      "link": link, "path": disk_rel, "text": text, "body": "".join(body),
+                      "sections": row_titles})
     ordered_titles = [title for title, _, _ in sections]
-    if used != ordered_titles:
+    reordered = plan.get("allow_reorder", False)
+    if reordered:
+        if sorted(used) != sorted(ordered_titles):
+            raise SystemExit("SECTIONS_NOT_EXACTLY_ONCE")
+    elif used != ordered_titles:
         raise SystemExit("SECTIONS_NOT_CONTIGUOUS_OR_INCOMPLETE")
     reconstructed = "".join(row["body"] for row in built)
+    original_text = original.decode("utf-8")
+    exact = reconstructed == original_text
+    multiset = sorted(reconstructed.splitlines(keepends=True)) == sorted(original_text.splitlines(keepends=True))
+    if not (multiset if reordered else exact):
+        raise SystemExit("CONTENT_NOT_PRESERVED")
     report = {
         "schema_version": "shard-migration-report/v1",
         "path": args.path,
         "logical_id": logical_id,
         "mode": mode,
         "shard_root": stem,
+        "reordered": reordered,
         "original_lines": len(lines),
         "original_bytes": len(original),
         "original_sha256": sha(original),
         "reconstructed_sha256": sha(reconstructed.encode("utf-8")),
-        "content_preserved": reconstructed == original.decode("utf-8"),
+        "content_preserved_exact": exact,
+        "content_preserved_multiset": multiset,
+        "content_preserved": exact if not reordered else multiset,
         "sections": ordered_titles,
-        "shards": [{"id": row["id"], "title": row["title"], "path": row["path"],
-                    "lines": len(row["body"].splitlines(keepends=True))} for row in built],
+        "shards": [{"id": row["id"], "title": row["title"], "path": row["path"], "link": row["link"],
+                    "lines": len(row["body"].splitlines(keepends=True)), "sections": row["sections"]}
+                   for row in built],
     }
-    if not report["content_preserved"]:
-        raise SystemExit("CONTENT_NOT_PRESERVED")
+    index_text = build_index(logical_id, mode, stem, built, plan.get("title", logical_id))
     if args.apply:
-        (root / f"{stem}").mkdir(parents=True, exist_ok=True)
+        (root / PurePosixPath(args.path).parent / stem).mkdir(parents=True, exist_ok=True)
         for row in built:
             (root / row["path"]).write_text(row["text"], encoding="utf-8")
-        target.write_text(
-            build_index(logical_id, mode, stem, built, plan.get("title", logical_id)), encoding="utf-8"
-        )
+        target.write_text(index_text, encoding="utf-8")
+    if args.emit_bundle is not None and not args.apply:
+        args.emit_bundle.parent.mkdir(parents=True, exist_ok=True)
+        args.emit_bundle.write_text(json.dumps({
+            "schema_version": "shard-migration-bundle/v1",
+            "index_path": args.path,
+            "index_text": index_text,
+            "shards": [{"path": row["path"], "text": row["text"]} for row in built],
+        }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": "APPLIED" if args.apply else "DRY_RUN", "path": args.path,

@@ -4,6 +4,7 @@
 
 > 架构：A 系列（用户认知章，逐轮应答式）+ B 系列（AI 工作编年史）+ C 系列（当前审计与综合判断）+ 机器 ledger。旧 v2 的 171/119、generation-2 的 127/94/913 等数字属于历史分母；三份历史 primary 仍为 88 条消息，generation-3 从中选出 23 条、27 个用户直接原文语义单元；generation-4 再以 hash-pinned incremental curation 加入当前一份用户原文，合计 89 条登记消息、24 条纳入消息、36 个语义单元，旧 27 个 KC 全部逐字保留。Codex supplemental 37 条与转发 AI 内容仍保留为历史，不进入当前 core。LocalGPT parent/main 220 条 visible assistant、WebGPT 55 Response、Gemini 24 ordinary text 的历史审计分母不因 core 换代改变。具体边界见 C0、manifest 和 generation transition receipts。
 > v3 变更：顶层综合 repo 已建立；新增 `核心认知.md`、source manifest、逐消息/逐回答/逐工具/逐产物/逐 claim ledger、LocalGPT canonical trajectory 证据和本地 `.codex` 治理。当前还增加 `方向追踪.md`、`全景视野.md`、逐文件 merge manifest、22,226 行 cross-source register 和 fresh load receipt。旧 `verify_ai_coverage.py` 仍保留为历史验证器，不替代新账本。
+> C 系列分片（governance-v3.3.0）：`C1`–`C4` 的 canonical 路径仍是唯一入口，但文件本身是 v2 逻辑文档索引；正文在同名子目录（`C4-…/001 - ….md`）中。读取 = 索引 + 按表顺序全部分片，缺片即未完成全文加载；合同见 [`docs/quality/长治理文档分片与索引合同.md`](../docs/quality/长治理文档分片与索引合同.md)。
 > 版本链：v1=1d12edb（结构与账本）→ v2=1ccb299（B系列+锚点）→ 9ee73e2（Gemini 24 chunk 全文精读）→ 46bf864（网页GPT前21节）→ f815e65（网页GPT 55/55 全部完成）→ 7e77168（Codex 13 关键轮精读）。
 > 读态总账（读遍账本.md）：用户侧 119 条 F=100%；网页 GPT 55/55 节回复 F=100%；Gemini 24 实质 chunk F=100%；Codex 13 哲学锻造关键轮 F + 其余 ~200 条 M（实质内容由 F 级闭包文档承载，重读边际价值低，已登记重开路径）。
 

@@ -15,10 +15,13 @@ import difflib
 import hashlib
 import json
 import subprocess
-from pathlib import Path
+import sys
+from pathlib import Path, PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 TOP = Path("理解章节")
 NESTED = Path("AI对话录/理解章节")
 
@@ -39,15 +42,15 @@ def info(path: Path) -> dict[str, object] | None:
     }
 
 
-def diff_lines(top: Path, nested: Path) -> tuple[list[str], list[str], list[str]]:
-    top_lines = top.read_text(encoding="utf-8").splitlines()
-    nested_lines = nested.read_text(encoding="utf-8").splitlines()
+def diff_lines(top_text: str, nested_text: str, name: str) -> tuple[list[str], list[str], list[str]]:
+    top_lines = top_text.splitlines()
+    nested_lines = nested_text.splitlines()
     unified = list(
         difflib.unified_diff(
             nested_lines,
             top_lines,
-            fromfile=f"nested/{top.name}",
-            tofile=f"top/{top.name}",
+            fromfile=f"nested/{name}",
+            tofile=f"top/{name}",
             lineterm="",
         )
     )
@@ -78,20 +81,38 @@ def git_head(root: Path) -> str:
 def build(root: Path) -> dict[str, object]:
     top = root / TOP
     nested = root / NESTED
-    names = sorted({p.name for p in top.iterdir()} | {p.name for p in nested.iterdir()})
+    names = sorted(
+        {p.name for p in top.iterdir() if p.is_file()}
+        | {p.name for p in nested.iterdir() if p.is_file()}
+    )
     entries: list[dict[str, object]] = []
     for name in names:
         top_path = top / name
         nested_path = nested / name
         top_info = info(top_path)
         nested_info = info(nested_path)
-        if top_info is not None and nested_info is not None and top_info["sha256"] == nested_info["sha256"]:
+        sharded = logical_text(root, f"{TOP.as_posix()}/{name}")
+        if sharded is not None:
+            top_info = dict(top_info or {})
+            top_info.update({
+                "logical_document": True,
+                "logical_sha256": hashlib.sha256(sharded.encode("utf-8")).hexdigest(),
+                "logical_bytes": len(sharded.encode("utf-8")),
+                "logical_lines": sharded.count("\n"),
+                "shard_root": PurePosixPath(name).stem,
+            })
+        top_text = sharded if sharded is not None else (top_path.read_text(encoding="utf-8") if top_info else None)
+        nested_text = nested_path.read_text(encoding="utf-8") if nested_info else None
+        if top_text is not None and nested_text is not None and top_text == nested_text:
             comparison = "IDENTICAL"
             top_only: list[str] = []
             nested_only: list[str] = []
             unified: list[str] = []
             rationale = classify(name, top_only, nested_only)[1]
-            verification = "SHA256_EQUAL"
+            if sharded is not None:
+                rationale += (" The top-level path is a v2 shard index; this comparison uses the reconstructed "
+                              "logical text (index plus every shard in table order).")
+            verification = "LOGICAL_TEXT_EQUAL" if sharded is not None else "SHA256_EQUAL"
         elif top_info is None or nested_info is None:
             comparison = "ONE_SIDE_ONLY"
             top_only = []
@@ -100,7 +121,7 @@ def build(root: Path) -> dict[str, object]:
             rationale = "A unique file must be retained and explicitly routed; it cannot be inferred away from a same-name comparison."
             verification = "PRESENCE_CHECK"
         else:
-            unified, top_only, nested_only = diff_lines(top_path, nested_path)
+            unified, top_only, nested_only = diff_lines(top_text, nested_text, name)
             comparison, rationale = classify(name, top_only, nested_only)
             verification = "UNIFIED_DIFF_RECORDED"
         if top_info is not None:

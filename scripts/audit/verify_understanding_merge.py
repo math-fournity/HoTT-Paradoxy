@@ -5,10 +5,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 
 
 def sha256(path: Path) -> str:
@@ -34,7 +37,14 @@ def main() -> int:
     if not nested.is_dir():
         fail(errors, f"MISSING_HISTORICAL_SOURCE_DIRECTORY:{nested}")
     entries = manifest.get("entries", [])
-    names = sorted({p.name for p in top.iterdir()} | {p.name for p in nested.iterdir()}) if top.is_dir() and nested.is_dir() else []
+    names = (
+        sorted(
+            {p.name for p in top.iterdir() if p.is_file()}
+            | {p.name for p in nested.iterdir() if p.is_file()}
+        )
+        if top.is_dir() and nested.is_dir()
+        else []
+    )
     if sorted(e.get("relative_path") for e in entries) != names:
         fail(errors, "MANIFEST_UNION_MISMATCH")
     if manifest.get("counts", {}).get("union_files") != len(entries):
@@ -50,6 +60,16 @@ def main() -> int:
                 fail(errors, f"TOP_FILE_MISSING:{name}")
             elif sha256(tp) != expected_top.get("sha256"):
                 fail(errors, f"TOP_HASH_MISMATCH:{name}")
+            if expected_top.get("logical_document"):
+                try:
+                    rebuilt = logical_text(root, f"理解章节/{name}")
+                except (OSError, UnicodeError, ValueError) as exc:
+                    fail(errors, f"TOP_LOGICAL_READ_FAILED:{name}:{exc}")
+                    rebuilt = None
+                if rebuilt is None:
+                    fail(errors, f"TOP_LOGICAL_DOCUMENT_MISSING:{name}")
+                elif hashlib.sha256(rebuilt.encode("utf-8")).hexdigest() != expected_top.get("logical_sha256"):
+                    fail(errors, f"TOP_LOGICAL_HASH_MISMATCH:{name}")
         if expected_nested is not None:
             if not np.is_file():
                 fail(errors, f"NESTED_SOURCE_MISSING:{name}")

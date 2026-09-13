@@ -143,11 +143,13 @@ def parse_shard_index(data, rel):
     for line in table.splitlines():
         match=SHARD_ROW_RE.match(line.strip())
         if not match:continue
-        shard_id,title,path=match.group(1),match.group(2).strip(),match.group(3).strip()
-        if path.startswith('<') and path.endswith('>'):path=path[1:-1]
-        rows.append({'shard_id':shard_id,'title':title,'path':path})
+        shard_id,title,link=match.group(1),match.group(2).strip(),match.group(3).strip()
+        if link.startswith('<') and link.endswith('>'):link=link[1:-1]
+        base=PurePosixPath(rel).parent
+        normalized=(base/link).as_posix() if str(base)!='.' else link
+        rows.append({'shard_id':shard_id,'title':title,'link':link,'path':normalized})
     if not rows:raise CognitionError('SHARD_INDEX_TABLE_EMPTY: '+rel)
-    ids=[r['shard_id'] for r in rows];paths=[r['path'] for r in rows]
+    ids=[r['shard_id'] for r in rows];paths=[r['link'] for r in rows]
     if len(set(ids))!=len(ids) or len(set(paths))!=len(paths):
         raise CognitionError('SHARD_INDEX_DUPLICATE: '+rel)
     if meta['last_shard']!=paths[-1]:raise CognitionError('SHARD_INDEX_LAST_SHARD_MISMATCH: '+rel)
@@ -158,12 +160,13 @@ def parse_shard_index(data, rel):
     stem=PurePosixPath(rel).stem
     if meta['shard_root']!=stem:raise CognitionError('SHARD_INDEX_ROOT_MISMATCH: '+rel)
     for row in rows:
-        parts=PurePosixPath(row['path']).parts
+        parts=PurePosixPath(row['link']).parts
         if len(parts)!=2 or parts[0]!=stem:raise CognitionError('SHARD_PATH_NOT_DIRECT_CHILD: '+row['path'])
         name=SHARD_NAME_RE.fullmatch(parts[1])
         if name is None or name.group('shard_id')!=row['shard_id'] or name.group('title')!=row['title']:
             raise CognitionError('SHARD_NAME_MISMATCH: '+row['path'])
     return {'logical_id':meta['logical_id'],'mode':meta['mode'],'shard_root':meta['shard_root'],
+            'shard_root_rel':(PurePosixPath(rel).parent/meta['shard_root']).as_posix(),
             'last_shard':meta['last_shard'],'append_target':meta['append_target'],
             'soft_line_target':meta['soft_line_target'],'shards':rows}
 
@@ -285,9 +288,9 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
         logical[index['logical_id']]=index
         if listdir is not None:
             listed={PurePosixPath(row['path']).name for row in index['shards']}
-            for name in listdir(index['shard_root']):
+            for name in listdir(index['shard_root_rel']):
                 if SHARD_NAME_RE.fullmatch(name) and name not in listed:
-                    raise CognitionError('UNLISTED_SHARD: '+index['shard_root']+'/'+name)
+                    raise CognitionError('UNLISTED_SHARD: '+index['shard_root_rel']+'/'+name)
         add_raw(p,layer,'shard-index:'+selected_by,index['logical_id'],'index')
         for row in index['shards']:
             heading=H1_RE.search(text(get(row['path']),row['path']))
