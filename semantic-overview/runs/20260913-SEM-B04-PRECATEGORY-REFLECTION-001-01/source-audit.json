@@ -1,0 +1,230 @@
+{
+  "schema_version": "sem-b04-source-audit/v1",
+  "solver_source": {
+    "kind": "source_audit_input",
+    "path": "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/reflection/precategory-solver.lagda.md",
+    "repo_relative_path": null,
+    "bytes": 9683,
+    "sha256": "4e34f147a01b4ffce9deb863c25521fd997dddc1a072e94e1b03f5cf444a7882"
+  },
+  "type_checker_source": {
+    "kind": "source_audit_input",
+    "path": "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/reflection/type-checking-monad.lagda.md",
+    "repo_relative_path": null,
+    "bytes": 11783,
+    "sha256": "519f08b73ba6dd29cac3a41566a1b356147b9e27d96ba9970f1dd550c0b8a52e"
+  },
+  "solver_hits": {
+    "solves any equation": [
+      {
+        "line": 34,
+        "text": "This module defines a macro, `solve-Precategory!` that solves any equation"
+      }
+    ],
+    "solve-Precategory-Expression": [
+      {
+        "line": 47,
+        "text": "`solve-Precategory-Expression` lemma, is what the macro automates."
+      },
+      {
+        "line": 140,
+        "text": "    solve-Precategory-Expression :"
+      },
+      {
+        "line": 145,
+        "text": "    solve-Precategory-Expression f g p ="
+      },
+      {
+        "line": 220,
+        "text": "### The application of the `solve-Precategory-Expression` lemma"
+      },
+      {
+        "line": 223,
+        "text": "apply-solve-Precategory-Expression :"
+      },
+      {
+        "line": 225,
+        "text": "apply-solve-Precategory-Expression cat lhs rhs ="
+      },
+      {
+        "line": 227,
+        "text": "    ( quote solve-Precategory-Expression)"
+      },
+      {
+        "line": 249,
+        "text": "    unify hole (apply-solve-Precategory-Expression cat built-lhs built-rhs)"
+      }
+    ],
+    "build-Precategory-Expression": [
+      {
+        "line": 183,
+        "text": "build-Precategory-Expression : Term-Agda → Term-Agda"
+      },
+      {
+        "line": 184,
+        "text": "build-Precategory-Expression"
+      },
+      {
+        "line": 197,
+        "text": "build-Precategory-Expression"
+      },
+      {
+        "line": 211,
+        "text": "    ( visible-Argument-Agda (build-Precategory-Expression g) ∷"
+      },
+      {
+        "line": 212,
+        "text": "      visible-Argument-Agda (build-Precategory-Expression f) ∷"
+      },
+      {
+        "line": 214,
+        "text": "build-Precategory-Expression f ="
+      },
+      {
+        "line": 246,
+        "text": "      normalize lhs >>= (return-Type-Checker ∘ build-Precategory-Expression)"
+      },
+      {
+        "line": 248,
+        "text": "      normalize rhs >>= (return-Type-Checker ∘ build-Precategory-Expression)"
+      }
+    ],
+    "infer-type": [
+      {
+        "line": 243,
+        "text": "    goal ← infer-type hole >>= reduce"
+      }
+    ],
+    "reduce": [
+      {
+        "line": 43,
+        "text": "reflexivity, so that the problem is reduced to finding which"
+      },
+      {
+        "line": 243,
+        "text": "    goal ← infer-type hole >>= reduce"
+      }
+    ],
+    "normalize": [
+      {
+        "line": 42,
+        "text": "two morphisms are equal, then their normalized expressions are equal by"
+      },
+      {
+        "line": 124,
+        "text": "  normalize-Precategory-Expression :"
+      },
+      {
+        "line": 128,
+        "text": "  normalize-Precategory-Expression e ="
+      },
+      {
+        "line": 131,
+        "text": "  is-sound-normalize-Precategory-Expression :"
+      },
+      {
+        "line": 134,
+        "text": "    normalize-Precategory-Expression e ＝ in-Precategory-Expression e"
+      },
+      {
+        "line": 135,
+        "text": "  is-sound-normalize-Precategory-Expression e ="
+      },
+      {
+        "line": 143,
+        "text": "      normalize-Precategory-Expression f ＝ normalize-Precategory-Expression g →"
+      },
+      {
+        "line": 146,
+        "text": "      ( inv (is-sound-normalize-Precategory-Expression f)) ∙"
+      },
+      {
+        "line": 148,
+        "text": "      ( is-sound-normalize-Precategory-Expression g)"
+      },
+      {
+        "line": 246,
+        "text": "      normalize lhs >>= (return-Type-Checker ∘ build-Precategory-Expression)"
+      },
+      {
+        "line": 248,
+        "text": "      normalize rhs >>= (return-Type-Checker ∘ build-Precategory-Expression)"
+      }
+    ],
+    "unify": [
+      {
+        "line": 249,
+        "text": "    unify hole (apply-solve-Precategory-Expression cat built-lhs built-rhs)"
+      }
+    ],
+    "declare-postulate": []
+  },
+  "type_checker_hits": {
+    "declare-postulate": [
+      {
+        "line": 98,
+        "text": "  declare-postulate :"
+      },
+      {
+        "line": 197,
+        "text": "{-# BUILTIN AGDATCMDECLAREPOSTULATE declare-postulate #-}"
+      }
+    ],
+    "AGDATCMDECLAREPOSTULATE": [
+      {
+        "line": 197,
+        "text": "{-# BUILTIN AGDATCMDECLAREPOSTULATE declare-postulate #-}"
+      }
+    ],
+    "unify": [
+      {
+        "line": 61,
+        "text": "  -- Tries the unify the first term with the second"
+      },
+      {
+        "line": 62,
+        "text": "  unify :"
+      },
+      {
+        "line": 182,
+        "text": "{-# BUILTIN AGDATCMUNIFY unify #-}"
+      },
+      {
+        "line": 260,
+        "text": "  num-Type-Checker h = unify (quoteTerm 314) h"
+      },
+      {
+        "line": 271,
+        "text": "    num-Type-Checker' h = unify (quoteTerm 1) h"
+      },
+      {
+        "line": 283,
+        "text": "      unify hole (definition-Term-Agda (quote add-ℕ) (cons b (cons a nil)))"
+      },
+      {
+        "line": 285,
+        "text": "    swap-add v hole = unify hole v"
+      },
+      {
+        "line": 321,
+        "text": "      ( unify goal p) <|>"
+      },
+      {
+        "line": 325,
+        "text": "        unify goal"
+      }
+    ],
+    "AGDATCMUNIFY": [
+      {
+        "line": 182,
+        "text": "{-# BUILTIN AGDATCMUNIFY unify #-}"
+      }
+    ]
+  },
+  "solver_declare_postulate_call_count": 0,
+  "solve_precategory_usage_files": [
+    "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/reflection/precategory-solver.lagda.md"
+  ],
+  "solve_precategory_usage_file_count": 1,
+  "scope_interpretation": "The reflection API exposes declare-postulate, but the fixed solver source does not call it. The solver builds a term using the soundness theorem and asks Agda's unifier to fill the goal. Exact-name uses are confined to the solver module's own examples in this fixed tree."
+}

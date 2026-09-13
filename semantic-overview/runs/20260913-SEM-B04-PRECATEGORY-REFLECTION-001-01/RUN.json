@@ -1,0 +1,182 @@
+{
+  "schema_version": "semantic-overview-run/v1",
+  "run_id": "20260913-SEM-B04-PRECATEGORY-REFLECTION-001-01",
+  "started_at_utc": "2026-09-13T19:34:07.521124+00:00",
+  "completed_at_utc": "2026-09-13T19:35:26.478339+00:00",
+  "duration_seconds": 78.956381,
+  "status": "EXPECTED_BOUNDARY_OBSERVED",
+  "git": {
+    "branch": "codex/semantic-overview",
+    "head_before_run": "7f94c7fda5f4ce23f28f0686d613e558441dae38",
+    "state": "LOCAL_UNCOMMITTED_CANDIDATE"
+  },
+  "scope": "The fixed agda-unimath solve-Precategory! reflection macro: fresh source checking, an associative equation it promises to solve, an arbitrary false morphism equality, and a non-equality goal.",
+  "verdict": "REFLECTION_SOLVER_GENERATES_CHECKED_PROOF_TERM; FALSE_AND_MALFORMED_GOALS_REJECTED; DECLARE_POSTULATE_NOT_USED; DEFENSE_WORKS_WITH_SCOPE",
+  "non_goals": [
+    "No proof that every input or future solver version fails closed.",
+    "No audit of Agda compiler implementation internals beyond observed behavior and fixed source bindings.",
+    "No claim that reflection primitives are available as compiled runtime functions; the execution surface is type checking.",
+    "No HoTT inconsistency, effective-delivery mismatch, or self-verification theorem.",
+    "The fixed tree has no exact-name use outside the solver module's own examples."
+  ],
+  "steps": [
+    {
+      "name": "agda-version",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--version"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:34:07.521339+00:00",
+      "duration_seconds": 0.028317,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "agda-version.stdout.txt",
+        "bytes": 240,
+        "sha256": "22ad7e88d1de71286409ccbca6b8f688edff8225dd5ae12a811599bb7bcefd56"
+      },
+      "stderr": {
+        "path": "agda-version.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-solver-fresh",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04",
+        "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/reflection/precategory-solver.lagda.md"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:34:07.550204+00:00",
+      "duration_seconds": 70.093379,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "kernel-solver-fresh.stdout.txt",
+        "bytes": 43678,
+        "sha256": "d7ef82bc1015d91d2dcb80442ada7c0000a94d5820575e7d890fa9ad11d82e2d"
+      },
+      "stderr": {
+        "path": "kernel-solver-fresh.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "macro-positive",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04/SemB04Positive.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:35:17.644803+00:00",
+      "duration_seconds": 2.863872,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "macro-positive.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "macro-positive.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "macro-false-equality-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04/SemB04FalseEqualityNegative.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:35:20.509124+00:00",
+      "duration_seconds": 2.849767,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[UnequalTerms]",
+        "f != g",
+        "refl has type"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "macro-false-equality-negative.stdout.txt",
+        "bytes": 598,
+        "sha256": "8b0a2e3229ebb9e95d5ba6cb3af6ba08ab13c080477c1719292e7aa945a30d02"
+      },
+      "stderr": {
+        "path": "macro-false-equality-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "macro-non-equality-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b04/SemB04NonEqualityNegative.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:35:23.359458+00:00",
+      "duration_seconds": 2.87049,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[GenericDocError]",
+        "is not a ＝-type"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "macro-non-equality-negative.stdout.txt",
+        "bytes": 394,
+        "sha256": "34734f365887276ee75dccce3e9d8095facfd126e42369a334ec2bc7fcc0c74c"
+      },
+      "stderr": {
+        "path": "macro-non-equality-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "artifacts": {
+    "environment": "environment.txt",
+    "source_manifest": "source-manifest.json",
+    "source_audit": "source-audit.json"
+  }
+}
