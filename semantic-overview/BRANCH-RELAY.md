@@ -17,7 +17,7 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `9d928ba629adf36796e64bb74059d58cefa8b456` |
+| `candidate_content_oid` | `2de235a9c80fcad77e87135a7b2cda2c1bc755b4` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M4 工作，不属于本分支输入 |
@@ -61,6 +61,7 @@ semantic-overview/**
 | 候选 | 状态 | 定位 |
 |---|---|---|
 | `SEM-B01`：两个真实截断消费者的 B 方向资格检查 | `KERNEL_CHECKED_AND_RUNTIME_OBSERVED_WITH_SCOPE / EXECUTION_GAP_WITHOUT_DELIVERY_PROMISE / E6_BOUNDED_NEGATIVE` | content commit `9d928ba629adf36796e64bb74059d58cefa8b456`；`semantic-overview/research/SEM-B01-truncation-consumer-audit.md` |
+| `SEM-B02`：仅仅有限、决定数据与自然分支消费者 | `NATURAL_THEORY_BRANCH_CONSUMER_FOUND / EFFECTIVE_DELIVERY_LIFT_NOT_ESTABLISHED` | content commit `2de235a9c80fcad77e87135a7b2cda2c1bc755b4`；`semantic-overview/research/SEM-B02-finite-decision-consumer-audit.md` |
 
 `SEM-B01` 的当前结果是：
 
@@ -70,6 +71,13 @@ semantic-overview/**
 - JS 后端可生成代码，直接 Bool 正控实际输出 `TRUE`；强制消费截断项时在未实现的 `unit-trunc` 处显式失败，GHC 生成源码也为四个 postulate 保留运行错误；
 - 已检查的自然源码没有执行/资源/现实交付承诺，因此该 Q3/Q4 断层未建立 `Q1/Q3 → Q4/Q7` 的自然资格升级；
 - 历史扫描 JSON 的 repo-formal 文件清单已不是当前快照，外部 agda-unimath 部分仍与固定树一致。
+
+`SEM-B02` 的当前结果是：
+
+- `is-finite X = ∥ count X ∥` 可以在 kernel 中消去到命题性的 `has-decidable-equality X`；固定源码有 16 个文件使用该接口；
+- exclusive-sum 与 orientation 调用链真实对 `A + ¬A` 分支匹配，因此理论内自然消费者已经找到；
+- 显式 Bool 决定过程经修正后的 Scott-constructor FFI 实际输出 `FALSE`；有限性定理模块在普通及优化 JS 下都于 eager postulate 初始化处失败，没有产生错误决定值；
+- 固定源码未承诺后端/资源/现实交付，同输入现实基线也未建立；本分支候选地把 E6 细分为理论消费 `E6a`、交付承诺 `E6b`、同任务失配 `E6c`，本轮状态为 `YES / NOT_FOUND / NOT_ESTABLISHED`。
 
 ## 验证与认知快照
 
@@ -81,25 +89,28 @@ semantic-overview/**
 - 候选报告提交前通过 `git diff --cached --check`；外部源码文件 SHA-256 逐文件复核。
 - 第二阶段 run `20260913-SEM-B01-TRUNCATION-DELIVERY-001-01`：12/12 步符合冻结判据；18 项 source/toolchain manifest 复核无漂移；直接 Node 正控与截断失败均保留原始输出。
 - run 具有拒绝覆盖行为；重复调用 exit 2，不会静默改写历史收据。
+- `SEM-B02` run `20260913-SEM-B02-FINITE-DECISION-001-01`：13/13 步符合冻结判据；310 模块 fresh kernel；22 项 manifest 与 7 个保留生成物 hash 对账；普通/优化 JS 失败一致。
+- B02 的承诺词汇扫描保留了 README `informative resources` 与 `effective quotient` 假阳性，语义分类没有用零命中粉饰结果。
 
 ## 失败、冲突与未知
 
 - `FAILURES`：无。
 - `CONFLICT`：项目旧 current queue 把 S lane 放在主线并要求 canonical checkpoint；用户的新裁定与 `PARALLEL_WORKTREE_COGNITION_V1` 已把本分支改为 contributor。本分支用 branch-local relay 与 KC audit 保留连续性，不改旧 owner；最终 integrator 应在 target 上原位重述被接受的新协作状态。
-- `UNKNOWN`：固定调用闭包之外的外部文章、下游项目或未来版本是否对 `Q4/Q7` 作出承诺；其它具计算语义的截断实现；现实桥。
+- `UNKNOWN`：外部应用、教程、插件或下游包是否把 finite decision 接到编译 main/服务接口并承诺 Q4/Q7；同任务现实基线；其它具计算语义的截断实现；现实桥。
 - `STALE_IF`：canonical target、相关 API 源码树、B 方向定义或另一 lane 的路径所有权发生改变。
 
 ## 下一动作
 
-`SEM-B01` 已达到 `BOUNDED_NEGATIVE` 停止条件。下一单元 `SEM-B02` 转向不同消费者类别：寻找“命题级有限性/可判定性证明”被下游模式匹配用于分支选择或驱动计算的接口，并继续分开类型、kernel、判断相等、后端和现实完成五层。
+`SEM-B01`、`SEM-B02` 均已达到各自停止条件。下一单元转向 `E6b`：寻找固定版本的外部应用、教程、插件或下游包，确认是否明确把这类 finite decision 接到可执行 main、服务接口或资源内完成承诺；无可回查消费者时登记 `CONSUMER_SOURCE_GAP`，不再用更多库内数学调用点代替。
 
 ## 集成候选
 
 未来 integrator 应以 exact candidate OID 审查本分支，只提取接受的独占实物，并在 canonical target 上一次性更新 current owners。当前建议项仅包括：
 
 1. 将两个初始消费者及弱常值泛性质的四个直接调用点细分为已语义检查的负控制；
-2. 将“postulated truncation 的 kernel 接受、后端生成与运行失败”登记为 Q3/Q4 分层实例，不升级为悖论；
-3. 以后修订扫描器时增加 `weakly-constant` 提示，但保留“token 不证明义务成立”的边界；
-4. 以新版本快照刷新 repo-formal 扫描，不覆盖历史 JSON。
+2. 将 finite decision 的 16 文件自然理论消费登记为 `E6a` 已见，同时保持 `E6b/E6c` 开放；
+3. 评估是否接受 `E6a/E6b/E6c` 三分，避免“理论 consumer”与“有效交付 consumer”混同；
+4. 将 postulated truncation 的 kernel 接受、后端生成与运行失败登记为 Q3/Q4 分层实例，不升级为悖论；
+5. 以后修订扫描器时增加 `weakly-constant` 提示，并以新版本快照刷新 repo-formal 扫描，不覆盖历史 JSON。
 
 以上均未提交集成，也不是项目 current truth。
