@@ -1,4 +1,4 @@
-# ERCF-3 T3 脉冲链（含七个 claim-bearing package）
+# ERCF-3 T3 脉冲链（含八个 claim-bearing package）
 
 > 判词只覆盖本目录的编码层义务；**ERCF-3 本体保持 `GATED`**（C8 §9 的 P1–P8 与停止条件不变）。
 > 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
@@ -12,6 +12,7 @@
 | `MP-ERCF3-T3-BIT-CODING-001` | `C-169`–`C-172` | `BitCoding.agda` | `20260913-MP-ERCF3-T3-BIT-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_BIT_SUBSTRATE` |
 | `MP-ERCF3-T3-STREAMING-PARSER-001` | `C-173`–`C-176` | `StreamingParser.agda` | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_NAT_CODING` |
 | `MP-ERCF3-T3-FORMULA-CODING-001` | `C-177`–`C-180` | `FormulaCoding.agda` | `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_FORMULA_CODING` |
+| `MP-ERCF3-T3-REPAIRED-SYNTAX-001` | `C-181`–`C-183` | `RepairedSyntax.agda` | `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -227,3 +228,29 @@ exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.j
 
 **禁止外推**：只覆盖 `Fml` 的编码/解码与单射性；不宣称公式层替换一致、不构造 `P` 或对角不动点；
 `BitCoding`/`StreamingParser` 与全部历史脉冲文件逐字节未改（两次 run 的 `source-manifest.json` 可交叉核对）；ERCF-3 保持 `GATED`。
+
+---
+
+## 8. `MP-ERCF3-T3-REPAIRED-SYNTAX-001`：修复编码之上的替换一致与引用
+
+旧编码要在"码级替换"与"语法级替换"之间补一条联合递归工程（C-157–C-159）。修复编码有了解码器之后，这件事变成**推论**：
+码级替换直接定义为"解码—替换—编码"。
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-181` | 项层：`substCodeT k n c = codeT' (substT k n (dec c))` 满足 `substCodeT k n (codeT' t) ≡ codeT' (substT k n t)` | `substCodeT`、`substCodeT-agrees` |
+| `C-182` | 公式层：`substCodeF k n c = codeF' (substF k n (decF c))` 满足 `substCodeF k n (codeF' φ) ≡ codeF' (substF k n φ)` | `substCodeF`、`substCodeF-agrees` |
+| `C-183` | 引用 `⌜ φ ⌝' = num (codeF' φ)` **单射**；对角实例 `diagonalize' φ = substF (codeF' φ) 0 φ` 是替换实例，且 `codeF' (diagonalize' φ) ≡ substCodeF (codeF' φ) 0 (codeF' φ)` | `⌜_⌝'`、`⌜-injective'`、`diagonalize'`、`diagonalize'-is-subst`、`diagonalize'-code` |
+
+**诚实边界**：`substCodeT`/`substCodeF` 是**经由解码器**定义的（解码—替换—编码），所以"一致"是精确的，但本包**不**主张对象理论
+（`ObjectSyntax` 的 `⊢_` 系统）能表示这个替换或引用函数。那条义务（表示性）需要把算术/表示层真正建起来，仍归**门 B**。
+本包交付的是对角引理所需的**形状**：引用单射 + 对角实例 + 码级替换可算出对角实例的码。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、
+exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 行冻结）。
+
+**校验入口**：与 §1.4 同（builtins-only 脉冲链 ⇒ canonical 入口是 `verify_proof_version_closure.py` 的
+`later_packages` 分支与 run 自身的 `RUN.json` + `index-row-manifest.json`）。
+
+**禁止外推**：不构造证明谓词 `P`、不证明表示性/反射/对角不动点；不重做旧 `codeT`/`codeF` 的 `substFix` 义务；
+`BitCoding`/`StreamingParser`/`FormulaCoding` 与全部历史脉冲文件逐字节未改（三次 run 的 `source-manifest.json` 可交叉核对）；ERCF-3 保持 `GATED`。

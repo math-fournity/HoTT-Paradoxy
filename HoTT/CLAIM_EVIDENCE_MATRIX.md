@@ -368,3 +368,19 @@ proof_run_root: HoTT/verification/runs
 | C-178 | 项层解析器作为黑箱：`(t : Tm) (rest : List Bool) → tmFrom (bits t ++ rest) ≡ res t rest`，其中 `tmFrom bs = SP.run (LEN bs) bs (SP.startSub SP.ε)`——`=f` 的 `Tm` 子项燃料直接取自"剩余位数"，因此公式层不必重写项层解析器。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `tmFrom-run`、`eq-node`、`eqRight-step`（辅助 `SP.parse-run`、`SP.LEN-++`、`SP.bits-length`）；同一 run。 | 只说明该复用方式正确；不声称 `SP.run` 对任意燃料/任意位串都可判定（那仍需 C-172 的界）。 |
 | C-179 | 长度对账：`(φ : Fml) → STEPS φ ≤ LEN (bitsF φ)`（辅助 `≤-self-add-right`、`≤-add-right`、`+-right-mono`、`+-left-mono`、`≤-add`、`BLEN-nonzero`、`one≤bits`），故公式码本身仍可充当燃料。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `STEPS≤LEN`；同一 run。 | 只是界；不声称界是紧的，也不声称迭代数与位数相等（`=f` 的迭代数严格小于其位数）。 |
 | C-180 | 修复后的公式编码 `codeF'`（`φ ↦ codeBits (bitsF φ)`）带**全解码器** `decF : Nat → Fml` 满足 `(φ : Fml) → decF (codeF' φ) ≡ φ`，故 `codeF'` 单射（`roundtrip-implies-injective-F` 是 C-164 原理在 `Fml` 上的实例——C-164 本身只对 `Tm` 陈述）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeF'`、`decF`、`codeF'-roundtrip`、`codeF'-injective`；同一 run。 | 只覆盖 `Fml` 的编码/解码与单射性；不宣称公式层与对象层替换（`substF`/`substFix` 系列）一致、不构造 `⌜φ⌝` 的算术化表示、不涉及 P 表示性/反射/对角不动点；ERCF-3 保持 `GATED`。 |
+
+## 追加登记：MP-ERCF3-T3-REPAIRED-SYNTAX-001（T3 修复编码之上的替换一致与引用，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01` 的 `RUN.json`。
+> 本包把 C-158/C-159 的**码级替换与语法级替换一致**这一义务，在**修复后的编码**上以推论形式收口；不进入 ERCF-3 本体，`GATED` 状态不变。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-REPAIRED-SYNTAX-001` | `C-181`–`C-183` | `formal/ercf3-t3/RepairedSyntax.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`CodingRepair.agda`、`BitCoding.agda`、`StreamingParser.agda`、`FormulaCoding.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-181 | 项层码级替换：`substCodeT k n c = codeT' (substT k n (dec c))` 满足 `(k n : Nat) (t : Tm) → substCodeT k n (codeT' t) ≡ codeT' (substT k n t)`——**在修复编码的像上，码级替换与语法级替换一致**（旧编码的对应义务要 C-157–C-159 的联合递归工程）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substCodeT`、`substCodeT-agrees`（用 C-176 的往返）；run `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01`。 | `substCodeT` 经**解码器**定义（解码—替换—编码）；本主张不包含"对象理论可表示该替换"，也不重做旧 `substFixT` 义务。 |
+| C-182 | 公式层同型结论：`substCodeF k n c = codeF' (substF k n (decF c))` 满足 `(k n : Nat) (φ : Fml) → substCodeF k n (codeF' φ) ≡ codeF' (substF k n φ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substCodeF`、`substCodeF-agrees`（用 C-180 的往返）；同一 run。 | 同上：不主张表示性；不涉及 `substF` 的量词/影子分支等结构性质（那些已在 T2 层机器化）。 |
+| C-183 | 引用与对角实例：`⌜ φ ⌝' = num (codeF' φ)` **单射**（`⌜-injective'`）；`diagonalize' φ = substF (codeF' φ) 0 φ` 是同一公式的替换实例（`refl`），且其码可由码级替换算出：`codeF' (diagonalize' φ) ≡ substCodeF (codeF' φ) 0 (codeF' φ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `⌜_⌝'`、`⌜-injective'`、`diagonalize'`、`diagonalize'-is-subst`、`diagonalize'-code`；同一 run。 | 这是对角引理所需的**形状**，不是对角不动点：不构造 `P`、不证明表示性或反射；对象层可表示性仍归门 B。 |

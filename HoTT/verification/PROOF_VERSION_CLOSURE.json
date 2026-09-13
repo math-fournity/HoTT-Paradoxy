@@ -13,7 +13,7 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 31,
+  "later_machine_proved_claim_count": 34,
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -110,6 +110,18 @@
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_REPAIRED_FORMULA_CODING",
       "notes": "Lifts the repaired coding from Tm (C-176) to Fml, which is the layer the diagonal machinery actually quotes. The formula symbol layer (two tag bits for =f/bot/=>f, plus the binder index of all) comes with a streaming parser whose round trip is exact in the iteration count; the Tm children of =f are handed to the term-level parser as a black box (fuel = the length of the remaining bit list); the length bound STEPS <= LEN makes the repaired formula code its own fuel; and codeF' = codeBits . bitsF comes with a total decoder decF and the round trip decF (codeF' phi) = phi, hence injectivity. Only Fml coding/decoding is covered: formula-layer substitution alignment, proof-predicate representability, reflection and the diagonal fixed point remain open, and ERCF-3 stays gated.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+      "claim_ids": "C-181–C-183",
+      "local_claim_ids": "T3-SUB-01–T3-SUB-03",
+      "source": "HoTT/formal/ercf3-t3/RepairedSyntax.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION",
+      "notes": "Substitution and quotation over the repaired coding. With a decoder in hand, code-level substitution can be defined as decode-substitute-encode, and the agreement with syntax-level substitution becomes a corollary: substCodeT k n (codeT' t) = codeT' (substT k n t) and substCodeF k n (codeF' phi) = codeF' (substF k n phi). Quotation (the numeral of the repaired formula code) is injective, and the diagonal instance is a substitution instance of the same formula whose code is reached by the code-level substitution. Honest boundary: these code-level functions are defined through the decoder, so nothing here claims that the object theory can represent them -- representability, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
       "release_ref": "governance-v4.0.0"
     }
   ],

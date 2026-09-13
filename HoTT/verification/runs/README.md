@@ -71,6 +71,7 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20260913-MP-ERCF3-T3-BIT-CODING-001-01` | `MP-ERCF3-T3-BIT-CODING-001` / `C-169`–`C-172` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；算术半第二片=位级底座（最低位/折半数字算术；`codeBits`/`unbits` 两侧引理与已知长度往返；码支配自身长度 ⇒ 解析器燃料可取自码本身） |
 | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MP-ERCF3-T3-STREAMING-PARSER-001` / `C-173`–`C-176` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；符号层 + 流式解析器 + 修复后的 Nat 值编码（一元索引自定界；燃料精确的 `run`；长度/界/多余燃料分解；`codeT'` 带全解码器与往返 ⇒ 单射，闭合编码层修复义务） |
 | `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` | `MP-ERCF3-T3-FORMULA-CODING-001` / `C-177`–`C-180` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；修复编码的公式层（公式符号层与迭代数精确的 `run`；`=f` 的 Tm 子项复用项层解析器；长度界；`codeF'` 带全解码器与往返 ⇒ 单射） |
+| `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01` | `MP-ERCF3-T3-REPAIRED-SYNTAX-001` / `C-181`–`C-183` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；修复编码之上的替换一致（码级替换=解码—替换—编码，`Tm`/`Fml` 两层）与引用（`⌜φ⌝'` 单射、对角实例及其码） |
 
 `index-row-manifest.json` 冻结 proof row 与各 claim row 的精确行哈希。claim matrix 后续只追加新 proof 时，旧 run 不再要求整个不断增长的索引文件保持同 SHA，而是要求自己的原行逐字不变；若任一旧行被改写，verifier fail closed。
 
