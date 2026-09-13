@@ -8,8 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-S-GOV-20260913-099-MATRIX-APPEND-ONLY-FIX：矩阵追加纪律修正完成（9 行移到文末追加节，冻结前缀不变）；`verify_proof_version_closure.py` PASS（frozen 17 + later 1）与 `verify_formal_proof_run --rerun` PASS（ROW_STABLE）。下一项回到研究第一线（E6 consumer）或用户指定课题。
-
 S-GOV-20260913-098-EXTERNAL-WORK-IMPORT：外部 AI 的验证事件工作已吸收（唯一 owner 源码 + 项目 run + `C-149`–`C-156` + 追加式版本登记）；判词 `VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL`（未构成 HoTT 自身 BUG）。下一项回到研究第一线（E6 consumer）或用户指定课题。
 
 S-GOV-20260913-097-INDEX-READER-BANNER：8 个 canonical 索引全部带首屏 banner（索引 ≠ 全文；全文 = 索引 + 全部分片），并由 `verify_governance_shards.py` 机械检查；三件套加载与全文语义不变。下一项回到研究第一线（E6 consumer）或用户指定课题。

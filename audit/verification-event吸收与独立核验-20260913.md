@@ -48,3 +48,18 @@ claim 对照：`EVT-01→C-149`（事件链）、`EVT-02→C-150`（有限登记
 - 本包不证明"HoTT 的所有时间/时序问题"；用户已澄清时序≠时间/运动结构，本实验属时序线；
 - fresh model behavior `NOT_RUN`（结构与内核层已验证，模型行为需真实 Session 观察）；
 - 外部原件中的绝对路径与缓存属于历史现场，不为了"好看"改写。
+
+## 6. 修正记录：矩阵必须保持"冻结前缀 + 末尾追加"
+
+本轮最初把 `MP-VERIFICATION-EVENT-001` 的包行与 `C-149`–`C-156` 插在 `C-148` 之后，**破坏了
+`PROOF_VERSION_CLOSURE.json` 要求的 append-only 前缀**：`verify_proof_version_closure.py` 直接报
+`CURRENT_MATRIX_NOT_APPEND_ONLY_SUCCESSOR`（它要求当前矩阵以 d3dfb0e 快照为字节前缀）。
+
+处置（checkpoint `S-GOV-20260913-099-MATRIX-APPEND-ONLY-FIX`，revision 99）：把 9 行**按字节原样**移到文末新增的
+“追加登记”节（含自己的表头），冻结前缀回到逐字节一致；行文本不变，因此该 run 的 `index-row-manifest` 仍判
+`ROW_STABLE_AFTER_INDEX_EVOLUTION`。复跑结果：
+
+- `verify_proof_version_closure.py` → `PASS_WITH_SCOPE`（frozen 17 packages + later 1 package / 8 claims）；
+- `verify_formal_proof_run.py --rerun` → `PASS_WITH_SCOPE`、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、`EXACT_EXIT_STDOUT_STDERR_MATCH`。
+
+教训已写入 `.codex/research/hott/LESSONS.md` 第 78 条：**矩阵只允许末尾追加**；未来的新 proof package 一律在文末另起追加节。

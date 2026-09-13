@@ -85,5 +85,3 @@
 76. 分片把“读到索引”变成了“以为读到全文”的捷径，所以索引需要**首屏可见 banner**（而不是只在规范里写规则），并且 banner 必须被机械检查（`verify_governance_shards.py` → `MISSING_READER_BANNER`/`INCOMPLETE_READER_BANNER` 直接 FAIL）。另一条经验：`理解章节/C1`–`C4` 的索引文件被 merge manifest 逐文件 pin，任何索引文本改动（哪怕只加一行 banner）都必须重建 manifest 并在同一 checkpoint 重签 14 条 record。
 
 77. 吸收外部 AI 工作时：原件必须按字节保全并**独立复现**其只读核验脚本；外部 run 的 schema 与项目 capture 不同，只能分别登记，不能改名/补字段冒充；历史 packege 的冻结 registry（如 17 包 PROOF_VERSION_CLOSURE）不改写，新包走追加式 `later_packages` + 'tracked/INDEXED/exit 0' 机械检查。候选文档的'值得研究'与被检验后的'未构成目标'必须分开写。
-
-78. `HoTT/CLAIM_EVIDENCE_MATRIX.md` 必须**保持冻结前缀 + 末尾追加**：`verify_proof_version_closure.py` 要求当前矩阵以 d3dfb0e 快照为前缀，中间插入新行会直接 `CURRENT_MATRIX_NOT_APPEND_ONLY_SUCCESSOR` BLOCK。新 proof package 的包行与 claim 行一律追加到文末（可另起追加节 + 自己的表头）；只要行文本不变，旧 run 的 `index-row-manifest` 仍为 `ROW_STABLE_AFTER_INDEX_EVOLUTION`。

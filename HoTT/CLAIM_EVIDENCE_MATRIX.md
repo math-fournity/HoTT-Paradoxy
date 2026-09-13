@@ -41,7 +41,6 @@ proof_run_root: HoTT/verification/runs
 | `MP-TRUNC-NORECOVERY-001` | `C-134`–`C-141` | `formal/truncation-no-recovery/TruncationNoRecovery.agda` | `verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/`（含 C-141；`-02`/`-01` 为同源前次运行）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SET_VALUED_TRUNCATION_NO_RECOVERY_FAMILY` |
 | `MP-NOCANONICAL-001` | `C-142`–`C-148` | `formal/truncation-no-recovery/NoCanonicalPoint.agda`（bridge：`formal/truncation-no-recovery/NoCanonicalFinite.agda`） | `verification/runs/20260913-MP-NOCANONICAL-001-02/`（`-01` 为同源前次运行，加 C-148 后被取代）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / UNLABELED_FINITE_NO_CANONICAL_POINT` |
 | `MP-UNIMATH-NOSECTION-REPLAY-001` | `C-05` | `formal/agda-unimath/hott-z/NoCanonicalPoint.agda`（外部库 agda-unimath@`7b81411d`，按 commit SHA、库文件哈希与确定性源码树哈希固定） | `verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/`；Agda 2.8.0-3d04bac；agda-unimath `7b81411d`；`--without-K --exact-split`；exit 0（`-01` 为被保留的 include 根配置失败尝试） | `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE` |
-| `MP-VERIFICATION-EVENT-001` | `C-149`–`C-156` | `formal/verification-event/VerificationEvent.agda`（外部独立来源：`audit/imports/verification-event-20260913-01a099e9/`，本地 ID `EVT-01`–`EVT-08`） | `verification/runs/20260913-MP-VERIFICATION-EVENT-001-01/`；Agda 2.8.0-3d04bac；Cubical v0.9 载入命令（证明本身只用 Agda 内建 Cubical 原语，未导入 `Cubical.*`）；`--safe --cubical --ignore-interfaces`；exit 0；负向校准 `BadCast.agda` 由 `audit/imports/.../project-negative-probe/` 与外部 `negative-002` 两份收据固定 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL` |
 
 未机器证明的新内容只能使用 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，不得用旧矩阵中相似标题反向推定已证。
 
@@ -195,14 +194,6 @@ proof_run_root: HoTT/verification/runs
 | C-146 | 保留标签数据（`Σ A × (A ≃ Bool)`）时存在规范选点：围栏来自被遗忘的标签，而非二元素载体。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `labeledChoice`；同一 run。 | 正控制；不声称任何自然消费者在未声明假设下使用该接口。 |
 | C-147 | 界面把 id-标签与 swap-标签识别为一（`labelingsIdentified`），而二者作为标签数据仍不同（`labelingsDistinct`）：截断遗忘的正是具体识别。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `labelingsIdentified`、`labelingsDistinct`；同一 run。 | 不推出任何库误用；不把识别升级为“标签不存在”。 |
 | C-148 | 该自识别的 carrier 分支不是恒等路径：`ua notEquiv ≡ refl → ⊥`，故自识别是非平凡的。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `uaNotEquivNotRefl`；同一 run `-02`。 | 只针对该具体自同构；不推出一般完整群的非平凡性判据。 |
-| C-149 | 两个 Step 构成明确事件链：`twoEventTrace : Step initial afterP × Step afterP afterHistory`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `twoEventTrace`；`MP-VERIFICATION-EVENT-001` 的 final run `20260913-MP-VERIFICATION-EVENT-001-01`（本地 ID `EVT-01`）。 | 明示的有限事件模型，不是真实设备或真实验证流程的轨迹。 |
-| C-150 | 该有限登记规则健全：`∀ s c → K s c → Meaning s c`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `knowledgeSound`；同一 run。 | 只证明此有限注册规则，不证明 HoTT 自身全局健全性。 |
-| C-151 | 固定原子与定义下：`Current initial` 成立，`Current afterP` 与 `Current afterHistory` 均为空，`decideCurrent` 对应 true/false。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `currentInitial`、`noCurrentAfterP`、`noCurrentAfterHistory`、`decideCurrent`；同一 run。 | 只针对该状态、原子与定义；不是一般知识的判定算法。 |
-| C-152 | 后来可以登记并核查固定的过去：`K afterHistory historical`、`Historical`、`historicalKnownLater`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `historicalKnownLater` 等；同一 run。 | 只说明“后来可核查固定过去”；不声称当前仍未知。 |
-| C-153 | 不存在把固定过去改写成当前判断的转换：`¬ (Historical → Current afterP)`，且 `¬ (Current initial ≡ Current afterP)`（原生 Path 不可得）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noHistoricalToCurrentAfterP`、`noCurrentPath`；同一 run。负向校准：`project-negative-probe`（exit 42、`BadCast.agda:10`、`afterP != initial`）与外部 `negative-002`。 | 不说明任意不同时标命题都不同；只否定这一次“过去→当前”的改写。 |
-| C-154 | 在 `Trunc Stage` 上不存在与每个 `Current s` 双向对应的谓词族（完全阶段擦除不保真）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noStageErasingFamily`；同一 run。 | 只否定这一次完全阶段擦除的双向保真，不证明所有抽象都会丢掉阶段信息。 |
-| C-155 | 保留阶段时有正向控制：`∀ s → Current s → stageAwareFamily s`（`stageAwareIdentity`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `stageAwareFamily`、`stageAwareIdentity`；同一 run。 | 正控制；不证明任何现实模型充分。 |
-| C-156 | 在显式 factivity 与 conjunction-closure 参数下，`Know (A × ¬ Know A) → Empty`（`noKnownMoore`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noKnownMoore`；同一 run。 | 不是完整 Fitch/Gödel 定理，也不证明 HoTT 存在这种全域 Know 算子。 |
 
 ## 当前允许的总论断
 
@@ -242,3 +233,23 @@ proof_run_root: HoTT/verification/runs
 特别边界：C-145 行中的“与 agda-unimath 同内容”只保留为当时的非正式对照措辞；S090 已明确项目
 没有机器证明本地 Cubical/Type₀ 规格与外部 universe-polymorphic without-K 规格的保真翻译或等价。
 真正的外部源码重放只有 `MP-UNIMATH-NOSECTION-REPLAY-001` / C-05。
+
+## 追加登记：MP-VERIFICATION-EVENT-001（外部导入 + 项目内重放，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照的任何字节。
+> 精确范围与禁止外推见 `HoTT/formal/verification-event/README.md` 与 `audit/verification-event吸收与独立核验-20260913.md`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-VERIFICATION-EVENT-001` | `C-149`–`C-156` | `formal/verification-event/VerificationEvent.agda`（外部独立来源：`audit/imports/verification-event-20260913-01a099e9/`，本地 ID `EVT-01`–`EVT-08`） | `verification/runs/20260913-MP-VERIFICATION-EVENT-001-01/`；Agda 2.8.0-3d04bac；Cubical v0.9 载入命令（证明本身只用 Agda 内建 Cubical 原语，未导入 `Cubical.*`）；`--safe --cubical --ignore-interfaces`；exit 0；负向校准 `BadCast.agda` 由 `audit/imports/.../project-negative-probe/` 与外部 `negative-002` 两份收据固定 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-149 | 两个 Step 构成明确事件链：`twoEventTrace : Step initial afterP × Step afterP afterHistory`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `twoEventTrace`；`MP-VERIFICATION-EVENT-001` 的 final run `20260913-MP-VERIFICATION-EVENT-001-01`（本地 ID `EVT-01`）。 | 明示的有限事件模型，不是真实设备或真实验证流程的轨迹。 |
+| C-150 | 该有限登记规则健全：`∀ s c → K s c → Meaning s c`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `knowledgeSound`；同一 run。 | 只证明此有限注册规则，不证明 HoTT 自身全局健全性。 |
+| C-151 | 固定原子与定义下：`Current initial` 成立，`Current afterP` 与 `Current afterHistory` 均为空，`decideCurrent` 对应 true/false。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `currentInitial`、`noCurrentAfterP`、`noCurrentAfterHistory`、`decideCurrent`；同一 run。 | 只针对该状态、原子与定义；不是一般知识的判定算法。 |
+| C-152 | 后来可以登记并核查固定的过去：`K afterHistory historical`、`Historical`、`historicalKnownLater`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `historicalKnownLater` 等；同一 run。 | 只说明“后来可核查固定过去”；不声称当前仍未知。 |
+| C-153 | 不存在把固定过去改写成当前判断的转换：`¬ (Historical → Current afterP)`，且 `¬ (Current initial ≡ Current afterP)`（原生 Path 不可得）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noHistoricalToCurrentAfterP`、`noCurrentPath`；同一 run。负向校准：`project-negative-probe`（exit 42、`BadCast.agda:10`、`afterP != initial`）与外部 `negative-002`。 | 不说明任意不同时标命题都不同；只否定这一次“过去→当前”的改写。 |
+| C-154 | 在 `Trunc Stage` 上不存在与每个 `Current s` 双向对应的谓词族（完全阶段擦除不保真）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noStageErasingFamily`；同一 run。 | 只否定这一次完全阶段擦除的双向保真，不证明所有抽象都会丢掉阶段信息。 |
+| C-155 | 保留阶段时有正向控制：`∀ s → Current s → stageAwareFamily s`（`stageAwareIdentity`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `stageAwareFamily`、`stageAwareIdentity`；同一 run。 | 正控制；不证明任何现实模型充分。 |
+| C-156 | 在显式 factivity 与 conjunction-closure 参数下，`Know (A × ¬ Know A) → Empty`（`noKnownMoore`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noKnownMoore`；同一 run。 | 不是完整 Fitch/Gödel 定理，也不证明 HoTT 存在这种全域 Know 算子。 |
