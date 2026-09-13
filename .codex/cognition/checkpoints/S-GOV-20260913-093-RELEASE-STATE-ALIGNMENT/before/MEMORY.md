@@ -14,7 +14,6 @@
 
 ## 当前已验证状态
 
-- S093 发布状态对齐：S092 后 commit `667c7e8…` 已形成；本轮把 current STATE 从 Git pending 改为 checkpoint applied/release parent version-closed，最终本地 tag 对齐本轮 commit；不改 proof 数学范围。
 - S092 版本闭合：17 个 current proof package（90 个 current-project claims）与 C-05 external replay 绑定 exact commit `d3dfb0e…`；frozen matrix rows 不改，追加 registry 表达 current Git 维度；release ref `governance-v3.2.0`。
 - S091 对齐轮：S090 canonical result/五个 task plan 已验收；修复后直接清理设计文档空白造成的单个 source-hash 漂移不篡改 S090，而由本轮刷新；F-005/F-012 状态提升到实际证据支持范围。
 - S090 治理修复已进入 canonical checkpoint：S086–S089 缺事务收据被独立登记；runtime 32/32 单测覆盖 Session evidence Gate、目录 scope、related-record 非递归水合与依赖语义；task plan 的前后实测和 canonical result 由 S090 evidence 持有。

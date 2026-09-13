@@ -16,16 +16,14 @@
   },
   "execution_control": {
     "background_work": false,
-    "checkpoint_result": "CHECKPOINT_APPLIED_RELEASE_PARENT_VERSION_CLOSED",
-    "last_checkpoint_session": "S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT",
+    "checkpoint_result": "CHECKPOINT_APPLIED_PENDING_GIT_COMMIT",
+    "last_checkpoint_session": "S-GOV-20260913-092-GOVERNANCE-V3-2-VERSION-CLOSURE",
     "new_math_research_started": true,
     "next_minimal_verification": "First line: a pinned downstream application/derived-development consumer with a concrete qualification-to-delivery call chain. Second line: T3 shared-decision joint recursion. Batch 13 and undirected foundational scans are deprioritized.",
-    "release_parent_commit": "667c7e8a1d3349bf5c7ba766d937fc4cbf2cec6f",
-    "release_ref": "governance-v3.2.0",
     "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
     "status": "GOVERNANCE_V3_2_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST"
   },
-  "latest_session": "S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT",
+  "latest_session": "S-GOV-20260913-092-GOVERNANCE-V3-2-VERSION-CLOSURE",
   "load_policy": {
     "fresh_model_behavior": "NOT_RUN",
     "full_trio": [
@@ -1329,19 +1327,13 @@
         "A-GOVERNANCE-REPAIR-S090-001",
         "A-PROOF-VERSION-CLOSURE-001"
       ],
-      "release_alignment": {
-        "final_ref_must_point_to_latest_commit": true,
-        "final_release_ref": "governance-v3.2.0",
-        "pre_alignment_tag_object": "9a9e2d2c0dbc5a1adf78cbe192bc9ec0d6abcf10",
-        "release_parent_commit": "667c7e8a1d3349bf5c7ba766d937fc4cbf2cec6f"
-      },
       "resolution": {
         "evidence": [
           "audit/governance-v3.2.0-release-evidence-20260913.md",
           "HoTT/verification/PROOF_VERSION_CLOSURE.json",
           "scripts/audit/verify_proof_version_closure.py"
         ],
-        "reason": "Project-local governance 3.2 is closed by S090-S093 canonical checkpoints, proof-asset commit d3dfb0e, release parent 667c7e8 and the final local annotated release ref. S093 removes the stale post-commit pending field without rewriting S092; no push."
+        "reason": "Project-local governance 3.2 is closed by the S090-S092 canonical checkpoint chain, exact Git commits and the local annotated release ref; no push."
       },
       "scope": "Local Git release only; shared governance repositories and other hosts are unchanged.",
       "source_hashes": {
@@ -3717,7 +3709,7 @@
       "kind": "integrated_direction_projection",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "方向追踪.md",
-      "projection_generation": "20260913-direction-077",
+      "projection_generation": "20260913-direction-076",
       "scope": "Portfolio after S090 governance/evidence repair: downstream natural consumers are the first research line; T3 is second; batch 13 and undirected foundational scans are deprioritized.",
       "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V3_2_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST",
       "status": "active"
@@ -3857,7 +3849,7 @@
       "kind": "integrated_outcome_panorama",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "全景视野.md",
-      "projection_generation": "20260913-outcome-077",
+      "projection_generation": "20260913-outcome-076",
       "scope": "Panorama after S090: historical checkpoint gaps, compact task hydration, S086/S088 evidence corrections, and source-inspected E6 status are current.",
       "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V3_2_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST",
       "status": "active"
@@ -4479,27 +4471,6 @@
         "A-GOVERNANCE-V3-2-RELEASE-001"
       ],
       "scope": "Git/version closure only; no new or expanded mathematical claim.",
-      "source_hashes": {},
-      "status": "complete"
-    },
-    "S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT": {
-      "depends_on": [],
-      "evidence_status": "VERIFIED_WITH_SCOPE",
-      "full_sources": [
-        ".codex/research/hott/sessions/S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT/SESSION.md",
-        ".codex/research/hott/sessions/S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT/CORE_COGNITION_AUDIT.md",
-        ".codex/research/hott/sessions/S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT/RUNS.json",
-        ".codex/cognition/checkpoints/S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT/result.json",
-        "audit/governance-v3.2.0-release-evidence-20260913.md"
-      ],
-      "kind": "session",
-      "lifecycle_status": "HISTORICAL",
-      "path": ".codex/research/hott/sessions/S-GOV-20260913-093-RELEASE-STATE-ALIGNMENT/SESSION.md",
-      "related_records": [
-        "S-GOV-20260913-092-GOVERNANCE-V3-2-VERSION-CLOSURE",
-        "A-GOVERNANCE-V3-2-RELEASE-001"
-      ],
-      "scope": "Post-release current-state alignment only; no proof or research change.",
       "source_hashes": {},
       "status": "complete"
     },
@@ -6469,7 +6440,7 @@
     "A-HOTT-SELF-VALIDATION-ECONOMY-001",
     "A-KC-AUDIT-GAP-001"
   ],
-  "revision": 93,
+  "revision": 92,
   "schema_migration": {
     "from": "hott-working-state/v1",
     "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",

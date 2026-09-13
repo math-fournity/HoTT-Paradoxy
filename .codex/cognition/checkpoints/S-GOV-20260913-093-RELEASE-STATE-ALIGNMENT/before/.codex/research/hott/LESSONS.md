@@ -73,5 +73,3 @@
 70. task plan 的 `review_required=[]` 只说明已选 record 没有当前 stale 标记，不证明计划可装配。必须同时检查总 bytes/lines、document count、largest documents、query-first promotion，并实际完成 snapshot coverage。
 
 71. Proof run 的 frozen index row 与当前 Git closure 是正交维度：原位把 `LOCAL_UNCOMMITTED` 改成 `VERSION_CLOSED` 会破坏历史 row manifest。正确做法是保持旧行逐字不变，在矩阵末尾追加 exact commit registry，并由 current STATE/投影引用；Git closure 不重证数学。
-
-72. Release commit/tag 之后必须重新检查 current STATE 是否还写 `PENDING_GIT_COMMIT`。Checkpoint 记录的是写入时状态，不能自动感知后续 Git；最终可用状态应由一个新的、真实 receipt 对齐，而不是篡改旧 transaction。

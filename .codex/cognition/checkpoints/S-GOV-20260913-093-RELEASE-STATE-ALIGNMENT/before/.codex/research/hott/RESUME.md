@@ -8,8 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-S093 release-state alignment：S092 后 release commit `667c7e8…` 已存在；current STATE 不再误写 Git pending。最终 local `governance-v3.2.0` tag 对齐本轮 commit，不 push。
-
 S092 version closure：17 个 current package/90 claims + C-05 external replay 绑定 `d3dfb0e…`；current Git 维度 version-closed，frozen matrix rows/RUN.json 不改；本地 release ref `governance-v3.2.0`，未 push。
 
 S091 对齐轮：不改 S090 事务；刷新修复后 1 个 source hash，Feature 与真实 checkpoint/plan 验收对齐。修复 commit/tag 仍待完成。
