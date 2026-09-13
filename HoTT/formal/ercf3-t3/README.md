@@ -1,4 +1,4 @@
-# ERCF-3 T3 脉冲链（含六个 claim-bearing package）
+# ERCF-3 T3 脉冲链（含七个 claim-bearing package）
 
 > 判词只覆盖本目录的编码层义务；**ERCF-3 本体保持 `GATED`**（C8 §9 的 P1–P8 与停止条件不变）。
 > 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
@@ -11,6 +11,7 @@
 | `MP-ERCF3-T3-ARITH-TAGS-001` | `C-166`–`C-168` | `ArithmeticTags.agda` | `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT` |
 | `MP-ERCF3-T3-BIT-CODING-001` | `C-169`–`C-172` | `BitCoding.agda` | `20260913-MP-ERCF3-T3-BIT-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_BIT_SUBSTRATE` |
 | `MP-ERCF3-T3-STREAMING-PARSER-001` | `C-173`–`C-176` | `StreamingParser.agda` | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_NAT_CODING` |
+| `MP-ERCF3-T3-FORMULA-CODING-001` | `C-177`–`C-180` | `FormulaCoding.agda` | `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_FORMULA_CODING` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -194,3 +195,35 @@ exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.j
 
 **禁止外推**：只覆盖 **Tm** 的编码/解码与单射性；不修复 `codeF` 的实现、不重做 `codeT`/`codeF` 的对象层替换一致义务、
 不涉及 P 表示性/反射/对角不动点；新编码属新模块，历史脉冲文件与 `DiagonalCore` 的既有编码逐字节未改；ERCF-3 保持 `GATED`。
+
+---
+
+## 7. `MP-ERCF3-T3-FORMULA-CODING-001`：修复编码的公式层（复用项层解码器）
+
+对角化真正引用的是**公式**（`⌜ φ ⌝`），所以 C-176 的修复必须再上一层。本包不重写项层解析器，而是把它当**黑箱**：
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-177` | 公式符号层 `bitsF`（`=f`/`bot`/`=>f` 两位标签；`all` 两位标签 + 一元索引）与流式 `run` 的往返：`run (wantFml stk) (STEPS φ + f) (bitsF φ ++ rest) ≡ resume (close φ stk) rest f`；`all` 的索引读取（`index-run`）单独收口 | `parse-run`、`index-run` |
+| `C-178` | 项层解析器复用：`tmFrom bs = SP.run (LEN bs) bs (SP.startSub SP.ε)` 满足 `tmFrom (bits t ++ rest) ≡ res t rest`——`=f` 的 `Tm` 子项燃料直接取自**剩余位数** | `tmFrom-run`、`eq-node`、`eqRight-step` |
+| `C-179` | 长度对账：`STEPS φ ≤ LEN (bitsF φ)`，故公式码本身仍可充当燃料 | `STEPS≤LEN`（辅助 `≤-add-right`/`+-right-mono`/`+-left-mono`/`≤-add`/`BLEN-nonzero`/`one≤bits`） |
+| `C-180` | 修复后的公式编码 `codeF'`（`φ ↦ codeBits (bitsF φ)`）带全解码器 `decF` 与往返 `decF (codeF' φ) ≡ φ`，故**单射** | `codeF'`、`decF`、`codeF'-roundtrip`、`codeF'-injective` |
+
+**两个新教训（已写入 `LESSONS` #96）**：
+
+1. **模式参数要放最前**：`run` 的第一个参数是 `Mode`（永远是构造子）。若把位串放前面，`eqRight` 那一步的位串是**卡住的**
+   `bits u ++ rest`，Agda 就无法在不知道位串构造子的情况下选择子句，于是"定义上相等"的等式也证不出来——改写顺序一次解决。
+2. **命题步骤要写成引理**：`tmFrom` 与 `res` 的等同是**命题**而非定义上的等同，直接 `refl` 必然失败；把带 `tmFrom …` 的
+   目标写成独立引理（`tmFrom-run`、`eq-node`、`eqRight-step`），让 `rewrite` 有确定的可改写位置，再用 `SP.subst'` 显式搬运燃料/位串。
+
+**修复义务的现状**：C-176（`Tm`）+ C-180（`Fml`）合起来给出**可解码、故单射**的 Nat 值编码；C-165 的否定结论因此被"存在性修复"正面回答。
+仍未做：公式层与对象层替换（`substF`/`substFix` 系列）的对齐、`⌜·⌝` 的算术化表示、以及证明谓词 `P` 的表示性、反射与对角不动点。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-FORMULA-CODING-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、
+exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（5 行冻结）。
+
+**校验入口**：与 §1.4 同（builtins-only 脉冲链 ⇒ canonical 入口是 `verify_proof_version_closure.py` 的
+`later_packages` 分支与 run 自身的 `RUN.json` + `index-row-manifest.json`）。
+
+**禁止外推**：只覆盖 `Fml` 的编码/解码与单射性；不宣称公式层替换一致、不构造 `P` 或对角不动点；
+`BitCoding`/`StreamingParser` 与全部历史脉冲文件逐字节未改（两次 run 的 `source-manifest.json` 可交叉核对）；ERCF-3 保持 `GATED`。

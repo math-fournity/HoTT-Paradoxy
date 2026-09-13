@@ -1,0 +1,68 @@
+{
+  "claim_ids": [
+    "C-177",
+    "C-178",
+    "C-179",
+    "C-180"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/FormulaCoding.agda"
+  ],
+  "completed_at_utc": "2026-09-13T13:49:36.595515+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.578138,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "9713379118036f33a711b09cf745f129a7ef6fd435f22933670fe38d2764f3bb"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不证明证明谓词 P 的表示性、反射或对角不动点；ERCF-3 本体保持 GATED（门 A/门 B 状态不变）",
+    "不宣称公式层与对象层替换（substF/substFix 系列）一致；那是下一义务",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence、cubical Path、HIT 或 truncation",
+    "不修改任何历史脉冲文件与既有模块（BitCoding/StreamingParser 逐字节未改）；新结论只在新模块中给出",
+    "只覆盖 Fml 的编码/解码与单射性；不涉及 codeF 与旧 codeF/codeT 的混用或语义解释"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
+  "run_id": "20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 第二十脉冲：修复编码的公式层——把 Tm 层的解码器当作黑箱复用。精确命题：(1) 公式符号层 bitsF/STEPS（=f/bot/=>f/all 两位标签；all 的一元索引）与流式解析器 run 的往返在迭代数上精确（C-177）；(2) =f 的 Tm 子项由项层解析器读取：tmFrom 的燃料取\"剩余位数\"，往返 tmFrom (bits t ++ rest) ≡ res t rest（C-178）；(3) 长度对账 STEPS φ ≤ LEN (bitsF φ)，故修复后的公式码 codeF′ 可再次以自身为燃料（C-179）；(4) 修复后的公式编码 codeF′（φ ↦ codeBits (bitsF φ)）带全解码器 decF 与往返 decF (codeF′ φ) ≡ φ，故单射（C-180）。工具链：Agda 2.8.0-3d04bac、仅 Agda builtins。",
+  "source_manifest": {
+    "bytes": 3512,
+    "path": "source-manifest.json",
+    "sha256": "3bddb490e7e493d677ef5d8e6b4f2d2f986a6d57fc87e0edfb4ae30c99fdb694"
+  },
+  "started_at_utc": "2026-09-13T13:49:36.017377+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 818,
+    "path": "stdout.txt",
+    "sha256": "609ea4d45d96a77dec7eeab49c8f1bc548e7fdc149e544ead9caf3cbb6ed7b7f"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

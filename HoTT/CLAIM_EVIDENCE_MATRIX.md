@@ -351,3 +351,20 @@ proof_run_root: HoTT/verification/runs
 | C-174 | 符号层与流式解析器：`bits`（`var`/`num` 两位标签 + 一元索引；应用结点一位标签）与 `BLEN` 下，`(t : Tm) (stk : Stack) (rest : List Bool) (f : Nat) → run (BLEN t + f) (bits t ++ rest) (startSub stk) ≡ resume (close t stk) rest f`——**燃料精确**（消耗 `BLEN t` 个单位后剩余恰为 `f`），解析器用显式框架栈在燃料上结构递归，故顺序消费问题（左子解析后仍需右子）在同一个递减递归内解决。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parse-run`、`parse-run-app`（辅助 `+-assoc`/`++-assoc`）；同一 run。 | 只到 `bits`/`BLEN` 这一具体层与 `run` 这一具体解析器；不声称一般解析器/文法正确性，也不涉及对象层替换一致（那是 `codeT`/`substFix` 的义务）。 |
 | C-175 | 长度对账与燃料分解：`(t : Tm) → LEN (bits t) ≡ BLEN t`；界即和分解 `{n m : Nat} → n ≤ m → Σ' Nat (λ k → m ≡ n + k)`；多余燃料下的 `unbits` 分解 `(i j c : Nat) → unbits (i + j) c ≡ unbits i c ++ unbits j (halfs i c)`（辅助 `LEN-++`、`LEN-unary`、`halfs`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bits-length`、`≤-split`、`unbits-split`；同一 run。 | 只是机械对账：不声称编码最优、不声称界是紧的，也不涉及 `unbits` 在任意燃料下的语义解释。 |
 | C-176 | 修复后的 Nat 值编码 `codeT'`（`t ↦ codeBits (bits t)`）带**全解码器** `dec : Nat → Tm`（含缺省分支，符合 C-168）满足往返 `(t : Tm) → dec (codeT' t) ≡ t`；由 C-164 得 `(t u : Tm) → codeT' t ≡ codeT' u → t ≡ u`。**`CodingRepair` 记录的修复义务（C-163/C-164/C-165）在编码层闭合**。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeT'`、`dec`、`codeT'-roundtrip`、`codeT'-injective`（`codeT'-bound` 由 C-172 与 C-175 长度对账组合）；同一 run。 | 只覆盖 **Tm** 的编码/解码与单射性；不修复公式层 `codeF` 的实现、不重做 `codeT`/`codeF` 的对象层替换一致义务、不涉及证明谓词 `P` 的表示性、反射或对角不动点；ERCF-3 保持 `GATED`。 |
+
+## 追加登记：MP-ERCF3-T3-FORMULA-CODING-001（T3 修复编码的公式层：复用项层解码器，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` 的 `RUN.json`。
+> 本包把 C-176 的修复从 `Tm` 提升到 `Fml`（对角化真正需要的层）；不进入 ERCF-3 本体（P 表示性/反射/对角不动点），`GATED` 状态不变。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-FORMULA-CODING-001` | `C-177`–`C-180` | `formal/ercf3-t3/FormulaCoding.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DecodingFence.agda`、`CodingRepair.agda`、`BitCoding.agda`、`StreamingParser.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-FORMULA-CODING-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_FORMULA_CODING` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-177 | 公式符号层与流式解析器：`bitsF`（`=f`/`bot`/`=>f` 两位标签 + `all` 的两位标签与一元索引）与迭代数 `STEPS` 下，`(φ : Fml) (stk : Stack) (rest : List Bool) (f : Nat) → run (wantFml stk) (STEPS φ + f) (bitsF φ ++ rest) ≡ resume (close φ stk) rest f`；`all` 的索引读取 `run (index k stk) (suc (m + f)) (unary m ++ rest) ≡ run (wantFml (wantAll (k + m) ▷ stk)) f rest` 单独收口。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parse-run`、`index-run`；run `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01`。 | 只到 `bitsF`/`STEPS` 这一具体层与该解析器；不声称一般文法正确性，也不涉及公式层替换一致。 |
+| C-178 | 项层解析器作为黑箱：`(t : Tm) (rest : List Bool) → tmFrom (bits t ++ rest) ≡ res t rest`，其中 `tmFrom bs = SP.run (LEN bs) bs (SP.startSub SP.ε)`——`=f` 的 `Tm` 子项燃料直接取自"剩余位数"，因此公式层不必重写项层解析器。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `tmFrom-run`、`eq-node`、`eqRight-step`（辅助 `SP.parse-run`、`SP.LEN-++`、`SP.bits-length`）；同一 run。 | 只说明该复用方式正确；不声称 `SP.run` 对任意燃料/任意位串都可判定（那仍需 C-172 的界）。 |
+| C-179 | 长度对账：`(φ : Fml) → STEPS φ ≤ LEN (bitsF φ)`（辅助 `≤-self-add-right`、`≤-add-right`、`+-right-mono`、`+-left-mono`、`≤-add`、`BLEN-nonzero`、`one≤bits`），故公式码本身仍可充当燃料。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `STEPS≤LEN`；同一 run。 | 只是界；不声称界是紧的，也不声称迭代数与位数相等（`=f` 的迭代数严格小于其位数）。 |
+| C-180 | 修复后的公式编码 `codeF'`（`φ ↦ codeBits (bitsF φ)`）带**全解码器** `decF : Nat → Fml` 满足 `(φ : Fml) → decF (codeF' φ) ≡ φ`，故 `codeF'` 单射（`roundtrip-implies-injective-F` 是 C-164 原理在 `Fml` 上的实例——C-164 本身只对 `Tm` 陈述）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeF'`、`decF`、`codeF'-roundtrip`、`codeF'-injective`；同一 run。 | 只覆盖 `Fml` 的编码/解码与单射性；不宣称公式层与对象层替换（`substF`/`substFix` 系列）一致、不构造 `⌜φ⌝` 的算术化表示、不涉及 P 表示性/反射/对角不动点；ERCF-3 保持 `GATED`。 |
