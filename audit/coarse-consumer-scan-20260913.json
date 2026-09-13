@@ -3,8 +3,7 @@
   "coarse_tokens": [
     "set-quotient",
     "Set-Quotient",
-    "Trunc",
-    "trunc-",
+    "type-trunc",
     "is-inhabited-Prop",
     "mere-",
     "∥",
@@ -59,43 +58,15 @@
       "status": "SCANNED",
       "files": 1091,
       "tree_sha256": "1c6d6f71a0da26a5c4735b8b67d0b33335ae6487496ee2ad64ff05f2f55a2881",
-      "hits": 70,
-      "hits_with_obligation_token": 34,
-      "hits_without_obligation_token": 36,
+      "hits": 30,
+      "hits_with_obligation_token": 23,
+      "hits_without_obligation_token": 7,
       "capped": false,
-      "manual_review_required": [
-        {
-          "declaration": "coHomTruncEquiv",
-          "line": 431,
-          "signature": "coHomTruncEquiv : {A : Type ℓ} (G : AbGroup ℓ) (n : ℕ) → AbGroupEquiv (coHomGr n G (∥ A ∥ (suc (suc n)))) (coHomGr n G A)",
-          "has_obligation_token": false,
-          "file": "Cubical/Cohomology/EilenbergMacLane/Base.agda"
-        },
+      "triage_queue": [
         {
           "declaration": "loopingT",
           "line": 78,
           "signature": "loopingT : ∥ FreeGroupoid A ∥₂ → π₁Bouquet",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Bouquet/FundamentalGroupProof.agda"
-        },
-        {
-          "declaration": "right-homotopyInTruncatedGroupoid",
-          "line": 234,
-          "signature": "right-homotopyInTruncatedGroupoid : (g : FreeGroupoid A) → ∣ winding (looping g) ∣₂ ≡ ∣ g ∣₂",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Bouquet/FundamentalGroupProof.agda"
-        },
-        {
-          "declaration": "encodeDecodeInTruncatedGroupoid",
-          "line": 247,
-          "signature": "encodeDecodeInTruncatedGroupoid : (x : Bouquet A) → (g : code x) → ∣ encode x (decode x g) ∣₂ ≡ ∣ g ∣₂",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Bouquet/FundamentalGroupProof.agda"
-        },
-        {
-          "declaration": "TruncatedFamiliesIso",
-          "line": 274,
-          "signature": "TruncatedFamiliesIso : (x : Bouquet A) → Iso ∥ base ≡ x ∥₂ ∥ code x ∥₂",
           "has_obligation_token": false,
           "file": "Cubical/HITs/Bouquet/FundamentalGroupProof.agda"
         },
@@ -105,153 +76,6 @@
           "signature": "exact_ : ∥ P ∥₁ → ∥ P ∥₁",
           "has_obligation_token": false,
           "file": "Cubical/HITs/PropositionalTruncation/Monad.agda"
-        },
-        {
-          "declaration": "setTruncIso",
-          "line": 252,
-          "signature": "setTruncIso : Iso A B → Iso ∥ A ∥₂ ∥ B ∥₂",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/SetTruncation/Properties.agda"
-        },
-        {
-          "declaration": "sphereToTrunc",
-          "line": 330,
-          "signature": "sphereToTrunc : (n : ℕ) {A : S₊ n → Type ℓ} → ((x : S₊ n) → hLevelTrunc (suc n) (A x)) → ∥ ((x : _) → A x) ∥₁",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Sn/Properties.agda"
-        },
-        {
-          "declaration": "hLevelTrunc",
-          "line": 27,
-          "signature": "hLevelTrunc : ∀ {ℓ} (n : ℕ) (A : Type ℓ) → Type ℓ",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Base.agda"
-        },
-        {
-          "declaration": "hLevelTrunc",
-          "line": 23,
-          "signature": "hLevelTrunc : ∀ {ℓ} → HLevel → Type ℓ → Type ℓ",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/FromNegTwo/Base.agda"
-        },
-        {
-          "declaration": "isSphereFilledTrunc",
-          "line": 41,
-          "signature": "isSphereFilledTrunc : {n : HLevel} → isSphereFilled (-1+ n) (hLevelTrunc n A)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/FromNegTwo/Properties.agda"
-        },
-        {
-          "declaration": "HLevelTruncModality",
-          "line": 153,
-          "signature": "HLevelTruncModality : ∀ {ℓ} (n : HLevel) → Modality ℓ",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/FromNegTwo/Properties.agda"
-        },
-        {
-          "declaration": "univTrunc",
-          "line": 174,
-          "signature": "univTrunc : ∀ {ℓ} (n : HLevel) {B : TypeOfHLevel ℓ n} → Iso (hLevelTrunc n A → B .fst) (A → B .fst)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/FromNegTwo/Properties.agda"
-        },
-        {
-          "declaration": "PathIdTrunc",
-          "line": 366,
-          "signature": "PathIdTrunc : {a b : A} (n : HLevel) → (Path (∥ A ∥ (suc n)) ∣ a ∣ ∣ b ∣) ≡ (∥ a ≡ b ∥ n)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/FromNegTwo/Properties.agda"
-        },
-        {
-          "declaration": "truncOfTruncIso",
-          "line": 381,
-          "signature": "truncOfTruncIso : (n m : HLevel) → Iso (hLevelTrunc n A) (hLevelTrunc n (hLevelTrunc (m + n) A))",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/FromNegTwo/Properties.agda"
-        },
-        {
-          "declaration": "HLevelTruncModality",
-          "line": 250,
-          "signature": "HLevelTruncModality : ∀ {ℓ} (n : HLevel) → Modality ℓ",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "univTrunc",
-          "line": 263,
-          "signature": "univTrunc : ∀ {ℓ} (n : HLevel) {B : TypeOfHLevel ℓ n} → Iso (hLevelTrunc n A → B .fst) (A → B .fst)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "PathIdTruncIso",
-          "line": 491,
-          "signature": "PathIdTruncIso : {a b : A} (n : HLevel) → Iso (Path (∥ A ∥ (suc n)) ∣ a ∣ ∣ b ∣) (∥ a ≡ b ∥ n)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "PathPIdTruncIso",
-          "line": 498,
-          "signature": "PathPIdTruncIso : {A : I → Type ℓ} {a : A i0} {b : A i1} (n : HLevel) → Iso (PathP (λ i → ∥ A i ∥ suc n) ∣ a ∣ ∣ b ∣) (∥ PathP (λ i → A i) a b ∥ n)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "PathIdTrunc",
-          "line": 506,
-          "signature": "PathIdTrunc : {a b : A} (n : HLevel) → (Path (∥ A ∥ (suc n)) ∣ a ∣ ∣ b ∣) ≡ (∥ a ≡ b ∥ n)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "PathIdTruncIsoFunct",
-          "line": 512,
-          "signature": "PathIdTruncIsoFunct : ∀ {A : Type ℓ} {a : A} (n : HLevel) → (p q : (Path (∥ A ∥ (2 + n)) ∣ a ∣ ∣ a ∣)) → Iso.fun (PathIdTruncIso (suc n)) (p ∙ q) ≡ map2 _∙_ (Iso.fun (PathIdTruncIso (suc n)) p) (Iso.fun (PathIdTruncIso (",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "truncOfTruncIso",
-          "line": 519,
-          "signature": "truncOfTruncIso : (n m : HLevel) → Iso (hLevelTrunc n A) (hLevelTrunc n (hLevelTrunc (m + n) A))",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "truncOfTruncIso'",
-          "line": 544,
-          "signature": "truncOfTruncIso' : (n m : HLevel) → Iso (hLevelTrunc n A) (hLevelTrunc n (hLevelTrunc (n + m) A))",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "truncOfTruncIso2",
-          "line": 561,
-          "signature": "truncOfTruncIso2 : (n m : HLevel) → Iso (hLevelTrunc (m + n) (hLevelTrunc n A)) (hLevelTrunc n A)",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "transportTrunc",
-          "line": 580,
-          "signature": "transportTrunc : {n : HLevel}{p : A ≡ B} → (a : A) → transport (λ i → hLevelTrunc n (p i)) ∣ a ∣ₕ ≡ ∣ transport (λ i → p i) a ∣ₕ",
-          "has_obligation_token": false,
-          "file": "Cubical/HITs/Truncation/Properties.agda"
-        },
-        {
-          "declaration": "connectedTruncIso",
-          "line": 483,
-          "signature": "connectedTruncIso : ∀ {ℓ} {A B : Type ℓ} (n : HLevel) (f : A → B) → isConnectedFun n f → Iso (hLevelTrunc n A) (hLevelTrunc n B)",
-          "has_obligation_token": false,
-          "file": "Cubical/Homotopy/Connected.agda"
-        },
-        {
-          "declaration": "connectedTruncIso2",
-          "line": 519,
-          "signature": "connectedTruncIso2 : ∀ {ℓ} {A B : Type ℓ} (n m : HLevel) (f : A → B) → Σ[ x ∈ ℕ ] x + n ≡ m → isConnectedFun m f → Iso (hLevelTrunc n A) (hLevelTrunc n B)",
-          "has_obligation_token": false,
-          "file": "Cubical/Homotopy/Connected.agda"
         },
         {
           "declaration": "multTwoTildeAux",
@@ -282,34 +106,6 @@
           "file": "Cubical/Homotopy/Group/Pi4S3/BrunerieExperiments.agda"
         },
         {
-          "declaration": "Code",
-          "line": 472,
-          "signature": "Code : (hLevelTrunc 6 (Susp S²)) → Type ℓ-zero",
-          "has_obligation_token": false,
-          "file": "Cubical/Homotopy/Group/Pi4S3/S3PushoutIso.agda"
-        },
-        {
-          "declaration": "decode",
-          "line": 604,
-          "signature": "decode : (x : hLevelTrunc 6 (Susp S²)) → Code x → Path (hLevelTrunc 6 (Susp S²)) ∣ north ∣ x",
-          "has_obligation_token": false,
-          "file": "Cubical/Homotopy/Group/Pi4S3/S3PushoutIso.agda"
-        },
-        {
-          "declaration": "encode",
-          "line": 614,
-          "signature": "encode : (x : hLevelTrunc 6 (Susp S²)) → Path (hLevelTrunc 6 (Susp S²)) ∣ north ∣ x → Code x",
-          "has_obligation_token": false,
-          "file": "Cubical/Homotopy/Group/Pi4S3/S3PushoutIso.agda"
-        },
-        {
-          "declaration": "encode-decode",
-          "line": 618,
-          "signature": "encode-decode : (x : hLevelTrunc 6 (Susp S²)) → (p : ∣ north ∣ ≡ x) → decode x (encode x p) ≡ p",
-          "has_obligation_token": false,
-          "file": "Cubical/Homotopy/Group/Pi4S3/S3PushoutIso.agda"
-        },
-        {
           "declaration": "populatedBy",
           "line": 114,
           "signature": "populatedBy : ∥ A ∥₁ → ⟪ A ⟫",
@@ -325,88 +121,11 @@
       "status": "SCANNED",
       "files": 3056,
       "tree_sha256": "ca8fa3a17dc184bcfd494f68dfcc02ad5eeb5fa4a901660f17307634943a3b26",
-      "hits": 161,
-      "hits_with_obligation_token": 59,
-      "hits_without_obligation_token": 102,
+      "hits": 50,
+      "hits_with_obligation_token": 20,
+      "hits_without_obligation_token": 30,
       "capped": false,
-      "manual_review_required": [
-        {
-          "declaration": "nonim-Truncated-Type",
-          "line": 130,
-          "signature": "nonim-Truncated-Type : {l1 l2 : Level} (k : 𝕋) (X : Truncated-Type l1 (succ-𝕋 k)) {A : UU l2} (f : A → type-Truncated-Type X) → Truncated-Type (l1 ⊔ l2) (succ-𝕋 k)",
-          "has_obligation_token": false,
-          "file": "foundation/complements-images.lagda.md"
-        },
-        {
-          "declaration": "Connected-Map-Into-Truncated-Type",
-          "line": 123,
-          "signature": "Connected-Map-Into-Truncated-Type : {l1 : Level} (l2 : Level) (k l : 𝕋) (A : UU l1) → UU (l1 ⊔ lsuc l2)",
-          "has_obligation_token": false,
-          "file": "foundation/connected-maps.lagda.md"
-        },
-        {
-          "declaration": "equiv-Connected-Map-Into-Truncated-Type",
-          "line": 673,
-          "signature": "equiv-Connected-Map-Into-Truncated-Type : {l1 l2 : Level} {k l : 𝕋} {A : UU l1} → (f g : Connected-Map-Into-Truncated-Type l2 k l A) → UU (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/connected-maps.lagda.md"
-        },
-        {
-          "declaration": "function-type-Truncated-Type",
-          "line": 104,
-          "signature": "function-type-Truncated-Type : {l1 l2 : Level} {k : 𝕋} (A : UU l1) (B : Truncated-Type l2 k) → Truncated-Type (l1 ⊔ l2) k",
-          "has_obligation_token": false,
-          "file": "foundation/dependent-products-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "type-hom-Truncated-Type",
-          "line": 111,
-          "signature": "type-hom-Truncated-Type : (k : 𝕋) {l1 l2 : Level} (A : Truncated-Type l1 k) (B : Truncated-Type l2 k) → UU (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/dependent-products-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "hom-Truncated-Type",
-          "line": 124,
-          "signature": "hom-Truncated-Type : (k : 𝕋) {l1 l2 : Level} (A : Truncated-Type l1 k) (B : Truncated-Type l2 k) → Truncated-Type (l1 ⊔ l2) k",
-          "has_obligation_token": false,
-          "file": "foundation/dependent-products-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "type-equiv-Truncated-Type",
-          "line": 155,
-          "signature": "type-equiv-Truncated-Type : {l1 l2 : Level} {k : 𝕋} (A : Truncated-Type l1 k) (B : Truncated-Type l2 k) → UU (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/dependent-products-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "equiv-Truncated-Type",
-          "line": 169,
-          "signature": "equiv-Truncated-Type : {l1 l2 : Level} {k : 𝕋} (A : Truncated-Type l1 k) (B : Truncated-Type l2 k) → Truncated-Type (l1 ⊔ l2) k",
-          "has_obligation_token": false,
-          "file": "foundation/dependent-products-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "double-negation-im-Truncated-Type",
-          "line": 259,
-          "signature": "double-negation-im-Truncated-Type : {l1 l2 : Level} (k : 𝕋) (X : Truncated-Type l1 (succ-𝕋 k)) {A : UU l2} (f : A → type-Truncated-Type X) → Truncated-Type (l1 ⊔ l2) (succ-𝕋 k)",
-          "has_obligation_token": false,
-          "file": "foundation/double-negation-images.lagda.md"
-        },
-        {
-          "declaration": "is-epimorphism-Truncated-Type",
-          "line": 59,
-          "signature": "is-epimorphism-Truncated-Type : {l1 l2 : Level} (k : 𝕋) {A : UU l1} {B : UU l2} → (A → B) → UUω",
-          "has_obligation_token": false,
-          "file": "foundation/epimorphisms-with-respect-to-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "is-epimorphism-is-epimorphism-succ-Truncated-Type",
-          "line": 72,
-          "signature": "is-epimorphism-is-epimorphism-succ-Truncated-Type : {l1 l2 : Level} (k : 𝕋) {A : UU l1} {B : UU l2} (f : A → B) → is-epimorphism-Truncated-Type (succ-𝕋 k) f → is-epimorphism-Truncated-Type k f",
-          "has_obligation_token": false,
-          "file": "foundation/epimorphisms-with-respect-to-truncated-types.lagda.md"
-        },
+      "triage_queue": [
         {
           "declaration": "set-quotient-fin-sequence",
           "line": 81,
@@ -427,153 +146,6 @@
           "signature": "map-equiv-equiv-set-quotient-fin-sequence-quotient-map : { l1 l2 : Level} ( n : ℕ) ( A : fin-sequence (UU l1) n) ( R : (i : Fin n) → equivalence-relation l2 (A i)) → ( map-equiv (equiv-set-quotient-fin-sequence n A R) ∘ ",
           "has_obligation_token": false,
           "file": "foundation/finite-sequences-set-quotients.lagda.md"
-        },
-        {
-          "declaration": "Finitely-Truncated-Type",
-          "line": 68,
-          "signature": "Finitely-Truncated-Type : (l : Level) → UU (lsuc l)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "type-Finitely-Truncated-Type",
-          "line": 71,
-          "signature": "type-Finitely-Truncated-Type : {l : Level} → Finitely-Truncated-Type l → UU l",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "is-finitely-trunc-type-Finitely-Truncated-Type",
-          "line": 74,
-          "signature": "is-finitely-trunc-type-Finitely-Truncated-Type : {l : Level} (A : Finitely-Truncated-Type l) → is-finitely-trunc (type-Finitely-Truncated-Type A)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "Id-Finitely-Truncated-Type",
-          "line": 92,
-          "signature": "Id-Finitely-Truncated-Type : {l : Level} (A : Finitely-Truncated-Type l) → (x y : type-Finitely-Truncated-Type A) → Finitely-Truncated-Type l",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "fiber-Finitely-Truncated-Type",
-          "line": 204,
-          "signature": "fiber-Finitely-Truncated-Type : {k : 𝕋} {l1 l2 : Level} (A : Finitely-Truncated-Type l1) (B : Truncated-Type l2 k) (f : type-Finitely-Truncated-Type A → type-Truncated-Type B) → type-Truncated-Type B → Finitely-Truncated",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "product-Finitely-Truncated-Type",
-          "line": 241,
-          "signature": "product-Finitely-Truncated-Type : {l1 l2 : Level} → Finitely-Truncated-Type l1 → Finitely-Truncated-Type l2 → Finitely-Truncated-Type (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "function-type-Finitely-Truncated-Type",
-          "line": 264,
-          "signature": "function-type-Finitely-Truncated-Type : {l1 l2 : Level} (A : UU l1) (B : Finitely-Truncated-Type l2) → Finitely-Truncated-Type (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "type-hom-Finitely-Truncated-Type",
-          "line": 272,
-          "signature": "type-hom-Finitely-Truncated-Type : {l1 l2 : Level} (A : Finitely-Truncated-Type l1) (B : Finitely-Truncated-Type l2) → UU (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "is-finitely-trunc-type-hom-Finitely-Truncated-Type",
-          "line": 278,
-          "signature": "is-finitely-trunc-type-hom-Finitely-Truncated-Type : {l1 l2 : Level} (A : Finitely-Truncated-Type l1) (B : Finitely-Truncated-Type l2) → is-finitely-trunc (type-hom-Finitely-Truncated-Type A B)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "hom-Finitely-Truncated-Type",
-          "line": 286,
-          "signature": "hom-Finitely-Truncated-Type : {l1 l2 : Level} (A : Finitely-Truncated-Type l1) (B : Finitely-Truncated-Type l2) → Finitely-Truncated-Type (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "type-equiv-Finitely-Truncated-Type",
-          "line": 340,
-          "signature": "type-equiv-Finitely-Truncated-Type : {l1 l2 : Level} → Finitely-Truncated-Type l1 → Finitely-Truncated-Type l2 → UU (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "is-finitely-trunc-type-equiv-Finitely-Truncated-Type",
-          "line": 346,
-          "signature": "is-finitely-trunc-type-equiv-Finitely-Truncated-Type : {l1 l2 : Level} (A : Finitely-Truncated-Type l1) (B : Finitely-Truncated-Type l2) → is-finitely-trunc (type-equiv-Finitely-Truncated-Type A B)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "equiv-Finitely-Truncated-Type",
-          "line": 355,
-          "signature": "equiv-Finitely-Truncated-Type : {l1 l2 : Level} → Finitely-Truncated-Type l1 → Finitely-Truncated-Type l2 → Finitely-Truncated-Type (l1 ⊔ l2)",
-          "has_obligation_token": false,
-          "file": "foundation/finitely-truncated-types.lagda.md"
-        },
-        {
-          "declaration": "id-map-trunc-Set",
-          "line": 102,
-          "signature": "id-map-trunc-Set : {l1 : Level} {A : UU l1} → map-trunc-Set (id {A = A}) ~ id",
-          "has_obligation_token": false,
-          "file": "foundation/functoriality-set-truncation.lagda.md"
-        },
-        {
-          "declaration": "preserves-comp-map-trunc-Set",
-          "line": 109,
-          "signature": "preserves-comp-map-trunc-Set : {l1 l2 l3 : Level} {A : UU l1} {B : UU l2} {C : UU l3} (g : B → C) (f : A → B) → map-trunc-Set (g ∘ f) ~ (map-trunc-Set g ∘ map-trunc-Set f)",
-          "has_obligation_token": false,
-          "file": "foundation/functoriality-set-truncation.lagda.md"
-        },
-        {
-          "declaration": "htpy-trunc-Set",
-          "line": 119,
-          "signature": "htpy-trunc-Set : {l1 l2 : Level} {A : UU l1} {B : UU l2} {f g : A → B} → (f ~ g) → (map-trunc-Set f ~ map-trunc-Set g)",
-          "has_obligation_token": false,
-          "file": "foundation/functoriality-set-truncation.lagda.md"
-        },
-        {
-          "declaration": "map-equiv-trunc-Set",
-          "line": 128,
-          "signature": "map-equiv-trunc-Set : {l1 l2 : Level} {A : UU l1} {B : UU l2} → (A ≃ B) → type-trunc-Set A → type-trunc-Set B",
-          "has_obligation_token": false,
-          "file": "foundation/functoriality-set-truncation.lagda.md"
-        },
-        {
-          "declaration": "retract-trunc-Set",
-          "line": 175,
-          "signature": "retract-trunc-Set : {l1 l2 : Level} {A : UU l1} {B : UU l2} → (A retract-of B) → (type-trunc-Set A) retract-of (type-trunc-Set B)",
-          "has_obligation_token": false,
-          "file": "foundation/functoriality-set-truncation.lagda.md"
-        },
-        {
-          "declaration": "im-Truncated-Type",
-          "line": 175,
-          "signature": "im-Truncated-Type : {l1 l2 : Level} (k : 𝕋) (X : Truncated-Type l1 (succ-𝕋 k)) {A : UU l2} (f : A → type-Truncated-Type X) → Truncated-Type (l1 ⊔ l2) (succ-𝕋 k)",
-          "has_obligation_token": false,
-          "file": "foundation/images.lagda.md"
-        },
-        {
-          "declaration": "involution-Truncated-Type",
-          "line": 189,
-          "signature": "involution-Truncated-Type : {l : Level} (k : 𝕋) → Truncated-Type l k → Truncated-Type l k",
-          "has_obligation_token": false,
-          "file": "foundation/involutions.lagda.md"
-        },
-        {
-          "declaration": "is-locally-small-Truncated-Type",
-          "line": 266,
-          "signature": "is-locally-small-Truncated-Type : {l : Level} (k : 𝕋) → is-locally-small l (Truncated-Type l k)",
-          "has_obligation_token": false,
-          "file": "foundation/locally-small-types.lagda.md"
         },
         {
           "declaration": "mere-decidable-emb",
@@ -695,30 +267,9 @@
           "file": "foundation/propositional-truncations.lagda.md"
         },
         {
-          "declaration": "unit-trunc-Prop",
-          "line": 56,
-          "signature": "unit-trunc-Prop : {l : Level} {A : UU l} → A → ║ A ║₋₁",
-          "has_obligation_token": false,
-          "file": "foundation/propositional-truncations.lagda.md"
-        },
-        {
           "declaration": "all-elements-equal-type-trunc-Prop",
           "line": 62,
           "signature": "all-elements-equal-type-trunc-Prop : {l : Level} {A : UU l} → all-elements-equal (║ A ║₋₁)",
-          "has_obligation_token": false,
-          "file": "foundation/propositional-truncations.lagda.md"
-        },
-        {
-          "declaration": "ind-trunc-Prop'",
-          "line": 98,
-          "signature": "ind-trunc-Prop' : {l l1 : Level} {A : UU l1} (P : ║ A ║₋₁ → UU l) (f : (x : A) → P (unit-trunc-Prop x)) (H : (x y : ║ A ║₋₁) (u : P x) (v : P y) → dependent-identification P (all-elements-equal-type-trunc-Prop x y) u v) ",
-          "has_obligation_token": false,
-          "file": "foundation/propositional-truncations.lagda.md"
-        },
-        {
-          "declaration": "rec-trunc-Prop'",
-          "line": 114,
-          "signature": "rec-trunc-Prop' : {l l1 : Level} {A : UU l1} {P : UU l} (f : A → P) (H : ║ A ║₋₁ → (u v : P) → u ＝ v) → ║ A ║₋₁ → P",
           "has_obligation_token": false,
           "file": "foundation/propositional-truncations.lagda.md"
         },
@@ -730,25 +281,60 @@
           "file": "foundation/propositional-truncations.lagda.md"
         },
         {
-          "declaration": "set-trunc-Prop",
-          "line": 253,
-          "signature": "set-trunc-Prop : {l : Level} → UU l → Set l",
+          "declaration": "type-trunc-Set",
+          "line": 65,
+          "signature": "type-trunc-Set : {l : Level} → UU l → UU l",
           "has_obligation_token": false,
-          "file": "foundation/propositional-truncations.lagda.md"
+          "file": "foundation/set-truncations.lagda.md"
         },
         {
-          "declaration": "map-distributive-trunc-product-Prop",
-          "line": 368,
-          "signature": "map-distributive-trunc-product-Prop : {l1 l2 : Level} {A : UU l1} {B : UU l2} → ║ A × B ║₋₁ → ║ A ║₋₁ × ║ B ║₋₁",
+          "declaration": "equiv-dependent-universal-property-trunc-Set",
+          "line": 99,
+          "signature": "equiv-dependent-universal-property-trunc-Set : {l1 l2 : Level} {A : UU l1} (B : type-trunc-Set A → Set l2) → ((x : type-trunc-Set A) → type-Set (B x)) ≃ ((a : A) → type-Set (B (unit-trunc-Set a)))",
           "has_obligation_token": false,
-          "file": "foundation/propositional-truncations.lagda.md"
+          "file": "foundation/set-truncations.lagda.md"
         },
         {
-          "declaration": "map-inv-distributive-trunc-product-Prop",
-          "line": 378,
-          "signature": "map-inv-distributive-trunc-product-Prop : {l1 l2 : Level} {A : UU l1} {B : UU l2} → ║ A ║₋₁ × ║ B ║₋₁ → ║ A × B ║₋₁",
+          "declaration": "apply-universal-property-trunc-Set'",
+          "line": 208,
+          "signature": "apply-universal-property-trunc-Set' : {l1 l2 : Level} {A : UU l1} (t : type-trunc-Set A) (B : Set l2) → (A → type-Set B) → type-Set B",
           "has_obligation_token": false,
-          "file": "foundation/propositional-truncations.lagda.md"
+          "file": "foundation/set-truncations.lagda.md"
+        },
+        {
+          "declaration": "precomp-universal-property-set-quotient-trunc-Prop",
+          "line": 47,
+          "signature": "precomp-universal-property-set-quotient-trunc-Prop : {l1 l2 : Level} {A : UU l1} (B : Set l2) → (type-trunc-Prop A → type-Set B) → Σ (A → type-Set B) is-weakly-constant-map",
+          "has_obligation_token": false,
+          "file": "foundation/universal-property-propositional-truncation-into-sets.lagda.md"
+        },
+        {
+          "declaration": "map-universal-property-set-quotient-trunc-Prop",
+          "line": 97,
+          "signature": "map-universal-property-set-quotient-trunc-Prop : {l1 l2 : Level} {A : UU l1} (B : Set l2) (f : A → type-Set B) → is-weakly-constant-map f → type-trunc-Prop A → type-Set B",
+          "has_obligation_token": false,
+          "file": "foundation/universal-property-propositional-truncation-into-sets.lagda.md"
+        },
+        {
+          "declaration": "map-universal-property-set-quotient-trunc-Prop'",
+          "line": 106,
+          "signature": "map-universal-property-set-quotient-trunc-Prop' : {l1 l2 : Level} {A : UU l1} (B : Set l2) → Σ (A → type-Set B) is-weakly-constant-map → type-trunc-Prop A → type-Set B",
+          "has_obligation_token": false,
+          "file": "foundation/universal-property-propositional-truncation-into-sets.lagda.md"
+        },
+        {
+          "declaration": "mere-sphere",
+          "line": 51,
+          "signature": "mere-sphere : (l : Level) (n : ℕ) → UU (lsuc l)",
+          "has_obligation_token": false,
+          "file": "synthetic-homotopy-theory/mere-spheres.lagda.md"
+        },
+        {
+          "declaration": "mere-eq-Cyclic-Type",
+          "line": 366,
+          "signature": "mere-eq-Cyclic-Type : {l : Level} (k : ℕ) (X Y : Cyclic-Type l k) → mere-eq X Y",
+          "has_obligation_token": false,
+          "file": "univalent-combinatorics/cyclic-finite-types.lagda.md"
         }
       ]
     },
@@ -759,11 +345,11 @@
       "status": "SCANNED",
       "files": 34,
       "tree_sha256": "264f7297d3c4b9059df6d382ae1eb638a619fd0228f83f1acf0d73d092a79162",
-      "hits": 8,
+      "hits": 6,
       "hits_with_obligation_token": 0,
-      "hits_without_obligation_token": 8,
+      "hits_without_obligation_token": 6,
       "capped": false,
-      "manual_review_required": [
+      "triage_queue": [
         {
           "declaration": "flattenTruncation",
           "line": 27,
@@ -793,13 +379,6 @@
           "file": "partiality-race-timeout/PathCertificate.agda"
         },
         {
-          "declaration": "C-116-no-inverse",
-          "line": 203,
-          "signature": "C-116-no-inverse : ¬ (LimTruncA → LimA)",
-          "has_obligation_token": false,
-          "file": "transition-lift/TransitionLift.agda"
-        },
-        {
           "declaration": "boolRecoveryImpossible",
           "line": 89,
           "signature": "boolRecoveryImpossible : (extract : ∥ Bool ∥₁ → Bool) → ((b : Bool) → extract ∣ b ∣₁ ≡ b) → ⊥",
@@ -812,13 +391,6 @@
           "signature": "noSectionCandidate : (P : ∥ Bool ∥₁ → Bool) → ((b : Bool) → P ∣ b ∣₁ ≡ b) → ⊥",
           "has_obligation_token": false,
           "file": "truncation-no-recovery/TruncationNoRecovery.agda"
-        },
-        {
-          "declaration": "noTruthFaithfulStageErasure",
-          "line": 187,
-          "signature": "noTruthFaithfulStageErasure : (F : Trunc Stage → Set) → ((s : Stage) → Current s → F (inc s)) → ((s : Stage) → F (inc s) → Current s) → Empty",
-          "has_obligation_token": false,
-          "file": "verification-event/VerificationEvent.agda"
         }
       ]
     }

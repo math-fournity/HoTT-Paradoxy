@@ -33,7 +33,10 @@ DEFAULT_CORPORA = (
     ("agda-unimath", "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src", "*.lagda.md"),
     ("repo-formal", str(ROOT / "HoTT/formal"), "*.agda"),
 )
-COARSE_TOKENS = ("set-quotient", "Set-Quotient", "Trunc", "trunc-", "is-inhabited-Prop", "mere-", "∥", "/R")
+# Operator-position coarse constructors only.  v1 also matched `Trunc`/`trunc-`, which
+# made the queue saturate with the record name `Truncated-Type` and `trunc-map`
+# (batch 1 of 20 hits was 20/20 false positives); the rule is now operator-based.
+COARSE_TOKENS = ("set-quotient", "Set-Quotient", "type-trunc", "is-inhabited-Prop", "mere-", "∥", "/R")
 OBLIGATION_TOKENS = (
     "is-set", "is-prop", "is-contr", "is-equiv", "respects", "reflects", "reflecting",
     "congruence", "coherent", "well-defined", "is-effective", "reflecting-map",
@@ -155,7 +158,7 @@ def build_report() -> dict:
                 "hits_with_obligation_token": len(hits) - len(no_obligation),
                 "hits_without_obligation_token": len(no_obligation),
                 "capped": len(hits) >= MAX_HITS_PER_CORPUS,
-                "manual_review_required": no_obligation[:60],
+                "triage_queue": no_obligation,
             }
         )
         corpora.append(entry)
