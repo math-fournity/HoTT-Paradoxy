@@ -317,3 +317,20 @@ proof_run_root: HoTT/verification/runs
 | C-166 | 偶/奇标签的算术核心：`double` 单射（`(n m : Nat) → double n ≡ double m → n ≡ m`）且 `double n ≢ odd m`（`double n = 2n`、`odd m = 2m+1`），另有 `odd` 单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `double-injective`、`double≠odd`、`odd-injective`；run `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01`。 | 只到 `double`/`odd` 两个具体函数；不声称一般模算术引理已形式化。 |
 | C-167 | var/num 片段上的 Nat 值编码 `codeAtom`（`avar n ↦ 2n`、`anum n ↦ 2n+1`）**单射**——本链条第一个 Nat 值单射编码。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeAtom-injective`；同一 run。 | 只覆盖 var/num 片段；应用结点 `_+t_` 尚未编码，故不声称完整 `Tm` 已有 Nat 值单射编码。 |
 | C-168 | 该编码**非满射**：`1` 没有原像（`¬ Σ m, double m ≡ 1`），因此任何**全**解码器必须带缺省分支。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `one-has-no-preimage`；同一 run。 | 只是解码器形态的控制；不构造解码器本身，也不涉及码的语义解释。 |
+
+## 追加登记：MP-ERCF3-T3-BIT-CODING-001（T3 修复编码的算术半第二片：位级底座与燃料界，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-BIT-CODING-001-01` 的 `RUN.json`。
+> 只覆盖位列表的捆绑/抽取与燃料界；不给出符号层、解析器或全解码器，不进入 ERCF-3 本体（`GATED` 不变）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-BIT-CODING-001` | `C-169`–`C-172` | `formal/ercf3-t3/BitCoding.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DecodingFence.agda`、`CodingRepair.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_BIT_SUBSTRATE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-169 | 数字算术：`(n : Nat) → parity (twice n) ≡ false`、`parity (suc (twice n)) ≡ true`、`half (twice n) ≡ n`、`half (suc (twice n)) ≡ n`（`parity` 取最低位、`half` 折半、`twice n = 2n`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parity-twice`、`parity-suc-twice`、`half-twice`、`half-suc-twice`；run `20260913-MP-ERCF3-T3-BIT-CODING-001-01`。 | 只到三个具体函数（`parity`/`half`/`twice`）；不声称一般二进制算术或 div/mod 已形式化。 |
+| C-170 | 捆绑/抽取的两侧引理：`(b : Bool) (c : Nat) → parity (pack b c) ≡ b` 与 `half (pack b c) ≡ c`（`codeBits [] ≡ 1`、`codeBits (b ∷ bs) ≡ pack b (codeBits bs)`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parity-code`、`half-code`；同一 run。 | 只是读取一位的两侧引理；不声称整串抽取正确（那需长度，见 C-171）。 |
+| C-171 | 已知长度的往返：`(bs : List Bool) → unbits (LEN bs) (codeBits bs) ≡ bs`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `unbits-code`；同一 run。 | 长度必须由外部提供；不声称 `unbits` 对任意燃料或任意码都还原原列表。 |
+| C-172 | 码支配自身长度：`(bs : List Bool) → suc (LEN bs) ≤ codeBits bs`，因此解析器的燃料可直接取自码本身。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeBits-dominates`（辅助 `≤-refl`/`≤-suc`/`≤-trans`/`n≤twice`/`suc≤pack`）；同一 run。 | 只到该界；不给出解析器、符号层或全解码器，也不声称该界是紧的。 |

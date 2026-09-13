@@ -1,4 +1,4 @@
-# ERCF-3 T3 脉冲链（含两个 claim-bearing package）
+# ERCF-3 T3 脉冲链（含五个 claim-bearing package）
 
 > 判词只覆盖本目录的编码层义务；**ERCF-3 本体保持 `GATED`**（C8 §9 的 P1–P8 与停止条件不变）。
 > 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
@@ -9,6 +9,7 @@
 | `MP-ERCF3-T3-DECODING-001` | `C-160`–`C-162` | `DecodingFence.agda` | `20260913-MP-ERCF3-T3-DECODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_DECODABILITY_FENCE` |
 | `MP-ERCF3-T3-REPAIR-SPEC-001` | `C-163`–`C-165` | `CodingRepair.agda` | `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIR_SPECIFICATION` |
 | `MP-ERCF3-T3-ARITH-TAGS-001` | `C-166`–`C-168` | `ArithmeticTags.agda` | `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT` |
+| `MP-ERCF3-T3-BIT-CODING-001` | `C-169`–`C-172` | `BitCoding.agda` | `20260913-MP-ERCF3-T3-BIT-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_BIT_SUBSTRATE` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -131,3 +132,32 @@ stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 
 
 **禁止外推**：只覆盖 var/num 片段；应用结点与全解码器未做；不涉及 P 表示性/反射/对角不动点；
 ERCF-3 保持 `GATED`；历史脉冲文件不改写。
+
+---
+
+## 5. `MP-ERCF3-T3-BIT-CODING-001`：修复编码的算术半第二片（位级底座与燃料界）
+
+标签不相交的算术核心（§4）只覆盖 var/num 片段；应用结点需要一位一位可读的编码底座。本包把它机器化：
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-169` | 数字算术：`parity (twice n) ≡ false`、`parity (suc (twice n)) ≡ true`、`half (twice n) ≡ n`、`half (suc (twice n)) ≡ n`（`parity` 取最低位、`half` 折半） | `parity-twice`、`parity-suc-twice`、`half-twice`、`half-suc-twice` |
+| `C-170` | 捆绑/抽取两侧引理：`parity (pack b c) ≡ b`、`half (pack b c) ≡ c`（`codeBits [] ≡ 1`，`codeBits (b ∷ bs) ≡ pack b (codeBits bs)`） | `parity-code`、`half-code` |
+| `C-171` | 已知长度的往返：`unbits (LEN bs) (codeBits bs) ≡ bs` | `unbits-code` |
+| `C-172` | 码支配自身长度：`suc (LEN bs) ≤ codeBits bs`，故未来解析器的**燃料可直接取自码本身** | `codeBits-dominates`（辅助 `≤-refl`/`≤-suc`/`≤-trans`/`n≤twice`/`suc≤pack`） |
+
+**为什么先做位级底座**：`unbits` 只能按外部给定的长度抽取（C-171），而解析器必须只拿到码就能工作；
+C-172 正是"码里自带够用的位数"这一步，它使"燃料=码"的写法有机器检查的依据，而不是一句设计口号。
+
+**剩余算术义务（下一有界脉冲）**：符号层（`var n`/`num n` 的**自定界**索引位 + 构造子标签）与带缺省分支
+（C-168）的解析器，然后证明像上的往返；由 C-164，该往返自动给出完整 Nat 值编码 `t ↦ codeBits (bits t)` 的**单射**。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、
+stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（5 行冻结）。
+
+**校验入口**：与 §1.4 同——本目录全部包都在 builtins-only 脉冲链上，`verify_formal_proof_run.py` 对它们会报
+`AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED`（那是 cubical 包的适用域）；canonical 校验入口是
+`verify_proof_version_closure.py` 的 `later_packages` 分支与 run 自身的 `RUN.json` + `index-row-manifest.json`。
+
+**禁止外推**：不给出符号层、解析器或全解码器；不声称完整 `Tm` 已有 Nat 值单射编码；往返只在**已知长度/自身码**上成立；
+不涉及 P 表示性/反射/对角不动点；ERCF-3 保持 `GATED`；历史脉冲文件不改写。

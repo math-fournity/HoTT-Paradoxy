@@ -13,7 +13,7 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 20,
+  "later_machine_proved_claim_count": 23,
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -74,6 +74,18 @@
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT",
       "notes": "First piece of the arithmetic half of the coding repair: double/odd tag disjointness (double injective, double n != odd m), the var/num fragment coder codeAtom (2n / 2n+1) is the first Nat-valued injective coding in the chain, and the coder is not surjective (1 has no preimage) so a total decoder needs a default branch. The application node and the decoder remain open.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
+      "claim_ids": "C-169–C-172",
+      "local_claim_ids": "T3-BIT-01–T3-BIT-04",
+      "source": "HoTT/formal/ercf3-t3/BitCoding.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_BIT_SUBSTRATE",
+      "notes": "Bit-level substrate of the arithmetic half of the coding repair: least-significant-bit extraction and halving (parity/half/twice), the bundling code codeBits with its extraction lemma pair, the round-trip on a bit list whose length is supplied, and the bound that the code dominates its own length (so a future parser can take its fuel from the code itself). The symbol layer (self-delimiting var/num index bits and constructor tags), the parser with its default branch and the round-trip on the image remain open.",
       "release_ref": "governance-v4.0.0"
     }
   ],
