@@ -7,7 +7,7 @@
 > 适用：本顶层 HoTT 综合 repo 的 cognition `full_sources`、source snapshots、merge manifests、
 > canonical verifiers 与 linked worktree 验收。
 >
-> 状态：`IMPLEMENTED_ON_CANDIDATE_BRANCH / FRESH_WORKTREE_VERIFICATION_REQUIRED`
+> 状态：`VERIFIED_WITH_SCOPE_ON_802E4F8 / CANDIDATE_NOT_INTEGRATED`
 
 ## 1. 目的
 
@@ -163,5 +163,7 @@ symlink 或复制 ignored source。至少执行：
 6. 未经授权不 push、不移动共享 tag。
 
 完成判据是：当前决定性输入全部为 tracked/pinned，五个 task hydration 和六类 verifier 在无
-ignored islands 的 fresh worktree 通过，正负控制成立，checkpoint/Git 收据可恢复。主 checkout
-原位 PASS 或文件存在本身不够。
+ignored islands 的 fresh worktree 通过，正负控制成立，checkpoint/Git 收据可恢复。candidate
+`802e4f890f07adeb50d32f7d8a3e1866d8d8d597` 已满足这些条件，证据见
+`audit/worktree-portability-fresh-acceptance-20260913.json`；主 checkout 原位 PASS 或文件存在
+本身不够，且 candidate PASS 仍不等于已经集成到 main。

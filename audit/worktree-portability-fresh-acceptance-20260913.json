@@ -1,0 +1,189 @@
+{
+  "schema_version": "worktree-portability-fresh-acceptance/v1",
+  "completed_at_utc": "2026-09-13T20:45:20Z",
+  "candidate_commit": "802e4f890f07adeb50d32f7d8a3e1866d8d8d597",
+  "candidate_branch": "codex/semantic-overview",
+  "fresh_worktree": {
+    "path": "/Volumes/D/HoTT-portability-verify-802e4f8",
+    "mode": "DETACHED",
+    "head": "802e4f890f07adeb50d32f7d8a3e1866d8d8d597",
+    "created_from_git": true,
+    "copied_or_linked_ignored_inputs": false,
+    "preconditions": {
+      "top_level_workspace_absent": true,
+      "top_level_ai_dialogue_repo_absent": true,
+      "legacy_all_markdown_artifact_path_absent": true,
+      "tracked_transform_snapshot_present": true,
+      "tracked_workspace_snapshot_present": true,
+      "tracked_local_artifact_present": true,
+      "initial_git_status_clean": true
+    },
+    "removed_after_verification": true
+  },
+  "positive_checks": {
+    "import_manager": {
+      "command": "python3 -B scripts/audit/import_worktree_portability_sources.py verify --require-tracked",
+      "exit_code": 0,
+      "status": "PASS",
+      "copied_files": 42,
+      "workspace_mappings": 6,
+      "workspace_references": 8
+    },
+    "canonical_verifiers": [
+      {
+        "name": "governance_shards",
+        "exit_code": 0,
+        "status": "PASS",
+        "indexes": 282,
+        "canonical_indexes_checked": 11,
+        "soft_target_notices": 0
+      },
+      {
+        "name": "three_way_cognition",
+        "exit_code": 0,
+        "status": "PASS",
+        "revision": 130,
+        "core_units": 36,
+        "directions": 31,
+        "outcomes": 111
+      },
+      {
+        "name": "understanding_merge",
+        "exit_code": 0,
+        "status": "PASS",
+        "union_files": 36,
+        "historical_files": 24,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 21,
+        "historical_source_tracked": true
+      },
+      {
+        "name": "fresh_three_way",
+        "exit_code": 0,
+        "status": "PASS_WITH_SCOPE",
+        "revision": 130,
+        "governance_documents": 41,
+        "research_documents": 46,
+        "portable_task_hydrations": 5,
+        "all_planned_documents_tracked": true
+      },
+      {
+        "name": "c11_ledger_retrodiction",
+        "exit_code": 0,
+        "status": "PASS",
+        "packages_checked": 18,
+        "device_available": 17,
+        "device_absent": [
+          "MP-NOCANONICAL-001"
+        ]
+      },
+      {
+        "name": "proof_version_closure",
+        "exit_code": 0,
+        "status": "PASS_WITH_SCOPE",
+        "frozen_packages": 17,
+        "frozen_claims": 90,
+        "later_packages": 11,
+        "later_claims": 39,
+        "later_source_manifest_rows": 85,
+        "later_index_rows": 50,
+        "dependency_gap_allowlisted": 6
+      }
+    ],
+    "portable_task_hydrations": [
+      {
+        "record": "A-AISTUDIO-COVERAGE-001",
+        "documents": 53,
+        "hydrated_records": 2,
+        "untracked_documents": []
+      },
+      {
+        "record": "A-C5-PARADOX-DISTANCE-001",
+        "documents": 78,
+        "hydrated_records": 1,
+        "untracked_documents": []
+      },
+      {
+        "record": "A-HOTT-RESEARCH-DIRECTION-001",
+        "documents": 228,
+        "hydrated_records": 10,
+        "untracked_documents": []
+      },
+      {
+        "record": "A-WEBGPT-R041-PAPER-001",
+        "documents": 204,
+        "hydrated_records": 3,
+        "untracked_documents": []
+      },
+      {
+        "record": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+        "documents": 244,
+        "hydrated_records": 13,
+        "untracked_documents": []
+      }
+    ],
+    "post_negative_restore": {
+      "import_manager": "PASS",
+      "understanding_merge": "PASS",
+      "fresh_three_way": "PASS_WITH_SCOPE",
+      "git_status_clean": true
+    }
+  },
+  "negative_controls": [
+    {
+      "id": "N1_IMPORTED_BYTE_TAMPER",
+      "mutation": "Append one LF to tracked historical A0 working file",
+      "expected": "import and understanding checks reject content drift",
+      "observed": [
+        "BYTE_COUNT_MISMATCH:IMPORTED_FILE",
+        "SOURCE_SNAPSHOT_FILE_ROWS_MISMATCH",
+        "SOURCE_SNAPSHOT_TREE_HASH_MISMATCH",
+        "NESTED_HASH_MISMATCH:A0-总目标.md"
+      ],
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "id": "N2_WORKING_FILE_PRESENT_INDEX_REMOVED",
+      "mutation": "Remove historical A1 only from the temporary worktree index",
+      "expected": "working-file presence cannot substitute for tracked identity",
+      "observed": [
+        "IMPORTED_PATHS_NOT_TRACKED:sources/understanding-transform/AI对话录/理解章节/A1-Z铁律.md",
+        "NESTED_SOURCE_NOT_TRACKED:A1-Z铁律.md"
+      ],
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "id": "N3_STABLE_RECORD_REVERTED_TO_IGNORED_PATH",
+      "mutation": "Change A-C5 PLAN full source back to workspace/** and update the temporary HEAD state hash",
+      "expected": "fresh task hydration cannot fall back to another checkout",
+      "observed": [
+        "MISSING_OR_UNREADABLE: workspace/.codex/research/hott/candidates/RP-B01/PLAN.md"
+      ],
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "id": "N4_MANIFEST_PATH_IDENTITY_DRIFT",
+      "mutation": "Point the A0 nested_source identity field at the A1 path without changing the expected A0 hash",
+      "expected": "path identity is checked independently of content hash",
+      "observed": [
+        "NESTED_PATH_IDENTITY_MISMATCH:A0-总目标.md"
+      ],
+      "status": "EXPECTED_REJECTION"
+    }
+  ],
+  "temporary_receipt_hashes": {
+    "governance_shards": "dc30b4f071af57075212301ec7e2a467faec4b1c6207394fbe3d718bbf91e5fc",
+    "fresh_before_negatives": "1ab5f7dbaf5544785046d8a00e45af63a0006a7417ef2409c86199920cadf2e2",
+    "fresh_after_negatives": "1ab5f7dbaf5544785046d8a00e45af63a0006a7417ef2409c86199920cadf2e2",
+    "c11_retrodiction": "f15f14412cfa5b23a262efff625c32c4e8394a917ce08bfe330625e380d926c6"
+  },
+  "scope_limits": [
+    "No fresh model was invoked; model understanding remains NOT_CERTIFIED.",
+    "No mathematical claim was added or reproved by this governance acceptance.",
+    "The 1209-file ALL-Markdown-root tree remains a historical external snapshot; current A-AISTUDIO hydration uses its tracked byte-identical artifact.",
+    "The candidate is not integrated into main and no push or shared tag was performed."
+  ],
+  "status": "PASS_WITH_SCOPE"
+}

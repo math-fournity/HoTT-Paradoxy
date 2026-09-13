@@ -6,7 +6,7 @@
 >
 > 分支：`codex/semantic-overview`
 >
-> 当前状态：`REPRODUCED / CURRENT_OWNER_NOT_MUTATED`
+> 当前状态：`REPAIRED_AND_FRESH_VERIFIED_ON_CANDIDATE / NOT_INTEGRATED`
 
 ## 1. 发现
 
@@ -233,3 +233,23 @@ mutable working tree；`AI对话录` 两个 dirty 文件必须先取得可恢复
 应由用户选定的 integrator 在 canonical target 上完成影响分析、source identity 裁决、
 schema/manager/validator 更新和 fresh-worktree 验收。当前可确定的一点是：Git worktree 解决
 并发编辑隔离，不会自动使被忽略证据岛可移植；原项目治理框架需要补上这一运行模型。
+
+## 9. Candidate 修复结果（2026-09-13）
+
+用户随后明确要求当前 AI 执行本修复。`codex/semantic-overview` 已完成项目内实现：source
+commit `80da06e…`、static routing commit `d58dbfd…`、revision 130 checkpoint commit
+`802e4f8…`。最终方案复用了已有 tracked workspace/LocalGPT 同字节副本，并只把旧
+SOURCE_MANIFEST 已固定的 42-file transform snapshot 纳入顶层 Git。
+
+从 `802e4f8…` 新建的 detached linked worktree 没有顶层 `workspace/`、顶层 `AI对话录/` 或
+旧 LocalGPT ignored artifact；五个 portability task plans 全部水合且无 untracked document，
+六类 canonical verifier 全 PASS。byte tamper、index removal、stable path 回退和 manifest path
+漂移四类控制全部按特定错误失败关闭，恢复后 worktree clean 并已删除。证据：
+
+- `audit/Git-worktree证据可移植性修复与验收-20260913.md`；
+- `audit/worktree-portability-fresh-acceptance-20260913.json`；
+- `.codex/research/hott/sessions/S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY/`。
+
+因此本 finding 对 candidate branch 已 `CLOSED_WITH_SCOPE`；对 canonical `main` 保持
+`NOT_INTEGRATED`。若 target revision/schema 前进，integrator 必须从 exact OID 重新审查并在
+target 分配唯一 checkpoint identity。
