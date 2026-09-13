@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise layered loading in a fresh Python process and preserve a receipt.
+"""Exercise layered loading (four-piece full set) in a fresh Python process and preserve a receipt.
 
 This validates byte/EOF/order/profile/task behavior only.  No model is invoked,
 so model ingestion, understanding and mathematical correctness remain NOT_RUN.
@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-THREE_WAY = ("核心认知.md", "方向追踪.md", "全景视野.md")
+FULL_SET = ("核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md")
 
 
 def load_runtime(root: Path):
@@ -58,18 +58,18 @@ def main() -> int:
 
     governance = runtime.plan(root, profile="governance")
     research = runtime.plan(root, profile="research")
-    if tuple(governance["three_way_documents"]) != THREE_WAY:
-        raise SystemExit("FAIL governance trio identity")
+    if tuple(governance["full_set_documents"]) != FULL_SET:
+        raise SystemExit("FAIL governance full-set identity")
     # A trio member may itself be a v2 logical document: its index stays at the
     # canonical path and its shards are expanded right after it.  The invariant is
     # "the three indexes appear in fixed order and each expands to every shard",
     # not "the literal first three document rows are the trio paths".
     for label, plan in (("governance", governance), ("research", research)):
         positions = []
-        for rel in THREE_WAY:
+        for rel in FULL_SET:
             matches = [i for i, row in enumerate(plan["documents"]) if row["path"] == rel]
             if len(matches) != 1:
-                raise SystemExit(f"FAIL {label} trio row count: {rel}")
+                raise SystemExit(f"FAIL {label} full-set row count: {rel}")
             entry = plan["documents"][matches[0]]
             positions.append(matches[0])
             if entry["logical_role"] == "index":
@@ -78,9 +78,9 @@ def main() -> int:
                 declared = next((doc for doc in plan["logical_documents"]
                                  if doc["logical_id"] == entry["logical_id"]), None)
                 if declared is None or sorted(expanded) != sorted(declared["shards"]):
-                    raise SystemExit(f"FAIL {label} trio shards incomplete: {rel}")
+                    raise SystemExit(f"FAIL {label} full-set shards incomplete: {rel}")
         if positions != sorted(positions):
-            raise SystemExit(f"FAIL {label} trio order")
+            raise SystemExit(f"FAIL {label} full-set order")
     governance_paths = {row["path"] for row in governance["documents"]}
     cold = set(governance["query_first_documents"] + governance["archive_verify_only_documents"])
     leaked_cold = sorted(governance_paths & cold)
@@ -91,14 +91,14 @@ def main() -> int:
 
     governance_chunks, governance_coverage = read_plan(runtime, root, governance, "governance")
     research_chunks, research_coverage = read_plan(runtime, root, research, "research")
-    trio_receipt: list[dict[str, object]] = []
-    for path in THREE_WAY:
+    full_set_receipt: list[dict[str, object]] = []
+    for path in FULL_SET:
         pieces = [chunk for chunk in governance_chunks if chunk["path"] == path]
         assembled = "".join(chunk["text"] for chunk in pieces)
         expected = next(row for row in governance["documents"] if row["path"] == path)
         if sha(assembled) != expected["sha256"]:
-            raise SystemExit(f"FAIL trio hash: {path}")
-        trio_receipt.append({
+            raise SystemExit(f"FAIL full-set hash: {path}")
+        full_set_receipt.append({
             "path": path,
             "sha256": expected["sha256"],
             "bytes": expected["bytes"],
@@ -116,7 +116,7 @@ def main() -> int:
 
     negatives: dict[str, str] = {}
     try:
-        runtime.read_chunk(root, "STALE-SNAPSHOT", THREE_WAY[0], 1, 1000)
+        runtime.read_chunk(root, "STALE-SNAPSHOT", FULL_SET[0], 1, 1000)
     except Exception as exc:
         negatives["wrong_snapshot"] = str(exc)
     else:
@@ -136,7 +136,7 @@ def main() -> int:
     else:
         raise SystemExit("FAIL tampered chunk accepted")
     try:
-        runtime.read_chunk(root, research["snapshot"], THREE_WAY[0], 1, 1000, profile="governance")
+        runtime.read_chunk(root, research["snapshot"], FULL_SET[0], 1, 1000, profile="governance")
     except Exception as exc:
         negatives["profile_snapshot_mismatch"] = str(exc)
     else:
@@ -152,7 +152,7 @@ root = pathlib.Path({str(root)!r})
 g = m.plan(root, profile='governance')
 r = m.plan(root, profile='research')
 trio = []
-for rel in {list(THREE_WAY)!r}:
+for rel in {list(FULL_SET)!r}:
     i = next(idx for idx, x in enumerate(g['documents']) if x['path'] == rel)
     entry = g['documents'][i]
     shards = 0
@@ -181,8 +181,8 @@ print(json.dumps({{
         "schema_version": "fresh-three-way-verification/v2",
         "status": "PASS_WITH_SCOPE",
         "revision": governance["revision"],
-        "three_way_order": list(THREE_WAY),
-        "full_trio_input_fidelity": trio_receipt,
+        "full_set_order": list(FULL_SET),
+        "full_set_input_fidelity": full_set_receipt,
         "profiles": {
             "governance": {"snapshot": governance["snapshot"], "documents": len(governance["documents"]),
                            "bytes": governance["total_bytes"], "lines": governance["total_lines"],

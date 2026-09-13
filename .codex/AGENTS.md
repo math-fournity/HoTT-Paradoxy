@@ -2,8 +2,8 @@
 
 本目录是当前顶层 repo 的项目级 Codex 治理资产，不是全局 `~/.codex` 的替代品。先读顶层 `AGENTS.md`，再全文读 `.codex/skills/hott-local-session-governance/SKILL.md`、`.codex/cognition/LOAD_SET.json`、`.codex/cognition/PROTOCOL.md` 和动态 `STATE.json`。
 
-三件套 invariant：每次新 Session、再次进入、跨 repo 接手和压缩恢复，都必须按固定顺序全文加载
-`核心认知.md` → `方向追踪.md` → `全景视野.md`。`核心认知.md` 拥有用户原始研究意识；`方向追踪.md`
+四件套 invariant：每次新 Session、再次进入、跨 repo 接手和压缩恢复，都必须按固定顺序全文加载
+`核心认知.md` → `方向追踪.md` → `全景视野.md` → `从抽象到悖论——HoTT研究的核心问题意识与思想展开.md`（AI 阐释层，`essay-role:v1`；`核心认知.md` 是唯一用户原文权威）。`核心认知.md` 拥有用户原始研究意识；`方向追踪.md`
 拥有跨 LocalGPT/WebGPT 的候选组合与下一判别动作；`全景视野.md` 拥有研究结果、正反例、失败和未知的
 可读综合投影；三者不得互相覆盖成为“最新版”。
 
@@ -14,7 +14,7 @@ shard table、`last_shard` 与 `append_target`，再按任务读 owner/append sh
 事务中更新。300 行只是软目标，不是上限；当前已分片 `README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、
 `方向追踪.md`（5 片）、`全景视野.md`（8 片）——两个投影的大表按家族拆行分片、每片自带表头，身份字段
 （marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）留在索引；`核心认知.md`
-仍是三件套中唯一单文件。每个索引前 15 行带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成`），
+仍是四件套中唯一单文件。每个索引前 15 行带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成`），
 由 `scripts/audit/verify_governance_shards.py` 机械检查。合同见 `docs/quality/长治理文档分片与索引合同.md`。
 
 核心 invariant：当前 generation 与 KC 分母从 `STATE.current_core`/manifest 动态取得；本轮 generation-4 的 36 个用户直接原文单元由 hash-pinned curation lineage+生成器管理，不手工改写；全部 record

@@ -29,7 +29,7 @@ class RuntimeTests(unittest.TestCase):
         self.query_first = ["核心认知.manifest.json", "sources/SOURCE_MANIFEST.json"]
         self.task_expand = ["理解章节/README.md", "HoTT/CLAIM_EVIDENCE_MATRIX.md"]
         self.archive = ["audit/old-receipt.json", ".codex/tools/cognition_runtime.py"]
-        paths = set(C.THREE_WAY) | set(C.REQUIRED_BOOT) | set(C.REQUIRED_RESEARCH)
+        paths = set(C.FULL_SET) | set(C.REQUIRED_BOOT) | set(C.REQUIRED_RESEARCH)
         paths |= set(self.query_first) | set(self.task_expand) | set(self.archive)
         for rel in paths:
             self.put(rel, "TEST FIXTURE ONLY\n" + rel + "\n")
@@ -45,16 +45,18 @@ class RuntimeTests(unittest.TestCase):
         self.put(C.CLOSURE, "# TEST FIXTURE ONLY\ncore-cognition-generation-3\n甲\n乙\n")
         self.put(C.DIRECTION, "<!-- integrated-direction-portfolio:v1\nsource_state_revision: 1\n-->\n")
         self.put(C.PANORAMA, "<!-- integrated-outcome-panorama:v1\nsource_state_revision: 1\n-->\n")
+        self.put(C.ESSAY, "<!-- essay-role:v1\nlogical_id: CORE-ESSAY\nrole: AI_EXPOSITION_LAYER\n-->\n"
+                          "# essay fixture\n")
         self.config = {
-            "schema_version": "cognition-load-set/v3",
-            "always_full_three_way": list(C.THREE_WAY),
+            "schema_version": "cognition-load-set/v4",
+            "always_full_documents": list(C.FULL_SET),
             "always_full_boot": list(C.REQUIRED_BOOT),
             "research_full": list(C.REQUIRED_RESEARCH),
             "query_first": self.query_first,
             "task_expand": self.task_expand,
             "archive_verify_only": self.archive,
             "dynamic_state": C.STATE,
-            "three_way_order": list(C.THREE_WAY)
+            "document_order": list(C.FULL_SET)
         }
         self.put(C.CONFIG, C.dump(self.config))
         state = {
@@ -156,7 +158,7 @@ class RuntimeTests(unittest.TestCase):
             "| KC | label | relation | assessment | evidence | unresolved |\n"
             "|---|---|---|---|---|---|\n" + "\n".join(audit_rows) + "\n\n"
             "- core_change: NO\n- direction_change: NO\n- panorama_change: NO\n"
-            "- update_decision: fixture\n- cross_conflicts: none\n- unresolved: none\n"
+            "- update_decision: fixture\n- essay_change: NO\n- cross_conflicts: none\n- unresolved: none\n"
         )
         extra = {
             session: f"# Test {sid}\nEvidence and next action.\n",
@@ -207,7 +209,7 @@ class RuntimeTests(unittest.TestCase):
     def test_governance_plan_has_trio_first_and_no_cold_assets(self) -> None:
         plan = self.plan()
         paths = [row["path"] for row in plan["documents"]]
-        self.assertEqual(paths[:3], list(C.THREE_WAY))
+        self.assertEqual(paths[:3], list(C.FULL_SET)[:3])
         self.assertTrue(set(C.REQUIRED_BOOT) <= set(paths))
         self.assertFalse(set(C.REQUIRED_RESEARCH) & set(paths))
         self.assertFalse(set(self.query_first + self.archive) & set(paths))
@@ -437,9 +439,9 @@ class RuntimeTests(unittest.TestCase):
 
     def test_trio_reorder_or_removal_rejected(self) -> None:
         altered = copy.deepcopy(self.config)
-        altered["always_full_three_way"] = [C.DIRECTION, C.CLOSURE, C.PANORAMA]
+        altered["always_full_documents"] = [C.DIRECTION, C.CLOSURE, C.PANORAMA]
         self.put(C.CONFIG, C.dump(altered))
-        with self.assertRaisesRegex(C.CognitionError, "THREE_WAY_ORDER"):
+        with self.assertRaisesRegex(C.CognitionError, "FULL_SET_ORDER"):
             self.plan()
 
     def test_required_boot_and_research_cannot_be_removed(self) -> None:

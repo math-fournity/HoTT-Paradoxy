@@ -23,9 +23,9 @@ class ThreeWayTests(unittest.TestCase):
         (self.root / ".codex/cognition").mkdir(parents=True)
         (self.root / ".codex/research/hott").mkdir(parents=True)
         load_set = {
-            "schema_version": "cognition-load-set/v3",
-            "always_full_three_way": ["核心认知.md", "方向追踪.md", "全景视野.md"],
-            "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
+            "schema_version": "cognition-load-set/v4",
+            "always_full_documents": ["核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"],
+            "document_order": ["核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"],
         }
         state = {"revision": 1, "current_core": {"generation": "core-cognition-generation-4"}}
         core_manifest = {"schema_version": "core-cognition/v2", "generation": "core-cognition-generation-4", "units": [{"id": "KC-000001", "author_class": "USER_OWNED_DIRECT", "themes": ["THEME_A"]}]}
@@ -40,6 +40,10 @@ class ThreeWayTests(unittest.TestCase):
         self.write(
             "全景视野.md",
             """<!-- integrated-outcome-panorama:v1\nsource_state_revision: 1\n-->\n| result_id | 结果 | 方向 |\n|---|---|---|\n| `OUT-A` | a | `DIR-A` |\n""",
+        )
+        self.write(
+            "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md",
+            """<!-- essay-role:v1\nlogical_id: CORE-ESSAY\nrole: AI_EXPOSITION_LAYER\n-->\n# essay fixture\n""",
         )
 
     def tearDown(self) -> None:
@@ -89,7 +93,12 @@ class ThreeWayTests(unittest.TestCase):
     def test_wrong_fixed_order_rejected(self) -> None:
         path = self.root / ".codex/cognition/LOAD_SET.json"
         value = json.loads(path.read_text(encoding="utf-8"))
-        value["always_full_three_way"] = ["方向追踪.md", "核心认知.md", "全景视野.md"]
+        value["always_full_documents"] = [
+            "方向追踪.md",
+            "核心认知.md",
+            "全景视野.md",
+            "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md",
+        ]
         path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
         with self.assertRaisesRegex(MODULE.ThreeWayError, "FIXED_ORDER"):
             MODULE.validate(self.root)

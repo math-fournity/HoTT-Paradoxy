@@ -12,18 +12,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RUNTIME_DIR = ROOT / ".codex/tools"
 STATE = ROOT / ".codex/research/hott/STATE.json"
-TRACKED = [
-    ROOT / "MEMORY.md",
-    ROOT / "方向追踪.md",
-    ROOT / "全景视野.md",
-    ROOT / ".codex/research/hott/FRONTIER.md",
-    ROOT / ".codex/research/hott/LESSONS.md",
-    ROOT / ".codex/research/hott/RESUME.md",
-    STATE,
-]
 
 sys.path.insert(0, str(RUNTIME_DIR))
 import cognition_runtime as runtime  # noqa: E402  (project-local loader; single source of routing rules)
+
+# The tracked set is exactly runtime.MUTABLE plus the shards of any sharded
+# MUTABLE document; keep one source of truth so a new member cannot be missed.
+TRACKED = [ROOT / rel for rel in runtime.MUTABLE]
 
 
 def sha(path: Path) -> str:

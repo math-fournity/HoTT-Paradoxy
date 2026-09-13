@@ -19,7 +19,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 
-THREE_WAY = ["核心认知.md", "方向追踪.md", "全景视野.md"]
+THREE_WAY = ["核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"]
 DIRECTION = "方向追踪.md"
 PANORAMA = "全景视野.md"
 STATE = ".codex/research/hott/STATE.json"
@@ -73,15 +73,17 @@ def projection_state_revision(body: str, label: str) -> int:
 def validate(root: Path) -> dict[str, object]:
     root = root.resolve()
     load_set = read_json(root, LOAD_SET)
-    if load_set.get("schema_version") != "cognition-load-set/v3":
+    if load_set.get("schema_version") != "cognition-load-set/v4":
         raise ThreeWayError("LOAD_SET_SCHEMA_INVALID")
-    fixed = load_set.get("always_full_three_way")
+    fixed = load_set.get("always_full_documents")
     if fixed != THREE_WAY:
-        raise ThreeWayError("THREE_WAY_FIXED_ORDER_INVALID")
-    if load_set.get("three_way_order") != THREE_WAY:
-        raise ThreeWayError("THREE_WAY_DECLARED_ORDER_INVALID")
+        raise ThreeWayError("FULL_SET_FIXED_ORDER_INVALID")
+    if load_set.get("document_order") != THREE_WAY:
+        raise ThreeWayError("FULL_SET_DECLARED_ORDER_INVALID")
     for rel in THREE_WAY:
-        read_text(root, rel)
+        body = read_text(root, rel)
+        if rel == THREE_WAY[3] and "<!-- essay-role:v1" not in body:
+            raise ThreeWayError("ESSAY_ROLE_MARKER_MISSING")
 
     core_manifest = read_json(root, CORE_MANIFEST)
     if core_manifest.get("schema_version") != "core-cognition/v2":

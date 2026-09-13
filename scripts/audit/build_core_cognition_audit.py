@@ -50,6 +50,7 @@ def build_scaffold(root: Path, session_id: str) -> Path:
         "- core_change: `REVIEW_REQUIRED_PLACEHOLDER`",
         "- direction_change: `REVIEW_REQUIRED_PLACEHOLDER`",
         "- panorama_change: `REVIEW_REQUIRED_PLACEHOLDER`",
+        "- essay_change: `REVIEW_REQUIRED_PLACEHOLDER`",
         "- update_decision: `REVIEW_REQUIRED_PLACEHOLDER`",
         "- cross_conflicts: `REVIEW_REQUIRED_PLACEHOLDER`",
         "- unresolved: `REVIEW_REQUIRED_PLACEHOLDER`", "",
@@ -77,7 +78,7 @@ def verify(root: Path, session_id: str) -> dict[str, object]:
         raise ValueError("AUDIT_RELATION_INVALID")
     if any(" | — |" in rest or not rest.strip() for _, _, rest in rows):
         raise ValueError("AUDIT_EVIDENCE_MISSING")
-    for field in ("core_change", "direction_change", "panorama_change", "update_decision", "cross_conflicts", "unresolved"):
+    for field in ("core_change", "direction_change", "panorama_change", "essay_change", "update_decision", "cross_conflicts", "unresolved"):
         if not re.search(rf"(?m)^- {field}: `?.+", body):
             raise ValueError(f"THREE_WAY_DECISION_MISSING:{field}")
     counts = {value: sum(1 for _, relation, _ in rows if relation == value) for value in sorted(ALLOWED)}

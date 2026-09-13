@@ -40,13 +40,17 @@ def split_sections(lines: list[str]) -> tuple[list[str], list[tuple[str, int]]]:
     return preamble, sections
 
 
-def build_index(logical_id: str, mode: str, stem: str, shards: list[dict], title: str) -> str:
+def build_index(logical_id: str, mode: str, stem: str, shards: list[dict], title: str,
+                preamble_text: str = "", keep_preamble: bool = False) -> str:
     last = shards[-1]["link"]
     append = last if mode == "sequential" else "-"
     rows = "\n".join(
         f"| {row['id']} | [{row['title']}](<{row['link']}>) | {row['scope']} | current |"
         for row in shards
     )
+    head = preamble_text if keep_preamble else f"# {title}\n\n"
+    banner = (f"> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 {len(shards)} 个分片；缺一片即未完成，"
+              f"按表顺序读取；300 行只是软目标，不是上限。\n")
     return (
         f"<!-- governance-shard-index:v2\n"
         f"logical_id: {logical_id}\n"
@@ -55,12 +59,13 @@ def build_index(logical_id: str, mode: str, stem: str, shards: list[dict], title
         f"last_shard: {last}\n"
         f"append_target: {append}\n"
         f"soft_line_target: 300\n"
-        f"-->\n\n"
-        f"# {title}\n\n"
-        f"> 逻辑文档索引。读取顺序 = 本索引 + 下表全部分片；300 行是写作软目标，不是上限。\n"
-        f"> 合同：`docs/quality/长治理文档分片与索引合同.md`。\n\n"
-        f"{TABLE_START}\n"
-        f"| Shard | 文件 | 语义范围 | 状态 |\n|---|---|---|---|\n{rows}\n{TABLE_END}\n"
+        "-->\n\n"
+        + banner
+        + head
+        + "> 合同：`docs/quality/长治理文档分片与索引合同.md`。\n\n"
+        + f"{TABLE_START}\n"
+        + "| Shard | 文件 | 语义范围 | 状态 |\n|---|---|---|---|\n"
+        + rows + "\n" + TABLE_END + "\n"
     )
 
 
@@ -91,6 +96,7 @@ def main() -> int:
     if mode not in ("topical", "sequential"):
         raise SystemExit("MODE_INVALID")
     preamble, sections = split_sections(lines)
+    keep_preamble = plan.get("preamble") == "index"
     by_title: dict[str, tuple[int, int]] = {}
     for title, start, end in sections:
         if title in by_title:
@@ -98,6 +104,7 @@ def main() -> int:
         by_title[title] = (start, end)
     used: list[str] = []
     built: list[dict] = []
+    consumed_preamble = 0
     for row in plan["shards"]:
         body: list[str] = []
         if "range" in row:
@@ -116,7 +123,7 @@ def main() -> int:
         first = by_title[row_titles[0]][0]
         last = by_title[row_titles[-1]][1]
         body.append("".join(lines[first:last]))
-        if row["id"] == plan["shards"][0]["id"]:
+        if row["id"] == plan["shards"][0]["id"] and not keep_preamble:
             body.insert(0, "".join(preamble))
         text = shard_text(logical_id, args.path, row["id"], row["title"], body)
         link = f"{stem}/{row['id']} - {row['title']}.md"
@@ -131,7 +138,9 @@ def main() -> int:
             raise SystemExit("SECTIONS_NOT_EXACTLY_ONCE")
     elif used != ordered_titles:
         raise SystemExit("SECTIONS_NOT_CONTIGUOUS_OR_INCOMPLETE")
-    reconstructed = "".join(row["body"] for row in built)
+    if keep_preamble:
+        consumed_preamble = len(preamble)
+    reconstructed = "".join(preamble if keep_preamble else []) + "".join(row["body"] for row in built)
     original_text = original.decode("utf-8")
     exact = reconstructed == original_text
     multiset = sorted(reconstructed.splitlines(keepends=True)) == sorted(original_text.splitlines(keepends=True))
@@ -156,7 +165,8 @@ def main() -> int:
                     "lines": len(row["body"].splitlines(keepends=True)), "sections": row["sections"]}
                    for row in built],
     }
-    index_text = build_index(logical_id, mode, stem, built, plan.get("title", logical_id))
+    index_text = build_index(logical_id, mode, stem, built, plan.get("title", logical_id),
+                             preamble_text="".join(preamble), keep_preamble=keep_preamble)
     if args.apply:
         (root / PurePosixPath(args.path).parent / stem).mkdir(parents=True, exist_ok=True)
         for row in built:

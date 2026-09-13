@@ -15,11 +15,11 @@
 
 1. 先读本文件、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`，确认当前需求、当前状态、开放问题和来源边界。
 2. 读 `.codex/skills/hott-local-session-governance/SKILL.md`、`.codex/cognition/LOAD_SET.json`、`.codex/cognition/PROTOCOL.md`、`.codex/skills/SKILL_ROLES.json` 和 `.codex/research/hott/STATE.json`；先区分 lifecycle 与 evidence status。
-3. 按 `核心认知.md` → `方向追踪.md` → `全景视野.md` 固定顺序全文读取三件套，记录 generation/版本、SHA-256、字节、行数和实际 EOF；读取不是哈希检查，工具输出也不证明模型理解。任一 profile/task 都不得删减或重排三件套。
+3. 按 `核心认知.md` → `方向追踪.md` → `全景视野.md` → `从抽象到悖论——HoTT研究的核心问题意识与思想展开.md` 固定顺序全文读取**四件套**，记录 generation/版本、SHA-256、字节、行数和实际 EOF；读取不是哈希检查，工具输出也不证明模型理解。任一 profile/task 都不得删减或重排四件套。第四件是 AI 阐释层（`essay-role:v1`），`核心认知.md` 仍是唯一用户原文权威。
 4. 纯治理/审计用 `plan --profile governance`；数学研究用 `plan --profile research`。选定 stable record 后先 `query --record <ID>`，再 `plan --profile research --task <ID>` 水合对应 `理解章节/`、`HoTT/`、代码、测试、运行产物和 Git 证据。`depends_on` 只表示会传播 stale 的真实验证依赖；动机、先后、叙事、研究归属和接续关系必须使用不递归水合的 `research_parent`/`related_records`。每次 task plan 都要检查 `hydration_diagnostics`，query-first 巨型账本不得被间接提升为正文，除非本任务明确以其全文为决定性证据。
 5. 需要历史轨迹时，先使用 `audit/` 的覆盖入口、`sources/SOURCE_MANIFEST.json` 和 canonical reader 的输出，再回到原始文件。不能因“没有看到”断言不存在。
 
-任何三件套/启动必读文件缺失、发生截断、源 hash 改变、Git 状态与记录不一致或无法区分历史/当前事实时，降低结论或进入 `BLOCKED_FULL_TRIO_COGNITION`，不要开始数学研究或用摘要补洞。先移除三件套之外的非必要载荷，不能裁剪用户核心原文。
+任何四件套/启动必读文件缺失、发生截断、源 hash 改变、Git 状态与记录不一致或无法区分历史/当前事实时，降低结论或进入 `BLOCKED_FULL_SET_COGNITION`，不要开始数学研究或用摘要补洞。先移除四件套之外的非必要载荷，不能裁剪用户核心原文。
 
 ## 研究与证据纪律
 
@@ -64,7 +64,7 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - 机械校验：`python3 -B scripts/audit/verify_governance_shards.py`；机械 PASS 只证明结构，不证明分片边界合理或内容完整。
 - 每个索引前 15 行必须带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成…`）；缺失或残缺会被同一校验器判为失败，避免"只打开索引就以为读完"。
 - 完整项目合同见 `docs/quality/长治理文档分片与索引合同.md`；共享权威为 3.16.0 候选规范 `/Users/aurolafly/codex-worktrees/long-doc-sharding-3.16.0/docs/governance/长治理文档分片与索引规范.md`。
-- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、`方向追踪.md`（5 片 / 28 条方向行）、`全景视野.md`（8 片 / 89 条结果行）。大表按家族拆成行分片时，每片自带表头两行（唯一允许的重复内容），投影的身份字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）必须留在索引里。
+- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、`方向追踪.md`（5 片 / 28 条方向行）、`全景视野.md`（8 片 / 90 条结果行）、`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md`（5 片，AI 阐释层）。大表按家族拆成行分片时，每片自带表头两行（唯一允许的重复内容），投影的身份字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）必须留在索引里。
 - 保留单文件并登记触发条件：`核心认知.md`（三件套中唯一单文件；由 curation+manifest hash 管理，KC 平铺列表，改动须经 manager）、`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`AGENTS.md`、已完成审计报告、来源快照与历史分卷。
 
 ## 写入、Git 与交接

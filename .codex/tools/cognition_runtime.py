@@ -17,7 +17,7 @@ import re
 import sys
 import uuid
 
-VERSION = '3.3.0'
+VERSION = '3.6.0'
 SHARD_INDEX_MARKER = '<!-- governance-shard-index:v2'
 SHARD_TABLE_START = '<!-- governance-shard-table:start -->'
 SHARD_TABLE_END = '<!-- governance-shard-table:end -->'
@@ -45,10 +45,13 @@ PROFILES = frozenset(('governance','research'))
 CLOSURE = '核心认知.md'
 DIRECTION = '方向追踪.md'
 PANORAMA = '全景视野.md'
+ESSAY = '从抽象到悖论——HoTT研究的核心问题意识与思想展开.md'
 QUESTIONS = 'HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md'
 CLOSURE_GENERATION_RE = re.compile(r'core-cognition-generation-[0-9]+')
-THREE_WAY = (CLOSURE, DIRECTION, PANORAMA)
-MUTABLE = ('MEMORY.md', DIRECTION, PANORAMA, PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
+ESSAY_ROLE_MARKER = '<!-- essay-role:v1'
+# governance-v4.0.0: the always-full set is a four-piece set (核心认知 → 方向追踪 → 全景视野 → 核心问题意识长文).
+FULL_SET = (CLOSURE, DIRECTION, PANORAMA, ESSAY)
+MUTABLE = ('MEMORY.md', DIRECTION, PANORAMA, ESSAY, PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
 REQUIRED_BOOT = (
     'AGENTS.md','README.md','MEMORY.md','feature-list.md','rulings.md','.codex/AGENTS.md',
     ROLES,GOVERNANCE_SKILL,'.codex/cognition/PROTOCOL.md',CONFIG,STATE,
@@ -223,22 +226,22 @@ def config_paths(config,key):
     return value
 
 def graph(config, state, get, profile='governance', task_ids=(), core_transition=None, path_kind=None, listdir=None):
-    if config.get('schema_version')!='cognition-load-set/v3':raise CognitionError('CONFIG_SCHEMA')
+    if config.get('schema_version')!='cognition-load-set/v4':raise CognitionError('CONFIG_SCHEMA')
     if profile not in PROFILES:raise CognitionError('LOAD_PROFILE_INVALID: '+str(profile))
-    trio=config_paths(config,'always_full_three_way')
+    full=config_paths(config,'always_full_documents')
     boot=config_paths(config,'always_full_boot')
     research=config_paths(config,'research_full')
     query_first=config_paths(config,'query_first')
     task_expand=config_paths(config,'task_expand')
     archive=config_paths(config,'archive_verify_only')
-    if trio!=list(THREE_WAY):raise CognitionError('THREE_WAY_ORDER_INVALID')
+    if full!=list(FULL_SET):raise CognitionError('FULL_SET_ORDER_INVALID')
     if not set(REQUIRED_BOOT)<=set(boot):raise CognitionError('REQUIRED_BOOT_COGNITION_REMOVED')
     if not set(REQUIRED_RESEARCH)<=set(research):raise CognitionError('REQUIRED_RESEARCH_COGNITION_REMOVED')
-    categorized=trio+boot+research+query_first+task_expand+archive
+    categorized=full+boot+research+query_first+task_expand+archive
     duplicates=sorted({path for path in categorized if categorized.count(path)>1})
     if duplicates:raise CognitionError('LOAD_LAYER_OVERLAP: '+','.join(duplicates))
-    if config.get('three_way_order') != list(THREE_WAY):
-        raise CognitionError('THREE_WAY_ORDER_INVALID')
+    if config.get('document_order') != list(FULL_SET):
+        raise CognitionError('FULL_SET_ORDER_INVALID')
     if config.get('dynamic_state')!=STATE:raise CognitionError('STATE_PATH_CHANGED')
     validate_roles(get)
     if state.get('schema_version') not in ('hott-working-state/v1','hott-working-state/v2') or type(state.get('revision')) is not int or state['revision']<1:
@@ -301,7 +304,7 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
             if heading is None or heading.group(1).strip()!=row['title']:
                 raise CognitionError('SHARD_TITLE_MISMATCH: '+row['path'])
             add_raw(row['path'],layer,'shard:'+index['logical_id'],index['logical_id'],'shard')
-    for p in trio:add(p,'always_full_three_way','fixed-trio')
+    for p in full:add(p,'always_full_documents','fixed-full-set')
     for p in boot:add(p,'always_full_boot','boot-policy')
     if profile=='research':
         for p in research:add(p,'research_full','profile:research')
@@ -371,7 +374,8 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
                 raise CognitionError('CORE_TRANSITION_EVIDENCE_INVALID')
     elif not CLOSURE_GENERATION_RE.search(closure_header):
         raise CognitionError('WRONG_CLOSURE_GENERATION')
-    for projection, marker in ((DIRECTION, 'integrated-direction-portfolio:v1'), (PANORAMA, 'integrated-outcome-panorama:v1')):
+    for projection, marker in ((DIRECTION, 'integrated-direction-portfolio:v1'), (PANORAMA, 'integrated-outcome-panorama:v1'),
+                               (ESSAY, ESSAY_ROLE_MARKER)):
         if marker not in text(get(projection), projection):
             raise CognitionError('PROJECTION_MARKER_MISSING: '+projection)
     return ordered,selection,selected,sorted(stale),available
@@ -440,8 +444,8 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
                                      'logical_documents':[{k:d[k] for k in ('logical_id','index','mode','shard_count')} for d in logical_documents],
                                      'largest_documents':[{'path':x['path'],'bytes':x['bytes'],'lines':x['lines']} for x in largest]},
             'logical_documents':logical_documents,
-            'policy':'FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION',
-            'three_way_documents':list(THREE_WAY),
+            'policy':'FULL_SET_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION',
+            'full_set_documents':list(FULL_SET),
             'query_first_documents':query_first if (query_first:=config.get('query_first')) else [],
             'archive_verify_only_documents':archive if (archive:=config.get('archive_verify_only')) else [],
             'projection_status':config.get('projection_status','UNDECLARED')}
@@ -563,9 +567,9 @@ def validate_session_bundle(get, sid, state):
         rows.append(kc)
     expected=[f'KC-{n:06d}' for n in range(1,expected_count+1)]
     if rows!=expected:raise CognitionError('KC_AUDIT_COVERAGE_OR_ORDER_INVALID')
-    for field in ('core_change','direction_change','panorama_change','update_decision','cross_conflicts','unresolved'):
+    for field in ('core_change','direction_change','panorama_change','essay_change','update_decision','cross_conflicts','unresolved'):
         if not re.search(r'(?mi)^[-*]?\s*'+re.escape(field)+r'\s*:',audit):
-            raise CognitionError('KC_AUDIT_THREE_WAY_FIELD_MISSING: '+field)
+            raise CognitionError('KC_AUDIT_FULL_SET_FIELD_MISSING: '+field)
 
 def prepare(root, snapshot, payload, *, busy=False):
     root=root_path(root)

@@ -1,13 +1,20 @@
 {
-  "schema_version": "cognition-load-set/v3",
-  "version": "3.5.0",
-  "policy": "FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
+  "schema_version": "cognition-load-set/v4",
+  "version": "4.0.0",
+  "policy": "FULL_SET_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
   "default_profile": "governance",
-  "always_full_three_way": [
+  "always_full_documents": [
     "核心认知.md",
     "方向追踪.md",
-    "全景视野.md"
+    "全景视野.md",
+    "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"
   ],
+  "full_set_roles": {
+    "核心认知.md": "用户原文唯一权威（USER_OWNED_DIRECT；由 curation + manifest hash 管理）",
+    "方向追踪.md": "方向组合与下一判别动作的当前投影",
+    "全景视野.md": "结果、正反例、失败与证据边界的当前投影",
+    "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md": "AI 阐释层（AI_EXPOSITION_LAYER）：按思想关系把 36 段用户原文连贯展开，用于理解与启发；不是用户原文权威，不产出数学结论，不得反向改写 core"
+  },
   "always_full_boot": [
     "AGENTS.md",
     "README.md",
@@ -64,7 +71,12 @@
     ".codex/tools/cognition_runtime.py"
   ],
   "dynamic_state": ".codex/research/hott/STATE.json",
-  "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
+  "document_order": [
+    "核心认知.md",
+    "方向追踪.md",
+    "全景视野.md",
+    "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"
+  ],
   "historical_session_auto_load": false,
   "evidence_status_grants_load_eligibility": false,
   "explicit_hydration": "plan --profile research --task <stable-record-id>",
@@ -90,10 +102,21 @@
       "理解章节/C2",
       "理解章节/C3",
       "理解章节/C4",
-      "方向追踪.md",
-      "全景视野.md"
-    ],
-    "triplet_note": "方向追踪.md and 全景视野.md are sharded but stay full-load: index + every shard is the logical document. 核心认知.md stays monolithic and is managed by the curation builder.",
+    "方向追踪.md",
+    "全景视野.md"
+  ],
+  "sharded_now": [
+    "README.md",
+    "MEMORY.md",
+    "理解章节/C1",
+    "理解章节/C2",
+    "理解章节/C3",
+    "理解章节/C4",
+    "方向追踪.md",
+    "全景视野.md",
+    "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"
+  ],
+  "full_set_note": "方向追踪.md / 全景视野.md / 核心问题意识长文 are sharded but stay full-load: index + every shard is the logical document. 核心认知.md stays monolithic and is managed by the curation builder.",
     "table_projection_rule": "row shards repeat the table header (the only permitted duplication) and must reconcile line-exactly; marker/source_state_revision/projection_generation/semantic_status stay in the index",
     "reader_banner_rule": "every canonical index must show '> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成' within its first 15 lines; enforced by scripts/audit/verify_governance_shards.py",
     "soft_line_target": 300,
