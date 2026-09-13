@@ -1,0 +1,31 @@
+{
+  "schema_version": "negative-calibration-probe/v1",
+  "probe_id": "MP-VERIFICATION-EVENT-001-NEGATIVE-PROBE",
+  "proof_id": "MP-VERIFICATION-EVENT-001",
+  "source": "HoTT/formal/verification-event/negative/BadCast.agda",
+  "agda_binary": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+  "agda_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/verification-event/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "HoTT/formal/verification-event",
+    "-i",
+    "HoTT/formal/verification-event/negative",
+    "HoTT/formal/verification-event/negative/BadCast.agda"
+  ],
+  "exit_code": 42,
+  "expected_exit_code": 42,
+  "expectation_met": true,
+  "stdout_sha256": "ad91691c079c044bc2eac26899d3b51f128da2fab5161a4ee25c46084b8951a0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "KERNEL_REJECTED_AS_EXPECTED",
+  "boundary": "Calibration probe only: it is not a formal-proof-run/v1 receipt and must not be cited as a passing proof. Primary negative evidence remains the preserved external negative-002 receipt."
+}

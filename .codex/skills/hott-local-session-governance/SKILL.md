@@ -2,7 +2,7 @@
 name: hott-local-session-governance
 description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Session、压缩恢复和跨目录接手都先按核心认知→方向追踪→全景视野全文加载，再按 governance/research profile 与 stable record 显式水合证据；开始前三方交叉审视，结束逐 KC 回评。它不让历史 Session 因待复核而自动复活，不代替数学研究或扩大权限。
 metadata:
-  version: "3.4.1"
+  version: "3.5.0"
   role: "governance"
   protocol_version: "handoff-cognition/v2.5"
   business_skill: "hott-paradox-research"

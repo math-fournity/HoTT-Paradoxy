@@ -60,6 +60,23 @@ def main() -> int:
         for row in packages:
             for path in (row.get("source"), row.get("run") + "/RUN.json", "HoTT/CLAIM_EVIDENCE_MATRIX.md"):
                 run_git("cat-file", "-e", f"{commit}:{path}")
+        later = registry.get("later_packages", [])
+        if not isinstance(later, list):
+            raise ClosureError("LATER_PACKAGES_INVALID")
+        later_ids = [row.get("proof_id") for row in later if isinstance(row, dict)]
+        if len(later_ids) != len(later) or len(set(later_ids)) != len(later_ids):
+            raise ClosureError("LATER_PACKAGES_INVALID")
+        for row in later:
+            run_rel = row.get("run")
+            for path in (row.get("source"), row.get("toolchain"), f"{run_rel}/RUN.json"):
+                if not isinstance(path, str) or not (ROOT / path).is_file():
+                    raise ClosureError(f"LATER_PACKAGE_FILE_MISSING:{row.get('proof_id')}:{path}")
+                run_git("ls-files", "--error-unmatch", path)
+            receipt = json.loads((ROOT / f"{run_rel}/RUN.json").read_text(encoding="utf-8"))
+            if receipt.get("exit_code") != 0 or receipt.get("index_status") != "INDEXED_IN_CLAIM_EVIDENCE_MATRIX":
+                raise ClosureError(f"LATER_PACKAGE_RUN_NOT_INDEXED:{row.get('proof_id')}")
+            if not isinstance(row.get("claim_ids"), str) or not row["claim_ids"]:
+                raise ClosureError(f"LATER_PACKAGE_CLAIMS_MISSING:{row.get('proof_id')}")
         state = load(ROOT / ".codex/research/hott/STATE.json")
         current_records = [row for row in state["records"].values() if row.get("version_closure", {}).get("proof_asset_commit") == commit]
         if state.get("revision", 0) < 92 or len(current_records) < 19:
@@ -75,6 +92,8 @@ def main() -> int:
         print(json.dumps({
             "status": "PASS_WITH_SCOPE", "proof_asset_commit": commit,
             "packages": len(packages), "machine_proved_claims": registry["machine_proved_claim_count"],
+            "later_packages": len(later),
+            "later_machine_proved_claims": registry.get("later_machine_proved_claim_count", 0),
             "external_replayed_claims": registry["external_replayed_claim_count"],
             "append_only_matrix_successor": True, "state_records_with_closure": len(current_records),
             "tag_status": tag_status, "mathematics": "NOT_REPROVED_BY_GIT_CLOSURE",

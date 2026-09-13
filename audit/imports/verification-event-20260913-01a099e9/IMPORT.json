@@ -1,0 +1,49 @@
+{
+  "schema_version": "external-work-import/v1",
+  "import_id": "IMPORT-VERIFICATION-EVENT-20260913-01a099e9",
+  "imported_at_utc": "2026-09-13T11:00:00Z",
+  "source_session": "01a099e9-66ee-7270-8bf9-04f7f1c81e62",
+  "source_ai": "another AI session (independent reply), handed off by the user",
+  "source_paths": {
+    "handoff": "/Volumes/D/HoTT独立答复/交接说明-交由另一AI整合-20260913-01a099e9.md",
+    "candidate": "/Volumes/D/HoTT独立答复/20260913-01a099e9-验证事件与时标自反.md",
+    "original_package": "/Volumes/D/HoTT独立答复/实例-20260913-01a099e9",
+    "relocated_replay": "/Volumes/D/HoTT独立答复/交接重放-20260913-01a099e9"
+  },
+  "repo_paths": {
+    "handoff": "audit/imports/verification-event-20260913-01a099e9/交接说明-交由另一AI整合-20260913-01a099e9.md",
+    "candidate": "audit/imports/verification-event-20260913-01a099e9/20260913-01a099e9-验证事件与时标自反.md",
+    "original_package": "audit/imports/verification-event-20260913-01a099e9/original-package",
+    "relocated_replay": "audit/imports/verification-event-20260913-01a099e9/relocated-replay"
+  },
+  "integrity": {
+    "handoff_sha256": "44a2fe3a1baaa1c8fe4b2e919f4aef2b7f65a45f1dfd5aaff8552ae1b0ae725f",
+    "candidate_sha256": "2adc758845ba393b50dd9c78a92428cb0420d3aa7e06e448c9d75e67d7ded0d7",
+    "original_package": {"files": 170, "bytes": 1171988, "tree_sha256": "56376a961832f550c3ff6959f54d09a1c5605c39d12e571e02f232650fb5cd27"},
+    "relocated_replay": {"files": 192, "bytes": 1241220, "tree_sha256": "f05422f944e41de50f333975d90ad43c7e09e72e82371ff83ca6d9aaed8b52d7"},
+    "tree_algorithm": "sha256 over sorted '<repo-relative-path>\\t<bytes>\\t<sha256>\\n' lines for every file"
+  },
+  "independent_verification": {
+    "performed_by": "S-GOV-20260913-098-EXTERNAL-WORK-IMPORT (this repo)",
+    "checks": [
+      "handoff §9 read-only script reproduced: 170 files / 1171988 bytes / tree hash match",
+      "9 external runs: stdout/stderr/source-snapshot/dependency hashes all match their RUN.json",
+      "attempt-003 vs positive-final-001 stdout/stderr byte-identical",
+      "negative-002 exit 42 with expectation_met=true and diagnostic 'afterp != initial' / [UnequalTerms]"
+    ],
+    "result": "ORIGINAL_PACKAGE_INTEGRITY_VERIFIED"
+  },
+  "absorption": {
+    "current_source_owner": "HoTT/formal/verification-event/VerificationEvent.agda",
+    "project_run": "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01",
+    "project_claims": "C-149–C-156 (local EVT-01–EVT-08)",
+    "negative_probe": "audit/imports/verification-event-20260913-01a099e9/project-negative-probe/",
+    "report": "audit/verification-event吸收与独立核验-20260913.md",
+    "registry_entry": "HoTT/verification/PROOF_VERSION_CLOSURE.json → later_packages[0]"
+  },
+  "boundaries": [
+    "外部 run 收据保持原字节与 isolated-agda-run/v1 schema；项目收据由项目 capture 真实运行生成",
+    "本导入不改变任何既有 run、矩阵旧行或历史 tag",
+    "候选文档是 PAPER_ONLY 历史提案，与本 repo 机器结果分开登记"
+  ]
+}

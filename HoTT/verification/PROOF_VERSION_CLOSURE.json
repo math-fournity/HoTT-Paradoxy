@@ -13,6 +13,23 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
+  "later_machine_proved_claim_count": 8,
+  "later_packages": [
+    {
+      "proof_id": "MP-VERIFICATION-EVENT-001",
+      "claim_ids": "C-149–C-156",
+      "local_claim_ids": "EVT-01–EVT-08",
+      "source": "HoTT/formal/verification-event/VerificationEvent.agda",
+      "run": "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01",
+      "toolchain": "HoTT/formal/verification-event/TOOLCHAIN.json",
+      "kind": "imported_independent_source_replayed_in_project",
+      "import_evidence": "audit/imports/verification-event-20260913-01a099e9/",
+      "negative_control_probe": "audit/imports/verification-event-20260913-01a099e9/project-negative-probe/probe.json",
+      "verdict": "VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL",
+      "release_ref": "governance-v3.5.0"
+    }
+  ],
+  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
   "packages": [
     {"proof_id": "MP-ERCF-001", "claim_ids": "C-59..C-66", "source": "HoTT/formal/ercf-factorization/ERCF.lean", "run": "HoTT/verification/runs/20260912-MP-ERCF-001-02", "kind": "current_project_proof"},
     {"proof_id": "MP-ERCF-TRUNC-001", "claim_ids": "C-67..C-70", "source": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda", "run": "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01", "kind": "current_project_proof"},

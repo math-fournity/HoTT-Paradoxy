@@ -1,0 +1,72 @@
+{
+  "claim_ids": [
+    "C-149",
+    "C-150",
+    "C-151",
+    "C-152",
+    "C-153",
+    "C-154",
+    "C-155",
+    "C-156"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/verification-event/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/verification-event",
+    "HoTT/formal/verification-event/VerificationEvent.agda"
+  ],
+  "completed_at_utc": "2026-09-13T11:04:09.476968+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.15116,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "53923c1f9e5b8c381081d7672a16e821e5672d2623d32ecd06c7dafc29bbc474"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不是实际设备或真实验证流程的运行轨迹",
+    "不证明 HoTT 自身全局健全性、一般知识判定算法或完整 Fitch/Gödel 定理",
+    "不说明任意不同时标命题都不同，也不证明所有抽象都会丢掉阶段信息",
+    "未调用 univalence；Cubical 库被载入命令但不属于本证明的导入闭包",
+    "该最小候选未构成 HoTT 自身非现实性实例"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-VERIFICATION-EVENT-001",
+  "run_id": "20260913-MP-VERIFICATION-EVENT-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "固定有限验证事件模型：Stage=initial/afterP/afterHistory；Step=issueP/recordHistory；Claim=atom/historical/current；Registered 三项明示登记；P=Unit；K(s,c)=Trunc(Registered(s,c))（原生高阶归纳命题截断）；Historical 固定引用 initial，Current(s) 引用给定状态；精确类型见 CLAIM_EVIDENCE_MATRIX C-149–C-156",
+  "source_manifest": {
+    "bytes": 2495,
+    "path": "source-manifest.json",
+    "sha256": "78c5e72cb97382b2b782c578fe6bfae7c21cf5a9c066c2de509b32add076e21b"
+  },
+  "started_at_utc": "2026-09-13T11:04:09.325808+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 120,
+    "path": "stdout.txt",
+    "sha256": "bf304969eaa24ef27fd2b5bb0145adff8bafe4143cf753b81c62b93927dcedba"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
