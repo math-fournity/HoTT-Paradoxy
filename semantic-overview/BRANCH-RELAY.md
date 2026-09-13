@@ -17,7 +17,7 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `ac8c33a45d6084cb63acb883ce116d053227b513` |
+| `candidate_content_oid` | `d739d707f6111366c004c73f2fd07561e2948d70` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M2–M6 候选工作，不属于本分支输入 |
@@ -126,6 +126,11 @@ semantic-overview/**
   `1bb92b865b1bff62ad359d7d40e647a83bf2068aa7d86629af2286c13dc8b1b1`；runner 重算 B04
   solver 的 `declare-postulate` 直接调用数仍为零。
 - B05 runner 具有拒绝覆盖行为；重复调用 exit `2`。
+- 六类 canonical verifier 在本 linked worktree 的可移植性回归为 4 PASS / 2 FAIL：分片、
+  三方一致性、C11 回溯、proof closure 通过；understanding merge 因缺整个
+  `AI对话录/理解章节` 失败，fresh load 因缺 ignored `ALL-Markdown-root` 旧路径失败。两项在
+  主工作树以同一 revision 129 只读对照均通过，故不能把主 checkout 的 6/6 PASS 外推到
+  linked worktree。机器可读摘要见 `WORKTREE-PORTABILITY-VERIFIER-CHECK.json`。
 
 ## 失败、冲突与未知
 
@@ -133,9 +138,11 @@ semantic-overview/**
   `MISSING_OR_UNREADABLE: workspace/.codex/research/hott/reviews/SILENT-STEPS-001/PROOF_NOTE.md`
   失败；该失败已保留为治理 finding，没有被静默绕过。
 - `CONFLICT`：项目旧 current queue 把 S lane 放在主线并要求 canonical checkpoint；用户的新裁定与 `PARALLEL_WORKTREE_COGNITION_V1` 已把本分支改为 contributor。本分支用 branch-local relay 与 KC audit 保留连续性，不改旧 owner；最终 integrator 应在 target 上原位重述被接受的新协作状态。
-- `GOVERNANCE_GAP`：`STATE.json` 有 8 次、去重后 6 个 `workspace/**` full-source 引用；它们
-  只存在于主工作树被顶层忽略的嵌套 repo，在 linked worktree 全部缺失。复现、哈希、影响记录
-  与 tracked-import / pinned-locator 候选修复见
+- `GOVERNANCE_GAP`：当前 task hydration 与 verifier 依赖三个被忽略证据岛：`workspace/`
+  有 8 次、去重后 6 个 full-source 引用；`AI对话录/理解章节` 的 24 个历史文件缺失会使
+  understanding verifier 失败，且主 checkout 中该 nested repo 还有两个被 manifest 直接依赖的
+  dirty working files；`ALL-Markdown-root` 的缺失会使 fresh verifier 失败，尽管顶层已有同字节
+  tracked 副本。复现、哈希、4/6 对照与 tracked-import / pinned-locator 候选修复见
   `semantic-overview/governance/WORKTREE-IGNORED-EVIDENCE-LOCATOR-GAP.md`。
 - `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；其它 Agda reflection primitives/版本；现实桥。
 - `STALE_IF`：canonical target、相关 API 源码树、B 方向定义或另一 lane 的路径所有权发生改变。
@@ -159,8 +166,10 @@ evaluator、verifier 或跨层调度；这些属于 machine-overview lane。
 6. 将 finite-decision 外部状态登记为 `E6B_CONSUMER_SOURCE_GAP`，保留第三方 fixed-commit consumer、FFI 实现或完整代码语料三类重开条件。
 7. 将 B04 登记为资格审计的正控制：proof generator 的经济收益由 soundness lemma 与 Agda
    类型检查支付，两个越界目标在固定输入上失败关闭。
-8. 审查 worktree ignored-evidence finding；若接受，优先把 6 个必需文件按 hash/provenance
-   导入顶层 tracked source 区，并在 fresh linked worktree 重跑三个受影响 stable records。
+8. 审查 worktree ignored-evidence finding：把 `ALL-Markdown-root` 引用重路由到已有同字节
+   tracked 文件；将 `workspace` 的 6 个必需文件和 `AI对话录/理解章节` 的 24 个历史版本按
+   hash/provenance 固定到 tracked source 或 exact commit locator；在 fresh linked worktree 重跑
+   受影响 stable records 与全部六类 verifier。
 9. 将 B05 登记为显式假设边界控制：默认模式的成功依赖新增公理，safe 模式拒绝该操作但
    允许普通 proof-term reflection；不得把 API 能力归因给未调用它的 solver。
 10. 保持 lane 分工：本分支提供人工语义判例与自然 consumer 证据，machine-overview 分支
