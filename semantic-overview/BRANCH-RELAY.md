@@ -17,7 +17,7 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `c9a5ba13b67bcaaddd0eac5434e658f103284cbb` |
+| `candidate_content_oid` | `d6e119a35993211413f16a3083ad4b9fd3e6c5bd` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M4 工作，不属于本分支输入 |
@@ -63,6 +63,7 @@ semantic-overview/**
 | `SEM-B01`：两个真实截断消费者的 B 方向资格检查 | `KERNEL_CHECKED_AND_RUNTIME_OBSERVED_WITH_SCOPE / EXECUTION_GAP_WITHOUT_DELIVERY_PROMISE / E6_BOUNDED_NEGATIVE` | content commit `9d928ba629adf36796e64bb74059d58cefa8b456`；`semantic-overview/research/SEM-B01-truncation-consumer-audit.md` |
 | `SEM-B02`：仅仅有限、决定数据与自然分支消费者 | `NATURAL_THEORY_BRANCH_CONSUMER_FOUND / EFFECTIVE_DELIVERY_LIFT_NOT_ESTABLISHED` | content commit `2de235a9c80fcad77e87135a7b2cda2c1bc755b4`；`semantic-overview/research/SEM-B02-finite-decision-consumer-audit.md` |
 | `SEM-B03`：finite decision 的外部有效交付消费者搜索 | `WEB_SEARCH_WITH_SCOPE / E6B_CONSUMER_SOURCE_GAP` | content commit `c9a5ba13b67bcaaddd0eac5434e658f103284cbb`；`semantic-overview/research/SEM-B03-external-delivery-consumer-search.md` |
+| `SEM-B04`：precategory reflection solver 的证明生成与拒绝边界 | `REFLECTION_SOLVER_GENERATES_CHECKED_PROOF_TERM / FALSE_AND_MALFORMED_GOALS_REJECTED / DECLARE_POSTULATE_NOT_USED / DEFENSE_WORKS_WITH_SCOPE` | content commit `d6e119a35993211413f16a3083ad4b9fd3e6c5bd`；`semantic-overview/research/SEM-B04-precategory-reflection-solver-audit.md` |
 
 `SEM-B01` 的当前结果是：
 
@@ -82,6 +83,12 @@ semantic-overview/**
 
 `SEM-B03` 的当前结果是：公开 exact-name 搜索只定位到 agda-unimath 自己的生成文档，没有找到独立第三方 main、服务或插件；Agda 2.8 官方合同确认 postulate 没有定义，后端运行含义需要 `COMPILE` FFI，而固定 truncation postulate 没有这项支付。外部状态据此登记为 `E6B_CONSUMER_SOURCE_GAP`，不写成全网不存在。
 
+`SEM-B04` 的当前结果是：固定 agda-unimath `solve-Precategory!` 宏以 soundness lemma、归一形
+等式的 `refl` 和最终 `unify` 构造受 Agda 类型检查的证明项；结合律正例通过，任意平行态射
+等式被 `[UnequalTerms]` 拒绝，非等式目标被 `[GenericDocError]` 拒绝。reflection TCM API
+暴露 `declare-postulate`，但固定 solver 对它的直接调用数为零。该案例是“支付装置实际工作”
+的正控制，不建立自然使用失配。
+
 ## 验证与认知快照
 
 - 四件套完整加载：`核心认知.md` generation 4 / 36 KC；方向 5 shards；全景 8 shards；essay 5 shards。
@@ -95,17 +102,33 @@ semantic-overview/**
 - `SEM-B02` run `20260913-SEM-B02-FINITE-DECISION-001-01`：13/13 步符合冻结判据；310 模块 fresh kernel；22 项 manifest 与 7 个保留生成物 hash 对账；普通/优化 JS 失败一致。
 - B02 的承诺词汇扫描保留了 README `informative resources` 与 `effective quotient` 假阳性，语义分类没有用零命中粉饰结果。
 - B03 记录 6 个公开查询、agda-unimath 官方生成页/GitHub 入口与 Agda 2.8 compiler/postulate/FFI 三份官方合同；未使用 authenticated GitHub code search，也未穷举 forks/dependents。
+- B04 run `20260913-SEM-B04-PRECATEGORY-REFLECTION-001-01`：5/5 步符合冻结判据；固定 solver
+  fresh 检查产生 273 行含 `Checking` 的导入诊断；14 项 source/toolchain manifest 无哈希漂移；
+  一个正例与两个负例均保留原始 stdout/stderr。
+- B04 runner 具有拒绝覆盖行为；重复调用 exit `2`。
+- `A-THEORY-ECONOMY-LEDGER-001` task hydration snapshot
+  `2c7e4ced3ccba1c1812363237cd9c8da087007057abfba4c7373f020fa51f985` 复核为
+  `SNAPSHOT_UNCHANGED`。
 
 ## 失败、冲突与未知
 
-- `FAILURES`：无。
+- `FAILURES`：`A-HOTT-SELF-VALIDATION-ECONOMY-001` 在 contributor worktree 的 task plan 以
+  `MISSING_OR_UNREADABLE: workspace/.codex/research/hott/reviews/SILENT-STEPS-001/PROOF_NOTE.md`
+  失败；该失败已保留为治理 finding，没有被静默绕过。
 - `CONFLICT`：项目旧 current queue 把 S lane 放在主线并要求 canonical checkpoint；用户的新裁定与 `PARALLEL_WORKTREE_COGNITION_V1` 已把本分支改为 contributor。本分支用 branch-local relay 与 KC audit 保留连续性，不改旧 owner；最终 integrator 应在 target 上原位重述被接受的新协作状态。
-- `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；现实桥。
+- `GOVERNANCE_GAP`：`STATE.json` 有 8 次、去重后 6 个 `workspace/**` full-source 引用；它们
+  只存在于主工作树被顶层忽略的嵌套 repo，在 linked worktree 全部缺失。复现、哈希、影响记录
+  与 tracked-import / pinned-locator 候选修复见
+  `semantic-overview/governance/WORKTREE-IGNORED-EVIDENCE-LOCATOR-GAP.md`。
+- `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；Agda safe mode 对显式 reflection 公理引入的边界；现实桥。
 - `STALE_IF`：canonical target、相关 API 源码树、B 方向定义或另一 lane 的路径所有权发生改变。
 
 ## 下一动作
 
-`SEM-B01`–`SEM-B03` 均已达到停止条件。finite-decision 线不再扩大同义词搜索；下一单元拟切换到不同 B 机制：在真实反射、证明助手插件或代码生成系统中，寻找“理论已分类/已证明存在”被接到验证器、生成器或服务完成承诺的固定接口。候选必须先具备版本化 consumer 与可运行入口，避免再用纯数学调用者代替 E6b。
+`SEM-B01`–`SEM-B04` 均已达到各自停止条件。下一单元为 `SEM-B05`：构造一个明确调用
+`declare-postulate` 的最小 reflection 控制宏，比较普通模式与 `--safe`，并与 B04 的零调用
+solver 严格分开。只有固定源码、可重复退出码和原始输出齐备后才判断能力边界；实验结果不得
+写成 kernel 内部矛盾或 B04 solver 的行为。
 
 ## 集成候选
 
@@ -117,5 +140,9 @@ semantic-overview/**
 4. 将 postulated truncation 的 kernel 接受、后端生成与运行失败登记为 Q3/Q4 分层实例，不升级为悖论；
 5. 以后修订扫描器时增加 `weakly-constant` 提示，并以新版本快照刷新 repo-formal 扫描，不覆盖历史 JSON。
 6. 将 finite-decision 外部状态登记为 `E6B_CONSUMER_SOURCE_GAP`，保留第三方 fixed-commit consumer、FFI 实现或完整代码语料三类重开条件。
+7. 将 B04 登记为资格审计的正控制：proof generator 的经济收益由 soundness lemma 与 Agda
+   类型检查支付，两个越界目标在固定输入上失败关闭。
+8. 审查 worktree ignored-evidence finding；若接受，优先把 6 个必需文件按 hash/provenance
+   导入顶层 tracked source 区，并在 fresh linked worktree 重跑三个受影响 stable records。
 
 以上均未提交集成，也不是项目 current truth。
