@@ -1,0 +1,53 @@
+{
+  "scope": "read-only trajectory audit of another AI's Codex sessions Astra-1/Astra-2 in this repo",
+  "session_identity": {
+    "Astra-1": "01a099e9-66ee-7270-8bf9-04f7f1c81e62",
+    "Astra-2": "01a09a72-aeb6-7a50-81d6-d24f43c5e912",
+    "Astra-2_parent": "01a099e9-66ee-7270-8bf9-04f7f1c81e62"
+  },
+  "trajectory_reader": "/Users/aurolafly/codex/tools/session_trajectory.py",
+  "trajectory_methods": [
+    "catalog",
+    "tree",
+    "scan --kind tool_call",
+    "scan --kind tool_result",
+    "search",
+    "inspect --no-truncate",
+    "context --section user/assistant/all",
+    "coverage --expect-file"
+  ],
+  "trajectory_scope": "public user/assistant messages and tool call/result pairs only; no hidden reasoning",
+  "astra1_events": 1063,
+  "astra1_tool_calls": 104,
+  "astra1_turns": 8,
+  "astra2_events": 30,
+  "astra2_tool_calls": 1,
+  "astra2_turns": 1,
+  "astra1_model": "gpt-6-astra",
+  "astra1_reasoning_effort": "ultra",
+  "source_snapshot_reconstruction": {
+    "commit": "35cace7",
+    "核心认知.md": "byte-identical to run-time read (14741 chars)",
+    "方向追踪.md": "byte-identical to run-time read (21839 chars)",
+    "全景视野.md": "line-identical for 1-85 / 86-155 / 156-203; last content line of that revision"
+  },
+  "coverage_verdicts": {
+    "L1_context_injection": "NOT_TESTED",
+    "L2_selected_read_coverage": "PASS_BY_MANUAL_RUN_SOURCE_COMPARE (canonical numbered-Read contract reports FAIL because the agent used exec cat/sed)",
+    "L3_model_recall": "NOT_TESTED",
+    "L4_cognition_execution": "PARTIAL_MIXED",
+    "L5_behavior_verdict": "TARGET_NOT_MET (no HoTT reality-relative paradox / E6)"
+  },
+  "load_closure": {
+    "four_set_full_read": true,
+    "state_json": "query-first for relevant records; full 6782-line dump NOT loaded",
+    "skills_loaded": ["repo-cognitive-closure", "repo-agent-session-trajectory", "dev-notes-archive"]
+  },
+  "git_head_at_start": "067c844",
+  "canonical_checkpoint_applied": false,
+  "checkpoint_receipt": null,
+  "kernel_runs": [],
+  "new_mathematical_claims": [],
+  "research_queue_changed": false,
+  "model_understanding_certification": "NOT_PROVIDED"
+}
