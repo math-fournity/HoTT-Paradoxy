@@ -13,7 +13,7 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 8,
+  "later_machine_proved_claim_count": 11,
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -27,27 +27,141 @@
       "negative_control_probe": "audit/imports/verification-event-20260913-01a099e9/project-negative-probe/probe.json",
       "verdict": "VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL",
       "release_ref": "governance-v3.5.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-JOINT-001",
+      "claim_ids": "C-157–C-159",
+      "local_claim_ids": "T3-JOINT-01–T3-JOINT-03",
+      "source": "HoTT/formal/ercf3-t3/JointRecursion.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_SHARED_DECISION_JOINT_RECURSION",
+      "notes": "Closes the term-level identity recorded as the remaining obligation in N34/TermIdentityFinal and adds the corrected formula-level code substitution (fixing the double-encoded `all` shadow branch of CodeStoreFixF). Does NOT change the gated status of ERCF-3: no proof-predicate representability, no reflection, no diagonal fixed point.",
+      "release_ref": "governance-v4.0.0"
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
   "packages": [
-    {"proof_id": "MP-ERCF-001", "claim_ids": "C-59..C-66", "source": "HoTT/formal/ercf-factorization/ERCF.lean", "run": "HoTT/verification/runs/20260912-MP-ERCF-001-02", "kind": "current_project_proof"},
-    {"proof_id": "MP-ERCF-TRUNC-001", "claim_ids": "C-67..C-70", "source": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda", "run": "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-RACE-TIMEOUT-001", "claim_ids": "C-71..C-76", "source": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda", "run": "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-CONTEXTUAL-EQUIV-001", "claim_ids": "C-77..C-83", "source": "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda", "run": "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-QUOTIENT-MONAD-001", "claim_ids": "C-84..C-88", "source": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda", "run": "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-CONTEXT-CHARACTERIZATION-001", "claim_ids": "C-89..C-91", "source": "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda", "run": "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-GUARD-ERASURE-001", "claim_ids": "C-92..C-95", "source": "HoTT/formal/partiality-race-timeout/GuardErasure.agda", "run": "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-COST-FACTORIZATION-001", "claim_ids": "C-96..C-99", "source": "HoTT/formal/partiality-race-timeout/CostFactorization.agda", "run": "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-PATH-CERTIFICATE-001", "claim_ids": "C-100..C-105", "source": "HoTT/formal/partiality-race-timeout/PathCertificate.agda", "run": "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-ONLINE-CAUSALITY-001", "claim_ids": "C-106..C-109", "source": "HoTT/formal/partiality-race-timeout/OnlineCausality.agda", "run": "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-TRANSITION-LIFT-001", "claim_ids": "C-110..C-117", "source": "HoTT/formal/transition-lift/TransitionLift.agda", "run": "HoTT/verification/runs/20260912-MP-TRANSITION-LIFT-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-PARTIAL-DECISION-001", "claim_ids": "C-118..C-123", "source": "HoTT/formal/partial-decision/PartialDecision.agda", "run": "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-SIP-REPRESENTATION-001", "claim_ids": "C-124..C-128", "source": "HoTT/formal/sip-representation/SIPRepresentation.agda", "run": "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-CAUCHY-MODULUS-001", "claim_ids": "C-129..C-133", "source": "HoTT/formal/cauchy-modulus/CauchyModulus.agda", "run": "HoTT/verification/runs/20260912-MP-CAUCHY-MODULUS-001-01", "kind": "current_project_proof"},
-    {"proof_id": "MP-TRUNC-NORECOVERY-001", "claim_ids": "C-134..C-141", "source": "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda", "run": "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03", "kind": "current_project_proof"},
-    {"proof_id": "MP-NOCANONICAL-001", "claim_ids": "C-142..C-148", "source": "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda", "run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02", "kind": "current_project_proof"},
-    {"proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001", "claim_ids": "C-05", "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda", "run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02", "kind": "external_library_replay"}
+    {
+      "proof_id": "MP-ERCF-001",
+      "claim_ids": "C-59..C-66",
+      "source": "HoTT/formal/ercf-factorization/ERCF.lean",
+      "run": "HoTT/verification/runs/20260912-MP-ERCF-001-02",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-ERCF-TRUNC-001",
+      "claim_ids": "C-67..C-70",
+      "source": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+      "run": "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-RACE-TIMEOUT-001",
+      "claim_ids": "C-71..C-76",
+      "source": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "run": "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-CONTEXTUAL-EQUIV-001",
+      "claim_ids": "C-77..C-83",
+      "source": "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+      "run": "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-QUOTIENT-MONAD-001",
+      "claim_ids": "C-84..C-88",
+      "source": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+      "run": "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
+      "claim_ids": "C-89..C-91",
+      "source": "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+      "run": "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-GUARD-ERASURE-001",
+      "claim_ids": "C-92..C-95",
+      "source": "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+      "run": "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-COST-FACTORIZATION-001",
+      "claim_ids": "C-96..C-99",
+      "source": "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+      "run": "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-PATH-CERTIFICATE-001",
+      "claim_ids": "C-100..C-105",
+      "source": "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+      "run": "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-ONLINE-CAUSALITY-001",
+      "claim_ids": "C-106..C-109",
+      "source": "HoTT/formal/partiality-race-timeout/OnlineCausality.agda",
+      "run": "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-TRANSITION-LIFT-001",
+      "claim_ids": "C-110..C-117",
+      "source": "HoTT/formal/transition-lift/TransitionLift.agda",
+      "run": "HoTT/verification/runs/20260912-MP-TRANSITION-LIFT-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-PARTIAL-DECISION-001",
+      "claim_ids": "C-118..C-123",
+      "source": "HoTT/formal/partial-decision/PartialDecision.agda",
+      "run": "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-SIP-REPRESENTATION-001",
+      "claim_ids": "C-124..C-128",
+      "source": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+      "run": "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-CAUCHY-MODULUS-001",
+      "claim_ids": "C-129..C-133",
+      "source": "HoTT/formal/cauchy-modulus/CauchyModulus.agda",
+      "run": "HoTT/verification/runs/20260912-MP-CAUCHY-MODULUS-001-01",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-TRUNC-NORECOVERY-001",
+      "claim_ids": "C-134..C-141",
+      "source": "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+      "run": "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-NOCANONICAL-001",
+      "claim_ids": "C-142..C-148",
+      "source": "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda",
+      "run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02",
+      "kind": "current_project_proof"
+    },
+    {
+      "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+      "claim_ids": "C-05",
+      "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+      "run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
+      "kind": "external_library_replay"
+    }
   ],
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
   "scope": "Version closure proves recoverability of the listed project assets at the exact commit. It does not expand any theorem, certify originality/model understanding, or turn source-inspected no-global-choice into a replayed claim."

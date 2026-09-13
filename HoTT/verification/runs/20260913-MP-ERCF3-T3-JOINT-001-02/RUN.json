@@ -1,0 +1,66 @@
+{
+  "claim_ids": [
+    "C-157",
+    "C-158",
+    "C-159"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/JointRecursion.agda"
+  ],
+  "completed_at_utc": "2026-09-13T12:52:21.155194+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.236187,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "94640e21320aa2b8f02f37b3d6aacd35e3d4a0da35d81e79484294aef4a81091"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不是 ERCF-3 本体：不构造对角线不动点，不涉及证明谓词 P 的表示性或反射",
+    "不是 HoTT 悖论或 HoTT 内部不一致；不使用 univalence/cubical Path/HIT/truncation",
+    "不证明 diagonal lemma 的对象层替换算术化，也不改变 ERCF-3 的 gated 状态",
+    "CodeStoreFixF.agda 作为既有脉冲文件保持逐字节不变；修正只在新的 JointRecursion.agda 中给出"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-JOINT-001",
+  "run_id": "20260913-MP-ERCF3-T3-JOINT-001-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 第十四脉冲：共享判定联合递归。精确命题：(1) 对显式判定 d，码级修正替换与语法级共享判定替换一致：substFixTd d k i t ≡ codeT (substTd d k i t)；(2) 原始逐出现判定的项层恒等式成立：substFixT k i t ≡ codeT (substT k i t)；(3) 修正后的公式层码替换与语法替换一致：substFixFc k i φ ≡ codeF (substF k i φ)（其中 substFixFc 修正了 CodeStoreFixF.substFixF 在 all 影子分支的双重编码错误）。工具链：Agda 2.8.0-3d04bac + Cubical v0.9 库声明；证明本身只用 Agda builtins（无 Cubical 导入）。canonical 命令不含 --safe（与 S067–S080 脉冲一致，因为早期脉冲模块未声明 --safe）；另有一次命令行 --safe 的手工检查同样 exit 0。",
+  "source_manifest": {
+    "bytes": 3498,
+    "path": "source-manifest.json",
+    "sha256": "cba7fbbc225f61177e3c1b8938fa01a032f4892cfcd20aa14acb1b7bddbd9785"
+  },
+  "started_at_utc": "2026-09-13T12:52:20.919007+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 722,
+    "path": "stdout.txt",
+    "sha256": "88bcb32f151e9cfaad20bc02a872559ce71d7a92a1a810d0da7e9739f4e37496"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

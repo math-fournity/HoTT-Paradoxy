@@ -253,3 +253,19 @@ proof_run_root: HoTT/verification/runs
 | C-154 | 在 `Trunc Stage` 上不存在与每个 `Current s` 双向对应的谓词族（完全阶段擦除不保真）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noStageErasingFamily`；同一 run。 | 只否定这一次完全阶段擦除的双向保真，不证明所有抽象都会丢掉阶段信息。 |
 | C-155 | 保留阶段时有正向控制：`∀ s → Current s → stageAwareFamily s`（`stageAwareIdentity`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `stageAwareFamily`、`stageAwareIdentity`；同一 run。 | 正控制；不证明任何现实模型充分。 |
 | C-156 | 在显式 factivity 与 conjunction-closure 参数下，`Know (A × ¬ Know A) → Empty`（`noKnownMoore`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noKnownMoore`；同一 run。 | 不是完整 Fitch/Gödel 定理，也不证明 HoTT 存在这种全域 Know 算子。 |
+
+## 追加登记：MP-ERCF3-T3-JOINT-001（ERCF-3 T3 第十四脉冲，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或既有追加节的任何字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-JOINT-001-02` 的 `RUN.json`。
+> 该包**不改变** ERCF-3 的 gated 状态：它只闭合编码层的替换/编码一致义务（C8 §9 的 P2/P3 层），不涉及证明谓词表示性、反射或对角线不动点。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-JOINT-001` | `C-157`–`C-159` | `formal/ercf3-t3/JointRecursion.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DiagonalLemma.agda`、`CodeStoreFix.agda`、`MutualInduction2.agda`、`DecisionParam.agda`；全部按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；`-01` 为 `--safe` pragma 触发 `CoInfectiveImport` 的失败尝试（保留）；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_SHARED_DECISION_JOINT_RECURSION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-157 | 对显式共享判定 `d`，码级修正替换与语法级共享判定替换一致：`(d : Bool) (k i : Nat) (t : Tm) → substFixTd d k i t ≡ codeT (substTd d k i t)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substFixTd-agrees`；run `20260913-MP-ERCF3-T3-JOINT-001-02`。 | 只覆盖显式判定版本的两种替换；不涉及证明谓词 `P`、反射、对角线不动点或 ERCF-3 本体。 |
+| C-158 | 原始逐出现判定的**项层恒等式**成立：`(k i : Nat) (t : Tm) → substFixT k i t ≡ codeT (substT k i t)`（即 N34 记录的剩余义务在项层被联合递归收口）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `fixT-agrees`；同一 run。 | 只到项层；公式层的量词/影子分支另见 C-159；不证明对象层替换算术化（对角引理本体）。 |
+| C-159 | 修正后的公式层码替换与语法替换一致：`(k i : Nat) (φ : Fml) → substFixFc k i φ ≡ codeF (substF k i φ)`；`substFixFc` 修正了 `CodeStoreFixF.substFixF` 在 `all` 影子分支把 `codeF φ` 误写为 `codeF (all m φ)` 的双重编码错误；既有脉冲文件逐字节未改。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substFixFc`、`fixF-agrees`；同一 run；错误与修正说明见 `formal/ercf3-t3/README.md`。 | 修正只在该新模块中给出；不重写历史脉冲与其会话证据；不改变 ERCF-3 的 gated 状态或任何既有判词。 |
