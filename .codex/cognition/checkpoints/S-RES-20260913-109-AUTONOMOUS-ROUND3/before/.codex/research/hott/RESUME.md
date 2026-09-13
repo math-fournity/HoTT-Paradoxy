@@ -8,8 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-S109：自主构造第三轮完成，身份轴与表达轴均判负，**搜索空间收口为两扇门**——门 A（任务在 HoTT 中不可形式化，须先给出可对象化的现实量规格）、门 B（同一层自我担保，ERCF-3/W51-3，`GATED` 缺消费者）。两条门都需要**新的真实输入**；同型枚举停止。未新增数学 claim、未重跑 run。
-
 S108：自主构造第二轮完成并判 `INVARIANT_OBSTRUCTION_EMPTY_BY_CONSTRUCTION`——`UnlabeledTwoElement` 族上命题值观察量全部可完成，唯一不可完成的“统一选点”不是识别不敏感的；结构论证表明“不敏感 + 不可满足义务”是空集。自主构造线下一轮只在两轴做有界检查：(a) 表达/覆盖缺口（KC-000031/000035）；(b) 识别改变对象身份且区别不可被携带呈现吸收。未新增数学 claim、未重跑 run。
 
 S107：两条并行线第一轮完成——线 A（粗域接口词汇 triage）判 `TRIAGE_LINE_CLOSED_PRECISION_LIMIT_REACHED` 并关闭（两批 40 条全非候选；43 条队列转附录）；线 B 自主构造候选 #1（“加入义务”读法）判 `DEGENERATION_TEST_FAILED_KNOWN_PACKAGE`（逐步落在 C-142–C-148）。新筛选判据：新增义务可定位 + 不可满足 + **现实侧程序在理论已识别层面上仍完成**。下一轮唯一问题：找“对理论识别不敏感、却在 HoTT 表达下不可完成”的任务。
