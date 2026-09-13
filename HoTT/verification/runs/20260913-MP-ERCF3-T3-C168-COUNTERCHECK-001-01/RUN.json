@@ -1,0 +1,65 @@
+{
+  "claim_ids": [
+    "C-184",
+    "C-185"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/C168Countercheck.agda"
+  ],
+  "completed_at_utc": "2026-09-13T14:38:37.038253+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.237089,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "8d8bf7b0a38bccc050da077234289b51dc6270341a5ae54def0712bfad0c033e"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不否定 C-168 的形式引理（它确实证明 double 下 1 无原像）；只纠正把它归给 codeAtom 的叙述",
+    "不改变任何既有 claim 行、run 收据或冻结矩阵；纠正以新 claim（C-184/C-185）与新的追加节登记",
+    "不断言后续树/公式编码满射；codeT′/codeF′ 的图像不含 1，故其全解码器仍需要缺省分支",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence、cubical Path、HIT 或 truncation"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-C168-COUNTERCHECK-001",
+  "run_id": "20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 独立审计吸收：C-168 叙述错配的反证（完整传递闭包）。精确命题：(1) codeAtom (anum zero) ≡ suc zero——1 在 codeAtom 下有显式原像（C-184）；(2) (n : Nat) → Σ′ Atom (λ a → codeAtom a ≡ n)——原子编码 codeAtom 满射（C-185）。范围：只针对 ArithmeticTags.codeAtom；不否定 double 的 1 无原像引理，也不影响后续 codeT′/codeF′（其位串非空，故 1 确实不在像中）与任何 HoTT 特有主张。工具链：Agda 2.8.0-3d04bac、仅 Agda builtins。",
+  "source_manifest": {
+    "bytes": 3522,
+    "path": "source-manifest.json",
+    "sha256": "8fb6f3953db682ee9321a58eb5a02e2226c006a7458dde7cb7d05487b316b2ef"
+  },
+  "started_at_utc": "2026-09-13T14:38:36.801164+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 729,
+    "path": "stdout.txt",
+    "sha256": "0a9378080892011defa3ebec42da6c6f0f9f56d7aa70a4545bef6a99f1e29cc0"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

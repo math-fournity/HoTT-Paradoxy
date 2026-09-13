@@ -384,3 +384,40 @@ proof_run_root: HoTT/verification/runs
 | C-181 | 项层码级替换：`substCodeT k n c = codeT' (substT k n (dec c))` 满足 `(k n : Nat) (t : Tm) → substCodeT k n (codeT' t) ≡ codeT' (substT k n t)`——**在修复编码的像上，码级替换与语法级替换一致**（旧编码的对应义务要 C-157–C-159 的联合递归工程）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substCodeT`、`substCodeT-agrees`（用 C-176 的往返）；run `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01`。 | `substCodeT` 经**解码器**定义（解码—替换—编码）；本主张不包含"对象理论可表示该替换"，也不重做旧 `substFixT` 义务。 |
 | C-182 | 公式层同型结论：`substCodeF k n c = codeF' (substF k n (decF c))` 满足 `(k n : Nat) (φ : Fml) → substCodeF k n (codeF' φ) ≡ codeF' (substF k n φ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substCodeF`、`substCodeF-agrees`（用 C-180 的往返）；同一 run。 | 同上：不主张表示性；不涉及 `substF` 的量词/影子分支等结构性质（那些已在 T2 层机器化）。 |
 | C-183 | 引用与对角实例：`⌜ φ ⌝' = num (codeF' φ)` **单射**（`⌜-injective'`）；`diagonalize' φ = substF (codeF' φ) 0 φ` 是同一公式的替换实例（`refl`），且其码可由码级替换算出：`codeF' (diagonalize' φ) ≡ substCodeF (codeF' φ) 0 (codeF' φ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `⌜_⌝'`、`⌜-injective'`、`diagonalize'`、`diagonalize'-is-subst`、`diagonalize'-code`；同一 run。 | 这是对角引理所需的**形状**，不是对角不动点：不构造 `P`、不证明表示性或反射；对象层可表示性仍归门 B。 |
+
+## 追加登记：MP-ERCF3-T3-C168-COUNTERCHECK-001（独立审计反证在本 repo 内的重放，2026-09-13）
+
+> 本节按冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照、任何既有追加节或任何既有 run 收据。
+> 来源：外部独立审计（`audit/imports/audit-c168-20260913/`，其发现 F1）。审计指出：C-168 的中文叙述把
+> **`double` 的性质误交付成 `codeAtom` 的性质**——矩阵中 C-168 行引用的形式引理 `one-has-no-preimage` 的类型是
+> `Not (Σ' Nat (λ m → double m ≡ suc zero))`，与 `codeAtom` 无关；而 `codeAtom` 实际**满射**。
+> 本节只登记纠正证据；C-168 原行与其冻结收据保持原样供审计，narrative 由本 repo 重新推导的两条命题覆盖。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-C168-COUNTERCHECK-001` | `C-184`–`C-185` | `formal/ercf3-t3/C168Countercheck.agda`（**完整传递闭包**：`ArithmeticTags.agda`、`CodingRepair.agda`、`DecodingFence.agda`、`DiagonalLemma.agda`、`DiagonalCore.agda`、`ObjectSyntax.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01/`；Agda 2.8.0-3d04bac、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_C168_NARRATIVE_CORRECTED_BY_COUNTERCHECK` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-184 | `codeAtom (anum zero) ≡ suc zero`：`1` 在 `ArithmeticTags.codeAtom` 下有**显式原像**。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `one-has-codeAtom-preimage`；run `20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01`。 | 不否定 `double` 的"1 无原像"引理（该引理为真）；不涉及后续树/公式编码。 |
+| C-185 | `(n : Nat) → Σ' Atom (λ a → codeAtom a ≡ n)`：原子编码 `codeAtom` **满射**。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeAtom-surjective`；同一 run。 | 只针对 `codeAtom`；`codeT'`/`codeF'` 的位串非空，故 `1` 确实不在其像中（其全解码器的缺省分支由**它们自己**的非满射性说明，而不是由 C-168）。 |
+
+**由此产生的三处更正（当前真值已在 `HoTT/formal/ercf3-t3/README.md` §4、`audit/统观工作技术报告-20260913.md` §8.3(d)/§10 与本节同步）：**
+
+1. C-168 的精确内容限定为：`double` 单射、`double n ≢ odd m`，以及 **`double` 下 `1` 无原像**（`avar`-only 片段非满射）；
+2. 撤回"`codeAtom` 非满射 ⇒ 全解码器必须有缺省分支"的叙述——`codeAtom` 满射（C-185）；
+3. `codeT'`/`codeF'` 的全解码器需要缺省分支这一点**仍然成立**，但依据是它们自身的像不含 `1`（见下方 C-186）。
+
+## 追加登记：MP-ERCF3-T3-CODING-IMAGE-001（缺省分支的替换性论证，2026-09-13）
+
+> 本节按冻结前缀要求**追加在文末**；不改写既有各节。承接上一节：C-168 的错误叙述被撤回后，必须为
+> "修复后的全解码器带缺省分支"提供**真正成立**的依据，本节把它机器化。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-CODING-IMAGE-001` | `C-186`–`C-187` | `formal/ercf3-t3/CodingImage.agda`（**完整传递闭包**：`ObjectSyntax.agda`、`DiagonalCore.agda`、`DiagonalLemma.agda`、`DecodingFence.agda`、`CodingRepair.agda`、`BitCoding.agda`、`StreamingParser.agda`、`FormulaCoding.agda`） | `verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01/`；Agda 2.8.0-3d04bac、仅 Agda builtins；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_CODING_MISSES_ONE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-186 | `(t : Tm) → codeT' t ≢ suc zero`：修复后的项编码**不含** `1`，故其全解码器 `dec` 的缺省分支是**可达的**（因而对全函数是必要的）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeT'-misses-one`（辅助 `twice≠one`、`pack≠one`、`code-sentinel`）；run `20260913-MP-ERCF3-T3-CODING-IMAGE-001-01`。 | 只针对 `codeT'`；不涉及 `codeAtom`（C-185 已证其满射），也不涉及旧 `codeT`。 |
+| C-187 | `(φ : Fml) → codeF' φ ≢ suc zero`：修复后的公式编码同样不含 `1`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeF'-misses-one`；同一 run。 | 只针对 `codeF'`；不涉及旧 `codeF`、不涉及 P 表示性/反射/对角不动点。 |

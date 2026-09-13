@@ -72,6 +72,17 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MP-ERCF3-T3-STREAMING-PARSER-001` / `C-173`–`C-176` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；符号层 + 流式解析器 + 修复后的 Nat 值编码（一元索引自定界；燃料精确的 `run`；长度/界/多余燃料分解；`codeT'` 带全解码器与往返 ⇒ 单射，闭合编码层修复义务） |
 | `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` | `MP-ERCF3-T3-FORMULA-CODING-001` / `C-177`–`C-180` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；修复编码的公式层（公式符号层与迭代数精确的 `run`；`=f` 的 Tm 子项复用项层解析器；长度界；`codeF'` 带全解码器与往返 ⇒ 单射） |
 | `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01` | `MP-ERCF3-T3-REPAIRED-SYNTAX-001` / `C-181`–`C-183` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；修复编码之上的替换一致（码级替换=解码—替换—编码，`Tm`/`Fml` 两层）与引用（`⌜φ⌝'` 单射、对角实例及其码） |
+| `20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01` | `MP-ERCF3-T3-C168-COUNTERCHECK-001` / `C-184`–`C-185` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 独立审计吸收（F1）；完整传递闭包；`codeAtom (anum zero) ≡ 1`（1 有原像）与 `codeAtom` 满射——纠正 C-168 的中文叙述对象错配 |
+| `20260913-MP-ERCF3-T3-CODING-IMAGE-001-01` | `MP-ERCF3-T3-CODING-IMAGE-001` / `C-186`–`C-187` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 独立审计吸收（F1 替换性论证）；完整传递闭包；`codeT'`/`codeF'` 的像不含 `1`，故其全解码器缺省分支可达且必要 |
+
+**依赖闭包登记缺口（独立审计发现 F6，2026-09-13）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、
+`REPAIRED-SYNTAX` 五个历史 run 的 `source-manifest.json` 只固定了直接导入模块，未列入编译器实际检查的传递依赖
+（各缺 `DiagonalLemma.agda`；`REPAIRED-SYNTAX` 另缺 `DecodingFence.agda`）。缺口登记在
+`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_package_dependency_gap_allowlist`（6 条，注明不回填历史 manifest）；
+上表两个新 run 与所有后续 run 必须固定完整闭包，`verify_proof_version_closure.py` 会拒绝新增未登记缺口。
+
+**claim 计数更正（独立审计发现 F7）**：`later_machine_proved_claim_count` 曾按每次增量口算而漏计（曾写 34，实为 35；
+现含本批两个新包为 39）。`verify_proof_version_closure.py` 现在**重算**该字段，登记值与重算值不一致即 fail closed。
 
 `index-row-manifest.json` 冻结 proof row 与各 claim row 的精确行哈希。claim matrix 后续只追加新 proof 时，旧 run 不再要求整个不断增长的索引文件保持同 SHA，而是要求自己的原行逐字不变；若任一旧行被改写，verifier fail closed。
 

@@ -43,6 +43,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `ercf3-t3/StreamingParser.agda`：`MP-ERCF3-T3-STREAMING-PARSER-001`；T3 第十九脉冲——**符号层 + 流式解析器 + 修复后的 Nat 值编码**：自定界一元索引层（`C-173`）；符号层 `bits`/`BLEN` 与燃料精确的流式解析器 `run`（显式框架栈解决顺序消费，`C-174`）；长度对账、界即和分解与 `unbits` 多余燃料分解（`C-175`）；`codeT' = codeBits ∘ bits` 带全解码器 `dec`、往返 `dec (codeT' t) ≡ t`，故由 C-164 单射（`C-176`）——**在编码层闭合 `CodingRepair` 的修复义务（C-163/C-164/C-165）**。仍未做：`codeF` 的对应修复、对象层替换对齐、P 表示性/反射/对角不动点。**ERCF-3 保持 `GATED`**。
 - `ercf3-t3/FormulaCoding.agda`：`MP-ERCF3-T3-FORMULA-CODING-001`；T3 第二十脉冲——**修复编码的公式层（复用项层解码器）**：公式符号层 `bitsF`/`STEPS` 与迭代数精确的流式 `run`（`C-177`）；`=f` 的 Tm 子项交给项层解析器，燃料取剩余位数（`C-178`）；长度对账 `STEPS φ ≤ LEN (bitsF φ)`（`C-179`）；`codeF' = codeBits ∘ bitsF` 带全解码器 `decF`、往返 `decF (codeF' φ) ≡ φ`，故单射（`C-180`）。仍未做：公式层与对象层替换对齐、`⌜·⌝` 算术化、P 表示性/反射/对角不动点。**ERCF-3 保持 `GATED`**。
 - `ercf3-t3/RepairedSyntax.agda`：`MP-ERCF3-T3-REPAIRED-SYNTAX-001`；T3 第二十一脉冲——**修复编码之上的替换一致与引用**：码级替换定义为解码—替换—编码，于是"码级替换 ≡ 语法级替换"在 `Tm`（`C-181`）与 `Fml`（`C-182`）两层都成为推论（旧编码需要 C-157–C-159 的联合递归）；引用 `⌜φ⌝'` 单射、对角实例及其码可由码级替换算出（`C-183`）。诚实边界：这些码级函数经解码器定义，**不**主张对象理论可表示它们。仍未做：表示性、反射、对角不动点（门 B）。**ERCF-3 保持 `GATED`**。
+- `ercf3-t3/C168Countercheck.agda`：`MP-ERCF3-T3-C168-COUNTERCHECK-001`（独立审计吸收）：用完整传递闭包重放外部审计的反证——`codeAtom (anum zero) ≡ suc zero`（`C-184`）与 `codeAtom` **满射**（`C-185`）。它纠正 C-168 的叙述对象错配（该引理谈的是 `double`），不改原行与原 run 收据。
+- `ercf3-t3/CodingImage.agda`：`MP-ERCF3-T3-CODING-IMAGE-001`（独立审计吸收）：给出缺省分支的**替换性依据**——`codeT'`（`C-186`）与 `codeF'`（`C-187`）的像都不含 `1`，故全解码器的缺省分支可达、必要。
 
 ## 锁定环境
 

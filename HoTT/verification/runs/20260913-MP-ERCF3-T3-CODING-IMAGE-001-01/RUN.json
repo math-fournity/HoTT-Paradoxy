@@ -1,0 +1,65 @@
+{
+  "claim_ids": [
+    "C-186",
+    "C-187"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/CodingImage.agda"
+  ],
+  "completed_at_utc": "2026-09-13T14:42:21.899999+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.601272,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "8d8bf7b0a38bccc050da077234289b51dc6270341a5ae54def0712bfad0c033e"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不断言旧 codeT/codeF 的任何新性质；它们仍由 C-160–C-165 覆盖",
+    "不构造证明谓词 P、不证表示性/反射/对角不动点；ERCF-3 保持 GATED",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence、cubical Path、HIT 或 truncation",
+    "不改写任何既有 claim 行、run 收据或冻结矩阵；纠正只以新 claim 与新的追加节登记"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-CODING-IMAGE-001",
+  "run_id": "20260913-MP-ERCF3-T3-CODING-IMAGE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 独立审计吸收（F1 的替换性论证）：修复后编码的像不含 1，故全解码器的缺省分支是可达的、因而必要。精确命题：(1) (t : Tm) → codeT′ t ≢ suc zero（C-186）；(2) (φ : Fml) → codeF′ φ ≢ suc zero（C-187）。依据：任何位串非空，codeBits (b ∷ bs) = pack b (codeBits bs)，且 pack b c ≥ 2 当 c ≥ 1（由 C-172 的 codeBits-dominates 给出 c ≥ 1）。范围：只针对修复后的 codeT′/codeF′；不涉及 codeAtom（它满射，见 C-185），也不涉及旧 codeT/codeF。工具链：Agda 2.8.0-3d04bac、仅 Agda builtins。",
+  "source_manifest": {
+    "bytes": 3854,
+    "path": "source-manifest.json",
+    "sha256": "9c4a137e2af4e2b1409166d30498f60a1d2f3e225d081498c635dbb397d8eff3"
+  },
+  "started_at_utc": "2026-09-13T14:42:21.298727+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 914,
+    "path": "stdout.txt",
+    "sha256": "69133c83046b251f6dfff52340330db31dbf3e3fb31c337d1bd87a50f82e6b05"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

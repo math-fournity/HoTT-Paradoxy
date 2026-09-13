@@ -1,4 +1,4 @@
-# ERCF-3 T3 脉冲链（含八个 claim-bearing package）
+# ERCF-3 T3 脉冲链（含十个 claim-bearing package）
 
 > 判词只覆盖本目录的编码层义务；**ERCF-3 本体保持 `GATED`**（C8 §9 的 P1–P8 与停止条件不变）。
 > 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
@@ -13,6 +13,8 @@
 | `MP-ERCF3-T3-STREAMING-PARSER-001` | `C-173`–`C-176` | `StreamingParser.agda` | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_NAT_CODING` |
 | `MP-ERCF3-T3-FORMULA-CODING-001` | `C-177`–`C-180` | `FormulaCoding.agda` | `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_FORMULA_CODING` |
 | `MP-ERCF3-T3-REPAIRED-SYNTAX-001` | `C-181`–`C-183` | `RepairedSyntax.agda` | `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION` |
+| `MP-ERCF3-T3-C168-COUNTERCHECK-001` | `C-184`–`C-185` | `C168Countercheck.agda` | `20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_C168_NARRATIVE_CORRECTED_BY_COUNTERCHECK` |
+| `MP-ERCF3-T3-CODING-IMAGE-001` | `C-186`–`C-187` | `CodingImage.agda` | `20260913-MP-ERCF3-T3-CODING-IMAGE-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_CODING_MISSES_ONE` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -125,7 +127,14 @@ stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 
 |---|---|---|
 | `C-166` | 偶/奇标签算术：`double` 单射（`double n ≡ double m → n ≡ m`）、`double n ≢ odd m`、`odd` 单射（`double n = 2n`、`odd n = 2n+1`） | `double-injective`、`double≠odd`、`odd-injective` |
 | `C-167` | var/num 片段的 Nat 值编码 `codeAtom`（`avar n ↦ 2n`、`anum n ↦ 2n+1`）**单射**——链条中第一个 Nat 值单射编码 | `codeAtom-injective` |
-| `C-168` | 该编码**非满射**（`1` 无原像），故任何**全**解码器必须带缺省分支 | `one-has-no-preimage` |
+| `C-168` | **`double`** 非满射：`1` 无原像（`¬ Σ m, double m ≡ 1`），故 **`avar`-only 片段**非满射 | `one-has-no-preimage` |
+
+> **2026-09-13 独立审计更正（F1）**：本行原先写作"该编码（`codeAtom`）非满射，故任何全解码器必须带缺省分支"——
+> 这是**对象错配**：`one-has-no-preimage` 的类型是 `Not (Σ' Nat (λ m → double m ≡ suc zero))`，谈的是函数 `double`，
+> 与 `codeAtom` 无关。外部独立审计机器证明 `codeAtom` **满射**（`MP-AUD-C168-20260913`，`audit/imports/audit-c168-20260913/`）；
+> 本 repo 以**完整传递闭包**重放该反证（`MP-ERCF3-T3-C168-COUNTERCHECK-001` / `C-184`–`C-185`，见 §9）。
+> "全解码器需要缺省分支"这一点对**修复后的** `codeT'`/`codeF'` 仍然成立，但依据是它们自身的像不含 `1`
+> （`MP-ERCF3-T3-CODING-IMAGE-001` / `C-186`–`C-187`），而不是本条。
 
 **剩余算术义务（下一有界脉冲）**：把标签不相交形状扩到应用结点（`_+t_` 需要配对函数），写出带缺省分支的
 **全解码器**，并证明像上的往返（由 C-164 自动得到单射）。
@@ -254,3 +263,33 @@ exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.j
 
 **禁止外推**：不构造证明谓词 `P`、不证明表示性/反射/对角不动点；不重做旧 `codeT`/`codeF` 的 `substFix` 义务；
 `BitCoding`/`StreamingParser`/`FormulaCoding` 与全部历史脉冲文件逐字节未改（三次 run 的 `source-manifest.json` 可交叉核对）；ERCF-3 保持 `GATED`。
+
+---
+
+## 9. `MP-ERCF3-T3-C168-COUNTERCHECK-001` 与 `MP-ERCF3-T3-CODING-IMAGE-001`：独立审计吸收（F1）
+
+外部独立审计（`audit/imports/audit-c168-20260913/`，发现 F1）指出 §4 的 C-168 叙述把 **`double` 的性质**
+误写成 **`codeAtom` 的性质**，并用机器反证证明 `codeAtom` 满射。本 repo 的处理分两步：
+
+| package | claim | 精确命题 | 源码 |
+|---|---|---|---|
+| `MP-ERCF3-T3-C168-COUNTERCHECK-001` | `C-184` | `codeAtom (anum zero) ≡ suc zero`——`1` 有显式原像 | `C168Countercheck.agda`（`one-has-codeAtom-preimage`） |
+| （同上） | `C-185` | `(n : Nat) → Σ' Atom (λ a → codeAtom a ≡ n)`——`codeAtom` **满射** | `codeAtom-surjective` |
+| `MP-ERCF3-T3-CODING-IMAGE-001` | `C-186` | `(t : Tm) → codeT' t ≢ suc zero`——修复后的项编码不含 `1` | `CodingImage.agda`（`codeT'-misses-one`） |
+| （同上） | `C-187` | `(φ : Fml) → codeF' φ ≢ suc zero`——修复后的公式编码不含 `1` | `codeF'-misses-one` |
+
+**两条纪律**（本包的意义不只在数学）：
+
+1. **原行与原 run 收据保持原样**：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的 C-168 行与 `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01/`
+   的冻结行哈希逐字节未改；更正以**新的追加节 + 新 claim**登记（矩阵 append-only 要求）。
+2. **撤回后必须补上真正成立的依据**：`codeT'`/`codeF'` 的全解码器需要缺省分支这一点**仍然成立**，
+   但它由 C-186/C-187（它们自身的像不含 `1`）证明，而不是由被撤回的 C-168 叙述。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01/`、
+`HoTT/verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01/`（均 `KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、stderr 0、
+`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`；各自的 `source-manifest.json` 固定**完整传递闭包**，共 9 / 11 个文件）。
+
+**旁注（审计发现 F6）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、`REPAIRED-SYNTAX` 五个**历史** run
+只固定了直接导入的模块，未列入编译器实际检查的传递依赖（`DiagonalLemma.agda`；`REPAIRED-SYNTAX` 另缺 `DecodingFence.agda`）。
+该缺口登记在 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_package_dependency_gap_allowlist`（6 条，注明"不回填历史 manifest"），
+`verify_proof_version_closure.py` 会拒绝任何**新增**的未登记缺口。

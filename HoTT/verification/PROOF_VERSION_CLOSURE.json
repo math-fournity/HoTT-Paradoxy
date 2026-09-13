@@ -13,7 +13,18 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 34,
+  "later_machine_proved_claim_count": 39,
+  "later_package_dependency_gap_allowlist": {
+    "reason": "Pre-2026-09-13 runs pinned only the directly opened modules. An independent audit (finding F6) showed that the compiler also checked transitive imports (DiagonalLemma.agda, and DecodingFence.agda for MP-ERCF3-T3-REPAIRED-SYNTAX-001) that those runs did not list. The gap is registered here instead of being back-filled into the historical manifests; every later run from MP-ERCF3-T3-C168-COUNTERCHECK-001 onwards pins the full transitive closure and must not add entries here.",
+    "entries": [
+      "MP-ERCF3-T3-ARITH-TAGS-001:DiagonalLemma",
+      "MP-ERCF3-T3-BIT-CODING-001:DiagonalLemma",
+      "MP-ERCF3-T3-FORMULA-CODING-001:DiagonalLemma",
+      "MP-ERCF3-T3-REPAIRED-SYNTAX-001:DiagonalLemma",
+      "MP-ERCF3-T3-REPAIRED-SYNTAX-001:DecodingFence",
+      "MP-ERCF3-T3-STREAMING-PARSER-001:DiagonalLemma"
+    ]
+  },
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -73,7 +84,7 @@
       "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT",
-      "notes": "First piece of the arithmetic half of the coding repair: double/odd tag disjointness (double injective, double n != odd m), the var/num fragment coder codeAtom (2n / 2n+1) is the first Nat-valued injective coding in the chain, and the coder is not surjective (1 has no preimage) so a total decoder needs a default branch. The application node and the decoder remain open.",
+      "notes": "First piece of the arithmetic half of the coding repair: double/odd tag disjointness (double injective, double n != odd m), the var/num fragment coder codeAtom (2n / 2n+1) is the first Nat-valued injective coding in the chain, and the *function* `double` misses 1 so the avar-only fragment is not surjective. [CORRECTED 2026-09-13 by the independent-audit absorption: the original note attributed the non-surjectivity to `codeAtom`, but the machine-checked lemma `one-has-no-preimage` is about `double`, and `codeAtom` is in fact surjective (see MP-ERCF3-T3-C168-COUNTERCHECK-001 / claims C-184-C-185). The default branch of the later full decoders is justified by `codeT'`/`codeF'` themselves: their bit lists are non-empty, so 1 is not in their image. The application node and the decoder remain open.]",
       "release_ref": "governance-v4.0.0"
     },
     {
@@ -122,6 +133,30 @@
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION",
       "notes": "Substitution and quotation over the repaired coding. With a decoder in hand, code-level substitution can be defined as decode-substitute-encode, and the agreement with syntax-level substitution becomes a corollary: substCodeT k n (codeT' t) = codeT' (substT k n t) and substCodeF k n (codeF' phi) = codeF' (substF k n phi). Quotation (the numeral of the repaired formula code) is injective, and the diagonal instance is a substitution instance of the same formula whose code is reached by the code-level substitution. Honest boundary: these code-level functions are defined through the decoder, so nothing here claims that the object theory can represent them -- representability, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-C168-COUNTERCHECK-001",
+      "claim_ids": "C-184–C-185",
+      "local_claim_ids": "AUD-C168-ONE-20260913, AUD-C168-SURJ-20260913",
+      "source": "HoTT/formal/ercf3-t3/C168Countercheck.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "independent_audit_countercheck_replayed_in_project",
+      "verdict": "ERCF3_T3_C168_NARRATIVE_CORRECTED_BY_COUNTERCHECK",
+      "notes": "Replays the independent audit's countercheck inside this repo, with the complete transitive import closure pinned: codeAtom (anum zero) = 1 has an explicit preimage (C-184) and codeAtom is surjective (C-185). This corrects the *narrative* attached to C-168 (which is about `double`, not `codeAtom`) without touching the formal lemma, the frozen matrix row, or any later coding claim. Import origin: audit/imports/audit-c168-20260913/.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-CODING-IMAGE-001",
+      "claim_ids": "C-186–C-187",
+      "local_claim_ids": "T3-IMG-01–T3-IMG-02",
+      "source": "HoTT/formal/ercf3-t3/CodingImage.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_REPAIRED_CODING_MISSES_ONE",
+      "notes": "Replacement justification for the default branches after the C-168 narrative was withdrawn: the repaired coders miss 1, so a total decoder must decide what to do on non-codes and the default branch is reachable. C-186: (t : Tm) -> codeT' t != 1. C-187: (phi : Fml) -> codeF' phi != 1. Proof route: any bit list here is non-empty, codeBits (b :: bs) = pack b (codeBits bs), and pack b c >= 2 whenever c >= 1 (C-172 supplies the remaining bundle >= 1).",
       "release_ref": "governance-v4.0.0"
     }
   ],
