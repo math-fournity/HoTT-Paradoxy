@@ -23,21 +23,19 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 TOP = Path("理解章节")
-NESTED = Path("sources/understanding-transform/AI对话录/理解章节")
-SNAPSHOT_ROOT = Path("sources/understanding-transform/AI对话录")
-SOURCE_MANIFEST = Path("sources/SOURCE_MANIFEST.json")
+NESTED = Path("AI对话录/理解章节")
 
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def info(root: Path, path: Path) -> dict[str, object] | None:
+def info(path: Path) -> dict[str, object] | None:
     if not path.exists():
         return None
     data = path.read_bytes()
     return {
-        "path": path.relative_to(root).as_posix(),
+        "path": path.as_posix(),
         "sha256": digest(data),
         "bytes": len(data),
         "lines": data.count(b"\n"),
@@ -83,23 +81,6 @@ def git_head(root: Path) -> str:
 def build(root: Path) -> dict[str, object]:
     top = root / TOP
     nested = root / NESTED
-    if not top.is_dir():
-        raise FileNotFoundError(f"MISSING_CANONICAL_DIRECTORY:{top}")
-    if not nested.is_dir():
-        raise FileNotFoundError(f"MISSING_TRACKED_HISTORICAL_DIRECTORY:{nested}")
-    source_manifest_path = root / SOURCE_MANIFEST
-    source_manifest_bytes = source_manifest_path.read_bytes()
-    source_manifest = json.loads(source_manifest_bytes)
-    snapshot_rows = [
-        row
-        for row in source_manifest.get("snapshot_roots", [])
-        if row.get("root") == SNAPSHOT_ROOT.as_posix()
-    ]
-    if len(snapshot_rows) != 1:
-        raise ValueError(
-            f"SOURCE_MANIFEST_SNAPSHOT_MATCH_COUNT:{SNAPSHOT_ROOT}:{len(snapshot_rows)}"
-        )
-    snapshot_row = snapshot_rows[0]
     names = sorted(
         {p.name for p in top.iterdir() if p.is_file()}
         | {p.name for p in nested.iterdir() if p.is_file()}
@@ -108,8 +89,8 @@ def build(root: Path) -> dict[str, object]:
     for name in names:
         top_path = top / name
         nested_path = nested / name
-        top_info = info(root, top_path)
-        nested_info = info(root, nested_path)
+        top_info = info(top_path)
+        nested_info = info(nested_path)
         sharded = logical_text(root, f"{TOP.as_posix()}/{name}")
         if sharded is not None:
             top_info = dict(top_info or {})
@@ -158,9 +139,9 @@ def build(root: Path) -> dict[str, object]:
                 "top_only_lines": top_only,
                 "nested_only_lines": nested_only,
                 "unified_diff": unified,
-                "evidence_refs": [f"{TOP.as_posix()}/{name}", f"{NESTED.as_posix()}/{name}"],
+                "evidence_refs": [f"理解章节/{name}", f"AI对话录/理解章节/{name}"],
                 "verification": verification,
-                "rollback_source": f"{NESTED.as_posix()}/{name}" if nested_info is not None else "HISTORICAL_SOURCE_ABSENT",
+                "rollback_source": f"AI对话录/理解章节/{name}" if nested_info is not None else "NESTED_SOURCE_ABSENT",
                 "destructive_action": "NOT_PERFORMED",
             }
         )
@@ -177,27 +158,16 @@ def build(root: Path) -> dict[str, object]:
     )
     nonidentical_union_entries = len(entries) - identical
     return {
-        "schema_version": "understanding-chapter-merge/v2",
+        "schema_version": "understanding-chapter-merge/v1",
         "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
         "source_git_head": git_head(root),
         "canonical_directory": TOP.as_posix(),
         "historical_source_directory": NESTED.as_posix(),
-        "historical_source_provenance": {
-            "kind": "TRACKED_BYTE_SNAPSHOT",
-            "snapshot_root": SNAPSHOT_ROOT.as_posix(),
-            "source_manifest": SOURCE_MANIFEST.as_posix(),
-            "source_manifest_sha256": digest(source_manifest_bytes),
-            "snapshot_file_count": snapshot_row["file_count"],
-            "snapshot_tree_sha256": snapshot_row["tree_sha256"],
-            "original_checkout_path": "/Volumes/D/HoTT_AI_HANDOFF_20260911/AI对话录/理解章节",
-            "original_nested_repo_head": "c70b01ca26c01c2078a4c0cd31a65d5fbda27fb0",
-            "snapshot_scope": "42-file transform snapshot; this merge compares its 24-file 理解章节 subtree",
-        },
         "policy": {
-            "source_policy": "Neither the canonical directory nor the tracked historical snapshot is deleted or overwritten by this manifest build.",
+            "source_policy": "Neither directory is deleted or overwritten by this manifest build.",
             "canonical_selection": "Top-level directory is canonical because it contains the current C0 boundary/index layer; each file remains individually compared.",
             "semantic_limit": "Line-level diff and rule-based classification do not prove mathematical or historical semantic equivalence; nontrivial differences require explicit manual disposition.",
-            "rollback": "The tracked historical snapshot and the pre-merge top-level Git commit remain available in every linked worktree.",
+            "rollback": "Nested source and the pre-merge top-level Git commit remain available.",
         },
         "counts": {
             "top_level_files": sum(1 for p in top.iterdir() if p.is_file()),
