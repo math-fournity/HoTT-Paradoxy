@@ -10,7 +10,7 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 从 `MATH_PROOF_BEFORE_DELIVERY_V1` 生效后，当前 AI 要交付为已成立的数学结论，其精确证明源码必须先进入本目录。新证明优先使用 `formal/<topic-or-claim-id>/`，保存形式命题、证明、项目/构建文件和锁定依赖身份；实际运行原件进入 `../verification/runs/<run-id>/`，唯一快速索引进入 `../CLAIM_EVIDENCE_MATRIX.md`。聊天代码块、内存变量和 `/tmp` 中的唯一副本均不构成证明资产。
 
-当前 17 个 package 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
+当前 **17 个冻结 package** 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；其后的两个 package（`MP-VERIFICATION-EVENT-001`、`MP-ERCF3-T3-JOINT-001`）走同一 registry 的 `later_packages` **追加登记**（要求源码/工具链/run 已进 Git、`exit_code = 0`、`index_status = INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）。Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
 
 ## 文件
 
@@ -34,6 +34,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `self-contained/ZCore.agda`：表示因子化的必要条件、无免费富化、来源/方向有限反例、语境欠定和两个条件性固定点引理。
 - `lean/TwoEvent.lean`：二元素交换与方向丢失的独立有限模型。
 - `build.sh`：校验关键上游文件哈希后运行 Agda，并在 Lean 可用时运行第二实现。
+- `verification-event/VerificationEvent.agda`：`MP-VERIFICATION-EVENT-001`；外部独立来源的有限验证事件模型在项目内重放——保留时标的历史核查可完成（`C-152`）、固定过去→当前改写不存在（`C-153`）、完全阶段擦除不保真（`C-154`）、保阶段正控制（`C-155`）、条件性 Moore/Fitch 核（`C-156`）；判词 `VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL`，**未构成 HoTT 自身非现实性实例**。
+- `ercf3-t3/JointRecursion.agda`：`MP-ERCF3-T3-JOINT-001`；ERCF-3 T3 第十四脉冲——显式共享判定下码级修正替换与语法级替换一致（`C-157`）、**原始逐出现判定的项层恒等式** `substFixT ≡ codeT ∘ substT`（`C-158`，N34 记录的剩余义务）、修正后的公式层恒等式（`C-159`，修正 `CodeStoreFixF` 的 `all` 影子分支双重编码）。同目录 `ObjectSyntax.agda`–`DecisionParam.agda` 是 S067–S080 的脉冲谱系（builtins-only，`PULSE_EVIDENCE_ONLY`）。**ERCF-3 本体保持 `GATED`**：无证明谓词表示性、反射或对角不动点。
 
 ## 锁定环境
 

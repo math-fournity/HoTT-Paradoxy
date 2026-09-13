@@ -60,6 +60,11 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20260912-MP-PARTIAL-DECISION-001-01` | `MP-PARTIAL-DECISION-001` / `C-118`–`C-123` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 同一工具链；strict vs partial classifier：代表层 strict 分类器 + strict 区分 now/later + 无 strict 商扩展 + up-to-≈ partial classifier 正控制 + 无 strict Bool 消费者；零 warning |
 | `20260912-MP-SIP-REPRESENTATION-001-01` | `MP-SIP-REPRESENTATION-001` / `C-124`–`C-128` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 同一工具链；SIP/UA 替换许可：ua 识别 (Bool,true)/(Bool,false) + 签名外观察量不同 + 任意 Str→Bool 常数化 + 无统一恢复 + 细化签名正控制；零 warning |
 | `20260912-MP-CAUCHY-MODULUS-001-01` | `MP-CAUCHY-MODULUS-001` / `C-129`–`C-133` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 同一工具链；Cauchy modulus 边界：按极限值取商保留 limit + 两个 modulus 不同的表示被识别 + 无统一 modulus 恢复 + 细化同一性后 modulus 下降（正控制）；零 warning；外部 Real 库接口审计同步记录 |
+| `20260913-MP-TRUNC-NORECOVERY-001-01` / `-02` / `-03` | `MP-TRUNC-NORECOVERY-001` / `C-134`–`C-141` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX`（`-03` 为当前指针） | 同一工具链；集合值截断不可恢复族、完成/区段候选的内部否定形式与 `isFinSet` 形状接口边界；`-01`/`-02` 保留为同源前次运行 |
+| `20260913-MP-NOCANONICAL-001-01` / `-02` | `MP-NOCANONICAL-001` / `C-142`–`C-148` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX`（`-02` 为当前指针） | 同一工具链；unlabeled 二元素呈现无统一选点（swap 自识别 ⇒ `not` 不动点）+ 标签保留正控制 |
+| `20260913-MP-UNIMATH-NOSECTION-REPLAY-01` / `-02` | `MP-UNIMATH-NOSECTION-REPLAY-001` / `C-05` | `REPLAYED / INDEXED_IN_CLAIM_EVIDENCE_MATRIX`（`-02` 为当前指针） | 固定 agda-unimath@`7b81411d` 的派生文件重放（486 条检查、exit 0）；`-01` 为 include 根配置失败尝试 |
+| `20260913-MP-VERIFICATION-EVENT-001-01` | `MP-VERIFICATION-EVENT-001` / `C-149`–`C-156` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 外部独立来源包的项目内 canonical 重放；负向校准在 `audit/imports/verification-event-20260913-01a099e9/project-negative-probe/` |
+| `20260913-MP-ERCF3-T3-JOINT-001-01` / `-02` | `MP-ERCF3-T3-JOINT-001` / `C-157`–`C-159` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX`（`-02` 为当前指针） | builtins-only T3 脉冲链；共享判定联合递归 + 原始逐出现判定的项层恒等式 + 修正后的公式层恒等式；`-01` 为 `--safe` pragma 触发 `CoInfectiveImport` 的失败尝试 |
 
 `index-row-manifest.json` 冻结 proof row 与各 claim row 的精确行哈希。claim matrix 后续只追加新 proof 时，旧 run 不再要求整个不断增长的索引文件保持同 SHA，而是要求自己的原行逐字不变；若任一旧行被改写，verifier fail closed。
 

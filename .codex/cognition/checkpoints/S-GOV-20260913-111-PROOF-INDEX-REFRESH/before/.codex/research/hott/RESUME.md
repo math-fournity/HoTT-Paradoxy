@@ -8,8 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-S111（索引刷新，corrective）：`HoTT/formal/README.md` 与 `HoTT/verification/runs/README.md` 已补齐两个 later package 与 5 组 later runs；`HoTT/README.md` 计数改为 17 冻结 + 2 追加；两条 owner record 已 revalidation 重绑。数学状态、研究队列与门 A/门 B 状态不变；T3 下一义务仍是证明谓词表示性、反射与对角不动点（ERCF-3 `GATED`）。
-
 S110：第二线 T3 的编码层义务收口——`MP-ERCF3-T3-JOINT-001`（C-157–C-159）机器证明显式共享判定一致、**原始逐出现判定的项层恒等式**与修正后的公式层恒等式；run `-02` exit 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`；`verify_proof_version_closure.py` PASS_WITH_SCOPE（17 冻结 + 2 追加包）。修正了历史脉冲 `CodeStoreFixF` 的 `all` 影子分支双重编码错误（新模块给出，不改历史）。**ERCF-3 仍 GATED**：下一义务是证明谓词表示性、反射与对角不动点，仍需消费者。第一工作包（两扇门）与门 A/门 B 状态不变。
 
 S109：自主构造第三轮完成，身份轴与表达轴均判负，**搜索空间收口为两扇门**——门 A（任务在 HoTT 中不可形式化，须先给出可对象化的现实量规格）、门 B（同一层自我担保，ERCF-3/W51-3，`GATED` 缺消费者）。两条门都需要**新的真实输入**；同型枚举停止。未新增数学 claim、未重跑 run。
