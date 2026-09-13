@@ -1,0 +1,68 @@
+{
+  "claim_ids": [
+    "C-173",
+    "C-174",
+    "C-175",
+    "C-176"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/StreamingParser.agda"
+  ],
+  "completed_at_utc": "2026-09-13T13:28:32.456418+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.41041,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "20e7a66d5685d870f0c31764aae8de73013b159f4ef7553b9931683b73e776ab"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不证明证明谓词 P 的表示性、反射或对角不动点；ERCF-3 本体保持 GATED（门 A/门 B 状态不变）",
+    "不把 codeT′ 与历史 codeT/codeF 混同：DiagonalCore 的既有编码与历史脉冲文件逐字节未改；新编码属新模块",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence、cubical Path、HIT 或 truncation",
+    "不宣称该编码在对象层替换下与 substFix 系列一致（那是 codeT/codeF 的义务，本包不重做）",
+    "只覆盖 Tm 的编码/解码与单射性；不涉及公式层 codeF 的修复实现或 P 的定义"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
+  "run_id": "20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 第十九脉冲：修复编码的算术半第三片（符号层 + 流式解析器 + Nat 值修复编码）——闭合 CodingRepair 记录的修复义务。精确命题：(1) 自定界索引层 unary（n 个 1 后随一个 0）的读取往返（C-173）；(2) 符号层 bits/BLEN（var/num 两位标签 + 索引；应用结点一位标签）与流式解析器 run 的精确往返：燃料为 BLEN t + k 时剩余燃料恰为 k，解析器以显式框架栈在燃料上结构递归（C-174）；(3) 长度对账 LEN (bits t) ≡ BLEN t、界即和分解 n ≤ m → Σ k, m ≡ n + k，以及 unbits 的多余燃料分解（C-175）；(4) 修复后的 Nat 值编码 codeT′（t ↦ codeBits (bits t)）带全解码器 dec（含缺省分支，符合 C-168）与往返 dec (codeT′ t) ≡ t，故由 C-164 单射（C-176）。工具链：Agda 2.8.0-3d04bac、仅 Agda builtins。",
+  "source_manifest": {
+    "bytes": 3341,
+    "path": "source-manifest.json",
+    "sha256": "5e4f692f58ca12aca5ff4714c671908d995550c9a856c77cf84ef7adfb8d1a38"
+  },
+  "started_at_utc": "2026-09-13T13:28:32.046008+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 711,
+    "path": "stdout.txt",
+    "sha256": "6b45a2b966bda6510c2f46ab4d1bccd2f6b29eae9f72c616d65637c2c5101e87"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -13,7 +13,7 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 23,
+  "later_machine_proved_claim_count": 27,
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -86,6 +86,18 @@
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_BIT_SUBSTRATE",
       "notes": "Bit-level substrate of the arithmetic half of the coding repair: least-significant-bit extraction and halving (parity/half/twice), the bundling code codeBits with its extraction lemma pair, the round-trip on a bit list whose length is supplied, and the bound that the code dominates its own length (so a future parser can take its fuel from the code itself). The symbol layer (self-delimiting var/num index bits and constructor tags), the parser with its default branch and the round-trip on the image remain open.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
+      "claim_ids": "C-173–C-176",
+      "local_claim_ids": "T3-STR-01–T3-STR-04",
+      "source": "HoTT/formal/ercf3-t3/StreamingParser.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_REPAIRED_NAT_CODING",
+      "notes": "Closes the coding-repair obligation of CodingRepair (C-163/C-164/C-165) at the coding layer: the self-delimiting unary index layer, the symbol layer (two tag bits for var/num plus their index, one tag bit for application) with a streaming parser whose round trip is fuel-exact (a frame stack solves sequential consumption while terminating structurally on the fuel), the length/bound/extra-fuel bookkeeping, and finally the repaired coder codeT' = codeBits . bits with a total decoder dec (default branches included) and round trip dec (codeT' t) = t, hence injectivity by C-164. Only Tm coding/decoding is covered: the proof predicate P, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
       "release_ref": "governance-v4.0.0"
     }
   ],

@@ -40,6 +40,7 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `ercf3-t3/CodingRepair.agda`：`MP-ERCF3-T3-REPAIR-SPEC-001`；T3 第十六脉冲——**编码修复规格**：通用引理"有往返解码器 ⇒ 编码单射"（`C-164`）；结构化树编码 `encT/decT` 往返成立故单射（`C-163`，正控制）；当前 `codeT` **不存在解码器**（`C-165`）。修复义务由此固定为"给出 Nat 值编码 + 解码器 + 往返证明"：结构半已完成，算术半（标签不相交或列表编码）是下一有界脉冲。**ERCF-3 保持 `GATED`**。
 - `ercf3-t3/ArithmeticTags.agda`：`MP-ERCF3-T3-ARITH-TAGS-001`；T3 第十七脉冲——**修复编码的算术半第一片**：偶/奇标签算术（`double` 单射、`double n ≢ odd m`，`C-166`）；var/num 片段 Nat 值编码 `codeAtom`（`2n`/`2n+1`）**单射**（`C-167`，链条中第一个 Nat 值单射编码）；编码**非满射**（`1` 无原像）故全解码器需缺省分支（`C-168`）。剩余：应用结点（配对函数）+ 全解码器 + 往返。**ERCF-3 保持 `GATED`**。
 - `ercf3-t3/BitCoding.agda`：`MP-ERCF3-T3-BIT-CODING-001`；T3 第十八脉冲——**修复编码的算术半第二片（位级底座）**：最低位/折半数字算术（`parity`/`half`/`twice`，`C-169`）；捆绑编码 `codeBits` 与抽取 `unbits` 的两侧引理（`C-170`）与**已知长度**的往返 `unbits (LEN bs) (codeBits bs) ≡ bs`（`C-171`）；码支配自身长度 `suc (LEN bs) ≤ codeBits bs`，故解析器燃料可取自码本身（`C-172`）。剩余：符号层（自定界索引位 + 构造子标签）+ 带缺省分支的解析器 + 像上往返。**ERCF-3 保持 `GATED`**。
+- `ercf3-t3/StreamingParser.agda`：`MP-ERCF3-T3-STREAMING-PARSER-001`；T3 第十九脉冲——**符号层 + 流式解析器 + 修复后的 Nat 值编码**：自定界一元索引层（`C-173`）；符号层 `bits`/`BLEN` 与燃料精确的流式解析器 `run`（显式框架栈解决顺序消费，`C-174`）；长度对账、界即和分解与 `unbits` 多余燃料分解（`C-175`）；`codeT' = codeBits ∘ bits` 带全解码器 `dec`、往返 `dec (codeT' t) ≡ t`，故由 C-164 单射（`C-176`）——**在编码层闭合 `CodingRepair` 的修复义务（C-163/C-164/C-165）**。仍未做：`codeF` 的对应修复、对象层替换对齐、P 表示性/反射/对角不动点。**ERCF-3 保持 `GATED`**。
 
 ## 锁定环境
 

@@ -334,3 +334,20 @@ proof_run_root: HoTT/verification/runs
 | C-170 | 捆绑/抽取的两侧引理：`(b : Bool) (c : Nat) → parity (pack b c) ≡ b` 与 `half (pack b c) ≡ c`（`codeBits [] ≡ 1`、`codeBits (b ∷ bs) ≡ pack b (codeBits bs)`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parity-code`、`half-code`；同一 run。 | 只是读取一位的两侧引理；不声称整串抽取正确（那需长度，见 C-171）。 |
 | C-171 | 已知长度的往返：`(bs : List Bool) → unbits (LEN bs) (codeBits bs) ≡ bs`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `unbits-code`；同一 run。 | 长度必须由外部提供；不声称 `unbits` 对任意燃料或任意码都还原原列表。 |
 | C-172 | 码支配自身长度：`(bs : List Bool) → suc (LEN bs) ≤ codeBits bs`，因此解析器的燃料可直接取自码本身。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeBits-dominates`（辅助 `≤-refl`/`≤-suc`/`≤-trans`/`n≤twice`/`suc≤pack`）；同一 run。 | 只到该界；不给出解析器、符号层或全解码器，也不声称该界是紧的。 |
+
+## 追加登记：MP-ERCF3-T3-STREAMING-PARSER-001（T3 修复编码的算术半第三片：符号层 + 流式解析器 + Nat 值修复编码，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` 的 `RUN.json`。
+> 本包在**编码层**闭合 `CodingRepair` 记录的修复义务（C-163/C-164/C-165）；不进入 ERCF-3 本体（P 表示性/反射/对角不动点），`GATED` 状态不变。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-STREAMING-PARSER-001` | `C-173`–`C-176` | `formal/ercf3-t3/StreamingParser.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DecodingFence.agda`、`CodingRepair.agda`、`BitCoding.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_NAT_CODING` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-173 | 自定界索引层：`unary n`（`n` 个 `true` 后随一个 `false`）可被读取——`(m k : Nat) (b : Bool) (stk : Stack) (rest : List Bool) (f : Nat) → run (suc (m + f)) (unary m ++ rest) (readIndex b k stk) ≡ resume (close (leafTerm b (k + m)) stk) rest f`，即索引自带结束位，读取后剩余燃料恰为 `f`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `unary-run`；run `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01`。 | 只覆盖一元索引层；不涉及符号层标签本身，也不涉及 Nat 层解码器。 |
+| C-174 | 符号层与流式解析器：`bits`（`var`/`num` 两位标签 + 一元索引；应用结点一位标签）与 `BLEN` 下，`(t : Tm) (stk : Stack) (rest : List Bool) (f : Nat) → run (BLEN t + f) (bits t ++ rest) (startSub stk) ≡ resume (close t stk) rest f`——**燃料精确**（消耗 `BLEN t` 个单位后剩余恰为 `f`），解析器用显式框架栈在燃料上结构递归，故顺序消费问题（左子解析后仍需右子）在同一个递减递归内解决。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parse-run`、`parse-run-app`（辅助 `+-assoc`/`++-assoc`）；同一 run。 | 只到 `bits`/`BLEN` 这一具体层与 `run` 这一具体解析器；不声称一般解析器/文法正确性，也不涉及对象层替换一致（那是 `codeT`/`substFix` 的义务）。 |
+| C-175 | 长度对账与燃料分解：`(t : Tm) → LEN (bits t) ≡ BLEN t`；界即和分解 `{n m : Nat} → n ≤ m → Σ' Nat (λ k → m ≡ n + k)`；多余燃料下的 `unbits` 分解 `(i j c : Nat) → unbits (i + j) c ≡ unbits i c ++ unbits j (halfs i c)`（辅助 `LEN-++`、`LEN-unary`、`halfs`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bits-length`、`≤-split`、`unbits-split`；同一 run。 | 只是机械对账：不声称编码最优、不声称界是紧的，也不涉及 `unbits` 在任意燃料下的语义解释。 |
+| C-176 | 修复后的 Nat 值编码 `codeT'`（`t ↦ codeBits (bits t)`）带**全解码器** `dec : Nat → Tm`（含缺省分支，符合 C-168）满足往返 `(t : Tm) → dec (codeT' t) ≡ t`；由 C-164 得 `(t u : Tm) → codeT' t ≡ codeT' u → t ≡ u`。**`CodingRepair` 记录的修复义务（C-163/C-164/C-165）在编码层闭合**。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeT'`、`dec`、`codeT'-roundtrip`、`codeT'-injective`（`codeT'-bound` 由 C-172 与 C-175 长度对账组合）；同一 run。 | 只覆盖 **Tm** 的编码/解码与单射性；不修复公式层 `codeF` 的实现、不重做 `codeT`/`codeF` 的对象层替换一致义务、不涉及证明谓词 `P` 的表示性、反射或对角不动点；ERCF-3 保持 `GATED`。 |

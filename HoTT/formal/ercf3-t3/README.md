@@ -1,4 +1,4 @@
-# ERCF-3 T3 脉冲链（含五个 claim-bearing package）
+# ERCF-3 T3 脉冲链（含六个 claim-bearing package）
 
 > 判词只覆盖本目录的编码层义务；**ERCF-3 本体保持 `GATED`**（C8 §9 的 P1–P8 与停止条件不变）。
 > 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
@@ -10,6 +10,7 @@
 | `MP-ERCF3-T3-REPAIR-SPEC-001` | `C-163`–`C-165` | `CodingRepair.agda` | `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIR_SPECIFICATION` |
 | `MP-ERCF3-T3-ARITH-TAGS-001` | `C-166`–`C-168` | `ArithmeticTags.agda` | `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT` |
 | `MP-ERCF3-T3-BIT-CODING-001` | `C-169`–`C-172` | `BitCoding.agda` | `20260913-MP-ERCF3-T3-BIT-CODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_BIT_SUBSTRATE` |
+| `MP-ERCF3-T3-STREAMING-PARSER-001` | `C-173`–`C-176` | `StreamingParser.agda` | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIRED_NAT_CODING` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -149,8 +150,8 @@ ERCF-3 保持 `GATED`；历史脉冲文件不改写。
 **为什么先做位级底座**：`unbits` 只能按外部给定的长度抽取（C-171），而解析器必须只拿到码就能工作；
 C-172 正是"码里自带够用的位数"这一步，它使"燃料=码"的写法有机器检查的依据，而不是一句设计口号。
 
-**剩余算术义务（下一有界脉冲）**：符号层（`var n`/`num n` 的**自定界**索引位 + 构造子标签）与带缺省分支
-（C-168）的解析器，然后证明像上的往返；由 C-164，该往返自动给出完整 Nat 值编码 `t ↦ codeBits (bits t)` 的**单射**。
+**后续（已由 §6 收口）**：符号层（`var n`/`num n` 的**自定界**索引位 + 构造子标签）与带缺省分支（C-168）的解析器、
+像上往返与 Nat 值编码单射已在 `MP-ERCF3-T3-STREAMING-PARSER-001`（C-173–C-176）中机器化。
 
 **运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、
 stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（5 行冻结）。
@@ -161,3 +162,35 @@ stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（5 
 
 **禁止外推**：不给出符号层、解析器或全解码器；不声称完整 `Tm` 已有 Nat 值单射编码；往返只在**已知长度/自身码**上成立；
 不涉及 P 表示性/反射/对角不动点；ERCF-3 保持 `GATED`；历史脉冲文件不改写。
+
+---
+
+## 6. `MP-ERCF3-T3-STREAMING-PARSER-001`：符号层、流式解析器与修复后的 Nat 值编码
+
+§4/§5 把算术半推进到"标签不相交 + 位级底座 + 燃料界"，并把**符号层与解析器**记为下一义务。本包闭合它，并因此
+在**编码层**完结 §3 记录的修复义务（C-163/C-164/C-165）：
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-173` | 自定界索引层：`unary n`（`n` 个 `true` 后随一个 `false`）可读，且读取后剩余燃料恰为 `f`：`run (suc (m + f)) (unary m ++ rest) (readIndex b k stk) ≡ resume (close (leafTerm b (k + m)) stk) rest f` | `unary-run` |
+| `C-174` | 符号层 `bits`/`BLEN` 与**流式解析器** `run` 的精确往返：`run (BLEN t + f) (bits t ++ rest) (startSub stk) ≡ resume (close t stk) rest f`——消耗 `BLEN t` 个单位后剩余燃料恰为 `f`；顺序消费（左子解析后仍需右子）由显式框架栈在**同一个**燃料递减递归内解决 | `parse-run`、`parse-run-app` |
+| `C-175` | 长度对账与燃料分解：`LEN (bits t) ≡ BLEN t`；`n ≤ m → Σ' Nat (λ k → m ≡ n + k)`；`unbits (i + j) c ≡ unbits i c ++ unbits j (halfs i c)` | `bits-length`、`≤-split`、`unbits-split` |
+| `C-176` | **修复后的 Nat 值编码** `codeT'`（`t ↦ codeBits (bits t)`）带全解码器 `dec : Nat → Tm`（含缺省分支，符合 C-168）满足 `dec (codeT' t) ≡ t`，故由 C-164 **单射** | `codeT'`、`dec`、`codeT'-roundtrip`、`codeT'-injective` |
+
+**为什么解析器写成"流式循环"而不是嵌套递归**：`(t +t u)` 的自然解析是"先解析 t 再解析 u"，第二次调用要用第一次
+调用**返回剩余**的燃料，这在 Agda 里既不能结构递归也不能由终止检查器接受。本包把待解析的右子做成显式框架栈
+（`Slot`/`Stack`/`close`），于是每一步只做一次 `run f rest …`：一次迭代恰好消费一位、消耗一个燃料单位，
+结构递归直接成立，而往返定理仍是**精确**的（剩余燃料即 `f`）。
+
+**修复义务的现状**：C-165 证明旧 `codeT` 不存在解码器；C-176 给出一个**存在**的 Nat 值编码，其解码器是全函数、
+往返在像上成立。于是"编码不可解码"这一前置缺口在**编码层**被补齐。仍未做：公式层 `codeF` 的对应修复实现、
+把 `codeT'`/`dec` 与对象层替换（`substFix` 系列）对齐、以及证明谓词 `P` 的表示性、反射与对角不动点。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、
+exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（5 行冻结）。
+
+**校验入口**：与 §1.4 同（builtins-only 脉冲链 ⇒ canonical 入口是 `verify_proof_version_closure.py` 的
+`later_packages` 分支与 run 自身的 `RUN.json` + `index-row-manifest.json`）。
+
+**禁止外推**：只覆盖 **Tm** 的编码/解码与单射性；不修复 `codeF` 的实现、不重做 `codeT`/`codeF` 的对象层替换一致义务、
+不涉及 P 表示性/反射/对角不动点；新编码属新模块，历史脉冲文件与 `DiagonalCore` 的既有编码逐字节未改；ERCF-3 保持 `GATED`。
