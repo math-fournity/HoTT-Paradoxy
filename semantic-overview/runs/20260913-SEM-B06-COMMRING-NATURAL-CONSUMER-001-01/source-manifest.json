@@ -1,0 +1,2246 @@
+{
+  "schema_version": "sem-b06-source-manifest/v1",
+  "agda_version_identity": "2.8.0-3d04bac",
+  "cubical_version": "0.9",
+  "cubical_tag_commit": "b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+  "cubical_tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81",
+  "actual_checked_closure": {
+    "kernel-solver-fresh": {
+      "checking_line_count": 176,
+      "paths": [
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Reflection.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Prelude.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Primitives.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Literals.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Function.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Isomorphism.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Glue.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/GroupoidLaws.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fixpoint.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/HLevels.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Structure.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/FunExtEquiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/CartesianKanOps.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Transport.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Univalence.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Interpolate.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/HalfAdjoint.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Path.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/NAry.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Embedding.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Powerset.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fibration.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Axioms.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/SIP.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Prod/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/FunExt.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homotopy.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Fiberwise.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Homotopy/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homogeneous.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Pointed.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Induction/WellFounded.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/MagicTrick.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Involution.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Inductive.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Recursive.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Surjection.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/RecordEquiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Logic.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Auto.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Subst.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Morphism.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Constant.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Function.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Implicit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Sigma.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Generic.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Unit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Universe.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Record.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Prop.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Morphisms.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/DirProd.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/MorphismProperties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/SwitchStatement.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/QuotientGroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Subgroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/ZAction.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Mod.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Literals.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Arithmetic.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Int.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Unit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/GroupPath.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/IntMod.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Bool.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/IsomorphismTheorems.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Exact.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Auto.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Macro.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Constant.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Function.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Maybe.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Parameterized.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Product.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semiring/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Univalence.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/AlgebraExpression.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/RawRing.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/RawAlgebra.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/IntAsRawRing.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Solver.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/HornerForms.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Utility.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/EvalHom.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/HornerEval.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection/Variables.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection/Utilities.agda"
+      ]
+    },
+    "kernel-natural-consumer-fresh": {
+      "checking_line_count": 178,
+      "paths": [
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Localisation/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Prelude.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Primitives.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Function.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Isomorphism.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Glue.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/GroupoidLaws.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Univalence.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Literals.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fixpoint.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/HLevels.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Structure.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/FunExtEquiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/CartesianKanOps.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Transport.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Interpolate.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/HalfAdjoint.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Path.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/NAry.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Powerset.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Involution.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/FunExt.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homotopy.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Fiberwise.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Homotopy/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homogeneous.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Pointed.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/SIP.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Embedding.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fibration.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Axioms.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Prod/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Induction/WellFounded.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/MagicTrick.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Logic.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/RecordEquiv.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Auto.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Subst.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Morphism.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Constant.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Function.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Implicit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Sigma.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Generic.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Unit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Universe.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Record.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Prop.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Inductive.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Morphisms.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/DirProd.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/MorphismProperties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/QuotientGroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Subgroup.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/ZAction.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Recursive.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Surjection.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Mod.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Literals.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Arithmetic.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Int.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Unit.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/GroupPath.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/IntMod.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Bool.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/IsomorphismTheorems.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Exact.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semiring/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Base.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Properties.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Auto.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Macro.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Constant.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Function.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Maybe.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Parameterized.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Product.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Univalence.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Reflection.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/SwitchStatement.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/AlgebraExpression.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/RawRing.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/RawAlgebra.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/IntAsRawRing.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Solver.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/HornerForms.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Utility.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/EvalHom.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/HornerEval.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection/Variables.agda",
+        "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection/Utilities.agda"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "/Volumes/D/HoTT-semantic-overview/HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+      "repo_relative_path": "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+      "roles": [
+        "project_library_registry"
+      ],
+      "bytes": 70,
+      "sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12"
+    },
+    {
+      "path": "/Volumes/D/HoTT-semantic-overview/HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+      "repo_relative_path": "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+      "roles": [
+        "toolchain_manifest"
+      ],
+      "bytes": 2628,
+      "sha256": "f077561fb09fe38ab847285d1dee7591408c6b6fe7a33bebf066eb950f58082b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b06/SemB06FalseEqualityNegative.agda",
+      "repo_relative_path": "semantic-overview/formal/sem-b06/SemB06FalseEqualityNegative.agda",
+      "roles": [
+        "probe_source"
+      ],
+      "bytes": 449,
+      "sha256": "0e83061f4b091b5588a024058109595c8dd557bee4dfdf3077fc3704455ad279"
+    },
+    {
+      "path": "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b06/SemB06NonEqualityNegative.agda",
+      "repo_relative_path": "semantic-overview/formal/sem-b06/SemB06NonEqualityNegative.agda",
+      "roles": [
+        "probe_source"
+      ],
+      "bytes": 415,
+      "sha256": "fcf7db415df667f511e497dbdb9be6bf11dcb6338ec2812a644e39bbef224c32"
+    },
+    {
+      "path": "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b06/SemB06Positive.agda",
+      "repo_relative_path": "semantic-overview/formal/sem-b06/SemB06Positive.agda",
+      "roles": [
+        "probe_source"
+      ],
+      "bytes": 444,
+      "sha256": "05300430892370da888660e6103ed101cea50a9c608f605edc03c12475475d1a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-semantic-overview/semantic-overview/tools/run_sem_b06.py",
+      "repo_relative_path": "semantic-overview/tools/run_sem_b06.py",
+      "roles": [
+        "runner"
+      ],
+      "bytes": 17484,
+      "sha256": "a2bea75a7db9116033c736defded09ca66f38a5971f010caec30c812f0b30f67"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+      "repo_relative_path": null,
+      "roles": [
+        "proof_assistant_binary"
+      ],
+      "bytes": 102056440,
+      "sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 12301,
+      "sha256": "997dcafa686daac93de58661def8ad8f38d69de9fb1b80ce00d02904b0ecb4fa"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5716,
+      "sha256": "b6e0bba9f8aa965a09693af90c4058fb06738a28cd01c2aaf19bfcb19ee1f0fa"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 140,
+      "sha256": "fcd1ccad7056d8f682d578cf0f2e597610cc69d5bdb098e56fb73e1da3e41ae5"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4206,
+      "sha256": "a4f2f7b7a33d63a76566066fa3b5488bdb2073bafb595be9ed869a05330608e6"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2975,
+      "sha256": "e2e6351e14377a59e6da4389dfd5c9dd240d30d9995d9b7b21343347de63995b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 149,
+      "sha256": "b052adc8c20aad00385d982850577991d9b1a733fb4ad8ba74bcb82292676644"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 10864,
+      "sha256": "1dc9c62a9b02e8b88410bdf211dc61b701cc754c188bd3f28d33709ef3f99cd1"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Localisation/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "semantic_audit_source"
+      ],
+      "bytes": 10116,
+      "sha256": "fbcf84b4dfffa6510a608db41dcf22e9d3b54a72993de4f97a23df5e3eb80d61"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 17725,
+      "sha256": "b0b92833bd9383007434deea6c4bd10f048ab2b8f2ddfc543148a970888e46d9"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing/Univalence.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4452,
+      "sha256": "ff23fd8209f19ad9c892a539af4a004fb01efa73d94d554cc3e27ab40343bc9c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommRing.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 143,
+      "sha256": "224d7fe3dbfd005fabde34048f7c45f45ef66a1102887105e68231585e9720ef"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 6252,
+      "sha256": "ee6b49bec0da367d00c1b6e99bd98fd66acb0dc360fe0bdffdccb3878509ed89"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/DirProd.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1271,
+      "sha256": "888075a443fd1e646d84b71aeb89acc2b78773c8e411d3c948470d17c6719421"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Exact.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 7724,
+      "sha256": "284fd36e39db355e618766dade51b8c5baf5f04f9f9953e026504ea457bae453"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/GroupPath.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 10283,
+      "sha256": "f2699b7efd47743ed19115f2bcf6569fe1ef0ccfb83ca2ada47339b683670631"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Bool.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4342,
+      "sha256": "90ffb540cd831ef77aa404f75b96c989a6f494889f5e5b4ddd8a5c63bf88412e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Int.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1894,
+      "sha256": "50953685ab3b9f0520f9cf5b73ff4f21cc904d358f7676695afef034d8b32382"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/IntMod.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 11577,
+      "sha256": "ca8fe25add2753602e31941cab3156ff150ad10d852261d0af0ceb9aa4723f75"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Instances/Unit.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 3782,
+      "sha256": "06f2abdd3e813e89e498b0650f1dcc09507311b5b05e459a15801e600a6472bf"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/IsomorphismTheorems.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4989,
+      "sha256": "930257006443ab478cd385c026b4cdfeffe6a6904cafcacab9ccf3495c1b4be4"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/MorphismProperties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 12804,
+      "sha256": "afb2a09561b7d5d60f09fb694eb114b1bb001f09bafff69fa9fe1486016c29bb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Morphisms.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2972,
+      "sha256": "a53f6b35f9a1111a6a5844ad02fb1745f5d676ff236cb14bb16052f356fb5231"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4413,
+      "sha256": "177603e6b05d46f41dd250ffa26b5551eb9f0b95af4d1a14796caacf9aa296fb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/QuotientGroup.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4552,
+      "sha256": "4655cad9cd6ad970c9bc8594d1a74e866879b5791503d99d09f333a6cb6886e2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Subgroup.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 7655,
+      "sha256": "e4c615aaef68e9178f2e112986fe012a738332bb9298d27049205562be105591"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/ZAction.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 33370,
+      "sha256": "97e4f68856a710af6e78b1fc478f7825bb2c1e7a93bad0d4bc24692c4ed40130"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 134,
+      "sha256": "fb2619550c0f79c5343a9fbe0ad3e13c61d54141dd5d17f4a0a4b3a52a1d1cd4"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4992,
+      "sha256": "8c6fe2fdfe6db760957dfddfa1c22a136579d3972d8efe92d9cc6fa592721d0e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 84,
+      "sha256": "fc6ba1d3be429d0a2e851d98c4f4f407a73edbb514f67936bf882b2654cea1c8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 11741,
+      "sha256": "8a79c0091ff76a2429d12775fafff3063766e923f3db4b31c613766a5d7227f4"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 13436,
+      "sha256": "30ae48688486635996053a333324c697b0817bdc0fc8f26746d858b0cc87cc00"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Ring.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 131,
+      "sha256": "c635550ed09dcfce154e9e6119f2298e62d666f355c45f2e01781b3c8d59fbd2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2842,
+      "sha256": "70cd06fc58d928b1dd1cdff66b52937a52fc73dd18affe24e5144551bdfc2f66"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 93,
+      "sha256": "a60627cf23d3dae2b7dabe931fdd5a657232afbf8559b67d94e27be8968d1704"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semiring/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4014,
+      "sha256": "49a0fd7e74bcaf0b3fbbb323ebd54387af7cec638f034f83fdb332115beca3fb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Glue.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5078,
+      "sha256": "f0158ac61aa51ce9a288bfb8b9995a2380e87b918b0e41a99613e46bc81915ee"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Primitives.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 6824,
+      "sha256": "6876f572465391ad48e7a41c18eaa6ef8d4bd0087dfe353bbf1fcdf0e20fde26"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2289,
+      "sha256": "f9e29d29417db7e5d4c476cc0d5998373dc0821b08255626268944bab364bfb4"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 14877,
+      "sha256": "c0ffc10903e4ee628df9211b46d404c9c04db28afce2ecff5bbdd389815dcde2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/SwitchStatement.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1082,
+      "sha256": "d6668866d321573296a54070ec8f28b5c616934af31467edfdb2a77e7b2bb9ae"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 123,
+      "sha256": "469d4f1c1b65727e6c6619c8d4fb3a8366b43ead796b07c8e1acff713d4f2c3d"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 420,
+      "sha256": "5f4d226f70881fe993e91d39ddb6220fb3d3df5eef3e8ce1792e5ff0fb76ad08"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 988,
+      "sha256": "4a5285480b4cba44842da18989debe0f34fd10bb7d4f0cdbc7ad01d8e24f5fca"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 125,
+      "sha256": "df6c6d1f749859c8316899710245cfa027adfc8e44e94a3946dbe699cf465b42"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Arithmetic.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 3115,
+      "sha256": "d76f84e20abd6713ebca18bd68636aa5fe20362ed80f08b6601c400b6929f571"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5142,
+      "sha256": "7fe5022e6f3d25db4cc952f5c23586fbad436df5d8e547e862f9821455cc89a7"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1204,
+      "sha256": "57945e77e10a0cc75627ee1cc3160169c900821d1e3c379fc0e28b9b429ee8a0"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 14574,
+      "sha256": "08ad6af59e5d41d4da8844f1a10ff68ae1f85cf7db00af6006ae6485a28413d5"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 150,
+      "sha256": "d4284bd50f495450b46b6b17dfcaf65c3e6247527cac4d5053317ad766f20271"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Literals.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 497,
+      "sha256": "38e78ae4e4b511a2cbacdc827b125229b8592778370b364e12e0b00806c144c3"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 30844,
+      "sha256": "10d9907257ddef5dda2103df53874ea5b62d9f9ee78d066a3d510bf030baee28"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 173,
+      "sha256": "2addb1c12f0cc33ed10dcf7011f7866d3a0eb4c2cda94e34cea909d26c1691e6"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2259,
+      "sha256": "0d15cde79681494f11b34638fd3c154d30a3e0758a22df8af4467dd2880332ab"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 15789,
+      "sha256": "bbd55474a16dc82411d954dc0c7154b6d7a91c0dbc15eb10cbcd18f7772d3ea8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 131,
+      "sha256": "439b1554df3e9ec38389f6fca3b318fd67c5d89ab0bfcc870c7f06972160161a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2313,
+      "sha256": "e9cd04679a420229e48dbd79a9bcda6b28a109e3f79482da4bb46cc95a390a5b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 69081,
+      "sha256": "39af5c339b25a9b2c649f4070d4dfeb63e012460a3195915d3512c301d0477b4"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Int.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 242,
+      "sha256": "a826617f8d35546555217ff74ca9b65f2ce9bf9689b13f533c7c168a34f0fd4a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2219,
+      "sha256": "407595477c41f2af56f60a9398bab7b0e6479b3d735b9fa2e7ba634247837941"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 12648,
+      "sha256": "fcff492392b6e92629e8f2b670857b4c77acb49accc864a16d87fcbce660d8d0"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 128,
+      "sha256": "d49978454a519d7d2ca666a3d4cc79626315824c254c4459c56af1626021e2d6"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 717,
+      "sha256": "c6b945517a570d37e4bb8f50fd4d254b511bd5e73d023386706c4e283b1c4d57"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 6879,
+      "sha256": "b085ed07473982eb9dd0c8b35252d9cad7442f790b74ae3239a8ceb66bbc8099"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 125,
+      "sha256": "8d4d66ca67dcc74799dc43d016666647af4183e277275b892120e7b495ac5458"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2214,
+      "sha256": "47903559ea76085e3e4dbdb5ccf5a81b05b3a518415c296191a7533e8afe5bbd"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Literals.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 649,
+      "sha256": "ee7ea6f58eeda06197fbb1a6d9956f891bbc811f7e8f0b6fdd8110dadb51a2af"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Mod.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 7412,
+      "sha256": "1b84c280dd7471cf0c266f4ed83a9dade0070b90f53730638822d5c921ef1809"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Inductive.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2611,
+      "sha256": "d3d436f498041cd6244cd300ea62051e083628734eaa4d014315fefb880973a9"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Recursive.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5737,
+      "sha256": "677698fb929cc1192a9eea4725d69b19760ece6d35e03b389ac16dfa2547c377"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 18121,
+      "sha256": "a3de0dae29fdd173e9f3b5770c1f9f686d832cc971aaa7ed9c766398741621be"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 11218,
+      "sha256": "c1975b80041fe51c743197bc99c04ba6ad04d2f14ad9bbc8042d3784c1671288"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 119,
+      "sha256": "c617624bde0cf0ad6efe50ff96fc2245a7d95531ffed2df5af4d0c976ff5c79a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Prod/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1544,
+      "sha256": "f0a02d8a8a83008721627b34da42ebcc0b526cc1c8219793599983ed554be7e2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1218,
+      "sha256": "d4f5146aecf68d36d7bb3638c613f9ae090bbcaf741f906f22b3ffaff9de37d1"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 19939,
+      "sha256": "f590033ab2b77ddeac146811e5389366ed1801c21b7b3f7ab39559a0fbd137de"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 126,
+      "sha256": "eb094e5377cbfa18235e77af707f67b00cd6c5d8b99a4ee140a68a9ac460b118"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 927,
+      "sha256": "20f529eee2ba6c3de9b8e3a06f0236d6d3049c3f286aa33bc3c2f474089be671"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 13929,
+      "sha256": "55561b62c5a3c123e0142aff96ffcc31454029b8c84a483e063c2bf8205d98de"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 119,
+      "sha256": "b4bcfb1da0b5c757a81c9a743c9acecfbb63069e7932ea554a2e676f33ebbd44"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 627,
+      "sha256": "2a23a69e6ce290d6bc65f2140363c8dda373905f0bec0ceb2aa3ef3ea48a8d36"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4339,
+      "sha256": "6ec71f80218cd3736a6db7c3b43086ec763d3be177e236e19bde8401bbb6953a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 128,
+      "sha256": "57ece6226189b1f19a3dea660fd6d2e14bf8115b9e1f18e02d5037ae6c547350"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1734,
+      "sha256": "230d7fa73064d1918a4309625b15f5ba9a7ff6033bda8eba54ba9f058585f6b9"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/NAry.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1935,
+      "sha256": "831e730797bd4c2d92bf42831402316fb3e264a28396e70f09f338a84a7aabc2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5950,
+      "sha256": "28bcbfaf2e0d768ca78c9033dea5d6b6d53e6b09214e62486d7b0b6ec2d9be01"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 119,
+      "sha256": "2998a462b1de6c5c190b72b4f1af9cf99c3f689f66c5655682a34325a7017b58"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Auto.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 15316,
+      "sha256": "ce5d204d2f2e270d3c35f7d2794637d4bb066ccb34b9b5b9e55eed2e49242506"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2994,
+      "sha256": "f4699eddf437a72e92d3190d057215b3d6a584dc57b166314a0ab71b8734b38c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Constant.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 944,
+      "sha256": "7d67b9bc6ba5e6cd973f262828980c30bfe2debcc8eefd6bfda00789fcb06a13"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Function.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4805,
+      "sha256": "d1a439801d3f900e6734ab913c239c49cc7f2622362cc1a385a7f9eaf64718d3"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Generic.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1184,
+      "sha256": "1980ab0dfb53c409fd28320f63f18f702353a121452b32920ea32872a7dbf352"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Morphism.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2654,
+      "sha256": "c971b3c0cd8d05664c4edd9d0bbe951fedd1fc73c347559dbb34708987368499"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Prop.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1915,
+      "sha256": "52e8b485a1013b4c095b1d268fcf4f68e77192dbef7f7df4e5a814ee444f02a8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5435,
+      "sha256": "a7b2e42ddb59170c0a3186e144e6197e6ce990af54940f500a483c906750a59d"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Record.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 10602,
+      "sha256": "2c57242317b528492b10976e743a464770d8fb18c42372711f4ea67f71a3b8c0"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Sigma.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 3985,
+      "sha256": "efe94ef09687716396a8676ea1046598e399eee39ffd6bab8b85058223326c7c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Subst.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2229,
+      "sha256": "28417f348ea3ee3fbf27ce22d87633e5862ca2f7f57ea00b571e37dad263d13c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Unit.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 700,
+      "sha256": "48fa3b24453ed229a95b1a9b9fa26b82788360d99010a6396a5a5c9a17506f0c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Universe.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 982,
+      "sha256": "0255073e7a7bdf90436702fcf703ba03887c760bde5a7fb4153ce906d89a5080"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/CartesianKanOps.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 6449,
+      "sha256": "cec840490895319fb90952da37bbedfdb38b476b44d16b4518629d0a849ff931"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2717,
+      "sha256": "44af7a33c40e93d20426a4e912a852326a57cf031a9f94089b2c0a7827fd8434"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Fiberwise.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4119,
+      "sha256": "477d881a13d636a1025ac3ff6a6402d48979dc4455277ffa3de25f76824ff233"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/HalfAdjoint.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5626,
+      "sha256": "4ca2361c85dcf1476a169529c270a694c081c9e57b1ae8ba5101dd877a8a5b12"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 12266,
+      "sha256": "9aada052333838a800c2e25debf1c3739ccb01d56f26c9321d13dbb5ab1af437"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 12502,
+      "sha256": "e511e13deb9297dc61be81c407e6f809c7c6d8e696f58286d237b87e47df083e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Function.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 6333,
+      "sha256": "cf539c15be92fab9cbfa98ec2163af08bee49c2171d21a34261356eafaccaaa8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/GroupoidLaws.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 23092,
+      "sha256": "0da2c0e39a40a5ef9ff3aaf8e541055fb4e988990f3e8a272dc9d549c979073a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/HLevels.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 37788,
+      "sha256": "2e7e60e998f8ea1ba11e01232af408dccde49cbf0d472880f0db84e6a42370cc"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Interpolate.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1329,
+      "sha256": "d5efaa452fee1adf87c3be8eded877f590108215b0b20c155e3e22adacb93d97"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Isomorphism.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 8571,
+      "sha256": "d53f97a6e86061a6d09f2f340d9407d1e71262258e3d2b373d451565e90e389e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Path.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 20347,
+      "sha256": "4634ee73439ddcf795f038cbfec396762db69ddd43dd75af0032ca0655c090fb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5464,
+      "sha256": "cb8df4236c8a1f2292a9df2e4dbd5ae801fcfbc67a09019c108849a6f2249fe2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/FunExt.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1843,
+      "sha256": "204e64dc0be6840e6614de65531040ccbbd0d7c11d28d4bbce19c98483a38029"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homogeneous.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 10210,
+      "sha256": "b68499f65ac1fc21fa4871c12c59d110283611ea4e18320106665054aff018d8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homotopy.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4774,
+      "sha256": "dbeba825ecdc76b3c97b46b8adb166025c0debf5cb6fc204d5fd20ba3da3f2b8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 11982,
+      "sha256": "c64c63a83d4d8103c0e72a4c74a9db500814b55e482b96acb512e9a8dbd898a6"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 315,
+      "sha256": "9b2cd1c75414c23ebb172e1fb80b0bf3f758a2168987344808c52f4659528567"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Powerset.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2330,
+      "sha256": "d88b76eb418ecfc63769f0657bc3e730bd9de088e854bc7d035bcb2c632f8db5"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Prelude.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 24498,
+      "sha256": "d6ac24993846d5b661922cdc6b036e07dfb1080085fe5d976d735820c52a25b6"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/SIP.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5055,
+      "sha256": "96717932e9279b843b1882cf71bdb9889c6d3fa1cb5a125c87ad76db772b170f"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Structure.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2318,
+      "sha256": "f828cf4b2a16fb01849f2332b69c19dbef748bfe334e741081a05f58b0f18ecb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Transport.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 11403,
+      "sha256": "1c79363e7420c7a77ce27280ed88223fc593e0a7da7a479b028d76cb23ae047d"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Univalence.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 15852,
+      "sha256": "45f9e216a42c5535a391daa37a7dc821ae7392071224afa2f10c72758e04311a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Embedding.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 21525,
+      "sha256": "7654f746720756f1e3fddf402fcc35ef1d9f96920f03fa277acc8de1c655806e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fibration.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4483,
+      "sha256": "87084910918a0fbc5f059cc4045932661bf0381f1740ff3242c3b49d6611cc2a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fixpoint.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1610,
+      "sha256": "6857878563601513d357923c9a00c2c11f3fa8e68e2d030154a54cec7e25c09a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/FunExtEquiv.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 9661,
+      "sha256": "383d23b9c13bf58c477cfe2e3edbbe684b3f2d70cbfd6330c2207e7735de9807"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Implicit.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 482,
+      "sha256": "09be95d83d3f9b2f7e12a8b79ee68909155f8e5762162d2986a536ee77878241"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Involution.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1161,
+      "sha256": "9afd737c3a659638ec5a584d241e040b872c96529bc0a626c02a07173bd8700d"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Logic.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 10493,
+      "sha256": "9fefd07090750a7623e65cd757ca1b3afc709a72f8d817bd4ab60718f034b012"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Surjection.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4809,
+      "sha256": "bb979e9dd0c95b2c67b50833d766f061d21567843490a1ae739fad1d4ad08eaa"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 359,
+      "sha256": "696ce859e65c4649510e6d3db586fce62e3324078dc9011779c9e45db8a8e61f"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/MagicTrick.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 3716,
+      "sha256": "94ced58bb9551bb0af2aa8fadfecad4fe6d60305782a21cd8b3ccde81674b0b1"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 28277,
+      "sha256": "33e9b20793d33861e1ede98c034083a940ad0ede0248d9f07b63906ee31cba16"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 240,
+      "sha256": "7f7697067904b774c4dba7237b99a436b95ae784e822b1f21497e75d5340f0c3"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 419,
+      "sha256": "4302c6ce79672ccaa77ad2d5c83ab2d5a082f6d08dd3ab1956706090ee94c5b4"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 13654,
+      "sha256": "33b24071e3038a8584dea2fa030ee35883a5f007aa0c5f8fed978c2f4ca6a022"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 146,
+      "sha256": "806cb2b3dea1f88b07fcc5e39bd78a87372d8c90d2af55366df7617c62ac9ec2"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 543,
+      "sha256": "5c004f8e69b53dac5e1938b1d86714f56f2b264fa0c6c351017d18d8b35ac964"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 15894,
+      "sha256": "7094e8c99c296b1bdaf852dde00eac92921c3ee934cfa214eff057e46e06d5f6"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 149,
+      "sha256": "8fa4a794075673fdcf4f46cd4aa91cbcbdc0fa98cb4a009c9a033d8d12f1579f"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 402,
+      "sha256": "6cf523181b6d309ce54bfe7ab2df58d78517da75fc710caeb5483bce35a7dbaa"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1627,
+      "sha256": "65c4ca7d4fc52bbe614c10d5b8d5069c49d661f7b05b1e91444adf78a74dcdbb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/TypeQuotients.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 149,
+      "sha256": "e0a31075fc20698a5a2fe81c37135ab5bbb4f27ddd566ec86106254590409dc5"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Homotopy/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 558,
+      "sha256": "eb955865f1a0768361b45663ea0873eccf40c2921e9b1d801ce82b64873c750c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Induction/WellFounded.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1967,
+      "sha256": "de595cba56cd176f000f8e99ddc8d28a4ed243c7ab097a440b801d7c915bd40b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1331,
+      "sha256": "1ecb6f9bde549d942e1cbcb8f02152866ef3f1023df37fea6fcbc682335bfc15"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/RecordEquiv.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 11689,
+      "sha256": "1c52f33e52017d78934bda3ebbc72db322f9171b3213f75f4ba3d3ad176a6277"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2788,
+      "sha256": "a340adf53391db6808858ec448b74c2397466dbecb07d7b43b15b78bbf535e0e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 8993,
+      "sha256": "f60e9f2cde0ed68363c80d861e32877978ed1723c1ce5761d90df746ecc0012e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 3730,
+      "sha256": "d90f0dfc7c6898da87917776d7ee715c09e846a97091225614ec187e0ed74692"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 141,
+      "sha256": "e9de92c179ae0abd784faf5ce7550f081679537d2500bbed7bcae586f3603b0b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Base.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1752,
+      "sha256": "c2b584c300c8c3f51bd9692a4fa91dac91a64ba1f90f6e8e933ba0179aaba8c5"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Properties.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 8441,
+      "sha256": "0028b9b740f5ea4ccd5aa9c1966319f3ed5eea688e672c98c4fd3cdcb9132503"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 143,
+      "sha256": "43cabf6b470e6b0d045cf5ca3a1b57d33df5b303dc09b8f065e0eedd2dcce55f"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Auto.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 10186,
+      "sha256": "aace19d6ce96a42398849633815b3d2b535062d6e7e679bae48f42261c7751a1"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Axioms.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2839,
+      "sha256": "486529da88effef8d25cfdc920228f9604b38a0021cee9e9424e7f29d257b549"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Constant.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 805,
+      "sha256": "eb64fbe92a66941086f04a43e4729708c148c972beb77181d25a6b564e2f5e7a"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Function.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 3241,
+      "sha256": "6ab335afe32cc9ed16625d9f5e4caa4532d3c7bfcfa38ba5b9c36eeeb9145d9b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Macro.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 8081,
+      "sha256": "cf03286427eb45af0cab7f185a2509ac6854df646a9fae12db46000dbdf601ad"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Maybe.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4080,
+      "sha256": "1d509519cfc8ad4d0cf119a78aa3abcaa7f57155fcc610b15fc47a9c2ef8a68b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Parameterized.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1783,
+      "sha256": "668837b865148047c33c14cfadcd5a2bc03c347e87c9017acbda7513ff17315e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Pointed.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1886,
+      "sha256": "b43bcf63d2209e0a05b7af472ee948c3bcab2b540bd66b686c7cbc1cbd52171b"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Product.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2127,
+      "sha256": "70ccec9c6122b0cef8cab91e822776e20e88cb93a6d3c513a1e4d3711a51d69c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/AlgebraExpression.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1228,
+      "sha256": "ef47fd6adac29e7d7b3161e9712df000d7046a2a05cbee5efaf22659539a87d7"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/EvalHom.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 13797,
+      "sha256": "e7af8072b04d51722bd06696d770f59a8c9ffa330691af771db8dea1bfd6302c"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Examples.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "semantic_audit_source"
+      ],
+      "bytes": 3859,
+      "sha256": "6c81522c445c41be72b8e8ca563e875e39ea84d510d51808395a9457ccb0d4a3"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/HornerEval.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 5729,
+      "sha256": "decaa8a9eed18b6e5ba1a718638d59435940e4cedaf08d241cadf632dfcf09bb"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/HornerForms.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 6453,
+      "sha256": "4f0aa6f83f5c0d0ec447d529b44371b32ffcef0b5b76d4bb49a80829fce93f88"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/IntAsRawRing.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 445,
+      "sha256": "fc462fc5ac4e51fefd2798087671ffc5a73f481498cd44458a2f96509471de15"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/RawAlgebra.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 8791,
+      "sha256": "b16d0e10984ede7ecaf262a0167db09551e260f3e436989ea2d5feb23939518d"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/RawRing.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 510,
+      "sha256": "15f9b65c0b5589ac3344ac285085d56fee29d0a6cc1f2d7995a454880966172e"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Reflection.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh",
+        "semantic_audit_source"
+      ],
+      "bytes": 7425,
+      "sha256": "997e0cdd46c81e5e24f79c028e2e63cec7847ccaf3ad164e2aff34b01e971eb1"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Solver.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh",
+        "semantic_audit_source"
+      ],
+      "bytes": 7088,
+      "sha256": "b3d794a845531eb23fa34161480d713c40f4170b071349213ade4cf93a5f4601"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver/Utility.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1114,
+      "sha256": "68aa872f834bead7b23b1c1a37ed92df72e8651311699c153d26854c58ea9fa8"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/CommRingSolver.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh"
+      ],
+      "bytes": 478,
+      "sha256": "23ff140bd5a8943eef7e060887e1838886901c9226e0e1d62f552202cd512957"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection/Utilities.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 1205,
+      "sha256": "13d79a68ca443bd9e4f6335798a4a775f251b977d4c9dfa78bea86c7db15a040"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection/Variables.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 2928,
+      "sha256": "b379b2940f5f656a51cdb73d6007a5ccb1315dbde2c7814301dd885c671712ae"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection.agda",
+      "repo_relative_path": null,
+      "roles": [
+        "actual_checked_closure:kernel-natural-consumer-fresh",
+        "actual_checked_closure:kernel-solver-fresh"
+      ],
+      "bytes": 4105,
+      "sha256": "846fe907e4bc6a6bd11fc2a5b4fa798a48e2cf697931bc906dcdbe168a103ff3"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/cubical.agda-lib",
+      "repo_relative_path": null,
+      "roles": [
+        "cubical_library_configuration"
+      ],
+      "bytes": 121,
+      "sha256": "cc95fd3ef5ec98226f84883b5a8a9e527b21c7bd03901967aa4cb9495f2fdbd1"
+    },
+    {
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical-0.9.tar.gz",
+      "repo_relative_path": null,
+      "roles": [
+        "cubical_release_archive"
+      ],
+      "bytes": 1555852,
+      "sha256": "003f9c57c134e4a9401a4b339b3773be667aa169ff929ca3dfb9c8abefc225c5"
+    }
+  ]
+}
