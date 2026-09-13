@@ -25,6 +25,10 @@ SHARD_ROW_RE = re.compile(r'^\|\s*`?([A-Za-z0-9._-]+)`?\s*\|\s*\[([^]]+)\]\(([^)
 SHARD_NAME_RE = re.compile(r'^(?P<shard_id>[0-9]{3}) - (?P<title>.+)\.md$')
 H1_RE = re.compile(r'^#\s+(.+?)\s*$', re.MULTILINE)
 SHARD_INDEX_KEYS = ('logical_id','mode','shard_root','last_shard','append_target','soft_line_target')
+# Same discovery window as the canonical validator: an index marker is a real
+# index only near the top of the file.  Documentation that quotes the marker
+# inside an example must never be misread as an index (it would block loading).
+SHARD_INDEX_SCAN_LINES = 20
 PREFIX = '.codex/research/hott/'
 CONFIG = '.codex/cognition/LOAD_SET.json'
 STATE = PREFIX + 'STATE.json'
@@ -125,7 +129,7 @@ def parse_shard_index(data, rel):
     enforces what the load path needs to stay fail-closed.
     """
     body=text(data,rel);lines=body.splitlines()
-    try:start=next(i for i,line in enumerate(lines) if line.strip()==SHARD_INDEX_MARKER)
+    try:start=next(i for i,line in enumerate(lines[:SHARD_INDEX_SCAN_LINES]) if line.strip()==SHARD_INDEX_MARKER)
     except StopIteration:return None
     meta={};closed=False
     for line in lines[start+1:]:

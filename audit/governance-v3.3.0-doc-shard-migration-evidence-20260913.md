@@ -66,6 +66,18 @@
 避免为一行注释再开第三个 checkpoint 重签 14 条 record；回退后两个验证器立即恢复 `PASS`。
 结论：**`理解章节/*` 的当前内容与 merge manifest 是互相 pin 的一对，任何编辑都必须连同 manifest 重建与 STATE re-pin 一起做。**
 
+第三处回归（发布后调查"未来 AI 如何驾驭分片"时发现，已修并移动本地 tag）：
+本项目合同文档 `docs/quality/长治理文档分片与索引合同.md` 在第 39 行的示例代码块里**逐字引用**了
+`<!-- governance-shard-index:v2`。共享 validator 只扫描前 20 行（示例不在窗口内），因此结构检查一直 PASS；
+但 runtime/审计辅助的 `parse_shard_index` 原本扫描全文，于是把该合同误判成索引，并在 S094/S095 两个
+session record 的 `full_sources` 水合时直接 `BLOCKED: SHARD_INDEX_LAST_SHARD_MISMATCH`。
+
+处置：把"是索引"的判定窗口统一为与共享 validator 相同的**前 20 行**（真索引的 marker 恒在第 1 行；
+spec 也要求索引文件顶部包含该块），并在 runtime 单测中加入回归用例
+`test_quoted_marker_in_documentation_is_not_an_index`。修复后：38/38 单测通过；S094/S095 两个 record 的
+research hydration 恢复正常（docs=35，logical=[README×4, MEMORY×3]）；validator 仍 PASS（indexes=7）。
+教训：**文档中"逐字举例"与"真实标记"必须由解析层的定位规则区分；解析窗口必须与 canonical validator 对齐。**
+
 ## 5. C01–C10 影响分类（本轮增量）
 
 | ID | 判定 | 说明 |

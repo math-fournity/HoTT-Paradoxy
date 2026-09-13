@@ -19,12 +19,15 @@ SHARD_MARKER = "<!-- governance-shard:v2"
 TABLE_START = "<!-- governance-shard-table:start -->"
 TABLE_END = "<!-- governance-shard-table:end -->"
 ROW_RE = re.compile(r"^\|\s*`?([A-Za-z0-9._-]+)`?\s*\|\s*\[([^]]+)\]\(([^)]+)\)\s*\|")
+# Keep in step with the canonical validator's discovery window: a marker quoted
+# inside a documentation example must not turn the file into an index.
+INDEX_SCAN_LINES = 20
 
 
 def parse_index(text: str) -> dict | None:
     """Return index metadata plus ordered shard paths, or None for a plain file."""
     lines = text.splitlines()
-    start = next((i for i, line in enumerate(lines) if line.strip() == INDEX_MARKER), None)
+    start = next((i for i, line in enumerate(lines[:INDEX_SCAN_LINES]) if line.strip() == INDEX_MARKER), None)
     if start is None:
         return None
     meta: dict[str, str] = {}

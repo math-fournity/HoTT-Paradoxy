@@ -370,6 +370,24 @@ class RuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(C.CognitionError, "SHARD_NOT_IN_CHECKPOINT"):
             C.prepare(self.root, plan["snapshot"], self.payload("S2"))
 
+    def test_quoted_marker_in_documentation_is_not_an_index(self) -> None:
+        """A contract document that *quotes* the marker must stay a plain document."""
+        body = ["# 合同示例\n"] + [f"filler {n}\n" for n in range(30)]
+        body += [
+            "```markdown\n",
+            "<!-- governance-shard-index:v2\n",
+            "logical_id: MEMORY\nmode: sequential\nshard_root: MEMORY\n",
+            "last_shard: MEMORY/002 - 顺序日志.md\nappend_target: MEMORY/002 - 顺序日志.md\n",
+            "soft_line_target: 300\n-->\n",
+            "| 001 | [示例](<MEMORY/001 - 示例.md>) | 示例 | current |\n",
+            "```\n",
+        ]
+        self.put("README.md", "".join(body))
+        plan = self.plan()
+        rows = {row["path"]: row for row in plan["documents"]}
+        self.assertIsNone(rows["README.md"]["logical_role"])
+        self.assertEqual(plan["logical_documents"], [])
+
     def test_source_growth_changes_snapshot(self) -> None:
         old = self.plan()
         self.put(C.CLOSURE, (self.root / C.CLOSURE).read_text() + "new tail\n")
