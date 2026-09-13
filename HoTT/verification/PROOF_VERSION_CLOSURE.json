@@ -13,7 +13,7 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 14,
+  "later_machine_proved_claim_count": 17,
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -50,6 +50,18 @@
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_DECODABILITY_FENCE",
       "notes": "Checks the decodability/injectivity obligation recorded as deliberately unformalised in ObjectSyntax: the concrete codeT/codeF are not injective (var 2 and num 0 collide), with a numeral-fragment positive control. Does NOT provide a repaired coding and does NOT change the gated status of ERCF-3.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-REPAIR-SPEC-001",
+      "claim_ids": "C-163–C-165",
+      "local_claim_ids": "T3-REP-01–T3-REP-03",
+      "source": "HoTT/formal/ercf3-t3/CodingRepair.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_REPAIR_SPECIFICATION",
+      "notes": "Fixes what a coding repair must provide (C-164 roundtrip ⇒ injectivity), gives the structured tree coding as decodable positive control (C-163), and derives that the current Nat coding admits no decoder (C-165). Does NOT provide a Nat-valued repaired coding; ERCF-3 stays gated.",
       "release_ref": "governance-v4.0.0"
     }
   ],

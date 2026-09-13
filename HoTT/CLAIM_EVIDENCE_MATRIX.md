@@ -285,3 +285,19 @@ proof_run_root: HoTT/verification/runs
 | C-160 | 具体编码在项层**不是单射**：`codeT (var 2) ≡ codeT (num 0)` 而 `var 2 ≢ num 0`，因此不存在 `(t u : Tm) → codeT t ≡ codeT u → t ≡ u` 的单射解码器（`no-injective-codeT`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `var2-num0-collide`、`var≢num`、`no-injective-codeT`；run `20260913-MP-ERCF3-T3-DECODING-001-01`。 | 只针对 `DiagonalCore` 的具体编码；不推出任何编码都不单射，也不改变 ERCF-3 状态。 |
 | C-161 | 同一碰撞提升到公式层：`codeF (var 2 =f var 2) ≡ codeF (num 0 =f num 0)` 而两条公式不同，故 `codeF` 也不是单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `eqVar2-collides-eqNum0`、`varEq≢numEq`、`no-injective-codeF`；同一 run。 | 同上；不声称对角引理不可形式化，只说明当前编码不可解码。 |
 | C-162 | 正控制：数字片段的编码在码上单射——`(n m : Nat) → codeT (num n) ≡ codeT (num m) → n ≡ m`；说明碰撞来自构造子标签范围重叠，而不是编码整体失效。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `num-code-injective`；同一 run。 | 正控制只覆盖数字片段；不提供任何修复方案的单射性证明。 |
+
+## 追加登记：MP-ERCF3-T3-REPAIR-SPEC-001（T3 编码修复规格，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` 的 `RUN.json`。
+> 该包把"修复编码"固定为可机器检查的规格；不给出 Nat 值修复编码本身，不进入 ERCF-3 本体（`GATED` 不变）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-REPAIR-SPEC-001` | `C-163`–`C-165` | `formal/ercf3-t3/CodingRepair.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DiagonalLemma.agda`、`DecodingFence.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIR_SPECIFICATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-163 | 结构化（树）编码可解码：`encT : Tm → CodeT`、`decT : CodeT → Tm` 满足 `∀ t → decT (encT t) ≡ t`，故 `encT` 单射（`encT-injective`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `encT-roundtrip`、`encT-injective`；run `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01`。 | 只是**结构**层的正控制；不提供 Nat 值编码，也不解决算术层配对/标签问题。 |
+| C-164 | 通用规格引理：对任意目标类型 `A`，若 `c : Tm → A` 存在往返解码器 `dec`（`∀ t → dec (c t) ≡ t`），则 `c` 单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `roundtrip-implies-injective`；同一 run。 | 只是"修复"的必要规格；不声称任何具体算术编码满足它。 |
+| C-165 | 当前 Nat 编码**不存在解码器**：`Σ (dec : Nat → Tm), (∀ t → dec (codeT t) ≡ t)` 蕴含 `Empty`。这正是"修复编码"义务的精确形式。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-decoder-for-codeT`（由 C-164 与 `DecodingFence.no-injective-codeT` 合取）；同一 run。 | 只针对 `DiagonalCore.codeT`；不推出 Nat 值编码不可能，也不改变 ERCF-3 状态。 |

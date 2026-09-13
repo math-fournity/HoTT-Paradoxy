@@ -7,6 +7,7 @@
 |---|---|---|---|---|
 | `MP-ERCF3-T3-JOINT-001` | `C-157`–`C-159` | `JointRecursion.agda` | `20260913-MP-ERCF3-T3-JOINT-001-02` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_SHARED_DECISION_JOINT_RECURSION` |
 | `MP-ERCF3-T3-DECODING-001` | `C-160`–`C-162` | `DecodingFence.agda` | `20260913-MP-ERCF3-T3-DECODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_DECODABILITY_FENCE` |
+| `MP-ERCF3-T3-REPAIR-SPEC-001` | `C-163`–`C-165` | `CodingRepair.agda` | `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIR_SPECIFICATION` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -88,3 +89,25 @@
 **禁止外推**：不给出修复后的编码或其单射性证明；不声称对角引理不可形式化（只说明**当前编码**不可解码）；
 不涉及证明谓词表示性、反射或对角不动点；不改写 `DiagonalCore.agda` 的 `⌜-injective` 命名或任何历史脉冲文件；
 ERCF-3 保持 `GATED`。
+
+---
+
+## 3. `MP-ERCF3-T3-REPAIR-SPEC-001`：编码修复规格
+
+把"修复编码"从口号变成可机器检查的规格，并给出精确的剩余义务：
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-163` | 结构化（树）编码可解码：`encT : Tm → CodeT`、`decT : CodeT → Tm` 满足 `∀ t → decT (encT t) ≡ t`，故 `encT` 单射 | `encT-roundtrip`、`encT-injective`（正控制） |
+| `C-164` | 通用规格引理：任意目标类型 `A` 上，若 `c : Tm → A` 有往返解码器 `dec`，则 `c` 单射 | `roundtrip-implies-injective` |
+| `C-165` | 当前 Nat 编码 `codeT` **不存在解码器**：`Σ (dec : Nat → Tm), (∀ t → dec (codeT t) ≡ t)` 蕴含 `Empty` | `no-decoder-for-codeT`（C-164 + `DecodingFence.no-injective-codeT`） |
+
+**修复义务（下一有界脉冲）**：给出 `codeT' : Tm → Nat` 与 `dec' : Nat → Tm` 并证明往返；由 C-164 该对自动单射。
+结构半已完成（C-163）；**算术半**（标签值域不相交如 `3n`/`3n+1`/`3*⟨pair⟩+2`，或列表编码）尚未完成——
+它需要 Nat 算术/配对引理，是明确的下一步。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、
+stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 行冻结）。
+
+**校验入口与禁止外推**：与 §1.4/§2 同（builtins-only ⇒ 适用 closure verifier）；不给 Nat 值修复编码本身，
+不涉及 P 表示性/反射/对角不动点，ERCF-3 保持 `GATED`，历史脉冲文件不改写。

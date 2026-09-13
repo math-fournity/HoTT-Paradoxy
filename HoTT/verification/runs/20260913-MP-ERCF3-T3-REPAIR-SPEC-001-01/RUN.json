@@ -1,0 +1,66 @@
+{
+  "claim_ids": [
+    "C-163",
+    "C-164",
+    "C-165"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/CodingRepair.agda"
+  ],
+  "completed_at_utc": "2026-09-13T13:06:21.801252+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.17468,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "cd26bd4c72f31908619a862cbbb08807bfb77de2f217d66aef8d21b05f5594d4"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不给出 Nat 值的修复编码或解码器，也不证明其往返/单射性",
+    "不涉及证明谓词 P 的表示性、反射或对角不动点；ERCF-3 保持 GATED",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence/cubical Path/HIT/truncation",
+    "不改写 DiagonalCore/ObjectSyntax/DecodingFence 等历史脉冲文件"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-REPAIR-SPEC-001",
+  "run_id": "20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 第十六脉冲：编码修复规格。精确命题：(1) 通用引理——若编码 c : Tm → A 存在往返解码器 dec（∀ t, dec (c t) ≡ t），则 c 单射；(2) 正控制——结构化（树）编码 encT/decT 满足往返，故单射（说明语言的“结构编码”可解码）；(3) 精确否证——当前 Nat 编码 codeT 不存在任何解码器（Σ dec, ∀ t, dec (codeT t) ≡ t → Empty）。结论：修复义务被固定为“给出 Nat 值编码 codeT' 与解码 dec' 并证明往返”；结构半已完成，算术半（标签不相交或列表编码）是下一个有界脉冲。工具链：Agda 2.8.0-3d04bac + Cubical v0.9 库声明；仅 Agda builtins。",
+  "source_manifest": {
+    "bytes": 3158,
+    "path": "source-manifest.json",
+    "sha256": "cfcdafc74fc49eb32d449e3f81b5e951c960d3cf792a56a57de759346a907882"
+  },
+  "started_at_utc": "2026-09-13T13:06:21.626572+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 508,
+    "path": "stdout.txt",
+    "sha256": "87735ae8cc6d5b5686f017ca3512f4f9e71876d6b5baf31b61997ca5efa4068c"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
