@@ -19,8 +19,10 @@ Read-only helper: it never writes to the repository.
 from __future__ import annotations
 
 import hashlib
+import sys
 from pathlib import Path, PurePosixPath
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import logical_document
 
 
@@ -32,12 +34,11 @@ def load(root: Path, rel: str) -> dict:
     """Return {'index_path', 'index_text', 'shards': {rel: text}, 'logical_text'}."""
     index_path = root / rel
     index_text = index_path.read_text(encoding="utf-8")
-    index = logical_document.parse_index(index_text)
+    index = logical_document.parse_index(index_text, rel)
     if index is None:
         raise ValueError(f"NOT_A_SHARD_INDEX:{rel}")
     shards = {}
-    for link in index["shards"]:
-        shard_rel = (PurePosixPath(rel).parent / link).as_posix()
+    for shard_rel in index["shard_paths"]:
         shards[shard_rel] = (root / shard_rel).read_text(encoding="utf-8")
     return {"index_path": rel, "index_text": index_text, "index_meta": index,
             "shards": shards, "shard_root": index["shard_root"]}

@@ -24,8 +24,15 @@ ROW_RE = re.compile(r"^\|\s*`?([A-Za-z0-9._-]+)`?\s*\|\s*\[([^]]+)\]\(([^)]+)\)\
 INDEX_SCAN_LINES = 20
 
 
-def parse_index(text: str) -> dict | None:
-    """Return index metadata plus ordered shard paths, or None for a plain file."""
+def parse_index(text: str, rel: str | None = None) -> dict | None:
+    """Return index metadata plus ordered shard paths, or None for a plain file.
+
+    ``shards`` are the link paths exactly as written in the index table, i.e.
+    **relative to the index's own directory** (the validator resolves them that
+    way).  When ``rel`` is supplied, ``shard_paths`` additionally holds the same
+    shards as **repo-relative** paths, matching ``cognition_runtime``'s
+    ``parse_shard_index``.  Use ``shard_paths`` when joining with the repo root.
+    """
     lines = text.splitlines()
     start = next((i for i, line in enumerate(lines[:INDEX_SCAN_LINES]) if line.strip() == INDEX_MARKER), None)
     if start is None:
@@ -58,9 +65,14 @@ def parse_index(text: str) -> dict | None:
         shards.append(path)
     if not shards:
         raise ValueError("SHARD_INDEX_TABLE_EMPTY")
-    return {"logical_id": meta.get("logical_id"), "mode": meta.get("mode"),
-            "shard_root": meta["shard_root"], "last_shard": meta.get("last_shard"),
-            "append_target": meta.get("append_target"), "shards": shards}
+    result = {"logical_id": meta.get("logical_id"), "mode": meta.get("mode"),
+              "shard_root": meta["shard_root"], "last_shard": meta.get("last_shard"),
+              "append_target": meta.get("append_target"), "shards": shards}
+    if rel is not None:
+        base = PurePosixPath(rel).parent
+        result["shard_paths"] = [link if str(base) == "." else (base / link).as_posix()
+                                 for link in shards]
+    return result
 
 
 def shard_body(shard_text: str) -> str:
@@ -90,14 +102,13 @@ def logical_text(root: Path, rel: str) -> str | None:
     if not path.is_file():
         return None
     text = path.read_text(encoding="utf-8")
-    index = parse_index(text)
+    index = parse_index(text, rel)
     if index is None:
         return None
     stem = PurePosixPath(rel).stem
     parts: list[str] = []
-    for shard_rel in index["shards"]:
-        shard_path = path.parent / shard_rel
-        parts.append(shard_body(shard_path.read_text(encoding="utf-8")))
+    for shard_rel in index["shard_paths"]:
+        parts.append(shard_body((root / shard_rel).read_text(encoding="utf-8")))
     if index["shard_root"] != stem:
         raise ValueError(f"SHARD_ROOT_MISMATCH:{rel}")
     return "".join(parts)
