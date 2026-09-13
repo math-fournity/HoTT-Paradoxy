@@ -17,7 +17,7 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `2de235a9c80fcad77e87135a7b2cda2c1bc755b4` |
+| `candidate_content_oid` | `c9a5ba13b67bcaaddd0eac5434e658f103284cbb` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M4 工作，不属于本分支输入 |
@@ -62,6 +62,7 @@ semantic-overview/**
 |---|---|---|
 | `SEM-B01`：两个真实截断消费者的 B 方向资格检查 | `KERNEL_CHECKED_AND_RUNTIME_OBSERVED_WITH_SCOPE / EXECUTION_GAP_WITHOUT_DELIVERY_PROMISE / E6_BOUNDED_NEGATIVE` | content commit `9d928ba629adf36796e64bb74059d58cefa8b456`；`semantic-overview/research/SEM-B01-truncation-consumer-audit.md` |
 | `SEM-B02`：仅仅有限、决定数据与自然分支消费者 | `NATURAL_THEORY_BRANCH_CONSUMER_FOUND / EFFECTIVE_DELIVERY_LIFT_NOT_ESTABLISHED` | content commit `2de235a9c80fcad77e87135a7b2cda2c1bc755b4`；`semantic-overview/research/SEM-B02-finite-decision-consumer-audit.md` |
+| `SEM-B03`：finite decision 的外部有效交付消费者搜索 | `WEB_SEARCH_WITH_SCOPE / E6B_CONSUMER_SOURCE_GAP` | content commit `c9a5ba13b67bcaaddd0eac5434e658f103284cbb`；`semantic-overview/research/SEM-B03-external-delivery-consumer-search.md` |
 
 `SEM-B01` 的当前结果是：
 
@@ -79,6 +80,8 @@ semantic-overview/**
 - 显式 Bool 决定过程经修正后的 Scott-constructor FFI 实际输出 `FALSE`；有限性定理模块在普通及优化 JS 下都于 eager postulate 初始化处失败，没有产生错误决定值；
 - 固定源码未承诺后端/资源/现实交付，同输入现实基线也未建立；本分支候选地把 E6 细分为理论消费 `E6a`、交付承诺 `E6b`、同任务失配 `E6c`，本轮状态为 `YES / NOT_FOUND / NOT_ESTABLISHED`。
 
+`SEM-B03` 的当前结果是：公开 exact-name 搜索只定位到 agda-unimath 自己的生成文档，没有找到独立第三方 main、服务或插件；Agda 2.8 官方合同确认 postulate 没有定义，后端运行含义需要 `COMPILE` FFI，而固定 truncation postulate 没有这项支付。外部状态据此登记为 `E6B_CONSUMER_SOURCE_GAP`，不写成全网不存在。
+
 ## 验证与认知快照
 
 - 四件套完整加载：`核心认知.md` generation 4 / 36 KC；方向 5 shards；全景 8 shards；essay 5 shards。
@@ -91,17 +94,18 @@ semantic-overview/**
 - run 具有拒绝覆盖行为；重复调用 exit 2，不会静默改写历史收据。
 - `SEM-B02` run `20260913-SEM-B02-FINITE-DECISION-001-01`：13/13 步符合冻结判据；310 模块 fresh kernel；22 项 manifest 与 7 个保留生成物 hash 对账；普通/优化 JS 失败一致。
 - B02 的承诺词汇扫描保留了 README `informative resources` 与 `effective quotient` 假阳性，语义分类没有用零命中粉饰结果。
+- B03 记录 6 个公开查询、agda-unimath 官方生成页/GitHub 入口与 Agda 2.8 compiler/postulate/FFI 三份官方合同；未使用 authenticated GitHub code search，也未穷举 forks/dependents。
 
 ## 失败、冲突与未知
 
 - `FAILURES`：无。
 - `CONFLICT`：项目旧 current queue 把 S lane 放在主线并要求 canonical checkpoint；用户的新裁定与 `PARALLEL_WORKTREE_COGNITION_V1` 已把本分支改为 contributor。本分支用 branch-local relay 与 KC audit 保留连续性，不改旧 owner；最终 integrator 应在 target 上原位重述被接受的新协作状态。
-- `UNKNOWN`：外部应用、教程、插件或下游包是否把 finite decision 接到编译 main/服务接口并承诺 Q4/Q7；同任务现实基线；其它具计算语义的截断实现；现实桥。
+- `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；现实桥。
 - `STALE_IF`：canonical target、相关 API 源码树、B 方向定义或另一 lane 的路径所有权发生改变。
 
 ## 下一动作
 
-`SEM-B01`、`SEM-B02` 均已达到各自停止条件。下一单元转向 `E6b`：寻找固定版本的外部应用、教程、插件或下游包，确认是否明确把这类 finite decision 接到可执行 main、服务接口或资源内完成承诺；无可回查消费者时登记 `CONSUMER_SOURCE_GAP`，不再用更多库内数学调用点代替。
+`SEM-B01`–`SEM-B03` 均已达到停止条件。finite-decision 线不再扩大同义词搜索；下一单元拟切换到不同 B 机制：在真实反射、证明助手插件或代码生成系统中，寻找“理论已分类/已证明存在”被接到验证器、生成器或服务完成承诺的固定接口。候选必须先具备版本化 consumer 与可运行入口，避免再用纯数学调用者代替 E6b。
 
 ## 集成候选
 
@@ -112,5 +116,6 @@ semantic-overview/**
 3. 评估是否接受 `E6a/E6b/E6c` 三分，避免“理论 consumer”与“有效交付 consumer”混同；
 4. 将 postulated truncation 的 kernel 接受、后端生成与运行失败登记为 Q3/Q4 分层实例，不升级为悖论；
 5. 以后修订扫描器时增加 `weakly-constant` 提示，并以新版本快照刷新 repo-formal 扫描，不覆盖历史 JSON。
+6. 将 finite-decision 外部状态登记为 `E6B_CONSUMER_SOURCE_GAP`，保留第三方 fixed-commit consumer、FFI 实现或完整代码语料三类重开条件。
 
 以上均未提交集成，也不是项目 current truth。
