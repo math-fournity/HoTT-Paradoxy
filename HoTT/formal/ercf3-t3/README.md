@@ -81,6 +81,10 @@
 **运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、stderr 0、
 `INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 行冻结）。
 
+**校验入口**：与 §1.4 同——本目录两个包都在 builtins-only 脉冲链上，`verify_formal_proof_run.py` 会报
+`AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED`（那是 cubical 包的适用域）；canonical 校验入口是
+`verify_proof_version_closure.py` 的 `later_packages` 分支与 run 自身的 `RUN.json` + `index-row-manifest.json`。
+
 **禁止外推**：不给出修复后的编码或其单射性证明；不声称对角引理不可形式化（只说明**当前编码**不可解码）；
 不涉及证明谓词表示性、反射或对角不动点；不改写 `DiagonalCore.agda` 的 `⌜-injective` 命名或任何历史脉冲文件；
 ERCF-3 保持 `GATED`。
