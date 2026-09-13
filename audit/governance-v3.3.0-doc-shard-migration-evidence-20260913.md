@@ -59,6 +59,13 @@
 `git restore --source=governance-v3.2.0-pre-sharding` 精确还原并核对 SHA 后重做；`parse_shard_index` 与迁移工具同时
 修正为“按索引目录解析 + 归一化为仓库相对路径”；该教训写入 `.codex/research/hott/LESSONS.md` 第 74 条。
 
+第二处回归（提交前由最终验证发现）：曾在 `理解章节/README.md` 加一行 C 系列分片说明，但该文件是 merge manifest 的
+`top_level` 条目之一，修改使 manifest 的 `top_level.sha256` 失效，`verify_understanding_merge` 与
+`verify_projection_freshness` 同时报 `TOP_HASH_MISMATCH:README.md` / `MERGE_SOURCE_STALE:README.md:top_level`。
+处置：回退该行（分片路由信息已由合同 §7、根 `AGENTS.md`、`README.md` 与 `MEMORY.md` 索引承担），
+避免为一行注释再开第三个 checkpoint 重签 14 条 record；回退后两个验证器立即恢复 `PASS`。
+结论：**`理解章节/*` 的当前内容与 merge manifest 是互相 pin 的一对，任何编辑都必须连同 manifest 重建与 STATE re-pin 一起做。**
+
 ## 5. C01–C10 影响分类（本轮增量）
 
 | ID | 判定 | 说明 |
