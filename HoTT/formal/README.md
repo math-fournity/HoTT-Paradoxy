@@ -38,6 +38,7 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `ercf3-t3/JointRecursion.agda`：`MP-ERCF3-T3-JOINT-001`；ERCF-3 T3 第十四脉冲——显式共享判定下码级修正替换与语法级替换一致（`C-157`）、**原始逐出现判定的项层恒等式** `substFixT ≡ codeT ∘ substT`（`C-158`，N34 记录的剩余义务）、修正后的公式层恒等式（`C-159`，修正 `CodeStoreFixF` 的 `all` 影子分支双重编码）。同目录 `ObjectSyntax.agda`–`DecisionParam.agda` 是 S067–S080 的脉冲谱系（builtins-only，`PULSE_EVIDENCE_ONLY`）。**ERCF-3 本体保持 `GATED`**：无证明谓词表示性、反射或对角不动点。
 - `ercf3-t3/DecodingFence.agda`：`MP-ERCF3-T3-DECODING-001`；T3 第十五脉冲——编码的**可解码性/单射性围栏**：`codeT (var 2) ≡ codeT (num 0)` 而两项不同，故不存在单射解码器（`C-160`）；同一碰撞提升到公式层（`C-161`）；数字片段单射为正控制（`C-162`）。结论：`ObjectSyntax` 记录的 decodability/injectivity 义务**不能由当前编码满足**，需要标签不相交或列表/配对编码的修复；修复是下一个有界脉冲。**ERCF-3 保持 `GATED`**。
 - `ercf3-t3/CodingRepair.agda`：`MP-ERCF3-T3-REPAIR-SPEC-001`；T3 第十六脉冲——**编码修复规格**：通用引理"有往返解码器 ⇒ 编码单射"（`C-164`）；结构化树编码 `encT/decT` 往返成立故单射（`C-163`，正控制）；当前 `codeT` **不存在解码器**（`C-165`）。修复义务由此固定为"给出 Nat 值编码 + 解码器 + 往返证明"：结构半已完成，算术半（标签不相交或列表编码）是下一有界脉冲。**ERCF-3 保持 `GATED`**。
+- `ercf3-t3/ArithmeticTags.agda`：`MP-ERCF3-T3-ARITH-TAGS-001`；T3 第十七脉冲——**修复编码的算术半第一片**：偶/奇标签算术（`double` 单射、`double n ≢ odd m`，`C-166`）；var/num 片段 Nat 值编码 `codeAtom`（`2n`/`2n+1`）**单射**（`C-167`，链条中第一个 Nat 值单射编码）；编码**非满射**（`1` 无原像）故全解码器需缺省分支（`C-168`）。剩余：应用结点（配对函数）+ 全解码器 + 往返。**ERCF-3 保持 `GATED`**。
 
 ## 锁定环境
 

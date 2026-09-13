@@ -8,6 +8,7 @@
 | `MP-ERCF3-T3-JOINT-001` | `C-157`–`C-159` | `JointRecursion.agda` | `20260913-MP-ERCF3-T3-JOINT-001-02` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_SHARED_DECISION_JOINT_RECURSION` |
 | `MP-ERCF3-T3-DECODING-001` | `C-160`–`C-162` | `DecodingFence.agda` | `20260913-MP-ERCF3-T3-DECODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_DECODABILITY_FENCE` |
 | `MP-ERCF3-T3-REPAIR-SPEC-001` | `C-163`–`C-165` | `CodingRepair.agda` | `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_REPAIR_SPECIFICATION` |
+| `MP-ERCF3-T3-ARITH-TAGS-001` | `C-166`–`C-168` | `ArithmeticTags.agda` | `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT` |
 
 其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
 
@@ -111,3 +112,22 @@ stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 
 
 **校验入口与禁止外推**：与 §1.4/§2 同（builtins-only ⇒ 适用 closure verifier）；不给 Nat 值修复编码本身，
 不涉及 P 表示性/反射/对角不动点，ERCF-3 保持 `GATED`，历史脉冲文件不改写。
+
+---
+
+## 4. `MP-ERCF3-T3-ARITH-TAGS-001`：修复编码的算术半第一片
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-166` | 偶/奇标签算术：`double` 单射（`double n ≡ double m → n ≡ m`）、`double n ≢ odd m`、`odd` 单射（`double n = 2n`、`odd n = 2n+1`） | `double-injective`、`double≠odd`、`odd-injective` |
+| `C-167` | var/num 片段的 Nat 值编码 `codeAtom`（`avar n ↦ 2n`、`anum n ↦ 2n+1`）**单射**——链条中第一个 Nat 值单射编码 | `codeAtom-injective` |
+| `C-168` | 该编码**非满射**（`1` 无原像），故任何**全**解码器必须带缺省分支 | `one-has-no-preimage` |
+
+**剩余算术义务（下一有界脉冲）**：把标签不相交形状扩到应用结点（`_+t_` 需要配对函数），写出带缺省分支的
+**全解码器**，并证明像上的往返（由 C-164 自动得到单射）。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-ARITH-TAGS-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、
+stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 行冻结）。
+
+**禁止外推**：只覆盖 var/num 片段；应用结点与全解码器未做；不涉及 P 表示性/反射/对角不动点；
+ERCF-3 保持 `GATED`；历史脉冲文件不改写。

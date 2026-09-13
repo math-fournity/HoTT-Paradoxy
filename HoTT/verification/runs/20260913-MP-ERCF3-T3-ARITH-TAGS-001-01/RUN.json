@@ -1,0 +1,66 @@
+{
+  "claim_ids": [
+    "C-166",
+    "C-167",
+    "C-168"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/ArithmeticTags.agda"
+  ],
+  "completed_at_utc": "2026-09-13T13:10:20.594252+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.219461,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "db8fc245406b8cf7599e602f3b6b1874fc68e724b4a93f61e2f0d6269c07ab3c"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不给出应用结点（_+t_）的编码，也不给出配对函数或全解码器",
+    "不涉及证明谓词 P 的表示性、反射或对角不动点；ERCF-3 保持 GATED",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence/cubical Path/HIT/truncation",
+    "只覆盖 var/num 片段的编码；不声称完整 Tm 已有 Nat 值单射编码"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
+  "run_id": "20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 第十七脉冲：修复编码的算术半第一片。精确命题：(1) double 单射（double n ≡ double m → n ≡ m）且偶/奇标签互斥（¬ (double n ≡ odd m)），其中 double n = 2n、odd n = 2n+1；(2) var/num 片段的 Nat 值编码 codeAtom（avar n ↦ 2n、anum n ↦ 2n+1）单射——链条中第一个 Nat 值单射编码；(3) 该编码非满射（1 无原像），故任何全解码器必须有缺省分支。剩余算术义务：把标签不相交形状扩到应用结点（需配对函数）并写出带缺省分支的全解码器，再证明像上的往返（由 C-164 自动得到单射）。工具链：Agda 2.8.0-3d04bac、仅 Agda builtins。",
+  "source_manifest": {
+    "bytes": 3157,
+    "path": "source-manifest.json",
+    "sha256": "0b7c4b18c71a0ae84e859bbee04ab24ded137f10fd1ec39b4d117f5c36e01a99"
+  },
+  "started_at_utc": "2026-09-13T13:10:20.374791+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 615,
+    "path": "stdout.txt",
+    "sha256": "5500fe76be06703b66f0ecc51d28850f8d637105907419ecd2eb34eb762edb93"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

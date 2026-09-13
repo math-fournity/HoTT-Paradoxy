@@ -67,6 +67,7 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20260913-MP-ERCF3-T3-JOINT-001-01` / `-02` | `MP-ERCF3-T3-JOINT-001` / `C-157`–`C-159` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX`（`-02` 为当前指针） | builtins-only T3 脉冲链；共享判定联合递归 + 原始逐出现判定的项层恒等式 + 修正后的公式层恒等式；`-01` 为 `--safe` pragma 触发 `CoInfectiveImport` 的失败尝试 |
 | `20260913-MP-ERCF3-T3-DECODING-001-01` | `MP-ERCF3-T3-DECODING-001` / `C-160`–`C-162` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；编码可解码性/单射性围栏（`var 2` 与 `num 0` 碰撞 ⇒ 无单射解码器；公式层同碰撞；数字片段正控制） |
 | `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` | `MP-ERCF3-T3-REPAIR-SPEC-001` / `C-163`–`C-165` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；编码修复规格（往返 ⇒ 单射的通用引理；结构化树编码正控制；当前 `codeT` 无解码器的精确否证） |
+| `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MP-ERCF3-T3-ARITH-TAGS-001` / `C-166`–`C-168` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；算术半第一片（偶/奇标签互斥与单射；var/num 片段 Nat 值单射编码；非满射 ⇒ 解码器需缺省分支） |
 
 `index-row-manifest.json` 冻结 proof row 与各 claim row 的精确行哈希。claim matrix 后续只追加新 proof 时，旧 run 不再要求整个不断增长的索引文件保持同 SHA，而是要求自己的原行逐字不变；若任一旧行被改写，verifier fail closed。
 

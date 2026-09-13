@@ -301,3 +301,19 @@ proof_run_root: HoTT/verification/runs
 | C-163 | 结构化（树）编码可解码：`encT : Tm → CodeT`、`decT : CodeT → Tm` 满足 `∀ t → decT (encT t) ≡ t`，故 `encT` 单射（`encT-injective`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `encT-roundtrip`、`encT-injective`；run `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01`。 | 只是**结构**层的正控制；不提供 Nat 值编码，也不解决算术层配对/标签问题。 |
 | C-164 | 通用规格引理：对任意目标类型 `A`，若 `c : Tm → A` 存在往返解码器 `dec`（`∀ t → dec (c t) ≡ t`），则 `c` 单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `roundtrip-implies-injective`；同一 run。 | 只是"修复"的必要规格；不声称任何具体算术编码满足它。 |
 | C-165 | 当前 Nat 编码**不存在解码器**：`Σ (dec : Nat → Tm), (∀ t → dec (codeT t) ≡ t)` 蕴含 `Empty`。这正是"修复编码"义务的精确形式。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-decoder-for-codeT`（由 C-164 与 `DecodingFence.no-injective-codeT` 合取）；同一 run。 | 只针对 `DiagonalCore.codeT`；不推出 Nat 值编码不可能，也不改变 ERCF-3 状态。 |
+
+## 追加登记：MP-ERCF3-T3-ARITH-TAGS-001（T3 修复编码的算术半第一片，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` 的 `RUN.json`。
+> 只覆盖 var/num 片段的标签不相交算术；不给出应用结点编码与全解码器，不进入 ERCF-3 本体（`GATED` 不变）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-ARITH-TAGS-001` | `C-166`–`C-168` | `formal/ercf3-t3/ArithmeticTags.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DecodingFence.agda`、`CodingRepair.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-ARITH-TAGS-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-166 | 偶/奇标签的算术核心：`double` 单射（`(n m : Nat) → double n ≡ double m → n ≡ m`）且 `double n ≢ odd m`（`double n = 2n`、`odd m = 2m+1`），另有 `odd` 单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `double-injective`、`double≠odd`、`odd-injective`；run `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01`。 | 只到 `double`/`odd` 两个具体函数；不声称一般模算术引理已形式化。 |
+| C-167 | var/num 片段上的 Nat 值编码 `codeAtom`（`avar n ↦ 2n`、`anum n ↦ 2n+1`）**单射**——本链条第一个 Nat 值单射编码。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeAtom-injective`；同一 run。 | 只覆盖 var/num 片段；应用结点 `_+t_` 尚未编码，故不声称完整 `Tm` 已有 Nat 值单射编码。 |
+| C-168 | 该编码**非满射**：`1` 没有原像（`¬ Σ m, double m ≡ 1`），因此任何**全**解码器必须带缺省分支。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `one-has-no-preimage`；同一 run。 | 只是解码器形态的控制；不构造解码器本身，也不涉及码的语义解释。 |
