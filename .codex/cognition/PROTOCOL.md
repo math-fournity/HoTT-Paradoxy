@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v2.6`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v2.7`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
 
 ## 1. 目标和边界
 
@@ -29,9 +29,10 @@
    命中 `governance-shard-index:v2` 时，"逐文件读到真实 EOF" 等于**索引 + 按 table 顺序的全部分片**；缺任一片、未列片、标题或 `last_shard`/`append_target` 不符即未完成全文加载，降至 `BLOCKED_FULL_TRIO_COGNITION` 或重启加载。
 4. governance profile 加载四件套、启动核和最新短 Session；research profile 再加载业务 Skill、三问、FRONTIER、LESSONS、RESUME。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
 5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；`research_parent`/`related_records` 只做谱系与叙事导航，不递归水合。显式水合后的正文必须全文读，不能用 query 输出替代；同时必须检查 plan 的 `hydration_diagnostics.document_count`、`total_bytes`、`total_lines`、`query_first_promoted` 和 largest documents，不能把 `review_required=[]` 当成上下文可装配性证明。
-6. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
-7. 记录 load snapshot：profile/task、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、总 bytes/lines、Git HEAD 和 dirty。加载变化或截断时重启；四件套无法全文保有则 `BLOCKED_FULL_SET_COGNITION`，优先移出四件套之外的载荷而非裁剪 core。
-8. 形成本轮 closure statement：目标、范围、授权、当前完整 KC 范围、profile/task hydration、理论配置、证据缺口、四件套交叉结果、风险最高的误判和最小可验动作。
+6. linked worktree 中，task plan 和 canonical verifier 的决定性输入必须由顶层 Git tracked file/snapshot 或 exact pinned locator 恢复。发现 `workspace/**`、顶层 `AI对话录/**`、其它 ignored/untracked working path 或静默主-checkout fallback 时，进入 `BLOCKED_WORKTREE_EVIDENCE_PORTABILITY`；先按 `docs/quality/Git多Worktree证据可移植性合同.md` 改路由/导入并在 fresh worktree 验收。
+7. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
+8. 记录 load snapshot：profile/task、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、总 bytes/lines、Git HEAD 和 dirty。加载变化或截断时重启；四件套无法全文保有则 `BLOCKED_FULL_SET_COGNITION`，优先移出四件套之外的载荷而非裁剪 core。
+9. 形成本轮 closure statement：目标、范围、授权、当前完整 KC 范围、profile/task hydration、理论配置、证据缺口、四件套交叉结果、风险最高的误判和最小可验动作。
 
 工具报告 `FULL_EMITTED_BYTES_MATCH` 只表示读出字节与文件 hash 匹配，字段 `model_context` 必须保持 `NOT_CERTIFIED_BY_TOOL`。模型不能保留全文时必须公开降级，不能把“读过摘要”写成全文闭包。
 
@@ -106,6 +107,6 @@ checkpoint 只能保存状态，不能替代数学证明。代码存在、Python
 
 ## 7. 失败、未知与停止条件
 
-以下情况必须保留为负结论或未知：来源被用户移走、原始附件正文缺失、AI 只宣称未落盘、旧 validator 依赖不存在路径、代码没有实际运行、运行只覆盖有限样本、普通逻辑界限被写成 HoTT 独有、理论定义被写成可执行算法、以及无法证明完整覆盖。任务可在证据足够时结束，不为了“看起来完整”引入数据库、常驻审计 AI、每函数 trace 或无必要的审批平台。
+以下情况必须保留为负结论或未知：来源被用户移走、原始附件正文缺失、AI 只宣称未落盘、旧 validator 依赖不存在路径、linked worktree 缺失 ignored 决定性证据、代码没有实际运行、运行只覆盖有限样本、普通逻辑界限被写成 HoTT 独有、理论定义被写成可执行算法、以及无法证明完整覆盖。任务可在证据足够时结束，不为了“看起来完整”引入数据库、常驻审计 AI、每函数 trace 或无必要的审批平台。
 
 本 repo 的交接完成判据是：入口可发现、source boundaries 明确、原文可重放、账本可核验、关键冲突和未知显式存在、future AI 有启动/结束路径。数学结论另按 HoTT 规则、证明工具和现实解释分别验收。

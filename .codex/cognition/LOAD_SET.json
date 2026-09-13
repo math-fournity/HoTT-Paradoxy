@@ -1,6 +1,6 @@
 {
   "schema_version": "cognition-load-set/v4",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "policy": "FULL_SET_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
   "default_profile": "governance",
   "always_full_documents": [
@@ -68,6 +68,8 @@
     "scripts/audit/verify_understanding_merge.py",
     "scripts/audit/verify_cross_source_reconciliation.py",
     "scripts/audit/verify_fresh_three_way.py",
+    "scripts/audit/import_worktree_portability_sources.py",
+    "docs/quality/Git多Worktree证据可移植性合同.md",
     ".codex/tools/cognition_runtime.py"
   ],
   "dynamic_state": ".codex/research/hott/STATE.json",
@@ -89,6 +91,15 @@
   "checkpoint_application_receipt": ".codex/cognition/checkpoints/<session-id>/result.json",
   "model_context_certification": "NOT_PROVIDED_BY_TOOLS",
   "source_removal_policy": "USER_REMOVED_PATHS_REMAIN_EXPLICIT_AND_UNPROVEN",
+  "worktree_evidence_policy": {
+    "schema": "worktree-evidence-portability/v1",
+    "current_decisive_input": "TOP_LEVEL_GIT_TRACKED_OR_EXACT_PINNED_LOCATOR",
+    "ignored_working_tree": "PROVENANCE_OR_IMPORT_SOURCE_ONLY",
+    "contract": "docs/quality/Git多Worktree证据可移植性合同.md",
+    "import_receipt": "audit/worktree-portability-source-import-20260913.json",
+    "verification": "scripts/audit/import_worktree_portability_sources.py verify --require-tracked",
+    "fresh_acceptance": "five portability task plans plus six canonical verifiers in a new linked worktree without copied ignored islands"
+  },
   "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research",
   "shard_contract": {
     "schema": "governance-shard-index/v2",

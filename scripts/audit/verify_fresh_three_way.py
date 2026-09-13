@@ -16,6 +16,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 FULL_SET = ("核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md")
+PORTABILITY_TASKS = (
+    "A-AISTUDIO-COVERAGE-001",
+    "A-C5-PARADOX-DISTANCE-001",
+    "A-HOTT-RESEARCH-DIRECTION-001",
+    "A-WEBGPT-R041-PAPER-001",
+    "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+)
 
 
 def load_runtime(root: Path):
@@ -30,6 +37,27 @@ def load_runtime(root: Path):
 
 def sha(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def tracked_paths(root: Path) -> set[str]:
+    result = subprocess.run(
+        ["git", "ls-files", "--cached", "-z"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    if result.returncode != 0:
+        raise SystemExit(f"FAIL git ls-files: {result.stderr.strip()}")
+    return {item for item in result.stdout.split("\0") if item}
+
+
+def assert_plan_tracked(plan: dict, tracked: set[str], label: str) -> None:
+    missing = sorted(row["path"] for row in plan["documents"] if row["path"] not in tracked)
+    if missing:
+        raise SystemExit(f"FAIL untracked plan documents {label}: {missing}")
 
 
 def read_plan(runtime, root: Path, plan: dict, profile: str, task_ids=()) -> tuple[list[dict], dict]:
@@ -55,9 +83,12 @@ def main() -> int:
     args = parser.parse_args()
     root = args.project_root.resolve()
     runtime = load_runtime(root)
+    tracked = tracked_paths(root)
 
     governance = runtime.plan(root, profile="governance")
     research = runtime.plan(root, profile="research")
+    assert_plan_tracked(governance, tracked, "governance")
+    assert_plan_tracked(research, tracked, "research")
     if tuple(governance["full_set_documents"]) != FULL_SET:
         raise SystemExit("FAIL governance full-set identity")
     # A trio member may itself be a v2 logical document: its index stays at the
@@ -107,10 +138,23 @@ def main() -> int:
             "status": "FULL_EMITTED_BYTES_MATCH"
         })
 
-    query = runtime.query_record(root, "A-AISTUDIO-COVERAGE-001")
-    hydrated = runtime.plan(root, profile="research", task_ids=("A-AISTUDIO-COVERAGE-001",))
-    if "A-AISTUDIO-COVERAGE-001" not in hydrated["hydrated_records"]:
-        raise SystemExit("FAIL explicit task hydration")
+    portable_hydrations: dict[str, dict[str, object]] = {}
+    for record_id in PORTABILITY_TASKS:
+        query_result = runtime.query_record(root, record_id)
+        task_plan = runtime.plan(root, profile="research", task_ids=(record_id,))
+        if record_id not in task_plan["hydrated_records"]:
+            raise SystemExit(f"FAIL explicit task hydration: {record_id}")
+        assert_plan_tracked(task_plan, tracked, record_id)
+        portable_hydrations[record_id] = {
+            "lifecycle_status": query_result["lifecycle_status"],
+            "evidence_status": query_result["evidence_status"],
+            "snapshot": task_plan["snapshot"],
+            "documents": len(task_plan["documents"]),
+            "hydrated_records": task_plan["hydrated_records"],
+            "untracked_documents": [],
+        }
+    query = runtime.query_record(root, PORTABILITY_TASKS[0])
+    hydrated = runtime.plan(root, profile="research", task_ids=(PORTABILITY_TASKS[0],))
     if hydrated["snapshot"] in {governance["snapshot"], research["snapshot"]}:
         raise SystemExit("FAIL task hydration snapshot identity")
 
@@ -151,6 +195,11 @@ s.loader.exec_module(m)
 root = pathlib.Path({str(root)!r})
 g = m.plan(root, profile='governance')
 r = m.plan(root, profile='research')
+portability = {{}}
+for record_id in {list(PORTABILITY_TASKS)!r}:
+    task = m.plan(root, profile='research', task_ids=(record_id,))
+    portability[record_id] = {{'snapshot': task['snapshot'], 'documents': len(task['documents']),
+                               'hydrated': record_id in task['hydrated_records']}}
 trio = []
 for rel in {list(FULL_SET)!r}:
     i = next(idx for idx, x in enumerate(g['documents']) if x['path'] == rel)
@@ -165,6 +214,7 @@ print(json.dumps({{
     'r': {{'snapshot': r['snapshot'], 'documents': len(r['documents']), 'bytes': r['total_bytes']}},
     'trio': trio,
     'historical': g['automatically_included_historical_sessions'],
+    'portability': portability,
     'model_context': g['model_context'],
 }}))
 """
@@ -176,9 +226,11 @@ print(json.dumps({{
     positions = [row[1] for row in fresh_child["trio"]]
     if positions != sorted(positions) or fresh_child["historical"] != []:
         raise SystemExit("FAIL fresh child layered policy")
+    if not all(row["hydrated"] for row in fresh_child["portability"].values()):
+        raise SystemExit("FAIL fresh child portability hydration")
 
     receipt = {
-        "schema_version": "fresh-three-way-verification/v2",
+        "schema_version": "fresh-three-way-verification/v3",
         "status": "PASS_WITH_SCOPE",
         "revision": governance["revision"],
         "full_set_order": list(FULL_SET),
@@ -195,6 +247,11 @@ print(json.dumps({{
             "record": query["record_id"], "snapshot": hydrated["snapshot"],
             "documents": len(hydrated["documents"]), "hydrated_records": hydrated["hydrated_records"]
         },
+        "portable_task_hydrations": portable_hydrations,
+        "tracked_input_policy": {
+            "status": "ALL_DEFAULT_AND_PORTABILITY_TASK_DOCUMENTS_TRACKED",
+            "tasks": list(PORTABILITY_TASKS),
+        },
         "cold_assets_absent_from_default": sorted(cold),
         "historical_sessions_auto_loaded": [],
         "negative_cases": negatives,
@@ -202,7 +259,7 @@ print(json.dumps({{
         "model_context": "NOT_CERTIFIED_BY_TOOL",
         "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED",
         "mathematics": "NOT_CERTIFIED",
-        "interpretation": "Fresh Python processes verified exact trio bytes, layered plans, explicit hydration and fail-closed negatives. No model ingestion/comprehension claim is made."
+        "interpretation": "Fresh Python processes verified exact four-document-set bytes, layered plans, five worktree-portability task hydrations, tracked inputs and fail-closed negatives. No model ingestion/comprehension claim is made."
     }
     output = root / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -211,6 +268,7 @@ print(json.dumps({{
         "status": receipt["status"], "revision": receipt["revision"],
         "governance_documents": receipt["profiles"]["governance"]["documents"],
         "research_documents": receipt["profiles"]["research"]["documents"],
+        "portable_task_hydrations": len(receipt["portable_task_hydrations"]),
         "negative_cases": list(negatives), "model_behavior": receipt["model_behavior"]
     }, ensure_ascii=False))
     return 0

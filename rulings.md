@@ -23,6 +23,7 @@
 19. 用户在审阅《从抽象到悖论——HoTT研究的核心问题意识与思想展开》后说“甚至我们要从三件套升级到四件套”，并在给出的 A/B/C 三方案中选择 **A**。该授权在本地顶层 repo 内覆盖：(a) 把该长文提升为常驻的**第四件**逻辑文档——索引 + 全部分片，每次新 Session/压缩恢复全文加载；(b) 其角色是 **AI 阐释层**（`AI_EXPOSITION_LAYER`，`essay-role:v1`），不是用户原文权威：`核心认知.md` 仍是唯一用户原文权威，长文不产出数学结论、不得反向改写原文；(c) 长文分片（5 片）、索引首屏 banner 与角色声明，并原位修正其“不改变加载配置”的旧自述；(d) 加载链同步升级：runtime 3.6.0（四元 `FULL_SET`、LOAD_SET schema v4、逐 KC 审计新增 `essay_change` 字段）、LOAD_SET 4.0.0、PROTOCOL v2.6、本地治理 Skill 3.6.0、AGENTS/合同/Feature 同步；(e) 本地 annotated MAJOR tag `governance-v4.0.0`，不 push。原文 generation 变化时，长文必须按新原文重新检查覆盖与展开，不得把某一版永久冒充最新。
 20. 用户说明当前接管的是关于“统观”的第一次尝试，另一个 AI 对话窗口正在进行第二次系统化统观，并要求当前 AI 评估应合并、整体交接还是分别探索。用户把该工作线组织判断交给当前 AI，但没有授权直接改写另一 AI 的活动 worktree、合并分支、push 或发布。当前决策见 `docs/decisions/统观双轨协作与阶段汇合决策-20260913.md`：保留语义/研究统观与机器统观两条独立工作线，通过冻结任务和证据包阶段汇合；主库保持唯一 current truth。机器线在最新复审仍为 `REQUEST_CHANGES` 且存在活动 dirty 修复，因此当前不整体交接、不合并；后续代码集成、结果吸收和职责变化分别按 Gate A/B/C 重新验收。
 21. 用户追问当前 AI 实际在哪个 Git worktree 工作、是否接受原项目目录内的定制治理，以及两个 AI 未来怎样通信。当前回答必须明确区分 Codex task 启动 cwd、实际 current 写入根和 Git common-dir；不能因共享 repo 或文件可见就声称 AI 已通信。未来采用控制/证据双通道：Codex task message 只传有界动作、exact ref 与 packet locator，Git commit/不可变证据包承担可审计事实；每个 AI 只写自己的 worktree，主库由 S 轨/汇合者维护。当前只授权设计、任务发现与只读核对；本次追问不被解释为已经授权向另一任务发送消息、打断其活动 turn、合并、push 或 tag。
+22. 用户在看到 linked worktree 仅有 4/6 canonical verifier 通过、三个 ignored evidence island 使 hydration/验证依赖主 checkout 的机器证据后明确要求“你把这事做了吧”。本授权覆盖在 `codex/semantic-overview` worktree 中完成项目治理候选修复：把旧 source bytes 保全为顶层 tracked snapshot，把 current stable records 改到 tracked 等价路径，修正 understanding generator/verifier、fresh task coverage、AGENTS/Skill/PROTOCOL/Feature/状态与 checkpoint，并在没有手工复制 ignored island 的 fresh linked worktree做正负验收及精确提交。本授权不要求改写原 `AI对话录/`/`workspace/` nested repos，不自动把 candidate merge 到 `main`，也不授权 push、共享 tag 或干预另一 AI 的 dirty worktree。
 
 ## 2026-09-12：核心认知作为反训练惯性的上下文工程（用户原文）
 
@@ -52,4 +53,10 @@
 
 ~~~text
 按照你的建议处理
+~~~
+
+## 2026-09-13：执行 Git worktree 证据可移植性修复（用户原文）
+
+~~~text
+你把这事做了吧
 ~~~

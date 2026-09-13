@@ -11,6 +11,26 @@
 - `/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求已移走且不恢复。`sources/local-gpt/HoTT_is_GONE_COMPLETE.md` 是有 hash 的历史 AI 产物，不是已经证明覆盖原目录的事实；覆盖结论必须标为 `NOT_PROVEN`，不得将旧 validator 的缺源 PASS 当成认证。
 - `private-audit/` 被忽略并按最小权限保存本机 Codex 原始 trajectory。它是只读审计输入，不进入公开提交；审计 LocalGPT 时必须使用 canonical `session_trajectory.py`，不能另写 inline trajectory parser，也不能从隐藏推理推断事实。
 
+## Git worktree 证据可移植性
+
+标识：`WORKTREE_EVIDENCE_PORTABILITY_V1`。`AI对话录/`、`workspace/` 和其它 ignored 本地
+目录可以保留为来源岛，但不能成为 current cognition hydration 或 canonical verifier 的隐含
+必需输入。`STATE.records[*].full_sources`、`resolution.evidence`、current source hash 与 verifier
+决定性路径必须指向顶层 Git tracked file/snapshot，或另有同时固定 repo、commit、path、bytes
+和 SHA-256 的显式 locator；缺失时 fail closed，禁止静默回退到主 checkout。
+
+- WebGPT current evidence 统一从 `sources/webgpt/workspace-snapshot/` 读取；原 `workspace/**`
+  路径只作 provenance。
+- understanding merge 的历史侧从 tracked
+  `sources/understanding-transform/AI对话录/理解章节/` 读取；原 nested repo 不参与 current PASS。
+- LocalGPT `HoTT_is_GONE_COMPLETE.md` current 路由为
+  `sources/local-gpt/HoTT_is_GONE_COMPLETE.md`；完整 `ALL-Markdown-root` 树仍是历史外部快照。
+- 新增或迁移决定性证据后，必须从候选 commit 创建无手工复制 ignored island 的 fresh linked
+  worktree，运行五个 portability task plans、六类 canonical verifier 和 import hash 检查。
+
+完整合同：`docs/quality/Git多Worktree证据可移植性合同.md`；字节导入 manager：
+`scripts/audit/import_worktree_portability_sources.py`。
+
 ## 启动闭包（每个新 Session、压缩恢复、跨目录接手）
 
 1. 先读本文件、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`，确认当前需求、当前状态、开放问题和来源边界。
