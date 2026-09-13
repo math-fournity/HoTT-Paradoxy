@@ -1,0 +1,39 @@
+{
+  "session_id": "S-GOV-20260913-MACHINE-OVERVIEW-M1-HANDOFF",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "head_before": "56c4306",
+  "deliverable": "machine-overview/HANDOFF-20260913.md",
+  "export_copy": "/Volumes/D/HoTT独立答复/交接说明-机器统观M1-20260913.md",
+  "sections": 18,
+  "new_math_claims": [],
+  "new_runs": [],
+  "tests_reference": {"existing": 12, "audit_regressions": 17, "total": 29},
+  "state_snapshot": {
+    "search_run": "20260913-SEARCH-L1-003",
+    "checks": "4788/4788",
+    "witnesses": 50,
+    "families": {"deadline": 14, "value": 28, "completion": 8},
+    "verify_runs": [
+      "20260913-VERIFY-L1-POSTFIX-DEADLINE-001",
+      "20260913-VERIFY-L1-POSTFIX-VALUE-001",
+      "20260913-VERIFY-L1-POSTFIX-COMPLETION-001"
+    ],
+    "validate": "VALID (11 runs, 7 legacy-attested, 1 interrupted)",
+    "selftest": "29/29 OK"
+  },
+  "handoff_rules_for_receiver": [
+    "startup closure + four-piece full load if working inside this repo",
+    "per-KC audit + session record at the end of each unit",
+    "no push/tag/merge without explicit user authorization",
+    "never edit committed receipts; add new runs/revisions/attestations",
+    "calibration receipts are not mathematical claims"
+  ],
+  "remaining_gaps": [
+    "M2-M5 not implemented",
+    "canonical capture requires .git directory (worktree incompatible)",
+    "two canonical verifiers need gitignored nested assets",
+    "cache state not declared in the profile",
+    "OS-level candidate isolation not implemented"
+  ]
+}
