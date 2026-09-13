@@ -1,0 +1,60 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L1-DELAY-RACE-DEADLINE-v1",
+  "value_type": "Bool (Cubical.Data.Bool.Base)",
+  "include_omega": true,
+  "delay_index_max": 2,
+  "race_partner_index_max": 2,
+  "context_depth_max": 2,
+  "deadline_horizons": [0, 1, 2],
+  "reduction_guard": {
+    "never_drop_kinds": ["deadline"],
+    "never_drop_continuation_ids": ["deliver_business"],
+    "reason": "Reduction must preserve the task-declared consumer. A deadline witness keeps its deadline and the business-continuation family keeps its declared continuation; parameters (indices, horizons) may still shrink. Without this guard, greedy reduction turns the completion-gap witness into a smaller raw-race witness and silently changes the task the candidate answers."
+  },
+  "revision_note": "v1 over v0: added reduction_guard after the first search run (20260913-SEARCH-L1-001) showed that unguarded reduction collapses the completion-divergence family into the raw-race family. Search space and budgets are unchanged.",
+  "bind_continuations": [
+    {
+      "id": "deliver_business",
+      "map": {
+        "true": {"kind": "ret", "n": 0, "value": true},
+        "false": {"kind": "omega"}
+      }
+    },
+    {
+      "id": "keeping_result",
+      "map": {
+        "true": {"kind": "ret", "n": 0, "value": true},
+        "false": {"kind": "ret", "n": 0, "value": false}
+      }
+    },
+    {
+      "id": "const_true",
+      "map": {
+        "true": {"kind": "ret", "n": 0, "value": true},
+        "false": {"kind": "ret", "n": 0, "value": true}
+      }
+    },
+    {
+      "id": "const_omega",
+      "map": {
+        "true": {"kind": "omega"},
+        "false": {"kind": "omega"}
+      }
+    }
+  ],
+  "calibration_benchmark": {
+    "id": "R041-C73-C74-BENCHMARK",
+    "pair": {
+      "left": {"kind": "ret", "n": 0, "value": true},
+      "right": {"kind": "ret", "n": 2, "value": true}
+    },
+    "ops": [
+      {"kind": "race_left", "partner": {"kind": "ret", "n": 1, "value": false}},
+      {"kind": "bind", "continuation": {"true": {"kind": "ret", "n": 0, "value": true}, "false": {"kind": "omega"}}}
+    ],
+    "claim_refs": ["C-73", "C-74"],
+    "note": "Known external comparison only. The enumerator walks the declared grammar; this entry is used after the run to check that the known mechanism is covered."
+  },
+  "declared_bounds_note": "Complete enumeration of this declared grammar within the budget. This is NOT a claim about all HoTT propositions or models."
+}

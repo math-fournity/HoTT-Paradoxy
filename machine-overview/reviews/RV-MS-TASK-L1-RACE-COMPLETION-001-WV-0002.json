@@ -1,0 +1,87 @@
+{
+  "case_id": "MS-TASK-L1-RACE-COMPLETION-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001/case-revision-2.json",
+  "case_revision": 2,
+  "case_sha256": "b4a7892e0febd9b3d9f7862edf6d8668b96e8104b53428dd66a2100e9fd24985",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json",
+        "revision 1"
+      ],
+      "item": "original activity and completion criterion are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "evidence": [
+        "L1-PARTIALITY-RACE-DEADLINE-v0: supported_operations",
+        "machine-overview/profiles/l1-partiality-v0.json"
+      ],
+      "item": "the theoryization step is an operation of the pinned model",
+      "status": "SUPPORTED"
+    },
+    {
+      "detail": "both consumers are declared in the pinned model; the deadline reads the round index that ret already carries, and the business continuation is part of the task declaration",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json"
+      ],
+      "item": "the separating observation is declared in the task, not an oracle added later",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "the business continuation is part of the declared task input, not invented after seeing the candidate",
+      "evidence": [
+        "machine-overview/profiles/l1-partiality-v0.json"
+      ],
+      "item": "compensation class of the consumer",
+      "status": "PRE_KEPT_BY_TASK_DECLARATION"
+    },
+    {
+      "detail": "the verified statement is a ground instance; no universal or physical claim is made",
+      "evidence": [
+        "machine-overview/grammars/l1-v1.json"
+      ],
+      "item": "quantifier scope of the claim",
+      "status": "FINITE_DECLARED_GRAMMAR_ONLY"
+    },
+    {
+      "detail": "the run is a model-level calibration instance; a real consumer would be a separate E6-style audit",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json"
+      ],
+      "item": "reality bridge",
+      "status": "NOT_CLOSED_IN_M1"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "MODEL_ONLY_OPERATIONALLY_SPECIFIED",
+    "new_claim": false,
+    "open_obligations": [
+      "a real consumer (E6-style) is out of scope for this calibration",
+      "the physical reading of time is not addressed by this fragment"
+    ],
+    "reality_correspondence": "UNRESOLVED",
+    "related_claims": [
+      "C-73",
+      "C-74",
+      "C-75",
+      "C-76"
+    ],
+    "research_relation": "calibration",
+    "task_preservation": "PRESERVED_AT_MODEL_LEVEL"
+  },
+  "created_at_utc": "2026-09-13T14:28:56.784257+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "fc79094a79ceeeb3a19fa76b03f263d52538a918",
+    "tracked_dirty": false,
+    "tracked_dirty_entries": 0,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_summary": "race reads completion order; the composed business continuation turns the losing branch into divergence",
+  "review_id": "RV-MS-TASK-L1-RACE-COMPLETION-001-WV-0002",
+  "schema_version": "machine-overview-correspondence-review/v1",
+  "witness_id": "WV-0002"
+}

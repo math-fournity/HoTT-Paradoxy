@@ -1,0 +1,85 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L1-RACE-COMPLETION-001",
+  "revision": 1,
+  "purpose": "A declared service must deliver a value within a deadline; the theory side identifies computations by result equivalence (≈), which forgets the round index. Find whether the declared consumers still complete the original activity on every result-equivalent pair.",
+  "source_basis": {
+    "kind": "independent task construction over a pinned existing model",
+    "references": [
+      "R041 proof note sections 3-6 (external paper note, already replayed in this repo)",
+      "MP-RACE-TIMEOUT-001 claims C-73-C-76",
+      "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md rows #2 and #5"
+    ]
+  },
+  "input": {
+    "type_ref": "ground terms of Delay Bool: ω or ret n b with n ≤ 2 (declared grammar)",
+    "available_information": "only what the pinned model's constructors and operations expose"
+  },
+  "environment": {
+    "arrival_policy": "synchronous rounds; later adds one round",
+    "nondeterminism": "none inside the fragment (single-thread deterministic delay)",
+    "fairness": "race is synchronous with left priority on ties, as pinned"
+  },
+  "observation": {
+    "value": "Bool carried by ret",
+    "trace": "round index n is carried by ret but is invisible to ≈",
+    "time_structure": "discrete synchronous rounds only; no continuity or physical-time claim"
+  },
+  "completion": {
+    "kind": "bounded",
+    "criterion_ref": "deadline k returns a value within k rounds; the composed business continuation terminates on the delivered value"
+  },
+  "quantifiers": {
+    "instances": "finite (the declared grammar)",
+    "realization": "strategy"
+  },
+  "allowed_resources": "finite enumeration budget; one native kernel check per selected witness",
+  "prohibited_extra_information": "the separating consumer may not use information the original task was declared not to hold: no labels, no branch tags, no oracle. The business continuation is part of the task and is declared up front.",
+  "assumptions": [
+    "the fragment is the pinned R041 delay model, not general partiality",
+    "the deadline / business continuation are declared consumers of the same original activity",
+    "no physical-time or implementation claim is made"
+  ],
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "the separating consumer must be one of the declared consumers, not an oracle added after seeing a candidate",
+    "a calibration instance must not be upgraded into a new mathematical claim"
+  ],
+  "known_positive_controls": [
+    {
+      "id": "R041-COMPLETION-GAP",
+      "pair": {"left": {"kind": "ret", "n": 0, "value": true}, "right": {"kind": "ret", "n": 2, "value": true}},
+      "context": [
+        {"kind": "race_left", "partner": {"kind": "ret", "n": 1, "value": false}},
+        {"kind": "bind", "continuation": {"true": {"kind": "ret", "n": 0, "value": true}, "false": {"kind": "omega"}}}
+      ],
+      "claim_refs": ["C-73", "C-74"],
+      "note": "external benchmark only; the search is not given this answer"
+    }
+  ],
+  "known_negative_controls": [
+    {
+      "id": "deadline-same-horizon",
+      "description": "a deadline horizon at or above both round indices cannot separate the pair",
+      "expected": "NOT_SEPARATED"
+    }
+  ],
+  "claim_refs": ["C-73", "C-74", "C-75", "C-76"],
+  "correspondence": {
+    "original_activity": "a service that must deliver a value within a deadline after racing two branches; the losing branch value is a declared failure for this service",
+    "theoryization_steps": [
+      "model each branch as a single-thread deterministic delay",
+      "identify computations by result equivalence ≈, as pinned in the model",
+      "compose with the declared consumer (deadline, or race followed by the business continuation)"
+    ],
+    "observation_justification": "both consumers are declared in the pinned model; the deadline reads the round index that ret already carries, and the business continuation is part of the task declaration",
+    "preservation_claims": [
+      "the input domain, the value type and the delivery requirement are unchanged from the task declaration",
+      "only the declared consumers are applied; no extra branch information is exposed"
+    ],
+    "open_obligations": [
+      "a real consumer (E6-style) is out of scope for this calibration",
+      "the physical reading of time is not addressed by this fragment"
+    ]
+  }
+}

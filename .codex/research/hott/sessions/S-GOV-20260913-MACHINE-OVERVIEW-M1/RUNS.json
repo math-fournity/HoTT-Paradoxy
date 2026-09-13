@@ -1,0 +1,42 @@
+{
+  "session_id": "S-GOV-20260913-MACHINE-OVERVIEW-M1",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "base_commit": "fc79094a79ceeeb3a19fa76b03f263d52538a918",
+  "push": "NOT_AUTHORIZED",
+  "new_math_claims": [],
+  "claim_relation": "calibration instances of existing C-73-C-75 mechanism; not registered in HoTT/CLAIM_EVIDENCE_MATRIX.md",
+  "toolchain": {
+    "agda": "2.8.0-3d04bac",
+    "agda_binary_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+    "cubical": "0.9",
+    "cubical_tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"
+  },
+  "interface_qualification": {
+    "profile": "machine-overview/profiles/l1-partiality-v0.json",
+    "profile_status": "PROFILE_QUALIFIED",
+    "checks": "agda binary pin, cubical library-file pin, cubical source-tree pin, library registry, source sha256, 20 declared symbols"
+  },
+  "search_runs": [
+    {"run": "machine-overview/runs/20260913-SEARCH-L1-001", "case_revision": 1, "grammar": "l1-v0", "witnesses": 42, "note": "first run; unguarded reduction collapsed completion witnesses into raw race witnesses"},
+    {"run": "machine-overview/runs/20260913-SEARCH-L1-002", "case_revision": 2, "grammar": "l1-v1", "witnesses": 50, "statistics": {"checks": 4788, "separations": 916, "complete_within_declared_grammar": true}}
+  ],
+  "verify_runs": [
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-DEADLINE-001", "witness": "WV-0001", "family": "deadline_observation", "status": "NATIVE_CHECKED_CALIBRATION_INSTANCE"},
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-VALUE-001", "witness": "WV-0002", "family": "value_mismatch", "status": "NATIVE_CHECK_FAILED", "note": "kept: lemma orientation defect found by the kernel"},
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-VALUE-002", "witness": "WV-0002", "family": "value_mismatch", "status": "NATIVE_CHECKED_CALIBRATION_INSTANCE"},
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-COMPLETION-001", "witness": "WV-0013", "family": "completion_divergence", "status": "NATIVE_CHECK_FAILED", "note": "kept: missing re-export defect found by the kernel"},
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-COMPLETION-002", "witness": "WV-0013", "family": "completion_divergence", "status": "NATIVE_CHECKED_CALIBRATION_INSTANCE"}
+  ],
+  "rejected_candidate_demo": {
+    "command": "verify --proof-file machine-overview/tests/fixtures/rejected-postulate-proof.agda",
+    "result": "CANDIDATE_FORBIDDEN_DECLARATION:external_file:postulate",
+    "side_effects": "none (run id not consumed, no run directory)"
+  },
+  "tests": {"selftest": "12/12 OK", "workspace_validate": "VALID (2 case revisions, 7 runs)"},
+  "integration_gaps": [
+    "capture_agda_proof_run.py rejects a linked worktree because .git is a file (PROJECT_GIT_ROOT_REQUIRED); canonical F-011 capture + claim-matrix delivery belongs to M5",
+    "cvc5 / Alloy / egg backends are not installed on this host",
+    "main-line STATE/projection/checkpoint writes were not executed"
+  ]
+}

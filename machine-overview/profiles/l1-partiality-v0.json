@@ -1,0 +1,50 @@
+{
+  "schema_version": "machine-overview-profile/v1",
+  "profile_id": "L1-PARTIALITY-RACE-DEADLINE-v0",
+  "theory_variant": "Cubical Agda native Path + HIT set quotients as imported by the pinned R041 model; the declared search fragment uses only the model's own constructors and operations",
+  "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+  "library_registry": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+  "sources": [
+    {
+      "path": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "role": "pinned R041 delay model and known calibration claims",
+      "sha256": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+      "symbols": [
+        {"name": "data Delay", "kind": "data", "lines": [37, 39]},
+        {"name": "later", "kind": "operation", "lines": [41, 44]},
+        {"name": "iterLater", "kind": "operation", "lines": [45, 49]},
+        {"name": "Conv", "kind": "definition", "lines": [50, 54]},
+        {"name": "_≈_", "kind": "relation", "lines": [87, 90]},
+        {"name": "_bind_", "kind": "operation", "lines": [114, 120]},
+        {"name": "_race_", "kind": "operation", "lines": [121, 129]},
+        {"name": "data Optional", "kind": "data", "lines": [131, 133]},
+        {"name": "deadline", "kind": "operation", "lines": [135, 137]},
+        {"name": "bind-cong", "kind": "known-claim-support", "lines": [160, 174]},
+        {"name": "bindQ", "kind": "known-claim-support", "lines": [189, 199]},
+        {"name": "p0", "kind": "calibration-value", "lines": [201, 202]},
+        {"name": "p2", "kind": "calibration-value", "lines": [204, 205]},
+        {"name": "q1", "kind": "calibration-value", "lines": [207, 208]},
+        {"name": "race-noncongruent", "kind": "known-claim", "lines": [214, 216]},
+        {"name": "deliver", "kind": "calibration-continuation", "lines": [218, 220]},
+        {"name": "Composed", "kind": "calibration-context", "lines": [222, 224]},
+        {"name": "completion-gap", "kind": "known-claim", "lines": [226, 227]},
+        {"name": "fromSome", "kind": "definition", "lines": [229, 232]},
+        {"name": "deadline-separation", "kind": "known-claim", "lines": [234, 235]}
+      ]
+    }
+  ],
+  "supported_operations": [
+    {"op": "ret / later / iterLater (ground delays)", "source_lines": [37, 49]},
+    {"op": "bind with a ground Bool-valued continuation", "source_lines": [114, 120]},
+    {"op": "synchronous fair race with left-priority ties", "source_lines": [121, 129]},
+    {"op": "bounded deadline observation (Optional Bool)", "source_lines": [131, 137]}
+  ],
+  "unsupported": [
+    {"item": "general partiality monad / QIIT construction", "reason": "the pinned file models a fixed single-thread delay fragment"},
+    {"item": "guarded / clocked type theory translation", "reason": "not part of the declared fragment; needs its own profile and source lock"},
+    {"item": "arbitrary new HITs invented by the search", "reason": "first version enumerates declared operations only; new HITs require a rule-adaptation task"},
+    {"item": "SyGuS / cvc5 constraint synthesis", "reason": "cvc5 is not installed on this host; declared as a later adapter in the plan"},
+    {"item": "continuity / density / motion-structure models (research line L3)", "reason": "outside this calibration profile; listed in the plan as a separate research line"}
+  ],
+  "notes": "This profile pins one small fragment on purpose. Nothing here covers all of HoTT; the declared bounds are an implementation choice and are reported as such."
+}
