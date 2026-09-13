@@ -39,54 +39,55 @@ RUN_ROOT = Path("HoTT/verification/runs")
 RECEIPT_FILES = ("RUN.json", "stdout.txt", "stderr.txt", "environment.txt", "source-manifest.json")
 FORBIDDEN_TOKENS = ("NATURAL_USAGE_MISMATCH", "INTERNAL_INCONSISTENCY")
 
-# package -> (claims, ledger row label, payment device, device status, verdict token, expected final run)
+# package -> (claims, C11 row id(s) as they appear in the table's first column,
+#             payment device, device status, verdict token, expected final run)
 PACKAGES: dict[str, tuple[str, str, str, str, str, str]] = {
-    "MP-ERCF-001": ("C-59–C-66", "#8 宇宙/自描述的通用骨架", "显式 factorization 条件", "AVAILABLE",
+    "MP-ERCF-001": ("C-59–C-66", "8", "宇宙 + 自描述（通用骨架）", "AVAILABLE",
                     "MACHINE_PROVED_LOCAL_UNCOMMITTED", "20260912-MP-ERCF-001-02"),
-    "MP-ERCF-TRUNC-001": ("C-67–C-70", "#1 截断", "命题消去 + h-level", "AVAILABLE",
+    "MP-ERCF-TRUNC-001": ("C-67–C-70", "1", "命题截断：命题消去 + h-level", "AVAILABLE",
                           "DEFENSE_WORKS", "20260912-MP-ERCF-TRUNC-001-01"),
-    "MP-RACE-TIMEOUT-001": ("C-71–C-76", "#2 商 / #6 总性", "商只在同余操作上下降", "AVAILABLE",
+    "MP-RACE-TIMEOUT-001": ("C-71–C-76", "2", "集合商：只在同余操作上下降", "AVAILABLE",
                             "REPRESENTATION_BOUNDARY", "20260912-MP-RACE-TIMEOUT-001-01"),
-    "MP-CONTEXTUAL-EQUIV-001": ("C-77–C-83", "#2 商 / #6 总性", "上下文族保留时序", "AVAILABLE",
+    "MP-CONTEXTUAL-EQUIV-001": ("C-77–C-83", "2", "集合商：上下文族保留时序", "AVAILABLE",
                                 "REPRESENTATION_BOUNDARY", "20260912-MP-CONTEXTUAL-EQUIV-001-01"),
-    "MP-QUOTIENT-MONAD-001": ("C-84–C-88", "#2 商 / #9 无全局选择", "canonical section 存在", "AVAILABLE",
+    "MP-QUOTIENT-MONAD-001": ("C-84–C-88", "2", "集合商：canonical section 存在", "AVAILABLE",
                               "MONAD_STRUCTURE_CONSTRUCTED", "20260912-MP-QUOTIENT-MONAD-001-01"),
-    "MP-CONTEXT-CHARACTERIZATION-001": ("C-89–C-91", "#2 商", "代表相等已是最细", "AVAILABLE",
+    "MP-CONTEXT-CHARACTERIZATION-001": ("C-89–C-91", "2", "集合商：代表相等已是最细", "AVAILABLE",
                                         "CONTEXTUAL_EQUIVALENCE_FULLY_CHARACTERIZED",
                                         "20260912-MP-CONTEXT-CHARACTERIZATION-001-01"),
-    "MP-GUARD-ERASURE-001": ("C-92–C-95", "#6 总性", "不动点存在性判据", "AVAILABLE",
+    "MP-GUARD-ERASURE-001": ("C-92–C-95", "6b", "阶段流：不动点等价刻画（非判定器）", "AVAILABLE",
                              "GUARD_ERASURE_EQUIVALENT_TO_FIXED_POINT_EXISTENCE",
                              "20260912-MP-GUARD-ERASURE-001-01"),
-    "MP-COST-FACTORIZATION-001": ("C-96–C-99", "#4 funext / #5 判断相等", "细化表示（程序语法 + 成本）", "AVAILABLE",
+    "MP-COST-FACTORIZATION-001": ("C-96–C-99", "5", "计算规则：细化表示（程序语法 + 成本）", "AVAILABLE",
                                   "NON_FACTORIZATION_WITH_COST_REFINEMENT_POSITIVE_CONTROL",
                                   "20260912-MP-COST-FACTORIZATION-001-01"),
-    "MP-PATH-CERTIFICATE-001": ("C-100–C-105", "#3 ua", "显式路径", "AVAILABLE",
+    "MP-PATH-CERTIFICATE-001": ("C-100–C-105", "2b", "univalence：显式路径", "AVAILABLE",
                                 "MERE_MOVE_NON_INHABITED_WITH_NATIVE_PATH_CONTROLS",
                                 "20260912-MP-PATH-CERTIFICATE-001-01"),
-    "MP-ONLINE-CAUSALITY-001": ("C-106–C-109", "#6 总性", "阶段索引 / 前缀模型", "AVAILABLE",
+    "MP-ONLINE-CAUSALITY-001": ("C-106–C-109", "6a", "归纳消去：阶段索引 / 前缀模型", "AVAILABLE",
                                 "ONLINE_CAUSALITY_BOUNDARY_WITH_POSITIVE_CONTROLS",
                                 "20260912-MP-ONLINE-CAUSALITY-001-01"),
-    "MP-TRANSITION-LIFT-001": ("C-110–C-117", "#2 商", "额外等级 / 条件", "AVAILABLE",
+    "MP-TRANSITION-LIFT-001": ("C-110–C-117", "2", "集合商：额外等级 / 条件", "AVAILABLE",
                                "TRANSITION_LIFT_BOUNDARY_WITH_POSITIVE_CONTROLS",
                                "20260912-MP-TRANSITION-LIFT-001-01"),
-    "MP-PARTIAL-DECISION-001": ("C-118–C-123", "#6 总性 / #1 截断", "partial 与 strict 分类器并存", "AVAILABLE",
+    "MP-PARTIAL-DECISION-001": ("C-118–C-123", "6a", "归纳消去：partial 与 strict 分类器并存", "AVAILABLE",
                                 "PARTIAL_DECISION_BOUNDARY_WITH_POSITIVE_CONTROL",
                                 "20260912-MP-PARTIAL-DECISION-001-01"),
-    "MP-SIP-REPRESENTATION-001": ("C-124–C-128", "#3 ua", "结构签名内替换", "AVAILABLE",
+    "MP-SIP-REPRESENTATION-001": ("C-124–C-128", "2b", "univalence：结构签名内替换", "AVAILABLE",
                                   "SIP_REPRESENTATION_BOUNDARY_WITH_POSITIVE_CONTROL",
                                   "20260912-MP-SIP-REPRESENTATION-001-01"),
-    "MP-CAUCHY-MODULUS-001": ("C-129–C-133", "#3 ua", "modulus 可纳入同一性", "AVAILABLE",
+    "MP-CAUCHY-MODULUS-001": ("C-129–C-133", "2b", "univalence：modulus 可纳入同一性", "AVAILABLE",
                               "CAUCHY_MODULUS_BOUNDARY_WITH_POSITIVE_CONTROLS",
                               "20260912-MP-CAUCHY-MODULUS-001-01"),
-    "MP-TRUNC-NORECOVERY-001": ("C-134–C-141", "#1 截断", "集合值消费者强制相等", "AVAILABLE",
+    "MP-TRUNC-NORECOVERY-001": ("C-134–C-141", "1", "命题截断：集合值消费者强制相等", "AVAILABLE",
                                 "SET_VALUED_TRUNCATION_NO_RECOVERY_FAMILY",
                                 "20260913-MP-TRUNC-NORECOVERY-001-03"),
-    "MP-NOCANONICAL-001": ("C-142–C-148", "#1 截断 / #9 无全局选择", "无统一选点（支付装置不存在）", "ABSENT",
+    "MP-NOCANONICAL-001": ("C-142–C-148", "9", "无全局选择：无统一选点（补偿装置不存在）", "ABSENT",
                            "UNLABELED_FINITE_NO_CANONICAL_POINT", "20260913-MP-NOCANONICAL-001-02"),
-    "MP-UNIMATH-NOSECTION-REPLAY-001": ("C-05", "#3 ua / #9 无全局选择", "库层资格分离", "AVAILABLE",
+    "MP-UNIMATH-NOSECTION-REPLAY-001": ("C-05", "9", "无全局选择：库层资格分离", "AVAILABLE",
                                         "REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE",
                                         "20260913-MP-UNIMATH-NOSECTION-REPLAY-02"),
-    "MP-VERIFICATION-EVENT-001": ("C-149–C-156", "#2 商 / #6 总性", "保留阶段即完成核查", "AVAILABLE",
+    "MP-VERIFICATION-EVENT-001": ("C-149–C-156", "3", "高阶归纳构造：保留阶段即完成核查", "AVAILABLE",
                                   "VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL",
                                   "20260913-MP-VERIFICATION-EVENT-001-01"),
 }
@@ -200,7 +201,8 @@ def build_report(root: Path) -> dict:
         run_info, run_errors = check_run(root, run_id)
         entry["run"] = run_info
         errors.extend(run_errors)
-        entry["ledger_row_in_c11"] = ledger_row in c11_text or ledger_row.split()[0] in c11_text
+        entry["c11_row_ids"] = ledger_row.split()
+        entry["ledger_row_in_c11"] = all(f"| {tok} |" in c11_text for tok in ledger_row.split())
         if not entry["ledger_row_in_c11"]:
             errors.append(f"LEDGER_ROW_NOT_FOUND_IN_C11:{pkg}")
         rows.append(entry)
