@@ -56,6 +56,36 @@ class ThreeWayTests(unittest.TestCase):
     def test_valid_three_way_projection(self) -> None:
         self.assertEqual(MODULE.validate(self.root)["status"], "PASS")
 
+    def shard_the_panorama(self) -> None:
+        shard = self.root / "全景视野" / "001 - 结果总览.md"
+        self.write(
+            "全景视野/001 - 结果总览.md",
+            "<!-- governance-shard:v2\nlogical_id: PANORAMA\nshard_id: 001\nindex: ../全景视野.md\n-->\n\n"
+            "# 结果总览\n\n| result_id | 结果 | 方向 |\n|---|---|---|\n| `OUT-A` | a | `DIR-A` |\n",
+        )
+        self.write(
+            "全景视野.md",
+            "<!-- governance-shard-index:v2\nlogical_id: PANORAMA\nmode: topical\nshard_root: 全景视野\n"
+            "last_shard: 全景视野/001 - 结果总览.md\nappend_target: -\nsoft_line_target: 300\n-->\n\n"
+            "<!-- integrated-outcome-panorama:v1\nsource_state_revision: 1\n-->\n\n"
+            "<!-- governance-shard-table:start -->\n| Shard | 文件 | 语义范围 | 状态 |\n|---|---|---|---|\n"
+            "| 001 | [结果总览](<全景视野/001 - 结果总览.md>) | 全部结果 | current |\n"
+            "<!-- governance-shard-table:end -->\n",
+        )
+        self.shard_path = shard
+
+    def test_sharded_projection_reads_through_the_index(self) -> None:
+        self.shard_the_panorama()
+        result = MODULE.validate(self.root)
+        self.assertEqual(result["status"], "PASS")
+        self.assertEqual(result["outcome_count"], 1)
+
+    def test_missing_projection_shard_fails_closed(self) -> None:
+        self.shard_the_panorama()
+        self.shard_path.unlink()
+        with self.assertRaisesRegex(MODULE.ThreeWayError, "PROJECTION_SHARD_UNREADABLE"):
+            MODULE.validate(self.root)
+
     def test_wrong_fixed_order_rejected(self) -> None:
         path = self.root / ".codex/cognition/LOAD_SET.json"
         value = json.loads(path.read_text(encoding="utf-8"))

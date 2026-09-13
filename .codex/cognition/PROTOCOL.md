@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v2.4`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v2.5`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
 
 ## 1. 目标和边界
 
@@ -68,6 +68,7 @@
 3. **加载器强制**：`.codex/tools/cognition_runtime.py` 3.3.0 在 `plan` 中把索引展开为索引 + 全部分片，逐片给出 hash/bytes/lines 与 `logical_id`/`logical_role`/`full_load`；`check` 必须覆盖每一片（否则 `COVERAGE_INCOMPLETE`）；结构错误一律 fail closed。`MUTABLE` 逻辑文档的分片同时进入 `HEAD.json.tracked`。
 4. **300 行是软目标**，不是上限、Gate 或清理配额；超行只产生 `NOTICE`。判定分片看追加方式、导航成本与自然语义边界，不看行数。
 5. **机械校验**：`python3 -B scripts/audit/verify_governance_shards.py`（pin 的 3.16.0 候选副本 + sha256 漂移检测）。机械 PASS 不证明边界合理或内容完整；迁移必须另做标题/内容对账与 consumer 扫描。
+6. **表格式投影的行分片**（`方向追踪.md`、`全景视野.md`）：大表按家族拆成行分片，每片自带表头两行（唯一允许的重复内容，必须逐行对账）；身份与状态字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）留在索引；`verify_three_way_cognition.py` 按逻辑文本解析 `DIR-*`/`OUT-*` 行并拒绝 0/0 空壳 PASS；编辑投影必须用 `scripts/audit/projection_edit.py` 的模式，把索引与全部分片放进同一 payload。
 
 ## 4. 每次结束的逐编号回评
 

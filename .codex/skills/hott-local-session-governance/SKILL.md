@@ -2,9 +2,9 @@
 name: hott-local-session-governance
 description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Session、压缩恢复和跨目录接手都先按核心认知→方向追踪→全景视野全文加载，再按 governance/research profile 与 stable record 显式水合证据；开始前三方交叉审视，结束逐 KC 回评。它不让历史 Session 因待复核而自动复活，不代替数学研究或扩大权限。
 metadata:
-  version: "3.3.0"
+  version: "3.4.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v2.4"
+  protocol_version: "handoff-cognition/v2.5"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---
@@ -84,7 +84,12 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 唯一当前状态 owner 是根 `MEMORY.md`、`.codex/research/hott/STATE.json`、`FRONTIER.md`、`LESSONS.md`、`RESUME.md` 和不可覆盖 session。STATE v2 将 lifecycle 与 evidence 分开；loader 不再用 evidence review 状态取得自动加载资格。`核心认知`和来源快照由 curation+生成器精确管理。新增需求/稳定结论/运行证据按职责回写，不在多个文件维护冲突的 current truth。
 
-分片逻辑文档的写入遵循 `docs/quality/长治理文档分片与索引合同.md`：`topical` 改 owner shard，`sequential` 追加到 `append_target`，新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一个 checkpoint 事务中更新；当前 `MEMORY/` 是 `MEMORY.md` 的 shard root，`MEMORY/002 - 已应用 checkpoint 会话记录.md` 是顺序追加目标。受 `MUTABLE` 管理的分片同时进入 `HEAD.json.tracked`，不能绕过 runtime 直接改。
+分片逻辑文档的写入遵循 `docs/quality/长治理文档分片与索引合同.md`：`topical` 改 owner shard，`sequential` 追加到 `append_target`，新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一个 checkpoint 事务中更新；当前 `MEMORY/` 是 `MEMORY.md` 的 shard root，`MEMORY/003 - 当前验证状态与顺序日志.md` 是顺序追加目标。受 `MUTABLE` 管理的分片同时进入 `HEAD.json.tracked`，不能绕过 runtime 直接改。
+
+三件套现状（3.4.0）：`方向追踪.md`（5 片）与 `全景视野.md`（8 片）已是 v2 索引 + 行分片，`核心认知.md` 保持单文件。
+全文身份不变——索引 + 全部分片才是三件套的“全文”，缺片即未完成；投影的 marker 块、`source_state_revision`、
+`projection_generation`、`semantic_status` 只存在于索引里，改这些字段要改索引，改方向/结果条目要改对应 owner shard，
+并让索引与全部分片进入同一个 checkpoint payload。
 
 使用 runtime 的白名单路径、snapshot、expected hash、lock、transaction、before/after backup 和 post-write check。checkpoint 默认 dry-run；只有用户本轮明确授权的写权限才 `--apply`。每个 applied checkpoint 必须把 `SESSION.md`、`RUNS.json`、当前 generation 全量且顺序正确的 `CORE_COGNITION_AUDIT.md` 与 current owners 放进同一事务；只有 canonical `result.json` 的 `CHECKPOINT_COMMITTED` 能证明应用成功。`POST-CHECKPOINT.json` 只能引用真实 result，不能自证。stale base、第三方写入、活动 writer、残留 transaction、缺 session/resolution evidence 或 source hash 改变而没有 revalidation 时必须 fail closed。恢复 transaction 需要确认旧 owner 已停止，选择 finish/rollback，并保留 receipt；历史缺失只登记，不伪造。
 

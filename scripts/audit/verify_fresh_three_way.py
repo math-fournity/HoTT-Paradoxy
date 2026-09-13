@@ -60,10 +60,27 @@ def main() -> int:
     research = runtime.plan(root, profile="research")
     if tuple(governance["three_way_documents"]) != THREE_WAY:
         raise SystemExit("FAIL governance trio identity")
-    if [row["path"] for row in governance["documents"][:3]] != list(THREE_WAY):
-        raise SystemExit("FAIL governance trio order")
-    if [row["path"] for row in research["documents"][:3]] != list(THREE_WAY):
-        raise SystemExit("FAIL research trio order")
+    # A trio member may itself be a v2 logical document: its index stays at the
+    # canonical path and its shards are expanded right after it.  The invariant is
+    # "the three indexes appear in fixed order and each expands to every shard",
+    # not "the literal first three document rows are the trio paths".
+    for label, plan in (("governance", governance), ("research", research)):
+        positions = []
+        for rel in THREE_WAY:
+            matches = [i for i, row in enumerate(plan["documents"]) if row["path"] == rel]
+            if len(matches) != 1:
+                raise SystemExit(f"FAIL {label} trio row count: {rel}")
+            entry = plan["documents"][matches[0]]
+            positions.append(matches[0])
+            if entry["logical_role"] == "index":
+                expanded = [row["path"] for row in plan["documents"]
+                            if row["logical_id"] == entry["logical_id"] and row["logical_role"] == "shard"]
+                declared = next((doc for doc in plan["logical_documents"]
+                                 if doc["logical_id"] == entry["logical_id"]), None)
+                if declared is None or sorted(expanded) != sorted(declared["shards"]):
+                    raise SystemExit(f"FAIL {label} trio shards incomplete: {rel}")
+        if positions != sorted(positions):
+            raise SystemExit(f"FAIL {label} trio order")
     governance_paths = {row["path"] for row in governance["documents"]}
     cold = set(governance["query_first_documents"] + governance["archive_verify_only_documents"])
     leaked_cold = sorted(governance_paths & cold)
@@ -125,23 +142,39 @@ def main() -> int:
     else:
         raise SystemExit("FAIL profile snapshot mismatch accepted")
 
-    child_code = (
-        "import importlib.util,json,pathlib;"
-        f"p=pathlib.Path({str(root / '.codex/tools/cognition_runtime.py')!r});"
-        "s=importlib.util.spec_from_file_location('r',p);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);"
-        f"root=pathlib.Path({str(root)!r});"
-        "g=m.plan(root,profile='governance');r=m.plan(root,profile='research');"
-        "print(json.dumps({'g':{'snapshot':g['snapshot'],'documents':len(g['documents']),'bytes':g['total_bytes']},"
-        "'r':{'snapshot':r['snapshot'],'documents':len(r['documents']),'bytes':r['total_bytes']},"
-        "'first_three':[x['path'] for x in g['documents'][:3]],'historical':g['automatically_included_historical_sessions'],"
-        "'model_context':g['model_context']}))"
-    )
+    child_code = f"""
+import importlib.util, json, pathlib
+p = pathlib.Path({str(root / '.codex/tools/cognition_runtime.py')!r})
+s = importlib.util.spec_from_file_location('r', p)
+m = importlib.util.module_from_spec(s)
+s.loader.exec_module(m)
+root = pathlib.Path({str(root)!r})
+g = m.plan(root, profile='governance')
+r = m.plan(root, profile='research')
+trio = []
+for rel in {list(THREE_WAY)!r}:
+    i = next(idx for idx, x in enumerate(g['documents']) if x['path'] == rel)
+    entry = g['documents'][i]
+    shards = 0
+    if entry.get('logical_id'):
+        shards = sum(1 for x in g['documents']
+                     if x.get('logical_id') == entry['logical_id'] and x.get('logical_role') == 'shard')
+    trio.append([rel, i, shards, entry.get('logical_role')])
+print(json.dumps({{
+    'g': {{'snapshot': g['snapshot'], 'documents': len(g['documents']), 'bytes': g['total_bytes']}},
+    'r': {{'snapshot': r['snapshot'], 'documents': len(r['documents']), 'bytes': r['total_bytes']}},
+    'trio': trio,
+    'historical': g['automatically_included_historical_sessions'],
+    'model_context': g['model_context'],
+}}))
+"""
     child = subprocess.run([sys.executable, "-B", "-c", child_code], cwd=root, text=True,
                            capture_output=True, check=False, env={"PYTHONDONTWRITEBYTECODE": "1"})
     if child.returncode != 0:
         raise SystemExit(f"FAIL fresh child: {child.stderr.strip()}")
     fresh_child = json.loads(child.stdout)
-    if fresh_child["first_three"] != list(THREE_WAY) or fresh_child["historical"] != []:
+    positions = [row[1] for row in fresh_child["trio"]]
+    if positions != sorted(positions) or fresh_child["historical"] != []:
         raise SystemExit("FAIL fresh child layered policy")
 
     receipt = {

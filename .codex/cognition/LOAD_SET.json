@@ -1,6 +1,6 @@
 {
   "schema_version": "cognition-load-set/v3",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "policy": "FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
   "default_profile": "governance",
   "always_full_three_way": [
@@ -83,8 +83,20 @@
     "contract_doc": "docs/quality/长治理文档分片与索引合同.md",
     "validated_by": "scripts/audit/verify_governance_shards.py",
     "rule": "an indexed canonical path is a logical document: load the index table plus every shard in table order; runtime 3.3.0 expands and demands full shard coverage",
+    "sharded_now": [
+      "README.md",
+      "MEMORY.md",
+      "理解章节/C1",
+      "理解章节/C2",
+      "理解章节/C3",
+      "理解章节/C4",
+      "方向追踪.md",
+      "全景视野.md"
+    ],
+    "triplet_note": "方向追踪.md and 全景视野.md are sharded but stay full-load: index + every shard is the logical document. 核心认知.md stays monolithic and is managed by the curation builder.",
+    "table_projection_rule": "row shards repeat the table header (the only permitted duplication) and must reconcile line-exactly; marker/source_state_revision/projection_generation/semantic_status stay in the index",
     "soft_line_target": 300,
     "soft_line_target_is_not_a_cap": true
   },
-  "projection_status": "CORE_GENERATION_4_GOVERNANCE_V3_3_SHARD_FOUNDATION_DOWNSTREAM_E6_CONSUMER_FIRST"
+  "projection_status": "CORE_GENERATION_4_GOVERNANCE_V3_4_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST"
 }

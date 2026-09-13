@@ -12,8 +12,12 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 
 THREE_WAY = ["核心认知.md", "方向追踪.md", "全景视野.md"]
 DIRECTION = "方向追踪.md"
@@ -114,12 +118,23 @@ def validate(root: Path) -> dict[str, object]:
     if projection_state_revision(panorama_body, PANORAMA) != revision:
         raise ThreeWayError("PANORAMA_STATE_REVISION_STALE")
 
-    direction_ids = unique_ids(DIRECTION_RE, direction_body, "direction")
-    outcome_ids = unique_ids(OUTCOME_RE, panorama_body, "outcome")
+    # Identity fields (marker, source_state_revision) live in the physical index;
+    # the DIR-/OUT- rows live in the shards.  Read the logical document for rows.
+    try:
+        direction_logical = logical_text(root, DIRECTION) or direction_body
+        panorama_logical = logical_text(root, PANORAMA) or panorama_body
+    except (OSError, UnicodeError, ValueError) as exc:
+        raise ThreeWayError(f"PROJECTION_SHARD_UNREADABLE:{exc}") from exc
+    direction_ids = unique_ids(DIRECTION_RE, direction_logical, "direction")
+    outcome_ids = unique_ids(OUTCOME_RE, panorama_logical, "outcome")
+    if not direction_ids:
+        raise ThreeWayError("DIRECTION_ROWS_EMPTY")
+    if not outcome_ids:
+        raise ThreeWayError("OUTCOME_ROWS_EMPTY")
     direction_set = set(direction_ids)
     outcome_set = set(outcome_ids)
 
-    direction_rows = [line for line in direction_body.splitlines() if line.startswith("| `DIR-")]
+    direction_rows = [line for line in direction_logical.splitlines() if line.startswith("| `DIR-")]
     for line in direction_rows:
         cells = [cell.strip() for cell in line.split("|")]
         core_cell = cells[5] if len(cells) > 5 else ""
@@ -134,7 +149,7 @@ def validate(root: Path) -> dict[str, object]:
         if missing:
             raise ThreeWayError(f"DIRECTION_RESULT_ORPHAN:{','.join(missing)}")
 
-    outcome_rows = [line for line in panorama_body.splitlines() if line.startswith("| `OUT-")]
+    outcome_rows = [line for line in panorama_logical.splitlines() if line.startswith("| `OUT-")]
     for line in outcome_rows:
         referenced = set(re.findall(r"DIR-[A-Z0-9-]+", line))
         if not referenced and "UNMAPPED" not in line:

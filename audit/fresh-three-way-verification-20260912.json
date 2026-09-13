@@ -1,7 +1,7 @@
 {
   "schema_version": "fresh-three-way-verification/v2",
   "status": "PASS_WITH_SCOPE",
-  "revision": 95,
+  "revision": 96,
   "three_way_order": [
     "核心认知.md",
     "方向追踪.md",
@@ -23,26 +23,26 @@
     },
     {
       "path": "方向追踪.md",
-      "sha256": "52af8c248fe490950e78fe525c73997b40e07d4918077781d046c7e0b992f0bd",
-      "bytes": 32246,
-      "lines": 162,
+      "sha256": "f3d675eb0dfd60effe05937a69be32d1bbced305b2d0c22ef4c4d9d650714439",
+      "bytes": 2897,
+      "lines": 47,
       "ranges": [
         [
           1,
-          162
+          47
         ]
       ],
       "status": "FULL_EMITTED_BYTES_MATCH"
     },
     {
       "path": "全景视野.md",
-      "sha256": "b5e3bb90b1d653edd760e09d836e91e1b5798130584caa8e440f51a86f209343",
-      "bytes": 85500,
-      "lines": 206,
+      "sha256": "2fccd043deebd057d00d20866e7a53203a8aeb71d742d1bc0bfbc820a78158f1",
+      "bytes": 3456,
+      "lines": 50,
       "ranges": [
         [
           1,
-          206
+          50
         ]
       ],
       "status": "FULL_EMITTED_BYTES_MATCH"
@@ -50,32 +50,32 @@
   ],
   "profiles": {
     "governance": {
-      "snapshot": "4caea7da49724106ea4760dddf81031f4740dbe4f910d810764eea7d85ea62e9",
-      "documents": 22,
-      "bytes": 712487,
-      "lines": 8199,
+      "snapshot": "c9aff37c8706eac6f2e58646c3d9cd7eebfe6ad58875190ae6f7adee2e200169",
+      "documents": 35,
+      "bytes": 724970,
+      "lines": 8409,
       "coverage": {
         "status": "FULL_EMITTED_BYTES_MATCH",
-        "documents": 22,
+        "documents": 35,
         "model_context": "NOT_CERTIFIED_BY_TOOL"
       }
     },
     "research": {
-      "snapshot": "dfb2dd78ca8731667dbdda3dcc050147c4f86a1752555335a7b38f127b31228c",
-      "documents": 27,
-      "bytes": 856745,
-      "lines": 9330,
+      "snapshot": "2b9fe2d9ebcd26562883283375533da035c4d64cd72b451863335a85e0935fb4",
+      "documents": 40,
+      "bytes": 870098,
+      "lines": 9544,
       "coverage": {
         "status": "FULL_EMITTED_BYTES_MATCH",
-        "documents": 27,
+        "documents": 40,
         "model_context": "NOT_CERTIFIED_BY_TOOL"
       }
     }
   },
   "explicit_task_hydration": {
     "record": "A-AISTUDIO-COVERAGE-001",
-    "snapshot": "dc01b1cb44977d469e2e067340dd4501f21041648649ebd9ff33b07d1749397f",
-    "documents": 35,
+    "snapshot": "f039bb423d1468f14e77a0514caee4ed8440ae7f504b10714453269872735ede",
+    "documents": 48,
     "hydrated_records": [
       "S-INTEGRATION-20260912-001",
       "A-AISTUDIO-COVERAGE-001"
@@ -101,25 +101,40 @@
   "historical_sessions_auto_loaded": [],
   "negative_cases": {
     "wrong_snapshot": "STALE_SNAPSHOT_RESTART_ALL",
-    "incomplete_coverage": "COVERAGE_INCOMPLETE: .codex/research/hott/sessions/S-GOV-20260913-095-DOC-SHARD-MIGRATION/SESSION.md",
+    "incomplete_coverage": "COVERAGE_INCOMPLETE: .codex/research/hott/sessions/S-GOV-20260913-096-PROJECTION-SHARD-MIGRATION/SESSION.md",
     "tampered_chunk": "COVERAGE_BODY_MISMATCH",
     "profile_snapshot_mismatch": "STALE_SNAPSHOT_RESTART_ALL"
   },
   "fresh_process_child": {
     "g": {
-      "snapshot": "4caea7da49724106ea4760dddf81031f4740dbe4f910d810764eea7d85ea62e9",
-      "documents": 22,
-      "bytes": 712487
+      "snapshot": "c9aff37c8706eac6f2e58646c3d9cd7eebfe6ad58875190ae6f7adee2e200169",
+      "documents": 35,
+      "bytes": 724970
     },
     "r": {
-      "snapshot": "dfb2dd78ca8731667dbdda3dcc050147c4f86a1752555335a7b38f127b31228c",
-      "documents": 27,
-      "bytes": 856745
+      "snapshot": "2b9fe2d9ebcd26562883283375533da035c4d64cd72b451863335a85e0935fb4",
+      "documents": 40,
+      "bytes": 870098
     },
-    "first_three": [
-      "核心认知.md",
-      "方向追踪.md",
-      "全景视野.md"
+    "trio": [
+      [
+        "核心认知.md",
+        0,
+        0,
+        null
+      ],
+      [
+        "方向追踪.md",
+        1,
+        5,
+        "index"
+      ],
+      [
+        "全景视野.md",
+        7,
+        8,
+        "index"
+      ]
     ],
     "historical": [],
     "model_context": "NOT_CERTIFIED_BY_TOOL"

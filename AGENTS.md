@@ -63,7 +63,8 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `.codex/tools/cognition_runtime.py` 3.3.0 在加载链上强制“索引 + 按 table 顺序全部分片”的全文覆盖，结构错误（缺片、未列片、标题/`last_shard`/`append_target` 不符）一律 fail closed；受 checkpoint 管理的逻辑文档分片同时进入 `HEAD.json.tracked`，只能与索引在同一原子事务中写入。
 - 机械校验：`python3 -B scripts/audit/verify_governance_shards.py`；机械 PASS 只证明结构，不证明分片边界合理或内容完整。
 - 完整项目合同见 `docs/quality/长治理文档分片与索引合同.md`；共享权威为 3.16.0 候选规范 `/Users/aurolafly/codex-worktrees/long-doc-sharding-3.16.0/docs/governance/长治理文档分片与索引规范.md`。
-- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`。保留单文件并登记触发条件：三件套、`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`AGENTS.md`、已完成审计报告、来源快照与历史分卷。
+- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、`方向追踪.md`（5 片 / 28 条方向行）、`全景视野.md`（8 片 / 89 条结果行）。大表按家族拆成行分片时，每片自带表头两行（唯一允许的重复内容），投影的身份字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）必须留在索引里。
+- 保留单文件并登记触发条件：`核心认知.md`（三件套中唯一单文件；由 curation+manifest hash 管理，KC 平铺列表，改动须经 manager）、`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`AGENTS.md`、已完成审计报告、来源快照与历史分卷。
 
 ## 写入、Git 与交接
 
