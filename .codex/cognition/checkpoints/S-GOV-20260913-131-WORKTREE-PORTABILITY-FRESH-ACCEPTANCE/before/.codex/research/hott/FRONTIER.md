@@ -1,6 +1,6 @@
-# HoTT 研究前沿（S131 portability verified）
+# HoTT 研究前沿（S130 worktree evidence portability）
 
-F-016 已在 exact-commit fresh linked worktree 验收；该治理支线关闭为 candidate verified，S/B/M 研究分工、候选优先级、数学 claim 与 ERCF-3 `GATED` 均不变。S 轨恢复人工语义/natural-consumer 主线。
+S130 只修复研究证据在 linked worktree 的可恢复性；S/B/M 研究分工、候选优先级、数学 claim 与 ERCF-3 `GATED` 均不变。revision 130 commit 后先完成 fresh-worktree 验收，再恢复 S 轨自然 consumer 主线。
 
 S127 只改变统观工作线的职责、交换和汇合方式，不新增数学 claim：C-184–C-187 仍有效；ERCF-3 仍 `GATED`；T3 剩余义务不变。
 

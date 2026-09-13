@@ -16,16 +16,16 @@
   },
   "execution_control": {
     "background_work": false,
-    "checkpoint_result": "CHECKPOINT_APPLIED_WORKTREE_PORTABILITY_VERIFIED",
-    "last_checkpoint_session": "S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE",
+    "checkpoint_result": "CHECKPOINT_APPLIED_WORKTREE_PORTABILITY_PENDING_FRESH",
+    "last_checkpoint_session": "S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY",
     "new_math_research_started": true,
-    "next_minimal_verification": "Project portability work is complete on the candidate branch. Before canonical integration, compare exact candidate and target OIDs, reallocate any occupied revision IDs on target, and rerun fresh portability acceptance. S-track research may resume with a fixed natural consumer and explicit delivery promise.",
+    "next_minimal_verification": "Commit revision 130, create a new detached linked worktree without copying ignored source islands, run import verification, five portability task plans, six canonical verifiers and four negative controls; only then close F-016. Mathematical research queue is unchanged.",
     "release_parent_commit": "293d368",
     "release_ref": "governance-v4.0.0",
     "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
-    "status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_VERIFIED"
+    "status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_PENDING_FRESH"
   },
-  "latest_session": "S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE",
+  "latest_session": "S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY",
   "load_policy": {
     "fresh_model_behavior": "NOT_RUN",
     "full_set": [
@@ -54,7 +54,7 @@
     "outcome_path": "全景视野.md",
     "outcome_record": "I-OUTCOME-PANORAMA-20260912",
     "schema_version": "integrated-projection-index/v1",
-    "status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_VERIFIED"
+    "status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_PENDING_FRESH"
   },
   "records": {
     "A-A-DIRECTION-CANDIDATES-001": {
@@ -4178,21 +4178,17 @@
         "docs/quality/Git多Worktree证据可移植性合同.md",
         "audit/worktree-portability-source-import-20260913.json",
         "scripts/audit/build_understanding_merge_manifest.py",
-        "sources/SOURCE_MANIFEST.json",
-        "audit/worktree-portability-fresh-acceptance-20260913.json",
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md"
+        "sources/SOURCE_MANIFEST.json"
       ],
       "kind": "understanding_chapter_reconciliation",
       "lifecycle_status": "OPEN_ISSUE",
       "path": "理解章节/README.md",
-      "revalidation": "S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY migrated the historical directory from an ignored nested working tree to a tracked byte snapshot and upgraded the manifest/verifier to v2 path, tracked-file and source-tree checks. S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE re-pinned the portability contract after recording exact-commit fresh acceptance; underlying source/merge semantics are unchanged. S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE verified the v2 36/24 merge against the tracked historical snapshot in a fresh linked worktree; semantic-equivalence review remains open.",
+      "revalidation": "S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY migrated the historical directory from an ignored nested working tree to a tracked byte snapshot and upgraded the manifest/verifier to v2 path, tracked-file and source-tree checks.",
       "scope": "File-level reconciliation is complete and non-destructive for the current 36/24 inventory (24 same-name pairs, 15 identical, 9 different, 12 top-only). The historical side is a top-level tracked 42-file transform snapshot; semantic equivalence and 2,396 historical claim review remain open.",
       "source_hashes": {
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md": "7bedd76fb70c93e3e334270c8fca9ffe730fb1e555e373d478965580ca02a579",
         "audit/understanding-chapter-merge-manifest.json": "3e5550705da9ebc4057e63ffc8c9b8a70a6fa298fbb8b146d9183e2519ff572a",
-        "audit/worktree-portability-fresh-acceptance-20260913.json": "e5ab194accf0d4f955f1ce1eb53d3dab2058b34a1d2529579ead23ff282aecb9",
         "audit/worktree-portability-source-import-20260913.json": "0c05d2f890384325cee77a689b978e7c83428d51709c408b348b2715670c30ed",
-        "docs/quality/Git多Worktree证据可移植性合同.md": "f8d8a6c19ed509823ddfbc60da1d31d8e19c34c28a85bdead64872fedac64fd7",
+        "docs/quality/Git多Worktree证据可移植性合同.md": "d5dc01d68c43286cce6bc61e027156def1c47876d527bf8f4438b57976a2fdbd",
         "scripts/audit/build_understanding_merge_manifest.py": "5422421c133bea1b2666e129ea3dd63604c6399d1a2daa1f922971245fbdb291",
         "scripts/audit/verify_understanding_merge.py": "21d5cd4fc9d71f59a60d917fe17b00c138158234bd1b1e13203721674b2b69bc",
         "sources/SOURCE_MANIFEST.json": "6cab077fc83bd122c8fdb333b5842c10bf0336b8fbea90039b5a2c88da3a4615"
@@ -4392,9 +4388,9 @@
       "status": "review_required"
     },
     "A-WORKTREE-EVIDENCE-PORTABILITY-001": {
-      "classification": "WORKTREE_EVIDENCE_PORTABILITY_VERIFIED_WITH_SCOPE",
+      "classification": "WORKTREE_EVIDENCE_PORTABILITY_IMPLEMENTED_PENDING_FRESH",
       "depends_on": [],
-      "evidence_status": "VERIFIED_WITH_SCOPE_FRESH_LINKED_WORKTREE",
+      "evidence_status": "IMPLEMENTED_LOCAL_PENDING_FRESH_WORKTREE",
       "full_sources": [
         "docs/quality/Git多Worktree证据可移植性合同.md",
         "audit/worktree-portability-source-import-20260913.json",
@@ -4409,45 +4405,28 @@
         "AGENTS.md",
         ".codex/skills/hott-local-session-governance/SKILL.md",
         ".codex/cognition/PROTOCOL.md",
-        ".codex/cognition/LOAD_SET.json",
-        "audit/worktree-portability-fresh-acceptance-20260913.json",
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md"
+        ".codex/cognition/LOAD_SET.json"
       ],
       "kind": "governance_portability_result",
-      "lifecycle_status": "CURRENT",
+      "lifecycle_status": "OPEN_ISSUE",
       "path": "docs/quality/Git多Worktree证据可移植性合同.md",
       "related_records": [
         "S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY",
         "A-UNDERSTANDING-RECONCILIATION-001",
         "A-AISTUDIO-COVERAGE-001"
       ],
-      "resolution": {
-        "evidence": [
-          "audit/worktree-portability-fresh-acceptance-20260913.json",
-          "audit/Git-worktree证据可移植性修复与验收-20260913.md",
-          "audit/worktree-portability-source-import-20260913.json",
-          "audit/understanding-chapter-merge-manifest.json",
-          "scripts/audit/import_worktree_portability_sources.py",
-          "scripts/audit/verify_understanding_merge.py",
-          "scripts/audit/verify_fresh_three_way.py"
-        ],
-        "reason": "Exact-commit fresh linked-worktree acceptance removed the original checkout-local preconditions: all five affected task plans used only tracked documents, all six canonical verifiers passed, four independent content/index/route/path mutations failed closed, and clean state was restored."
-      },
-      "revalidation": "S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE re-pinned the portability contract after recording exact-commit fresh acceptance; underlying source/merge semantics are unchanged. S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE accepted audit/worktree-portability-fresh-acceptance-20260913.json: exact 802e4f890f07adeb50d32f7d8a3e1866d8d8d597, fresh 6/6, five tracked task plans, four expected negative rejections, clean restoration and worktree removal.",
-      "scope": "Project-local tracked/pinned evidence repair verified from exact commit 802e4f890f07adeb50d32f7d8a3e1866d8d8d597: a fresh detached worktree with no top-level workspace/dialogues repo or legacy LocalGPT ignored artifact passed 42-file import verification, five task hydrations with zero untracked documents and all six canonical verifiers; four controlled mutations failed closed and clean state was restored. Candidate is not integrated into main.",
+      "scope": "Project-local implementation that replaces checkout-local decisive evidence with tracked files/snapshots: 42 imported transform files, 8 workspace reference rewrites over 6 unique files, one LocalGPT duplicate route removal, understanding manifest v2, tracked input checks and five-task fresh coverage. Local checks pass; exact-commit fresh linked-worktree acceptance remains pending.",
       "source_hashes": {
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md": "7bedd76fb70c93e3e334270c8fca9ffe730fb1e555e373d478965580ca02a579",
         "audit/understanding-chapter-merge-manifest.json": "3e5550705da9ebc4057e63ffc8c9b8a70a6fa298fbb8b146d9183e2519ff572a",
-        "audit/worktree-portability-fresh-acceptance-20260913.json": "e5ab194accf0d4f955f1ce1eb53d3dab2058b34a1d2529579ead23ff282aecb9",
         "audit/worktree-portability-source-import-20260913.json": "0c05d2f890384325cee77a689b978e7c83428d51709c408b348b2715670c30ed",
-        "docs/quality/Git多Worktree证据可移植性合同.md": "f8d8a6c19ed509823ddfbc60da1d31d8e19c34c28a85bdead64872fedac64fd7",
+        "docs/quality/Git多Worktree证据可移植性合同.md": "d5dc01d68c43286cce6bc61e027156def1c47876d527bf8f4438b57976a2fdbd",
         "scripts/audit/build_understanding_merge_manifest.py": "5422421c133bea1b2666e129ea3dd63604c6399d1a2daa1f922971245fbdb291",
         "scripts/audit/import_worktree_portability_sources.py": "657cefc371983de87fbd5d7e27223fdba728a8d340f245d054b65718fec59cb9",
         "scripts/audit/verify_fresh_three_way.py": "54346718175df235608ae00bcde9ec5a3331c71b80424160510f9665f871a3dc",
         "scripts/audit/verify_understanding_merge.py": "21d5cd4fc9d71f59a60d917fe17b00c138158234bd1b1e13203721674b2b69bc",
         "sources/SOURCE_MANIFEST.json": "6cab077fc83bd122c8fdb333b5842c10bf0336b8fbea90039b5a2c88da3a4615"
       },
-      "status": "complete"
+      "status": "review_required"
     },
     "I-DIRECTION-PORTFOLIO-20260912": {
       "evidence_status": "REVIEW_REQUIRED",
@@ -4584,16 +4563,14 @@
         "audit/imports/machine-overview-strategy-20260913/IMPORT.json",
         "docs/design/detailed/统观双轨AI通信与证据交换合同-20260913.md",
         "docs/quality/Git多Worktree证据可移植性合同.md",
-        "audit/worktree-portability-source-import-20260913.json",
-        "audit/worktree-portability-fresh-acceptance-20260913.json",
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md"
+        "audit/worktree-portability-source-import-20260913.json"
       ],
       "kind": "integrated_direction_projection",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "方向追踪.md",
-      "projection_generation": "20260913-direction-113",
+      "projection_generation": "20260913-direction-112",
       "scope": "Dual-track portfolio after S127: S track owns semantic/research overview in main; M track owns the external machine-overview instrument. They exchange frozen task/evidence packets and converge through Gate A/B/C. C11 coordinates remain non-gating; ERCF-3 remains gated.",
-      "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_VERIFIED",
+      "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_PENDING_FRESH",
       "status": "active"
     },
     "I-OUTCOME-PANORAMA-20260912": {
@@ -4731,16 +4708,14 @@
         "audit/imports/machine-overview-strategy-20260913/IMPORT.json",
         "docs/design/detailed/统观双轨AI通信与证据交换合同-20260913.md",
         "docs/quality/Git多Worktree证据可移植性合同.md",
-        "audit/worktree-portability-source-import-20260913.json",
-        "audit/worktree-portability-fresh-acceptance-20260913.json",
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md"
+        "audit/worktree-portability-source-import-20260913.json"
       ],
       "kind": "integrated_outcome_panorama",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "全景视野.md",
-      "projection_generation": "20260913-outcome-113",
+      "projection_generation": "20260913-outcome-112",
       "scope": "Panorama after S127 records the dual-track decision and the machine-overview evidence boundary: complete M0-M5 proposal, real L1 M0/M1 calibration, latest independent REQUEST_CHANGES, active uncommitted repair, no integration and no new mathematical claim.",
-      "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_VERIFIED",
+      "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V4_1_WORKTREE_PORTABILITY_PENDING_FRESH",
       "status": "active"
     },
     "S-AUD-20260913-101-ASTRA-TRAJECTORY": {
@@ -5984,28 +5959,6 @@
         "A-WORKTREE-EVIDENCE-PORTABILITY-001"
       ],
       "scope": "Revision 130 implementation checkpoint for tracked/pinned worktree evidence; final fresh linked-worktree acceptance remains pending; no mathematical change.",
-      "source_hashes": {},
-      "status": "complete"
-    },
-    "S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE": {
-      "depends_on": [],
-      "evidence_status": "VERIFIED_WITH_SCOPE_FRESH_LINKED_WORKTREE",
-      "full_sources": [
-        ".codex/research/hott/sessions/S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE/SESSION.md",
-        ".codex/research/hott/sessions/S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE/CORE_COGNITION_AUDIT.md",
-        ".codex/research/hott/sessions/S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE/RUNS.json",
-        ".codex/cognition/checkpoints/S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE/result.json",
-        "audit/worktree-portability-fresh-acceptance-20260913.json",
-        "audit/Git-worktree证据可移植性修复与验收-20260913.md"
-      ],
-      "kind": "session",
-      "lifecycle_status": "HISTORICAL",
-      "path": ".codex/research/hott/sessions/S-GOV-20260913-131-WORKTREE-PORTABILITY-FRESH-ACCEPTANCE/SESSION.md",
-      "related_records": [
-        "S-GOV-20260913-130-WORKTREE-EVIDENCE-PORTABILITY",
-        "A-WORKTREE-EVIDENCE-PORTABILITY-001"
-      ],
-      "scope": "Revision 131 closes project-local worktree evidence portability after exact-commit fresh positive and negative acceptance; candidate not integrated; no mathematical change.",
       "source_hashes": {},
       "status": "complete"
     },
@@ -8301,9 +8254,10 @@
     "A-CROSS-SOURCE-RECONCILIATION-001",
     "A-WEBGPT-R041-PAPER-001",
     "A-HOTT-SELF-VALIDATION-ECONOMY-001",
-    "A-KC-AUDIT-GAP-001"
+    "A-KC-AUDIT-GAP-001",
+    "A-WORKTREE-EVIDENCE-PORTABILITY-001"
   ],
-  "revision": 131,
+  "revision": 130,
   "schema_migration": {
     "from": "hott-working-state/v1",
     "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",
@@ -8319,6 +8273,7 @@
     "A-HISTORICAL-MATH-CLAIMS-001",
     "A-WEBGPT-R041-PAPER-001",
     "A-HOTT-SELF-VALIDATION-ECONOMY-001",
-    "A-KC-AUDIT-GAP-001"
+    "A-KC-AUDIT-GAP-001",
+    "A-WORKTREE-EVIDENCE-PORTABILITY-001"
   ]
 }

@@ -9,8 +9,6 @@
 
 ## 当前停止点
 
-S131：F-016/worktree evidence portability 已在 exact `802e4f89…` fresh linked worktree通过 5 task plans、6 canonical verifiers 与 4 负控，状态 `VERIFIED_WITH_SCOPE / CANDIDATE_NOT_INTEGRATED`。三个 ignored islands 不再是 candidate current hydration/PASS 的必需输入。main 集成与 shared generic governance follow-up 未执行；数学研究状态不变，S 轨下一步恢复自然 consumer/明确交付承诺的人工语义审计。
-
 S130：worktree evidence portability implementation checkpoint 已准备。42-file historical transform 已 tracked；8 个 workspace full-source refs 与 A-AISTUDIO ignored duplicate 已改路由；understanding manifest v2 和 fresh verifier 扩展已落账。当前状态 PENDING_FRESH：必须从 revision 130 commit 新建无 ignored islands 的 linked worktree，跑 5 task plans、6 canonical verifiers 与负向控制，之后才能关闭 F-016。数学研究状态不变。
 
 S129：双轨通信合同已落盘。当前 task 启动于 detached `eb7b`，S 轨 current 写入根为主库 main，M 轨写 machine worktree；Codex 已发现 `机器统观` task ID。控制=task message，证据=exact commit/不可变 packet；尚未获发送授权、未发送握手、未取得 ACK。S/M 的研究和修复队列、Gate A/B/C、ERCF-3 `GATED` 与数学状态不变。

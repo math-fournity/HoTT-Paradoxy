@@ -127,5 +127,3 @@
 97. 有了解码器之后，「码级替换与语法级替换一致」从工程变成**推论**：把码级替换定义为「解码—替换—编码」`substCode k n c = code' (subst k n (dec c))`，一致性就只是 `dec (code' t) ≡ t` 的一次改写（旧编码需要 C-157–C-159 的联合递归）。代价必须同时写清：这样的函数是**元层**的，「存在一个算得出来的函数」不等于「对象理论能表示它」——后者才是表示性义务。本轮据此把 T3 编码线自足部分收口，并把剩余义务明确归到门 B，避免用「看起来已完成」的推论冒充研究结论。
 
 98. Git worktree 只复制顶层 tracked blobs；主 checkout 中 ignored nested repo/working bytes 的存在不能支持可移植 PASS。本轮 4/6 反例说明，stable-record 路径、manifest source directory 和 verifier 输入都要检查 tracked/pinned 身份。修复时先找已有同字节 tracked snapshot，只有真正缺失的 42-file transform 才做 byte import；历史 bytes 的 trailing whitespace 用 hash 验收，不能为了 `diff --check` 改写。
-
-99. Worktree 可移植性的完成证据必须来自 exact commit 的新 worktree，而不是在原工作树把文件 stage 后重跑。正向还不够：byte tamper、index removal、旧路径复活和 manifest path drift 分别证明 content、tracked identity、no-fallback 与 path identity 四个 oracle；每次负控后恢复并重跑正向，才能排除测试污染。
