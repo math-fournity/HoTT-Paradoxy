@@ -172,12 +172,12 @@ interpretation boundary.
 
 ## Verification snapshot
 
-- `python3 machine-overview/mo.py selftest`: 41/41 PASS before the final
-  documentation-only update; final rerun is required before handoff.
-- `python3 machine-overview/mo.py validate`: `VALID`, 0 errors after the L3
-  native run; final rerun is required before handoff.
-- Current evidence inventory before final rerun: 5 cases, 17 runs, 7 reviews,
-  one registered interrupted legacy attempt.
+- `python3 machine-overview/mo.py selftest`: 41/41 PASS after the branch-local
+  version-closure commit.
+- `python3 machine-overview/mo.py validate`: `VALID`, 0 errors after that same
+  commit.
+- Final evidence inventory: 5 cases, 17 runs, 7 reviews and one registered
+  interrupted legacy attempt.
 
 ## Remaining limits
 
