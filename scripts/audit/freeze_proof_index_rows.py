@@ -9,9 +9,18 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 
+from mark_proof_run_indexed import (
+    expand_claim_ids,
+    load_object,
+    package_mapping,
+    replay_entry,
+    same_replay_identity,
+)
+
 
 ROOT = Path(__file__).resolve().parents[2]
 RUN_ROOT = Path("HoTT/verification/runs")
+REGISTRY_PATH = "HoTT/verification/PROOF_VERSION_CLOSURE.json"
 
 
 def sha(data: bytes) -> str:
@@ -61,6 +70,31 @@ def main() -> int:
     claim_ids = run.get("claim_ids")
     if not isinstance(proof_id, str) or not isinstance(claim_ids, list) or not claim_ids:
         raise SystemExit("RUN_IDENTITIES_INVALID")
+    if run.get("run_id") != run_dir.name:
+        raise SystemExit("RUN_DIRECTORY_ID_MISMATCH")
+    registry = load_object(root / REGISTRY_PATH)
+    if registry.get("schema_version") != "hott-proof-version-closure/v2":
+        raise SystemExit("PROOF_REGISTRY_V2_REQUIRED")
+    package = package_mapping(registry).get(proof_id)
+    if package is None or expand_claim_ids(package.get("claim_ids")) != claim_ids:
+        raise SystemExit("RUN_DOES_NOT_MATCH_REGISTERED_PACKAGE")
+    if package.get("run") == run_relative.as_posix():
+        relation = "PRIMARY_RUN"
+    else:
+        replay_spec = registry.get("replay_runs")
+        entries = replay_spec.get("entries") if isinstance(replay_spec, dict) else None
+        matches = [
+            entry
+            for entry in entries or []
+            if isinstance(entry, dict) and entry.get("run") == run_relative.as_posix()
+        ]
+        if len(matches) != 1 or not same_replay_identity(
+            matches[0], replay_entry(run_relative.as_posix(), package, run)
+        ):
+            raise SystemExit("REPLAY_RELATION_MISSING_OR_MISMATCHED")
+        relation = "REGISTERED_REPLAY"
+    if index.get("relation") != relation or index.get("registry_path") != REGISTRY_PATH:
+        raise SystemExit("INDEX_RELATION_INVALID")
     lines = index_data.decode("utf-8").splitlines()
     identities = [("proof", proof_id, f"| `{proof_id}` |")]
     identities.extend(("claim", str(claim_id), f"| {claim_id} |") for claim_id in claim_ids)
@@ -75,6 +109,8 @@ def main() -> int:
         "claim_ids": claim_ids,
         "index_path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
         "index_snapshot_sha256": index.get("sha256"),
+        "index_relation": relation,
+        "registry_path": REGISTRY_PATH,
         "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
         "row_hash_semantics": "SHA-256 of the exact UTF-8 Markdown table line without its line terminator",
         "rows": rows,
@@ -90,4 +126,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

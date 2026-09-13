@@ -67,19 +67,24 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20260913-MP-ERCF3-T3-JOINT-001-01` / `-02` | `MP-ERCF3-T3-JOINT-001` / `C-157`–`C-159` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX`（`-02` 为当前指针） | builtins-only T3 脉冲链；共享判定联合递归 + 原始逐出现判定的项层恒等式 + 修正后的公式层恒等式；`-01` 为 `--safe` pragma 触发 `CoInfectiveImport` 的失败尝试 |
 | `20260913-MP-ERCF3-T3-DECODING-001-01` | `MP-ERCF3-T3-DECODING-001` / `C-160`–`C-162` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；编码可解码性/单射性围栏（`var 2` 与 `num 0` 碰撞 ⇒ 无单射解码器；公式层同碰撞；数字片段正控制） |
 | `20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01` | `MP-ERCF3-T3-REPAIR-SPEC-001` / `C-163`–`C-165` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；编码修复规格（往返 ⇒ 单射的通用引理；结构化树编码正控制；当前 `codeT` 无解码器的精确否证） |
-| `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MP-ERCF3-T3-ARITH-TAGS-001` / `C-166`–`C-168` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；算术半第一片（偶/奇标签互斥与单射；var/num 片段 Nat 值单射编码；非满射 ⇒ 解码器需缺省分支） |
+| `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01` | `MP-ERCF3-T3-ARITH-TAGS-001` / `C-166`–`C-168` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；算术半第一片（偶/奇标签互斥与单射；`codeAtom` 单射；`C-168` 仅证明 `double` 下 `1` 无原像；`codeAtom` 满射的更正见 C-184–C-185） |
 | `20260913-MP-ERCF3-T3-BIT-CODING-001-01` | `MP-ERCF3-T3-BIT-CODING-001` / `C-169`–`C-172` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；算术半第二片=位级底座（最低位/折半数字算术；`codeBits`/`unbits` 两侧引理与已知长度往返；码支配自身长度 ⇒ 解析器燃料可取自码本身） |
 | `20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01` | `MP-ERCF3-T3-STREAMING-PARSER-001` / `C-173`–`C-176` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；符号层 + 流式解析器 + 修复后的 Nat 值编码（一元索引自定界；燃料精确的 `run`；长度/界/多余燃料分解；`codeT'` 带全解码器与往返 ⇒ 单射，闭合编码层修复义务） |
 | `20260913-MP-ERCF3-T3-FORMULA-CODING-001-01` | `MP-ERCF3-T3-FORMULA-CODING-001` / `C-177`–`C-180` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；修复编码的公式层（公式符号层与迭代数精确的 `run`；`=f` 的 Tm 子项复用项层解析器；长度界；`codeF'` 带全解码器与往返 ⇒ 单射） |
 | `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01` | `MP-ERCF3-T3-REPAIRED-SYNTAX-001` / `C-181`–`C-183` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | builtins-only T3 脉冲链；修复编码之上的替换一致（码级替换=解码—替换—编码，`Tm`/`Fml` 两层）与引用（`⌜φ⌝'` 单射、对角实例及其码） |
 | `20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01` | `MP-ERCF3-T3-C168-COUNTERCHECK-001` / `C-184`–`C-185` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 独立审计吸收（F1）；完整传递闭包；`codeAtom (anum zero) ≡ 1`（1 有原像）与 `codeAtom` 满射——纠正 C-168 的中文叙述对象错配 |
-| `20260913-MP-ERCF3-T3-CODING-IMAGE-001-01` | `MP-ERCF3-T3-CODING-IMAGE-001` / `C-186`–`C-187` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 独立审计吸收（F1 替换性论证）；完整传递闭包；`codeT'`/`codeF'` 的像不含 `1`，故其全解码器缺省分支可达且必要 |
+| `20260913-MP-ERCF3-T3-CODING-IMAGE-001-01` | `MP-ERCF3-T3-CODING-IMAGE-001` / `C-186`–`C-187` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | 独立审计吸收（F1 替换依据）；完整传递闭包；`codeT'`/`codeF'` 的像不含 `1`，所以全 `Nat` 解码规格须定义像外行为；当前缺省分支在 `1` 上可达 |
 
 **依赖闭包登记缺口（独立审计发现 F6，2026-09-13）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、
 `REPAIRED-SYNTAX` 五个历史 run 的 `source-manifest.json` 只固定了直接导入模块，未列入编译器实际检查的传递依赖
 （各缺 `DiagonalLemma.agda`；`REPAIRED-SYNTAX` 另缺 `DecodingFence.agda`）。缺口登记在
-`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_package_dependency_gap_allowlist`（6 条，注明不回填历史 manifest）；
-上表两个新 run 与所有后续 run 必须固定完整闭包，`verify_proof_version_closure.py` 会拒绝新增未登记缺口。
+`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_package_dependency_gap_allowlist`（6 条，每条绑定精确 proof/run、
+source-manifest/stdout 哈希与缺失源码哈希；历史 manifest 不回填）；上表两个新 run 与所有后续 run 必须固定完整闭包，
+同一 proof 的新 run 不继承历史例外，`verify_proof_version_closure.py` 会拒绝。
+
+**重放登记**：已有 proof/claim 的新 run 不覆盖矩阵中的 primary run。先确保 v2 registry 已登记该 proof；
+`mark_proof_run_indexed.py` 会把非 primary run 原子加入 `replay_runs`，再标记 RUN；`freeze_proof_index_rows.py`
+只接受 primary 或该精确 replay 关系。仅凭矩阵中存在相同 proof/claim ID，不能把新 run 标为已索引。
 
 **claim 计数更正（独立审计发现 F7）**：`later_machine_proved_claim_count` 曾按每次增量口算而漏计（曾写 34，实为 35；
 现含本批两个新包为 39）。`verify_proof_version_closure.py` 现在**重算**该字段，登记值与重算值不一致即 fail closed。

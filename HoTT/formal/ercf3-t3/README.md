@@ -133,8 +133,8 @@ stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 
 > 这是**对象错配**：`one-has-no-preimage` 的类型是 `Not (Σ' Nat (λ m → double m ≡ suc zero))`，谈的是函数 `double`，
 > 与 `codeAtom` 无关。外部独立审计机器证明 `codeAtom` **满射**（`MP-AUD-C168-20260913`，`audit/imports/audit-c168-20260913/`）；
 > 本 repo 以**完整传递闭包**重放该反证（`MP-ERCF3-T3-C168-COUNTERCHECK-001` / `C-184`–`C-185`，见 §9）。
-> "全解码器需要缺省分支"这一点对**修复后的** `codeT'`/`codeF'` 仍然成立，但依据是它们自身的像不含 `1`
-> （`MP-ERCF3-T3-CODING-IMAGE-001` / `C-186`–`C-187`），而不是本条。
+> `C-186`/`C-187` 另行证明修复后的 `codeT'`/`codeF'` 像不含 `1`，所以以全部 `Nat` 为输入的解码规格必须定义像外行为；
+> 当前 `dec`/`decF` 的缺省分支在 `1` 上可达。它们没有量化所有可能的解码器实现，也不强制某一种源码语法结构。
 
 **剩余算术义务（下一有界脉冲）**：把标签不相交形状扩到应用结点（`_+t_` 需要配对函数），写出带缺省分支的
 **全解码器**，并证明像上的往返（由 C-164 自动得到单射）。
@@ -161,7 +161,7 @@ ERCF-3 保持 `GATED`；历史脉冲文件不改写。
 **为什么先做位级底座**：`unbits` 只能按外部给定的长度抽取（C-171），而解析器必须只拿到码就能工作；
 C-172 正是"码里自带够用的位数"这一步，它使"燃料=码"的写法有机器检查的依据，而不是一句设计口号。
 
-**后续（已由 §6 收口）**：符号层（`var n`/`num n` 的**自定界**索引位 + 构造子标签）与带缺省分支（C-168）的解析器、
+**后续（已由 §6 收口）**：符号层（`var n`/`num n` 的**自定界**索引位 + 构造子标签）与定义了像外行为的解析器、
 像上往返与 Nat 值编码单射已在 `MP-ERCF3-T3-STREAMING-PARSER-001`（C-173–C-176）中机器化。
 
 **运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、
@@ -186,7 +186,7 @@ stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（5 
 | `C-173` | 自定界索引层：`unary n`（`n` 个 `true` 后随一个 `false`）可读，且读取后剩余燃料恰为 `f`：`run (suc (m + f)) (unary m ++ rest) (readIndex b k stk) ≡ resume (close (leafTerm b (k + m)) stk) rest f` | `unary-run` |
 | `C-174` | 符号层 `bits`/`BLEN` 与**流式解析器** `run` 的精确往返：`run (BLEN t + f) (bits t ++ rest) (startSub stk) ≡ resume (close t stk) rest f`——消耗 `BLEN t` 个单位后剩余燃料恰为 `f`；顺序消费（左子解析后仍需右子）由显式框架栈在**同一个**燃料递减递归内解决 | `parse-run`、`parse-run-app` |
 | `C-175` | 长度对账与燃料分解：`LEN (bits t) ≡ BLEN t`；`n ≤ m → Σ' Nat (λ k → m ≡ n + k)`；`unbits (i + j) c ≡ unbits i c ++ unbits j (halfs i c)` | `bits-length`、`≤-split`、`unbits-split` |
-| `C-176` | **修复后的 Nat 值编码** `codeT'`（`t ↦ codeBits (bits t)`）带全解码器 `dec : Nat → Tm`（含缺省分支，符合 C-168）满足 `dec (codeT' t) ≡ t`，故由 C-164 **单射** | `codeT'`、`dec`、`codeT'-roundtrip`、`codeT'-injective` |
+| `C-176` | **修复后的 Nat 值编码** `codeT'`（`t ↦ codeBits (bits t)`）带全解码器 `dec : Nat → Tm`（定义了像外行为）满足 `dec (codeT' t) ≡ t`，故由 C-164 **单射**；`C-186` 后续证明输入 `1` 确实落在像外分支 | `codeT'`、`dec`、`codeT'-roundtrip`、`codeT'-injective` |
 
 **为什么解析器写成"流式循环"而不是嵌套递归**：`(t +t u)` 的自然解析是"先解析 t 再解析 u"，第二次调用要用第一次
 调用**返回剩余**的燃料，这在 Agda 里既不能结构递归也不能由终止检查器接受。本包把待解析的右子做成显式框架栈
@@ -282,8 +282,8 @@ exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.j
 
 1. **原行与原 run 收据保持原样**：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的 C-168 行与 `20260913-MP-ERCF3-T3-ARITH-TAGS-001-01/`
    的冻结行哈希逐字节未改；更正以**新的追加节 + 新 claim**登记（矩阵 append-only 要求）。
-2. **撤回后必须补上真正成立的依据**：`codeT'`/`codeF'` 的全解码器需要缺省分支这一点**仍然成立**，
-   但它由 C-186/C-187（它们自身的像不含 `1`）证明，而不是由被撤回的 C-168 叙述。
+2. **撤回后必须补上真正成立的依据**：C-186/C-187 证明 `codeT'`/`codeF'` 的像不含 `1`，因此全 `Nat` 解码规格
+   必须定义像外行为；当前实现的缺省分支在 `1` 上可达。该结论不依赖被撤回的 C-168 叙述。
 
 **运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01/`、
 `HoTT/verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01/`（均 `KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、stderr 0、
@@ -291,5 +291,6 @@ exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.j
 
 **旁注（审计发现 F6）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、`REPAIRED-SYNTAX` 五个**历史** run
 只固定了直接导入的模块，未列入编译器实际检查的传递依赖（`DiagonalLemma.agda`；`REPAIRED-SYNTAX` 另缺 `DecodingFence.agda`）。
-该缺口登记在 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_package_dependency_gap_allowlist`（6 条，注明"不回填历史 manifest"），
-`verify_proof_version_closure.py` 会拒绝任何**新增**的未登记缺口。
+该缺口登记在 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_package_dependency_gap_allowlist`（6 条；每条绑定精确
+proof/run、manifest/stdout 与缺失源码哈希，历史 manifest 不回填）。同 proof 的新 run 不继承这些例外；
+`verify_proof_version_closure.py` 会拒绝任何新增缺口。

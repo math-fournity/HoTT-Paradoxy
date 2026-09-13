@@ -1,25 +1,17 @@
 #!/usr/bin/env python3
-"""Verify the 17-package Git version-closure registry, the later packages' evidence, and optional release tag.
+"""Verify frozen and post-snapshot proof evidence without re-running mathematics.
 
-Audit revision (2026-09-13): an independent audit (finding F2) showed that the
-`later_packages` branch only checked path existence, `ls-files`, `exit_code` and
-the `index_status` string, so a rewritten matrix row, a tampered source file or a
-deleted `stdout.txt` still produced `PASS_WITH_SCOPE`.  The same audit (finding
-F7) showed that `later_machine_proved_claim_count` was a declared field that was
-never recomputed.  This verifier now performs, for every later package:
+The v2 registry contract checks both file integrity and evidence relationships.
+For every ``later_packages`` entry it binds the registry row to the RUN receipt,
+source manifest, exact proof/claim row manifest, unique matrix rows, compiler
+command and any historical dependency-gap exception. A valid proof run cannot
+therefore be exchanged with another package, shrink its frozen claim set, or
+inherit a dependency exception that belonged to an older run.
 
-  * source identity: every file in `<run>/source-manifest.json` exists and hashes
-    to the recorded value (this includes the transitive import closure that the
-    newer runs pin);
-  * receipt identity: `RUN.json`'s recorded stdout/stderr/environment/
-    source-manifest hashes match the files on disk;
-  * frozen index rows: every `<run>/index-row-manifest.json` row still exists in
-    the current matrix with the same line hash (append-only protection);
-  * claim count: `later_machine_proved_claim_count` is recomputed from the
-    `claim_ids` ranges and compared with the declared value.
-
-The frozen 17-package checks are unchanged.  `--project-root` exists so that the
-same verifier can be pointed at a temporary copy for controlled mutation tests.
+``replay_runs`` records a replay of already-indexed claims without rewriting the
+primary matrix rows. Replay entries receive the same identity and integrity
+checks as primary later packages. This script proves the stated Git/evidence
+closure only; it does not ask the proof assistant to check the mathematics again.
 """
 from __future__ import annotations
 
@@ -28,11 +20,14 @@ import hashlib
 import json
 import re
 import subprocess
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+
 
 ROOT = Path(__file__).resolve().parents[2]
 REGISTRY = ROOT / "HoTT/verification/PROOF_VERSION_CLOSURE.json"
 MATRIX = ROOT / "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+INDEX_REL = "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+RUN_ROOT = PurePosixPath("HoTT/verification/runs")
 
 
 class ClosureError(RuntimeError):
@@ -42,7 +37,9 @@ class ClosureError(RuntimeError):
 def run_git(*args: str) -> bytes:
     result = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, check=False)
     if result.returncode != 0:
-        raise ClosureError(f"GIT_FAILED:{' '.join(args)}:{result.stderr.decode(errors='replace').strip()}")
+        raise ClosureError(
+            f"GIT_FAILED:{' '.join(args)}:{result.stderr.decode(errors='replace').strip()}"
+        )
     return result.stdout
 
 
@@ -52,19 +49,119 @@ def sha(data: bytes) -> str:
 
 def load(path: Path) -> dict:
     value = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(value, dict): raise ClosureError(f"JSON_OBJECT_REQUIRED:{path}")
+    if not isinstance(value, dict):
+        raise ClosureError(f"JSON_OBJECT_REQUIRED:{path}")
     return value
 
 
-def claim_numbers(value: object) -> list[int]:
+def safe_rel(value: object, label: str) -> str:
+    if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
+        raise ClosureError(f"UNSAFE_RELATIVE_PATH:{label}:{value}")
+    path = PurePosixPath(value)
+    if path.is_absolute() or any(part in {"", ".", ".."} for part in path.parts):
+        raise ClosureError(f"UNSAFE_RELATIVE_PATH:{label}:{value}")
+    return path.as_posix()
+
+
+def expand_claim_ids(value: object) -> list[str]:
+    """Expand the registry's compact C-n or C-n..C-m notation exactly."""
     if not isinstance(value, str):
         raise ClosureError("CLAIM_IDS_NOT_STRING")
-    numbers = [int(part) for part in re.findall(r"\d+", value)]
-    if len(numbers) == 2 and numbers[1] >= numbers[0]:
-        return list(range(numbers[0], numbers[1] + 1))
-    if not numbers:
-        raise ClosureError("CLAIM_IDS_UNPARSEABLE")
-    return numbers
+    compact = value.strip()
+    single = re.fullmatch(r"C-(\d+)", compact)
+    if single:
+        return [compact]
+    interval = re.fullmatch(r"C-(\d+)\s*(?:\.\.|–)\s*C-(\d+)", compact)
+    if interval:
+        left, right = interval.groups()
+        start, stop = int(left), int(right)
+        if stop < start:
+            raise ClosureError(f"CLAIM_IDS_REVERSED:{value}")
+        width = max(len(left), len(right))
+        return [f"C-{number:0{width}d}" for number in range(start, stop + 1)]
+    parts = [part.strip() for part in compact.split(",")]
+    if parts and all(re.fullmatch(r"C-\d+", part) for part in parts):
+        if len(set(parts)) != len(parts):
+            raise ClosureError(f"CLAIM_IDS_DUPLICATE:{value}")
+        return parts
+    raise ClosureError(f"CLAIM_IDS_UNPARSEABLE:{value}")
+
+
+def matrix_identity_lines(data: bytes) -> dict[str, list[str]]:
+    identities: dict[str, list[str]] = {}
+    for line in data.decode("utf-8").splitlines():
+        if not line.startswith("|"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if not cells:
+            continue
+        identity = cells[0].strip("` ")
+        if re.fullmatch(r"(?:MP-[A-Za-z0-9-]+|C-\d+)", identity):
+            identities.setdefault(identity, []).append(line)
+    return identities
+
+
+def unique_matrix_line(index: dict[str, list[str]], identity: str) -> str:
+    matches = index.get(identity, [])
+    if len(matches) != 1:
+        raise ClosureError(f"MATRIX_IDENTITY_NOT_UNIQUE:{identity}:{len(matches)}")
+    return matches[0]
+
+
+def package_map(registry: dict) -> dict[str, dict]:
+    rows: list[dict] = []
+    for key in ("packages", "later_packages"):
+        value = registry.get(key)
+        if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
+            raise ClosureError(f"{key.upper()}_INVALID")
+        rows.extend(value)
+    mapping: dict[str, dict] = {}
+    claimed: dict[str, str] = {}
+    for row in rows:
+        proof_id = row.get("proof_id")
+        if not isinstance(proof_id, str) or proof_id in mapping:
+            raise ClosureError(f"PROOF_ID_DUPLICATE_OR_INVALID:{proof_id}")
+        claims = expand_claim_ids(row.get("claim_ids"))
+        for claim in claims:
+            if claim in claimed:
+                raise ClosureError(f"CLAIM_ID_REGISTERED_TWICE:{claim}:{claimed[claim]}:{proof_id}")
+            claimed[claim] = proof_id
+        mapping[proof_id] = row
+    return mapping
+
+
+def load_gap_allowlist(registry: dict) -> dict[tuple[str, str, str], dict]:
+    spec = registry.get("later_package_dependency_gap_allowlist")
+    if (
+        not isinstance(spec, dict)
+        or spec.get("schema_version") != "proof-dependency-gap-allowlist/v2"
+        or not isinstance(spec.get("entries"), list)
+    ):
+        raise ClosureError("LATER_DEPENDENCY_GAP_ALLOWLIST_INVALID")
+    output: dict[tuple[str, str, str], dict] = {}
+    required = {
+        "proof_id",
+        "run_id",
+        "module",
+        "missing_path",
+        "missing_sha256",
+        "source_manifest_sha256",
+        "stdout_sha256",
+    }
+    for row in spec["entries"]:
+        if not isinstance(row, dict) or not required <= set(row):
+            raise ClosureError("LATER_DEPENDENCY_GAP_ENTRY_INVALID")
+        key = (row.get("proof_id"), row.get("run_id"), row.get("module"))
+        if not all(isinstance(part, str) and part for part in key) or key in output:
+            raise ClosureError(f"LATER_DEPENDENCY_GAP_ENTRY_IDENTITY_INVALID:{key}")
+        missing_rel = safe_rel(row["missing_path"], "dependency-gap")
+        missing = ROOT / missing_rel
+        if not missing.is_file() or sha(missing.read_bytes()) != row.get("missing_sha256"):
+            raise ClosureError(f"LATER_DEPENDENCY_GAP_SOURCE_DRIFT:{key[0]}:{key[1]}:{key[2]}")
+        if Path(missing_rel).stem != key[2].split(".")[-1]:
+            raise ClosureError(f"LATER_DEPENDENCY_GAP_MODULE_PATH_MISMATCH:{key[0]}:{key[1]}:{key[2]}")
+        output[key] = row
+    return output
 
 
 def stdout_modules(text: str) -> set[str]:
@@ -76,48 +173,206 @@ def stdout_modules(text: str) -> set[str]:
     return names
 
 
-def check_later_package(run_dir: Path, proof_id: str, gap_allowlist: set[str]) -> dict[str, int]:
-    """Common evidence checks for one later (post-snapshot) package."""
-    manifest = load(run_dir / "source-manifest.json")
+def receipt_file(run_dir: Path, receipt: dict, key: str, proof_id: str) -> Path:
+    row = receipt.get(key)
+    expected_name = {
+        "stdout": "stdout.txt",
+        "stderr": "stderr.txt",
+        "environment": "environment.txt",
+        "source_manifest": "source-manifest.json",
+    }[key]
+    if not isinstance(row, dict) or row.get("path") != expected_name:
+        raise ClosureError(f"LATER_RECEIPT_FIELD_INVALID:{proof_id}:{key}")
+    path = run_dir / expected_name
+    if not path.is_file():
+        raise ClosureError(f"LATER_RUN_FILE_MISSING:{proof_id}:{expected_name}")
+    data = path.read_bytes()
+    if row.get("bytes") != len(data) or row.get("sha256") != sha(data):
+        raise ClosureError(f"LATER_RUN_FILE_HASH_DRIFT:{proof_id}:{expected_name}")
+    return path
+
+
+def check_later_package(
+    run_dir: Path,
+    registry_row: dict,
+    gap_allowlist: dict[tuple[str, str, str], dict],
+    matrix_index: dict[str, list[str]] | None = None,
+) -> dict[str, object]:
+    """Check one later package or registered replay and return used exceptions."""
+    proof_id = registry_row.get("proof_id")
+    if not isinstance(proof_id, str):
+        raise ClosureError("LATER_PACKAGE_PROOF_ID_INVALID")
+    run_rel = safe_rel(registry_row.get("run"), f"run:{proof_id}")
+    expected_run_id = PurePosixPath(run_rel).name
+    try:
+        PurePosixPath(run_rel).relative_to(RUN_ROOT)
+    except ValueError as exc:
+        raise ClosureError(f"LATER_RUN_OUTSIDE_ROOT:{proof_id}:{run_rel}") from exc
+    if run_dir.resolve() != (ROOT / run_rel).resolve():
+        raise ClosureError(f"LATER_RUN_PATH_MISMATCH:{proof_id}:{run_rel}")
+    if not run_dir.is_dir():
+        raise ClosureError(f"LATER_RUN_DIRECTORY_MISSING:{proof_id}:{run_rel}")
+
+    expected_claims = expand_claim_ids(registry_row.get("claim_ids"))
+    source_rel = safe_rel(registry_row.get("source"), f"source:{proof_id}")
+    toolchain_value = registry_row.get("toolchain")
+    toolchain_rel = safe_rel(toolchain_value, f"toolchain:{proof_id}") if toolchain_value else None
+
+    receipt = load(run_dir / "RUN.json")
+    if receipt.get("run_id") != expected_run_id:
+        raise ClosureError(f"LATER_RUN_ID_MISMATCH:{proof_id}:{receipt.get('run_id')}:{expected_run_id}")
+    if receipt.get("proof_id") != proof_id:
+        raise ClosureError(f"LATER_RUN_PROOF_ID_MISMATCH:{proof_id}:{receipt.get('proof_id')}")
+    if receipt.get("claim_ids") != expected_claims:
+        raise ClosureError(f"LATER_RUN_CLAIMS_MISMATCH:{proof_id}")
+    if receipt.get("status") != "KERNEL_ACCEPTED_WITH_SCOPE" or receipt.get("exit_code") != 0:
+        raise ClosureError(f"LATER_PACKAGE_RUN_NOT_ACCEPTED:{proof_id}")
+    if receipt.get("index_status") != "INDEXED_IN_CLAIM_EVIDENCE_MATRIX":
+        raise ClosureError(f"LATER_PACKAGE_RUN_NOT_INDEXED:{proof_id}")
+    if not isinstance(receipt.get("index"), dict) or receipt["index"].get("path") != INDEX_REL:
+        raise ClosureError(f"LATER_RUN_INDEX_IDENTITY_INVALID:{proof_id}")
+
+    stdout_path = receipt_file(run_dir, receipt, "stdout", proof_id)
+    receipt_file(run_dir, receipt, "stderr", proof_id)
+    receipt_file(run_dir, receipt, "environment", proof_id)
+    manifest_path = receipt_file(run_dir, receipt, "source_manifest", proof_id)
+
+    manifest = load(manifest_path)
+    if manifest.get("proof_id") != proof_id or manifest.get("run_id") != expected_run_id:
+        raise ClosureError(f"LATER_SOURCE_MANIFEST_IDENTITY_MISMATCH:{proof_id}")
     files = manifest.get("files")
     if not isinstance(files, list) or not files:
         raise ClosureError(f"LATER_SOURCE_MANIFEST_INVALID:{proof_id}")
-    for row in files:
-        rel = row.get("path")
-        if not isinstance(rel, str):
+    paths: list[str] = []
+    for source_row in files:
+        if not isinstance(source_row, dict):
             raise ClosureError(f"LATER_SOURCE_ROW_INVALID:{proof_id}")
+        rel = safe_rel(source_row.get("path"), f"manifest:{proof_id}")
+        if rel in paths:
+            raise ClosureError(f"LATER_SOURCE_PATH_DUPLICATE:{proof_id}:{rel}")
+        paths.append(rel)
         path = ROOT / rel
         if not path.is_file():
             raise ClosureError(f"LATER_SOURCE_MISSING:{proof_id}:{rel}")
-        if sha(path.read_bytes()) != row.get("sha256"):
-            raise ClosureError(f"LATER_SOURCE_HASH_DRIFT:{proof_id}:{rel}")
-    receipt = load(run_dir / "RUN.json")
-    for key in ("stdout", "stderr", "environment", "source_manifest"):
-        row = receipt.get(key)
-        if not isinstance(row, dict) or not isinstance(row.get("path"), str):
-            raise ClosureError(f"LATER_RECEIPT_FIELD_INVALID:{proof_id}:{key}")
-        path = run_dir / row["path"]
-        if not path.is_file():
-            raise ClosureError(f"LATER_RUN_FILE_MISSING:{proof_id}:{row['path']}")
         data = path.read_bytes()
-        if len(data) != row.get("bytes") or sha(data) != row.get("sha256"):
-            raise ClosureError(f"LATER_RUN_FILE_HASH_DRIFT:{proof_id}:{row['path']}")
-    index_rows = load(run_dir / "index-row-manifest.json")
-    rows = index_rows.get("rows")
-    if not isinstance(rows, list) or not rows:
+        if source_row.get("bytes") != len(data) or source_row.get("sha256") != sha(data):
+            raise ClosureError(f"LATER_SOURCE_HASH_DRIFT:{proof_id}:{rel}")
+    required_manifest_paths = {source_rel}
+    if toolchain_rel:
+        required_manifest_paths.add(toolchain_rel)
+    missing_required = required_manifest_paths - set(paths)
+    if missing_required:
+        raise ClosureError(f"LATER_SOURCE_MANIFEST_REQUIRED_PATH_MISSING:{proof_id}:{sorted(missing_required)}")
+
+    command = receipt.get("command_argv")
+    if not isinstance(command, list) or not command or any(not isinstance(arg, str) for arg in command):
+        raise ClosureError(f"LATER_COMMAND_INVALID:{proof_id}")
+    if command.count(source_rel) != 1:
+        raise ClosureError(f"LATER_COMMAND_SOURCE_MISMATCH:{proof_id}")
+    if toolchain_rel:
+        toolchain = load(ROOT / toolchain_rel)
+        agda = toolchain.get("agda")
+        binary = agda.get("local_binary") if isinstance(agda, dict) else None
+        if not isinstance(binary, str) or command.count(binary) != 1:
+            raise ClosureError(f"LATER_COMMAND_TOOL_MISMATCH:{proof_id}")
+
+    row_manifest = load(run_dir / "index-row-manifest.json")
+    if (
+        row_manifest.get("schema_version") != "proof-index-row-manifest/v1"
+        or row_manifest.get("run_id") != expected_run_id
+        or row_manifest.get("proof_id") != proof_id
+        or row_manifest.get("claim_ids") != expected_claims
+        or row_manifest.get("index_path") != INDEX_REL
+    ):
+        raise ClosureError(f"LATER_INDEX_ROW_MANIFEST_IDENTITY_MISMATCH:{proof_id}")
+    rows = row_manifest.get("rows")
+    if not isinstance(rows, list):
         raise ClosureError(f"LATER_INDEX_ROW_MANIFEST_INVALID:{proof_id}")
-    current = {sha(line.encode("utf-8")): line for line in MATRIX.read_text(encoding="utf-8").splitlines()}
+    expected_kinds = {proof_id: "proof", **{claim: "claim" for claim in expected_claims}}
+    actual: dict[str, dict] = {}
     for row in rows:
-        digest = row.get("line_sha256")
-        if digest not in current:
-            raise ClosureError(f"LATER_INDEX_ROW_MISSING_OR_REWRITTEN:{proof_id}:{row.get('id')}")
-    checked = stdout_modules((run_dir / "stdout.txt").read_text(encoding="utf-8"))
-    pinned = {Path(str(row.get("path"))).name.removesuffix(".agda") for row in files}
-    gaps = sorted(checked - pinned)
+        identity = row.get("id") if isinstance(row, dict) else None
+        if not isinstance(identity, str) or identity in actual:
+            raise ClosureError(f"LATER_INDEX_ROW_ID_DUPLICATE_OR_INVALID:{proof_id}:{identity}")
+        actual[identity] = row
+    if set(actual) != set(expected_kinds) or any(
+        actual[identity].get("kind") != kind for identity, kind in expected_kinds.items()
+    ):
+        raise ClosureError(f"LATER_INDEX_ROW_SET_MISMATCH:{proof_id}")
+    index = matrix_index if matrix_index is not None else matrix_identity_lines(MATRIX.read_bytes())
+    for identity, row in actual.items():
+        line = unique_matrix_line(index, identity)
+        if row.get("line_sha256") != sha(line.encode("utf-8")):
+            raise ClosureError(f"LATER_INDEX_ROW_MISSING_OR_REWRITTEN:{proof_id}:{identity}")
+
+    checked = stdout_modules(stdout_path.read_text(encoding="utf-8"))
+    pinned = {Path(path).stem for path in paths}
+    gaps = sorted(module for module in checked if module.split(".")[-1] not in pinned)
+    used_gaps: set[tuple[str, str, str]] = set()
+    manifest_digest = receipt["source_manifest"]["sha256"]
+    stdout_digest = receipt["stdout"]["sha256"]
     for module in gaps:
-        if f"{proof_id}:{module}" not in gap_allowlist:
-            raise ClosureError(f"LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:{proof_id}:{module}")
-    return {"files": len(files), "receipt_files": 4, "index_rows": len(rows), "dependency_gaps": len(gaps)}
+        key = (proof_id, expected_run_id, module)
+        exception = gap_allowlist.get(key)
+        if exception is None:
+            raise ClosureError(f"LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:{proof_id}:{expected_run_id}:{module}")
+        if (
+            exception.get("source_manifest_sha256") != manifest_digest
+            or exception.get("stdout_sha256") != stdout_digest
+            or exception.get("missing_path") in paths
+        ):
+            raise ClosureError(f"LATER_DEPENDENCY_GAP_EXCEPTION_IDENTITY_MISMATCH:{proof_id}:{expected_run_id}:{module}")
+        used_gaps.add(key)
+
+    return {
+        "files": len(files),
+        "source_paths": set(paths),
+        "receipt_files": 4,
+        "index_rows": len(rows),
+        "dependency_gaps": len(gaps),
+        "used_gap_keys": used_gaps,
+    }
+
+
+def validate_replay_entry(entry: dict, package: dict) -> dict:
+    proof_id = package["proof_id"]
+    expected_claims = expand_claim_ids(package.get("claim_ids"))
+    required = {
+        "run",
+        "proof_id",
+        "claim_ids",
+        "source",
+        "source_manifest_sha256",
+        "stdout_sha256",
+        "stderr_sha256",
+        "environment_sha256",
+        "relation",
+    }
+    if not required <= set(entry):
+        raise ClosureError(f"REPLAY_ENTRY_INVALID:{proof_id}")
+    if entry.get("relation") != "REPLAY_OF_EXISTING_CLAIMS":
+        raise ClosureError(f"REPLAY_RELATION_INVALID:{proof_id}:{entry.get('run')}")
+    if (
+        entry.get("proof_id") != proof_id
+        or entry.get("claim_ids") != expected_claims
+        or entry.get("source") != package.get("source")
+        or entry.get("run") == package.get("run")
+    ):
+        raise ClosureError(f"REPLAY_PACKAGE_IDENTITY_MISMATCH:{proof_id}:{entry.get('run')}")
+    run_rel = safe_rel(entry.get("run"), f"replay:{proof_id}")
+    receipt = load(ROOT / run_rel / "RUN.json")
+    for field, receipt_key in (
+        ("source_manifest_sha256", "source_manifest"),
+        ("stdout_sha256", "stdout"),
+        ("stderr_sha256", "stderr"),
+        ("environment_sha256", "environment"),
+    ):
+        row = receipt.get(receipt_key)
+        if not isinstance(row, dict) or entry.get(field) != row.get("sha256"):
+            raise ClosureError(f"REPLAY_RECEIPT_BINDING_MISMATCH:{proof_id}:{run_rel}:{field}")
+    replay_row = dict(package)
+    replay_row["run"] = run_rel
+    return replay_row
 
 
 def main() -> int:
@@ -128,65 +383,138 @@ def main() -> int:
     args = parser.parse_args()
     ROOT = args.project_root.resolve()
     REGISTRY = ROOT / "HoTT/verification/PROOF_VERSION_CLOSURE.json"
-    MATRIX = ROOT / "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+    MATRIX = ROOT / INDEX_REL
     try:
         registry = load(REGISTRY)
-        commit = registry.get("proof_asset_commit"); tree = registry.get("proof_asset_tree")
-        if registry.get("schema_version") != "hott-proof-version-closure/v1" or not isinstance(commit, str):
+        commit = registry.get("proof_asset_commit")
+        tree = registry.get("proof_asset_tree")
+        if registry.get("schema_version") != "hott-proof-version-closure/v2" or not isinstance(commit, str):
             raise ClosureError("REGISTRY_IDENTITY_INVALID")
         if run_git("rev-parse", commit).decode().strip() != commit:
             raise ClosureError("PROOF_COMMIT_NOT_EXACT")
         if run_git("rev-parse", commit + "^{tree}").decode().strip() != tree:
             raise ClosureError("PROOF_TREE_MISMATCH")
-        frozen = run_git("show", f"{commit}:HoTT/CLAIM_EVIDENCE_MATRIX.md")
+
+        frozen = run_git("show", f"{commit}:{INDEX_REL}")
         expected = registry["matrix_at_proof_asset_commit"]
-        if {"bytes": len(frozen), "lines": len(frozen.splitlines()), "sha256": sha(frozen)} != {key: expected[key] for key in ("bytes", "lines", "sha256")}:
+        frozen_identity = {"bytes": len(frozen), "lines": len(frozen.splitlines()), "sha256": sha(frozen)}
+        if frozen_identity != {key: expected[key] for key in ("bytes", "lines", "sha256")}:
             raise ClosureError("FROZEN_MATRIX_IDENTITY_MISMATCH")
         current = MATRIX.read_bytes()
         if not current.startswith(frozen) or b"## Git \xe7\x89\x88\xe6\x9c\xac\xe9\x97\xad\xe5\x90\x88\xe7\x99\xbb\xe8\xae\xb0" not in current:
             raise ClosureError("CURRENT_MATRIX_NOT_APPEND_ONLY_SUCCESSOR")
+        matrix_index = matrix_identity_lines(current)
+
         packages = registry.get("packages")
-        if not isinstance(packages, list) or len(packages) != 17 or len({row.get("proof_id") for row in packages}) != 17:
-            raise ClosureError("PACKAGE_COUNT_OR_ID_INVALID")
+        if not isinstance(packages, list) or len(packages) != 17:
+            raise ClosureError("PACKAGE_COUNT_INVALID")
+        all_packages = package_map(registry)
+        for proof_id, row in all_packages.items():
+            unique_matrix_line(matrix_index, proof_id)
+            for claim in expand_claim_ids(row.get("claim_ids")):
+                unique_matrix_line(matrix_index, claim)
+
         for row in packages:
-            for path in (row.get("source"), row.get("run") + "/RUN.json", "HoTT/CLAIM_EVIDENCE_MATRIX.md"):
+            proof_id = row["proof_id"]
+            source = safe_rel(row.get("source"), f"frozen-source:{proof_id}")
+            run_rel = safe_rel(row.get("run"), f"frozen-run:{proof_id}")
+            for path in (source, f"{run_rel}/RUN.json", INDEX_REL):
                 run_git("cat-file", "-e", f"{commit}:{path}")
-        later = registry.get("later_packages", [])
+
+        later = registry.get("later_packages")
         if not isinstance(later, list):
             raise ClosureError("LATER_PACKAGES_INVALID")
-        later_ids = [row.get("proof_id") for row in later if isinstance(row, dict)]
-        if len(later_ids) != len(later) or len(set(later_ids)) != len(later_ids):
-            raise ClosureError("LATER_PACKAGES_INVALID")
-        evidence_totals = {"packages": 0, "source_files": 0, "index_rows": 0}
-        gap_spec = registry.get("later_package_dependency_gap_allowlist") or {}
-        if not isinstance(gap_spec, dict) or not isinstance(gap_spec.get("entries"), list):
-            raise ClosureError("LATER_DEPENDENCY_GAP_ALLOWLIST_INVALID")
-        gap_allowlist = {entry for entry in gap_spec["entries"] if isinstance(entry, str)}
-        evidence_totals["dependency_gap_allowlisted"] = 0
+        gap_allowlist = load_gap_allowlist(registry)
+        used_gap_keys: set[tuple[str, str, str]] = set()
+        evidence_totals: dict[str, object] = {
+            "packages": 0,
+            "source_manifest_rows": 0,
+            "unique_source_files": set(),
+            "index_rows": 0,
+            "dependency_gap_allowlisted": 0,
+        }
         for row in later:
-            run_rel = row.get("run")
-            for path in (row.get("source"), row.get("toolchain"), f"{run_rel}/RUN.json"):
-                if not isinstance(path, str) or not (ROOT / path).is_file():
-                    raise ClosureError(f"LATER_PACKAGE_FILE_MISSING:{row.get('proof_id')}:{path}")
+            proof_id = row["proof_id"]
+            run_rel = safe_rel(row.get("run"), f"later-run:{proof_id}")
+            tracked = [
+                safe_rel(row.get("source"), f"later-source:{proof_id}"),
+                safe_rel(row.get("toolchain"), f"later-toolchain:{proof_id}"),
+                f"{run_rel}/RUN.json",
+                f"{run_rel}/stdout.txt",
+                f"{run_rel}/stderr.txt",
+                f"{run_rel}/environment.txt",
+                f"{run_rel}/source-manifest.json",
+                f"{run_rel}/index-row-manifest.json",
+            ]
+            for path in tracked:
+                if not (ROOT / path).is_file():
+                    raise ClosureError(f"LATER_PACKAGE_FILE_MISSING:{proof_id}:{path}")
                 run_git("ls-files", "--error-unmatch", path)
-            receipt = json.loads((ROOT / f"{run_rel}/RUN.json").read_text(encoding="utf-8"))
-            if receipt.get("exit_code") != 0 or receipt.get("index_status") != "INDEXED_IN_CLAIM_EVIDENCE_MATRIX":
-                raise ClosureError(f"LATER_PACKAGE_RUN_NOT_INDEXED:{row.get('proof_id')}")
-            if not isinstance(row.get("claim_ids"), str) or not row["claim_ids"]:
-                raise ClosureError(f"LATER_PACKAGE_CLAIMS_MISSING:{row.get('proof_id')}")
-            evidence = check_later_package(ROOT / run_rel, str(row.get("proof_id")), gap_allowlist)
+            evidence = check_later_package(ROOT / run_rel, row, gap_allowlist, matrix_index)
             evidence_totals["packages"] += 1
-            evidence_totals["source_files"] += evidence["files"]
+            evidence_totals["source_manifest_rows"] += evidence["files"]
+            evidence_totals["unique_source_files"].update(evidence["source_paths"])
             evidence_totals["index_rows"] += evidence["index_rows"]
             evidence_totals["dependency_gap_allowlisted"] += evidence["dependency_gaps"]
-        recomputed = sorted({n for row in later for n in claim_numbers(row.get("claim_ids"))})
+            used_gap_keys.update(evidence["used_gap_keys"])
+
+        if used_gap_keys != set(gap_allowlist):
+            unused = sorted(set(gap_allowlist) - used_gap_keys)
+            raise ClosureError(f"UNUSED_LATER_DEPENDENCY_GAP_ALLOWLIST:{unused}")
+
+        replay_spec = registry.get("replay_runs")
+        if (
+            not isinstance(replay_spec, dict)
+            or replay_spec.get("schema_version") != "proof-replay-registry/v1"
+            or not isinstance(replay_spec.get("entries"), list)
+        ):
+            raise ClosureError("REPLAY_REGISTRY_INVALID")
+        replay_runs: set[str] = set()
+        replay_totals = {"runs": 0, "source_manifest_rows": 0, "index_rows": 0}
+        for entry in replay_spec["entries"]:
+            if not isinstance(entry, dict):
+                raise ClosureError("REPLAY_ENTRY_INVALID")
+            run_rel = safe_rel(entry.get("run"), "replay-run")
+            if run_rel in replay_runs:
+                raise ClosureError(f"REPLAY_RUN_DUPLICATE:{run_rel}")
+            replay_runs.add(run_rel)
+            proof_id = entry.get("proof_id")
+            package = all_packages.get(proof_id)
+            if package is None:
+                raise ClosureError(f"REPLAY_PROOF_NOT_REGISTERED:{proof_id}")
+            replay_row = validate_replay_entry(entry, package)
+            evidence = check_later_package(ROOT / run_rel, replay_row, gap_allowlist, matrix_index)
+            if evidence["dependency_gaps"]:
+                raise ClosureError(f"REPLAY_DEPENDENCY_GAP_FORBIDDEN:{proof_id}:{run_rel}")
+            for filename in (
+                "RUN.json",
+                "stdout.txt",
+                "stderr.txt",
+                "environment.txt",
+                "source-manifest.json",
+                "index-row-manifest.json",
+            ):
+                run_git("ls-files", "--error-unmatch", f"{run_rel}/{filename}")
+            replay_totals["runs"] += 1
+            replay_totals["source_manifest_rows"] += evidence["files"]
+            replay_totals["index_rows"] += evidence["index_rows"]
+
+        recomputed = sorted({claim for row in later for claim in expand_claim_ids(row.get("claim_ids"))})
         declared = registry.get("later_machine_proved_claim_count")
         if not isinstance(declared, int) or declared != len(recomputed):
-            raise ClosureError(f"LATER_CLAIM_COUNT_MISMATCH:declared={declared}:recomputed={len(recomputed)}")
+            raise ClosureError(
+                f"LATER_CLAIM_COUNT_MISMATCH:declared={declared}:recomputed={len(recomputed)}"
+            )
+
         state = load(ROOT / ".codex/research/hott/STATE.json")
-        current_records = [row for row in state["records"].values() if row.get("version_closure", {}).get("proof_asset_commit") == commit]
+        current_records = [
+            row
+            for row in state["records"].values()
+            if row.get("version_closure", {}).get("proof_asset_commit") == commit
+        ]
         if state.get("revision", 0) < 92 or len(current_records) < 19:
             raise ClosureError("STATE_VERSION_CLOSURE_NOT_APPLIED")
+
         tag_status = "NOT_REQUIRED"
         if args.require_tag:
             tag = registry.get("release_ref")
@@ -195,16 +523,28 @@ def main() -> int:
             if tag_commit != head:
                 raise ClosureError("RELEASE_TAG_NOT_AT_HEAD")
             tag_status = "TAG_AT_HEAD"
-        print(json.dumps({
-            "status": "PASS_WITH_SCOPE", "proof_asset_commit": commit,
-            "packages": len(packages), "machine_proved_claims": registry["machine_proved_claim_count"],
-            "later_packages": len(later),
-            "later_machine_proved_claims": len(recomputed),
-            "later_evidence": evidence_totals,
-            "external_replayed_claims": registry["external_replayed_claim_count"],
-            "append_only_matrix_successor": True, "state_records_with_closure": len(current_records),
-            "tag_status": tag_status, "mathematics": "NOT_REPROVED_BY_GIT_CLOSURE",
-        }, ensure_ascii=False))
+
+        evidence_totals["unique_source_files"] = len(evidence_totals["unique_source_files"])
+        print(
+            json.dumps(
+                {
+                    "status": "PASS_WITH_SCOPE",
+                    "proof_asset_commit": commit,
+                    "packages": len(packages),
+                    "machine_proved_claims": registry["machine_proved_claim_count"],
+                    "later_packages": len(later),
+                    "later_machine_proved_claims": len(recomputed),
+                    "later_evidence": evidence_totals,
+                    "replay_evidence": replay_totals,
+                    "external_replayed_claims": registry["external_replayed_claim_count"],
+                    "append_only_matrix_successor": True,
+                    "state_records_with_closure": len(current_records),
+                    "tag_status": tag_status,
+                    "mathematics": "NOT_REPROVED_BY_GIT_CLOSURE",
+                },
+                ensure_ascii=False,
+            )
+        )
         return 0
     except (ClosureError, OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
         print(json.dumps({"status": "BLOCKED", "error": str(exc)}, ensure_ascii=False))

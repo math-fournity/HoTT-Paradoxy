@@ -1,5 +1,5 @@
 {
-  "schema_version": "hott-proof-version-closure/v1",
+  "schema_version": "hott-proof-version-closure/v2",
   "status": "PROOF_ASSETS_VERSION_CLOSED_AT_SOURCE_COMMIT",
   "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
   "proof_asset_tree": "e78cfa44f086cb0d6bb6fae75837deedfa920e21",
@@ -15,15 +15,68 @@
   "external_replayed_claim_count": 1,
   "later_machine_proved_claim_count": 39,
   "later_package_dependency_gap_allowlist": {
-    "reason": "Pre-2026-09-13 runs pinned only the directly opened modules. An independent audit (finding F6) showed that the compiler also checked transitive imports (DiagonalLemma.agda, and DecodingFence.agda for MP-ERCF3-T3-REPAIRED-SYNTAX-001) that those runs did not list. The gap is registered here instead of being back-filled into the historical manifests; every later run from MP-ERCF3-T3-C168-COUNTERCHECK-001 onwards pins the full transitive closure and must not add entries here.",
+    "schema_version": "proof-dependency-gap-allowlist/v2",
+    "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
     "entries": [
-      "MP-ERCF3-T3-ARITH-TAGS-001:DiagonalLemma",
-      "MP-ERCF3-T3-BIT-CODING-001:DiagonalLemma",
-      "MP-ERCF3-T3-FORMULA-CODING-001:DiagonalLemma",
-      "MP-ERCF3-T3-REPAIRED-SYNTAX-001:DiagonalLemma",
-      "MP-ERCF3-T3-REPAIRED-SYNTAX-001:DecodingFence",
-      "MP-ERCF3-T3-STREAMING-PARSER-001:DiagonalLemma"
+      {
+        "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
+        "run_id": "20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
+        "module": "DiagonalLemma",
+        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+        "source_manifest_sha256": "0b7c4b18c71a0ae84e859bbee04ab24ded137f10fd1ec39b4d117f5c36e01a99",
+        "stdout_sha256": "5500fe76be06703b66f0ecc51d28850f8d637105907419ecd2eb34eb762edb93"
+      },
+      {
+        "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
+        "run_id": "20260913-MP-ERCF3-T3-BIT-CODING-001-01",
+        "module": "DiagonalLemma",
+        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+        "source_manifest_sha256": "3d08e697df19dcabb306b9ff4588c4ee6eec39f8702ab5b11f9b01ee1a23549d",
+        "stdout_sha256": "f3980c074e51eb01de5417ee89057fc0e7633ec4b35efce36db9d4dcf640cdf3"
+      },
+      {
+        "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
+        "run_id": "20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
+        "module": "DiagonalLemma",
+        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+        "source_manifest_sha256": "3bddb490e7e493d677ef5d8e6b4f2d2f986a6d57fc87e0edfb4ae30c99fdb694",
+        "stdout_sha256": "609ea4d45d96a77dec7eeab49c8f1bc548e7fdc149e544ead9caf3cbb6ed7b7f"
+      },
+      {
+        "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+        "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+        "module": "DiagonalLemma",
+        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+        "source_manifest_sha256": "3af1f7c3ca54e054e9980cf6e64948bb4994a88ca93aa64c10af00999be4081f",
+        "stdout_sha256": "5bc57c275b497585899d88128ad2749a3b1772557c25316e52ae01dcf6c1b30f"
+      },
+      {
+        "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+        "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+        "module": "DecodingFence",
+        "missing_path": "HoTT/formal/ercf3-t3/DecodingFence.agda",
+        "missing_sha256": "e7a141207332a55f5be14e20208127d98480aca22bf12366d092fd34431a8cab",
+        "source_manifest_sha256": "3af1f7c3ca54e054e9980cf6e64948bb4994a88ca93aa64c10af00999be4081f",
+        "stdout_sha256": "5bc57c275b497585899d88128ad2749a3b1772557c25316e52ae01dcf6c1b30f"
+      },
+      {
+        "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
+        "run_id": "20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+        "module": "DiagonalLemma",
+        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+        "source_manifest_sha256": "5e4f692f58ca12aca5ff4714c671908d995550c9a856c77cf84ef7adfb8d1a38",
+        "stdout_sha256": "6b45a2b966bda6510c2f46ab4d1bccd2f6b29eae9f72c616d65637c2c5101e87"
+      }
     ]
+  },
+  "replay_runs": {
+    "schema_version": "proof-replay-registry/v1",
+    "entries": []
   },
   "later_packages": [
     {
