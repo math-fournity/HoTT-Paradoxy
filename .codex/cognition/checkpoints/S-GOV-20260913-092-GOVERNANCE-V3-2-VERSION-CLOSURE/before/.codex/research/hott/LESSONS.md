@@ -71,5 +71,3 @@
 68. `POST-CHECKPOINT.json` 是 AI 派生摘要，不能证明 checkpoint 已应用；唯一证据是 canonical runtime 生成的 transaction、before/after 与 `result.json.status=CHECKPOINT_COMMITTED`。历史缺收据必须登记，不能追溯补造。
 69. `depends_on` 不是时间线。只有会传播 stale 的验证依赖才递归水合；批次先后、报告概括、研究归属和相似现象必须用 `research_parent`/`related_records`，否则 query-first 原件会被重新拉成数十 MB 启动正文。
 70. task plan 的 `review_required=[]` 只说明已选 record 没有当前 stale 标记，不证明计划可装配。必须同时检查总 bytes/lines、document count、largest documents、query-first promotion，并实际完成 snapshot coverage。
-
-71. Proof run 的 frozen index row 与当前 Git closure 是正交维度：原位把 `LOCAL_UNCOMMITTED` 改成 `VERSION_CLOSED` 会破坏历史 row manifest。正确做法是保持旧行逐字不变，在矩阵末尾追加 exact commit registry，并由 current STATE/投影引用；Git closure 不重证数学。

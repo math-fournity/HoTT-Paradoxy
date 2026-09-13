@@ -81,7 +81,7 @@ formation、identity、judgmental equality、univalence/funext 的 stage/settlem
 
 ## 当前一句话结论
 
-当前 17 个 proof package 在各自固定命题、工具链和 run 范围内形成机器证据；其中既有 `DEFENSE_WORKS`，也有多种 `REPRESENTATION_BOUNDARY`、正控制和一个固定外部库重放。它们没有建立 E6 自然消费者、现实桥梁、`NATURAL_USAGE_MISMATCH` 或 HoTT 内部矛盾。标准 HoTT 能表示时间并具有有向计算/归约，因此并非绝对静态；但裸核心不默认把 clock、因果、资源和完整 trace 作为不可擦除 judgment 维度。当前研究首选应转向下游应用/派生开发中的真实 consumer，固定版本、调用链与交付承诺，检查资格是否被真实越级；T3 联合递归为第二线。Z 的最高定性仍是用户研究航向，不等于已经证明的 HoTT 特定悖论。
+当前 17 个 proof package 在各自固定命题、工具链和 run 范围内形成机器证据，并由 `verification/PROOF_VERSION_CLOSURE.json` 绑定到 exact commit `d3dfb0e…`；当前状态为 `MACHINE_PROVED_VERSION_CLOSED`，C-05 为 scoped external replay。上表 frozen claim 行仍保留 run 建立时的 local-uncommitted 文本，以维持 index-row manifests；Git 维度由追加登记解释。它们没有建立 E6 自然消费者、现实桥梁、`NATURAL_USAGE_MISMATCH` 或 HoTT 内部矛盾。当前研究首选仍是下游应用/派生开发中的真实 consumer；T3 联合递归为第二线。
 
 ## 快速验证
 

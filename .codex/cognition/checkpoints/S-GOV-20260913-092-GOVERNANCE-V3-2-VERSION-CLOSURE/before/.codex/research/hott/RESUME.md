@@ -8,8 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-S092 version closure：17 个 current package/90 claims + C-05 external replay 绑定 `d3dfb0e…`；current Git 维度 version-closed，frozen matrix rows/RUN.json 不改；本地 release ref `governance-v3.2.0`，未 push。
-
 S091 对齐轮：不改 S090 事务；刷新修复后 1 个 source hash，Feature 与真实 checkpoint/plan 验收对齐。修复 commit/tag 仍待完成。
 
 S090 治理修复：S086–S089 四轮缺 canonical checkpoint receipt 的事实已独立登记，禁止追溯伪造；runtime 3.2 强制 SESSION/RUNS/36-KC audit 同事务，并区分 `depends_on` 与非递归 `research_parent`/`related_records`。S088 的外部 E6 强说法降为 `SOURCE_INSPECTED_BOUNDED_NEGATIVE`；C-05 重放仍有效。下一数学主线是固定下游应用/派生开发的真实 E6 consumer；T3 第二线；batch 13/无差别基础库扫描降优先级。
@@ -63,11 +61,11 @@ S066 完成 N20：第九批抽样 40 条（B3/B1/读遍账本/A0/A6/A4/审计锚
 
 S065 完成 N19：(a) 固定库读取（Cubical v0.9）记录 `isFinOrd`（数据）/`isFinSet`（存在，命题）并置与 `isFinOrd→isFinSet` 单向性——用户命题『理论经济保留存在、遗忘是哪一个』的库设计证据，不新增 claim。(b) 第八批抽样 40 条（B3/读遍账本/B1/全量精读/B5/A1/A8/C0 各 5）：`SUPPORTED=24`、`PENDING=16`、0 `UNSUPPORTED`、0 `SUPERSEDED`；八批累计 322/2,396（13.4%）：200/12/0/110；E6 八批一致未出现；记录 `16,151 vs 16,209` 口径差待复核。报告 `audit/interface-data-cut-and-batch8-20260913.md`；下一工作包 N20。
 
-S064 完成 N18：(a) `MP-TRUNC-NORECOVERY-001` 扩展 C-141：对 Cubical 的 `isFinSet` 形状接口（`Σ n × ∥ A ≃ Fin n ∥₁`，枚举组件是命题），不存在统一读出具体枚举的 pick 函数；run `20260913-MP-TRUNC-NORECOVERY-001-03`：exit 0、stderr 0、零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、独立 `--rerun` exact match；matrix 覆盖 C-134–C-141，冻结 9 行 manifest。(b) 第七批抽样 40 条（B3/A3/A9/A0/B1/A2/B2/A8 各 5）：`SUPPORTED=27`、`PENDING=13`、0 `UNSUPPORTED`、0 `SUPERSEDED`；七批累计 282/2,396（11.8%）：176/12/0/94；E6 七批一致未出现。报告 `audit/library-interface-no-recovery-and-batch7-20260913.md`；下一工作包 N19（队列第 8 批），备选 ERCF-3 T3（gated）。
+S064 完成 N18：(a) `MP-TRUNC-NORECOVERY-001` 扩展 C-141：对 Cubical 的 `isFinSet` 形状接口（`Σ n × ∥ A ≃ Fin n ∥₁`，枚举组件是命题），不存在统一读出具体枚举的 pick 函数；run `20260913-MP-TRUNC-NORECOVERY-001-03`：exit 0、stderr 0、零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、独立 `--rerun` exact match；matrix 覆盖 C-134–C-141，冻结 9 行 manifest。(b) 第七批抽样 40 条（B3/A3/A9/A0/B1/A2/B2/A8 各 5）：`SUPPORTED=27`、`PENDING=13`、0 `UNSUPPORTED`、0 `SUPERSEDED`；七批累计 282/2,396（11.8%）：176/12/0/94；E6 七批一致未出现。报告 `audit/library-interface-no-recovery-and-batch7-20260913.md`；下一工作包 N19（队列第 8 批），备选 ERCF-3 T3（gated）。
 
-S063 完成 N17：(a) `MP-TRUNC-NORECOVERY-001` 扩展（C-139/C-140）：`noSectionCandidate`（Bool completion-candidate 类型为空）与 `noCompletionCandidate`（一般分离实现下 completion-candidate 类型为空），把 C-136/C-135 改写成理论内部的“完成不可行”否定形式；run `20260913-MP-TRUNC-NORECOVERY-001-02`：exit 0、stderr 0、零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、独立 `--rerun` exact match；matrix 覆盖 C-134–C-140，冻结 8 行 manifest。(b) 第六批抽样 40 条（B5/B3/A8/A7/B1/读遍账本/A1/全量精读 各 5）：`SUPPORTED=27`、`PENDING=13`、0 `UNSUPPORTED`、0 `SUPERSEDED`；六批累计 242/2,396（10.1%）：149/12/0/81；E6 六批一致未出现。报告 `audit/truncation-completion-and-batch6-20260913.md`；下一工作包 N18（队列第 7 批），备选 ERCF-3 T3（gated）。
+S063 完成 N17：(a) `MP-TRUNC-NORECOVERY-001` 扩展（C-139/C-140）：`noSectionCandidate`（Bool completion-candidate 类型为空）与 `noCompletionCandidate`（一般分离实现下 completion-candidate 类型为空），把 C-136/C-135 改写成理论内部的“完成不可行”否定形式；run `20260913-MP-TRUNC-NORECOVERY-001-02`：exit 0、stderr 0、零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、独立 `--rerun` exact match；matrix 覆盖 C-134–C-140，冻结 8 行 manifest。(b) 第六批抽样 40 条（B5/B3/A8/A7/B1/读遍账本/A1/全量精读 各 5）：`SUPPORTED=27`、`PENDING=13`、0 `UNSUPPORTED`、0 `SUPERSEDED`；六批累计 242/2,396（10.1%）：149/12/0/81；E6 六批一致未出现。报告 `audit/truncation-completion-and-batch6-20260913.md`；下一工作包 N18（队列第 7 批），备选 ERCF-3 T3（gated）。
 
-S062 完成 N16：(a) `MP-TRUNC-NORECOVERY-001`（C-134–C-138）在 Agda 2.8.0-3d04bac + Cubical v0.9 下原生机器化「集合值消费者下命题截断不可逐点恢复」族——`pointConstructorsForceEquality`（集合值读出与实现一致 ⇒ 任意两点值相等）、`noPointRecovery`（加分离见证后不可共存）、Bool 与 ℕ 实例（分离对 0/1）、`propositionValuedTestExists`（mere-proposition 正控制）；final run `20260913-MP-TRUNC-NORECOVERY-001-01`：exit 0、stderr 0、零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、独立 `--rerun` exact match；matrix 新增 proof 行 + C-134–C-138 并冻结 6 行 manifest。(b) 第五批按比例抽样 40 条（README/B2/全量精读/B4/A6/B1/B0/A11 各 5）：`SUPPORTED=29`、`PENDING=11`、0 `UNSUPPORTED`、0 `SUPERSEDED`；五批累计 202/2,396（8.4%）：122/12/0/68；E6 五批一致未出现。报告 `audit/truncation-no-recovery-and-batch5-20260913.md`；下一工作包 N17（队列第 6 批），备选 ERCF-3 T3（gated）。
+S062 完成 N16：(a) `MP-TRUNC-NORECOVERY-001`（C-134–C-138）在 Agda 2.8.0-3d04bac + Cubical v0.9 下原生机器化「集合值消费者下命题截断不可逐点恢复」族——`pointConstructorsForceEquality`（集合值读出与实现一致 ⇒ 任意两点值相等）、`noPointRecovery`（加分离见证后不可共存）、Bool 与 ℕ 实例（分离对 0/1）、`propositionValuedTestExists`（mere-proposition 正控制）；final run `20260913-MP-TRUNC-NORECOVERY-001-01`：exit 0、stderr 0、零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、独立 `--rerun` exact match；matrix 新增 proof 行 + C-134–C-138 并冻结 6 行 manifest。(b) 第五批按比例抽样 40 条（README/B2/全量精读/B4/A6/B1/B0/A11 各 5）：`SUPPORTED=29`、`PENDING=11`、0 `UNSUPPORTED`、0 `SUPERSEDED`；五批累计 202/2,396（8.4%）：122/12/0/68；E6 五批一致未出现。报告 `audit/truncation-no-recovery-and-batch5-20260913.md`；下一工作包 N17（队列第 6 批），备选 ERCF-3 T3（gated）。
 
 S061 完成 N15：(a) 口径机器对照——`scripts/audit/reconcile_reporting_denominators.py` 重算：句级账本 2,369 句/171 遍历单元（38 Codex + 111 网页 + 22 Gemini，0 缺锚）；归档 user records 125 = 119 历史对话 + 6 并行会话越界补充（32 条 EXCLUDED_OUT_OF_SCOPE）；冻结 claim 账本 2,396 行/24 owner，其中 22/24 owner 计数完全复现（2,268 行），仅 README（46→60）与 C0（82→91）增长；当前理解章节 claim 面 4,547 行（C1–C10 增量 2,128）。两条历史“不一致”均为单位/范围差，不是丢件。(b) 第四批按比例抽样 40 条（前 1–3 批抽样比升序，每 owner≤5）：`SUPPORTED=28`、`PENDING=12`、0 `UNSUPPORTED`、0 `SUPERSEDED`；四批累计 162/2,396（6.76%）：93/12/0/57；专项核验 14/14 PASS；E6 四批一致未出现，不触发 F-011。报告 `audit/reporting-denominators-and-batch4-20260912.md`；下一工作包为 N16 队列按比例继续（下一档 A11/B5/A7 等），备选 ERCF-3 T3（gated）。
 
@@ -89,19 +87,19 @@ S053 完成 ERCF-3 前置评估：`理解章节/C8-ERCF-3前置评估与最小�
 
 S052 完成 N10：工具链/应用层交付审计在 Agda 2.8.0-3d04bac（JS 后端实际运行到 node v26.7.0；GHC 源码生成，无 ghc 执行）与 Lean 4.33.1 上完成实测。结论 scoped `DEFENSE_WORKS`：`--cubical` 模块被两个编译后端整体拒绝；`--erased-cubical` 只允许擦除使用（计算性 `transport`、库函数 `not` 报 `DefinitionIsErased`）；无选项模块导入 cubical 库报 `InfectiveImport`；非 cubical 基线实际运行成功；Lean 商消去尊重识别、代表元依赖与 `noncomputable` 消费者被拒绝。E6 未发现，判词仍为第二级 `REPRESENTATION_BOUNDARY`。下一工作包为 ERCF-3 前置评估；ERCF-3 构造继续 gated。
 
-S051 完成 N9：`MP-CAUCHY-MODULUS-001`（C-129–C-133）在 Agda 2.8.0/Cubical v0.9 下原生机器化 Cauchy modulus 表示边界，零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、exact replay；十三个旧包在矩阵增长后全部 row-stable；外部 agda-unimath 接口审计（master @ `6dc2d58a…`）显示 convergence modulus/modulated Cauchy 序列为显式结构数据，与 C-131/C-132 方向一致。判词 `CAUCHY_MODULUS_BOUNDARY_WITH_POSITIVE_CONTROLS`。下一工作包为 N10 应用层消费者审计；ERCF-3 继续 gated。
+S051 完成 N9：`MP-CAUCHY-MODULUS-001`（C-129–C-133）在 Agda 2.8.0/Cubical v0.9 下原生机器化 Cauchy modulus 表示边界，零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay；十三个旧包在矩阵增长后全部 row-stable；外部 agda-unimath 接口审计（master @ `6dc2d58a…`）显示 convergence modulus/modulated Cauchy 序列为显式结构数据，与 C-131/C-132 方向一致。判词 `CAUCHY_MODULUS_BOUNDARY_WITH_POSITIVE_CONTROLS`。下一工作包为 N10 应用层消费者审计；ERCF-3 继续 gated。
 
-S050 完成 N8：`MP-SIP-REPRESENTATION-001`（C-124–C-128）在 Agda 2.8.0/Cubical v0.9 下原生机器化 SIP/UA 替换许可边界，零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、exact replay；十二个旧包在矩阵增长后全部 row-stable。判词 `SIP_REPRESENTATION_BOUNDARY_WITH_POSITIVE_CONTROL`。下一工作包为 N9 Cauchy modulus 边界；ERCF-3 继续 gated。
+S050 完成 N8：`MP-SIP-REPRESENTATION-001`（C-124–C-128）在 Agda 2.8.0/Cubical v0.9 下原生机器化 SIP/UA 替换许可边界，零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay；十二个旧包在矩阵增长后全部 row-stable。判词 `SIP_REPRESENTATION_BOUNDARY_WITH_POSITIVE_CONTROL`。下一工作包为 N9 Cauchy modulus 边界；ERCF-3 继续 gated。
 
 S049 完成 N7 post-N6 距离综合：十二个机器包（C-59–C-123）判词分布固定；仍无 `NATURAL_USAGE_MISMATCH`；剩余域为 SIP/表示消费者、Cauchy modulus、工具链/应用层、ERCF-3 前置。下一工作包为 N8 SIP/表示消费者机器构造；ERCF-3 继续 gated。
 
-S048 完成 N6：`MP-PARTIAL-DECISION-001`（C-118–C-123）在 Agda 2.8.0/Cubical v0.9 下原生机器化 strict vs partial classifier 边界，零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、exact replay；十一个旧包在矩阵增长后全部 row-stable。判词 `PARTIAL_DECISION_BOUNDARY_WITH_POSITIVE_CONTROL`。下一工作包为 N7 post-N6 距离综合；ERCF-3 继续 gated。
+S048 完成 N6：`MP-PARTIAL-DECISION-001`（C-118–C-123）在 Agda 2.8.0/Cubical v0.9 下原生机器化 strict vs partial classifier 边界，零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay；十一个旧包在矩阵增长后全部 row-stable。判词 `PARTIAL_DECISION_BOUNDARY_WITH_POSITIVE_CONTROL`。下一工作包为 N7 post-N6 距离综合；ERCF-3 继续 gated。
 
 S047 完成 N5 派生开发消费者审计：固定集合 D1–D5 内无 `FOUND_CANDIDATE`；D1 §5.2 明确区分 partial `ℝq → 𝟐⊥` 与不可定义 total `ℝq → 𝟐`，D2–D4 显式携带 choice/分配律/resource-bounded 假设；判定 scoped `BOUNDED_DEFENSE`。下一工作包为 N6 `MP-PARTIAL-DECISION-001`（最小 quotient + partial/total classifier 边界）；ERCF-3 继续 gated。
 
 S046 完成 N4 新候选生成：DIR01–DIR09 × OP01–OP08 候选矩阵与五个短名单；`CAND-REGULARITY`（ua regularity）由 Cubical Agda 2.8.0/Cubical v0.9 探针实测排除。下一工作包为 N5 派生开发消费者审计（固定论文/库版本，核对“可计算/可提取/可序列化/可交付”自述的假设）；备选 `CAND-TYPEQUOT-SECTION`。ERCF-3 继续 gated。
 
-S045 完成 N3：`MP-TRANSITION-LIFT-001`（C-110–C-117）在 Agda 2.8.0/Cubical v0.9 下原生机器化 R036/R038 核心边界，零 warning、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、exact replay；十个旧包在矩阵增长后全部 row-stable。判词 `TRANSITION_LIFT_BOUNDARY_WITH_POSITIVE_CONTROLS`；`DIR-W-TRANSITION-ABSTRACTION` 与 `DIR-W-CURRENT-STATE-LIFT` 转 `CLOSED_WITH_SCOPE`。下一工作包为 N4 新候选生成（DIR01–DIR09 × OP01–OP08）；ERCF-3 继续 gated。
+S045 完成 N3：`MP-TRANSITION-LIFT-001`（C-110–C-117）在 Agda 2.8.0/Cubical v0.9 下原生机器化 R036/R038 核心边界，零 warning、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay；十个旧包在矩阵增长后全部 row-stable。判词 `TRANSITION_LIFT_BOUNDARY_WITH_POSITIVE_CONTROLS`；`DIR-W-TRANSITION-ABSTRACTION` 与 `DIR-W-CURRENT-STATE-LIFT` 转 `CLOSED_WITH_SCOPE`。下一工作包为 N4 新候选生成（DIR01–DIR09 × OP01–OP08）；ERCF-3 继续 gated。
 
 S044 完成 N2 提取接口审计：Agda 2.8.0 类型层接受 LEM 分类器，但 MAlonzo 把 postulate 编译为 `error "postulate evaluated"`；Lean 4.33.1 内核拒绝 `Prop → Bool` 大消去，`Classical` 版分类器被 `#eval`/`#eval!` 拒绝；Coq/GHC 不可用。判定 scoped `DEFENSE_WORKS`，`DIR-W-RP-B01` 转 PARKED。下一工作包为 N3 R036/R038 原生 Cubical 升级；ERCF-3 继续 gated。
 
@@ -129,7 +127,7 @@ S033 以新 Session 接手：独立重放 `MP-ERCF-001` 与 `MP-ERCF-TRUNC-001`�
 
 S032 已同步 F-011 stable record 的 formal/runs README hash；`A-ERCF-TRUNCATION-DEFENSE-001` research task hydration 成功且 `review_required=[]`。数学与下一方向均不变。
 
-S031 已完成第一个 HoTT 原生信息经济判别。`MP-ERCF-TRUNC-001` 在 Agda 2.8.0/Cubical v0.9 的 native Path+squash-HIT 下机器证明 C-67–C-70；final run、官方 release/tree hash、stdout/stderr、环境、索引和 exact replay 均在 repo。当前未 commit，状态为 `MACHINE_PROVED_VERSION_CLOSED`。
+S031 已完成第一个 HoTT 原生信息经济判别。`MP-ERCF-TRUNC-001` 在 Agda 2.8.0/Cubical v0.9 的 native Path+squash-HIT 下机器证明 C-67–C-70；final run、官方 release/tree hash、stdout/stderr、环境、索引和 exact replay 均在 repo。当前未 commit，状态为 `MACHINE_PROVED_LOCAL_UNCOMMITTED`。
 
 判词是 `DEFENSE_WORKS`，不是 HoTT 悖论：命题截断允许 proposition-valued consumer 和二重截断压平；任意 `∥Bool∥₁→Bool` 对两个 canonical point 输出 path-equal，因此逐点恢复原 Bool witness 的合同不可能。HoTT 在这里没有绕过 ASK，而是阻断了资格提升。
 

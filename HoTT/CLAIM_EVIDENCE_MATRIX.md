@@ -208,3 +208,28 @@ proof_run_root: HoTT/verification/runs
 > 规范方向，但这既不是 HoTT 的内部矛盾，也不阻止显式编码顺序、动力学、cost 或时间系统。
 
 这个表述是“表示相对限制”，不是“理论绝对失败”。
+
+## Git 版本闭合登记（2026-09-13）
+
+本节是当前 Git 可恢复性维度的唯一登记，不改写上面的 frozen proof/claim 行。上表中的
+`MACHINE_PROVED_LOCAL_UNCOMMITTED` 与 `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE` 是各 run 建立索引时的
+证据状态文本，已被 `index-row-manifest.json` 固定；把它们原位改成新状态会破坏历史 run 的逐行收据。
+
+当前 Git 维度如下：
+
+- proof source、final/superseded run、索引行与 S090/S091 治理修复已进入 commit
+  `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；tree
+  `e78cfa44f086cb0d6bb6fae75837deedfa920e21`；
+- 该 commit 中本矩阵为 58,897 bytes / 210 行，SHA-256
+  `e598228bb3c04f2a84cece955680381b16fb92f140c336abe0da2e6f4b6e7a18`；
+- 当前文件只在其后 append 本登记，旧行保持逐字前缀；现有 run 因索引演进应显示
+  `ROW_STABLE_AFTER_INDEX_EVOLUTION`，数学 proof source/run 未被改写；
+- 当前 17 个 package 的 Git 状态由 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 统一解释为
+  `MACHINE_PROVED_VERSION_CLOSED`；外部 C-05 为
+  `MACHINE_REPLAYED_EXTERNAL_LIBRARY_VERSION_CLOSED_WITH_SCOPE`；
+- `governance-v3.2.0` 是本轮治理 release ref；数学资产的 version closure 已由上述 exact commit
+  满足，不依赖把历史 RUN.json 改写成新状态。
+
+特别边界：C-145 行中的“与 agda-unimath 同内容”只保留为当时的非正式对照措辞；S090 已明确项目
+没有机器证明本地 Cubical/Type₀ 规格与外部 universe-polymorphic without-K 规格的保真翻译或等价。
+真正的外部源码重放只有 `MP-UNIMATH-NOSECTION-REPLAY-001` / C-05。

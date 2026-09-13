@@ -8,6 +8,8 @@
 
 `S090治理修复实施与验收证据-20260913.md` 与 `S090-governance-repair-verification-20260913.json` 保存真实 S090 canonical checkpoint、五个 record 的水合前后对照、0 query-first promotion、S086/S088 证据修正和 C01–C10；它们不认证模型理解或数学结论。
 
+`governance-v3.2.0-release-evidence-20260913.md` 是本轮版本闭合入口；机器 registry 为 `HoTT/verification/PROOF_VERSION_CLOSURE.json`，verifier 为 `scripts/audit/verify_proof_version_closure.py`。Frozen proof rows 保持 run-time 状态文本，当前 Git 维度由追加 registry 解释。
+
 `ERCF-1-2机器证明实施证据-20260912.md` 拥有 F-011 生效后的第一个真实数学 proof package：`MP-ERCF-001`/`C-59`–`C-66` 的形式命题、Lean 4.33.1 final indexed run、源码/输出哈希、重放结果和禁止外推。它证明一般 `Type` 值因子化骨架，不是 HoTT 原生证明或 HoTT 悖论；当前未提交，状态为 `MACHINE_PROVED_LOCAL_UNCOMMITTED`。
 
 `ERCF-截断防御机器证明实施证据-20260912.md` 拥有首个 HoTT 原生信息经济判别：Agda 2.8.0/Cubical v0.9 的 squash-HIT `C-67`–`C-70`、官方 release asset/外置缓存哈希、五次预检谱系、final run/exact replay 和索引演进修复。结果是 `DEFENSE_WORKS`：命题截断允许 proposition consumer，并阻断逐点保真的 Bool witness extraction；不是 HoTT 悖论。

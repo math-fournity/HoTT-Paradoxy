@@ -10,6 +10,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 从 `MATH_PROOF_BEFORE_DELIVERY_V1` 生效后，当前 AI 要交付为已成立的数学结论，其精确证明源码必须先进入本目录。新证明优先使用 `formal/<topic-or-claim-id>/`，保存形式命题、证明、项目/构建文件和锁定依赖身份；实际运行原件进入 `../verification/runs/<run-id>/`，唯一快速索引进入 `../CLAIM_EVIDENCE_MATRIX.md`。聊天代码块、内存变量和 `/tmp` 中的唯一副本均不构成证明资产。
 
+当前 17 个 package 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
+
 ## 文件
 
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
