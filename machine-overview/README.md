@@ -139,6 +139,23 @@ and the main-line checkpoint are integration work for M5; they were deliberately
 own `machine-overview-*/v1` receipts, which are explicitly labelled as
 exploration/calibration evidence.
 
+Running the project's six canonical verifiers in this linked worktree
+(2026-09-13) gives four PASS and two environment-only failures caused by assets
+that are excluded from Git and therefore absent from any fresh checkout:
+
+- `verify_understanding_merge.py` FAIL: the nested historical repo
+  `AI对话录/理解章节` is ignored by the root `.gitignore`;
+- `verify_fresh_three_way.py` FAIL: `sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md`
+  is ignored by `sources/local-gpt/ALL-Markdown-root/.gitignore` (`/*`), although
+  the file exists in the main working tree.
+
+`verify_governance_shards.py`, `verify_three_way_cognition.py`,
+`verify_ledger_retrodiction.py` and `verify_proof_version_closure.py` all PASS.
+These two gaps are pre-existing worktree-portability properties of the verifier
+set (they need untracked/ignored inputs), not effects of this implementation;
+they are listed here because M5 integration must decide whether those inputs are
+materialised in a fresh worktree or the verifiers gain an explicit precondition.
+
 ## Source and plan anchors
 
 - Plan: `/Volumes/D/HoTT独立答复/HoTT非现实性悖论机器统观完整方案.md` (index + 9 shards,

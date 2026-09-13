@@ -9,4 +9,5 @@
   - 另测：候选以 `postulate` 冒充目标时在产生任何副作用前被拒（`CANDIDATE_FORBIDDEN_DECLARATION:external_file:postulate`，exit 2，无 run 目录残留）；目标哈希篡改走 `TARGET_CHANGED` fail closed（单元测试）。
 - 诚实边界：三族核验对象是**已有 C-73–C-75 机制的校准实例**，不是新数学 claim；探索收据只留在 `machine-overview/runs/`，未触碰 `HoTT/formal`、`HoTT/verification/runs`、`HoTT/CLAIM_EVIDENCE_MATRIX.md`。现实桥梁 `UNRESOLVED`；L3（稠密性/运动结构）与 B 方向未建任务。
 - 已知集成缺口：`scripts/audit/capture_agda_proof_run.py` 要求 `(root/".git").is_dir()`，普通 worktree 的 `.git` 文件会被拒（`PROJECT_GIT_ROOT_REQUIRED`）；因此本轮用 coordinator 自己的 `machine-overview-kernel-run` 收据，F-011 canonical 捕获与矩阵落库属于 M5。
+- 治理 verifier（worktree 内实测）：`verify_governance_shards`、`verify_three_way_cognition`、`verify_ledger_retrodiction`、`verify_proof_version_closure` 四项 PASS；`verify_understanding_merge`、`verify_fresh_three_way` 仅在缺失被 `.gitignore` 排除的嵌套资产时 FAIL（`AI对话录/理解章节`、`sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md`），属既有 worktree 移植性缺口。
 - 未执行：M2–M5；主线 canonical checkpoint（`cognition_runtime.py checkpoint --apply`）；push/tag；对 `方向追踪.md`/`全景视野.md` 的主线写回。

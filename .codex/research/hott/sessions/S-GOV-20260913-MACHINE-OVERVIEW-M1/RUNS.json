@@ -36,6 +36,8 @@
   "tests": {"selftest": "12/12 OK", "workspace_validate": "VALID (2 case revisions, 7 runs)"},
   "integration_gaps": [
     "capture_agda_proof_run.py rejects a linked worktree because .git is a file (PROJECT_GIT_ROOT_REQUIRED); canonical F-011 capture + claim-matrix delivery belongs to M5",
+    "verify_understanding_merge.py fails in a fresh linked worktree because the nested historical repo AI对话录/理解章节 is gitignored and not checked out",
+    "verify_fresh_three_way.py fails in a fresh linked worktree because sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md is ignored by a nested .gitignore",
     "cvc5 / Alloy / egg backends are not installed on this host",
     "main-line STATE/projection/checkpoint writes were not executed"
   ]
