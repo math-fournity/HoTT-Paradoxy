@@ -17,10 +17,10 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `d6e119a35993211413f16a3083ad4b9fd3e6c5bd` |
+| `candidate_content_oid` | `ac8c33a45d6084cb63acb883ce116d053227b513` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M4 工作，不属于本分支输入 |
+| `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M2–M6 候选工作，不属于本分支输入 |
 
 用户在 2026-09-13 明确裁定：两个 AI 各自在自己的 Git worktree 工作，最终由用户从两者中指定一个执行集成。因此本分支不是 canonical integrator，不预先决定最终 target 的集成内容或顺序。
 
@@ -48,6 +48,10 @@ semantic-overview/**
 
 当前目标是从被审计的第一次“统观”路线继续独立研究，优先补 C11 v2 尚未独立落行的 B 方向：检查真实 HoTT/类型论消费者是否把命题存在或数学函数资格提升为有效程序或现实交付资格。
 
+本分支的 runner 只固定单个语义判断所需的命令、哈希、退出码和原始收据；它们不是通用
+自动统观系统。本分支不实现 machine-overview 的 schema、registry、grammar、索引、搜索器、
+评估器或 verifier。
+
 当前不做：
 
 - 重复 machine-overview 已覆盖的 strict L1 与首个 L3 时间/运动切片；
@@ -64,6 +68,7 @@ semantic-overview/**
 | `SEM-B02`：仅仅有限、决定数据与自然分支消费者 | `NATURAL_THEORY_BRANCH_CONSUMER_FOUND / EFFECTIVE_DELIVERY_LIFT_NOT_ESTABLISHED` | content commit `2de235a9c80fcad77e87135a7b2cda2c1bc755b4`；`semantic-overview/research/SEM-B02-finite-decision-consumer-audit.md` |
 | `SEM-B03`：finite decision 的外部有效交付消费者搜索 | `WEB_SEARCH_WITH_SCOPE / E6B_CONSUMER_SOURCE_GAP` | content commit `c9a5ba13b67bcaaddd0eac5434e658f103284cbb`；`semantic-overview/research/SEM-B03-external-delivery-consumer-search.md` |
 | `SEM-B04`：precategory reflection solver 的证明生成与拒绝边界 | `REFLECTION_SOLVER_GENERATES_CHECKED_PROOF_TERM / FALSE_AND_MALFORMED_GOALS_REJECTED / DECLARE_POSTULATE_NOT_USED / DEFENSE_WORKS_WITH_SCOPE` | content commit `d6e119a35993211413f16a3083ad4b9fd3e6c5bd`；`semantic-overview/research/SEM-B04-precategory-reflection-solver-audit.md` |
+| `SEM-B05`：显式 reflection 公理引入与 safe-mode 边界 | `EXPLICIT_REFLECTION_POSTULATE_EXTENDS_THEORY_IN_DEFAULT_MODE / SAFE_MODE_REJECTS_THE_POSTULATE / SAFE_ORDINARY_REFLECTION_ACCEPTED / CONTROLLED_CAPABILITY_BOUNDARY_OBSERVED` | content commit `ac8c33a45d6084cb63acb883ce116d053227b513`；`semantic-overview/research/SEM-B05-reflection-postulate-safe-boundary.md` |
 
 `SEM-B01` 的当前结果是：
 
@@ -89,6 +94,12 @@ semantic-overview/**
 暴露 `declare-postulate`，但固定 solver 对它的直接调用数为零。该案例是“支付装置实际工作”
 的正控制，不建立自然使用失配。
 
+`SEM-B05` 的当前结果是：受控宏在默认模式下明确声明目标类型的新 postulate 后可使
+`true ≡ false` 文件通过；同一源字节加 `--safe` 及源码级 safe 版本都被
+`[SafeFlagPostulate]` 拒绝。另一个只提交 `refl` 的 safe reflection 宏通过，无公理直接证明
+`true ≡ false` 则被 `[UnequalTerms]` 拒绝。结果说明默认成功来自显式理论扩展，safe 防线
+针对该公理引入生效；它不构成 kernel 不一致，也不改变 B04 solver 零调用的事实。
+
 ## 验证与认知快照
 
 - 四件套完整加载：`核心认知.md` generation 4 / 36 KC；方向 5 shards；全景 8 shards；essay 5 shards。
@@ -109,6 +120,12 @@ semantic-overview/**
 - `A-THEORY-ECONOMY-LEDGER-001` task hydration snapshot
   `2c7e4ced3ccba1c1812363237cd9c8da087007057abfba4c7373f020fa51f985` 复核为
   `SNAPSHOT_UNCHANGED`。
+- B05 run `20260913-SEM-B05-REFLECTION-POSTULATE-SAFE-001-01`：6/6 步符合冻结判据；
+  默认/safe、普通 reflection 正控和无公理负控均保存原始输出；22 项 manifest 无哈希漂移。
+- B05 unsafe/source-safe 规范化宏体相同，SHA-256 均为
+  `1bb92b865b1bff62ad359d7d40e647a83bf2068aa7d86629af2286c13dc8b1b1`；runner 重算 B04
+  solver 的 `declare-postulate` 直接调用数仍为零。
+- B05 runner 具有拒绝覆盖行为；重复调用 exit `2`。
 
 ## 失败、冲突与未知
 
@@ -120,15 +137,15 @@ semantic-overview/**
   只存在于主工作树被顶层忽略的嵌套 repo，在 linked worktree 全部缺失。复现、哈希、影响记录
   与 tracked-import / pinned-locator 候选修复见
   `semantic-overview/governance/WORKTREE-IGNORED-EVIDENCE-LOCATOR-GAP.md`。
-- `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；Agda safe mode 对显式 reflection 公理引入的边界；现实桥。
+- `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；其它 Agda reflection primitives/版本；现实桥。
 - `STALE_IF`：canonical target、相关 API 源码树、B 方向定义或另一 lane 的路径所有权发生改变。
 
 ## 下一动作
 
-`SEM-B01`–`SEM-B04` 均已达到各自停止条件。下一单元为 `SEM-B05`：构造一个明确调用
-`declare-postulate` 的最小 reflection 控制宏，比较普通模式与 `--safe`，并与 B04 的零调用
-solver 严格分开。只有固定源码、可重复退出码和原始输出齐备后才判断能力边界；实验结果不得
-写成 kernel 内部矛盾或 B04 solver 的行为。
+`SEM-B01`–`SEM-B05` 均已达到各自停止条件，reflection primitive 枚举在此停止。下一单元
+回到人工语义主线：只选择具有固定版本、自然 consumer 和明确交付承诺的一个新机制，先核
+承诺所在阶段，再判断是否存在理论资格提升。该单元不建设 task grammar、registry、case
+evaluator、verifier 或跨层调度；这些属于 machine-overview lane。
 
 ## 集成候选
 
@@ -144,5 +161,9 @@ solver 严格分开。只有固定源码、可重复退出码和原始输出齐�
    类型检查支付，两个越界目标在固定输入上失败关闭。
 8. 审查 worktree ignored-evidence finding；若接受，优先把 6 个必需文件按 hash/provenance
    导入顶层 tracked source 区，并在 fresh linked worktree 重跑三个受影响 stable records。
+9. 将 B05 登记为显式假设边界控制：默认模式的成功依赖新增公理，safe 模式拒绝该操作但
+   允许普通 proof-term reflection；不得把 API 能力归因给未调用它的 solver。
+10. 保持 lane 分工：本分支提供人工语义判例与自然 consumer 证据，machine-overview 分支
+    负责自动化统观基础设施；概念交集不转化为共同路径或重复实现。
 
 以上均未提交集成，也不是项目 current truth。
