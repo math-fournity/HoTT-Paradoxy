@@ -17,28 +17,34 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `d739d707f6111366c004c73f2fd07561e2948d70` |
+| `candidate_content_oid` | `214b15dcca4be0562c37aa536fe9eb5ace3a7365` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M2–M6 候选工作，不属于本分支输入 |
 
 用户在 2026-09-13 明确裁定：两个 AI 各自在自己的 Git worktree 工作，最终由用户从两者中指定一个执行集成。因此本分支不是 canonical integrator，不预先决定最终 target 的集成内容或顺序。
 
-## 独占路径与 current-owner 排除
+用户随后以 ruling §22 明确授权本分支执行 worktree evidence portability 修复。因此本分支在
+F-016 的精确范围内生成了 revision 130/131 current-owner **candidate transactions**；它们只在
+本分支成立，不自动占用 `main` 的 canonical revision。未来 integrator 若接受，必须按 target
+当时 HEAD 重建/重编号冲突的 checkpoint，不能盲目移植候选序号。
 
-本阶段唯一独占写入前缀是：
+## 独占路径与本轮治理例外
+
+语义研究阶段的默认独占写入前缀是：
 
 ```text
 semantic-overview/**
 ```
 
-在用户指定本分支为 integrator 之前，以下 current-owner 集合保持只读：
+F-016 之前，以下 current-owner 集合保持只读。ruling §22 只为 worktree portability 修复授权了
+这些 owner 的候选分支修改：AGENTS/Skill/PROTOCOL/LOAD_SET、Feature/ruling、source/merge
+manifests 与 verifiers、相关 evidence locators、STATE/MEMORY/方向/全景/FRONTIER/LESSONS/RESUME
+及 revision 130/131 session/checkpoint。数学 proof owners 仍未修改。
+
+继续保持排除：
 
 - `核心认知.md` 与其 manifest/curation；
-- `方向追踪.md` 及分片；
-- `全景视野.md` 及分片；
-- `MEMORY.md` 及分片、`feature-list.md`、`rulings.md`；
-- `.codex/research/hott/STATE.json`、canonical sessions/checkpoints、revision 与 projection generation；
 - `HoTT/CLAIM_EVIDENCE_MATRIX.md`、proof closure/current proof index；
 - `main`、共享 tags、共享 repo config 与另一个 contributor 的 worktree。
 
@@ -57,7 +63,7 @@ semantic-overview/**
 - 重复 machine-overview 已覆盖的 strict L1 与首个 L3 时间/运动切片；
 - 把源码可定义、kernel 可检查、闭合项可归约、后端可执行和现实完成混成一个状态；
 - 在没有真实自然使用链时追加同型小定理；
-- 修改主线 current truth 或分配 canonical checkpoint/revision；
+- 把本分支 revision 130/131 候选序号冒充 `main` canonical history；
 - merge、tag、push 或向另一 AI 发送控制消息。
 
 ## 已完成候选
@@ -69,6 +75,7 @@ semantic-overview/**
 | `SEM-B03`：finite decision 的外部有效交付消费者搜索 | `WEB_SEARCH_WITH_SCOPE / E6B_CONSUMER_SOURCE_GAP` | content commit `c9a5ba13b67bcaaddd0eac5434e658f103284cbb`；`semantic-overview/research/SEM-B03-external-delivery-consumer-search.md` |
 | `SEM-B04`：precategory reflection solver 的证明生成与拒绝边界 | `REFLECTION_SOLVER_GENERATES_CHECKED_PROOF_TERM / FALSE_AND_MALFORMED_GOALS_REJECTED / DECLARE_POSTULATE_NOT_USED / DEFENSE_WORKS_WITH_SCOPE` | content commit `d6e119a35993211413f16a3083ad4b9fd3e6c5bd`；`semantic-overview/research/SEM-B04-precategory-reflection-solver-audit.md` |
 | `SEM-B05`：显式 reflection 公理引入与 safe-mode 边界 | `EXPLICIT_REFLECTION_POSTULATE_EXTENDS_THEORY_IN_DEFAULT_MODE / SAFE_MODE_REJECTS_THE_POSTULATE / SAFE_ORDINARY_REFLECTION_ACCEPTED / CONTROLLED_CAPABILITY_BOUNDARY_OBSERVED` | content commit `ac8c33a45d6084cb63acb883ce116d053227b513`；`semantic-overview/research/SEM-B05-reflection-postulate-safe-boundary.md` |
+| `GOV-WORKTREE-PORTABILITY`：ignored evidence islands 迁移与治理修复 | `VERIFIED_WITH_SCOPE_ON_EXACT_COMMIT_FRESH_WORKTREE / CANDIDATE_NOT_INTEGRATED` | source `80da06e…`；static `d58dbfd…`；implementation checkpoint `802e4f8…`；acceptance `a8e948d…`；final checkpoint `214b15d…`；`audit/Git-worktree证据可移植性修复与验收-20260913.md` |
 
 `SEM-B01` 的当前结果是：
 
@@ -126,24 +133,25 @@ semantic-overview/**
   `1bb92b865b1bff62ad359d7d40e647a83bf2068aa7d86629af2286c13dc8b1b1`；runner 重算 B04
   solver 的 `declare-postulate` 直接调用数仍为零。
 - B05 runner 具有拒绝覆盖行为；重复调用 exit `2`。
-- 六类 canonical verifier 在本 linked worktree 的可移植性回归为 4 PASS / 2 FAIL：分片、
-  三方一致性、C11 回溯、proof closure 通过；understanding merge 因缺整个
-  `AI对话录/理解章节` 失败，fresh load 因缺 ignored `ALL-Markdown-root` 旧路径失败。两项在
-  主工作树以同一 revision 129 只读对照均通过，故不能把主 checkout 的 6/6 PASS 外推到
-  linked worktree。机器可读摘要见 `WORKTREE-PORTABILITY-VERIFIER-CHECK.json`。
+- revision 129 的历史可移植性基线为 4 PASS / 2 FAIL，已由 F-016 修复。exact `802e4f8…`
+  fresh worktree（无顶层 workspace/dialogues/legacy LocalGPT path）中：42-file import、5 task
+  plans（全部 `untracked_documents=[]`）与 6 canonical verifiers 全 PASS；4 个 byte/index/route/path
+  负控全部按特定错误拒绝，恢复后 clean。
+- final checkpoint `214b15d…` 又在第二个全新 detached worktree 正向复核：revision 131、
+  36 KC、31 directions、111 outcomes、understanding 36/24、5 task plans、6/6 verifier 全 PASS；
+  worktree clean 后删除。
 
 ## 失败、冲突与未知
 
-- `FAILURES`：`A-HOTT-SELF-VALIDATION-ECONOMY-001` 在 contributor worktree 的 task plan 以
-  `MISSING_OR_UNREADABLE: workspace/.codex/research/hott/reviews/SILENT-STEPS-001/PROOF_NOTE.md`
-  失败；该失败已保留为治理 finding，没有被静默绕过。
-- `CONFLICT`：项目旧 current queue 把 S lane 放在主线并要求 canonical checkpoint；用户的新裁定与 `PARALLEL_WORKTREE_COGNITION_V1` 已把本分支改为 contributor。本分支用 branch-local relay 与 KC audit 保留连续性，不改旧 owner；最终 integrator 应在 target 上原位重述被接受的新协作状态。
-- `GOVERNANCE_GAP`：当前 task hydration 与 verifier 依赖三个被忽略证据岛：`workspace/`
-  有 8 次、去重后 6 个 full-source 引用；`AI对话录/理解章节` 的 24 个历史文件缺失会使
-  understanding verifier 失败，且主 checkout 中该 nested repo 还有两个被 manifest 直接依赖的
-  dirty working files；`ALL-Markdown-root` 的缺失会使 fresh verifier 失败，尽管顶层已有同字节
-  tracked 副本。复现、哈希、4/6 对照与 tracked-import / pinned-locator 候选修复见
-  `semantic-overview/governance/WORKTREE-IGNORED-EVIDENCE-LOCATOR-GAP.md`。
+- `CLOSED_FAILURE`：revision 129 的 A-HOTT task missing-workspace、understanding missing nested
+  directory 与 fresh missing LocalGPT path 均已在 candidate 修复；它们保留为负基线，不再是
+  revision 131 当前阻塞。
+- `CONFLICT`：项目旧 current queue 把 S lane 放在主线；用户先把本分支定为 contributor，后以
+  ruling §22 单独授权 F-016 current-owner candidate transactions。revision 130/131 只证明本分支
+  自洽，不能与 target 后续同号事务并存；最终 integrator 必须在 target 原位重述被接受语义。
+- `GOVERNANCE_GAP`：对 candidate branch 已 `CLOSED_WITH_SCOPE`。42-file transform snapshot 已
+  tracked；8 个 workspace refs 改 existing tracked snapshot；LocalGPT current route 改已有同字节
+  tracked file；manifest/verifier 检查 path/tracked/tree。`main` 集成与共享通用治理吸收仍开放。
 - `UNKNOWN`：未被公开搜索索引的外部应用、fork/private consumer；同任务现实基线；其它具计算语义的截断实现；其它 Agda reflection primitives/版本；现实桥。
 - `STALE_IF`：canonical target、相关 API 源码树、B 方向定义或另一 lane 的路径所有权发生改变。
 
@@ -166,10 +174,9 @@ evaluator、verifier 或跨层调度；这些属于 machine-overview lane。
 6. 将 finite-decision 外部状态登记为 `E6B_CONSUMER_SOURCE_GAP`，保留第三方 fixed-commit consumer、FFI 实现或完整代码语料三类重开条件。
 7. 将 B04 登记为资格审计的正控制：proof generator 的经济收益由 soundness lemma 与 Agda
    类型检查支付，两个越界目标在固定输入上失败关闭。
-8. 审查 worktree ignored-evidence finding：把 `ALL-Markdown-root` 引用重路由到已有同字节
-   tracked 文件；将 `workspace` 的 6 个必需文件和 `AI对话录/理解章节` 的 24 个历史版本按
-   hash/provenance 固定到 tracked source 或 exact commit locator；在 fresh linked worktree 重跑
-   受影响 stable records 与全部六类 verifier。
+8. F-016 已完成候选实现和 fresh 验收；integrator 审查 exact `214b15d…`，按 target HEAD
+   重建可能冲突的 revision 130/131，并在 target fresh worktree 重跑同一套 5 task/6 verifier/4
+   negative acceptance。
 9. 将 B05 登记为显式假设边界控制：默认模式的成功依赖新增公理，safe 模式拒绝该操作但
    允许普通 proof-term reflection；不得把 API 能力归因给未调用它的 solver。
 10. 保持 lane 分工：本分支提供人工语义判例与自然 consumer 证据，machine-overview 分支
