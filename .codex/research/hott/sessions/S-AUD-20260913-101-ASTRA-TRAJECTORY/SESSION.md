@@ -8,11 +8,11 @@
 
 - 本轮是**只读轨迹审计 + 最小治理写回**：读取 `~/.codex/sessions/` 公开可见事件；不读隐藏推理；
   不修改被审对象任何产物；不改变研究队列、数学状态、四件套正文或筛选合同。
-- 写回范围：本 session 目录与 `audit/astra-1-astra-2会话轨迹审计-20260913.md`（commit `8dd03d5`）。
-  未对本 session 应用 canonical checkpoint（无 `--apply`，且会提升 `STATE.revision`/`latest_session`，
-  超出本轮授权），因此**没有** `result.json` 收据；这与 S067–S085 的历史缺口同类，如实登记，不追溯伪造。
-  相应地，MEMORY 的 S101 追加被撤回：MUTABLE 文档一旦改动而 HEAD.json 未同步，loader 会以
-  `UNCOMMITTED_STATE` fail closed。要让本单元成为 revision 101，需要另行授权的 checkpoint payload。
+- 写回范围：本 session 目录与 `audit/astra-1-astra-2会话轨迹审计-20260913.md`（commit `8dd03d5`、`3e82e55`）。
+  本 session **自身**没有 canonical 收据（它与 S067–S085 同类，如实登记，不追溯伪造）；
+  用户随后说“补上”，machine-managed 注册由**另一个** session 承担：
+  `S-GOV-20260913-101-ASTRA-TRAJECTORY-STATE-REGISTRATION`，`STATE.revision=101`，
+  收据 `.codex/cognition/checkpoints/S-GOV-20260913-101-ASTRA-TRAJECTORY-STATE-REGISTRATION/result.json`。
 
 ## 加载与证据边界
 

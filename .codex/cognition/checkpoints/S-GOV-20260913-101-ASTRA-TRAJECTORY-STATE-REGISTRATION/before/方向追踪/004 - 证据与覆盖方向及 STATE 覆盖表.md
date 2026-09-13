@@ -8,7 +8,7 @@ index: ../方向追踪.md
 
 | direction_id | 方向 | 来源 | 当前状态 | 核心关联（初始主题级） | 已有结果 | 下一判别动作 | 证据入口 |
 |---|---|---|---|---|---|---|---|
-| `DIR-E-LOCAL-HISTORY-COVERAGE` | LocalGPT 38-turn lineage、ALL-Markdown、trajectory、Git 和工作产物的完整可审计性 | 顶层交接工程 | `SUPPORTING_DIRECTION` | `CORE_UNRELATED/GOVERNANCE_RULING` | `OUT-TOP-LEDGERS`、`OUT-TOP-ASTRA-TRAJECTORY-AUDIT`（另一个 AI 的 `Astra-1`/`Astra-2` 会话按名称可解析） | 完成 response→tool→artifact/code→Git 的语义映射，保留 dirty/缺源边界 | `audit/`；`sources/SOURCE_MANIFEST.json`；`private-audit/` |
+| `DIR-E-LOCAL-HISTORY-COVERAGE` | LocalGPT 38-turn lineage、ALL-Markdown、trajectory、Git 和工作产物的完整可审计性 | 顶层交接工程 | `SUPPORTING_DIRECTION` | `CORE_UNRELATED/GOVERNANCE_RULING` | `OUT-TOP-LEDGERS` | 完成 response→tool→artifact/code→Git 的语义映射，保留 dirty/缺源边界 | `audit/`；`sources/SOURCE_MANIFEST.json`；`private-audit/` |
 | `DIR-E-WEB-HISTORY-COVERAGE` | WebGPT 56 Prompt/55 Response/111 UI sections 到 workspace records/artifacts/Git 的映射 | 顶层交接工程 | `SUPPORTING_DIRECTION` | `CORE_UNRELATED/GOVERNANCE_RULING` | `OUT-TOP-LEDGERS` | 将 WebGPT record IDs 与 integrated direction/result 双向对齐 | `audit/`；`workspace/.codex/research/hott/STATE.json`；`workspace/git log` |
 | `DIR-G-UNDERSTANDING-RECONCILIATION` | 两个理解章节的逐文件语义融合和当前 canonical 路由 | 用户当前要求、顶层计划 | `SUPPORTING_DIRECTION` | `CORE_UNRELATED/GOVERNANCE_RULING` | `OUT-UNDERSTANDING-MERGE`（设计） | 当前 29/24 inventory 已逐文件处置；继续按 2,396 条历史 claim 的用户选择范围做直接语义/数学复核；C4 为新增顶层 current synthesis，不改写历史 claim 分母 | `理解章节/`；`AI对话录/理解章节/`；`audit/understanding-chapter-merge-manifest.json` |
 

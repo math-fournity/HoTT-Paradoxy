@@ -89,5 +89,3 @@
 78. `HoTT/CLAIM_EVIDENCE_MATRIX.md` 必须**保持冻结前缀 + 末尾追加**：`verify_proof_version_closure.py` 要求当前矩阵以 d3dfb0e 快照为前缀，中间插入新行会直接 `CURRENT_MATRIX_NOT_APPEND_ONLY_SUCCESSOR` BLOCK。新 proof package 的包行与 claim 行一律追加到文末（可另起追加节 + 自己的表头）；只要行文本不变，旧 run 的 `index-row-manifest` 仍为 `ROW_STABLE_AFTER_INDEX_EVOLUTION`。
 
 79. 把一份 AI 撰写的长文提升为常驻输入时，必须在加载层同时声明**角色**：`LOAD_SET.full_set_roles` + 文档内 `essay-role:v1` 让“AI 阐释层”和“用户原文权威”在上下文里可区分；否则常驻加载本身会重演 rulings §9/§12 要防的‘AI 展开被当成用户原意’。另外：MUTABLE 集合新增成员后 HEAD 会 `HEAD_TRACKING_INCOMPLETE`，必须先用 canonical `initialize_cognition_head.py` 重新引导（它现在直接从 `runtime.MUTABLE` 取集合，避免漏项）。
-
-80. 用户以 Session Name 指代另一个 AI 的会话时，repo 必须能解析该别名：把「名称 ↔ thread_id ↔ rollout 原件 ↔ 已吸收产物」写成一行可查记录，否则未来 AI 只能靠猜。另外，审计「有没有读到 EOF」不能只看 canonical 编号-Read 合同是否匹配——先看被审 Agent 实际用的是哪种读取工具，再用保存了该现场的 commit 做逐字节/逐行对账；否则会把合同不匹配误报成内容缺失（本轮实测：`coverage` 报 L2 FAIL，而运行期源快照对账为完整）。

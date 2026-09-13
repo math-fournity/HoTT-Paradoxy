@@ -8,8 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-S101：按用户要求审计了另一个 AI 的 `Astra-1`/`Astra-2` 会话并完成状态注册（别名→thread id、L2 逐字节复核、四类未达成原因、`OUT-TOP-ASTRA-TRAJECTORY-AUDIT`）。判词 L5 目标未达成，但研究队列**不变**：第一线仍是真实下游/派生开发的 E6 consumer，第二线仍是 T3 共享判定联合递归。
-
 S-GOV-20260913-100-FOUR-SET-UPGRADE：三件套已升级为**四件套**（新增常驻第四件 = AI 阐释层长文，5 片，含 `essay-role:v1`）；runtime 3.6.0 / LOAD_SET v4 / PROTOCOL v2.6 / Skill 3.6.0；下次启动按 核心认知 → 方向追踪 → 全景视野 → 长文 顺序读全。下一项回到研究第一线（E6 consumer）或用户指定课题。
 
 S-GOV-20260913-099-MATRIX-APPEND-ONLY-FIX：矩阵追加纪律修正完成（9 行移到文末追加节，冻结前缀不变）；`verify_proof_version_closure.py` PASS（frozen 17 + later 1）与 `verify_formal_proof_run --rerun` PASS（ROW_STABLE）。下一项回到研究第一线（E6 consumer）或用户指定课题。
