@@ -16,16 +16,16 @@
   },
   "execution_control": {
     "background_work": false,
-    "checkpoint_result": "CHECKPOINT_APPLIED_P1_TIME_LINE_BOUNDED_NEGATIVE",
-    "last_checkpoint_session": "S-RES-20260913-103-P1-TIME-LINE-AUDIT",
+    "checkpoint_result": "CHECKPOINT_APPLIED_THEORY_ECONOMY_LEDGER",
+    "last_checkpoint_session": "S-RES-20260913-102-THEORY-ECONOMY-LEDGER",
     "new_math_research_started": true,
-    "next_minimal_verification": "Apply the C11 checklist to P2 (same-layer unavailable) and P3 (intersection), and search for a real coarse-domain interface whose documentation promises more than its type can deliver (deadline/stage delivery from a quotient or truncated type). Type-level mismatch is closed by the eliminator's congruence obligation; only a documented-promise mismatch can upgrade to NATURAL_USAGE_MISMATCH, and it must then be machine-formalised per MATH_PROOF_BEFORE_DELIVERY_V1.",
+    "next_minimal_verification": "C11 ledger-driven candidate selection: pick 1–2 candidates whose payment device is unavailable in the same stage or the same layer (P1 time line first), then fix version/call chain/delivery promise and run MATH_PROOF_BEFORE_DELIVERY_V1. E6 consumer remains the concrete first-line target; T3 joint recursion remains the second line.",
     "release_parent_commit": "293d368",
     "release_ref": "governance-v4.0.0",
     "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
     "status": "CORE_GENERATION_4_GOVERNANCE_V4_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST"
   },
-  "latest_session": "S-RES-20260913-103-P1-TIME-LINE-AUDIT",
+  "latest_session": "S-RES-20260913-102-THEORY-ECONOMY-LEDGER",
   "load_policy": {
     "fresh_model_behavior": "NOT_RUN",
     "full_set": [
@@ -1667,27 +1667,6 @@
       },
       "status": "open"
     },
-    "A-LEDGER-RETRODICTION-CHECK-001": {
-      "depends_on": [],
-      "evidence_status": "VERIFIED_WITH_SCOPE",
-      "full_sources": [
-        "audit/ledger-retrodiction-check-20260913.json",
-        "scripts/audit/verify_ledger_retrodiction.py",
-        "HoTT/CLAIM_EVIDENCE_MATRIX.md"
-      ],
-      "kind": "result",
-      "lifecycle_status": "CURRENT",
-      "path": "audit/ledger-retrodiction-check-20260913.json",
-      "related_records": [
-        "S-RES-20260913-103-P1-TIME-LINE-AUDIT",
-        "A-P1-TIME-LINE-BOUNDED-NEGATIVE-001"
-      ],
-      "scope": "Mechanical retrodiction check for the C11 grid: 18 packages verified for matrix package row + verdict token, per-claim matrix rows, final run receipt files with exit_code 0, and source-manifest file hashes (66 files re-hashed); verdicts contain no NATURAL_USAGE_MISMATCH / INTERNAL_INCONSISTENCY; distribution 17 payment-device-available + 1 absent (MP-NOCANONICAL-001, no real consumer). Self-test has three controls. Scope: mechanical bookkeeping and file facts only; semantics of the ledger rows are not verified.",
-      "source_hashes": {
-        "scripts/audit/verify_ledger_retrodiction.py": "300c304a63b62f13f75cce1c9a146cbf9a353ab0dbb6d38b98f3a806f39109b5"
-      },
-      "status": "complete"
-    },
     "A-LIBRARY-INTERFACE-NO-RECOVERY-001": {
       "classification": "LIBRARY_INTERFACE_SHAPE_NO_UNIFORM_ENUMERATION",
       "depends_on": [
@@ -2262,28 +2241,6 @@
         "scope_preserved": true,
         "status": "VERSION_CLOSED"
       }
-    },
-    "A-P1-TIME-LINE-BOUNDED-NEGATIVE-001": {
-      "depends_on": [],
-      "evidence_status": "DOCUMENTED",
-      "full_sources": [
-        "audit/p1-时序线候选与支付装置审计-20260913.md",
-        "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md",
-        "HoTT/CLAIM_EVIDENCE_MATRIX.md"
-      ],
-      "kind": "result",
-      "lifecycle_status": "CURRENT",
-      "path": "audit/p1-时序线候选与支付装置审计-20260913.md",
-      "related_records": [
-        "S-RES-20260913-103-P1-TIME-LINE-AUDIT",
-        "A-THEORY-ECONOMY-LEDGER-001",
-        "A-LEDGER-RETRODICTION-CHECK-001"
-      ],
-      "scope": "P1 time-line work package: candidate fixed as 'deliver the already-settled result at stage k'; payment devices D1-D6 audited (stage index, guard-erasure criterion, partial/strict classifiers, refined representation, context family, eliminator congruence obligation); checklist re-read of the N1/N5/N10/T4 candidate sets finds no candidate with (coarse-domain interface + must recover + same stage/layer). Verdict P1_BOUNDED_NEGATIVE_PAYMENT_DEVICE_AVAILABLE; no new mathematical claim; no duplicate proof package.",
-      "source_hashes": {
-        "audit/p1-时序线候选与支付装置审计-20260913.md": "e987beb7b1039a33ebf30d11b57145a7ed1536fc3ac23d304364d936c5afab94"
-      },
-      "status": "complete"
     },
     "A-PARADOX-FAILURE-LEDGER-001": {
       "classification": "PARADOX_FAILURE_LEDGER",
@@ -3838,7 +3795,7 @@
       "kind": "integrated_direction_projection",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "方向追踪.md",
-      "projection_generation": "20260913-direction-087",
+      "projection_generation": "20260913-direction-086",
       "scope": "Portfolio after S090 governance/evidence repair: downstream natural consumers are the first research line; T3 is second; batch 13 and undirected foundational scans are deprioritized.",
       "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V4_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST",
       "status": "active"
@@ -3978,7 +3935,7 @@
       "kind": "integrated_outcome_panorama",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "全景视野.md",
-      "projection_generation": "20260913-outcome-087",
+      "projection_generation": "20260913-outcome-086",
       "scope": "Panorama after S090: historical checkpoint gaps, compact task hydration, S086/S088 evidence corrections, and source-inspected E6 status are current.",
       "semantic_status": "CORE_GENERATION_4_GOVERNANCE_V4_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST",
       "status": "active"
@@ -6853,29 +6810,6 @@
       "source_hashes": {},
       "status": "complete"
     },
-    "S-RES-20260913-103-P1-TIME-LINE-AUDIT": {
-      "depends_on": [],
-      "evidence_status": "VERIFIED_WITH_SCOPE",
-      "full_sources": [
-        ".codex/research/hott/sessions/S-RES-20260913-103-P1-TIME-LINE-AUDIT/SESSION.md",
-        ".codex/research/hott/sessions/S-RES-20260913-103-P1-TIME-LINE-AUDIT/CORE_COGNITION_AUDIT.md",
-        ".codex/research/hott/sessions/S-RES-20260913-103-P1-TIME-LINE-AUDIT/RUNS.json",
-        ".codex/cognition/checkpoints/S-RES-20260913-103-P1-TIME-LINE-AUDIT/result.json",
-        "audit/p1-时序线候选与支付装置审计-20260913.md",
-        "audit/ledger-retrodiction-check-20260913.json"
-      ],
-      "kind": "session",
-      "lifecycle_status": "HISTORICAL",
-      "path": ".codex/research/hott/sessions/S-RES-20260913-103-P1-TIME-LINE-AUDIT/SESSION.md",
-      "related_records": [
-        "S-RES-20260913-102-THEORY-ECONOMY-LEDGER",
-        "A-P1-TIME-LINE-BOUNDED-NEGATIVE-001",
-        "A-LEDGER-RETRODICTION-CHECK-001"
-      ],
-      "scope": "Registration of the P1 time-line work package: verdict, payment-device audit, F-011 decision, mechanical retrodiction receipt, projection/MEMORY/FRONTIER/LESSONS/RESUME updates. No mathematical change.",
-      "source_hashes": {},
-      "status": "complete"
-    },
     "S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS": {
       "cognition_status": "FULL_TRIO_PLUS_RESEARCH_PROFILE_WITH_27_KC_PUBLIC_REVIEW",
       "depends_on": [
@@ -6931,7 +6865,7 @@
     "A-HOTT-SELF-VALIDATION-ECONOMY-001",
     "A-KC-AUDIT-GAP-001"
   ],
-  "revision": 103,
+  "revision": 102,
   "schema_migration": {
     "from": "hott-working-state/v1",
     "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",

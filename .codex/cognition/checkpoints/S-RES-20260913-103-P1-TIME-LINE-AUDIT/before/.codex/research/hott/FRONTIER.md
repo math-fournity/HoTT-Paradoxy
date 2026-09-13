@@ -62,8 +62,7 @@ S092 只更新 Git 可恢复性：17 个 current package 已绑定 `d3dfb0e…`�
 | 已闭合工作包 49 | agda-unimath 派生文件原生重放（S088，`C-05`） | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_VERSION_CLOSED_WITH_SCOPE` | run `-02`：exit 0、stderr 0、486 模块全量重检、`ROW_STABLE_AFTER_INDEX_EVOLUTION`、exact replay；`-01` 保留 |
 | 已闭合工作包 50 | agda-unimath E6 源码/闭包扫描（S088 后复审） | `SOURCE_INSPECTED_BOUNDED_NEGATIVE` | `foundation.global-choice` 不在 C-05 run；20 postulate / 9 primitive / 22 union；run 闭包 7 声明文件；E6 仍开放 |
 | 已闭合工作包 51 | Astra-1/Astra-2 会话轨迹审计与状态注册（S101） | `DOCUMENTED / L2_PASS_BY_RUN_SOURCE_COMPARE; L5_TARGET_NOT_MET` | 会话别名闭合为 thread id；Astra-1 8 轮 / 104 tool call，Astra-2 为其子线程；三件套读取按 `35cace7` 逐字节/逐行复核完整；四类未达成原因与全部 locator 见 `audit/astra-1-astra-2会话轨迹审计-20260913.md`；研究队列不变 |
-| 已闭合工作包 52 | P1 时序线候选与支付装置审计（S103） | `P1_BOUNDED_NEGATIVE_PAYMENT_DEVICE_AVAILABLE` | 候选固定为“阶段 k 交付已落定结果”；D1–D6 支付装置全部可用（含消去器的同余义务）；checklist 重读 N1/N5/N10/T4 无命中；机械回溯 18 包 / 66 源文件重哈希见 `audit/ledger-retrodiction-check-20260913.json`；不建重复证明包 |
-| 第一工作包 | P2 自指线 / P3 交叉线（同一 checklist）＋“承诺 > 类型”的粗域接口搜索 | active | 对每个候选回答“粗域接口？必须取回？同阶段同层？”；类型层已由消去器的同余义务关闭，因此目标是找到**文档承诺超出接口类型能力**的真实接口，再按 F-011 草案机器化 |
+| 第一工作包 | C11 理论经济账本驱动的候选选择（P1 时序线优先 / P2 自指线 / P3 交叉线） | active | 先用“同阶段 / 同层”判别格挑 1–2 个候选，再固定版本、调用链、输入与交付承诺并走 F-011；固定下游应用/派生开发的真实 E6 consumer 仍是具体执行目标 |
 | 战略自反深化 | ERCF-3 × W51/RP-B01 | blocked-on-natural-consumer-and-exact-calculus | 只有资格提升桥梁成立才构造 diagonal |
 | 对照支线 | guard/online causality、同函数异时、R034 | retained | 用于反驳过强外推与选择下一 consumer |
 
