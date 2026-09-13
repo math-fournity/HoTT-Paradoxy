@@ -1,0 +1,1092 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cubical &mdash; Agda 2.8.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=69ff2ef9"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cubical compatible" href="cubical-compatible.html" />
+    <link rel="prev" title="Coverage Checking" href="coverage-checking.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="agda" /><meta name="readthedocs-version-slug" content="v2.8.0" /><meta name="readthedocs-resolver-filename" content="/language/cubical.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Agda
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="abstract-definitions.html">Abstract definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coinduction.html">Coinduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copatterns.html">Copatterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-language.html">Core language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coverage-checking.html">Coverage Checking</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cubical</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-interval-and-path-types">The interval and path types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transport">Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partial-elements">Partial elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homogeneous-composition">Homogeneous composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glue-types">Glue types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#higher-inductive-types">Higher inductive types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexed-inductive-types">Indexed inductive types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-works-and-what-doesn-t">What works, and what doesn’t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modalities-indexed-matching">Modalities &amp; indexed matching</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cubical-agda-with-erased-glue">Cubical Agda with erased Glue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendix-cubical-agda-primitives">Appendix: Cubical Agda primitives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cubical-compatible.html">Cubical compatible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cumulativity.html">Cumulativity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flat.html">Flat Modality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreign-function-interface.html">Foreign Function Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-definitions.html">Function Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-types.html">Function Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization-of-declared-variables.html">Generalization of Declared Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guarded.html">Guarded Type Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implicit-arguments.html">Implicit Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance-arguments.html">Instance Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irrelevance.html">Irrelevance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lambda-abstraction.html">Lambda Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="let-and-where.html">Local Definitions: let and where</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical-structure.html">Lexical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="literal-overloading.html">Literal Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lossy-unification.html">Lossy Unification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mixfix-operators.html">Mixfix Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modalities.html">Modalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module-system.html">Module System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutual-recursion.html">Mutual Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opaque-definitions.html">Opaque definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pattern-synonyms.html">Pattern Synonyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polarity.html">Polarity Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="positivity-checking.html">Positivity Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postulates.html">Postulates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pragmas.html">Pragmas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prop.html">Prop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="record-types.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflection.html">Reflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rewriting.html">Rewriting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime-irrelevance.html">Run-time Irrelevance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safe-agda.html">Safe Agda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sized-types.html">Sized Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sort-system.html">Sort System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntactic-sugar.html">Syntactic Sugar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax-declarations.html">Syntax Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="telescopes.html">Telescopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="termination-checking.html">Termination Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two-level.html">Two-Level Type Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="universe-levels.html">Universe Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="with-abstraction.html">With-Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="without-k.html">Without K</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../team.html">The Agda Team and License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Agda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Language Reference</a></li>
+      <li class="breadcrumb-item active">Cubical</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cubical">
+<span id="id1"></span><h1>Cubical<a class="headerlink" href="#cubical" title="Link to this heading"></a></h1>
+<p>The Cubical mode extends Agda with a variety of features from Cubical
+Type Theory.
+In particular, it adds computational univalence and higher
+inductive types, hence giving computational meaning to <a class="reference external" href="https://homotopytypetheory.org/">Homotopy
+Type Theory and Univalent Foundations</a>. The version of Cubical Type
+Theory that Agda implements is a variation of the <a class="reference internal" href="#cchm">CCHM</a> Cubical Type
+Theory where the Kan composition operations are decomposed into
+homogeneous composition and generalized transport. This is what makes
+the general schema for higher inductive types work, following the
+<a class="reference internal" href="#chm">CHM</a> paper. There is also a research paper specifically about
+Cubical Agda at <a class="reference external" href="https://www.doi.org/10.1017/S0956796821000034">https://www.doi.org/10.1017/S0956796821000034</a>.</p>
+<p>To use the cubical mode Agda needs to be run with the
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-cubical"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cubical</span></code></a> command-line-option or with <code class="docutils literal notranslate"><span class="pre">{-#</span>
+<span class="pre">OPTIONS</span> <span class="pre">--cubical</span> <span class="pre">#-}</span></code> at the top of the file. There is also a
+variant of the cubical mode, activated using
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-erased-cubical"><code class="xref std std-option docutils literal notranslate"><span class="pre">--erased-cubical</span></code></a>, which is described
+<a class="reference internal" href="#erased-cubical"><span class="std std-ref">below</span></a>.</p>
+<p>The cubical mode adds the following features to Agda:</p>
+<ol class="arabic simple">
+<li><p>An interval type and path types</p></li>
+<li><p>Generalized transport (<code class="docutils literal notranslate"><span class="pre">transp</span></code>)</p></li>
+<li><p>Partial elements</p></li>
+<li><p>Homogeneous composition (<code class="docutils literal notranslate"><span class="pre">hcomp</span></code>)</p></li>
+<li><p>Glue types</p></li>
+<li><p>Higher inductive types</p></li>
+<li><p>Cubical identity types</p></li>
+</ol>
+<p>There are two major libraries for Cubical Agda:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code>: originally intended as a standard library for
+Cubical Agda available at <a class="reference external" href="https://github.com/agda/cubical">https://github.com/agda/cubical</a>. This
+documentation uses the naming conventions of this library, for a
+detailed list of all of the built-in Cubical Agda files and
+primitives see <a class="reference internal" href="#primitives-ref"><span class="std std-ref">Appendix: Cubical Agda primitives</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1lab</span></code>: A formalised and cross linked reference resource for
+cubical methods in Homotopy Type Theory which can be found at
+<a class="reference external" href="https://1lab.dev/">https://1lab.dev/</a>. Much better documented than the <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code>
+library and hence more accessible to newcomers. The sources can be
+found at <a class="reference external" href="https://github.com/plt-amy/1lab">https://github.com/plt-amy/1lab</a>.</p></li>
+</ul>
+<p>In this documentation we will rely on the <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library and
+the recommended way to get access to the cubical primitives is to add
+the following to the top of a file (this assumes that the
+<code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library is installed and visible to Agda).</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="cm">{-# OPTIONS --cubical #-}</span>
+
+<span class="kr">open</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">Cubical.Core.Primitives</span>
+<span class="kr">open</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">Cubical.Core.Glue</span>
+</pre></div>
+</div>
+<p>Follow the instructions at <a class="reference external" href="https://github.com/agda/cubical">https://github.com/agda/cubical</a> to install the library.
+In order to make this library visible to Agda add
+<code class="docutils literal notranslate"><span class="pre">/path/to/cubical/cubical.agda-lib</span></code> to <code class="docutils literal notranslate"><span class="pre">.agda/libraries</span></code> and
+<code class="docutils literal notranslate"><span class="pre">cubical</span></code> to <code class="docutils literal notranslate"><span class="pre">.agda/defaults</span></code> (where <code class="docutils literal notranslate"><span class="pre">path/to</span></code> is the absolute
+path to where the <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library has been installed). For
+details of Agda’s library management see <a class="reference internal" href="../tools/package-system.html#package-system"><span class="std std-ref">Library Management</span></a>.</p>
+<p>Expert users who do not want to rely on <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> can just add
+the relevant import statements at the top of their file (for details
+see <a class="reference internal" href="#primitives-ref"><span class="std std-ref">Appendix: Cubical Agda primitives</span></a>). However, for beginners it is
+recommended that one uses at least the core part of the
+<code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library.</p>
+<section id="the-interval-and-path-types">
+<h2>The interval and path types<a class="headerlink" href="#the-interval-and-path-types" title="Link to this heading"></a></h2>
+<p>The key idea of Cubical Type Theory is to add an interval type <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">:</span>
+<span class="pre">IUniv</span></code> (the reason this is in a special sort <code class="docutils literal notranslate"><span class="pre">IUniv</span></code> is because it
+doesn’t support the <code class="docutils literal notranslate"><span class="pre">transp</span></code> and <code class="docutils literal notranslate"><span class="pre">hcomp</span></code> operations). A variable
+<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">:</span> <span class="pre">I</span></code> intuitively corresponds to a point in the <a class="reference external" href="https://en.wikipedia.org/wiki/Unit_interval">real unit interval</a>. In an empty context,
+there are only two values of type <code class="docutils literal notranslate"><span class="pre">I</span></code>: the two endpoints of the
+interval, <code class="docutils literal notranslate"><span class="pre">i0</span></code> and <code class="docutils literal notranslate"><span class="pre">i1</span></code>.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">i0</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I
+<span class="nf">i1</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I
+</pre></div>
+</div>
+<p>Elements of the interval form a <a class="reference external" href="https://en.wikipedia.org/wiki/De_Morgan_algebra">De Morgan algebra</a>, with minimum
+(<code class="docutils literal notranslate"><span class="pre">∧</span></code>), maximum (<code class="docutils literal notranslate"><span class="pre">∨</span></code>) and negation (<code class="docutils literal notranslate"><span class="pre">~</span></code>).</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">_∧_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I
+<span class="nf">_∨_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I
+<span class="nf">~_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I
+</pre></div>
+</div>
+<p>All the properties of De Morgan algebras hold definitionally. The
+endpoints of the interval <code class="docutils literal notranslate"><span class="pre">i0</span></code> and <code class="docutils literal notranslate"><span class="pre">i1</span></code> are the bottom and top
+elements, respectively.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span>i0<span class="w"> </span>∨<span class="w"> </span>i<span class="w">    </span><span class="ow">=</span><span class="w"> </span>i
+i1<span class="w"> </span>∨<span class="w"> </span>i<span class="w">    </span><span class="ow">=</span><span class="w"> </span>i1
+i<span class="w">  </span>∨<span class="w"> </span>j<span class="w">    </span><span class="ow">=</span><span class="w"> </span>j<span class="w"> </span>∨<span class="w"> </span>i
+i0<span class="w"> </span>∧<span class="w"> </span>i<span class="w">    </span><span class="ow">=</span><span class="w"> </span>i0
+i1<span class="w"> </span>∧<span class="w"> </span>i<span class="w">    </span><span class="ow">=</span><span class="w"> </span>i
+i<span class="w">  </span>∧<span class="w"> </span>j<span class="w">    </span><span class="ow">=</span><span class="w"> </span>j<span class="w"> </span>∧<span class="w"> </span>i
+~<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>i
+i0<span class="w">        </span><span class="ow">=</span><span class="w"> </span>~<span class="w"> </span>i1
+~<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∨<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>~<span class="w"> </span>i<span class="w"> </span>∧<span class="w"> </span>~<span class="w"> </span>j
+~<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∧<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>~<span class="w"> </span>i<span class="w"> </span>∨<span class="w"> </span>~<span class="w"> </span>j
+</pre></div>
+</div>
+<p>The core idea of Homotopy Type Theory and Univalent Foundations is a
+correspondence between paths (as in topology) and (proof-relevant)
+equalities (as in Martin-Löf’s identity type). This correspondence is
+taken very literally in Cubical Agda where a path in a type <code class="docutils literal notranslate"><span class="pre">A</span></code> is
+represented like a function out of the interval, <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">→</span> <span class="pre">A</span></code>. A
+path type is in fact a special case of the more general built-in
+heterogeneous path types:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="c1">-- PathP : ∀ {ℓ} (A : I → Set ℓ) → A i0 → A i1 → Set ℓ</span>
+
+<span class="c1">-- Non dependent path types</span>
+<span class="nf">Path</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+Path<span class="w"> </span>A<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span><span class="ow">=</span><span class="w"> </span>PathP<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>_<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span>a<span class="w"> </span>b
+</pre></div>
+</div>
+<p>The central notion of equality in Cubical Agda is hence heterogeneous
+equality (in the sense of <code class="docutils literal notranslate"><span class="pre">PathOver</span></code> in HoTT). To define paths we
+use λ-abstractions and to apply them we use regular application.  For
+example, this is the definition of the constant path (or proof of
+reflexivity):</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">refl</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Path<span class="w"> </span>A<span class="w"> </span>x<span class="w"> </span>x
+refl<span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x<span class="o">}</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x
+</pre></div>
+</div>
+<p>Although they use the same syntax, a path is not exactly the same as a function.
+For example, typed lambdas cannot be used to form paths,
+they are reserved for functions:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">not-refl</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+not-refl<span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x<span class="o">}</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="ow">λ</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x
+</pre></div>
+</div>
+<p>Because of the intuition that paths correspond to equality <code class="docutils literal notranslate"><span class="pre">PathP</span> <span class="pre">(λ</span>
+<span class="pre">i</span> <span class="pre">→</span> <span class="pre">A)</span> <span class="pre">x</span> <span class="pre">y</span></code> gets printed as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">≡</span> <span class="pre">y</span></code> when <code class="docutils literal notranslate"><span class="pre">A</span></code> does not mention
+<code class="docutils literal notranslate"><span class="pre">i</span></code>. By iterating the path type we can define squares, cubes, and
+higher cubes in Agda, making the type theory cubical. For example a
+square in <code class="docutils literal notranslate"><span class="pre">A</span></code> is built out of 4 points and 4 lines:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">Square</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x0<span class="w"> </span>x1<span class="w"> </span>y0<span class="w"> </span>y1<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span>
+<span class="w">           </span>x0<span class="w"> </span>≡<span class="w"> </span>x1<span class="w"> </span><span class="ow">→</span><span class="w"> </span>y0<span class="w"> </span>≡<span class="w"> </span>y1<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x0<span class="w"> </span>≡<span class="w"> </span>y0<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x1<span class="w"> </span>≡<span class="w"> </span>y1<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+Square<span class="w"> </span>p<span class="w"> </span>q<span class="w"> </span>r<span class="w"> </span>s<span class="w"> </span><span class="ow">=</span><span class="w"> </span>PathP<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>p<span class="w"> </span>i<span class="w"> </span>≡<span class="w"> </span>q<span class="w"> </span>i<span class="o">)</span><span class="w"> </span>r<span class="w"> </span>s
+</pre></div>
+</div>
+<p>Viewing equalities as functions out of the interval makes it possible
+to do a lot of equality reasoning in a very direct way:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">sym</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>y<span class="w"> </span>≡<span class="w"> </span>x
+sym<span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>p<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="o">)</span>
+
+<span class="nf">cong</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">{</span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="w"> </span>a<span class="o">)</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span>
+<span class="w">       </span><span class="ow">→</span><span class="w"> </span>PathP<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="w"> </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">))</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span>x<span class="o">)</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span>y<span class="o">)</span>
+cong<span class="w"> </span>f<span class="w"> </span>p<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>f<span class="w"> </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">)</span>
+</pre></div>
+</div>
+<p>Because of the way functions compute these satisfy some new
+definitional equalities compared to the standard Agda definitions:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">symInv</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>sym<span class="w"> </span><span class="o">(</span>sym<span class="w"> </span>p<span class="o">)</span><span class="w"> </span>≡<span class="w"> </span>p
+symInv<span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+
+<span class="nf">congId</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>cong<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>a<span class="w"> </span><span class="ow">→</span><span class="w"> </span>a<span class="o">)</span><span class="w"> </span>p<span class="w"> </span>≡<span class="w"> </span>p
+congId<span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+
+<span class="nf">congComp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span>C<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="o">(</span>g<span class="w"> </span><span class="ow">:</span><span class="w"> </span>B<span class="w"> </span><span class="ow">→</span><span class="w"> </span>C<span class="o">)</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span><span class="w"> </span><span class="ow">→</span>
+<span class="w">             </span>cong<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>a<span class="w"> </span><span class="ow">→</span><span class="w"> </span>g<span class="w"> </span><span class="o">(</span>f<span class="w"> </span>a<span class="o">))</span><span class="w"> </span>p<span class="w"> </span>≡<span class="w"> </span>cong<span class="w"> </span>g<span class="w"> </span><span class="o">(</span>cong<span class="w"> </span>f<span class="w"> </span>p<span class="o">)</span>
+congComp<span class="w"> </span>f<span class="w"> </span>g<span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+</pre></div>
+</div>
+<p>Path types also let us prove new things are not provable in standard Agda.
+For example, function extensionality, stating that pointwise equal functions
+are equal, has an extremely simple proof:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">funExt</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>f<span class="w"> </span>g<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="w"> </span>x<span class="o">}</span><span class="w"> </span><span class="ow">→</span>
+<span class="w">           </span><span class="o">((</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>f<span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>g<span class="w"> </span>x<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>f<span class="w"> </span>≡<span class="w"> </span>g
+funExt<span class="w"> </span>p<span class="w"> </span>i<span class="w"> </span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>p<span class="w"> </span>x<span class="w"> </span>i
+</pre></div>
+</div>
+</section>
+<section id="transport">
+<h2>Transport<a class="headerlink" href="#transport" title="Link to this heading"></a></h2>
+<p>While path types are great for reasoning about equality they do not let
+us transport along paths between types or even compose paths, which in
+particular means that we cannot yet prove the induction principle for paths.
+As a remedy, we also have a built-in (generalized) transport operation <code class="docutils literal notranslate"><span class="pre">transp</span></code>
+and homogeneous composition operations <code class="docutils literal notranslate"><span class="pre">hcomp</span></code>.
+The transport operation is generalized in the sense that it
+lets us specify where it is the identity function.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">transp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="o">(</span>r<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>i1
+</pre></div>
+</div>
+<p>There is an additional side condition to be satisfied for a usage of
+<code class="docutils literal notranslate"><span class="pre">transp</span></code> to type-check: <code class="docutils literal notranslate"><span class="pre">A</span></code> should be a constant function whenever
+the constraint <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">i1</span></code> is satisfied. By constant here we mean that
+<code class="docutils literal notranslate"><span class="pre">A</span></code> is definitionally equal to <code class="docutils literal notranslate"><span class="pre">λ</span> <span class="pre">_</span> <span class="pre">→</span> <span class="pre">A</span> <span class="pre">i0</span></code>, which in turn
+requires <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">i0</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">i1</span></code> to be definitionally equal as well.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">r</span></code> is <code class="docutils literal notranslate"><span class="pre">i1</span></code>, <code class="docutils literal notranslate"><span class="pre">transp</span> <span class="pre">A</span> <span class="pre">r</span></code> will compute as the identity function.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span>transp<span class="w"> </span>A<span class="w"> </span>i1<span class="w"> </span>a<span class="w"> </span><span class="ow">=</span><span class="w"> </span>a
+</pre></div>
+</div>
+<p>This is only sound if in such a case <code class="docutils literal notranslate"><span class="pre">A</span></code> is a trivial path, as the
+side condition requires.</p>
+<p>It might seems strange that the side condition expects <code class="docutils literal notranslate"><span class="pre">r</span></code> and
+<code class="docutils literal notranslate"><span class="pre">A</span></code> to interact, but both of them can depend on any of the
+interval variables in scope, so assuming a specific value for <code class="docutils literal notranslate"><span class="pre">r</span></code>
+can affect what <code class="docutils literal notranslate"><span class="pre">A</span></code> looks like.</p>
+<p>Some examples of the side condition for different values of <code class="docutils literal notranslate"><span class="pre">r</span></code>:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">r</span></code> is some in-scope variable <code class="docutils literal notranslate"><span class="pre">i</span></code>, on which <code class="docutils literal notranslate"><span class="pre">A</span></code> may depend
+as well, then <code class="docutils literal notranslate"><span class="pre">A</span></code> only needs to be a constant function when
+substituting <code class="docutils literal notranslate"><span class="pre">i1</span></code> for <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">r</span></code> is <code class="docutils literal notranslate"><span class="pre">i0</span></code> then there is no restrition on <code class="docutils literal notranslate"><span class="pre">A</span></code>, since the side
+condition is vacuously true.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">r</span></code> is <code class="docutils literal notranslate"><span class="pre">i1</span></code> then <code class="docutils literal notranslate"><span class="pre">A</span></code> must be a constant function.</p></li>
+</ul>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">transp</span></code> to define regular transport:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">transport</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>≡<span class="w"> </span>B<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B
+transport<span class="w"> </span>p<span class="w"> </span>a<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transp<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>p<span class="w"> </span>i<span class="o">)</span><span class="w"> </span>i0<span class="w"> </span>a
+</pre></div>
+</div>
+<p>By combining the transport and min operations we can define the
+induction principle for paths:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">J</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>P<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span>
+<span class="w">      </span><span class="o">(</span>d<span class="w"> </span><span class="ow">:</span><span class="w"> </span>P<span class="w"> </span>x<span class="w"> </span>refl<span class="o">)</span><span class="w"> </span><span class="o">{</span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span>P<span class="w"> </span>y<span class="w"> </span>p
+J<span class="w"> </span>P<span class="w"> </span>d<span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transport<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>P<span class="w"> </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>j<span class="w"> </span><span class="ow">→</span><span class="w"> </span>p<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∧<span class="w"> </span>j<span class="o">)))</span><span class="w"> </span>d
+</pre></div>
+</div>
+<p>One subtle difference between paths and the propositional equality
+type of Agda is that the computation rule for <code class="docutils literal notranslate"><span class="pre">J</span></code> does not hold
+definitionally. If <code class="docutils literal notranslate"><span class="pre">J</span></code> is defined using pattern matching as in the
+Agda standard library then this holds, however as the path types are
+not inductively defined this does not hold for the above definition of
+<code class="docutils literal notranslate"><span class="pre">J</span></code>. In particular, transport in a constant family is only the
+identity function up to a path which implies that the computation rule
+for <code class="docutils literal notranslate"><span class="pre">J</span></code> only holds up to a path:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">transportRefl</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>transport<span class="w"> </span>refl<span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>x
+transportRefl<span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span>x<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transp<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>_<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span>i<span class="w"> </span>x
+
+<span class="nf">JRefl</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>P<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span>
+<span class="w">         </span><span class="o">(</span>d<span class="w"> </span><span class="ow">:</span><span class="w"> </span>P<span class="w"> </span>x<span class="w"> </span>refl<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>J<span class="w"> </span>P<span class="w"> </span>d<span class="w"> </span>refl<span class="w"> </span>≡<span class="w"> </span>d
+JRefl<span class="w"> </span>P<span class="w"> </span>d<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transportRefl<span class="w"> </span>d
+</pre></div>
+</div>
+<p>Internally in Agda the <code class="docutils literal notranslate"><span class="pre">transp</span></code> operation computes by cases on the
+type, so for example for Σ-types it is computed elementwise. For path
+types it is however not yet possible to provide the computation rule
+as we need some way to remember the endpoints of the path after
+transporting it. Furthermore, this must work for arbitrary higher
+dimensional cubes (as we can iterate the path types). For this we
+introduce the “homogeneous composition operations” (<code class="docutils literal notranslate"><span class="pre">hcomp</span></code>) that
+generalize binary composition of paths to n-ary composition of higher
+dimensional cubes.</p>
+</section>
+<section id="partial-elements">
+<h2>Partial elements<a class="headerlink" href="#partial-elements" title="Link to this heading"></a></h2>
+<p>In order to describe the homogeneous composition operations we need to
+be able to write partially specified n-dimensional cubes (i.e. cubes
+where some faces are missing). Given an element of the interval <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">:</span>
+<span class="pre">I</span></code> there is a predicate <code class="docutils literal notranslate"><span class="pre">IsOne</span></code> which represents the constraint <code class="docutils literal notranslate"><span class="pre">r</span>
+<span class="pre">=</span> <span class="pre">i1</span></code>. This comes with a proof that <code class="docutils literal notranslate"><span class="pre">i1</span></code> is in fact equal to <code class="docutils literal notranslate"><span class="pre">i1</span></code>
+called <code class="docutils literal notranslate"><span class="pre">1=1</span> <span class="pre">:</span> <span class="pre">IsOne</span> <span class="pre">i1</span></code>. We use Greek letters like <code class="docutils literal notranslate"><span class="pre">φ</span></code> or <code class="docutils literal notranslate"><span class="pre">ψ</span></code>
+when such an <code class="docutils literal notranslate"><span class="pre">r</span></code> should be thought of as being in the domain of
+<code class="docutils literal notranslate"><span class="pre">IsOne</span></code>.</p>
+<p>Using this we introduce a type of partial elements called <code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">φ</span> <span class="pre">A</span></code>.
+The idea is that <code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">φ</span> <span class="pre">A</span></code> is the type of cubes in <code class="docutils literal notranslate"><span class="pre">A</span></code> that are only defined when <code class="docutils literal notranslate"><span class="pre">IsOne</span> <span class="pre">φ</span></code> holds.
+<code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">φ</span> <span class="pre">A</span></code> is a special version of <code class="docutils literal notranslate"><span class="pre">IsOne</span> <span class="pre">φ</span> <span class="pre">→</span> <span class="pre">A</span></code> with a more extensional judgmental equality:
+Two elements of <code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">φ</span> <span class="pre">A</span></code> are considered equal if they represent the same subcube;
+so, the faces of the cubes can for example be given in different order
+yet the two elements will still be considered the same.</p>
+<p>There is also a dependent version of <code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">φ</span> <span class="pre">A</span></code> called <code class="docutils literal notranslate"><span class="pre">PartialP</span> <span class="pre">φ</span> <span class="pre">A</span></code>
+which requires <code class="docutils literal notranslate"><span class="pre">A</span></code> only to be defined when <code class="docutils literal notranslate"><span class="pre">IsOne</span> <span class="pre">φ</span></code>.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">Partial</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="w"> </span><span class="ow">→</span><span class="w"> </span>SSet<span class="w"> </span>ℓ
+
+<span class="nf">PartialP</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>SSet<span class="w"> </span>ℓ
+</pre></div>
+</div>
+<p>There is a new form of pattern matching that can be used to introduce
+partial elements:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">partialBool</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∨<span class="w"> </span>~<span class="w"> </span>i<span class="o">)</span><span class="w"> </span>Bool
+partialBool<span class="w"> </span>i<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>true
+partialBool<span class="w"> </span>i<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>false
+</pre></div>
+</div>
+<p>The term <code class="docutils literal notranslate"><span class="pre">partialBool</span> <span class="pre">i</span></code> should be thought of a boolean with
+different values when <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">=</span> <span class="pre">i0)</span></code> and <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">=</span> <span class="pre">i1)</span></code>. Terms of type
+<code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">φ</span> <span class="pre">A</span></code> can also be introduced using a <a class="reference internal" href="lambda-abstraction.html#pattern-lambda"><span class="std std-ref">Pattern lambda</span></a>.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">partialBool&#39;</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∨<span class="w"> </span>~<span class="w"> </span>i<span class="o">)</span><span class="w"> </span>Bool
+partialBool&#39;<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="ow">λ</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>true
+<span class="w">  </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>false
+</pre></div>
+</div>
+<p>When the cases overlap they must agree:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">partialBool&#39;&#39;</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="w"> </span>∨<span class="w"> </span>i<span class="w"> </span>∨<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∧<span class="w"> </span>j<span class="o">))</span><span class="w"> </span>Bool
+partialBool&#39;&#39;<span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="ow">λ</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w">          </span><span class="ow">→</span><span class="w"> </span>true
+<span class="w">  </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="o">(</span>j<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>true
+<span class="w">  </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w">          </span><span class="ow">→</span><span class="w"> </span>false
+</pre></div>
+</div>
+<p>Note that the order of the cases does not have to match the interval formula exactly.</p>
+<p>Furthermore, <code class="docutils literal notranslate"><span class="pre">IsOne</span> <span class="pre">i0</span></code> is actually absurd:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">empty</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>i0<span class="w"> </span>A
+empty<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="ow">λ</span><span class="o">()</span>
+</pre></div>
+</div>
+<p>Cubical Agda also has cubical subtypes as in the CCHM type theory:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">_[_↦_]</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="o">(</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>SSet<span class="w"> </span>ℓ
+A<span class="w"> </span>[<span class="w"> </span>φ<span class="w"> </span>↦<span class="w"> </span>u<span class="w"> </span>]<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Sub<span class="w"> </span>A<span class="w"> </span>φ<span class="w"> </span>u
+</pre></div>
+</div>
+<p>A term <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">:</span> <span class="pre">A</span> <span class="pre">[</span> <span class="pre">φ</span> <span class="pre">↦</span> <span class="pre">u</span> <span class="pre">]</span></code> should be thought of as a term of type
+<code class="docutils literal notranslate"><span class="pre">A</span></code> which is definitionally equal to <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">:</span> <span class="pre">A</span></code> when <code class="docutils literal notranslate"><span class="pre">IsOne</span> <span class="pre">φ</span></code> is
+satisfied. Any term <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">:</span> <span class="pre">A</span></code> can be seen as an term of <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">[</span> <span class="pre">φ</span> <span class="pre">↦</span> <span class="pre">u</span>
+<span class="pre">]</span></code> which agrees with itself on <code class="docutils literal notranslate"><span class="pre">φ</span></code>:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">inS</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="o">(</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>[<span class="w"> </span>φ<span class="w"> </span>↦<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>_<span class="w"> </span><span class="ow">→</span><span class="w"> </span>u<span class="o">)</span><span class="w"> </span>]
+</pre></div>
+</div>
+<p>One can also forget that a partial element agrees with <code class="docutils literal notranslate"><span class="pre">u</span></code> on <code class="docutils literal notranslate"><span class="pre">φ</span></code>:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">outS</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="o">{</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>[<span class="w"> </span>φ<span class="w"> </span>↦<span class="w"> </span>u<span class="w"> </span>]<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+</pre></div>
+</div>
+<p>These coercions satisfy the following equalities:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span>outS<span class="w"> </span><span class="o">(</span>inS<span class="w"> </span>a<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>a
+
+inS<span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>φ<span class="o">}</span><span class="w"> </span><span class="o">(</span>outS<span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>φ<span class="o">}</span><span class="w"> </span>a<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>a
+
+outS<span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">}</span><span class="w"> </span><span class="o">{</span>u<span class="o">}</span><span class="w"> </span>_<span class="w"> </span><span class="ow">=</span><span class="w"> </span>u<span class="w"> </span><span class="mi">1</span><span class="ow">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Note that given <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">:</span> <span class="pre">A</span> <span class="pre">[</span> <span class="pre">φ</span> <span class="pre">↦</span> <span class="pre">u</span> <span class="pre">]</span></code> and <code class="docutils literal notranslate"><span class="pre">α</span> <span class="pre">:</span> <span class="pre">IsOne</span> <span class="pre">φ</span></code>, it is not the
+case that <code class="docutils literal notranslate"><span class="pre">outS</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">u</span> <span class="pre">α</span></code>; however, underneath the pattern binding
+<code class="docutils literal notranslate"><span class="pre">(φ</span> <span class="pre">=</span> <span class="pre">i1)</span></code>, one has <code class="docutils literal notranslate"><span class="pre">outS</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">u</span> <span class="pre">1=1</span></code>.</p>
+<p>With all of this cubical infrastructure we can now describe the
+<code class="docutils literal notranslate"><span class="pre">hcomp</span></code> operations.</p>
+</section>
+<section id="homogeneous-composition">
+<h2>Homogeneous composition<a class="headerlink" href="#homogeneous-composition" title="Link to this heading"></a></h2>
+<p>The homogeneous composition operations generalize binary composition
+of paths so that we can compose multiple composable cubes.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">hcomp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="o">(</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="o">(</span>u0<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+</pre></div>
+</div>
+<p>When calling <code class="docutils literal notranslate"><span class="pre">hcomp</span> <span class="pre">{φ</span> <span class="pre">=</span> <span class="pre">φ}</span> <span class="pre">u</span> <span class="pre">u0</span></code> Agda makes sure that <code class="docutils literal notranslate"><span class="pre">u0</span></code> agrees
+with <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">i0</span></code> on <code class="docutils literal notranslate"><span class="pre">φ</span></code>. The idea is that <code class="docutils literal notranslate"><span class="pre">u0</span></code> is the base and <code class="docutils literal notranslate"><span class="pre">u</span></code>
+specifies the sides of an open box. This is hence an open (higher
+dimensional) cube where the side opposite of <code class="docutils literal notranslate"><span class="pre">u0</span></code> is missing. The
+<code class="docutils literal notranslate"><span class="pre">hcomp</span></code> operation then gives us the missing side opposite of
+<code class="docutils literal notranslate"><span class="pre">u0</span></code>. For example binary composition of paths can be written as:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">compPath</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span>z<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>y<span class="w"> </span>≡<span class="w"> </span>z<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>z
+compPath<span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x<span class="o">}</span><span class="w"> </span>p<span class="w"> </span>q<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>hcomp<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span>j<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x
+<span class="w">                                 </span>;<span class="w"> </span>j<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>q<span class="w"> </span>j<span class="w"> </span><span class="o">})</span>
+<span class="w">                               </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">)</span>
+</pre></div>
+</div>
+<p>Pictorially we are given <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">:</span> <span class="pre">x</span> <span class="pre">≡</span> <span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">:</span> <span class="pre">y</span> <span class="pre">≡</span> <span class="pre">z</span></code>, and the
+composite of the two paths is obtained by computing the missing lid of
+this open square:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  x             z
+  ^             ^
+  |             |
+x |             | q j
+  |             |
+  x ----------&gt; y
+       p i
+</pre></div>
+</div>
+<p>In the drawing the direction <code class="docutils literal notranslate"><span class="pre">i</span></code> goes left-to-right and <code class="docutils literal notranslate"><span class="pre">j</span></code> goes
+bottom-to-top. As we are constructing a path from <code class="docutils literal notranslate"><span class="pre">x</span></code> to <code class="docutils literal notranslate"><span class="pre">z</span></code> along
+<code class="docutils literal notranslate"><span class="pre">i</span></code> we have <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">:</span> <span class="pre">I</span></code> in the context already and we put <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">i</span></code> as
+bottom. The direction <code class="docutils literal notranslate"><span class="pre">j</span></code> that we are doing the composition in is
+abstracted in the first argument to <code class="docutils literal notranslate"><span class="pre">hcomp</span></code>.</p>
+<p>Note that the partial element <code class="docutils literal notranslate"><span class="pre">u</span></code> does not have to specify
+all the sides of the open box, giving more sides simply gives you
+more control on the result of <code class="docutils literal notranslate"><span class="pre">hcomp</span></code>.
+For example if we omit the <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">=</span> <span class="pre">i0)</span> <span class="pre">→</span> <span class="pre">x</span></code> side in the
+definition of <code class="docutils literal notranslate"><span class="pre">compPath</span></code> we still get a valid term of type
+<code class="docutils literal notranslate"><span class="pre">A</span></code>. However, that term would reduce to <code class="docutils literal notranslate"><span class="pre">hcomp</span> <span class="pre">(λ{</span> <span class="pre">j</span> <span class="pre">()</span> <span class="pre">})</span> <span class="pre">x</span></code>
+when <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i0</span></code> and so that definition would not build
+a path that starts from <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>We can also define homogeneous filling of cubes as</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">hfill</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span>
+<span class="w">        </span><span class="o">(</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="o">(</span>u0<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span>[<span class="w"> </span>φ<span class="w"> </span>↦<span class="w"> </span>u<span class="w"> </span>i0<span class="w"> </span>]<span class="o">)</span>
+<span class="w">        </span><span class="o">(</span>i<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+hfill<span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>φ<span class="o">}</span><span class="w"> </span>u<span class="w"> </span>u0<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>hcomp<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span>j<span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>u<span class="w"> </span><span class="o">(</span>i<span class="w"> </span>∧<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="mi">1</span><span class="ow">=</span><span class="mi">1</span>
+<span class="w">                               </span>;<span class="w"> </span>j<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>outS<span class="w"> </span>u0<span class="w"> </span><span class="o">})</span>
+<span class="w">                             </span><span class="o">(</span>outS<span class="w"> </span>u0<span class="o">)</span>
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">i</span></code> is <code class="docutils literal notranslate"><span class="pre">i0</span></code> this is <code class="docutils literal notranslate"><span class="pre">u0</span></code> and when <code class="docutils literal notranslate"><span class="pre">i</span></code> is <code class="docutils literal notranslate"><span class="pre">i1</span></code> this is
+<code class="docutils literal notranslate"><span class="pre">hcomp</span> <span class="pre">u</span> <span class="pre">u0</span></code>. This can hence be seen as giving us the interior of an
+open box. In the special case of the square above <code class="docutils literal notranslate"><span class="pre">hfill</span></code> gives us a
+direct cubical proof that composing <code class="docutils literal notranslate"><span class="pre">p</span></code> with <code class="docutils literal notranslate"><span class="pre">refl</span></code> is <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">compPathRefl</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>compPath<span class="w"> </span>p<span class="w"> </span>refl<span class="w"> </span>≡<span class="w"> </span>p
+compPathRefl<span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x<span class="o">}</span><span class="w"> </span><span class="o">{</span>y<span class="w"> </span><span class="ow">=</span><span class="w"> </span>y<span class="o">}</span><span class="w"> </span>p<span class="w"> </span>j<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>hfill<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span>_<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x
+<span class="w">                                             </span>;<span class="w"> </span>_<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>y<span class="w"> </span><span class="o">})</span>
+<span class="w">                                           </span><span class="o">(</span>inS<span class="w"> </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">))</span>
+<span class="w">                                           </span><span class="o">(</span>~<span class="w"> </span>j<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="glue-types">
+<h2>Glue types<a class="headerlink" href="#glue-types" title="Link to this heading"></a></h2>
+<p>In order to be able to prove the univalence theorem we also have to
+add “Glue” types. These lets us turn equivalences between types into
+paths between types. An equivalence of types <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> is
+defined as a map <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">A</span> <span class="pre">→</span> <span class="pre">B</span></code> such that its fibers are contractible.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">fiber</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="o">(</span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+fiber<span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span>f<span class="w"> </span>y<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Σ[<span class="w"> </span>x<span class="w"> </span>∈<span class="w"> </span>A<span class="w"> </span>]<span class="w"> </span>f<span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y
+
+<span class="nf">isContr</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+isContr<span class="w"> </span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Σ[<span class="w"> </span>x<span class="w"> </span>∈<span class="w"> </span>A<span class="w"> </span>]<span class="w"> </span><span class="o">(</span><span class="ow">∀</span><span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="o">)</span>
+
+<span class="kr">record</span><span class="w"> </span>isEquiv<span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="kr">field</span>
+<span class="w">    </span><span class="nf">equiv-proof</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>isContr<span class="w"> </span><span class="o">(</span>fiber<span class="w"> </span>f<span class="w"> </span>y<span class="o">)</span>
+
+<span class="nf">_≃_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+A<span class="w"> </span>≃<span class="w"> </span>B<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Σ[<span class="w"> </span>f<span class="w"> </span>∈<span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span>]<span class="w"> </span><span class="o">(</span>isEquiv<span class="w"> </span>f<span class="o">)</span>
+</pre></div>
+</div>
+<p>The simplest example of an equivalence is the identity function.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">idfun</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+idfun<span class="w"> </span>_<span class="w"> </span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x
+
+<span class="nf">idIsEquiv</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>isEquiv<span class="w"> </span><span class="o">(</span>idfun<span class="w"> </span>A<span class="o">)</span>
+equiv-proof<span class="w"> </span><span class="o">(</span>idIsEquiv<span class="w"> </span>A<span class="o">)</span><span class="w"> </span>y<span class="w"> </span><span class="ow">=</span>
+<span class="w">  </span><span class="o">((</span>y<span class="w"> </span>,<span class="w"> </span>refl<span class="o">)</span><span class="w"> </span>,<span class="w"> </span><span class="ow">λ</span><span class="w"> </span>z<span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>z<span class="w"> </span><span class="ow">.</span>snd<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="o">)</span><span class="w"> </span>,<span class="w"> </span><span class="ow">λ</span><span class="w"> </span>j<span class="w"> </span><span class="ow">→</span><span class="w"> </span>z<span class="w"> </span><span class="ow">.</span>snd<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="w"> </span>∨<span class="w"> </span>j<span class="o">))</span>
+
+<span class="nf">idEquiv</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>≃<span class="w"> </span>A
+idEquiv<span class="w"> </span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="o">(</span>idfun<span class="w"> </span>A<span class="w"> </span>,<span class="w"> </span>idIsEquiv<span class="w"> </span>A<span class="o">)</span>
+</pre></div>
+</div>
+<p>An important special case of equivalent types are isomorphic types
+(i.e. types with maps going back and forth which are mutually
+inverse).</p>
+<p>As everything has to work up to higher dimensions the Glue types take
+a partial family of types that are equivalent to the base type <code class="docutils literal notranslate"><span class="pre">A</span></code>:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">Glue</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span>
+<span class="w">     </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span>Σ[<span class="w"> </span>T<span class="w"> </span>∈<span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="w"> </span>]<span class="w"> </span>T<span class="w"> </span>≃<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;
+</pre></div>
+</div>
+<p>These come with a constructor and eliminator:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">glue</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="o">{</span>Te<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span>Σ[<span class="w"> </span>T<span class="w"> </span>∈<span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="w"> </span>]<span class="w"> </span>T<span class="w"> </span>≃<span class="w"> </span>A<span class="o">)}</span>
+<span class="w">     </span><span class="ow">→</span><span class="w"> </span>PartialP<span class="w"> </span>φ<span class="w"> </span>T<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Glue<span class="w"> </span>A<span class="w"> </span>Te
+
+<span class="nf">unglue</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="o">{</span>Te<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span>Σ[<span class="w"> </span>T<span class="w"> </span>∈<span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="w"> </span>]<span class="w"> </span>T<span class="w"> </span>≃<span class="w"> </span>A<span class="o">)}</span>
+<span class="w">       </span><span class="ow">→</span><span class="w"> </span>Glue<span class="w"> </span>A<span class="w"> </span>Te<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+</pre></div>
+</div>
+<p>Using Glue types we can turn an equivalence of types into a path as
+follows:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">ua</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>≃<span class="w"> </span>B<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>≡<span class="w"> </span>B
+ua<span class="w"> </span><span class="o">{</span>_<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="o">}</span><span class="w"> </span><span class="o">{</span>B<span class="o">}</span><span class="w"> </span>e<span class="w"> </span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Glue<span class="w"> </span>B<span class="w"> </span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span>,<span class="w"> </span>e<span class="o">)</span>
+<span class="w">                             </span>;<span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>B<span class="w"> </span>,<span class="w"> </span>idEquiv<span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="o">}</span>
+</pre></div>
+</div>
+<p>The idea is that we glue <code class="docutils literal notranslate"><span class="pre">A</span></code> together with <code class="docutils literal notranslate"><span class="pre">B</span></code> when <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i0</span></code>
+using <code class="docutils literal notranslate"><span class="pre">e</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> with itself when <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i1</span></code> using the identity
+equivalence. This hence gives us the key part of univalence: a
+function for turning equivalences into paths. The other part of
+univalence is that this map itself is an equivalence which follows
+from the computation rule for <code class="docutils literal notranslate"><span class="pre">ua</span></code>:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">uaβ</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>e<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span>≃<span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>transport<span class="w"> </span><span class="o">(</span>ua<span class="w"> </span>e<span class="o">)</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>e<span class="w"> </span><span class="ow">.</span>fst<span class="w"> </span>x
+uaβ<span class="w"> </span>e<span class="w"> </span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transportRefl<span class="w"> </span><span class="o">(</span>e<span class="w"> </span><span class="ow">.</span>fst<span class="w"> </span>x<span class="o">)</span>
+</pre></div>
+</div>
+<p>Transporting along the path that we get from applying <code class="docutils literal notranslate"><span class="pre">ua</span></code> to an
+equivalence is hence the same as applying the equivalence. This is
+what makes it possible to use the univalence axiom computationally in
+Cubical Agda: we can package up our equivalences as paths, do equality
+reasoning using these paths, and in the end transport along the paths
+in order to compute with the equivalences.</p>
+<p>We have the following equalities:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span>Glue<span class="w"> </span>A<span class="w"> </span><span class="o">{</span>i1<span class="o">}</span><span class="w"> </span>Te<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Te<span class="w"> </span><span class="mi">1</span><span class="ow">=</span><span class="mi">1</span><span class="w"> </span><span class="ow">.</span>fst
+
+unglue<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span>glue<span class="w"> </span>t<span class="w"> </span>a<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>a
+
+glue<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>g<span class="w"> </span><span class="o">})</span><span class="w"> </span><span class="o">(</span>unglue<span class="w"> </span>φ<span class="w"> </span>g<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>g
+
+unglue<span class="w"> </span>i1<span class="w"> </span><span class="o">{</span>Te<span class="o">}</span><span class="w"> </span>g<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Te<span class="w"> </span><span class="mi">1</span><span class="ow">=</span><span class="mi">1</span><span class="w"> </span><span class="ow">.</span>snd<span class="w"> </span><span class="ow">.</span>fst<span class="w"> </span>g
+
+glue<span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">}</span><span class="w"> </span>t<span class="w"> </span>a<span class="w"> </span><span class="ow">=</span><span class="w"> </span>t<span class="w"> </span><span class="mi">1</span><span class="ow">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>For more results about Glue types and univalence see the files of Glue
+types and univalence in the <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library or the <code class="docutils literal notranslate"><span class="pre">1lab</span></code>.</p>
+</section>
+<section id="higher-inductive-types">
+<h2>Higher inductive types<a class="headerlink" href="#higher-inductive-types" title="Link to this heading"></a></h2>
+<p>Cubical Agda also lets us directly define higher inductive types as
+datatypes with path constructors. For example the circle and <a class="reference external" href="https://en.wikipedia.org/wiki/Torus">torus</a> can be defined as:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span>S¹<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">base</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>S¹
+<span class="w">  </span><span class="nf">loop</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>base<span class="w"> </span>≡<span class="w"> </span>base
+
+<span class="kr">data</span><span class="w"> </span>Torus<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">point</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Torus
+<span class="w">  </span><span class="nf">line1</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>point<span class="w"> </span>≡<span class="w"> </span>point
+<span class="w">  </span><span class="nf">line2</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>point<span class="w"> </span>≡<span class="w"> </span>point
+<span class="w">  </span><span class="nf">square</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>PathP<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>line1<span class="w"> </span>i<span class="w"> </span>≡<span class="w"> </span>line1<span class="w"> </span>i<span class="o">)</span><span class="w"> </span>line2<span class="w"> </span>line2
+</pre></div>
+</div>
+<p>Functions out of higher inductive types can then be defined using
+pattern matching:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">t2c</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Torus<span class="w"> </span><span class="ow">→</span><span class="w"> </span>S¹<span class="w"> </span>×<span class="w"> </span>S¹
+t2c<span class="w"> </span>point<span class="w">        </span><span class="ow">=</span><span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>base<span class="o">)</span>
+t2c<span class="w"> </span><span class="o">(</span>line1<span class="w"> </span>i<span class="o">)</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>i<span class="w"> </span>,<span class="w"> </span>base<span class="o">)</span>
+t2c<span class="w"> </span><span class="o">(</span>line2<span class="w"> </span>j<span class="o">)</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>loop<span class="w"> </span>j<span class="o">)</span>
+t2c<span class="w"> </span><span class="o">(</span>square<span class="w"> </span>i<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>i<span class="w"> </span>,<span class="w"> </span>loop<span class="w"> </span>j<span class="o">)</span>
+
+<span class="nf">c2t</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>S¹<span class="w"> </span>×<span class="w"> </span>S¹<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Torus
+c2t<span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>base<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>point
+c2t<span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>i<span class="w"> </span>,<span class="w"> </span>base<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>line1<span class="w"> </span>i
+c2t<span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>loop<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>line2<span class="w"> </span>j
+c2t<span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>i<span class="w"> </span>,<span class="w"> </span>loop<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>square<span class="w"> </span>i<span class="w"> </span>j
+</pre></div>
+</div>
+<p>When giving the cases for the path and square constructors we have to
+make sure that the function maps the boundary to the right thing. For
+instance the following definition does not pass Agda’s typechecker as
+the boundary of the last case does not match up with the expected
+boundary of the square constructor (as the <code class="docutils literal notranslate"><span class="pre">line1</span></code> and <code class="docutils literal notranslate"><span class="pre">line2</span></code>
+cases are mixed up).</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">c2t_bad</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>S¹<span class="w"> </span>×<span class="w"> </span>S¹<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Torus
+c2t_bad<span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>base<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>point
+c2t_bad<span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>i<span class="w"> </span>,<span class="w"> </span>base<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>line2<span class="w"> </span>i
+c2t_bad<span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>loop<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>line1<span class="w"> </span>j
+c2t_bad<span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>i<span class="w"> </span>,<span class="w"> </span>loop<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>square<span class="w"> </span>i<span class="w"> </span>j
+</pre></div>
+</div>
+<p>Functions defined by pattern matching on higher inductive types
+compute definitionally, for all constructors.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">c2t-t2c</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">(</span>t<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Torus<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>c2t<span class="w"> </span><span class="o">(</span>t2c<span class="w"> </span>t<span class="o">)</span><span class="w"> </span>≡<span class="w"> </span>t
+c2t-t2c<span class="w"> </span>point<span class="w">        </span><span class="ow">=</span><span class="w"> </span>refl
+c2t-t2c<span class="w"> </span><span class="o">(</span>line1<span class="w"> </span>_<span class="o">)</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span>refl
+c2t-t2c<span class="w"> </span><span class="o">(</span>line2<span class="w"> </span>_<span class="o">)</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span>refl
+c2t-t2c<span class="w"> </span><span class="o">(</span>square<span class="w"> </span>_<span class="w"> </span>_<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+
+<span class="nf">t2c-c2t</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>S¹<span class="w"> </span>×<span class="w"> </span>S¹<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>t2c<span class="w"> </span><span class="o">(</span>c2t<span class="w"> </span>p<span class="o">)</span><span class="w"> </span>≡<span class="w"> </span>p
+t2c-c2t<span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>base<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>refl
+t2c-c2t<span class="w"> </span><span class="o">(</span>base<span class="w">   </span>,<span class="w"> </span>loop<span class="w"> </span>_<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+t2c-c2t<span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>_<span class="w"> </span>,<span class="w"> </span>base<span class="o">)</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span>refl
+t2c-c2t<span class="w"> </span><span class="o">(</span>loop<span class="w"> </span>_<span class="w"> </span>,<span class="w"> </span>loop<span class="w"> </span>_<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+</pre></div>
+</div>
+<p>By turning this isomorphism into an equivalence we get a direct proof
+that the torus is equal to two circles.</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">Torus≡S¹×S¹</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Torus<span class="w"> </span>≡<span class="w"> </span>S¹<span class="w"> </span>×<span class="w"> </span>S¹
+Torus≡S¹×S¹<span class="w"> </span><span class="ow">=</span><span class="w"> </span>isoToPath<span class="w"> </span><span class="o">(</span>iso<span class="w"> </span>t2c<span class="w"> </span>c2t<span class="w"> </span>t2c-c2t<span class="w"> </span>c2t-t2c<span class="o">)</span>
+</pre></div>
+</div>
+<p>Cubical Agda also supports parameterized and recursive higher
+inductive types, for example propositional truncation (squash types)
+is defined as:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span>∥_∥<span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">∣_∣</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>∥<span class="w"> </span>A<span class="w"> </span>∥
+<span class="w">  </span><span class="nf">squash</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>∥<span class="w"> </span>A<span class="w"> </span>∥<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y
+
+<span class="nf">isProp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+isProp<span class="w"> </span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y
+
+<span class="nf">recPropTrunc</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>P<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>isProp<span class="w"> </span>P<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>P<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>∥<span class="w"> </span>A<span class="w"> </span>∥<span class="w"> </span><span class="ow">→</span><span class="w"> </span>P
+recPropTrunc<span class="w"> </span>Pprop<span class="w"> </span>f<span class="w"> </span>∣<span class="w"> </span>x<span class="w"> </span>∣<span class="w">          </span><span class="ow">=</span><span class="w"> </span>f<span class="w"> </span>x
+recPropTrunc<span class="w"> </span>Pprop<span class="w"> </span>f<span class="w"> </span><span class="o">(</span>squash<span class="w"> </span>x<span class="w"> </span>y<span class="w"> </span>i<span class="o">)</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">  </span>Pprop<span class="w"> </span><span class="o">(</span>recPropTrunc<span class="w"> </span>Pprop<span class="w"> </span>f<span class="w"> </span>x<span class="o">)</span><span class="w"> </span><span class="o">(</span>recPropTrunc<span class="w"> </span>Pprop<span class="w"> </span>f<span class="w"> </span>y<span class="o">)</span><span class="w"> </span>i
+</pre></div>
+</div>
+<p>For many more examples of higher inductive types see the
+<code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library or the <code class="docutils literal notranslate"><span class="pre">1lab</span></code>.</p>
+</section>
+<section id="indexed-inductive-types">
+<span id="id2"></span><h2>Indexed inductive types<a class="headerlink" href="#indexed-inductive-types" title="Link to this heading"></a></h2>
+<p>Cubical Agda has experimental support for the <code class="docutils literal notranslate"><span class="pre">transp</span></code> primitive when
+used to substitute the indices of an indexed inductive type. A handful
+of definitions (satisfying a technical restriction on their pattern
+matching) will compute when applied to a transport along indices. As an
+example of what works, let us consider the following running example:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span>Eq<span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">reflEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Eq<span class="w"> </span>x<span class="w"> </span>x
+
+<span class="kr">data</span><span class="w"> </span>Vec<span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">)</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Nat<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">[]</span><span class="w">  </span><span class="ow">:</span><span class="w"> </span>Vec<span class="w"> </span>A<span class="w"> </span>zero
+<span class="w">  </span><span class="nf">_∷_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>n<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Vec<span class="w"> </span>A<span class="w"> </span>n<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Vec<span class="w"> </span>A<span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>n<span class="o">)</span>
+</pre></div>
+</div>
+<p>Functions which match on <code class="docutils literal notranslate"><span class="pre">Eq</span></code> when all of its endpoints are variables,
+that is, very generic lemmas like <code class="docutils literal notranslate"><span class="pre">symEq</span></code> and <code class="docutils literal notranslate"><span class="pre">transpEq</span></code> below, will
+compute on all cases: they will compute to the given right-hand-side
+definitionally when their argument is <code class="docutils literal notranslate"><span class="pre">reflEq</span></code>, and will compute to a
+transport in the codomain when their argument has been transported in
+the second variable.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">symEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>y<span class="w"> </span>x
+symEq<span class="w"> </span>reflEq<span class="w"> </span><span class="ow">=</span><span class="w"> </span>reflEq
+
+<span class="nf">transpEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B
+transpEq<span class="w"> </span>reflEq<span class="w"> </span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x
+
+<span class="nf">pathToEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>x<span class="w"> </span>y
+pathToEq<span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x<span class="o">}</span><span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transp<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>x<span class="w"> </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">))</span><span class="w"> </span>i0<span class="w"> </span>reflEq
+
+<span class="kr">module</span><span class="w"> </span>_ {<span class="n">a</span><span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">{</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span>≃<span class="w"> </span>B<span class="o">}</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>symEq<span class="w"> </span><span class="o">(</span>reflEq<span class="w"> </span><span class="o">{</span>x<span class="w"> </span><span class="ow">=</span><span class="w"> </span>x<span class="o">})</span><span class="w"> </span>≡<span class="w"> </span>reflEq
+<span class="w">  </span>_<span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+
+<span class="w">  </span><span class="nf">_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>transpEq<span class="w"> </span><span class="o">(</span>pathToEq<span class="w"> </span><span class="o">(</span>ua<span class="w"> </span><span class="o">(</span>idEquiv<span class="w"> </span>Bool<span class="o">)))</span><span class="w"> </span>≡<span class="w"> </span><span class="ow">λ</span><span class="w"> </span>x<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x
+<span class="w">  </span>_<span class="w"> </span><span class="ow">=</span><span class="w"> </span>refl
+</pre></div>
+</div>
+<p>Matching on indexed types in situations where types are assumed (so
+their transports are also open) often generates many more transports
+than the comparable construction with paths would. As an example,
+compare the proof of <code class="docutils literal notranslate"><span class="pre">uaβEq</span></code> below has four pending transports,
+whereas <code class="docutils literal notranslate"><span class="pre">uaβ</span></code> only has one!</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">uaβEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>transpEq<span class="w"> </span><span class="o">(</span>pathToEq<span class="w"> </span><span class="o">(</span>ua<span class="w"> </span>f<span class="o">))</span><span class="w"> </span>≡<span class="w"> </span>f<span class="w"> </span><span class="ow">.</span>fst
+uaβEq<span class="w"> </span><span class="ow">=</span><span class="w"> </span>funExt<span class="w"> </span><span class="ow">λ</span><span class="w"> </span>z<span class="w"> </span><span class="ow">→</span>
+<span class="w">  </span>compPath<span class="w"> </span><span class="o">(</span>transportRefl<span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">.</span>fst<span class="w"> </span>_<span class="o">))</span>
+<span class="w">    </span><span class="o">(</span>cong<span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">.</span>fst<span class="o">)</span><span class="w"> </span><span class="o">(</span>compPath
+<span class="w">      </span><span class="o">(</span>transportRefl<span class="w"> </span>_<span class="o">)</span>
+<span class="w">      </span><span class="o">(</span>compPath
+<span class="w">        </span><span class="o">(</span>transportRefl<span class="w"> </span>_<span class="o">)</span>
+<span class="w">        </span><span class="o">(</span>transportRefl<span class="w"> </span>_<span class="o">))))</span>
+</pre></div>
+</div>
+<p>In more concrete situations, such as when the indices are constructors
+of some other inductive type, pattern matching definitions will not
+compute when applied to transports. For specific unsupported cases, see
+<a class="reference internal" href="#cubical-ix-matching"><span class="std std-ref">What works, and what doesn’t</span></a>.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">UnsupportedIndexedMatch</span></code> warning is enabled (it is by default),
+Agda will print a warning for every definition whose computational
+behaviour could not be extended to cover transports. Internally,
+transports are represented by an additional constructor, and
+pattern matching definitions must be extended to cover these
+constructors. To do this, the results of pattern matching unification
+must be translated into an embedding (in the HoTT sense).
+<strong>This is work-in-progress.</strong></p>
+<p>For the day-to-day use of Cubical Agda, it is advisable to disable the
+<code class="docutils literal notranslate"><span class="pre">UnsupportedIndexedMatch</span></code> warnings. You can do this using the
+<code class="docutils literal notranslate"><span class="pre">-WnoUnsupportedIndexedMatch</span></code> option in an <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> pragma or in your
+<code class="docutils literal notranslate"><span class="pre">agda-lib</span></code> file.</p>
+<section id="what-works-and-what-doesn-t">
+<span id="cubical-ix-matching"></span><h3>What works, and what doesn’t<a class="headerlink" href="#what-works-and-what-doesn-t" title="Link to this heading"></a></h3>
+<p>This section lists some of the common cases where pattern matching
+unification produces something that can not be extended to cover
+transports, and the cases in which it can.</p>
+<p>The following pair of definitions relies on injectivity for data
+constructors (specifically of the constructor <code class="docutils literal notranslate"><span class="pre">suc</span></code>), and so will not
+compute on transported values.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">sucInjEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>n<span class="w"> </span>k<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>n<span class="o">)</span><span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>k<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>n<span class="w"> </span>k
+sucInjEq<span class="w"> </span>reflEq<span class="w"> </span><span class="ow">=</span><span class="w"> </span>reflEq
+
+<span class="nf">head</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>n<span class="o">}</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Vec<span class="w"> </span>A<span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>n<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+head<span class="w"> </span><span class="o">(</span>x<span class="w"> </span>∷<span class="w"> </span>_<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>x
+</pre></div>
+</div>
+<p>To demonstrate the failure of computation, we can set up the following
+artificial example using <code class="docutils literal notranslate"><span class="pre">head</span></code>. By passing the vector <code class="docutils literal notranslate"><span class="pre">true</span> <span class="pre">∷</span> <span class="pre">[]</span></code>
+through two transports, even if they would cancel out, <code class="docutils literal notranslate"><span class="pre">head</span></code>’s
+computation gets stuck.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="kr">module</span><span class="w"> </span>_ (<span class="n">n</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Nat<span class="o">)</span><span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="ow">:</span><span class="w"> </span>n<span class="w"> </span>≡<span class="w"> </span><span class="mi">1</span><span class="o">)</span><span class="w"> </span><span class="kr">where</span><span class="w"> </span><span class="kr">private</span>
+<span class="w">  </span><span class="nf">vec</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Vec<span class="w"> </span>Bool<span class="w"> </span>n
+<span class="w">  </span>vec<span class="w"> </span><span class="ow">=</span><span class="w"> </span>transport<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Vec<span class="w"> </span>Bool<span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="o">)))</span><span class="w"> </span><span class="o">(</span>true<span class="w"> </span>∷<span class="w"> </span>[]<span class="o">)</span>
+
+<span class="w">  </span><span class="nf">hd</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Bool
+<span class="w">  </span>hd<span class="w"> </span><span class="ow">=</span><span class="w"> </span>head<span class="w"> </span><span class="o">(</span>transport<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Vec<span class="w"> </span>Bool<span class="w"> </span><span class="o">(</span>p<span class="w"> </span>i<span class="o">))</span><span class="w"> </span>vec<span class="o">)</span>
+
+<span class="c1">-- Does not type-check:</span>
+<span class="c1">-- _ : hd ≡ true</span>
+<span class="c1">-- _ = refl</span>
+<span class="c1">-- Instead, hd is some big expression involving head applied to a</span>
+<span class="c1">-- transport</span>
+</pre></div>
+</div>
+<p>If a definition is stuck on a transport, often the best workaround is to
+avoid treating it like the reducible expression it should be, and
+managing the transports yourself. For example, using the proof that
+<code class="docutils literal notranslate"><span class="pre">transport</span> <span class="pre">(sym</span> <span class="pre">p)</span> <span class="pre">(transport</span> <span class="pre">p</span> <span class="pre">x)</span> <span class="pre">≡</span> <span class="pre">x</span></code>, we can compute with <code class="docutils literal notranslate"><span class="pre">hd</span></code> up
+to a path, even if it’s definitionally stuck.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Continuing from above..</span>
+
+<span class="w">  </span><span class="nf">_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>hd<span class="w"> </span>≡<span class="w"> </span>true
+<span class="w">  </span>_<span class="w"> </span><span class="ow">=</span><span class="w"> </span>cong<span class="w"> </span>head<span class="w"> </span><span class="o">(</span>transport⁻Transport<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Vec<span class="w"> </span>Bool<span class="w"> </span><span class="o">(</span>p<span class="w"> </span><span class="o">(</span>~<span class="w"> </span>i<span class="o">)))</span><span class="w"> </span><span class="o">(</span>true<span class="w"> </span>∷<span class="w"> </span>[]<span class="o">))</span>
+</pre></div>
+</div>
+<p>In other cases, it may be possible to rephrase the proof in ways that
+avoid unsupported cases in pattern matching, and so, compute. For
+example, returning to <code class="docutils literal notranslate"><span class="pre">sucInj</span></code>, we can define it in terms of <code class="docutils literal notranslate"><span class="pre">apEq</span></code>
+(which always computes), and the fact that <code class="docutils literal notranslate"><span class="pre">suc</span></code> has a
+partially-defined inverse:</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">apEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="w"> </span>b<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>b<span class="o">}</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="o">{</span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">}</span>
+<span class="w">     </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>x<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span><span class="o">(</span>f<span class="w"> </span>x<span class="o">)</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span>y<span class="o">)</span>
+apEq<span class="w"> </span>f<span class="w"> </span>reflEq<span class="w"> </span><span class="ow">=</span><span class="w"> </span>reflEq
+
+<span class="nf">sucInjEq′</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>n<span class="w"> </span>k<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>n<span class="o">)</span><span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>k<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>n<span class="w"> </span>k
+sucInjEq′<span class="w"> </span><span class="ow">=</span><span class="w"> </span>apEq<span class="w"> </span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>n<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>n<span class="w"> </span>;<span class="w"> </span>zero<span class="w"> </span><span class="ow">→</span><span class="w"> </span>zero<span class="w"> </span><span class="o">}</span>
+</pre></div>
+</div>
+<p>Definitions which rely on principles incompatible with Cubical Agda (K,
+injectivity of type constructors) will never compute on transports. Note
+that enabling both Cubical and K is not compatible with <a class="reference internal" href="../tools/command-line-options.html#cmdoption-safe"><code class="xref std std-option docutils literal notranslate"><span class="pre">--safe</span></code></a>.</p>
+<p>Absurd clauses do not need any special handling (since the transport of
+an absurdity is still absurd), so definitions which rely on Agda’s
+ability to automatically separate constructors of inductive types will
+not generate a <code class="docutils literal notranslate"><span class="pre">UnsupportedIndexedMatch</span></code> warning.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="nf">zeroNotSucEq</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>n<span class="o">}</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Eq<span class="w"> </span>zero<span class="w"> </span><span class="o">(</span>suc<span class="w"> </span>n<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+zeroNotSucEq<span class="w"> </span><span class="o">()</span>
+</pre></div>
+</div>
+<p>Definitions whose elaboration involves using an equality derived from
+pattern matching in a type in <code class="docutils literal notranslate"><span class="pre">Setω</span></code> can not be extended yet. The
+following example is very artificial because it minimises
+<a class="reference external" href="https://github.com/agda/cubical/blob/2131b6c08e32fdcf5b9292e5c6d6f23e4bf80fcd/Cubical/Structures/Macro.agda">an example from the Cubical library</a>.
+The point is that to extend <code class="docutils literal notranslate"><span class="pre">test</span></code> to cover transports, we would need
+to, given <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">:</span> <span class="pre">ℓ′</span> <span class="pre">≡</span> <span class="pre">ℓ</span></code>, produce a <code class="docutils literal notranslate"><span class="pre">PathP</span> <span class="pre">(λ</span> <span class="pre">i</span> <span class="pre">→</span> <span class="pre">Argh</span> <span class="pre">ℓ</span> <span class="pre">(p</span> <span class="pre">i))</span> <span class="pre">_</span> <span class="pre">_</span></code>,
+but <code class="docutils literal notranslate"><span class="pre">Setω</span></code> is not considered fibrant yet.</p>
+<div class="highlight-Agda notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span>Argh<span class="w"> </span><span class="o">(</span>ℓ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Level<span class="o">)</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>Level<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Setω<span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="nf">argh</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ′<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Argh<span class="w"> </span>ℓ<span class="w"> </span>ℓ′<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Argh<span class="w"> </span>ℓ<span class="w"> </span>ℓ′
+
+<span class="nf">test</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ′<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Argh<span class="w"> </span>ℓ<span class="w"> </span>ℓ′<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Bool
+test<span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>argh<span class="w"> </span>_<span class="o">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>true
+</pre></div>
+</div>
+</section>
+<section id="modalities-indexed-matching">
+<h3>Modalities &amp; indexed matching<a class="headerlink" href="#modalities-indexed-matching" title="Link to this heading"></a></h3>
+<p>When using indexed matching in Cubical Agda, clauses’ arguments (and
+their right-hand-sides) need to be transported to account for indexing,
+meaning that the <em>types</em> of those arguments must be well-formed <em>terms</em>.</p>
+<p>For example, the following code is forbidden in Cubical Agda, and when
+<code class="docutils literal notranslate"><span class="pre">--without-K</span></code> is enabled:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">subst</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>@0<span class="w"> </span>P<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>p<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="w"> </span>≡<span class="w"> </span>y<span class="w"> </span><span class="ow">→</span><span class="w"> </span>P<span class="w"> </span>x<span class="w"> </span><span class="ow">→</span><span class="w"> </span>P<span class="w"> </span>y
+subst<span class="w"> </span>_<span class="w"> </span>refl<span class="w"> </span>p<span class="w"> </span><span class="ow">=</span><span class="w"> </span>p
+</pre></div>
+</div>
+<p>This is because the predicate <code class="docutils literal notranslate"><span class="pre">P</span></code> is erased, but internally, we have
+to transport along the argument <code class="docutils literal notranslate"><span class="pre">p</span></code> along a path involving <code class="docutils literal notranslate"><span class="pre">P</span></code>, in a
+relevant position.</p>
+<p>Any argument which is used in the result type, or appears after a forced
+(dot) pattern, must have a modality-correct type.</p>
+</section>
+</section>
+<section id="cubical-agda-with-erased-glue">
+<span id="erased-cubical"></span><h2>Cubical Agda with erased Glue<a class="headerlink" href="#cubical-agda-with-erased-glue" title="Link to this heading"></a></h2>
+<p>The option <a class="reference internal" href="../tools/command-line-options.html#cmdoption-erased-cubical"><code class="xref std std-option docutils literal notranslate"><span class="pre">--erased-cubical</span></code></a> enables a variant of Cubical
+Agda in which Glue (and the other builtins defined in
+<code class="docutils literal notranslate"><span class="pre">Agda.Builtin.Cubical.Glue</span></code>) must only be used in
+<a class="reference internal" href="runtime-irrelevance.html#runtime-irrelevance"><span class="std std-ref">erased</span></a> settings.</p>
+<p>Regular Cubical Agda code can import code that uses
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-erased-cubical"><code class="xref std std-option docutils literal notranslate"><span class="pre">--erased-cubical</span></code></a>. Regular Cubical Agda code can also be
+imported from code that uses <a class="reference internal" href="../tools/command-line-options.html#cmdoption-erased-cubical"><code class="xref std std-option docutils literal notranslate"><span class="pre">--erased-cubical</span></code></a>, but names
+defined using Cubical Agda can only be used if the option
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-erasure"><code class="xref std std-option docutils literal notranslate"><span class="pre">--erasure</span></code></a> is used. In that case the names are treated as if
+they had been marked as erased, with an exception related to pattern
+matching:</p>
+<ul class="simple">
+<li><p>Matching on a non-erased imported constructor does not, on its own,
+make Agda treat the right-hand side as erased.</p></li>
+</ul>
+<p>The reason for this exception is that it should be possible to import
+the code from modules that use <a class="reference internal" href="../tools/command-line-options.html#cmdoption-cubical"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cubical</span></code></a>, in which the
+non-erased constructors are not treated as erased.</p>
+<p>Note that names that are re-exported from a Cubical Agda module using
+<code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">import</span> <span class="pre">M</span> <span class="pre">args</span> <span class="pre">public</span></code> are seen as defined using Cubical Agda.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<blockquote id="cchm">
+<div><p>Cyril Cohen, Thierry Coquand, Simon Huber and Anders Mörtberg;
+<a class="reference external" href="https://arxiv.org/abs/1611.02108">“Cubical Type Theory: a constructive interpretation of the
+univalence axiom”</a>.</p>
+</div></blockquote>
+<blockquote id="chm">
+<div><p>Thierry Coquand, Simon Huber, Anders Mörtberg; <a class="reference external" href="https://arxiv.org/abs/1802.01170">“On Higher Inductive
+Types in Cubical Type Theory”</a>.</p>
+</div></blockquote>
+</section>
+<section id="appendix-cubical-agda-primitives">
+<span id="primitives-ref"></span><h2>Appendix: Cubical Agda primitives<a class="headerlink" href="#appendix-cubical-agda-primitives" title="Link to this heading"></a></h2>
+<p>The Cubical Agda primitives and internals are exported by a series of
+files found in the <code class="docutils literal notranslate"><span class="pre">lib/prim/Agda/Builtin/Cubical</span></code> directory of
+Agda. The <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> library exports all of these primitives
+with the names used throughout this document. Experts might find it
+useful to know what is actually exported as there are quite a few
+primitives available that are not really exported by <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code>,
+so the goal of this section is to list the contents of these
+files. However, for regular users and beginners the <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code>
+library should be sufficient and this section can safely be ignored.</p>
+<p><strong>Warning</strong>: Many of the built-ins whose definitions can be written in
+Agda are nonetheless used internally in the implementation of cubical Agda,
+and using different implementations can easily lead to unsoundness. Even
+though they are definable in user code, this is not a supported
+use-case.</p>
+<p>The key file with primitives is <code class="docutils literal notranslate"><span class="pre">Agda.Primitive.Cubical</span></code>. It exports
+the following <code class="docutils literal notranslate"><span class="pre">BUILTIN</span></code>, primitives and postulates:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="cm">{-# BUILTIN CUBEINTERVALUNIV IUniv #-}</span><span class="w">  </span><span class="c1">-- IUniv : SSet₁</span>
+<span class="cm">{-# BUILTIN INTERVAL I  #-}</span><span class="w">  </span><span class="c1">-- I : IUniv</span>
+<span class="cm">{-# BUILTIN IZERO    i0   #-}</span>
+<span class="cm">{-# BUILTIN IONE     i1   #-}</span>
+
+<span class="kr">infix</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span>primINeg
+<span class="kr">infixr</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span>primIMin<span class="w"> </span>primIMax
+
+<span class="kr">primitive</span>
+<span class="w">  </span><span class="nf">primIMin</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w">   </span><span class="c1">-- _∧_</span>
+<span class="w">  </span><span class="nf">primIMax</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w">   </span><span class="c1">-- _∨_</span>
+<span class="w">  </span><span class="nf">primINeg</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="w">       </span><span class="c1">-- ~_</span>
+
+<span class="cm">{-# BUILTIN ISONE IsOne #-}</span><span class="w"> </span><span class="c1">-- IsOne : I → SSet</span>
+
+<span class="kr">postulate</span>
+<span class="w">  </span><span class="nf">itIsOne</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span>IsOne<span class="w"> </span>i1<span class="w">     </span><span class="c1">-- 1=1</span>
+<span class="w">  </span><span class="nf">IsOne1</span><span class="w">  </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span><span class="ow">→</span><span class="w"> </span>IsOne<span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>IsOne<span class="w"> </span><span class="o">(</span>primIMax<span class="w"> </span>i<span class="w"> </span>j<span class="o">)</span>
+<span class="w">  </span><span class="nf">IsOne2</span><span class="w">  </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span><span class="ow">→</span><span class="w"> </span>IsOne<span class="w"> </span>j<span class="w"> </span><span class="ow">→</span><span class="w"> </span>IsOne<span class="w"> </span><span class="o">(</span>primIMax<span class="w"> </span>i<span class="w"> </span>j<span class="o">)</span>
+
+<span class="cm">{-# BUILTIN ITISONE      itIsOne  #-}</span>
+<span class="cm">{-# BUILTIN ISONE1       IsOne1   #-}</span>
+<span class="cm">{-# BUILTIN ISONE2       IsOne2   #-}</span>
+<span class="cm">{-# BUILTIN PARTIAL      Partial  #-}</span>
+<span class="cm">{-# BUILTIN PARTIALP     PartialP #-}</span>
+
+<span class="kr">postulate</span>
+<span class="w">  </span><span class="nf">isOneEmpty</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>i0<span class="w"> </span><span class="o">(</span><span class="kt">Set</span><span class="w"> </span>a<span class="o">)}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>PartialP<span class="w"> </span>i0<span class="w"> </span>A
+<span class="cm">{-# BUILTIN ISONEEMPTY isOneEmpty #-}</span>
+
+<span class="kr">primitive</span>
+<span class="w">  </span><span class="nf">primPOr</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span>j<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span><span class="o">(</span>primIMax<span class="w"> </span>i<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kt">Set</span><span class="w"> </span>a<span class="o">)}</span>
+<span class="w">          </span><span class="ow">→</span><span class="w"> </span>PartialP<span class="w"> </span>i<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>z<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="o">(</span>IsOne1<span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span>z<span class="o">))</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>PartialP<span class="w"> </span>j<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>z<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="o">(</span>IsOne2<span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span>z<span class="o">))</span>
+<span class="w">          </span><span class="ow">→</span><span class="w"> </span>PartialP<span class="w"> </span><span class="o">(</span>primIMax<span class="w"> </span>i<span class="w"> </span>j<span class="o">)</span><span class="w"> </span>A
+
+<span class="w">  </span><span class="c1">-- Computes in terms of primHComp and primTransp</span>
+<span class="w">  </span><span class="nf">primComp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span>i<span class="o">))</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span>A<span class="w"> </span>i<span class="o">))</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>i1
+
+<span class="kr">syntax</span><span class="w"> </span>primPOr<span class="w"> </span>p<span class="w"> </span>q<span class="w"> </span>u<span class="w"> </span>t<span class="w"> </span><span class="ow">=</span><span class="w"> </span>[<span class="w"> </span>p<span class="w"> </span>↦<span class="w"> </span>u<span class="w"> </span>,<span class="w"> </span>q<span class="w"> </span>↦<span class="w"> </span>t<span class="w"> </span>]
+
+<span class="kr">primitive</span>
+<span class="w">  </span><span class="nf">primTransp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span>i<span class="o">))</span><span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>i1
+<span class="w">  </span><span class="nf">primHComp</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span><span class="ow">∀</span><span class="w"> </span>i<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+</pre></div>
+</div>
+<p>The interval <code class="docutils literal notranslate"><span class="pre">I</span></code> belongs to its own sort, <code class="docutils literal notranslate"><span class="pre">IUniv</span></code>. Types in this sort
+do not support composition and transport (unlike <code class="docutils literal notranslate"><span class="pre">Set</span></code>), but function
+types from types in this sort to types in <code class="docutils literal notranslate"><span class="pre">Set</span></code> do (unlike <cite>SSet</cite>).</p>
+<p>The Path types are exported by <code class="docutils literal notranslate"><span class="pre">Agda.Builtin.Cubical.Path</span></code>:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="kr">postulate</span>
+<span class="w">  </span><span class="nf">PathP</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>i0<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>i1<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+
+<span class="cm">{-# BUILTIN PATHP        PathP     #-}</span>
+
+<span class="kr">infix</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span>_≡_
+<span class="nf">_≡_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ
+_≡_<span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span>PathP<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>_<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="o">)</span>
+
+<span class="cm">{-# BUILTIN PATH         _≡_     #-}</span>
+</pre></div>
+</div>
+<p>The Cubical subtypes are exported by <code class="docutils literal notranslate"><span class="pre">Agda.Builtin.Cubical.Sub</span></code>:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="cm">{-# BUILTIN SUB Sub #-}</span>
+
+<span class="kr">postulate</span>
+<span class="w">  </span><span class="nf">inc</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="o">}</span><span class="w"> </span><span class="o">(</span>x<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Sub<span class="w"> </span>A<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>_<span class="w"> </span><span class="ow">→</span><span class="w"> </span>x<span class="o">)</span>
+
+<span class="cm">{-# BUILTIN SUBIN inS #-}</span>
+
+<span class="kr">primitive</span>
+<span class="w">  </span><span class="nf">primSubOut</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span><span class="w"> </span><span class="o">{</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>Sub<span class="w"> </span>_<span class="w"> </span>φ<span class="w"> </span>u<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+</pre></div>
+</div>
+<p>Equivalences are exported by <code class="docutils literal notranslate"><span class="pre">Agda.Builtin.Cubical.Equiv</span></code>:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="kr">record</span><span class="w"> </span>isEquiv<span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span><span class="o">(</span>ℓ<span class="w"> </span>⊔<span class="w"> </span>ℓ&#39;<span class="o">)</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="kr">field</span>
+<span class="w">    </span><span class="nf">equiv-proof</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>y<span class="w"> </span><span class="ow">:</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>isContr<span class="w"> </span><span class="o">(</span>fiber<span class="w"> </span>f<span class="w"> </span>y<span class="o">)</span>
+<span class="kr">infix</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span>_≃_
+
+<span class="nf">_≃_</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="o">(</span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span><span class="o">(</span>ℓ<span class="w"> </span>⊔<span class="w"> </span>ℓ&#39;<span class="o">)</span>
+A<span class="w"> </span>≃<span class="w"> </span>B<span class="w"> </span><span class="ow">=</span><span class="w"> </span>Σ<span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B<span class="o">)</span><span class="w"> </span><span class="ow">λ</span><span class="w"> </span>f<span class="w"> </span><span class="ow">→</span><span class="w"> </span>isEquiv<span class="w"> </span>f
+
+<span class="nf">equivFun</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>B<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span>≃<span class="w"> </span>B<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>B
+equivFun<span class="w"> </span>e<span class="w"> </span><span class="ow">=</span><span class="w"> </span>fst<span class="w"> </span>e
+
+<span class="nf">equivProof</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>la<span class="w"> </span>lt<span class="o">}</span><span class="w"> </span><span class="o">(</span>T<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>la<span class="o">)</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>lt<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>w<span class="w"> </span><span class="ow">:</span><span class="w"> </span>T<span class="w"> </span>≃<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>a<span class="w"> </span><span class="ow">:</span><span class="w"> </span>A<span class="o">)</span>
+<span class="w">           </span><span class="ow">→</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span>ψ<span class="w"> </span><span class="o">(</span>f<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>ψ<span class="w"> </span><span class="o">(</span>fiber<span class="w"> </span><span class="o">(</span>w<span class="w"> </span><span class="ow">.</span>fst<span class="o">)</span><span class="w"> </span>a<span class="o">))</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>fiber<span class="w"> </span><span class="o">(</span>w<span class="w"> </span><span class="ow">.</span>fst<span class="o">)</span><span class="w"> </span>a<span class="w"> </span>[<span class="w"> </span>ψ<span class="w"> </span>↦<span class="w"> </span>f<span class="w"> </span>]
+equivProof<span class="w"> </span>A<span class="w"> </span>B<span class="w"> </span>w<span class="w"> </span>a<span class="w"> </span>ψ<span class="w"> </span>fb<span class="w"> </span><span class="ow">=</span><span class="w"> </span>contr&#39;<span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span>fiber<span class="w"> </span><span class="o">(</span>w<span class="w"> </span><span class="ow">.</span>fst<span class="o">)</span><span class="w"> </span>a<span class="o">}</span><span class="w"> </span><span class="o">(</span>w<span class="w"> </span><span class="ow">.</span>snd<span class="w"> </span><span class="ow">.</span>equiv-proof<span class="w"> </span>a<span class="o">)</span><span class="w"> </span>ψ<span class="w"> </span>fb
+<span class="w">  </span><span class="kr">where</span>
+<span class="w">    </span><span class="nf">contr&#39;</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>isContr<span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>u<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span>A<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+<span class="w">    </span>contr&#39;<span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">=</span><span class="w"> </span>A<span class="o">}</span><span class="w"> </span><span class="o">(</span>c<span class="w"> </span>,<span class="w"> </span>p<span class="o">)</span><span class="w"> </span>φ<span class="w"> </span>u<span class="w"> </span><span class="ow">=</span><span class="w"> </span>hcomp<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="o">{</span><span class="w"> </span>i<span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i1<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>p<span class="w"> </span><span class="o">(</span>u<span class="w"> </span><span class="mi">1</span><span class="ow">=</span><span class="mi">1</span><span class="o">)</span><span class="w"> </span>i
+<span class="w">                                         </span>;<span class="w"> </span>i<span class="w"> </span><span class="o">(</span>φ<span class="w"> </span><span class="ow">=</span><span class="w"> </span>i0<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>c<span class="w"> </span><span class="o">})</span><span class="w"> </span>c
+
+<span class="cm">{-# BUILTIN EQUIV      _≃_        #-}</span>
+<span class="cm">{-# BUILTIN EQUIVFUN   equivFun   #-}</span>
+<span class="cm">{-# BUILTIN EQUIVPROOF equivProof #-}</span>
+</pre></div>
+</div>
+<p>The Glue types are exported by <code class="docutils literal notranslate"><span class="pre">Agda.Builtin.Cubical.Glue</span></code>:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="kr">open</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">Agda.Builtin.Cubical.Equiv</span><span class="w"> </span>public
+
+<span class="kr">primitive</span>
+<span class="w">  </span><span class="nf">primGlue</span><span class="w">    </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>T<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="o">))</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>e<span class="w"> </span><span class="ow">:</span><span class="w"> </span>PartialP<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>o<span class="w"> </span><span class="ow">→</span><span class="w"> </span>T<span class="w"> </span>o<span class="w"> </span>≃<span class="w"> </span>A<span class="o">))</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;
+<span class="w">  </span><span class="nf">prim^glue</span><span class="w">   </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span><span class="o">{</span>T<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="o">)}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">{</span>e<span class="w"> </span><span class="ow">:</span><span class="w"> </span>PartialP<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>o<span class="w"> </span><span class="ow">→</span><span class="w"> </span>T<span class="w"> </span>o<span class="w"> </span>≃<span class="w"> </span>A<span class="o">)}</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span>PartialP<span class="w"> </span>φ<span class="w"> </span>T<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A<span class="w"> </span><span class="ow">→</span><span class="w"> </span>primGlue<span class="w"> </span>A<span class="w"> </span>T<span class="w"> </span>e
+<span class="w">  </span><span class="nf">prim^unglue</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">{</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">}</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span><span class="o">{</span>T<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="o">)}</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span><span class="o">{</span>e<span class="w"> </span><span class="ow">:</span><span class="w"> </span>PartialP<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>o<span class="w"> </span><span class="ow">→</span><span class="w"> </span>T<span class="w"> </span>o<span class="w"> </span>≃<span class="w"> </span>A<span class="o">)}</span>
+<span class="w">    </span><span class="ow">→</span><span class="w"> </span>primGlue<span class="w"> </span>A<span class="w"> </span>T<span class="w"> </span>e<span class="w"> </span><span class="ow">→</span><span class="w"> </span>A
+<span class="w">  </span><span class="nf">primFaceForall</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="o">(</span>I<span class="w"> </span><span class="ow">→</span><span class="w"> </span>I<span class="o">)</span><span class="w"> </span><span class="ow">→</span><span class="w"> </span>I
+</pre></div>
+</div>
+<p>Note that the Glue types are uncurried in <code class="docutils literal notranslate"><span class="pre">agda/cubical</span></code> to make
+them more pleasant to use:</p>
+<div class="highlight-agda notranslate"><div class="highlight"><pre><span></span><span class="nf">Glue</span><span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="ow">∀</span><span class="w"> </span><span class="o">{</span>ℓ<span class="w"> </span>ℓ&#39;<span class="o">}</span><span class="w"> </span><span class="o">(</span>A<span class="w"> </span><span class="ow">:</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ<span class="o">)</span><span class="w"> </span><span class="o">{</span>φ<span class="w"> </span><span class="ow">:</span><span class="w"> </span>I<span class="o">}</span>
+<span class="w">     </span><span class="ow">→</span><span class="w"> </span><span class="o">(</span>Te<span class="w"> </span><span class="ow">:</span><span class="w"> </span>Partial<span class="w"> </span>φ<span class="w"> </span><span class="o">(</span>Σ[<span class="w"> </span>T<span class="w"> </span>∈<span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;<span class="w"> </span>]<span class="w"> </span>T<span class="w"> </span>≃<span class="w"> </span>A<span class="o">))</span>
+<span class="w">     </span><span class="ow">→</span><span class="w"> </span><span class="kt">Set</span><span class="w"> </span>ℓ&#39;
+Glue<span class="w"> </span>A<span class="w"> </span>Te<span class="w"> </span><span class="ow">=</span><span class="w"> </span>primGlue<span class="w"> </span>A<span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>x<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Te<span class="w"> </span>x<span class="w"> </span><span class="ow">.</span>fst<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="ow">λ</span><span class="w"> </span>x<span class="w"> </span><span class="ow">→</span><span class="w"> </span>Te<span class="w"> </span>x<span class="w"> </span><span class="ow">.</span>snd<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coverage-checking.html" class="btn btn-neutral float-left" title="Coverage Checking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cubical-compatible.html" class="btn btn-neutral float-right" title="Cubical compatible" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2005–2025 remains with the authors..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

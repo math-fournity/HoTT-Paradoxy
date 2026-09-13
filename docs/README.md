@@ -9,7 +9,7 @@
 | `design/system/` | 综合 repo 拓扑和来源边界 | 根 `README.md`、方案文件 |
 | `design/detailed/` | ledger/schema/runtime 精确合同 | `.codex/cognition/`、`audit/` |
 | `ai/` | AI role、trajectory、可见性、提示/工具证据 | `.codex/skills/`、`audit/` |
-| `quality/` | 验证、负向测试和验收范围 | `validation/`、`scripts/audit/` |
+| `quality/` | 验证、负向测试、数学结论机器证明门禁和验收范围 | `quality/数学结论机器证明与证据留存规范.md`、`validation/`、`scripts/audit/` |
 | `history/` | 历史状态、旧冲突和修订理由 | `理解章节/B0-B5`、`sources/` |
 | `security/` | 私有 trajectory、凭据/敏感资产边界 | 根 `AGENTS.md`、`.gitignore` |
 | `operations/` | 本地运行、恢复、checkpoint 生命周期 | `.codex/cognition/PROTOCOL.md` |

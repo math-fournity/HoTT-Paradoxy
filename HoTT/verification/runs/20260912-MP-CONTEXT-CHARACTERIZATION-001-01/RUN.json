@@ -1,0 +1,63 @@
+{
+  "claim_ids": [
+    "C-89",
+    "C-90",
+    "C-91"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout",
+    "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda"
+  ],
+  "completed_at_utc": "2026-09-12T23:41:20.581263+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 20.643866,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "29a4a29639c2ab51169c9352e3fc1978f32fd21c655383f14bc30896b40dc6c2"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No general value types, no general quotient claims, no wider-language theorem beyond the Bool fragment, no reality bridge, no originality."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
+  "run_id": "20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Native Cubical Agda full characterization of the contextual equivalence for the R041 delay fragment on Bool: lt trichotomy (C-89), general strict-time separation (C-90), and p ≡c q ↔ p ≡ q (C-91). The coarsest equivalence respected by the fixed context family is exactly representational equality, so no context extension can distinguish more in this fragment. Not a HoTT paradox.",
+  "source_manifest": {
+    "bytes": 3127,
+    "path": "source-manifest.json",
+    "sha256": "be3f54bf03249a1cbd13db37c357cc9b20c5701a5bd8e7cf0430c8840ee698b7"
+  },
+  "started_at_utc": "2026-09-12T23:40:59.937397+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 11339,
+    "path": "stdout.txt",
+    "sha256": "85818ad0dd7f62b0fe45b1828cb5c0ebea5e3e6f27f3ce5616f1f9ff35866be4"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

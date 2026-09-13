@@ -1,0 +1,31 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT",
+  "observed_issue": {
+    "task_plan": "SUCCEEDED",
+    "review_required_contained": "A-ERCF-FACTORIZATION-FORMAL-001"
+  },
+  "change": {
+    "old_depends_on": [
+      "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "A-MATH-PROOF-DELIVERY-GATE-001"
+    ],
+    "new_depends_on": [
+      "A-MATH-PROOF-DELIVERY-GATE-001"
+    ],
+    "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001"
+  },
+  "post_checkpoint_required": [
+    "task plan succeeds",
+    "A-ERCF absent from review_required",
+    "proof exact replay",
+    "27 directions/28 outcomes",
+    "36/36 KC audit",
+    "fresh revision 30",
+    "projection freshness",
+    "full regression",
+    "git diff --check"
+  ],
+  "mathematics": "UNCHANGED_FROM_MP_ERCF_001",
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

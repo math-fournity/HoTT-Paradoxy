@@ -1,0 +1,93 @@
+{
+  "schema_version": "batch4-spot-checks/v1",
+  "read_only": true,
+  "checks": [
+    {
+      "claim_id": "CL-000849",
+      "check": "MinerU old-snapshot SHA registered",
+      "ok": true,
+      "observed": "sha present in sources/SOURCE_MANIFEST.json"
+    },
+    {
+      "claim_id": "CL-001619",
+      "check": "EARLY-GEMINI review assets in archive store",
+      "ok": true,
+      "observed": "3 assets"
+    },
+    {
+      "claim_id": "CL-001557",
+      "check": "B3 records 70/3 test result",
+      "ok": true,
+      "observed": "phrase found in B3"
+    },
+    {
+      "claim_id": "CL-001433",
+      "check": "B3 records the all-zero-prefix break",
+      "ok": true,
+      "observed": "phrase found in B3"
+    },
+    {
+      "claim_id": "CL-001495",
+      "check": "B3 records Löb premise distinction",
+      "ok": true,
+      "observed": "phrase found in B3"
+    },
+    {
+      "claim_id": "CL-002133",
+      "check": "Gemini thought ledger count 21",
+      "ok": true,
+      "observed": "21"
+    },
+    {
+      "claim_id": "CL-002133",
+      "check": "Gemini execution ledger count 36",
+      "ok": true,
+      "observed": "36"
+    },
+    {
+      "claim_id": "CL-002133",
+      "check": "Gemini ordinary text count 24",
+      "ok": true,
+      "observed": "24"
+    },
+    {
+      "claim_id": "CL-002324",
+      "check": "LocalGPT primary lineage responses 220",
+      "ok": true,
+      "observed": "220"
+    },
+    {
+      "claim_id": "CL-002154",
+      "check": "WebGPT section ledger denominator 111",
+      "ok": true,
+      "observed": "111"
+    },
+    {
+      "claim_id": "CL-000324",
+      "check": "A2 states the user-reading principle",
+      "ok": true,
+      "observed": "phrase found in A2"
+    },
+    {
+      "claim_id": "CL-002251",
+      "check": "读遍账本 records the HoTT-2 residual M state",
+      "ok": true,
+      "observed": "phrase found in 读遍账本"
+    },
+    {
+      "claim_id": "batch4",
+      "check": "all 40 sampled claims carry a verdict",
+      "ok": true,
+      "observed": "40"
+    },
+    {
+      "claim_id": "batch4",
+      "check": "no UNSUPPORTED verdict without counter-evidence",
+      "ok": true,
+      "observed": "0 UNSUPPORTED"
+    }
+  ],
+  "passed": 14,
+  "failed": 0,
+  "scope_note": "Fixed spot-checks for numbers/hashes cited by batch-4 verdicts. The 497-line/32,478-byte byte-identity claim of CL-001619 is supported by the B3 owner text plus archive presence; the byte-level re-hash of the historical draft is NOT re-run here."
+}

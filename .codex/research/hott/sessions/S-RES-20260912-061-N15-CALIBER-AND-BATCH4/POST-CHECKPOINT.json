@@ -1,0 +1,67 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260912-061-N15-CALIBER-AND-BATCH4",
+  "state_revision": 61,
+  "checkpoint_applied": true,
+  "checkpoint_completed_at_utc": "2026-09-13T03:58:04.401690+00:00",
+  "verification": {
+    "fresh_three_way": {
+      "status": "PASS_WITH_SCOPE",
+      "revision": 61,
+      "governance_documents": 15,
+      "research_documents": 20,
+      "negative_cases": ["wrong_snapshot", "incomplete_coverage", "tampered_chunk", "profile_snapshot_mismatch"]
+    },
+    "projection_freshness": {
+      "status": "PASS_WITH_SCOPE",
+      "state_revision": 61,
+      "merge_entries": 35,
+      "reconciliation_entries": 22226
+    },
+    "three_way_cognition": {
+      "status": "PASS",
+      "directions": 27,
+      "outcomes": 56,
+      "core_units": 36
+    },
+    "core_cognition": {
+      "status": "PASS_WITH_SCOPE",
+      "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+      "transition_remainder": 0
+    },
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE", "marker_files": 9},
+    "understanding_merge": {"status": "PASS", "union_files": 35, "different_pairs": 9},
+    "history_ledgers": {
+      "status": "PASS",
+      "user_messages": 125,
+      "responses": 384,
+      "tool_events": 3146,
+      "webgpt_sections": 111,
+      "claims": 2396
+    },
+    "cross_source_reconciliation": {"status": "PASS", "total_register_entries": 22226}
+  },
+  "tests": {
+    "cognition_runtime": "28/28 OK",
+    "full_closure_loading": "17/17 OK",
+    "three_way": "4/4 OK",
+    "core": "7/7 OK",
+    "math_proof_delivery_governance": "4/4 OK"
+  },
+  "batch4_specific": {
+    "reconcile_script": "ran; JSON regenerated",
+    "sample_script_deterministic_replay": "40/40 ids identical",
+    "spot_checks": "14/14 PASS",
+    "sampled": 40,
+    "verdicts": {"SUPPORTED": 28, "SUPERSEDED_BY_MACHINE_RESULT": 0, "UNSUPPORTED": 0, "PENDING": 12},
+    "cumulative": {"sampled": 162, "coverage": "6.76%", "SUPPORTED": 93, "SUPERSEDED": 12, "UNSUPPORTED": 0, "PENDING": 57},
+    "e6_found": false
+  },
+  "boundaries": {
+    "model_understanding": "NOT_CERTIFIED",
+    "mathematics": "NOT_CERTIFIED",
+    "git_commit": "NOT_AUTHORIZED_THIS_TURN",
+    "frozen_denominator_unchanged": true,
+    "understanding_chapters_unchanged": true
+  }
+}

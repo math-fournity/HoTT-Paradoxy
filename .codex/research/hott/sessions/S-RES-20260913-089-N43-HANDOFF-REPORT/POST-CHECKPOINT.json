@@ -1,0 +1,38 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-089-N43-HANDOFF-REPORT",
+  "state_revision": 89,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 89},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 89},
+    "three_way_cognition": {"status": "PASS", "state_revision": 89},
+    "core_cognition": {"status": "PASS_WITH_SCOPE", "core_units": 36},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"},
+    "understanding_merge": {"status": "PASS"},
+    "history_ledgers": {"status": "PASS"},
+    "cross_source_reconciliation": {"status": "PASS"},
+    "per_kc_audit": {"status": "PASS", "kc_count": 36, "relation_counts": {"ALIGNED": 12, "TENSION": 1, "NOT_TOUCHED": 23}}
+  },
+  "tests": {
+    "cognition_runtime": "28/28 OK",
+    "full_closure_loading": "17/17 OK",
+    "core_cognition": "7/7 OK",
+    "three_way_cognition": "4/4 OK",
+    "math_proof_delivery_governance": "4/4 OK"
+  },
+  "report": {
+    "path": "audit/接手工作汇报与交接总结-S086至S088-20260913.md",
+    "scope": "handoff-level summary of S086-S088",
+    "measured_corrections": [
+      "rev85 STATE had 159 records (earlier summary's '~130' was inaccurate)",
+      "verdict-column machine-backed claims: 78 pre-work -> 85 MACHINE_PROVED + 1 MACHINE_REPLAYED"
+    ]
+  },
+  "state_updates": {
+    "new_records": ["A-HANDOFF-REPORT-S086-S088-001", "S-RES-20260913-089-N43-HANDOFF-REPORT"],
+    "head_and_trio_synced_to_revision": 89,
+    "hydration_review_required": []
+  },
+  "boundaries": {"no_new_user_core_input": true, "no_new_math_claim": true, "git_commit": "NOT_AUTHORIZED_THIS_TURN", "e6_status": "OPEN"}
+}

@@ -1,0 +1,543 @@
+{
+  "schema_version": "understanding-claim-sample-batch2/v1",
+  "sampling_rule": {
+    "strata": [
+      "C-series",
+      "meta class",
+      "A-series",
+      "B-series"
+    ],
+    "sizes": {
+      "C": 10,
+      "meta": 10,
+      "A": 15,
+      "B": 15
+    },
+    "within_stratum": "drop batch-1 claims; order by claim_id; equal-spaced subsample",
+    "batch1_excluded": 40
+  },
+  "counts": {
+    "C": {
+      "stratum_size": 82,
+      "pool_after_batch1": 82,
+      "selected": 10
+    },
+    "meta": {
+      "stratum_size": 496,
+      "pool_after_batch1": 494,
+      "selected": 10
+    },
+    "A": {
+      "stratum_size": 946,
+      "pool_after_batch1": 927,
+      "selected": 15
+    },
+    "B": {
+      "stratum_size": 872,
+      "pool_after_batch1": 853,
+      "selected": 15
+    }
+  },
+  "entries": [
+    {
+      "claim_id": "CL-001819",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> 当前 owner：本文件、顶层 `audit/` ledger、`核心认知.manifest.json` 和根 `MEMORY.md`。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001827",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 7,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "检查历史 AI 的回答、工具、代码、文件和 Git 证据，而不把 AI 自述自动当成事实。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001835",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 18,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| core 原文单元 | `KC-000001`—`KC-000903`，903 个 | 连续 ID、payload hash、源文件 hash PASS | `scripts/audit/verify_core_cognition.py` |",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001843",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 23,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "24 ordinary text；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001851",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 24,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "语义 evidence mapping 待人工复核 | `audit/claim-evidence-ledger.jsonl` |",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001860",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 35,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "1143 对 parent/main tool call/result 有 `call_id` 双向匹配。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001868",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 39,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "当前尚未完成 55 个 Response 到每个代码/产物/commit 的人工 claim mapping，因此状态是 `SOURCE_AVAILABLE;",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001876",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 47,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "1. `理解章节/README.md` 的“171 次提问”“13/13 PASS”“Codex 13 F + ~200 M”等是旧批次的口径，不可与当前 primary 88、supplemental 37、core 903、visible assistant 220 直接相加。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001884",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 51,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "5. `HoTT_is_GONE_COMPLETE.md` 的 SHA-256 为 `ec2fe644c608637ec9465342f4948140494662706b5861bfea5dff712a0980fa`，作为历史 AI artifact 保存。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001892",
+      "stratum": "C",
+      "owner_document": "理解章节/C0-当前整合审计与证据边界-20260912.md",
+      "line": 57,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "`discover_sources.sh` 返回 exit 0 但同时输出缺失路径诊断。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001901",
+      "stratum": "meta",
+      "owner_document": "理解章节/README.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> **当前审计层（2026-09-12）**：先读 [`C0-当前整合审计与证据边界-20260912.md`](C0-当前整合审计与证据边界-20260912.md)、顶层 [`核心认知.md`](../核心认知.md) 和 [`audit/`](../audit/README.md)。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001951",
+      "stratum": "meta",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 10,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| 用户发言 119/119（Codex 41 + 网页 56 + Gemini 22） | F，句级账本 2,369 条 0 缺锚 |",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002000",
+      "stratum": "meta",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 80,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "2. **对照**：填三栏表（声称↔实物↔裁定）；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002050",
+      "stratum": "meta",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 109,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "README 版本链；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002099",
+      "stratum": "meta",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 158,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "`upstream/`（HoTT Book 官方源钉副本）→ 处置表：第三方公共文献钉源，按引用点回查不全文读 | 6 |",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002149",
+      "stratum": "meta",
+      "owner_document": "理解章节/升级方案-v2.md",
+      "line": 28,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- `审计锚点-AI侧.md`：五类锚点的完整清单（见下）",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002199",
+      "stratum": "meta",
+      "owner_document": "理解章节/审计锚点-AI侧.md",
+      "line": 20,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "ALL-Markdown：HoTT/Z_LAW…、INTRINSIC_TEMPORALITY…、CLAIM_EVIDENCE_MATRIX、THEORY_SCHEMA、theory-schema/、formal/self-contained/ZCore.agda、sources/aistudio-discussions/、认知闭包/五份。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002248",
+      "stratum": "meta",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 47,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "1. ~~网页 GPT 55 节回复正文~~ **✅ 完成（2026-09-11）**；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002298",
+      "stratum": "meta",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 110,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- 实物核验 ✓：r024/COMPILER_RESULTS.json 含 1928/1888/40/241 全部关键计数；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002347",
+      "stratum": "meta",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 138,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- **处置表**：proofs/ 99 文件四类定性；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000002",
+      "stratum": "A",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "按时间序逐轮应答，最后整合。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000064",
+      "stratum": "A",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 75,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "凭什么认为可以找到？",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000126",
+      "stratum": "A",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 9,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "那么就好理解了：数学理论对现实的抽象，在数理逻辑的角度看，就是存在着对前提条件的否定，那么它得到的命题及其判定的集合 Y，必然导致 X 不等于 Y。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000189",
+      "stratum": "A",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 65,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "那么现在 Z 铁律是什么？",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000252",
+      "stratum": "A",
+      "owner_document": "理解章节/A10-怎么找.md",
+      "line": 41,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**步骤 1**（先验生成）：内在知识模式匹配，产 6–10 个机制不同的候选（W17/G4/G12§九）。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000316",
+      "stratum": "A",
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 79,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "A 方向缺的不是深度是主攻。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000377",
+      "stratum": "A",
+      "owner_document": "理解章节/A2-参照悖论谱.md",
+      "line": 39,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "我认为有些悖论讨论应该直接提取成单独的文档……包括 **shenchensh 的悖论，就是关于相交直线最后转成平行线的最后时刻是如何完成的**？",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000439",
+      "stratum": "A",
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> 本章处理轮次：C-T11、W26（语境）、W27、W28、G3、G11、G12§三、G13（成本论）。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000505",
+      "stratum": "A",
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 41,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "HoTT 研究的日常作业=沿变体轴扫描候选规则组合。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000569",
+      "stratum": "A",
+      "owner_document": "理解章节/A5-HoTT怀疑演进.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "怀疑的形态演进：找根怀疑点（T4/T5）→ 点名时间维度（T14）→ 行动化（W19）→ 自指质问（W44/W45、G20/G21）→ 总修正（W51）。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000632",
+      "stratum": "A",
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 11,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "循环三次返回 TIMEOUT 字符串≠证明不可停机；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000695",
+      "stratum": "A",
+      "owner_document": "理解章节/A7-认识纪律.md",
+      "line": 11,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "(3) **Thinking in my math philosophy**：思考的操作系统级指令——先在用户哲学内重建问题，再看已有材料。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000759",
+      "stratum": "A",
+      "owner_document": "理解章节/A8-材料与保全.md",
+      "line": 54,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- 本目录自身（句级账本+38 轮文档+五类锚点）是该史料学在 2026-09-11 的执行——AI对话录 git 即其版本控制。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000822",
+      "stratum": "A",
+      "owner_document": "理解章节/A8-材料与保全.md",
+      "line": 120,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "归属声明（R11）；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000885",
+      "stratum": "A",
+      "owner_document": "理解章节/A9-工作治理.md",
+      "line": 9,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**用户说**：「为什么这么久？",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000947",
+      "stratum": "B",
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> **历史 transform 状态**：本章保留原 `理解章节` 批次的编年叙述；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001004",
+      "stratum": "B",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 19,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| Matrix 原文链 | E010 | 5,683 行、84 图、10 链、98/98 命中 |",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001062",
+      "stratum": "B",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 55,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "\"去程检查不变量、回程要求完整身份——抽象的迷惑性\"。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001121",
+      "stratum": "B",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 82,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "修正后 **3 个 unimath wrapper+9 个自包含 Agda+Lean TwoEvent 全部本机 exit 0**（Docker Linux CI 亦过）；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001180",
+      "stratum": "B",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 112,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "AI 六节：¬P_k⇒¬K 直接成立、**E⇒K（必要性）才是关键缺口**、减半过程四条件不相容严格证明、连续模型 x(t)=Lt/T 不需最后减半步、离散化不自动完成同一规则（δ/2 位移不被允许⇒规则无法应用而非自动完成）、圆环条件审计清单、\"假设成立时会怎样\"≠\"已经证明现实如此\"。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001239",
+      "stratum": "B",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 150,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "7. **Z_LAW revision36 头部**：R035 三区分（已有能力/共有界限/新增失真）已写入 owner 顶部；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001298",
+      "stratum": "B",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 37,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "候选工作停在\"审计边界\"而非构造（W22 的最优雅目标在此期已开始让位于核查）；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001357",
+      "stratum": "B",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 89,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "I≃K 经 Canon(s) isProp；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001413",
+      "stratum": "B",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 54,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "\"落盘 rev9：闭包 §20 新增、三问 v3、Skill v1.3.1。",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001472",
+      "stratum": "B",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 75,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "OUT-002（W73）：k(z)=c_{f*(z)} 三层分解首次提出；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001530",
+      "stratum": "B",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 81,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "\"逻辑+几何+程序\"\"比'没有时间的逻辑+几何'准确得多\"；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001589",
+      "stratum": "B",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 111,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "2N+9 布局（base=4, A(i)=4+2i, trap=4+2N）；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001647",
+      "stratum": "B",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 141,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "P3b 圆布尔双覆盖无截面（not(s(base))=s(base)）；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001705",
+      "stratum": "B",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 34,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "\"能否越过自指\"：不能——内部化 ASK（eval:Syntax→U）要求全域总性+宇宙攀爬，真实交付阶段操作性崩溃（**戏剧化版本**；",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001762",
+      "stratum": "B",
+      "owner_document": "理解章节/B5-成果总账.md",
+      "line": 33,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "Theory Schema（21 源+SHA）；",
+      "review_verdict": null,
+      "review_reason": null
+    }
+  ]
+}

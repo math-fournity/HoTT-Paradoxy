@@ -1,0 +1,60 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER",
+  "audit_kind": "t4_self_verification_consumer",
+  "mathematical_claim_added": false,
+  "claim_matrix_unchanged": true,
+  "sources": {
+    "T4-S1": {
+      "name": "Agda 2.8.0 Safe Agda docs",
+      "verdict": "DEFENSE_BY_RESTRICTION"
+    },
+    "T4-S2": {
+      "name": "Agda 2.8.0 Cubical docs (what works)",
+      "verdict": "DOCUMENTED_FENCE"
+    },
+    "T4-S3": {
+      "name": "MetaRocq site",
+      "verdict": "CERTIFIED_TOOLING_NOT_SELF_CERTIFICATION"
+    },
+    "T4-S4": {
+      "name": "Rocq official site",
+      "verdict": "DEFENSE_WORKS_WITH_EXPLICIT_TRUST_BASE"
+    },
+    "T4-S5": {
+      "name": "NBE-in-TT (arXiv:1612.02462v4)",
+      "verdict": "REPRESENTATION_PREREQUISITE_DOCUMENTED"
+    }
+  },
+  "four_conditions": {
+    "real": 5,
+    "qualification_escalation": 0,
+    "added_assumptions": 0,
+    "checkable": 5
+  },
+  "verdict": "BOUNDED_DEFENSE_WITH_TRUST_BASE",
+  "p8_candidate_found": false,
+  "five_layer_tower_complete": [
+    "N1",
+    "N2",
+    "N5",
+    "N10",
+    "T4"
+  ],
+  "stale_source_hash_repair": {
+    "observed": 0,
+    "unexpected_remainder": 0
+  },
+  "evidence": {
+    "report": "audit/self-verification-consumer审计-20260912.md",
+    "fetched": [
+      ".codex/research/hott/sessions/S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER/evidence/fetched/agda-safe-mode.html",
+      ".codex/research/hott/sessions/S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER/evidence/fetched/agda-cubical.html",
+      ".codex/research/hott/sessions/S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER/evidence/fetched/metarocq-site.html",
+      ".codex/research/hott/sessions/S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER/evidence/fetched/rocq-site.html",
+      ".codex/research/hott/sessions/S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER/evidence/fetched/qiit-abs.html",
+      ".codex/research/hott/sessions/S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER/evidence/fetched/metacoq-site.html"
+    ]
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

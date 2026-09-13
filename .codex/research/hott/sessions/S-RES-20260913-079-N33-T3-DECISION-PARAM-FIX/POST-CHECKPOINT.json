@@ -1,0 +1,26 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-079-N33-T3-DECISION-PARAM-FIX",
+  "state_revision": 79,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 79},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 79},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 78},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "t3_pulse_12": {
+    "source": "HoTT/formal/ercf3-t3/DecisionParam.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "ercf3_status": "GATED",
+    "resolved": "with-abstraction blocker (N30-N32) dissolved by explicit decision parameter",
+    "proved": ["matchCaseAgrees", "nonMatchCaseAgrees"],
+    "remaining": "full mutual induction assembly"
+  },
+  "boundaries": {"git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

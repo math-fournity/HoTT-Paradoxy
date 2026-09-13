@@ -1,0 +1,64 @@
+{
+  "claim_ids": [
+    "C-92",
+    "C-93",
+    "C-94",
+    "C-95"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout",
+    "HoTT/formal/partiality-race-timeout/GuardErasure.agda"
+  ],
+  "completed_at_utc": "2026-09-12T23:51:06.312902+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.471994,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "311437be753fb2cf62d994b1ced7c87840187830749b76a58703bf0b050c14bc"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No guarded/clocked type theory equivalence, no physical-time claim, no HoTT-specificity claim, no originality (the historical conditional form is ZCore.agda, a legacy aggregate requiring replay)."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-GUARD-ERASURE-001",
+  "run_id": "20260912-MP-GUARD-ERASURE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Native Cubical Agda machine construction for guard/stage erasure with an explicit source calculus (staged streams) and an explicit forgetful translation: collapse-while-keeping-the-update-law forces a fixed point (C-92) and conversely any fixed point yields such a collapse (C-94), so erasure-while-keeping-the-law is equivalent to fixed-point existence; the negation law admits no such collapse (C-93) and the concrete oscillating orbit has observable stages (C-95). Not a HoTT paradox.",
+  "source_manifest": {
+    "bytes": 2688,
+    "path": "source-manifest.json",
+    "sha256": "6f84f285d0afdec536cf5e3366f28f2f1a1428b1db961911c1b0c97a1bd19c94"
+  },
+  "started_at_utc": "2026-09-12T23:50:47.840908+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9679,
+    "path": "stdout.txt",
+    "sha256": "fbabfdca285414a9fc7288ef9de325d0c8e2525a3af701205b6bbe532aa2e6ce"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

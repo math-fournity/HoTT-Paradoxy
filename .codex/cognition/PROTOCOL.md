@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v2.0`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v2.2`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
 
 ## 1. 目标和边界
 
@@ -10,7 +10,7 @@
 
 | 层 | 当前 owner | 可信含义 |
 |---|---|---|
-| 用户方向/裁定 | `rulings.md`、`核心认知.md` | rulings 拥有治理裁定；generation-3 core 只拥有三份 primary 中用户直接悖论/元数学原文；不是数学真理 |
+| 用户方向/裁定 | `rulings.md`、`核心认知.md` | rulings 拥有治理裁定；current core 拥有三份历史 primary 与以后 hash-pinned 一手输入中的用户直接悖论/元数学原文；不是数学真理 |
 | 方向组合/统筹 | `方向追踪.md` | 跨 LocalGPT/WebGPT 的候选、优先级、依赖和下一动作；不是机器记录真值 |
 | 成果全景/决策支持 | `全景视野.md` | 跨来源的结果、正反例、失败、未知和证据边界；不是数学主张矩阵 |
 | 当前需求/状态 | `feature-list.md`、`MEMORY.md`、`STATE.json` | 可修订当前真值 |
@@ -36,9 +36,9 @@
 
 ## 3. 核心认知账本的使用
 
-`scripts/audit/core-cognition-curation-v3.json` 是逐消息纳入/排除与精确语义范围的人工 owner；`scripts/audit/build_core_cognition.py` 默认 check、显式 `--write` 生成 `核心认知.md`、manifest 和 transition。当前 generation-3 的每个 `KC-xxxxxx` 都是 `USER_OWNED_DIRECT` 精确原文，完整 hash/locator/themes 在 manifest，core 只留紧凑来源行。
+当前人工 owner 从 `STATE.current_core.curation` 取得；generation-4 使用 `scripts/audit/core-cognition-curation-v4.json`，通过 hash-pinned `inherits` 保留 generation-3 curation，并只登记本代新增来源、处置与语义单元。`scripts/audit/build_core_cognition.py` 默认 check、显式 `--write` 生成 `核心认知.md`、manifest 和 transition。当前每个 `KC-xxxxxx` 都是 `USER_OWNED_DIRECT` 精确原文，完整 hash/locator/themes 在 manifest，core 只留紧凑来源行。
 
-工作中引用 KC 时必须保留当前精确 ID。转发 AI、附件、supplemental 和一般治理对话只能从 source/history 引用并标明身份，不得进入 core 或冒充用户已采纳。重复中的语义演化保留；无新增认识的跨平台复读可在 disposition 中显式去重。旧 generation-2/913 KC 由 `governance-v2.1.0` 与 913/913 transition 保存，不因退出当前全文输入而丢失。
+工作中引用 KC 时必须保留当前精确 ID。转发 AI、附件、supplemental、一般治理对话和纯文件操作指令只能从 source/history 引用并标明身份，不得进入 core 或冒充用户已采纳。重复中的语义演化保留；无新增认识的跨平台复读可在 disposition 中显式去重。旧 generation-2/913 KC 由 `governance-v2.1.0` 与 913/913 transition 保存；generation-3/27 KC 由 `governance-v3.0.0` 与 generation-4 transition 全量保留。
 
 ## 3A. 三件套交叉审视与更新归属
 
@@ -78,6 +78,12 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 - `work-product-ledger` 记录所有重要文档、代码、artifact、checkpoint 和 source snapshot 的状态；`claim-evidence-ledger` 把理解章节/当前文档的主张连回具体句子、文件、事件和 Git。文件存在只能是 `DOCUMENTED`，运行结果和验证范围单独填写。
 
 ## 6. 写入与 checkpoint
+
+<!-- math-proof-delivery-gate:v1 -->
+
+任何准备交付为已成立事实的数学结论，在写入稳定 owner、全景或最终答复前，都必须执行根 AGENTS 的 `MATH_PROOF_BEFORE_DELIVERY_V1`。精确形式命题和证明源码由 `HoTT/formal/` 持有；实际 proof assistant/kernel 运行由 `HoTT/verification/runs/<run-id>/` 持有，至少保存 `RUN.json`、`stdout.txt`、`stderr.txt`、`environment.txt`、`source-manifest.json`；唯一快速索引由 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 持有。
+
+checkpoint 只能保存状态，不能替代数学证明。代码存在、Python/Node 测试、有限样本、外部论文、历史 aggregate receipt、AI 自述和普通 Lean `Eq` 均不能自动升级成 HoTT 特定机器证明。缺任一 proof/source/run/index 或语义忠实性条件时，状态必须是 `QUESTION/CONJECTURE/HEURISTIC/PAPER_ONLY/COUNTEREXAMPLE_CANDIDATE/SOURCE_REPORTED_NOT_REPLAYED`，不得写“已证明/数学结论”。`/tmp` 可用于可删除缓存，不能承载唯一证明或收据。
 
 当前可变状态包括根 `MEMORY.md`、三件套投影 `方向追踪.md`/`全景视野.md`、`.codex/research/hott/FRONTIER.md`、`LESSONS.md`、`RESUME.md`、`STATE.json`，以及对应 session/candidate 路径。STATE v2 必须分别记录 `lifecycle_status` 与 `evidence_status`；历史 Session 的待复核主张由独立 issue/result 持有。core 语义决策属于 HUMAN_EDITED curation，core/manifest/transition 属 MACHINE_MANAGED；修改须走 manager 并建立新 generation。
 

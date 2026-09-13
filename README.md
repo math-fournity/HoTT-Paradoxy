@@ -14,20 +14,21 @@
 
 关键入口：
 
-- `核心认知.md`：三份用户指定 primary 的 88 条消息经逐项人工 curation 后，按 UTC 编号的用户直接悖论/元数学原文账本；当前为 `core-cognition-generation-3`、27 个 `KC-*`。每次工作开始全文加载，结束逐编号回评。转发 AI、supplemental、一般治理和重复继续指令只在 source/manifest/Git 历史中保留，不进入当前 core。
+- `核心认知.md`：三份历史 primary 加上以后显式 hash-pinned 的一手用户输入所形成的用户直接悖论/元数学原文账本；当前 `core-cognition-generation-4` 登记 4 个来源、89 条消息，24 条消息形成 36 个 `KC-*`，上一代 27 个单元全部逐字保留。每次工作开始全文加载，结束逐编号回评。转发 AI、supplemental、一般治理、附件和操作指令只在 source/manifest/Git 历史中保留，不进入 current core。
 - `方向追踪.md`：跨 LocalGPT/WebGPT 的研究方向、候选、依赖、优先级和下一判别动作的当前投影；不替代 STATE 或 core。
 - `全景视野.md`：跨 LocalGPT/WebGPT 的结果、正反例、失败、未知、产物、Git 和验证范围的当前投影；不替代数学主张矩阵。
 - `理解章节/`：历史认知闭包及本次 transform 的主要成果；它是当前研究知识的 owner 候选，不以原始对话录替代。
 - `sources/`：只读历史来源快照、提问原文、WebGPT 工作目录、本地 GPT `ALL-Markdown` 工作及 Gemini/WebGPT 导出。
 - `audit/` 与 `scripts/audit/`：来源 manifest、覆盖矩阵、22,226 行跨源 reconciliation register、理解章节 merge receipt、fresh load receipt、提取重放与验证脚本；“完整”只以这里的可复现证据为准。
-- `.codex/`：本 repo 的本地 Codex 治理框架 3.0（版本边界 `governance-v3.0.0`）；固定全文前三项为 core → direction → panorama；governance/research profile 分开，底层证据按 stable record 显式 query/task hydrate，历史 Session 不因 evidence review 自动复活。
-- `HoTT/`：从 `/Volumes/D/ALL-Markdown/HoTT/` 收录的研究工作副本；它保留本地 GPT 的工作记录，不自动等于当前数学真值。
+- `.codex/`：本 repo 的本地 Codex 治理框架 3.2 candidate（最近已封存边界仍是 `governance-v3.0.0`，本轮尚未 commit/tag）；固定全文前三项为 core → direction → panorama；core generation/KC 分母动态读取，governance/research profile 分开，底层证据按 stable record 显式 query/task hydrate，历史 Session 不因 evidence review 自动复活；F-011 要求数学结论交付前完成 repo 内 source/run/index 机器证明链。
+- `HoTT/`：从 `/Volumes/D/ALL-Markdown/HoTT/` 收录的研究工作副本，并承载当前形式化工作；`MP-ERCF-001`/`C-59`–`C-66` 是 Lean 通用因子化骨架，`MP-ERCF-TRUNC-001`/`C-67`–`C-70` 是原生 Cubical Agda 截断防御。两者都有 source/run/index 链，均不自动等于 HoTT 悖论。
+- `docs/quality/数学结论机器证明与证据留存规范.md`：当前 AI 数学结论的交付门禁；证明源码进入 `HoTT/formal/`，实际运行原件进入 `HoTT/verification/runs/<run-id>/`，唯一快速索引为 `HoTT/CLAIM_EVIDENCE_MATRIX.md`。没有完整 proof/run/index 链的内容只能保持问题、猜想、启发、`PAPER_ONLY` 或未重放来源身份。
 
 `AI对话录/` 和 `workspace/` 仍保留在磁盘上作为原始嵌套 repo，但已由顶层 `.gitignore` 排除；顶层 `sources/` 是归档快照，后续修改不得直接把这两个嵌套工作树当作当前工作根。`/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求不恢复；`HoTT_is_GONE_COMPLETE.md` 只作为有 provenance 的历史 AI 产物保存，是否覆盖原目录的事实仍标为未证明。
 
-当前已采纳的跨压缩/core 重建方案见 `audit/治理框架跨压缩连续性独立复审与精简升级方案-20260912.md`；generation-3、STATE/load v3、C01–C10 和测试实物见 `audit/核心认知generation-3与加载治理v3实施证据-20260912.md`；本轮自我行为依据见 `audit/治理框架自反馈行为分析与未来优化依据-20260912.md`。generation-2 时期的框架对比与三件套实施方案已按用户授权以 Git rename 归档到 `history/governance-v2.1.0/`，只作历史证据，不与 current owner 竞争。
+当前已采纳的跨压缩/core 重建方案见 `audit/治理框架跨压缩连续性独立复审与精简升级方案-20260912.md`；generation-3 的版本闭合实物见 `audit/核心认知generation-3与加载治理v3实施证据-20260912.md`，generation-4 新增原文与 ERCF 研究见 `audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md`，3.2 proof-delivery Gate 见 `audit/数学结论机器证明交付门禁实施证据-20260912.md`；本轮自我行为依据见 `audit/治理框架自反馈行为分析与未来优化依据-20260912.md`。generation-2 时期的框架对比与三件套实施方案已按用户授权以 Git rename 归档到 `history/governance-v2.1.0/`，只作历史证据，不与 current owner 竞争。
 
-**交给接手 AI 与用户。建立日期：2026-09-11。最后实际数学研究：R039。交接治理状态：顶层 STATE v2 / project-local governance 3.0；当前 revision/latest session 以 `MEMORY.md` 与 STATE 为准。本轮治理 Session 不是新的数学突破。**
+**交给接手 AI 与用户。建立日期：2026-09-11。F-011 下已有两个当前 proof package：Lean 通用因子化 `MP-ERCF-001` 与原生 Cubical Agda 截断防御 `MP-ERCF-TRUNC-001`；二者均为 `MACHINE_PROVED_LOCAL_UNCOMMITTED`。截断结果判为 `DEFENSE_WORKS`，C4 的现实桥梁、自反与 ERCF-3 仍是 paper-only。交接治理状态：顶层 STATE v2 / project-local governance 3.2 candidate；当前 revision/latest session 以 `MEMORY.md` 与 STATE 为准。**
 
 本包原本是当前沙箱可取得的项目材料的完整、可验证交接，不只是一份摘要。现在它已被提升为顶层综合 repo：最新可工作目录、完整原治理框架、Git历史、当前挂载原件、逐轮研究/审计/失败记录、历史对话提取和未来增量交换工具均在同一个顶层目录。原 `workspace/` 仍是 WebGPT 交接时的嵌套工作副本，供历史核对和来源快照使用；不要把它误当作当前顶层工作根，也不要在其它历史副本中继续工作。
 
@@ -38,6 +39,8 @@
 最新认识严格区分：HoTT 已有的逻辑/同伦/计算能力；有效系统共有的可计算性与反射界限；特定理论化额外造成的失真。正确拒绝、正确报告未知和保全条件，是必须保留的正向结果。不能以普通程序也有的停机限制证明 HoTT “没考虑时间”，也不能因它有计算结构就断言它已处理所有悖论或完全对齐物理宇宙。
 
 历史中不少结论只有纸笔推导和有限模型检查，原生证明助手未运行。R001原实验资料仍有缺件与版本冲突。**接手不能将 ZIP 完整性、Git提交、另一个AI的赞同或旧的PASS文字当成数学认证。**最后一轮的论文下载失败与读网页成功等边界仍在原记录里；本次交接没有重新认证它们。
+
+从当前用户裁定起，当前 AI 交付为“已成立”的新数学结论必须先通过根 AGENTS 的机器证明门禁。历史 `PAPER_ONLY`、`FINITE_CHECKED` 和 aggregate receipt 不被批量重写；若未来要把旧主张重新作为当前结论交付，须在匹配语义的 proof assistant/kernel 中重放，并把源码、原始结果和索引全部留在本 repo。
 
 本包不是平台完整聊天导出：保存了此前落盘的用户原话、公开回答、原始Gemini记录、信件、源码和结果。无法恢复未作为文件提供的旧沙箱状态、丢失的原始工具输出或完整平台会话数据库；不包含本模型隐藏推理。不要根据历史路径/链接自行补造不存在的附件。
 

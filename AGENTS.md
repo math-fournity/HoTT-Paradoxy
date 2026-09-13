@@ -5,7 +5,7 @@
 ## 当前工作根与来源边界
 
 - 当前工作根必须是本目录的顶层 Git repo。开始前确认 `git rev-parse --show-toplevel` 等于本目录；`AI对话录/` 和 `workspace/` 是磁盘上保留的嵌套历史 repo，已由顶层 `.gitignore` 排除，不是当前工作根。
-- `核心认知.md` 当前为 `core-cognition-generation-3`/27 个 `KC-*`：人工 curation 逐条审定三份用户指定 primary 的 88 条消息，只把用户本人关于悖论、HoTT 悖论挖掘、元数学和直接研究方法的精确原文范围纳入；转发 AI、supplemental、一般治理、附件和重复继续指令仍留在来源/Git，不进入当前 core。每次工作开始必须从第一行连续读到 EOF；manifest 只提供哈希、定位和处置，不能代替原文。`方向追踪.md`、`全景视野.md` 也必须按固定顺序全文加载。
+- `核心认知.md` 当前身份必须从 `STATE.current_core` 与 manifest 动态取得；本轮为 `core-cognition-generation-4`/36 个 `KC-*`。它保留三份历史 primary 的既有 27 个用户原文单元，并允许以后把 hash-pinned 的一手用户悖论/元数学原文通过 incremental curation 纳入新 generation；转发 AI、supplemental、一般治理、附件和操作指令仍留在来源/Git，不进入 current core。每次工作开始必须从第一行连续读到 EOF；manifest 只提供哈希、定位和处置，不能代替原文。`方向追踪.md`、`全景视野.md` 也必须按固定顺序全文加载。
 - `理解章节/` 是历史认知闭包及本次 transform 的主要工作成果；它是需要继续审计、修订和分层的当前知识候选，不自动凌驾于底层代码、原始来源和 Git。
 - `sources/` 是来源快照和提取原件区。除非用户明确授权，不在其中改写历史来源；需要修复提取规则时改 `scripts/audit/`，重建派生文件，并保留旧 hash/差异。
 - `/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求已移走且不恢复。`sources/local-gpt/HoTT_is_GONE_COMPLETE.md` 是有 hash 的历史 AI 产物，不是已经证明覆盖原目录的事实；覆盖结论必须标为 `NOT_PROVEN`，不得将旧 validator 的缺源 PASS 当成认证。
@@ -30,10 +30,33 @@
 - 用户提出的方向 A（现实可完成而理论化引入额外完成困难）与方向 B（现实不可完成却把理论对象当作已获得能力）是研究方向/候选构造，不是未经核验的缺陷结论。
 - AI 自述、旧文档 PASS、有限玩具模拟、文件存在、Git 提交和单次测试各自只能证明其明确范围。重要主张必须有多样审计锚点：用户原文、AI 可见回答、tool call/result、代码/文档、运行结果、Git commit 和当前 hash。
 
+## 数学结论交付前机器证明门禁
+
+<!-- math-proof-delivery-gate:v1
+proof_source_root: HoTT/formal
+proof_run_root: HoTT/verification/runs
+proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
+-->
+
+标识：`MATH_PROOF_BEFORE_DELIVERY_V1`。本 repo 中，当前 AI 在最终答复、研究正文、方向/成果投影或当前状态中把一个数学命题作为已经成立的**数学结论**交付之前，必须完成与该精确命题相称的机器证明。数学结论包括但不限于定理、引理、等价、蕴含、不可能性、存在/不存在、全称性质、反例所否定的一般命题，以及被提升为已证事实的模型性质。
+
+交付 Gate 按下列顺序执行：
+
+1. 固定稳定 claim/proof ID、命题全文、量词、假设、公理、宇宙/类型论变体、依赖和禁止外推；自然语言结论必须能与形式命题逐项对照。
+2. 将证明源码、项目文件和必要的锁定依赖信息保存到 `HoTT/formal/` 的合适 topic/claim 子目录；不得把聊天代码块、内存变量或 `/tmp` 中的唯一副本当作证明资产。
+3. 使用能验证该命题真实语义的 proof assistant/kernel 实际运行。HoTT、univalence、cubical path、HIT、截断或高阶结构相关结论必须使用相应原生系统，或另有已机器证明的保真翻译；普通 Lean `Eq`、Python 枚举或有限测试不得冒充原生 HoTT 证明或无限/全称定理。
+4. 把每次作为交付依据的运行保存到 `HoTT/verification/runs/<run-id>/`；至少包含 `RUN.json`、原始 `stdout.txt`、`stderr.txt`、`environment.txt` 和 `source-manifest.json`，记录工具/版本、命令、退出状态、源码与依赖哈希、时间、结论范围以及失败。临时构建缓存可以位于 `/tmp`，但最终证据不得只存在于 repo 外。
+5. 在 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 中建立或更新唯一索引行，连接 claim ID、proof ID、形式命题、源码、run receipt、证据等级和禁止外推；随后检查所有路径、哈希和实际 kernel 结果。
+6. 只有 Gate 1–5 全部通过，才可使用 `MACHINE_PROVED` / `FORMAL_CHECKED_WITH_SCOPE` 或“已证明/数学结论”等交付措辞。Git 未获授权或尚未提交时，必须另标 `LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`，不能声称跨 Session/机器可恢复。
+
+无法完成机器证明时，不得把该命题作为数学结论交付。可以继续保存和讨论，但必须降格为 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，并明确缺少的证明义务。外部论文或历史 AI 声称的定理可以按来源身份转述，但在本 repo 重新运行前不能冒充“当前 AI 已机器证明”。有限穷举/模型检查只有在有限域、完备枚举和命题对应关系均固定时才证明该有限命题。
+
+本门禁不要求把每个猜想都强行形式化，也不禁止在证明前探索；它要求的是：**未证明的内容不能被交付为已经成立的数学结论。** 详细合同见 `docs/quality/数学结论机器证明与证据留存规范.md`。
+
 ## 写入、Git 与交接
 
 - 新增或修改需求、当前状态、稳定设计、审计账本、验证结果、研究方向或研究成果投影时，按 `.codex` 的唯一 owner 路由写回；不要制造第二份当前真值。只有用户新的悖论/元数学原文或对此类工作意识的明确修正进入 core generation；一般治理裁定进入 rulings/Feature；候选/优先级/下一动作进入 `方向追踪.md` + STATE，结果/证据/失败/未知进入 `全景视野.md` + 底层 evidence owner。
-- `scripts/audit/core-cognition-curation-v3.json` 是当前人工纳入/排除与语义边界 owner；`scripts/audit/build_core_cognition.py` 是 core/manifest/transition 的 canonical manager。默认只检查，显式 `--write` 才生成；不手工润色生成物。新增用户悖论/元数学原文时建立新 generation 和全量迁移收据，旧代由 Git/tag 保留，不在旧代末尾直接追加。
+- 当前人工纳入/排除与语义边界 owner 必须从 `STATE.current_core.curation` 取得（本轮为 `scripts/audit/core-cognition-curation-v4.json`）；`scripts/audit/build_core_cognition.py` 是 core/manifest/transition 的 canonical manager。默认只检查，显式 `--write` 才生成；不手工润色生成物。新增用户悖论/元数学原文时建立 hash-pinned source、新 generation 和全量迁移收据，旧代由 Git/tag 与 curation lineage 保留，不在生成物末尾手工追加。
 - 每个工作单元结束前，生成 `.codex/research/hott/sessions/<session-id>/CORE_COGNITION_AUDIT.md`，逐一列出当前 generation 的全部 `KC-*`：对齐、深化、纠偏、张力、偏航或不适用，并附本轮证据定位。不能用“总体一致”替代逐编号遍历；旧审计是 archive evidence，不自动成为下轮输入。
 - `.codex/tools/cognition_runtime.py` 的 `plan/read/check` 是只读加载器；checkpoint 默认 dry-run，只有用户已授予的写权限和显式 `--apply` 才能写入状态。不要伪造模型理解认证。
 - Git 操作遵守全局基线规范：精确检查 dirty/index，保留既有嵌套 repo 与用户修改，精确 stage，提交后回读 HEAD、hash、验证结果。顶层 repo 的本次初始化与提交由用户本轮明确授权；不自动 push、发布、恢复已移走目录或删除历史。

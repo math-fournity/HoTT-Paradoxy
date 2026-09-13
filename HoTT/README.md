@@ -68,8 +68,8 @@ formation、identity、judgmental equality、univalence/funext 的 stage/settlem
 | `sources/user-originals/matrix-book-paradoxes/` | `USER_PRIMARY_SOURCE_DERIVED_VERBATIM_VIEW` | 《宇宙编程学》第三版全文、84 张图和 10 份悖论/解答链独立原文；原作主张不自动升级 |
 | `../认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md` | `AUDITABLE_COGNITIVE_CLOSURE` | 当前 successor；Z 最终强律、时间否定、朴素集合论、HoTT 认知惯性怀疑、证据和可执行边界；不替代 current owners |
 | `ChatGPT-🌟 Z铁律论证HoTT缺乏时间维度-完整提取-20260831-1745.md` | `USER_PROVIDED_TRAJECTORY` | 用户与另一 AI 的完整对话；用于重建意图和论证演化 |
-| `formal/` | `CURRENT_IMPLEMENTATION` | 收敛后的 Agda/Lean 核心与可复现构建脚本 |
-| `verification/` | `CURRENT_EVIDENCE` | 来源发现与形式化/交接包验证收据 |
+| `formal/` | `CURRENT_IMPLEMENTATION` | 数学证明源码的权威根；`ercf-factorization/` 保存通用 Lean 因子化，`ercf-truncation-defense/` 保存原生 Cubical Agda 截断防御；新结论按 topic/claim 保存，不以 `/tmp` 或聊天代码替代 |
+| `verification/` | `CURRENT_EVIDENCE` | 来源发现与形式化/交接包验证；`runs/20260912-MP-ERCF-001-02/` 与 `runs/20260912-MP-ERCF-TRUNC-001-01/` 分别持有 Lean/Cubical Agda final indexed run |
 | `USER_CORE_DOUBT.md` | `ACCEPTED_USER-INTENT_INTERPRETATION` | 用户核心怀疑的当前哲学解释；不替代数学审计 |
 | `Z_LAW_REALITY_RELATIVE_PARADOXES.md` | `ACTIVE_CANONICAL_RESEARCH_OWNER` | Z 铁律、计算合法性、现实相对悖论、同函数异时和 Guard-Erasure 当前目标 |
 | `SELF_REFERENCE_AND_REFLECTION_INVESTIGATION.md` | `CURRENT_HISTORICAL_RECOVERY` | “直指/自指”、self-metatheory 和反射支线的来源与技术裁决 |
@@ -81,7 +81,7 @@ formation、identity、judgmental equality、univalence/funext 的 stage/settlem
 
 ## 当前一句话结论
 
-标准 HoTT 能表示时间并具有有向计算/归约，因此并非绝对静态；但裸核心不默认把 clock、因果、
+`MP-ERCF-001` 已由 Lean 4.33.1 机器证明一般 `Type` 值因子化的 `C-59`–`C-66`；`MP-ERCF-TRUNC-001` 又由 Agda 2.8.0/Cubical v0.9 原生证明 `C-67`–`C-70`：命题截断允许 proposition-valued consumer，却不允许对 Bool 的逐点保真 witness 恢复。后者是 `DEFENSE_WORKS`，不是 HoTT 悖论。标准 HoTT 能表示时间并具有有向计算/归约，因此并非绝对静态；但裸核心不默认把 clock、因果、
 资源和完整 trace 作为不可擦除 judgment 维度。当前研究验收是现实相对非现实性，不是内部矛盾；
 搜索域覆盖非现实过程、结论和现象，不限于二值命题；最强候选为 function extensionality 背景下
 的同函数异时，项目内形式化尚开放。Z 的最高定性是“理论抽象必然导致悖论”；技术上的悖论潜势
@@ -102,7 +102,13 @@ AGDA=/path/to/agda-2.8.0 \
 AGDA_UNIMATH_ROOT=/path/to/agda-unimath-at-88cfce0ce195ae3b64a9e73e8ec744ae64b4006b \
 LEAN=/path/to/lean \
 bash HoTT/formal/build.sh
+
+python3 -B scripts/audit/verify_math_proof_delivery_governance.py
+python3 -B scripts/audit/verify_formal_proof_run.py --run-dir HoTT/verification/runs/20260912-MP-ERCF-001-02 --rerun
+python3 -B scripts/audit/verify_formal_proof_run.py --run-dir HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01 --rerun
 ```
 
 本机验证状态为 `VERIFIED_LOCAL_WITH_SCOPE`。没有独立专家复核或外部干净环境收据，因此不得标为
 同行评审完成或发表就绪。
+
+新的当前 AI 数学结论还受根 `AGENTS.md` 的 `MATH_PROOF_BEFORE_DELIVERY_V1` 约束：证明源码位于 `formal/`，运行原件位于 `verification/runs/`，唯一 claim/proof/run 快速索引位于 `CLAIM_EVIDENCE_MATRIX.md`。无法完成相称机器证明时只能保留为问题、猜想、启发、纸笔候选或未重放来源，不得交付为已成立结论。

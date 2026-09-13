@@ -2,9 +2,9 @@
 name: hott-local-session-governance
 description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Session、压缩恢复和跨目录接手都先按核心认知→方向追踪→全景视野全文加载，再按 governance/research profile 与 stable record 显式水合证据；开始前三方交叉审视，结束逐 KC 回评。它不让历史 Session 因待复核而自动复活，不代替数学研究或扩大权限。
 metadata:
-  version: "3.0.0"
+  version: "3.2.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v2.0"
+  protocol_version: "handoff-cognition/v2.2"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---
@@ -47,7 +47,7 @@ metadata:
 
 ## 4. 核心认知的语义纪律
 
-当前 `core-cognition-generation-3` 只含三份用户指定 primary 提取中的 `USER_OWNED_DIRECT` 原文。人工裁定 owner 是 `scripts/audit/core-cognition-curation-v3.json`；生成器只复制被选中的精确行/子串并按 UTC 编号。转发 AI、附件、一般治理、继续指令和无新增认识的重复仍完整保留在 source 与 disposition ledger，但不得进入当前 core。旧 generation-2/913 KC 由 `governance-v2.1.0` 与 transition receipt 保存，退出当前输入不等于删除历史。
+当前 generation、KC 分母和 curation owner 必须从 `STATE.current_core` 与 manifest 动态取得；本轮 `core-cognition-generation-4` 含 36 个 `USER_OWNED_DIRECT` 原文单元。`core-cognition-curation-v4.json` 通过 hash-pinned inheritance 保留三份历史 primary 的 generation-3 裁定，并只增量登记后续一手用户悖论/元数学原文。生成器只复制被选中的精确行/子串并按 UTC 编号。转发 AI、附件、一般治理、继续/操作指令和无新增认识的重复仍完整保留在 source 与 disposition ledger，但不得进入 current core。旧 generation-2/913 与 generation-3/27 均由 Git ref 和 transition receipt 保存。
 
 每个当前 `KC-xxxxxx` 的完整来源 hash、行范围、message disposition、主题和关系在 manifest；core 正文只保留紧凑 locator，避免元数据反向吞噬用户思想。`USER_OWNED_DIRECT` 也只是用户研究立场，不自动成为数学真理。用户新增悖论/元数学原文时更新 curation、生成新 generation 与迁移收据，不能在旧代末尾直接追加。
 
@@ -77,6 +77,10 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 ## 7. 写入、checkpoint 和恢复
 
+<!-- math-proof-delivery-gate:v1 -->
+
+数学结论还有独立于认知 checkpoint 的交付 Gate。当前 AI 只有在精确命题、匹配语义的 proof assistant/kernel 源码、实际运行原件和 claim/proof/run 索引全部存在并核验后，才能把命题写成已成立结论：源码进入 `HoTT/formal/`；每次交付 run 进入 `HoTT/verification/runs/<run-id>/`；索引进入 `HoTT/CLAIM_EVIDENCE_MATRIX.md`。`/tmp`、工具输出或聊天代码不能成为唯一证据。若 proof assistant 不可用、运行失败、语义不匹配、只有有限测试或索引缺失，必须降格为 `QUESTION/CONJECTURE/HEURISTIC/PAPER_ONLY/COUNTEREXAMPLE_CANDIDATE/SOURCE_REPORTED_NOT_REPLAYED`，并把证明义务留在当前方向/成果/STATE；不能用 checkpoint 的 `CHECKPOINT_COMMITTED` 冒充 `MACHINE_PROVED`。
+
 唯一当前状态 owner 是根 `MEMORY.md`、`.codex/research/hott/STATE.json`、`FRONTIER.md`、`LESSONS.md`、`RESUME.md` 和不可覆盖 session。STATE v2 将 lifecycle 与 evidence 分开；loader 不再用 evidence review 状态取得自动加载资格。`核心认知`和来源快照由 curation+生成器精确管理。新增需求/稳定结论/运行证据按职责回写，不在多个文件维护冲突的 current truth。
 
 使用 runtime 的白名单路径、snapshot、expected hash、lock、transaction、before/after backup 和 post-write check。checkpoint 默认 dry-run；只有用户本轮明确授权的写权限才 `--apply`。stale base、第三方写入、活动 writer、残留 transaction、缺 resolution evidence 或 source hash 改变而没有 revalidation 时必须 fail closed。恢复 transaction 需要确认旧 owner 已停止，选择 finish/rollback，并保留 receipt。
@@ -87,4 +91,4 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 历史来源缺失、用户移走目录、附件没有正文、代码没有运行、运行只有有限样本、旧 validator 依赖已不存在路径、普通计算界限被误写成 HoTT 独有，均要写成 scope-limited negative/unknown。不要因为交接任务很大就构建数据库、常驻审计 AI、全函数 trace 或额外审批平台；只有真实重复、结构稳定、查询/更新频繁且机械约束收益明确时才新增 machine-managed 资产。
 
-本 Skill 的完成判据是未来 AI 能先全文恢复三件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对当前 27 KC 逐项留证；同时旧 913 KC、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。
+本 Skill 的完成判据是未来 AI 能先全文恢复三件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对 manifest 当前全部 KC（本轮 36 个）逐项留证；同时旧 generations、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。

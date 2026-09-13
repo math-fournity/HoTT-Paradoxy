@@ -1,0 +1,65 @@
+{
+  "claim_ids": [
+    "C-129",
+    "C-130",
+    "C-131",
+    "C-132",
+    "C-133"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cauchy-modulus/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cauchy-modulus",
+    "HoTT/formal/cauchy-modulus/CauchyModulus.agda"
+  ],
+  "completed_at_utc": "2026-09-13T02:34:13.759923+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 20.56882,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "22e1c54c02d26e76d6b60309d9f4c1c68418fe6890aef6a4a4f7dbfd3dfda0b4"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No full Cauchy reals or Real library, no decimal expansion formalisation, no real-library error claim, no originality."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CAUCHY-MODULUS-001",
+  "run_id": "20260912-MP-CAUCHY-MODULUS-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Minimal native Cubical Cauchy-modulus boundary: the quotient by equality of the limit admits a limit function (C-129); two representations of the constant-true sequence with given moduli 0 and 1 are identified while their moduli differ (C-130); no function out of the quotient uniformly recovers the given modulus (C-131); refining the identity relation to include the modulus yields a modulus function on the refined quotient (C-132) and the two representations are not related (C-133). Boundary result with positive controls; not a HoTT paradox.",
+  "source_manifest": {
+    "bytes": 2471,
+    "path": "source-manifest.json",
+    "sha256": "4ff12c11bd9149b34c8f0f0e1915f19f31e368469401c58c38b8640b2b830972"
+  },
+  "started_at_utc": "2026-09-13T02:33:53.191103+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 11347,
+    "path": "stdout.txt",
+    "sha256": "50f36f6253ea5f4a4a7eb919ae1d74cec93abcdedaa863d7bd6b7b0e1a88be83"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

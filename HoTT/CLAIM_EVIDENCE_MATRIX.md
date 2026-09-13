@@ -1,5 +1,11 @@
 # HoTT–Z 主张—证据矩阵
 
+<!-- math-proof-index-contract:v1
+authoritative_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
+proof_source_root: HoTT/formal
+proof_run_root: HoTT/verification/runs
+-->
+
 状态：`CURRENT`
 裁决日期：2026-08-31；扩展：2026-09-01
 
@@ -7,13 +13,44 @@
 `verification/VERIFICATION_REPORT.md`。`VERIFIED` 只表示表中精确命题在注明范围内有直接证据，
 不把解释性外推一并升级。
 
+## 数学结论机器证明交付索引合同
+
+从 `MATH_PROOF_BEFORE_DELIVERY_V1` 生效后，每个由当前 AI 交付为数学结论的 claim 行必须连接稳定 proof ID、精确形式命题、`formal/` 源码、`verification/runs/<run-id>/` 收据、proof assistant/kernel 版本、状态和禁止外推。只有源码和 run 都在 repo 内、实际 kernel 结果通过且索引完整时，状态才能是 `MACHINE_PROVED_LOCAL_UNCOMMITTED` 或 `MACHINE_PROVED_VERSION_CLOSED`。
+
+现有证明在新门禁生效前使用 aggregate receipt，继续保持历史范围；未来重新交付时必须产生新 run package，不因旧 `exit 0` 自动豁免：
+
+| proof_id | 关联 claim | 形式化源码 | 历史运行证据 | 当前门禁身份 |
+|---|---|---|---|---|
+| `MP-LEGACY-ZCORE` | `C-01`–`C-04`、`C-24`、`C-41` | `formal/self-contained/ZCore.agda` | `verification/VERIFICATION_REPORT.md` §5–§7 | `LEGACY_AGGREGATE_RECEIPT_REPLAY_REQUIRED_FOR_NEW_DELIVERY` |
+| `MP-LEGACY-NO-CANONICAL-POINT` | `C-05` | `formal/agda-unimath/hott-z/NoCanonicalPoint.agda` | `verification/VERIFICATION_REPORT.md` §3–§7；新重放见 `MP-UNIMATH-NOSECTION-REPLAY-001` | `LEGACY_AGGREGATE_RECEIPT_SUPERSEDED_BY_PINNED_REPLAY_20260913` |
+| `MP-LEGACY-TWO-EVENT` | `C-04` | `formal/lean/TwoEvent.lean` | `verification/VERIFICATION_REPORT.md` §5–§7 | `LEGACY_AGGREGATE_RECEIPT_REPLAY_REQUIRED_FOR_NEW_DELIVERY` |
+| `MP-ERCF-001` | `C-59`–`C-66` | `formal/ercf-factorization/ERCF.lean` | `verification/runs/20260912-MP-ERCF-001-02/`；Lean 4.33.1；exit 0；source/output hashes verified | `MACHINE_PROVED_LOCAL_UNCOMMITTED` |
+| `MP-ERCF-TRUNC-001` | `C-67`–`C-70` | `formal/ercf-truncation-defense/TruncationDefense.agda` | `verification/runs/20260912-MP-ERCF-TRUNC-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / DEFENSE_WORKS` |
+| `MP-RACE-TIMEOUT-001` | `C-71`–`C-76` | `formal/partiality-race-timeout/PartialityRaceTimeout.agda` | `verification/runs/20260912-MP-RACE-TIMEOUT-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / REPRESENTATION_BOUNDARY` |
+| `MP-CONTEXTUAL-EQUIV-001` | `C-77`–`C-83` | `formal/partiality-race-timeout/ContextualEquivalence.agda` | `verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / REPRESENTATION_BOUNDARY` |
+| `MP-QUOTIENT-MONAD-001` | `C-84`–`C-88` | `formal/partiality-race-timeout/QuotientMonad.agda` | `verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / MONAD_STRUCTURE_CONSTRUCTED` |
+| `MP-CONTEXT-CHARACTERIZATION-001` | `C-89`–`C-91` | `formal/partiality-race-timeout/ContextCharacterization.agda` | `verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONTEXTUAL_EQUIVALENCE_FULLY_CHARACTERIZED` |
+| `MP-GUARD-ERASURE-001` | `C-92`–`C-95` | `formal/partiality-race-timeout/GuardErasure.agda` | `verification/runs/20260912-MP-GUARD-ERASURE-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GUARD_ERASURE_EQUIVALENT_TO_FIXED_POINT_EXISTENCE` |
+| `MP-COST-FACTORIZATION-001` | `C-96`–`C-99` | `formal/partiality-race-timeout/CostFactorization.agda` | `verification/runs/20260912-MP-COST-FACTORIZATION-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / NON_FACTORIZATION_WITH_COST_REFINEMENT_POSITIVE_CONTROL` |
+| `MP-PATH-CERTIFICATE-001` | `C-100`–`C-105` | `formal/partiality-race-timeout/PathCertificate.agda` | `verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / MERE_MOVE_NON_INHABITED_WITH_NATIVE_PATH_CONTROLS` |
+| `MP-ONLINE-CAUSALITY-001` | `C-106`–`C-109` | `formal/partiality-race-timeout/OnlineCausality.agda` | `verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ONLINE_CAUSALITY_BOUNDARY_WITH_POSITIVE_CONTROLS` |
+| `MP-TRANSITION-LIFT-001` | `C-110`–`C-117` | `formal/transition-lift/TransitionLift.agda` | `verification/runs/20260912-MP-TRANSITION-LIFT-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / TRANSITION_LIFT_BOUNDARY_WITH_POSITIVE_CONTROLS` |
+| `MP-PARTIAL-DECISION-001` | `C-118`–`C-123` | `formal/partial-decision/PartialDecision.agda` | `verification/runs/20260912-MP-PARTIAL-DECISION-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PARTIAL_DECISION_BOUNDARY_WITH_POSITIVE_CONTROL` |
+| `MP-SIP-REPRESENTATION-001` | `C-124`–`C-128` | `formal/sip-representation/SIPRepresentation.agda` | `verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SIP_REPRESENTATION_BOUNDARY_WITH_POSITIVE_CONTROL` |
+| `MP-CAUCHY-MODULUS-001` | `C-129`–`C-133` | `formal/cauchy-modulus/CauchyModulus.agda` | `verification/runs/20260912-MP-CAUCHY-MODULUS-001-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CAUCHY_MODULUS_BOUNDARY_WITH_POSITIVE_CONTROLS` |
+| `MP-TRUNC-NORECOVERY-001` | `C-134`–`C-141` | `formal/truncation-no-recovery/TruncationNoRecovery.agda` | `verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/`（含 C-141；`-02`/`-01` 为同源前次运行）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SET_VALUED_TRUNCATION_NO_RECOVERY_FAMILY` |
+| `MP-NOCANONICAL-001` | `C-142`–`C-148` | `formal/truncation-no-recovery/NoCanonicalPoint.agda`（bridge：`formal/truncation-no-recovery/NoCanonicalFinite.agda`） | `verification/runs/20260913-MP-NOCANONICAL-001-02/`（`-01` 为同源前次运行，加 C-148 后被取代）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / UNLABELED_FINITE_NO_CANONICAL_POINT` |
+| `MP-UNIMATH-NOSECTION-REPLAY-001` | `C-05` | `formal/agda-unimath/hott-z/NoCanonicalPoint.agda`（外部库 agda-unimath@`7b81411d`，按 commit SHA、库文件哈希与确定性源码树哈希固定） | `verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/`；Agda 2.8.0-3d04bac；agda-unimath `7b81411d`；`--without-K --exact-split`；exit 0（`-01` 为被保留的 include 根配置失败尝试） | `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE` |
+
+未机器证明的新内容只能使用 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，不得用旧矩阵中相似标题反向推定已证。
+
 | ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
 |---|---|---|---|---|
 | C-01 | 若 `J = decode ∘ α`，则 `J` 在 `α` 的每个纤维上常值。 | `VERIFIED` | `formal/self-contained/ZCore.agda` 的 `fiber-truth-invariant`；纯因子化必要条件。 | 不自动得到充分性；一般余域上的延拓可能需要额外条件。 |
 | C-02 | 若 `α` 合并两个 `J` 值不同的世界，而 `(α,β)` 可精确恢复 `J`，则 `β` 必须区分这两个世界。 | `VERIFIED` | `ZCore.agda` 的 `no-free-enrichment`。 | “必须增加信息”不是原理论矛盾，也不说明任何特定富化唯一。 |
 | C-03 | 从丢失来源的相同快照不能恢复两个不同来源。 | `VERIFIED_INSTANCE` | `ZCore.agda` 的 `snapshot-cannot-recover-provenance`。 | 只攻击给定 reduct；显式携带 provenance 后当然可恢复。 |
 | C-04 | 从把正向/反向过程都映到同一 core 的 reduct 不能恢复方向。 | `VERIFIED_INSTANCE` | `ZCore.agda` 的 `core-cannot-recover-direction`；`formal/lean/TwoEvent.lean` 独立有限模型。 | 不是“范畴或 HoTT 中所有态射可逆”；普通函数和 Hom 可以有方向。 |
-| C-05 | `agda-unimath` 中不存在对所有无标签二元素类型统一选点的 section。 | `VERIFIED_UPSTREAM_AND_LOCAL` | 锁定 commit `88cfce0…` 的 `no-section-type-2-Element-Type`；本地 Agda 2.8.0 包装编译通过。 | 这是无自然/统一选点，不是一般全局选择公理的全部内容。 |
+| C-05 | `agda-unimath` 中不存在对所有无标签二元素类型统一选点的 section。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE` | 定义位于 agda-unimath@`7b81411d` 的 `src/univalent-combinatorics/2-element-types.lagda.md:501`；本 repo 派生文件 `formal/agda-unimath/hott-z/NoCanonicalPoint.agda` 在固定 Agda 2.8.0-3d04bac 下重放通过（run `20260913-MP-UNIMATH-NOSECTION-REPLAY-02`（`-01` 为被保留的 include 根配置失败尝试））；历史记录（旧 commit 简写 `88cfce0…` 与当时本地薄封装编译）保留于 Git 与 source ledger。 | 这是无自然/统一选点，不是一般全局选择公理的全部内容。 |
 | C-06 | 因而“每个无标签二事件载体都有规范较早事件”不成立。 | `CONDITIONAL_INTERPRETATION` | C-05，加桥梁定义“较早事件 = 无额外定向数据的统一选点”。 | 桥梁不是上游定理的一部分；若输入已经有顺序，最小元可被选择。 |
 | C-07 | 交接包的 `TemporalOrder` 已形式化严格时间序。 | `FALSE_AS_STATED` | 该 record 只有 `least-event` 字段，没有关系、非自反、传递或全序公理。 | 其编译通过也只能证明“所选结构含一个点”。 |
 | C-08 | 标准 HoTT 的 identity/path 层是群胚式的，单靠 groupoid core 看不到非可逆箭头方向。 | `ESTABLISHED_WITH_SCOPE` | HoTT Book 的路径/∞-群胚解释；Riehl–Shulman 通过额外 directed interval 构造 directed theory；C-04 为有限 reduct 例。 | “identity 层群胚式”不等于“HoTT 不能定义有向关系、状态机或时间索引”。 |
@@ -67,6 +104,96 @@
 | C-56 | HoTT 已被证明重复朴素集合论的无时间错误。 | `USER_CORE_HOTT_HYPOTHESIS / ACTIVE_RESEARCH / NOT ESTABLISHED` | 用户原文八、R-014、Z owner §0/§11：怀疑来自数学理论构建者无时间化的认知惯性／路径依赖；具体 formation/identity/forgetful proof 尚未完成。 | 不得把深切怀疑写成已证事实；也不得以“HoTT 能定义 Time／有 reduction”提前关闭。 |
 | C-57 | 技术上的潜势／显现分层可以把 Z 强律降格为不确定的“也许产生悖论”。 | `REFUTED_BY_TRUTH_OWNERSHIP` | R-014：技术层用于证明、分类和找实例；最高项目定性仍是完整效应谱中必有分岔。 | 对外定理边界继续披露；不以哲学强律冒充已完成全称形式证明。 |
 | C-58 | “Russell 击退朴素集合论作为整个数学基础的企图”已经由本轮历史一手资料独立验证。 | `USER_HISTORICAL_INTERPRETATION / NOT EXTERNALLY_AUDITED_THIS_TURN` | 用户原文八与 R-014 保存该判断；本轮未进行 Russell／基础史的一手文献调查。 | 可作为用户思想史和研究定性，不能伪称本轮完成外部历史证明。 |
+| C-59 | 若 `observe` 通过 `abstract` 因子化，则 `observe` 在 `abstract` 的每个纤维上常值。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorem `factorsThrough_implies_fiberConstant`；run `20260912-MP-ERCF-001-02`。 | 只给必要方向；逆向仍需额外条件。 |
+| C-60 | 一个同抽象值、异观察值的 `ParadoxWitness` 排除 `observe` 通过 `abstract` 因子化。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorem `paradoxWitness_implies_not_factorsThrough`；同一 final run。 | “ParadoxWitness”是本文件定义的表示反例，不自动成为 HoTT 悖论或现实矛盾。 |
+| C-61 | 若 `observe` 在纤维上常值且 `abstract` 有一个 section，则 `observe` 通过 `abstract` 因子化。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorem `fiberConstant_and_section_implies_factorsThrough`；同一 final run。 | section 是明确附加假设；不证明任意商/像都自动有 section。 |
+| C-62 | 给定 `a₀:A` 与 `s₀≠s₁:S`，投影 `A×S→A` 合并 `(a₀,s₀)/(a₀,s₁)`，第二分量观察形成 witness 且不能通过该投影因子化。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorems `e0_has_paradoxWitness`、`e0_secondObservation_does_not_factor`；同一 final run。 | 这是通用乘积模型；不证明 HoTT 特定规则强制删除 `S`。 |
+| C-63 | 由抽象值定义的观察必然通过该抽象因子化；E₀ 的第一分量观察是具体正控制。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorems `abstractDerivedObservation_factors`、`e0_firstObservation_factors`；同一 final run。 | 不证明所有现实任务都由抽象值定义。 |
+| C-64 | 对 subsingleton 余域不存在 `ParadoxWitness`；任意 `Unit` 值观察都通过任意抽象因子化。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorems `subsingletonCodomain_has_no_paradoxWitness`、`unitObservation_factors`；同一 final run。 | 这是“非单射本身不足以产生任意余域反例”的负控制，不否定 separating 观察结果。 |
+| C-65 | 若 `abstract` 非单射且一族观察能分离每一对被合并的不同状态，则该族中存在一个观察不通过 `abstract` 因子化。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorem `separatingFamily_detects_nonfactorization`；同一 final run。 | 分离性是前提；不从非单射单独推出任意固定观察失败。 |
+| C-66 | 若 identity 观察 `R→R` 通过 `abstract:R→A` 因子化，则 `abstract` 单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-001` theorem `identityObservation_factors_implies_injective`；同一 final run。 | 只说明包含 identity 的全观察充分性排除信息合并；不自动给等价、满射或现实解释。 |
+| C-67 | 对 Cubical Agda 原生 squash HIT `∥ A ∥₁`，若 `P` 是 mere proposition，则任意 `A→P` 可扩张为 `∥ A ∥₁→P`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ERCF-TRUNC-001` 的 `protectedRecursor`；Agda 2.8.0 + Cubical v0.9 final run。 | 只允许给出 `isProp P` 的目标；不提供一般 witness-valued extraction。 |
+| C-68 | 二重命题截断可由受保护 recursor 压平为单次截断，并在 point constructor 上按 `refl` 满足 β。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `flattenTruncation`、`flattenTruncation-β`；同一 Cubical Agda run。 | 只恢复单次截断层的信息，不恢复原始 `A` witness。 |
+| C-69 | 任意 `f : ∥ Bool ∥₁ → Bool` 都满足 `f ∣ false ∣₁ ≡ f ∣ true ∣₁`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `truncatedBoolMapIsConstant` 对 `squash₁` 使用 Cubical `congS`；同一 run。 | 不声称不存在从 `∥ Bool ∥₁` 到 `Bool` 的常值函数；只证明所有输入点输出 path-equal。 |
+| C-70 | 不存在同时给出 `extract : ∥ Bool ∥₁ → Bool` 和逐点保持律 `(b:Bool)→extract ∣b∣₁≡b` 的 consumer。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / DEFENSE_WORKS` | `noPointPreservingBoolExtraction`：squash 路径经 `extract` 导出 `false≡true`，与 `false≢true` 矛盾；同一 run。 | 这是截断接口正确阻断“mere existence→原 witness”的防御，不是 HoTT 内部矛盾、现实相对悖论或一般全局选择否定。 |
+| C-71 | 若 `p ≈ p'` 且 `f`、`g` 逐点结果等价，则 `bind p f ≈ bind p' g`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-RACE-TIMEOUT-001` 的 `bind-cong`；Agda 2.8.0 + Cubical v0.9 final run。 | 只覆盖本目录固定的确定性 delay 模型与 R041 `bind` 子句；不等于一般单子律或 QIIT 商结论。 |
+| C-72 | 对固定 continuation `f`，`bind` 下降到集合商 `Delay A / ≈`，且在代表层满足 β。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bind-descends`、`bindQ`、`bindQ-β`；使用 Cubical `SetQuotients` 的 `rec`。 | 固定代表函数 `f` 的下降；不构造 `Q(A)×(A→Q(B))→Q(B)` 一般商单子（R041 §2.1 的限制保留）。 |
+| C-73 | `p0 = now true`、`p2 = δδ now true`、`q1 = δ now false`：`p0 ≈ p2` 但 `race p0 q1` 与 `race p2 q1` 不等价。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `race-noncongruent`；左右胜者分别由 `leb` 归约确定。 | 只说明 `race` 不尊重 `≈`；不证明所有竞争语义或所有平局政策都不可下降。 |
+| C-74 | `deliver(true)=now true, deliver(false)=ω` 下，`Composed = bind(race(·,q1), deliver)` 使 `Composed p0` 返回而 `Composed p2` 发散，故二者不等价。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `completion-gap`。 | 完成性差异是本模型内的过程反差；不把它升级为现实并发系统失配。 |
+| C-75 | `deadline 1 p0 = some true` 而 `deadline 1 p2 = none`，截止期 consumer 分离同一等价对。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `deadline-separation`。 | 超时返回 `none` 只表示截止期内未取得结果，不证明原过程发散。 |
+| C-76 | 不存在 `r : Q Bool → Q Bool → Q Bool` 使 `r [p] [q] ≡ [race p q]` 对所有 `p q` 成立。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-quotient-race`，经 `effective`（`≈` 为命题值等价关系）反推，与 `C-73` 矛盾。 | 商上不存在 race 选择子；不证明商没有其他（如携带时序数据的）细化结构。 |
+| C-77 | 在 R041 delay 片段上，`≡c`（全部固定上下文保持结果等价，且叠加 deadline 观察不可区分）是等价关系。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-CONTEXTUAL-EQUIV-001` 的 `≡c-refl`、`≡c-sym`、`≡c-trans`；Agda 2.8.0 + Cubical v0.9 final run。 | 只覆盖本文件固定的 `Ctx`（hole/bind/两侧 race）与 deadline 观察族。 |
+| C-78 | `≡c` 精化结果等价：`p ≡c q → p ≈ q`（取空上下文的结果观察）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `≡c-to-≈`；同一 run。 | 只给“上下文等价蕴含结果等价”一个方向；反向被 `C-83` 否证。 |
+| C-79 | `¬ (ret (suc n) a ≡c ret zero a)`：deadline 0 区分“至少晚一步返回”与“立即返回”。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `deadline-zero-separates`；同一 run。 | 只分离 0 步与 ≥1 步；更一般的严格时间差由 `C-82` 给出。 |
+| C-80 | `¬ (ret n a ≡c ω)`：与 ω 竞争的上下文区分“返回”与“发散”。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `divergence-separates`；同一 run。 | 不证明一般发散判定的可判性；只给出本片段中的区分上下文。 |
+| C-81 | 若 `a ≠ b`，则 `¬ (ret n a ≡c ret n b)`：延续 `x ↦ ret 0 (not x)` 分离同刻不同值。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `value-separates`；同一 run。 | 使用 Bool 上的 `not` 作为值移动延续；不主张对任意值类型都有类似延续。 |
+| C-82 | 若 `lt n m ≡ true`，则 `¬ (ret n a ≡c ret m a)`：时间对齐 race 上下文分离严格更晚的返回。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `lt-timing-separates`，配合 `leb-refl`、`lt-leb`；同一 run。 | 假设形式是 Bool 计算 `lt n m ≡ true`，不是对象语言顺序公理。 |
+| C-83 | `(p0 ≈ p2) × ¬ (p0 ≡c p2)`：结果等价严格粗于上下文等价。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / REPRESENTATION_BOUNDARY` | `result-coarser-than-contextual`；同一 run。 | 这是本固定上下文族下的层次定理；不证明所有可能上下文语言都如此，也不构成 HoTT 内部矛盾。 |
+| C-84 | `≈`-商 `Q A` 有 canonical section：`sec [ p ] ≡ canon p`，`[ sec x ] ≋ x`；`Delay A` 在 `A` 为集合时是集合。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-QUOTIENT-MONAD-001` 的 `isSetDelay`、`canon-respects`、`sec`、`sec-section`；Agda 2.8.0 + Cubical v0.9 final run。 | section 依赖"每类有可定义最小代表"这一片段性质；不推广到一般商。 |
+| C-85 | 商值 continuation bind `bindQQ : Q A → (A → Q B) → Q B` 存在，且 `bindQQ [ p ] ([_] ∘ f) ≋ [ p bind f ]`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bindQQ`、`bindQQ-β`；同一 run。 | 只给出该构造与代表层相容性；单位律与关联律分别由 C-86/C-88 覆盖。 |
+| C-86 | 左单位 `bindQQ [ ret 0 a ] f ≋ f a`；右单位 `bindQQ q ([_] ∘ (λ a → ret 0 a)) ≋ q`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bindQQ-left-unit`、`bind-unit-≈`、`bindQQ-right-unit`；同一 run。 | 是商层等式（模 `≋`），不声称语法层归一。 |
+| C-87 | 代表层关联律（模 `≈`）：`((p bind f) bind g) ≈ (p bind (λ a → f a bind g))`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bind-later-eq`、`later-≈-cong`、`bind-iterLater-≈`、`bind-assoc-≈`；同一 run。 | 只到 `≈`（结果等价）；商层版本由 C-88 给出。 |
+| C-88 | 商层关联律：`bindQQ (bindQQ q f) g ≋ bindQQ q (λ a → bindQQ (f a) g)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / MONAD_STRUCTURE_CONSTRUCTED` | `assocQ-β`、`assocQ`（用 C-84 的 section 改写）；同一 run。 | 单子结构仅在本片段（可分裂商）成立；不证明一般商上的同类结构。 |
+| C-89 | `lt` 三分律：`(n ≡ m) ⊎ ((lt n m ≡ true) ⊎ (lt m n ≡ true))`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-CONTEXT-CHARACTERIZATION-001` 的 `lt-trichotomy`；Agda 2.8.0 + Cubical v0.9 final run。 | 是 Bool 计算层面的三分，不是对象语言全序公理。 |
+| C-90 | 一般严格时间分离：`¬ (n ≡ m) → ¬ (ret n a ≡c ret m a)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `timing-separates`（用 `C-89` 与 `lt-timing-separates`）；同一 run。 | 只对同值同型的 canonical 返回；不覆盖不同值情形（由 C-91 内部处理）。 |
+| C-91 | 完整刻画：`(p q : Delay Bool) → (p ≡c q) ⇔ (p ≡ q)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONTEXTUAL_EQUIVALENCE_FULLY_CHARACTERIZED` | `≡c-iff-≡`（含 `deadline-lt/gt-separates`、`same-time-values`）；同一 run。 | 只覆盖 Bool 片段与固定上下文族；代表相等已是最细，故任何上下文扩展不能区分更多（该结论限于本片段）。 |
+| C-92 | 若忘却翻译 `g` 同时满足阶段不变性与保更新律，则 `f` 有不动点（`Σ x, x ≡ f x`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-GUARD-ERASURE-001` 的 `collapse-forces-fixed-point`；Agda 2.8.0 + Cubical v0.9 final run。 | 条件式结论：只在"同时要求两条"时成立；不否定其它形式的抽象。 |
+| C-93 | `X = Bool`、`f = not` 时不存在保律的阶段擦除翻译。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-collapse-for-negation`（用 `no-fixed-point-of-not`）；同一 run。 | 只针对否定律；常值/幂等律的反例见 `C-94`。 |
+| C-94 | 任何不动点 `x₀` 给出常值翻译 `const x₀`，同时满足阶段不变性与保更新律。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `collapse-exists-if-fixed-point`；同一 run。 | 正向控制：说明 `C-92/C-93` 的障碍是具体的、非空泛的。 |
+| C-95 | 振荡轨道 `orbit (suc n) = not (orbit n)` 在源演算中可实现，且 `¬ (orbit 0 ≡ orbit 1)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `orbit-law`、`orbit-stages-differ`、`oscillating-orbit`；同一 run。 | 只说明该具体轨道的阶段可观察；不主张物理时间或现实过程。 |
+| C-96 | 对任意 `k`：`fun fast ≡ fun (slow k)` 且 `¬ (cost fast 0 ≡ cost (slow k) 0)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-COST-FACTORIZATION-001` 的 `same-function-different-cost`；Agda 2.8.0 + Cubical v0.9 final run。 | `cost` 是明示语法导向计数；不主张真实编译器/硬件成本。 |
+| C-97 | 不存在能区分两个外延相等程序的裸函数谓词。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-distinguishing-predicate`（funext 路径 + transport）；同一 run。 | 只针对由 funext 得到等式的程序对；不否定显式携带成本的表示。 |
+| C-98 | 不存在从裸函数恢复成本值的 consumer `r : (ℕ→ℕ) → ℕ`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-cost-value-recovery`（C-97 的谓词实例）；同一 run。 | 是"该形状 consumer 不存在"的必要性结论；自然性判断不在本 claim 内。 |
+| C-99 | 细化表示可恢复成本且能区分两个程序。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `refined-cost-recovery`、`refined-separates`；同一 run。 | 正控制仅说明"补回成本分量即可恢复"；不证明一般表示选择最优。 |
+| C-100 | `transport (ua notEquiv) ≡ not`（单价路径按等价计算）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-PATH-CERTIFICATE-001` 的 `ua-move-computes`、`ua-move-is-not`（`uaβ`）；Agda 2.8.0 + Cubical v0.9 final run。 | 只覆盖 Bool 取反等价；不主张单价性独立公理选择。 |
+| C-101 | `∥ Bool ≡ Y ∥₁` 是命题，且 `∥ Bool ≡ Bool ∥₁` 有元素。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `H-is-prop`、`H-inhabited`（`squash₁`）；同一 run。 | 截断命题性不提供具体路径或选择函数。 |
+| C-102 | 固定端点弱接口 `∥ Bool ≡ Bool ∥₁ → Bool → Bool` 存在。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `fixed-pair-interface`；同一 run。 | 只处理固定载体；不承担全宇宙自然性。 |
+| C-103 | 固定源统一变体 `(Y : Type) → ∥ Bool ≡ Y ∥₁ → Bool → Y` 不可栖居。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-fixed-source-mere-move`（Σ回路 + `fromPathP` + `uaβ`）；同一 run。 | 依赖截断是命题这一规则；不把固定端点反例扩大化。 |
+| C-104 | `MereMove := (X Y : Type) → ∥ X ≡ Y ∥₁ → X → Y` 不可栖居。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `no-mere-move`（`C-103` 的推论）；同一 run。 | 只排除该全宇宙相干统一选择；不排除所有局部实例。 |
+| C-105 | 路径版接口 `(X ≡ Y) → X → Y` 由 `transport` 构造。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `path-move`；同一 run。 | 有路径即有迁移；是否保留时限/成本是额外任务。 |
+| C-106 | 不存在在时刻 0 读出第二个输入的在线策略。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MP-ONLINE-CAUSALITY-001` 的 `no-zero-time-lookahead`；Agda 2.8.0 + Cubical v0.9 final run。 | 只针对"时刻 n 只读前缀"的在线模型；不排除离线/完整知识版本。 |
+| C-107 | 第一个输入在时刻 0 即可在线读取。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `first-input-online`、`readFirst`、`first-correct`；同一 run。 | 正控制；不说明其它任务可在线完成。 |
+| C-108 | 第二个输入从时刻 1 起可在线读取。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `second-input-online-later`、`readSecond`；同一 run。 | 在线资格与时刻和任务都相关。 |
+| C-109 | 完整流函数 `s ↦ s 1` 存在且正确，但时刻 0 在线策略不存在。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ONLINE_CAUSALITY_BOUNDARY_WITH_POSITIVE_CONTROLS` | `complete-second`、`complete-second-correct`、`knowledge-gap`；同一 run。 | 是"完整知识 ≠ 在线资格"的边界判据；不构成 HoTT 内部矛盾。 |
+| C-110 | 固定三状态过程从 `a` 经两步到达 `d`，且 `d` 无出边。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-110-terminates`、`C-110-d-terminal`；`MP-TRANSITION-LIFT-001` 的 Agda 2.8.0 + Cubical v0.9 final run。 | 只覆盖该固定有限模型；不推出一般终止性。 |
+| C-111 | 存在像 `E` 在 `w` 上有自环，且常值路径给出任意长的抽象运行。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-111-e-ww`、`C-111-e-wW`、`C-111-beta-path`；同一 run。 | `E` 是 may 过近似；抽象无限路径不证明具体发散。 |
+| C-112 | 抽象两步前缀 `w,w,w` 在抽象上有证据，但从初态 `a` 没有相容具体提升。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-112-abstract-two-www`、`C-112-no-lift-two`；同一 run。 | 只排除该两步前缀的统一提升；不排除每一条边可单独提升。 |
+| C-113 | 不存在把每个 `E(α s, v)` 变为 `C(s, v)` 的当前态提升函数；见证在 `(b,w)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-113-no-current-lift`；同一 run。 | 不排除携带额外代表或时序信息的更宽接口。 |
+| C-114 | `A k = Σ m, k ≤ m` 的精确相容极限为空。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-114-LimA-empty`；同一 run。 | 只覆盖该塔；不使用 LEM 或选择。 |
+| C-115 | 同一塔逐层截断后的相容极限有元素。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-115-limTrunc`；同一 run。 | 逐层命题性由截断提供；不外推到非命题塔。 |
+| C-116 | 不存在从截断极限回到精确极限的函数（故比较映射无逆）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-116-no-inverse`；同一 run。 | 只排除该方向的反函数；不否定前向比较映射。 |
+| C-117 | 不存在同时在 `R` 上严格下降、在 `α` 纤维上恒定的自然数等级。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-117-no-descending-fiber-constant-rank`；同一 run。 | 是该固定合并的反例；一般图的等级判据仍为 paper + finite。 |
+| C-118 | 代表层 strict 分类器 `P0 : A → Delay Bool` 存在。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-118-P0`；`MP-PARTIAL-DECISION-001` 的 Agda 2.8.0 + Cubical v0.9 final run。 | 只覆盖该固定有限模型；不推出一般分类器存在性。 |
+| C-119 | strict 观察区分 `now` 与 `later`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-119-strict-separates`；同一 run。 | 只针对该 delay 片段的构造子区分。 |
+| C-120 | 不存在 strict `g : Q → Delay Bool` 同时满足 `g [a] ≡ now true` 与 `g [b] ≡ later (now true)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-120-no-strict-quotient`（`[a]≡[b]` 迫使 `now true ≡ later (now true)`）；同一 run。 | 只排除该 strict 扩展；不排除 up-to-≈ 版本。 |
+| C-121 | `P0` 到 `R_D` 意义下不变，故存在 partial classifier `P : Q → D≈`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-121-partial-classifier`；同一 run。 | 是正控制；`D≈` 是最小 delay 商，不是完整 partiality monad。 |
+| C-122 | 不存在 strict `Bool` 消费者 `h : Q → Bool` 同时取 `h [a] ≡ true`、`h [b] ≡ false`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-122-no-strict-consumer`；同一 run。 | 只排除该 strict 消费者；携带代表或额外时序数据可恢复。 |
+| C-123 | 代表层 strict 消费者存在并区分 `a,b`；信息只在商化时丢失。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-123-representative-consumer`；同一 run。 | 是该固定商的反例；不推出一般表示边界。 |
+| C-124 | `transport (ua notEquiv) true ≡ false`，且点结构 `(Bool,true)` 与 `(Bool,false)` 由原生路径识别。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-124-ua-transport`、`C-124-identification`；`MP-SIP-REPRESENTATION-001` 的 Agda 2.8.0 + Cubical v0.9 final run。 | 是该点结构 SIP 实例；不构造一般结构范畴 SIP。 |
+| C-125 | 签名外可观察量在两个结构上不同。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-125-obs-differs`；同一 run。 | 可观察量需要额外“carrier 是 Bool”表示数据，不是 `Str → Bool` 全函数。 |
+| C-126 | 任意 `f : Str → Bool` 都被识别强制在 `s,t` 上相等。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-126-any-function-constant`；同一 run。 | 只针对该识别；不排除带额外表示数据的消费者。 |
+| C-127 | 不存在统一恢复 `f : Str → Bool` 同时取 `f s ≡ true`、`f t ≡ false`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-127-no-recovery`；同一 run。 | 是 SIP/UA 表示边界；不证明真实库存在错误消费者。 |
+| C-128 | 细化结构把可观察量纳入签名：投影区分两点，且 `¬ (s' ≡ t')`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-128-obs'-differs`、`C-128-no-identification`；同一 run。 | 正控制；只说明“加入签名后恢复”，不推广到任意富化。 |
+| C-129 | 按极限值取商的 Cauchy 商允许 limit 函数 `Q → Bool` 下降。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-129-limit`；`MP-CAUCHY-MODULUS-001` 的 Agda 2.8.0 + Cubical v0.9 final run。 | 只覆盖该最小序列模型；不构造完整实数。 |
+| C-130 | 同一常值序列的两个表示（modulus 0 与 1）被商识别，但其 modulus 不同。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-130-related`、`C-130-moduli-differ`；同一 run。 | 只说明给定 modulus 属于表示数据。 |
+| C-131 | 不存在 `f : Q → ℕ` 统一恢复每个表示的给定 modulus。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-131-no-modulus-recovery`；同一 run。 | 不排除携带额外 modulus 数据的消费者。 |
+| C-132 | 把 modulus 纳入同一性判据后，细化商有 `Q' → ℕ` 的 modulus 函数。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-132-modulus-refined`；同一 run。 | 正控制；不改写原商语义。 |
+| C-133 | 细化关系不识别两个表示：`¬ (c0 ≈' c1)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `C-133-refined-not-related`；同一 run。 | 只覆盖该最小关系；不推出一般 Cauchy 商的性质。 |
+| C-134 | 任意源 `A`、集合 `S`、实现 `h : A → S` 与读出 `g : ∥ A ∥₁ → S`：若 `g` 在每个 point constructor 上与 `h` 一致，则任意两点 `h a₀ ≡ h a₁`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `pointConstructorsForceEquality`；`MP-TRUNC-NORECOVERY-001` 的 Agda 2.8.0 + Cubical v0.9 final run。 | 目标必须是集合（路径类型才是命题）；不推出非集合目标的同类结论。 |
+| C-135 | 若 `h` 分离 `x₀` 与 `x₁`，则不存在同时逐点保持的读出与一致性证明。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noPointRecovery`；同一 run。 | 不声称所有 `∥ A ∥₁ → A` 都不存在；只排除带逐点恢复合同的读出。 |
+| C-136 | `extract : ∥ Bool ∥₁ → Bool` 不可能同时满足 `extract ∣ b ∣₁ ≡ b`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `boolRecoveryImpossible`；同一 run。 | 与 C-70 同向；本包给的是族群化证明路径，不主张原创性。 |
+| C-137 | 同一定理对 `ℕ` 成立（分离对 0/1）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `ℕRecoveryImpossible`；同一 run。 | 说明障碍非二元目标假象；不推广到非集合值域。 |
+| C-138 | 当目标是 mere proposition 时，`rec Pprop f` 形式的消费者存在。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `propositionValuedTestExists`；同一 run。 | 正控制；不表示可以恢复见证身份。 |
+| C-139 | `Bool` 的 section-candidate 类型为空：不存在同时逐点保持的 `P : ∥ Bool ∥₁ → Bool`（理论的内部否定形式）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noSectionCandidate`；`MP-TRUNC-NORECOVERY-001` 的 Agda 2.8.0 + Cubical v0.9 final run `-02`。 | 与 C-136 同向的改写；不新增独立强度，不证明理论内部矛盾。 |
+| C-140 | 一般分离实现下 completion-candidate 类型为空（应用形式，分离见证由消费者提供）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noCompletionCandidate`；同一 run `-02`。 | 不推广到非集合目标；不声称现实中不存在完成过程。 |
+| C-141 | 对 `isFinSet` 形状的库接口（`Σ n × ∥ A ≃ Fin n ∥₁`），不存在统一读出具体枚举的 pick 函数：任何逐点保持的 `pick : ∥ E ∥₁ → E` 迫使被读出的两个枚举相等。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `isFinSetLikeNoUniformEnumeration`；`MP-TRUNC-NORECOVERY-001` 的 Agda 2.8.0 + Cubical v0.9 final run `-03`。 | 这是接口形状的边界，不是“某个库误用接口”的实例；E6 未因此成立。 |
+| C-142 | unlabeled 二元素呈现 `Σ A × ∥ A ≃ Bool ∥₁` 上存在由 swap 自同构 `notEquiv` 诱导的非平凡自识别 `swapSelfIdentification : identityPresentation ≡ identityPresentation`：carrier 分支为 `ua notEquiv`（非平凡性见 C-148），标签分支由截断的命题性填满。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `swapSelfIdentification`；`MP-NOCANONICAL-001` 的 Agda 2.8.0 + Cubical v0.9 final run `-02`。 | 依赖 univalence 与截断命题性；不声称该识别唯一，也不外推到标签未截断的接口。 |
+| C-143 | 该族的任何 section 必须尊重族自身的识别：`subst unlabeledCarrier swapSelfIdentification (u X) ≡ u X`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `sectionRespectsSelfIdentification`；同一 run。 | 这是相干义务的形式化；不声称任何具体 section 存在。 |
+| C-144 | 任何假想的统一选点被强制为 `not` 的不动点：`not (u X) ≡ u X`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `uniformChoiceFixedPoint`；同一 run。 | 依赖 `uaβ notEquiv` 的计算规则；与 C-145 合取才得出矛盾。 |
+| C-145 | 不存在对所有 unlabeled 二元素呈现的统一选点：`((X : UnlabeledTwoElement) → unlabeledCarrier X) → ⊥`；与 agda-unimath `no-section-type-2-Element-Type` 同内容。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `noUniformChoice`；同一 run。 | 是该固定呈现类在固定工具链下的否定；不外推到含标签接口或其它“二元素类型”概念，也不证明任何库误用该接口。 |
+| C-146 | 保留标签数据（`Σ A × (A ≃ Bool)`）时存在规范选点：围栏来自被遗忘的标签，而非二元素载体。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `labeledChoice`；同一 run。 | 正控制；不声称任何自然消费者在未声明假设下使用该接口。 |
+| C-147 | 界面把 id-标签与 swap-标签识别为一（`labelingsIdentified`），而二者作为标签数据仍不同（`labelingsDistinct`）：截断遗忘的正是具体识别。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `labelingsIdentified`、`labelingsDistinct`；同一 run。 | 不推出任何库误用；不把识别升级为“标签不存在”。 |
+| C-148 | 该自识别的 carrier 分支不是恒等路径：`ua notEquiv ≡ refl → ⊥`，故自识别是非平凡的。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `uaNotEquivNotRefl`；同一 run `-02`。 | 只针对该具体自同构；不推出一般完整群的非平凡性判据。 |
 
 ## 当前允许的总论断
 

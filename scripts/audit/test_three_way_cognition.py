@@ -27,8 +27,8 @@ class ThreeWayTests(unittest.TestCase):
             "always_full_three_way": ["核心认知.md", "方向追踪.md", "全景视野.md"],
             "three_way_order": ["核心认知.md", "方向追踪.md", "全景视野.md"],
         }
-        state = {"revision": 1}
-        core_manifest = {"schema_version": "core-cognition/v2", "generation": "core-cognition-generation-3", "units": [{"id": "KC-000001", "author_class": "USER_OWNED_DIRECT", "themes": ["THEME_A"]}]}
+        state = {"revision": 1, "current_core": {"generation": "core-cognition-generation-4"}}
+        core_manifest = {"schema_version": "core-cognition/v2", "generation": "core-cognition-generation-4", "units": [{"id": "KC-000001", "author_class": "USER_OWNED_DIRECT", "themes": ["THEME_A"]}]}
         self.write(".codex/cognition/LOAD_SET.json", load_set)
         self.write(".codex/research/hott/STATE.json", state)
         self.write("核心认知.manifest.json", core_manifest)

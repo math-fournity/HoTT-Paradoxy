@@ -82,7 +82,11 @@ def validate(root: Path) -> dict[str, object]:
     core_manifest = read_json(root, CORE_MANIFEST)
     if core_manifest.get("schema_version") != "core-cognition/v2":
         raise ThreeWayError("CORE_MANIFEST_SCHEMA_INVALID")
-    if core_manifest.get("generation") != "core-cognition-generation-3":
+    state = read_json(root, STATE)
+    current_core = state.get("current_core")
+    if not isinstance(current_core, dict):
+        raise ThreeWayError("STATE_CURRENT_CORE_MISSING")
+    if core_manifest.get("generation") != current_core.get("generation"):
         raise ThreeWayError("CORE_GENERATION_INVALID")
     units = core_manifest.get("units")
     if not isinstance(units, list) or not units:
@@ -95,7 +99,6 @@ def validate(root: Path) -> dict[str, object]:
         for theme in row.get("themes", []) if isinstance(theme, str)
     }
 
-    state = read_json(root, STATE)
     revision = state.get("revision")
     if type(revision) is not int or revision < 1:
         raise ThreeWayError("STATE_REVISION_INVALID")

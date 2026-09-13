@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Agda &mdash; Agda 2.8.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=69ff2ef9"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sized Types" href="sized-types.html" />
+    <link rel="prev" title="Run-time Irrelevance" href="runtime-irrelevance.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="agda" /><meta name="readthedocs-version-slug" content="v2.8.0" /><meta name="readthedocs-resolver-filename" content="/language/safe-agda.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Agda
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="abstract-definitions.html">Abstract definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="built-ins.html">Built-ins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coinduction.html">Coinduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copatterns.html">Copatterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-language.html">Core language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coverage-checking.html">Coverage Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cubical.html">Cubical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cubical-compatible.html">Cubical compatible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cumulativity.html">Cumulativity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flat.html">Flat Modality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreign-function-interface.html">Foreign Function Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-definitions.html">Function Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-types.html">Function Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization-of-declared-variables.html">Generalization of Declared Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guarded.html">Guarded Type Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implicit-arguments.html">Implicit Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance-arguments.html">Instance Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irrelevance.html">Irrelevance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lambda-abstraction.html">Lambda Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="let-and-where.html">Local Definitions: let and where</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical-structure.html">Lexical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="literal-overloading.html">Literal Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lossy-unification.html">Lossy Unification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mixfix-operators.html">Mixfix Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modalities.html">Modalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module-system.html">Module System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutual-recursion.html">Mutual Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opaque-definitions.html">Opaque definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pattern-synonyms.html">Pattern Synonyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polarity.html">Polarity Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="positivity-checking.html">Positivity Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postulates.html">Postulates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pragmas.html">Pragmas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prop.html">Prop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="record-types.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflection.html">Reflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rewriting.html">Rewriting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime-irrelevance.html">Run-time Irrelevance</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Safe Agda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sized-types.html">Sized Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sort-system.html">Sort System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntactic-sugar.html">Syntactic Sugar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax-declarations.html">Syntax Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="telescopes.html">Telescopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="termination-checking.html">Termination Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two-level.html">Two-Level Type Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="universe-levels.html">Universe Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="with-abstraction.html">With-Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="without-k.html">Without K</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../team.html">The Agda Team and License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Agda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Language Reference</a></li>
+      <li class="breadcrumb-item active">Safe Agda</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="safe-agda">
+<span id="id1"></span><h1>Safe Agda<a class="headerlink" href="#safe-agda" title="Link to this heading"></a></h1>
+<p>By using the option <a class="reference internal" href="../tools/command-line-options.html#cmdoption-safe"><code class="xref std std-option docutils literal notranslate"><span class="pre">--safe</span></code></a> (as a pragma option, or on the
+command-line), a user can specify that Agda should ensure that
+features leading to possible inconsistencies should be disabled.</p>
+<p>Here is a list of the features <a class="reference internal" href="../tools/command-line-options.html#cmdoption-safe"><code class="xref std std-option docutils literal notranslate"><span class="pre">--safe</span></code></a> is incompatible with:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">postulate</span></code>; can be used to assume any axiom.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-allow-unsolved-metas"><code class="xref std std-option docutils literal notranslate"><span class="pre">--allow-unsolved-metas</span></code></a>; forces Agda to accept unfinished
+proofs.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-allow-incomplete-matches"><code class="xref std std-option docutils literal notranslate"><span class="pre">--allow-incomplete-matches</span></code></a>
+and pragma <a class="reference internal" href="pragmas.html#non-covering-pragma"><span class="std std-ref">NON_COVERING</span></a>;
+allows to prove false using a partial function
+or through a partial proof.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-no-positivity-check"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-positivity-check</span></code></a>
+and pragmas <a class="reference internal" href="positivity-checking.html#no-positivity-check-pragma"><span class="std std-ref">NO_POSITIVITY_CHECK</span></a>
+and <a class="reference internal" href="positivity-checking.html#polarity-pragma"><span class="std std-ref">POLARITY</span></a>;
+make it possible to write non-terminating programs via datatypes
+that are not strictly positive.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-no-termination-check"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-termination-check</span></code></a>
+and pragmas <a class="reference internal" href="termination-checking.html#terminating-pragma"><span class="std std-ref">TERMINATING</span></a>
+and <a class="reference internal" href="termination-checking.html#non-terminating-pragma"><span class="std std-ref">NON_TERMINATING</span></a>;
+give loopy programs any type.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-type-in-type"><code class="xref std std-option docutils literal notranslate"><span class="pre">--type-in-type</span></code></a> and <a class="reference internal" href="../tools/command-line-options.html#cmdoption-omega-in-omega"><code class="xref std std-option docutils literal notranslate"><span class="pre">--omega-in-omega</span></code></a>
+and pragma <a class="reference internal" href="universe-levels.html#no-universe-check-pragma"><span class="std std-ref">NO_UNIVERSE_CHECK</span></a>;
+allow the user to encode the Girard-Hurken paradox.</p></li>
+<li><p>pragma <a class="reference internal" href="pragmas.html#injective-pragma"><span class="std std-ref">INJECTIVE</span></a>;
+allows to prove false by declaring a non-injective function as injective.</p></li>
+<li><p>pragma <a class="reference internal" href="coinduction.html#eta-pragma"><span class="std std-ref">ETA</span></a>;
+can be used force eta-equality for unguarded recursive records
+which can make Agda loop.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-injective-type-constructors"><code class="xref std std-option docutils literal notranslate"><span class="pre">--injective-type-constructors</span></code></a>; together with excluded
+middle leads to an inconsistency via Chung-Kil Hur’s construction.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-sized-types"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sized-types</span></code></a>; lacks some checks that rule out improper,
+inconsistent uses of sizes.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-experimental-irrelevance"><code class="xref std std-option docutils literal notranslate"><span class="pre">--experimental-irrelevance</span></code></a> and
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-irrelevant-projections"><code class="xref std std-option docutils literal notranslate"><span class="pre">--irrelevant-projections</span></code></a>; enables potentially unsound
+irrelevance features (irrelevant levels, irrelevant data matching,
+and projection of irrelevant record fields, respectively).</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-rewriting"><code class="xref std std-option docutils literal notranslate"><span class="pre">--rewriting</span></code></a>; turns any equation into one that holds
+definitionally.  It can at the very least break convergence.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-cubical-compatible"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cubical-compatible</span></code></a> together with <a class="reference internal" href="../tools/command-line-options.html#cmdoption-with-K"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-K</span></code></a>;
+the univalence axiom is provable using cubical constructions,
+which falsifies the K axiom.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-without-K"><code class="xref std std-option docutils literal notranslate"><span class="pre">--without-K</span></code></a> together with <a class="reference internal" href="../tools/command-line-options.html#cmdoption-flat-split"><code class="xref std std-option docutils literal notranslate"><span class="pre">--flat-split</span></code></a></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">primEraseEquality</span></code> primitive together with
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-without-K"><code class="xref std std-option docutils literal notranslate"><span class="pre">--without-K</span></code></a>; using <code class="docutils literal notranslate"><span class="pre">primEraseEquality</span></code>, one can derive
+the K axiom.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-allow-exec"><code class="xref std std-option docutils literal notranslate"><span class="pre">--allow-exec</span></code></a>; allows system calls during type checking.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-no-load-primitives"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-load-primitives</span></code></a>; allows the user to bind the sort
+and level primitives manually.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-cumulativity"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cumulativity</span></code></a>; due to its poor heuristic for solving universe
+levels.</p></li>
+<li><p><a class="reference internal" href="../tools/command-line-options.html#cmdoption-large-indices"><code class="xref std std-option docutils literal notranslate"><span class="pre">--large-indices</span></code></a> together with <a class="reference internal" href="../tools/command-line-options.html#cmdoption-without-K"><code class="xref std std-option docutils literal notranslate"><span class="pre">--without-K</span></code></a> or
+<a class="reference internal" href="../tools/command-line-options.html#cmdoption-forced-argument-recursion"><code class="xref std std-option docutils literal notranslate"><span class="pre">--forced-argument-recursion</span></code></a>; both of these combinations are known to
+be inconsistent.</p></li>
+<li><p>pragma <a class="reference internal" href="foreign-function-interface.html#foreign-function-interface"><span class="std std-ref">COMPILE</span></a>;
+allows to change the meaning of code during compilation.</p></li>
+</ul>
+<p>The option <a class="reference internal" href="../tools/command-line-options.html#cmdoption-safe"><code class="xref std std-option docutils literal notranslate"><span class="pre">--safe</span></code></a> is coinfective (see
+<a class="reference internal" href="../tools/command-line-options.html#consistency-checking-options"><span class="std std-ref">Checking options for consistency</span></a>); if a module is declared safe,
+then all its imported modules must also be declared safe.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="runtime-irrelevance.html" class="btn btn-neutral float-left" title="Run-time Irrelevance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sized-types.html" class="btn btn-neutral float-right" title="Sized Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2005–2025 remains with the authors..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

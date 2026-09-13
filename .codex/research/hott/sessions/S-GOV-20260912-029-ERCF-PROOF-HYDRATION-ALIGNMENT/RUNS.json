@@ -1,0 +1,26 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT",
+  "observed_failure": {
+    "command": "python3 -B .codex/tools/cognition_runtime.py plan --profile research --task A-ERCF-FACTORIZATION-FORMAL-001",
+    "result": "BLOCKED EMPTY_REQUIRED_FILE: HoTT/verification/runs/20260912-MP-ERCF-001-02/stderr.txt"
+  },
+  "preserved_evidence": {
+    "path": "HoTT/verification/runs/20260912-MP-ERCF-001-02/stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_json": "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json"
+  },
+  "post_checkpoint_required": [
+    "research task plan succeeds",
+    "proof exact replay",
+    "29-direction/28-outcome three-way",
+    "36/36 KC audit",
+    "fresh revision 29",
+    "projection freshness",
+    "full regression",
+    "git diff --check"
+  ],
+  "mathematics": "UNCHANGED_FROM_MP_ERCF_001",
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

@@ -1,0 +1,68 @@
+{
+  "claim_ids": [
+    "C-142",
+    "C-143",
+    "C-144",
+    "C-145",
+    "C-146",
+    "C-147"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/truncation-no-recovery",
+    "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda"
+  ],
+  "completed_at_utc": "2026-09-13T06:54:15.265575+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.376492,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "bbf128a8f61de47c2e312fd014c38ca975f3b96fdcd252a4c368801bda1a3af7"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No claim about all untruncations; no HoTT inconsistency; no claim that any concrete development misuses the interface.",
+    "No natural-use chain (E6) is claimed to be established.",
+    "No claim of originality: the phenomenon is the standard univalence-based no-section argument."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-NOCANONICAL-001",
+  "run_id": "20260913-MP-NOCANONICAL-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Unlabeled two-element presentations (carrier plus truncated equivalence to Bool) admit no uniform point choice: the swap automorphism of Bool forces any hypothetical choice to be a fixed point of not. Native replay, in the pinned Cubical toolchain, of the statement carried by agda-unimath's no-section-type-2-Element-Type (derived file HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda; the library body is not vendored here, so that file remains SOURCE_REPORTED_NOT_REPLAYED).",
+  "source_manifest": {
+    "bytes": 2684,
+    "path": "source-manifest.json",
+    "sha256": "12629c814f63b05b102b843f3807f3422764c924fdd3e98f4d6ed40093fa123a"
+  },
+  "started_at_utc": "2026-09-13T06:53:56.889083+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9670,
+    "path": "stdout.txt",
+    "sha256": "2ed4f01ace38c75bc7050c9bf3475469ed5451b8683e6425836cdf514f144cba"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

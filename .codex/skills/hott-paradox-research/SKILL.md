@@ -2,7 +2,7 @@
 name: hott-paradox-research
 description: 每次执行与压缩恢复先按核心认知→方向追踪→全景视野顺序全文加载顶层 repo 三件套，再用 research profile 加载三问/当前前沿并按 stable record 显式水合底层证据；开始前交叉审视航向、方向和成果，结束 checkpoint 与逐 KC 回评。用于自主生成、证明和反驳 HoTT 时间/ASK/现实相对悖论候选；禁止摘要替代、历史 Session 自动复活和证据状态越级。
 metadata:
-  version: "1.5.0"
+  version: "1.7.0"
   role: "business"
   governance_skill: "hott-local-session-governance"
   language: "zh-CN"
@@ -244,3 +244,17 @@ ASK不是仅问Q有无语法/类型，而是当前问题凭什么要求特定的
 ## 15. v1.5.0：generation-3 与分层水合
 
 本版不改变数学方法，只修复认知装配：三件套永久全文输入；governance/research profile 分开；STATE lifecycle 与 evidence review 分开；历史 Session、manifest 和旧逐-KC审计默认冷存；底层证据用 stable record 显式 query/hydrate。当前 core 由三份 primary 的 27 个直接用户语义单元重建，旧 913 KC 由 tag/transition 保留。机械回归不能替代 fresh 模型行为或数学验证。
+
+## 16. v1.6.0：理论经济—反射自证方向与动态 core generation
+
+当前 core generation、curation 路径和 KC 分母从 `STATE.current_core`/manifest 动态取得，不在 Skill 中冻结为 generation-3。新增的一手用户方向要求区分有限证明检查、归一化、证明搜索、整体真理和内部总自验证，研究“理论经济—反射自证回环（ERCF）”。下一最小构造先证明抽象 `α:R→A` 对固定任务 `J` 的 factorization 正/反条件，再进入包含验证器自身的反射闭包；不能把普通类型检查的可停机性与 theoremhood/全局 soundness 混同，也不能把宇宙、正性、终止或消去限制正确拒绝非法对象的行为直接判作悖论。完整当前论证见 `理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md`；其 `PAPER_ONLY` 状态不能冒充 proof-assistant 验证。
+
+## 17. v1.7.0：数学结论交付前机器证明
+
+<!-- math-proof-delivery-gate:v1 -->
+
+探索、猜想和纸笔推演仍可自由产生，但任何由当前 AI 交付为成立事实的数学命题必须先执行根 AGENTS 的 `MATH_PROOF_BEFORE_DELIVERY_V1`。研究单元先固定 claim/proof ID、精确形式命题、量词、假设、理论变体和禁止外推；证明源码进入 `HoTT/formal/<topic-or-claim-id>/`，实际 proof assistant/kernel 运行的 `RUN.json`、stdout/stderr、environment 和 source manifest 进入 `HoTT/verification/runs/<run-id>/`，再由 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 索引。
+
+HoTT 特定结论必须由原生 HoTT/univalent/cubical 语义或已机器证明的保真翻译支持；普通 Lean `Eq`、Python 枚举和有限模型不能外推到未覆盖的 HoTT/无限命题。若证明未完成、工具缺失、运行失败、结果未保存或索引未闭合，本轮只能交付 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，不得用“显然/标准/已证明/数学结论”越级。
+
+临时构建缓存可以使用 `/tmp`，但源码和交付证据的唯一副本必须在 repo 内。Git 未获授权时标 `MACHINE_PROVED_LOCAL_UNCOMMITTED`，不能称 version-closed。完整合同见 `docs/quality/数学结论机器证明与证据留存规范.md`。

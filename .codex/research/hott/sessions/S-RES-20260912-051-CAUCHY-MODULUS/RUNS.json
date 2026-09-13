@@ -1,0 +1,76 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-051-CAUCHY-MODULUS",
+  "proof_id": "MP-CAUCHY-MODULUS-001",
+  "claim_ids": [
+    "C-129",
+    "C-130",
+    "C-131",
+    "C-132",
+    "C-133"
+  ],
+  "final_run": {
+    "run_id": "20260912-MP-CAUCHY-MODULUS-001-01",
+    "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+    "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+    "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+    "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "warnings": 0,
+    "stdout_bytes": 11347,
+    "stderr_bytes": 0
+  },
+  "older_proofs_after_matrix_growth": {
+    "20260912-MP-ERCF-001-02": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-ERCF-TRUNC-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-RACE-TIMEOUT-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-CONTEXTUAL-EQUIV-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-QUOTIENT-MONAD-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-CONTEXT-CHARACTERIZATION-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-GUARD-ERASURE-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-COST-FACTORIZATION-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-PATH-CERTIFICATE-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-ONLINE-CAUSALITY-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-TRANSITION-LIFT-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-PARTIAL-DECISION-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "20260912-MP-SIP-REPRESENTATION-001-01": "ROW_STABLE_AFTER_INDEX_EVOLUTION / EXACT_EXIT_STDOUT_STDERR_MATCH"
+  },
+  "older_proofs_verification_note": "Ten row-stable lines were captured in the batch replay session; ERCF-001, ERCF-TRUNC-001 and RACE-TIMEOUT-001 were re-verified individually with the same result after the batch session output could not be fully captured.",
+  "external_audit": {
+    "repository": "UniMath/agda-unimath",
+    "ref": "master",
+    "commit": "6dc2d58a35d256978aeccb987eb92b9b11ed613a",
+    "files": {
+      "src/real-numbers/cauchy-sequences-real-numbers.lagda.md": {
+        "blob": "2974eb40a9cbaf804405588d4650fd2ecb43b65e",
+        "bytes": 7498
+      },
+      "src/real-numbers/modulated-cauchy-sequences-real-numbers.lagda.md": {
+        "blob": "b9f448dc1f1c5c160f3021607d37bba7fcd47c8d",
+        "bytes": 1128
+      },
+      "src/metric-spaces/convergent-sequences-metric-spaces.lagda.md": {
+        "blob": "474a9c7325f31349eefad2d5a2b16e170377acc4",
+        "bytes": 2848
+      }
+    },
+    "scope": "Bounded interface-shape audit; the moving master ref is pinned by the recorded commit; no claim about any concrete library misuse."
+  },
+  "stale_source_hash_repair": {
+    "observed": 27,
+    "unexpected_remainder": 0
+  },
+  "evidence": {
+    "run": "HoTT/verification/runs/20260912-MP-CAUCHY-MODULUS-001-01/",
+    "audit": "audit/cauchy-modulus机器证明实施证据-20260912.md",
+    "matrix": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "external_sources": [
+      ".codex/research/hott/sessions/S-RES-20260912-051-CAUCHY-MODULUS/evidence/sources/cauchy-sequences-real-numbers.lagda.md",
+      ".codex/research/hott/sessions/S-RES-20260912-051-CAUCHY-MODULUS/evidence/sources/modulated-cauchy-sequences-real-numbers.lagda.md",
+      ".codex/research/hott/sessions/S-RES-20260912-051-CAUCHY-MODULUS/evidence/sources/convergent-sequences-metric-spaces.lagda.md",
+      ".codex/research/hott/sessions/S-RES-20260912-051-CAUCHY-MODULUS/evidence/sources/real-numbers-listing.json",
+      ".codex/research/hott/sessions/S-RES-20260912-051-CAUCHY-MODULUS/evidence/sources/master-commit.json"
+    ]
+  },
+  "mathematics": "MACHINE_PROVED_LOCAL_UNCOMMITTED / CAUCHY_MODULUS_BOUNDARY_WITH_POSITIVE_CONTROLS",
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

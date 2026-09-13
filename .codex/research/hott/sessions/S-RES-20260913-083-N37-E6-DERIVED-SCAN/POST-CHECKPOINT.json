@@ -1,0 +1,23 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-083-N37-E6-DERIVED-SCAN",
+  "state_revision": 83,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 83},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 83},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 82},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "e6_derived_scan": {
+    "agda_files_scanned": 211,
+    "derived_development_found": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+    "imports": "agda-unimath univalent-combinatorics.2-element-types (no-section-type-2-Element-Type)",
+    "verdict": "not E6: the library no-section theorem is used correctly; temporal reading explicitly flagged as needing a separate bridge",
+    "replay": "NOT_RUN (library body absent from repo)",
+    "evidence_status": "SOURCE_REPORTED_NOT_REPLAYED"
+  },
+  "boundaries": {"no_new_mathematical_claim": true, "git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

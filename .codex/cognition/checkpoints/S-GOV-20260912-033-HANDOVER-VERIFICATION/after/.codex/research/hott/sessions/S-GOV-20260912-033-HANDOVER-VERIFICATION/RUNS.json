@@ -1,0 +1,154 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260912-033-HANDOVER-VERIFICATION",
+  "phase_note": "pre-checkpoint independent verification captured before this checkpoint",
+  "git_head": "636e4e52e05e3e9c3da6778d00dc97ff36767957",
+  "replays": {
+    "lean-factorization": {
+      "status": "PASS_WITH_SCOPE",
+      "schema_version": "formal-proof-run-verification/v1",
+      "run_id": "20260912-MP-ERCF-001-02",
+      "proof_id": "MP-ERCF-001",
+      "claim_ids": [
+        "C-59",
+        "C-60",
+        "C-61",
+        "C-62",
+        "C-63",
+        "C-64",
+        "C-65",
+        "C-66"
+      ],
+      "source_paths": [
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/formal/ercf-factorization/README.md"
+      ],
+      "external_dependencies": [],
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "scope": "General Type-valued factorization controls exactly as stated in ERCF.lean; Lean equality and prelude only.",
+      "non_goals": [
+        "No univalence, cubical Path, HIT, truncation, HoTT-specific paradox, physical interpretation, or originality claim."
+      ]
+    },
+    "agda-truncation": {
+      "status": "PASS_WITH_SCOPE",
+      "schema_version": "formal-proof-run-verification/v1",
+      "run_id": "20260912-MP-ERCF-TRUNC-001-01",
+      "proof_id": "MP-ERCF-TRUNC-001",
+      "claim_ids": [
+        "C-67",
+        "C-68",
+        "C-69",
+        "C-70"
+      ],
+      "source_paths": [
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "scope": "Native Cubical Agda propositional-truncation HIT: proposition-valued recursor, truncation flattening with point beta, Bool-output constancy, and impossibility of point-preserving Bool extraction.",
+      "non_goals": [
+        "No HoTT inconsistency, paradox, reality bridge, unrestricted global-choice theorem, claim that every map from a truncation is absent, ERCF-3, or originality."
+      ]
+    }
+  },
+  "suites": {
+    "core": {
+      "exit_code": 0,
+      "ok": true
+    },
+    "three-way": {
+      "exit_code": 0,
+      "ok": true
+    },
+    "f011-governance": {
+      "exit_code": 0,
+      "ok": true
+    },
+    "cognition-runtime": {
+      "exit_code": 0,
+      "ok": true
+    },
+    "full-closure-reader": {
+      "exit_code": 0,
+      "ok": true
+    }
+  },
+  "verifiers": {
+    "core-cognition": {
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE"
+    },
+    "three-way": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "projection-freshness": {
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE"
+    },
+    "understanding-merge": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "cross-source-reconciliation": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "history-ledgers": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "math-proof-governance": {
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE"
+    },
+    "fresh-three-way": {
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE"
+    }
+  },
+  "static_checks": {
+    "state_revision": 32,
+    "latest_session": "S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT",
+    "source_hash_entries": 60,
+    "source_hash_stale": 0,
+    "kc_audit_rows": {
+      "S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE": 36,
+      "S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT": 36
+    },
+    "write_lock_present": false,
+    "transaction_present": false
+  },
+  "evidence": {
+    "pre": ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/evidence/PRE-CHECKPOINT.json",
+    "post": ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/evidence/POST-CHECKPOINT.json"
+  },
+  "post_checkpoint_required": [
+    "fresh three-way receipt regenerated at revision 33",
+    "projection freshness PASS",
+    "three-way PASS (27 directions / 29 outcomes)",
+    "core 36 units PASS",
+    "checkpoint result CHECKPOINT_COMMITTED revision 33",
+    "git diff --check clean",
+    "no write lock / transaction residual"
+  ],
+  "mathematics": "UNCHANGED_FROM_MP_ERCF_001_AND_MP_ERCF_TRUNC_001",
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-075-N29-T3-SINGLE-OBLIGATION",
+  "state_revision": 75,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 75},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 75},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 74},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "t3_pulse_8": {
+    "source": "HoTT/formal/ercf3-t3/CodeStoreFixF.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "ercf3_status": "GATED",
+    "proved": ["fixF-bot", "fixF-num", "fixF-eq-num"],
+    "single_remaining_obligation": "substFixT k i t == codeT (substT k i t) (mutual induction)"
+  },
+  "boundaries": {"git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

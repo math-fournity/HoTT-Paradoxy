@@ -1,0 +1,23 @@
+ERCF.factorsThrough_implies_fiberConstant.{uR, uA, uY} {R : Type uR} {A : Type uA} {Y : Type uY} {abstract : R → A}
+  {observe : R → Y} (h : FactorsThrough abstract observe) : FiberConstant abstract observe
+ERCF.paradoxWitness_implies_not_factorsThrough.{uR, uA, uY} {R : Type uR} {A : Type uA} {Y : Type uY} {abstract : R → A}
+  {observe : R → Y} (witness : ParadoxWitness abstract observe) : ¬FactorsThrough abstract observe
+ERCF.abstractDerivedObservation_factors.{uR, uA, uY} {R : Type uR} {A : Type uA} {Y : Type uY} (abstract : R → A)
+  (decode : A → Y) : FactorsThrough abstract fun x => decode (abstract x)
+ERCF.fiberConstant_and_section_implies_factorsThrough.{uR, uA, uY} {R : Type uR} {A : Type uA} {Y : Type uY}
+  {abstract : R → A} {observe : R → Y} (hconstant : FiberConstant abstract observe) (hsection : HasSection abstract) :
+  FactorsThrough abstract observe
+ERCF.e0_has_paradoxWitness.{uA, uS} {A : Type uA} {S : Type uS} (a₀ : A) (s₀ s₁ : S) (different : s₀ ≠ s₁) :
+  ParadoxWitness forgetSecond observeSecond
+ERCF.e0_secondObservation_does_not_factor.{uA, uS} {A : Type uA} {S : Type uS} (a₀ : A) (s₀ s₁ : S)
+  (different : s₀ ≠ s₁) : ¬FactorsThrough forgetSecond observeSecond
+ERCF.e0_firstObservation_factors.{uA, uS} {A : Type uA} {S : Type uS} : FactorsThrough forgetSecond forgetSecond
+ERCF.subsingletonCodomain_has_no_paradoxWitness.{uR, uA, uY} {R : Type uR} {A : Type uA} {Y : Type uY} [Subsingleton Y]
+  (abstract : R → A) (observe : R → Y) : ¬ParadoxWitness abstract observe
+ERCF.unitObservation_factors.{uR, uA} {R : Type uR} {A : Type uA} (abstract : R → A) (observe : R → Unit) :
+  FactorsThrough abstract observe
+ERCF.separatingFamily_detects_nonfactorization.{uR, uA, uY, uI} {R : Type uR} {A : Type uA} {Y : Type uY} {I : Type uI}
+  {abstract : R → A} {observations : I → R → Y} (hnoninjective : NonInjective abstract)
+  (hseparates : SeparatesCollapsedPairs abstract observations) : ∃ index, ¬FactorsThrough abstract (observations index)
+ERCF.identityObservation_factors_implies_injective.{uR, uA} {R : Type uR} {A : Type uA} {abstract : R → A}
+  (h : FactorsThrough abstract fun x => x) : Injective abstract

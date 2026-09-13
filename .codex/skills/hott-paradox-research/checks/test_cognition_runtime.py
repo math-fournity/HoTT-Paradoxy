@@ -60,6 +60,7 @@ class RuntimeTests(unittest.TestCase):
         state = {
             "schema_version": "hott-working-state/v2",
             "revision": 1,
+            "current_core": {"generation": "core-cognition-generation-3"},
             "latest_session": "S0",
             "active": [],
             "review_due": [],
@@ -245,6 +246,36 @@ class RuntimeTests(unittest.TestCase):
         self.put(C.CLOSURE, "wrong generation\n")
         with self.assertRaisesRegex(C.CognitionError, "WRONG_CLOSURE"):
             self.plan()
+
+    def test_hash_pinned_core_transition_is_narrowly_accepted(self) -> None:
+        body = "# TEST FIXTURE ONLY\ncore-cognition-generation-4\nnew core\n"
+        self.put(C.CLOSURE, body)
+        self.put("核心认知.manifest.json", C.dump({
+            "generation": "core-cognition-generation-4",
+            "core_document_sha256": C.sha(body.encode("utf-8")),
+        }))
+        self.put("transition.json", C.dump({
+            "previous": {"generation": "core-cognition-generation-3", "unit_count": 1},
+            "current": {"generation": "core-cognition-generation-4", "core_sha256": C.sha(body.encode("utf-8"))},
+            "mapping_count": 1,
+            "mapping_remainder": 0,
+        }))
+        transition = {
+            "from_generation": "core-cognition-generation-3",
+            "to_generation": "core-cognition-generation-4",
+            "manifest": "核心认知.manifest.json",
+            "transition": "transition.json",
+        }
+        with self.assertRaisesRegex(C.CognitionError, "WRONG_CLOSURE"):
+            self.plan()
+        self.assertEqual(
+            C.plan(self.root, _allow_core_transition=transition)["revision"],
+            1,
+        )
+        tampered = dict(transition)
+        tampered["to_generation"] = "core-cognition-generation-5"
+        with self.assertRaisesRegex(C.CognitionError, "CORE_TRANSITION_GENERATION_MISMATCH"):
+            C.plan(self.root, _allow_core_transition=tampered)
 
     def test_trio_reorder_or_removal_rejected(self) -> None:
         altered = copy.deepcopy(self.config)

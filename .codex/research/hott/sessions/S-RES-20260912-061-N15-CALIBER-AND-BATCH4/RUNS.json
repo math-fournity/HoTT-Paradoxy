@@ -1,0 +1,71 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-061-N15-CALIBER-AND-BATCH4",
+  "work_kind": "caliber_reconciliation_and_batch4",
+  "mathematical_claim_added": false,
+  "claim_matrix_unchanged": true,
+  "caliber_reconciliation": {
+    "tool": "scripts/audit/reconcile_reporting_denominators.py",
+    "report": "audit/reporting-denominators-reconciliation-20260912.json",
+    "sentences": 2369,
+    "traversal_units": 171,
+    "user_records": 125,
+    "history_messages": 119,
+    "excluded_parallel_session": 6,
+    "claims_frozen": 2396,
+    "owners_identical_count": 22,
+    "owners_identical_rows": 2268,
+    "owners_grown": {
+      "理解章节/README.md": [
+        46,
+        60
+      ],
+      "理解章节/C0-当前整合审计与证据边界-20260912.md": [
+        82,
+        91
+      ]
+    },
+    "current_surface_rows": 4547,
+    "c_series_increment": 2128
+  },
+  "batch4": {
+    "rule": "authors by prior sampling ratio ascending, 40-budget, max 5 per owner, equidistant, batches 1-3 excluded",
+    "sample_size": 40,
+    "owners": [
+      "理解章节/A8-材料与保全.md",
+      "理解章节/A0-总目标.md",
+      "理解章节/B3-网页GPT工作史-II.md",
+      "理解章节/A5-HoTT怀疑演进.md",
+      "理解章节/读遍账本.md",
+      "理解章节/升级方案-v2.md",
+      "理解章节/A10-怎么找.md",
+      "理解章节/A2-参照悖论谱.md"
+    ],
+    "verdicts": {
+      "SUPPORTED": 28,
+      "SUPERSEDED_BY_MACHINE_RESULT": 0,
+      "UNSUPPORTED": 0,
+      "PENDING": 12
+    },
+    "cumulative": {
+      "sampled": 162,
+      "coverage": "6.76%",
+      "SUPPORTED": 93,
+      "SUPERSEDED": 12,
+      "UNSUPPORTED": 0,
+      "PENDING": 57
+    },
+    "e6_found": false
+  },
+  "spot_checks": {
+    "tool": "scripts/audit/verify_batch4_spot_checks.py",
+    "report": "audit/understanding-claim-batch4-spot-checks-20260912.json",
+    "passed": 14,
+    "failed": 0
+  },
+  "evidence": {
+    "report": "audit/reporting-denominators-and-batch4-20260912.md",
+    "sample": "audit/understanding-claim-sample-batch4-20260912.json"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

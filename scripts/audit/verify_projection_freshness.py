@@ -50,18 +50,24 @@ def main() -> int:
     generation = core_manifest.get("generation")
     if not isinstance(generation, str) or generation not in header:
         errors.append("CORE_GENERATION_HEADER_MISMATCH")
-    expected_primary = [
+    required_historical_primary = [
         "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
         "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
         "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md",
     ]
-    if core_manifest.get("build_policy", {}).get("primary_inputs_only") != expected_primary:
-        errors.append("CORE_PRIMARY_INPUT_POLICY_MISMATCH")
+    actual_primary = core_manifest.get("build_policy", {}).get("primary_inputs_only")
+    if not isinstance(actual_primary, list) or actual_primary[:3] != required_historical_primary:
+        errors.append("CORE_HISTORICAL_PRIMARY_INPUT_POLICY_MISMATCH")
     curation_path = root / str(core_manifest.get("curation_authority", ""))
     if not curation_path.is_file() or core_manifest.get("curation_sha256") != sha256(curation_path):
         errors.append("CORE_CURATION_STALE")
-    transition = read_json(root, "audit/core-cognition-generation-3-transition-20260912.json")
-    if transition.get("mapping_count") != 913 or transition.get("mapping_remainder") != 0:
+    current_core = state.get("current_core", {})
+    transition_rel = current_core.get("transition")
+    if not isinstance(transition_rel, str):
+        errors.append("STATE_CORE_TRANSITION_MISSING")
+        transition_rel = "audit/core-cognition-generation-4-transition-20260912.json"
+    transition = read_json(root, transition_rel)
+    if transition.get("mapping_count") != transition.get("previous", {}).get("unit_count") or transition.get("mapping_remainder") != 0:
         errors.append("CORE_GENERATION_TRANSITION_INCOMPLETE")
     if transition.get("current", {}).get("core_sha256") != sha256(core_path):
         errors.append("CORE_GENERATION_TRANSITION_STALE")

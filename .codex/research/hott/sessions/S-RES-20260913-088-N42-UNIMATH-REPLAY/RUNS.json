@@ -1,0 +1,59 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260913-088-N42-UNIMATH-REPLAY",
+  "work_kind": "n42_unimath_external_e6_scan_and_nosection_replay",
+  "mathematical_claim_added": true,
+  "replay_package": {
+    "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+    "claim_ids": ["C-05"],
+    "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+    "toolchain": "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+    "final_run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/",
+    "retained_failed_run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-01/",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "modules_rechecked": 486,
+    "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+    "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "verdict": "REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE"
+  },
+  "external_library": {
+    "name": "agda-unimath",
+    "commit_sha": "7b81411d9f60afec359d29ed1e4edf43f4711c8a",
+    "archive_bytes": 11938845,
+    "archive_sha256": "552bc6102be8ce952226528dbc256c07f2993038dd182e501c877cc096b664b6",
+    "tree_file_count": 3166,
+    "tree_total_bytes": 31596894,
+    "tree_sha256": "88460bc7d2e0ffd2bc85d60ca7fa0ea8e0b833bc12e1e6e9cd18ccd517db41c5",
+    "publisher_sha256": null,
+    "fetch_note": "codeload Range probe returned 200 (no resume support); single-connection aria2 fetch with the probed ETag as If-Match; local hash is not a publisher attestation"
+  },
+  "e6_scan": {
+    "corpus": "agda-unimath@7b81411d (3,166 files)",
+    "verdict": "BOUNDED_NEGATIVE_WITH_STRONGEST_COUNTEREXAMPLE",
+    "key_findings": [
+      "epsilon-operator-Hilbert A = type-trunc-Prop A -> A is named and explicitly not assumed",
+      "Global-Choice is refuted by no-global-choice using no-section-type-2-Element-Type",
+      "promotion exists only under explicit data/assumptions (count, is-decidable, double-negation elimination, well-ordering hypotheses)",
+      "32 postulate files categorized; truncation postulates are the standard HIT encoding",
+      "two --allow-unsolved-metas modules are type-theory research modules unrelated to the truncation interface"
+    ],
+    "e6_found": false
+  },
+  "engineering": {
+    "verifier_changes": [
+      "Agda option check branches on theory_variant (without-K first; cubical unchanged; other variants fail closed)",
+      "external tree label set extended with agda-unimath-extracted-tree"
+    ],
+    "verifier_regression": ["MP-NOCANONICAL-001-02 PASS", "MP-TRUNC-NORECOVERY-001-03 PASS", "MP-ERCF-001-02 PASS"],
+    "index_manifest_refreeze": {"old_sha256": "25ac098cc68fd7b4407a0c6526a76c85c426ba475ca5d8b500c4650fe015a346", "new_sha256": "45d025fb392957dff0505b51cbd75b2464170d302263cc11d94adc121e17ace2"}
+  },
+  "evidence": {
+    "audit_report": "evidence/audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+    "final_run_receipt": "evidence/agda/RUN-final.json",
+    "final_stdout": "evidence/agda/stdout-final.txt",
+    "final_stderr": "evidence/agda/stderr-final.txt",
+    "failed_run_receipt": "evidence/agda/RUN-failed-01.json"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

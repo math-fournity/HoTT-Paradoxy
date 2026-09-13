@@ -1,0 +1,54 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-060-EVIDENCE-HYGIENE-BATCH3",
+  "work_kind": "evidence_hygiene_repair_and_batch3",
+  "mathematical_claim_added": false,
+  "claim_matrix_unchanged": true,
+  "drift_repair": {
+    "tool": "scripts/audit/verify_claim_ledger_anchors.py",
+    "sidecar": "audit/claim-ledger-owner-hashes-20260912.json",
+    "report": "audit/claim-ledger-drift-check-20260912.json",
+    "totals": {
+      "MATCH": 327,
+      "PREFIX": 550,
+      "CONTAINED": 1490,
+      "DRIFTED": 29,
+      "LINE_OUT_OF_RANGE": 0,
+      "MISSING_FILE": 0
+    },
+    "drifted_owners": {
+      "理解章节/README.md": 14,
+      "理解章节/C0-当前整合审计与证据边界-20260912.md": 15
+    },
+    "issue": "A-CLAIM-LEDGER-DRIFT-001",
+    "issue_status": "CLOSED_WITH_SCOPE"
+  },
+  "batch3": {
+    "rule": "eight lowest-coverage owners, four equal-spaced claims each, batches 1-2 excluded",
+    "sample_size": 32,
+    "verdicts": {
+      "SUPPORTED": 22,
+      "SUPERSEDED_BY_MACHINE_RESULT": 0,
+      "UNSUPPORTED": 0,
+      "PENDING": 10
+    },
+    "cumulative": {
+      "sampled": 122,
+      "coverage": "5.09%",
+      "SUPPORTED": 65,
+      "SUPERSEDED": 12,
+      "UNSUPPORTED": 0,
+      "PENDING": 45
+    },
+    "e6_found": false
+  },
+  "stale_source_hash_repair": {
+    "observed": 0,
+    "unexpected_remainder": 0
+  },
+  "evidence": {
+    "drift_repair": "audit/claim-ledger-drift-repair-20260912.md",
+    "batch3": "audit/understanding-claims-sampling-batch3-20260912.md"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

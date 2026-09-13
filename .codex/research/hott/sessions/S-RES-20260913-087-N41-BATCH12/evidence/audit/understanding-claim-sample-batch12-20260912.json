@@ -1,0 +1,542 @@
+{
+  "schema_version": "understanding-claim-sample-batch12/v1",
+  "sampling_rule": {
+    "rank": "owners by prior sampling ratio ascending, ties by path",
+    "budget": 40,
+    "max_per_owner": 5,
+    "allocation": {
+      "理解章节/B3-网页GPT工作史-II.md": 5,
+      "理解章节/全量精读工作方案.md": 5,
+      "理解章节/B4-Gemini工作史.md": 5,
+      "理解章节/A0-总目标.md": 5,
+      "理解章节/A1-Z铁律.md": 5,
+      "理解章节/A2-参照悖论谱.md": 5,
+      "理解章节/B1-本地GPT工作史.md": 5,
+      "理解章节/读遍账本.md": 5
+    },
+    "prior_sampled_ids": 442,
+    "fully_sampled_owners_skipped": []
+  },
+  "selection": [
+    {
+      "owner": "理解章节/B3-网页GPT工作史-II.md",
+      "total": 305,
+      "prior_sampled": 46,
+      "prior_ratio": 0.1508,
+      "remaining": 259,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/全量精读工作方案.md",
+      "total": 177,
+      "prior_sampled": 28,
+      "prior_ratio": 0.1582,
+      "remaining": 149,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/B4-Gemini工作史.md",
+      "total": 44,
+      "prior_sampled": 7,
+      "prior_ratio": 0.1591,
+      "remaining": 37,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/A0-总目标.md",
+      "total": 114,
+      "prior_sampled": 19,
+      "prior_ratio": 0.1667,
+      "remaining": 95,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/A1-Z铁律.md",
+      "total": 100,
+      "prior_sampled": 17,
+      "prior_ratio": 0.17,
+      "remaining": 83,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/A2-参照悖论谱.md",
+      "total": 116,
+      "prior_sampled": 20,
+      "prior_ratio": 0.1724,
+      "remaining": 96,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/B1-本地GPT工作史.md",
+      "total": 276,
+      "prior_sampled": 48,
+      "prior_ratio": 0.1739,
+      "remaining": 228,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/读遍账本.md",
+      "total": 183,
+      "prior_sampled": 32,
+      "prior_ratio": 0.1749,
+      "remaining": 151,
+      "selected": 5
+    }
+  ],
+  "entries": [
+    {
+      "claim_id": "CL-000006",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 9,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "也就是说，理论元素、维度的缺失，是理论得以成为思维工具的必须，但是站在悖论研究的角度，是理论的先天缺陷。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "Z 铁律前提的工具性/缺陷双读；与 core KC-000013/000015/000018 一致（研究立场，非数学结论）。"
+    },
+    {
+      "claim_id": "CL-000029",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 29,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "我们只是要寻找和证明，它在 HoTT 中也存在具体的现象、表现。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "用户原文（KC-000015 逐字句）；与 core 一致。"
+    },
+    {
+      "claim_id": "CL-000051",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 57,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "(2) **成果形态**：一个构造出来的\"过程\"（不是断言、不是文献综述）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "成果形态判据（构造过程而非断言/综述）；与 C3 战略与 F-011 交付门禁一致。"
+    },
+    {
+      "claim_id": "CL-000074",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 83,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "值得研究的不是简单指责\"经典定义是错误的\"，而是继续追查：它在什么地方被当成可以执行、可以调用、可以返回结果的总算法？",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "解释性研究方针（追问经典定义在哪里被当成总算法）；需上下文合并后裁决。"
+    },
+    {
+      "claim_id": "CL-000096",
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 99,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "你可以仅仅把它作为一个启发，也就说，你就是要去找 HoTT 理论中可能存在的关于时间这个前提要素，HoTT 理论的处理方式可能存在的问题，然后我们真正的目的是：**找到它其中存在的悖论。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "用户原文（KC-000005 逐字句）；与 core 一致。"
+    },
+    {
+      "claim_id": "CL-000118",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 9,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**什么是抽象？",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（小节标题「什么是抽象？」）；需与上下文合并。"
+    },
+    {
+      "claim_id": "CL-000137",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 19,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**用户说**：「最终我们要升华到的最锋利的表述是：\"抽象\"这件必须在理论构建中做的事，它的定义和行为本身就蕴含了那个我们所说的数理逻辑中的\"否定现实中的某个前提\"这件事，所以抽象带来的结果——理论，它所带来的\"推演\"，必然是能够引发悖论（非现实性）的。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "用户原文（Z 铁律最锋利表述；与 KC-000015 同源）。"
+    },
+    {
+      "claim_id": "CL-000157",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 29,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "(6) 这正是 A 方向的标准作业程序。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（枚举项 (6) 的交叉引用）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-000177",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 47,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**用户说**：「\"抽象\"这件必须在理论构建中做的事，它的定义和行为本身就蕴含了那个我们所说的数理逻辑中的\"否定现实中的某个前提\"这件事，所以抽象带来的结果——理论，它所带来的\"推演\"，必然是能够引发悖论（非现实性）的。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "用户原文重复引用（A1 与 KC-000015 同源）；一致。"
+    },
+    {
+      "claim_id": "CL-000198",
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 75,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "(2) \"静态刻画一切\"+\"当数学大厦的基础\"两个放大器说明了为什么这个否定特别危险；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（枚举项 (2)）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-000327",
+      "owner_document": "理解章节/A2-参照悖论谱.md",
+      "line": 9,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "如果包含自身那么 S 与自己的包含范围矛盾。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（Russell 叙述的单个句子）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-000349",
+      "owner_document": "理解章节/A2-参照悖论谱.md",
+      "line": 21,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "这本身就是\"原文至上但不迷信原文\"的示范。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "评价性条目（「原文至上但不迷信原文」的示范）；属判断。"
+    },
+    {
+      "claim_id": "CL-000372",
+      "owner_document": "理解章节/A2-参照悖论谱.md",
+      "line": 31,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "(5) T15 的\"幽灵再现\"论：芝诺的幽灵在圆环中再现——稠密性这个被替换的合取项，在\"走不完\"（过程维度）和\"回不去\"（不可逆维度）两个现象里显形，同一前提、两种现象形态——恰好示范了\"过程、结论、现象\"三类观察谱。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "解释性映射条目（T15 幽灵再现论）；需回源与上下文。"
+    },
+    {
+      "claim_id": "CL-000396",
+      "owner_document": "理解章节/A2-参照悖论谱.md",
+      "line": 57,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "但是在集合论中，罗素悖论就成了理论的失败。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "用户原文（KC-000016 逐字句）；与 core 一致。"
+    },
+    {
+      "claim_id": "CL-000419",
+      "owner_document": "理解章节/A2-参照悖论谱.md",
+      "line": 77,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "注意第一柜的问法 \"**因借助几何学**而引入光滑、稠密\"——把 HoTT 的几何血统与芝诺病根直接连线（这后来被三分律校准为\"要证明几何前提真的进入证明\"，但用户的原始连线是研究路标）；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "原始问法记录 + 后续三分律校准说明；与 A2/C2 记录一致（原始连线已标注为研究路标）。"
+    },
+    {
+      "claim_id": "CL-000994",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 12,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| 历史讨论逐字语料 | E007/E008 + A:工具 hott_discussion_corpus.py | 2,091 份讨论源→2,006 逐字片段；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "计数条目口径待核：B1 记 2,091 源→2,006 片段，batch 9 核过的 A8 记录为 2,087 源→2,006 excerpt；2,006 部分一致，源数差待回源。"
+    },
+    {
+      "claim_id": "CL-001048",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 52,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "非平凡抽象（非单射 α+完整命题域）⇒ ∀G ∃i G(α(wᵢ),φ)≠J(wᵢ,φ)；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPERSEDED_BY_MACHINE_RESULT",
+      "review_reason": "该历史条件句已由 MP-ERCF-001（C-59–C-66：Lean 一般 Type 因子化 no-go + 正反控制）机器化接管；历史表述保留。"
+    },
+    {
+      "claim_id": "CL-001104",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 69,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "A4 的 temporally unindexed=T14；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "映射元数据条目（A4=temporally unindexed=T14）；需回源核对。"
+    },
+    {
+      "claim_id": "CL-001159",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 101,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "不可变 generation+原子 CURRENT 切换。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "治理设计条目（不可变 generation + 原子 CURRENT 切换）；与 LOAD_SET/STATE/cognition_runtime 实现一致。"
+    },
+    {
+      "claim_id": "CL-001214",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 130,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "核心自修正句：\"不仅说明 HoTT 里有哪些构造，还要说明这些构造在不同呈现、模型和实现之间怎样对应……**不让吸收外部资料再次导致研究目标漂移**\"。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "B1 引用的自我修正句（不让吸收外部资料导致研究目标漂移）；与 B1/治理记录一致。"
+    },
+    {
+      "claim_id": "CL-001381",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 13,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| W39（IN-004 寄存器机） | A:R024（G:WS:4c71883） | **对角编译器实测**、OUT-004 草稿 |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "WebGPT 记录行（W39→R024 对角编译器实测、OUT-004 草稿）；与 B3/R024 记录一致。"
+    },
+    {
+      "claim_id": "CL-001441",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 69,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "r016 操作模型 36 测试——transport(ua(e),0) 停在非规范形≠发散；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "概念条目（transport(ua(e),0) 非规范形≠发散）仍成立；本 repo MP-PATH-CERTIFICATE-001（C-100–C-105）已原生给出 ua 计算规则与路径控制。"
+    },
+    {
+      "claim_id": "CL-001502",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 78,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "Brown-Palsberg F_ω 自解释器（类型结构排除对角装置）——\"强规范系统绝不可能有自解释器\"口号过强；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "校正条目（「强规范系统绝不可能有自解释器」口号过强）与当前理解一致（S053/T3 边界）。"
+    },
+    {
+      "claim_id": "CL-001564",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 94,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "4. **RP-B01 的\"下一步\"从未执行**：整个论辩期后，race/timeout 下降条件在 R039 末尾被记录为下一项但从未开始（R040 即交接）——A11 的\"下一候选沿用项目动量\"判断成立。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPERSEDED_BY_MACHINE_RESULT",
+      "review_reason": "历史缺口已被接管：race/timeout 下降条件由 MP-RACE-TIMEOUT-001（C-71–C-76）机器闭合，RP-B01 由 N2 提取接口审计并 PARKED；历史描述（R039→R040 未开始）仍真。"
+    },
+    {
+      "claim_id": "CL-001626",
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 130,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**4,330 个 1-4 态有标签确定性系统穷举**（2,165 固定非返回点＋1,324 满足可达/返回保持前提的原始运行实例）；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "4,330 标签模型穷举与 workspace/artifacts/r027/FINITE_MODEL_RESULTS.json（labelled_models=4330）一致（batch 6 已核）。"
+    },
+    {
+      "claim_id": "CL-001680",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "其中两个 inlineFile 不再按旧文字“empty”处理。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "inlineFile 更正条目（不再按 old「empty」处理）；与 ledger/lesson 4 及 Gemini 计数一致。"
+    },
+    {
+      "claim_id": "CL-001688",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 15,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| 18 | 15:11 | 对 G6/G7 的哲学共鸣与记录确认 |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "表格残行（时间线第 18 条）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-001696",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 26,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "三段式：**共鸣期**（chunk3-18：理解正确、态度配合）→**冒进期**（chunk37-72：自建求值器+绝对化宣称+虚假落盘自述——被 GPT 的 OUT-001 系统清算）→**收敛期**（chunk80-102：七封信的技术性配合，最终 OUT-007 双方共同确认\"校准告一段落\"）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "解释性分期（共鸣期→冒进期→收敛期）；chunk 区间未逐项重核。"
+    },
+    {
+      "claim_id": "CL-001707",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 40,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**精读修正了仅凭预览的四处误判，并新增五项实质发现：**",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（「四处误判、五项发现：」后接列表）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-001715",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 45,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**这 6 个 IDEA 与盲点批评此后未被项目系统性消化——A11 应补记此缺口。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "开放缺口条目（6 个 IDEA 未系统消化、A11 应补记）；需回源核对 A11 是否已补记。"
+    },
+    {
+      "claim_id": "CL-001953",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 12,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| Gemini 实质 chunk 24/24（125KB） | F（B4§五） |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "Gemini 实质 chunk 24/24 与 ledger 计数一致（24 ordinary text；另 21 thought/17 code/17 exec/2 inlineFile 已核）；125KB 未单独复核。"
+    },
+    {
+      "claim_id": "CL-001986",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 64,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "Archive.zip 同表处置。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（Archive.zip 同表处置）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-002022",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 103,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**新发现：R006–R015 的 artifacts 不在当前 repo**（留于 archive 旧 ZIP）——登记为覆盖边界；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "覆盖边界条目（R006–R015 artifacts 不在当前 repo）：现场核验 workspace/artifacts 从 r016 起、r006–r015 缺失；与 archive 旧 ZIP 记录一致。"
+    },
+    {
+      "claim_id": "CL-002058",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 114,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "逐路径对账批次 1–9 实际读态后确认存在以下缺口——批次 7 的处置表是目录级的，未逐文件闭合：",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（缺口列表引导句）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-002093",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 154,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "recovered 106 逐份定性+关键读；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（recovered 106 逐份定性+关键读）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-002220",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 6,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> 创建：2026-09-11 第二轮（用户指出\"不可能这么快做完\"后）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "引用块残句（创建时间与缘由）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-002256",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 57,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "1. **节53P→节54P**（9/10 07:18→08:03）：你的两条连续发言（ASK 短消息 + ASK 系统化长消息），AI 合并回复一次——回复原文（节55）可证：\"**你的相邻两条消息**和本次完整请求已经分别逐字记录\"。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "节 53P→54P 消息合并与 AI 回信引文；与消息提取/读遍账本记录一致。"
+    },
+    {
+      "claim_id": "CL-002292",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 103,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- F：`scripts/research/r024_diagonal_machine.py` 238 行全文（与 TECHNICAL_NOTE 逐项一致）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "文件条目核验：workspace/scripts/research/r024_diagonal_machine.py 存在（7,304 bytes）；行数口径差记账（本包 wc -l=237，账本记 238 行）。"
+    },
+    {
+      "claim_id": "CL-002329",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 124,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "④ T9 负向自指命题+七值准入状态+八层概念分离+用户哲学核心句定型；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "残句（枚举项 ④）；需上下文合并。"
+    },
+    {
+      "claim_id": "CL-002366",
+      "owner_document": "理解章节/读遍账本.md",
+      "line": 156,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| workspace：44 SESSION+9 PROOF_NOTE+10 reviews 数学正文+owner 8 份+LESSONS 结构 | F |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "workspace 计数现场核验：44 SESSION ✓、9 PROOF_NOTE ✓、10 reviews ✓（owner 8 份未单独复核）。"
+    }
+  ],
+  "review_summary": {
+    "schema_version": "understanding-claim-sample-batch12-review/v1",
+    "verdicts": {
+      "SUPPORTED": 20,
+      "PENDING": 18,
+      "SUPERSEDED_BY_MACHINE_RESULT": 2
+    },
+    "total": 40,
+    "e6_found": false,
+    "caliber_items": [
+      "CL-000994: 2,091 sources (B1) vs 2,087 sources (A8/batch 9); the 2,006-excerpt figure matches.",
+      "CL-002292: file line count 237 (wc -l) vs 238 recorded in the ledger."
+    ]
+  }
+}

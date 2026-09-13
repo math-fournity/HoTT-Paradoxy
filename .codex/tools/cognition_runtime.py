@@ -17,7 +17,7 @@ import re
 import sys
 import uuid
 
-VERSION = '3.0.0'
+VERSION = '3.1.0'
 PREFIX = '.codex/research/hott/'
 CONFIG = '.codex/cognition/LOAD_SET.json'
 STATE = PREFIX + 'STATE.json'
@@ -35,10 +35,6 @@ CLOSURE = '核心认知.md'
 DIRECTION = '方向追踪.md'
 PANORAMA = '全景视野.md'
 QUESTIONS = 'HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md'
-# Kept as a fixture/backward-compatibility symbol for the inherited synthetic
-# tests.  The live graph accepts any explicitly numbered generation and binds
-# it to the current manifest via the core validator.
-CLOSURE_ID = 'core-cognition-generation-3'
 CLOSURE_GENERATION_RE = re.compile(r'core-cognition-generation-[0-9]+')
 THREE_WAY = (CLOSURE, DIRECTION, PANORAMA)
 MUTABLE = ('MEMORY.md', DIRECTION, PANORAMA, PREFIX+'FRONTIER.md', PREFIX+'LESSONS.md', PREFIX+'RESUME.md', STATE)
@@ -158,7 +154,7 @@ def config_paths(config,key):
         raise CognitionError('CONFIG_PATH_LIST_INVALID: '+key)
     return value
 
-def graph(config, state, get, profile='governance', task_ids=()):
+def graph(config, state, get, profile='governance', task_ids=(), core_transition=None):
     if config.get('schema_version')!='cognition-load-set/v3':raise CognitionError('CONFIG_SCHEMA')
     if profile not in PROFILES:raise CognitionError('LOAD_PROFILE_INVALID: '+str(profile))
     trio=config_paths(config,'always_full_three_way')
@@ -238,15 +234,43 @@ def graph(config, state, get, profile='governance', task_ids=()):
         visiting.remove(k);visited.add(k);selected.append(k)
     for k in task_ids:visit(k)
     for p in ordered:text(get(p),p)
-    closure_header = '\n'.join(text(get(CLOSURE), CLOSURE).splitlines()[:12])
-    if CLOSURE_ID not in closure_header or not CLOSURE_GENERATION_RE.search(closure_header):
+    closure_bytes = get(CLOSURE)
+    closure_header = '\n'.join(text(closure_bytes, CLOSURE).splitlines()[:12])
+    current_core = state.get('current_core')
+    if state.get('schema_version') == 'hott-working-state/v2':
+        if not isinstance(current_core, dict):
+            raise CognitionError('CURRENT_CORE_IDENTITY_MISSING')
+        expected_generation = current_core.get('generation')
+        if not isinstance(expected_generation, str) or not CLOSURE_GENERATION_RE.fullmatch(expected_generation):
+            raise CognitionError('CURRENT_CORE_GENERATION_INVALID')
+        if expected_generation not in closure_header:
+            if not isinstance(core_transition, dict):
+                raise CognitionError('WRONG_CLOSURE_GENERATION')
+            target_generation = core_transition.get('to_generation')
+            if core_transition.get('from_generation') != expected_generation or target_generation not in closure_header:
+                raise CognitionError('CORE_TRANSITION_GENERATION_MISMATCH')
+            manifest_path = core_transition.get('manifest')
+            transition_path = core_transition.get('transition')
+            if not isinstance(manifest_path, str) or not isinstance(transition_path, str):
+                raise CognitionError('CORE_TRANSITION_EVIDENCE_PATH_MISSING')
+            manifest = obj(get(manifest_path))
+            transition = obj(get(transition_path))
+            if (manifest.get('generation') != target_generation
+                    or manifest.get('core_document_sha256') != sha(closure_bytes)
+                    or transition.get('previous', {}).get('generation') != expected_generation
+                    or transition.get('current', {}).get('generation') != target_generation
+                    or transition.get('current', {}).get('core_sha256') != sha(closure_bytes)
+                    or transition.get('mapping_remainder') != 0
+                    or transition.get('mapping_count') != transition.get('previous', {}).get('unit_count')):
+                raise CognitionError('CORE_TRANSITION_EVIDENCE_INVALID')
+    elif not CLOSURE_GENERATION_RE.search(closure_header):
         raise CognitionError('WRONG_CLOSURE_GENERATION')
     for projection, marker in ((DIRECTION, 'integrated-direction-portfolio:v1'), (PANORAMA, 'integrated-outcome-panorama:v1')):
         if marker not in text(get(projection), projection):
             raise CognitionError('PROJECTION_MARKER_MISSING: '+projection)
     return ordered,selection,selected,sorted(stale),available
 
-def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=False):
+def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=False, _allow_core_transition=None):
     root=root_path(project_root)
     if not _allow_busy and (path_of(root,LOCK).exists() or path_of(root,TXN).exists()):
         raise CognitionError('CHECKPOINT_INCOMPLETE_OR_WRITER_ACTIVE')
@@ -264,7 +288,7 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
     for rel,h in tracked.items():
         if sha(get(rel))!=h:raise CognitionError('UNCOMMITTED_STATE: '+rel)
     task_ids=tuple(task_ids)
-    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids)
+    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids,_allow_core_transition)
     entries=[]
     for rel in paths:
         b=get(rel);t=text(b,rel)
@@ -364,7 +388,8 @@ def prepare(root, snapshot, payload, *, busy=False):
     profile=payload.get('load_profile','governance')
     task_ids=payload.get('task_ids',[])
     if not isinstance(task_ids,list):raise CognitionError('CHECKPOINT_TASK_IDS_INVALID')
-    p=plan(root,profile=profile,task_ids=task_ids,_allow_busy=busy)
+    core_transition=payload.get('core_transition')
+    p=plan(root,profile=profile,task_ids=task_ids,_allow_busy=busy,_allow_core_transition=core_transition)
     if snapshot!=p['snapshot']:raise CognitionError('STALE_BASE')
     if payload.get('schema_version')!='cognition-checkpoint/v1':raise CognitionError('PAYLOAD_SCHEMA')
     sid=payload.get('session_id')

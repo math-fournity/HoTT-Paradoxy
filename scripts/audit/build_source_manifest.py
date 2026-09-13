@@ -66,7 +66,7 @@ def tree_manifest(rel_root: str) -> dict[str, object]:
     for path in sorted(root.rglob("*")):
         if not path.is_file() or path.is_symlink():
             continue
-        if ".git" in path.parts or path.name == ".DS_Store" or "__pycache__" in path.parts:
+        if ".git" in path.parts or path.name == ".DS_Store" or "__pycache__" in path.parts or path.suffix == ".agdai":
             continue
         rel = path.relative_to(root).as_posix()
         size = path.stat().st_size
@@ -115,6 +115,7 @@ def main() -> None:
         explicit_file(ROOT / "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md", "USER_PROMPT_EXTRACT"),
         explicit_file(ROOT / "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md", "USER_PROMPT_EXTRACT"),
         explicit_file(ROOT / "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md", "USER_PROMPT_EXTRACT"),
+        explicit_file(ROOT / "sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md", "USER_DIRECT_RESEARCH_COGNITION_INPUT"),
         explicit_file(ROOT / "sources/prompts/Codex-HoTT父线程-01a059c1-用户消息提取-20260911.md", "CODEX_LINEAGE_SUPPLEMENT"),
         explicit_file(ROOT / "sources/prompts/Codex-并行会话-素数与归档-用户消息提取-20260911.md", "CODEX_AUXILIARY_LINEAGE"),
         explicit_file(ROOT / "sources/prompts/治理三件套与历史融合要求-用户消息提取-20260912.md", "USER_GOVERNANCE_REQUIREMENT_INPUT"),

@@ -1,0 +1,66 @@
+{
+  "claim_ids": [
+    "C-100",
+    "C-101",
+    "C-102",
+    "C-103",
+    "C-104",
+    "C-105"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout",
+    "HoTT/formal/partiality-race-timeout/PathCertificate.agda"
+  ],
+  "completed_at_utc": "2026-09-13T00:24:15.733635+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.546182,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No R032 certificate-syntax replay, no HoTT+choice inconsistency, no claim that all instances are unsolvable, no originality (the paper derivation is R034)."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-PATH-CERTIFICATE-001",
+  "run_id": "20260912-MP-PATH-CERTIFICATE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Native Cubical Agda verification of the R034 path-certificate boundary: the univalence path of Bool-negation moves by not (C-100); truncation is a proposition and inhabited (C-101); the fixed-pair weak interface exists (C-102); the fixed-source unified variant and the general MereMove are empty (C-103, C-104) via a Sigma-loop and dependent transport with real Cubical Path; the path-indexed interface exists (C-105). Boundary result, not a HoTT paradox; ordinary Lean Eq is not used.",
+  "source_manifest": {
+    "bytes": 2700,
+    "path": "source-manifest.json",
+    "sha256": "4b7f7cc7e0091b1200da968d02c6d3078488f0e4fedf3106be913b87e65e9db0"
+  },
+  "started_at_utc": "2026-09-13T00:23:57.187453+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9653,
+    "path": "stdout.txt",
+    "sha256": "2d00581d910d0c7709427a6cc6163e8bc8431feb7e129138bb21c73fd8574443"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

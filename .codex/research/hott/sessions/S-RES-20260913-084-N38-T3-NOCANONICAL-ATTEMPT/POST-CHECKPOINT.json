@@ -1,0 +1,25 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-084-N38-T3-NOCANONICAL-ATTEMPT",
+  "state_revision": 84,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 84},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 84},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 83},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "n38_attempt": {
+    "source": "HoTT/formal/truncation-no-recovery/NoCanonicalFinite.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "proved": ["Fin2/carrier/UniformChoice/boolPresentation elaborate"],
+    "blocked_by": "raw rec beta at the point constructor; the flattened eliminator (or the C-134 squash pattern) is required",
+    "requested_form": "constant section statement s false == s true"
+  },
+  "boundaries": {"no_new_mathematical_claim": true, "git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

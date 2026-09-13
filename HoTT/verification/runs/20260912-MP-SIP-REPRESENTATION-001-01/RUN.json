@@ -1,0 +1,65 @@
+{
+  "claim_ids": [
+    "C-124",
+    "C-125",
+    "C-126",
+    "C-127",
+    "C-128"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/sip-representation/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/sip-representation",
+    "HoTT/formal/sip-representation/SIPRepresentation.agda"
+  ],
+  "completed_at_utc": "2026-09-13T02:24:14.470028+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.506985,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "ae969c37b461f38362d540e3447ad2b451decf04016f7a63d0f174f0c9582fe3"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No full SIP module instantiation, no general structure-category theorem, no real-library consumer claim, no originality."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-SIP-REPRESENTATION-001",
+  "run_id": "20260912-MP-SIP-REPRESENTATION-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Minimal native Cubical SIP/UA boundary: the pointed structures (Bool,true) and (Bool,false) are identified by a path built from ua notEquiv (C-124); the outside-signature observable differs on them (C-125); any Bool-valued function on the structure type is constant on the pair (C-126); no uniform recovery function exists (C-127); adding the observable to the signature prevents the identification and the projection recovers it (C-128). Boundary result with positive control; not a HoTT paradox.",
+  "source_manifest": {
+    "bytes": 2495,
+    "path": "source-manifest.json",
+    "sha256": "d876d562f9574238f465f8e09fcfd0b2b6270381949af9316add6a8cd68e12d4"
+  },
+  "started_at_utc": "2026-09-13T02:23:55.963043+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9800,
+    "path": "stdout.txt",
+    "sha256": "7b11295ac92cf265e23e91cd7240febf2cd56a3026ae8deee991eb43c003eb0e"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

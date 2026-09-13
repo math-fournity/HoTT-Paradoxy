@@ -1,0 +1,57 @@
+# 当前工作记忆
+
+> Owner：顶层 `AGENTS.md`、Feature/rulings 与 `.codex/cognition/PROTOCOL.md`。本文件只记录当前状态/队列，不复制三件套或历史长文。
+
+## 当前执行队列（2026-09-12）
+
+1. `MP-ONLINE-CAUSALITY-001` 完成在线因果资格边界：C-106–C-109 为 `MACHINE_PROVED_LOCAL_UNCOMMITTED / ONLINE_CAUSALITY_BOUNDARY_WITH_POSITIVE_CONTROLS`；时刻 0 无前视；读第一个输入（时刻 0）与读第二个输入（时刻 1 起）为正例；完整知识 ≠ 在线资格。
+2. 当前第一工作包转为 N6 `MP-PARTIAL-DECISION-001`：在原生 Cubical Agda 中构造最小 quotient + classifier 模型，证明不存在相容 total `Bool` classifier、存在 partial classifier（正控制），并记录把 partial 当 total 的消费者必须显式添加 modulus/decidability/section；预期最多 `REPRESENTATION_BOUNDARY`。
+3. C4 整体为 `PAPER_ONLY_WITH_MACHINE_PROVED_GENERAL_FACTORIZATION_AND_NATIVE_TRUNCATION_DEFENSE_AND_PARTIALITY_BOUNDARY`；现实桥梁、natural consumer、自反/ERCF-3 和 HoTT 悖论仍未证明。
+4. W51×RP-B01、自指、guard/在线因果和 R034 继续在全局视野；任何新数学结论仍逐 claim 执行 F-011。
+5. 历史交接开放项仍为 2,396 条 claim、aistudio coverage、历史数学主张和 response→artifact/code/Git 因果；新门禁不批量重写历史状态。
+6. 治理独立验证仍开放：fresh Session/真实压缩后模型是否实际遵循 proof Gate；static tests 不能替代行为验收。
+
+## 当前已验证状态
+
+- `核心认知.md` 为 generation-4/36 KC，SHA-256 `7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b`；4 个登记来源、89 条消息、24 条纳入消息。generation-3 的 27/27 单元全部 `PRESERVED_EXACT`，新增 `KC-000028`–`KC-000036`。
+- C4 当前共 773 行，SHA-256 `a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1`；整体为 `PAPER_ONLY_WITH_MACHINE_PROVED_GENERAL_FACTORIZATION_AND_NATIVE_TRUNCATION_DEFENSE`，明确区分两组机器子结果与现实/反射未决。
+- 当前最强数学判断：某些 cubical HoTT 风格系统的有限判断可归一化/判定；足够强有效理论不能同时拥有同层内部、总停机、健全、完备的全局真理自验证。二者不矛盾。
+- 理解章节 merge manifest 当前为 top-level 29、nested 24、union 29、same-name 24、identical 15、different 9、top-only 5、nonidentical 14、unresolved nontrivial 0。
+- project-local governance 3.2 是未提交 candidate；最近已封存 tag 仍为 `governance-v3.0.0`。本轮未获 commit/tag/push 授权。
+- S023 只完成 post-verification/EOF 格式收尾：core 7/7、runtime 28/28、reader 17/17、three-way 4/4、36-KC audit、merge/register/history/fresh/projection 均通过；不改变 C4 数学状态。
+- S024 修正 C4 的 factorization 逆向与观察余域量词；ERCF 方向不变，数学状态不升级。
+- S025 补齐 E₀ 的 `a₀:A`/`s₀≠s₁` 见证，并明确有限任务族不自动推出 factorization 可判定。
+- F-011 proof-delivery Gate 已在根/`.codex` AGENTS、PROTOCOL、双 Skills、稳定规范、formal/run/index owner 中实现；4/4 正负向 static tests PASS。它只证明治理结构，不证明未来模型行为或任何数学命题。
+- `MP-ERCF-001` 是 F-011 下首个真实数学 package：Lean 4.33.1 final run/index/hash/exact replay PASS；源码和运行原件均在 repo；未提交，且只证明一般 `Type` 值因子化。
+- `MP-ERCF-TRUNC-001` 是首个原生 Cubical package：Agda 2.8.0/Cubical v0.9 final run、5 类外部依赖 hash、index row manifest 和 exact replay PASS；判词 `DEFENSE_WORKS`。
+- `MP-RACE-TIMEOUT-001` 是第三个 F-011 package：原生 Cubical `SetQuotients`/`effective` 机器证明 `bind` 同余与商下降、`race`/`deadline` 非同余与商上无 race 选择子（C-71–C-76）；final run `20260912-MP-RACE-TIMEOUT-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `REPRESENTATION_BOUNDARY`。
+- `MP-CONTEXTUAL-EQUIV-001` 是第四个 F-011 package：同一工具链机器证明上下文等价 `≡c` 精化结果等价且严格更细（C-77–C-83）；final run `20260912-MP-CONTEXTUAL-EQUIV-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `REPRESENTATION_BOUNDARY`。
+- `MP-QUOTIENT-MONAD-001` 是第五个 F-011 package：结果商 canonical section 与商值 continuation 单子（C-84–C-88，含单位律与关联律）；final run `20260912-MP-QUOTIENT-MONAD-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `MONAD_STRUCTURE_CONSTRUCTED`（正面结构结果）。
+- `MP-CONTEXT-CHARACTERIZATION-001` 是第六个 F-011 package：Bool 片段上下文等价完整刻画（C-89–C-91，`≡c` = 代表相等）；final run `20260912-MP-CONTEXT-CHARACTERIZATION-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `CONTEXTUAL_EQUIVALENCE_FULLY_CHARACTERIZED`。
+- `MP-GUARD-ERASURE-001` 是第七个 F-011 package：阶段擦除 ⇔ 不动点存在（C-92–C-95）；final run `20260912-MP-GUARD-ERASURE-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `GUARD_ERASURE_EQUIVALENT_TO_FIXED_POINT_EXISTENCE`。
+- `MP-COST-FACTORIZATION-001` 是第八个 F-011 package：同函数异时实例与表示限制（C-96–C-99）；final run `20260912-MP-COST-FACTORIZATION-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `NON_FACTORIZATION_WITH_COST_REFINEMENT_POSITIVE_CONTROL`。
+- `MP-PATH-CERTIFICATE-001` 是第九个 F-011 package：R034 路径证书边界原生核查（C-100–C-105）；final run `20260912-MP-PATH-CERTIFICATE-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `MERE_MOVE_NON_INHABITED_WITH_NATIVE_PATH_CONTROLS`。
+- `MP-ONLINE-CAUSALITY-001` 是第十个 F-011 package：在线因果资格边界（C-106–C-109，零警告）；final run `20260912-MP-ONLINE-CAUSALITY-001-01`、`EXACT_INDEX_SNAPSHOT_MATCH`、exact replay PASS；判词 `ONLINE_CAUSALITY_BOUNDARY_WITH_POSITIVE_CONTROLS`。
+- C5 综合（S042）已评估十包后的悖论距离：仍在 `REPRESENTATION_BOUNDARY`（第二级），唯一决定性缺环是 natural consumer（E6）；下一工作包转为 N1 有界自然消费者审计（paper + 库/论文证据）。
+- N1 有界自然消费者审计（S043）在固定集合（Cubical v0.9 全库 + 四份一手入口）内未找到 E6：最近候选（`MagicTrick.recover`、`SplitSupport`、`satAC`、delay 商、delay×effects、`uaβ`/SIP、CATT）均被显式假设、相干数据或类型围栏挡住；判定 `BOUNDED_NEGATIVE_MOVE_TO_RP_B01`。
+- N2 提取接口审计（S044）在 Agda 2.8.0/MAlonzo 与 Lean 4.33.1 上判 scoped `DEFENSE_WORKS`：postulate 生成 `error "postulate evaluated"`，noncomputable 分类器被 `#eval`/`#eval!` 拒绝，`Prop → Bool` 大消去被内核拒绝；`DIR-W-RP-B01` 转 `PARKED` 并保留重开条件。
+- N3 过渡抽象/极限边界（S045）已由 `MP-TRANSITION-LIFT-001` 原生机器化：C-110–C-117，零 warning、exact replay；十个旧包在矩阵增长后全部 row-stable；`DIR-W-TRANSITION-ABSTRACTION` 与 `DIR-W-CURRENT-STATE-LIFT` 转 `CLOSED_WITH_SCOPE`。
+- N4 新候选生成（S046）：DIR01–DIR09 × OP01–OP08 候选矩阵与五个短名单；`CAND-REGULARITY` 由 Cubical 2.8.0 探针实测排除；下一工作包转 N5 派生开发消费者审计。
+- N5 派生开发消费者审计（S047）：固定集合 D1–D5 内无 `FOUND_CANDIDATE`；D1 §5.2 明确 partial `ℝq → 𝟐⊥` 与不可定义 total `ℝq → 𝟐`，D2–D4 显式携带 choice/分配律/resource-bounded 假设；判定 scoped `BOUNDED_DEFENSE`，转 N6。
+- S032 同步 F-011 record 的 formal/runs README hash；原生 proof task hydration 现在成功且 `review_required=[]`，数学状态不变。
+- S033（接手会话）以新 Session 独立重放 `MP-ERCF-001`（`ROW_STABLE_AFTER_INDEX_EVOLUTION`）与 `MP-ERCF-TRUNC-001`（`EXACT_INDEX_SNAPSHOT_MATCH`），两者均 `KERNEL_ACCEPTED_WITH_SCOPE / EXACT_EXIT_STDOUT_STDERR_MATCH`；core 7/7、runtime 28/28、reader 17/17、three-way 4/4、F-011 4/4 与全部 verifier 复跑 PASS；上一 AI 状态声明在可机械复核范围内成立，数学与方向不变。
+- S029 修复 `A-ERCF-FACTORIZATION-FORMAL-001` 的 task hydration：空 `stderr.txt` 仍原样保留并由 RUN.json/hash/verifier 认证，但不再被错误要求作为非空认知正文加载。
+- S030 将 ERCF 的开放研究母题从 proof 的验证依赖改为 `research_parent`；A-ERCF task plan 现在可水合且不再把已闭合证明误列为 `review_required`。
+- S026 checkpoint 已把门禁写入 direction v1.4、panorama v1.4 和 STATE stable record；S027 仅完成 current version/verification alignment。
+
+## 当前证据上限
+
+- C4 的通用 factorization 子核和原生 truncation defense 分别有 Lean/Cubical Agda proof package；截断结果是理论防御，不是现实失配。C4 的 partiality natural consumer、自反与具体发散仍无机器证明/运行轨迹。
+- 没有证明 HoTT 内部不一致、所有验证都会死循环、物理时空离散、Russell 标准悖论等价于无时序程序，或存在一个一致而 HoTT 完全无法保真解释的最小理论。
+- 2LTT/QIIT/QIIRT/内部模型资料支持“自我元理论困难且常需分层/表示变化”，不自动证明 HoTT coverage failure。
+- fresh Python 输入保真可验证；模型对三件套的实际理解仍不由工具认证。
+- 数学结论若没有 repo 内匹配语义的 proof source、kernel run 和 claim index，只能保持 `QUESTION/CONJECTURE/HEURISTIC/PAPER_ONLY/COUNTEREXAMPLE_CANDIDATE/SOURCE_REPORTED_NOT_REPLAYED`。
+
+## 恢复入口
+
+按根 AGENTS 全文加载 core→direction→panorama。任何数学结论交付先执行 F-011，并读 `docs/quality/数学结论机器证明与证据留存规范.md`。当前问题先 query `A-HOTT-SELF-VALIDATION-ECONOMY-001`、`A-ERCF-FACTORIZATION-FORMAL-001`、`A-ERCF-TRUNCATION-DEFENSE-001`、`A-RACE-TIMEOUT-FORMAL-001`、`A-CONTEXTUAL-EQUIV-FORMAL-001`、`A-QUOTIENT-MONAD-FORMAL-001`、`A-CONTEXT-CHARACTERIZATION-FORMAL-001`、`A-GUARD-ERASURE-FORMAL-001`、`A-COST-FACTORIZATION-FORMAL-001`、`A-PATH-CERTIFICATE-FORMAL-001`、`A-ONLINE-CAUSALITY-FORMAL-001`、`A-C5-PARADOX-DISTANCE-001`、`A-NATURAL-CONSUMER-AUDIT-001`、`A-RP-B01-EXTRACTION-AUDIT-001`、`A-TRANSITION-LIFT-FORMAL-001`、`A-NEW-CANDIDATES-001`、`A-DERIVED-DEVELOPMENT-AUDIT-001`。六条机器支线（partiality、guard-erasure、cost、路径证书、在线因果、过渡抽象/极限）均已闭合；C5 固定第二级距离，N1 给出 bounded negative，N2 给出 scoped `DEFENSE_WORKS`，N3 关闭过渡边界，N4 生成候选，N5 给出 scoped `BOUNDED_DEFENSE` 并转 N6 partial/total decision 机器边界，不直接跳 ERCF-3。

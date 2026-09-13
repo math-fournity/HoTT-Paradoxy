@@ -1,0 +1,24 @@
+{
+  "scope": "quotation provenance and current trio reading; no mathematical proof",
+  "profile": "governance",
+  "snapshot": "bb9b0d85e435c4244f3ed293948935b5787b7ab892a4cbdd8801d56b9160ea3f",
+  "revision": 89,
+  "git_head": "636e4e52e05e3e9c3da6778d00dc97ff36767957",
+  "git_tag": "governance-v3.0.0",
+  "boot_certification": "NOT_FULLY_LOADED_STATE_QUERIED_ONLY",
+  "model_context": "NOT_CERTIFIED_BY_TOOL",
+  "trio": [
+    {"path":"核心认知.md","bytes":32253,"lines":337,"ranges":[[1,337]],"eof":true,"sha256":"7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"},
+    {"path":"方向追踪.md","bytes":32439,"lines":161,"ranges":[[1,161]],"eof":true,"sha256":"aad5c6cefc972b2540f422a861ad9634a940fb21db59c20560938b80c2608ef0"},
+    {"path":"全景视野.md","bytes":85147,"lines":203,"ranges":[[1,85],[86,155],[156,203]],"eof":true,"sha256":"22fc9571797fc404620ab10e0e547b91e517cdc4bec21ee052bd1e534dc15133"}
+  ],
+  "runs": [
+    {"command":"python3 scripts/audit/build_core_cognition.py","exit_code":0,"status":"PASS","generation":"core-cognition-generation-4","core_units":36},
+    {"command":"python3 .codex/tools/cognition_runtime.py check --snapshot bb9b0d85e435c4244f3ed293948935b5787b7ab892a4cbdd8801d56b9160ea3f --profile governance","exit_code":0,"status":"SNAPSHOT_UNCHANGED"},
+    {"check":"KC-000015 source and payload hash, literal source-line equality, payload present in git show HEAD:核心认知.md","exit_code":0,"source_sha256_matches":true,"payload_equal_source_line":true,"payload_hash_matches":true,"present_in_committed_HEAD":true}
+  ],
+  "source_sha256":"f5ae0772a3284f51679f55ced0b6087b044bf3808bc007c2f5a9e237da5b7ba6",
+  "unit_sha256":"a0520382e89ab60e1f5fc33b9046988648cd53bc9fe51cf3d92ebb2f6dd1c6b0",
+  "historical_model_load_audit":"NOT_RUN",
+  "mathematical_proof":"NOT_RUN_NOT_REQUESTED"
+}

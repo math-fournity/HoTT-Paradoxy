@@ -1,0 +1,64 @@
+{
+  "claim_ids": [
+    "C-96",
+    "C-97",
+    "C-98",
+    "C-99"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout",
+    "HoTT/formal/partiality-race-timeout/CostFactorization.agda"
+  ],
+  "completed_at_utc": "2026-09-13T00:12:35.353794+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 7.267884,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "012088411e6a32109162a230e3470825a30d30b5d41f7e9ec26f7829c5f4cf29"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No real compiler/hardware cost model, no originality claim (cost/extensionality tension is known in cost-aware type theory), no natural-consumer construction."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-COST-FACTORIZATION-001",
+  "run_id": "20260912-MP-COST-FACTORIZATION-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Native Cubical Agda first machine construction for the same-function/different-time (cost) direction: fast and slow k share the extensional function (funext) but differ in syntax-directed step cost (C-96); no predicate on the bare function type distinguishes extensionally equal programs (C-97); hence no consumer recovers the cost value from the bare function (C-98); the cost-refined representation recovers and separates (C-99). Representation limit with positive control; not a HoTT paradox.",
+  "source_manifest": {
+    "bytes": 2708,
+    "path": "source-manifest.json",
+    "sha256": "0cf506edd45730009d602bbba8088efc500f9a3d40c2fe7b052c7135eaca2555"
+  },
+  "started_at_utc": "2026-09-13T00:12:28.085910+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 4349,
+    "path": "stdout.txt",
+    "sha256": "16d8b585480234ba006fd6c708779aa90ae9d8385491c1396750c3ad68b4ad7f"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

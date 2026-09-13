@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MetaRocq | Website of the MetaRocq Project</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="MetaRocq" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Website of the MetaRocq Project" />
+<meta property="og:description" content="Website of the MetaRocq Project" />
+<link rel="canonical" href="https://metarocq.github.io/" />
+<meta property="og:url" content="https://metarocq.github.io/" />
+<meta property="og:site_name" content="MetaRocq" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MetaRocq" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Website of the MetaRocq Project","headline":"MetaRocq","name":"MetaRocq","url":"https://metarocq.github.io/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=746c020563986e3a3c772bec560cefc86b0bfcd0">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name"><img src="/assets/LOGO.png"
+                                    alt="MetaRocq" width="250px"/>
+
+        <center>
+          MetaRocq
+        </center>
+
+      </h1>
+      <h2><a href="https://github.com/MetaRocq/metarocq" class="btn">View on
+          GitHub</a>
+      </h2>
+    </section>
+
+    <section class="main-content">
+      <h1 id="metarocq">MetaRocq</h1>
+
+<p align="center">
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/LOGO.png" alt="MetaRocq" width="50px" />
+</p>
+
+<p><a href="https://github.com/MetaRocq/metarocq/actions"><img src="https://github.com/MetaRocq/metarocq/actions/workflows/build.yml/badge.svg" alt="Build status" /></a> <a href="https://rocq-prover.zulipchat.com"><img src="https://img.shields.io/badge/zulip-join_chat-brightgreen.svg" alt="MetaRocq Chat" /></a>
+<a href="https://open.vscode.dev/metarocq/metarocq"><img src="https://img.shields.io/static/v1?logo=visualstudiocode&amp;label=&amp;message=Open%20in%20Visual%20Studio%20Code&amp;labelColor=2c2c32&amp;color=007acc&amp;logoColor=007acc" alt="Open in Visual Studio Code" /></a></p>
+
+<p>MetaRocq is a project formalizing Rocq in Rocq and providing tools for
+manipulating Rocq terms and developing certified plugins
+(i.e. translations, compilers or tactics) in Rocq.</p>
+
+<p><strong>Quick jump</strong></p>
+<ul>
+  <li><a href="#metarocq">MetaRocq</a>
+    <ul>
+      <li><a href="#getting-started">Getting started</a></li>
+      <li><a href="#installation-instructions">Installation instructions</a></li>
+      <li><a href="#documentation">Documentation</a></li>
+      <li><a href="#overview-of-the-project">Overview of the project</a>
+        <ul>
+          <li><a href="#template-rocq">Template-Rocq</a></li>
+          <li><a href="#pcuic">PCUIC</a></li>
+          <li><a href="#safe-checker">Safe Checker</a></li>
+          <li><a href="#erasure">Erasure</a></li>
+          <li><a href="#translations">Translations</a></li>
+          <li><a href="#quotation">Quotation</a></li>
+          <li><a href="#examples">Examples</a></li>
+        </ul>
+      </li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#related-projects">Related Projects</a></li>
+      <li><a href="#team--credits">Team \&amp; Credits</a></li>
+      <li><a href="#bugs">Bugs</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="getting-started">Getting started</h2>
+
+<ul>
+  <li>
+    <p>You may want to start with a <a href="https://github.com/MetaRocq/metarocq/blob/-/examples/demo.v">demo</a>.</p>
+  </li>
+  <li>
+    <p>The current branch <a href="https://metarocq.github.io/html/toc.html">documentation (as light coqdoc files)</a>.</p>
+  </li>
+  <li>
+    <p>The <a href="#overview-of-the-project">overview</a> of the different parts of the project.</p>
+  </li>
+</ul>
+
+<h2 id="installation-instructions">Installation instructions</h2>
+
+<p>See <a href="https://github.com/MetaRocq/metarocq/blob/-/INSTALL.md">INSTALL.md</a></p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>See <a href="https://github.com/MetaRocq/metarocq/blob/-/DOC.md">DOC.md</a></p>
+
+<h2 id="overview-of-the-project">Overview of the project</h2>
+
+<p>At the center of this project is the Template-Rocq quoting library for
+Rocq. The project currently has a single repository extending
+Template-Rocq with additional features. Each extension is in a dedicated folder.
+The <a href="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/depgraph-2022-07-01.png">dependency graph</a>
+might be useful to navigate the project.
+Statistics: ~300kLoC of Rocq, ~30kLoC of OCaml.</p>
+
+<h3 id="template-rocq"><a href="https://github.com/MetaRocq/metarocq/blob/-/template-rocq/theories">Template-Rocq</a></h3>
+
+<p>Template-Rocq is a quoting library for <a href="http://rocq-prover.org">Rocq</a>. It
+takes <code class="language-plaintext highlighter-rouge">Rocq</code> terms and constructs a representation of their syntax tree as
+an inductive data type. The representation is based on the kernel’s
+term representation.</p>
+
+<p>After importing <code class="language-plaintext highlighter-rouge">MetaRocq.Template.Loader</code> there are commands <code class="language-plaintext highlighter-rouge">MetaRocq Test Quote t.</code>,
+<code class="language-plaintext highlighter-rouge">MetaRocq Quote Definition name := (t).</code> and <code class="language-plaintext highlighter-rouge">MetaRocq Quote Recursively Definition name := (t).</code> as
+well as a tactic <code class="language-plaintext highlighter-rouge">quote_term t k</code>,
+where in all cases <code class="language-plaintext highlighter-rouge">t</code> is a term and <code class="language-plaintext highlighter-rouge">k</code> a continuation tactic.</p>
+
+<p>In addition to this representation of terms, Template Rocq includes:</p>
+
+<ul>
+  <li>
+    <p>Reification of the environment structures, for constant and inductive
+declarations along with their universe structures.</p>
+  </li>
+  <li>
+    <p>Denotation of terms and global declarations.</p>
+  </li>
+  <li>
+    <p>A monad for querying the environment, manipulating global declarations, calling the type
+checker, and inserting them in the global environment, in
+the style of MTac. Monadic programs <code class="language-plaintext highlighter-rouge">p : TemplateMonad A</code> can be run using <code class="language-plaintext highlighter-rouge">MetaRocq Run p</code>.</p>
+  </li>
+  <li>
+    <p>A formalization of the typing rules reflecting the ones of Rocq, covering all of Rocq
+except eta-expansion and template polymorphism.</p>
+  </li>
+</ul>
+
+<h3 id="pcuic"><a href="https://github.com/MetaRocq/metarocq/blob/-/pcuic/theories">PCUIC</a></h3>
+
+<p>PCUIC, the Polymorphic Cumulative Calculus of Inductive Constructions is
+a cleaned up version of the term language of Rocq and its associated
+type system, shown equivalent to the one of Rocq. This version of the
+calculus has proofs of standard metatheoretical results:</p>
+
+<ul>
+  <li>
+    <p>Weakening for global declarations, weakening and substitution for
+local contexts.</p>
+  </li>
+  <li>
+    <p>Confluence of reduction using a notion of parallel reduction</p>
+  </li>
+  <li>
+    <p>Context cumulativity / conversion and validity of typing.</p>
+  </li>
+  <li>
+    <p>Subject Reduction (case/cofix reduction excluded)</p>
+  </li>
+  <li>
+    <p>Principality: every typeable term has a smallest type.</p>
+  </li>
+  <li>
+    <p>Bidirectional presentation: an equivalent presentation of the system
+that enforces directionality of the typing rules. Strengthening follows
+from this presentation.</p>
+  </li>
+  <li>
+    <p>Elimination restrictions: the elimination restrictions ensure
+that singleton elimination (from Prop to Type) is only allowed
+on singleton inductives in Prop.</p>
+  </li>
+  <li>
+    <p>Canonicity: The weak head normal form of a term of inductive type is a constructor application.</p>
+  </li>
+  <li>
+    <p>Consistency under the assumption of strong normalization</p>
+  </li>
+  <li>
+    <p>Weak call-by-value standardization: Normal forms of terms of first-order inductive type
+can be found via weak call-by-value evaluation.</p>
+  </li>
+</ul>
+
+<p>See the PCUIC <a href="https://github.com/MetaRocq/metarocq/blob/-/pcuic/theories/README.md">README</a> for
+a detailed view of the development.</p>
+
+<h3 id="safe-checker"><a href="https://github.com/MetaRocq/metarocq/blob/-/safechecker/theories">Safe Checker</a></h3>
+
+<p>Implementation of a fuel-free and verified reduction machine, conversion
+checker and type checker for PCUIC. This relies on a postulate of
+strong normalization of the reduction relation of PCUIC on well-typed terms.
+The checker is shown to be correct and complete w.r.t. the PCUIC specification.
+The extracted safe checker is available in Rocq through a new vernacular command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MetaRocq SafeCheck &lt;term&gt;
+</code></pre></div></div>
+
+<p>After importing <code class="language-plaintext highlighter-rouge">MetaRocq.SafeChecker.Loader</code>.</p>
+
+<p>To roughly compare the time used to check a definition with Rocq’s vanilla
+type-checker, one can use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MetaRocq RocqCheck &lt;term&gt;
+</code></pre></div></div>
+
+<p>This also includes a verified, efficient re-typing procedure (useful in tactics) in
+<code class="language-plaintext highlighter-rouge">MetaRocq.SafeChecker.PCUICSafeRetyping</code>.</p>
+
+<p>See the SafeChecker <a href="https://github.com/MetaRocq/metarocq/blob/-/safechecker/theories/README.md">README</a> for
+a detailed view of the development.</p>
+
+<h3 id="erasure"><a href="https://github.com/MetaRocq/metarocq/blob/-/erasure/theories">Erasure</a></h3>
+
+<p>An erasure procedure to untyped lambda-calculus accomplishing the
+same as the type and proof erasure phase of the Extraction plugin of Rocq.
+The extracted safe erasure is available in Rocq through a new vernacular command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MetaRocq Erase &lt;term&gt;
+</code></pre></div></div>
+
+<p>After importing <code class="language-plaintext highlighter-rouge">MetaRocq.Erasure.Loader</code>.</p>
+
+<p>The erasure pipeline includes verified optimizations to remove lets in constructors,
+remove cases on propositional terms, switch to an unguarded fixpoint reduction rule and
+transform the higher-order constructor applications to first-order blocks for easier
+translation to usual programming languages. See the erasure
+<a href="https://github.com/MetaRocq/metarocq/blob/-/erasure/theories/README.md">README</a> for
+a detailed view of the development.</p>
+
+<h3 id="translations"><a href="https://github.com/MetaRocq/metarocq/blob/-/translations">Translations</a></h3>
+
+<p>Examples of translations built on top of this:</p>
+
+<ul>
+  <li>
+    <p>a parametricity plugin in <a href="https://github.com/MetaRocq/metarocq/blob/-/translations/param_original.v">translations/param_original.v</a></p>
+  </li>
+  <li>
+    <p>a plugin to negate functional extensionality in <a href="https://github.com/MetaRocq/metarocq/blob/-/translations/times_bool_fun.v">translations/times_bool_fun.v</a></p>
+  </li>
+</ul>
+
+<h3 id="quotation"><a href="https://github.com/MetaRocq/metarocq/blob/-/quotation/theories">Quotation</a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">Quotation</code> module is geared at providing functions <code class="language-plaintext highlighter-rouge">□T → □□T</code> for
+<code class="language-plaintext highlighter-rouge">□T := Ast.term</code> (currently implemented) and for <code class="language-plaintext highlighter-rouge">□T := { t : Ast.term
+&amp; Σ ;;; [] |- t : T }</code> (still in the works).</p>
+
+<p>Ultimately the goal of this development is to prove that <code class="language-plaintext highlighter-rouge">□</code> is a lax monoidal
+semicomonad (a functor with <code class="language-plaintext highlighter-rouge">cojoin : □T → □□T</code> that codistributes over <code class="language-plaintext highlighter-rouge">unit</code>
+and <code class="language-plaintext highlighter-rouge">×</code>), which is sufficient for proving Löb’s theorem.</p>
+
+<p>The public-facing interface of this development is provided in <a href="./quotation/theories/ToTemplate/All.v"><code class="language-plaintext highlighter-rouge">MetaRocq.Quotation.ToTemplate.All</code></a> and <a href="./quotation/theories/ToPCUIC/All.v"><code class="language-plaintext highlighter-rouge">MetaRocq.Quotation.ToPCUIC.All</code></a>.</p>
+
+<p>See the Quotation <a href="https://github.com/MetaRocq/metarocq/blob/-/quotation/theories/README.md">README</a> for a more detailed view of the development.</p>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+  <li>
+    <p>An example Rocq plugin built on the Template Monad, which can be used to
+add a constructor to any inductive type is in <a href="https://github.com/MetaRocq/metarocq/blob/-/examples/add_constructor.v">examples/add_constructor.v</a></p>
+  </li>
+  <li>
+    <p>An example <em>extracted</em> Rocq plugin built on the extractable Template Monad, which can be used to
+derive lenses associated to a record type is in <a href="https://github.com/MetaRocq/metarocq/blob/-/test-suite/plugin-demo">test-suite/plugin-demo</a>. The plugin runs in OCaml and is a template for writing extracted plugins.</p>
+  </li>
+  <li>
+    <p>An example <code class="language-plaintext highlighter-rouge">constructor</code> tactic written using the Template Monad is in <a href="https://github.com/MetaRocq/metarocq/blob/-/examples/constructor_tac.v">examples/constructor_tac.v</a>,
+and a more elaborate verified tautology checker is in <a href="https://github.com/MetaRocq/metarocq/blob/-/examples/tauto.v">examples/tauto.v</a>.</p>
+  </li>
+  <li>
+    <p>The test-suite files <a href="https://github.com/MetaRocq/metarocq/blob/-/test-suite/erasure_test.v">test-suite/erasure_test.v</a>
+and <a href="https://github.com/MetaRocq/metarocq/blob/-/test-suite/safechecker_test.v">test-suite/safechecker_test.v</a> show example
+uses (and current limitations of) the extracted verified checker and erasure.</p>
+  </li>
+  <li>
+    <p>The <a href="https://github.com/MetaRocq/metarocq/blob/-/test-suite/self_erasure.v">test-suite/self_erasure.v</a> file checks that erasure
+works on the verified typechecking and erasure programs themselves.</p>
+  </li>
+  <li>
+    <p>The test-suite file <a href="https://github.com/MetaRocq/metarocq/blob/-/test-suite/erasure_live_test.v">test-suite/erasure_live_test.v</a>
+shows uses of the verified erasure running <em>inside</em> Rocq.</p>
+  </li>
+</ul>
+
+<h2 id="papers">Papers</h2>
+
+<ul>
+  <li>
+    <p><a href="https://dl.acm.org/doi/10.1145/3706056">“Correct and Complete Type Checking and Certified Erasure for Coq, in Coq”</a> Matthieu Sozeau, Yannick Forster, Meven Lennon-Bertrand, Nicolas Tabareau and Théo Winterhalter. Journal of the ACM, Volume 72, Issue 1. January 2025.</p>
+
+    <p>This paper presents the whole metatheoretical development of PCUIC and verified typechecking and erasure, as of version 1.2 of MetaRocq.</p>
+  </li>
+  <li>
+    <p><a href="https://dl.acm.org/doi/10.1145/3656379">“Verified Extraction from Coq to OCaml</a> Yannick Forster, Matthieu Sozeau and Nicolas Tabareau. PACMPL, Volume 8, Issue PLDI. June 2024. Distinguished Paper Award.</p>
+
+    <p>This presents our <a href="https://github.com/yforster/coq-verified-extraction">verified extraction</a> pipeline from Coq to OCaml/Malfunction.</p>
+  </li>
+  <li>
+    <p><a href="https://sozeau.gitlabpages.inria.fr/www/research/publications/The_Curious_Case_of_Case-WITS22-220122.pdf">“The Curious Case of Case”</a> Matthieu Sozeau, Meven Lennon-Bertrand and Yannick Forster. WITS 2022 presentation, Philadelphia.
+This presents the challenges around the representation of cases in Coq and PCUIC.</p>
+  </li>
+  <li>
+    <p><a href="https://www.meven.ac/category/phd-thesis.html">“Bidirectional Typing for the Calculus of Inductive Constructions”</a> Meven Lennon-Bertrand, PhD thesis, June 2022.
+Part 2 describes in detail the bidirectional variant of typing and its use to verify correctness and completeness of the type checker.</p>
+  </li>
+  <li>
+    <p><a href="https://metarocq.github.io/coqcoqcorrect">“Coq Coq Correct! Verification of Type Checking and Erasure for Coq, in Coq”</a>
+Matthieu Sozeau, Simon Boulier, Yannick Forster, Nicolas Tabareau
+and Théo Winterhalter. POPL 2020, New Orleans.</p>
+
+    <p>This paper presented the formal proofs of soundness of conversion, type checking and erasure.
+Now superseded by the April 2023 article above.</p>
+  </li>
+  <li>
+    <p><a href="https://theowinterhalter.github.io/#phd">“Formalization and meta-theory of type theory”</a> Théo Winterhalter, PhD thesis, September 2020.
+Part 3 describes in detail the verified reduction, conversion and type checker.</p>
+  </li>
+  <li>
+    <p><a href="https://sozeau.gitlabpages.inria.fr/www/research/publications/Coq_Coq_Codet-CoqWS19.pdf">“Coq Coq Codet! Towards a Verified Toolchain for Coq in MetaCoq”</a>
+Matthieu Sozeau, Simon Boulier, Yannick Forster, Nicolas Tabareau and
+Théo Winterhalter. Abstract and
+<a href="http://www.ps.uni-saarland.de/~forster/downloads/slides-coqws19.pdf">presentation</a>
+given at the <a href="https://staff.aist.go.jp/reynald.affeldt/coq2019/">Coq Workshop
+2019</a>, September
+2019.</p>
+  </li>
+  <li>
+    <p><a href="https://sozeau.gitlabpages.inria.fr/www/research/publications/drafts/The_MetaCoq_Project.pdf">“The MetaCoq Project”</a>
+Matthieu Sozeau, Abhishek Anand, Simon Boulier, Cyril Cohen, Yannick Forster, Fabian Kunze,
+Gregory Malecha, Nicolas Tabareau and Théo Winterhalter. JAR, February 2020.
+Extended version of the ITP 2018 paper.</p>
+
+    <p>This includes a full documentation of the Template Monad and the typing rules of PCUIC.</p>
+  </li>
+  <li>
+    <p><a href="https://www.ps.uni-saarland.de/Publications/documents/ForsterKunze_2019_Certifying-extraction.pdf">A certifying extraction with time bounds from Coq to call-by-value λ-calculus</a>.
+Yannick Forster and Fabian Kunze.
+ITP 2019.
+<a href="https://github.com/uds-psl/certifying-extraction-with-time-bounds/blob/master/Tactics/Extract.v">Example</a></p>
+  </li>
+  <li>
+    <p><a href="https://hal.archives-ouvertes.fr/hal-01809681/document">“Towards Certified Meta-Programming with Typed Template-Coq”</a>
+Abhishek Anand, Simon Boulier, Cyril Cohen, Matthieu Sozeau and Nicolas Tabareau.
+ITP 2018.</p>
+  </li>
+  <li>
+    <p>The system was presented at <a href="https://popl18.sigplan.org/event/coqpl-2018-typed-template-coq">Coq’PL 2018</a></p>
+  </li>
+</ul>
+
+<h2 id="related-projects">Related Projects</h2>
+
+<ul>
+  <li>
+    <p>The <a href="https://github.com/CertiCoq/certicoq">CertiCoq</a> project develops a certified compiler from the output of verified erasure down
+to CompCert C-light. It provides in particular OCaml and fully foundationally verified plugins
+for the whole compilation pipeline from Gallina to Clight and the verified type-checker of MetaRocq.</p>
+  </li>
+  <li>
+    <p>The <a href="https://github.com/AU-COBRA/ConCert">ConCert</a> project develops certified or certifying compilers from Gallina to smart contract languages (Liquidity and
+CameLIGO), the functional language Elm, and a subset of the Rust programming languages. It uses the typed erasure variant to
+gather more type information about erased terms and perform optimizations based on this information.
+The project focuses in particular on the verification and safe extraction of smart contracts for blockchains.</p>
+  </li>
+</ul>
+
+<h2 id="team--credits">Team &amp; Credits</h2>
+
+<p align="center">
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/abhishek-anand.jpg" alt="Abhishek Anand" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/danil-annenkov.jpeg" alt="Danil Annenkov" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/simon-boulier.jpg" alt="Simon Boulier" width="150px" /><br />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/cyril-cohen.png" alt="Cyril Cohen" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/yannick-forster.jpg" alt="Yannick Forster" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/jason-gross.jpg" alt="Jason Gross" width="150px" /><br />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/meven-lennon-bertrand.jpeg" alt="Meven Lennon-Bertrand" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/kenji-maillard.jpg" alt="Kenji Maillard" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/gregory-malecha.jpg" alt="Gregory Malecha" width="150px" /><br />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/jakob-botsch-nielsen.png" alt="Jakob Botsch Nielsen" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/matthieu-sozeau.png" alt="Matthieu Sozeau" width="150px" />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/nicolas-tabareau.jpg" alt="Nicolas Tabareau" width="150px" /><br />
+<img src="https://github.com/MetaRocq/metarocq.github.io/raw/master/assets/theo-winterhalter.jpg" alt="Théo Winterhalter" width="150px" />
+<br />
+
+
+MetaRocq is developed by (left to right)
+<a href="https://github.com/aa755">Abhishek Anand</a>,
+<a href="https://github.com/annenkov">Danil Annenkov</a>,
+<a href="https://github.com/SimonBoulier">Simon Boulier</a>,
+<a href="https://github.com/CohenCyril">Cyril Cohen</a>,
+<a href="https://github.com/yforster">Yannick Forster</a>,
+<a href="https://jasongross.github.io">Jason Gross</a>,
+<a href="https://www.meven.ac">Meven Lennon-Bertrand</a>,
+<a href="https://github.com/kyoDralliam">Kenji Maillard</a>,
+<a href="https://github.com/gmalecha">Gregory Malecha</a>,
+<a href="https://github.com/jakobbotsch">Jakob Botsch Nielsen</a>,
+<a href="https://github.com/mattam82">Matthieu Sozeau</a>,
+<a href="https://github.com/Tabareau">Nicolas Tabareau</a> and
+<a href="https://github.com/TheoWinterhalter">Théo Winterhalter</a>.
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Copyright (c) 2014-2023 Gregory Malecha
+Copyright (c) 2015-2025 Abhishek Anand, Matthieu Sozeau
+Copyright (c) 2017-2023 Simon Boulier, Cyril Cohen
+Copyright (c) 2017-2025 Nicolas Tabareau, Yannick Forster, Théo Winterhalter
+Copyright (c) 2018-2023 Danil Annenkov
+Copyright (c) 2020-2023 Jakob Botsch Nielsen, Meven Lennon-Bertrand
+Copyright (c) 2022-2025 Kenji Maillard
+Copyright (c) 2023      Jason Gross
+</code></pre></div></div>
+
+<p>This software is distributed under the terms of the MIT license.
+See <a href="https://github.com/MetaRocq/metarocq/blob/-/LICENSE">LICENSE</a> for details.</p>
+
+<h2 id="bugs">Bugs</h2>
+
+<p>Please report any bugs or feature requests on the github <a href="https://github.com/MetaRocq/metarocq/issues">issue tracker</a>.</p>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

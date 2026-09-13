@@ -1,0 +1,49 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-059-EVIDENCE-QUEUE-BATCH2",
+  "review_kind": "evidence_queue_stratified_sample_batch2",
+  "mathematical_claim_added": false,
+  "claim_matrix_unchanged": true,
+  "sample": {
+    "batch": 2,
+    "strata": {
+      "C": 10,
+      "meta": 10,
+      "A": 15,
+      "B": 15
+    },
+    "sample_size": 50,
+    "verdicts": {
+      "SUPPORTED": 30,
+      "SUPERSEDED_BY_MACHINE_RESULT": 5,
+      "UNSUPPORTED": 0,
+      "PENDING": 15
+    },
+    "cumulative": {
+      "sampled": 90,
+      "SUPPORTED": 43,
+      "SUPERSEDED_BY_MACHINE_RESULT": 12,
+      "UNSUPPORTED": 0,
+      "PENDING": 35
+    },
+    "e6_found": false,
+    "drift_finding": {
+      "issue": "A-CLAIM-LEDGER-DRIFT-001",
+      "claims": [
+        "CL-001835",
+        "CL-001876"
+      ],
+      "reason": "generation-2 text in snapshot ledger vs updated owner document"
+    }
+  },
+  "stale_source_hash_repair": {
+    "observed": 0,
+    "unexpected_remainder": 0
+  },
+  "evidence": {
+    "report": "audit/understanding-claims-sampling-batch2-20260912.md",
+    "sample": "audit/understanding-claim-sample-batch2-20260912.json",
+    "script": "scripts/audit/sample_understanding_claims_batch2.py"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic and negative tests for generation-3 core curation."""
+"""Deterministic and negative tests for generation-4 core curation."""
 from __future__ import annotations
 
 import copy
@@ -20,14 +20,19 @@ SPEC.loader.exec_module(B)
 class CoreCognitionTests(unittest.TestCase):
     def setUp(self) -> None:
         self.curation = json.loads((ROOT / B.DEFAULT_CURATION).read_text(encoding="utf-8"))
+        self.effective_curation, _ = B.load_curation(ROOT, B.DEFAULT_CURATION)
 
     def temp_root(self, curation: dict | None = None) -> tuple[tempfile.TemporaryDirectory, Path]:
-        temp = tempfile.TemporaryDirectory(prefix="core-cognition-v3-")
+        temp = tempfile.TemporaryDirectory(prefix="core-cognition-v4-")
         root = Path(temp.name)
-        for source in self.curation["sources"]:
+        for source in self.effective_curation["sources"]:
             target = root / source["path"]
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / source["path"]).read_bytes())
+        inherited = self.curation["inherits"]["path"]
+        inherited_target = root / inherited
+        inherited_target.parent.mkdir(parents=True, exist_ok=True)
+        inherited_target.write_bytes((ROOT / inherited).read_bytes())
         target = root / B.DEFAULT_CURATION
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(curation or self.curation, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -35,21 +40,21 @@ class CoreCognitionTests(unittest.TestCase):
 
     def test_actual_generation_has_complete_small_denominator(self) -> None:
         manifest, core, manifest_bytes, units = B.build(ROOT)
-        self.assertEqual(manifest["generation"], "core-cognition-generation-3")
-        self.assertEqual(manifest["counts"]["messages_parsed"], 88)
-        self.assertEqual(manifest["counts"]["messages_included"], 23)
-        self.assertEqual(manifest["counts"]["core_units"], 27)
-        self.assertEqual(manifest["counts"]["units_by_platform"], {"Gemini": 13, "LocalGPT": 6, "WebGPT": 8})
+        self.assertEqual(manifest["generation"], "core-cognition-generation-4")
+        self.assertEqual(manifest["counts"]["messages_parsed"], 89)
+        self.assertEqual(manifest["counts"]["messages_included"], 24)
+        self.assertEqual(manifest["counts"]["core_units"], 36)
+        self.assertEqual(manifest["counts"]["units_by_platform"], {"Codex": 9, "Gemini": 13, "LocalGPT": 6, "WebGPT": 8})
         self.assertLess(len(core.encode("utf-8")), 100_000)
         self.assertEqual(B.json_bytes(manifest), manifest_bytes)
-        self.assertEqual(len(units), 27)
+        self.assertEqual(len(units), 36)
 
     def test_output_is_deterministic_and_chronological(self) -> None:
         first = B.build(ROOT)
         second = B.build(ROOT)
         self.assertEqual(first[:3], second[:3])
         rows = first[0]["units"]
-        self.assertEqual([row["id"] for row in rows], [f"KC-{i:06d}" for i in range(1, 28)])
+        self.assertEqual([row["id"] for row in rows], [f"KC-{i:06d}" for i in range(1, 37)])
         self.assertEqual([row["timestamp_utc"] for row in rows], sorted(row["timestamp_utc"] for row in rows))
 
     def test_every_payload_is_direct_user_text(self) -> None:
@@ -94,13 +99,14 @@ class CoreCognitionTests(unittest.TestCase):
         finally:
             temp.cleanup()
 
-    def test_generation_transition_covers_all_913_old_ids(self) -> None:
+    def test_generation_transition_preserves_all_previous_ids(self) -> None:
         manifest, _, _, units = B.build(ROOT)
-        transition = B.build_transition(ROOT, "governance-v2.1.0", manifest, units)
-        self.assertEqual(transition["mapping_count"], 913)
+        transition = B.build_transition(ROOT, "governance-v3.0.0", manifest, units)
+        self.assertEqual(transition["mapping_count"], 27)
         self.assertEqual(transition["mapping_remainder"], 0)
-        self.assertEqual(len({row["old_id"] for row in transition["mappings"]}), 913)
-        self.assertTrue({"CURATED_EXACT_SUBRANGE", "EXCLUDED_NON_PRIMARY_INPUT"} <= set(transition["relation_counts"]))
+        self.assertEqual(len({row["old_id"] for row in transition["mappings"]}), 27)
+        self.assertEqual(transition["relation_counts"], {"PRESERVED_EXACT": 27})
+        self.assertEqual(transition["status"], "COMPLETE_ADDITIVE_PRESERVING")
 
 
 if __name__ == "__main__":

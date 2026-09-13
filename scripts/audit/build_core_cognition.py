@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Build the current core cognition from an explicit human curation.
 
-Generation 3 returns to the user's original contract: only exact user-authored
-paradox/metamathematical text from the three named primary extracts enters the
-current core. The command is read-only by default. ``--write`` takes an
-exclusive lock, uses atomic replacement, and rolls back Python-level failures.
-A crash remains fail-closed through the residual lock/hash validator and the
-pre-migration Git tag provides durable rollback.
+Generation 4 preserves the three historical primary extracts and permits
+hash-pinned, direct-user additions through an incremental curation authority.
+The command is read-only by default. ``--write`` takes an exclusive lock, uses
+atomic replacement, and rolls back Python-level failures. A crash remains
+fail-closed through the residual lock/hash validator; the previous-generation
+Git ref provides durable rollback.
 """
 from __future__ import annotations
 
@@ -24,14 +24,14 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_CURATION = Path("scripts/audit/core-cognition-curation-v3.json")
+DEFAULT_CURATION = Path("scripts/audit/core-cognition-curation-v4.json")
 DEFAULT_CORE = Path("核心认知.md")
 DEFAULT_MANIFEST = Path("核心认知.manifest.json")
-DEFAULT_TRANSITION = Path("audit/core-cognition-generation-3-transition-20260912.json")
+DEFAULT_TRANSITION = Path("audit/core-cognition-generation-4-transition-20260912.json")
 LOCK = Path(".codex/cognition/CORE_COGNITION_BUILD.lock")
 HEADER_RE = re.compile(r"^##\s+\[(\d+)\]\s+(.+?)\s*$")
 GENERATION_RE = re.compile(r"^core-cognition-generation-[0-9]+$")
-MESSAGE_ID_RE = re.compile(r"^(LOCALGPT|WEBGPT|GEMINI)-M-[0-9]{3}$")
+MESSAGE_ID_RE = re.compile(r"^[A-Z][A-Z0-9-]*-M-[0-9]{3}$")
 KC_RE = re.compile(r"^KC-[0-9]{6}$")
 
 THEME_PATTERNS: list[tuple[str, str]] = [
@@ -52,6 +52,9 @@ THEME_PATTERNS: list[tuple[str, str]] = [
     ("EVIDENCE_DISCIPLINE", r"证据|核验|验证|机器证明|Lean|Agda|运行过"),
     ("RESEARCH_METHOD", r"怎么找|凭什么|研究方法|策略|线索|模式匹配|探索"),
     ("SELF_REFERENCE", r"自指|自身|哥德尔|反射"),
+    ("SELF_VALIDATION", r"真理性验证|验证所有程序|自我.?ASK|反射自身|自馈"),
+    ("THEORY_ECONOMY", r"理论的经济|理论经济|工具性|思维工具|好用性|理论的成本"),
+    ("EXISTENCE_NEGATION_DUALITY", r"存在性|不存在性|否定性的存在性|不存在时序"),
     ("ANTI_TRAINING_PRIOR", r"训练数据|训练语料|认知惯性|路径依赖|math philosophy"),
 ]
 
@@ -95,8 +98,11 @@ def parse_timestamp(header: str, platform: str) -> tuple[str, str, str]:
 
 def parse_source(root: Path, source: dict[str, object]) -> tuple[dict[str, object], list[dict[str, object]], list[str]]:
     platform, rel, expected_sha = source.get("platform"), source.get("path"), source.get("sha256")
-    if platform not in {"LocalGPT", "WebGPT", "Gemini"} or not isinstance(rel, str):
+    if platform not in {"LocalGPT", "WebGPT", "Gemini", "Codex"} or not isinstance(rel, str):
         raise CoreBuildError("CURATION_SOURCE_IDENTITY_INVALID")
+    message_prefix = source.get("message_id_prefix", str(platform).upper())
+    if not isinstance(message_prefix, str) or not re.fullmatch(r"[A-Z][A-Z0-9-]*", message_prefix):
+        raise CoreBuildError("CURATION_SOURCE_MESSAGE_PREFIX_INVALID")
     path = root / rel
     data = path.read_bytes()
     actual_sha = sha256(data)
@@ -120,7 +126,7 @@ def parse_source(root: Path, source: dict[str, object]) -> tuple[dict[str, objec
         raw_message = re.sub(r"\A\s*\n", "", raw_message)
         raw_message = re.sub(r"\n\s*\Z", "", raw_message)
         records.append({
-            "source_message_id": f"{str(platform).upper()}-M-{record_index:03d}",
+            "source_message_id": f"{message_prefix}-M-{record_index:03d}",
             "platform": platform,
             "source_file": rel,
             "source_file_sha256": actual_sha,
@@ -214,25 +220,61 @@ def fenced_payload(text: str) -> str:
     return f"{marker}text\n{text}\n{marker}"
 
 
-def load_curation(root: Path, rel: Path) -> tuple[dict[str, object], bytes]:
+def load_curation(root: Path, rel: Path, seen: set[Path] | None = None) -> tuple[dict[str, object], bytes]:
     path = root / rel
     data = path.read_bytes()
     value = read_json(path)
-    if value.get("schema_version") != "core-cognition-curation/v1":
+    schema = value.get("schema_version")
+    if schema not in {"core-cognition-curation/v1", "core-cognition-curation/v2"}:
         raise CoreBuildError("CURATION_SCHEMA_INVALID")
     generation = value.get("generation")
     if not isinstance(generation, str) or not GENERATION_RE.fullmatch(generation):
         raise CoreBuildError("CURATION_GENERATION_INVALID")
     if value.get("asset_class") != "HUMAN_EDITED_CURATION_AUTHORITY":
         raise CoreBuildError("CURATION_ASSET_CLASS_INVALID")
-    return value, data
+    if schema == "core-cognition-curation/v1":
+        return value, data
+
+    seen = set() if seen is None else set(seen)
+    resolved = rel.as_posix()
+    if rel in seen:
+        raise CoreBuildError(f"CURATION_INHERITANCE_CYCLE:{resolved}")
+    seen.add(rel)
+    inherited = value.get("inherits")
+    if not isinstance(inherited, dict):
+        raise CoreBuildError("CURATION_INHERITS_REQUIRED")
+    parent_rel, parent_sha = inherited.get("path"), inherited.get("sha256")
+    if not isinstance(parent_rel, str) or not isinstance(parent_sha, str):
+        raise CoreBuildError("CURATION_INHERITS_IDENTITY_INVALID")
+    parent_path = Path(parent_rel)
+    parent_bytes = (root / parent_path).read_bytes()
+    if sha256(parent_bytes) != parent_sha:
+        raise CoreBuildError(f"CURATION_PARENT_HASH_MISMATCH:{parent_rel}")
+    parent, _ = load_curation(root, parent_path, seen)
+    if inherited.get("generation") != parent.get("generation"):
+        raise CoreBuildError("CURATION_PARENT_GENERATION_MISMATCH")
+    merged = dict(parent)
+    for key in ("generation", "previous_generation_ref", "scope"):
+        merged[key] = value.get(key)
+    for key in ("sources", "message_decisions", "units"):
+        additions = value.get(key, [])
+        if not isinstance(additions, list):
+            raise CoreBuildError(f"CURATION_INCREMENT_INVALID:{key}")
+        merged[key] = list(parent.get(key, [])) + additions
+    merged["schema_version"] = schema
+    merged["inherits"] = inherited
+    merged["curation_lineage"] = [
+        {"path": parent_rel, "sha256": parent_sha, "generation": parent.get("generation")},
+        {"path": rel.as_posix(), "sha256": sha256(data), "generation": value.get("generation")},
+    ]
+    return merged, data
 
 
 def build(root: Path, curation_rel: Path = DEFAULT_CURATION) -> tuple[dict[str, object], str, bytes, list[dict[str, object]]]:
     curation, curation_bytes = load_curation(root, curation_rel)
     source_specs = curation.get("sources")
-    if not isinstance(source_specs, list) or len(source_specs) != 3:
-        raise CoreBuildError("EXACTLY_THREE_PRIMARY_SOURCES_REQUIRED")
+    if not isinstance(source_specs, list) or len(source_specs) < 3:
+        raise CoreBuildError("AT_LEAST_THREE_PRIMARY_SOURCES_REQUIRED")
     file_rows: list[dict[str, object]] = []
     records: list[dict[str, object]] = []
     lines_by_file: dict[str, list[str]] = {}
@@ -311,7 +353,7 @@ def build(root: Path, curation_rel: Path = DEFAULT_CURATION) -> tuple[dict[str, 
         if (decision["disposition"] == "INCLUDED") != (unit_counts[message_id] > 0):
             raise CoreBuildError(f"MESSAGE_UNIT_DISPOSITION_MISMATCH:{message_id}")
 
-    platform_rank = {"LocalGPT": 0, "WebGPT": 1, "Gemini": 2}
+    platform_rank = {"LocalGPT": 0, "WebGPT": 1, "Gemini": 2, "Codex": 3}
     provisional.sort(key=lambda row: (
         row["timestamp_utc"], platform_rank[str(row["platform"])],
         int(row["source_message_ordinal"]), int(row["curation_order"])
@@ -370,6 +412,10 @@ def build(root: Path, curation_rel: Path = DEFAULT_CURATION) -> tuple[dict[str, 
             "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
             "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York",
             "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
+            "curation_lineage": curation.get("curation_lineage", [
+                {"path": curation_rel.as_posix(), "sha256": sha256(curation_bytes),
+                 "generation": curation.get("generation")}
+            ]),
         },
         "files": file_rows,
         "message_disposition": dispositions,
@@ -388,12 +434,12 @@ def build(root: Path, curation_rel: Path = DEFAULT_CURATION) -> tuple[dict[str, 
     lines = [
         "# 核心认知", "",
         f"> 当前逻辑文档：`{curation['generation']}`；Schema：`core-cognition/v2`；共 `{len(units)}` 个按时间编号的用户原文语义单元。",
-        "> 本文只保留三份用户指定 primary 提取中，用户本人关于悖论、HoTT 悖论挖掘、元数学及其直接研究方法的原文；不含 AI 回信、附件正文、一般治理操作或重复的继续指令。",
+        "> 本文保留三份用户指定的历史 primary 提取，以及之后按哈希显式登记的一手用户输入中，用户本人关于悖论、HoTT 悖论挖掘、元数学及其直接研究方法的原文；不含 AI 回信、附件正文、一般治理操作或重复的继续指令。",
         "> 每个新 Session 与每次上下文压缩恢复后，都必须从第 1 行连续读到 EOF。`核心认知.manifest.json` 只负责来源、处置和哈希审计，不能替代本文正文。",
         "", "## 0. 解释与证据边界", "",
         "这些文字是用户为突破模型训练先验、认知惯性和路径依赖而设计的上下文输入；它们决定研究问题意识，但不会因进入本文就自动成为已经证明的数学定理或物理事实。研究仍须分别核对 HoTT 规则、合法推演、计算/证明工具、现实解释和证据范围。",
         "",
-        "本代从 `governance-v2.1.0` 所保存的 generation-2 重建，而不是在 913 个机械分段上继续追加。旧 core、supplemental、转发 AI 内容及逐 KC 审计完整保留在 Git、来源和 generation transition receipt 中；退出当前全文输入不等于删除历史。",
+        f"本代从 `{curation.get('previous_generation_ref')}` 所保存的上一代继承并按显式 curation 构建。上一代 core、旧 supplemental、转发 AI 内容及逐 KC 审计继续保留在 Git、来源和 generation transition receipt 中；退出当前全文输入不等于删除历史。",
         "", "## 1. 按时间顺序的用户核心认知原文", "",
     ]
     for row in units:
@@ -475,9 +521,9 @@ def build_transition(root: Path, previous_ref: str, new_manifest: dict[str, obje
             raise CoreBuildError(f"PREVIOUS_GENERATION_ID_INVALID:{old_id}")
         payload, message_id = old_payloads[old_id], str(old.get("source_message_id"))
         targets: list[str] = []
-        if old.get("input_role") != "primary" or message_id not in decisions:
+        if old.get("input_role") not in {None, "primary"} or message_id not in decisions:
             relation = "EXCLUDED_NON_PRIMARY_INPUT"
-            reason = "Generation 3 uses only the three user-named primary extracts; supplemental/governance inputs remain historical."
+            reason = "The current generation uses only hash-pinned direct-user inputs registered by its curation lineage; other inputs remain historical."
         elif old.get("author_class") == "USER_RELAYED_CONTEXT":
             relation = "EXCLUDED_RELAYED_AI_CONTEXT"
             reason = "Relayed AI/annotation text remains in source history but is not direct user cognition."
@@ -510,9 +556,16 @@ def build_transition(root: Path, previous_ref: str, new_manifest: dict[str, obje
             "target_ids": targets,
             "reason": reason,
         })
+    reduction_relations = {
+        "EXCLUDED_NON_PRIMARY_INPUT", "EXCLUDED_RELAYED_AI_CONTEXT",
+        "EXCLUDED_BY_CURRENT_SCOPE", "EXCLUDED_NON_CORE_WITHIN_INCLUDED_MESSAGE",
+    }
+    status = ("COMPLETE_WITH_EXPLICIT_SCOPE_REDUCTION"
+              if reduction_relations & set(relation_counts)
+              else "COMPLETE_ADDITIVE_PRESERVING")
     return {
         "schema_version": "core-cognition-transition/v2",
-        "status": "COMPLETE_WITH_EXPLICIT_SCOPE_REDUCTION",
+        "status": status,
         "previous": {
             "ref": previous_ref, "generation": old_manifest.get("generation"),
             "schema_version": old_manifest.get("schema_version"),

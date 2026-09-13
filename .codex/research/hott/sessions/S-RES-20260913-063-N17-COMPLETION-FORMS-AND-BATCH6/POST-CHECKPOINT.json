@@ -1,0 +1,50 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-063-N17-COMPLETION-FORMS-AND-BATCH6",
+  "state_revision": 63,
+  "checkpoint_applied": true,
+  "checkpoint_completed_at_utc": "2026-09-13T05:29:45.470361+00:00",
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 63, "negative_cases": 4},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 63, "merge_entries": 35, "reconciliation_entries": 22226},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 60, "core_units": 36},
+    "core_cognition": {"status": "PASS_WITH_SCOPE", "transition_remainder": 0},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"},
+    "understanding_merge": {"status": "PASS", "union_files": 35, "different_pairs": 9},
+    "history_ledgers": {"status": "PASS", "user_messages": 125, "claims": 2396},
+    "cross_source_reconciliation": {"status": "PASS", "total_register_entries": 22226}
+  },
+  "tests": {
+    "cognition_runtime": "28/28 OK",
+    "full_closure_loading": "17/17 OK",
+    "three_way": "4/4 OK",
+    "core": "7/7 OK",
+    "math_proof_delivery_governance": "4/4 OK"
+  },
+  "formal_extension": {
+    "proof_id": "MP-TRUNC-NORECOVERY-001",
+    "new_claims": ["C-139", "C-140"],
+    "run_id": "20260913-MP-TRUNC-NORECOVERY-001-02",
+    "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+    "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+    "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "exit_code": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "matrix_claims_total": "C-134–C-140",
+    "index_row_manifest_rows": 8
+  },
+  "batch6": {
+    "sampled": 40,
+    "verdicts": {"SUPPORTED": 27, "SUPERSEDED_BY_MACHINE_RESULT": 0, "UNSUPPORTED": 0, "PENDING": 13},
+    "cumulative": {"sampled": 242, "coverage": "10.1%", "SUPPORTED": 149, "SUPERSEDED": 12, "UNSUPPORTED": 0, "PENDING": 81},
+    "e6_found": false
+  },
+  "boundaries": {
+    "model_understanding": "NOT_CERTIFIED",
+    "mathematics": "NOT_CERTIFIED",
+    "git_commit": "NOT_AUTHORIZED_THIS_TURN",
+    "same_family_as_C135_C136": true,
+    "understanding_chapters_unchanged": true
+  }
+}

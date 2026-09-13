@@ -4,6 +4,8 @@
 验证日期：2026-08-31；补充验证：2026-09-01
 验证主机：macOS arm64；另用 Docker `linux/amd64` 对齐上游 Agda CI 二进制
 
+> 本文件是 `MATH_PROOF_BEFORE_DELIVERY_V1` 生效前形成的 aggregate receipt，保留其历史验证范围，不伪装为新规范要求的逐 run package。此后作为数学结论交付依据的新运行必须保存到 `verification/runs/<run-id>/`，并由 `../CLAIM_EVIDENCE_MATRIX.md` 索引；旧 `exit 0` 若要支持新的当前交付，须按新合同重放并留存。
+
 ## 1. 交接包静态完整性
 
 | 检查 | 结果 | 边界 |

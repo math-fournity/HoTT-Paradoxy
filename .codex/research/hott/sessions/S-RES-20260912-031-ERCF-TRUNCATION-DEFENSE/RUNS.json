@@ -1,0 +1,47 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE",
+  "proof": {
+    "proof_id": "MP-ERCF-TRUNC-001",
+    "claim_ids": [
+      "C-67",
+      "C-68",
+      "C-69",
+      "C-70"
+    ],
+    "source_sha256": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+    "run_sha256": "cf42ef44c1674b6607e992ca9911ac0f0ddb9d63ea9ad62c4cbd4efefcf35376",
+    "index_sha256": "821660749c3a3e13659e0b34753e050f62a9aac4d82db3e4c60fa9ddd08f395b",
+    "kernel": "Agda 2.8.0/Cubical v0.9 exit 0",
+    "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "classification": "DEFENSE_WORKS",
+    "status": "MACHINE_PROVED_LOCAL_UNCOMMITTED"
+  },
+  "toolchain": {
+    "agda_asset_sha256": "9a35071eb9747f984177f48e1ba7008a9cebccfc259a40a0a84b29ffc2ec2db6",
+    "cubical_asset_sha256": "003f9c57c134e4a9401a4b339b3773be667aa169ff929ca3dfb9c8abefc225c5",
+    "cubical_tag_commit": "b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+    "external_cache": "/Volumes/D/HoTT-toolchain-cache"
+  },
+  "preflight_failures": [
+    "source path invocation",
+    "library flags not applied",
+    "mixed global-option XDG cache",
+    "missing infective guardedness"
+  ],
+  "index_evolution": {
+    "old_lean": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+    "native": "EXACT_INDEX_SNAPSHOT_MATCH"
+  },
+  "post_checkpoint_required": [
+    "native and Lean exact replay",
+    "36/36 KC audit",
+    "27 directions/29 outcomes",
+    "fresh revision 31",
+    "projection freshness",
+    "source/merge manifests",
+    "full regression",
+    "git diff --check"
+  ],
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

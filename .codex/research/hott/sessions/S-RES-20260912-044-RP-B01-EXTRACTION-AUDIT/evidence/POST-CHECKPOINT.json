@@ -1,0 +1,129 @@
+{
+  "schema_version": "rp-b01-extraction-audit-post-evidence/v1",
+  "captured_at_utc": "2026-09-13T01:23:29+00:00",
+  "session_id": "S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT",
+  "state_revision": 44,
+  "latest_session": "S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT",
+  "head_revision": 44,
+  "post_checks": [
+    {
+      "name": "fresh-three-way-regeneration",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "revision": 44,
+        "governance_documents": 15,
+        "research_documents": 20,
+        "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+      }
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "state_revision": 44,
+        "core_units": 36,
+        "merge_entries": 30,
+        "fresh_receipt_revision": 44,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "state_revision": 44,
+        "direction_count": 27,
+        "outcome_count": 40,
+        "core_units_declared": 36
+      }
+    },
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "core_units": 36,
+        "generation": "core-cognition-generation-4",
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"
+      }
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "understanding-merge",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "union_files": 30,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 15,
+        "unresolved_nontrivial": 0
+      }
+    }
+  ],
+  "test_suites": [
+    {"name": "cognition-runtime", "tests": 28, "status": "OK"},
+    {"name": "full-closure-loading-reader", "tests": 17, "status": "OK"},
+    {"name": "three-way-cognition", "tests": 4, "status": "OK"},
+    {"name": "core-cognition", "tests": 7, "status": "OK"},
+    {"name": "math-proof-delivery-governance", "tests": 4, "status": "OK"}
+  ],
+  "source_verifiers": [
+    {"name": "history-ledgers", "status": "PASS"},
+    {"name": "cross-source-reconciliation", "status": "PASS"}
+  ],
+  "interface_runs": [
+    {
+      "name": "agda-type-check",
+      "exit_code": 0,
+      "ok": true,
+      "detail": "Agda 2.8.0-3d04bac accepted the LEM classifier and the positive controls."
+    },
+    {
+      "name": "agda-malzano-compile",
+      "exit_code": 42,
+      "ok": true,
+      "detail": "MAlonzo generated LemClassifier.hs with d_lem_32 = error \"MAlonzo Runtime Error: postulate evaluated: LemClassifier.lem\"; the final GHC step is NOT_AVAILABLE on this host, which does not change the generated-code evidence."
+    },
+    {
+      "name": "lean-eval",
+      "exit_code": 1,
+      "ok": true,
+      "detail": "Lean 4.33.1: #eval haltWithin 5 printed true; #eval chi True and #eval! chi True both failed with error(lean.dependsOnNoncomputable)."
+    },
+    {
+      "name": "coq-extraction",
+      "status": "NOT_AVAILABLE",
+      "detail": "coqtop/coqc/rocq/rocqtop are not on PATH."
+    },
+    {
+      "name": "ghc-backend",
+      "status": "NOT_AVAILABLE",
+      "detail": "ghc is not on PATH."
+    }
+  ],
+  "proof_replays": {
+    "status": "NOT_RERUN_IN_S044_NO_PROOF_SOURCE_OR_CLAIM_MATRIX_CHANGE",
+    "claim_matrix_sha256": "f493cfe6e6bcb7391269f65c9230e693921c5e2476dc7777e71b110259f3b0f6",
+    "note": "S044 changes no proof source, run or claim matrix row; the S041 post-check replays remain authoritative for the unchanged hashes."
+  },
+  "write_lock_present": false,
+  "transaction_present": false,
+  "failures": [],
+  "status": "PASS"
+}
