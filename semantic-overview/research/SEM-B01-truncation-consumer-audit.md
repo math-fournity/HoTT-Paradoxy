@@ -152,7 +152,9 @@ is-truncation-trunc
 | 截断运行探针 | `SemB01TruncatedRuntime.agda` | typecheck 0；JS 生成 0；Node 1 | 加载 `unit-trunc-Prop` 时出现 `unit-trunc is not a function`；没有返回错误 Bool |
 | GHC 路径 | `SemB01Kernel.agda --compile --ghc-dont-call-ghc` | 源码生成 0；未执行 | 生成源码对四个 postulate 都写入 `MAlonzo Runtime Error: postulate evaluated`；本机无 GHC |
 
-JS 生成物把四项明确导出为 `undefined`；GHC 生成物保留四条明确的 postulate-evaluated 错误。直接正控排除了 Node、JS 后端和库 Bool 本身不可用这一解释。判断相等负例与运行失败共同表明：kernel 中的命题计算律不能被当作本实现的判断相等或后端程序计算律。
+JS 生成物把四项明确导出为 `undefined`；GHC 生成物保留四条明确的 postulate-evaluated 错误。直接正控确认 Node/JS 能执行生成的 main 并调用 Bool FFI；判断相等负例与运行失败共同表明：kernel 中的命题计算律不能被当作本实现的判断相等或后端程序计算律。
+
+**B02 后续校验修正正控边界**：B01 的 `printBool` FFI 使用 JavaScript truthiness，而 agda-unimath 的 Bool 构造子在生成代码中是 Scott 编码函数。B01 的输入固定为 `true`，所以输出 `TRUE` 与该输入一致，但这个正控不能证明 FFI 能区分两个构造子。B02 改用构造子消去式 FFI，并让显式 `false` 分支实际输出 `FALSE`。该限制不影响 B01 截断探针在加载 `unit-trunc-Prop` 时的独立运行错误。
 
 完整多项式值没有被实际执行；运行探针用 `unit`、`bool` 和同一个 `map-universal-property-set-quotient-trunc-Prop` 隔离了截断消费者的执行边界。因此本轮支持的是“这个公理化截断接口在当前后端没有运行实现”，不外推到所有命题截断实现或所有 HoTT 工具链。
 

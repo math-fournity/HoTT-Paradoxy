@@ -1,0 +1,412 @@
+{
+  "schema_version": "semantic-overview-run/v1",
+  "run_id": "20260913-SEM-B02-FINITE-DECISION-001-01",
+  "started_at_utc": "2026-09-13T19:05:02.991164+00:00",
+  "completed_at_utc": "2026-09-13T19:06:51.531241+00:00",
+  "duration_seconds": 108.539002,
+  "status": "EXPECTED_BOUNDARY_OBSERVED",
+  "git": {
+    "branch": "codex/semantic-overview",
+    "head_before_run": "9d807c04f0f6ea9e0ac3ec5c657ce157d31b0074",
+    "state": "LOCAL_UNCOMMITTED_CANDIDATE"
+  },
+  "scope": "A fixed finite-type equality-decision chain: fresh kernel checking, propositional versus judgmental result, explicit decision runtime control, and natural `is-finite` theorem module under normal and optimized JS generation.",
+  "verdict": "FINITE_DECIDABILITY_KERNEL_ACCEPTED; EXPLICIT_DECISION_RUNTIME_WORKS; FINITE_THEOREM_MODULE_RUNTIME_BLOCKED_BY_POSTULATE_DEPENDENCY; NO_Q4_Q7_PROMISE_ESTABLISHED",
+  "non_goals": [
+    "The Node failure occurs during transitive module initialization before finiteDecision is selected; it is not a wrong equality answer.",
+    "No claim that every finite-type or truncation implementation lacks computation.",
+    "No claim that agda-unimath advertises this theorem as an executable decision procedure.",
+    "No HoTT inconsistency or natural-usage mismatch claim.",
+    "No GHC execution; this run covers Agda kernel and the JavaScript backend only."
+  ],
+  "steps": [
+    {
+      "name": "agda-version",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--version"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:05:02.991483+00:00",
+      "duration_seconds": 0.027397,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "agda-version.stdout.txt",
+        "bytes": 240,
+        "sha256": "22ad7e88d1de71286409ccbca6b8f688edff8225dd5ae12a811599bb7bcefd56"
+      },
+      "stderr": {
+        "path": "agda-version.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "node-version",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "--version"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:05:03.019616+00:00",
+      "duration_seconds": 0.021258,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "node-version.stdout.txt",
+        "bytes": 8,
+        "sha256": "fe9da612097c5b1f2808feef32b5685e7a19a607fd96c7d6abe1454f0edc7e1c"
+      },
+      "stderr": {
+        "path": "node-version.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-equality-finite-fresh",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/univalent-combinatorics/equality-finite-types.lagda.md"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:05:03.041793+00:00",
+      "duration_seconds": 80.25785,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "kernel-equality-finite-fresh.stdout.txt",
+        "bytes": 49831,
+        "sha256": "aceda7e61706af22944923afed3ea9aff108b944ce984215e05c31e38f0ed45b"
+      },
+      "stderr": {
+        "path": "kernel-equality-finite-fresh.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-positive",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02Kernel.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:23.300895+00:00",
+      "duration_seconds": 3.550339,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "kernel-positive.stdout.txt",
+        "bytes": 110,
+        "sha256": "5408eabc2eb51f27d560e3b4f41291dfb004cf5bd060b861a2adc84f8052f7cf"
+      },
+      "stderr": {
+        "path": "kernel-positive.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "judgmental-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02DefinitionalNegative.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:26.851905+00:00",
+      "duration_seconds": 3.587963,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[UnequalTerms]",
+        "finiteTag ＝ false"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "judgmental-negative.stdout.txt",
+        "bytes": 819,
+        "sha256": "17cc82436482e9da0a7979a73939ae3206e7c8510e7d5281a8dfd54b3d59ae47"
+      },
+      "stderr": {
+        "path": "judgmental-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "explicit-runtime-check",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02ExplicitRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:30.440444+00:00",
+      "duration_seconds": 1.92335,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "explicit-runtime-check.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "explicit-runtime-check.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "finite-runtime-check",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02FiniteRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:32.364281+00:00",
+      "duration_seconds": 3.64426,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "finite-runtime-check.stdout.txt",
+        "bytes": 124,
+        "sha256": "ac98a372f7a0930f436980fe935ad4852cbef1c9d671447d926a23fd54f2c5fe"
+      },
+      "stderr": {
+        "path": "finite-runtime-check.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "explicit-js-compile",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--js",
+        "--compile-dir=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b02-lwaitgbt/explicit-js",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02ExplicitRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:36.009104+00:00",
+      "duration_seconds": 3.145468,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "explicit-js-compile.stdout.txt",
+        "bytes": 58600,
+        "sha256": "03752bb7c0b5eb107d5f047965bdae1edae3720918f913875c11bf119a5dff67"
+      },
+      "stderr": {
+        "path": "explicit-js-compile.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "explicit-node-run",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b02-lwaitgbt/explicit-js/jAgda.SemB02ExplicitRuntime.js"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:39.155277+00:00",
+      "duration_seconds": 0.075924,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [
+        "FALSE"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "explicit-node-run.stdout.txt",
+        "bytes": 6,
+        "sha256": "48fedf67ec4e048ba539a11e8f6ff8ee0b2584c92998fa3f1b8d041c517d329a"
+      },
+      "stderr": {
+        "path": "explicit-node-run.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "finite-js-compile",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--js",
+        "--compile-dir=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b02-lwaitgbt/finite-js",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02FiniteRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:39.231780+00:00",
+      "duration_seconds": 5.649517,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "finite-js-compile.stdout.txt",
+        "bytes": 96405,
+        "sha256": "6c6d4dd50a76464066d73620bc9e2965e4afa090b74224c5463968459cb8d680"
+      },
+      "stderr": {
+        "path": "finite-js-compile.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "finite-node-run",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b02-lwaitgbt/finite-js/jAgda.SemB02FiniteRuntime.js"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:44.882045+00:00",
+      "duration_seconds": 0.083235,
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "required_markers": [
+        "exports.unit-trunc is not a function"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "finite-node-run.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "finite-node-run.stderr.txt",
+        "bytes": 1294,
+        "sha256": "a0b7fde7b62a7bb5992243eaf3bd74bf0a8e2f622fc7ffc0b0ebc351d2caec83"
+      }
+    },
+    {
+      "name": "finite-js-opt-compile",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--js",
+        "--js-optimize",
+        "--compile-dir=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b02-lwaitgbt/finite-opt-js",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02FiniteRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:44.965945+00:00",
+      "duration_seconds": 5.711217,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "finite-js-opt-compile.stdout.txt",
+        "bytes": 97661,
+        "sha256": "1f6e238be4a69ace3e2b54fb94100fc5a0fcfdf021335185d3f9898bae150932"
+      },
+      "stderr": {
+        "path": "finite-js-opt-compile.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "finite-node-opt-run",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b02-lwaitgbt/finite-opt-js/jAgda.SemB02FiniteRuntime.js"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:06:50.678146+00:00",
+      "duration_seconds": 0.087212,
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "required_markers": [
+        "exports.unit-trunc is not a function"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "finite-node-opt-run.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "finite-node-opt-run.stderr.txt",
+        "bytes": 1310,
+        "sha256": "58986ea7e56957de53c1eb9eda683cc71c13c22c465fc005beaab5e9bf16c34d"
+      }
+    }
+  ],
+  "artifacts": {
+    "environment": "environment.txt",
+    "source_manifest": "source-manifest.json",
+    "source_audit": "source-audit.json",
+    "generated_evidence": "generated-evidence.json"
+  }
+}

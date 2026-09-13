@@ -1,0 +1,14 @@
+Checking SemB02DefinitionalNegative (/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02DefinitionalNegative.agda).
+/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b02/SemB02DefinitionalNegative.agda:11.30-34: error: [UnequalTerms]
+decisionTag
+(foundation.propositional-truncations.apply-universal-property-trunc-Prop
+ foundation.booleans.is-finite-bool
+ (foundation.decidable-equality.has-decidable-equality-Prop bool)
+ (λ e →
+    foundation.decidable-equality.has-decidable-equality-equiv'
+    (foundation.dependent-pair-types.Σ.pr2 e)
+    (univalent-combinatorics.equality-standard-finite-types.has-decidable-equality-Fin
+     (foundation.dependent-pair-types.Σ.pr1 e)))
+ true false)
+!= false of type bool
+when checking that the expression refl has type finiteTag ＝ false
