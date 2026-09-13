@@ -269,3 +269,19 @@ proof_run_root: HoTT/verification/runs
 | C-157 | 对显式共享判定 `d`，码级修正替换与语法级共享判定替换一致：`(d : Bool) (k i : Nat) (t : Tm) → substFixTd d k i t ≡ codeT (substTd d k i t)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substFixTd-agrees`；run `20260913-MP-ERCF3-T3-JOINT-001-02`。 | 只覆盖显式判定版本的两种替换；不涉及证明谓词 `P`、反射、对角线不动点或 ERCF-3 本体。 |
 | C-158 | 原始逐出现判定的**项层恒等式**成立：`(k i : Nat) (t : Tm) → substFixT k i t ≡ codeT (substT k i t)`（即 N34 记录的剩余义务在项层被联合递归收口）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `fixT-agrees`；同一 run。 | 只到项层；公式层的量词/影子分支另见 C-159；不证明对象层替换算术化（对角引理本体）。 |
 | C-159 | 修正后的公式层码替换与语法替换一致：`(k i : Nat) (φ : Fml) → substFixFc k i φ ≡ codeF (substF k i φ)`；`substFixFc` 修正了 `CodeStoreFixF.substFixF` 在 `all` 影子分支把 `codeF φ` 误写为 `codeF (all m φ)` 的双重编码错误；既有脉冲文件逐字节未改。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substFixFc`、`fixF-agrees`；同一 run；错误与修正说明见 `formal/ercf3-t3/README.md`。 | 修正只在该新模块中给出；不重写历史脉冲与其会话证据；不改变 ERCF-3 的 gated 状态或任何既有判词。 |
+
+## 追加登记：MP-ERCF3-T3-DECODING-001（T3 decodability/injectivity fence，2026-09-13）
+
+> 本节按 `verify_proof_version_closure.py` 的冻结前缀要求**追加在文末**；不改写 d3dfb0e 快照或任何既有追加节的字节。
+> 精确范围与禁止外推见 `HoTT/formal/ercf3-t3/README.md` 与 run `20260913-MP-ERCF3-T3-DECODING-001-01` 的 `RUN.json`。
+> 该包只覆盖**前置条件 (a) 的编码可解码性缺口**；不进入 ERCF-3 本体（P 表示性/反射/对角不动点），`GATED` 状态不变。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-DECODING-001` | `C-160`–`C-162` | `formal/ercf3-t3/DecodingFence.agda`（依赖 `ObjectSyntax.agda`、`DiagonalCore.agda`、`DiagonalLemma.agda`；按 run 的 `source-manifest.json` 哈希固定） | `verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9 库声明、仅 Agda builtins；exit 0、stderr 0；工具链 `formal/ercf3-t3/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_DECODABILITY_FENCE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-160 | 具体编码在项层**不是单射**：`codeT (var 2) ≡ codeT (num 0)` 而 `var 2 ≢ num 0`，因此不存在 `(t u : Tm) → codeT t ≡ codeT u → t ≡ u` 的单射解码器（`no-injective-codeT`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `var2-num0-collide`、`var≢num`、`no-injective-codeT`；run `20260913-MP-ERCF3-T3-DECODING-001-01`。 | 只针对 `DiagonalCore` 的具体编码；不推出任何编码都不单射，也不改变 ERCF-3 状态。 |
+| C-161 | 同一碰撞提升到公式层：`codeF (var 2 =f var 2) ≡ codeF (num 0 =f num 0)` 而两条公式不同，故 `codeF` 也不是单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `eqVar2-collides-eqNum0`、`varEq≢numEq`、`no-injective-codeF`；同一 run。 | 同上；不声称对角引理不可形式化，只说明当前编码不可解码。 |
+| C-162 | 正控制：数字片段的编码在码上单射——`(n m : Nat) → codeT (num n) ≡ codeT (num m) → n ≡ m`；说明碰撞来自构造子标签范围重叠，而不是编码整体失效。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `num-code-injective`；同一 run。 | 正控制只覆盖数字片段；不提供任何修复方案的单射性证明。 |

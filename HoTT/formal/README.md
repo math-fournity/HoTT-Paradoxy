@@ -36,6 +36,7 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `build.sh`：校验关键上游文件哈希后运行 Agda，并在 Lean 可用时运行第二实现。
 - `verification-event/VerificationEvent.agda`：`MP-VERIFICATION-EVENT-001`；外部独立来源的有限验证事件模型在项目内重放——保留时标的历史核查可完成（`C-152`）、固定过去→当前改写不存在（`C-153`）、完全阶段擦除不保真（`C-154`）、保阶段正控制（`C-155`）、条件性 Moore/Fitch 核（`C-156`）；判词 `VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL`，**未构成 HoTT 自身非现实性实例**。
 - `ercf3-t3/JointRecursion.agda`：`MP-ERCF3-T3-JOINT-001`；ERCF-3 T3 第十四脉冲——显式共享判定下码级修正替换与语法级替换一致（`C-157`）、**原始逐出现判定的项层恒等式** `substFixT ≡ codeT ∘ substT`（`C-158`，N34 记录的剩余义务）、修正后的公式层恒等式（`C-159`，修正 `CodeStoreFixF` 的 `all` 影子分支双重编码）。同目录 `ObjectSyntax.agda`–`DecisionParam.agda` 是 S067–S080 的脉冲谱系（builtins-only，`PULSE_EVIDENCE_ONLY`）。**ERCF-3 本体保持 `GATED`**：无证明谓词表示性、反射或对角不动点。
+- `ercf3-t3/DecodingFence.agda`：`MP-ERCF3-T3-DECODING-001`；T3 第十五脉冲——编码的**可解码性/单射性围栏**：`codeT (var 2) ≡ codeT (num 0)` 而两项不同，故不存在单射解码器（`C-160`）；同一碰撞提升到公式层（`C-161`）；数字片段单射为正控制（`C-162`）。结论：`ObjectSyntax` 记录的 decodability/injectivity 义务**不能由当前编码满足**，需要标签不相交或列表/配对编码的修复；修复是下一个有界脉冲。**ERCF-3 保持 `GATED`**。
 
 ## 锁定环境
 

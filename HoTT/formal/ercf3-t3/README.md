@@ -1,10 +1,20 @@
-# MP-ERCF3-T3-JOINT-001：ERCF-3 T3 共享判定联合递归
+# ERCF-3 T3 脉冲链（含两个 claim-bearing package）
 
-> 状态：`MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_SHARED_DECISION_JOINT_RECURSION`
 > 判词只覆盖本目录的编码层义务；**ERCF-3 本体保持 `GATED`**（C8 §9 的 P1–P8 与停止条件不变）。
-> 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节（`C-157`–`C-159`）；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
+> 快速索引：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的追加节；版本登记：`HoTT/verification/PROOF_VERSION_CLOSURE.json` 的 `later_packages`。
 
-## 1. 精确命题
+| package | claims | 源码 | run | 判词 |
+|---|---|---|---|---|
+| `MP-ERCF3-T3-JOINT-001` | `C-157`–`C-159` | `JointRecursion.agda` | `20260913-MP-ERCF3-T3-JOINT-001-02` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_SHARED_DECISION_JOINT_RECURSION` |
+| `MP-ERCF3-T3-DECODING-001` | `C-160`–`C-162` | `DecodingFence.agda` | `20260913-MP-ERCF3-T3-DECODING-001-01` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ERCF3_T3_DECODABILITY_FENCE` |
+
+其余 `ObjectSyntax.agda`–`DecisionParam.agda` 与 `TermIdentityFinal.agda` 是 S067–S080 的脉冲谱系（`PULSE_EVIDENCE_ONLY`，无 claim 行）。
+
+---
+
+## 1. `MP-ERCF3-T3-JOINT-001`：共享判定联合递归
+
+### 1.1 精确命题
 
 固定工具链与语法（`ObjectSyntax.agda` 的 `Tm`/`Fml`、`DiagonalCore.agda` 的 `codeT`/`codeF`、`CodeStoreFix.agda` 的 `substFixT`、`DecisionParam.agda` 的 `substFixTd`）。本包机器检查三条：
 
@@ -14,21 +24,21 @@
 | `C-158` | `(k i : Nat) (t : Tm) → substFixT k i t ≡ codeT (substT k i t)`（**原始逐出现判定**的项层恒等式——N34 记录的剩余义务） | `JointRecursion.fixT-agrees` |
 | `C-159` | `(k i : Nat) (φ : Fml) → substFixFc k i φ ≡ codeF (substF k i φ)`（修正后的公式层码替换与语法替换一致） | `JointRecursion.substFixFc`、`JointRecursion.fixF-agrees`（见 §3） |
 
-## 2. 来源与脉冲谱系
+### 1.2 来源与脉冲谱系
 
 - S067–S080 的 13 个脉冲把该义务逐步逼到"两侧必须共享同一判定 → 联合递归"（`TermIdentityFinal.agda` 的注释与 `S-RES-20260913-080` 的记载）；
 - S079 的修法 (b) 把**码级**替换改成判定值显式参数（`substFixTd`）；
 - 本包在同一步把**语法级**替换也改成显式判定（`substTd`），于是三项都成为普通归纳；
 - `C-158` 不需要显式共享判定：只有 `var` 分支做判定分叉，因此**逐出现判定**的项层恒等式可以单 `with` 收口（`fixT-agrees`）。
 
-## 3. 修正记录（不重写历史文件）
+### 1.3 修正记录（不重写历史文件）
 
 `CodeStoreFixF.agda`（S075 脉冲）的公式层码替换在 `all` 的**影子分支**（`i =n m` 为真）写的是
 `1+1+1+1+1 + (m + codeF (all m φ))`，即对整条量化公式**双重编码**；语法层 `substF k i (all m φ)` 在该分支保持
 `all m φ` 不代入，其码应为 `1+1+1+1+1 + (m + codeF φ)`。本包在新模块中给出修正函数 `substFixFc` 并机器检查 `C-159`。
 历史脉冲文件与其会话证据**逐字节未改**；本修正以新模块 + 本 README + 矩阵追加节的形式登记。
 
-## 4. 运行与证据
+### 1.4 运行与证据
 
 | 类型 | 位置 |
 |---|---|
@@ -45,9 +55,32 @@
 `RUN.json` Git-tracked、`exit_code = 0`、`index_status = INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）与 run 自身的
 `RUN.json` + `index-row-manifest.json`。
 
-## 5. 禁止外推
+### 1.5 禁止外推
 
 - **不是** ERCF-3 本体：不构造对角线不动点，不涉及证明谓词 `P` 的表示性、反射或自应用；不改变 ERCF-3 的 `GATED` 状态；
 - **不是** HoTT 悖论或 HoTT 内部不一致；本包不使用 univalence、cubical Path、HIT 或 truncation；
 - 不把编码层一致升级成"对角引理已形式化"或"对象层替换算术化已完成"；
 - 只覆盖上述三条精确命题与固定工具链；不覆盖 `substF` 的其它性质或其它编码方案。
+
+---
+
+## 2. `MP-ERCF3-T3-DECODING-001`：编码的可解码性/单射性围栏
+
+`ObjectSyntax.agda` 第 11 行把 "Goedel coding with decodability/injectivity" 列为 T3 义务并**故意不形式化**；
+`DiagonalCore.agda` 的 `⌜-injective` 实际是"沿码相等的替换同余"（`cong-here`），不是单射性。本包把这条义务的**下界**机器化：
+
+| claim | 精确命题 | 源码标识 |
+|---|---|---|
+| `C-160` | 具体编码在项层不是单射：`codeT (var 2) ≡ codeT (num 0)`（`refl`）而 `var 2 ≢ num 0`，故不存在 `(t u : Tm) → codeT t ≡ codeT u → t ≡ u` 的单射解码器 | `var2-num0-collide`、`var≢num`、`no-injective-codeT` |
+| `C-161` | 同一碰撞提升到公式层：`codeF (var 2 =f var 2) ≡ codeF (num 0 =f num 0)` 而两条公式不同，故 `codeF` 也不单射 | `eqVar2-collides-eqNum0`、`varEq≢numEq`、`no-injective-codeF` |
+| `C-162` | 正控制：数字片段在码上单射——`(n m : Nat) → codeT (num n) ≡ codeT (num m) → n ≡ m` | `num-code-injective` |
+
+**修复要求（已记录、未证明）**：可解码编码需要**标签值域不相交**（例如 `var n ↦ 3 * n`、`num n ↦ 3 * n + 1`、
+`_+t_ ↦ 3 * ⟨pair⟩ + 2`，或列表编码）。任何修复都会改变具体码值，从而改变对角实例——那是下一个有界脉冲。
+
+**运行**：`HoTT/verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、stderr 0、
+`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）+ `index-row-manifest.json`（4 行冻结）。
+
+**禁止外推**：不给出修复后的编码或其单射性证明；不声称对角引理不可形式化（只说明**当前编码**不可解码）；
+不涉及证明谓词表示性、反射或对角不动点；不改写 `DiagonalCore.agda` 的 `⌜-injective` 命名或任何历史脉冲文件；
+ERCF-3 保持 `GATED`。

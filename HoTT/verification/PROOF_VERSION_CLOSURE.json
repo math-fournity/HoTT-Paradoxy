@@ -13,7 +13,7 @@
   "current_package_count": 17,
   "machine_proved_claim_count": 90,
   "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 11,
+  "later_machine_proved_claim_count": 14,
   "later_packages": [
     {
       "proof_id": "MP-VERIFICATION-EVENT-001",
@@ -38,6 +38,18 @@
       "kind": "in_project_ercf3_t3_pulse_completion",
       "verdict": "ERCF3_T3_SHARED_DECISION_JOINT_RECURSION",
       "notes": "Closes the term-level identity recorded as the remaining obligation in N34/TermIdentityFinal and adds the corrected formula-level code substitution (fixing the double-encoded `all` shadow branch of CodeStoreFixF). Does NOT change the gated status of ERCF-3: no proof-predicate representability, no reflection, no diagonal fixed point.",
+      "release_ref": "governance-v4.0.0"
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-DECODING-001",
+      "claim_ids": "C-160–C-162",
+      "local_claim_ids": "T3-DEC-01–T3-DEC-03",
+      "source": "HoTT/formal/ercf3-t3/DecodingFence.agda",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01",
+      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+      "kind": "in_project_ercf3_t3_pulse_completion",
+      "verdict": "ERCF3_T3_DECODABILITY_FENCE",
+      "notes": "Checks the decodability/injectivity obligation recorded as deliberately unformalised in ObjectSyntax: the concrete codeT/codeF are not injective (var 2 and num 0 collide), with a numeral-fragment positive control. Does NOT provide a repaired coding and does NOT change the gated status of ERCF-3.",
       "release_ref": "governance-v4.0.0"
     }
   ],

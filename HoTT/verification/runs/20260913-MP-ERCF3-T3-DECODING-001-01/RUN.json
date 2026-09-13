@@ -1,0 +1,66 @@
+{
+  "claim_ids": [
+    "C-160",
+    "C-161",
+    "C-162"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/ercf3-t3",
+    "HoTT/formal/ercf3-t3/DecodingFence.agda"
+  ],
+  "completed_at_utc": "2026-09-13T13:01:42.710160+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.152138,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "43f5f4dc2f02e91b6a2283a8f78efde2827fa9c9daed30abd4f49ee4b5d07489"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不给出修复后的编码，也不证明任何修复方案的单射性",
+    "不涉及证明谓词 P 的表示性、反射或对角不动点；ERCF-3 保持 GATED",
+    "不是 HoTT 悖论或内部不一致；不使用 univalence/cubical Path/HIT/truncation",
+    "不改写 DiagonalCore.agda 的 ⌜-injective 命名或任何历史脉冲文件"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ERCF3-T3-DECODING-001",
+  "run_id": "20260913-MP-ERCF3-T3-DECODING-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ERCF-3 T3 第十五脉冲：编码的可解码性/单射性围栏。精确命题：(1) 具体编码不是单射——codeT (var 2) ≡ codeT (num 0) 而 var 2 ≢ num 0，故不存在 codeT 的单射解码器；(2) 同一碰撞提升到公式层，codeF 也不是单射；(3) 正控制：数字片段的编码在码上单射（codeT (num n) ≡ codeT (num m) → n ≡ m）。结论：ObjectSyntax 记录的 decodability/injectivity 义务不能由当前编码满足，需要标签不相交或列表/配对编码的修复；修复本身是下一个有界脉冲。工具链：Agda 2.8.0-3d04bac + Cubical v0.9 库声明；证明仅用 Agda builtins。",
+  "source_manifest": {
+    "bytes": 2979,
+    "path": "source-manifest.json",
+    "sha256": "7ded4d01c93dfc66987108e8b66c575569d926ceb4e0a66c7a9c0a7ad2e63203"
+  },
+  "started_at_utc": "2026-09-13T13:01:42.558022+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 407,
+    "path": "stdout.txt",
+    "sha256": "5b508c2210deefc79f9595324a6353bb602ff53a942bd820f7fd71fe021a500c"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
