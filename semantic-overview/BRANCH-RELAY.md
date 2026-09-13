@@ -4,7 +4,7 @@
 >
 > 角色：`CONTRIBUTOR`
 >
-> integration_state：`NOT_SUBMITTED`
+> integration_state：`NOT_SUBMITTED / PRIOR_PARTIAL_ATTEMPT_REVERTED`
 >
 > 更新日期：2026-09-13
 
@@ -19,7 +19,7 @@
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
 | `candidate_content_oid` | `214b15dcca4be0562c37aa536fe9eb5ace3a7365` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
-| `target_oid_observed` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
+| `target_oid_observed` | `2bbf5c873dfa3ac1d512955301b163b2b6f311b0`；tracked tree 与 base `a22f41e…` 相同 |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M2–M6 候选工作，不属于本分支输入 |
 
 用户在 2026-09-13 明确裁定：两个 AI 各自在自己的 Git worktree 工作，最终由用户从两者中指定一个执行集成。因此本分支不是 canonical integrator，不预先决定最终 target 的集成内容或顺序。
@@ -28,6 +28,12 @@
 F-016 的精确范围内生成了 revision 130/131 current-owner **candidate transactions**；它们只在
 本分支成立，不自动占用 `main` 的 canonical revision。未来 integrator 若接受，必须按 target
 当时 HEAD 重建/重编号冲突的 checkpoint，不能盲目移植候选序号。
+
+在用户目标切换为“继续你这条分支的任务”之前，曾向 `main` cherry-pick source snapshot
+commit，产生 `84f0528…`；目标切换时后续路由尚未集成，该半状态已用增量 revert
+`2bbf5c8…` 完整撤销。`git diff a22f41e… 2bbf5c8…` 为空，主线 tracked tree 恢复原基线；两个
+commit 作为真实本地历史保留，未 reset/rewrite、未 push。F-016 仍只在本 candidate branch
+实现和验证。
 
 ## 独占路径与本轮治理例外
 
