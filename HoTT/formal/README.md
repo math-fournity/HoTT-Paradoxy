@@ -12,6 +12,9 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 ## 文件
 
+- `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
+- `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
+- `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。
 - `cauchy-modulus/CauchyModulus.agda`：`MP-CAUCHY-MODULUS-001`；Cauchy modulus 边界：按极限值取商保留 limit（`C-129`）；两个 modulus 不同的常量真序列表示被识别而 modulus 不同（`C-130`）；不存在从商统一恢复给定 modulus 的函数（`C-131`）；把 modulus 纳入同一性判据后可以下降（`C-132`，正控制）；细化关系不再识别两表示（`C-133`）。判词 `CAUCHY_MODULUS_BOUNDARY_WITH_POSITIVE_CONTROLS`。
 - `sip-representation/SIPRepresentation.agda`：`MP-SIP-REPRESENTATION-001`；SIP/UA 替换许可的最小边界：点结构 `(Bool,true)` 与 `(Bool,false)` 由 `ua notEquiv` 识别（`C-124`）；签名外可观察量不同（`C-125`）；任意 `Str → Bool` 被识别强制为常数（`C-126`）；不存在统一恢复函数（`C-127`）；细化签名后投影恢复/区分两点（`C-128`，正控制）。判词 `SIP_REPRESENTATION_BOUNDARY_WITH_POSITIVE_CONTROL`。
 - `partial-decision/PartialDecision.agda`：`MP-PARTIAL-DECISION-001`；strict 与 partial classifier 的最小原生边界：代表层 strict 分类器存在（`C-118`）、strict 区分 `now/later`（`C-119`）、不存在 strict `Q → Delay Bool` 扩展（`C-120`）、存在 up-to-≈ partial classifier `Q → D≈`（`C-121`，正控制）、不存在 strict `Q → Bool` 消费者（`C-122`）、代表层消费者区分 `a,b`（`C-123`）。判词 `PARTIAL_DECISION_BOUNDARY_WITH_POSITIVE_CONTROL`。
@@ -27,11 +30,12 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `ercf-truncation-defense/TruncationDefense.agda`：`MP-ERCF-TRUNC-001`；在 Agda 2.8.0/Cubical v0.9 的原生 Path + squash-HIT 下证明命题截断的受保护 recursor、二重截断压平、Bool 输出恒定性与 point-preserving extraction 不可能性（`C-67`–`C-70`）。判词是 `DEFENSE_WORKS`，不是 HoTT 悖论。
 - `ercf-factorization/ERCF.lean`：`MP-ERCF-001`；通用 `Type` 值因子化必要/充分条件、E₀ 正反控制、分离观察族与 identity 观察控制。Lean 4.33.1 final run 为 `../verification/runs/20260912-MP-ERCF-001-02/`，只证明 `C-59`–`C-66`，不使用 HoTT 特有规则。
 - `self-contained/ZCore.agda`：表示因子化的必要条件、无免费富化、来源/方向有限反例、语境欠定和两个条件性固定点引理。
-- `agda-unimath/hott-z/NoCanonicalPoint.agda`：对锁定 `agda-unimath` 定理的薄包装；名称刻意写成“无规范点”，不冒充完整时间序定理。
 - `lean/TwoEvent.lean`：二元素交换与方向丢失的独立有限模型。
 - `build.sh`：校验关键上游文件哈希后运行 Agda，并在 Lean 可用时运行第二实现。
 
 ## 锁定环境
+
+下列 `88cfce0…` 是历史 `build.sh` 路线的锁定身份；S088 的当前外部重放使用另一条显式 package：commit `7b81411d9f60afec359d29ed1e4edf43f4711c8a`、工具链身份 `agda-unimath/UNIMATH_TOOLCHAIN.json`、final run `../verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/`。两者不得混写成一个当前版本。
 
 - Agda：2.8.0。
 - `agda-unimath` commit：`88cfce0ce195ae3b64a9e73e8ec744ae64b4006b`。

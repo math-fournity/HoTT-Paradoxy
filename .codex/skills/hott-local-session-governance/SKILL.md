@@ -4,7 +4,7 @@ description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Ses
 metadata:
   version: "3.2.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v2.2"
+  protocol_version: "handoff-cognition/v2.3"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---
@@ -36,7 +36,7 @@ metadata:
 2. 读本 Skill、`.codex/skills/SKILL_ROLES.json`、`.codex/cognition/LOAD_SET.json` 和 `.codex/cognition/PROTOCOL.md`。
 3. 严格按 `LOAD_SET.always_full_three_way` 全文读取 `核心认知.md`、`方向追踪.md`、`全景视野.md` 到实际 EOF；记录 path、bytes、lines、SHA-256 和连续 ranges。该顺序和全文身份不可由 profile、task、manifest、摘要、主题索引、KC 子集或旧 receipt 改写。
 4. 纯治理/审计先使用 `plan --profile governance`；实际数学研究使用 `plan --profile research`，后者在完整三件套和启动核上再加入业务 Skill、三问、FRONTIER、LESSONS、RESUME。两种 profile 都不得移除三件套。
-5. 读取 STATE 中全部 record 的 `lifecycle_status` 与 `evidence_status`。`ACTIVE_WORK/CURRENT/OPEN_ISSUE` 决定当前任务资格；`REVIEW_REQUIRED` 只表示证据仍需复核，不能让历史 Session 自动复活。需要底层证据时先 `query --record <ID>`，再以 `plan --profile research --task <ID>` 显式水合其 `depends_on/full_sources/resolution/source_hashes`。历史 Session 只在本轮任务明确需要时水合。
+5. 读取 STATE 中全部 record 的 `lifecycle_status` 与 `evidence_status`。`ACTIVE_WORK/CURRENT/OPEN_ISSUE` 决定当前任务资格；`REVIEW_REQUIRED` 只表示证据仍需复核，不能让历史 Session 自动复活。需要底层证据时先 `query --record <ID>`，再以 `plan --profile research --task <ID>` 显式水合其 `depends_on/full_sources/resolution/source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；谱系、动机、先后和叙事使用不递归水合的 `research_parent`/`related_records`。历史 Session 只在本轮任务明确需要时水合。
 6. 读取本轮涉及的 `理解章节/`、`HoTT/`、代码、测试、artifact、ledger 和 Git；索引只路由，不替代决定性证据。machine-managed manifest/ledger 默认 query-first，不因存在就全文常驻。
 7. 在研究/审计动作前形成三方交叉判断：方向是否服务核心认知；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或带理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision、source hash 和状态是否一致。发现冲突时降级为 `REVIEW_REQUIRED`，不通过增加“最新版”段落覆盖。
 8. 形成公开的 closure statement：本轮目的、授权、实际全文 KC 范围、profile/task hydration、当前证据等级、三方交叉判断、冲突/未知和下一最小可验动作。
@@ -83,7 +83,9 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 唯一当前状态 owner 是根 `MEMORY.md`、`.codex/research/hott/STATE.json`、`FRONTIER.md`、`LESSONS.md`、`RESUME.md` 和不可覆盖 session。STATE v2 将 lifecycle 与 evidence 分开；loader 不再用 evidence review 状态取得自动加载资格。`核心认知`和来源快照由 curation+生成器精确管理。新增需求/稳定结论/运行证据按职责回写，不在多个文件维护冲突的 current truth。
 
-使用 runtime 的白名单路径、snapshot、expected hash、lock、transaction、before/after backup 和 post-write check。checkpoint 默认 dry-run；只有用户本轮明确授权的写权限才 `--apply`。stale base、第三方写入、活动 writer、残留 transaction、缺 resolution evidence 或 source hash 改变而没有 revalidation 时必须 fail closed。恢复 transaction 需要确认旧 owner 已停止，选择 finish/rollback，并保留 receipt。
+使用 runtime 的白名单路径、snapshot、expected hash、lock、transaction、before/after backup 和 post-write check。checkpoint 默认 dry-run；只有用户本轮明确授权的写权限才 `--apply`。每个 applied checkpoint 必须把 `SESSION.md`、`RUNS.json`、当前 generation 全量且顺序正确的 `CORE_COGNITION_AUDIT.md` 与 current owners 放进同一事务；只有 canonical `result.json` 的 `CHECKPOINT_COMMITTED` 能证明应用成功。`POST-CHECKPOINT.json` 只能引用真实 result，不能自证。stale base、第三方写入、活动 writer、残留 transaction、缺 session/resolution evidence 或 source hash 改变而没有 revalidation 时必须 fail closed。恢复 transaction 需要确认旧 owner 已停止，选择 finish/rollback，并保留 receipt；历史缺失只登记，不伪造。
+
+每次显式 task hydration 都要查看 plan 的总 bytes/lines、document count、largest documents 与 `query_first_promoted`。后者非空时，必须证明该 query-first 原件就是本任务要求全文消费的决定性证据；若只是通过历史串联 `depends_on` 被带入，先修关系图再研究。
 
 每个 session 至少保存 `SESSION.md`、`CORE_COGNITION_AUDIT.md`、`RUNS.json` 和 evidence。commit 后回读 HEAD、状态、session、核心/ledger hash 和验证输出；`CHECKPOINT_COMMITTED` 不是 `MATHEMATICS_VERIFIED`。
 

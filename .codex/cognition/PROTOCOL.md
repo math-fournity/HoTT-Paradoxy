@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v2.2`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v2.3`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
 
 ## 1. 目标和边界
 
@@ -27,7 +27,7 @@
 2. 完整读取本地治理 Skill、角色表、此协议、`LOAD_SET.json` 和 `STATE.json`。纯治理无需自动加载业务 Skill；研究 profile 才全文加载它。
 3. 无条件按 `always_full_three_way` 把 `核心认知.md`、`方向追踪.md`、`全景视野.md` 逐文件读到真实 EOF。manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research/task profile 也不能删减或重排。
 4. governance profile 加载三件套、启动核和最新短 Session；research profile 再加载业务 Skill、三问、FRONTIER、LESSONS、RESUME。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
-5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。显式水合后的正文必须全文读，不能用 query 输出替代。
+5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；`research_parent`/`related_records` 只做谱系与叙事导航，不递归水合。显式水合后的正文必须全文读，不能用 query 输出替代；同时必须检查 plan 的 `hydration_diagnostics.document_count`、`total_bytes`、`total_lines`、`query_first_promoted` 和 largest documents，不能把 `review_required=[]` 当成上下文可装配性证明。
 6. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
 7. 记录 load snapshot：profile/task、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、总 bytes/lines、Git HEAD 和 dirty。加载变化或截断时重启；三件套无法全文保有则 `BLOCKED_FULL_TRIO_COGNITION`，优先移出非三件套载荷而非裁剪 core。
 8. 形成本轮 closure statement：目标、范围、授权、当前完整 KC 范围、profile/task hydration、理论配置、证据缺口、三件套交叉结果、风险最高的误判和最小可验动作。
@@ -87,7 +87,7 @@ checkpoint 只能保存状态，不能替代数学证明。代码存在、Python
 
 当前可变状态包括根 `MEMORY.md`、三件套投影 `方向追踪.md`/`全景视野.md`、`.codex/research/hott/FRONTIER.md`、`LESSONS.md`、`RESUME.md`、`STATE.json`，以及对应 session/candidate 路径。STATE v2 必须分别记录 `lifecycle_status` 与 `evidence_status`；历史 Session 的待复核主张由独立 issue/result 持有。core 语义决策属于 HUMAN_EDITED curation，core/manifest/transition 属 MACHINE_MANAGED；修改须走 manager 并建立新 generation。
 
-`.codex/tools/cognition_runtime.py plan/read/check` 使用 source hash、乐观 snapshot、路径白名单、事务 journal、before/after backup 和锁。`checkpoint` 默认 dry-run；只有当前用户明确授权的写操作再使用 `--apply`。`STATE.revision`、`HEAD.json`、latest session、旧 record identity 和 resolution evidence 必须一致。遇 stale base、活动 writer、未完成 transaction、第三方写入或冲突，fail closed；恢复必须确认旧 owner 已停止，选择 finish/rollback 并保存 receipt。
+`.codex/tools/cognition_runtime.py plan/read/check` 使用 source hash、乐观 snapshot、路径白名单、事务 journal、before/after backup 和锁。`checkpoint` 默认 dry-run；只有当前用户明确授权的写操作再使用 `--apply`。`STATE.revision`、`HEAD.json`、latest session、旧 record identity 和 resolution evidence 必须一致；新增或改变非空 `depends_on` 还必须声明 `dependency_semantics=verification_staleness`。每个 applied checkpoint 在同一事务中必须包含 `SESSION.md`、`RUNS.json` 与当前 core generation 全量、顺序、逐行有 assessment/evidence 的 `CORE_COGNITION_AUDIT.md`。运行器生成的 `transaction.json`、before/after 副本和 `result.json` 是 checkpoint 应用证据；`POST-CHECKPOINT.json` 只能从真实 result 派生，不能自写 `checkpoint_applied=true` 取得证明资格。遇 stale base、活动 writer、未完成 transaction、第三方写入、缺 Session evidence 或冲突，fail closed；恢复必须确认旧 owner 已停止，选择 finish/rollback 并保存 receipt。历史缺收据保留为 `CHECKPOINT_RECEIPT_MISSING`，禁止追溯伪造。
 
 每个 session 目录至少保存 `SESSION.md`、`CORE_COGNITION_AUDIT.md`、`RUNS.json` 和 evidence；session 历史不可覆盖。提交后回读新 HEAD、状态、session、生成物 hash 和验证输出，只有如此才可称 `CHECKPOINT_COMMITTED`；Git commit 本身不等于数学验证。
 

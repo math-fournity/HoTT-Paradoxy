@@ -17,6 +17,7 @@
 13. 已退出 current truth、已有可恢复 Git 基线并有明确 current replacement 的历史治理文档，可以按用户授权 rename 到归档区。当前 repo 的 `archive/` 已专门拥有原始 handoff pack/object store，因此叙事性历史治理文档归入 `history/<governance-version>/`；移动必须保留 Git rename、替代指针并更新所有当前 consumer。该授权不适用于 current generation 的 `核心认知.md`，后者仍是固定全文输入。
 14. 用户要求把 HoTT 自反真理验证、不可停机/自馈结构、理论经济学、存在/不存在双视角、极简理论覆盖、项目悖论理论表达和哥德尔不完备性研究作为新的直接研究方向，并把原文纳入 core。其唯一原文 owner 是 generation-4 的 `KC-000028`–`KC-000036` 与对应 source；当前回答/研究状态由 C4、方向和全景持有，不反向写成用户已证明的数学结论。
 15. 当前 AI 的所有数学结论必须在交付前完成相称机器证明；证明代码和实际运行结果必须保存在当前项目的合适子目录并建立索引，不能只留在 `/tmp`。归一要求是：源码进入 `HoTT/formal/`，运行原件进入 `HoTT/verification/runs/<run-id>/`，唯一快速索引进入 `HoTT/CLAIM_EVIDENCE_MATRIX.md`；无法通过时不得交付为数学结论，只能降格为问题、猜想、启发、纸笔候选、反例候选或未重放来源。该裁定不伪造历史 proof package；未来重用旧结论时同样需要按新门禁重放。
+16. 用户在收到对 S086–S088 的独立审计与六项处置建议后明确说“按照你的建议处理”。该授权在本地顶层 repo 内覆盖：保全接手现场；把 S086–S089 标为缺 canonical checkpoint receipt 且禁止追溯伪造；修复 per-KC checkpoint Gate 与目录型 issue 路由；拆除叙事性 `depends_on` 的递归水合；修正 handoff/current owners 的计数、状态、启动顺序和过时入口；把没有进入 kernel run 的 agda-unimath E6 强结论降为可复现的 source-inspected bounded negative；将研究首选改为下游应用/派生开发的真实 E6 consumer、T3 为第二线、batch 13 与无差别基础库扫描降优先级；最后精确本地 commit/tag。该授权不包括 push、发布、恢复已移走目录或把缺失历史收据补造为真实事务。
 
 ## 2026-09-12：核心认知作为反训练惯性的上下文工程（用户原文）
 
@@ -40,4 +41,10 @@
 
 ~~~text
 我觉得有件事你应该记录到当前项目目录的AGENTS.md中：你的所有数学结论，都应该在交付之前进行机器证明，并且所有证明代码和结果都应该留存，而不是放在`/tmp`目录中。应该收入当前项目目录的合适子目录中，并且在合适的地方进行索引。
+~~~
+
+## 2026-09-13：接受 S086–S088 审计后的处置建议（用户原文）
+
+~~~text
+按照你的建议处理
 ~~~

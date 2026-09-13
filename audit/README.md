@@ -4,6 +4,10 @@
 
 `数学结论机器证明交付门禁实施证据-20260912.md` 拥有 F-011 的 source/run/index 合同、C01–C10、正负向静态验证和历史兼容边界。它证明治理路由已实现，不证明任何数学命题，也不证明所有未来模型一定遵循。
 
+`S086至S089-checkpoint收据缺失与治理修复设计-20260913.md` 保存四个历史 Session 的 canonical transaction/result 缺口、禁止追溯伪造边界与 runtime 3.2 前向修复设计。`agda-unimath-e6-source-scan-20260913.json` 由 `scripts/audit/scan_agda_unimath_e6.py` 确定性生成，严格区分源码审读、C-05 保存 run 的实际导入闭包和未进入该 run 的 `foundation.global-choice`。
+
+`S090治理修复实施与验收证据-20260913.md` 与 `S090-governance-repair-verification-20260913.json` 保存真实 S090 canonical checkpoint、五个 record 的水合前后对照、0 query-first promotion、S086/S088 证据修正和 C01–C10；它们不认证模型理解或数学结论。
+
 `ERCF-1-2机器证明实施证据-20260912.md` 拥有 F-011 生效后的第一个真实数学 proof package：`MP-ERCF-001`/`C-59`–`C-66` 的形式命题、Lean 4.33.1 final indexed run、源码/输出哈希、重放结果和禁止外推。它证明一般 `Type` 值因子化骨架，不是 HoTT 原生证明或 HoTT 悖论；当前未提交，状态为 `MACHINE_PROVED_LOCAL_UNCOMMITTED`。
 
 `ERCF-截断防御机器证明实施证据-20260912.md` 拥有首个 HoTT 原生信息经济判别：Agda 2.8.0/Cubical v0.9 的 squash-HIT `C-67`–`C-70`、官方 release asset/外置缓存哈希、五次预检谱系、final run/exact replay 和索引演进修复。结果是 `DEFENSE_WORKS`：命题截断允许 proposition consumer，并阻断逐点保真的 Bool witness extraction；不是 HoTT 悖论。

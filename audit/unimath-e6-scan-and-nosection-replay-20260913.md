@@ -26,19 +26,19 @@
 - 定理位置：`agda-unimath@7b81411d` 的 `src/univalent-combinatorics/2-element-types.lagda.md:501` 定义 `no-section-type-2-Element-Type`；派生文件把"无统一选点"包装为 `no-canonical-point` 与 `no-canonical-pointed-orientation`。
 - 索引：claim matrix 新增 proof 行 `MP-UNIMATH-NOSECTION-REPLAY-001`；`C-05` 行原位更新为 `MACHINE_REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE`（历史记录中的旧 commit 简写与当时薄封装编译保留在 Git/ledger）；`MP-LEGACY-NO-CANONICAL-POINT` 行的门禁身份更新为已被固定重放取代。
 
-## 3. E6 外部扫描（固定语料：agda-unimath@7b81411d）
+## 3. E6 外部源码扫描（固定语料：agda-unimath@7b81411d）
 
-本扫描的问题是：**在这份真实库里，有没有模块把较弱的资格（截断/简并存在）当作较强资格（数据/section）来交付，且不声明额外假设？** 结论是：没有；而且库本身把这个"自然消费者"显式命名、给出正控制并整体反证。
+本节现在严格定级为 `SOURCE_INSPECTED_BOUNDED_NEGATIVE`。它回答的是：**在固定源码中，哪些相关接口、反例和正控制可精确定位；S088 保存的 C-05 kernel run 实际检查了哪些模块与公设边界？** 它不是全库语义证明，也不把没有进入 run 的模块称为“本轮机器反证”。可复现机器收据为 `audit/agda-unimath-e6-source-scan-20260913.json`，canonical manager 为 `scripts/audit/scan_agda_unimath_e6.py`。
 
-1. **提升接口被显式命名并明确不假设**：`foundation/hilberts-epsilon-operators.lagda.md` 定义 `ε-operator-Hilbert A = type-trunc-Prop A → A`，并写明 "Contrary to Hilbert, we will not assume that such an operator exists for each type `A`"。
-2. **整体提升被库内反证**：`foundation/global-choice.lagda.md` 定义 `Global-Choice l = (A : UU l) → ε-operator-Hilbert A`，并证明 `no-global-choice : ¬ (Global-Choice l)`：证明**直接调用 `no-section-type-2-Element-Type`**（即本 repo 派生文件所导入的同一定理）。换言之，最自然的 E6 形状（全局提升）在真实库中不是被越级使用，而是被机器反证。
-3. **axiom-of-choice 模块记录同一结论**：`foundation/axiom-of-choice.lagda.md` 说明 AC 对任意类型不成立，其反例形式化于 `foundation.global-choice`，并指出该假设与 univalence 及 HIT 不相容（引用 Rij22 Cor 17.5.3）。
-4. **带显式数据/假设的提升（正控制）**：`univalent-combinatorics/finite-choice.lagda.md` 给出 `ε-operator-count : count A → ε-operator-Hilbert A`（以及 decidable subtype、嵌入版本）；`foundation/decidable-types.lagda.md` 给出 `is-decidable A → ε-operator-Hilbert A`；`logic/double-negation-elimination.lagda.md` 给出 `has-double-negation-elim A → ε-operator-Hilbert A`；`elementary-number-theory/well-ordering-principle-*` 在有限/可判定假设下使用 ε 算子。这与本 repo 的 C-146 正控制模式一致：**保留资格数据即可选择，遗忘它就不行**。
-5. **公设面清点（32 个文件）**：`reflection/*`（4）、`primitives/*`（4）、`modal-type-theory/*`（6）、`synthetic-homotopy-theory/*`+`synthetic-category-theory/*`+`globular-types/*`（5）、`foundation-core/*`+`foundation/*`（11）、`literature/*`（1）、`elementary-number-theory/equality-conatural-numbers`（1）。其中 `foundation/truncations.lagda.md` 的公设只是 HIT 编码（type former + unit + universal property），消去仍只能进入相应截断层类型；`function-extensionality-axiom` 等是显式公理选择；没有"截断→数据"的公设。
-6. **不安全选项清点**：仅 `type-theories/simple-type-theories.lagda.md` 与 `type-theories/unityped-type-theories.lagda.md` 使用 `--allow-unsolved-metas`（研究对象是类型论本身的研究性模块，与截断接口无消费者关系）；`reflection/rewriting` 与 `modal-type-theory/sharp-modality` 使用 `REWRITE`（与截断-数据提升无关）。
-7. **类型围栏**：截断消去器（`rec-trunc-Prop`/`apply-universal-property-trunc-Prop`）与 set-quotient 消去器在库中均以"目标必须是截断层/集合"的形式给出，编译器层面阻止把命题截断消去到数据。
+1. **源码中显式命名提升接口**：`src/foundation/hilberts-epsilon-operators.lagda.md:35–36` 定义 `ε-operator-Hilbert A = type-trunc-Prop A → A`。这证明固定源码含该定义；不证明存在任意 `A` 的该算子。
+2. **`no-global-choice` 仅为本轮 source-inspected**：`src/foundation/global-choice.lagda.md:35–50` 定义 `Global-Choice` 与 `no-global-choice`，后者源码直接调用 `no-section-type-2-Element-Type`。但 S088 的保存命令只检查 `hott-z.NoCanonicalPoint` 及其 485 个外部依赖模块；`foundation.global-choice` 不在 stdout 闭包。因此当前身份是 `SOURCE_INSPECTED_NOT_REPLAYED_BY_THIS_RUN`，不能写成 S088 已由 kernel 检查的“最强反证”。
+3. **显式前提下的正控制为 source-inspected**：固定源码中可定位 `ε-operator-count`、`ε-operator-is-decidable` 与 `ε-operator-Hilbert-has-double-negation-elim`。它们说明提升接口在携带 `count`、可判定性或 double-negation elimination 时有定义；本轮没有把这些模块全部提升为新的项目数学 claim。
+4. **literate-aware 公设口径**：脚本只统计 `.lagda.md` 的 fenced `agda` 代码块与 `.agda` 正文中行首 `postulate`/`primitive` 声明。结果是 **20 个 postulate 文件、9 个 primitive 文件、并集 22 个文件**。此前“32 个文件”没有可复现规则，撤回。普通行首 grep 会得到 24/26，但其中多出的 4 个 `postulate` 命中位于 Markdown prose（`foundation/propositional-truncations` 与三个 modal 文档），不是代码声明。
+5. **实际 C-05 run 的公设/primitive 闭包**：486 条 `Checking` 中 1 条是项目目标、485 条来自固定外部树；其中 7 个文件含真实声明：`foundation/function-extensionality`、`foundation/univalence`、`foundation/truncations`、`foundation/replacement`、`synthetic-homotopy-theory/circle`、`synthetic-homotopy-theory/pushouts`、`reflection/erasing-equality`。最后一项含 `primitive`，其余含 `postulate`。所以该结果是相对于 agda-unimath 显式基础的 kernel replay，不是无公设证明。
+6. **不安全选项的精确清点**：脚本确认仅 `src/type-theories/simple-type-theories.lagda.md` 与 `src/type-theories/unityped-type-theories.lagda.md` 含 `--allow-unsolved-metas`；它们不在 C-05 保存 run 的相关 E6 论证中。该 lexical 事实不等于完整语义安全认证。
+7. **有界结论**：在上述固定源码锚点和命名接口范围内，没有取得一个未声明额外前提的下游 E6 使用链；源码反而展示了拒绝和带前提正控制。继续搜索应转向真实下游应用/派生开发，而不是把基础库中被正确围栏的接口重复计为 E6。
 
-**判词**：`BOUNDED_NEGATIVE_WITH_STRONGEST_COUNTEREXAMPLE`——在固定提交的 agda-unimath 中，未发现 E6；且最自然的提升消费者（global choice）被真实库用与本项目同源的 no-section 定理反证。E6 仍是唯一升格口，判词阶梯不变。
+**判词**：`SOURCE_INSPECTED_BOUNDED_NEGATIVE`。E6 仍开放；不证明全库或所有下游开发不存在 E6，也不证明 `foundation.global-choice` 已由 S088 run 重放。
 
 ## 4. 工程与治理注记
 
@@ -47,6 +47,7 @@
   2. 外部树依赖标签扩展为 `{cubical-extracted-tree, agda-unimath-extracted-tree}`，两者的确定性树校验相同。
 - `-02` 的 `index-row-manifest.json` 在矩阵行文本修正为指向 final run 后被重生成一次；旧 manifest（sha256 `25ac098c…`）与新 manifest（`45d025fb…`）的替换已在此显式记录，RUN.json 的原始运行证据未被改写（仅索引绑定字段按 mark/freeze 流程更新）。
 - 本轮下载遵循 `external-large-download` Skill：确认外置盘与容量、Range/ETag 探针、单连接降级、`gzip -t`/tar 结构校验、原始归档保留、失败现场保留。
+- 后续独立审计补入 literate-aware 扫描 manager、单元测试和 JSON 收据；它不改写 S088 的 kernel stdout，而是把源码审读、导入闭包与公设边界分开定级。
 
 ## 5. 不能推出
 

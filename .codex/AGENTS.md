@@ -14,5 +14,13 @@ governance profile，数学研究用 research profile，底层证据按 stable I
 
 业务研究入口是 `.codex/skills/hott-paradox-research/SKILL.md`。历史 WebGPT `.codex` 框架在 `sources/webgpt/workspace-snapshot/.codex/`，只作为参考来源。
 
+Record 关系 invariant：`depends_on` 只用于会传播 stale 的验证依赖；谱系、动机、接续和叙事归属使用
+`research_parent`/`related_records`，不会递归水合。显式 task plan 必须检查 `hydration_diagnostics`；query-first
+账本被间接提升为正文或计划无法在宿主上下文中完整装配时，不得只凭 `review_required=[]` 宣称可接手。
+
+Checkpoint invariant：每次 applied checkpoint 必须原子包含 `SESSION.md`、`RUNS.json` 与当前 generation 的全量、
+有序 `CORE_COGNITION_AUDIT.md`，并以 `.codex/cognition/checkpoints/<session-id>/result.json` 的
+`CHECKPOINT_COMMITTED` 为唯一应用收据。`POST-CHECKPOINT.json` 是派生摘要，不得自证；历史缺失不回填伪造。
+
 <!-- math-proof-delivery-gate:v1 -->
 数学结论交付还必须执行根 `AGENTS.md` 的 `MATH_PROOF_BEFORE_DELIVERY_V1`：精确形式命题与证明源码进入 `HoTT/formal/`，实际 kernel 运行和原始结果进入 `HoTT/verification/runs/<run-id>/`，索引进入 `HoTT/CLAIM_EVIDENCE_MATRIX.md`。无法形成这些本地持久证据时，只能交付 `QUESTION/CONJECTURE/HEURISTIC/PAPER_ONLY/SOURCE_REPORTED_NOT_REPLAYED`，不得写成当前 AI 已证明的数学结论；`/tmp` 只可承载可删除缓存，不能成为唯一证据位置。

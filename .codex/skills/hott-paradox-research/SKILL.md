@@ -2,7 +2,7 @@
 name: hott-paradox-research
 description: 每次执行与压缩恢复先按核心认知→方向追踪→全景视野顺序全文加载顶层 repo 三件套，再用 research profile 加载三问/当前前沿并按 stable record 显式水合底层证据；开始前交叉审视航向、方向和成果，结束 checkpoint 与逐 KC 回评。用于自主生成、证明和反驳 HoTT 时间/ASK/现实相对悖论候选；禁止摘要替代、历史 Session 自动复活和证据状态越级。
 metadata:
-  version: "1.7.0"
+  version: "1.8.0"
   role: "business"
   governance_skill: "hott-local-session-governance"
   language: "zh-CN"
@@ -37,7 +37,7 @@ metadata:
 
 `HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md`
 
-然后使用 `.codex/tools/cognition_runtime.py plan --profile research` 加载启动核、本 Skill、三问、FRONTIER、LESSONS、RESUME、STATE 和最新短 Session。STATE 的 `lifecycle_status` 决定当前任务资格，`evidence_status=REVIEW_REQUIRED` 不会把历史 Session 重新放进上下文。选定本轮 candidate/result/issue 后，先 `query --record <ID>`，再用 `plan --profile research --task <ID>` 精确水合该记录及其递归证据；manifest、raw ledger、旧逐-KC表、validator源码和历史 Session 默认不常驻。
+然后使用 `.codex/tools/cognition_runtime.py plan --profile research` 加载启动核、本 Skill、三问、FRONTIER、LESSONS、RESUME、STATE 和最新短 Session。STATE 的 `lifecycle_status` 决定当前任务资格，`evidence_status=REVIEW_REQUIRED` 不会把历史 Session 重新放进上下文。选定本轮 candidate/result/issue 后，先 `query --record <ID>`，再用 `plan --profile research --task <ID>` 精确水合该记录的验证依赖与直接证据；`research_parent`/`related_records` 只导航、不递归水合。manifest、raw ledger、旧逐-KC表、validator源码和历史 Session 默认不常驻。开始读 task 正文前检查 `hydration_diagnostics`；通过错误依赖链提升的 query-first 巨型账本必须先拆链。
 
 三件套和当前 profile 明确选中的必读文件逐份从第1行读到实际末行，正文必须真正进入当前模型上下文。分块可行，摘要、命中片段、仅在Python变量中读取、旧receipt、相同哈希均不能替代。新成果进入三件套/STATE 后可被发现；底层证据只有获得当前任务资格时才显式水合，文件增长不以过去行数为上限。
 
@@ -188,7 +188,7 @@ R001和revision6—11原记录继续保留并可作为支持／排除工具；AS
 
 每次接续先执行 §-1，从工作目录全文重读三件套与 research profile；resume中“曾加载过”不能放行。对实际候选先 query 再 task hydrate，核旧结论是否因来源变化进入REVIEW_REQUIRED，不把“重新讲计划”当继续。每轮公开输出：本次实际构造与推演、最强反解释、结果范围/未知、为什么下一步这样走。保留可以审查的理由、证据和复现步骤，不要求或保存隐藏思维链。
 
-反停滞：文档数、悖论名称数、推理篇幅不作成果指标。允许一轮没有状态提升，但要有具体尝试/失败位置或准确的工具阻塞证据，并自主转向可行分支。以有界任务已交付、明确阻塞或当前可执行资源边界为结束条件，不以耗尽资源本身为目的。结束前完成授权的checkpoint并回读；失败写CHECKPOINT_NOT_SAVED。交接不承诺后台工作。
+反停滞：文档数、悖论名称数、推理篇幅不作成果指标。允许一轮没有状态提升，但要有具体尝试/失败位置或准确的工具阻塞证据，并自主转向可行分支。以有界任务已交付、明确阻塞或当前可执行资源边界为结束条件，不以耗尽资源本身为目的。结束前完成授权的 checkpoint 并回读 canonical `result.json`；payload 必须原子含 `SESSION.md`、`RUNS.json` 和当前全部 KC 回评。缺 result 时写 `CHECKPOINT_RECEIPT_MISSING/CHECKPOINT_NOT_SAVED`，不得让 `POST-CHECKPOINT.json` 自证。交接不承诺后台工作。
 
 ## 10. 本 Skill 的验收边界
 
@@ -258,3 +258,9 @@ ASK不是仅问Q有无语法/类型，而是当前问题凭什么要求特定的
 HoTT 特定结论必须由原生 HoTT/univalent/cubical 语义或已机器证明的保真翻译支持；普通 Lean `Eq`、Python 枚举和有限模型不能外推到未覆盖的 HoTT/无限命题。若证明未完成、工具缺失、运行失败、结果未保存或索引未闭合，本轮只能交付 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，不得用“显然/标准/已证明/数学结论”越级。
 
 临时构建缓存可以使用 `/tmp`，但源码和交付证据的唯一副本必须在 repo 内。Git 未获授权时标 `MACHINE_PROVED_LOCAL_UNCOMMITTED`，不能称 version-closed。完整合同见 `docs/quality/数学结论机器证明与证据留存规范.md`。
+
+## 18. v1.8.0：可装配水合与可证明 checkpoint
+
+`depends_on` 只保存会传播 stale 的验证依赖；研究谱系、历史先后和叙事邻接改用 `research_parent` 或 `related_records`，后两者不递归水合。显式 task plan 的成功判据包括完整装配规模和 `query_first_promoted`，不再只看 `review_required=[]`。
+
+applied checkpoint 的成功判据是 canonical runtime 同一事务写入 current owners、`SESSION.md`、`RUNS.json`、当前 generation 全量有序 KC 回评，并留下 `transaction.json`、before/after 和 `result.json`。Session 自写 POST 只是派生摘要。历史缺失不追溯补造；从本版起 fail closed。

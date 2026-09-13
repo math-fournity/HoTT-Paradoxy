@@ -1,12 +1,12 @@
-# N40：unlabeled 二元素无规范选点的原生机器重放（MP-NOCANONICAL-001 / C-142–C-148）
+# N40：unlabeled 二元素无规范选点的独立原生机器证明（MP-NOCANONICAL-001 / C-142–C-148）
 
 日期：2026-09-13。Session：`S-RES-20260913-086-N40-NOCANONICAL-NATIVE`。本轮属于 N40 三选一中的第一项（“展平消去器完成 `NoCanonicalFinite` 常量定理”），但结论对该项的假设做了一次纠偏：被阻塞的不是消去器 β 归约，而是 N38 记录的“常量陈述”按字面为假。
 
 ## 1. 结论摘要
 
-- 新增机器证明包 `MP-NOCANONICAL-001`（`C-142`–`C-148`），源码 `HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda`，bridge 模块 `NoCanonicalFinite.agda`。
-- final run：`HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02/`；Agda 2.8.0-3d04bac + Cubical v0.9；`--safe --cubical --guardedness`；exit 0、stderr 0 bytes、零 warning；`EXACT_INDEX_SNAPSHOT_MATCH`、`EXACT_EXIT_STDOUT_STDERR_MATCH`。
-- 机器化的内容：unlabeled 二元素呈现 `Σ[ A ∈ Type ] ∥ A ≃ Bool ∥₁` 上**不存在统一选点**；其机制是 swap 自同构 `notEquiv` 给出的**非平凡自识别**，任何假想统一选点被迫成为 `not` 的不动点。该命题与 agda-unimath `no-section-type-2-Element-Type` 同内容（派生文件 `HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda`）。
+- 新增机器证明包 `MP-NOCANONICAL-001`（`C-142`–`C-148`），实际 kernel 目标源码是 `HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda`。`NoCanonicalFinite.agda` 是未被 final command 导入的 bridge/再导出文件；它被 source manifest 固定但该 run **没有**证明 bridge 自身已被检查。
+- final run：`HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02/`；Agda 2.8.0-3d04bac + Cubical v0.9；`--safe --cubical --guardedness`；exit 0、stderr 0 bytes、零 warning；生成时曾是 `EXACT_INDEX_SNAPSHOT_MATCH`，矩阵在 S088 演进后当前复验为 `ROW_STABLE_AFTER_INDEX_EVOLUTION`；重放仍为 `EXACT_EXIT_STDOUT_STDERR_MATCH`。
+- 机器化的内容：unlabeled 二元素呈现 `Σ[ A ∈ Type ] ∥ A ≃ Bool ∥₁` 上**不存在统一选点**；其机制是 swap 自同构 `notEquiv` 给出的**非平凡自识别**，任何假想统一选点被迫成为 `not` 的不动点。它是对 agda-unimath `no-section-type-2-Element-Type` 所表达现象的独立 Cubical/Type₀ 类比；项目没有证明两个形式规格的保真翻译或等价，所以本包不是外部源码的“重放”。真正的外部源码重放由 S088 的 `MP-UNIMATH-NOSECTION-REPLAY-001` 承担。
 - 判词：仍是资格/表示边界（`DEFENSE_WORKS` 族），**不是** HoTT 悖论；E6（真实自然使用链）未出现、未升级。
 
 ## 2. N38 → N40 纠偏（重要）
@@ -17,7 +17,7 @@ N38 把下列陈述记为“正确的常量形式”：
 (s : (b : Bool) → carrier (boolPresentation b)) → s false ≡ s true
 ```
 
-该陈述按字面为假：`boolPresentation` 在定义上常量，`carrier (boolPresentation b)` 归约为 `Bool`，因此 `s` 只是任意 `Bool → Bool`，`s = id` 即反例。普通 dependent function 不携带“沿同一条自识别保持”的相干义务，任何消去器（含展平消去器）都无法修复一个假陈述。N38 的“raw `rec` 在点构造子处不归约”诊断因此属于对错误目标的诊断。
+本轮纸笔检查给出 `s = id` 这一显式反例候选：`boolPresentation` 在定义上常值，因而该目标归约为任意 `Bool → Bool` 的两端相等。这个**精确否定命题没有单独的 claim/run/index**，所以按 F-011 只能保留为 `PAPER_ONLY_WITH_EXPLICIT_COUNTEREXAMPLE_CANDIDATE`，不能作为本包已机器证明的 C-142–C-148 之一。N38 的旧阻塞诊断不再作为当前执行目标；若未来需要重新交付该否定命题，必须另建机器证明包。
 
 正确内容是相干义务：对 `u : (X : UnlabeledTwoElement) → unlabeledCarrier X`，族自身的自识别 `swapSelfIdentification` 迫使 `subst unlabeledCarrier swapSelfIdentification (u X) ≡ u X`；与 `uaβ notEquiv` 复合后得到 `not (u X) ≡ u X`，与 `not≢const` 冲突。
 
@@ -46,14 +46,14 @@ N38 把下列陈述记为“正确的常量形式”：
 | run | 覆盖 claim | 状态 | 索引 | 重放 |
 |---|---|---|---|---|
 | `20260913-MP-NOCANONICAL-001-01` | C-142–C-147 | `KERNEL_ACCEPTED_WITH_SCOPE` | 冻结后被 `-02` 行改写取代（历史） | — |
-| `20260913-MP-NOCANONICAL-001-02` | C-142–C-148 | `KERNEL_ACCEPTED_WITH_SCOPE` | `EXACT_INDEX_SNAPSHOT_MATCH` | `EXACT_EXIT_STDOUT_STDERR_MATCH` |
+| `20260913-MP-NOCANONICAL-001-02` | C-142–C-148 | `KERNEL_ACCEPTED_WITH_SCOPE` | 当前 `ROW_STABLE_AFTER_INDEX_EVOLUTION`（生成时 exact） | `EXACT_EXIT_STDOUT_STDERR_MATCH` |
 
-两 run 均：exit 0、stderr 0 bytes、零 warning；外部依赖 5 项（Agda release asset/binary、Cubical release asset、library file、source tree）哈希核验通过；source manifest 4 个文件（`NoCanonicalPoint.agda`、`TOOLCHAIN.json`、`AGDA_LIBRARIES`、`NoCanonicalFinite.agda`）。
+两 run 均：exit 0、stderr 0 bytes、零 warning；外部依赖 5 项（Agda release asset/binary、Cubical release asset、library file、source tree）哈希核验通过；source manifest 固定 4 个文件（`NoCanonicalPoint.agda`、`TOOLCHAIN.json`、`AGDA_LIBRARIES`、`NoCanonicalFinite.agda`）。其中只有目标及其实际 imports 由该 Agda command 检查；把未导入 bridge 放进 manifest 只证明其字节被绑定，不等于 kernel 消费了它。
 
 ## 6. 不能推出
 
 - 不证明 HoTT 内部矛盾；不证明“现实不可完成”或任何物理时间结论。
-- 不证明任何具体派生开发误用该接口；`hott-z/NoCanonicalPoint.agda` 所处的 agda-unimath 库本体不在本 repo，仍按 `SOURCE_REPORTED_NOT_REPLAYED` 登记。
+- 不证明任何具体派生开发误用该接口；S086 当时 `hott-z/NoCanonicalPoint.agda` 仍为 `SOURCE_REPORTED_NOT_REPLAYED`，该历史状态后来由 S088 的固定外部库重放收口。
 - 不把本包升级为 `NATURAL_USAGE_MISMATCH`：E6 需要真实、固定版本、可回查的自然消费者与同一任务下的资格越级；本包只机器化“接口自身拒绝统一选点”。
 - 不主张原创性：该现象是 univalence 下标准的 no-section 论证。
 

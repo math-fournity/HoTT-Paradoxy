@@ -68,6 +68,13 @@
   "historical_session_auto_load": false,
   "evidence_status_grants_load_eligibility": false,
   "explicit_hydration": "plan --profile research --task <stable-record-id>",
+  "record_relationships": {
+    "depends_on": "verification dependency; recursively hydrated and stale-propagating",
+    "research_parent": "research lineage only; not recursively hydrated",
+    "related_records": "narrative/adjacent records only; not recursively hydrated"
+  },
+  "checkpoint_required_session_files": ["SESSION.md", "RUNS.json", "CORE_COGNITION_AUDIT.md"],
+  "checkpoint_application_receipt": ".codex/cognition/checkpoints/<session-id>/result.json",
   "model_context_certification": "NOT_PROVIDED_BY_TOOLS",
   "source_removal_policy": "USER_REMOVED_PATHS_REMAIN_EXPLICIT_AND_UNPROVEN",
   "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research",

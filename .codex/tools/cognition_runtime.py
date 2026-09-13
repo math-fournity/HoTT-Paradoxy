@@ -17,7 +17,7 @@ import re
 import sys
 import uuid
 
-VERSION = '3.1.0'
+VERSION = '3.2.0'
 PREFIX = '.codex/research/hott/'
 CONFIG = '.codex/cognition/LOAD_SET.json'
 STATE = PREFIX + 'STATE.json'
@@ -44,6 +44,9 @@ REQUIRED_BOOT = (
 )
 REQUIRED_RESEARCH = (SKILL,QUESTIONS,PREFIX+'FRONTIER.md',PREFIX+'LESSONS.md',PREFIX+'RESUME.md')
 ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,100}$')
+KC_ID = re.compile(r'^KC-[0-9]{6}$')
+KC_RELATIONS = frozenset(('ALIGNED','DEEPENED','CORRECTED','TENSION','DEVIATED','NOT_TOUCHED'))
+SESSION_REQUIRED_FILES = ('SESSION.md','RUNS.json','CORE_COGNITION_AUDIT.md')
 
 class CognitionError(RuntimeError):
     pass
@@ -154,7 +157,7 @@ def config_paths(config,key):
         raise CognitionError('CONFIG_PATH_LIST_INVALID: '+key)
     return value
 
-def graph(config, state, get, profile='governance', task_ids=(), core_transition=None):
+def graph(config, state, get, profile='governance', task_ids=(), core_transition=None, path_kind=None):
     if config.get('schema_version')!='cognition-load-set/v3':raise CognitionError('CONFIG_SCHEMA')
     if profile not in PROFILES:raise CognitionError('LOAD_PROFILE_INVALID: '+str(profile))
     trio=config_paths(config,'always_full_three_way')
@@ -192,7 +195,13 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
             raise CognitionError('LIFECYCLE_STATUS_INVALID: '+key)
         if state.get('schema_version')=='hott-working-state/v2' and (not isinstance(record.get('evidence_status'),str) or not record['evidence_status']):
             raise CognitionError('EVIDENCE_STATUS_REQUIRED: '+key)
-        available.append({'id':key,'kind':record.get('kind'),'path':record.get('path'),
+        mode=record.get('path_mode','document')
+        if mode not in ('document','scope_locator'):
+            raise CognitionError('RECORD_PATH_MODE_INVALID: '+key)
+        related=record.get('related_records',[])
+        if not isinstance(related,list) or any(not isinstance(x,str) or x not in records for x in related) or len(set(related))!=len(related):
+            raise CognitionError('RELATED_RECORDS_INVALID: '+key)
+        available.append({'id':key,'kind':record.get('kind'),'path':record.get('path'),'path_mode':mode,
                           'lifecycle_status':lifecycle,'evidence_status':evidence})
     if any(not isinstance(k,str) or k not in records for k in task_ids) or len(set(task_ids))!=len(tuple(task_ids)):
         raise CognitionError('TASK_RECORD_SELECTION_INVALID')
@@ -218,10 +227,18 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
             raise CognitionError('MISSING_RECORD: '+str(k))
         record=records[k]
         if not isinstance(record,dict):raise CognitionError('INVALID_RECORD: '+k)
-        visiting.add(k);add(record.get('path'),'task_expand','task:'+k)
+        visiting.add(k)
+        primary=record.get('path');mode=record.get('path_mode','document')
+        if mode=='document':
+            add(primary,'task_expand','task:'+k)
+        elif mode=='scope_locator':
+            if path_kind is None or path_kind(primary)!='directory':
+                raise CognitionError('SCOPE_LOCATOR_NOT_DIRECTORY: '+k)
         deps=record.get('depends_on',[]); sources=record.get('full_sources',[]); hashes=record.get('source_hashes',{})
         if not isinstance(deps,list) or not isinstance(sources,list) or not isinstance(hashes,dict):
             raise CognitionError('INVALID_DEPENDENCIES: '+k)
+        if mode=='scope_locator' and not sources and not resolution_sources(record,k):
+            raise CognitionError('SCOPE_LOCATOR_EVIDENCE_REQUIRED: '+k)
         for d in deps:visit(d)
         for p in sources:add(p,'task_expand','full-source:'+k)
         for p in resolution_sources(record,k):add(p,'task_expand','resolution:'+k)
@@ -280,6 +297,11 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
     def get(rel):
         if rel not in cache:cache[rel]=read_bytes(root,rel)
         return cache[rel]
+    def kind(rel):
+        p=path_of(root,rel)
+        if p.is_file():return 'file'
+        if p.is_dir():return 'directory'
+        return 'missing'
     state=obj(get(STATE));config=obj(get(CONFIG))
     if head.get('revision')!=state.get('revision') or head.get('latest_session')!=state.get('latest_session'):
         raise CognitionError('HEAD_STATE_MISMATCH')
@@ -288,7 +310,7 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
     for rel,h in tracked.items():
         if sha(get(rel))!=h:raise CognitionError('UNCOMMITTED_STATE: '+rel)
     task_ids=tuple(task_ids)
-    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids,_allow_core_transition)
+    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids,_allow_core_transition,kind)
     entries=[]
     for rel in paths:
         b=get(rel);t=text(b,rel)
@@ -299,12 +321,16 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
     if read_bytes(root,HEAD)!=head_bytes:raise CognitionError('HEAD_CHANGED')
     if not _allow_busy and (path_of(root,LOCK).exists() or path_of(root,TXN).exists()):raise CognitionError('WRITER_STARTED')
     signature=sha(dump({'head_sha256':sha(head_bytes),'profile':profile,'task_ids':list(task_ids),'files':entries}))
+    query_first_promoted=sorted(set(config.get('query_first',[])) & {x['path'] for x in entries})
+    largest=sorted(entries,key=lambda x:(-x['bytes'],x['path']))[:10]
     return {'schema_version':'cognition-plan/v2','snapshot':signature,'revision':head['revision'],
             'latest_session':state['latest_session'],'profile':profile,'task_ids':list(task_ids),
             'documents':entries,'hydrated_records':records,'available_records':available,
             'automatically_included_historical_sessions':[],
             'review_required':stale,'total_bytes':sum(x['bytes'] for x in entries),
             'total_lines':sum(x['lines'] for x in entries),'model_context':'NOT_CERTIFIED_BY_TOOL',
+            'hydration_diagnostics':{'document_count':len(entries),'query_first_promoted':query_first_promoted,
+                                     'largest_documents':[{'path':x['path'],'bytes':x['bytes'],'lines':x['lines']} for x in largest]},
             'policy':'FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION',
             'three_way_documents':list(THREE_WAY),
             'query_first_documents':query_first if (query_first:=config.get('query_first')) else [],
@@ -384,6 +410,41 @@ def allowed_write(rel,sid):
     if re.fullmatch(re.escape(PREFIX)+'sessions/'+re.escape(sid)+r'/[A-Za-z0-9_.-]+',rel):return True
     return False
 
+def validate_session_bundle(get, sid, state):
+    """Require session evidence before a checkpoint can become durable.
+
+    This validates structure and exact KC coverage only.  It cannot infer or
+    certify the semantic quality of an assessment.
+    """
+    base=PREFIX+'sessions/'+sid+'/'
+    required={name:base+name for name in SESSION_REQUIRED_FILES}
+    session=text(get(required['SESSION.md']),required['SESSION.md'])
+    if sid not in session:raise CognitionError('SESSION_ID_NOT_IN_RECORD')
+    runs=obj(get(required['RUNS.json']))
+    if runs.get('session_id')!=sid or not isinstance(runs.get('schema_version'),str) or not runs['schema_version']:
+        raise CognitionError('SESSION_RUNS_IDENTITY_INVALID')
+    audit=text(get(required['CORE_COGNITION_AUDIT.md']),required['CORE_COGNITION_AUDIT.md'])
+    if sid not in audit:raise CognitionError('KC_AUDIT_SESSION_ID_MISMATCH')
+    current_core=state.get('current_core',{})
+    generation=current_core.get('generation');expected_count=current_core.get('kc_count')
+    if not isinstance(generation,str) or generation not in audit or type(expected_count) is not int or expected_count<1:
+        raise CognitionError('KC_AUDIT_CORE_IDENTITY_INVALID')
+    rows=[]
+    for line in audit.splitlines():
+        if not line.startswith('| `KC-'):continue
+        cells=[cell.strip() for cell in line.strip().strip('|').split('|')]
+        if len(cells)<5:raise CognitionError('KC_AUDIT_ROW_INVALID')
+        kc=cells[0].strip('` ');relation=cells[2].strip('` ')
+        if not KC_ID.fullmatch(kc) or relation not in KC_RELATIONS:
+            raise CognitionError('KC_AUDIT_ROW_INVALID')
+        if not cells[3] or not cells[4]:raise CognitionError('KC_AUDIT_EVIDENCE_REQUIRED: '+kc)
+        rows.append(kc)
+    expected=[f'KC-{n:06d}' for n in range(1,expected_count+1)]
+    if rows!=expected:raise CognitionError('KC_AUDIT_COVERAGE_OR_ORDER_INVALID')
+    for field in ('core_change','direction_change','panorama_change','update_decision','cross_conflicts','unresolved'):
+        if not re.search(r'(?mi)^[-*]?\s*'+re.escape(field)+r'\s*:',audit):
+            raise CognitionError('KC_AUDIT_THREE_WAY_FIELD_MISSING: '+field)
+
 def prepare(root, snapshot, payload, *, busy=False):
     profile=payload.get('load_profile','governance')
     task_ids=payload.get('task_ids',[])
@@ -410,6 +471,9 @@ def prepare(root, snapshot, payload, *, busy=False):
     if not set(MUTABLE)<=set(changes):raise CognitionError('INCOMPLETE_CHECKPOINT_STATE')
     session_path=PREFIX+'sessions/'+sid+'/SESSION.md'
     if session_path not in changes:raise CognitionError('SESSION_RECORD_REQUIRED')
+    for name in SESSION_REQUIRED_FILES:
+        if PREFIX+'sessions/'+sid+'/'+name not in changes:
+            raise CognitionError('SESSION_EVIDENCE_REQUIRED: '+name)
     get=lambda rel: changes[rel] if rel in changes else read_bytes(root,rel)
     state=obj(get(STATE)); prior=obj(read_bytes(root,STATE))
     if state.get('revision')!=prior['revision']+1 or state.get('latest_session')!=sid:
@@ -426,7 +490,14 @@ def prepare(root, snapshot, payload, *, busy=False):
     elif state.get('schema_version')!=prior.get('schema_version'):
         raise CognitionError('STATE_SCHEMA_TRANSITION_INVALID')
     if state.get('records',{}).get(sid,{}).get('path')!=session_path:raise CognitionError('SESSION_ROUTE_INVALID')
-    _,_,_,stale,_=graph(obj(get(CONFIG)),state,get,profile,tuple(task_ids))
+    validate_session_bundle(get,sid,state)
+    def kind(rel):
+        if rel in changes:return 'file'
+        p=path_of(root,rel)
+        if p.is_file():return 'file'
+        if p.is_dir():return 'directory'
+        return 'missing'
+    _,_,_,stale,_=graph(obj(get(CONFIG)),state,get,profile,tuple(task_ids),core_transition,path_kind=kind)
     for k in stale:
         if evidence_of(state['records'][k])!='REVIEW_REQUIRED':raise CognitionError('DEPENDENCY_REVIEW_REQUIRED: '+k)
     # Removing old records would silently delete historical routing.
@@ -442,6 +513,12 @@ def prepare(root, snapshot, payload, *, busy=False):
             for evidence_path in resolution_sources(new,k):text(get(evidence_path),evidence_path)
         if rec.get('source_hashes')!=new.get('source_hashes') and not str(new.get('revalidation','')).strip():
             raise CognitionError('REVALIDATION_EXPLANATION_REQUIRED: '+k)
+        if rec.get('depends_on',[])!=new.get('depends_on',[]) and new.get('depends_on'):
+            if new.get('dependency_semantics')!='verification_staleness':
+                raise CognitionError('DEPENDENCY_SEMANTICS_REQUIRED: '+k)
+    for k,new in state['records'].items():
+        if k not in prior['records'] and new.get('depends_on') and new.get('dependency_semantics')!='verification_staleness':
+            raise CognitionError('DEPENDENCY_SEMANTICS_REQUIRED: '+k)
     head={'schema_version':'cognition-head/v1','revision':state['revision'],'latest_session':sid,
           'updated_at_utc':stamp(),'tracked':{x:sha(changes[x]) for x in MUTABLE}}
     changes[HEAD]=dump(head);old[HEAD]=read_bytes(root,HEAD)

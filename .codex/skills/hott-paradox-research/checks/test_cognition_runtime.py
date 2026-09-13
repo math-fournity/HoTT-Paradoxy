@@ -60,7 +60,7 @@ class RuntimeTests(unittest.TestCase):
         state = {
             "schema_version": "hott-working-state/v2",
             "revision": 1,
-            "current_core": {"generation": "core-cognition-generation-3"},
+            "current_core": {"generation": "core-cognition-generation-3", "kc_count": 2},
             "latest_session": "S0",
             "active": [],
             "review_due": [],
@@ -144,7 +144,25 @@ class RuntimeTests(unittest.TestCase):
             "full_sources": [],
             "source_hashes": {}
         }
-        extra = {session: f"# Test {sid}\nEvidence and next action.\n"}
+        audit = C.PREFIX + f"sessions/{sid}/CORE_COGNITION_AUDIT.md"
+        runs = C.PREFIX + f"sessions/{sid}/RUNS.json"
+        audit_rows = [
+            f"| `KC-{n:06d}` | fixture | `NOT_TOUCHED` | Fixture assessment. | {session} | none |"
+            for n in range(1, 3)
+        ]
+        audit_text = (
+            f"# Core audit {sid}\n\n"
+            "generation: core-cognition-generation-3\n\n"
+            "| KC | label | relation | assessment | evidence | unresolved |\n"
+            "|---|---|---|---|---|---|\n" + "\n".join(audit_rows) + "\n\n"
+            "- core_change: NO\n- direction_change: NO\n- panorama_change: NO\n"
+            "- update_decision: fixture\n- cross_conflicts: none\n- unresolved: none\n"
+        )
+        extra = {
+            session: f"# Test {sid}\nEvidence and next action.\n",
+            audit: audit_text,
+            runs: C.dump({"schema_version": "hott-session-runs/v2", "session_id": sid}).decode("utf-8"),
+        }
         if add_candidate:
             candidate = C.PREFIX + "candidates/C1/candidate.md"
             extra[candidate] = "# Candidate C1\nNew evidence.\n"
@@ -327,6 +345,30 @@ class RuntimeTests(unittest.TestCase):
         self.assertTrue({source, parent_path, child_path} <= set(paths))
         self.assertEqual(set(plan["hydrated_records"]), {"PARENT", "CHILD"})
 
+    def test_related_record_is_visible_but_not_hydrated(self) -> None:
+        parent_path = self.add_record("PARENT", lifecycle="CURRENT", evidence="VERIFIED_WITH_SCOPE")
+        child_path = self.add_record("CHILD", lifecycle="CURRENT", evidence="VERIFIED_WITH_SCOPE")
+        state = self.state()
+        state["records"]["CHILD"]["related_records"] = ["PARENT"]
+        self.set_state(state)
+        plan = self.plan("research", ("CHILD",))
+        paths = [row["path"] for row in plan["documents"]]
+        self.assertIn(child_path, paths)
+        self.assertNotIn(parent_path, paths)
+        self.assertEqual(plan["hydrated_records"], ["CHILD"])
+
+    def test_scope_locator_directory_uses_evidence_without_reading_directory(self) -> None:
+        evidence = "audit/scope.md"
+        self.put(evidence, "scope evidence\n")
+        self.add_record("SCOPE", lifecycle="OPEN_ISSUE", evidence="REVIEW_REQUIRED", full_sources=[evidence])
+        state = self.state()
+        state["records"]["SCOPE"]["path"] = C.PREFIX + "sessions"
+        state["records"]["SCOPE"]["path_mode"] = "scope_locator"
+        self.set_state(state)
+        plan = self.plan("research", ("SCOPE",))
+        self.assertIn(evidence, [row["path"] for row in plan["documents"]])
+        self.assertNotIn(C.PREFIX + "sessions", [row["path"] for row in plan["documents"]])
+
     def test_historical_record_can_only_be_loaded_explicitly(self) -> None:
         path = self.add_record("OLD", lifecycle="HISTORICAL", evidence="VERIFIED_WITH_SCOPE", status="complete")
         self.assertNotIn(path, [row["path"] for row in self.plan()["documents"]])
@@ -431,6 +473,29 @@ class RuntimeTests(unittest.TestCase):
         })
         with self.assertRaisesRegex(C.CognitionError, "WRITE_OUTSIDE_AUTHORIZED"):
             C.checkpoint(self.root, plan["snapshot"], payload)
+
+    def test_checkpoint_requires_runs_and_full_ordered_kc_audit(self) -> None:
+        plan = self.plan(); payload = self.payload()
+        payload["files"] = [row for row in payload["files"] if not row["path"].endswith("/RUNS.json")]
+        with self.assertRaisesRegex(C.CognitionError, "SESSION_EVIDENCE_REQUIRED: RUNS.json"):
+            C.checkpoint(self.root, plan["snapshot"], payload)
+        payload = self.payload()
+        audit = next(row for row in payload["files"] if row["path"].endswith("/CORE_COGNITION_AUDIT.md"))
+        audit["text"] = audit["text"].replace("| `KC-000002`", "| `KC-000001`")
+        with self.assertRaisesRegex(C.CognitionError, "KC_AUDIT_COVERAGE_OR_ORDER_INVALID"):
+            C.checkpoint(self.root, plan["snapshot"], payload)
+
+    def test_changed_verification_dependency_requires_declared_semantics(self) -> None:
+        self.add_record("A", lifecycle="CURRENT", evidence="VERIFIED_WITH_SCOPE")
+        self.add_record("B", lifecycle="CURRENT", evidence="VERIFIED_WITH_SCOPE")
+        plan = self.plan(); payload = self.payload(); state = self.payload_state(payload)
+        state["records"]["B"]["depends_on"] = ["A"]
+        self.replace_payload_state(payload, state)
+        with self.assertRaisesRegex(C.CognitionError, "DEPENDENCY_SEMANTICS_REQUIRED"):
+            C.checkpoint(self.root, plan["snapshot"], payload)
+        state["records"]["B"]["dependency_semantics"] = "verification_staleness"
+        self.replace_payload_state(payload, state)
+        self.assertEqual(C.checkpoint(self.root, plan["snapshot"], payload)["status"], "DRY_RUN")
 
     def test_interruption_finish_and_rollback(self) -> None:
         self.fault("S1", 2)

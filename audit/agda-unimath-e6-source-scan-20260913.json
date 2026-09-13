@@ -1,0 +1,2703 @@
+{
+  "classification": "SOURCE_INSPECTED_BOUNDED_NEGATIVE",
+  "e6_assessment": {
+    "limits": [
+      "No claim that the full library has been semantically proved free of E6.",
+      "No claim that no downstream application or derived development misuses a weaker interface.",
+      "No claim that no-global-choice was kernel-replayed by the saved C-05 run."
+    ],
+    "no_global_choice_status": "SOURCE_INSPECTED_NOT_REPLAYED_BY_THIS_RUN",
+    "positive_controls_status": "SOURCE_INSPECTED",
+    "verdict": "SOURCE_INSPECTED_BOUNDED_NEGATIVE"
+  },
+  "mathematical_certification": "NOT_PERFORMED",
+  "saved_kernel_replay_scope": {
+    "checking_line_count": 486,
+    "declaration_files_in_replay_closure": [
+      {
+        "bytes": 6598,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 80,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/function-extensionality.lagda.md",
+        "sha256": "5a6cf32b0fc6c049d0e5e47a99dea161011046069ed2284e0760f80eac14b78a"
+      },
+      {
+        "bytes": 7504,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 58,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/univalence.lagda.md",
+        "sha256": "8c68c7b68edcc571f61d8c5190a477acb2de1c399cda195e4b3449343c0b9573"
+      },
+      {
+        "bytes": 20993,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 51,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 54,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 62,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 65,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/truncations.lagda.md",
+        "sha256": "12e0782f48dc8d9e8a10cdd89024b163048c69ffe90c708b78a54baab8936fea"
+      },
+      {
+        "bytes": 1454,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 46,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/replacement.lagda.md",
+        "sha256": "7bb2bc325ee9d5e56dafcaa4d1c4a2c14218d48233788418a53d6ac7dae2a4d7"
+      },
+      {
+        "bytes": 21711,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 60,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 63,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 66,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 75,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/synthetic-homotopy-theory/circle.lagda.md",
+        "sha256": "9c728e51e736b10bc17ae399478bcbc25f261c8326ac88fc629b5b0759c0aedb"
+      },
+      {
+        "bytes": 24618,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 104,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 109,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 114,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 119,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 149,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 172,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/synthetic-homotopy-theory/pushouts.lagda.md",
+        "sha256": "c56ee8645f5fc6b0b032c4c3bf6556d14b14d19b8916326652d0f070d709f5d9"
+      },
+      {
+        "bytes": 1435,
+        "declarations": [
+          {
+            "kind": "primitive",
+            "line": 40,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/reflection/erasing-equality.lagda.md",
+        "sha256": "3a5b78fbd57a492afe8685f842c638a5352712464f9effdbc1238c3c2963f50b"
+      }
+    ],
+    "external_module_count": 485,
+    "external_modules": [
+      {
+        "module": "foundation.negation",
+        "path": "src/foundation/negation.lagda.md"
+      },
+      {
+        "module": "foundation-core.negation",
+        "path": "src/foundation-core/negation.lagda.md"
+      },
+      {
+        "module": "foundation.universe-levels",
+        "path": "src/foundation/universe-levels.lagda.md"
+      },
+      {
+        "module": "foundation-core.empty-types",
+        "path": "src/foundation-core/empty-types.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-pair-types",
+        "path": "src/foundation/dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.embeddings",
+        "path": "src/foundation-core/embeddings.lagda.md"
+      },
+      {
+        "module": "foundation.action-on-identifications-functions",
+        "path": "src/foundation/action-on-identifications-functions.lagda.md"
+      },
+      {
+        "module": "foundation-core.constant-maps",
+        "path": "src/foundation-core/constant-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.function-types",
+        "path": "src/foundation-core/function-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.identity-types",
+        "path": "src/foundation-core/identity-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.equivalences",
+        "path": "src/foundation-core/equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.whiskering-homotopies-composition",
+        "path": "src/foundation/whiskering-homotopies-composition.lagda.md"
+      },
+      {
+        "module": "foundation-core.homotopies",
+        "path": "src/foundation-core/homotopies.lagda.md"
+      },
+      {
+        "module": "foundation.action-on-identifications-dependent-functions",
+        "path": "src/foundation/action-on-identifications-dependent-functions.lagda.md"
+      },
+      {
+        "module": "foundation-core.dependent-identifications",
+        "path": "src/foundation-core/dependent-identifications.lagda.md"
+      },
+      {
+        "module": "foundation-core.transport-along-identifications",
+        "path": "src/foundation-core/transport-along-identifications.lagda.md"
+      },
+      {
+        "module": "foundation-core.cartesian-product-types",
+        "path": "src/foundation-core/cartesian-product-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.coherently-invertible-maps",
+        "path": "src/foundation-core/coherently-invertible-maps.lagda.md"
+      },
+      {
+        "module": "foundation.action-on-identifications-binary-functions",
+        "path": "src/foundation/action-on-identifications-binary-functions.lagda.md"
+      },
+      {
+        "module": "foundation.homotopy-algebra",
+        "path": "src/foundation/homotopy-algebra.lagda.md"
+      },
+      {
+        "module": "foundation-core.whiskering-homotopies-concatenation",
+        "path": "src/foundation-core/whiskering-homotopies-concatenation.lagda.md"
+      },
+      {
+        "module": "foundation.whiskering-operations",
+        "path": "src/foundation/whiskering-operations.lagda.md"
+      },
+      {
+        "module": "foundation-core.whiskering-identifications-concatenation",
+        "path": "src/foundation-core/whiskering-identifications-concatenation.lagda.md"
+      },
+      {
+        "module": "foundation.whiskering-higher-homotopies-composition",
+        "path": "src/foundation/whiskering-higher-homotopies-composition.lagda.md"
+      },
+      {
+        "module": "foundation-core.commuting-squares-of-homotopies",
+        "path": "src/foundation-core/commuting-squares-of-homotopies.lagda.md"
+      },
+      {
+        "module": "foundation-core.commuting-squares-of-identifications",
+        "path": "src/foundation-core/commuting-squares-of-identifications.lagda.md"
+      },
+      {
+        "module": "foundation-core.retractions",
+        "path": "src/foundation-core/retractions.lagda.md"
+      },
+      {
+        "module": "foundation-core.sections",
+        "path": "src/foundation-core/sections.lagda.md"
+      },
+      {
+        "module": "foundation-core.invertible-maps",
+        "path": "src/foundation-core/invertible-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.propositions",
+        "path": "src/foundation-core/propositions.lagda.md"
+      },
+      {
+        "module": "foundation.equivalences-contractible-types",
+        "path": "src/foundation/equivalences-contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-products-contractible-types",
+        "path": "src/foundation/dependent-products-contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.function-extensionality",
+        "path": "src/foundation/function-extensionality.lagda.md"
+      },
+      {
+        "module": "foundation.function-extensionality-axiom",
+        "path": "src/foundation/function-extensionality-axiom.lagda.md"
+      },
+      {
+        "module": "foundation.evaluation-functions",
+        "path": "src/foundation/evaluation-functions.lagda.md"
+      },
+      {
+        "module": "foundation.implicit-function-types",
+        "path": "src/foundation/implicit-function-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.contractible-types",
+        "path": "src/foundation-core/contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.equality-cartesian-product-types",
+        "path": "src/foundation/equality-cartesian-product-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.equality-dependent-pair-types",
+        "path": "src/foundation-core/equality-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.retracts-of-types",
+        "path": "src/foundation-core/retracts-of-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.sets",
+        "path": "src/foundation-core/sets.lagda.md"
+      },
+      {
+        "module": "foundation.fundamental-theorem-of-identity-types",
+        "path": "src/foundation/fundamental-theorem-of-identity-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.families-of-equivalences",
+        "path": "src/foundation-core/families-of-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation-core.type-theoretic-principle-of-choice",
+        "path": "src/foundation-core/type-theoretic-principle-of-choice.lagda.md"
+      },
+      {
+        "module": "foundation-core.functoriality-dependent-pair-types",
+        "path": "src/foundation-core/functoriality-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation.transport-along-identifications",
+        "path": "src/foundation/transport-along-identifications.lagda.md"
+      },
+      {
+        "module": "foundation-core.contractible-maps",
+        "path": "src/foundation-core/contractible-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.fibers-of-maps",
+        "path": "src/foundation-core/fibers-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.strictly-right-unital-concatenation-identifications",
+        "path": "src/foundation/strictly-right-unital-concatenation-identifications.lagda.md"
+      },
+      {
+        "module": "foundation-core.torsorial-type-families",
+        "path": "src/foundation-core/torsorial-type-families.lagda.md"
+      },
+      {
+        "module": "foundation-core.injective-maps",
+        "path": "src/foundation-core/injective-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.truncated-types",
+        "path": "src/foundation-core/truncated-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.truncation-levels",
+        "path": "src/foundation-core/truncation-levels.lagda.md"
+      },
+      {
+        "module": "foundation-core.logical-equivalences",
+        "path": "src/foundation-core/logical-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.type-arithmetic-dependent-pair-types",
+        "path": "src/foundation/type-arithmetic-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation.singleton-induction",
+        "path": "src/foundation/singleton-induction.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-products-propositions",
+        "path": "src/foundation/dependent-products-propositions.lagda.md"
+      },
+      {
+        "module": "foundation.logical-equivalences",
+        "path": "src/foundation/logical-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.equivalence-extensionality",
+        "path": "src/foundation/equivalence-extensionality.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-universal-property-equivalences",
+        "path": "src/foundation/dependent-universal-property-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation-core.path-split-maps",
+        "path": "src/foundation-core/path-split-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.precomposition-dependent-functions",
+        "path": "src/foundation-core/precomposition-dependent-functions.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-homotopies",
+        "path": "src/foundation/dependent-homotopies.lagda.md"
+      },
+      {
+        "module": "foundation.identity-systems",
+        "path": "src/foundation/identity-systems.lagda.md"
+      },
+      {
+        "module": "foundation.subtype-identity-principle",
+        "path": "src/foundation/subtype-identity-principle.lagda.md"
+      },
+      {
+        "module": "foundation.equivalences-propositions",
+        "path": "src/foundation/equivalences-propositions.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-cartesian-product-types",
+        "path": "src/foundation/functoriality-cartesian-product-types.lagda.md"
+      },
+      {
+        "module": "foundation.morphisms-arrows",
+        "path": "src/foundation/morphisms-arrows.lagda.md"
+      },
+      {
+        "module": "foundation.cones-over-cospan-diagrams",
+        "path": "src/foundation/cones-over-cospan-diagrams.lagda.md"
+      },
+      {
+        "module": "foundation.homotopies",
+        "path": "src/foundation/homotopies.lagda.md"
+      },
+      {
+        "module": "foundation.action-on-higher-identifications-functions",
+        "path": "src/foundation/action-on-higher-identifications-functions.lagda.md"
+      },
+      {
+        "module": "foundation.path-algebra",
+        "path": "src/foundation/path-algebra.lagda.md"
+      },
+      {
+        "module": "foundation.binary-embeddings",
+        "path": "src/foundation/binary-embeddings.lagda.md"
+      },
+      {
+        "module": "foundation.binary-equivalences",
+        "path": "src/foundation/binary-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.identity-types",
+        "path": "src/foundation/identity-types.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-pentagons-of-identifications",
+        "path": "src/foundation/commuting-pentagons-of-identifications.lagda.md"
+      },
+      {
+        "module": "foundation.homotopy-induction",
+        "path": "src/foundation/homotopy-induction.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-identity-systems",
+        "path": "src/foundation/universal-property-identity-systems.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-contractible-types",
+        "path": "src/foundation/universal-property-contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-dependent-pair-types",
+        "path": "src/foundation/universal-property-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.commuting-triangles-of-maps",
+        "path": "src/foundation-core/commuting-triangles-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.functoriality-dependent-function-types",
+        "path": "src/foundation-core/functoriality-dependent-function-types.lagda.md"
+      },
+      {
+        "module": "foundation.multivariable-homotopies",
+        "path": "src/foundation/multivariable-homotopies.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.natural-numbers",
+        "path": "src/elementary-number-theory/natural-numbers.lagda.md"
+      },
+      {
+        "module": "foundation.equality-dependent-function-types",
+        "path": "src/foundation/equality-dependent-function-types.lagda.md"
+      },
+      {
+        "module": "foundation.iterated-dependent-product-types",
+        "path": "src/foundation/iterated-dependent-product-types.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-products-truncated-types",
+        "path": "src/foundation/dependent-products-truncated-types.lagda.md"
+      },
+      {
+        "module": "foundation.telescopes",
+        "path": "src/foundation/telescopes.lagda.md"
+      },
+      {
+        "module": "foundation.structure-identity-principle",
+        "path": "src/foundation/structure-identity-principle.lagda.md"
+      },
+      {
+        "module": "foundation-core.commuting-squares-of-maps",
+        "path": "src/foundation-core/commuting-squares-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.transposition-identifications-along-equivalences",
+        "path": "src/foundation/transposition-identifications-along-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-triangles-of-identifications",
+        "path": "src/foundation/commuting-triangles-of-identifications.lagda.md"
+      },
+      {
+        "module": "foundation.whiskering-identifications-concatenation",
+        "path": "src/foundation/whiskering-identifications-concatenation.lagda.md"
+      },
+      {
+        "module": "foundation.postcomposition-functions",
+        "path": "src/foundation/postcomposition-functions.lagda.md"
+      },
+      {
+        "module": "foundation-core.postcomposition-functions",
+        "path": "src/foundation-core/postcomposition-functions.lagda.md"
+      },
+      {
+        "module": "foundation-core.postcomposition-dependent-functions",
+        "path": "src/foundation-core/postcomposition-dependent-functions.lagda.md"
+      },
+      {
+        "module": "foundation.postcomposition-dependent-functions",
+        "path": "src/foundation/postcomposition-dependent-functions.lagda.md"
+      },
+      {
+        "module": "foundation.precomposition-functions",
+        "path": "src/foundation/precomposition-functions.lagda.md"
+      },
+      {
+        "module": "foundation-core.precomposition-functions",
+        "path": "src/foundation-core/precomposition-functions.lagda.md"
+      },
+      {
+        "module": "foundation.precomposition-dependent-functions",
+        "path": "src/foundation/precomposition-dependent-functions.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-identifications",
+        "path": "src/foundation/dependent-identifications.lagda.md"
+      },
+      {
+        "module": "foundation.transport-along-higher-identifications",
+        "path": "src/foundation/transport-along-higher-identifications.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-squares-of-homotopies",
+        "path": "src/foundation/commuting-squares-of-homotopies.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-squares-of-identifications",
+        "path": "src/foundation/commuting-squares-of-identifications.lagda.md"
+      },
+      {
+        "module": "foundation.function-types",
+        "path": "src/foundation/function-types.lagda.md"
+      },
+      {
+        "module": "foundation.sections",
+        "path": "src/foundation/sections.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-triangles-of-homotopies",
+        "path": "src/foundation/commuting-triangles-of-homotopies.lagda.md"
+      },
+      {
+        "module": "foundation.transport-along-homotopies",
+        "path": "src/foundation/transport-along-homotopies.lagda.md"
+      },
+      {
+        "module": "foundation-core.truncated-maps",
+        "path": "src/foundation-core/truncated-maps.lagda.md"
+      },
+      {
+        "module": "foundation.equality-fibers-of-maps",
+        "path": "src/foundation/equality-fibers-of-maps.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.2-element-types",
+        "path": "src/univalent-combinatorics/2-element-types.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.equality-natural-numbers",
+        "path": "src/elementary-number-theory/equality-natural-numbers.lagda.md"
+      },
+      {
+        "module": "foundation.coproduct-types",
+        "path": "src/foundation/coproduct-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.coproduct-types",
+        "path": "src/foundation-core/coproduct-types.lagda.md"
+      },
+      {
+        "module": "foundation.negated-equality",
+        "path": "src/foundation/negated-equality.lagda.md"
+      },
+      {
+        "module": "foundation.binary-relations",
+        "path": "src/foundation/binary-relations.lagda.md"
+      },
+      {
+        "module": "foundation.inhabited-types",
+        "path": "src/foundation/inhabited-types.lagda.md"
+      },
+      {
+        "module": "foundation.contractible-types",
+        "path": "src/foundation/contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.raising-universe-levels-unit-type",
+        "path": "src/foundation/raising-universe-levels-unit-type.lagda.md"
+      },
+      {
+        "module": "foundation.unit-type",
+        "path": "src/foundation/unit-type.lagda.md"
+      },
+      {
+        "module": "foundation-core.diagonal-maps-of-types",
+        "path": "src/foundation-core/diagonal-maps-of-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.raising-universe-levels",
+        "path": "src/foundation-core/raising-universe-levels.lagda.md"
+      },
+      {
+        "module": "foundation.subuniverse-of-contractible-types",
+        "path": "src/foundation/subuniverse-of-contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.subuniverse-of-contractible-types",
+        "path": "src/foundation-core/subuniverse-of-contractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.subuniverses",
+        "path": "src/foundation/subuniverses.lagda.md"
+      },
+      {
+        "module": "foundation-core.subuniverses",
+        "path": "src/foundation-core/subuniverses.lagda.md"
+      },
+      {
+        "module": "foundation.equivalences",
+        "path": "src/foundation/equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-fibers-of-maps",
+        "path": "src/foundation/functoriality-fibers-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.homotopies-morphisms-arrows",
+        "path": "src/foundation/homotopies-morphisms-arrows.lagda.md"
+      },
+      {
+        "module": "foundation.truncated-maps",
+        "path": "src/foundation/truncated-maps.lagda.md"
+      },
+      {
+        "module": "foundation.subuniverse-of-truncated-types",
+        "path": "src/foundation/subuniverse-of-truncated-types.lagda.md"
+      },
+      {
+        "module": "foundation.truncation-levels",
+        "path": "src/foundation/truncation-levels.lagda.md"
+      },
+      {
+        "module": "foundation-core.pullbacks",
+        "path": "src/foundation-core/pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.standard-pullbacks",
+        "path": "src/foundation/standard-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation-core.diagonal-maps-cartesian-products-of-types",
+        "path": "src/foundation-core/diagonal-maps-cartesian-products-of-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.universal-property-pullbacks",
+        "path": "src/foundation-core/universal-property-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.type-arithmetic-standard-pullbacks",
+        "path": "src/foundation/type-arithmetic-standard-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.equality-dependent-pair-types",
+        "path": "src/foundation/equality-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation.standard-ternary-pullbacks",
+        "path": "src/foundation/standard-ternary-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-equivalences",
+        "path": "src/foundation/universal-property-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.precomposition-functions-into-subuniverses",
+        "path": "src/foundation/precomposition-functions-into-subuniverses.lagda.md"
+      },
+      {
+        "module": "foundation-core.subtypes",
+        "path": "src/foundation-core/subtypes.lagda.md"
+      },
+      {
+        "module": "foundation.injective-maps",
+        "path": "src/foundation/injective-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.propositional-maps",
+        "path": "src/foundation-core/propositional-maps.lagda.md"
+      },
+      {
+        "module": "foundation.univalence",
+        "path": "src/foundation/univalence.lagda.md"
+      },
+      {
+        "module": "foundation-core.univalence",
+        "path": "src/foundation-core/univalence.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-propositional-truncation",
+        "path": "src/foundation/functoriality-propositional-truncation.lagda.md"
+      },
+      {
+        "module": "foundation.propositional-truncations",
+        "path": "src/foundation/propositional-truncations.lagda.md"
+      },
+      {
+        "module": "foundation.constant-type-families",
+        "path": "src/foundation/constant-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.propositions",
+        "path": "src/foundation/propositions.lagda.md"
+      },
+      {
+        "module": "foundation.fibers-of-maps",
+        "path": "src/foundation/fibers-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.type-arithmetic-unit-type",
+        "path": "src/foundation/type-arithmetic-unit-type.lagda.md"
+      },
+      {
+        "module": "foundation.retracts-of-types",
+        "path": "src/foundation/retracts-of-types.lagda.md"
+      },
+      {
+        "module": "foundation.truncations",
+        "path": "src/foundation/truncations.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-dependent-function-types",
+        "path": "src/foundation/functoriality-dependent-function-types.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-unit-type",
+        "path": "src/foundation/universal-property-unit-type.lagda.md"
+      },
+      {
+        "module": "foundation.truncated-types",
+        "path": "src/foundation/truncated-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.iterated-successors-truncation-levels",
+        "path": "src/foundation-core/iterated-successors-truncation-levels.lagda.md"
+      },
+      {
+        "module": "foundation-core.iterating-functions",
+        "path": "src/foundation-core/iterating-functions.lagda.md"
+      },
+      {
+        "module": "foundation-core.universal-property-truncation",
+        "path": "src/foundation-core/universal-property-truncation.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-propositional-truncation",
+        "path": "src/foundation/universal-property-propositional-truncation.lagda.md"
+      },
+      {
+        "module": "foundation.subtypes",
+        "path": "src/foundation/subtypes.lagda.md"
+      },
+      {
+        "module": "foundation.embeddings",
+        "path": "src/foundation/embeddings.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-dependent-pair-types",
+        "path": "src/foundation/functoriality-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation.propositional-extensionality",
+        "path": "src/foundation/propositional-extensionality.lagda.md"
+      },
+      {
+        "module": "foundation.empty-types",
+        "path": "src/foundation/empty-types.lagda.md"
+      },
+      {
+        "module": "foundation.raising-universe-levels",
+        "path": "src/foundation/raising-universe-levels.lagda.md"
+      },
+      {
+        "module": "foundation.retractions",
+        "path": "src/foundation/retractions.lagda.md"
+      },
+      {
+        "module": "foundation.morphisms-coslice",
+        "path": "src/foundation/morphisms-coslice.lagda.md"
+      },
+      {
+        "module": "foundation.subuniverse-of-propositions",
+        "path": "src/foundation/subuniverse-of-propositions.lagda.md"
+      },
+      {
+        "module": "foundation.type-arithmetic-cartesian-product-types",
+        "path": "src/foundation/type-arithmetic-cartesian-product-types.lagda.md"
+      },
+      {
+        "module": "foundation.univalent-type-families",
+        "path": "src/foundation/univalent-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.global-subuniverses",
+        "path": "src/foundation/global-subuniverses.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-empty-type",
+        "path": "src/foundation/universal-property-empty-type.lagda.md"
+      },
+      {
+        "module": "foundation.noncontractible-types",
+        "path": "src/foundation/noncontractible-types.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-equality",
+        "path": "src/foundation/decidable-equality.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-types",
+        "path": "src/foundation/decidable-types.lagda.md"
+      },
+      {
+        "module": "foundation.double-negation",
+        "path": "src/foundation/double-negation.lagda.md"
+      },
+      {
+        "module": "foundation.cartesian-product-types",
+        "path": "src/foundation/cartesian-product-types.lagda.md"
+      },
+      {
+        "module": "foundation.double-negation-dense-equality",
+        "path": "src/foundation/double-negation-dense-equality.lagda.md"
+      },
+      {
+        "module": "foundation.irrefutable-equality",
+        "path": "src/foundation/irrefutable-equality.lagda.md"
+      },
+      {
+        "module": "foundation-core.equivalence-relations",
+        "path": "src/foundation-core/equivalence-relations.lagda.md"
+      },
+      {
+        "module": "foundation.inhabited-subtypes",
+        "path": "src/foundation/inhabited-subtypes.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-coproduct-types",
+        "path": "src/foundation/functoriality-coproduct-types.lagda.md"
+      },
+      {
+        "module": "foundation.equality-coproduct-types",
+        "path": "src/foundation/equality-coproduct-types.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-coproduct-types",
+        "path": "src/foundation/universal-property-coproduct-types.lagda.md"
+      },
+      {
+        "module": "foundation.hilberts-epsilon-operators",
+        "path": "src/foundation/hilberts-epsilon-operators.lagda.md"
+      },
+      {
+        "module": "foundation.type-arithmetic-empty-type",
+        "path": "src/foundation/type-arithmetic-empty-type.lagda.md"
+      },
+      {
+        "module": "foundation.sets",
+        "path": "src/foundation/sets.lagda.md"
+      },
+      {
+        "module": "foundation-core.1-types",
+        "path": "src/foundation-core/1-types.lagda.md"
+      },
+      {
+        "module": "foundation.discrete-types",
+        "path": "src/foundation/discrete-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.discrete-types",
+        "path": "src/foundation-core/discrete-types.lagda.md"
+      },
+      {
+        "module": "foundation.apartness-relations",
+        "path": "src/foundation/apartness-relations.lagda.md"
+      },
+      {
+        "module": "foundation.disjunction",
+        "path": "src/foundation/disjunction.lagda.md"
+      },
+      {
+        "module": "foundation.type-arithmetic-coproduct-types",
+        "path": "src/foundation/type-arithmetic-coproduct-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.decidable-propositions",
+        "path": "src/foundation-core/decidable-propositions.lagda.md"
+      },
+      {
+        "module": "foundation-core.small-types",
+        "path": "src/foundation-core/small-types.lagda.md"
+      },
+      {
+        "module": "foundation.mere-equivalences",
+        "path": "src/foundation/mere-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.mere-equality",
+        "path": "src/foundation/mere-equality.lagda.md"
+      },
+      {
+        "module": "foundation.reflecting-maps-equivalence-relations",
+        "path": "src/foundation/reflecting-maps-equivalence-relations.lagda.md"
+      },
+      {
+        "module": "foundation.effective-maps-equivalence-relations",
+        "path": "src/foundation/effective-maps-equivalence-relations.lagda.md"
+      },
+      {
+        "module": "foundation.surjective-maps",
+        "path": "src/foundation/surjective-maps.lagda.md"
+      },
+      {
+        "module": "foundation.coinhabited-pairs-of-types",
+        "path": "src/foundation/coinhabited-pairs-of-types.lagda.md"
+      },
+      {
+        "module": "foundation.connected-maps",
+        "path": "src/foundation/connected-maps.lagda.md"
+      },
+      {
+        "module": "foundation.connected-types",
+        "path": "src/foundation/connected-types.lagda.md"
+      },
+      {
+        "module": "foundation.diagonal-maps-of-types",
+        "path": "src/foundation/diagonal-maps-of-types.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-truncation",
+        "path": "src/foundation/functoriality-truncation.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-family-of-fibers-of-maps",
+        "path": "src/foundation/universal-property-family-of-fibers-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.families-of-equivalences",
+        "path": "src/foundation/families-of-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.type-theoretic-principle-of-choice",
+        "path": "src/foundation/type-theoretic-principle-of-choice.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.extensions-double-lifts-families-of-elements",
+        "path": "src/orthogonal-factorization-systems/extensions-double-lifts-families-of-elements.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.double-lifts-families-of-elements",
+        "path": "src/orthogonal-factorization-systems/double-lifts-families-of-elements.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.lifts-families-of-elements",
+        "path": "src/orthogonal-factorization-systems/lifts-families-of-elements.lagda.md"
+      },
+      {
+        "module": "foundation.precomposition-type-families",
+        "path": "src/foundation/precomposition-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.split-surjective-maps",
+        "path": "src/foundation/split-surjective-maps.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.equality-extensions-maps",
+        "path": "src/orthogonal-factorization-systems/equality-extensions-maps.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.equality-extensions-dependent-maps",
+        "path": "src/orthogonal-factorization-systems/equality-extensions-dependent-maps.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.extensions-dependent-maps",
+        "path": "src/orthogonal-factorization-systems/extensions-dependent-maps.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.extensions-maps",
+        "path": "src/orthogonal-factorization-systems/extensions-maps.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.postcomposition-extensions-maps",
+        "path": "src/orthogonal-factorization-systems/postcomposition-extensions-maps.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-function-types",
+        "path": "src/foundation/functoriality-function-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.monomorphisms",
+        "path": "src/foundation-core/monomorphisms.lagda.md"
+      },
+      {
+        "module": "logic.propositionally-decidable-types",
+        "path": "src/logic/propositionally-decidable-types.lagda.md"
+      },
+      {
+        "module": "foundation-core.law-of-excluded-middle",
+        "path": "src/foundation-core/law-of-excluded-middle.lagda.md"
+      },
+      {
+        "module": "foundation.universal-quantification",
+        "path": "src/foundation/universal-quantification.lagda.md"
+      },
+      {
+        "module": "foundation.tight-apartness-relations",
+        "path": "src/foundation/tight-apartness-relations.lagda.md"
+      },
+      {
+        "module": "foundation-core.double-negation-stable-equality",
+        "path": "src/foundation-core/double-negation-stable-equality.lagda.md"
+      },
+      {
+        "module": "logic.double-negation-elimination",
+        "path": "src/logic/double-negation-elimination.lagda.md"
+      },
+      {
+        "module": "foundation.set-truncations",
+        "path": "src/foundation/set-truncations.lagda.md"
+      },
+      {
+        "module": "foundation.morphisms-slice",
+        "path": "src/foundation/morphisms-slice.lagda.md"
+      },
+      {
+        "module": "foundation.uniqueness-set-truncations",
+        "path": "src/foundation/uniqueness-set-truncations.lagda.md"
+      },
+      {
+        "module": "foundation.uniqueness-set-quotients",
+        "path": "src/foundation/uniqueness-set-quotients.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-set-quotients",
+        "path": "src/foundation/universal-property-set-quotients.lagda.md"
+      },
+      {
+        "module": "foundation.epimorphisms-with-respect-to-sets",
+        "path": "src/foundation/epimorphisms-with-respect-to-sets.lagda.md"
+      },
+      {
+        "module": "foundation.existential-quantification",
+        "path": "src/foundation/existential-quantification.lagda.md"
+      },
+      {
+        "module": "foundation.conjunction",
+        "path": "src/foundation/conjunction.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-cartesian-product-types",
+        "path": "src/foundation/universal-property-cartesian-product-types.lagda.md"
+      },
+      {
+        "module": "foundation.equivalence-classes",
+        "path": "src/foundation/equivalence-classes.lagda.md"
+      },
+      {
+        "module": "foundation.locally-small-types",
+        "path": "src/foundation/locally-small-types.lagda.md"
+      },
+      {
+        "module": "foundation.small-types",
+        "path": "src/foundation/small-types.lagda.md"
+      },
+      {
+        "module": "foundation.images",
+        "path": "src/foundation/images.lagda.md"
+      },
+      {
+        "module": "foundation.replacement",
+        "path": "src/foundation/replacement.lagda.md"
+      },
+      {
+        "module": "foundation.uniqueness-image",
+        "path": "src/foundation/uniqueness-image.lagda.md"
+      },
+      {
+        "module": "foundation.equivalences-slice",
+        "path": "src/foundation/equivalences-slice.lagda.md"
+      },
+      {
+        "module": "foundation.slice",
+        "path": "src/foundation/slice.lagda.md"
+      },
+      {
+        "module": "trees.polynomial-endofunctors",
+        "path": "src/trees/polynomial-endofunctors.lagda.md"
+      },
+      {
+        "module": "trees.universal-polynomial-endofunctor",
+        "path": "src/trees/universal-polynomial-endofunctor.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-image",
+        "path": "src/foundation/universal-property-image.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-set-truncation",
+        "path": "src/foundation/universal-property-set-truncation.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.modular-arithmetic-standard-finite-types",
+        "path": "src/elementary-number-theory/modular-arithmetic-standard-finite-types.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.addition-natural-numbers",
+        "path": "src/elementary-number-theory/addition-natural-numbers.lagda.md"
+      },
+      {
+        "module": "foundation.interchange-law",
+        "path": "src/foundation/interchange-law.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.congruence-natural-numbers",
+        "path": "src/elementary-number-theory/congruence-natural-numbers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.distance-natural-numbers",
+        "path": "src/elementary-number-theory/distance-natural-numbers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.inequality-natural-numbers",
+        "path": "src/elementary-number-theory/inequality-natural-numbers.lagda.md"
+      },
+      {
+        "module": "category-theory.precategories",
+        "path": "src/category-theory/precategories.lagda.md"
+      },
+      {
+        "module": "category-theory.composition-operations-on-binary-families-of-sets",
+        "path": "src/category-theory/composition-operations-on-binary-families-of-sets.lagda.md"
+      },
+      {
+        "module": "foundation.strictly-involutive-identity-types",
+        "path": "src/foundation/strictly-involutive-identity-types.lagda.md"
+      },
+      {
+        "module": "category-theory.nonunital-precategories",
+        "path": "src/category-theory/nonunital-precategories.lagda.md"
+      },
+      {
+        "module": "category-theory.set-magmoids",
+        "path": "src/category-theory/set-magmoids.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.multiplication-natural-numbers",
+        "path": "src/elementary-number-theory/multiplication-natural-numbers.lagda.md"
+      },
+      {
+        "module": "order-theory.posets",
+        "path": "src/order-theory/posets.lagda.md"
+      },
+      {
+        "module": "category-theory.categories",
+        "path": "src/category-theory/categories.lagda.md"
+      },
+      {
+        "module": "category-theory.isomorphisms-in-precategories",
+        "path": "src/category-theory/isomorphisms-in-precategories.lagda.md"
+      },
+      {
+        "module": "category-theory.preunivalent-categories",
+        "path": "src/category-theory/preunivalent-categories.lagda.md"
+      },
+      {
+        "module": "foundation.1-types",
+        "path": "src/foundation/1-types.lagda.md"
+      },
+      {
+        "module": "category-theory.strongly-preunivalent-categories",
+        "path": "src/category-theory/strongly-preunivalent-categories.lagda.md"
+      },
+      {
+        "module": "foundation.propositional-maps",
+        "path": "src/foundation/propositional-maps.lagda.md"
+      },
+      {
+        "module": "foundation.structured-equality-duality",
+        "path": "src/foundation/structured-equality-duality.lagda.md"
+      },
+      {
+        "module": "foundation.maps-in-subuniverses",
+        "path": "src/foundation/maps-in-subuniverses.lagda.md"
+      },
+      {
+        "module": "foundation.separated-types-subuniverses",
+        "path": "src/foundation/separated-types-subuniverses.lagda.md"
+      },
+      {
+        "module": "foundation.structure",
+        "path": "src/foundation/structure.lagda.md"
+      },
+      {
+        "module": "order-theory.preorders",
+        "path": "src/order-theory/preorders.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.maximum-natural-numbers",
+        "path": "src/elementary-number-theory/maximum-natural-numbers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.strict-inequality-natural-numbers",
+        "path": "src/elementary-number-theory/strict-inequality-natural-numbers.lagda.md"
+      },
+      {
+        "module": "foundation.binary-transport",
+        "path": "src/foundation/binary-transport.lagda.md"
+      },
+      {
+        "module": "order-theory.strictly-preordered-sets",
+        "path": "src/order-theory/strictly-preordered-sets.lagda.md"
+      },
+      {
+        "module": "order-theory.strict-preorders",
+        "path": "src/order-theory/strict-preorders.lagda.md"
+      },
+      {
+        "module": "order-theory.least-upper-bounds-posets",
+        "path": "src/order-theory/least-upper-bounds-posets.lagda.md"
+      },
+      {
+        "module": "foundation.booleans",
+        "path": "src/foundation/booleans.lagda.md"
+      },
+      {
+        "module": "foundation-core.booleans",
+        "path": "src/foundation-core/booleans.lagda.md"
+      },
+      {
+        "module": "foundation.boolean-operations",
+        "path": "src/foundation/boolean-operations.lagda.md"
+      },
+      {
+        "module": "foundation.involutions",
+        "path": "src/foundation/involutions.lagda.md"
+      },
+      {
+        "module": "foundation.automorphisms",
+        "path": "src/foundation/automorphisms.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-types",
+        "path": "src/structured-types/pointed-types.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.finite-types",
+        "path": "src/univalent-combinatorics/finite-types.lagda.md"
+      },
+      {
+        "module": "foundation.0-connected-types",
+        "path": "src/foundation/0-connected-types.lagda.md"
+      },
+      {
+        "module": "foundation.constant-maps",
+        "path": "src/foundation/constant-maps.lagda.md"
+      },
+      {
+        "module": "foundation.0-maps",
+        "path": "src/foundation/0-maps.lagda.md"
+      },
+      {
+        "module": "foundation.action-on-homotopies-functions",
+        "path": "src/foundation/action-on-homotopies-functions.lagda.md"
+      },
+      {
+        "module": "foundation.faithful-maps",
+        "path": "src/foundation/faithful-maps.lagda.md"
+      },
+      {
+        "module": "foundation.retracts-of-arrows",
+        "path": "src/foundation/retracts-of-arrows.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-prisms-of-maps",
+        "path": "src/foundation/commuting-prisms-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation-core.commuting-prisms-of-maps",
+        "path": "src/foundation-core/commuting-prisms-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-squares-of-maps",
+        "path": "src/foundation/commuting-squares-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-triangles-of-maps",
+        "path": "src/foundation/commuting-triangles-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.composition-algebra",
+        "path": "src/foundation/composition-algebra.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-triangles-of-morphisms-arrows",
+        "path": "src/foundation/commuting-triangles-of-morphisms-arrows.lagda.md"
+      },
+      {
+        "module": "foundation.fiber-inclusions",
+        "path": "src/foundation/fiber-inclusions.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-set-truncation",
+        "path": "src/foundation/functoriality-set-truncation.lagda.md"
+      },
+      {
+        "module": "foundation.connected-components-universes",
+        "path": "src/foundation/connected-components-universes.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.counting",
+        "path": "src/univalent-combinatorics/counting.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.equality-standard-finite-types",
+        "path": "src/univalent-combinatorics/equality-standard-finite-types.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.standard-finite-types",
+        "path": "src/univalent-combinatorics/standard-finite-types.lagda.md"
+      },
+      {
+        "module": "foundation.equivalence-injective-type-families",
+        "path": "src/foundation/equivalence-injective-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.equivalences-maybe",
+        "path": "src/foundation/equivalences-maybe.lagda.md"
+      },
+      {
+        "module": "foundation.maybe",
+        "path": "src/foundation/maybe.lagda.md"
+      },
+      {
+        "module": "foundation-core.maybe",
+        "path": "src/foundation-core/maybe.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-maybe",
+        "path": "src/foundation/universal-property-maybe.lagda.md"
+      },
+      {
+        "module": "foundation.preunivalent-type-families",
+        "path": "src/foundation/preunivalent-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.preunivalence",
+        "path": "src/foundation/preunivalence.lagda.md"
+      },
+      {
+        "module": "structured-types.types-equipped-with-endomorphisms",
+        "path": "src/structured-types/types-equipped-with-endomorphisms.lagda.md"
+      },
+      {
+        "module": "foundation-core.endomorphisms",
+        "path": "src/foundation-core/endomorphisms.lagda.md"
+      },
+      {
+        "module": "order-theory.upper-bounds-posets",
+        "path": "src/order-theory/upper-bounds-posets.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.minimum-natural-numbers",
+        "path": "src/elementary-number-theory/minimum-natural-numbers.lagda.md"
+      },
+      {
+        "module": "order-theory.greatest-lower-bounds-posets",
+        "path": "src/order-theory/greatest-lower-bounds-posets.lagda.md"
+      },
+      {
+        "module": "order-theory.lower-bounds-posets",
+        "path": "src/order-theory/lower-bounds-posets.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.divisibility-natural-numbers",
+        "path": "src/elementary-number-theory/divisibility-natural-numbers.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-propositions",
+        "path": "src/foundation/decidable-propositions.lagda.md"
+      },
+      {
+        "module": "foundation.contractible-maps",
+        "path": "src/foundation/contractible-maps.lagda.md"
+      },
+      {
+        "module": "foundation.torsorial-type-families",
+        "path": "src/foundation/torsorial-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-identity-types",
+        "path": "src/foundation/universal-property-identity-types.lagda.md"
+      },
+      {
+        "module": "foundation.full-subtypes",
+        "path": "src/foundation/full-subtypes.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.equivalences",
+        "path": "src/univalent-combinatorics/equivalences.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.embeddings",
+        "path": "src/univalent-combinatorics/embeddings.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-embeddings",
+        "path": "src/foundation/decidable-embeddings.lagda.md"
+      },
+      {
+        "module": "foundation.cartesian-morphisms-arrows",
+        "path": "src/foundation/cartesian-morphisms-arrows.lagda.md"
+      },
+      {
+        "module": "foundation.coproducts-pullbacks",
+        "path": "src/foundation/coproducts-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-products-pullbacks",
+        "path": "src/foundation/dependent-products-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.dependent-sums-pullbacks",
+        "path": "src/foundation/dependent-sums-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.diagonal-maps-cartesian-products-of-types",
+        "path": "src/foundation/diagonal-maps-cartesian-products-of-types.lagda.md"
+      },
+      {
+        "module": "foundation.postcomposition-pullbacks",
+        "path": "src/foundation/postcomposition-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.products-pullbacks",
+        "path": "src/foundation/products-pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.pullbacks",
+        "path": "src/foundation/pullbacks.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-cubes-of-maps",
+        "path": "src/foundation/commuting-cubes-of-maps.lagda.md"
+      },
+      {
+        "module": "foundation.commuting-hexagons-of-identifications",
+        "path": "src/foundation/commuting-hexagons-of-identifications.lagda.md"
+      },
+      {
+        "module": "foundation.whiskering-homotopies-concatenation",
+        "path": "src/foundation/whiskering-homotopies-concatenation.lagda.md"
+      },
+      {
+        "module": "foundation.descent-equivalences",
+        "path": "src/foundation/descent-equivalences.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-maps",
+        "path": "src/foundation/decidable-maps.lagda.md"
+      },
+      {
+        "module": "foundation.double-negation-dense-equality-maps",
+        "path": "src/foundation/double-negation-dense-equality-maps.lagda.md"
+      },
+      {
+        "module": "foundation.iterating-functions",
+        "path": "src/foundation/iterating-functions.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.exponentiation-natural-numbers",
+        "path": "src/elementary-number-theory/exponentiation-natural-numbers.lagda.md"
+      },
+      {
+        "module": "commutative-algebra.powers-of-elements-commutative-semirings",
+        "path": "src/commutative-algebra/powers-of-elements-commutative-semirings.lagda.md"
+      },
+      {
+        "module": "commutative-algebra.commutative-semirings",
+        "path": "src/commutative-algebra/commutative-semirings.lagda.md"
+      },
+      {
+        "module": "group-theory.commutative-monoids",
+        "path": "src/group-theory/commutative-monoids.lagda.md"
+      },
+      {
+        "module": "foundation.unital-binary-operations",
+        "path": "src/foundation/unital-binary-operations.lagda.md"
+      },
+      {
+        "module": "group-theory.commutative-semigroups",
+        "path": "src/group-theory/commutative-semigroups.lagda.md"
+      },
+      {
+        "module": "group-theory.semigroups",
+        "path": "src/group-theory/semigroups.lagda.md"
+      },
+      {
+        "module": "group-theory.monoids",
+        "path": "src/group-theory/monoids.lagda.md"
+      },
+      {
+        "module": "structured-types.h-spaces",
+        "path": "src/structured-types/h-spaces.lagda.md"
+      },
+      {
+        "module": "structured-types.magmas",
+        "path": "src/structured-types/magmas.lagda.md"
+      },
+      {
+        "module": "structured-types.noncoherent-h-spaces",
+        "path": "src/structured-types/noncoherent-h-spaces.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-homotopies",
+        "path": "src/structured-types/pointed-homotopies.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-dependent-functions",
+        "path": "src/structured-types/pointed-dependent-functions.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-families-of-types",
+        "path": "src/structured-types/pointed-families-of-types.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-maps",
+        "path": "src/structured-types/pointed-maps.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-sections",
+        "path": "src/structured-types/pointed-sections.lagda.md"
+      },
+      {
+        "module": "structured-types.wild-monoids",
+        "path": "src/structured-types/wild-monoids.lagda.md"
+      },
+      {
+        "module": "ring-theory.semirings",
+        "path": "src/ring-theory/semirings.lagda.md"
+      },
+      {
+        "module": "group-theory.powers-of-elements-commutative-monoids",
+        "path": "src/group-theory/powers-of-elements-commutative-monoids.lagda.md"
+      },
+      {
+        "module": "group-theory.homomorphisms-commutative-monoids",
+        "path": "src/group-theory/homomorphisms-commutative-monoids.lagda.md"
+      },
+      {
+        "module": "group-theory.homomorphisms-monoids",
+        "path": "src/group-theory/homomorphisms-monoids.lagda.md"
+      },
+      {
+        "module": "group-theory.homomorphisms-semigroups",
+        "path": "src/group-theory/homomorphisms-semigroups.lagda.md"
+      },
+      {
+        "module": "group-theory.invertible-elements-monoids",
+        "path": "src/group-theory/invertible-elements-monoids.lagda.md"
+      },
+      {
+        "module": "group-theory.powers-of-elements-monoids",
+        "path": "src/group-theory/powers-of-elements-monoids.lagda.md"
+      },
+      {
+        "module": "ring-theory.powers-of-elements-semirings",
+        "path": "src/ring-theory/powers-of-elements-semirings.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.nonzero-natural-numbers",
+        "path": "src/elementary-number-theory/nonzero-natural-numbers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.products-of-natural-numbers",
+        "path": "src/elementary-number-theory/products-of-natural-numbers.lagda.md"
+      },
+      {
+        "module": "lists.lists",
+        "path": "src/lists/lists.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.semiring-of-natural-numbers",
+        "path": "src/elementary-number-theory/semiring-of-natural-numbers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.monoid-of-natural-numbers-with-addition",
+        "path": "src/elementary-number-theory/monoid-of-natural-numbers-with-addition.lagda.md"
+      },
+      {
+        "module": "ring-theory.homomorphisms-semirings",
+        "path": "src/ring-theory/homomorphisms-semirings.lagda.md"
+      },
+      {
+        "module": "ring-theory.multiples-of-elements-semirings",
+        "path": "src/ring-theory/multiples-of-elements-semirings.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.multiplicative-monoid-of-natural-numbers",
+        "path": "src/elementary-number-theory/multiplicative-monoid-of-natural-numbers.lagda.md"
+      },
+      {
+        "module": "group-theory.monoid-actions",
+        "path": "src/group-theory/monoid-actions.lagda.md"
+      },
+      {
+        "module": "foundation.endomorphisms",
+        "path": "src/foundation/endomorphisms.lagda.md"
+      },
+      {
+        "module": "foundation.hilbert-epsilon-operators-maps",
+        "path": "src/foundation/hilbert-epsilon-operators-maps.lagda.md"
+      },
+      {
+        "module": "foundation.small-maps",
+        "path": "src/foundation/small-maps.lagda.md"
+      },
+      {
+        "module": "foundation.split-idempotent-maps",
+        "path": "src/foundation/split-idempotent-maps.lagda.md"
+      },
+      {
+        "module": "foundation.fixed-points-endofunctions",
+        "path": "src/foundation/fixed-points-endofunctions.lagda.md"
+      },
+      {
+        "module": "foundation.idempotent-maps",
+        "path": "src/foundation/idempotent-maps.lagda.md"
+      },
+      {
+        "module": "foundation.inverse-sequential-diagrams",
+        "path": "src/foundation/inverse-sequential-diagrams.lagda.md"
+      },
+      {
+        "module": "foundation.path-cosplit-maps",
+        "path": "src/foundation/path-cosplit-maps.lagda.md"
+      },
+      {
+        "module": "foundation.functoriality-action-on-identifications-functions",
+        "path": "src/foundation/functoriality-action-on-identifications-functions.lagda.md"
+      },
+      {
+        "module": "foundation.mere-path-cosplit-maps",
+        "path": "src/foundation/mere-path-cosplit-maps.lagda.md"
+      },
+      {
+        "module": "foundation.equivalences-arrows",
+        "path": "src/foundation/equivalences-arrows.lagda.md"
+      },
+      {
+        "module": "foundation-core.equivalences-arrows",
+        "path": "src/foundation-core/equivalences-arrows.lagda.md"
+      },
+      {
+        "module": "foundation.span-diagrams",
+        "path": "src/foundation/span-diagrams.lagda.md"
+      },
+      {
+        "module": "foundation.spans",
+        "path": "src/foundation/spans.lagda.md"
+      },
+      {
+        "module": "foundation.quasicoherently-idempotent-maps",
+        "path": "src/foundation/quasicoherently-idempotent-maps.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.circle",
+        "path": "src/synthetic-homotopy-theory/circle.lagda.md"
+      },
+      {
+        "module": "higher-group-theory.higher-groups",
+        "path": "src/higher-group-theory/higher-groups.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.loop-spaces",
+        "path": "src/synthetic-homotopy-theory/loop-spaces.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-equivalences",
+        "path": "src/structured-types/pointed-equivalences.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-retractions",
+        "path": "src/structured-types/pointed-retractions.lagda.md"
+      },
+      {
+        "module": "structured-types.postcomposition-pointed-maps",
+        "path": "src/structured-types/postcomposition-pointed-maps.lagda.md"
+      },
+      {
+        "module": "structured-types.precomposition-pointed-maps",
+        "path": "src/structured-types/precomposition-pointed-maps.lagda.md"
+      },
+      {
+        "module": "structured-types.universal-property-pointed-equivalences",
+        "path": "src/structured-types/universal-property-pointed-equivalences.lagda.md"
+      },
+      {
+        "module": "structured-types.whiskering-pointed-homotopies-composition",
+        "path": "src/structured-types/whiskering-pointed-homotopies-composition.lagda.md"
+      },
+      {
+        "module": "structured-types.pointed-2-homotopies",
+        "path": "src/structured-types/pointed-2-homotopies.lagda.md"
+      },
+      {
+        "module": "structured-types.uniform-pointed-homotopies",
+        "path": "src/structured-types/uniform-pointed-homotopies.lagda.md"
+      },
+      {
+        "module": "structured-types.wild-quasigroups",
+        "path": "src/structured-types/wild-quasigroups.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.dependent-suspension-structures",
+        "path": "src/synthetic-homotopy-theory/dependent-suspension-structures.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.dependent-cocones-under-spans",
+        "path": "src/synthetic-homotopy-theory/dependent-cocones-under-spans.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.cocones-under-spans",
+        "path": "src/synthetic-homotopy-theory/cocones-under-spans.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.suspension-structures",
+        "path": "src/synthetic-homotopy-theory/suspension-structures.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.free-loops",
+        "path": "src/synthetic-homotopy-theory/free-loops.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.spheres",
+        "path": "src/synthetic-homotopy-theory/spheres.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.iterated-suspensions-of-pointed-types",
+        "path": "src/synthetic-homotopy-theory/iterated-suspensions-of-pointed-types.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.suspensions-of-pointed-types",
+        "path": "src/synthetic-homotopy-theory/suspensions-of-pointed-types.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.suspensions-of-types",
+        "path": "src/synthetic-homotopy-theory/suspensions-of-types.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.dependent-universal-property-suspensions",
+        "path": "src/synthetic-homotopy-theory/dependent-universal-property-suspensions.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.pushouts",
+        "path": "src/synthetic-homotopy-theory/pushouts.lagda.md"
+      },
+      {
+        "module": "reflection.erasing-equality",
+        "path": "src/reflection/erasing-equality.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.dependent-pullback-property-pushouts",
+        "path": "src/synthetic-homotopy-theory/dependent-pullback-property-pushouts.lagda.md"
+      },
+      {
+        "module": "orthogonal-factorization-systems.precomposition-lifts-families-of-elements",
+        "path": "src/orthogonal-factorization-systems/precomposition-lifts-families-of-elements.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.pullback-property-pushouts",
+        "path": "src/synthetic-homotopy-theory/pullback-property-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.dependent-universal-property-pushouts",
+        "path": "src/synthetic-homotopy-theory/dependent-universal-property-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.induction-principle-pushouts",
+        "path": "src/synthetic-homotopy-theory/induction-principle-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.universal-property-pushouts",
+        "path": "src/synthetic-homotopy-theory/universal-property-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.flattening-lemma-pushouts",
+        "path": "src/synthetic-homotopy-theory/flattening-lemma-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.descent-data-pushouts",
+        "path": "src/synthetic-homotopy-theory/descent-data-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.equifibered-span-diagrams",
+        "path": "src/synthetic-homotopy-theory/equifibered-span-diagrams.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.equivalences-descent-data-pushouts",
+        "path": "src/synthetic-homotopy-theory/equivalences-descent-data-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.morphisms-descent-data-pushouts",
+        "path": "src/synthetic-homotopy-theory/morphisms-descent-data-pushouts.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.equivalences-equifibered-span-diagrams",
+        "path": "src/synthetic-homotopy-theory/equivalences-equifibered-span-diagrams.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.universal-property-suspensions",
+        "path": "src/synthetic-homotopy-theory/universal-property-suspensions.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.universal-cover-circle",
+        "path": "src/synthetic-homotopy-theory/universal-cover-circle.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.equality-integers",
+        "path": "src/elementary-number-theory/equality-integers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.integers",
+        "path": "src/elementary-number-theory/integers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.nonzero-integers",
+        "path": "src/elementary-number-theory/nonzero-integers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.universal-property-integers",
+        "path": "src/elementary-number-theory/universal-property-integers.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.descent-circle",
+        "path": "src/synthetic-homotopy-theory/descent-circle.lagda.md"
+      },
+      {
+        "module": "structured-types.equivalences-types-equipped-with-automorphisms",
+        "path": "src/structured-types/equivalences-types-equipped-with-automorphisms.lagda.md"
+      },
+      {
+        "module": "structured-types.equivalences-types-equipped-with-endomorphisms",
+        "path": "src/structured-types/equivalences-types-equipped-with-endomorphisms.lagda.md"
+      },
+      {
+        "module": "structured-types.morphisms-types-equipped-with-endomorphisms",
+        "path": "src/structured-types/morphisms-types-equipped-with-endomorphisms.lagda.md"
+      },
+      {
+        "module": "structured-types.morphisms-types-equipped-with-automorphisms",
+        "path": "src/structured-types/morphisms-types-equipped-with-automorphisms.lagda.md"
+      },
+      {
+        "module": "structured-types.types-equipped-with-automorphisms",
+        "path": "src/structured-types/types-equipped-with-automorphisms.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.universal-property-circle",
+        "path": "src/synthetic-homotopy-theory/universal-property-circle.lagda.md"
+      },
+      {
+        "module": "synthetic-homotopy-theory.loop-homotopy-circle",
+        "path": "src/synthetic-homotopy-theory/loop-homotopy-circle.lagda.md"
+      },
+      {
+        "module": "foundation.sequential-limits",
+        "path": "src/foundation/sequential-limits.lagda.md"
+      },
+      {
+        "module": "foundation.cones-over-inverse-sequential-diagrams",
+        "path": "src/foundation/cones-over-inverse-sequential-diagrams.lagda.md"
+      },
+      {
+        "module": "foundation.binary-homotopies",
+        "path": "src/foundation/binary-homotopies.lagda.md"
+      },
+      {
+        "module": "foundation.universal-property-sequential-limits",
+        "path": "src/foundation/universal-property-sequential-limits.lagda.md"
+      },
+      {
+        "module": "foundation.weakly-constant-maps",
+        "path": "src/foundation/weakly-constant-maps.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.injective-maps",
+        "path": "src/univalent-combinatorics/injective-maps.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.decidable-dependent-function-types",
+        "path": "src/univalent-combinatorics/decidable-dependent-function-types.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.decidable-dependent-function-types",
+        "path": "src/elementary-number-theory/decidable-dependent-function-types.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-dependent-function-types",
+        "path": "src/foundation/decidable-dependent-function-types.lagda.md"
+      },
+      {
+        "module": "foundation.uniformly-decidable-type-families",
+        "path": "src/foundation/uniformly-decidable-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-type-families",
+        "path": "src/foundation/decidable-type-families.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-subtypes",
+        "path": "src/foundation/decidable-subtypes.lagda.md"
+      },
+      {
+        "module": "foundation.structured-type-duality",
+        "path": "src/foundation/structured-type-duality.lagda.md"
+      },
+      {
+        "module": "foundation.type-duality",
+        "path": "src/foundation/type-duality.lagda.md"
+      },
+      {
+        "module": "logic.double-negation-stable-subtypes",
+        "path": "src/logic/double-negation-stable-subtypes.lagda.md"
+      },
+      {
+        "module": "foundation.double-negation-stable-propositions",
+        "path": "src/foundation/double-negation-stable-propositions.lagda.md"
+      },
+      {
+        "module": "logic.double-negation-eliminating-maps",
+        "path": "src/logic/double-negation-eliminating-maps.lagda.md"
+      },
+      {
+        "module": "logic.double-negation-stable-embeddings",
+        "path": "src/logic/double-negation-stable-embeddings.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.finite-choice",
+        "path": "src/univalent-combinatorics/finite-choice.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.well-ordering-principle-standard-finite-types",
+        "path": "src/elementary-number-theory/well-ordering-principle-standard-finite-types.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.inequality-standard-finite-types",
+        "path": "src/elementary-number-theory/inequality-standard-finite-types.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.well-ordering-principle-natural-numbers",
+        "path": "src/elementary-number-theory/well-ordering-principle-natural-numbers.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.lower-bounds-natural-numbers",
+        "path": "src/elementary-number-theory/lower-bounds-natural-numbers.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.decidable-dependent-pair-types",
+        "path": "src/univalent-combinatorics/decidable-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation.decidable-dependent-pair-types",
+        "path": "src/foundation/decidable-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.counting-decidable-subtypes",
+        "path": "src/univalent-combinatorics/counting-decidable-subtypes.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.decidable-propositions",
+        "path": "src/univalent-combinatorics/decidable-propositions.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.equality-finite-types",
+        "path": "src/univalent-combinatorics/equality-finite-types.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.retracts-of-finite-types",
+        "path": "src/univalent-combinatorics/retracts-of-finite-types.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.surjective-maps",
+        "path": "src/univalent-combinatorics/surjective-maps.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.counting-dependent-pair-types",
+        "path": "src/univalent-combinatorics/counting-dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "elementary-number-theory.sums-of-finite-sequences-of-natural-numbers",
+        "path": "src/elementary-number-theory/sums-of-finite-sequences-of-natural-numbers.lagda.md"
+      },
+      {
+        "module": "group-theory.products-of-finite-sequences-of-elements-monoids",
+        "path": "src/group-theory/products-of-finite-sequences-of-elements-monoids.lagda.md"
+      },
+      {
+        "module": "linear-algebra.finite-sequences-in-monoids",
+        "path": "src/linear-algebra/finite-sequences-in-monoids.lagda.md"
+      },
+      {
+        "module": "linear-algebra.finite-sequences-in-semigroups",
+        "path": "src/linear-algebra/finite-sequences-in-semigroups.lagda.md"
+      },
+      {
+        "module": "lists.finite-sequences",
+        "path": "src/lists/finite-sequences.lagda.md"
+      },
+      {
+        "module": "lists.sequences",
+        "path": "src/lists/sequences.lagda.md"
+      },
+      {
+        "module": "lists.dependent-sequences",
+        "path": "src/lists/dependent-sequences.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.involution-standard-finite-types",
+        "path": "src/univalent-combinatorics/involution-standard-finite-types.lagda.md"
+      },
+      {
+        "module": "lists.functoriality-finite-sequences",
+        "path": "src/lists/functoriality-finite-sequences.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.coproduct-types",
+        "path": "src/univalent-combinatorics/coproduct-types.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.double-counting",
+        "path": "src/univalent-combinatorics/double-counting.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.fibers-of-maps",
+        "path": "src/univalent-combinatorics/fibers-of-maps.lagda.md"
+      },
+      {
+        "module": "univalent-combinatorics.dependent-pair-types",
+        "path": "src/univalent-combinatorics/dependent-pair-types.lagda.md"
+      },
+      {
+        "module": "foundation.complements",
+        "path": "src/foundation/complements.lagda.md"
+      }
+    ],
+    "global_choice_in_replay_closure": false,
+    "run_id": "20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
+    "scope_conclusion": "The saved run checks hott-z.NoCanonicalPoint and its imported closure; foundation.global-choice is not in that closure.",
+    "stdout_path": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/stdout.txt",
+    "stdout_sha256": "1ec3f57a3aaa0d9060719f22c3fb49a3b888d70984479b3217361f5cb45d246b"
+  },
+  "scan_contract": {
+    "candidate_files": "src/**/*.agda and src/**/*.lagda.md",
+    "declaration_rule": "Line-start postulate or primitive, optionally preceded by private.",
+    "literate_rule": "Only lines inside fenced ```agda blocks count as Agda declarations; prose and other fences are excluded.",
+    "semantic_limit": "Lexical declaration and named-interface audit only; no proof of global semantic absence of E6."
+  },
+  "schema_version": "agda-unimath-e6-source-scan/v1",
+  "source_identity": {
+    "commit_sha": "7b81411d9f60afec359d29ed1e4edf43f4711c8a",
+    "repository": "https://github.com/UniMath/agda-unimath",
+    "toolchain_path": "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+    "toolchain_sha256": "76cb9fef31d2945b7597cdc267d04576ba7fb977ffa61dc5f5885c6a1e88392b",
+    "tree": {
+      "tree_file_count": 3166,
+      "tree_sha256": "88460bc7d2e0ffd2bc85d60ca7fa0ea8e0b833bc12e1e6e9cd18ccd517db41c5",
+      "tree_total_bytes": 31596894
+    }
+  },
+  "source_scan": {
+    "allow_unsolved_metas_occurrences": [
+      {
+        "line": 4,
+        "path": "src/type-theories/simple-type-theories.lagda.md",
+        "text": "{-# OPTIONS --guardedness --allow-unsolved-metas #-}"
+      },
+      {
+        "line": 4,
+        "path": "src/type-theories/unityped-type-theories.lagda.md",
+        "text": "{-# OPTIONS --guardedness --allow-unsolved-metas #-}"
+      }
+    ],
+    "anchors": [
+      {
+        "bytes": 1572,
+        "hits": [
+          {
+            "line": 35,
+            "pattern": "^ε-operator-Hilbert\\b",
+            "text": "ε-operator-Hilbert : {l : Level} → UU l → UU l"
+          },
+          {
+            "line": 36,
+            "pattern": "^ε-operator-Hilbert\\b",
+            "text": "ε-operator-Hilbert A = type-trunc-Prop A → A"
+          }
+        ],
+        "path": "src/foundation/hilberts-epsilon-operators.lagda.md",
+        "sha256": "8a66e220b9d2d6489e54a6cdb8a212849d2e14c4e598b02250f700875aa7fe28"
+      },
+      {
+        "bytes": 1195,
+        "hits": [
+          {
+            "line": 35,
+            "pattern": "^Global-Choice\\b",
+            "text": "Global-Choice : (l : Level) → UU (lsuc l)"
+          },
+          {
+            "line": 36,
+            "pattern": "^Global-Choice\\b",
+            "text": "Global-Choice l = (A : UU l) → ε-operator-Hilbert A"
+          },
+          {
+            "line": 45,
+            "pattern": "^\\s*no-global-choice\\b",
+            "text": "no-global-choice :"
+          },
+          {
+            "line": 47,
+            "pattern": "^\\s*no-global-choice\\b",
+            "text": "no-global-choice f ="
+          },
+          {
+            "line": 48,
+            "pattern": "no-section-type-2-Element-Type",
+            "text": "no-section-type-2-Element-Type"
+          }
+        ],
+        "path": "src/foundation/global-choice.lagda.md",
+        "sha256": "e54734b8649642708f3cb04bbacf8421215a47b63103996b90edab25bd9185c1"
+      },
+      {
+        "bytes": 6655,
+        "hits": [
+          {
+            "line": 93,
+            "pattern": "^\\s*ε-operator-count\\b",
+            "text": "ε-operator-count :"
+          },
+          {
+            "line": 95,
+            "pattern": "^\\s*ε-operator-count\\b",
+            "text": "ε-operator-count (0 , e) t ="
+          },
+          {
+            "line": 100,
+            "pattern": "^\\s*ε-operator-count\\b",
+            "text": "ε-operator-count (succ-ℕ k , e) t = map-equiv e (zero-Fin k)"
+          },
+          {
+            "line": 139,
+            "pattern": "^\\s*ε-operator-count\\b",
+            "text": "ε-operator-count"
+          }
+        ],
+        "path": "src/univalent-combinatorics/finite-choice.lagda.md",
+        "sha256": "239768c8d92b18d3832e49fcb53da5ee69d717780216779d244f9086bd966405"
+      },
+      {
+        "bytes": 10714,
+        "hits": [
+          {
+            "line": 266,
+            "pattern": "^ε-operator-is-decidable\\b",
+            "text": "ε-operator-is-decidable :"
+          },
+          {
+            "line": 268,
+            "pattern": "^ε-operator-is-decidable\\b",
+            "text": "ε-operator-is-decidable (inl a) x = a"
+          },
+          {
+            "line": 269,
+            "pattern": "^ε-operator-is-decidable\\b",
+            "text": "ε-operator-is-decidable (inr f) x ="
+          }
+        ],
+        "path": "src/foundation/decidable-types.lagda.md",
+        "sha256": "eb9cff53072181bff2c62461a4f8477ee61f55fe8583b96f7bdd5b514542cbd5"
+      },
+      {
+        "bytes": 9728,
+        "hits": [
+          {
+            "line": 289,
+            "pattern": "^ε-operator-Hilbert-has-double-negation-elim\\b",
+            "text": "ε-operator-Hilbert-has-double-negation-elim :"
+          },
+          {
+            "line": 291,
+            "pattern": "^ε-operator-Hilbert-has-double-negation-elim\\b",
+            "text": "ε-operator-Hilbert-has-double-negation-elim H ="
+          }
+        ],
+        "path": "src/logic/double-negation-elimination.lagda.md",
+        "sha256": "167ff52d97b1e4afff66f49087fc3f80e19bcf802cce0bcd38a8af42e6880433"
+      }
+    ],
+    "candidate_file_count": 3056,
+    "declaration_files": [
+      {
+        "bytes": 12501,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 127,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 130,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 133,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 136,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/elementary-number-theory/equality-conatural-numbers.lagda.md",
+        "sha256": "9ca2c7c2d997eb176890bd479ef99e121a7c3b0753fac52eaacf15a52bfb1c38"
+      },
+      {
+        "bytes": 6598,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 80,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/function-extensionality.lagda.md",
+        "sha256": "5a6cf32b0fc6c049d0e5e47a99dea161011046069ed2284e0760f80eac14b78a"
+      },
+      {
+        "bytes": 1454,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 46,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/replacement.lagda.md",
+        "sha256": "7bb2bc325ee9d5e56dafcaa4d1c4a2c14218d48233788418a53d6ac7dae2a4d7"
+      },
+      {
+        "bytes": 20993,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 51,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 54,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 62,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 65,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/truncations.lagda.md",
+        "sha256": "12e0782f48dc8d9e8a10cdd89024b163048c69ffe90c708b78a54baab8936fea"
+      },
+      {
+        "bytes": 7504,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 58,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/foundation/univalence.lagda.md",
+        "sha256": "8c68c7b68edcc571f61d8c5190a477acb2de1c399cda195e4b3449343c0b9573"
+      },
+      {
+        "bytes": 5565,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 119,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 123,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 127,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 131,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/globular-types/equality-globular-types.lagda.md",
+        "sha256": "cf7da4342592438fb3aeaeb4fc0870164ca1e536b084acb60090177e53bc14e7"
+      },
+      {
+        "bytes": 5521,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 61,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/modal-type-theory/crisp-identity-types.lagda.md",
+        "sha256": "40b6381d3fa9f7087a3838d3e802f607a5757146809df1507f66e803a7a6ca5a"
+      },
+      {
+        "bytes": 8579,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 134,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 151,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 168,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/modal-type-theory/sharp-codiscrete-types.lagda.md",
+        "sha256": "ab6217783b6e655ce881057318da690dc9a9788c9e99194cc91e8185ec426e34"
+      },
+      {
+        "bytes": 12976,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 53,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 70,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 103,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 131,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/modal-type-theory/sharp-modality.lagda.md",
+        "sha256": "26112e669dabed3d1fc1226d2b4fae311080a3ffd131ebe56b31d10598978e47"
+      },
+      {
+        "bytes": 835,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 29,
+            "text": "postulate"
+          },
+          {
+            "kind": "primitive",
+            "line": 34,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/primitives/characters.lagda.md",
+        "sha256": "13a5b9b52326ccf966b92e081eb812652b5c75f25643d2f959d10050ded46a07"
+      },
+      {
+        "bytes": 2419,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 32,
+            "text": "postulate"
+          },
+          {
+            "kind": "primitive",
+            "line": 37,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/primitives/floats.lagda.md",
+        "sha256": "148a85f32168bea21e814140b51f253977e3071e081c7d0ec980d8a331d4d3d3"
+      },
+      {
+        "bytes": 691,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 27,
+            "text": "postulate"
+          },
+          {
+            "kind": "primitive",
+            "line": 32,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/primitives/machine-integers.lagda.md",
+        "sha256": "930025d66dacdc16ab72f63a79abf5148c09f6ab20bc30231bfdaa3aaeb517d2"
+      },
+      {
+        "bytes": 1061,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 35,
+            "text": "postulate"
+          },
+          {
+            "kind": "primitive",
+            "line": 40,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/primitives/strings.lagda.md",
+        "sha256": "560f081d77ee50d19ef6e26130c971511da246aca4256d94c39dc87e78d18cc6"
+      },
+      {
+        "bytes": 6613,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 50,
+            "text": "postulate-Definition-Agda :"
+          },
+          {
+            "kind": "primitive",
+            "line": 53,
+            "text": "primitive-function-Definition-Agda :"
+          }
+        ],
+        "path": "src/reflection/definitions.lagda.md",
+        "sha256": "91073f9840075088f08f935f5266e1e7e76b6c799fc9a4fa6621fb6fdfa5d763"
+      },
+      {
+        "bytes": 1435,
+        "declarations": [
+          {
+            "kind": "primitive",
+            "line": 40,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/reflection/erasing-equality.lagda.md",
+        "sha256": "3a5b78fbd57a492afe8685f842c638a5352712464f9effdbc1238c3c2963f50b"
+      },
+      {
+        "bytes": 1770,
+        "declarations": [
+          {
+            "kind": "primitive",
+            "line": 58,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/reflection/fixity.lagda.md",
+        "sha256": "53486572a04ef97c913b4fe68efbb72526c02f1d3abbec5f42303be49be9d8f3"
+      },
+      {
+        "bytes": 1317,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 31,
+            "text": "postulate"
+          },
+          {
+            "kind": "primitive",
+            "line": 36,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/reflection/metavariables.lagda.md",
+        "sha256": "95d0d9a4ea35824932252cdc8e97324b45fbc02fe4b529347b230d6e78afafe5"
+      },
+      {
+        "bytes": 1284,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 33,
+            "text": "postulate"
+          },
+          {
+            "kind": "primitive",
+            "line": 38,
+            "text": "primitive"
+          }
+        ],
+        "path": "src/reflection/names.lagda.md",
+        "sha256": "a722d4a49e390c1898d0089f5562eb824fa3c2eba05613839fd93f5cd4d0b731"
+      },
+      {
+        "bytes": 11783,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 52,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/reflection/type-checking-monad.lagda.md",
+        "sha256": "519f08b73ba6dd29cac3a41566a1b356147b9e27d96ba9970f1dd550c0b8a52e"
+      },
+      {
+        "bytes": 21711,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 60,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 63,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 66,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 75,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/synthetic-homotopy-theory/circle.lagda.md",
+        "sha256": "9c728e51e736b10bc17ae399478bcbc25f261c8326ac88fc629b5b0759c0aedb"
+      },
+      {
+        "bytes": 6206,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 36,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/synthetic-homotopy-theory/interval-type.lagda.md",
+        "sha256": "feab58cd437c34c2d3b384af255d73280c324d5d928feeaf0e0f57fc2e1f3bc7"
+      },
+      {
+        "bytes": 24618,
+        "declarations": [
+          {
+            "kind": "postulate",
+            "line": 104,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 109,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 114,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 119,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 149,
+            "text": "postulate"
+          },
+          {
+            "kind": "postulate",
+            "line": 172,
+            "text": "postulate"
+          }
+        ],
+        "path": "src/synthetic-homotopy-theory/pushouts.lagda.md",
+        "sha256": "c56ee8645f5fc6b0b032c4c3bf6556d14b14d19b8916326652d0f070d709f5d9"
+      }
+    ],
+    "postulate_file_count": 20,
+    "postulate_files": [
+      "src/elementary-number-theory/equality-conatural-numbers.lagda.md",
+      "src/foundation/function-extensionality.lagda.md",
+      "src/foundation/replacement.lagda.md",
+      "src/foundation/truncations.lagda.md",
+      "src/foundation/univalence.lagda.md",
+      "src/globular-types/equality-globular-types.lagda.md",
+      "src/modal-type-theory/crisp-identity-types.lagda.md",
+      "src/modal-type-theory/sharp-codiscrete-types.lagda.md",
+      "src/modal-type-theory/sharp-modality.lagda.md",
+      "src/primitives/characters.lagda.md",
+      "src/primitives/floats.lagda.md",
+      "src/primitives/machine-integers.lagda.md",
+      "src/primitives/strings.lagda.md",
+      "src/reflection/definitions.lagda.md",
+      "src/reflection/metavariables.lagda.md",
+      "src/reflection/names.lagda.md",
+      "src/reflection/type-checking-monad.lagda.md",
+      "src/synthetic-homotopy-theory/circle.lagda.md",
+      "src/synthetic-homotopy-theory/interval-type.lagda.md",
+      "src/synthetic-homotopy-theory/pushouts.lagda.md"
+    ],
+    "postulate_or_primitive_file_count": 22,
+    "primitive_file_count": 9,
+    "primitive_files": [
+      "src/primitives/characters.lagda.md",
+      "src/primitives/floats.lagda.md",
+      "src/primitives/machine-integers.lagda.md",
+      "src/primitives/strings.lagda.md",
+      "src/reflection/definitions.lagda.md",
+      "src/reflection/erasing-equality.lagda.md",
+      "src/reflection/fixity.lagda.md",
+      "src/reflection/metavariables.lagda.md",
+      "src/reflection/names.lagda.md"
+    ]
+  }
+}
