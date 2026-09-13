@@ -1,0 +1,167 @@
+{
+  "schema_version": "sem-b05-source-audit/v1",
+  "probe_hits": {
+    "SemB05Unsafe.agda": {
+      "declarePostulate": [
+        {
+          "line": 20,
+          "text": "    bindTC (declarePostulate (visible-name axiom-name) goal) λ _ →"
+        }
+      ],
+      "inferType": [
+        {
+          "line": 18,
+          "text": "    bindTC (inferType hole) λ goal →"
+        }
+      ],
+      "freshName": [
+        {
+          "line": 19,
+          "text": "    bindTC (freshName \"sem-b05-declared-axiom\") λ axiom-name →"
+        }
+      ],
+      "unify": [
+        {
+          "line": 21,
+          "text": "    unify hole (def axiom-name [])"
+        }
+      ],
+      "--safe": [],
+      "true ≡ false": [
+        {
+          "line": 23,
+          "text": "controlled-false-equality : true ≡ false"
+        }
+      ],
+      "true ≡ true": []
+    },
+    "SemB05Safe.agda": {
+      "declarePostulate": [
+        {
+          "line": 21,
+          "text": "    bindTC (declarePostulate (visible-name axiom-name) goal) λ _ →"
+        }
+      ],
+      "inferType": [
+        {
+          "line": 19,
+          "text": "    bindTC (inferType hole) λ goal →"
+        }
+      ],
+      "freshName": [
+        {
+          "line": 20,
+          "text": "    bindTC (freshName \"sem-b05-declared-axiom\") λ axiom-name →"
+        }
+      ],
+      "unify": [
+        {
+          "line": 22,
+          "text": "    unify hole (def axiom-name [])"
+        }
+      ],
+      "--safe": [
+        {
+          "line": 1,
+          "text": "{-# OPTIONS --safe #-}"
+        }
+      ],
+      "true ≡ false": [
+        {
+          "line": 24,
+          "text": "controlled-false-equality : true ≡ false"
+        }
+      ],
+      "true ≡ true": []
+    },
+    "SemB05SafeReflectionPositive.agda": {
+      "declarePostulate": [],
+      "inferType": [],
+      "freshName": [],
+      "unify": [
+        {
+          "line": 15,
+          "text": "  refl-goal! hole = unify hole (con (quote refl) [])"
+        }
+      ],
+      "--safe": [
+        {
+          "line": 1,
+          "text": "{-# OPTIONS --safe #-}"
+        }
+      ],
+      "true ≡ false": [],
+      "true ≡ true": [
+        {
+          "line": 17,
+          "text": "safe-reflection-equality : true ≡ true"
+        }
+      ]
+    },
+    "SemB05NoAxiomNegative.agda": {
+      "declarePostulate": [],
+      "inferType": [],
+      "freshName": [],
+      "unify": [],
+      "--safe": [],
+      "true ≡ false": [
+        {
+          "line": 8,
+          "text": "false-equality-without-axiom : true ≡ false"
+        }
+      ],
+      "true ≡ true": []
+    }
+  },
+  "unsafe_safe_normalized_body_equal": true,
+  "unsafe_normalized_body_sha256": "1bb92b865b1bff62ad359d7d40e647a83bf2068aa7d86629af2286c13dc8b1b1",
+  "safe_normalized_body_sha256": "1bb92b865b1bff62ad359d7d40e647a83bf2068aa7d86629af2286c13dc8b1b1",
+  "builtin_reflection_hits": {
+    "declarePostulate :": [
+      {
+        "line": 297,
+        "text": "  declarePostulate : Arg Name → Type → TC ⊤"
+      }
+    ],
+    "AGDATCMDECLAREPOSTULATE": [
+      {
+        "line": 377,
+        "text": "{-# BUILTIN AGDATCMDECLAREPOSTULATE           declarePostulate           #-}"
+      }
+    ],
+    "COMPILE JS declarePostulate": [
+      {
+        "line": 426,
+        "text": "{-# COMPILE JS declarePostulate  = _ => _ =>           undefined #-}"
+      }
+    ],
+    "unify            :": [
+      {
+        "line": 282,
+        "text": "  unify            : Term → Term → TC ⊤"
+      }
+    ],
+    "AGDATCMUNIFY": [
+      {
+        "line": 362,
+        "text": "{-# BUILTIN AGDATCMUNIFY                      unify                      #-}"
+      }
+    ]
+  },
+  "agda_unimath_wrapper_hits": {
+    "declare-postulate :": [
+      {
+        "line": 98,
+        "text": "  declare-postulate :"
+      }
+    ],
+    "AGDATCMDECLAREPOSTULATE": [
+      {
+        "line": 197,
+        "text": "{-# BUILTIN AGDATCMDECLAREPOSTULATE declare-postulate #-}"
+      }
+    ]
+  },
+  "b04_solver_declare_postulate_call_count": 0,
+  "scope_interpretation": "The unsafe and source-safe probes contain the same normalized macro body. Default mode accepts the explicit declarePostulate extension; safe mode rejects that exact operation. A separate safe reflection macro using only refl is accepted, so the observed rejection is not a blanket rejection of reflection. Without the explicit axiom, true equals false is rejected."
+}

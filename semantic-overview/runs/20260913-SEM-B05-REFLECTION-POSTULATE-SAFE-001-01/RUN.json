@@ -1,0 +1,205 @@
+{
+  "schema_version": "semantic-overview-run/v1",
+  "run_id": "20260913-SEM-B05-REFLECTION-POSTULATE-SAFE-001-01",
+  "started_at_utc": "2026-09-13T19:53:38.751701+00:00",
+  "completed_at_utc": "2026-09-13T19:53:39.422420+00:00",
+  "duration_seconds": 0.670508,
+  "status": "EXPECTED_BOUNDARY_OBSERVED",
+  "git": {
+    "branch": "codex/semantic-overview",
+    "head_before_run": "b7501ff65096fd82743d0a9ef0001e61b873c604",
+    "state": "LOCAL_UNCOMMITTED_CANDIDATE"
+  },
+  "scope": "A controlled Agda 2.8 reflection macro that explicitly declares a fresh postulate at the goal type, checked in default and safe modes, with a safe ordinary-reflection positive control and a no-axiom false-equality negative control.",
+  "verdict": "EXPLICIT_REFLECTION_POSTULATE_EXTENDS_THEORY_IN_DEFAULT_MODE; SAFE_MODE_REJECTS_THE_POSTULATE; SAFE_ORDINARY_REFLECTION_ACCEPTED; NO_KERNEL_INCONSISTENCY_CLAIM; CONTROLLED_CAPABILITY_BOUNDARY_OBSERVED",
+  "non_goals": [
+    "No claim that the default theory proves true equals false without an added axiom.",
+    "No claim that the Agda kernel is inconsistent or that safe mode proves kernel soundness.",
+    "No attribution of declarePostulate use to solve-Precategory!, whose fixed source has zero direct calls.",
+    "No audit of every reflection primitive, compiler implementation path, or Agda version.",
+    "No executable-runtime or real-world delivery claim; all observations occur during type checking."
+  ],
+  "steps": [
+    {
+      "name": "agda-version",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--version"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:53:38.751931+00:00",
+      "duration_seconds": 0.027651,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "agda-version.stdout.txt",
+        "bytes": 240,
+        "sha256": "22ad7e88d1de71286409ccbca6b8f688edff8225dd5ae12a811599bb7bcefd56"
+      },
+      "stderr": {
+        "path": "agda-version.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "explicit-postulate-default",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05/SemB05Unsafe.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:53:38.780220+00:00",
+      "duration_seconds": 0.111763,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "explicit-postulate-default.stdout.txt",
+        "bytes": 110,
+        "sha256": "a168d30bad33c331e85995189b722cc36c6f77f8b0af598fa4e0048032abfb24"
+      },
+      "stderr": {
+        "path": "explicit-postulate-default.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "same-source-cli-safe-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--safe",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05/SemB05Unsafe.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:53:38.892502+00:00",
+      "duration_seconds": 0.098656,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[SafeFlagPostulate]",
+        "Cannot postulate SemB05Unsafe.sem-b05-declared-axiom with safe flag"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "same-source-cli-safe-negative.stdout.txt",
+        "bytes": 382,
+        "sha256": "955df7084b73e865b6c996eff85c2bf11e34d4bcf6018672b31b90e73f51224c"
+      },
+      "stderr": {
+        "path": "same-source-cli-safe-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "source-safe-postulate-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05/SemB05Safe.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:53:38.991720+00:00",
+      "duration_seconds": 0.100662,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[SafeFlagPostulate]",
+        "Cannot postulate SemB05Safe.sem-b05-declared-axiom with safe flag"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "source-safe-postulate-negative.stdout.txt",
+        "bytes": 374,
+        "sha256": "e300f0c1f1c9e75321ae471d4bab6fb69d3bb7b4c6849bbd2f62e34852c3dd1c"
+      },
+      "stderr": {
+        "path": "source-safe-postulate-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "safe-reflection-positive",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05/SemB05SafeReflectionPositive.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:53:39.092903+00:00",
+      "duration_seconds": 0.101677,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "safe-reflection-positive.stdout.txt",
+        "bytes": 142,
+        "sha256": "d022b0bee7ba890271ba4a062641da67980b3967b6f927c4b715f6e373e875f5"
+      },
+      "stderr": {
+        "path": "safe-reflection-positive.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "no-axiom-false-equality-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b05/SemB05NoAxiomNegative.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T19:53:39.195125+00:00",
+      "duration_seconds": 0.049751,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[UnequalTerms]",
+        "true != false",
+        "refl has type true ≡ false"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "no-axiom-false-equality-negative.stdout.txt",
+        "bytes": 343,
+        "sha256": "c8d29ebf81a840eab32a85b4d0add9198191b3d22e076f285d9e6fceb66e9d3f"
+      },
+      "stderr": {
+        "path": "no-axiom-false-equality-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "artifacts": {
+    "environment": "environment.txt",
+    "source_manifest": "source-manifest.json",
+    "source_audit": "source-audit.json"
+  }
+}
