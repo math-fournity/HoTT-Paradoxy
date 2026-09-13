@@ -1,0 +1,38 @@
+{
+  "schema_version": "machine-overview-profile/v2",
+  "profile_id": "L3-CUBICAL-INTERVAL-MOTION-v1",
+  "theory_variant": "Cubical Agda native interval and Path at Type₀; the interval is tested as a proposed activity-time carrier, not assumed to be physical time",
+  "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+  "toolchain_sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+  "library_registry": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+  "library_registry_sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+  "native_include_dirs": ["machine-overview/formal"],
+  "sources": [
+    {
+      "path": "machine-overview/formal/L3MotionSupport.agda",
+      "role": "independent operational and geometric controls; deliberately excludes the searched obstruction",
+      "sha256": "a689b83000fcd3896ecef12b564e4e592b9dacf33ca4c4b6fbc1941580940ecf",
+      "symbols": [
+        {"name": "data Stage", "kind": "control-time-carrier", "lines": [12, 13]},
+        {"name": "phase", "kind": "discrete-completion-control", "lines": [17, 22]},
+        {"name": "data Segment", "kind": "path-positive-control", "lines": [27, 30]}
+      ]
+    }
+  ],
+  "support_sources": [],
+  "coordinator_identity_note": "The symbolic search emits a proof AST from typed Horn-style rules. Native Cubical Agda, not the symbolic abstraction, checks the universe-polymorphism boundary fixed by the generated Type₀ target.",
+  "supported_operations": [
+    {"op": "cubical interval endpoints i0/i1 and Path abstraction λ i → t", "source": "pinned Cubical v0.9 tree via TOOLCHAIN.json"},
+    {"op": "ordinary function application and negation elimination", "source": "Cubical.Foundations.Prelude"},
+    {"op": "finite Stage-indexed discrete completion control", "source_lines": [12, 22]},
+    {"op": "path-constructor positive control on a genuine Segment type", "source_lines": [27, 30]}
+  ],
+  "unsupported": [
+    {"item": "physical time ontology or Planck-scale discreteness", "reason": "requires independent empirical and interpretive evidence"},
+    {"item": "dense ordered real-time structure", "reason": "the cubical interval is not silently identified with a dense ordered field"},
+    {"item": "all temporal observables must be I-indexed", "reason": "this is the explicit theoryization under test, not a theorem about every HoTT model"},
+    {"item": "arbitrary universes above Type₀", "reason": "the first native target fixes A : Type₀; universe-generalization is a later proof obligation"}
+  ],
+  "revision_note": "First L3 profile. It separates time/motion structure from event ordering and carries both geometric and operational controls.",
+  "notes": "A successful run establishes only the declared model-relative obstruction candidate. It does not establish a HoTT bug, physical discreteness, or a standard-use claim."
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260913-MACHINE-OVERVIEW-V2-L3",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "2705847db5893bbbdfae21abb58c5a01beff6e27",
+  "git_status": "LOCAL_BRANCH_VERSION_CLOSED_OID_READ_FROM_GIT_NO_MERGE_TAG_PUSH",
+  "main_touched": false,
+  "new_math_claims": [],
+  "strict_l1": {
+    "case": "machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001/case-revision-4.json",
+    "search": "machine-overview/runs/20260913-SEARCH-L1-V2-001/RUN.json",
+    "verify": [
+      "machine-overview/runs/20260913-VERIFY-L1-V2-DEADLINE-001/RUN.json",
+      "machine-overview/runs/20260913-VERIFY-L1-V2-VALUE-001/RUN.json",
+      "machine-overview/runs/20260913-VERIFY-L1-V2-COMPLETION-001/RUN.json"
+    ],
+    "result": "three NATIVE_CHECKED_CALIBRATION_INSTANCE runs; each 0/0/42(expected)/0 and exact replay"
+  },
+  "symbolic_l3": {
+    "engine_freeze": "machine-overview/evaluations/L3-ENGINE-FREEZE-001/FREEZE.json",
+    "engine_post_assessment": "machine-overview/evaluations/L3-ENGINE-FREEZE-001/POST-ASSESSMENT.json",
+    "case": "machine-overview/cases/MS-TASK-L3-INTERVAL-COMPLETION-001/case-revision-1.json",
+    "search": "machine-overview/runs/20260913-SEARCH-L3-SYMBOLIC-001/RUN.json",
+    "verify": "machine-overview/runs/20260913-VERIFY-L3-SYMBOLIC-001/RUN.json",
+    "review": "machine-overview/reviews/RV-MS-TASK-L3-INTERVAL-COMPLETION-001-r1-20260913-SEARCH-L3-SYMBOLIC-001-WV-0001-e5389254.json",
+    "report": "machine-overview/reports/MS-TASK-L3-INTERVAL-COMPLETION-001-r1-report.md",
+    "academic_assessment": "machine-overview/evaluations/L3-ACADEMIC-BRIDGE-001.md",
+    "search_result": "39 rule applications; two proof ASTs; complete through depth 4; interval_eta ablation leaves zero goal proofs",
+    "native_result": "NATIVE_CHECKED_EXPLORATION_CANDIDATE; 0/0/42(expected)/0; exact replay",
+    "reality_correspondence": "UNRESOLVED"
+  },
+  "development_failures": [
+    {
+      "stage": "L3 support qualification",
+      "result": "first probe rejected missing negation/empty imports; second probe rejected i0 ≡ i1 because I has sort IUniv rather than Type",
+      "disposition": "support module corrected to explicit Empty import and a genuine Segment : Type path control; noncanonical /tmp outputs were not promoted to run receipts"
+    },
+    {
+      "stage": "first canonical L3 verify invocation",
+      "result": "CANDIDATE_DOES_NOT_REFERENCE_TARGET:coordinator_template",
+      "disposition": "failed before any run directory or run-id consumption; renderer changed to Target.NoSeparatedObservable; same ID then completed"
+    }
+  ],
+  "verification": {
+    "selftest": "41/41 PASS",
+    "workspace_validate": "VALID: 5 cases / 17 runs / 7 reviews / 0 errors / 1 registered interrupted attempt",
+    "json_parse": "130 JSON files parsed",
+    "core_cognition_audit_verify": "PASS: 36 KC; ALIGNED 9 / DEEPENED 17 / TENSION 2 / NOT_TOUCHED 8",
+    "diff_check": "PASS_AFTER_REMOVING_MARKDOWN_TRAILING_SPACES"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

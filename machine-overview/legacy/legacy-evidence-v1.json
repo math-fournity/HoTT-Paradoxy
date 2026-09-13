@@ -1,0 +1,47 @@
+{
+  "schema_version": "machine-overview-legacy-evidence/v1",
+  "purpose": "Exact allowlist for immutable v1 cases, runs and interrupted attempts created before the strict v2 evidence contract. Presence of a LEGACY.json file never grants legacy status by itself.",
+  "cases": {
+    "MS-TASK-L1-RACE-COMPLETION-001@1": "d28ca1b23aecef0f1b702cda145649ba800e739f1e266605d683fb20e85d9886",
+    "MS-TASK-L1-RACE-COMPLETION-001@2": "b4a7892e0febd9b3d9f7862edf6d8668b96e8104b53428dd66a2100e9fd24985",
+    "MS-TASK-L1-RACE-COMPLETION-001@3": "5524651182b74edc02882b0f108bac1f0ff6d415cc4d9b4fd780838cc527e733"
+  },
+  "runs": {
+    "20260913-SEARCH-L1-001": "56e1947a878f953424ab5d04c66759dfe27bd7b8f6a934c3e68085510bf60200",
+    "20260913-SEARCH-L1-002": "3c0b20157138a4e28e44cb95d52a22733c3472522fb3aedd3bfa15438cd94955",
+    "20260913-SEARCH-L1-003": "d0e28a5c794ec45bb7300a1cf58bbfb1c97eb9316fbc672f9cc9914de5d70bd4",
+    "20260913-VERIFY-L1-COMPLETION-001": "4d7815f5be429dc539875dc0dd069f9dcb850904d65a78d9e7247fa2b350a42d",
+    "20260913-VERIFY-L1-COMPLETION-002": "6d47f2ae198d297536338c835056a0eeb8f447845020e59fbb6820a2519efd1c",
+    "20260913-VERIFY-L1-DEADLINE-001": "b53c85df112dcd04a41246b71f65861f9e3094bde8bea4e6df22179d1e6273d5",
+    "20260913-VERIFY-L1-POSTFIX-COMPLETION-001": "3609c66aefc9eed601055a0dae51955a2c337faddf94d22909219c6fc4bfbe9a",
+    "20260913-VERIFY-L1-POSTFIX-DEADLINE-001": "108b1268099ab207620d48c08b4381bb7e0035e335ede8404383b9ee40ec439d",
+    "20260913-VERIFY-L1-POSTFIX-VALUE-001": "b27ea3725b76fc69a863f79b450b6f0e672e47dcb9b8afbd6e3309819cfcdf45",
+    "20260913-VERIFY-L1-VALUE-001": "a645f3e2869b3cf423a1d9f322f5260d06af4ff5e36e2cd6e00e37eed49f4d30",
+    "20260913-VERIFY-L1-VALUE-002": "7e82e1f3df4a9d39bdb48ae14155fac794c3c3a6cc01d962db6b2f6b6d8b7713"
+  },
+  "legacy_markers": {
+    "20260913-SEARCH-L1-001": "a3c141e6f88d4b811ca70c248df67ff99e0bf7da43942182c403256ce8b2dab7",
+    "20260913-SEARCH-L1-002": "65a2dcf531553d8bd68e71bbab01ca7c20fcd1c4b1ffc9ed4873a72e100922bc",
+    "20260913-VERIFY-L1-COMPLETION-001": "5aafbe9b2ce8df124ca0b2b79f8f7346b35f6c0b7a420abffe8bf1cf97a80154",
+    "20260913-VERIFY-L1-COMPLETION-002": "d6e633433e084692030527c32e166a7efaaf47104cd83ea92bca48bf69ff707d",
+    "20260913-VERIFY-L1-DEADLINE-001": "91746a1473912496eb2725730577021c0b39b9ceadd2db74ec7fddf01592647b",
+    "20260913-VERIFY-L1-VALUE-001": "43814d2055d81fc361338352060af08eaf856da42ca3eca2313599c4aa360a8d",
+    "20260913-VERIFY-L1-VALUE-002": "f4e1e35fb4696a7df6d52ae5b09cbb7c9a82355cb24db8638f50435f893f37bf"
+  },
+  "interrupted_attempts": {
+    "20260913-SEARCH-L1-003.attempt-1-interrupted": "3d96d591381bbc0b430fe32c0a0abe91e18dc0e4e9ac766225f7100821e5879a"
+  },
+  "reviews": {
+    "RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0001-9a92083e": "2ffe97c0bb8151bdade78d8e24fa4dcca72ad369a1d60d4c9aefe28eac7a1316",
+    "RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0002-b8a1c205": "b58a71955868690f7b9123edf36da47e3917679008670b26c0a0803dbf0e1774",
+    "RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0013-e76eec9e": "22b9c047a6b69be23ec0eb2254ef6f3a25ab9acb8ea564d2c278f919913da129"
+  },
+  "known_gaps": {
+    "20260913-SEARCH-L1-001": ["no verified_inputs", "no witness AST hashes", "no runner snapshot"],
+    "20260913-SEARCH-L1-002": ["no verified_inputs", "no witness AST hashes", "no runner snapshot"],
+    "20260913-SEARCH-L1-003": ["runner executed from dirty e4ab45b worktree", "no runner snapshot"],
+    "postfix_verify_family": ["runner executed from dirty e4ab45b worktree", "environment artifact hash excludes terminal newline", "no runner snapshot"],
+    "preaudit_verify_family": ["no source search binding", "no candidate AST hash", "no target-freeze binding", "no runner snapshot"]
+  },
+  "replacement_contract": "New evidence must use profile/case/search/verify/attempt v2 and cannot be added to this allowlist merely to make validation pass."
+}

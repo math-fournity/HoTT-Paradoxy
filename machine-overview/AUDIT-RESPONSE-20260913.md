@@ -1,5 +1,10 @@
 # Response to the external M1 audit (2026-09-13)
 
+> Historical scope: this document answers the first F1–F7 audit and preserves
+> that acceptance run. The current strict-v2 response to the later repair
+> re-audit is `AUDIT-RESPONSE-V2-20260913.md`; current counts and commands are in
+> `README.md`.
+
 Status: `F1-F7 FIXED / POST-FIX ACCEPTANCE RE-RUN / WORKTREE-LOCAL`.
 
 The audit object was worktree `/Volumes/D/HoTT-machine-overview` at

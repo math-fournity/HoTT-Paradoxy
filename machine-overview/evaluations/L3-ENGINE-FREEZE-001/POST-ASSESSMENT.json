@@ -1,0 +1,111 @@
+{
+  "assessed_at_utc": "2026-09-13T17:29:27.310858+00:00",
+  "change_classification": {
+    "machine-overview/machine_overview/case.py": "adds freeze/task/grammar cross-binding validation after TaskSpec materialization",
+    "machine-overview/machine_overview/verify.py": "proof module now names Target.NoSeparatedObservable explicitly after the pre-side-effect hygiene guard rejected an unqualified name; Target/Controls/Falsify semantics unchanged",
+    "machine-overview/registry.json": "records M2/M3 partial-stage status after the experiment"
+  },
+  "changed_after_freeze": [
+    "machine-overview/registry.json",
+    "machine-overview/machine_overview/case.py",
+    "machine-overview/machine_overview/verify.py"
+  ],
+  "failed_attempt": {
+    "error": "CANDIDATE_DOES_NOT_REFERENCE_TARGET:coordinator_template",
+    "run_directory_created": false,
+    "run_id_consumed": false
+  },
+  "freeze_id": "L3-ENGINE-FREEZE-001",
+  "full_coordinator_holdout": false,
+  "schema_version": "machine-overview-engine-freeze-assessment/v1",
+  "search_configuration_holdout": true,
+  "search_run": "machine-overview/runs/20260913-SEARCH-L3-SYMBOLIC-001/RUN.json",
+  "source_comparison": [
+    {
+      "current_sha256": "482b768afe237a7f9e4da66c2fdb4fc191e55452e738cf35d67260fafb556c71",
+      "freeze_sha256": "482b768afe237a7f9e4da66c2fdb4fc191e55452e738cf35d67260fafb556c71",
+      "path": "machine-overview/mo.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "f30fd27f0de1269fa9962d03b6b44ff9cdea551e410a9b0e63aaabeed026608d",
+      "freeze_sha256": "828f5fd0cce3b35763c6d5d5027d73c02ee4a5ec4528f98a2496397f07ff6fe6",
+      "path": "machine-overview/registry.json",
+      "unchanged": false
+    },
+    {
+      "current_sha256": "95b6669bc0611d9127f7c2935c847868ef8603aeafe65931b71f54615036a62c",
+      "freeze_sha256": "95b6669bc0611d9127f7c2935c847868ef8603aeafe65931b71f54615036a62c",
+      "path": "machine-overview/machine_overview/__init__.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "freeze_sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "path": "machine-overview/machine_overview/__main__.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "4764f0ed94454e63808cc85f4b25d61a72155d87150f32bbfe490d06a58fd953",
+      "freeze_sha256": "62d68026cc5c6517e91f7aa48df7aa9e02d5a9451d2d9a841a98c9e8ea181d0a",
+      "path": "machine-overview/machine_overview/case.py",
+      "unchanged": false
+    },
+    {
+      "current_sha256": "00f62a4ffb558a0cf349615ae72cb881c32a9c7e5501f9876c6cfc25eb89b790",
+      "freeze_sha256": "00f62a4ffb558a0cf349615ae72cb881c32a9c7e5501f9876c6cfc25eb89b790",
+      "path": "machine-overview/machine_overview/cli.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "11cae44598aaaa4f6fafc15db88dfa9397b0e1b11ab1d258e9cc5f013f5cd70f",
+      "freeze_sha256": "11cae44598aaaa4f6fafc15db88dfa9397b0e1b11ab1d258e9cc5f013f5cd70f",
+      "path": "machine-overview/machine_overview/correspondence.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "6ababcae98f2c15536072d7f1419b79fbe61f384832c1526678f3b3af4e3da02",
+      "freeze_sha256": "6ababcae98f2c15536072d7f1419b79fbe61f384832c1526678f3b3af4e3da02",
+      "path": "machine-overview/machine_overview/index.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "13c0d01ea76f42737048662bc45a986e18e3a872be8921943cfbe8188a7e0a77",
+      "freeze_sha256": "13c0d01ea76f42737048662bc45a986e18e3a872be8921943cfbe8188a7e0a77",
+      "path": "machine-overview/machine_overview/model.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "3e14735b90139286aced8de55d6de2cd88607f60aaba86c18243d6818eaac53a",
+      "freeze_sha256": "3e14735b90139286aced8de55d6de2cd88607f60aaba86c18243d6818eaac53a",
+      "path": "machine-overview/machine_overview/profile.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "ca36b9ac3e923a896857106ae740e0c8de1f693a31c3daf283a3a7be12436b5f",
+      "freeze_sha256": "ca36b9ac3e923a896857106ae740e0c8de1f693a31c3daf283a3a7be12436b5f",
+      "path": "machine-overview/machine_overview/report.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20",
+      "freeze_sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20",
+      "path": "machine-overview/machine_overview/search.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "11e96f77587a4a6188828e9d39d68ace1e94d0e9f2ec4f60cb55d7e2db7f4edd",
+      "freeze_sha256": "11e96f77587a4a6188828e9d39d68ace1e94d0e9f2ec4f60cb55d7e2db7f4edd",
+      "path": "machine-overview/machine_overview/util.py",
+      "unchanged": true
+    },
+    {
+      "current_sha256": "08bc278457c1002b03f05fe64546a4ace48fb316b60121bde2b239945e8cb62a",
+      "freeze_sha256": "db10039b30ede32c35943d5062b84bc5d121ee6f99cf0abea02b5891406f06aa",
+      "path": "machine-overview/machine_overview/verify.py",
+      "unchanged": false
+    }
+  ],
+  "verdict": "SEARCH_CONFIG_HELD_OUT; NATIVE_RENDERER_HYGIENE_FIXED_AFTER_FIRST_ATTEMPT; NOT_BLIND_MODEL_HOLDOUT",
+  "verify_run": "machine-overview/runs/20260913-VERIFY-L3-SYMBOLIC-001/RUN.json"
+}

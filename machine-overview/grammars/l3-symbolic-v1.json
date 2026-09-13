@@ -1,0 +1,58 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L3-INTERVAL-OBSERVABLE-SYMBOLIC-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {
+    "path": "machine-overview/evaluations/L3-ENGINE-FREEZE-001/FREEZE.json",
+    "sha256": "8fc692f7f69e8cc598867bea6da407111b8de9eff16c4aa20a7db115ed46492a"
+  },
+  "answer_visibility": "No benchmark, expected proof AST, or witness ID is present. The grammar contains typed inference rules and their native term interpretations.",
+  "propositions": ["endpoint_path", "reverse_endpoint_path", "bottom"],
+  "goal": "bottom",
+  "observation_kind": "continuous_phase_obstruction",
+  "max_proof_depth": 4,
+  "rules": [
+    {
+      "id": "interval_eta",
+      "premises": [],
+      "conclusion": "endpoint_path",
+      "term_template": "(λ i → f i)",
+      "semantic_source": "Cubical Path abstraction for an internal f : I → A"
+    },
+    {
+      "id": "path_sym",
+      "premises": ["endpoint_path"],
+      "conclusion": "reverse_endpoint_path",
+      "term_template": "sym ({0})",
+      "semantic_source": "Path symmetry"
+    },
+    {
+      "id": "path_sym_back",
+      "premises": ["reverse_endpoint_path"],
+      "conclusion": "endpoint_path",
+      "term_template": "sym ({0})",
+      "semantic_source": "Path symmetry"
+    },
+    {
+      "id": "apart_elim",
+      "premises": ["endpoint_path"],
+      "conclusion": "bottom",
+      "term_template": "apart ({0})",
+      "semantic_source": "the TaskSpec's predeclared exact endpoint apartness"
+    }
+  ],
+  "mechanism_rules": ["interval_eta", "apart_elim"],
+  "positive_control_goals": ["endpoint_path"],
+  "ablation": {
+    "remove_rules": ["interval_eta"],
+    "expected": "goal bottom becomes unreachable within the entire declared proof grammar"
+  },
+  "native_contract": {
+    "renderer": "l3_interval_observable_v1",
+    "target_scope": "A : Type₀; f : I → A",
+    "positive_controls": ["Stage-indexed discrete phase change", "Segment path constructor"],
+    "negative_control": "the same dimension-abstraction body is ill-typed for f : Stage → A"
+  },
+  "calibration_benchmark": null,
+  "declared_bounds_note": "The proof-term grammar is exhaustively enumerated through depth 4. The native theorem is symbolic over arbitrary A : Type₀ and is not a finite-domain enumeration."
+}

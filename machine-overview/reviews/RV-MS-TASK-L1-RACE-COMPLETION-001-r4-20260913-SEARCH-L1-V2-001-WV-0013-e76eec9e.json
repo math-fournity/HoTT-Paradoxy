@@ -1,0 +1,184 @@
+{
+  "candidate_ast_sha256": "e76eec9e97b7f1c2576dd0c955b808abcf528e893915494ab501bec5a42d62d2",
+  "case_id": "MS-TASK-L1-RACE-COMPLETION-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001/case-revision-4.json",
+  "case_revision": 4,
+  "case_sha256": "ae9b09af3e3be80492b7c8b1a1041b2fca15a88dcd5f5574c4b643e05d5e6a52",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-002.json",
+        "revision 2"
+      ],
+      "item": "original activity and completion criterion are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "evidence": [
+        "L1-PARTIALITY-RACE-DEADLINE-v2: supported_operations",
+        "machine-overview/profiles/l1-partiality-v2.json"
+      ],
+      "item": "the theoryization step is an operation of the pinned model",
+      "status": "SUPPORTED"
+    },
+    {
+      "detail": "deadline reads the constructor round index; race reads completion order; deliver_business was declared before search",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-002.json"
+      ],
+      "item": "the separating observation is declared in the task, not an oracle added later",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "The business continuation is declared as part of the task input before the search; it is not invented after seeing the candidate.",
+      "evidence": [
+        "machine-overview/profiles/l1-partiality-v2.json"
+      ],
+      "item": "compensation class of the consumer",
+      "status": "PRE_KEPT_BY_TASK_DECLARATION"
+    },
+    {
+      "detail": "the verified statement is a ground instance; no universal or physical claim is made",
+      "evidence": [
+        "machine-overview/grammars/l1-v2.json"
+      ],
+      "item": "quantifier scope of the claim",
+      "status": "FINITE_DECLARED_GRAMMAR_ONLY"
+    },
+    {
+      "detail": "the run is a model-level calibration instance; a real consumer would be a separate E6-style audit",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-002.json"
+      ],
+      "item": "reality bridge",
+      "status": "NOT_CLOSED_IN_M1"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "MODEL_ONLY_OPERATIONALLY_SPECIFIED",
+    "new_claim": false,
+    "open_obligations": [
+      "a real consumer is outside this calibration",
+      "the physical reading of time is outside this fragment"
+    ],
+    "reality_correspondence": "UNRESOLVED",
+    "related_claims": [
+      "C-73",
+      "C-74",
+      "C-75",
+      "C-76"
+    ],
+    "research_relation": "calibration",
+    "task_preservation": "PRESERVED_AT_MODEL_LEVEL",
+    "task_preservation_basis": [
+      {
+        "detail": [],
+        "id": "profile_qualified",
+        "status": "PASS"
+      },
+      {
+        "detail": null,
+        "id": "grammar_membership",
+        "status": "PASS"
+      },
+      {
+        "detail": "search run case revision 4 vs case revision 4",
+        "id": "case_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "full recomputed witness must equal the search-run record",
+        "id": "witness_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "completion_divergence",
+        "id": "declared_observation_kind",
+        "status": "PASS"
+      },
+      {
+        "detail": "declared consumer shape present",
+        "id": "declared_consumer_present",
+        "status": "PASS"
+      },
+      {
+        "detail": "PRE_KEPT_BY_TASK_DECLARATION",
+        "id": "compensation_classified",
+        "status": "PASS"
+      }
+    ]
+  },
+  "context_summary": [
+    "race(□, partner)",
+    "bind(□, continuation)[declared business]"
+  ],
+  "created_at_utc": "2026-09-13T16:49:10.694280+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "2705847db5893bbbdfae21abb58c5a01beff6e27",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 11,
+    "untracked_entries": 25,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 36,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_facts": {
+    "compensation": {
+      "class": "PRE_KEPT_BY_TASK_DECLARATION",
+      "detail": "The business continuation is declared as part of the task input before the search; it is not invented after seeing the candidate."
+    },
+    "has_business_bind": true,
+    "has_deadline": false,
+    "has_plain_bind": false,
+    "has_race": true
+  },
+  "mechanism_summary": "The declared race context reads completion order, and the declared business continuation turns the losing branch into divergence; ≈ identifies the two inputs because they have the same result behaviour before composition.",
+  "review_checks": [
+    {
+      "detail": [],
+      "id": "profile_qualified",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "grammar_membership",
+      "status": "PASS"
+    },
+    {
+      "detail": "search run case revision 4 vs case revision 4",
+      "id": "case_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "full recomputed witness must equal the search-run record",
+      "id": "witness_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "completion_divergence",
+      "id": "declared_observation_kind",
+      "status": "PASS"
+    },
+    {
+      "detail": "declared consumer shape present",
+      "id": "declared_consumer_present",
+      "status": "PASS"
+    },
+    {
+      "detail": "PRE_KEPT_BY_TASK_DECLARATION",
+      "id": "compensation_classified",
+      "status": "PASS"
+    }
+  ],
+  "review_id": "RV-MS-TASK-L1-RACE-COMPLETION-001-r4-20260913-SEARCH-L1-V2-001-WV-0013-e76eec9e",
+  "schema_version": "machine-overview-correspondence-review/v2",
+  "source_search_run": {
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260913-SEARCH-L1-V2-001/RUN.json",
+    "run_id": "20260913-SEARCH-L1-V2-001",
+    "sha256": "69a49876213a2af141e3412152c613a645cb1d1f4f4e9a88c7af74c22f54e58e"
+  },
+  "witness_id": "WV-0013"
+}

@@ -1,0 +1,125 @@
+{
+  "acceptance": true,
+  "created_at_utc": "2026-09-13T17:21:16.924103+00:00",
+  "designer_visibility": "The designing AI knew the conceptual L3 experiment; only the concrete TaskSpec/grammar configuration was absent at freeze time.",
+  "freeze_id": "L3-ENGINE-FREEZE-001",
+  "future_grammar_path": "machine-overview/grammars/l3-symbolic-v1.json",
+  "future_inputs_absent_at_freeze": true,
+  "future_task_path": "machine-overview/tasks/MS-TASK-L3-INTERVAL-COMPLETION-001.json",
+  "purpose": "Freeze the generic symbolic-horn search and native evidence engine before materializing the L3 TaskSpec and grammar.",
+  "runner_identity": {
+    "git": {
+      "branch": "feat/machine-overview-m1",
+      "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+      "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+      "head": "2705847db5893bbbdfae21abb58c5a01beff6e27",
+      "tracked_dirty": true,
+      "tracked_dirty_entries": 12,
+      "untracked_entries": 146,
+      "worktree_dirty": true,
+      "worktree_dirty_entries": 158,
+      "worktree_root": "/Volumes/D/HoTT-machine-overview"
+    },
+    "python": {
+      "bytes": 152624,
+      "executable": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "sha256": "907c3e17ed3d1b34f6c6b4e8b57b2f1cbe12f0ea35d8e4c2ed8f731c4c995853",
+      "version": "3.11.7 (v3.11.7:fa7a6f2303, Dec  4 2023, 15:22:56) [Clang 13.0.0 (clang-1300.0.29.30)]"
+    },
+    "schema_version": "machine-overview-runner-identity/v1",
+    "sources": [
+      {
+        "bytes": 313,
+        "path": "machine-overview/mo.py",
+        "sha256": "482b768afe237a7f9e4da66c2fdb4fc191e55452e738cf35d67260fafb556c71"
+      },
+      {
+        "bytes": 1508,
+        "path": "machine-overview/registry.json",
+        "sha256": "828f5fd0cce3b35763c6d5d5027d73c02ee4a5ec4528f98a2496397f07ff6fe6"
+      },
+      {
+        "bytes": 568,
+        "path": "machine-overview/machine_overview/__init__.py",
+        "sha256": "95b6669bc0611d9127f7c2935c847868ef8603aeafe65931b71f54615036a62c"
+      },
+      {
+        "bytes": 80,
+        "path": "machine-overview/machine_overview/__main__.py",
+        "sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a"
+      },
+      {
+        "bytes": 47569,
+        "path": "machine-overview/machine_overview/case.py",
+        "sha256": "62d68026cc5c6517e91f7aa48df7aa9e02d5a9451d2d9a841a98c9e8ea181d0a"
+      },
+      {
+        "bytes": 18967,
+        "path": "machine-overview/machine_overview/cli.py",
+        "sha256": "00f62a4ffb558a0cf349615ae72cb881c32a9c7e5501f9876c6cfc25eb89b790"
+      },
+      {
+        "bytes": 20438,
+        "path": "machine-overview/machine_overview/correspondence.py",
+        "sha256": "11cae44598aaaa4f6fafc15db88dfa9397b0e1b11ab1d258e9cc5f013f5cd70f"
+      },
+      {
+        "bytes": 3508,
+        "path": "machine-overview/machine_overview/index.py",
+        "sha256": "6ababcae98f2c15536072d7f1419b79fbe61f384832c1526678f3b3af4e3da02"
+      },
+      {
+        "bytes": 5782,
+        "path": "machine-overview/machine_overview/model.py",
+        "sha256": "13c0d01ea76f42737048662bc45a986e18e3a872be8921943cfbe8188a7e0a77"
+      },
+      {
+        "bytes": 9254,
+        "path": "machine-overview/machine_overview/profile.py",
+        "sha256": "3e14735b90139286aced8de55d6de2cd88607f60aaba86c18243d6818eaac53a"
+      },
+      {
+        "bytes": 13813,
+        "path": "machine-overview/machine_overview/report.py",
+        "sha256": "ca36b9ac3e923a896857106ae740e0c8de1f693a31c3daf283a3a7be12436b5f"
+      },
+      {
+        "bytes": 37108,
+        "path": "machine-overview/machine_overview/search.py",
+        "sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20"
+      },
+      {
+        "bytes": 12026,
+        "path": "machine-overview/machine_overview/util.py",
+        "sha256": "11e96f77587a4a6188828e9d39d68ace1e94d0e9f2ec4f60cb55d7e2db7f4edd"
+      },
+      {
+        "bytes": 42179,
+        "path": "machine-overview/machine_overview/verify.py",
+        "sha256": "db10039b30ede32c35943d5062b84bc5d121ee6f99cf0abea02b5891406f06aa"
+      }
+    ]
+  },
+  "schema_version": "machine-overview-engine-freeze/v1",
+  "scope": "ENGINE_CONFIG_HOLDOUT; not a blind-model or novelty holdout",
+  "selftest": {
+    "command_argv": [
+      "/usr/local/bin/python3",
+      "machine-overview/mo.py",
+      "selftest"
+    ],
+    "cwd": "/Volumes/D/HoTT-machine-overview",
+    "exit_code": 0,
+    "expected_test_count": 41,
+    "stderr": {
+      "bytes": 5947,
+      "path": "stderr.txt",
+      "sha256": "ca29d7703f48de96e26f59153f3ae6246ae711e5ae9b9ec906fb5e983ee7d268"
+    },
+    "stdout": {
+      "bytes": 0,
+      "path": "stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

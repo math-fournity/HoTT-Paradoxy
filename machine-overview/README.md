@@ -1,165 +1,211 @@
-# Machine-overview coordinator (plan stages M0/M1)
+# Machine-overview coordinator
 
-Status: `IMPLEMENTED / EXTERNAL AUDIT F1-F7 FIXED / POST-FIX ACCEPTANCE RE-RUN /
-ISOLATED WORKTREE / NOT INTEGRATED INTO MAIN LINE`.
+Status: `M0/M1 STRICT-V2 COMPLETE / M2 FIRST SYMBOLIC SLICE / L3 FIRST CASE / WORKTREE-LOCAL / NOT INTEGRATED INTO MAIN`.
 
-This directory implements the first two stages of the plan
-`/Volumes/D/HoTT独立答复/HoTT非现实性悖论机器统观完整方案.md`
-(index + 9 shards — read the plan itself; this README is not a substitute):
+This directory implements the first executable machine-overview chain from
+`/Volumes/D/HoTT独立答复/HoTT非现实性悖论机器统观完整方案.md`.
+It runs in the isolated worktree `/Volumes/D/HoTT-machine-overview`, branch
+`feat/machine-overview-m1`. It has not modified, merged into, tagged or pushed
+the main branch.
 
-- **M0 规则与任务资格化** — a pinned profile (toolchain + source hashes +
-  declared symbol map + pinned support module), a frozen TaskSpec, and
-  positive/negative controls;
-- **M1 最小完整搜索链** — automatic typed enumeration → finding differences →
-  grammar-preserving reduction → exact native Cubical Agda check →
-  correspondence review → report → save/restore, exercised end-to-end on the L1
-  calibration (delay / race / deadline fragment of the already machine-proved
-  `MP-RACE-TIMEOUT-001`).
+The coordinator is a research instrument. Its receipts remain under
+`machine-overview/`; they do not enter `HoTT/CLAIM_EVIDENCE_MATRIX.md` and do
+not by themselves become project mathematical claims.
 
-It is a research instrument, not a claim database. Exploration receipts live
-under `machine-overview/runs/`; they do **not** enter
-`HoTT/CLAIM_EVIDENCE_MATRIX.md`.
+## What now works
 
-The external audit of the first version (`REQUEST_CHANGES`, findings F1–F7) is
-answered in `machine-overview/AUDIT-RESPONSE-20260913.md`; every finding is
-fixed and covered by a regression test.
+### M0/M1 strict evidence chain
+
+The strict v2 path performs:
+
+```text
+qualified profile
+  → immutable case revision
+  → typed complete search inside a declared grammar
+  → structure-derived correspondence review
+  → frozen native Cubical Agda target
+  → proof + positive controls + expected negative control + replay
+  → full evidence revalidation
+  → search-hash-bound report
+```
+
+New v2 cases and runs bind the exact profile, TaskSpec, grammar, toolchain
+configuration, Agda library registry, declared sources, case identity,
+candidate AST, frozen target, generated sources, kernel command and output
+artifacts, ATTEMPT identity, Python identity and a byte-for-byte coordinator
+source snapshot. `validate` recomputes search semantics, witness fields,
+correspondence fields, generated source text, kernel classifications, replay and
+final status. It does not trust a stored `PASS` string.
+
+Pre-v2 evidence remains byte-identical and readable only when its exact hash is
+listed in `legacy/legacy-evidence-v1.json`. Adding an arbitrary `LEGACY.json`
+marker cannot bless a new or altered v1 receipt.
+
+### L1 strict-v2 calibration
+
+Case `MS-TASK-L1-RACE-COMPLETION-001` revision 4 uses profile
+`L1-PARTIALITY-RACE-DEADLINE-v2`, TaskSpec revision 2 and grammar `l1-v2`.
+
+- Search `20260913-SEARCH-L1-V2-001` exhaustively checks 4,788 pair/context
+  combinations and produces 50 reduced witnesses across deadline, value and
+  completion-divergence families. Enumeration-order permutation yields the
+  same witness set; removing deadline removes that family; the external known
+  calibration is found after enumeration.
+- Native runs
+  `20260913-VERIFY-L1-V2-DEADLINE-001`,
+  `20260913-VERIFY-L1-V2-VALUE-001` and
+  `20260913-VERIFY-L1-V2-COMPLETION-001` each produce kernel exits
+  `0 / 0 / 42(expected) / 0` and
+  `EXACT_EXIT_STDOUT_STDERR_MATCH` replay.
+- All three correspondence reviews recompute to
+  `PRESERVED_AT_MODEL_LEVEL`; reality correspondence stays `UNRESOLVED`.
+- Report: `reports/MS-TASK-L1-RACE-COMPLETION-001-r4-v2-report.md`.
+
+This remains a calibration of already known `C-73`–`C-76` mechanisms and is
+not a new claim.
+
+### M2 first symbolic slice and L3 first case
+
+The first symbolic backend, `symbolic-horn-v1`, enumerates typed proof trees
+through a declared depth, renders the discovered AST into native Cubical Agda,
+and keeps rule-order and rule-ablation controls. Its first case is
+`MS-TASK-L3-INTERVAL-COMPLETION-001` revision 1.
+
+The task distinguishes temporal order from time/motion structure:
+
+- operational control: `Stage` has `start` and `finish`; its exact Bool phase
+  changes from Pending to Done;
+- theoryization under test: represent the whole activity by an internal
+  dimension-indexed observable `f : I → A`;
+- searched obligation: dimension abstraction supplies an endpoint Path, while
+  the task requires those endpoint observations to remain distinguishable.
+
+Search `20260913-SEARCH-L3-SYMBOLIC-001` performs 39 rule-application checks,
+completely enumerates the four-rule grammar through depth 4, and finds two
+proof trees. The smallest has two nodes:
+
+```text
+apart_elim(interval_eta)
+proof term: apart ((λ i → f i))
+```
+
+After removing `interval_eta`, the goal is unreachable. No calibration
+benchmark or expected proof AST appears in the grammar.
+
+Native run `20260913-VERIFY-L3-SYMBOLIC-001` checks the symbolic Type₀ target,
+the Stage and Segment controls, the expected rejection of applying dimension
+abstraction to an ordinary Stage index, and an exact replay. Kernel exits are
+again `0 / 0 / 42(expected) / 0`. Its status is deliberately
+`NATIVE_CHECKED_EXPLORATION_CANDIDATE`.
+
+The result is a concrete model-relative L3 candidate: the explicit
+theoryization adds Path coherence and thereby adds a completion obstacle. It
+does not establish that standard HoTT equates Path with physical time or
+requires arbitrary discrete completion predicates to be I-indexed. The
+academic and interpretation assessment is
+`evaluations/L3-ACADEMIC-BRIDGE-001.md`; reality correspondence and originality
+remain unresolved/limited exactly as recorded there.
+
+The engine freeze is a configuration holdout, not a blind-model evaluation.
+The TaskSpec and grammar were absent at freeze time, while the designing AI
+already knew the conceptual experiment. A pre-side-effect hygiene failure led
+to one qualified-name correction in the native proof renderer; the post-freeze
+assessment records this instead of calling the entire coordinator frozen.
+
+## Current verification snapshot
+
+At the final verification snapshot carried by the branch-local version-closure
+commit:
+
+- `selftest`: 41/41 PASS;
+- `validate`: `VALID`, 0 errors;
+- cases: 5 (three exact-hash legacy v1, L1 strict v2, L3 strict v2);
+- runs: 17 (11 legacy v1, six strict v2) plus one registered interrupted legacy
+  attempt;
+- correspondence reviews: 7 (three legacy, four strict v2);
+- all four accepted strict native verification runs have exact byte replay.
+
+The implementation and evidence paths are version-closed on the isolated
+feature branch. The exact commit OID is repository metadata and is intentionally
+read from Git after commit instead of being self-embedded here. All untracked
+`dev-notes/` files are outside the implementation change set and were excluded
+from staging.
 
 ## Layout
 
 ```text
 machine-overview/
-  mo.py                     launcher: python3 machine-overview/mo.py <command>
-  machine_overview/         coordinator package (stdlib only)
-  profiles/                 pinned profiles (v0 legacy-era, v1 current)
-  tasks/                    TaskSpec revisions
-  grammars/                 declared search grammars (bounded, typed, revisioned)
-  cases/<case-id>/          immutable case revisions + target-freeze ledgers
-  runs/<run-id>/            search/verify receipts, ATTEMPT.json, generated Agda
-  formal/MVSupport.agda     pinned support lemmas (trusted base, not generated)
-  reviews/                  structure-derived correspondence reviews
-  reports/                  human-readable calibration reports
-  generated-index/          rebuildable query projection (derived data)
-  tests/                    unit tests + audit regression tests + fixtures
-  AUDIT-RESPONSE-20260913.md
+  mo.py                       CLI launcher
+  registry.json               coordinator registry and stage coverage
+  machine_overview/           standard-library coordinator package
+  profiles/                   pinned theory/toolchain profiles
+  tasks/                      independently frozen TaskSpecs
+  grammars/                   bounded typed search grammars
+  cases/<case-id>/            immutable revisions and target-freeze ledgers
+  runs/<run-id>/              ATTEMPT, RUN, runner snapshot, generated sources,
+                              kernel commands/environment/stdout/stderr
+  reviews/                    recomputable correspondence reviews
+  reports/                    exact-search-bound human-readable reports
+  evaluations/                engine freeze and L3 interpretation assessment
+  formal/                     pinned support/control modules
+  legacy/                     exact-hash allowlist for pre-v2 evidence
+  generated-index/            rebuildable query projection
+  tests/                      unit, regression and fault-injection tests
 ```
 
-Pre-audit receipts stay in place and carry a `LEGACY.json` attestation; the
-three pre-audit correspondence reviews live in `reviews/.superseded/`.
+## Commands
 
-## Quick start (from the worktree root)
+Run from `/Volumes/D/HoTT-machine-overview`:
 
 ```bash
-python3 machine-overview/mo.py inspect-profile --profile machine-overview/profiles/l1-partiality-v1.json
-python3 machine-overview/mo.py create-case --profile machine-overview/profiles/l1-partiality-v1.json \
-    --task machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json \
-    --grammar machine-overview/grammars/l1-v1.json --revision 3
-python3 machine-overview/mo.py search --case machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001 \
-    --revision 3 --run-id <search-run-id>
-python3 machine-overview/mo.py verify --case machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001 \
-    --revision 3 --search-run <search-run-id> --witness WV-0013 --run-id <verify-run-id>
-python3 machine-overview/mo.py review-correspondence --case ... --revision 3 \
-    --search-run <search-run-id> --witness WV-0013
-python3 machine-overview/mo.py explain --case ... --revision 3
-python3 machine-overview/mo.py list          # read-only
-python3 machine-overview/mo.py get WV-0013   # read-only, all matching revisions
-python3 machine-overview/mo.py validate      # re-derives validity from evidence
 python3 machine-overview/mo.py selftest
+python3 machine-overview/mo.py validate
+
+python3 machine-overview/mo.py inspect-profile \
+  --profile machine-overview/profiles/l1-partiality-v2.json
+python3 machine-overview/mo.py explain \
+  --case machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001 \
+  --revision 4 --search-run 20260913-SEARCH-L1-V2-001
+
+python3 machine-overview/mo.py inspect-profile \
+  --profile machine-overview/profiles/l3-interval-motion-v1.json
+python3 machine-overview/mo.py explain \
+  --case machine-overview/cases/MS-TASK-L3-INTERVAL-COMPLETION-001 \
+  --revision 1 --search-run 20260913-SEARCH-L3-SYMBOLIC-001
+
+python3 machine-overview/mo.py list
+python3 machine-overview/mo.py query L3
 ```
 
-## Post-fix acceptance run (2026-09-13)
+Create new run IDs for every new experiment. Do not overwrite immutable case,
+run, review or target-freeze records.
 
-- Case revision 3 uses profile `L1-PARTIALITY-RACE-DEADLINE-v1` (model source,
-  pinned support module, toolchain, Cubical tree).
-- Search `20260913-SEARCH-L1-003`: **complete enumeration** of the declared
-  grammar — 7 delay atoms, 399 well-typed contexts, 4,788/4,788 pair-context
-  checks, 916 separations, 50 reduced witnesses in three families
-  (`deadline_observation` 14, `value_mismatch` 28, `completion_divergence` 8);
-  order-permutation set equality, grammar-sensitivity (removing `deadline`
-  removes that family), benchmark `PRESENT` (`C-73`, `C-74`).
-- Native kernel runs, each bound to (case revision, search run hash, witness AST
-  hash, frozen target hash), with positive control, diagnostic-checked negative
-  control and replay:
-  `20260913-VERIFY-L1-POSTFIX-DEADLINE-001` (WV-0001),
-  `20260913-VERIFY-L1-POSTFIX-VALUE-001` (WV-0002),
-  `20260913-VERIFY-L1-POSTFIX-COMPLETION-001` (WV-0013) — all
-  `NATIVE_CHECKED_CALIBRATION_INSTANCE`, kernels 0 / 0 / 42(expected) / 0,
-  replay `EXACT_EXIT_STDOUT_STDERR_MATCH`.
-- Audit regression scenarios (see the response document for details):
-  cross-revision verify rejected; stale-grammar search rejected; missing kernel
-  output makes `validate` INVALID; budget exhaustion never claims completeness;
-  sparse deadline grammar produces no out-of-grammar witnesses; an interrupted
-  attempt is recorded and rolled over; a `postulate` proof is rejected before
-  any side effect; the value-mismatch review no longer claims a business
-  continuation.
-- `selftest`: 29/29; `validate`: `VALID` with 11 runs, 7 legacy-attested runs and
-  1 recorded interrupted attempt.
+## What remains
 
-The calibration report is
-`machine-overview/reports/MS-TASK-L1-RACE-COMPLETION-001-r3-report.md`.
+- **M2 is partial.** The current symbolic backend is a small typed Horn proof
+  grammar plus one native Type₀ Path target. It does not yet synthesize general
+  dependent terms, universe constraints, arbitrary HIT eliminators or higher
+  coherences.
+- **M3 is partial.** L1 and one L3 chain are executable. L2, L4, L5 and L6 do
+  not yet have machine-overview cases.
+- **M4 is not complete.** The L3 configuration was added after a search-engine
+  freeze and has an ablation, but there is no same-budget baseline/LLM/mixed
+  comparison, sample distribution or defensible performance estimate.
+- **M5 is not implemented.** The worktree has not updated main-line STATE,
+  direction/panorama projections or the formal claim matrix. The existing
+  canonical proof-capture script still assumes `.git` is a directory and needs
+  an explicit worktree-compatibility change before main-line integration.
+- A standard or natural HoTT consumer that makes the L3 activity-time
+  interpretation has not been found. Without that bridge, the L3 result remains
+  an interpretation/representation candidate rather than a HoTT defect.
+- `cvc5`, Alloy and egg remain uninstalled; no current bottleneck requires them.
 
-## Guarantees and boundaries of the implementation
+## Audit trail
 
-Held:
-
-- **frozen inputs**: every entry point re-hashes the profile/task/grammar pinned
-  in the case revision and refuses to run on any mismatch;
-- **evidence identity**: verify receipts bind case revision, case identity hash,
-  search run + sha256, witness AST sha256 and the frozen `Target` hash; a
-  persistent per-case target-freeze ledger detects target changes;
-- **kernel evidence**: every kernel invocation is recorded with command, cwd,
-  environment, stdout/stderr bytes and hashes; `validate` re-derives validity
-  from those artifacts instead of trusting status strings;
-- **grammar-preserving reduction**: every emitted witness is a member of the
-  declared grammar (bounds, continuations, deadline parameters, depth);
-- **budget honesty**: completeness, budget stops and capture limits are separate
-  fields; a truncated search never reports completeness;
-- **failure visibility and recovery**: runs write `ATTEMPT.json` before work;
-  interruptions are recorded, same-id retries roll the interrupted attempt aside
-  instead of deleting it, kernel runs have an internal timeout with
-  process-group termination, and the negative control must show the expected
-  type-error diagnostic;
-- **correspondence derived from structure**: mechanism text and compensation
-  class come from the actual ops/observations; task preservation is computed
-  from explicit checks and falls back to `REVIEW_REQUIRED`.
-
-Not held / not done:
-
-- this is a **calibration instance** of mechanisms already machine-proved as
-  `C-73`–`C-76`; it is not a new mathematical claim and is not in the claim
-  matrix;
-- research lines M2 (symbolic / higher-path search), M3 (six-line coverage),
-  M4 (search-effectiveness evaluation with held-out tasks) and M5 (project
-  integration) are not implemented;
-- `cvc5`, Alloy and egg are not installed on this host;
-- L3 (continuity / density / motion structure) and B-direction tasks are absent
-  from this profile by declaration, not by success;
-- the reality bridge stays `UNRESOLVED`; correspondence reviews are rule-based
-  checklists over declared inputs, not philosophical judgments;
-- OS-level isolation of arbitrary candidate code is not implemented: M1 uses
-  declarative ASTs plus coordinator-templated or hygiene-checked proof sources.
-
-## Integration gap for stage M5
-
-`scripts/audit/capture_agda_proof_run.py` requires `(project_root / ".git").is_dir()`
-and therefore rejects a linked worktree, where `.git` is a file
-(`PROJECT_GIT_ROOT_REQUIRED`). The canonical F-011 capture path, the
-`HoTT/formal` + `HoTT/verification/runs` + `CLAIM_EVIDENCE_MATRIX.md` delivery,
-and the main-line checkpoint are integration work for M5; they were deliberately
-**not** executed from this worktree branch.
-
-Two of the six canonical verifiers also depend on gitignored nested assets and
-fail in a fresh worktree (documented in the session record):
-`verify_understanding_merge.py` needs `AI对话录/理解章节`;
-`verify_fresh_three_way.py` needs
-`sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md`. The other four
-verifiers PASS in the worktree.
-
-## Source and plan anchors
-
-- Plan: `/Volumes/D/HoTT独立答复/HoTT非现实性悖论机器统观完整方案.md` (index + 9 shards).
-- External audit: `/Volumes/D/HoTT独立答复/20260913-M1自动化统观实现审计.md`
-  (index + 3 shards) and the reproduction package
-  `…/20260913-M1实现审计-e4ab45b/`.
-- Pinned model: `HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda`
-  (`C-71`–`C-76`), toolchain `TOOLCHAIN.json` + `AGDA_LIBRARIES`.
-- Related project method: `理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md`.
+- First audit and F1–F7 response:
+  `/Volumes/D/HoTT独立答复/20260913-M1自动化统观实现审计.md` and
+  `AUDIT-RESPONSE-20260913.md`.
+- Second audit:
+  `/Volumes/D/HoTT独立答复/20260913-M1自动化统观修复复审.md`.
+- Strict-v2 response and L3 result: `AUDIT-RESPONSE-V2-20260913.md`.
+- Current handoff: `HANDOFF-20260913.md`.

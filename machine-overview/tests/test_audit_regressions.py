@@ -1,6 +1,7 @@
 """Regression tests for the seven findings of the external M1 audit (F1-F7)."""
 from __future__ import annotations
 
+import copy
 import json
 import shutil
 import subprocess
@@ -12,17 +13,35 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT))
 
-from machine_overview.case import load_case_inputs, validate_workspace  # noqa: E402
-from machine_overview.correspondence import mechanism_facts, review_correspondence  # noqa: E402
+from machine_overview.case import (  # noqa: E402
+    _validate_search_run,
+    _validate_verify_run,
+    case_identity_sha256,
+    load_case_inputs,
+    validate_identifier,
+    validate_workspace,
+)
+from machine_overview.correspondence import (  # noqa: E402
+    derive_correspondence_content,
+    mechanism_facts,
+    review_correspondence,
+)
 from machine_overview.model import value_from_json  # noqa: E402
 from machine_overview.profile import inspect_profile, qualification_verdict  # noqa: E402
-from machine_overview.search import run_search, within_grammar_witness  # noqa: E402
+from machine_overview.report import bound_to_search  # noqa: E402
+from machine_overview.search import (  # noqa: E402
+    compute_search_semantics,
+    derive_witness_record,
+    run_search,
+    within_grammar_witness,
+)
 from machine_overview.util import MachineOverviewError, find_repo_root, read_json, sha256_file  # noqa: E402
 from machine_overview.verify import (  # noqa: E402
     assert_witness_binding,
     classify_replay,
     diagnose_rejection,
     prepare_run_dir,
+    render_target,
     run_kernel,
 )
 
@@ -90,9 +109,9 @@ class F2BindingTest(unittest.TestCase):
 
             case, _ = create_case(
                 root,
-                profile_path=root / "machine-overview/profiles/l1-partiality-v0.json",
-                task_path=root / "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json",
-                grammar_path=root / "machine-overview/grammars/l1-v1.json",
+                profile_path=root / "machine-overview/profiles/l1-partiality-v2.json",
+                task_path=root / "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-002.json",
+                grammar_path=root / "machine-overview/grammars/l1-v2.json",
                 revision=1,
             )
             grammar_path = root / case["grammar"]["path"]
@@ -156,12 +175,29 @@ class F3ValidationTest(unittest.TestCase):
 
 class F4CorrespondenceTest(unittest.TestCase):
     def _review(self, witness_id: str, output: Path) -> dict:
-        case, case_path = _load_case(2)
-        search_path = REPO / "machine-overview/runs/20260913-SEARCH-L1-002/RUN.json"
-        search = read_json(search_path)
-        witness = next(w for w in search["witnesses"] if w["witness_id"] == witness_id)
+        legacy_case, _ = _load_case(2)
+        case = copy.deepcopy(legacy_case)
+        case["schema_version"] = "machine-overview-case/v2"
+        case_path = output.parent / "case.json"
+        case_path.write_text(json.dumps(case, ensure_ascii=False, sort_keys=True) + "\n")
+        source_search_path = REPO / "machine-overview/runs/20260913-SEARCH-L1-002/RUN.json"
+        search = copy.deepcopy(read_json(source_search_path))
         grammar = read_json(REPO / "machine-overview/grammars/l1-v1.json")
-        task = read_json(REPO / "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json")
+        witness = derive_witness_record(
+            next(w for w in search["witnesses"] if w["witness_id"] == witness_id), grammar
+        )
+        search["witnesses"] = [
+            witness if row["witness_id"] == witness_id else row for row in search["witnesses"]
+        ]
+        task = copy.deepcopy(read_json(REPO / "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-002.json"))
+        search["schema_version"] = "machine-overview-search-run/v2"
+        search["case_identity_sha256"] = case_identity_sha256(case)
+        search.setdefault("inputs", {})["case_sha256"] = sha256_file(case_path)
+        search["inputs"]["profile_sha256"] = case["profile"]["sha256"]
+        search["inputs"]["task_sha256"] = case["task"]["sha256"]
+        search["inputs"]["grammar_sha256"] = case["grammar"]["sha256"]
+        search_path = output.parent / "search.json"
+        search_path.write_text(json.dumps(search, ensure_ascii=False, sort_keys=True) + "\n")
         return review_correspondence(
             REPO,
             review_id="RV-UNIT",
@@ -193,11 +229,12 @@ class F4CorrespondenceTest(unittest.TestCase):
             self.assertEqual(review["mechanism_facts"]["compensation"]["class"], "PRE_KEPT_BY_TASK_DECLARATION")
 
     def test_mechanism_facts_reject_unclassified_shape(self) -> None:
-        facts = mechanism_facts(
-            {"ops": [{"kind": "race_left", "partner": {"kind": "omega"}}], "separation_kind": "unknown_kind"},
-            {"bind_continuations": []},
-        )
-        self.assertEqual(facts["compensation"]["class"], "UNRESOLVED")
+        search = _load_search_run("20260913-SEARCH-L1-002")
+        witness = copy.deepcopy(next(w for w in search["witnesses"] if w["witness_id"] == "WV-0002"))
+        witness["separation_kind"] = "unknown_kind"
+        facts = mechanism_facts(witness, read_json(REPO / "machine-overview/grammars/l1-v1.json"))
+        self.assertEqual(facts["derived_witness"]["separation_kind"], "value_mismatch")
+        self.assertNotEqual(facts["compensation"]["class"], "UNRESOLVED")
 
 
 class F5ReductionGrammarTest(unittest.TestCase):
@@ -264,7 +301,7 @@ class F7RecoveryTest(unittest.TestCase):
             self.assertTrue((root / "runs" / "run-x.attempt-1-interrupted").is_dir())
             self.assertTrue(run_dir.is_dir())
 
-    def test_recorded_interruption_is_visible_and_valid(self) -> None:
+    def test_unregistered_legacy_interruption_is_invalid(self) -> None:
         with tempfile.TemporaryDirectory(prefix="mo-f7-") as tmp:
             root = Path(tmp)
             run_dir = root / "machine-overview/runs/run-x"
@@ -274,8 +311,8 @@ class F7RecoveryTest(unittest.TestCase):
                 "status": "INTERRUPTED", "error": "FileExistsError: blocked cache",
             }, ensure_ascii=False) + "\n")
             report = validate_workspace(root)
-            self.assertEqual(report["status"], "VALID")
-            self.assertEqual(len(report["interrupted_attempts"]), 1)
+            self.assertEqual(report["status"], "INVALID")
+            self.assertTrue(any("LEGACY_INTERRUPTED_ATTEMPT_NOT_ALLOWLISTED" in error for error in report["errors"]))
 
     def test_unrecorded_partial_directory_is_invalid(self) -> None:
         with tempfile.TemporaryDirectory(prefix="mo-f7b-") as tmp:
@@ -314,6 +351,184 @@ class F7RecoveryTest(unittest.TestCase):
         scope_error = "when scope checking MVSupport.⇔-bwd\n"
         self.assertEqual(diagnose_rejection("x/Falsify.agda", 42, scope_error, ""), "UNEXPECTED")
         self.assertEqual(diagnose_rejection("x/Falsify.agda", 154, "some output", ""), "INFRASTRUCTURE")
+
+
+class StrictV2EvidenceTest(unittest.TestCase):
+    """Regression coverage for the second audit's P1/P2 trust-boundary findings."""
+
+    def test_toolchain_and_registry_files_are_content_pinned(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="mo-v2-profile-") as tmp:
+            root = Path(tmp)
+            _copy_model(root)
+            _copy_system(root)
+            profile = root / "machine-overview/profiles/l1-partiality-v2.json"
+
+            toolchain_path = root / MODEL / "TOOLCHAIN.json"
+            toolchain = read_json(toolchain_path)
+            toolchain["audit_tamper"] = True
+            toolchain_path.write_text(json.dumps(toolchain, ensure_ascii=False, sort_keys=True) + "\n")
+            report = inspect_profile(root, profile, fast=True)
+            self.assertIn("check:toolchain_file_pin", report["failures"])
+
+            shutil.copy2(REPO / MODEL / "TOOLCHAIN.json", toolchain_path)
+            with (root / MODEL / "AGDA_LIBRARIES").open("a", encoding="utf-8") as handle:
+                handle.write("# tamper\n")
+            report = inspect_profile(root, profile, fast=True)
+            self.assertIn("check:library_registry_pin", report["failures"])
+
+    def test_run_identifiers_cannot_escape_the_run_root(self) -> None:
+        with self.assertRaises(MachineOverviewError) as ctx:
+            validate_identifier("../outside", "run_id")
+        self.assertEqual(str(ctx.exception), "UNSAFE_IDENTIFIER:run_id:../outside")
+
+    def test_search_semantic_fields_are_recomputed(self) -> None:
+        case, case_path = _load_case(4)
+        run_id = "20260913-SEARCH-L1-V2-001"
+        run_dir = REPO / "machine-overview/runs" / run_id
+        run = copy.deepcopy(read_json(run_dir / "RUN.json"))
+        run["statistics"]["pair_context_checks"] += 1
+        errors: list[str] = []
+        _validate_search_run(run_id, run, run_dir, case, case_path, REPO, errors)
+        self.assertTrue(any("SEARCH_RECOMPUTED_FIELD_MISMATCH" in error for error in errors))
+
+    def test_verify_kernel_classification_is_recomputed(self) -> None:
+        case, case_path = _load_case(4)
+        search_id = "20260913-SEARCH-L1-V2-001"
+        search_dir = REPO / "machine-overview/runs" / search_id
+        search = read_json(search_dir / "RUN.json")
+        run_id = "20260913-VERIFY-L1-V2-DEADLINE-001"
+        run_dir = REPO / "machine-overview/runs" / run_id
+        run = copy.deepcopy(read_json(run_dir / "RUN.json"))
+        run["kernel_runs"][0]["status"] = "KERNEL_REJECTED_UNEXPECTED"
+        errors: list[str] = []
+        _validate_verify_run(
+            run_id, run, run_dir, case, case_path, REPO,
+            {search_id: (search, search_dir)}, errors,
+        )
+        self.assertTrue(any("KERNEL_DERIVED_FIELD_MISMATCH" in error for error in errors))
+
+    def test_attempt_identity_mismatch_is_rejected(self) -> None:
+        case, case_path = _load_case(4)
+        search_id = "20260913-SEARCH-L1-V2-001"
+        search_dir = REPO / "machine-overview/runs" / search_id
+        search = read_json(search_dir / "RUN.json")
+        run_id = "20260913-VERIFY-L1-V2-VALUE-001"
+        source_dir = REPO / "machine-overview/runs" / run_id
+        run = read_json(source_dir / "RUN.json")
+        with tempfile.TemporaryDirectory(prefix="mo-v2-attempt-") as tmp:
+            run_dir = Path(tmp) / "machine-overview/runs" / run_id
+            shutil.copytree(source_dir, run_dir)
+            attempt = read_json(run_dir / "ATTEMPT.json")
+            attempt["witness_id"] = "WV-9999"
+            (run_dir / "ATTEMPT.json").write_text(
+                json.dumps(attempt, ensure_ascii=False, sort_keys=True) + "\n"
+            )
+            errors: list[str] = []
+            _validate_verify_run(
+                run_id, run, run_dir, case, case_path, REPO,
+                {search_id: (search, search_dir)}, errors,
+            )
+        self.assertTrue(any("RUN_ATTEMPT_IDENTITY_MISMATCH" in error for error in errors))
+
+    def test_runner_snapshot_tamper_is_rejected(self) -> None:
+        case, case_path = _load_case(4)
+        run_id = "20260913-SEARCH-L1-V2-001"
+        source_dir = REPO / "machine-overview/runs" / run_id
+        run = read_json(source_dir / "RUN.json")
+        with tempfile.TemporaryDirectory(prefix="mo-v2-runner-") as tmp:
+            run_dir = Path(tmp) / "machine-overview/runs" / run_id
+            shutil.copytree(source_dir, run_dir)
+            snapshot = run_dir / "runner-snapshot/machine-overview/machine_overview/search.py"
+            with snapshot.open("a", encoding="utf-8") as handle:
+                handle.write("\n# tamper\n")
+            errors: list[str] = []
+            _validate_search_run(run_id, run, run_dir, case, case_path, REPO, errors)
+        self.assertTrue(any("RUNNER_EVIDENCE_INVALID" in error for error in errors))
+
+    def test_correspondence_rejects_unqualified_profile(self) -> None:
+        case, _ = _load_case(4)
+        search = _load_search_run("20260913-SEARCH-L1-V2-001")
+        grammar = read_json(REPO / "machine-overview/grammars/l1-v2.json")
+        task = read_json(REPO / "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-002.json")
+        content = derive_correspondence_content(
+            case=case, task=task, witness=search["witnesses"][0],
+            profile_report={"profile_id": "p", "status": "PROFILE_NOT_QUALIFIED", "failures": ["x"]},
+            grammar=grammar, search_run=search,
+        )
+        self.assertEqual(content["conclusion"]["task_preservation"], "REVIEW_REQUIRED")
+        self.assertEqual(content["review_checks"][0]["status"], "FAIL")
+
+    def test_report_binding_uses_search_id_and_hash(self) -> None:
+        search_path = REPO / "machine-overview/runs/20260913-SEARCH-L1-V2-001/RUN.json"
+        search = read_json(search_path)
+        good = read_json(REPO / "machine-overview/runs/20260913-VERIFY-L1-V2-DEADLINE-001/RUN.json")
+        wrong_hash = copy.deepcopy(good)
+        wrong_hash["source_search_run"]["sha256"] = "0" * 64
+        wrong_id = copy.deepcopy(good)
+        wrong_id["source_search_run"]["run_id"] = "other-search"
+        self.assertTrue(bound_to_search(good, search, search_path))
+        self.assertFalse(bound_to_search(wrong_hash, search, search_path))
+        self.assertFalse(bound_to_search(wrong_id, search, search_path))
+
+    def test_strict_target_control_must_belong_to_grammar(self) -> None:
+        case, _ = _load_case(4)
+        search = _load_search_run("20260913-SEARCH-L1-V2-001")
+        witness = next(item for item in search["witnesses"] if item["witness_id"] == "WV-0001")
+        grammar = copy.deepcopy(read_json(REPO / "machine-overview/grammars/l1-v2.json"))
+        grammar["deadline_horizons"] = [0]
+        with self.assertRaises(MachineOverviewError) as ctx:
+            render_target(case, witness, grammar)
+        self.assertEqual(str(ctx.exception), "NEGATIVE_CONTROL_NOT_AVAILABLE_IN_GRAMMAR")
+
+
+class SymbolicSearchTest(unittest.TestCase):
+    @staticmethod
+    def grammar() -> dict:
+        return {
+            "backend": "symbolic-horn-v1",
+            "propositions": ["endpoint_path", "reverse_path", "bottom"],
+            "goal": "bottom",
+            "observation_kind": "continuous_phase_obstruction",
+            "max_proof_depth": 4,
+            "mechanism_rules": ["interval_eta", "apart_elim"],
+            "ablation": {"remove_rules": ["interval_eta"]},
+            "positive_control_goals": ["endpoint_path"],
+            "rules": [
+                {"id": "interval_eta", "premises": [], "conclusion": "endpoint_path",
+                 "term_template": "(λ i → f i)"},
+                {"id": "path_sym", "premises": ["endpoint_path"], "conclusion": "reverse_path",
+                 "term_template": "sym ({0})"},
+                {"id": "path_sym_back", "premises": ["reverse_path"], "conclusion": "endpoint_path",
+                 "term_template": "sym ({0})"},
+                {"id": "apart_elim", "premises": ["endpoint_path"], "conclusion": "bottom",
+                 "term_template": "apart ({0})"},
+            ],
+        }
+
+    def test_symbolic_search_discovers_minimal_proof_and_ablation_removes_it(self) -> None:
+        result = compute_search_semantics(
+            self.grammar(), {"max_witnesses": 100, "max_checks": 10000, "max_contexts": 10}, 20260913,
+        )
+        self.assertTrue(result["statistics"]["complete_within_declared_grammar"])
+        self.assertTrue(result["order_independence_check"]["order_independent_set_equal"])
+        self.assertFalse(result["grammar_sensitivity_check"]["mutated_contains_goal"])
+        first = result["witnesses"][0]
+        self.assertEqual(first["proof_term"], "apart ((λ i → f i))")
+        self.assertEqual(first["size"], {"nodes": 2, "depth": 2})
+        self.assertEqual(derive_witness_record(first, self.grammar()), first)
+
+    def test_symbolic_depth_budget_never_claims_completeness(self) -> None:
+        result = compute_search_semantics(
+            self.grammar(), {"max_witnesses": 100, "max_checks": 10000, "max_contexts": 1}, 20260913,
+        )
+        self.assertTrue(result["statistics"]["proof_depth_budget_exhausted"])
+        self.assertFalse(result["statistics"]["complete_within_declared_grammar"])
+        self.assertEqual(result["exit_reason"], "BUDGET_REACHED")
+
+    def test_l3_profile_controls_are_source_pinned(self) -> None:
+        report = inspect_profile(REPO, REPO / "machine-overview/profiles/l3-interval-motion-v1.json", fast=True)
+        self.assertEqual(report["status"], "PROFILE_QUALIFIED")
+        self.assertEqual(report["sources"][0]["status"], "PASS")
 
 
 if __name__ == "__main__":

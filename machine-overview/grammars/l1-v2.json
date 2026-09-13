@@ -1,0 +1,60 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L1-DELAY-RACE-DEADLINE-v2",
+  "value_type": "Bool (Cubical.Data.Bool.Base)",
+  "include_omega": true,
+  "delay_index_max": 2,
+  "race_partner_index_max": 2,
+  "context_depth_max": 2,
+  "deadline_horizons": [0, 1, 2],
+  "negative_control_policy": "choose the least declared horizon at or above both finite input indices; if none exists, report CONTROL_NOT_AVAILABLE_IN_GRAMMAR",
+  "reduction_guard": {
+    "never_drop_kinds": ["deadline"],
+    "never_drop_continuation_ids": ["deliver_business"],
+    "reason": "Reduction preserves the declared consumer shape; every parameter change is rechecked for grammar membership and separation."
+  },
+  "bind_continuations": [
+    {
+      "id": "deliver_business",
+      "map": {
+        "true": {"kind": "ret", "n": 0, "value": true},
+        "false": {"kind": "omega"}
+      }
+    },
+    {
+      "id": "keeping_result",
+      "map": {
+        "true": {"kind": "ret", "n": 0, "value": true},
+        "false": {"kind": "ret", "n": 0, "value": false}
+      }
+    },
+    {
+      "id": "const_true",
+      "map": {
+        "true": {"kind": "ret", "n": 0, "value": true},
+        "false": {"kind": "ret", "n": 0, "value": true}
+      }
+    },
+    {
+      "id": "const_omega",
+      "map": {
+        "true": {"kind": "omega"},
+        "false": {"kind": "omega"}
+      }
+    }
+  ],
+  "calibration_benchmark": {
+    "id": "R041-C73-C74-BENCHMARK",
+    "pair": {
+      "left": {"kind": "ret", "n": 0, "value": true},
+      "right": {"kind": "ret", "n": 2, "value": true}
+    },
+    "ops": [
+      {"kind": "race_left", "partner": {"kind": "ret", "n": 1, "value": false}},
+      {"kind": "bind", "continuation": {"true": {"kind": "ret", "n": 0, "value": true}, "false": {"kind": "omega"}}}
+    ],
+    "claim_refs": ["C-73", "C-74"],
+    "note": "External comparison after enumeration; absent from future held-out L3 grammars."
+  },
+  "declared_bounds_note": "Complete enumeration only for this finite L1 calibration grammar."
+}
