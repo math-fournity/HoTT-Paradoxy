@@ -8,7 +8,7 @@
 >
 > 基线：`a22f41ecf5c3becdd192383ff6cdbc846982813b`
 >
-> 当前判词：`SOURCE_INSPECTED_WITH_SCOPE / NATURAL_USAGE_MISMATCH_NOT_ESTABLISHED`
+> 当前判词：`KERNEL_CHECKED_AND_RUNTIME_OBSERVED_WITH_SCOPE / EXECUTION_GAP_WITHOUT_DELIVERY_PROMISE / E6_BOUNDED_NEGATIVE`
 
 ## 1. 问题与边界
 
@@ -35,6 +35,8 @@ C3 对 B 方向的当前定义是：理论只取得 `Q1/Q3`，但解释、接口
 | `trunc-Prop` 到集合的泛性质 | `foundation/universal-property-propositional-truncation-into-sets.lagda.md`；SHA-256 `cf8053a8ed20ddccb003b000f5381f9186a542afa4e18436ec9dd1878319b51c` |
 | 第一个下游样本 | `foundation/0-connected-types.lagda.md`；SHA-256 `b59f06c845fb9641ebc4d404ccb687ac52e599eb476f3cd964a3462e9c97657a` |
 | 第二个下游样本 | `commutative-algebra/polynomials-commutative-semirings.lagda.md`；SHA-256 `b69a55daf595ba8fd57aad80b4300ca9ebf53255e162777ad0ea6386a540a792` |
+| 固定工具链 | Agda `2.8.0-3d04bac`；binary SHA-256 `ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e`；Node `v26.7.0` |
+| 第二阶段 run | `semantic-overview/runs/20260913-SEM-B01-TRUNCATION-DELIVERY-001-01/`；12/12 步符合预期 |
 
 历史扫描报告对 agda-unimath 的记录仍与当前树一致：3,056 个文件、50 个命中、30 个无词汇义务 token 的待人工项。2026-09-13 在本分支重跑扫描器时，repo 自身的 formal 文件数已由历史报告的 34 变为 44，树哈希由 `264f7297…` 变为 `e95770ef…`，但命中仍为 6。因而历史 JSON 可以继续固定当时的审计快照，不能被当作当前 repo-formal 全量清单；本分支不回写或覆盖历史报告。
 
@@ -101,7 +103,7 @@ map-universal-property-set-quotient-trunc-Prop :
 Σ ℕ (is-degree-bound-formal-power-series-Commutative-Semiring p)
 ```
 
-`ev-degree-bound-formal-power-series-Commutative-Semiring` 在给定具体次数界时定义有限和。随后源码把 `eq-ev-degree-bound-formal-power-series-Commutative-Semiring` 声明为“任意两个次数界所得求值相等”的证明项；其函数体在 `:298-411` 比较两个自然数界，并用较大界新增项均为零来构造等式。本分支目前只核对了源码类型与构造路径，尚未重新运行 kernel。
+`ev-degree-bound-formal-power-series-Commutative-Semiring` 在给定具体次数界时定义有限和。随后源码把 `eq-ev-degree-bound-formal-power-series-Commutative-Semiring` 声明为“任意两个次数界所得求值相等”的证明项；其函数体在 `:298-411` 比较两个自然数界，并用较大界新增项均为零来构造等式。第二阶段已用 `--ignore-interfaces` 对该多项式模块及实际加载的 622 个模块做 fresh kernel 重放，exit 0。
 
 最终 `:419-427` 定义多项式求值：
 
@@ -118,39 +120,82 @@ ev-polynomial-Commutative-Semiring (p , deg-bound-p) x =
 
 ### 4.3 判词
 
-`LEGITIMATE_WEAKLY_CONSTANT_DATA_FACTORING`：源码建立的是 `Q1 + 明示的见证无关性证明 → Q3`。在已检查的调用链中，尚未出现把该数学函数称为具有特定后端、资源界、终止行为或现实交付能力的 `Q4/Q7` 承诺，所以 `NATURAL_USAGE_MISMATCH` 仍为 `NOT_ESTABLISHED`。
+`LEGITIMATE_WEAKLY_CONSTANT_DATA_FACTORING`：固定工具链已检查这条 `Q1 + 明示的见证无关性证明 → Q3` 数学路径。它仍不自动提供特定后端、资源界、终止行为或现实交付能力；第二阶段的运行证据见下一节。
 
 这个样本也说明，扫描器的 `has_obligation_token = false` 不能解释为“没有义务”：弱常值义务出现在签名中，但 v1 token 表对连字符形式 `weakly-constant` 没有覆盖。词汇字段只能用于排队，不能承担语义分类。
 
-## 5. 本单元减少了什么未知
+## 5. 第二阶段：kernel、判断相等、生成与运行分层
 
-1. 两个条目都是真实消费者，原审计 F5 的更正得到源码级复核。
-2. “真实消费者”和“资格越级”必须保持分开：真实消费本身不建立 E6。
-3. `apply-universal-property-trunc-Set'` 的选定下游链没有离开命题层。
-4. `map-universal-property-set-quotient-trunc-Prop` 可以合法产生集合数据，但其关键支付装置是显式弱常值证明；多项式调用者实际提交了该证明。
-5. 当前仍缺的不是另一个截断小定理，而是一个自然使用点对 `Q4/Q7` 的真实承诺，以及与该承诺相称的执行或现实证据。
+### 5.1 截断实现的实际身份
 
-## 6. 下一步与停止条件
+`foundation/truncations.lagda.md:44-68` 明写 “We postulate the existence of truncations”，并把下列四项声明为 postulate：
 
-下一步只沿调用链 B 继续一层，避免重新做整库词汇扫描：
+```agda
+type-trunc
+is-trunc-type-trunc
+unit-trunc
+is-truncation-trunc
+```
 
-1. 固定同输入、同输出与完成标准，检查 agda-unimath 的截断实现、构建/提取边界以及多项式求值的闭合样本；
-2. 分开记录“类型可定义”“kernel 可检查”“闭合项可归约”“后端可执行”和“现实资源内完成”；
-3. 搜索这个具体 API 的文档和自然下游是否明确承诺后两项；没有承诺时只能给出有界负结论；
-4. 只有定位到真实 `Q1/Q3 → Q4/Q7` 升级点，才冻结精确命题并决定是否进入 F-011 机器证明门禁。
+固定源码的 `truncations`、`propositional-truncations` 和“命题截断到集合的泛性质”三个模块中，没有为这些项提供 JS/GHC `COMPILE` pragma。因而库提供的是可供 kernel 使用的 HoTT 公理化接口；这份实现本身没有给 postulate 提供后端计算定义。
 
-本切片在以下任一条件达到时停止：
+### 5.2 闭合探针与实际结果
 
-- 找到可回查的有效交付承诺，并形成一个与之严格同任务的可执行反例候选；
-- 已检查的自然调用链只承诺数学函数或命题，归类为 `BOUNDED_NEGATIVE`；
-- 工具链或依赖身份不足以判断，归类为 `SOURCE_OR_RUNTIME_CHAIN_INCOMPLETE` 并列出唯一缺口。
+探针源码位于 `semantic-overview/formal/sem-b01/`，完整 run 位于 `semantic-overview/runs/20260913-SEM-B01-TRUNCATION-DELIVERY-001-01/`。
 
-## 7. 对 canonical integrator 的候选建议
+| 层 | 探针 | 实际结果 | 支持范围 |
+|---|---|---|---|
+| 外部数学源码 | 多项式模块 `--ignore-interfaces` | exit 0；622 条 `Checking` | 固定版本的多项式定义与传递加载闭包被 kernel 接受 |
+| 闭合数学正例 | `SemB01Kernel.agda` | exit 0 | 从 `unit-trunc-Prop star` 经弱常值消费者所得 Bool 有一个命题等式到 `true` |
+| 判断相等负例 | `SemB01DefinitionalNegative.agda` | exit 42；`[UnequalTerms]` | 同一等式不能由 `refl` 建立；该实现没有相应 judgmental reduction |
+| 运行正控 | `SemB01DirectRuntime.agda` | typecheck 0；JS 生成 0；Node 0，输出 `TRUE` | 相同 Agda/JS/Node 与库 Bool 的直接路径可运行 |
+| 截断运行探针 | `SemB01TruncatedRuntime.agda` | typecheck 0；JS 生成 0；Node 1 | 加载 `unit-trunc-Prop` 时出现 `unit-trunc is not a function`；没有返回错误 Bool |
+| GHC 路径 | `SemB01Kernel.agda --compile --ghc-dont-call-ghc` | 源码生成 0；未执行 | 生成源码对四个 postulate 都写入 `MAlonzo Runtime Error: postulate evaluated`；本机无 GHC |
 
-当前不建议修改主线判词、方向投影或 claim matrix。未来集成人若接受本单元，可考虑：
+JS 生成物把四项明确导出为 `undefined`；GHC 生成物保留四条明确的 postulate-evaluated 错误。直接正控排除了 Node、JS 后端和库 Bool 本身不可用这一解释。判断相等负例与运行失败共同表明：kernel 中的命题计算律不能被当作本实现的判断相等或后端程序计算律。
 
-- 把这两个消费者从“队列开放”进一步标为“已语义分类的负控制”；
-- 在词汇扫描器的后续版本中把 `weakly-constant` 作为提示 token，但不得让 token 命中自动等同于义务已满足；
+完整多项式值没有被实际执行；运行探针用 `unit`、`bool` 和同一个 `map-universal-property-set-quotient-trunc-Prop` 隔离了截断消费者的执行边界。因此本轮支持的是“这个公理化截断接口在当前后端没有运行实现”，不外推到所有命题截断实现或所有 HoTT 工具链。
+
+### 5.3 自然承诺搜索
+
+固定源码中，这个泛性质函数在定义模块之外只有四个直接调用点：多项式求值、交换幺半群有限乘积、交换半群有限乘积、交换二元运算。四处都显式提交弱常值/同余证明项。
+
+对定义模块、四个直接调用者及多项式的交换环包装层共 6 个文件，搜索 `executable/execution/runtime/compile/compiler/backend/program/algorithm/termination/resource/complexity/extract/effective/real-world` 为 0 个命中。根 README 把项目说明为单价数学形式化与供数学家使用的信息资源；它没有为这些接口声明后端执行或现实资源承诺。
+
+这只是固定提交和固定调用闭包的有界负结论，不证明外部文章、下游项目或未来版本从未作出更强承诺。
+
+### 5.4 第二阶段判词
+
+1. `KERNEL_CHECKED_WITH_SCOPE`：数学接口与多项式调用链在固定 Agda/agda-unimath 组合中通过。
+2. `RUNTIME_OBSERVED_WITH_SCOPE`：JS 可生成，但强制使用 postulated truncation 时显式失败；直接 Bool 正控成功。
+3. `EXECUTION_GAP_WITHOUT_DELIVERY_PROMISE`：当前实现缺少截断后端语义，但已检查的库接口和文档没有把它承诺为有效程序。
+4. `E6_BOUNDED_NEGATIVE`：固定的四个直接消费者中没有发现 `Q1/Q3 → Q4/Q7` 自然资格升级。
+
+这不是 `NATURAL_USAGE_MISMATCH`，也不是 HoTT 内部矛盾。若未来外部消费者把“Agda 接受/JS 生成成功”明确当作“程序可运行”，本 run 可作为重新打开 B 方向的执行反例基础。
+
+## 6. 本单元减少了什么未知
+
+1. 两个原始条目都是真实消费者，原审计 F5 的更正得到源码与 kernel 两层复核。
+2. `apply-universal-property-trunc-Set'` 的选定链没有离开命题层。
+3. `map-universal-property-set-quotient-trunc-Prop` 的全部四个直接自然调用者都显式提交弱常值/同余证据。
+4. 多项式源码通过 fresh kernel 重放；“数学上定义求值”这一层已经固定。
+5. 当前 agda-unimath 截断是 postulated，命题计算律不构成 judgmental reduction；JS/GHC 生成成功不构成运行成功。
+6. 实际 Node 失败是显式未实现 postulate，不是静默输出错误结果。
+7. 固定调用闭包中没有发现有效执行或现实交付承诺，所以当前没有 E6。
+
+## 7. 切片关闭与下一工作单元
+
+本切片已达到预定停止条件中的 `BOUNDED_NEGATIVE`，不再继续打磨同一截断例子。下一单元拟定为 `SEM-B02`：寻找“命题级有限性/可判定性证明”被自然下游用来选择分支或驱动计算的接口，优先检查 codomain 是 decidable sum/Bool 且确有模式匹配消费者的链。它与本轮“见证无关的代数值”是不同消费者类别。
+
+`SEM-B02` 仍使用五层判据：类型可形成、kernel 可检查、闭合项可归约、后端可执行、现实完成。只有出现真实承诺与实际升级点才进入 F-011；否则形成新的有界负控制并返回 B 方向的下一类别。
+
+## 8. 对 canonical integrator 的候选建议
+
+当前不建议升级主线悖论判词或修改 claim matrix。未来集成人若接受本单元，可考虑：
+
+- 把这两个初始消费者以及 `map-universal-property-set-quotient-trunc-Prop` 的四个直接调用点标为已语义分类的负控制；
+- 将“postulated truncation：kernel 接受、后端生成、运行不可用”作为 Q3/Q4 分层实例，而不是 HoTT 缺陷；
+- 在词汇扫描器后续版本中增加 `weakly-constant` 提示，同时保留“token 命中不证明义务成立”的边界；
 - 刷新 repo-formal 扫描时生成新的版本化快照，不覆盖 2026-09-13 的历史 JSON。
 
 这些都是候选更新，尚未成为项目 current truth。

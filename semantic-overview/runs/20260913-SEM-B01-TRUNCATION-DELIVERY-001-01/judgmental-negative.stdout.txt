@@ -1,0 +1,14 @@
+Checking SemB01DefinitionalNegative (/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01DefinitionalNegative.agda).
+/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01DefinitionalNegative.agda:11.35-39: error: [UnequalTerms]
+foundation.dependent-pair-types.Σ.pr1
+(foundation.propositional-truncations.map-universal-property-trunc-Prop
+ (foundation.universal-property-propositional-truncation-into-sets.image-weakly-constant-map-Prop
+  bool-Set toTrue toTrue-is-weakly-constant)
+ (λ a →
+    foundation.dependent-pair-types.pair (toTrue a)
+    (foundation.propositional-truncations.unit-trunc-Prop
+     (foundation.dependent-pair-types.pair a refl)))
+ truncatedUnit)
+!= true of type bool
+when checking that the expression refl has type
+truncatedResult ＝ true

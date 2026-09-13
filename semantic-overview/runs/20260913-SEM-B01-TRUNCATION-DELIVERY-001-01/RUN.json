@@ -1,0 +1,385 @@
+{
+  "schema_version": "semantic-overview-run/v1",
+  "run_id": "20260913-SEM-B01-TRUNCATION-DELIVERY-001-01",
+  "started_at_utc": "2026-09-13T18:39:34.527601+00:00",
+  "completed_at_utc": "2026-09-13T18:42:49.407396+00:00",
+  "duration_seconds": 194.878508,
+  "status": "EXPECTED_BOUNDARY_OBSERVED",
+  "git": {
+    "branch": "codex/semantic-overview",
+    "head_before_run": "0da341d5381a7fe285714f210e3145e3f325c3e1",
+    "state": "LOCAL_UNCOMMITTED_CANDIDATE"
+  },
+  "scope": "A closed agda-unimath propositional-truncation consumer: kernel acceptance, lack of judgmental unit reduction, JS source generation, direct-runtime positive control, forced truncated-runtime evaluation, and GHC source generation.",
+  "verdict": "KERNEL_ACCEPTS_PROPOSITIONAL_COMPUTATION; JS_RUNTIME_BLOCKED_BY_UNIMPLEMENTED_TRUNCATION_POSTULATES; NO_EFFECTIVE_DELIVERY_CLAIM_ESTABLISHED",
+  "non_goals": [
+    "No claim that every implementation of propositional truncation is noncomputable.",
+    "No claim that agda-unimath promises executable delivery for this API.",
+    "No HoTT inconsistency or natural-usage mismatch claim.",
+    "The GHC backend generated source only; GHC is unavailable and no native executable ran.",
+    "The full polynomial value was not executed; the closed bool probe isolates the same truncation consumer interface."
+  ],
+  "steps": [
+    {
+      "name": "agda-version",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--version"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:39:34.528038+00:00",
+      "duration_seconds": 0.027276,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "agda-version.stdout.txt",
+        "bytes": 240,
+        "sha256": "22ad7e88d1de71286409ccbca6b8f688edff8225dd5ae12a811599bb7bcefd56"
+      },
+      "stderr": {
+        "path": "agda-version.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "node-version",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "--version"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:39:34.555847+00:00",
+      "duration_seconds": 0.020983,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "node-version.stdout.txt",
+        "bytes": 8,
+        "sha256": "fe9da612097c5b1f2808feef32b5685e7a19a607fd96c7d6abe1454f0edc7e1c"
+      },
+      "stderr": {
+        "path": "node-version.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-polynomial-fresh",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/commutative-algebra/polynomials-commutative-semirings.lagda.md"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:39:34.577379+00:00",
+      "duration_seconds": 182.889784,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "kernel-polynomial-fresh.stdout.txt",
+        "bytes": 104801,
+        "sha256": "d139f9f25f6cadf641d58e147cd882037bed7cad9a12dc674d4544bd74d75a81"
+      },
+      "stderr": {
+        "path": "kernel-polynomial-fresh.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-positive",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01Kernel.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:37.469102+00:00",
+      "duration_seconds": 1.706506,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "kernel-positive.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "kernel-positive.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "judgmental-negative",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01DefinitionalNegative.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:39.176055+00:00",
+      "duration_seconds": 1.571255,
+      "exit_code": 42,
+      "expected_exit_code": 42,
+      "required_markers": [
+        "[UnequalTerms]",
+        "truncatedResult ＝ true"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "judgmental-negative.stdout.txt",
+        "bytes": 807,
+        "sha256": "16426cc2254e4a52833c35206b8a662a67c20732246039656684ca7eb7ea50b2"
+      },
+      "stderr": {
+        "path": "judgmental-negative.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "direct-runtime-check",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01DirectRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:40.747994+00:00",
+      "duration_seconds": 0.527214,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "direct-runtime-check.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "direct-runtime-check.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "truncated-runtime-check",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01TruncatedRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:41.275637+00:00",
+      "duration_seconds": 1.623987,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "truncated-runtime-check.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "truncated-runtime-check.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "direct-js-compile",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--js",
+        "--compile-dir=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b01-7c0ct33l/direct-js",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01DirectRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:42.900117+00:00",
+      "duration_seconds": 0.81481,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "direct-js-compile.stdout.txt",
+        "bytes": 18818,
+        "sha256": "74af783ce8740c743972688f52dbd11a3631c1d96ea10dfb4aa726998d17f217"
+      },
+      "stderr": {
+        "path": "direct-js-compile.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "direct-node-run",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b01-7c0ct33l/direct-js/jAgda.SemB01DirectRuntime.js"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:43.715804+00:00",
+      "duration_seconds": 0.050007,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [
+        "TRUE"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "direct-node-run.stdout.txt",
+        "bytes": 5,
+        "sha256": "55292a40a74cbebd2c6f92c3d8b83a5c39a0344f79360979f0b9f37fc25b7fc9"
+      },
+      "stderr": {
+        "path": "direct-node-run.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "truncated-js-compile",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--js",
+        "--compile-dir=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b01-7c0ct33l/truncated-js",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01TruncatedRuntime.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:43.766398+00:00",
+      "duration_seconds": 2.663393,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "truncated-js-compile.stdout.txt",
+        "bytes": 50421,
+        "sha256": "87dadc0dadf9175ff06f92317e803be244fbb3e6849c30edbc05f385ffc6afc7"
+      },
+      "stderr": {
+        "path": "truncated-js-compile.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "truncated-node-run",
+      "argv": [
+        "/Users/aurolafly/.local/bin/node",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b01-7c0ct33l/truncated-js/jAgda.SemB01TruncatedRuntime.js"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:46.430569+00:00",
+      "duration_seconds": 0.064334,
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "required_markers": [
+        "unit-trunc is not a function"
+      ],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "truncated-node-run.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "truncated-node-run.stderr.txt",
+        "bytes": 1331,
+        "sha256": "669c70ba925962ab6f67c1ebfaf94ba55b9ea1d9bffb4d7bae10e1589a03fe7c"
+      }
+    },
+    {
+      "name": "ghc-source-generate",
+      "argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--compile",
+        "--ghc-dont-call-ghc",
+        "--no-main",
+        "--compile-dir=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp/sem-b01-7c0ct33l/ghc-source",
+        "--library-file=/Volumes/D/HoTT-semantic-overview/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "-l",
+        "agda-unimath",
+        "-i",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01",
+        "/Volumes/D/HoTT-semantic-overview/semantic-overview/formal/sem-b01/SemB01Kernel.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-semantic-overview",
+      "started_at_utc": "2026-09-13T18:42:46.495459+00:00",
+      "duration_seconds": 2.691201,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "required_markers": [],
+      "missing_markers": [],
+      "status": "EXPECTED",
+      "stdout": {
+        "path": "ghc-source-generate.stdout.txt",
+        "bytes": 51981,
+        "sha256": "e51ecf562bacb7ad58c6e6073d027594802baac5ecba08e5472e9990c588010a"
+      },
+      "stderr": {
+        "path": "ghc-source-generate.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "artifacts": {
+    "environment": "environment.txt",
+    "source_manifest": "source-manifest.json",
+    "generated_evidence": "generated-evidence.json"
+  }
+}
