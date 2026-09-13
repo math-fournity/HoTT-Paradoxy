@@ -18,6 +18,7 @@
 14. 用户要求把 HoTT 自反真理验证、不可停机/自馈结构、理论经济学、存在/不存在双视角、极简理论覆盖、项目悖论理论表达和哥德尔不完备性研究作为新的直接研究方向，并把原文纳入 core。其唯一原文 owner 是 generation-4 的 `KC-000028`–`KC-000036` 与对应 source；当前回答/研究状态由 C4、方向和全景持有，不反向写成用户已证明的数学结论。
 15. 当前 AI 的所有数学结论必须在交付前完成相称机器证明；证明代码和实际运行结果必须保存在当前项目的合适子目录并建立索引，不能只留在 `/tmp`。归一要求是：源码进入 `HoTT/formal/`，运行原件进入 `HoTT/verification/runs/<run-id>/`，唯一快速索引进入 `HoTT/CLAIM_EVIDENCE_MATRIX.md`；无法通过时不得交付为数学结论，只能降格为问题、猜想、启发、纸笔候选、反例候选或未重放来源。该裁定不伪造历史 proof package；未来重用旧结论时同样需要按新门禁重放。
 16. 用户在收到对 S086–S088 的独立审计与六项处置建议后明确说“按照你的建议处理”。该授权在本地顶层 repo 内覆盖：保全接手现场；把 S086–S089 标为缺 canonical checkpoint receipt 且禁止追溯伪造；修复 per-KC checkpoint Gate 与目录型 issue 路由；拆除叙事性 `depends_on` 的递归水合；修正 handoff/current owners 的计数、状态、启动顺序和过时入口；把没有进入 kernel run 的 agda-unimath E6 强结论降为可复现的 source-inspected bounded negative；将研究首选改为下游应用/派生开发的真实 E6 consumer、T3 为第二线、batch 13 与无差别基础库扫描降优先级；最后精确本地 commit/tag。该授权不包括 push、发布、恢复已移走目录或把缺失历史收据补造为真实事务。
+17. 用户在全局治理框架更新“长治理文档软分片与索引”后，要求本项目完成拆解改造且不影响未来工作。经确认的边界为：(a) 第一波只迁移**非三件套**的活跃长文档——`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`，三件套与 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 留第二波并登记触发条件；(b) 迁移前先把在途未提交成果独立提交并打 annotated boundary tag；(c) 规范与校验绑定 3.16.0 候选（v2、v2 感知 validator，含来源 commit 溯源）；(d) 分片后的加载语义必须是“索引 + 按 table 顺序全部分片”的强制覆盖，缺片 fail closed；(e) 版本按 MINOR `governance-v3.3.0`（本地 annotated，不 push），并做标题/内容对账与断链回滚检查。该授权不覆盖共享治理主库 `/Users/aurolafly/codex` 的改动，也不覆盖 push、发布或恢复已移走目录。
 
 ## 2026-09-12：核心认知作为反训练惯性的上下文工程（用户原文）
 

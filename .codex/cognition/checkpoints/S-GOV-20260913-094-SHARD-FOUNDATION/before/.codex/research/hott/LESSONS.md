@@ -75,5 +75,3 @@
 71. Proof run 的 frozen index row 与当前 Git closure 是正交维度：原位把 `LOCAL_UNCOMMITTED` 改成 `VERSION_CLOSED` 会破坏历史 row manifest。正确做法是保持旧行逐字不变，在矩阵末尾追加 exact commit registry，并由 current STATE/投影引用；Git closure 不重证数学。
 
 72. Release commit/tag 之后必须重新检查 current STATE 是否还写 `PENDING_GIT_COMMIT`。Checkpoint 记录的是写入时状态，不能自动感知后续 Git；最终可用状态应由一个新的、真实 receipt 对齐，而不是篡改旧 transaction。
-
-73. 长治理文档分片必须先有“逻辑文档”加载语义再迁移正文：只把 canonical 路径换成索引、而加载器不展开分片，会让未来 Session 静默丢掉正文。正确顺序是 runtime/合同/校验入口先行（CP-1），文档迁移后行（CP-2）。300 行只是软目标，不能当拆分依据。

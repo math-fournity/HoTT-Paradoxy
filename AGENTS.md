@@ -53,6 +53,18 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 本门禁不要求把每个猜想都强行形式化，也不禁止在证明前探索；它要求的是：**未证明的内容不能被交付为已经成立的数学结论。** 详细合同见 `docs/quality/数学结论机器证明与证据留存规范.md`。
 
+## 长治理文档分片与索引
+
+标识：`GOVERNANCE_SHARD_INDEX_V2_PROJECT_V1`。命中 `governance-shard-index:v1/v2` 的 canonical 路径是**逻辑文档索引**，不是摘要：先读完整 shard table、`last_shard` 和顺序追加型的 `append_target`，再按任务读 owner shard；顺序追加型必须同时读 `append_target`。不得把索引、首片或末片冒充全文，也不得在索引末尾追加正文。
+
+- 约 300 行是写作/换片软目标，不是上限、错误条件、发布 Gate 或清理配额；超行只在 validator 输出 `NOTICE`。
+- 判定标准是“持续追加、妨碍定位、稳定入口与长历史混装、存在自然语义边界”，不是行数；高度内聚、通常必须全文读取，或属于来源快照、历史交付分卷、machine-managed 数据的文档保持单文件。
+- 新逻辑文档必须用 v2：canonical 路径保留为索引，正文放同名 `NNN - 子主题.md` shard 目录；索引链接标题、文件名主题与 shard 第一个 H1 一致；新建 shard 必须与索引行、`last_shard`、`append_target` 在同一次提交或同一个 checkpoint 事务中更新。
+- `.codex/tools/cognition_runtime.py` 3.3.0 在加载链上强制“索引 + 按 table 顺序全部分片”的全文覆盖，结构错误（缺片、未列片、标题/`last_shard`/`append_target` 不符）一律 fail closed；受 checkpoint 管理的逻辑文档分片同时进入 `HEAD.json.tracked`，只能与索引在同一原子事务中写入。
+- 机械校验：`python3 -B scripts/audit/verify_governance_shards.py`；机械 PASS 只证明结构，不证明分片边界合理或内容完整。
+- 完整项目合同见 `docs/quality/长治理文档分片与索引合同.md`；共享权威为 3.16.0 候选规范 `/Users/aurolafly/codex-worktrees/long-doc-sharding-3.16.0/docs/governance/长治理文档分片与索引规范.md`。
+- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`。保留单文件并登记触发条件：三件套、`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`AGENTS.md`、已完成审计报告、来源快照与历史分卷。
+
 ## 写入、Git 与交接
 
 - 新增或修改需求、当前状态、稳定设计、审计账本、验证结果、研究方向或研究成果投影时，按 `.codex` 的唯一 owner 路由写回；不要制造第二份当前真值。只有用户新的悖论/元数学原文或对此类工作意识的明确修正进入 core generation；一般治理裁定进入 rulings/Feature；候选/优先级/下一动作进入 `方向追踪.md` + STATE，结果/证据/失败/未知进入 `全景视野.md` + 底层 evidence owner。

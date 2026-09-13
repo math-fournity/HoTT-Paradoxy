@@ -1,6 +1,6 @@
 {
   "schema_version": "cognition-load-set/v3",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "policy": "FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
   "default_profile": "governance",
   "always_full_three_way": [
@@ -78,5 +78,13 @@
   "model_context_certification": "NOT_PROVIDED_BY_TOOLS",
   "source_removal_policy": "USER_REMOVED_PATHS_REMAIN_EXPLICIT_AND_UNPROVEN",
   "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research",
-  "projection_status": "CORE_GENERATION_4_GOVERNANCE_V3_2_VERSION_CLOSED_DOWNSTREAM_E6_CONSUMER_FIRST"
+  "shard_contract": {
+    "schema": "governance-shard-index/v2",
+    "contract_doc": "docs/quality/长治理文档分片与索引合同.md",
+    "validated_by": "scripts/audit/verify_governance_shards.py",
+    "rule": "an indexed canonical path is a logical document: load the index table plus every shard in table order; runtime 3.3.0 expands and demands full shard coverage",
+    "soft_line_target": 300,
+    "soft_line_target_is_not_a_cap": true
+  },
+  "projection_status": "CORE_GENERATION_4_GOVERNANCE_V3_3_SHARD_FOUNDATION_DOWNSTREAM_E6_CONSUMER_FIRST"
 }

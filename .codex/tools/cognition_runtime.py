@@ -17,7 +17,14 @@ import re
 import sys
 import uuid
 
-VERSION = '3.2.0'
+VERSION = '3.3.0'
+SHARD_INDEX_MARKER = '<!-- governance-shard-index:v2'
+SHARD_TABLE_START = '<!-- governance-shard-table:start -->'
+SHARD_TABLE_END = '<!-- governance-shard-table:end -->'
+SHARD_ROW_RE = re.compile(r'^\|\s*`?([A-Za-z0-9._-]+)`?\s*\|\s*\[([^]]+)\]\(([^)]+)\)\s*\|')
+SHARD_NAME_RE = re.compile(r'^(?P<shard_id>[0-9]{3}) - (?P<title>.+)\.md$')
+H1_RE = re.compile(r'^#\s+(.+?)\s*$', re.MULTILINE)
+SHARD_INDEX_KEYS = ('logical_id','mode','shard_root','last_shard','append_target','soft_line_target')
 PREFIX = '.codex/research/hott/'
 CONFIG = '.codex/cognition/LOAD_SET.json'
 STATE = PREFIX + 'STATE.json'
@@ -109,6 +116,57 @@ def text(data, name):
     if not t.strip():raise CognitionError('EMPTY_REQUIRED_FILE: '+name)
     return t
 
+def parse_shard_index(data, rel):
+    """Parse a v2 governance shard index; return None when the file is not one.
+
+    Structural failure raises instead of degrading to a plain document, so a
+    broken index can never silently drop the shards it owns.  The full contract
+    check lives in scripts/audit/validate_governance_shards.py; this parser only
+    enforces what the load path needs to stay fail-closed.
+    """
+    body=text(data,rel);lines=body.splitlines()
+    try:start=next(i for i,line in enumerate(lines) if line.strip()==SHARD_INDEX_MARKER)
+    except StopIteration:return None
+    meta={};closed=False
+    for line in lines[start+1:]:
+        stripped=line.strip()
+        if stripped=='-->':closed=True;break
+        if not stripped or ':' not in stripped:continue
+        key,value=stripped.split(':',1);meta[key.strip()]=value.strip()
+    if not closed:raise CognitionError('SHARD_INDEX_MARKER_UNTERMINATED: '+rel)
+    missing=[k for k in SHARD_INDEX_KEYS if not meta.get(k)]
+    if missing:raise CognitionError('SHARD_INDEX_KEYS_MISSING: '+rel+':'+','.join(missing))
+    if meta['mode'] not in ('topical','sequential'):raise CognitionError('SHARD_INDEX_MODE_INVALID: '+rel)
+    try:table=body.split(SHARD_TABLE_START,1)[1].split(SHARD_TABLE_END,1)[0]
+    except IndexError as e:raise CognitionError('SHARD_INDEX_TABLE_MISSING: '+rel) from e
+    rows=[]
+    for line in table.splitlines():
+        match=SHARD_ROW_RE.match(line.strip())
+        if not match:continue
+        shard_id,title,path=match.group(1),match.group(2).strip(),match.group(3).strip()
+        if path.startswith('<') and path.endswith('>'):path=path[1:-1]
+        rows.append({'shard_id':shard_id,'title':title,'path':path})
+    if not rows:raise CognitionError('SHARD_INDEX_TABLE_EMPTY: '+rel)
+    ids=[r['shard_id'] for r in rows];paths=[r['path'] for r in rows]
+    if len(set(ids))!=len(ids) or len(set(paths))!=len(paths):
+        raise CognitionError('SHARD_INDEX_DUPLICATE: '+rel)
+    if meta['last_shard']!=paths[-1]:raise CognitionError('SHARD_INDEX_LAST_SHARD_MISMATCH: '+rel)
+    if meta['mode']=='sequential' and meta['append_target']!=meta['last_shard']:
+        raise CognitionError('SHARD_INDEX_APPEND_TARGET_MISMATCH: '+rel)
+    if meta['mode']=='topical' and meta['append_target']!='-':
+        raise CognitionError('SHARD_INDEX_APPEND_TARGET_INVALID: '+rel)
+    stem=PurePosixPath(rel).stem
+    if meta['shard_root']!=stem:raise CognitionError('SHARD_INDEX_ROOT_MISMATCH: '+rel)
+    for row in rows:
+        parts=PurePosixPath(row['path']).parts
+        if len(parts)!=2 or parts[0]!=stem:raise CognitionError('SHARD_PATH_NOT_DIRECT_CHILD: '+row['path'])
+        name=SHARD_NAME_RE.fullmatch(parts[1])
+        if name is None or name.group('shard_id')!=row['shard_id'] or name.group('title')!=row['title']:
+            raise CognitionError('SHARD_NAME_MISMATCH: '+row['path'])
+    return {'logical_id':meta['logical_id'],'mode':meta['mode'],'shard_root':meta['shard_root'],
+            'last_shard':meta['last_shard'],'append_target':meta['append_target'],
+            'soft_line_target':meta['soft_line_target'],'shards':rows}
+
 def validate_roles(get):
     roles=obj(get(ROLES))
     expected={'governance':('hott-local-session-governance',GOVERNANCE_SKILL),
@@ -157,7 +215,7 @@ def config_paths(config,key):
         raise CognitionError('CONFIG_PATH_LIST_INVALID: '+key)
     return value
 
-def graph(config, state, get, profile='governance', task_ids=(), core_transition=None, path_kind=None):
+def graph(config, state, get, profile='governance', task_ids=(), core_transition=None, path_kind=None, listdir=None):
     if config.get('schema_version')!='cognition-load-set/v3':raise CognitionError('CONFIG_SCHEMA')
     if profile not in PROFILES:raise CognitionError('LOAD_PROFILE_INVALID: '+str(profile))
     trio=config_paths(config,'always_full_three_way')
@@ -205,13 +263,37 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
                           'lifecycle_status':lifecycle,'evidence_status':evidence})
     if any(not isinstance(k,str) or k not in records for k in task_ids) or len(set(task_ids))!=len(tuple(task_ids)):
         raise CognitionError('TASK_RECORD_SELECTION_INVALID')
-    ordered=[];selection={};visited=set();visiting=set();selected=[];stale=set()
-    def add(p,layer,selected_by):
+    ordered=[];selection={};visited=set();visiting=set();selected=[];stale=set();logical={}
+    def add_raw(p,layer,selected_by,logical_id=None,logical_role=None):
         if not isinstance(p,str):raise CognitionError('PATH_STRING_REQUIRED')
         if p not in ordered:
-            ordered.append(p);selection[p]={'layer':layer,'selected_by':[selected_by]}
-        elif selected_by not in selection[p]['selected_by']:
-            selection[p]['selected_by'].append(selected_by)
+            ordered.append(p)
+            selection[p]={'layer':layer,'selected_by':[selected_by],'logical_id':logical_id,
+                          'logical_role':logical_role,'full_load':logical_role is not None}
+        else:
+            if selected_by not in selection[p]['selected_by']:selection[p]['selected_by'].append(selected_by)
+            if logical_id is not None:
+                selection[p]['logical_id']=logical_id;selection[p]['logical_role']=logical_role
+                selection[p]['full_load']=True
+
+    def add(p,layer,selected_by):
+        add_raw(p,layer,selected_by)
+        try:data=get(p)
+        except CognitionError:return
+        index=parse_shard_index(data,p)
+        if index is None or index['logical_id'] in logical:return
+        logical[index['logical_id']]=index
+        if listdir is not None:
+            listed={PurePosixPath(row['path']).name for row in index['shards']}
+            for name in listdir(index['shard_root']):
+                if SHARD_NAME_RE.fullmatch(name) and name not in listed:
+                    raise CognitionError('UNLISTED_SHARD: '+index['shard_root']+'/'+name)
+        add_raw(p,layer,'shard-index:'+selected_by,index['logical_id'],'index')
+        for row in index['shards']:
+            heading=H1_RE.search(text(get(row['path']),row['path']))
+            if heading is None or heading.group(1).strip()!=row['title']:
+                raise CognitionError('SHARD_TITLE_MISMATCH: '+row['path'])
+            add_raw(row['path'],layer,'shard:'+index['logical_id'],index['logical_id'],'shard')
     for p in trio:add(p,'always_full_three_way','fixed-trio')
     for p in boot:add(p,'always_full_boot','boot-policy')
     if profile=='research':
@@ -302,6 +384,10 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
         if p.is_file():return 'file'
         if p.is_dir():return 'directory'
         return 'missing'
+    def listdir(rel):
+        p=path_of(root,rel)
+        if not p.is_dir():return []
+        return sorted(x.name for x in p.iterdir() if x.is_file())
     state=obj(get(STATE));config=obj(get(CONFIG))
     if head.get('revision')!=state.get('revision') or head.get('latest_session')!=state.get('latest_session'):
         raise CognitionError('HEAD_STATE_MISMATCH')
@@ -310,12 +396,15 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
     for rel,h in tracked.items():
         if sha(get(rel))!=h:raise CognitionError('UNCOMMITTED_STATE: '+rel)
     task_ids=tuple(task_ids)
-    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids,_allow_core_transition,kind)
+    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids,_allow_core_transition,kind,listdir)
     entries=[]
     for rel in paths:
         b=get(rel);t=text(b,rel)
         entries.append({'path':rel,'sha256':sha(b),'bytes':len(b),'lines':len(t.splitlines(keepends=True)),
-                        'layer':selection[rel]['layer'],'selected_by':selection[rel]['selected_by']})
+                        'layer':selection[rel]['layer'],'selected_by':selection[rel]['selected_by'],
+                        'logical_id':selection[rel].get('logical_id'),
+                        'logical_role':selection[rel].get('logical_role'),
+                        'full_load':bool(selection[rel].get('full_load'))})
     for rel,b in cache.items():
         if read_bytes(root,rel)!=b:raise CognitionError('SNAPSHOT_CHANGED: '+rel)
     if read_bytes(root,HEAD)!=head_bytes:raise CognitionError('HEAD_CHANGED')
@@ -323,6 +412,17 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
     signature=sha(dump({'head_sha256':sha(head_bytes),'profile':profile,'task_ids':list(task_ids),'files':entries}))
     query_first_promoted=sorted(set(config.get('query_first',[])) & {x['path'] for x in entries})
     largest=sorted(entries,key=lambda x:(-x['bytes'],x['path']))[:10]
+    logical_documents=[]
+    for entry in entries:
+        if entry['logical_role']!='index':continue
+        index=parse_shard_index(get(entry['path']),entry['path'])
+        shards=[x for x in entries if x['logical_id']==entry['logical_id'] and x['logical_role']=='shard']
+        logical_documents.append({'logical_id':entry['logical_id'],'index':entry['path'],
+                                  'mode':index['mode'] if index else None,'shard_count':len(shards),
+                                  'shards':[x['path'] for x in shards],
+                                  'bytes':entry['bytes']+sum(x['bytes'] for x in shards),
+                                  'lines':entry['lines']+sum(x['lines'] for x in shards),
+                                  'full_load_required':True})
     return {'schema_version':'cognition-plan/v2','snapshot':signature,'revision':head['revision'],
             'latest_session':state['latest_session'],'profile':profile,'task_ids':list(task_ids),
             'documents':entries,'hydrated_records':records,'available_records':available,
@@ -330,7 +430,9 @@ def plan(project_root=None, *, profile='governance', task_ids=(), _allow_busy=Fa
             'review_required':stale,'total_bytes':sum(x['bytes'] for x in entries),
             'total_lines':sum(x['lines'] for x in entries),'model_context':'NOT_CERTIFIED_BY_TOOL',
             'hydration_diagnostics':{'document_count':len(entries),'query_first_promoted':query_first_promoted,
+                                     'logical_documents':[{k:d[k] for k in ('logical_id','index','mode','shard_count')} for d in logical_documents],
                                      'largest_documents':[{'path':x['path'],'bytes':x['bytes'],'lines':x['lines']} for x in largest]},
+            'logical_documents':logical_documents,
             'policy':'FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION',
             'three_way_documents':list(THREE_WAY),
             'query_first_documents':query_first if (query_first:=config.get('query_first')) else [],
@@ -404,10 +506,23 @@ def atomic(path: Path, data: bytes):
     finally:
         if temp.exists():temp.unlink()
 
-def allowed_write(rel,sid):
+def mutable_shard_paths(root):
+    """Shard paths owned by MUTABLE logical documents (index plus ordered shards)."""
+    owned={}
+    for rel in MUTABLE:
+        try:data=read_bytes(root,rel)
+        except CognitionError:continue
+        index=parse_shard_index(data,rel)
+        if index is None:continue
+        for row in index['shards']:owned[row['path']]=index['logical_id']
+    return owned
+
+def allowed_write(rel,sid,root=None,proposed=None):
     if rel in MUTABLE:return True
     if re.fullmatch(re.escape(PREFIX)+r'candidates/[A-Za-z0-9_-]+/[A-Za-z0-9_.-]+',rel):return True
     if re.fullmatch(re.escape(PREFIX)+'sessions/'+re.escape(sid)+r'/[A-Za-z0-9_.-]+',rel):return True
+    if proposed and rel in proposed:return True
+    if root is not None and rel in mutable_shard_paths(root):return True
     return False
 
 def validate_session_bundle(get, sid, state):
@@ -446,6 +561,7 @@ def validate_session_bundle(get, sid, state):
             raise CognitionError('KC_AUDIT_THREE_WAY_FIELD_MISSING: '+field)
 
 def prepare(root, snapshot, payload, *, busy=False):
+    root=root_path(root)
     profile=payload.get('load_profile','governance')
     task_ids=payload.get('task_ids',[])
     if not isinstance(task_ids,list):raise CognitionError('CHECKPOINT_TASK_IDS_INVALID')
@@ -457,11 +573,19 @@ def prepare(root, snapshot, payload, *, busy=False):
     if not isinstance(sid,str) or not ID.fullmatch(sid):raise CognitionError('INVALID_SESSION_ID')
     if not isinstance(payload.get('authorization'),str) or not payload['authorization'].strip():raise CognitionError('AUTHORIZATION_STATEMENT_REQUIRED')
     if not isinstance(payload.get('files'),list):raise CognitionError('FILES_LIST_REQUIRED')
+    proposed={}
+    for row in payload['files']:
+        if not isinstance(row,dict):continue
+        index_rel=row.get('path')
+        if index_rel not in MUTABLE or not isinstance(row.get('text'),str):continue
+        proposed_index=parse_shard_index(row['text'].encode('utf-8'),index_rel)
+        if proposed_index is None:continue
+        for shard_row in proposed_index['shards']:proposed[shard_row['path']]=proposed_index['logical_id']
     changes={};old={}
     for row in payload['files']:
         if not isinstance(row,dict) or 'expected_sha256' not in row:raise CognitionError('EXPECTED_FILE_BASE_REQUIRED')
         rel=row.get('path');target=path_of(root,rel)
-        if not allowed_write(rel,sid):raise CognitionError('WRITE_OUTSIDE_AUTHORIZED_STATE: '+str(rel))
+        if not allowed_write(rel,sid,root,proposed):raise CognitionError('WRITE_OUTSIDE_AUTHORIZED_STATE: '+str(rel))
         if rel in changes:raise CognitionError('DUPLICATE_WRITE')
         if not isinstance(row.get('text'),str):raise CognitionError('UTF8_TEXT_REQUIRED')
         before=read_bytes(root,rel) if target.exists() else None
@@ -497,7 +621,16 @@ def prepare(root, snapshot, payload, *, busy=False):
         if p.is_file():return 'file'
         if p.is_dir():return 'directory'
         return 'missing'
-    _,_,_,stale,_=graph(obj(get(CONFIG)),state,get,profile,tuple(task_ids),core_transition,path_kind=kind)
+    def listdir(rel):
+        names=set()
+        p=path_of(root,rel)
+        if p.is_dir():names|={x.name for x in p.iterdir() if x.is_file()}
+        prefix=rel+'/'
+        for candidate in changes:
+            if candidate.startswith(prefix) and '/' not in candidate[len(prefix):]:
+                names.add(candidate[len(prefix):])
+        return sorted(names)
+    _,_,_,stale,_=graph(obj(get(CONFIG)),state,get,profile,tuple(task_ids),core_transition,path_kind=kind,listdir=listdir)
     for k in stale:
         if evidence_of(state['records'][k])!='REVIEW_REQUIRED':raise CognitionError('DEPENDENCY_REVIEW_REQUIRED: '+k)
     # Removing old records would silently delete historical routing.
@@ -519,8 +652,16 @@ def prepare(root, snapshot, payload, *, busy=False):
     for k,new in state['records'].items():
         if k not in prior['records'] and new.get('depends_on') and new.get('dependency_semantics')!='verification_staleness':
             raise CognitionError('DEPENDENCY_SEMANTICS_REQUIRED: '+k)
+    tracked={x:sha(changes[x]) for x in MUTABLE}
+    for rel in MUTABLE:
+        index=parse_shard_index(changes[rel],rel)
+        if index is None:continue
+        for row in index['shards']:
+            shard=row['path']
+            if shard not in changes:raise CognitionError('SHARD_NOT_IN_CHECKPOINT: '+shard)
+            tracked[shard]=sha(changes[shard])
     head={'schema_version':'cognition-head/v1','revision':state['revision'],'latest_session':sid,
-          'updated_at_utc':stamp(),'tracked':{x:sha(changes[x]) for x in MUTABLE}}
+          'updated_at_utc':stamp(),'tracked':tracked}
     changes[HEAD]=dump(head);old[HEAD]=read_bytes(root,HEAD)
     return p,sid,changes,old
 
@@ -581,7 +722,7 @@ def recover(project_root,action,*,confirm_owner_stopped=False):
     for row in rows:
         if not isinstance(row,dict):raise CognitionError('RECOVERY_ROW_INVALID')
         rel=row.get('path')
-        if not isinstance(rel,str) or rel in seen or (rel!=HEAD and not allowed_write(rel,sid)):
+        if not isinstance(rel,str) or rel in seen or (rel!=HEAD and not allowed_write(rel,sid,root)):
             raise CognitionError('RECOVERY_PATH_REJECTED')
         path_of(root,rel);seen.add(rel)
         old=row.get('old_sha256');new=row.get('new_sha256')

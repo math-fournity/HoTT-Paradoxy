@@ -248,6 +248,128 @@ class RuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(C.CognitionError, "LINE_TOO_LARGE"):
             C.read_chunk(self.root, plan["snapshot"], C.CLOSURE, 2, 100)
 
+    def read_all_chunks(self, plan: dict) -> list:
+        chunks = []
+        for row in plan["documents"]:
+            line = 1
+            while line:
+                chunk = C.read_chunk(self.root, plan["snapshot"], row["path"], line, 1000)
+                chunks.append(chunk)
+                line = chunk["next_start_line"]
+        return chunks
+
+    def make_sharded(self, rel: str, shards, *, mode: str = "topical", logical_id: str = "LD",
+                     last_shard=None, append_target=None, marker: str = "<!-- governance-shard-index:v2",
+                     title_override=None) -> list:
+        """Write a v2 shard index plus its shards; return the ordered shard paths."""
+        stem = C.PurePosixPath(rel).stem
+        rows = []
+        for shard_id, title in shards:
+            path = f"{stem}/{shard_id} - {title}.md"
+            heading = title if title_override is None else title_override
+            self.put(
+                path,
+                f"<!-- governance-shard:v2\nlogical_id: {logical_id}\nshard_id: {shard_id}\n"
+                f"index: ../{stem}.md\n-->\n\n# {heading}\n\nbody {shard_id}\n",
+            )
+            rows.append((shard_id, title, path))
+        table = "\n".join(
+            f"| {shard_id} | [{title}](<{path}>) | scope | current |" for shard_id, title, path in rows
+        )
+        meta_last = last_shard if last_shard is not None else rows[-1][2]
+        meta_append = append_target if append_target is not None else ("-" if mode == "topical" else meta_last)
+        self.put(
+            rel,
+            f"{marker}\nlogical_id: {logical_id}\nmode: {mode}\nshard_root: {stem}\n"
+            f"last_shard: {meta_last}\nappend_target: {meta_append}\nsoft_line_target: 300\n-->\n\n"
+            "# fixture index\n\n<!-- governance-shard-table:start -->\n"
+            "| Shard | 文件 | 语义范围 | 状态 |\n|---|---|---|---|\n"
+            f"{table}\n<!-- governance-shard-table:end -->\n",
+        )
+        return [path for _, _, path in rows]
+
+    def test_shard_index_expands_to_ordered_shards(self) -> None:
+        index = "README.md"
+        shards = self.make_sharded(
+            index, [("001", "第一片"), ("002", "第二片")], logical_id="README"
+        )
+        plan = self.plan()
+        paths = [row["path"] for row in plan["documents"]]
+        start = paths.index(index)
+        self.assertEqual(paths[start:start + 3], [index] + shards)
+        rows = {row["path"]: row for row in plan["documents"]}
+        self.assertEqual(rows[index]["logical_role"], "index")
+        self.assertEqual(rows[shards[0]]["logical_role"], "shard")
+        self.assertTrue(rows[shards[1]]["full_load"])
+        self.assertEqual(plan["logical_documents"][0]["logical_id"], "README")
+        self.assertEqual(plan["logical_documents"][0]["shard_count"], 2)
+        self.assertTrue(plan["logical_documents"][0]["full_load_required"])
+
+    def test_sharded_document_requires_every_shard(self) -> None:
+        shards = self.make_sharded(
+            "README.md", [("001", "第一片"), ("002", "第二片")], logical_id="README"
+        )
+        plan = self.plan()
+        chunks = [chunk for chunk in self.read_all_chunks(plan) if chunk["path"] != shards[1]]
+        with self.assertRaisesRegex(C.CognitionError, "COVERAGE_INCOMPLETE"):
+            C.check_coverage(plan, chunks)
+        self.assertEqual(C.check_coverage(plan, self.read_all_chunks(plan))["status"], "FULL_EMITTED_BYTES_MATCH")
+
+    def test_shard_index_structural_failures_are_fail_closed(self) -> None:
+        index = "README.md"
+        shards = self.make_sharded(index, [("001", "第一片")], logical_id="A")
+        self.put(f"{C.PurePosixPath(index).stem}/002 - 未登记片.md", "# 未登记片\n\norphan\n")
+        with self.assertRaisesRegex(C.CognitionError, "UNLISTED_SHARD"):
+            self.plan()
+        (self.root / f"{C.PurePosixPath(index).stem}/002 - 未登记片.md").unlink()
+        self.make_sharded(index, [("001", "第一片")], logical_id="A", last_shard="A/999 - 不存在.md")
+        with self.assertRaisesRegex(C.CognitionError, "LAST_SHARD_MISMATCH"):
+            self.plan()
+        self.make_sharded(index, [("001", "第一片")], logical_id="A", mode="sequential",
+                          append_target="README/000 - 不存在.md")
+        with self.assertRaisesRegex(C.CognitionError, "APPEND_TARGET_MISMATCH"):
+            self.plan()
+        self.make_sharded(index, [("001", "第一片")], logical_id="A", mode="sequential")
+        self.assertEqual(self.plan()["logical_documents"][0]["mode"], "sequential")
+        self.make_sharded(index, [("001", "第一片")], logical_id="A", title_override="标题不一致")
+        with self.assertRaisesRegex(C.CognitionError, "SHARD_TITLE_MISMATCH"):
+            self.plan()
+        self.make_sharded(index, [("001", "第一片")], logical_id="A")
+        (self.root / shards[0]).unlink()
+        with self.assertRaisesRegex(C.CognitionError, "MISSING_OR_UNREADABLE"):
+            self.plan()
+
+    def test_mutable_sharded_document_is_head_tracked(self) -> None:
+        shards = self.make_sharded(
+            "MEMORY.md", [("001", "当前执行队列"), ("002", "顺序日志")],
+            mode="sequential", logical_id="MEMORY",
+        )
+        self.refresh_head()
+        plan = self.plan()
+        payload = self.payload("S2")
+        texts = {row["path"]: row["text"] for row in payload["files"]}
+        texts[shards[1]] = (self.root / shards[1]).read_text(encoding="utf-8") + "appended session record\n"
+        for shard in shards:
+            payload["files"].append({
+                "path": shard,
+                "expected_sha256": C.sha((self.root / shard).read_bytes()),
+                "text": texts.get(shard, (self.root / shard).read_text(encoding="utf-8")),
+            })
+        _, _, changes, _ = C.prepare(self.root, plan["snapshot"], payload)
+        head = C.obj(changes[C.HEAD])
+        self.assertTrue(set(shards) <= set(head["tracked"]))
+        self.assertTrue(set(C.MUTABLE) <= set(head["tracked"]))
+
+    def test_mutable_shard_must_be_in_checkpoint(self) -> None:
+        self.make_sharded(
+            "MEMORY.md", [("001", "当前执行队列"), ("002", "顺序日志")],
+            mode="sequential", logical_id="MEMORY",
+        )
+        self.refresh_head()
+        plan = self.plan()
+        with self.assertRaisesRegex(C.CognitionError, "SHARD_NOT_IN_CHECKPOINT"):
+            C.prepare(self.root, plan["snapshot"], self.payload("S2"))
+
     def test_source_growth_changes_snapshot(self) -> None:
         old = self.plan()
         self.put(C.CLOSURE, (self.root / C.CLOSURE).read_text() + "new tail\n")

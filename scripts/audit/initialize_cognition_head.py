@@ -5,10 +5,12 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+RUNTIME_DIR = ROOT / ".codex/tools"
 STATE = ROOT / ".codex/research/hott/STATE.json"
 TRACKED = [
     ROOT / "MEMORY.md",
@@ -20,9 +22,24 @@ TRACKED = [
     STATE,
 ]
 
+sys.path.insert(0, str(RUNTIME_DIR))
+import cognition_runtime as runtime  # noqa: E402  (project-local loader; single source of routing rules)
+
 
 def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def tracked_paths() -> dict[str, str]:
+    """Track every MUTABLE document plus the shards of any sharded logical document."""
+    tracked = {str(path.relative_to(ROOT)): sha(path) for path in TRACKED}
+    for rel in runtime.MUTABLE:
+        index = runtime.parse_shard_index((ROOT / rel).read_bytes(), rel)
+        if index is None:
+            continue
+        for row in index["shards"]:
+            tracked[row["path"]] = sha(ROOT / row["path"])
+    return tracked
 
 
 def main() -> int:
@@ -36,7 +53,7 @@ def main() -> int:
         "revision": state["revision"],
         "latest_session": state["latest_session"],
         "updated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
-        "tracked": {str(path.relative_to(ROOT)): sha(path) for path in TRACKED},
+        "tracked": tracked_paths(),
         "initialized_by": "scripts/audit/initialize_cognition_head.py",
     }
     target = ROOT / ".codex/cognition/HEAD.json"

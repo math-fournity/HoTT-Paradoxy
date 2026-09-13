@@ -7,6 +7,13 @@
 拥有跨 LocalGPT/WebGPT 的候选组合与下一判别动作；`全景视野.md` 拥有研究结果、正反例、失败和未知的
 可读综合投影；三者不得互相覆盖成为“最新版”。
 
+分片 invariant：命中 `governance-shard-index:v2` 的 canonical 路径是逻辑文档索引，不是摘要。读取时先读完整
+shard table、`last_shard` 与 `append_target`，再按任务读 owner/append shard；"全文加载"对分片文档意味着
+索引 + 按 table 顺序全部分片，缺任一片即未完成全文加载。写入时 topical 改 owner shard、sequential 追加到
+`append_target`，新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一 checkpoint
+事务中更新。300 行只是软目标，不是上限；当前已分片 `README.md`、`MEMORY.md`、`理解章节/C1`–`C4`，
+合同见 `docs/quality/长治理文档分片与索引合同.md`。
+
 核心 invariant：当前 generation 与 KC 分母从 `STATE.current_core`/manifest 动态取得；本轮 generation-4 的 36 个用户直接原文单元由 hash-pinned curation lineage+生成器管理，不手工改写；全部 record
 在 STATE 全文中可见，但只有 lifecycle 给予当前任务资格，evidence review 不得自动复活历史 Session。治理任务用
 governance profile，数学研究用 research profile，底层证据按 stable ID 显式水合。每轮结束仍产生当前全部

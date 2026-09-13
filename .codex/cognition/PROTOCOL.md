@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v2.3`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v2.4`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
 
 ## 1. 目标和边界
 
@@ -26,6 +26,7 @@
 1. 确认当前 root 是本目录，读取顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
 2. 完整读取本地治理 Skill、角色表、此协议、`LOAD_SET.json` 和 `STATE.json`。纯治理无需自动加载业务 Skill；研究 profile 才全文加载它。
 3. 无条件按 `always_full_three_way` 把 `核心认知.md`、`方向追踪.md`、`全景视野.md` 逐文件读到真实 EOF。manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research/task profile 也不能删减或重排。
+   命中 `governance-shard-index:v2` 时，"逐文件读到真实 EOF" 等于**索引 + 按 table 顺序的全部分片**；缺任一片、未列片、标题或 `last_shard`/`append_target` 不符即未完成全文加载，降至 `BLOCKED_FULL_TRIO_COGNITION` 或重启加载。
 4. governance profile 加载三件套、启动核和最新短 Session；research profile 再加载业务 Skill、三问、FRONTIER、LESSONS、RESUME。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
 5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；`research_parent`/`related_records` 只做谱系与叙事导航，不递归水合。显式水合后的正文必须全文读，不能用 query 输出替代；同时必须检查 plan 的 `hydration_diagnostics.document_count`、`total_bytes`、`total_lines`、`query_first_promoted` 和 largest documents，不能把 `review_required=[]` 当成上下文可装配性证明。
 6. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
@@ -57,6 +58,16 @@
 运行产物仍由 `audit/`、`sources/`、`HoTT/`、`artifacts/` 和 Git 拥有。当前 `方向追踪.md` 和 `全景视野.md`
 已经有 22,226 行 source register 的可发现性收据，但仍必须显式显示 `PENDING_DIRECT_SENTENCE_ADJUDICATION`、
 数学复核和模型理解未认证；“全量登记”不能替代语义/数学结论。
+
+## 3B. 分片逻辑文档（shard index）的读取与写入
+
+合同 owner 是 `docs/quality/长治理文档分片与索引合同.md`；共享权威是 3.16.0 候选规范。要点：
+
+1. **读取**：先读 canonical 索引的完整 table、`last_shard`、`append_target`，再按任务读 owner shard；顺序追加型还要读 `append_target`。索引只路由，不是摘要；不得把索引、首片或末片冒充逻辑文档全文。
+2. **写入**：`topical` 文档原位修改 owner shard；`sequential` 文档追加到 `append_target`；新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一个 checkpoint 事务中更新。
+3. **加载器强制**：`.codex/tools/cognition_runtime.py` 3.3.0 在 `plan` 中把索引展开为索引 + 全部分片，逐片给出 hash/bytes/lines 与 `logical_id`/`logical_role`/`full_load`；`check` 必须覆盖每一片（否则 `COVERAGE_INCOMPLETE`）；结构错误一律 fail closed。`MUTABLE` 逻辑文档的分片同时进入 `HEAD.json.tracked`。
+4. **300 行是软目标**，不是上限、Gate 或清理配额；超行只产生 `NOTICE`。判定分片看追加方式、导航成本与自然语义边界，不看行数。
+5. **机械校验**：`python3 -B scripts/audit/verify_governance_shards.py`（pin 的 3.16.0 候选副本 + sha256 漂移检测）。机械 PASS 不证明边界合理或内容完整；迁移必须另做标题/内容对账与 consumer 扫描。
 
 ## 4. 每次结束的逐编号回评
 
