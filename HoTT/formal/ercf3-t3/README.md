@@ -36,7 +36,14 @@
 | 依赖模块（按哈希固定） | `ObjectSyntax.agda`、`DiagonalCore.agda`、`DiagonalLemma.agda`、`CodeStoreFix.agda`、`MutualInduction2.agda`、`DecisionParam.agda` |
 | 固定工具链 | `HoTT/formal/ercf3-t3/TOOLCHAIN.json` + `AGDA_LIBRARIES`（Agda 2.8.0-3d04bac、Cubical v0.9 库声明；证明本身只用 Agda builtins） |
 | canonical run | `HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02/`（`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、stderr 0、`INDEXED_IN_CLAIM_EVIDENCE_MATRIX`） |
+| 行冻结收据 | `HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02/index-row-manifest.json`（`freeze_proof_index_rows.py`；冻结包行 + `C-157`–`C-159` 三行；后续矩阵只追加，故为 row-stable） |
 | 失败尝试（保留） | `HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-01/`：在源码里加 `{-# OPTIONS --safe #-}` 后，早期脉冲模块未声明 `--safe` 触发 `CoInfectiveImport`（exit 42）；canonical 命令因此与 S067–S080 脉冲一致（不含 `--safe`），命令行 `--safe` 的手工检查同样 exit 0 |
+
+**校验入口范围**：本包是 builtins-only 的 T3 脉冲链（与 S067–S080 同族），源码不声明 `--safe --cubical`，因此
+`verify_formal_proof_run.py` 对它会报 `AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED`——那是该 verifier 的适用域（cubical 包），
+不是本包的失败。本包的 canonical 校验入口是 `verify_proof_version_closure.py`（`later_packages` 分支，要求源码/工具链/
+`RUN.json` Git-tracked、`exit_code = 0`、`index_status = INDEXED_IN_CLAIM_EVIDENCE_MATRIX`）与 run 自身的
+`RUN.json` + `index-row-manifest.json`。
 
 ## 5. 禁止外推
 
