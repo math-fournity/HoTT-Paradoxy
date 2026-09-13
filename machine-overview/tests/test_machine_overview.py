@@ -10,7 +10,7 @@ PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT))
 
 from machine_overview.case import validate_workspace  # noqa: E402
-from machine_overview.index import rebuild_index  # noqa: E402
+from machine_overview.index import build_index  # noqa: E402
 from machine_overview.model import (  # noqa: E402
     bind_value,
     deadline_value,
@@ -158,8 +158,8 @@ class WorkspaceTest(unittest.TestCase):
     def test_index_rebuild_is_stable(self) -> None:
         repo_root = find_repo_root()
         root = repo_root / "machine-overview"
-        first = rebuild_index(repo_root, root)
-        second = rebuild_index(repo_root, root)
+        first = build_index(root)
+        second = build_index(root)
         self.assertEqual(
             [entry["path"] for entry in first["entries"]],
             [entry["path"] for entry in second["entries"]],
@@ -184,11 +184,11 @@ class FailClosedTest(unittest.TestCase):
             limits={"max_witnesses": 5, "max_checks": 1000000},
         )
         case = {"case_id": "UNIT-TEST-CASE", "revision": 1, "target_text_hash": "0" * 64}
-        run_dir = repo_root / "machine-overview/runs/.unit-test-tamper"
+        run_dir = repo_root / "machine-overview/runs/unit-test-tamper"
         with self.assertRaises(MachineOverviewError) as ctx:
             verify_witness(
                 repo_root,
-                run_id=".unit-test-tamper",
+                run_id="unit-test-tamper",
                 case_path=repo_root / "machine-overview/grammars/l1-v0.json",
                 case=case,
                 witness=search["witnesses"][0],

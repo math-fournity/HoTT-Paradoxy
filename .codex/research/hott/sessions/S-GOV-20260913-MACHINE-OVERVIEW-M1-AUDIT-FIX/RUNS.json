@@ -1,0 +1,52 @@
+{
+  "session_id": "S-GOV-20260913-MACHINE-OVERVIEW-M1-AUDIT-FIX",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "audit_object_commit": "e4ab45bcb6931861fa57cfa9f8ac8de2af12acce",
+  "audit_source": "/Volumes/D/HoTT独立答复/20260913-M1自动化统观实现审计.md",
+  "audit_reproduction_package": "/Volumes/D/HoTT独立答复/20260913-M1实现审计-e4ab45b/",
+  "verdict_before": "REQUEST_CHANGES (F1-F7)",
+  "verdict_after": "F1-F7 fixed; post-fix acceptance re-run PASS",
+  "new_math_claims": [],
+  "findings_fixed": {
+    "F1": "profile qualification now includes per-source hash failures; support module pinned in profile v1",
+    "F2": "load_case_inputs re-hashes frozen inputs; verify binds case revision/search run sha/witness AST sha/target freeze; cross-revision and stale-grammar tests added",
+    "F3": "validate re-derives validity from generated sources, target hash, kernel artifacts and bindings; missing kernel stdout -> INVALID",
+    "F4": "correspondence mechanism and compensation derived from witness structure; task preservation computed from checks; wrong pre-audit reviews superseded",
+    "F5": "reduction and emitted witnesses must satisfy declared grammar membership",
+    "F6": "completeness separated from budget stop and witness capture truncation",
+    "F7": "ATTEMPT.json lifecycle, interrupted-attempt rollover, internal kernel timeout with process-group kill, artifact hashes, negative-control diagnostics, replay classification"
+  },
+  "case_revisions": {"1": "legacy-era profile v0 + grammar l1-v0", "2": "legacy-era profile v0 + grammar l1-v1", "3": "post-fix profile v1 + grammar l1-v1"},
+  "search_runs": [
+    {"run": "machine-overview/runs/20260913-SEARCH-L1-001", "status": "legacy-attested"},
+    {"run": "machine-overview/runs/20260913-SEARCH-L1-002", "status": "legacy-attested"},
+    {"run": "machine-overview/runs/20260913-SEARCH-L1-003", "case_revision": 3, "status": "COMPLETED_WITHIN_BUDGET", "checks": "4788/4788", "witnesses": 50},
+    {"run": "machine-overview/runs/20260913-SEARCH-L1-003.attempt-1-interrupted", "status": "recorded interruption (same-id retry rolled over)"}
+  ],
+  "verify_runs": [
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-POSTFIX-DEADLINE-001", "witness": "WV-0001", "status": "NATIVE_CHECKED_CALIBRATION_INSTANCE", "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH"},
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-POSTFIX-VALUE-001", "witness": "WV-0002", "status": "NATIVE_CHECKED_CALIBRATION_INSTANCE", "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH"},
+    {"run": "machine-overview/runs/20260913-VERIFY-L1-POSTFIX-COMPLETION-001", "witness": "WV-0013", "status": "NATIVE_CHECKED_CALIBRATION_INSTANCE", "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH"}
+  ],
+  "negative_scenarios": [
+    "cross-revision verify -> WITNESS_FROM_DIFFERENT_CASE_REVISION, no run dir",
+    "stale grammar search -> CASE_INPUT_HASH_MISMATCH:grammar",
+    "missing kernel stdout -> validate INVALID",
+    "postulate proof -> CANDIDATE_FORBIDDEN_DECLARATION, no run dir",
+    "sparse deadline grammar -> no escaped witnesses",
+    "max_checks=1 -> truncated true, complete false",
+    "interrupted attempt -> ATTEMPT.json INTERRUPTED, rollover, validate shows it",
+    "WV-0002 review -> no business-continuation/divergence claim"
+  ],
+  "tests": {"selftest": "29/29 OK", "workspace_validate": "VALID (11 runs, 7 legacy-attested, 1 recorded interrupted attempt)"},
+  "toolchain": {"agda": "2.8.0-3d04bac", "cubical": "0.9", "cubical_tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"},
+  "remaining_gaps": [
+    "M2-M5 not implemented",
+    "canonical capture requires .git directory (worktree incompatible)",
+    "two canonical verifiers depend on gitignored nested assets",
+    "cache state (cold/warm) is classified in replay but not declared in the profile",
+    "OS-level isolation of arbitrary candidate code not implemented",
+    "main-line STATE/projection/checkpoint writes not executed"
+  ]
+}

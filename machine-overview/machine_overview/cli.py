@@ -7,15 +7,22 @@ import sys
 from pathlib import Path
 
 from . import __version__
-from .case import create_case, load_case, resolve_path, validate_workspace
+from .case import (
+    case_identity_sha256,
+    create_case,
+    load_case,
+    load_case_inputs,
+    resolve_path,
+    validate_workspace,
+)
 from .correspondence import review_correspondence
 from .index import get as index_get
 from .index import load_index, rebuild_index
 from .profile import inspect_profile
 from .report import explain_case
-from .search import run_search
-from .util import MachineOverviewError, find_repo_root, read_json, utc_now
-from .verify import verify_witness
+from .search import run_search, witness_ast_sha256
+from .util import MachineOverviewError, find_repo_root, read_json, sha256_file, write_json
+from .verify import assert_witness_binding, begin_attempt, finish_attempt, verify_witness
 
 
 def _machine_root(repo_root: Path) -> Path:
@@ -37,11 +44,18 @@ def _print(value: object, as_json: bool) -> None:
         print(value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
 
 
-def _run_dir(repo_root: Path, run_id: str) -> Path:
-    path = _machine_root(repo_root) / "runs" / run_id
-    if path.exists():
-        raise MachineOverviewError(f"RUN_DIRECTORY_ALREADY_EXISTS:{run_id}")
-    return path
+def _case_context(repo_root: Path, args: argparse.Namespace, *, verify_profile: bool) -> tuple[dict, Path, dict]:
+    case, case_path = load_case(repo_root, args.case, getattr(args, "revision", None))
+    inputs = load_case_inputs(repo_root, case, verify_profile=verify_profile)
+    return case, case_path, inputs
+
+
+def _search_context(repo_root: Path, args: argparse.Namespace) -> tuple[dict, Path, dict, dict, Path]:
+    search_path = _machine_root(repo_root) / "runs" / args.search_run / "RUN.json"
+    if not search_path.is_file():
+        raise MachineOverviewError(f"SEARCH_RUN_NOT_FOUND:{args.search_run}")
+    search_run = read_json(search_path)
+    return search_run, search_path
 
 
 def _witness(search_run: dict, witness_id: str | None) -> dict:
@@ -80,28 +94,36 @@ def cmd_create_case(args: argparse.Namespace) -> int:
 
 def cmd_search(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    case, case_path = load_case(repo_root, args.case)
-    profile_report = inspect_profile(repo_root, repo_root / case["profile"]["path"], fast=True)
-    grammar = read_json(repo_root / case["grammar"]["path"])
-    registry = _registry(repo_root)
-    limits = {"max_witnesses": args.max_witnesses, "max_checks": args.max_checks}
-    receipt = run_search(
-        repo_root,
-        run_id=args.run_id,
-        case_path=case_path,
-        case=case,
-        grammar=grammar,
-        profile_report=profile_report,
-        registry=registry,
-        limits=limits,
-        order_seed=args.seed,
-        run_dir=_run_dir(repo_root, args.run_id),
-    )
+    case, case_path, inputs = _case_context(repo_root, args, verify_profile=True)
+    grammar = inputs["grammar"]["data"]
+    limits = {"max_witnesses": args.max_witnesses, "max_checks": args.max_checks, "max_contexts": args.max_contexts}
+    run_dir = _machine_root(repo_root) / "runs" / args.run_id
+    _, attempt = begin_attempt(run_dir, run_id=args.run_id, case=case, planned=["search"])
+    try:
+        receipt = run_search(
+            repo_root,
+            run_id=args.run_id,
+            case_path=case_path,
+            case=case,
+            grammar=grammar,
+            profile_report=inputs["profile_report"],
+            registry=_registry(repo_root),
+            limits=limits,
+            order_seed=args.seed,
+            run_dir=run_dir,
+            case_inputs=inputs,
+        )
+    except BaseException as exc:  # noqa: BLE001
+        finish_attempt(run_dir, attempt, "INTERRUPTED", error=f"{type(exc).__name__}: {exc}")
+        raise
+    finish_attempt(run_dir, attempt, "COMPLETED")
     rebuild_index(repo_root, _machine_root(repo_root))
     _print({
         "status": receipt["exit_reason"],
         "run_id": receipt["run_id"],
+        "case_revision": receipt["case_revision"],
         "witnesses": len(receipt["witnesses"]),
+        "complete_within_declared_grammar": receipt["statistics"]["complete_within_declared_grammar"],
         "checks": receipt["statistics"]["pair_context_checks"],
         "calibration_match": receipt["calibration_match"].get("status"),
         "first_witness": receipt["witnesses"][0]["witness_id"] if receipt["witnesses"] else None,
@@ -111,12 +133,13 @@ def cmd_search(args: argparse.Namespace) -> int:
 
 def cmd_verify(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    case, case_path = load_case(repo_root, args.case)
-    search_path = _machine_root(repo_root) / "runs" / args.search_run / "RUN.json"
-    if not search_path.is_file():
-        raise MachineOverviewError(f"SEARCH_RUN_NOT_FOUND:{args.search_run}")
-    search_run = read_json(search_path)
+    case, case_path, inputs = _case_context(repo_root, args, verify_profile=False)
+    search_run, search_path = _search_context(repo_root, args)
     witness = _witness(search_run, args.witness)
+    grammar = inputs["grammar"]["data"]
+    binding = assert_witness_binding(
+        case=case, search_run=search_run, search_run_path=search_path, witness=witness, grammar=grammar,
+    )
     profile_report = inspect_profile(repo_root, repo_root / case["profile"]["path"], fast=False)
     if profile_report["status"] != "PROFILE_QUALIFIED":
         raise MachineOverviewError(f"PROFILE_NOT_QUALIFIED:{profile_report['failures']}")
@@ -134,20 +157,28 @@ def cmd_verify(args: argparse.Namespace) -> int:
         profile_report=profile_report,
         toolchain=_toolchain(repo_root, profile_report),
         registry=_registry(repo_root),
-        run_dir=_run_dir(repo_root, args.run_id),
+        run_dir=_machine_root(repo_root) / "runs" / args.run_id,
         proof_origin=origin,
         proof_text=proof_text,
         replay=not args.no_replay,
+        timeout_seconds=args.timeout_seconds,
+        source_search_run=search_run,
+        search_run_path=search_path,
+        grammar=grammar,
     )
     rebuild_index(repo_root, _machine_root(repo_root))
     _print({
         "status": receipt["status"],
         "run_id": receipt["run_id"],
+        "case_revision": receipt["case_revision"],
         "witness": receipt["witness_id"],
+        "candidate_ast_sha256": receipt["candidate_ast_sha256"],
+        "source_search_run": receipt["source_search_run"]["run_id"] if binding else None,
         "target_text_hash": receipt["target_text_hash"],
+        "replay": receipt.get("replay"),
         "kernel": [
             {"label": item["label"], "exit_code": item["exit_code"], "status": item["status"],
-             "expectation_met": item["expectation_met"]}
+             "expectation_met": item["expectation_met"], "diagnostic": item.get("diagnostic")}
             for item in receipt["kernel_runs"]
         ],
     }, args.json)
@@ -156,13 +187,15 @@ def cmd_verify(args: argparse.Namespace) -> int:
 
 def cmd_review_correspondence(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    case, case_path = load_case(repo_root, args.case)
-    search_path = _machine_root(repo_root) / "runs" / args.search_run / "RUN.json"
-    search_run = read_json(search_path)
+    case, case_path, inputs = _case_context(repo_root, args, verify_profile=False)
+    search_run, search_path = _search_context(repo_root, args)
     witness = _witness(search_run, args.witness)
-    task = read_json(repo_root / case["task"]["path"])
+    grammar = inputs["grammar"]["data"]
+    assert_witness_binding(case=case, search_run=search_run, search_run_path=search_path, witness=witness, grammar=grammar)
     profile_report = inspect_profile(repo_root, repo_root / case["profile"]["path"], fast=True)
-    review_id = f"RV-{case['case_id']}-{witness['witness_id']}"
+    task = inputs["task"]["data"]
+    ast = witness_ast_sha256(witness)
+    review_id = f"RV-{case['case_id']}-r{case['revision']}-{search_run['run_id']}-{witness['witness_id']}-{ast[:8]}"
     output = _machine_root(repo_root) / "reviews" / f"{review_id}.json"
     review = review_correspondence(
         repo_root,
@@ -172,6 +205,9 @@ def cmd_review_correspondence(args: argparse.Namespace) -> int:
         task=task,
         witness=witness,
         profile_report=profile_report,
+        grammar=grammar,
+        search_run=search_run,
+        search_run_path=search_path,
         output_path=output,
     )
     rebuild_index(repo_root, _machine_root(repo_root))
@@ -182,32 +218,35 @@ def cmd_review_correspondence(args: argparse.Namespace) -> int:
 
 def cmd_explain(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    case, case_path = load_case(repo_root, args.case)
+    case, case_path, inputs = _case_context(repo_root, args, verify_profile=False)
+    validation = validate_workspace(repo_root)
+    if validation["status"] != "VALID":
+        raise MachineOverviewError(f"EVIDENCE_VALIDATION_FAILED:{validation['errors'][:5]}")
     runs_root = _machine_root(repo_root) / "runs"
     search_path = runs_root / args.search_run / "RUN.json" if args.search_run else None
     if search_path is None or not search_path.is_file():
-        candidates = sorted(runs_root.glob("*/RUN.json"))
         search_path = None
-        for candidate in reversed(candidates):
+        for candidate in reversed(sorted(runs_root.glob("*/RUN.json"))):
             run = read_json(candidate)
-            if run.get("kind") == "search" and run.get("case_id") == case["case_id"]:
+            if run.get("kind") == "search" and run.get("case_id") == case["case_id"] and int(run.get("case_revision", -1)) == int(case["revision"]):
                 search_path = candidate
                 break
         if search_path is None:
-            raise MachineOverviewError("NO_SEARCH_RUN_FOR_CASE")
+            raise MachineOverviewError("NO_SEARCH_RUN_FOR_CASE_REVISION")
     search_run = read_json(search_path)
     verify_runs: list[tuple[dict, Path]] = []
     for candidate in sorted(runs_root.glob("*/RUN.json")):
         run = read_json(candidate)
-        if run.get("kind") == "verify" and run.get("case_id") == case["case_id"]:
+        if (run.get("kind") == "verify" and run.get("case_id") == case["case_id"]
+                and int(run.get("case_revision", -1)) == int(case["revision"])):
             verify_runs.append((run, candidate))
     reviews: list[tuple[dict, Path]] = []
     for candidate in sorted((_machine_root(repo_root) / "reviews").glob("*.json")):
         data = read_json(candidate)
-        if data.get("case_id") == case["case_id"]:
+        if data.get("case_id") == case["case_id"] and int(data.get("case_revision", -1)) == int(case["revision"]):
             reviews.append((data, candidate))
     output = resolve_path(repo_root, args.out) if args.out else (
-        _machine_root(repo_root) / "reports" / f"{case['case_id']}-report.md"
+        _machine_root(repo_root) / "reports" / f"{case['case_id']}-r{case['revision']}-report.md"
     )
     explain_case(
         repo_root,
@@ -227,7 +266,7 @@ def cmd_explain(args: argparse.Namespace) -> int:
 
 def cmd_list(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    index = rebuild_index(repo_root, _machine_root(repo_root))
+    index = load_index(repo_root, _machine_root(repo_root))
     entries = index["entries"]
     if args.kind:
         entries = [entry for entry in entries if entry["kind"] == args.kind]
@@ -235,21 +274,21 @@ def cmd_list(args: argparse.Namespace) -> int:
         _print(entries, True)
     else:
         for entry in entries:
-            print(f"{entry['kind']:<8} {entry.get('id'):<50} {entry['path']}")
+            revision = entry.get("revision", entry.get("case_revision", ""))
+            print(f"{entry['kind']:<8} {str(entry.get('id')):<50} rev={str(revision):<4} {entry['path']}")
     return 0
 
 
 def cmd_get(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    entry = index_get(_machine_root(repo_root), args.id)
-    _print(entry, args.json)
-    return 0 if entry.get("status") != "NOT_FOUND" else 1
+    entries = index_get(_machine_root(repo_root), args.id, revision=args.revision)
+    _print(entries, args.json)
+    return 0 if entries else 1
 
 
 def cmd_query(args: argparse.Namespace) -> int:
     repo_root = find_repo_root()
-    root = _machine_root(repo_root)
-    index = load_index(repo_root, root)
+    index = load_index(repo_root, _machine_root(repo_root))
     entries = index["entries"]
     if args.kind:
         entries = [entry for entry in entries if entry["kind"] == args.kind]
@@ -259,6 +298,13 @@ def cmd_query(args: argparse.Namespace) -> int:
                or lowered in entry["path"].lower()
                or lowered in str(entry.get("case_id", "")).lower()]
     _print(entries, args.json)
+    return 0
+
+
+def cmd_rebuild_index(args: argparse.Namespace) -> int:
+    repo_root = find_repo_root()
+    index = rebuild_index(repo_root, _machine_root(repo_root))
+    _print({"status": "INDEX_REBUILT", "entries": len(index["entries"])}, args.json)
     return 0
 
 
@@ -301,59 +347,69 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("search", help="enumerate the declared grammar and reduce candidates")
     p.add_argument("--case", required=True)
+    p.add_argument("--revision", type=int)
     p.add_argument("--run-id", required=True)
     p.add_argument("--max-witnesses", type=int, default=20000)
     p.add_argument("--max-checks", type=int, default=5000000)
+    p.add_argument("--max-contexts", type=int, default=200000)
     p.add_argument("--seed", type=int, default=20260913)
     p.add_argument("--json", action="store_true")
-    p.set_search_func = None
     p.set_defaults(func=cmd_search)
 
-    p = sub.add_parser("verify", help="generate the exact statement and run the native kernel")
+    p = sub.add_parser("verify", help="generate the bound statement and run the native kernel")
     p.add_argument("--case", required=True)
+    p.add_argument("--revision", type=int)
     p.add_argument("--search-run", required=True)
     p.add_argument("--witness")
     p.add_argument("--run-id", required=True)
     p.add_argument("--proof-file", help="candidate-supplied proof source (external_file path)")
     p.add_argument("--no-replay", action="store_true")
+    p.add_argument("--timeout-seconds", type=int, default=900)
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_verify)
 
-    p = sub.add_parser("review-correspondence", help="write the task-correspondence checklist review")
+    p = sub.add_parser("review-correspondence", help="write the structure-derived correspondence review")
     p.add_argument("--case", required=True)
+    p.add_argument("--revision", type=int)
     p.add_argument("--search-run", required=True)
     p.add_argument("--witness")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_review_correspondence)
 
-    p = sub.add_parser("explain", help="render the calibration report from receipts")
+    p = sub.add_parser("explain", help="render the calibration report from validated receipts")
     p.add_argument("--case", required=True)
+    p.add_argument("--revision", type=int)
     p.add_argument("--search-run")
     p.add_argument("--out")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_explain)
 
-    p = sub.add_parser("list", help="list cases, runs, reviews and reports")
+    p = sub.add_parser("list", help="list cases, runs, reviews and reports (read-only)")
     p.add_argument("--kind", choices=["case", "search", "verify", "review", "report"])
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_list)
 
-    p = sub.add_parser("get", help="show one indexed artifact by id")
+    p = sub.add_parser("get", help="show indexed artifacts by id (all revisions)")
     p.add_argument("id")
+    p.add_argument("--revision", type=int)
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_get)
 
-    p = sub.add_parser("query", help="filter indexed artifacts by text")
+    p = sub.add_parser("query", help="filter indexed artifacts by text (read-only)")
     p.add_argument("text")
     p.add_argument("--kind", choices=["case", "search", "verify", "review", "report"])
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_query)
 
-    p = sub.add_parser("validate", help="check case references and generated-source pins")
+    p = sub.add_parser("rebuild-index", help="rebuild the derived query projection")
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(func=cmd_rebuild_index)
+
+    p = sub.add_parser("validate", help="re-derive validity from cases, runs and kernel evidence")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_validate)
 
-    p = sub.add_parser("selftest", help="run the coordinator unit tests")
+    p = sub.add_parser("selftest", help="run the coordinator unit and regression tests")
     p.set_defaults(func=cmd_selftest)
 
     return parser

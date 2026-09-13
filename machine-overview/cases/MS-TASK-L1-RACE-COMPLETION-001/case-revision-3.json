@@ -1,0 +1,60 @@
+{
+  "assumptions": [
+    "the fragment is the pinned R041 delay model, not general partiality",
+    "the deadline / business continuation are declared consumers of the same original activity",
+    "no physical-time or implementation claim is made"
+  ],
+  "candidate_ast": {
+    "grammar_id": "L1-DELAY-RACE-DEADLINE-v1",
+    "produced_by": null,
+    "status": "PENDING_SEARCH"
+  },
+  "case_id": "MS-TASK-L1-RACE-COMPLETION-001",
+  "claim_refs": [
+    "C-73",
+    "C-74",
+    "C-75",
+    "C-76"
+  ],
+  "created_at_utc": "2026-09-13T15:09:10.016191+00:00",
+  "grammar": {
+    "path": "machine-overview/grammars/l1-v1.json",
+    "sha256": "77b04fc6366555dbd1fc8a340c95c3c5a0f1d4a96a45b8bbce2956a8454ca986"
+  },
+  "immutability": "content changes require a new revision file; this file is never edited",
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "the separating consumer must be one of the declared consumers, not an oracle added after seeing a candidate",
+    "a calibration instance must not be upgraded into a new mathematical claim"
+  ],
+  "parent_revision": 2,
+  "profile": {
+    "path": "machine-overview/profiles/l1-partiality-v1.json",
+    "sha256": "5e60de51bc9cd5b7e636b37c049a2bacba989854ad7735f4202390941d10f57b"
+  },
+  "revision": 3,
+  "schema_version": "machine-overview-case/v1",
+  "source_pins": [
+    {
+      "path": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "sha256": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc"
+    },
+    {
+      "path": "machine-overview/formal/MVSupport.agda",
+      "sha256": "07ddec584dc7f820ce19fb31bee2feedd5aef27c1142f555db1c80d10947a85a"
+    }
+  ],
+  "state_axes": {
+    "execution": "queued",
+    "formal_legality": "unchecked",
+    "mathematical_evidence": "conjecture",
+    "reality_correspondence": "model_only",
+    "research_relation": "calibration",
+    "task_preservation": "unresolved"
+  },
+  "target_text_hash": null,
+  "task": {
+    "path": "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json",
+    "sha256": "635bd7897077edcf5c344657e4a13e1d0deaedb5dce217ac18c962fc28b2130f"
+  }
+}

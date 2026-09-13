@@ -1,6 +1,8 @@
 """Rebuildable query projection over cases, runs, reviews and reports.
 
 The index is derived data: the receipts remain the authoritative artifacts.
+Read commands never write the projection unless a rebuild is explicitly asked
+for (audit observation: `list`/`get`/`query` must not be described as writes).
 """
 from __future__ import annotations
 
@@ -9,7 +11,7 @@ from pathlib import Path
 from .util import read_json, sha256_file, utc_now, write_json
 
 
-def rebuild_index(repo_root: Path, root: Path) -> dict:
+def build_index(root: Path) -> dict:
     entries: list[dict] = []
     for case_file in sorted((root / "cases").glob("*/case-revision-*.json")):
         case = read_json(case_file)
@@ -26,6 +28,7 @@ def rebuild_index(repo_root: Path, root: Path) -> dict:
             "kind": run.get("kind", "run"),
             "id": run.get("run_id"),
             "case_id": run.get("case_id"),
+            "case_revision": run.get("case_revision"),
             "path": run_file.relative_to(root).as_posix(),
             "sha256": sha256_file(run_file),
             "status": run.get("status") or run.get("exit_reason"),
@@ -46,37 +49,49 @@ def rebuild_index(repo_root: Path, root: Path) -> dict:
             "path": report.relative_to(root).as_posix(),
             "sha256": sha256_file(report),
         })
-    index = {
+    return {
         "schema_version": "machine-overview-index/v1",
         "generated_at_utc": utc_now(),
         "entries": entries,
     }
+
+
+def rebuild_index(repo_root: Path, root: Path) -> dict:
+    index = build_index(root)
     write_json(root / "generated-index" / "index.json", index)
     return index
 
 
 def load_index(repo_root: Path, root: Path) -> dict:
     path = root / "generated-index" / "index.json"
-    if not path.is_file():
-        return rebuild_index(repo_root, root)
-    return read_json(path)
+    if path.is_file():
+        return read_json(path)
+    return build_index(root)
 
 
 def query(root: Path, *, kind: str | None = None, text: str | None = None) -> list[dict]:
-    index = load_index(root.parents[0], root)
+    index = _load_readonly(root)
     entries = index["entries"]
     if kind:
         entries = [entry for entry in entries if entry["kind"] == kind]
     if text:
         lowered = text.lower()
-        entries = [entry for entry in entries if lowered in str(entry.get("id", "")).lower()
+        entries = [entry for entry in entries
+                   if lowered in str(entry.get("id", "")).lower()
                    or lowered in entry["path"].lower()
                    or lowered in str(entry.get("case_id", "")).lower()]
     return entries
 
 
-def get(root: Path, identifier: str) -> dict:
-    for entry in load_index(root.parents[0], root)["entries"]:
-        if entry.get("id") == identifier:
-            return entry
-    return {"status": "NOT_FOUND", "id": identifier}
+def get(root: Path, identifier: str, *, revision: int | None = None) -> list[dict]:
+    entries = [entry for entry in _load_readonly(root)["entries"] if entry.get("id") == identifier]
+    if revision is not None:
+        entries = [entry for entry in entries if entry.get("revision") == revision]
+    return entries
+
+
+def _load_readonly(root: Path) -> dict:
+    path = root / "generated-index" / "index.json"
+    if path.is_file():
+        return read_json(path)
+    return build_index(root)
