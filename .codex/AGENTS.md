@@ -14,7 +14,8 @@ shard table、`last_shard` 与 `append_target`，再按任务读 owner/append sh
 事务中更新。300 行只是软目标，不是上限；当前已分片 `README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、
 `方向追踪.md`（5 片）、`全景视野.md`（8 片）——两个投影的大表按家族拆行分片、每片自带表头，身份字段
 （marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）留在索引；`核心认知.md`
-仍是三件套中唯一单文件。合同见 `docs/quality/长治理文档分片与索引合同.md`。
+仍是三件套中唯一单文件。每个索引前 15 行带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成`），
+由 `scripts/audit/verify_governance_shards.py` 机械检查。合同见 `docs/quality/长治理文档分片与索引合同.md`。
 
 核心 invariant：当前 generation 与 KC 分母从 `STATE.current_core`/manifest 动态取得；本轮 generation-4 的 36 个用户直接原文单元由 hash-pinned curation lineage+生成器管理，不手工改写；全部 record
 在 STATE 全文中可见，但只有 lifecycle 给予当前任务资格，evidence review 不得自动复活历史 Session。治理任务用

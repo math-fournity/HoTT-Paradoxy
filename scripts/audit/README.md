@@ -19,6 +19,7 @@
 
 - `validate_governance_shards.py`：pin 的共享 3.16.0 候选校验器副本（source commit `2e4e4d2`，source sha256 `fb75648…`）。不要在项目内手改；共享主库打 `governance-v3.16.0` 后从主库重新同步并更新 provenance 头。
 - `verify_governance_shards.py`：包装器，校验副本 sha256（漂移即 `VALIDATOR_PINNED_COPY_DRIFT` 并退出 1），执行 `--scan <repo>` 并输出 `governance-shard-verification/v1` receipt。
+- 同一包装器还在 `logical_document.banner_issues` 上执行**读取 banner 策略**：每个 canonical 索引前 15 行必须有 `> ⚠️ 逻辑文档索引：…全文 = 本索引 + …缺一片即未完成…`；缺失即 FAIL（checkpoint 副本不计入）。单测：`test_shard_index_banners.py`。
 - `shard_migrate_document.py`：一次性迁移工具，按标题边界把既有单文件拆成 v2 索引 + `NNN - 子主题.md` 分片，并输出标题/行对账（默认 dry-run；`--apply` 才写）。
 - `migrate_projection_shards.py`：投影专用迁移工具（`方向追踪.md`/`全景视野.md`）。与原文件头部（marker/状态字段）保留在索引、大表按家族拆成行分片、每片自带表头，并做"每行恰好消费一次 + 仅表头可重复"的对账；支持 `--emit-bundle`，供 MUTABLE 投影在 checkpoint payload 内落盘。
 - `projection_edit.py`：投影编辑 helper（`load`/`replace_in_index`/`replace_in_shard`/`append_to_shard`/`payload_rows`），供未来的 checkpoint 适配器把索引与全部分片放进同一 payload。

@@ -22,6 +22,11 @@ ROW_RE = re.compile(r"^\|\s*`?([A-Za-z0-9._-]+)`?\s*\|\s*\[([^]]+)\]\(([^)]+)\)\
 # Keep in step with the canonical validator's discovery window: a marker quoted
 # inside a documentation example must not turn the file into an index.
 INDEX_SCAN_LINES = 20
+# Reader banner: first-screen visible line so a careless AI cannot mistake the
+# index for the document body.  Machine-checked by verify_governance_shards.py.
+READER_BANNER_PREFIX = "> ⚠️ 逻辑文档索引："
+READER_BANNER_WINDOW = 15
+READER_BANNER_REQUIRED = ("全文 = 本索引 +", "缺一片即未完成")
 
 
 def parse_index(text: str, rel: str | None = None) -> dict | None:
@@ -112,3 +117,37 @@ def logical_text(root: Path, rel: str) -> str | None:
     if index["shard_root"] != stem:
         raise ValueError(f"SHARD_ROOT_MISMATCH:{rel}")
     return "".join(parts)
+
+
+def canonical_indexes(root: Path, *, skip_parts: tuple[str, ...] = (".git", "templates",
+                                                                   ".codex/cognition/checkpoints")) -> list[str]:
+    """Repo-relative canonical shard indexes (checkpoint receipts excluded)."""
+    found: list[str] = []
+    for path in sorted(root.resolve().rglob("*.md")):
+        rel = path.relative_to(root.resolve()).as_posix()
+        if any(part in rel.split("/") or part in rel for part in skip_parts):
+            continue
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()[:INDEX_SCAN_LINES]
+        except (OSError, UnicodeError):
+            continue
+        if any(line.strip() == INDEX_MARKER for line in lines):
+            found.append(rel)
+    return found
+
+
+def banner_issues(root: Path, indexes: list[str] | None = None) -> list[str]:
+    """Return issues for canonical indexes missing or mis-stating the reader banner."""
+    issues: list[str] = []
+    for rel in (indexes if indexes is not None else canonical_indexes(root)):
+        try:
+            window = (root / rel).read_text(encoding="utf-8").splitlines()[:READER_BANNER_WINDOW]
+        except (OSError, UnicodeError) as exc:
+            issues.append(f"READER_BANNER_UNREADABLE:{rel}:{exc}")
+            continue
+        line = next((item for item in window if item.startswith(READER_BANNER_PREFIX)), None)
+        if line is None:
+            issues.append(f"MISSING_READER_BANNER:{rel}")
+        elif any(token not in line for token in READER_BANNER_REQUIRED):
+            issues.append(f"INCOMPLETE_READER_BANNER:{rel}")
+    return issues

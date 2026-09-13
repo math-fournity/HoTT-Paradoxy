@@ -1,6 +1,6 @@
 {
   "schema_version": "cognition-load-set/v3",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "policy": "FULL_TRIO_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
   "default_profile": "governance",
   "always_full_three_way": [
@@ -95,6 +95,7 @@
     ],
     "triplet_note": "方向追踪.md and 全景视野.md are sharded but stay full-load: index + every shard is the logical document. 核心认知.md stays monolithic and is managed by the curation builder.",
     "table_projection_rule": "row shards repeat the table header (the only permitted duplication) and must reconcile line-exactly; marker/source_state_revision/projection_generation/semantic_status stay in the index",
+    "reader_banner_rule": "every canonical index must show '> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成' within its first 15 lines; enforced by scripts/audit/verify_governance_shards.py",
     "soft_line_target": 300,
     "soft_line_target_is_not_a_cap": true
   },

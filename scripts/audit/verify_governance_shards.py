@@ -17,6 +17,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import logical_document  # noqa: E402  (shared reader + reader-banner policy)
+
 ROOT = Path(__file__).resolve().parents[2]
 VALIDATOR = Path(__file__).resolve().parent / "validate_governance_shards.py"
 PINNED_VALIDATOR_SHA256 = "788dee0f376dcba2c9e0ba966560ad4862cbe2067465f3a584099640328de0fe"
@@ -56,17 +59,25 @@ def main(argv: list[str] | None = None) -> int:
     proc = subprocess.run(receipt["command"], capture_output=True, text=True, check=False)
     stdout = proc.stdout
     stderr = proc.stderr
+    indexes = logical_document.canonical_indexes(root)
+    banners = logical_document.banner_issues(root, indexes)
     receipt.update({
         "exit_code": proc.returncode,
         "stdout": stdout,
         "stderr": stderr,
-        "status": "PASS" if proc.returncode == 0 else "FAIL",
+        "status": "PASS" if (proc.returncode == 0 and not banners) else "FAIL",
         "indexes": _count(stdout, "indexes="),
         "soft_target_notices": _count(stdout, "notices="),
         "line_targets_blocking": False,
+        "canonical_indexes_checked": len(indexes),
+        "reader_banner_issues": banners,
     })
+    if banners:
+        print("FAIL: reader banner policy", file=sys.stderr)
+        for issue in banners:
+            print(f"FAIL: {issue}", file=sys.stderr)
     _emit(receipt, args.out)
-    return 0 if proc.returncode == 0 else 1
+    return 0 if (proc.returncode == 0 and not banners) else 1
 
 
 def _count(text: str, needle: str) -> int | None:
