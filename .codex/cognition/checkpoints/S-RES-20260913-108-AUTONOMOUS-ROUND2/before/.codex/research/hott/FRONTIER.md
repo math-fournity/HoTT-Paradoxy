@@ -67,8 +67,7 @@ S092 只更新 Git 可恢复性：17 个 current package 已绑定 `d3dfb0e…`�
 | 已闭合工作包 54 | C11 独立评审吸收与 v2 修订（S105） | `ABSORPTION_AND_INDEPENDENT_VERIFICATION`（5 主条 + 5 细节全部 ACCEPTED，一条附范围限定） | C11 v1→v2：接上 Theory Schema/C6、不变量降为非判据、六字段账本、补偿动作三分、四坐标分离、2×2 降为检查坐标、补时间结构与 B 方向、回溯结论降级；v1 由 Git 保存；见 `audit/c11评审吸收与独立核验-20260913.md` |
 | 已闭合工作包 55 | C11 v2 哈希再绑定（S106，corrective） | `HASH_REPIN_ONLY` | 补回 v2 误删的 univalence/SIP 行（#2b）；校验脚本行标签对齐 v2 行号；重建 merge manifest；重新绑定 16 条 record（C11 / 校验脚本 / 14 条 manifest pin）；五个 verifier 全 PASS；数学与队列不变 |
 | 已闭合工作包 56 | triage 批次 1–2 与自主构造第一轮（S107） | `TRIAGE_LINE_CLOSED_PRECISION_LIMIT_REACHED` / `DEGENERATION_TEST_FAILED_KNOWN_PACKAGE` | 线 A：两批 40 条实读全非候选（记录名/谓词名），队列 146→43 转附录；线 B：候选 #1（“加入义务”）逐步落在 C-142–C-148，退化测试判负；新筛选判据 = 新增义务可定位 + 不可满足 + 现实侧程序对理论识别不敏感；见 `audit/triage批次与自主构造第一轮-20260913.md` |
-| 已闭合工作包 57 | 自主构造第二轮：识别不敏感任务搜索（S108） | `INVARIANT_OBSTRUCTION_EMPTY_BY_CONSTRUCTION` | `UnlabeledTwoElement` 族 6 个观察量：命题值全部可完成，唯一不可完成的“统一选点”不是不敏感的；结构论证：不敏感 ⇒ 同余 ⇒ 消去器接受，故“不敏感 + 义务”为空集；见 `audit/自主构造第二轮-识别不敏感与相干义务-20260913.md` |
-| 第一工作包 | 自主构造第三轮：只在两轴上做有界检查 | active | (a) **表达/覆盖缺口**：任务的输出规格是否要求在理论里不存在/不可表达的对象（KC-000031/000035，现状 NOT_PROVEN，不启动新工作直到重新排队）；(b) **识别改变对象身份**：理论把两个现实上不同的对象识别为一，而任务的对象身份依赖该区别，且该区别**不可被“多带呈现”吸收**（否则只是解释冲突）。每轮一个有界检查并留失败位置 |
+| 第一工作包 | 自主构造第二轮：找“对理论识别不敏感、却在 HoTT 表达下不可完成”的任务 | active | 筛选判据（S107）：新增义务可定位 + 不可满足 + 现实侧程序在理论已识别层面上仍完成；先在同一族（C-142–C-148）上检查识别不变的观察量，再扩到商/截断/ua 替换族；线 A（词汇 triage）已关闭，仅在语义审计需要时重开 |
 | 战略自反深化 | ERCF-3 × W51/RP-B01 | blocked-on-natural-consumer-and-exact-calculus | 只有资格提升桥梁成立才构造 diagonal |
 | 对照支线 | guard/online causality、同函数异时、R034 | retained | 用于反驳过强外推与选择下一 consumer |
 
