@@ -17,7 +17,7 @@
 | `branch` | `codex/semantic-overview` |
 | `write_root` | `/Volumes/D/HoTT-semantic-overview` |
 | `base_oid` | `a22f41ecf5c3becdd192383ff6cdbc846982813b` |
-| `candidate_content_oid` | `214b15dcca4be0562c37aa536fe9eb5ace3a7365` |
+| `candidate_content_oid` | `753c68617296bb02e8b1d881e05be26053a3a6e2` |
 | `canonical_target` | `/Volumes/D/HoTT_AI_HANDOFF_20260911`；branch `main` |
 | `target_oid_observed` | `2bbf5c873dfa3ac1d512955301b163b2b6f311b0`；tracked tree 与 base `a22f41e…` 相同 |
 | `machine_lane_oid_observed` | `1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5`；观察时该 worktree 另有未提交 M2–M6 候选工作，不属于本分支输入 |
@@ -82,6 +82,7 @@ manifests 与 verifiers、相关 evidence locators、STATE/MEMORY/方向/全景/
 | `SEM-B04`：precategory reflection solver 的证明生成与拒绝边界 | `REFLECTION_SOLVER_GENERATES_CHECKED_PROOF_TERM / FALSE_AND_MALFORMED_GOALS_REJECTED / DECLARE_POSTULATE_NOT_USED / DEFENSE_WORKS_WITH_SCOPE` | content commit `d6e119a35993211413f16a3083ad4b9fd3e6c5bd`；`semantic-overview/research/SEM-B04-precategory-reflection-solver-audit.md` |
 | `SEM-B05`：显式 reflection 公理引入与 safe-mode 边界 | `EXPLICIT_REFLECTION_POSTULATE_EXTENDS_THEORY_IN_DEFAULT_MODE / SAFE_MODE_REJECTS_THE_POSTULATE / SAFE_ORDINARY_REFLECTION_ACCEPTED / CONTROLLED_CAPABILITY_BOUNDARY_OBSERVED` | content commit `ac8c33a45d6084cb63acb883ce116d053227b513`；`semantic-overview/research/SEM-B05-reflection-postulate-safe-boundary.md` |
 | `GOV-WORKTREE-PORTABILITY`：ignored evidence islands 迁移与治理修复 | `VERIFIED_WITH_SCOPE_ON_EXACT_COMMIT_FRESH_WORKTREE / CANDIDATE_NOT_INTEGRATED` | source `80da06e…`；static `d58dbfd…`；implementation checkpoint `802e4f8…`；acceptance `a8e948d…`；final checkpoint `214b15d…`；`audit/Git-worktree证据可移植性修复与验收-20260913.md` |
+| `SEM-B06`：Cubical CommRingSolver 的 production natural consumer | `NATURAL_LIBRARY_CONSUMER_FOUND / TYPECHECKING_PROMISE_MET_WITH_SCOPE / FALSE_AND_MALFORMED_GOALS_REJECTED / NO_RUNTIME_DELIVERY_CLAIM` | content commit `753c68617296bb02e8b1d881e05be26053a3a6e2`；`semantic-overview/research/SEM-B06-comm-ring-solver-natural-consumer-audit.md` |
 
 `SEM-B01` 的当前结果是：
 
@@ -112,6 +113,14 @@ manifests 与 verifiers、相关 evidence locators、STATE/MEMORY/方向/全景/
 `[SafeFlagPostulate]` 拒绝。另一个只提交 `refl` 的 safe reflection 宏通过，无公理直接证明
 `true ≡ false` 则被 `[UnequalTerms]` 拒绝。结果说明默认成功来自显式理论扩展，safe 防线
 针对该公理引入生效；它不构成 kernel 不一致，也不改变 B04 solver 零调用的事实。
+
+`SEM-B06` 找到 B04 缺少的强自然消费者：固定 Cubical v0.9 中 29 个 production modules
+共 200 次使用 `CommRingSolver.solve!`；全分母为 32 files / 229 occurrences。选定的
+`Cubical.Algebra.CommRing.Localisation.Base` 有 13 次调用，实际承担局部化关系传递、商运算
+良定义和环结构证明。solver 与该 consumer 分别以 176/178 个 actual checking sources fresh
+通过；本地交换环恒等式通过，任意 `x ≡ y` 和非等式 goal 分别被
+`[UnequalTerms]`/`[GenericDocError]` 拒绝。结论是 `E6a=YES_STRONG`，而其 typechecking 交付承诺
+在范围内兑现；没有 runtime/现实承诺，所以 `E6c` 仍未建立。
 
 ## 验证与认知快照
 
@@ -146,6 +155,11 @@ manifests 与 verifiers、相关 evidence locators、STATE/MEMORY/方向/全景/
 - final checkpoint `214b15d…` 又在第二个全新 detached worktree 正向复核：revision 131、
   36 KC、31 directions、111 outcomes、understanding 36/24、5 task plans、6/6 verifier 全 PASS；
   worktree clean 后删除。
+- B06 run `20260913-SEM-B06-COMMRING-NATURAL-CONSUMER-001-01`：6/6 步符合冻结判据；
+  solver/consumer fresh closure 为 176/178，188 个唯一 manifest files 全部重哈希一致；
+  fixed-tree usage inventory 为 32/229，其中 production 29/200，selected consumer 13 uses；
+  solver `declarePostulate=0`，固定 Cubical tree `COMPILE GHC/JS=0`、`main : IO=0`。
+- B06 runner 重复调用 exit `2`，不会覆盖既有 run；36/36 KC audit 顺序与计数通过。
 
 ## 失败、冲突与未知
 
@@ -163,10 +177,11 @@ manifests 与 verifiers、相关 evidence locators、STATE/MEMORY/方向/全景/
 
 ## 下一动作
 
-`SEM-B01`–`SEM-B05` 均已达到各自停止条件，reflection primitive 枚举在此停止。下一单元
-回到人工语义主线：只选择具有固定版本、自然 consumer 和明确交付承诺的一个新机制，先核
-承诺所在阶段，再判断是否存在理论资格提升。该单元不建设 task grammar、registry、case
-evaluator、verifier 或跨层调度；这些属于 machine-overview lane。
+`SEM-B01`–`SEM-B06` 均已达到各自停止条件。B06 已证明“自然 consumer 存在”本身不足以形成
+失配：还要比较承诺阶段。下一单元不再枚举同一 ring solver 的其它 28 个 production files；
+应寻找一个固定版本应用，它明确把理论/证明结果承诺为更强的编译后、资源、服务或现实交付，
+然后核同一任务基线。找不到时登记 consumer-source gap，不用人工 demo 代替。该单元仍不建设
+machine-overview 的 grammar/registry/evaluator/verifier。
 
 ## 集成候选
 
@@ -187,5 +202,8 @@ evaluator、verifier 或跨层调度；这些属于 machine-overview lane。
    允许普通 proof-term reflection；不得把 API 能力归因给未调用它的 solver。
 10. 保持 lane 分工：本分支提供人工语义判例与自然 consumer 证据，machine-overview 分支
     负责自动化统观基础设施；概念交集不转化为共同路径或重复实现。
+11. 将 B06 作为 `NATURAL_CONSUMER + DEFENSE_WORKS` 强校准：29 production files/200 uses
+    证明自然消费，localisation fresh run 证明真实接入；承诺阶段仍为 typechecking，故不能仅凭
+    使用广泛升级为 runtime/现实失配。
 
 以上均未提交集成，也不是项目 current truth。
