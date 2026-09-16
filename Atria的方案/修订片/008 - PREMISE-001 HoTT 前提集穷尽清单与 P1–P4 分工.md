@@ -124,7 +124,7 @@ OMISSION_SHAPE
 
 ```text
 SUPPLY_REGISTRATION（PREMISE-001 适用版）
-  / strategy: S1–S5 之一（必填）
+  / strategy: S1–S6 之一（必填）
   / kc_anchor: 驱动它的用户原文 KC 编号（必填）
   / premise_id: PREMISE-<类别字母>-<序号>，如 PREMISE-C-03
   / omission_shape: §4 的至少一项
