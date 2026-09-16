@@ -1,0 +1,21 @@
+{
+  "label": "cost-refl",
+  "input_source": "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+  "original_sha256": "d6ac0ecb7b0824f396e94aec1cb246b04df31ef7f90320767d54a5f33b2527ea",
+  "changed_sha256": "c0c47e9158c821bc1bf68a936df6b882487207385a40278b750c8ca0beee188c",
+  "change": "Replace both funExt applications with refl in isolated copy only",
+  "command": [
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--no-libraries",
+    "-i",
+    "/Volumes/D/HoTT-toolchain-cache/astra-proof-audit-ovuz65r2/cubical",
+    "-i",
+    "/Volumes/D/HoTT-toolchain-cache/astra-proof-audit-ovuz65r2/cost",
+    "/Volumes/D/HoTT-toolchain-cache/astra-proof-audit-ovuz65r2/cost/CostFactorization.agda"
+  ],
+  "exit_code": 42,
+  "stdout_sha256": "74b7f099c562d5251ce7a7cab63884a9001bbc951306e84e49adaadd2d39fe98",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "LOCAL_ABLATION_OBSERVATION; not a theorem about every cost model or every HoTT calculus"
+}

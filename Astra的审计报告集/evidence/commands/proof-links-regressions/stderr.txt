@@ -1,0 +1,33 @@
+FF......F
+======================================================================
+FAIL: test_claim_count_mismatch_is_rejected (__main__.ProofEvidenceLinkTests.test_claim_count_mismatch_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/D/HoTT_AI_HANDOFF_20260911/scripts/audit/test_proof_evidence_links.py", line 169, in test_claim_count_mismatch_is_rejected
+    self.assertIn("LATER_CLAIM_COUNT_MISMATCH", result.stdout)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'LATER_CLAIM_COUNT_MISMATCH' not found in '{"status": "BLOCKED", "error": "GIT_FAILED:ls-files --error-unmatch HoTT/formal/cubical-machine-halting/MachineHalting.agda:error: pathspec \'HoTT/formal/cubical-machine-halting/MachineHalting.agda\' did not match any file(s) known to git\\nDid you forget to \'git add\'?"}\n'
+
+======================================================================
+FAIL: test_current_registry_passes (__main__.ProofEvidenceLinkTests.test_current_registry_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/D/HoTT_AI_HANDOFF_20260911/scripts/audit/test_proof_evidence_links.py", line 102, in test_current_registry_passes
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : {"status": "BLOCKED", "error": "GIT_FAILED:ls-files --error-unmatch HoTT/formal/cubical-machine-halting/MachineHalting.agda:error: pathspec 'HoTT/formal/cubical-machine-halting/MachineHalting.agda' did not match any file(s) known to git\nDid you forget to 'git add'?"}
+
+
+======================================================================
+FAIL: test_swapped_run_references_are_rejected (__main__.ProofEvidenceLinkTests.test_swapped_run_references_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/D/HoTT_AI_HANDOFF_20260911/scripts/audit/test_proof_evidence_links.py", line 117, in test_swapped_run_references_are_rejected
+    self.assertIn("LATER_RUN_PROOF_ID_MISMATCH", result.stdout)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'LATER_RUN_PROOF_ID_MISMATCH' not found in '{"status": "BLOCKED", "error": "GIT_FAILED:ls-files --error-unmatch HoTT/formal/cubical-machine-halting/MachineHalting.agda:error: pathspec \'HoTT/formal/cubical-machine-halting/MachineHalting.agda\' did not match any file(s) known to git\\nDid you forget to \'git add\'?"}\n'
+
+----------------------------------------------------------------------
+Ran 9 tests in 10.868s
+
+FAILED (failures=3)
