@@ -3,25 +3,26 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-4",
-        "path": "scripts/audit/core-cognition-curation-v4.json",
-        "sha256": "35f7efde0c97e33f696e3082cb7768a7a809ebbc3e639fdf811e70a925436859"
-      },
-      {
         "generation": "core-cognition-generation-5",
         "path": "scripts/audit/core-cognition-curation-v5.json",
         "sha256": "8c12018ba36702d83a0e1a2f6ddb889faa47428faba042842ad8ecbab28cd33e"
+      },
+      {
+        "generation": "core-cognition-generation-6",
+        "path": "scripts/audit/core-cognition-curation-v6.json",
+        "sha256": "83649f5211940d7edd597b0e4d2e54808869903c50f61cd6d6225a11e4ee63b4"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 90,
+    "primary_denominator": 91,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
       "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md",
       "sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md",
-      "sources/prompts/Codex-知识谱自反与第三条发现路径-用户原文-20260916.md"
+      "sources/prompts/Codex-知识谱自反与第三条发现路径-用户原文-20260916.md",
+      "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -29,9 +30,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "c8554d3180a87b497eb30813d3d7e61636d2f713c65a3f26fc209e172310da57",
+  "core_document_sha256": "4399abd894db825164be3f1c6c0a510abab2512dd13b9952ede38a4823e07a8b",
   "counts": {
-    "core_units": 40,
+    "core_units": 43,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -39,21 +40,21 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 25
+      "INCLUDED": 26
     },
     "messages_excluded": 65,
-    "messages_included": 25,
-    "messages_parsed": 90,
-    "primary_files": 5,
+    "messages_included": 26,
+    "messages_parsed": 91,
+    "primary_files": 6,
     "units_by_platform": {
-      "Codex": 13,
+      "Codex": 16,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v5.json",
-  "curation_sha256": "8c12018ba36702d83a0e1a2f6ddb889faa47428faba042842ad8ecbab28cd33e",
+  "curation_authority": "scripts/audit/core-cognition-curation-v6.json",
+  "curation_sha256": "83649f5211940d7edd597b0e4d2e54808869903c50f61cd6d6225a11e4ee63b4",
   "files": [
     {
       "bytes": 8124,
@@ -99,9 +100,18 @@
       "path": "sources/prompts/Codex-知识谱自反与第三条发现路径-用户原文-20260916.md",
       "platform": "Codex",
       "sha256": "f26ef9b383e965a90d624ca0289b2179d1494767f9a746a320de349edfde093a"
+    },
+    {
+      "bytes": 731,
+      "input_role": "primary",
+      "lines": 14,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
+      "platform": "Codex",
+      "sha256": "bc5b43837fccff4474324d079393c09328d941adaaa3edbcfe8a36eeff520e13"
     }
   ],
-  "generation": "core-cognition-generation-5",
+  "generation": "core-cognition-generation-6",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -1722,9 +1732,27 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-09-16T05:02:34+00:00",
       "unit_count": 4
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户直接提出关于AI数学的方法论思想：用好AI与超越AI是两件事，第一件事上AI模型给的助力有多大，第二件事上就会遇到多大的阻力，二者一体两面，在超越这件事上表现为认知惯性与路径依赖。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；用户自述该段发布于个人推特、此前只告知人类同行，此背景记入 provenance，不作为被删减的正文。",
+      "input_role": "primary",
+      "message_text_bytes": 361,
+      "message_text_sha256": "72a30379db31df2abe9832e8aa500d1c1386f381226c0dd6a2247f9f96e2e068",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
+      "source_file_sha256": "bc5b43837fccff4474324d079393c09328d941adaaa3edbcfe8a36eeff520e13",
+      "source_header_line": 6,
+      "source_message_id": "CODEX-AI-MATH-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-09-16T08:59:37Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T08:59:37+00:00",
+      "unit_count": 3
     }
   ],
-  "previous_generation_ref": "governance-v4.0.0",
+  "previous_generation_ref": "5d62945",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -3072,6 +3100,101 @@
       "timestamp_utc": "2026-09-16T05:02:34+00:00",
       "unit_bytes": 321,
       "unit_sha256": "01ae2d394cb7584dad5d207704694ea197d6a0a9663ef2c5b4f2949baccd1a00"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000041",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户直接提出关于AI数学的方法论思想：用好AI与超越AI是两件事，第一件事上AI模型给的助力有多大，第二件事上就会遇到多大的阻力，二者一体两面，在超越这件事上表现为认知惯性与路径依赖。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；用户自述该段发布于个人推特、此前只告知人类同行，此背景记入 provenance，不作为被删减的正文。",
+      "selector": {
+        "end_after": "都需要持续的探索和努力。",
+        "source_line_end": 10,
+        "source_line_start": 8,
+        "start_at": "在AI数学上我们会做两件事"
+      },
+      "semantic_label": "AI数学的两件事：用好AI与超越AI，都需要持续探索和努力",
+      "source_file": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
+      "source_locator": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md#L8-L10",
+      "source_message_id": "CODEX-AI-MATH-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "72a30379db31df2abe9832e8aa500d1c1386f381226c0dd6a2247f9f96e2e068",
+      "source_sha256": "bc5b43837fccff4474324d079393c09328d941adaaa3edbcfe8a36eeff520e13",
+      "themes": [
+        "RESEARCH_METHOD"
+      ],
+      "timestamp_original": "2026-09-16T08:59:37Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T08:59:37+00:00",
+      "unit_bytes": 118,
+      "unit_sha256": "fe1bfc3be25afadab6b1306be44edcff8c25064f92119942e2343699df5c4d4c"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000042",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Codex",
+      "relations": [
+        {
+          "target": "KC-000041",
+          "type": "same_source_message"
+        }
+      ],
+      "selection_reason": "用户直接提出关于AI数学的方法论思想：用好AI与超越AI是两件事，第一件事上AI模型给的助力有多大，第二件事上就会遇到多大的阻力，二者一体两面，在超越这件事上表现为认知惯性与路径依赖。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；用户自述该段发布于个人推特、此前只告知人类同行，此背景记入 provenance，不作为被删减的正文。",
+      "selector": {
+        "end_after": "多么大的阻力。",
+        "source_line_end": 12,
+        "source_line_start": 12,
+        "start_at": "你会发现"
+      },
+      "semantic_label": "第一件事上AI给的助力有多大，第二件事上的阻力就有多大",
+      "source_file": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
+      "source_locator": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md#L12-L12",
+      "source_message_id": "CODEX-AI-MATH-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "72a30379db31df2abe9832e8aa500d1c1386f381226c0dd6a2247f9f96e2e068",
+      "source_sha256": "bc5b43837fccff4474324d079393c09328d941adaaa3edbcfe8a36eeff520e13",
+      "themes": [],
+      "timestamp_original": "2026-09-16T08:59:37Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T08:59:37+00:00",
+      "unit_bytes": 131,
+      "unit_sha256": "75e00454e867d32cdeb57b85ed736562b9dd8ea5f3634162964a269b0dd0576c"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000043",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Codex",
+      "relations": [
+        {
+          "target": "KC-000042",
+          "type": "same_source_message"
+        }
+      ],
+      "selection_reason": "用户直接提出关于AI数学的方法论思想：用好AI与超越AI是两件事，第一件事上AI模型给的助力有多大，第二件事上就会遇到多大的阻力，二者一体两面，在超越这件事上表现为认知惯性与路径依赖。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；用户自述该段发布于个人推特、此前只告知人类同行，此背景记入 provenance，不作为被删减的正文。",
+      "selector": {
+        "end_after": "认知惯性、路径依赖。",
+        "source_line_end": 14,
+        "source_line_start": 14,
+        "start_at": "那是些一体两面的东西"
+      },
+      "semantic_label": "助力与阻力一体两面，在超越这件事上变成认知惯性与路径依赖",
+      "source_file": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
+      "source_locator": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md#L14-L14",
+      "source_message_id": "CODEX-AI-MATH-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "72a30379db31df2abe9832e8aa500d1c1386f381226c0dd6a2247f9f96e2e068",
+      "source_sha256": "bc5b43837fccff4474324d079393c09328d941adaaa3edbcfe8a36eeff520e13",
+      "themes": [
+        "ANTI_TRAINING_PRIOR"
+      ],
+      "timestamp_original": "2026-09-16T08:59:37Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T08:59:37+00:00",
+      "unit_bytes": 108,
+      "unit_sha256": "763fc4d65a7d0c701d47e5e7170a21048d181048232d26586fc5cbd519444fb2"
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260916-153-CORE-GENERATION-6",
+  "session_kind": "GOVERNANCE_CORE_GENERATION",
+  "checkpoint_result": null,
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "run_id": "20260916-CORE-GENERATION-6-BUILD-01",
+      "tool": "scripts/audit/build_core_cognition.py",
+      "command": "build_core_cognition.py --curation scripts/audit/core-cognition-curation-v6.json --transition-output audit/core-cognition-generation-6-transition-20260916.json --transition-from-ref 5d62945 --write",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=40 / remainder=0",
+      "generation": "core-cognition-generation-5 -> core-cognition-generation-6",
+      "kc_count": "40 -> 43"
+    },
+    {
+      "run_id": "20260916-CORE-GENERATION-6-SHARD-VERIFY-01",
+      "tool": "scripts/audit/verify_governance_shards.py",
+      "command": "verify_governance_shards.py",
+      "status": "PASS (canonical_indexes_checked=17)",
+      "generation": "essay index +7 shards, H1/title/filename consistency enforced"
+    }
+  ],
+  "next": [
+    "R4-HOTT-NAT-EFFECTIVITY-001"
+  ],
+  "note": "No formal math runs this session; this session records user 2026-09-16 'AI mathematics two tasks' cognition into the four-piece set. No mathematical claim was delivered."
+}
