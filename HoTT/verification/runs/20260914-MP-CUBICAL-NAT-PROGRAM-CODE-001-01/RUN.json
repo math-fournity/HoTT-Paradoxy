@@ -1,0 +1,70 @@
+{
+  "claim_ids": [
+    "C-195",
+    "C-196",
+    "C-197",
+    "C-198"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-machine-halting",
+    "HoTT/formal/cubical-machine-halting/NatProgramCode.agda"
+  ],
+  "completed_at_utc": "2026-09-14T16:42:08.001987+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 19.056645,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "c5515990b1cd3d4a998a76dfca8d7d90cf5e1843d374935ecb4dd75f9dd086f1"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不主张已经构造 (program,input,fuel) 的公平或无饥饿枚举。",
+    "不主张当前双计数器语言具有通用计算能力或其停机问题已经证明不可判定。",
+    "不构造 s-m-n、Kleene 递归定理、Gödel/Rosser/Löb 句或 exact HoTT calculus 不完备性。",
+    "不主张该编码结论依赖 HoTT 特有结构，也不建立 natural consumer 或现实同任务桥梁。",
+    "不主张 HoTT 或 Cubical Agda 内部矛盾。"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-NAT-PROGRAM-CODE-001",
+  "run_id": "20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "R2-NATCODE-001：为 Instr 与有限 ProgramCode 给出自然数编码和总 decoder，固定非法码默认语义，证明合法像上的往返、单射与 decoder 覆盖，并证明数值 bounded evaluator 在编码像上与 R2 runFor/finalAt/haltsWithin 一致及 halt/loop controls（C-195–C-198）。",
+  "source_manifest": {
+    "bytes": 3087,
+    "path": "source-manifest.json",
+    "sha256": "626715d7cd531282bf67b5e6a774a1cd3e06f63c3f60023b3b5bfb52ec2897ea"
+  },
+  "started_at_utc": "2026-09-14T16:41:48.945342+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9930,
+    "path": "stdout.txt",
+    "sha256": "886e7fd372107a6ea97302b705a3a8030401c1a8224c35d915c1414e723f794c"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

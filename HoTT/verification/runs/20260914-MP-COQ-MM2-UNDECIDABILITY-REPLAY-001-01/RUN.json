@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "C-208"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "python3",
+    "-B",
+    "scripts/audit/replay_coq_mm2_undec.py"
+  ],
+  "completed_at_utc": "2026-09-14T17:56:43.760631+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 146.254897,
+  "environment": {
+    "bytes": 555,
+    "path": "environment.txt",
+    "sha256": "c5503f7144e6fd173add29a27b2076aa9ac1ab734c5d61304f84a3c9d0c17aba"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "ae727f2665d8fa476ef57e035a5b6349d766014989fb69e517111e0993e5defe"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "The upstream theorem is not an unconditional proof of not-decidable in pure constructive type theory; undecidable is the library's synthetic implication.",
+    "This run does not yet prove the compiler bridge from upstream MM2 to the project's Cubical Agda ProgramCode.",
+    "It does not establish exact HoTT incompleteness, HoTT essentiality, a natural consumer, a reality bridge or a contradiction in HoTT."
+  ],
+  "proof_assistant": "Coq",
+  "proof_assistant_version": "The Coq Proof Assistant, version 8.15.2; compiled with OCaml 4.07.1",
+  "proof_id": "MP-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+  "run_id": "20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay upstream coq-library-undecidability@c486697 MM2_HALTING_undec and print its assumptions: under the library definition, decidability of MM2_HALTING implies enumerability of complement SBTM_HALT (C-208).",
+  "source_manifest": {
+    "bytes": 5176,
+    "path": "source-manifest.json",
+    "sha256": "6c18d7be5ef2e8538946f189cbcf6cb0a92e4a9add3f5daeca0cdb0ce7c1de89"
+  },
+  "started_at_utc": "2026-09-14T17:54:17.505734+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 264,
+    "path": "stderr.txt",
+    "sha256": "502e77122d29e7b9d2b8e8c87d21a5e8a7d81d5fbf45d1c1024eddfe838e97c7"
+  },
+  "stdout": {
+    "bytes": 5967,
+    "path": "stdout.txt",
+    "sha256": "d5c3497f5989bb89a9112080122aee102c9213953099b9e0f3b8a61e3b28407b"
+  },
+  "theory_variant": "Coq 8.15.2 Calculus of Inductive Constructions; external library theorem replay"
+}

@@ -1,0 +1,22 @@
+FROM --platform=linux/amd64 haskell:8.2.2
+
+COPY cabal-install-2.4.1.0-x86_64-unknown-linux.tar.xz cabal.config.replay /tmp/
+RUN tar -xJf /tmp/cabal-install-2.4.1.0-x86_64-unknown-linux.tar.xz -C /usr/local/bin cabal \
+ && chmod 0755 /usr/local/bin/cabal \
+ && mkdir -p /root/.cabal \
+ && cp /tmp/cabal.config.replay /root/.cabal/config \
+ && /usr/local/bin/cabal --version \
+ && /usr/local/bin/cabal update
+
+WORKDIR /opt/agda-flat-src
+COPY Agda.cabal Setup.hs ./
+RUN /usr/local/bin/cabal v1-install --only-dependencies \
+ && /usr/local/bin/cabal v1-install alex-3.2.7.1 happy-1.19.12 cpphs-1.20.9.1
+
+COPY . .
+RUN /usr/local/bin/cabal v1-configure --prefix=/opt/agda-flat \
+ && /usr/local/bin/cabal v1-build \
+ && /usr/local/bin/cabal v1-copy \
+ && /opt/agda-flat/bin/agda --version
+
+ENV PATH="/opt/agda-flat/bin:${PATH}"

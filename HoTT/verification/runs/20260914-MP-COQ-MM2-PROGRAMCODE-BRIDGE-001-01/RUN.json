@@ -1,0 +1,61 @@
+{
+  "claim_ids": [
+    "C-214",
+    "C-215",
+    "C-216",
+    "C-217",
+    "C-218"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "python3",
+    "-B",
+    "scripts/audit/replay_coq_mm2_programcode_bridge.py"
+  ],
+  "completed_at_utc": "2026-09-14T18:35:15.881745+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 138.440501,
+  "environment": {
+    "bytes": 591,
+    "path": "environment.txt",
+    "sha256": "fc6ad23b5965146212bee3aa7abcfbd6ab30c2371c8fff5635928cf43f56c3d0"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "c49a53c709647383b6eaaa35e4d67167d6a74c0e53d646d94a6ca1afd67cbbad"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "undecidable remains the upstream synthetic implication and is not unconditional internal not-decidable.",
+    "The run does not make the Coq target and Cubical Agda ProgramCode definitionally or kernel-identical.",
+    "It does not prove CT/EPF, s-m-n, Goedel/Rosser/Lob, exact HoTT incompleteness, HoTT essentiality, a natural consumer, a reality bridge or HoTT inconsistency."
+  ],
+  "proof_assistant": "Coq",
+  "proof_assistant_version": "The Coq Proof Assistant, version 8.15.2; compiled with OCaml 4.07.1",
+  "proof_id": "MP-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+  "run_id": "20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C-214–C-218: define the explicit ProgramCode target in Coq; prove relational MM2 termination iff functional bounded finality; prove compiler lookup/step/run/halting preservation; construct MM2_HALTING many-one reduction and derive PC_HALTING synthetic undecidability with no added assumptions.",
+  "source_manifest": {
+    "bytes": 5045,
+    "path": "source-manifest.json",
+    "sha256": "5fa5c9c152567c40a3a30c49d8affd7c4e3b86b97ecff0e6e00ed7d4cf540892"
+  },
+  "started_at_utc": "2026-09-14T18:32:57.441244+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 264,
+    "path": "stderr.txt",
+    "sha256": "502e77122d29e7b9d2b8e8c87d21a5e8a7d81d5fbf45d1c1024eddfe838e97c7"
+  },
+  "stdout": {
+    "bytes": 5998,
+    "path": "stdout.txt",
+    "sha256": "01caffc675f6a30e5022945f27ab1204e4287534bd6120073f2ed6bc0c0df9c4"
+  },
+  "theory_variant": "Coq 8.15.2 CIC; upstream relational MM2 and same-kernel explicit ProgramCode target"
+}

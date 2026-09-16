@@ -1,0 +1,62 @@
+{
+  "claim_ids": [
+    "C-219",
+    "C-220",
+    "C-221",
+    "C-222"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "python3",
+    "-B",
+    "scripts/audit/replay_coq_parametric_ct_internal_undec.py"
+  ],
+  "completed_at_utc": "2026-09-14T20:01:16.549626+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 19.461373,
+  "environment": {
+    "bytes": 648,
+    "path": "environment.txt",
+    "sha256": "9ab2fed83202209e6c15f4c0b1ebfe8fa5f7758de526ed0e376c39df700ad27f"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "d6eb0118d2bc0c363744f0a56183b7431ad12330c029fb58bc6aa3cb313e4150"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "This run does not prove EPF_bool or SCT in ambient HoTT; they remain explicit premises.",
+    "It does not establish an unconditional no-decider theorem for the project's ProgramCode or any exact HoTT calculus.",
+    "It does not use univalence, Path, HIT or modality and therefore does not establish HoTT essentiality.",
+    "It does not establish a natural consumer, a same-task reality bridge, Goedel incompleteness or a contradiction in HoTT.",
+    "The pinned upstream tree contains no license file; no redistribution permission is inferred."
+  ],
+  "proof_assistant": "Coq",
+  "proof_assistant_version": "The Coq Proof Assistant, version 8.13.2; compiled with OCaml 4.07.1",
+  "proof_id": "MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+  "run_id": "20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay EPF_SCT_halting, K_nat_bool_undec and K_nat_undec from coq-synthetic-computability@b9523cb. The conclusions are internal negations under the explicit sum premise EPF_bool + SCT; Print Assumptions must report Closed under the global context for all three.",
+  "source_manifest": {
+    "bytes": 3196,
+    "path": "source-manifest.json",
+    "sha256": "bb63262f41be82a897e5b7b953e58bdabcff4fd5868c3ac47e43b261c6f8c960"
+  },
+  "started_at_utc": "2026-09-14T20:00:57.088253+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 9421,
+    "path": "stderr.txt",
+    "sha256": "072c7136da6f53251b16b0ebf6e608ee093f2f9df9b7cb11a02706da8b099ad9"
+  },
+  "stdout": {
+    "bytes": 4855,
+    "path": "stdout.txt",
+    "sha256": "caf13bb3ffbb840a9ce55f33502acb7e215d6b2a12bf8d18d00d94caea81a82e"
+  },
+  "theory_variant": "Coq 8.13.2 Calculus of Inductive Constructions; external Parametric CT theorem replay"
+}

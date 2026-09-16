@@ -1,0 +1,16 @@
+{
+  "architecture": "amd64",
+  "base_image": "coqorg/coq:8.13.2@sha256:1f69b9224f068d408e6be7a3f536f67395d00c3497b97bdb99ee2d2c4c91954c",
+  "coq_version": "8.13.2",
+  "image_id": "sha256:7e35dbfedcb7281c00420071437fce8316345ab006b1699cd0926f525a669df8",
+  "image_tag": "hott-parametric-ct:coq-8.13.2-target-deps",
+  "ocaml_version": "4.07.1",
+  "os": "linux",
+  "platform_argument": "linux/amd64",
+  "required_target_packages": [
+    "coq-equations.1.2.3+8.13",
+    "coq-stdpp.1.5.0"
+  ],
+  "schema_version": "coq-parametric-ct-docker-image/v1",
+  "scope": "Exact local image used to compile the transitive source closure of Axioms/halting.vo and replay CheckInternalUndec.v. MetaCoq and Smpl are outside this target closure."
+}

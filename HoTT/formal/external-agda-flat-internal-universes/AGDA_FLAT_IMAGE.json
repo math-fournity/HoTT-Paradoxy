@@ -1,0 +1,45 @@
+{
+  "schema_version": "hott-agda-flat-toolchain/v1",
+  "platform": "linux/amd64",
+  "agda_version": "Agda version 2.6.0.1-70899fb",
+  "image": {
+    "tag": "hott-agda-flat:2.6.0.1-70899fb-clean",
+    "id": "sha256:962e9917a8cd6bbd5cb80bf296aeace0584eecc26f912ceca2ee6095d303bafe",
+    "repo_digest": "hott-agda-flat@sha256:962e9917a8cd6bbd5cb80bf296aeace0584eecc26f912ceca2ee6095d303bafe",
+    "size_bytes": 502055470
+  },
+  "base_image": {
+    "reference": "haskell:8.2.2",
+    "digest": "sha256:cc90210b77dd67c530a0ce830583a8d038b47e607a63e56a0e68402c4317fdb6",
+    "size_bytes": 286989705
+  },
+  "agda_flat_source": {
+    "repository": "https://github.com/agda/agda.git",
+    "branch": "flat",
+    "commit": "70899fb7dfd9f86dc10331798a182382801b8856",
+    "git_tree": "0e9f88027638b1ac7ac0a16263f6c3628c9042fc",
+    "archive_path": "/Volumes/D/HoTT-literature-cache/agda-flat-70899fb-source.tar.gz",
+    "archive_bytes": 3100783,
+    "archive_sha256": "a067719449ec0ce79bf72077a4bbc721771ee8dcaae3f8386ded5ed30b37a70c"
+  },
+  "cabal_install": {
+    "version": "2.4.1.0",
+    "url": "https://downloads.haskell.org/~cabal/cabal-install-2.4.1.0/cabal-install-2.4.1.0-x86_64-unknown-linux.tar.xz",
+    "archive_path": "/Volumes/D/HoTT-literature-cache/agda-flat-70899fb/cabal-install-2.4.1.0-x86_64-unknown-linux.tar.xz",
+    "archive_bytes": 4122600,
+    "archive_sha256": "6136c189ffccaa39916f9cb5788f757166444a2d0c473b987856a79ecbf0c714"
+  },
+  "recipe": {
+    "dockerfile": "HoTT/formal/external-agda-flat-internal-universes/Dockerfile.agda-flat",
+    "dockerfile_sha256": "aa4bf6fa34144455702bf3d97aa6a06cc486fa01bc1e19e45d6ba5233f24b41c",
+    "cabal_config": "HoTT/formal/external-agda-flat-internal-universes/cabal.config.replay",
+    "cabal_config_sha256": "af0c8347eb5d8197838bd7018b7fc8a102cab9fc11aa1808b3dbeb8cd8ed8fd0",
+    "build_tools": [
+      "alex-3.2.7.1",
+      "happy-1.19.12",
+      "cpphs-1.20.9.1"
+    ]
+  },
+  "source_cleanliness": "The compiler was built from exact flat@70899fb with only Docker/Cabal build assets excluded through .git/info/exclude; the emitted version string has no -dirty suffix.",
+  "secret_policy": "No credentials, cookies or full host environment are stored."
+}

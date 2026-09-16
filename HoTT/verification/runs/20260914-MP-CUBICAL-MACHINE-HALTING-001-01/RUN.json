@@ -1,0 +1,69 @@
+{
+  "claim_ids": [
+    "C-188",
+    "C-189",
+    "C-190"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-machine-halting",
+    "HoTT/formal/cubical-machine-halting/MachineHalting.agda"
+  ],
+  "completed_at_utc": "2026-09-14T14:32:07.220525+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.779122,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "33c227a1fb3f98e883911523ea607550a451267415b958b4e9a4c09fe1dfff47"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不主张所有程序上的停机不可判定性，也不构造通用机或程序编码。",
+    "不构造 Gödel 句、可证性谓词、反射或不完备定理。",
+    "不主张对象程序的发散由 HoTT 特有结构造成，也不主张 HoTT 或 Cubical Agda 内部矛盾。",
+    "不建立自然消费者或同一现实任务对应；不满足长期目标的最终完成条件。",
+    "不把 loopProgram 的不停止混同为本次 Agda 证明检查过程不停止。"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-MACHINE-HALTING-001",
+  "run_id": "20260914-MP-CUBICAL-MACHINE-HALTING-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "R1-FIXEDMACHINE-001：在固定双计数器语言中，机器证明 haltProgram 已停机、loopProgram 在每个有限观察下标均未终止，以及 loopProgram 不具有命题截断的有限停机见证；这是固定实例校准，不是通用停机不可判定性、Gödel 不完备性或 HoTT 非现实性悖论。",
+  "source_manifest": {
+    "bytes": 2696,
+    "path": "source-manifest.json",
+    "sha256": "081df24a973d7e42ea9142118a1b9c71b85cc3393fc0f62a1cd9f89e40f16fcf"
+  },
+  "started_at_utc": "2026-09-14T14:31:48.441403+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9686,
+    "path": "stdout.txt",
+    "sha256": "a2c0654c691c247cc5692381daddab9a98f6f8e8d8ac782d94e484529aebf228"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

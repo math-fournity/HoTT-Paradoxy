@@ -1,0 +1,70 @@
+{
+  "claim_ids": [
+    "C-199",
+    "C-200",
+    "C-201",
+    "C-202"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-machine-halting",
+    "HoTT/formal/cubical-machine-halting/FairEnumeration.agda"
+  ],
+  "completed_at_utc": "2026-09-14T17:01:55.288199+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 19.035686,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "08578ae9e3de205c52d7393eb902bf2d13685c8c733b1f76d759f42983d153b4"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不主张已经构造 CodeHalts 的完整 partial semi-decider 或在非停机时返回否定的总过程。",
+    "不主张当前双计数器语言具有通用计算能力或其停机问题已经证明不可判定。",
+    "不构造 s-m-n、代码专门化、Kleene recursion theorem、Gödel/Rosser/Löb 或 exact HoTT 不完备性。",
+    "不主张公平编码依赖 HoTT 特有结构，也不建立 natural consumer 或现实同任务桥梁。",
+    "不主张 HoTT 或 Cubical Agda 内部矛盾。"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-FAIR-ENUMERATION-001",
+  "run_id": "20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "R2-FAIR-001：固定自然数 triple/Config 往返，为每个 ProgramCode×Config×fuel 构造显式 caseIndex 与有限 AppearsBy stage 证明，建立 noStarvation，并证明 scheduled observeAt 在规范索引处等于原 haltsWithin 及保持 halt/loop controls（C-199–C-202）。",
+  "source_manifest": {
+    "bytes": 3276,
+    "path": "source-manifest.json",
+    "sha256": "322046a51e929db3dff0a74943b67d48e139b4185a0bf5e780213622740a4b94"
+  },
+  "started_at_utc": "2026-09-14T17:01:36.252513+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 10052,
+    "path": "stdout.txt",
+    "sha256": "492c3db0c44a675771a81b63918ff271ee1996546c8a7e5a43443f0daced16e0"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

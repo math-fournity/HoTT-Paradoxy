@@ -1,0 +1,70 @@
+{
+  "claim_ids": [
+    "C-203",
+    "C-204",
+    "C-205",
+    "C-206",
+    "C-207"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-machine-halting",
+    "HoTT/formal/cubical-machine-halting/SemiHalting.agda"
+  ],
+  "completed_at_utc": "2026-09-14T17:21:06.256190+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 19.538445,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "29f43bad6f7cb9cf06548ae37088bb1b435978777b424da98dea79335e26f04e"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不主张当前 ProgramCode 已证明计算通用，或已证明其停机问题不可判定。",
+    "不构造 s-m-n、代码专门化、自应用、Kleene recursion theorem、Gödel、Rosser、Löb 或 exact HoTT 不完备性。",
+    "不主张某一有限 stage 的 nothing 是无界否定答案；具体 loopCode 的全阶段否定来自单独归纳证明。",
+    "不主张这些半判定事实依赖 HoTT 特有结构，也不建立 natural consumer、现实同任务桥梁或 HoTT 内部矛盾。"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-SEMI-HALTING-001",
+  "run_id": "20260914-MP-CUBICAL-SEMI-HALTING-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "R2-SEMIHALT-001：构造分阶段 semiHaltAt 与公平 enumerateHalting，证明有限阶段正答案持续、CodeHalts 与 SemiReturns 双向对应、bounded positive case 有限出现且正发射保持原任务，并核验 halt/loop controls（C-203–C-207）。",
+  "source_manifest": {
+    "bytes": 3459,
+    "path": "source-manifest.json",
+    "sha256": "7b5b9e36c1aa77b275021e386588d77c16d6f119460ec790be82e6cefe19edbd"
+  },
+  "started_at_utc": "2026-09-14T17:20:46.717745+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 10157,
+    "path": "stdout.txt",
+    "sha256": "1fbacb9050dc13b9696c7e2e35f8e06a6bf35f843c7eea1462d2758516d911d1"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

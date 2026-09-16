@@ -1,0 +1,69 @@
+{
+  "claim_ids": [
+    "C-209",
+    "C-210",
+    "C-211",
+    "C-212",
+    "C-213"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-machine-halting",
+    "HoTT/formal/cubical-machine-halting/MM2Bridge.agda"
+  ],
+  "completed_at_utc": "2026-09-14T18:09:07.659746+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 20.436005,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "eccdcd448b58e4c03c219755c8373141a0a757f7f4f88f8ab693750ccad3b5a6"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不主张 Coq 关系语义与 Agda 函数式源语义已经获得跨 proof assistant 的机器等价。",
+    "不把外部 synthetic undecidability 自动搬运为当前 ProgramCode 的无条件不可判定性。",
+    "不证明 s-m-n、自应用、Gödel/Rosser/Löb、exact HoTT 不完备性、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-MM2-BRIDGE-001",
+  "run_id": "20260914-MP-CUBICAL-MM2-BRIDGE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "R2-MM2-BRIDGE-001：在 Cubical Agda 中定义 label-1 MM2 函数式语义，编译到 ProgramCode，并证明查表、finality、单步、任意有限运行、精确终止观察与截断停机存在性双向保持及分支控制（C-209–C-213）。",
+  "source_manifest": {
+    "bytes": 3264,
+    "path": "source-manifest.json",
+    "sha256": "211589433b6ae83a0a539cbb8770c1bc033f56359db33a17732b7f68ec022efe"
+  },
+  "started_at_utc": "2026-09-14T18:08:47.223741+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 10031,
+    "path": "stdout.txt",
+    "sha256": "3008519a3f622d9f60f72c29d0afa3273fe51d3f66cb0db6ae60884c2bdc7ac3"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

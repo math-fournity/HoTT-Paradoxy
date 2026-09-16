@@ -1,0 +1,70 @@
+{
+  "claim_ids": [
+    "C-191",
+    "C-192",
+    "C-193",
+    "C-194"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-machine-halting",
+    "HoTT/formal/cubical-machine-halting/ProgramCode.agda"
+  ],
+  "completed_at_utc": "2026-09-14T14:54:08.408772+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.216146,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "7b64c3d52bb3892a9426306d8bc5ec6d6f9a1bc3df31c695ace24f41f27566a7"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "898cc81c23e2fbcf363a05bda3b054a91efa5ce83d5a0bc356176e7fbbc72e6b"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不主张 ProgramCode 已有自然数编码、全枚举、s-m-n 或自应用。",
+    "不主张双计数器语言的通用计算能力或通用停机不可判定性。",
+    "不构造 Gödel 句、可证性谓词、反射或 exact HoTT calculus 不完备性。",
+    "不主张该结果依赖 HoTT 特有结构，也不建立自然 consumer 或现实同任务桥梁。",
+    "不主张 HoTT 或 Cubical Agda 内部矛盾。"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-PROGRAM-CODE-001",
+  "run_id": "20260914-MP-CUBICAL-PROGRAM-CODE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "R2-PROGRAMCODE-001 第一薄层：有限 ProgramCode、总 decoder、对任意有限 fuel 总结束的 universal bounded evaluator、与 R1 iterate/finality 语义的一致性，以及 haltCode/loopCode 正负控制（C-191–C-194）。这里的 universal 只量化本语法中的任意有限程序表；不含自然数 Gödel 编码、公平枚举、计算通用性或停机不可判定性。",
+  "source_manifest": {
+    "bytes": 2892,
+    "path": "source-manifest.json",
+    "sha256": "aa36d29aca1ffd0c923f3df81b6cbcbddd9a8bc4fdade0787160a06bdb80e76f"
+  },
+  "started_at_utc": "2026-09-14T14:53:50.192626+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9800,
+    "path": "stdout.txt",
+    "sha256": "7e6518fb6f5ac44a0c1ae4fc06d467ab1df6fc51ab6a3d2cf38d6cbab660a2b9"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

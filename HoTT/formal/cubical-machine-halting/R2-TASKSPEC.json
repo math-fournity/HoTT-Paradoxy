@@ -1,0 +1,96 @@
+{
+  "schema_version": "r2-cross-kernel-task-spec/v1",
+  "task_id": "R2-CROSS-KERNEL-001",
+  "scope": "Two-counter MM2 compilation into an explicit finite ProgramCode language with bounded execution, finite halting witnesses, and synthetic-undecidability transport in Coq.",
+  "models": {
+    "coq_source": {
+      "path": "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/MinskyMachines/MM2.v",
+      "kernel": "Coq 8.15.2",
+      "role": "upstream relational MM2"
+    },
+    "coq_target": {
+      "path": "HoTT/formal/external-coq-mm2/MM2ProgramCodeBridge.v",
+      "kernel": "Coq 8.15.2",
+      "role": "explicit-branch finite target"
+    },
+    "agda_source": {
+      "path": "HoTT/formal/cubical-machine-halting/MM2Bridge.agda",
+      "kernel": "Agda 2.8.0 / Cubical v0.9",
+      "role": "functional MM2 source"
+    },
+    "agda_target": {
+      "path": "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+      "kernel": "Agda 2.8.0 / Cubical v0.9",
+      "role": "project ProgramCode target"
+    }
+  },
+  "state_mapping": {
+    "coq": "nat * (nat * nat)",
+    "agda": "Config(pc,r0,r1)",
+    "field_order": ["program_counter", "counter_a", "counter_b"]
+  },
+  "instruction_mapping": [
+    {"source": "incA", "coq_target": "pc_inc_a(next)", "agda_target": "inc0(next)", "effect": "A := A+1; pc := next"},
+    {"source": "incB", "coq_target": "pc_inc_b(next)", "agda_target": "inc1(next)", "effect": "B := B+1; pc := next"},
+    {"source": "decA(j)", "coq_target": "pc_dec_a(pc+1,j)", "agda_target": "dec0(pc+1,j)", "effect": "if A=0 then pc:=pc+1 else A:=A-1; pc:=j"},
+    {"source": "decB(j)", "coq_target": "pc_dec_b(pc+1,j)", "agda_target": "dec1(pc+1,j)", "effect": "if B=0 then pc:=pc+1 else B:=B-1; pc:=j"}
+  ],
+  "label_policy": {
+    "source_first_label": 1,
+    "target_halt_sentinel": 0,
+    "outside_finite_table": "halt/final",
+    "increment_fallthrough": "pc+1",
+    "decrement_zero_branch": "pc+1",
+    "decrement_successor_branch": "jump argument"
+  },
+  "observation_mapping": {
+    "coq_source_halting": "relational finite closure to mm2_stop",
+    "coq_functional_halting": "exists n, source_final_at n = true",
+    "coq_target_halting": "exists n, pc_final_at n = true",
+    "agda_source_halting": "propositional truncation of Sigma n, mm2FinalAt n = true",
+    "agda_target_halting": "propositional truncation of Sigma n, finalAt n = true",
+    "completion_property": "existence of a finite final observation; no minimum witness is required"
+  },
+  "proof_packages": [
+    {
+      "proof_id": "MP-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+      "claim_ids": ["C-208"],
+      "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01"
+    },
+    {
+      "proof_id": "MP-CUBICAL-MM2-BRIDGE-001",
+      "claim_ids": ["C-209", "C-210", "C-211", "C-212", "C-213"],
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MM2-BRIDGE-001-01"
+    },
+    {
+      "proof_id": "MP-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+      "claim_ids": ["C-214", "C-215", "C-216", "C-217", "C-218"],
+      "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01"
+    }
+  ],
+  "required_anchors": {
+    "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/MinskyMachines/MM2.v": [
+      "Inductive mm2_instr", "mm2_inc_a", "mm2_dec_a", "Definition mm2_step", "Definition mm2_stop", "Definition mm2_terminates", "Definition MM2_HALTING"
+    ],
+    "HoTT/formal/external-coq-mm2/MM2ProgramCodeBridge.v": [
+      "Inductive pc_instr", "Definition pc_lookup", "Fixpoint pc_run", "Definition PC_HALTING", "Lemma mm2_terminates_source_iff", "Lemma source_final_at_compile", "Theorem MM2_to_PC_HALTING", "Theorem PC_HALTING_undec"
+    ],
+    "HoTT/formal/cubical-machine-halting/MM2Bridge.agda": [
+      "data MM2Instr", "lookup-compileMM2", "compileFinal-agrees", "compileStep-agrees", "compileRun-agrees", "compileFinalAt-agrees", "MM2Halts↔CodeHalts"
+    ],
+    "HoTT/formal/cubical-machine-halting/ProgramCode.agda": [
+      "data ProgramCode", "lookupInstr", "universalStep", "runFor", "finalAt", "CodeHalts"
+    ]
+  },
+  "status_contract": {
+    "achieved": "DUAL_KERNEL_SCOPED_CORRESPONDENCE_WITH_SAME_KERNEL_COQ_REDUCTION",
+    "not_achieved": [
+      "cross-kernel definitional equality",
+      "one kernel checking the other kernel's AST",
+      "unconditional internal not-decidable",
+      "HoTT essentiality",
+      "natural consumer",
+      "same-reality-task paradox witness"
+    ]
+  }
+}
