@@ -20,9 +20,9 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`
-- 第 1 步：冻结 `PREMISE_DENOMINATOR_V1`（A–G 类逐条编号 + hash）
-- 第 2 步：就 D/G 两类（cubical 机器 / 设计决策类前提）出第一条 P1/P2 草案，交用户 P3/P4
+- STATE active 队首：`A-PREMISE-001`；revision 155；执行状态 `PREMISE_001_STEP1_DENOMINATOR_FROZEN_STEP2_NEXT`
+- 第 1 步（已完成，commit `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条；反思补入 A+B/0/1/2/W 后由 `plan-revise(008)` bc0a899 扩到 35 条；分母分片 sha256 `5cd1b44f`，remainder=0；每条含 P1 前提陈述 + 出处锚到 Theory Schema）
+- 第 2 步（当前）：逐条 P2（`reality_skeleton` 不得留空、不得默认只填计算域；`divergence_point`；`evidence_level`；≥1 `OMISSION_SHAPE`），输出到 `PREMISE-001/002`；完成后整单交用户 P3/P4
 - 权威来源：`.codex/research/hott/STATE.json` 的 `active` 与 `execution_control.next_minimal_verification`
 
 ## 认识论锚点（不可漂移）
