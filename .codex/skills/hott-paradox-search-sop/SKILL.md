@@ -2,7 +2,7 @@
 name: hott-paradox-search-sop
 description: 执行"用现实对齐寻找 HoTT 非现实前提"这条方案的 SOP。按步骤驱动 PREMISE-001 / GEN-001 链；每完成一个流程、以及每次穿越上下文压缩边界之后，系统调查前一个阶段或 Session 的工作是否应当调整和优化方案；每次方案优化必须立即 git 提交，使方案演化在 git log 中可追踪。
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   role: "execution"
   language: "zh-CN"
   plan_index: "Atria的方案/修订片.md"
@@ -10,7 +10,7 @@ metadata:
   state_index: ".codex/research/hott/STATE.json"
   governance_skill: "hott-local-session-governance"
   business_skill: "hott-paradox-research"
-  plan_core_shards: "修订片 003 / 006 / 007 / 008"
+  plan_core_shards: "修订片 003 / 006 / 007 / 008 / 009"
 ---
 
 # 方案执行与方案演化 SOP
@@ -44,6 +44,7 @@ metadata:
 | S1–S6 供给策略与 SUPPLY_REGISTRATION 规程 | `Atria的方案/修订片/006` |
 | 供给层加严（corpus_pressure / reality_anchor_holder） | `Atria的方案/修订片/007` |
 | PREMISE-001：A–G 分母、P1–P4 分工、必填字段 | `Atria的方案/修订片/008` |
+| P3/P4 自动化执行与外部审计层 | `Atria的方案/修订片/009` |
 | 当前任务队列与下一动作 | `.codex/research/hott/STATE.json`（`active` / `execution_control.next_minimal_verification`） |
 | goal 索引 | `goal-1.md` |
 | 方案演化轨迹 | `git log --grep=plan-revise` |
@@ -64,8 +65,11 @@ metadata:
 
 **S-3 执行该步骤**：按修订片 008 的字段规格产出（P1 逐字前提 + 出处；P2 结构分析：
 `reality_skeleton` / `divergence_point` / `evidence_level` / 至少一个 `OMISSION_SHAPE`）。
-角色分工不越界：AI 只做 P1/P2；P3/P4 永远交用户；引擎在冻结文法上枚举/归约；
-原生核做校验，不得由 Python 枚举或普通 Lean Eq 替代（F-011）。
+角色分工不越界：AI 执行 P1/P2 与 P3/P4（P3/P4 必须带修订片 009 §3 的
+P3P4_AUDIT_TRAIL 全部必填字段，含 steelman 与 falsifier，全部标
+AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT，不得自证为结论）；生效复核由外部 AI
+审计（角色 D，用户安排，追溯性）；引擎在冻结文法上枚举/归约；原生核做校验，
+不得由 Python 枚举或普通 Lean Eq 替代（F-011）。
 
 **S-4 反思**：逐条回答 §5 的清单。不允许"总体良好"这种合并答复。
 
@@ -97,8 +101,10 @@ metadata:
    `reality_skeleton` 有没有被写成"无法构造"（那是被用户否证的旧前提的残余）？
 2. **策略锚定**：本步产出是否由 S1–S6 之一驱动并完成 `SUPPLY_REGISTRATION`？
    有没有绕过策略锚定、退化成自由联想？
-3. **角色越界**：AI 有没有自证非现实性（P3/P4 是用户的）？有没有用模式匹配判断
-   候选成立（该层只走原生核）？有没有用 Python 枚举或普通 Lean Eq 冒充原生核？
+3. **角色越界**：AI 执行 P3/P4 时，每条是否带全 P3P4_AUDIT_TRAIL 必填字段
+   （尤其 steelman 与 falsifier）？有没有把 pending-audit 的候选判定当作已成立
+   结论交付？有没有用模式匹配判断候选成立（该层只走原生核）？有没有用 Python
+   枚举或普通 Lean Eq 冒充原生核？
 4. **负结论误用**：scoped negative 是否被当成"该族无候选"或"发现能力缺失"？
    （三者是三回事，见修订片 003 §6。）
 5. **信封外候选**：有没有来自新论文/版本/实现/consumer、跨框架差分、反例、
@@ -135,9 +141,12 @@ PLAN_STEP_EXHAUSTED_WITH_SCOPE
   / 方案演化账本（plan-revise 序列）完整
   / 不声称找到悖论；不声称分母穷尽开放候选空间
 
-USER_ADJUDICATION_REQUIRED
-  / 产出进入 P3/P4，必须等用户判定，AI 不得自证
-  / 停止自动推进，把条目交给用户
+P3P4_AI_EXECUTED_PENDING_AUDIT  ← 修订片 009 生效后替代 USER_ADJUDICATION_REQUIRED
+  / AI 已对每条完成 P3/P4 判定，全部带 P3P4_AUDIT_TRAIL 必填字段
+  / 全部条目 audit_status = AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT
+  / 不阻塞推进：判为非现实者带 pending-audit 标记进 SUPPLY_REGISTRATION
+  / 用户保留非介入式推翻权；外部 AI 审计（角色 D）为终局复核层
+  / 不构成"该前提非现实"的结论；结论仍需 GEN-001 链 + 原生核（MATH_PROOF_BEFORE_DELIVERY_V1）
 
 PLAN_REVISION_DIVERGENCE
   / 反思连续 3 轮产生互相矛盾或来回反转的方案修订
