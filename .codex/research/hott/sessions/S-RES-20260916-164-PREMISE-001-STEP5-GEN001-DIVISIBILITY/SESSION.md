@@ -1,0 +1,18 @@
+# S-RES-20260916-164-PREMISE-001-STEP5-GEN001-DIVISIBILITY
+
+- 工作单元：PREMISE-001 step-5 的 GEN-001 有界生成器验收单元**第四族**（TASK-FAMILY-DIVISIBILITY-CONDITION-OR-CAPABILITY，PREMISE-D-01 / E-04 / G-03 continuity 三联）全链贯通。
+- 用户裁定（2026-09-16，不可漂移）：P3/P4 及全部下游执行由 AI 全权自动化完成，带强制审计层，外部 AI 追溯审计为终局复核；不再前瞻性邀请用户介入。原话："我认为AI可以做，我需要你全自动化地去做……人可以做的，说给你听你可以理解，那么事实上，就意味着你可以独立做。"
+- 依据：修订片 003（GEN-001 九字段验收）/009（角色重分工）/010（首链经验回写）/011（任务族设计纪律）/012（现象新颖性披露）/013（覆盖阴影与同族坍缩）；SOP `.codex/skills/hott-paradox-search-sop/SKILL.md`。
+- 产出（已提交 4b0c036）：`HoTT/generators/GEN-001/GEN-001-DIVISIBILITY-{GRAMMAR,ENUMERATION,OUT-OF-ENVELOPE,REPORT}` + `GEN-001-INDEX.md` 更新；`HoTT/verification/runs/VERIFY-GEN001-DIVISIBILITY-WV-{0025,0026,0027,0051}/`（F-011 五件套×4，含 kernel 四路五件套 + generated sources + main-repo-replay exit 0）；新纳入 `HoTT/formal/partiality-race-timeout/MVSupport.agda`（profile 声明的 support source，主 repo 独立复现的前提）。
+- 无 plan-revise（reflection=no-plan-change）：O-3 预判的同族坍缩已由修订片 013 覆盖，本族执行确认其预判，未产生需要新修订片的方案变化。
+- 链结果（observed，可复算）：3 个新声明 verdict continuation（`divisibility_verdict_capability_is_unbounded` {T:ω,F:ret2F} / `divisibility_verdict_no_object_for_condition` {T:ret2T,F:ω} / `divisibility_verdict_same_frontier_opposite` {T:ret1T,F:ret1F}）对 17 个既有文法 continuation map 唯一性机械 PASS；7 atoms x 440 contexts = 5,280 checks，complete_within_declared_grammar=true，**remainder=0**；916 原始分离 -> 58 规范归约见证（value_mismatch 24 / completion_divergence 24 / deadline_observation 10，三机制全覆盖）；**32 个越界见证**（各绑定新 continuation，三 continuation 各 8/8/16）对 6 个 delay 既有文法 within=False，拒绝理由 **192/192 全部唯一为 BIND_CONTINUATION**；4 个见证经 Cubical Agda 2.8.0 + cubical v0.9 原生核四路校验（verify/controls ACCEPTED；negative-control **REJECTED_AS_EXPECTED exit 42**；verify-replay 精确匹配），并从主 repo 副本独立复现 Agda 核 exit 0。
+- 送核覆盖（修订片 011 §4）：`WV-0025`（no_object_for_condition，completion_divergence）/ `WV-0026`（same_frontier_opposite，value_mismatch）/ `WV-0027`（capability_is_unbounded，completion_divergence）/ `WV-0051`（same_frontier_opposite，deadline_observation）——3 构造子 × 3 机制全覆盖。
+- 三联建模（AI 供给，非用户供给）：delay 等价是理论自己的同一性判据；每个分离见证的 pair 都是 delay-equivalent；分离 context 是观察层（race 对照 / 有界 deadline）；三个 continuation 是 verdict renderer，把"可分性是能力还是条件"的判定显式对象化——能力无界（真分支永不完成 / 能力判定晚到仍为正）、条件性不可分无对象（假分支永不完成）、分辨率前沿处相反判定（同延迟相反值）。
+- 同族坍缩判定（修订片 013 §2.1 Q4）：**三成员共享同一机制 pattern**。delay 片段内没有区间、截断塔或高阶 path 迭代构造，D-01/E-04/G-03 全部投影到"无界 delay 能力 vs 有界观察层"同一形状；58 个规范见证中没有任何能区分三者。故登记 `PATTERN_REDUCED_NOT_CERTIFIED_AS_FULL_TASK_EQUIVALENCE`，**只报一个验收单元**（三成员作为该 pattern 的实例），三成员任务等价性**未证**。
+- 现象新颖性（修订片 012 §2）：**PARTIAL**。机械证据：真分支发散形状已有（identity_verdict_never_on_true）、假分支发散形状已有（deliver_business）、同延迟相反值 @index 0 已有（keeping_result）；本族两个 continuation 是这些形状的索引取值变体，第三个是 index 0→1 移位。真正新的东西是**组合**：一个三 continuation 的 verdict 面板在一个族内渲染同一 omission shape 的三个 facet。
+- 判词：**GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE**（带 PATTERN_REDUCED）。这是链贯通的能力验收，`registers_new_claim: false`，按引擎 evidence_policy 与 F-011 **不进入 CLAIM_EVIDENCE_MATRIX.md**；三成员的非现实判定仍是 AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT 候选，不是结论。
+- 机制发现（登记为信封外 ingress，不构成结论）：本族与 E-02 / A-03 / B-01 三族在 delay 片段共享 race-截断分离机制；四族族间独立性未被本单元证明，仅登记。
+- 角色纪律：任务族是 **AI 供给**（非用户供给、非引擎自主发现）；Python 模型只提候选与枚举，原生核给 oracle verdict。
+- S-4 反思（7/7 条）：①分母一致（V1 35 条未动，三联 reality_skeleton 与 KC-000044-046 一致）；②策略锚定（S5 表达保真 + SUPPLY-004/006/008 三道闸）；③角色越界——无（pending-audit 未自证为结论，oracle 全走原生核）；④负结论误用——OOBE 限定为分母命题，未读成"无候选"；⑤信封外候选——登记跨族机制重叠 + 现象新颖性 PARTIAL + 同族坍缩 PATTERN_REDUCED；⑥被推翻——无（generation-7 未变）；⑦漂移累积——无 plan-revise，step 产出单一 commit（4b0c036）带 reflection=no-plan-change，符合 §6。
+- 数学状态：不变。无数学命题交付（F-011 不适用；GEN-001 是能力验收不是数学结论）。
+- Git：4b0c036（step-5 第四族产出）；本 checkpoint revision 163->164。不 push、不 tag。
