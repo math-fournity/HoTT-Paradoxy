@@ -10,10 +10,6 @@
 ## 当前停止点
 ## 当前停止点
 
-S-RES-20260916-163-PREMISE-001-STEP5-GEN001-IDENTITY-OBSERVATION：PREMISE-001 step-5 的 **GEN-001 第三族完成**（判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`，commit c36c2e4；revision 162->163 由本 canonical checkpoint 登记）。TASK-FAMILY-IDENTITY-OBSERVATION-LAYER（PREMISE-B-01）全链：3 个新声明 verdict continuation（`identity_verdict_definitional` / `identity_verdict_purpose` / `identity_verdict_never_on_true`）对全部既有文法 map 唯一性 PASS → 7 atoms x 440 contexts = 5,280 checks、remainder=0 → 956 原始分离归约为 70 个规范见证 → **44 个越界见证**对 17 个既有文法 within=False，对 5 个 delay 文法拒绝理由 **220/220 全部唯一 BIND_CONTINUATION**（修订片 011 §2 纪律复用）→ 4 见证（WV-0014 / WV-0023 / WV-0044 / WV-0067，覆盖 3 构造子 × 3 机制）经 Cubical Agda 2.8.0 + cubical v0.9 四路核收据 + 主 repo 副本独立复现 exit 0。修订片 012（a45dab8）把现象新颖性披露纪律写进方案。**这是能力验收不是数学结论**：不进 CLAIM_EVIDENCE_MATRIX；B-01 仍 pending external audit；现象新颖性评级 **PARTIAL**（层依赖现象的一半旧文法已可表达）交外部审计。**族间独立性未证**（三族共享 race-截断机制），已登记为信封外 ingress。下一步（AI 全自动，修订片 009/011/012）：step-5 剩余两族（DIVISIBILITY 三联 D-01/E-04/G-03、EXISTENCE-VS-AVAILABILITY D-04/G-05）+ step-6 omission audit（三族跨机制重叠是其已积累输入）。无新数学 claim；未 push、未 tag。
-
-## 当前停止点
-
 S-RES-20260916-162-PREMISE-001-STEP5-GEN001-COMPLETION-PROCESS：PREMISE-001 step-5 的 **GEN-001 第二族完成**（判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`，commit 9e23c9e；revision 161->162 由本 canonical checkpoint 登记）。TASK-FAMILY-COMPLETION-PROCESS（PREMISE-A-03）全链：3 个新声明 continuation（`boundary_completion_consumer` / `completion_late_reporter` / `late_diverging_consumer`）对 15 既有文法 map 唯一性 PASS → 7 atoms x 460 contexts = 5,520 checks、remainder=0 → 1,000 原始分离归约为 72 个规范见证 → **46 个越界见证**对 15 既有文法 within=False，且对 l1-v0/v1/v2 拒绝理由**全部唯一 BIND_CONTINUATION**（新文法刻意对齐旧索引界，修订片 011 §2）→ 4 见证（WV-053 / WV-0070 / WV-0021 / WV-0014，覆盖 3 构造子 × 2 机制）经 Cubical Agda 2.8.0 + cubical v0.9 四路核收据 + 主 repo 副本独立复现 exit 0。修订片 011（2d37c0d）把族设计纪律写进方案。**这是能力验收不是数学结论**：不进 CLAIM_EVIDENCE_MATRIX；A-03 仍 pending external audit。**族间独立性未证**（A-03 与 E-02 共享 race-截断机制），已登记为信封外 ingress。下一步（AI 全自动，修订片 009/011）：step-5 剩余三族（IDENTITY-OBSERVATION-LAYER/B-01 优先）+ step-6 omission audit（跨族重叠是其首个输入）。无新数学 claim；未 push、未 tag。
 
 ## 当前停止点
