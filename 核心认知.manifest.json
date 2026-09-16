@@ -3,26 +3,27 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-5",
-        "path": "scripts/audit/core-cognition-curation-v5.json",
-        "sha256": "8c12018ba36702d83a0e1a2f6ddb889faa47428faba042842ad8ecbab28cd33e"
-      },
-      {
         "generation": "core-cognition-generation-6",
         "path": "scripts/audit/core-cognition-curation-v6.json",
         "sha256": "83649f5211940d7edd597b0e4d2e54808869903c50f61cd6d6225a11e4ee63b4"
+      },
+      {
+        "generation": "core-cognition-generation-7",
+        "path": "scripts/audit/core-cognition-curation-v7.json",
+        "sha256": "74a0320703771a43978f59fbde3b2beb07bf3798ad99ede744ee824b9706d7fc"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 91,
+    "primary_denominator": 92,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
       "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md",
       "sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md",
       "sources/prompts/Codex-知识谱自反与第三条发现路径-用户原文-20260916.md",
-      "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md"
+      "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
+      "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -30,9 +31,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "4399abd894db825164be3f1c6c0a510abab2512dd13b9952ede38a4823e07a8b",
+  "core_document_sha256": "b4a57785eef22cffb471028d73a8641549ce1cead5763ab8f6c31727945b8999",
   "counts": {
-    "core_units": 43,
+    "core_units": 46,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -40,21 +41,21 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 26
+      "INCLUDED": 27
     },
     "messages_excluded": 65,
-    "messages_included": 26,
-    "messages_parsed": 91,
-    "primary_files": 6,
+    "messages_included": 27,
+    "messages_parsed": 92,
+    "primary_files": 7,
     "units_by_platform": {
-      "Codex": 16,
+      "Codex": 19,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v6.json",
-  "curation_sha256": "83649f5211940d7edd597b0e4d2e54808869903c50f61cd6d6225a11e4ee63b4",
+  "curation_authority": "scripts/audit/core-cognition-curation-v7.json",
+  "curation_sha256": "74a0320703771a43978f59fbde3b2beb07bf3798ad99ede744ee824b9706d7fc",
   "files": [
     {
       "bytes": 8124,
@@ -109,9 +110,18 @@
       "path": "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
       "platform": "Codex",
       "sha256": "bc5b43837fccff4474324d079393c09328d941adaaa3edbcfe8a36eeff520e13"
+    },
+    {
+      "bytes": 2028,
+      "input_role": "primary",
+      "lines": 17,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "platform": "Codex",
+      "sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078"
     }
   ],
-  "generation": "core-cognition-generation-6",
+  "generation": "core-cognition-generation-7",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -1750,9 +1760,27 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-09-16T08:59:37+00:00",
       "unit_count": 3
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户对本轮审计报告 09 第 5 节原稿的直接修正。原稿主张 HoTT 的“现实”一侧没有一个像“运动是量子化的”那样预存的、可直接判定的标准；用户指出该提法是错的，并给出更根本的认识论前提：理论永远是对现实的骨架式模仿，假想中的现实也是现实，现实标准是在用现实诠释理论并不断对齐的过程中被构造出来的。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；会话开场“我觉得你说的不对”属对话框架，不作为独立单元。修正后的结论已落回审计报告 09 第 5 节（改写）与修订片 008 的 reality_skeleton / divergence_point 必填项。",
+      "input_role": "primary",
+      "message_text_bytes": 1718,
+      "message_text_sha256": "cece3ea4868090af01dd80d602060e36e5a951d42d66bf94167d54d291c01885",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "source_file_sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078",
+      "source_header_line": 5,
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-09-16T12:14:00Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T12:14:00+00:00",
+      "unit_count": 3
     }
   ],
-  "previous_generation_ref": "5d62945",
+  "previous_generation_ref": "d2862787",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -3195,6 +3223,116 @@
       "timestamp_utc": "2026-09-16T08:59:37+00:00",
       "unit_bytes": 108,
       "unit_sha256": "763fc4d65a7d0c701d47e5e7170a21048d181048232d26586fc5cbd519444fb2"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000044",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户对本轮审计报告 09 第 5 节原稿的直接修正。原稿主张 HoTT 的“现实”一侧没有一个像“运动是量子化的”那样预存的、可直接判定的标准；用户指出该提法是错的，并给出更根本的认识论前提：理论永远是对现实的骨架式模仿，假想中的现实也是现实，现实标准是在用现实诠释理论并不断对齐的过程中被构造出来的。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；会话开场“我觉得你说的不对”属对话框架，不作为独立单元。修正后的结论已落回审计报告 09 第 5 节（改写）与修订片 008 的 reality_skeleton / divergence_point 必填项。",
+      "selector": {
+        "end_after": "只是你没有试着去尽力用现实去把握而已。",
+        "source_line_end": 9,
+        "source_line_start": 7,
+        "start_at": "恰恰就是这种非现实性的内容，才是应该认真考虑的"
+      },
+      "semantic_label": "理论是对现实的骨架式模仿：非现实性内容恰恰是该认真考虑的，假想中的现实也是现实",
+      "source_file": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "source_locator": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md#L7-L9",
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "cece3ea4868090af01dd80d602060e36e5a951d42d66bf94167d54d291c01885",
+      "source_sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078",
+      "themes": [
+        "HOTT_OBJECT",
+        "PARADOX_DISCOVERY",
+        "ABSTRACTION_AND_NEGATION",
+        "BEING_AND_BECOMING"
+      ],
+      "timestamp_original": "2026-09-16T12:14:00Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T12:14:00+00:00",
+      "unit_bytes": 572,
+      "unit_sha256": "ae42d4eddd1b458018c807c373407fa8acee2a7c7e297c58a9b956e61360add7"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000045",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Codex",
+      "relations": [
+        {
+          "target": "KC-000044",
+          "type": "same_source_message"
+        }
+      ],
+      "selection_reason": "用户对本轮审计报告 09 第 5 节原稿的直接修正。原稿主张 HoTT 的“现实”一侧没有一个像“运动是量子化的”那样预存的、可直接判定的标准；用户指出该提法是错的，并给出更根本的认识论前提：理论永远是对现实的骨架式模仿，假想中的现实也是现实，现实标准是在用现实诠释理论并不断对齐的过程中被构造出来的。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；会话开场“我觉得你说的不对”属对话框架，不作为独立单元。修正后的结论已落回审计报告 09 第 5 节（改写）与修订片 008 的 reality_skeleton / divergence_point 必填项。",
+      "selector": {
+        "end_after": "应该与现实对齐而没有对齐的理论前提？",
+        "source_line_end": 13,
+        "source_line_start": 11,
+        "start_at": "因为，数学是可以映射到现实的"
+      },
+      "semantic_label": "数学与HoTT必然可映射现实：在现实诠释与不断对齐中，定位理论为经济性舍弃了不该舍弃的前提",
+      "source_file": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "source_locator": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md#L11-L13",
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "cece3ea4868090af01dd80d602060e36e5a951d42d66bf94167d54d291c01885",
+      "source_sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078",
+      "themes": [
+        "HOTT_OBJECT",
+        "TIME_AND_TEMPORALITY",
+        "THEORY_ECONOMY"
+      ],
+      "timestamp_original": "2026-09-16T12:14:00Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T12:14:00+00:00",
+      "unit_bytes": 448,
+      "unit_sha256": "d9d1a2f7e19b8b5c1555cd05b0a13ca3a56371fd062ec80e05715926a67aaa92"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000046",
+      "lifecycle": "QUESTION_OR_OPEN_PROBLEM",
+      "platform": "Codex",
+      "relations": [
+        {
+          "target": "KC-000045",
+          "type": "same_source_message"
+        }
+      ],
+      "selection_reason": "用户对本轮审计报告 09 第 5 节原稿的直接修正。原稿主张 HoTT 的“现实”一侧没有一个像“运动是量子化的”那样预存的、可直接判定的标准；用户指出该提法是错的，并给出更根本的认识论前提：理论永远是对现实的骨架式模仿，假想中的现实也是现实，现实标准是在用现实诠释理论并不断对齐的过程中被构造出来的。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；会话开场“我觉得你说的不对”属对话框架，不作为独立单元。修正后的结论已落回审计报告 09 第 5 节（改写）与修订片 008 的 reality_skeleton / divergence_point 必填项。",
+      "selector": {
+        "end_after": "就是一个现实问题！",
+        "source_line_end": 17,
+        "source_line_start": 15,
+        "start_at": "AI训练数据中充满了现实性的内容"
+      },
+      "semantic_label": "AI缺的是用现实理解理论的动作而非思考现实的能力；机器统观的原始出发点本身就是一个现实问题",
+      "source_file": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "source_locator": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md#L15-L17",
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "cece3ea4868090af01dd80d602060e36e5a951d42d66bf94167d54d291c01885",
+      "source_sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078",
+      "themes": [
+        "HOTT_OBJECT",
+        "HOTT_PARADOX",
+        "PARADOX_DISCOVERY",
+        "TIME_AND_TEMPORALITY",
+        "BEING_AND_BECOMING",
+        "RUSSELL",
+        "BETTER_BEST",
+        "COMPUTATIONAL_LEGITIMACY",
+        "ANTI_TRAINING_PRIOR"
+      ],
+      "timestamp_original": "2026-09-16T12:14:00Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-16T12:14:00+00:00",
+      "unit_bytes": 667,
+      "unit_sha256": "a52e9c89c8cd451dba37c5562172fb0311b8550f322cc275b5e24ded59b20b3b"
     }
   ]
 }
