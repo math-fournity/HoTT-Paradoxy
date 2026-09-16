@@ -8,12 +8,6 @@
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
 ## 当前停止点
-## 当前停止点
-
-S-RES-20260916-161-PREMISE-001-STEP5-GEN001-FIRSTCHAIN：PREMISE-001 step-5 的 **GEN-001 首链完成**（判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`，commit f62ec04；revision 160->161 由本 canonical checkpoint 登记）。TASK-FAMILY-WITNESS-RECOVERABILITY（E-02）全链：声明 2 个新构造子（`downstream_guard` / `downstream_needs_true_late`）→ 9 atoms x 598 contexts = 14,352 checks、remainder=0 → 2,736 原始分离归约为 52 个规范见证 → 3 个越界见证（WV-0040 / WV-0041B / WV-0049）对 15 个既有文法 within=False → Cubical Agda 2.8.0 + cubical v0.9 四路核收据。**这是能力验收不是数学结论**：不进 CLAIM_EVIDENCE_MATRIX；E-02 仍 pending external audit。治理修复：revision 160 由 e3ab84b+82eaa71 out-of-band 应用导致 HEAD.tracked 缺 9 文件 / records 缺 160 记录 / `plan()` BLOCKED，已在本 checkpoint 修复并登记（旧 HEAD 备份 `.codex/cognition/HEAD.json.pre-repair-bak`）。下一步（AI 全自动，修订片 009）：step-5 其余四族（COMPLETION-PROCESS 优先；DIVISIBILITY 三联与 EXISTENCE-VS-AVAILABILITY 留外部审计复核后跑）+ step-6 omission audit。无新数学 claim；未 push、未 tag。
-
-S-RES-20260916-160-PREMISE-001-STEP3-AI-EXECUTED：PREMISE-001 step-3 由 AI 执行完成（修订片 009 角色重分工）。35/35 条 P3/P4，全部 `AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`，非现实 9 条（A-03/A-11/B-01/D-01/D-04/E-02/E-04/G-03/G-05）。分母 V1 未动（35 条 remainder=0）；004 判定表降级为导航表（3a6aa9f），判定落 005/006（92ee268）。**完整性披露**：revision 160 的 checkpoint 由 commits e3ab84b + 82eaa71 out-of-band 应用，未通过 cognition_runtime 3.6.1 校验链；result.json 存在但非工具产出，已在 revision 161 登记（INTEGRITY_GAP_REGISTERED），不追溯伪造。无新数学 claim；未 push、未 tag。
-
 
 S-RES-20260916-159-PREMISE-001-OUTOFENVELOPE-F2-AMEND：PREMISE-001 F2 ingress 补全（停机点不变，仍等你判定）。上一单元登记的 F2（"univalence 入、resizing 未入"）经第二来源对照（`SOURCES_AND_COVERAGE.md` 的 section 清单）发现被低估：缺口是**整层逻辑原则/可选公理"来源在手、分母零条"**——HoTT Book §3.2 PAT、§3.4 LEM、§3.5 resizing、§3.8 AC、§3.9 unique choice、§3.10 截断时机判据、§11.2 Dedekind-Ω。仍非缺陷（可选层在 V1 外是合理范围选择），V2 需决四项子决定。**你的 P3/P4 判定不受影响、仍是阻塞的下一步**：V1 分母与 004 判定表未动。修正见审计报告 §F2 补充表，提交 `19a1efb` 带 reflection。revision 158→159。无新数学 claim；未 push、未 tag。
 

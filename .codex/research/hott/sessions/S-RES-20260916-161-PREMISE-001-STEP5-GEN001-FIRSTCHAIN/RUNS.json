@@ -1,0 +1,46 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260916-161-PREMISE-001-STEP5-GEN001-FIRSTCHAIN",
+ "runs": [
+  {
+   "id": "plan-revise-010",
+   "kind": "git",
+   "commit": "d275653",
+   "note": "GEN-001 first-chain experience writeback: CE-MAP ownership clarification + engine capability facts + merge-decision role assignment; source=reflection"
+  },
+  {
+   "id": "premise-001-step5-gen001-firstchain",
+   "kind": "git",
+   "commit": "f62ec04",
+   "note": "GEN-001 first chain GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE: TASK-FAMILY-WITNESS-RECOVERABILITY full chain (remainder=0; 3 out-of-envelope witnesses with 4-way native kernel receipts; OOBE 15/15 mechanically proven); reflection=revised-in d275653"
+  },
+  {
+   "id": "native-kernel-verify",
+   "kind": "run",
+   "runs": [
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-WITNESS-RECOVERY-040",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-WITNESS-RECOVERY-041B",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-WITNESS-RECOVERY-049"
+   ],
+   "note": "Cubical Agda 2.8.0 + cubical v0.9; verify/controls ACCEPTED; negative-control REJECTED_AS_EXPECTED exit 42; verify-replay exact match"
+  },
+  {
+   "id": "shard-validator",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "verify_governance_shards PASS (508 indexes, 3 soft notices non-blocking)"
+  },
+  {
+   "id": "mo-validate",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "machine-overview mo.py validate = VALID / 17 cases / 0 errors after interrupted-run archive"
+  },
+  {
+   "id": "head-tracking-repair",
+   "kind": "governance",
+   "note": "HEAD.tracked rebuilt 23->32 files (added 扩展认知.md + 8 shards) after out-of-band revision 160 application; old copy at .codex/cognition/HEAD.json.pre-repair-bak"
+  }
+ ],
+ "no_new_math_claim": true
+}
