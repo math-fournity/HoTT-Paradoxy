@@ -1,0 +1,48 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260916-162-PREMISE-001-STEP5-GEN001-COMPLETION-PROCESS",
+ "runs": [
+  {
+   "id": "plan-revise-011",
+   "kind": "git",
+   "commit": "2d37c0d",
+   "note": "GEN-001 task-family design discipline: align new-grammar index bounds to existing L1 grammars so the out-of-envelope rejection reason is uniquely BIND_CONTINUATION; document horizon asymmetry; kernel coverage per new continuation x separation kind; cross-family mechanism overlap registered as ingress; source=reflection"
+  },
+  {
+   "id": "premise-001-step5-gen001-completion-process",
+   "kind": "git",
+   "commit": "9e23c9e",
+   "note": "GEN-001 second family GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE: TASK-FAMILY-COMPLETION-PROCESS (PREMISE-A-03) full chain (3 new continuations with map novelty PASS vs 15 grammars; 5,520 checks remainder=0; 1,000->72 reduced; 46 out-of-envelope all BIND_CONTINUATION; 4 kernel witnesses covering 3 continuations x 2 mechanisms); reflection=revised-in 2d37c0d"
+  },
+  {
+   "id": "native-kernel-verify",
+   "kind": "run",
+   "runs": [
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-014",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-021",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-053",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-070"
+   ],
+   "note": "Cubical Agda 2.8.0 + cubical v0.9; verify/controls ACCEPTED; negative-control REJECTED_AS_EXPECTED exit 42; verify-replay exact match; plus independent replay from the main-repo copy exit 0"
+  },
+  {
+   "id": "grammar-novelty-audit",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "the 3 new continuation maps are mechanically unique against all 15 pre-existing declared grammars (shared constructs deliver_business/const_omega kept for calibration continuity)"
+  },
+  {
+   "id": "shard-validator",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "verify_governance_shards PASS (516 indexes, 3 soft notices non-blocking) after adding revision shard 011"
+  },
+  {
+   "id": "mo-validate",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "machine-overview mo.py validate = VALID / 18 cases / 0 errors after the second GEN-001 family"
+  }
+ ],
+ "no_new_math_claim": true
+}

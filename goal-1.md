@@ -22,7 +22,7 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 160；执行状态见 STATE 的 `execution_control`
+- STATE active 队首：`A-PREMISE-001`；revision 162；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
 - 第 2 步（已完成 `f21da7d`）：35/35 条逐条 P2
 - 第 3 步（已完成 `92ee268`/`3a6aa9f`，修订片 009 角色重分工后由 AI 执行）：35/35 条 P3/P4，
@@ -32,14 +32,20 @@
 - 第 4 步（已完成 `03087c4`）：9 条非现实候选完成 SUPPLY_REGISTRATION（三道闸齐备）+
   5 个建议任务族冻结
 - 第 5 步（GEN-001 链，进行中）：
-  - **首链已完成**（`GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`）：
+  - **首链已完成**（`GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`，revision 161 / `f62ec04`）：
     `TASK-FAMILY-WITNESS-RECOVERABILITY`（E-02）。9 atoms × 598 contexts，remainder=0；
     2,736 原始分离 → 52 规范归约见证；3 个越界见证经 Cubical Agda 原生核四路校验
     （verify / controls / negative-control 被拒 / verify-replay 精确匹配）。
-    交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
-  - **待续**：其余四族（DIVISIBILITY / EXISTENCE-VS-AVAILABILITY / COMPLETION-PROCESS /
-    IDENTITY-OBSERVATION-LAYER），状态见 `HoTT/generators/GEN-001/GEN-001-INDEX.md`
-- 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）
+  - **第二族已完成**（revision 162 / `9e23c9e`）：`TASK-FAMILY-COMPLETION-PROCESS`（A-03）。
+    3 新声明 continuation 对 15 既有文法 map 唯一性 PASS；7 atoms × 460 contexts = 5,520 checks、
+    remainder=0；46 个越界见证对 l1-v0/v1/v2 拒绝理由全部唯一 `BIND_CONTINUATION`；4 个见证
+    （WV-053/0070/0021/0014，覆盖 3 构造子 × 2 机制）经原生核四路校验 + 主 repo 副本独立复现。
+  - **待续**：`TASK-FAMILY-IDENTITY-OBSERVATION-LAYER`（B-01，下一优先）→
+    DIVISIBILITY 三联（D-01/E-04/G-03）→ EXISTENCE-VS-AVAILABILITY（D-04/G-05）；
+    状态见 `HoTT/generators/GEN-001/GEN-001-INDEX.md`
+  - 交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
+- 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）；已登记首个输入：
+  A-03 族与 E-02 首链族在 delay 片段共享 race-截断分离机制（ingress，非结论）
 - 权威来源：`.codex/research/hott/STATE.json` 的 `active` 与 `execution_control.next_minimal_verification`
 
 ## 认识论锚点（不可漂移）
