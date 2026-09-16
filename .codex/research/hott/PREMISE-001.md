@@ -2,12 +2,12 @@
 logical_id: PREMISE-001
 mode: topical
 shard_root: PREMISE-001
-last_shard: PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md
+last_shard: PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md
 append_target: -
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 6 个分片；缺一片即未完成。索引冻结任务与分母身份，
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 7 个分片；缺一片即未完成。索引冻结任务与分母身份，
 > 分片拥有分母条目本体与逐条登记结果。step-2 产出后 append_target 生效。
 
 # PREMISE-001：HoTT 前提集穷尽清单与 P1–P4 分工
@@ -32,6 +32,7 @@ soft_line_target: 300
 | 004 | [P3P4 判定表（用户填写）](<PREMISE-001/004 - P3P4 判定表（用户填写）.md>) | step-3 交接仪器：35 条一行一判定对象（divergence_point），P3/P4 列留空由用户填写，含填写说明与交回方式 | superseded-by-005-006（导航表保留；判定见 005/006） |
 | 005 | [P3P4 判定与审计链 A-B（AI 执行）](<PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md>) | A 11 + B 4 共 15 条逐条 P3/P4 候选判定 + 完整 P3P4_AUDIT_TRAIL（steelman/falsifier/confidence/corpus_self_audit/depends_on） | pending-external-audit |
 | 006 | [P3P4 判定与审计链 C-G（AI 执行）](<PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md>) | C 4 + D 5 + E 4 + F 2 + G 5 共 20 条逐条 P3/P4 候选判定 + 完整审计链 + 主题簇汇总 | pending-external-audit |
+| 007 | [SUPPLY_REGISTRATION 与任务族冻结（AI 执行）](<PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md>) | step-4：9 条非现实候选的完整 SUPPLY_REGISTRATION + 5 个建议任务族（合并建议供外部审计决定） | pending-external-audit |
 <!-- governance-shard-table:end -->
 
 ## 分母身份（冻结字段）
@@ -46,7 +47,8 @@ PREMISE_DENOMINATOR_V1
   / 扩版: 新构造进入须显式 PREMISE_DENOMINATOR_V2，旧版保留不静默重写
   / remainder=0（分母内无未编号条目）；unknown ingress 保持开放
   / P2 状态: 35/35 条完成（002 分片 A-B 共 15 条；003 分片 C-G 共 18 条）
-  / P3P4 状态: 35/35 条 AI 执行完成（005 分片 A-B；006 分片 C-G），全部 pending external audit；非现实 9 条（A-03/A-11/B-01/D-01/D-04/E-02/E-04/G-03/G-05，见 005/006 分片汇总），其余 现实/暂不判定
+  / P3P4 状态: 35/35 条 AI 执行完成（005 分片 A-B；006 分片 C-G），全部 pending external audit；非现实 9 条（A-03/A-11/B-01/D-01/D-04/E-02/E-04/G-03/G-05），其余 现实/暂不判定
+  / SUPPLY 状态: 9 条非现实候选全部完成 SUPPLY_REGISTRATION（007 分片），5 个建议任务族待外部审计决定合并
   / 分母 shard sha256: 5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be
 ```
 
