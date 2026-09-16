@@ -421,3 +421,233 @@ proof_run_root: HoTT/verification/runs
 |---|---|---|---|---|
 | C-186 | `(t : Tm) → codeT' t ≢ suc zero`：修复后的项编码**不含** `1`，故其全解码器 `dec` 的缺省分支是**可达的**（因而对全函数是必要的）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeT'-misses-one`（辅助 `twice≠one`、`pack≠one`、`code-sentinel`）；run `20260913-MP-ERCF3-T3-CODING-IMAGE-001-01`。 | 只针对 `codeT'`；不涉及 `codeAtom`（C-185 已证其满射），也不涉及旧 `codeT`。 |
 | C-187 | `(φ : Fml) → codeF' φ ≢ suc zero`：修复后的公式编码同样不含 `1`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeF'-misses-one`；同一 run。 | 只针对 `codeF'`；不涉及旧 `codeF`、不涉及 P 表示性/反射/对角不动点。 |
+
+## 追加登记：MP-CUBICAL-MACHINE-HALTING-001（固定程序的停机／发散校准，2026-09-14）
+
+> 本节按冻结前缀要求追加在文末，不改写任何既有 proof/claim 行或 run 收据。证明源码逐字节取自只读贡献
+> worktree 的候选，但本节只引用当前主库新建的 proof/claim/run 身份和当前工作根中的独立 kernel 运行。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-MACHINE-HALTING-001` | `C-188`–`C-190` | `formal/cubical-machine-halting/MachineHalting.agda`；精确规格与来源说明见同目录 `CLAIM.md`；工具链与 library registry 按 run 的 `source-manifest.json` 固定 | `verification/runs/20260914-MP-CUBICAL-MACHINE-HALTING-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / FIXED_MACHINE_HALTING_DIVERGENCE_CALIBRATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-188 | 在源码给定的双计数器语言、步进函数与命题截断停机定义下，`halt-now : Halts haltProgram initial`：固定正控制程序在步数 `zero` 已经停机。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `halt-now = ∣ zero , refl ∣₁`；run `20260914-MP-CUBICAL-MACHINE-HALTING-001-01`。 | 只证明该固定程序；不推出任意程序的停机性。 |
+| C-189 | `loop-diverges : (n : ℕ) → isFinal loopProgram (iterate n (step loopProgram) initial) ≡ false`：固定循环程序在每个有限观察下标都没有到达 `halt`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `loop-diverges n = refl`；同一 run。 | 这是一个可直接化简的固定程序不变量；不是通用停机不可判定性，也没有证明校验器发散。 |
+| C-190 | `loop-not-halts : ¬ Halts loopProgram initial`：固定循环程序不存在命题截断的有限停机见证。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R1_FIXED_MACHINE_CALIBRATION_COMPLETE` | `PT.rec isProp⊥` 把任意假想的截断见证消去到 `false ≢ true`；同一 run。 | 不构造通用机、程序编码、Gödel 句或可证性谓词；不说明发散具有 HoTT 特有原因；不建立自然消费者、同一现实任务对应或 HoTT 非现实性悖论。 |
+
+## 追加登记：MP-CUBICAL-PROGRAM-CODE-001（R2 有限程序与有界解释器基础，2026-09-14）
+
+> 本节追加在 R1 校准之后。它把函数空间程序收窄为有限指令表并提供统一的 bounded evaluator；“统一”只量化
+> 当前有限语法，不能读成已经证明该语言通用或其停机问题不可判定。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-PROGRAM-CODE-001` | `C-191`–`C-194` | `formal/cubical-machine-halting/ProgramCode.agda`；依赖 `MachineHalting.agda`；精确规格见 `CLAIM-R2-PROGRAMCODE.md`；全部按 run source manifest 固定 | `verification/runs/20260914-MP-CUBICAL-PROGRAM-CODE-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_PROGRAMCODE_BOUNDED_EVALUATOR_FOUNDATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-191 | 归纳类型 `ProgramCode` 给出有限指令表；`decode : ProgramCode → Program` 是总函数，表头、表尾与空表外标签的三条方程分别由 `decode-head`、`decode-tail`、`decode-outside-empty` 证明。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `ProgramCode`、`lookupInstr`、`decode-*`；run `20260914-MP-CUBICAL-PROGRAM-CODE-001-01`。 | 还没有 `ProgramCode ↔ ℕ` 的 Gödel 编码／解码或公平枚举。 |
+| C-192 | `runFor` 对任意 fuel、有限程序表和状态总结束，并满足 `runFor fuel code state ≡ iterate fuel (step (decode code)) state`；`finalAt` 因而与 R1 终止观察一致。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `runFor-agrees`、`finalAt-agrees`；同一 run。 | bounded evaluator 的总性只来自 fuel 递减；不构成无界停机判定器或语言通用性证明。 |
+| C-193 | `haltCode` 的 `haltsWithin` 在任意 fuel 上为 `true`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `haltCode-within`；同一 run。 | 停机正控制，只覆盖一个单指令程序表。 |
+| C-194 | `loopCode` 在每个精确有限步都非终止，在每个有限界内 `haltsWithin = false`，且不存在截断的有限停机见证。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_PROGRAMCODE_THIN_SLICE_COMPLETE` | `loopCode-not-final`、`loopCode-never-within`、`loopCode-not-halts`；同一 run。 | 仍不证明通用停机不可判定、s-m-n／自应用或 certified reduction；不依赖 HoTT 特有机制，不建立自然 consumer、现实桥梁、Gödel 不完备性或内部矛盾。 |
+
+## 追加登记：MP-CUBICAL-NAT-PROGRAM-CODE-001（R2 指令／程序自然数编码与数值有界解释器，2026-09-14）
+
+> 本节在 R2 ProgramCode 第一薄层之后追加。它关闭 `R2-NATCODE-001`，使每个有限程序表进入一个可解码的自然数位置；
+> 它尚未给出 `(program,input,fuel)` 的公平调度、语言通用性或停机不可判定性。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-NAT-PROGRAM-CODE-001` | `C-195`–`C-198` | `formal/cubical-machine-halting/NatProgramCode.agda`；依赖 `MachineHalting.agda`、`ProgramCode.agda`；精确规格见 `CLAIM-R2-NATCODE.md`；全部按 run source manifest 固定 | `verification/runs/20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_NATURAL_CODE_AND_BOUNDED_EVALUATOR_ALIGNMENT` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-195 | 五个 `Instr` 构造子与有限 `ProgramCode` 具有自然数编码和对全部 `ℕ` 有定义的 decoder。参数码与程序终止位自定界；fuel 为零或提前结束返回 `pcNil`，未分配标签 `101/110/111` 解释为 `halt`。`decodeNat zero ≡ pcNil`，且具体非法 `101` 自然数码解为 `pcCons halt pcNil`。`Instr` 通过单指令程序获得 `encodeInstrNat/decodeInstrNat`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bitsInstr`、`bitsProgram`、`codeBits`、`run`、`invalid101/110/111`、`decodeNat-zero`、`decodeNat-invalid101`、`encodeInstrNat`、`decodeInstrNat`；run `20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01`。 | decoder 的默认语义是本 TaskSpec 的显式选择；不主张每个自然数都是合法编码，也不涉及程序语义通用性。 |
+| C-196 | 合法像往返与覆盖：`(p : ProgramCode) → decodeNat (encodeNat p) ≡ p`；故 `encodeNat` 单射，且 `decodeNat` 对每个有限程序表有显式原像。对 `Instr` 同样有 `decodeInstrNat (encodeInstrNat i) ≡ i` 与编码单射。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `unbits-code`、`codeBits-dominates`、`parseInstr`、`parseProgram`、`decodeNat-encodeNat`、`encodeNat-injective`、`decodeNat-surjective`、`decodeInstrNat-encodeInstrNat`、`encodeInstrNat-injective`；同一 run。 | 这里只证明程序维度可数覆盖；没有证明程序／输入／fuel 三元组的公平或无饥饿调度。 |
+| C-197 | 数值有界解释器在合法编码像上保持 R2 语义：`runNat fuel (encodeNat p) s ≡ runFor fuel p s`，并且 `finalNat`、`haltsWithinNat` 分别等于既有 `finalAt`、`haltsWithin`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `runNat-on-image`、`finalNat-on-image`、`haltsWithinNat-on-image`；同一 run。 | 总性来自 decoder 与有限 fuel 的结构递减；不构成无界停机判定器。 |
+| C-198 | R2 的停机／循环控制经自然数编码保持：编码后的 `haltCode` 在任意 fuel 内为 `true`；编码后的 `loopCode` 在任意精确有限步与任意有限界内均为 `false`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_NATCODE_COMPLETE_FAIRNESS_OPEN` | `haltNat-within`、`loopNat-not-final`、`loopNat-never-within`；同一 run。 | 不证明当前语言计算通用、通用停机不可判定、s-m-n／自应用、Gödel/Rosser/Löb、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。 |
+
+## 追加登记：MP-CUBICAL-FAIR-ENUMERATION-001（R2 program/input/fuel 公平有限阶段枚举，2026-09-14）
+
+> 本节在 NATCODE 之后追加。它用显式有限索引和 `AppearsBy` 到达界关闭 `R2-FAIR-001`，并把每个 schedule
+> 位置的观察连接回原 `haltsWithin`；尚未构造不停机时保持 partial 的 semi-halting search。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-FAIR-ENUMERATION-001` | `C-199`–`C-202` | `formal/cubical-machine-halting/FairEnumeration.agda`；依赖 `MachineHalting.agda`、`ProgramCode.agda`、`NatProgramCode.agda`；精确规格见 `CLAIM-R2-FAIR.md`；全部按 run source manifest 固定 | `verification/runs/20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_FAIR_FINITE_STAGE_NO_STARVATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-199 | 固定三元组自然数码满足 `decodeTriple (encodeTriple a b c) ≡ triple a b c`，编码单射且 decoder 覆盖全部三元组；`Config=(pc,r0,r1)` 因而具有 `encodeConfig/decodeConfig` 往返、单射和 decoder 覆盖。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `readUnary-unary`、`parseTriple-junk`、`decodeTriple-encodeTriple`、`encodeTriple-injective`、`decodeTriple-surjective`、`decodeConfig-encodeConfig`、`encodeConfig-injective`、`decodeConfig-surjective`；run `20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01`。 | 固定 arity 三元组编码；默认分支把缺参数读为 0；不主张编码唯一覆盖或资源最优。 |
+| C-200 | 对任意有限 `program : ProgramCode`、`input : Config`、`fuel : ℕ`，显式 `caseIndex program input fuel` 满足 `caseAt caseIndex ≡ searchCase program input fuel`。`AppearsBy` 保存 `index ≤ stage` 与该等式；`eventuallyVisited` 以 `caseIndex` 本身为有限到达界，`noStarvation` 给出存在 stage。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_FAIR_FINITE_STAGE_NO_STARVATION` | `caseAt-caseIndex`、`eventuallyVisited`、`noStarvation`；同一 run。 | 公平性只指每个有限 case 有有限到达界；不限制索引大小、不要求唯一索引，也不等于搜索已找到首个 true。 |
+| C-201 | schedule 保持任务：`observeAt (caseIndex program input fuel) ≡ haltsWithin fuel program input`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `observeAt-caseIndex`；同一 run。 | 仍是给定 fuel 的 bounded observation；没有得到无界停机否定答案。 |
+| C-202 | 公平 schedule 的控制：`haltCode` 的规范索引观察在任意 fuel 为 `true`，`loopCode` 的规范索引观察在任意 fuel 为 `false`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_FAIR_COMPLETE_SEMIHALT_NEXT` | `haltCase-visited-true`、`loopCase-visited-false`；同一 run。 | 不证明 `CodeHalts` 已 semi-decidable、不证明计算通用性／停机不可判定、s-m-n、Gödel/Rosser/Löb、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。 |
+
+## 追加登记：MP-CUBICAL-SEMI-HALTING-001（R2 分阶段停机半判定与公平正见证枚举，2026-09-14）
+
+> 本节在 R2 公平有限阶段枚举之后追加。它关闭 `R2-SEMIHALT-001`：有限 stage 的 `nothing` 只表示尚未发现，
+> `just` 与有限停机见证双向对应；仍未证明当前语言通用或其停机问题不可判定。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-SEMI-HALTING-001` | `C-203`–`C-207` | `formal/cubical-machine-halting/SemiHalting.agda`；依赖 `MachineHalting.agda`、`ProgramCode.agda`、`NatProgramCode.agda`、`FairEnumeration.agda`；精确规格见 `CLAIM-R2-SEMIHALT.md`；全部按 run source manifest 固定 | `verification/runs/20260914-MP-CUBICAL-SEMI-HALTING-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_SEMI_HALTING_POSITIVE_SEARCH_AND_FAIR_ENUMERATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-203 | `semiHaltAt stage program input : Maybe Unit` 对每个有限 stage 总结束；其 `isSome` 精确等于 `haltsWithin stage`，而且正答案在后继 stage 保持。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `semiHaltAt`、`isSome-semiHaltAt`、`haltsWithin-next-stage`、`semiHaltAt-persistent`；run `20260914-MP-CUBICAL-SEMI-HALTING-001-01`。 | 有限 stage 的 `nothing` 不表示无界否定；这里只构造 stage-indexed approximants。 |
+| C-204 | 精确步停机见证蕴含同界 bounded positive；bounded positive 又可构造某个精确有限步的截断 `CodeHalts` witness。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `finalAt-implies-haltsWithin`、`or-true-split`、`haltsWithin-implies-CodeHalts`；同一 run。 | 不选择最小停机时刻；不从截断中恢复规范 witness。 |
+| C-205 | 对任意当前有限程序表与输入，`CodeHalts program input` 与“某个有限 stage 的 `semiHaltAt` 返回正答案”具有显式双向函数。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_SEMIHALT_CORRECT_COMPLETE` | `SemiReturns`、`CodeHalts-to-SemiReturns`、`SemiReturns-to-CodeHalts`、`CodeHalts↔SemiReturns`；同一 run。 | 这是当前 TaskSpec 的正半判定正确性／完备性；不证明不存在另一种总判定器。 |
+| C-206 | `enumerateHalting` 是公平 schedule 上的全域正见证流；每个 bounded positive case 在规范 `caseIndex` 处发射，且规范位置的正发射还原为同一个 `haltsWithin=true`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `enumerateHalting`、`isSome-enumerateHalting`、`enumerated-positive-sound`、`bounded-case-eventually-emitted`、`canonical-emission-sound`；同一 run。 | 枚举顺序不保证最小 witness 或复杂度界；无输出不是有限可观察的否定结论。 |
+| C-207 | `haltCode` 在 stage 0 返回正答案；`loopCode` 在所有有限 stage 都不返回正答案且不存在 `SemiReturns` witness；公平全域枚举中的规范控制保持。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_SEMIHALT_COMPLETE_UNIVERSALITY_NEXT` | `haltCode-returns-at-zero`、`loopCode-never-returns`、`loopCode-not-SemiReturns`、`haltCode-scheduled-positive`、`loopCode-scheduled-negative`；同一 run。 | 具体循环的归纳不变量不等于通用停机不可判定；仍无 universality/reduction、Gödel/Rosser/Löb、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。 |
+
+## 追加登记：MP-COQ-MM2-UNDECIDABILITY-REPLAY-001（外部 MM2 synthetic undecidability 定理重放，2026-09-14）
+
+> 上游：Coq Library of Undecidability Proofs，`coq-8.15` commit `c486697da8cfa4b9bb11b4c53eea7d57781c0deb`。
+> 本包只登记上游定理在其自身定义下的原样重放；不会把 `undecidable` 改写成无条件 `¬ decidable`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COQ-MM2-UNDECIDABILITY-REPLAY-001` | `C-208` | `formal/external-coq-mm2/CheckMM2Undec.v`；关键上游源码 12 份、777 文件全树 manifest、Docker image identity 与重放脚本均按 run source manifest 固定 | `verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/`；Coq 8.15.2 / OCaml 4.07.1；完整干净树串行构建；exit 0；`Print Assumptions` 为 `Closed under the global context` | `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE / SYNTHETIC_UNDECIDABILITY_DEFINITION_PRESERVED / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-208 | 在上游 `coq-8.15@c486697` 的精确定义中，Coq kernel 接受 `MM2_HALTING_undec : undecidable MM2_HALTING`，且 `Print Assumptions` 报告 `Closed under the global context`。这里 `undecidable P` 定义为 `decidable P -> enumerable (complement SBTM_HALT)`；`decidable P` 定义为存在逐点反映 `P` 的总 Bool 函数。 | `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `external-coq-mm2/upstream-coq-8.15-c486697/theories/Synthetic/Definitions.v`、`.../Synthetic/Undecidability.v`、`.../MinskyMachines/MM2.v`、`.../MM2_undec.v`；run `20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01`。两条 coqdep 告警只涉及本目标闭包之外的 `L/Tactics/{Extract,GenEncode}.v` 对 MetaCoq `bytestring` 的全项目扫描；目标依赖和 probe 均编译成功。 | 不等于纯构造元理论中的无条件 `¬ decidable MM2_HALTING`；不证明当前 rocq-9.2 commit 的 kernel replay；不证明上游 MM2 到 Cubical Agda `ProgramCode` 的编译等价；不证明 exact HoTT 不完备性、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。 |
+
+## 追加登记：MP-CUBICAL-MM2-BRIDGE-001（R2 MM2 到 ProgramCode 编译保持核心，2026-09-14）
+
+> 本节把与上游 MM2 指令约定逐项对应的函数式源模型编译到当前 `ProgramCode`，并在 Agda 内证明停机双向保持。
+> Coq 关系语义与该 Agda 源模型的跨语言 theorem transport 仍单列为未闭合义务。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-MM2-BRIDGE-001` | `C-209`–`C-213` | `formal/cubical-machine-halting/MM2Bridge.agda`；依赖 `MachineHalting.agda`、`ProgramCode.agda`、`NatProgramCode.agda`；精确规格见 `CLAIM-R2-MM2-BRIDGE.md`；全部按 run source manifest 固定 | `verification/runs/20260914-MP-CUBICAL-MM2-BRIDGE-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_MM2_TO_PROGRAMCODE_HALTING_EQUIVALENCE / CROSS_LANGUAGE_TRANSPORT_OPEN` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-209 | 函数式 `MM2Instr` 固定 label 1 起始、INC fall-through、DEC 正数跳转／零 fall-through 和表外停止；`compileMM2` 在目标 label 0 放 `halt` 哨兵。对所有程序和 label，编译后查表等于在该 label 编译源查表结果。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `lookup0`、`lookupMM2`、`compileInstr`、`compileTail`、`compileMM2`、`lookup-compileTail`、`lookup-compileMM2`；run `20260914-MP-CUBICAL-MM2-BRIDGE-001-01`。 | 源模型与 Coq `mm2_step/mm2_stop` 的跨语言等价还不是机器定理。 |
+| C-210 | 对任意源程序和状态，源 finality 等于编译后 `ProgramCode` finality；源单步状态等于编译后 `universalStep`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `compileFinal-agrees`、`sourceStep-compileObserved`、`compileStep-agrees`；同一 run。 | 只在本 Agda 文件定义的源模型与目标模型之间成立。 |
+| C-211 | 对任意有限步数、源程序与状态，源 `mm2Run` 等于目标 `runFor`，源 `mm2FinalAt` 等于目标 `finalAt`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `compileRun-agrees`、`compileFinalAt-agrees`；同一 run。 | 有限运行保持不独自给出 universality 或不可判定性。 |
+| C-212 | `MM2Halts program state` 与 `CodeHalts (compileMM2 program) state` 具有显式双向函数，并保持相同有限步 witness 后再做命题截断。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / AGDA_LOCAL_HALTING_REDUCTION_BIDIRECTIONAL` | `MM2Halts-to-CodeHalts`、`CodeHalts-to-MM2Halts`、`MM2Halts↔CodeHalts`；同一 run。 | C-208 的 Coq synthetic theorem 尚不能仅凭名称对应自动迁移；没有无条件 `¬ decidable CodeHalts`。 |
+| C-213 | 空表停止、单 INC fall-through、DEC 零 fall-through、DEC 正数 jump 0 及编译后停机 witness 五项控制均成立。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / R2_MM2_BRIDGE_CORE_COMPLETE` | `empty-program-final`、`single-incA-step`、`single-incA-final-after-one`、`single-decA-zero-fallthrough`、`single-decA-positive-jump-zero`、`single-incA-CodeHalts`；同一 run。 | 控制不证明复杂源程序覆盖、s-m-n、自应用、Gödel/Rosser/Löb、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。 |
+
+## 追加登记：MP-COQ-MM2-PROGRAMCODE-BRIDGE-001（同核 MM2 到显式 target 的归约，2026-09-14）
+
+> 本节在 Coq 8.15.2 同一 kernel 内把上游关系式 `MM2_HALTING` 归约到与 Agda `ProgramCode` TaskSpec 同构的显式分支目标。
+> 结论继续使用上游 synthetic `undecidable` 定义，不升级为无条件 `¬ decidable`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COQ-MM2-PROGRAMCODE-BRIDGE-001` | `C-214`–`C-218` | `formal/external-coq-mm2/MM2ProgramCodeBridge.v`；`coq-8.15@c486697` 的 12 个关键原文件与 777 文件全树 manifest；精确规格见 `CLAIM-R2-COQ-MM2-BRIDGE.md`；全部按 run source manifest 固定 | `verification/runs/20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01/`；Coq 8.15.2 / OCaml 4.07.1；干净树串行构建；exit 0；`Print Assumptions PC_HALTING_undec` 为 `Closed under the global context` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SAME_KERNEL_TOTAL_REDUCTION / SYNTHETIC_UNDECIDABILITY_SCOPE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-214 | Coq target 定义显式 INC/DEC 双分支/halt、有限表、表外默认 halt、deterministic bounded run 与有限停机；MM2 compiler 在 label 0 放 halt 哨兵，且所有 label 的查表保持。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `pc_instr`–`PC_HALTING`、`compile_instr`–`compile_program`、`nth_compile_tail`、`nth_compile_program`；run `20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01`。 | target 与 Agda 源码同构是 correspondence 结论，不是 Coq 内的 Agda AST 等式。 |
+| C-215 | 上游关系式 `mm2_terminates program state` 当且仅当存在有限 `steps` 使函数式 `source_final_at steps program state=true`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `nth_error_mm2_instr_at`、`mm2_instr_at_nth_error`、`source_final_false_step`、`mm2_step_source_complete`、`source_functional_to_relational`、`source_reaches_run`、`mm2_terminates_source_iff`；同一 run。 | 只关闭同一 Coq 中关系闭包与函数式有限观察的差异。 |
+| C-216 | 对任意程序、状态和有限步数，源函数式 finality/step/run/final_at 与编译后的显式 target 对应量相等。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `source_final_compile`、`source_step_compile`、`source_run_compile`、`source_final_at_compile`、`source_target_halting_iff`；同一 run。 | 有限运行保持本身不等于无条件不可判定，也不使用 HoTT higher structure。 |
+| C-217 | `compile_problem` 是 total many-one reduction：`MM2_to_PC_HALTING : MM2_HALTING ⪯ PC_HALTING`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SAME_KERNEL_REDUCTION_COMPLETE` | `MM2_to_PC_HALTING`；同一 run。 | 证明的是 Coq target；到 Agda target 的跨 kernel 保真需结合 C-209–C-213 与 correspondence 审计。 |
+| C-218 | 从 C-208 上游 theorem 与 C-217 导出 `PC_HALTING_undec : undecidable PC_HALTING`；`Print Assumptions` 为 `Closed under the global context`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SYNTHETIC_UNDECIDABILITY` | `PC_HALTING_undec`；同一 run。两条 coqdep 告警仍只涉及目标闭包外的 MetaCoq `bytestring` 扫描项并原样保留。 | `undecidable P` 仍是 `decidable P → enumerable(complement SBTM_HALT)`；不推出纯构造内部 `¬ decidable`、CT/EPF、s-m-n、Gödel/Rosser/Löb、exact HoTT 不完备性、HoTT essentiality、natural consumer、现实桥梁或矛盾。 |
+
+## 追加登记：MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001（显式 EPF/SCT 前提下的内部不可判定性，2026-09-14）
+
+> 上游：Yannick Forster `coq-synthetic-computability`，branch `code`，commit `b9523cb33180dc58b227432e60045cc38615b711`。
+> 本包把 R2 从 synthetic implication 推进到 Coq 对象语言内的 `~ decidable`，但 `EPF_bool + SCT` 仍是显式前提；不把它写成 ambient HoTT 的无条件结论。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001` | `C-219`–`C-222` | `formal/external-coq-parametric-ct/CheckInternalUndec.v`；109 文件全树 manifest、20 文件 target closure、Docker recipe/image identity 与重放脚本均按 run source manifest 固定 | `verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/`；Coq 8.13.2 / OCaml 4.07.1 / Equations 1.2.3+8.13 / stdpp 1.5.0；干净闭包串行构建；exit 0；三个 `Print Assumptions` 均为 `Closed under the global context` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONDITIONAL_INTERNAL_NOT_DECIDABLE / EXPLICIT_EPF_BOOL_OR_SCT_PREMISE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-219 | 在显式前提 `EPF_bool + SCT` 下，存在谓词 `K : nat → Prop`：`K` 可半判定，`compl K` 不可半判定，且 `K` 与 `compl K` 都不可判定。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONDITIONAL_INTERNAL_NEGATION` | 上游 `Axioms/bestaxioms.v` 的 `EPF_halting`/`CT_halting` 与 `Axioms/halting.v` 的 `EPF_SCT_halting`；run `20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01`。 | `EPF_bool + SCT` 是 sum premise（给出任一分支）；本包没有证明 EPF_bool 或 SCT 在 ambient HoTT 中成立。 |
+| C-220 | 在同一显式前提下，`K_nat_bool_undec : ~ decidable (compl K_nat_bool)`；这里 `K_nat_bool f := exists n, f n = true`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONDITIONAL_INTERNAL_NOT_DECIDABLE` | `Axioms/halting.v` 的 `K_nat_bool_complete`、`K_nat_bool_undec`；同一 run。 | 这是 Coq CIC 内部否定，但仍有 EPF_bool/SCT 前提；不等于当前 Agda `ProgramCode` 的无条件停机不可判定。 |
+| C-221 | 在同一显式前提下，`K_nat_undec : ~ decidable (fun f : nat → nat => forall n, f n = 0)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONDITIONAL_INTERNAL_NOT_DECIDABLE` | `Axioms/halting.v` 的 `K_nat_bool_equiv`、`K_nat_equiv`、`K_nat_undec`；同一 run。 | 不主张此函数空间命题就是 HoTT 的 exact calculus theoremhood，不建立 Gödel/Rosser/Löb 或现实桥梁。 |
+| C-222 | `Print Assumptions` 对 `EPF_SCT_halting`、`K_nat_bool_undec`、`K_nat_undec` 各输出一次 `Closed under the global context`；目标依赖闭包在作者指定的 Coq 8.13.2 时代环境中重建成功。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / ASSUMPTION_CLOSURE_REPLAYED` | `CheckInternalUndec.v` 与保存 stdout；20 个实际源依赖逐文件固定；Coq 8.15.2/stdpp 1.7.0 的版本不兼容尝试另作失败证据保留。 | “global context closed”不消除定理箭头左侧的显式 EPF_bool/SCT 前提；不证明 HoTT essentiality、natural consumer、same-task reality、内部矛盾或原创性。 |
+
+## 追加登记：MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001（G-HOTT-SYNTAX 首个精确机器切片，2026-09-14）
+
+> 上游：Altenkirch–Kaposi–Xie，`akaposi/cohtt` master commit `5babc385d01500c1777ff932dd8c79299a1d766a`。
+> 本包冻结并重放一个确切的 Cubical Agda groupoid-syntax，而不把它扩大成完整 HoTT 自语法或 R4 不完备性。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001` | `C-223`–`C-226` | `formal/external-cubical-groupoid-syntax/CheckGroupoidSyntax.agda`；91 文件全树 manifest、22 文件 target manifest、derived library-name wrapper、上游 source 与重放脚本均按 run source manifest 固定 | `verification/runs/20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；两阶段 full-source replay；exit 0；stderr 只有四个空 phase 标记 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / EXACT_HOTT_RELEVANT_SYNTAX_SLICE_REPLAYED / FULL_HOTT_CALCULUS_OPEN` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-223 | 固定 groupoid syntax 是四 sort 的 Cubical HIIT 编码：`Con`、`Sub`、`Ty`、`Tm`；它包含 substitution/composition、terminal context、context extension、`U/El`、Π、`lam/app`、β/η，以及 `U/El/Π` substitution 与 composition/identity 的二阶 coherence。`Sub` 与 `Tm` 由构造器截为 set，`Ty` 先截为 groupoid。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / EXACT_SYNTAX_DEFINITION_REPLAYED` | 上游 `TT/Groupoid/Syntax.agda`、`TT/Groupoid/CwF.agda`；run phase 1/2 都重新检查对应模块。 | 对象理论只含当前列出的构造；不含 Nat、一般 identity type、对象层 univalence/HIT、proof checker 或 arithmetic。 |
+| C-224 | α-normalisation 定义 normal types `NTy`、`norm : Ty Γ → NTy Γ` 与 retraction `⌜ norm A ⌝ ≡ A`，并证明 `isSetTy : (Γ : Con) → isSet (Ty Γ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GROUPOID_SYNTAX_TYPES_ARE_SETS` | `TT/Groupoid/NTy.agda` 的 `isSetNTy`、`norm`、`⌜⌝-norm`、`isSetTy`；项目探针 `groupoid-types-are-sets`；同一 run。 | setness 不自动给 decidable equality、proof enumeration、normalisation of all terms 或 Gödel coding。 |
+| C-225 | `TT.Groupoid.IsoSet` 构造 `isoCon`、`isoSub`、`isoTy`、`isoTm`，把 groupoid syntax 的 contexts、substitutions、types、terms 与 set syntax 的相应 sort 同构；项目探针逐项按原类型复述并由原定理填充。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GROUPOID_AND_SET_SYNTAX_SORT_ISOMORPHISMS` | `TT/Groupoid/IsoSet.agda` 与 `CheckGroupoidSyntax.agda` 的四个 alias；同一 run phase 2/3。 | 不证明两套语法拥有本项目 R4 所需的所有 HoTT 构造或算术解释；不建立现实相对失配。 |
+| C-226 | 上游当前 20 个 `TT` 模块先在 fresh pinned dependency source 上通过，再删除全部 cohtt `.agdai` 并按上游 flags 重查；项目 theorem probe 随后通过。上游 `cohtt.agda-lib` 缺 `name:`，derived wrapper 只增加 library name。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / TWO_PHASE_EXACT_SOURCE_REPLAY` | `TT/README.agda` 导入分母、`TARGET_SOURCE_MANIFEST.json`、`cohtt-replay.agda-lib`、run stdout/stderr 与 exact replay。 | 直接把 `--hidden-argument-puns` 应用于 Cubical v0.9 全源会触发依赖解析失败；两阶段边界不应被隐去。此包不证明 R4 不完备性、HoTT essentiality、natural consumer、现实桥梁或悖论。 |
+
+## 追加登记：MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001（内部纤维替换导致 UIP 的最小两层机器构造，2026-09-15）
+
+> 本包以外层 Agda 类型、内层 code/`El`、受限内层 `Jᵢ` 和 context-uniform `R` 重构 2LTT Theorem 2.20 的核心推演。
+> 它故意阻止宿主 Cubical Path 直接消去到任意外层类型；COMP-R 不在接口中，因而机器结果显示 FORM/INTRO/dependent-ELIM 已经足够。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001` | `C-227`–`C-232` | `formal/two-level-fibrant-replacement-uip/TwoLevelReplacementUIP.agda`；精确接口、论文对应和禁止外推见同目录 claim 文档；2LTT primary §2.7 进入 run source manifest | `verification/runs/20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01/`；Agda 2.8.0-3d04bac、Cubical v0.9；`--safe --cubical --guardedness --ignore-interfaces`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / TWO_LEVEL_CONTEXT_UNIFORM_REPLACEMENT_IMPLIES_INNER_UIP / NATIVE_S1_CONTROL` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-227 | 对任意内层类型 `A`、点 `u` 和外层严格环路 `h : u E.≡ u`，外层 UIP 经 `strictCong encode` 与第二次 `encode` 产生 `encode h =ᶦ reflᵢ`；这是论文式 (2.14) 的机器对应。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / FORMAL_CHECKED_WITH_SCOPE` | `strict-loop-canonical`；run `20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01`。 | 外层 UIP 是 `TwoLevelReplacement.strictUIP` 的显式字段；本包不在 Cubical Path 中证明 strict UIP。 |
+| C-228 | `StrictWitness A u v p` 是论文式 (2.13) 内 `R` 的外层见证类型；`lifted-witness` 通过受限内层路径归纳，构造 `El (R (StrictWitness A u v p))`。其 motive 能成为内层 code，正是因为统一 `R` 可作用于依赖内层路径 `p` 的外层类型。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONTEXT_UNIFORM_R_WITNESS` | `StrictWitness`、`lifted-witness`；同一 run。 | 这没有构造一个实际 fibrant replacement；它证明任何提供该统一接口的两层 fragment 都必须承担后果。 |
+| C-229 | 从 ELIM-R 的常值族实例 `recR` 在严格反身环路处求值，`based-uip` 收缩任意内层环路；再用内层 Π 与 J，`inner-uip` 证明任意两个内层恒等证明相等。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / INNER_UIP_FROM_REPLACEMENT_FRAGMENT` | `recR`、`based-uip`、`inner-uip`；同一 run。 | COMP-R 未声明也未使用；结论依赖完整 record 的内层 J/Π、外层 UIP 和 context-uniform R/intro/elim，不是 basic HoTT 或 basic 2LTT 的无前提定理。 |
+| C-230 | 若该 fragment 的某个内层类型带一个不能等于 `reflᵢ` 的环路，则 `replacement-excludes-nontrivial-loop` 导出 `⊥`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / NONTRIVIAL_INNER_LOOP_EXCLUSION` | `NontrivialInnerLoop`、`replacement-excludes-nontrivial-loop`；同一 run。 | 这是条件不相容定理；没有声称 record 有 inhabitant，也没有把抽象 fragment 与原生 Cubical `Type` 自动等同。 |
+| C-231 | 原生 Cubical `S¹` 中，Möbius family 把 `refl ≡ loop` 送到 `false ≡ true`，故 `refl≢loop`；对称地 `loop≢refl`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / NATIVE_CUBICAL_NONTRIVIAL_LOOP_CONTROL` | `möbius`、`odd?`、`refl≢loop`、`loop≢refl`；同一 run。 | 该控制与抽象 fragment 分开定义；它确认通常 HoTT 高阶结构会被 UIP 消灭，但不冒充 record 的语义实例。 |
+| C-232 | 删除两层 strict-UIP 桥后，原生 Cubical universe 中 `NativeR X = X`、`native-r` 与 `native-elimR` 同时满足 FORM/INTRO/依赖 ELIM 形状。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / POSITIVE_ABLATION_CONTROL` | `NativeR`、`native-r`、`native-elimR`；同一 run。 | 不能把任意“R 形接口”单独当作矛盾；决定性组合是外层 UIP、内外层等式编码以及 R 在内层路径依赖语境中的统一可用性。论文已公开指出 base-change/context-stability 障碍与 crisp 规避方向；本包不认领新 HoTT BUG。 |
+
+## 追加登记：MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001（内部 fibration universe no-go 与 crisp 恢复，2026-09-15）
+
+> 上游：Licata–Orton–Pitts–Spitters, *Internal Universes in Models of Homotopy Type Theory*, FSCD 2018；官方 Cambridge dataset DOI `10.17863/CAM.22369`。
+> 13 个 Agda source 在从 `agda/agda` flat commit `70899fb` clean 构建的 Agda-flat 2.6.0.1 中整包重放；本项目另加一正一负 modal typing control。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001` | `C-233`–`C-238` | `formal/external-agda-flat-internal-universes/upstream/README.agda` 及其 12 个 source；官方 ZIP/source-tree/image/build recipe/controls 均固定 | `verification/runs/20260915-MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001-01/`；Agda-flat 2.6.0.1-70899fb；full suite + positive control + expected negative；exit 0、stderr 0 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / INTERNAL_CLASSIFIER_NO_GO_AND_CRISP_RECOVERY` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-233 | Cambridge 官方 ZIP `56b18248…` 中 13 个 Agda source（44,374 bytes）逐字进入 main；Agda-flat 从 exact `flat@70899fb` / git tree `0e9f8802…` clean 构建，版本串无 `-dirty`；`README.agda` 的全部导入闭包通过。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / SOURCE_AND_TOOLCHAIN_QUALIFIED` | `SOURCE_TREE_MANIFEST.json`、`AGDA_FLAT_IMAGE.json`、Docker recipe、run stdout/source manifest。 | 项目复制与 kernel replay不证明 postulates 在任意模型中成立，也不认证原创性。 |
+| C-234 | `IntUniv.fiberwise-fibrant-is-fibrant` 从普通 internal weak classifier 把逐点 fibrant family 提升为整体 fibration；若 composition有 interval transport且每个常值严格等式 family fibrant，则 `NoIntUniv` 对 `P i = (O ≡ i)` 导出 `O ≡ I`，与 `O≠I` 矛盾。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / INTERNAL_CLASSIFIER_NO_GO` | `upstream/theorem-3-1.agda` 的 `IntUniv`、`fiberwise-fibrant-is-fibrant`、`NoIntUniv`；同一 run。 | 显式依赖 `funext`、UIP、nontrivial interval、cofibrancy 和给定 composition/transport；不是无前提 HoTT 矛盾。 |
+| C-235 | 同一官方源码为 CCHM composition 与 Cartesian Cubical composition分别构造 `coe`、常值严格等式 fibrancy，并得到 `NoIntCCHMUniv` 与 `NoIntCCTTUniv`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / TWO_FIBRATION_NOTIONS` | `agda/cchm.agda`、`agda/cctt.agda` 与 `theorem-3-1.agda` 两个实例；同一 run。 | 两个实例扩大模型相关性，但不证明所有 fibration notions 都满足前提。 |
+| C-236 | 在 crisp modal type theory 中，若 path functor 的指数具有由 tiny interval 给出的外部右伴随 `√` 及 `R/L/LR/RL/R℘`，Theorem 5.2 构造 `U`、fibration `El`、crisp `code`、`Elcode`、`codeEl` 与 `prf : Univ l`；正向 classifier 只接收 crisp/global fibration。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / CRISP_CLASSIFIER_CONSTRUCTED` | `upstream/agda-flat/tiny.agda`、`upstream/theorem-5-2.agda`；同一 run。 | tiny/right-adjoint 数据是显式 postulate；crisp classifier 的任务契约不同于 C-234 中允许 local-dependent input 的 ordinary classifier。 |
+| C-237 | Agda-flat 接受 crisp function 应用于 crisp argument；把 argument 改为普通 local variable 后同一编译器以 `Variable x is declared top, so it cannot be used here` 拒绝。该限制机械阻止把 `code` 应用于依赖 local `i : I` 的 pointwise fibration。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / MODAL_TYPING_ABLATION` | `controls/CrispPositive.agda`、`controls/CrispNegative.agda`；run phase `CRISP_POSITIVE` 与 `CRISP_NEGATIVE_EXPECTED_REJECTION`。 | 控制验证 modal rule 的实施，不独自证明所有 crisp 程序保真或所有现实消费者可接受该限制。 |
+| C-238 | 官方 `README.agda` 同时接受相对 universe 版本和 Proposition 6.2；后者在给定 crisp universe/`El`/`code`/β/η 前提下构造 fibration-notion morphism的 identity 与 composition。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / RELATIVE_UNIVERSE_AND_MORPHISM_LAYER` | `upstream/theorem-5-2-relative.agda`、`upstream/proposition-6-2.agda`；同一 run。 | Proposition 6.2 自身另有显式 universe postulates；不把它外推成完整多宇宙模型、现实桥梁或最终悖论。 |
+
+## 追加登记：MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001（regular/degenerate fibrancy 正负对照，2026-09-15）
+
+> 上游：Boulier–Tabareau, *Model structure on the universe of all types in interval type theory*，论文所指 GitLab `emptyctx@28a2568`。
+> 源 subtree 未发现 license，故不复制正文；20 文件通过 deterministic git archive、逐文件 hash 与 git tree 固定。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001` | `C-239`–`C-243` | `formal/external-coq-interval-replacement/CheckReplacementBoundary.v`；外部 `InternalCubical-Coq` 20 文件 archive/tree manifest | `verification/runs/20260915-MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001-01/`；Coq 8.13.2；fresh archive build + assumptions probe；exit 0 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / REGULAR_REPLACEMENT_NO_GO_AND_DEGENERATE_TRANSPORT_RECOVERY` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-239 | `InternalCubical-Coq` 的 20 文件/177,150 bytes 被固定到 `emptyctx@28a2568`、subtree git tree `51ec7ae9…`、derived tree SHA `43557c5c…`；`Inconsistency.vo`、`FibRepl.vo` 与项目 probe 在 Coq 8.13.2 fresh extraction 中编译。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / SOURCE_AND_TOOLCHAIN_QUALIFIED` | `SOURCE_TREE_MANIFEST.json`、`COQ_IMAGE.json`、run source manifest/stdout/stderr。 | 该 subtree 无 license 文件，未进入 repo 正文；8.13.2 通过本目标不证明作者全部 8.10-era 工程通过。 |
+| C-240 | `Inconsistency.Unnamed_thm : False` 在显式 `repl`、`η`、fibrant-target recursor `repl_rec'` 与对任意 open family 的 `RFib_repl` 下成立；`Print Assumptions` 同时固定 nontrivial interval 与 cofibration/equality基础。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / REGULAR_FAMILY_REPLACEMENT_CONTRADICTION` | `Inconsistency.v` 与 probe 的 `regular_replacement_contradiction`；同一 run assumptions block。 | 结论来自显式 regular-family replacement 假设；不证明实际 degenerate `FibRepl.repl` 矛盾。 |
+| C-241 | `FibRepl.v` 的 private inductive/QIT `repl`、`η/hcomp/qq` 编译，并得到 `Fib_repl : DFib repl`、只对 `RFib` motive 的 `repl_ind'`、fibrant-target `repl_rec'` 与 `repl_f` functor laws。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / DEGENERATE_REPLACEMENT_CONSTRUCTED` | `FibRepl.v`；probe 的 `Check` 与 `Print Assumptions`；同一 run。 | `qq` 与 interval/cofibration axioms 显式保留；`DFib repl` 不等于对任意 open family的 `RFib (repl ∘ P)`。 |
+| C-242 | `RFib_DFib`、`RFib_Trans` 与 `TransFib_HFib` 分别给出 regular→degenerate、regular→transport、degenerate+transport→regular，机械固定 `RFib` 的两部分结构。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / REGULAR_FIBRANCY_DECOMPOSITION` | `Fibrations.v` 三个定义与 probe；同一 run。 | 分解说明支付位置，不证明任意输入 family 自动带 transport。 |
+| C-243 | `repl_ind'` 的 motive 必须 `RFib`；`repl_J` 的 assumptions 额外出现 `extension_rule__emptyctx`。因此可用 replacement 的高阶消去与 regularity 依赖 motive/context 限制，而不是无条件恢复 C-240 的 open-family `RFib_repl`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / ELIMINATION_AND_CONTEXT_PAYMENT` | `FibRepl.v:41-93,212-260` 与 exact assumptions output。 | 完整 `Model_structure.v` 未在本 run 通过；Coq 8.13.2 在旧 implicit placeholder 失败，作者 history 目标为 8.10。不能冒充完整 pre-model structure replay、basic HoTT 矛盾或现实桥梁。 |
+
+## 追加登记：MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001（一般 R3 essential incompleteness 与 Robinson Q，2026-09-15）
+
+> 上游：`uds-psl/coq-synthetic-incompleteness`，branch `csl`，commit `cd7d8490f8542bfe85658c465bcb26b2ed163f53`。
+> 本包从 repo-contained deterministic archive 全新构建作者的 first-order incompleteness target；它校准 R3，不把一阶算术理论 `T` 冒充 exact HoTT calculus。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001` | `C-244`–`C-249` | `formal/external-coq-synthetic-incompleteness/`；807-file exact source archive、CeCILL license、source manifest、Docker recipe、Qualification probe 与逐 claim 规格均由 run source manifest 固定 | `verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/`；Coq 8.15.2；fresh build约 614 s；target/stable artifact/prior logs exact；qualification 两次 exact；exit 0 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / R3_CONDITIONAL_ESSENTIAL_INCOMPLETENESS_AND_ROBINSON_Q / HOTT_R4_OPEN` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| C-244 | exact commit 的 deterministic Git archive 解压为 807 个 tracked files / 7,423,361 bytes，逐文件与 source manifest 相同，tree SHA 为 `d9dd001b…80ca`；CeCILL license 与 derived Coq 8.15.2 image `sha256:d4a84f07…010b` 均固定。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / SOURCE_LICENSE_TOOLCHAIN_QUALIFIED` | `SOURCE_ARCHIVE.json`、`SOURCE_TREE_MANIFEST.json`、`TOOLCHAIN.json`、`CeCILL_LICENSE.txt`、run source manifest。 | 来源和工具链资格化本身不是数学定理；image 存在不证明 target 构建。 |
+| C-245 | 给定 `is_universal theta`，`self_halting_diverge` 与 `recursively_separating_diverge` 对正确分类 self-halting 或两个 `theta_self_return` predicate 的 partial Boolean classifier 构造某个 `c`，并证明对每个 Boolean 都不收敛。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / CONDITIONAL_CLASSIFIER_DIVERGENCE` | 作者 `epf.v`；`Qualification.v` 的 exact signature；同一 run。 | 显式依赖 universality 与 classifier correctness；不是任意程序、HoTT kernel 或普通 proof checker 的发散。 |
+| C-246 | `insep_essential_incompleteness`：给定 universal `theta`、`fs'` 对 `fs` 的 extension，以及 `fs'` 对两个 self-return 集的 strong separation 表示，存在对 `fs` independent 的 `r n`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / CONDITIONAL_ESSENTIAL_INCOMPLETENESS` | 作者 `abstract_incompleteness.v`；exact theorem type与同一 run。 | `Universal`、extension、strong separation 都是显式参数；没有实例化 HoTT syntax。 |
+| C-247 | 在隐式 Peirce 参数下，`epf_mu_ctq : is_universal epf_mu.theta_mu → CTQ`，把 CTQ 归约到具体 μ-recursive interpreter 的 universality。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / EPF_MU_TO_CTQ` | 作者 `ctq.v`；exact theorem type与同一 run。 | 构建不产生 universality proof，不把 CTQ/Church thesis变成 ambient Coq 或 HoTT 无条件定理。 |
+| C-248 | `Q_incomplete`：在显式 Peirce 与 CTQ 下，每个包含 `Qeq`、可枚举且一致的同语言理论 `T` 都有 closed `Σ₁` 句 `φ`，使 `T` 既不证明 `φ` 也不证明 `¬φ`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / CONDITIONAL_ROBINSON_Q_INDEPENDENT_SENTENCE` | 作者 `fol_incompleteness.v`；资格化输出中的完整 theorem type；同一 run。 | 没有证明 exact HoTT calculus 包含 Q、可枚举、一致或满足 CTQ；没有现实同任务结论。 |
+| C-249 | fresh archive build 的 stdout/stderr、1,284 个 `.vo/.vos/.vok/.glob` stable artifacts 与 target `.vo` 均匹配此前两次独立 clean build；qualification 连续两次 byte-exact，后三个定理各输出一次 `Closed under the global context`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / EXACT_BUILD_AND_ASSUMPTION_REPLAY` | run stdout/stderr/environment/source manifest；target SHA `e770c7bf…33e4`；stable manifest `6c2bd66c…b958`；qualification SHA `505b84bb…41d`。 | “global context closed”不消除 theorem type中的 universality、separation、Peirce、CTQ、Q containment、enumerability 与 consistency 参数；不证明 HoTT essentiality、内部矛盾、原创性或现实桥梁。 |

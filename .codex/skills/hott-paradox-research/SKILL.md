@@ -1,13 +1,13 @@
 ---
 name: hott-paradox-research
-description: 每次执行与压缩恢复先按核心认知→方向追踪→全景视野顺序全文加载顶层 repo 三件套，再用 research profile 加载三问/当前前沿并按 stable record 显式水合底层证据；开始前交叉审视航向、方向和成果，结束 checkpoint 与逐 KC 回评。用于自主生成、证明和反驳 HoTT 时间/ASK/现实相对悖论候选；禁止摘要替代、历史 Session 自动复活和证据状态越级。
+description: 每次执行与压缩恢复先按核心认知→方向追踪→全景视野→思想展开顺序全文加载顶层 repo 四件套，再用 research profile 加载三问/当前前沿并按 stable record 显式水合底层证据；开始前交叉审视航向、方向和成果，结束 checkpoint 与逐 KC 回评。用于自主生成、证明和反驳 HoTT 时间/ASK/现实相对悖论候选；禁止摘要替代、历史 Session 自动复活和证据状态越级。
 metadata:
-  version: "1.8.0"
+  version: "1.9.0"
   role: "business"
   governance_skill: "hott-local-session-governance"
   language: "zh-CN"
   project: "ALL-Markdown/HoTT"
-  closure_load_policy: "FULL_TRIO_PLUS_RESEARCH_PROFILE_AND_EXPLICIT_TASK_HYDRATION"
+  closure_load_policy: "FULL_FOUR_SET_PLUS_RESEARCH_PROFILE_TASK_HYDRATION_AND_SYSTEMATIC_EXPLORATION_ENVELOPE"
   cognition_manifest: ".codex/cognition/LOAD_SET.json"
   state_index: ".codex/research/hott/STATE.json"
   closure_relative_path: "核心认知.md"
@@ -21,11 +21,11 @@ metadata:
 
 ## -1. 每次执行先完整恢复稳定来源与动态工作记忆
 
-**每次执行、新Session、继续进入Skill以及上下文压缩/丢失后，三件套均重新全文加载；不是一次性记住，也不是仅凭旧哈希放行。**
+**每次执行、新Session、继续进入Skill以及上下文压缩/丢失后，四件套均重新全文加载；不是一次性记住，也不是仅凭旧哈希放行。**
 
 项目根由当前SKILL所在 `.codex/skills/hott-paradox-research/` 向上三级确定，实际路径以当前文件位置为准。不依赖旧主机路径或shell的cwd。
 
-先完整读取根 `AGENTS.md`、本 Skill 和本地治理 Skill，再读取 `.codex/cognition/LOAD_SET.json` 与当次 `.codex/research/hott/STATE.json`。首先按不可改写的固定顺序全文读取三件套：
+先完整读取根 `AGENTS.md`、本 Skill 和本地治理 Skill，再读取 `.codex/cognition/LOAD_SET.json` 与当次 `.codex/research/hott/STATE.json`。首先按不可改写的固定顺序全文读取四件套：
 
 `核心认知.md`
 
@@ -33,19 +33,26 @@ metadata:
 
 `全景视野.md`
 
+`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md`
+
 其次是已对齐的当前问题说明：
 
 `HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md`
 
+若本轮涉及机器统观、系统化/完整/完备探索、程序化悖论激发、未知发现或大范围负结论，还须读取
+`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md` 的完整 index 和索引声明的全部 shards，
+再读取当前 machine-overview 动态计划/证据。普通单候选研究至少读取前者 index 与本任务相关 shards，说明其父级
+coverage cell；不能用 worktree 内副本、旧 Session 摘要或一个分支报告替代项目级规划。
+
 然后使用 `.codex/tools/cognition_runtime.py plan --profile research` 加载启动核、本 Skill、三问、FRONTIER、LESSONS、RESUME、STATE 和最新短 Session。STATE 的 `lifecycle_status` 决定当前任务资格，`evidence_status=REVIEW_REQUIRED` 不会把历史 Session 重新放进上下文。选定本轮 candidate/result/issue 后，先 `query --record <ID>`，再用 `plan --profile research --task <ID>` 精确水合该记录的验证依赖与直接证据；`research_parent`/`related_records` 只导航、不递归水合。manifest、raw ledger、旧逐-KC表、validator源码和历史 Session 默认不常驻。开始读 task 正文前检查 `hydration_diagnostics`；通过错误依赖链提升的 query-first 巨型账本必须先拆链。
 
-三件套和当前 profile 明确选中的必读文件逐份从第1行读到实际末行，正文必须真正进入当前模型上下文。分块可行，摘要、命中片段、仅在Python变量中读取、旧receipt、相同哈希均不能替代。新成果进入三件套/STATE 后可被发现；底层证据只有获得当前任务资格时才显式水合，文件增长不以过去行数为上限。
+四件套和当前 profile 明确选中的必读文件逐份从第1行读到实际末行，正文必须真正进入当前模型上下文。分块可行，摘要、命中片段、仅在Python变量中读取、旧receipt、相同哈希均不能替代。新成果进入四件套/STATE 后可被发现；底层证据只有获得当前任务资格时才显式水合，文件增长不以过去行数为上限。
 
-每个块绑定同一 profile/task snapshot；文件、索引或HEAD改变，或上下文被压缩，均重新计划并重读。只读工具提供 plan/read/check/query；它不认证模型理解。三件套缺件、截断或容量不足时明确 `BLOCKED_FULL_TRIO_COGNITION`；先移出非三件套载荷，仍不足则停止/换宿主，不得悄悄减读。
+每个块绑定同一 profile/task snapshot；文件、索引或HEAD改变，或上下文被压缩，均重新计划并重读。只读工具提供 plan/read/check/query；它不认证模型理解。四件套缺件、截断或容量不足时明确 `BLOCKED_FULL_SET_COGNITION`；先移出四件套之外的载荷，仍不足则停止/换宿主，不得悄悄减读。既有 runtime 或历史资料中的 `BLOCKED_FULL_TRIO_COGNITION` 只作兼容错误码，不表示可以少读第四件。
 
 全文加载后说明当前任务、核心航向、方向组合、结果全景、九方向、规则配置、证据范围、最近纠偏和下一自主动作；该简短解释不是全文替代品。必须明确三方交叉结果：哪些方向服务哪些核心主题，哪些方向尚无结果，哪些结果是历史/未知/未映射，以及本轮更新 core、direction、panorama 中哪一个。完整协议见 [PROTOCOL.md](../../cognition/PROTOCOL.md)（项目路径 `.codex/cognition/PROTOCOL.md`）。
 
-`read_cognitive_closure.py` 仅是读取 `核心认知.md` 单文件的 compatibility reader，不是当前三件套完整启动器；不能用它替代本地治理 Skill、`LOAD_SET.json` 与 `.codex/tools/cognition_runtime.py`。旧 Skill 路径下的 `scripts/cognition_runtime.py` 只是 canonical top-level runtime 的 compatibility entrypoint，不再维护第二份实现。
+`read_cognitive_closure.py` 仅是读取 `核心认知.md` 单文件的 compatibility reader，不是当前四件套完整启动器；不能用它替代本地治理 Skill、`LOAD_SET.json` 与 `.codex/tools/cognition_runtime.py`。旧 Skill 路径下的 `scripts/cognition_runtime.py` 只是 canonical top-level runtime 的 compatibility entrypoint，不再维护第二份实现。
 
 ## 0. 执行合同
 
@@ -79,7 +86,7 @@ HoTT须按“逻辑＋同伦结构＋计算/构造规则”审视；静态语法
 
 ### A. 研究目标
 
-先完成 §-1 的三件套全文、research profile 与本轮 task evidence hydration；被当前 profile/task 选中的正文不能缩成章节选读。先按用户数学哲学重建问题（`WITHIN_USER_MATH_PHILOSOPHY`），再比较标准规则和证据（`STANDARD/EXTERNAL_COMPARISON`）。
+先完成 §-1 的四件套全文、research profile 与本轮 task evidence hydration；被当前 profile/task 选中的正文不能缩成章节选读。先按用户数学哲学重建问题（`WITHIN_USER_MATH_PHILOSOPHY`），再比较标准规则和证据（`STANDARD/EXTERNAL_COMPARISON`）。
 
 保留 `Z_STRONG_PHILOSOPHICAL_LAW`“理论抽象必然导致悖论”为研究起点，不要求 HoTT 先授予采用这一起点的资格；它不是已完成的项目外全称元定理。不能用既有共识抢先改写问题，也不能把用户主张直接当证明。
 
@@ -103,7 +110,7 @@ R001和revision6—11原记录继续保留并可作为支持／排除工具；AS
 
 初始候选可有缺口；宣称确认时，关键链必须闭合：原始追问 → 固定设定 → 合法推演 → 同一任务中的比较 → 明确不相容。解释与物理桥梁按范围独立记录，不强迫所有候选采取 α/J 形式。
 
-§-1 的三件套、启动核、research profile 及显式 task hydration 集合每次执行均须完整重读。前沿、经验和最新短 Session 在 research profile 恢复；历史依赖只随当前 task 水合。压缩后从头重读同一当前集合；不得让旧 evidence review 复活无关 Session。外部 repo-cognitive-closure 若可用则按实际技能读取；不可用时如实说明，不伪称已执行该技能，不用无关安装阻塞本任务。
+§-1 的四件套、启动核、research profile 及显式 task hydration 集合每次执行均须完整重读。前沿、经验和最新短 Session 在 research profile 恢复；历史依赖只随当前 task 水合。压缩后从头重读同一当前集合；不得让旧 evidence review 复活无关 Session。外部 repo-cognitive-closure 若可用则按实际技能读取；不可用时如实说明，不伪称已执行该技能，不用无关安装阻塞本任务。
 
 ## 3. 主动生成，而非只审计旧候选
 
@@ -114,6 +121,26 @@ R001和revision6—11原记录继续保留并可作为支持／排除工具；AS
 每次变换写明保持量、改变项、与原任务的对应。不得为了产生冲突偷偷删除规则侧条件。观察要求须来自原始问题、独立规定的过程模型或明确应用合同；不能见到差异才任意发明观察量证明自己正确。
 
 候选按机制去重：理论配置＋操作组合＋固定任务＋关键障碍。新故事只有改变规则、任务、障碍或结论强度才构成实质分支。失败记录保存 `failed_at` 和 `reopen_if`；旧名字换装不构成新证据。
+
+### 3.1 程序化激发与探索包络
+
+系统化研究以 `TheoryConstruct × AbstractionChange × RealityOrTask × ConsumerOrContext × ObservationLayer ×
+CompletionProperty × Oracle × FrameworkOrModel` 为父级搜索张量。每个 TaskSpec 固定 exact calculus、CandidateClass、
+typed generator、reducer、consumer/observation/completion、denominator、controls/ablations、coverage claim、unknown ingress、
+invalidation 和 bounded stop/success。
+
+生成器从 typed enumeration/normalization、rule mutation/ablation、层级提升或信息擦除、consumer synthesis、
+composition/feedback/self-reference、differential/metamorphic/property-based、symbolic/model search、termination/
+productivity/proof search 和 versioned source mining 中选择有判别力的组合。强制同时生成 OP-14 反解释/防线，避免只寻找
+支持假说的候选。AI 只作 proposer；native type checker/kernel/model/run/source/correspondence 各自作真实 oracle。
+
+Finite grammar 只有在分母、remainder 与 coverage proof/独立重算闭合时才 `DECLARED_SET_COMPLETE`；infinite codes 要有
+dovetailing/fairness；class-wide 外推要有 task-preserving reduction。每个 pass 后做 omission/holdout：扫描未触达轴、
+重要交互、generator blind spot、starvation、reducer 换题、oracle 假阳/假阴和过窄 source/consumer denominator。
+Unexpected result 必须反向修订旧 envelope 并传播 stale，而不只是追加新例子。
+
+完整方法 owner 是 `.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`；动态不可停机/Gödel
+执行状态仍由当前 machine-overview plan/evidence 拥有。
 
 ## 4. 自主调度研究前沿
 
@@ -186,7 +213,7 @@ R001和revision6—11原记录继续保留并可作为支持／排除工具；AS
 
 授权持久化时，使用候选、前沿、单轮、闭包和接续模板；在 `.codex/research/hott/` 保存真实过程记录；本版已建立当前状态和治理Session，不是尚未初始化的模板。每个里程碑及结束前同步根MEMORY、前沿、经验、接续和STATE；受控checkpoint基于当次snapshot，拒绝旧基线覆盖。稳定结论仍按授权进入原 owner，避免第二份主张矩阵。
 
-每次接续先执行 §-1，从工作目录全文重读三件套与 research profile；resume中“曾加载过”不能放行。对实际候选先 query 再 task hydrate，核旧结论是否因来源变化进入REVIEW_REQUIRED，不把“重新讲计划”当继续。每轮公开输出：本次实际构造与推演、最强反解释、结果范围/未知、为什么下一步这样走。保留可以审查的理由、证据和复现步骤，不要求或保存隐藏思维链。
+每次接续先执行 §-1，从工作目录全文重读四件套与 research profile；resume中“曾加载过”不能放行。对实际候选先 query 再 task hydrate，核旧结论是否因来源变化进入REVIEW_REQUIRED，不把“重新讲计划”当继续。每轮公开输出：本次实际构造与推演、最强反解释、结果范围/未知、为什么下一步这样走。保留可以审查的理由、证据和复现步骤，不要求或保存隐藏思维链。
 
 反停滞：文档数、悖论名称数、推理篇幅不作成果指标。允许一轮没有状态提升，但要有具体尝试/失败位置或准确的工具阻塞证据，并自主转向可行分支。以有界任务已交付、明确阻塞或当前可执行资源边界为结束条件，不以耗尽资源本身为目的。结束前完成授权的 checkpoint 并回读 canonical `result.json`；payload 必须原子含 `SESSION.md`、`RUNS.json` 和当前全部 KC 回评。缺 result 时写 `CHECKPOINT_RECEIPT_MISSING/CHECKPOINT_NOT_SAVED`，不得让 `POST-CHECKPOINT.json` 自证。交接不承诺后台工作。
 
@@ -212,7 +239,7 @@ v1.2.0 已把稳定来源＋动态工作记忆的每次全文加载、根治理�
 
 ## 13. 历史v1.3.2：ASK——提问与转换的资格追踪
 
-先按当前§-1完成三件套、research profile 与相关 task evidence 恢复。历史 `U-ASK-20260910-001` 仍可由 stable ID 显式水合，不以本节短说明替代。此处不创建额外ASK程序或治理Skill。
+先按当前§-1完成四件套、research profile 与相关 task evidence 恢复。历史 `U-ASK-20260910-001` 仍可由 stable ID 显式水合，不以本节短说明替代。此处不创建额外ASK程序或治理Skill。
 
 ASK不是仅问Q有无语法/类型，而是当前问题凭什么要求特定的求解、使用和完成。研究实际涉及等同、翻译、消去或过程交付时，辨认：Q与原完成标准；当前输入/操作域；ASK由哪些规则、上下文或证书承担；转换后这项依据是否仍被保留；哪里发生了忽略、弱化、证据形式替换或域扩大；同一现实任务是否真的因此出现额外困难。
 
@@ -243,7 +270,7 @@ ASK不是仅问Q有无语法/类型，而是当前问题凭什么要求特定的
 
 ## 15. v1.5.0：generation-3 与分层水合
 
-本版不改变数学方法，只修复认知装配：三件套永久全文输入；governance/research profile 分开；STATE lifecycle 与 evidence review 分开；历史 Session、manifest 和旧逐-KC审计默认冷存；底层证据用 stable record 显式 query/hydrate。当前 core 由三份 primary 的 27 个直接用户语义单元重建，旧 913 KC 由 tag/transition 保留。机械回归不能替代 fresh 模型行为或数学验证。
+本版不改变数学方法，只修复认知装配：四件套永久全文输入；governance/research profile 分开；STATE lifecycle 与 evidence review 分开；历史 Session、manifest 和旧逐-KC审计默认冷存；底层证据用 stable record 显式 query/hydrate。当前 core 由三份 primary 的 27 个直接用户语义单元重建，旧 913 KC 由 tag/transition 保留。机械回归不能替代 fresh 模型行为或数学验证。
 
 ## 16. v1.6.0：理论经济—反射自证方向与动态 core generation
 
@@ -264,3 +291,10 @@ HoTT 特定结论必须由原生 HoTT/univalent/cubical 语义或已机器证明
 `depends_on` 只保存会传播 stale 的验证依赖；研究谱系、历史先后和叙事邻接改用 `research_parent` 或 `related_records`，后两者不递归水合。显式 task plan 的成功判据包括完整装配规模和 `query_first_promoted`，不再只看 `review_required=[]`。
 
 applied checkpoint 的成功判据是 canonical runtime 同一事务写入 current owners、`SESSION.md`、`RUNS.json`、当前 generation 全量有序 KC 回评，并留下 `transaction.json`、before/after 和 `result.json`。Session 自写 POST 只是派生摘要。历史缺失不追溯补造；从本版起 fail closed。
+
+## 19. v1.9.0：程序化悖论激发与开放世界完备性
+
+系统化/机器统观研究新增 `Exploration Envelope` 与八轴搜索张量；typed enumeration、mutation、consumer synthesis、
+self-reference、differential/metamorphic/model/termination/source mining 成为显式生成方法族。完备性按 finite remainder、
+infinite fairness、reduction preservation、mechanism/reality chain 和 open-world ingress 分层。每轮在逐 KC 回评之外执行
+omission/holdout audit；新发现必须修订旧 coverage 模型。该版本只安装研究方法，不把规划存在写成 HoTT 悖论已找到。

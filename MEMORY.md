@@ -16,7 +16,7 @@ soft_line_target: 300
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
-| 001 | [当前执行队列](<MEMORY/001 - 当前执行队列.md>) | 当前执行队列（2026-09-13）；原位更新的当前队列 owner | current |
+| 001 | [当前执行队列](<MEMORY/001 - 当前执行队列.md>) | 当前执行队列（2026-09-14）；原位更新的当前队列 owner | current |
 | 002 | [当前证据上限与恢复入口](<MEMORY/002 - 当前证据上限与恢复入口.md>) | 当前证据上限 + 恢复入口；原位更新的当前边界 owner | current |
-| 003 | [当前验证状态与顺序日志](<MEMORY/003 - 当前验证状态与顺序日志.md>) | 当前已验证状态（S023–S093 逐会话记录，append_target） | current |
+| 003 | [当前验证状态与顺序日志](<MEMORY/003 - 当前验证状态与顺序日志.md>) | 当前已验证状态（S023–S146 逐会话记录，append_target） | current |
 <!-- governance-shard-table:end -->

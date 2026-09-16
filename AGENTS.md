@@ -30,6 +30,38 @@
 - 用户提出的方向 A（现实可完成而理论化引入额外完成困难）与方向 B（现实不可完成却把理论对象当作已获得能力）是研究方向/候选构造，不是未经核验的缺陷结论。
 - AI 自述、旧文档 PASS、有限玩具模拟、文件存在、Git 提交和单次测试各自只能证明其明确范围。重要主张必须有多样审计锚点：用户原文、AI 可见回答、tool call/result、代码/文档、运行结果、Git commit 和当前 hash。
 
+## HoTT 悖论的系统化程序探索与完备性意识
+
+标识：`HOTT_PARADOX_PROGRAMMATIC_COMPLETENESS_V1`。用户要求机器统观、系统化/完整/完备探索、用编程激发悖论、
+寻找未知或给出大范围负结论时，必须先加载项目级
+`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md` 的完整 v2 index 和索引声明的全部 shards，
+再结合当前 machine-overview 动态计划/证据选择本轮有界任务。该项目计划拥有候选空间、程序化方法、未知入口和
+阶段验收；分支 worktree 只保存实现与候选证据，不建立第二份项目治理真值。它不替代四件套、STATE 或底层 proof/run。
+
+每个系统化 TaskSpec/评价必须定位到搜索张量：
+
+```text
+TheoryConstruct × AbstractionChange × RealityOrTask × ConsumerOrContext
+× ObservationLayer × CompletionProperty × Oracle × FrameworkOrModel
+```
+
+并固定 exact calculus、CandidateClass、generator、reducer、consumer、observation、completion、denominator、controls、
+coverage level、unknown ingress、失效和停止条件。程序化激发至少从会改变结论的方法族做 omission scan：typed term/proof
+enumeration、规则/前提 mutation 与 ablation、层级提升/擦除、consumer/context synthesis、组合/反馈/self-reference、
+differential/metamorphic/property-based、symbolic/model search、termination/productivity/proof search 及版本化社区源码/论文挖掘。
+
+有限 grammar 的完备性需要成员分母、remainder=0 与 coverage proof/独立重算；无限 code 需要 dovetailing/fairness；
+从小 grammar 外推较大候选类需要 total、typed、task/consumer/observation/completion-preserving reduction。
+`NO_HIT_WITHIN_SCOPE`、timeout、文件/测试/关键词数量、LLM 一致和目录全读都不能成为全局 HoTT 不存在或全理论完备。
+
+不能提前命名的候选从新论文/版本/实现/consumer、新理论维度/激发算子/oracle、跨框架差分、反例和新的现实任务进入。
+每个 bounded pass 结束必须执行遗漏审计并至少使用一个独立 taxonomy/source/framework/holdout 寻找 out-of-envelope；
+unexpected result 要定位旧 envelope 漏项、修订分类、重评依赖结论并形成下一有界 successor，不能只增加案例。
+
+每轮 Session 在逐 KC 回评之外，记录本轮覆盖 cells、未触达轴、enumeration/fairness、reducer 换题风险、oracle 假阳/假阴、
+HoTT essentiality、现实对应、holdout/out-of-envelope、taxonomy 修订与下一停止条件。开放世界持续存在不阻止当前有界
+pass 完成，也不授权永不停止任务、常驻审计 AI、语义 Hook 或第二份手工数据库。
+
 ## 数学结论交付前机器证明门禁
 
 <!-- math-proof-delivery-gate:v1
@@ -60,7 +92,7 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - 约 300 行是写作/换片软目标，不是上限、错误条件、发布 Gate 或清理配额；超行只在 validator 输出 `NOTICE`。
 - 判定标准是“持续追加、妨碍定位、稳定入口与长历史混装、存在自然语义边界”，不是行数；高度内聚、通常必须全文读取，或属于来源快照、历史交付分卷、machine-managed 数据的文档保持单文件。
 - 新逻辑文档必须用 v2：canonical 路径保留为索引，正文放同名 `NNN - 子主题.md` shard 目录；索引链接标题、文件名主题与 shard 第一个 H1 一致；新建 shard 必须与索引行、`last_shard`、`append_target` 在同一次提交或同一个 checkpoint 事务中更新。
-- `.codex/tools/cognition_runtime.py` 3.3.0 在加载链上强制“索引 + 按 table 顺序全部分片”的全文覆盖，结构错误（缺片、未列片、标题/`last_shard`/`append_target` 不符）一律 fail closed；受 checkpoint 管理的逻辑文档分片同时进入 `HEAD.json.tracked`，只能与索引在同一原子事务中写入。
+- `.codex/tools/cognition_runtime.py` 3.6.1 在加载链上强制“索引 + 按 table 顺序全部分片”的全文覆盖；即使某个分片先因 active record 或直接 source 被单独选中，一旦其 canonical index 进入同一 plan，也必须把该分片恢复到索引后的 table 顺序。结构错误（缺片、未列片、标题/`last_shard`/`append_target` 不符）一律 fail closed；受 checkpoint 管理的逻辑文档分片同时进入 `HEAD.json.tracked`，只能与索引在同一原子事务中写入。
 - 机械校验：`python3 -B scripts/audit/verify_governance_shards.py`；机械 PASS 只证明结构，不证明分片边界合理或内容完整。
 - 每个索引前 15 行必须带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成…`）；缺失或残缺会被同一校验器判为失败，避免"只打开索引就以为读完"。
 - 完整项目合同见 `docs/quality/长治理文档分片与索引合同.md`；共享权威为 3.16.0 候选规范 `/Users/aurolafly/codex-worktrees/long-doc-sharding-3.16.0/docs/governance/长治理文档分片与索引规范.md`。
@@ -78,7 +110,7 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 ## 任务路由
 
 - 只做历史审计/交接：读治理 Skill 和审计脚本，不自动启动新数学研究。
-- 继续 HoTT 悖论研究：先完成本文件与本地治理 Skill 的闭包，再加载业务 Skill `hott-paradox-research`；每轮只推进一个可检查构造/未知点，并记录失败和证据边界。
+- 继续 HoTT 悖论研究：先完成本文件与本地治理 Skill 的闭包，再加载业务 Skill `hott-paradox-research`；系统化/机器统观任务还必须加载项目级程序探索完备性规划。每轮推进一个可检查构造/未知点，同时在父级覆盖包络中记录其 cell、遗漏与 successor。
 - 修改本地治理框架：先重新建立 closure，再按全局治理自维护 Gate 识别 C01–C10，修改 owner、schema、脚本和运行入口，执行验证并提交；项目专属变化不误改 dirty 的共享治理主库，不把 WebGPT 历史副本当作当前 host 配置。
 - 发现来源快照与实际环境冲突：保留双方、记录 conflict/unknown 和适用范围；不得用新文件名或新 hash 掩盖冲突。
 

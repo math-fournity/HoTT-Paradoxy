@@ -81,7 +81,7 @@ formation、identity、judgmental equality、univalence/funext 的 stage/settlem
 
 ## 当前一句话结论
 
-当前 **17 个冻结 proof package** 在各自固定命题、工具链和 run 范围内形成机器证据，并由 `verification/PROOF_VERSION_CLOSURE.json` 绑定到 exact commit `d3dfb0e…`；其后 `later_packages` 追加登记了 `MP-VERIFICATION-EVENT-001`（外部来源、项目内重放，C-149–C-156）与 `MP-ERCF3-T3-JOINT-001`（T3 编码层联合递归，C-157–C-159），当前 package 总数为 19、claims 为 90 + 11。当前状态为 `MACHINE_PROVED_VERSION_CLOSED`（冻结部分），C-05 为 scoped external replay。上表 frozen claim 行仍保留 run 建立时的 local-uncommitted 文本，以维持 index-row manifests；Git 维度由追加登记解释。它们没有建立 E6 自然消费者、现实桥梁、`NATURAL_USAGE_MISMATCH` 或 HoTT 内部矛盾。当前研究首选仍是下游入口（门 A/门 B：可对象化规格或同层自我担保消费者）；**T3 编码层义务已闭合**，下一义务是证明谓词表示性、反射与对角不动点（ERCF-3 保持 `GATED`）。
+当前 **17 个冻结 proof package** 在各自固定命题、工具链和 run 范围内形成机器证据，并由 `verification/PROOF_VERSION_CLOSURE.json` 绑定到 exact commit `d3dfb0e…`；其后 `later_packages` 已追加 25 个 package / 101 条 claim，故当前登记为 42 个 package、90 条冻结机器主张 + 1 条 scoped external replay + 101 条 later 主张。C-188–C-222 形成 R1/R2 与条件 internal no-decider；C-223–C-226 重放 groupoid syntax；C-227–C-243 覆盖 2LTT/LOPS/ITT internalisation；C-244–C-249 重放一般 R3 essential incompleteness 与 Robinson Q 条件独立句。十四个新 R1/R2/R3/R4/internalisation 包仍为 `LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`。R3 的对象理论是一阶算术而非 exact HoTT；现有结果仍没有 ambient HoTT 无条件 no-decider、完整 R4/Gödel、经验现实桥梁、`NATURAL_USAGE_MISMATCH` 或 basic HoTT/2LTT 内部矛盾。
 
 ## 快速验证
 

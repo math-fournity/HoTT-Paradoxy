@@ -125,3 +125,49 @@
 96. 换一个数据类型重做同一构造时，最容易卡住的不是数学而是**定义的可归约性**。两条实测教训：（1）**模式参数放最前**：`run` 的第一个参数是 `Mode`（永远是构造子），若把位串放前面，`eqRight` 那一步的位串是卡住的 `bits u ++ rest`，Agda 就无法在不知道位串构造子的情况下选择子句——连「定义上相等」的等式也证不出来，把模式提到第一位即可。（2）**命题步骤要写成引理**：`tmFrom (bits t ++ rest) ≡ res t rest` 是命题而非定义上的等同，直接 `refl` 必然失败（`rewrite` 甚至找不到可改写位置，因为它不会自动展开目标里的 `run`）；把带 `tmFrom …` 的目标写成独立引理（`tmFrom-run`/`eq-node`/`eqRight-step`），再用 `SP.subst'` 显式搬运燃料与位串，才既可控又可读。另有两条小坑：`≤` 与 `+` 同默认 fixity，`n ≤ n + m` 会被解析成 `(n ≤ n) + m`，和式要加括号；登记义务时不要用 `Set` 占位符充数（`BitCoding` 已改用注释形式记录下一义务）。
 
 97. 有了解码器之后，「码级替换与语法级替换一致」从工程变成**推论**：把码级替换定义为「解码—替换—编码」`substCode k n c = code' (subst k n (dec c))`，一致性就只是 `dec (code' t) ≡ t` 的一次改写（旧编码需要 C-157–C-159 的联合递归）。代价必须同时写清：这样的函数是**元层**的，「存在一个算得出来的函数」不等于「对象理论能表示它」——后者才是表示性义务。本轮据此把 T3 编码线自足部分收口，并把剩余义务明确归到门 B，避免用「看起来已完成」的推论冒充研究结论。
+
+98. 半判定必须把三个层级写进接口与证明：每个有限 stage 的 approximant 总结束；`just` 是可核验的正见证并随 stage 保持；`nothing` 只表示当前界内尚未发现。再证明 `CodeHalts ↔ ∥Σ stage, isSome(semiHaltAt stage)=true∥`，才能同时得到 soundness/completeness 而不偷添总的负答案。某个显式 loop 的全阶段归纳证明仍只是一个程序的不变量，不能代替语言通用性与 halting-undecidability reduction。
+
+99. 外部库写 `undecidable P` 时必须先展开定义再决定交付强度：本轮 Coq 定理实际是 `decidable P → enumerable(complement SBTM_HALT)`，不是纯构造内部 `¬decidable P`。正确跨框架做法是三段式：同核 source→target total reduction；第二 kernel 对同形 TaskSpec 独立证明；machine-readable correspondence 固定字段、量词和表示差异。有限 controls 只查分支交换，全称强度仍由各 kernel theorem 承担；跨 kernel 不能称 definitional equality。
+
+100. Regression oracle 不能把历史目标句当永久真值。当前证据把 R2 分成 synthetic implication 已证与内部 `¬decidable` 未证后，旧测试仍要求“R2 不存在总判定器”，其失败是有价值的语义告警。修法是让测试同时断言 scoped 状态、精确定义和最新 claim IDs，而不是把文档改回过强措辞。
+
+101. 不可判定性至少分三层：synthetic implication、显式计算原则前提下的对象语言 internal negation、ambient 无条件 negation。`Print Assumptions: Closed` 不会删除 theorem type 左侧的 EPF/SCT；登记强度必须按完整类型而不是定理名。
+
+102. paper 给规则清单不等于 exact syntax。2LTT 论文主动说明 suggested syntax 非完整 specification；可冻结的第一片来自作者 Cubical Agda groupoid-syntax 源码、完整模块入口和 kernel replay。exact slice 仍不得冒充完整 calculus。
+
+103. Agda library flags 与依赖源码重检可能有作用域差：`--hidden-argument-puns` 全局命令行会使 Cubical v0.9 旧源码重解析失败，而 library-mode 可在固定依赖接口上重查上层模块。可靠 replay 应保存两阶段边界与 derived manifest 的唯一改动。
+
+104. source-guided 搜索可产生比继续堆通用 Gödel 基础更接近用户目标的候选：2LTT 中外部逐对象 fibrant replacement 可存在，但若提升为 context-stable internal type former会迫使 inner UIP。下一步必须机器化和消融，判断它是自然理论经济失配还是人为不相容扩展。
+
+105. 分片全文‘都在 plan 中’还不等于读取顺序正确：active record 可能先把末片加入 selection，随后 index 展开若只去重会留下 004→001→002→003。加载器识别 canonical index 后必须把已有分片移回 table 顺序，同时保留原 selection reasons；回归要覆盖‘分片先于索引’而不只覆盖‘索引直接展开’。
+
+106. 两层理论不能用一个宿主 `Type` 的浅嵌入冒充：若 inner Path 可借宿主 J 直接消去到任意 outer 命题，R 的关键作用会被绕过。以 Inner code/El 和只能返回 code 的 Jᵢ 分层，才能让 p-dependent outer witness 必须经 R 内化。
+
+107. 2LTT fibrant replacement→UIP 的最小依赖比论文规则清单更窄：outer UIP、inner Id/J/Π、FORM/INTRO/dependent-ELIM 足够；COMP-R 不需要。消融不能只删名为 R 的接口，必须检查 strict bridge 与 R 对 p-dependent context 的统一可用性。
+
+108. run source manifest 中的 current 文档一经捕获就成为该 run 的不可变输入；后续研究更新应新增 logical shard 或新 run，不能原位改写后降低 source-drift 校验。本轮恢复第 004 片精确 hash，并以第 005 片承载新结果。
+
+109. natural consumer存在不自动构成 natural-use mismatch：必须比较消费者真实 input domain。LOPS 的 global classifier与 naive local classifier、ITT 的 DFib replacement与 open-family RFib replacement不是同一资格范围；扩大后的任务失败不能归咎于完成原任务的受限接口。
+
+110. global/local context zone是一种精确时序/来源纪律：先固定 global object后编码，不允许 code依赖当前 local i。modal checker的 expected rejection把这条先后约束从哲学描述变成可执行判据；它不等于物理时间或稠密连续性。
+
+111. fibrancy payment有可归约的三种实现：crisp/global restriction、DFib+Trans decomposition、pointwise-fibrant input。CE-MAP 应把同型 no-go归类而非重复当新悖论，同时保留它们对不同 consumers 的差异。
+
+112. 外部源码无 license时不因公开可读就复制正文；可保存 deterministic archive/hash/tree、项目 probe 与 run。来源许可和数学重放是两条独立证据维度。
+
+113. closed-world completeness 必须同时保存 denominator、canonical typed ID、显式 UNKNOWN 和 source snapshot；478/478 只说明具名输入登记完成，不等于开放世界穷尽。
+
+114. 类归约必须把 anti-preservation 写进 class：internalisation 三论文共享 scope-widening pattern，但 consumer、observation、completion 与 framework 不同；只能减少搜索重复，不能传播定理。
+
+115. machine-managed 巨型 registry 应通过 query/list 消费，报告与 receipt 负责水合；全文预载 594KB JSON 会破坏最小充分认知而不增加语义判断。
+
+116. Gödel 返回线必须先机器重放 exact R3，再逐义务连接 exact HoTT calculus。宿主语言里实现普通不完备性、一次 proof search 不返回、或通用 theorem 的 HoTT 实例都不能单独证明 HoTT essentiality。
+
+117. 一般 Gödel/R3 需要真实 source build和 theorem signature；但即使 exact replay，也不能跳过把 T 实例化为具名 HoTT calculus 的 proof-code/effectivity/representability义务。
+
+118. `Closed under the global context`只说明没有额外global axiom；theorem arrow左侧的 universality、CTQ、Peirce、enumerability与consistency仍是调用前提。
+
+119. source archive与许可证应进入main，避免F-011只依赖外部dirty worktree；binary source由external-dependency byte hash验证，非UTF8 license不应被无条件文本解码。
+
+120. executable cubical implementation不能因有Nat/Path就直接成为proof theory：holes、undefined、unsolved metavariables和unchecked recursion必须从certified acceptance relation中机械排除。

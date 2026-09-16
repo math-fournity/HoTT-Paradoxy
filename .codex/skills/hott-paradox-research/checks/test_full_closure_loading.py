@@ -142,8 +142,11 @@ class FullClosureLoadingTests(unittest.TestCase):
     def test_16_main_gate_precedes_research(self):
         text=(SKILL_ROOT/"SKILL.md").read_text(encoding="utf-8")
         self.assertLess(text.index("## -1."),text.index("## 0."))
-        for term in ("FULL_TRIO_PLUS_RESEARCH_PROFILE_AND_EXPLICIT_TASK_HYDRATION",REL,"上下文压缩",
-                     "第1行","BLOCKED_FULL_TRIO_COGNITION","当前模型上下文"):
+        for term in ("FULL_FOUR_SET_PLUS_RESEARCH_PROFILE_TASK_HYDRATION_AND_SYSTEMATIC_EXPLORATION_ENVELOPE",
+                     "HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md",
+                     "索引声明的全部 shards",
+                     "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md",REL,"上下文压缩",
+                     "第1行","BLOCKED_FULL_SET_COGNITION","当前模型上下文"):
             self.assertIn(term,text)
         self.assertNotIn("再核最新第五闭包 §7/§14/§19",text)
         self.assertNotIn("已读且未变化的来源可复用可回查记录，不每轮重新阅读全文",text)

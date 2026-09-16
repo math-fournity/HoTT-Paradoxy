@@ -17,7 +17,7 @@ import re
 import sys
 import uuid
 
-VERSION = '3.6.0'
+VERSION = '3.6.1'
 SHARD_INDEX_MARKER = '<!-- governance-shard-index:v2'
 SHARD_TABLE_START = '<!-- governance-shard-table:start -->'
 SHARD_TABLE_END = '<!-- governance-shard-table:end -->'
@@ -303,6 +303,15 @@ def graph(config, state, get, profile='governance', task_ids=(), core_transition
             heading=H1_RE.search(text(get(row['path']),row['path']))
             if heading is None or heading.group(1).strip()!=row['title']:
                 raise CognitionError('SHARD_TITLE_MISMATCH: '+row['path'])
+            # A shard may have entered the plan earlier through an active record
+            # or another direct source reference.  Once its canonical index is
+            # known, table order owns the logical document's reading order.
+            # Move an earlier occurrence to the current tail before adding its
+            # logical metadata; this preserves its original selection reasons
+            # while making the index and every shard contiguous and ordered.
+            if row['path'] in ordered:
+                ordered.remove(row['path'])
+                ordered.append(row['path'])
             add_raw(row['path'],layer,'shard:'+index['logical_id'],index['logical_id'],'shard')
     for p in full:add(p,'always_full_documents','fixed-full-set')
     for p in boot:add(p,'always_full_boot','boot-policy')

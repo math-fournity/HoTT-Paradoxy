@@ -66,7 +66,7 @@
 
 1. **读取**：先读 canonical 索引的完整 table、`last_shard`、`append_target`，再按任务读 owner shard；顺序追加型还要读 `append_target`。索引只路由，不是摘要；不得把索引、首片或末片冒充逻辑文档全文。
 2. **写入**：`topical` 文档原位修改 owner shard；`sequential` 文档追加到 `append_target`；新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一个 checkpoint 事务中更新。
-3. **加载器强制**：`.codex/tools/cognition_runtime.py` 3.3.0 在 `plan` 中把索引展开为索引 + 全部分片，逐片给出 hash/bytes/lines 与 `logical_id`/`logical_role`/`full_load`；`check` 必须覆盖每一片（否则 `COVERAGE_INCOMPLETE`）；结构错误一律 fail closed。`MUTABLE` 逻辑文档的分片同时进入 `HEAD.json.tracked`。
+3. **加载器强制**：`.codex/tools/cognition_runtime.py` 3.6.1 在 `plan` 中把索引展开为索引 + 按 table 顺序的全部分片；某个分片若先由 active record 或直接 source 进入选择集，识别到 canonical index 后也必须重排回索引后的 table 顺序，同时保留原选择来源。逐片给出 hash/bytes/lines 与 `logical_id`/`logical_role`/`full_load`；`check` 必须覆盖每一片（否则 `COVERAGE_INCOMPLETE`）；结构错误一律 fail closed。`MUTABLE` 逻辑文档的分片同时进入 `HEAD.json.tracked`。
 4. **300 行是软目标**，不是上限、Gate 或清理配额；超行只产生 `NOTICE`。判定分片看追加方式、导航成本与自然语义边界，不看行数。
 5. **机械校验**：`python3 -B scripts/audit/verify_governance_shards.py`（pin 的 3.16.0 候选副本 + sha256 漂移检测）。机械 PASS 不证明边界合理或内容完整；迁移必须另做标题/内容对账与 consumer 扫描。
 6. **表格式投影的行分片**（`方向追踪.md`、`全景视野.md`）：大表按家族拆成行分片，每片自带表头两行（唯一允许的重复内容，必须逐行对账）；身份与状态字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）留在索引；`verify_three_way_cognition.py` 按逻辑文本解析 `DIR-*`/`OUT-*` 行并拒绝 0/0 空壳 PASS；编辑投影必须用 `scripts/audit/projection_edit.py` 的模式，把索引与全部分片放进同一 payload。

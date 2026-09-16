@@ -1,8 +1,8 @@
 ---
 name: hott-local-session-governance
-description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Session、压缩恢复和跨目录接手都先按核心认知→方向追踪→全景视野全文加载，再按 governance/research profile 与 stable record 显式水合证据；开始前三方交叉审视，结束逐 KC 回评。它不让历史 Session 因待复核而自动复活，不代替数学研究或扩大权限。
+description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Session、压缩恢复和跨目录接手都先按核心认知→方向追踪→全景视野→思想展开全文加载四件套，再按 governance/research profile 与 stable record 显式水合证据；开始前三方交叉审视，结束逐 KC 回评。它不让历史 Session 因待复核而自动复活，不代替数学研究或扩大权限。
 metadata:
-  version: "3.6.0"
+  version: "3.7.0"
   role: "governance"
   protocol_version: "handoff-cognition/v2.6"
   business_skill: "hott-paradox-research"
@@ -35,7 +35,7 @@ metadata:
 1. 读顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
 2. 读本 Skill、`.codex/skills/SKILL_ROLES.json`、`.codex/cognition/LOAD_SET.json` 和 `.codex/cognition/PROTOCOL.md`。
 3. 严格按 `LOAD_SET.always_full_documents` 全文读取 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md` 到实际 EOF；记录 path、bytes、lines、SHA-256 和连续 ranges。该顺序和全文身份不可由 profile、task、manifest、摘要、主题索引、KC 子集或旧 receipt 改写。
-   命中 `governance-shard-index:v2` 时，全文身份 = **索引 + 按 table 顺序全部分片**；读取时不得把索引充当摘要，也不得只读第一片或最后一片；缺片、未列片或 `last_shard`/`append_target` 不符时按本节末的 `BLOCKED_FULL_TRIO_COGNITION` 规则停止相应研究。
+   命中 `governance-shard-index:v2` 时，全文身份 = **索引 + 按 table 顺序全部分片**；读取时不得把索引充当摘要，也不得只读第一片或最后一片；缺片、未列片或 `last_shard`/`append_target` 不符时按本节末的 `BLOCKED_FULL_SET_COGNITION` 规则停止相应研究。既有 runtime 或历史资料仍出现 `BLOCKED_FULL_TRIO_COGNITION` 时，只把它当兼容错误码，不能据此删去第四件。
 4. 纯治理/审计先使用 `plan --profile governance`；实际数学研究使用 `plan --profile research`，后者在完整四件套和启动核上再加入业务 Skill、三问、FRONTIER、LESSONS、RESUME。两种 profile 都不得移除四件套。
 5. 读取 STATE 中全部 record 的 `lifecycle_status` 与 `evidence_status`。`ACTIVE_WORK/CURRENT/OPEN_ISSUE` 决定当前任务资格；`REVIEW_REQUIRED` 只表示证据仍需复核，不能让历史 Session 自动复活。需要底层证据时先 `query --record <ID>`，再以 `plan --profile research --task <ID>` 显式水合其 `depends_on/full_sources/resolution/source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；谱系、动机、先后和叙事使用不递归水合的 `research_parent`/`related_records`。历史 Session 只在本轮任务明确需要时水合。
 6. 读取本轮涉及的 `理解章节/`、`HoTT/`、代码、测试、artifact、ledger 和 Git；索引只路由，不替代决定性证据。machine-managed manifest/ledger 默认 query-first，不因存在就全文常驻。
@@ -65,6 +65,27 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 `relation_to_this_work` 只能从 `ALIGNED`、`DEEPENED`、`CORRECTED`、`TENSION`、`DEVIATED`、`NOT_TOUCHED` 选择。纯审计轮出现大量 `NOT_TOUCHED` 是诚实结果；发现 `DEVIATED` 时必须写明纠偏和回到航向的动作。脚本可以检查 ID 是否完整、重复和证据定位是否存在，但不能用关键词/相似度伪造语义回评。
 
 四件套交叉判断必须明确写出 `core_change`、`direction_change`、`panorama_change`、`essay_change`、`update_decision`、`cross_conflicts` 和 `unresolved`。其中 `core_change=YES` 仅适用于新的用户原文/用户明确改变工作意识；AI 研究结果只能更新方向、全景、长文和其底层 evidence owner；`essay_change=YES` 只表示 AI 阐释层被修订，永不提升为原文或数学结论。
+
+## 5.5 系统化探索的完备性回评
+
+机器统观、程序化悖论激发、完整/完备探索或大范围负结论的 Session，还必须加载项目级
+`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`，并在现有
+`SESSION.md`/`RUNS.json` 中保存本轮 completeness audit；不要求另建每轮矩阵。至少记录：
+
+1. 当前八轴搜索张量 cells 与未触达 axes；
+2. CandidateClass、generator 支持/拒绝/无法表示的构造；
+3. finite denominator remainder 或 infinite enumeration fairness；
+4. reducer 对 task/consumer/observation/completion 的保持及换题风险；
+5. oracle 的证据层级、false positive/negative 与竞争解释；
+6. source/framework/consumer denominator、版本和 stale 条件；
+7. HoTT essentiality、现实对应和 originality 的独立状态；
+8. independent taxonomy/source/framework/holdout 的 out-of-envelope 结果；
+9. unexpected result 修订了哪个 construct/operator/consumer/oracle 分类；
+10. 下一 bounded successor、停止和 reopen 条件。
+
+有限分母可以 `DECLARED_SET_COMPLETE`；无限/开放域只按 fairness、reduction 与具名 snapshot 声明。`NO_HIT_WITHIN_SCOPE`
+不等于全局不存在。新发现若暴露旧规划遗漏，必须更新规划 owner；只新增 candidate 不算吸收。当前 Session 可在开放
+世界仍 active 时完成其 bounded pass，不能把整个研究塞进永不结束的单一事务。
 
 ## 6. 历史 AI 的覆盖要求
 
@@ -101,4 +122,4 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 历史来源缺失、用户移走目录、附件没有正文、代码没有运行、运行只有有限样本、旧 validator 依赖已不存在路径、普通计算界限被误写成 HoTT 独有，均要写成 scope-limited negative/unknown。不要因为交接任务很大就构建数据库、常驻审计 AI、全函数 trace 或额外审批平台；只有真实重复、结构稳定、查询/更新频繁且机械约束收益明确时才新增 machine-managed 资产。
 
-本 Skill 的完成判据是未来 AI 能先全文恢复三件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对 manifest 当前全部 KC（本轮 36 个）逐项留证；同时旧 generations、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。
+本 Skill 的完成判据是未来 AI 能先全文恢复四件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对 manifest 当前全部 KC（本轮 36 个）逐项留证；同时旧 generations、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。

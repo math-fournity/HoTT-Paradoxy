@@ -307,6 +307,51 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(plan["logical_documents"][0]["shard_count"], 2)
         self.assertTrue(plan["logical_documents"][0]["full_load_required"])
 
+    def test_shard_selected_before_index_is_restored_to_table_order(self) -> None:
+        index = "专题.md"
+        shards = self.make_sharded(
+            index,
+            [("001", "第一片"), ("002", "第二片"), ("003", "第三片")],
+            logical_id="TOPIC",
+        )
+        state = self.state()
+        state["records"]["ACTIVE-SHARD"] = {
+            "kind": "candidate",
+            "path": shards[2],
+            "status": "active",
+            "lifecycle_status": "ACTIVE_WORK",
+            "evidence_status": "COUNTEREXAMPLE_CANDIDATE",
+            "depends_on": [],
+            "full_sources": [],
+            "source_hashes": {},
+        }
+        state["records"]["TASK-WITH-INDEX"] = {
+            "kind": "active_goal",
+            "path": "goal.md",
+            "status": "active",
+            "lifecycle_status": "ACTIVE_WORK",
+            "evidence_status": "USER_AUTHORIZED_ACTIVE_GOAL",
+            "depends_on": [],
+            "full_sources": [index],
+            "source_hashes": {},
+        }
+        self.put("goal.md", "# fixture goal\n")
+        state["active"] = ["ACTIVE-SHARD"]
+        self.set_state(state)
+
+        plan = self.plan(task_ids=("TASK-WITH-INDEX",))
+        paths = [row["path"] for row in plan["documents"]]
+        start = paths.index(index)
+        self.assertEqual(paths[start:start + 4], [index] + shards)
+        self.assertLess(paths.index(index), paths.index(shards[2]))
+        selected = next(row for row in plan["documents"] if row["path"] == shards[2])
+        self.assertEqual(
+            selected["selected_by"],
+            ["active:ACTIVE-SHARD", "shard:TOPIC"],
+        )
+        logical = next(row for row in plan["logical_documents"] if row["logical_id"] == "TOPIC")
+        self.assertEqual(logical["shards"], shards)
+
     def test_sharded_document_requires_every_shard(self) -> None:
         shards = self.make_sharded(
             "README.md", [("001", "第一片"), ("002", "第二片")], logical_id="README"

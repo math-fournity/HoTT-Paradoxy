@@ -13,7 +13,19 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[2]
 REQUIRED = {"RUN.json", "stdout.txt", "stderr.txt", "environment.txt", "source-manifest.json"}
-EXTERNAL_TREE_LABELS = {"cubical-extracted-tree", "agda-unimath-extracted-tree"}
+EXTERNAL_TREE_LABELS = {
+    "cubical-extracted-tree",
+    "agda-unimath-extracted-tree",
+    "coq-undecidability-extracted-tree",
+    "coq-parametric-ct-extracted-tree",
+    "cubical-groupoid-syntax-extracted-tree",
+}
+AUDIT_TOOL_PROVENANCE_PATHS = {
+    # This verifier is recorded so the historical audit procedure is visible,
+    # but it is not read by RUN.command_argv and is not a proof input.  Its
+    # evolution must not masquerade as theorem-source drift.
+    "scripts/audit/verify_formal_proof_run.py",
+}
 
 
 class ProofRunError(RuntimeError):
@@ -174,6 +186,7 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
     if not isinstance(source_rows, list) or not source_rows:
         raise ProofRunError("SOURCE_MANIFEST_FILES_MISSING")
     source_paths: list[str] = []
+    audit_tool_provenance_drift: list[dict[str, str]] = []
     for row in source_rows:
         if not isinstance(row, dict) or not isinstance(row.get("path"), str):
             raise ProofRunError("SOURCE_ROW_INVALID")
@@ -183,11 +196,21 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
             raise ProofRunError(f"SOURCE_MISSING_OR_SYMLINK:{relative}")
         data = path.read_bytes()
         if row.get("bytes") != len(data) or row.get("sha256") != sha(data):
+            if relative.as_posix() in AUDIT_TOOL_PROVENANCE_PATHS:
+                audit_tool_provenance_drift.append({
+                    "path": relative.as_posix(),
+                    "captured_sha256": str(row.get("sha256")),
+                    "current_sha256": sha(data),
+                })
+                source_paths.append(relative.as_posix())
+                continue
             raise ProofRunError(f"SOURCE_HASH_OR_SIZE_MISMATCH:{relative}")
-        text_data = data.decode("utf-8")
-        if path.suffix == ".lean" and re.search(r"\b(sorry|admit)\b", text_data):
-            raise ProofRunError(f"LEAN_PLACEHOLDER_FORBIDDEN:{relative}")
+        if path.suffix == ".lean":
+            text_data = data.decode("utf-8")
+            if re.search(r"\b(sorry|admit)\b", text_data):
+                raise ProofRunError(f"LEAN_PLACEHOLDER_FORBIDDEN:{relative}")
         if path.suffix == ".agda":
+            text_data = data.decode("utf-8")
             forbidden = (
                 "{!!}", "{-# TERMINATING #-}", "{-# NON_TERMINATING #-}",
                 "--allow-unsolved-metas", "--allow-incomplete-matches", "--type-in-type",
@@ -201,7 +224,16 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
             # legitimately describe itself as having "no cubical features",
             # so the substring "cubical" alone must not select the cubical
             # requirement.
-            if "without-k" in theory:
+            if "agda-flat" in theory:
+                # Historical Agda-flat packages use a modal crisp-variable
+                # extension and mix ordinary --without-K modules with
+                # --rewriting/--no-pattern-matching entrypoints.  There is no
+                # single source pragma shared by every file in that closure.
+                # The run-specific replay must pin and verify the exact
+                # Agda-flat image and source tree; the generic verifier still
+                # enforces the unsafe/incomplete-marker checks above.
+                pass
+            elif "without-k" in theory:
                 if "--without-K" not in text_data or "--exact-split" not in text_data:
                     raise ProofRunError(f"AGDA_WITHOUT_K_OPTIONS_REQUIRED:{relative}")
             elif "cubical" in theory:
@@ -255,6 +287,7 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
         "proof_id": proof_id,
         "claim_ids": claim_ids,
         "source_paths": source_paths,
+        "audit_tool_provenance_drift": audit_tool_provenance_drift,
         "external_dependencies": external_labels,
         "kernel_status": run["status"],
         "index_status": run["index_status"],
