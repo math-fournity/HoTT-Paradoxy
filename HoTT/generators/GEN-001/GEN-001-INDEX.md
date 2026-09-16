@@ -9,6 +9,7 @@
 | unit_id | task_family | premise | supply | grammar | search_run | verify_runs | 越界证明 | 判词 |
 |---|---|---|---|---|---|---|---|---|
 | `GEN-001-1` | TASK-FAMILY-WITNESS-RECOVERABILITY | PREMISE-E-02（pending external audit） | SUPPLY-007（AI 供给） | `L1-WITNESS-RECOVERY-v1` | `20260916-SEARCH-GEN001-WITNESS-RECOVERY-001` | `...-040` / `...-041B` / `...-049` | `GEN-001-OUT-OF-ENVELOPE.json`（15/15 旧文法机械越界） | `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE` |
+| `GEN-001-2` | TASK-FAMILY-COMPLETION-PROCESS | PREMISE-A-03（pending external audit） | SUPPLY-001（AI 供给） | `L1-COMPLETION-PROCESS-v1` | `20260916-SEARCH-GEN001-COMPLETION-PROCESS-001` | `...-053` / `...-070` / `...-021` / `...-014` | `GEN-001-COMPLETION-PROCESS-OUT-OF-ENVELOPE.json`（15/15 旧文法机械越界，理由全部为 BIND_CONTINUATION） | `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE` |
 
 ## 证据定位
 
@@ -26,7 +27,7 @@
 - 本索引**不声称** E-02 前提非现实（该判定 pending external audit，且需 GEN-001 链 + 原生核才能升级为结论）。
 - 本索引**不声称**引擎具备自主发现新方向的能力（任务族由 AI 冻结供给）。
 - 本索引**不声称**开放候选空间被穷尽。
-- 其余四个任务族（DIVISIBILITY / EXISTENCE-VS-AVAILABILITY / COMPLETION-PROCESS /
+- 其余三个任务族（DIVISIBILITY / EXISTENCE-VS-AVAILABILITY /
   IDENTITY-OBSERVATION-LAYER）仍是后续单元，状态 `NOT_STARTED`。
 
 ## 后续单元状态
@@ -36,5 +37,5 @@
 | WITNESS-RECOVERABILITY | E-02 | `CHAIN_DEMONSTRATED`（本索引） | 52 个归约见证中 3 个已送核 |
 | DIVISIBILITY-CONDITION-OR-CAPABILITY | D-01, E-04, G-03 | `NOT_STARTED` | corpus 风险最高三联；外部审计优先复核；区间建模成本高（010 §3） |
 | EXISTENCE-VS-AVAILABILITY | D-04, G-05 | `NOT_STARTED` | 置信度最低；外部审计优先复核 |
-| COMPLETION-PROCESS | A-03, A-11 | `NOT_STARTED` | L1 片段低成本（010 §3） |
+| COMPLETION-PROCESS | A-03, A-11 | `CHAIN_DEMONSTRATED`（本索引，A-03） | L1 片段；A-11 与 A-03 同形，合并与否由外部审计决定 |
 | IDENTITY-OBSERVATION-LAYER | B-01 | `NOT_STARTED` | 需 definitional vs propositional equality 分离 |
