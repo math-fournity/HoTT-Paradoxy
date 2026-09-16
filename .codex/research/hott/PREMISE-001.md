@@ -2,19 +2,19 @@
 logical_id: PREMISE-001
 mode: topical
 shard_root: PREMISE-001
-last_shard: PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md
+last_shard: PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md
 append_target: -
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 1 个分片；缺一片即未完成。索引冻结任务与分母身份，
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 3 个分片；缺一片即未完成。索引冻结任务与分母身份，
 > 分片拥有分母条目本体与逐条登记结果。step-2 产出后 append_target 生效。
 
 # PREMISE-001：HoTT 前提集穷尽清单与 P1–P4 分工
 
 > 版本：`premise-001/v1.0`
 > 冻结日：`2026-09-16`
-> 当前判词：`DENOMINATOR_V1_FROZEN / P1_COMPLETE / P2_NOT_STARTED / P3P4_PENDING_USER`
+> 当前判词：`DENOMINATOR_V1_FROZEN / P1_COMPLETE / P2_COMPLETE_35_35 / P3P4_PENDING_USER`
 > 方案权威：`Atria的方案/修订片/008 - PREMISE-001 HoTT 前提集穷尽清单与 P1–P4 分工.md`
 > 当前 Goal：`goal-1.md`（索引；权威为 STATE）
 > 程序化父级：`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`
@@ -27,6 +27,8 @@ soft_line_target: 300
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
 | 001 | [分母 V1 冻结（A-G 条目、P1 前提与出处）](<PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md>) | A–G 七类共 30 条编号条目，每条 P1 前逐字前提陈述 + 出处；冻结收据（remainder=0） | current |
+| 002 | [P2 逐条登记 A-B 构造子与判定](<PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md>) | A 类 11 条 + B 类 4 条逐条 P2（reality_skeleton / divergence_point / evidence_level / omission_shape / corpus_pressure） | current |
+| 003 | [P2 逐条登记 C-G 恒等等价与设计决策](<PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md>) | C 4 + D 5 + E 4 + F 2 + G 5 共 18 条逐条 P2；完成后分母 35/35 条 P1/P2 全部完成 | current |
 <!-- governance-shard-table:end -->
 
 ## 分母身份（冻结字段）
@@ -40,6 +42,7 @@ PREMISE_DENOMINATOR_V1
   / 域外: 证明助手实现现象、第三方库 API、性能（R0–R3 / IMPLEMENTATION_PHENOMENON）
   / 扩版: 新构造进入须显式 PREMISE_DENOMINATOR_V2，旧版保留不静默重写
   / remainder=0（分母内无未编号条目）；unknown ingress 保持开放
+  / P2 状态: 35/35 条完成（002 分片 A-B 共 15 条；003 分片 C-G 共 18 条）；P3/P4 待用户
   / 分母 shard sha256: 5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be
 ```
 
