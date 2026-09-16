@@ -181,7 +181,7 @@ def validate_roles(get):
     roles=obj(get(ROLES))
     expected={'governance':('hott-local-session-governance',GOVERNANCE_SKILL),
               'business':('hott-paradox-research',SKILL)}
-    if roles.get('schema_version') not in ('hott-skill-roles/v1', 'hott-skill-roles/v2') or not isinstance(roles.get('roles'),dict) or set(roles['roles'])!=set(expected):
+    if roles.get('schema_version') not in ('hott-skill-roles/v1', 'hott-skill-roles/v2') or not isinstance(roles.get('roles'),dict) or not set(expected).issubset(roles['roles']):
         raise CognitionError('SKILL_ROLE_REGISTRY_INVALID')
     for role,(name,path) in expected.items():
         record=roles['roles'][role]
@@ -191,6 +191,16 @@ def validate_roles(get):
         front=re.match(r'\A---\n(.*?)\n---\n',source,re.S)
         if not front or not re.search(r'^name: '+re.escape(name)+r'$',front[1],re.M):
             raise CognitionError('SKILL_FRONTMATTER_NAME_MISMATCH: '+role)
+    # additive roles beyond governance/business (e.g. execution): registry stays open,
+    # but every extra entry must resolve to a real skill with matching frontmatter name.
+    for role in set(roles['roles'])-set(expected):
+        record=roles['roles'][role]
+        if not isinstance(record,dict) or not isinstance(record.get('name'),str) or not isinstance(record.get('path'),str):
+            raise CognitionError('SKILL_ROLE_EXTRA_INVALID: '+role)
+        source=text(get(record['path']),record['path'])
+        front=re.match(r'\A---\n(.*?)\n---\n',source,re.S)
+        if not front or not re.search(r'^name: '+re.escape(record['name'])+r'$',front[1],re.M):
+            raise CognitionError('SKILL_ROLE_EXTRA_FRONTMATTER_MISMATCH: '+role)
 
 def legacy_is_open(record):
     return isinstance(record,dict) and isinstance(record.get('status'),str) and record['status'].casefold() in LEGACY_OPEN_STATUSES

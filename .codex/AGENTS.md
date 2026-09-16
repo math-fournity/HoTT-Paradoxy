@@ -17,12 +17,12 @@ shard table、`last_shard` 与 `append_target`，再按任务读 owner/append sh
 仍是四件套中唯一单文件。每个索引前 15 行带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成`），
 由 `scripts/audit/verify_governance_shards.py` 机械检查。合同见 `docs/quality/长治理文档分片与索引合同.md`。
 
-核心 invariant：当前 generation 与 KC 分母从 `STATE.current_core`/manifest 动态取得；本轮 generation-4 的 36 个用户直接原文单元由 hash-pinned curation lineage+生成器管理，不手工改写；全部 record
+核心 invariant：当前 generation 与 KC 分母从 `STATE.current_core`/manifest 动态取得（本轮 generation-7，46 个 KC）；用户直接原文单元由 hash-pinned curation lineage+生成器管理，不手工改写；全部 record
 在 STATE 全文中可见，但只有 lifecycle 给予当前任务资格，evidence review 不得自动复活历史 Session。治理任务用
 governance profile，数学研究用 research profile，底层证据按 stable ID 显式水合。每轮结束仍产生当前全部
 `KC-*` 回评；旧回评归档而不常驻。工具只能证明字节覆盖、引用和版本边界，不能证明模型理解或数学真理。
 
-业务研究入口是 `.codex/skills/hott-paradox-research/SKILL.md`。历史 WebGPT `.codex` 框架在 `sources/webgpt/workspace-snapshot/.codex/`，只作为参考来源。
+业务研究入口是 `.codex/skills/hott-paradox-research/SKILL.md`。方案执行与方案演化 SOP 入口是 `.codex/skills/hott-paradox-search-sop/SKILL.md`（由 `goal-1.md` 索引驱动；角色登记见 `.codex/skills/SKILL_ROLES.json` 的 execution role）。历史 WebGPT `.codex` 框架在 `sources/webgpt/workspace-snapshot/.codex/`，只作为参考来源。
 
 Record 关系 invariant：`depends_on` 只用于会传播 stale 的验证依赖；谱系、动机、接续和叙事归属使用
 `research_parent`/`related_records`，不会递归水合。显式 task plan 必须检查 `hydration_diagnostics`；query-first

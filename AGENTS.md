@@ -111,6 +111,7 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - 只做历史审计/交接：读治理 Skill 和审计脚本，不自动启动新数学研究。
 - 继续 HoTT 悖论研究：先完成本文件与本地治理 Skill 的闭包，再加载业务 Skill `hott-paradox-research`；系统化/机器统观任务还必须加载项目级程序探索完备性规划。每轮推进一个可检查构造/未知点，同时在父级覆盖包络中记录其 cell、遗漏与 successor。
+- 执行"用现实对齐找出 HoTT 非现实前提"的方案步骤、或走完一步后做反思：先完成本文件与本地治理 Skill 的闭包，再加载执行 Skill `hott-paradox-search-sop`（七段执行循环 + 反思清单 + 方案演化 git 纪律）；当前步骤由 `goal-1.md` 索引、权威是 STATE。每次方案优化必须 git 提交（`plan-revise(...)`），每个步骤提交必须携带反思结论；不提交不得继续下一步。
 - 修改本地治理框架：先重新建立 closure，再按全局治理自维护 Gate 识别 C01–C10，修改 owner、schema、脚本和运行入口，执行验证并提交；项目专属变化不误改 dirty 的共享治理主库，不把 WebGPT 历史副本当作当前 host 配置。
 - 发现来源快照与实际环境冲突：保留双方、记录 conflict/unknown 和适用范围；不得用新文件名或新 hash 掩盖冲突。
 
