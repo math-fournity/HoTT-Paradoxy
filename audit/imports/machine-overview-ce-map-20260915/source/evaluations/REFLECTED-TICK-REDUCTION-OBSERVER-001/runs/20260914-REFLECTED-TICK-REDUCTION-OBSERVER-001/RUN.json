@@ -1,0 +1,652 @@
+{
+  "deterministic": {
+    "anchor_count": 23,
+    "artifact_count": 9,
+    "decisions": {
+      "bytes": 37336,
+      "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/DECISIONS.json",
+      "sha256": "64953bb869bd3f2ba800bc4d330d8c87cae73c46e0882ead93a19abba6df0421"
+    },
+    "decisions_deterministic_sha256": "ccdbf2d18d899894fa98a42df9696bc68e4663c4625e8307739ad5bb06d9409f",
+    "evaluation_id": "REFLECTED-TICK-REDUCTION-OBSERVER-001",
+    "evaluator": {
+      "bytes": 36352,
+      "path": "machine-overview/reflected_tick_termination.py",
+      "sha256": "ead6c64aca6f2c711b59e2548384d5d3aea63d816f1decc80814e9dfa708a3a0"
+    },
+    "freeze": {
+      "bytes": 27033,
+      "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/FREEZE.json",
+      "sha256": "b731b1efbba750b79f46d6daf343bcf441fe7b2b29555edadb72455b9f03dc92"
+    },
+    "freeze_deterministic_sha256": "d5ee4fe9470a3ad9c75833d35672bbc0bd746d50270d7f33ffd86f5c73baa1d4",
+    "probes": [
+      {
+        "classification": "KERNEL_ACCEPTED",
+        "exact_replay": true,
+        "expect": "ACCEPT",
+        "expectation_met": true,
+        "first": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1108,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P01-REFLECTION-REDUCTION-CLASSIFICATION/first/command.json",
+            "sha256": "20b6e982d457c26a9f3b2d6b8713fa3c4232fa0354803596af37a2c5e93959fb"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P01-REFLECTION-REDUCTION-CLASSIFICATION/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 162,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P01-REFLECTION-REDUCTION-CLASSIFICATION/first/stdout.txt",
+            "sha256": "dcb7fa5220a80121fbab7f21c12256cb62f910bd384f959e05f1076008206dc9"
+          }
+        },
+        "probe_id": "P01-REFLECTION-REDUCTION-CLASSIFICATION",
+        "replay": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1108,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P01-REFLECTION-REDUCTION-CLASSIFICATION/replay/command.json",
+            "sha256": "20b6e982d457c26a9f3b2d6b8713fa3c4232fa0354803596af37a2c5e93959fb"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P01-REFLECTION-REDUCTION-CLASSIFICATION/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 162,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P01-REFLECTION-REDUCTION-CLASSIFICATION/replay/stdout.txt",
+            "sha256": "dcb7fa5220a80121fbab7f21c12256cb62f910bd384f959e05f1076008206dc9"
+          }
+        },
+        "source": {
+          "bytes": 2518,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectionReductionClassification.agda",
+          "sha256": "c784847dd3005d8dd368f6f6cc3d62a41eabf835ed452fa4dad47f5b9183a014"
+        }
+      },
+      {
+        "classification": "EXPECTED_TYPE_REJECTION",
+        "exact_replay": true,
+        "expect": "TYPE_REJECTION",
+        "expectation_met": true,
+        "first": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1102,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P02-PATH-INDEXED-OBSERVATION-CLAIM/first/command.json",
+            "sha256": "3d021e912c98499d1d08af5533e69270a010743e8f48a742b3b7bc8a56c9f7b2"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P02-PATH-INDEXED-OBSERVATION-CLAIM/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 440,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P02-PATH-INDEXED-OBSERVATION-CLAIM/first/stdout.txt",
+            "sha256": "e496944811db533afd3a6279751b89ab352cf50a3c83e6708d6c36f2822b57ef"
+          }
+        },
+        "probe_id": "P02-PATH-INDEXED-OBSERVATION-CLAIM",
+        "replay": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1102,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P02-PATH-INDEXED-OBSERVATION-CLAIM/replay/command.json",
+            "sha256": "3d021e912c98499d1d08af5533e69270a010743e8f48a742b3b7bc8a56c9f7b2"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P02-PATH-INDEXED-OBSERVATION-CLAIM/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 440,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P02-PATH-INDEXED-OBSERVATION-CLAIM/replay/stdout.txt",
+            "sha256": "e496944811db533afd3a6279751b89ab352cf50a3c83e6708d6c36f2822b57ef"
+          }
+        },
+        "source": {
+          "bytes": 414,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/PathIndexedObservationClaim.agda",
+          "sha256": "f2c80ffbfb9b656e13fa33d039774a6151531d7ad5c58776d24069d79c64cc5c"
+        }
+      },
+      {
+        "classification": "KERNEL_ACCEPTED",
+        "exact_replay": true,
+        "expect": "ACCEPT",
+        "expectation_met": true,
+        "first": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1104,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P03-REFLECTED-BINDER-RECONSTRUCTION/first/command.json",
+            "sha256": "5cb31cdc09dd7a079ee0dc718cc9e9c2c64cdc477358539f92a5f86f8ffb2461"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P03-REFLECTED-BINDER-RECONSTRUCTION/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 154,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P03-REFLECTED-BINDER-RECONSTRUCTION/first/stdout.txt",
+            "sha256": "e8fa162695ea4eff9fcaec34e5332bfa4567cc4d37a980c736ef83596ba92824"
+          }
+        },
+        "probe_id": "P03-REFLECTED-BINDER-RECONSTRUCTION",
+        "replay": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1104,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P03-REFLECTED-BINDER-RECONSTRUCTION/replay/command.json",
+            "sha256": "5cb31cdc09dd7a079ee0dc718cc9e9c2c64cdc477358539f92a5f86f8ffb2461"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P03-REFLECTED-BINDER-RECONSTRUCTION/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 154,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P03-REFLECTED-BINDER-RECONSTRUCTION/replay/stdout.txt",
+            "sha256": "e8fa162695ea4eff9fcaec34e5332bfa4567cc4d37a980c736ef83596ba92824"
+          }
+        },
+        "source": {
+          "bytes": 1347,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectedBinderReconstruction.agda",
+          "sha256": "b537002e580fbdf34d99b7385a9ba9b68ebb6c9871c6d77a6edf108ac4db4b1d"
+        }
+      },
+      {
+        "classification": "EXPECTED_TYPE_REJECTION",
+        "exact_replay": true,
+        "expect": "TYPE_REJECTION",
+        "expectation_met": true,
+        "first": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1102,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P04-TERMINATION-CHECK-REJECTS-LOOP/first/command.json",
+            "sha256": "c34caeafba2a0c8c24ce4770ce3776b7b49bf1eef0d932ef4fd12f2cd2df3a24"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P04-TERMINATION-CHECK-REJECTS-LOOP/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 278,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P04-TERMINATION-CHECK-REJECTS-LOOP/first/stdout.txt",
+            "sha256": "bc1f78961ef4236ae911061ed94cd9246ba3e4225f9bbe4d173dec27da508266"
+          }
+        },
+        "probe_id": "P04-TERMINATION-CHECK-REJECTS-LOOP",
+        "replay": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1102,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P04-TERMINATION-CHECK-REJECTS-LOOP/replay/command.json",
+            "sha256": "c34caeafba2a0c8c24ce4770ce3776b7b49bf1eef0d932ef4fd12f2cd2df3a24"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P04-TERMINATION-CHECK-REJECTS-LOOP/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 278,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P04-TERMINATION-CHECK-REJECTS-LOOP/replay/stdout.txt",
+            "sha256": "bc1f78961ef4236ae911061ed94cd9246ba3e4225f9bbe4d173dec27da508266"
+          }
+        },
+        "source": {
+          "bytes": 132,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationCheckRejectsLoop.agda",
+          "sha256": "67949d7e96aa2ba186c4fb1174e7c4434d1c2119c3d980256a81763921a97029"
+        }
+      },
+      {
+        "classification": "EXPECTED_TYPE_REJECTION",
+        "exact_replay": true,
+        "expect": "TYPE_REJECTION",
+        "expectation_met": true,
+        "first": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1107,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE/first/command.json",
+            "sha256": "0bb08e8d2d1e2546affc1bcfc75066b0312165138197a73c7ba83cf1d41920f6"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 190,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE/first/stdout.txt",
+            "sha256": "170bcb9a3326d79b6503647a260acde8b355dc16fa75e2b60ccc9508518170fa"
+          }
+        },
+        "probe_id": "P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE",
+        "replay": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1107,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE/replay/command.json",
+            "sha256": "0bb08e8d2d1e2546affc1bcfc75066b0312165138197a73c7ba83cf1d41920f6"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 190,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE/replay/stdout.txt",
+            "sha256": "170bcb9a3326d79b6503647a260acde8b355dc16fa75e2b60ccc9508518170fa"
+          }
+        },
+        "source": {
+          "bytes": 164,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/CertifiedFragmentRejectsOverride.agda",
+          "sha256": "5f642b1b001e3ccdb4a214c217e23a503f71903fdde6c0c85d8240fc72eafec4"
+        }
+      },
+      {
+        "classification": "KERNEL_ACCEPTED",
+        "exact_replay": true,
+        "expect": "ACCEPT",
+        "expectation_met": true,
+        "first": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1113,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY/first/command.json",
+            "sha256": "d31706451cd8dedcd10640c585c7d62a83264acc85868befe7bf9d0d5d4b9e25"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 103,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY/first/stdout.txt",
+            "sha256": "4349bbcf8eca8abf8b9317f3c33f7b00b3236a3f3d6994ec1597bbccfc9c6011"
+          }
+        },
+        "probe_id": "P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY",
+        "replay": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1113,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY/replay/command.json",
+            "sha256": "d31706451cd8dedcd10640c585c7d62a83264acc85868befe7bf9d0d5d4b9e25"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 103,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY/replay/stdout.txt",
+            "sha256": "4349bbcf8eca8abf8b9317f3c33f7b00b3236a3f3d6994ec1597bbccfc9c6011"
+          }
+        },
+        "source": {
+          "bytes": 324,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationOverrideAcceptsSelfEquality.agda",
+          "sha256": "5e5c427784eca3496585faa2bf4f3551fd452447a25c147e595c8195cc5e6ffe"
+        }
+      },
+      {
+        "classification": "EXPECTED_OBSERVATION_LIMIT",
+        "exact_replay": true,
+        "expect": "OBSERVATION_LIMIT",
+        "expectation_met": true,
+        "first": {
+          "classification": "EXPECTED_OBSERVATION_LIMIT",
+          "command": {
+            "bytes": 1106,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P07-TERMINATION-OVERRIDE-FORCED-EQUALITY/first/command.json",
+            "sha256": "89f7b9e521c057a88f8f71df55616865125d8c622d80330cf6818eeef4f2368b"
+          },
+          "exit_code": 124,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P07-TERMINATION-OVERRIDE-FORCED-EQUALITY/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 93,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P07-TERMINATION-OVERRIDE-FORCED-EQUALITY/first/stdout.txt",
+            "sha256": "2525d32802829b2c06fea4febf93abb871038c1da8bff80f88ac40ef54245972"
+          }
+        },
+        "probe_id": "P07-TERMINATION-OVERRIDE-FORCED-EQUALITY",
+        "replay": {
+          "classification": "EXPECTED_OBSERVATION_LIMIT",
+          "command": {
+            "bytes": 1106,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P07-TERMINATION-OVERRIDE-FORCED-EQUALITY/replay/command.json",
+            "sha256": "89f7b9e521c057a88f8f71df55616865125d8c622d80330cf6818eeef4f2368b"
+          },
+          "exit_code": 124,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P07-TERMINATION-OVERRIDE-FORCED-EQUALITY/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 93,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P07-TERMINATION-OVERRIDE-FORCED-EQUALITY/replay/stdout.txt",
+            "sha256": "2525d32802829b2c06fea4febf93abb871038c1da8bff80f88ac40ef54245972"
+          }
+        },
+        "source": {
+          "bytes": 333,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationOverrideForcedEquality.agda",
+          "sha256": "592984dc5e3c66a50fd538f952059c9fe7b2c319c2b791ef53041017f1b2a016"
+        }
+      },
+      {
+        "classification": "EXPECTED_TYPE_REJECTION",
+        "exact_replay": true,
+        "expect": "TYPE_REJECTION",
+        "expectation_met": true,
+        "first": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1098,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P08-OPAQUE-RECURSIVE-EQUALITY/first/command.json",
+            "sha256": "6f086457dee8b2a940acdf8461fab4714037e8fe566f4c6e45c67048a0b3d697"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P08-OPAQUE-RECURSIVE-EQUALITY/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 197,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P08-OPAQUE-RECURSIVE-EQUALITY/first/stdout.txt",
+            "sha256": "1507b144d43e4f8806b8435c72df4c48fa2a5e6dbe676d3ff2cac9a1253b8cca"
+          }
+        },
+        "probe_id": "P08-OPAQUE-RECURSIVE-EQUALITY",
+        "replay": {
+          "classification": "EXPECTED_TYPE_REJECTION",
+          "command": {
+            "bytes": 1098,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P08-OPAQUE-RECURSIVE-EQUALITY/replay/command.json",
+            "sha256": "6f086457dee8b2a940acdf8461fab4714037e8fe566f4c6e45c67048a0b3d697"
+          },
+          "exit_code": 42,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P08-OPAQUE-RECURSIVE-EQUALITY/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 197,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P08-OPAQUE-RECURSIVE-EQUALITY/replay/stdout.txt",
+            "sha256": "1507b144d43e4f8806b8435c72df4c48fa2a5e6dbe676d3ff2cac9a1253b8cca"
+          }
+        },
+        "source": {
+          "bytes": 327,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/OpaqueRecursiveEquality.agda",
+          "sha256": "80de9d762f75798efd1e13729a2e6e5863d3fd7c5f40472483cb5dcb7154139b"
+        }
+      },
+      {
+        "classification": "KERNEL_ACCEPTED",
+        "exact_replay": true,
+        "expect": "ACCEPT",
+        "expectation_met": true,
+        "first": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1103,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P09-GUARDED-INFINITE-NORMALISATION/first/command.json",
+            "sha256": "74a5d13de51278975b923238ac5c26aa0f02e2d0912b124d141d879f9ceaf1d1"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P09-GUARDED-INFINITE-NORMALISATION/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 152,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P09-GUARDED-INFINITE-NORMALISATION/first/stdout.txt",
+            "sha256": "f5f6841d99714914c726f731d01558397f7a06d1c3936ba3e8a7473c552976cf"
+          }
+        },
+        "probe_id": "P09-GUARDED-INFINITE-NORMALISATION",
+        "replay": {
+          "classification": "KERNEL_ACCEPTED",
+          "command": {
+            "bytes": 1103,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P09-GUARDED-INFINITE-NORMALISATION/replay/command.json",
+            "sha256": "74a5d13de51278975b923238ac5c26aa0f02e2d0912b124d141d879f9ceaf1d1"
+          },
+          "exit_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P09-GUARDED-INFINITE-NORMALISATION/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 152,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P09-GUARDED-INFINITE-NORMALISATION/replay/stdout.txt",
+            "sha256": "f5f6841d99714914c726f731d01558397f7a06d1c3936ba3e8a7473c552976cf"
+          }
+        },
+        "source": {
+          "bytes": 877,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/GuardedInfiniteNormalisation.agda",
+          "sha256": "e5db1460c153440048f80d8c446e0509ef35fa1deca1de69452df5d803961ac3"
+        }
+      },
+      {
+        "classification": "EXPECTED_OBSERVATION_LIMIT",
+        "exact_replay": true,
+        "expect": "OBSERVATION_LIMIT",
+        "expectation_met": true,
+        "first": {
+          "classification": "EXPECTED_OBSERVATION_LIMIT",
+          "command": {
+            "bytes": 1106,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P10-REFLECTION-NORMALISES-RECURSIVE-TERM/first/command.json",
+            "sha256": "9e179fb3245cf1276687b0041def7acadf3c11914f3fef5b5522b45d7841c067"
+          },
+          "exit_code": 124,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P10-REFLECTION-NORMALISES-RECURSIVE-TERM/first/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 93,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P10-REFLECTION-NORMALISES-RECURSIVE-TERM/first/stdout.txt",
+            "sha256": "05a95e1e99b5409e813e84abaa829be64884c37ad1d75a8a0e5201878410b771"
+          }
+        },
+        "probe_id": "P10-REFLECTION-NORMALISES-RECURSIVE-TERM",
+        "replay": {
+          "classification": "EXPECTED_OBSERVATION_LIMIT",
+          "command": {
+            "bytes": 1106,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P10-REFLECTION-NORMALISES-RECURSIVE-TERM/replay/command.json",
+            "sha256": "9e179fb3245cf1276687b0041def7acadf3c11914f3fef5b5522b45d7841c067"
+          },
+          "exit_code": 124,
+          "stderr": {
+            "bytes": 0,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P10-REFLECTION-NORMALISES-RECURSIVE-TERM/replay/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout": {
+            "bytes": 93,
+            "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/P10-REFLECTION-NORMALISES-RECURSIVE-TERM/replay/stdout.txt",
+            "sha256": "05a95e1e99b5409e813e84abaa829be64884c37ad1d75a8a0e5201878410b771"
+          }
+        },
+        "source": {
+          "bytes": 517,
+          "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectionNormalisesRecursiveTerm.agda",
+          "sha256": "2d2aaca67a88da709cb50c574db5f7a22a78c99ad577e496d28d6a7073c90dce"
+        }
+      }
+    ],
+    "run_id": "20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001",
+    "scope": {
+      "bytes": 20789,
+      "path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/SCOPE.json",
+      "sha256": "716bd62d066bfa8313bb690f07acf7d1bf279e1603f529ba36294055e34c7f01"
+    },
+    "semantic": {
+      "candidate_scope": "REPRESENTATION_BOUNDARY_AND_TERMINATION_CALIBRATION",
+      "godel_status": "GENERIC_SELF_REDUCTION_CALIBRATION_ONLY",
+      "hott_godel_instances": [],
+      "hott_nonreality_status": "NOT_ESTABLISHED",
+      "natural_usage_mismatches": [],
+      "reflection": {
+        "call_site_syntax_split": true,
+        "path_indexed_reification": "TYPE_REJECTED_TRUE_FALSE_BOUNDARY",
+        "tick_and_forcing_binders_reconstructed": true,
+        "uniform_object_observer_preserves_path": true,
+        "uniform_object_observer_retains_split": false,
+        "verdict": "HOST_SYNTAX_OBSERVATION_WITH_OBJECT_LEVEL_CONGRUENCE_FENCE"
+      },
+      "semantic_limit": "The non-completing checks require an explicit source annotation that overrides termination analysis.  The guarded infinite control completes, and Reflection does not turn its call-site distinction into one Path-respecting object function.",
+      "termination": {
+        "certified_fragment_override": "REJECTED",
+        "declared_recursive_forced_equality": "OBSERVATION_LIMIT_REACHED",
+        "declared_recursive_self_equality": "ACCEPTED_WITHOUT_FORCED_NORMAL_FORM",
+        "guarded_productive_infinite_object": "NORMALISATION_COMPLETED_AT_DELAY_BOUNDARY",
+        "opaque_recursive_equality": "TYPE_REJECTED_WITHOUT_UNFOLDING",
+        "ordinary_recursion_check": "REJECTED",
+        "reflection_forced_recursive_normalisation": "OBSERVATION_LIMIT_REACHED",
+        "verdict": "EXPLICIT_TERMINATION_ASSERTION_CAN_MAKE_PROOF_CHECKING_NOT_COMPLETE"
+      },
+      "trigger_cube": {
+        "ablations": [
+          {
+            "probe": "P09",
+            "removed": "SELF_RECURSIVE_TERM",
+            "result": "COMPLETED"
+          },
+          {
+            "probe": "P08",
+            "removed": "TERM_DECLARED_AVAILABLE_TO_JUDGEMENTAL_REDUCTION",
+            "result": "TYPE_REJECTED"
+          },
+          {
+            "probe": "P06",
+            "removed": "PROOF_CHECK_FORCES_A_DISTINCT_NORMAL_FORM",
+            "result": "COMPLETED"
+          }
+        ],
+        "full_conjunction": [
+          "SELF_RECURSIVE_TERM",
+          "TERM_DECLARED_AVAILABLE_TO_JUDGEMENTAL_REDUCTION",
+          "PROOF_CHECK_FORCES_A_DISTINCT_NORMAL_FORM"
+        ],
+        "full_result": "OBSERVATION_LIMIT_REACHED"
+      }
+    },
+    "source_count": 4
+  },
+  "deterministic_sha256": "ba808d367c2e19feb81215a72188832a82508c4d46e1db655567bf2e26cb8347",
+  "generated_at_utc": "2026-09-14T05:21:42.907063+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 13,
+    "untracked_entries": 1031,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 1044,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "observations": [
+    {
+      "first_duration_ms": 2308,
+      "probe_id": "P01-REFLECTION-REDUCTION-CLASSIFICATION",
+      "replay_duration_ms": 2209
+    },
+    {
+      "first_duration_ms": 2148,
+      "probe_id": "P02-PATH-INDEXED-OBSERVATION-CLAIM",
+      "replay_duration_ms": 2135
+    },
+    {
+      "first_duration_ms": 1929,
+      "probe_id": "P03-REFLECTED-BINDER-RECONSTRUCTION",
+      "replay_duration_ms": 1972
+    },
+    {
+      "first_duration_ms": 911,
+      "probe_id": "P04-TERMINATION-CHECK-REJECTS-LOOP",
+      "replay_duration_ms": 964
+    },
+    {
+      "first_duration_ms": 907,
+      "probe_id": "P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE",
+      "replay_duration_ms": 901
+    },
+    {
+      "first_duration_ms": 956,
+      "probe_id": "P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY",
+      "replay_duration_ms": 903
+    },
+    {
+      "first_duration_ms": 4640,
+      "probe_id": "P07-TERMINATION-OVERRIDE-FORCED-EQUALITY",
+      "replay_duration_ms": 4723
+    },
+    {
+      "first_duration_ms": 927,
+      "probe_id": "P08-OPAQUE-RECURSIVE-EQUALITY",
+      "replay_duration_ms": 909
+    },
+    {
+      "first_duration_ms": 1935,
+      "probe_id": "P09-GUARDED-INFINITE-NORMALISATION",
+      "replay_duration_ms": 1916
+    },
+    {
+      "first_duration_ms": 4604,
+      "probe_id": "P10-REFLECTION-NORMALISES-RECURSIVE-TERM",
+      "replay_duration_ms": 4611
+    }
+  ],
+  "run_id": "20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001",
+  "schema_version": "machine-overview-reflected-tick-termination-run/v1"
+}

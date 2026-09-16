@@ -1,0 +1,173 @@
+{
+  "schema_version": "machine-overview-hott-quotation-bridge-decisions/v1",
+  "evaluation_id": "HOTT-QUOTATION-BRIDGE-001",
+  "freeze": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/BRIDGE-FREEZE.json", "bytes": 5232, "sha256": "29131e2d54a316cf72c4d649aac3308e40e89e80f38cd017d7796863a62e4d96"},
+  "adjudication_identity": "current Codex main-agent direct source reading; source anchors and native probes are machine checked, semantic H1-H6 statuses remain explicit bounded review judgments",
+  "sources": [
+    {
+      "source_id": "QB-S1-AGDA-TC-2.8.0",
+      "role": "HOST_TC",
+      "classification": "HOST_CHECKER_EFFECT_NOT_OBJECT_PROVABILITY",
+      "answers": {
+        "H1": {"status": "PASS", "detail": "Agda 2.8.0's exact builtin reflection source and documentation are pinned.", "evidence": [{"artifact_id": "QB-A-AGDA-REFLECTION-SOURCE", "anchors": ["module Agda.Builtin.Reflection where", "-- TC monad --"]}]},
+        "H2": {"status": "PASS", "detail": "TC A is declared as a type-checker computation; quoteTC and unquoteTC both return through TC.", "evidence": [{"artifact_id": "QB-A-AGDA-REFLECTION-SOURCE", "anchors": ["TC : ∀ {a} → Set a → Set a", "quoteTC", "unquoteTC"]}]},
+        "H3": {"status": "PASS", "detail": "The supplied closure is monadic return/bind plus raw Term quotation, not a proof-code comonad.", "evidence": [{"artifact_id": "QB-A-AGDA-REFLECTION-SOURCE", "anchors": ["returnTC", "bindTC", "Term → TC A"]}]},
+        "H4": {"status": "FAIL", "detail": "The complete primitive interface has unquoteTC : Term→TC A but no object-level runner TC A→A or soundness reflection.", "evidence": [{"artifact_id": "QB-A-AGDA-REFLECTION-DOC", "anchors": ["The TC monad provides an interface to the Agda type checker", "Unquote a Term, returning the corresponding value."]}]},
+        "H5": {"status": "PASS", "detail": "The builtin markers and macro execution route keep the host type checker explicit.", "evidence": [{"artifact_id": "QB-A-AGDA-REFLECTION-SOURCE", "anchors": ["{-# BUILTIN AGDATCM", "AGDATCMUNQUOTETERM"]}]},
+        "H6": {"status": "FAIL", "detail": "No fixed interface claim turns the host TC computation into same-layer HoTT truth or erases its host boundary.", "evidence": [{"artifact_id": "QB-A-AGDA-REFLECTION-DOC", "anchors": ["Metaprograms, i.e. programs that create other programs, run in a built-in type checking monad TC"]}]}
+      }
+    },
+    {
+      "source_id": "QB-S2-CUBICAL-REFLECTION-v0.9",
+      "role": "HOST_TC",
+      "classification": "REAL_CUBICAL_MACRO_CONSUMER_PRESERVES_HOST_TC_BOUNDARY",
+      "answers": {
+        "H1": {"status": "PASS", "detail": "The full Cubical v0.9 tree and two concrete reflection modules are fixed.", "evidence": [{"artifact_id": "QB-A-CUBICAL-REFLECTION-BASE", "anchors": ["module Cubical.Reflection.Base where"]}]},
+        "H2": {"status": "PASS", "detail": "The library aliases bindTC and uses Term construction as metaprogram data.", "evidence": [{"artifact_id": "QB-A-CUBICAL-REFLECTION-BASE", "anchors": ["_>>=_ = R.bindTC", "makeAuxiliaryDef"]}]},
+        "H3": {"status": "PASS", "detail": "StrictEquiv composes quoteTC/checkType to build and check equivalence declarations through TC.", "evidence": [{"artifact_id": "QB-A-CUBICAL-STRICT-EQUIV", "anchors": ["R.quoteTC", "R.checkType hole equivTy"]}]},
+        "H4": {"status": "FAIL", "detail": "The consumer resolves and checks a host macro hole; it does not export TC A→A or kernel self-soundness.", "evidence": [{"artifact_id": "QB-A-CUBICAL-STRICT-EQUIV", "anchors": ["R.checkType hole equivTy", "R.unify (strictEquivTerm"]}]},
+        "H5": {"status": "PASS", "detail": "Every relevant operation remains explicitly qualified by R.TC/R.quoteTC/R.checkType.", "evidence": [{"artifact_id": "QB-A-CUBICAL-STRICT-EQUIV", "anchors": ["R.TC", "R.quoteTC"]}]},
+        "H6": {"status": "FAIL", "detail": "The full-tree inventory has real reflection consumers but no unquoteTC or ticked-guarded bridge in Cubical v0.9.", "evidence": [{"artifact_id": "QB-A-CUBICAL-REFLECTION-BASE", "anchors": ["newMeta = R.checkType R.unknown"]}]}
+      }
+    },
+    {
+      "source_id": "QB-S3-AGDA-LATER-3d04bac",
+      "role": "TEMPORAL_LATER",
+      "classification": "NEXT_STEP_MODALITY_WITH_TICK_RESTRICTION_AND_POSTULATED_FIX_INTERFACE",
+      "answers": {
+        "H1": {"status": "PASS", "detail": "The official 2.8.0 guarded documentation and exact commit test source are pinned.", "evidence": [{"artifact_id": "QB-A-AGDA-GUARDED-DOC", "anchors": ["Guarded Type Theory", "Option --guarded extends Agda"]}]},
+        "H2": {"status": "PASS", "detail": "The later carrier is an @tick function and therefore represents next-step availability.", "evidence": [{"artifact_id": "QB-A-LATER-PRIMS", "anchors": ["▹_ A = (@tick x : Tick) -> A", "next : A → ▹ A"]}]},
+        "H3": {"status": "PARTIAL", "detail": "The source exposes dfix/pfix/fix, but Tick, dfix and pfix are explicit postulates in this test module.", "evidence": [{"artifact_id": "QB-A-LATER-PRIMS", "anchors": ["postulate", "dfix", "fix : ∀ {l} {A : Set l} → (▹ A → A) → A"]}]},
+        "H4": {"status": "FAIL", "detail": "The fixed source has no unrestricted forceNow : ▹ A→A; application requires a tick in the admissible context.", "evidence": [{"artifact_id": "QB-A-AGDA-GUARDED-DOC", "anchors": ["Application t u", "is restricted"]}]},
+        "H5": {"status": "PASS", "detail": "The application restriction makes the before/after-tick order part of typing.", "evidence": [{"artifact_id": "QB-A-AGDA-GUARDED-DOC", "anchors": ["prefix of the context that does not include any @tick variables"]}]},
+        "H6": {"status": "FAIL", "detail": "Neither the official example nor the fixed docs present a consumer that discards the tick and still promises same-stage data.", "evidence": [{"artifact_id": "QB-A-AGDA-GUARDED-DOC", "anchors": ["The only exception to that restriction"]}]}
+      }
+    },
+    {
+      "source_id": "QB-S4-GCTT-v2",
+      "role": "TEMPORAL_LATER",
+      "classification": "GUARDED_LOEB_INDUCTION_WITH_NO_NOW_ELIMINATOR",
+      "answers": {
+        "H1": {"status": "PASS", "detail": "GCTT v2 primary text is byte-pinned with page markers.", "evidence": [{"artifact_id": "QB-A-GCTT-TEXT", "anchors": ["Guarded Cubical Type Theory"]}]},
+        "H2": {"status": "PASS", "detail": "Later distinguishes data available immediately from data only after computation.", "evidence": [{"artifact_id": "QB-A-GCTT-TEXT", "anchors": ["distinguishes data which is available immediately", "tail only later"]}]},
+        "H3": {"status": "PASS", "detail": "The guarded fixed-point type is (later A→A)→A and the paper explicitly uses Löb induction.", "evidence": [{"artifact_id": "QB-A-GCTT-TEXT", "anchors": ["(⊿A → A) → A", "Löb induction"]}]},
+        "H4": {"status": "FAIL", "detail": "A previous/force eliminator is not present in the fixed theory; controlled elimination with clock quantifiers is left to later work.", "evidence": [{"artifact_id": "QB-A-GCTT-TEXT", "anchors": ["previous’ eliminator prev", "left to further work"]}]},
+        "H5": {"status": "PASS", "detail": "Delayed substitutions permit unwrapping only inside a part that is itself later.", "evidence": [{"artifact_id": "QB-A-GCTT-TEXT", "anchors": ["we cannot access its contents ‘now’", "itself has some part that is available ‘later’"]}]},
+        "H6": {"status": "FAIL", "detail": "No audited construction supplies an unrestricted same-stage force while retaining the original guarded task.", "evidence": [{"artifact_id": "QB-A-GCTT-TEXT", "anchors": ["disallowing unproductive deﬁnitions"]}]}
+      }
+    },
+    {
+      "source_id": "QB-S5-CCTT-FORCING-TICKS",
+      "role": "TEMPORAL_LATER",
+      "classification": "CLOCK_QUANTIFIED_CONTROLLED_FORCE_WITH_UPSTREAM_TOOLCHAIN_SPLIT",
+      "answers": {
+        "H1": {"status": "PASS", "detail": "CCTT v3 and the exact forcing-ticks source commit are pinned.", "evidence": [{"artifact_id": "QB-A-CCTT-TEXT", "anchors": ["Clocked Cubical Type Theory"]}, {"artifact_id": "QB-A-GUARDED-README", "anchors": ["Forcing ticks extension"]}]},
+        "H2": {"status": "PASS", "detail": "Later is indexed by clocks and ticks are evidence that time has passed.", "evidence": [{"artifact_id": "QB-A-CCTT-TEXT", "anchors": ["modal operator", "indexed by clock", "Ticks are evidence that time has passed"]}]},
+        "H3": {"status": "PASS", "detail": "The source exposes clock-indexed dfix/fix with guarded domain.", "evidence": [{"artifact_id": "QB-A-CLOCKED-PRIMITIVES", "anchors": ["dfix :", "fix :"]}]},
+        "H4": {"status": "PARTIAL", "detail": "force exists only from an all-clock delayed family to an all-clock value family, not from one fixed ▹k A to A.", "evidence": [{"artifact_id": "QB-A-CLOCKED-PRIMITIVES", "anchors": ["force :", "(∀ k → ▹ k (A k)) → ∀ k → A k"]}]},
+        "H5": {"status": "PASS", "detail": "Forcing ticks, clock abstraction and explicit clock irrelevance/reindexing preserve the temporal qualification.", "evidence": [{"artifact_id": "QB-A-CCTT-TEXT", "anchors": ["controlled elimination", "forcing tick"]}]},
+        "H6": {"status": "FAIL", "detail": "The fixed source does not turn one local delayed value into data at the same clock without the all-clock input or extra reindexing.", "evidence": [{"artifact_id": "QB-A-CCTT-TEXT", "anchors": ["force is an equivalence", "assuming N clock-irrelevant"]}]}
+      }
+    },
+    {
+      "source_id": "QB-S6-METAROCQ-QUOTATION-9.1",
+      "role": "SYNTAX_QUOTATION",
+      "classification": "RAW_SYNTAX_COJOIN_NEAR_LOB_WITH_TYPED_QUOTATION_OPEN",
+      "answers": {
+        "H1": {"status": "PASS", "detail": "MetaRocq quotation is pinned to an exact 9.1 commit source.", "evidence": [{"artifact_id": "QB-A-METAROCQ-QUOTATION", "anchors": ["# Quotation"]}]},
+        "H2": {"status": "PASS", "detail": "Box denotes syntax quotation; raw Ast.term is implemented while typed proof quotation remains distinct.", "evidence": [{"artifact_id": "QB-A-METAROCQ-QUOTATION", "anchors": ["□T := Ast.term", "still in the works"]}]},
+        "H3": {"status": "PASS", "detail": "Raw quote_term implements cojoin and the planned structure is stated sufficient for Löb.", "evidence": [{"artifact_id": "QB-A-METAROCQ-QUOTATION", "anchors": ["cojoin : □T → □□T", "sufficient for proving Löb's theorem"]}]},
+        "H4": {"status": "FAIL", "detail": "Typed quotation and the reflection package needed for self-reliability are not supplied by this fixed interface.", "evidence": [{"artifact_id": "QB-A-METAROCQ-QUOTATION", "anchors": ["currently implemented", "still in the works"]}]},
+        "H5": {"status": "PASS", "detail": "The source explicitly preserves the distinction between raw syntax and syntax bundled with a typing derivation.", "evidence": [{"artifact_id": "QB-A-METAROCQ-QUOTATION", "anchors": ["{ t : Ast.term & Σ ;;; [] |- t : T }"]}]},
+        "H6": {"status": "FAIL", "detail": "This non-HoTT quotation interface neither erases a temporal tick nor promises same-layer total self-reliability.", "evidence": [{"artifact_id": "QB-A-METAROCQ-QUOTATION", "anchors": ["Public-Facing Interface"]}]}
+      }
+    }
+  ],
+  "probes": [
+    {
+      "probe_id": "P01-TC-ROUNDTRIP",
+      "role": "HOST_TC",
+      "purpose": "quoteTC followed by unquoteTC returns TC A, and returnTC only gives a monadic type-shape cojoin",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/TCRoundTrip.agda", "bytes": 676, "sha256": "14231785d8d0c42877919d99c71df6e204e30727f4ac391201530c65b4fe0b78"},
+      "expect": "ACCEPT",
+      "command_argv": ["${AGDA}", "--ignore-interfaces", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/TCRoundTrip.agda"]
+    },
+    {
+      "probe_id": "P02-BAD-RUN-TC",
+      "role": "HOST_TC",
+      "purpose": "reject treating TC A as A",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadRunTC.agda", "bytes": 275, "sha256": "c00bdfcf4f5345d18fd6e222f4bb4bc220eadaf1934deff1fe54595ce0e93fc8"},
+      "expect": "TYPE_REJECTION",
+      "diagnostic": "[UnequalTerms]",
+      "command_argv": ["${AGDA}", "--ignore-interfaces", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadRunTC.agda"]
+    },
+    {
+      "probe_id": "P03-CUBICAL-REFLECTION-CONSUMER",
+      "role": "HOST_TC",
+      "purpose": "compile a real Cubical v0.9 reflection consumer using quoteTC/checkType",
+      "source": {"path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda", "bytes": 2788, "sha256": "a340adf53391db6808858ec448b74c2397466dbecb07d7b43b15b78bbf535e0e"},
+      "expect": "ACCEPT",
+      "command_argv": ["${AGDA}", "--guardedness", "--ignore-interfaces", "--library-file", "${LIBRARY_FILE}", "-l", "cubical-0.9", "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda"]
+    },
+    {
+      "probe_id": "P04-AGDA-LATER-SOURCE",
+      "role": "TEMPORAL_LATER",
+      "purpose": "compile the exact official Agda guarded source against the pinned binary",
+      "source": {"path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-3d04bac/test/Succeed/LaterPrims.agda", "bytes": 3686, "sha256": "ef49b63e3abf11fa22b53b0433a4b41f7d43acfec4358e9fde79c094fc26362a"},
+      "expect": "ACCEPT",
+      "command_argv": ["${AGDA}", "--guardedness", "--ignore-interfaces", "-i", "${PATH_0}", "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-3d04bac/test/Succeed/LaterPrims.agda"]
+    },
+    {
+      "probe_id": "P05-GUARDED-TICK-USE",
+      "role": "TEMPORAL_LATER",
+      "purpose": "consume delayed data only beneath an explicit tick binder",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedTickUse.agda", "bytes": 346, "sha256": "4fc8df0ae985cc928a97c6590974a76f7b5e3431806ec3801c66f4d3cf6f0ad9"},
+      "expect": "ACCEPT",
+      "command_argv": ["${AGDA}", "--guardedness", "--ignore-interfaces", "-i", "${PATH_0}", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedTickUse.agda"]
+    },
+    {
+      "probe_id": "P06-GUARDED-FORCE-COLLAPSE",
+      "role": "TEMPORAL_LATER",
+      "purpose": "check the conditional collapse from fixed-clock forceNow plus guarded fix",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedForceCollapse.agda", "bytes": 646, "sha256": "3ccbdb82c963b58edab9b47ddde54c770deaad71dfd5f34147eeff515c91953b"},
+      "expect": "ACCEPT",
+      "command_argv": ["${AGDA}", "--guardedness", "--ignore-interfaces", "-i", "${PATH_0}", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedForceCollapse.agda"]
+    },
+    {
+      "probe_id": "P07-BAD-FIXED-FORCE",
+      "role": "TEMPORAL_LATER",
+      "purpose": "reject erasing a tick-delayed function into an immediately available value",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadGuardedForce.agda", "bytes": 251, "sha256": "da0a24143ae59449170b0ca6573de1143279a608e8b40ac7f5a0b104cb0be123"},
+      "expect": "TYPE_REJECTION",
+      "diagnostic": "[UnequalTerms]",
+      "command_argv": ["${AGDA}", "--guardedness", "--ignore-interfaces", "-i", "${PATH_0}", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadGuardedForce.agda"]
+    },
+    {
+      "probe_id": "P08-CLOCK-QUANTIFIED-SHAPE",
+      "role": "TEMPORAL_LATER",
+      "purpose": "check that all-clock force consumes an all-clock delayed family and that explicit reindexing suffices",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/ClockQuantifiedForceShape.agda", "bytes": 1063, "sha256": "5918ce5dcd7bc4a9e2db4b0695132fcc1110d18f6a54b1a518b3f0218e995b11"},
+      "expect": "ACCEPT",
+      "command_argv": ["${AGDA}", "--ignore-interfaces", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/ClockQuantifiedForceShape.agda"]
+    },
+    {
+      "probe_id": "P09-BAD-LOCAL-FROM-GLOBAL",
+      "role": "TEMPORAL_LATER",
+      "purpose": "reject feeding one fixed-clock delayed value to an all-clock force interface",
+      "source": {"path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadLocalFromGlobal.agda", "bytes": 581, "sha256": "b0dd6ceb63351143babc151b083d6f30d01175eba07c11f4063c00e648ac7821"},
+      "expect": "TYPE_REJECTION",
+      "diagnostic": "[UnequalTerms]",
+      "command_argv": ["${AGDA}", "--ignore-interfaces", "-i", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes", "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadLocalFromGlobal.agda"]
+    },
+    {
+      "probe_id": "P10-FORCING-TICKS-TOOLCHAIN",
+      "role": "TEMPORAL_LATER",
+      "purpose": "qualify that the forcing-ticks branch source is not executable under the pinned standard Agda 2.8.0 binary",
+      "source": {"path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Primitives.agda", "bytes": 3818, "sha256": "a8b5da3aaeead0b003a0124bb73d5f69e6b88650bded728ea70073f4c7df9aaa"},
+      "expect": "TOOLCHAIN_MISMATCH",
+      "diagnostic": "[InvalidTypeSort]",
+      "command_argv": ["${AGDA}", "--guardedness", "--ignore-interfaces", "--library-file", "${LIBRARY_FILE}", "-l", "cubical-0.9", "-i", "${PATH_1}", "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Primitives.agda"]
+    }
+  ],
+  "conclusion_boundary": "The native collapse target is conditional on an unrestricted fixed-clock force. H6 remains FAIL for every fixed source, and the forcing-ticks implementation needs a different Agda branch, so no current HoTT bug or executable CCTT self-collapse is claimed."
+}

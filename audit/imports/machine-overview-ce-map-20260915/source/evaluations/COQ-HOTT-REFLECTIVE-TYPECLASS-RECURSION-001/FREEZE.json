@@ -1,0 +1,182 @@
+{
+  "deterministic": {
+    "build_identity": {
+      "file_count": 4451,
+      "total_bytes": 74553091,
+      "tree_sha256": "f54181b1db56dd67d28da8151a0a2417fdb35a9bee399ced6974f75d490cd2ee"
+    },
+    "docker": {
+      "architecture": "amd64",
+      "id": "sha256:3ed9c46fa02e9fd7748a959abebb11b36f8818d10738dcc93edc67354c313ce2",
+      "os": "linux",
+      "repo_digests": [
+        "rocq/rocq-prover@sha256:3ed9c46fa02e9fd7748a959abebb11b36f8818d10738dcc93edc67354c313ce2"
+      ]
+    },
+    "evaluation_id": "COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001",
+    "evaluator": {
+      "bytes": 42575,
+      "path": "machine-overview/coq_hott_typeclass_recursion.py",
+      "sha256": "df865d38ac72b9992009369262457875abc317693b32b332bfc71860d2dc6206"
+    },
+    "freeze_id": "FZ-COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001",
+    "future_paths_absent": true,
+    "git": {
+      "branch": "feat/machine-overview-m1",
+      "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+      "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+      "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+      "tracked_dirty": true,
+      "tracked_dirty_entries": 13,
+      "untracked_entries": 1037,
+      "worktree_dirty": true,
+      "worktree_dirty_entries": 1050,
+      "worktree_root": "/Volumes/D/HoTT-machine-overview"
+    },
+    "interpretation": "The freeze binds a current community source, successful native build, proof-search questions, eight future probes, observation intervals, controls, and qualification gates before formal probe files or run receipts exist.",
+    "prechecks": [
+      {
+        "argv": [
+          "/usr/local/bin/python3",
+          "machine-overview/mo.py",
+          "selftest"
+        ],
+        "duration_ms": 38646,
+        "exit_code": 0,
+        "stderr": "test_source_hash_mismatch_fails_qualification (test_audit_regressions.F1SourcePinTest.test_source_hash_mismatch_fails_qualification) ... ok\ntest_verdict_includes_source_failures (test_audit_regressions.F1SourcePinTest.test_verdict_includes_source_failures) ... ok\ntest_case_input_hash_mismatch_is_rejected (test_audit_regressions.F2BindingTest.test_case_input_hash_mismatch_is_rejected) ... ok\ntest_cross_revision_witness_is_rejected (test_audit_regressions.F2BindingTest.test_cross_revision_witness_is_rejected) ... ok\ntest_witness_outside_grammar_is_rejected (test_audit_regressions.F2BindingTest.test_witness_outside_grammar_is_rejected) ... ok\ntest_missing_kernel_output_is_invalid (test_audit_regressions.F3ValidationTest.test_missing_kernel_output_is_invalid) ... ok\ntest_completion_mechanism_mentions_declared_continuation (test_audit_regressions.F4CorrespondenceTest.test_completion_mechanism_mentions_declared_continuation) ... ok\ntest_mechanism_facts_reject_unclassified_shape (test_audit_regressions.F4CorrespondenceTest.test_mechanism_facts_reject_unclassified_shape) ... ok\ntest_value_mismatch_mechanism_has_no_business_continuation (test_audit_regressions.F4CorrespondenceTest.test_value_mismatch_mechanism_has_no_business_continuation) ... ok\ntest_sparse_deadline_parameters_are_respected (test_audit_regressions.F5ReductionGrammarTest.test_sparse_deadline_parameters_are_respected) ... ok\ntest_budget_reached_never_claims_completeness (test_audit_regressions.F6BudgetCompletenessTest.test_budget_reached_never_claims_completeness) ... ok\ntest_interrupted_attempt_is_rolled_over (test_audit_regressions.F7RecoveryTest.test_interrupted_attempt_is_rolled_over) ... ok\ntest_kernel_timeout_is_recorded_and_killed (test_audit_regressions.F7RecoveryTest.test_kernel_timeout_is_recorded_and_killed) ... ok\ntest_negative_control_diagnostic_classification (test_audit_regressions.F7RecoveryTest.test_negative_control_diagnostic_classification) ... ok\ntest_replay_classification_distinguishes_cache_logs (test_audit_regressions.F7RecoveryTest.test_replay_classification_distinguishes_cache_logs) ... ok\ntest_unrecorded_partial_directory_is_invalid (test_audit_regressions.F7RecoveryTest.test_unrecorded_partial_directory_is_invalid) ... ok\ntest_unregistered_legacy_interruption_is_invalid (test_audit_regressions.F7RecoveryTest.test_unregistered_legacy_interruption_is_invalid) ... ok\ntest_attempt_identity_mismatch_is_rejected (test_audit_regressions.StrictV2EvidenceTest.test_attempt_identity_mismatch_is_rejected) ... ok\ntest_correspondence_rejects_unqualified_profile (test_audit_regressions.StrictV2EvidenceTest.test_correspondence_rejects_unqualified_profile) ... ok\ntest_report_binding_uses_search_id_and_hash (test_audit_regressions.StrictV2EvidenceTest.test_report_binding_uses_search_id_and_hash) ... ok\ntest_run_identifiers_cannot_escape_the_run_root (test_audit_regressions.StrictV2EvidenceTest.test_run_identifiers_cannot_escape_the_run_root) ... ok\ntest_runner_snapshot_tamper_is_rejected (test_audit_regressions.StrictV2EvidenceTest.test_runner_snapshot_tamper_is_rejected) ... ok\ntest_search_semantic_fields_are_recomputed (test_audit_regressions.StrictV2EvidenceTest.test_search_semantic_fields_are_recomputed) ... ok\ntest_strict_target_control_must_belong_to_grammar (test_audit_regressions.StrictV2EvidenceTest.test_strict_target_control_must_belong_to_grammar) ... ok\ntest_toolchain_and_registry_files_are_content_pinned (test_audit_regressions.StrictV2EvidenceTest.test_toolchain_and_registry_files_are_content_pinned) ... ok\ntest_verify_kernel_classification_is_recomputed (test_audit_regressions.StrictV2EvidenceTest.test_verify_kernel_classification_is_recomputed) ... ok\ntest_l3_profile_controls_are_source_pinned (test_audit_regressions.SymbolicSearchTest.test_l3_profile_controls_are_source_pinned) ... ok\ntest_symbolic_depth_budget_never_claims_completeness (test_audit_regressions.SymbolicSearchTest.test_symbolic_depth_budget_never_claims_completeness) ... ok\ntest_symbolic_search_discovers_minimal_proof_and_ablation_removes_it (test_audit_regressions.SymbolicSearchTest.test_symbolic_search_discovers_minimal_proof_and_ablation_removes_it) ... ok\ntest_bridge_receipt_replays_without_executing_kernel (test_hott_quotation_bridge.HoTTQuotationBridgeTest.test_bridge_receipt_replays_without_executing_kernel) ... ok\ntest_force_consumer_inventory_is_complete_for_fixed_tree (test_hott_quotation_bridge.HoTTQuotationBridgeTest.test_force_consumer_inventory_is_complete_for_fixed_tree) ... ok\ntest_freeze_pins_evaluator_and_scope (test_hott_quotation_bridge.HoTTQuotationBridgeTest.test_freeze_pins_evaluator_and_scope) ... ok\ntest_native_positive_negative_and_toolchain_controls (test_hott_quotation_bridge.HoTTQuotationBridgeTest.test_native_positive_negative_and_toolchain_controls) ... ok\ntest_role_inventory_and_consumer_boundary (test_hott_quotation_bridge.HoTTQuotationBridgeTest.test_role_inventory_and_consumer_boundary) ... ok\ntest_adapter_freeze_still_matches_every_pinned_source (test_l5_consumer.L5ConsumerQualificationTest.test_adapter_freeze_still_matches_every_pinned_source) ... ok\ntest_consumer_matrix_replays_and_has_no_qualified_hit (test_l5_consumer.L5ConsumerQualificationTest.test_consumer_matrix_replays_and_has_no_qualified_hit) ... ok\ntest_four_capabilities_remain_distinct (test_l5_consumer.L5ConsumerQualificationTest.test_four_capabilities_remain_distinct) ... ok\ntest_four_native_runs_have_exact_positive_negative_and_replay_chain (test_l5_consumer.L5ConsumerQualificationTest.test_four_native_runs_have_exact_positive_negative_and_replay_chain) ... ok\ntest_four_line_renderers_bind_distinct_native_targets (test_m3_breadth.M3BreadthRendererTest.test_four_line_renderers_bind_distinct_native_targets) ... ok\ntest_m4_v2_replay_survives_live_adapter_evolution (test_m3_breadth.M3BreadthRendererTest.test_m4_v2_replay_survives_live_adapter_evolution) ... ok\ntest_native_feedback_removes_rejected_speculative_rule (test_m4_lite.M4ModeEvaluationTest.test_native_feedback_removes_rejected_speculative_rule) ... ok\ntest_rule_selection_rejects_unknown_rule (test_m4_lite.M4ModeEvaluationTest.test_rule_selection_rejects_unknown_rule) ... ok\ntest_all_new_renderers_emit_bound_modules (test_m4_lite.SymbolicNativeRendererTest.test_all_new_renderers_emit_bound_modules) ... ok\ntest_existing_l3_target_remains_byte_identical (test_m4_lite.SymbolicNativeRendererTest.test_existing_l3_target_remains_byte_identical) ... ok\ntest_renderer_observation_pair_is_fail_closed (test_m4_lite.SymbolicNativeRendererTest.test_renderer_observation_pair_is_fail_closed) ... ok\ntest_target_tamper_is_rejected_before_side_effects (test_machine_overview.FailClosedTest.test_target_tamper_is_rejected_before_side_effects) ... ok\ntest_business_continuation_turns_the_losing_branch_into_divergence (test_machine_overview.ModelSemanticsTest.test_business_continuation_turns_the_losing_branch_into_divergence) ... ok\ntest_race_and_deadline_read_the_round_index (test_machine_overview.ModelSemanticsTest.test_race_and_deadline_read_the_round_index) ... ok\ntest_result_equivalence_forgets_round_index (test_machine_overview.ModelSemanticsTest.test_result_equivalence_forgets_round_index) ... ok\ntest_forbidden_declaration_is_rejected (test_machine_overview.ProofHygieneTest.test_forbidden_declaration_is_rejected) ... ok\ntest_missing_target_reference_is_rejected (test_machine_overview.ProofHygieneTest.test_missing_target_reference_is_rejected) ... ok\ntest_target_generation_is_deterministic (test_machine_overview.ProofHygieneTest.test_target_generation_is_deterministic) ... ok\ntest_value_mismatch_lemma_orientation (test_machine_overview.ProofHygieneTest.test_value_mismatch_lemma_orientation)\n`⇔-fwd (h a) refl : c ≡ a` needs the lemma refuting c ≡ a. ... ok\ntest_contexts_follow_the_declared_depth (test_machine_overview.SearchTest.test_contexts_follow_the_declared_depth) ... ok\ntest_search_is_answer_independent_and_covers_the_benchmark (test_machine_overview.SearchTest.test_search_is_answer_independent_and_covers_the_benchmark) ... ok\ntest_index_rebuild_is_stable (test_machine_overview.WorkspaceTest.test_index_rebuild_is_stable) ... ok\ntest_workspace_validates (test_machine_overview.WorkspaceTest.test_workspace_validates) ... ok\ntest_external_artifact_must_stay_in_declared_cache (test_natural_consumer_audit.NaturalConsumerInventoryTest.test_external_artifact_must_stay_in_declared_cache) ... ok\ntest_page_and_keyword_locations_are_deterministic (test_natural_consumer_audit.NaturalConsumerInventoryTest.test_page_and_keyword_locations_are_deterministic) ... ok\ntest_tree_scan_records_relative_source_path (test_natural_consumer_audit.NaturalConsumerInventoryTest.test_tree_scan_records_relative_source_path) ... ok\ntest_all_native_probe_pairs_are_exact_replays (test_reflected_tick_termination.ReflectedTickTerminationTest.test_all_native_probe_pairs_are_exact_replays) ... ok\ntest_decisions_cover_every_anchor_and_separate_source_roles (test_reflected_tick_termination.ReflectedTickTerminationTest.test_decisions_cover_every_anchor_and_separate_source_roles) ... ok\ntest_freeze_pins_scope_evaluator_and_full_probe_roster (test_reflected_tick_termination.ReflectedTickTerminationTest.test_freeze_pins_scope_evaluator_and_full_probe_roster) ... ok\ntest_receipt_replays_without_executing_native_probes (test_reflected_tick_termination.ReflectedTickTerminationTest.test_receipt_replays_without_executing_native_probes) ... ok\ntest_reflection_observation_does_not_cross_object_path_boundary (test_reflected_tick_termination.ReflectedTickTerminationTest.test_reflection_observation_does_not_cross_object_path_boundary) ... ok\ntest_trigger_cube_contains_three_distinct_causal_ablations (test_reflected_tick_termination.ReflectedTickTerminationTest.test_trigger_cube_contains_three_distinct_causal_ablations) ... ok\ntest_complete_search_finds_only_the_three_edge_collision (test_tick_irrelevance_gap.TickIrrelevanceOperationalGapTest.test_complete_search_finds_only_the_three_edge_collision) ... ok\ntest_fixed_consumers_do_not_promote_path_to_current_reduction (test_tick_irrelevance_gap.TickIrrelevanceOperationalGapTest.test_fixed_consumers_do_not_promote_path_to_current_reduction) ... ok\ntest_freeze_pins_evaluator_scope_and_probe_plan (test_tick_irrelevance_gap.TickIrrelevanceOperationalGapTest.test_freeze_pins_evaluator_scope_and_probe_plan) ... ok\ntest_native_controls_keep_path_and_judgemental_equality_distinct (test_tick_irrelevance_gap.TickIrrelevanceOperationalGapTest.test_native_controls_keep_path_and_judgemental_equality_distinct) ... ok\ntest_receipt_replays_without_running_kernels (test_tick_irrelevance_gap.TickIrrelevanceOperationalGapTest.test_receipt_replays_without_running_kernels) ... ok\ntest_source_signature_covers_both_path_and_reducer_sides (test_tick_irrelevance_gap.TickIrrelevanceOperationalGapTest.test_source_signature_covers_both_path_and_reducer_sides) ... ok\n\n----------------------------------------------------------------------\nRan 72 tests in 38.516s\n\nOK\n",
+        "stdout": ""
+      },
+      {
+        "argv": [
+          "/usr/local/bin/python3",
+          "machine-overview/mo.py",
+          "validate"
+        ],
+        "duration_ms": 6047,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\n  \"cases\": 16,\n  \"errors\": [],\n  \"interrupted_attempts\": [\n    {\n      \"attempt\": 1,\n      \"error\": \"FileExistsError: [Errno 17] File exists: '/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260913-SEARCH-L1-003'\",\n      \"run_id\": \"20260913-SEARCH-L1-003.attempt-1-interrupted\",\n      \"sha256\": \"3d96d591381bbc0b430fe32c0a0abe91e18dc0e4e9ac766225f7100821e5879a\",\n      \"status\": \"INTERRUPTED\"\n    }\n  ],\n  \"legacy_cases\": [\n    {\n      \"case_id\": \"MS-TASK-L1-RACE-COMPLETION-001\",\n      \"revision\": 1,\n      \"sha256\": \"d28ca1b23aecef0f1b702cda145649ba800e739f1e266605d683fb20e85d9886\"\n    },\n    {\n      \"case_id\": \"MS-TASK-L1-RACE-COMPLETION-001\",\n      \"revision\": 2,\n      \"sha256\": \"b4a7892e0febd9b3d9f7862edf6d8668b96e8104b53428dd66a2100e9fd24985\"\n    },\n    {\n      \"case_id\": \"MS-TASK-L1-RACE-COMPLETION-001\",\n      \"revision\": 3,\n      \"sha256\": \"5524651182b74edc02882b0f108bac1f0ff6d415cc4d9b4fd780838cc527e733\"\n    }\n  ],\n  \"legacy_reviews\": [\n    {\n      \"review_id\": \"RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0001-9a92083e\",\n      \"sha256\": \"2ffe97c0bb8151bdade78d8e24fa4dcca72ad369a1d60d4c9aefe28eac7a1316\"\n    },\n    {\n      \"review_id\": \"RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0002-b8a1c205\",\n      \"sha256\": \"b58a71955868690f7b9123edf36da47e3917679008670b26c0a0803dbf0e1774\"\n    },\n    {\n      \"review_id\": \"RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0013-e76eec9e\",\n      \"sha256\": \"22b9c047a6b69be23ec0eb2254ef6f3a25ab9acb8ea564d2c278f919913da129\"\n    }\n  ],\n  \"legacy_runs\": [\n    {\n      \"kind\": \"search\",\n      \"known_gaps\": [\n        \"no verified_inputs\",\n        \"no witness AST hashes\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-SEARCH-L1-001\",\n      \"sha256\": \"56e1947a878f953424ab5d04c66759dfe27bd7b8f6a934c3e68085510bf60200\"\n    },\n    {\n      \"kind\": \"search\",\n      \"known_gaps\": [\n        \"no verified_inputs\",\n        \"no witness AST hashes\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-SEARCH-L1-002\",\n      \"sha256\": \"3c0b20157138a4e28e44cb95d52a22733c3472522fb3aedd3bfa15438cd94955\"\n    },\n    {\n      \"kind\": \"search\",\n      \"known_gaps\": [\n        \"runner executed from dirty e4ab45b worktree\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-SEARCH-L1-003\",\n      \"sha256\": \"d0e28a5c794ec45bb7300a1cf58bbfb1c97eb9316fbc672f9cc9914de5d70bd4\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"no source search binding\",\n        \"no candidate AST hash\",\n        \"no target-freeze binding\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-COMPLETION-001\",\n      \"sha256\": \"4d7815f5be429dc539875dc0dd069f9dcb850904d65a78d9e7247fa2b350a42d\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"no source search binding\",\n        \"no candidate AST hash\",\n        \"no target-freeze binding\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-COMPLETION-002\",\n      \"sha256\": \"6d47f2ae198d297536338c835056a0eeb8f447845020e59fbb6820a2519efd1c\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"no source search binding\",\n        \"no candidate AST hash\",\n        \"no target-freeze binding\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-DEADLINE-001\",\n      \"sha256\": \"b53c85df112dcd04a41246b71f65861f9e3094bde8bea4e6df22179d1e6273d5\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"runner executed from dirty e4ab45b worktree\",\n        \"environment artifact hash excludes terminal newline\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-POSTFIX-COMPLETION-001\",\n      \"sha256\": \"3609c66aefc9eed601055a0dae51955a2c337faddf94d22909219c6fc4bfbe9a\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"runner executed from dirty e4ab45b worktree\",\n        \"environment artifact hash excludes terminal newline\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-POSTFIX-DEADLINE-001\",\n      \"sha256\": \"108b1268099ab207620d48c08b4381bb7e0035e335ede8404383b9ee40ec439d\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"runner executed from dirty e4ab45b worktree\",\n        \"environment artifact hash excludes terminal newline\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-POSTFIX-VALUE-001\",\n      \"sha256\": \"b27ea3725b76fc69a863f79b450b6f0e672e47dcb9b8afbd6e3309819cfcdf45\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"no source search binding\",\n        \"no candidate AST hash\",\n        \"no target-freeze binding\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-VALUE-001\",\n      \"sha256\": \"a645f3e2869b3cf423a1d9f322f5260d06af4ff5e36e2cd6e00e37eed49f4d30\"\n    },\n    {\n      \"kind\": \"verify\",\n      \"known_gaps\": [\n        \"no source search binding\",\n        \"no candidate AST hash\",\n        \"no target-freeze binding\",\n        \"no runner snapshot\"\n      ],\n      \"run_id\": \"20260913-VERIFY-L1-VALUE-002\",\n      \"sha256\": \"7e82e1f3df4a9d39bdb48ae14155fac794c3c3a6cc01d962db6b2f6b6d8b7713\"\n    }\n  ],\n  \"reviews\": 18,\n  \"runs\": 39,\n  \"schema_version\": \"machine-overview-validation/v2\",\n  \"status\": \"VALID\"\n}\n"
+      }
+    ],
+    "probe_plan": [
+      {
+        "diagnostic": "Tactic failure: Proof search failed.",
+        "environment": "COQ_HOTT",
+        "expect": "PROOF_SEARCH_FAILURE",
+        "expected_exit": 1,
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseNoRegistration.v",
+        "probe_id": "P01-DEFAULT-NO-REGISTRATION",
+        "timeout_seconds": 5
+      },
+      {
+        "diagnostic": "Tactic failure: Proof search failed.",
+        "environment": "COQ_HOTT",
+        "expect": "PROOF_SEARCH_FAILURE",
+        "expected_exit": 1,
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseHintImmediate.v",
+        "probe_id": "P02-COMMENTED-HINT-IMMEDIATE",
+        "timeout_seconds": 5
+      },
+      {
+        "environment": "COQ_HOTT",
+        "expect": "OBSERVATION_LIMIT",
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseExistingInstance.v",
+        "probe_id": "P03-EXISTING-INSTANCE",
+        "timeout_seconds": 5
+      },
+      {
+        "environment": "COQ_HOTT",
+        "expect": "OBSERVATION_LIMIT",
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseHintResolve.v",
+        "probe_id": "P04-HINT-RESOLVE",
+        "timeout_seconds": 5
+      },
+      {
+        "diagnostic": "Tactic failure: Proof search reached its limit.",
+        "environment": "COQ_HOTT",
+        "expect": "SEARCH_DEPTH_LIMIT",
+        "expected_exit": 1,
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseBoundedDepth.v",
+        "probe_id": "P05-BOUNDED-SEARCH-DEPTH",
+        "timeout_seconds": 5
+      },
+      {
+        "environment": "COQ_HOTT",
+        "expect": "ACCEPT",
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseKnownEquivalence.v",
+        "probe_id": "P06-KNOWN-EQUIVALENCE",
+        "timeout_seconds": 5
+      },
+      {
+        "environment": "ROCQ_DEFAULT",
+        "expect": "OBSERVATION_LIMIT",
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/GenericTypeclassRecursion.v",
+        "probe_id": "P07-GENERIC-TYPECLASS-RECURSION",
+        "timeout_seconds": 5
+      },
+      {
+        "diagnostic": "Tactic failure: Proof search reached its limit.",
+        "environment": "COQ_HOTT",
+        "expect": "SEARCH_DEPTH_LIMIT",
+        "expected_exit": 1,
+        "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseBoundedTrace.v",
+        "probe_id": "P08-BOUNDED-RECURSION-TRACE",
+        "timeout_seconds": 5,
+        "trace": true
+      }
+    ],
+    "qualification_artifacts": [
+      {
+        "bytes": 3179,
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-qualification-cc618472-20260914a/BUILD-RECEIPT.json",
+        "sha256": "ceb3c48e50b531a6446cf03d477355cbb39ce6fa68b38bc5f8b2fa37c36a57cc"
+      },
+      {
+        "bytes": 48191,
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-qualification-cc618472-20260914a/build.stdout.txt",
+        "sha256": "053991f6743daa23d83a1d13ca7de0e9ae39fe5f51ed5e4f4b8023b5b7e6c70e"
+      },
+      {
+        "bytes": 424,
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-qualification-cc618472-20260914a/build.stderr.txt",
+        "sha256": "83b8d6e71c9cbbe6919eb688528d33256a4796ea8c87731f1a4f791c82858741"
+      }
+    ],
+    "qualification_gates": {
+      "godel_hott": {
+        "required_conditions": [
+          "A fixed object language and effective coding are defined.",
+          "Substitution and a proof or derivation checker relation are represented.",
+          "The provability predicate and diagonal step are constructed.",
+          "Consistency, soundness and derivability assumptions are explicit.",
+          "The conclusion follows from those obligations rather than from recursive proof search alone.",
+          "A HoTT or cubical rule is essential if the result is described as HoTT-specific."
+        ]
+      },
+      "hott_nonreality": {
+        "required_conditions": [
+          "The recursive behavior occurs in the ordinary unmodified theory configuration or is required by a fixed natural consumer.",
+          "A HoTT-specific rule is causally necessary and a non-HoTT ablation does not reproduce the same result.",
+          "The phenomenon concerns the same fixed mathematical or reality task rather than a stronger proof-search task substituted for it.",
+          "Finite observation is upgraded by a machine-checked non-termination theorem if a universal temporal claim is made."
+        ]
+      }
+    },
+    "scope": {
+      "bytes": 18159,
+      "path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/SCOPE.json",
+      "sha256": "07f3ca9c86c86f689429598e2974692a5c850a0eb4adf85ae7b1bb4644926887"
+    },
+    "source_identity": {
+      "clean": true,
+      "head": "cc6184729bf8572a1d188c7a46f8d224f40bcceb",
+      "tracked_bytes": 5188476,
+      "tracked_files": 675,
+      "tracked_tree_sha256": "9e6764b93b09a79bf627eae6746a07c4518e54f5bf5d498328e539f399fb7f7f",
+      "tree": "1325fa48e5e57eb452fc4938e8ba116757d420ee"
+    }
+  },
+  "deterministic_sha256": "733e062a5fd121fa0b80af351cff013a0147ad311e968517a2b8406b6e23d4fc",
+  "generated_at_utc": "2026-09-14T06:47:20.063726+00:00",
+  "schema_version": "machine-overview-coq-hott-typeclass-recursion-freeze/v1"
+}

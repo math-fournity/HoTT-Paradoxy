@@ -1,0 +1,185 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L4-SIP-OBSERVATION-001",
+  "case_identity_sha256": "4bdddf98bb6dba47bc8dafc5011e985017ddaa35f162d1d8db636ce24b89d92e",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L4-SIP-OBSERVATION-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T19:23:12.938588+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "sip_identification"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "structure_path",
+        "left_spec",
+        "right_spec"
+      ],
+      "reachable": [
+        "left_spec",
+        "right_spec",
+        "structure_path"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L4-SIP-OBSERVATION-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 274,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 286,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 10,
+      "rule_count": 6,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['sip_identification']"
+  },
+  "inputs": {
+    "case_sha256": "da4b30228e7629bfcefad148042727dd080d630a8c2298dbd957f5e77c9da962",
+    "grammar_path": "machine-overview/grammars/l4-sip-observation-m3-v1.json",
+    "grammar_sha256": "3979590c3bb8893f1d1bd15af25ca7fc5dd851409462b33626ac7e6539027d0d",
+    "profile_sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb",
+    "task_path": "machine-overview/tasks/MS-TASK-L4-SIP-OBSERVATION-001.json",
+    "task_sha256": "72903d1f52943c3397cd26eb24a3ce10a006ff24213de5947077cedc8012d59e",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l4-sip-observation-m3-v1.json",
+        "sha256": "3979590c3bb8893f1d1bd15af25ca7fc5dd851409462b33626ac7e6539027d0d"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/m3-breadth-v1.json",
+        "sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L4-SIP-OBSERVATION-001.json",
+        "sha256": "72903d1f52943c3397cd26eb24a3ce10a006ff24213de5947077cedc8012d59e"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "M3-CUBICAL-BREADTH-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L4-M3-SIP-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "8c53e73cb16d19cf33a5c6758731c492066ec0780024e16540e670c677d33e63"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T19:23:12.936313+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 1,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 50,
+    "rule_count": 7,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "f7e15a7fa1967ae7810f646bba6a39b6d49192b2c4f6866da2c6bff77a21ab4c",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "left_specification"
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "sip_identification"
+                  }
+                ],
+                "rule": "map_observer"
+              },
+              {
+                "children": [],
+                "rule": "right_specification"
+              }
+            ],
+            "rule": "chain_observation"
+          }
+        ],
+        "rule": "bool_apart"
+      },
+      "proof_term": "SIP.C-125-obs-differs (sym (hs) ∙ cong f (SIP.C-124-identification) ∙ ht)",
+      "separation_kind": "identity_observation_boundary",
+      "size": {
+        "depth": 4,
+        "nodes": 6
+      },
+      "used_rules": [
+        "bool_apart",
+        "chain_observation",
+        "left_specification",
+        "map_observer",
+        "sip_identification",
+        "right_specification"
+      ],
+      "witness_id": "WV-0001"
+    }
+  ]
+}

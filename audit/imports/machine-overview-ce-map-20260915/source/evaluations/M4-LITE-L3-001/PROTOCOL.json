@@ -1,0 +1,120 @@
+{
+  "schema_version": "machine-overview-m4-lite-protocol/v1",
+  "evaluation_id": "M4-LITE-L3-001",
+  "freeze_id": "M4-LITE-L3-DESIGN-FREEZE-001",
+  "purpose": "Run a same-budget, three-task descriptive comparison over the unchanged 0.2.0 symbolic-horn search, with task-specific native Cubical checks and one native-rejection feedback case.",
+  "search_baseline": {
+    "commit": "025938a07ef6ca9b74ca4874366ec1f97f06592e",
+    "path": "machine-overview/machine_overview/search.py",
+    "sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20"
+  },
+  "adapter_sources": [
+    "machine-overview/m4_eval.py",
+    "machine-overview/machine_overview/__init__.py",
+    "machine-overview/machine_overview/case.py",
+    "machine-overview/machine_overview/correspondence.py",
+    "machine-overview/machine_overview/report.py",
+    "machine-overview/machine_overview/verify.py",
+    "machine-overview/formal/L3M4Support.agda",
+    "machine-overview/profiles/l3-m4-v1.json",
+    "machine-overview/tests/test_m4_lite.py"
+  ],
+  "future_paths": [
+    "machine-overview/tasks/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001.json",
+    "machine-overview/tasks/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001.json",
+    "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json",
+    "machine-overview/grammars/l3-path-positive-m4-v1.json",
+    "machine-overview/grammars/l3-event-boundary-m4-v1.json",
+    "machine-overview/grammars/l3-finite-to-exact-m4-v1.json",
+    "machine-overview/evaluations/M4-LITE-L3-001/SPEC.json"
+  ],
+  "task_roles": [
+    {
+      "role": "PATH_COHERENCE_POSITIVE",
+      "expected_native_outcome": "ACCEPT",
+      "boundary": "Path coherence is the declared output; no event or physical-time conclusion is requested."
+    },
+    {
+      "role": "EXPLICIT_EVENT_BOUNDARY_POSITIVE",
+      "expected_native_outcome": "ACCEPT",
+      "boundary": "An ordinary Stage carrier retains exact Pending/Done boundary observations without identifying Stage with cubical dimension."
+    },
+    {
+      "role": "FINITE_TO_EXACT_NEGATIVE",
+      "expected_native_outcome": "REJECT",
+      "boundary": "A symbolic finite-to-exact proposal must be rejected unless a native rule supplies the exact-arrival witness."
+    }
+  ],
+  "time_coordinates": {
+    "content_axis": [
+      "temporal order, dependency and availability",
+      "time and motion structure: continuity, density, scale, limit and completion"
+    ],
+    "location_axis": [
+      "described activity",
+      "theory representation and derivation",
+      "proof-tool execution",
+      "real-use process"
+    ],
+    "constraint": "Every task must state both axes; a Stage order cannot substitute for a claim about time/motion structure, and cubical dimension cannot be silently identified with physical time."
+  },
+  "modes": [
+    {
+      "mode_id": "typed_enumeration",
+      "strategy": "full_typed_enumeration",
+      "meaning": "enumerate every rule in the frozen task grammar"
+    },
+    {
+      "mode_id": "llm_proposal",
+      "strategy": "declared_rule_subset",
+      "meaning": "enumerate the exact rule subset proposed by the same designing AI, then submit the first matching witness to the native checker"
+    },
+    {
+      "mode_id": "hybrid_feedback",
+      "strategy": "native_feedback",
+      "meaning": "start from the same AI proposal; if its canonical witness is natively rejected, remove the predeclared unsupported rule and rerun within the remaining canonical-check budget"
+    }
+  ],
+  "equal_budget": {
+    "max_witnesses": 500,
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "seed": 20260913,
+    "accounting": "Each mode receives the same canonical rule-application budget. Hybrid stages deduct earlier canonical checks from the remaining max_checks. Order-permutation and ablation controls run for every stage but are reported separately from the canonical-check metric."
+  },
+  "metrics": [
+    "goal terms and first witness under each declared rule selection",
+    "canonical rule-application checks to a discriminating result",
+    "native acceptance or rejection of the bound first witness",
+    "feedback applications and candidate disappearance after rejection",
+    "false promotions",
+    "order-independence and key-rule ablation",
+    "descriptive wall time excluded from deterministic replay"
+  ],
+  "designer_visibility": {
+    "class": "SAME_AI_DESIGNED_PROTOCOL_ADAPTERS_TASK_ROLES_AND_LATER_RULE_PROPOSALS",
+    "known_before_freeze": [
+      "the three semantic task roles",
+      "the desired positive/positive/negative native outcomes",
+      "the first L3 obstruction and prior academic bridge assessment"
+    ],
+    "absent_at_freeze": [
+      "TaskSpec files",
+      "grammar files and proof-term templates",
+      "exact AI rule subsets",
+      "case revisions and search/native receipts",
+      "M4 comparison result"
+    ],
+    "forbidden_inference": "No blind-model, training-data independence, novelty, population performance or general effectiveness claim may be drawn from this pilot."
+  },
+  "acceptance": [
+    "all future_paths are absent when DESIGN-FREEZE is written",
+    "the live search.py is byte-identical to commit 025938a and remains unchanged through all task runs",
+    "all three tasks use one qualified profile and the same declared budget",
+    "full typed enumeration is bound to each canonical coordinator search receipt",
+    "positive tasks pass verify, controls, expected negative control and replay",
+    "the negative task preserves the failed native proof receipt and is never promoted",
+    "the M4 result can be deterministically replayed from frozen files",
+    "the report remains descriptive because the task set and AI proposals are same-designer"
+  ]
+}

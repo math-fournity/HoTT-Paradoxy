@@ -1,0 +1,137 @@
+{
+  "created_at_utc": "2026-09-13T20:46:56.646355+00:00",
+  "evaluator": {
+    "bytes": 27254,
+    "path": "machine-overview/hott_quotation_bridge.py",
+    "sha256": "943b1de178a9d2ab1ee5b0f6a852568083e40a8f8a76cdab50b13113ffd83157"
+  },
+  "freeze_id": "HOTT-QUOTATION-BRIDGE-FREEZE-001",
+  "future_paths": [
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/DECISIONS.json",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/TCRoundTrip.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadRunTC.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedTickUse.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedForceCollapse.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadGuardedForce.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/ClockQuantifiedForceShape.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadLocalFromGlobal.agda"
+  ],
+  "future_paths_absent": true,
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 746,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 758,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "interpretation": "The roles, source set, H1-H6 questions and probe purposes were frozen before probe source or semantic decisions existed. The same AI designed the evaluation; this is provenance and role-separation evidence, not blind novelty evidence.",
+  "pre_checks": [
+    {
+      "command_argv": [
+        "/usr/local/bin/python3",
+        "machine-overview/mo.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "label": "selftest",
+      "stderr": {
+        "bytes": 8078,
+        "path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/pre-selftest-stderr.txt",
+        "sha256": "9d5a64a4952357c050055b3218ff826534cb75dbc0c5776b09eb1c18e17cd79f"
+      },
+      "stdout": {
+        "bytes": 0,
+        "path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/pre-selftest-stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command_argv": [
+        "/usr/local/bin/python3",
+        "machine-overview/mo.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "label": "validate",
+      "stderr": {
+        "bytes": 0,
+        "path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/pre-validate-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 5279,
+        "path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/pre-validate-stdout.txt",
+        "sha256": "7ae3b1ede96d7ce1e1fd07919cee3d717a59d464451aeb8780c8711ab5947753"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "H1",
+      "name": "fixed_interface",
+      "question": "Is the exact implementation or primary formal source fixed?"
+    },
+    {
+      "id": "H2",
+      "name": "role_meaning",
+      "question": "Is the carrier's meaning fixed as checker computation, syntax/proof quotation or next-step availability?"
+    },
+    {
+      "id": "H3",
+      "name": "self_or_fix_closure",
+      "question": "Which bind/cojoin/fix/Loeb operation is actually supplied, and at what type?"
+    },
+    {
+      "id": "H4",
+      "name": "elimination_scope",
+      "question": "Can the carrier be eliminated to A, and what tick, clock, host or reflection premise is required?"
+    },
+    {
+      "id": "H5",
+      "name": "payment_device",
+      "question": "Does the system explicitly preserve the host boundary, tick ordering, clock quantifier or typed-code evidence?"
+    },
+    {
+      "id": "H6",
+      "name": "natural_guard_erasure_consumer",
+      "question": "Does a real fixed consumer erase that payment device and still promise the original task?"
+    }
+  ],
+  "roles": [
+    "HOST_TC",
+    "SYNTAX_QUOTATION",
+    "TEMPORAL_LATER"
+  ],
+  "schema_version": "machine-overview-hott-quotation-bridge-freeze/v1",
+  "scope": {
+    "bytes": 9955,
+    "path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/SCOPE.json",
+    "sha256": "e0d41bb5b13cbdb6a2af01ab8c17a233c4ff01929364343f251cfdd9dc569c5e"
+  },
+  "source_artifacts": 12,
+  "source_trees": [
+    {
+      "identity": {
+        "file_count": 1111,
+        "total_bytes": 7511145,
+        "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"
+      },
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical",
+      "tree_id": "CUBICAL-V0.9"
+    },
+    {
+      "identity": {
+        "file_count": 6,
+        "total_bytes": 16309,
+        "tree_sha256": "da72c4efed4c77f6512dd0be6b8cfbc64339165eb2657f48be15a0211896b6cb"
+      },
+      "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src",
+      "tree_id": "AGDA-GUARDED-FORCING-TICKS-SRC"
+    }
+  ]
+}

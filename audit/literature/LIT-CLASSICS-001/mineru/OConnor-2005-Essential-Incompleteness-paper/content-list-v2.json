@@ -1,0 +1,4538 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Essential Incompleteness of Arithmetic Verified by Coq"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                225,
+                79,
+                777,
+                125
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Russell O’Connor"
+                    }
+                ]
+            },
+            "bbox": [
+                436,
+                151,
+                566,
+                166
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "<sup>1</sup> Institute for Computing and Information Science"
+                    }
+                ]
+            },
+            "bbox": [
+                331,
+                176,
+                673,
+                193
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Faculty of Science"
+                    }
+                ]
+            },
+            "bbox": [
+                437,
+                193,
+                565,
+                205
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Radboud University Nijmegen"
+                    }
+                ]
+            },
+            "bbox": [
+                398,
+                205,
+                604,
+                220
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "<sup>2</sup> The Group in Logic and the Methodology of Science"
+                    }
+                ]
+            },
+            "bbox": [
+                318,
+                219,
+                684,
+                234
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "University of California, Berkeley"
+                    }
+                ]
+            },
+            "bbox": [
+                388,
+                234,
+                614,
+                248
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "r.oconnor@cs.ru.nl <sup>⋆</sup> <sup>⋆</sup> <sup>⋆</sup>"
+                    }
+                ]
+            },
+            "bbox": [
+                413,
+                250,
+                586,
+                262
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Abstract. A constructive proof of the G¨odel-Rosser incompleteness theorem [9] has been completed using the Coq proof assistant. Some theory of classical first-order logic over an arbitrary language is formalized. A development of primitive recursive functions is given, and all primitive recursive functions are proved to be representable in a weak axiom system. Formulas and proofs are encoded as natural numbers, and functions operating on these codes are proved to be primitive recursive. The weak axiom system is proved to be essentially incomplete. In particular, Peano arithmetic is proved to be consistent in Coq’s type theory and therefore is incomplete."
+                    }
+                ]
+            },
+            "bbox": [
+                261,
+                301,
+                741,
+                441
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "0 License"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                468,
+                323,
+                484
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This work is hereby released into the Public Domain. To view a copy of the public domain dedication, visit http://creativecommons.org/licenses/publicdomain/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                501,
+                787,
+                577
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1 Introduction"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                217,
+                602,
+                375,
+                619
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The G¨odel-Rosser incompleteness theorem for arithmetic states that any complete first-order theory of a nice axiom system, using only the symbols +, ×, 0, S, and < is inconsistent. A nice axiom system must contain the nine specific axioms of a system called NN. These nine axioms serve to define the previous symbols. A nice axiom system must also be expressible in itself. This last restriction prevents the incompleteness theorem from applying to axioms systems such as the true first order statements about N."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                636,
+                787,
+                742
+            ]
+        },
+        {
+            "type": "page_aside_text",
+            "content": {
+                "page_aside_text_content": [
+                    {
+                        "type": "text",
+                        "content": "arXiv:cs/0505034v2 [cs.LO] 11 May 2006"
+                    }
+                ]
+            },
+            "bbox": [
+                22,
+                233,
+                58,
+                679
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "⋆ ⋆ ⋆ This paper appears in the proceedings of the 18th International Conference on The orem Proving in Higher Order Logics (TPHOLs 2005)"
+                    }
+                ]
+            },
+            "bbox": [
+                200,
+                750,
+                785,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A computer verified proof of G¨odel’s incompleteness theorem is not new. In 1986 Shankar created a proof of the incompleteness of Z2, hereditarily finite set theory, in the Boyer-Moore theorem prover [11]. My work is the first computer verified proof of the essential incompleteness of arithmetic. Harrison recently completed a proof in HOL Light [6] of the essential incompleteness of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Sigma _ { 1 } \\cdot"
+                    },
+                    {
+                        "type": "text",
+                        "content": "complete theories, but has not shown that any particular theory is "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Sigma _ { 1 } ."
+                    },
+                    {
+                        "type": "text",
+                        "content": "-complete. His work will be included in the next release of HOL Light."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                85,
+                787,
+                190
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "My proof was developed and checked in Coq 7.3.1 using Proof General under XEmacs. It is part of the user contributions to Coq and can be checked in Coq 8.0 [14]. Examples of source code in this document use the new Coq 8.0 notation."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                190,
+                787,
+                236
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Coq is an implementation of the calculus of (co)inductive constructions. This dependent type theory has intensional equality and is constructive, so my proof is constructive. Actually the proof depends on the Ensembles library which declares an axiom of extensionality for Ensembles, but this axiom is never used."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                236,
+                787,
+                296
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This document points out some of the more interesting problems I encountered when formalizing the incompleteness theorem. My proof mostly follows the presentation of incompleteness given in An Introduction to Mathematical Logic [10]. I referred to the supplementary text for the book Logic for Mathematics and Computer Science [1] to construct G¨odel’s β-function. I also use part of Caprotti and Oostdijk’s contribution of Pocklington’s criterion [2] to prove the Chinese remainder theorem."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                297,
+                787,
+                401
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This document is organized as follows. First I discuss the dificulties I had when formalizing classical first-order logic over an arbitrary language. This is followed by the definition of a language LNN and an axiom system called NN. Next I give the statement of the essential incompleteness of NN. Then I briefly discuss coding formulas and proofs as natural numbers. Next I discuss primitive recursive functions and the problems I encountered when trying to prove that substitution can be computed by a primitive recursive function. Finally I briefly discuss the fixed-point theorem, Rosser’s incompleteness theorem, and the incompleteness of PA. At the end I give some remarks about how to extend my work in order to formalize G¨odel’s second incompleteness theorem."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                401,
+                787,
+                554
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1.1 Coq Notation"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                574,
+                377,
+                589
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For those not familiar with Coq syntax, here is a short list of notation"
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                597,
+                723,
+                613
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "-  , / \\backslash , \\backslash / ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and ~ are the logical connectives ⇒, ∧, ∨, and ¬."
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                619,
+                683,
+                635
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "- \\texttt { A } \\to \\texttt { B } , \\texttt { A } * \\texttt { B }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\texttt { A + B }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "form function types, Cartesian product types, and disjoint union types."
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                636,
+                785,
+                664
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "*, +, and S are the arithmetic operations of multiplication, addition, and successor."
+                    }
+                ]
+            },
+            "bbox": [
+                241,
+                665,
+                785,
+                694
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "inl and inr are the left and right injection functions of types "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\texttt { A } \\to \\texttt { A } + \\texttt { B }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\texttt { B } \\to \\texttt { A } + \\texttt { B }"
+                    }
+                ]
+            },
+            "bbox": [
+                241,
+                695,
+                787,
+                724
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– ::, and ++ are the list operations cons, and append."
+                    }
+                ]
+            },
+            "bbox": [
+                225,
+                724,
+                620,
+                739
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– is an omitted parameter that Coq can infer itself."
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                739,
+                614,
+                753
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For more details see the Coq 8.0 reference manual [14]."
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                763,
+                637,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2 First-Order Classical Logic"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                83,
+                513,
+                99
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I began by developing the theory of first order classical logic inside Coq. In essence Coq’s logic is a formal metalogic to reason about this internal logic."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                114,
+                787,
+                147
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.1 Definition of Language"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                169,
+                444,
+                184
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I immediately took advantage of Coq’s dependent type system by defining Language to be a dependent record of types for symbols and an arity function from symbols to N. The Coq code is:"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                194,
+                787,
+                241
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Record Language : Type := language\n{Relations : Set;\nFunctions : Set;\narity : Relations + Functions -> nat}."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                215,
+                250,
+                568,
+                311
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In retrospect it would have been slightly more convenient to use two arity functions instead of using the disjoint union type."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                321,
+                785,
+                351
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This approach difers from Harrison’s definition of first order terms and formulas in HOL Light [5] because HOL Light does not have dependent types. Dependent types allow the type system to enforce that all terms and formulas of a given language are well formed."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                351,
+                787,
+                412
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.2 Definition of Term"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                434,
+                410,
+                449
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any given language, a Term is either a variable indexed by a natural number or a function symbol plus a list of n terms where n is the arity of the function symbol. My first attempt at writing this in Coq failed."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                460,
+                787,
+                507
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Variable L : Language.\n(* Invalid definition *)\nInductive Term0 : Set :=\n| var0 : nat -> Term0\n| apply0 : forall (f : Functions L) (l : List Term0),\n(arity L (inr _ f)) = (length l) -> Term0."
+                    }
+                ],
+                "code_language": "verilog"
+            },
+            "bbox": [
+                217,
+                516,
+                689,
+                608
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The type (arity L (inr f))=(length l) fails to meet Coq’s positivity requirement for inductive types. Expanding the definition of length reveals a hidden occurrence of Term0 which is passed as an implicit argument to length. It is this occurrence that violates the positivity requirement."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                616,
+                787,
+                676
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "My second attempt met the positivity requirement, but it had other dificulties. A common way to create a polymorphic lists of length n is:"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                678,
+                787,
+                709
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive Vector (A : Set) : nat -> Set :=\n| Vnil : Vector A 0\n| Vcons : forall (a : A) (n : nat),\nVector A n -> Vector A (S n)."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                217,
+                718,
+                580,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Using this I could have defined Term like:"
+                    }
+                ]
+            },
+            "bbox": [
+                217,
+                84,
+                514,
+                101
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive Term1 : Set :=\n| var1 : nat -> Term1\n| apply1 : forall f : Functions L,\n(Vector Term1 (arity L (inr _ f))) -> Term1."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                218,
+                138,
+                655,
+                203
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "My dificulty with this definition was that the induction principle generated by Coq is too weak to work with."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                212,
+                785,
+                243
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Instead I created two mutually inductive types: Term and Terms."
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                244,
+                707,
+                258
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Variable L : Language."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                215,
+                270,
+                408,
+                286
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive Term : Set :=\n| var : nat -> Term\n| apply : forall f : Functions L,\nTerms (arity L (inr _ f)) -> Term\nwith Terms : nat -> Set :=\n| Tnil : Terms 0\n| Tcons : forall n : nat,\nTerm -> Terms n -> Terms (S n)."
+                    }
+                ],
+                "code_language": "verilog"
+            },
+            "bbox": [
+                217,
+                299,
+                563,
+                422
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Again the automatically generated induction principle is too weak, so I used the Scheme command to generate suitable mutual-inductive principles."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                431,
+                787,
+                463
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The disadvantage of this approach is that useful lemmas about Vectors must be reproved for Terms. Some of these lemmas are quite tricky to prove because of the dependent type. For example, proving forall x : Terms 0, Tnil = x is not easy."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                463,
+                787,
+                523
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Recently, Marche has shown me that the Term1 definition would be adequate. One can explicitly make a suficient induction principle by using nested Fixpoint functions [7]."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                523,
+                787,
+                570
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.3 Definition of Formula"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                592,
+                434,
+                608
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The definition of Formula was straightforward."
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                619,
+                557,
+                635
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive Formula : Set :=\n| equal : Term -> Term -> Formula\n| atomic : forall r : Relations L, Terms (arity L (inl _ r)) -> Formula\n| impH : Formula -> Formula -> Formula\n| notH : Formula -> Formula\n| forallH : nat -> Formula -> Formula."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                217,
+                647,
+                776,
+                753
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I defined the other logical connectives in terms of impH, notH, and forallH."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                762,
+                764,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The H at the end of the logic connectives (such as impH) stands for “Hilbert” and is used to distinguish them from Coq’s connectives."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                84,
+                784,
+                114
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For example, the formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\lnot \\forall x _ { 0 } . \\forall x _ { 1 } . x _ { 0 } = x ."
+                    },
+                    {
+                        "type": "text",
+                        "content": "<sub>1</sub> would be represented by:"
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                114,
+                753,
+                131
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\text { notH   (forallH   0   (forallH   1   (equal   (var   0)   (var   1)))) }",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/b3e9ae8195048b0f5982b20ac047d19f013b02dde6698901b669c90011b11108.jpg"
+                }
+            },
+            "bbox": [
+                214,
+                138,
+                665,
+                154
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "It would be nice to use higher order abstract syntax to handle bound variables by giving forallH the type (Term -> Formula) -> Formula. I would represent the above example as:"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                162,
+                787,
+                209
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{l} \\text { notH(forallH(fun x:Term => } \\\\ \\quad (\\text  forallH(fun y:Term =>(equal x y)))) \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/e44013817f0daa1c2eea35553677a6e88b87875910efeaa9a1f4c83d824ea144.jpg"
+                }
+            },
+            "bbox": [
+                215,
+                218,
+                638,
+                250
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This technique would require addition work to disallow “exotic terms” that are created by passing a function into forallH that does a case analysis on the term and returning entirely diferent formulas in diferent cases. Despeyroux et al. [3] address this problem by creating a complicated predicate that only valid formulas satisfy."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                256,
+                787,
+                332
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Another choice would have been to use de Bruijn indexes to eliminate named variables. However dealing with free and bound variables with de Bruijn indexes can be dificult."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                332,
+                787,
+                377
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Using named variables allowed me to closely follow Hodel’s work [10]. Also, in order to help persuade people that the statement of the incompleteness theorem is correct, it is helpful to make the underlying definitions as familiar as possible."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                377,
+                787,
+                422
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Renaming bound variables turned out to be a constant source of work during development because variable names and terms were almost always abstract. In principle the variable names could conflict, so it was constantly necessary to consider this case and deal with it by renaming a bound variable to a fresh one. Perhaps it would have been better to use de Bruijn indexes and a deduction system that only deduced closed formulas."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                422,
+                787,
+                513
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.4 Definition of substituteFormula"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                535,
+                522,
+                549
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I defined the function substituteFormula to substitute a term for all occurrences of a free variable inside a given formula. While the definition of substituteTerm is simple structural recursion, substitution for formulas is complicated by quantifiers. Suppose we want to substitute the term s for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { \\Delta } _ { \\mathbf { \\mathcal { X } } _ { i } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in the formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { j } . . \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "i \\neq j"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Suppose "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { \\Delta } _ { \\mathbf { \\mathcal { X } } _ { j } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is a free variable of s. If we na¨ıvely perform the substitution then the occurrences of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { \\Delta } _ { \\mathbf { \\mathcal { X } } _ { \\mathcal { I } } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in s get captured by the quantifier. One common solution to this problem is to disallow substitution for a term s when s is not substitutable for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x _ { i }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The solution I take is to rename the bound variable in this case."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                559,
+                787,
+                696
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "( \\forall x _ { j } . \\varphi ) [ { \\pmb x } _ { i } / s ] \\stackrel { \\mathrm { d e f } } { = } \\forall { \\pmb x } _ { k } . ( \\varphi [ { \\pmb x } _ { j } / { \\pmb x } _ { k } ] ) [ { \\pmb x } _ { i } / s ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "where k 6= i and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\scriptstyle { \\mathbf {  { x } } } _ { k }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is not free in ϕ or s"
+                    }
+                ]
+            },
+            "bbox": [
+                230,
+                704,
+                772,
+                723
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Unfortunately this definition is not structurally recursive. The second substitution operates on the result of the first substitution, which is not structurally smaller than the original formula."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                733,
+                785,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Coq will not accept this recursive definition as is; it is necessary to prove the recursion will terminate. I proved that substitution preserves the depth of a formula, and that each recursive call operates on a formula of smaller depth."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                85,
+                787,
+                130
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "One of McBride’s mantras says, “If my recursion is not structural, I am using the wrong structure” [8, p. 241]. In this case, my recursion is not structural because I am using the wrong recursion. Stoughton shows that it is easier to define substitution that substitutes all variables simultaneously because the recursion is structural [13]. If I had made this definition first, I could have defined substitution of one variable in terms of it and many of my dificulties would have disappeared."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                130,
+                787,
+                237
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.5 Definition of Prf"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                258,
+                401,
+                273
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I defined the inductive type (Prf Gamma phi) to be the type of proofs of phi, from the list of assumptions Gamma."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                284,
+                787,
+                315
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive Prf : Formulas -> Formula -> Set :=\n| AXM : forall A : Formula, Prf (A :: nil) A\n| MP : forall (Axm1 Axm2 : Formulas) (A B : Formula),\n    Prf Axm1 (impH A B) -> Prf Axm2 A ->\n    Prf (Axm1 ++ Axm2) B\n| GEN : forall (Axm : Formulas) (A : Formula) (v : nat),\n    ~ In v (freeVarListFormula L Axm) -> Prf Axm A ->\n    Prf Axm (forallH v A)\n| IMP1 : forall A B : Formula, Prf nil (impH A (impH B A))\n| IMP2 : forall A B C : Formula,\n    Prf nil (impH (impH A (impH B C))\n    (impH (impH A B) (impH A C)))\n| CP : forall A B : Formula,\n    Prf nil (impH (impH (notH A) (notH B)) (impH B A))\n| FA1 : forall (A : Formula) (v : nat) (t : Term),\n    Prf nil (impH (forallH v A) (substituteFormula L A v t))\n| FA2 : forall (A : Formula) (v : nat),\n    ~ In v (freeVarFormula L A) -> Prf nil (impH A (forallH v A))\n| FA3 : forall (A B : Formula) (v : nat),\n    Prf nil\n    (impH (forallH v (impH A B))\n    (impH (forallH v A) (forallH v B)))\n| EQ1 : Prf nil (equal (var 0) (var 0))\n| EQ2 : Prf nil (impH (equal (var 0) (var 1))\n    (equal (var 1) (var 0)))\n| EQ3 : Prf nil\n    (impH (equal (var 0) (var 1))\n    (impH (equal (var 1) (var 2)) (equal (var 0) (var 2))))\n| EQ4 : forall R : Relations L, Prf nil (AxmEq4 R)"
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                217,
+                325,
+                782,
+                780
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "AxmEq4 and AxmEq5 are recursive functions that generate the equality axioms for relations and functions. AxmEq4 R generates"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                109,
+                787,
+                141
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\boldsymbol {x} _ {0} = \\boldsymbol {x} _ {1} \\Rightarrow \\dots \\Rightarrow \\boldsymbol {x} _ {2 n - 2} = \\boldsymbol {x} _ {2 n - 1} \\Rightarrow (R (\\boldsymbol {x} _ {0}, \\dots , \\boldsymbol {x} _ {2 n - 2}) \\Leftrightarrow R (\\boldsymbol {x} _ {1}, \\dots , \\boldsymbol {x} _ {2 n - 1}))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/facc9672509f8d049333f0874c85e3617535bc4fe6d9faacbc6268a46495b5e8.jpg"
+                }
+            },
+            "bbox": [
+                217,
+                152,
+                781,
+                169
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and AxmEq5 f generates"
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                181,
+                395,
+                196
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\boldsymbol {x} _ {0} = \\boldsymbol {x} _ {1} \\Rightarrow \\dots \\Rightarrow \\boldsymbol {x} _ {2 n - 2} = \\boldsymbol {x} _ {2 n - 1} \\Rightarrow f (\\boldsymbol {x} _ {0}, \\dots , \\boldsymbol {x} _ {2 n - 2}) = f (\\boldsymbol {x} _ {1}, \\dots , \\boldsymbol {x} _ {2 n - 1})",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/54522572b8baf4c37c1ba2258d6c28760991296039bff1c85396f5923a3ea7b1.jpg"
+                }
+            },
+            "bbox": [
+                228,
+                209,
+                771,
+                226
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I found that replacing ellipses from informal proofs with recursive functions was one of the most dificult tasks. The informal proof does not contain information on what inductive hypothesis should be used when reasoning about these recursive definitions. Figuring out the correct inductive hypotheses was not easy."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                236,
+                787,
+                299
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.6 Definition of SysPrf"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                320,
+                426,
+                335
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "There are some problems with the definition of Prf given. It requires the list of axioms to be in the correct order for the proof. For example, if we have Prf Gamma1 (impH phi psi) and Prf Gamma2 phi then we can conclude only Prf Gamma1++Gamma2 psi. We cannot conclude Prf Gamma2++Gamma1 psi or any other permutation of psi. If an axiom is used more than once, it must appear in the list more than once. If an axiom is never used, it must not appear. Also, the number of axioms must be finite because they form a list."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                345,
+                787,
+                452
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To solve this problem, I defined a System to be Ensemble Formula, and (SysPrf T phi) to be the proposition that the system T proves phi."
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                452,
+                787,
+                484
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Definition System := Ensemble Formula.\nDefinition mem := Ensembles.In.\n\nDefinition SysPrf (T : System) (f : Formula) :=\n    exists Axm : Formulas,\n    (exists prf : Prf Axm f,\n    (forall g : Formula, In g Axm -> mem _ T g))."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                214,
+                492,
+                665,
+                599
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Ensemble A represents subsets of A by the functions A -> Prop. a : A is consid ered to be a member of T : Ensemble A if and only if the type T a is inhabited. I also defined mem to be Ensembles.In so that it does not conflict with List.In."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                609,
+                787,
+                654
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.7 The Deduction Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                676,
+                467,
+                691
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The deduction theorem states that if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\cup \\{ \\varphi \\} \\vdash \\psi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\varphi \\Rightarrow \\psi ."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                702,
+                705,
+                718
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "There is a choice of whether the side condition for the ∀-generalization rule, ~ In v (freeVarListFormula L Axm), should be required or not. If this side condition is removed then the deduction theorem requires a side condition on it. Usually all the formulas in an axiom system are closed, so the side condition on the ∀-generalization is easy to show. So I decided to keep the side condition on the ∀-generalization rule."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                718,
+                787,
+                779
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "| EQ5 : forall f : Functions L, Prf nil (AxmEq5 f)."
+                    }
+                ]
+            },
+            "bbox": [
+                233,
+                85,
+                671,
+                99
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                214,
+                85,
+                787,
+                114
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "At one point the proof of the deduction theorem requires proving that if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "{ \\cal { T } } \\cup \\{ \\varphi \\} \\vdash \\psi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "because "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\in { \\cal { T } } \\cup \\{ \\varphi \\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "{ \\cal { T } } \\vdash \\varphi \\Rightarrow \\psi"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". There are two cases to consider. If "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi = \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then the result easily follows from the reflexivity "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { o f } \\Rightarrow"
+                    },
+                    {
+                        "type": "text",
+                        "content": "Otherwise "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\in { \\cal T } ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and therefore "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\psi"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The result then follows. In order to constructively make this choice it is necessary to decide whether "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi = \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or not. This requires Formula to be a decidable type, and that requires the language L to be decidable. Since L could be anything, I needed to add hypotheses that the function and relation symbols are decidable types."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                114,
+                787,
+                236
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{l} \\text {forall x y : Functions L, \\{x = y\\} + \\{x <   >y} \\\\ \\text {forall x y : Relations L, \\{x = y\\} + \\{x <   >y}. \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c7d308f5f460facf13a6d6a6ee09c7da6340167e61d41ae82e5fda28a4159bae.jpg"
+                }
+            },
+            "bbox": [
+                241,
+                244,
+                625,
+                276
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I used the deduction theorem without restriction and ended up using the hypotheses in many lemmas. I expect that many of these lemmas could be proved without assuming the decidability of the language. It is hard to imagine a useful language that is not decidable, so I do not feel too bad about using these hypotheses in unnecessary places."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                284,
+                787,
+                361
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2.8 Languages and Theories of Number Theory"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                381,
+                620,
+                397
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I created two languages. The first language, LNT, is the language of number theory and just has the function symbols Plus, Times, Succ, and Zero with appropriate arities. The second language, LNN, is the language of NN and has the same function symbols as LNT plus one relation symbol for less than, LT."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                406,
+                787,
+                465
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I define two axiom systems: NN and PA. NN and PA share six axioms."
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                467,
+                728,
+                481
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { 0 } . . . . S x _ { 0 } = \\mathbf { 0 }"
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                491,
+                359,
+                503
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { 0 } . \\forall x _ { 1 } . ( S x _ { 0 } = S x _ { 1 } \\Rightarrow x _ { 0 } = x _ { 1 } )"
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                506,
+                498,
+                520
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall \\pmb { x } _ { 0 } . \\pmb { x } _ { 0 } + \\pmb { 0 } = \\pmb { x } _ { 0 }"
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                522,
+                372,
+                535
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "4. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { 0 } . \\forall x _ { 1 } . x _ { 0 } + S x _ { 1 } = S ( x _ { 0 } + x _ { 1 } )"
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                536,
+                491,
+                550
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "5. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall \\pmb { x } _ { 0 } . \\pmb { x } _ { 0 } \\times \\pmb { 0 } = \\mathbf { 0 }"
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                551,
+                364,
+                565
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\forall \\boldsymbol {x} _ {0}. \\forall \\boldsymbol {x} _ {1}. \\boldsymbol {x} _ {0} \\times \\boldsymbol {S x} _ {1} = (\\boldsymbol {x} _ {0} \\times \\boldsymbol {x} _ {1}) + \\boldsymbol {x} _ {0}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/151f0eb3b42665ba6db463457ff7aef4b859431c9c083b199406d6d8a3181638.jpg"
+                }
+            },
+            "bbox": [
+                243,
+                566,
+                517,
+                580
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "NN has three additional axioms about less than."
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                590,
+                558,
+                604
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { 0 } . . . . x _ { 0 } < \\mathbf { 0 }"
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                614,
+                346,
+                628
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\forall \\boldsymbol {x} _ {0}. \\forall \\boldsymbol {x} _ {1}. (\\boldsymbol {x} _ {0} <   \\boldsymbol {S x} _ {1} \\Rightarrow (\\boldsymbol {x} _ {0} = \\boldsymbol {x} _ {1} \\lor \\boldsymbol {x} _ {0} <   \\boldsymbol {x} _ {1}))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/ae3aa1c594f30676df50c72ffae779497b1aa2cdf00578b48d189c99f1ccbff1.jpg"
+                }
+            },
+            "bbox": [
+                241,
+                628,
+                576,
+                643
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { 0 } . \\forall x _ { 1 } . ( x _ { 0 } < x _ { 1 } \\lor x _ { 0 } = x _ { 1 } \\lor x _ { 1 } < x _ { 0 } )"
+                    }
+                ]
+            },
+            "bbox": [
+                220,
+                645,
+                545,
+                659
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "PA has an infinite number of induction axioms that follow one schema."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                669,
+                723,
+                684
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "1. \\text {(schema)} \\forall \\boldsymbol {x} _ {i _ {1}} \\dots \\forall \\boldsymbol {x} _ {i _ {n}}. \\varphi [ \\boldsymbol {x} _ {j} / \\boldsymbol {0} ] \\Rightarrow \\forall \\boldsymbol {x} _ {j}. (\\varphi \\Rightarrow \\varphi [ \\boldsymbol {x} _ {j} / S \\boldsymbol {x} _ {j} ]) \\Rightarrow \\forall \\boldsymbol {x} _ {j}. \\varphi",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/8f8068292a12d355068bac184afaf0deaa0a5bd6f7329313d014fc82a604fb05.jpg"
+                }
+            },
+            "bbox": [
+                220,
+                693,
+                732,
+                709
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\pmb { x } _ { i _ { 1 } } , \\ldots , \\pmb { x } _ { i _ { n } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are the free variables of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { j } . . \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The quantifiers ensure that all the axioms of PA are closed."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                718,
+                785,
+                747
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Because NN is in a diferent language than PA, a proof in NN is not a proof in PA. In order to reuse the work done in NN, I created a function called LNN2LNT formula to convert formulas in LNN into formulas in LNT by replacing occurrences of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t _ { 0 } ~ < ~ t _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( \\exists { \\pmb x } _ { 2 } . { \\pmb x } _ { 0 } + ( { \\pmb S } { \\pmb x } _ { 2 } ) = { \\pmb x } _ { 1 } ) [ { \\pmb x } _ { 0 } / t _ { 0 } , { \\pmb x } _ { 1 } / t _ { 1 } ] ."
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi [ { \\pmb x } _ { 0 } / t _ { 0 } , { \\pmb x } _ { 1 } / t _ { 1 } ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is the simultaneous substitution of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t _ { 0 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\scriptstyle { \\mathbf { { \\mathit { x } } } } _ { 0 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\scriptstyle { \\mathbf { \\mathscr { x } } } _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then I proved that if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { N N } \\vdash \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then PA ⊢ LNN2LNT formul "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathsf { a } ( \\varphi )"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                748,
+                787,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                214,
+                85,
+                787,
+                145
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I also created the function natToTerm : nat -> Term to return the closed term representing a given natural number. In this document I will refer to this function as "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Gamma . 7"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", so "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": " { \\boldsymbol { \\Gamma } } 0 ^ { \\top } = \\mathbf { 0 } ,  { \\boldsymbol { \\Gamma } } 1 ^ { \\top } =  { \\boldsymbol { S } } \\mathbf { 0 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", etc."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                145,
+                787,
+                191
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3 Coding"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                212,
+                323,
+                231
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To prove the incompleteness theorem, it is necessary for the inner logic to reason about proofs and formulas, but the inner logic can only reason about natural numbers. It is therefore necessary to code proofs and formulas as natural numbers."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                244,
+                787,
+                304
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "G¨odel’s original approach was to code a formula as a list of numbers and then code that list using properties from the prime decomposition theorem[4]. I avoided needing theorems about prime decomposition by using the Cantor pairing function instead. The Cantor pairing function, cPair, is a commonly used bijection between "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbb { N } \\times \\mathbb { N }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and N."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                304,
+                787,
+                381
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\operatorname{cPair} (a, b) \\stackrel {{\\text { def }}} {{=}} a + \\sum_ {i = 1} ^ {a + b} i",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/2541c8270bba04df88b42703d777ec6f8ebe0819a11b2f392a22858d23c46dc6.jpg"
+                }
+            },
+            "bbox": [
+                415,
+                390,
+                586,
+                431
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "All my inductive structures were easy to recursively encode. I gave each constructor a unique number and paired that number with the encoding of all its parameters. For example, I defined codeFormula as:"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                440,
+                787,
+                487
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Fixpoint codeFormula (f : Formula) : nat :=\nmatch f with\n| fol.equal t1 t2 => cPair 0 (cPair (codeTerm t1) (codeTerm t2))\n| fol.impH f1 f2 =>\n    cPair 1 (cPair (codeFormula f1) (codeFormula f2))\n| fol.notH f1 => cPair 2 (codeFormula f1)\n| fol.forallH n f1 => cPair 3 (cPair n (codeFormula f1))\n| fol.atomic R ts => cPair (4+(codeR R)) (codeTerms _ ts)\nend.\n\nwhere codeR is a coding of the relation symbols for the language.\nI will use 「φ」 for 「codeFormula φ」 and 「t」 for 「codeTerm t」."
+                    }
+                ],
+                "code_language": "verilog"
+            },
+            "bbox": [
+                217,
+                494,
+                784,
+                671
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "4 The Statement of Incompleteness"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                693,
+                576,
+                710
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The incompleteness theorem states the essential incompleteness of NN, meaning that for every axiom system T such that"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                724,
+                787,
+                753
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "- \\mathrm{NN} \\subseteq T",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/cc41cb5c8c363c6ae48995cb014ed7d6eab150f6c8731eebbc6de65c89cc57ba.jpg"
+                }
+            },
+            "bbox": [
+                223,
+                762,
+                308,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "algorithm",
+            "content": {
+                "algorithm_caption": [],
+                "algorithm_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "T"
+                    },
+                    {
+                        "type": "text",
+                        "content": " can represent its own axioms  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a decidable set"
+                    }
+                ]
+            },
+            "bbox": [
+                243,
+                84,
+                473,
+                114
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "then there exists a sentence ϕ such that if T ⊢ ϕ or T ⊢ ¬ϕ then T is inconsistent. The theorem is only about proofs in LNN, the language of NN. This statement does not show the incompleteness of theories that extend the language."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                126,
+                785,
+                172
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In Coq the theorem is stated as as:"
+                    }
+                ]
+            },
+            "bbox": [
+                240,
+                172,
+                496,
+                186
+            ]
+        },
+        {
+            "type": "algorithm",
+            "content": {
+                "algorithm_caption": [],
+                "algorithm_content": [
+                    {
+                        "type": "text",
+                        "content": "Theorem Incompleteness\n: forall T : System,\nIncluded Formula NN T ->\nRepresentsInSelf T ->\nDecidableSet Formula T ->\nexists f : Formula,\nSentence f / "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "SysPrf T f \\/ SysPrf T (notH f) -> Inconsistent LNN T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                199,
+                774,
+                321
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A System is Inconsistent if it proves all formulas."
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                329,
+                589,
+                345
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Definition Inconsistent (T : System) := forall f : Formula, SysPrf T f."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                215,
+                354,
+                555,
+                385
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A Sentence is a Formula without any free variables."
+                    }
+                ]
+            },
+            "bbox": [
+                240,
+                396,
+                620,
+                411
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Definition Sentence (f : Formula) :=\n    forall v : nat, ~ In v (freeVarFormula LNN f)."
+                    }
+                ],
+                "code_language": "prolog"
+            },
+            "bbox": [
+                215,
+                422,
+                637,
+                453
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A DecidableSet is an Ensemble such that every item either belongs to the Ensemble or does not belong to the Ensemble. This hypothesis is trivially true in classical logic, but in constructive logic I needed it to prove the strong constructive existential quantifier in the statement of incompleteness."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                463,
+                787,
+                523
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Definition DecidableSet (A : Type)(s : Ensemble A) := forall x : A, mem A s x \\/ ~ mem A s x."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                215,
+                534,
+                674,
+                565
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The RepresentsInSelf hypothesis restricts what the System T can be. The statement of essential incompleteness normally requires T be a recursive set. Instead I use the weaker hypothesis that the set T is expressible in the system T."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                574,
+                787,
+                633
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Given a system T extending NN and another system U along with a formula ϕ with at most one free variable "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "{ \\mathbf { } } x _ { i } ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ", we say ϕ expresses the axiom system U in T if the following hold for all formulas "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi"
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                635,
+                787,
+                681
+            ]
+        },
+        {
+            "type": "algorithm",
+            "content": {
+                "algorithm_caption": [],
+                "algorithm_content": [
+                    {
+                        "type": "text",
+                        "content": "1. if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\in U"
+                    },
+                    {
+                        "type": "text",
+                        "content": " then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T\\vdash \\varphi_U[\\pmb {x}_i / \\ulcorner \\psi \\urcorner ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "   \n2. if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\notin U"
+                    },
+                    {
+                        "type": "text",
+                        "content": " then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T\\vdash \\neg \\varphi_U[\\pmb {x}_i / \\ulcorner \\psi \\urcorner ]"
+                    }
+                ]
+            },
+            "bbox": [
+                220,
+                690,
+                475,
+                724
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "U is expressible in T if there exists a formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi _ { U }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi _ { U }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "expresses the axiom system U in T."
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                732,
+                787,
+                762
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In Coq I write the statement T is expressible in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "as"
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                763,
+                625,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Definition RepresentsInSelf (T : System) :=\nexists rep : Formula, exists v : nat,\n(forall x : nat, In x (freeVarFormula LNN rep) -> x = v) /\\\n(forall f : Formula,\n    mem Formula T f ->\n    SysPrf T (substituteFormula LNN rep v\n    (natToTerm (codeFormula f)))) /\\\n(forall f : Formula,\n    ~ mem Formula T f ->\n    SysPrf T (notH (substituteFormula LNN rep v\n    (natToTerm (codeFormula f))))."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                215,
+                85,
+                733,
+                252
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This is weaker than requiring that T be a recursive set because any recursive set of axioms T is expressible in NN. Since T is an extension of NN, any recursive set of axioms T is expressible in T ."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                261,
+                787,
+                306
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "By using this weaker hypothesis I avoid defining what a recursive set is. Also, in this form the theorem could be used to prove that any complete and consistent theory of arithmetic cannot define its own axioms. In particular, this could be used to prove Tarski’s theorem that the truth predicate is not definable."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                308,
+                787,
+                369
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5 Primitive Recursive Functions"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                393,
+                545,
+                410
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A common approach to proving the incompleteness theorem is to prove that every primitive recursive function is representable. Informally an n-ary function f is representable in NN if there exists a formula ϕ such that"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                426,
+                787,
+                473
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. the free variables of ϕ are among x<sub>0</sub>, . . . , x<sub>n</sub>."
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                484,
+                566,
+                500
+            ]
+        },
+        {
+            "type": "algorithm",
+            "content": {
+                "algorithm_caption": [],
+                "algorithm_content": [
+                    {
+                        "type": "text",
+                        "content": "2. for all   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a_{1},\\ldots,a_{n}:N"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ,\nNN   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\vdash (\\varphi \\Rightarrow \\boldsymbol{x}_{0} = \\lceil f(a_{1},\\ldots,a_{n}) \\rceil)[\\boldsymbol{x}_{1}/\\lceil a_{1} \\rceil, \\ldots, \\boldsymbol{x}_{n}/\\lceil a_{n} \\rceil]"
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                498,
+                656,
+                532
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I defined the type PrimRec n as:"
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                539,
+                455,
+                556
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive PrimRec : nat -> Set :=\n| succFunc : PrimRec 1\n| zeroFunc : PrimRec 0\n| projFunc : forall n m : nat, m < n -> PrimRec n\n| composeFunc :\n    forall (n m : nat) (g : PrimRecs n m) (h : PrimRec m),\n    PrimRec n\n| primRecFunc :\n    forall (n : nat) (g : PrimRec n) (h : PrimRec (S (S n))), \n    PrimRec (S n)\nwith PrimRecs : nat -> nat -> Set :=\n| PRnil : forall n : nat, PrimRecs n 0\n| PRcons : forall n m : nat,\n    PrimRec n -> PrimRecs n m -> PrimRecs n (S m)."
+                    }
+                ],
+                "code_language": "verilog"
+            },
+            "bbox": [
+                215,
+                566,
+                758,
+                780
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "PrimRec n is the expression of an n-ary primitive recursive function, but it is not itself a function. I defined evalPrimRec : forall n : nat, PrimRec n -> naryFunc n to convert the expression into a function. Rather than working directly with primitive recursive expressions, I worked with particular Coq functions and proved they were extensionally equivalent to the evaluation of primitive recursive expressions."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                85,
+                787,
+                175
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I proved that every primitive recursive function is representable in NN. This required using G¨odel’s "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta \\mathrm { . }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "function along with the Chinese remainder theorem. The "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta \\mathrm { . }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-function is a function that codes array indexing. A finite list of numbers "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a _ { 0 } , \\ldots , a _ { n }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is coded as a pair of numbers "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( x , y )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta ( x , y , i ) = a _ { i }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta \\mathrm { . }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-function is special because it is defined in terms of plus and times and is non-recursive. The Chinese remainder theorem is used to prove that the "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta \\mathrm { . }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-function works."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                175,
+                787,
+                266
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I took care to make the formulas representing the primitive recursive functions clearly "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Sigma _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "by ensuring that only the unbounded quantifiers are existential; however, I did not prove that the formulas are "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Sigma _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "because it is not needed for the first incompleteness theorem. Such a proof could be used for the second incompleteness theorem [12]."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                266,
+                787,
+                343
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5.1 codeSubFormula is Primitive Recursive"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                363,
+                571,
+                377
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I proved that substitution is primitive recursive. Since substitution is defined in terms of Formula and Term, it itself cannot be primitive recursive. Instead I proved that the corresponding function operating on codes is primitive recursive. This function is called codeSubFormula and I proved it is correct in the following sense."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                386,
+                787,
+                462
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\text { codeSubFormula } (^ {\\lceil} \\varphi^ {\\lceil}, i, ^ {\\lceil} s ^ {\\lceil}) = ^ {\\lceil} \\varphi [ \\boldsymbol {x} _ {i} / s ] ^ {\\lceil}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/cfadff148408e8f0e126e6ef1799f5d0ce2aef4b1022fa03346dc74acdcbdcd8.jpg"
+                }
+            },
+            "bbox": [
+                352,
+                462,
+                651,
+                478
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Next I proved that it is primitive recursive. This proof is very dificult. The problem is again with the need to rebind bound variables. Normally one would attempt to create this primitive recursive function by using course-of-values recursion. Course-of-values recursion requires all recursive calls have a smaller code than the original call. Renaming a bound variable requires two recursive calls. Recall the definition of substitution in this case:"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                484,
+                787,
+                575
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "( \\forall x _ { j } . \\varphi ) [ { \\pmb x } _ { i } / s ] \\stackrel { \\mathrm { d e f } } { = } \\forall { \\pmb x } _ { k } . ( \\varphi [ { \\pmb x } _ { j } / { \\pmb x } _ { k } ] ) [ { \\pmb x } _ { i } / s ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "where k "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\neq"
+                    },
+                    {
+                        "type": "text",
+                        "content": "i and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\scriptstyle { \\mathbf {  { x } } } _ { k }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is not free in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or s"
+                    }
+                ]
+            },
+            "bbox": [
+                230,
+                584,
+                771,
+                603
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If one is lucky one might be able to make the inner recursive call. But there is no reason to suspect the input to the second recursive call, "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi [ \\pmb { x } _ { j } / \\pmb { x } _ { k } ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", is going to have a smaller code than the original input, "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall x _ { j } . . \\varphi"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                611,
+                787,
+                657
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If I had used the alternative definition of substitution, where all variables are substituted simultaneously, there would still be problems. The input would include a list of variable and term pairs. In this case a new pair would be added to the list when making the recursive call, so the input to the recursive call could still have a larger code than the input to the original call."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                657,
+                787,
+                733
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "It seems that using course-of-values recursion is dificult or impossible. Instead I introduce the notion of the trace of the computation of substitution. Think of the trace of computation as a finite tree where the nodes contain the input and output of each recursive call. The subtrees of a node are the traces of the computation of the recursive calls. This tree can be coded as a number. I proved that there is a primitive recursive function that can check to see if a number represents a trace of the computation of substitution."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                733,
+                787,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                214,
+                85,
+                787,
+                145
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The key to solving this problem is to create a primitive recursive function that computes a bound on how large the code of the trace of computation can be for a given input. With this I created another primitive recursive function that searches for the trace of computation up to this bound. Once the trace is found—I proved that it must be found—the function extracts the result from the trace and returns it."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                146,
+                787,
+                237
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5.2 checkPrf is Primitive Recursive"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                266,
+                521,
+                281
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Given a code for a formula and a code for a proof, the function checkPrf returns 0 if the proof does not prove the formula, otherwise it returns one plus the code of the list of axioms used in the proof. I proved this function is primitive recursive, as well as proving that it is correct in the sense that for every proof "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "p"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "from a list of axioms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T _ { \\mathbf { \\delta } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", checkPrf "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( ^ { \\Gamma } \\varphi ^ {                , \\Gamma } p ^ { \\intercal } ) = 1 + { } ^ { \\Gamma } \\Gamma ^ { \\intercal } ;"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n , m : \\mathbb { N }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "if checkPrf "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( n , m ) \\neq 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then there exists "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi , T"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and some proof "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "p"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "from "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varGamma"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\ulcorner \\varphi ^ { \\daleth } = n"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^ { \\Gamma } p ^ { 7 } = m"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                297,
+                787,
+                402
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any axiom system "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "U"
+                    },
+                    {
+                        "type": "text",
+                        "content": "expressible in T, I created the formulas codeSysPrf and codeSysPf. code "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { ; y s P r f } [ { \\pmb x } _ { 0 } / \\Gamma n ^ { \\top } , { \\pmb x } _ { 1 } / \\Gamma m ^ { \\top } ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is provable in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "if m is the code of a proof in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "U"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of a formula coded by n. codeS "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathtt { y s P f } [ \\pmb { x } _ { 0 } / \\Gamma _ { n } \\rceil ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is provable in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "if there exists a proof in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "U"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of a formula coded by n."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                404,
+                787,
+                464
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "codeSysPrf and codeSysPf are not derived from a primitive recursive functions because I wanted to prove the incompleteness of axiom systems that may not have a primitive recursive characteristic function."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                465,
+                785,
+                511
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "6 Fixed Point Theorem and Rosser’s Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                539,
+                746,
+                574
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The fixed point theorem states that for every formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there is some formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                595,
+                785,
+                626
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathrm{NN} \\vdash \\psi \\Leftrightarrow \\varphi [ \\boldsymbol {x} _ {i} / \\ulcorner \\psi \\urcorner ]",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c4672394969183bab97c378b44eebd0a3409da9a2b25eeb1bd76450eb7395a20.jpg"
+                }
+            },
+            "bbox": [
+                421,
+                628,
+                581,
+                645
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and that the free variables of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are that of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "less "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { \\Delta } _ { \\mathbf { \\mathcal { X } } _ { i } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                215,
+                656,
+                594,
+                671
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The fixed point theorem allows one to create “self-referential sentences”. I used this to create Rosser’s sentence which states that for every code of a proof of itself, there is a smaller code of a proof of its negation. The proof of Rosser’s incompleteness theorem requires doing a bounded search for a proof, and this requires knowing what is and what is not a proof in the system. For this reason, I require the decidability of the axiom system. Without a decision procedure for the axiom system, I cannot constructively do the search."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                672,
+                787,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "6.1 Incompleteness of PA"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                85,
+                441,
+                99
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To demonstrate the incompleteness theorem I used it to prove the incompleteness of PA. I created a primitive recursive predicate for the codes of the axioms of PA. Coq is suficiently powerful to prove the consistency of PA by proving that the natural numbers model PA."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                106,
+                787,
+                166
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "One subtle point is that Coq’s logic is constructive while the internal logic is classical. One cannot interpret a formula of the internal logic directly in Coq and expect it to be provable if it is provable in the internal logic. Instead I use a double negation translation of the formulas. The translated formula will always hold if it holds in the internal logic."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                166,
+                787,
+                241
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The consistency of PA along with the expressibility of its axioms and the translations of proofs from NN to PA allowed me to apply Rosser’s incompleteness theorem and prove the incompleteness of PA—there exists a sentence ϕ such that neither "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { P A } \\vdash \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "nor "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { P A } \\vdash \\lnot \\varphi"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                241,
+                787,
+                301
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Theorem PAIncomplete : \n    exists f : Formula,\n    (forall v : nat, ~ In v (freeVarFormula LNT f)) /\\\n    ~ (SysPrf PA f \\/ SysPrf PA (notH f))."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                217,
+                308,
+                676,
+                369
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7 Remarks"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                388,
+                339,
+                404
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.1 Extracting the Sentence"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                415,
+                462,
+                430
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Because my proof is constructive, it is possible, in principle, to compute this sentence that makes PA incomplete. This was not done for two reasons. The first reason is that the existential statement lives in Coq’s Prop universe, and Coq’s only extracts from its Set universe. This was an error on my part. I should have used Coq’s Set existential quantifier; this problem would be fairly easy to fix. The second reason is that the sentence contains a closed term of the code of most of itself. I believe this code is a very large number and it is written in unary notation. This would likely make the sentence far to large to be actually printed."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                436,
+                787,
+                573
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.2 Robinson’s System Q"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                590,
+                439,
+                606
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The proof of essential incompleteness is usually carried out for Robinson’s system Q. Instead I followed Hodel’s development [10] and used NN. Q is PA with the induction schema replaced with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall \\mathbf { x } _ { 0 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ".∃x<sub>1</sub>. "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( \\pmb { x } _ { 0 } = \\mathbf { 0 } \\lor \\pmb { x } _ { 0 } = \\pmb { S } \\pmb { x } _ { 1 } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". All of NN axioms are "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varPi _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "whereas Q has the above "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varPi _ { 2 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "axiom. Both axiom systems are finite."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                611,
+                787,
+                686
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Neither system is strictly weaker than the other, so it would not be possible to use the essential incompleteness of one to get the essential incompleteness of the other; however both NN and Q are suficiently powerful to prove a small number of needed lemmas, and afterward only these lemmas are used. If one abstracts my proof at these lemmas, it would then be easy to prove the essential incompleteness of both Q and NN."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                688,
+                789,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.3 Comparisons with Shankar’s 1986 Proof"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                84,
+                594,
+                99
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "It is worth noting the diferences between this formalization of the incompleteness theorem and Shankar’s 1986 proof in the Boyer-Moore theorem prover. The most notable diference is the proof systems. In Coq the user is expected to input the proof, in the form of a proof script, and Coq will check the correctness of the proof. In the Boyer-Moore theorem prover the user states a series of lemmas and the system generates the proofs. However, using the Boyer-Moore proof system requires feeding it a “well-chosen sequence of lemmas” [11, p. xii], so it would seem the information being fed into the two systems is similar."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                111,
+                787,
+                232
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "There are some notable semantic diferences between Shankar’s statement of incompleteness and mine. His theorem only states that finite extensions of Z2, hereditarily finite set theory, are incomplete, whereas my theorem states that even infinite extensions of NN are incomplete as long as they are selfrepresentable. Also Shankar’s internal logic allows axioms to define new relation or function symbols as long as they come with the required proofs of admissibility. Such extensions are conservative over "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { Z 2 } ."
+                    },
+                    {
+                        "type": "text",
+                        "content": "but no computer verified proof of this fact is given. My internal logic does not allow new symbols. Finally, I prove the essential incompleteness of NN, which is in the language of arithmetic. Without any set structures the proof is somewhat more dificult because it requires using G¨odel’s "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta \\mathrm { . }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-function."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                233,
+                787,
+                398
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "One of Shankar’s goals when creating his proof was to use a proof system without modifications. Unfortunately he was not able to meet that goal; he ended up making some improvements to the Boyer-Moore theorem prover. My proof was developed in Coq without any modifications."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                398,
+                787,
+                460
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.4 G¨odel’s Second Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                483,
+                599,
+                498
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The second incompleteness theorem states that if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is a recursive system extending PA—actually a weaker system could be used here—and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\mathrm { C o n } _ { T }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent. Con<sub>T</sub> is some reasonable formula stating the consistency of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such as "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\lnot \\mathrm { P r } _ { T } ( \\Gamma \\mathbf { 0 } = S \\mathbf { 0 } ^ { \\lnot \\setminus j } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "), where Pr<sub>T</sub> is the provability predicate codeSysPf for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T ."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                508,
+                787,
+                584
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If I had created a formal proof in PA, I would have "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\vdash _ { \\mathrm { P A } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "“G¨odel’s first incompleteness theorem”. This could then be mechanically transformed to create another formal proof in PA that ⊢<sub>PA</sub> (PA ⊢ “G¨odel’s first incompleteness theorem”). The reader can verify that the second incompleteness theorem follows from this. Unfortunately I have only shown that ⊢ "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "{ \\bf \\bar { \\Delta } } _ { C o q }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "“G¨odel’s first incompleteness theorem”, so the above argument cannot be used to create a proof of the second incompleteness theorem."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                585,
+                787,
+                705
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Still, this work can be used as a basis for formalizing the second incompleteness theorem. The approach would be to formalize the Hilbert-Bernays-L¨ob derivability conditions:"
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                705,
+                787,
+                752
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { P A } \\vdash \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { P A } \\vdash \\mathrm { P r } _ { \\mathrm { P A } } ( ^ { \\Gamma } \\varphi ^ { \\daleth } )"
+                    }
+                ]
+            },
+            "bbox": [
+                222,
+                763,
+                473,
+                779
+            ]
+        }
+    ],
+    [
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{l} 2. \\text { PA } \\vdash \\text { Pr } _ {\\text { PA }} (\\ulcorner \\varphi \\urcorner) \\Rightarrow \\text { Pr } _ {\\text { PA }} (\\ulcorner \\text { Pr } _ {\\text { PA }} (\\ulcorner \\varphi \\urcorner) \\urcorner) \\\\ 3. \\text { PA } \\vdash \\text { Pr } _ {\\text { PA }} (\\ulcorner \\varphi \\Rightarrow \\psi \\urcorner) \\Rightarrow \\text { Pr } _ {\\text { PA }} (\\ulcorner \\varphi \\urcorner) \\Rightarrow \\text { Pr } _ {\\text { PA }} (\\ulcorner \\psi \\urcorner) \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/1632b5a5ea2350435416c70de7d1d177c851b53af7ea77cfdf0446b9ba27e912.jpg"
+                }
+            },
+            "bbox": [
+                220,
+                84,
+                609,
+                114
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The second condition is the most dificult to prove. It is usually proved by first proving that for every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Sigma _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "sentence "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi , \\mathrm { P A } \\vdash \\varphi \\Rightarrow \\mathrm { P r } _ { \\mathrm { P A } } ( ^ { \\Gamma } \\varphi ^ { \\rceil } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Because I made sure that all primitive recursive functions are representable by a "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Sigma _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "formula, it would be easy to go from this theorem to the second Hilbert-Bernays-L¨ob condition."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                125,
+                787,
+                199
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "8 Statistics"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                223,
+                343,
+                239
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "My proof, excluding standard libraries and the library for Pocklington’s criterion [2], consists of 46 source files, 7 036 lines of specifications, 37 906 lines of proof, and 1 267 747 total characters. The size of the gzipped tarball "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\left( \\mathtt { g } \\mathtt { z } \\mathtt { i } \\mathtt { p } \\ - \\mathtt { 9 } \\right)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of all the source files is 146 008 bytes, which is an estimate of the information content of my proof."
+                    }
+                ]
+            },
+            "bbox": [
+                214,
+                253,
+                787,
+                330
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "9 Acknowledgements"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                352,
+                437,
+                369
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I would like to thank NSERC for providing funding for this research. I thank Robert Schneck for introducing me to Coq, and helping me out at the beginning. I would like to thank Nikita Borisov for letting me use his computer when the proof became to large for my poor laptop. I would also like to thank my Berkeley advisor, Leo Harrington, for his advice on improving upon Hodel’s proof. And last, but not least, thanks to the Coq team, because without Coq there would be no proof."
+                    }
+                ]
+            },
+            "bbox": [
+                212,
+                383,
+                787,
+                489
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "References"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                215,
+                512,
+                325,
+                529
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1. Stanley N. Burris. Logic for mathematics and computer science: Supplementary text. http://www.math.uwaterloo.ca/~snburris/htdocs/LOGIC/stext.html, 1997."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                542,
+                784,
+                583
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2. Olga Caprotti and Martijn Oostdijk. Formal and eficient primality proofs by use of computer algebra oracles. J. Symb. Comput., 32(1/2):55–70, 2001."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                585,
+                785,
+                611
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "3. Jo¨elle Despeyroux and Andr´e Hirschowitz. Higher-order abstract syntax with induction in coq. In LPAR ’94: Proceedings of the 5th International Conference on Logic Programming and Automated Reasoning, pages 159–173, London, UK, 1994. Springer-Verlag."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                612,
+                785,
+                666
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "4. K. G¨odel. Ueber Formal Unentscheidbare s¨atze der Principia Mathematica und Verwandter Systeme I. Monatshefte f¨ur Mathematik und Physik, 38:173–198, 1931. english translation: On Formally Undecidable Propositions of Principia Mathemat ica and Related Systems I, Oliver & Boyd, London, 1962."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                225,
+                667,
+                785,
+                720
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "5. John Harrison. Formalizing basic first order model theory. In Jim Grundy and Malcolm Newey, editors, Theorem Proving in Higher Order Logics: 11th International Conference, TPHOLs’98, volume 1497 of Lecture Notes in Computer Science, pages 153–170, Canberra, Australia, 1998. Springer-Verlag."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                723,
+                785,
+                777
+            ]
+        }
+    ],
+    [
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "6. John Harrison. The HOL-Light manual, 2000."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                85,
+                553,
+                99
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "7. Claude Marche. Fwd: Question about fixpoint. Coq club mailing list correspondence, http://pauillac.inria.fr/pipermail/coq-club/2005/001641.html, [cited 2005-02-07], February 2005."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                99,
+                785,
+                140
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "8. Conor McBride. Dependently Typed Functional Programs and their Proofs. PhD thesis, University of Edinburgh, 1999. Available from http://www.lfcs.informatics.ed.ac.uk/reports/00/ECS-LFCS-00-419/."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                141,
+                787,
+                181
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "9. Russell O’Connor. The G¨odel-Rosser 1st incompleteness theorem. http://r6.ca/Goedel20050512.tar.gz, March 2005."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                223,
+                183,
+                784,
+                209
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "10. Richard E. Hodel. An Introduction to Mathematical Logic. PWS Pub. Co., 1995."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                218,
+                210,
+                782,
+                224
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "11. N. Shankar. Metamathematics, Machines, and G¨odel’s Proof. Cambridge Tracts in Theoretical Computer Science. Cambridge University Press, Cambridge, UK, 1994."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                218,
+                224,
+                785,
+                263
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "12. J. R. Shoenfield. Mathematical Logic. Addison-Wesley, 1967."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                217,
+                265,
+                648,
+                279
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "14. The Coq Development Team. The Coq Proof Assistant Reference Manual – Version V8.0, April 2004. http://coq.inria.fr."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                217,
+                292,
+                787,
+                320
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "13. Allen Stoughton. Substitution revisited. 59(3):317–325, August 1988."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                217,
+                279,
+                705,
+                292
+            ]
+        }
+    ]
+]

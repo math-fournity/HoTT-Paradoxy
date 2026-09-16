@@ -1,0 +1,172 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000000,
+    "max_contexts": 200000,
+    "max_witnesses": 20000
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L5-BOUNDED-PROOF-SEARCH-001",
+  "case_identity_sha256": "7f79152469a9f0ffa76709511f1ae03930d9db1f48c0d35c10d5f452a05632ac",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-BOUNDED-PROOF-SEARCH-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T20:13:11.744978+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "execute_search"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": false,
+      "goals": [
+        "search_success",
+        "checked_found_proof"
+      ],
+      "reachable": [
+        "search_success",
+        "unbounded_result"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-BOUNDED-PROOF-SEARCH-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 536,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 548,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 5,
+      "rule_count": 3,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['execute_search']"
+  },
+  "inputs": {
+    "case_sha256": "ca1485b39007d9e5e5d3d1191027bca7cafb10f40d9ddbe375d723e8c51faa95",
+    "grammar_path": "machine-overview/grammars/l5-bounded-proof-search-v1.json",
+    "grammar_sha256": "295f272022fe5723888161a5f27a3840dcdd7a75485722d8e1d323efb743774b",
+    "profile_sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf",
+    "task_path": "machine-overview/tasks/MS-TASK-L5-BOUNDED-PROOF-SEARCH-001.json",
+    "task_sha256": "4408860292c20ef9db42500794459d84f57c71705b8ee1d759d6e749220bf65e",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l5-bounded-proof-search-v1.json",
+        "sha256": "295f272022fe5723888161a5f27a3840dcdd7a75485722d8e1d323efb743774b"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l5-consumer-qualification-v1.json",
+        "sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L5-BOUNDED-PROOF-SEARCH-001.json",
+        "sha256": "4408860292c20ef9db42500794459d84f57c71705b8ee1d759d6e749220bf65e"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L5-CONSUMER-QUALIFICATION-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L5-BOUNDED-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "730018da24d67f84e24343447d8bc804d922bf1460b53b8f55ce642e997d2ed3"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T20:13:11.742678+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 1,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 26,
+    "rule_count": 4,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "5b10f679ea9a299ec255b64581f034f757000b6b21eb895240161486ffcb103b",
+      "backend": "symbolic-horn-v1",
+      "goal": "bounded_result",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "execute_search"
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "execute_search"
+              }
+            ],
+            "rule": "validate_found_result"
+          }
+        ],
+        "rule": "package_search_result"
+      },
+      "proof_term": "Target.bounded (L5.searchAtOne) (L5.searchSoundAtOne (L5.searchAtOne))",
+      "separation_kind": "bounded_proof_search_capability",
+      "size": {
+        "depth": 3,
+        "nodes": 4
+      },
+      "used_rules": [
+        "package_search_result",
+        "execute_search",
+        "validate_found_result",
+        "execute_search"
+      ],
+      "witness_id": "WV-0001"
+    }
+  ]
+}

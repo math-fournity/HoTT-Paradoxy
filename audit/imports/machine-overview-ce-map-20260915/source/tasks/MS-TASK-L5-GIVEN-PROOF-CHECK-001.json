@@ -1,0 +1,22 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L5-GIVEN-PROOF-CHECK-001",
+  "revision": 1,
+  "research_relation": "l5_capability_separation_positive_control",
+  "purpose": "Establish the weakest L5 capability: accept one derivation already supplied in the fixed ERCF-3 Hilbert syntax, without claiming search, truth decision or self-reliability.",
+  "source_basis": {"kind": "fixed local object language plus actual-checker source comparison", "references": ["HoTT/formal/ercf3-t3/ObjectSyntax.agda", "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/SCOPE.json"]},
+  "answer_visibility": {"class": "POST_FREEZE_SAME_DESIGNER_NOT_BLIND", "engine_freeze": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json", "engine_freeze_sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664", "calibration_answer_available_to_search": false, "limitation": "The task is a capability control, not novelty evidence."},
+  "input": {"type_ref": "one supplied inhabitant of ObjectSyntax.⊢ kFormula", "available_information": "the complete derivation is available before checking"},
+  "environment": {"reality_model": "a checker receives one finite proof object", "theory_model": "Agda checks that object against the fixed derivation family", "arrival_policy": "supplied before checking", "nondeterminism": "none", "fairness": "not applicable"},
+  "observation": {"value": "whether the supplied proof inhabits its claimed formula", "trace": "supplied derivation then checker", "time_structure": {"reality": "finite supplied proof", "theory": "finite type-checking obligation", "temporal_order": "proof availability precedes checking"}},
+  "completion": {"kind": "given_proof_acceptance", "criterion_ref": "return the same well-typed derivation"},
+  "quantifiers": {"instances": "one fixed K-formula derivation", "realization": "native Agda target"},
+  "allowed_resources": "the supplied derivation and identity checker only",
+  "prohibited_extra_information": "no proof search, semantic truth predicate, reflection or self-guarantee claim",
+  "assumptions": ["the proof object is supplied"],
+  "obligations": ["the searched path must include both supply and check rules", "removing the check rule removes the goal", "wrong-formula reuse is rejected natively"],
+  "known_positive_controls": [{"id": "SUPPLIED-K", "description": "ObjectSyntax.axK supplies the fixed derivation", "source": "machine-overview/formal/L5ConsumerSupport.agda"}],
+  "known_negative_controls": [{"id": "WRONG-FORMULA", "description": "the K derivation cannot inhabit bottom", "expected": "NATIVE_TYPE_REJECTION"}],
+  "claim_refs": [],
+  "correspondence": {"original_activity": "check one supplied proof", "theoryization_steps": ["encode the fixed formula as Fml", "present an inhabitant of its derivation family", "type-check that inhabitant"], "preserved_fields": ["formula", "proof object", "acceptance criterion"], "changed_fields": [], "observation_justification": "acceptance is exactly the original task", "declared_observation_kinds": ["given_proof_check_capability"], "consumer_requirements": {"given_proof_check_capability": {"required_rules": ["supply_derivation", "check_supplied_derivation"]}}, "preservation_label": "GIVEN_PROOF_TASK_EXACTLY_PRESERVED", "correspondence_status": "GIVEN_PROOF_CHECK_POSITIVE_CONTROL", "reality_correspondence": "TASK_MODEL_EXACT", "reality_bridge_status": "CHECKER_CAPABILITY_ONLY", "reality_bridge_detail": "This task models checking a supplied derivation and nothing stronger.", "open_obligations": ["do not promote this result to proof search, truth decision or self-reliability"]}
+}

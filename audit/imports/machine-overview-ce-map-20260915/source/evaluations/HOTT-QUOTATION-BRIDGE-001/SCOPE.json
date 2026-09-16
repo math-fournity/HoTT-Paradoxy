@@ -1,0 +1,124 @@
+{
+  "schema_version": "machine-overview-hott-quotation-bridge-scope/v1",
+  "evaluation_id": "HOTT-QUOTATION-BRIDGE-001",
+  "freeze_id": "HOTT-QUOTATION-BRIDGE-FREEZE-001",
+  "frozen_at_utc": "2026-09-13T21:00:00Z",
+  "purpose": "Test whether host TC computation, syntax quotation and guarded temporal later can be connected without erasing the level/time guard that blocks a Loeb-style self-certification collapse.",
+  "roles": ["HOST_TC", "SYNTAX_QUOTATION", "TEMPORAL_LATER"],
+  "questions": [
+    {"id": "H1", "name": "fixed_interface", "question": "Is the exact implementation or primary formal source fixed?"},
+    {"id": "H2", "name": "role_meaning", "question": "Is the carrier's meaning fixed as checker computation, syntax/proof quotation or next-step availability?"},
+    {"id": "H3", "name": "self_or_fix_closure", "question": "Which bind/cojoin/fix/Loeb operation is actually supplied, and at what type?"},
+    {"id": "H4", "name": "elimination_scope", "question": "Can the carrier be eliminated to A, and what tick, clock, host or reflection premise is required?"},
+    {"id": "H5", "name": "payment_device", "question": "Does the system explicitly preserve the host boundary, tick ordering, clock quantifier or typed-code evidence?"},
+    {"id": "H6", "name": "natural_guard_erasure_consumer", "question": "Does a real fixed consumer erase that payment device and still promise the original task?"}
+  ],
+  "decision_rule": "A HoTT-specific mismatch candidate requires one fixed consumer with H1-H6 PASS. A native conditional collapse plus H6 FAIL is a guarded boundary/defense result, not an HoTT bug.",
+  "allowed_external_roots": [
+    "/Volumes/D/HoTT-toolchain-cache",
+    "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001",
+    "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001",
+    "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001"
+  ],
+  "toolchain": {
+    "config_path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+    "config_sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07"
+  },
+  "command_paths": [
+    "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-3d04bac/test/Succeed",
+    "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src"
+  ],
+  "sources": [
+    {
+      "source_id": "QB-S1-AGDA-TC-2.8.0",
+      "role": "HOST_TC",
+      "identity": "Agda 2.8.0 commit 3d04bacca842729f9c0869b9287256321b5f450f",
+      "artifacts": [
+        {"artifact_id": "QB-A-AGDA-REFLECTION-SOURCE", "path": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data/agda/2.8.0-3d04bac/lib/prim/Agda/Builtin/Reflection.agda", "bytes": 20823, "sha256": "ef851b831795fea34125c6cd17fb81675ed9eb62c871addb5951082cb1732b13", "kind": "text"},
+        {"artifact_id": "QB-A-AGDA-REFLECTION-DOC", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/agda-reflection-v2.8.0.html", "bytes": 122696, "sha256": "f3685288a16d5289e7e8e911405fc5c7d5d5f816c83b6759d482150a1866b835", "kind": "html"}
+      ]
+    },
+    {
+      "source_id": "QB-S2-CUBICAL-REFLECTION-v0.9",
+      "role": "HOST_TC",
+      "identity": "Cubical v0.9 commit b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+      "artifacts": [
+        {"artifact_id": "QB-A-CUBICAL-REFLECTION-BASE", "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/Base.agda", "bytes": 1331, "sha256": "1ecb6f9bde549d942e1cbcb8f02152866ef3f1023df37fea6fcbc682335bfc15", "kind": "text"},
+        {"artifact_id": "QB-A-CUBICAL-STRICT-EQUIV", "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda", "bytes": 2788, "sha256": "a340adf53391db6808858ec448b74c2397466dbecb07d7b43b15b78bbf535e0e", "kind": "text"}
+      ]
+    },
+    {
+      "source_id": "QB-S3-AGDA-LATER-3d04bac",
+      "role": "TEMPORAL_LATER",
+      "identity": "Agda official LaterPrims test at 3d04bacca842729f9c0869b9287256321b5f450f",
+      "artifacts": [
+        {"artifact_id": "QB-A-AGDA-GUARDED-DOC", "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-v2.8.0.html", "bytes": 14802, "sha256": "1561eb586bd803d9a896683830c391565ed6ad222b511e27ccfbe584e703b7cf", "kind": "html"},
+        {"artifact_id": "QB-A-LATER-PRIMS", "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-3d04bac/test/Succeed/LaterPrims.agda", "bytes": 3686, "sha256": "ef49b63e3abf11fa22b53b0433a4b41f7d43acfec4358e9fde79c094fc26362a", "kind": "text"}
+      ]
+    },
+    {
+      "source_id": "QB-S4-GCTT-v2",
+      "role": "TEMPORAL_LATER",
+      "identity": "Guarded Cubical Type Theory arXiv:1611.09263v2",
+      "artifacts": [
+        {"artifact_id": "QB-A-GCTT-TEXT", "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/guarded-cubical-v2.pages.txt", "bytes": 102783, "sha256": "f26937dc0e01f2110200502a3fc85131d41ea5caeafd0fee16101bfc468d3fde", "kind": "text"}
+      ]
+    },
+    {
+      "source_id": "QB-S5-CCTT-FORCING-TICKS",
+      "role": "TEMPORAL_LATER",
+      "identity": "CCTT arXiv:2102.01969v3 plus agda/guarded forcing-ticks cf0c438214cb10874ac1a7650f8d0d69677db57e",
+      "artifacts": [
+        {"artifact_id": "QB-A-CCTT-TEXT", "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/clocked-cubical-v3.pages.txt", "bytes": 217461, "sha256": "0746bcd4fa53772516a19b6f1a593999806c12d3bf4ba352ded01667502f7cf4", "kind": "text"},
+        {"artifact_id": "QB-A-CLOCKED-PRIMITIVES", "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Primitives.agda", "bytes": 3818, "sha256": "a8b5da3aaeead0b003a0124bb73d5f69e6b88650bded728ea70073f4c7df9aaa", "kind": "text"},
+        {"artifact_id": "QB-A-GUARDED-LATER", "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Guarded/Later.agda", "bytes": 2336, "sha256": "f9b8569a331b629c0d01aa124405409d5129dd4c41fc6d872f8da1da8d98b4c0", "kind": "text"},
+        {"artifact_id": "QB-A-GUARDED-README", "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/README.md", "bytes": 766, "sha256": "7dc5d4c5895ad942cd9359694f894095cd1aeedc4ec1a383bb1d0ee3b1191e3f", "kind": "text"}
+      ]
+    },
+    {
+      "source_id": "QB-S6-METAROCQ-QUOTATION-9.1",
+      "role": "SYNTAX_QUOTATION",
+      "identity": "MetaRocq 9.1 branch c8cd46054518193103c3bb33aa6e15c7f489e72c",
+      "artifacts": [
+        {"artifact_id": "QB-A-METAROCQ-QUOTATION", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/metarocq-quotation-c8cd4605.md", "bytes": 51635, "sha256": "7fe3eb27f0b21b4acdc1f0d47ce09c6d7d973076aceb6cff5d5042de1f2a4cd6", "kind": "text"}
+      ]
+    }
+  ],
+  "trees": [
+    {"tree_id": "CUBICAL-V0.9", "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical", "identity": {"file_count": 1111, "total_bytes": 7511145, "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"}},
+    {"tree_id": "AGDA-GUARDED-FORCING-TICKS-SRC", "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src", "identity": {"file_count": 6, "total_bytes": 16309, "tree_sha256": "da72c4efed4c77f6512dd0be6b8cfbc64339165eb2657f48be15a0211896b6cb"}}
+  ],
+  "inventory_patterns": {
+    "guarded_tick_option": "--guarded(?!ness)",
+    "guardedness_option": "--guardedness",
+    "tick_binder": "@(?:tick|lock)",
+    "quoteTC": "\\bquoteTC\\b",
+    "unquoteTC": "\\bunquoteTC\\b",
+    "checkType": "\\bcheckType\\b",
+    "inferType": "\\binferType\\b",
+    "unquoteDecl": "\\bunquoteDecl\\b"
+  },
+  "future_paths": [
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/DECISIONS.json",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/TCRoundTrip.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadRunTC.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedTickUse.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/GuardedForceCollapse.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadGuardedForce.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/ClockQuantifiedForceShape.agda",
+    "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/probes/BadLocalFromGlobal.agda"
+  ],
+  "probe_roles": [
+    {"probe_id": "P01-TC-ROUNDTRIP", "expected": "ACCEPT", "meaning": "quote/unquote remains inside TC"},
+    {"probe_id": "P02-BAD-RUN-TC", "expected": "TYPE_REJECTION", "meaning": "TC A is not A"},
+    {"probe_id": "P03-CUBICAL-REFLECTION-CONSUMER", "expected": "ACCEPT", "meaning": "actual Cubical reflection consumer uses host TC"},
+    {"probe_id": "P04-AGDA-LATER-SOURCE", "expected": "ACCEPT", "meaning": "exact Agda guarded source qualifies"},
+    {"probe_id": "P05-GUARDED-TICK-USE", "expected": "ACCEPT", "meaning": "delayed data is usable under a tick"},
+    {"probe_id": "P06-GUARDED-FORCE-COLLAPSE", "expected": "ACCEPT", "meaning": "conditional fixed-clock force plus guarded fix reaches bottom"},
+    {"probe_id": "P07-BAD-FIXED-FORCE", "expected": "TYPE_REJECTION", "meaning": "the obvious same-stage force is ill-typed"},
+    {"probe_id": "P08-CLOCK-QUANTIFIED-SHAPE", "expected": "ACCEPT", "meaning": "global force needs all-clock delayed input"},
+    {"probe_id": "P09-BAD-LOCAL-FROM-GLOBAL", "expected": "TYPE_REJECTION", "meaning": "one fixed-clock value cannot be reused for every clock"},
+    {"probe_id": "P10-FORCING-TICKS-TOOLCHAIN", "expected": "TOOLCHAIN_MISMATCH", "meaning": "the forcing-ticks source requires an Agda branch not supplied by the pinned 2.8.0 binary"}
+  ],
+  "semantic_limit": "The source set is fixed and bounded. The conditional collapse is not a claim that standard HoTT or a current application supplies fixed-clock force."
+}

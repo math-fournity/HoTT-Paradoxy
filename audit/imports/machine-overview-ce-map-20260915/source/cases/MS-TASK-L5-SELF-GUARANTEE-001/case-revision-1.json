@@ -1,0 +1,78 @@
+{
+  "assumptions": [
+    "the exact section is the deliberately strong target under test",
+    "checking one supplied proof is retained as an independent positive control"
+  ],
+  "candidate_ast": {
+    "grammar_id": "L5-SELF-GUARANTEE-M3-v1",
+    "produced_by": null,
+    "status": "PENDING_SEARCH"
+  },
+  "case_id": "MS-TASK-L5-SELF-GUARANTEE-001",
+  "claim_refs": [],
+  "created_at_utc": "2026-09-13T19:23:00.479464+00:00",
+  "grammar": {
+    "path": "machine-overview/grammars/l5-self-guarantee-m3-v1.json",
+    "sha256": "c483b7c915ba7c061ff1348f51675a155c5d6eacb24f8895bf2445dd5e8cf260"
+  },
+  "immutability": "content changes require a new revision file; this file is never edited",
+  "obligations": [
+    "the witness must instantiate the section at liar, evaluate at self and invoke no-fixed-point",
+    "removing section_at_liar must remove every goal witness",
+    "given-proof checking must remain accepted",
+    "the result must not be called Gödel incompleteness, ERCF-3 completion or a HoTT-specific bug"
+  ],
+  "parent_revision": null,
+  "profile": {
+    "path": "machine-overview/profiles/m3-breadth-v1.json",
+    "sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb"
+  },
+  "revision": 1,
+  "schema_version": "machine-overview-case/v2",
+  "source_pins": [
+    {
+      "path": "machine-overview/formal/M3BreadthSupport.agda",
+      "sha256": "777dc1f5ce3945ea46372e4af6065d106eb25bf3d6f0e5d520fe0db2447b646b"
+    },
+    {
+      "path": "machine-overview/formal/L3M4Support.agda",
+      "sha256": "be19607f3c7bb466e239489ad1488af386b462ccf2b6bf0417541b815f836536"
+    },
+    {
+      "path": "HoTT/formal/transition-lift/TransitionLift.agda",
+      "sha256": "58c763c7f40207939c8aa74af1472f90463a95e164ef880e2e43f636354f1c95"
+    },
+    {
+      "path": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+      "sha256": "517265f41a8949a3372bd08fa5aa4471d65eb1ed10759cb75603162d05b71e93"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+      "role": "toolchain",
+      "sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+      "role": "library_registry",
+      "sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12"
+    },
+    {
+      "path": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json",
+      "role": "engine_freeze",
+      "sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46"
+    }
+  ],
+  "state_axes": {
+    "execution": "queued",
+    "formal_legality": "unchecked",
+    "mathematical_evidence": "conjecture",
+    "reality_correspondence": "model_only",
+    "research_relation": "m3_generic_diagonal_precondition_exploration",
+    "task_preservation": "unresolved"
+  },
+  "target_text_hash": null,
+  "task": {
+    "path": "machine-overview/tasks/MS-TASK-L5-SELF-GUARANTEE-001.json",
+    "sha256": "6cb8bebc46caaa44ac7106a8062b0f0bce456d6d2953d70dd19cd0de743dd409"
+  }
+}

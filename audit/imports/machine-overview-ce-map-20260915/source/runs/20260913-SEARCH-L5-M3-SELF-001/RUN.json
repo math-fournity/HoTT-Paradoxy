@@ -1,0 +1,208 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L5-SELF-GUARANTEE-001",
+  "case_identity_sha256": "e73f77fc7f8372a0e6d4dab77421653cfc7d86a02ea11a74011e04e436cebb18",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-SELF-GUARANTEE-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T19:23:13.566042+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "section_at_liar"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "section_path",
+        "checked_proof"
+      ],
+      "reachable": [
+        "checked_proof",
+        "section_path"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-SELF-GUARANTEE-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 291,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 303,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 5,
+      "rule_count": 4,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['section_at_liar']"
+  },
+  "inputs": {
+    "case_sha256": "13d8aae5e3b4a5658c40b76d59258f711d136d04bf62b3461440c629373862d2",
+    "grammar_path": "machine-overview/grammars/l5-self-guarantee-m3-v1.json",
+    "grammar_sha256": "c483b7c915ba7c061ff1348f51675a155c5d6eacb24f8895bf2445dd5e8cf260",
+    "profile_sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb",
+    "task_path": "machine-overview/tasks/MS-TASK-L5-SELF-GUARANTEE-001.json",
+    "task_sha256": "6cb8bebc46caaa44ac7106a8062b0f0bce456d6d2953d70dd19cd0de743dd409",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l5-self-guarantee-m3-v1.json",
+        "sha256": "c483b7c915ba7c061ff1348f51675a155c5d6eacb24f8895bf2445dd5e8cf260"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/m3-breadth-v1.json",
+        "sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L5-SELF-GUARANTEE-001.json",
+        "sha256": "6cb8bebc46caaa44ac7106a8062b0f0bce456d6d2953d70dd19cd0de743dd409"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "M3-CUBICAL-BREADTH-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L5-M3-SELF-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "53f1d5f3fc155b028012221a654354249fbc9b462a6946b13836836cab494f62"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T19:23:13.563654+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 2,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 44,
+    "rule_count": 5,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "2ae6a0d6679ca7071c580d6690536b693fca05f05ffa1199be1118a71e3d6243",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "section_at_liar"
+              }
+            ],
+            "rule": "evaluate_at_self"
+          }
+        ],
+        "rule": "boolean_no_fixed"
+      },
+      "proof_term": "notNoFixed (encode self self) (cong (λ h → h self) (section liar))",
+      "separation_kind": "self_guarantee_diagonal_boundary",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "boolean_no_fixed",
+        "evaluate_at_self",
+        "section_at_liar"
+      ],
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "c8d59c31d2743d76b2a392b228567f315cd6963a693e90b9a06a65f4ef71fec7",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "section_at_liar"
+                  }
+                ],
+                "rule": "evaluate_at_self"
+              }
+            ],
+            "rule": "fixed_double_sym_decoy"
+          }
+        ],
+        "rule": "boolean_no_fixed"
+      },
+      "proof_term": "notNoFixed (encode self self) (sym (sym (cong (λ h → h self) (section liar))))",
+      "separation_kind": "self_guarantee_diagonal_boundary",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "boolean_no_fixed",
+        "fixed_double_sym_decoy",
+        "evaluate_at_self",
+        "section_at_liar"
+      ],
+      "witness_id": "WV-0002"
+    }
+  ]
+}

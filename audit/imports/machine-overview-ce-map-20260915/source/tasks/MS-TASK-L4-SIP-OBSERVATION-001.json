@@ -1,0 +1,52 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L4-SIP-OBSERVATION-001",
+  "revision": 1,
+  "research_relation": "m3_existing_claim_calibration",
+  "purpose": "Exercise L4 by reconstructing the fixed SIP/ua boundary: a Bool observation outside the structure signature cannot be recovered uniformly across identified presentations.",
+  "source_basis": {
+    "kind": "post-freeze M3 calibration over existing machine-proved C-124 to C-128",
+    "references": ["HoTT/formal/sip-representation/SIPRepresentation.agda", "HoTT/formal/sip-representation/README.md"]
+  },
+  "answer_visibility": {
+    "class": "POST_FREEZE_KNOWN_CALIBRATION_NOT_BLIND",
+    "engine_freeze": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json",
+    "engine_freeze_sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46",
+    "calibration_answer_available_to_search": true,
+    "limitation": "The SIP example and proof were known. This checks automated mechanism reconstruction and correspondence, not novelty."
+  },
+  "input": {"type_ref": "SIPRepresentation.Str with identified s/t and an attempted f : Str → Bool", "available_information": "the SIP/ua identification plus requested values f s = true and f t = false"},
+  "environment": {"reality_model": "two concrete pointed Bool presentations with different external raw observations", "theory_model": "the coarse pointed-structure signature identifies them by SIP/ua", "arrival_policy": "not applicable", "nondeterminism": "none", "fairness": "not applicable"},
+  "observation": {
+    "value": "the raw Bool point requested outside the coarse structure signature",
+    "trace": "the observer must respect every identity of Str",
+    "time_structure": {"reality": "no time claim; this is an operational identity/observation task", "theory": "SIP/ua structure identity and transport", "temporal_order": "not applicable"}
+  },
+  "completion": {"kind": "uniform_outside_observation", "criterion_ref": "one f : Str → Bool returns true at s and false at t"},
+  "quantifiers": {"instances": "the fixed s/t SIP example and all proposed observers f", "realization": "native Cubical Agda reconstruction"},
+  "allowed_resources": "pinned SIPRepresentation source and declared symbolic rules through depth 4",
+  "prohibited_extra_information": "no refined Bool field may be silently added to Str after search",
+  "assumptions": ["the coarse signature and external observation are fixed", "adding the observation to Str' is a positive repair, not recovery from Str"],
+  "obligations": ["the witness must map the SIP identification through f and compose both requested values", "ablation of sip_identification must remove the goal", "Str' separation must remain a positive control", "the result must stay an existing-claim calibration"],
+  "known_positive_controls": [
+    {"id": "SIP-IDENTIFICATION", "description": "C-124-identification relates s and t", "source": "HoTT/formal/sip-representation/SIPRepresentation.agda", "claim_refs": ["C-124"]},
+    {"id": "REFINED-SIGNATURE-SEPARATES", "description": "C-128-no-identification separates s' and t' after adding the observation", "source": "HoTT/formal/sip-representation/SIPRepresentation.agda", "claim_refs": ["C-128"]}
+  ],
+  "known_negative_controls": [{"id": "COARSE-PATH-NOT-REFINED-PATH", "description": "C-124-identification cannot inhabit s' = t'", "expected": "NATIVE_TYPE_REJECTION"}],
+  "claim_refs": ["C-124", "C-125", "C-126", "C-127", "C-128"],
+  "correspondence": {
+    "original_activity": "read the concrete Bool point from each of two presentations",
+    "theoryization_steps": ["retain only the pointed-structure signature", "identify s and t by SIP/ua", "demand one identity-respecting observer recover the omitted raw distinction"],
+    "preserved_fields": ["the fixed s/t structures", "the requested true/false observations", "the same coarse signature"],
+    "changed_fields": ["the concrete representation observation lies outside the signature preserved by identity"],
+    "observation_justification": "the external observation and its two values are declared before search",
+    "declared_observation_kinds": ["identity_observation_boundary"],
+    "consumer_requirements": {"identity_observation_boundary": {"required_rules": ["sip_identification", "map_observer", "left_specification", "right_specification", "chain_observation", "bool_apart"]}},
+    "preservation_label": "SIP_TASK_AND_OUTSIDE_OBSERVATION_PRESERVED",
+    "correspondence_status": "OUTSIDE_SIGNATURE_OBSERVATION_REQUIRES_REFINEMENT",
+    "reality_correspondence": "FIXED_FORMAL_PRESENTATIONS",
+    "reality_bridge_status": "NO_NATURAL_CONSUMER_CLAIM",
+    "reality_bridge_detail": "The case is the existing fixed SIP model; no actual application is claimed to overextend substitution.",
+    "open_obligations": ["find an actual consumer before upgrading the representation boundary"]
+  }
+}

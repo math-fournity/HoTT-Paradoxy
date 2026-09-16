@@ -1,0 +1,305 @@
+{
+  "schema_version": "machine-overview-natural-consumer-decisions/v1",
+  "audit_id": "L3-NATURAL-CONSUMER-AUDIT-001",
+  "asset_management": "HUMAN_EDITED_SEMANTIC_OWNER; scripts validate pins and table completeness but do not decide E1-E6",
+  "scope": {
+    "path": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/SCOPE.json",
+    "bytes": 6261,
+    "sha256": "ce2930e07a223a187016f8c35c42ce9b9489c9f3e8824aa94860eddd9e186743"
+  },
+  "scope_correction": {
+    "path": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/SCOPE-CORRECTION-001.json",
+    "bytes": 1942,
+    "sha256": "33a7ed5427c0470d63fd50ef32acb0a5c933346b118c7ae08fed7ce983076142"
+  },
+  "retrieval_manifest": {
+    "path": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/RETRIEVAL-MANIFEST.json",
+    "bytes": 8838,
+    "sha256": "e63ef67bc61fcc63940014ff29f6cb12eb6fb57eb89a52d5d34716f968060f1b"
+  },
+  "keyword_inventory": {
+    "path": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/KEYWORD-INVENTORY.json",
+    "bytes": 345035,
+    "sha256": "8dc76b688b5b32d363337e0656aef05fce489df3f91b3b266e46fbb0aa3b4371",
+    "deterministic_sha256": "89972826f625e03a303d8de2985319dee7a5c9c44cd1e32bccc1039324aa81e5"
+  },
+  "decision_semantics": "PASS means the source's same fixed construction establishes the criterion. FAIL means it does not. A source is a hit only if E1-E6 all PASS; keyword counts route reading but never decide a criterion.",
+  "sources": [
+    {
+      "source_id": "NC-01-HOTT-BOOK",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "The book uses moments in time to explain a classical topological path, then interprets identity types as paths. It does not install that pedagogical parameter as an operational activity clock inside HoTT.",
+          "evidence": ["PDF page 15, Introduction:386-394", "PDF page 71, Chapter 2:2743-2756"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "The cited construction concerns identity, homotopy and continuous deformation; it promises no exact Pending/Done or arrival observation through one path coordinate.",
+          "evidence": ["PDF page 71, Chapter 2:2743-2764", "keyword inventory: semantic event hits absent"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "There is no qualifying temporal consumer to which the absence condition could apply.",
+          "evidence": ["PDF page 15, Introduction:386-394"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "No exact-completion obligation is derived; the discussion is the homotopical interpretation of equality.",
+          "evidence": ["PDF page 15, Introduction:405-417"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "The book explicitly limits topological language: types are treated purely homotopically and ordinary notions such as open subsets and convergence do not automatically apply.",
+          "evidence": ["PDF page 15, Introduction:386-394"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "No original operational completion task is asserted in the path analogy.",
+          "evidence": ["PDF page 71, Chapter 2:2743-2764"]
+        }
+      },
+      "strongest_counter_reading": "The phrase about a point at each moment in time is the strongest literal-time reading, but it belongs to the classical topological motivation and is bounded by the book's pure-homotopy caveat."
+    },
+    {
+      "source_id": "NC-02-AGDA-CUBICAL-MANUAL",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "The manual defines I as a cubical interval in IUniv and Path as equality represented like a function out of I; it does not give I an activity-time interface.",
+          "evidence": ["cubical.lagda.rst:128-134", "cubical.lagda.rst:169-195"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "No event, arrival or completion consumer is defined in the audited manual source.",
+          "evidence": ["keyword inventory NC-02: event=0, arrival=0, completion=0, time=0"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "There is no temporal completion construction to qualify.",
+          "evidence": ["cubical.lagda.rst:125-214"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "The rules described are Path/equality, transport and composition rules; no failure of an original completion activity is stated.",
+          "evidence": ["cubical.lagda.rst:169-214", "cubical.lagda.rst:346-402"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "The source explicitly states that I has special sort IUniv and that a path is not exactly an ordinary function.",
+          "evidence": ["cubical.lagda.rst:128-134", "cubical.lagda.rst:195-197", "cubical.lagda.rst:1055-1057"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "The manual makes no real-activity completion promise.",
+          "evidence": ["cubical.lagda.rst:125-214"]
+        }
+      },
+      "strongest_counter_reading": "The real-unit-interval intuition could invite a literal reading, but the formal purpose and sort restrictions identify it as the dimension used for Path equality."
+    },
+    {
+      "source_id": "NC-03-CUBICAL-LIBRARY",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "The 1,111-file v0.9 tree contains no clock, tick, temporal, concurrency or arrival token in the deterministic whole-tree inventory. I-indexed code is used for paths, fillers, transport and HIT boundaries.",
+          "evidence": ["KEYWORD-INVENTORY.json NC-03", "tree SHA-256 73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "The closest Bool endpoint example is a Partial boundary, not a total I-indexed discrete completion observable.",
+          "evidence": ["Cubical/Papers/Synthetic.agda:61-63"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "No qualifying activity-time consumer occurs in the fixed library tree.",
+          "evidence": ["KEYWORD-INVENTORY.json NC-03"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "No exact activity-completion obligation was located; endpoint distinctions occur under explicit Partial/HIT boundary types.",
+          "evidence": ["Cubical/Papers/Synthetic.agda:58-65"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "The relevant different-Bool endpoint term is explicitly typed as Partial on the endpoint formula, preserving the qualification that it is not a total path.",
+          "evidence": ["Cubical/Papers/Synthetic.agda:61-63"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "No original activity or completion promise was found in the fixed tree.",
+          "evidence": ["KEYWORD-INVENTORY.json NC-03"]
+        }
+      },
+      "strongest_counter_reading": "partialBool has different endpoint observations, but its Partial type is exactly the explicit fence preventing it from being treated as a total Bool path."
+    },
+    {
+      "source_id": "NC-04-CUBICAL-AGDA-PAPER",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "The paper presents I-indexed paths as equality and uses them to transport programs, prove stream equality and define HIT boundaries, not to run a stream or activity through time.",
+          "evidence": ["PDF page 4:167-185", "PDF page 9:375-405", "PDF page 14:609-614"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "The stream example separates productivity of projection from Path equality; it does not observe a discrete completion through the interval variable.",
+          "evidence": ["PDF page 9:375-405"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "There is no exact-event consumer in the construction under review.",
+          "evidence": ["PDF pages 4, 9 and 14"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "The stated boundary restriction is the intended continuous/equality behavior of Path, not a claim that an original discrete activity cannot complete.",
+          "evidence": ["PDF page 14:609-614"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "The paper explicitly explains that Path behaves as a continuous function and cannot return arbitrarily different endpoint values.",
+          "evidence": ["PDF page 14:609-614"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "No original real activity is promised exact completion by the path examples.",
+          "evidence": ["PDF pages 4-14"]
+        }
+      },
+      "strongest_counter_reading": "The coinductive stream example mentions finite-time productivity and then introduces an interval variable, but the former concerns projection unfolding while the latter proves equality between streams."
+    },
+    {
+      "source_id": "NC-05-GUARDED-CUBICAL",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "The cubical interval constrains fixed-point unfolding and forms Path equalities. Guarded temporal availability is carried by the separate later type and the omega presheaf coordinate.",
+          "evidence": ["PDF page 6:213-262", "PDF page 8:299-318", "PDF page 31:1277-1287", "PDF page 38:1689-1699"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "The paper specifies later availability, guarded fixed points and productivity; it does not promise exact discrete completion through one I-indexed observable.",
+          "evidence": ["PDF page 6:243-262", "PDF pages 8-11"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "The later type, delayed substitutions, next and the omega step index are explicit separate progression structure.",
+          "evidence": ["PDF page 6:213-252", "PDF page 31:1277-1287"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "Cubical Path supplies extensional equality for guarded constructs; progression and productivity obligations come from guarded recursion and later, not from identifying Path with activity time.",
+          "evidence": ["PDF page 6:253-262", "PDF page 38:1689-1699"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "The source explicitly presents GCTT as a combination of two structures and records future clock-quantification qualifications.",
+          "evidence": ["PDF page 38:1689-1709"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "No failure of an original physical or operational completion task is attributed to the cubical interval.",
+          "evidence": ["PDF pages 6-11 and 38"]
+        }
+      },
+      "strongest_counter_reading": "The paper does use I to connect a fixed point with one unfolding, which looks temporal. Its own syntax and C-times-omega model nevertheless assign delayed availability to later/omega and use I for Path coherence."
+    },
+    {
+      "source_id": "NC-06-CLOCKED-CUBICAL",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "The paper explicitly assigns time steps to clock-indexed later modalities and ticks; Cubical Path implements equality, tick irrelevance and bisimilarity.",
+          "evidence": ["PDF page 1:74-88", "PDF page 2:100-147", "PDF page 3:299-324"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "The temporal promise is productive availability after ticks, not exact observation of a discrete completion through an I-indexed phase map.",
+          "evidence": ["PDF page 1:74-88", "PDF page 3:299-324"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "Clocks, ticks, later and forcing ticks are explicit separate progression structure.",
+          "evidence": ["PDF pages 2-4:117-147 and 299-390"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "The time-step discipline belongs to Clocked Type Theory; Cubical Path supplies extensional equality and paths between ticks rather than replacing the clocks.",
+          "evidence": ["PDF page 2:100-147", "PDF page 3:299-324"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "Clock irrelevance is recorded as a side condition in the coinductive encoding, and clocks/ticks have explicit formation and elimination rules.",
+          "evidence": ["PDF page 2:175-190", "PDF pages 3-4:299-390"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "The source does not blame Path semantics for failure of an original completion activity.",
+          "evidence": ["PDF pages 1-4"]
+        }
+      },
+      "strongest_counter_reading": "The source says clock is similar to I because neither is an ordinary type, but it immediately maintains separate clock, tick and interval assumptions with different roles."
+    },
+    {
+      "source_id": "NC-07-DIRECTED-HOTT",
+      "hit": false,
+      "criteria": {
+        "E1_ACTIVITY_TIME_CARRIER": {
+          "status": "FAIL",
+          "reason": "Directed paths do represent possible executions, but the paper introduces a new homomorphism type former for them and contrasts it with reversible identity paths.",
+          "evidence": ["PDF page 2:46-89", "PDF pages 15-16:748-814"]
+        },
+        "E2_EXACT_DISCRETE_COMPLETION": {
+          "status": "FAIL",
+          "reason": "The concurrency example defines reachability and safety through directed morphism witnesses; it does not use one ordinary identity Path to expose a discrete completion predicate.",
+          "evidence": ["PDF pages 15-16:758-825"]
+        },
+        "E3_NO_SEPARATE_EVENT_STRUCTURE": {
+          "status": "FAIL",
+          "reason": "The hom type and directed-space structure are explicit additions distinct from the identity type.",
+          "evidence": ["PDF pages 2-3:68-125", "PDF page 16:805-821"]
+        },
+        "E4_HOTT_SPECIFIC_OBLIGATION": {
+          "status": "FAIL",
+          "reason": "The source's process direction and reachability come from the added directed structure, not an obligation imposed by ordinary HoTT identity.",
+          "evidence": ["PDF page 2:68-89", "PDF pages 15-16:758-821"]
+        },
+        "E5_NO_EXPLICIT_QUALIFICATION": {
+          "status": "FAIL",
+          "reason": "The distinction between reversible identity paths and irreversible directed homomorphisms is the paper's stated design motivation.",
+          "evidence": ["PDF pages 1-3:4-20 and 46-89"]
+        },
+        "E6_ORIGINAL_TASK_PROMISE": {
+          "status": "FAIL",
+          "reason": "The source offers an extended theory for process executions; it does not claim ordinary HoTT Path already provides and then obstructs exact completion.",
+          "evidence": ["PDF pages 15-16:748-825"]
+        }
+      },
+      "strongest_counter_reading": "This is the clearest real process use of path language in the set, but its central move is to add directed hom types because ordinary identity paths are reversible."
+    }
+  ],
+  "summary": {
+    "frozen_sources": 7,
+    "evaluated_sources": 7,
+    "hits": 0,
+    "unknown_criteria": 0,
+    "result": "ZERO_E1_TO_E6_HITS_IN_FROZEN_SEVEN_SOURCE_SET",
+    "bounded_negative": "Within these seven fixed versions, no single construction uses ordinary HoTT/Cubical Path or dimension as an activity-time carrier, promises exact discrete completion through that same carrier, omits separate temporal/event structure, and attributes the resulting obstacle to the original activity.",
+    "candidate_effect": "L3-INTERVAL-COMPLETION-001 is not upgraded. In this source set the evidence favors REPRESENTATION_BOUNDARY / DEFENSE_WORKS: temporal systems add later, clocks, ticks or directed homs; Cubical Path retains its equality/coherence role.",
+    "forbidden_extrapolation": "This audit does not prove that no natural consumer exists in all literature, all code, later versions, unpublished work or physical interpretations."
+  },
+  "strongest_cross_source_counter_readings": [
+    "HoTT Book page 71 uses moment-in-time language for a classical topological path.",
+    "Guarded Cubical Type Theory uses the cubical interval to constrain fixed-point unfolding.",
+    "Directed HoTT uses directed paths to represent concurrent executions."
+  ],
+  "counter_reading_resolution": "None satisfies E1-E6 in one construction: the book limits the analogy to homotopical identity, GCTT gives temporal availability to later/omega, and Directed HoTT introduces a separate hom type for irreversible execution.",
+  "status": "BOUNDED_NEGATIVE_COMPLETE / L3_CANDIDATE_NOT_UPGRADED / NOT_A_GLOBAL_NONEXISTENCE_RESULT"
+}

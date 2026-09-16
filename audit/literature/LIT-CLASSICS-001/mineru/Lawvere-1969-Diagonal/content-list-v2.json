@@ -1,0 +1,4471 @@
+[
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Reprints in Theory and Applications of Categories, No. 15, 2006, pp. 1–13."
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                90,
+                680,
+                106
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                290,
+                130,
+                710,
+                192
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Author Commentary"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                115,
+                277,
+                339,
+                296
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In May 1967 I had suggested in my Chicago lectures certain applications of category theory to smooth geometry and dynamics, reviving a direct approach to function spaces and therefore to functionals. Making that suggestion more explicit led later to elementary topos theory as well as to the line of research now known as synthetic diferential geometry. The fuller development of those subjects turned out to involve a truth value object that classifies subobjects, but in the present paper (presented in the 1968 Battelle conference in Seattle) I refer only to weak properties of such an object; it is the other axiom, cartesian closure, that plays the central role."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                307,
+                887,
+                445
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Daniel Kan had recognized that the function space construction for simplicial sets and other categories is a right adjoint, thus unique. Because this uniqueness property of adjoints implies their main calculational rules, I took the further axiomatic step of defining functor categories as a right adjoint to the finite product construction in my 1963 thesis. In 1965, Eilenberg and Kelly introduced the term closed to mean that there is a hom functor valued in the category itself. Such a hom functor is characterized in a relative way as right adjoint to a given tensor product functor; we concentrate here on the absolute case where the tensor is cartesian."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                445,
+                887,
+                583
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Although the cartesian-closed view of function spaces and functionals was intuitively obvious in all but name to Volterra and Hurewicz (and implicitly to Bernoulli), it has counterexamples within the rigid framework advocated by Dieudonn´e and others. According to that framework the only acceptable fundamental structure for expressing the cohesiveness of space is a contravariant algebra of open sets or possibly of functions. Even though such algebras are of course extremely important invariants, their nature is better seen as a consequence of the covariant geometry of figures. Specific cases of this determining role of figures were obvious in the work of Kan and in the popularizations of Hurewicz’s k-spaces by Kelley, Brown, Spanier, and Steenrod, but in the present paper I made this role a matter of principle: the Yoneda embedding was shown to preserve cartesian closure, and naturality of functionals was shown to be equivalent to Bernoulli’s principle. Further, I posed the problem of comparing this principle to practice in the specific cases of smooth and recursive mathematics."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                583,
+                887,
+                757
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "Received by the editors 2005-12-05."
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                777,
+                415,
+                794
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "Transmitted by R. Par´e, R. Rosebrugh and R.J. Wood. Reprint published on 2006-02-24."
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                793,
+                808,
+                808
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "2000 Mathematics Subject Classification: 08.10, 02.00."
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                807,
+                557,
+                823
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "Originally published as: Lecture Notes in Mathematics, No. 92, pages 134-145, 1969; used by permission."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                821,
+                885,
+                852
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "1"
+                    }
+                ]
+            },
+            "bbox": [
+                494,
+                859,
+                507,
+                872
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                114,
+                117,
+                885,
+                168
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Later detailed work on those particular cases justified the classical intuition embodied in my general definition. In their books Froelicher and Kriegl (1988), and Kriegl and Michor (1997), extensively develop smooth analysis; their higher-order use of the adequacy of figures is based in part on a lower-order result of Boman 1967 (implicit in Hadamard) concerning the adequacy of paths. They cite the result of Lawvere-Schanuel-Zame showing that the natural functionals in this case are indeed the distributions of compact support, as practice would suggest. Nilpotent infinitesimals fall far short of even one-dimensionality, but if taken to be non-commutative, are already adequate for holomorphic functions, as was strikingly shown by Steve Schanuel (1982). The recursive example was studied by Phil Mulry (1982) who constructed a topos that does include as full sub-categories both the Banach-Mazur and the Ersov versions of higher recursive functionals."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                168,
+                887,
+                357
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I hope that in the future this adequacy of one-dimensional figures will be explained because it occurs in many diferent examples. Many kinds of cohesion (algebraic geometry, smooth geometry, continuous geometry) are well-expressed as a subtopos of the classifying topos of a finitary single-sorted algebraic theory. But often that algebraic theory is determined by its monoid M of unary operations via naturality only: for example, the binary operations, instead of being independently specified, are just the maps of right M-sets from M<sup>2</sup> to M. If a common explanation can be found (for this adequacy of onedimensional considerations in the determination of n-dimensional and infinite-dimensional functionals, in so many disparate cases) it would further establish that the Eilenberg-Mac Lane notion of naturality is far more powerful than the mere tautology it is sometimes considered to be."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                357,
+                887,
+                545
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The original aim of this article was to demystify the incompleteness theorem of G¨odel and the truth-definition theory of Tarski by showing that both are consequences of some very simple algebra in the cartesian-closed setting. It was always hard for many to comprehend how Cantor’s mathematical theorem could be re-christened as a“paradox” by Russell and how G¨odel’s theorem could be so often declared to be the most significant result of the 20th century. There was always the suspicion among scientists that such extra-mathematical publicity movements concealed an agenda for re-establishing belief as a substitute for science. Now, one hundred years after G¨odel’s birth, the organized attempts to harness his great mathematical work to such an agenda have become explicit."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                545,
+                887,
+                700
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I thank the editors of TAC, and especially Christoph Schubert whose dedication and expertise made this reprint possible."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                700,
+                885,
+                733
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "F. William Lawvere"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                741,
+                295,
+                757
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Bufalo, N.Y."
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                758,
+                236,
+                775
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "19 February 2006"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                776,
+                273,
+                793
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "2"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                90,
+                132,
+                103
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "F. WILLIAM LAWVERE"
+                    }
+                ]
+            },
+            "bbox": [
+                403,
+                90,
+                600,
+                105
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Introduction"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                115,
+                117,
+                252,
+                135
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The similarity between the famous arguments of Cantor, Russell, G¨odel and Tarski is well-known, and suggests that these arguments should all be special cases of a single theorem about a suitable kind of abstract structure. We ofer here a fixed-point theorem in cartesian closed categories which seems to play this role. Cartesian closed categories seem also to serve as a common abstraction of type theory and propositional logic, but the author’s discussion at the Seattle conference of the development of that observation will be in part described elsewhere [“Adjointness in Foundations”, to appear in Dialectica, and “Equality in Hyperdoctrines and the Comprehension Schema as an Adjoint Functor”, to appear in the Proceedings of the AMS Symposium on Applications of Category theory]."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                146,
+                887,
+                302
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1. Exponentiation, surjectivity, and a fixed-point theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                115,
+                327,
+                721,
+                347
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "By a cartesian closed category is meant a category C equipped with the following three kinds of right-adjoints: a right adjoint 1 to the unique"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                357,
+                885,
+                391
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathrm{C} \\longrightarrow 1,",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/57aa440b7224cb5756fc3ef3417fe3816ffd1863b2590d405274c1ee135da3cd.jpg"
+                }
+            },
+            "bbox": [
+                453,
+                402,
+                546,
+                418
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "a right adjoint × to the diagonal functor"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                429,
+                475,
+                447
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathbf {C} \\longrightarrow \\mathbf {C} \\times \\mathbf {C},",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/a3d0c9cad84ff80834414b07d5d75506243c022d3c6c9d3bec260b30208f0525.jpg"
+                }
+            },
+            "bbox": [
+                431,
+                457,
+                569,
+                473
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and for each object A in C, a right-adjoint "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( \\mathbf { \\nabla } ) ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "to the functor"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                486,
+                658,
+                503
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathrm{C} \\xrightarrow {A \\times ()} \\mathrm{C}.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/23ae65af38580499c5421f70a586b725308c0634208d18514d85af07e680f06c.jpg"
+                }
+            },
+            "bbox": [
+                433,
+                515,
+                564,
+                536
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The adjunction transformations for these adjoint situations, also assumed given, will be denoted by "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\delta , \\pi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in the case of products and by "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\lambda _ { A } , \\epsilon _ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in case of exponentiation by A. Thus for each X one has"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                549,
+                885,
+                600
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "X \\xrightarrow {X \\lambda_ {A}} (A \\times X) ^ {A}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/df7ad61418a2af96a85a668d0c71672f0e608c0493e450ecbc9bdfde129d2561.jpg"
+                }
+            },
+            "bbox": [
+                406,
+                599,
+                594,
+                621
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and for each Y one has"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                627,
+                324,
+                644
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\times Y ^ {A} \\xrightarrow {Y \\epsilon_ {A}} Y.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/02d2499fe17ac210de387aeef2e6363b19b8877d523ed8f3798ff72286276545.jpg"
+                }
+            },
+            "bbox": [
+                415,
+                643,
+                584,
+                663
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Given "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A \\times X \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", the composite morphism"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                671,
+                556,
+                688
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "X \\xrightarrow {X \\lambda_ {A}} (A \\times X) ^ {A} \\xrightarrow {f ^ {A}} Y ^ {A}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f4610f31ce92a458af67e5fb190e6b43af42fff11770101eb69b75784d4d9e89.jpg"
+                }
+            },
+            "bbox": [
+                357,
+                699,
+                642,
+                723
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "will be called the “λ-transform” of the morphism f. A morphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "h : X \\longrightarrow Y ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is the λ-transform of f if the diagram"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                733,
+                885,
+                769
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} A \\times X \\\\ \\Big \\downarrow_ {A \\times h} \\Big \\downarrow_ {f} \\\\ A \\times Y ^ {A} \\xrightarrow [ Y \\epsilon_ {A} ]{} Y \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/bb5acbb18b88b9c34a5f192fd2c08c8c2f6a30762f6b9947ff0603699242f2b8.jpg"
+                }
+            },
+            "bbox": [
+                428,
+                779,
+                571,
+                850
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                90,
+                779,
+                105
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "3"
+                    }
+                ]
+            },
+            "bbox": [
+                870,
+                90,
+                885,
+                103
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is commutative, showing in particular that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f"
+                    },
+                    {
+                        "type": "text",
+                        "content": "can be uniquely recovered from its λ- transform. Taking the case "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", one has that every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "gives rise to a unique "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\displaystyle { } ^ { \\Gamma } f ^ { \\daleth } : 1 \\longrightarrow Y ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and that every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "1 \\longrightarrow Y ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is of that form for a unique "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Since for every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a : 1 \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "one has (dropping the indices "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A , Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "on \u0004 when they are clear)"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                117,
+                887,
+                186
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle a, \\ulcorner f \\urcorner \\rangle \\epsilon = a. f,",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/aa6bacef1e5ce0402100f85e56e7e6ab36efd1f52759425781f6a9a805e4edf0.jpg"
+                }
+            },
+            "bbox": [
+                430,
+                197,
+                571,
+                217
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "one calls \u0004 the “evaluation” natural transformation; note however that we do not assume in general that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is determined by the knowledge of all its “values” "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a . f ."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                228,
+                885,
+                262
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Although we do not make use of it in this paper, the usefulness of cartesian closed categories as algebraic versions of type theory can be further illustrated by assuming that the coproduct"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                263,
+                885,
+                314
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "2 = 1 + 1",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/b81562e3a951d73ce980defc9c6c44a38fc2dc1af58d2e1ad64f681e74d91f0d.jpg"
+                }
+            },
+            "bbox": [
+                455,
+                315,
+                544,
+                330
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "also exists in C. It then follows (using the closed structure), that for every object A"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                338,
+                850,
+                356
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\times 2 = A + A",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/79813c802f8a74efedb78789260aab8f67157567893029cd6a96c58e4fc013d3.jpg"
+                }
+            },
+            "bbox": [
+                430,
+                368,
+                571,
+                385
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and so in particular that 2 is a Boolean-algebra-object in C, i.e. that among the morphisms"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                397,
+                885,
+                416
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "2 \\times 2 \\times \\dots \\times 2 \\longrightarrow 2",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/15a4bd4d0b48f28b5cde68d0ffd8de94d6767388e26bd42b4b66a83d41b067af.jpg"
+                }
+            },
+            "bbox": [
+                401,
+                428,
+                600,
+                445
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "in C there are well determined morphisms corresponding to all the finitary (two-valued) truth tables, and that these satisfy all the commutative diagrams expressing the axioms of Boolean algebra. Equivalently, for each X the set"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                458,
+                885,
+                511
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "P _ {\\mathbf {C}} (X) = \\mathbf {C} (X, 2)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/ceb7bbacd84451da998126ac4044cda9292c5e14ab30efa98da5fc45a2b295dd.jpg"
+                }
+            },
+            "bbox": [
+                418,
+                522,
+                579,
+                541
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "of “C-attributes of type "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X ^ { \\dag }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "becomes canonically an actual Boolean algebra, and varying X along any morphism of C induces contravariantly a Boolean homomorphism of attribute algebras. The morphisms 1 \u0001 2 form "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P _ { \\mathbf { C } } ( 1 )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "the Boolean algebra of “truth-values”; among these are the two coproduct injections which play the roles of “true” and “false”. For any “constant of type "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X ^ { \\mathfrak { s } } \\ : x : 1 \\longrightarrow X"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and any attribute "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of type "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X , x . \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is then a truth-value. Now noting that"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                553,
+                887,
+                656
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "X \\times 2 ^ {X} \\xrightarrow {(2) \\epsilon_ {X}} 2",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/a467a805c02e3337a5f9c38a810f67eade6c5acaf7a2baf8edf1fcb9a1c1b917.jpg"
+                }
+            },
+            "bbox": [
+                415,
+                657,
+                586,
+                679
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { a }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "“binary operation” we could write it between its arguments, so that we have"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                687,
+                820,
+                705
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "x \\in \\ulcorner \\varphi \\urcorner = x. \\varphi ,",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f8a58304cf0c3ccd3817c2360bfa155d51bc14c141d17b110edaa95a370096bf.jpg"
+                }
+            },
+            "bbox": [
+                435,
+                718,
+                564,
+                735
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "an equality of truth-values; thus if we think of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": " { \\boldsymbol { \\varphi } } ^ { \\top } : 1 \\longrightarrow 2 ^ { X }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "as the constant naming the subset of X corresponding to the attribute "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "one sees that the above equation expresses the usual “comprehension” axiom."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                747,
+                885,
+                799
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Returning to our immediate concern, we define a morphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g : X \\longrightarrow Z"
+                    },
+                    {
+                        "type": "text",
+                        "content": "to be pointsurjective if for every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "z : 1 \\longrightarrow Z"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there exists "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x : 1 \\longrightarrow X"
+                    },
+                    {
+                        "type": "text",
+                        "content": "with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x . g = z"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". This does not imply that g is necessarily “onto the whole of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Z ^ { \\dag }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", since there may be few morphisms with domain 1; for example if (as in the next section) X and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Z"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are set-valued functors, then a natural transformation "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is point-surjective if every element of the inverse limit of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Z"
+                    },
+                    {
+                        "type": "text",
+                        "content": "comes from an element of the inverse limit of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". In case "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Z"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is of the form "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Y ^ { A } { } _ { ; }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", an even weaker notion of surjectivity can be considered, which in fact sufices for our fixed point theorem. Namely"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                800,
+                885,
+                852
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "4"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                90,
+                132,
+                103
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "F. WILLIAM LAWVERE"
+                    }
+                ]
+            },
+            "bbox": [
+                401,
+                90,
+                600,
+                105
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                114,
+                117,
+                885,
+                203
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "X \\xrightarrow {g} Y ^ {A}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/6535eb7b9e326e4cffbf5777ea248ba4af238d9ee8c9f6a205cd995559f94c4b.jpg"
+                }
+            },
+            "bbox": [
+                445,
+                206,
+                554,
+                225
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "will be called weakly point-surjective if for every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there is x such that for every "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a : 1 \\longrightarrow A"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                237,
+                885,
+                271
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle a, x g \\rangle \\epsilon = a. f",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/e59ad7fe981bc69b2bcd9f489b6ab89c64570cc19ce17ff2ce18b45e616e61ac.jpg"
+                }
+            },
+            "bbox": [
+                438,
+                275,
+                564,
+                293
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Finally we say that an object Y has the fixed point property if for every endomorphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t : Y \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there is "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y : 1 \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y . t = y"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                302,
+                885,
+                338
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1.1. Theorem. In any cartesian closed category, if there exists an object A and a weakly point-surjective morphism"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                347,
+                885,
+                382
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\xrightarrow {g} Y ^ {A}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/5816f98c6cabdf73f0de7eea33d94d3924e01762846f8ce7db18989dbccfa4e5.jpg"
+                }
+            },
+            "bbox": [
+                447,
+                385,
+                552,
+                404
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "has the fixed point property."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                416,
+                426,
+                434
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Let "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline { { g } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "be the morphism whose λ-transform is "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then for any "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A { \\longrightarrow } Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there is "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x : 1 \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a : 1 \\longrightarrow A"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                442,
+                885,
+                478
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle a, x \\rangle \\overline {{g}} = a. f.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f963f70de9ed4e9311d73ef07ef6166e611c0b5ac34457571381856943035953.jpg"
+                }
+            },
+            "bbox": [
+                440,
+                495,
+                561,
+                513
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Now consider any endomorphism t of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and let "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f"
+                    },
+                    {
+                        "type": "text",
+                        "content": "be the composition"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                530,
+                721,
+                547
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\xrightarrow {A \\delta} A \\times A \\xrightarrow {\\overline {{g}}} Y \\xrightarrow {t} Y;",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/e36e423a11123c3586b2fcfce9d746a880f02d9ee592ebc240433303cb55a5d6.jpg"
+                }
+            },
+            "bbox": [
+                354,
+                566,
+                645,
+                586
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "thus there is x such that for all a"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                604,
+                410,
+                621
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle a, x \\rangle \\overline {{g}} = \\langle a, a \\rangle \\overline {{g}} t",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/6ac6a9c8124ba725b722eda72b68f501690add92f0012f798f170af1cc36b1ab.jpg"
+                }
+            },
+            "bbox": [
+                425,
+                638,
+                576,
+                656
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "since "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a ( A \\delta ) = \\langle a , a \\rangle"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". But then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y = \\langle x , x \\rangle { \\overline { { g } } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is clearly a fixed point for t."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                672,
+                729,
+                690
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The famed “diagonal argument” is of course just the contrapositive of our theorem. Cantor’s theorem follows with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Y = 2"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                699,
+                882,
+                733
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1.2. Corollary. If there exists "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t : Y \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that yt "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\neq y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y : 1 \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then for no A does there exist a point-surjective morphism"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                744,
+                885,
+                779
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\longrightarrow Y ^ {A}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/748176f8dca4d3dc1be9c836284f473279217a70d03b6221e430b8e1606b1501.jpg"
+                }
+            },
+            "bbox": [
+                450,
+                794,
+                551,
+                811
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "(or even a weakly point-surjective morphism)."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                830,
+                515,
+                847
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                90,
+                779,
+                105
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "5"
+                    }
+                ]
+            },
+            "bbox": [
+                870,
+                90,
+                885,
+                103
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2. Russell’s Paradox is a case of Cantor’s theorem; natural functionals in recursive function theory and smooth manifold theory"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                112,
+                117,
+                885,
+                157
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Russell’s Paradox does not presuppose that set theory be formulated as a higher type theory; that is, for A the set-theoretical universe, we do not need "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "2 ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for the argument. In fact we need only apply the proof of our theorem, with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline { { { g } } } : A \\times A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "as the settheoretical membership relation, dispensing with g entirely. That is, more generally, our theorem could have been stated and proved in any category with only finite products (no exponentiation) by simply phrasing the notion of (weak) point-surjectivity as a property of a morphism"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                167,
+                887,
+                288
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\times X \\longrightarrow Y;",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/e011564192e483c200dc7ba039d11e0f10941e0eeb2298bfe69470cb3ae3e50d.jpg"
+                }
+            },
+            "bbox": [
+                433,
+                287,
+                569,
+                304
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "however discovering the latter form (or at least calling it surjectivity!) seems to require thinking of such a morphism as a family of morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "indexed by the elements of X, suggesting that a closed category is the “natural” setting for the theorem."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                311,
+                885,
+                362
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In fact the more general form of the theorem just alluded to (for categories with products) follows from the cartesian closed version which we have proved, by virtue of the following remark. Notice that it would sufice to assume C small (just take the full closure under finite products of the two objects A, Y )."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                362,
+                885,
+                432
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2.1. Remark. Any small category C can be fully and faithfully embedded in a cartesian closed category in a manner which preserves any products or exponentials that may exist in C."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                435,
+                887,
+                488
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. We consider the usual embedding"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                494,
+                494,
+                511
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathrm{C} \\longrightarrow \\mathcal {S} ^ {\\mathrm{C} ^ {\\mathrm{op}}}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c6d16fe9d93ad5f5b899292aeabf4873fd03e7e0e94798c18538d2632ef9b6f2.jpg"
+                }
+            },
+            "bbox": [
+                442,
+                517,
+                557,
+                536
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "which identifies an object Y with the contravariant set-valued functor"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                547,
+                724,
+                564
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "X \\longmapsto \\mathbf {C} (X, Y).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/03dc684efc1215a1461f91447c270779a9bf7fd5cb8128387aeaadda64c82b29.jpg"
+                }
+            },
+            "bbox": [
+                426,
+                574,
+                573,
+                591
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "By “Yoneda’s Lemma” one has for any functor Y and any object A that the value at A of Y"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                600,
+                885,
+                634
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A Y \\cong \\mathcal {S} ^ {\\mathrm{C} ^ {\\mathrm{op}}} (A, Y)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/026976674cc1e7a0a7ea5b4654185631e66bb4867c14da5b69befb88de70d185.jpg"
+                }
+            },
+            "bbox": [
+                421,
+                633,
+                579,
+                652
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where the right hand side denotes the set of all natural transformations from (the functor corresponding to) A into "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Y ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ", so that in particular the embedding is full and faithful. It is then also clear that the embedding preserves products (in particular if 1 exists in C it corresponds to the functor that is constantly the one-element set, which is the 1 of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "S ^ { \\mathbf { C } ^ { \\mathrm { { o p } } } } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "). For any two functors A, Y the functor"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                657,
+                885,
+                745
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "C \\longmapsto \\mathcal {S} ^ {\\mathbf {C} ^ {\\mathrm{op}}} (A \\times C, Y)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/0d05f1be330f289b7012e10171f2af93b4e071a288203f23143398f47ae3cd55.jpg"
+                }
+            },
+            "bbox": [
+                398,
+                751,
+                600,
+                770
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "plays the role of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "Y ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". In particular if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "B ^ { A }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "exists in C for a pair of objects A, B in C then"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                780,
+                884,
+                798
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "(C) B ^ {A} \\cong \\mathbf {C} (C, B ^ {A}) \\cong \\mathbf {C} (A \\times C, B) \\cong \\mathcal {S} ^ {\\mathbf {C} ^ {\\mathrm{op}}} (A \\times C, B)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/1575ce584b56daf53234db1e625b3e5c7a609ce21391279eb9dda81ef63d5716.jpg"
+                }
+            },
+            "bbox": [
+                263,
+                805,
+                736,
+                824
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "showing that the embedding preserves exponentiation."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                834,
+                591,
+                851
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "6"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                90,
+                132,
+                103
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "F. WILLIAM LAWVERE"
+                    }
+                ]
+            },
+            "bbox": [
+                401,
+                90,
+                600,
+                105
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2.2. Theorem. Let A, Y be any objects in any category with finite products (including the empty product 1); then the following two statements cannot both be true"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                117,
+                885,
+                152
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "a) there exists "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "{ \\overline { { g } } } : A \\times A \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A { \\longrightarrow } Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there exists "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x : 1 \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a : 1 \\longrightarrow A"
+                    }
+                ]
+            },
+            "bbox": [
+                136,
+                162,
+                885,
+                195
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle a, x \\rangle \\overline {{g}} = a. f",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/7e5cde40effa06e580687929418b7586f4c14bd5355cb6aeb814d2e59620ecc0.jpg"
+                }
+            },
+            "bbox": [
+                467,
+                197,
+                584,
+                214
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "b) there exists "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t : Y \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y : 1 \\longrightarrow Y"
+                    }
+                ]
+            },
+            "bbox": [
+                137,
+                226,
+                633,
+                244
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "y. t \\neq y.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/7c184d99d6248d0f4ded5dd5f425ee48707541322f80c203b28c44b386e479b6.jpg"
+                }
+            },
+            "bbox": [
+                487,
+                258,
+                559,
+                275
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Apply above remark and the proof in the previous section."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                292,
+                707,
+                309
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Of course the “transcendental” proof just given is somewhat ridiculous, since the incompatibility of a) and b) can be proved directly just as simply as it was proved in the previous section under the more restrictive hypothesis on C. However we wish to take the opportunity to make some further remarks about the above canonical embedding of an arbitrary (small) category into a cartesian closed category "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline { { \\mathbf { C } } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "(let the latter denote the smallest full cartesian closed subcategory of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "S ^ { \\mathbf { C } ^ { \\mathrm { { o p } } } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "which contains C). One of the standard ways of embedding a structure into a higher-order structure is to consider “definable” functionals, operators, etc.; however this is dificult to oversee from a simple-minded point of view since it usually requires enumerating all possible definitions. On the other hand in many situations (e.g. functorial semantics of algebraic theories or functorial semantics of elementary theories if the elementary theories are complete) one has come to expect that natural transformations are identical with definable ones or at least a reasonable substitute for definable ones. The latter alternative seems to be a least partly true in the present case. Thus for example we are led to the following definition. If A, "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "B , C , D"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are objects in a category C with finite products, a natural operator"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                315,
+                887,
+                576
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "B ^ {A} \\xrightarrow {\\Phi} D ^ {C}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/19451cd3b45a616a9568e672ba651d28d310875c272ed34855b7db0108cada22.jpg"
+                }
+            },
+            "bbox": [
+                440,
+                587,
+                561,
+                605
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "shall be simply a natural transformation between the exponential functors of the (functors corresponding to the) given objects in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "S ^ { \\mathbf { C } ^ { \\mathrm { { o p } } } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "(hence in "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline { { \\mathbf { C } } } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". In particular if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": "we would call a natural operator a natural functional. Note that 1 will not be a generator for all of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "S ^ { \\mathbf { C } ^ { \\mathrm { { o p } } } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "unless "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { C } = 1 \\mathrm { { : } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "; however it might conceivably be so for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "{ \\overline { { \\mathbf { C } } } } ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and we have a partial result in that direction. In fact, in the case that 1 is a generator for C itself, we can describe in more familiar terms what a natural operator is."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                619,
+                885,
+                723
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Recall that “1 is a generator for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { C } ^ { \\mathfrak { s } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "simply means that a morphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : X \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in C is determined by its “values” "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x . f : 1 \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x : 1 \\longrightarrow X"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". In that case it is sensible to call the elements of the set "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { C } ( 1 , X )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of points of X also the elements of X. Then a function"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                723,
+                885,
+                790
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathbf {C} (1, X) \\longrightarrow \\mathbf {C} (1, Y)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/db8eb7d8e87bdf43b3dad4641ace35612a91f3065b1177eddfebcf6d9d2c579d.jpg"
+                }
+            },
+            "bbox": [
+                403,
+                790,
+                596,
+                809
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is induced by at most one C-morphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X \\longrightarrow Y"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and in case it is, we say by abuse of language that the function is a morphism of C."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                815,
+                885,
+                851
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                90,
+                779,
+                105
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "7"
+                    }
+                ]
+            },
+            "bbox": [
+                870,
+                90,
+                885,
+                103
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2.3. Proposition. Suppose that C is a category with finite products in which 1 is a generator, and A, B, C, D are objects of C. Then"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                117,
+                887,
+                152
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1) a natural operator"
+                    }
+                ]
+            },
+            "bbox": [
+                139,
+                163,
+                331,
+                180
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "B ^ {A} \\xrightarrow {\\Phi} D ^ {C}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c9dce6e78b93950f5bc1f7ac4f683462e955b5caabe87b2227f80f4476bc6c9f.jpg"
+                }
+            },
+            "bbox": [
+                463,
+                181,
+                586,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is entirely determined by a single function"
+                    }
+                ]
+            },
+            "bbox": [
+                164,
+                210,
+                536,
+                226
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathbf {C} (A, B) \\xrightarrow {1 \\Phi} \\mathbf {C} (C, D)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/e3e03a3dcc11a9e47913ad3d394eed19f4122250b0efded2a009d7cc6e427927.jpg"
+                }
+            },
+            "bbox": [
+                415,
+                242,
+                633,
+                263
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and"
+                    }
+                ]
+            },
+            "bbox": [
+                164,
+                276,
+                206,
+                293
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2) such a function determines a natural operator if for every object X of C and for every C-morphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A \\times X \\longrightarrow B"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", the function"
+                    }
+                ]
+            },
+            "bbox": [
+                136,
+                306,
+                887,
+                340
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathbf {C} (1, C \\times X) \\xrightarrow {(f) (X \\Phi)} \\mathbf {C} (1, D)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/7f31a2ac22fa507bd16dfbe7828e0d0d9c409e6c41ee3df07f68e9daa5c0f815.jpg"
+                }
+            },
+            "bbox": [
+                379,
+                355,
+                668,
+                378
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is a C-morphism, where (f)(XΦ) is defined by"
+                    }
+                ]
+            },
+            "bbox": [
+                164,
+                391,
+                578,
+                410
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle c, x \\rangle ((f) (X \\Phi)) = (c) ((f _ {x}) (1 \\Phi))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/2a2ea00f0db955ae2612b3ab6bd924743c5b87b726eaa5b7c55963fab4997e7b.jpg"
+                }
+            },
+            "bbox": [
+                381,
+                423,
+                668,
+                442
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "for any "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "c : 1 \\longrightarrow C , x : 1 \\longrightarrow X"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", f denoting the composition"
+                    }
+                ]
+            },
+            "bbox": [
+                161,
+                456,
+                715,
+                473
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\cong A \\times 1 \\xrightarrow {A \\times x} A \\times X \\xrightarrow {f} B.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f29c2ee083b2bf23f1b9f56282920cbfaee6655eb20efd5ed406345579b49a2b.jpg"
+                }
+            },
+            "bbox": [
+                366,
+                488,
+                680,
+                510
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. We are abusing notations to the extent of identifying a morphism with its λ- transform via the bijections of the form"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                530,
+                885,
+                565
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathbf {C} (A \\times X, B) \\cong \\overline {{\\mathbf {C}}} (A \\times X, B) \\cong \\overline {{\\mathbf {C}}} (X, B ^ {A}).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/43b0d896d450ba2c363f50e453032f8c87d84e894a87152c33ff607bdfc4e422.jpg"
+                }
+            },
+            "bbox": [
+                310,
+                577,
+                687,
+                597
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Actually the given operator "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is a family of functions"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                610,
+                586,
+                628
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathbf {C} (X, B ^ {A}) \\xrightarrow {X \\Phi} \\mathbf {C} (X, D ^ {C})",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/bcf85a867736b1031315632710d56d33f7516dfbe082c35e0cbd5d11acf1a71f.jpg"
+                }
+            },
+            "bbox": [
+                374,
+                642,
+                626,
+                663
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "one for each object of C; the “naturalness” condition that this family must satisfy is, via the abuse, that for every morphism "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x : X ^ { \\prime } { \\longrightarrow } X"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of C, the diagram"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                676,
+                885,
+                713
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} \\mathbf {C} (A \\times X, B) \\xrightarrow {X \\Phi} \\mathbf {C} (C \\times X, D) \\\\ \\Big \\downarrow_ {x} \\qquad \\qquad \\qquad \\qquad \\Big \\downarrow_ {x} \\\\ \\mathbf {C} (A \\times X ^ {\\prime}, B) \\xrightarrow [ X ^ {\\prime} \\Phi ]{} \\mathbf {C} (C \\times X ^ {\\prime}, D) \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/7b3cd8a6f8327d7982d41f48b444ba6500d3ce11070ae0c60a82712b0dbf3f94.jpg"
+                }
+            },
+            "bbox": [
+                349,
+                726,
+                648,
+                802
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "should commute. Now let "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "X ^ { \\prime } = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Since 1 is a generator for C, the value of the function XΦ at a given "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f : A \\times X \\longrightarrow B"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is determined by the knowledge, for each element x of"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                815,
+                887,
+                852
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "8"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                90,
+                132,
+                103
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "F. WILLIAM LAWVERE"
+                    }
+                ]
+            },
+            "bbox": [
+                401,
+                90,
+                601,
+                105
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "X and each element "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "c"
+                    },
+                    {
+                        "type": "text",
+                        "content": "of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "the result reached in the lower right hand corner by going first across, then down, in the commutative diagram"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                116,
+                885,
+                152
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} \\mathbf {C} (A \\times X, B) \\xrightarrow {X \\Phi} \\mathbf {C} (C \\times X, D) \\xrightarrow {c} \\mathbf {C} (X, D) \\\\ x \\Biggl \\downarrow \\qquad \\qquad \\qquad \\qquad \\Biggl \\downarrow x \\\\ \\mathbf {C} (A, B) \\xrightarrow [ 1 \\Phi ]{} \\mathbf {C} (C, D) \\xrightarrow [ c ]{} \\mathbf {C} (1, D). \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/06ff2d573181641f0f05afd8a07e9fef638e25bac4b8a25c590d637c881f016e.jpg"
+                }
+            },
+            "bbox": [
+                295,
+                168,
+                705,
+                242
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "But since the same results are obtained by going down, then across, all the functions XΦ are determined by one function 1Φ, proving the first assertion. The second assertion is then clear, since the definition of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( f ) ( X \\Phi )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "given in the statement of the proposition is just such as to assure naturality of XΦ provided its values exist. 7"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                258,
+                885,
+                328
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To make the situation perfectly clear, notice that morphisms whose codomain is an exponential object can be discussed even though the exponential object does not exist, just by considering instead morphisms whose domain is a product. There is however then the problem of determining the morphisms whose domain is an exponential, and considering them to be the natural operators is in many contexts the smoothest and most “natural” thing to do. Experts on recursive functions or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C ^ { \\infty }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "functions between finite-dimensional manifolds may wish to consider the result of taking C to be these particular categories in the above considerations. They may also wish to consider whether the fixed-point theorem of section one has any applications in those cases."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                338,
+                887,
+                494
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3. Presentation-free formulations of satisfaction, truth, and provability according to G¨odel and Tarski; representability vs. definability"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                115,
+                524,
+                853,
+                566
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In order to apply the theorem of the previous section to obtain Tarski’s theorem concerning the impossibility of defining truth for a theory within the theory itself, we first note briefly how a theory gives rise to a category C with finite products. Consider two objects A, 2 and let the C-morphisms be equivalence classes of (tuples of) formulas or terms of the theory, where two formulas (or terms) are considered equivalent if their logical equivalence (or equality) is provable in the theory. Thus the morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "1 \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are (classes of) constant terms, the morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A \\times A \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are (classes of) terms with two free variables, while morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A ^ { n } \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are (classes of) formulas with n free variables so that in particular morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "1 \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are (classes of) sentences of the theory. In particular there is a morphism true : 1 \u0001 2 corresponding to the class of sentences provable in the theory and similarly a morphism false : "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": ": 1 \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "corresponding to the class of sentences whose negation is provable in the theory. Morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "2 ^ { n } \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "would include all propositional operations, but we will make no use of that except for the following case:"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                577,
+                887,
+                802
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If the theory is consistent there is a morphism not "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\colon 2 \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that ϕ not "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\neq \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for all morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi : 1 \\longrightarrow 2"
+                    }
+                ]
+            },
+            "bbox": [
+                163,
+                815,
+                836,
+                852
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                90,
+                779,
+                105
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "9"
+                    }
+                ]
+            },
+            "bbox": [
+                870,
+                90,
+                885,
+                103
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In particular we will not need to use the fact that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "2 = 1 + 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", although that determines the nature of those hom-sets not explicitly spelled out above. Defining composition to correspond to substitution (for example a constant "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a : 1 \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "composed with a unary formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi : A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "composed with not gives the sentence "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "not : "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "; 1 \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", etc.) we get a category C with finite products which might be called the Lindenbaum category of the theory. Models of the theory can then be viewed as certain functors "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { C } \\longrightarrow S"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". We make no use here of the operation in C induced by quantification in the theory, but the categorical description of this operation will be clear to readers of the two papers cited in the introduction. In our construction above of C we have tacitly assumed that the theory was a first order single-sorted one, in which case all objects of C are isomorphic to those of the form "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A ^ { n } \\times 2 ^ { m }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", but with trivial modification we could have started with a higher-order or several-sorted theory with no change of any significance to the arguments below. To make one point somewhat more explicit note that the projection morphisms "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A ^ { n } \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "arise from the variables of the theory."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                117,
+                887,
+                357
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We then say that satisfaction is definable in the theory if there is a binary formula sat : "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A \\times A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in C such that for every unary formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi : A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there is a constant "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "c : 1 { \\longrightarrow } A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that for every constant a the following diagram commutes in C"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                357,
+                887,
+                409
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} 1 \\xrightarrow {a} A \\\\ \\langle a, c \\rangle \\Biggl \\downarrow \\\\ A \\times A \\xrightarrow [ \\text {sat} ]{} 2 \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/5ad5f5879d24b927bd1df6e4f22f1106e18f6c851eac4052ec1796a632e56a97.jpg"
+                }
+            },
+            "bbox": [
+                430,
+                418,
+                571,
+                488
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Here we imagine taking for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "c \\mathrm { ~ a ~ }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "G¨odel number for (one of the representatives of) "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi ."
+                    },
+                    {
+                        "type": "text",
+                        "content": "The condition would traditionally be expressed by requiring that the sentence"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                497,
+                885,
+                533
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "a \\text {   sat   } c \\iff a \\varphi",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f86c60e55902cb1e99ffb7524692229fd627fc05782728478533490ed55cf8b3.jpg"
+                }
+            },
+            "bbox": [
+                431,
+                543,
+                569,
+                559
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "be provable in the theory, but if C arises from our construction of the Lindenbaum category this amounts to the same thing."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                570,
+                885,
+                604
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Combining the above notion with our remark about the meaning of consistency and the theorem of the previous section we have immediately the"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                604,
+                885,
+                638
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3.1. Corollary. If satisfaction is definable in the theory then the theory is not consistent."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                644,
+                885,
+                678
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In order to show that Truth cannot be defined we first need to say what Truth would mean; that seems to require some further assumptions on the theory, which are however often realizable. Namely we suppose that there is a binary term"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                685,
+                885,
+                737
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A \\times A \\xrightarrow {\\mathrm{subst}} A",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/5796ccf9aac18632005ed34f4fb256aed19a5e6618a7b032ec44166654159b83.jpg"
+                }
+            },
+            "bbox": [
+                420,
+                748,
+                581,
+                767
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "in C and a (“metamathematical”) binary relation"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                777,
+                554,
+                796
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Gamma \\subseteq \\mathbf {C} (1, A) \\times \\mathbf {C} (1, 2)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/78f6cd0a044d515aa70656a5ec31cb6b0d31aa9aca2ac55f98a67a5425a7bb90.jpg"
+                }
+            },
+            "bbox": [
+                401,
+                805,
+                600,
+                823
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "between constants and sentences for which the following holds."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                834,
+                663,
+                851
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "10"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                90,
+                142,
+                103
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "F. WILLIAM LAWVERE"
+                    }
+                ]
+            },
+            "bbox": [
+                403,
+                90,
+                600,
+                105
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1) For all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi : A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there is "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "c : 1 \\longrightarrow A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that for all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a : 1 \\longrightarrow A"
+                    }
+                ]
+            },
+            "bbox": [
+                137,
+                117,
+                769,
+                134
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "(a subst c)Γ(aϕ)"
+                    }
+                ]
+            },
+            "bbox": [
+                453,
+                149,
+                596,
+                167
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For example we could imagine that dΓσ means that d is the G¨odel number of some one of the sentences that represent σ, and that subst is a binary operation which, when applied to a constant a and to a constant c that happens to be the G¨odel number of a unary formula ϕ, yields the G¨odel number of the sentence obtained by substituting a into "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi ."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                188,
+                885,
+                257
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Given a binary relation "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Gamma \\subseteq \\mathbf { C } ( 1 , A ) \\times \\mathbf { C } ( 1 , 2 )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "we say that Truth (of sentences) is definable in the theory (relative to Γ) provided there is a unary formula Truth : "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                257,
+                885,
+                308
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2) For all "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sigma : 1 \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and d : 1 \u0001 A, if dΓσ then dTruth = σ."
+                    }
+                ]
+            },
+            "bbox": [
+                136,
+                321,
+                697,
+                339
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Again the traditional formulation would require that the sentence"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                352,
+                690,
+                370
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\lceil \\sigma \\rceil \\text {Truth} \\Longleftrightarrow \\sigma , \\quad \\text {for} \\lceil \\sigma \\rceil \\Gamma \\sigma",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/662ca360f36dcf10c68782f80c0c21693762267437c02211aabe0ab94501be66.jpg"
+                }
+            },
+            "bbox": [
+                364,
+                383,
+                636,
+                401
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "be provable, but in the Lindenbaum category this just amounts to the equation "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Gamma \\sigma \\mathrm { ^ { 7 } T r u t h = }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "σ."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                416,
+                887,
+                451
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3.2. Theorem. If the theory is consistent and substitution is definable relative to a given binary relation Γ between constants and sentences, then Truth is not definable relative to the same binary relation."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                459,
+                887,
+                510
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. If both 1) and 2) hold then the diagram"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                517,
+                549,
+                536
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} 1 \\xrightarrow {a} A \\\\ \\langle a, c \\rangle \\Biggl \\downarrow \\quad \\Biggl \\backslash d \\\\ A \\times A \\xrightarrow [ \\text {subst} ]{} A \\xrightarrow {} 2 \\\\ \\text {Truth} \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c1e3d13437cc836df72d90f6e3c3ed17853e9e61f4742cdc67a9bff09f108bdd.jpg"
+                }
+            },
+            "bbox": [
+                403,
+                551,
+                596,
+                621
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "shows that"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                635,
+                216,
+                650
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} A \\times A \\xrightarrow {\\text { subst }} A \\\\ \\searrow \\quad \\downarrow \\text {   Truth   } \\\\ 2 \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/a912dd721c3d1b9800fa71aade911a4585527fe1310424f7579e093e8689e09d.jpg"
+                }
+            },
+            "bbox": [
+                421,
+                650,
+                581,
+                714
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is a definition of satisfaction, contradicting the previous result."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                724,
+                662,
+                739
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We will also prove an “incompleteness theorem”, using the notion of a Provability predicate. Given a binary relation Γ between constants and sentences, we say that Provability is representable in the theory if there is a unary formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname* { P r } : A \\longrightarrow 2"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                748,
+                885,
+                815
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3) Whenever dΓσ then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "d { \\mathrm { P r } } = { \\mathrm { t r u e ~ i f f ~ } } \\sigma = { \\mathrm { t r u e } }"
+                    }
+                ]
+            },
+            "bbox": [
+                136,
+                830,
+                551,
+                847
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                90,
+                779,
+                105
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "11"
+                    }
+                ]
+            },
+            "bbox": [
+                860,
+                90,
+                882,
+                103
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3.3. Theorem. Suppose that for a given binary relation Γ between constants and sentences of C, substitution is definable and Provability is representable. Then the theory is not complete if it is consistent."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                117,
+                885,
+                169
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Suppose on the contrary that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { C } ( 1 , 2 ) = \\{ \\mathrm { f a l s e } , \\mathrm { t r u e } \\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Our notion of consistency implies that false "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\neq"
+                    },
+                    {
+                        "type": "text",
+                        "content": "true. Condition 3) states that for dΓσ"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                176,
+                885,
+                212
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "a) σ = true implies "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "d { \\mathrm { P r } } = { \\mathrm { t r u e } }"
+                    }
+                ]
+            },
+            "bbox": [
+                136,
+                226,
+                413,
+                244
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "b) "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sigma \\ne"
+                    },
+                    {
+                        "type": "text",
+                        "content": "true implies dPr "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\neq"
+                    },
+                    {
+                        "type": "text",
+                        "content": "true"
+                    }
+                ]
+            },
+            "bbox": [
+                134,
+                258,
+                413,
+                277
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "By completeness b) implies"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                290,
+                359,
+                309
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "b’) σ = false implies dPr = false"
+                    }
+                ]
+            },
+            "bbox": [
+                127,
+                323,
+                418,
+                340
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "But a) and b’) together with completeness mean that whenever dΓσ,"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                356,
+                715,
+                374
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/f7982bb6772849aa5b2f1f3a8a76a7502241805176a6f9e0cbf4de5a871fdc3c.jpg"
+                },
+                "content": "",
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                455,
+                391,
+                544,
+                456
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "is commutative, i.e. that "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathrm { P r }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "satisfies condition 2) for a Truth-definition, which by our previous theorem yields a contradiction. 厂"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                472,
+                887,
+                508
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Note: Our proposition in section 2. can be interpreted as a fragment of a general theory developed by Eilenberg and Kelly from an idea of Spanier."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                515,
+                885,
+                552
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Appendix"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                115,
+                581,
+                225,
+                600
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Shortly after this article was published I realized that the relation Γ used in section 3. is actually superfluous for the purpose at hand. A mere existential condition sufices because the trace of a specific G¨odel numbering is not required. The essential content of the contrast between provability (attainable) and a truth definition (unattainable) can as well be expressed simply by requiring less of a given map of the satisfaction type: for every unary formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "there should exist a number c that B-represents it in the sense that for every number a the satisfaction map gives the result of substituting a into "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                612,
+                887,
+                733
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "a \\mathrm{sat} c = a \\phi",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/29c4008c71706706797297997d23df17aa24ac27242b4f1dd7f7375c486331cf.jpg"
+                }
+            },
+            "bbox": [
+                443,
+                749,
+                559,
+                764
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "but only in case both sides of the equation are in the specified subset "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "B \\subseteq \\mathbf { C } ( 1 , 2 )"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The usual meaning of representability and provability is thus expressed if B contains at least the two elements true and false; by contrast, completeness is represented if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "B = \\mathbf { C } ( 1 , 2 )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "in other words, if all nullary formulas are in B. However, if the present point of view is to be extended to include also G¨odel’s second incompleteness theorem, a specific relation between formulas and their numbers may be required."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                782,
+                885,
+                852
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "12"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                90,
+                142,
+                103
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "F. WILLIAM LAWVERE"
+                    }
+                ]
+            },
+            "bbox": [
+                401,
+                90,
+                600,
+                105
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                115,
+                116,
+                885,
+                150
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Mathematics Department, State University of New York"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                163,
+                611,
+                182
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "244 Mathematics Building, Bufalo, N.Y. 14260-2900 USA"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                182,
+                628,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Email: wlawvere@buffalo.edu"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                200,
+                400,
+                217
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This article may be accessed from http://www.tac.mta.ca/tac/reprints or by anonymous ftp at ftp://ftp.tac.mta.ca/pub/tac/html/tac/reprints/articles/15/tr15.{dvi,ps}"
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                231,
+                882,
+                283
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "DIAGONAL ARGUMENTS AND CARTESIAN CLOSED CATEGORIES"
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                90,
+                779,
+                105
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "13"
+                    }
+                ]
+            },
+            "bbox": [
+                860,
+                90,
+                885,
+                103
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "REPRINTS IN THEORY AND APPLICATIONS OF CATEGORIES will disseminate articles from the body of important literature in Category Theory and closely related subjects which have never been published in journal form, or which have been published in journals whose narrow circulation makes access very dificult. Publication in ‘Reprints in Theory and Applications of Categories’ will permit free and full dissemination of such documents over the Internet. Articles appearing have been critically reviewed by the Editorial Board of Theory and Applications of Categories. Only articles of lasting significance are considered for publication. Distribution is via the Internet tools WWW/ftp."
+                    }
+                ]
+            },
+            "bbox": [
+                112,
+                115,
+                887,
+                218
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Subscription information. Individual subscribers receive (by e-mail) abstracts of articles as they are published. To subscribe, send e-mail to tac@mta.ca including a full name and postal address. For institutional subscription, send enquiries to the Managing Editor."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                220,
+                885,
+                267
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Selection of reprints. After obtaining written permission from any copyright holder, any three TAC Editors may propose a work for TAC Reprints to the Managing Editor. The proposal will be reported to all Editors. The Managing Editor may either accept the proposal or require that the Editors vote on it. Before such a vote, the author, title and original publication data will be circulated to Editors. If a 2/3 majority of those TAC Editors responding within one month agrees, the work will be accepted for TAC Reprints. After a work is accepted, the author or proposer must provide to TAC either a usable TeX source or a PDF document acceptable to the Managing Editor that reproduces a typeset version. Up to five pages of corrections, commentary and forward pointers may be appended by the author. When submitting commentary, authors should read and follow the Format for submission of Theory and Applications of Categories at http://www.tac.mta.ca/tac/."
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                270,
+                887,
+                415
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Managing editor. Robert Rosebrugh, Mount Allison University: rrosebrugh@mta.ca"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                419,
+                774,
+                435
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "T<sub>E</sub>Xnical editor. Michael Barr, McGill University: mbarr@barrs.org"
+                    }
+                ]
+            },
+            "bbox": [
+                115,
+                440,
+                655,
+                456
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Transmitting editors. Richard Blute, Universit´e d’ Ottawa: rblute@mathstat.uottawa.ca Lawrence Breen, Universit´e de Paris 13: breen@math.univ-paris13.fr Ronald Brown, University of North Wales: r.brown@bangor.ac.uk Aurelio Carboni, Universit`a dell Insubria: aurelio.carboni@uninsubria.it Valeria de Paiva, Xerox Palo Alto Research Center: paiva@parc.xerox.com Ezra Getzler, Northwestern University: getzler(at)math(dot)northwestern(dot)edu Martin Hyland, University of Cambridge: M.Hyland@dpmms.cam.ac.uk P. T. Johnstone, University of Cambridge: ptj@dpmms.cam.ac.uk G. Max Kelly, University of Sydney: maxk@maths.usyd.edu.au Anders Kock, University of Aarhus: kock@imf.au.dk Stephen Lack, University of Western Sydney: s.lack@uws.edu.au F. William Lawvere, State University of New York at Bufalo: wlawvere@acsu.buffalo.edu Jean-Louis Loday, Universit´e de Strasbourg: loday@math.u-strasbg.fr Ieke Moerdijk, University of Utrecht: moerdijk@math.uu.nl Susan Niefield, Union College: niefiels@union.edu Robert Par´e, Dalhousie University: pare@mathstat.dal.ca Jiri Rosicky, Masaryk University: rosicky@math.muni.cz Brooke Shipley, University of Illinois at Chicago: bshipley@math.uic.edu James Stashef, University of North Carolina: jds@math.unc.edu Ross Street, Macquarie University: street@math.mq.edu.au Walter Tholen, York University: tholen@mathstat.yorku.ca Myles Tierney, Rutgers University: tierney@math.rutgers.edu Robert F. C. Walters, University of Insubria: robert.walters@uninsubria.it R. J. Wood, Dalhousie University: rjwood@mathstat.dal.ca"
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                461,
+                803,
+                815
+            ]
+        }
+    ]
+]

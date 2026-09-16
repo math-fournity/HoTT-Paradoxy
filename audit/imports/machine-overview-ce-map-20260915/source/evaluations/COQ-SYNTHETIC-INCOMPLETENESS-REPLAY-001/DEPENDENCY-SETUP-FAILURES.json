@@ -1,0 +1,22 @@
+{
+  "schema_version": "coq-synthetic-incompleteness-setup-failures/v1",
+  "attempts": [
+    {
+      "attempt": 1,
+      "action": "docker pull rocq/rocq-prover:8.15",
+      "exit_code": 1,
+      "status": "IMAGE_REFERENCE_NOT_FOUND",
+      "error": "failed to resolve reference docker.io/rocq/rocq-prover:8.15: not found",
+      "resolution": "Use the official historical Coq image family coqorg/coq:8.15; rocq/rocq-prover is the namespace for Rocq 9.x."
+    },
+    {
+      "attempt": 2,
+      "action": "Build the derived dependency image after updating the current opam repositories",
+      "exit_code": 20,
+      "status": "HISTORICAL_COMPILER_INVARIANT_UNAVAILABLE",
+      "error": "(invariant) -> ocaml-variants < 4.11.0+32bit -> ocaml-variants.4.07.1+flambda: no longer available",
+      "resolution": "Add the official ocaml/opam-repository-archive before synchronising current and Coq release repositories; then install the fixed Coq 8.15 dependency set."
+    }
+  ],
+  "evidence_boundary": "These messages were copied from the actual command results but do not have separate raw stdout/stderr files. The successful final Dockerfile, image identity, environment output, build logs and replay receipt are preserved independently."
+}

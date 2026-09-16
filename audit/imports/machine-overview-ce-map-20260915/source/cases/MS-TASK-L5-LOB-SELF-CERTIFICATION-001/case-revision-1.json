@@ -1,0 +1,70 @@
+{
+  "assumptions": [
+    "reflect, lob and certify have the exact target types",
+    "consumer qualification is independent and may return zero hits"
+  ],
+  "candidate_ast": {
+    "grammar_id": "L5-LOB-SELF-CERTIFICATION-v1",
+    "produced_by": null,
+    "status": "PENDING_SEARCH"
+  },
+  "case_id": "MS-TASK-L5-LOB-SELF-CERTIFICATION-001",
+  "claim_refs": [],
+  "created_at_utc": "2026-09-13T20:12:58.858546+00:00",
+  "grammar": {
+    "path": "machine-overview/grammars/l5-lob-self-certification-v1.json",
+    "sha256": "a8a87394516290bec16626400f306880f60bb4d49f5e97c671b7496afb103292"
+  },
+  "immutability": "content changes require a new revision file; this file is never edited",
+  "obligations": [
+    "all three rules must occur in the witness",
+    "removing certify_reflection must remove every goal witness",
+    "native negative control must reject reflection plus Loeb without certification",
+    "the source audit must decide whether any fixed HoTT consumer supplies the conjunction"
+  ],
+  "parent_revision": null,
+  "profile": {
+    "path": "machine-overview/profiles/l5-consumer-qualification-v1.json",
+    "sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf"
+  },
+  "revision": 1,
+  "schema_version": "machine-overview-case/v2",
+  "source_pins": [
+    {
+      "path": "machine-overview/formal/L5ConsumerSupport.agda",
+      "sha256": "b327ba44258a13fd064d7f588af95a20997afac0d27022a6c2b7c67fdfff3061"
+    },
+    {
+      "path": "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+      "sha256": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+      "role": "toolchain",
+      "sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+      "role": "library_registry",
+      "sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12"
+    },
+    {
+      "path": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json",
+      "role": "engine_freeze",
+      "sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664"
+    }
+  ],
+  "state_axes": {
+    "execution": "queued",
+    "formal_legality": "unchecked",
+    "mathematical_evidence": "conjecture",
+    "reality_correspondence": "model_only",
+    "research_relation": "l5_generic_self_certification_boundary_consumer_gated",
+    "task_preservation": "unresolved"
+  },
+  "target_text_hash": null,
+  "task": {
+    "path": "machine-overview/tasks/MS-TASK-L5-LOB-SELF-CERTIFICATION-001.json",
+    "sha256": "fda1b65390cd1884f68369b5635faf3c22e8ad80c30b8334e5968e78886bbf36"
+  }
+}

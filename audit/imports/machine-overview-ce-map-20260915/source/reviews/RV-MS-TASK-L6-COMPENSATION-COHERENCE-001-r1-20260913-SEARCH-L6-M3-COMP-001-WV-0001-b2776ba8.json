@@ -1,0 +1,219 @@
+{
+  "candidate_ast_sha256": "b2776ba84685650a08e7184b4bce5f8f2573f89691216d1583eb3163338b0ae3",
+  "case_id": "MS-TASK-L6-COMPENSATION-COHERENCE-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L6-COMPENSATION-COHERENCE-001/case-revision-1.json",
+  "case_revision": 1,
+  "case_sha256": "491143ceb24d11f952b66ecf8c0442c56f2d112bd8e609fd6bde54503104c593",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L6-COMPENSATION-COHERENCE-001.json"
+      ],
+      "item": "original task and observation are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "detail": {
+        "reality": "exact event apartness is one completion observation",
+        "temporal_order": "no ordering fact resolves their joint type conflict",
+        "theory": "Path coherence is a separate geometric obligation"
+      },
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L6-COMPENSATION-COHERENCE-001.json"
+      ],
+      "item": "time structure is distinguished from temporal ordering",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "A Path repair and an exact-apartness repair can be exhibited separately in the controls, but the same endpoints cannot carry both without contradiction.",
+      "evidence": [
+        "machine-overview/grammars/l6-compensation-coherence-m3-v1.json"
+      ],
+      "item": "the searched mechanism is localized to the declared symbolic rules",
+      "status": "COMPENSATIONS_REQUIRE_INCOMPATIBLE_COHERENCE"
+    },
+    {
+      "detail": "all Type0 endpoints x,y with both Path and apartness inputs",
+      "evidence": [
+        "machine-overview/grammars/l6-compensation-coherence-m3-v1.json"
+      ],
+      "item": "native target scope",
+      "status": "DECLARED_NATIVE_TARGET"
+    },
+    {
+      "detail": "The result concerns one exact Path/apartness pair and does not show that arbitrary compensations cannot compose.",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L6-COMPENSATION-COHERENCE-001.json"
+      ],
+      "item": "reality bridge",
+      "status": "NO_GENERAL_COMPENSATION_NO_GO"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "SAME_ENDPOINT_COMPENSATIONS_INCOMPATIBLE",
+    "new_claim": false,
+    "open_obligations": [
+      "search a genuinely new L6 resource/dependency interaction after breadth coverage"
+    ],
+    "reality_correspondence": "MODEL_RELATIVE_KNOWN_MECHANISM",
+    "related_claims": [],
+    "research_relation": "m3_known_mechanism_recombination_calibration",
+    "task_preservation": "JOINT_COMPENSATION_TASK_PRESERVED",
+    "task_preservation_basis": [
+      {
+        "detail": [],
+        "id": "profile_qualified",
+        "status": "PASS"
+      },
+      {
+        "detail": "symbolic proof AST re-typechecked",
+        "id": "grammar_membership",
+        "status": "PASS"
+      },
+      {
+        "detail": "search run case revision 1 vs case revision 1",
+        "id": "case_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "full recomputed symbolic witness must equal the search-run record",
+        "id": "witness_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "compensation_coherence_conflict",
+        "id": "declared_observation_kind",
+        "status": "PASS"
+      },
+      {
+        "detail": [
+          "apart_compensation",
+          "path_compensation"
+        ],
+        "id": "declared_symbolic_rules_present",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "reality": "exact event apartness is one completion observation",
+          "temporal_order": "no ordering fact resolves their joint type conflict",
+          "theory": "Path coherence is a separate geometric obligation"
+        },
+        "id": "time_and_temporal_order_separated",
+        "status": "PASS"
+      },
+      {
+        "detail": [
+          "the same A, x and y",
+          "both compensation outputs",
+          "joint-use completion criterion"
+        ],
+        "id": "preserved_task_fields_declared",
+        "status": "PASS"
+      },
+      {
+        "detail": "COMPENSATIONS_REQUIRE_INCOMPATIBLE_COHERENCE",
+        "id": "compensation_classified",
+        "status": "PASS"
+      }
+    ]
+  },
+  "context_summary": [
+    "symbolic rule: apart_compensation",
+    "symbolic rule: path_compensation"
+  ],
+  "created_at_utc": "2026-09-13T19:28:19.873117+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 468,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 480,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_facts": {
+    "compensation": {
+      "class": "COMPENSATIONS_REQUIRE_INCOMPATIBLE_COHERENCE",
+      "detail": "A Path repair and an exact-apartness repair can be exhibited separately in the controls, but the same endpoints cannot carry both without contradiction."
+    },
+    "has_business_bind": false,
+    "has_deadline": false,
+    "has_plain_bind": false,
+    "has_race": false,
+    "used_rules": [
+      "apart_compensation",
+      "path_compensation"
+    ]
+  },
+  "mechanism_summary": "The witness applies the declared endpoint-apartness compensation to the declared Path compensation for the same endpoints.  Their individual outputs have incompatible joint coherence requirements.",
+  "review_checks": [
+    {
+      "detail": [],
+      "id": "profile_qualified",
+      "status": "PASS"
+    },
+    {
+      "detail": "symbolic proof AST re-typechecked",
+      "id": "grammar_membership",
+      "status": "PASS"
+    },
+    {
+      "detail": "search run case revision 1 vs case revision 1",
+      "id": "case_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "full recomputed symbolic witness must equal the search-run record",
+      "id": "witness_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "compensation_coherence_conflict",
+      "id": "declared_observation_kind",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "apart_compensation",
+        "path_compensation"
+      ],
+      "id": "declared_symbolic_rules_present",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "reality": "exact event apartness is one completion observation",
+        "temporal_order": "no ordering fact resolves their joint type conflict",
+        "theory": "Path coherence is a separate geometric obligation"
+      },
+      "id": "time_and_temporal_order_separated",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "the same A, x and y",
+        "both compensation outputs",
+        "joint-use completion criterion"
+      ],
+      "id": "preserved_task_fields_declared",
+      "status": "PASS"
+    },
+    {
+      "detail": "COMPENSATIONS_REQUIRE_INCOMPATIBLE_COHERENCE",
+      "id": "compensation_classified",
+      "status": "PASS"
+    }
+  ],
+  "review_id": "RV-MS-TASK-L6-COMPENSATION-COHERENCE-001-r1-20260913-SEARCH-L6-M3-COMP-001-WV-0001-b2776ba8",
+  "schema_version": "machine-overview-correspondence-review/v2",
+  "source_search_run": {
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260913-SEARCH-L6-M3-COMP-001/RUN.json",
+    "run_id": "20260913-SEARCH-L6-M3-COMP-001",
+    "sha256": "fb2b4f9509c18ac6be2ffd3ddc8cd89f7d62a8416c742eea92c006dff6867d45"
+  },
+  "witness_id": "WV-0001"
+}

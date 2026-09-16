@@ -1,0 +1,200 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 10000,
+    "max_contexts": 10,
+    "max_witnesses": 100
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L3-INTERVAL-COMPLETION-001",
+  "case_identity_sha256": "eb2708135dd4e626144fb1b5c2a5313bfcee9f07aea06820751436f49cbd0fe1",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-INTERVAL-COMPLETION-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T17:24:18.802316+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "interval_eta"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "endpoint_path"
+      ],
+      "reachable": [
+        "endpoint_path"
+      ]
+    }
+  },
+  "coordinator_version": "0.2.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-INTERVAL-COMPLETION-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "2705847db5893bbbdfae21abb58c5a01beff6e27",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 166,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 178,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 0,
+      "rule_count": 3,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['interval_eta']"
+  },
+  "inputs": {
+    "case_sha256": "827f4895c53792aa7dbb826978a05ff85c5e09c16896b89a073af9d917e48f77",
+    "grammar_path": "machine-overview/grammars/l3-symbolic-v1.json",
+    "grammar_sha256": "fde59420c081b880ab186b80aca56ac7eeb5ba852a6d874c0e6f573148f08368",
+    "profile_sha256": "8ab3e52177add732d0231b7d748bebe1d713c96a12463ca4050e31f6c6b5ef58",
+    "task_path": "machine-overview/tasks/MS-TASK-L3-INTERVAL-COMPLETION-001.json",
+    "task_sha256": "56ad198a1a1a6a8df6a163f44e57cedb85e4dc7ef39fb7e64e598f10fef2cee7",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l3-symbolic-v1.json",
+        "sha256": "fde59420c081b880ab186b80aca56ac7eeb5ba852a6d874c0e6f573148f08368"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l3-interval-motion-v1.json",
+        "sha256": "8ab3e52177add732d0231b7d748bebe1d713c96a12463ca4050e31f6c6b5ef58"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-INTERVAL-COMPLETION-001.json",
+        "sha256": "56ad198a1a1a6a8df6a163f44e57cedb85e4dc7ef39fb7e64e598f10fef2cee7"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L3-CUBICAL-INTERVAL-MOTION-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L3-SYMBOLIC-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "d5ae2fe6789c7868d4548da36c0696bf3242bef18b9978af4d352ba15a3c4a86"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T17:24:18.799617+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 2,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 39,
+    "rule_count": 4,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "e538925469002b158d745a35162bfd75827055fc4f3a5bb9991b25ddcb3813eb",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "interval_eta"
+          }
+        ],
+        "rule": "apart_elim"
+      },
+      "proof_term": "apart ((λ i → f i))",
+      "separation_kind": "continuous_phase_obstruction",
+      "size": {
+        "depth": 2,
+        "nodes": 2
+      },
+      "used_rules": [
+        "apart_elim",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "ba27008d95af0061a55319f7d98267a0d3fd5eae12594838a226d5b51b8e725b",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "interval_eta"
+                  }
+                ],
+                "rule": "path_sym"
+              }
+            ],
+            "rule": "path_sym_back"
+          }
+        ],
+        "rule": "apart_elim"
+      },
+      "proof_term": "apart (sym (sym ((λ i → f i))))",
+      "separation_kind": "continuous_phase_obstruction",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "apart_elim",
+        "path_sym_back",
+        "path_sym",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0002"
+    }
+  ]
+}

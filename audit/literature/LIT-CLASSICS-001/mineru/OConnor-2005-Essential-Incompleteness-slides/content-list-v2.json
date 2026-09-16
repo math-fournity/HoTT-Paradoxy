@@ -1,0 +1,2625 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Essential Incompleteness of Arithmetic Verified by Coq"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                125,
+                65,
+                876,
+                263
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Russell O’Connor Radboud University Nijmegen University of California at Berkeley"
+                    }
+                ]
+            },
+            "bbox": [
+                198,
+                346,
+                828,
+                589
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "TPHOLS 2005"
+                    }
+                ]
+            },
+            "bbox": [
+                375,
+                776,
+                652,
+                840
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "August 23, 2005"
+                    }
+                ]
+            },
+            "bbox": [
+                360,
+                863,
+                667,
+                929
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Essential Incompleteness of Arithmetic Verified by Coq"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                124,
+                65,
+                876,
+                260
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1.Statement of incompleteness theorem"
+                    }
+                ]
+            },
+            "bbox": [
+                79,
+                290,
+                799,
+                354
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2.Coding by natural numbers"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                376,
+                607,
+                442
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3.Primitive recursive functions"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                462,
+                625,
+                524
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "4.Corollaries of incompleteness theorem"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                549,
+                808,
+                611
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "5.Discussion of formalization"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                635,
+                602,
+                697
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "6.Future Work: Second incompleteness theorem"
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                721,
+                792,
+                870
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                68,
+                837,
+                260
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                616
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                314,
+                67,
+                686,
+                141
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                179,
+                837,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                618
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/d0303ee890e33e696adc3e3112fb75092df939ce47cb7bd665338dec74c75e99.jpg"
+                },
+                "content": "",
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                153,
+                608,
+                502,
+                791
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive data types for:"
+                    }
+                ]
+            },
+            "bbox": [
+                542,
+                667,
+                876,
+                719
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●Terms"
+                    }
+                ]
+            },
+            "bbox": [
+                544,
+                732,
+                653,
+                781
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●First order formulas"
+                    }
+                ]
+            },
+            "bbox": [
+                544,
+                796,
+                828,
+                848
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●Proofs"
+                    }
+                ]
+            },
+            "bbox": [
+                544,
+                860,
+                654,
+                910
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                68,
+                837,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either T ⊢ G or T ⊢ ¬G then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                616
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Recursive functions for:"
+                    }
+                ]
+            },
+            "bbox": [
+                549,
+                727,
+                876,
+                779
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●Free variables"
+                    }
+                ]
+            },
+            "bbox": [
+                549,
+                791,
+                764,
+                842
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●Substitution"
+                    }
+                ]
+            },
+            "bbox": [
+                549,
+                857,
+                730,
+                905
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                68,
+                837,
+                260
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                616
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A formula with no free variables"
+                    }
+                ]
+            },
+            "bbox": [
+                442,
+                850,
+                877,
+                905
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                159,
+                65,
+                838,
+                263
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash { \\widehat { G } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or T ⊢ ¬G then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                287,
+                899,
+                618
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Formula ⇒ Prop(think Formula ⇒ type)"
+                    }
+                ]
+            },
+            "bbox": [
+                561,
+                800,
+                882,
+                927
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                313,
+                67,
+                686,
+                141
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                179,
+                837,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either T ⊢ G or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                616
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A finite axiomatization of:"
+                    }
+                ]
+            },
+            "bbox": [
+                545,
+                741,
+                891,
+                794
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "0, S, +, \\times , <",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/7786690a73c98625fce92a8e744e1d24c7c619a4463ed8c90cbd0157ec985201.jpg"
+                }
+            },
+            "bbox": [
+                544,
+                806,
+                715,
+                858
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "without induction"
+                    }
+                ]
+            },
+            "bbox": [
+                542,
+                870,
+                780,
+                922
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                314,
+                67,
+                686,
+                141
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                179,
+                837,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                618
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For every formula φ, "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\varphi"
+                    }
+                ]
+            },
+            "bbox": [
+                534,
+                865,
+                892,
+                924
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                313,
+                67,
+                686,
+                142
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                179,
+                837,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence G such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                618
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●For every formula "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi , \\varphi \\in T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or φ∉T"
+                    }
+                ]
+            },
+            "bbox": [
+                363,
+                726,
+                829,
+                781
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●Classically this is trivially true"
+                    }
+                ]
+            },
+            "bbox": [
+                363,
+                789,
+                775,
+                845
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "●This is not the recursive requirement."
+                    }
+                ]
+            },
+            "bbox": [
+                362,
+                853,
+                879,
+                909
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Gödel-Rosser Incompleteness Theorem"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                161,
+                68,
+                837,
+                260
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For any decidable axiom system T extending NN such that T can express its own axioms, there exists a sentence "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\dot { \\boldsymbol { G } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that if either "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "or "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot G"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then T is inconsistent."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                897,
+                616
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This replaces the requirement that T is recursive This is weaker that T being recursive"
+                    }
+                ]
+            },
+            "bbox": [
+                226,
+                788,
+                882,
+                909
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "T Can Express Its Own Axioms"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                86,
+                119,
+                910,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "There exists a formula with one free variable "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi ( x )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                877,
+                440
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● If "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\in T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\varphi ( \\bar { \\^ { \\dag } \\psi ^ { \\dag } } )"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                463,
+                522,
+                527
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● If "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\notin T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot \\varphi ( \\bar { \\Psi } ^ { \\top } )"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                552,
+                544,
+                615
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "T Can Express Its Own Axioms"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                86,
+                119,
+                910,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "There exists a formula with one free variable "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\varphi ( x )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "such that"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                877,
+                440
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● If "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\in T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\varphi ( { \\bar { \\^ { } } } \\psi ^ { \\top } )"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                463,
+                522,
+                527
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● If "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi \\notin T"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\lnot \\varphi ( \\bar { \\Psi } ^ { \\top } )"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                552,
+                544,
+                616
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "5 y -"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is ψ coded by a number written as a closed term."
+                    }
+                ]
+            },
+            "bbox": [
+                168,
+                852,
+                887,
+                904
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Coding"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                399,
+                122,
+                596,
+                206
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Extensive use of Cantor Pairing Function"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                848,
+                354
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "c P a i r (a, b) = a + \\sum_ {i = 1} ^ {a + b} i",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f86f6ef3f5ed704e17e854ee687f7eb533ffdce13e3c3a57c096d82bf7c37478.jpg"
+                }
+            },
+            "bbox": [
+                319,
+                363,
+                677,
+                512
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Formulas are coded by giving each symbol a number and pairing it with its recursively coded arguments."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                531,
+                921,
+                769
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● No prime number decomposition theorem is needed."
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                789,
+                903,
+                939
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Primitive Recursive Functions"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                100,
+                124,
+                899,
+                198
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Inductive data type for primitive recursive expressions"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                850,
+                438
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Evaluation function for primitive recursive expressions"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                463,
+                852,
+                611
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Every primitive recursive function is representable in NN"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                636,
+                750,
+                784
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Requires Chinese remainder theorem and Gödel’s beta function"
+                    }
+                ]
+            },
+            "bbox": [
+                124,
+                806,
+                819,
+                937
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Primitive Recursive Functions"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                99,
+                122,
+                900,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Inductive expressi"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                274,
+                442
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "An n-ary function, f, is representable by φ in T if "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T \\vdash \\varphi ( x _ { 0 } , \\lceil a _ { 1 } \\rceil , . . . , \\lceil a _ { n } \\rceil ) \\Leftrightarrow x _ { 0 } = \\lceil f ( a _ { 1 } , . . . , a _ { n } ) \\rceil"
+                    }
+                ]
+            },
+            "bbox": [
+                287,
+                344,
+                931,
+                473
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Evaluatio expressions"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                462,
+                335,
+                613
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Every primitive recursive function is representable in NN"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                635,
+                751,
+                784
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Requires Chinese remainder theorem and Gödel’s beta function"
+                    }
+                ]
+            },
+            "bbox": [
+                123,
+                805,
+                819,
+                939
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Substitution Is Primitive Recursive"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                239,
+                67,
+                760,
+                253
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Recursion on depth does not work."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                739,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Course-of-values recursion does not work. – Recursive call’s input may have a larger code than the original input."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                376,
+                874,
+                594
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Instead consider the trace of the computation – A primitive recursive function can check if a trace is correct"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                615,
+                926,
+                828
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Do a bounded search for the correct trace"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                848,
+                817,
+                904
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Substitution Is Primitive Recursive"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                240,
+                67,
+                760,
+                253
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Remove ∀"
+                    }
+                ]
+            },
+            "bbox": [
+                167,
+                447,
+                317,
+                500
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/5979586706118d6f82df97e4eecb531417feb55a22d0ef3cb6c6791d5090192b.jpg"
+                },
+                "content": "",
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                141,
+                314,
+                857,
+                873
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Corollaries"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                351,
+                124,
+                647,
+                196
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Gödel Sentence with ω-consistency"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                754,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If PA is consistent then PA is essentially incomplete."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                376,
+                833,
+                524
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Corollaries"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                352,
+                124,
+                646,
+                196
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Gödel Sentence with ω-consistency"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                753,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If PA is consistent then PA is essentially incomplete."
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                378,
+                833,
+                524
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proved that PA is consistent"
+                    }
+                ]
+            },
+            "bbox": [
+                149,
+                583,
+                535,
+                631
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Corollaries"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                352,
+                124,
+                647,
+                196
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Gödel Sentence with ω-consistency"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                753,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● PA is essentially incomplete."
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                378,
+                627,
+                440
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Corollaries"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                352,
+                124,
+                647,
+                196
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Gödel Sentence with ω-consistency"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                753,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● PA is incomplete."
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                378,
+                428,
+                438
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Machine Verified Proofs"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                181,
+                122,
+                818,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● 1986 – Shankar – Boyer-Moore"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                681,
+                351
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Incompleteness for any finite extension of Z2 (hereditarily finite set theory)"
+                    }
+                ]
+            },
+            "bbox": [
+                122,
+                374,
+                863,
+                507
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● 2003 – O’Connor – Coq"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                527,
+                546,
+                588
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Incompleteness for any “nice” extension of NN"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                611,
+                886,
+                667
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● 2004 – Harrison – HOL-Light"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                689,
+                634,
+                749
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Incompleteness for any "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-complete system with "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum _ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-definable axioms"
+                    }
+                ]
+            },
+            "bbox": [
+                122,
+                773,
+                919,
+                924
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "The Good"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                366,
+                124,
+                630,
+                196
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● No changes in Coq were made."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                681,
+                354
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Dependent types ensures that all formulas are well-formed."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                378,
+                872,
+                524
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● A determined novice Coq user can prove difficult theorems."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                551,
+                848,
+                697
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "The Bad"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                386,
+                124,
+                610,
+                194
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Dependent types are hard to work with."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                818,
+                354
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Program Extraction will not produce the Gödel sentence."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                376,
+                822,
+                524
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Neither possible nor practical"
+                    }
+                ]
+            },
+            "bbox": [
+                122,
+                546,
+                618,
+                603
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Used a lot of cut and paste"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                626,
+                600,
+                687
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– This is a problem in other programming languages as well."
+                    }
+                ]
+            },
+            "bbox": [
+                122,
+                709,
+                775,
+                840
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "The Future"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                353,
+                124,
+                644,
+                194
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Gödel’s second incompleteness theorem"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                292,
+                848,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Formalize the Hilbert-Bernays-Löb derivability conditions:"
+                    }
+                ]
+            },
+            "bbox": [
+                122,
+                374,
+                875,
+                502
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1.If "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathsf { P A } \\vdash \\varphi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathsf { P A } \\vdash \\mathsf { P r } _ { \\mathsf { P A } } ( \\mathsf { \\Pi } ^ { \\top } \\varphi ^ { \\top } )"
+                    }
+                ]
+            },
+            "bbox": [
+                175,
+                522,
+                600,
+                581
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "2. P A \\vdash \\operatorname * {P r} _ {P A} (^ {\\lceil} \\varphi^ {\\top}) \\Rightarrow \\operatorname * {P r} _ {P A} (^ {\\lceil} \\operatorname * {P r} _ {P A} (^ {\\lceil} \\varphi^ {\\top}) ^ {\\top})",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/2fa8ed55f079bdb30bbf2925888640b0327a9b3824595ccea8de36b55491d726.jpg"
+                }
+            },
+            "bbox": [
+                173,
+                594,
+                693,
+                658
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "3. P A \\vdash \\operatorname * {P r} _ {P A} (^ {\\lceil} \\varphi \\Rightarrow \\psi^ {\\top}) \\Rightarrow \\operatorname * {P r} _ {P A} (^ {\\lceil} \\varphi^ {\\top}) \\Rightarrow \\operatorname * {P r} _ {P A} (^ {\\lceil} \\psi^ {\\top})",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c76c42088b504872a65ada0dcdf8822a1a20bccfbbb5dfdfb678dc036fdde9ca.jpg"
+                }
+            },
+            "bbox": [
+                173,
+                668,
+                829,
+                731
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "The Future"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                353,
+                124,
+                644,
+                194
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Gödel’s second incompleteness theorem"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                290,
+                848,
+                352
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– Formalize the Hilbert-Bernays-Löb derivability conditions:"
+                    }
+                ]
+            },
+            "bbox": [
+                123,
+                374,
+                875,
+                502
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1.If PA ⊢ φ then "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathsf { P A } \\vdash \\mathsf { P r } _ { \\mathsf { P A } } ( \\mathsf { \\Pi } ^ { \\top } \\varphi ^ { \\top } )"
+                    }
+                ]
+            },
+            "bbox": [
+                175,
+                522,
+                600,
+                581
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{l} \\blacktriangleright 2. P A \\vdash P r _ {P A} (^ {\\lceil} \\varphi^ {\\lceil}) \\Rightarrow P r _ {P A} (^ {\\lceil} P r _ {P A} (^ {\\lceil} \\varphi^ {\\lceil}) ^ {\\lceil}) \\\\ 3. P A \\vdash P r _ {P A} (^ {\\lceil} \\varphi \\Rightarrow \\psi^ {\\lceil}) \\Rightarrow P r _ {P A} (^ {\\lceil} \\varphi^ {\\lceil}) \\Rightarrow P r _ {P A} (^ {\\lceil} \\psi^ {\\lceil}) \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/84cd399558ec50c193876489ff4425326e80a68f2a3b8bd218f4e4b9a477416a.jpg"
+                }
+            },
+            "bbox": [
+                154,
+                596,
+                829,
+                732
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "2 ^ { n \\alpha }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "condition is the hardest to prove"
+                    }
+                ]
+            },
+            "bbox": [
+                340,
+                852,
+                882,
+                902
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Statistics"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                371,
+                122,
+                625,
+                200
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Took me approximately 16 months – Shankar took about 18 months"
+                    }
+                ]
+            },
+            "bbox": [
+                75,
+                289,
+                736,
+                431
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "● Proof Size"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                450,
+                307,
+                510
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– 46 files"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                534,
+                277,
+                589
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– 7 036 lines of specifications"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                608,
+                595,
+                668
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– 37 906 lines of proof"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                684,
+                486,
+                744
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– 1 267 747 total characters."
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                759,
+                579,
+                818
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "● Information Content"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                76,
+                838,
+                476,
+                900
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "– 146 008 bytes (gzip -9)"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                922,
+                565,
+                983
+            ]
+        }
+    ]
+]

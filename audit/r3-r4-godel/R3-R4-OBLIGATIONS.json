@@ -1,0 +1,277 @@
+{
+  "allowed_status": [
+    "ABSENT_BY_DEFINITION",
+    "NOT_APPLICABLE",
+    "OPEN",
+    "PRESENT_MACHINE_PROVED",
+    "PRESENT_SOURCE_REPORTED_NOT_REPLAYED"
+  ],
+  "blocking_obligations": [
+    "H-CONVERSION",
+    "H-NAT",
+    "H-ID/PATH",
+    "H-UNIVALENCE/HIT",
+    "H-PROOF-CODE",
+    "H-ARITH-INTERP",
+    "H-REPRESENTABILITY",
+    "H-FIXPOINT",
+    "H-INDEPENDENCE",
+    "H-EFFECTIVITY"
+  ],
+  "counts": {
+    "blockers": 10,
+    "by_status": {
+      "ABSENT_BY_DEFINITION": 3,
+      "OPEN": 7,
+      "PRESENT_MACHINE_PROVED": 2
+    },
+    "total": 12
+  },
+  "hott_essentiality": "NOT_ESTABLISHED",
+  "input_remainder": 0,
+  "next_minimal_slice": {
+    "anti_shortcut": "Do not add representability, universality, consistency, or a proof predicate as an unproved constructor/postulate.",
+    "goal": "Choose or extend one exact target syntax with Nat and a finite derivation representation, then machine-check one end-to-end encoded derivation and a negative control.",
+    "id": "R4-HOTT-NAT-EFFECTIVITY-001"
+  },
+  "non_goals": [
+    "The matrix does not prove that the missing obligations are impossible.",
+    "The R3 theorem is not thereby instantiated to HoTT.",
+    "Host-language definability is not object-language representability.",
+    "No HoTT paradox, internal inconsistency, novelty, or reality-relative witness is claimed."
+  ],
+  "obligations": [
+    {
+      "evidence": [
+        "C-223",
+        "C-226",
+        "HoTT/formal/external-cubical-groupoid-syntax/CLAIM-G-HOTT-SYNTAX.md"
+      ],
+      "id": "H-SYNTAX",
+      "missing_scope": "Nat, general object identity/Path, object univalence/HIT, and a single complete raw HoTT calculus.",
+      "present_scope": "Four-sort Con/Sub/Ty/Tm Cubical HIIT syntax with terminal context, context extension, U/El, Pi, lambda/app, beta/eta, truncation constructors and second-order coherence.",
+      "status": "PRESENT_MACHINE_PROVED"
+    },
+    {
+      "evidence": [
+        "C-223",
+        "C-224"
+      ],
+      "id": "H-CONVERSION",
+      "missing_scope": "No total executable conversion or derivation checker for the exact quotient/HIIT object syntax has been constructed.",
+      "present_scope": "The HIIT syntax carries judgmental/path equations and coherence constructors.",
+      "status": "OPEN"
+    },
+    {
+      "evidence": [
+        "C-223",
+        "C-226",
+        "G-HOTT-SYNTAX-CORE-001"
+      ],
+      "id": "H-NAT",
+      "missing_scope": "Nat formation, zero, successor, eliminator, computation rules, addition/multiplication and coding arithmetic.",
+      "present_scope": "No Nat constructor occurs in the frozen TT syntax module denominator.",
+      "status": "ABSENT_BY_DEFINITION"
+    },
+    {
+      "evidence": [
+        "C-223",
+        "HoTT/formal/external-cubical-groupoid-syntax/CLAIM-G-HOTT-SYNTAX.md"
+      ],
+      "id": "H-ID/PATH",
+      "missing_scope": "A general identity/Path type former and its formation/introduction/elimination/computation rules inside the object calculus.",
+      "present_scope": "Cubical paths are used by the host to define the HIIT and prove coherence.",
+      "status": "ABSENT_BY_DEFINITION"
+    },
+    {
+      "evidence": [
+        "C-223",
+        "C-226"
+      ],
+      "id": "H-UNIVALENCE/HIT",
+      "missing_scope": "Object-level univalence and named higher-inductive type rules in the exact calculus.",
+      "present_scope": "U/El and the syntax HIIT itself are present at the host/formalisation level.",
+      "status": "ABSENT_BY_DEFINITION"
+    },
+    {
+      "evidence": [
+        "C-157",
+        "C-187",
+        "R3-R4-GODEL-RETURN-001"
+      ],
+      "id": "H-PROOF-CODE",
+      "missing_scope": "Natural-number code, decoder, total checker and fair proof enumeration for derivations of the same HoTT calculus named by H-SYNTAX.",
+      "present_scope": "C-157-C-187 provide proof/formula coding for a separate small K/S/MP system.",
+      "status": "OPEN"
+    },
+    {
+      "evidence": [
+        "C-223",
+        "C-225",
+        "G-HOTT-SYNTAX-CORE-001"
+      ],
+      "id": "H-SUBSTITUTION",
+      "missing_scope": "An executable capture-avoiding formula substitution operation on a proof-coded arithmetic/HoTT language suitable for diagonalisation.",
+      "present_scope": "The groupoid syntax has typed substitutions, composition, identity, action on types/terms, and second-order coherence.",
+      "status": "PRESENT_MACHINE_PROVED"
+    },
+    {
+      "evidence": [
+        "C-248",
+        "C-223"
+      ],
+      "id": "H-ARITH-INTERP",
+      "missing_scope": "A machine-checked interpretation of Q or another sufficient arithmetic theory into the exact H-SYNTAX calculus.",
+      "present_scope": "R3 Coq source formalises Robinson Q and its standard first-order arithmetic infrastructure.",
+      "status": "OPEN"
+    },
+    {
+      "evidence": [
+        "C-246",
+        "C-248",
+        "R3-R4-GODEL-RETURN-001"
+      ],
+      "id": "H-REPRESENTABILITY",
+      "missing_scope": "Object-level strong representation of the HoTT proof predicate, coding and substitution functions in the target calculus.",
+      "present_scope": "C-246 assumes strong separation; the author R3 development proves it for its first-order arithmetic route.",
+      "status": "OPEN"
+    },
+    {
+      "evidence": [
+        "C-245",
+        "C-246"
+      ],
+      "id": "H-FIXPOINT",
+      "missing_scope": "A fixed-point/diagonal lemma whose quotation and substitution operate on the exact target HoTT derivation syntax.",
+      "present_scope": "The R3 package contains the recursive-separation/diagonal mechanism for its source theory.",
+      "status": "OPEN"
+    },
+    {
+      "evidence": [
+        "C-246",
+        "C-248"
+      ],
+      "id": "H-INDEPENDENCE",
+      "missing_scope": "An independent sentence theorem with the target T instantiated to the exact HoTT calculus and every premise discharged or retained explicitly.",
+      "present_scope": "C-246 and C-248 establish conditional independence in general formal systems and Robinson-Q extensions.",
+      "status": "OPEN"
+    },
+    {
+      "evidence": [
+        "C-248",
+        "C-223",
+        "C-226"
+      ],
+      "id": "H-EFFECTIVITY",
+      "missing_scope": "Effective enumeration of the exact target rule/axiom schemas and proof relation, including the status of univalence, HIT, resizing, quotient or oracle rules.",
+      "present_scope": "The R3 source theory assumes/proves enumerability in its own first-order setting; finite host source files type-check.",
+      "status": "OPEN"
+    }
+  ],
+  "r4_readiness": "NOT_READY",
+  "reality_correspondence": "NOT_ESTABLISHED",
+  "schema_version": "hott-r3-r4-obligation-matrix/v1",
+  "source_snapshot": "a00927f2239dfc227ce6ed9143c5210453153c5c89e8cf4aad7d03005146461a",
+  "source_theory": {
+    "claims": [
+      "C-244",
+      "C-245",
+      "C-246",
+      "C-247",
+      "C-248",
+      "C-249"
+    ],
+    "id": "R3-COQ-SYNTHETIC-INCOMPLETENESS-CD7D849",
+    "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+    "scope": "Conditional general essential incompleteness and Robinson-Q independence in first-order arithmetic."
+  },
+  "sources": [
+    {
+      "bytes": 7927,
+      "path": ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+      "sha256": "f9711223583664212e34b9b104cb67d93dc16e1124a3717143002e3aac1afe7b"
+    },
+    {
+      "bytes": 6531,
+      "path": ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
+      "sha256": "6cb41c9b471075a12cdca8c2af4f0373776d85bc01fc863b9b4cdb05a59663b3"
+    },
+    {
+      "bytes": 139299,
+      "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+      "sha256": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b"
+    },
+    {
+      "bytes": 4004,
+      "path": "HoTT/formal/external-coq-synthetic-incompleteness/CLAIM-R3-SYNTHETIC-INCOMPLETENESS.md",
+      "sha256": "0bc4f0038bcafcbdd0f09932c7cbb8a63f4a07dd0c3dafecf032b4977de163aa"
+    },
+    {
+      "bytes": 456,
+      "path": "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
+      "sha256": "0918153193095b77a6106af219b76d135a184037e27997e019d51b3877593ca5"
+    },
+    {
+      "bytes": 2492,
+      "path": "HoTT/formal/external-cubical-groupoid-syntax/CLAIM-G-HOTT-SYNTAX.md",
+      "sha256": "79444bf63ca6d009f742332dac6e1886864d92304c904d2a3ee1a6bbbe56cb93"
+    },
+    {
+      "bytes": 41143,
+      "path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+      "sha256": "149b5ef336f38aa6a9934d59147d3781ae5dc135d335560609493d9452529571"
+    },
+    {
+      "bytes": 2514,
+      "path": "HoTT/verification/runs/20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01/RUN.json",
+      "sha256": "4590a18f8e37d8471bc2467c8fa977322fc711b11222d3a5bcfd6296141e9b6a"
+    },
+    {
+      "bytes": 1426,
+      "path": "HoTT/verification/runs/20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01/index-row-manifest.json",
+      "sha256": "f6bcae7561a44244e1cda0c58f3a9ce368bba2e24810bf6609cb050505d4a8cf"
+    },
+    {
+      "bytes": 2547,
+      "path": "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/RUN.json",
+      "sha256": "b0c43216d1cdd992c818eb51056117742d46ae6c9de95ad1c5a37cdfb898dab5"
+    },
+    {
+      "bytes": 1745,
+      "path": "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/index-row-manifest.json",
+      "sha256": "c4be6d3c10312a55d1f4873810645ab4f7992bfa11bf12d7a4b8bce161cbd4b4"
+    },
+    {
+      "bytes": 3800,
+      "path": "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/source-manifest.json",
+      "sha256": "c046d0b859a0e0781ec74696e27382b9b031068da7cf7e7bf38276eed52b40f0"
+    },
+    {
+      "bytes": 7130,
+      "path": "audit/ce-map/REPORT.md",
+      "sha256": "f9f845c07b604ea55d6cb0161126fa1adac0b5d34db8b5e7dd2997063d5d94b4"
+    },
+    {
+      "bytes": 18329,
+      "path": "scripts/audit/build_r3_r4_obligations.py",
+      "sha256": "86a8a1068d7aeb8868993043378f5f91f919dd46091f71de2f91e3ed3dbd33f9"
+    },
+    {
+      "bytes": 2864,
+      "path": "scripts/audit/test_r3_r4_obligations.py",
+      "sha256": "8b82fe4c8c915ed67cdaaa86b9834c69d05194aaa6f1d65509a442a8e0f0f545"
+    }
+  ],
+  "status": "R3_MACHINE_REPLAYED_R4_OBLIGATION_MATRIX_COMPLETE_WITH_SCOPE",
+  "target_calculus": {
+    "claims": [
+      "C-223",
+      "C-224",
+      "C-225",
+      "C-226"
+    ],
+    "id": "G-HOTT-GROUPOID-SYNTAX-5BABC385",
+    "proof_id": "MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001",
+    "scope": "Exact Pi/U/El four-sort groupoid syntax slice, not a complete HoTT calculus."
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "schema_version": "machine-overview-reflected-tick-termination-scope/v1",
+  "evaluation_id": "REFLECTED-TICK-REDUCTION-OBSERVER-001",
+  "freeze_id": "REFLECTED-TICK-REDUCTION-OBSERVER-FREEZE-001",
+  "theory_configuration": {
+    "clocked_theory": "Clocked Cubical Type Theory library at cf0c438214cb10874ac1a7650f8d0d69677db57e",
+    "checker": "Agda forcing-ticks branch at 5bec849bec6c7aa40e068db99c5a1f5eab47a874",
+    "reflection_layer": "Agda.Builtin.Reflection normalise/reduce/quoteTC/unquoteTC in the same checker source",
+    "cubical_control": "Cubical v0.9 source tree plus project HoTT/formal tree",
+    "proof_checking_question": "Does a fixed proof-checking run complete within its declared observation interval, and which source assumptions are responsible?"
+  },
+  "questions": [
+    {"id": "R1", "question": "Does the exact checker expose normalise, reduce, quoteTC and unquoteTC to macros?"},
+    {"id": "R2", "question": "Which internal tick metadata is represented or omitted by reflected ArgInfo?"},
+    {"id": "R3", "question": "How does unquotation reconstruct omitted ArgInfo annotation data?"},
+    {"id": "R4", "question": "Can direct macro call sites distinguish diamond and ordinary-tick reduction results?"},
+    {"id": "R5", "question": "Can one object-level function retain that distinction while respecting force-delay Path equality?"},
+    {"id": "R6", "question": "Can a macro-generated distinction itself form the required Path?"},
+    {"id": "R7", "question": "Does reflected declaration cloning preserve ordinary-tick and forcing-tick binder behavior?"},
+    {"id": "R8", "question": "Does a fixed library or formal consumer promote call-site syntax observation to an object-level operational invariant?"},
+    {"id": "N1", "question": "Does ordinary termination checking reject an unproductive self-recursive definition?"},
+    {"id": "N2", "question": "What changes when the source explicitly asserts termination instead of asking the checker to establish it?"},
+    {"id": "N3", "question": "Does forcing a distinct normal form then make proof checking fail to complete within the observation interval?"},
+    {"id": "N4", "question": "Does keeping a recursive definition opaque to type-checking reduction prevent false equality and complete with rejection?"},
+    {"id": "N5", "question": "Does Reflection normalisation of a legitimately guarded productive infinite object stop at the delay boundary?"},
+    {"id": "N6", "question": "Do these observations establish a HoTT-specific Gödel incompleteness or reality-relative paradox instance?"}
+  ],
+  "qualification_gates": {
+    "hott_nonreality": {
+      "verdict_on_pass": "HOTT_REALITY_RELATIVE_NONREALITY_CANDIDATE",
+      "required_conditions": [
+        "The non-completing proof-checking task uses the declared HoTT or CCTT rules without an explicit termination assertion that the checker did not establish.",
+        "The exact proof obligation and theory configuration are fixed and natively replayed.",
+        "The same task has a specified reality or operational counterpart rather than a stronger substituted task.",
+        "The non-completion is caused by the theory abstraction or self-application being investigated.",
+        "A fixed natural consumer or theory-mandated operation requires the problematic observation.",
+        "Positive controls show that finite and guarded productive counterparts complete."
+      ]
+    },
+    "godel_hott": {
+      "verdict_on_pass": "HOTT_GODEL_INCOMPLETENESS_INSTANCE_CANDIDATE",
+      "required_conditions": [
+        "A fixed object language, coding and substitution operation are present.",
+        "The relevant proof predicate or checker relation is represented at the claimed layer.",
+        "The self-reference or diagonal step is explicitly constructed.",
+        "The soundness, derivability or reflection assumptions used by the conclusion are named.",
+        "The claimed incompleteness or non-completion follows from those fixed assumptions rather than from a manually asserted recursive equation.",
+        "A HoTT/Cubical/Clocked-specific rule or natural consumer is essential to the instance."
+      ]
+    }
+  },
+  "trigger_cube": {
+    "factors": [
+      "SELF_RECURSIVE_TERM",
+      "TERM_DECLARED_AVAILABLE_TO_JUDGEMENTAL_REDUCTION",
+      "PROOF_CHECK_FORCES_A_DISTINCT_NORMAL_FORM"
+    ],
+    "full_expected_result": "OBSERVATION_LIMIT_REACHED",
+    "ablations": [
+      {"removed": "SELF_RECURSIVE_TERM", "probe_id": "P09-GUARDED-INFINITE-NORMALISATION", "expected": "COMPLETED"},
+      {"removed": "TERM_DECLARED_AVAILABLE_TO_JUDGEMENTAL_REDUCTION", "probe_id": "P08-OPAQUE-RECURSIVE-EQUALITY", "expected": "TYPE_REJECTED"},
+      {"removed": "PROOF_CHECK_FORCES_A_DISTINCT_NORMAL_FORM", "probe_id": "P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY", "expected": "COMPLETED"}
+    ]
+  },
+  "allowed_external_roots": [
+    "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001",
+    "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+    "/Volumes/D/HoTT-toolchain-cache"
+  ],
+  "sources": [
+    {
+      "source_id": "RT-S1-AGDA-REFLECTION-5bec849",
+      "role": "REFLECTION_INTERFACE_AND_IMPLEMENTATION",
+      "artifacts": [
+        {
+          "artifact_id": "RT-A-REFLECTION-BUILTIN",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/data/lib/prim/Agda/Builtin/Reflection.agda",
+          "bytes": 15771,
+          "sha256": "2a4d37ce38b7281ff14da510fcc429288ebee62eb84c2aadb20f1a1e6dfc85a7",
+          "anchors": [
+            {"anchor_id": "RT-H01-NORMALISE", "literal": "normalise        : Term → TC Term"},
+            {"anchor_id": "RT-H02-REDUCE", "literal": "reduce           : Term → TC Term"},
+            {"anchor_id": "RT-H03-QUOTETC", "literal": "quoteTC          : ∀"},
+            {"anchor_id": "RT-H04-UNQUOTETC", "literal": "unquoteTC        : ∀"}
+          ]
+        },
+        {
+          "artifact_id": "RT-A-QUOTE-IMPLEMENTATION",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda/TypeChecking/Quote.hs",
+          "bytes": 15536,
+          "sha256": "ac8be1f0ff613d0dc806f7a784cb19dc0cdccb8ae60cfea1e41a0b3ae89bb80c",
+          "anchors": [
+            {"anchor_id": "RT-H05-ANNOTATION-NOT-QUOTED", "literal": "-- TODO: quote Annotation"},
+            {"anchor_id": "RT-H06-ARGINFO-PROJECTION", "literal": "quoteArgInfo (ArgInfo h m _ _ _)"}
+          ]
+        },
+        {
+          "artifact_id": "RT-A-UNQUOTE-IMPLEMENTATION",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda/TypeChecking/Unquote.hs",
+          "bytes": 35957,
+          "sha256": "bfcf18a9798679d60cdae243239c68b13d63df16d426c8be1416e5beccc3b501",
+          "anchors": [
+            {"anchor_id": "RT-H07-DEFAULT-ANNOTATION", "literal": "<*> pure defaultAnnotation"},
+            {"anchor_id": "RT-H08-TC-NORMALISE", "literal": "tcNormalise :: R.Term -> TCM Term"},
+            {"anchor_id": "RT-H09-TC-REDUCE", "literal": "tcReduce :: R.Term -> TCM Term"}
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "RT-S2-TERMINATION-CONTRACT-5bec849",
+      "role": "TERMINATION_CHECKING_CONTRACT_AND_CONTROLS",
+      "artifacts": [
+        {
+          "artifact_id": "RT-A-TERMINATION-DOC",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/doc/user-manual/language/termination-checking.lagda.rst",
+          "bytes": 4455,
+          "sha256": "201fa19561bc6d663b9850ba22257150483dc804c93f7628305eef7681fdca3f",
+          "anchors": [
+            {"anchor_id": "RT-H10-TERMINATION-DEFAULT", "literal": "Not all recursive functions are permitted"},
+            {"anchor_id": "RT-H11-NONTERMINATING-OPAQUE", "literal": "functions do not reduce during type"},
+            {"anchor_id": "RT-H12-TERMINATING-MEANS-ASSERTION", "literal": "Switches off termination checker for individual function definitions"}
+          ]
+        },
+        {
+          "artifact_id": "RT-A-CERTIFIED-MODE-DOC",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/doc/user-manual/language/safe-agda.lagda.rst",
+          "bytes": 2989,
+          "sha256": "a227d4ab018b178790a03bf3a6361fcfaabb5453738bc9efef560ee59e7e83e4",
+          "anchors": [
+            {"anchor_id": "RT-H13-LOOPY-TYPE-BOUNDARY", "literal": "gives loopy programs any type"},
+            {"anchor_id": "RT-H14-REWRITING-CONVERGENCE", "literal": "can at the very least break convergence"}
+          ]
+        },
+        {
+          "artifact_id": "RT-A-TERMINATION-TEST",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/test/Succeed/NoTerminationCheck.agda",
+          "bytes": 1106,
+          "sha256": "ae7c95b82d95c2e9359b739b438af0c9dbca82e86fc95b4ef7790fb7b47a9a95",
+          "anchors": [
+            {"anchor_id": "RT-H15-LIE-CONTROL", "literal": "-- It's a lie!!"},
+            {"anchor_id": "RT-H16-BEWARE-CONTROL", "literal": "-- Beware of lies!!"}
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "RT-S3-CCTT-AND-CUBICAL-CONSUMERS",
+      "role": "CLOCKED_RULES_AND_REAL_REFLECTION_CONSUMER",
+      "artifacts": [
+        {
+          "artifact_id": "RT-A-CLOCKED-PRIMITIVES",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Primitives.agda",
+          "bytes": 3818,
+          "sha256": "a8b5da3aaeead0b003a0124bb73d5f69e6b88650bded728ea70073f4c7df9aaa",
+          "anchors": [
+            {"anchor_id": "RT-H17-FORCE-DELAY", "literal": "force-delay f k α i = f ⟨ k , ftirr ◇ (emb α) i ⟩"},
+            {"anchor_id": "RT-H18-PFIX-PATH", "literal": "pfix' f α i = pfix f i α"}
+          ]
+        },
+        {
+          "artifact_id": "RT-A-CUBICAL-REFLECTION-CONSUMER",
+          "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Tactics/Reflection.agda",
+          "bytes": 4105,
+          "sha256": "846fe907e4bc6a6bd11fc2a5b4fa798a48e2cf697931bc906dcdbe168a103ff3",
+          "anchors": [
+            {"anchor_id": "RT-H19-CONSUMER-REDUCE", "literal": "goal ← inferType hole >>= reduce"},
+            {"anchor_id": "RT-H20-CONSUMER-NORMALISE-LHS", "literal": "elhs ← normalise lhs"},
+            {"anchor_id": "RT-H21-CONSUMER-NORMALISE-RHS", "literal": "erhs ← normalise rhs"}
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "RT-S4-EXACT-CHECKER-BUILD",
+      "role": "EXECUTION_ENVIRONMENT_IDENTITY",
+      "artifacts": [
+        {
+          "artifact_id": "RT-A-BUILD-RECEIPT",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/BUILD-RECEIPT.json",
+          "bytes": 5352,
+          "sha256": "a8e6e73ecc74cb2a2039c765afeeba3d077f79e969e5bbd09e99ec0d8c614f01",
+          "anchors": [
+            {"anchor_id": "RT-H22-CHECKER-COMMIT", "literal": "5bec849bec6c7aa40e068db99c5a1f5eab47a874"},
+            {"anchor_id": "RT-H23-RUNTIME-NETWORK", "literal": "\"network\": \"none\""}
+          ]
+        }
+      ]
+    }
+  ],
+  "trees": [
+    {
+      "tree_id": "RT-T1-CUBICAL-v0.9",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical",
+      "role": "PRODUCTION",
+      "identity": {"file_count": 1111, "total_bytes": 7511145, "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"},
+      "expected_annotation_matches": 0
+    },
+    {
+      "tree_id": "RT-T2-GUARDED-cf0c438",
+      "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src",
+      "role": "PRODUCTION",
+      "identity": {"file_count": 6, "total_bytes": 16309, "tree_sha256": "da72c4efed4c77f6512dd0be6b8cfbc64339165eb2657f48be15a0211896b6cb"},
+      "expected_annotation_matches": 0
+    },
+    {
+      "tree_id": "RT-T3-PROJECT-HOTT-FORMAL",
+      "path": "HoTT/formal",
+      "role": "PRODUCTION",
+      "identity": {"file_count": 83, "total_bytes": 293434, "tree_sha256": "465f9094d4511e69941757c808fd35ee4dafc4593e081d49140f4e8e197f715a"},
+      "expected_annotation_matches": 0
+    },
+    {
+      "tree_id": "RT-T4-AGDA-CHECKER-TESTS",
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/test",
+      "role": "CHECKER_TEST",
+      "identity": {"file_count": 6827, "total_bytes": 6660378, "tree_sha256": "1e178068970b3ca45703d182beee76109adf0589c445fa7e54328a16186ff4fa"},
+      "expected_annotation_matches": 76
+    },
+    {
+      "tree_id": "RT-T5-AGDA-CHECKER-EXAMPLES",
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/examples",
+      "role": "CHECKER_EXAMPLE",
+      "identity": {"file_count": 366, "total_bytes": 735063, "tree_sha256": "83eb811f99e65dbf06b5e28bf44110796b7812f3c4eadbf076d605e91573394a"},
+      "expected_annotation_matches": 3
+    }
+  ],
+  "toolchain": {
+    "binary": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/out-arm64/agda-forcing-ticks-linux-arm64",
+      "bytes": 161708104,
+      "sha256": "31a5ea292d2aa9a58df49eafc5f08ded25bddbac6ce81f45caf4d2f065a6212f"
+    },
+    "compiler_root": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks",
+    "guarded_root": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks",
+    "docker": {
+      "image": "sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b",
+      "platform": "linux/arm64",
+      "identity": {
+        "id": "sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b",
+        "architecture": "arm64",
+        "os": "linux",
+        "repo_digests": ["hott-agda-forcing-ticks-runtime@sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b"]
+      }
+    }
+  },
+  "probe_plan": [
+    {"probe_id": "P01-REFLECTION-REDUCTION-CLASSIFICATION", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectionReductionClassification.agda", "expect": "ACCEPT", "timeout_seconds": 10, "purpose": "Direct call-site normalisation distinguishes forcing and ordinary syntax, while a uniform object function becomes constant and respects force-delay."},
+    {"probe_id": "P02-PATH-INDEXED-OBSERVATION-CLAIM", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/PathIndexedObservationClaim.agda", "expect": "TYPE_REJECTION", "expected_exit": 42, "diagnostic": "Bool.true != Agda.Builtin.Bool.Bool.false", "timeout_seconds": 10, "purpose": "Attempt to turn the two call-site results into one Path-indexed object observation."},
+    {"probe_id": "P03-REFLECTED-BINDER-RECONSTRUCTION", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectedBinderReconstruction.agda", "expect": "ACCEPT", "timeout_seconds": 10, "purpose": "Clone ordinary-tick and forcing-tick binders through getType/getDefinition/declareDef/defineFun and check their applications."},
+    {"probe_id": "P04-TERMINATION-CHECK-REJECTS-LOOP", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationCheckRejectsLoop.agda", "expect": "TYPE_REJECTION", "expected_exit": 42, "diagnostic": "Termination checking failed", "timeout_seconds": 10, "purpose": "Control showing that ordinary termination checking rejects direct self recursion."},
+    {"probe_id": "P05-CERTIFIED-FRAGMENT-REJECTS-OVERRIDE", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/CertifiedFragmentRejectsOverride.agda", "expect": "TYPE_REJECTION", "expected_exit": 42, "diagnostic": "Cannot use TERMINATING pragma", "timeout_seconds": 10, "purpose": "Control showing that the certified source fragment refuses a manual termination assertion."},
+    {"probe_id": "P06-TERMINATION-OVERRIDE-ACCEPTS-SELF-EQUALITY", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationOverrideAcceptsSelfEquality.agda", "expect": "ACCEPT", "timeout_seconds": 10, "purpose": "A manual termination assertion admits the recursive definition when no distinct normal form is demanded."},
+    {"probe_id": "P07-TERMINATION-OVERRIDE-FORCED-EQUALITY", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationOverrideForcedEquality.agda", "expect": "OBSERVATION_LIMIT", "timeout_seconds": 4, "purpose": "Demanding loop equal zero makes proof checking continue until the fixed observation interval ends."},
+    {"probe_id": "P08-OPAQUE-RECURSIVE-EQUALITY", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/OpaqueRecursiveEquality.agda", "expect": "TYPE_REJECTION", "expected_exit": 42, "diagnostic": "loop != zero", "timeout_seconds": 10, "purpose": "Keeping the recursive definition out of type-checking reduction yields a finite rejection instead of continued unfolding."},
+    {"probe_id": "P09-GUARDED-INFINITE-NORMALISATION", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/GuardedInfiniteNormalisation.agda", "expect": "ACCEPT", "timeout_seconds": 10, "purpose": "A productive infinite stream normalises only to the delay boundary and completes."},
+    {"probe_id": "P10-REFLECTION-NORMALISES-RECURSIVE-TERM", "future_path": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectionNormalisesRecursiveTerm.agda", "expect": "OBSERVATION_LIMIT", "timeout_seconds": 4, "purpose": "Reflection normalise directly observes the manually asserted recursive term until the fixed interval ends."}
+  ],
+  "predeclared_interpretations": {
+    "reflection_if_path_claim_rejected": "HOST_SYNTAX_OBSERVATION_WITH_OBJECT_LEVEL_CONGRUENCE_FENCE",
+    "termination_if_only_override_cases_reach_limit": "EXPLICIT_TERMINATION_ASSERTION_CAN_MAKE_PROOF_CHECKING_NOT_COMPLETE",
+    "guarded_if_completed": "PRODUCTIVE_INFINITY_STOPS_AT_DELAY_BOUNDARY",
+    "hott_nonreality_without_natural_consumer": "NOT_ESTABLISHED",
+    "godel_without_object_proof_predicate_and_diagonal_step": "GENERIC_SELF_REDUCTION_CALIBRATION_ONLY"
+  },
+  "freeze_interpretation": "The exact source identities, questions, qualification gates, trigger cube, probe purposes and expected result classes are fixed before final probe sources, decisions, formal runs, tests, report and Session exist. This is a same-designer preregistration, not a blind evaluation or originality certificate.",
+  "future_paths": [
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/DECISIONS.json",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/REPORT.md",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectionReductionClassification.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/PathIndexedObservationClaim.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectedBinderReconstruction.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationCheckRejectsLoop.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/CertifiedFragmentRejectsOverride.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationOverrideAcceptsSelfEquality.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/TerminationOverrideForcedEquality.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/OpaqueRecursiveEquality.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/GuardedInfiniteNormalisation.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/probes/ReflectionNormalisesRecursiveTerm.agda",
+    "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/runs/20260914-REFLECTED-TICK-REDUCTION-OBSERVER-001",
+    "machine-overview/tests/test_reflected_tick_termination.py",
+    ".codex/research/hott/sessions/S-RES-20260914-REFLECTED-TICK-AND-PROOF-TERMINATION"
+  ],
+  "scope_limit": "This evaluation covers the fixed Reflection implementation, CCTT library, Cubical consumer, termination documents, exact checker build, declared source trees and ten probes. It does not establish a physical-time claim, global consumer absence, compiler correctness, a HoTT reality-relative paradox, or a HoTT-specific Gödel theorem."
+}

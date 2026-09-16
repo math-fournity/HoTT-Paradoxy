@@ -1,0 +1,28 @@
+{
+  "schema_version": "coq-synthetic-incompleteness-qualification-probe/v1",
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--platform",
+    "linux/amd64",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-build-cd7d849:/work:ro",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849:/qualification",
+    "-w",
+    "/work/theories",
+    "hott-coq-synthetic-incompleteness:cd7d849",
+    "coqc",
+    "-Q",
+    ".",
+    "Undecidability",
+    "/qualification/QUALIFICATION.v"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 5.952133999962825,
+  "stdout_bytes": 3142,
+  "stdout_sha256": "505b84bb69595703945b850b361115c510401066ce8162437d565eb1b18f441d",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

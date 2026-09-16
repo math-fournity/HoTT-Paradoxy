@@ -1,0 +1,803 @@
+{
+  "base_evaluator": {
+    "bytes": 19511,
+    "path": "machine-overview/m4_eval.py",
+    "sha256": "29a809d79c946823df3e6f3fefcf5415f6185eab4918172b2beeb4b257bc0180"
+  },
+  "created_at_utc": "2026-09-13T19:08:20.419729+00:00",
+  "descriptive_timing": {
+    "timings": [
+      {
+        "elapsed_nanoseconds": 731750,
+        "mode_id": "typed_enumeration",
+        "task_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001"
+      },
+      {
+        "elapsed_nanoseconds": 54583,
+        "mode_id": "llm_proposal",
+        "task_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001"
+      },
+      {
+        "elapsed_nanoseconds": 46083,
+        "mode_id": "hybrid_feedback",
+        "task_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001"
+      },
+      {
+        "elapsed_nanoseconds": 462875,
+        "mode_id": "typed_enumeration",
+        "task_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001"
+      },
+      {
+        "elapsed_nanoseconds": 175375,
+        "mode_id": "llm_proposal",
+        "task_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001"
+      },
+      {
+        "elapsed_nanoseconds": 189041,
+        "mode_id": "hybrid_feedback",
+        "task_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001"
+      },
+      {
+        "elapsed_nanoseconds": 525500,
+        "mode_id": "typed_enumeration",
+        "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001"
+      },
+      {
+        "elapsed_nanoseconds": 97250,
+        "mode_id": "llm_proposal",
+        "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001"
+      },
+      {
+        "elapsed_nanoseconds": 133000,
+        "mode_id": "hybrid_feedback",
+        "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001"
+      }
+    ]
+  },
+  "deterministic": {
+    "budget": {
+      "max_checks": 5000,
+      "max_contexts": 4,
+      "max_witnesses": 500
+    },
+    "evaluation_id": "M4-LITE-L3-001",
+    "results": [
+      {
+        "canonical_full_search_first_witness_match": true,
+        "canonical_native_status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE",
+        "expected_native_outcome": "ACCEPT",
+        "modes": [
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "ACCEPT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "initial_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "mode_id": "typed_enumeration",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "7e96a14d76183e976ee8081dab44ce1a67c03e29ea8fdde52499f06339f1921d",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "endpoint_path",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [],
+                    "rule": "interval_eta"
+                  },
+                  "proof_term": "(λ i → f i)",
+                  "separation_kind": "path_coherence_positive",
+                  "size": {
+                    "depth": 1,
+                    "nodes": 1
+                  },
+                  "used_rules": [
+                    "interval_eta"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 7,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 76,
+                "selected_rules": [
+                  "interval_eta",
+                  "path_sym",
+                  "path_sym_back",
+                  "path_identity_decoy",
+                  "event_fact_decoy"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "full_typed_enumeration",
+            "total_rule_application_checks": 76
+          },
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "ACCEPT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "initial_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "mode_id": "llm_proposal",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "7e96a14d76183e976ee8081dab44ce1a67c03e29ea8fdde52499f06339f1921d",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "endpoint_path",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [],
+                    "rule": "interval_eta"
+                  },
+                  "proof_term": "(λ i → f i)",
+                  "separation_kind": "path_coherence_positive",
+                  "size": {
+                    "depth": 1,
+                    "nodes": 1
+                  },
+                  "used_rules": [
+                    "interval_eta"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 5,
+                "selected_rules": [
+                  "interval_eta"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "declared_rule_subset",
+            "total_rule_application_checks": 5
+          },
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "ACCEPT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "initial_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "mode_id": "hybrid_feedback",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "7e96a14d76183e976ee8081dab44ce1a67c03e29ea8fdde52499f06339f1921d",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "endpoint_path",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [],
+                    "rule": "interval_eta"
+                  },
+                  "proof_term": "(λ i → f i)",
+                  "separation_kind": "path_coherence_positive",
+                  "size": {
+                    "depth": 1,
+                    "nodes": 1
+                  },
+                  "used_rules": [
+                    "interval_eta"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 5,
+                "selected_rules": [
+                  "interval_eta"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "native_feedback",
+            "total_rule_application_checks": 5
+          }
+        ],
+        "role": "PATH_COHERENCE_POSITIVE",
+        "task_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001"
+      },
+      {
+        "canonical_full_search_first_witness_match": true,
+        "canonical_native_status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE",
+        "expected_native_outcome": "ACCEPT",
+        "modes": [
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "ACCEPT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "initial_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "mode_id": "typed_enumeration",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "450b7226e8ba0da8b670eecc1bd9b4053d080f6ab4fdce5416620ac5cb2c3b24",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "event_boundary",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [
+                      {
+                        "children": [],
+                        "rule": "stage_start"
+                      },
+                      {
+                        "children": [],
+                        "rule": "stage_finish"
+                      },
+                      {
+                        "children": [],
+                        "rule": "stage_apart"
+                      }
+                    ],
+                    "rule": "event_pack"
+                  },
+                  "proof_term": "(phase-start , (phase-finish , phase-apart))",
+                  "separation_kind": "explicit_event_boundary",
+                  "size": {
+                    "depth": 2,
+                    "nodes": 4
+                  },
+                  "used_rules": [
+                    "event_pack",
+                    "stage_start",
+                    "stage_finish",
+                    "stage_apart"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 59,
+                "selected_rules": [
+                  "stage_start",
+                  "stage_finish",
+                  "stage_apart",
+                  "event_pack",
+                  "path_decoy",
+                  "path_decoy_sym",
+                  "path_decoy_back"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "full_typed_enumeration",
+            "total_rule_application_checks": 59
+          },
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "ACCEPT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "initial_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "mode_id": "llm_proposal",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "450b7226e8ba0da8b670eecc1bd9b4053d080f6ab4fdce5416620ac5cb2c3b24",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "event_boundary",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [
+                      {
+                        "children": [],
+                        "rule": "stage_start"
+                      },
+                      {
+                        "children": [],
+                        "rule": "stage_finish"
+                      },
+                      {
+                        "children": [],
+                        "rule": "stage_apart"
+                      }
+                    ],
+                    "rule": "event_pack"
+                  },
+                  "proof_term": "(phase-start , (phase-finish , phase-apart))",
+                  "separation_kind": "explicit_event_boundary",
+                  "size": {
+                    "depth": 2,
+                    "nodes": 4
+                  },
+                  "used_rules": [
+                    "event_pack",
+                    "stage_start",
+                    "stage_finish",
+                    "stage_apart"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 24,
+                "selected_rules": [
+                  "stage_start",
+                  "stage_finish",
+                  "stage_apart",
+                  "event_pack"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "declared_rule_subset",
+            "total_rule_application_checks": 24
+          },
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "ACCEPT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "initial_native": {
+              "accepted": true,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECKED_EXPLORATION_CANDIDATE"
+            },
+            "mode_id": "hybrid_feedback",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "450b7226e8ba0da8b670eecc1bd9b4053d080f6ab4fdce5416620ac5cb2c3b24",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "event_boundary",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [
+                      {
+                        "children": [],
+                        "rule": "stage_start"
+                      },
+                      {
+                        "children": [],
+                        "rule": "stage_finish"
+                      },
+                      {
+                        "children": [],
+                        "rule": "stage_apart"
+                      }
+                    ],
+                    "rule": "event_pack"
+                  },
+                  "proof_term": "(phase-start , (phase-finish , phase-apart))",
+                  "separation_kind": "explicit_event_boundary",
+                  "size": {
+                    "depth": 2,
+                    "nodes": 4
+                  },
+                  "used_rules": [
+                    "event_pack",
+                    "stage_start",
+                    "stage_finish",
+                    "stage_apart"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 24,
+                "selected_rules": [
+                  "stage_start",
+                  "stage_finish",
+                  "stage_apart",
+                  "event_pack"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "native_feedback",
+            "total_rule_application_checks": 24
+          }
+        ],
+        "role": "EXPLICIT_EVENT_BOUNDARY_POSITIVE",
+        "task_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001"
+      },
+      {
+        "canonical_full_search_first_witness_match": true,
+        "canonical_native_status": "NATIVE_CHECK_FAILED",
+        "expected_native_outcome": "REJECT",
+        "modes": [
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "REJECT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": false,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECK_FAILED"
+            },
+            "initial_native": {
+              "accepted": false,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECK_FAILED"
+            },
+            "mode_id": "typed_enumeration",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "bdc25fd93a061e96ddffd725fbcf4682fd88411450bba178d9625c0f70eb7ad5",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "exact_arrival",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [
+                      {
+                        "children": [],
+                        "rule": "finite_observation"
+                      }
+                    ],
+                    "rule": "finite_to_exact_candidate"
+                  },
+                  "proof_term": "finiteToExactCandidate (finite)",
+                  "separation_kind": "finite_to_exact_candidate",
+                  "size": {
+                    "depth": 2,
+                    "nodes": 2
+                  },
+                  "used_rules": [
+                    "finite_to_exact_candidate",
+                    "finite_observation"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 4,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 59,
+                "selected_rules": [
+                  "finite_observation",
+                  "finite_refine_decoy",
+                  "refined_forget_decoy",
+                  "finite_to_exact_candidate",
+                  "exact_identity_decoy",
+                  "path_fact_decoy"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "full_typed_enumeration",
+            "total_rule_application_checks": 59
+          },
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "REJECT",
+            "false_promotion": false,
+            "feedback_applied": false,
+            "final_native": {
+              "accepted": false,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECK_FAILED"
+            },
+            "initial_native": {
+              "accepted": false,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECK_FAILED"
+            },
+            "mode_id": "llm_proposal",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "bdc25fd93a061e96ddffd725fbcf4682fd88411450bba178d9625c0f70eb7ad5",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "exact_arrival",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [
+                      {
+                        "children": [],
+                        "rule": "finite_observation"
+                      }
+                    ],
+                    "rule": "finite_to_exact_candidate"
+                  },
+                  "proof_term": "finiteToExactCandidate (finite)",
+                  "separation_kind": "finite_to_exact_candidate",
+                  "size": {
+                    "depth": 2,
+                    "nodes": 2
+                  },
+                  "used_rules": [
+                    "finite_to_exact_candidate",
+                    "finite_observation"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 12,
+                "selected_rules": [
+                  "finite_observation",
+                  "finite_to_exact_candidate"
+                ],
+                "stage": "initial",
+                "truncated": false
+              }
+            ],
+            "strategy": "declared_rule_subset",
+            "total_rule_application_checks": 12
+          },
+          {
+            "budget": {
+              "max_checks": 5000,
+              "max_contexts": 4,
+              "max_witnesses": 500
+            },
+            "expectation_met": true,
+            "expected_native_outcome": "REJECT",
+            "false_promotion": false,
+            "feedback_applied": true,
+            "final_native": {
+              "accepted": false,
+              "binding": "NO_CANDIDATE",
+              "status": null
+            },
+            "initial_native": {
+              "accepted": false,
+              "binding": "BOUND_TO_CANONICAL_NATIVE_RUN",
+              "status": "NATIVE_CHECK_FAILED"
+            },
+            "mode_id": "hybrid_feedback",
+            "stages": [
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": {
+                  "ast_sha256": "bdc25fd93a061e96ddffd725fbcf4682fd88411450bba178d9625c0f70eb7ad5",
+                  "backend": "symbolic-horn-v1",
+                  "goal": "exact_arrival",
+                  "grammar_membership": {
+                    "reason": null,
+                    "status": "WITHIN_DECLARED_GRAMMAR"
+                  },
+                  "proof_ast": {
+                    "children": [
+                      {
+                        "children": [],
+                        "rule": "finite_observation"
+                      }
+                    ],
+                    "rule": "finite_to_exact_candidate"
+                  },
+                  "proof_term": "finiteToExactCandidate (finite)",
+                  "separation_kind": "finite_to_exact_candidate",
+                  "size": {
+                    "depth": 2,
+                    "nodes": 2
+                  },
+                  "used_rules": [
+                    "finite_to_exact_candidate",
+                    "finite_observation"
+                  ],
+                  "witness_id": "WV-0001"
+                },
+                "goal_terms_found": 1,
+                "order_independent_set_equal": true,
+                "rule_application_checks": 12,
+                "selected_rules": [
+                  "finite_observation",
+                  "finite_to_exact_candidate"
+                ],
+                "stage": "initial",
+                "truncated": false
+              },
+              {
+                "ablation_removes_goal": true,
+                "complete_within_selected_grammar": true,
+                "first_witness": null,
+                "goal_terms_found": 0,
+                "order_independent_set_equal": true,
+                "removed_rules": [
+                  "finite_to_exact_candidate"
+                ],
+                "rule_application_checks": 5,
+                "selected_rules": [
+                  "finite_observation"
+                ],
+                "stage": "after_native_rejection",
+                "truncated": false
+              }
+            ],
+            "strategy": "native_feedback",
+            "total_rule_application_checks": 17
+          }
+        ],
+        "role": "FINITE_TO_EXACT_NEGATIVE",
+        "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001"
+      }
+    ],
+    "scope_conclusion": "DESCRIPTIVE_M4_LITE_ONLY: same-designer tasks and proposals; no blind-model, novelty, population-level, or general effectiveness inference",
+    "seed": 20260913,
+    "summary_by_mode": [
+      {
+        "expectation_met": 3,
+        "false_promotions": 0,
+        "feedback_applications": 0,
+        "mode_id": "typed_enumeration",
+        "tasks": 3,
+        "total_rule_application_checks": 194
+      },
+      {
+        "expectation_met": 3,
+        "false_promotions": 0,
+        "feedback_applications": 0,
+        "mode_id": "llm_proposal",
+        "tasks": 3,
+        "total_rule_application_checks": 41
+      },
+      {
+        "expectation_met": 3,
+        "false_promotions": 0,
+        "feedback_applications": 1,
+        "mode_id": "hybrid_feedback",
+        "tasks": 3,
+        "total_rule_application_checks": 46
+      }
+    ],
+    "task_count": 3
+  },
+  "deterministic_sha256": "199793e000ba3de879d0f85c225b20b876775ccfa34f5abac9829004c8a90028",
+  "evaluator": {
+    "bytes": 12225,
+    "path": "machine-overview/m4_replay_closure.py",
+    "sha256": "a974458e5c6231fef1e17ea508becef8042e77aa61cbcebf581181b322e4eaf2"
+  },
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 220,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 232,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "run_id": "20260913-M4-LITE-L3-REPLAY-V2",
+  "schema_version": "machine-overview-m4-replay-run/v2",
+  "spec": {
+    "bytes": 6864,
+    "path": "machine-overview/evaluations/M4-LITE-L3-001/SPEC-REPLAY-v2.json",
+    "sha256": "1e9c80e0e2ed8093e3de909a25ed0b71f93344fbe64ec3db8b8ac6984a67afd2"
+  },
+  "status": "M4_LITE_REPLAY_CLOSED_OVER_ADAPTER_SNAPSHOTS"
+}

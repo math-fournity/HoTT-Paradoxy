@@ -1,0 +1,111 @@
+{
+  "schema_version": "machine-overview-natural-consumer-scope/v1",
+  "audit_id": "L3-NATURAL-CONSUMER-AUDIT-001",
+  "frozen_at_utc": "2026-09-13T18:18:36Z",
+  "freeze_point": "source set selected after abstract-level discovery and before full-text extraction and per-source classification",
+  "purpose": "Test whether a fixed primary-source set contains a natural HoTT/Cubical use that makes one Path or cubical dimension serve as an activity-time carrier and also promises exact observation of a discrete completion event without a separate event structure.",
+  "answer_visibility": {
+    "class": "DESIGNER_VISIBLE_BOUNDED_AUDIT",
+    "limitation": "The current AI had already read the local L3 bridge assessment and abstract-level search results. This is a bounded evidence audit, not a blind literature review or a proof that no such consumer exists elsewhere."
+  },
+  "hit_criteria": [
+    {
+      "id": "E1_ACTIVITY_TIME_CARRIER",
+      "question": "Does the source actually use Path or a cubical dimension as the carrier of an activity's time, rather than as equality, homotopy, geometry or proof dimension?"
+    },
+    {
+      "id": "E2_EXACT_DISCRETE_COMPLETION",
+      "question": "Does the same construction promise exact observation of a discrete completion or arrival event through that carrier?"
+    },
+    {
+      "id": "E3_NO_SEPARATE_EVENT_STRUCTURE",
+      "question": "Is there no separate clock, tick, later modality, event type, stage type, directed morphism or external scheduler carrying temporal progression?"
+    },
+    {
+      "id": "E4_HOTT_SPECIFIC_OBLIGATION",
+      "question": "Does the extra completion obligation arise from the HoTT/Cubical rule actually used, rather than from ordinary continuous modeling or an independently chosen topology?"
+    },
+    {
+      "id": "E5_NO_EXPLICIT_QUALIFICATION",
+      "question": "Does the source present the capability without an explicit assumption, approximation qualifier, partial interface or statement that the required structure is additional?"
+    },
+    {
+      "id": "E6_ORIGINAL_TASK_PROMISE",
+      "question": "Does the source treat failure of exact completion as a fact about the original activity rather than a limitation of its chosen representation?"
+    }
+  ],
+  "decision_rule": "A natural-consumer hit requires PASS on E1-E6 in one fixed source/construction. Any FAIL prevents a hit. UNKNOWN remains unresolved. The final negative conclusion, if any, is restricted to this seven-source set and these versions.",
+  "sources": [
+    {
+      "source_id": "NC-01-HOTT-BOOK",
+      "kind": "primary book",
+      "title": "Homotopy Type Theory: Univalent Foundations of Mathematics",
+      "version": "first edition; exact fetched PDF hash to be recorded",
+      "url": "https://homotopytypetheory.org/book/",
+      "selection_reason": "canonical book-form HoTT account of identity as paths and the interval intuition"
+    },
+    {
+      "source_id": "NC-02-AGDA-CUBICAL-MANUAL",
+      "kind": "official implementation documentation",
+      "title": "Agda Cubical manual",
+      "version": "Agda source commit 3d04bac used by the pinned 2.8.0 toolchain",
+      "url": "https://raw.githubusercontent.com/agda/agda/3d04bac/doc/user-manual/language/cubical.rst",
+      "selection_reason": "defines the implemented interval, Path and their intended use"
+    },
+    {
+      "source_id": "NC-03-CUBICAL-LIBRARY",
+      "kind": "primary implementation source tree",
+      "title": "agda/cubical library",
+      "version": "v0.9 tag commit b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+      "url": "https://github.com/agda/cubical/tree/b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+      "local_root": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical",
+      "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81",
+      "selection_reason": "fixed executable corpus for checking whether shipped Cubical developments use dimension as an activity clock"
+    },
+    {
+      "source_id": "NC-04-CUBICAL-AGDA-PAPER",
+      "kind": "primary research paper",
+      "title": "Cubical Agda: A Dependently Typed Programming Language with Univalence and Higher Inductive Types",
+      "version": "2019 ICFP paper; exact fetched PDF hash to be recorded",
+      "url": "https://staff.math.su.se/anders.mortberg/papers/cubicalagda.pdf",
+      "selection_reason": "primary design and application account for Cubical Agda"
+    },
+    {
+      "source_id": "NC-05-GUARDED-CUBICAL",
+      "kind": "primary research paper",
+      "title": "Guarded Cubical Type Theory",
+      "version": "arXiv:1611.09263v2",
+      "url": "https://arxiv.org/pdf/1611.09263v2",
+      "selection_reason": "combines cubical paths with guarded recursion and an explicit temporal modality"
+    },
+    {
+      "source_id": "NC-06-CLOCKED-CUBICAL",
+      "kind": "primary research paper",
+      "title": "Greatest HITs: Higher inductive types in coinductive definitions via induction under clocks",
+      "version": "arXiv:2102.01969v3",
+      "url": "https://arxiv.org/pdf/2102.01969v3",
+      "selection_reason": "uses Cubical Type Theory together with clocks/ticks for productive temporal progression"
+    },
+    {
+      "source_id": "NC-07-DIRECTED-HOTT",
+      "kind": "primary research paper",
+      "title": "Towards a directed homotopy type theory",
+      "version": "arXiv:1807.10566v1",
+      "url": "https://arxiv.org/pdf/1807.10566v1",
+      "selection_reason": "introduces directed morphisms for concurrency and tests whether ordinary identity paths carry irreversible process time"
+    }
+  ],
+  "exclusions": [
+    "secondary surveys and informal social-media discussion",
+    "sources discovered only after per-source classification begins",
+    "physical claims about spacetime not made by the selected formal sources",
+    "keyword matches in bibliographies or prose that do not define the relevant construction"
+  ],
+  "required_outputs": [
+    "retrieval manifest with exact URL, bytes and SHA-256 for each fetched source",
+    "deterministic source-tree keyword inventory for NC-03",
+    "one E1-E6 row per source with page/section or file/line evidence",
+    "cross-source decision restricted to the frozen set",
+    "strongest counter-reading and next proof obligation"
+  ]
+}

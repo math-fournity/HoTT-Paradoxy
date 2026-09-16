@@ -1,0 +1,2702 @@
+[
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Extensions of Some Theorems of Gödel and Church\nAuthor(s): Barkley Rosser\nReviewed work(s):\nSource: The Journal of Symbolic Logic, Vol. 1, No. 3 (Sep., 1936), pp. 87-91\nPublished by: Association for Symbolic Logic\nStable URL: http://www.jstor.org/stable/2269028\nAccessed: 22/07/2012 05:26"
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                257,
+                761,
+                362
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at http://www.jstor.org/page/info/about/policies/terms.jsp"
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                384,
+                794,
+                415
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org."
+                    }
+                ]
+            },
+            "bbox": [
+                77,
+                441,
+                931,
+                486
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "ASL"
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                106,
+                386,
+                182
+            ]
+        },
+        {
+            "type": "page_footer",
+            "content": {
+                "page_footer_content": [
+                    {
+                        "type": "text",
+                        "content": "J\nSTOR"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                861,
+                171,
+                937
+            ]
+        },
+        {
+            "type": "page_footer",
+            "content": {
+                "page_footer_content": [
+                    {
+                        "type": "text",
+                        "content": "Association for Symbolic Logic is collaborating with JSTOR to digitize, preserve and extend access to The Journal of Symbolic Logic."
+                    }
+                ]
+            },
+            "bbox": [
+                186,
+                862,
+                909,
+                888
+            ]
+        },
+        {
+            "type": "page_footer",
+            "content": {
+                "page_footer_content": [
+                    {
+                        "type": "text",
+                        "content": "http://www.jstor.org"
+                    }
+                ]
+            },
+            "bbox": [
+                80,
+                941,
+                221,
+                956
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "EXTENSIONS OF SOME THEOREMS OF GÖDEL AND CHURCH"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                110,
+                142,
+                887,
+                163
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "BARKLEY ROSSER  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{1}"
+                    }
+                ]
+            },
+            "bbox": [
+                406,
+                172,
+                593,
+                191
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Introduction. We shall say that a logic is “simply consistent” if there is no formula A such that both A and   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sim A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  are provable. “  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\omega"
+                    },
+                    {
+                        "type": "text",
+                        "content": " -consistent” will be used in the sense of Gödel.  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{2}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  “General recursive” and “primitive recursive” will be used in the sense of Kleene,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{2}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  so that what Gödel calls “rekursiv” will be called “primitive recursive.” By an “Entscheidungsverfahren” will be meant a general recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  such that, if n is the Gödel number of a provable formula,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)=0"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  and, if n is not the Gödel number of a provable formula,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)=1"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . In specifying that   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  must be general recursive we are following Church  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{3}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  in identifying “general recursiveness” and “effective calculability.”"
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                196,
+                911,
+                362
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "First, a modification is made in Gödel's proofs of his theorems, Satz VI (Gödel, p. 187—this is the theorem which states that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\omega"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-consistency implies the existence of undecidable propositions) and Satz XI (Gödel, p. 196—this is the theorem which states that simple consistency implies that the formula which states simple consistency is not provable). The modifications of the proofs make these theorems hold for a much more general class of logics. Then, by sacrificing some generality, it is proved that simple consistency implies the existence of undecidable propositions (a strengthening of Gödel's Satz VI and Kleene's Theorem XIII) and that simple consistency implies the non-existence of an Entscheidungsverfahren (a strengthening of the result in the last paragraph of Church). The class of logics for which these two results are proved is more general in some respects and less general in other respects than the class of logics for which Gödel's proof of Satz VI holds or the class of logics for which Kleene's proof of Theorem XIII holds."
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                362,
+                911,
+                622
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1. Preliminary lemmas."
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                125,
+                641,
+                379,
+                660
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "LEMMA I. Given a general recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(x, y_1, \\cdots, y_n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and a number  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "k"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ey_1, \\cdots, y_n)[\\phi(k, y_1, \\cdots, y_n)=0]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", there is a primitive recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\gamma(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\gamma(0), \\gamma(1), \\gamma(2), \\cdots"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is an enumeration (allowing repetitions) of the  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ey_1, \\cdots, y_n)[\\phi(x, y_1, \\cdots, y_n)=0]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                668,
+                906,
+                744
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "THE JOURNAL OF SYMBOLIC LOGIC\nVolume 1, Number 3, September 1936"
+                    }
+                ]
+            },
+            "bbox": [
+                91,
+                49,
+                343,
+                71
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "Received September 8, 1936. Presented to the Association for Symbolic Logic and the American Mathematical Society September 1, 1936."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                757,
+                906,
+                789
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "^{1}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  National Research Fellow."
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                787,
+                358,
+                803
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "I,"
+                    }
+                ]
+            },
+            "bbox": [
+                218,
+                819,
+                237,
+                833
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "² See p. 187 of K. Gödel, Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I, Monatshefte für Mathematik und Physik, vol. 38 (1931), pp. 173–198. We shall assume familiarity with this paper, to which we shall refer as “Gödel,” and with the paper to which we shall refer as “Kleene,” namely, S. C. Kleene, General recursive functions of natural numbers, Mathematische Annalen, vol. 112 (1936), pp. 727–742. The notations used throughout will be those used in these two papers."
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                803,
+                906,
+                896
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "^{8}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  A. Church, An unsolvable problem of elementary number theory, American journal of mathematics, vol. 58 (1936), pp. 345–363. Cf. p. 356. We shall refer to this paper as “Church”."
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                895,
+                903,
+                928
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "87"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                936,
+                507,
+                950
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof.4 Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\psi(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "R(x, y_1, \\cdots, y_n, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be chosen for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(x, y_1, \\cdots, y_n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " as in the proof of IV of Kleene. Then put  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\gamma(m) = \\epsilon p[p \\leq m + k \\& \\{R(1 Gl m, \\cdots, [n+2]Gl m) \\& \\psi([n+2]Gl m) = 0 \\& p = 1 Gl m\\} \\vee \\{[R(1 Gl m, \\cdots, [n+2]Gl m) \\vee \\psi([n+2]Gl m) \\neq 0\\} \\& p = k\\}\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". We note that the uniqueness clause of Definition 2b of Kleene allows one to add the clause “and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(\\mathfrak{x}, y)[R(\\mathfrak{x}, y) \\to \\psi(y) = \\psi(\\epsilon y[R(\\mathfrak{x}, y)])]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "” to IV of Kleene."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                96,
+                911,
+                209
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY I. If a class can be enumerated (allowing repetitions) by a general recursive function, it can be enumerated (allowing repetitions) by a primitive recursive function."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                217,
+                911,
+                272
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be general recursive and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(0), \\phi(1), \\phi(2), \\cdots"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be an enumeration of some class, then that class is just the class of all  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ey)\\phi(y)=x"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". But  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "[\\phi(y)=x] \\sim [(\\phi(y) \\div x) + (x \\div \\phi(y)) = 0]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                91,
+                283,
+                908,
+                339
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Although general recursive enumerability without repetitions is more general than primitive recursive enumerability without repetitions, the two concepts are equivalent when repetitions are allowed. For this reason “recursively enumerable” shall henceforth be understood as allowing repetitions and referring indifferently to enumeration by general or primitive recursive functions."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                339,
+                911,
+                432
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY II. A general recursive class which is not null is recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                440,
+                908,
+                477
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Put  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " in Lemma I."
+                    }
+                ]
+            },
+            "bbox": [
+                125,
+                486,
+                360,
+                505
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The converse of this corollary is not true. For (cf. Footnote 16 and Theorem XV of Kleene)  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ey)T_{1}(x,x,y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a non-recursive class which is recursively enumerable. Also the class of well-formed formulas with normal forms (see Church) is not general recursive (Church, Theorem XVIII) and yet it can be enumerated, without repetitions, by a primitive recursive function. In this connection, Kleene has pointed out that if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\gamma(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is primitive recursive and the class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Em)[\\gamma(m)=x]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is not general recursive, then a primitive recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\xi(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " can be defined such that the class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Em)[\\xi(m)=x]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is not general recursive and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(m,n)[\\xi(m)=\\xi(n)\\to m=n]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". This is done by putting  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\xi(m)=\\epsilon z[z\\leq2\\gamma(m)+2m+1"
+                    },
+                    {
+                        "type": "text",
+                        "content": " &  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{(n)[n<m\\to\\gamma(n)\\neq\\gamma(m)]\\&z=2\\gamma(m)\\}\\vee\\{(En)[n<m\\&\\gamma(n)=\\gamma(m)]\\&z=2m+1\\}\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                505,
+                908,
+                709
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "DEFINITION. A set of rules of procedure for a logic is said to be general recursive if there is a general recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n, x, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that “ "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "z"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is an immediate consequence of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y"
+                    },
+                    {
+                        "type": "text",
+                        "content": "” is equivalent to “ "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(En)[\\phi(n, x, y) = z]"
+                    },
+                    {
+                        "type": "text",
+                        "content": "”."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                717,
+                908,
+                776
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "LEMMA II. Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C_1(x), \\cdots, C_r(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be recursively enumerable classes of numbers and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi_1(n, x, y), \\cdots, \\phi_s(n, x, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be the determining functions of general recursive sets of rules of procedure. If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the least class such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(x)[C_i(x) \\to C(x)]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ( "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "i = 1, \\cdots, r"
+                    },
+                    {
+                        "type": "text",
+                        "content": ") and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(n, x, y)[C(x) \\& C(y) \\to C(\\phi_i(n, x, y))]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ( "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "i = 1, \\cdots, s"
+                    },
+                    {
+                        "type": "text",
+                        "content": "), then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                784,
+                908,
+                877
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "88"
+                    }
+                ]
+            },
+            "bbox": [
+                91,
+                61,
+                122,
+                74
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "BARKLEY ROSSER"
+                    }
+                ]
+            },
+            "bbox": [
+                411,
+                61,
+                588,
+                76
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "^{4}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  This lemma is a generalization of three lemmas which appeared in an earlier draft of this paper. Upon reading this earlier draft, S. C. Kleene suggested this lemma and furnished the proof of it which is given here."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                890,
+                908,
+                939
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{i}(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be the functions which enumerate  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C_{i}(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ( "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "i=1,\\cdots,r"
+                    },
+                    {
+                        "type": "text",
+                        "content": "). Then put  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi_{s+i}(n,x,y)=\\theta_{i}(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ( "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "i=1,\\cdots,r"
+                    },
+                    {
+                        "type": "text",
+                        "content": "). Then it is easy enough to define recursively"
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                95,
+                903,
+                136
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi (n,x,y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " so that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi (n,x,y) = \\phi_{\\mathrm{Rem}(n,r + s) + 1}\\left(\\left[\\frac{n}{r + s}\\right],x,y\\right)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " (cf. 21 in Kleene)."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                141,
+                901,
+                183
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Then the class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "C(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is clearly the same as the least class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "K(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "K(\\theta_1(0))"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(n, x, y)[K(x) \\& K(y) \\to K(\\phi(n, x, y))]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and by Theorem I, Kleene, this class is recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                187,
+                903,
+                244
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2. Proofs of the theorems. P shall denote the system given in Gödel, pp. 176–178. The theorems shall be proved for P but the method of proqf will be general enough to apply to many other systems."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                251,
+                906,
+                309
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM I. If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is got by adding various axioms and rules of procedure to  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and if the provable formulas of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " are recursively enumerable:"
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                316,
+                903,
+                354
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A. If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\omega"
+                    },
+                    {
+                        "type": "text",
+                        "content": "-consistent, then there is a primitive recursive class formula,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", such that neither  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v"
+                    },
+                    {
+                        "type": "text",
+                        "content": " Gen  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": " nor  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\text{Neg}(v \\text{ Gen } r)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a provable formula in  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " (where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the free variable of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": ")."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                354,
+                903,
+                408
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "B. If   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is simply consistent, then the formal proposition which says that   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is simply consistent is not provable in   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                408,
+                903,
+                448
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be a primitive recursive function which enumerates the provable formulas of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". On pp. 188, 189, 196 and 197 of Gödel replace  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(x)=y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ex)[\\phi(x)=y]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then the proof of Satz VI becomes a proof of A and the proof of Satz XI becomes a proof of B."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                454,
+                906,
+                530
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "By this proof we gain in generality over Gödel's proofs in the following way. Gödel used the hypothesis that the class of axioms was a primitive recursive class and that the rules of procedure were primitive recursive. In view of Lemma II it is sufficient that the class of axioms be recursively enumerable (and by Lemma I, Corollary II, this is even less restrictive than requiring that the class of axioms be general recursive) and that the rules of procedure be general recursive."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                529,
+                906,
+                659
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM II. If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is got by adding various axioms and rules of procedure to  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and if the provable formulas of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " are recursively enumerable, and if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is simply consistent, then there is a primitive recursive class formula,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", such that neither  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v"
+                    },
+                    {
+                        "type": "text",
+                        "content": " Gen  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": " nor  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\text{Neg}(v \\text{ Gen } r)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a provable formula in  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " (where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the free variable of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": ")."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                667,
+                908,
+                762
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be a primitive recursive function which enumerates the provable formulas and assume that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is simply consistent. Put  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(x)=y"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ex)[x B_{\\kappa}y]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x Pr_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa}y \\& (\\overline{Ez})[z \\leq x \\& z B_{\\kappa} \\operatorname{Neg}(y)]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ex)[x Pr_{\\kappa}y]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y) \\sim \\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". However this equivalence is not provable formally since it requires the hypothesis of simple consistency, which we know by Thm. I to be formally unprovable. Hence the formalization of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " may, and does, have properties not possessed by the formalization of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Such a property is the following (which will be proved shortly). If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the number of the formalization of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a) \\to \\operatorname{Prov}_{\\kappa}(b)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\text{Prov}_k(\\text{Neg}(a)) \\to \\text{Prov}_k(\\text{Neg}(b))"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". By use of this property one can proceed as on p. 188 of Gödel, but with  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x Pr_k y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " in place of Gödel's  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_k y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\text{Prov}_k(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " in place of Gödel's  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\text{Bew}_k(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", to find an undecidable proposition of the form  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v"
+                    },
+                    {
+                        "type": "text",
+                        "content": " Gen  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                768,
+                908,
+                936
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "EXTENSIONS OF SOME THEOREMS OF GÖDEL AND CHURCH"
+                    }
+                ]
+            },
+            "bbox": [
+                213,
+                61,
+                781,
+                76
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "89"
+                    }
+                ]
+            },
+            "bbox": [
+                875,
+                61,
+                903,
+                74
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                84,
+                93,
+                906,
+                148
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We now prove the aforementioned property of “Prov "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "_{x}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "”.  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x"
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "B_{x}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ez)[z \\leq x \\& z \\, B_{x} \\, \\text{Neg}(y)]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " are both primitive recursive relations. Hence by Satz V of Gödel, there are formulas  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", both with the free variables  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "u"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                147,
+                906,
+                204
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "x B _ {x} y \\rightarrow \\operatorname{Bew} _ {x} \\left[ S b \\left(\\begin{array}{c c}u&v\\\\r&Z (x)\\end{array}Z (y)\\right)\\right],\\tag{1}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/8d3040c8e12495a4f4082ee55df772906e708c3363a61ac022fcfd91454e31d6.jpg"
+                }
+            },
+            "bbox": [
+                168,
+                213,
+                538,
+                256
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\overline {{{{x B _ {k} y}}}} \\rightarrow \\operatorname{Bew} _ {k} \\left[ \\operatorname{Neg} \\left(S b \\left(r\\begin{array}{c c}u&v\\\\Z (x)&Z (y)\\end{array}\\right)\\right)\\right],\\tag{2}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/5d2a2b60e63b6b28ab01071c8463e6b8eb526b75e4b6b38df8f2b6d01242650f.jpg"
+                }
+            },
+            "bbox": [
+                165,
+                261,
+                622,
+                305
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "(E z) [ z \\leq x \\&z B _ {n} \\operatorname{Neg} (y) ] \\rightarrow \\operatorname{Bew} _ {n} \\left[ S b \\left(s\\begin{array}{c c}u&v\\\\Z (x)&Z (y)\\end{array}\\right)\\right],\\tag{3}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/6ac441eea61cda63785c9eafa82bd1c20a4a70c13d5022540c68606d90123ef9.jpg"
+                }
+            },
+            "bbox": [
+                168,
+                312,
+                754,
+                354
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\overline {{(E z)}} [ z \\leq x \\&z B _ {\\kappa} \\operatorname{Neg} (y) ] \\rightarrow \\operatorname{Bew} _ {\\kappa} \\left[ \\operatorname{Neg} \\left(S b \\left(s\\begin{array}{c c}u&v\\\\Z (x)&Z (y)\\end{array}\\right)\\right)\\right].\\tag{4}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/9432fa4d8dc09fce0f8dfe6327ace7c9c74d55de5690d79db42b6a485e569a69.jpg"
+                }
+            },
+            "bbox": [
+                168,
+                359,
+                822,
+                402
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the number of the formalization of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then clearly  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}\\left(b \\operatorname{Aeq} u \\operatorname{Ex}\\left(Sb\\left(r \\begin{array}{c} v \\\\ Z(a) \\end{array} \\right) \\text{Con} \\operatorname{Neg}\\left(Sb\\left(s \\begin{array}{c} v \\\\ Z(a) \\end{array} \\right)\\right)\\right)\\right)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Hence  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a) \\to \\operatorname{Prov}_{\\kappa}(b)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " by (1), (4) and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y) \\sim \\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Assume  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa} \\operatorname{Neg}(a)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then by induction within the system  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and by use of (3),  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}\\left(Sb\\left(s \\begin{array}{cc} u & v \\\\ x N R(u) & Z(a) \\end{array} \\right)\\right)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " (since this only requires the proof by induction of certain properties of the function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\chi"
+                    },
+                    {
+                        "type": "text",
+                        "content": " given on p. 181 of Gödel). Also, by use of (2),"
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                412,
+                906,
+                594
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\operatorname{Bew} _ {\\kappa} \\left(\\operatorname{Neg} \\left(S b \\left(r \\begin{array}{c c} u & v \\\\ Z (0) & Z (a) \\end{array} \\right)\\right)\\right),",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/9b53e71b3183361db22763ff1b10fbe25d1517c87f166c7c1aa43d933b13d9a7.jpg"
+                }
+            },
+            "bbox": [
+                293,
+                600,
+                649,
+                643
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\operatorname{Bew} _ {\\kappa} \\left(\\operatorname{Neg} \\left(S b \\left(r \\begin{array}{c c} u & v \\\\ Z (1) & Z (a) \\end{array} \\right)\\right)\\right),",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/1ae9fba35a64cbf0ccb68badb966457ee2992b2d996dcfcb703e150a9b038cbf.jpg"
+                }
+            },
+            "bbox": [
+                293,
+                651,
+                646,
+                692
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\operatorname{Bew} _ {\\kappa} \\left(\\operatorname{Neg} \\left(S b \\left(r \\begin{array}{c c} u & v \\\\ Z (x) & Z (a) \\end{array} \\right)\\right)\\right),",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/a023d8f32fb73e82e9bd3255b5ca09bfed26952acf23920aba6ce918f7216de6.jpg"
+                }
+            },
+            "bbox": [
+                293,
+                725,
+                649,
+                767
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "because  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "0B_{\\kappa}a, 1B_{\\kappa}a, \\cdots, xB_{\\kappa}a"
+                    },
+                    {
+                        "type": "text",
+                        "content": " (since  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(\\operatorname{Neg}(a))"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is simply consistent). But the formal analogue of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(z)[z=0 \\vee z=1 \\vee \\cdots \\vee z=x \\vee(Ew)[z=x+w]]"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is provable in  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and hence in  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and so  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}\\left(u \\operatorname{Gen}\\left(\\operatorname{Neg}\\left(Sb\\left(r \\begin{array}{c}v \\\\ Z(a)\\end{array}\\right)\\right) \\operatorname{Dis} Sb\\left(s \\begin{array}{c}v \\\\ Z(a)\\end{array}\\right)\\right)\\right)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Hence  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(\\operatorname{Neg}(a)) \\to \\operatorname{Prov}_{\\kappa}(\\operatorname{Neg}(b))"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                79,
+                776,
+                903,
+                895
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "90"
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                57,
+                117,
+                71
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "BARKLEY ROSSER"
+                    }
+                ]
+            },
+            "bbox": [
+                406,
+                58,
+                584,
+                72
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "As it is very easy to tell whether a formula has free variables or not, the existence of an Entscheidungsverfahren would imply the existence of a method for"
+                    }
+                ]
+            },
+            "bbox": [
+                79,
+                904,
+                903,
+                942
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "telling whether or not a formula with no free variables is provable. Hence it is a corollary of Theorem III (stated below) that there is no Entscheidungsverfahren for   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                93,
+                908,
+                148
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM III. If   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is got by adding various axioms and rules of procedure to P, and if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is simply consistent, then there is no generally applicable effective process for determining whether or not a formula with no free variables is provable."
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                153,
+                906,
+                210
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Assume that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is simply consistent and that there is a generally applicable effective process for determining whether or not a formula with no free variables is provable. Let us define  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " by the rule:  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " shall be 0 if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the number of a provable formula with no free variables, and 1 otherwise. Then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is effectively calculable and we shall follow Church in assuming that this necessitates that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be general recursive. Then the class of numbers of provable formulas with no free variables and the class of numbers which are not numbers of provable formulas with no free variables are both recursively enumerable. Also both are non-null. Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\gamma(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be primitive recursive functions which enumerate them respectively. Then there is a primitive recursive formula  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta(2n)=\\beta(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta(2n+1)=\\gamma(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates all numbers in such a way that the numbers occurring in the even places are numbers of provable formulas with no free variables and the numbers occurring at the odd places are not numbers of provable formulas with no free variables. Now put  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta(x)=y \\& x/2"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ex)[x B_{\\kappa}y]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x Pr_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa}y \\& (\\overline{Ez})[z \\leq x \\& \\theta(z)=y \\& \\overline{z/2}]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ex)[x Pr_{\\kappa}y]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y) \\sim \\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Now let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be the number of the formalization of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". By a proof like that in the proof of Thm. II, it follows that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a) \\to \\operatorname{Prov}_{\\kappa}(b)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Ez)[\\theta(z)=a \\& z/2] \\to \\operatorname{Prov}_{\\kappa}(\\operatorname{Neg}(b))"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". But if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline{\\operatorname{Prov}_{\\kappa}(a)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "(Em)[\\gamma(m)=a]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and therefore  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta(2(\\epsilon m[\\gamma(m)=a])+1)=a"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Hence  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline{\\operatorname{Prov}_{\\kappa}(a)} \\to \\operatorname{Prov}_{\\kappa}(\\operatorname{Neg}(b))"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". By use of this and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(a) \\to \\operatorname{Prov}_{\\kappa}(b)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", one can derive a contradiction by proceeding as on p. 188 of Gödel, but with  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x Pr_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Prov}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " in place of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x B_{\\kappa}y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\operatorname{Bew}_{\\kappa}(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " respectively. With slight modifications, the proof above becomes a proof of:"
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                218,
+                908,
+                635
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "With slight modifications the proof above becomes a proof of:"
+                    }
+                ]
+            },
+            "bbox": [
+                120,
+                625,
+                762,
+                646
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM IV. If   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is got by adding various axioms and rules of procedure to P, and if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P_{\\kappa}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is simply consistent, then the class of numbers of provable formulas and the class of numbers of unprovable formulas are not both recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                654,
+                906,
+                711
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "From this theorem and Theorem III follow:"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                719,
+                579,
+                738
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM V. If P is simply consistent, then:"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                748,
+                574,
+                765
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "A. The class of unprovable formulas is not recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                765,
+                769,
+                784
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "B. The class of undecidable formulas is not recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                784,
+                774,
+                803
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "C. The class of provable formulas is recursively enumerable but not general recursive."
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                803,
+                903,
+                839
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "D. The class of decidable formulas is recursively enumerable but not general recursive."
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                839,
+                906,
+                877
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "I wish to thank S. C. Kleene for reading an earlier draft of this paper and suggesting improvements."
+                    }
+                ]
+            },
+            "bbox": [
+                81,
+                882,
+                903,
+                923
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "HARVARD UNIVERSITY"
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                928,
+                302,
+                944
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "EXTENSIONS OF SOME THEOREMS OF GÖDEL AND CHURCH"
+                    }
+                ]
+            },
+            "bbox": [
+                213,
+                58,
+                783,
+                74
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "91"
+                    }
+                ]
+            },
+            "bbox": [
+                877,
+                57,
+                906,
+                72
+            ]
+        }
+    ]
+]

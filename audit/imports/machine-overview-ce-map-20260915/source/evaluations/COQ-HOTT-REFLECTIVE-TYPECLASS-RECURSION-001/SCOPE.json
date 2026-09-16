@@ -1,0 +1,417 @@
+{
+  "schema_version": "machine-overview-coq-hott-typeclass-recursion-scope/v1",
+  "evaluation_id": "COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001",
+  "freeze_id": "FZ-COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001",
+  "allowed_external_roots": [
+    "/Volumes/D/HoTT-machine-overview-cache/community-frameworks"
+  ],
+  "external_attempt_root": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-formal-probe-attempts",
+  "scope_limit": "This evaluation studies one documented Coq-HoTT reflective-subuniverse typeclass-search recursion boundary. It does not claim that the current library enables the recursive rule, that kernel checking of a supplied proof fails to complete, that the mechanism is HoTT-specific, that a reality correspondence has been established, or that a Goedel incompleteness instance has been constructed.",
+  "theory_configuration": {
+    "host": "Coq-HoTT on Rocq",
+    "source_commit": "cc6184729bf8572a1d188c7a46f8d224f40bcceb",
+    "rocq": "9.0.1",
+    "coq_hott_flags": [
+      "-noinit",
+      "-indices-matter",
+      "-native-compiler",
+      "no"
+    ],
+    "proof_search": "typeclasses eauto; current Rocq documentation states that the default search is depth-first and unbounded unless a depth is supplied"
+  },
+  "source": {
+    "repository": "https://github.com/HoTT/Coq-HoTT",
+    "root": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT",
+    "identity": {
+      "head": "cc6184729bf8572a1d188c7a46f8d224f40bcceb",
+      "tree": "1325fa48e5e57eb452fc4938e8ba116757d420ee",
+      "clean": true,
+      "tracked_files": 675,
+      "tracked_bytes": 5188476,
+      "tracked_tree_sha256": "9e6764b93b09a79bf627eae6746a07c4518e54f5bf5d498328e539f399fb7f7f"
+    },
+    "expected_registration_inventory": {
+      "active_registration_count": 0,
+      "documented_boundary_count": 5
+    },
+    "artifacts": [
+      {
+        "artifact_id": "CH-S1-README",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/README.md",
+        "bytes": 3671,
+        "sha256": "a4726caac07ded731f5b8d9eda9beedfb882b051f6f5b9181f56f598f3603c80",
+        "anchors": [
+          {
+            "anchor_id": "CH-A01-HOTT-LIBRARY-ROLE",
+            "literal": "The HoTT library is a development of homotopy-theoretic ideas in the Coq proof\nassistant.",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A02-NOINIT",
+            "literal": "-arg -noinit",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A03-INDICES-MATTER",
+            "literal": "-arg -indices-matter",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S2-INSTALL",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/doc/INSTALL.md",
+        "bytes": 9509,
+        "sha256": "2347e61e04599fd38898b39866e8b4f097129d0c15a5a09c48f52e200eea7b62",
+        "anchors": [
+          {
+            "anchor_id": "CH-A04-ROCQ-RENAME",
+            "literal": "As of version 9.0, Coq has been renamed Rocq.",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A05-LATEST-9X",
+            "literal": "To install the latest 9.x version of Rocq",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S3-CI",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/.github/workflows/ci.yml",
+        "bytes": 18683,
+        "sha256": "1d5a7b83e87fb0f013d31567448a34a59676ad450b27ab0d57bd3b79940421f3",
+        "anchors": [
+          {
+            "anchor_id": "CH-A06-CI-9-0",
+            "literal": "coq-version-supported: '9.0'",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A07-CI-9-2",
+            "literal": "coq-version-9-2: '9.2'",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S4-OPAM",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/coq-hott.opam",
+        "bytes": 901,
+        "sha256": "815b26dd8f0bc68c9b7369493f02c6b96bd1e9115de9f900a3cad1c31086f5c9",
+        "anchors": [
+          {
+            "anchor_id": "CH-A08-ROCQ-CORE-9",
+            "literal": "\"rocq-core\" {>= \"9.0\"}",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S5-REFLECTIVE-SUBUNIVERSE",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/theories/Modalities/ReflectiveSubuniverse.v",
+        "bytes": 85445,
+        "sha256": "3b43fc6489d495b438ddaf8f69ebb2d4d25e5362586a5a1630bc7f5d8b1a8859",
+        "anchors": [
+          {
+            "anchor_id": "CH-A09-ISEQUIV-DECLARATION",
+            "literal": "Definition isequiv_O_inverts",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A10-INFINITE-REGRESS",
+            "literal": "causes an infinite regress applying more and more [O_functor]",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A11-HINT-IMMEDIATE-COMMENT",
+            "literal": "Hint Immediate isequiv_O_inverts : typeclass_instances.",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A12-EVEN-THIS-LOOPS",
+            "literal": "even this seems to cause infinite loops",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A13-REFLEXIVE-EQUIVALENCE",
+            "literal": "for fear of infinite loops, since [<=>] is reflexive",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S6-BASICS-TRUNC",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/theories/Basics/Trunc.v",
+        "bytes": 17191,
+        "sha256": "6c37fcb52a7655b4ba6cb92bdac111cd32c3c0a6ec345050227c881ee0f43013",
+        "anchors": [
+          {
+            "anchor_id": "CH-A14-INTERMINABLE-SEARCHES",
+            "literal": "otherwise they result in long or interminable searches",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A15-TRUNC-EQUIV-LOOP",
+            "literal": "This is not an [Instance] because it causes infinite loops.",
+            "minimum": 2
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S7-TRUNCATION-CORE",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/theories/Truncations/Core.v",
+        "bytes": 16761,
+        "sha256": "8bcae3db8392e6a8a500c02c6c5ea25bdac01662c92ce348c9542978aa9655a5",
+        "anchors": [
+          {
+            "anchor_id": "CH-A16-BOTH-INSTANCES",
+            "literal": "Having both of these as [Instance]s would cause infinite loops.",
+            "minimum": 1
+          },
+          {
+            "anchor_id": "CH-A17-RISK-OF-LOOPS",
+            "literal": "at the risk of causing loops in typeclass search",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "artifact_id": "CH-S8-CONNECTEDNESS",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT/theories/Truncations/Connectedness.v",
+        "bytes": 16051,
+        "sha256": "0b9fb2623ed752681ed3b48d96324fdefce7877a79dcdaeedf2d4cf1f163909c",
+        "anchors": [
+          {
+            "anchor_id": "CH-A18-CONNECTIVITY-INSTANCES",
+            "literal": "We can't make both of these [Instance]s, as that would result in infinite loops.",
+            "minimum": 1
+          }
+        ]
+      }
+    ]
+  },
+  "build": {
+    "root": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-build-cc618472-replay-20260914a",
+    "identity": {
+      "file_count": 4451,
+      "total_bytes": 74553091,
+      "tree_sha256": "f54181b1db56dd67d28da8151a0a2417fdb35a9bee399ced6974f75d490cd2ee"
+    },
+    "required_files": [
+      {
+        "file_id": "CH-B1-REFLECTIVE-VO",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-build-cc618472-replay-20260914a/theories/Modalities/ReflectiveSubuniverse.vo",
+        "bytes": 345392,
+        "sha256": "3d5d1191f1d9d1a5405427a5eb6d85b38742fa32a3332f94f6750a6e6239f250"
+      },
+      {
+        "file_id": "CH-B2-HOTT-VO",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-build-cc618472-replay-20260914a/theories/HoTT.vo",
+        "bytes": 13117,
+        "sha256": "2726026df9b4b4fa802b346aadb3e138049818d0ec9f33c4e4b8dbc3e66b6a66"
+      }
+    ]
+  },
+  "toolchain": {
+    "docker": {
+      "image": "rocq/rocq-prover:9.0",
+      "platform": "linux/amd64",
+      "identity": {
+        "id": "sha256:3ed9c46fa02e9fd7748a959abebb11b36f8818d10738dcc93edc67354c313ce2",
+        "architecture": "amd64",
+        "os": "linux",
+        "repo_digests": [
+          "rocq/rocq-prover@sha256:3ed9c46fa02e9fd7748a959abebb11b36f8818d10738dcc93edc67354c313ce2"
+        ]
+      },
+      "reported_rocq_version": "9.0.1",
+      "reported_ocaml_version": "4.14.2"
+    },
+    "qualification_artifacts": [
+      {
+        "artifact_id": "CH-Q1-BUILD-RECEIPT",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-qualification-cc618472-20260914a/BUILD-RECEIPT.json",
+        "bytes": 3179,
+        "sha256": "ceb3c48e50b531a6446cf03d477355cbb39ce6fa68b38bc5f8b2fa37c36a57cc"
+      },
+      {
+        "artifact_id": "CH-Q2-BUILD-STDOUT",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-qualification-cc618472-20260914a/build.stdout.txt",
+        "bytes": 48191,
+        "sha256": "053991f6743daa23d83a1d13ca7de0e9ae39fe5f51ed5e4f4b8023b5b7e6c70e"
+      },
+      {
+        "artifact_id": "CH-Q3-BUILD-STDERR",
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-qualification-cc618472-20260914a/build.stderr.txt",
+        "bytes": 424,
+        "sha256": "83b8d6e71c9cbbe6919eb688528d33256a4796ea8c87731f1a4f791c82858741"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "C1",
+      "question": "Does the exact current Coq-HoTT source build to completion under its declared Rocq 9.0 baseline?"
+    },
+    {
+      "id": "C2",
+      "question": "Does the community source itself document recursive typeclass-search boundaries around reflective subuniverses and truncation?"
+    },
+    {
+      "id": "C3",
+      "question": "Does the current source actively register isequiv_O_inverts as an automatic instance?"
+    },
+    {
+      "id": "C4",
+      "question": "Does the exact commented Hint Immediate form still fail to complete in current Rocq 9.0.1?"
+    },
+    {
+      "id": "C5",
+      "question": "What happens when the same theorem is registered as an ordinary Existing Instance or Hint Resolve rule?"
+    },
+    {
+      "id": "C6",
+      "question": "Does a finite typeclass-search depth turn the unbounded observation into a finite limit rejection and expose nested O_functor obligations?"
+    },
+    {
+      "id": "C7",
+      "question": "Can an already known equivalence still be resolved when the recursive instance is registered?"
+    },
+    {
+      "id": "C8",
+      "question": "Can a non-HoTT recursive typeclass system reproduce the same observation-limit behavior?"
+    },
+    {
+      "id": "Q1",
+      "question": "Is the observed phenomenon proof search, conversion, supplied-proof kernel checking, compilation, or object-program execution?"
+    },
+    {
+      "id": "Q2",
+      "question": "Does the phenomenon occur in the unmodified ordinary library configuration?"
+    },
+    {
+      "id": "Q3",
+      "question": "Is a HoTT-specific rule necessary for the recursive search shape?"
+    },
+    {
+      "id": "Q4",
+      "question": "Is there an enabled natural consumer, or only an author-documented rule deliberately left disabled?"
+    },
+    {
+      "id": "Q5",
+      "question": "Does this instantiate direction B as an omitted computability question, or show that the library already preserves an ASK-like design boundary?"
+    },
+    {
+      "id": "Q6",
+      "question": "Has a same-task reality counterpart and completion standard been specified?"
+    },
+    {
+      "id": "Q7",
+      "question": "Are an object language, coding, substitution, provability predicate and diagonal step present for a Goedel claim?"
+    }
+  ],
+  "probe_plan": [
+    {
+      "probe_id": "P01-DEFAULT-NO-REGISTRATION",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseNoRegistration.v",
+      "environment": "COQ_HOTT",
+      "expect": "PROOF_SEARCH_FAILURE",
+      "expected_exit": 1,
+      "diagnostic": "Tactic failure: Proof search failed.",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P02-COMMENTED-HINT-IMMEDIATE",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseHintImmediate.v",
+      "environment": "COQ_HOTT",
+      "expect": "PROOF_SEARCH_FAILURE",
+      "expected_exit": 1,
+      "diagnostic": "Tactic failure: Proof search failed.",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P03-EXISTING-INSTANCE",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseExistingInstance.v",
+      "environment": "COQ_HOTT",
+      "expect": "OBSERVATION_LIMIT",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P04-HINT-RESOLVE",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseHintResolve.v",
+      "environment": "COQ_HOTT",
+      "expect": "OBSERVATION_LIMIT",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P05-BOUNDED-SEARCH-DEPTH",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseBoundedDepth.v",
+      "environment": "COQ_HOTT",
+      "expect": "SEARCH_DEPTH_LIMIT",
+      "expected_exit": 1,
+      "diagnostic": "Tactic failure: Proof search reached its limit.",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P06-KNOWN-EQUIVALENCE",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseKnownEquivalence.v",
+      "environment": "COQ_HOTT",
+      "expect": "ACCEPT",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P07-GENERIC-TYPECLASS-RECURSION",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/GenericTypeclassRecursion.v",
+      "environment": "ROCQ_DEFAULT",
+      "expect": "OBSERVATION_LIMIT",
+      "timeout_seconds": 5
+    },
+    {
+      "probe_id": "P08-BOUNDED-RECURSION-TRACE",
+      "future_path": "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseBoundedTrace.v",
+      "environment": "COQ_HOTT",
+      "expect": "SEARCH_DEPTH_LIMIT",
+      "expected_exit": 1,
+      "diagnostic": "Tactic failure: Proof search reached its limit.",
+      "timeout_seconds": 5,
+      "trace": true
+    }
+  ],
+  "future_paths": [
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseNoRegistration.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseHintImmediate.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseExistingInstance.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseHintResolve.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseBoundedDepth.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseKnownEquivalence.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/GenericTypeclassRecursion.v",
+    "machine-overview/evaluations/COQ-HOTT-REFLECTIVE-TYPECLASS-RECURSION-001/probes/ReflectiveSubuniverseBoundedTrace.v"
+  ],
+  "qualification_gates": {
+    "hott_nonreality": {
+      "required_conditions": [
+        "The recursive behavior occurs in the ordinary unmodified theory configuration or is required by a fixed natural consumer.",
+        "A HoTT-specific rule is causally necessary and a non-HoTT ablation does not reproduce the same result.",
+        "The phenomenon concerns the same fixed mathematical or reality task rather than a stronger proof-search task substituted for it.",
+        "Finite observation is upgraded by a machine-checked non-termination theorem if a universal temporal claim is made."
+      ]
+    },
+    "godel_hott": {
+      "required_conditions": [
+        "A fixed object language and effective coding are defined.",
+        "Substitution and a proof or derivation checker relation are represented.",
+        "The provability predicate and diagonal step are constructed.",
+        "Consistency, soundness and derivability assumptions are explicit.",
+        "The conclusion follows from those obligations rather than from recursive proof search alone.",
+        "A HoTT or cubical rule is essential if the result is described as HoTT-specific."
+      ]
+    }
+  },
+  "predeclared_interpretations": {
+    "expected_positive": "Ordinary instance registration exposes the source-documented O_functor recursion and reaches the observation limit; finite depth exposes nested obligations; a known equivalence completes.",
+    "expected_negative": "The current library has no active registration, the exact commented Hint Immediate form may behave differently on current Rocq, and a generic typeclass system may reproduce the recursive shape.",
+    "prohibited_extrapolation": "Do not infer kernel non-completion, mathematical divergence, HoTT inconsistency, reality-relative nonreality, or Goedel incompleteness from proof-search observation limits."
+  },
+  "freeze_interpretation": "The freeze binds a current community source, successful native build, proof-search questions, eight future probes, observation intervals, controls, and qualification gates before formal probe files or run receipts exist."
+}

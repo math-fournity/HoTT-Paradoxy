@@ -1,0 +1,88 @@
+{
+  "deterministic": {
+    "evaluation_id": "HOTT-QUOTATION-BRIDGE-001",
+    "files_with_matches": 2,
+    "matches": [
+      {
+        "line": 105,
+        "path": "Clocked/Lift.agda",
+        "text": " fwd {Q = Q} p a (step d) k = fwd (\\ k →  force (\\ k → \\ α → subst (Lift^' k (Q k)) (pfix' _ α $> _)",
+        "token_count": 1
+      },
+      {
+        "line": 74,
+        "path": "Clocked/Primitives.agda",
+        "text": "force : ∀ {l} {A : Cl → Set l} → (∀ k → ▹ k (A k)) → ∀ k → A k",
+        "token_count": 1
+      },
+      {
+        "line": 75,
+        "path": "Clocked/Primitives.agda",
+        "text": "force f k = f ⟨ k , ◇ ⟩",
+        "token_count": 1
+      },
+      {
+        "line": 77,
+        "path": "Clocked/Primitives.agda",
+        "text": "force-delay : ∀ {l} {A : Cl → Set l} → (f : ∀ k → ▹ k (A k)) → ∀ k → ▸ k \\ α → force f k ≡ f k α",
+        "token_count": 2
+      },
+      {
+        "line": 78,
+        "path": "Clocked/Primitives.agda",
+        "text": "force-delay f k α i = f ⟨ k , ftirr ◇ (emb α) i ⟩",
+        "token_count": 1
+      },
+      {
+        "line": 80,
+        "path": "Clocked/Primitives.agda",
+        "text": "delay-force : ∀ {l} {A : Cl → Set l} → (f : ∀ k → A k)       → ∀ k → force (\\ k α → f k) k ≡ f k",
+        "token_count": 2
+      },
+      {
+        "line": 81,
+        "path": "Clocked/Primitives.agda",
+        "text": "delay-force f k = \\ _ → f k",
+        "token_count": 1
+      },
+      {
+        "line": 83,
+        "path": "Clocked/Primitives.agda",
+        "text": "force^ : ∀ {l} {A : ∀ k → ▹ k (Set l)} → (∀ k → ▸ k (A k)) → ∀ k → force A k",
+        "token_count": 2
+      },
+      {
+        "line": 84,
+        "path": "Clocked/Primitives.agda",
+        "text": "force^ {A = A} f k = f ⟨ k , ◇ ⟩",
+        "token_count": 1
+      }
+    ],
+    "matching_lines": 9,
+    "scanned_files": 6,
+    "scope": {
+      "bytes": 9955,
+      "path": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/SCOPE.json",
+      "sha256": "e0d41bb5b13cbdb6a2af01ab8c17a233c4ff01929364343f251cfdd9dc569c5e"
+    },
+    "semantic_limit": "This is an exhaustive lexical inventory over the six-file fixed tree. Whether a use preserves all-clock scope is a direct-source review judgment.",
+    "token_occurrences": 12,
+    "tree": {
+      "identity": {
+        "file_count": 6,
+        "total_bytes": 16309,
+        "tree_sha256": "da72c4efed4c77f6512dd0be6b8cfbc64339165eb2657f48be15a0211896b6cb"
+      },
+      "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src",
+      "tree_id": "AGDA-GUARDED-FORCING-TICKS-SRC"
+    }
+  },
+  "deterministic_sha256": "f8d7ad671b037211a593c28eaa85f7d2e15c9754c3cb303fa5249d83b57b8365",
+  "evaluator": {
+    "bytes": 5627,
+    "path": "machine-overview/force_consumer_inventory.py",
+    "sha256": "596f28de479e2602eb1179a9562a70173464633c28fb5ad2c61204359653aabd"
+  },
+  "generated_at_utc": "2026-09-13T20:56:22.364095+00:00",
+  "schema_version": "machine-overview-force-consumer-inventory/v1"
+}
