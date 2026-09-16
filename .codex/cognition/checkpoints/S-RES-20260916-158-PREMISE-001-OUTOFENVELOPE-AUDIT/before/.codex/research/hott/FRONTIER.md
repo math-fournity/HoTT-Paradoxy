@@ -9,8 +9,7 @@ C-188–C-243 已形成 R2、syntax/internalisation链，CE-MAP v1登记478项�
 | 槽位 | 当前对象 | 状态 | 下一判别动作 |
 |---|---|---|---|
 | 当前高判别候选 | community cubical calculus 的 Nat/Path/conversion 与 certified-input profile | `TASKSPEC_FROZEN / IMPLEMENTATION_NOT_STARTED` | 对 cubicaltt/redtt/cooltt/cctt 做 exact source/build；递归检查 import closure，拒绝 holes/undefined/unsolved goals/general recursion；跑正负 corpus并选择target |
-| 前提集分母（PREMISE-001） | HoTT 自身边前提集 `PREMISE_DENOMINATOR_V1`（A–G，35 条，含反思补入的 A+B/0/1/2/W） | `DENOMINATOR_V1_FROZEN / P1_COMPLETE / P2_COMPLETE_35_35 / STEP3_SHEET_DELIVERED / V1_OUTOFENVELOPE_AUDITED / AWAITING_USER_P3P4` | 判定表 `PREMISE-001/004` 已交付（35 行可判定对象，P3/P4 列空）；等用户判定（可"暂不判定"、可"重做 P2"否决现实域）；非现实者冻结任务族进 GEN-001 链 |
-| 前提集分母 V2 ingress（PREMISE-001 信封外） | 结构判断层 C01–C03（判断形状/类型资格、上下文与假设可用性、替换/弱化/复制的零成本性）；扩展族 E03/E04/E05（guarded later 模态）、E06、E08、E09、E10、E14；可选公理 propositional resizing | `V2_CANDIDATE_CLASSES_REGISTERED / UI-01+UI-04 / NO_V1_CHANGE` | V1 冻结不动（004 判定表在用户手中，用户 P3/P4 判定不受影响）；V2 扩版触发 = 用户完成 V1 判定后，或 V1 未判出任何非现实前提时——F1 的结构判断层是 V2 第一优先（Theory Schema 自标现实裂缝 `CORE_RULES.md:49/:79`）；审计见 `audit/PREMISE-001-V1信封外遗漏审计-20260916.md`（commit `8299b18`） |
+| 前提集分母（PREMISE-001） | HoTT 自身边前提集 `PREMISE_DENOMINATOR_V1`（A–G，35 条，含反思补入的 A+B/0/1/2/W） | `DENOMINATOR_V1_FROZEN / P1_COMPLETE / P2_COMPLETE_35_35 / STEP3_SHEET_DELIVERED / AWAITING_USER_P3P4` | 判定表 `PREMISE-001/004` 已交付（35 行可判定对象，P3/P4 列空）；等用户判定（可"暂不判定"、可"重做 P2"否决现实域）；非现实者冻结任务族进 GEN-001 链 |
 | 当前用户主方向 | ERCF：理论经济与资格/反射边界 | active-user-direction / mixed-paper-and-two-formal-subresults | 保持 V1–V5；把防御与现实失配分开 |
 | 已闭合通用基础 | `MP-ERCF-001` factorization C-59–C-66 | machine-proved-version-closed / general | 不再重复任意 E₀ |
 | 已闭合原生防御 | `MP-ERCF-TRUNC-001` C-67–C-70 | machine-proved-version-closed / DEFENSE_WORKS | truncation 允许 proposition consumer，拒绝 point-preserving Bool extraction；不重开同一指控 |

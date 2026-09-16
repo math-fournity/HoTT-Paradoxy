@@ -9,9 +9,6 @@
 
 ## 当前停止点
 
-S-RES-20260916-158-PREMISE-001-OUTOFENVELOPE-AUDIT：PREMISE-001 V1 信封外审计完成（停机点不变，仍等你判定）。审计用独立 taxonomy（Theory Schema 的 CORE_RULES C01–C18 + EXTENSIONS E01–E15）与 A–G 分母差分，三项发现已登记但不改 V1：F1 结构判断层 C01–C03（判断形状/类型资格、上下文与假设可用性、替换/复制的零成本性）未入分母 → V2 候选新类 H；F2 可选公理覆盖不对称（univalence 入、resizing 未入）；F3 扩展族 E03–E14 在 V1 之外（E03 guarded 的 later 模态优先）。范围限定：**V1 的 remainder=0 只覆盖 A–G 层**，不是 HoTT 全部前提穷尽——但你手上 004 判定表的 35 行在 V1 范围内仍完备，你的 P3/P4 判定不受影响、仍是阻塞的下一步。报告 `audit/PREMISE-001-V1信封外遗漏审计-20260916.md`，提交 `8299b18` 带 reflection。裁决 no-plan-change（不扩分母，等你的 V1 判定结果再决定 V2）。revision 157→158。无新数学 claim；未 push、未 tag。
-
-S-RES-20260916-157-PREMISE-001-STEP3-P3P4-SHEET：
 S-RES-20260916-157-PREMISE-001-STEP3-P3P4-SHEET：PREMISE-001 step-3 判定表已交付——`PREMISE-001/004 - P3P4 判定表（用户填写）.md`（35 行，每行一个可判定对象 divergence_point + omission_shape + corpus_pressure；P3/P4 列全空由你填写；可"暂不判定"、可标"重做 P2"否决我选的现实域；判定不改变分母）。行序导航（非判定）：G-03（高阶相等无限迭代，运动域，与圆环悖论同形）是形状上最直接的起点。下一步：你逐条 P3/P4 判定——判为非现实者进 SUPPLY_REGISTRATION + GEN-001 链。SOP `.codex/skills/hott-paradox-search-sop/SKILL.md` 驱动；步骤提交 `6a8f9f6` 带 reflection。revision 156→157。无新数学 claim；未 push、未 tag。
 
 S-RES-20260916-156-PREMISE-001-STEP2-P2：PREMISE-001 step-2 完成——35/35 条前提逐条完成 P2，落盘为 `PREMISE-001/002`（A 11 + B 4）与 `PREMISE-001/003`（C 4 + D 5 + E 4 + F 2 + G 5）；每条含 reality_skeleton（非空、未默认只填计算域：D-01 转动域、D-04 制造工装域、E-04 量仪精度域、G-03 运动域——与圆环悖论同形）、divergence_point（唯一可判定对象，不判定）、evidence_level=assessment、≥1 OMISSION_SHAPE、corpus_pressure。S-4 反思裁决 no-plan-change，登记三点澄清（S6 任务级锚定口径 / observability 子义"需观察层维持/锚定" / C-02 调度资源归入 sequencing）。下一步 step-3：整单交用户 P3/P4 判定（AI 不得自证非现实性；建议优先看 G-03）；非现实者才进 SUPPLY_REGISTRATION + GEN-001 链。SOP `.codex/skills/hott-paradox-search-sop/SKILL.md` 驱动；步骤提交 `f21da7d` 带 reflection。revision 155→156。无新数学 claim；未 push、未 tag。
