@@ -20,9 +20,10 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 155；执行状态 `PREMISE_001_STEP1_DENOMINATOR_FROZEN_STEP2_NEXT`
+- STATE active 队首：`A-PREMISE-001`；revision 156；执行状态 `PREMISE_001_P2_COMPLETE_AWAITING_USER_P3P4`
 - 第 1 步（已完成，commit `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条；反思补入 A+B/0/1/2/W 后由 `plan-revise(008)` bc0a899 扩到 35 条；分母分片 sha256 `5cd1b44f`，remainder=0；每条含 P1 前提陈述 + 出处锚到 Theory Schema）
-- 第 2 步（当前）：逐条 P2（`reality_skeleton` 不得留空、不得默认只填计算域；`divergence_point`；`evidence_level`；≥1 `OMISSION_SHAPE`），输出到 `PREMISE-001/002`；完成后整单交用户 P3/P4
+- 第 2 步（已完成，commit `f21da7d`）：35/35 条逐条 P2，输出到 `PREMISE-001/002`（A 11 + B 4）与 `PREMISE-001/003`（C 4 + D 5 + E 4 + F 2 + G 5）；每条含 `reality_skeleton`（非空、未默认只填计算域：D-01 转动域、D-04 制造工装域、E-04 量仪精度域、G-03 运动域）、`divergence_point`、`evidence_level`、≥1 `OMISSION_SHAPE`、`corpus_pressure`；reflection=no-plan-change（三点澄清已登记）
+- 第 3 步（当前，停机点）：整单交用户 P3/P4 判定。`divergence_point` 是唯一可判定对象；AI 不得自证非现实性（SOP 判词 `USER_ADJUDICATION_REQUIRED`）。建议优先看 `PREMISE-G-03`（高阶相等无限迭代，运动域，与圆环悖论同形）。用户判为非现实者才进 SUPPLY_REGISTRATION + GEN-001 链
 - 权威来源：`.codex/research/hott/STATE.json` 的 `active` 与 `execution_control.next_minimal_verification`
 
 ## 认识论锚点（不可漂移）
