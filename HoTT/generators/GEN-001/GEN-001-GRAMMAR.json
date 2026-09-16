@@ -1,0 +1,121 @@
+{
+  "gen001_unit": "GEN-001 BOUNDED_GENERATOR_ACCEPTANCE_UNIT",
+  "task_family": "TASK-FAMILY-WITNESS-RECOVERABILITY",
+  "supply_registration": "SUPPLY-007 (PREMISE-001/007)",
+  "premise_id": "PREMISE-E-02",
+  "premise_verdict_status": "AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT (non-real candidate; not a conclusion)",
+  "human_supply_role": "AI-frozen new task family with mandatory audit layer; explicitly NOT user supply and NOT engine-generated discovery",
+  "family_semantics": "A delay-equivalent pair differs only in arrival round. A race against a declared partner collapses the arrival distinction into a value distinction (truncation step). A downstream process declared up front completes only when the delivered value carries the original producer's witness.",
+  "grammar": {
+    "schema_version": "machine-overview-grammar/v1",
+    "grammar_id": "L1-WITNESS-RECOVERY-v1",
+    "family": "TASK-FAMILY-WITNESS-RECOVERABILITY",
+    "premise_ref": "PREMISE-E-02 (PREMISE-001/006, AI-adjudicated pending external audit)",
+    "value_type": "Bool (Cubical.Data.Bool.Base)",
+    "include_omega": true,
+    "delay_index_max": 3,
+    "race_partner_index_max": 3,
+    "context_depth_max": 2,
+    "deadline_horizons": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "negative_control_policy": "choose the least declared horizon at or above both finite input indices; if none exists, report CONTROL_NOT_AVAILABLE_IN_GRAMMAR",
+    "reduction_guard": {
+      "never_drop_kinds": [
+        "bind"
+      ],
+      "never_drop_continuation_ids": [
+        "downstream_guard"
+      ],
+      "reason": "The bind is the declared downstream process and downstream_guard is its witness-sensitive branch; reduction must keep the task-declared consumer shape. Every parameter change is rechecked for grammar membership and separation."
+    },
+    "bind_continuations": [
+      {
+        "id": "downstream_guard",
+        "map": {
+          "true": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          },
+          "false": {
+            "kind": "omega"
+          }
+        }
+      },
+      {
+        "id": "downstream_needs_true_late",
+        "map": {
+          "true": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          },
+          "false": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        }
+      },
+      {
+        "id": "deliver_business",
+        "map": {
+          "true": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          },
+          "false": {
+            "kind": "omega"
+          }
+        }
+      },
+      {
+        "id": "const_omega",
+        "map": {
+          "true": {
+            "kind": "omega"
+          },
+          "false": {
+            "kind": "omega"
+          }
+        }
+      }
+    ],
+    "calibration_benchmark": null,
+    "out_of_envelope_declaration": {
+      "new_declared_constructs": [
+        "downstream_guard",
+        "downstream_needs_true_late"
+      ],
+      "proof_method": "within_grammar_witness of any witness binding these continuations against l1-v0/v1/v2 returns false with reason BIND_CONTINUATION",
+      "shared_constructs_kept_for_calibration_continuity": [
+        "deliver_business",
+        "const_omega"
+      ]
+    },
+    "declared_bounds_note": "Complete enumeration of the finite constructor product: atoms = 1 + 2*(delay_index_max+1); contexts = non-empty well-typed op sequences up to context_depth_max; denominator is finite and closed."
+  },
+  "grammar_path_in_engine_worktree": "machine-overview/grammars/l1-witness-recovery-v1.json",
+  "disjointness_from_existing_15_grammars": {
+    "new_declared_continuations": [
+      "downstream_guard",
+      "downstream_needs_true_late"
+    ],
+    "new_bounds": {
+      "delay_index_max": 3,
+      "race_partner_index_max": 3,
+      "deadline_horizons": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "proof_method": "within_grammar_witness membership check against every existing declared grammar"
+  }
+}
