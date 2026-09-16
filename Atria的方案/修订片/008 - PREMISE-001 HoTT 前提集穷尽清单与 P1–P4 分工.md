@@ -49,7 +49,11 @@ GEN-001 验收链。
 ```text
 HoTT 前提集（候选条目类别）
   A. 类型构造子的规则四元组（formation / introduction / elimination / computation）
-     Π、Σ、Nat、identity/Path、universe U/El、HIT 构造子
+     Π、Σ、余积 A+B、空类型 0、单位类型 1、布尔类型 2、Nat、W 类型、
+     identity/Path、universe U/El、HIT 构造子
+     （= HoTT Book §1.3–1.13 的全部核心类型构造子，与 THEORY_SCHEMA CORE_RULES
+     C05–C16 逐项对齐；漏登任一构造子会使 remainder=0 退化为缩水分母内的
+     remainder=0）
   B. 判定与相等：definitional equality / conversion、β、η、J 的计算规则
   C. 恒等与等价：identity type 的命题性、function extensionality、univalence
      （公理形式与 cubical Glue/composition 定理形式分别登记）
