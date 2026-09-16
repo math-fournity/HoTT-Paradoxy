@@ -29,6 +29,11 @@
 - 本索引**不声称** E-02 前提非现实（该判定 pending external audit，且需 GEN-001 链 + 原生核才能升级为结论）。
 - 本索引**不声称**引擎具备自主发现新方向的能力（任务族由 AI 冻结供给）。
 - 本索引**不声称**开放候选空间被穷尽。
+- **方向覆盖声明（修订片 013 §2.2）**：三族的分离机制全部属**方向 B**
+  （delay-equivalent 对 + 观察层不同意；93/93 越界见证经 step-6 审计独立复算确认）。
+  方向 A（现实可完成、理论化引入额外完成困难）在 delay 片段内**无对象承担**
+  （引擎 `_witness_separates` 的前置条件即 `delay_equivalent`）。
+  故本索引**不声称覆盖方向 A**。登记：`DIRECTION_A_UNREPRESENTABLE_IN_DELAY_FRAGMENT`。
 - 其余两个任务族（DIVISIBILITY / EXISTENCE-VS-AVAILABILITY）仍是后续单元，状态 `NOT_STARTED`。
 
 ## 后续单元状态
