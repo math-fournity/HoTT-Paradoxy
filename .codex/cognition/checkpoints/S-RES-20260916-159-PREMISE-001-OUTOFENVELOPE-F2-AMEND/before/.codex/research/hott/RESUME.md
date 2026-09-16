@@ -9,9 +9,6 @@
 
 ## 当前停止点
 
-S-RES-20260916-159-PREMISE-001-OUTOFENVELOPE-F2-AMEND：PREMISE-001 F2 ingress 补全（停机点不变，仍等你判定）。上一单元登记的 F2（"univalence 入、resizing 未入"）经第二来源对照（`SOURCES_AND_COVERAGE.md` 的 section 清单）发现被低估：缺口是**整层逻辑原则/可选公理"来源在手、分母零条"**——HoTT Book §3.2 PAT、§3.4 LEM、§3.5 resizing、§3.8 AC、§3.9 unique choice、§3.10 截断时机判据、§11.2 Dedekind-Ω。仍非缺陷（可选层在 V1 外是合理范围选择），V2 需决四项子决定。**你的 P3/P4 判定不受影响、仍是阻塞的下一步**：V1 分母与 004 判定表未动。修正见审计报告 §F2 补充表，提交 `19a1efb` 带 reflection。revision 158→159。无新数学 claim；未 push、未 tag。
-
-S-RES-20260916-158-PREMISE-001-OUTOFENVELOPE-AUDIT：
 S-RES-20260916-158-PREMISE-001-OUTOFENVELOPE-AUDIT：PREMISE-001 V1 信封外审计完成（停机点不变，仍等你判定）。审计用独立 taxonomy（Theory Schema 的 CORE_RULES C01–C18 + EXTENSIONS E01–E15）与 A–G 分母差分，三项发现已登记但不改 V1：F1 结构判断层 C01–C03（判断形状/类型资格、上下文与假设可用性、替换/复制的零成本性）未入分母 → V2 候选新类 H；F2 可选公理覆盖不对称（univalence 入、resizing 未入）；F3 扩展族 E03–E14 在 V1 之外（E03 guarded 的 later 模态优先）。范围限定：**V1 的 remainder=0 只覆盖 A–G 层**，不是 HoTT 全部前提穷尽——但你手上 004 判定表的 35 行在 V1 范围内仍完备，你的 P3/P4 判定不受影响、仍是阻塞的下一步。报告 `audit/PREMISE-001-V1信封外遗漏审计-20260916.md`，提交 `8299b18` 带 reflection。裁决 no-plan-change（不扩分母，等你的 V1 判定结果再决定 V2）。revision 157→158。无新数学 claim；未 push、未 tag。
 
 S-RES-20260916-157-PREMISE-001-STEP3-P3P4-SHEET：
