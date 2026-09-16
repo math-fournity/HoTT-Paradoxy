@@ -10,6 +10,7 @@
 |---|---|---|---|---|---|---|---|---|
 | `GEN-001-1` | TASK-FAMILY-WITNESS-RECOVERABILITY | PREMISE-E-02（pending external audit） | SUPPLY-007（AI 供给） | `L1-WITNESS-RECOVERY-v1` | `20260916-SEARCH-GEN001-WITNESS-RECOVERY-001` | `...-040` / `...-041B` / `...-049` | `GEN-001-OUT-OF-ENVELOPE.json`（15/15 旧文法机械越界） | `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE` |
 | `GEN-001-2` | TASK-FAMILY-COMPLETION-PROCESS | PREMISE-A-03（pending external audit） | SUPPLY-001（AI 供给） | `L1-COMPLETION-PROCESS-v1` | `20260916-SEARCH-GEN001-COMPLETION-PROCESS-001` | `...-053` / `...-070` / `...-021` / `...-014` | `GEN-001-COMPLETION-PROCESS-OUT-OF-ENVELOPE.json`（15/15 旧文法机械越界，理由全部为 BIND_CONTINUATION） | `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE` |
+| `GEN-001-3` | TASK-FAMILY-IDENTITY-OBSERVATION-LAYER | PREMISE-B-01（pending external audit） | SUPPLY-003（AI 供给） | `L1-IDENTITY-OBSERVATION-v1` | `20260916-SEARCH-GEN001-IDENTITY-OBSERVATION-001` | `...-0014` / `...-0023` / `...-0044` / `...-0067` | `GEN-001-IDENTITY-OBSERVATION-OUT-OF-ENVELOPE.json`（17/17 旧文法机械越界，5 个 delay 文法理由全部唯一 BIND_CONTINUATION） | `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE` |
 
 ## 证据定位
 
@@ -18,17 +19,17 @@
 - 越界机械证明：`GEN-001-OUT-OF-ENVELOPE.json`
 - 原生核收据（F-011 五件套）：`../../verification/runs/20260916-VERIFY-GEN001-WITNESS-RECOVERY-{040,041B,049}/`
   （RUN.json / stdout.txt / stderr.txt / environment.txt / source-manifest.json / kernel/*/）
+- `GEN-001-3` 收据：`../../verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-{0014,0023,0044,0067}/`
 - 引擎内完整收据（含 correspondence review / report / runner snapshot）：
   `/Volumes/D/HoTT-machine-overview/machine-overview/runs/`（同 repo 的 `feat/machine-overview-m1` 工作树）
-- 验收报告：`GEN-001-REPORT.md`
+- 验收报告：`GEN-001-REPORT.md` / `GEN-001-COMPLETION-PROCESS-REPORT.md` / `GEN-001-IDENTITY-OBSERVATION-REPORT.md`
 
 ## 禁止外推
 
 - 本索引**不声称** E-02 前提非现实（该判定 pending external audit，且需 GEN-001 链 + 原生核才能升级为结论）。
 - 本索引**不声称**引擎具备自主发现新方向的能力（任务族由 AI 冻结供给）。
 - 本索引**不声称**开放候选空间被穷尽。
-- 其余三个任务族（DIVISIBILITY / EXISTENCE-VS-AVAILABILITY /
-  IDENTITY-OBSERVATION-LAYER）仍是后续单元，状态 `NOT_STARTED`。
+- 其余两个任务族（DIVISIBILITY / EXISTENCE-VS-AVAILABILITY）仍是后续单元，状态 `NOT_STARTED`。
 
 ## 后续单元状态
 
@@ -38,4 +39,4 @@
 | DIVISIBILITY-CONDITION-OR-CAPABILITY | D-01, E-04, G-03 | `NOT_STARTED` | corpus 风险最高三联；外部审计优先复核；区间建模成本高（010 §3） |
 | EXISTENCE-VS-AVAILABILITY | D-04, G-05 | `NOT_STARTED` | 置信度最低；外部审计优先复核 |
 | COMPLETION-PROCESS | A-03, A-11 | `CHAIN_DEMONSTRATED`（本索引，A-03） | L1 片段；A-11 与 A-03 同形，合并与否由外部审计决定 |
-| IDENTITY-OBSERVATION-LAYER | B-01 | `NOT_STARTED` | 需 definitional vs propositional equality 分离 |
+| IDENTITY-OBSERVATION-LAYER | B-01 | `CHAIN_DEMONSTRATED`（本索引） | L1 片段；在 continuation 层表达"同一性结论随观察层改变"：delay 等价是理论的同一性判据，race/deadline 是看见被抹除轮次的观察层；44 越界见证拒绝理由全部唯一 BIND_CONTINUATION；4 见证原生核四路校验 + 主 repo 独立复现 |

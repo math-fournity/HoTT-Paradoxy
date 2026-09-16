@@ -1,0 +1,109 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L1-IDENTITY-OBSERVATION-v1",
+  "family": "TASK-FAMILY-IDENTITY-OBSERVATION-LAYER",
+  "premise_ref": "PREMISE-B-01 (PREMISE-001/005, AI-adjudicated pending external audit; SUPPLY-003 in PREMISE-001/007)",
+  "value_type": "Bool (Cubical.Data.Bool.Base)",
+  "include_omega": true,
+  "delay_index_max": 2,
+  "race_partner_index_max": 2,
+  "context_depth_max": 2,
+  "deadline_horizons": [
+    0,
+    1,
+    2
+  ],
+  "negative_control_policy": "choose the least declared horizon at or above both finite input indices; if none exists, report CONTROL_NOT_AVAILABLE_IN_GRAMMAR",
+  "reduction_guard": {
+    "never_drop_kinds": [
+      "bind"
+    ],
+    "never_drop_continuation_ids": [
+      "identity_verdict_definitional"
+    ],
+    "reason": "The bind is the declared identity-verdict consumer and identity_verdict_definitional is its in-boundary branch; reduction must keep the task-declared verdict-consumer shape. Every parameter change is rechecked for grammar membership and separation."
+  },
+  "bind_continuations": [
+    {
+      "id": "identity_verdict_definitional",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "false": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      }
+    },
+    {
+      "id": "identity_verdict_purpose",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "false": {
+          "kind": "ret",
+          "n": 2,
+          "value": false
+        }
+      }
+    },
+    {
+      "id": "identity_verdict_never_on_true",
+      "map": {
+        "true": {
+          "kind": "omega"
+        },
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      }
+    },
+    {
+      "id": "deliver_business",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "false": {
+          "kind": "omega"
+        }
+      }
+    },
+    {
+      "id": "const_omega",
+      "map": {
+        "true": {
+          "kind": "omega"
+        },
+        "false": {
+          "kind": "omega"
+        }
+      }
+    }
+  ],
+  "calibration_benchmark": null,
+  "out_of_envelope_declaration": {
+    "new_declared_constructs": [
+      "identity_verdict_definitional",
+      "identity_verdict_purpose",
+      "identity_verdict_never_on_true"
+    ],
+    "proof_method": "within_grammar_witness of any witness binding these continuations against l1-v0/v1/v2 returns false with reason BIND_CONTINUATION: every input atom of this grammar lies within the old declared index bound (delay_index_max 2), every race partner within race_partner_index_max 2 and every deadline horizon within {0,1,2}, so the new continuation map is the only failing dimension",
+    "shared_constructs_kept_for_calibration_continuity": [
+      "deliver_business",
+      "const_omega"
+    ]
+  },
+  "declared_bounds_note": "Complete enumeration of the finite constructor product: atoms = 1 + 2*(delay_index_max+1) = 7; contexts = non-empty well-typed op sequences up to context_depth_max with a deadline only as the final op; denominator is finite and closed. Bounds are deliberately aligned with the existing L1 index horizons (delay_index_max 2, partner 2, horizons {0,1,2}) so that an out-of-envelope witness fails the old grammars on exactly one dimension (BIND_CONTINUATION). B-01 shape note: the pair members of every separating witness are delay-equivalent (the theory's own identity criterion judges them the same), and the separating context is the observation layer; the same pair is not separated under the definitional layer (a bare deadline at or above both arrival rounds), which is exactly the 'identity verdict depends on observation layer' premise."
+}

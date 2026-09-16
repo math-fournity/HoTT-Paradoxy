@@ -1,0 +1,53 @@
+{
+  "schema_version": "gen001-source-manifest/v1",
+  "run_id": "20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067",
+  "search_run": {
+    "case_revision": 1,
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260916-SEARCH-GEN001-IDENTITY-OBSERVATION-001/RUN.json",
+    "run_id": "20260916-SEARCH-GEN001-IDENTITY-OBSERVATION-001",
+    "sha256": "f6ec56733a7e449e65b9c03435200213b8029cc7823dfccaa3fe907ba4c541e9"
+  },
+  "case": "machine-overview/cases/MS-TASK-GEN001-IDENTITY-OBSERVATION-001/case-revision-1.json",
+  "grammar": "machine-overview/grammars/l1-identity-observation-v1.json",
+  "task": "machine-overview/tasks/MS-TASK-GEN001-IDENTITY-OBSERVATION-001.json",
+  "profile": "machine-overview/profiles/l1-identity-observation-v1.json",
+  "native_model": {
+    "agda_binary": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "agda_binary_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+    "agda_version": "2.8.0-3d04bac",
+    "cubical_library_file": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/cubical.agda-lib",
+    "cubical_library_file_sha256": "cc95fd3ef5ec98226f84883b5a8a9e527b21c7bd03901967aa4cb9495f2fdbd1"
+  },
+  "witness_id": "WV-0067",
+  "candidate_ast_sha256": "d81521fa38c97d5e34366275f1a89552e7a61965484d745a1c3b4d8c35d19c48",
+  "generated_sources": [
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067/generated/Controls.agda",
+      "sha256": "8784030e91c19899c8c95f5d1fc8aebecec26f453d011a9a2994117486b92892"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067/generated/Falsify.agda",
+      "sha256": "e257cd91203cc560fad61c61f96f18d04f2d78bcd1e7e2fb209bdd8177bf6924"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067/generated/Proof.agda",
+      "sha256": "33efbcfcadbe987378e344d79602ee3d904ba5b8bf46025ababd81dad741aef0"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067/generated/Target.agda",
+      "sha256": "476c80c37cb44d011174e8ed0f4e4ab0556cfd87ff7ce7739341a7ab2aefd9ca"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067/generated/Verify.agda",
+      "sha256": "1116ecb23535a343c6f7413fd90cdcf3b3fd63621f33ac905fcc2697b45a3038"
+    }
+  ],
+  "case_identity_sha256": "f7fd34d3bd050797090296896a768358505ef034feee2fd314313ef4b62e46aa",
+  "family": "TASK-FAMILY-IDENTITY-OBSERVATION-LAYER",
+  "premise_ref": "PREMISE-B-01 (AI-adjudicated pending external audit)",
+  "registers_new_claim": false,
+  "independent_main_repo_replay": {
+    "method": "agda run on copied generated sources from the main repo copy of PartialityRaceTimeout.agda + AGDA_LIBRARIES",
+    "exit_code": 0
+  }
+}
