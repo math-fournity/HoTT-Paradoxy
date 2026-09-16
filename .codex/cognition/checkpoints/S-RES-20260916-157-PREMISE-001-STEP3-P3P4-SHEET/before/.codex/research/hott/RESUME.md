@@ -9,8 +9,6 @@
 
 ## 当前停止点
 
-S-RES-20260916-157-PREMISE-001-STEP3-P3P4-SHEET：PREMISE-001 step-3 判定表已交付——`PREMISE-001/004 - P3P4 判定表（用户填写）.md`（35 行，每行一个可判定对象 divergence_point + omission_shape + corpus_pressure；P3/P4 列全空由你填写；可"暂不判定"、可标"重做 P2"否决我选的现实域；判定不改变分母）。行序导航（非判定）：G-03（高阶相等无限迭代，运动域，与圆环悖论同形）是形状上最直接的起点。下一步：你逐条 P3/P4 判定——判为非现实者进 SUPPLY_REGISTRATION + GEN-001 链。SOP `.codex/skills/hott-paradox-search-sop/SKILL.md` 驱动；步骤提交 `6a8f9f6` 带 reflection。revision 156→157。无新数学 claim；未 push、未 tag。
-
 S-RES-20260916-156-PREMISE-001-STEP2-P2：PREMISE-001 step-2 完成——35/35 条前提逐条完成 P2，落盘为 `PREMISE-001/002`（A 11 + B 4）与 `PREMISE-001/003`（C 4 + D 5 + E 4 + F 2 + G 5）；每条含 reality_skeleton（非空、未默认只填计算域：D-01 转动域、D-04 制造工装域、E-04 量仪精度域、G-03 运动域——与圆环悖论同形）、divergence_point（唯一可判定对象，不判定）、evidence_level=assessment、≥1 OMISSION_SHAPE、corpus_pressure。S-4 反思裁决 no-plan-change，登记三点澄清（S6 任务级锚定口径 / observability 子义"需观察层维持/锚定" / C-02 调度资源归入 sequencing）。下一步 step-3：整单交用户 P3/P4 判定（AI 不得自证非现实性；建议优先看 G-03）；非现实者才进 SUPPLY_REGISTRATION + GEN-001 链。SOP `.codex/skills/hott-paradox-search-sop/SKILL.md` 驱动；步骤提交 `f21da7d` 带 reflection。revision 155→156。无新数学 claim；未 push、未 tag。
 
 S-RES-20260916-155-PREMISE-001-STEP1-DENOMINATOR：PREMISE-001 step-1 完成——`PREMISE_DENOMINATOR_V1` 冻结于 `.codex/research/hott/PREMISE-001.md`（索引）与 `PREMISE-001/001`（A–G 共 35 条，sha256 `5cd1b44f`，remainder=0；每条含 P1 前提陈述与出处，锚到 Theory Schema 的 CORE_RULES C01–C18 / EXTENSIONS_AND_METATHEORY E01–E15 / DERIVED_STRUCTURES）。S-4 反思发现 008 修订片 A 类清单漏了 A+B/0/1/2/W 五个构造子，先 `plan-revise(008)`（bc0a899）补全再冻结，避免缩水分母。下一步 step-2：逐条 P2 （reality_skeleton 不得留空、不得默认只填计算域；divergence_point；≥1 OMISSION_SHAPE），完成后交用户 P3/P4。SOP `.codex/skills/hott-paradox-search-sop/SKILL.md` 驱动；步骤提交 `187033c` 带 reflection。revision 154→155。无新数学 claim；未 push、未 tag。
