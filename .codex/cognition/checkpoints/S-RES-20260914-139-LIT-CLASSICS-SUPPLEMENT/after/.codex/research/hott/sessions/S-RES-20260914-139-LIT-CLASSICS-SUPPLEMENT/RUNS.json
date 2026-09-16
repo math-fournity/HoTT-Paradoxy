@@ -1,0 +1,38 @@
+{
+  "base_import": {
+    "command": "python3 -B scripts/audit/import_lit_classics_mineru.py --verify-only",
+    "files": 584,
+    "sources": 12,
+    "status": "VALID",
+    "total_bytes": 15978067,
+    "tree_sha256": "cea1d6499750fbad9459aa710e0a1be8eaaf6fc86478f52fdb23ea37f0533853"
+  },
+  "checkpoint_result": ".codex/cognition/checkpoints/S-RES-20260914-139-LIT-CLASSICS-SUPPLEMENT/result.json",
+  "governance_shards": {
+    "command": "python3 -B scripts/audit/verify_governance_shards.py",
+    "status": "PASS"
+  },
+  "new_math_claims": [],
+  "next": "R2-NATCODE-001",
+  "pdf_table": {
+    "pdf_count": 15,
+    "readme_rows": 15,
+    "status": "VALID"
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260914-139-LIT-CLASSICS-SUPPLEMENT",
+  "supplement_import": {
+    "command": "python3 -B scripts/audit/import_lit_classics_mineru_supplement.py --verify-only",
+    "discovery_directory_count": 41,
+    "duplicate_directory_count": 26,
+    "file_count": 130,
+    "manifest_sha256": "a045c37e8cf06703d8fa32ea970601c84b37bd42aeb762c871f2f4fb5aad1069",
+    "source_count": 3,
+    "source_directories_preserved": true,
+    "status": "VALID",
+    "total_bytes": 3618881,
+    "tree_sha256": "3109f828c6a4e0e60a1267c9851e0995eded00b8c7207dda7e23a45cde4dea14",
+    "unclassified_group_count": 0,
+    "unique_content_group_count": 15
+  }
+}

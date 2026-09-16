@@ -1,0 +1,21 @@
+# S-GOV-20260914-HOTT-PROGRAMMATIC-EXPLORATION-COMPLETENESS
+
+- **目标**：把 HoTT 非现实性悖论机器统观从若干已实现纵向链提升为项目级、可持续、可检查的程序化探索完备性规划；同时为不能提前命名的未知建立发现、遗漏复盘、分类扩展和 stale 传播机制。
+- **用户要求**：优先推动方案完备，系统思考用编程激发 HoTT 悖论的方法；把完备性探索意识写入项目治理。用户随后明确纠正：这是项目级安排，只修改项目运行目录的 `AGENTS.md`、项目 `.codex` Skills 与项目计划，不修改 Codex 全局治理。
+- **范围纠正**：曾基于误判创建 `/Users/aurolafly/codex-worktrees/research-completeness-awareness-3.24.0` 并修改未提交的 shared/global 候选。收到纠正后，`/Users/aurolafly/.codex` 精确恢复到 clean `bfee3c6b116d6a4c7a3416eb10519ea58eaa9210` / `governance-v3.23.1`；临时 worktree 和未提交分支删除；没有 commit/tag/push。可复用的 HoTT 内容重新写入本项目，错误范围的全局草案不保留。
+- **项目身份**：项目根 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，main HEAD `2bbf5c873dfa3ac1d512955301b163b2b6f311b0`。动作前 `AGENTS.md` 与两个项目 Skills 均 tracked clean；既有 `dev-notes/` 与 `外部资料/` untracked 内容未修改。
+- **认知闭包**：本轮已加载全局/项目 AGENTS、两项核心 repo Skills、requirements/AI/verification workflows、本地 HoTT 治理/业务 Skills、四件套 generation-4/36 KC、当前 machine-overview 完备性审计与不可停机/Gödel 证据边界。用户当前纠正覆盖先前全局作用域解释。
+- **项目级唯一计划**：新建 `.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md` v2 topical index + 5 shards；项目根拥有方法与阶段，`/Volumes/D/HoTT-machine-overview` 只保存分支实现/证据和动态执行计划，不维护第二份完整规划。
+- **搜索张量**：`TheoryConstruct × AbstractionChange × RealityOrTask × ConsumerOrContext × ObservationLayer × CompletionProperty × Oracle × FrameworkOrModel`。
+- **理论/激发分母**：规划固定 14 个 `TC-*` HoTT 构造族、14 个 `OP-*` 激发算子、方向 A/B、Gödel/自指、时间/时序与 OP-14 反解释族；先做逐轴 walking skeleton 和受约束 pairwise，再按信号深化高阶组合。
+- **程序架构**：qualifier → exact calculus/typed IR → operator/consumer generator → type pruning → fair scheduler/bounded executor → kernel/model/runtime/differential oracle → task-preserving reducer → HoTT essentiality/correspondence → immutable evidence → omission/holdout feedback。
+- **六类生成器**：typed term/proof synthesis；rule mutation/ablation；consumer/context synthesis；self-reference/universal computation；metamorphic/differential/property generation；source/AI-guided proposals。AI 仅作 proposer，各 oracle 的证据身份分开。
+- **开放世界**：七个 `UI-*` ingress 覆盖 source/version、implementation、natural consumer、new dimension/operator/oracle、cross-framework difference、counterexample/defense 与新的用户现实/时间/ASK修正；新结果必须指出旧 envelope 漏项并修 taxonomy/coverage，而不是只加案例。
+- **遗漏检查**：reverse mechanism/consumer、pairwise coverage、mutation survivor、metamorphic invariants、framework transfer、independent taxonomy、natural consumer mining、historical prediction、failure archaeology、counter-hypothesis 与 coverage shadow。
+- **阶段路线**：P0 治理包络；P1 现有资产坐标化；P2 六类 generator 骨架；P3 finite coverage proof；P4 R2 universal computation；P5 exact HoTT Gödel；P6 higher/modal depth；P7 reality/time bridge；P8 independent holdout；P9 academic report。
+- **项目 AGENTS**：新增 `HOTT_PARADOX_PROGRAMMATIC_COMPLETENESS_V1`，规定系统化任务完整加载计划，有限分母/无限公平/归约保持的完备性语义，unknown ingress 和每轮遗漏审计；任务路由同步。
+- **项目 Skills**：`hott-paradox-research` 升 1.9.0，新增计划加载与“程序化激发与探索包络”；`hott-local-session-governance` 升 3.7.0，规定每个适用 Session 记录十项 completeness audit。复核时发现两份 Skill 的 description/body 仍残留旧“三件套”措辞，已统一为按固定顺序加载四件套；旧 `BLOCKED_FULL_TRIO_COGNITION` 仅登记为兼容错误码。full-closure test 同步断言第四件路径、`FULL_FOUR_SET...` policy 与 `BLOCKED_FULL_SET_COGNITION`。
+- **动态实现线**：独立 worktree 的 `HOTT-NONTERMINATION-MACHINE-OVERVIEW-PLAN.md` 升 v1.12，作为不可停机/Gödel 动态执行 owner 指向本项目计划；worktree README/registry/handoff 也指向本 owner。该分支仍 local/uncommitted，不冒充 main current checkpoint。
+- **数学状态**：本轮没有新增数学 claim；规划、分类和测试不构成 HoTT 悖论、不可判定性或现实对应证明。当前 exact HoTT calculus、class-wide reduction、natural consumer 和 reality bridge 仍开放。
+- **验证**：新规划专项 4/4 PASS；project shard validator PASS（12 canonical indexes、275 total indexes、0 blocking issues）；cognition runtime 38/38；full closure 17/17；core cognition 36/36；three-way 30 directions / 110 outcomes；projection revision 129 / 22,226 reconciliation entries；math gate、understanding merge（36 union files）与 fresh three-way 均 PASS；machine-overview `validate` VALID、`selftest` 94/94；两个工作树 `git diff --check` PASS。
+- **checkpoint/Git**：没有应用 STATE/MEMORY/方向/全景 checkpoint，没有 commit/tag/push。项目级改动保持 `LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`，以免与并行 AI 的 current-truth写回发生未审查集成。
