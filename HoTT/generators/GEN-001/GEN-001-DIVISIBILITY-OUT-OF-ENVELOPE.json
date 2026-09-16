@@ -1,0 +1,1901 @@
+{
+ "proof_kind": "mechanical_membership_check",
+ "claim": "Each of the 32 reduced witnesses binding a new declared continuation is outside every one of the 6 pre-existing delay-fragment grammars, with rejection reason uniformly BIND_CONTINUATION (192/192 checks), and outside the 11 symbolic-horn grammars by backend mismatch (they cannot express delay-fragment witnesses at all). The new continuation map is the only failing dimension because every index bound is deliberately aligned with the existing L1 horizons.",
+ "method": "machine_overview.search.within_grammar_witness(witness ops, pair) evaluated against each pre-existing grammar; backend classification for symbolic-horn grammars.",
+ "existing_grammar_count": 17,
+ "delay_grammar_count": 6,
+ "rows": [
+  {
+   "witness_id": "WV-0025",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0026",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0027",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0029",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0030",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0031",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0032",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0033",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0034",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0036",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0037",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0038",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 0,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0039",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 4,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0040",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0041",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0042",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0043",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0044",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 4,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0045",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 4,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0046",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0047",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": true
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0048",
+   "binds_new_continuations": [
+    "divisibility_verdict_no_object_for_condition"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "omega"
+      },
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "omega"
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0049",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 3,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0050",
+   "binds_new_continuations": [
+    "divisibility_verdict_capability_is_unbounded"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "kind": "race_right",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      },
+      "true": {
+       "kind": "omega"
+      }
+     },
+     "kind": "bind"
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "completion_divergence",
+   "left_observation": {
+    "kind": "ret",
+    "n": 4,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "omega"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0051",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "k": 2,
+     "kind": "deadline"
+    }
+   ],
+   "observation_mode": "deadline",
+   "separation_kind": "deadline_observation",
+   "left_observation": {
+    "kind": "some",
+    "value": false
+   },
+   "right_observation": {
+    "kind": "none"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0052",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 2,
+      "value": true
+     }
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0053",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "k": 2,
+     "kind": "deadline"
+    }
+   ],
+   "observation_mode": "deadline",
+   "separation_kind": "deadline_observation",
+   "left_observation": {
+    "kind": "some",
+    "value": true
+   },
+   "right_observation": {
+    "kind": "none"
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0054",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 2,
+      "value": false
+     }
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0055",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "k": 2,
+     "kind": "deadline"
+    }
+   ],
+   "observation_mode": "deadline",
+   "separation_kind": "deadline_observation",
+   "left_observation": {
+    "kind": "none"
+   },
+   "right_observation": {
+    "kind": "some",
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0056",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 2,
+      "value": true
+     }
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0057",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "k": 2,
+     "kind": "deadline"
+    }
+   ],
+   "observation_mode": "deadline",
+   "separation_kind": "deadline_observation",
+   "left_observation": {
+    "kind": "none"
+   },
+   "right_observation": {
+    "kind": "some",
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  },
+  {
+   "witness_id": "WV-0058",
+   "binds_new_continuations": [
+    "divisibility_verdict_same_frontier_opposite"
+   ],
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "ops": [
+    {
+     "continuation": {
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": true
+      }
+     },
+     "kind": "bind"
+    },
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 2,
+      "value": false
+     }
+    }
+   ],
+   "observation_mode": "delay",
+   "separation_kind": "value_mismatch",
+   "left_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": false
+   },
+   "right_observation": {
+    "kind": "ret",
+    "n": 2,
+    "value": true
+   },
+   "old_grammar_rejection": {
+    "delay_grammar_count": 6,
+    "reasons": {
+     "BIND_CONTINUATION": 6
+    },
+    "accepted_by_any_old_grammar": false
+   }
+  }
+ ]
+}

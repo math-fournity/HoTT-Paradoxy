@@ -46,8 +46,15 @@
     220/220 唯一 `BIND_CONTINUATION`；4 见证（WV-0014/0023/0044/0067，覆盖 3 构造子 × 3 机制）
     经原生核四路校验 + 主 repo 副本独立复现；现象新颖性 PARTIAL（层依赖现象一半旧文法已可表达）
     按修订片 012 披露交外部审计。
-  - **待续**：DIVISIBILITY 三联（D-01/E-04/G-03，corpus 风险最高）→
-    EXISTENCE-VS-AVAILABILITY（D-04/G-05，置信度最低）；
+  - **第四族已完成**（GEN-001-4）：`TASK-FAMILY-DIVISIBILITY-CONDITION-OR-CAPABILITY`
+    （D-01 / E-04 / G-03 continuity 三联）。3 新声明 verdict continuation 对 17 既有文法
+    map 唯一性 PASS；7 atoms × 440 contexts = 5,280 checks、remainder=0；916→58 规范归约；
+    32 越界见证对 6 个 delay 既有文法拒绝理由 192/192 全部唯一 `BIND_CONTINUATION`；
+    4 见证（WV-0025/0026/0027/0051，覆盖 3 构造子 × 3 机制）经原生核四路校验 + 主 repo
+    独立复现 exit 0。**同族坍缩判定：三成员共享同一机制 pattern**（delay 片段内无区间/
+    截断塔/高阶迭代构造可区分），登记 `PATTERN_REDUCED_NOT_CERTIFIED_AS_FULL_TASK_EQUIVALENCE`，
+    只报一个验收单元；现象新颖性 PARTIAL。详见 `GEN-001-DIVISIBILITY-REPORT.md`。
+  - **待续**：EXISTENCE-VS-AVAILABILITY（D-04/G-05，置信度最低）；
     状态见 `HoTT/generators/GEN-001/GEN-001-INDEX.md`
   - 交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
 - 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）；已登记首个输入：
