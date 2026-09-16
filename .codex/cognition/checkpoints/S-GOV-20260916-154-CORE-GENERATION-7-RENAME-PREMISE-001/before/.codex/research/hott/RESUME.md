@@ -9,8 +9,6 @@
 
 ## 当前停止点
 
-S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001：用户 2026-09-16 认识论修正已纳入核心认知 generation-7（46 KC，KC-000044/045/046；43/43 PRESERVED_EXACT、remainder=0）；第四件按用户要求改名为 `扩展认知`（索引 + 8 分片，新增第 008 片《现实对齐：理论是现实的骨架式模仿》），活当前真值引用同步，历史快照中的旧名保持原样。`PREMISE-001` 登记为下一动作并写入 STATE active：对 HoTT 前提集（`PREMISE_DENOMINATOR_V1` 类别 A–G）做穷尽 P1/P2 清单，交用户 P3/P4 判定，非现实者冻结任务族进 GEN-001 链；`R4-HOTT-NAT-EFFECTIVITY-001` 并行保留。额外修复两处漂移：STATE.records 补登 S153（收据缺口登记、不伪造）、HEAD.tracked 重建。revision 153→154。无新数学 claim；未 push、未 tag。
-
 S151：C-244–C-249 general essential incompleteness/Robinson Q 已从repo-contained 807-file archive在Coq8.15.2 fresh build、index/freeze并exact rerun。R3→R4 12义务=2 scoped present/3 absent/7 open；对象仍first-order arithmetic，非HoTT。active=`A-R4-HOTT-NAT-EFFECTIVITY-001`，资格化cubicaltt/redtt/cooltt/cctt certified target；Goal保持active。
 
 S150：CE-MAP v1 已以 478/478、69 explicit unknown 完成 revision-149 具名八轴登记；169-file machine import、两个 pattern classes、7/7 tests、删 input/axis 负控制及独立进程重建均闭合。active=`A-R3-R4-GODEL-RETURN-001`：先 exact R3 source replay，再做 HoTT calculus 义务桥；Goal保持 active。
