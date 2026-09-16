@@ -19,7 +19,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from logical_document import logical_text  # noqa: E402  (shared reader for v2 shard indexes)
 
-THREE_WAY = ["核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"]
+THREE_WAY = ["核心认知.md", "方向追踪.md", "全景视野.md", "扩展认知.md"]
 DIRECTION = "方向追踪.md"
 PANORAMA = "全景视野.md"
 STATE = ".codex/research/hott/STATE.json"

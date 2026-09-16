@@ -13,7 +13,7 @@ metadata:
 
 ## 1. 角色和唯一入口
 
-本 Skill 是当前顶层 repo 的治理角色；业务角色是 `hott-paradox-research`。角色和路径登记在 `.codex/skills/SKILL_ROLES.json`，顶层 `AGENTS.md` 是更高层路由。四件套的职责为：`核心认知.md` 保存用户原始研究意识（唯一用户原文权威），`方向追踪.md` 保存跨 LocalGPT/WebGPT 的方向组合，`全景视野.md` 保存跨来源的结果与证据边界，`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md` 是**AI 阐释层**（把原文按思想关系连贯展开，用于理解与启发；不产出数学结论、不反向改写 core）。它们不互相复制当前真值。WebGPT 的原始双 Skill 设计保存在 `sources/webgpt/workspace-snapshot/.codex/`，只是历史参考，不能与本 Skill 形成第二套当前状态引擎。
+本 Skill 是当前顶层 repo 的治理角色；业务角色是 `hott-paradox-research`。角色和路径登记在 `.codex/skills/SKILL_ROLES.json`，顶层 `AGENTS.md` 是更高层路由。四件套的职责为：`核心认知.md` 保存用户原始研究意识（唯一用户原文权威），`方向追踪.md` 保存跨 LocalGPT/WebGPT 的方向组合，`全景视野.md` 保存跨来源的结果与证据边界，`扩展认知.md` 是**AI 阐释层**（把原文按思想关系连贯展开，用于理解与启发；不产出数学结论、不反向改写 core）。它们不互相复制当前真值。WebGPT 的原始双 Skill 设计保存在 `sources/webgpt/workspace-snapshot/.codex/`，只是历史参考，不能与本 Skill 形成第二套当前状态引擎。
 
 遇到 HoTT 研究、历史审计、认知恢复、交接或治理维护请求，先执行本 Skill 的闭包；若用户只要求审计/整理，不自动开始数学研究。内部“治理→业务→治理保存”属于同一次执行，不造成无限递归；真正新 Session、用户要求继续、压缩或上下文丢失时，重新全文加载。
 
@@ -34,7 +34,7 @@ metadata:
 
 1. 读顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
 2. 读本 Skill、`.codex/skills/SKILL_ROLES.json`、`.codex/cognition/LOAD_SET.json` 和 `.codex/cognition/PROTOCOL.md`。
-3. 严格按 `LOAD_SET.always_full_documents` 全文读取 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md` 到实际 EOF；记录 path、bytes、lines、SHA-256 和连续 ranges。该顺序和全文身份不可由 profile、task、manifest、摘要、主题索引、KC 子集或旧 receipt 改写。
+3. 严格按 `LOAD_SET.always_full_documents` 全文读取 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`扩展认知.md` 到实际 EOF；记录 path、bytes、lines、SHA-256 和连续 ranges。该顺序和全文身份不可由 profile、task、manifest、摘要、主题索引、KC 子集或旧 receipt 改写。
    命中 `governance-shard-index:v2` 时，全文身份 = **索引 + 按 table 顺序全部分片**；读取时不得把索引充当摘要，也不得只读第一片或最后一片；缺片、未列片或 `last_shard`/`append_target` 不符时按本节末的 `BLOCKED_FULL_SET_COGNITION` 规则停止相应研究。既有 runtime 或历史资料仍出现 `BLOCKED_FULL_TRIO_COGNITION` 时，只把它当兼容错误码，不能据此删去第四件。
 4. 纯治理/审计先使用 `plan --profile governance`；实际数学研究使用 `plan --profile research`，后者在完整四件套和启动核上再加入业务 Skill、三问、FRONTIER、LESSONS、RESUME。两种 profile 都不得移除四件套。
 5. 读取 STATE 中全部 record 的 `lifecycle_status` 与 `evidence_status`。`ACTIVE_WORK/CURRENT/OPEN_ISSUE` 决定当前任务资格；`REVIEW_REQUIRED` 只表示证据仍需复核，不能让历史 Session 自动复活。需要底层证据时先 `query --record <ID>`，再以 `plan --profile research --task <ID>` 显式水合其 `depends_on/full_sources/resolution/source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；谱系、动机、先后和叙事使用不递归水合的 `research_parent`/`related_records`。历史 Session 只在本轮任务明确需要时水合。
@@ -107,7 +107,7 @@ kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
 
 分片逻辑文档的写入遵循 `docs/quality/长治理文档分片与索引合同.md`：`topical` 改 owner shard，`sequential` 追加到 `append_target`，新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一个 checkpoint 事务中更新；当前 `MEMORY/` 是 `MEMORY.md` 的 shard root，`MEMORY/003 - 当前验证状态与顺序日志.md` 是顺序追加目标。受 `MUTABLE` 管理的分片同时进入 `HEAD.json.tracked`，不能绕过 runtime 直接改。
 
-四件套现状（4.0.0）：`方向追踪.md`（5 片）、`全景视野.md`（8 片）、`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md`（5 片）已是 v2 索引 + 分片，`核心认知.md` 保持单文件。
+四件套现状（4.0.0）：`方向追踪.md`（5 片）、`全景视野.md`（8 片）、`扩展认知.md`（8 片）已是 v2 索引 + 分片，`核心认知.md` 保持单文件。
 全文身份不变——索引 + 全部分片才是四件套的“全文”，缺片即未完成；投影的 marker 块、`source_state_revision`、
 `projection_generation`、`semantic_status` 只存在于索引里，改这些字段要改索引，改方向/结果条目要改对应 owner shard，
 并让索引与全部分片进入同一个 checkpoint payload。

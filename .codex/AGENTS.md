@@ -3,7 +3,7 @@
 本目录是当前顶层 repo 的项目级 Codex 治理资产，不是全局 `~/.codex` 的替代品。先读顶层 `AGENTS.md`，再全文读 `.codex/skills/hott-local-session-governance/SKILL.md`、`.codex/cognition/LOAD_SET.json`、`.codex/cognition/PROTOCOL.md` 和动态 `STATE.json`。
 
 四件套 invariant：每次新 Session、再次进入、跨 repo 接手和压缩恢复，都必须按固定顺序全文加载
-`核心认知.md` → `方向追踪.md` → `全景视野.md` → `从抽象到悖论——HoTT研究的核心问题意识与思想展开.md`（AI 阐释层，`essay-role:v1`；`核心认知.md` 是唯一用户原文权威）。`核心认知.md` 拥有用户原始研究意识；`方向追踪.md`
+`核心认知.md` → `方向追踪.md` → `全景视野.md` → `扩展认知.md`（AI 阐释层，`essay-role:v1`；`核心认知.md` 是唯一用户原文权威）。`核心认知.md` 拥有用户原始研究意识；`方向追踪.md`
 拥有跨 LocalGPT/WebGPT 的候选组合与下一判别动作；`全景视野.md` 拥有研究结果、正反例、失败和未知的
 可读综合投影；三者不得互相覆盖成为“最新版”。
 

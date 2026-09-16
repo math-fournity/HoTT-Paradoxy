@@ -3,7 +3,7 @@
 ## 每个新 Session/压缩后的固定恢复
 
 1. 读取根 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md` 和本地治理 Skill/PROTOCOL/LOAD_SET/STATE。
-2. 严格全文读取 `核心认知.md` → `方向追踪.md` → `全景视野.md` → `从抽象到悖论——HoTT研究的核心问题意识与思想展开.md`；当前为 generation-4/36 KC，索引/manifest/旧 receipt 不能替代。
+2. 严格全文读取 `核心认知.md` → `方向追踪.md` → `全景视野.md` → `扩展认知.md`；当前为 generation-7/46 KC，索引/manifest/旧 receipt 不能替代。
 3. 当前问题先 query `A-HOTT-SELF-VALIDATION-ECONOMY-001`，全文读 `理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md`；需战略背景再读 C3/A11/self-reference/RP-B01。
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 

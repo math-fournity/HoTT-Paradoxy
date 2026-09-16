@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-FULL_SET = ("核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md")
+FULL_SET = ("核心认知.md", "方向追踪.md", "全景视野.md", "扩展认知.md")
 
 
 def load_runtime(root: Path):

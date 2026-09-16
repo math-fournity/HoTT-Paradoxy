@@ -145,7 +145,7 @@ class FullClosureLoadingTests(unittest.TestCase):
         for term in ("FULL_FOUR_SET_PLUS_RESEARCH_PROFILE_TASK_HYDRATION_AND_SYSTEMATIC_EXPLORATION_ENVELOPE",
                      "HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md",
                      "索引声明的全部 shards",
-                     "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md",REL,"上下文压缩",
+                     "扩展认知.md",REL,"上下文压缩",
                      "第1行","BLOCKED_FULL_SET_COGNITION","当前模型上下文"):
             self.assertIn(term,text)
         self.assertNotIn("再核最新第五闭包 §7/§14/§19",text)

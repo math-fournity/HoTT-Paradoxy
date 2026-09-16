@@ -24,8 +24,8 @@ class ThreeWayTests(unittest.TestCase):
         (self.root / ".codex/research/hott").mkdir(parents=True)
         load_set = {
             "schema_version": "cognition-load-set/v4",
-            "always_full_documents": ["核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"],
-            "document_order": ["核心认知.md", "方向追踪.md", "全景视野.md", "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md"],
+            "always_full_documents": ["核心认知.md", "方向追踪.md", "全景视野.md", "扩展认知.md"],
+            "document_order": ["核心认知.md", "方向追踪.md", "全景视野.md", "扩展认知.md"],
         }
         state = {"revision": 1, "current_core": {"generation": "core-cognition-generation-4"}}
         core_manifest = {"schema_version": "core-cognition/v2", "generation": "core-cognition-generation-4", "units": [{"id": "KC-000001", "author_class": "USER_OWNED_DIRECT", "themes": ["THEME_A"]}]}
@@ -42,7 +42,7 @@ class ThreeWayTests(unittest.TestCase):
             """<!-- integrated-outcome-panorama:v1\nsource_state_revision: 1\n-->\n| result_id | 结果 | 方向 |\n|---|---|---|\n| `OUT-A` | a | `DIR-A` |\n""",
         )
         self.write(
-            "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md",
+            "扩展认知.md",
             """<!-- essay-role:v1\nlogical_id: CORE-ESSAY\nrole: AI_EXPOSITION_LAYER\n-->\n# essay fixture\n""",
         )
 
@@ -97,7 +97,7 @@ class ThreeWayTests(unittest.TestCase):
             "方向追踪.md",
             "核心认知.md",
             "全景视野.md",
-            "从抽象到悖论——HoTT研究的核心问题意识与思想展开.md",
+            "扩展认知.md",
         ]
         path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
         with self.assertRaisesRegex(MODULE.ThreeWayError, "FIXED_ORDER"):

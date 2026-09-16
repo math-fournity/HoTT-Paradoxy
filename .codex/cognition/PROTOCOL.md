@@ -25,7 +25,7 @@
 
 1. 确认当前 root 是本目录，读取顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
 2. 完整读取本地治理 Skill、角色表、此协议、`LOAD_SET.json` 和 `STATE.json`。纯治理无需自动加载业务 Skill；研究 profile 才全文加载它。
-3. 无条件按 `always_full_documents` 把 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`从抽象到悖论——HoTT研究的核心问题意识与思想展开.md` 逐文件读到真实 EOF。manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research/task profile 也不能删减或重排。
+3. 无条件按 `always_full_documents` 把 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`扩展认知.md` 逐文件读到真实 EOF。manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research/task profile 也不能删减或重排。
    命中 `governance-shard-index:v2` 时，"逐文件读到真实 EOF" 等于**索引 + 按 table 顺序的全部分片**；缺任一片、未列片、标题或 `last_shard`/`append_target` 不符即未完成全文加载，降至 `BLOCKED_FULL_TRIO_COGNITION` 或重启加载。
 4. governance profile 加载四件套、启动核和最新短 Session；research profile 再加载业务 Skill、三问、FRONTIER、LESSONS、RESUME。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
 5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；`research_parent`/`related_records` 只做谱系与叙事导航，不递归水合。显式水合后的正文必须全文读，不能用 query 输出替代；同时必须检查 plan 的 `hydration_diagnostics.document_count`、`total_bytes`、`total_lines`、`query_first_promoted` 和 largest documents，不能把 `review_required=[]` 当成上下文可装配性证明。
