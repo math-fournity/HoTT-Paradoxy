@@ -22,7 +22,7 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 162；执行状态见 STATE 的 `execution_control`
+- STATE active 队首：`A-PREMISE-001`；revision 163；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
 - 第 2 步（已完成 `f21da7d`）：35/35 条逐条 P2
 - 第 3 步（已完成 `92ee268`/`3a6aa9f`，修订片 009 角色重分工后由 AI 执行）：35/35 条 P3/P4，
@@ -40,8 +40,14 @@
     3 新声明 continuation 对 15 既有文法 map 唯一性 PASS；7 atoms × 460 contexts = 5,520 checks、
     remainder=0；46 个越界见证对 l1-v0/v1/v2 拒绝理由全部唯一 `BIND_CONTINUATION`；4 个见证
     （WV-053/0070/0021/0014，覆盖 3 构造子 × 2 机制）经原生核四路校验 + 主 repo 副本独立复现。
-  - **待续**：`TASK-FAMILY-IDENTITY-OBSERVATION-LAYER`（B-01，下一优先）→
-    DIVISIBILITY 三联（D-01/E-04/G-03）→ EXISTENCE-VS-AVAILABILITY（D-04/G-05）；
+  - **第三族已完成**（revision 163 / `c36c2e4`）：`TASK-FAMILY-IDENTITY-OBSERVATION-LAYER`（B-01）。
+    3 新声明 verdict continuation 对全部既有文法 map 唯一性 PASS；7 atoms × 440 contexts =
+    5,280 checks、remainder=0；956→70 规范归约；44 越界见证对 5 个 delay 既有文法拒绝理由
+    220/220 唯一 `BIND_CONTINUATION`；4 见证（WV-0014/0023/0044/0067，覆盖 3 构造子 × 3 机制）
+    经原生核四路校验 + 主 repo 副本独立复现；现象新颖性 PARTIAL（层依赖现象一半旧文法已可表达）
+    按修订片 012 披露交外部审计。
+  - **待续**：DIVISIBILITY 三联（D-01/E-04/G-03，corpus 风险最高）→
+    EXISTENCE-VS-AVAILABILITY（D-04/G-05，置信度最低）；
     状态见 `HoTT/generators/GEN-001/GEN-001-INDEX.md`
   - 交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
 - 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）；已登记首个输入：
