@@ -14,6 +14,8 @@
   - `修订片/008` — PREMISE-001：A–G 分母、P1–P4 分工、必填字段
   - `修订片/009` — P3/P4 由 AI 执行 + 强制审计层 + 外部 AI 追溯审计
   - `修订片/010` — GEN-001 首链经验回写（CE-MAP 归属澄清 + 引擎能力事实 + 合并决策角色归属）
+  - `修订片/014` — delay 片段 map 空间与现象饱和的强制披露纪律（O-5）
+  - `修订片/015` — V2 片段设计与 delay→V2 门槛判定规程（G-a/G-b/G-c + 两阶段验收 + 忠实性警戒）
 - 方案演化账本：`git log --grep=plan-revise`
 
 ## 执行 SOP
@@ -22,7 +24,7 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 163；执行状态见 STATE 的 `execution_control`
+- STATE active 队首：`A-PREMISE-001`；revision 165；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
 - 第 2 步（已完成 `f21da7d`）：35/35 条逐条 P2
 - 第 3 步（已完成 `92ee268`/`3a6aa9f`，修订片 009 角色重分工后由 AI 执行）：35/35 条 P3/P4，
@@ -54,11 +56,35 @@
     独立复现 exit 0。**同族坍缩判定：三成员共享同一机制 pattern**（delay 片段内无区间/
     截断塔/高阶迭代构造可区分），登记 `PATTERN_REDUCED_NOT_CERTIFIED_AS_FULL_TASK_EQUIVALENCE`，
     只报一个验收单元；现象新颖性 PARTIAL。详见 `GEN-001-DIVISIBILITY-REPORT.md`。
-  - **待续**：EXISTENCE-VS-AVAILABILITY（D-04/G-05，置信度最低）；
-    状态见 `HoTT/generators/GEN-001/GEN-001-INDEX.md`
+  - **第五族已完成（V1 最后一族，commit `389bea0`，revision 165）**：
+    `TASK-FAMILY-EXISTENCE-VERSUS-AVAILABILITY`（D-04 / G-05，本批置信度最低一对）。
+    3 新声明 verdict continuation 对 **19 个既有文法**（含 L1-DIVISIBILITY-v1）map 唯一性
+    PASS 且互相 map-distinct；7 atoms × 440 contexts = 5,280 checks、remainder=0；
+    916→58 规范归约（三机制全覆盖）；**32 越界见证 × 7 个 delay 既有文法 = 224/224
+    拒绝理由全部唯一 `BIND_CONTINUATION`**；4 见证经原生核四路校验 + **主 repo 副本独立复现
+    4/4 exit 0**。同族坍缩 Q4：两成员共享同一机制 pattern → `PATTERN_REDUCED`
+    （多成员族坍缩率 2/2）；现象新颖性 PARTIAL；前提置信度最低一对显式披露，
+    保持 `AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`。
+  - **step-6 五族 omission audit 已完成**（commit `f8eaa53` + 修订片 014，commit `310f7a9`）：
+    **O-5 新发现**——delay 片段 continuation map 空间 49/18/31（剩余 29 个非 const map
+    29/29 可产见证），但 `separation_kind` 3 值自第一族起 3/3 覆盖：**文法层未耗尽、
+    现象层已饱和**。登记 `DELAY_FRAGMENT_PHENOMENON_SATURATED`；修订片 014 把它变成
+    后续 delay 族的强制披露与事前门槛（再加 delay 族前必须先答 §2.3）。
+  - **V1 的 5 个冻结任务族已用尽。** 下一单元 = **V2 片段（修订片 015）**：
+    - 门槛规程 G-a（序/稠密）/ G-b（存在≠可用的双坐标）/ G-c（层级塔）；
+    - `L2-cofibration` 片段最小设计：计算轴 + 面/层级结构轴 + 可用性态；
+      `separation_kind` 获 `availability_observation / level_observation /
+      density_observation` 三个新取值（现象新颖性的唯一出口）；
+    - **阶段 1（片段扩展验收，进行中）**：Python ground 语义 + 自测 + Cubical Agda
+      mirror 逐项一致 + 有限性与 ops 封闭性 → `FRAGMENT_EXTENDED_WITH_SCOPE`
+      （工程验收，非数学结论，不进 CLAIM_EVIDENCE_MATRIX）；
+    - **阶段 2（`GEN-001-V2-1` 首族链，待阶段 1 验收后）**：SUPPLY-009（S6+S3，
+      D-04/G-05，命中 G-b），沿用 003/011/012/013/014/015 全部纪律。
   - 交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
-- 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）；已登记首个输入：
-  A-03 族与 E-02 首链族在 delay 片段共享 race-截断分离机制（ingress，非结论）
+- 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）——五族后已完成
+  （commit `f8eaa53`，裁决 revised → 修订片 014/015）：登记 `DELAY_FRAGMENT_PHENOMENON_SATURATED`
+  （文法层 49/18/31 未耗尽但现象层 3 值饱和）、同族坍缩 2/2、五族 157 个越界见证 100%
+  delay-equivalent（族间独立性未证，登记为信封外 ingress 而非结论）
 - 权威来源：`.codex/research/hott/STATE.json` 的 `active` 与 `execution_control.next_minimal_verification`
 
 ## 认识论锚点（不可漂移）
@@ -72,4 +98,5 @@ KC-000046（AI 缺的是用现实理解理论的动作，不是思考现实的�
 - 不预设 HoTT 不一致，也不预设一致。
 - 非现实性判定（P3/P4）由 AI 执行并带强制审计层，外部 AI 追溯审计为终局复核；AI 不得把 pending-audit 候选判定自证为结论（修订片 009）。
 - 未完成机器证明的内容不交付为数学结论。
-- 未 push、未 tag。
+- 未 push、未 tag。- V2 片段的点集 16 面模型**可靠但不完备**（验证布尔等式而区间 I 是 De Morgan 代数）：
+  Python 模型只当枚举器，oracle verdict 必须由 Agda 真实区间 I 给出（修订片 015 §3.4）。
