@@ -46,6 +46,17 @@
 - **`GEN-001-5` 前提置信度（本族专属）**：D-04 / G-05 是 PREMISE-001/006 中**置信度最低、最可能被外部审计推翻为「现实」**的一对（可填充性是 cofibration 的定义条件）。前提判定保持 `AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`，本链不升级。详见该 REPORT §0。
 - V2 片段首族（GEN-001-V2-1）收据：引擎 `runs/SEARCH-GEN001-V2-1-001/` + `runs/VERIFY-GEN-001-V2-1-WV-*/`（分支 `feat/machine-overview-m1`，commit `3a6ccd0`；四路核全 PASS，含 KEY_ADJUDICATION_AUDIT_TRAIL）。
 
+## 关联缺口闭合单元（非 GEN-001 验收单元）
+
+| unit_id | 关联缺口 | 判词 | 位置 |
+|---|---|---|---|
+| `GAP-A-DM3` | 修订片 018 §3(A)：区间 I 的 oracle 不存在 | `DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`（`interval_i_confirmed=false`；布尔律非必需 kernel-confirmed，作用域=DM3） | `../GAP-A/GAP-A-INDEX.md`（引擎 `776e6b7`） |
+
+该单元把 `GEN-001-V2-1` 判词中登记的模型层缺口闭合了 **DM3 一半**：V2 的 availability /
+level / density 三机制在非布尔 De Morgan 代数上由原生核确认，不再依赖点集面格序或布尔律。
+**区间 I 一半仍开放**；`GEN-001-V2-1` 的 density 见证（`FACE_LATTICE_ORDER` 依赖类）
+**仍不得**作为关于区间 I 的结论证据。
+
 ## 后续单元状态
 
 | task_family | 成员 | 状态 | 备注 |
