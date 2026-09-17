@@ -20,6 +20,9 @@
   - `修订片/017` — 全面自动化推进纪律（整条执行链自动化 + 关键判定可审计清单；
     外部 AI 追溯审计为终局复核，不再前瞻性邀请用户介入）
   - `修订片/018` — GEN-001-V2-1 首族链验收完成与两个已登记缺口（区间 I oracle 缺口 = 下一单元首选）
+  - `修订片/019` — 缺口 A 闭合（DM3 分支）与判词分级升级（按机制分级；缺口与单元分开记账）
+  - `修订片/020` — 自我审计升级：CORE_COGNITION_AUDIT 分片化（46 KC 五元组论证 / 扩展认知
+    逐段落 / 航向复盘 / 偏航裁决），审计可改道队列
 - 方案演化账本：`git log --grep=plan-revise`
 
 ## 执行 SOP
@@ -28,7 +31,7 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 167；执行状态见 STATE 的 `execution_control`
+- STATE active 队首：`A-PREMISE-001`；revision 168；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
 - 第 2 步（已完成 `f21da7d`）：35/35 条逐条 P2
 - 第 3 步（已完成 `92ee268`/`3a6aa9f`，修订片 009 角色重分工后由 AI 执行）：35/35 条 P3/P4，
@@ -102,7 +105,36 @@
   - 交付物：`HoTT/generators/GEN-001/`（V2-1 四件 + `GEN-001-INDEX.md`）；收据：
     引擎 `runs/SEARCH-GEN001-V2-1-001/` + `runs/VERIFY-GEN-001-V2-1-WV-*/`（分支
     `feat/machine-overview-m1`，commit `3a6ccd0`）
-- **下一单元（AI 全自动，修订片 017；不由已完成的任何 checkpoint 授权，须另起单元）**：
+  - **缺口 A 闭合（DM3 分支）已完成（revision 168 / 修订片 019 `7984892` / 修订片 020
+    `221936a` / checkpoint `ab19a85`）**：判词 **`DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`**
+    （`interval_i_confirmed=false`）。V2 的 availability / level / density 三结构轴被重新解释到
+    标准非布尔 De Morgan 代数 DM3（三元链 `0<a<1`，`~a=a`，故 `a∧¬a=a≠0`）上：40 contexts ×
+    1,404 等价对 = **56,160 checks、remainder=0**；**9,720 → 396** 归约（校准 ALL_PRESENT）；
+    **392/392** 作用域内见证被 8 个既有文法全拒、**族内拒因唯一**；16³ = **4,096** 候选函数
+    穷举 = 0 个保 meet&neg 的嵌入；4 见证 × **四路原生核**（含 exit 42 负控制）。**核心新事实 =
+    BLI 单元 `KERNEL_BLI_PASS`：布尔律 `x∧¬x=0` 对三结构分离非必需**（否定性机械事实，
+    作用域 = DM3；falsifier = kernel ACCEPT `BLIFalsify`）。**判词分级**：availability / level
+    升级为**解释无关结构层**；density 分裂（DM3 实例核确认，链序仍模型层）。**区间 I 分支仍开放**。
+    工程验收，`registers_new_claim:false`，非数学结论。
+  - **第一份 020 分片审计已完成并改道队列**（`CORE_COGNITION_AUDIT` 索引 + 8 分片，
+    随 checkpoint `ab19a85` 入库；校验器 `9669e04` 升级以支持分片合同）：核心认知 46 条
+    = 对齐 11（+1 双层）/ 深化 6 / 张力 6 / 未触及 11；扩展认知 8 片 32 小节判断。
+    **分片 008 裁决**：167/168 已现**同形重复**（分母内干净负结论替代发现），故把下一单元
+    从「V2 第二族 G-c」**改道**为「SUPPLY-010 知识谱反观 + 现实对齐断裂供给单元」。
+- **下一单元序列（经 020 审计分片 008 裁决；不由已完成的任何 checkpoint 授权，须另起单元）**：
+  1. **区间 I 设计探针**（首选，不变）：在 Cubical Agda 2.8.0 + cubical v0.9 中调查 I 上
+     可写的分离形态（类型族 / cofibration 条件 / PathP，而非 Bool 观察）。**两种结论都是
+     正面信息**——「可写」则缺口 A 完全闭合、分母扩大；「Bool 形态结构性不可写」则是
+     关于 I 的**表达界限的正面结论**（扩展认知 005 片姿态），登记为有界负结论，**不是失败**。
+     收尾自然接 **EXP-001**（HoTT 能否保真表达 DM3 分离语义）。
+  2. **SUPPLY-010 知识谱反观 + 现实对齐断裂供给单元**（审计改道的目标）：对 F2 缺口层
+     7 个来源在手、分母零条的层（PAT / LEM / resizing / AC / unique choice / 截断时机判据 /
+     Dedekind-Ω）逐条执行「它是对什么现实过程的骨架式模仿？用现实解释它时何处断裂？」，
+     产出前提候选（**不判定**；修订片 006 三点保留全部适用）。
+  3. **B 侧新族**登记为长期节点，须先设计 B 侧机械判据（「理论把什么当成已获能力」），
+     不晚于第三个单元进入。
+  4. V2 第二族 G-c **降级为 (2) 供给失败后的回退**。
+  5. 缺口 B（12 个 symbolic-horn 补跑）不阻塞。
   **缺口 A（区间 I oracle，首选）**——构造 DM3 或真实区间（min/max/neg）上的 V2 值解释，
   使结构性分离（availability / level / boolean payload）可由原生核在 De Morgan 代数上确认；
   这是把模型层分离升级为结论证据的**唯一**路径（修订片 015 §5 / F-011 / 018 §3A）。
@@ -126,8 +158,9 @@ KC-000046（AI 缺的是用现实理解理论的动作，不是思考现实的�
 - 非现实性判定（P3/P4）由 AI 执行并带强制审计层，外部 AI 追溯审计为终局复核；AI 不得把 pending-audit 候选判定自证为结论（修订片 009）。
 - 未完成机器证明的内容不交付为数学结论。
 - 未 push、未 tag。
-- **两个已登记缺口（修订片 018 §3，随 GEN-001-V2-1 判词传播）**：(A) 区间 I 的 oracle
-  不存在——mirror `Face = Point → Bool` 为点集模型，其 §10 DM3 三元链反模型自证对
+- **缺口记账（修订片 018 §3 / 019 / 020 审计）**：(A) 区间 I 的 oracle——**DM3 分支已闭合**
+  （判词 `DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`；布尔律非必需，`KERNEL_BLI_PASS`），
+  **区间 I 分支仍开放**：mirror `Face = Point → Bool` 为点集模型，其 §10 DM3 三元链反模型自证对
   De Morgan 代数**可靠但不完备**，故全部 V2 见证**一律不得作为关于区间 I 的结论证据**；
   (B) 越界机械检查作用域 = 7 个 delay 文法，12 个 symbolic-horn 文法为 schema 级
   `BACKEND_MISMATCH` 未跑机械检查（作用域边界，非已证不相交）。
