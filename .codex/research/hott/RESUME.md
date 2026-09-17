@@ -7,8 +7,35 @@
 3. 当前问题先 query `A-HOTT-SELF-VALIDATION-ECONOMY-001`，全文读 `理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md`；需战略背景再读 C3/A11/self-reference/RP-B01。
 4. 数学研究使用 research profile，先 query stable record 再显式 task hydrate，并检查 hydration diagnostics；结束时把 SESSION/RUNS/当前全部 KC 回评放入同一 checkpoint，只有 canonical result 能证明应用。
 
-## 当前停止点
-## 当前停止点
+
+S-RES-20260917-171-ASK-LAYER-M3-STRATEGY-WRITTEN：**第三枚导弹（识别层 / 「读出·算出」
+判定对撞）策略已落盘为修订片 025**（上一停止点 170 = 第一枚已发射）。用户 2026-09-17
+提出第三枚构想（`source=user`），并存在平行 GLM Session 的只读独立分析（`GLM/` 目录，
+本 Session 全文加载并在 025 片 §7 逐项对撞）。两路独立分析收敛于：用户第 ③ 件事
+（A=B）不可能是项相等（本 Session：规范化唯一性；GLM：M3-L1 证其否定）；精确靶子 =
+**Book §11.2 自陈的 Ω 依赖链**（实数已完成身份须假设 resizing 或 LEM），即
+「HoTT + 经典叠加」的接缝——HoTT 自己指认的位置；炸弹在**前提层**不在核内。
+采纳 GLM 的 Spec_A（读出，cut 作为已给定输入，LEM 依赖须逐字标注）/ Spec_B
+（算出，`Σ q:ℚ, q·q≡2`，由 M2 证为空）双规格形态与引理候选 **M3-L1
+`¬(Spec_A ≃ Spec_B)`**；新登记反弹形态 **(d)「给定数据」反弹**（023 §6 反弹族第四形）。
+
+**本 Session 一处判定已被自己更正（025 片 §5）**：第一版主张「第三枚可先于第二枚发射」，
+理由是 `gap-never-zero ⟹ ¬(∃n, D n≡0)` 已由 M1 提供。复核发现该推理**混淆了
+「搜索过程不停机」与「判定不可完成」**——`¬(Σ n, D n≡0)` 是可构造的否证，
+序列层存在命题**是可判定的（已判定为否）**，故序列层不构成 A=B 对撞。更正后：
+**M2 → M3 链式不可倒置**（M3-L1 的居住性传输需要 `Spec_B` 为空）。M2 优先级因此上升。
+保留廉价副产品 `decGapAt` + `noGapWitness`（同簇第二张 ℤ/ℚ 层收据），但**不升格为第三枚**。
+
+**下一执行单元（AI 全自动，017/024 执行模式；不邀请用户介入）**：
+**发射第二枚 M2**（024 片 §4 规格）——全称 `¬ (∃ q : ℚ, q · q ≡ 2)`，下降法 / 良基归纳
+（`Cubical.Induction.WellFounded` 或手写强归纳，分母良基序），目标 `Cubical.Data.Rationals`
+（ℚ = ℤ × ℕ₊₁ 的 set quotient，含 `_·_`/`_<_`/`discreteℚ`），run-id
+`20260917-MP-DEDEKIND-OMEGA-M2-01`。**M2 现在同时是声明层锚点与第三枚 M3-L1 的前置依赖。**
+失败只换证明路径，不降级命题强度。之后 M3：`¬(Spec_A ≃ Spec_B)`（run-id 建议
+`20260917-MP-DEDEKIND-OMEGA-M3-01`）+ `decGapAt`/`noGapWitness` 廉价副产品。
+同链登记：CLAIM-PACKAGE 补节、CLAIM_EVIDENCE_MATRIX 新行、修订片 026（发射记录 +
+反弹形态 (d) 第二击实测检查）、PREMISE-001 008 片状态、RESUME 停止点、分组提交、
+dev-notes 归档。**发射后仍不得声称 HoTT 内部矛盾或爆炸原理被点燃**（024 §2 语义边界不变）。
 
 S-RES-20260917-170-DEDEKIND-OMEGA-M1-LAUNCHED：**Dedekind-Ω 簇第一枚（过程层）已发射并被核接受**
 （修订片 024；上一停止点 169 的区间 I 探针之后，链路转入 PREMISE-001 008 片供给的
