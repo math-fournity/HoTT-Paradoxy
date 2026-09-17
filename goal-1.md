@@ -24,7 +24,7 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 165；执行状态见 STATE 的 `execution_control`
+- STATE active 队首：`A-PREMISE-001`；revision 166；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
 - 第 2 步（已完成 `f21da7d`）：35/35 条逐条 P2
 - 第 3 步（已完成 `92ee268`/`3a6aa9f`，修订片 009 角色重分工后由 AI 执行）：35/35 条 P3/P4，
@@ -75,11 +75,16 @@
     - `L2-cofibration` 片段最小设计：计算轴 + 面/层级结构轴 + 可用性态；
       `separation_kind` 获 `availability_observation / level_observation /
       density_observation` 三个新取值（现象新颖性的唯一出口）；
-    - **阶段 1（片段扩展验收，进行中）**：Python ground 语义 + 自测 + Cubical Agda
-      mirror 逐项一致 + 有限性与 ops 封闭性 → `FRAGMENT_EXTENDED_WITH_SCOPE`
-      （工程验收，非数学结论，不进 CLAIM_EVIDENCE_MATRIX）；
-    - **阶段 2（`GEN-001-V2-1` 首族链，待阶段 1 验收后）**：SUPPLY-009（S6+S3，
-      D-04/G-05，命中 G-b），沿用 003/011/012/013/014/015 全部纪律。
+    - **阶段 1（片段扩展验收，已完成）**：Python ground 语义 + selftest 142/142 +
+      Cubical Agda mirror 逐项一致（289 ground × 11 op-list = 3179 条 applyOps，
+      原生核 KERNEL_ACCEPTED / refl 消解双等式）→ 判词
+      `FRAGMENT_EXTENDED_WITH_SCOPE`（revision 166；引擎 `4428c48` + `9729d9f`；
+      修订片 016 / commit `e36bdd4`）。工程验收，`registers_new_claim:false`，
+      非数学结论，不进 CLAIM_EVIDENCE_MATRIX；新增 `DENOMINATOR_SINGLE_SOURCE` 纪律。
+    - **阶段 2（`GEN-001-V2-1` 首族链，下一单元）**：SUPPLY-009（S6+S3，
+      D-04/G-05，命中 G-b），沿用 003/011/012/013/014/015/016 全部纪律；
+      **V2 专属强制披露**：每个见证必须声明它是枚举器（点集模型）内成立还是已由
+      原生核在真实区间 I 上确认，前者一律不得作为结论证据。
   - 交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
 - 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）——五族后已完成
   （commit `f8eaa53`，裁决 revised → 修订片 014/015）：登记 `DELAY_FRAGMENT_PHENOMENON_SATURATED`
