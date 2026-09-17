@@ -1,0 +1,131 @@
+{
+  "completed_at_utc": "2026-09-17T02:01:18.090960+00:00",
+  "denominator": {
+    "applyops_checks": 3179,
+    "applyops_exhaustive": true,
+    "ground_values": 289,
+    "op_lists": 11,
+    "sep_controls": 11
+  },
+  "design_source": "Atria的方案/修订片/015 §5 stage-1 (V2 L2-cofibration fragment)",
+  "git_state_engine": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "4428c482708345a009b0e82116b1cf2a7bfc47d6",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 15,
+    "untracked_entries": 2478,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 2493,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "git_state_handoff": {
+    "branch": "main",
+    "git_common_dir": ".git",
+    "git_dir": ".git",
+    "head": "d1a68a88b890ee9bdd52a5d2400b1293e1c7294a",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 1,
+    "untracked_entries": 0,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 1,
+    "worktree_root": "/Volumes/D/HoTT_AI_HANDOFF_20260911"
+  },
+  "kernel": {
+    "artifacts": {
+      "command": {
+        "bytes": 672,
+        "path": "command.json",
+        "sha256": "bceb10bf0b7244fa6ef293089b13e9b86784cecd079a8b865fe651ee8b4e4049"
+      },
+      "environment": {
+        "bytes": 302,
+        "path": "environment.txt",
+        "sha256": "d49c780da5eb9f5d5c02ec254da93a1564120e42f829525cf571e4070ef29657"
+      },
+      "stderr": {
+        "bytes": 0,
+        "path": "stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 9854,
+        "path": "stdout.txt",
+        "sha256": "8b3912671011898fabdab6320e99908d04eb6f36829a2da44835874ac6e26582"
+      }
+    },
+    "command_argv": [
+      "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+      "--ignore-interfaces",
+      "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+      "-l",
+      "cubical-0.9",
+      "-i",
+      "machine-overview/formal",
+      "-i",
+      "HoTT/formal/partiality-race-timeout",
+      "-i",
+      "machine-overview/runs/20260916-V2-STAGE1-AGREEMENT-001/generated",
+      "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260916-V2-STAGE1-AGREEMENT-001/generated/V2GroundAgreement.agda"
+    ],
+    "completed_at_utc": "2026-09-17T02:01:18.071106+00:00",
+    "cwd": "/Volumes/D/HoTT-machine-overview",
+    "diagnostic": "UNEXPECTED",
+    "duration_seconds": 30.833333916962147,
+    "entry": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260916-V2-STAGE1-AGREEMENT-001/generated/V2GroundAgreement.agda",
+    "environment": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n",
+    "exit_code": 0,
+    "expect_success": true,
+    "expectation_met": true,
+    "label": "v2-ground-agreement",
+    "started_at_utc": "2026-09-17T02:00:47.237436+00:00",
+    "status": "KERNEL_ACCEPTED",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 9854,
+    "stdout_sha256": "8b3912671011898fabdab6320e99908d04eb6f36829a2da44835874ac6e26582",
+    "timed_out": false,
+    "timeout_seconds": 900
+  },
+  "kind": "STAGE1_PYTHON_AGDA_GROUND_AGREEMENT",
+  "registers_new_claim": false,
+  "run_id": "20260916-V2-STAGE1-AGREEMENT-001",
+  "schema_version": "machine-overview-v2-stage1-agreement/v1",
+  "scope_disclosure": {
+    "applyops_scope": "EXHAUSTIVE over the full declared denominator: every one of the 289 ground values is evaluated under every one of the 11 declared op-lists, giving 3179 applyOps checks.  Not sampled.",
+    "faithfulness": "The face lattice is the POINT-SET model (truth functions on the 4-point boolean cube): SOUND but NOT COMPLETE for the interval I, a De Morgan algebra in which f ∧ ¬f = 0 FAILS (revision 015 §3.4, machine-checked in V2Cofibration.agda §8-9).  This agreement is an ENGINEERING acceptance of enumerator faithfulness; it registers no mathematical claim (registers_new_claim: false) and no result here is evidence about the real interval I (F-011).",
+    "separates_scope": "DESIGNATED CONTROLS ONLY (11): 3 positive controls (G-b availability, G-c level, G-a density) + 5 negative controls + 3 L1-shared-kind reachability controls.  The full 289x289 pair matrix is NOT rendered: it would need ~918k SepResult literals, beyond a feasible single Agda module.  This is a rendering-budget boundary, not a mathematical claim about separates; the control set is pinned independently by tests/test_v2_cofibration.py::SeparationTest."
+  },
+  "source_manifest": [
+    {
+      "bytes": 21970,
+      "path": "/Volumes/D/HoTT-machine-overview/machine-overview/machine_overview/v2_agreement.py",
+      "role": "agreement-generator",
+      "sha256": "ed12252712cc05c414abac63a303de3b36f8f996728998d89021efb51ff2cd46"
+    },
+    {
+      "bytes": 13890,
+      "git_commit": "4428c482708345a009b0e82116b1cf2a7bfc47d6",
+      "path": "/Volumes/D/HoTT-machine-overview/machine-overview/machine_overview/v2_cofibration.py",
+      "role": "python-semantics-source",
+      "sha256": "3356d27595cb8c910c2c4003aafc920949b136baa4b20a711b3ecff8b3394b82"
+    },
+    {
+      "bytes": 24043,
+      "git_commit": "4428c482708345a009b0e82116b1cf2a7bfc47d6",
+      "path": "/Volumes/D/HoTT-machine-overview/machine-overview/formal/V2Cofibration.agda",
+      "role": "agda-mirror-library",
+      "sha256": "18d5281a29c2646af2458580a87c45d2f6847f4a3dcc64827de172b1eb360a6d"
+    },
+    {
+      "bytes": 672389,
+      "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260916-V2-STAGE1-AGREEMENT-001/generated/V2GroundAgreement.agda",
+      "role": "generated-module",
+      "sha256": "b3831b2579bc8c55bcc9078bf55f8d40b9d1141b0a0000fe327c7359ef563ff7"
+    }
+  ],
+  "started_at_utc": "2026-09-17T02:00:47.149042+00:00",
+  "status": "STAGE1_AGREEMENT_PASS",
+  "toolchain_identity": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n"
+}
