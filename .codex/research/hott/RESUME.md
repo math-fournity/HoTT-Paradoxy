@@ -10,6 +10,48 @@
 ## 当前停止点
 ## 当前停止点
 
+S-RES-20260917-170-DEDEKIND-OMEGA-M1-LAUNCHED：**Dedekind-Ω 簇第一枚（过程层）已发射并被核接受**
+（修订片 024；上一停止点 169 的区间 I 探针之后，链路转入 PREMISE-001 008 片供给的
+Dedekind-Ω 簇执行）。用户 2026-09-17 指令（`source=user`）把工作模式从「测试击落」
+改为「**必须击落 / 执行击落策略而非测试策略**」：策略（022/023 齐射结构）无问题时，
+必须交付具备数学真理性的形式化证明代码；只有策略本身有问题才停下来讨论。
+
+**第一枚执行结果（observed，收据可机械复算）**：模块
+`HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda`（`--safe --cubical
+--guardedness`，112 行）在 Agda 2.8.0 + cubical v0.9 上 exit 0，
+`KERNEL_ACCEPTED_WITH_SCOPE`（run `20260917-MP-DEDEKIND-OMEGA-M1-04`，51s）。
+命题：√2 的 Pell 最优有理夹钳序列 `p_n/q_n`（互递推 `p'=p+2q`、`q'=p+q`，初值 (1,1)）
+的判别式 `D n = p_n²-2q_n²` 满足 `pell-gap-never-closes : (n : ℕ) → (D n ≡ 1r) ⊎
+(D n ≡ -1r)`，故 `gap-never-zero : (n : ℕ) → ¬ (D n ≡ pos 0)`——夹钳两端在 ℚ 上
+永不相遇。环恒等式由 `Cubical.Tactics.CommRingSolver` 的 `solve! ℤCommRing` 反射求解。
+三次被拒轨迹保留于 run -01（缺 `--guardedness`，InfectiveImport）/ -02/-03（`¬_` 不在
+`Cubical.Data.Empty.Base`）/ -04 前的尝试（cubical Path 下荒模式 `()` 不可用，
+改库引理 `znots`/`injPos`/`posNotnegsuc`），按 runs 纪律不删。
+
+**登记状态（本单元已闭合的治理链）**：`HoTT/CLAIM_EVIDENCE_MATRIX.md` 追加
+`MP-DEDEKIND-OMEGA-M1` / `CAND-F2-7-M1` 行，`MACHINE_PROVED_LOCAL_UNCOMMITTED /
+PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION`；发射包
+`HoTT/formal/dedekind-omega-missile/{CLAIM-PACKAGE,README}.md` + `TOOLCHAIN.json` +
+`AGDA_LIBRARIES`；修订片 024（执行纪律 + 语义边界 + 第二枚规格）与索引 23→24 片；
+PREMISE-001 008 片加 §2.5 发射记录、状态从 `PENDING_KERNEL` 推进为已发射。
+
+**语义边界（不可漂移）**：「击落」= 把 `PROCESS_DECLARATION_GAP` 的非现实性**数学锚定**，
+**不是**在 HoTT 内导出矛盾。本命题是 `ℤ` 上的环计算，不依赖 univalence / cubical path /
+HIT；它**不是** HoTT 的内部矛盾，也不声称 HoTT 不一致（`MATH_PROOF_BEFORE_DELIVERY_V1`
++ AGENTS 数学表述协议）。**范围边界（关键判定，可被外部审计推翻）**：已证的是
+**这条最优夹钳序列**的永不闭合；**未证** `∀ q : ℚ, q · q ≠ 2`（全称无理性）。
+
+**下一步（AI 全自动，修订片 017/024；不邀请用户介入，证据标准不松）**：
+**第二枚（声明层）**——全称 `¬ (∃ q : ℚ, q · q ≡ 2)` 的机器证明，下降法 / 良基归纳
+（`Cubical.Induction.WellFounded` 或手写强归纳，分母良基序），目标库
+`Cubical.Data.Rationals`（ℚ = ℤ × ℕ₊₁ 的 set quotient，含 `_·_`/`_<_`/`discreteℚ`），
+run-id `20260917-MP-DEDEKIND-OMEGA-M2-01`。为什么全称式是第二枚的正确锚：反弹形态是
+「实数就是那对开谓词，不需要夹到相遇」，击穿它需要一个**独立于序列选择**的硬事实。
+风险：下降证明约 100–150 行盲写，中高风险；失败只换证明路径，不降级命题强度。
+第二枚的声明层论证（理想元素不对应过程完成）交付时须标注
+`ARGUMENT_ANCHORED_ON_MACHINE_PROOVED_FACTS`，不得写成单一机器定理（纯 HoTT 中
+Dedekind 实数就是那对开谓词，「理想中间点」读法可被辩护——策略保留项，非策略错误）。
+
 S-RES-20260917-169-INTERVAL-I-PROBE：**缺口 A 的区间 I 分支以表达界限正面结论收尾**
 （判词 `INTERVAL_I_SEPARATION_FORMS_FAMILY_AND_COFIBRATION_BOOL_OBSERVER_UNWRITABLE`；修订片 021；
  主 repo 交付物 `HoTT/generators/PROBE-INTERVAL-I/`；引擎 36d27e0；revision 168->169）。

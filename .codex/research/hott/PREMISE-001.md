@@ -33,7 +33,7 @@ soft_line_target: 300
 | 005 | [P3P4 判定与审计链 A-B（AI 执行）](<PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md>) | A 11 + B 4 共 15 条逐条 P3/P4 候选判定 + 完整 P3P4_AUDIT_TRAIL（steelman/falsifier/confidence/corpus_self_audit/depends_on） | pending-external-audit |
 | 006 | [P3P4 判定与审计链 C-G（AI 执行）](<PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md>) | C 4 + D 5 + E 4 + F 2 + G 5 共 20 条逐条 P3/P4 候选判定 + 完整审计链 + 主题簇汇总 | pending-external-audit |
 | 007 | [SUPPLY_REGISTRATION 与任务族冻结（AI 执行）](<PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md>) | step-4：9 条非现实候选的完整 SUPPLY_REGISTRATION + 5 个建议任务族（合并建议供外部审计决定） | pending-external-audit |
-| 008 | [SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）](<PREMISE-001/008 - SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）.md>) | step-5：F2 缺口层 7 条完整两问（PAT/LEM/resizing/AC/unique choice/截断时机判据/Dedekind-Ω）+ 三标注；唯一命中 PROCESS_DECLARATION_GAP 的 Dedekind-Ω 簇按 023 四标注打造两枚导弹（过程层/反弹/第二击/现实侧），已打造未发射（PENDING_KERNEL） | pending-external-audit |<!-- governance-shard-table:end -->
+| 008 | [SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）](<PREMISE-001/008 - SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）.md>) | step-5：F2 缺口层 7 条完整两问（PAT/LEM/resizing/AC/unique choice/截断时机判据/Dedekind-Ω）+ 三标注；唯一命中 PROCESS_DECLARATION_GAP 的 Dedekind-Ω 簇按 023 四标注打造两枚导弹（过程层/反弹/第二击/现实侧），已打造未发射（PENDING_KERNEL）→ **第一枚已发射并被核接受**（`MP-DEDEKIND-OMEGA-M1`，`KERNEL_ACCEPTED_WITH_SCOPE`，见修订片 024 §3 与本片 §2.5 发射记录）；第二枚（全称无理性）待发射 | pending-external-audit（发射记录为已执行事实，不改变候选身份） |<!-- governance-shard-table:end -->
 
 ## 分母身份（冻结字段）
 
