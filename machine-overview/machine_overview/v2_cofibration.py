@@ -169,6 +169,44 @@ SEPARATION_KINDS = (
 )
 
 
+def ground_values():
+    """All declared ground values (the finite denominator): omega plus
+    ``ret(n, b, face, level)`` for n in 0..DELAY_INDEX_MAX, b in BOOLS, face in
+    the 16 faces and level in 0..TOWER_MAX.  1 + 3*2*16*3 = 289 elements."""
+    from itertools import product
+    out = [omega()]
+    for n, b, face, level in product(
+        range(DELAY_INDEX_MAX + 1), BOOLS, range(FACE_COUNT), range(TOWER_MAX + 1)
+    ):
+        out.append(ret(n, b, face, level))
+    return out
+
+
+#: A fixed partner / continuation for the declared op lists (ground values).
+DECLARED_PARTNER = ret(1, False, FACE_J, 1)
+DECLARED_CONTINUATION = {True: ret(0, True, FACE_I, 0), False: ret(1, False, FACE_J, 1)}
+
+
+def declared_op_lists():
+    """One op list per declared kind + two compositions; the bounded op
+    denominator used by both the self-test and the stage-1 mirror agreement."""
+    partner_json = value_to_json(DECLARED_PARTNER)
+    cont_json = continuation_to_json(DECLARED_CONTINUATION)
+    return [
+        ("race_left", [{"kind": "race_left", "partner": partner_json}]),
+        ("race_right", [{"kind": "race_right", "partner": partner_json}]),
+        ("bind", [{"kind": "bind", "continuation": cont_json}]),
+        ("supply", [{"kind": "supply", "face": FACE_I}]),
+        ("deadline", [{"kind": "deadline", "k": 1}]),
+        ("fill", [{"kind": "supply", "face": FACE_I}, {"kind": "fill"}]),
+        ("fill_of", [{"kind": "fill_of", "face": FACE_I}]),
+        ("tower", [{"kind": "tower", "level": 1}]),
+        ("between", [{"kind": "between", "a": FACE_ZERO, "b": FACE_ONE}]),
+        ("race+deadline", [{"kind": "race_left", "partner": partner_json}, {"kind": "deadline", "k": 1}]),
+        ("bind+tower", [{"kind": "bind", "continuation": cont_json}, {"kind": "tower", "level": 1}]),
+    ]
+
+
 def value_to_json(value: tuple) -> dict:
     if value[0] == "omega":
         return {"kind": "omega"}

@@ -20,6 +20,14 @@ from machine_overview.util import MachineOverviewError
 
 I, J, ONE, ZERO = v2.FACE_I, v2.FACE_J, v2.FACE_ONE, v2.FACE_ZERO
 
+#: JSON projections of the canonical declared partner / continuation.  Both
+#: derive from v2.DECLARED_PARTNER / v2.DECLARED_CONTINUATION so the self-test
+#: and the stage-1 agreement generator render from ONE source, never from a
+#: duplicated literal that could drift out of sync.
+PARTNER_JSON = v2.value_to_json(v2.DECLARED_PARTNER)
+CONT_JSON = v2.continuation_to_json(v2.DECLARED_CONTINUATION)
+CONT = v2.DECLARED_CONTINUATION
+
 #: Explicit registry of what this model does NOT claim.  A test asserts the
 #: registry survives, so the disclosures cannot be silently deleted.
 NON_CLAIM_REGISTRY = {
@@ -49,20 +57,8 @@ NON_CLAIM_REGISTRY = {
 }
 
 
-def ground_values():
-    """All 289 declared ground values: omega + ret(n, b, face, level)."""
-    out = [v2.omega()]
-    for n, b, face, level in product(
-        range(v2.DELAY_INDEX_MAX + 1),
-        v2.BOOLS,
-        range(v2.FACE_COUNT),
-        range(v2.TOWER_MAX + 1),
-    ):
-        out.append(v2.ret(n, b, face, level))
-    return out
-
-
-GROUND = ground_values()
+#: The declared ground denominator, from the semantics module (single source).
+GROUND = v2.ground_values()
 
 
 def project_to_l1(value):
@@ -98,27 +94,9 @@ def observation_well_formed(obs) -> bool:
     return False
 
 
-CONT = {
-    True: v2.ret(0, True, I, 0),
-    False: v2.ret(1, False, J, 1),
-}
-CONT_JSON = v2.continuation_to_json(CONT)
-PARTNER_JSON = v2.value_to_json(v2.ret(1, False, J, 1))
+#: The declared op denominator, from the semantics module (single source).
+OP_SPECS = v2.declared_op_lists()
 
-#: One representative op-list per declared kind (totality + closure checks).
-OP_SPECS = [
-    ("race_left", [{"kind": "race_left", "partner": PARTNER_JSON}]),
-    ("race_right", [{"kind": "race_right", "partner": PARTNER_JSON}]),
-    ("bind", [{"kind": "bind", "continuation": CONT_JSON}]),
-    ("supply", [{"kind": "supply", "face": I}]),
-    ("deadline", [{"kind": "deadline", "k": 1}]),
-    ("fill", [{"kind": "supply", "face": I}, {"kind": "fill"}]),
-    ("fill_of", [{"kind": "fill_of", "face": I}]),
-    ("tower", [{"kind": "tower", "level": 1}]),
-    ("between", [{"kind": "between", "a": ZERO, "b": ONE}]),
-    ("race+deadline", [{"kind": "race_left", "partner": PARTNER_JSON}, {"kind": "deadline", "k": 1}]),
-    ("bind+tower", [{"kind": "bind", "continuation": CONT_JSON}, {"kind": "tower", "level": 1}]),
-]
 
 
 class NonClaimRegistryTest(unittest.TestCase):
@@ -485,10 +463,11 @@ class L1SynonymyTest(unittest.TestCase):
                 self.assertEqual(project_to_l1(got), want)
 
     def test_bind_value_agrees_on_the_computation_axis(self):
-        cont_l1 = {True: project_to_l1(CONT[True]), False: project_to_l1(CONT[False])}
+        cont = v2.DECLARED_CONTINUATION
+        cont_l1 = {True: project_to_l1(cont[True]), False: project_to_l1(cont[False])}
         for value in GROUND:
             pv = project_to_l1(value)
-            got = v2.bind_value(value, CONT)
+            got = v2.bind_value(value, cont)
             want = l1.bind_value(pv, cont_l1)
             self.assertEqual(project_to_l1(got), want)
 
