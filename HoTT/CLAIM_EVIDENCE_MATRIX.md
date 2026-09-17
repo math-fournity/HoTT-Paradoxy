@@ -671,3 +671,21 @@ proof_run_root: HoTT/verification/runs
 **语义边界**（修订片 024 §2）：「击落」在本 repo 的唯一可执行读法是把
 `PROCESS_DECLARATION_GAP` 的非现实性**数学锚定**，不是在 HoTT 内导出矛盾。
 任何把本行读成「HoTT 被证明矛盾」的解读都是误读。
+
+## 追加登记：MP-DEDEKIND-OMEGA-M2（Dedekind-Ω 第二枚·声明层，2026-09-17）
+
+来源：修订片 024 §4（第二枚规格）+ 修订片 025 §5（三枚齐射、M2→M3 链式不可倒置）。
+本登记是**执行产物**；`registers_new_claim` 语义 = 候选的非现实性被机械锚定，
+非已注册数学主张。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-M2` | `CAND-F2-7-M2` | `formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda`；`CLAIM-PACKAGE-M2.md` 固定精确命题、量词、假设与禁止外推 | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M2-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0；43.9s；`--ignore-interfaces` 全量复检 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / DELIVERY_TYPE_SPEC_B_UNINHABITED_NOT_HOTT_CONTRADICTION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-M2 | 在纯 Cubical Agda（无 LEM、无 resizing、无追加公理）中，`√2-irrational : ∀ q : ℚ → ¬ (q ·ℚ q ≡ 2r)` 与 `spec-B-empty : ¬ (Σ q : ℚ, q ·ℚ q ≡ 2r)` 成立——「输出 √2 的有理位置」任务的交付类型 `Spec_B` 的居住性为空。证明路径：ℚ set quotient 提取（`rec2` 点构造子定义性归约 + `eq/⁻¹` + `Int.abs`）→ ℕ 无穷下降（奇偶工具包 + 平方膨胀 `sq-double` + 偶平方引理 + 手写强归纳）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPEC_B_EMPTY_UNIVERSAL_IRRATIONALITY` | run `20260917-MP-DEDEKIND-OMEGA-M2-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，43.9s）、`stdout.txt`、`source-manifest.json`、`environment.txt`；ℚ 为 `Cubical.Data.Rationals.Base` 的 set quotient 标准构造。 | **不**声称这是 HoTT 内部矛盾或 HoTT 不一致；**不**声称「任何过程不停机」的元语言命题（证的是交付类型无居住者；「任何策略不可能交付」为语义读法，按 `ARGUMENT_ANCHORED_ON_MACHINE_PROOVED_FACTS` 交付）；**不**声称「实数完备性非现实」可交付；命题是 ℚ/ℕ 层标准计算，不依赖 univalence / cubical path / HIT 特有规则；开发期编译迭代未另立 run，正式 run 为全量复检。 |
+
+**语义边界**（修订片 025 §6，全套继承 024 §2）：第二枚 = 声明层锚点；第三枚
+（识别层 M3-L1）消费本行，序列不可倒置。「击落」的可执行读法不变：非现实性的
+数学锚定，不是 HoTT 内部矛盾。
