@@ -19,6 +19,7 @@
   - `修订片/016` — V2 阶段1 片段扩展验收完成与声明分母单一来源纪律
   - `修订片/017` — 全面自动化推进纪律（整条执行链自动化 + 关键判定可审计清单；
     外部 AI 追溯审计为终局复核，不再前瞻性邀请用户介入）
+  - `修订片/018` — GEN-001-V2-1 首族链验收完成与两个已登记缺口（区间 I oracle 缺口 = 下一单元首选）
 - 方案演化账本：`git log --grep=plan-revise`
 
 ## 执行 SOP
@@ -27,7 +28,7 @@
 
 ## 当前步骤（指针，权威是 STATE）
 
-- STATE active 队首：`A-PREMISE-001`；revision 166；执行状态见 STATE 的 `execution_control`
+- STATE active 队首：`A-PREMISE-001`；revision 167；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
 - 第 2 步（已完成 `f21da7d`）：35/35 条逐条 P2
 - 第 3 步（已完成 `92ee268`/`3a6aa9f`，修订片 009 角色重分工后由 AI 执行）：35/35 条 P3/P4，
@@ -84,11 +85,29 @@
       `FRAGMENT_EXTENDED_WITH_SCOPE`（revision 166；引擎 `4428c48` + `9729d9f`；
       修订片 016 / commit `e36bdd4`）。工程验收，`registers_new_claim:false`，
       非数学结论，不进 CLAIM_EVIDENCE_MATRIX；新增 `DENOMINATOR_SINGLE_SOURCE` 纪律。
-    - **阶段 2（`GEN-001-V2-1` 首族链，下一单元）**：SUPPLY-009（S6+S3，
-      D-04/G-05，命中 G-b），沿用 003/011/012/013/014/015/016 全部纪律；
-      **V2 专属强制披露**：每个见证必须声明它是枚举器（点集模型）内成立还是已由
-      原生核在真实区间 I 上确认，前者一律不得作为结论证据。
-  - 交付物：`HoTT/generators/GEN-001/`；收据：`HoTT/verification/runs/20260916-VERIFY-GEN001-*`
+    - **阶段 2（`GEN-001-V2-1` 首族链，已完成，revision 167 / 修订片 018 `51247fd`）**：
+      SUPPLY-009（S6+S3，D-04/G-05，命中 G-b），判词
+      **`GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`**。3,059 contexts × 1,104 等价对 =
+      **3,377,136 checks、remainder=0**、order_independent；**212,864 → 51,904** 规范归约；
+      **50,624/50,624** 作用域内见证被 7 个既有 delay 文法全拒且理由唯一（1,280 条纯
+      race/deadline 见证登记为 `L1_SHARED_INGRESS`）；**4 见证 × 四路原生核收据**
+      （WV-0001 availability / WV-23233 level×新 continuation / WV-0785 / WV-0786 density；
+      verify exit 0 / 双正控制 / negative-control **exit 42** / verify-replay 精确匹配）；
+      **51,904/51,904 归约见证输入对 `delayEquiv=true`（L1 输入层不可见）**；6 个分离
+      种类全部出现（文法内现象层饱和）。强制披露：现象新颖性 **PARTIAL**（实质新颖性 =
+      availability/level/density 三新观察层）；Q4 同族坍缩 **`PATTERN_REDUCED`**（D-04/G-05
+      不可机械区分，只报一个验收单元）。引擎 `3a6ccd0`；主 repo 交付物 `38dcbc5`。
+      **V2 专属强制披露已执行**：4 kernel 见证全部
+      `POINT_SET_MIRROR_MODEL_KERNEL_CONFIRMED` / `interval_i_confirmed=false`。
+  - 交付物：`HoTT/generators/GEN-001/`（V2-1 四件 + `GEN-001-INDEX.md`）；收据：
+    引擎 `runs/SEARCH-GEN001-V2-1-001/` + `runs/VERIFY-GEN-001-V2-1-WV-*/`（分支
+    `feat/machine-overview-m1`，commit `3a6ccd0`）
+- **下一单元（AI 全自动，修订片 017；不由已完成的任何 checkpoint 授权，须另起单元）**：
+  **缺口 A（区间 I oracle，首选）**——构造 DM3 或真实区间（min/max/neg）上的 V2 值解释，
+  使结构性分离（availability / level / boolean payload）可由原生核在 De Morgan 代数上确认；
+  这是把模型层分离升级为结论证据的**唯一**路径（修订片 015 §5 / F-011 / 018 §3A）。
+  或 V2 第二族（G-a 稠密 / G-c 层级独立供给，优先级以「是否需点集专属律」为第一排序键——
+  结构性 > 模型层，修订片 018 §4），或 SUPPLY-010 新任务族。
 - 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）——五族后已完成
   （commit `f8eaa53`，裁决 revised → 修订片 014/015）：登记 `DELAY_FRAGMENT_PHENOMENON_SATURATED`
   （文法层 49/18/31 未耗尽但现象层 3 值饱和）、同族坍缩 2/2、五族 157 个越界见证 100%
@@ -106,5 +125,11 @@ KC-000046（AI 缺的是用现实理解理论的动作，不是思考现实的�
 - 不预设 HoTT 不一致，也不预设一致。
 - 非现实性判定（P3/P4）由 AI 执行并带强制审计层，外部 AI 追溯审计为终局复核；AI 不得把 pending-audit 候选判定自证为结论（修订片 009）。
 - 未完成机器证明的内容不交付为数学结论。
-- 未 push、未 tag。- V2 片段的点集 16 面模型**可靠但不完备**（验证布尔等式而区间 I 是 De Morgan 代数）：
+- 未 push、未 tag。
+- **两个已登记缺口（修订片 018 §3，随 GEN-001-V2-1 判词传播）**：(A) 区间 I 的 oracle
+  不存在——mirror `Face = Point → Bool` 为点集模型，其 §10 DM3 三元链反模型自证对
+  De Morgan 代数**可靠但不完备**，故全部 V2 见证**一律不得作为关于区间 I 的结论证据**；
+  (B) 越界机械检查作用域 = 7 个 delay 文法，12 个 symbolic-horn 文法为 schema 级
+  `BACKEND_MISMATCH` 未跑机械检查（作用域边界，非已证不相交）。
+- V2 片段的点集 16 面模型**可靠但不完备**（验证布尔等式而区间 I 是 De Morgan 代数）：
   Python 模型只当枚举器，oracle verdict 必须由 Agda 真实区间 I 给出（修订片 015 §3.4）。
