@@ -1,4 +1,10 @@
-# 修订片 014 · delay 片段 map 空间与现象饱和的强制披露纪律
+<!-- governance-shard:v2
+logical_id: ATRIA-MACHINE-OVERVIEW-PLAN-REVISION
+shard_id: 014
+index: ../修订片.md
+-->
+
+# delay 片段 map 空间与现象饱和的强制披露纪律
 
 来源：step-6 omission audit after GEN-001 五族（`audit/PREMISE-001-STEP6-OMISSION-AUDIT-20260916-2.md`，O-5）。
 身份：方案修订（reflection=step6-audit-revised）。本片**不做 P3/P4 判定，不产生数学结论**（F-011）。
