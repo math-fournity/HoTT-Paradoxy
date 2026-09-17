@@ -10,25 +10,6 @@
 ## 当前停止点
 ## 当前停止点
 
-S-RES-20260916-166-V2-STAGE1-FRAGMENT-EXTENDED：**V2 L2-cofibration 片段阶段 1（片段扩展验收）完成**
-（判词 `FRAGMENT_EXTENDED_WITH_SCOPE`；修订片 016 commit e36bdd4；引擎 commit 4428c48 + 9729d9f；revision 165->166）。修订片 015 §3.4 两条判据全部满足：**(i) 逐项一致（非抽样）**——289 ground 值 × 11 声明 op-list = **3179 条 applyOps**，渲染 `V2GroundAgreement.agda`（654,939 bytes）由 Cubical Agda 2.8.0 + cubical v0.9 原生核 `KERNEL_ACCEPTED` / exit 0，`groundAgreement : checkAll ≡ true` 与 `sepAgreement : sepAll ≡ true` 均由 **refl** 消解；**(ii)** 声明 `FACES`(16)/`SUPPLIED`/`TOWER_MAX`(=2) 有限性与 ops 封闭性 selftest **142/142**（94 基线 + 48 V2）无回归。
-
-**这是工程能力验收，不是数学结论**：`registers_new_claim:false`，不进 `HoTT/CLAIM_EVIDENCE_MATRIX.md`，**不计 GEN-001 族数**；两阶段分开提交、分开登记（015 §5），阶段 2（`GEN-001-V2-1` 首族链）尚未开始。
-
-**作用域披露**（随收据登记）：applyOps 穷尽 3179 条；`separates` 只在 **11 条 designated controls** 上检查
-（3 正控制 G-b/G-c/G-a + 5 负控制 + 3 个 L1 共享类可达性），非 289² 全对——全对需 ~918k 条 `SepResult` 字面量，
-超出可行单模块；控制集在自测与生成器两处独立钉住。**忠实性警戒已机械确认**：点集面格模型对区间 `I`（De Morgan 代数）
-**可靠但不完备**（mirror §8-9 + DM3 三元链反模型 `dm3NonBoolean : ¬ (dm3Meet da (dm3Neg da) ≡ d0)`）；
-故 Python 点集模型只能当**枚举器**，oracle verdict 必须由 Agda 真实区间 `I` 给出（F-011 加严）。
-
-**本单元 reflection（修订片 016）**：新增 `DENOMINATOR_SINGLE_SOURCE` 纪律——任何逐项一致或 remainder=0 验收，
-期望值与被验值必须由同一 canonical 语义来源产生（生成器不得复制声明分母字面量）；起因是阶段 1 执行中 4 个 `NameError`
-暴露自测与生成器各自维护字面量的漂移风险：机械 PASS 无法区分“两侧一致”与“两侧共同错”。
-
-下一步（AI 全自动）：阶段 2 = `GEN-001-V2-1` 首族链（SUPPLY-009 / V2-A），沿用 003/011/012/013/014 全部纪律
-+ 015 §5 阶段 2 的 V2 专属强制披露（每个见证必须声明是枚举器内成立还是已由原生核在真实区间 `I` 上确认）。**不由本 checkpoint 授权执行，须另起单元。** 无新数学 claim；未 push、未 tag。
-## 当前停止点
-
 S-RES-20260916-165-PREMISE-001-STEP5-GEN001-EXISTENCE：PREMISE-001 step-5 的 **GEN-001 第五族（V1 最后一族）完成**（判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`，带 PATTERN_REDUCED；commit 389bea0；revision 164->165 由本 canonical checkpoint 登记）。TASK-FAMILY-EXISTENCE-VERSUS-AVAILABILITY（PREMISE-D-04 / G-05，**本批置信度最低一对**）全链：3 个新声明 verdict continuation（`existence_verdict_exists_but_never_available` {T:ω,F:ret1F} / `existence_verdict_supply_without_object` {T:ret1F,F:ω} / `existence_verdict_avail_opposite_at_frontier` {T:ret2T,F:ret2F}）对 **19 个既有文法**（含 L1-DIVISIBILITY-v1）map 唯一性 PASS 且互相 map-distinct → 7 atoms x 440 contexts = 5,280 checks、remainder=0、order-independent → 916 原始分离归约为 58 个规范见证（三机制全覆盖）→ **32 个越界见证**对 **7 个 delay 既有文法**拒绝理由 **224/224 全部唯一 BIND_CONTINUATION**（修订片 011 §2 纪律复用）→ 4 见证（WV-0017 / WV-0018 / WV-0043 / WV-0051，覆盖 3 构造子 × 3 机制）经 Cubical Agda 2.8.0 + cubical v0.9 四路核收据 + **主 repo 副本独立复现 4/4 exit 0**。**同族坍缩 Q4 判定**（修订片 013 §2.1）：D-04/G-05 两成员在 delay 片段内**共享同一机制 pattern**（片段无 cofibration 结构/composition 操作/资源消耗语义可区分），登记 `PATTERN_REDUCED_NOT_CERTIFIED_AS_FULL_TASK_EQUIVALENCE`，**只报一个验收单元**，任务等价性未证——**多成员族坍缩率 2/2**。现象新颖性 **PARTIAL**（三个 continuation 全部是既有形状的索引取值变体，@index 1 形状已被 GEN-001-4 占用）按修订片 012 交外部审计。**前提置信度披露**：D-04/G-05 是本批置信度最低、最可能被推翻为"现实"的一对（可填充性是 cofibration 的定义条件），前提判定保持 `AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT` 不升级。**这是能力验收不是数学结论**：不进 CLAIM_EVIDENCE_MATRIX。**族间独立性未证**（五族 157 个越界见证 100% delay-equivalent），已登记为信封外 ingress。
 
 **step-6 五族 omission audit 已完成**（commit f8eaa53 + 修订片 014，commit 310f7a9）：独立来源 = delay 片段 continuation **map 空间清单**（49 格 / 已用 18 / 剩 31；剩余 29 个非 const map **29/29 机械可产见证**）+ 引擎语义 + 五族交付物逐行复算 + 2LTT 方向 A holdout。**O-5 新发现（本单元最实质的新认知）**：**文法层未耗尽，现象层已饱和**——`separation_kind` 的 3 个取值自第一族（E-02）起每族 3/3 覆盖，五族的 15 个新 continuation 全部是"单侧发散 / 同延迟相反值 / 索引取值移位"三原语在 49 格棋盘上的不同落子。这是原审计 A3/P0（发现侧缺失）在 delay 片段上的**定量确认**：瓶颈不是"机器找不到可枚举的新对象"，而是"新对象在现象层不新"。登记 `DELAY_FRAGMENT_PHENOMENON_SATURATED`；修订片 014 把它变成后续 delay 片段新族的强制披露（map 覆盖率 + 形状归类 + 全落旧形状则 ≤ PARTIAL）与事前门槛（再加 delay 族前必须先答"该 omission shape 是否必须由 delay 片段承担"）。
