@@ -103,9 +103,19 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - 新增或修改需求、当前状态、稳定设计、审计账本、验证结果、研究方向或研究成果投影时，按 `.codex` 的唯一 owner 路由写回；不要制造第二份当前真值。只有用户新的悖论/元数学原文或对此类工作意识的明确修正进入 core generation；一般治理裁定进入 rulings/Feature；候选/优先级/下一动作进入 `方向追踪.md` + STATE，结果/证据/失败/未知进入 `全景视野.md` + 底层 evidence owner。
 - 当前人工纳入/排除与语义边界 owner 必须从 `STATE.current_core.curation` 取得（本轮为 `scripts/audit/core-cognition-curation-v4.json`）；`scripts/audit/build_core_cognition.py` 是 core/manifest/transition 的 canonical manager。默认只检查，显式 `--write` 才生成；不手工润色生成物。新增用户悖论/元数学原文时建立 hash-pinned source、新 generation 和全量迁移收据，旧代由 Git/tag 与 curation lineage 保留，不在生成物末尾手工追加。
-- 每个工作单元结束前，生成 `.codex/research/hott/sessions/<session-id>/CORE_COGNITION_AUDIT.md`，逐一列出当前 generation 的全部 `KC-*`：对齐、深化、纠偏、张力、偏航或不适用，并附本轮证据定位。不能用“总体一致”替代逐编号遍历；旧审计是 archive evidence，不自动成为下轮输入。
+- 每个工作单元结束前，按修订片 020 产出**分片审计集** `.codex/research/hott/sessions/<session-id>/CORE_COGNITION_AUDIT.md`（索引）+ `CORE_COGNITION_AUDIT/` 分片：核心认知逐条五元组论证（含反证条件）、扩展认知逐段落论证、「已走过的路」航向复盘与「即将作出的选择」偏航分析。不能用“总体一致”替代逐编号遍历；旧的单文件审计是 archive evidence 与历史格式，不自动成为下轮输入。
 - `.codex/tools/cognition_runtime.py` 的 `plan/read/check` 是只读加载器；checkpoint 默认 dry-run，只有用户已授予的写权限和显式 `--apply` 才能写入状态。每个 applied checkpoint 必须在同一事务中写入 `SESSION.md`、`RUNS.json` 和通过当前 generation 全量/顺序检查的 `CORE_COGNITION_AUDIT.md`，并产生 `.codex/cognition/checkpoints/<session-id>/transaction.json`、before/after 副本和 `result.json`。只有 canonical `result.json.status=CHECKPOINT_COMMITTED` 才能证明 checkpoint 已应用；Session 自写的 `POST-CHECKPOINT.json` 只能引用该收据，不能自我证明。历史缺收据只能登记缺口，禁止追溯伪造事务。
 - Git 操作遵守全局基线规范：精确检查 dirty/index，保留既有嵌套 repo 与用户修改，精确 stage，提交后回读 HEAD、hash、验证结果。顶层 repo 的本次初始化与提交由用户本轮明确授权；不自动 push、发布、恢复已移走目录或删除历史。
+
+## 禁止启动 Sub Agent（用户 2026-09-17 裁定）
+
+- 本项目**禁止启动任何 Sub Agent**：不得调用 `spawn_agent` / multi_agent 工具，不得提议、
+  启动、等待或恢复 Sub Agent。全局 AGENTS 的「Codex Master-to-Sub Agent 治理」条款在本项目
+  中收窄为**恒定的禁止状态**，不存在 PROPOSE_ONLY 之外的任何状态。
+- 所有工作由当前 Session 的 AI 直接完成。需要独立复核时，由**用户安排的外部 AI 追溯审计**
+  （修订片 009 / 017 的角色 D）承担，不由 Sub Agent 承担；本项目的强制审计层（P3P4_AUDIT_TRAIL、
+  分片审计集、checkpoint 收据）已经提供留痕，Sub Agent 不是替代品。
+- 发现任何残留 Sub Agent 句柄：只关闭、登记缺口，不消费其输出。
 
 ## 任务路由
 
