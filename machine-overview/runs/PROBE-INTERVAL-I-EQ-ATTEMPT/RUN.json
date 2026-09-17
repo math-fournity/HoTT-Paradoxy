@@ -1,0 +1,117 @@
+{
+  "answer": "NOT FORMABLE: kernel refuses with [UnequalSorts] IUniv != Type, because I : IUniv is not in a universe of the PathP-family sort",
+  "completed_at_utc": "2026-09-17T10:52:19.027349+00:00",
+  "design_source": "Atria的方案/修订片/019 § gap A interval-I branch open; revision 020 shard 008 set the interval-I design probe as next unit",
+  "expectation_met": true,
+  "git_state_engine": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "776e6b7ff640cd3043d6c696af924c64bae851c5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 15,
+    "untracked_entries": 217,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 232,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "git_state_handoff": {
+    "branch": "main",
+    "git_common_dir": ".git",
+    "git_dir": ".git",
+    "head": "7008ac2f741243e101f287d8ab92506d46b45440",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 1,
+    "untracked_entries": 0,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 1,
+    "worktree_root": "/Volumes/D/HoTT_AI_HANDOFF_20260911"
+  },
+  "kernels": [
+    {
+      "artifacts": {
+        "command": {
+          "bytes": 422,
+          "path": "command.json",
+          "sha256": "7c013023533eb1a15fdcd36fc36febff8c2496e21eff65ee37156bbf292c58d4"
+        },
+        "environment": {
+          "bytes": 301,
+          "path": "environment.txt",
+          "sha256": "383686c6284b0363017af071031cb0bbb4115402fa1090f2f6e664cbc34a88d9"
+        },
+        "stderr": {
+          "bytes": 0,
+          "path": "stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 568,
+          "path": "stdout.txt",
+          "sha256": "8b20a305952a9c260f86b29b53c301568f41af2a7aa42f24d33cee13c0f05c7a"
+        }
+      },
+      "command_argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "machine-overview/formal",
+        "-i",
+        "HoTT/formal/partiality-race-timeout",
+        "machine-overview/formal/IntervalIEqualityAttempt.agda"
+      ],
+      "completed_at_utc": "2026-09-17T10:52:19.027349+00:00",
+      "cwd": "/Volumes/D/HoTT-machine-overview",
+      "diagnostic": "EXPECTED_TYPE_REJECTION",
+      "duration_seconds": 0.8180258750217035,
+      "entry": "machine-overview/formal/IntervalIEqualityAttempt.agda",
+      "environment": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network",
+      "exit_code": 42,
+      "expect_success": false,
+      "expectation_met": true,
+      "label": "eq-attempt-reject",
+      "started_at_utc": "2026-09-17T10:52:18.209312+00:00",
+      "status": "KERNEL_REJECTED_AS_EXPECTED",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 568,
+      "stdout_sha256": "8b20a305952a9c260f86b29b53c301568f41af2a7aa42f24d33cee13c0f05c7a",
+      "timed_out": false,
+      "timeout_seconds": 900
+    }
+  ],
+  "key_adjudication_audit_trail": {
+    "adjudication_id": "PROBE-INTERVAL-I-EQ-ATTEMPT:eq-attempt-reject",
+    "audit_status": "AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT",
+    "depends_on": [
+      "machine-overview/formal/IntervalIForms.agda",
+      "machine-overview/formal/IntervalIBoolDiscriminator.agda",
+      "machine-overview/formal/IntervalIEqualityAttempt.agda"
+    ],
+    "evidence_anchors": [
+      "machine-overview/runs/PROBE-INTERVAL-I-EQ-ATTEMPT/RUN.json",
+      "machine-overview/formal/IntervalIEqualityAttempt.agda"
+    ],
+    "falsifier": "a kernel-ACCEPTED non-constant function I -> Bool (or a kernel-ACCEPTED decidable equality on I) would overturn the refusal half; a kernel REJECT of the IntervalIForms definitions would overturn the writable half",
+    "question": "is an identity type between interval elements even FORMABLE at the level the DM3 oracle needed (PathP over a family I -> Type)?",
+    "verdict": "KERNEL_REJECTED_AS_EXPECTED",
+    "verdict_reason": "exit_code=42; expectation_success=False; expectation_met=True"
+  },
+  "kind": "PROBE_INTERVAL_I_IDENTITY_TYPE_FORMABILITY",
+  "oracle_scope": {
+    "interval_i_confirmed": false,
+    "oracle": "Cubical Agda 2.8.0 + cubical v0.9 native kernel",
+    "registers_new_claim": false,
+    "scope": "the eliminators / universe / sort structure Cubical Agda 2.8.0 with cubical v0.9 actually provides; language-fragment probe, not a mathematical theorem"
+  },
+  "question": "is an identity type between interval elements even FORMABLE at the level the DM3 oracle needed (PathP over a family I -> Type)?",
+  "registers_new_claim": false,
+  "run_id": "PROBE-INTERVAL-I-EQ-ATTEMPT",
+  "schema_version": "machine-overview-probe-interval-i-run/v1",
+  "started_at_utc": "2026-09-17T10:52:18.209312+00:00",
+  "status": "KERNEL_REJECTED_AS_EXPECTED",
+  "toolchain_identity": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network"
+}
