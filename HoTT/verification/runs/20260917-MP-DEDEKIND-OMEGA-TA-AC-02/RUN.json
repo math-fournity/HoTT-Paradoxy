@@ -1,0 +1,55 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-TA-AC"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--library-file=AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    ".",
+    "MissileFourTargetA-ProbeACSuc.agda",
+    "（cwd = HoTT/formal/dedekind-omega-missile；env 同 M1-04 command_argv）"
+  ],
+  "completed_at_utc": "2026-09-17T22:15:59+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": null,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583"
+  },
+  "exit_code": 1,
+  "expected_failure": true,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不声称 HoTT 不一致",
+    "不冒充对象层 MACHINE_PROVED 定理（元层工具检查记录，027 §4）"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac",
+  "proof_id": "MP-DEDEKIND-OMEGA-TA-AC",
+  "run_id": "20260917-MP-DEDEKIND-OMEGA-TA-AC-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "靶 A·AC 格 stuckness 演示（对齐矩阵 F2 v2 的 F2-4 格机械化）：AC 公理化选择函数注入后，闭 ℕ 项 n-ac = ch 0 .fst 卡在公理应用上——本 run：负向探针（预期失败，失败即收据）：`n-ac ≡ suc zero` by refl 被核拒绝——`ch 0 .fst != 1`：n-ac 也不归约到 suc zero。两条探针合取 = AC 格 stuckness 的最小机械演示。",
+  "source_manifest": {
+    "bytes": 2913,
+    "path": "source-manifest.json",
+    "sha256": "aa580ed9ded5cfe9349b1019e70662143af5b81b7ffdbd1ae31d4ac0bbaf17d2"
+  },
+  "started_at_utc": "2026-09-17T22:15:59+00:00",
+  "status": "META_NEGATIVE_CHECK_AS_EXPECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 422,
+    "path": "stdout.txt",
+    "sha256": "cea4fe31364df8527988fe1be420c6938cc6cb52d43377ff9609c586ab5855d6"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

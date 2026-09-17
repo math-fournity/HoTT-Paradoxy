@@ -23,7 +23,7 @@
 | F2-1 | PAT（命题即类型；`logic.tex:159`） | **内化为构造原理**——引擎的「证明即程序」本身就是 PAT，无收费 | cubical lib 全库构造性实践 | 结构事实（lib 整体） |
 | F2-2 | LEM（排中律；`logic.tex:353`） | **显式假设**（收费：丧失 canonicity——演示件 `MissileFourChargeDemo`：公理注入后闭项 `n-lem` 卡在公理应用上） | `MP-DEDEKIND-OMEGA-M3`（LEMᵒ 显式假设下 Spec_A 居住 + 识别拒绝）；演示件（exit 0，无 `--safe` 刻意注入） | `KERNEL_ACCEPTED_WITH_SCOPE`（M3 run）+ 演示件 |
 | F2-3 | resizing（命题缩放；`logic.tex:451`） | **不可表达（预测）**——cubical lib 无 resizing 原语，Ω 层级不塌缩；可被 postulate 但即转显式假设族 | Book §3.5/§11.2 源陈述 | `SOURCE_REPORTED_NOT_REPLAYED`；机械化路径待设计 |
-| F2-4 | AC（选择公理；`logic.tex:701`） | **显式假设（演示件实例 + 同 LEM 族预测）**——公理化选择函数注入后闭项 `n-ac = ch 0 .fst` 卡在公理应用上 | 演示件 `MissileFourChargeDemo`（exit 0，无 `--safe` 刻意注入）；008 片判定（显式能力声明族） | 演示件 + 预测；完整 stuckness 机械化见靶 A 设计文档 |
+| F2-4 | AC（选择公理；`logic.tex:701`） | **显式假设（已机械化演示）**——公理化选择函数注入后闭项 `n-ac = ch 0 .fst` 卡在公理应用上，双探针核判 `!= 0`、`!= 1`（stuckness 已演示） | 演示件 `MissileFourChargeDemo` + 探针 runs `20260917-MP-DEDEKIND-OMEGA-TA-AC-01/-02`（exit 1，预期失败即收据，错误消息存档） | `META_TOOL_CHECKED`（同 TA 纪律） |
 | F2-5 | unique choice（`logic.tex:801`） | **已内化（构造性成立，不收费）**——isProp 截断下的 Σ 即存在量词，引擎原生 | 008 片判定（弱断裂）+ lib isProp 机制 | 结构事实（lib） |
 | F2-6 | 截断时机判据（`logic.tex:852`） | **半内化**——∥_∥ 为原生 HIT 构造；「何时截断」的元判断留用户 | lib ∥∥ 原生 + 008 片判定（元层面） | 结构事实 + 元层登记 |
 | F2-7 | Dedekind-Ω（`reals.tex:85`） | **已击中（识别层收据）+ 升格债务（已定位）**——判定表 ℚ 层免费（`M3-UNC` 核实）；理想元素本体升格收费；Ω 塌缩须 LEM/resizing（§11.2 依赖链） | `MP-DEDEKIND-OMEGA-M1/M2/M3/M3-UNC` 四张收据 | `KERNEL_ACCEPTED_WITH_SCOPE` ×4 |
