@@ -121,25 +121,57 @@
     = 对齐 11（+1 双层）/ 深化 6 / 张力 6 / 未触及 11；扩展认知 8 片 32 小节判断。
     **分片 008 裁决**：167/168 已现**同形重复**（分母内干净负结论替代发现），故把下一单元
     从「V2 第二族 G-c」**改道**为「SUPPLY-010 知识谱反观 + 现实对齐断裂供给单元」。
-- **下一单元序列（经 020 审计分片 008 裁决；不由已完成的任何 checkpoint 授权，须另起单元）**：
-  1. **区间 I 设计探针**（首选，不变）：在 Cubical Agda 2.8.0 + cubical v0.9 中调查 I 上
-     可写的分离形态（类型族 / cofibration 条件 / PathP，而非 Bool 观察）。**两种结论都是
-     正面信息**——「可写」则缺口 A 完全闭合、分母扩大；「Bool 形态结构性不可写」则是
-     关于 I 的**表达界限的正面结论**（扩展认知 005 片姿态），登记为有界负结论，**不是失败**。
-     收尾自然接 **EXP-001**（HoTT 能否保真表达 DM3 分离语义）。
-  2. **SUPPLY-010 知识谱反观 + 现实对齐断裂供给单元**（审计改道的目标）：对 F2 缺口层
-     7 个来源在手、分母零条的层（PAT / LEM / resizing / AC / unique choice / 截断时机判据 /
-     Dedekind-Ω）逐条执行「它是对什么现实过程的骨架式模仿？用现实解释它时何处断裂？」，
-     产出前提候选（**不判定**；修订片 006 三点保留全部适用）。
-  3. **B 侧新族**登记为长期节点，须先设计 B 侧机械判据（「理论把什么当成已获能力」），
+- **step-5 区间 I 设计探针已完成（缺口 A 的区间 I 分支收尾，revision 168→169）**：
+  判词 **`INTERVAL_I_SEPARATION_FORMS_FAMILY_AND_COFIBRATION_BOOL_OBSERVER_UNWRITABLE`**。
+  三路探针（Cubical Agda 2.8.0-3d04bac + cubical v0.9，工具链身份与
+  `VERIFY-GAP-A-DM3-BLI-001` 一致；引擎 `36d27e0`）：**(a) `IntervalIForms` = ACCEPT
+  exit 0**——I 上可写形态 = 类型族 + `PathP` 与 cofibration 条件层（`IsOne i1` /
+  `endpointCases : (r:I) → Partial (r ∨ ~ r) Bool` / `endpointFamily` /
+  `meetCases : (r s:I) → Partial (r ∧ s) Type₁` / `intervalFamily : I → SSet₂` /
+  `pathOverConstant`）；**(b) `IntervalIBoolDiscriminator` = REJECT exit 42**
+  `[SplitError.NotADatatype] Cannot split on argument of non-datatype I`（32.18-20）
+  ——`I → Bool` 端点观察器结构性不可写；**(c) `IntervalIEqualityAttempt` = REJECT
+  exit 42** `[UnequalSorts] IUniv != Type`（16.32-33）——I 上等式类型不可成型。三个 run
+  目录 `machine-overview/runs/PROBE-INTERVAL-I-{FORMS,BOOL-DISC,EQ-ATTEMPT}/` 各含
+  RUN.json + 完整五件收据，`expectation_met=True` ×3。**EXP-001 收尾**：DM3 分离语义
+  保真翻译**存在但承载层改变**（`Partial (φ)` 分片 ≠ `Bool` 全局观察）——不是「HoTT 无法
+  表达」而是「表达的层不同」。缺口 A 的区间 I 分支以**表达界限正面结论**收尾（非 V2 值
+  解释闭合）；`interval_i_confirmed=false` 保持。`registers_new_claim:false`（F-011 语言
+  片段探针），不进 CLAIM_EVIDENCE_MATRIX。**发现侧仍零产出，但 167/168 的同形重复被打破**
+  （产出形态从分母内负结论分化为表达界限正面刻画；且是链路第一次一个单元完全不跑分母）。
+  **KC-000037–000039 的「一眼可见 / 不应这么难」落差经 167/168/169 三单元无回归，升级为
+  STATE 级结构性张力 `T-OBVIOUSNESS-GAP-001`**。
+- **第二份 020 分片审计已完成（延续 168 序列，不改道）**（`CORE_COGNITION_AUDIT-S169`
+  索引 + 8 分片，随 checkpoint-169 入库）：核心认知 46 条 = 对齐 10（+2 双层）/ 深化 8
+  （+1 双层；KC-000002 ALIGNED→DEEPENED、KC-000031/035 NOT_TOUCHED→DEEPENED）/ 张力 5
+  （KC-000037-000039 已触发升级）/ 未触及 9；扩展认知 8 片 32 小节判断。**分片 008 裁决
+  = 延续 168**：探针实测落在 168 预判的「不可写」分支内，反证条件未触发；连续两份审计
+  指向同一方向本身是序列可信度的证据。
+- **下一单元序列（经 CORE_COGNITION_AUDIT-S169 分片 008 裁决 = 延续 168；不由已完成的任何
+  checkpoint 授权，须另起单元）**：
+  1. **SUPPLY-010 知识谱反观 + 现实对齐断裂供给单元**（首选；168 改道的目标、169 确认）：
+     对 F2 缺口层 7 个来源在手、分母零条的层（PAT / LEM / resizing / AC / unique choice /
+     截断时机判据 / Dedekind-Ω）逐条执行**完整两问**——「它是对什么现实过程的骨架式模仿？
+     用现实解释它时何处断裂？」（若不断裂，如实登记「本条未找到断裂」，不得虚构断裂），
+     产出前提候选（**不判定**；修订片 006 三点保留全部适用）。每个候选必须附**三标注**：
+     语义重定向标注（ASK 移位 / 方向 B / 理论经济 / 自反 / 表达保真）+ 表达层标注（表达层
+     断裂 vs 经济性取舍，两者证据强度不同）+ 流利通道自检（「本族属于第几个流利通道」+
+     「它之所以最先被想到，是因为切中被省略的结构，还是因为通道被走过太多次」）。
+     **第一优先级理由 = KC-000037–000039 的升级**（用户判断「基础问题在基础之处、训练数据
+     里就有、反思知识谱就能看见」，链路 167/168/169 三单元全部绕开了这个动作——链路的动作
+     类型系统里没有「回到前提的母域去解释并记录断裂」这一类动作）。
+  2. **B 侧新族**登记为长期节点，须先设计 B 侧机械判据（「理论把什么当成已获能力」），
      不晚于第三个单元进入。
-  4. V2 第二族 G-c **降级为 (2) 供给失败后的回退**。
-  5. 缺口 B（12 个 symbolic-horn 补跑）不阻塞。
-  **缺口 A（区间 I oracle，首选）**——构造 DM3 或真实区间（min/max/neg）上的 V2 值解释，
-  使结构性分离（availability / level / boolean payload）可由原生核在 De Morgan 代数上确认；
-  这是把模型层分离升级为结论证据的**唯一**路径（修订片 015 §5 / F-011 / 018 §3A）。
-  或 V2 第二族（G-a 稠密 / G-c 层级独立供给，优先级以「是否需点集专属律」为第一排序键——
-  结构性 > 模型层，修订片 018 §4），或 SUPPLY-010 新任务族。
+  3. V2 第二族 G-c **降级为 (1) 供给失败后的回退**（若 SUPPLY-010 连续两单元供给失败且
+     无新 OMISSION_SHAPE，「反观无效」成为有界负结论，回退 G-c 并把 B 侧提前）。
+  4. 缺口 B（12 个 symbolic-horn 补跑）不阻塞，随相关族顺带补跑。
+  5. 第三形态问题（I 上是否存在第四种分离形态）登记为 unknown ingress，不独立成单元。
+  **缺口 A 已全部收尾**（DM3 分支 revision 168 + 区间 I 分支 revision 169）：
+  DM3 分支 = 判词 `DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`（`interval_i_confirmed=false`）；
+  区间 I 分支 = 判词
+  `INTERVAL_I_SEPARATION_FORMS_FAMILY_AND_COFIBRATION_BOOL_OBSERVER_UNWRITABLE`
+  （表达界限正面结论）。`interval_i_confirmed` 保持 false——**V2-DM3 的 availability / level
+  / density 见证仍一律不得作为关于区间 I 的结论证据**（修订片 015 §5 / F-011）。
 - 第 6 步：每个 bounded pass 后的 omission audit（信封外 unknown ingress）——五族后已完成
   （commit `f8eaa53`，裁决 revised → 修订片 014/015）：登记 `DELAY_FRAGMENT_PHENOMENON_SATURATED`
   （文法层 49/18/31 未耗尽但现象层 3 值饱和）、同族坍缩 2/2、五族 157 个越界见证 100%
@@ -158,11 +190,16 @@ KC-000046（AI 缺的是用现实理解理论的动作，不是思考现实的�
 - 非现实性判定（P3/P4）由 AI 执行并带强制审计层，外部 AI 追溯审计为终局复核；AI 不得把 pending-audit 候选判定自证为结论（修订片 009）。
 - 未完成机器证明的内容不交付为数学结论。
 - 未 push、未 tag。
-- **缺口记账（修订片 018 §3 / 019 / 020 审计）**：(A) 区间 I 的 oracle——**DM3 分支已闭合**
-  （判词 `DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`；布尔律非必需，`KERNEL_BLI_PASS`），
-  **区间 I 分支仍开放**：mirror `Face = Point → Bool` 为点集模型，其 §10 DM3 三元链反模型自证对
-  De Morgan 代数**可靠但不完备**，故全部 V2 见证**一律不得作为关于区间 I 的结论证据**；
-  (B) 越界机械检查作用域 = 7 个 delay 文法，12 个 symbolic-horn 文法为 schema 级
-  `BACKEND_MISMATCH` 未跑机械检查（作用域边界，非已证不相交）。
+- **缺口记账（修订片 018 §3 / 019 / 020 审计 / 021）**：(A) 区间 I 的 oracle——**已全部收尾**：
+  DM3 分支闭合于判词 `DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`（布尔律非必需，
+  `KERNEL_BLI_PASS`）；区间 I 分支以**表达界限正面结论**收尾于判词
+  `INTERVAL_I_SEPARATION_FORMS_FAMILY_AND_COFIBRATION_BOOL_OBSERVER_UNWRITABLE`
+  （`I → Bool` 端点观察器与 I 上等式类型两条自然来路结构性 REJECT，exit 42 ×2；
+  可写形态 = 类型族 + PathP + cofibration 条件层，ACCEPT exit 0）。mirror
+  `Face = Point → Bool` 为点集模型，其 §10 DM3 三元链反模型自证对 De Morgan 代数
+  **可靠但不完备**，故全部 V2 见证**一律不得作为关于区间 I 的结论证据**
+  （`interval_i_confirmed=false` 保持）；(B) 越界机械检查作用域 = 7 个 delay 文法，
+  12 个 symbolic-horn 文法为 schema 级 `BACKEND_MISMATCH` 未跑机械检查
+  （作用域边界，非已证不相交）。
 - V2 片段的点集 16 面模型**可靠但不完备**（验证布尔等式而区间 I 是 De Morgan 代数）：
   Python 模型只当枚举器，oracle verdict 必须由 Agda 真实区间 I 给出（修订片 015 §3.4）。
