@@ -1,0 +1,347 @@
+{
+  "calibration_match": {
+    "benchmark_id": "V2-A-AVAILABILITY-BASELINE",
+    "matched_witness": true,
+    "reduced_key": "{\"left\": {\"face\": 3, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}, \"ops\": [{\"face\": 3, \"kind\": \"supply\"}, {\"kind\": \"fill\"}], \"right\": {\"face\": 5, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}}",
+    "status": "PRESENT"
+  },
+  "completed_at_utc": "2026-09-17T03:21:12.791899+00:00",
+  "continuation_map_coverage": {
+    "continuation_count": 5,
+    "erased_maps": {
+      "availability_verdict_level_split": {
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "availability_verdict_never_supplied_face": {
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "true": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "availability_verdict_supplied_face_revealed": {
+        "false": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "const_omega": {
+        "false": {
+          "kind": "omega"
+        },
+        "true": {
+          "kind": "omega"
+        }
+      },
+      "deliver_business": {
+        "false": {
+          "kind": "omega"
+        },
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      }
+    },
+    "v2_maps_mutually_distinct": true
+  },
+  "evidence_class": "ENUMERATOR_ONLY",
+  "family": "TASK-FAMILY-V2-EXISTENCE-VERSUS-AVAILABILITY",
+  "family_short": "GEN-001-V2-1",
+  "grammar_id": "L2-COFIBRATION-A-v1",
+  "grammar_path": "grammars/l2-cofibration-a-v1.json",
+  "kernel_selection": [
+    {
+      "ast_sha256": "2ec9f9a1d970d111b8070aa7e0edf254821422bd94ed676792a648ae8eebf053",
+      "bound_continuation": null,
+      "left_observation": [
+        "availability",
+        "pending"
+      ],
+      "ops": [
+        {
+          "face": 3,
+          "kind": "supply"
+        },
+        {
+          "kind": "fill"
+        }
+      ],
+      "pair": {
+        "left": {
+          "face": 0,
+          "kind": "ret",
+          "level": 0,
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "face": 3,
+          "kind": "ret",
+          "level": 1,
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": [
+        "availability",
+        "available"
+      ],
+      "separation_kind": "availability_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 0
+      },
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "070516db6b8f5485fa80e23562430e1d002946b454e0f9c515551fa37dae83bb",
+      "bound_continuation": "availability_verdict_level_split",
+      "left_observation": [
+        "tower",
+        true
+      ],
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "face": 5,
+              "kind": "ret",
+              "level": 1,
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "face": 3,
+              "kind": "ret",
+              "level": 0,
+              "n": 0,
+              "value": true
+            }
+          },
+          "continuation_id": "availability_verdict_level_split",
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "face": 5,
+            "kind": "ret",
+            "level": 1,
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "kind": "tower",
+          "level": 0
+        }
+      ],
+      "pair": {
+        "left": {
+          "face": 0,
+          "kind": "ret",
+          "level": 0,
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "face": 3,
+          "kind": "ret",
+          "level": 0,
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": [
+        "tower",
+        false
+      ],
+      "separation_kind": "level_observation",
+      "size": {
+        "context_ops": 3,
+        "index_sum": 2
+      },
+      "witness_id": "WV-23233"
+    },
+    {
+      "ast_sha256": "b884bd67814ed24ad90220cf84db2eb6734c2e6571d87c7f3c5bc0602850f57c",
+      "bound_continuation": null,
+      "left_observation": [
+        "density",
+        false
+      ],
+      "ops": [
+        {
+          "a": 0,
+          "b": 15,
+          "kind": "between"
+        }
+      ],
+      "pair": {
+        "left": {
+          "face": 0,
+          "kind": "ret",
+          "level": 0,
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "face": 3,
+          "kind": "ret",
+          "level": 1,
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": [
+        "density",
+        true
+      ],
+      "separation_kind": "density_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 0
+      },
+      "witness_id": "WV-0785"
+    },
+    {
+      "ast_sha256": "59db166ad7cbe8a23688afeef55f2b1587c12a3f99b044ea7aec56105f38bb6e",
+      "bound_continuation": null,
+      "left_observation": [
+        "density",
+        false
+      ],
+      "ops": [
+        {
+          "a": 0,
+          "b": 15,
+          "kind": "between"
+        }
+      ],
+      "pair": {
+        "left": {
+          "face": 0,
+          "kind": "ret",
+          "level": 0,
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "face": 5,
+          "kind": "ret",
+          "level": 1,
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": [
+        "density",
+        true
+      ],
+      "separation_kind": "density_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 0
+      },
+      "witness_id": "WV-0786"
+    }
+  ],
+  "kind": "V2_L2_COFIBRATION_FAMILY_SEARCH",
+  "order_independence_check": {
+    "counts": [
+      51904,
+      51904
+    ],
+    "separations": [
+      212864,
+      212864
+    ],
+    "statistics_match": true,
+    "witness_sets_equal": true
+  },
+  "out_of_envelope": {
+    "claim": "Every reduced V2-A witness that binds a new declared V2 continuation or uses a V2 structural op lies outside every pre-existing delay grammar, with a unique rejection reason",
+    "existing_grammar_count": 7,
+    "ingress_disclosure": "pure race/deadline witnesses with no structural op and no new continuation; their mechanisms (value_mismatch / deadline_observation) are L1-reproducible and are shared with the five delay families (012 §2.3 ingress)",
+    "ingress_rows": 1280,
+    "method": "machine_overview.search.within_grammar_witness (L1 predicate) evaluated for each witness against each pre-existing delay grammar; V2 values are erased to their delay axis and V2 continuations to their delay maps by the L1 reader, which is exactly the claim being tested",
+    "proof_kind": "mechanical_membership_check",
+    "reason_buckets": {
+      "BIND_CONTINUATION": 1536,
+      "CONTEXT_DEPTH": 44928,
+      "UNKNOWN_OP:between": 192,
+      "UNKNOWN_OP:supply": 3776,
+      "UNKNOWN_OP:tower": 192
+    },
+    "scoped_all_reasons_unique": true,
+    "scoped_all_rejected": true,
+    "scoped_reasons_unique": 50624,
+    "scoped_rejected_by_all": 50624,
+    "scoped_rows": 50624
+  },
+  "run_id": "SEARCH-GEN001-V2-1-001",
+  "runner": {
+    "bytes": 4532,
+    "path": "runner-manifest.json",
+    "sha256": "4d029bfc7d844305ae9448c66d9609a73e6062b8ac6fbb0ca6cb6ea59da71d02"
+  },
+  "schema_version": "machine-overview-v2-search-run/v1",
+  "scope_disclosure": {
+    "enumerator": "point-set 16-face model over {0,1}^2; SOUND but NOT COMPLETE w.r.t. the interval I (De Morgan); every separation computed by the chain is an enumerator-internal candidate, never a conclusion (F-011 tightened)",
+    "oracle": "Cubical Agda 2.8.0 + cubical v0.9 native kernel on the mirror formal/V2Cofibration.agda; oracle verdicts only from the kernel",
+    "race_partners": "explicit declared partner list, NOT the full V2 partner product (bounding decision, disclosed)"
+  },
+  "started_at_utc": null,
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "checks_planned": 3377136,
+    "complete_within_declared_grammar": true,
+    "context_budget_exhausted": false,
+    "contexts": 3059,
+    "contexts_examined": 3059,
+    "equivalent_pairs": 1104,
+    "grammar_violations": 0,
+    "pair_context_checks": 3377136,
+    "separation_kind_histogram": {
+      "availability_observation": 15872,
+      "completion_divergence": 12032,
+      "deadline_observation": 53760,
+      "density_observation": 21568,
+      "level_observation": 24640,
+      "value_mismatch": 84992
+    },
+    "separations_seen": 212864,
+    "truncated": false,
+    "v2_atoms": 49,
+    "witness_capture_truncated": false,
+    "witnesses_captured": 212864
+  },
+  "witness_manifest": {
+    "bytes": 40328577,
+    "count": 51904,
+    "path": "witness-manifest.json",
+    "sha256": "2a6ca5607f546adafabd97b00b0bdf46c3d95864d34cf8822253e5f6f55cd33f"
+  }
+}

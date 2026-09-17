@@ -1,0 +1,388 @@
+{
+  "completed_at_utc": "2026-09-17T03:53:41.218980+00:00",
+  "cross_check": {
+    "all_match": true,
+    "delay_equivalent_left_right": true,
+    "kind_match": true,
+    "left_observation_match": true,
+    "recomputed_separated": true,
+    "recomputed_separation_kind": "availability_observation",
+    "recorded_separation_kind": "availability_observation",
+    "right_observation_match": true,
+    "same_value_control_kind": null,
+    "same_value_control_separated": false,
+    "separated_match": true
+  },
+  "design_source": "Atria的方案/修订片/015 §5 stage-2 + 016 §3 DENOMINATOR_SINGLE_SOURCE + 017 §3 KEY_ADJUDICATION_AUDIT_TRAIL",
+  "generated_sources": {
+    "Controls.agda": {
+      "bytes": 1451,
+      "sha256": "c43d4ce5db6f42c46ccfe635685a587be414de27bc3270f3e21be37d95dc5d8c"
+    },
+    "Falsify.agda": {
+      "bytes": 1327,
+      "sha256": "ec3a7452230d958d604cfb72e7245198e79ce806eeb73acc082ecb991b1a6bf8"
+    },
+    "Target.agda": {
+      "bytes": 1047,
+      "sha256": "8d6d3ea0903977c45aebea0faed043fec6706bf2430817893e14d2fd77319248"
+    },
+    "Verify.agda": {
+      "bytes": 1010,
+      "sha256": "17ab0f42f5356b4a512236e416c8088308ddbf2a5cd1e7e19b239f7410ce71fe"
+    }
+  },
+  "git_state_engine": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "9729d9fc14917cd321c19699fd6afabd6680bc47",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 15,
+    "untracked_entries": 2513,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 2528,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "git_state_handoff": {
+    "branch": "main",
+    "git_common_dir": ".git",
+    "git_dir": ".git",
+    "head": "39dbafe423d5ef4a836f19657a6fbfc7c621355c",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 1,
+    "untracked_entries": 0,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 1,
+    "worktree_root": "/Volumes/D/HoTT_AI_HANDOFF_20260911"
+  },
+  "kernels": [
+    {
+      "artifacts": {
+        "command": {
+          "bytes": 618,
+          "path": "command.json",
+          "sha256": "39eebc1566dfe1a61ea923726cb24447d628cedb5e0a39a9c8bfba945751de76"
+        },
+        "environment": {
+          "bytes": 302,
+          "path": "environment.txt",
+          "sha256": "d49c780da5eb9f5d5c02ec254da93a1564120e42f829525cf571e4070ef29657"
+        },
+        "stderr": {
+          "bytes": 0,
+          "path": "stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 9952,
+          "path": "stdout.txt",
+          "sha256": "664f759d8d72f0fcecb8acf7d49816fa0bcc7ea8892fa347e90348e1454b5f02"
+        }
+      },
+      "command_argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "machine-overview/formal",
+        "-i",
+        "HoTT/formal/partiality-race-timeout",
+        "-i",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Verify.agda"
+      ],
+      "completed_at_utc": "2026-09-17T03:52:38.304748+00:00",
+      "cwd": "/Volumes/D/HoTT-machine-overview",
+      "diagnostic": "UNEXPECTED",
+      "duration_seconds": 20.126770541013684,
+      "entry": "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Verify.agda",
+      "environment": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n",
+      "exit_code": 0,
+      "expect_success": true,
+      "expectation_met": true,
+      "label": "verify",
+      "started_at_utc": "2026-09-17T03:52:18.177819+00:00",
+      "status": "KERNEL_ACCEPTED",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 9952,
+      "stdout_sha256": "664f759d8d72f0fcecb8acf7d49816fa0bcc7ea8892fa347e90348e1454b5f02",
+      "timed_out": false,
+      "timeout_seconds": 900
+    },
+    {
+      "artifacts": {
+        "command": {
+          "bytes": 620,
+          "path": "command.json",
+          "sha256": "f759ccaa5a40a72444ee3e8a733ac434a678b7d218e8a6eb1317e5a6c20900c4"
+        },
+        "environment": {
+          "bytes": 302,
+          "path": "environment.txt",
+          "sha256": "d49c780da5eb9f5d5c02ec254da93a1564120e42f829525cf571e4070ef29657"
+        },
+        "stderr": {
+          "bytes": 0,
+          "path": "stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 9956,
+          "path": "stdout.txt",
+          "sha256": "d3a5383a4a50591bddc705b3c28565d69d9e830b7cf43e2ba587b68e2800d458"
+        }
+      },
+      "command_argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "machine-overview/formal",
+        "-i",
+        "HoTT/formal/partiality-race-timeout",
+        "-i",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Controls.agda"
+      ],
+      "completed_at_utc": "2026-09-17T03:52:57.923598+00:00",
+      "cwd": "/Volumes/D/HoTT-machine-overview",
+      "diagnostic": "UNEXPECTED",
+      "duration_seconds": 19.563671582960524,
+      "entry": "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Controls.agda",
+      "environment": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n",
+      "exit_code": 0,
+      "expect_success": true,
+      "expectation_met": true,
+      "label": "controls",
+      "started_at_utc": "2026-09-17T03:52:38.359808+00:00",
+      "status": "KERNEL_ACCEPTED",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 9956,
+      "stdout_sha256": "d3a5383a4a50591bddc705b3c28565d69d9e830b7cf43e2ba587b68e2800d458",
+      "timed_out": false,
+      "timeout_seconds": 900
+    },
+    {
+      "artifacts": {
+        "command": {
+          "bytes": 620,
+          "path": "command.json",
+          "sha256": "fef9fbe4d840f5efabbfe14870f03e51250872db43b4ca3618674df68f350ef7"
+        },
+        "environment": {
+          "bytes": 302,
+          "path": "environment.txt",
+          "sha256": "d49c780da5eb9f5d5c02ec254da93a1564120e42f829525cf571e4070ef29657"
+        },
+        "stderr": {
+          "bytes": 0,
+          "path": "stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 10280,
+          "path": "stdout.txt",
+          "sha256": "ed847516a193b874cf518f62533952daee84aa1f372b9e43a8244f1318bd63a8"
+        }
+      },
+      "command_argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "machine-overview/formal",
+        "-i",
+        "HoTT/formal/partiality-race-timeout",
+        "-i",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Falsify.agda"
+      ],
+      "completed_at_utc": "2026-09-17T03:53:19.593836+00:00",
+      "cwd": "/Volumes/D/HoTT-machine-overview",
+      "diagnostic": "EXPECTED_TYPE_REJECTION",
+      "duration_seconds": 21.616836166998837,
+      "entry": "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Falsify.agda",
+      "environment": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n",
+      "exit_code": 42,
+      "expect_success": false,
+      "expectation_met": true,
+      "label": "negative-control",
+      "started_at_utc": "2026-09-17T03:52:57.976853+00:00",
+      "status": "KERNEL_REJECTED_AS_EXPECTED",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 10280,
+      "stdout_sha256": "ed847516a193b874cf518f62533952daee84aa1f372b9e43a8244f1318bd63a8",
+      "timed_out": false,
+      "timeout_seconds": 900
+    },
+    {
+      "artifacts": {
+        "command": {
+          "bytes": 618,
+          "path": "command.json",
+          "sha256": "39eebc1566dfe1a61ea923726cb24447d628cedb5e0a39a9c8bfba945751de76"
+        },
+        "environment": {
+          "bytes": 302,
+          "path": "environment.txt",
+          "sha256": "d49c780da5eb9f5d5c02ec254da93a1564120e42f829525cf571e4070ef29657"
+        },
+        "stderr": {
+          "bytes": 0,
+          "path": "stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 9952,
+          "path": "stdout.txt",
+          "sha256": "664f759d8d72f0fcecb8acf7d49816fa0bcc7ea8892fa347e90348e1454b5f02"
+        }
+      },
+      "command_argv": [
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "machine-overview/formal",
+        "-i",
+        "HoTT/formal/partiality-race-timeout",
+        "-i",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated",
+        "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Verify.agda"
+      ],
+      "completed_at_utc": "2026-09-17T03:53:41.216762+00:00",
+      "cwd": "/Volumes/D/HoTT-machine-overview",
+      "diagnostic": "UNEXPECTED",
+      "duration_seconds": 21.569540833006613,
+      "entry": "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/generated/Verify.agda",
+      "environment": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n",
+      "exit_code": 0,
+      "expect_success": true,
+      "expectation_met": true,
+      "label": "verify-replay",
+      "started_at_utc": "2026-09-17T03:53:19.647097+00:00",
+      "status": "KERNEL_ACCEPTED",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 9952,
+      "stdout_sha256": "664f759d8d72f0fcecb8acf7d49816fa0bcc7ea8892fa347e90348e1454b5f02",
+      "timed_out": false,
+      "timeout_seconds": 900
+    }
+  ],
+  "key_adjudication_audit_trail": {
+    "adjudication_id": "VERIFY-GEN-001-V2-1-WV-0001:oracle-verdict",
+    "audit_status": "AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT",
+    "depends_on": [
+      "SEARCH-GEN001-V2-1-001",
+      "machine-overview/formal/V2Cofibration.agda",
+      "machine-overview/machine_overview/v2_cofibration.py"
+    ],
+    "evidence_anchors": [
+      "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/RUN.json",
+      "machine-overview/runs/VERIFY-GEN-001-V2-1-WV-0001/kernel/*/receipt.json",
+      "machine-overview/formal/V2Cofibration.agda",
+      "machine-overview/runs/SEARCH-GEN001-V2-1-001/RUN.json"
+    ],
+    "falsifier": "a kernel ACCEPT of Falsify.agda, or a REJECT of Verify.agda, or a non-matching replay, would overturn this verdict",
+    "question": "does the native kernel confirm that witness WV-0001 separates as recorded by the enumerator, and reject the claim that it does not?",
+    "verdict": "KERNEL_FOUR_WAY_PASS",
+    "verdict_reason": "verify=KERNEL_ACCEPTED; controls=KERNEL_ACCEPTED; negative-control=KERNEL_REJECTED_AS_EXPECTED (exit 42); verify-replay=EXACT_EXIT_STDOUT_STDERR_MATCH"
+  },
+  "kind": "V2_L2_COFIBRATION_KERNEL_VERIFICATION",
+  "model_dependency_audit": {
+    "class": "SUPPLIED_SET_MEMBERSHIP",
+    "invokes_point_set_only_laws": false,
+    "note": "the availability verdict depends only on decidable membership of the supplied-face set and the fill op, not on any lattice identity; the separation is structural and interpretation-independent",
+    "point_set_law_used_as_conclusion": false
+  },
+  "oracle_scope": {
+    "conclusion_evidence_about_interval_i": false,
+    "discipline": "015 §5 V2 mandatory disclosure + F-011 + 017 §5: a point-set-model kernel confirmation is NOT conclusion evidence about the real interval I; it is evidence that the input → candidate → oracle → receipt chain is real",
+    "gen001_capability_evidence": true,
+    "interval_i_confirmed": false,
+    "interval_i_oracle_exists": false,
+    "model": "POINT_SET_FACE_LATTICE (Face = Point → Bool, the declared fragment semantics)",
+    "oracle": "Cubical Agda 2.8.0 native kernel on the mirror formal/V2Cofibration.agda",
+    "reason": "the mirror defines Face = Point → Bool (point-set model) and proves in §10 via the DM3 counter-model that this model is not complete for De Morgan algebras; the mirror states that real-interval oracle verdicts come only from the native kernel on I, and no interval-I interpretation exists in the mirror"
+  },
+  "registers_new_claim": false,
+  "replay": {
+    "classification": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "exact": true,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "normalized_match": true
+  },
+  "run_id": "VERIFY-GEN-001-V2-1-WV-0001",
+  "schema_version": "machine-overview-v2-verify-run/v1",
+  "search_provenance": {
+    "family": "TASK-FAMILY-V2-EXISTENCE-VERSUS-AVAILABILITY",
+    "family_short": "GEN-001-V2-1",
+    "grammar_id": "L2-COFIBRATION-A-v1",
+    "grammar_path": "grammars/l2-cofibration-a-v1.json",
+    "search_run_id": "SEARCH-GEN001-V2-1-001",
+    "search_run_path": "machine-overview/runs/SEARCH-GEN001-V2-1-001/RUN.json",
+    "search_runner_sha256": "4d029bfc7d844305ae9448c66d9609a73e6062b8ac6fbb0ca6cb6ea59da71d02"
+  },
+  "started_at_utc": "2026-09-17T03:52:17.845087+00:00",
+  "status": "KERNEL_FOUR_WAY_PASS",
+  "toolchain_identity": "platform=macOS-26.6.2-arm64-arm-64bit-Mach-O\npython=3.14.7\nagda_binary=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda\nagda_binary_sha256=ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e\ndependency_policy=pinned Agda release asset, pinned Cubical release tree, no network\n",
+  "witness": {
+    "ast_sha256": "2ec9f9a1d970d111b8070aa7e0edf254821422bd94ed676792a648ae8eebf053",
+    "bound_continuation": null,
+    "left_observation": [
+      "availability",
+      "pending"
+    ],
+    "ops": [
+      {
+        "face": 3,
+        "kind": "supply"
+      },
+      {
+        "kind": "fill"
+      }
+    ],
+    "pair": {
+      "left": {
+        "face": 0,
+        "kind": "ret",
+        "level": 0,
+        "n": 0,
+        "value": true
+      },
+      "right": {
+        "face": 3,
+        "kind": "ret",
+        "level": 1,
+        "n": 0,
+        "value": true
+      }
+    },
+    "right_observation": [
+      "availability",
+      "available"
+    ],
+    "separation_kind": "availability_observation",
+    "size": {
+      "context_ops": 2,
+      "index_sum": 0
+    },
+    "witness_id": "WV-0001"
+  }
+}

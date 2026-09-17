@@ -1,0 +1,195 @@
+{
+  "schema_version": "machine-overview-grammar/v2-l2-cofibration",
+  "grammar_id": "L2-COFIBRATION-A-v1",
+  "backend": "v2-l2-cofibration",
+  "family": "TASK-FAMILY-V2-EXISTENCE-VERSUS-AVAILABILITY",
+  "family_short": "GEN-001-V2-1",
+  "premise_ref": "PREMISE-D-04 / PREMISE-G-05 (SUPPLY-009 / V2-A, AI-adjudicated pending external audit; the lowest-confidence pair of PREMISE-001/006)",
+  "gate": "G-b (existence != availability, dual coordinates; delay fragment cannot carry it: in delay, ret(n,b) existence is immediate usability, the two coordinates are not separably observable)",
+  "strategy": "S6 reality alignment (KC-000044/045/046) + S3 theory economy (KC-000029/030)",
+  "include_omega": true,
+  "delay_index_max": 2,
+  "declared_faces": [
+    0,
+    3,
+    5,
+    15
+  ],
+  "tower_levels": [
+    0,
+    1
+  ],
+  "context_depth_max": 3,
+  "deadline_horizons": [
+    0,
+    1
+  ],
+  "race_partners": [
+    {
+      "kind": "ret",
+      "n": 1,
+      "value": false,
+      "face": 5,
+      "level": 1
+    }
+  ],
+  "race_directions": [
+    "race_left",
+    "race_right"
+  ],
+  "between_pairs": [
+    [
+      0,
+      15
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      5,
+      15
+    ]
+  ],
+  "bind_continuations": [
+    {
+      "id": "availability_verdict_supplied_face_revealed",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true,
+          "face": 3,
+          "level": 0
+        },
+        "false": {
+          "kind": "ret",
+          "n": 1,
+          "value": false,
+          "face": 5,
+          "level": 1
+        }
+      },
+      "role": "new (V2-A supply 1): after a race flips the observed value, the verdict continuation reveals the face coordinate; a subsequent supply+fill separates available vs pending"
+    },
+    {
+      "id": "availability_verdict_never_supplied_face",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 1,
+          "value": false,
+          "face": 5,
+          "level": 1
+        },
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": true,
+          "face": 3,
+          "level": 0
+        }
+      },
+      "role": "new (V2-A supply 2): the mirrored verdict — the opposite face is the supplied one"
+    },
+    {
+      "id": "availability_verdict_level_split",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true,
+          "face": 3,
+          "level": 0
+        },
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": true,
+          "face": 5,
+          "level": 1
+        }
+      },
+      "role": "new (V2-A supply 3): the verdict continuation splits the tower-level coordinate instead of the face, feeding a level_observation"
+    },
+    {
+      "id": "deliver_business",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true,
+          "face": 3,
+          "level": 0
+        },
+        "false": {
+          "kind": "omega"
+        }
+      },
+      "role": "shared calibration continuation (011 §2 allows sharing)"
+    },
+    {
+      "id": "const_omega",
+      "map": {
+        "true": {
+          "kind": "omega"
+        },
+        "false": {
+          "kind": "omega"
+        }
+      },
+      "role": "shared calibration continuation (011 §2 allows sharing)"
+    }
+  ],
+  "reduction_guard": {
+    "never_drop_kinds": [
+      "supply",
+      "fill",
+      "fill_of",
+      "tower",
+      "between"
+    ],
+    "never_drop_continuation_ids": [
+      "availability_verdict_supplied_face_revealed",
+      "availability_verdict_never_supplied_face",
+      "availability_verdict_level_split"
+    ],
+    "reason": "The structural ops are the declared availability/level/density observation layer (the family's omission shape); the three new continuations are the V2-A verdict consumers. Reduction must keep the task-declared observation shape; every parameter change is rechecked for grammar membership and separation."
+  },
+  "negative_control_policy": "same pair under the bare delay erasure of the context must NOT separate (delay-equivalence preserved); the same-value control (left == right) must not separate under the full context",
+  "calibration_benchmark": {
+    "id": "V2-A-AVAILABILITY-BASELINE",
+    "pair": {
+      "left": {
+        "kind": "ret",
+        "n": 0,
+        "value": true,
+        "face": 3,
+        "level": 0
+      },
+      "right": {
+        "kind": "ret",
+        "n": 0,
+        "value": true,
+        "face": 5,
+        "level": 0
+      }
+    },
+    "ops": [
+      {
+        "kind": "supply",
+        "face": 3
+      },
+      {
+        "kind": "fill"
+      }
+    ],
+    "claim_refs": [],
+    "note": "smallest declared availability witness: same computation axis, faces differ, supply(FACE_I) + fill separates available vs pending"
+  },
+  "scope_disclosure": {
+    "enumerator": "point-set 16-face model over {0,1}^2; SOUND but NOT COMPLETE w.r.t. the interval I (De Morgan); every separation computed by the chain is an enumerator-internal candidate, never a conclusion (F-011 tightened)",
+    "oracle": "Cubical Agda 2.8.0 + cubical v0.9 native kernel on the mirror formal/V2Cofibration.agda; oracle verdicts only from the kernel",
+    "race_partners": "explicit declared partner list, NOT the full V2 partner product (bounding decision, disclosed)"
+  }
+}
