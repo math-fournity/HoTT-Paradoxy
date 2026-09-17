@@ -689,3 +689,23 @@ proof_run_root: HoTT/verification/runs
 **语义边界**（修订片 025 §6，全套继承 024 §2）：第二枚 = 声明层锚点；第三枚
 （识别层 M3-L1）消费本行，序列不可倒置。「击落」的可执行读法不变：非现实性的
 数学锚定，不是 HoTT 内部矛盾。
+
+## 追加登记：MP-DEDEKIND-OMEGA-M3（Dedekind-Ω 第三枚·识别层，2026-09-17）
+
+来源：修订片 025 §3/§5（Spec_A/Spec_B 双规格、M3-L1 引理候选、逼选结构、
+M2→M3 链式）；供给侧为 GLM 独立分析（025 片 §7 对撞评估采纳）。
+本登记是**执行产物**；`registers_new_claim` 语义 = 候选的非现实性被机械锚定，
+非已注册数学主张。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-M3` | `CAND-F2-7-M3` | `formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda`；`CLAIM-PACKAGE-M3.md` 固定精确命题、量词、假设与禁止外推 | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M3-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；**LEM 为显式假设 `LEMᵒ`**；exit 0；55.6s | `MACHINE_PROVED_LOCAL_UNCOMMITTED / TASK_IDENTIFICATION_REFUTED_BY_KERNEL_NOT_HOTT_CONTRADICTION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-M3 | 在含第二枚结论的 Cubical Agda 中，`LEMᵒ = (A : Type₀) → isProp A → A ⊎ (A → ⊥)` 为显式假设下：(1) `specA-inhabited : LEMᵒ → Spec_A`——√2 判定表 `f : ℚ → Bool`（`f q ≡ true ↔ q·ℚq < 2r`，逐点由 LEM 定义）作为给定数据居住（过程 A「读出」的数据层合法性）；(2) `M3-L1 : LEMᵒ → ¬ (Spec_A ≃ Spec_B)`——读出任务与算出任务的规格类型不等价（等价传输居住性即与 `spec-B-empty` 矛盾）。核拒绝「读出 = 算出」的任务同一性；理论把二者当同一任务使用的位置在前提层（Book §11.2 Ω 依赖链）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPECA_INHABITED_LEM_CONDITIONAL_AND_M3_L1` | run `20260917-MP-DEDEKIND-OMEGA-M3-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，55.6s）、`stdout.txt`、`source-manifest.json`（含 M2 源码哈希——消费依赖）；`isProp<` 来自 `Cubical.Data.Rationals.Order`。 | **不**声称 HoTT 不一致；**不**声称爆炸原理被点燃；**不**声称用户第③件事（A=B）内部可证——M3-L1 恰证明其在判据 J=规格等价下被核否定；寻找使 ③ 可证的 J 等价于寻找 HoTT(+LEM) 不一致性证明，登记为开放前沿、不预设不追逐；**不**声称 Spec_A 无条件居住（LEM 显式假设 = Ω 依赖链的证据）；逼选「两支都命中」为论证（`ARGUMENT_ANCHORED_ON_MACHINE_PROOVED_FACTS`，锚 = M1+M2+M3 收据 + §11.2 逐字定位），非单一机器定理。 |
+
+**语义边界**（修订片 025 §6）：三枚齐射的层关系——第一枚 = 过程层、第二枚 =
+声明层、第三枚 = 识别层；链式（M3 消费 M2）。「炸弹在前提里，不在核里」；
+「击落」的可执行读法不变：`PROCESS_DECLARATION_GAP` 非现实性的数学锚定
+（现含第三条「识别腿」），不是 HoTT 内部矛盾。
