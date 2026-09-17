@@ -41,6 +41,7 @@ proof_run_root: HoTT/verification/runs
 | `MP-TRUNC-NORECOVERY-001` | `C-134`–`C-141` | `formal/truncation-no-recovery/TruncationNoRecovery.agda` | `verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/`（含 C-141；`-02`/`-01` 为同源前次运行）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SET_VALUED_TRUNCATION_NO_RECOVERY_FAMILY` |
 | `MP-NOCANONICAL-001` | `C-142`–`C-148` | `formal/truncation-no-recovery/NoCanonicalPoint.agda`（bridge：`formal/truncation-no-recovery/NoCanonicalFinite.agda`） | `verification/runs/20260913-MP-NOCANONICAL-001-02/`（`-01` 为同源前次运行，加 C-148 后被取代）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / UNLABELED_FINITE_NO_CANONICAL_POINT` |
 | `MP-UNIMATH-NOSECTION-REPLAY-001` | `C-05` | `formal/agda-unimath/hott-z/NoCanonicalPoint.agda`（外部库 agda-unimath@`7b81411d`，按 commit SHA、库文件哈希与确定性源码树哈希固定） | `verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/`；Agda 2.8.0-3d04bac；agda-unimath `7b81411d`；`--without-K --exact-split`；exit 0（`-01` 为被保留的 include 根配置失败尝试） | `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE` |
+| `MP-DEDEKIND-OMEGA-M1` | `CAND-F2-7-M1`（候选锚点） | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`（发射包 `CLAIM-PACKAGE.md` / `README.md`） | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`（`-01`–`-03` 为被 Gate 使用过的失败 run，保留不删）；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |
 
 未机器证明的新内容只能使用 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，不得用旧矩阵中相似标题反向推定已证。
 
@@ -651,3 +652,22 @@ proof_run_root: HoTT/verification/runs
 | C-247 | 在隐式 Peirce 参数下，`epf_mu_ctq : is_universal epf_mu.theta_mu → CTQ`，把 CTQ 归约到具体 μ-recursive interpreter 的 universality。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / EPF_MU_TO_CTQ` | 作者 `ctq.v`；exact theorem type与同一 run。 | 构建不产生 universality proof，不把 CTQ/Church thesis变成 ambient Coq 或 HoTT 无条件定理。 |
 | C-248 | `Q_incomplete`：在显式 Peirce 与 CTQ 下，每个包含 `Qeq`、可枚举且一致的同语言理论 `T` 都有 closed `Σ₁` 句 `φ`，使 `T` 既不证明 `φ` 也不证明 `¬φ`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / CONDITIONAL_ROBINSON_Q_INDEPENDENT_SENTENCE` | 作者 `fol_incompleteness.v`；资格化输出中的完整 theorem type；同一 run。 | 没有证明 exact HoTT calculus 包含 Q、可枚举、一致或满足 CTQ；没有现实同任务结论。 |
 | C-249 | fresh archive build 的 stdout/stderr、1,284 个 `.vo/.vos/.vok/.glob` stable artifacts 与 target `.vo` 均匹配此前两次独立 clean build；qualification 连续两次 byte-exact，后三个定理各输出一次 `Closed under the global context`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / EXACT_BUILD_AND_ASSUMPTION_REPLAY` | run stdout/stderr/environment/source manifest；target SHA `e770c7bf…33e4`；stable manifest `6c2bd66c…b958`；qualification SHA `505b84bb…41d`。 | “global context closed”不消除 theorem type中的 universality、separation、Peirce、CTQ、Q containment、enumerability 与 consistency 参数；不证明 HoTT essentiality、内部矛盾、原创性或现实桥梁。 |
+
+## 追加登记：MP-DEDEKIND-OMEGA-M1（Dedekind-Ω 第一枚·过程层，2026-09-17）
+
+来源：用户 2026-09-17「必须击落 / 执行而非测试」指令（修订片 024）；供给为
+`.codex/research/hott/PREMISE-001/008`（SUPPLY-010，F2-7 Dedekind-Ω 簇，唯一命中
+`PROCESS_DECLARATION_GAP` 的候选）。本登记是**执行产物**，不是供给单元的候选判定；
+`registers_new_claim` 语义 = 候选的非现实性被机械锚定，非已注册数学主张。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-M1` | `CAND-F2-7-M1` | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`；`CLAIM-PACKAGE.md` 固定精确命题、量词、假设与禁止外推；`TOOLCHAIN.json`/`AGDA_LIBRARIES` 固定工具链身份 | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0；51s；`-01`–`-03` 保留为被 Gate 使用过的失败 run | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-M1 | 在纯 Cubical Agda（无 LEM、无 resizing、无追加公理）中，√2 的 Pell 最优有理夹钳序列 `p_n/q_n`（互递推 `p'=p+2q`、`q'=p+q`，初值 (1,1)）的判别式 `D n = p_n²-2q_n²` 恒等于交替 ±1：`pell-gap-never-closes : (n : ℕ) → (D n ≡ 1r) ⊎ (D n ≡ -1r)`，故 `gap-never-zero : (n : ℕ) → ¬ (D n ≡ pos 0)`——夹钳两端在 ℚ 上永不相遇。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PELL_GAP_NEVER_CLOSES` | run `20260917-MP-DEDEKIND-OMEGA-M1-04/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0）、`stdout.txt`、`source-manifest.json`；环恒等式由 `Cubical.Tactics.CommRingSolver` 的 `solve! ℤCommRing` 反射求解。 | **不**声称这是 HoTT 内部矛盾或 HoTT 不一致；**不**声称 `∀ q:ℚ, q·q≠2`（全称无理性，第二枚目标，未证）；**不**声称「实数完备性非现实」可交付；命题本身是 `ℤ` 上的环计算，不依赖 univalence / cubical path / HIT 等 HoTT 特有规则；有限 run 与编译缓存不证明无限域外结论。 |
+
+**语义边界**（修订片 024 §2）：「击落」在本 repo 的唯一可执行读法是把
+`PROCESS_DECLARATION_GAP` 的非现实性**数学锚定**，不是在 HoTT 内导出矛盾。
+任何把本行读成「HoTT 被证明矛盾」的解读都是误读。
