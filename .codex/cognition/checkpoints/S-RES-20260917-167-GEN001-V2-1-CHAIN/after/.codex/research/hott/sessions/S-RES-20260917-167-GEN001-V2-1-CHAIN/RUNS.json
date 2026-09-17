@@ -1,0 +1,44 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260917-167-GEN001-V2-1-CHAIN",
+ "runs": [
+  {
+   "id": "gen001-v2-1-chain-search",
+   "kind": "git",
+   "commit": "3a6ccd0",
+   "note": "SEARCH-GEN001-V2-1-001 on grammar L2-COFIBRATION-A-v1 (backend v2-l2-cofibration): 3,059 contexts x 1,104 equivalence pairs = 3,377,136 pair-context checks, complete_within_declared_grammar=true, grammar_violations=0, remainder=0, order_independent=true. 212,864 raw separations -> 51,904 canonical reduced witnesses (each step re-checks grammar membership). 50,624/50,624 in-scope witnesses rejected by all 7 prior delay grammars with UNIQUE reasons (CONTEXT_DEPTH 44928 / UNKNOWN_OP:supply 3776 / BIND_CONTINUATION 1536 / UNKNOWN_OP:between 192 / UNKNOWN_OP:tower 192); 1,280 pure race/deadline witnesses registered L1_SHARED_INGRESS; 5 continuation maps mutually distinct and L1-erasure-consistent; 6 separation kinds all occur; 51,904/51,904 reduced witnesses have delayEquiv=true input pairs (L1 input-layer invisibility); reflection=grammar-scope-unique-reasons"
+  },
+  {
+   "id": "gen001-v2-1-kernel-four-way",
+   "kind": "git",
+   "commit": "3a6ccd0",
+   "note": "VERIFY-GEN-001-V2-1-WV-0001 / -WV-23233 / -WV-0785 / -WV-0786: four witnesses x four-way native kernel receipts (mirror formal/V2Cofibration.agda, Cubical Agda 2.8.0 + cubical v0.9): verify KERNEL_ACCEPTED exit 0; controls incl. same-value positive control and delayEquiv axis control; negative-control KERNEL_REJECTED_AS_EXPECTED exit 42 (wrongClaim = refl not dischargeable on false == true); verify-replay EXACT_EXIT_STDOUT_STDERR_MATCH. All four L1-invisible. RUN.json each carry cross_check (DENOMINATOR_SINGLE_SOURCE asserted before any kernel run), model_dependency_audit, oracle_scope and key_adjudication_audit_trail; reflection=four-way-with-negative-control"
+  },
+  {
+   "id": "gen001-v2-1-main-repo-deliverables",
+   "kind": "git",
+   "commit": "38dcbc5",
+   "note": "main-repo deliverables for GEN-001-V2-1: GRAMMAR / ENUMERATION / OUT-OF-ENVELOPE JSON + REPORT.md + GEN-001-INDEX.md row; verdict GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE; registered gaps A (no interval-I oracle; point-set model sound but not complete) and B (out-of-envelope scope = 7 delay grammars); reflection=verdict-with-mandatory-disclosures"
+  },
+  {
+   "id": "revision-shard-018",
+   "kind": "git",
+   "commit": "51247fd",
+   "note": "revision shard 018: stage-2 acceptance receipt-ified (3,377,136 remainder=0; 50,624/50,624 unique out-of-envelope; 4 witnesses four-way kernel PASS), both registered gaps written as accountable boundaries, mandatory disclosures (phenomenon novelty PARTIAL; Q4 PATTERN_REDUCED; oracle_scope POINT_SET_MIRROR_MODEL_KERNEL_CONFIRMED), and the unit reflection recorded (chain-through != discovery; V2 risk sits in the model layer not the grammar layer; the full-automation discipline of revision 017 ran end to end without AUTOMATION_BLOCKED_EVIDENCE_GAP and without relaxing any evidence standard); shard validator PASS (556 indexes)"
+  }
+ ],
+ "session_records": [
+  {
+   "kind": "session",
+   "lifecycle_status": "HISTORICAL",
+   "path": ".codex/research/hott/sessions/S-RES-20260917-167-GEN001-V2-1-CHAIN/SESSION.md",
+   "related_records": [
+    "S-RES-20260916-166-V2-STAGE1-FRAGMENT-EXTENDED",
+    "A-PREMISE-001",
+    "A-HOTT-MACHINE-OVERVIEW-GOAL-002"
+   ],
+   "dependency_semantics": "verification_staleness",
+   "evidence_status": "GOVERNANCE_CHECKPOINT_COMMITTED / GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE / ENGINEERING_ACCEPTANCE_ONLY / NO_NEW_MATH_CLAIM / TWO_REGISTERED_GAPS"
+  }
+ ]
+}

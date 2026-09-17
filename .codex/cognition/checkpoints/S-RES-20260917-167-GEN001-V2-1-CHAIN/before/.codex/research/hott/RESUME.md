@@ -10,37 +10,6 @@
 ## 当前停止点
 ## 当前停止点
 
-S-RES-20260917-167-GEN001-V2-1-CHAIN：**V2 L2-cofibration 片段阶段 2（`GEN-001-V2-1` 首族链）完成**
-（判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`；修订片 018 commit 51247fd；主 repo 交付物 38dcbc5；引擎 3a6ccd0；revision 166->167）。修订片 003 §4 四项判据全部带收据：**(1)** 3,059 contexts × 1,104 等价对 = **3,377,136 pair-context checks、remainder=0**、`grammar_violations=0`、`order_independent=true`；
- **(2)** **50,624/50,624** 作用域内见证被 **7 个既有 delay 文法全拒且理由唯一**（1,280 条纯 race/deadline 见证 登记为 `L1_SHARED_INGRESS`，012 §2.3 作用域化）；**(3)** 4 见证（WV-0001 / WV-23233 / WV-0785 / WV-0786） × **四路原生核收据**（verify exit 0 / 双正控制 / negative-control **exit 42** / verify-replay 精确匹配）； **(4)** 完整链全部哈希绑定。归约 212,864 → 51,904；6 分离种类全部出现；**51,904/51,904 归约见证输入对 `delayEquiv=true`（L1 输入层完全不可见，本族最强新颖性证据）**。
-
-**这是链贯通的工程验收，不是数学结论**：`registers_new_claim:false`，不进 `HoTT/CLAIM_EVIDENCE_MATRIX.md`；
-任务族与文法由 AI 冻结供给（003 §5 角色纪律），引擎贡献的是冻结文法上的完整枚举 + grammar-preserving 归约，
-原生核贡献 oracle 判定。**强制披露**：现象新颖性 **PARTIAL**（实质新颖性 = availability/level/density 三个
-新观察层，旧文法无对应 op；value_mismatch/deadline 为 L1 共享机制）；Q4 同族坍缩 **`PATTERN_REDUCED`**
-（D-04/G-05 在本片段不可机械区分，只报一个验收单元）；4 kernel 见证全部 `POINT_SET_MIRROR_MODEL_KERNEL_CONFIRMED`。
-
-**两个已登记缺口（修订片 018 §3，本单元最重要的边界）**：**(A) 区间 I 的 oracle 不存在**——mirror 定义
- `Face = Point → Bool`（点集模型），其 §10 DM3 三元链反模型自证该模型对 De Morgan 代数**可靠但不完备**；
- 故原生核的 `KERNEL_ACCEPTED` 证明的是「枚举器与 mirror 的声明片段语义逐项一致」（refl，
- `DENOMINATOR_SINGLE_SOURCE`），**不是**该分离在真实区间 I 上成立。依 015 §5 / F-011，全部见证**一律不得
- 作为关于 HoTT / 区间 I 的结论证据**。model-dependency 逐见证：WV-0001（`SUPPLIED_SET_MEMBERSHIP`）与
- WV-23233（`BOUNDED_LEVEL_COMPARISON`）不调用点集专属律（结构性），但提升未核证明；WV-0785/WV-0786
-（`FACE_LATTICE_ORDER`）**仅为模型层**。**(B) 越界机械检查作用域 = 7 个 delay 文法**；12 个 symbolic-horn 文法
- 为 schema 级 `BACKEND_MISMATCH`（L1 reader 无法解析）**未跑机械检查**——作用域边界，非已证不相交。
-
-**本单元 reflection（修订片 018）**：(i) 链贯通 ≠ 发现——`_WITH_SCOPE` 后缀的分工有效，干净收据必须同时报告
- 文法轴与现象轴两个覆盖率（与 014 §2.2 同构）；(ii) **V2 的真正风险在模型层而非文法层**——V2 打开了 delay 片段
- 缺失的结构轴，但引入「点集模型 vs 真实区间」的忠实性缺口，而最有价值的两个 density 见证恰恰最不能提升回区间 I；
- 后续族优先级须以「是否需点集专属律」为第一排序键（结构性 > 模型层）；(iii) **017 全面自动化纪律首次完整跑通**，
- 无 `AUTOMATION_BLOCKED_EVIDENCE_GAP`，F-011 / `DENOMINATOR_SINGLE_SOURCE` / remainder=0 / 四件套加载
- 一字未改，每个关键判定都带可推翻的 `KEY_ADJUDICATION_AUDIT_TRAIL`。
-
-下一步（AI 全自动，017 纪律）：**缺口 A = 构造 DM3 或真实区间（min/max/neg）上的 V2 值解释**，使结构性分离
-（availability / level / boolean payload）可由原生核在 De Morgan 代数上确认——这是把模型层分离升级为结论证据的
- **唯一**路径（015 §5 / F-011）。或 V2 第二族（G-a 稠密 / G-c 层级独立供给）/ SUPPLY-010 新任务族。
- **不由本 checkpoint 授权执行，须另起单元。** 无新数学 claim；未 push、未 tag。
-
 S-RES-20260916-166-V2-STAGE1-FRAGMENT-EXTENDED：**V2 L2-cofibration 片段阶段 1（片段扩展验收）完成**
 （判词 `FRAGMENT_EXTENDED_WITH_SCOPE`；修订片 016 commit e36bdd4；引擎 commit 4428c48 + 9729d9f；revision 165->166）。修订片 015 §3.4 两条判据全部满足：**(i) 逐项一致（非抽样）**——289 ground 值 × 11 声明 op-list = **3179 条 applyOps**，渲染 `V2GroundAgreement.agda`（654,939 bytes）由 Cubical Agda 2.8.0 + cubical v0.9 原生核 `KERNEL_ACCEPTED` / exit 0，`groundAgreement : checkAll ≡ true` 与 `sepAgreement : sepAll ≡ true` 均由 **refl** 消解；**(ii)** 声明 `FACES`(16)/`SUPPLIED`/`TOWER_MAX`(=2) 有限性与 ops 封闭性 selftest **142/142**（94 基线 + 48 V2）无回归。
 
