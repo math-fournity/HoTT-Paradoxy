@@ -60,6 +60,10 @@ REQUIRED_RESEARCH = (SKILL,QUESTIONS,PREFIX+'FRONTIER.md',PREFIX+'LESSONS.md',PR
 ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,100}$')
 KC_ID = re.compile(r'^KC-[0-9]{6}$')
 KC_RELATIONS = frozenset(('ALIGNED','DEEPENED','CORRECTED','TENSION','DEVIATED','NOT_TOUCHED'))
+AUDIT_KC_HEADING_RE = re.compile(r'^#{2,4}\s*(KC-[0-9]{6}(?:\s*(?:/|\+|,)\s*KC-[0-9]{6})*)')
+AUDIT_KC_ANY_RE = re.compile(r'KC-[0-9]{6}')
+AUDIT_RELATION_RE = re.compile(r'(?mi)^-\s*relation:\s*\**([A-Z_]+)\**')
+AUDIT_ENTRY_MIN_BULLETS = 4
 SESSION_REQUIRED_FILES = ('SESSION.md','RUNS.json','CORE_COGNITION_AUDIT.md')
 
 class CognitionError(RuntimeError):
@@ -555,6 +559,57 @@ def allowed_write(rel,sid,root=None,proposed=None):
     if root is not None and rel in mutable_shard_paths(root):return True
     return False
 
+def _audit_v1_kc_rows(audit):
+    """Legacy single-file audit: one table row per KC in strict KC order."""
+    rows=[]
+    for line in audit.splitlines():
+        if not line.startswith('| `KC-'):continue
+        cells=[cell.strip() for cell in line.strip().strip('|').split('|')]
+        if len(cells)<5:raise CognitionError('KC_AUDIT_ROW_INVALID')
+        kc=cells[0].strip('` ');relation=cells[2].strip('` ')
+        if not KC_ID.fullmatch(kc) or relation not in KC_RELATIONS:
+            raise CognitionError('KC_AUDIT_ROW_INVALID')
+        if not cells[3] or not cells[4]:raise CognitionError('KC_AUDIT_EVIDENCE_REQUIRED: '+kc)
+        rows.append(kc)
+    return rows
+
+def _audit_v2_kc_rows(get,index):
+    """Revision-020 sharded audit contract.
+
+    CORE_COGNITION_AUDIT.md is a governance-shard-index:v2 and carries only the
+    contract entry, tallies and mandatory fields; the per-KC five-tuple
+    arguments live in the shards in shard-table order.  This enforces structure
+    and exact KC coverage only; semantic quality is not certifiable here.
+    """
+    rows=[]
+    for shard in index['shards']:
+        rel=shard['path']
+        try: body=text(get(rel),rel)
+        except FileNotFoundError as e: raise CognitionError('KC_AUDIT_SHARD_MISSING: '+rel) from e
+        entries=[]  # list of [kcs, block_lines]
+        for line in body.splitlines():
+            m=AUDIT_KC_HEADING_RE.match(line.strip())
+            if m:
+                kcs=AUDIT_KC_ANY_RE.findall(m.group(1))
+                if kcs:entries.append([kcs,[]])
+                continue
+            if entries:entries[-1][1].append(line)
+        # shards without KC headings (contract / baseline / essay / rerouting
+        # shards) contribute nothing; completeness is enforced by the exact
+        # set coverage check after all shards are read.
+        for kcs,block_lines in entries:
+            joined='\n'.join(block_lines)
+            m=AUDIT_RELATION_RE.search(joined)
+            if not m:raise CognitionError('KC_AUDIT_ENTRY_RELATION_MISSING: '+rel)
+            relation=m.group(1)
+            if relation not in KC_RELATIONS:
+                raise CognitionError('KC_AUDIT_RELATION_INVALID: '+rel+' '+relation)
+            bullets=[l for l in block_lines if l.strip().startswith('- ')]
+            if len(bullets)<AUDIT_ENTRY_MIN_BULLETS:
+                raise CognitionError('KC_AUDIT_ENTRY_ARGUMENT_TOO_THIN: '+rel)
+            rows.extend(kcs)
+    return rows
+
 def validate_session_bundle(get, sid, state):
     """Require session evidence before a checkpoint can become durable.
 
@@ -574,20 +629,21 @@ def validate_session_bundle(get, sid, state):
     generation=current_core.get('generation');expected_count=current_core.get('kc_count')
     if not isinstance(generation,str) or generation not in audit or type(expected_count) is not int or expected_count<1:
         raise CognitionError('KC_AUDIT_CORE_IDENTITY_INVALID')
-    rows=[]
-    for line in audit.splitlines():
-        if not line.startswith('| `KC-'):continue
-        cells=[cell.strip() for cell in line.strip().strip('|').split('|')]
-        if len(cells)<5:raise CognitionError('KC_AUDIT_ROW_INVALID')
-        kc=cells[0].strip('` ');relation=cells[2].strip('` ')
-        if not KC_ID.fullmatch(kc) or relation not in KC_RELATIONS:
-            raise CognitionError('KC_AUDIT_ROW_INVALID')
-        if not cells[3] or not cells[4]:raise CognitionError('KC_AUDIT_EVIDENCE_REQUIRED: '+kc)
-        rows.append(kc)
+    audit_index=parse_shard_index(get(required['CORE_COGNITION_AUDIT.md']),required['CORE_COGNITION_AUDIT.md'])
+    if audit_index is None:
+        rows=_audit_v1_kc_rows(audit)
+    else:
+        rows=_audit_v2_kc_rows(get,audit_index)
     expected=[f'KC-{n:06d}' for n in range(1,expected_count+1)]
-    if rows!=expected:raise CognitionError('KC_AUDIT_COVERAGE_OR_ORDER_INVALID')
+    if audit_index is None:
+        if rows!=expected:raise CognitionError('KC_AUDIT_COVERAGE_OR_ORDER_INVALID')
+    else:
+        # revision 020 merges same-paragraph KCs into one argument entry
+        # (e.g. '### KC-000003 / KC-000019'), so coverage is an exact set.
+        if len(rows)!=expected_count or sorted(rows)!=expected:
+            raise CognitionError('KC_AUDIT_COVERAGE_INVALID')
     for field in ('core_change','direction_change','panorama_change','essay_change','update_decision','cross_conflicts','unresolved'):
-        if not re.search(r'(?mi)^[-*]?\s*'+re.escape(field)+r'\s*:',audit):
+        if not re.search(r'(?mi)^[-*]?\s*\**'+re.escape(field)+r'\**\s*:',audit):
             raise CognitionError('KC_AUDIT_FULL_SET_FIELD_MISSING: '+field)
 
 def prepare(root, snapshot, payload, *, busy=False):
