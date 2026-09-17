@@ -707,8 +707,23 @@ M2→M3 链式）；供给侧为 GLM 独立分析（025 片 §7 对撞评估采�
 
 **语义边界**（修订片 025 §6）：三枚齐射的层关系——第一枚 = 过程层、第二枚 =
 声明层、第三枚 = 识别层；链式（M3 消费 M2）。「炸弹在前提里，不在核里」；
-「击毁」的可执行读法不变：`PROCESS_DECLARATION_GAP` 非现实性的数学锚定
+「击落」的可执行读法不变：`PROCESS_DECLARATION_GAP` 非现实性的数学锚定
 （现含第三条「识别腿」），不是 HoTT 内部矛盾。
+
+## 追加登记：MP-DEDEKIND-OMEGA-TA（第四弹·靶 A 路径 (i)——canonicity 反例的元层检查演示，2026-09-17）
+
+来源：修订片 027 §3.1 靶 A + §3.2 打法原则 + §4（拒证二元性）+
+`CanonicityCounterexample-DESIGN.md`（路径 (i) 设计）。`registers_new_claim:
+false`；**状态为元层工具检查记录（META_TOOL_CHECKED），不冒充对象层
+MACHINE_PROVED 定理**（027 §4 边界）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-TA` | `CAND-F2-7-TA` | `formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda`（UA-作公理反例项：`n = if subst (λX→X) (ua not not not-not not-not) true then 0 else 1`）+ 探针/对照三件（ProbeControl/ProbeZero/ProbeSucZero）；`CanonicityCounterexample-DESIGN.md` | runs `20260917-MP-DEDEKIND-OMEGA-TA-01`（主模块 exit 0）/`-02`（对照 exit 0）/`-03`（探针 exit 1，**预期失败即收据**）/`-04`（探针 exit 1，预期失败即收据）；TA-03/04 错误消息含 n 的卡住范式 `if transp (λ i → e i) i0 true then zero else 1`——内核亲自打印中性范式 | `META_TOOL_CHECKED / CANONICITY_BREAKAGE_DEMONSTRATED_NOT_OBJECT_PROOF_NOT_INCONSISTENCY` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-TA | UA-作公理（postulate，无计算规则）注入下，存在闭 ℕ 项 `n = if b' then 0 else 1`（`b' = subst (λX→X) (ua not not not-not not-not) true`），其范式为中性卡住形态——内核对 `n ≡ zero` 与 `n ≡ suc zero` 的 refl 均判不可互换（TA-03/04 错误消息含 n 的完整卡住范式），对照探针同法通过（TA-02）。即：UA-作公理时 canonicity 被收费——「显式化并丧失完成义务」支的 UA 实例演示。 | `META_TOOL_CHECKED / CANONICITY_BREAKAGE_DEMONSTRATED` | runs `…-TA-01`（主模块 exit 0）/`…-TA-02`（对照 exit 0）/`…-TA-03`/`…-TA-04`（探针 exit 1，错误消息存档 stdout.txt）；构造草图 = 027 §3.1 靶 A + DESIGN 文档。 | **不**声称 HoTT 不一致（非规范 ≠ 矛盾，027 §8）；**不**声称本演示为对象层定理（元层工具检查记录，027 §4）；**不**声称覆盖全部 canonicity 破坏形态（Huber 完整结果仍为 `SOURCE_REPORTED_NOT_REPLAYED`）；刻意无 `--safe` 的 postulate 注入是演示内容本身，非工程疏忽。 |
 
 ## 追加登记：MP-DEDEKIND-OMEGA-M3-UNC（第四弹首靶·M3 去条件化 + 027 §5 核实，2026-09-17）
 
