@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-M3-UNC"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda"
+  ],
+  "completed_at_utc": "2026-09-17T21:35:000.561062+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 55.5571768283844,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不声称 HoTT 不一致",
+    "不推翻 M3 条件版收据（LEMᵒ 条件版仍真；本包为其去条件化加强）",
+    "不声称完整 cut / 实数对象的无条件构造——债务定位（升格处收费）仅为本包的语义读法与后续靶位"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-M3-UNC",
+  "run_id": "20260917-MP-DEDEKIND-OMEGA-M3-UNC-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness，无 LEM、无 resizing、无任何追加假设）中证明修订片 027 §5 待核发现属实并取得两条更强收据：(1) specA-inhabited-unc : Spec_A 无条件居住——判定表 f : ℚ → Bool（f q ≡ true ↔ q·ℚq < 2r）由 ℚ 序可构造判定 _≟_ : (m n : ℚ) → Trichotomy m n 直接定义，不需要 LEM；(2) M3-L1-unc : ¬ (Spec_A ≃ Spec_B) 识别拒绝去条件化（等价传输 + spec-B-empty）。债务定位：判定表在 ℚ 层免费（本包），理想元素本体（判定表升格为实数层对象、完整 cut）才收费——完成义务在承载层跨界处收费。识别层收据的去条件化加强，不是 HoTT 内部矛盾。",
+  "source_manifest": {
+    "bytes": 2923,
+    "path": "source-manifest.json",
+    "sha256": "2cb4249f58e8471ec46b1c0b948d7ded2717b160c0f272868f9c21dbe47a7d61"
+  },
+  "started_at_utc": "2026-09-17T21:34:050.003885+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18336,
+    "path": "stdout.txt",
+    "sha256": "8fddbad3b2be06fdd69f12993865b97ca16bf9897d58c96b6fbc1aac805a7d4f"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

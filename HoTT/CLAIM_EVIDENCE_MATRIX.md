@@ -707,8 +707,22 @@ M2→M3 链式）；供给侧为 GLM 独立分析（025 片 §7 对撞评估采�
 
 **语义边界**（修订片 025 §6）：三枚齐射的层关系——第一枚 = 过程层、第二枚 =
 声明层、第三枚 = 识别层；链式（M3 消费 M2）。「炸弹在前提里，不在核里」；
-「击落」的可执行读法不变：`PROCESS_DECLARATION_GAP` 非现实性的数学锚定
+「击毁」的可执行读法不变：`PROCESS_DECLARATION_GAP` 非现实性的数学锚定
 （现含第三条「识别腿」），不是 HoTT 内部矛盾。
+
+## 追加登记：MP-DEDEKIND-OMEGA-M3-UNC（第四弹首靶·M3 去条件化 + 027 §5 核实，2026-09-17）
+
+来源：修订片 027 §5（待核发现与债务定位）+ §2（身份陈述与主定理模式）。本包为
+第三弹识别层收据的去条件化加强，同时为第四弹靶 B（对齐矩阵）登记 ℚ 层免费格。
+`registers_new_claim` 语义 = 候选锚点，非已注册数学主张。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-M3-UNC` | `CAND-F2-7-M3-UNC` | `formal/dedekind-omega-missile/MissileThreeUnconditional.agda`（复用 M3 的 Spec_A/Spec_B 类型与 M2 的 spec-B-empty）；`CLAIM-PACKAGE-M3-UNC.md` | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M3-UNC-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；**无 LEM、无 resizing、无任何追加假设**；exit 0；55.6s | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPEC_A_UNCONDITIONAL_AND_IDENTIFICATION_REFUTED_NOT_HOTT_CONTRADICTION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-M3-UNC | 在纯 Cubical Agda（无 LEM、无 resizing、无任何追加假设）中：(1) `specA-inhabited-unc : Spec_A` 无条件居住——判定表 `f : ℚ → Bool`（`f q ≡ true ↔ q·ℚq < 2r`）由 ℚ 序可构造判定 `_≟_ : (m n : ℚ) → Trichotomy m n` 直接定义，不需要 LEM（027 §5 待核发现**核实为真**）；(2) `M3-L1-unc : ¬ (Spec_A ≃ Spec_B)` 识别拒绝去条件化。债务定位：判定表在 ℚ 层免费，理想元素本体（判定表升格为实数层对象、完整 cut）才收费——完成义务在承载层跨界处收费。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPEC_A_UNCONDITIONAL_AND_IDENTIFICATION_REFUTED` | run `20260917-MP-DEDEKIND-OMEGA-M3-UNC-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，55.6s）与收据文件；`_≟_`/`isIrrefl<`/`isAsym<` 来自 `Cubical.Data.Rationals.Order`。 | **不**声称 HoTT 不一致；**不**推翻 M3 条件版收据（条件版仍真，本版为去条件化加强）；**不**声称完整 cut / 实数对象已无条件构造（「升格处收费」为语义读法与靶位指引）；不可证性证书属元理论（027 §4 拒证二元性），本包是对象层拒绝收据。 |
 
 ## 追加登记：MP-DEDEKIND-OMEGA-BP（Dedekind-Ω 簇·廉价副产品，2026-09-17）
 
