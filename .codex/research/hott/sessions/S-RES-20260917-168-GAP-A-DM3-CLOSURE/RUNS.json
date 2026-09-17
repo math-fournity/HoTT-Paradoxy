@@ -1,0 +1,74 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260917-168-GAP-A-DM3-CLOSURE",
+ "runs": [
+  {
+   "id": "gap-a-dm3-search",
+   "kind": "git",
+   "commit": "776e6b7",
+   "note": "SEARCH-GAP-A-DM3-001 on grammar V2-DM3-A-v1 (backend v2-dm3; DM3 = 3-element non-boolean De Morgan chain 0<a<1, ~a=a): 40 contexts x 1,404 equivalence pairs = 56,160 pair-context checks, complete_within_declared_grammar=true, grammar_violations=0, remainder=0, order_independent=true (two seeds). 9,720 raw separations -> 396 canonical reduced witnesses (availability 1,944 / density 2,592 / level 5,184); calibration ALL_PRESENT (WV-A/L/D + two same-value controls correctly non-separating). Out-of-envelope 392/392 rejected by all 8 prior grammars with family-unique reasons (delay UNKNOWN_OP:* 392; point-set VALUE_OUT_OF_DECLARED_RANGE 392); cross-family reasons differ (scoped_all_reasons_unique=false = stronger); 4 level-ingress disclosed. Non-embedding: 16^3 = 4,096 candidate functions exhausted, ZERO preserve meet and negation (scope = the two declared finite structures, not interval I); reflection=grammar-scope-unique-reasons"
+  },
+  {
+   "id": "gap-a-dm3-kernel-four-way",
+   "kind": "git",
+   "commit": "776e6b7",
+   "note": "VERIFY-GAP-A-DM3-WV-0230 (availability) / -WV-0041 (level) / -WV-0158 (density) / -WV-0001 (level): four witnesses x four-way native kernel receipts (mirror formal/V2DM3.agda, Cubical Agda 2.8.0 + cubical v0.9): verify KERNEL_ACCEPTED exit 0; controls ACCEPTED (same-value + calibration anchors); negative-control KERNEL_REJECTED_AS_EXPECTED exit 42; verify-replay EXACT_EXIT_STDOUT_STDERR_MATCH. cross_check (DENOMINATOR_SINGLE_SOURCE) recomputed and asserted before any kernel run; model_dependency_audit + oracle_scope + key_adjudication_audit_trail on disk; reflection=four-way-with-negative-control"
+  },
+  {
+   "id": "gap-a-dm3-bli",
+   "kind": "git",
+   "commit": "776e6b7",
+   "note": "VERIFY-GAP-A-DM3-BLI-001 verdict KERNEL_BLI_PASS: the boolean law x AND ~x = 0 is NOT NEEDED for the three structural V2 separations -- the density separation holds in DM3 while dm3Meet da (dm3Neg da) = da != d0, both kernel-checked, with negative control exit 42 and exact replay. Negative mechanical fact, scope = the algebra DM3 as defined in formal/V2DM3.agda; falsifier = kernel ACCEPT of BLIFalsify.agda. This is the verifiable version of revision 015 sec 3.4 (point-set model sound but not complete for interval I); reflection=negative-fact-with-operational-falsifier"
+  },
+  {
+   "id": "gap-a-dm3-main-repo-deliverables",
+   "kind": "git",
+   "commit": "1378363",
+   "note": "main-repo deliverables for GAP-A-DM3: GRAMMAR / ENUMERATION / OUT-OF-ENVELOPE JSON + GAP-A-DM3-REPORT.md + GAP-A-INDEX.md row; verdict DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT (interval_i_confirmed=false); verdict grading (availability/level -> interpretation-independent structural layers; density splits, chain order remains model-layer); interval-I branch registered OPEN (equality on I undecidable, no Bool-valued separates); gap B unchanged; reflection=verdict-with-mandatory-disclosures"
+  },
+  {
+   "id": "revision-shard-019",
+   "kind": "git",
+   "commit": "7984892",
+   "note": "revision shard 019: gap-A DM3 closure receipt-ified (56,160 remainder=0; 392/392 family-unique out-of-envelope; 4 witnesses four-way kernel PASS; BLI KERNEL_BLI_PASS), verdict grading instituted (per-mechanism dependency class + explicit boolean quantities in the verdict name), gap vs unit accounting split (gap A has a DM3 branch and an interval-I branch; only DM3 closed); unit reflection recorded; shard validator PASS"
+  },
+  {
+   "id": "revision-shard-020",
+   "kind": "git",
+   "commit": "221936a",
+   "note": "revision shard 020: self-audit contract upgraded -- CORE_COGNITION_AUDIT becomes a shard set (index + 8 shards: 46 KC five-tuple arguments, essay 8 shards per-subsection, sailed-route review, next-choice deviation adjudication); NOT_TOUCHED must also argue (what it requires / why untouched / how the next unit reaches it); TENSION/DEVIATED must carry corrective action; every entry must carry a falsification condition; governance skill sec 5 rewritten; SOP upgraded to 1.2.0"
+  },
+  {
+   "id": "agents-subagent-ban",
+   "kind": "git",
+   "commit": "679a016",
+   "note": "AGENTS.md: this project forbids spawning any Sub Agent (no spawn / proposal / wait; constant ban state) per user ruling 2026-09-17; audit-format clauses synced to the revision-020 shard contract. All work in this session was done by the master agent alone"
+  },
+  {
+   "id": "core-cognition-audit-020-shard-set",
+   "kind": "session-artifact",
+   "commit": null,
+   "note": "first CORE_COGNITION_AUDIT produced under the revision-020 contract: index (contract entry, tallies, mandatory fields) + 8 shards (001 baseline, 002/003 the 46-KC five-tuple arguments, 004-006 essay per-subsection, 007 sailed-route review, 008 next-choice adjudication with rerouting verdict + falsification conditions + rollback paths). 46/46 KC set coverage; relations ALIGNED 12 / DEEPENED 6 / TENSION 5 / NOT_TOUCHED 11 (34 entries, merged same-paragraph KCs). Shard 008 reroutes the next unit from V2 G-c to SUPPLY-010 and corrects the probe wording (both probe outcomes are positive information). Written to disk by this session, committed to git in the same commit as the checkpoint-168 transaction; the transaction itself rewrites only the index (session-name rules admit no CJK/spaces), the 8 shards ride the git commit"
+  },
+  {
+   "id": "cognition-runtime-020-validator",
+   "kind": "git",
+   "commit": "02a6b4a",
+   "note": "cognition_runtime.validate_session_bundle upgraded to accept the revision-020 sharded audit: when CORE_COGNITION_AUDIT.md is a governance-shard-index:v2, KC entries are collected from the shards in shard-table order (subsection headings, merged entries count each KC), coverage validated as an exact set (same-paragraph merges break strict ordering), relations read from '- relation:' bullets and checked against KC_RELATIONS, entries require >= 4 bullets, missing shards fail closed as KC_AUDIT_SHARD_MISSING; mandatory-field regex now tolerates bold markers; v1 single-file audits remain valid (S-167 re-accepted). Negative controls: missing shard / invalid relation token / broken coverage / thin entry / missing field all fail closed"
+  }
+ ],
+ "session_records": [
+  {
+   "kind": "session",
+   "lifecycle_status": "HISTORICAL",
+   "path": ".codex/research/hott/sessions/S-RES-20260917-168-GAP-A-DM3-CLOSURE/SESSION.md",
+   "related_records": [
+    "S-RES-20260917-167-GEN001-V2-1-CHAIN",
+    "A-PREMISE-001",
+    "A-HOTT-MACHINE-OVERVIEW-GOAL-002"
+   ],
+   "dependency_semantics": "verification_staleness",
+   "evidence_status": "GOVERNANCE_CHECKPOINT_COMMITTED / DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT / KERNEL_BLI_PASS_NEGATIVE_FACT_SCOPE_DM3 / ENGINEERING_ACCEPTANCE_ONLY / NO_NEW_MATH_CLAIM / GAP_A_INTERVAL_I_BRANCH_OPEN / AUDIT_REROUTED_TO_SUPPLY_010"
+  }
+ ]
+}

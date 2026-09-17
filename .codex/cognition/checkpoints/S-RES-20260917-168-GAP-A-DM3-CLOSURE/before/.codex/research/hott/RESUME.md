@@ -10,63 +10,6 @@
 ## 当前停止点
 ## 当前停止点
 
-S-RES-20260917-168-GAP-A-DM3-CLOSURE：**缺口 A 闭合（DM3 分支）完成**
-（判词 `DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT`，`interval_i_confirmed=false`；修订片 019 commit 7984892；
-主 repo 交付物 1378363；引擎 776e6b7；revision 167->168）。修订片 018 §3(A) 登记的缺口 A
-（区间 I 的 oracle 不存在：点集模型携带布尔律而区间 I 不携带）在 **DM3 分支**上闭合：V2 的
- availability / level / density 三结构轴被重新解释到标准非布尔 De Morgan 代数 DM3（三元链 `0<a<1`，
- `~a=a`，故 `a∧¬a=a≠0`），由 Cubical Agda 2.8.0 + cubical v0.9 原生核在 `formal/V2DM3.agda` 上逐项确认。
-
- 验收（全部带收据）：**(1)** 40 contexts × 1,404 等价对 = **56,160 pair-context checks、remainder=0**、
- `grammar_violations=0`、无截断；**(2)** **9,720 → 396** 规范归约（availability 1,944 / density 2,592 /
- level 5,184）；校准 `ALL_PRESENT`（WV-A/L/D 三见证 + 两同值控制）；**(3)** **392/392** 作用域内见证被
- **8 个既有文法**（7 delay + 1 点集）全拒，**族内拒因唯一**（跨族拒因不同：不可解析 op vs 不可表示
- DM3 坐标——`scoped_all_reasons_unique=false` 是更强而非更弱）；4 条 level-ingress 如实登记；
- **(4)** 非嵌入：16³=**4,096** 候选函数穷举，保 meet&neg 的 DM3→点集面格嵌入 = **0**；**(5)** 4 见证 ×
- **四路原生核收据**（verify exit 0 / controls / negative-control **exit 42** / replay 精确匹配）。
-
- **本单元的核心新事实 = BLI 单元**（`VERIFY-GAP-A-DM3-BLI-001`，`KERNEL_BLI_PASS`）：**布尔律
- `x ∧ ¬x = 0` 对这三个结构性分离不是必需的**——density 分离在 DM3 中成立，同时
- `dm3Meet da (dm3Neg da) = da ≠ d0`，二者皆经核确认。这是 015 §3.4「点集模型对区间 I 可靠但不完备」
- 这一**预先警戒**的可核验版本：不需要布尔律，三分离照样产生。它是**否定性**机械事实，
- 作用域 = `formal/V2DM3.agda` 定义的 DM3；可被 kernel ACCEPT `BLIFalsify.agda`（即证明
- `dm3Meet da (dm3Neg da) ≡ d0`）推翻。
-
- **判词分级**（015 §5 强制披露的执行；018 §4 排序教训的首次正面应用）：availability / level 从
- `POINT_SET_MIRROR_MODEL_KERNEL_CONFIRMED` 升级为**解释无关结构层**；**density 分裂**——其 DM3 实例
- 被核确认，但 DM3 的链序**仍是模型层**（DM3 是 I 的一个模型，不是 I）。
-
- **这是缺口闭合单元，不是数学结论，也不是发现**（F-011 / `MATH_PROOF_BEFORE_DELIVERY_V1`）：
- `registers_new_claim:false`，不进 `HoTT/CLAIM_EVIDENCE_MATRIX.md`；唯一登记 = 布尔律非必需这一否定性
- 机械事实。**发现侧零推进**：零新数学命题、零新悖论候选；前提判定全部保持
- `AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`。任何把本判词读成「HoTT 的非现实前提被找到了」的解读
- 都是误读。**区间 I 分支仍开放**：I 的相等不可判定，无法写返回 Bool 的 `separates`。
-
- **本单元 reflection（修订片 019）**：(i) 「缺口」与「单元」必须分开记账——缺口 A 的原始表述是
- 「DM3 **或真实区间**」，本单元只闭合 DM3 分支并把区间 I 分支显式留为开放，判词里
- `interval_i_confirmed` 与 `gap_a_dm3_branch_closed` 两个布尔量分离就是为了这个；(ii) **判词必须按
- 机制分级，不得整族一个标签**——V2-1 的一律 `POINT_SET_MIRROR_MODEL_KERNEL_CONFIRMED` 是保守但信息
- 丢失的；(iii) **BLI 是本单元价值最高的产物**——它把模型论论证升级为原生核确认的否定性机械事实，
- 并给出可证伪锚点；(iv) **017 自动化纪律第二次完整跑通**，无 `AUTOMATION_BLOCKED_EVIDENCE_GAP`，
- 证据标准一字未改。
-
- 下一步（AI 全自动，017 纪律；**序列经 CORE_COGNITION_AUDIT 分片 008 裁决修订**）：**(1) 区间 I
- 设计探针**（首选，不变）——在 Cubical Agda 2.8.0 + cubical v0.9 中调查 I 上可写的分离形态
-（类型族 / cofibration 条件 / PathP，而非 Bool 观察），产出可行性裁定。**措辞修正（分片 008 §2）**：
- **探针的两种结论都是正面信息**——「可写」则缺口 A 完全闭合、分母扩大、新候选可能直接进入；
- 「Bool 形态结构性不可写」则是关于 I 的**表达界限的正面结论**（扩展认知 005 片姿态），登记为有界
- 负结论，**不是失败**。**(2) SUPPLY-010 知识谱反观 + 现实对齐断裂供给单元**——分片 008 的实质改道
-（原指针「V2 第二族 G-c」降级为回退）：目标 = F2 缺口层 7 个来源在手、分母零条的层（PAT / LEM /
- resizing / AC / unique choice / 截断时机判据 / Dedekind-Ω），对每条执行「它是对什么现实过程的
- 骨架式模仿？用现实解释它时何处断裂？」，产出前提候选（**不判定**；006 片三点保留全部适用：发现
- 路径不是证明路径；完整知识谱是要求不是已兑现事实；「非现实」最终落在现实对应上）。改道理由：分片
- 007 复盘判据一表明 167/168 已现**同形重复**（分母内干净负结论），继续做 G-c 会是第三次；方向 5
- 是唯一能改变发现侧零产出状态且成本最低的动作。**(3) EXP-001**（DM3 分离语义作为被表达对象的覆盖
- 测试）**并入 (1) 收尾**，不单独成单元。**(4) B 侧新族**登记为长期序列节点，须先设计 B 侧机械判据
-（「理论把什么当成已获能力」），不晚于第三个单元进入。**(5) 缺口 B**（12 个 symbolic-horn 补跑
- schema 级不相交断言）不阻塞，随相关族顺带补跑。**不由本 checkpoint 授权执行，须另起单元。**
- 无新数学 claim；未 push、未 tag。
-
 S-RES-20260917-167-GEN001-V2-1-CHAIN：**V2 L2-cofibration 片段阶段 2（`GEN-001-V2-1` 首族链）完成**
 （判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`；修订片 018 commit 51247fd；主 repo 交付物 38dcbc5；引擎 3a6ccd0；revision 166->167）。修订片 003 §4 四项判据全部带收据：**(1)** 3,059 contexts × 1,104 等价对 = **3,377,136 pair-context checks、remainder=0**、`grammar_violations=0`、`order_independent=true`；
  **(2)** **50,624/50,624** 作用域内见证被 **7 个既有 delay 文法全拒且理由唯一**（1,280 条纯 race/deadline 见证 登记为 `L1_SHARED_INGRESS`，012 §2.3 作用域化）；**(3)** 4 见证（WV-0001 / WV-23233 / WV-0785 / WV-0786） × **四路原生核收据**（verify exit 0 / 双正控制 / negative-control **exit 42** / verify-replay 精确匹配）； **(4)** 完整链全部哈希绑定。归约 212,864 → 51,904；6 分离种类全部出现；**51,904/51,904 归约见证输入对 `delayEquiv=true`（L1 输入层完全不可见，本族最强新颖性证据）**。
