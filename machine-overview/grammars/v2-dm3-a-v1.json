@@ -1,0 +1,40 @@
+{
+  "schema_version": "machine-overview-grammar/v2-dm3",
+  "grammar_id": "V2-DM3-A-v1",
+  "backend": "v2-dm3",
+  "family": "TASK-FAMILY-GAP-A-INTERVAL-ORACLE-DE-MORGAN",
+  "family_short": "GAP-A-DM3",
+  "registered_gap": "Atria的方案/修订片/018 §3(A): the interval-I oracle does not exist (the point-set mirror carries the boolean law x&&~x=0 for free, while I is a De Morgan algebra in which it fails; the mirror proves in §10 via DM3 that the point-set model is not complete).  This grammar closes the DESIGN gap by re-interpreting the three structural V2 axes on DM3, the standard non-boolean De Morgan algebra, so the separations can be confirmed by the native kernel in an algebra where the boolean law FAILS.",
+  "gate": "G-b availability + G-c level + G-a density, lifted off the point-set face lattice onto a non-boolean De Morgan algebra (3-element chain 0 < a < 1, ~a = a)",
+  "strategy": "S6 reality alignment (KC-000044/045/046): the De Morgan algebra of the interval is the reality anchor, not the point-set cube; S3 theory economy (KC-000029/030): the point-set model silently carries the boolean law the interval does not have",
+  "premise_ref": "gap A (revision 018 §3A); structural axes from PREMISE-D-04 / PREMISE-G-05 (SUPPLY-009 / V2-A), AI-adjudicated pending external audit",
+  "include_omega": true,
+  "delay_index_max": 2,
+  "dm3_elements": [0, 1, 2],
+  "tower_levels": [0, 1, 2],
+  "context_depth_max": 2,
+  "between_pairs": [[0, 1], [0, 2], [1, 2]],
+  "calibration_benchmark": {
+    "witnesses": [
+      {
+        "witness_id": "WV-A-availability",
+        "left": {"kind": "ret", "n": 0, "value": true, "dm3": 1, "level": 0},
+        "right": {"kind": "ret", "n": 0, "value": true, "dm3": 2, "level": 0},
+        "ops": [{"kind": "supply", "d": 1}, {"kind": "fill"}]
+      },
+      {
+        "witness_id": "WV-L-level",
+        "left": {"kind": "ret", "n": 0, "value": true, "dm3": 1, "level": 2},
+        "right": {"kind": "ret", "n": 0, "value": true, "dm3": 1, "level": 0},
+        "ops": [{"kind": "tower", "level": 1}]
+      },
+      {
+        "witness_id": "WV-D-density",
+        "left": {"kind": "ret", "n": 0, "value": true, "dm3": 1, "level": 0},
+        "right": {"kind": "ret", "n": 0, "value": true, "dm3": 2, "level": 0},
+        "ops": [{"kind": "between", "a": 0, "b": 2}]
+      }
+    ]
+  },
+  "scope_disclosure": "ORACLE SCOPE (015 §5 / F-011 / 017 §5, upgraded by this unit): the oracle of this grammar is the Cubical Agda 2.8.0 native kernel on formal/V2DM3.agda.  DM3 is a NON-BOOLEAN De Morgan algebra, not the real cubical interval I (whose equality is not decidable, so no Bool-valued separates can be written on it).  The confirmed content is the NEGATIVE statement that no boolean law is needed (boolLawIndependence, kernel-accepted): the three structural separations are produced in an algebra where x&&~x=x!=0.  Scope identifier: DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT; interval_i_confirmed = false.  Lifting DM3 to all De Morgan algebras or to I is NOT claimed.  registers_new_claim: false except the negative mechanical fact that the boolean law is not needed, which the kernel checks on this specific algebra."
+}
