@@ -4,7 +4,7 @@ shard_id: 015
 index: ../修订片.md
 -->
 
-# V2 片段设计与 delay→V2 的门槛判定规程
+# V2 片段设计与 delay 到 V2 的门槛判定规程
 
 来源：SOP（hott-paradox-search-sop）穿越压缩边界后的方案复核 + 修订片 014 §2.3 门槛问题。
 身份：方案修订（reflection=post-compaction-review + v2-gate-answer）。本片**不做 P3/P4 判定，
