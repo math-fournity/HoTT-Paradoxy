@@ -54,17 +54,64 @@ metadata:
 
 研究时必须区分：理论对象定义、命题推导、可执行算法、一次运行完成、全域有效完成和现实可实施。用户的 Z 铁律、时间/现实相对怀疑和方向 A/B 是研究航向；它们不能代替固定 HoTT 规则、合法推演、反解释和现实桥梁。
 
-## 5. 每次结束：逐 KC 回评
+## 5. 每次结束：论证化、逐段落的分片审计（修订片 020）
 
-每个实质研究、审计、代码、设计或文档单元都要在 `.codex/research/hott/sessions/<SESSION_ID>/CORE_COGNITION_AUDIT.md` 保存全量表，覆盖当前 manifest 的每一条 KC，即使本轮没有触及它；同一 Session 还要保存四件套交叉和更新归属判断。旧 Session 的完整回评属于 archive 层，不自动进入下一次 load graph。每行至少写：
+每个实质研究、审计、代码、设计或文档单元都要在
+`.codex/research/hott/sessions/<SESSION_ID>/` 保存**分片审计集**：`CORE_COGNITION_AUDIT.md`
+是**逻辑文档索引**（`governance-shard-index:v2`），正文在同名目录的分片里。索引保留
+runtime 必需的 `SESSION_REQUIRED_FILES` 入口；必填字段（见下）写在索引，不散落分片。
+旧 Session 的完整审计属 archive 层，不自动进入下一次 load graph。旧的单文件全量表审计
+（2026-09-17 之前）是历史格式，不回改。
+
+### 5.1 审计对象与颗粒度
+
+- **核心认知**：当前 generation 的**每一条** KC（全量，不得遗漏），逐条给出五元组
+  `relation | 该条要求的工作姿态 | 已走过的路实际做了什么（含证据定位） | 论证：为什么是这个 relation | 对即将作出的选择的指令 + 反证条件`。
+- **扩展认知**（四件套第四件，AI 阐释层）：按**小节**（`##` 级）逐段落给出
+  `该段教的工作姿态 | 已走过的路是否在这个姿态上（证据） | 偏航诊断 | 对即将作出的选择的指令`。
+- **已走过的路**与**即将作出的选择**：各一个分片（见 5.3）。
+
+### 5.2 relation 词表与论证义务
+
+`relation_to_this_work` 只能从 `ALIGNED`、`DEEPENED`、`CORRECTED`、`TENSION`、`DEVIATED`、
+`NOT_TOUCHED` 选择。
+
+- **NOT_TOUCHED 不等于不写论证**：必须写清该条要求什么姿态、本单元为什么未触及、
+  **下一单元要做什么才会触及它**。
+- **TENSION / DEVIATED 必须带纠偏动作与回到航向的具体下一步**，不得只登记。
+- **每条必须带反证条件**：什么证据会让外部审计者把这个 relation 改判。缺失反证条件的
+  relation 判为不合规。
+- 判据是**论证是否可被证伪**，不是格式是否合规。把 46 条全写成 ALIGNED 的审计，即使
+  分片合规、论证齐备，仍是失败审计。机械校验只覆盖结构（ID 全量、无重复、分片表与
+  文件一致、证据定位存在），不能用关键词/相似度伪造语义回评。
+
+### 5.3 分片结构（命名可按单元调整，语义边界不得缺）
 
 ```text
-kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
+CORE_COGNITION_AUDIT.md                        # 索引：banner + 分片表 + 汇总计数 + 必填字段
+CORE_COGNITION_AUDIT/001 - 审计合同与证据基线.md
+CORE_COGNITION_AUDIT/002 - 核心认知逐条论证之一（KC-000001–KC-000024）.md
+CORE_COGNITION_AUDIT/003 - 核心认知逐条论证之二（KC-000025–KC-000046）.md
+CORE_COGNITION_AUDIT/004..006 - 扩展认知逐段落论证（按 shard 顺序）.md
+CORE_COGNITION_AUDIT/007 - 已走过的路：航向复盘.md
+CORE_COGNITION_AUDIT/008 - 即将作出的选择：偏航分析与裁决.md
 ```
 
-`relation_to_this_work` 只能从 `ALIGNED`、`DEEPENED`、`CORRECTED`、`TENSION`、`DEVIATED`、`NOT_TOUCHED` 选择。纯审计轮出现大量 `NOT_TOUCHED` 是诚实结果；发现 `DEVIATED` 时必须写明纠偏和回到航向的动作。脚本可以检查 ID 是否完整、重复和证据定位是否存在，但不能用关键词/相似度伪造语义回评。
+分片 007 必答：链路每一步响应了哪些 KC / 哪些扩展认知段落；有没有一步是用「分母内的
+干净穷举」替代了「发现」；累计 `unresolved` 里哪些是**结构性未闭合**，哪些只是时间未到。
 
-四件套交叉判断必须明确写出 `core_change`、`direction_change`、`panorama_change`、`essay_change`、`update_decision`、`cross_conflicts` 和 `unresolved`。其中 `core_change=YES` 仅适用于新的用户原文/用户明确改变工作意识；AI 研究结果只能更新方向、全景、长文和其底层 evidence owner；`essay_change=YES` 只表示 AI 阐释层被修订，永不提升为原文或数学结论。
+分片 008 是审计的**落点**，必答：当前 `next_minimal_verification` 的全部候选方向；
+每个方向由哪条 KC / 哪段扩展认知支持、可能违反哪条（给论证）；裁决（选哪个、为什么、
+放弃哪些及理由）；裁决的**反证条件**；被推翻时的回退路径。**若审计改变了下一单元的选择，
+必须先经 checkpoint 更新 STATE 的 `next_minimal_verification` 再执行**，不得审计归审计、
+执行归执行。
+
+### 5.4 四件套交叉判断
+
+必填字段写在索引：`core_change`、`direction_change`、`panorama_change`、`essay_change`、
+`update_decision`、`cross_conflicts`、`unresolved`。`core_change=YES` 仅适用于新的用户
+原文/用户明确改变工作意识（AI 研究结果只能更新方向、全景、长文与其底层 evidence owner）；
+`essay_change=YES` 只表示 AI 阐释层被修订，永不提升为原文或数学结论。
 
 ## 5.5 系统化探索的完备性回评
 

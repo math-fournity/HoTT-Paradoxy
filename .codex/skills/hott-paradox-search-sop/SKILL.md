@@ -2,7 +2,7 @@
 name: hott-paradox-search-sop
 description: 执行"用现实对齐寻找 HoTT 非现实前提"这条方案的 SOP。按步骤驱动 PREMISE-001 / GEN-001 链；每完成一个流程、以及每次穿越上下文压缩边界之后，系统调查前一个阶段或 Session 的工作是否应当调整和优化方案；每次方案优化必须立即 git 提交，使方案演化在 git log 中可追踪。
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   role: "execution"
   language: "zh-CN"
   plan_index: "Atria的方案/修订片.md"
@@ -10,7 +10,7 @@ metadata:
   state_index: ".codex/research/hott/STATE.json"
   governance_skill: "hott-local-session-governance"
   business_skill: "hott-paradox-research"
-  plan_core_shards: "修订片 003 / 006 / 007 / 008 / 009"
+  plan_core_shards: "修订片 003 / 006 / 007 / 008 / 009 / 020"
 ---
 
 # 方案执行与方案演化 SOP
@@ -71,14 +71,15 @@ AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT，不得自证为结论）；生效复核�
 审计（角色 D，用户安排，追溯性）；引擎在冻结文法上枚举/归约；原生核做校验，
 不得由 Python 枚举或普通 Lean Eq 替代（F-011）。
 
-**S-4 反思**：逐条回答 §5 的清单。不允许"总体良好"这种合并答复。
+**S-4 反思**：逐条回答 §5 的清单。不允许"总体良好"这种合并答复。反思的产出形态按**修订片 020**：CORE_COGNITION_AUDIT 是分片审计集（索引 + 分片），核心认知逐条五元组（含反证条件），扩展认知逐段落，加「已走过的路」与「即将作出的选择」两个分析分片。
 
 **S-5 裁决并分流**：
 - 若需调整方案 → 修订对应修订片/规程 → **立即 git 提交（见 §6）** → 若改动涉及投影或
   STATE，走 canonical checkpoint（`.codex/tools/cognition_runtime.py`），不得直接编辑 STATE。
 - 若不需调整 → 在本轮 dev-notes 明确登记"已审，无需调整"及理由，**避免后续重复审计**。
+- **若审计的「即将作出的选择」分片改变了下一单元的选择**（020 §5.3 分片 008）：必须先经 canonical checkpoint 更新 STATE 的 `next_minimal_verification` 再执行，不得审计归审计、执行归执行。改变选择的论证本身随 checkpoint 落盘，供外部审计追溯。
 
-**S-6 收尾**：dev-notes 归档 + 逐 KC 回评（沿用治理 Skill §5）。
+**S-6 收尾**：dev-notes 归档 + 按**修订片 020** 产出分片审计集（沿用治理 Skill §5，2026-09-17 起取代单文件逐 KC 回评）。审计集与本单元产出同一次提交或同一次 checkpoint 事务落盘。
 
 **S-7 推进步骤指针**：更新 STATE（经 checkpoint）与 `goal-1.md` 的"当前步骤"段。
 
@@ -112,6 +113,7 @@ AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT，不得自证为结论）；生效复核�
 6. **被后续修正推翻**：前一阶段/Session 的方案前提，有没有被核心认知的新 generation
    （如 KC-000044–046 的认识论修正）推翻？若有，对应修订片必须原位改写并提交。
 7. **漂移累积**：距上一次 `plan-revise` 之间，是否累积了本应一起处理的方案漂移？
+8. **工作姿态偏航（020）**：扩展认知教的姿态——先发现后归因、ASK 先于真值、现实对齐在解释断裂处停下、把知识谱当对象而非权威——在本单元是否真的被执行了？还是只被引用了？下一单元的选择是在这些姿态上作出的，还是在熟悉通道的惯性上作出的（KC-000043 的符号翻转）？若只是引用，必须写入审计的「即将作出的选择」分片并转化为下一单元的具体动作。
 
 每条给出**证据**（文件/行、commit、运行收据）或明确标"无证据、仅判断"。
 
@@ -155,8 +157,9 @@ PLAN_REVISION_DIVERGENCE
 
 ## 8. 与另外两个 Skill 的分工（不重叠）
 
-- `hott-local-session-governance`（治理）：Session 启动闭包、四件套加载、逐 KC 回评、
-  checkpoint 纪律。**本 Skill 消费其结果，不重复。**
+- `hott-local-session-governance`（治理）：Session 启动闭包、四件套加载、分片审计集
+  （修订片 020：核心认知逐条论证 + 扩展认知逐段落 + 已走路 + 未来选择）、checkpoint 纪律。
+  **本 Skill 消费其结果，不重复。**
 - `hott-paradox-research`（业务）：候选的生成、构造、形式化、机器核验本身。
   **本 Skill 不做研究，只驱动"下一步是哪一步、走完要不要改方案"。**
 - 本 Skill（执行）：步骤驱动 + 反思循环 + 方案演化 git 纪律。
