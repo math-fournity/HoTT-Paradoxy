@@ -782,3 +782,35 @@ inhabited×2 / disjoint / rounded→→ / located；roundedL← 与 roundedU← 
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-GOLD-FULL | 在纯 Cubical Agda 中：(1) `·-mono-≤-nn : (k a b : ℚ) → 0r ≤ k → a ≤ b → k·ℚa ≤ k·ℚb` 与 `·-mono-<-nn : 0r < k → a < b → k·ℚa < k·ℚb`；(2) 勘误版谓词 `L q := (q<0r) ⊎ ((0r≤q)×(q··ℚq<2r))`、`U q := (0r<q)×(2r<q··ℚq)` 均为 hProp 值（`Lₚ`/`Uₚ`）；(3) Book §11.2 四条件 **全部** 机器检查通过——inhabitedL、inhabitedU、disjoint（`L q → U r → q < r`）、rounded 双向（`roundedL→`/`roundedU→` 与 **`roundedL←`/`roundedU←`**：`L q → ∃ p, q<p × L p`、`U r → ∃ q, q<r × U q`，δ 内在路线，U 侧 `q := r - (r·r-2r)·¼r`）、located（`q<r → L q ⊎ U r`，eq 支消费 `√2-irrational`）。 | `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED`（commit `f2fd012`） | run `20260918-MP-DEDEKIND-OMEGA-GOLD-02/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0，duration 73.2s）与收据五件套；`source-manifest.json` 固定 CutGoldForm/CutInfra/DESIGN/compile.sh 哈希；GOLD-01 保留为部分装配期历史收据。 | **边界**：(a) 这是 **ℚ 层单个 cut（√2）** 的四条件构造，**不**声称 Book §11.2 意义下「实数完备性」「ℝ 不可达」或任何 ℝ 层命题——把 cut 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的下一升格仍需 LEM 或 propositional resizing（DESIGN §4 登记的收费位置，未机械化）；(b) **不**声称 HoTT/立方类型论内部矛盾或不一致；(c) `rounded←` 的 witness 是 ℚ 层显式 δ 项，**不**依赖代表元选择；(d) registers_new_claim:false——ℚ 层标准可构造计算，非 HoTT 元定理，不依赖 univalence / HIT 特有规则。 |
+## 追加登记：MP-DEDEKIND-OMEGA-TA-AC（靶 A·AC 格 stuckness 演示，2026-09-17 收据 / 2026-09-18 补登记）
+
+来源：修订片 027 §2.2（显式化 surface）+ §3.2 打法原则 +
+`MissileFourChargeDemo.agda`（收费演示二：AC 格）+ `ALIGNMENT-MATRIX-F2.md` 的
+F2-4 格。源码、双探针与收据五件套随 commit `9be3cbe` 入库；**矩阵行此前缺失**
+（收据 `RUN.json` 的 `index_status: INDEXED_IN_CLAIM_EVIDENCE_MATRIX` 未兑现），
+本节为补登记。`registers_new_claim:false`——元层工具检查记录（META_TOOL），
+不冒充对象层定理（027 §4 拒证二元性）。
+
+| proof_id | claim_id | 源码 / 包 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-TA-AC` | `CAND-F2-7-TA-AC` | `formal/dedekind-omega-missile/MissileFourChargeDemo.agda`（postulate `P : ℕ → ℕ → Set` + `ch : (n : ℕ) → Σ[ k ∈ ℕ ] P n k`；闭项 `n-ac = ch 0 .fst`）+ 探针双件 `MissileFourTargetA-ProbeACZero.agda` / `MissileFourTargetA-ProbeACSuc.agda` | runs `20260917-MP-DEDEKIND-OMEGA-TA-AC-01`（`n-ac ≡ zero` 的 refl 被核拒绝，exit 1 记录值，**预期失败即收据**）／`-02`（`n-ac ≡ suc zero` 被拒）；错误消息分别打印中性卡住范式 `ch 0 .fst != zero` / `ch 0 .fst != 1`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --guardedness`（刻意无 `--safe`：postulate 注入是演示内容本身，非工程疏忽） | `META_NEGATIVE_CHECK_AS_EXPECTED / AC_AXIOM_STUCKNESS_DEMONSTRATED_NOT_OBJECT_PROOF_NOT_INCONSISTENCY`（证据随 commit `9be3cbe` 入库；未 push，非 VERSION_CLOSED） |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-TA-AC | AC 格（公理化选择函数 `ch : (n : ℕ) → Σ[ k ∈ ℕ ] P n k` 以 postulate 注入，无计算规则）下，闭 ℕ 项 `n-ac = ch 0 .fst` 的范式为中性卡住形态——内核对 `n-ac ≡ zero`（TA-AC-01）与 `n-ac ≡ suc zero`（TA-AC-02）的 refl 均判不可互换，错误消息分别含 `MissileFourChargeDemo.ch 0 .Cubical.Foundations.Prelude.fst != zero` 与 `!= 1`。与 TA（UA 格，`9d4b3c5`）同法的 stuckness 演示，构成 027 §2.2「显式化 surface」的第二个机械实例。 | `META_NEGATIVE_CHECK_AS_EXPECTED`（commit `9be3cbe`） | runs `…-TA-AC-01/02` 的 `RUN.json`（`META_NEGATIVE_CHECK_AS_EXPECTED`，stderr 0）、`stdout.txt`（内核拒绝消息 + 中性范式）、`source-manifest.json`（固定 ProbeACZero / ProbeACSuc / ChargeDemo / TOOLCHAIN / AGDA_LIBRARIES 哈希）。**收据完整性注**：当前机器按 `command_argv` 重放 TA-AC-01，stdout/stderr 与收据**逐位一致**（431B，sha256 `f7b37d65…`），但退出码观察为 42 而收据字段记 1——内核拒绝证据完全可复现，仅 exit_code 整数字段为记录偏差（同见的还有 TA-03/04）；不予改写历史收据，在此如实登记。 | **不**声称 HoTT 不一致（公理注入导致的非规范是已知元定理现象，非矛盾，027 §8）；**不**声称「不可归约」已被内部证明——本包是**负向探针**（refl 被核拒绝）+ 内核亲自打印卡住范式，不是对象层 `¬ (n-ac ≡ zero)` 的证明（027 §4 拒证二元性）；**不**声称覆盖全部显式假设收费形态（LEM 格见下节 `MP-DEDEKIND-OMEGA-TA-LEM`，UA 格见 `CAND-F2-7-TA`，Huber 完整结果仍为 `SOURCE_REPORTED_NOT_REPLAYED`）；exit≠0 是**预期失败即收据**，非工程失败；`registers_new_claim:false`。 |
+
+## 追加登记：MP-DEDEKIND-OMEGA-TA-LEM（靶 A·LEM 格 stuckness 演示，2026-09-18）
+
+来源：修订片 027 §2.2（显式化 surface）+ `MissileFourChargeDemo.agda`（收费演示一：
+LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受闭的 ℕ 项 n-lem / n-ac——
+但这两个项的头部符号是公理应用」），AC 格已有探针收据而 **LEM 格无收据**——
+本轮（四弹全面审计）发现并补齐：两个负向探针分别核判 `n-lem` 不归约到 `zero` /
+`suc zero`。与 TA（UA 格）/ TA-AC（AC 格）完全同法。`registers_new_claim:false`。
+
+| proof_id | claim_id | 源码 / 包 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-TA-LEM` | `CAND-F2-7-TA-LEM` | `formal/dedekind-omega-missile/MissileFourChargeDemo.agda`（postulate `LEM : (A : Set) → A ⊎ (A → ⊥)`；闭项 `n-lem` 由 `with LEM ℕ` 的分支定义）+ 探针双件 `MissileFourTargetA-ProbeLEMZero.agda` / `MissileFourTargetA-ProbeLEMSuc.agda` | runs `20260918-MP-DEDEKIND-OMEGA-TA-LEM-01`（`n-lem ≡ zero` 的 refl 被核拒绝，exit 42，**预期失败即收据**）／`-02`（`n-lem ≡ suc zero` 被拒，exit 42）；`--ignore-interfaces` 全量复检形态（与 M1-04/M2-01/GOLD-02 同款确定性可重放 argv）；错误消息分别打印中性卡住范式 `n-lem \| MissileFourChargeDemo.LEM ℕ != zero` 与 `!= 1`（头部 = 公理化 LEM 应用的 with 归约）；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --guardedness`（刻意无 `--safe`：postulate 注入是演示内容本身，非工程疏忽） | `META_NEGATIVE_CHECK_AS_EXPECTED / LEM_AXIOM_STUCKNESS_DEMONSTRATED_NOT_OBJECT_PROOF_NOT_INCONSISTENCY`（证据随本轮提交入库；未 push，非 VERSION_CLOSED） |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-TA-LEM | LEM 格（公理化排中律 `LEM : (A : Set) → A ⊎ (A → ⊥)` 以 postulate 注入，无计算规则）下，闭 ℕ 项 `n-lem`（`with LEM ℕ` 分支归约）的范式为中性卡住形态——内核对 `n-lem ≡ zero`（TA-LEM-01）与 `n-lem ≡ suc zero`（TA-LEM-02）的 refl 均判不可互换。与 TA-AC（AC 格，`9be3cbe`）/ TA（UA 格，`9d4b3c5`）结构对称，三者合取 = 027 §2.2「显式化 surface」三类公理注入的 stuckness 机械演示。 | `META_NEGATIVE_CHECK_AS_EXPECTED`（本轮提交） | runs `…-TA-LEM-01/02` 的 `RUN.json`（`META_NEGATIVE_CHECK_AS_EXPECTED`，exit 42，stderr 0）、`stdout.txt`、`environment.txt`、`source-manifest.json`（固定 ProbeLEMZero / ProbeLEMSuc / ChargeDemo / TOOLCHAIN / AGDA_LIBRARIES 哈希）。**可重放性已现场双重验证**：按 `RUN.json` 的 `command_argv`（`/usr/bin/env` + XDG 环境 + `--ignore-interfaces`，自包含、不依赖接口缓存状态）从仓库根独立重放两次，exit / stdout / stderr 与收据**逐位一致**（stdout 3117B / 3108B，exit 42）。 | **不**声称 HoTT 不一致（公理注入导致的非规范是已知元定理现象，非矛盾，027 §8）；**不**声称「不可归约」已被内部证明——本包是**负向探针**（refl 被核拒绝）+ 内核亲自打印卡住范式，不是对象层 `¬ (n-lem ≡ zero)` 的证明（027 §4 拒证二元性）；**不**声称 LEM 的对象层后果（M3 的 `LEMᵒ` 假设用法与 M3-UNC 的去条件化仍是对象层收据，本包仅在元层演示 canonicity 收费）；exit≠0 是**预期失败即收据**，非工程失败；`registers_new_claim:false`。 |
