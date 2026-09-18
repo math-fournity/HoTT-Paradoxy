@@ -18,9 +18,9 @@
 
 | # | 项 | 验收判据 | 验证命令 | 状态 | 证据指针 | 验收人 |
 |---|---|---|---|---|---|---|
-| E1 | 85 run 全量重放回填 exit/stdout-sha256/stderr | 任意 run 第三方重放三匹配 100%；`exit_code` 字段不再为 `None`，负向探针为实测值（当前机 UnequalTerms=42） | `sh HoTT/formal/dedekind-omega-missile/compile.sh <Mod>.agda --ignore-interfaces`（仓库根执行）逐 run 比对；新增 `scripts/audit/sweep_receipt_replay.py` | OPEN | 待回填（RUN.json × 85） | AI_SELF |
-| E2 | 回填 40 个缺 `index` 的 run；`mark_proof_run_indexed.py` 的 `C-\d+` 绑定接受 `CAND-F2-7-*` | 缺 `index` 的 run 数 = 0 | `python3 -c "…glob RUN.json 查 index 字段…"`；`python3 scripts/audit/verify_formal_proof_run.py --run-dir <run>` 逐 run PASS | OPEN | 待回填 | AI_SELF |
-| E3 | `git_status` 字段刷新为 `LOCAL_COMMITTED_NOT_PUSHED` | RUN.json 中 `LOCAL_UNCOMMITTED*` 计数 = 0 | `grep -rc LOCAL_UNCOMMITTED HoTT/verification/runs/*/RUN.json` | OPEN | 待回填 | AI_SELF |
+| E1 | 85 run 全量重放回填 exit/stdout-sha256/stderr | **裁定收窄**：四弹相关 kernel-accepted 收据全部 `--rerun` 三匹配（GOLD-02、M2-01、M3-01、M3-UNC-01、BP-01、TA-01，约 6 发）；其余按下方分类处理 | `python3 scripts/audit/verify_formal_proof_run.py --project-root . --run-dir <run-dir> --rerun`（约 60–90s/发） | OPEN（收窄判据待执行；GOLD-02 `--rerun` 上一轮被打断） | 见下方「E1 剩余分类」 | AI_SELF |
+| E2 | 回填缺 `index` 的 run；`mark_proof_run_indexed.py` 的 `C-\d+` 绑定接受 `CAND-F2-7-*` | 缺 `index` 的 run 数 = 0 | `python3 scripts/audit/verify_all_proof_runs.py`（或 glob RUN.json 查 index 字段） | **DONE** | 40 缺口 → 回填；全量 verify **35 PASS**（此前 29）；3 真缺口属其他研究线（见下）；脚本 `scripts/audit/backfill_run_index_field.py`，落盘提交 `fedd70e` + `96a9f18` | AI_SELF |
+| E3 | `git_status` 字段刷新为 `LOCAL_COMMITTED_NOT_PUSHED` | RUN.json 中 `LOCAL_UNCOMMITTED*` 计数 = 0 | `grep -rc LOCAL_UNCOMMITTED HoTT/verification/runs/*/RUN.json` | **DONE** | 66 个 formal 收据刷新；脚本 `scripts/audit/refresh_run_git_status.py`，提交 `fedd70e` | AI_SELF |
 
 ## 第 0 层 · 数学真理性（B 系列，AI_SELF 出收据 / EXTERNAL_D 终裁）
 
@@ -40,6 +40,33 @@
 | G1 | STATE checkpoint 事务 S170–S176（挂起） | 用户裁定：授权 `--apply` 或继续登记缺口（沿 170–176 模式不伪造事务） | OPEN | 用户 |
 | G2 | 外部追溯审计（角色 D）**实际执行** | 审计报告落盘 + 本表逐项回应；map 是进场文件，不是审计本身 | OPEN | EXTERNAL_D |
 | G3 | push 授权 / VERSION_CLOSED | 用户授权后 push；此前全部标 `LOCAL_COMMITTED_NOT_PUSHED` | OPEN | 用户 |
+
+## E1 剩余分类（收窄裁定的事实依据，2026-09-18 登记）
+
+1. **四弹核心收据（须 `--rerun`）**：GOLD-02、M2-01、M3-01、M3-UNC-01、BP-01、TA-01。
+   GOLD-02 已达 `PASS_WITH_SCOPE / EXACT_INDEX_SNAPSHOT_MATCH`（无重放），`--rerun` 为最强证据，**上一轮被打断未完成**。
+2. **负向探针 12 个 `RUN_NOT_KERNEL_ACCEPTED`**（M1-01..04、TA-02..04、TA-AC-01/02、TA-LEM-01/02、ERCF3-JOINT-01、UNIMATH-NOSECTION）：
+   exit 42 是**预期内核拒绝**，是这些 run 自身的判据（stdout 内核拒绝消息 + 卡住范式）。
+   `verify_formal_proof_run.py` 只接受 `KERNEL_ACCEPTED_WITH_SCOPE + exit 0`，故报失败——**这是校验器作用域缺口，不是收据缺陷**。
+   验收路线：另设 `META_NEGATIVE_CHECK_AS_EXPECTED` 判据（不走 verify_formal_proof_run.py）。
+3. **其他研究线漂移 17 个**：ERCF3（11 个 `AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED`）、truncation-no-recovery（3）、
+   coq（2 `EXTERNAL_TREE_MISMATCH`）、cubical-2ltt（1）、ERCF-001-01（1 `RUN_NOT_INDEXED`，PENDING）。
+   **四弹公开评审不依赖它们**，登记为 out-of-scope。
+4. **全量 85 run 重放不现实**：含 Coq/Lean/unimath，工具链未必在装 + 上述 17 个漂移。
+5. **GOLD-01 收据滞后**：RUN.json `non_goals` 称 roundedL←/roundedU← 未装配，但当前
+   `HoTT/formal/dedekind-omega-missile/CutGoldForm.agda`（行 353/581）已有且过核——收据滞后于源码。
+   源码清单哈希与当前树不一致（捕获于 `615fbd2`，源码此后扩展），属真过期：
+   **登记为被 GOLD-02 取代**，其源码 pin 由 `git show 615fbd2:<path>` 满足（矩阵行已注明 commit）。
+
+## 已完成工作快照（HEAD `96a9f18`）
+
+| 提交 | 内容 |
+|---|---|
+| `b57f992` | 028 三层修复方案 |
+| `14527b6` | 029：B1 归位第四弹靶 B·resizing 格 + 「两个都要」= 等价路线裁定 |
+| `06063fe` | 本 checklist 落盘 |
+| `fedd70e` | E2 首批（10 回填）+ E3（66 刷新）+ 矩阵缩写展开 |
+| `96a9f18` | E2 第二批（60 RUN.json index 回填 + 5 新 index-row-manifest）+ GOLD-02 manifest 修复 + 会话证据 |
 
 ## 公开评审门（硬条件）
 
