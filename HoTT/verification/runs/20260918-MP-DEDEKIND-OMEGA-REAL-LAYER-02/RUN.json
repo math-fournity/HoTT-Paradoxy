@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-REAL-LAYER"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/CutRealLayer.agda"
+  ],
+  "completed_at_utc": "2026-09-18T17:39:42.637748+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 47.074697,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "(b) 诊断绕过（B1b）与 (b′) 必要性（B1b′）未证；Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ 维持 CONJECTURE（029 §2 降格条款），(b′) 证出前不以「击落/不可免费/等价定理已证」交付",
+    "不声称 LEM/resizing 必要性已证；不声称 SingleOmega 与 PropResizing 的蕴含/等价方向已论证（B0 深化遗留）；不声称 HoTT 不一致",
+    "registers_new_claim:false——B1a 是已登记 claim CAND-F2-7-REAL-LAYER 的证明推进，非新数学主张；证明形态为「假设作为显式前提的纯构造性蕴含」，偏离 checklist 原计划的 postulate 形态并已登记该偏离"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-REAL-LAYER",
+  "run_id": "20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level）中证明 Book §11.2「ℝ 层」(a) 充裕性方向（B1a）：sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ。构造：代理空间 DedekindReals*（载体 (ℚ→Ω*)×(ℚ→Ω*) 活在 ℓ 层，纤维经 e 逐点搬运到 hProp ℓ 后取截断勘误版 dcut）；isSetDCut / DedekindReals-isSet / DedekindReals*-isSet 全部内核检查；载体 iso 为显式逐点 λ 书写（纯 β 可归约）；跨层 Σ-cong 用自克隆 Σ-cong-iso-fst-cross（库版把 A A' 钉同层，2026-09-18 实测报 UnequalLevel）；R-≃-RD = isoToEquiv (Σ-cong-iso-fst-cross carrier-iso)。无 postulate，收费假设 SingleOmega 作为显式前提在场。含 B0 两项陈述勘误后的全部声明：dcut 存在量词改命题截断 ∥_∥₁；Sufficiency 付费假设由 PropResizing 收窄为 SingleOmega（B0 深化，见 CLAIM-PACKAGE-REAL-LAYER.md 勘误节）。",
+  "source_manifest": {
+    "bytes": 2509,
+    "path": "source-manifest.json",
+    "sha256": "f71cad458c18df9d2ccae3622413700b53e1a1f3626e4570855fa834ff5ea331"
+  },
+  "started_at_utc": "2026-09-18T17:38:55.563051+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18094,
+    "path": "stdout.txt",
+    "sha256": "76a392e77bd0668c4c43c69fa21970b907b8b2934f8beb23bf13b2185b287666"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

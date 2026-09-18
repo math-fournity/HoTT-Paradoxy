@@ -9,8 +9,8 @@
 --   （「单一命题类型 Ω」的四种取法 + Defn 11.2.1 四条件），
 --   全文转写与逐字核对登记于 CLAIM-PACKAGE-REAL-LAYER.md §1。
 --
--- 本模块只声明命题形态（类型），不证明 Sufficiency / Necessity：
---   (a)  充裕性 → B1a；   (b) 诊断绕过 → B1b；   (b′) 必要性 → B1b′ 或降格。
+-- 本模块钉死「收费命题」的精确形态（B0），并证明 (a) 充裕性 sufficiency
+-- （B1a，§7.6，kernel-checked）；(b) 诊断绕过 → B1b；(b′) 必要性 → B1b′ 或降格。
 --
 -- 边界（不漂移）：不声称 HoTT 不一致；不声称等价定理已证；
 --   (b′) 未证前不以「击落 / 不可免费」交付（029 §2 降格条款）。
@@ -23,9 +23,13 @@ open import Cubical.Foundations.HLevels
   using (hProp; isSetHProp; isProp×; isPropΣ; isPropΠ; isProp→; isPropIsSet
          ;isSet×; isSetΣ; isSetΣSndProp; isSetΠ; isOfHLevel≃)
 open import Cubical.Foundations.Equiv
-  using (_≃_; equivFun; invEquiv; invEq; secEq; retEq)
+  using (_≃_; equivFun; invEq; secEq; retEq)
+open import Cubical.Foundations.Equiv.HalfAdjoint
+  using (isHAEquiv; iso→HAEquiv)
+open import Cubical.Foundations.GroupoidLaws using (lCancel)
+open import Cubical.Foundations.Transport using (substComposite)
 open import Cubical.Foundations.Isomorphism using (Iso; isoToEquiv)
-open import Cubical.Data.Sigma.Properties using (Σ-cong-equiv-fst)
+open import Cubical.Data.Sigma.Properties using (ΣPathP)
 open import Cubical.Data.Sigma using (_×_; _,_; fst; snd)
 open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
 open import Cubical.Data.Sum.Properties using (isProp⊎; isSet⊎)
@@ -189,23 +193,56 @@ DedekindReals*-isSet ℓ (Ω* , Ω*-set , e) =
   isSetΣ (isSet× (isSetΠ (λ _ → Ω*-set)) (isSetΠ (λ _ → Ω*-set)))
          (λ LU → isSetDCut (λ q → equivFun e (fst LU q)) (λ q → equivFun e (snd LU q)))
 
--- 7.5 Π 上的等价同余（库无现成组合子，自建）：
---      由 B ≃ B' 得到 (A → B) ≃ (A → B')。
-Π-cong-≃ : {ℓ : Level} {A : Type₀} {B B' : Type ℓ}
-         → (B ≃ B') → ((A → B) ≃ (A → B'))
-Π-cong-≃ {ℓ} {A} {B} {B'} eq = isoToEquiv theIso
+-- 7.5 跨层 Σ-cong（Iso 版，自建）：
+--      库的 Σ-cong-iso-fst / Σ-cong-equiv-fst 经其 private variable 块把
+--      A A' 钉在同一层级，而本证明的载体等价跨层（Ω* : Type ℓ 而
+--      hProp ℓ : Type (ℓ-suc ℓ)），直接使用报 UnequalLevel（2026-09-18
+--      实测）。此处按 cubical v0.9 Cubical.Data.Sigma.Properties 的
+--      Σ-cong-iso-fst 原实现克隆，仅放开 A A' 层级；coherence 由
+--      iso→HAEquiv 的 com-square 承担（isoToEquiv 本身跨层，已探针验证）。
+Σ-cong-iso-fst-cross :
+  {ℓA ℓA' ℓB : Level} {A : Type ℓA} {A' : Type ℓA'} {B : A' → Type ℓB}
+  (isom : Iso A A') → Iso (Σ A (λ x → B (Iso.fun isom x))) (Σ A' B)
+Iso.fun (Σ-cong-iso-fst-cross isom) x =
+  Iso.fun isom (fst x) , snd x
+Iso.inv (Σ-cong-iso-fst-cross {B = B} isom) x =
+  Iso.inv isom (fst x) , subst B (sym (ε (fst x))) (snd x)
   where
-  theIso : Iso (A → B) (A → B')
-  Iso.fun theIso f q = equivFun eq (f q)
-  Iso.inv theIso g q = invEq eq (g q)
-  Iso.rightInv theIso g i q = secEq eq (g q) i
-  Iso.leftInv theIso f i q = retEq eq (f q) i
+  ε = isHAEquiv.rinv (snd (iso→HAEquiv isom))
+Iso.rightInv (Σ-cong-iso-fst-cross {B = B} isom) (x , y) =
+  ΣPathP (ε x , toPathP goal)
+  where
+  ε = isHAEquiv.rinv (snd (iso→HAEquiv isom))
+
+  goal : subst B (ε x) (subst B (sym (ε x)) y) ≡ y
+  goal = sym (substComposite B (sym (ε x)) (ε x) y)
+      ∙∙ cong (λ x → subst B x y) (lCancel (ε x))
+      ∙∙ substRefl {B = B} y
+Iso.leftInv (Σ-cong-iso-fst-cross {A = A} {B = B} isom) (x , y) =
+  ΣPathP (Iso.leftInv isom x , toPathP goal)
+  where
+  ε = isHAEquiv.rinv (snd (iso→HAEquiv isom))
+  γ = isHAEquiv.com (snd (iso→HAEquiv isom))
+
+  lem : (x : A) → sym (ε (Iso.fun isom x)) ∙ cong (Iso.fun isom) (Iso.leftInv isom x) ≡ refl
+  lem x = cong (λ a → sym (ε (Iso.fun isom x)) ∙ a) (γ x)
+        ∙ lCancel (ε (Iso.fun isom x))
+
+  goal : subst B (cong (Iso.fun isom) (Iso.leftInv isom x))
+           (subst B (sym (ε (Iso.fun isom x))) y) ≡ y
+  goal = sym (substComposite B (sym (ε (Iso.fun isom x)))
+                   (cong (Iso.fun isom) (Iso.leftInv isom x)) y)
+      ∙∙ cong (λ a → subst B a y) (lem x)
+      ∙∙ substRefl {B = B} y
 
 -- 7.6 充裕性主证明。
---      载体等价 carrier-≃ : (ℚ → Ω*) × (ℚ → Ω*) ≃ (ℚ → ΩOf ℓ) × (ℚ → ΩOf ℓ)
---      由 e 逐点应用（积的 Σ-cong-equiv-fst + Π-cong-≃ 组合）。
---      R-≃-RD 由 Σ-cong-equiv-fst 直接得到（纤维在载体等价下同步，
---      与 DedekindReals* 的定义一致：dcut (λ q → equivFun e (fst LU q)) ...）。
+--      载体 iso carrier-iso 把 e 逐点应用到 (L , U)；其 fun/inv 用显式
+--      λ 书写，使 Σ-cong-iso-fst-cross 定义域中的纤维 (B ∘ Iso.fun
+--      carrier-iso) 在绑定变量上纯 β 归约到 DedekindReals* 的定义形态
+--      （不依赖函数 η 或 copattern 展开——库组合子 Σ-cong-equiv-fst
+--      的前向函数对变量卡住，这是其不可用的第二原因）。
+--      R-≃-RD 是跨层等价：R : Type ℓ 而 DedekindReals ℓ : Type (ℓ-suc ℓ)，
+--      这正是收费陈述本身（低层集合与高层构造等价）。
 sufficiency : (ℓ : Level) → Sufficiency ℓ
 sufficiency ℓ so@(Ω* , Ω*-set , e) = R , (R-set , R-≃-RD)
   where
@@ -215,16 +252,22 @@ sufficiency ℓ so@(Ω* , Ω*-set , e) = R , (R-set , R-≃-RD)
     R-set : isSet R
     R-set = DedekindReals*-isSet ℓ so
 
-    -- Π 逐点等价
-    Π-≃ : (ℚ → Ω*) ≃ (ℚ → ΩOf ℓ)
-    Π-≃ = Π-cong-≃ e
+    -- 载体 iso：(ℚ → Ω*) × (ℚ → Ω*) 与 (ℚ → ΩOf ℓ) × (ℚ → ΩOf ℓ) 之间
+    carrier-iso : Iso ((ℚ → Ω*) × (ℚ → Ω*)) ((ℚ → ΩOf ℓ) × (ℚ → ΩOf ℓ))
+    Iso.fun carrier-iso LU =
+      (λ q → equivFun e (fst LU q)) , (λ q → equivFun e (snd LU q))
+    Iso.inv carrier-iso LU =
+      (λ q → invEq e (fst LU q)) , (λ q → invEq e (snd LU q))
+    Iso.rightInv carrier-iso LU =
+      ΣPathP (funExt (λ q → secEq e (fst LU q))
+              , funExt (λ q → secEq e (snd LU q)))
+    Iso.leftInv carrier-iso LU =
+      ΣPathP (funExt (λ q → retEq e (fst LU q))
+              , funExt (λ q → retEq e (snd LU q)))
 
-    -- 积（= Σ 的特例）等价
-    carrier-≃ : (ℚ → Ω*) × (ℚ → Ω*) ≃ (ℚ → ΩOf ℓ) × (ℚ → ΩOf ℓ)
-    carrier-≃ = Σ-cong-equiv-fst Π-≃
-
-    -- 代理空间 ≃ DedekindReals ℓ：
-    -- Σ-cong-equiv-fst 的左侧 Σ A (B ∘ equivFun e) 与 DedekindReals* 的定义
-    -- 在定义上相等（equivFun carrier-≃ 的 fst/snd 为逐点应用）。
+    -- 代理空间 ≃ DedekindReals ℓ：Σ-cong-iso-fst-cross 的定义域
+    -- Σ ((ℚ→Ω*)×(ℚ→Ω*)) ((λ LU → dcut (fst LU) (snd LU)) ∘ fun carrier-iso)
+    -- 经 β 归约恰为 DedekindReals* ℓ so 的定义（B 由Expected codomain
+    -- 与 DedekindReals ℓ 的统一解出）。
     R-≃-RD : R ≃ DedekindReals ℓ
-    R-≃-RD = Σ-cong-equiv-fst carrier-≃
+    R-≃-RD = isoToEquiv (Σ-cong-iso-fst-cross carrier-iso)

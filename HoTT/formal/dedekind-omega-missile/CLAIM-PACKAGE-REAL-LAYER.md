@@ -1,9 +1,9 @@
-# CLAIM-PACKAGE-REAL-LAYER（B0 · 陈述精确化）
+# CLAIM-PACKAGE-REAL-LAYER（B0 陈述精确化 + B1a 充裕性证明）
 
-> claim id : `CAND-F2-7-REAL-LAYER`（candidate；`registers_new_claim:false`——本包只钉死命题形态并登记可行性裁定，不交付已证主张）
-> proof id : `MP-DEDEKIND-OMEGA-REAL-LAYER`（**statement 阶段**：`CutRealLayer.agda` 过核 `AGDA_EXIT=0`，全部声明被编译器接受为类型；**尚无 Sufficiency / Necessity 的证明**）
+> claim id : `CAND-F2-7-REAL-LAYER`（candidate；`registers_new_claim:false`——本包钉死命题形态、登记可行性裁定并证明 (a) 方向，不交付 (b′) 未证主张）
+> proof id : `MP-DEDEKIND-OMEGA-REAL-LAYER`（**statement + B1a 证明阶段**：`CutRealLayer.agda` 过核 `AGDA_EXIT=0`；(a) 充裕性 `sufficiency` 已证（run `-02`），run `-01` 的源 hash 因 §3-E 两项勘误过期；**(b) / (b′) 尚无证明**）
 > 任务来源：修订片 029 §4.1（第一前置任务：陈述精确化，不可跳过）。
-> 验收仪器：`HoTT/verification/REMEDIATION-CHECKLIST-20260918.md` 的 B0 行。
+> 验收仪器：`HoTT/verification/REMEDIATION-CHECKLIST-20260918.md` 的 B0 / B1a 行。
 
 ---
 
@@ -130,23 +130,66 @@ $\UU_{i+1}$」（取法 1 = 层级追踪，免费但上升），而「single typ
 
 ---
 
-## §4 后续（B1 执行规格，按 029 §4 顺序）
+## §3-E 勘误（2026-09-18，两项 B0 陈述修正 + B1a 完成）
 
-1. **B1a（充裕性）**：证明 `Sufficiency ℓ = PropResizing ℓ → ℝLayerAt ℓ`
-   （`compile.sh CutRealLayer.agda` 补 `Sufficiency` 的构造子；run + 矩阵行）。
-   预期形态：由 `PropResizing ℓ` 取 `Ω := Σ[ B ∈ Type ℓ ] ...` 的小型化代理，
-   把 `DedekindReals ℓ` 的 carrier 塌缩到 `ℓ` 层。**不预设可行，逐段编译。**
+B0 收据（run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01`，提交 `a7eeab4`）固定的源码
+在后续工作（提交 `b9b2e8c` 起）中发生**两项陈述层修正**。两者均使 `-01` 的
+`source-manifest.json` 源 hash 过期；修正后的全部陈述由 run
+`20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02`（B1a 证明体全量重查）背书。
+
+**勘误 1 · `dcut` 存在量词忠实化（命题截断）**。
+Book §11.2 Defn 11.2.1 逐字原文的 `\exis` 在 HoTT 中是命题截断（`∥_∥₁`），而
+B0 版 `dcut` 的 inhabited×2 / rounded×2 写成了裸 `Σ`。这不忠实，且对非平凡 cut
+不可满足：向下封闭的 `L` 有无穷多 `r > q` 见证，裸 `Σ` 非 mere proposition，
+却被 rounded 的 `≃`（props 之间的等价）强制为 prop。修正后六分量皆 mere
+proposition 或 set（located 的 `L q ⊎ U r` 在 `q < r` 时可同时成立——`q < x < r`——
+故是 set 而非 prop，用 `isSet⊎`），「Dedekind reals form a set」由 `isProp→isSet` /
+`isSetΣ` 链得到（`isSetDCut`、`DedekindReals-isSet`）。
+
+**勘误 2 · `Sufficiency` 付费假设深化（`PropResizing ℓ →` 改 `SingleOmega ℓ →`）**。
+B0 版把 (a) 的付费假设定为 pointwise `PropResizing ℓ`。深化裁定：pointwise
+resizing（搬单个 prop 到基层级）**不蕴含** `SingleOmega ℓ`（整个 `hProp ℓ` 塌缩到
+ℓ 层的 set）；Book §11.2 取法 2 原文「assume the propositional resizing axiom …
+which essentially collapses the $\prop_{\UU_i}$'s to the lowest level, which we
+call $\Omega$」的忠实形态是「存在低层级 Ω」，即 `SingleOmega`。故充裕性的付费假设
+收窄为 `SingleOmega ℓ`（与 (b′) 的 `Necessity` 目标对称）；`PropResizing` 保留为
+公理候选登记，二者蕴含/等价方向**未论证**（遗留）。`Necessity` 侧不受影响（B0 时
+已是 `ℝLayerAt ℓ → SingleOmega ℓ`）。本包 §4.1 的旧表述
+「证明 `Sufficiency ℓ = PropResizing ℓ → ℝLayerAt ℓ`」自本节起废止。
+
+**B1a 完成（同一 run `-02`）**：`sufficiency : (ℓ : Level) → SingleOmega ℓ →
+ℝLayerAt ℓ` 已过核（`--safe --cubical`，exit 0，无 postulate）。构造：代理空间
+`DedekindReals*`（Ω*-值 cut 的子集型，纤维经 `e` 逐点搬运后取 `dcut`）活在 ℓ 层、
+是 set、且 `≃ DedekindReals ℓ`。跨层（`Type ℓ` ↔ `Type (ℓ-suc ℓ)`）的 Σ-cong
+由自克隆 `Σ-cong-iso-fst-cross` 承担（库版 `Σ-cong-iso-fst` / `Σ-cong-equiv-fst`
+经 private variable 块把 `A A'` 钉同层，实测报 `UnequalLevel`；`isoToEquiv` 本身
+跨层，`ProbeCrossIso.agda` 探针验证）。证明形态为「付费假设作为显式前提的构造性
+蕴含」，偏离 checklist 原计划的 postulate 形态（`AXIOM_CHARGED`）——属**加强**：
+无公理注入，(a) 是纯 cubical Agda 定理。
+
+---
+
+## §4 后续（B1 执行规格，按 029 §4 顺序；2026-09-18 B1a 完成后修订）
+
+1. ~~**B1a（充裕性）**~~ **DONE（2026-09-18，run `-02`）**：实际证明形态
+   `sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ`（付费假设为显式
+   前提而非 postulate，见 §3-E 勘误 2 与 B1a 段）。
 2. **B1b（诊断绕过）**：朴素构造性尝试（不走 resizing/LEM 直接做出 `ℝLayerAt ℓ₀`），
    **如实报告结局**：成 → 登记负结果（本攻击方向失效）；败 → 必要性证据（非证明）。
+   注意：B1a 的构造性本质使「朴素尝试」的表述需重新校准——`SingleOmega` 经取法 4
+   （初始 σ-frame）的构造性满足仍开放，B1b 应考察该路线与「不付任何塌缩结构」的差异。
 3. **B1b′（必要性）**：按 §3 的收窄目标尝试 `Necessity ℓ`；不成则维持 `CONJECTURE`。
 
 ---
 
 ## §5 边界（不漂移）
 
-- `registers_new_claim:false`——本包是陈述精确化与可行性裁定，非新数学主张。
+- `registers_new_claim:false`——本包是陈述精确化、可行性裁定与 (a) 方向证明，非新数学主张。
 - **不声称**：HoTT 不一致；等价定理已证；resizing/LEM 必要性已证；ℝ 层完备性已证。
+- **B1a 证明的只是「付费即得」（(a) 充裕性）**，不是「必付费」——收费位置判词
+  （不可免费 / 击落）在 (b′) `Necessity` 证明出现前不得升级为 `MACHINE_PROVED`。
 - **确认**：ℚ 层四条件已机器证明（GOLD-02，`EXACT_EXIT_STDOUT_STDERR_MATCH`）；
-  `CutRealLayer.agda` 的全部陈述被 Cubical Agda 内核接受为类型（`AGDA_EXIT=0`）。
+  (a) 充裕性已机器证明（run `-02`）；`CutRealLayer.agda` 的全部陈述被 Cubical Agda
+  内核接受为类型。
+- `SingleOmega` 与 `PropResizing` 的蕴含/等价方向未论证（§3-E 勘误 2 遗留）。
 - 前提判定全部 `AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`；外部追溯审计（角色 D）是用户闸门。
-- 收费位置的判词不得在 (b′) 证明出现前升级为 `MACHINE_PROVED`。
