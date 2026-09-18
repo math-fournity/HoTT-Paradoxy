@@ -1,0 +1,69 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260917-174-GOLD-FORM-PARTIAL-ASSEMBLY",
+ "runs": [
+  {
+   "id": "plan-revise-design-errata",
+   "kind": "git",
+   "commit": "0150b29",
+   "note": "CutGoldForm-DESIGN.md errata committed BEFORE step output (SOP section 6). U q := 2r <Q q*Qq admits counterexample q=-2 (q^2=4>2 so -2 in U; -2<0 so -2 in L) which breaks Book 11.2 condition iii (disjointness: take q=r=-2, L q AND U r -> q<r is false). Corrected to U q := (0r<q) x (2r<q*q). Section 4.5 negative-half-axis witness difficulty re-classified as an artifact of the old U definition. source=reflection."
+  },
+  {
+   "id": "cut-infra-crux",
+   "kind": "git",
+   "commit": "3c18ba7",
+   "note": "CutInfra.agda (<-<= weakening, crux ·-mono-<=-nn : (k a b : Q) -> 0r <= k -> a <= b -> k*Qa <= k*Qb, and strict ·-mono-<-nn : 0r < k -> a < b -> k*Qa < k*Qb). Cubical Agda 2.8.0-3d04bac + cubical v0.9 native kernel exit 0; ~12 compile iterations (0022 estimated 15-30). Route = elimProp3 + representative Z-chain + <=-·o per 0022 section 2.1. sha256 7caf7f97... (8187 B)."
+  },
+  {
+   "id": "gold-form-partial-assembly",
+   "kind": "git",
+   "commit": "615fbd2",
+   "note": "CutGoldForm.agda first assembly period: errata-corrected L q := (q<0r) + ((0r<=q) x (q*Qq<2r)) and U q := (0r<q) x (2r<q*Qq); isPropL/isPropU; hProp wrappers L_p/U_p; inhabL/inhabU; disjoint (condition iii, L q -> U r -> q<r); roundedL->, roundedU->; located (q<r -> L q + U r, eq branch consumes M2 sqrt2-irrational). All kernel-accepted. roundedL<-/roundedU<- NOT assembled (obstacle registered). sha256 e9497f78... (9566 B)."
+  },
+  {
+   "id": "gold-01-run-receipt",
+   "kind": "run",
+   "path": "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-GOLD-01/",
+   "note": "Full formal run receipt, executed twice (repo-root relative and absolute path + --ignore-interfaces) both exit 0. RUN.json schema formal-proof-run/v1: status KERNEL_ACCEPTED_WITH_SCOPE, exit_code 0, duration 63.695874s, command_argv fixed (toolchain XDG-isolated agda 2.8.0-3d04bac, --ignore-interfaces, -l cubical-0.9), stdout 18258 B sha256 671549d5..., stderr 0 B, environment 3295 B, source-manifest 1456 B (pins CutGoldForm/CutInfra/M2 hashes). scope = pure Cubical Agda (--safe --cubical --guardedness, no LEM/resizing/added axioms) machine-checked assembled portion of the gold-form cut. non_goals enumerate the three things NOT claimed. deviation_from_design records that the run checks the post-0150b29 corrected form."
+  },
+  {
+   "id": "claim-evidence-matrix-gold",
+   "kind": "file",
+   "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+   "note": "Appended GOLD registration section (row for proof_id MP-DEDEKIND-OMEGA-GOLD / claim CAND-F2-7-GOLD) with formal proposition, evidence pointer to the run dir, grade MACHINE_PROVED_LOCAL_UNCOMMITTED / GOLD_FORM_PARTIAL_ASSEMBLY_NOT_HOTT_CONTRADICTION, and explicit forbidden-extrapolation list (roundedL<-/roundedU<- not assembled; not all four Book 11.2 conditions; not a HoTT contradiction; LEM payment site not mechanized)."
+  },
+  {
+   "id": "claim-package-gold",
+   "kind": "file",
+   "path": "HoTT/formal/dedekind-omega-missile/CLAIM-PACKAGE-GOLD.md",
+   "note": "Claim package for external audit: object table, replay path, section 2 registers the roundedL<-/roundedU<- non-assembly as an explicit obligation for the next execution unit (representative-dependent witnesses are not well-defined on the quotient; must move to intrinsic Q-term delta route plus Q ring infrastructure)."
+  },
+  {
+   "id": "core-cognition-audit-s174",
+   "kind": "file",
+   "path": ".codex/research/hott/sessions/S-RES-20260917-174-GOLD-FORM-PARTIAL-ASSEMBLY/CORE_COGNITION_AUDIT.md",
+   "note": "Sharded audit set under the revision-020 contract (index + 6 shards: contract/baseline, KC-000001-024, KC-000025-046, essay per-shard posture review, course review, rerouting adjudication). 46 KC exact coverage; tallies ALIGNED 6 / DEEPENED 5 / CORRECTED 1 / TENSION 2 / NOT_TOUCHED 32. Shard 006 ruling: continue the gold-form route, next unit = (A) intrinsic delta route; STATE checkpoint mechanical layer untouched, receipt gap registered honestly."
+  }
+ ],
+ "session_records": [
+  {
+   "id": "gold-form-partial-assembly-verdict",
+   "kind": "verdict",
+   "adjudication": "GOLD_FORM_PARTIAL_ASSEMBLY_WITH_REGISTERED_OBSTACLE",
+   "class": "ENGINEERING_ACCEPTANCE_ONLY",
+   "registers_new_claim": false,
+   "note": "Assembled portion (predicates/isProp/hProp/inhabited x2/disjoint/rounded-> x2/located) is machine-checked exit 0 in pure Cubical Agda; roundedL<-/roundedU<- remain un-assembled because representative-dependent witnesses are not well-defined on the Q quotient. Not a mathematical conclusion, not a HoTT contradiction, not a completed Book 11.2 four-condition cut."
+  },
+  {
+   "id": "u-predicate-errata",
+   "kind": "plan_revision",
+   "commit": "0150b29",
+   "note": "Design-level self-correction forced by the counterexample q=-2; committed before any step output per SOP section 6. The errata is a correction of this chain's own drafting, not a mathematical discovery about HoTT."
+  },
+  {
+   "id": "state-checkpoint-gap",
+   "kind": "state",
+   "note": "STATE.revision remains 169. Sessions 170-174 landed their SESSION/RUNS/sharded-audit evidence on disk and in git but did NOT apply canonical checkpoint transactions (0022 prohibition; follows the 170-172 established pattern). The gap is registered, not fabricated: external auditors should treat live session directories and git commits as evidence."
+  }
+ ]
+}
