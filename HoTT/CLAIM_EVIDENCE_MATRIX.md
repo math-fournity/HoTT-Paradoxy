@@ -751,3 +751,20 @@ MACHINE_PROVED 定理**（027 §4 边界）。
 | ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-BP | `decGapAt : (n : ℕ) → (D n ≡ pos 0) ⊎ ¬ (D n ≡ pos 0)`——序列层存在命题的逐点判定是已完成对象（判定为「否」）；`noGapWitness : ¬ (Σ n : ℕ, D n ≡ pos 0)`——Σ 居住性否定，与第二枚 `spec-B-empty` 同形、证据路径独立（Pell 不变量 vs 下降法）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / DECIDABLE_OBJ_VS_UNHALTING_SEARCH` | run `20260917-MP-DEDEKIND-OMEGA-BP-01/` 的 `RUN.json`（exit 0，60.6s）与收据文件。 | 本登记机械确认「判定已完成 ≠ 搜索不终止」的区分（025 片 §5 更正的根据）；**不**声称它是 A=B 对撞或第三枚；**不**声称 HoTT 不一致。 |
+
+## 追加登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·第一装配期，2026-09-17）
+
+来源：修订片 027 §5/§9（金形态 cut 构造）+ CutGoldForm-DESIGN.md（勘误版，
+plan-revise `0150b29`：U 须带正性合取——初版 `U q := 2r <ℚ q·ℚq` 的「负数自然
+不在上集」为假，反例 q=−2 同时入 L 与 U、破坏不交性）。本包登记金形态的
+**已装配部分**：ℚ 序算术基础设施（CutInfra，crux）+ 四条件中的
+inhabited×2 / disjoint / rounded→→ / located；roundedL← 与 roundedU← 为
+显式登记的未装配义务（见下）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-GOLD` | `CAND-F2-7-GOLD` | `formal/dedekind-omega-missile/CutInfra.agda`（`<-≤`、`·-mono-≤-nn` crux、`·-mono-<-nn`）+ `formal/dedekind-omega-missile/CutGoldForm.agda`（勘误版 L/U + isProp + hProp 包装 + inhabited×2 + disjoint + roundedL→ + roundedU→ + located，eq 支消费 M2 的 `√2-irrational`）；`CLAIM-PACKAGE-GOLD.md` | `verification/runs/20260917-MP-DEDEKIND-OMEGA-GOLD-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；**无 LEM、无 resizing、无任何追加假设**；exit 0；stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GOLD_FORM_PARTIAL_ASSEMBLY_NOT_HOTT_CONTRADICTION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-GOLD | 在纯 Cubical Agda 中：(1) `·-mono-≤-nn : (k a b : ℚ) → 0r ≤ k → a ≤ b → k·ℚa ≤ k·ℚb` 与 `·-mono-<-nn : 0r < k → a < b → k·ℚa < k·ℚb`（0022 §二.1 定案的 elimProp3+代表元 ℤ 链+`≤-·o` 路线；lib 无 ℚ 乘法单调性引理的缺口已补）；(2) 勘误版谓词 `L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r))`、`U q := (0r<q)×(2r<q·ℚq)` 均为 hProp 值（`Lₚ`/`Uₚ`），且 Book §11.2 四条件中的 inhabitedL/inhabitedU/disjoint（`L q → U r → q < r`）/roundedL→/roundedU→/located（`q<r → L q ⊎ U r`）全部机器检查通过——located 的 `q²≡2r` 支消费 `√2-irrational`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GOLD_FORM_PARTIAL_ASSEMBLY` | run `20260917-MP-DEDEKIND-OMEGA-GOLD-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0）与收据文件；`source-manifest.json` 固定 CutGoldForm/CutInfra/M2 哈希。 | **未装配部分不得冒充已证**：`roundedL←`（`L q → ∃ p, q<p × L p`）与 `roundedU←`（`U r → ∃ q, q<r × U q`）未装配——已登记工程障碍：**依赖代表元的见证（如 (4ab+1)/(4b²)、Pell 中项 (3a+4b)/(2a+3b)）在商上不良定义**，须走内在 ℚ 项路线（δ := (2−q²)·¼ 类；U 侧须 `inv`（代表交换 (a,b)↦(b,a) 可经 rec 良定义）），并先补 ℚ 加法/减法与 ℚ 级乘法消去基础设施；**不**声称 Book §11.2 四条件全部完成；**不**声称 HoTT 不一致；**不**声称 LEM 收费位置（ℝ 层塌缩处）已被机械化（按 DESIGN §4 仅登记）；本包构造是 ℚ 层标准计算，不依赖 univalence / cubical path / HIT 特有规则。 |

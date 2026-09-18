@@ -1,0 +1,59 @@
+{
+  "schema_version": "formal-proof-run/v1",
+  "run_id": "20260917-MP-DEDEKIND-OMEGA-GOLD-01",
+  "proof_id": "MP-DEDEKIND-OMEGA-GOLD",
+  "claim_ids": [
+    "CAND-F2-7-GOLD"
+  ],
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "exit_code": 0,
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/CutGoldForm.agda"
+  ],
+  "duration_seconds": 63.695873975753784,
+  "started_at_utc": "2026-09-18T01:06:08Z",
+  "completed_at_utc": "2026-09-17T21:07:12Z",
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "stdout": {
+    "bytes": 18258,
+    "path": "stdout.txt",
+    "sha256": "671549d5ac29b35895ebbacf79fdaec150d4646dc2b36ca4fc18140f2f867d25"
+  },
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "environment": {
+    "bytes": 3295,
+    "path": "environment.txt",
+    "sha256": "6c2521be3d9dcaab9d5056e10cc60b931c00e6711875135142d7b5da2dc39d42"
+  },
+  "source_manifest": {
+    "bytes": 1456,
+    "path": "source-manifest.json",
+    "sha256": "bef3400a9566592e8b67d276296ebde5451f0ac69bce183b5f788ddeb9902387"
+  },
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness，无 LEM/resizing/追加公理）中机器检查金形态 cut 的已装配部分：CutInfra（<-≤ 弱化、·-mono-≤-nn 非负乘子保≤、·-mono-<-nn 正乘子保<——crux）与 CutGoldForm 的（勘误版）谓词 L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r)) 与 U q := (0r<q)×(2r<q·ℚq)、isPropL/isPropU、Lₚ/Uₚ hProp 包装、inhabL/inhabU、disjoint（L q→U r→q<r）、roundedL→、roundedU→、located（q<r→L q ⊎ U r，eq 支消费 M2 √2-irrational）。",
+  "non_goals": [
+    "不声称 HoTT 内部矛盾或不一致",
+    "不声称四条件全部完成：roundedL←（下集圆整的见证方向）与 roundedU←（上集圆整的见证方向）未装配——依赖代表元的见证在商上不良定义，须走内在 δ/inv 路线并补 ℚ 环基础设施（登记为下一执行单元义务，见 CLAIM-PACKAGE-GOLD）",
+    "不声称「实数完备性非现实」或任何 LEM 收费位置命题已被机械化（LEM 接口按 DESIGN §4 仅登记）"
+  ],
+  "deviation_from_design": "CutGoldForm-DESIGN §2/§3/§4.5 经 plan-revise 0150b29 修正：U 须带正性合取（反例 q=-2 破坏不交性）；本 run 检查的是修正版形态。"
+}
