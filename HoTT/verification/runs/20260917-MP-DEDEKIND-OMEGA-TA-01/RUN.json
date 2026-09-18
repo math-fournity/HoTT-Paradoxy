@@ -3,16 +3,20 @@
     "CAND-F2-7-TA"
   ],
   "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
     "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
-    "--library-file=AGDA_LIBRARIES",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
     "-l",
     "cubical-0.9",
     "-i",
-    ".",
-    "MissileFourTargetA-UACounterexample.agda",
-    "（cwd = HoTT/formal/dedekind-omega-missile；env XDG_DATA_HOME/XDG_CONFIG_HOME/TMPDIR 同 M1-04 command_argv）"
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda"
   ],
-  "completed_at_utc": "2026-09-17T21:50:48+00:00",
+  "completed_at_utc": "2026-09-18T11:30:00Z",
   "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
   "duration_seconds": null,
   "environment": {
@@ -47,13 +51,20 @@
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "stdout": {
-    "bytes": 160,
+    "bytes": 2695,
     "path": "stdout.txt",
-    "sha256": "70ef9ed1fa62db5e4f45b8d6402c1db8d7aea909cde84a20ea4756a316394ea8"
+    "sha256": "3465687b0bf92dc8bf7de3f7f205f655b39490319296a2976a91aeb3e515aa79"
   },
   "theory_variant": "Cubical Agda with native Path and higher inductive types",
   "index": {
     "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
     "sha256": "830b057405c5cdd6f460b76833d041d9430c85a1ba96f12cd1cae4641817902e"
+  },
+  "receipt_repair": {
+    "repaired_at_utc": "2026-09-18T11:30:00Z",
+    "reason": "原始 command_argv 末元素被手工中文注释污染（非可执行 argv），且原始 stdout 仅 1 行、依赖接口缓存状态（主模块 .agdai 缺席而依赖接口在场），不可跨机器复现。",
+    "change": "argv 规范化为 env 前缀 + --ignore-interfaces 的确定性形态（刻意保留无 --safe，postulate ua 即注入点，scope 不变）；stdout 重捕获为完整 21 行依赖检查输出；原始 160 字节单行捕获保留为 stdout-original-20260917.txt。",
+    "kernel_result_unchanged": "exit 0 / 内核接受（postulate ua 下闭项良构），与 2026-09-17 原始捕获一致",
+    "original_argv_preserved_in_field": "本字段外无副本；原始末元素为 'MissileFourTargetA-UACounterexample.agda（cwd = HoTT/formal/dedekind-omega-missile；env XDG_DATA_HOME/XDG_CONFIG_HOME/TMPDIR 同 M1-04 command_argv）'"
   }
 }
