@@ -18,7 +18,7 @@
 
 | # | 项 | 验收判据 | 验证命令 | 状态 | 证据指针 | 验收人 |
 |---|---|---|---|---|---|---|
-| E1 | 85 run 全量重放回填 exit/stdout-sha256/stderr | **裁定收窄**：四弹相关 kernel-accepted 收据全部 `--rerun` 三匹配（GOLD-02、M2-01、M3-01、M3-UNC-01、BP-01、TA-01，约 6 发）；其余按下方分类处理 | `python3 scripts/audit/verify_formal_proof_run.py --project-root . --run-dir <run-dir> --rerun`（约 60–90s/发） | OPEN（收窄判据待执行；GOLD-02 `--rerun` 上一轮被打断） | 见下方「E1 剩余分类」 | AI_SELF |
+| E1 | 85 run 全量重放回填 exit/stdout-sha256/stderr | **裁定收窄**：四弹相关 kernel-accepted 收据全部 `--rerun` 三匹配（GOLD-02、M2-01、M3-01、M3-UNC-01、BP-01、TA-01，6 发）；其余按下方分类处理 | `python3 scripts/audit/verify_formal_proof_run.py --project-root . --run-dir <run-dir> --rerun`（约 60–90s/发） | **DONE（6/6 核心）** | 6 发全部 `PASS_WITH_SCOPE` / `KERNEL_ACCEPTED_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` / `EXACT_INDEX_SNAPSHOT_MATCH`（2026-09-18 执行）；TA-01 收据经规范修复（见下）；剩余分类见下 | AI_SELF |
 | E2 | 回填缺 `index` 的 run；`mark_proof_run_indexed.py` 的 `C-\d+` 绑定接受 `CAND-F2-7-*` | 缺 `index` 的 run 数 = 0 | `python3 scripts/audit/verify_all_proof_runs.py`（或 glob RUN.json 查 index 字段） | **DONE** | 40 缺口 → 回填；全量 verify **35 PASS**（此前 29）；3 真缺口属其他研究线（见下）；脚本 `scripts/audit/backfill_run_index_field.py`，落盘提交 `fedd70e` + `96a9f18` | AI_SELF |
 | E3 | `git_status` 字段刷新为 `LOCAL_COMMITTED_NOT_PUSHED` | RUN.json 中 `LOCAL_UNCOMMITTED*` 计数 = 0 | `grep -rc LOCAL_UNCOMMITTED HoTT/verification/runs/*/RUN.json` | **DONE** | 66 个 formal 收据刷新；脚本 `scripts/audit/refresh_run_git_status.py`，提交 `fedd70e` | AI_SELF |
 
@@ -53,12 +53,30 @@
    coq（2 `EXTERNAL_TREE_MISMATCH`）、cubical-2ltt（1）、ERCF-001-01（1 `RUN_NOT_INDEXED`，PENDING）。
    **四弹公开评审不依赖它们**，登记为 out-of-scope。
 4. **全量 85 run 重放不现实**：含 Coq/Lean/unimath，工具链未必在装 + 上述 17 个漂移。
-5. **GOLD-01 收据滞后**：RUN.json `non_goals` 称 roundedL←/roundedU← 未装配，但当前
+5. **GOLD-01 收据滞后**（**已登记，DONE**）：RUN.json `non_goals` 称 roundedL←/roundedU← 未装配，但当前
    `HoTT/formal/dedekind-omega-missile/CutGoldForm.agda`（行 353/581）已有且过核——收据滞后于源码。
    源码清单哈希与当前树不一致（捕获于 `615fbd2`，源码此后扩展），属真过期：
-   **登记为被 GOLD-02 取代**，其源码 pin 由 `git show 615fbd2:<path>` 满足（矩阵行已注明 commit）。
+   **登记为被 GOLD-02 取代**，取代指针落盘为
+   `HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-GOLD-01/SUPERSEDED-BY-GOLD-02.md`，
+   其源码 pin 由 `git show 615fbd2:<path>` 满足（矩阵行已注明 commit）。
+6. **TA-01 收据修复**（**DONE，提交 `06ab281`**）：原始 `command_argv` 末元素被手工中文注释污染
+   （非可执行 argv），且 1 行 stdout 依赖接口缓存状态——不可跨机器复现，故 `--rerun` 报
+   `REPLAY_EXIT_MISMATCH`。已规范为同族 argv（env 前缀 + `--ignore-interfaces`，刻意保留无 `--safe`：
+   postulate ua 即注入点，scope 不变），stdout 重捕获为 21 行完整输出，原始单行捕获保留为
+   `stdout-original-20260917.txt`；修复记于 RUN.json `receipt_repair`。内核结论不变（exit 0，接受）。
 
-## 已完成工作快照（HEAD `96a9f18`）
+## E1 核心收据重放结果（2026-09-18 执行）
+
+| run | status | kernel | replay | index |
+|---|---|---|---|---|
+| `20260918-MP-DEDEKIND-OMEGA-GOLD-02` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
+| `20260917-MP-DEDEKIND-OMEGA-M2-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
+| `20260917-MP-DEDEKIND-OMEGA-M3-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
+| `20260917-MP-DEDEKIND-OMEGA-M3-UNC-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
+| `20260917-MP-DEDEKIND-OMEGA-BP-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
+| `20260917-MP-DEDEKIND-OMEGA-TA-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
+
+## 已完成工作快照（HEAD `06ab281`）
 
 | 提交 | 内容 |
 |---|---|
@@ -67,6 +85,8 @@
 | `06063fe` | 本 checklist 落盘 |
 | `fedd70e` | E2 首批（10 回填）+ E3（66 刷新）+ 矩阵缩写展开 |
 | `96a9f18` | E2 第二批（60 RUN.json index 回填 + 5 新 index-row-manifest）+ GOLD-02 manifest 修复 + 会话证据 |
+| `0d337c3` | 进度交接 dev-notes/0024 + checklist E2/E3 回填 |
+| `06ab281` | TA-01 收据修复（argv 规范 + 确定性重捕获） |
 
 ## 公开评审门（硬条件）
 
