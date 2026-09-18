@@ -37,9 +37,9 @@
 
 | # | 项 | 验收判据 | 状态 | 验收人 |
 |---|---|---|---|---|
-| G1 | STATE checkpoint 事务 S170–S176（挂起） | 用户裁定：授权 `--apply` 或继续登记缺口（沿 170–176 模式不伪造事务） | OPEN | 用户 |
-| G2 | 外部追溯审计（角色 D）**实际执行** | 审计报告落盘 + 本表逐项回应；map 是进场文件，不是审计本身 | OPEN | EXTERNAL_D |
-| G3 | push 授权 / VERSION_CLOSED | 用户授权后 push；此前全部标 `LOCAL_COMMITTED_NOT_PUSHED` | OPEN | 用户 |
+| G1 | STATE checkpoint 事务 S170–S176（挂起） | 用户裁定：授权 `--apply` 或继续登记缺口（沿 170–176 模式不伪造事务） | OPEN（**裁定材料就绪，2026-09-18**）：`STATE.revision`=169；挂起 Session 证据目录 = S-RES-…-174（GOLD 部分装配）/175（GOLD 四条件）/176（E1-E2 修复）；2026-09-18 收官轮（REAL-LAYER/B 线）未起草 Session 证据。**选项 A** = 授权对 174–176 追溯 `--apply`（canonical 事务：SESSION.md+RUNS.json+分片审计集+transaction.json+`CHECKPOINT_COMMITTED` 收据）并另起 177 覆盖收官轮；**选项 B（默认，现行模式）** = 继续登记缺口（audit map 缺口 11）。AI 侧无偏好输入，两项均合法 | 用户 |
+| G2 | 外部追溯审计（角色 D）**实际执行** | 审计报告落盘 + 本表逐项回应；map 是进场文件，不是审计本身 | OPEN（**进场材料终版就绪，2026-09-18**）：`AUDIT-HANDOFF-20260917.md`（更新三 + §6 一键工单：进场顺序 / canonical 七发重放命令 / 四项元层复核重点 / 产出要求 `EXTERNAL-AUDIT-REPORT-<date>.md`）+ `FOUR-MISSILES-AUDIT-MAP.md`（§3 含 REAL-LAYER 行，§5 含 3a-3c 补强）。待用户把工单交给外部 AI 执行 | EXTERNAL_D |
+| G3 | push 授权 / VERSION_CLOSED | 用户授权后 push；此前全部标 `LOCAL_COMMITTED_NOT_PUSHED` | OPEN（**裁定材料就绪，2026-09-18**）：git remote **未配置**——授权时需同时指定远端（URL/所有权）；将推送的范围 = main 全链（当前 HEAD `5941af8`，含 private 之外的治理/数学/收据全部历史；`private-audit/`、`AI对话录/`、`workspace/` 已被 .gitignore 排除，不会外泄）。授权前不执行任何 push | 用户 |
 
 ## E1 剩余分类（收窄裁定的事实依据，2026-09-18 登记）
 

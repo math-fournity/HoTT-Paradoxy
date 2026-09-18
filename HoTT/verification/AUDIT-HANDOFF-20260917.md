@@ -9,6 +9,19 @@
 > 此前**未在矩阵登记**，现已补登记为对象 #7；LEM 格演示此前仅有源码声明无收据，现已
 > 补齐两个负向探针（TA-LEM-01/02，对象 #8，**重放逐位一致**）。同行评审工作 map 已备：
 > `HoTT/verification/FOUR-MISSILES-AUDIT-MAP.md`（按序加载即可独立审计）。
+> 2026-09-18 更新（三·B 线收官轮，当前 HEAD = `5941af8`）：
+> **(a)** 新对象 #9 = REAL-LAYER 线（`CutRealLayer.agda`）：B0 陈述精确化（含两项
+> 勘误：dcut ∥_∥₁ 截断、Sufficiency 假设 PropResizing→SingleOmega）+ B1a 充裕性
+> `sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ`（`MACHINE_PROVED_WITH_SCOPE`，
+> run `20260918-…-REAL-LAYER-02`，无 postulate，双 replay 逐位一致）。审计复核点：
+> 两项勘误是否忠实于 Book 逐字原文（CLAIM-PACKAGE §1/§3-E）；B1a 的跨层 Σ-cong
+> 自克隆（`Σ-cong-iso-fst-cross`）是否照搬库实现且仅放开层级；「付费即得 ≠ 必付费」
+> 边界是否守恒。**(b)** 六核心收据（GOLD-02/M2-01/M3-01/M3-UNC-01/BP-01/TA-01）
+> 已达成 canonical `verify_formal_proof_run.py --rerun` 全绿（§2 收据 schema 注的
+> 「不可用」口径对这六发 + REAL-LAYER-02 **不再成立**；GOLD-02 经 manifest 重建 +
+> 矩阵行降格修复）。**(c)** B1b（混合结局）/B1b′（CONJECTURE）/B2（QUESTION）/
+> B3（判词基准）收官登记 = 修订片 030 + 矩阵「B 线收官」节，全部元层标注——审计
+> 应重点复核这些降格/登记是否有未证升级。**(d)** 审计工单见 §6。
 
 ## 1. 审计对象总表（主张—收据—提交对照）
 
@@ -48,13 +61,13 @@
   内核拒绝证据（UnequalTerms + 中性卡住范式）完全可复现，差异仅在退出码整数字段
   （记录偏差，非证据偏差）；本轮新增的 TA-LEM-01/02 按实际观察记录 exit 42 并已
   现场验证三匹配（exit/stdout/stderr）。历史收据不予改写，在此如实登记。
-- **收据 schema 注**：导弹链 16 个 run 的 `RUN.json` 均无 canonical 验证器
-  `scripts/audit/verify_formal_proof_run.py` 要求的 `index` 快照字段（该字段由
-  `mark_proof_run_indexed.py` 在矩阵登记后盖戳，但该脚本绑定 `C-\d+` 旧编号体系与
-  `PROOF_VERSION_CLOSURE.json`，不适用于 `CAND-F2-7-*` 导弹链）。因此导弹链收据
-  目前**不能**通过 `--rerun` 级 canonical 校验；替代核验路径 = 手工按
-  `command_argv` 重放 + `source-manifest.json` 哈希比对 + 矩阵行逐字对照
-  （FOUR-MISSILES-AUDIT-MAP §重放清单已逐条给出）。
+- **收据 schema 注（2026-09-18 收官轮后部分失效）**：导弹链早期 run 的 `RUN.json`
+  原无 canonical 验证器要求的 `index` 快照字段。**现状**：六核心收据
+  （GOLD-02/M2-01/M3-01/M3-UNC-01/BP-01/TA-01）+ REAL-LAYER-02 已按
+  「`CAND-*` 直翻 index_status + `backfill_run_index_field.py`」路径补齐 index 字段并
+  通过 `verify_formal_proof_run.py --rerun`（`PASS_WITH_SCOPE` +
+  `EXACT_EXIT_STDOUT_STDERR_MATCH`）。其余早期收据仍按本条原口径（手工重放 +
+  manifest 哈希 + 矩阵行对照，见 FOUR-MISSILES-AUDIT-MAP §3）。
 
 ## 3. 审计重点（建议优先级）
 
@@ -78,24 +91,52 @@
 
 - ~~完整 Dedekind cut（金形态）未构造~~ → **已修正**：金形态 ℚ 层四条件
   （inhabited×2 / disjoint / rounded 双向 / located）**已完整过核**（对象 #6）。
-  剩余缺口**精确定位**：把 cut 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的
-  **ℝ 层升格未机械化**——DESIGN §4 登记的 LEM/propositional-resizing 收费位置
-  仍为**登记**而非机器证据（不声称「升格必需 LEM」已证）。
+  **ℝ 层升格（2026-09-18 收官轮后）**：充裕性侧**已机械化**（B1a = 对象 #9，
+  `SingleOmega ℓ → ℝLayerAt ℓ`）；必需性侧未证 = `Necessity` 正式 `CONJECTURE`
+  （修订片 030 §3：locatedness-LEM 失败分析 + CC 模型反例候选 + 币种不确定）。
+  「升格必需 LEM/resizing」仍为登记而非机器证据。
 - δ 路线完备性未论证：不声称内在 ℚ 项见证形态已被穷尽（金形态有界负收尾的
   前置完备性论证未做）。
 - M4 主定理模式为草案（逐实例元定理，无全量单定理）；靶 A 的「不可归约」内部
-  证明未做（路径 (i) 为元层检查记录）。
-- STATE checkpoint 机械层未触碰：`STATE.revision` 仍为 169，S170–S175 的 Session
-  证据（SESSION/RUNS/分片审计集）落盘但未经 canonical checkpoint 事务应用
-  （0022 禁止事项，沿 170–174 模式，收据缺口如实登记，不伪造事务）；
-  全景视野/方向追踪为 checkpoint 管理文档，写回随该事务挂起。
-- 导弹链收据的 canonical schema 缺口（见 §2 收据 schema 注）：`index` 快照字段缺失，
-  `verify_formal_proof_run.py --rerun` 不可用；升级需先打通 `CAND-*` 编号体系与
-  `PROOF_VERSION_CLOSURE.json` 的映射（未做，登记为工程债）。
+  证明**不可做**（2026-09-18 B2 收口：两方向等式各有声模型族）→ 正式 `QUESTION`
+  （修订片 030 §4）；已机械化不变量 = 语法层 canonicity 失败（TA 族负向探针）。
+- STATE checkpoint 机械层未触碰：`STATE.revision` 仍为 169，挂起的 Session 证据
+  目录 = S-RES-…-174（GOLD 部分装配）/ 175（GOLD 四条件）/ 176（E1-E2 修复），
+  均未经 canonical checkpoint 事务应用（沿 170–176 模式登记缺口，不伪造事务）；
+  2026-09-18 收官轮（REAL-LAYER/B 线）尚未起草 Session 证据。全景视野/方向追踪
+  为 checkpoint 管理文档，写回随该事务挂起——**G1 裁定材料见 checklist G 行**。
+- 导弹链收据的 canonical schema 缺口（§2 注已更新）：六核心 + REAL-LAYER-02 已
+  canonical `--rerun` 全绿（`CAND-*` 直翻 + backfill 路径打通）；其余早期收据维持
+  手工重放口径。
 - 负向探针收据 `exit_code` 字段记录偏差（见 §2 退出码注）：证据可复现，字段待统一。
-- push 未授权；非 VERSION_CLOSED。
+- push 未授权（且 git remote 未配置——G3 裁定时需先定远端）；非 VERSION_CLOSED。
 
 ## 5. 边界
 
 本包自身不是审计结论；`registers_new_claim: false`。审计发现问题请直接引用
 RUN.json/矩阵行/commit hash，按 020 片可审计清单推翻或确认。
+
+## 6. 审计工单（角色 D 一键进场；2026-09-18 收官轮附）
+
+**进场顺序**：`FOUR-MISSILES-AUDIT-MAP.md` §1 按序加载清单 → §2 逐发命题—判据表 →
+本包 §1 对象总表 → §3 审计重点（+更新三 (a)-(c) 新复核点）→ 修订片 030（B 线收官
+主登记）→ `HoTT/CLAIM_EVIDENCE_MATRIX.md` 各节（重点：「B 线收官」节 + REAL-LAYER 节）。
+
+**机器复核（canonical，优先）**：
+```
+python3 scripts/audit/verify_formal_proof_run.py --run-dir \
+  HoTT/verification/runs/<RUN-ID> --rerun
+# 七发预期全 PASS_WITH_SCOPE：20260918-…-GOLD-02 / 20260917-…-M2-01 / M3-01 /
+# M3-UNC-01 / BP-01 / TA-01 / 20260918-…-REAL-LAYER-02（各 ~60–90s）
+```
+
+**人工复核重点（元层，不可机器替代）**：
+1. B1a 的两项 B0 勘误是否忠实 Book 逐字（`CLAIM-PACKAGE-REAL-LAYER.md` §1 vs §3-E）；
+2. B1b/B1b′/B2/B3 的收官登记有无**未证升级**（矩阵「B 线收官」节 vs 修订片 030）；
+3. 「付费即得 ≠ 必付费」「击落 = 非现实性机械锚定」边界是否全线守恒；
+4. 本包 §3 原有五项重点（金形态 / M3-UNC 去 LEM / TA 边界 / 预测格 / 语义边界）。
+
+**产出要求**：逐对象（#1–#9）给出 ACCEPT / ACCEPT_WITH_SCOPE / REJECT + 证据引用
+（RUN.json 字段 / 矩阵行 / commit hash）；审计报告落盘
+`HoTT/verification/EXTERNAL-AUDIT-REPORT-<date>.md`；发现的问题直接引用可审计
+锚点，按 020 片清单推翻或确认。审计**不重开**已收口项，除非发现实质缺口。
