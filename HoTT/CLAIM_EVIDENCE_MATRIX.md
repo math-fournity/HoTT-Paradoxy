@@ -752,7 +752,12 @@ MACHINE_PROVED 定理**（027 §4 边界）。
 |---|---|---|---|---|
 | CAND-F2-7-BP | `decGapAt : (n : ℕ) → (D n ≡ pos 0) ⊎ ¬ (D n ≡ pos 0)`——序列层存在命题的逐点判定是已完成对象（判定为「否」）；`noGapWitness : ¬ (Σ n : ℕ, D n ≡ pos 0)`——Σ 居住性否定，与第二枚 `spec-B-empty` 同形、证据路径独立（Pell 不变量 vs 下降法）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / DECIDABLE_OBJ_VS_UNHALTING_SEARCH` | run `20260917-MP-DEDEKIND-OMEGA-BP-01/` 的 `RUN.json`（exit 0，60.6s）与收据文件。 | 本登记机械确认「判定已完成 ≠ 搜索不终止」的区分（025 片 §5 更正的根据）；**不**声称它是 A=B 对撞或第三枚；**不**声称 HoTT 不一致。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·第一装配期，2026-09-17）
+## 追加登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·第一装配期，2026-09-17；**已被 -02 四条件完整版取代**）
+
+> 2026-09-18 注：本节 proof 行已**降格为历史行**（`MP-DEDEKIND-OMEGA-GOLD` 的唯一
+> 身份行是下方「四条件完整版」节的 -02 行——`verify_formal_proof_run.py` 要求每个
+> proof_id 在当前矩阵唯一；GOLD-01 run 保留为部分装配期历史收据，见下节 claim 行
+> 的「GOLD-01 保留为部分装配期历史收据」）。roundedL←/roundedU← 已在 -02 完成。
 
 来源：修订片 027 §5/§9（金形态 cut 构造）+ CutGoldForm-DESIGN.md（勘误版，
 plan-revise `0150b29`：U 须带正性合取——初版 `U q := 2r <ℚ q·ℚq` 的「负数自然
@@ -761,9 +766,9 @@ plan-revise `0150b29`：U 须带正性合取——初版 `U q := 2r <ℚ q·ℚq
 inhabited×2 / disjoint / rounded→→ / located；roundedL← 与 roundedU← 为
 显式登记的未装配义务（见下）。
 
-| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+| Package ID（历史行） | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
-| `MP-DEDEKIND-OMEGA-GOLD` | `CAND-F2-7-GOLD` | `formal/dedekind-omega-missile/CutInfra.agda`（`<-≤`、`·-mono-≤-nn` crux、`·-mono-<-nn`）+ `formal/dedekind-omega-missile/CutGoldForm.agda`（勘误版 L/U + isProp + hProp 包装 + inhabited×2 + disjoint + roundedL→ + roundedU→ + located，eq 支消费 M2 的 `√2-irrational`）；`CLAIM-PACKAGE-GOLD.md` | `verification/runs/20260917-MP-DEDEKIND-OMEGA-GOLD-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；**无 LEM、无 resizing、无任何追加假设**；exit 0；stderr 0 | `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED / GOLD_FORM_PARTIAL_ASSEMBLY_NOT_HOTT_CONTRADICTION`（证据随 commit `615fbd2` 入库；未 push，非 VERSION_CLOSED） |
+| `MP-DEDEKIND-OMEGA-GOLD` 第01run·部分装配（历史，superseded by -02） | `CAND-F2-7-GOLD` | `formal/dedekind-omega-missile/CutInfra.agda`（`<-≤`、`·-mono-≤-nn` crux、`·-mono-<-nn`）+ `formal/dedekind-omega-missile/CutGoldForm.agda`（勘误版 L/U + isProp + hProp 包装 + inhabited×2 + disjoint + roundedL→ + roundedU→ + located，eq 支消费 M2 的 `√2-irrational`）；`CLAIM-PACKAGE-GOLD.md` | `verification/runs/20260917-MP-DEDEKIND-OMEGA-GOLD-01/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；**无 LEM、无 resizing、无任何追加假设**；exit 0；stderr 0 | `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED / GOLD_FORM_PARTIAL_ASSEMBLY_NOT_HOTT_CONTRADICTION`（证据随 commit `615fbd2` 入库；未 push，非 VERSION_CLOSED） |
 
 | ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
 |---|---|---|---|---|
@@ -837,3 +842,16 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-REAL-LAYER | Book §11.2 的「ℝ 层」收费命题被钉死为精确类型：`ℝLayerAt ℓ = Σ[ R ∈ Type ℓ ] (isSet R × (R ≃ DedekindReals ℓ))`，其中 `DedekindReals ℓ = Σ[ LU ∈ (ℚ → hProp ℓ) × (ℚ → hProp ℓ) ] dcut (fst LU) (snd LU)`，`dcut` 为 Defn 11.2.1 四条件的量词显式形态（inhabited×2 / rounded×2 为 `∥ Σ … ∥₁` 命题截断形态且 rounded 双向 `≃`；disjoint `¬ (L q × U q)`；located `(q < r) → L q ⊎ U r`）；付费方式精确化为 `PropResizing ℓ`（取法 2）与 `LEMProp ℓ`（取法 3）；「单一 Ω」精确化为 `SingleOmega ℓ = Σ[ Ω ∈ Type ℓ ] (isSet Ω × (Ω ≃ hProp ℓ))`。**关键裁定（§3）**：Book §11.2 取法 4（初始 σ-frame）证伪了「ℝ层 ⇒ LEM 或 resizing」的直接必要性，故 `Necessity ℓ` 收窄为 `ℝLayerAt ℓ → SingleOmega ℓ`，并按 029 §2 降格条款登记为 `CONJECTURE`。**(a) 充裕性已机器证明（B1a）**：`sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ`——给定基层级 Ω 与 `Ω ≃ hProp ℓ`，代理空间 `DedekindReals*`（Ω-值 cut 的子集型）活在 ℓ 层、是 set、且 `≃ DedekindReals ℓ`（经逐点 e 搬运的载体 iso + 跨层 Σ-cong）。 | **(a) 充裕性 `MACHINE_PROVED_WITH_SCOPE`**（B1a，run `-02`，纯构造无 postulate）；(b′) 必要性维持 `CONJECTURE` | run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0）与收据五件套；`source-manifest.json` 固定 CutRealLayer（含勘误后陈述与 B1a 证明体）/ TOOLCHAIN / AGDA_LIBRARIES 哈希；statement 阶段历史收据 `-01`（其源 hash 因 B0 勘误过期，已在本节头部登记）；逐字原文转写于 `CLAIM-PACKAGE-REAL-LAYER.md §1`（源：`HoTT/theory-schema/upstream/book-578b85cc/reals.tex` §11.2）；勘误节登记两项陈述修订。 | **(b′) 必要性 `Necessity ℓ` 未证并维持 `CONJECTURE`**（029 §2 条款；`SingleOmega` 与 `PropResizing` 的等价/蕴含方向未论证）；**「收费位置」判词（不可免费/击落）在 (b′) 证明出现前不得升级为 `MACHINE_PROVED`——B1a 证明的只是「付费即得」，不是「必付费」**；**不**声称等价定理已证、resizing/LEM 必要性已证、ℝ 层完备性已证；**不**声称 HoTT 不一致；**确认** ℚ 层四条件已机器证明（GOLD-02 收据，本表前节）；B1a 证明形态为「假设作为显式前提的构造性蕴含」，偏离 checklist 原计划的 postulate 形态（已登记，属加强而非减弱）；`registers_new_claim:false`。 |
+
+## 追加登记：B 线收官（B1b 诊断绕过结局 + B1b′/B2 降格确认 + B3 基准，2026-09-18，修订片 030）
+
+> 本节登记 029 §2「两个都要」合同的收官侧。**B1b/B1b′/B2 的论断全部为元层分析
+> （`AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`），非内核收据**；机器证据仅限本表
+> 各节既有 run。`registers_new_claim:false`。
+
+| 项 | 结局（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| **B1b 诊断绕过** | 零付费读法**失败**：(i) 直接构造撞尺码墙（载体 `(ℚ→hProp ℓ₀)` 活在 `Type (ℓ-suc ℓ₀)`，使 cut 降到 ℓ₀ 的 `Ω : Type ℓ₀` 即 `SingleOmega` 本身）；(ii) σ-frame（Book 取法 4）是**换靶**（σ-frame-值 cut 的另一套实数，非钉死的 `DedekindReals`）+ 新费（HIT-II 与比较义务）。换币读法**原则上存在**：(iii) Cauchy 实数免费活在 `Type₀`，但 `≃ DedekindReals` 需可数选择类原则（元层引述）。 | `META_ANALYSIS_REGISTERED`（诊断对照，非证明） | 修订片 030 §2（三路线逐条 + Book §11.2 取法 4 逐字在 CLAIM-PACKAGE §1.1）；尺码墙的机器面 = `CutRealLayer.agda` 宇宙层级（REAL-LAYER-02 源） | 结局是「某种原则必付」的**证据**、「SingleOmega 型收费必付」的**负结果**（币种不确定）；CC 路线未机械化，不据此交付任何数学结论；不静默、不以 (a) 冒充 |
+| **B1b′ 必要性** | `Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ` **正式确认 `CONJECTURE`**（029 §2 硬条款执行）。路径 1 失败分析：0/1-cut 编码 `hProp ↪ DedekindReals` 的 locatedness 在 `0≤q<r≤1` 窗口强制 `P ∨ ¬P`；路径 2 缺模型（`HoTT+CC+¬SingleOmega` 模型存在性未论证——若成立则 Necessity 在其中为假，不可证且可能不可反驳）；LEM 下后件免费（Book 取法 3 逐字）⇒ 必要性问题纯属构造性片段。 | `CONJECTURE`（不升级） | 修订片 030 §3（路径分析 + 三观察）；Book §11.2 取法 3/4 逐字（CLAIM-PACKAGE §1.1） | 收费位置判词不得 `MACHINE_PROVED`；`SingleOmega↔PropResizing` 蕴含方向仍开放；不声称「必付费」任何币种 |
+| **B2 靶 A 不可归约** | 对象层**不可内证** → **`QUESTION` 降格**：`n-lem = with (LEM ℕ) \| inl x = x`（inl 见证任意），`LEM ℕ ↦ inl zero` 与 `↦ inl (suc zero)` 两个声模型族分别支持 `n-lem ≡ zero` 与其否 ⇒ 两方向内部证明皆不可能。已机械化不变量 = 语法层 canonicity 失败（TA/TA-AC/TA-LEM 负向探针，exit≠0 即收据）。 | `QUESTION`（依赖解释的伪命题；元层 canonicity 现象才是稳定表述） | 修订片 030 §4 + `MissileFourChargeDemo.agda` 头注预登记兑现；TA 族收据（本表前节） | 不因探针收据升格；Huber 完整结果维持 `SOURCE_REPORTED_NOT_REPLAYED`；不声称对象层定理 |
+| **B3 范围诚实性** | 当前 repo **无公开稿文本**（028 为修复方案非公开稿）——三方对照的公开稿一侧为空集，今日平凡成立。**判词基准落盘**（公开稿产生时强制）：(1) 不得「击落 HoTT」作数学主张；(2) 最高措辞 =「非现实性机械锚定 + 逼选结构」；(3) 收费表述保留币种不确定性；(4) B1b′/B2/Huber 三等级不得升格。 | `BASELINE_READY_VACUOUS_TODAY`（公开稿产生时转为对照执行） | 修订片 030 §5；audit map §5 基准条目 | 空集对照不冒充实质对照；公开稿产生之日重跑 |

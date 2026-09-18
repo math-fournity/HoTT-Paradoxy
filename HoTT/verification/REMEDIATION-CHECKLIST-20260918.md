@@ -18,7 +18,7 @@
 
 | # | 项 | 验收判据 | 验证命令 | 状态 | 证据指针 | 验收人 |
 |---|---|---|---|---|---|---|
-| E1 | 85 run 全量重放回填 exit/stdout-sha256/stderr | **裁定收窄**：四弹相关 kernel-accepted 收据全部 `--rerun` 三匹配（GOLD-02、M2-01、M3-01、M3-UNC-01、BP-01、TA-01，6 发）；其余按下方分类处理 | `python3 scripts/audit/verify_formal_proof_run.py --project-root . --run-dir <run-dir> --rerun`（约 60–90s/发） | **DONE（6/6 核心）** | 6 发全部 `PASS_WITH_SCOPE` / `KERNEL_ACCEPTED_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` / `EXACT_INDEX_SNAPSHOT_MATCH`（2026-09-18 执行）；TA-01 收据经规范修复（见下）；剩余分类见下 | AI_SELF |
+| E1 | 85 run 全量重放回填 exit/stdout-sha256/stderr | **裁定收窄**：四弹相关 kernel-accepted 收据全部 `--rerun` 三匹配（GOLD-02、M2-01、M3-01、M3-UNC-01、BP-01、TA-01，6 发）；其余按下方分类处理 | `python3 scripts/audit/verify_formal_proof_run.py --project-root . --run-dir <run-dir> --rerun`（约 60–90s/发） | **DONE（6/6 核心，2026-09-18 晚补强）** | 6 发全部 `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`（本轮全部重放执行；GOLD-02 此前实为 FAIL——fedd70e 所写 index-row-manifest 快照哈希错+身份字段缺、且矩阵 GOLD proof 行重复触发唯一性检查——经 manifest 重建+历史行降格后通过，`index_validation: ROW_STABLE_AFTER_INDEX_EVOLUTION`）；另 REAL-LAYER-02 双重 replay PASS | AI_SELF |
 | E2 | 回填缺 `index` 的 run；`mark_proof_run_indexed.py` 的 `C-\d+` 绑定接受 `CAND-F2-7-*` | 缺 `index` 的 run 数 = 0 | `python3 scripts/audit/verify_all_proof_runs.py`（或 glob RUN.json 查 index 字段） | **DONE** | 40 缺口 → 回填；全量 verify **35 PASS**（此前 29）；3 真缺口属其他研究线（见下）；脚本 `scripts/audit/backfill_run_index_field.py`，落盘提交 `fedd70e` + `96a9f18` | AI_SELF |
 | E3 | `git_status` 字段刷新为 `LOCAL_COMMITTED_NOT_PUSHED` | RUN.json 中 `LOCAL_UNCOMMITTED*` 计数 = 0 | `grep -rc LOCAL_UNCOMMITTED HoTT/verification/runs/*/RUN.json` | **DONE** | 66 个 formal 收据刷新；脚本 `scripts/audit/refresh_run_git_status.py`，提交 `fedd70e` | AI_SELF |
 
@@ -28,10 +28,10 @@
 |---|---|---|---|---|---|---|
 | B0 | **陈述精确化**（029 §4.1，前置）：Book §11.2 「须 LEM 或 resizing」逐字原文 + `CutRealLayer.agda` module statement | 精确命题含全称量词/假设/宇宙；statement 可被编译器接受为类型 | 源书逐字核对 + `compile.sh CutRealLayer.agda`（仅 statement 阶段） | **DONE（含 §4.1 第 2 步可行性裁定）；2026-09-18 晚登记两项陈述勘误（dcut ∥_∥₁ 截断 + Sufficiency 假设 PropResizing→SingleOmega，B0 深化），`-01` 源 hash 过期、陈述由 `-02` 背书，勘误节见 `CLAIM-PACKAGE-REAL-LAYER.md`** | `CutRealLayer.agda`（`AGDA_EXIT=0`）+ `CLAIM-PACKAGE-REAL-LAYER.md`（逐字转写 + 对照表 + §3 裁定 + 勘误节）；run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01` 全过（`EXACT_EXIT_STDOUT_STDERR_MATCH` / `EXACT_INDEX_SNAPSHOT_MATCH`）；提交 `a7eeab4` | AI_SELF → EXTERNAL_D |
 | B1a | **充裕性**：付费假设 → ℝ 层构造（checklist 原计划 `postulate` 形态；实际以「假设为显式前提的构造性蕴含」完成并登记偏离——**加强**：无 postulate、纯构造） | `--safe` 过核；矩阵行标 `MACHINE_PROVED_WITH_SCOPE`，付费假设显式在场（`SingleOmega ℓ` 为 `sufficiency` 的显式前提，非 postulate） | `compile.sh CutRealLayer.agda --ignore-interfaces`；AGDA_EXIT=0 | **DONE**（`sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ` 过核；构造 = 代理空间 `DedekindReals*` + 显式逐点 λ 载体 iso + 跨层自克隆 `Σ-cong-iso-fst-cross` + `isoToEquiv`） | run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02`（exit 0 / stderr 0）+ 矩阵 REAL-LAYER 节更新（含两项 B0 勘误登记）；探针 `ProbeCrossIso.agda`（`isoToEquiv` 跨层） | AI_SELF → EXTERNAL_D |
-| B1b | **诊断绕过**（朴素构造性尝试，029 §2）：成则登记负结果，败则登记为必要性证据 | 无论结局，**结果如实登记**（不得静默） | 尝试记录 + 结局登记于矩阵/后续修订片 | OPEN | 修订片后继 | AI_SELF |
-| B1b′ | **必要性**：`ℝ层陈述 → LEM/resizing`（反向蕴含，首选）；或模型反例（仅元层，标 `SOURCE_REPORTED`）；或降格 `CONJECTURE` | 要么过核证明，要么显式 `CONJECTURE`；**禁止以 B1a 冒充** | 反向蕴含：`compile.sh` 过核；模型反例：元层论证 + 来源标注 | OPEN | 同上 | AI_SELF → EXTERNAL_D |
-| B2 | 靶 A「不可归约」内部证明，或降格 `CONJECTURE` | 内部证明过核；或矩阵显式 `QUESTION` | `compile.sh MissileFourTargetA-*.agda` | OPEN | TA 系列 run | AI_SELF |
-| B3 | 范围诚实性：公开稿标题/摘要/矩阵判词三者一致，不出现「击落 HoTT」作数学主张 | 逐项对照表一致 | 人工逐项对照（标题 ↔ 摘要 ↔ `CLAIM_EVIDENCE_MATRIX.md` 判词） | OPEN | 公开稿 + 矩阵 | EXTERNAL_D |
+| B1b | **诊断绕过**（朴素构造性尝试，029 §2）：成则登记负结果，败则登记为必要性证据 | 无论结局，**结果如实登记**（不得静默） | 尝试记录 + 结局登记于矩阵/后续修订片 | **DONE（混合结局，如实登记）**：零付费读法败（尺码墙 / σ-frame 换靶+新费）；换币读法原则上存在（Cauchy+CC，元层未机械化）⇒「某种原则必付」=必要性证据，同时「SingleOmega 型收费必付」= 负结果（币种不确定） | 修订片 030 §2 + 矩阵「B 线收官」节（`META_ANALYSIS_REGISTERED`） | AI_SELF |
+| B1b′ | **必要性**：`ℝ层陈述 → LEM/resizing`（反向蕴含，首选）；或模型反例（仅元层，标 `SOURCE_REPORTED`）；或降格 `CONJECTURE` | 要么过核证明，要么显式 `CONJECTURE`；**禁止以 B1a 冒充** | 反向蕴含：`compile.sh` 过核；模型反例：元层论证 + 来源标注 | **DONE（降格收口）**：`Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ` 正式确认 `CONJECTURE`（029 §2 硬条款）；路径 1 失败分析（0/1-cut locatedness 强制 `P∨¬P`）+ 路径 2 缺模型（CC+¬SingleOmega 模型存在性未论证，若成立则不可证且可能不可反驳）+ LEM 下后件免费（Book 取法 3） | 修订片 030 §3 + 矩阵「B 线收官」节 | AI_SELF → EXTERNAL_D |
+| B2 | 靶 A「不可归约」内部证明，或降格 `CONJECTURE` | 内部证明过核；或矩阵显式 `QUESTION` | `compile.sh MissileFourTargetA-*.agda` | **DONE（`QUESTION` 降格收口）**：`n-lem` 的 inl 见证任意（`LEM ℕ ↦ inl zero` / `↦ inl (suc zero)` 两声模型族分别支持两方向等式）⇒ 对象层两方向皆不可内证；已机械化不变量 = 语法层 canonicity 失败（TA 族负向探针）；ChargeDemo 头注预登记兑现 | 修订片 030 §4 + 矩阵「B 线收官」节；TA 系列 run | AI_SELF |
+| B3 | 范围诚实性：公开稿标题/摘要/矩阵判词三者一致，不出现「击落 HoTT」作数学主张 | 逐项对照表一致 | 人工逐项对照（标题 ↔ 摘要 ↔ `CLAIM_EVIDENCE_MATRIX.md` 判词） | **DONE（当前无公开稿文本——空集事实 + 判词基准落盘）**：repo 内不存在公开稿标题/摘要（028 为修复方案）；基准四条已入修订片 030 §5 与 audit map；公开稿产生之日强制重跑对照（届时转为「对照执行」） | 修订片 030 §5 + audit map §5 基准条目 | EXTERNAL_D |
 
 ## 第 2 层 · 治理闸门（G 系列，EXTERNAL_D / 用户）
 
@@ -106,6 +106,12 @@ Book §11.2 取法 4（**初始 σ-frame**）证伪了「ℝ层 ⇒ LEM 或 resi
 
 **E1 ∧ E2 ∧ E3 ∧ B0 ∧ B1a ∧ (B1b′ 解决：证明或降格) ∧ B2 ∧ B3 ∧ G2 全部非 OPEN，
 方可公开。** 任一 OPEN 项必须在外部审计进场前如实标注，不得标注为已完成。
+
+**2026-09-18 晚状态**：E1 ✅ E2 ✅ E3 ✅ B0 ✅ B1a ✅（`MACHINE_PROVED_WITH_SCOPE`）
+B1b ✅（混合结局登记）B1b′ ✅（降格 `CONJECTURE` 收口）B2 ✅（降格 `QUESTION`
+收口）B3 ✅（空集事实 + 基准落盘）。**唯一剩余 = G2（外部追溯审计实际执行，
+EXTERNAL_D）**；G1（STATE checkpoint 用户裁定）与 G3（push 授权）为用户闸门、
+不在本条件合取内但同样未闭。修订片 030 = B 线收官主登记。
 
 ## 当前阻断顺序（029 §4）
 

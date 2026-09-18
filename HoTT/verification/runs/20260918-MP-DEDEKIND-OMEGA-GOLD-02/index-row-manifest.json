@@ -1,6 +1,23 @@
 {
-  "schema_version": "proof-index-row-manifest/v1",
+  "claim_ids": [
+    "CAND-F2-7-GOLD"
+  ],
   "index_path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
-  "index_snapshot_sha256": "7e7d3800b411985d79b945742caaf9125dd18923f198802a2d6ae3af08b6071a",
-  "note": "backfilled by backfill_run_index_field.py; snapshot = first matrix revision containing this run's identity"
+  "index_snapshot_sha256": "830b057405c5cdd6f460b76833d041d9430c85a1ba96f12cd1cae4641817902e",
+  "note": "snapshot = matrix revision fedd70e (matches RUN.json index.sha256); the snapshot also contains the GOLD-01 proof row (partial-assembly entry) for the same proof_id -- rows[] pins the GOLD-02 row. Repaired 2026-09-18: the fedd70e-written manifest lacked identity fields and carried a wrong snapshot hash (7e7d38.. vs 830b05..).",
+  "proof_id": "MP-DEDEKIND-OMEGA-GOLD",
+  "rows": [
+    {
+      "id": "MP-DEDEKIND-OMEGA-GOLD",
+      "kind": "proof",
+      "line_sha256": "58c063231665b079d3acb28c8cbd2c7fe8bd069bbb3a02ddd6311cc6609e2f44"
+    },
+    {
+      "id": "CAND-F2-7-GOLD",
+      "kind": "claim",
+      "line_sha256": "e3d3dfc3e3c82b1c34af6c090414349b80934108ac30ca79c7755e0ffa3624b6"
+    }
+  ],
+  "run_id": "20260918-MP-DEDEKIND-OMEGA-GOLD-02",
+  "schema_version": "proof-index-row-manifest/v1"
 }

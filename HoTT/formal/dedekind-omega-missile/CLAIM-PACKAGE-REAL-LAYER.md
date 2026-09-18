@@ -174,11 +174,18 @@ call $\Omega$」的忠实形态是「存在低层级 Ω」，即 `SingleOmega`�
 1. ~~**B1a（充裕性）**~~ **DONE（2026-09-18，run `-02`）**：实际证明形态
    `sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ`（付费假设为显式
    前提而非 postulate，见 §3-E 勘误 2 与 B1a 段）。
-2. **B1b（诊断绕过）**：朴素构造性尝试（不走 resizing/LEM 直接做出 `ℝLayerAt ℓ₀`），
-   **如实报告结局**：成 → 登记负结果（本攻击方向失效）；败 → 必要性证据（非证明）。
-   注意：B1a 的构造性本质使「朴素尝试」的表述需重新校准——`SingleOmega` 经取法 4
-   （初始 σ-frame）的构造性满足仍开放，B1b 应考察该路线与「不付任何塌缩结构」的差异。
-3. **B1b′（必要性）**：按 §3 的收窄目标尝试 `Necessity ℓ`；不成则维持 `CONJECTURE`。
+2. **B1b（诊断绕过）**：**DONE（2026-09-18，混合结局如实登记，修订片 030 §2）**——
+   零付费读法败：直接构造撞尺码墙（`Ω : Type ℓ₀` 具 hProp 全能力即 `SingleOmega`
+   本身）；σ-frame（取法 4）是换靶（σ-frame-值 cut 的另一套实数，非钉死的
+   `DedekindReals`）+ 新费（HIT-II 与「初始 σ-frame ≃ hProp」比较义务）。换币读法
+   原则上存在：Cauchy 实数免费活在 `Type₀`，但 `≃ DedekindReals` 需可数选择类
+   原则（元层引述未机械化）。结局 = 「某种原则必付」的必要性证据 +
+   「SingleOmega 型收费必付」的负结果（币种不确定）。
+3. **B1b′（必要性）**：**DONE（降格收口，修订片 030 §3）**——`Necessity ℓ =
+   ℝLayerAt ℓ → SingleOmega ℓ` 正式确认 `CONJECTURE`：路径 1 失败（0/1-cut 编码
+   的 locatedness 在 `0≤q<r≤1` 窗口强制 `P ∨ ¬P`）；路径 2 缺模型
+   （`HoTT+CC+¬SingleOmega` 模型存在性未论证，若成立则不可证且可能不可反驳）；
+   LEM 下后件免费（取法 3 逐字）⇒ 必要性问题纯属构造性片段。
 
 ---
 

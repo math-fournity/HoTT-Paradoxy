@@ -203,6 +203,8 @@ canonical argv 形态（自包含环境；`--ignore-interfaces` 保证输出不�
 | `MissileFourTargetA-ProbeACSuc.agda` | TA-AC-02 | 预期失败 | 同上 |
 | `MissileFourTargetA-ProbeLEMZero.agda` | TA-LEM-01 | 42 | **本轮新增**；已双重重放验证三匹配 |
 | `MissileFourTargetA-ProbeLEMSuc.agda` | TA-LEM-02 | 42 | 同上 |
+| `CutRealLayer.agda` | REAL-LAYER-01 / REAL-LAYER-02 | 0 / 0 | **2026-09-18 晚新增**；-02 = B0 双勘误后陈述 + B1a 充裕性证明体（`MACHINE_PROVED_WITH_SCOPE`，双重 replay）；-01 = statement 阶段历史收据（源 hash 因两项 B0 勘误过期，以 -02 为准）；-02 经 canonical `verify_formal_proof_run.py --rerun` 全绿 |
+| `ProbeCrossIso.agda` | （无收据，辅助探针） | 0 | `isoToEquiv` 跨层库事实探针（CutRealLayer §7.5 注释的复现件） |
 
 重放后核对三件事：(a) exit 与 `RUN.json.exit_code`；(b) stdout/stderr 与收据文件
 逐位一致（sha256 在 RUN.json 内）；(c) 源码 sha256 与 `source-manifest.json` 一致
@@ -238,6 +240,21 @@ GOLD-FULL，全部有 run 收据（GOLD-01 保留为部分装配期历史，被 
    stuckness 已跑核（TA / TA-AC / TA-LEM）」+「Huber 完整结果仍
    `SOURCE_REPORTED_NOT_REPLAYED`」；§10 相应修正为「不声称其为**对象层**定理」。
 
+**2026-09-18 晚补强（B 线收官轮）**
+3a. **GOLD-02 canonical 校验修复**：fedd70e 所写 `index-row-manifest.json` 快照哈希
+   错误（`7e7d38..` vs RUN.json `index.sha256 = 830b05..`）且缺身份字段 → 已按
+   fedd70e 版矩阵重建；矩阵 GOLD 两节的 -01 历史行降格（唯一 proof 身份行 = -02）。
+   修复后六核心收据（GOLD-02/M2-01/M3-01/M3-UNC-01/BP-01/TA-01）`--rerun` 全部
+   `PASS_WITH_SCOPE` + `EXACT_EXIT_STDOUT_STDERR_MATCH`。
+3b. **REAL-LAYER 线入库**：B0 双勘误（dcut `∥_∥₁` + SingleOmega 假设深化）+
+   B1a 充裕性 `MACHINE_PROVED_WITH_SCOPE`（run -02 双 replay，无 postulate）。
+   B1b 混合结局 / B1b′ `CONJECTURE` / B2 `QUESTION` / B3 基准 → 修订片 030 +
+   矩阵「B 线收官」节。
+3c. **判词基准（B3，公开稿产生时强制）**：(1) 标题/摘要不得「击落 HoTT」作数学
+   主张；(2) 最高措辞 =「非现实性机械锚定 + 逼选结构」；(3) 收费表述保留币种
+   不确定性（某种原则必付 ≠ SingleOmega 必付）；(4) B1b′/B2/Huber 三等级
+   不得升格。
+
 **仍登记的缺口（不声称已闭合）**
 4. **负向探针 exit_code 字段偏差**：当前机器重放 TA-03/04、TA-AC-01/02，stdout/stderr
    与收据**逐位一致**（TA-AC-01：431B，sha256 `f7b37d65…`），但退出码观察为 **42**
@@ -249,6 +266,9 @@ GOLD-FULL，全部有 run 收据（GOLD-01 保留为部分装配期历史，被 
    `mark_proof_run_indexed.py` 盖戳，但该脚本绑定 `C-\\d+` 旧编号与
    `PROOF_VERSION_CLOSURE.json`，不适用于 `CAND-F2-7-*` 链）。故 `--rerun` 级
    canonical 校验不可用；替代核验 = §3 手工重放 + manifest 哈希 + 矩阵行逐字对照。
+   **（2026-09-18 晚状态更新：六核心 + REAL-LAYER-02 已达成 canonical
+   `--rerun` 全绿——`CAND-*` 链按 -01 先例直接翻 `index_status` 后走
+   `backfill_run_index_field.py`；其余早期收据维持本条口径。）**
 6. **状态字面过时**：多数早期收据行/`git_status` 仍标 `LOCAL_UNCOMMITTED` /
    `MACHINE_PROVED_LOCAL_UNCOMMITTED`，而证据实际已入库（HEAD `7cc94c1` 工作树仅
    `dev-notes/0010` 脏）。这是状态字面更新，非数学缺口；真实当前态 =
@@ -257,12 +277,16 @@ GOLD-FULL，全部有 run 收据（GOLD-01 保留为部分装配期历史，被 
    `-TWO-EVENT`）：门禁前的聚合收据，状态如实标为
    `LEGACY_AGGREGATE_RECEIPT_REPLAY_REQUIRED_FOR_NEW_DELIVERY`（其中一个已被
    pinned 重放取代）。非虚假声明，但**不得**当作当前机器证明。
-8. **ℝ 层升格未机械化**：把 cut 取等价类、塌缩「ℝ 取值命题」到单一 Ω 的
-   LEM / propositional-resizing 收费位置**仅登记**（DESIGN §4 / 027 §9），不声称
-   其必需性已证。
+8. **ℝ 层升格**：**充裕性侧已机械化**（B1a：`SingleOmega ℓ → ℝLayerAt ℓ`，
+   REAL-LAYER-02 `MACHINE_PROVED_WITH_SCOPE`，2026-09-18）；**必需性侧未证**
+   ——`Necessity` 维持 `CONJECTURE`（修订片 030 §3：locatedness-LEM 失败分析
+   + CC 模型反例候选 + 币种不确定），不声称其必需性已证。
 9. **δ 路线完备性未论证**：不声称内在 ℚ 项见证形态已被穷尽（金形态有界负收尾的
    前置完备性论证未做）。
-10. **靶 A「不可归约」内部证明未做**：路径 (i) 为元层检查记录（027 §4）。
+10. **靶 A「不可归约」内部证明未做且不可做**（2026-09-18 B2 收口）：两方向等式
+   各有声模型族（`LEM ℕ ↦ inl zero` / `↦ inl (suc zero)`）⇒ 对象层命题依赖
+   postulate 解释，正式降格 `QUESTION`（修订片 030 §4）；已机械化的不变量 =
+   语法层 canonicity 失败（TA 族负向探针）。
 11. **STATE checkpoint 机械层未触碰**：`STATE.revision` 仍 169；S170–S176 的 Session
     证据落盘但未经 canonical checkpoint 事务应用（0022 禁止事项，沿 170–175 模式，
     收据缺口如实登记，不伪造事务）；全景视野/方向追踪为 checkpoint 管理文档，写回
