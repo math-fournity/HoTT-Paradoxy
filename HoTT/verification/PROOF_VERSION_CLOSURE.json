@@ -1,508 +1,520 @@
 {
-  "schema_version": "hott-proof-version-closure/v2",
-  "status": "PROOF_ASSETS_VERSION_CLOSED_AT_SOURCE_COMMIT",
-  "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
-  "proof_asset_tree": "e78cfa44f086cb0d6bb6fae75837deedfa920e21",
-  "release_ref": "governance-v3.2.0",
-  "matrix_at_proof_asset_commit": {
-    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
-    "bytes": 58897,
-    "lines": 210,
-    "sha256": "e598228bb3c04f2a84cece955680381b16fb92f140c336abe0da2e6f4b6e7a18"
+ "schema_version": "hott-proof-version-closure/v2",
+ "status": "PROOF_ASSETS_VERSION_CLOSED_AT_SOURCE_COMMIT",
+ "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+ "proof_asset_tree": "e78cfa44f086cb0d6bb6fae75837deedfa920e21",
+ "release_ref": "governance-v3.2.0",
+ "matrix_at_proof_asset_commit": {
+  "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+  "bytes": 58897,
+  "lines": 210,
+  "sha256": "e598228bb3c04f2a84cece955680381b16fb92f140c336abe0da2e6f4b6e7a18"
+ },
+ "current_package_count": 17,
+ "machine_proved_claim_count": 90,
+ "external_replayed_claim_count": 1,
+ "later_machine_proved_claim_count": 101,
+ "later_package_dependency_gap_allowlist": {
+  "schema_version": "proof-dependency-gap-allowlist/v2",
+  "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
+  "entries": [
+   {
+    "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
+    "run_id": "20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
+    "module": "DiagonalLemma",
+    "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+    "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+    "source_manifest_sha256": "0b7c4b18c71a0ae84e859bbee04ab24ded137f10fd1ec39b4d117f5c36e01a99",
+    "stdout_sha256": "5500fe76be06703b66f0ecc51d28850f8d637105907419ecd2eb34eb762edb93"
+   },
+   {
+    "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
+    "run_id": "20260913-MP-ERCF3-T3-BIT-CODING-001-01",
+    "module": "DiagonalLemma",
+    "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+    "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+    "source_manifest_sha256": "3d08e697df19dcabb306b9ff4588c4ee6eec39f8702ab5b11f9b01ee1a23549d",
+    "stdout_sha256": "f3980c074e51eb01de5417ee89057fc0e7633ec4b35efce36db9d4dcf640cdf3"
+   },
+   {
+    "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
+    "run_id": "20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
+    "module": "DiagonalLemma",
+    "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+    "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+    "source_manifest_sha256": "3bddb490e7e493d677ef5d8e6b4f2d2f986a6d57fc87e0edfb4ae30c99fdb694",
+    "stdout_sha256": "609ea4d45d96a77dec7eeab49c8f1bc548e7fdc149e544ead9caf3cbb6ed7b7f"
+   },
+   {
+    "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+    "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+    "module": "DiagonalLemma",
+    "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+    "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+    "source_manifest_sha256": "3af1f7c3ca54e054e9980cf6e64948bb4994a88ca93aa64c10af00999be4081f",
+    "stdout_sha256": "5bc57c275b497585899d88128ad2749a3b1772557c25316e52ae01dcf6c1b30f"
+   },
+   {
+    "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+    "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+    "module": "DecodingFence",
+    "missing_path": "HoTT/formal/ercf3-t3/DecodingFence.agda",
+    "missing_sha256": "e7a141207332a55f5be14e20208127d98480aca22bf12366d092fd34431a8cab",
+    "source_manifest_sha256": "3af1f7c3ca54e054e9980cf6e64948bb4994a88ca93aa64c10af00999be4081f",
+    "stdout_sha256": "5bc57c275b497585899d88128ad2749a3b1772557c25316e52ae01dcf6c1b30f"
+   },
+   {
+    "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
+    "run_id": "20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+    "module": "DiagonalLemma",
+    "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+    "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
+    "source_manifest_sha256": "5e4f692f58ca12aca5ff4714c671908d995550c9a856c77cf84ef7adfb8d1a38",
+    "stdout_sha256": "6b45a2b966bda6510c2f46ab4d1bccd2f6b29eae9f72c616d65637c2c5101e87"
+   }
+  ]
+ },
+ "replay_runs": {
+  "schema_version": "proof-replay-registry/v1",
+  "entries": []
+ },
+ "later_packages": [
+  {
+   "proof_id": "MP-VERIFICATION-EVENT-001",
+   "claim_ids": "C-149–C-156",
+   "local_claim_ids": "EVT-01–EVT-08",
+   "source": "HoTT/formal/verification-event/VerificationEvent.agda",
+   "run": "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01",
+   "toolchain": "HoTT/formal/verification-event/TOOLCHAIN.json",
+   "kind": "imported_independent_source_replayed_in_project",
+   "import_evidence": "audit/imports/verification-event-20260913-01a099e9/",
+   "negative_control_probe": "audit/imports/verification-event-20260913-01a099e9/project-negative-probe/probe.json",
+   "verdict": "VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL",
+   "release_ref": "governance-v3.5.0"
   },
-  "current_package_count": 17,
-  "machine_proved_claim_count": 90,
-  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 101,
-  "later_package_dependency_gap_allowlist": {
-    "schema_version": "proof-dependency-gap-allowlist/v2",
-    "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
-    "entries": [
-      {
-        "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
-        "run_id": "20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
-        "module": "DiagonalLemma",
-        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
-        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
-        "source_manifest_sha256": "0b7c4b18c71a0ae84e859bbee04ab24ded137f10fd1ec39b4d117f5c36e01a99",
-        "stdout_sha256": "5500fe76be06703b66f0ecc51d28850f8d637105907419ecd2eb34eb762edb93"
-      },
-      {
-        "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
-        "run_id": "20260913-MP-ERCF3-T3-BIT-CODING-001-01",
-        "module": "DiagonalLemma",
-        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
-        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
-        "source_manifest_sha256": "3d08e697df19dcabb306b9ff4588c4ee6eec39f8702ab5b11f9b01ee1a23549d",
-        "stdout_sha256": "f3980c074e51eb01de5417ee89057fc0e7633ec4b35efce36db9d4dcf640cdf3"
-      },
-      {
-        "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
-        "run_id": "20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
-        "module": "DiagonalLemma",
-        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
-        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
-        "source_manifest_sha256": "3bddb490e7e493d677ef5d8e6b4f2d2f986a6d57fc87e0edfb4ae30c99fdb694",
-        "stdout_sha256": "609ea4d45d96a77dec7eeab49c8f1bc548e7fdc149e544ead9caf3cbb6ed7b7f"
-      },
-      {
-        "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
-        "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
-        "module": "DiagonalLemma",
-        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
-        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
-        "source_manifest_sha256": "3af1f7c3ca54e054e9980cf6e64948bb4994a88ca93aa64c10af00999be4081f",
-        "stdout_sha256": "5bc57c275b497585899d88128ad2749a3b1772557c25316e52ae01dcf6c1b30f"
-      },
-      {
-        "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
-        "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
-        "module": "DecodingFence",
-        "missing_path": "HoTT/formal/ercf3-t3/DecodingFence.agda",
-        "missing_sha256": "e7a141207332a55f5be14e20208127d98480aca22bf12366d092fd34431a8cab",
-        "source_manifest_sha256": "3af1f7c3ca54e054e9980cf6e64948bb4994a88ca93aa64c10af00999be4081f",
-        "stdout_sha256": "5bc57c275b497585899d88128ad2749a3b1772557c25316e52ae01dcf6c1b30f"
-      },
-      {
-        "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
-        "run_id": "20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
-        "module": "DiagonalLemma",
-        "missing_path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
-        "missing_sha256": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576",
-        "source_manifest_sha256": "5e4f692f58ca12aca5ff4714c671908d995550c9a856c77cf84ef7adfb8d1a38",
-        "stdout_sha256": "6b45a2b966bda6510c2f46ab4d1bccd2f6b29eae9f72c616d65637c2c5101e87"
-      }
-    ]
+  {
+   "proof_id": "MP-ERCF3-T3-JOINT-001",
+   "claim_ids": "C-157–C-159",
+   "local_claim_ids": "T3-JOINT-01–T3-JOINT-03",
+   "source": "HoTT/formal/ercf3-t3/JointRecursion.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_SHARED_DECISION_JOINT_RECURSION",
+   "notes": "Closes the term-level identity recorded as the remaining obligation in N34/TermIdentityFinal and adds the corrected formula-level code substitution (fixing the double-encoded `all` shadow branch of CodeStoreFixF). Does NOT change the gated status of ERCF-3: no proof-predicate representability, no reflection, no diagonal fixed point.",
+   "release_ref": "governance-v4.0.0"
   },
-  "replay_runs": {
-    "schema_version": "proof-replay-registry/v1",
-    "entries": []
+  {
+   "proof_id": "MP-ERCF3-T3-DECODING-001",
+   "claim_ids": "C-160–C-162",
+   "local_claim_ids": "T3-DEC-01–T3-DEC-03",
+   "source": "HoTT/formal/ercf3-t3/DecodingFence.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_DECODABILITY_FENCE",
+   "notes": "Checks the decodability/injectivity obligation recorded as deliberately unformalised in ObjectSyntax: the concrete codeT/codeF are not injective (var 2 and num 0 collide), with a numeral-fragment positive control. Does NOT provide a repaired coding and does NOT change the gated status of ERCF-3.",
+   "release_ref": "governance-v4.0.0"
   },
-  "later_packages": [
-    {
-      "proof_id": "MP-VERIFICATION-EVENT-001",
-      "claim_ids": "C-149–C-156",
-      "local_claim_ids": "EVT-01–EVT-08",
-      "source": "HoTT/formal/verification-event/VerificationEvent.agda",
-      "run": "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01",
-      "toolchain": "HoTT/formal/verification-event/TOOLCHAIN.json",
-      "kind": "imported_independent_source_replayed_in_project",
-      "import_evidence": "audit/imports/verification-event-20260913-01a099e9/",
-      "negative_control_probe": "audit/imports/verification-event-20260913-01a099e9/project-negative-probe/probe.json",
-      "verdict": "VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL",
-      "release_ref": "governance-v3.5.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-JOINT-001",
-      "claim_ids": "C-157–C-159",
-      "local_claim_ids": "T3-JOINT-01–T3-JOINT-03",
-      "source": "HoTT/formal/ercf3-t3/JointRecursion.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_SHARED_DECISION_JOINT_RECURSION",
-      "notes": "Closes the term-level identity recorded as the remaining obligation in N34/TermIdentityFinal and adds the corrected formula-level code substitution (fixing the double-encoded `all` shadow branch of CodeStoreFixF). Does NOT change the gated status of ERCF-3: no proof-predicate representability, no reflection, no diagonal fixed point.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-DECODING-001",
-      "claim_ids": "C-160–C-162",
-      "local_claim_ids": "T3-DEC-01–T3-DEC-03",
-      "source": "HoTT/formal/ercf3-t3/DecodingFence.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_DECODABILITY_FENCE",
-      "notes": "Checks the decodability/injectivity obligation recorded as deliberately unformalised in ObjectSyntax: the concrete codeT/codeF are not injective (var 2 and num 0 collide), with a numeral-fragment positive control. Does NOT provide a repaired coding and does NOT change the gated status of ERCF-3.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-REPAIR-SPEC-001",
-      "claim_ids": "C-163–C-165",
-      "local_claim_ids": "T3-REP-01–T3-REP-03",
-      "source": "HoTT/formal/ercf3-t3/CodingRepair.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_REPAIR_SPECIFICATION",
-      "notes": "Fixes what a coding repair must provide (C-164 roundtrip ⇒ injectivity), gives the structured tree coding as decodable positive control (C-163), and derives that the current Nat coding admits no decoder (C-165). Does NOT provide a Nat-valued repaired coding; ERCF-3 stays gated.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
-      "claim_ids": "C-166–C-168",
-      "local_claim_ids": "T3-ARI-01–T3-ARI-03",
-      "source": "HoTT/formal/ercf3-t3/ArithmeticTags.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT",
-      "notes": "First piece of the arithmetic half of the coding repair: double/odd tag disjointness (double injective, double n != odd m), the var/num fragment coder codeAtom (2n / 2n+1) is the first Nat-valued injective coding in the chain, and the *function* `double` misses 1 so the avar-only fragment is not surjective. [CORRECTED 2026-09-13 by the independent-audit absorption: the original note attributed the non-surjectivity to `codeAtom`, but the machine-checked lemma `one-has-no-preimage` is about `double`, and `codeAtom` is in fact surjective (see MP-ERCF3-T3-C168-COUNTERCHECK-001 / claims C-184-C-185). The default branch of the later full decoders is justified by `codeT'`/`codeF'` themselves: their bit lists are non-empty, so 1 is not in their image. The application node and the decoder remain open.]",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
-      "claim_ids": "C-169–C-172",
-      "local_claim_ids": "T3-BIT-01–T3-BIT-04",
-      "source": "HoTT/formal/ercf3-t3/BitCoding.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_BIT_SUBSTRATE",
-      "notes": "Bit-level substrate of the arithmetic half of the coding repair: least-significant-bit extraction and halving (parity/half/twice), the bundling code codeBits with its extraction lemma pair, the round-trip on a bit list whose length is supplied, and the bound that the code dominates its own length (so a future parser can take its fuel from the code itself). The symbol layer (self-delimiting var/num index bits and constructor tags), the parser with its default branch and the round-trip on the image remain open.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
-      "claim_ids": "C-173–C-176",
-      "local_claim_ids": "T3-STR-01–T3-STR-04",
-      "source": "HoTT/formal/ercf3-t3/StreamingParser.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_REPAIRED_NAT_CODING",
-      "notes": "Closes the coding-repair obligation of CodingRepair (C-163/C-164/C-165) at the coding layer: the self-delimiting unary index layer, the symbol layer (two tag bits for var/num plus their index, one tag bit for application) with a streaming parser whose round trip is fuel-exact (a frame stack solves sequential consumption while terminating structurally on the fuel), the length/bound/extra-fuel bookkeeping, and finally the repaired coder codeT' = codeBits . bits with a total decoder dec (default branches included) and round trip dec (codeT' t) = t, hence injectivity by C-164. Only Tm coding/decoding is covered: the proof predicate P, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
-      "claim_ids": "C-177–C-180",
-      "local_claim_ids": "T3-FML-01–T3-FML-04",
-      "source": "HoTT/formal/ercf3-t3/FormulaCoding.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_REPAIRED_FORMULA_CODING",
-      "notes": "Lifts the repaired coding from Tm (C-176) to Fml, which is the layer the diagonal machinery actually quotes. The formula symbol layer (two tag bits for =f/bot/=>f, plus the binder index of all) comes with a streaming parser whose round trip is exact in the iteration count; the Tm children of =f are handed to the term-level parser as a black box (fuel = the length of the remaining bit list); the length bound STEPS <= LEN makes the repaired formula code its own fuel; and codeF' = codeBits . bitsF comes with a total decoder decF and the round trip decF (codeF' phi) = phi, hence injectivity. Only Fml coding/decoding is covered: formula-layer substitution alignment, proof-predicate representability, reflection and the diagonal fixed point remain open, and ERCF-3 stays gated.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
-      "claim_ids": "C-181–C-183",
-      "local_claim_ids": "T3-SUB-01–T3-SUB-03",
-      "source": "HoTT/formal/ercf3-t3/RepairedSyntax.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION",
-      "notes": "Substitution and quotation over the repaired coding. With a decoder in hand, code-level substitution can be defined as decode-substitute-encode, and the agreement with syntax-level substitution becomes a corollary: substCodeT k n (codeT' t) = codeT' (substT k n t) and substCodeF k n (codeF' phi) = codeF' (substF k n phi). Quotation (the numeral of the repaired formula code) is injective, and the diagonal instance is a substitution instance of the same formula whose code is reached by the code-level substitution. Honest boundary: these code-level functions are defined through the decoder, so nothing here claims that the object theory can represent them -- representability, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-C168-COUNTERCHECK-001",
-      "claim_ids": "C-184–C-185",
-      "local_claim_ids": "AUD-C168-ONE-20260913, AUD-C168-SURJ-20260913",
-      "source": "HoTT/formal/ercf3-t3/C168Countercheck.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "independent_audit_countercheck_replayed_in_project",
-      "verdict": "ERCF3_T3_C168_NARRATIVE_CORRECTED_BY_COUNTERCHECK",
-      "notes": "Replays the independent audit's countercheck inside this repo, with the complete transitive import closure pinned: codeAtom (anum zero) = 1 has an explicit preimage (C-184) and codeAtom is surjective (C-185). This corrects the *narrative* attached to C-168 (which is about `double`, not `codeAtom`) without touching the formal lemma, the frozen matrix row, or any later coding claim. Import origin: audit/imports/audit-c168-20260913/.",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-ERCF3-T3-CODING-IMAGE-001",
-      "claim_ids": "C-186–C-187",
-      "local_claim_ids": "T3-IMG-01–T3-IMG-02",
-      "source": "HoTT/formal/ercf3-t3/CodingImage.agda",
-      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01",
-      "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
-      "kind": "in_project_ercf3_t3_pulse_completion",
-      "verdict": "ERCF3_T3_REPAIRED_CODING_MISSES_ONE",
-      "notes": "Replacement justification for the default branches after the C-168 narrative was withdrawn: the repaired coders miss 1, so a total decoder must decide what to do on non-codes and the default branch is reachable. C-186: (t : Tm) -> codeT' t != 1. C-187: (phi : Fml) -> codeF' phi != 1. Proof route: any bit list here is non-empty, codeBits (b :: bs) = pack b (codeBits bs), and pack b c >= 2 whenever c >= 1 (C-172 supplies the remaining bundle >= 1).",
-      "release_ref": "governance-v4.0.0"
-    },
-    {
-      "proof_id": "MP-CUBICAL-MACHINE-HALTING-001",
-      "claim_ids": "C-188–C-190",
-      "local_claim_ids": "R1-HALTS-001, R1-DIVERGES-001, R1-NOT-HALTS-001",
-      "source": "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MACHINE-HALTING-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "external_candidate_replayed_in_current_project",
-      "verdict": "FIXED_MACHINE_HALTING_DIVERGENCE_CALIBRATION",
-      "notes": "R1 fixed-machine calibration replayed in the current project root. C-188 gives a truncated finite halting witness for haltProgram. C-189 proves that loopProgram is non-final at every finite observation index. C-190 eliminates every truncated finite halting witness for loopProgram. The Agda checking run itself terminates successfully. This package proves neither universal halting undecidability nor a universal machine, Goedel incompleteness, a HoTT-specific cause of divergence, a natural-consumer mismatch, a same-reality-task bridge, or a contradiction in HoTT.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-PROGRAM-CODE-001",
-      "claim_ids": "C-191–C-194",
-      "local_claim_ids": "R2-PCODE-001, R2-EVAL-001, R2-HALT-CONTROL-001, R2-LOOP-CONTROL-001",
-      "source": "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-PROGRAM-CODE-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "in_project_r2_program_code_thin_slice",
-      "verdict": "R2_PROGRAMCODE_BOUNDED_EVALUATOR_FOUNDATION",
-      "notes": "First R2-PROGRAMCODE-001 thin slice. C-191 defines finite instruction-table syntax and a total decoder into the R1 Program semantics. C-192 defines one bounded evaluator for every finite table and proves agreement with R1 iteration/finality. C-193 and C-194 give halting and looping controls, including no truncated finite halting witness for loopCode. This does not provide numeric Goedel coding, fair enumeration, computational universality, a certified undecidability reduction, Goedel incompleteness, HoTT essentiality, a natural consumer or a same-reality-task bridge.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-NAT-PROGRAM-CODE-001",
-      "claim_ids": "C-195–C-198",
-      "local_claim_ids": "R2-NATCODE-001, R2-NAT-ROUNDTRIP-001, R2-NAT-EVAL-001, R2-NAT-CONTROLS-001",
-      "source": "HoTT/formal/cubical-machine-halting/NatProgramCode.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "in_project_r2_natural_program_code",
-      "verdict": "R2_NATURAL_CODE_AND_BOUNDED_EVALUATOR_ALIGNMENT",
-      "notes": "R2-NATCODE-001. C-195 gives natural-number encoders and total decoders for Instr and finite ProgramCode with explicit zero, premature-end and invalid-tag behavior. C-196 proves image round trips, injectivity and decoder coverage of every finite program. C-197 proves runNat/finalNat/haltsWithinNat agree with the R2 evaluator on encoded programs. C-198 preserves halt and loop controls. This does not provide a fair schedule of program/input/fuel triples, computational universality, a certified halting-undecidability theorem, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, a natural consumer or a reality bridge.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-FAIR-ENUMERATION-001",
-      "claim_ids": "C-199–C-202",
-      "local_claim_ids": "R2-TRIPLE-CODE-001, R2-FAIR-001, R2-FAIR-OBSERVE-001, R2-FAIR-CONTROLS-001",
-      "source": "HoTT/formal/cubical-machine-halting/FairEnumeration.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "in_project_r2_fair_enumeration",
-      "verdict": "R2_FAIR_FINITE_STAGE_NO_STARVATION",
-      "notes": "R2-FAIR-001. C-199 gives natural-number round trips for triples and Config. C-200 constructs caseAt/caseIndex and an explicit finite AppearsBy stage/noStarvation witness for every ProgramCode, Config and fuel. C-201 proves the scheduled observation at that index is the original haltsWithin task. C-202 preserves halt/loop controls. This does not yet construct the partial semi-halting search, computational universality, a certified undecidability reduction, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, a natural consumer or a reality bridge.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-SEMI-HALTING-001",
-      "claim_ids": "C-203–C-207",
-      "local_claim_ids": "R2-SEMIHALT-APPROX-001, R2-SEMIHALT-BOUNDED-BRIDGE-001, R2-SEMIHALT-CORRECT-COMPLETE-001, R2-SEMIHALT-FAIR-ENUMERATOR-001, R2-SEMIHALT-CONTROLS-001",
-      "source": "HoTT/formal/cubical-machine-halting/SemiHalting.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-SEMI-HALTING-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "in_project_r2_semi_halting",
-      "verdict": "R2_SEMI_HALTING_POSITIVE_SEARCH_AND_FAIR_ENUMERATION",
-      "notes": "R2-SEMIHALT-001. C-203 constructs total finite-stage Maybe approximants whose positive answers persist. C-204 relates exact finalAt witnesses and bounded haltsWithin observations. C-205 proves CodeHalts iff some finite semiHaltAt stage returns positive. C-206 constructs a fair global positive-case enumerator with soundness and bounded completeness at canonical caseIndex. C-207 preserves halt/loop controls and proves the explicit loop never returns positive. This does not prove ProgramCode universality, absence of a total halting decider, a certified undecidability reduction, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, a natural consumer or a reality bridge.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-COQ-MM2-UNDECIDABILITY-REPLAY-001",
-      "claim_ids": "C-208",
-      "local_claim_ids": "R2-COQ-MM2-SYNTHETIC-UNDEC-REPLAY-001",
-      "source": "HoTT/formal/external-coq-mm2/CheckMM2Undec.v",
-      "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01",
-      "toolchain": "HoTT/formal/external-coq-mm2/DOCKER_IMAGE.json",
-      "kind": "external_coq_library_mm2_theorem_replay",
-      "verdict": "EXTERNAL_MM2_SYNTHETIC_UNDECIDABILITY_REPLAYED_WITH_DEFINITION_BOUNDARY",
-      "notes": "Coq Library of Undecidability Proofs coq-8.15 commit c486697 was rebuilt from a 777-file Git-verified source tree in Coq 8.15.2. MM2_HALTING_undec type-checks and Print Assumptions reports Closed under the global context. The exact upstream definition is undecidable P := decidable P -> enumerable (complement SBTM_HALT); C-208 therefore records this synthetic implication, not an unconditional internal proof of not decidable. The current rocq-9.2 source at c7257b7 is separately qualified but not replayed. No compiler bridge to Cubical Agda ProgramCode is proved by this package.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-MM2-BRIDGE-001",
-      "claim_ids": "C-209–C-213",
-      "local_claim_ids": "R2-MM2-SOURCE-001, R2-MM2-STEP-BRIDGE-001, R2-MM2-RUN-BRIDGE-001, R2-MM2-HALTING-BRIDGE-001, R2-MM2-BRIDGE-CONTROLS-001",
-      "source": "HoTT/formal/cubical-machine-halting/MM2Bridge.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MM2-BRIDGE-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "in_project_r2_mm2_compiler_bridge_core",
-      "verdict": "R2_MM2_TO_PROGRAMCODE_HALTING_EQUIVALENCE_WITH_CROSS_LANGUAGE_TRANSPORT_OPEN",
-      "notes": "C-209 defines a label-1 functional MM2 source and proves lookup preservation for compilation into ProgramCode with a halt sentinel at label 0. C-210 proves finality and one-step equality. C-211 proves all finite runs and exact final observations equal. C-212 gives both directions between truncated MM2Halts and CodeHalts. C-213 checks fall-through, out-of-range stop and jump-to-zero controls. The local source matches the externally reviewed instruction convention, but no proof assistant has yet proved the cross-language equivalence to Coq's relational MM2 semantics; C-208 therefore is not automatically transported. No unconditional not-decidable, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, natural consumer or reality bridge is claimed.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-COQ-MM2-PROGRAMCODE-BRIDGE-001",
-      "claim_ids": "C-214–C-218",
-      "local_claim_ids": "R2-COQ-TARGET-001, R2-COQ-REL-FUNCTIONAL-001, R2-COQ-COMPILER-001, R2-COQ-REDUCTION-001, R2-COQ-TARGET-UNDEC-001",
-      "source": "HoTT/formal/external-coq-mm2/MM2ProgramCodeBridge.v",
-      "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01",
-      "toolchain": "HoTT/formal/external-coq-mm2/DOCKER_IMAGE.json",
-      "kind": "in_project_coq_same_kernel_mm2_programcode_reduction",
-      "verdict": "R2_COQ_SAME_KERNEL_MM2_TO_EXPLICIT_TARGET_SYNTHETIC_UNDECIDABILITY",
-      "notes": "C-214 defines a Coq target isomorphic in signature to the Agda ProgramCode TaskSpec and proves lookup compilation. C-215 proves upstream relational mm2_terminates iff a finite functional source_final_at stage succeeds. C-216 proves source/target finality, step, run and bounded observation preservation. C-217 constructs total many-one reduction MM2_HALTING <=m PC_HALTING. C-218 derives PC_HALTING_undec and Print Assumptions reports Closed under the global context. Undecidable retains the upstream synthetic implication, not unconditional internal negated decidability. Coq-target/Agda-target correspondence is dual-kernel scoped evidence, not definitional equality. No CT/EPF, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, natural consumer or reality bridge is claimed.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
-      "claim_ids": "C-219–C-222",
-      "local_claim_ids": "R2-CT-EPF-HALTING-001, R2-CT-KBOOL-INTERNAL-UNDEC-001, R2-CT-KNAT-INTERNAL-UNDEC-001, R2-CT-ASSUMPTION-CLOSURE-001",
-      "source": "HoTT/formal/external-coq-parametric-ct/CheckInternalUndec.v",
-      "run": "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01",
-      "toolchain": "HoTT/formal/external-coq-parametric-ct/DOCKER_IMAGE.json",
-      "kind": "external_coq_parametric_ct_conditional_internal_negation_replay",
-      "verdict": "R2_CONDITIONAL_INTERNAL_NOT_DECIDABLE_UNDER_EXPLICIT_EPF_BOOL_OR_SCT",
-      "notes": "Coq 8.13.2 rebuilt the 20-file transitive source closure of Axioms/halting.vo from yforster/coq-synthetic-computability@b9523cb. C-219 derives a semidecidable predicate whose complement is not semidecidable and for which both sides are not decidable. C-220 and C-221 are internal negations of total decidability for two explicit problems. Print Assumptions reports Closed under the global context for all three theorems. EPF_bool + SCT remains an explicit sum premise; the package does not prove either premise in ambient HoTT, does not use HoTT-specific structure, and does not establish an unconditional ProgramCode or exact-HoTT no-decider theorem, natural consumer or reality bridge.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001",
-      "claim_ids": "C-223–C-226",
-      "local_claim_ids": "G-HOTT-SYNTAX-CORE-001, G-HOTT-SYNTAX-SETNESS-001, G-HOTT-SYNTAX-ISO-001, G-HOTT-SYNTAX-REPLAY-001",
-      "source": "HoTT/formal/external-cubical-groupoid-syntax/CheckGroupoidSyntax.agda",
-      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "external_cubical_groupoid_syntax_full_source_replay_and_project_probe",
-      "verdict": "G_HOTT_SYNTAX_FIRST_EXACT_MACHINE_REPLAYED_SLICE_WITH_FULL_HOTT_CALCULUS_OPEN",
-      "notes": "All 20 current TT modules from akaposi/cohtt@5babc385 were checked from source in Agda 2.8.0/Cubical v0.9, then rechecked under the upstream library flags after deleting all cohtt interfaces. C-223 freezes the exact Con/Sub/Ty/Tm groupoid syntax with Pi, U/El, substitution and second-order coherence. C-224 replays alpha-normalisation theorem isSetTy. C-225 replays Con/Sub/Ty/Tm isomorphisms to set syntax. C-226 records the full two-phase replay and project probe. This is not a complete HoTT calculus: Nat, general identity types, object-level univalence/HIT, proof enumeration, arithmetic representation and Goedel incompleteness remain open.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001",
-      "claim_ids": "C-227–C-232",
-      "local_claim_ids": "2LTT-STRICT-LOOP-CANONICAL-001, 2LTT-LIFTED-WITNESS-001, 2LTT-INNER-UIP-001, 2LTT-NONTRIVIAL-LOOP-EXCLUSION-001, 2LTT-S1-CONTROL-001, 2LTT-REPLACEMENT-ABLATION-001",
-      "source": "HoTT/formal/two-level-fibrant-replacement-uip/TwoLevelReplacementUIP.agda",
-      "run": "HoTT/verification/runs/20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01",
-      "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
-      "kind": "in_project_two_level_fibrant_replacement_uip_core",
-      "verdict": "TWO_LEVEL_CONTEXT_UNIFORM_REPLACEMENT_IMPLIES_INNER_UIP_WITH_NATIVE_S1_CONTROL",
-      "notes": "A boundary-preserving algebraic encoding separates outer Agda types from inner codes, so inner J cannot eliminate directly into arbitrary outer types. C-227 reconstructs paper formula (2.14) from outer UIP. C-228 constructs the p-dependent R witness corresponding to (2.13). C-229 proves based and full inner UIP using inner J/Pi plus FORM/INTRO/dependent-ELIM for R; no COMP-R field is assumed. C-230 excludes any nontrivial inner loop. C-231 independently proves native Cubical S1.loop differs from refl. C-232 shows native identity replacement has FORM/INTRO/dependent-ELIM when the strict two-level bridge is absent. The abstract fragment is not claimed to be instantiated by Cubical Type, and the result is a reconstruction of published Theorem 2.20, not a proof that basic HoTT or basic 2LTT is inconsistent, a natural-consumer bridge, a same-task reality witness, or a novelty claim.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001",
-      "claim_ids": "C-233–C-238",
-      "local_claim_ids": "LOPS-SOURCE-TOOLCHAIN-001, LOPS-INTERNAL-CLASSIFIER-NOGO-001, LOPS-CCHM-CCTT-INSTANCES-001, LOPS-CRISP-UNIVERSE-001, LOPS-MODAL-TYPING-CONTROLS-001, LOPS-RELATIVE-UNIVERSE-MORPHISMS-001",
-      "source": "HoTT/formal/external-agda-flat-internal-universes/upstream/README.agda",
-      "run": "HoTT/verification/runs/20260915-MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001-01",
-      "toolchain": "HoTT/formal/external-agda-flat-internal-universes/AGDA_FLAT_IMAGE.json",
-      "kind": "external_agda_flat_internal_universe_nogo_and_crisp_recovery_replay",
-      "verdict": "INTERNAL_FIBRATION_CLASSIFIER_COLLAPSES_INTERVAL_WITH_CRISP_GLOBAL_CLASSIFIER_RECOVERY",
-      "notes": "The 13-file official Cambridge supplement for LOPS 2018 is copied byte-for-byte under CC BY 4.0 and replayed in a clean Agda-flat 2.6.0.1 compiler built from flat@70899fb. C-234 replays fiberwise-fibrant-is-fibrant and the generic NoIntUniv implication. C-235 replays the CCHM and Cartesian Cubical instances. C-236 replays the crisp tiny-interval construction of U/El/code/Elcode/codeEl. C-237 records a positive crisp-argument control and expected rejection of the same crisp function applied to a local variable. C-238 covers the relative construction and Proposition 6.2. The upstream code explicitly postulates funext, UIP, a nontrivial interval, cofibrancy and tiny-adjunction data; replay does not establish these in every model. The result is published, not a novelty claim or proof that basic HoTT is inconsistent, and the empirical reality bridge remains open.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001",
-      "claim_ids": "C-239–C-243",
-      "local_claim_ids": "ITT-SOURCE-TOOLCHAIN-001, ITT-REGULAR-REPLACEMENT-CONTRADICTION-001, ITT-DEGENERATE-REPLACEMENT-001, ITT-FIBRANCY-DECOMPOSITION-001, ITT-ELIMINATION-CONTEXT-BOUNDARY-001",
-      "source": "HoTT/formal/external-coq-interval-replacement/CheckReplacementBoundary.v",
-      "run": "HoTT/verification/runs/20260915-MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001-01",
-      "toolchain": "HoTT/formal/external-coq-interval-replacement/COQ_IMAGE.json",
-      "kind": "external_coq_interval_type_theory_regular_degenerate_replacement_boundary",
-      "verdict": "REGULAR_FAMILY_REPLACEMENT_INCONSISTENT_DEGENERATE_REPLACEMENT_WITH_TRANSPORT_BOUNDARY_REPLAYED",
-      "notes": "The non-vendored 20-file InternalCubical-Coq subtree is pinned to emptyctx@28a2568 and replayed from a deterministic archive in Coq 8.13.2. C-240 replays the explicit regular-family replacement contradiction and its assumptions. C-241 replays the private-inductive/QIT degenerate replacement, restricted eliminator and functor laws. C-242 replays RFib-to-DFib, RFib-to-Trans and DFib-plus-Trans-to-RFib. C-243 fixes that repl_ind' requires a regularly fibrant motive and repl_J additionally depends on extension_rule__emptyctx. The full Model_structure.v is not claimed: this Coq version fails at an old implicit placeholder and the source history targets Coq 8.10. No subtree license file was found, so source is referenced by archive/hash rather than copied. This is a published boundary, not a basic-HoTT inconsistency or reality-bridge claim.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    },
-    {
-      "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
-      "claim_ids": "C-244–C-249",
-      "local_claim_ids": "R3-SOURCE-TOOLCHAIN-001, R3-CLASSIFIER-DIVERGENCE-001, R3-ESSENTIAL-INCOMPLETENESS-001, R3-EPF-MU-CTQ-001, R3-ROBINSON-Q-INDEPENDENCE-001, R3-EXACT-REPLAY-001",
-      "source": "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
-      "run": "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01",
-      "toolchain": "HoTT/formal/external-coq-synthetic-incompleteness/TOOLCHAIN.json",
-      "kind": "external_coq_synthetic_essential_incompleteness_and_robinson_q_replay",
-      "verdict": "R3_CONDITIONAL_ESSENTIAL_INCOMPLETENESS_AND_ROBINSON_Q_MACHINE_REPLAYED_HOTT_R4_OPEN",
-      "notes": "The repo-contained deterministic archive of uds-psl/coq-synthetic-incompleteness csl@cd7d849 has 807 tracked files and includes its CeCILL license. A fresh Coq 8.15.2 build reproduces the prior build logs, 1,284 stable artifacts and final target hash; qualification is byte-exact twice. C-245 replays conditional classifier divergence, C-246 abstract essential incompleteness, C-247 EPF-mu universality to CTQ, C-248 conditional Robinson-Q independence, and C-249 the exact build/assumption boundary. Universal theta, strong separation, Peirce, CTQ, Q containment, enumerability and consistency remain explicit theorem parameters. The object theory is first-order arithmetic, not exact HoTT; HoTT essentiality, R4, ambient CT, internal inconsistency, novelty and reality correspondence remain open.",
-      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
-    }
-  ],
-  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
-  "packages": [
-    {
-      "proof_id": "MP-ERCF-001",
-      "claim_ids": "C-59..C-66",
-      "source": "HoTT/formal/ercf-factorization/ERCF.lean",
-      "run": "HoTT/verification/runs/20260912-MP-ERCF-001-02",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-ERCF-TRUNC-001",
-      "claim_ids": "C-67..C-70",
-      "source": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
-      "run": "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-RACE-TIMEOUT-001",
-      "claim_ids": "C-71..C-76",
-      "source": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
-      "run": "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-CONTEXTUAL-EQUIV-001",
-      "claim_ids": "C-77..C-83",
-      "source": "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
-      "run": "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-QUOTIENT-MONAD-001",
-      "claim_ids": "C-84..C-88",
-      "source": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
-      "run": "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
-      "claim_ids": "C-89..C-91",
-      "source": "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
-      "run": "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-GUARD-ERASURE-001",
-      "claim_ids": "C-92..C-95",
-      "source": "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
-      "run": "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-COST-FACTORIZATION-001",
-      "claim_ids": "C-96..C-99",
-      "source": "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
-      "run": "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-PATH-CERTIFICATE-001",
-      "claim_ids": "C-100..C-105",
-      "source": "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
-      "run": "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-ONLINE-CAUSALITY-001",
-      "claim_ids": "C-106..C-109",
-      "source": "HoTT/formal/partiality-race-timeout/OnlineCausality.agda",
-      "run": "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-TRANSITION-LIFT-001",
-      "claim_ids": "C-110..C-117",
-      "source": "HoTT/formal/transition-lift/TransitionLift.agda",
-      "run": "HoTT/verification/runs/20260912-MP-TRANSITION-LIFT-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-PARTIAL-DECISION-001",
-      "claim_ids": "C-118..C-123",
-      "source": "HoTT/formal/partial-decision/PartialDecision.agda",
-      "run": "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-SIP-REPRESENTATION-001",
-      "claim_ids": "C-124..C-128",
-      "source": "HoTT/formal/sip-representation/SIPRepresentation.agda",
-      "run": "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-CAUCHY-MODULUS-001",
-      "claim_ids": "C-129..C-133",
-      "source": "HoTT/formal/cauchy-modulus/CauchyModulus.agda",
-      "run": "HoTT/verification/runs/20260912-MP-CAUCHY-MODULUS-001-01",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-TRUNC-NORECOVERY-001",
-      "claim_ids": "C-134..C-141",
-      "source": "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
-      "run": "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-NOCANONICAL-001",
-      "claim_ids": "C-142..C-148",
-      "source": "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda",
-      "run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02",
-      "kind": "current_project_proof"
-    },
-    {
-      "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
-      "claim_ids": "C-05",
-      "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
-      "run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
-      "kind": "external_library_replay"
-    }
-  ],
-  "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "scope": "Version closure proves recoverability of the listed project assets at the exact commit. It does not expand any theorem, certify originality/model understanding, or turn source-inspected no-global-choice into a replayed claim."
+  {
+   "proof_id": "MP-ERCF3-T3-REPAIR-SPEC-001",
+   "claim_ids": "C-163–C-165",
+   "local_claim_ids": "T3-REP-01–T3-REP-03",
+   "source": "HoTT/formal/ercf3-t3/CodingRepair.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_REPAIR_SPECIFICATION",
+   "notes": "Fixes what a coding repair must provide (C-164 roundtrip ⇒ injectivity), gives the structured tree coding as decodable positive control (C-163), and derives that the current Nat coding admits no decoder (C-165). Does NOT provide a Nat-valued repaired coding; ERCF-3 stays gated.",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
+   "claim_ids": "C-166–C-168",
+   "local_claim_ids": "T3-ARI-01–T3-ARI-03",
+   "source": "HoTT/formal/ercf3-t3/ArithmeticTags.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_ARITHMETIC_TAGS_FRAGMENT",
+   "notes": "First piece of the arithmetic half of the coding repair: double/odd tag disjointness (double injective, double n != odd m), the var/num fragment coder codeAtom (2n / 2n+1) is the first Nat-valued injective coding in the chain, and the *function* `double` misses 1 so the avar-only fragment is not surjective. [CORRECTED 2026-09-13 by the independent-audit absorption: the original note attributed the non-surjectivity to `codeAtom`, but the machine-checked lemma `one-has-no-preimage` is about `double`, and `codeAtom` is in fact surjective (see MP-ERCF3-T3-C168-COUNTERCHECK-001 / claims C-184-C-185). The default branch of the later full decoders is justified by `codeT'`/`codeF'` themselves: their bit lists are non-empty, so 1 is not in their image. The application node and the decoder remain open.]",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
+   "claim_ids": "C-169–C-172",
+   "local_claim_ids": "T3-BIT-01–T3-BIT-04",
+   "source": "HoTT/formal/ercf3-t3/BitCoding.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_BIT_SUBSTRATE",
+   "notes": "Bit-level substrate of the arithmetic half of the coding repair: least-significant-bit extraction and halving (parity/half/twice), the bundling code codeBits with its extraction lemma pair, the round-trip on a bit list whose length is supplied, and the bound that the code dominates its own length (so a future parser can take its fuel from the code itself). The symbol layer (self-delimiting var/num index bits and constructor tags), the parser with its default branch and the round-trip on the image remain open.",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
+   "claim_ids": "C-173–C-176",
+   "local_claim_ids": "T3-STR-01–T3-STR-04",
+   "source": "HoTT/formal/ercf3-t3/StreamingParser.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_REPAIRED_NAT_CODING",
+   "notes": "Closes the coding-repair obligation of CodingRepair (C-163/C-164/C-165) at the coding layer: the self-delimiting unary index layer, the symbol layer (two tag bits for var/num plus their index, one tag bit for application) with a streaming parser whose round trip is fuel-exact (a frame stack solves sequential consumption while terminating structurally on the fuel), the length/bound/extra-fuel bookkeeping, and finally the repaired coder codeT' = codeBits . bits with a total decoder dec (default branches included) and round trip dec (codeT' t) = t, hence injectivity by C-164. Only Tm coding/decoding is covered: the proof predicate P, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
+   "claim_ids": "C-177–C-180",
+   "local_claim_ids": "T3-FML-01–T3-FML-04",
+   "source": "HoTT/formal/ercf3-t3/FormulaCoding.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_REPAIRED_FORMULA_CODING",
+   "notes": "Lifts the repaired coding from Tm (C-176) to Fml, which is the layer the diagonal machinery actually quotes. The formula symbol layer (two tag bits for =f/bot/=>f, plus the binder index of all) comes with a streaming parser whose round trip is exact in the iteration count; the Tm children of =f are handed to the term-level parser as a black box (fuel = the length of the remaining bit list); the length bound STEPS <= LEN makes the repaired formula code its own fuel; and codeF' = codeBits . bitsF comes with a total decoder decF and the round trip decF (codeF' phi) = phi, hence injectivity. Only Fml coding/decoding is covered: formula-layer substitution alignment, proof-predicate representability, reflection and the diagonal fixed point remain open, and ERCF-3 stays gated.",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+   "claim_ids": "C-181–C-183",
+   "local_claim_ids": "T3-SUB-01–T3-SUB-03",
+   "source": "HoTT/formal/ercf3-t3/RepairedSyntax.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_REPAIRED_SUBSTITUTION_AND_QUOTATION",
+   "notes": "Substitution and quotation over the repaired coding. With a decoder in hand, code-level substitution can be defined as decode-substitute-encode, and the agreement with syntax-level substitution becomes a corollary: substCodeT k n (codeT' t) = codeT' (substT k n t) and substCodeF k n (codeF' phi) = codeF' (substF k n phi). Quotation (the numeral of the repaired formula code) is injective, and the diagonal instance is a substitution instance of the same formula whose code is reached by the code-level substitution. Honest boundary: these code-level functions are defined through the decoder, so nothing here claims that the object theory can represent them -- representability, reflection and the diagonal fixed point remain open and ERCF-3 stays gated.",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-C168-COUNTERCHECK-001",
+   "claim_ids": "C-184–C-185",
+   "local_claim_ids": "AUD-C168-ONE-20260913, AUD-C168-SURJ-20260913",
+   "source": "HoTT/formal/ercf3-t3/C168Countercheck.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "independent_audit_countercheck_replayed_in_project",
+   "verdict": "ERCF3_T3_C168_NARRATIVE_CORRECTED_BY_COUNTERCHECK",
+   "notes": "Replays the independent audit's countercheck inside this repo, with the complete transitive import closure pinned: codeAtom (anum zero) = 1 has an explicit preimage (C-184) and codeAtom is surjective (C-185). This corrects the *narrative* attached to C-168 (which is about `double`, not `codeAtom`) without touching the formal lemma, the frozen matrix row, or any later coding claim. Import origin: audit/imports/audit-c168-20260913/.",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-ERCF3-T3-CODING-IMAGE-001",
+   "claim_ids": "C-186–C-187",
+   "local_claim_ids": "T3-IMG-01–T3-IMG-02",
+   "source": "HoTT/formal/ercf3-t3/CodingImage.agda",
+   "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01",
+   "toolchain": "HoTT/formal/ercf3-t3/TOOLCHAIN.json",
+   "kind": "in_project_ercf3_t3_pulse_completion",
+   "verdict": "ERCF3_T3_REPAIRED_CODING_MISSES_ONE",
+   "notes": "Replacement justification for the default branches after the C-168 narrative was withdrawn: the repaired coders miss 1, so a total decoder must decide what to do on non-codes and the default branch is reachable. C-186: (t : Tm) -> codeT' t != 1. C-187: (phi : Fml) -> codeF' phi != 1. Proof route: any bit list here is non-empty, codeBits (b :: bs) = pack b (codeBits bs), and pack b c >= 2 whenever c >= 1 (C-172 supplies the remaining bundle >= 1).",
+   "release_ref": "governance-v4.0.0"
+  },
+  {
+   "proof_id": "MP-CUBICAL-MACHINE-HALTING-001",
+   "claim_ids": "C-188–C-190",
+   "local_claim_ids": "R1-HALTS-001, R1-DIVERGES-001, R1-NOT-HALTS-001",
+   "source": "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MACHINE-HALTING-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "external_candidate_replayed_in_current_project",
+   "verdict": "FIXED_MACHINE_HALTING_DIVERGENCE_CALIBRATION",
+   "notes": "R1 fixed-machine calibration replayed in the current project root. C-188 gives a truncated finite halting witness for haltProgram. C-189 proves that loopProgram is non-final at every finite observation index. C-190 eliminates every truncated finite halting witness for loopProgram. The Agda checking run itself terminates successfully. This package proves neither universal halting undecidability nor a universal machine, Goedel incompleteness, a HoTT-specific cause of divergence, a natural-consumer mismatch, a same-reality-task bridge, or a contradiction in HoTT.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-PROGRAM-CODE-001",
+   "claim_ids": "C-191–C-194",
+   "local_claim_ids": "R2-PCODE-001, R2-EVAL-001, R2-HALT-CONTROL-001, R2-LOOP-CONTROL-001",
+   "source": "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-PROGRAM-CODE-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "in_project_r2_program_code_thin_slice",
+   "verdict": "R2_PROGRAMCODE_BOUNDED_EVALUATOR_FOUNDATION",
+   "notes": "First R2-PROGRAMCODE-001 thin slice. C-191 defines finite instruction-table syntax and a total decoder into the R1 Program semantics. C-192 defines one bounded evaluator for every finite table and proves agreement with R1 iteration/finality. C-193 and C-194 give halting and looping controls, including no truncated finite halting witness for loopCode. This does not provide numeric Goedel coding, fair enumeration, computational universality, a certified undecidability reduction, Goedel incompleteness, HoTT essentiality, a natural consumer or a same-reality-task bridge.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-NAT-PROGRAM-CODE-001",
+   "claim_ids": "C-195–C-198",
+   "local_claim_ids": "R2-NATCODE-001, R2-NAT-ROUNDTRIP-001, R2-NAT-EVAL-001, R2-NAT-CONTROLS-001",
+   "source": "HoTT/formal/cubical-machine-halting/NatProgramCode.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "in_project_r2_natural_program_code",
+   "verdict": "R2_NATURAL_CODE_AND_BOUNDED_EVALUATOR_ALIGNMENT",
+   "notes": "R2-NATCODE-001. C-195 gives natural-number encoders and total decoders for Instr and finite ProgramCode with explicit zero, premature-end and invalid-tag behavior. C-196 proves image round trips, injectivity and decoder coverage of every finite program. C-197 proves runNat/finalNat/haltsWithinNat agree with the R2 evaluator on encoded programs. C-198 preserves halt and loop controls. This does not provide a fair schedule of program/input/fuel triples, computational universality, a certified halting-undecidability theorem, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, a natural consumer or a reality bridge.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-FAIR-ENUMERATION-001",
+   "claim_ids": "C-199–C-202",
+   "local_claim_ids": "R2-TRIPLE-CODE-001, R2-FAIR-001, R2-FAIR-OBSERVE-001, R2-FAIR-CONTROLS-001",
+   "source": "HoTT/formal/cubical-machine-halting/FairEnumeration.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "in_project_r2_fair_enumeration",
+   "verdict": "R2_FAIR_FINITE_STAGE_NO_STARVATION",
+   "notes": "R2-FAIR-001. C-199 gives natural-number round trips for triples and Config. C-200 constructs caseAt/caseIndex and an explicit finite AppearsBy stage/noStarvation witness for every ProgramCode, Config and fuel. C-201 proves the scheduled observation at that index is the original haltsWithin task. C-202 preserves halt/loop controls. This does not yet construct the partial semi-halting search, computational universality, a certified undecidability reduction, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, a natural consumer or a reality bridge.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-SEMI-HALTING-001",
+   "claim_ids": "C-203–C-207",
+   "local_claim_ids": "R2-SEMIHALT-APPROX-001, R2-SEMIHALT-BOUNDED-BRIDGE-001, R2-SEMIHALT-CORRECT-COMPLETE-001, R2-SEMIHALT-FAIR-ENUMERATOR-001, R2-SEMIHALT-CONTROLS-001",
+   "source": "HoTT/formal/cubical-machine-halting/SemiHalting.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-SEMI-HALTING-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "in_project_r2_semi_halting",
+   "verdict": "R2_SEMI_HALTING_POSITIVE_SEARCH_AND_FAIR_ENUMERATION",
+   "notes": "R2-SEMIHALT-001. C-203 constructs total finite-stage Maybe approximants whose positive answers persist. C-204 relates exact finalAt witnesses and bounded haltsWithin observations. C-205 proves CodeHalts iff some finite semiHaltAt stage returns positive. C-206 constructs a fair global positive-case enumerator with soundness and bounded completeness at canonical caseIndex. C-207 preserves halt/loop controls and proves the explicit loop never returns positive. This does not prove ProgramCode universality, absence of a total halting decider, a certified undecidability reduction, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, a natural consumer or a reality bridge.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+   "claim_ids": "C-208",
+   "local_claim_ids": "R2-COQ-MM2-SYNTHETIC-UNDEC-REPLAY-001",
+   "source": "HoTT/formal/external-coq-mm2/CheckMM2Undec.v",
+   "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01",
+   "toolchain": "HoTT/formal/external-coq-mm2/DOCKER_IMAGE.json",
+   "kind": "external_coq_library_mm2_theorem_replay",
+   "verdict": "EXTERNAL_MM2_SYNTHETIC_UNDECIDABILITY_REPLAYED_WITH_DEFINITION_BOUNDARY",
+   "notes": "Coq Library of Undecidability Proofs coq-8.15 commit c486697 was rebuilt from a 777-file Git-verified source tree in Coq 8.15.2. MM2_HALTING_undec type-checks and Print Assumptions reports Closed under the global context. The exact upstream definition is undecidable P := decidable P -> enumerable (complement SBTM_HALT); C-208 therefore records this synthetic implication, not an unconditional internal proof of not decidable. The current rocq-9.2 source at c7257b7 is separately qualified but not replayed. No compiler bridge to Cubical Agda ProgramCode is proved by this package.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-MM2-BRIDGE-001",
+   "claim_ids": "C-209–C-213",
+   "local_claim_ids": "R2-MM2-SOURCE-001, R2-MM2-STEP-BRIDGE-001, R2-MM2-RUN-BRIDGE-001, R2-MM2-HALTING-BRIDGE-001, R2-MM2-BRIDGE-CONTROLS-001",
+   "source": "HoTT/formal/cubical-machine-halting/MM2Bridge.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MM2-BRIDGE-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "in_project_r2_mm2_compiler_bridge_core",
+   "verdict": "R2_MM2_TO_PROGRAMCODE_HALTING_EQUIVALENCE_WITH_CROSS_LANGUAGE_TRANSPORT_OPEN",
+   "notes": "C-209 defines a label-1 functional MM2 source and proves lookup preservation for compilation into ProgramCode with a halt sentinel at label 0. C-210 proves finality and one-step equality. C-211 proves all finite runs and exact final observations equal. C-212 gives both directions between truncated MM2Halts and CodeHalts. C-213 checks fall-through, out-of-range stop and jump-to-zero controls. The local source matches the externally reviewed instruction convention, but no proof assistant has yet proved the cross-language equivalence to Coq's relational MM2 semantics; C-208 therefore is not automatically transported. No unconditional not-decidable, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, natural consumer or reality bridge is claimed.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+   "claim_ids": "C-214–C-218",
+   "local_claim_ids": "R2-COQ-TARGET-001, R2-COQ-REL-FUNCTIONAL-001, R2-COQ-COMPILER-001, R2-COQ-REDUCTION-001, R2-COQ-TARGET-UNDEC-001",
+   "source": "HoTT/formal/external-coq-mm2/MM2ProgramCodeBridge.v",
+   "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01",
+   "toolchain": "HoTT/formal/external-coq-mm2/DOCKER_IMAGE.json",
+   "kind": "in_project_coq_same_kernel_mm2_programcode_reduction",
+   "verdict": "R2_COQ_SAME_KERNEL_MM2_TO_EXPLICIT_TARGET_SYNTHETIC_UNDECIDABILITY",
+   "notes": "C-214 defines a Coq target isomorphic in signature to the Agda ProgramCode TaskSpec and proves lookup compilation. C-215 proves upstream relational mm2_terminates iff a finite functional source_final_at stage succeeds. C-216 proves source/target finality, step, run and bounded observation preservation. C-217 constructs total many-one reduction MM2_HALTING <=m PC_HALTING. C-218 derives PC_HALTING_undec and Print Assumptions reports Closed under the global context. Undecidable retains the upstream synthetic implication, not unconditional internal negated decidability. Coq-target/Agda-target correspondence is dual-kernel scoped evidence, not definitional equality. No CT/EPF, s-m-n, Goedel/Rosser/Lob, HoTT essentiality, natural consumer or reality bridge is claimed.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+   "claim_ids": "C-219–C-222",
+   "local_claim_ids": "R2-CT-EPF-HALTING-001, R2-CT-KBOOL-INTERNAL-UNDEC-001, R2-CT-KNAT-INTERNAL-UNDEC-001, R2-CT-ASSUMPTION-CLOSURE-001",
+   "source": "HoTT/formal/external-coq-parametric-ct/CheckInternalUndec.v",
+   "run": "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01",
+   "toolchain": "HoTT/formal/external-coq-parametric-ct/DOCKER_IMAGE.json",
+   "kind": "external_coq_parametric_ct_conditional_internal_negation_replay",
+   "verdict": "R2_CONDITIONAL_INTERNAL_NOT_DECIDABLE_UNDER_EXPLICIT_EPF_BOOL_OR_SCT",
+   "notes": "Coq 8.13.2 rebuilt the 20-file transitive source closure of Axioms/halting.vo from yforster/coq-synthetic-computability@b9523cb. C-219 derives a semidecidable predicate whose complement is not semidecidable and for which both sides are not decidable. C-220 and C-221 are internal negations of total decidability for two explicit problems. Print Assumptions reports Closed under the global context for all three theorems. EPF_bool + SCT remains an explicit sum premise; the package does not prove either premise in ambient HoTT, does not use HoTT-specific structure, and does not establish an unconditional ProgramCode or exact-HoTT no-decider theorem, natural consumer or reality bridge.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001",
+   "claim_ids": "C-223–C-226",
+   "local_claim_ids": "G-HOTT-SYNTAX-CORE-001, G-HOTT-SYNTAX-SETNESS-001, G-HOTT-SYNTAX-ISO-001, G-HOTT-SYNTAX-REPLAY-001",
+   "source": "HoTT/formal/external-cubical-groupoid-syntax/CheckGroupoidSyntax.agda",
+   "run": "HoTT/verification/runs/20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "external_cubical_groupoid_syntax_full_source_replay_and_project_probe",
+   "verdict": "G_HOTT_SYNTAX_FIRST_EXACT_MACHINE_REPLAYED_SLICE_WITH_FULL_HOTT_CALCULUS_OPEN",
+   "notes": "All 20 current TT modules from akaposi/cohtt@5babc385 were checked from source in Agda 2.8.0/Cubical v0.9, then rechecked under the upstream library flags after deleting all cohtt interfaces. C-223 freezes the exact Con/Sub/Ty/Tm groupoid syntax with Pi, U/El, substitution and second-order coherence. C-224 replays alpha-normalisation theorem isSetTy. C-225 replays Con/Sub/Ty/Tm isomorphisms to set syntax. C-226 records the full two-phase replay and project probe. This is not a complete HoTT calculus: Nat, general identity types, object-level univalence/HIT, proof enumeration, arithmetic representation and Goedel incompleteness remain open.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001",
+   "claim_ids": "C-227–C-232",
+   "local_claim_ids": "2LTT-STRICT-LOOP-CANONICAL-001, 2LTT-LIFTED-WITNESS-001, 2LTT-INNER-UIP-001, 2LTT-NONTRIVIAL-LOOP-EXCLUSION-001, 2LTT-S1-CONTROL-001, 2LTT-REPLACEMENT-ABLATION-001",
+   "source": "HoTT/formal/two-level-fibrant-replacement-uip/TwoLevelReplacementUIP.agda",
+   "run": "HoTT/verification/runs/20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01",
+   "toolchain": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+   "kind": "in_project_two_level_fibrant_replacement_uip_core",
+   "verdict": "TWO_LEVEL_CONTEXT_UNIFORM_REPLACEMENT_IMPLIES_INNER_UIP_WITH_NATIVE_S1_CONTROL",
+   "notes": "A boundary-preserving algebraic encoding separates outer Agda types from inner codes, so inner J cannot eliminate directly into arbitrary outer types. C-227 reconstructs paper formula (2.14) from outer UIP. C-228 constructs the p-dependent R witness corresponding to (2.13). C-229 proves based and full inner UIP using inner J/Pi plus FORM/INTRO/dependent-ELIM for R; no COMP-R field is assumed. C-230 excludes any nontrivial inner loop. C-231 independently proves native Cubical S1.loop differs from refl. C-232 shows native identity replacement has FORM/INTRO/dependent-ELIM when the strict two-level bridge is absent. The abstract fragment is not claimed to be instantiated by Cubical Type, and the result is a reconstruction of published Theorem 2.20, not a proof that basic HoTT or basic 2LTT is inconsistent, a natural-consumer bridge, a same-task reality witness, or a novelty claim.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001",
+   "claim_ids": "C-233–C-238",
+   "local_claim_ids": "LOPS-SOURCE-TOOLCHAIN-001, LOPS-INTERNAL-CLASSIFIER-NOGO-001, LOPS-CCHM-CCTT-INSTANCES-001, LOPS-CRISP-UNIVERSE-001, LOPS-MODAL-TYPING-CONTROLS-001, LOPS-RELATIVE-UNIVERSE-MORPHISMS-001",
+   "source": "HoTT/formal/external-agda-flat-internal-universes/upstream/README.agda",
+   "run": "HoTT/verification/runs/20260915-MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001-01",
+   "toolchain": "HoTT/formal/external-agda-flat-internal-universes/AGDA_FLAT_IMAGE.json",
+   "kind": "external_agda_flat_internal_universe_nogo_and_crisp_recovery_replay",
+   "verdict": "INTERNAL_FIBRATION_CLASSIFIER_COLLAPSES_INTERVAL_WITH_CRISP_GLOBAL_CLASSIFIER_RECOVERY",
+   "notes": "The 13-file official Cambridge supplement for LOPS 2018 is copied byte-for-byte under CC BY 4.0 and replayed in a clean Agda-flat 2.6.0.1 compiler built from flat@70899fb. C-234 replays fiberwise-fibrant-is-fibrant and the generic NoIntUniv implication. C-235 replays the CCHM and Cartesian Cubical instances. C-236 replays the crisp tiny-interval construction of U/El/code/Elcode/codeEl. C-237 records a positive crisp-argument control and expected rejection of the same crisp function applied to a local variable. C-238 covers the relative construction and Proposition 6.2. The upstream code explicitly postulates funext, UIP, a nontrivial interval, cofibrancy and tiny-adjunction data; replay does not establish these in every model. The result is published, not a novelty claim or proof that basic HoTT is inconsistent, and the empirical reality bridge remains open.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001",
+   "claim_ids": "C-239–C-243",
+   "local_claim_ids": "ITT-SOURCE-TOOLCHAIN-001, ITT-REGULAR-REPLACEMENT-CONTRADICTION-001, ITT-DEGENERATE-REPLACEMENT-001, ITT-FIBRANCY-DECOMPOSITION-001, ITT-ELIMINATION-CONTEXT-BOUNDARY-001",
+   "source": "HoTT/formal/external-coq-interval-replacement/CheckReplacementBoundary.v",
+   "run": "HoTT/verification/runs/20260915-MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001-01",
+   "toolchain": "HoTT/formal/external-coq-interval-replacement/COQ_IMAGE.json",
+   "kind": "external_coq_interval_type_theory_regular_degenerate_replacement_boundary",
+   "verdict": "REGULAR_FAMILY_REPLACEMENT_INCONSISTENT_DEGENERATE_REPLACEMENT_WITH_TRANSPORT_BOUNDARY_REPLAYED",
+   "notes": "The non-vendored 20-file InternalCubical-Coq subtree is pinned to emptyctx@28a2568 and replayed from a deterministic archive in Coq 8.13.2. C-240 replays the explicit regular-family replacement contradiction and its assumptions. C-241 replays the private-inductive/QIT degenerate replacement, restricted eliminator and functor laws. C-242 replays RFib-to-DFib, RFib-to-Trans and DFib-plus-Trans-to-RFib. C-243 fixes that repl_ind' requires a regularly fibrant motive and repl_J additionally depends on extension_rule__emptyctx. The full Model_structure.v is not claimed: this Coq version fails at an old implicit placeholder and the source history targets Coq 8.10. No subtree license file was found, so source is referenced by archive/hash rather than copied. This is a published boundary, not a basic-HoTT inconsistency or reality-bridge claim.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+   "claim_ids": "C-244–C-249",
+   "local_claim_ids": "R3-SOURCE-TOOLCHAIN-001, R3-CLASSIFIER-DIVERGENCE-001, R3-ESSENTIAL-INCOMPLETENESS-001, R3-EPF-MU-CTQ-001, R3-ROBINSON-Q-INDEPENDENCE-001, R3-EXACT-REPLAY-001",
+   "source": "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
+   "run": "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01",
+   "toolchain": "HoTT/formal/external-coq-synthetic-incompleteness/TOOLCHAIN.json",
+   "kind": "external_coq_synthetic_essential_incompleteness_and_robinson_q_replay",
+   "verdict": "R3_CONDITIONAL_ESSENTIAL_INCOMPLETENESS_AND_ROBINSON_Q_MACHINE_REPLAYED_HOTT_R4_OPEN",
+   "notes": "The repo-contained deterministic archive of uds-psl/coq-synthetic-incompleteness csl@cd7d849 has 807 tracked files and includes its CeCILL license. A fresh Coq 8.15.2 build reproduces the prior build logs, 1,284 stable artifacts and final target hash; qualification is byte-exact twice. C-245 replays conditional classifier divergence, C-246 abstract essential incompleteness, C-247 EPF-mu universality to CTQ, C-248 conditional Robinson-Q independence, and C-249 the exact build/assumption boundary. Universal theta, strong separation, Peirce, CTQ, Q containment, enumerability and consistency remain explicit theorem parameters. The object theory is first-order arithmetic, not exact HoTT; HoTT essentiality, R4, ambient CT, internal inconsistency, novelty and reality correspondence remain open.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  },
+  {
+   "proof_id": "MP-DEDEKIND-OMEGA-REAL-LAYER",
+   "claim_ids": "CAND-F2-7-REAL-LAYER",
+   "local_claim_ids": "CAND-F2-7-REAL-LAYER",
+   "source": "HoTT/formal/dedekind-omega-missile/CutRealLayer.agda",
+   "run": "HoTT/verification/runs/20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "kind": "cubical_agda_statement_stage_charged_proposition_pinned",
+   "verdict": "STATEMENT_ACCEPTED_WITH_SCOPE / CHARGED_PROPOSITION_PINNED_NOT_PROVED",
+   "notes": "B0 (修订片 029 §4.1 陈述精确化): CutRealLayer.agda pins the Book §11.2 charged proposition as exact types -- PropResizing / LEMProp axiom shapes, SingleOmega (base-level proposition collapse), dcut (Defn 11.2.1 four conditions with explicit quantifiers), DedekindReals, ℝLayerAt, and the two direction types Sufficiency / Necessity (no proof bodies). All declarations kernel-accepted (exit 0, stderr 0). Key adjudication (CLAIM-PACKAGE-REAL-LAYER §3): Book §11.2 option 4 (initial sigma-frame) falsifies 'ℝ-layer ⇒ LEM or resizing' as a direct necessity, so Necessity is narrowed to ℝLayerAt → SingleOmega and downgraded to CONJECTURE per 029 §2. Sufficiency (B1a) and Necessity (B1b′) remain unproved; registers_new_claim:false.",
+   "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+  }
+ ],
+ "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
+ "packages": [
+  {
+   "proof_id": "MP-ERCF-001",
+   "claim_ids": "C-59..C-66",
+   "source": "HoTT/formal/ercf-factorization/ERCF.lean",
+   "run": "HoTT/verification/runs/20260912-MP-ERCF-001-02",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-ERCF-TRUNC-001",
+   "claim_ids": "C-67..C-70",
+   "source": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+   "run": "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-RACE-TIMEOUT-001",
+   "claim_ids": "C-71..C-76",
+   "source": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+   "run": "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-CONTEXTUAL-EQUIV-001",
+   "claim_ids": "C-77..C-83",
+   "source": "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+   "run": "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-QUOTIENT-MONAD-001",
+   "claim_ids": "C-84..C-88",
+   "source": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+   "run": "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
+   "claim_ids": "C-89..C-91",
+   "source": "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+   "run": "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-GUARD-ERASURE-001",
+   "claim_ids": "C-92..C-95",
+   "source": "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+   "run": "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-COST-FACTORIZATION-001",
+   "claim_ids": "C-96..C-99",
+   "source": "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+   "run": "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-PATH-CERTIFICATE-001",
+   "claim_ids": "C-100..C-105",
+   "source": "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+   "run": "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-ONLINE-CAUSALITY-001",
+   "claim_ids": "C-106..C-109",
+   "source": "HoTT/formal/partiality-race-timeout/OnlineCausality.agda",
+   "run": "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-TRANSITION-LIFT-001",
+   "claim_ids": "C-110..C-117",
+   "source": "HoTT/formal/transition-lift/TransitionLift.agda",
+   "run": "HoTT/verification/runs/20260912-MP-TRANSITION-LIFT-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-PARTIAL-DECISION-001",
+   "claim_ids": "C-118..C-123",
+   "source": "HoTT/formal/partial-decision/PartialDecision.agda",
+   "run": "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-SIP-REPRESENTATION-001",
+   "claim_ids": "C-124..C-128",
+   "source": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+   "run": "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-CAUCHY-MODULUS-001",
+   "claim_ids": "C-129..C-133",
+   "source": "HoTT/formal/cauchy-modulus/CauchyModulus.agda",
+   "run": "HoTT/verification/runs/20260912-MP-CAUCHY-MODULUS-001-01",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-TRUNC-NORECOVERY-001",
+   "claim_ids": "C-134..C-141",
+   "source": "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+   "run": "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-NOCANONICAL-001",
+   "claim_ids": "C-142..C-148",
+   "source": "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda",
+   "run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02",
+   "kind": "current_project_proof"
+  },
+  {
+   "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+   "claim_ids": "C-05",
+   "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+   "run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
+   "kind": "external_library_replay"
+  }
+ ],
+ "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
+ "scope": "Version closure proves recoverability of the listed project assets at the exact commit. It does not expand any theorem, certify originality/model understanding, or turn source-inspected no-global-choice into a replayed claim."
 }

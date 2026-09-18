@@ -1,0 +1,59 @@
+{
+ "claim_ids": [
+  "CAND-F2-7-REAL-LAYER"
+ ],
+ "command_argv": [
+  "/usr/bin/env",
+  "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+  "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+  "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+  "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+  "--ignore-interfaces",
+  "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+  "-l",
+  "cubical-0.9",
+  "-i",
+  "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+  "HoTT/formal/dedekind-omega-missile/CutRealLayer.agda"
+ ],
+ "completed_at_utc": "2026-09-18T15:43:29.991890+00:00",
+ "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+ "duration_seconds": 49.151301,
+ "environment": {
+  "bytes": 900,
+  "path": "environment.txt",
+  "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583"
+ },
+ "exit_code": 0,
+ "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+ "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+ "non_goals": [
+  "不证明 Sufficiency / Necessity（本 run 只是 statement 阶段，证明体属 B1a / B1b′）",
+  "不声称等价定理已证；不声称 LEM/resizing 必要性已证；(b′) 未证前不以「击落/不可免费」交付（029 §2 降格条款）",
+  "registers_new_claim:false——陈述精确化与可行性裁定，非新数学主张"
+ ],
+ "proof_assistant": "Cubical Agda",
+ "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+ "proof_id": "MP-DEDEKIND-OMEGA-REAL-LAYER",
+ "run_id": "20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01",
+ "schema_version": "formal-proof-run/v1",
+ "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level）中钉死 Book §11.2「ℝ 层」收费命题的精确陈述（B0 · 修订片 029 §4.1）：PropResizing / LEMProp 公理形态、SingleOmega（基层级命题塌缩结构）、Defn 11.2.1 四条件的量词显式形态 dcut、DedekindReals、ℝLayerAt（实数作为基层级已完成集合对象）、以及 Sufficiency / Necessity 两个方向类型。全部声明被内核接受为类型（statement 阶段，无证明体）。关键裁定：Book §11.2 取法 4（初始 σ-frame）证伪了「ℝ层 ⇒ LEM 或 resizing」的直接必要性，故 Necessity 收窄为 ℝLayerAt → SingleOmega，并按 029 §2 降格条款登记为 CONJECTURE。",
+ "source_manifest": {
+  "bytes": 2508,
+  "path": "source-manifest.json",
+  "sha256": "200297d7a31664ae6f45b069e378267ec120a745d2b65eac87dbf4e30c801458"
+ },
+ "started_at_utc": "2026-09-18T15:42:40.840589+00:00",
+ "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+ "stderr": {
+  "bytes": 0,
+  "path": "stderr.txt",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ "stdout": {
+  "bytes": 18205,
+  "path": "stdout.txt",
+  "sha256": "f2ac2feafaec3e12d8e6c62e886207de3a28ee23c10782ba2610ad1a45e749d4"
+ },
+ "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

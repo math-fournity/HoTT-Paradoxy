@@ -814,3 +814,17 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-TA-LEM | LEM 格（公理化排中律 `LEM : (A : Set) → A ⊎ (A → ⊥)` 以 postulate 注入，无计算规则）下，闭 ℕ 项 `n-lem`（`with LEM ℕ` 分支归约）的范式为中性卡住形态——内核对 `n-lem ≡ zero`（TA-LEM-01）与 `n-lem ≡ suc zero`（TA-LEM-02）的 refl 均判不可互换。与 TA-AC（AC 格，`9be3cbe`）/ TA（UA 格，`9d4b3c5`）结构对称，三者合取 = 027 §2.2「显式化 surface」三类公理注入的 stuckness 机械演示。 | `META_NEGATIVE_CHECK_AS_EXPECTED`（本轮提交） | runs `20260918-MP-DEDEKIND-OMEGA-TA-LEM-01 / 20260918-MP-DEDEKIND-OMEGA-TA-LEM-02` 的 `RUN.json`（`META_NEGATIVE_CHECK_AS_EXPECTED`，exit 42，stderr 0）、`stdout.txt`、`environment.txt`、`source-manifest.json`（固定 ProbeLEMZero / ProbeLEMSuc / ChargeDemo / TOOLCHAIN / AGDA_LIBRARIES 哈希）。**可重放性已现场双重验证**：按 `RUN.json` 的 `command_argv`（`/usr/bin/env` + XDG 环境 + `--ignore-interfaces`，自包含、不依赖接口缓存状态）从仓库根独立重放两次，exit / stdout / stderr 与收据**逐位一致**（stdout 3117B / 3108B，exit 42）。 | **不**声称 HoTT 不一致（公理注入导致的非规范是已知元定理现象，非矛盾，027 §8）；**不**声称「不可归约」已被内部证明——本包是**负向探针**（refl 被核拒绝）+ 内核亲自打印卡住范式，不是对象层 `¬ (n-lem ≡ zero)` 的证明（027 §4 拒证二元性）；**不**声称 LEM 的对象层后果（M3 的 `LEMᵒ` 假设用法与 M3-UNC 的去条件化仍是对象层收据，本包仅在元层演示 canonicity 收费）；exit≠0 是**预期失败即收据**，非工程失败；`registers_new_claim:false`。 |
+
+## 追加登记：MP-DEDEKIND-OMEGA-REAL-LAYER（Book §11.2「ℝ 层」陈述精确化 B0，2026-09-18）
+
+来源：修订片 029 §4.1（第一前置任务：陈述精确化，不可跳过）。本节**只钉死收费命题的
+精确形态并登记 (b′) 路径 1 的可行性裁定**，不交付任何已证主张。
+`registers_new_claim:false`。
+
+| proof_id | claim_id | 源码 / 包 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-REAL-LAYER` | `CAND-F2-7-REAL-LAYER` | `formal/dedekind-omega-missile/CutRealLayer.agda`（`PropResizing` / `LEMProp` 公理形态；`SingleOmega`（基层级命题塌缩结构）；Defn 11.2.1 四条件的量词显式形态 `dcut`；`DedekindReals`；`ℝLayerAt`（实数作为基层级已完成集合对象）；方向类型 `Sufficiency` / `Necessity`，均无证明体）+ `CLAIM-PACKAGE-REAL-LAYER.md`（Book §11.2 逐字原文转写 + 逐项对照 + §3 可行性裁定） | runs `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01`（`--ignore-interfaces` 全量确定性可重放 argv）；Agda 2.8.0-3d04bac；Cubical v0.9；`--safe --cubical --guardedness --two-level`；exit 0；stderr 0 | `STATEMENT_ACCEPTED_WITH_SCOPE / CHARGED_PROPOSITION_PINNED_NOT_PROVED`（证据随本轮提交入库；未 push，非 VERSION_CLOSED） |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-REAL-LAYER | Book §11.2 的「ℝ 层」收费命题被钉死为精确类型：`ℝLayerAt ℓ = Σ[ R ∈ Type ℓ ] (isSet R × (R ≃ DedekindReals ℓ))`，其中 `DedekindReals ℓ = Σ[ LU ∈ (ℚ → hProp ℓ) × (ℚ → hProp ℓ) ] dcut (fst LU) (snd LU)`，`dcut` 为 Defn 11.2.1 四条件的量词显式形态（inhabited×2 / rounded×2 双向 ⇔ / disjoint `¬ (L q × U q)` / located `(q < r) → L q ⊎ U r`）；付费方式精确化为 `PropResizing ℓ`（取法 2）与 `LEMProp ℓ`（取法 3）；「单一 Ω」精确化为 `SingleOmega ℓ = Σ[ Ω ∈ Type ℓ ] (isSet Ω × (Ω ≃ hProp ℓ))`。全部声明被 Cubical Agda 内核接受为类型。**关键裁定（§3）**：Book §11.2 取法 4（初始 σ-frame）证伪了「ℝ层 ⇒ LEM 或 resizing」的直接必要性，故 `Necessity ℓ` 收窄为 `ℝLayerAt ℓ → SingleOmega ℓ`，并按 029 §2 降格条款登记为 `CONJECTURE`。 | `STATEMENT_ACCEPTED_WITH_SCOPE`（statement 阶段，无证明体） | run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0）与收据五件套；`source-manifest.json` 固定 CutRealLayer / TOOLCHAIN / AGDA_LIBRARIES 哈希；逐字原文转写于 `CLAIM-PACKAGE-REAL-LAYER.md §1`（源：`HoTT/theory-schema/upstream/book-578b85cc/reals.tex` §11.2）。 | **(a) 充裕性 `Sufficiency ℓ = PropResizing ℓ → ℝLayerAt ℓ` 未证**（属 B1a）；**(b′) 必要性 `Necessity ℓ` 未证并已降格 `CONJECTURE`**（029 §2 条款；`SingleOmega` 与 `PropResizing` 的等价/蕴含方向未论证）；**不**声称等价定理已证、 resizing/LEM 必要性已证、ℝ 层完备性已证；**不**声称 HoTT 不一致；**确认** ℚ 层四条件已机器证明（GOLD-02 收据，本表前节）；收费位置判词在 (b′) 证明出现前不得升级为 `MACHINE_PROVED`；`registers_new_claim:false`。 |
