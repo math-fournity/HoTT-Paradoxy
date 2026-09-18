@@ -26,7 +26,7 @@
 
 | # | 项 | 验收判据 | 验证命令 | 状态 | 证据指针 | 验收人 |
 |---|---|---|---|---|---|---|
-| B0 | **陈述精确化**（029 §4.1，前置）：Book §11.2 「须 LEM 或 resizing」逐字原文 + `CutRealLayer.agda` module statement | 精确命题含全称量词/假设/宇宙；statement 可被编译器接受为类型 | 源书逐字核对 + `compile.sh CutRealLayer.agda`（仅 statement 阶段） | OPEN | `HoTT/formal/dedekind-omega-missile/CutRealLayer.agda` + CLAIM-PACKAGE | AI_SELF |
+| B0 | **陈述精确化**（029 §4.1，前置）：Book §11.2 「须 LEM 或 resizing」逐字原文 + `CutRealLayer.agda` module statement | 精确命题含全称量词/假设/宇宙；statement 可被编译器接受为类型 | 源书逐字核对 + `compile.sh CutRealLayer.agda`（仅 statement 阶段） | **DONE（含 §4.1 第 2 步可行性裁定）** | `CutRealLayer.agda`（`AGDA_EXIT=0`）+ `CLAIM-PACKAGE-REAL-LAYER.md`（逐字转写 + 对照表 + §3 裁定）；run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01` 全过（`EXACT_EXIT_STDOUT_STDERR_MATCH` / `EXACT_INDEX_SNAPSHOT_MATCH`）；提交 `a7eeab4` | AI_SELF → EXTERNAL_D |
 | B1a | **充裕性**：`postulate` LEM/resizing → ℝ 层构造 | `--safe` 过核；矩阵行标 `AXIOM_CHARGED`，公理显式在场 | `compile.sh CutRealLayer.agda --ignore-interfaces`；AGDA_EXIT=0 | OPEN | 新 run 收据 + 矩阵新节 | AI_SELF → EXTERNAL_D |
 | B1b | **诊断绕过**（朴素构造性尝试，029 §2）：成则登记负结果，败则登记为必要性证据 | 无论结局，**结果如实登记**（不得静默） | 尝试记录 + 结局登记于矩阵/后续修订片 | OPEN | 修订片后继 | AI_SELF |
 | B1b′ | **必要性**：`ℝ层陈述 → LEM/resizing`（反向蕴含，首选）；或模型反例（仅元层，标 `SOURCE_REPORTED`）；或降格 `CONJECTURE` | 要么过核证明，要么显式 `CONJECTURE`；**禁止以 B1a 冒充** | 反向蕴含：`compile.sh` 过核；模型反例：元层论证 + 来源标注 | OPEN | 同上 | AI_SELF → EXTERNAL_D |
@@ -76,7 +76,21 @@
 | `20260917-MP-DEDEKIND-OMEGA-BP-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
 | `20260917-MP-DEDEKIND-OMEGA-TA-01` | PASS_WITH_SCOPE | KERNEL_ACCEPTED_WITH_SCOPE | EXACT_EXIT_STDOUT_STDERR_MATCH | EXACT_INDEX_SNAPSHOT_MATCH |
 
-## 已完成工作快照（HEAD `06ab281`）
+| `590d78b` | E1 核心 6 发重放全过 + GOLD-01 取代指针 |
+| `a7eeab4` | B0 陈述精确化：CutRealLayer + CLAIM-PACKAGE + 矩阵行 + 收据 |
+
+## B0 可行性裁定要点（029 §4.1 第 2 步）
+
+Book §11.2 取法 4（**初始 σ-frame**）证伪了「ℝ层 ⇒ LEM 或 resizing」的**直接**必要性
+——它给出第三条构造路线，既非 LEM 也非 resizing。故：
+- `Necessity ℓ` 收窄为 `ℝLayerAt ℓ → SingleOmega ℓ`（基层级命题塌缩结构），
+  而非 `→ PropResizing ℓ ⊎ LEMProp ℓ`；
+- 该方向**未证**，按 029 §2 降格条款登记为 `CONJECTURE`；
+- `SingleOmega` 与 `PropResizing` 的等价/蕴含方向亦未论证；
+- 正确的「不可免费」表述是「需要基层级命题塌缩结构（构造或公理）」，
+  不是「必须接受 LEM/resizing 公理」。
+
+## 已完成工作快照（HEAD `a7eeab4`+）
 
 | 提交 | 内容 |
 |---|---|
