@@ -4,7 +4,7 @@
 For each run whose RUN.json declares index_status == INDEXED_IN_CLAIM_EVIDENCE_MATRIX
 but carries no `index` object, locate the matrix snapshot in which the run's
 identity first appears (walking Git history forward from the commit that added
-the run directory), record {path, sha256}, and write the matching
+the run directory), record {path, sha256}, and write the full
 index-row-manifest.json required by verify_formal_proof_run.py.
 
 Truthful by construction: never fabricates a snapshot; runs whose identity is
@@ -53,31 +53,38 @@ def matrix_at(root: Path, commit: str) -> bytes:
     ).stdout
 
 
-def matrix_snapshot_with_identity(root: Path, identities: list[str], from_commits: list[str]) -> tuple[str, bytes] | None:
-    for commit in from_commits:
-        blob = matrix_at(root, commit)
-        text = blob.decode("utf-8", errors="replace")
-        if all(i in text for i in identities):
-            return commit, blob
-    return None
+def find_index_line(lines: list[str], identity: str, kind: str) -> str:
+    prefix = f"| `{identity}` |" if kind == "proof" else f"| {identity} |"
+    matches = [l for l in lines if l.startswith(prefix)]
+    if len(matches) != 1:
+        raise ValueError(f"not a unique index line: {identity} ({len(matches)} matches)")
+    return matches[0]
+
+
+def build_manifest(run: dict, snapshot_text: str, snapshot_sha: str) -> dict:
+    proof_id = str(run["proof_id"])
+    claim_ids = [str(c) for c in (run.get("claim_ids") or [])]
+    lines = snapshot_text.splitlines()
+    rows = []
+    for kind, identity in [("proof", proof_id), *(("claim", c) for c in claim_ids)]:
+        line = find_index_line(lines, identity, kind)
+        rows.append({"kind": kind, "id": identity, "line_sha256": sha(line.encode("utf-8"))})
+    return {
+        "schema_version": MANIFEST_SCHEMA,
+        "run_id": str(run.get("run_id")),
+        "proof_id": proof_id,
+        "claim_ids": claim_ids,
+        "index_path": MATRIX,
+        "index_snapshot_sha256": snapshot_sha,
+        "rows": rows,
+        "note": "backfilled by backfill_run_index_field.py; snapshot = first matrix revision containing this run's identity",
+    }
 
 
 def identities_of(run: dict) -> list[str]:
     ids = [str(run.get("proof_id", "")), str(run.get("run_id", ""))]
     ids += [str(c) for c in run.get("claim_ids", []) or []]
     return [i for i in ids if i and i != "None"]
-
-
-def write_manifest(run_dir: Path, snapshot_sha: str) -> Path:
-    manifest = {
-        "schema_version": MANIFEST_SCHEMA,
-        "index_path": MATRIX,
-        "index_snapshot_sha256": snapshot_sha,
-        "note": "backfilled by backfill_run_index_field.py; snapshot = first matrix revision containing this run's identity",
-    }
-    path = run_dir / "index-row-manifest.json"
-    path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return path
 
 
 def main() -> int:
@@ -114,28 +121,41 @@ def main() -> int:
             stats["gap"] += 1
             continue
 
-        # commits touching the matrix, newest-first; only consider commits at or after the run landed
-        all_c = [c for c in mcommits]
-        # prefer: first matrix revision (chronologically) at/after `added` containing the identity
-        chrono = list(reversed(all_c))
-        try:
-            added_idx = chrono.index(added)
-        except ValueError:
-            added_idx = 0
-        candidates = chrono[added_idx:] if added_idx >= 0 else chrono
+        # 快照选择：身份在当前矩阵则用当前快照（EXACT_INDEX_SNAPSHOT_MATCH 路径，
+        # 无需 manifest）；否则回退到首个含身份的历史版本。
+        head_commit = mcommits[0]
+        head_blob = matrix_at(root, head_commit)
+        head_text = head_blob.decode("utf-8", errors="replace")
+        if all(i in head_text for i in identities_of(run)):
+            blob, commit, use_head = head_blob, head_commit, True
+        else:
+            chrono = list(reversed(mcommits))
+            try:
+                added_idx = chrono.index(added)
+            except ValueError:
+                added_idx = 0
+            blob, commit, use_head = None, None, False
+            for c in chrono[added_idx:]:
+                b = matrix_at(root, c)
+                if all(i in b.decode("utf-8", errors="replace") for i in identities_of(run)):
+                    blob, commit = b, c
+                    break
+            if blob is None:
+                gaps.append(f"{run_dir.name}: identity not in any matrix revision at/after {added[:8]}")
+                stats["gap"] += 1
+                continue
 
-        found = matrix_snapshot_with_identity(root, identities_of(run), candidates)
-        if found is None:
-            gaps.append(f"{run_dir.name}: identity not in any matrix revision at/after {added[:8]}")
-            stats["gap"] += 1
-            continue
-
-        commit, blob = found
         snapshot_sha = sha(blob)
         run["index"] = {"path": MATRIX, "sha256": snapshot_sha}
-        manifest_path = write_manifest(run_dir, snapshot_sha) if args.write else None
         if args.write:
             run_json.write_text(json.dumps(run, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            # manifest 仅在行唯一时写（多 run 同 proof_id 时跳过，走 EXACT 路径）
+            try:
+                manifest = build_manifest(run, blob.decode("utf-8"), snapshot_sha)
+                (run_dir / "index-row-manifest.json").write_text(
+                    json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            except ValueError as e:
+                print(f"  (skip manifest for {run_dir.name}: {e})")
         stats["backfilled"] += 1
         print(f"{'WROTE ' if args.write else 'would-write '} {run_dir.name} <- snapshot {snapshot_sha[:12]} @{commit[:8]}")
 
