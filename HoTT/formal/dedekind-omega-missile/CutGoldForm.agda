@@ -444,3 +444,142 @@ roundedL← q (inr (0r≤q , qsq<2r)) = p , (q<p , inr (0r≤p , pp<2r))
               (subst (λ Y → (q ·ℚ q) +ℚ ((q ·ℚ δ +ℚ q ·ℚ δ) +ℚ (δ ·ℚ δ)) < Y)
                  qsq+s
                  (<-o+ ((q ·ℚ δ +ℚ q ·ℚ δ) +ℚ (δ ·ℚ δ)) s (q ·ℚ q) rest))
+
+-- 差平方展开：(x-y)·(x-y) ≡ (x² - (x·y + x·y)) + y²
+sq-minus : ∀ x y → (x -ℚ y) ·ℚ (x -ℚ y)
+                   ≡ ((x ·ℚ x) -ℚ ((x ·ℚ y) +ℚ (x ·ℚ y))) +ℚ (y ·ℚ y)
+sq-minus x y =
+      sq² x (-ℚ y)
+    ∙ cong₂ (λ E F → E +ℚ F)
+        (cong (λ W → x ·ℚ x +ℚ W) (negDistribL x y))
+        (cong₂ (λ E F → E +ℚ F)
+           (negDistrib y x ∙ cong (λ W → -ℚ W) (·ℚcomm y x))
+           (neg-neg y y))
+    ∙ sym (+ℚassoc (x ·ℚ x) (-ℚ (x ·ℚ y)) ((-ℚ (x ·ℚ y)) +ℚ (y ·ℚ y)))
+    ∙ cong (λ W → x ·ℚ x +ℚ W) (+ℚassoc (-ℚ (x ·ℚ y)) (-ℚ (x ·ℚ y)) (y ·ℚ y))
+    ∙ +ℚassoc (x ·ℚ x) ((-ℚ (x ·ℚ y)) +ℚ (-ℚ (x ·ℚ y))) (y ·ℚ y)
+    ∙ cong (λ W → (x ·ℚ x +ℚ W) +ℚ (y ·ℚ y)) (neg-add (x ·ℚ y) (x ·ℚ y))
+
+------------------------------------------------------------------------
+-- 条件四的另一半：rounded ← 方向（U 侧）
+-- U r → ∃ q, (q < r) × (U q)：r>2 取 q=2r；否则 t := r·r-2r, δ := t·¼r, q := r-δ
+------------------------------------------------------------------------
+
+roundedU←-body : (r : ℚ) (0r<r : 0r < r) (2r<rsq : 2r < r ·ℚ r) (r≤2r : r ≤ 2r)
+             → Σ[ q ∈ ℚ ] ((q < r) × (U q))
+roundedU←-body r 0r<r 2r<rsq r≤2r = q , (q<r , (0r<q , 2r<qq))
+  where
+    t δ q rδ δδ : ℚ
+    t   = (r ·ℚ r) -ℚ 2r
+    δ   = t ·ℚ ¼r
+    q   = r -ℚ δ
+    rδ  = r ·ℚ δ
+    δδ  = δ ·ℚ δ
+    X   = rδ +ℚ rδ
+
+    0r≤r : 0r ≤ r
+    0r≤r = <-≤ 0r r 0r<r
+
+    0r<t : 0r < t
+    0r<t = diff-pos 2r (r ·ℚ r) 2r<rsq
+    0r≤t : 0r ≤ t
+    0r≤t = <-≤ 0r t 0r<t
+
+    0r<δ : 0r < δ
+    0r<δ = subst (λ W → W < δ) (·ℚannihilL ¼r) (<-·o 0r t ¼r 0r<¼r 0r<t)
+    0r≤δ : 0r ≤ δ
+    0r≤δ = <-≤ 0r δ 0r<δ
+
+    qδ : q +ℚ δ ≡ r
+    qδ = sym (+ℚassoc r (-ℚ δ) δ)
+       ∙ cong (λ W → r +ℚ W) (+ℚinvL δ)
+       ∙ +ℚidR r
+    q<r : q < r
+    q<r = subst (λ W → q < W) qδ
+            (subst (λ W → W < q +ℚ δ) (+ℚidR q) (<-o+ 0r δ q 0r<δ))
+
+    -- t ≤ r（经 r·r ≤ 2r·r ≡ r+r ≤ r+2r 与 t+2r ≡ r·r）
+    rr≤2r·r : r ·ℚ r ≤ 2r ·ℚ r
+    rr≤2r·r = ≤-·o r 2r r 0r≤r r≤2r
+    2r·r≡r+r : 2r ·ℚ r ≡ r +ℚ r
+    2r·r≡r+r = cong (λ W → W ·ℚ r) (sym 1r+1r≡2r)
+             ∙ ·ℚdistR+ 1r 1r r
+             ∙ cong₂ (λ A B → A +ℚ B) (·ℚidL r) (·ℚidL r)
+    rr≤r+2r : r ·ℚ r ≤ r +ℚ 2r
+    rr≤r+2r = isTrans≤ (r ·ℚ r) (2r ·ℚ r) (r +ℚ 2r) rr≤2r·r
+               (subst (λ W → W ≤ r +ℚ 2r) (sym 2r·r≡r+r)
+                  (≤-o+ r 2r r r≤2r))
+    t+2r≡rr : ((r ·ℚ r) -ℚ 2r) +ℚ 2r ≡ r ·ℚ r
+    t+2r≡rr = b-a+a 2r (r ·ℚ r)
+    t≤r : t ≤ r
+    t≤r = ≤-+o-cancel ((r ·ℚ r) -ℚ 2r) r 2r
+            (subst (λ W → W ≤ r +ℚ 2r) (sym t+2r≡rr) rr≤r+2r)
+
+    -- δ < r
+    δ≤r·¼r : δ ≤ r ·ℚ ¼r
+    δ≤r·¼r = ≤-·o t r ¼r 0r≤¼r t≤r
+    r·¼r<r : r ·ℚ ¼r < r
+    r·¼r<r = subst (λ W → r ·ℚ ¼r < W) (·ℚidR r)
+               (·-mono-<-nn r ¼r 1r 0r<r ¼r<1r)
+    δ<r : δ < r
+    δ<r = isTrans≤< δ (r ·ℚ ¼r) r δ≤r·¼r r·¼r<r
+
+    -- 0r < q（δ<r 经 0r+δ < q+δ 再消去）
+    0r<q : 0r < q
+    0r<q = <-+o-cancel 0r q δ
+             (subst2 (λ A B → A < B) (sym (+ℚidL δ)) (sym qδ) δ<r)
+
+    -- rδ + rδ ≤ t（经 2r·δ 收集到 t·boundU）
+    rδ≤2r·δ : rδ ≤ 2r ·ℚ δ
+    rδ≤2r·δ = ≤-·o r 2r δ 0r≤δ r≤2r
+    rδ+rδ≤2r·δ+2r·δ : rδ +ℚ rδ ≤ (2r ·ℚ δ) +ℚ (2r ·ℚ δ)
+    rδ+rδ≤2r·δ+2r·δ = ≤Monotone+ rδ (2r ·ℚ δ) rδ (2r ·ℚ δ) rδ≤2r·δ rδ≤2r·δ
+    2r·δ+2r·δ≡t·B : (2r ·ℚ δ) +ℚ (2r ·ℚ δ) ≡ t ·ℚ (2r ·ℚ (2r ·ℚ ¼r))
+    2r·δ+2r·δ≡t·B =
+        sym (·ℚdistR+ 2r 2r δ)
+      ∙ cong (λ W → W ·ℚ δ) (sym 2r+2r≡2r·2r)
+      ∙ sym (·ℚassoc 2r 2r δ)
+      ∙ cong (λ W → 2r ·ℚ W) (·-reshuffle 2r t ¼r)
+      ∙ ·-reshuffle 2r t (2r ·ℚ ¼r)
+    2r·δ+2r·δ≤t : (2r ·ℚ δ) +ℚ (2r ·ℚ δ) ≤ t
+    2r·δ+2r·δ≤t = subst (λ W → W ≤ t) (sym 2r·δ+2r·δ≡t·B)
+                    (isTrans≤ (t ·ℚ (2r ·ℚ (2r ·ℚ ¼r))) (t ·ℚ 1r) t
+                       (·-mono-≤-nn t (2r ·ℚ (2r ·ℚ ¼r)) 1r 0r≤t boundU)
+                       (·-idR-≤ t))
+    rδ+rδ≤t : rδ +ℚ rδ ≤ t
+    rδ+rδ≤t = isTrans≤ (rδ +ℚ rδ) ((2r ·ℚ δ) +ℚ (2r ·ℚ δ)) t
+                 rδ+rδ≤2r·δ+2r·δ 2r·δ+2r·δ≤t
+    -- 0r < δδ 与 rδ+rδ < t+δδ
+    0r<δδ : 0r < δδ
+    0r<δδ = subst (λ W → W < δδ) (·ℚannihilR δ)
+              (·-mono-<-nn δ 0r δ 0r<δ 0r<δ)
+    rδ+rδ<t+δδ : rδ +ℚ rδ < t +ℚ δδ
+    rδ+rδ<t+δδ = isTrans≤< (rδ +ℚ rδ) t (t +ℚ δδ) rδ+rδ≤t (pos-add< t δδ 0r<δδ)
+    posDiff : 0r < (t +ℚ δδ) -ℚ X
+    posDiff = diff-pos X (t +ℚ δδ) rδ+rδ<t+δδ
+
+    -- q·q ≡ 2r + ((t + δδ) - X)
+    rr≡t+2r : r ·ℚ r ≡ t +ℚ 2r
+    rr≡t+2r = sym t+2r≡rr
+    regroup : q ·ℚ q ≡ 2r +ℚ ((t +ℚ δδ) -ℚ X)
+    regroup = sq-minus r δ
+            ∙ cong (λ W → (W -ℚ X) +ℚ δδ) rr≡t+2r
+            ∙ cong (λ W → (W +ℚ (-ℚ X)) +ℚ δδ) (+ℚcomm t 2r)
+            ∙ cong (λ W → W +ℚ δδ) (sym (+ℚassoc 2r t (-ℚ X)))
+            ∙ sym (+ℚassoc 2r (t +ℚ (-ℚ X)) δδ)
+            ∙ cong (λ W → 2r +ℚ W)
+                (sym (+ℚassoc t (-ℚ X) δδ)
+               ∙ cong (λ W → t +ℚ W) (+ℚcomm (-ℚ X) δδ)
+               ∙ +ℚassoc t δδ (-ℚ X))
+
+    2r<qq : 2r < q ·ℚ q
+    2r<qq = subst (λ W → 2r < W) (sym regroup)
+              (pos-add< 2r ((t +ℚ δδ) -ℚ X) posDiff)
+
+
+
+roundedU← : ∀ r → U r → Σ[ q ∈ ℚ ] ((q < r) × (U q))
+roundedU← r (0r<r , 2r<rsq) with r ≟ 2r
+... | gt 2r<r = 2r , (2r<r , inhabU)
+... | lt r<2r = roundedU←-body r 0r<r 2r<rsq (<-≤ r 2r r<2r)
+... | eq h    = roundedU←-body r 0r<r 2r<rsq (subst (λ X → X ≤ 2r) (sym h) (isRefl≤ 2r))

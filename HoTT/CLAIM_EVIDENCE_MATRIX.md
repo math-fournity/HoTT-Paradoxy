@@ -768,3 +768,17 @@ inhabited×2 / disjoint / rounded→→ / located；roundedL← 与 roundedU← 
 | ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-GOLD | 在纯 Cubical Agda 中：(1) `·-mono-≤-nn : (k a b : ℚ) → 0r ≤ k → a ≤ b → k·ℚa ≤ k·ℚb` 与 `·-mono-<-nn : 0r < k → a < b → k·ℚa < k·ℚb`（0022 §二.1 定案的 elimProp3+代表元 ℤ 链+`≤-·o` 路线；lib 无 ℚ 乘法单调性引理的缺口已补）；(2) 勘误版谓词 `L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r))`、`U q := (0r<q)×(2r<q·ℚq)` 均为 hProp 值（`Lₚ`/`Uₚ`），且 Book §11.2 四条件中的 inhabitedL/inhabitedU/disjoint（`L q → U r → q < r`）/roundedL→/roundedU→/located（`q<r → L q ⊎ U r`）全部机器检查通过——located 的 `q²≡2r` 支消费 `√2-irrational`。 | `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED / GOLD_FORM_PARTIAL_ASSEMBLY`（commit `615fbd2`） | run `20260917-MP-DEDEKIND-OMEGA-GOLD-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0）与收据文件；`source-manifest.json` 固定 CutGoldForm/CutInfra/M2 哈希。 | **未装配部分不得冒充已证**：`roundedL←`（`L q → ∃ p, q<p × L p`）与 `roundedU←`（`U r → ∃ q, q<r × U q`）未装配——已登记工程障碍：**依赖代表元的见证（如 (4ab+1)/(4b²)、Pell 中项 (3a+4b)/(2a+3b)）在商上不良定义**，须走内在 ℚ 项路线（δ := (2−q²)·¼ 类；U 侧须 `inv`（代表交换 (a,b)↦(b,a) 可经 rec 良定义）），并先补 ℚ 加法/减法与 ℚ 级乘法消去基础设施；**不**声称 Book §11.2 四条件全部完成；**不**声称 HoTT 不一致；**不**声称 LEM 收费位置（ℝ 层塌缩处）已被机械化（按 DESIGN §4 仅登记）；本包构造是 ℚ 层标准计算，不依赖 univalence / cubical path / HIT 特有规则。 |
+
+## 追加登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·四条件完整版，2026-09-18）
+
+接续第一装配期（`615fbd2`，rounded→ 双向 + located）与 δ 路线基础设施（`4bc020d`，
+`roundedL←` 完整过核）。本节登记 **Book §11.2 四条件首次全部机器接受**：在
+`roundedU←`（上集圆整 ← 方向）补齐后，`CutGoldForm.agda` 全模块 exit 0。
+
+| proof_id | claim_id | 源码 / 包 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-GOLD` | `CAND-F2-7-GOLD` | `formal/dedekind-omega-missile/CutInfra.agda`（`<-≤`、`·-mono-≤-nn` crux、`·-mono-<-nn`）+ `formal/dedekind-omega-missile/CutGoldForm.agda`（勘误版 L/U + isProp + hProp 包装 + inhabited×2 + disjoint + rounded→ 双向 + located + **roundedL← + roundedU← 双向见证方向**，δ := t·¼r 内在路线 + `sq-minus` 差平方展开）；`CLAIM-PACKAGE-GOLD.md` | `verification/runs/20260918-MP-DEDEKIND-OMEGA-GOLD-02/`（`--ignore-interfaces` 全量 clean 重放）；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness --two-level`；**无 LEM、无 resizing、无任何追加假设**；exit 0；stderr 0；stdout 哈希与 GOLD-01 一致（同一依赖树，均为纯检查日志） | `MACHINE_PROVED_LOCAL_UNCOMMITTED`（工作树已过核；待提交后升级为 `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED`；未 push，非 VERSION_CLOSED） |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-GOLD-FULL | 在纯 Cubical Agda 中：(1) `·-mono-≤-nn : (k a b : ℚ) → 0r ≤ k → a ≤ b → k·ℚa ≤ k·ℚb` 与 `·-mono-<-nn : 0r < k → a < b → k·ℚa < k·ℚb`；(2) 勘误版谓词 `L q := (q<0r) ⊎ ((0r≤q)×(q··ℚq<2r))`、`U q := (0r<q)×(2r<q··ℚq)` 均为 hProp 值（`Lₚ`/`Uₚ`）；(3) Book §11.2 四条件 **全部** 机器检查通过——inhabitedL、inhabitedU、disjoint（`L q → U r → q < r`）、rounded 双向（`roundedL→`/`roundedU→` 与 **`roundedL←`/`roundedU←`**：`L q → ∃ p, q<p × L p`、`U r → ∃ q, q<r × U q`，δ 内在路线，U 侧 `q := r - (r·r-2r)·¼r`）、located（`q<r → L q ⊎ U r`，eq 支消费 `√2-irrational`）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED`（待提交升级） | run `20260918-MP-DEDEKIND-OMEGA-GOLD-02/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0，duration 73.2s）与收据五件套；`source-manifest.json` 固定 CutGoldForm/CutInfra/DESIGN/compile.sh 哈希；GOLD-01 保留为部分装配期历史收据。 | **边界**：(a) 这是 **ℚ 层单个 cut（√2）** 的四条件构造，**不**声称 Book §11.2 意义下「实数完备性」「ℝ 不可达」或任何 ℝ 层命题——把 cut 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的下一升格仍需 LEM 或 propositional resizing（DESIGN §4 登记的收费位置，未机械化）；(b) **不**声称 HoTT/立方类型论内部矛盾或不一致；(c) `rounded←` 的 witness 是 ℚ 层显式 δ 项，**不**依赖代表元选择；(d) registers_new_claim:false——ℚ 层标准可构造计算，非 HoTT 元定理，不依赖 univalence / HIT 特有规则。 |

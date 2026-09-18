@@ -1,0 +1,59 @@
+{
+  "schema_version": "formal-proof-run/v1",
+  "run_id": "20260918-MP-DEDEKIND-OMEGA-GOLD-02",
+  "proof_id": "MP-DEDEKIND-OMEGA-GOLD",
+  "claim_ids": [
+    "CAND-F2-7-GOLD"
+  ],
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "exit_code": 0,
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/CutGoldForm.agda"
+  ],
+  "duration_seconds": 73.17244005203247,
+  "started_at_utc": "2026-09-18T06:49:06.417868+00:00",
+  "completed_at_utc": "2026-09-18T06:50:19.590328+00:00",
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda 2.8.0-3d04bac (optimise-heavily, use-xdg-data-home)",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "stdout": {
+    "bytes": 18258,
+    "path": "stdout.txt",
+    "sha256": "671549d5ac29b35895ebbacf79fdaec150d4646dc2b36ca4fc18140f2f867d25"
+  },
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "environment": {
+    "bytes": 376,
+    "path": "environment.txt",
+    "sha256": "f139abd9bbe2b73e9fadc5fee6e5402f9a87eb61f9d74c99ce9672f84b82d94c"
+  },
+  "source_manifest": {
+    "bytes": 968,
+    "path": "source-manifest.json",
+    "sha256": "877a7b4b670402111f561355348dbe96db32e185113aafd62ea3c546c20923cc"
+  },
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level，无 LEM/resizing/追加公理）中机器检查 √2 的金形态 Dedekind cut 全部四条件：CutInfra（<-≤ 弱化、crux ·-mono-≤-nn 非负乘子保 ≤、·-mono-<-nn 正乘子保 <）与 CutGoldForm 的勘误版谓词（L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r))；U q := (0r<q)×(2r<q·ℚq)）、isPropL/isPropU、Lₚ/Uₚ hProp 包装、inhabL/inhabU、disjoint（条件 iii）、rounded→ 双向（下/上集圆整的 → 方向，located 消费 M2 √2-irrational）、以及 rounded← 双向（下/上集圆整的 ← 见证方向，δ := t·¼r 内在路线，sq-minus 差平方展开）——四条件首次全部机器接受。",
+  "non_goals": [
+    "不声称 HoTT 内部矛盾或不一致（「击毁」= 非现实锚定，非不一致）",
+    "不声称 LEM/propositional-resizing 收费位置命题已被机械化（Book §11.2 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的下一升格按 DESIGN §4 仅登记）",
+    "registers_new_claim:false——本证明是 ℚ 层标准可构造计算，非 HoTT 元定理"
+  ],
+  "deviation_from_design": "CutGoldForm-DESIGN §2/§3/§4.5 经 plan-revise 0150b29 修正后形态；本 run 为四条件完整版的首次 clean replay。"
+}
