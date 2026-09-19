@@ -1040,3 +1040,16 @@ BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受
 位置。 hunted 面仍小（两库；Book 后续章节/UniMath 其余/mathlib 未检）——维持
 G1 为开放狩猎，非终结判定。
 
+## 追加登记：MP-G4-CUT-AS-SOURCE（cut 成员的排除证据族，2026-09-19 深夜）
+
+> Flash 线单元三，用户四项指令之③′（GOLD 谓词族→SourceCarrier 重表述第一件）。
+> `registers_new_claim:false`。
+
+| proof_id | claim_id | 源码 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-G4-CUT-AS-SOURCE` | `CAND-G4-CUT-AS-SOURCE` | `formal/flash-first-hunt/CutAsSourceCarrier.agda`（`ExclFamily C r q := ¬(q≡r)` 谓词族 + `FamilyCarrier` 族形态载体 + `family-to-point` 族→单点桥，与 RingOrigin 类型学同一） | run `20260919-MP-G4-CUT-AS-SOURCE-01`（exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / EXCLUSION_FAMILY_CARRIER` |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-G4-CUT-AS-SOURCE | cut 成员携带排除证据的谓词族形态：ExclFamily + FamilyCarrier + family-to-point（族→单点桥）内核成立——「cut 的每个成员都携带排除证据」的类型学同一性机器化。 | `MACHINE_PROVED_WITH_SCOPE / EXCLUSION_FAMILY_CARRIER` | run `-01` 的 `RUN.json`（exit 0，stderr 0） | 完整 L/U 序结构谓词族重表述（le-ℚ 链）未做，列下一单元；不声称 GOLD 已被替代；不声称圆环=实数；无 ∀ 新主张 |
+
