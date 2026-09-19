@@ -1,7 +1,7 @@
 # CLAIM-PACKAGE-REAL-LAYER（B0 陈述精确化 + B1a 充裕性证明）
 
 > claim id : `CAND-F2-7-REAL-LAYER`（candidate；`registers_new_claim:false`——本包钉死命题形态、登记可行性裁定并证明 (a) 方向，不交付 (b′) 未证主张）
-> proof id : `MP-DEDEKIND-OMEGA-REAL-LAYER`（**statement + B1a 证明阶段**：`CutRealLayer.agda` 过核 `AGDA_EXIT=0`；(a) 充裕性 `sufficiency` 已证（run `-02`），run `-01` 的源 hash 因 §3-E 两项勘误过期；**(b) / (b′) 尚无证明**）
+> proof id : `MP-DEDEKIND-OMEGA-REAL-LAYER`（**statement + B1a 证明阶段**：`CutRealLayer.agda` 过核；(a) 充裕性 `sufficiency` 已证——**当前依据 run `-03`（勘误三形态：located ∥⊎∥ 截断）**；`-01`（勘误前）与 `-02`（勘误二形态）为历史收据；**(b) / (b′) 尚无证明**）
 > 任务来源：修订片 029 §4.1（第一前置任务：陈述精确化，不可跳过）。
 > 验收仪器：`HoTT/verification/REMEDIATION-CHECKLIST-20260918.md` 的 B0 / B1a 行。
 
@@ -141,10 +141,12 @@ B0 收据（run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-01`，提交 `a7eeab4`）
 Book §11.2 Defn 11.2.1 逐字原文的 `\exis` 在 HoTT 中是命题截断（`∥_∥₁`），而
 B0 版 `dcut` 的 inhabited×2 / rounded×2 写成了裸 `Σ`。这不忠实，且对非平凡 cut
 不可满足：向下封闭的 `L` 有无穷多 `r > q` 见证，裸 `Σ` 非 mere proposition，
-却被 rounded 的 `≃`（props 之间的等价）强制为 prop。修正后六分量皆 mere
-proposition 或 set（located 的 `L q ⊎ U r` 在 `q < r` 时可同时成立——`q < x < r`——
-故是 set 而非 prop，用 `isSet⊎`），「Dedekind reals form a set」由 `isProp→isSet` /
-`isSetΣ` 链得到（`isSetDCut`、`DedekindReals-isSet`）。
+却被 rounded 的 `≃`（props 之间的等价）强制为 prop。修正后前五分量皆 mere
+proposition（**located 当时仍留裸 `⊎`——此为勘误三的对象，见下**：「位于
+set 层」的当时判断正是漏见 Book ∨ 截断约定的自证），「Dedekind reals form
+a set」由 `isProp→isSet` / `isSetΣ` 链得到（当时 `isSetDCut`、
+`DedekindReals-isSet`；**勘误三后 `dcut` 整体已是 mere proposition，
+`isPropDCut` 直接成立，见下节**）。
 
 **勘误 2 · `Sufficiency` 付费假设深化（`PropResizing ℓ →` 改 `SingleOmega ℓ →`）**。
 B0 版把 (a) 的付费假设定为 pointwise `PropResizing ℓ`。深化裁定：pointwise
@@ -157,7 +159,18 @@ call $\Omega$」的忠实形态是「存在低层级 Ω」，即 `SingleOmega`�
 已是 `ℝLayerAt ℓ → SingleOmega ℓ`）。本包 §4.1 的旧表述
 「证明 `Sufficiency ℓ = PropResizing ℓ → ℝLayerAt ℓ`」自本节起废止。
 
-**B1a 完成（同一 run `-02`）**：`sufficiency : (ℓ : Level) → SingleOmega ℓ →
+**勘误 3 · `located` 析取忠实化（2026-09-19，Astra 一审 A02 采纳，run `-03`）**。
+Book §3.7 Defn (logical notation) 逐字：`P ∨ Q ≝ ∥P + Q∥`（"using truncation as
+follows"——set-level 数学的传统记号一律指命题截断逻辑）。原 `dcut` 的 located
+用裸 `⊎`，是携带分支选择数据的强化变体（每个 q<r 都要求可判定的分支证据）。
+更早的自证：勘误二的注释曾写「located 是 set 而非 prop」——注意到了 set/prop
+之别却未连接到 ∨ 的截断约定。修正后：`located : (q r : ℚ) → (q < r) →
+∥ fst (L q) ⊎ fst (U r) ∥₁`；六分量全部 mere proposition，新增 `isPropDCut`，
+`dcut` 与 Book「It is apparent that dcut(L,U) is a mere proposition」逐字一致；
+B1a 构造结构零改动重过核（run `-03`）。勘误一/二所修的 run `-01`/`-02` 保留为
+各勘误阶段的历史收据。
+
+**B1a 完成（勘误三后依据 run `-03`；原 `-02` 为勘误二形态历史收据）**：`sufficiency : (ℓ : Level) → SingleOmega ℓ →
 ℝLayerAt ℓ` 已过核（`--safe --cubical`，exit 0，无 postulate）。构造：代理空间
 `DedekindReals*`（Ω*-值 cut 的子集型，纤维经 `e` 逐点搬运后取 `dcut`）活在 ℓ 层、
 是 set、且 `≃ DedekindReals ℓ`。跨层（`Type ℓ` ↔ `Type (ℓ-suc ℓ)`）的 Σ-cong
@@ -171,7 +184,7 @@ call $\Omega$」的忠实形态是「存在低层级 Ω」，即 `SingleOmega`�
 
 ## §4 后续（B1 执行规格，按 029 §4 顺序；2026-09-18 B1a 完成后修订）
 
-1. ~~**B1a（充裕性）**~~ **DONE（2026-09-18，run `-02`）**：实际证明形态
+1. ~~**B1a（充裕性）**~~ **DONE（2026-09-18 run `-02` → 勘误三后当前依据 run `-03`（2026-09-19，located 截断形态重查全绿））**：实际证明形态
    `sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ`（付费假设为显式
    前提而非 postulate，见 §3-E 勘误 2 与 B1a 段）。
 2. **B1b（诊断绕过）**：**DONE（2026-09-18，混合结局如实登记，修订片 030 §2）**——

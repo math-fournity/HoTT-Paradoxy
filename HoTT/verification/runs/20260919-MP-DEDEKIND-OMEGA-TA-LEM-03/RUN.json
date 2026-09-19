@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-TA-LEM"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMZero.agda"
+  ],
+  "completed_at_utc": "2026-09-19T15:17:41.203743+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 3.60222,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "不声称对象层不可归约定理（030 §4 勘误后：声模型论证撤回）；不声称 Book 标准公理行为"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-TA-LEM",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-TA-LEM-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "TA-LEM Zero 探针重捕获（同命题：n-lem ≢ zero 的 refl 拒绝检查）。触发：ChargeDemo 头注释经 Astra 一审 A04 采纳精确命名（LEM∞ 型不受限排中公设；Book thm:not-lem 与 UA 不相容性按 SOURCE_REPORTED 登记）——源码 hash 变更。本 run 补全依赖闭包：显式 pin ChargeDemo。-01 保留为历史收据（其 manifest 依赖亦不完整）。预期 exit 42（内核拒绝即收据）。公设身份修正后，本族收据的语义=不透明 LEM∞ 公设下的 stuckness 工具检查，非 Book LEM₋₁ 的行为演示。",
+  "source_manifest": {
+    "bytes": 2714,
+    "path": "source-manifest.json",
+    "sha256": "878f1bdf08740c047c66bf2f421fc51908296fd93e31e84a90d7b77b34b08170"
+  },
+  "started_at_utc": "2026-09-19T15:17:37.601523+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 3117,
+    "path": "stdout.txt",
+    "sha256": "32af6be3ded2de708df6a096ed717dad9962b29ca1d67ad5f72e14300a76ba58"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
