@@ -1053,3 +1053,19 @@ G1 为开放狩猎，非终结判定。
 |---|---|---|---|---|
 | CAND-G4-CUT-AS-SOURCE | cut 成员携带排除证据的谓词族形态：ExclFamily + FamilyCarrier + family-to-point（族→单点桥）内核成立——「cut 的每个成员都携带排除证据」的类型学同一性机器化。 | `MACHINE_PROVED_WITH_SCOPE / EXCLUSION_FAMILY_CARRIER` | run `-01` 的 `RUN.json`（exit 0，stderr 0） | 完整 L/U 序结构谓词族重表述（le-ℚ 链）未做，列下一单元；不声称 GOLD 已被替代；不声称圆环=实数；无 ∀ 新主张 |
 
+## 追加登记：G1 圆环版狩猎第二批（UniMath real-numbers 全目录 + Book surreals 段，2026-09-19 深夜）
+
+> Flash 线。第二批口径同前批；本批含一个**文献级高价值命中**（非机器收据）。
+
+| 猎场 | 检索/阅读 | 结果 | 裁定 |
+|---|---|---|---|
+| UniMath real-numbers 全目录（addition 等） | `ℝ l` 层级一致性 | 全部在 `lsuc l` 参数化下运算，无降到 l 的使用 | **负结果**（续）：该线维持卫生 |
+| **Book reals.tex surreals 段（L2487-2490）** | Dedekind reals 与 surreals/ord/card/V 并列 | **明文**：「…or even the Dedekind reals in the absence of propositional resizing」与真类级对象同类 | **文献级高价值命中（SOURCE_REPORTED）**：Book 自我把「无 resizing 的 Dedekind reals」与**真类级现象**归为一类——比 §11.2 招认更进一步（招认的是「要付费」，此处是「不付费时它与真类同级」）。精确意义待与 surreals 构造对照后评估；不升级为危机判词 |
+| cubical 库 + unimath 构造代码 | （前批） | 无丢来源现场 | 维持负结果 |
+
+**裁定更新**：G1 的「共同体不知情」分支在**代码层**仍未命中（unimath 干净），
+但在**文献层**命中 Book 的自我归类——「共同体知情」需再分层：知情并有意以
+真类级现象使用 ≠ 知情且披露每次使用的代价。G1 第三批方向 = surreals 的
+family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的对照
+——这是用户圆环之问（来源/大小被理论经济性抹除的位置）的文献侧最近靶。
+
