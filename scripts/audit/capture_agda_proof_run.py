@@ -148,6 +148,26 @@ def main() -> int:
             raise SystemExit(f"RUNTIME_CACHE_SYMLINK:{key}")
 
     source_parent = (root / source).parent
+    # Flash 线（2026-09-19）：命名空间子目录的模块（module A.B.C）要求
+    # -i root = 命名空间首段之前的目录，否则 ModuleNameDoesntMatchFileName。
+    # 兼容两种布局：无子目录（root=父目录，历史行为不变）；有子目录
+    # （模块路径 A/B/C.agda，root=声明根）。判定依据 = 模块名与相对路径的一致性。
+    module_path_guess = source_parent
+    include_root = source_parent
+    src_text = (root / source).read_text(encoding="utf-8", errors="replace")
+    import re as _re
+    m_mod = _re.search(r"^module\s+([A-Za-z0-9_.-]+)", src_text, _re.M)
+    if m_mod:
+        declared = m_mod.group(1)
+        # 相对 include root 的期望路径（按声明的模块名逐段）
+        rel_parts = list(source.with_suffix("").parts)
+        declared_parts = declared.split(".")
+        if rel_parts != declared_parts:
+            # 命名空间前缀：从 source 相对 repo root 的路径中回推声明根
+            root_parts = list(source.with_suffix("").parts)
+            trim = len(root_parts) - len(declared_parts)
+            if trim > 0:
+                include_root = str(root / Path(*root_parts[:trim]))
     env_command = [
         "/usr/bin/env",
         f"XDG_DATA_HOME={cache['xdg_data_home']}",
@@ -157,7 +177,7 @@ def main() -> int:
         "--ignore-interfaces",
         f"--library-file={root / library_registry}",
         "-l", f"cubical-{cubical['version']}",
-        "-i", str(source_parent),
+        "-i", include_root,
         source.as_posix(),
     ]
     version_command = env_command[:4] + [str(agda_binary), "--version"]

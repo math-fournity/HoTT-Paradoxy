@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-G4-BREAKPOINT-BRIDGE"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal",
+    "HoTT/formal/flash-first-hunt/BreakpointBridge.agda"
+  ],
+  "completed_at_utc": "2026-09-19T20:52:41.719300+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 35.116429,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不声称 GOLD L/U 全谓词族已重表述（谓词族级工程列下一单元）；不声称圆环=实数（两线共用检查方式，对象不同）；无 ∀ 新主张；registers_new_claim:false"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-G4-BREAKPOINT-BRIDGE",
+  "run_id": "20260919-MP-G4-BREAKPOINT-BRIDGE-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "圆环线↔ℝ层线连通件（Flash 单元一后续，用户四项指令之③）。纯 Cubical Agda（--safe 零公理）：ExcludedCarrier C r := Σ q:C, ¬(q≡r)——与 RingOrigin.SourceCarrier 同型的「排除证据」载体在 ℝ 层线的形态；桥命题 bridge : ExcludedCarrier C r → ExcludedCarrier C r（同一 Σ 类型的两线重述）；实例正控 ℤ∖{0}：排除证据 pos1≢pos0 经 injPos+sym+znots 构造性给出。圆环悖论的「断点排除」与 Dedekind cut 的「无理排除」在类型层为同一构造。",
+  "source_manifest": {
+    "bytes": 2496,
+    "path": "source-manifest.json",
+    "sha256": "c168ba5552d400fa85ccfb225c88acd6b77c7fcfabdd74b5dfcd7f6428a98d8a"
+  },
+  "started_at_utc": "2026-09-19T20:52:06.602871+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16359,
+    "path": "stdout.txt",
+    "sha256": "70bf776f5db0f8fac1a98a2b67070a0bb044aee42e7a482de3f793cd3f733b54"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
