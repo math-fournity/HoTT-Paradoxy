@@ -1,8 +1,8 @@
-# 合同层重设计：LOAD_SET v5 与 PROTOCOL v3
+# 合同层重设计：LOAD_SET v5 档位扩展（保持 v4 schema）与 PROTOCOL v3
 
 （对应《机制报告》003：PROTOCOL / LOAD_SET / SKILL_ROLES / 治理 Skill 的调查结论）
 
-## 1. LOAD_SET.json → v5（tiered schema）
+## 1. LOAD_SET.json → v5 档位扩展（保持 `cognition-load-set/v4`）
 
 **原来存在什么问题**：v4 只有 governance/research 两档且都含全量启动核——
 层机制本身精良（query_first 是框架最成功的减容战役，F-012：-97%），但最大的
@@ -12,8 +12,9 @@
 **打算如何调整**（schema 骨架）：
 
 ```json
-{ "schema_version": "cognition-load-set/v5",
-  "policy": "TIERED_CLOSURE_WITH_RECEIPT_REATTESTATION",
+{ "schema_version": "cognition-load-set/v4",
+  "version": "4.1.0",
+  "policy": "TIERED_CLOSURE_WITH_RECEIPT_REATTESTATION_COMPATIBLE_V4",
   "tiers": {
     "T0-lite":     { "boot": ["AGENTS.md","MEMORY.md","MEMORY/001*.md"],
                      "four_set": false, "state": "hot_only",
@@ -28,14 +29,24 @@
   "state_hot_fields": ["active","latest_session","current_core","unresolved","revision"],
   "compaction": { "mode": "receipt_reattestation",
                   "full_reload_triggers": ["core_sha256_changed","tier_escalation","user_order"] },
+  "tier_extension_compatibility": {
+    "runtime_schema": "cognition-load-set/v4",
+    "runtime_behavior": "current graph() validates v4 and ignores additive tier keys"
+  },
   "query_first": ["<原清单 + STATE-archive>"], "task_expand": ["<原清单>"] }
 ```
 
 （瘦身启动核 = 现核去掉 STATE 全文换成 hot 快照、MEMORY/003 换队列+上限片、
 README 压成单片导航；详见分片 006/008。）
 
-**为什么调整后更好**：档位成为数据而非散文，runtime `--tier` 展开与 fail-closed
-语义原样复用（v4 已验证的机制不动，只换数据）；"轻任务合法化"有了机读载体；
+**执行兼容裁定（2026-09-19）**：`cognition_runtime.py` 3.6.1 的 `graph()` 只接受
+`cognition-load-set/v4`；把 schema 改成 v5 会 fail-closed。故 P2-3 把 `tiers`、
+`state_hot_fields` 和 `compaction` 作为 v4 的**加性顶层扩展**落盘，当前 runtime 安全忽略它们，
+不得虚构 `--tier` 参数。档位实际由根 AGENTS 和 PROTOCOL 的文本合同执行；若未来需要 runtime
+消费 tier，必须另建 schema/consumer/迁移/回滚与测试 Topic。
+
+**为什么调整后更好**：档位成为数据而非散文，且不破坏已验证的 v4 fail-closed graph；
+"轻任务合法化"有了机读载体；
 压缩策略从唯一全额重付变为收据制+三触发器——重付成本从 49.7 万降到 ≈6 千
 （启动核瘦身后）+ 复认 ≈2–3K。
 

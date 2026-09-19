@@ -1,8 +1,94 @@
 {
   "schema_version": "cognition-load-set/v4",
-  "version": "4.0.0",
-  "policy": "FULL_SET_EVERY_SESSION_AND_COMPACTION_PLUS_PROFILED_TASK_HYDRATION",
+  "version": "4.1.0",
+  "policy": "TIERED_CLOSURE_WITH_RECEIPT_REATTESTATION_COMPATIBLE_V4",
   "default_profile": "governance",
+  "tiers": {
+    "T0-lite": {
+      "boot": [
+        "AGENTS.md",
+        "MEMORY.md",
+        "MEMORY/001 - 当前执行队列.md"
+      ],
+      "state": "hot_only",
+      "four_set": false,
+      "end_obligation": "none",
+      "hard_gates": [
+        "source_boundary",
+        "no_subagent",
+        "no_push"
+      ]
+    },
+    "T1-standard": {
+      "boot": [
+        "AGENTS.md",
+        "README.md",
+        "MEMORY.md",
+        "feature-list.md",
+        "rulings.md",
+        ".codex/AGENTS.md",
+        ".codex/skills/SKILL_ROLES.json",
+        ".codex/skills/hott-local-session-governance/SKILL.md",
+        ".codex/cognition/PROTOCOL.md",
+        ".codex/cognition/LOAD_SET.json"
+      ],
+      "state": "hot_only",
+      "four_set": "task_scoped",
+      "end_obligation": "session_lite",
+      "hard_gates": [
+        "writeback_ownership",
+        "validator"
+      ]
+    },
+    "T2-research": {
+      "boot": [
+        "always_full_boot",
+        "always_full_documents",
+        "research_full"
+      ],
+      "state": "full",
+      "four_set": true,
+      "end_obligation": "audit_sharded_touched",
+      "hard_gates": [
+        "programmatic_completeness_when_triggered",
+        "evidence_scope"
+      ]
+    },
+    "T3-mutation": {
+      "boot": [
+        "always_full_boot",
+        "always_full_documents",
+        "research_full_when_the_task_is_research"
+      ],
+      "state": "full",
+      "four_set": true,
+      "end_obligation": "full_kc_audit_and_atomic_checkpoint",
+      "hard_gates": [
+        "math_proof_when_a_mathematical_conclusion_is_delivered",
+        "checkpoint_result_json"
+      ]
+    }
+  },
+  "state_hot_fields": [
+    "current_core",
+    "active",
+    "latest_session",
+    "unresolved",
+    "revision"
+  ],
+  "compaction": {
+    "mode": "receipt_reattestation",
+    "full_reload_triggers": [
+      "core_sha256_changed",
+      "tier_escalation",
+      "user_order"
+    ]
+  },
+  "tier_extension_compatibility": {
+    "runtime_schema": "cognition-load-set/v4",
+    "runtime_behavior": "The current graph() validates v4 and ignores these additive tier keys; do not pass an unsupported --tier flag.",
+    "contract_owner": ".codex/cognition/PROTOCOL.md"
+  },
   "always_full_documents": [
     "核心认知.md",
     "方向追踪.md",
@@ -13,7 +99,7 @@
     "核心认知.md": "用户原文唯一权威（USER_OWNED_DIRECT；由 curation + manifest hash 管理）",
     "方向追踪.md": "方向组合与下一判别动作的当前投影",
     "全景视野.md": "结果、正反例、失败与证据边界的当前投影",
-    "扩展认知.md": "AI 阐释层（AI_EXPOSITION_LAYER）：按思想关系把 43 段用户原文连贯展开，用于理解与启发；不是用户原文权威，不产出数学结论，不得反向改写 core"
+    "扩展认知.md": "AI 阐释层（AI_EXPOSITION_LAYER）：按思想关系连贯展开 STATE.current_core 所标识的当前用户原文，用于理解与启发；不是用户原文权威，不产出数学结论，不得反向改写 core"
   },
   "always_full_boot": [
     "AGENTS.md",

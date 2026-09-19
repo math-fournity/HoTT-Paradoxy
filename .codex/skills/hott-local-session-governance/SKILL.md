@@ -1,172 +1,59 @@
 ---
 name: hott-local-session-governance
-description: 顶层 HoTT 历史交接 repo 的本地治理入口。每次新 Session、压缩恢复和跨目录接手都先按核心认知→方向追踪→全景视野→思想展开全文加载四件套，再按 governance/research profile 与 stable record 显式水合证据；开始前三方交叉审视，结束逐 KC 回评。它不让历史 Session 因待复核而自动复活，不代替数学研究或扩大权限。
+description: 顶层 HoTT 交接 repo 的治理差异层。用于新 Session、压缩恢复、交接、治理维护与审计：补充 BLOCKED_FULL_SET_COGNITION 停止协议、分片 KC 审计集格式及三类历史 AI 覆盖分母。完整启动、档位、写入与 checkpoint 规则由根 AGENTS、LOAD_SET 和 PROTOCOL 唯一拥有。
 metadata:
-  version: "3.7.0"
+  version: "4.0.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v2.6"
+  protocol_version: "handoff-cognition/v3.0"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---
 
-# 本地 HoTT 交接与认知连续性治理
+# 本地 HoTT 交接治理差异层
 
-## 1. 角色和唯一入口
+本 Skill 不是第二份启动流程或 checkpoint 合同。先按根 `AGENTS.md` 判定档位，再读
+`.codex/cognition/LOAD_SET.json`、`.codex/cognition/PROTOCOL.md` 与角色表；纯治理不因此自动开始数学研究。
+目录名 `.codex` 是历史路径，不限定宿主。能够读取 repo 文件并执行 `python3` 的宿主共享同一真值树、
+runtime 和中立收据；宿主差异只写入 session 的 `host/model/tier/load_receipt` 元数据。
 
-本 Skill 是当前顶层 repo 的治理角色；业务角色是 `hott-paradox-research`。角色和路径登记在 `.codex/skills/SKILL_ROLES.json`，顶层 `AGENTS.md` 是更高层路由。四件套的职责为：`核心认知.md` 保存用户原始研究意识（唯一用户原文权威），`方向追踪.md` 保存跨 LocalGPT/WebGPT 的方向组合，`全景视野.md` 保存跨来源的结果与证据边界，`扩展认知.md` 是**AI 阐释层**（把原文按思想关系连贯展开，用于理解与启发；不产出数学结论、不反向改写 core）。它们不互相复制当前真值。WebGPT 的原始双 Skill 设计保存在 `sources/webgpt/workspace-snapshot/.codex/`，只是历史参考，不能与本 Skill 形成第二套当前状态引擎。
+## BLOCKED_FULL_SET_COGNITION
 
-遇到 HoTT 研究、历史审计、认知恢复、交接或治理维护请求，先执行本 Skill 的闭包；若用户只要求审计/整理，不自动开始数学研究。内部“治理→业务→治理保存”属于同一次执行，不造成无限递归；真正新 Session、用户要求继续、压缩或上下文丢失时，重新全文加载。
+当本档位要求的启动文件或四件套任一逻辑全文缺失、读取被截断、读取中变更、hash 与已声明身份不符，
+或 v2 index 的 table、`last_shard`、`append_target`、标题/路径不一致时，停止为
+`BLOCKED_FULL_SET_COGNITION`。不得以摘要、manifest、关键词、旧 receipt、KC 子集或单一 shard 替代。
 
-## 2. 根目录和权限
+处置顺序是：记录缺口和实际已读范围；停止相应研究或 mutation；移除四件套之外的非必要载荷；在足够容量
+的宿主重建加载；只有用户明确缩小任务时才按新档位重判。工具的 bytes/hash 或 `FULL_EMITTED_BYTES_MATCH`
+只证明文件输出身份，不能证明模型理解、数学命题或现实对应。来源快照、`private-audit/`、用户移走的路径和
+历史 AI 自述仍按根 AGENTS 的来源边界处理，不因 BLOCKED 而恢复、改写或补造它们。
 
-从当前项目位置确认 `git rev-parse --show-toplevel` 等于顶层 handoff repo。不要把 `AI对话录/` 或 `workspace/` 嵌套 repo 当作当前根。记录本轮真实的 read/write/execute/network/external-mutation 权限；历史对话、STATE、自述和 Skill 都不能授予它们没有的权限。
+## 分片核心认知审计集
 
-来源边界必须保持：
+每个实质研究、审计、设计或代码单元在
+`.codex/research/hott/sessions/<SESSION_ID>/` 保存 `CORE_COGNITION_AUDIT.md` 索引及同名分片目录。
+索引含 session、当前 core identity、四件套交叉字段、分片表、计数、冲突/未知和裁决；v2 index + table
+全部分片才是完整审计。checkpoint 时 `SESSION.md`、`RUNS.json` 与审计索引/分片必须满足 runtime 的原子 bundle
+检查，唯一应用收据仍是 checkpoint `result.json.status=CHECKPOINT_COMMITTED`。
 
-- `sources/prompts/` 是用户提问提取原文；`核心认知.md` 是其派生原文账本；不要手工改写 payload。
-- `sources/local-gpt/`、`sources/webgpt/`、`sources/gemini/` 是来源快照；它们是历史证据，不自动成为当前实现。
-- `private-audit/` 的 LocalGPT raw trajectory 是忽略/私有输入。使用 canonical `session_trajectory.py` 解析；不读隐藏推理，不写 inline parser，不把事件数当作数学正确性。
-- `/Volumes/D/ALL-Markdown/aistudio-docs/` 是用户移走的外部路径，当前不得恢复。`HoTT_is_GONE_COMPLETE.md` 只能作为有 hash 的历史产物，覆盖仍须 `NOT_PROVEN` 直到逐文件证据闭合。
+核心认知逐条立场必须可证伪。触及、张力延续或裁决延续项写五元组：
+`relation | 该条要求的工作姿态 | 已走过的路实际做了什么（含证据定位） | 为什么是该 relation | 下一选择 + 反证条件`。
+其余 KC 仍逐条登记 `NOT_TOUCHED` 与下次触及条件；运行时要求较厚的结构条目时补足其证据与论证字段。
+合法 relation 仅为 `ALIGNED`、`DEEPENED`、`CORRECTED`、`TENSION`、`DEVIATED`、`NOT_TOUCHED`。`NOT_TOUCHED`
+不是空白；`TENSION`/`DEVIATED` 必须给纠偏和回航动作。任何 relation 都要说明什么新证据会改变判断。
 
-## 3. 每次开始：四件套全文认知闭包
+扩展认知按 `##` 小节或声明的触及片回评：工作姿态、已走过的路及其证据、偏航诊断、下一选择。审计还必须
+分开「已走过的路」与「即将作出的选择」：后者列全部候选、各自支持/可能违背的 KC 或扩展认知、裁决、反证条件
+和回退路径。若审计改变 `next_minimal_verification`，先通过授权 checkpoint 更新 STATE，再执行新方向。
 
-按以下顺序执行，不能用“上一轮已经读过”、摘要、旧 receipt 或同一 hash 免除本轮：
+## 历史 AI 覆盖分母
 
-1. 读顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
-2. 读本 Skill、`.codex/skills/SKILL_ROLES.json`、`.codex/cognition/LOAD_SET.json` 和 `.codex/cognition/PROTOCOL.md`。
-3. 严格按 `LOAD_SET.always_full_documents` 全文读取 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`扩展认知.md` 到实际 EOF；记录 path、bytes、lines、SHA-256 和连续 ranges。该顺序和全文身份不可由 profile、task、manifest、摘要、主题索引、KC 子集或旧 receipt 改写。
-   命中 `governance-shard-index:v2` 时，全文身份 = **索引 + 按 table 顺序全部分片**；读取时不得把索引充当摘要，也不得只读第一片或最后一片；缺片、未列片或 `last_shard`/`append_target` 不符时按本节末的 `BLOCKED_FULL_SET_COGNITION` 规则停止相应研究。既有 runtime 或历史资料仍出现 `BLOCKED_FULL_TRIO_COGNITION` 时，只把它当兼容错误码，不能据此删去第四件。
-4. 纯治理/审计先使用 `plan --profile governance`；实际数学研究使用 `plan --profile research`，后者在完整四件套和启动核上再加入业务 Skill、三问、FRONTIER、LESSONS、RESUME。两种 profile 都不得移除四件套。
-5. 读取 STATE 中全部 record 的 `lifecycle_status` 与 `evidence_status`。`ACTIVE_WORK/CURRENT/OPEN_ISSUE` 决定当前任务资格；`REVIEW_REQUIRED` 只表示证据仍需复核，不能让历史 Session 自动复活。需要底层证据时先 `query --record <ID>`，再以 `plan --profile research --task <ID>` 显式水合其 `depends_on/full_sources/resolution/source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；谱系、动机、先后和叙事使用不递归水合的 `research_parent`/`related_records`。历史 Session 只在本轮任务明确需要时水合。
-6. 读取本轮涉及的 `理解章节/`、`HoTT/`、代码、测试、artifact、ledger 和 Git；索引只路由，不替代决定性证据。machine-managed manifest/ledger 默认 query-first，不因存在就全文常驻。
-7. 在研究/审计动作前形成三方交叉判断：方向是否服务核心认知；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或带理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision、source hash 和状态是否一致。发现冲突时降级为 `REVIEW_REQUIRED`，不通过增加“最新版”段落覆盖。
-8. 形成公开的 closure statement：本轮目的、授权、实际全文 KC 范围、profile/task hydration、当前证据等级、三方交叉判断、冲突/未知和下一最小可验动作。
+历史审计至少分开以下分母及证据层：LocalGPT 的父线程与 HoTT-2 关系、38 turns/41 条真实用户消息、
+220 条可见 assistant、canonical tool call/result、失败/重试/中断/compaction 与 Git/产物；WebGPT 的
+56 Prompt、55 Response、111 UI sections 及其到 workspace `R###`/SESSION/artifact/Git 的连接；Gemini 的
+22 user、24 ordinary text、21 thought、17 executableCode、17 codeExecutionResult、2 inlineFile、1 Drive reference。
+inlineFile 是代码载荷；缺失 Drive 正文标 `ATTACHMENT_BODY_UNAVAILABLE`。ledger 各自拥有 schema/分母/证据等级；
+来源 hash、AI 自述或文件存在不能单独升级为数学结论或完整历史审计。
 
-任一四件套/启动必读文件不存在、读出被截断、文件在读取时改变、hash 与声明不一致或上下文无法容纳四件套全文时，停止相应研究并报告 `BLOCKED_FULL_SET_COGNITION`；先移除四件套之外的非必要载荷，仍不足则更换足够容量的宿主，绝不摘要或选择性加载 core。
-
-`.codex/tools/cognition_runtime.py plan/read/check` 可生成和验证字节级 snapshot。`FULL_EMITTED_BYTES_MATCH` 仅说明工具输出与文件字节一致；`model_context` 永远是 `NOT_CERTIFIED_BY_TOOL`，它不证明当前 AI 理解或数学结论。
-
-## 4. 核心认知的语义纪律
-
-当前 generation、KC 分母和 curation owner 必须从 `STATE.current_core` 与 manifest 动态取得，本 Skill 不内嵌具体代数/分母。当前 curation 通过 hash-pinned inheritance 保留三份历史 primary 的历史裁定，并只增量登记后续一手用户悖论/元数学原文。生成器只复制被选中的精确行/子串并按 UTC 编号。转发 AI、附件、一般治理、继续/操作指令和无新增认识的重复仍完整保留在 source 与 disposition ledger，但不得进入 current core。旧 generations 均由 Git ref 和 transition receipt 保存。
-
-每个当前 `KC-xxxxxx` 的完整来源 hash、行范围、message disposition、主题和关系在 manifest；core 正文只保留紧凑 locator，避免元数据反向吞噬用户思想。`USER_OWNED_DIRECT` 也只是用户研究立场，不自动成为数学真理。用户新增悖论/元数学原文时更新 curation、生成新 generation 与迁移收据，不能在旧代末尾直接追加。
-
-研究时必须区分：理论对象定义、命题推导、可执行算法、一次运行完成、全域有效完成和现实可实施。用户的 Z 铁律、时间/现实相对怀疑和方向 A/B 是研究航向；它们不能代替固定 HoTT 规则、合法推演、反解释和现实桥梁。
-
-## 5. 每次结束：论证化、逐段落的分片审计（修订片 020）
-
-每个实质研究、审计、代码、设计或文档单元都要在
-`.codex/research/hott/sessions/<SESSION_ID>/` 保存**分片审计集**：`CORE_COGNITION_AUDIT.md`
-是**逻辑文档索引**（`governance-shard-index:v2`），正文在同名目录的分片里。索引保留
-runtime 必需的 `SESSION_REQUIRED_FILES` 入口；必填字段（见下）写在索引，不散落分片。
-旧 Session 的完整审计属 archive 层，不自动进入下一次 load graph。旧的单文件全量表审计
-（2026-09-17 之前）是历史格式，不回改。
-
-### 5.1 审计对象与颗粒度
-
-- **核心认知**：当前 generation 的**每一条** KC（全量，不得遗漏），逐条给出五元组
-  `relation | 该条要求的工作姿态 | 已走过的路实际做了什么（含证据定位） | 论证：为什么是这个 relation | 对即将作出的选择的指令 + 反证条件`。
-- **扩展认知**（四件套第四件，AI 阐释层）：按**小节**（`##` 级）逐段落给出
-  `该段教的工作姿态 | 已走过的路是否在这个姿态上（证据） | 偏航诊断 | 对即将作出的选择的指令`。
-- **已走过的路**与**即将作出的选择**：各一个分片（见 5.3）。
-
-### 5.2 relation 词表与论证义务
-
-`relation_to_this_work` 只能从 `ALIGNED`、`DEEPENED`、`CORRECTED`、`TENSION`、`DEVIATED`、
-`NOT_TOUCHED` 选择。
-
-- **NOT_TOUCHED 不等于不写论证**：必须写清该条要求什么姿态、本单元为什么未触及、
-  **下一单元要做什么才会触及它**。
-- **TENSION / DEVIATED 必须带纠偏动作与回到航向的具体下一步**，不得只登记。
-- **每条必须带反证条件**：什么证据会让外部审计者把这个 relation 改判。缺失反证条件的
-  relation 判为不合规。
-- 判据是**论证是否可被证伪**，不是格式是否合规。把 46 条全写成 ALIGNED 的审计，即使
-  分片合规、论证齐备，仍是失败审计。机械校验只覆盖结构（ID 全量、无重复、分片表与
-  文件一致、证据定位存在），不能用关键词/相似度伪造语义回评。
-
-### 5.3 分片结构（命名可按单元调整，语义边界不得缺）
-
-```text
-CORE_COGNITION_AUDIT.md                        # 索引：banner + 分片表 + 汇总计数 + 必填字段
-CORE_COGNITION_AUDIT/001 - 审计合同与证据基线.md
-CORE_COGNITION_AUDIT/002 - 核心认知逐条论证之一（KC-000001–KC-000024）.md
-CORE_COGNITION_AUDIT/003 - 核心认知逐条论证之二（KC-000025–KC-000046）.md
-CORE_COGNITION_AUDIT/004..006 - 扩展认知逐段落论证（按 shard 顺序）.md
-CORE_COGNITION_AUDIT/007 - 已走过的路：航向复盘.md
-CORE_COGNITION_AUDIT/008 - 即将作出的选择：偏航分析与裁决.md
-```
-
-分片 007 必答：链路每一步响应了哪些 KC / 哪些扩展认知段落；有没有一步是用「分母内的
-干净穷举」替代了「发现」；累计 `unresolved` 里哪些是**结构性未闭合**，哪些只是时间未到。
-
-分片 008 是审计的**落点**，必答：当前 `next_minimal_verification` 的全部候选方向；
-每个方向由哪条 KC / 哪段扩展认知支持、可能违反哪条（给论证）；裁决（选哪个、为什么、
-放弃哪些及理由）；裁决的**反证条件**；被推翻时的回退路径。**若审计改变了下一单元的选择，
-必须先经 checkpoint 更新 STATE 的 `next_minimal_verification` 再执行**，不得审计归审计、
-执行归执行。
-
-### 5.4 四件套交叉判断
-
-必填字段写在索引：`core_change`、`direction_change`、`panorama_change`、`essay_change`、
-`update_decision`、`cross_conflicts`、`unresolved`。`core_change=YES` 仅适用于新的用户
-原文/用户明确改变工作意识（AI 研究结果只能更新方向、全景、长文与其底层 evidence owner）；
-`essay_change=YES` 只表示 AI 阐释层被修订，永不提升为原文或数学结论。
-
-## 5.5 系统化探索的完备性回评
-
-机器统观、程序化悖论激发、完整/完备探索或大范围负结论的 Session，还必须加载项目级
-`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`，并在现有
-`SESSION.md`/`RUNS.json` 中保存本轮 completeness audit；不要求另建每轮矩阵。至少记录：
-
-1. 当前八轴搜索张量 cells 与未触达 axes；
-2. CandidateClass、generator 支持/拒绝/无法表示的构造；
-3. finite denominator remainder 或 infinite enumeration fairness；
-4. reducer 对 task/consumer/observation/completion 的保持及换题风险；
-5. oracle 的证据层级、false positive/negative 与竞争解释；
-6. source/framework/consumer denominator、版本和 stale 条件；
-7. HoTT essentiality、现实对应和 originality 的独立状态；
-8. independent taxonomy/source/framework/holdout 的 out-of-envelope 结果；
-9. unexpected result 修订了哪个 construct/operator/consumer/oracle 分类；
-10. 下一 bounded successor、停止和 reopen 条件。
-
-有限分母可以 `DECLARED_SET_COMPLETE`；无限/开放域只按 fairness、reduction 与具名 snapshot 声明。`NO_HIT_WITHIN_SCOPE`
-不等于全局不存在。新发现若暴露旧规划遗漏，必须更新规划 owner；只新增 candidate 不算吸收。当前 Session 可在开放
-世界仍 active 时完成其 bounded pass，不能把整个研究塞进永不结束的单一事务。
-
-## 6. 历史 AI 的覆盖要求
-
-历史审计必须用多样锚点，至少保持下列分母和状态：
-
-- LocalGPT：父线程与 HoTT-2 子线程的 38 turns/41 条真实用户消息关系、220 条 visible assistant、canonical tool call/result、失败/重试/中断/compaction、Git/文件/运行产物；父 raw 和主 raw 的 hash 只证明来源身份。
-- WebGPT：56 Prompt、55 Response、111 UI sections，以及回答到 workspace `R###`/SESSION/artifact/Git 的连接；AI 自述不能替代文件或运行结果。
-- Gemini：22 user、24 ordinary text、21 thought、17 executableCode、17 codeExecutionResult、2 inlineFile、1 Drive reference。inlineFile 是代码载荷，不标 empty；Drive 正文缺失为 `ATTACHMENT_BODY_UNAVAILABLE`。
-
-`ai-response-ledger.jsonl`、`tool-event-ledger.jsonl`、`work-product-ledger.jsonl` 和 `claim-evidence-ledger.jsonl` 各自有独立 schema/分母/证据等级；缺任一类时只能说“提问/部分来源已覆盖”，不能说“全部历史已审计”。
-
-## 7. 写入、checkpoint 和恢复
-
-<!-- math-proof-delivery-gate:v1 -->
-
-数学结论还有独立于认知 checkpoint 的交付 Gate。当前 AI 只有在精确命题、匹配语义的 proof assistant/kernel 源码、实际运行原件和 claim/proof/run 索引全部存在并核验后，才能把命题写成已成立结论：源码进入 `HoTT/formal/`；每次交付 run 进入 `HoTT/verification/runs/<run-id>/`；索引进入 `HoTT/CLAIM_EVIDENCE_MATRIX.md`。`/tmp`、工具输出或聊天代码不能成为唯一证据。若 proof assistant 不可用、运行失败、语义不匹配、只有有限测试或索引缺失，必须降格为 `QUESTION/CONJECTURE/HEURISTIC/PAPER_ONLY/COUNTEREXAMPLE_CANDIDATE/SOURCE_REPORTED_NOT_REPLAYED`，并把证明义务留在当前方向/成果/STATE；不能用 checkpoint 的 `CHECKPOINT_COMMITTED` 冒充 `MACHINE_PROVED`。
-
-唯一当前状态 owner 是根 `MEMORY.md`、`.codex/research/hott/STATE.json`、`FRONTIER.md`、`LESSONS.md`、`RESUME.md` 和不可覆盖 session。STATE v2 将 lifecycle 与 evidence 分开；loader 不再用 evidence review 状态取得自动加载资格。`核心认知`和来源快照由 curation+生成器精确管理。新增需求/稳定结论/运行证据按职责回写，不在多个文件维护冲突的 current truth。
-
-分片逻辑文档的写入遵循 `docs/quality/长治理文档分片与索引合同.md`：`topical` 改 owner shard，`sequential` 追加到 `append_target`，新建 shard 必须与索引行、`last_shard`、`append_target` 在同一 commit 或同一个 checkpoint 事务中更新；当前 `MEMORY/` 是 `MEMORY.md` 的 shard root，`MEMORY/003 - 当前验证状态与顺序日志.md` 是顺序追加目标。受 `MUTABLE` 管理的分片同时进入 `HEAD.json.tracked`，不能绕过 runtime 直接改。
-
-四件套现状（4.0.0）：`方向追踪.md`（5 片）、`全景视野.md`（8 片）、`扩展认知.md`（8 片）已是 v2 索引 + 分片，`核心认知.md` 保持单文件。
-全文身份不变——索引 + 全部分片才是四件套的“全文”，缺片即未完成；投影的 marker 块、`source_state_revision`、
-`projection_generation`、`semantic_status` 只存在于索引里，改这些字段要改索引，改方向/结果条目要改对应 owner shard，
-并让索引与全部分片进入同一个 checkpoint payload。
-
-使用 runtime 的白名单路径、snapshot、expected hash、lock、transaction、before/after backup 和 post-write check。checkpoint 默认 dry-run；只有用户本轮明确授权的写权限才 `--apply`。每个 applied checkpoint 必须把 `SESSION.md`、`RUNS.json`、当前 generation 全量且顺序正确的 `CORE_COGNITION_AUDIT.md` 与 current owners 放进同一事务；只有 canonical `result.json` 的 `CHECKPOINT_COMMITTED` 能证明应用成功。`POST-CHECKPOINT.json` 只能引用真实 result，不能自证。stale base、第三方写入、活动 writer、残留 transaction、缺 session/resolution evidence 或 source hash 改变而没有 revalidation 时必须 fail closed。恢复 transaction 需要确认旧 owner 已停止，选择 finish/rollback，并保留 receipt；历史缺失只登记，不伪造。
-
-每次显式 task hydration 都要查看 plan 的总 bytes/lines、document count、largest documents 与 `query_first_promoted`。后者非空时，必须证明该 query-first 原件就是本任务要求全文消费的决定性证据；若只是通过历史串联 `depends_on` 被带入，先修关系图再研究。
-
-每个 session 至少保存 `SESSION.md`、`CORE_COGNITION_AUDIT.md`、`RUNS.json` 和 evidence。commit 后回读 HEAD、状态、session、核心/ledger hash 和验证输出；`CHECKPOINT_COMMITTED` 不是 `MATHEMATICS_VERIFIED`。
-
-## 8. 停止和负结论
-
-历史来源缺失、用户移走目录、附件没有正文、代码没有运行、运行只有有限样本、旧 validator 依赖已不存在路径、普通计算界限被误写成 HoTT 独有，均要写成 scope-limited negative/unknown。不要因为交接任务很大就构建数据库、常驻审计 AI、全函数 trace 或额外审批平台；只有真实重复、结构稳定、查询/更新频繁且机械约束收益明确时才新增 machine-managed 资产。
-
-本 Skill 的完成判据是未来 AI 能先全文恢复四件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对 manifest 当前全部 KC（分母从 `STATE.current_core` 动态取得）逐项留证；同时旧 generations、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。
+完整启动、tier、压缩重付、关系水合、分片写入、数学证明门禁、checkpoint、恢复与停止条件见
+`.codex/cognition/PROTOCOL.md`；当前任务、权限、来源边界与 Git 行为见根 `AGENTS.md`。业务研究方法仍在
+`hott-paradox-research`，方案步骤仍在 `hott-paradox-search-sop`；本差异层不扩大它们的授权。

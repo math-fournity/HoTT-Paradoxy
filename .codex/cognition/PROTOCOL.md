@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v2.6`。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。
+版本：`handoff-cognition/v3.0`（v5 分档版，2026-09-18；v2.6 及以前见 Git 历史）。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。**v3 变更**：档位判定第 0 步与分档深度、STATE 按档消费（hot 字段 vs 全文）、压缩收据制复认、审计触及集计量、ROI 遥测字段、invariant 章成为唯一不变量定义处（吸收原 `.codex/AGENTS.md` 复述清单）。
 
 ## 1. 目标和边界
 
@@ -19,29 +19,43 @@
 | 对话/事件证据 | `audit/*-ledger.jsonl`、`private-audit/` | 可见内容与工具事件；不含隐藏推理认证 |
 | 版本历史 | 顶层 Git、嵌套 Git 快照、manifest | 历史理由/状态，不能取代当前要求 |
 
-## 2. 每次开始的硬步骤
+## 2. 每次开始的硬步骤（v3：第 0 步定档，步骤深度按档）
 
-每个新 Session、上下文压缩恢复、跨 repo 接手、用户改变范围或 source hash 变化后，必须：
+0. **档位判定（新增）**：按根 AGENTS 任务路由表判 T0–T3，会话首条声明档位并记入 SESSION.md（`tier` 字段）；越档即停。档内义务以 LOAD_SET `tiers` 扩展键为准。
+1. 确认当前 root 是本目录，读取顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`（T0 可只读 AGENTS + MEMORY/001 + 任务文件）。
+2. 完整读取本地治理 SOP、角色表、此协议、`LOAD_SET.json`；**STATE 按档消费**——T0/T1 只读 hot 字段（`current_core/active/latest_session/unresolved/revision`，见根 AGENTS 路由表内命令）；T2/T3 读全文。纯治理无需自动加载业务 SOP；研究档才全文加载它。
+3. 无条件按 `always_full_documents` 把四件套逐文件读到真实 EOF（**T0 豁免、T1 视任务涉及面、T2/T3 的首次进入或全文重载触发无条件**）；manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research 档也不能删减或重排。命中 `governance-shard-index:v2` 时，"逐文件读到真实 EOF" 等于**索引 + 按 table 顺序的全部分片**；缺任一片、未列片、标题或 `last_shard`/`append_target` 不符即未完成全文加载，降至 `BLOCKED_FULL_SET_COGNITION` 或重启加载。
+4. governance profile 加载四件套、启动核和最新短 Session；research profile 再加载业务 SOP、三问、FRONTIER/LESSONS/RESUME 的 hot 部分（历史全文在各自 `*-log/`，query_first）。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
+5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`（T0/T1 默认不做任务水合）。`depends_on` 只表示会传播 stale 的验证依赖；`research_parent`/`related_records` 只做谱系与叙事导航，不递归水合。显式水合后的正文必须全文读，不能用 query 输出替代；同时必须检查 plan 的 `hydration_diagnostics`。
+6. 在进入实际研究/审计动作前完成三方交叉检查（T1 查 latest+active 一致性；T2/T3 全三方）：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
+7. 记录 load snapshot：profile/tier、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、Git HEAD 和 dirty。加载变化或截断时重启；四件套无法全文保有则 `BLOCKED_FULL_SET_COGNITION`，优先移出四件套之外的载荷而非裁剪 core。
+8. 形成本轮 closure statement：目标、范围、授权、档位与 hydration、当前完整 KC 范围、理论配置、证据缺口、四件套交叉结果、风险最高的误判和最小可验动作。
 
-1. 确认当前 root 是本目录，读取顶层 `AGENTS.md`、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`。
-2. 完整读取本地治理 Skill、角色表、此协议、`LOAD_SET.json` 和 `STATE.json`。纯治理无需自动加载业务 Skill；研究 profile 才全文加载它。
-3. 无条件按 `always_full_documents` 把 `核心认知.md`、`方向追踪.md`、`全景视野.md`、`扩展认知.md` 逐文件读到真实 EOF。manifest、摘要、关键词命中、KC 子集和旧 Session 收据不能替代，governance/research/task profile 也不能删减或重排。
-   命中 `governance-shard-index:v2` 时，"逐文件读到真实 EOF" 等于**索引 + 按 table 顺序的全部分片**；缺任一片、未列片、标题或 `last_shard`/`append_target` 不符即未完成全文加载，降至 `BLOCKED_FULL_TRIO_COGNITION` 或重启加载。
-4. governance profile 加载四件套、启动核和最新短 Session；research profile 再加载业务 Skill、三问、FRONTIER、LESSONS、RESUME。STATE 全文让所有 record 可见，但 loader 只按 `lifecycle_status` 决定任务资格，不因 `evidence_status=REVIEW_REQUIRED` 自动展开历史 Session。
-5. 需要某一 candidate/result/issue/历史记录的底层证据时，先 `query --record <ID>` 查看身份和边界，再用 `plan --profile research --task <ID>` 显式递归展开 `depends_on`、`full_sources`、`resolution.evidence` 和 `source_hashes`。`depends_on` 只表示会传播 stale 的验证依赖；`research_parent`/`related_records` 只做谱系与叙事导航，不递归水合。显式水合后的正文必须全文读，不能用 query 输出替代；同时必须检查 plan 的 `hydration_diagnostics.document_count`、`total_bytes`、`total_lines`、`query_first_promoted` 和 largest documents，不能把 `review_required=[]` 当成上下文可装配性证明。
-6. 在进入实际研究/审计动作前完成三方交叉检查：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
-7. 记录 load snapshot：profile/task、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、总 bytes/lines、Git HEAD 和 dirty。加载变化或截断时重启；四件套无法全文保有则 `BLOCKED_FULL_SET_COGNITION`，优先移出四件套之外的载荷而非裁剪 core。
-8. 形成本轮 closure statement：目标、范围、授权、当前完整 KC 范围、profile/task hydration、理论配置、证据缺口、四件套交叉结果、风险最高的误判和最小可验动作。
+**压缩/跨会话重付（v3 收据制，替代全额重付）**：压缩后重付 = 档内启动核 + **持有收据复认**（逐文档核对 sha256 未变 + 逐 KC 一行复认 + 抽查 N 段原文，复认记录入 SESSION.md）；全文重付仅在三触发器：`core_sha256` 变化 / 档位升级 / 用户指令。本条为对 rulings §9/§11 的合同级修订，授权见 rulings §25。
 
 工具报告 `FULL_EMITTED_BYTES_MATCH` 只表示读出字节与文件 hash 匹配，字段 `model_context` 必须保持 `NOT_CERTIFIED_BY_TOOL`。模型不能保留全文时必须公开降级，不能把“读过摘要”写成全文闭包。
 
-## 3. 核心认知账本的使用
+## 3. 执行不变量（v3 的唯一正文）
 
-当前人工 owner 从 `STATE.current_core.curation` 取得；generation-4 使用 `scripts/audit/core-cognition-curation-v4.json`，通过 hash-pinned `inherits` 保留 generation-3 curation，并只登记本代新增来源、处置与语义单元。`scripts/audit/build_core_cognition.py` 默认 check、显式 `--write` 生成 `核心认知.md`、manifest 和 transition。当前每个 `KC-xxxxxx` 都是 `USER_OWNED_DIRECT` 精确原文，完整 hash/locator/themes 在 manifest，core 只留紧凑来源行。
+本章吸收旧 `.codex/AGENTS.md` 的复述式不变量。根 `AGENTS.md` 负责宪法和分档路由，
+`LOAD_SET.json` 负责机读层归属，本章负责它们在会话中如何共同生效；其它文档只可指向本章，
+不得另写一份会独立漂移的当前规则。
+
+1. **授权、根与来源边界**：当前顶层 Git root 是唯一写入根；`AI对话录/` 与 `workspace/` 是历史嵌套 repo。`sources/`、`核心认知.md` 和 `private-audit/` 的边界按根 `AGENTS.md` 执行；本协议不授予网络、外部 mutation、push、发布或 Sub Agent 权限。
+2. **动态身份与任务资格**：core generation、KC 分母、curation、最新会话和当前 revision 只能从 `STATE.current_core`、`STATE.latest_session` 与 STATE 记录取得。`lifecycle_status` 决定任务资格，`evidence_status` 只表达证据状态；历史、关闭、替代和待审记录不因被读取而自动复活。
+3. **四件套与档位**：全文固定顺序为 `核心认知.md` → `方向追踪.md` → `全景视野.md` → `扩展认知.md`；分片文档的全文是索引加 table 顺序全部分片。T2/T3 无条件完成四件套；T0 豁免，T1 仅在任务涉及面需要时加载。缺文件、截断、读取期间变化、hash 不一致或分片结构错误时停止为 `BLOCKED_FULL_SET_COGNITION`，不用摘要补洞。
+4. **压缩重付**：压缩/跨会话默认执行档内启动核与收据复认（逐文档 hash、逐 KC 立场、原文抽查）；只有 `core_sha256_changed`、档位升级或用户明确要求时重做全文加载。收据制只证明持有/复认范围，不证明模型理解。
+5. **关系和水合**：`depends_on` 只表达会传播 stale 的验证依赖；谱系、动机和叙事使用 `research_parent`/`related_records`，不得借此递归水合。需要底层证据时先 `query --record`，再显式 task plan；query-first 原件只有在本任务要求其全文时才提升。
+6. **写入与证明边界**：math conclusion 的 source/kernel run/index 仍由根 `MATH_PROOF_BEFORE_DELIVERY_V1` 独立控制。checkpoint 只保存已授权的状态事务：默认 dry-run，`--apply` 要求当前授权、完整 session bundle、原子 before/after 与唯一 `result.json.status=CHECKPOINT_COMMITTED`；checkpoint 不能代替数学证明。
+7. **审计与可证边界**：每个实质单元以分片审计集保留 KC 覆盖、关系、证据定位、反证条件、四件套交叉判断和下一选择。机械检查能验证字节、结构、hash 与覆盖，不能认证模型理解、数学真理或未来宿主行为。
+
+## 4. 核心认知账本的使用
+
+当前人工 owner、generation、curation、manifest 与 transition 全部从 `STATE.current_core` 动态取得。`scripts/audit/build_core_cognition.py` 默认 check、显式 `--write` 生成 `核心认知.md`、manifest 和 transition。当前每个 `KC-xxxxxx` 都是 `USER_OWNED_DIRECT` 精确原文，完整 hash/locator/themes 在 manifest，core 只留紧凑来源行。
 
 工作中引用 KC 时必须保留当前精确 ID。转发 AI、附件、supplemental、一般治理对话和纯文件操作指令只能从 source/history 引用并标明身份，不得进入 core 或冒充用户已采纳。重复中的语义演化保留；无新增认识的跨平台复读可在 disposition 中显式去重。旧 generation-2/913 KC 由 `governance-v2.1.0` 与 913/913 transition 保存；generation-3/27 KC 由 `governance-v3.0.0` 与 generation-4 transition 全量保留。
 
-## 3A. 四件套交叉审视与更新归属
+## 4A. 四件套交叉审视与更新归属
 
 `核心认知.md`、`方向追踪.md`、`全景视野.md` 是三个不同职责的当前输入，不是三份相互同步的摘要：
 
@@ -60,7 +74,7 @@
 已经有 22,226 行 source register 的可发现性收据，但仍必须显式显示 `PENDING_DIRECT_SENTENCE_ADJUDICATION`、
 数学复核和模型理解未认证；“全量登记”不能替代语义/数学结论。
 
-## 3B. 分片逻辑文档（shard index）的读取与写入
+## 4B. 分片逻辑文档（shard index）的读取与写入
 
 合同 owner 是 `docs/quality/长治理文档分片与索引合同.md`；共享权威是 3.16.0 候选规范。要点：
 
@@ -71,26 +85,30 @@
 5. **机械校验**：`python3 -B scripts/audit/verify_governance_shards.py`（pin 的 3.16.0 候选副本 + sha256 漂移检测）。机械 PASS 不证明边界合理或内容完整；迁移必须另做标题/内容对账与 consumer 扫描。
 6. **表格式投影的行分片**（`方向追踪.md`、`全景视野.md`）：大表按家族拆成行分片，每片自带表头两行（唯一允许的重复内容，必须逐行对账）；身份与状态字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）留在索引；`verify_three_way_cognition.py` 按逻辑文本解析 `DIR-*`/`OUT-*` 行并拒绝 0/0 空壳 PASS；编辑投影必须用 `scripts/audit/projection_edit.py` 的模式，把索引与全部分片放进同一 payload。
 
-## 4. 每次结束的逐编号回评
+## 5. 每次结束的逐编号回评（v3：触及集三段式计量 + ROI 遥测）
 
-每个实质工作单元必须在 `.codex/research/hott/sessions/<SESSION_ID>/CORE_COGNITION_AUDIT.md` 保存逐编号表，覆盖 manifest 中全部 KC，不能只覆盖本轮使用过的几个。每行至少包含：
+每个实质工作单元必须在 `.codex/research/hott/sessions/<SESSION_ID>/CORE_COGNITION_AUDIT.md` 保存分片审计集，覆盖 manifest 中全部 KC，分三段：
 
-```text
-kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note
-```
+1. **触及集/张力延续集/裁决延续集**：逐条五元组 `kc_id | relation_to_this_work | assessment | evidence_locators | unresolved_note`（relation 词表与反证条件要求见治理 SOP 的审计格式章节）；
+2. **其余 KC**：一行一条 `NOT_TOUCHED` + 下次触及条件（免五元组展开，仍是逐条可审计立场）；
+3. **扩展认知**：按片触及计量（被本单元实际消费/检验的片逐段回评，其余片一行登记）。
 
-`relation_to_this_work` 使用 `ALIGNED`、`DEEPENED`、`CORRECTED`、`TENSION`、`DEVIATED`、`NOT_TOUCHED`；`assessment` 必须说明事实依据，不能只写“符合”。当本轮是纯治理/审计而未触及数学方向时，大量 `NOT_TOUCHED` 是诚实结果，不是失败；若发现偏离，必须在 session 记录、MEMORY 和必要的 ruling/design owner 中写明纠偏。
+当本轮是纯治理/审计而未触及数学方向时，大量 `NOT_TOUCHED` 是诚实结果，不是失败。SESSION.md 必填元数据（v3）：`host`（codex-cli/zcode-desktop/…）、`model`、`tier`（T0–T3）、`load_receipt`（档内文件 sha256 清单或 plan snapshot）、**`element_usage` ROI 遥测表**（框架元件 × 实际用到/未用但会拦住什么/未用且无影响，≤30 行）。逐编号回评不能被脚本自动生成的相似度或关键词匹配冒充。
 
-逐编号回评不能被脚本自动生成的相似度或关键词匹配冒充。脚本可以检查 ID 完整、hash、证据定位格式；语义评估由当前 AI 写公开、可审计的文本。
+**当前 writer 兼容边界**：runtime 3.6.1 的 checkpoint writer 仅授权新 session 目录第一层文件，
+会拒绝在同一新事务写入嵌套 `CORE_COGNITION_AUDIT/` 分片。分片审计集仍是 current 设计合同；
+在该 writer 获得经授权的路径/事务升级前，checkpoint 可使用完整单文件 46-KC legacy audit 作为
+兼容 bundle，并必须登记 `G-V5-SESSION-AUDIT-SHARD-WRITE-GAP-001`。不得把这一兼容路径写成
+分片已原子化，亦不得绕过 runtime 手工伪造 transaction/result。
 
-## 5. 历史 AI 审计合同
+## 6. 历史 AI 审计合同
 
 - LocalGPT 的父线程、HoTT-2 main、visible assistant、canonical trajectory tool event、Git、`/Volumes/D/ALL-Markdown` 快照和 dirty 状态要分开记录。canonical `session_trajectory.py` 是轨迹解析入口；不解析隐藏推理、不把响应数量等同于工作正确性。
 - WebGPT 的 56 Prompt、55 Response、111 UI sections 要逐项登记，并连接其 workspace snapshot 的 `R###`、SESSION、artifact、代码和 Git 状态。只存在于导出回答中的说法标 `AI_VISIBLE_UNVERIFIED`，文件/Git/运行另行定级。
 - Gemini 的 22 user、24 ordinary text response、21 thought、17 executableCode、17 codeExecutionResult、2 inlineFile 和 1 Drive document reference 必须有计数与 locator。inlineFile 是真实代码 payload，不得称为 empty；Drive 正文缺失标 `ATTACHMENT_BODY_UNAVAILABLE`。thought 内容按隐私/可见性边界登记，不当作公开答案或隐藏推理认证。
 - `work-product-ledger` 记录所有重要文档、代码、artifact、checkpoint 和 source snapshot 的状态；`claim-evidence-ledger` 把理解章节/当前文档的主张连回具体句子、文件、事件和 Git。文件存在只能是 `DOCUMENTED`，运行结果和验证范围单独填写。
 
-## 6. 写入与 checkpoint
+## 7. 写入与 checkpoint
 
 <!-- math-proof-delivery-gate:v1 -->
 
@@ -104,7 +122,7 @@ checkpoint 只能保存状态，不能替代数学证明。代码存在、Python
 
 每个 session 目录至少保存 `SESSION.md`、`CORE_COGNITION_AUDIT.md`、`RUNS.json` 和 evidence；session 历史不可覆盖。提交后回读新 HEAD、状态、session、生成物 hash 和验证输出，只有如此才可称 `CHECKPOINT_COMMITTED`；Git commit 本身不等于数学验证。
 
-## 7. 失败、未知与停止条件
+## 8. 失败、未知与停止条件
 
 以下情况必须保留为负结论或未知：来源被用户移走、原始附件正文缺失、AI 只宣称未落盘、旧 validator 依赖不存在路径、代码没有实际运行、运行只覆盖有限样本、普通逻辑界限被写成 HoTT 独有、理论定义被写成可执行算法、以及无法证明完整覆盖。任务可在证据足够时结束，不为了“看起来完整”引入数据库、常驻审计 AI、每函数 trace 或无必要的审批平台。
 

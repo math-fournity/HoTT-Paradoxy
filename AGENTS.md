@@ -117,12 +117,17 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
   分片审计集、checkpoint 收据）已经提供留痕，Sub Agent 不是替代品。
 - 发现任何残留 Sub Agent 句柄：只关闭、登记缺口，不消费其输出。
 
-## 任务路由
+## 任务路由（v5 分档）
 
-- 只做历史审计/交接：读治理 Skill 和审计脚本，不自动启动新数学研究。
-- 继续 HoTT 悖论研究：先完成本文件与本地治理 Skill 的闭包，再加载业务 Skill `hott-paradox-research`；系统化/机器统观任务还必须加载项目级程序探索完备性规划。每轮推进一个可检查构造/未知点，同时在父级覆盖包络中记录其 cell、遗漏与 successor。
-- 执行"用现实对齐找出 HoTT 非现实前提"的方案步骤、或走完一步后做反思：先完成本文件与本地治理 Skill 的闭包，再加载执行 Skill `hott-paradox-search-sop`（七段执行循环 + 反思清单 + 方案演化 git 纪律）；当前步骤由 `goal-1.md` 索引、权威是 STATE。每次方案优化必须 git 提交（`plan-revise(...)`），每个步骤提交必须携带反思结论；不提交不得继续下一步。
-- 修改本地治理框架：先重新建立 closure，再按全局治理自维护 Gate 识别 C01–C10，修改 owner、schema、脚本和运行入口，执行验证并提交；项目专属变化不误改 dirty 的共享治理主库，不把 WebGPT 历史副本当作当前 host 配置。
-- 发现来源快照与实际环境冲突：保留双方、记录 conflict/unknown 和适用范围；不得用新文件名或新 hash 掩盖冲突。
+治理强度与任务风险成正比。档位四变量：**主张风险 × 自治程度 × 视界长度 × 状态改写**；会话首条声明档位并记入 SESSION.md，越档即停（任务中途升级→立即升档过门，不允许"先交付后补证"）。
+
+| 档 | 判据 | 启动加载义务 | 结束义务 | 硬门禁 |
+|---|---|---|---|---|
+| **T0 lite** | 只读/单会话/无主张/可重来 | 本文件 + `MEMORY/001` 队列片 + 任务文件（≈1.5 万 est tokens） | 无（对话内交代） | 来源边界；禁 Sub Agent；不 push |
+| **T1 standard** | 写代码/文档；无数学主张 | 启动核（STATE 按 hot 字段消费：`current_core/active/latest_session/unresolved/revision`，命令 `python3 -c "import json;s=json.load(open('.codex/research/hott/STATE.json'));print(json.dumps({k:s[k] for k in ('current_core','active','latest_session','unresolved','revision')},ensure_ascii=False,indent=1))"`） | 轻量 SESSION.md（含 host/model/tier）+ 触及集 KC 复认 | + 写回归属表；validator |
+| **T2 research** | 数学研究/系统化探索 | T1 核 + **四件套全文** + 业务 Skill + 三问 + FRONTIER/LESSONS/RESUME hot（≈12–18 万） | 分片审计集（触及集计量） | + 完备性回评（系统化任务另加载程序化完备性规划） |
+| **T3 mutation** | checkpoint/数学结论/core 更新/投影写回 | T2 全量 + STATE 全文 | 全量 KC 审计 + 原子事务收据 | + F-011 机器证明门禁；`result.json` 唯一收据 |
+
+领域附加条款（不随档位豁免）：HoTT 悖论研究每轮推进一个可检查构造/未知点，并在父级覆盖包络记录 cell、遗漏与 successor；方案执行走 `hott-paradox-search-sop`（七段循环 + 反思清单；方案优化必须 git 提交 `plan-revise(...)`，步骤提交携带反思结论，不提交不得继续下一步；当前步骤由 `goal-1.md` 索引、权威是 STATE）；历史审计/交接不自动启动新数学研究；修改本地治理框架须先重建 closure、按全局自维护 Gate 识别 C01–C10、验证并提交，不误改 dirty 的共享治理主库；来源快照与环境冲突时保留双方、记录 conflict/unknown，不得用新名/new hash 掩盖。压缩/跨会话重付按 `PROTOCOL` 收据制复认执行（全文重付仅在三触发器：core hash 变/升档/用户指令）。
 
 本项目的成功标准不是文件数量，而是未来 AI 能在有限误判风险下知道“用户要什么、过去各 AI 实际做了什么、哪些产物可复现、哪些结论未证实、当前应从哪里继续，以及本轮是否沿着全部核心认知航向工作”。

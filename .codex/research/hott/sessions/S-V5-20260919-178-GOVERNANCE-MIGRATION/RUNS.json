@@ -1,0 +1,57 @@
+{
+  "schema_version": "hott-governance-session-runs/v1",
+  "session_id": "S-V5-20260919-178-GOVERNANCE-MIGRATION",
+  "tier": "T3-mutation",
+  "registers_new_claim": false,
+  "pre_checkpoint_revision": 170,
+  "planned_revision": 171,
+  "core_generation": "core-cognition-generation-7",
+  "core_sha256": "b4a57785eef22cffb471028d73a8641549ce1cead5763ab8f6c31727945b8999",
+  "operations": [
+    {
+      "id": "P2-3",
+      "status": "PASS",
+      "evidence": "LOAD_SET schema remains cognition-load-set/v4; runtime graph plan succeeds with additive tiers ignored safely."
+    },
+    {
+      "id": "P2-4/P2-5",
+      "status": "PASS",
+      "evidence": "PROTOCOL v3 owns invariants; local governance skill is a <=6KB difference layer."
+    },
+    {
+      "id": "P2-6/P2-7",
+      "status": "PASS",
+      "evidence": "Three .zcode skill symlinks resolve to canonical .codex skills; global ~/.zcode/skills counterparts are absent."
+    },
+    {
+      "id": "P3-2",
+      "status": "PASS",
+      "evidence": "PROTOCOL records the three-part audit contract; older S174/S175 evidence remains historical and is not rewritten."
+    },
+    {
+      "id": "P3-3",
+      "status": "PASS_WITH_SCOPE",
+      "evidence": "Two after snapshots receive exact live audit shards; older checkpoint directories are retained under archive and STATE paths are migrated atomically."
+    },
+    {
+      "id": "P2-8/P3-1/P3-4",
+      "status": "PENDING_OR_BLOCKED_ON_USER",
+      "evidence": "Fresh dual-host trial and future real-session samples are not simulated."
+    }
+  ],
+  "self_maintenance_gate": {
+    "C01": "UPDATE: ruling §25 and project requirement/execution owners record the authorized v5 contract.",
+    "C02": "NO_CHANGE: shared method repository remains untouched; project-local protocol and plan own this migration.",
+    "C03": "UPDATE: local governance skill and project protocol change; no shared canonical workflow copy changes.",
+    "C04": "UPDATE: project AGENTS/navigation and load route are aligned to T0–T3 and host-neutral entry.",
+    "C05": "NO_CHANGE: no bootstrap template, project README map, or auditable-closure route changes are needed.",
+    "C06": "UPDATE: read-only v5 invariant validator and current structural checks are added.",
+    "C07": "NO_CHANGE: no global config, credential, Hook, plugin, or permission asset is modified.",
+    "C08": "NO_CHANGE: no shared method repo, global ZCode, or other product authority is changed; the repo overlay is local.",
+    "C09": "NO_CHANGE: user authorizes a precise local commit but not tag, push, or multi-repo release.",
+    "C10": "UPDATE: checkpoint retention moves history without deletion; the old after-snapshot gap is repaired from tracked live evidence."
+  },
+  "unresolved": [
+    "G-V5-HOST-EMPIRICAL-GATES-001"
+  ]
+}
