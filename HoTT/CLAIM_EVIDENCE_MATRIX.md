@@ -981,7 +981,7 @@ BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受
 
 | proof_id | claim_id | 源码 | 运行收据 | 证据等级 |
 |---|---|---|---|---|
-| `MP-G4-RING-ORIGIN` | `CAND-G4-RING-ORIGIN` | `formal/flash-first-hunt/RingOrigin.agda`（`SourceCarrier C p := Σ x:C, ¬(x≡p)`——去点载体来源携带；正控制 `postulate-free-build`/`instance-witness`（ℤ，零 postulate）；靶形 `BreakoutFromM` 以 p 为显式来源参数） | runs `20260919-MP-G4-RING-ORIGIN-01`（失败教训：命名空间与 capture 的 -i root 冲突，保留）→ **`-02`（当前，exit 0，stderr 0）** | `MACHINE_PROVED_WITH_SCOPE / SOURCE_CARRIER_POSITIVE_CONTROL` |
+| `MP-G4-RING-ORIGIN` | `CAND-G4-RING-ORIGIN` | `formal/flash-first-hunt/RingOrigin.agda`（`SourceCarrier C p := Σ x:C, ¬(x≡p)`——去点载体来源携带；正控制 `postulate-free-build`/`instance-witness`（ℤ，零 postulate）；靶形 `BreakoutFromM` 以 p 为显式来源参数） | runs `20260919-MP-G4-RING-ORIGIN-01`（失败教训：命名空间与 capture 的 -i root 冲突，保留）→ **`20260919-MP-G4-RING-ORIGIN-02`（当前，exit 0，stderr 0）** | `MACHINE_PROVED_WITH_SCOPE / SOURCE_CARRIER_POSITIVE_CONTROL` |
 
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
