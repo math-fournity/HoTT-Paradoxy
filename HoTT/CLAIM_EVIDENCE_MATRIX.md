@@ -921,3 +921,54 @@ A06 后续（027 勘误指针 + 探针正负控制细化）列 R3；标准 LEM�
 GOLD packing（R5）未做；A10 送审维持；「10 旧 + 3 新全部双重复放绿」口径
 按二审 002 片修正为**带时间/基线/分类限定**（旧 REAL-LAYER-02 hash 过期为
 历史预期，TA-01 FAIL 为正确分类）。
+
+
+## 追加登记：Astra 断点与证明机制有界检查（2026-09-19）
+
+原生 Cubical Agda 2.8.0 / Cubical v0.9。下列11包均为本轮内核接受且可逐包核验的形式规格。历史全局版本闭包检查仍报 CURRENT_MATRIX_NOT_APPEND_ONLY_SUCCESSOR；因此登记状态为 `KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL`，不以本表宣布全项目版本闭合或 HoTT 缺陷。精确假设以源码签名为准；完整报告：`Astra继续尝试/断点与证明机制系统检查/第一轮执行报告.md`。
+
+| proof_id | claim | 源码 | 运行收据 | 状态 |
+|---|---|---|---|---|
+| `MP-ASTRA-PATH-001` | C-250 | `formal/astra-breakpoint-check/PathControls.agda` | `verification/runs/20260919-MP-ASTRA-PATH-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-EXCLUSION-001` | C-251 | `formal/astra-breakpoint-check/PathExclusion.agda` | `verification/runs/20260919-MP-ASTRA-EXCLUSION-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-FRAME-001` | C-252 | `formal/astra-breakpoint-check/FixedFrame.agda` | `verification/runs/20260919-MP-ASTRA-FRAME-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-ELIM-001` | C-253 | `formal/astra-breakpoint-check/EliminationControls.agda` | `verification/runs/20260919-MP-ASTRA-ELIM-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-LOCAL-001` | C-254 | `formal/astra-breakpoint-check/LocalCoherence.agda` | `verification/runs/20260919-MP-ASTRA-LOCAL-02` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-QCIRCLE-001` | C-255 | `formal/astra-breakpoint-check/RationalPointSet.agda` | `verification/runs/20260919-MP-ASTRA-QCIRCLE-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-ENDPOINT-001` | C-256 | `formal/astra-breakpoint-check/EndpointMaps.agda` | `verification/runs/20260919-MP-ASTRA-ENDPOINT-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-COMPUTATION-001` | C-257 | `formal/astra-breakpoint-check/ClosedComputation.agda` | `verification/runs/20260919-MP-ASTRA-COMPUTATION-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-HOLDOUT-001` | C-258 | `formal/astra-breakpoint-check/UpstreamLoopHoldout.agda` | `verification/runs/20260919-MP-ASTRA-HOLDOUT-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-BOUNDED-001` | C-259 | `formal/astra-breakpoint-check/BoundedConsumers.agda` | `verification/runs/20260919-MP-ASTRA-BOUNDED-03` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+| `MP-ASTRA-BOUNDARY-001` | C-260 | `formal/astra-breakpoint-check/BoundaryIncidence.agda` | `verification/runs/20260919-MP-ASTRA-BOUNDARY-01` | KERNEL_ACCEPTED_INDEXED_LOCAL；LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED |
+
+| claim | 形式命题及自然语言范围 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-250 | 任意匹配端点的路径可以连接；不存在对任意 A,a,b,c,d 从 a≡b 与 c≡d 免费给出 a≡d 的函数。Bool 的 ua(notEquiv) 运输及往返观察控制。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-PATH-001`；`HoTT/formal/astra-breakpoint-check/PathControls.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-PATH-01` | 不证明物理复原、证明搜索不可判定或理论矛盾。 |
+| C-251 | 对有显式 merely-connected 见证的 A，Σx:A.((x≡a)→⊥) 可映到⊥；HIT S¹实例及空类型等价；Bool 补集非空正控制。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-EXCLUSION-001`；`HoTT/formal/astra-breakpoint-check/PathExclusion.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01` | 路径排除不是点集圆去掉一个几何点；不说 HoTT 不能删点。 |
+| C-252 | Bare=ΣX:Type.X 中所选两项有 ua 路径；Framed=ΣX.(X×(X≃Bool)) 中保持固定坐标的两项不同，实际参照观察随合法重参数化保持。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-FRAME-001`；`HoTT/formal/astra-breakpoint-check/FixedFrame.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01` | 这是携带真实参照等价的结构控制；未形式化实际圆环与线段。 |
+| C-253 | 不存在 f:∥Bool∥₁→Bool 满足所有 b 的 f∣b∣=b；全关系商同样不能恢复原代表；目标 isProp 时有合法截断恢复，常值商观察及混合消费者可构造。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-ELIM-001`；`HoTT/formal/astra-breakpoint-check/EliminationControls.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01` | 不声称所有 Bool 输出函数不存在，也不声称每种消去都丢失任务所需信息。 |
+| C-254 | 相容的 Partial 面、满面消费者、给定 Glue 边界和 HIT 路径消费者通过；常值圆消费者保持所给 loop 条件。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-LOCAL-001`；`HoTT/formal/astra-breakpoint-check/LocalCoherence.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02` | 有限原生规则控制，不是所有高阶粘合或现实运动的全称定理。 |
+| C-255 | ℚ 坐标方程 x²+y²=1 定义的集合是 set；去掉 east 后 north 连同其不等见证给出非空元素。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-QCIRCLE-001`；`HoTT/formal/astra-breakpoint-check/RationalPointSet.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01` | 不是 ℝ 圆、拓扑等价或从 N 到 M 的操作模型。 |
+| C-256 | 一般单射和等价保持给定不同点；所定义 Reach 仅改变内部坐标时 N 不可达 M，扩充 construct 操作后可达。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-ENDPOINT-001`；`HoTT/formal/astra-breakpoint-check/EndpointMaps.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01` | Reach 为明确受限的构造语言；不代表所有实际允许的形变或制造操作。 |
+| C-257 | 原生 ua(notEquiv) 的闭运输在本例以 refl 通过；存在具体 (p,β) 实现另设 opaque 控制的精确公设合同。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-COMPUTATION-001`；`HoTT/formal/astra-breakpoint-check/ClosedComputation.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01` | 一个闭计算实例不证明整个系统规范化；opaque 对照不等于原生 ua 不计算。 |
+| C-258 | 库内整数绕数消费者给出 oneLoop 与 refl 的不同；不能将 base≡base 中所有证明识别为同一路径。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-HOLDOUT-001`；`HoTT/formal/astra-breakpoint-check/UpstreamLoopHoldout.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01` | 源码来源交叉检查，不是盲测；不声称所有不同语法证明都不等。 |
+| C-259 | 冻结的 id/not 长度0至3的15个语法词 ×4个 Bool 真值表，60个消费者各有全关系兼容证明或其否定证明。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-BOUNDED-001`；`HoTT/formal/astra-breakpoint-check/BoundedConsumers.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03` | 只覆盖冻结语法60成员；不能外推全部 HoTT 上下文、无限搜索或物理操作。 |
+| C-260 | 若 n:Bool→A 两端不同而 m:Bool→B 所有端部像相同，则任意环境等价 e:A≃B、端标签等价 labels:Bool≃Bool 都没有所列交换见证。 | KERNEL_ACCEPTED_INDEXED_LOCAL；GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-BOUNDARY-001`；`HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01` | 需由真实几何模型提供 n,m 及其端部性质；没有由定义标签直接宣布真实 M/N 不等。 |
+
+
+## 追加登记：Astra 指定点自然恢复与表示对照（2026-09-19）
+
+BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受是本地运行事实，包关系/全局门禁仍PARTIAL；不宣布完整F-011数学交付或圆环目标完成。量词、假设及每个符号以精确源码为准。
+
+| proof_id | claim | 源码 | 主run | 状态 |
+|---|---|---|---|---|
+| `MP-ASTRA-RESTORE-CRITERION-001` | C-261–C-262 | `formal/astra-breakpoint-check/PointRestoration.agda` | `verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01` | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL |
+| `MP-ASTRA-QCIRCLE-RESTORE-001` | C-263 | `formal/astra-breakpoint-check/RationalRestoration.agda` | `verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01` | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL |
+| `MP-ASTRA-HIT-RESTORE-CONTROL-001` | C-264 | `formal/astra-breakpoint-check/HomotopyRestorationControl.agda` | `verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02` | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL |
+
+| claim | 形式规格 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-261 | 任意ℓ、C:Type ℓ与p:C。Puncture=Σx:C.¬(x≡p)，Completed=Puncture⊎Unit，extend为自然包含/指定点映射。SplitRestore=Σdecode:C→Completed.∀x extend(decode x)≡x，与PointDecidable=∀x Dec(x≡p)之间有两个方向的函数。 | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-RESTORE-CRITERION-001`；`HoTT/formal/astra-breakpoint-check/PointRestoration.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01` | 不声称两个证据类型之间的≃，不赋予拓扑，不将可判定性默认为实数输入已有；无物理复原或HoTT缺陷结论。 |
+| C-262 | 同一C,p，给定PointDecidable，构造Iso Completed C与Completed≃C，正向函数正是extend，逆向为decode，双逆律显式检查；不需附加isSet C。 | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-RESTORE-CRITERION-001`；`HoTT/formal/astra-breakpoint-check/PointRestoration.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01` | 不声称两个证据类型之间的≃，不赋予拓扑，不将可判定性默认为实数输入已有；无物理复原或HoTT缺陷结论。 |
+| C-263 | 既有QCircle={(x,y):ℚ²&#124;x²+y²=1}及east=(1,0)，由discreteℚ与命题纤维获得pointDecision，构造(PuncturedQCircle⊎Unit)≃QCircle；正向保留删点包含与east；ua运输对任意Completed元素与extend有路径相等。 | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-QCIRCLE-RESTORE-001`；`HoTT/formal/astra-breakpoint-check/RationalRestoration.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01` | 仅有理代数点集及原生类型等价；无拓扑/同胚/连续路径/实数完成/物理动作许可证明。 |
+| C-264 | 对HIT S¹与base，沿同一内部路径排除定义的自然extend不存在SplitRestore，且不存在PointDecidable。证明消费circleExclusion及整数绕数的非平凡路径控制。 | KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL | `MP-ASTRA-HIT-RESTORE-CONTROL-001`；`HoTT/formal/astra-breakpoint-check/HomotopyRestorationControl.agda`；`HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02` | 不是点集圆删一个几何点的命题；不是HoTT无法处理几何复原。首次失败只是extend导入名冲突。 |

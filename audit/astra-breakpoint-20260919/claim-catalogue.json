@@ -1,0 +1,127 @@
+{
+  "schema": "astra-claim-catalogue/v1",
+  "asset_role": "HUMAN_EDITED_CLAIM_SPECIFICATIONS",
+  "claims": [
+    {
+      "claim_id": "C-250",
+      "proof_id": "MP-ASTRA-PATH-001",
+      "source": "HoTT/formal/astra-breakpoint-check/PathControls.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "任意匹配端点的路径可以连接；不存在对任意 A,a,b,c,d 从 a≡b 与 c≡d 免费给出 a≡d 的函数。Bool 的 ua(notEquiv) 运输及往返观察控制。",
+      "symbols": "compose, restore, noFreeBridge, flipThenCompose, roundTripValue",
+      "limits": "不证明物理复原、证明搜索不可判定或理论矛盾。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-251",
+      "proof_id": "MP-ASTRA-EXCLUSION-001",
+      "source": "HoTT/formal/astra-breakpoint-check/PathExclusion.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "对有显式 merely-connected 见证的 A，Σx:A.((x≡a)→⊥) 可映到⊥；HIT S¹实例及空类型等价；Bool 补集非空正控制。",
+      "symbols": "connectedExclusion, circleExclusion, circleExclusionEquiv, setComplementIsNotEmpty",
+      "limits": "路径排除不是点集圆去掉一个几何点；不说 HoTT 不能删点。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-252",
+      "proof_id": "MP-ASTRA-FRAME-001",
+      "source": "HoTT/formal/astra-breakpoint-check/FixedFrame.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "Bare=ΣX:Type.X 中所选两项有 ua 路径；Framed=ΣX.(X×(X≃Bool)) 中保持固定坐标的两项不同，实际参照观察随合法重参数化保持。",
+      "symbols": "bareIdentification, noBareReadout, fixedFrameSeparates, referenceObservationPreserved",
+      "limits": "这是携带真实参照等价的结构控制；未形式化实际圆环与线段。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-253",
+      "proof_id": "MP-ASTRA-ELIM-001",
+      "source": "HoTT/formal/astra-breakpoint-check/EliminationControls.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "不存在 f:∥Bool∥₁→Bool 满足所有 b 的 f∣b∣=b；全关系商同样不能恢复原代表；目标 isProp 时有合法截断恢复，常值商观察及混合消费者可构造。",
+      "symbols": "noOriginalWitness, uniqueRecovery, noRepresentativeRecovery, lawfulObservation, combinedPreservesDeclaredObservation",
+      "limits": "不声称所有 Bool 输出函数不存在，也不声称每种消去都丢失任务所需信息。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-254",
+      "proof_id": "MP-ASTRA-LOCAL-001",
+      "source": "HoTT/formal/astra-breakpoint-check/LocalCoherence.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "相容的 Partial 面、满面消费者、给定 Glue 边界和 HIT 路径消费者通过；常值圆消费者保持所给 loop 条件。",
+      "symbols": "compatibleFaces, cornerValue, glueConsumer, circleLoopCoherence, joinedConsumer",
+      "limits": "有限原生规则控制，不是所有高阶粘合或现实运动的全称定理。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-255",
+      "proof_id": "MP-ASTRA-QCIRCLE-001",
+      "source": "HoTT/formal/astra-breakpoint-check/RationalPointSet.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "ℚ 坐标方程 x²+y²=1 定义的集合是 set；去掉 east 后 north 连同其不等见证给出非空元素。",
+      "symbols": "QCircle, nonemptyPointSetPuncture, isSetQCircle",
+      "limits": "不是 ℝ 圆、拓扑等价或从 N 到 M 的操作模型。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-256",
+      "proof_id": "MP-ASTRA-ENDPOINT-001",
+      "source": "HoTT/formal/astra-breakpoint-check/EndpointMaps.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "一般单射和等价保持给定不同点；所定义 Reach 仅改变内部坐标时 N 不可达 M，扩充 construct 操作后可达。",
+      "symbols": "injectivePreservesDistinct, equivalencePreservesDistinct, relativeNonreach, extendedReachable",
+      "limits": "Reach 为明确受限的构造语言；不代表所有实际允许的形变或制造操作。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-257",
+      "proof_id": "MP-ASTRA-COMPUTATION-001",
+      "source": "HoTT/formal/astra-breakpoint-check/ClosedComputation.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "原生 ua(notEquiv) 的闭运输在本例以 refl 通过；存在具体 (p,β) 实现另设 opaque 控制的精确公设合同。",
+      "symbols": "nativeClosed, opaqueContractHasWitness, Symbolic.pathCertificate",
+      "limits": "一个闭计算实例不证明整个系统规范化；opaque 对照不等于原生 ua 不计算。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-258",
+      "proof_id": "MP-ASTRA-HOLDOUT-001",
+      "source": "HoTT/formal/astra-breakpoint-check/UpstreamLoopHoldout.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "库内整数绕数消费者给出 oneLoop 与 refl 的不同；不能将 base≡base 中所有证明识别为同一路径。",
+      "symbols": "oneWinding, zeroWinding, nontrivialLoop, notAllProofsEqual",
+      "limits": "源码来源交叉检查，不是盲测；不声称所有不同语法证明都不等。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-259",
+      "proof_id": "MP-ASTRA-BOUNDED-001",
+      "source": "HoTT/formal/astra-breakpoint-check/BoundedConsumers.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "冻结的 id/not 长度0至3的15个语法词 ×4个 Bool 真值表，60个消费者各有全关系兼容证明或其否定证明。",
+      "symbols": "c000compatible through c059compatible/incompatible",
+      "limits": "只覆盖冻结语法60成员；不能外推全部 HoTT 上下文、无限搜索或物理操作。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    },
+    {
+      "claim_id": "C-260",
+      "proof_id": "MP-ASTRA-BOUNDARY-001",
+      "source": "HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "statement": "若 n:Bool→A 两端不同而 m:Bool→B 所有端部像相同，则任意环境等价 e:A≃B、端标签等价 labels:Bool≃Bool 都没有所列交换见证。",
+      "symbols": "noBoundaryPreservingEquivalence, finiteBoundaryInstance",
+      "limits": "需由真实几何模型提供 n,m 及其端部性质；没有由定义标签直接宣布真实 M/N 不等。",
+      "status": "KERNEL_ACCEPTED_INDEXED_LOCAL / FORMAL_RUN_VALIDATION_PASS / PACKAGE_AND_GLOBAL_GATE_PARTIAL"
+    }
+  ]
+}

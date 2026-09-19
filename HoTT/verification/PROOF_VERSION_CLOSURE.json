@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
- "later_machine_proved_claim_count": 101,
+  "later_machine_proved_claim_count": 116,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -78,7 +78,161 @@
   "schema_version": "proof-replay-registry/v1",
   "entries": []
  },
- "later_packages": [
+  "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-RESTORE-CRITERION-001",
+      "claim_ids": "C-261–C-262",
+      "source": "HoTT/formal/astra-breakpoint-check/PointRestoration.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "不声称两个证据类型之间的≃，不赋予拓扑，不将可判定性默认为实数输入已有；无物理复原或HoTT缺陷结论。"
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-RESTORE-001",
+      "claim_ids": "C-263",
+      "source": "HoTT/formal/astra-breakpoint-check/RationalRestoration.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "仅有理代数点集及原生类型等价；无拓扑/同胚/连续路径/实数完成/物理动作许可证明。"
+    },
+    {
+      "proof_id": "MP-ASTRA-HIT-RESTORE-CONTROL-001",
+      "claim_ids": "C-264",
+      "source": "HoTT/formal/astra-breakpoint-check/HomotopyRestorationControl.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "不是点集圆删一个几何点的命题；不是HoTT无法处理几何复原。首次失败只是extend导入名冲突。"
+    },
+    {
+      "proof_id": "MP-ASTRA-PATH-001",
+      "claim_ids": "C-250",
+      "source": "HoTT/formal/astra-breakpoint-check/PathControls.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "不证明物理复原、证明搜索不可判定或理论矛盾。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-EXCLUSION-001",
+      "claim_ids": "C-251",
+      "source": "HoTT/formal/astra-breakpoint-check/PathExclusion.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "路径排除不是点集圆去掉一个几何点；不说 HoTT 不能删点。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-FRAME-001",
+      "claim_ids": "C-252",
+      "source": "HoTT/formal/astra-breakpoint-check/FixedFrame.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "这是携带真实参照等价的结构控制；未形式化实际圆环与线段。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-ELIM-001",
+      "claim_ids": "C-253",
+      "source": "HoTT/formal/astra-breakpoint-check/EliminationControls.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "不声称所有 Bool 输出函数不存在，也不声称每种消去都丢失任务所需信息。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-LOCAL-001",
+      "claim_ids": "C-254",
+      "source": "HoTT/formal/astra-breakpoint-check/LocalCoherence.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "有限原生规则控制，不是所有高阶粘合或现实运动的全称定理。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-001",
+      "claim_ids": "C-255",
+      "source": "HoTT/formal/astra-breakpoint-check/RationalPointSet.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "不是 ℝ 圆、拓扑等价或从 N 到 M 的操作模型。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-ENDPOINT-001",
+      "claim_ids": "C-256",
+      "source": "HoTT/formal/astra-breakpoint-check/EndpointMaps.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "Reach 为明确受限的构造语言；不代表所有实际允许的形变或制造操作。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-COMPUTATION-001",
+      "claim_ids": "C-257",
+      "source": "HoTT/formal/astra-breakpoint-check/ClosedComputation.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "一个闭计算实例不证明整个系统规范化；opaque 对照不等于原生 ua 不计算。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-HOLDOUT-001",
+      "claim_ids": "C-258",
+      "source": "HoTT/formal/astra-breakpoint-check/UpstreamLoopHoldout.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "源码来源交叉检查，不是盲测；不声称所有不同语法证明都不等。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-BOUNDED-001",
+      "claim_ids": "C-259",
+      "source": "HoTT/formal/astra-breakpoint-check/BoundedConsumers.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "只覆盖冻结语法60成员；不能外推全部 HoTT 上下文、无限搜索或物理操作。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-BOUNDARY-001",
+      "claim_ids": "C-260",
+      "source": "HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "需由真实几何模型提供 n,m 及其端部性质；没有由定义标签直接宣布真实 M/N 不等。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
   {
    "proof_id": "MP-VERIFICATION-EVENT-001",
    "claim_ids": "C-149–C-156",
