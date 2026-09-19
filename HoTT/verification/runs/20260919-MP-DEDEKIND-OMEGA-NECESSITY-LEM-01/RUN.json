@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-NECESSITY-LEM"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda"
+  ],
+  "completed_at_utc": "2026-09-19T09:25:01.650479+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 47.01183,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "不声称无条件 Necessity（CONJECTURE 维持；真值依赖模型）；不声称 SingleOmega↔PropResizing 蕴含方向（仍开放）；不声称 HoTT 不一致；registers_new_claim:false"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-NECESSITY-LEM",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level）证明必要性的 LEM-条件版：hProp≃Bool（LEMProp ℓ 下 hProp ℓ ≃ Bool，逐点决策组装，iso coherence 由 isProp 吸收，hProp 内相等 = ΣPathP(ua, toPathP·isPropIsProp)）→ SingleOmega-from-LEM（Ω := Lift Bool）→ LEM→Necessity : LEMProp ℓ → Necessity ℓ——前提 ℝLayerAt 未被使用，即 LEM 下后件无条件成立。数学内容：B1b′ 必要性问题的全部内容被机器化定位到构造性片段（CONJECTURE 维持，030 §3 观察一的机器化；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化）。",
+  "source_manifest": {
+    "bytes": 2525,
+    "path": "source-manifest.json",
+    "sha256": "b641df4090e27bb27475868ed0d27c09e1fe43ad6f25e22bd87182b4cda54eda"
+  },
+  "started_at_utc": "2026-09-19T09:24:14.638649+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18284,
+    "path": "stdout.txt",
+    "sha256": "203a761277d1576bf826e4085a7b8b2ea8791a236e41915201e0c84f889c3aa5"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-REBOUND-DISARM"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda"
+  ],
+  "completed_at_utc": "2026-09-19T09:24:00.982387+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 34.111163,
+  "environment": {
+    "bytes": 900,
+    "path": "environment.txt",
+    "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "不声称紧化古典用法的非现实性已被形式化（论证层）；不声称 HoTT 不一致；registers_new_claim:false"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-REBOUND-DISARM",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level，零公理）机器见证第一弹反弹（极限理论式紧化）的构造性重建合法且免费：① 理想点是显式构造子（base : S¹），非 postulate——--safe 通过即证词；② 端点同一化是路径构造子 loop（非收敛声明）；③ 经 HIT 的闭计算可归约（intLoop (pos zero) ≡ refl 由 refl 证明——典范形取得）。消毒叙事：极限理论本身在引擎中不死，死的只是免费用法；收费点在 Ω 塌缩层（对照 CutRealLayer SingleOmega / B1a）。",
+  "source_manifest": {
+    "bytes": 2517,
+    "path": "source-manifest.json",
+    "sha256": "e8559b94b468ce454a3ee69fca8def378eae95838e08defe2b316c24395dc9db"
+  },
+  "started_at_utc": "2026-09-19T09:23:26.871224+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 17111,
+    "path": "stdout.txt",
+    "sha256": "3d51a579fd2ef7f2ef60d7afa87c211a1897b3ce384a5fef894a15a429b864fb"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -855,3 +855,18 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 | **B1b′ 必要性** | `Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ` **正式确认 `CONJECTURE`**（029 §2 硬条款执行）。路径 1 失败分析：0/1-cut 编码 `hProp ↪ DedekindReals` 的 locatedness 在 `0≤q<r≤1` 窗口强制 `P ∨ ¬P`；路径 2 缺模型（`HoTT+CC+¬SingleOmega` 模型存在性未论证——若成立则 Necessity 在其中为假，不可证且可能不可反驳）；LEM 下后件免费（Book 取法 3 逐字）⇒ 必要性问题纯属构造性片段。 | `CONJECTURE`（不升级） | 修订片 030 §3（路径分析 + 三观察）；Book §11.2 取法 3/4 逐字（CLAIM-PACKAGE §1.1） | 收费位置判词不得 `MACHINE_PROVED`；`SingleOmega↔PropResizing` 蕴含方向仍开放；不声称「必付费」任何币种 |
 | **B2 靶 A 不可归约** | 对象层**不可内证** → **`QUESTION` 降格**：`n-lem = with (LEM ℕ) \| inl x = x`（inl 见证任意），`LEM ℕ ↦ inl zero` 与 `↦ inl (suc zero)` 两个声模型族分别支持 `n-lem ≡ zero` 与其否 ⇒ 两方向内部证明皆不可能。已机械化不变量 = 语法层 canonicity 失败（TA/TA-AC/TA-LEM 负向探针，exit≠0 即收据）。 | `QUESTION`（依赖解释的伪命题；元层 canonicity 现象才是稳定表述） | 修订片 030 §4 + `MissileFourChargeDemo.agda` 头注预登记兑现；TA 族收据（本表前节） | 不因探针收据升格；Huber 完整结果维持 `SOURCE_REPORTED_NOT_REPLAYED`；不声称对象层定理 |
 | **B3 范围诚实性** | 当前 repo **无公开稿文本**（028 为修复方案非公开稿）——三方对照的公开稿一侧为空集，今日平凡成立。**判词基准落盘**（公开稿产生时强制）：(1) 不得「击落 HoTT」作数学主张；(2) 最高措辞 =「非现实性机械锚定 + 逼选结构」；(3) 收费表述保留币种不确定性；(4) B1b′/B2/Huber 三等级不得升格。 | `BASELINE_READY_VACUOUS_TODAY`（公开稿产生时转为对照执行） | 修订片 030 §5；audit map §5 基准条目 | 空集对照不冒充实质对照；公开稿产生之日重跑 |
+
+## 追加登记：收官补强两件（反弹消毒收据 + 必要性 LEM-条件版，2026-09-19）
+
+> 用户指令「开始，全部做了」的产出（dev-notes/0048/0049 脉络）。两件均为
+> `registers_new_claim:false` 的候选收据，无 postulate。
+
+| proof_id | claim_id | 源码 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-REBOUND-DISARM` | `CAND-F2-7-REBOUND-DISARM` | `formal/dedekind-omega-missile/ReboundDisarm.agda`（S¹ = 紧化的显式构造形态：`ideal-point-is-explicit = base` 构造子；`endpoint-identification-is-a-path = loop` 路径构造子；`hit-computation-witness : intLoop (pos 0) ≡ refl` 由 refl 证明——经 HIT 的闭计算取得典范形） | runs `20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01`（--safe 零公理，exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / REBOUND_DISARMAMENT_WITNESS`（消毒叙事机器化：极限理论本身在引擎中不死，死的只是免费用法；收费点在 Ω 塌缩层） |
+| `MP-DEDEKIND-OMEGA-NECESSITY-LEM` | `CAND-F2-7-NECESSITY-LEM` | `formal/dedekind-omega-missile/MissileFourNecessityLEM.agda`（`hProp≃Bool`：LEMProp ℓ → hProp ℓ ≃ Bool；`SingleOmega-from-LEM`：Ω := Lift Bool；**`LEM→Necessity : LEMProp ℓ → Necessity ℓ`——前提 ℝLayerAt 未被使用**） | runs `20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01`（exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / NECESSITY_IS_CONSTRUCTIVE_ONLY`（LEM 下后件无条件成立 ⇒ B1b′ 必要性问题的全部内容在构造性片段；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化） |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-F2-7-REBOUND-DISARM | 第一弹反弹（极限理论式紧化）的构造性重建在 cubical HoTT 中合法且免费：理想点=显式构造子、端点同一化=路径构造子、闭计算经 HIT 可归约到典范形（intLoop (pos 0) ≡ refl by refl）——canonicity 不被 HIT 收费（对照 TA 族 postulate 卡住形态）。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0） | 紧化**古典用法**的非现实性未被形式化（论证层）；不据此升级对极限理论本身的任何否定判词；攻击面在「完成声明的免费化」（Ω 塌缩，见 REAL-LAYER 节）而非紧化 |
+| CAND-F2-7-NECESSITY-LEM | `LEMProp ℓ → SingleOmega ℓ`（经 hProp ℓ ≃ Bool），从而 `LEMProp ℓ → Necessity ℓ` 且 ℝLayerAt 前提未被使用——经典语境中必要性空洞。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（exit 0，stderr 0）+ `source-manifest.json` | 无条件 Necessity 维持 `CONJECTURE`（真值依赖模型，CC 换币候选未决）；`SingleOmega↔PropResizing` 蕴含方向仍开放；不声称 LEM 为真；不声称 HoTT 不一致 |
