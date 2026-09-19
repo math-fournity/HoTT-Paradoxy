@@ -24,6 +24,7 @@ T3 = "HoTT/formal/ercf3-t3"
 VERIFIER_PATH = ROOT / "scripts/audit/verify_proof_version_closure.py"
 MARK_PATH = ROOT / "scripts/audit/mark_proof_run_indexed.py"
 FREEZE_PATH = ROOT / "scripts/audit/freeze_proof_index_rows.py"
+FIXTURE_COMMIT = "22cb3636"
 
 SPEC = importlib.util.spec_from_file_location("proof_closure_under_test", VERIFIER_PATH)
 assert SPEC and SPEC.loader
@@ -74,9 +75,19 @@ def temporary_root(parent: str) -> Path:
     return root
 
 
+def historical_fixture(parent: str) -> Path:
+    """Pin this suite's original valid denominator; live growth is tested separately."""
+    root = temporary_root(parent)
+    for rel in (REGISTRY, MATRIX):
+        data = subprocess.check_output(["git", "show", f"{FIXTURE_COMMIT}:{rel}"], cwd=ROOT)
+        write_copy(root, rel, data)
+    return root
+
+
 def command(path: Path, root: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    scope = ["--evidence-only"] if path == VERIFIER_PATH else []
     return subprocess.run(
-        ["python3", "-B", str(path), "--project-root", str(root), *args],
+        ["python3", "-B", str(path), "--project-root", str(root), *scope, *args],
         cwd=root,
         capture_output=True,
         text=True,
@@ -93,17 +104,19 @@ class ProofEvidenceLinkTests(unittest.TestCase):
 
     def run_mutation(self, mutate) -> subprocess.CompletedProcess[str]:
         with tempfile.TemporaryDirectory(prefix="hott-proof-links-") as parent:
-            root = temporary_root(parent)
+            root = historical_fixture(parent)
             mutate(root)
             return command(VERIFIER_PATH, root)
 
-    def test_current_registry_passes(self) -> None:
-        result = command(VERIFIER_PATH, ROOT)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        payload = json.loads(result.stdout)
-        self.assertEqual(payload["status"], "PASS_WITH_SCOPE")
-        self.assertEqual(payload["later_evidence"]["dependency_gap_allowlisted"], 6)
-        self.assertEqual(payload["later_evidence"]["unique_source_files"], 21)
+    def test_original_fixture_passes_without_claiming_live_registry_pass(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="hott-proof-original-") as parent:
+            result = command(VERIFIER_PATH, historical_fixture(parent))
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertEqual(payload["status"], "LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED")
+            self.assertEqual(payload["scope"], "FULL_REGISTRY")
+            self.assertEqual(payload["later_evidence"]["dependency_gap_allowlisted"], 6)
+            self.assertEqual(payload["later_evidence"]["unique_source_files"], 21)
 
     def test_swapped_run_references_are_rejected(self) -> None:
         def mutate(root: Path) -> None:

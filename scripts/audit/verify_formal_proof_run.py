@@ -146,6 +146,53 @@ def check_artifact(run_dir: Path, row: object, label: str) -> Path:
     return path
 
 
+def agda_options(source: str) -> list[str]:
+    """Read OPTIONS outside nested comments and string/character literals.
+
+    This is an option-provenance check, not a replacement for Agda's lexer or
+    kernel. Actual accepted runs and their source/command identities remain
+    required. In particular, a string containing a fake pragma grants no flag.
+    """
+    flags: list[str] = []
+    i, depth, n = 0, 0, len(source)
+    while i < n:
+        if depth:
+            if source.startswith("{-", i):
+                depth += 1; i += 2
+            elif source.startswith("-}", i):
+                depth -= 1; i += 2
+            else:
+                i += 1
+        elif source.startswith("--", i):
+            stop = source.find("\n", i)
+            i = n if stop < 0 else stop + 1
+        elif source.startswith("{-#", i):
+            end = source.find("#-}", i + 3)
+            if end < 0:
+                raise ProofRunError("AGDA_UNTERMINATED_PRAGMA")
+            match = re.fullmatch(r"\{-#\s*OPTIONS\b(.*?)#-\}", source[i:end + 3], re.S)
+            if match:
+                flags.extend(match.group(1).split())
+            i = end + 3
+        elif source.startswith("{-", i):
+            depth = 1; i += 2
+        elif source[i] == '"':
+            i += 1
+            while i < n:
+                if source[i] == "\\":
+                    i += 2
+                elif source[i] == '"':
+                    i += 1; break
+                else:
+                    i += 1
+        elif source[i] == "'" and (m := re.match(r"'(?:\\.|[^'\\\n])'", source[i:])):
+            # A primed identifier (x') is not a character literal.
+            i += len(m.group(0))
+        else:
+            i += 1
+    return flags
+
+
 def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
     root = root.resolve()
     expected_prefix = Path("HoTT/verification/runs")
@@ -220,47 +267,7 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
                 if marker in text_data:
                     raise ProofRunError(f"AGDA_UNSAFE_OR_INCOMPLETE_MARKER:{relative}:{marker}")
             theory = str(run.get("theory_variant", "")).lower()
-            # Astra 审计 A09（2026-09-19）修复 + 二审残留修复（同日）：选项资格
-            # 以 OPTIONS pragma 实际内容为准。第一版修复只做全文正则，块注释
-            # （{- ... -}，Agda 块注释可嵌套）内的假 pragma 仍被误计入——Astra
-            # 二审受控反例 CommentPragma.agda 复现。本版先剥离注释（嵌套块注释
-            # 深度计数 + 行注释 --），再从残余正文提取 pragma 做 token 精确匹配。
-            def strip_agda_comments(text: str) -> str:
-                out = []
-                i, depth, n = 0, 0, len(text)
-                while i < n:
-                    if depth > 0:
-                        if text.startswith("{-", i):
-                            depth += 1
-                            i += 2
-                        elif text.startswith("-}", i):
-                            depth -= 1
-                            i += 2
-                        else:
-                            i += 1
-                    elif text.startswith("{-#", i):
-                        # pragma 整体保真拷贝（其内的 --flag 不进行注释分支）
-                        end = text.find("#-}", i)
-                        if end == -1:
-                            out.append(text[i:])
-                            i = n
-                        else:
-                            out.append(text[i : end + 3])
-                            i = end + 3
-                    elif text.startswith("{-", i):
-                        depth = 1
-                        i += 2
-                    elif text.startswith("--", i):
-                        while i < n and text[i] != "\n":
-                            i += 1
-                    else:
-                        out.append(text[i])
-                        i += 1
-                return "".join(out)
-            pragma_text = " ".join(
-                re.findall(r"\{-#\s*OPTIONS([^#]*?)#-\}", strip_agda_comments(text_data))
-            )
-            pragma_flags = pragma_text.split()
+            pragma_flags = agda_options(text_data)
             # Branch on the most specific marker first: a without-K run may
             # legitimately describe itself as having "no cubical features",
             # so the substring "cubical" alone must not select the cubical

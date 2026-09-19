@@ -14,11 +14,14 @@ import hashlib
 import json
 import os
 import re
+import sys
 import uuid
 from pathlib import Path, PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import proof_claim_ids as claim_identity
 RUN_ROOT = PurePosixPath("HoTT/verification/runs")
 INDEX_PATH = "HoTT/CLAIM_EVIDENCE_MATRIX.md"
 REGISTRY_PATH = "HoTT/verification/PROOF_VERSION_CLOSURE.json"
@@ -38,20 +41,10 @@ def safe_relative(value: object) -> str:
 
 
 def expand_claim_ids(value: object) -> list[str]:
-    if not isinstance(value, str):
-        raise SystemExit("REGISTRY_CLAIM_IDS_INVALID")
-    compact = value.strip()
-    if re.fullmatch(r"C-\d+", compact):
-        return [compact]
-    match = re.fullmatch(r"C-(\d+)\s*(?:\.\.|–)\s*C-(\d+)", compact)
-    if not match:
-        raise SystemExit(f"REGISTRY_CLAIM_IDS_INVALID:{value}")
-    left, right = match.groups()
-    start, stop = int(left), int(right)
-    if stop < start:
-        raise SystemExit(f"REGISTRY_CLAIM_IDS_REVERSED:{value}")
-    width = max(len(left), len(right))
-    return [f"C-{number:0{width}d}" for number in range(start, stop + 1)]
+    try:
+        return claim_identity.expand_claim_ids(value)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
 
 
 def load_object(path: Path) -> dict:
@@ -82,17 +75,7 @@ def atomic_json(path: Path, value: dict) -> None:
 
 
 def matrix_identity_lines(data: bytes) -> dict[str, list[str]]:
-    output: dict[str, list[str]] = {}
-    for line in data.decode("utf-8").splitlines():
-        if not line.startswith("|"):
-            continue
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if not cells:
-            continue
-        identity = cells[0].strip("\x60 ")
-        if re.fullmatch(r"(?:MP-[A-Za-z0-9-]+|C-\d+)", identity):
-            output.setdefault(identity, []).append(line)
-    return output
+    return claim_identity.matrix_identity_lines(data)
 
 
 def require_unique(index: dict[str, list[str]], identity: str) -> None:
