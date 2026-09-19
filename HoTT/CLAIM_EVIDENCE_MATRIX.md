@@ -1023,3 +1023,20 @@ BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受
 |---|---|---|---|---|
 | CAND-G4-NO-BREAKOUT | 裸载体上断点取出函数不可构造：∀ C p, ¬((x:C) → ¬(x≡p))——「不知道 p 就无法排除 p」的参数化定理（Unit/tt 具体化给出 tt≢tt 与 refl 矛盾）。 | `MACHINE_PROVED_WITH_SCOPE / PARAMETRIC_NO_BREAKOUT` | run `-01` 的 `RUN.json`（exit 0，stderr 0） | **范围限定**：closed-argument 参数多态不可行 + 具体反例实例；**非**任意实现/任意演算的不可定义性元定理（元定理须精确演算+归约定义，另立义务）；不声称 HoTT 不一致 |
 
+## 追加登记：G1 圆环版狩猎第一批（HoTT 语料：cubical v0.9 + agda-unimath，2026-09-19 深夜）
+
+> Flash 线（用户四项指令之②）。 hunting 口径：在 HoTT 语料中寻找「使用去点/
+> 补点/低层实数对象而**丢来源**」的位置（用户「植入」问题的实证检验）。
+> 本批为负结果 + 正面卫生证明，如实登记（030 §5 结果原则）。
+
+| 猎场 | 检索 | 结果 | 裁定 |
+|---|---|---|---|
+| cubical v0.9 库 | puncture / S¹ 去点 / Σx∈S¹, x≠base 形态 | 无此类构造（S1/Properties 仅有 IsoFunSpace 等无关形态） | **负结果**：cubical 库无「丢来源的去点对象」 |
+| agda-unimath real-numbers | ℝ 的宇宙位置；locatedness 析取 | `ℝ l : UU (lsuc l)`（dedekind-real-numbers L116）——**从不降到 l**；locatedness 用 `disjunction-Prop` = `trunc-Prop (A + B)`（foundation/disjunction L103-124）= **命题截断，与我们勘误三同型** | **正面卫生证明**：unimath 知情且正确（不降层 + 截断析取）——「传统同胚/免费塌缩思维被植入」在该语料中**未发现** |
+| HoTT Book reals.tex | （已由 Astra/本方多轮对照）§11.2 明文招认层级问题与三路线 | 招认在案 | 奠基层知情（认知分层 L1） |
+
+**对用户「植入」问题的当前裁定**：在已检语料（cubical 库 + unimath real-numbers
++ Book §11.2/§3）内，**未发现**「忘掉圆环悖论类差异而默认 H 判据」的实际使用
+位置。 hunted 面仍小（两库；Book 后续章节/UniMath 其余/mathlib 未检）——维持
+G1 为开放狩猎，非终结判定。
+
