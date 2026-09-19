@@ -10,7 +10,13 @@
   README.md = 占位（`# MATH-FOURNITY` / `四弹一体`）——名字含义已由占位确认。
 - 公开动作 = 本项目 G3 闸门时刻（push 需用户明确授权，方案不改变该纪律）。
 
-## 1. 本地工作成果调查（实测盘点）
+## 0.5 交付原则（用户裁定，2026-09-19，最高优先级）
+
+> **交付结果，不交付过程。** 用户与 AI 的讨论内容（含用户早期不够精确、后被
+> 精化的表述）只有真正作为**结果**的部分才进入 MATH-FOURNITY；不浪费读者时间。
+> 本原则直接裁定 §5/§8 的全部待决项（见各表「结果原则裁定」列）。
+
+
 
 | 资产类 | 数量/规模 | 状态 | 公开适配度 |
 |---|---|---|---|
@@ -61,10 +67,10 @@ MATH-FOURNITY/
 │   ├── CLAIM-MATRIX.md  # 清洗后的证据矩阵（B3 基准版）
 │   └── claim-packages/  # 6 个 CLAIM-PACKAGE（Book 引文加 CC BY-SA 出处标注）
 ├── docs/
-│   ├── overview-zh.md   # 四层调查综述（从 030 收官判定改写，公开语体）
+│   ├── overview-zh.md   # 四层调查综述：只写定稿结论（含被精化后的最终表述，不引对话过程）
 │   ├── charge-statement.md  # B0 精确收费命题 + B1a 充裕性定理说明
 │   ├── open-problems.md # 诚实开放表（CONJECTURE/QUESTION/SOURCE_REPORTED）
-│   └── methodology.md   # "逐实例证书记分牌"方法论 + 判词分级语义
+│   └── methodology.md   # 判词分级语义 + 逐实例证书记分牌方法论（作为结果陈述）
 ├── .github/workflows/
 │   └── replay.yml       # CI：下载钉死工具链→重放 10 核心 run→逐位比对（见 §6）
 └── paper/               # （Phase 3）公开稿工作目录
@@ -95,13 +101,14 @@ MATH-FOURNITY/
 | formal 模块 + compile 工具链 | ✅ 全收 | 复现的根基；8.1MB 无隐私 |
 | 10 核心 run 收据 | ✅ 全收 | 每张收据自带重放 argv；91 全量含历史失败 run（M1-01..03 等），建议 Phase 1 先收 10 核心 + 失败轨迹说明，Phase 2 视需求补全量 |
 | CLAIM 矩阵 + 发射包 | ✅ 收（清洗） | 矩阵中"击落/导弹"战争语汇按 B3 改写为四层调查语体 |
-| 修订片 022–030 | ⚠️ 选录改写 | 030/029/027 的学说内容并入 docs/overview；治理内部语汇（checkpoint/收据机制名）不出现在公开层 |
-| 四弹讨论档案（13 分片） | ❓ 待裁定 | 用户一手科研叙事（三会话闭环含逐字原文），公开价值高但含内部语汇与个人信息；建议 Phase 2 精编为 `docs/history-zh.md`（时间线+关键原文节选）或整体暂缓 |
-| 四件套（核心认知等） | ❓ 待裁定 | 用户悖论原文权威——公开需用户明确决定（建议：不整装收录，授权节选进 history） |
+| 修订片 022–030 | ⚠️ 只取结果 | 其**定稿结论**（四层结构/收费定位/拒签≠自毁/病灶在 Ω/现实同一性属判词层）并入 docs/overview；作为过程的讨论与治理语汇不出现 |
+| 四弹讨论档案（13 分片） | ❌ 不收（结果原则） | 过程非结果：用户-AI 讨论全程、含被精化的早期不精确表述，读者无需也不应消费 |
+| 四件套（核心认知等） | ❌ 不收（结果原则） | 原始输入/思想草稿；其被精化后的结论已作为结果进入 docs/ |
 | HoTT Book 源码快照 | ❌ 不收 | CC BY-SA 3.0 与 MIT 混装风险；短引文（CLAIM-PACKAGE 内）已符合引用规范并注明出处 |
 | .codex / STATE / checklist / 审计交接包 | ❌ 不收 | 内部治理；FOUR-MISSILES-AUDIT-MAP 可清洗为 `docs/verification-map.md` 收录 |
 | private-audit / AI对话录 / 全部 trajectory | ❌ 绝不收 | 原始轨迹含完整上下文 |
-| dev-notes 67 篇 | ❌ 不收 | 工作日志；结论已被矩阵/修订片吸收 |
+| dev-notes 67 篇 | ❌ 不收（结果原则） | 过程日志；结论已被结果层吸收 |
+| 失败 run 轨迹（M1-01..03 等 81 个非核心 run） | ❌ 不收（结果原则） | 迭代过程；收据范围定为 **10 核心**（一句话说明迭代历史即可，不搬失败工件） |
 
 ## 6. CI 重放方案（公开 repo 的杀手锏）
 
@@ -117,16 +124,16 @@ replays bit-for-bit in CI."* 这一条同时就是 G2 外部审计的机器部�
 |---|---|---|
 | Phase 0 | 本方案（已交付）+ 用户裁定开放决策点 | — |
 | Phase 1 | 资产清洗导出：formal/ + receipts×10 + 矩阵 B3 版 + 发射包标注；筛查表逐项过 | 用户裁定 §5 两个 ❓ + §8 决策点 |
-| Phase 2 | 三语 README + docs/ 四件 + CI replay workflow + 历史精编（若裁定收录） | Phase 1 |
+| Phase 2 | 三语 README + docs/ 四件（只写定稿结论）+ CI replay workflow | Phase 1 |
 | Phase 3 | paper/ 公开稿（对应 C1+C2：写稿+文献对冲） | Phase 2 |
 | Phase 4 | push（= G3 授权时刻）；建议同时放 G2 外部审计进场 | 用户 |
 
 ## 8. 开放决策点（需要用户裁定）
 
-1. 作者/署名：GitHub 账号名（0x10debug？）vs 匿名 vs 团队名；CITATION.cff 相应。
-2. 四弹讨论档案：精编收录（history-zh.md）vs 暂缓。
-3. 四件套（核心认知原文）：不收 / 授权节选 / 全收。
-4. 收据范围：10 核心 vs 91 全量（全量含失败轨迹，透明度更高，体积 +~7MB）。
+1. ~~作者/署名~~ **已裁定**：Math Manify <mathmanify@protonmail.com>（仓库级 git 配置已钉定，2026-09-19）。
+2. ~~四弹讨论档案~~ **已裁定（结果原则）**：不收。
+3. ~~四件套~~ **已裁定（结果原则）**：不收。
+4. ~~收据范围~~ **已裁定（结果原则）**：10 核心；失败轨迹不搬。
 5. repo 一句话描述（GitHub About）：建议
    "Machine-checked charge statements for classical ideal elements in HoTT's
    real-number layer — a theory-engine alignment study (Cubical Agda)"，中文主。
