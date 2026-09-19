@@ -662,7 +662,7 @@ proof_run_root: HoTT/verification/runs
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
-| `MP-DEDEKIND-OMEGA-M1` | `CAND-F2-7-M1` | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`；`CLAIM-PACKAGE.md` 固定精确命题、量词、假设与禁止外推；`TOOLCHAIN.json`/`AGDA_LIBRARIES` 固定工具链身份 | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0；51s；`-01`–`-03` 保留为被 Gate 使用过的失败 run | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |
+| `MP-DEDEKIND-OMEGA-M1` 第04run·重复登记（历史行，身份行为主表第 44 行） | `CAND-F2-7-M1` | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`；`CLAIM-PACKAGE.md` 固定精确命题、量词、假设与禁止外推；`TOOLCHAIN.json`/`AGDA_LIBRARIES` 固定工具链身份 | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0；51s；`-01`–`-03` 保留为被 Gate 使用过的失败 run | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |
 
 | ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
 |---|---|---|---|---|
