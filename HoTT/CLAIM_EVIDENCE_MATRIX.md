@@ -41,7 +41,6 @@ proof_run_root: HoTT/verification/runs
 | `MP-TRUNC-NORECOVERY-001` | `C-134`–`C-141` | `formal/truncation-no-recovery/TruncationNoRecovery.agda` | `verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/`（含 C-141；`-02`/`-01` 为同源前次运行）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SET_VALUED_TRUNCATION_NO_RECOVERY_FAMILY` |
 | `MP-NOCANONICAL-001` | `C-142`–`C-148` | `formal/truncation-no-recovery/NoCanonicalPoint.agda`（bridge：`formal/truncation-no-recovery/NoCanonicalFinite.agda`） | `verification/runs/20260913-MP-NOCANONICAL-001-02/`（`-01` 为同源前次运行，加 C-148 后被取代）；Agda 2.8.0；Cubical v0.9；`--safe --cubical`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / UNLABELED_FINITE_NO_CANONICAL_POINT` |
 | `MP-UNIMATH-NOSECTION-REPLAY-001` | `C-05` | `formal/agda-unimath/hott-z/NoCanonicalPoint.agda`（外部库 agda-unimath@`7b81411d`，按 commit SHA、库文件哈希与确定性源码树哈希固定） | `verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/`；Agda 2.8.0-3d04bac；agda-unimath `7b81411d`；`--without-K --exact-split`；exit 0（`-01` 为被保留的 include 根配置失败尝试） | `REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE` |
-| `MP-DEDEKIND-OMEGA-M1` | `CAND-F2-7-M1`（候选锚点） | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`（发射包 `CLAIM-PACKAGE.md` / `README.md`） | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`（历史；`-01`–`-03` 为失败 run 保留）+ **`20260919-MP-DEDEKIND-OMEGA-M1-05/`（当前：同命题重捕获，A05 头注精确化后）**；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0 | `MACHINE_PROVED_WITH_SCOPE / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |
 
 未机器证明的新内容只能使用 `QUESTION`、`CONJECTURE`、`HEURISTIC`、`PAPER_ONLY`、`COUNTEREXAMPLE_CANDIDATE` 或 `SOURCE_REPORTED_NOT_REPLAYED`，不得用旧矩阵中相似标题反向推定已证。
 
@@ -990,3 +989,12 @@ BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受
 > 2026-09-19 深夜修订注记：本修订仅为使 G4-RING-ORIGIN-02 的 index 快照选择满足
 > backfill 的时序要求（run 目录入库 5194378 之后需存在含其身份的矩阵修订）；
 > 内容无变化。
+
+
+## M1索引位置修复（不改原行内容）
+
+本行原被插入旧冻结前缀，现逐字移入追加区；源码、运行指针及其证据等级不因移动而改变。旧位置与行SHA由本轮修复基线保留。
+
+| proof_id | claim | 源码 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-DEDEKIND-OMEGA-M1` | `CAND-F2-7-M1`（候选锚点） | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`（发射包 `CLAIM-PACKAGE.md` / `README.md`） | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`（历史；`-01`–`-03` 为失败 run 保留）+ **`20260919-MP-DEDEKIND-OMEGA-M1-05/`（当前：同命题重捕获，A05 头注精确化后）**；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0 | `MACHINE_PROVED_WITH_SCOPE / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |
