@@ -4,7 +4,7 @@ shard_id: 004
 index: ../GLM的审计报告.md
 -->
 
-# 对《Astra继续尝试》策略的评审
+# 对Astra继续尝试策略的评审
 
 评审对象：`Astra继续尝试/四弹一体完整研究策略.md`（索引）+ 9 分片 + evidence/。
 其自报状态：`DESIGN_DELIVERED / EXECUTION_NOT_STARTED / CANDIDATE_NOT_CURRENT`。
