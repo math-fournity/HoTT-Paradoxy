@@ -1071,6 +1071,8 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 
 ## 追加登记：NO-BREAKOUT-02（元层边界节落地，2026-09-19 深夜）
 
+> run `20260919-MP-G4-NO-BREAKOUT-02`（当前依据）；`-01` 为无边注记历史收据。
+
 > 同命题重捕获（源码 hash 因 §5 边界注记变更）；回应 Astra 二审 005 片
 > 「精确演算」要求：定理精确强度 = Agda 参数多态 closed-term 不可行性；
 > 显式排除 (a) 任意外部实现元定理 (b) 归约不可终止证明 (c) 独立性结果——
