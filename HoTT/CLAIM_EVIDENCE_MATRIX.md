@@ -986,3 +986,7 @@ BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-G4-RING-ORIGIN | 「来源携带胚型」最小类型化：去点载体的每个点携带「不是断点」的来源证据（`¬(x≡p)`），且该携带是零 postulate 的合法构造；断点取出函数以来源参数 p 为显式类型成分。 | `MACHINE_PROVED_WITH_SCOPE / SOURCE_CARRIER_POSITIVE_CONTROL` | run `-02` 的 `RUN.json`（exit 0，stderr 0） | 不声称 S¹(HIT) 等同点集圆；不声称找到 HoTT 共同体的实际植入现场（G1 未启动）；不声称不可定义性已证（靶形仅参数化陈述）；不声称圆环悖论完整形式化 |
+
+> 2026-09-19 深夜修订注记：本修订仅为使 G4-RING-ORIGIN-02 的 index 快照选择满足
+> backfill 的时序要求（run 目录入库 5194378 之后需存在含其身份的矩阵修订）；
+> 内容无变化。
