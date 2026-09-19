@@ -5,7 +5,7 @@
 ## 当前工作根与来源边界
 
 - 当前工作根必须是本目录的顶层 Git repo。开始前确认 `git rev-parse --show-toplevel` 等于本目录；`AI对话录/` 和 `workspace/` 是磁盘上保留的嵌套历史 repo，已由顶层 `.gitignore` 排除，不是当前工作根。
-- `核心认知.md` 当前身份必须从 `STATE.current_core` 与 manifest 动态取得；本轮为 `core-cognition-generation-4`/36 个 `KC-*`。它保留三份历史 primary 的既有 27 个用户原文单元，并允许以后把 hash-pinned 的一手用户悖论/元数学原文通过 incremental curation 纳入新 generation；转发 AI、supplemental、一般治理、附件和操作指令仍留在来源/Git，不进入 current core。每次工作开始必须从第一行连续读到 EOF；manifest 只提供哈希、定位和处置，不能代替原文。`方向追踪.md`、`全景视野.md` 也必须按固定顺序全文加载。
+- `核心认知.md` 当前身份（generation、KC 分母、来源数）必须从 `STATE.current_core` 与 manifest 动态取得，本文与任何治理正文不得内嵌具体代数/分母数字。它保留三份历史 primary 与后续 hash-pinned 一手用户悖论/元数学原文的 curation 线，并允许通过 incremental curation 纳入新 generation；转发 AI、supplemental、一般治理、附件和操作指令仍留在来源/Git，不进入 current core。每次工作开始必须从第一行连续读到 EOF；manifest 只提供哈希、定位和处置，不能代替原文。`方向追踪.md`、`全景视野.md` 也必须按固定顺序全文加载。
 - `理解章节/` 是历史认知闭包及本次 transform 的主要工作成果；它是需要继续审计、修订和分层的当前知识候选，不自动凌驾于底层代码、原始来源和 Git。
 - `sources/` 是来源快照和提取原件区。除非用户明确授权，不在其中改写历史来源；需要修复提取规则时改 `scripts/audit/`，重建派生文件，并保留旧 hash/差异。
 - `/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求已移走且不恢复。`sources/local-gpt/HoTT_is_GONE_COMPLETE.md` 是有 hash 的历史 AI 产物，不是已经证明覆盖原目录的事实；覆盖结论必须标为 `NOT_PROVEN`，不得将旧 validator 的缺源 PASS 当成认证。
@@ -102,7 +102,7 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 ## 写入、Git 与交接
 
 - 新增或修改需求、当前状态、稳定设计、审计账本、验证结果、研究方向或研究成果投影时，按 `.codex` 的唯一 owner 路由写回；不要制造第二份当前真值。只有用户新的悖论/元数学原文或对此类工作意识的明确修正进入 core generation；一般治理裁定进入 rulings/Feature；候选/优先级/下一动作进入 `方向追踪.md` + STATE，结果/证据/失败/未知进入 `全景视野.md` + 底层 evidence owner。
-- 当前人工纳入/排除与语义边界 owner 必须从 `STATE.current_core.curation` 取得（本轮为 `scripts/audit/core-cognition-curation-v4.json`）；`scripts/audit/build_core_cognition.py` 是 core/manifest/transition 的 canonical manager。默认只检查，显式 `--write` 才生成；不手工润色生成物。新增用户悖论/元数学原文时建立 hash-pinned source、新 generation 和全量迁移收据，旧代由 Git/tag 与 curation lineage 保留，不在生成物末尾手工追加。
+- 当前人工纳入/排除与语义边界 owner 必须从 `STATE.current_core.curation` 动态取得，不在本文内嵌具体文件名；`scripts/audit/build_core_cognition.py` 是 core/manifest/transition 的 canonical manager。默认只检查，显式 `--write` 才生成；不手工润色生成物。新增用户悖论/元数学原文时建立 hash-pinned source、新 generation 和全量迁移收据，旧代由 Git/tag 与 curation lineage 保留，不在生成物末尾手工追加。
 - 每个工作单元结束前，按修订片 020 产出**分片审计集** `.codex/research/hott/sessions/<session-id>/CORE_COGNITION_AUDIT.md`（索引）+ `CORE_COGNITION_AUDIT/` 分片：核心认知逐条五元组论证（含反证条件）、扩展认知逐段落论证、「已走过的路」航向复盘与「即将作出的选择」偏航分析。不能用“总体一致”替代逐编号遍历；旧的单文件审计是 archive evidence 与历史格式，不自动成为下轮输入。
 - `.codex/tools/cognition_runtime.py` 的 `plan/read/check` 是只读加载器；checkpoint 默认 dry-run，只有用户已授予的写权限和显式 `--apply` 才能写入状态。每个 applied checkpoint 必须在同一事务中写入 `SESSION.md`、`RUNS.json` 和通过当前 generation 全量/顺序检查的 `CORE_COGNITION_AUDIT.md`，并产生 `.codex/cognition/checkpoints/<session-id>/transaction.json`、before/after 副本和 `result.json`。只有 canonical `result.json.status=CHECKPOINT_COMMITTED` 才能证明 checkpoint 已应用；Session 自写的 `POST-CHECKPOINT.json` 只能引用该收据，不能自我证明。历史缺收据只能登记缺口，禁止追溯伪造事务。
 - Git 操作遵守全局基线规范：精确检查 dirty/index，保留既有嵌套 repo 与用户修改，精确 stage，提交后回读 HEAD、hash、验证结果。顶层 repo 的本次初始化与提交由用户本轮明确授权；不自动 push、发布、恢复已移走目录或删除历史。

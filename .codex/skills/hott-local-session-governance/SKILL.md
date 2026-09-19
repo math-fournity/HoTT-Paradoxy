@@ -48,7 +48,7 @@ metadata:
 
 ## 4. 核心认知的语义纪律
 
-当前 generation、KC 分母和 curation owner 必须从 `STATE.current_core` 与 manifest 动态取得；本轮 `core-cognition-generation-4` 含 36 个 `USER_OWNED_DIRECT` 原文单元。`core-cognition-curation-v4.json` 通过 hash-pinned inheritance 保留三份历史 primary 的 generation-3 裁定，并只增量登记后续一手用户悖论/元数学原文。生成器只复制被选中的精确行/子串并按 UTC 编号。转发 AI、附件、一般治理、继续/操作指令和无新增认识的重复仍完整保留在 source 与 disposition ledger，但不得进入 current core。旧 generation-2/913 与 generation-3/27 均由 Git ref 和 transition receipt 保存。
+当前 generation、KC 分母和 curation owner 必须从 `STATE.current_core` 与 manifest 动态取得，本 Skill 不内嵌具体代数/分母。当前 curation 通过 hash-pinned inheritance 保留三份历史 primary 的历史裁定，并只增量登记后续一手用户悖论/元数学原文。生成器只复制被选中的精确行/子串并按 UTC 编号。转发 AI、附件、一般治理、继续/操作指令和无新增认识的重复仍完整保留在 source 与 disposition ledger，但不得进入 current core。旧 generations 均由 Git ref 和 transition receipt 保存。
 
 每个当前 `KC-xxxxxx` 的完整来源 hash、行范围、message disposition、主题和关系在 manifest；core 正文只保留紧凑 locator，避免元数据反向吞噬用户思想。`USER_OWNED_DIRECT` 也只是用户研究立场，不自动成为数学真理。用户新增悖论/元数学原文时更新 curation、生成新 generation 与迁移收据，不能在旧代末尾直接追加。
 
@@ -169,4 +169,4 @@ CORE_COGNITION_AUDIT/008 - 即将作出的选择：偏航分析与裁决.md
 
 历史来源缺失、用户移走目录、附件没有正文、代码没有运行、运行只有有限样本、旧 validator 依赖已不存在路径、普通计算界限被误写成 HoTT 独有，均要写成 scope-limited negative/unknown。不要因为交接任务很大就构建数据库、常驻审计 AI、全函数 trace 或额外审批平台；只有真实重复、结构稳定、查询/更新频繁且机械约束收益明确时才新增 machine-managed 资产。
 
-本 Skill 的完成判据是未来 AI 能先全文恢复四件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对 manifest 当前全部 KC（本轮 36 个）逐项留证；同时旧 generations、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。
+本 Skill 的完成判据是未来 AI 能先全文恢复四件套，以 lifecycle 看见当前事项，以显式 task hydration 沿来源/事件/Git 回溯，并在结束时对 manifest 当前全部 KC（分母从 `STATE.current_core` 动态取得）逐项留证；同时旧 generations、manifest 和历史 Session 可审计但不自动常驻。它不承诺宿主自动执行，不承诺模型已理解，也不替数学证明、外部事实核验或用户决策承担责任。

@@ -1,4 +1,10 @@
-# 030 - B线收官：B1a过核 · B1b败因登记 · B1b′降格 · B2降格 · B3基准落盘
+<!-- governance-shard:v2
+logical_id: ATRIA-MACHINE-OVERVIEW-PLAN-REVISION
+shard_id: 030
+index: ../修订片.md
+-->
+
+# B线收官（B1a过核+B1b败因登记+B1b′降格+B2降格+B3基准）
 
 > 2026-09-18 晚（ZCode Session，用户指令「/goal 全部做完」）。本片执行 029 §2 的
 > 「两个都要」合同的收官侧：主交付的 (a) 已过核，(b) 诊断绕过与 (b′) 必要性按

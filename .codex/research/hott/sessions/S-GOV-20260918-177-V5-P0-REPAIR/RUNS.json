@@ -1,0 +1,33 @@
+{
+  "schema_version": "v5-p0-repair-runs/v1",
+  "session": "S-GOV-20260918-177-V5-P0-REPAIR",
+  "host": "zcode-desktop",
+  "tier": "T3-mutation",
+  "registers_new_claim": false,
+  "runs": [
+    {
+      "cmd": "python3 -B .codex/tools/cognition_runtime.py plan --profile governance",
+      "expect": "exit 0, revision 170, UNCOMMITTED_STATE resolved",
+      "result": "exit=0; revision=170; latest_session=S-GOV-20260918-177-V5-P0-REPAIR; documents=47; total_bytes=1462025",
+      "status": "PASS"
+    },
+    {
+      "cmd": "python3 -B scripts/audit/verify_governance_shards.py",
+      "expect": "FAIL 3 -> <=2 (030 orphan fixed; residual = 2 known checkpoint after/ gaps registered since S-169/S-176)",
+      "result": "validation has 2 issue(s) — both are checkpoints/S-RES-20260917-168 and -169 after/CORE_COGNITION_AUDIT.md shard_root-not-directory (known, registered; disposition in v5 P3-3)",
+      "status": "PASS_WITH_SCOPE"
+    },
+    {
+      "cmd": "grep 'generation-4|curation-v4' over AGENTS.md, README/001, governance SOP, 扩展认知 marker",
+      "expect": "identity claims zero",
+      "result": "AGENTS.md=0; SOP=0; README/001 residual=1 = historical audit filename audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md (legitimate artifact name, not an identity claim); 扩展认知 baseline corrected to generation-7",
+      "status": "PASS_WITH_SCOPE"
+    },
+    {
+      "cmd": "state surgery (direct, registered): STATE revision 169->170, records +2 (repair session + G-V5-RECEIPT-GAP-S170-S176), HEAD.tracked 32 files rehashed",
+      "backups": [".codex/cognition/backups-v5/STATE.pre-v5-p0.json (5d0b668b…)", ".codex/cognition/backups-v5/HEAD.pre-v5-p0.json (bf0654e7…)"],
+      "precedent": "revision 160->161 out-of-band repair pattern",
+      "status": "DONE_REGISTERED"
+    }
+  ]
+}

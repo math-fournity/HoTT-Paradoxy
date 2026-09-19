@@ -28,7 +28,7 @@
   "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
   "status": "PREMISE_001_STEP5_INTERVAL_I_PROBE_DONE"
  },
- "latest_session": "S-GOV-20260918-177-V5-P0-REPAIR",
+ "latest_session": "S-RES-20260917-169-INTERVAL-I-PROBE",
  "load_policy": {
   "fresh_model_behavior": "NOT_RUN",
   "full_set": [
@@ -11857,39 +11857,6 @@
    "claim_matrix_update": "none (registers_new_claim:false)",
    "status": "complete",
    "source_hashes": {}
-  },
-  "S-GOV-20260918-177-V5-P0-REPAIR": {
-   "kind": "session",
-   "classification": "governance-repair",
-   "path": ".codex/research/hott/sessions/S-GOV-20260918-177-V5-P0-REPAIR/SESSION.md",
-   "lifecycle_status": "HISTORICAL",
-   "evidence_status": "TOOL_RECEIPT_REGISTERED",
-   "scope": "v5 migration P0 repair unit: register S170-S176 checkpoint receipt gaps (no fabrication), resync HEAD.tracked to workdir, restore canonical plan path (user authorization 2026-09-18 '全部执行完成' covering checklist 011 P0-P3)",
-   "depends_on": [
-    "S-RES-20260917-169-INTERVAL-I-PROBE"
-   ],
-   "dependency_semantics": "verification_staleness",
-   "full_sources": [
-    ".codex/cognition/backups-v5/STATE.pre-v5-p0.json",
-    ".codex/cognition/backups-v5/HEAD.pre-v5-p0.json"
-   ],
-   "related_records": [
-    "S-RES-20260917-169-INTERVAL-I-PROBE",
-    "G-V5-RECEIPT-GAP-S170-S176"
-   ]
-  },
-  "G-V5-RECEIPT-GAP-S170-S176": {
-   "kind": "governance_repair",
-   "classification": "receipt-gap-registration",
-   "path": ".codex/research/hott/sessions/S-GOV-20260918-177-V5-P0-REPAIR/RUNS.json",
-   "lifecycle_status": "CLOSED",
-   "evidence_status": "CHECKPOINT_RECEIPT_MISSING_REGISTERED",
-   "scope": "Sessions S-RES-20260917-174/175 and S-RES-20260918-175/176 (and the 170-172 pattern they followed) committed state-bearing files via direct git commits without canonical checkpoint transactions; STATE.revision stayed 169 and HEAD.tracked drifted until this repair. Registered per contract as CHECKPOINT_RECEIPT_MISSING; receipts are NOT fabricated retroactively. Git evidence: commits 4065616 (RESUME sync S-176), 5941af8 (030), fedd70e, dc-based S174/S175 work; MEMORY/003 tail entries self-record the bypass.",
-   "depends_on": [],
-   "full_sources": [],
-   "related_records": [
-    "S-GOV-20260918-177-V5-P0-REPAIR"
-   ]
   }
  },
  "review_due": [
@@ -11903,7 +11870,7 @@
   "A-KC-AUDIT-GAP-001",
   "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001"
  ],
- "revision": 170,
+ "revision": 169,
  "schema_migration": {
   "from": "hott-working-state/v1",
   "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",
