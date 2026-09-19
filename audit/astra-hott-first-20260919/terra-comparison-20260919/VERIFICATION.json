@@ -1,0 +1,109 @@
+{
+  "math_governance": {
+    "argv": [
+      "python3",
+      "-B",
+      "scripts/audit/verify_math_proof_delivery_governance.py",
+      "--project-root",
+      "."
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "exit_code": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "05a8552e051297b1738da1829910a153ac6fc652d3d88e35fb34a645f7609580",
+    "stdout_bytes": 0,
+    "stderr_bytes": 91
+  },
+  "closure_baseline": {
+    "commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+    "current_has_frozen_prefix": false,
+    "first_different_line_1based": 44,
+    "frozen_line": "",
+    "current_line": "| `MP-DEDEKIND-OMEGA-M1` | `CAND-F2-7-M1`（候选锚点） | `formal/dedekind-omega-missile/MissileOneProcessLayer.agda`（发射包 `CLAIM-PACKAGE.md` / `README.md`） | `verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04/`（`-01`–`-03` 为被 Gate 使用过的失败 run，保留不删）；Agda 2.8.0；Cubical v0.9；`--safe --cubical --guardedness`；exit 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / PROCESS_LAYER_GAP_ANCHOR_NOT_HOTT_CONTRADICTION` |",
+    "dedekind_registered_later_packages": [
+      "MP-DEDEKIND-OMEGA-REAL-LAYER"
+    ]
+  },
+  "matrix_diff": {
+    "argv": [
+      "git",
+      "diff",
+      "--unified=3",
+      "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+      "HEAD",
+      "--",
+      "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "exit_code": 0,
+    "stdout_sha256": "8db34ffe90f3021a04bef8de02a0168b3b86522b8d52cbad6bf83153524b40c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 124030,
+    "stderr_bytes": 0
+  },
+  "relocated_m1": {
+    "argv": [
+      "/usr/bin/env",
+      "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+      "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+      "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+      "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+      "--ignore-interfaces",
+      "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+      "-l",
+      "cubical-0.9",
+      "-i",
+      "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+      "HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda"
+    ],
+    "cwd": "/Volumes/D/HoTT-toolchain-cache/astra-terra-path-probe-ibl66_hr",
+    "exit_code": 42,
+    "stdout_sha256": "265ee28c461f12be87762875ceadb5fe5a45221f919321767ccc30a161a523cb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 535,
+    "stderr_bytes": 0,
+    "source_sha256": "931b6c7127abbbdcbdd5ed834a3b9a3dba420d74a75d3915385613d9e3aa715a",
+    "diagnostic_matched": true,
+    "scope": "Same entrypoint bytes, historical argv unchanged, different cwd with relative entrypoint; a path-coupling check, not a full portable release build."
+  },
+  "terra_sources": [
+    {
+      "path": "Terra的第一次审计.md",
+      "bytes": 3512,
+      "sha256": "32bdf4ff877593049219122084c022d13054231853db0454796984bde5aa7d14"
+    },
+    {
+      "path": "Terra的第一次审计/001 - 审计任务、快照与证据方法.md",
+      "bytes": 6214,
+      "sha256": "37261fee57d281bd472453d3d72276b6a7e6640d15c17593dd15ec2f66a4510f"
+    },
+    {
+      "path": "Terra的第一次审计/002 - 十个候选公开证据单位逐项审计.md",
+      "bytes": 9445,
+      "sha256": "d9dc20c201fa3ef4bb467eb99d4d01f424e18bfc399a6bdd47e01634b7183ce1"
+    },
+    {
+      "path": "Terra的第一次审计/003 - 命题忠实性与研究目的审计.md",
+      "bytes": 4841,
+      "sha256": "532d155e7a328d9fd1fadf001156f27a8bbe5823cce132dd7b88b1c8a5be7856"
+    },
+    {
+      "path": "Terra的第一次审计/004 - 机器证明、收据与版本闭合审计.md",
+      "bytes": 5687,
+      "sha256": "c3f8be5a687344653c9c46aa8a7629502fc0c7fd3dee58d1a47ca0395add0a80"
+    },
+    {
+      "path": "Terra的第一次审计/005 - 公开包准入、范围与修复路线.md",
+      "bytes": 4666,
+      "sha256": "a83b13f7dd73e683b58e101366b788f3d394b82956caebae5ad04ca8de8c72a0"
+    },
+    {
+      "path": "Terra的第一次审计/006 - 审计主张、未知与后续准入.md",
+      "bytes": 4991,
+      "sha256": "b64bad94c705918ea1d89313cec32383ab8e1bb275ddd3a0a2baa4fd862bf7c1"
+    }
+  ],
+  "prior_proof_scope_drift": [],
+  "four_set_drift": [],
+  "head": "19d45ce503fdacb2b6dc6d87f01bf794298b66c6"
+}

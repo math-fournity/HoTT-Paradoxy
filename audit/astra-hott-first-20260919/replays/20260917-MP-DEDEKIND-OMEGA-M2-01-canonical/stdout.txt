@@ -1,0 +1,33 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260917-MP-DEDEKIND-OMEGA-M2-01",
+  "proof_id": "MP-DEDEKIND-OMEGA-M2",
+  "claim_ids": [
+    "CAND-F2-7-M2"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_COMMITTED_NOT_PUSHED",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness，无 LEM、无 resizing、无追加公理）中证明：不存在 q : ℚ 使 q·q ≡ 2r（全称无理性 √2-irrational : ∀ q → ¬(q·ℚq ≡ 2r)，等价 Σ 形式 spec-B-empty : ¬(Σ q:ℚ, q·ℚq ≡ 2r)）。证明路径：ℚ set quotient 提取（rec2 点构造子定义性归约 + eq/⁻¹ + Int.abs）→ ℕ 无穷下降（奇偶工具包 + 平方膨胀 + 强归纳）。即「输出 √2 的有理位置」这一任务的交付类型 Spec_B 的居住性被机械证明为空——不是『还没停』，是『不可能停』。这是 PROCESS_DECLARATION_GAP 的声明层机械锚点，不是 HoTT 内部矛盾。",
+  "non_goals": [
+    "不声称这是 HoTT 的不一致性证明或已击落 HoTT",
+    "不声称「实数完备性非现实」已被证明；本包只提供 Spec_B 居住性为空的机械锚点",
+    "不声称第三枚（识别层 / M3-L1）已被机器证明；其证明包另立 run"
+  ]
+}
