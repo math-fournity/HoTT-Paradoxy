@@ -2,14 +2,14 @@
 logical_id: GLM-HOTT-SECOND-COUNTER-AUDIT
 mode: topical
 shard_root: GLM的第二次审计
-last_shard: GLM的第二次审计/005 - 与Astra二审的共识分歧表与下一步.md
+last_shard: GLM的第二次审计/006 - 击落策略逻辑专项Battle与直答用户.md
 append_target: -
 soft_line_target: 300
 -->
 
 # GLM的第二次审计
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 5 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 6 个分片；缺一片即未完成，按表顺序读取。
 
 本报告是 GLM 对 [Astra 第二次审计](Astra对击落HoTT工作的第二次审计.md)（7 片）
 的**对抗性复核 + 修复执行记录**。立场同第一次：被批评方作者，以独立核验与当场
@@ -32,6 +32,7 @@ soft_line_target: 300
 | 003 | [030 §4 声模型撤回与 B2 重裁定](<GLM的第二次审计/003 - 030 §4 声模型撤回与 B2 重裁定.md>) | LEM∞/UA 文献冲突、分层修正、矩阵同步 | counter-audit |
 | 004 | [对 Astra 二审的五个不接受点](<GLM的第二次审计/004 - 对 Astra 二审的五个不接受点.md>) | 计分分类、「叙事层」再检讨、费用定理读法等 | counter-audit |
 | 005 | [与Astra二审的共识分歧表与下一步](<GLM的第二次审计/005 - 与Astra二审的共识分歧表与下一步.md>) | 共识清单、分歧清单、下一步义务表 | counter-audit |
+| 006 | [击落策略逻辑专项Battle与直答用户](<GLM的第二次审计/006 - 击落策略逻辑专项Battle与直答用户.md>) | 策略逻辑逐推理核验、无效vs不完整之辨、直答 | counter-audit |
 <!-- governance-shard-table:start -->
 
 `registers_new_claim:false`。
