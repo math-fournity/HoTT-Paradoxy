@@ -1011,3 +1011,15 @@ BP-GEO-RESTORE-01；原生safe Cubical Agda，规格C-261–C-264。内核接受
 |---|---|---|---|---|
 | CAND-G4-BREAKPOINT-BRIDGE | 圆环悖论的「断点排除」（RingOrigin.SourceCarrier）与 Dedekind cut 的「无理排除」在类型层为同一 Σ 构造——两线共用排除证据检查方式。 | `MACHINE_PROVED_WITH_SCOPE / EXCLUSION_CARRIER_TYPE_BRIDGE` | run `20260919-MP-G4-BREAKPOINT-BRIDGE-03` 的 `RUN.json`（exit 0，stderr 0） | 不声称 GOLD L/U 全谓词族已重表述（谓词族级，下一单元）；不声称圆环=实数（共用检查方式 ≠ 同一对象）；无 ∀ 新主张；不声称 HoTT 不一致 |
 
+## 追加登记：MP-G4-NO-BREAKOUT（裸载体断点取出不可构造，2026-09-19 深夜）
+
+> Flash 线单元二，用户四项指令之①。`registers_new_claim:false`。
+
+| proof_id | claim_id | 源码 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-G4-NO-BREAKOUT` | `CAND-G4-NO-BREAKOUT` | `formal/flash-first-hunt/NoBreakoutFromBare.agda`（`no-breakout-from-bare : ∀ C p → ¬((x:C) → ¬(x≡p))`——参数多态否定；Unit/tt 实例化） | run `20260919-MP-G4-NO-BREAKOUT-01`（exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / PARAMETRIC_NO_BREAKOUT` |
+
+| claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CAND-G4-NO-BREAKOUT | 裸载体上断点取出函数不可构造：∀ C p, ¬((x:C) → ¬(x≡p))——「不知道 p 就无法排除 p」的参数化定理（Unit/tt 具体化给出 tt≢tt 与 refl 矛盾）。 | `MACHINE_PROVED_WITH_SCOPE / PARAMETRIC_NO_BREAKOUT` | run `-01` 的 `RUN.json`（exit 0，stderr 0） | **范围限定**：closed-argument 参数多态不可行 + 具体反例实例；**非**任意实现/任意演算的不可定义性元定理（元定理须精确演算+归约定义，另立义务）；不声称 HoTT 不一致 |
+

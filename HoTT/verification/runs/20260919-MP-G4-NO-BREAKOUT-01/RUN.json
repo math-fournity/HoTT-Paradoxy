@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-G4-NO-BREAKOUT"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal",
+    "HoTT/formal/flash-first-hunt/NoBreakoutFromBare.agda"
+  ],
+  "completed_at_utc": "2026-09-19T20:56:07.603772+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 7.532702,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "不声称任意实现或任意演算的不可定义性元定理；不声称 HoTT 不一致；registers_new_claim:false"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-G4-NO-BREAKOUT",
+  "run_id": "20260919-MP-G4-NO-BREAKOUT-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "圆环主线单元二（Flash；用户四项指令之①不可定义性严格化）。纯 Cubical Agda（--safe 零公理）：no-breakout-from-bare : ∀ C p → ¬((x:C) → ¬(x≡p))——裸载体上的断点取出函数不可构造（参数多态论证：对任意 C、p 一致地否定；具体化实例 Unit/tt 给出 tt≢tt 与 refl 矛盾）。含义：「不知道 p 就无法排除 p」的参数化定理。范围限定：closed-argument 不可行 + 一个具体反例实例，非任意实现/任意演算的不可定义性元定理。",
+  "source_manifest": {
+    "bytes": 2486,
+    "path": "source-manifest.json",
+    "sha256": "0aac32458f3a2ae8892deadc06c4e47bfb84d3003b6c8761acd9d3d6ef287a05"
+  },
+  "started_at_utc": "2026-09-19T20:56:00.071070+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 4415,
+    "path": "stdout.txt",
+    "sha256": "b22599ca2fbd412561cd55565413d391349bee2d5d836ef55879b19e16afb34b"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
