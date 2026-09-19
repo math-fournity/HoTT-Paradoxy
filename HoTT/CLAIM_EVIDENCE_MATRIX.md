@@ -1076,4 +1076,6 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 > 显式排除 (a) 任意外部实现元定理 (b) 归约不可终止证明 (c) 独立性结果——
 > (a)-(c) 登记为开放义务，不以边界注记伪装达成。`registers_new_claim:false`。
 > `-01` 保留为无边注记的历史收据。
+> 时序修订注记（2026-09-19 深夜）：为 NO-BREAKOUT-02 的 index 快照选择提供
+> 含完整 run ID 的已提交矩阵修订；其余内容无变化。
 
