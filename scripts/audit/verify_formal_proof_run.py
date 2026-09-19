@@ -220,6 +220,13 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
                 if marker in text_data:
                     raise ProofRunError(f"AGDA_UNSAFE_OR_INCOMPLETE_MARKER:{relative}:{marker}")
             theory = str(run.get("theory_variant", "")).lower()
+            # Astra 审计 A09（2026-09-19）修复：选项资格以 OPTIONS pragma 实际
+            # 内容为准，不再对全文做子串搜索（注释里出现 "--safe" 字样曾使无
+            # --safe 的公设控制模块（TA 族）误过同一路资格检查）。
+            pragma_text = " ".join(
+                re.findall(r"\{-#\s*OPTIONS([^#]*?)#-\}", text_data)
+            )
+            pragma_flags = pragma_text.split()
             # Branch on the most specific marker first: a without-K run may
             # legitimately describe itself as having "no cubical features",
             # so the substring "cubical" alone must not select the cubical
@@ -234,11 +241,11 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
                 # enforces the unsafe/incomplete-marker checks above.
                 pass
             elif "without-k" in theory:
-                if "--without-K" not in text_data or "--exact-split" not in text_data:
+                if "--without-K" not in pragma_flags or "--exact-split" not in pragma_flags:
                     raise ProofRunError(f"AGDA_WITHOUT_K_OPTIONS_REQUIRED:{relative}")
             elif "cubical" in theory:
-                if "--safe" not in text_data or "--cubical" not in text_data:
-                    raise ProofRunError(f"AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:{relative}")
+                if "--safe" not in pragma_flags or "--cubical" not in pragma_flags:
+                    raise ProofRunError(f"AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:{relative}")
             else:
                 raise ProofRunError(f"AGDA_THEORY_VARIANT_UNSUPPORTED:{relative}:{run.get('theory_variant')}")
         source_paths.append(relative.as_posix())

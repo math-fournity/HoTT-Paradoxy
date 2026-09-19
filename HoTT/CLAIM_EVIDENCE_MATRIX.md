@@ -826,8 +826,18 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 精确形态、登记 (b′) 路径 1 的可行性裁定（B0），并证明 (a) 充裕性方向（B1a，run `-02`）。
 `registers_new_claim:false`。
 
-**B0 陈述勘误（两项，2026-09-18，均使 run `-01` 的源码 hash 过期；勘误细节见
+**B0 陈述勘误（三项：2026-09-18 ×2 + 2026-09-19 ×1；勘误细节见
 `CLAIM-PACKAGE-REAL-LAYER.md` 勘误节）**：
+3. **located 析取忠实化**（Astra 审计 A02 采纳）：Book §3.7 Defn (logical
+   notation) 逐字 `P ∨ Q ≝ ∥P+Q∥`；原 `dcut` 的 located 用裸 `⊎`（携带分支
+   选择数据的强化变体）。修正后六分量全部 mere proposition，`isPropDCut` 成立，
+   与 Book「dcut(L,U) is a mere proposition」逐字一致。B1a 构造结构不变，
+   run `-03` 重新过核。`-01`/`-02` 保留为勘误前变体的历史收据。
+   **另（Astra A08/A09 采纳）**：NECESSITY-LEM-02 补 pin 定义 owner
+   CutRealLayer；GOLD-03 补 pin M2（√2-irrational 消费）；verifier 的
+   `--safe` 检查改为 OPTIONS pragma 实际解析（TA-01 作为公设控制在新检查下
+   正确 FAIL，其收据属控制类非 safe 证明类——原 PASS 系注释文字误命中，
+   Astra A09 指认成立）。
 1. `dcut` 存在量词忠实化：Book §11.2 Defn 11.2.1 的 `\exis` 在 HoTT 中是命题截断，
    inhabited×2 / rounded×2 右侧由裸 `Σ` 改为 `∥_∥₁`（裸 `Σ` 非 prop，被 `≃` 强制为
    prop 时对非平凡 cut 不可满足）。
@@ -864,9 +874,25 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 | proof_id | claim_id | 源码 | 运行收据 | 证据等级 |
 |---|---|---|---|---|
 | `MP-DEDEKIND-OMEGA-REBOUND-DISARM` | `CAND-F2-7-REBOUND-DISARM` | `formal/dedekind-omega-missile/ReboundDisarm.agda`（S¹ = 紧化的显式构造形态：`ideal-point-is-explicit = base` 构造子；`endpoint-identification-is-a-path = loop` 路径构造子；`hit-computation-witness : intLoop (pos 0) ≡ refl` 由 refl 证明——经 HIT 的闭计算取得典范形） | runs `20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01`（--safe 零公理，exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / REBOUND_DISARMAMENT_WITNESS`（消毒叙事机器化：极限理论本身在引擎中不死，死的只是免费用法；收费点在 Ω 塌缩层） |
-| `MP-DEDEKIND-OMEGA-NECESSITY-LEM` | `CAND-F2-7-NECESSITY-LEM` | `formal/dedekind-omega-missile/MissileFourNecessityLEM.agda`（`hProp≃Bool`：LEMProp ℓ → hProp ℓ ≃ Bool；`SingleOmega-from-LEM`：Ω := Lift Bool；**`LEM→Necessity : LEMProp ℓ → Necessity ℓ`——前提 ℝLayerAt 未被使用**） | runs `20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01`（exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / NECESSITY_IS_CONSTRUCTIVE_ONLY`（LEM 下后件无条件成立 ⇒ B1b′ 必要性问题的全部内容在构造性片段；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化） |
+| `MP-DEDEKIND-OMEGA-NECESSITY-LEM` | `CAND-F2-7-NECESSITY-LEM` | `formal/dedekind-omega-missile/MissileFourNecessityLEM.agda`（`hProp≃Bool`：LEMProp ℓ → hProp ℓ ≃ Bool；`SingleOmega-from-LEM`：Ω := Lift Bool；**`LEM→Necessity : LEMProp ℓ → Necessity ℓ`——前提 ℝLayerAt 未被使用**） | runs `…-01`（manifest 漏 pin CutRealLayer，Astra A08）+ `…-02`（**补全闭包重捕获**，exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / NECESSITY_IS_CONSTRUCTIVE_ONLY`（LEM 下后件无条件成立 ⇒ B1b′ 必要性问题的全部内容在构造性片段；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化） |
 
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-REBOUND-DISARM | 第一弹反弹（极限理论式紧化）的构造性重建在 cubical HoTT 中合法且免费：理想点=显式构造子、端点同一化=路径构造子、闭计算经 HIT 可归约到典范形（intLoop (pos 0) ≡ refl by refl）——canonicity 不被 HIT 收费（对照 TA 族 postulate 卡住形态）。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0） | 紧化**古典用法**的非现实性未被形式化（论证层）；不据此升级对极限理论本身的任何否定判词；攻击面在「完成声明的免费化」（Ω 塌缩，见 REAL-LAYER 节）而非紧化 |
 | CAND-F2-7-NECESSITY-LEM | `LEMProp ℓ → SingleOmega ℓ`（经 hProp ℓ ≃ Bool），从而 `LEMProp ℓ → Necessity ℓ` 且 ℝLayerAt 前提未被使用——经典语境中必要性空洞。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（exit 0，stderr 0）+ `source-manifest.json` | 无条件 Necessity 维持 `CONJECTURE`（真值依赖模型，CC 换币候选未决）；`SingleOmega↔PropResizing` 蕴含方向仍开放；不声称 LEM 为真；不声称 HoTT 不一致 |
+
+## 追加登记：Astra 审计修复三收据（2026-09-19，A02/A08/A09 采纳）
+
+> 依据《Astra对击落HoTT工作的第一次审计》（A02/A08/A09 三项经本会话独立核验
+> 成立并当场修复）。判词口径不变：机器定理保持为真；被修复的是规格忠实性标签、
+> 证据闭包与校验器语义。逐项裁定见《GLM的审计报告》。
+
+| run | 内容 | 状态 |
+|---|---|---|
+| `20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-03` | located ∥⊎∥ 截断（勘误三）后 B0+B1a 全量重查；`isPropDCut` 新增（dcut 成为真 prop，与 Book 逐字一致） | KERNEL_ACCEPTED / 见本节 |
+| `20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02` | 同命题重捕获 + manifest 补 pin 定义 owner CutRealLayer.agda（A08） | KERNEL_ACCEPTED / 见本节 |
+| `20260919-MP-DEDEKIND-OMEGA-GOLD-03` | 同命题重捕获 + manifest 补 pin M2（√2-irrational 消费，CutGoldForm.agda:67/232）（A08） | KERNEL_ACCEPTED / 见本节 |
+| verifier 修复 | `verify_formal_proof_run.py` 的 `--safe`/`--cubical` 检查由全文子串改为 OPTIONS pragma 实际解析（A09）；TA-01 在新检查下正确 FAIL（公设控制类），safe 主证明不受影响 | 代码已改，语法/行为实测 |
+
+**Astra 审计中本会话未采纳或部分采纳的项（A01/A03/A05/A06/A07）的逐项裁定与
+证据**：见《GLM的审计报告》分片 002。

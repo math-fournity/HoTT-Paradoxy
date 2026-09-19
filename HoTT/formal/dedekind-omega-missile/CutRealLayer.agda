@@ -100,6 +100,15 @@ SingleOmega ℓ =
 --   （向下封闭的 L 有无穷多 r>q 见证，Σ 非-prop，却被 ≃ 强制为 prop）。
 --   修正后六分量皆 mere proposition，其合取（Book 的 dcut(L,U)）是 prop，
 --   「Dedekind reals form a set」由 isProp→isSet 得到。
+-- 忠实化勘误二（B0 陈述修订，2026-09-19，Astra 审计 A02 采纳）：located 的
+--   析取同样须截断。Book §3.7 Defn (logical notation) 逐字：
+--   P \lor Q := \brck{P + Q}（logic.tex「using truncation as follows」），
+--   即 ∥ P ⊎ Q ∥。原 dcut 的 located 用裸 ⊎，是「携带 locatedness 选择数据」
+--   的强化变体（每个 q<r 都要求可判定的分支证据），非 Book 的 locatedness。
+--   该变体下 dcut 是 mere set（我们当时在 §7.1 注释里注意到了 located
+--   「是 set 不是 prop」却未连接到 ∨ 的截断约定——Astra 的指认成立）。
+--   修正后六分量全部是 mere proposition，dcut 本身成为 prop（与 Book
+--   「It is apparent that dcut(L,U) is a mere proposition」逐字一致）。
 dcut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → Type ℓ
 dcut {ℓ} L U =
      ∥ Σ[ q ∈ ℚ ] fst (L q) ∥₁                                    -- inhabited-L
@@ -107,7 +116,7 @@ dcut {ℓ} L U =
   ×  ((q : ℚ) → fst (L q) ≃ ∥ Σ[ r ∈ ℚ ] ((q < r) × fst (L r)) ∥₁)  -- rounded-L
   ×  ((r : ℚ) → fst (U r) ≃ ∥ Σ[ q ∈ ℚ ] ((q < r) × fst (U q)) ∥₁)  -- rounded-U
   ×  ((q : ℚ) → ¬ (fst (L q) × fst (U q)))                         -- disjoint
-  ×  ((q r : ℚ) → (q < r) → fst (L q) ⊎ fst (U r))                 -- located
+  ×  ((q r : ℚ) → (q < r) → ∥ fst (L q) ⊎ fst (U r) ∥₁)            -- located（截断，Book ∨）
 
 ------------------------------------------------------------------------
 -- 5. Dedekind reals（Book §11.2 的 RD）与「ℝ 层」收费陈述
@@ -157,23 +166,21 @@ Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ
 --          其上「纤维被 e 搬运的 dcut」的子集型活在 ℓ 层且是 set；
 --          由 Σ-cong-equiv 与 Π 的等价同余，它与 DedekindReals ℓ 等价。
 
--- 7.1 dcut 是 set（Book：「We let dcut(L,U) denote the conjunction of these
---      conditions」；六分量中 inhabited×2 / rounded×2 / disjoint 是 mere
---      proposition，located 的靶 L q ⊎ U r 在 q<r 时可同时成立（q<x<r>），
---      故为 set 而非 prop；整体合取是 set）。载体 (ℚ → Ω) × (ℚ → Ω) 是 set
---      （Book：Ω is a set），纤维是 set ⇒ DedekindReals 是 set。
---      注：located 分量不用 isProp⊎（它需 A、B 不相交的证明，而 located
---      恰恰允许 L q 与 U r 同时成立）；用 isSet⊎。helper 不放 where 块，
---      直接嵌套库的多态 isSetΣ / isSetΠ。
+-- 7.1 dcut 是 prop（勘误二后六分量全部是 mere proposition——located 现为
+--      ∥ ⊎ ∥₁ 截断析取，isPropPropTrunc；与 Book「It is apparent that
+--      dcut(L,U) is a mere proposition」逐字一致）。set 由 isProp→isSet 得；
+--      载体 (ℚ → Ω) × (ℚ → Ω) 是 set（Book：Ω is a set），纤维是 set ⇒
+--      DedekindReals 是 set。
+isPropDCut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → isProp (dcut L U)
+isPropDCut {ℓ} L U =
+  isProp× (isPropPropTrunc) (
+  isProp× (isPropPropTrunc) (
+  isProp× (isPropΠ  (λ q → isOfHLevel≃ 1 (snd (L q)) isPropPropTrunc)) (
+  isProp× (isPropΠ  (λ r → isOfHLevel≃ 1 (snd (U r)) isPropPropTrunc)) (
+  isProp× (isPropΠ  (λ q → isProp→ isProp⊥)) (
+          isPropΠ  (λ q → isPropΠ (λ r → isProp→ isPropPropTrunc)))))))
 isSetDCut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → isSet (dcut L U)
-isSetDCut {ℓ} L U =
-  isSetΣ (isProp→isSet isPropPropTrunc) (λ _ →
-  isSetΣ (isProp→isSet isPropPropTrunc) (λ _ →
-  isSetΣ (isProp→isSet (isPropΠ  (λ q → isOfHLevel≃ 1 (snd (L q)) isPropPropTrunc))) (λ _ →
-  isSetΣ (isProp→isSet (isPropΠ  (λ r → isOfHLevel≃ 1 (snd (U r)) isPropPropTrunc))) (λ _ →
-  isSetΣ (isProp→isSet (isPropΠ  (λ q → isProp→ isProp⊥))) (λ _ →
-  isSetΠ  (λ q → isSetΠ  (λ r → isSetΠ  (λ _ →
-  isSet⊎ (isProp→isSet (snd (L q))) (isProp→isSet (snd (U r)))))))))))
+isSetDCut L U = isProp→isSet (isPropDCut L U)
 -- 7.2 DedekindReals ℓ 是 set（Book 自陈「the Dedekind reals form a set」）。
 DedekindReals-isSet : (ℓ : Level) → isSet (DedekindReals ℓ)
 DedekindReals-isSet ℓ =

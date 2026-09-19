@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-REAL-LAYER"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/CutRealLayer.agda"
+  ],
+  "completed_at_utc": "2026-09-19T14:15:37.258904+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 47.630025,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Necessity 未证维持 CONJECTURE；不声称 HoTT 不一致；registers_new_claim:false"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-REAL-LAYER",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level）中，B0 陈述经第三次忠实化勘误（Astra 审计 A02 采纳）：dcut 的 located 析取按 Book §3.7 Defn (logical notation) 的 P∨Q:=∥P+Q∥ 改为截断（原为携带分支选择数据的裸 ⊎ 变体）。勘误后六分量全部 mere proposition，isPropDCut 成立，dcut 与 Book「dcut(L,U) is a mere proposition」逐字一致。B1a 充裕性 sufficiency : (ℓ:Level) → SingleOmega ℓ → ℝLayerAt ℓ 结构不变重新过核（载体 iso 不触及 located 分量）。三项勘误史：①∃ 截断（2026-09-18）②SingleOmega 假设深化（同日）③located ∨ 截断（本 run）。",
+  "source_manifest": {
+    "bytes": 2509,
+    "path": "source-manifest.json",
+    "sha256": "f270b87a22c722c9848509998f1722e60f49af412b7da15709ee316479663a31"
+  },
+  "started_at_utc": "2026-09-19T14:14:49.628879+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18094,
+    "path": "stdout.txt",
+    "sha256": "76a392e77bd0668c4c43c69fa21970b907b8b2934f8beb23bf13b2185b287666"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

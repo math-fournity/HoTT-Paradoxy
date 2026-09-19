@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CAND-F2-7-NECESSITY-LEM"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda"
+  ],
+  "completed_at_utc": "2026-09-19T14:16:46.464158+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 49.114256,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "无条件 Necessity 维持 CONJECTURE；不声称 HoTT 不一致；registers_new_claim:false"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-DEDEKIND-OMEGA-NECESSITY-LEM",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "同 NECESSITY-LEM-01（LEM→Necessity，前提 ℝLayerAt 未用），两点更新：(1) 消费的 CutRealLayer 已是 located 截断勘误三版；(2) Astra 审计 A08 采纳——本收据把被证命题的定义 owner CutRealLayer.agda（LEMProp/SingleOmega/Necessity）显式补进 manifest，冻结真实传递导入闭包（-01 漏 pin 该文件）。",
+  "source_manifest": {
+    "bytes": 2713,
+    "path": "source-manifest.json",
+    "sha256": "e18757abb7375a6f4366a5b7db6973d0a1e0c99d677500d4beee9a7159a41b56"
+  },
+  "started_at_utc": "2026-09-19T14:15:57.349902+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18284,
+    "path": "stdout.txt",
+    "sha256": "203a761277d1576bf826e4085a7b8b2ea8791a236e41915201e0c84f889c3aa5"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
