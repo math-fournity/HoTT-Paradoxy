@@ -1,0 +1,151 @@
+diff --git a/HoTT/CLAIM_EVIDENCE_MATRIX.md b/HoTT/CLAIM_EVIDENCE_MATRIX.md
+index 50d1370..88b99c4 100644
+--- a/HoTT/CLAIM_EVIDENCE_MATRIX.md
++++ b/HoTT/CLAIM_EVIDENCE_MATRIX.md
+@@ -826,8 +826,18 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受
+ 精确形态、登记 (b′) 路径 1 的可行性裁定（B0），并证明 (a) 充裕性方向（B1a，run `-02`）。
+ `registers_new_claim:false`。
+ 
+-**B0 陈述勘误（两项，2026-09-18，均使 run `-01` 的源码 hash 过期；勘误细节见
++**B0 陈述勘误（三项：2026-09-18 ×2 + 2026-09-19 ×1；勘误细节见
+ `CLAIM-PACKAGE-REAL-LAYER.md` 勘误节）**：
++3. **located 析取忠实化**（Astra 审计 A02 采纳）：Book §3.7 Defn (logical
++   notation) 逐字 `P ∨ Q ≝ ∥P+Q∥`；原 `dcut` 的 located 用裸 `⊎`（携带分支
++   选择数据的强化变体）。修正后六分量全部 mere proposition，`isPropDCut` 成立，
++   与 Book「dcut(L,U) is a mere proposition」逐字一致。B1a 构造结构不变，
++   run `-03` 重新过核。`-01`/`-02` 保留为勘误前变体的历史收据。
++   **另（Astra A08/A09 采纳）**：NECESSITY-LEM-02 补 pin 定义 owner
++   CutRealLayer；GOLD-03 补 pin M2（√2-irrational 消费）；verifier 的
++   `--safe` 检查改为 OPTIONS pragma 实际解析（TA-01 作为公设控制在新检查下
++   正确 FAIL，其收据属控制类非 safe 证明类——原 PASS 系注释文字误命中，
++   Astra A09 指认成立）。
+ 1. `dcut` 存在量词忠实化：Book §11.2 Defn 11.2.1 的 `\exis` 在 HoTT 中是命题截断，
+    inhabited×2 / rounded×2 右侧由裸 `Σ` 改为 `∥_∥₁`（裸 `Σ` 非 prop，被 `≃` 强制为
+    prop 时对非平凡 cut 不可满足）。
+@@ -864,9 +874,25 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受
+ | proof_id | claim_id | 源码 | 运行收据 | 证据等级 |
+ |---|---|---|---|---|
+ | `MP-DEDEKIND-OMEGA-REBOUND-DISARM` | `CAND-F2-7-REBOUND-DISARM` | `formal/dedekind-omega-missile/ReboundDisarm.agda`（S¹ = 紧化的显式构造形态：`ideal-point-is-explicit = base` 构造子；`endpoint-identification-is-a-path = loop` 路径构造子；`hit-computation-witness : intLoop (pos 0) ≡ refl` 由 refl 证明——经 HIT 的闭计算取得典范形） | runs `20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01`（--safe 零公理，exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / REBOUND_DISARMAMENT_WITNESS`（消毒叙事机器化：极限理论本身在引擎中不死，死的只是免费用法；收费点在 Ω 塌缩层） |
+-| `MP-DEDEKIND-OMEGA-NECESSITY-LEM` | `CAND-F2-7-NECESSITY-LEM` | `formal/dedekind-omega-missile/MissileFourNecessityLEM.agda`（`hProp≃Bool`：LEMProp ℓ → hProp ℓ ≃ Bool；`SingleOmega-from-LEM`：Ω := Lift Bool；**`LEM→Necessity : LEMProp ℓ → Necessity ℓ`——前提 ℝLayerAt 未被使用**） | runs `20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01`（exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / NECESSITY_IS_CONSTRUCTIVE_ONLY`（LEM 下后件无条件成立 ⇒ B1b′ 必要性问题的全部内容在构造性片段；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化） |
++| `MP-DEDEKIND-OMEGA-NECESSITY-LEM` | `CAND-F2-7-NECESSITY-LEM` | `formal/dedekind-omega-missile/MissileFourNecessityLEM.agda`（`hProp≃Bool`：LEMProp ℓ → hProp ℓ ≃ Bool；`SingleOmega-from-LEM`：Ω := Lift Bool；**`LEM→Necessity : LEMProp ℓ → Necessity ℓ`——前提 ℝLayerAt 未被使用**） | runs `…-01`（manifest 漏 pin CutRealLayer，Astra A08）+ `…-02`（**补全闭包重捕获**，exit 0，stderr 0） | `MACHINE_PROVED_WITH_SCOPE / NECESSITY_IS_CONSTRUCTIVE_ONLY`（LEM 下后件无条件成立 ⇒ B1b′ 必要性问题的全部内容在构造性片段；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化） |
+ 
+ | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
+ |---|---|---|---|---|
+ | CAND-F2-7-REBOUND-DISARM | 第一弹反弹（极限理论式紧化）的构造性重建在 cubical HoTT 中合法且免费：理想点=显式构造子、端点同一化=路径构造子、闭计算经 HIT 可归约到典范形（intLoop (pos 0) ≡ refl by refl）——canonicity 不被 HIT 收费（对照 TA 族 postulate 卡住形态）。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0） | 紧化**古典用法**的非现实性未被形式化（论证层）；不据此升级对极限理论本身的任何否定判词；攻击面在「完成声明的免费化」（Ω 塌缩，见 REAL-LAYER 节）而非紧化 |
+ | CAND-F2-7-NECESSITY-LEM | `LEMProp ℓ → SingleOmega ℓ`（经 hProp ℓ ≃ Bool），从而 `LEMProp ℓ → Necessity ℓ` 且 ℝLayerAt 前提未被使用——经典语境中必要性空洞。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（exit 0，stderr 0）+ `source-manifest.json` | 无条件 Necessity 维持 `CONJECTURE`（真值依赖模型，CC 换币候选未决）；`SingleOmega↔PropResizing` 蕴含方向仍开放；不声称 LEM 为真；不声称 HoTT 不一致 |
++
++## 追加登记：Astra 审计修复三收据（2026-09-19，A02/A08/A09 采纳）
++
++> 依据《Astra对击落HoTT工作的第一次审计》（A02/A08/A09 三项经本会话独立核验
++> 成立并当场修复）。判词口径不变：机器定理保持为真；被修复的是规格忠实性标签、
++> 证据闭包与校验器语义。逐项裁定见《GLM的审计报告》。
++
++| run | 内容 | 状态 |
++|---|---|---|
++| `20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-03` | located ∥⊎∥ 截断（勘误三）后 B0+B1a 全量重查；`isPropDCut` 新增（dcut 成为真 prop，与 Book 逐字一致） | KERNEL_ACCEPTED / 见本节 |
++| `20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02` | 同命题重捕获 + manifest 补 pin 定义 owner CutRealLayer.agda（A08） | KERNEL_ACCEPTED / 见本节 |
++| `20260919-MP-DEDEKIND-OMEGA-GOLD-03` | 同命题重捕获 + manifest 补 pin M2（√2-irrational 消费，CutGoldForm.agda:67/232）（A08） | KERNEL_ACCEPTED / 见本节 |
++| verifier 修复 | `verify_formal_proof_run.py` 的 `--safe`/`--cubical` 检查由全文子串改为 OPTIONS pragma 实际解析（A09）；TA-01 在新检查下正确 FAIL（公设控制类），safe 主证明不受影响 | 代码已改，语法/行为实测 |
++
++**Astra 审计中本会话未采纳或部分采纳的项（A01/A03/A05/A06/A07）的逐项裁定与
++证据**：见《GLM的审计报告》分片 002。
+diff --git a/HoTT/formal/dedekind-omega-missile/CutRealLayer.agda b/HoTT/formal/dedekind-omega-missile/CutRealLayer.agda
+index 5cda4e2..e97de7d 100644
+--- a/HoTT/formal/dedekind-omega-missile/CutRealLayer.agda
++++ b/HoTT/formal/dedekind-omega-missile/CutRealLayer.agda
+@@ -100,6 +100,15 @@ SingleOmega ℓ =
+ --   （向下封闭的 L 有无穷多 r>q 见证，Σ 非-prop，却被 ≃ 强制为 prop）。
+ --   修正后六分量皆 mere proposition，其合取（Book 的 dcut(L,U)）是 prop，
+ --   「Dedekind reals form a set」由 isProp→isSet 得到。
++-- 忠实化勘误二（B0 陈述修订，2026-09-19，Astra 审计 A02 采纳）：located 的
++--   析取同样须截断。Book §3.7 Defn (logical notation) 逐字：
++--   P \lor Q := \brck{P + Q}（logic.tex「using truncation as follows」），
++--   即 ∥ P ⊎ Q ∥。原 dcut 的 located 用裸 ⊎，是「携带 locatedness 选择数据」
++--   的强化变体（每个 q<r 都要求可判定的分支证据），非 Book 的 locatedness。
++--   该变体下 dcut 是 mere set（我们当时在 §7.1 注释里注意到了 located
++--   「是 set 不是 prop」却未连接到 ∨ 的截断约定——Astra 的指认成立）。
++--   修正后六分量全部是 mere proposition，dcut 本身成为 prop（与 Book
++--   「It is apparent that dcut(L,U) is a mere proposition」逐字一致）。
+ dcut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → Type ℓ
+ dcut {ℓ} L U =
+      ∥ Σ[ q ∈ ℚ ] fst (L q) ∥₁                                    -- inhabited-L
+@@ -107,7 +116,7 @@ dcut {ℓ} L U =
+   ×  ((q : ℚ) → fst (L q) ≃ ∥ Σ[ r ∈ ℚ ] ((q < r) × fst (L r)) ∥₁)  -- rounded-L
+   ×  ((r : ℚ) → fst (U r) ≃ ∥ Σ[ q ∈ ℚ ] ((q < r) × fst (U q)) ∥₁)  -- rounded-U
+   ×  ((q : ℚ) → ¬ (fst (L q) × fst (U q)))                         -- disjoint
+-  ×  ((q r : ℚ) → (q < r) → fst (L q) ⊎ fst (U r))                 -- located
++  ×  ((q r : ℚ) → (q < r) → ∥ fst (L q) ⊎ fst (U r) ∥₁)            -- located（截断，Book ∨）
+ 
+ ------------------------------------------------------------------------
+ -- 5. Dedekind reals（Book §11.2 的 RD）与「ℝ 层」收费陈述
+@@ -157,23 +166,21 @@ Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ
+ --          其上「纤维被 e 搬运的 dcut」的子集型活在 ℓ 层且是 set；
+ --          由 Σ-cong-equiv 与 Π 的等价同余，它与 DedekindReals ℓ 等价。
+ 
+--- 7.1 dcut 是 set（Book：「We let dcut(L,U) denote the conjunction of these
+---      conditions」；六分量中 inhabited×2 / rounded×2 / disjoint 是 mere
+---      proposition，located 的靶 L q ⊎ U r 在 q<r 时可同时成立（q<x<r>），
+---      故为 set 而非 prop；整体合取是 set）。载体 (ℚ → Ω) × (ℚ → Ω) 是 set
+---      （Book：Ω is a set），纤维是 set ⇒ DedekindReals 是 set。
+---      注：located 分量不用 isProp⊎（它需 A、B 不相交的证明，而 located
+---      恰恰允许 L q 与 U r 同时成立）；用 isSet⊎。helper 不放 where 块，
+---      直接嵌套库的多态 isSetΣ / isSetΠ。
++-- 7.1 dcut 是 prop（勘误二后六分量全部是 mere proposition——located 现为
++--      ∥ ⊎ ∥₁ 截断析取，isPropPropTrunc；与 Book「It is apparent that
++--      dcut(L,U) is a mere proposition」逐字一致）。set 由 isProp→isSet 得；
++--      载体 (ℚ → Ω) × (ℚ → Ω) 是 set（Book：Ω is a set），纤维是 set ⇒
++--      DedekindReals 是 set。
++isPropDCut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → isProp (dcut L U)
++isPropDCut {ℓ} L U =
++  isProp× (isPropPropTrunc) (
++  isProp× (isPropPropTrunc) (
++  isProp× (isPropΠ  (λ q → isOfHLevel≃ 1 (snd (L q)) isPropPropTrunc)) (
++  isProp× (isPropΠ  (λ r → isOfHLevel≃ 1 (snd (U r)) isPropPropTrunc)) (
++  isProp× (isPropΠ  (λ q → isProp→ isProp⊥)) (
++          isPropΠ  (λ q → isPropΠ (λ r → isProp→ isPropPropTrunc)))))))
+ isSetDCut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → isSet (dcut L U)
+-isSetDCut {ℓ} L U =
+-  isSetΣ (isProp→isSet isPropPropTrunc) (λ _ →
+-  isSetΣ (isProp→isSet isPropPropTrunc) (λ _ →
+-  isSetΣ (isProp→isSet (isPropΠ  (λ q → isOfHLevel≃ 1 (snd (L q)) isPropPropTrunc))) (λ _ →
+-  isSetΣ (isProp→isSet (isPropΠ  (λ r → isOfHLevel≃ 1 (snd (U r)) isPropPropTrunc))) (λ _ →
+-  isSetΣ (isProp→isSet (isPropΠ  (λ q → isProp→ isProp⊥))) (λ _ →
+-  isSetΠ  (λ q → isSetΠ  (λ r → isSetΠ  (λ _ →
+-  isSet⊎ (isProp→isSet (snd (L q))) (isProp→isSet (snd (U r)))))))))))
++isSetDCut L U = isProp→isSet (isPropDCut L U)
+ -- 7.2 DedekindReals ℓ 是 set（Book 自陈「the Dedekind reals form a set」）。
+ DedekindReals-isSet : (ℓ : Level) → isSet (DedekindReals ℓ)
+ DedekindReals-isSet ℓ =
+diff --git a/scripts/audit/verify_formal_proof_run.py b/scripts/audit/verify_formal_proof_run.py
+index 567f092..2a15fa2 100644
+--- a/scripts/audit/verify_formal_proof_run.py
++++ b/scripts/audit/verify_formal_proof_run.py
+@@ -220,6 +220,13 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
+                 if marker in text_data:
+                     raise ProofRunError(f"AGDA_UNSAFE_OR_INCOMPLETE_MARKER:{relative}:{marker}")
+             theory = str(run.get("theory_variant", "")).lower()
++            # Astra 审计 A09（2026-09-19）修复：选项资格以 OPTIONS pragma 实际
++            # 内容为准，不再对全文做子串搜索（注释里出现 "--safe" 字样曾使无
++            # --safe 的公设控制模块（TA 族）误过同一路资格检查）。
++            pragma_text = " ".join(
++                re.findall(r"\{-#\s*OPTIONS([^#]*?)#-\}", text_data)
++            )
++            pragma_flags = pragma_text.split()
+             # Branch on the most specific marker first: a without-K run may
+             # legitimately describe itself as having "no cubical features",
+             # so the substring "cubical" alone must not select the cubical
+@@ -234,11 +241,11 @@ def validate(root: Path, run_relative: Path, rerun: bool) -> dict[str, object]:
+                 # enforces the unsafe/incomplete-marker checks above.
+                 pass
+             elif "without-k" in theory:
+-                if "--without-K" not in text_data or "--exact-split" not in text_data:
++                if "--without-K" not in pragma_flags or "--exact-split" not in pragma_flags:
+                     raise ProofRunError(f"AGDA_WITHOUT_K_OPTIONS_REQUIRED:{relative}")
+             elif "cubical" in theory:
+-                if "--safe" not in text_data or "--cubical" not in text_data:
+-                    raise ProofRunError(f"AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:{relative}")
++                if "--safe" not in pragma_flags or "--cubical" not in pragma_flags:
++                    raise ProofRunError(f"AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:{relative}")
+             else:
+                 raise ProofRunError(f"AGDA_THEORY_VARIANT_UNSUPPORTED:{relative}:{run.get('theory_variant')}")
+         source_paths.append(relative.as_posix())

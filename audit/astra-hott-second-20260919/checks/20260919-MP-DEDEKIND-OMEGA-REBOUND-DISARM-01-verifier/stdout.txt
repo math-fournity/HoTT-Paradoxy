@@ -1,0 +1,31 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01",
+  "proof_id": "MP-DEDEKIND-OMEGA-REBOUND-DISARM",
+  "claim_ids": [
+    "CAND-F2-7-REBOUND-DISARM"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level，零公理）机器见证第一弹反弹（极限理论式紧化）的构造性重建合法且免费：① 理想点是显式构造子（base : S¹），非 postulate——--safe 通过即证词；② 端点同一化是路径构造子 loop（非收敛声明）；③ 经 HIT 的闭计算可归约（intLoop (pos zero) ≡ refl 由 refl 证明——典范形取得）。消毒叙事：极限理论本身在引擎中不死，死的只是免费用法；收费点在 Ω 塌缩层（对照 CutRealLayer SingleOmega / B1a）。",
+  "non_goals": [
+    "不声称紧化古典用法的非现实性已被形式化（论证层）；不声称 HoTT 不一致；registers_new_claim:false"
+  ]
+}

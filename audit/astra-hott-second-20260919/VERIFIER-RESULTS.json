@@ -1,0 +1,210 @@
+[
+  {
+    "label": "20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-03-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-03"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:36.528720+00:00",
+    "duration_seconds": 0.414,
+    "exit_code": 0,
+    "stdout_sha256": "62bfb0f96c04b1f798a165fc89c7830bf07f138116c00cabfdc16439b06c3ab4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-03\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-REAL-LAYER\",\n  \"claim_ids\": [\n    \"CAND-F2-7-REAL-LAYER\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/CutRealLayer.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"EXACT_INDEX_SNAPSHOT_MATCH\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness --two-level）中，B0 陈述经第三次忠实化勘误（Astra 审计 A02 采纳）：dcut 的 located 析取按 Book §3.7 Defn (logical notation) 的 P∨Q:=∥P+Q∥ 改为截断（原为携带分支选择数据的裸 ⊎ 变体）。勘误后六分量全部 mere proposition，isPropDCut 成立，dcut 与 Book「dcut(L,U) is a mere proposition」逐字一致。B1a 充裕性 sufficiency : (ℓ:Level) → SingleOmega ℓ → ℝLayerAt ℓ 结构不变重新过核（载体 iso 不触及 located 分量）。三项勘误史：①∃ 截断（2026-09-18）②SingleOmega 假设深化（同日）③located ∨ 截断（本 run）。\",\n  \"non_goals\": [\n    \"Necessity 未证维持 CONJECTURE；不声称 HoTT 不一致；registers_new_claim:false\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:36.944145+00:00",
+    "duration_seconds": 0.206,
+    "exit_code": 0,
+    "stdout_sha256": "ab4e11f73eb1eb9e24ceb7f4ede95df044c567b01336d79f1e1ecdd623290772",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-NECESSITY-LEM\",\n  \"claim_ids\": [\n    \"CAND-F2-7-NECESSITY-LEM\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/CutRealLayer.agda\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"EXACT_INDEX_SNAPSHOT_MATCH\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED\",\n  \"scope\": \"同 NECESSITY-LEM-01（LEM→Necessity，前提 ℝLayerAt 未用），两点更新：(1) 消费的 CutRealLayer 已是 located 截断勘误三版；(2) Astra 审计 A08 采纳——本收据把被证命题的定义 owner CutRealLayer.agda（LEMProp/SingleOmega/Necessity）显式补进 manifest，冻结真实传递导入闭包（-01 漏 pin 该文件）。\",\n  \"non_goals\": [\n    \"无条件 Necessity 维持 CONJECTURE；不声称 HoTT 不一致；registers_new_claim:false\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260919-MP-DEDEKIND-OMEGA-GOLD-03-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-DEDEKIND-OMEGA-GOLD-03"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:37.150860+00:00",
+    "duration_seconds": 0.224,
+    "exit_code": 0,
+    "stdout_sha256": "f44ba7890c1c68a3b6c78bbb6215ad450bac61fd21ec03d544b56dafbf385dc4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260919-MP-DEDEKIND-OMEGA-GOLD-03\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-GOLD\",\n  \"claim_ids\": [\n    \"CAND-F2-7-GOLD-FULL\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/CutGoldForm.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/CutInfra.agda\",\n    \"HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda\",\n    \"HoTT/formal/dedekind-omega-missile/CutGoldForm-DESIGN.md\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"EXACT_INDEX_SNAPSHOT_MATCH\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED\",\n  \"scope\": \"GOLD 四条件完整版的 A08 修复重捕获：CutGoldForm.agda:67-68 导入并在 locatedness 分支（:232）消费 M2 的 √2-irrational——本收据显式 pin MissileTwoUniversalIrrationality.agda（-02 漏列），并保留 CutInfra/DESIGN。命题与 -02 完全相同（源码未改）。另登记一处 Astra 未点名的代码瑕疵：:67-68 存在重复导入行（无害，待下次源码变更时顺手清理）。\",\n  \"non_goals\": [\n    \"GOLD 属 ℚ 层单实例非 ℝ 层命题；不声称 HoTT 不一致；registers_new_claim:false\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260917-MP-DEDEKIND-OMEGA-M1-04-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-M1-04"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:37.375150+00:00",
+    "duration_seconds": 0.212,
+    "exit_code": 0,
+    "stdout_sha256": "6cd2000a58762ac4f3e5913239c0c3a7468f07eb0c105dede23007c20b8f5f90",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260917-MP-DEDEKIND-OMEGA-M1-04\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-M1\",\n  \"claim_ids\": [\n    \"CAND-F2-7-M1\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_COMMITTED_NOT_PUSHED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness，无 LEM、无 resizing、无追加公理）中证明：√2 的 Pell 最优有理夹钳序列 p_n/q_n 的判别式 p_n^2-2q_n^2 恒等于交替 ±1，故对任意 n 判别式不为 0——夹钳两端在 ℚ 上永不相遇，即过程层不可完成。这是 PROCESS_DECLARATION_GAP 的过程层机械锚点，不是 HoTT 内部矛盾。\",\n  \"non_goals\": [\n    \"不声称这是 HoTT 的不一致性证明或已击落 HoTT\",\n    \"不声称第二枚（声明层 / Ω 塌缩依赖 resizing 或 LEM）已被机器证明\",\n    \"不声称全称命题 forall q:Q, q^2 != 2（需另立良基下降引理，登记为后续加强）\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260917-MP-DEDEKIND-OMEGA-M2-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-M2-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:37.587195+00:00",
+    "duration_seconds": 0.212,
+    "exit_code": 0,
+    "stdout_sha256": "362b413dfcb0daf5d3222b63c5f1c2f70ca9f9003e7f5216898961230b6adbe3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260917-MP-DEDEKIND-OMEGA-M2-01\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-M2\",\n  \"claim_ids\": [\n    \"CAND-F2-7-M2\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_COMMITTED_NOT_PUSHED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness，无 LEM、无 resizing、无追加公理）中证明：不存在 q : ℚ 使 q·q ≡ 2r（全称无理性 √2-irrational : ∀ q → ¬(q·ℚq ≡ 2r)，等价 Σ 形式 spec-B-empty : ¬(Σ q:ℚ, q·ℚq ≡ 2r)）。证明路径：ℚ set quotient 提取（rec2 点构造子定义性归约 + eq/⁻¹ + Int.abs）→ ℕ 无穷下降（奇偶工具包 + 平方膨胀 + 强归纳）。即「输出 √2 的有理位置」这一任务的交付类型 Spec_B 的居住性被机械证明为空——不是『还没停』，是『不可能停』。这是 PROCESS_DECLARATION_GAP 的声明层机械锚点，不是 HoTT 内部矛盾。\",\n  \"non_goals\": [\n    \"不声称这是 HoTT 的不一致性证明或已击落 HoTT\",\n    \"不声称「实数完备性非现实」已被证明；本包只提供 Spec_B 居住性为空的机械锚点\",\n    \"不声称第三枚（识别层 / M3-L1）已被机器证明；其证明包另立 run\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260917-MP-DEDEKIND-OMEGA-M3-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-M3-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:37.799864+00:00",
+    "duration_seconds": 0.197,
+    "exit_code": 0,
+    "stdout_sha256": "7d7d201d067d098ca41e44c2463b698aa8df448b8b90e3d5bfdc807958f0802b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260917-MP-DEDEKIND-OMEGA-M3-01\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-M3\",\n  \"claim_ids\": [\n    \"CAND-F2-7-M3\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda\",\n    \"HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_COMMITTED_NOT_PUSHED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness；LEM 为显式假设 LEMᵒ，无其他追加公理）中证明两件事：(1) specA-inhabited : LEMᵒ → Spec_A——√2 的判定表 f : ℚ → Bool（f q = true ↔ q·q < 2r，逐点由 LEM 定义）作为给定数据居住，即过程 A「读出」的数据层合法性；(2) M3-L1 : LEMᵒ → ¬ (Spec_A ≃ Spec_B)——读出任务与算出任务的规格类型不等价（等价传输居住性即与第二枚的 spec-B-empty 矛盾）。即：HoTT 的核在 M2 战果之上拒绝「读出 = 算出」的任务同一性；理论把二者当同一任务使用的位置在前提层（Book §11.2 Ω 依赖链），由逼选结构定位。识别层锚点，不是 HoTT 内部矛盾。\",\n  \"non_goals\": [\n    \"不声称这是 HoTT 的不一致性证明或已击落 HoTT\",\n    \"不声称爆炸原理被点燃或「逻辑炸弹」是内部 P∧¬P；第三枚的引爆形式是逼选结构（025 片 §3.2）\",\n    \"不声称 Spec_A 的居住性无条件成立——LEM 是显式假设（Ω 依赖链的具体体现，逐字标注）\",\n    \"不声称用户第③件事（A=B）内部可证——M3-L1 恰证明其在最自然判据 J 下被核否定\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260917-MP-DEDEKIND-OMEGA-M3-UNC-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-M3-UNC-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:37.997733+00:00",
+    "duration_seconds": 0.2,
+    "exit_code": 0,
+    "stdout_sha256": "4d06376a2af97de912f8d7eeab26f257e317ca877b5ae0f79dea33bbfefb0fd9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260917-MP-DEDEKIND-OMEGA-M3-UNC-01\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-M3-UNC\",\n  \"claim_ids\": [\n    \"CAND-F2-7-M3-UNC\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda\",\n    \"HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda\",\n    \"HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_COMMITTED_NOT_PUSHED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness，无 LEM、无 resizing、无任何追加假设）中证明修订片 027 §5 待核发现属实并取得两条更强收据：(1) specA-inhabited-unc : Spec_A 无条件居住——判定表 f : ℚ → Bool（f q ≡ true ↔ q·ℚq < 2r）由 ℚ 序可构造判定 _≟_ : (m n : ℚ) → Trichotomy m n 直接定义，不需要 LEM；(2) M3-L1-unc : ¬ (Spec_A ≃ Spec_B) 识别拒绝去条件化（等价传输 + spec-B-empty）。债务定位：判定表在 ℚ 层免费（本包），理想元素本体（判定表升格为实数层对象、完整 cut）才收费——完成义务在承载层跨界处收费。识别层收据的去条件化加强，不是 HoTT 内部矛盾。\",\n  \"non_goals\": [\n    \"不声称 HoTT 不一致\",\n    \"不推翻 M3 条件版收据（LEMᵒ 条件版仍真；本包为其去条件化加强）\",\n    \"不声称完整 cut / 实数对象的无条件构造——债务定位（升格处收费）仅为本包的语义读法与后续靶位\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260917-MP-DEDEKIND-OMEGA-BP-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-BP-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:38.198181+00:00",
+    "duration_seconds": 0.199,
+    "exit_code": 0,
+    "stdout_sha256": "c5a2568dda07d0e26562e299fe9f88d286bc40f598cb048a1cc667a911481655",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260917-MP-DEDEKIND-OMEGA-BP-01\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-BP\",\n  \"claim_ids\": [\n    \"CAND-F2-7-BP\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda\",\n    \"HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_COMMITTED_NOT_PUSHED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness，无追加公理）中证明：decGapAt : (n : ℕ) → (D n ≡ pos 0) ⊎ ¬ (D n ≡ pos 0)（序列层存在命题逐点可判定，且判定为「否」——已完成对象）与 noGapWitness : ¬ (Σ n : ℕ, D n ≡ pos 0)（Σ 形式居住性否定，与第二枚 spec-B-empty 同形、证据路径独立）。机械确认「序列层存在命题可判定、搜索过程不可停机」这一对必须分开登记的事实（修订片 025 §5）。\",\n  \"non_goals\": [\n    \"不声称这是第三枚导弹或 A=B 对撞（025 片 §5：判定已完成 ≠ 搜索不停机，二者分开登记）\",\n    \"不声称 HoTT 不一致\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260917-MP-DEDEKIND-OMEGA-TA-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260917-MP-DEDEKIND-OMEGA-TA-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:38.397742+00:00",
+    "duration_seconds": 0.058,
+    "exit_code": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "226ed2d0689d53d5eb0ff1eb5fbf046044bbdca7319c395a59ca3713033d7615",
+    "result": "{\"status\": \"FAIL\", \"error\": \"AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda\"}\n"
+  },
+  {
+    "label": "20260918-MP-DEDEKIND-OMEGA-GOLD-02-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260918-MP-DEDEKIND-OMEGA-GOLD-02"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:38.456153+00:00",
+    "duration_seconds": 0.06,
+    "exit_code": 0,
+    "stdout_sha256": "6fd391caa4a8eb5489a3b3d6213f19f67bb1886f282486763a4b31f41e70d1bd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260918-MP-DEDEKIND-OMEGA-GOLD-02\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-GOLD\",\n  \"claim_ids\": [\n    \"CAND-F2-7-GOLD\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/CutGoldForm.agda\",\n    \"HoTT/formal/dedekind-omega-missile/CutInfra.agda\",\n    \"HoTT/formal/dedekind-omega-missile/compile.sh\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\",\n    \"HoTT/formal/dedekind-omega-missile/CutGoldForm-DESIGN.md\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_COMMITTED_NOT_PUSHED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness --two-level，无 LEM/resizing/追加公理）中机器检查 √2 的金形态 Dedekind cut 全部四条件：CutInfra（<-≤ 弱化、crux ·-mono-≤-nn 非负乘子保 ≤、·-mono-<-nn 正乘子保 <）与 CutGoldForm 的勘误版谓词（L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r))；U q := (0r<q)×(2r<q·ℚq)）、isPropL/isPropU、Lₚ/Uₚ hProp 包装、inhabL/inhabU、disjoint（条件 iii）、rounded→ 双向（下/上集圆整的 → 方向，located 消费 M2 √2-irrational）、以及 rounded← 双向（下/上集圆整的 ← 见证方向，δ := t·¼r 内在路线，sq-minus 差平方展开）——四条件首次全部机器接受。\",\n  \"non_goals\": [\n    \"不声称 HoTT 内部矛盾或不一致（「击毁」= 非现实锚定，非不一致）\",\n    \"不声称 LEM/propositional-resizing 收费位置命题已被机械化（Book §11.2 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的下一升格按 DESIGN §4 仅登记）\",\n    \"registers_new_claim:false——本证明是 ℚ 层标准可构造计算，非 HoTT 元定理\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:38.516159+00:00",
+    "duration_seconds": 0.082,
+    "exit_code": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "fb0e06195c2a11d3275db86a6cced83348752dc67d968f75679ff4e393bef4e0",
+    "result": "{\"status\": \"FAIL\", \"error\": \"SOURCE_HASH_OR_SIZE_MISMATCH:HoTT/formal/dedekind-omega-missile/CutRealLayer.agda\"}\n"
+  },
+  {
+    "label": "20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:38.598752+00:00",
+    "duration_seconds": 0.213,
+    "exit_code": 0,
+    "stdout_sha256": "b303f6892cf17ae33907cb4f004fecf40fa49b41b5996e8388e332de91179b2d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "{\n  \"status\": \"PASS_WITH_SCOPE\",\n  \"schema_version\": \"formal-proof-run-verification/v1\",\n  \"run_id\": \"20260919-MP-DEDEKIND-OMEGA-REBOUND-DISARM-01\",\n  \"proof_id\": \"MP-DEDEKIND-OMEGA-REBOUND-DISARM\",\n  \"claim_ids\": [\n    \"CAND-F2-7-REBOUND-DISARM\"\n  ],\n  \"source_paths\": [\n    \"HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda\",\n    \"HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json\",\n    \"HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES\"\n  ],\n  \"audit_tool_provenance_drift\": [],\n  \"external_dependencies\": [\n    \"agda-release-asset\",\n    \"agda-binary\",\n    \"cubical-release-asset\",\n    \"cubical-library-file\",\n    \"cubical-extracted-tree\"\n  ],\n  \"kernel_status\": \"KERNEL_ACCEPTED_WITH_SCOPE\",\n  \"index_status\": \"INDEXED_IN_CLAIM_EVIDENCE_MATRIX\",\n  \"index_validation\": \"ROW_STABLE_AFTER_INDEX_EVOLUTION\",\n  \"replay\": \"NOT_RUN\",\n  \"git_status\": \"LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED\",\n  \"scope\": \"纯 Cubical Agda（--safe --cubical --guardedness --two-level，零公理）机器见证第一弹反弹（极限理论式紧化）的构造性重建合法且免费：① 理想点是显式构造子（base : S¹），非 postulate——--safe 通过即证词；② 端点同一化是路径构造子 loop（非收敛声明）；③ 经 HIT 的闭计算可归约（intLoop (pos zero) ≡ refl 由 refl 证明——典范形取得）。消毒叙事：极限理论本身在引擎中不死，死的只是免费用法；收费点在 Ω 塌缩层（对照 CutRealLayer SingleOmega / B1a）。\",\n  \"non_goals\": [\n    \"不声称紧化古典用法的非现实性已被形式化（论证层）；不声称 HoTT 不一致；registers_new_claim:false\"\n  ]\n}\n"
+  },
+  {
+    "label": "20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01-verifier",
+    "argv": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01"
+    ],
+    "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "started_at": "2026-09-19T14:40:38.812124+00:00",
+    "duration_seconds": 0.199,
+    "exit_code": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "d554968356ee32fe1fff1f8992a66e32e8fe0ba734d86dce2efc4af940797902",
+    "result": "{\"status\": \"FAIL\", \"error\": \"INDEX_IDENTITY_MISSING:20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01\"}\n"
+  }
+]

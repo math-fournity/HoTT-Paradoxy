@@ -1,0 +1,32 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-02",
+  "proof_id": "MP-DEDEKIND-OMEGA-NECESSITY-LEM",
+  "claim_ids": [
+    "CAND-F2-7-NECESSITY-LEM"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/CutRealLayer.agda",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "同 NECESSITY-LEM-01（LEM→Necessity，前提 ℝLayerAt 未用），两点更新：(1) 消费的 CutRealLayer 已是 located 截断勘误三版；(2) Astra 审计 A08 采纳——本收据把被证命题的定义 owner CutRealLayer.agda（LEMProp/SingleOmega/Necessity）显式补进 manifest，冻结真实传递导入闭包（-01 漏 pin 该文件）。",
+  "non_goals": [
+    "无条件 Necessity 维持 CONJECTURE；不声称 HoTT 不一致；registers_new_claim:false"
+  ]
+}

@@ -1,0 +1,27 @@
+commit 59cc2a2fa17a3a4f6b36ffb23c2f12928e30e7af
+Author:     0x10debug <0x10debug@protonmail.com>
+AuthorDate: Sat Sep 19 10:19:57 2026 -0400
+Commit:     0x10debug <0x10debug@protonmail.com>
+CommitDate: Sat Sep 19 10:19:57 2026 -0400
+
+    Astra 审计 A02/A08/A09 采纳并当场修复：dcut located ∥⊎∥ 截断（勘误三，isPropDCut 成立）+ 三收据重捕获（NECESSITY-LEM-02/GOLD-03 补全 manifest 闭包）+ verifier pragma 实解析（TA-01 正确 FAIL）
+
+ HoTT/CLAIM_EVIDENCE_MATRIX.md                      |  30 ++++-
+ .../dedekind-omega-missile/CutRealLayer.agda       |  41 +++---
+ .../20260919-MP-DEDEKIND-OMEGA-GOLD-03/RUN.json    |  57 +++++++++
+ .../environment.txt                                |  11 ++
+ .../source-manifest.json                           |  76 ++++++++++++
+ .../20260919-MP-DEDEKIND-OMEGA-GOLD-03/stderr.txt  |   0
+ .../20260919-MP-DEDEKIND-OMEGA-GOLD-03/stdout.txt  | 138 +++++++++++++++++++++
+ .../RUN.json                                       |  57 +++++++++
+ .../environment.txt                                |  11 ++
+ .../source-manifest.json                           |  66 ++++++++++
+ .../stderr.txt                                     |   0
+ .../stdout.txt                                     | 137 ++++++++++++++++++++
+ .../RUN.json                                       |  57 +++++++++
+ .../environment.txt                                |  11 ++
+ .../source-manifest.json                           |  61 +++++++++
+ .../stderr.txt                                     |   0
+ .../stdout.txt                                     | 136 ++++++++++++++++++++
+ scripts/audit/verify_formal_proof_run.py           |  13 +-
+ 18 files changed, 880 insertions(+), 22 deletions(-)
