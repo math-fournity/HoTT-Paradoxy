@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 144,
+  "later_machine_proved_claim_count": 146,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-NATIVE-RICH-TASK-001",
+      "claim_ids": "C-293–C-294",
+      "source": "HoTT/formal/agda-unimath/hott-z/NativeCurveTaskControls.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-RICH-TASK-001-02",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_intrinsic_rich_curve_and_finite_ambient_task",
+      "verdict": "SPECIFIC_RICH_SEPARATION_AND_FINITE_TASK_WITH_FULL_TRANSPORT_SUCCESS",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Actual intrinsic carriers and same-map closed diagrams, thirteen local Agda inputs. Bare univalence path, specified Rich separation, full-field transport, explicit ambient-homeomorphism finite traces, swap and same-model transport success. Not all user/physical operations, unconditional weak Lift or whole four-stage completion. Earlier -01 retained as unindexed pre-control evidence; -02 is primary."
+    },
     {
       "proof_id": "MP-ASTRA-NATIVE-COMPLETION-001",
       "claim_ids": "C-291–C-292",

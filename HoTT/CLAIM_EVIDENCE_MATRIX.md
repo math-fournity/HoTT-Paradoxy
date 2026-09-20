@@ -1233,3 +1233,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-291 | 对全部实际Real输入u，v=(u+u)−1、d=1−abs(v)、K=v²+d²严格正，齐次公式((v²−d²)/K,(2vd)/K)给圆上点并在原metric连续；限制到ClosedParameter=[0,1]得mCompletion。对全部C281原(0,1)输入，mInterior证明该值等于C290同一Strong圆同胚的实际逆映射。nCompletion(u)=(u,0)另有同一参数度量下连续性。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_DENOMINATOR_CONTINUITY_AND_EXACT_INTERIOR_AGREEMENT` | `homogeneousEquation/homogeneousMatchesParam/completionPositive/mCompletionContinuous/nCompletionContinuous/mInterior`；两新源码；run `20260920-MP-ASTRA-NATIVE-COMPLETION-001-01` | 这里completion仅是闭参数连续延拓，不是Cauchy完备化泛性质、物理Trace完成或完整Lean F的翻译；继承库公设，无新增LEM/Lift输入。 |
 | C-292 | 同一mCompletion的0与1边界值由公式推出均为east；普通nCompletion两边界值不同。全部原开区间内点避开east且mCompletion限制到内点为单射；整个闭参数mCompletion非单射，由两个不同参数同像给出实际否定证明。 | `FORMAL_CHECKED_WITH_SCOPE / DERIVED_BOUNDARY_DIFFERENCE_AND_DOMAIN_DISTINCTION` | `mAtZero/mAtOne/mEndsCoincide/nEndsDistinct/interiorNotEast/interiorInjective/completionNotInjective`；NativeCompletion.agda；同run | 边界参数不属于原开区间，east不属于内点像；不声称两个M内点零距离却不相等。内点与闭域的单射命题定义域不同；不推出任意复原不可能、丰富结构可识别或HoTT矛盾。 |
+
+## 实际内在丰富结构与有限环境任务（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-RICH-TASK-001` | `C-293..C-294` | `formal/agda-unimath/hott-z/NativeCurveTaskControls.agda`；NativeRichCurve、FiniteTrace、NativeCurveTask及九个既有本地模块全部pin | `verification/runs/20260920-MP-ASTRA-NATIVE-RICH-TASK-001-02/`；原生Agda完整依赖 `--ignore-interfaces` exit0；固定no-erasure配置 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_INTRINSIC_RICH_AND_FINITE_TASK` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-293 | RichCurve=Σ A:UU₁,CurveData A，含实际参数等价、平面实现、原metric连续闭图及内点一致。mRich/nRich以C290强删点圆与原开区间为实际Bare，有C290裸Path，但无指定Rich路径；任意Bare路径运输mData均不等于预选nData，且仅输入裸类型的统一函数不能同时精确恢复这两份预选Rich。完整字段运输给mRich=transportedRich，逐参数闭图及端部同像保持。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_RICH_SEPARATION_AND_FULL_FIELD_TRANSPORT` | `barePath/noRichPath/noAnyBarePathLift/noUniformBareRecovery/fullTransportPath/transportKeepsClosedImage/fullTransportKeepsEnds`；NativeRichCurve.agda；run `20260920-MP-ASTRA-NATIVE-RICH-TASK-001-02` | transportedRich的载体为区间但不是普通直线nData。无全现实来源穷尽、无条件弱Lift或同命题P/非P；不宣称HoTT自动删除结构，也不否定带原数据的恢复。 |
+| C-294 | AmbientStep由真实平面双向连续同胚及同一闭参数下的交换图定义；端部同像/异像保持与反射由函数/逆律推导。有限Trace归纳、拼接与Done=r=target给两方向N↔M无该类有限成功，N→M截断成功也不成立。实际坐标交换有非平凡Success；完整字段运输mRich→transportedRich在同一AmbientStep/Done模型有一步Success。裸Path给BareTrace/BareSuccess，但不存在对任意Rich对将BareTrace全部提升为AmbientTrace的函数。 | `FORMAL_CHECKED_WITH_SCOPE / FINITE_TASK_NO_GO_AND_SAME_MODEL_POSITIVE_CONTROLS` | `noTraceNtoM/noTraceMtoN/noSuccessNtoM/noSuccessMtoN/noMereSuccessNtoM/swapSuccess/noUniversalTraceLift/fullTransportSuccess`；FiniteTrace、NativeCurveTask、NativeCurveTaskControls；同run | 操作类限定全平面同胚与固定参数图；不涵盖所有曲线变形、重参数化/加点/合并或物理复原。不从非紧性/超时推不完成；不证明HoTT许诺裸Trace提升，也不替代原Input/Denotes/允许操作对应。 |
