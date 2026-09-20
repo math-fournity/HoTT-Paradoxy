@@ -1,0 +1,65 @@
+{
+  "claim_ids": [
+    "C-304"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-s1-consumer-check",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-s1-consumer-20260920/SC00-02-imports.dot",
+    "HoTT/formal/astra-s1-consumer-check/SC00.agda"
+  ],
+  "completed_at_utc": "2026-09-20T18:38:16.119296+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 31.673237,
+  "environment": {
+    "bytes": 584,
+    "path": "environment.txt",
+    "sha256": "c53b15fcc7929d356d2788c9580d7194ffd2139fd806f28ebcdef11d2f315d86"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "931ab87808de4c0bb274cf41603f719008f97bfd3535bcd17194e6f7bda4bbd6"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No global HoTT inconsistency/completeness or physical point-removal conclusion.",
+    "No universal failure inferred from one rejected term; no guessed outcome before diagnostic review."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-S1-CONSUMER-001",
+  "run_id": "20260920-MP-ASTRA-S1-CONSUMER-001-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Actual S1 integer-cover consumer chain; SC00. Baseline/restoration include family and encoding/winding/intLoop bridges to upstream plus real inverse laws and composition observation. Mutants are only fixed-term causal controls; rejection is not a negative theorem.",
+  "source_manifest": {
+    "bytes": 15383,
+    "path": "source-manifest.json",
+    "sha256": "32131916b82fc13ae2761a740052e85f9bd3238a83a91d048472d20c00771b34"
+  },
+  "started_at_utc": "2026-09-20T18:37:44.446059+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16622,
+    "path": "stdout.txt",
+    "sha256": "fcee388a21ccdafd3dcb06489a1cec4981befbd4ddc3d916d8c81737be87c153"
+  },
+  "theory_variant": "cubical"
+}

@@ -1,0 +1,13 @@
+{
+  "case": "SC04",
+  "source": "HoTT/formal/astra-s1-consumer-check/SC04.agda",
+  "sha256": "a17dd6fe98c61a48b85b55560318c5fc2a14f868a21b5f94c664244cb0a24051",
+  "upstream_sha256": "d239935edc6f9c3da22e82a95c89471681f945f835026efd73688857351cda77",
+  "upstream_core_exact_before_mutation": true,
+  "shared_packaging": "Reuse original imports and original S1/base/loop; extract exact helix through winding-hom; add bridges and actual consumers.",
+  "mutation": [
+    "decodeEncode x p = J (λ y q → decode y (encode y q) ≡ q) (λ _ → refl) p",
+    "decodeEncode x p = refl"
+  ],
+  "state": "GENERATED_NOT_RUN"
+}

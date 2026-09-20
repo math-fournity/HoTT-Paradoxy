@@ -1289,3 +1289,13 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-302 | Request明确九族，Output/Done/Response用显式向上Lift统一层级；dispatch对每个本域请求返回Dec(Response)。六族表示/两侧查询/按n近似/旧表生成/给定旧表的下切割查询有认证响应；有理根、本二分精确相遇、Pell D归零三族响应为空。表示Done固定原GOLD L/U且任意合格表示的值等于goldReal；近似响应接实际n次Trace。输入2的下切割查询可交付，但其答案为false。不存在给本域每个请求都生成成功Response的函数。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_INPUT_OUTPUT_DONE_AND_FEASIBILITY` | `dispatch/representationCanonical/approximationReplyTrace/queryAtTwoIsFeasible/queryAtTwoAnswersFalse/rootIsNotFeasible/noUniversalSuccessfulResponder`；同run | 九族含无限q/n参数，但不等于所有HoTT命题/程序；不检查任意外来候选答案。no是响应空性证书，不是已交付所请求见证；Lift不是resizing；不把请求可完成与对象命题为真混同。 |
 | C-303 | 新oldTable/rationalRoot响应分别与原Spec_A/Spec_B有明确跨层等价，保留原q²=2未加正号的类型；正根细化仍为空。给定旧表的下切割响应逐q等于生成响应；−3处原表直接解释为下切割答案不满足Done。原M3否定等价保持，且无Spec_A→Spec_B总映射，新响应类型亦不等价。第四层SingleOmega→ℝLayerAt充分性以原显式输入保留。 | `FORMAL_CHECKED_WITH_SCOPE / ORIGINAL_SPEC_FIDELITY_AND_SCOPED_REFUSAL` | `tableResponseEquivOriginal/rootResponseEquivOriginal/noPositiveRootResponse/suppliedGeneratedAgreement/oldAnswerFailsLowerDone/originalM3Refusal/noOldTableToRoot/responseRefusal/smallnessIfProvided`；同run | 这些否定定理由内核接受，不是编译器报错或Agda/HoTT不对齐证据；未证明HoTT曾许诺被否定的任务等价，未证明SingleOmega必要、无条件缩层、现实失配或完整四弹闭环。 |
+
+## 实际圆HIT整数覆盖的依赖消费链（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-S1-CONSUMER-001` | `C-304` | `formal/astra-s1-consumer-check/SC00.agda`；原Cubical0.9 S¹/ℤ及固定上游证明片段 | `verification/runs/20260920-MP-ASTRA-S1-CONSUMER-001-02/`；safe/cubical/guardedness，fresh完整依赖exit0；初次01的出处快照分类问题另留存 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_DEPENDENT_CONSUMER_AND_UPSTREAM_FIDELITY` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-304 | 在原库S¹、base、loop与ℤ上，逐字提取helix至winding-hom的实际证明链，构造Iso(base≡base,ℤ)、decodeEncode的全部x/p依赖逆律、全部n的整数逆律以及全部回路p/q的winding(p∙q)=winding(p)+winding(q)。显式helixAgreement与encodeAgreement连接上游类型族/编码，windingAgreement及intLoopAgreement逐输入连接原上游函数；末端roundTripLoop/roundTripInteger/composedObservation实际消费该链。 | `FORMAL_CHECKED_WITH_SCOPE / REPLAYED_LIBRARY_CHAIN_WITH_EXPLICIT_BRIDGES` | `helix/decodeSquare/decode/decodeEncode/ΩS¹Isoℤ/winding-hom/helixAgreement/encodeAgreement/windingAgreement/intLoopAgreement/roundTripLoop/roundTripInteger/composedObservation`；SC00.agda；同run | 这是既有库证明链及保真桥的核验，不主张该基本结果原创。未用新本地HIT替代原S¹；不证明几何删点、物理时间过程、全部库消费者正确或四弹闭合。单因素修改的类型拒绝是运行对照，不增加相应数学不可能性定理。 |

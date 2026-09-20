@@ -1,0 +1,11 @@
+--- upstream-fixed-core
++++ SC04
+@@ -39,7 +39,7 @@
+            (decodeSquare n i j)
+ 
+ decodeEncode : (x : S¹) (p : base ≡ x) → decode x (encode x p) ≡ p
+-decodeEncode x p = J (λ y q → decode y (encode y q) ≡ q) (λ _ → refl) p
++decodeEncode x p = refl
+ 
+ isSetΩS¹ : isSet ΩS¹
+ isSetΩS¹ p q r s j i =

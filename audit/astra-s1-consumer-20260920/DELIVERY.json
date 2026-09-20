@@ -1,0 +1,37 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_SIX_CONTROLS_RECONCILED",
+  "primary_run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-CONSUMER-001-02",
+  "primary_seconds": 31.673237,
+  "claim_ids": [
+    "C-304"
+  ],
+  "checks": [
+    {
+      "kind": "formal-v2",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-S1-CONSUMER-001-02"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation-v2",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-S1-CONSUMER-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "six_cases": "SIX_DECLARED_CASES_EXACTLY_RECONCILED",
+  "import_modules": 146,
+  "one_compiled_local_module": true,
+  "noncompiled_snapshots": 4,
+  "initial_and_final_graph_exact_match": true,
+  "extra_kernel_replay_reason": "Inert source snapshots wrongly listed as compiled inputs in first receipt; source unchanged, v2 explicitly separates roles. First receipt and qualifier failure retained.",
+  "total_kernel_runs": 7,
+  "parent_goal": "OPEN"
+}
