@@ -12,6 +12,6 @@
 - next: BP-GEO-REAL-01保持为下一最小实际构造；吸收真实Forget/恢复、实际L/U和有界consumer检查，跨内核/Huber仅按依赖触发。
 - KC触及集: 本单元不裁决KC所涉数学命题或现实性，不改变core/manifest；保持既有立场。来源保真、先发现后归因、不可将同形控制冒充同任务的姿态，落实于逐项代码/叙事对照及明确反证条件。下一T2/T3研究单元须按同档收据复认重新闭合业务输入。
 - element_usage: closure=范围/当前Goal；trajectory=完整原文与稳定locator；现有F-011 verifier=实际重放；shard validator=结构；checkpoint=未触发、不伪造；Sub Agent=禁止且未使用。
-- reflection: revised-in本轮plan-revise提交；八项反思在总策略010第6节。
+- reflection: revised-in cf65c9e72207803cfb0e5f6b21ca026c06b8eace；八项反思在总策略010第6节。审查实物提交6cc875a5463a94ef94367eab9b23e542d9b8683f；本条回填确切计划版本，不重写旧提交或checkpoint。
 - impact: 研究方案/来源定位/验证记录/当前导航变化；共享治理方法、Host配置、数学源码及公开发布不变。无push/tag，无对外消息。
 - completion: 用户追加的会话审查与计划吸收可按本报告验收；原长期Goal未完成。
