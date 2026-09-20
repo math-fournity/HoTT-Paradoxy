@@ -1081,3 +1081,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 > 时序修订注记（2026-09-19 深夜）：为 NO-BREAKOUT-02 的 index 快照选择提供
 > 含完整 run ID 的已提交矩阵修订；其余内容无变化。
 
+## 追加登记：MP-ASTRA-REAL-CIRCLE-001（真实实数去点圆与开区间，2026-09-20）
+
+经典Lean4.34.0/mathlib v4.34.0 `5ed2965256430c3649e86755f9576b54eca72435`；辅助点集几何，不是原生HoTT或物理过程命题。命题固定后实际内核检查；标准公理输出为propext、Classical.choice、Quot.sound，无sorryAx。源码、依赖源码/编译接口、Lean/Std运行输入由manifest逐文件固定；导入使用官方预编译库，本轮未从源码重建全部mathlib。
+
+| proof_id | claim_ids | 源码与规格 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-ASTRA-REAL-CIRCLE-001` | `C-265` | `formal/astra-real-geometry/PuncturedCircle.lean`、`TOOLCHAIN.json`；真实二维实数EuclideanSpace单位圆，指定点p的补子类型，N为Ioo(0,1) | `verification/runs/20260920-MP-ASTRA-REAL-CIRCLE-001-02/`；exit0、零stderr；22923个外部源码/运行输入文件哈希；-01为增加显式TOOLCHAIN索引前的成功捕获，不作当前primary | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-265 | 对任意`p : sphere (0 : EuclideanSpace ℝ (Fin 2)) 1`，`Punctured p = {x : Circle // x ≠ p}`到`Ioo (0:ℝ) 1`有`Homeomorph`；`pole`给出显式非空实例，`actualMToN`及surjective、exact_inverse_roundtrip、forward_continuous、inverse_continuous逐项过核。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `puncturedToEuclidean`、`euclideanLineToReal`、`rescaleInterval`、`puncturedCircleHomeomorph`；run `20260920-MP-ASTRA-REAL-CIRCLE-001-02` | 只比较内在拓扑；未证明保持环境/端部/来源/允许操作的复原；不把noncomputable定义当物理Trace；未建立到原生HoTT的保真翻译；未得HoTT缺陷。 |

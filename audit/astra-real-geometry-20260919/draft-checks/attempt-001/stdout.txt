@@ -1,0 +1,22 @@
+HoTT/formal/astra-real-geometry/PuncturedCircle.lean:24:55: warning: This simp argument is unused:
+  Metric.mem_sphere
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dist_eq_norm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HoTT/formal/astra-real-geometry/PuncturedCircle.lean:24:74: warning: This simp argument is unused:
+  dist_eq_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Metric.mem_sphere]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HoTT/formal/astra-real-geometry/PuncturedCircle.lean:28:47: error: unsolved goals
+p : Circle
+e : OpenPartialHomeomorph (↑(sphere 0 1)) (EuclideanSpace ℝ (Fin 1)) := stereographic' 1 p
+⊢ {p}ᶜ = {x | ¬x = p}
+'AstraRealGeometry.actualMToN' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.exact_inverse_roundtrip' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.forward_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.inverse_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,59 @@
+{
+  "status": "DUAL_LOCAL_PASS",
+  "checks": [
+    {
+      "name": "formal",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-REAL-CIRCLE-001-02",
+        "--rerun"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "relation",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-REAL-CIRCLE-001"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "regression",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/audit",
+        "-p",
+        "test_proof_*py"
+      ],
+      "exit": 0
+    }
+  ],
+  "negative_controls": [
+    {
+      "case": "wrong-binary",
+      "status": "REJECTED_AS_EXPECTED",
+      "error": "LATER_COMMAND_TOOL_MISMATCH:MP-ASTRA-REAL-CIRCLE-001"
+    },
+    {
+      "case": "wrong-assistant",
+      "status": "REJECTED_AS_EXPECTED",
+      "error": "LATER_COMMAND_TOOL_MISMATCH:MP-ASTRA-REAL-CIRCLE-001"
+    },
+    {
+      "case": "unpinned-binary",
+      "status": "REJECTED_AS_EXPECTED",
+      "error": "LATER_LEAN_BINARY_NOT_PINNED:MP-ASTRA-REAL-CIRCLE-001"
+    }
+  ],
+  "scope": "C-265 only; classical Lean geometry; full goal remains active"
+}
