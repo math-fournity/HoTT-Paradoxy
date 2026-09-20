@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 140,
+  "later_machine_proved_claim_count": 142,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-NATIVE-INTERVAL-001",
+      "claim_ids": "C-289–C-290",
+      "source": "HoTT/formal/agda-unimath/hott-z/NativeOpenInterval.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-INTERVAL-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_original_open_interval_and_circle_composition",
+      "verdict": "STRICT_ORIGINAL_INTERVAL_HOMEOMORPHISM_AND_NATIVE_PATH_ACTION",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Exact C281 (0,1), seven local Agda inputs pinned. Strong circle homeomorphism and original W conditional on Lift/LEM0. Native intrinsic geometry is directly proved; this does not translate all Lean results or prove original physical/endpoint/source tasks. No closed-interval or uniform-homeomorphism substitution."
+    },
     {
       "proof_id": "MP-ASTRA-NATIVE-CONTINUITY-001",
       "claim_ids": "C-287–C-288",

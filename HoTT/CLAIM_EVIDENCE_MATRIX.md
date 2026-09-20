@@ -1211,3 +1211,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-287 | 对实际apart非零Dedekind实数子空间，recip=real-inv-nonzero-ℝ逐点连续。给定正有理r及2r≤abs(x)，C=(inv r)²、μ(r,ε)=min(r,inv(C)·ε)满足原邻域下的逆元误差≤ε；由abs(x)>0的截断有理下界合法构造连续模数的截断存在。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_LOCAL_RATIONAL_MODULUS` | `reciprocalDistance/inverseBound/nearbyLower/budgetIdentity/localEstimate/reciprocalContinuous`；ReciprocalContinuity.agda；run `20260920-MP-ASTRA-NATIVE-CONTINUITY-001-01` | 非零域是apart-from-zero；没有新增或传入选择公理/LEM，不声称最小公理集已提取、全局数值模数选择器、双向一致连续或物理可执行性。 |
 | C-288 | 在C281原实数/乘积/子空间度量下，C285同一投影与参数化均逐点连续；连同原两复合律，填满PointwiseHomeomorphism六字段，得到StrongPuncture↔Real的双向连续互逆。原弱删点域在Lift下亦有此同胚，LEM₀为显式充分输入。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_POINTWISE_HOMEOMORPHISM` | `stereographicContinuous/parameterizeContinuous/strongHomeomorphism/weakHomeomorphism/classicalWeakHomeomorphism`；StereographicContinuity.agda；同run | 不声称uniform-homeo、等距、原metric数据相等、无条件弱Lift、与(0,1)已连通、完整Lean翻译、固定端部物理变形或HoTT矛盾。 |
+
+## 原开区间连续互逆及圆同胚复合（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-INTERVAL-001` | `C-289..C-290` | `formal/agda-unimath/hott-z/NativeOpenInterval.agda`；SignedIntervalHomeomorphism及五个已核本地模块全部pin | `verification/runs/20260920-MP-ASTRA-NATIVE-INTERVAL-001-01/`；原生Agda `--ignore-interfaces` exit0；固定no-erasure配置/声明公设 | `FORMAL_CHECKED_WITH_SCOPE / ORIGINAL_OPEN_INTERVAL_HOMEOMORPHISM` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-289 | 实际Real上的t/(1+abs(t))与SignedInterval={abs(z)<1}上的z/(1−abs(z))具有正分母、严格范围、两复合律及原metric连续性；仿射½(1+z)与(u+u)−1接到C281原OpenRealInterval(0,1)，得到Real↔(0,1)的六字段同胚。 | `FORMAL_CHECKED_WITH_SCOPE / STRICT_MEMBERSHIP_AND_BOTH_CONTINUOUS_INVERSES` | `realSignedHomeomorphism/signedUnitHomeomorphism/realUnitHomeomorphism`；SignedIntervalHomeomorphism.agda、NativeOpenInterval.agda；run `20260920-MP-ASTRA-NATIVE-INTERVAL-001-01` | 不换闭区间，不额外假定Lift/LEM，不声称全局一致连续、等距或物理过程；继承库公设不等于无公设体系。 |
+| C-290 | C289与C288实际复合产生StrongPuncture↔C281原(0,1)同胚；原W域有Lift及LEM₀充分输入下的同胚。提取实际等价后univalence给StrongPuncture＝OpenRealInterval及与真实复合映射一致的命题作用，原W域Path仍以Lift为条件。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_CIRCLE_ORIGINAL_INTERVAL_AND_NATIVE_ACTION` | `strongCircleUnitHomeomorphism/weakCircleUnitHomeomorphism/classicalWeakCircleUnitHomeomorphism/strongIntervalTypePath/strongIntervalPathAction/weakIntervalTypePath`；同run | 内在几何子命题不自动证明无条件弱Lift、带来源/端部结构相等、环境延拓、允许运动或Done-EXACT；不把原生证明冒称全Lean演算翻译或HoTT矛盾。 |

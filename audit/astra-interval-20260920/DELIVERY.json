@@ -1,0 +1,45 @@
+{
+  "status": "FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE",
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-INTERVAL-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-INTERVAL-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "fresh_kernel_run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-INTERVAL-001-01",
+  "extra_kernel_rerun": false,
+  "kernel_seconds": 242.983061,
+  "source_graph_matches_final_draft": true,
+  "import_modules": 1078,
+  "claim_ids": [
+    "C-289",
+    "C-290"
+  ],
+  "unproved": [
+    "Unconditional weak Lift",
+    "Same-map closed completion and original endpoint/source task",
+    "Full native process/Task/Trace/Done integration",
+    "Complete four-stage redo"
+  ],
+  "native_intrinsic_geometry_directly_proved": true,
+  "whole_Lean_interpreter_is_not_a_prerequisite_for_these_native_claims": true
+}
