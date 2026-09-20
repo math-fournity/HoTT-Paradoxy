@@ -1,0 +1,31 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260919-MP-G4-BREAKPOINT-BRIDGE-03",
+  "proof_id": "MP-G4-BREAKPOINT-BRIDGE",
+  "claim_ids": [
+    "CAND-G4-BREAKPOINT-BRIDGE"
+  ],
+  "source_paths": [
+    "HoTT/formal/flash-first-hunt/BreakpointBridge.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "圆环线↔ℝ层线连通件（Flash 单元一后续，用户四项指令之③）。纯 Cubical Agda（--safe 零公理）：ExcludedCarrier C r := Σ q:C, ¬(q≡r)——与 RingOrigin.SourceCarrier 同型的「排除证据」载体在 ℝ 层线的形态；桥命题 bridge : ExcludedCarrier C r → ExcludedCarrier C r（同一 Σ 类型的两线重述）；实例正控 ℤ∖{0}：排除证据 pos1≢pos0 经 injPos+sym+znots 构造性给出。圆环悖论的「断点排除」与 Dedekind cut 的「无理排除」在类型层为同一构造。",
+  "non_goals": [
+    "不声称 GOLD L/U 全谓词族已重表述（谓词族级工程列下一单元）；不声称圆环=实数（两线共用检查方式，对象不同）；无 ∀ 新主张；registers_new_claim:false"
+  ]
+}
