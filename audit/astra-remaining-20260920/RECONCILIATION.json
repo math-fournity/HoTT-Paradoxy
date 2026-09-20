@@ -1,0 +1,1250 @@
+{
+  "status": "READ_ONLY_QUALIFIED_PROVENANCE_REVIEW_REQUIRED",
+  "expected_target": "12654ad15f3ae8d0e0e8ed50ebf1755673277a10",
+  "snapshot": "d059dbf7b543092bce99333843f2bda16a06b327",
+  "selected": [
+    {
+      "proof_id": "MP-ASTRA-RESTORE-CRITERION-001",
+      "claim_ids": "C-261–C-262",
+      "source": "HoTT/formal/astra-breakpoint-check/PointRestoration.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "不声称两个证据类型之间的≃，不赋予拓扑，不将可判定性默认为实数输入已有；无物理复原或HoTT缺陷结论。"
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-RESTORE-001",
+      "claim_ids": "C-263",
+      "source": "HoTT/formal/astra-breakpoint-check/RationalRestoration.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "仅有理代数点集及原生类型等价；无拓扑/同胚/连续路径/实数完成/物理动作许可证明。"
+    },
+    {
+      "proof_id": "MP-ASTRA-HIT-RESTORE-CONTROL-001",
+      "claim_ids": "C-264",
+      "source": "HoTT/formal/astra-breakpoint-check/HomotopyRestorationControl.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "不是点集圆删一个几何点的命题；不是HoTT无法处理几何复原。首次失败只是extend导入名冲突。"
+    },
+    {
+      "proof_id": "MP-ASTRA-PATH-001",
+      "claim_ids": "C-250",
+      "source": "HoTT/formal/astra-breakpoint-check/PathControls.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "不证明物理复原、证明搜索不可判定或理论矛盾。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-EXCLUSION-001",
+      "claim_ids": "C-251",
+      "source": "HoTT/formal/astra-breakpoint-check/PathExclusion.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "路径排除不是点集圆去掉一个几何点；不说 HoTT 不能删点。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-FRAME-001",
+      "claim_ids": "C-252",
+      "source": "HoTT/formal/astra-breakpoint-check/FixedFrame.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "这是携带真实参照等价的结构控制；未形式化实际圆环与线段。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-ELIM-001",
+      "claim_ids": "C-253",
+      "source": "HoTT/formal/astra-breakpoint-check/EliminationControls.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "不声称所有 Bool 输出函数不存在，也不声称每种消去都丢失任务所需信息。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-LOCAL-001",
+      "claim_ids": "C-254",
+      "source": "HoTT/formal/astra-breakpoint-check/LocalCoherence.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "有限原生规则控制，不是所有高阶粘合或现实运动的全称定理。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-001",
+      "claim_ids": "C-255",
+      "source": "HoTT/formal/astra-breakpoint-check/RationalPointSet.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "不是 ℝ 圆、拓扑等价或从 N 到 M 的操作模型。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-ENDPOINT-001",
+      "claim_ids": "C-256",
+      "source": "HoTT/formal/astra-breakpoint-check/EndpointMaps.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "Reach 为明确受限的构造语言；不代表所有实际允许的形变或制造操作。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-COMPUTATION-001",
+      "claim_ids": "C-257",
+      "source": "HoTT/formal/astra-breakpoint-check/ClosedComputation.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "一个闭计算实例不证明整个系统规范化；opaque 对照不等于原生 ua 不计算。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-HOLDOUT-001",
+      "claim_ids": "C-258",
+      "source": "HoTT/formal/astra-breakpoint-check/UpstreamLoopHoldout.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "源码来源交叉检查，不是盲测；不声称所有不同语法证明都不等。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-BOUNDED-001",
+      "claim_ids": "C-259",
+      "source": "HoTT/formal/astra-breakpoint-check/BoundedConsumers.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "只覆盖冻结语法60成员；不能外推全部 HoTT 上下文、无限搜索或物理操作。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-BOUNDARY-001",
+      "claim_ids": "C-260",
+      "source": "HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_native_cubical_bounded_check",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "notes": "需由真实几何模型提供 n,m 及其端部性质；没有由定义标签直接宣布真实 M/N 不等。",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    }
+  ],
+  "checks": [
+    {
+      "proof_id": "MP-ASTRA-RESTORE-CRITERION-001",
+      "claims": "C-261–C-262",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-RESTORE-001",
+      "claims": "C-263",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-HIT-RESTORE-CONTROL-001",
+      "claims": "C-264",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-PATH-001",
+      "claims": "C-250",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-EXCLUSION-001",
+      "claims": "C-251",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-FRAME-001",
+      "claims": "C-252",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-ELIM-001",
+      "claims": "C-253",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-LOCAL-001",
+      "claims": "C-254",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-001",
+      "claims": "C-255",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-ENDPOINT-001",
+      "claims": "C-256",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-COMPUTATION-001",
+      "claims": "C-257",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-HOLDOUT-001",
+      "claims": "C-258",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-BOUNDED-001",
+      "claims": "C-259",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-ASTRA-BOUNDARY-001",
+      "claims": "C-260",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01"
+      ],
+      "exit": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda",
+      "bytes": 1268,
+      "sha256": "36dea2d61ff0e4139afe2997119c67da556b810232e2ae6d75b4e7d9e7713bb5",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": true,
+      "same_as_head": true
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/BoundedConsumers.agda",
+      "bytes": 15805,
+      "sha256": "7e6638dfc16c301b73ed8e7c5630badca9e6ae25b03f6c271190266b1ce2d16b",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/ClosedComputation.agda",
+      "bytes": 589,
+      "sha256": "058b6f0f0e61c9ab4feb26a40ef729c9a1c4f2b10507e8eebb82d01d7632a829",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/EliminationControls.agda",
+      "bytes": 1763,
+      "sha256": "51faba6340b00bb6d811d4544d19fd0a0dd1c8af40164a166dba9939a1db65a3",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/EndpointMaps.agda",
+      "bytes": 2092,
+      "sha256": "a62f96eae4ccb0741b2bea0ccc15fc9602cfefce99a68a7953edc345e2465199",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/FixedFrame.agda",
+      "bytes": 1770,
+      "sha256": "90d2f2333f134faec322bd054332f8031481ae9a35c67ae8ad532f6b5f74951d",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/HomotopyRestorationControl.agda",
+      "bytes": 1264,
+      "sha256": "2a930c02fa6bafcae4bbc6978f718f4ddaaf23b2fa5fb4e4f9e8cd2bbd6e1c65",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/LocalCoherence.agda",
+      "bytes": 1168,
+      "sha256": "f255af9e1b6e84f08e167eca3f9dc29bbb5e68d4531aaa73a323fc8dcacad28d",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/PathControls.agda",
+      "bytes": 1029,
+      "sha256": "d8467ef84fe4b3de8abcea9ed27ae4cdcb1474f37dbdd29bbac5effb8dff4225",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/PathExclusion.agda",
+      "bytes": 1675,
+      "sha256": "92a986ed06e8d6bf0eeb5017e2c4a3974bb58917a5849dca7ffb7e004de4ab09",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/PointRestoration.agda",
+      "bytes": 2902,
+      "sha256": "e36e80876965e40771c138ab8c61d060e9b4b9a4fa95d1d69136191156a59350",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/RationalPointSet.agda",
+      "bytes": 1294,
+      "sha256": "92ae490a9aee44c185b333e6c637b478826967b2bb72efe55ea11773027d9fa4",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/RationalRestoration.agda",
+      "bytes": 1497,
+      "sha256": "eb9d25239a02ad67015d27f73de80673c1f548b5b16bde11ce87ea9294dc64f8",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/astra-breakpoint-check/UpstreamLoopHoldout.agda",
+      "bytes": 831,
+      "sha256": "11ccf5455dd6cad1189ccf6ae2996d486583f6da2748981ccd9b07ecbabc59f6",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+      "bytes": 70,
+      "sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": true,
+      "same_as_head": true
+    },
+    {
+      "path": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "bytes": 2645,
+      "sha256": "528c52765203844de5a7d99358d47bd1a83d8851b28fa82d4cc63db2ce838194",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": true,
+      "same_as_head": true
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01/RUN.json",
+      "bytes": 2707,
+      "sha256": "e7485980d795b432d7d1db58e50f20dca78eed945cc902ac8f4bb6435aa707dd",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01/index-row-manifest.json",
+      "bytes": 900,
+      "sha256": "c3bba15166c0c7853449b423cafc033a86fd1bf3e5b287b073de1cb247585b83",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01/source-manifest.json",
+      "bytes": 2495,
+      "sha256": "f348a6889ebf87388295c05b87a0ceee9560fe5405a1a920f625c0d97daf12ac",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDARY-01/stdout.txt",
+      "bytes": 9842,
+      "sha256": "b420158a87a2873c598a0971e39db6855edc42cd281bdeaaee286d39c436749b",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03/RUN.json",
+      "bytes": 2654,
+      "sha256": "834141f9cfbd4f63b440022d371fe0443f01acb72a6a6e6c938d2f6ac945811a",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03/index-row-manifest.json",
+      "bytes": 897,
+      "sha256": "4065b32a2cd9d97fc8d037342f3e5f933c850200d1de7392a313ba2755cca132",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03/source-manifest.json",
+      "bytes": 2493,
+      "sha256": "1ab60e192f5a4b8ccd0173074e0c5e116a3f0c73e0baca6749b29813cd0a829a",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-BOUNDED-03/stdout.txt",
+      "bytes": 9872,
+      "sha256": "5789380310bfb538d15c8d6d7f72ac54aa3dbb36d06e8465cbcb3521d53f32ac",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01/RUN.json",
+      "bytes": 2641,
+      "sha256": "9d7c42ac8e7c4b8e40be1b7bc925a98858de3208c770cc62226f13ceafea71ef",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01/index-row-manifest.json",
+      "bytes": 909,
+      "sha256": "b85675a8b9258b00268378f86f851fc74a89e6ccb6dda2657564971be87f187d",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01/source-manifest.json",
+      "bytes": 2500,
+      "sha256": "1347a24d7862a7beb91288128687194bc9d9e9e85e5db49dec2ae72eb3f93d21",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-COMPUTATION-01/stdout.txt",
+      "bytes": 9848,
+      "sha256": "cad27e40bb799e54a5725a35cdda9a9cfbcc0f75224d110e09452862b956120e",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01/RUN.json",
+      "bytes": 2732,
+      "sha256": "a0076f3701a488f61eef5df92aa451a7ad36a1c6d275afa3753945162e343a93",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01/index-row-manifest.json",
+      "bytes": 888,
+      "sha256": "c36dd6c00af7c0cd94b7c005f05d088948ff755af99385b2dab913d240a662de",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01/source-manifest.json",
+      "bytes": 2489,
+      "sha256": "c80814ba304b90c71bbfd6e0ce82c6c5bf5f8048de988332fb483a5284643ea2",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ELIM-01/stdout.txt",
+      "bytes": 11373,
+      "sha256": "d8f3b9a93dee74877320e5f88915a3826f7008a93812fbcf6eb0e1677d18eab1",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01/RUN.json",
+      "bytes": 2642,
+      "sha256": "45b3d93d46651a2e873025c304ae154c155fac4c630950e978fd065fe19f842d",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01/index-row-manifest.json",
+      "bytes": 900,
+      "sha256": "daf4d207706fdf07ce229ab7f1a3e219a48d9b5fde86e495d889748eadffd233",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01/source-manifest.json",
+      "bytes": 2490,
+      "sha256": "03ec8c43c757694d0ee5e6ef5c02a522b536f281387fbf913003a0d050dbd751",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-ENDPOINT-01/stdout.txt",
+      "bytes": 9832,
+      "sha256": "2d0a3ed29746fee51fcbb8e6d4cae058a4b53ab28e823b434351b12fa03535ef",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01/RUN.json",
+      "bytes": 2713,
+      "sha256": "4fd334c124fc020e21af554fce60d372fced7cd259ab2d6840ba78a883e95872",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01/index-row-manifest.json",
+      "bytes": 903,
+      "sha256": "e5966bdc45b7f271591b93add04aadc3137d8e1396c919a84f2c1d6d8a8bf389",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01/source-manifest.json",
+      "bytes": 2493,
+      "sha256": "2d60d7b4bf78150b26717974fdbe74bb69f312ddccbc665101ea55c17a63c604",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-EXCLUSION-01/stdout.txt",
+      "bytes": 16729,
+      "sha256": "924a611ff151e93dc9b2fa854d930ec9032aad94ffee265fee5b0b94c8add433",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01/RUN.json",
+      "bytes": 2719,
+      "sha256": "5346b5007ff6c0e0d41e7a4b94e6413ef9c010f5ff237d7ab1ffdf229bc7fade",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01/index-row-manifest.json",
+      "bytes": 891,
+      "sha256": "92630133993d8dc114803f093f4f96abe3e6a5094f0852e651e4a274dc92978a",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01/source-manifest.json",
+      "bytes": 2482,
+      "sha256": "1992e975e3b10987b69165e81fc84cf5a910c4d7b764c075c49523c2f4bf1bd0",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-FRAME-01/stdout.txt",
+      "bytes": 9787,
+      "sha256": "862966af8f3920bab574fe06eb821f0aaecedd63f0642248e74fb8f1ed530bdd",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02/RUN.json",
+      "bytes": 2732,
+      "sha256": "e8661aae1f1f5190e5f706574e32b27f4794d4b8d31fd20fd178830e02cc8604",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02/index-row-manifest.json",
+      "bytes": 933,
+      "sha256": "de72424657989e9e74b9c0b8228455c08c0e8a24192fe2e3fc046ffbebcacee8",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02/source-manifest.json",
+      "bytes": 3098,
+      "sha256": "d58e3bac146c9b0d9df2083ec21c309672fea754590b1ad78b243042f4289514",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02/stdout.txt",
+      "bytes": 17189,
+      "sha256": "402e4bc6a284769dc60f1b59c248fea3ceaeebea4cd126a78c55520252d3531b",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01/RUN.json",
+      "bytes": 2653,
+      "sha256": "9aa41d79f75d8976c56637425a5fb8a159063145fd58d48a858aa16b28c31054",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01/index-row-manifest.json",
+      "bytes": 897,
+      "sha256": "7ca4fc8d6e568dfc8f5d5b1a83ff505d5205ca98ff2ba54016ee24adc389bd62",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01/source-manifest.json",
+      "bytes": 2494,
+      "sha256": "346cb3f37fbdc60a8e858fc2d5a5299c200b42f5076bc2667a10e97e96e17e2f",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-HOLDOUT-01/stdout.txt",
+      "bytes": 16594,
+      "sha256": "3377f4157a20ade901c0553ed3b2abbb12576ecf767e2db30d5d6840f18a532b",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02/RUN.json",
+      "bytes": 2625,
+      "sha256": "42159a650395b317fa64a2dfc8fe2af3129d74dc79a9079c3570695ac7d62c00",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02/index-row-manifest.json",
+      "bytes": 891,
+      "sha256": "e0b489d2215f3026f05006f28277c30013899fcd6d2a779fb3be6a1fcccab732",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02/source-manifest.json",
+      "bytes": 2486,
+      "sha256": "a3367de8d0ccd23b5be0518809c97a4abc89340a851b04f897090ec3f6e19755",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-LOCAL-02/stdout.txt",
+      "bytes": 16748,
+      "sha256": "a1b66b935a46acc35efd8cc03d7666e5ce47de6812e82d906a740fd1d37855b6",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01/RUN.json",
+      "bytes": 2675,
+      "sha256": "96ddf5141bf59db6a9437c9853f9e65b5e57f83ce759b58d2fe5dd496a73cf63",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01/index-row-manifest.json",
+      "bytes": 888,
+      "sha256": "a6d05f22d43c1dbf39358135cd96422890b2fecb0912de606d68dfcfa2ab5a89",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01/source-manifest.json",
+      "bytes": 2482,
+      "sha256": "7df174bafa119f88a214017dfbd5a109577fa245a9e4b7f3902b5977db6b509b",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-PATH-01/stdout.txt",
+      "bytes": 9838,
+      "sha256": "c56a38e22b9f3da9b04b7d5744170717856c8bdde3cbed6989af7efbafcb5db7",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01/RUN.json",
+      "bytes": 2673,
+      "sha256": "0fe98f257f3edf5837bee0da87119a7cc94f843e22fda41f4ac6c3c26e868f81",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01/index-row-manifest.json",
+      "bytes": 897,
+      "sha256": "ca07274efaca2c9de17f34c851a29e2599037339ff2da3c02e6498d55a85170f",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01/source-manifest.json",
+      "bytes": 2492,
+      "sha256": "0c4e2511d94552c2ac0234848e659b646050b98977fe92e3feb92fbad04deccb",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-01/stdout.txt",
+      "bytes": 17882,
+      "sha256": "01743c5d34d69b704e424802df4a93653a137206ecbaaf5ec8839efa86914a33",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01/RUN.json",
+      "bytes": 2748,
+      "sha256": "b64edd2a8fdd41c0b3d91206731837ec2623da21af067eba3ec12ece672a150b",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01/index-row-manifest.json",
+      "bytes": 921,
+      "sha256": "a44dfd7a416c497cc38daa12a974929b15f4a6e276d5e5a39dbea8e09b83c814",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01/source-manifest.json",
+      "bytes": 2893,
+      "sha256": "6a036ec49bdb0d1dca10964ab884128820c1832195957784a4b5dd1ffada7bcb",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01/stdout.txt",
+      "bytes": 18173,
+      "sha256": "084e2ead8bf223fcd28a773510be8286d34e6ffa44019ff38a8161e2a612d9fc",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01/RUN.json",
+      "bytes": 2793,
+      "sha256": "88246bbb556e4ea5600d494bd840b3a994872b8a05404c3452a6c2cbf408ef84",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01/environment.txt",
+      "bytes": 900,
+      "sha256": "ec2e3c0d7ed08c4a699f7b610faa2258096dba3fdc7ad0a6c5302d857ea94583",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01/index-row-manifest.json",
+      "bytes": 1085,
+      "sha256": "c3a18e6834c84c48977ede51cb6b1864b04ffa31e911e2b9d2feb8a8a2be06cf",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01/source-manifest.json",
+      "bytes": 2512,
+      "sha256": "1c32bb2a3902aae9a6fa223bbfb3f11ff8f30eeb0621f4c1850ff43ad3305e2f",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    },
+    {
+      "path": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01/stdout.txt",
+      "bytes": 7082,
+      "sha256": "899c150526f30b50718fe7f86a71caee220b9611a7853f3b7080c49aa9016707",
+      "snapshot_present": true,
+      "same_as_snapshot": true,
+      "head_present": false,
+      "same_as_head": false
+    }
+  ],
+  "evidence_exit": 0,
+  "kernel_replayed": false,
+  "mathematics": "NO_NEW_THEOREM_FROM_VERSION_RECONCILIATION"
+}
