@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 158,
+  "later_machine_proved_claim_count": 160,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-WEAK-LIFT-PRINCIPLE-001",
+      "claim_ids": "C-307–C-308",
+      "source": "HoTT/formal/agda-unimath/hott-z/WeakLiftConsumer.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-WEAK-LIFT-PRINCIPLE-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_original_circle_lift_real_apartness_principle",
+      "verdict": "LOGICAL_IFF_VIA_ACTUAL_COORDINATES_WITH_CONDITIONAL_GEOMETRIC_CONSUMER",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Nine local modules under the pinned without-K no-erasure derivative. Reflected original stereographic coordinates connect all negated-zero real inputs to original Circle Lift; real stability/inverse and same-point/circle-inverse contracts are explicit. Given the principle, the original weak puncture/open-interval homeomorphism and native path action follow. No unconditional principle, independence, LEM necessity, binary Markov equivalence, arbitrary-homeomorphism necessity or physical mismatch is claimed; inherited library postulates remain."
+    },
     {
       "proof_id": "MP-ASTRA-QUOTIENT-CONSUMER-001",
       "claim_ids": "C-305–C-306",

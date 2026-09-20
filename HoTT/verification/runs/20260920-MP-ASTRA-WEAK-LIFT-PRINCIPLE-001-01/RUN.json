@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-307",
+    "C-308"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-weak-principle-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/WeakLiftConsumer.agda"
+  ],
+  "completed_at_utc": "2026-09-20T19:30:32.657168+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 233.125872,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "29c1fbb4b5a1bede020a76134a8c5e52a96d43120841543105972a76c189af43"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No unconditional instance or negation of the principle, no independence/countermodel, no necessity of LEM or established equivalence to standard binary Markov principle.",
+    "No necessity for every arbitrary homeomorphism; the equivalences concern the stated refinement and inverse contracts.",
+    "No physical restoration, original broad operation classification, complete four-stage result or global consistency certificate; inherited library postulates remain explicit."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-WEAK-LIFT-PRINCIPLE-001",
+  "run_id": "20260920-MP-ASTRA-WEAK-LIFT-PRINCIPLE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For the original Real=Dedekind R at level0 and original point-set circle, RealNonzeroApartness (not equal zero implies apart zero) is logically equivalent to Circle Lift via actual reflected stereographic coordinates, with zero/east and nonempty weak-domain controls. Equivalent real apartness stability, uniform real inverse, same-point refinement and uniform circle denominator inverse contracts are explicit. Supplying the principle yields the original weak-circle/open-interval pointwise homeomorphism and native type path with its actual map action.",
+  "source_manifest": {
+    "bytes": 16220,
+    "path": "source-manifest.json",
+    "sha256": "f8eccfe5466d93c84fa40d8d32c8283b046a72742276f8abd18a9294abbd2479"
+  },
+  "started_at_utc": "2026-09-20T19:26:39.531296+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 209827,
+    "path": "stdout.txt",
+    "sha256": "bb6aa1d3aca827072663f8bbf3d3315bc4310f1d3bbf92b1a2dae76476f8b0a3"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}
