@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-314",
+    "C-315"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-native-closed-motion-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/NativeClosedMotionEndpoints.agda"
+  ],
+  "completed_at_utc": "2026-09-20T22:40:31.866834+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 286.414869,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "912d1baa31a1299514b841661ef062bcfca4b4348ffb7c731438c0347239e227"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "Endpoint separation for every t<1, complete final fiber classification, and a uniform spatial bound are still separate obligations.",
+    "No ambient-plane isotopy, physical implementation/speed/length, or unconditional full Weak-puncture coverage is claimed.",
+    "No whole Lean/native model translation, global consistency certificate or completed four-stage result; inherited foundation postulates remain explicit. No new LEM/Lift/choice parameters are added."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-NATIVE-CLOSED-MOTION-001",
+  "run_id": "20260920-MP-ASTRA-NATIVE-CLOSED-MOTION-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For every original real time and original closed parameter in [0,1], prove positivity of the same rational closingK denominator by located order/apartness, construct closedMotion and prove joint pointwise continuity on Real times [0,1] and the closed square restriction. Prove exact agreement with unchanged motion on every open parameter, full initial nCompletion and final mCompletion diagrams, both final endpoints at east and closed-domain noninjectivity, while open-interior injectivity is retained through C313.",
+  "source_manifest": {
+    "bytes": 18350,
+    "path": "source-manifest.json",
+    "sha256": "c5777372ac0f2920c0374ed58499e033087595162657ffa0dc8f368ddae4bfe3"
+  },
+  "started_at_utc": "2026-09-20T22:35:45.451965+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 213670,
+    "path": "stdout.txt",
+    "sha256": "08b7eae811dad41a6ce85e4487eef5a8f0ff80a6defbf17eaca87ce51f282e3d"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

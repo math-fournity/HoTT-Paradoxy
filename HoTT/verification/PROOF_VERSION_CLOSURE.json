@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 165,
+  "later_machine_proved_claim_count": 167,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-NATIVE-CLOSED-MOTION-001",
+   "claim_ids": "C-314–C-315",
+   "source": "HoTT/formal/agda-unimath/hott-z/NativeClosedMotionEndpoints.agda",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-CLOSED-MOTION-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "native_same_rational_closed_extension_and_full_endpoint_diagrams",
+   "verdict": "CLOSED_EXTENSION_CONTINUOUS_AND_FAITHFUL_FIBERS_BOUND_PENDING",
+   "notes": "All real time and original closed parameter: positive closingK by located order/apartness, joint continuity, exact original open-motion agreement, complete n/m initial/final diagrams, final endpoint collision and closed-domain noninjectivity, retained open-interior injectivity. No new LEM/Lift/choice parameters; inherited native-library postulates remain. t<1 endpoint separation, full final fiber classification and uniform spatial bound remain unproved here; no ambient/physical or complete four-stage claim."
+  },
   {
    "proof_id": "MP-ASTRA-NATIVE-EMBEDDING-001",
    "claim_ids": "C-313",

@@ -1355,3 +1355,15 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | C-313 | 对每个原Real时间t，未改动的motion(t)给出原OpenRealInterval到curveImageMetric(t)=im-Metric-Space intervalMetric realPlaneMetric (motion t)的PointwiseHomeomorphism。forward准确为map-unit-im(motion t)，backward为显式recoverInterval(t)；双方连续及两个逆律均证明，导出单射及原闭时间限制。逆链中stretch/bend坐标图分母和turn行列式均具正性证明，mere像成员只消去到命题，不选取任意原像。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_TOPOLOGICAL_EMBEDDING_WITH_ACTUAL_AMBIENT_SUBSPACE_METRIC` | `stretchLeftInverse/stretchInverseContinuous/bendLeftInverse/bendInverseContinuous/turnDetPositive/turnLeftInverse/turnUndoContinuous/imageInduction/recoverIntervalContinuous/recoverIntervalLeft/recoverIntervalRight/motionSliceHomeomorphism/motionSliceInjective/closedTimeSliceHomeomorphism`；四新原生源与同run | 不是仅集合is-emb；也不是全平面环境同胚过程、完整闭参数延拓/纤维、空间界或物理执行。未无条件覆盖全Weak去点圆，未建立全Lean模型保真或HoTT全局一致性/失配；完整F与四层目标仍开放。 |
+
+
+## 原生时间族的同源闭参数延拓（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-CLOSED-MOTION-001` | `C-314..C-315` | `formal/agda-unimath/hott-z/NativeClosedMotionEndpoints.agda`、NativeClosedMotionBase/Continuity/Interior及原F依赖 | `verification/runs/20260920-MP-ASTRA-NATIVE-CLOSED-MOTION-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / SAME_CLOSED_EXTENSION_AND_EXACT_DIAGRAMS` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-314 | 原Real时间t、原ClosedParameter u∈[0,1]上，closingD=gap(u)+(1−t)²abs(center(u))、closingN=scale(t)center(u)+offset(t)closingD、closingK=closingD²+(t closingN)²；证明对所有t/u有closingK>0，定义同源closedBase/closedMotion，证明在Real×[0,1]联合连续及原闭时间方形限制。正性使用严格序和apartness cotransitivity，无需决定t=1的新原则参数。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_CLOSED_DENOMINATOR_AND_JOINT_CONTINUITY` | `closedCenterAbsBound/closingDPositiveBefore/closingKFromNonzeroCenter/closingKPositive/closedMotionContinuous/closedSquareMotionContinuous`；同run | 原有库公设仍明确；不称其最小性/一致性；不自动证明完整纤维、t<1端部分离、空间/速度界、物理执行或全模型翻译。 |
+| C-315 | 对所有原实时间t与原开参数u，closedMotion(t,openIntoClosed u)=motion(t,u)。在整个原闭参数域，t=0逐点等于nCompletion，t=1逐点等于mCompletion的平面图。最终两个边界参数都映到east，故最终闭域函数非单射；同一closedMotion限制到原开参数对每个t仍单射，由C313及内点一致性连接。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_INTERIOR_AND_FULL_INITIAL_FINAL_DIAGRAMS` | `stretchAsClosingFraction/closedBaseMatchesBend/closedAgreesInterior/closedInitialDiagram/closedFinalDiagram/closedFinalLeft/closedFinalRight/closedFinalNotInjective/closedInteriorInjective`；同run | 闭参数新增的0/1不是原开区间成员；闭域非单射与开域单射不是同一命题矛盾。未证明最终只有两端形成非平凡纤维，未证明所有t<1端部分离/统一空间界、全Weak覆盖或原现实任务/四层完成。 |
