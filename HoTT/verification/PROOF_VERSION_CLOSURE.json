@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 126,
+  "later_machine_proved_claim_count": 131,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -595,6 +595,26 @@
    "kind": "lean_same_pell_recurrence_and_curve_conjunction",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: same arithmetic recurrence discriminant is never zero; its conjunction with the exact continuous curve existence theorem is accepted.",
    "notes": "Original Agda M1/M3-UNC/EndpointMaps replays are separate audit evidence, 3/3 exact matches. This does not translate the full curve into Agda or claim cross-kernel/global consistency."
+  },
+  {
+   "proof_id": "MP-ASTRA-STRUCTURED-CURVE-001",
+   "claim_ids": "C-275..C-277",
+   "source": "HoTT/formal/astra-real-geometry/StructuredCurve.lean",
+   "toolchain": "HoTT/formal/astra-real-geometry/STRUCTURED-TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02",
+   "kind": "lean_actual_structured_curve_and_integral_observation",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: concrete bare equivalence does not lift to completion/endpoint structure; full ambient and parameter transports are valid; exact integral boundary observation and coordinate-swap correspondence proved.",
+   "notes": "Same actual geometric source as C265–273. Standard classical axioms and pinned imports. Not a full real-topology HoTT translation or natural library misuse finding. Successful prior capture-01 preserved."
+  },
+  {
+   "proof_id": "MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001",
+   "claim_ids": "C-278..C-279",
+   "source": "HoTT/formal/astra-breakpoint-check/GeometricBoundaryObservation.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01",
+   "kind": "native_cubical_selected_boundary_observation",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: exact integral boundary diagrams separated as rich Sigma data, no commuting equivalences/recovery after forgetting maps, and native ua transports full data preserving separation.",
+   "notes": "--safe --cubical --guardedness source, explicit CLI flags also checked in preserved draft. BoundaryIncidence unchanged from recoverable snapshot. Bare here is ambient carrier of a boundary diagram, not whole real curve."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

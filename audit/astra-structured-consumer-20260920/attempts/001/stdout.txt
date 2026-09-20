@@ -1,0 +1,47 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:26:16: error: Type mismatch
+  extendedDeformation ↑t
+has type
+  ℝ → Plane
+but is expected to have type
+  ClosedParameter → Plane
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:48:2: error: 'change' tactic failed, pattern
+  extendedDeformation 0 0 ≠ extendedDeformation 0 1
+is not definitionally equal to target
+  ¬BoundaryCoincident nPresentation
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:53:4: error: Type mismatch
+  extended_final_left
+has type
+  extendedDeformation 1 0 = ↑pole
+but is expected to have type
+  mPresentation.boundary false = ↑pole
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:54:4: error: Type mismatch
+  extended_final_right
+has type
+  extendedDeformation 1 1 = ↑pole
+but is expected to have type
+  mPresentation.boundary true = ↑pole
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:111:36: error: Tactic `assumption` failed
+
+p q : IntegralPoint
+h : integralEmbedding p = integralEmbedding q
+h0 : ↑p.1 = ↑q.1
+h1 : ↑p.2 = ↑q.2
+⊢ p.1 = q.1
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:111:36: error: Tactic `assumption` failed
+
+p q : IntegralPoint
+h : integralEmbedding p = integralEmbedding q
+h0 : ↑p.1 = ↑q.1
+h1 : ↑p.2 = ↑q.2
+⊢ p.2 = q.2
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:117:61: warning: declaration uses `sorry`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/StructuredCurve.lean:113:8: warning: declaration uses `sorry`
+'AstraRealGeometry.no_concrete_structure_equivalence' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'AstraRealGeometry.no_bare_coincidence_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.ambientTransportEquivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.integralEmbedding_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.n_integral_observation_exact' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.m_integral_observation_exact' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

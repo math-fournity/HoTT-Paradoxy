@@ -1145,3 +1145,20 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | C-274 | `pellPair 0=(1,1)`、`pellPair(n+1)=(p+2q,p+q)`，D(n)=p²−2q²；任意n有D(n)=1或−1，故D(n)≠0；Lean同时接受`(∀n,D(n)≠0) ∧ (∃F, 联合连续 ∧ 逐时嵌入 ∧ 初像N ∧ 末像M)`。 | `FORMAL_CHECKED_WITH_SCOPE / LEAN_ARITHMETIC_AND_GEOMETRY_COMPARISON / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `pellDiscriminant_sign/never_zero`、`pell_and_continuous_curve`；run `20260920-MP-ASTRA-PELL-CURVE-COMPARISON-001-01` | D是该整数递推判别式，未与实际端点距离识别；不是Agda对完整F的重放；未提供一般Agda↔Lean或实数→HoTT翻译，也不证明任一内核元层一致性。 |
+
+## 追加登记：实际曲线结构与原生边界观察（2026-09-20）
+
+当前单元`BP-GEO-STRUCTURED-CONSUMER-01`区分两个包：经典Lean实际几何/精确整数观察，与原生Cubical Agda的整数边界图。边界数据由实际completion求值得到；两个内核分别核验各自命题，不宣称整个实数几何已跨内核移植。
+
+| proof_id | claim_ids | 源码与规格 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-ASTRA-STRUCTURED-CURVE-001` | `C-275..C-277` | `formal/astra-real-geometry/StructuredCurve.lean`、`STRUCTURED-TOOLCHAIN.json` | `verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02/`；-01为加入坐标交换对应前的成功捕获，非当前primary | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+| `MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001` | `C-278..C-279` | `formal/astra-breakpoint-check/GeometricBoundaryObservation.agda`，实际导入BoundaryIncidence；safe/cubical/guardedness | `verification/runs/20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01/`；exit0、零stderr | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_CUBICAL_BOUNDARY_DIAGRAM / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-275 | 实际`nPresentation/mPresentation`含开参数嵌入、闭参数连续completion和内点一致；其BareCarrier有具体Homeomorph，但不存在保持整completion及端标签的PresentationEquivalence；不存在由任意BareEquivalent自动运输BoundaryCoincident的通用规则。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `concreteBareHomeomorph/no_concrete_structure_equivalence/no_bare_coincidence_transport`；run `20260920-MP-ASTRA-STRUCTURED-CURVE-001-02` | Rich仅为声明的完成图/环境结构，不包含全部来源历史/物理条件；未证明任何HoTT真实使用曾承诺该自动提升。 |
+| C-276 | 对任意环境Homeomorph，连同interior/completion一起变换有PresentationEquivalence且保持端点重合谓词；对完整闭/开参数同时反向并交换端标签，也有PresentationEquivalence。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `ambientTransportEquivalence/ambientTransport_preserves_coincidence/reversePresentationEquivalence`；run `20260920-MP-ASTRA-STRUCTURED-CURVE-001-02` | 坐标和参数运输正控制不等于满足任何额外固定物理位置/材料条件。 |
+| C-277 | `integralEmbedding : ℤ×ℤ→Plane`单射；n的实际边界图恰为(0,0)/(1,0)，m的实际边界图恰为常值(1,0)在该嵌入下的像；交换两坐标与该嵌入交换，运输后n边界仍精确对应。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_SELECTED_OBSERVATION / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `integralEmbedding_injective/n_integral_observation_exact/m_integral_observation_exact/integral_swap_commutes/swapped_n_observation_exact`；run `20260920-MP-ASTRA-STRUCTURED-CURVE-001-02` | 保真对象是这些边界值和指定坐标动作；不是所有实数点、曲线、连续性或完整Agda↔Lean翻译。 |
+| C-278 | 原生Agda对相同整数坐标表n/m证明：任意环境等价和Bool端标签等价均不能形成所给交换图；RichDiagram的两实例无Path；忘去边界函数后的环境载体Path为refl，单一恢复函数不能同时恢复这两实例。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_CUBICAL_BOUNDARY_DIAGRAM / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `noCommutingBoundaryEquivalence/noRichDiagramPath/bareCarrierPath/noOneBareRecovery`；run `20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01` | native Bare是边界图的环境载体，不是完整实数曲线；两个实例的无共同恢复不是任何信息都不可恢复的定理；没有HoTT矛盾。 |
+| C-279 | 对任意Coord等价e，原生ua与ΣPathP把完整n边界图运输为`(Coord, e∘n)`；坐标交换非恒等实例有Rich路径，右端坐标计算为(0,1)，分离性质沿路径保持。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_UA_STRUCTURED_TRANSPORT / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `transportDiagram/swappedDiagramPath/swappedRightCoordinate/swappedStillSeparate`；run `20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01` | 正控制要求数据一起运输；不声称ua自动保留已被用户代码忘掉的边界函数，也不声称完整实数模型已经native重放。 |
