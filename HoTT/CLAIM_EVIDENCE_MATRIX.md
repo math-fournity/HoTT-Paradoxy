@@ -1332,3 +1332,15 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-309 | 在原Real=ℝ₀上，RealNonzeroApartness=(∀r,¬(r=0)→apart(r,0))与RealPairApartness=(∀x y,¬(x=y)→apart(x,y))通过实际差运算双向蕴含；全点对形式又与原Circle Lift、统一实数右逆合同双向蕴含。差为零推出相等的引理显式给出。 | `FORMAL_CHECKED_WITH_SCOPE / ZERO_PAIR_TRANSLATION_ON_ORIGINAL_REALS` | `differenceZeroImpliesEqual/zeroToPairApartness/pairToZeroApartness/zeroIffPairApartness/pairPrincipleIffCircleLift/pairPrincipleIffRealInverse`；同run | 这是原模型上与原典全点对表述对应的类型，不是所有Book实数构造/宇宙的整体解释；不推出Markov、无条件原则、任意同胚必要性或现实失配。 |
 | C-310 | 对原库ℕ/bool和命题性存在，BookMarkov=(∀f:ℕ→bool,¬¬∃n,f(n)=true→∃n,f(n)=true)与库Markov's-Principle（否定处处为真→mere存在假值）有显式双向函数。翻译使用bool反转及命题性存在消去，保留mere存在，不增加选定索引或搜索时限。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_BINARY_POLARITY_AND_LOGICAL_FORM_TRANSLATION` | `SomeTrue/SomeFalse/BookMarkov/flip/flipTrueToFalse/flipFalseToTrue/bookToLibrary/libraryToBook/bookIffLibraryMarkov`；同run | 只证明两种二进制表述互推，不证明任一种原则成立、否定或独立；没有把C309实数原则连接为Markov等价，仍缺相应实数编码/模型桥；不是有界搜索算法或整个理论一致性认证。 |
+
+
+## 原生时间曲线族的联合连续性与原图初末态（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-MOTION-001` | `C-311..C-312` | `formal/agda-unimath/hott-z/NativeMotionBridge.agda`、NativeMotion/NativeMotionEndpoints及原几何依赖 | `verification/runs/20260920-MP-ASTRA-NATIVE-MOTION-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / TIME_FAMILY_STAGE1_FULL_MOTION_TASK_OPEN` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-311 | 对原Real=ℝ₀、RealPlane积度量及原(0,1)，显式定义r(u)、正分母E(t,r)=1+(1−t)²abs(r)、stretch、bend、turn及固定y反射后的motion。对所有实时间与开参数，E正；bend分母由positiveD给资格；motionRaw与motion在Real×(0,1)联合点态连续，限制到原ClosedParameter×(0,1)仍连续。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_RATIONAL_FAMILY_AND_JOINT_CONTINUITY` | `stretchDenPositive/motionRawContinuous/motionContinuous/closedTimeMotionContinuous`；三新原生源与同run | 不能把联合连续性当所有切片嵌入；全闭参数扩展、端部纤维、空间界、现实速度/材料/操作尚未在本包证明；不是整个Lean与HoTT模型的保真翻译。 |
+| C-312 | 同一motion在t=0逐点等于(pr1 u,0)，在t=1逐点等于原paramPlane(realParameter u)，由原mInterior准确接到既有mCompletion(openIntoClosed u)，初态准确接到nCompletion。固定reflectY为对合、保持初始直线，rawFinalOrientation给出原负y公式与当前m图的反射关系；曲线参数u不变。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_ORIGINAL_ENDPOINT_DIAGRAMS_AND_ORIENTATION` | `motionAtZero/motionAtOne/motionAtOneOriginal/initialOriginalDiagram/finalOriginalDiagram/reflectionInvolution/reflectionFixesLine/rawFinalOrientation`；同run | 初末态等式不是全过程保持固定端部/环境同胚/源历史；最终图是原Strong参数化，未无条件声称覆盖全Weak去点圆；全R-CURVE及四层共同任务、HoTT失配仍未完成。 |

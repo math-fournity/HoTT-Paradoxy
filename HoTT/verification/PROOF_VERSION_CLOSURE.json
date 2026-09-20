@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 162,
+  "later_machine_proved_claim_count": 164,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-NATIVE-MOTION-001",
+   "claim_ids": "C-311–C-312",
+   "source": "HoTT/formal/agda-unimath/hott-z/NativeMotionBridge.agda",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-MOTION-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "native_rational_time_family_joint_continuity_exact_endpoint_diagrams",
+   "verdict": "NATIVE_TIME_FAMILY_STAGE1_WITH_EMBEDDING_AND_CLOSED_PARAMETER_OBLIGATIONS_OPEN",
+   "notes": "Original native Real, plane product metric and open interval. Positive rational denominators, joint continuity on real time and its closed-unit restriction, exact existing n/m interior endpoint diagrams, and explicit fixed y-reflection alignment. No intermediate-slice embedding, whole closed-parameter extension/fiber analysis, spatial bound, physical process or complete four-stage result. Fixed no-erasure without-K derivative with inherited library postulates, not safe Cubical or a full Lean-model translation."
+  },
     {
       "proof_id": "MP-ASTRA-REAL-PRINCIPLE-SCOPE-001",
       "claim_ids": "C-309–C-310",
