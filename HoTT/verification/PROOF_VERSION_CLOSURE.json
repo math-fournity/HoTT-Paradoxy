@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 153,
+  "later_machine_proved_claim_count": 155,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-SQRT2-TASK-COMPARISON-001",
+      "claim_ids": "C-302–C-303",
+      "source": "HoTT/formal/dedekind-omega-missile/Sqrt2TaskComparison.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-SQRT2-TASK-COMPARISON-001-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "cubical_fixed_arithmetic_request_response_done_comparison",
+      "verdict": "NINE_DECLARED_REQUEST_FAMILIES_CLASSIFIED_WITH_ORIGINAL_SPEC_BRIDGES",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Fourteen local modules. Six request families return certified responses, three exact-output families have empty response types. Output/Done preserve exact GOLD predicates and actual old Spec_A/Spec_B via equivalences. Supplied/generated lower responses agree; feasibility differs from query truth. SingleOmega sufficiency remains conditional and is not included as an unconditional dispatcher request; no necessity, universal verifier, full HoTT decision procedure, physical mismatch or full four-stage closure is claimed."
+    },
     {
       "proof_id": "MP-ASTRA-SQRT2-APPROX-001",
       "claim_ids": "C-300–C-301",

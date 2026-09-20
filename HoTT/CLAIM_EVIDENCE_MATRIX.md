@@ -1278,3 +1278,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-300 | 在原GOLD的同一ℚ和L/U中，从下界1、上界2递归二分；Bracket携带真实L(lo)/U(hi)，中点严格位于两端之间，两子宽度均为旧宽度乘1/2。对全部n:ℕ，approx n嵌套且在初界内，宽度=dyadicWidth n（d0=1，d(n+1)=d(n)/2）；ApproxTask/CertifiedApprox返回实际端点、成员、宽度及恰n次refine见证，并接到goldReal谓词投影。n=2端点5/4与3/2由refl归约检查。 | `FORMAL_CHECKED_WITH_SCOPE / GENERATED_BRACKETS_AND_EXACT_REFINEMENT_CERTIFICATE` | `leftHalf/rightHalf/middleAbove/middleBelow/refineWidth/lowerFromInitial/upperToInitial/approxWidth/packedBounds/certifiedApprox/twoStepLower/twoStepUpper`；Sqrt2Bisection.agda；run `20260920-MP-ASTRA-SQRT2-APPROX-001-01` | 精度为自然数n的二进制界，不新增任意正实数ε的共终性/实数度量收敛定理；Trace计refine调用，不是CPU/物理时间或实际资源界；不一次执行全部n，不换QuoQ有理模型。 |
 | C-301 | 任意有效Bracket的宽度严格正、两端不同，refine使宽度严格减少；初始Bracket不满足精度1。对每个n，依赖Σ见证同一成功ApproxTask输出宽度非零；本二分的有限ExactMeetingTask为空。该精度成功可与原Pell.D n≠0及原有理根输出空性在同一原生环境同时构造。 | `FORMAL_CHECKED_WITH_SCOPE / PRECISION_SUCCESS_DISTINCT_FROM_EXACT_MEETING` | `widthPositive/widthNeverZero/boundsNeverMeet/widthStrictlyDecreases/initialFailsPrecisionOne/successWithPositiveGap/noExactMeeting/simultaneous`；两新源码；同run | 不是精确相遇任务的成功恢复，未把Pell整数判别式当区间宽度；不声称Pell收敛/最优性、所有逼近失败或物理过程不可能，更不构成P与非P或四弹整体完成。 |
+
+## 原四弹算术规格的请求响应总对照（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-SQRT2-TASK-COMPARISON-001` | `C-302..C-303` | `formal/dedekind-omega-missile/Sqrt2TaskComparison.agda`；十三个现有本地依赖全部pin | `verification/runs/20260920-MP-ASTRA-SQRT2-TASK-COMPARISON-001-01/`；原生Cubical完整依赖exit0；固定safe/cubical/guardedness及显式two-level | `FORMAL_CHECKED_WITH_SCOPE / DECLARED_ARITHMETIC_TASKS_INTEGRATED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-302 | Request明确九族，Output/Done/Response用显式向上Lift统一层级；dispatch对每个本域请求返回Dec(Response)。六族表示/两侧查询/按n近似/旧表生成/给定旧表的下切割查询有认证响应；有理根、本二分精确相遇、Pell D归零三族响应为空。表示Done固定原GOLD L/U且任意合格表示的值等于goldReal；近似响应接实际n次Trace。输入2的下切割查询可交付，但其答案为false。不存在给本域每个请求都生成成功Response的函数。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_INPUT_OUTPUT_DONE_AND_FEASIBILITY` | `dispatch/representationCanonical/approximationReplyTrace/queryAtTwoIsFeasible/queryAtTwoAnswersFalse/rootIsNotFeasible/noUniversalSuccessfulResponder`；同run | 九族含无限q/n参数，但不等于所有HoTT命题/程序；不检查任意外来候选答案。no是响应空性证书，不是已交付所请求见证；Lift不是resizing；不把请求可完成与对象命题为真混同。 |
+| C-303 | 新oldTable/rationalRoot响应分别与原Spec_A/Spec_B有明确跨层等价，保留原q²=2未加正号的类型；正根细化仍为空。给定旧表的下切割响应逐q等于生成响应；−3处原表直接解释为下切割答案不满足Done。原M3否定等价保持，且无Spec_A→Spec_B总映射，新响应类型亦不等价。第四层SingleOmega→ℝLayerAt充分性以原显式输入保留。 | `FORMAL_CHECKED_WITH_SCOPE / ORIGINAL_SPEC_FIDELITY_AND_SCOPED_REFUSAL` | `tableResponseEquivOriginal/rootResponseEquivOriginal/noPositiveRootResponse/suppliedGeneratedAgreement/oldAnswerFailsLowerDone/originalM3Refusal/noOldTableToRoot/responseRefusal/smallnessIfProvided`；同run | 这些否定定理由内核接受，不是编译器报错或Agda/HoTT不对齐证据；未证明HoTT曾许诺被否定的任务等价，未证明SingleOmega必要、无条件缩层、现实失配或完整四弹闭环。 |
