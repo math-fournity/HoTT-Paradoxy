@@ -1,0 +1,129 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:24:104: error: linarith failed to find a contradiction
+case mp
+u v : Interval
+⊢ False
+failed
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:24:104: error: linarith failed to find a contradiction
+case mpr
+u v : Interval
+⊢ False
+failed
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:51:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PreconnectedSpace Interval
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:60:2: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp continuous_vec2`
+  Continuous[?m.14, _] ((fun z => vec2 z.1 z.2) ∘ ?m.17)
+with the goal
+  Continuous fun z => vec2 (z.2 / (1 + (z.1 * z.2) ^ 2)) (z.1 * z.2 ^ 2 / (1 + (z.1 * z.2) ^ 2))
+
+Note: The full type of `Continuous.comp continuous_vec2` is
+  Continuous[?m.14, _] ?m.17 → Continuous[?m.14, _] ((fun z => vec2 z.1 z.2) ∘ ?m.17)
+
+⊢ Continuous fun z => vec2 (z.2 / (1 + (z.1 * z.2) ^ 2)) (z.1 * z.2 ^ 2 / (1 + (z.1 * z.2) ^ 2))
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:88:8: error(lean.unknownIdentifier): Unknown identifier `isEmbedding_subtype_val.comp`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:100:16: error: unsolved goals
+case «0»
+t : ℝ
+v : Plane
+⊢ (vec2 (-(t * v.ofLp 0 * (turnDet t)⁻¹ * 2) + t ^ 2 * v.ofLp 0 * (turnDet t)⁻¹ * 5 + v.ofLp 0 * (turnDet t)⁻¹)
+          (-(t * v.ofLp 1 * (turnDet t)⁻¹ * 2) + t ^ 2 * v.ofLp 1 * (turnDet t)⁻¹ * 5 + v.ofLp 1 * (turnDet t)⁻¹)).ofLp
+      ⟨0, ⋯⟩ =
+    v.ofLp ⟨0, ⋯⟩
+
+case «1»
+t : ℝ
+v : Plane
+⊢ (vec2 (-(t * v.ofLp 0 * (turnDet t)⁻¹ * 2) + t ^ 2 * v.ofLp 0 * (turnDet t)⁻¹ * 5 + v.ofLp 0 * (turnDet t)⁻¹)
+          (-(t * v.ofLp 1 * (turnDet t)⁻¹ * 2) + t ^ 2 * v.ofLp 1 * (turnDet t)⁻¹ * 5 + v.ofLp 1 * (turnDet t)⁻¹)).ofLp
+      ⟨1, ⋯⟩ =
+    v.ofLp ⟨1, ⋯⟩
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:104:17: error: unsolved goals
+case «0»
+t : ℝ
+w : Plane
+⊢ (vec2
+          (-(t * w.ofLp 0 * (turnDet t)⁻¹ * 2) - t * turnDet t * (turnDet t)⁻¹ + t * (turnDet t)⁻¹ +
+                  t ^ 2 * w.ofLp 0 * (turnDet t)⁻¹ * 5 -
+                t ^ 2 * (turnDet t)⁻¹ * 2 +
+              t ^ 3 * (turnDet t)⁻¹ * 5 +
+            w.ofLp 0 * (turnDet t)⁻¹)
+          (-(t * w.ofLp 1 * (turnDet t)⁻¹ * 2) + t ^ 2 * w.ofLp 1 * (turnDet t)⁻¹ * 5 + w.ofLp 1 * (turnDet t)⁻¹)).ofLp
+      ⟨0, ⋯⟩ =
+    w.ofLp ⟨0, ⋯⟩
+
+case «1»
+t : ℝ
+w : Plane
+⊢ (vec2
+          (-(t * w.ofLp 0 * (turnDet t)⁻¹ * 2) - t * turnDet t * (turnDet t)⁻¹ + t * (turnDet t)⁻¹ +
+                  t ^ 2 * w.ofLp 0 * (turnDet t)⁻¹ * 5 -
+                t ^ 2 * (turnDet t)⁻¹ * 2 +
+              t ^ 3 * (turnDet t)⁻¹ * 5 +
+            w.ofLp 0 * (turnDet t)⁻¹)
+          (-(t * w.ofLp 1 * (turnDet t)⁻¹ * 2) + t ^ 2 * w.ofLp 1 * (turnDet t)⁻¹ * 5 + w.ofLp 1 * (turnDet t)⁻¹)).ofLp
+      ⟨1, ⋯⟩ =
+    w.ofLp ⟨1, ⋯⟩
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:109:4: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp continuous_vec2`
+  Continuous[?m.688, _] ((fun z => vec2 z.1 z.2) ∘ ?m.691)
+with the goal
+  Continuous fun v => vec2 ((1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - t) (-2 * t * v.ofLp 0 + (1 - t) * v.ofLp 1)
+
+Note: The full type of `Continuous.comp continuous_vec2` is
+  Continuous[?m.688, _] ?m.691 → Continuous[?m.688, _] ((fun z => vec2 z.1 z.2) ∘ ?m.691)
+
+t : ℝ
+⊢ Continuous fun v => vec2 ((1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - t) (-2 * t * v.ofLp 0 + (1 - t) * v.ofLp 1)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:112:4: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp continuous_vec2`
+  Continuous[?m.697, _] ((fun z => vec2 z.1 z.2) ∘ ?m.700)
+with the goal
+  Continuous fun w =>
+    vec2 (((1 - t) * (w.ofLp 0 + t) - 2 * t * w.ofLp 1) / turnDet t)
+      ((2 * t * (w.ofLp 0 + t) + (1 - t) * w.ofLp 1) / turnDet t)
+
+Note: The full type of `Continuous.comp continuous_vec2` is
+  Continuous[?m.697, _] ?m.700 → Continuous[?m.697, _] ((fun z => vec2 z.1 z.2) ∘ ?m.700)
+
+t : ℝ
+⊢ Continuous fun w =>
+    vec2 (((1 - t) * (w.ofLp 0 + t) - 2 * t * w.ofLp 1) / turnDet t)
+      ((2 * t * (w.ofLp 0 + t) + (1 - t) * w.ofLp 1) / turnDet t)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:117:8: warning: declaration uses `sorry`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:122:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:121:2: warning: Unused tactic linter: `apply continuous_vec2.comp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:122:2: warning: Unused tactic linter: `fun_prop` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:129:37: warning: declaration uses `sorry`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:127:8: warning: declaration uses `sorry`
+'AstraRealGeometry.deformation_isEmbedding' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_start' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

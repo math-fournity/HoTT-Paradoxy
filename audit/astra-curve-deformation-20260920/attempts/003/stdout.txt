@@ -1,0 +1,29 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:40:2: error: unsolved goals
+case h₁
+c : ℝ
+hc : 0 ≤ c
+r : ℝ
+⊢ -r / (1 + c * |r|) = -(r / (1 + c * |r|))
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:52:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  True
+but is expected to have type
+  (StrictMono.orderIsoOfRightInverse (codRestrict (fun x => x / (1 + |x|)) (Ioo (-1) 1) ⋯) ⋯ (fun x => ↑x / (1 - |↑x|))
+            ⋯).symm
+        ⟨2 * ↑u - 1, ⋯⟩ /
+      (1 +
+        |(StrictMono.orderIsoOfRightInverse (codRestrict (fun x => x / (1 + |x|)) (Ioo (-1) 1) ⋯) ⋯
+                (fun x => ↑x / (1 - |↑x|)) ⋯).symm
+            ⟨2 * ↑u - 1, ⋯⟩|) =
+    2 * ↑u - 1
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:69:55: error: failed to prove positivity/nonnegativity/nonzeroness
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:145:41: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'AstraRealGeometry.deformation_isEmbedding' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_start' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

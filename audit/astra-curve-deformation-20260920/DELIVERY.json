@@ -1,0 +1,28 @@
+{
+  "status": "DUAL_LOCAL_PASS",
+  "checks": [
+    {
+      "name": "formal",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-CURVE-DEFORMATION-001-02",
+        "--rerun"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "relation",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-CURVE-DEFORMATION-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "C269–270; classical curve embedding family and uniform coordinate bound; full HoTT goal active"
+}

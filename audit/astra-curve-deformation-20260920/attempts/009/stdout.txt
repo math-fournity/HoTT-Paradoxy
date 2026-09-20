@@ -1,0 +1,28 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:321:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |t|
+in the target expression
+  ∀ (c : ℝ), |(1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - c| ≤ |(1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - t| + |t - c|
+
+case left
+t : ℝ
+ht : t ∈ Icc 0 1
+u : Interval
+v : Plane := bend t (stretch t u)
+hv : |v.ofLp 0| ≤ 5 ∧ |v.ofLp 1| ≤ 25
+hα : |1 - t| ≤ 1
+hβ : |2 * t| ≤ 2
+hnegβ : |-2 * t| ≤ 2
+hx : |(1 - t) * v.ofLp 0| ≤ 1 * 5
+hy : |2 * t * v.ofLp 1| ≤ 2 * 25
+hx' : |-2 * t * v.ofLp 0| ≤ 2 * 5
+hy' : |(1 - t) * v.ofLp 1| ≤ 1 * 25
+h0 : (deformation t u).ofLp 0 = (1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - t
+h1✝ : (deformation t u).ofLp 1 = -2 * t * v.ofLp 0 + (1 - t) * v.ofLp 1
+h1 : ∀ (c : ℝ), |(1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - c| ≤ |(1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - t| + |t - c|
+h2 : |(1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1| ≤ |(1 - t) * v.ofLp 0| + |2 * t * v.ofLp 1|
+⊢ |(1 - t) * v.ofLp 0 + 2 * t * v.ofLp 1 - t| ≤ 60
+'AstraRealGeometry.deformation_isEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.exists_curve_deformation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_uniform_box' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

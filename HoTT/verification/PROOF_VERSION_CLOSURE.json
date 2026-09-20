@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 120,
+  "later_machine_proved_claim_count": 122,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -565,6 +565,16 @@
    "kind": "lean_classical_real_ambient_geometry",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: actual embedded punctured unit circle and straight open segment are intrinsically homeomorphic but not related by a global plane homeomorphism or a finite sequence of such operations.",
    "notes": "Exact closure-minus-set remainders: singleton versus two distinct points. Pinned parent inputs plus local C265 compiled artifact; explicit -t 0 does not establish independent fresh import replay. No claim about all physical constructions, native HoTT translation, or HoTT inconsistency. Failed formal run -01 retained."
+  },
+  {
+   "proof_id": "MP-ASTRA-CURVE-DEFORMATION-001",
+   "claim_ids": "C-269..C-270",
+   "source": "HoTT/formal/astra-real-geometry/DeformationCircle.lean",
+   "toolchain": "HoTT/formal/astra-real-geometry/DEFORMATION-TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-CURVE-DEFORMATION-001-02",
+   "kind": "lean_classical_continuous_curve_embeddings",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: explicit jointly continuous family of embeddings from the exact open straight segment to the exact punctured unit circle, with a uniform coordinate bound of 60.",
+   "notes": "Same geometric inputs as C266–268, weaker operation class. Standard axioms and compiled-library trust boundary retained; no ambient extension, physical speed/material/length claim or native HoTT translation. Ten draft attempts and failed formal run-01 retained; current primary-02."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
