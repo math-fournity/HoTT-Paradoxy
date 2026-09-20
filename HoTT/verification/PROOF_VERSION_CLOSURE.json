@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 160,
+  "later_machine_proved_claim_count": 162,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-REAL-PRINCIPLE-SCOPE-001",
+      "claim_ids": "C-309–C-310",
+      "source": "HoTT/formal/agda-unimath/hott-z/RealPrincipleBookScope.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-REAL-PRINCIPLE-SCOPE-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_real_pair_and_binary_markov_formula_translations",
+      "verdict": "TWO_EXACT_TRANSLATIONS_WITH_UNPROVED_REAL_BINARY_BRIDGE_EXPLICIT",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Six compiled local modules under the fixed without-K no-erasure derivative. Difference operations connect zero/pair real apartness principles and original Circle Lift/inverse contracts. Explicit Boolean reversal connects Book and library binary Markov formulations with truncated existential unchanged. No unconditional principle, real-to-Markov/converse bridge, chosen index, finite search bound, independence, full Book model translation or full four-stage result is claimed."
+    },
     {
       "proof_id": "MP-ASTRA-WEAK-LIFT-PRINCIPLE-001",
       "claim_ids": "C-307–C-308",

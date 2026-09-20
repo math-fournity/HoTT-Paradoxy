@@ -1321,3 +1321,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-307 | 对原Real=Dedekindℝ₀与C281实际点集圆，RealNonzeroApartness=(∀r,¬(r=0)→apart(r,0))与原Lift=(∀p,Weak(p)→Strong(p))双向蕴含。反向用原参数化后反射第一坐标的encodeReal(r)，证明r≠0→Weak(encodeReal r)、其分母=2r²/(1+r²)，以及Strong(encodeReal r)→apart(r,0)。encodeReal(0)=east、零参数不在弱域，1参数给出弱域实例。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_COORDINATE_REDUCTION_AND_LOGICAL_IFF` | `realApartnessToLift/reflectFirst/encodedWeak/encodedDenominator/encodedStrongToApartness/realApartnessIffLift/encodedZeroIsEast/encodedZeroNotWeak/encodedOneWeak`；两新源码；同run | 双向是明确函数组成的逻辑↔，不是无条件原则、其否定或独立性证明；固定ℝ₀而非未声明的任意实数表示，不证明LEM必要、标准二进制Markov等价或现实失配。 |
 | C-308 | 同一实数原则与实数apartness双否定稳定性、统一从r≠0输出任意实数右逆的类型互相蕴含；经C283/C284又与原保持点的refinement及原圆统一分母逆元合同互相蕴含。显式LEM₀足以给该原则。给定该原则，可取得原弱去点圆与原(0,1)度量的PointwiseHomeomorphism、原生类型路径及其实际映射作用；refinement保持原点。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_INVERSE_CONTRACTS_AND_CONDITIONAL_GEOMETRIC_CONSUMER` | `realApartnessIffStability/realApartnessIffInverse/liftIffRealInverse/excludedMiddleGivesRealApartness/realPrincipleIffSamePointRefinement/realPrincipleIffCircleInverse/refinementPreservesPoint/weakIntervalHomeomorphismFromRealPrinciple/weakIntervalPathActionFromRealPrinciple`；同run | 必要性限于所列refinement/逆元合同，不是任意可能同胚的必要性；同胚这里只证给定原则的充分方向。未取得无条件弱域结果、物理变形/来源保持或全四弹闭合；继承库公设及no-erasure配置边界明确。 |
+
+## 实数原则与二进制Markov表述的精确翻译（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-REAL-PRINCIPLE-SCOPE-001` | `C-309..C-310` | `formal/agda-unimath/hott-z/RealPrincipleBookScope.agda`、MarkovBookForms及四个原实数/圆依赖 | `verification/runs/20260920-MP-ASTRA-REAL-PRINCIPLE-SCOPE-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / TWO_FORMULATION_TRANSLATIONS_NOT_A_REAL_MARKOV_BRIDGE` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-309 | 在原Real=ℝ₀上，RealNonzeroApartness=(∀r,¬(r=0)→apart(r,0))与RealPairApartness=(∀x y,¬(x=y)→apart(x,y))通过实际差运算双向蕴含；全点对形式又与原Circle Lift、统一实数右逆合同双向蕴含。差为零推出相等的引理显式给出。 | `FORMAL_CHECKED_WITH_SCOPE / ZERO_PAIR_TRANSLATION_ON_ORIGINAL_REALS` | `differenceZeroImpliesEqual/zeroToPairApartness/pairToZeroApartness/zeroIffPairApartness/pairPrincipleIffCircleLift/pairPrincipleIffRealInverse`；同run | 这是原模型上与原典全点对表述对应的类型，不是所有Book实数构造/宇宙的整体解释；不推出Markov、无条件原则、任意同胚必要性或现实失配。 |
+| C-310 | 对原库ℕ/bool和命题性存在，BookMarkov=(∀f:ℕ→bool,¬¬∃n,f(n)=true→∃n,f(n)=true)与库Markov's-Principle（否定处处为真→mere存在假值）有显式双向函数。翻译使用bool反转及命题性存在消去，保留mere存在，不增加选定索引或搜索时限。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_BINARY_POLARITY_AND_LOGICAL_FORM_TRANSLATION` | `SomeTrue/SomeFalse/BookMarkov/flip/flipTrueToFalse/flipFalseToTrue/bookToLibrary/libraryToBook/bookIffLibraryMarkov`；同run | 只证明两种二进制表述互推，不证明任一种原则成立、否定或独立；没有把C309实数原则连接为Markov等价，仍缺相应实数编码/模型桥；不是有界搜索算法或整个理论一致性认证。 |
