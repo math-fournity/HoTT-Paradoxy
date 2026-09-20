@@ -1222,3 +1222,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-289 | 实际Real上的t/(1+abs(t))与SignedInterval={abs(z)<1}上的z/(1−abs(z))具有正分母、严格范围、两复合律及原metric连续性；仿射½(1+z)与(u+u)−1接到C281原OpenRealInterval(0,1)，得到Real↔(0,1)的六字段同胚。 | `FORMAL_CHECKED_WITH_SCOPE / STRICT_MEMBERSHIP_AND_BOTH_CONTINUOUS_INVERSES` | `realSignedHomeomorphism/signedUnitHomeomorphism/realUnitHomeomorphism`；SignedIntervalHomeomorphism.agda、NativeOpenInterval.agda；run `20260920-MP-ASTRA-NATIVE-INTERVAL-001-01` | 不换闭区间，不额外假定Lift/LEM，不声称全局一致连续、等距或物理过程；继承库公设不等于无公设体系。 |
 | C-290 | C289与C288实际复合产生StrongPuncture↔C281原(0,1)同胚；原W域有Lift及LEM₀充分输入下的同胚。提取实际等价后univalence给StrongPuncture＝OpenRealInterval及与真实复合映射一致的命题作用，原W域Path仍以Lift为条件。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_CIRCLE_ORIGINAL_INTERVAL_AND_NATIVE_ACTION` | `strongCircleUnitHomeomorphism/weakCircleUnitHomeomorphism/classicalWeakCircleUnitHomeomorphism/strongIntervalTypePath/strongIntervalPathAction/weakIntervalTypePath`；同run | 内在几何子命题不自动证明无条件弱Lift、带来源/端部结构相等、环境延拓、允许运动或Done-EXACT；不把原生证明冒称全Lean演算翻译或HoTT矛盾。 |
+
+## 同一圆参数映射的闭参数延拓与端部（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-COMPLETION-001` | `C-291..C-292` | `formal/agda-unimath/hott-z/NativeCompletion.agda`；HomogeneousCircle及七个既有本地模块全部pin | `verification/runs/20260920-MP-ASTRA-NATIVE-COMPLETION-001-01/`；原生Agda完整依赖 `--ignore-interfaces` exit0；固定no-erasure配置/声明公设 | `FORMAL_CHECKED_WITH_SCOPE / SAME_MAP_CLOSED_EXTENSION` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-291 | 对全部实际Real输入u，v=(u+u)−1、d=1−abs(v)、K=v²+d²严格正，齐次公式((v²−d²)/K,(2vd)/K)给圆上点并在原metric连续；限制到ClosedParameter=[0,1]得mCompletion。对全部C281原(0,1)输入，mInterior证明该值等于C290同一Strong圆同胚的实际逆映射。nCompletion(u)=(u,0)另有同一参数度量下连续性。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_DENOMINATOR_CONTINUITY_AND_EXACT_INTERIOR_AGREEMENT` | `homogeneousEquation/homogeneousMatchesParam/completionPositive/mCompletionContinuous/nCompletionContinuous/mInterior`；两新源码；run `20260920-MP-ASTRA-NATIVE-COMPLETION-001-01` | 这里completion仅是闭参数连续延拓，不是Cauchy完备化泛性质、物理Trace完成或完整Lean F的翻译；继承库公设，无新增LEM/Lift输入。 |
+| C-292 | 同一mCompletion的0与1边界值由公式推出均为east；普通nCompletion两边界值不同。全部原开区间内点避开east且mCompletion限制到内点为单射；整个闭参数mCompletion非单射，由两个不同参数同像给出实际否定证明。 | `FORMAL_CHECKED_WITH_SCOPE / DERIVED_BOUNDARY_DIFFERENCE_AND_DOMAIN_DISTINCTION` | `mAtZero/mAtOne/mEndsCoincide/nEndsDistinct/interiorNotEast/interiorInjective/completionNotInjective`；NativeCompletion.agda；同run | 边界参数不属于原开区间，east不属于内点像；不声称两个M内点零距离却不相等。内点与闭域的单射命题定义域不同；不推出任意复原不可能、丰富结构可识别或HoTT矛盾。 |

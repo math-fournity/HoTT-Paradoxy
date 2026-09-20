@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 142,
+  "later_machine_proved_claim_count": 144,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-NATIVE-COMPLETION-001",
+      "claim_ids": "C-291–C-292",
+      "source": "HoTT/formal/agda-unimath/hott-z/NativeCompletion.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-COMPLETION-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_same_map_closed_parameter_extension",
+      "verdict": "CONTINUOUS_EXTENSION_INTERIOR_AGREEMENT_AND_DERIVED_ENDPOINT_SEPARATION",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Nine local Agda inputs pinned. C290 actual inverse agrees at every original (0,1) input; M endpoint images are east/east and N straight endpoint images are distinct. Interior injective/avoids east, closed M noninjective. Not Cauchy/universal completion, physical Trace/Done, rich-structure equality, unconditional weak Lift or four-stage completion."
+    },
     {
       "proof_id": "MP-ASTRA-NATIVE-INTERVAL-001",
       "claim_ids": "C-289–C-290",
