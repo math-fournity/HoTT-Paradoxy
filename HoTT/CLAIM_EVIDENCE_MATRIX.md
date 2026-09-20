@@ -1367,3 +1367,15 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-314 | 原Real时间t、原ClosedParameter u∈[0,1]上，closingD=gap(u)+(1−t)²abs(center(u))、closingN=scale(t)center(u)+offset(t)closingD、closingK=closingD²+(t closingN)²；证明对所有t/u有closingK>0，定义同源closedBase/closedMotion，证明在Real×[0,1]联合连续及原闭时间方形限制。正性使用严格序和apartness cotransitivity，无需决定t=1的新原则参数。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_CLOSED_DENOMINATOR_AND_JOINT_CONTINUITY` | `closedCenterAbsBound/closingDPositiveBefore/closingKFromNonzeroCenter/closingKPositive/closedMotionContinuous/closedSquareMotionContinuous`；同run | 原有库公设仍明确；不称其最小性/一致性；不自动证明完整纤维、t<1端部分离、空间/速度界、物理执行或全模型翻译。 |
 | C-315 | 对所有原实时间t与原开参数u，closedMotion(t,openIntoClosed u)=motion(t,u)。在整个原闭参数域，t=0逐点等于nCompletion，t=1逐点等于mCompletion的平面图。最终两个边界参数都映到east，故最终闭域函数非单射；同一closedMotion限制到原开参数对每个t仍单射，由C313及内点一致性连接。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_INTERIOR_AND_FULL_INITIAL_FINAL_DIAGRAMS` | `stretchAsClosingFraction/closedBaseMatchesBend/closedAgreesInterior/closedInitialDiagram/closedFinalDiagram/closedFinalLeft/closedFinalRight/closedFinalNotInjective/closedInteriorInjective`；同run | 闭参数新增的0/1不是原开区间成员；闭域非单射与开域单射不是同一命题矛盾。未证明最终只有两端形成非平凡纤维，未证明所有t<1端部分离/统一空间界、全Weak覆盖或原现实任务/四层完成。 |
+
+
+## 原闭时间族的精确相遇时刻与完整末态纤维（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001` | `C-316..C-317` | `formal/agda-unimath/hott-z/NativeCompletionFibers.agda`、NativeEndpointSeparation及原F依赖 | `verification/runs/20260920-MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_TIME_AND_COMPLETE_FIBER_RELATION` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-316 | 对未改动的closedMotion，∀原实t<1，两个闭参数端点的像不相等；在原ClosedParameter时间域[0,1]中，两端同像当且仅当t=closedOne。证明通过反射/turn/bend的实际逆、正分母和两端分数差归约，不以有限采样替代。 | `FORMAL_CHECKED_WITH_SCOPE / ENDPOINT_MEETING_IFF_FINAL_TIME` | `reverseClosedBase/closedFractionEquality/endpointDZero/endpointDOne/endpointNZero/endpointNOne/closedEndpointsDistinctBefore/endpointMeetingTime`；同run | t<1不同与t=1相同是不同条件，不是矛盾；未另定义/证明物理距离或速度、未给空间界或环境同胚过程；原参数端点非原开区间元素。 |
+| C-317 | 对所有原闭参数u,v，mCompletion(u)=mCompletion(v) iff FullFiberRelation(u,v)，其中关系为命题性(u=v)或(u=0且v=1)或(u=1且v=0)。通过原closedFinalDiagram，同一双向分类准确适用于closedMotion(1)。先由实际分母证明内点纤维唯一，再证明严格有序同像参数为端点，最后用abs(u−v)的located分支构造全关系。 | `FORMAL_CHECKED_WITH_SCOPE / COMPLETE_FINAL_FIBERS_AS_PROPOSITIONAL_RELATION` | `completionDenominator/gapPositiveFromStrong/fiberAtInterior/orderedFiberEndpoints/pointEqualityToFiberRelation/fiberRelationToPointEquality/completionFiberClassification/closedFinalFiberClassification`；同run | 析取在Prop中，不是任意实数相等decider、可选输出标签或有界搜索算法；没有新LEM/Lift/choice参数不证明库公理最小性/一致性；不升级为全Weak覆盖、物理任务或四层整体完成。 |

@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 167,
+  "later_machine_proved_claim_count": 169,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001",
+   "claim_ids": "C-316–C-317",
+   "source": "HoTT/formal/agda-unimath/hott-z/NativeCompletionFibers.agda",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "native_exact_endpoint_meeting_time_and_complete_final_fiber_relation",
+   "verdict": "ENDPOINT_TIME_AND_FULL_FINAL_FIBERS_CHECKED_SPACE_BOUND_PENDING",
+   "notes": "Unchanged closedMotion: endpoints unequal at every real t<1, and on [0,1] meet iff t=1. Complete final same-image relation iff equal parameters or the two endpoints in either order; native propositional disjunction, not a real-equality decision algorithm. Proof uses explicit inverses, interior fiber uniqueness and located order/apartness; no new LEM/Lift/choice parameter. Uniform space bound, physical/ambient task, full Weak coverage, whole-model translation and four-stage integration remain outside this package."
+  },
   {
    "proof_id": "MP-ASTRA-NATIVE-CLOSED-MOTION-001",
    "claim_ids": "C-314–C-315",
