@@ -1,0 +1,43 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_WITH_SCOPE",
+  "claim_ids": [
+    "C-318",
+    "C-319"
+  ],
+  "primary_run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-MOTION-BUNDLE-001-01",
+  "primary_seconds": 445.532494,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-MOTION-BUNDLE-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-MOTION-BUNDLE-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "compiled_local_modules": 27,
+  "import_modules": 1098,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 1,
+  "draft_checks": 8,
+  "theory": "Pinned without-K no-erasure agda-unimath with inherited foundation postulates; not safe Cubical and not a whole-theory consistency certificate.",
+  "unproved": [
+    "Unconditional full Weak-puncture coverage, principle independence or necessity of LEM",
+    "Whole Lean/native model translation, optimal spatial bound, velocity or physical execution",
+    "Physical/original broad task mismatch and complete four-stage integration"
+  ],
+  "parent_goal": "OPEN"
+}

@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 169,
+  "later_machine_proved_claim_count": 171,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-NATIVE-MOTION-BUNDLE-001",
+   "claim_ids": "C-318–C-319",
+   "source": "HoTT/formal/agda-unimath/hott-z/NativeMotionComplete.agda",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-MOTION-BUNDLE-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "native_uniform_coordinate_bound_coherent_motion_record_and_fixed_weak_coverage",
+   "verdict": "DECLARED_NATIVE_GEOMETRY_CHECKED_WITH_EXPLICIT_WEAK_COVERAGE_CRITERION",
+   "notes": "Unchanged closed/open maps: coordinate absolute values at most256 on closed time. One record assembles 12 clauses including continuity, slice image homeomorphisms, interior/n/m diagrams, exact meeting time, complete fibers and bounds. For the fixed final parametrization, mere full Weak coverage iff Lift iff RNZA; supplying Lift gives chosen original parameters. Not the Lean bound60, optimality, velocity, physical execution, arbitrary-map necessity, unconditional Weak coverage, base independence/LEM necessity, whole-model translation, global consistency or parent four-stage completion."
+  },
   {
    "proof_id": "MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001",
    "claim_ids": "C-316–C-317",

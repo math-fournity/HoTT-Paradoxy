@@ -1379,3 +1379,15 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-316 | 对未改动的closedMotion，∀原实t<1，两个闭参数端点的像不相等；在原ClosedParameter时间域[0,1]中，两端同像当且仅当t=closedOne。证明通过反射/turn/bend的实际逆、正分母和两端分数差归约，不以有限采样替代。 | `FORMAL_CHECKED_WITH_SCOPE / ENDPOINT_MEETING_IFF_FINAL_TIME` | `reverseClosedBase/closedFractionEquality/endpointDZero/endpointDOne/endpointNZero/endpointNOne/closedEndpointsDistinctBefore/endpointMeetingTime`；同run | t<1不同与t=1相同是不同条件，不是矛盾；未另定义/证明物理距离或速度、未给空间界或环境同胚过程；原参数端点非原开区间元素。 |
 | C-317 | 对所有原闭参数u,v，mCompletion(u)=mCompletion(v) iff FullFiberRelation(u,v)，其中关系为命题性(u=v)或(u=0且v=1)或(u=1且v=0)。通过原closedFinalDiagram，同一双向分类准确适用于closedMotion(1)。先由实际分母证明内点纤维唯一，再证明严格有序同像参数为端点，最后用abs(u−v)的located分支构造全关系。 | `FORMAL_CHECKED_WITH_SCOPE / COMPLETE_FINAL_FIBERS_AS_PROPOSITIONAL_RELATION` | `completionDenominator/gapPositiveFromStrong/fiberAtInterior/orderedFiberEndpoints/pointEqualityToFiberRelation/fiberRelationToPointEquality/completionFiberClassification/closedFinalFiberClassification`；同run | 析取在Prop中，不是任意实数相等decider、可选输出标签或有界搜索算法；没有新LEM/Lift/choice参数不证明库公理最小性/一致性；不升级为全Weak覆盖、物理任务或四层整体完成。 |
+
+
+## 原生时间族统一空间界与同图证据记录（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-MOTION-BUNDLE-001` | `C-318..C-319` | `formal/agda-unimath/hott-z/NativeMotionComplete.agda`、NativeSpatialInequalities/NativeClosedSpatialCoefficients/NativeClosedSpatialBounds及原F/Weak原则依赖 | `verification/runs/20260920-MP-ASTRA-NATIVE-MOTION-BUNDLE-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / DECLARED_GEOMETRY_COMPLETE_WEAK_CONDITIONAL` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-318 | 对原闭时间t∈[0,1]和原闭参数u∈[0,1]，未改动closedMotion两个坐标绝对值均≤real-ℕ256；沿全内点一致性，同一界适用于原motion的所有开参数。证明由原系数/分子界、t<1/2或t>1/4的located分支、正分母与平方和估计给出，无有限采样。 | `FORMAL_CHECKED_WITH_SCOPE / UNIFORM_COORDINATE_BOUND_256` | `absProductSquares/quotientAbsBound/closingNAbsBound/earlyKScale/lateNSquareBound/closedBaseBounds/closedMotionUniformBound/motionUniformBound`；同run | 明确粗坐标界256，不称Lean的60、最优界或欧氏半径256；不是速度/弧长/物理实现、环境同胚或所有实时间无条件空间界。 |
+| C-319 | NativeMotionEvidence的12字段在同一未改动motion/closedMotion和原域上装配联合连续、每片实际像同胚、内点一致、原n/m全初末图、端部相遇时间、完整纤维及开闭参数界。另对该固定末态参数化定义WeakFinalCoverage=∀w∈原Weak去点圆,∃u∈原开区间,motion(1,u)=w的平面点；证明它↔原Circle Lift↔RealNonzeroApartness。给定Lift，显式返回原参数及命中原点的等式。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_MAP_RECORD_AND_EXACT_WEAK_COVERAGE_CRITERION` | `WeakFinalCoverage/ChosenWeakFinalOutput/liftGivesChosenWeakFinalOutput/weakFinalCoverageGivesLift/weakFinalCoverageIffLift/weakFinalCoverageIffRealPrinciple/NativeMotionEvidence/nativeMotionEvidence`；同run | 未给无条件Weak覆盖、原则否定/独立性或LEM必要性；必要性仅该固定最终图的覆盖，不是任意同胚必需。记录装配不证明物理/全Lean模型翻译/四层失配或整体Goal完成；旧公设及配置边界保持。 |
