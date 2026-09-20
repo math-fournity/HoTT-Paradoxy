@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+"""Canonical transaction for standard GOLD representation and exact queries."""
+from pathlib import Path
+import argparse,importlib.util,json,re,subprocess
+ROOT=Path(__file__).resolve().parents[2];OUT=Path(__file__).resolve().parent
+SID='S-RES-20260920-ASTRA-GOLD-CUT';BASE='.codex/research/hott/sessions/'+SID+'/'
+REPORT='Astra继续尝试/断点与证明机制系统检查/第十七轮执行报告.md'
+RUN='HoTT/verification/runs/20260920-MP-ASTRA-STANDARD-GOLD-CUT-001-02'
+NEXT='AST-U02-SQRT2-APPROX-01：用当前真实GOLD L/U分类，从有理界1、2按精度n递归二分，证明L(lower)、U(upper)保持及宽度=(1/2)^n，交付每个n的有限输出和正确性；再与旧Pell有限步间隙非零/精确有理根空性按各自Done对照。不把给定n的算法冒充一次执行全部精度，不把算术支线替代圆环。实数环x²=2、同层小型化/SingleOmega必要性、任意cut算法、圆环保真归约及四层整体仍OPEN。'
+sp=importlib.util.spec_from_file_location('runtime',ROOT/'.codex/tools/cognition_runtime.py');R=importlib.util.module_from_spec(sp);sp.loader.exec_module(R)
+TOUCHED={
+1:('ALIGNED','从既有标准规格与实际L/U接通表示和查询，保持四层同任务要求。'),
+2:('DEEPENED','Book字面Path、双向函数、旧dcut有明确原生桥及层级。'),
+5:('ALIGNED','最强构造性对照成立即保留，不预设升格必须收费。'),
+7:('ALIGNED','四个草稿和两次正式核有证，负三控制及恢复不靠模式相似。'),
+10:('ALIGNED','切割表示和查询不是任意现实过程；本单元不声称现实冲突。'),
+12:('DEEPENED','SQ-REP/QUERY与有理根输出分开，原典截断侧条件保留。'),
+13:('DEEPENED','标准carrier的实际L/U投影接正确Dec，原表加符号恢复逐q核验。'),
+14:('DEEPENED','有限构造描述与每输入查询有实际项；不冒充全精度或全部无限执行。'),
+15:('TENSION','固定GOLD对象有无额外LEM/resizing的标准表示，不接受一律收费推论。'),
+17:('ALIGNED','旧注释被原典和实际源核校准；书的选项不是不现实性的自证。'),
+19:('ALIGNED','本轮未将存在数学对象说成物理极限过程完成。'),
+21:('DEEPENED','独立Cubical资格化、十本地模块、41外部pin及166模块图完整核验。'),
+22:('ALIGNED','两类现实相对方向保留，固定算术任务的完成按真实输入输出判定。'),
+28:('NOT_TOUCHED','未推进全局真理验证、自反馈或不可停机定理。'),
+31:('DEEPENED','原生范型实际接GOLD到标准及旧载体，不是只验证空壳参数。'),
+34:('ALIGNED','标准Type1元素不当Type0小型化，也不据此否定必要性候选。'),
+35:('DEEPENED','切割/原典/旧规格三接口有形式对应，完整哲学论证仍未认证。'),
+37:('NOT_TOUCHED','圆环广义来源/操作本轮不推进；算术正例不替代圆环。'),
+38:('CORRECTED','本具体升格一律需额外逻辑前提的解释被实际构造限定。'),
+39:('DEEPENED','回标准定义及实际查询基础，负三揭示旧平方表不是下切割本身。'),
+41:('ALIGNED','新表示/查询证据与全Goal及公开资格分开验收。'),
+42:('ALIGNED','不为维持击落叙事忽略合法恢复，也不宣称全理论无问题。'),
+43:('CORRECTED','几何子包返回算术兑现主链；下一走全精度而非重复规格差异。'),
+44:('ALIGNED','固定对象能由实际构造把握，未把无限函数定义当已执行全部任务。'),
+45:('DEEPENED','省略的符号条件通过明确转换补回；同任务语义与类型名分开。'),
+46:('ALIGNED','用真实cut、真实旧表及具体输入对照，保留全q恢复正结果。')}
+
+def main():
+ ap=argparse.ArgumentParser();ap.add_argument('--apply',action='store_true');args=ap.parse_args()
+ delivery=json.loads((OUT/'DELIVERY.json').read_text());assert delivery['status']=='FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE'
+ state=json.loads((ROOT/R.STATE).read_text());assert state['revision']==190
+ head=json.loads((ROOT/'.codex/cognition/HEAD.json').read_text());assert all(R.sha((ROOT/p).read_bytes())==h for p,h in head['tracked'].items())
+ prior=json.loads((ROOT/'audit/astra-case-contract-20260920/RESUME.json').read_text());assert R.sha((ROOT/'核心认知.md').read_bytes())==prior['core_sha256']
+ plan_commit=(OUT/'PLAN-COMMIT.txt').read_text().strip()
+ docs=[{'path':d['path'],'prior_sha256':d['sha256'],'sha256':R.sha((ROOT/d['path']).read_bytes())} for d in prior['documents']]
+ (OUT/'RESUME.json').write_bytes(R.dump({'policy':'Same-T3 PROTOCOL v3 receipt reattestation; not a new full-emission claim','revision':190,'core_sha256':prior['core_sha256'],'core_unchanged':True,'documents':docs,'known_changes':'Own checkpoint190/current plan; all32 tracked hashes match','kc_stance_revisited':'All46 individually revisited against standard-cut/query unit; core unchanged; original source samples and previous receipt retained','model_understanding':'NOT_CERTIFIED_BY_TOOL','objective':'完成四弹一体的redo','app_goal_status_observed':'active'}))
+ plan=R.plan(ROOT,profile='research',task_ids=['A-ASTRA-CONTINUING-GOAL-20260919']);assert not plan['review_required'];assert not plan['hydration_diagnostics']['query_first_promoted'];(OUT/'CHECKPOINT-PLAN.json').write_bytes(R.dump(plan))
+ old=state['latest_session'];state['revision']=191;state['latest_session']=SID
+ state['records'][SID]={'kind':'session','path':BASE+'SESSION.md','lifecycle_status':'HISTORICAL','evidence_status':'C297_C298_C299_FORMAL_CHECKED_STANDARD_GOLD_AND_QUERY','status':'complete_with_scope','depends_on':[],'related_records':[old,'A-ASTRA-CONTINUING-GOAL-20260919'],'full_sources':[BASE+'SESSION.md',BASE+'RUNS.json',BASE+'CORE_COGNITION_AUDIT.md']}
+ state['records']['R-ASTRA-GOLD-CUT-20260920']={'kind':'result','path':REPORT,'lifecycle_status':'CURRENT','evidence_status':'FORMAL_CHECKED_WITH_SCOPE / STANDARD_GOLD_PACKED_AND_QUERIES','status':'standard_cut_and_query_complete_with_scope_approximation_next','depends_on':[],'related_records':[SID,'R-ASTRA-CASE-CONTRACT-20260920'],'full_sources':[REPORT,'HoTT/formal/dedekind-omega-missile/StandardDedekind.agda','HoTT/formal/dedekind-omega-missile/Sqrt2CutBridge.agda','HoTT/formal/dedekind-omega-missile/Sqrt2CutQueries.agda','HoTT/formal/dedekind-omega-missile/Sqrt2TableRecovery.agda','audit/astra-gold-cut-20260920/DELIVERY.json'],'scope':'C297 standard prop cut/set and literal-Book/legacy equivalences. C298 actual unchanged GOLD predicates packed at Type1 without added logical premises. C299 exact L/U decisions, negative-three old table distinction and all-q recovery from Spec_A+sign. No low-level smallness, all-precision approximation or four-stage closure.'}
+ manifest=json.loads((ROOT/RUN/'source-manifest.json').read_text())
+ state['records']['R-ASTRA-GOLD-CUT-20260920']['source_hashes']={f['path']:f['sha256'] for f in manifest['files'] if f['path'].endswith(('.agda','TOOLCHAIN.json'))}
+ state['execution_control'].update(status='ACTIVE_GOAL_STANDARD_GOLD_QUERY_CHECKED_APPROXIMATION_NEXT',last_checkpoint_session=SID,checkpoint_result='.codex/cognition/checkpoints/'+SID+'/result.json',next_minimal_verification=NEXT)
+ session=f'''# {SID}
+
+- host: Codex desktop local
+- model: GPT-6-based Codex；不认证服务端路由
+- tier: T3 research / canonical checkpoint
+- role: CANONICAL_INTEGRATOR_FOR_CURRENT_USER_REQUEST
+- load_receipt: audit/astra-gold-cut-20260920/RESUME.json
+- objective: 完成四弹一体的redo
+- app_goal_status_observed: active
+- previous_goal_turn: PROGRESS；C295/C296和revision190有真实证据
+- status: STANDARD_GOLD_REPRESENTATION_AND_QUERY_CONSTRUCTED / PARENT_OPEN
+
+C297定义截断标准dcut与isProp/StandardReals集合性，显式桥接Book字面P=Q（高一层）及旧正确dcut。C298不改旧L/U而装配标准/旧carrier的实际Type1元素，无LEM/resizing/SingleOmega输入；强located值在(1,2)不是Prop。C299全q L/U Dec接goldReal，负三查询true而实际旧M3表false；任意Spec_A加符号判断可恢复lowerQuery且逐q相等。精确有理根输出仍为空。
+
+Cubical0.9配置与旧源哈希独立资格化；未混同without-K agda-unimath。十本地模块/41外部pin，166模块图；草稿001–004全部通过。正式01为恢复前71.5秒，主02为恢复后74.5秒；meta检查无第三次核重跑。主模块/旧桥显式two-level，未增加postulate；不认证全库一致性。Book固定快照及同ref官方源已核。
+
+旧数学证明保持，笼统“升格完整实数才必须收费”解释不适用于当前标准Type1装配；同层ℝLayerAt0是更强目标，本轮未证明或反驳其必要性。原典定义、标准对象、运行完成分开。策略v1.19由{plan_commit}保存。下一动作：{NEXT}
+
+PROTOCOL§5沿用46KC legacy原子bundle，G-V5-SESSION-AUDIT-SHARD-WRITE-GAP-001保持；报告四分片。无Sub Agent、无push/tag/发布。T01–05完整原范围；T06–10标准cut/记号/旧规格桥与任务差异；T11–17新源码、固定Cubical源核/依赖；T18–21无部署变化；T22–24当前成果与近似后继/历史保全；T25无AI合同改变；T26精确版本化。C01–C09共享治理方法NO_CHANGE，C10项目证据更新。
+
+element_usage：closure/收据复认，研究Skill同输入/正反控制，SOP反思和返回近似，verification原生源核资格，canonical事务，dev-notes归档。没有新通用框架。
+'''
+
+ audit=f'# {SID} 核心认知回评\n\ncore-cognition-generation-7；46条。\n\n- core_change: NO\n- direction_change: STANDARD_GOLD_AND_QUERY_CHECKED_APPROX_NEXT\n- panorama_change: ADD_C297_C298_C299_STANDARD_GOLD\n- essay_change: NO\n- update_decision: 标准GOLD与查询构造完成，旧平方表有明确恢复，下一全精度近似。\n- cross_conflicts: Type1标准元素不等于Type0缩层；旧表答案不同但可加符号恢复；无全精度结果。\n- unresolved: 原广义来源/操作、原W Lift、其它机制/GOLD/四层整体。\n\n| KC | 主题 | relation | 工作姿态及实际理由 | 证据、后继及反证条件 |\n|---|---|---|---|---|\n'
+ headings=re.findall(r'^### (KC-\d+) · .*? · .*? · (.+)$',(ROOT/'核心认知.md').read_text(),re.M);assert len(headings)==46
+ for n,(kc,title) in enumerate(headings,1):
+  rel,why=TOUCHED.get(n,('NOT_TOUCHED','本单元未推进该具名自指/反射/其它时间机制；来源对应不替代它。'))
+  ev=('第十七轮001–004、C297–299源码/run及原典；后继按精度近似。若谓词被换、隐藏额外前提、归约/全q恢复失败、混同缩层或hash变则撤回；新同任务反例重评。' if n in TOUCHED else '第十七轮003未触达范围；该具名机制或新直接证据成为当前任务时重开。')
+  audit+=f'| `{kc}` | {title} | {rel} | {why} | {ev} |\n'
+ audit+='''
+## 扩展认知逐片复认
+
+001问题/简化：实际L/U不换，原表平方条件不直接冒充下切割。002前提/时间：每输入查询与执行无穷任务分开。003圆环/ASK：这次是算术校准，不用它填圆环空白。004HoTT/自反：原生univalence桥接Book记号，反射未推进。005表达/原文：原典与当前修正规格相互对照，不用旧AI注释作真理。006知识谱：层级追踪路线与额外小型化分开。007助力/阻力：保留原表差异也给出全q恢复；构造成立即修正一律收费。008现实骨架：SQ-REP/QUERY/ROOT/APPROX分开，未把对象定义说成物理完成。
+
+## 已走过的路
+
+旧正确dcut/isProp修复被保留，新标准表示/字面Path/旧规格桥及实际GOLD元素接通。精确查询生成，不靠额外LEM；负三控制区分语义，并给原Spec_A加符号的恢复。旧有理根空性与新表示/查询并存而非矛盾。
+
+## 即将作出的选择与完备性
+
+下一按n二分，从有理界1、2开始，保持真实L/U与宽度=(1/2)^n，比较旧Pell非零的Done。未选无限一般实数环、全局缩层或任意cut程序定理；这些按依赖保持OPEN。圆环无归约不与算术互替。
+
+八轴和八项反思见第十七轮003。全q/任意ℓ由原生量词证明，不从负三有限样例外推。独立控制为字面Book、旧修复、强located输出、实际旧表与全q恢复；out-of-envelope包括全精度/环等式/统一计算性/缩层。新同任务反例或层级要求会重评。
+'''
+
+ runs={'schema_version':'hott-session-runs/v1','session_id':SID,'primary_runs':[RUN],'claim_ids':['C-297','C-298','C-299'],'validation':'audit/astra-gold-cut-20260920/DELIVERY.json','extra_kernel_rerun':False,'parent_objective':'OPEN','app_goal_status_observed':'active'}
+ for rec,kind in [('I-DIRECTION-PORTFOLIO-20260912','direction'),('I-OUTCOME-PANORAMA-20260912','outcome')]:state['records'][rec]['projection_generation']='20260920-'+kind+'-191'
+ targets=list(R.MUTABLE)+list(R.mutable_shard_paths(ROOT));b=subprocess.run(['/Users/aurolafly/codex/tools/check_file_baseline.sh',*targets],cwd=ROOT,capture_output=True,check=True);(OUT/'current-owner-baseline.txt').write_bytes(b.stdout)
+ files=[]
+ for rel in targets:
+  raw=(ROOT/rel).read_bytes();body=R.dump(state).decode() if rel==R.STATE else raw.decode()
+  if rel in (R.DIRECTION,R.PANORAMA):
+   body,n=re.subn(r'(?m)^source_state_revision: 190$','source_state_revision: 191',body);assert n==1
+   kind='direction' if rel==R.DIRECTION else 'outcome';body,n=re.subn(r'(?m)^projection_generation: .+$','projection_generation: 20260920-'+kind+'-191',body);assert n==1
+  if rel=='MEMORY/001 - 当前执行队列.md':
+   start=body.index('用户当前App Goal');end=body.index('\n\n',start)
+   body=body[:start]+'用户当前App Goal为ACTIVE：“完成四弹一体的redo”，完整范围保持。C297–299已核标准命题切割、Book/旧规格桥、实际GOLD Type1元素与全q L/U查询；无新增LEM/resizing/SingleOmega输入。负三区分旧平方表与下切割，旧Spec_A加符号有逐q正确恢复；同层缩层和全精度近似仍未证。策略v1.19由'+plan_commit+'保存。下一动作'+NEXT+' 入口：`'+REPORT+'`。'+body[end:]
+  if rel=='方向追踪/002 - 治理与用户方向.md':
+   lines=body.splitlines()
+   for i,line in enumerate(lines):
+    if line.startswith('| `DIR-U-ASTRA-BREAKPOINT` |'):
+     lines[i]=line.replace('SOURCE_CASE_CHECKED_GOLD_NEXT_ORIGINAL_SCOPE_OPEN','STANDARD_GOLD_QUERY_CHECKED_APPROX_NEXT').replace('`OUT-ASTRA-CASE-CONTRACT-16` |','`OUT-ASTRA-CASE-CONTRACT-16`、`OUT-ASTRA-GOLD-CUT-17` |').replace('给定源图合同已核；下一实际GOLD标准cut/查询/近似；原广义过程与弱Lift开放','标准GOLD表示/查询已核；下一全精度二分与Pell完成标准对照；原广义圆环/弱Lift开放')
+   body='\n'.join(lines)+'\n'
+  if rel=='全景视野/003 - 当前机器证明包与原生重放.md':body=body.rstrip()+'\n| `OUT-ASTRA-GOLD-CUT-17` | C297–299标准GOLD装配、原典桥与查询恢复 | `DIR-U-ASTRA-BREAKPOINT` | 原生Cubical源核及完整依赖/索引 | `FORMAL_CHECKED_WITH_SCOPE / STANDARD_GOLD_AND_QUERY` | Type1标准/旧载体元素、精确L/U查询、旧表加符号恢复；无额外收费前提 | 全精度近似、同层缩层/必要性、任意cut计算性、圆环归约/整体 | `'+REPORT+'`；`audit/astra-gold-cut-20260920/DELIVERY.json` |\n'
+  files.append({'path':rel,'expected_sha256':R.sha(raw),'text':body})
+ for name,body in [('SESSION.md',session),('RUNS.json',R.dump(runs).decode()),('CORE_COGNITION_AUDIT.md',audit)]:files.append({'path':BASE+name,'expected_sha256':None,'text':body})
+ payload={'schema_version':'cognition-checkpoint/v1','session_id':SID,'load_profile':'research','task_ids':['A-ASTRA-CONTINUING-GOAL-20260919'],'authorization':'用户ACTIVE Goal及既有T3状态/研究授权；完成标准GOLD/查询并转按精度近似，完整父范围不变。','files':files}
+ (OUT/'checkpoint-payload.json').write_bytes(R.dump(payload));result=R.checkpoint(ROOT,plan['snapshot'],payload,apply=args.apply)
+ (OUT/('checkpoint-apply.json' if args.apply else 'checkpoint-dry-run.json')).write_bytes(R.dump(result));print(json.dumps({k:v for k,v in result.items() if k!='paths'},ensure_ascii=False))
+
+if __name__=='__main__':main()

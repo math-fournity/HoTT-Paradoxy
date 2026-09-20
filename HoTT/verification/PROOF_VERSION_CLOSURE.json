@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 148,
+  "later_machine_proved_claim_count": 151,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-STANDARD-GOLD-CUT-001",
+      "claim_ids": "C-297–C-299",
+      "source": "HoTT/formal/dedekind-omega-missile/Sqrt2TableRecovery.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-STANDARD-GOLD-CUT-001-02",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "cubical_standard_dedekind_packing_and_query_recovery",
+      "verdict": "STANDARD_AND_LEGACY_GOLD_ELEMENTS_WITH_EXACT_QUERIES_NO_ADDED_RESIZING",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Ten local Agda modules, Cubical v0.9. Standard prop cut at level l, explicit literal-Book identity bridge at successor level, existing corrected legacy dcut bridge, actual GOLD elements at Type1, exact L/U query and actual old Spec_A+sign lower-query recovery. No LEM/resizing/SingleOmega inputs added. This qualifies overbroad historical source comments about every real-object promotion requiring payment; same-level real smallness and necessity remain open. Earlier -01 retained as pre-recovery evidence; -02 is primary."
+    },
     {
       "proof_id": "MP-ASTRA-NATIVE-SOURCE-CONTRACT-001",
       "claim_ids": "C-295–C-296",
