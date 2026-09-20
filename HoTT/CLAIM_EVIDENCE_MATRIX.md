@@ -1344,3 +1344,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-311 | 对原Real=ℝ₀、RealPlane积度量及原(0,1)，显式定义r(u)、正分母E(t,r)=1+(1−t)²abs(r)、stretch、bend、turn及固定y反射后的motion。对所有实时间与开参数，E正；bend分母由positiveD给资格；motionRaw与motion在Real×(0,1)联合点态连续，限制到原ClosedParameter×(0,1)仍连续。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_RATIONAL_FAMILY_AND_JOINT_CONTINUITY` | `stretchDenPositive/motionRawContinuous/motionContinuous/closedTimeMotionContinuous`；三新原生源与同run | 不能把联合连续性当所有切片嵌入；全闭参数扩展、端部纤维、空间界、现实速度/材料/操作尚未在本包证明；不是整个Lean与HoTT模型的保真翻译。 |
 | C-312 | 同一motion在t=0逐点等于(pr1 u,0)，在t=1逐点等于原paramPlane(realParameter u)，由原mInterior准确接到既有mCompletion(openIntoClosed u)，初态准确接到nCompletion。固定reflectY为对合、保持初始直线，rawFinalOrientation给出原负y公式与当前m图的反射关系；曲线参数u不变。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_ORIGINAL_ENDPOINT_DIAGRAMS_AND_ORIENTATION` | `motionAtZero/motionAtOne/motionAtOneOriginal/initialOriginalDiagram/finalOriginalDiagram/reflectionInvolution/reflectionFixesLine/rawFinalOrientation`；同run | 初末态等式不是全过程保持固定端部/环境同胚/源历史；最终图是原Strong参数化，未无条件声称覆盖全Weak去点圆；全R-CURVE及四层共同任务、HoTT失配仍未完成。 |
+
+
+## 原生时间曲线族的每片拓扑嵌入（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-EMBEDDING-001` | `C-313` | `formal/agda-unimath/hott-z/NativeMotionEmbedding.agda`、NativeStretchInverse/NativeBendInverse/NativeTurnInverse及原F依赖 | `verification/runs/20260920-MP-ASTRA-NATIVE-EMBEDDING-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_SLICE_TO_IMAGE_HOMEOMORPHISMS` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-313 | 对每个原Real时间t，未改动的motion(t)给出原OpenRealInterval到curveImageMetric(t)=im-Metric-Space intervalMetric realPlaneMetric (motion t)的PointwiseHomeomorphism。forward准确为map-unit-im(motion t)，backward为显式recoverInterval(t)；双方连续及两个逆律均证明，导出单射及原闭时间限制。逆链中stretch/bend坐标图分母和turn行列式均具正性证明，mere像成员只消去到命题，不选取任意原像。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_TOPOLOGICAL_EMBEDDING_WITH_ACTUAL_AMBIENT_SUBSPACE_METRIC` | `stretchLeftInverse/stretchInverseContinuous/bendLeftInverse/bendInverseContinuous/turnDetPositive/turnLeftInverse/turnUndoContinuous/imageInduction/recoverIntervalContinuous/recoverIntervalLeft/recoverIntervalRight/motionSliceHomeomorphism/motionSliceInjective/closedTimeSliceHomeomorphism`；四新原生源与同run | 不是仅集合is-emb；也不是全平面环境同胚过程、完整闭参数延拓/纤维、空间界或物理执行。未无条件覆盖全Weak去点圆，未建立全Lean模型保真或HoTT全局一致性/失配；完整F与四层目标仍开放。 |

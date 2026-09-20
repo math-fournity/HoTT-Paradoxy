@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 164,
+  "later_machine_proved_claim_count": 165,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-NATIVE-EMBEDDING-001",
+   "claim_ids": "C-313",
+   "source": "HoTT/formal/agda-unimath/hott-z/NativeMotionEmbedding.agda",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-EMBEDDING-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "native_actual_motion_slice_homeomorphisms_to_ambient_metric_images",
+   "verdict": "ALL_REAL_TIME_SLICES_HOMEOMORPHIC_TO_ACTUAL_IMAGES_FULL_CLOSED_PARAMETER_TASK_OPEN",
+   "notes": "Forward is exactly map-unit-im (motion t); ambient plane subspace metric, explicit continuous inverse and both inverse laws, injectivity and closed-time instance. Positive stretch/bend chart denominators and turn determinant are proved without new LEM/Lift/choice parameters. Image truncation is eliminated only into propositions. No full closed-parameter extension/fibers, uniform spatial bound, ambient-plane process, physical execution, full Weak-puncture coverage, model-translation or complete four-stage claim."
+  },
   {
    "proof_id": "MP-ASTRA-NATIVE-MOTION-001",
    "claim_ids": "C-311–C-312",
