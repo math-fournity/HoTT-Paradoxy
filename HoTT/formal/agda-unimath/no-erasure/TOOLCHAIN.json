@@ -1,0 +1,71 @@
+{
+  "agda": {
+    "asset_bytes": 13035976,
+    "asset_sha256": "9a35071eb9747f984177f48e1ba7008a9cebccfc259a40a0a84b29ffc2ec2db6",
+    "asset_url": "https://github.com/agda/agda/releases/download/v2.8.0/Agda-v2.8.0-macOS-arm64.tar.xz",
+    "binary_bytes": 102056440,
+    "binary_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+    "local_archive": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/Agda-v2.8.0-macOS-arm64.tar.xz",
+    "local_binary": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "release_page": "https://github.com/agda/agda/releases/tag/v2.8.0",
+    "release_tag": "v2.8.0",
+    "version": "2.8.0-3d04bac"
+  },
+  "agda_unimath_library": {
+    "agda_compatibility_note": "The library's own flake.nix at this commit states that the pinned nixpkgs carries Agda 2.8.0; the replay uses the project's pinned Agda 2.8.0-3d04bac binary.",
+    "archive_bytes": 11938845,
+    "archive_member_count": 3226,
+    "archive_sha256": "552bc6102be8ce952226528dbc256c07f2993038dd182e501c877cc096b664b6",
+    "commit_sha": "7b81411d9f60afec359d29ed1e4edf43f4711c8a",
+    "download_url": "https://codeload.github.com/UniMath/agda-unimath/tar.gz/7b81411d9f60afec359d29ed1e4edf43f4711c8a",
+    "downloaded_at_utc": "2026-09-13T07:32:10Z",
+    "fetch_policy": "codeload does not support Range/resume for this object (Range probe answered 200, not 206), so the tarball was fetched single-connection with the probed ETag as an If-Match precondition (no 412 was returned).",
+    "http_etag": "\"e34d6865d8fa82eecdd7c8d2d23c5b71dba6046b9a6ea9659f68b916a51353ba\"",
+    "integrity_note": "GitHub publishes no SHA-256 digest for codeload commit tarballs. Identity rests on: commit SHA in the URL, the ETag pinned via If-Match, the locally computed tarball SHA-256, and gzip/tar structural checks. The local hash proves local byte identity only and is not an independent publisher attestation.",
+    "library_file": "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d-astra-no-erasure-v1/agda-unimath.agda-lib",
+    "library_file_bytes": 168,
+    "library_file_sha256": "48c3a9c89dc6f3e3bbe99c9df5b5c09b15ce1af52b6a767c2e956dc4cd0344df",
+    "library_flags": "--without-K --exact-split --no-import-sorts --auto-inline --no-require-unique-meta-solutions --no-postfix-projections",
+    "local_archive": "/Volumes/D/HoTT-toolchain-cache/downloads/agda-unimath-7b81411d/agda-unimath-7b81411d9f60afec359d29ed1e4edf43f4711c8a.tar.gz",
+    "local_root": "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d-astra-no-erasure-v1",
+    "name": "agda-unimath-no-erasure",
+    "publisher_sha256": null,
+    "repository": "https://github.com/UniMath/agda-unimath",
+    "tree_excludes": [
+      "*.agdai",
+      ".DS_Store"
+    ],
+    "tree_file_count": 3166,
+    "tree_sha256": "3787fb34df15515246da11b90b609d3a2063f15e234f19c1e7f64553c4990f57",
+    "tree_total_bytes": 31596039,
+    "upstream_commit_is_parent_not_exact_variant": true
+  },
+  "derivation": {
+    "changed_files": [
+      {
+        "after_sha256": "4f9eda57bec5334fff6db02810a9077b959ee7bd67339764a7f87f892b9d5847",
+        "before_sha256": "3a5b78fbd57a492afe8685f842c638a5352712464f9effdbc1238c3c2963f50b",
+        "path": "src/reflection/erasing-equality.lagda.md"
+      },
+      {
+        "after_sha256": "48c3a9c89dc6f3e3bbe99c9df5b5c09b15ce1af52b6a767c2e956dc4cd0344df",
+        "before_sha256": "d42bd31babacf7fced8aab84f499d9004a1cac5c3219dc7b360c56c23e9b6221",
+        "path": "agda-unimath.agda-lib"
+      }
+    ],
+    "parent_toolchain": "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+    "patch": "HoTT/formal/agda-unimath/no-erasure/identity-replacement.patch",
+    "patch_sha256": "52eda1114a38fc945c243d9ff96114900faf1c7ba52cd6767793a5865ccb6c0e",
+    "policy": "Parent source/archive unchanged; no interfaces copied; exactly two changed files; original archive is the parent, not an archive of the derivative."
+  },
+  "project_library_registry": "HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+  "runtime_cache": {
+    "tmpdir": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "xdg_config_home": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "xdg_data_home": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data"
+  },
+  "schema_version": "hott-agda-unimath-toolchain/v1",
+  "secret_policy": "No credentials, cookies, signed redirect URLs or full environment dumps are retained.",
+  "source_policy": "The user-authored derived source stays in the project; the external agda-unimath checkout stays on the D: toolchain cache and is pinned by commit SHA, tarball hash, library-file hash and deterministic source-tree hash. Regenerable *.agdai interfaces and .DS_Store are excluded from the tree identity.",
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

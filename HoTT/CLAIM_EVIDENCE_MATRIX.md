@@ -1162,3 +1162,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-277 | `integralEmbedding : ℤ×ℤ→Plane`单射；n的实际边界图恰为(0,0)/(1,0)，m的实际边界图恰为常值(1,0)在该嵌入下的像；交换两坐标与该嵌入交换，运输后n边界仍精确对应。 | `FORMAL_CHECKED_WITH_SCOPE / EXACT_SELECTED_OBSERVATION / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `integralEmbedding_injective/n_integral_observation_exact/m_integral_observation_exact/integral_swap_commutes/swapped_n_observation_exact`；run `20260920-MP-ASTRA-STRUCTURED-CURVE-001-02` | 保真对象是这些边界值和指定坐标动作；不是所有实数点、曲线、连续性或完整Agda↔Lean翻译。 |
 | C-278 | 原生Agda对相同整数坐标表n/m证明：任意环境等价和Bool端标签等价均不能形成所给交换图；RichDiagram的两实例无Path；忘去边界函数后的环境载体Path为refl，单一恢复函数不能同时恢复这两实例。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_CUBICAL_BOUNDARY_DIAGRAM / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `noCommutingBoundaryEquivalence/noRichDiagramPath/bareCarrierPath/noOneBareRecovery`；run `20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01` | native Bare是边界图的环境载体，不是完整实数曲线；两个实例的无共同恢复不是任何信息都不可恢复的定理；没有HoTT矛盾。 |
 | C-279 | 对任意Coord等价e，原生ua与ΣPathP把完整n边界图运输为`(Coord, e∘n)`；坐标交换非恒等实例有Rich路径，右端坐标计算为(0,1)，分离性质沿路径保持。 | `FORMAL_CHECKED_WITH_SCOPE / NATIVE_UA_STRUCTURED_TRANSPORT / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `transportDiagram/swappedDiagramPath/swappedRightCoordinate/swappedStillSeparate`；run `20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01` | 正控制要求数据一起运输；不声称ua自动保留已被用户代码忘掉的边界函数，也不声称完整实数模型已经native重放。 |
+
+## 原生实数模型与额外归约配置资格（2026-09-20）
+
+本节的配置诊断、实际模型和同源码复核分别定级。C-05旧run及冻结行只保存其原配置接受的历史事实；当前新增支持来自`MP-ASTRA-NOSECTION-RESTRICTED-001`，旧原树不能作为未经限定的普通HoTT验证环境继续使用。旧run/source不改写，当前环境资格由registry中该旧包的`qualification_status`和本节新proof行共同定位。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-ERASURE-CONFIG-001` | `C-280` | `formal/agda-unimath/hott-z/ErasureConfigurationDiagnostic.agda`；上游原树和额外primEraseEquality | `verification/runs/20260920-MP-ASTRA-ERASURE-CONFIG-001-01/`；exit0并保留warning；同源码普通函数负控制为`20260920-MP-ASTRA-ERASURE-CONTROL-001-01`，exit42/loopRefl | `FORMAL_CHECKED_WITH_SCOPE / EXTRA_REDUCTION_CONFIGURATION_DIAGNOSTIC` |
+| `MP-ASTRA-NATIVE-REAL-001` | `C-281` | `formal/agda-unimath/hott-z/NativeRealCircleQualification.agda`；两文件no-erasure派生库 | `verification/runs/20260920-MP-ASTRA-NATIVE-REAL-001-01/`；exit0；实数、度量及公理依赖明确 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_DEDEKIND_MODEL_WITH_DECLARED_POSTULATES` |
+| `MP-ASTRA-NOSECTION-RESTRICTED-001` | `C-282` | 与旧C-05 run完全相同的`formal/agda-unimath/hott-z/NoCanonicalPoint.agda`；两文件no-erasure派生库 | `verification/runs/20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-02/`；`-01`成功但重复使用C-05而未通过registry关系检查，原件保留；仍有声明的基础公设 | `REPLAYED_WITH_SCOPE / ERASURE_RULE_REMOVED / NOT_GLOBAL_SOUNDNESS_CERTIFICATION` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-280 | 在固定Agda without-K加上游primEraseEquality额外归约及库univalence配置中，源码构造`∀{ℓ A x}(p:x＝x),p＝refl`，并由Bool交换的univalence路径构造`configurationEmpty : empty`。 | `FORMAL_CHECKED_WITH_SCOPE / EXTENDED_CONFIGURATION_DIAGNOSTIC` | `eraseRetract/loopRefl/swapAction/collapsedAction/configurationEmpty`；run `20260920-MP-ASTRA-ERASURE-CONFIG-001-01`；同源码消融run拒绝loopRefl | 不是普通HoTT仅用标准规则的不一致证明；不是首次发现；不把不一致配置中接受任意项当一般数学真理。 |
+| C-281 | 在声明公设的no-erasure库变体中，`ℝ lzero`平面及实际乘积/子空间度量可构造；`x*x+y*y=1`圆有east/north，north≠east；逻辑去点圆有puncturedNorth；严格开区间(0,1)有intervalHalf。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_NONEMPTY_REAL_POINTSETS` | `Real/realPlaneMetric/circleMetric/east/north/northNotEast/puncturedNorth/intervalMetric/intervalHalf`；run `20260920-MP-ASTRA-NATIVE-REAL-001-01` | 未证明此处两空间同胚、完整F、Lean保真翻译、逻辑不等于正分离的等价、最小公理集或物理完成；不假设SingleOmega，但导入公设另列。 |
+| C-282 | 在去掉primEraseEquality特殊归约的固定库变体及其声明公设下，同一旧源码仍给出`∀{ℓ}, ¬((X:2-Element-Type ℓ)→type-2-Element-Type X)`及无统一PointedOrientation推论。 | `FORMAL_CHECKED_WITH_SCOPE / EXISTING_C05_SOURCE_REQUALIFIED` | `no-canonical-point/no-canonical-pointed-orientation`；run `20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-02` | 这是C-05的配置重资格化身份，不是新发现定理；不扩大到带顺序输入、一般选择公理或物理端点任务；不认证整库一致性。 |

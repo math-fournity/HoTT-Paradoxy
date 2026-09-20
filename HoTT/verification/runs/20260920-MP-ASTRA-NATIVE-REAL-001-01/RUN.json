@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-281"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-native-real-20260920/20260920-MP-ASTRA-NATIVE-REAL-001-01.dot",
+    "HoTT/formal/agda-unimath/hott-z/NativeRealCircleQualification.agda"
+  ],
+  "completed_at_utc": "2026-09-20T10:51:30.202599+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 208.150492,
+  "environment": {
+    "bytes": 836,
+    "path": "environment.txt",
+    "sha256": "15a51fe42d1e695b039050539ca2e34d42945699ab78464018e16d7478fa7762"
+  },
+  "exit_code": 0,
+  "expected_exit_for_control": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "fc3f3d4d5dd395eb492362652aa3f2dbe80d2530fd60a0627e4e4bedb2cb4951"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No ordinary HoTT inconsistency claim.",
+    "No global soundness certification of Agda, all library postulates, or the derivative.",
+    "No complete four-stage redo, physical realization, or general faithful translation claim."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-NATIVE-REAL-001",
+  "run_id": "20260920-MP-ASTRA-NATIVE-REAL-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Actual ℝ lzero Dedekind real plane, product metric, equation-defined unit circle, east/north and north≠east, punctured nonempty metric subspace, and inhabited strict open interval. No circle/interval homeomorphism or Lean-to-HoTT translation is asserted.",
+  "source_manifest": {
+    "bytes": 14666,
+    "path": "source-manifest.json",
+    "sha256": "9f60f7b7ae677a8124278fc79d0ca79c5acf8c6c99d3da625166c2ec97f1b817"
+  },
+  "started_at_utc": "2026-09-20T10:48:02.052107+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 171301,
+    "path": "stdout.txt",
+    "sha256": "b30293039bf4232a144a27245a25fe218344832037f7fd9d6e881c1629445005"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

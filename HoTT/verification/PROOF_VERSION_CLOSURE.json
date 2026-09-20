@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 131,
+  "later_machine_proved_claim_count": 134,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,39 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-ERASURE-CONFIG-001",
+      "claim_ids": "C-280",
+      "source": "HoTT/formal/agda-unimath/hott-z/ErasureConfigurationDiagnostic.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-ERASURE-CONFIG-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+      "kind": "extra_primitive_configuration_diagnostic",
+      "verdict": "EXTENDED_CONFIGURATION_ACCEPTS_EMPTY_NOT_ORDINARY_HOTT",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "The numeric legacy counter includes this precisely scoped diagnostic, not a HoTT inconsistency. Same source is rejected at loopRefl after the primitive is replaced by identity."
+    },
+    {
+      "proof_id": "MP-ASTRA-NATIVE-REAL-001",
+      "claim_ids": "C-281",
+      "source": "HoTT/formal/agda-unimath/hott-z/NativeRealCircleQualification.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-REAL-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_real_pointset_model_qualification",
+      "verdict": "ACTUAL_DEDEKIND_MODEL_WITH_DECLARED_POSTULATES",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Two-file local library derivative, not unmodified upstream. Actual circle/puncture/interval inhabitants and metric structure; no homeomorphism, complete geometry translation or global soundness certification."
+    },
+    {
+      "proof_id": "MP-ASTRA-NOSECTION-RESTRICTED-001",
+      "claim_ids": "C-282",
+      "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-02",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "existing_claim_requalification_without_erasure_rule",
+      "verdict": "SAME_SOURCE_REPLAYED_WITH_SCOPE_UNDER_RESTRICTED_CONFIGURATION",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "C-282 qualifies the existing C-05 source in the changed configuration; it is not a newly discovered mathematical theorem. The initial successful capture -01 used C-05 and hit the registry's claim-uniqueness rule; it is retained as a historical capture, not the current primary. Original source and receipts are unchanged."
+    },
     {
       "proof_id": "MP-ASTRA-RESTORE-CRITERION-001",
       "claim_ids": "C-261–C-262",
@@ -736,7 +769,11 @@
    "claim_ids": "C-05",
    "source": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
    "run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
-   "kind": "external_library_replay"
+   "kind": "external_library_replay",
+   "qualification_status": "HISTORICAL_ACCEPTANCE_IN_CONFIGURATION_WITH_EXTRA_ERASURE_RULE",
+   "current_support_proof_id": "MP-ASTRA-NOSECTION-RESTRICTED-001",
+   "qualification_report": "Astra继续尝试/断点与证明机制系统检查/第九轮执行报告.md",
+   "qualification_notes": "Old receipt/source retained. The same source succeeds after identity-preserving replacement; neither old acceptance nor the replacement certifies the whole library's consistency."
   }
  ],
  "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",

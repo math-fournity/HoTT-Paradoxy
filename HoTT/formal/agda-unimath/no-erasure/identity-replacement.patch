@@ -1,0 +1,70 @@
+--- a/src/reflection/erasing-equality.lagda.md
++++ b/src/reflection/erasing-equality.lagda.md
+@@ -1,47 +1,16 @@
+-# Erasing equality
++# Identity-preserving replacement for equality erasure
++
++This local derivative replaces the Agda primitive with the ordinary identity
++function. It has no rule reducing an arbitrary loop to reflexivity. The upstream
++file and full diff remain in the parent archive and the project's derivation.
++This change does not certify the other postulates or the whole library.
+ 
+ ```agda
+ module reflection.erasing-equality where
++
++open import foundation.universe-levels
++open import foundation-core.identity-types
++
++primEraseEquality : {l : Level} {A : UU l} {x y : A} → x ＝ y → x ＝ y
++primEraseEquality p = p
+ ```
+-
+-<details><summary>Imports</summary>
+-
+-```agda
+-open import foundation.universe-levels
+-
+-open import foundation-core.identity-types
+-```
+-
+-</details>
+-
+-## Idea
+-
+-Agda's builtin primitive `primEraseEquality` is a special construct on
+-[identifications](foundation-core.identity-types.md) that for every
+-identification `x ＝ y` gives an identification `x ＝ y` with the following
+-reduction behavior:
+-
+-- If the two end points `x ＝ y` normalize to the same term, `primEraseEquality`
+-  reduces to `refl`.
+-
+-For example, `primEraseEquality` applied to the loop of the
+-[circle](synthetic-homotopy-theory.circle.md) will compute to `refl`, while
+-`primEraseEquality` applied to the nontrivial identification in the
+-[interval](synthetic-homotopy-theory.interval-type.md) will not reduce.
+-
+-This primitive is useful for [rewrite rules](reflection.rewriting.md), as it
+-ensures that the identification used in defining the rewrite rule also computes
+-to `refl`. Concretely, if the identification `β` defines a rewrite rule, and `β`
+-is defined via `primEraseEqaulity`, then we have the strict equality `β ≐ refl`.
+-
+-## Primitives
+-
+-```agda
+-primitive
+-  primEraseEquality : {l : Level} {A : UU l} {x y : A} → x ＝ y → x ＝ y
+-```
+-
+-## External links
+-
+-- [Built-ins#Equality](https://agda.readthedocs.io/en/latest/language/built-ins.html#equality)
+-  at Agda's documentation pages
+--- a/agda-unimath.agda-lib
++++ b/agda-unimath.agda-lib
+@@ -1,3 +1,3 @@
+-name: agda-unimath
++name: agda-unimath-no-erasure
+ include: src
+-flags: --without-K --exact-split --no-import-sorts --auto-inline --no-require-unique-meta-solutions -WnoWithoutKFlagPrimEraseEquality --no-postfix-projections
++flags: --without-K --exact-split --no-import-sorts --auto-inline --no-require-unique-meta-solutions --no-postfix-projections
