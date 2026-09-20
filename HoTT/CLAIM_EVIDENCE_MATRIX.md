@@ -1299,3 +1299,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | C-304 | 在原库S¹、base、loop与ℤ上，逐字提取helix至winding-hom的实际证明链，构造Iso(base≡base,ℤ)、decodeEncode的全部x/p依赖逆律、全部n的整数逆律以及全部回路p/q的winding(p∙q)=winding(p)+winding(q)。显式helixAgreement与encodeAgreement连接上游类型族/编码，windingAgreement及intLoopAgreement逐输入连接原上游函数；末端roundTripLoop/roundTripInteger/composedObservation实际消费该链。 | `FORMAL_CHECKED_WITH_SCOPE / REPLAYED_LIBRARY_CHAIN_WITH_EXPLICIT_BRIDGES` | `helix/decodeSquare/decode/decodeEncode/ΩS¹Isoℤ/winding-hom/helixAgreement/encodeAgreement/windingAgreement/intLoopAgreement/roundTripLoop/roundTripInteger/composedObservation`；SC00.agda；同run | 这是既有库证明链及保真桥的核验，不主张该基本结果原创。未用新本地HIT替代原S¹；不证明几何删点、物理时间过程、全部库消费者正确或四弹闭合。单因素修改的类型拒绝是运行对照，不增加相应数学不可能性定理。 |
+
+## 同GOLD有理数商与截断后的实际数据消费（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-QUOTIENT-CONSUMER-001` | `C-305..C-306` | `formal/astra-quotient-consumer/QuotientConsumer.agda`；原CutGoldForm/CutInfra/M2 | `verification/runs/20260920-MP-ASTRA-QUOTIENT-CONSUMER-001-01/`；safe/cubical/guardedness，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_QUOTIENT_AND_SET_VALUED_TRUNCATION_CONSUMER` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-305 | 在原GOLD使用的Rationals.Base.ℚ上，实际加乘及GOLD.L/U保持代表关系。对每个q，Rep(q)=Σr:ℤ×ℕ₊₁,pack(r)=q有[]surjective给出的mere代表；squareRep在该fiber上有显式常值性，实际rec→Set返回ℚ平方值并证明等于q·q。suppliedSquare/generatedSquare带真实Done，全部响应等于直接平方响应。目标ℚ为Set且已证明不是Prop；1/1与2/2的平方输出有明确相等证明。 | `FORMAL_CHECKED_WITH_SCOPE / INVARIANT_DATA_RECOVERY_WITH_EXPLICIT_CONSTANCY` | `addRespects/mulRespects/lowerRespects/upperRespects/mereRep/squareRepConstant/squareFromMereCorrect/squareResponseCanonical/quotientNotProp/twoOverTwoSquared`；同run | q本来就是输入，正构造不提供选择原历史代表的新能力；不把截断到Set的有条件接口说成任意数据都能恢复，也不证明全部商/截断正确或现实完成。 |
+| C-306 | 真实代表1/1与2/2在ℚ中相等而原分子1与2不同；不存在observe:ℚ→ℤ对每个原分数r都满足observe(pack r)=fst r，也不存在restore:ℚ→Frac对每个r满足restore(pack r)=r。在固定q=1的Rep fiber上，rawNumerator不满足常值性，且不存在从mere Rep(1)返回并保留每个原代表分子的函数。Rich=Σq,Rep(q)显式保留给定源；两个实例裸q相等而Rich不等，给定源观察正确。 | `FORMAL_CHECKED_WITH_SCOPE / ORIGINAL_PROVENANCE_CONTRACT_SEPARATED_FROM_VALUE_TASK` | `sameRational/differentNumerators/noOriginalNumerator/noOriginalFraction/noNumeratorConstancy/noRawFromMere/sameBare/differentRich/chosenSourceLaw`；同run | 否定的是恢复每个原输入的左逆/原始分子合同，不是否定选取某个规范代表或商映射的任意右逆；加入给定原代表是输入变化。没有HoTT承诺裸商类保留该历史的证据，不构成原圆环或四弹整体失配。 |

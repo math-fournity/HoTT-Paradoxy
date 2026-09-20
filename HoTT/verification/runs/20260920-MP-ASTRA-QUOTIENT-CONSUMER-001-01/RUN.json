@@ -1,0 +1,69 @@
+{
+  "claim_ids": [
+    "C-305",
+    "C-306"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-quotient-consumer",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-quotient-20260920/QuotientConsumer-imports.dot",
+    "HoTT/formal/astra-quotient-consumer/QuotientConsumer.agda"
+  ],
+  "completed_at_utc": "2026-09-20T18:59:33.519500+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 59.992222,
+  "environment": {
+    "bytes": 568,
+    "path": "environment.txt",
+    "sha256": "0e4a3e1a818ad2c09f254944a8d03341f620d7c6aa7cff40cb646a1b4600099f"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "1ea039169fbad3aba350b206eb243811c287d10693dbe572a772aa4164fb14d7"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No impossibility of choosing some canonical fraction or of computing invariant rational functions.",
+    "No physical point-removal or global HoTT inconsistency/completeness conclusion.",
+    "Additional chosen-source input is not bare-quotient provenance recovery."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-QUOTIENT-CONSUMER-001",
+  "run_id": "20260920-MP-ASTRA-QUOTIENT-CONSUMER-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Actual GOLD rational quotient. Primary: arithmetic/GOLD representative invariance, non-propositional set target, mere representative to correct square via explicit constancy and rec→Set, precise impossibility of preserving every original numerator/fraction, and given-source Rich control. Incorrect consumers are fixed-term causal controls only.",
+  "source_manifest": {
+    "bytes": 15079,
+    "path": "source-manifest.json",
+    "sha256": "cefe9404b6642be2c0c4ed58621c1bff9e8394350fbaab848ce8cf85e44b71a6"
+  },
+  "started_at_utc": "2026-09-20T18:58:33.527278+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18427,
+    "path": "stdout.txt",
+    "sha256": "52e447ad2730faac0836274bdc188a9faa52181e473b8cf6203d0da60b1048d9"
+  },
+  "theory_variant": "cubical"
+}

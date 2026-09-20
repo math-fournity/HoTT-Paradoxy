@@ -1,0 +1,63 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_TWO_CONTROLS_RECONCILED",
+  "claim_ids": [
+    "C-305",
+    "C-306"
+  ],
+  "primary_run": "HoTT/verification/runs/20260920-MP-ASTRA-QUOTIENT-CONSUMER-001-01",
+  "primary_seconds": 59.992222,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-QUOTIENT-CONSUMER-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-QUOTIENT-CONSUMER-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "controls": [
+    {
+      "module": "RawNumeratorQuotient",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-RawNumeratorQuotient-CONTROL-01",
+      "exit": 42,
+      "seconds": 1.911663,
+      "cached_interfaces": true,
+      "diagnostic": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-quotient-consumer/RawNumeratorQuotient.agda:14.45-49: error: [UnequalTerms]\nfst a != fst b of type ℤ\nwhen checking that the expression refl has type fst a ≡ fst b\n",
+      "verdict": "EXACT_TYPE_REJECTION_CONTROL_NOT_A_NEW_NO_GO_THEOREM"
+    },
+    {
+      "module": "RawNumeratorTruncation",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-RawNumeratorTruncation-CONTROL-01",
+      "exit": 42,
+      "seconds": 1.997753,
+      "cached_interfaces": true,
+      "diagnostic": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-quotient-consumer/RawNumeratorTruncation.agda:13.49-53: error: [UnequalTerms]\nfst (fst r) != fst (fst s) of type ℤ\nwhen checking that the expression refl has type\nrawNumerator r ≡ rawNumerator s\n",
+      "verdict": "EXACT_TYPE_REJECTION_CONTROL_NOT_A_NEW_NO_GO_THEOREM"
+    }
+  ],
+  "import_modules": 160,
+  "compiled_local_modules": 4,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 3,
+  "draft_kernel_checks": 1,
+  "original_gold_sources_unchanged": true,
+  "unproved": [
+    "Canonical choice algorithm or universal right-section theorem",
+    "Physical/source-history interpretation for the original circle",
+    "Unconditional weak Lift, necessity/metatheory and complete four-stage outcome"
+  ],
+  "parent_goal": "OPEN"
+}

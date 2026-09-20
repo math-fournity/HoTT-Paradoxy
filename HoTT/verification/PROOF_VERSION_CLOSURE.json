@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 156,
+  "later_machine_proved_claim_count": 158,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-QUOTIENT-CONSUMER-001",
+      "claim_ids": "C-305–C-306",
+      "source": "HoTT/formal/astra-quotient-consumer/QuotientConsumer.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-QUOTIENT-CONSUMER-001-01",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "cubical_actual_gold_quotient_and_set_truncation_consumer",
+      "verdict": "INVARIANT_VALUE_RECOVERY_AND_PRECISE_ORIGINAL_SOURCE_BOUNDARY",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Four compiled local modules, unchanged original GOLD/Infra/M2. Actual rational arithmetic and GOLD predicates respect representatives; rec→Set consumes explicit constancy on Rep(q) and produces the correct rational square, with a proof that the target set is not a proposition. Exact original-numerator/fraction recovery is refuted without denying canonical representatives. Two incorrect relation/constancy terms are separate cached controls after the fresh primary run; no new claims arise from their rejection."
+    },
     {
       "proof_id": "MP-ASTRA-S1-CONSUMER-001",
       "claim_ids": "C-304",
