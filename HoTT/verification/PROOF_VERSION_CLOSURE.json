@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 138,
+  "later_machine_proved_claim_count": 140,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-NATIVE-CONTINUITY-001",
+      "claim_ids": "C-287–C-288",
+      "source": "HoTT/formal/agda-unimath/hott-z/StereographicContinuity.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-CONTINUITY-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_actual_metric_continuity_and_homeomorphism",
+      "verdict": "EXPLICIT_RECIPROCAL_MODULUS_AND_SAME_MAP_POINTWISE_HOMEOMORPHISM",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Actual original metrics and C285 functions. Modulus existence is propositionally truncated at each point; no global choice or numerical algorithm claim. Six explicit homeomorphism fields, not the stronger uniform-homeo API. Weak domain remains conditional on Lift/LEM0; interval and physical task remain open."
+    },
     {
       "proof_id": "MP-ASTRA-NATIVE-STEREOGRAPHIC-001",
       "claim_ids": "C-285–C-286",

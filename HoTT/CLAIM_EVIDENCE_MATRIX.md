@@ -1200,3 +1200,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-285 | 对每个实际Real参数t，D=t²+1严格正，构造q=D⁻¹与圆点φ(t)=((t²−1)q,(t+t)q)及apartness。实际投影f满足∀t,f(φ(t))=t及∀w:StrongPuncture,φ(f(w))=w，组成StrongPuncture≃Real。Lift下原PuncturedRealCircle也与Real等价；LEM₀为显式充分输入。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_BOTH_ROUNDTRIPS` | `positiveD/paramEquation/paramStrong/forwardParameter/parameterForward/strongCircleEquivReal/weakCircleEquivReal/classicalWeakCircleEquivReal`；run `20260920-MP-ASTRA-NATIVE-STEREOGRAPHIC-001-01` | 无条件强域与条件弱域分开；未证明连续性、同胚、开区间接口、Lean保真翻译、物理变形或无条件Lift。 |
 | C-286 | 对C285实际等价使用公理式原生univalence得到StrongPuncture＝Real；对任意w，equiv-eq还原该Path后的作用等于实际投影f(w)，north作用结果等于1。Lift下另有原弱删点类型到Real的Path。 | `FORMAL_CHECKED_WITH_SCOPE / PROPOSITIONAL_NATIVE_UNIVALENCE_ACTION` | `strongTypePath/strongTypePathAction/typePathNorthOne/weakTypePath`；同run | 这是底层类型Path与命题作用等式，不声称refl判断归约、Cubical计算规则、原给定metric/来源/端部结构相等或HoTT矛盾。 |
+
+## 实际取逆局部模数与原度量下的双向连续（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-CONTINUITY-001` | `C-287..C-288` | `formal/agda-unimath/hott-z/StereographicContinuity.agda`，显式依赖ReciprocalContinuity及C281/C284/C285三个旧模块；no-erasure变体 | `verification/runs/20260920-MP-ASTRA-NATIVE-CONTINUITY-001-01/`；原生Agda `--ignore-interfaces` exit0；五本地Agda模块全部pin | `FORMAL_CHECKED_WITH_SCOPE / SAME_METRIC_SAME_MAP_HOMEOMORPHISM` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-287 | 对实际apart非零Dedekind实数子空间，recip=real-inv-nonzero-ℝ逐点连续。给定正有理r及2r≤abs(x)，C=(inv r)²、μ(r,ε)=min(r,inv(C)·ε)满足原邻域下的逆元误差≤ε；由abs(x)>0的截断有理下界合法构造连续模数的截断存在。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_LOCAL_RATIONAL_MODULUS` | `reciprocalDistance/inverseBound/nearbyLower/budgetIdentity/localEstimate/reciprocalContinuous`；ReciprocalContinuity.agda；run `20260920-MP-ASTRA-NATIVE-CONTINUITY-001-01` | 非零域是apart-from-zero；没有新增或传入选择公理/LEM，不声称最小公理集已提取、全局数值模数选择器、双向一致连续或物理可执行性。 |
+| C-288 | 在C281原实数/乘积/子空间度量下，C285同一投影与参数化均逐点连续；连同原两复合律，填满PointwiseHomeomorphism六字段，得到StrongPuncture↔Real的双向连续互逆。原弱删点域在Lift下亦有此同胚，LEM₀为显式充分输入。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_POINTWISE_HOMEOMORPHISM` | `stereographicContinuous/parameterizeContinuous/strongHomeomorphism/weakHomeomorphism/classicalWeakHomeomorphism`；StereographicContinuity.agda；同run | 不声称uniform-homeo、等距、原metric数据相等、无条件弱Lift、与(0,1)已连通、完整Lean翻译、固定端部物理变形或HoTT矛盾。 |
