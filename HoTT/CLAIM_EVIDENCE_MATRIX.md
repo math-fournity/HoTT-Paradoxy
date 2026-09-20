@@ -1244,3 +1244,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-293 | RichCurve=Σ A:UU₁,CurveData A，含实际参数等价、平面实现、原metric连续闭图及内点一致。mRich/nRich以C290强删点圆与原开区间为实际Bare，有C290裸Path，但无指定Rich路径；任意Bare路径运输mData均不等于预选nData，且仅输入裸类型的统一函数不能同时精确恢复这两份预选Rich。完整字段运输给mRich=transportedRich，逐参数闭图及端部同像保持。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_RICH_SEPARATION_AND_FULL_FIELD_TRANSPORT` | `barePath/noRichPath/noAnyBarePathLift/noUniformBareRecovery/fullTransportPath/transportKeepsClosedImage/fullTransportKeepsEnds`；NativeRichCurve.agda；run `20260920-MP-ASTRA-NATIVE-RICH-TASK-001-02` | transportedRich的载体为区间但不是普通直线nData。无全现实来源穷尽、无条件弱Lift或同命题P/非P；不宣称HoTT自动删除结构，也不否定带原数据的恢复。 |
 | C-294 | AmbientStep由真实平面双向连续同胚及同一闭参数下的交换图定义；端部同像/异像保持与反射由函数/逆律推导。有限Trace归纳、拼接与Done=r=target给两方向N↔M无该类有限成功，N→M截断成功也不成立。实际坐标交换有非平凡Success；完整字段运输mRich→transportedRich在同一AmbientStep/Done模型有一步Success。裸Path给BareTrace/BareSuccess，但不存在对任意Rich对将BareTrace全部提升为AmbientTrace的函数。 | `FORMAL_CHECKED_WITH_SCOPE / FINITE_TASK_NO_GO_AND_SAME_MODEL_POSITIVE_CONTROLS` | `noTraceNtoM/noTraceMtoN/noSuccessNtoM/noSuccessMtoN/noMereSuccessNtoM/swapSuccess/noUniversalTraceLift/fullTransportSuccess`；FiniteTrace、NativeCurveTask、NativeCurveTaskControls；同run | 操作类限定全平面同胚与固定参数图；不涵盖所有曲线变形、重参数化/加点/合并或物理复原。不从非紧性/超时推不完成；不证明HoTT许诺裸Trace提升，也不替代原Input/Denotes/允许操作对应。 |
+
+## 给定来源数据的重呈现与精确图对应（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-SOURCE-CONTRACT-001` | `C-295..C-296` | `formal/agda-unimath/hott-z/NativeSourceContract.agda`；十三个既有本地模块全部pin | `verification/runs/20260920-MP-ASTRA-NATIVE-SOURCE-CONTRACT-001-01/`；原生Agda完整依赖 `--ignore-interfaces` exit0；固定no-erasure配置 | `FORMAL_CHECKED_WITH_SCOPE / SOURCE_SUPPLIED_REPRESENTATION_CONTRACT` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-295 | Input显式给定完整source Rich、targetCarrier及Bare(source)≃targetCarrier；State/Step/Observation/Denotes/Output/Satisfies/Done/Run均定义。整体运输所得reexpressed逐闭参数与source图相同，满足目标载体与Denotes；对每个Input构造有限同模型Run，任意Done推出Satisfies，checkedOutput从Run给出实际终态及正确性。actualInput用mRich、原区间和C290真实等价实例化，输出就是transportedRich。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_SOURCE_INPUT_AND_SOUND_REEXPRESSION` | `denotesReexpression/runReexpression/doneIsSound/checkedOutput/actualRun/actualCheckedOutput`；NativeSourceContract.agda；run `20260920-MP-ASTRA-NATIVE-SOURCE-CONTRACT-001-01` | source/等价是本合同给定数据，不是从裸N免费恢复；不声称其为所有方法的最小必要输入。Denotes为最终精确闭图，不是全部物理历史或任意形变身份，未断言每个AmbientStep中间态都保持它。 |
+| C-296 | 对同一actualInput，普通nRich满足目标载体检查，但不满足全图Denotes/Satisfies；不存在把任意同载体输出都判为Denotes的函数。实际重呈现输出不等于nRich，且源到预选直线目标的AmbientStep Success仍被否定。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_INPUT_BARE_OUTPUT_CHECK_IS_INSUFFICIENT` | `plainNBareAccepted/plainNDoesNotDenote/plainNNotSatisfied/bareCheckIsInsufficient/actualOutputNotPlainN/straightTargetStillFails`；同run | 这是具体不足规格的反例，不证明HoTT强制使用该规格或许诺免费来源恢复；不推出任意现实复原不可能、唯一生成方法、无条件弱Lift、GOLD闭环或内部矛盾。 |

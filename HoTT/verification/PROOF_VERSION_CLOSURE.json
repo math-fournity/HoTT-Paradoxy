@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 146,
+  "later_machine_proved_claim_count": 148,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-NATIVE-SOURCE-CONTRACT-001",
+      "claim_ids": "C-295–C-296",
+      "source": "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-SOURCE-CONTRACT-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_supplied_source_reexpression_contract",
+      "verdict": "EXPLICIT_INPUT_DENOTATION_RUN_AND_BARE_OUTPUT_COUNTEREXAMPLE",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Fourteen local Agda sources. Input supplies full source Rich, target type and equivalence; exact closed-diagram denotation, sound Run/output and actual circle instance. Straight N has target carrier but fails denotation for the same input. This is reexpression of given data, not a physical provenance oracle, unique-generation theorem, all permitted processes or a minimum necessary data claim."
+    },
     {
       "proof_id": "MP-ASTRA-NATIVE-RICH-TASK-001",
       "claim_ids": "C-293–C-294",
