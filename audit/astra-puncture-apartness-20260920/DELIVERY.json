@@ -1,0 +1,44 @@
+{
+  "status": "FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE",
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-PUNCTURE-APARTNESS-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-PUNCTURE-APARTNESS-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "fresh_kernel_run": "HoTT/verification/runs/20260920-MP-ASTRA-PUNCTURE-APARTNESS-001-01",
+  "extra_kernel_rerun": false,
+  "kernel_seconds": 233.3664,
+  "source_graph_matches_final_draft": true,
+  "import_modules": 1073,
+  "new_lexical_markers": [],
+  "claim_ids": [
+    "C-283",
+    "C-284"
+  ],
+  "unproved": [
+    "Unconditional LocalStability/Lift",
+    "Its negation or independence",
+    "Necessity of global LEM",
+    "Full homeomorphism or physical process"
+  ]
+}

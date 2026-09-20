@@ -1178,3 +1178,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-280 | 在固定Agda without-K加上游primEraseEquality额外归约及库univalence配置中，源码构造`∀{ℓ A x}(p:x＝x),p＝refl`，并由Bool交换的univalence路径构造`configurationEmpty : empty`。 | `FORMAL_CHECKED_WITH_SCOPE / EXTENDED_CONFIGURATION_DIAGNOSTIC` | `eraseRetract/loopRefl/swapAction/collapsedAction/configurationEmpty`；run `20260920-MP-ASTRA-ERASURE-CONFIG-001-01`；同源码消融run拒绝loopRefl | 不是普通HoTT仅用标准规则的不一致证明；不是首次发现；不把不一致配置中接受任意项当一般数学真理。 |
 | C-281 | 在声明公设的no-erasure库变体中，`ℝ lzero`平面及实际乘积/子空间度量可构造；`x*x+y*y=1`圆有east/north，north≠east；逻辑去点圆有puncturedNorth；严格开区间(0,1)有intervalHalf。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_NONEMPTY_REAL_POINTSETS` | `Real/realPlaneMetric/circleMetric/east/north/northNotEast/puncturedNorth/intervalMetric/intervalHalf`；run `20260920-MP-ASTRA-NATIVE-REAL-001-01` | 未证明此处两空间同胚、完整F、Lean保真翻译、逻辑不等于正分离的等价、最小公理集或物理完成；不假设SingleOmega，但导入公设另列。 |
 | C-282 | 在去掉primEraseEquality特殊归约的固定库变体及其声明公设下，同一旧源码仍给出`∀{ℓ}, ¬((X:2-Element-Type ℓ)→type-2-Element-Type X)`及无统一PointedOrientation推论。 | `FORMAL_CHECKED_WITH_SCOPE / EXISTING_C05_SOURCE_REQUALIFIED` | `no-canonical-point/no-canonical-pointed-orientation`；run `20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-02` | 这是C-05的配置重资格化身份，不是新发现定理；不扩大到带顺序输入、一般选择公理或物理端点任务；不认证整库一致性。 |
+
+## 实际圆的逻辑删点、apartness与逆元条件（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-PUNCTURE-APARTNESS-001` | `C-283..C-284` | `formal/agda-unimath/hott-z/PunctureApartness.agda`；导入同一NativeRealCircleQualification；no-erasure变体及声明公设 | `verification/runs/20260920-MP-ASTRA-PUNCTURE-APARTNESS-001-01/`；Agda实际`--ignore-interfaces`，exit0 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_CIRCLE_INPUT_AND_INVERSE_CRITERION` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-283 | 对C281实际圆C、e=(1,0)，第一坐标为1的点等于e；令W(p)=¬(p=e)、A(p)=apart(x(p),1)，则W(p)↔¬¬A(p)。保持原点的统一refinement、Lift=(∀p,W(p)→A(p))、LocalStability=(∀p,¬¬A(p)→A(p))互相蕴含；显式DNE₀及LEM₀各足以给Lift。 | `FORMAL_CHECKED_WITH_SCOPE / LOGICAL_IFF_NOT_TYPE_PATH` | `firstCoordinateOneIsEast/weakIffDoubleNegStrong/refinementIffLift/liftIffLocalStability/dneGivesLift/excludedMiddleToDNE`；run `20260920-MP-ASTRA-PUNCTURE-APARTNESS-001-01` | 未无条件证明Lift/LocalStability或其否定、独立性；未证明全局LEM必要；W宇宙与A宇宙不同，↔不是≃或ua路径。 |
+| C-284 | 同一C上令d(p)=1−x(p)、I(p)=Σr:Real,d(p)*r=1，对任意p有A(p)↔I(p)；统一给全部逻辑去点输入逆元↔LocalStability；显式LEM₀充分。强域上前向坐标y/d实际可构造，north映到1且east不在强域；W(p)→¬¬I(p)，故¬Σp,W(p)×¬I(p)。 | `FORMAL_CHECKED_WITH_SCOPE / ARBITRARY_INVERSE_NECESSITY_AND_CONTROLS` | `rawInverseToStrong/strongIffRawInverse/uniformInverseIffStability/stereographicForward/northForwardOne/eastNotStrong/noMissingInverseWitness`；同run | I中r没有预设apartness；必要性仅指本地A族稳定性，不是LEM/resizing必要性；没有完整反参数化、连续性、同胚或物理还原证明，不能称HoTT矛盾。 |
