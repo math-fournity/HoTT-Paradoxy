@@ -1,0 +1,44 @@
+{
+  "status": "FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE",
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-STEREOGRAPHIC-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-STEREOGRAPHIC-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "fresh_kernel_run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-STEREOGRAPHIC-001-01",
+  "extra_kernel_rerun": false,
+  "kernel_seconds": 234.070142,
+  "source_graph_matches_final_draft": true,
+  "import_modules": 1074,
+  "claim_ids": [
+    "C-285",
+    "C-286"
+  ],
+  "unproved": [
+    "Continuity and homeomorphism",
+    "Open interval rescaling",
+    "Unconditional weak-domain Lift",
+    "Full Lean-to-HoTT translation",
+    "Physical process and complete four-stage redo"
+  ]
+}

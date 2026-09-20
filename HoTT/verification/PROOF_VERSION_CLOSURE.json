@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 136,
+  "later_machine_proved_claim_count": 138,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,17 @@
   "entries": []
  },
   "later_packages": [
+    {
+      "proof_id": "MP-ASTRA-NATIVE-STEREOGRAPHIC-001",
+      "claim_ids": "C-285–C-286",
+      "source": "HoTT/formal/agda-unimath/hott-z/NativeStereographic.agda",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-STEREOGRAPHIC-001-01",
+      "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+      "kind": "native_actual_stereographic_equivalence",
+      "verdict": "ACTUAL_BOTH_ROUNDTRIPS_AND_NATIVE_UNIVALENCE_ACTION",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "notes": "Strong domain equivalence unconditional within declared axioms; original weak domain conditional on Lift/LEM0. Both actual inverse laws, not samples. No continuity, homeomorphism, physical process, global metric transport or unconditional weak Lift. Native type-path action is propositional, not a definitional computation claim."
+    },
     {
       "proof_id": "MP-ASTRA-PUNCTURE-APARTNESS-001",
       "claim_ids": "C-283–C-284",

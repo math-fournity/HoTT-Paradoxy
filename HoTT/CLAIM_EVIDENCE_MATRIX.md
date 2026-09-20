@@ -1189,3 +1189,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-283 | 对C281实际圆C、e=(1,0)，第一坐标为1的点等于e；令W(p)=¬(p=e)、A(p)=apart(x(p),1)，则W(p)↔¬¬A(p)。保持原点的统一refinement、Lift=(∀p,W(p)→A(p))、LocalStability=(∀p,¬¬A(p)→A(p))互相蕴含；显式DNE₀及LEM₀各足以给Lift。 | `FORMAL_CHECKED_WITH_SCOPE / LOGICAL_IFF_NOT_TYPE_PATH` | `firstCoordinateOneIsEast/weakIffDoubleNegStrong/refinementIffLift/liftIffLocalStability/dneGivesLift/excludedMiddleToDNE`；run `20260920-MP-ASTRA-PUNCTURE-APARTNESS-001-01` | 未无条件证明Lift/LocalStability或其否定、独立性；未证明全局LEM必要；W宇宙与A宇宙不同，↔不是≃或ua路径。 |
 | C-284 | 同一C上令d(p)=1−x(p)、I(p)=Σr:Real,d(p)*r=1，对任意p有A(p)↔I(p)；统一给全部逻辑去点输入逆元↔LocalStability；显式LEM₀充分。强域上前向坐标y/d实际可构造，north映到1且east不在强域；W(p)→¬¬I(p)，故¬Σp,W(p)×¬I(p)。 | `FORMAL_CHECKED_WITH_SCOPE / ARBITRARY_INVERSE_NECESSITY_AND_CONTROLS` | `rawInverseToStrong/strongIffRawInverse/uniformInverseIffStability/stereographicForward/northForwardOne/eastNotStrong/noMissingInverseWitness`；同run | I中r没有预设apartness；必要性仅指本地A族稳定性，不是LEM/resizing必要性；没有完整反参数化、连续性、同胚或物理还原证明，不能称HoTT矛盾。 |
+
+## 实际原生有理参数化、复合律与univalence作用（2026-09-20）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-STEREOGRAPHIC-001` | `C-285..C-286` | `formal/agda-unimath/hott-z/NativeStereographic.agda`；实际导入C281模型和C283/C284条件；no-erasure变体与声明公设 | `verification/runs/20260920-MP-ASTRA-NATIVE-STEREOGRAPHIC-001-01/`；原生Agda `--ignore-interfaces` exit0 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_POINTSET_EQUIVALENCE_AND_NATIVE_PATH_ACTION` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-285 | 对每个实际Real参数t，D=t²+1严格正，构造q=D⁻¹与圆点φ(t)=((t²−1)q,(t+t)q)及apartness。实际投影f满足∀t,f(φ(t))=t及∀w:StrongPuncture,φ(f(w))=w，组成StrongPuncture≃Real。Lift下原PuncturedRealCircle也与Real等价；LEM₀为显式充分输入。 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_BOTH_ROUNDTRIPS` | `positiveD/paramEquation/paramStrong/forwardParameter/parameterForward/strongCircleEquivReal/weakCircleEquivReal/classicalWeakCircleEquivReal`；run `20260920-MP-ASTRA-NATIVE-STEREOGRAPHIC-001-01` | 无条件强域与条件弱域分开；未证明连续性、同胚、开区间接口、Lean保真翻译、物理变形或无条件Lift。 |
+| C-286 | 对C285实际等价使用公理式原生univalence得到StrongPuncture＝Real；对任意w，equiv-eq还原该Path后的作用等于实际投影f(w)，north作用结果等于1。Lift下另有原弱删点类型到Real的Path。 | `FORMAL_CHECKED_WITH_SCOPE / PROPOSITIONAL_NATIVE_UNIVALENCE_ACTION` | `strongTypePath/strongTypePathAction/typePathNorthOne/weakTypePath`；同run | 这是底层类型Path与命题作用等式，不声称refl判断归约、Cubical计算规则、原给定metric/来源/端部结构相等或HoTT矛盾。 |
