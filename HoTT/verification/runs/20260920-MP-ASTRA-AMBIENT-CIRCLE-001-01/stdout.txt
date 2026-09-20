@@ -1,0 +1,24 @@
+HoTT/formal/astra-real-geometry/AmbientCircle.lean:135:17: error: unsolved goals
+case cons
+h : Plane ≃ₜ Plane
+hs : List (Plane ≃ₜ Plane)
+ih : ∀ (s : Set Plane), ∃ h, runAmbient hs s = ⇑h '' s
+s : Set Plane
+k : Plane ≃ₜ Plane
+hk : runAmbient hs (⇑h '' s) = ⇑k '' ⇑h '' s
+⊢ (fun x => k (h x)) '' s = ⇑(h.trans k) '' s
+HoTT/formal/astra-real-geometry/AmbientCircle.lean:139:27: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.image_image]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'AstraRealGeometry.no_finite_ambient_reconstruction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.embeddedIntrinsicHomeomorph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.no_ambient_homeomorph_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.no_ambient_homeomorph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.line_missing_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.closure_circleOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.circle_missing_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.closure_lineOpen' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 117,
+  "later_machine_proved_claim_count": 120,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -555,6 +555,16 @@
    "kind": "lean_classical_real_point_set_geometry",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: intrinsic real punctured unit circle homeomorphic to Ioo (0,1), explicit pole, inverse laws and continuity. No native HoTT/ambient/physical restoration claim.",
    "notes": "Exact Lean4.34.0/mathlib v4.34.0 and 22923 execution/source artifact hashes; standard axioms disclosed; official compiled dependencies, not a clean rebuild of the entire mathlib library. Geometry chain newly instantiated; full four-stage goal remains open."
+  },
+  {
+   "proof_id": "MP-ASTRA-AMBIENT-CIRCLE-001",
+   "claim_ids": "C-266..C-268",
+   "source": "HoTT/formal/astra-real-geometry/AmbientCircle.lean",
+   "toolchain": "HoTT/formal/astra-real-geometry/AMBIENT-TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02",
+   "kind": "lean_classical_real_ambient_geometry",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: actual embedded punctured unit circle and straight open segment are intrinsically homeomorphic but not related by a global plane homeomorphism or a finite sequence of such operations.",
+   "notes": "Exact closure-minus-set remainders: singleton versus two distinct points. Pinned parent inputs plus local C265 compiled artifact; explicit -t 0 does not establish independent fresh import replay. No claim about all physical constructions, native HoTT translation, or HoTT inconsistency. Failed formal run -01 retained."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

@@ -1092,3 +1092,17 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | C-265 | 对任意`p : sphere (0 : EuclideanSpace ℝ (Fin 2)) 1`，`Punctured p = {x : Circle // x ≠ p}`到`Ioo (0:ℝ) 1`有`Homeomorph`；`pole`给出显式非空实例，`actualMToN`及surjective、exact_inverse_roundtrip、forward_continuous、inverse_continuous逐项过核。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `puncturedToEuclidean`、`euclideanLineToReal`、`rescaleInterval`、`puncturedCircleHomeomorph`；run `20260920-MP-ASTRA-REAL-CIRCLE-001-02` | 只比较内在拓扑；未证明保持环境/端部/来源/允许操作的复原；不把noncomputable定义当物理Trace；未建立到原生HoTT的保真翻译；未得HoTT缺陷。 |
+
+## 追加登记：MP-ASTRA-AMBIENT-CIRCLE-001（实数平面的环境条件，2026-09-20）
+
+固定同一`Plane = EuclideanSpace ℝ (Fin 2)`，`M=circleOpen`为单位圆删去`pole`的像，`N=lineOpen`为`t↦(t,0)`对`Ioo(0,1)`的像。经典Lean4.34.0/mathlib固定依赖；显式`-t 0`，不声称完成独立全导入重检或全库源码重建；公理仅propext/Classical.choice/Quot.sound。
+
+| proof_id | claim_ids | 源码与规格 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-ASTRA-AMBIENT-CIRCLE-001` | `C-266..C-268` | `formal/astra-real-geometry/AmbientCircle.lean`、`AMBIENT-TOOLCHAIN.json`，复用C-265具体模型 | `verification/runs/20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02/`；exit0、零stderr；-01类型检查失败完整保留 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-266 | `closure M ∖ M = {pole}`；`closure N ∖ N = {lineEmbed 0,lineEmbed 1}`，且两端点不同；同时`embeddedIntrinsicHomeomorph : ↥M ≃ₜ ↥N`。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `circle_missing_boundary`、`line_missing_boundary`、`line_endpoints_distinct`、`embeddedIntrinsicHomeomorph`；run `20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02` | 差集是相对于指定平面的闭包余集，不是平面拓扑边界frontier，也不是M的两个实体端点；不能外推所有嵌入。 |
+| C-267 | 不存在`h : Plane ≃ₜ Plane`满足`h '' M = N`；反向也不存在。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `no_ambient_homeomorph`、`no_ambient_homeomorph_reverse`；run `20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02` | 否定环境同胚的扩张，未否定C-266的内在同胚；不是同一命题P与¬P。 |
+| C-268 | 对任意有限列表`hs : List (Plane ≃ₜ Plane)`，逐步取像的`runAmbient hs N ≠ M`；单步正控制`runAmbient [h] N = h '' N`。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `ambient_run_is_image`、`no_finite_ambient_reconstruction`、`one_step_positive_control`；run `20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02` | 操作类仅整平面同胚；不包含切割/加点/重新嵌入/任意非单射连续过程/无限极限，未证明所有现实构造不可能；不是native HoTT缺陷。 |
