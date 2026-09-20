@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 122,
+  "later_machine_proved_claim_count": 126,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -575,6 +575,26 @@
    "kind": "lean_classical_continuous_curve_embeddings",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: explicit jointly continuous family of embeddings from the exact open straight segment to the exact punctured unit circle, with a uniform coordinate bound of 60.",
    "notes": "Same geometric inputs as C266–268, weaker operation class. Standard axioms and compiled-library trust boundary retained; no ambient extension, physical speed/material/length claim or native HoTT translation. Ten draft attempts and failed formal run-01 retained; current primary-02."
+  },
+  {
+   "proof_id": "MP-ASTRA-ENDPOINT-CLOSURE-001",
+   "claim_ids": "C-271..C-273",
+   "source": "HoTT/formal/astra-real-geometry/EndpointClosure.lean",
+   "toolchain": "HoTT/formal/astra-real-geometry/ENDPOINT-TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-ENDPOINT-CLOSURE-001-01",
+   "kind": "lean_classical_closed_parameter_extension",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: same deformation extends jointly continuously to the closed square, endpoint gap positive before the final time and zero at it, final fibers identify exactly the two boundary parameters.",
+   "notes": "Exact interior agreement, full final circle image, no interior preimage of pole. Six drafts preserved. Standard axioms, pinned compiled imports, no independent all-import replay or native HoTT translation."
+  },
+  {
+   "proof_id": "MP-ASTRA-PELL-CURVE-COMPARISON-001",
+   "claim_ids": "C-274",
+   "source": "HoTT/formal/astra-real-geometry/PellCurveComparison.lean",
+   "toolchain": "HoTT/formal/astra-real-geometry/COMPARISON-TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260920-MP-ASTRA-PELL-CURVE-COMPARISON-001-01",
+   "kind": "lean_same_pell_recurrence_and_curve_conjunction",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: same arithmetic recurrence discriminant is never zero; its conjunction with the exact continuous curve existence theorem is accepted.",
+   "notes": "Original Agda M1/M3-UNC/EndpointMaps replays are separate audit evidence, 3/3 exact matches. This does not translate the full curve into Agda or claim cross-kernel/global consistency."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

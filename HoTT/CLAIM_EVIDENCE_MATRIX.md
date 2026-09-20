@@ -1119,3 +1119,29 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-269 | 存在`F : Icc(0,1) → Ioo(0,1) → Plane`，`(t,u)↦F t u`联合连续，每个t的切片为`IsEmbedding`，t=0的像精确等于`lineOpen`、t=1的像精确等于`circleOpen`。显式见证为`curveMotion`。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `exists_curve_deformation`、`deformation_continuous`、`deformation_isEmbedding`、`deformation_initial_image`、`deformation_final_image`；run `20260920-MP-ASTRA-CURVE-DEFORMATION-001-02` | 不要求环境同胚；未加入长度、速度、材料、物理实现条件；开区间端点不属于曲线参数域；未证明闭参数延拓或原生HoTT命题。 |
 | C-270 | 同一个显式见证`deformation`对所有`0≤t≤1`和所有`u : Ioo(0,1)`满足两个平面坐标绝对值都≤60。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `deformation_uniform_box`、`stretch_small_time_bound`、`bend_motion_bounds`；run `20260920-MP-ASTRA-CURVE-DEFORMATION-001-02` | 统一空间界不是有限速度、等长或物理可实施证明；60为便利的粗界，未主张最优。 |
+
+## 追加登记：MP-ASTRA-ENDPOINT-CLOSURE-001（同一变形的闭参数延拓，2026-09-20）
+
+固定C-269的实际`deformation`，消去参数ρ的端点分母后定义`extendedDeformation`。时间与曲线参数均取闭区间[0,1]；内点一致定理保证没有改换上一轮的变形。经典Lean4.34.0/mathlib，标准三公理；非原生HoTT几何翻译。
+
+| proof_id | claim_ids | 源码与规格 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-ASTRA-ENDPOINT-CLOSURE-001` | `C-271..C-273` | `formal/astra-real-geometry/EndpointClosure.lean`、`ENDPOINT-TOOLCHAIN.json` | `verification/runs/20260920-MP-ASTRA-ENDPOINT-CLOSURE-001-01/`；exit0、零stderr，十项公理检查无sorryAx | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-271 | `extendedDeformation`在`Icc(0,1)×Icc(0,1)`联合连续；对任意实数t和任意内点u，`extendedDeformation t u = deformation t u`；t=0时延拓为指定闭线段参数化。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `closingDen_pos`、`extendedDeformation_continuous`、`extended_agrees_interior`、`extended_initial`；run `20260920-MP-ASTRA-ENDPOINT-CLOSURE-001-01` | 连续性域是声明的闭方形；未声称闭参数切片始终为嵌入、有限速度或物理实现。 |
+| C-272 | `endpointGap(t)=dist(F̄(t,0),F̄(t,1))`在闭时间连续，初值1，所有t<1时严格正，t=1时为0；两个末端像都等于pole。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `endpointGap_continuous/initial/pos_before/zero_at_end`、`extended_final_left/right`；run `20260920-MP-ASTRA-ENDPOINT-CLOSURE-001-01` | 参数标签0、1不同，但末态像相同；不存在“两个不同的平面像距离0”的结论；未证明距离全过程单调递减。 |
+| C-273 | 闭参数末态像为整个单位圆，末态不单射；精确纤维条件为`F̄(1,u)=F̄(1,v) ↔ u=v ∨ (u=0∧v=1) ∨ (u=1∧v=0)`；映到pole的参数恰为0或1，所有内点避开pole。 | `FORMAL_CHECKED_WITH_SCOPE / CLASSICAL_LEAN_GEOMETRY / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `extended_final_image/not_injective/fibers/eq_pole_iff`、`extended_final_interior_avoids`；run `20260920-MP-ASTRA-ENDPOINT-CLOSURE-001-01` | 端点不属于原开参数域；闭参数非单射不否定C-269内点嵌入；未把普通Lean相等当HoTT类型路径。 |
+
+## 追加登记：MP-ASTRA-PELL-CURVE-COMPARISON-001（同题算术与曲线命题对照，2026-09-20）
+
+回应用户“为何Lean通过而Agda不通过”的问题：在Lean按Agda M1相同初值(1,1)、相同递推(p+2q,p+q)定义整数Pell对，实际检查相同判别式结论及其与C-269曲线存在命题的合取。不是一般跨内核保真翻译或一致性证明。
+
+| proof_id | claim_ids | 源码与规格 | 运行收据 | 证据等级 |
+|---|---|---|---|---|
+| `MP-ASTRA-PELL-CURVE-COMPARISON-001` | `C-274` | `formal/astra-real-geometry/PellCurveComparison.lean`、`COMPARISON-TOOLCHAIN.json` | `verification/runs/20260920-MP-ASTRA-PELL-CURVE-COMPARISON-001-01/`；exit0、零stderr；Pell单独公理为propext，合取另用Classical.choice/Quot.sound | `FORMAL_CHECKED_WITH_SCOPE / LEAN_ARITHMETIC_AND_GEOMETRY_COMPARISON / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| claim | 精确命题及实现 | 证据等级 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-274 | `pellPair 0=(1,1)`、`pellPair(n+1)=(p+2q,p+q)`，D(n)=p²−2q²；任意n有D(n)=1或−1，故D(n)≠0；Lean同时接受`(∀n,D(n)≠0) ∧ (∃F, 联合连续 ∧ 逐时嵌入 ∧ 初像N ∧ 末像M)`。 | `FORMAL_CHECKED_WITH_SCOPE / LEAN_ARITHMETIC_AND_GEOMETRY_COMPARISON / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` | `pellDiscriminant_sign/never_zero`、`pell_and_continuous_curve`；run `20260920-MP-ASTRA-PELL-CURVE-COMPARISON-001-01` | D是该整数递推判别式，未与实际端点距离识别；不是Agda对完整F的重放；未提供一般Agda↔Lean或实数→HoTT翻译，也不证明任一内核元层一致性。 |
