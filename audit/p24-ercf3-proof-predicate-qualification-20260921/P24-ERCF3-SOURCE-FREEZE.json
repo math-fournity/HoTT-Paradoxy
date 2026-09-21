@@ -1,0 +1,47 @@
+{
+  "schema_version": "p24-ercf3-proof-predicate-source-freeze/v1",
+  "task_id": "P24-ERCF3-PROOF-PREDICATE-REPRESENTABILITY-AND-CONSUMER-001",
+  "observed_at": "2026-09-21",
+  "local_sources": {
+    "HoTT/formal/ercf3-t3/ObjectSyntax.agda": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d",
+    "HoTT/formal/ercf3-t3/ProvRepresentability.agda": "45289901d7d6d023338b4f6d7d1289730f9636defd524083a98f4689ef901fe5",
+    "HoTT/formal/ercf3-t3/DiagonalCore.agda": "3c97a4a354c55eb0c9d3ce91e624089954471210ccb17458e5ec1c87d79e615c",
+    "HoTT/formal/ercf3-t3/RepairedSyntax.agda": "af8937a532ec2264af6b1618efc0c487c405e625f1155e652cac6c6d86b602b4",
+    "HoTT/formal/ercf3-t3/ReflectionSketch.agda": "72fd86aeabba192a552cbb5eccf3f39c3f943dc60bb1e14e59491cadb4755501",
+    "HoTT/formal/ercf3-t3/README.md": "93e5d56c7546290761053ddec62daf77e5bc9e0a1a10652f01229c0222f9d4a5",
+    "audit/p23-independent-ingress-discovery-20260921/P23-INDEPENDENT-INGRESS-DISCOVERY-REPORT.md": "6de8b6c3ef116fce7339e6446d4b1b8d48555a2934cf3c60c496dbc195f099da",
+    "audit/self-verification-consumer审计-20260912.md": "66d4c2d07578ade3a824e6bcb370f7eb29d3dc1ea3c7312d317dc3eeae88c8b4",
+    "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md": "59720ea780061e743524b8f57dff3ee58d47ed1c8d431cd60c97f168d561bb32",
+    "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912/002 - 条件性元数学结论与回环.md": "93a3fadc182afd4c00558ea491aa76f3913bf273641ff4133d95b9a08a7e0bc1",
+    "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912/005 - 哥德尔、计划与 C3 交叉.md": "87840959ba460cce906635d496316c7b5947747b774100d4ef7fea21081abb0f",
+    "goal-3.md": "94a7276534b68ce4e827a0f6b9cf51f07441655c6b90b2cd3c0891984af37f29"
+  },
+  "preserved_run_reuse": {
+    "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+    "run_id": "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+    "claims": ["C-181", "C-182", "C-183"],
+    "status_at_receipt": "KERNEL_ACCEPTED_WITH_SCOPE",
+    "non_goal": "The receipt explicitly excludes object-theory representability, reflection, and a diagonal fixed point."
+  },
+  "external_source_observations": {
+    "coquand_autoformalisation_godel_ii": {
+      "url": "https://arxiv.org/abs/2606.01898",
+      "kind": "primary paper",
+      "classification": "KNOWN_ANALOGUE_AND_SPECIFICATION_CONTROL",
+      "read_scope": "abstract and source lines on the weak internal-provability-predicate failure, explicit thmT/enumeration, and internal substitution/numeral bridge"
+    },
+    "coquand_agda_godel_tree": {
+      "url": "https://github.com/coquand/agda-godel-tree",
+      "remote_head": "5475628ea4b648f956dce4baee7d0273ba257730",
+      "classification": "KNOWN_ANALOGUE_POSITIVE_CONTROL_NOT_HOTT"
+    },
+    "hottlean": {
+      "url": "https://github.com/sinhp/HoTTLean",
+      "remote_head": "31133dd5b25226ea897f8aa5e2e43b61392459eb",
+      "branch_observed": "master",
+      "classification": "NEARBY_NOT_SAME_TASK / P25_CANDIDATE",
+      "read_scope": "README and author project note: deep MLTT syntax, certifying typechecker, external model reasoning, current lack of HIT support"
+    }
+  },
+  "verdict": "CLOSE_WITH_SCOPE / OBJECT_LEVEL_PROVABILITY_BRIDGE_NOT_ESTABLISHED / NATURAL_SELF_VERIFICATION_CONSUMER_NOT_ESTABLISHED_WITHIN_P24_DENOMINATOR / EXTERNAL_KNOWN_ANALOGUES_IDENTIFIED / P25_HOTTLEAN_CANDIDATE_SELECTED / NO_NEW_HOTT_DEFECT_CLAIM"
+}
