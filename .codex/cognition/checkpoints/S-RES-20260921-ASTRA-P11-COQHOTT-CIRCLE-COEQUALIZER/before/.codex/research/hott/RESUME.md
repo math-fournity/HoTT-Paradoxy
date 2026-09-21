@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P11后继续：Coq-HoTT@e3deab71 Circle/Coeq/Torus五文件是显式glue/coherence防御，非K；Torus Admitted保持信任边界。P12=THIRD_SUCCESSOR_DISCOVERY：先做公开/本地资产侦察，比较未审规则、非Circle/Coeq非directed消费者、独立更强R/Done与理论—实现差异，选定一个不被P1–P11覆盖的分母。入口：`audit/p11-coqhott-circle-coequalizer-corpus-20260921/P11-COQHOTT-CIRCLE-COEQUALIZER-CORPUS-REPORT.md`；revision231 checkpoint。
+当前 active goal 在P10后继续：P10比较四类入口并选择Coq-HoTT@e3deab71 Circle/Coeq/Torus五文件，作为非directed P3 candidate。P11=COQHOTT_CIRCLE_COEQUALIZER_CORPUS：冻结实际输入/输出/调用链，按P7五项检查是否只显式保存glue/coherence，或真有U_bare→原Done_s承诺；不把synthetic Circle名称当原圆环完成。入口：`audit/p10-second-successor-discovery-20260921/P10-SECOND-SUCCESSOR-DISCOVERY-REPORT.md`；revision230 checkpoint。
 
 ## 历史停止点
 
