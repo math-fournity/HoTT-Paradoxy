@@ -65,10 +65,10 @@ def main() -> None:
     require(N42, 'SOURCE_INSPECTED_BOUNDED_NEGATIVE')
     require(GOAL_SOP, '## 2.1 学术与社区既有成果检查', '## 2.2 本地与已登记历史资产侦察', '## 3.1 波次坐标、最终价值与继续裁决')
     require(PLAN, 'P3 已完成的范围结果', 'P4 状态')
-    require(NEXT, 'FIRST_PASS_STOP_BY_DEFAULT', '合格重开条件')
-    require(GOAL, 'FOUR_TRACK_FIRST_PASS_COMPLETE_STOP_BY_DEFAULT')
-    require(FEATURES, 'FOUR_TRACK_FIRST_PASS_COMPLETE_STOP_BY_DEFAULT')
-    require(ABX, '本次 first pass 因此默认停止')
+    require(NEXT, 'P5-SUCCESSOR-DISCOVERY-001', 'active `/goal` 没有完成')
+    require(GOAL, 'NEXT_P5_SUCCESSOR_DISCOVERY')
+    require(FEATURES, 'NEXT_P5_SUCCESSOR_DISCOVERY')
+    require(ABX, '当前 P5 必须主动')
 
     freeze = json.loads(read(FREEZE))
     if freeze.get('commit') != 'ab5f5395fbcfda0b7cb9cbc5bfcb88c4ed9ef8ab':
@@ -93,7 +93,7 @@ def main() -> None:
             'Checks the P3 task contract, local-asset classifications, and the immutable remote-source identity record. '\
             'It does not fetch or compile UniMath, verify Rocq kernel acceptance, prove a global absence of K, or prove a HoTT defect.'
         ),
-        'verdict': 'NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR / P3_CLOSE_WITH_SCOPE / P4_NOT_TRIGGERED',
+        'verdict': 'NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR / P3_CLOSE_WITH_SCOPE / P4_NOT_TRIGGERED / P5_NEXT',
         'files': {rel: sha(rel) for rel in [REPORT, FREEZE, P1, P2, ABX_D2, ABX_D3, N5, N42, GOAL_SOP, PLAN, NEXT, GOAL, FEATURES, ABX]},
         'remote_source_identity': {'repository': freeze['repository'], 'commit': freeze['commit'], 'files': actual},
         'asset_classification': {

@@ -67,7 +67,7 @@ def main() -> None:
     marker(SHARDS[0], '### AI 最终回复')
     marker(SHARDS[1], 'P1：结构规格')
     marker(SHARDS[1], 'P4：实现忠实性')
-    marker(INDEX, 'FIRST_PASS_STOP_BY_DEFAULT')
+    marker(INDEX, 'P5_SUCCESSOR_DISCOVERY_NEXT')
     marker(SHARDS[2], 'P1：`R_min` 最小规格资格化')
     marker(SHARDS[2], 'P1 已完成的范围结果')
     marker(SHARDS[2], 'P2-KTHEORY-SIP-001')
@@ -75,22 +75,23 @@ def main() -> None:
     marker(SHARDS[2], 'P3-KAPP-DENOMINATOR-001')
     marker(SHARDS[2], 'P3 已完成的范围结果')
     marker(SHARDS[2], 'P4 状态')
+    marker(SHARDS[2], 'P5：`SUCCESSOR_DISCOVERY`')
     marker(SHARDS[3], '每个工作单元的最小声明')
-    marker(SHARDS[4], 'FIRST_PASS_STOP_BY_DEFAULT')
-    marker('goal.md', 'FOUR_TRACK_FIRST_PASS_COMPLETE_STOP_BY_DEFAULT')
-    marker('feature-list.md', 'FOUR_TRACK_FIRST_PASS_COMPLETE_STOP_BY_DEFAULT')
+    marker(SHARDS[4], 'P5-SUCCESSOR-DISCOVERY-001')
+    marker('goal.md', 'NEXT_P5_SUCCESSOR_DISCOVERY')
+    marker('feature-list.md', 'NEXT_P5_SUCCESSOR_DISCOVERY')
     marker('rulings.md', '四分支')
-    marker('ABX行动.md', '本次 first pass 因此默认停止')
+    marker('ABX行动.md', '当前 P5 必须主动')
     marker('ABX行动/005 - 状态、停止条件与未来交接.md', 'HoTT后续研究总体方案.md')
 
     receipt = {
         'schema_version': 'four-track-plan-verification/v1',
         'status': 'PASS_WITH_SCOPE',
         'scope': ('Verifies the plan structure, verbatim prior-answer projection, P1/P2/P3 receipts, '
-                  'and the first-pass stop/routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
+                  'and the active-goal P5 successor-discovery routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
                   'a new topology, or a HoTT defect.'),
         'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT]},
-        'verdict': 'FOUR_TRACK_FIRST_PASS_CLOSED_STOP_BY_DEFAULT',
+        'verdict': 'FOUR_TRACK_FIRST_PASS_CLOSED_SUCCESSOR_DISCOVERY_NEXT',
     }
     if args.write:
         (ROOT / RECEIPT).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

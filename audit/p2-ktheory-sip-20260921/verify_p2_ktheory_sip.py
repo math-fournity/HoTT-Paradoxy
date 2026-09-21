@@ -72,10 +72,10 @@ def main() -> None:
     require(RELATIONAL, 'PRELIMINARY_PAPER_ARGUMENT / REVIEW_REQUIRED', 'H_{αβ}(f)', 'H_{βα}(f⁻¹)')
     require(GOAL_SOP, '## 2.1 学术与社区既有成果检查', '## 2.2 本地与已登记历史资产侦察')
     require(PLAN, 'P2 已完成的范围结果', 'P3-KAPP-DENOMINATOR-001')
-    require(NEXT, 'NO_K_THEORY_WITHIN_SIP_DENOMINATOR', 'FIRST_PASS_STOP_BY_DEFAULT')
-    require(GOAL, 'FOUR_TRACK_FIRST_PASS_COMPLETE_STOP_BY_DEFAULT')
-    require(FEATURES, 'FOUR_TRACK_FIRST_PASS_COMPLETE_STOP_BY_DEFAULT')
-    require(ABX, '本次 first pass 因此默认停止')
+    require(NEXT, 'NO_K_THEORY_WITHIN_SIP_DENOMINATOR', 'P5-SUCCESSOR-DISCOVERY-001')
+    require(GOAL, 'NEXT_P5_SUCCESSOR_DISCOVERY')
+    require(FEATURES, 'NEXT_P5_SUCCESSOR_DISCOVERY')
+    require(ABX, '当前 P5 必须主动')
 
     run = json.loads(read(SIP_RUN))
     if run.get('status') != 'KERNEL_ACCEPTED_WITH_SCOPE':
@@ -93,7 +93,7 @@ def main() -> None:
             'and prior SIP kernel-receipt identity. It does not replay the proof, prove the general SIP theorem, '\
             'formalize P1 as a standard structure, locate an actual consumer, or prove a HoTT defect.'
         ),
-        'verdict': 'NO_K_THEORY_WITHIN_SIP_DENOMINATOR / P2_CLOSE_WITH_SCOPE / LATER_P3_FIRST_PASS_CLOSED',
+        'verdict': 'NO_K_THEORY_WITHIN_SIP_DENOMINATOR / P2_CLOSE_WITH_SCOPE / SUCCESSOR_DISCOVERY_NEXT',
         'files': {rel: sha(rel) for rel in [REPORT, BOOK, P1, SIP_SOURCE, SIP_RUN, SIP_REPORT, RELATIONAL, GOAL_SOP, PLAN, NEXT, GOAL, FEATURES, ABX]},
         'reused_kernel_receipt': {
             'proof_id': run['proof_id'], 'claim_ids': run['claim_ids'],
