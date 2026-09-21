@@ -1,0 +1,27 @@
+{
+  "existing_evidence": [
+    "audit/astra-task-fidelity-corrigendum-20260921/H-COMMITMENT-AUDIT.md",
+    "audit/astra-task-fidelity-corrigendum-20260921/SOURCE-MANIFEST.json",
+    "audit/astra-task-fidelity-corrigendum-20260921/VERIFICATION.json",
+    "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告/007 - 原X、数学现实同一性与第三弹校正.md"
+  ],
+  "new_kernel_replay": false,
+  "new_math_claims": [],
+  "primary_runs": [
+    {
+      "command": "python3 -B audit/astra-task-fidelity-corrigendum-20260921/verify_h_commitment_scope.py",
+      "kind": "bounded-source-audit",
+      "mathematics": "NOT_A_KERNEL_RUN",
+      "result": "PASS; 10 source identities/anchors and zero target vocabulary matches in 3 fixed locator files"
+    },
+    {
+      "command": "python3 -B Astra继续尝试/断点与证明机制系统检查/tools/append_reality_identity_corrigendum.py --verify",
+      "kind": "visible-dialogue-archive",
+      "mathematics": "NOT_A_KERNEL_RUN",
+      "result": "PASS; 13 increment messages and 57 cumulative messages exact against canonical reader"
+    }
+  ],
+  "schema_version": "hott-session-runs/v1",
+  "scope": "Task-fidelity source audit and state reconciliation only; no mathematical re-execution.",
+  "session_id": "S-COR-20260921-ASTRA-ORIGINAL-X-TASK-FIDELITY"
+}

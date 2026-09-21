@@ -1,13 +1,13 @@
 # 四弹一体原方案 redo Goal
 
-> 状态：`REOPENED_FOR_TASK_FIDELITY_CORRIGENDUM`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / TASK_FIDELITY_CORRIGENDUM_COMPLETED`
 > Goal schema：`four-stage-redo-goal/v1`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
 > Git 工作面：顶层 repo 的 `main`  
 > 状态 owner：`.codex/research/hott/STATE.json`  
 > App Goal：以本文件第 1 节为当前目标；下方旧机器统观内容是历史/第二阶段候选，不自动构成工作队列。
-> 说明：文件存在、计划完成或局部证明均不证明数学结论；2026-09-21 的原 X/数学现实同一性澄清只重开第 1.1 节所列的任务忠实性核对，第二阶段仍未开启。
+> 说明：文件存在、计划完成或局部证明均不证明数学结论；2026-09-21 的原 X/数学现实同一性澄清已按第 1.1 节完成有界核对，第二阶段仍未开启。
 
 ## 1. 当前目标：原四弹 redo
 
@@ -27,7 +27,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 此前完成的范围交付包括：第三十五轮逐层对账、九个既有证明包的资格核验、固定自然消费者源码合同及 revision 209 checkpoint。其当时判词为 `ORIGINAL_FOUR_STAGE_TARGET_NOT_ESTABLISHED / ASSUMPTIONS_AND_TASKS_RECONCILED_WITH_SCOPE`：原四弹整体“击落”结论未建立，精确局部结果保留。这不是 HoTT 全局无问题定理，也不是“已击落 HoTT”。
 
-## 1.1 受限重开：原 X 与第三弹任务忠实性勘误
+## 1.1 已完成的受限勘误：原 X 与第三弹任务忠实性
 
 用户随后澄清：原 A、B、X 共同观察的主过程是“圆 `C` 去掉指定点 `p`、呈现为去点圆 `M`／开区间 `N`、再尝试把两端闭合并复原”的过程；`Spec_A`／`Spec_B` 的 `√2` 读出／有理精确根差异只是后来的算术校准，不能替换该主过程。这个输入可能改变 G01 的 X/过程固定、G04 的同任务桥，以及上段范围判词的理由，故按硬元约束作一次受限重开。
 
@@ -44,6 +44,8 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 | 停止条件 | 完成上述映射与固定来源审计后停止；不扩展到新消费者、全库搜索、重复 kernel 运行或第二阶段 |
 
 `RealitySame(A,B,X)` 可以作为语义/建模规格的显式外部前提或参数；它也可以由一个专门的 `Denotes`／来源定理支持。它不应被排除在证明规格之外，但其内容只能是共同指称：还必须另有同一 Input、操作、观察与 Done 的任务合同 C，以及实际理论承诺 H。没有 C 与 H 时，不能把 `M3` 的规格不等价写成原圆环过程的反例。
+
+该有界审计已完成。固定来源中的实际 univalence/同胚运输控制保留了来源、闭图和 Done，并显式拒绝把裸 `N` 当作充分输出；同一对象对的连续曲线与环境 `Success` 也在源码中作为不同操作合同处理。`√2` 文件将请求和 Done 分开，固定 Coq locator 消费者没有圆环闭合词汇或任务桥。因此结果为 `NO_ACTUAL_H_COMMITMENT_FOUND_WITHIN_FIXED_SCOPE`，并非全局不存在定理。第一阶段以修正后的理由重新关闭：原整体“击落”结论仍未建立，`√2` M3 继续只是校准。直接证据见 `audit/astra-task-fidelity-corrigendum-20260921/H-COMMITMENT-AUDIT.md` 与其 manifest/verification。
 
 ### 第二阶段重开条件
 

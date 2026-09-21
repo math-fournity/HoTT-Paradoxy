@@ -1,0 +1,113 @@
+{
+  "schema_version": "astra-task-fidelity-h-scope-verification/v1",
+  "status": "PASS",
+  "manifest_sha256": "72870d0d36d6f81193e413e077095172ed81ba9d360ea24867f025685f72ed09",
+  "checks": [
+    {
+      "path": "Atria的方案/修订片/022 - 圆环悖论非现实性的精确定位：过程层不可完成与声明层理想元素.md",
+      "sha256": "19e1122acfbdbb3886b74dc8ad2d7204e136f0bb3cd0e9c79b7c172a769a5bd4",
+      "hash_matches_manifest": true,
+      "required_fragments": {},
+      "status": "PASS"
+    },
+    {
+      "path": "Atria的方案/修订片/023 - 两枚导弹：第一击的反弹机制与齐射结构.md",
+      "sha256": "7da6bb055714e7386dff63e61a66983dd22a3c1a2c17adba58a108b8ea77d881",
+      "hash_matches_manifest": true,
+      "required_fragments": {},
+      "status": "PASS"
+    },
+    {
+      "path": "Atria的方案/修订片/025 - 第三枚导弹：计算层 ASK 与 LEM 判据搬运.md",
+      "sha256": "644c9f4cc943ac9a43a7793aa90efc266e3c532db3561869f9477de28a90ddc5",
+      "hash_matches_manifest": true,
+      "required_fragments": {},
+      "status": "PASS"
+    },
+    {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda",
+      "sha256": "2c713073bb05c29980d76be51b054ff2fa1422b650bbeab5d2b8f0e4f8c6e151",
+      "hash_matches_manifest": true,
+      "required_fragments": {
+        "Input.encoding actualInput = homeomorphismEquiv strongCircleUnitHomeomorphism": true,
+        "Done i r = r ＝ reexpressed i": true,
+        "plainNDoesNotDenote : ¬ (Denotes actualInput nRich)": true,
+        "bareCheckIsInsufficient": true
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda",
+      "sha256": "2a7b1c704b9a19cf781f14a71689559953150efad01f1089356817d65c1827a1",
+      "hash_matches_manifest": true,
+      "required_fragments": {
+        "The same nRich/mRich pair under two explicitly different operation contracts.": true,
+        "samePairDifferentOperations": true,
+        "noCurveAmbientEquivalence": true
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "HoTT/formal/dedekind-omega-missile/Sqrt2TaskComparison.agda",
+      "sha256": "40623c9901a733896f139bbc6c8b66bbf3db70ea6427c73b77e2cf0c10dd534d",
+      "hash_matches_manifest": true,
+      "required_fragments": {
+        "data Request : Type₀ where": true,
+        "Done rationalRoot q = Up (lower q ·ℚ lower q ≡ twoQ)": true,
+        "originalM3Refusal : (Spec_A ≃ Spec_B) → ⊥": true,
+        "responseRefusal": true
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "HoTT/formal/astra-s1-consumer-check/SC00.agda",
+      "sha256": "89b9bc232fce73a396e15b9ea1aa5f2a05520640a4b596aa2f6a8d69a8110236",
+      "hash_matches_manifest": true,
+      "required_fragments": {
+        "import Cubical.HITs.S1.Base as Upstream": true,
+        "ΩS¹ ≡ ℤ": true
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "sha256": "7a5619b9d5c609bdc6621b2f57730e65d66b7d41366dc322334eb48138f0d723",
+      "hash_matches_manifest": true,
+      "required_fragments": {
+        "all_reals_locators": true,
+        "modulus_close_limit": true
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v",
+      "sha256": "0ad25290752ce95c96dfb07bbab9d291d45930a354c898603fed42bd7142da4a",
+      "hash_matches_manifest": true,
+      "required_fragments": {},
+      "status": "PASS"
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v",
+      "sha256": "c5f4ce80a73483d0cdeaa8484a5db526a995b856e615810316832b696b12ce08",
+      "hash_matches_manifest": true,
+      "required_fragments": {},
+      "status": "PASS"
+    }
+  ],
+  "negative_vocabulary": {
+    "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v": {
+      "matches": [],
+      "match_count": 0
+    },
+    "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v": {
+      "matches": [],
+      "match_count": 0
+    },
+    "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v": {
+      "matches": [],
+      "match_count": 0
+    }
+  },
+  "failures": [],
+  "scope_limit": "Mechanical verification of a fixed source set; no global absence theorem and no semantic automatic decision."
+}
