@@ -26,6 +26,7 @@ def render() -> tuple[bytes, bytes]:
     block = source[start:] if next_marker == -1 else source[start:next_marker]
     if '### 用户提问' not in block or '### AI 最终回复' not in block:
         raise SystemExit('archived dialogue headings missing')
+    block_bytes = block.encode('utf-8')
     text = (
         '<!-- governance-shard:v2\n'
         'logical_id: HOTT-FOUR-TRACK-PLAN\n'
@@ -35,11 +36,11 @@ def render() -> tuple[bytes, bytes]:
         '-->\n\n'
         '# 上一轮问答与四分支校正\n\n'
         '> 身份：MACHINE_GENERATED_VERBATIM_SOURCE_PROJECTION。\n'
-        f'> 来源：{SOURCE.relative_to(ROOT)}；SHA-256：{sha(source_bytes)}。\n'
+        f'> 来源：{SOURCE.relative_to(ROOT)}；本 turn 块 SHA-256：{sha(block_bytes)}。\n'
         '> 范围：下方从本 turn marker 到下一 marker 的全部内容逐字复制；它保存用户关于 K、理论问题与四分支的提问，以及当轮 AI 最终回复，不将其升级为数学定理。\n\n'
         + block
     )
-    return source_bytes, text.encode('utf-8')
+    return block_bytes, text.encode('utf-8')
 
 
 def main() -> None:

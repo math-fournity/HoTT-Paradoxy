@@ -13,6 +13,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DIALOGUE = 'audit/four-track-plan-20260921/build_four_track_dialogue.py'
+P1_VERIFY = 'audit/p1-rmin-spec-20260921/verify_p1_rmin_spec.py'
+P1_REPORT = 'audit/p1-rmin-spec-20260921/P1-RMIN-SPEC-REPORT.md'
+P1_RECEIPT = 'audit/p1-rmin-spec-20260921/P1-RMIN-SPEC-VERIFICATION.json'
 INDEX = 'HoTT后续研究总体方案.md'
 SHARDS = [
     'HoTT后续研究总体方案/001 - 上一轮问答与四分支校正.md',
@@ -46,7 +49,8 @@ def main() -> None:
     args = parser.parse_args()
 
     subprocess.check_call([sys.executable, '-B', DIALOGUE, '--check'], cwd=ROOT)
-    for rel in [INDEX, *SHARDS, DIALOGUE, 'goal.md', 'feature-list.md', 'rulings.md', 'ABX行动.md', 'ABX行动/005 - 状态、停止条件与未来交接.md']:
+    subprocess.check_call([sys.executable, '-B', P1_VERIFY, '--write'], cwd=ROOT)
+    for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, 'goal.md', 'feature-list.md', 'rulings.md', 'ABX行动.md', 'ABX行动/005 - 状态、停止条件与未来交接.md']:
         need(rel)
     marker(INDEX, 'logical_id: HOTT-FOUR-TRACK-PLAN')
     marker(INDEX, 'last_shard: HoTT后续研究总体方案/005 - 当前第一步与交接.md')
@@ -54,22 +58,26 @@ def main() -> None:
     marker(SHARDS[0], '### AI 最终回复')
     marker(SHARDS[1], 'P1：结构规格')
     marker(SHARDS[1], 'P4：实现忠实性')
+    marker(INDEX, 'P1_RMIN_ACCEPTED_WITH_SCOPE')
     marker(SHARDS[2], 'P1：`R_min` 最小规格资格化')
+    marker(SHARDS[2], 'P1 已完成的范围结果')
+    marker(SHARDS[2], 'P2-KTHEORY-SIP-001')
     marker(SHARDS[3], '每个工作单元的最小声明')
-    marker(SHARDS[4], '当前第一步')
-    marker('goal.md', 'HoTT后续研究总体方案.md')
-    marker('feature-list.md', 'F-021')
+    marker(SHARDS[4], 'P2-KTHEORY-SIP-001')
+    marker('goal.md', 'NEXT_P2_KTHEORY_SIP')
+    marker('feature-list.md', 'P1_RMIN_ACCEPTED_WITH_SCOPE')
     marker('rulings.md', '四分支')
-    marker('ABX行动.md', 'HoTT后续研究总体方案.md')
+    marker('ABX行动.md', 'P2 正待审一个新的 HoTT Book §9.8 SIP')
     marker('ABX行动/005 - 状态、停止条件与未来交接.md', 'HoTT后续研究总体方案.md')
 
     receipt = {
         'schema_version': 'four-track-plan-verification/v1',
         'status': 'PASS_WITH_SCOPE',
-        'scope': ('Verifies the plan structure, verbatim prior-answer projection, and current routing anchors. '
-                  'It does not prove R_min, a K_theory/K_app/K_engine, a new topology, or a HoTT defect.'),
-        'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE]},
-        'verdict': 'FOUR_TRACK_PLAN_ROUTED_P1_RMIN_SPEC_FIRST',
+        'scope': ('Verifies the plan structure, verbatim prior-answer projection, P1 source/interface receipt, '
+                  'and current P2-SIP routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
+                  'a new topology, or a HoTT defect.'),
+        'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT]},
+        'verdict': 'FOUR_TRACK_PLAN_P1_CLOSED_P2_SIP_NEXT',
     }
     if args.write:
         (ROOT / RECEIPT).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

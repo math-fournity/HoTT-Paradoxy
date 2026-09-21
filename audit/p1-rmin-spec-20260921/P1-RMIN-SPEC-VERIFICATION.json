@@ -1,0 +1,43 @@
+{
+  "schema_version": "p1-rmin-spec-verification/v1",
+  "status": "PASS_WITH_SCOPE",
+  "scope": "Checks the local source/interface anchors, pre-existing kernel receipt boundary, academic-scan labels, and P1-to-P2 routing. It does not prove a new theorem, an OriginTop theory, a theory-level K, an application K, or a HoTT defect.",
+  "verdict": "R_MIN_ACCEPTED_WITH_SCOPE / P1_CLOSE_WITH_SCOPE / P2_SIP_DENOMINATOR_NEXT",
+  "files": {
+    "audit/p1-rmin-spec-20260921/P1-RMIN-SPEC-REPORT.md": "e276b32835797e2ab3d77a9144b02e53636d7815c027377617e9d872c63a0f69",
+    "HoTT/formal/agda-unimath/hott-z/NativeRichCurve.agda": "5dd9656984c437297d85a6504ee8f211f2e391adf5d4901b8869f71f6d9bdd1f",
+    "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda": "2c713073bb05c29980d76be51b054ff2fa1422b650bbeab5d2b8f0e4f8c6e151",
+    "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda": "2a7b1c704b9a19cf781f14a71689559953150efad01f1089356817d65c1827a1",
+    "HoTT/formal/agda-unimath/hott-z/NativeCurveTask.agda": "3573f3413a0b91409096ab14f0ee6a4c443b9a922b99c8daa8dacae790725ecc",
+    "HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md": "c62f5a0e828d528cb7efde326009d6b8cb4b7c88137c91df89d782f8c9d3cf04",
+    "HoTT后续研究总体方案/005 - 当前第一步与交接.md": "5806e333325188bf20da84233d64c0a0cae637c84b57e7b182e3219fcafbf080",
+    "goal-3.md": "c9d4eacb46d162766032d41efc09ccc8ef7f05945d77ce2159cdabd0c99b3cf2"
+  },
+  "preexisting_kernel_receipts": {
+    "source_contract": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-SOURCE-CONTRACT-001-01/RUN.json",
+      "sha256": "acd420e272b4280ab1441b94626e1f7a6676129a505f8e968038f7aadbdb8dd4",
+      "claim_ids": [
+        "C-295",
+        "C-296"
+      ],
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    "task_integration": {
+      "path": "HoTT/verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01/RUN.json",
+      "sha256": "1a0947d9032016d2755ed2c5c8df028838d1ee3fbda9dbba911e6199415ec854",
+      "claim_ids": [
+        "C-320"
+      ],
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    }
+  },
+  "academic_scan": {
+    "HoTT_Book_9_8": "KNOWN_ANALOGUE_AND_P2_DENOMINATOR",
+    "real_cohesive_HoTT": "KNOWN_DEFENSE_OR_BOUNDARY",
+    "stratified_or_relative_structures": "NEARBY_NOT_SAME_TASK",
+    "exact_R_min_identity": "NO_RESULT_WITHIN_DECLARED_DENOMINATOR"
+  }
+}
