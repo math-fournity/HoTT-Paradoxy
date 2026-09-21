@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P21后继续：P23选择一个独立版本冻结入口，做公开/本地侦察并固定Input/Operation/Observation/Done；不重审P3/P1最小接口/跨后端/Guard停放分支。入口：`audit/p21-cross-branch-synthesis-20260921/P21-CROSS-BRANCH-SYNTHESIS-REPORT.md`；revision239。
+当前 active goal 在P18后继续：P19=ORIGIN_DIRECTED_DIAGRAM_KERNELIZATION，核原生后端能力并形式化最小结构、bare forgetful map和正负控制；无新可检查义务则RESTATEMENT_ONLY。入口：`audit/p18-fifth-successor-discovery-20260921/P18-FIFTH-SUCCESSOR-DISCOVERY-REPORT.md`；revision238。
 
 ## 历史停止点
 
