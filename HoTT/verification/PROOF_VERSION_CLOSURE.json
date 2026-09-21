@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 176,
+  "later_machine_proved_claim_count": 177,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-ORIGIN-DIRECTED-DIAGRAM-001",
+   "claim_ids": "C-325",
+   "source": "HoTT/formal/astra-breakpoint-check/OriginDirectedDiagram.agda",
+   "run": "HoTT/verification/runs/20260921-MP-ASTRA-ORIGIN-DIRECTED-DIAGRAM-001-03",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "kind": "native_cubical_minimal_origin_directed_diagram_interface_control",
+   "verdict": "MINIMAL_ORIGIN_STRUCTURE_EXPRESSIBLE_WITH_BARE_FORGETFUL_NEGATIVE_AND_FULL_TRANSPORT_POSITIVE_CONTROL",
+   "notes": "Cubical Agda 2.8.0/cubical-0.9 run -03 is the primary accepted receipt. -01 records missing composition import and -02 an invalid Sigma-path witness; both failures are preserved. The source only records a finite interface of static RichDiagram plus trace/done labels. It neither formalizes the full real geometric process nor establishes non-representability, actual K, implementation discrepancy, HoTT defect, or four-stage success."
+  },
   {
    "proof_id": "MP-ASTRA-MARKOV-REVERSE-001",
    "release_ref": "d699c706c38bbe6077ca340c1690c469e19aec6f",
