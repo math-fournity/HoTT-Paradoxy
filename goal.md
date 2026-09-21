@@ -1,6 +1,6 @@
 # 四弹一体原方案 redo Goal
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / PHASE_2_ABX_DESIGN_AND_EVIDENCE_INTAKE_ACTIVE`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / PHASE_2_ABX_INITIAL_BOUNDARY_ESTABLISHED_WITH_SCOPE`
 > Goal schema：`four-stage-redo-goal/v1`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,9 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户于 2026-09-21 明确要求重做原圆环 A/B/X 的第三弹，并将行动代号定为 `ABX`。这满足第二阶段的明确启动条件。ABX 的 current owner 是 [ABX行动.md](ABX行动.md)：它区分通常同胚 `H_top`、来源—复原关系 `R_origin`、实际理论使用事实 `K` 与明确 forgetful map `U`；GLM Flash/G4 仅作为历史控制和被审对象。
 
-当前 ABX 单元限定为 `DESIGN_AND_EVIDENCE_INTAKE`：冻结用户来源、审计 Flash/G4 的精确范围、定义原对象和双 Done 控制、制定实际消费者 K 的有界检索分母。它不声明已发现 K，不声明 `R_origin` 已被形式化或无法恢复，不启动全库搜索，不把新的设计文档冒充为数学证明。ABX 只有在同一实例的 `H_top → R_origin → U → K → Observation/Done` 链闭合后，才可申请新的原生证明任务。
+ABX 的初始三段已经完成：冻结用户来源和 Flash/G4 的范围；以实际 `RealCircle/east`、弱/强删点、开区间、`RichCurve` 代理、`U` 和双 Done 固定任务合同；随后完成三个有界来源分母（pinned 度量同胚消费者、29 个本地直接消费者、Book 核心规则）。三个分母都没有给出 `H_top/U → Done_strong` 的实际 K，Book 还明确把其空间语言限定为纯同伦理解而非点集拓扑。这个结果建立了 ABX 的初始表示/任务边界，不宣布 `R_origin` 已完整形式化、来源恢复不可能、HoTT 无风险或 HoTT 有缺陷。
+
+ABX 只有在同一实例的 `H_top → R_origin → U → K → Observation/Done` 链闭合后，才可申请新的原生失配证明任务。下一步必须由一个新的、版本冻结的外部接口/论文/库调用链，或用户认可的更强 `R_origin` 合同触发；不得重跑已关闭分母或把无命中外推为全局结论。
 
 ## 2.1 历史机器统观目标与其余第二阶段候选
 
