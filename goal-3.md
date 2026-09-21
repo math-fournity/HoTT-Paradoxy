@@ -44,6 +44,15 @@ P1 先于 P2/P3；P2 结束后才可进入 P3；P4 只能由规则语义与实�
 - 若搜索不可能改变当前结论，例如纯粹修复已冻结本地收据，写明不搜的理由；不能把“不想花时间”当理由。
 - 文献发现若改变术语、优先级或理论分母，按第 4 节更新总体方案和状态；若只提供相邻类比，保留为比较材料，不把它写成已有解决或原创发现。
 
+## 2.2 本地与已登记历史资产侦察
+
+每个 wave 在新建代码、重跑证明、检索新的外部消费者或宣布“这是新的分母”之前，必须先判断本地仓库、其已登记的历史快照、嵌套只读工作区和项目明确指向的外部只读候选中是否已经有同题或近题资产。目标是减少重复劳动，不是用关键词命中伪造既有结论。
+
+- 先固定当前 `X`、`R_min`、H/U、Operation、Observation、Done、理论分母和拟作出的判词，再以这些精确锚点检索：当前 `STATE`/current owner、`HoTT/formal/`、`HoTT/verification/runs/`、`audit/`、历史 Session/来源快照，以及当前计划已经登记的只读外部目录。需要关系或同义发现时使用工作区语义检索；已知 ID、文件、符号、run 或句子时使用精确检索。
+- 对每个候选逐项核对命题、量词、输入、允许操作、观察、Done、理论版本、proof/run 状态与非目标，再标为 `EXACT_COVERAGE`、`PARTIAL_REUSE`、`HISTORICAL_UNVERIFIED`、`NEARBY_ONLY` 或 `NO_ASSET_WITHIN_DECLARED_SCOPE`。文件名、AI 自述、关键词、有限测试或旧 `PASS` 不能单独成为 `EXACT_COVERAGE`。
+- `EXACT_COVERAGE` 时不重跑或另造同义报告；只写覆盖裁决、使用当前直接证据并转向未覆盖链边。`PARTIAL_REUSE` 时列出可复用部分和精确缺口，新的工作只针对缺口。历史或外部资产默认只读，不得因侦察改写来源、恢复已移走目录或把候选分支当 current truth。
+- 行动中出现新术语、实现、理论版本或反例时，重复一次有界侦察；若发现已完成资产足以改变当前 wave 的独立性、停止条件或后继，按第 4 节立即修正方案和状态，不为既有投入继续重复。
+
 ## 3. 反思：每个自然单元结束必答
 
 逐项回答，不能用“总体正常”代替：
@@ -77,6 +86,7 @@ P1 先于 P2/P3；P2 结束后才可进入 P3；P4 只能由规则语义与实�
 | 目标、分支顺序或停止条件改变 | `goal.md`、`HoTT后续研究总体方案.md`、Feature；若来自用户决定，再写 `rulings.md` |
 | P1/P2/P3/P4 的具体合同、分母或 branch 结论改变 | 相应 branch 文档；P3 同步 `ABX行动.md` 与 H/R/K 整备 |
 | 新数学命题或新机器运行 | `HoTT/formal/`、`HoTT/verification/runs/`、`HoTT/CLAIM_EVIDENCE_MATRIX.md` 和该分支的证据报告 |
+| 已有资产覆盖、可复用范围或重复裁决 | 该 wave 的报告、总体方案/branch owner；若改变当前下一步，再经 checkpoint 更新 `STATE` 与投影 |
 | 当前下一步、状态、方向或成果投影改变 | `MEMORY`、`方向追踪`、`全景视野`、`FRONTIER`、`RESUME`、`STATE`，通过 canonical checkpoint 写入 |
 | 用户新的直接悖论/元数学原文 | 只按 core curation 规则进入 `核心认知.md`，不能用 AI 总结代替 |
 | 历史来源、旧 run 或他人文档 | 保留原件；在审计/当前 owner 中登记范围，不改写历史 |
