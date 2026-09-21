@@ -1,0 +1,100 @@
+{
+  "schema_version": "p6-origin-structure-stratified-verification/v1",
+  "task_id": "P6-ORIGIN-STRUCTURE-STRATIFIED-COMPARISON-001",
+  "status": "PASS_WITH_SCOPE",
+  "verdict": "PARTIAL_REUSE / COMPOSITE_STRUCTURED_DIRECTED_DIAGRAM_CANDIDATE / P7_NEXT / NO_NEW_HOTT_DEFECT_CLAIM",
+  "scope": "Checks the P6 field-matrix/report anchors and that three reused local formal sources match their saved run manifests. It does not prove a universal representation theorem, a non-representability theorem, an actual K, or a HoTT defect.",
+  "checked_sources": {
+    "p5": {
+      "path": "audit/p5-successor-discovery-20260921/P5-SUCCESSOR-DISCOVERY-REPORT.md",
+      "sha256": "34f7ee67bd47ca457bbbdc992e05381c0c1d5bca3c253572a695e788cf7d2b7d"
+    },
+    "origin_interface": {
+      "path": "ABX行动/003 - 原圆环对象、判据与正反控制.md",
+      "sha256": "30a39f3a21ee4c86439079753c609e3e1a57ff4c0d52e4c0c987071b974f196b"
+    },
+    "plan": {
+      "path": "HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md",
+      "sha256": "6c71284de2dfdeb9b4581236e000d090ed4a92acdac0d503d101ed088c716d4e"
+    },
+    "next": {
+      "path": "HoTT后续研究总体方案/005 - 当前第一步与交接.md",
+      "sha256": "f2e61bdb5281f3a6931874e45206a93d9aef0afe7985f04ff27313da31d09d32"
+    },
+    "lean": {
+      "path": "HoTT/formal/astra-real-geometry/StructuredCurve.lean",
+      "sha256": "d46605371967a90fdfa0d0cb0a76d0fc49a33d3c5dac3a135210db99abc88d45"
+    },
+    "agda_observation": {
+      "path": "HoTT/formal/astra-breakpoint-check/GeometricBoundaryObservation.agda",
+      "sha256": "1f4b449ec2c9334c954dc16dc3866980b9687ab6322bc303b1776dad4b534cfc"
+    },
+    "agda_incidence": {
+      "path": "HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda",
+      "sha256": "36dea2d61ff0e4139afe2997119c67da556b810232e2ae6d75b4e7d9e7713bb5"
+    },
+    "source_contract": {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda",
+      "sha256": "2c713073bb05c29980d76be51b054ff2fa1422b650bbeab5d2b8f0e4f8c6e151"
+    },
+    "task_integration": {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda",
+      "sha256": "2a7b1c704b9a19cf781f14a71689559953150efad01f1089356817d65c1827a1"
+    },
+    "case_matrix": {
+      "path": "audit/astra-case-integration-20260921/MATRIX-BEFORE.md",
+      "sha256": "f8cb49db47f018fd163d9236d2b4add63b15344bba0f0318db6e876eedb9c44b"
+    },
+    "lean_run": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02/RUN.json",
+      "sha256": "28009bf958e476d4a9b9d6ae9f8eb3db070328b905c20bc7e5be693dc17c9654"
+    },
+    "lean_manifest": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02/source-manifest.json",
+      "sha256": "317c9c8d3078b3f9eb07e0349a9dbd0f5b3a410faf1753c6bb0ce37749a7b53e"
+    },
+    "agda_run": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01/RUN.json",
+      "sha256": "2c4b99a653e19f133a2afe84fd1675f0e3c55338c011e7a2ccfec8ed5f4dc076"
+    },
+    "agda_manifest": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001-01/source-manifest.json",
+      "sha256": "e3725b145bbea64b37c179d50823f507777395d23301d3506e35753c0bb3bb81"
+    }
+  },
+  "reused_run_statuses": {
+    "MP-ASTRA-STRUCTURED-CURVE-001": "KERNEL_ACCEPTED_WITH_SCOPE",
+    "MP-ASTRA-NATIVE-BOUNDARY-OBSERVATION-001": "KERNEL_ACCEPTED_WITH_SCOPE",
+    "git_closure_boundary": [
+      "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    ]
+  },
+  "source_manifest_comparison": {
+    "HoTT/formal/astra-real-geometry/StructuredCurve.lean": {
+      "manifest_sha256": "d46605371967a90fdfa0d0cb0a76d0fc49a33d3c5dac3a135210db99abc88d45",
+      "current_sha256": "d46605371967a90fdfa0d0cb0a76d0fc49a33d3c5dac3a135210db99abc88d45"
+    },
+    "HoTT/formal/astra-breakpoint-check/GeometricBoundaryObservation.agda": {
+      "manifest_sha256": "1f4b449ec2c9334c954dc16dc3866980b9687ab6322bc303b1776dad4b534cfc",
+      "current_sha256": "1f4b449ec2c9334c954dc16dc3866980b9687ab6322bc303b1776dad4b534cfc"
+    },
+    "HoTT/formal/astra-breakpoint-check/BoundaryIncidence.agda": {
+      "manifest_sha256": "36dea2d61ff0e4139afe2997119c67da556b810232e2ae6d75b4e7d9e7713bb5",
+      "current_sha256": "36dea2d61ff0e4139afe2997119c67da556b810232e2ae6d75b4e7d9e7713bb5"
+    }
+  },
+  "missing_sources": [],
+  "missing_required_report_tokens": [],
+  "source_mismatches": {},
+  "public_sources_checked": [
+    "https://arxiv.org/abs/1908.01366",
+    "https://arxiv.org/abs/1811.01119",
+    "https://arxiv.org/abs/1911.04630",
+    "https://arxiv.org/abs/2101.09363",
+    "https://arxiv.org/abs/math/0111048",
+    "https://arxiv.org/abs/1807.10566",
+    "https://arxiv.org/abs/2407.09146",
+    "https://arxiv.org/abs/1509.07584"
+  ]
+}
