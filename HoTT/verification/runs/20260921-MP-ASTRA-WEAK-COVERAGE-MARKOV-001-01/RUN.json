@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-321",
+    "C-322"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-markov-bridge-20260921/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/WeakCoverageMarkov.agda"
+  ],
+  "completed_at_utc": "2026-09-21T01:50:33.117983+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 440.840334,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "528d6dd0cd94521f62873ab13383e933d6ff472881f7eef005f0bb56f6058ede"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No Markov-to-all-Dedekind-real converse, equivalence with RNZA, necessity of LEM/resizing, principle independence or unprovability relative to the pinned baseline.",
+    "No unconditional Weak coverage, changed input observation, arbitrary-homeomorphism necessity, physical execution, internal HoTT contradiction or full four-stage target result.",
+    "The no-erasure derivative and inherited foundation postulates remain explicit; not safe Cubical or a global soundness/consistency certificate."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-WEAK-COVERAGE-MARKOV-001",
+  "run_id": "20260921-MP-ASTRA-WEAK-COVERAGE-MARKOV-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For each arbitrary Boolean sequence construct a genuine small Dedekind real with L(q)=(q<0) or exists n, f(n)=true and q<1/(n+1), using finite search and a rational tail bound to prove locatedness. Prove nonnegativity, SomeTrue iff positivity, zero iff no true witness, and actual false/true controls. Derive RealNonzeroApartness implies BookMarkov from this concrete real, then compose existing actual-circle Lift, fixed final Weak coverage and uniform inverse bridges; translate to the library Markov formulation. No global instance of any principle is supplied.",
+  "source_manifest": {
+    "bytes": 20664,
+    "path": "source-manifest.json",
+    "sha256": "15bf78727079d8f76f36c1e1c65faffdfe4fea27dc66409c4e592e77a13303e8"
+  },
+  "started_at_utc": "2026-09-21T01:43:12.277649+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 214838,
+    "path": "stdout.txt",
+    "sha256": "e1f8dbbb02b7bc19f0c6a828f29b331a6babed27bd23184dff74c3532af8d128"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

@@ -1406,3 +1406,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | C-320 | 固定原nRich/mRich。CurveRun(r,s)要求真实连续切片嵌入族、原闭图初末态、内点一致、实际正向切片映射和坐标界256；actualCurveRun以未改动原F给出CurveRun(nRich,mRich)。同一对象对的原有限AmbientStep Success为空，故不存在从该CurveRun成功转为该Ambient成功的函数，不存在对所有Rich对的统一转换，两成功类型不等价。原非平凡ambient交换控制及Rich不相等同时保留。 | `FORMAL_CHECKED_WITH_SCOPE / NO_SUCCESS_PRESERVING_CROSS_CONTRACT_ADAPTER` | `CurveRun/actualCurveRun/samePairDifferentOperations/noCurveToAmbientAtActualPair/noUniformCurveToAmbient/noCurveAmbientEquivalence/nontrivialAmbientControl/samePairStillRichDistinct`；同run | 对象对相同但操作/完成类型不同，不是同一P与非P；未证明HoTT实际承诺被否定转换。不是全部现实复原/生产历史、无条件Weak覆盖、任意操作不可达或完整四弹失配/一致性认证。 |
+
+## 原Weak最终图覆盖的Markov必要后果（2026-09-21）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-WEAK-COVERAGE-MARKOV-001` | `C-321–C-322` | `formal/agda-unimath/hott-z/WeakCoverageMarkov.agda`、`BinaryWitnessReal.agda`、`BinaryWitnessWeights.agda`及原几何/原则依赖 | `verification/runs/20260921-MP-ASTRA-WEAK-COVERAGE-MARKOV-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / ACTUAL_BINARY_REAL_AND_FIXED_WEAK_COVERAGE_IMPLIES_MARKOV` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-321 | 对任意f:ℕ→Bool，以L_f(q)=(q<0)∨∃n[f(n)=true∧q<1/(n+1)]实际构造ℝ(lzero)中的Dedekind实数；非空、rounded、上界补集及located由有理权重与有限前缀搜索给出。证明非负、SomeTrue(f)↔0<x_f、x_f=0↔¬SomeTrue(f)，以及¬¬SomeTrue(f)→x_f≠0、x_f apart 0→SomeTrue(f)；全false取零和全true严格正的实际控制同时成立。 | `FORMAL_CHECKED_WITH_SCOPE / SMALL_DEDEKIND_BINARY_WITNESS_ENCODING` | `weight/smallWeight/finiteSearch/lowerWitnessCut/locatedWitnessCut/binaryWitnessReal/witnessIffPositive/zeroIffNoWitness/doubleNegWitnessGivesNonzero/apartWitnessGivesSomeTrue/falseSequenceRealIsZero/trueSequenceRealIsPositive`；同run | exists及∨按命题截断，不偷选全无限序列；未给所有序列的零/正判定，不是无限搜索总完成算法；新源未加入LEM/Markov/choice公设，继承基线公设仍显式；非物理完成/全理论声性。 |
+| C-322 | 由C321实际编码推出RealNonzeroApartness→BookMarkov，其中BookMarkov=(f:ℕ→Bool)→¬¬(∃n,f n=true)→∃n,f n=true。再经原同一圆周/最终图的已证桥得到RealPairApartness、Circle Lift、UniformRealInverse和固定WeakFinalCoverage各自蕴含BookMarkov；并翻译为库Markov形式。¬BookMarkov→¬WeakFinalCoverage仅为显式条件逆否，其前提未提供。 | `FORMAL_CHECKED_WITH_SCOPE / FORWARD_PRINCIPLE_BRIDGE_ON_ACTUAL_WEAK_MAP` | `realApartnessImpliesBookMarkov/pairApartnessImpliesBookMarkov/circleLiftImpliesBookMarkov/fixedWeakCoverageImpliesBookMarkov/realInverseImpliesBookMarkov/fixedWeakCoverageImpliesLibraryMarkov/noFixedWeakCoverageIfNotMarkov`；同run | 不声称Markov→任意Dedekind RNZA或两者等价；未证基线独立/不可证、LEM或resizing必要性、任意同胚必需、无条件Weak覆盖或其否定；不把已知原典方向和当前实例连接称HoTT独有失败、现实失配或完整四弹成功。 |

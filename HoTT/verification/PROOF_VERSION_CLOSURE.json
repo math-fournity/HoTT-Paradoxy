@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 172,
+  "later_machine_proved_claim_count": 174,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-WEAK-COVERAGE-MARKOV-001",
+   "claim_ids": "C-321–C-322",
+   "source": "HoTT/formal/agda-unimath/hott-z/WeakCoverageMarkov.agda",
+   "run": "HoTT/verification/runs/20260921-MP-ASTRA-WEAK-COVERAGE-MARKOV-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "actual_binary_dedekind_cut_and_forward_weak_coverage_markov_bridge",
+   "verdict": "FIXED_WEAK_COVERAGE_IMPLIES_MARKOV_NOT_INDEPENDENCE_OR_HOTT_FAILURE",
+   "notes": "Construct actual small Dedekind real from every binary sequence using finite prefix search and reciprocal rational tail bounds; positivity iff mere true witness, zero iff none, nonnegative, false/true controls. Derive RNZA and the existing same-circle Lift/uniform inverse/fixed final Weak coverage imply BookMarkov and its library form. No Markov-to-all-Dedekind converse, independence or necessity of LEM/resizing, unconditional Weak coverage, any-homeomorphism necessity, physical or four-stage target success. Inherited no-erasure foundation postulates remain explicit."
+  },
   {
    "proof_id": "MP-ASTRA-NATIVE-TASK-INTEGRATION-001",
    "release_ref": "8cd20b87a0803f74343906dac9d11a5bdd3ecb3e",
