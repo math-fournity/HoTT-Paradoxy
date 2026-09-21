@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P17后继续：P18重新做公开/本地侦察，选未审版本冻结分母；不重审Cauchy-real语料。入口：`audit/p17-cubical-hott-cauchy-reals-corpus-20260921/P17-CUBICAL-HOTT-CAUCHY-REALS-CORPUS-REPORT.md`；revision237。
+当前 active goal 在P16后继续：P17=CUBICAL_HOTT_CAUCHY_REALS_CORPUS，审arXiv v1和固定公开代码定位，按P7区分Cauchy real构造接口与P13 bare H/Done；不编译、克隆或扩站。入口：`audit/p16-fourth-successor-discovery-20260921/P16-FOURTH-SUCCESSOR-DISCOVERY-REPORT.md`；revision236。
 
 ## 历史停止点
 
