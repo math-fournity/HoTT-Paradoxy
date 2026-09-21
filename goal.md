@@ -1,6 +1,6 @@
 # HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / FOUR_TRACK_FIRST_PASS_COMPLETE / P5_SUCCESSOR_SELECTED / P6_COMPOSITE_DIAGRAM_CANDIDATE / P7_K_HARNESS_ACCEPTED / P8_RZK_DEFENSE / P9_SHOTT_DIRUNIV_DEFENSE / P10_COQHOTT_CANDIDATE_SELECTED / P11_COQHOTT_GLUING_DEFENSE / P12_AMBIENT_PAIR_CANDIDATE_SELECTED / P13_R_AMBIENT_SPECIALIZATION_ACCEPTED / NEXT_P14_AMBIENT_OPERATION_K_SUCCESSOR_DISCOVERY / GOAL_ACTIVE`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / FOUR_TRACK_FIRST_PASS_COMPLETE / P5_SUCCESSOR_SELECTED / P6_COMPOSITE_DIAGRAM_CANDIDATE / P7_K_HARNESS_ACCEPTED / P8_RZK_DEFENSE / P9_SHOTT_DIRUNIV_DEFENSE / P10_COQHOTT_CANDIDATE_SELECTED / P11_COQHOTT_GLUING_DEFENSE / P12_AMBIENT_PAIR_CANDIDATE_SELECTED / P13_R_AMBIENT_SPECIALIZATION_ACCEPTED / P14_PRIETO_CUBIDES_CANDIDATE_SELECTED / NEXT_P15_SPHERICAL_MAPS_AGDA_CORPUS / GOAL_ACTIVE`
 > Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务。P2 的受限结论是 `NO_K_THEORY_WITHIN_SIP_DENOMINATOR`：Book §9.8 的 SIP 明确要求结构及正、逆结构保持，并不将裸 H/U 自动升格为 `Done_s`。P3 的受限结论是 `NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR`：版本固定 UniMath SIP 使用点显式构造函子代数结构并证明 univalence，没有把它作为 P1 过程完成。P4 没有实际触发。这些是首个分母 pass 的有界结果，不是整体 goal 的停止条件。P5/P6 固定 R，P7 固定 K 五项条件，P8/P9 分别审计 Rzk 与 sHoTT `diruniv` 的实际定向层，均为显式结构防御。P10 选择的 Coq-HoTT Circle/Coeq/Torus 五文件已在 P11 完成审计：explicit glue/coherence、base/loop/surface 与 synthetic task 保留，未出现 K；其中可见 `Admitted` 仅登记为信任边界。P12 选择现有环境对关系，P13 将其资格化为 `R_AMBIENT_SPECIALIZATION_ACCEPTED_WITH_SCOPE`：C-268 的有限整平面 homeomorphism 复原反控制与 C-269 的逐时曲线 embedding 正控制说明，`Done` 必须携带 operation class。此结果既不否定内在同胚，也不允许把环境限制外推为一般不可复原。P14 将寻找一个版本固定的实际 HoTT/立方/相关消费者，检验它是否只使用裸 `H_intrinsic` 却把输出当作这一 operation-sensitive Done；P14 本身仍不预设 K 或 HoTT 缺陷。
+P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务。P2 的受限结论是 `NO_K_THEORY_WITHIN_SIP_DENOMINATOR`：Book §9.8 的 SIP 明确要求结构及正、逆结构保持，并不将裸 H/U 自动升格为 `Done_s`。P3 的受限结论是 `NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR`：版本固定 UniMath SIP 使用点显式构造函子代数结构并证明 univalence，没有把它作为 P1 过程完成。P4 没有实际触发。这些是首个分母 pass 的有界结果，不是整体 goal 的停止条件。P5/P6 固定 R，P7 固定 K 五项条件，P8/P9 分别审计 Rzk 与 sHoTT `diruniv` 的实际定向层，均为显式结构防御。P10 选择的 Coq-HoTT Circle/Coeq/Torus 五文件已在 P11 完成审计：explicit glue/coherence、base/loop/surface 与 synthetic task 保留，未出现 K；其中可见 `Admitted` 仅登记为信任边界。P12/P13 已把 operation-sensitive `R_ambient` 固定为 future-K 合同。P14 的公开/本地侦察选择了 Prieto-Cubides 的 CPP 2022 Agda spherical-maps formalisation：它是公开的、版本标记的 HoTT 相关嵌入/同伦语料，且本地先前仅有未审题录。P15 将逐模块检查其显式 `Map`、face、walk-homotopy、spherical conclusion 与 P13 Done 是否同一任务；选择本身不预设 K 或 HoTT 缺陷。
 
 四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 
