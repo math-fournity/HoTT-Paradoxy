@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P13后继续：P13接受operation-sensitive R_ambient；同一M/N在有限Plane homeomorphism列表下不能复原，在逐时curve embedding下可以变形。P14=AMBIENT_OPERATION_K_SUCCESSOR_DISCOVERY：先做公开/本地侦察，选版本固定HoTT/立方/相关实际调用链，用P7五项查bare H_intrinsic是否被当成Done_ambient^fin或Done_curve；不重跑C-265–C-277。入口：`audit/p13-ambient-pair-rmin-requalification-20260921/P13-AMBIENT-PAIR-RMIN-REQUALIFICATION-REPORT.md`；revision233 checkpoint。
+当前 active goal 在P12后继续：P12以公开/本地双重侦察选择了C-265–C-268的R_ambient环境对候选。P13=AMBIENT_PAIR_RMIN_REQUALIFICATION：不重跑Lean，固定Plane/嵌入/闭包余集/ambient operation，映射C-266内在同胚、C-267环境homeomorphism、C-268有限环境复原到OriginDirectedDiagram的Input/Operation/Observation/Done；只输出R_AMBIENT_SPECIALIZATION_ACCEPTED_WITH_SCOPE或RESTATEMENT_ONLY，然后仍按active-goal生成后继。入口：`audit/p12-third-successor-discovery-20260921/P12-THIRD-SUCCESSOR-DISCOVERY-REPORT.md`；revision232 checkpoint。
 
 ## 历史停止点
 
