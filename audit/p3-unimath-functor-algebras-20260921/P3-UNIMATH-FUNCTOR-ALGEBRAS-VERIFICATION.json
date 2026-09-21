@@ -1,0 +1,36 @@
+{
+  "schema_version": "p3-unimath-functor-algebras-verification/v1",
+  "status": "PASS_WITH_SCOPE",
+  "scope": "Checks the P3 task contract, local-asset classifications, and the immutable remote-source identity record. It does not fetch or compile UniMath, verify Rocq kernel acceptance, prove a global absence of K, or prove a HoTT defect.",
+  "verdict": "NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR / P3_CLOSE_WITH_SCOPE / P4_NOT_TRIGGERED",
+  "files": {
+    "audit/p3-unimath-functor-algebras-20260921/P3-UNIMATH-FUNCTOR-ALGEBRAS-REPORT.md": "f530025e82d0d56c7da916668630df658120e9dfe3c9bde2c4a047e490ffff52",
+    "audit/p3-unimath-functor-algebras-20260921/P3-UNIMATH-FUNCTOR-ALGEBRAS-SOURCE-FREEZE.json": "11e751f15ee459f1e00b6a4f0b6a1b6d095305a54c40d197f65180e19d96e82a",
+    "audit/p1-rmin-spec-20260921/P1-RMIN-SPEC-REPORT.md": "e276b32835797e2ab3d77a9144b02e53636d7815c027377617e9d872c63a0f69",
+    "audit/p2-ktheory-sip-20260921/P2-KTHEORY-SIP-REPORT.md": "3fe4ef52447f6f768e330af7f89e1aba68184edffe9b128c185dd18773b1d58e",
+    "audit/abx-action-20260921/ABX-3-D2-原生直接消费者审计.md": "40cf9a5a4d1bab4966c0702db47ef02235cbdd4cd98a8718b88c5bc57a7d8e8b",
+    "audit/abx-action-20260921/ABX-3-D3-HoTT-Book核心规则审计.md": "da571e8a08db3ef5624f687d7da48ee527699fffdd95d4d32adbd0cf1554e9c2",
+    "audit/derived-development-consumer审计-20260912.md": "b13f8c44f7a59c4e4e0e6ccdfdb8a7234a2c5d8f20f9b5ac2165301a4557481d",
+    "audit/unimath-e6-scan-and-nosection-replay-20260913.md": "0ca08c6f1ee04cd1544628f98e816421bec670106ca917bd7283fa4e23b1871a",
+    "goal-3.md": "9c78b64cda814478f63a2a0e5e3bc9b68d6f8c51565e98b9e3618c0567eabf96",
+    "HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md": "2ae37d51dcd919c34f001339993e84341f5342b60196aa3a4b13e50531f27b58",
+    "HoTT后续研究总体方案/005 - 当前第一步与交接.md": "3ffc925570deb1ef49b061339c7c802a98e2fda23869f658c100bda6fd09eb32",
+    "goal.md": "4ef4ba2e4febe675ffd46c8b7a6331270733a6fe0f8cabe1a7a3a8dbf39778fb",
+    "feature-list.md": "e2c23f19546b6333e5f775d1abb023a46ea75a78357fb384fdedef0af061fe46",
+    "ABX行动.md": "e04d8b5943e62847d0ddab4886ea40c4f066f230fd0febc827c0f717cc4a137f"
+  },
+  "remote_source_identity": {
+    "repository": "https://github.com/UniMath/UniMath",
+    "commit": "ab5f5395fbcfda0b7cb9cbc5bfcb88c4ed9ef8ab",
+    "files": {
+      "UniMath/CategoryTheory/DisplayedCats/SIP.v": "e0502499e45e82dc6bd5012d85b1590a399894fb617ac880c408e94aa1aa825e",
+      "UniMath/CategoryTheory/DisplayedCats/Examples.v": "0c61bbd9dddcb999a0d134093a8150e8f77db953f8abf4e58387c1f5734ac350"
+    }
+  },
+  "asset_classification": {
+    "ABX_D2_D3": "NEARBY_ONLY",
+    "SIPRepresentation": "PARTIAL_REUSE",
+    "N5_N10_N42": "NEARBY_ONLY",
+    "UniMath_functor_algebras": "NEW_VERSION_PINNED_CONSUMER_DENOMINATOR"
+  }
+}

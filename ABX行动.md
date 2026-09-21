@@ -15,7 +15,7 @@ soft_line_target: 300
 
 当前状态：`INITIAL_ABX_BOUNDARY_ESTABLISHED_WITH_SCOPE / HRK_READINESS_REGISTERED / KNOWN_TECHNICAL_TRADEOFFS_AND_COMMUNITY_BOUNDARIES_SOURCE_REVIEWED / NO_K_WITHIN_D_ABX_1_D_ABX_2_D_ABX_3 / NO_NEW_HOTT_DEFECT_CLAIM`。用户背景原文的精确快照在[sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md](sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md)；其导入收据在[audit/abx-action-20260921/SOURCE-IMPORT.json](audit/abx-action-20260921/SOURCE-IMPORT.json)。第一合同与首个 K 分母的收据在[audit/abx-action-20260921/ABX-1-3-原对象任务合同与首个K分母.md](audit/abx-action-20260921/ABX-1-3-原对象任务合同与首个K分母.md)，直接消费者与 Book 核心规则分母分别见[D2](audit/abx-action-20260921/ABX-3-D2-原生直接消费者审计.md)和[D3](audit/abx-action-20260921/ABX-3-D3-HoTT-Book核心规则审计.md)。关于 Book、公开社区与 cohesive HoTT 已知边界的来源审计见[社区认识范围审计](audit/abx-action-20260921/ABX-圆环挑战的HoTT社区认识范围审计-20260921.md)。关于第一弹之后 H、R、U、操作合同与 K 搜索已经做到哪里、哪些工作禁止重做，见[H/R/K 查找思路整备](audit/abx-action-20260921/H-R-K查找思路整备.md)。这两份材料都支持“相关边界已知”，不支持“用户精确的 `R_origin`／`Done_strong` 合同已被解决”，更不构成 K。历史 ZCode/GLM 内容仅作被审对象，不能以其断言替代本行动的形式义务。
 
-在当前四分支总体计划中，ABX 是 P3 的实际消费者 `K_app` 支。P1 已以 `R_MIN_ACCEPTED_WITH_SCOPE` 固定共同任务；P2 已完成 HoTT Book §9.8 SIP 分母，并得到结构保持而非 `H/U → Done_s` 的有界负结论。当前下一步仅为 P3 的消费者分母选择：先以本地资产与公开来源侦察排除已经覆盖的 SIP/Book/ABX 线，再冻结一个版本和入口；在此之前 ABX 不启动新的外部 K 扫描。完整排序见[HoTT 后续研究总体方案](HoTT后续研究总体方案.md)。
+在当前四分支总体计划中，ABX 是 P3 的实际消费者 `K_app` 支。P1 固定了共同任务，P2 排除了 Book §9.8 的规则桥，P3 已审计版本固定 UniMath `functor_algebras` 实际 SIP 调用：它显式携带结构保持并只导出 univalence 性质，未把 H/U 当原圆环 `Done_s`。本次 first pass 因此默认停止，P4 也没有触发；只有新的版本固定消费者、更强 `R_min`、证据失效或实现语义差异才重开。完整条件见[HoTT 后续研究总体方案](HoTT后续研究总体方案.md)。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
