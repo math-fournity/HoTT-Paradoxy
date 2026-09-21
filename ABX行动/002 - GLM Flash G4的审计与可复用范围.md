@@ -43,3 +43,9 @@ GLM 做对了三件重要的准备工作：
 ## 4. 与已有 Astra 控制的关系
 
 `NativeSourceContract.agda` 是 ABX 的必要反向控制：它实际使用同胚等价/运输，却让 `Satisfies` 依赖完整 `Denotes`，并证明裸 `nRich` 不满足。`NativeTaskIntegration.agda` 也把同一对象对置于不同操作合同中。ABX 必须把这些结果当作“理论可以保住 R”的正例，而不是绕开它们去制造失配。
+
+## 5. 已知技术取舍不能替代 ABX 的 K
+
+GLM 的会话把 Book §11.2 的 universe/Ω 讨论、`SingleOmega` 的项目内 B1a 充分性和 cubical canonicity 叙述成“共同体知情地使用非现实元素并分层处理”。这个表述需要收窄。Book 确实公开讨论 universe bookkeeping、resizing、mere-proposition LEM 和 initial σ-frame 等选择，但没有将它们命名为非现实性危机；`SingleOmega` 是项目形式化名，B1a 只证明给定它的充分性，反向必要性仍是 conjecture。
+
+同样，Book 拒绝的 `LEM∞` 是对所有类型的朴素排中；它同时区分可一致加入的 hProp-LEM。Huber 的 cubical 论文证明特定 cubical calculus 的 canonicity，而不是证明该 calculus 的 univalence 已破坏 canonicity。故这些来源不能替代 ABX 的真实 K。详细审计见[已知技术取舍与非现实性解释审计](../audit/abx-action-20260921/ABX-已知技术取舍与非现实性解释审计.md)。
