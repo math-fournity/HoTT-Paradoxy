@@ -1,10 +1,12 @@
-# goal-1：用现实对齐找出 HoTT 的非现实前提，并验证它
+# 历史方案索引：PREMISE-001 / GEN-001
 
-> 本文件**只是索引和指向**，不是正文。执行时加载 SOP Skill
-> `.codex/skills/hott-paradox-search-sop/SKILL.md`，按其执行循环走每一步；
-> 每一步的反思与方案演化在 git log 中追踪。**冲突时以方案正文与 STATE 为准，本文件不是权威。**
+> 状态：`SUPERSEDED_AS_CURRENT_EXECUTION_QUEUE`。
+> 当前唯一 goal：[`goal.md`](goal.md)。
+> 本文件及其下方计划内容保留为历史方案和可能的第二阶段候选；不得据此自动启动 PREMISE-001、GEN-001、V2 片段、机器统观或其它新数学研究。
 
-## 方案正文
+只有用户明确开启第二阶段，或出现满足 `goal.md` 中“判词改变凭据”的新事实时，才可从这里定位并重新资格化一个具体候选。冲突时以 `goal.md`、当前 STATE 与当前用户指令为准。
+
+## 历史方案正文
 
 - 总索引：`Atria的方案/修订片.md`
 - 核心修订片：
@@ -25,11 +27,11 @@
     逐段落 / 航向复盘 / 偏航裁决），审计可改道队列
 - 方案演化账本：`git log --grep=plan-revise`
 
-## 执行 SOP
+## 历史执行 SOP
 
 `.codex/skills/hott-paradox-search-sop/SKILL.md`（七段执行循环 + 反思清单 + git 纪律）
 
-## 当前步骤（指针，权威是 STATE）
+## 历史当前步骤（指针，权威曾是 STATE）
 
 - STATE active 队首：`A-PREMISE-001`；revision 168；执行状态见 STATE 的 `execution_control`
 - 第 1 步（已完成 `187033c`）：冻结 `PREMISE_DENOMINATOR_V1`（A–G 共 35 条，remainder=0）
@@ -178,13 +180,13 @@
   delay-equivalent（族间独立性未证，登记为信封外 ingress 而非结论）
 - 权威来源：`.codex/research/hott/STATE.json` 的 `active` 与 `execution_control.next_minimal_verification`
 
-## 认识论锚点（不可漂移）
+## 历史认识论锚点（不可漂移）
 
 `核心认知.md` generation-7：KC-000044（理论是现实的骨架式模仿，假想中的现实也是现实）、
 KC-000045（数学与 HoTT 必然可映射现实；现实标准在对齐过程中被构造）、
 KC-000046（AI 缺的是用现实理解理论的动作，不是思考现实的能力）。
 
-## 边界
+## 历史边界
 
 - 不预设 HoTT 不一致，也不预设一致。
 - 非现实性判定（P3/P4）由 AI 执行并带强制审计层，外部 AI 追溯审计为终局复核；AI 不得把 pending-audit 候选判定自证为结论（修订片 009）。

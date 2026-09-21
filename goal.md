@@ -1,23 +1,49 @@
-# HoTT 非现实性悖论系统化机器统观 Goal
+# 四弹一体原方案 redo Goal
 
-> 状态：`ACTIVE`  
-> Goal schema：`hott-machine-overview-goal/v2`  
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE`
+> Goal schema：`four-stage-redo-goal/v1`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
 > Git 工作面：顶层 repo 的 `main`  
-> 截止日口径：2026-09-14  
-> 方法 owner：`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`  
 > 状态 owner：`.codex/research/hott/STATE.json`  
-> App Goal：`完成 goal.md 制定的内容，过程中持续更新需要更新的治理框架要求维护的文档，确保未来的你能够跨越多个压缩边界，始终保持认知连贯。注意你的工作措辞，不要引发安全警报！`  
-> 说明：本文件定义完整目标；文件存在、计划完成或局部证明均不证明 Goal 已完成。
+> App Goal：以本文件第 1 节为当前目标；下方旧机器统观内容是历史/第二阶段候选，不自动构成工作队列。
+> 说明：文件存在、计划完成或局部证明均不证明数学结论；第一阶段完成以第 3 节的范围验收为准。
 
-## 1. 最终目标与禁止误报
+## 1. 当前目标：原四弹 redo
+
+对“四弹一体”原方案进行忠实、可复核的 redo，并只按证据给出判词：整体成立、整体未成立、仅局部成立，或在精确义务上开放。若发现真实的 HoTT—现实任务失配见证，再以它为对象开展独立的新研究；不得预设“击落 HoTT”必然已经发生或必然能够由原四弹推出。
+
+本目标的第一阶段是“原四弹 redo”，第二阶段是“新候选研究”。二者严格分开：第一阶段的未成立、撤回或范围结论本身就是完成结果；第二阶段不能因为仍有未知问题、仍想取得更强结论、仍可做更多形式化或仍可改善材料，而自动延长第一阶段。
+
+### 硬元约束
+
+除非用户明确改写本目标，每次开始新的工作单元前，必须先给出“判词改变凭据”：它要改变的既有精确判词或六义务编号；新输入、反例、实际消费者、证明义务或证据失效；最小可验证行动及正、负结果如何改变判词；停止/回归条件；以及现有源码、运行、报告或控制为何不足。缺少任一项，不启动该单元，不新增报告、包、重放、分类、全库扫描或证明支线。
+
+仍有未知、可能存在更一般定理、某方向“还有数学价值”、再跑一次未变输入、增加消费者/审阅包/索引，或希望公开/发表/取得更强结论，均不足以继续 redo。它们最多是第二阶段候选。
+
+### 第一阶段完成判据与当前结果
+
+redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承诺、最强保任务恢复和证据范围均已逐项判定到相称强度；随后交付说明局部定理、整体结论和能改变结论的缺失事实的范围报告。
+
+本阶段已完成：第三十五轮逐层对账、九个既有证明包的资格核验、固定自然消费者源码合同及 revision 209 checkpoint 均可复核。当前判词为 `ORIGINAL_FOUR_STAGE_TARGET_NOT_ESTABLISHED / ASSUMPTIONS_AND_TASKS_RECONCILED_WITH_SCOPE`：原四弹整体“击落”结论未建立，精确局部结果保留。这不是 HoTT 全局无问题定理，也不是“已击落 HoTT”。
+
+### 第二阶段重开条件
+
+只有输入、源码、依赖或运行失效；发现会推翻当前判词的具体反例或实际理论承诺；现有证据无法回答一个固定六义务；或用户明确开启新研究/新交付时，才重开。新的“击落 HoTT”探索必须另立候选任务，固定同一 X、操作、信息、观察、Done、理论承诺、反解释与停止条件，且不得回溯性地把 redo 重标为未完成。
+
+每个自然单元结束时，若没有改变判词，也没有产生新的合格判词改变凭据，则保存必要证据、交付当前结论并停止该分支。最终回答必须区分机器证明、来源支持的解释、开放问题和阶段完成状态。
+
+## 2. 历史机器统观目标与第二阶段候选
+
+下列原 2026-09-14 机器统观目标、文献队列与完成门，保留为 Git 可回查的历史背景和潜在第二阶段材料。它们不再自动定义当前 `/goal`，也不能因自身开放而重新启动工作。
+
+## 2.1 历史最终目标与禁止误报
 
 在唯一当前工作根的 main 中持续、自主推进“HoTT 非现实性悖论的系统化机器统观”，直至取得至少一个严格合格的现实相对悖论见证，并闭合机器证明、HoTT 必要性、现实同任务对应、学术定位、统观覆盖证书和可复现证据。
 
 不得把下列结果误报为 Goal 完成：计划或治理框架完成；一次超时；固定循环；一般不可判定性；一般 Gödel 不完备性；外部 proof-search 发散；普通表示边界；synthetic implication；理论正确拒绝错误输入；HoTT 中可表达的普通计算问题；尚未找到反例的 bounded negative。
 
-## 2. Session 恢复与单工作面
+## 2.2 历史 Session 恢复与单工作面
 
 每次新 Session、压缩恢复或范围变化，先从 main 完整加载：
 
@@ -30,7 +56,7 @@
 
 外部 `/Volumes/D/HoTT-machine-overview` 只作只读候选来源。所有决定性计划、状态、源码、run、来源身份、失败、反证和 checkpoint 必须进入 main 的正确 owner。不得让未来 Session 依赖外部 worktree 中未导入的 current truth。
 
-## 3. 当前已验证基线：从这里继续，不重复开工
+## 2.3 历史已验证基线：从这里继续，不重复开工
 
 ### 3.1 文献
 
@@ -71,7 +97,7 @@
 - C-244–C-249：`uds-psl/coq-synthetic-incompleteness@cd7d849` 已从 repo-contained 807-file archive 在 Coq 8.15.2 fresh build并 exact replay；机器重放 universal classifier divergence、abstract essential incompleteness、`EPFμ → CTQ` 与 Robinson Q 条件独立句。universality、strong separation、Peirce、CTQ、Q containment、enumerability、consistency均显式；对象理论是一阶算术，不是 exact HoTT calculus。
 - R3→R4 十二义务矩阵：H-SYNTAX/H-SUBSTITUTION 仅 scoped present；H-NAT/H-ID-PATH/H-UNIVALENCE-HIT 在当前 groupoid syntax absent-by-definition；其余七项 open。R4 readiness=`NOT_READY`。
 
-## 4. 当前第一 successor
+## 2.4 历史第一 successor
 
 上一轮三条薄切、2LTT replacement 数学核、natural-consumer 消融、CE-MAP v1 与 R3 source replay 都已形成真实链。CE-MAP 已把 revision 149 的 478 个具名输入全部登记；C-244–C-249 已关闭一个 exact R3 基准，但没有把一般一阶不完备性偷换成 HoTT 结论。当前按判别力推进：
 
@@ -81,7 +107,7 @@
 
 `NATURAL-CONSUMER-002` 已找到真实调用链，但 crisp、degenerate+transport 和 pointwise-fibrant 限制能够完成来源中声明的真实任务；故固定为 `DEFENSE_WORKS_WITH_EXPLICIT_PAYMENT`，不是 Goal 终点。CE-MAP 已将该同型 no-go 归约为一个带 anti-preservation 的 pattern class。现在优先选择未被防线覆盖的 Gödel/R4 cell；不以已完成 R3 机器证明保护候选。
 
-## 5. 文献覆盖剩余义务
+## 2.5 历史文献覆盖剩余义务
 
 文献与代码交替推进。以 2026-09-14 为具名截止日，继续 current LIT owner 中尚未闭合的：
 
@@ -92,7 +118,7 @@
 
 每项记录版本／hash、精确 theorem 与 assumptions、阅读范围、TaskSpec 映射、反解释、遗漏和 replay 状态；完成 backward／forward citation chaining 与独立 holdout。只声明具名截止日与渠道分母内的覆盖，不把搜索未命中写成不存在。
 
-## 6. CE-MAP 与机器统观完备性
+## 2.6 历史 CE-MAP 与机器统观完备性
 
 `CE-MAP-001` v1 已完成具名 revision-149 分母登记，把 cases、evaluations、formal packages、claims、STATE records 和文献路由映射到八轴张量：
 
@@ -105,7 +131,7 @@
 - 类级外推：给保持 task、consumer、observation、completion 的 total typed reduction；
 - 始终保留 OP-14 反解释、coverage shadow、out-of-envelope 和 unknown ingress。
 
-## 7. 计算阶梯
+## 2.7 历史计算阶梯
 
 - R0：有限观察窗未完成，只作观察。
 - R1：固定程序发散；不算最终悖论。
@@ -114,7 +140,7 @@
 - R4／`G-HOTT-SYNTAX-001`：首个 Π/U/El/groupoid-coherence exact slice 已重放；继续补 syntax、judgment、conversion、proof checking/enumerability、Nat、dependent substitution、Path/univalence/HIT 与 inner/outer metatheory，取得 exact HoTT incompleteness 或精确边界。
 - R5：只有 trusted HoTT rules 推出 `⊥` 才能使用；其它结果不得称 HoTT 内部矛盾。
 
-## 8. 始终并列的方向 A、方向 B 与时间／时序
+## 2.8 历史方向 A、方向 B 与时间／时序
 
 方向 A：理论引入连续性、稠密性、无限细分、商化、同一化、时序坍缩或额外相干义务，使现实可完成任务在理论中无法完成。
 
@@ -122,7 +148,7 @@
 
 “时间”保留对时空、运动、连续／非连续及稠密性的结构问题；“时序”保留对先后、依赖、当前可用、构造和验证落定顺序的问题。Gödel、Kleene、Lawvere、Löb 必须服务方向 A/B，不能取代现实相对问题。
 
-## 9. “机器证明不能停机”的最终候选资格
+## 2.9 历史“机器证明不能停机”的候选资格
 
 只有下列链条贯通时，它才成为最终候选：
 
@@ -136,13 +162,13 @@
 
 若只得到一般计算边界或 HoTT 中可表达的普通停机问题，登记为 R0–R3 或 `GENERIC_MECHANISM_WITH_HOTT_INSTANCE` 并继续。
 
-## 10. 每个 bounded unit 的完成要求
+## 2.10 历史 bounded unit 的完成要求
 
 每个有界工作单元必须保存真实 `input → candidate → oracle → evidence` 链，记录失败、反例、换题风险、未触达轴和下一 successor。遇到防线就更新候选并换构造／consumer，不重复堆叠小循环。
 
 数学结论必须在 main 的 `HoTT/formal/`、`HoTT/verification/runs/`、`HoTT/CLAIM_EVIDENCE_MATRIX.md` 完成 F-011，并通过 STATE、projection、MEMORY、session、36-KC audit 和 canonical checkpoint 保存连续性。
 
-## 11. 唯一 Goal 完成门
+## 2.11 历史机器统观 Goal 的完成门
 
 只有同时满足以下条件，才标记 Goal `complete`：
 
