@@ -1,0 +1,54 @@
+{
+  "schema_version": "p7-origin-directed-diagram-spec-verification/v1",
+  "task_id": "P7-ORIGIN-DIRECTED-DIAGRAM-SPEC-001",
+  "status": "PASS_WITH_SCOPE",
+  "verdict": "K_HARNESS_ACCEPTED_WITH_SCOPE / P8_DIRECTED_TYPE_THEORY_IMPLEMENTATION_DISCOVERY_NEXT / NO_NEW_MATHEMATICAL_CLAIM",
+  "scope": "Checks that the P7 report fixes the static, process, observation, forgetting and K-admission fields and maps them to existing local interfaces. It does not prove a formal OriginDirectedDiagram construction, actual K, non-representability theorem, or HoTT defect.",
+  "checked_sources": {
+    "report": {
+      "path": "audit/p7-origin-directed-diagram-spec-20260921/P7-ORIGIN-DIRECTED-DIAGRAM-SPEC-REPORT.md",
+      "sha256": "e1bc6b9a045c97c944697c767aeb8da761108bc2a54957119e9c9ed42c06e6a3"
+    },
+    "p6": {
+      "path": "audit/p6-origin-structure-stratified-20260921/P6-ORIGIN-STRUCTURE-STRATIFIED-COMPARISON-REPORT.md",
+      "sha256": "5ee9a6747d9bfd4405bc76b3c8fec4249d524aadf86edb0575252f2ca6a68c7e"
+    },
+    "origin": {
+      "path": "ABX行动/003 - 原圆环对象、判据与正反控制.md",
+      "sha256": "30a39f3a21ee4c86439079753c609e3e1a57ff4c0d52e4c0c987071b974f196b"
+    },
+    "curve": {
+      "path": "HoTT/formal/astra-real-geometry/StructuredCurve.lean",
+      "sha256": "d46605371967a90fdfa0d0cb0a76d0fc49a33d3c5dac3a135210db99abc88d45"
+    },
+    "diagram": {
+      "path": "HoTT/formal/astra-breakpoint-check/GeometricBoundaryObservation.agda",
+      "sha256": "1f4b449ec2c9334c954dc16dc3866980b9687ab6322bc303b1776dad4b534cfc"
+    },
+    "source_contract": {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda",
+      "sha256": "2c713073bb05c29980d76be51b054ff2fa1422b650bbeab5d2b8f0e4f8c6e151"
+    },
+    "task_integration": {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda",
+      "sha256": "2a7b1c704b9a19cf781f14a71689559953150efad01f1089356817d65c1827a1"
+    },
+    "plan": {
+      "path": "HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md",
+      "sha256": "db170f1ba35007132cfb0d49295c47d913c9facbfda6fa97156caa1ce707761d"
+    },
+    "next": {
+      "path": "HoTT后续研究总体方案/005 - 当前第一步与交接.md",
+      "sha256": "81f8b19a283f7695970c723dbe5619fe808be112aa8768ac1b9ab74acfaaeb49"
+    }
+  },
+  "missing_sources": [],
+  "missing_required_report_tokens": [],
+  "academic_search_decision": "NOT_RERUN_WITH_REASON: P7 makes no new external factual comparison beyond the P6 sources; repeating the same search would not change its K-admission contract.",
+  "not_claimed": [
+    "a new theorem",
+    "a complete proof-assistant formalization",
+    "an actual K consumer",
+    "a HoTT defect"
+  ]
+}
