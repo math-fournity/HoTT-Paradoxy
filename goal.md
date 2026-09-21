@@ -1,13 +1,13 @@
-# 四弹一体原方案 redo Goal
+# HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / PHASE_2_ABX_INITIAL_BOUNDARY_ESTABLISHED_WITH_SCOPE`
-> Goal schema：`four-stage-redo-goal/v1`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / PHASE_2_FOUR_TRACK_PLAN_ADOPTED / NEXT_P1_RMIN_SPEC`
+> Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
 > Git 工作面：顶层 repo 的 `main`  
 > 状态 owner：`.codex/research/hott/STATE.json`  
-> App Goal：第一阶段见第 1 节；用户已明确开启的第二阶段 ABX 见第 2.1 节。其余旧机器统观内容仍是历史/候选，不自动构成工作队列。
-> 说明：文件存在、计划完成或局部证明均不证明数学结论；2026-09-21 的原 X/数学现实同一性澄清已按第 1.1 节完成有界核对。ABX 是用户明确启动的独立第二阶段候选，不追溯性改变第一阶段判词。
+> App Goal：第一阶段见第 1 节；第二阶段按第 2 节的四分支总体计划推进，ABX 是其中实际消费者分支。其余旧机器统观内容仍是历史/候选，不自动构成工作队列。
+> 说明：文件存在、计划完成或局部证明均不证明数学结论；2026-09-21 的原 X/数学现实同一性澄清已按第 1.1 节完成有界核对。四分支计划不追溯性改变第一阶段判词。
 
 ## 1. 当前目标：原四弹 redo
 
@@ -53,27 +53,25 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 每个自然单元结束时，若没有改变判词，也没有产生新的合格判词改变凭据，则保存必要证据、交付当前结论并停止该分支。最终回答必须区分机器证明、来源支持的解释、开放问题和阶段完成状态。
 
-## 2. 当前第二阶段：ABX 行动
+## 2. 当前第二阶段：四分支研究组合
 
-用户于 2026-09-21 明确要求重做原圆环 A/B/X 的第三弹，并将行动代号定为 `ABX`。这满足第二阶段的明确启动条件。ABX 的 current owner 是 [ABX行动.md](ABX行动.md)：它区分通常同胚 `H_top`、来源—复原关系 `R_origin`、实际理论使用事实 `K` 与明确 forgetful map `U`；GLM Flash/G4 仅作为历史控制和被审对象。
+用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-ABX 的初始三段已经完成：冻结用户来源和 Flash/G4 的范围；以实际 `RealCircle/east`、弱/强删点、开区间、`RichCurve` 代理、`U` 和双 Done 固定任务合同；随后完成三个有界来源分母（pinned 度量同胚消费者、29 个本地直接消费者、Book 核心规则）。三个分母都没有给出 `H_top/U → Done_strong` 的实际 K，Book 还明确把其空间语言限定为纯同伦理解而非点集拓扑。这个结果建立了 ABX 的初始表示/任务边界，不宣布 `R_origin` 已完整形式化、来源恢复不可能、HoTT 无风险或 HoTT 有缺陷。
+当前只完成 P0 计划。下一最小单元是 `P1-RMIN-SPEC-001`：检验现有 `RichCurve` 是否足够表达独立、最小的来源—操作—复原强任务；它不重做 C-250–C-324、Flash、D1/D2/D3、Book 核心、既有同胚或曲线变形。P1 结束后才决定 P2 是否有固定问题；P2 一个新理论分母结束后，P3 才能以 ABX 进行外部消费者审计；P4 必须有理论语义与实现差异的实际触发。
 
-ABX 只有在同一实例的 `H_top → R_origin → U → K → Observation/Done` 链闭合后，才可申请新的原生失配证明任务。下一步必须由一个新的、版本冻结的外部接口/论文/库调用链，或用户认可的更强 `R_origin` 合同触发；不得重跑已关闭分母或把无命中外推为全局结论。
+四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 
-Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把选择称为非现实性危机，也不证明每个实际使用者未披露前提。项目内 `SingleOmega → ℝLayerAt` 的 B1a 只是条件充分性，反向必要性仍未证。ABX 不应以重复这些已知内容为目标；除非出现具体 K 或更强的独立 `R_origin` 合同，否则进一步工作没有新的判词改变凭据。
-
-## 2.1 历史机器统观目标与其余第二阶段候选
+## 3. 历史机器统观目标与其余第二阶段候选
 
 下列原 2026-09-14 机器统观目标、文献队列与完成门，保留为 Git 可回查的历史背景和潜在第二阶段材料。除 ABX 外，它们不自动定义当前 `/goal`，也不能因自身开放而重新启动工作。
 
-## 2.1 历史最终目标与禁止误报
+### 3.1 历史最终目标与禁止误报
 
 在唯一当前工作根的 main 中持续、自主推进“HoTT 非现实性悖论的系统化机器统观”，直至取得至少一个严格合格的现实相对悖论见证，并闭合机器证明、HoTT 必要性、现实同任务对应、学术定位、统观覆盖证书和可复现证据。
 
 不得把下列结果误报为 Goal 完成：计划或治理框架完成；一次超时；固定循环；一般不可判定性；一般 Gödel 不完备性；外部 proof-search 发散；普通表示边界；synthetic implication；理论正确拒绝错误输入；HoTT 中可表达的普通计算问题；尚未找到反例的 bounded negative。
 
-## 2.2 历史 Session 恢复与单工作面
+### 3.2 历史 Session 恢复与单工作面
 
 每次新 Session、压缩恢复或范围变化，先从 main 完整加载：
 
@@ -86,7 +84,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 
 外部 `/Volumes/D/HoTT-machine-overview` 只作只读候选来源。所有决定性计划、状态、源码、run、来源身份、失败、反证和 checkpoint 必须进入 main 的正确 owner。不得让未来 Session 依赖外部 worktree 中未导入的 current truth。
 
-## 2.3 历史已验证基线：从这里继续，不重复开工
+### 3.3 历史已验证基线：从这里继续，不重复开工
 
 ### 3.1 文献
 
@@ -127,7 +125,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 - C-244–C-249：`uds-psl/coq-synthetic-incompleteness@cd7d849` 已从 repo-contained 807-file archive 在 Coq 8.15.2 fresh build并 exact replay；机器重放 universal classifier divergence、abstract essential incompleteness、`EPFμ → CTQ` 与 Robinson Q 条件独立句。universality、strong separation、Peirce、CTQ、Q containment、enumerability、consistency均显式；对象理论是一阶算术，不是 exact HoTT calculus。
 - R3→R4 十二义务矩阵：H-SYNTAX/H-SUBSTITUTION 仅 scoped present；H-NAT/H-ID-PATH/H-UNIVALENCE-HIT 在当前 groupoid syntax absent-by-definition；其余七项 open。R4 readiness=`NOT_READY`。
 
-## 2.4 历史第一 successor
+### 3.4 历史第一 successor
 
 上一轮三条薄切、2LTT replacement 数学核、natural-consumer 消融、CE-MAP v1 与 R3 source replay 都已形成真实链。CE-MAP 已把 revision 149 的 478 个具名输入全部登记；C-244–C-249 已关闭一个 exact R3 基准，但没有把一般一阶不完备性偷换成 HoTT 结论。当前按判别力推进：
 
@@ -137,7 +135,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 
 `NATURAL-CONSUMER-002` 已找到真实调用链，但 crisp、degenerate+transport 和 pointwise-fibrant 限制能够完成来源中声明的真实任务；故固定为 `DEFENSE_WORKS_WITH_EXPLICIT_PAYMENT`，不是 Goal 终点。CE-MAP 已将该同型 no-go 归约为一个带 anti-preservation 的 pattern class。现在优先选择未被防线覆盖的 Gödel/R4 cell；不以已完成 R3 机器证明保护候选。
 
-## 2.5 历史文献覆盖剩余义务
+### 3.5 历史文献覆盖剩余义务
 
 文献与代码交替推进。以 2026-09-14 为具名截止日，继续 current LIT owner 中尚未闭合的：
 
@@ -148,7 +146,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 
 每项记录版本／hash、精确 theorem 与 assumptions、阅读范围、TaskSpec 映射、反解释、遗漏和 replay 状态；完成 backward／forward citation chaining 与独立 holdout。只声明具名截止日与渠道分母内的覆盖，不把搜索未命中写成不存在。
 
-## 2.6 历史 CE-MAP 与机器统观完备性
+### 3.6 历史 CE-MAP 与机器统观完备性
 
 `CE-MAP-001` v1 已完成具名 revision-149 分母登记，把 cases、evaluations、formal packages、claims、STATE records 和文献路由映射到八轴张量：
 
@@ -161,7 +159,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 - 类级外推：给保持 task、consumer、observation、completion 的 total typed reduction；
 - 始终保留 OP-14 反解释、coverage shadow、out-of-envelope 和 unknown ingress。
 
-## 2.7 历史计算阶梯
+### 3.7 历史计算阶梯
 
 - R0：有限观察窗未完成，只作观察。
 - R1：固定程序发散；不算最终悖论。
@@ -170,7 +168,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 - R4／`G-HOTT-SYNTAX-001`：首个 Π/U/El/groupoid-coherence exact slice 已重放；继续补 syntax、judgment、conversion、proof checking/enumerability、Nat、dependent substitution、Path/univalence/HIT 与 inner/outer metatheory，取得 exact HoTT incompleteness 或精确边界。
 - R5：只有 trusted HoTT rules 推出 `⊥` 才能使用；其它结果不得称 HoTT 内部矛盾。
 
-## 2.8 历史方向 A、方向 B 与时间／时序
+### 3.8 历史方向 A、方向 B 与时间／时序
 
 方向 A：理论引入连续性、稠密性、无限细分、商化、同一化、时序坍缩或额外相干义务，使现实可完成任务在理论中无法完成。
 
@@ -178,7 +176,7 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 
 “时间”保留对时空、运动、连续／非连续及稠密性的结构问题；“时序”保留对先后、依赖、当前可用、构造和验证落定顺序的问题。Gödel、Kleene、Lawvere、Löb 必须服务方向 A/B，不能取代现实相对问题。
 
-## 2.9 历史“机器证明不能停机”的候选资格
+### 3.9 历史“机器证明不能停机”的候选资格
 
 只有下列链条贯通时，它才成为最终候选：
 
@@ -192,13 +190,13 @@ Book §11.2 的已知 universe/Ω 技术取舍不构成这条链：它既不把�
 
 若只得到一般计算边界或 HoTT 中可表达的普通停机问题，登记为 R0–R3 或 `GENERIC_MECHANISM_WITH_HOTT_INSTANCE` 并继续。
 
-## 2.10 历史 bounded unit 的完成要求
+### 3.10 历史 bounded unit 的完成要求
 
 每个有界工作单元必须保存真实 `input → candidate → oracle → evidence` 链，记录失败、反例、换题风险、未触达轴和下一 successor。遇到防线就更新候选并换构造／consumer，不重复堆叠小循环。
 
 数学结论必须在 main 的 `HoTT/formal/`、`HoTT/verification/runs/`、`HoTT/CLAIM_EVIDENCE_MATRIX.md` 完成 F-011，并通过 STATE、projection、MEMORY、session、36-KC audit 和 canonical checkpoint 保存连续性。
 
-## 2.11 历史机器统观 Goal 的完成门
+### 3.11 历史机器统观 Goal 的完成门
 
 只有同时满足以下条件，才标记 Goal `complete`：
 
