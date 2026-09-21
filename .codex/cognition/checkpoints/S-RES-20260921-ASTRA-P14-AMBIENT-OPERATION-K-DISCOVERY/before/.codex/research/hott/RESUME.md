@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P14后继续：P14选择了Prieto-Cubides CPP2022作者发布Agda formalisation，P15=PRIETO_CUBIDES_SPHERICAL_MAPS_AGDA_CORPUS。只读CPP2022-paper、Map、Map.Face.Walk.Homotopy、Map.Spherical、Map.Spherical-is-enough与论文背景，按P7 K-input/K-output/K-claim/K-forgetting/K-version比较显式Map/Face/Walk和P13 bare H_intrinsic/Done。不得编译、克隆、下载未知源码或扩大到全站。入口：`audit/p14-ambient-operation-k-successor-discovery-20260921/P14-AMBIENT-OPERATION-K-SUCCESSOR-DISCOVERY-REPORT.md`；revision234 checkpoint。
+当前 active goal 在P13后继续：P13接受operation-sensitive R_ambient；同一M/N在有限Plane homeomorphism列表下不能复原，在逐时curve embedding下可以变形。P14=AMBIENT_OPERATION_K_SUCCESSOR_DISCOVERY：先做公开/本地侦察，选版本固定HoTT/立方/相关实际调用链，用P7五项查bare H_intrinsic是否被当成Done_ambient^fin或Done_curve；不重跑C-265–C-277。入口：`audit/p13-ambient-pair-rmin-requalification-20260921/P13-AMBIENT-PAIR-RMIN-REQUALIFICATION-REPORT.md`；revision233 checkpoint。
 
 ## 历史停止点
 
