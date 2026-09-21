@@ -652,7 +652,11 @@ proof_run_root: HoTT/verification/runs
 | C-248 | `Q_incomplete`：在显式 Peirce 与 CTQ 下，每个包含 `Qeq`、可枚举且一致的同语言理论 `T` 都有 closed `Σ₁` 句 `φ`，使 `T` 既不证明 `φ` 也不证明 `¬φ`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / CONDITIONAL_ROBINSON_Q_INDEPENDENT_SENTENCE` | 作者 `fol_incompleteness.v`；资格化输出中的完整 theorem type；同一 run。 | 没有证明 exact HoTT calculus 包含 Q、可枚举、一致或满足 CTQ；没有现实同任务结论。 |
 | C-249 | fresh archive build 的 stdout/stderr、1,284 个 `.vo/.vos/.vok/.glob` stable artifacts 与 target `.vo` 均匹配此前两次独立 clean build；qualification 连续两次 byte-exact，后三个定理各输出一次 `Closed under the global context`。 | `MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / EXACT_BUILD_AND_ASSUMPTION_REPLAY` | run stdout/stderr/environment/source manifest；target SHA `e770c7bf…33e4`；stable manifest `6c2bd66c…b958`；qualification SHA `505b84bb…41d`。 | “global context closed”不消除 theorem type中的 universality、separation、Peirce、CTQ、Q containment、enumerability 与 consistency 参数；不证明 HoTT essentiality、内部矛盾、原创性或现实桥梁。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-M1（Dedekind-Ω 第一枚·过程层，2026-09-17）
+## 历史候选解释区：Dedekind-Ω 四层登记
+
+> **HISTORICAL_EVIDENCE / FROZEN_TABLE_ROWS**。下方至“Astra 审计修复三收据”之前的段落和 CAND 行保存 2026-09-17—19 的历史候选解释；其中“非现实性已机械锚定”“升格才收费”“逼选已闭环”等不能作为当前结论。所有既有表格行逐字保留用于原收据身份核对，原位调整的是解释层生命周期，不修改原 run 或冻结行哈希。数学效力只按精确形式类型与当前限定判断：M1/M2/M3 的局部定理、REAL-LAYER-04 的条件充分性仍可使用，但不继承旧的理论/现实归因。当前算术与层级范围见 C297–303，实际几何与固定 Weak 原则见 C311–319，同对对象的操作分离见 C320；完整原文—代码—原典裁决由[第三十一轮执行报告](../Astra继续尝试/断点与证明机制系统检查/第三十一轮执行报告.md)拥有。此区不是当前公开判词模板。
+
+### 历史登记：MP-DEDEKIND-OMEGA-M1（Dedekind-Ω 第一枚·过程层，2026-09-17）
 
 来源：用户 2026-09-17「必须击落 / 执行而非测试」指令（修订片 024）；供给为
 `.codex/research/hott/PREMISE-001/008`（SUPPLY-010，F2-7 Dedekind-Ω 簇，唯一命中
@@ -671,7 +675,7 @@ proof_run_root: HoTT/verification/runs
 `PROCESS_DECLARATION_GAP` 的非现实性**数学锚定**，不是在 HoTT 内导出矛盾。
 任何把本行读成「HoTT 被证明矛盾」的解读都是误读。
 
-## 追加登记：MP-DEDEKIND-OMEGA-M2（Dedekind-Ω 第二枚·声明层，2026-09-17）
+### 历史登记：MP-DEDEKIND-OMEGA-M2（Dedekind-Ω 第二枚·声明层，2026-09-17）
 
 来源：修订片 024 §4（第二枚规格）+ 修订片 025 §5（三枚齐射、M2→M3 链式不可倒置）。
 本登记是**执行产物**；`registers_new_claim` 语义 = 候选的非现实性被机械锚定，
@@ -689,7 +693,7 @@ proof_run_root: HoTT/verification/runs
 （识别层 M3-L1）消费本行，序列不可倒置。「击落」的可执行读法不变：非现实性的
 数学锚定，不是 HoTT 内部矛盾。
 
-## 追加登记：MP-DEDEKIND-OMEGA-M3（Dedekind-Ω 第三枚·识别层，2026-09-17）
+### 历史登记：MP-DEDEKIND-OMEGA-M3（Dedekind-Ω 第三枚·识别层，2026-09-17）
 
 来源：修订片 025 §3/§5（Spec_A/Spec_B 双规格、M3-L1 引理候选、逼选结构、
 M2→M3 链式）；供给侧为 GLM 独立分析（025 片 §7 对撞评估采纳）。
@@ -709,7 +713,7 @@ M2→M3 链式）；供给侧为 GLM 独立分析（025 片 §7 对撞评估采�
 「击落」的可执行读法不变：`PROCESS_DECLARATION_GAP` 非现实性的数学锚定
 （现含第三条「识别腿」），不是 HoTT 内部矛盾。
 
-## 追加登记：MP-DEDEKIND-OMEGA-TA（第四弹·靶 A 路径 (i)——canonicity 反例的元层检查演示，2026-09-17）
+### 历史登记：MP-DEDEKIND-OMEGA-TA（第四弹·靶 A 路径 (i)——canonicity 反例的元层检查演示，2026-09-17）
 
 来源：修订片 027 §3.1 靶 A + §3.2 打法原则 + §4（拒证二元性）+
 `CanonicityCounterexample-DESIGN.md`（路径 (i) 设计）。`registers_new_claim:
@@ -724,7 +728,7 @@ MACHINE_PROVED 定理**（027 §4 边界）。
 |---|---|---|---|---|
 | CAND-F2-7-TA | UA-作公理（postulate，无计算规则）注入下，存在闭 ℕ 项 `n = if b' then 0 else 1`（`b' = subst (λX→X) (ua not not not-not not-not) true`），其范式为中性卡住形态——内核对 `n ≡ zero` 与 `n ≡ suc zero` 的 refl 均判不可互换（TA-03/04 错误消息含 n 的完整卡住范式），对照探针同法通过（TA-02）。即：UA-作公理时 canonicity 被收费——「显式化并丧失完成义务」支的 UA 实例演示。 | `META_TOOL_CHECKED / CANONICITY_BREAKAGE_DEMONSTRATED` | runs `20260917-MP-DEDEKIND-OMEGA-TA-01`（主模块 exit 0）/`20260917-MP-DEDEKIND-OMEGA-TA-02`（对照 exit 0）/`20260917-MP-DEDEKIND-OMEGA-TA-03`/`20260917-MP-DEDEKIND-OMEGA-TA-04`（探针 exit 1，错误消息存档 stdout.txt）；构造草图 = 027 §3.1 靶 A + DESIGN 文档。 | **不**声称 HoTT 不一致（非规范 ≠ 矛盾，027 §8）；**不**声称本演示为对象层定理（元层工具检查记录，027 §4）；**不**声称覆盖全部 canonicity 破坏形态（Huber 完整结果仍为 `SOURCE_REPORTED_NOT_REPLAYED`）；刻意无 `--safe` 的 postulate 注入是演示内容本身，非工程疏忽。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-M3-UNC（第四弹首靶·M3 去条件化 + 027 §5 核实，2026-09-17）
+### 历史登记：MP-DEDEKIND-OMEGA-M3-UNC（第四弹首靶·M3 去条件化 + 027 §5 核实，2026-09-17）
 
 来源：修订片 027 §5（待核发现与债务定位）+ §2（身份陈述与主定理模式）。本包为
 第三弹识别层收据的去条件化加强，同时为第四弹靶 B（对齐矩阵）登记 ℚ 层免费格。
@@ -738,7 +742,7 @@ MACHINE_PROVED 定理**（027 §4 边界）。
 |---|---|---|---|---|
 | CAND-F2-7-M3-UNC | 在纯 Cubical Agda（无 LEM、无 resizing、无任何追加假设）中：(1) `specA-inhabited-unc : Spec_A` 无条件居住——判定表 `f : ℚ → Bool`（`f q ≡ true ↔ q·ℚq < 2r`）由 ℚ 序可构造判定 `_≟_ : (m n : ℚ) → Trichotomy m n` 直接定义，不需要 LEM（027 §5 待核发现**核实为真**）；(2) `M3-L1-unc : ¬ (Spec_A ≃ Spec_B)` 识别拒绝去条件化。债务定位：判定表在 ℚ 层免费，理想元素本体（判定表升格为实数层对象、完整 cut）才收费——完成义务在承载层跨界处收费。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPEC_A_UNCONDITIONAL_AND_IDENTIFICATION_REFUTED` | run `20260917-MP-DEDEKIND-OMEGA-M3-UNC-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，55.6s）与收据文件；`_≟_`/`isIrrefl<`/`isAsym<` 来自 `Cubical.Data.Rationals.Order`。 | **不**声称 HoTT 不一致；**不**推翻 M3 条件版收据（条件版仍真，本版为去条件化加强）；**不**声称完整 cut / 实数对象已无条件构造（「升格处收费」为语义读法与靶位指引）；不可证性证书属元理论（027 §4 拒证二元性），本包是对象层拒绝收据。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-BP（Dedekind-Ω 簇·廉价副产品，2026-09-17）
+### 历史登记：MP-DEDEKIND-OMEGA-BP（Dedekind-Ω 簇·廉价副产品，2026-09-17）
 
 来源：修订片 025 §5 保留项（「序列层存在命题可判定、搜索过程不可停机」须
 分开登记；非第三枚，不得冒充识别层）。
@@ -751,7 +755,7 @@ MACHINE_PROVED 定理**（027 §4 边界）。
 |---|---|---|---|---|
 | CAND-F2-7-BP | `decGapAt : (n : ℕ) → (D n ≡ pos 0) ⊎ ¬ (D n ≡ pos 0)`——序列层存在命题的逐点判定是已完成对象（判定为「否」）；`noGapWitness : ¬ (Σ n : ℕ, D n ≡ pos 0)`——Σ 居住性否定，与第二枚 `spec-B-empty` 同形、证据路径独立（Pell 不变量 vs 下降法）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / DECIDABLE_OBJ_VS_UNHALTING_SEARCH` | run `20260917-MP-DEDEKIND-OMEGA-BP-01/` 的 `RUN.json`（exit 0，60.6s）与收据文件。 | 本登记机械确认「判定已完成 ≠ 搜索不终止」的区分（025 片 §5 更正的根据）；**不**声称它是 A=B 对撞或第三枚；**不**声称 HoTT 不一致。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·第一装配期，2026-09-17；**已被 -02 四条件完整版取代**）
+### 历史登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·第一装配期，2026-09-17；**已被 -02 四条件完整版取代**）
 
 > 2026-09-18 注：本节 proof 行已**降格为历史行**（`MP-DEDEKIND-OMEGA-GOLD` 的唯一
 > 身份行是下方「四条件完整版」节的 -02 行——`verify_formal_proof_run.py` 要求每个
@@ -773,7 +777,7 @@ inhabited×2 / disjoint / rounded→→ / located；roundedL← 与 roundedU← 
 |---|---|---|---|---|
 | CAND-F2-7-GOLD | 在纯 Cubical Agda 中：(1) `·-mono-≤-nn : (k a b : ℚ) → 0r ≤ k → a ≤ b → k·ℚa ≤ k·ℚb` 与 `·-mono-<-nn : 0r < k → a < b → k·ℚa < k·ℚb`（0022 §二.1 定案的 elimProp3+代表元 ℤ 链+`≤-·o` 路线；lib 无 ℚ 乘法单调性引理的缺口已补）；(2) 勘误版谓词 `L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r))`、`U q := (0r<q)×(2r<q·ℚq)` 均为 hProp 值（`Lₚ`/`Uₚ`），且 Book §11.2 四条件中的 inhabitedL/inhabitedU/disjoint（`L q → U r → q < r`）/roundedL→/roundedU→/located（`q<r → L q ⊎ U r`）全部机器检查通过——located 的 `q²≡2r` 支消费 `√2-irrational`。 | `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED / GOLD_FORM_PARTIAL_ASSEMBLY`（commit `615fbd2`） | run `20260917-MP-DEDEKIND-OMEGA-GOLD-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0）与收据文件；`source-manifest.json` 固定 CutGoldForm/CutInfra/M2 哈希。 | **未装配部分不得冒充已证**：`roundedL←`（`L q → ∃ p, q<p × L p`）与 `roundedU←`（`U r → ∃ q, q<r × U q`）未装配——已登记工程障碍：**依赖代表元的见证（如 (4ab+1)/(4b²)、Pell 中项 (3a+4b)/(2a+3b)）在商上不良定义**，须走内在 ℚ 项路线（δ := (2−q²)·¼ 类；U 侧须 `inv`（代表交换 (a,b)↦(b,a) 可经 rec 良定义）），并先补 ℚ 加法/减法与 ℚ 级乘法消去基础设施；**不**声称 Book §11.2 四条件全部完成；**不**声称 HoTT 不一致；**不**声称 LEM 收费位置（ℝ 层塌缩处）已被机械化（按 DESIGN §4 仅登记）；本包构造是 ℚ 层标准计算，不依赖 univalence / cubical path / HIT 特有规则。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·四条件完整版，2026-09-18）
+### 历史登记：MP-DEDEKIND-OMEGA-GOLD（金形态 cut·四条件完整版，2026-09-18）
 
 接续第一装配期（`615fbd2`，rounded→ 双向 + located）与 δ 路线基础设施（`4bc020d`，
 `roundedL←` 完整过核）。本节登记 **Book §11.2 四条件首次全部机器接受**：在
@@ -786,7 +790,7 @@ inhabited×2 / disjoint / rounded→→ / located；roundedL← 与 roundedU← 
 | claim | 命题（机器检查形态） | 证据等级 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CAND-F2-7-GOLD-FULL | 在纯 Cubical Agda 中：(1) `·-mono-≤-nn : (k a b : ℚ) → 0r ≤ k → a ≤ b → k·ℚa ≤ k·ℚb` 与 `·-mono-<-nn : 0r < k → a < b → k·ℚa < k·ℚb`；(2) 勘误版谓词 `L q := (q<0r) ⊎ ((0r≤q)×(q··ℚq<2r))`、`U q := (0r<q)×(2r<q··ℚq)` 均为 hProp 值（`Lₚ`/`Uₚ`）；(3) Book §11.2 四条件 **全部** 机器检查通过——inhabitedL、inhabitedU、disjoint（`L q → U r → q < r`）、rounded 双向（`roundedL→`/`roundedU→` 与 **`roundedL←`/`roundedU←`**：`L q → ∃ p, q<p × L p`、`U r → ∃ q, q<r × U q`，δ 内在路线，U 侧 `q := r - (r·r-2r)·¼r`）、located（`q<r → L q ⊎ U r`，eq 支消费 `√2-irrational`）。 | `MACHINE_PROVED_LOCAL_COMMITTED_NOT_PUSHED`（commit `f2fd012`） | run `20260918-MP-DEDEKIND-OMEGA-GOLD-02/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0，duration 73.2s）与收据五件套；`source-manifest.json` 固定 CutGoldForm/CutInfra/DESIGN/compile.sh 哈希；GOLD-01 保留为部分装配期历史收据。 | **边界**：(a) 这是 **ℚ 层单个 cut（√2）** 的四条件构造，**不**声称 Book §11.2 意义下「实数完备性」「ℝ 不可达」或任何 ℝ 层命题——把 cut 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的下一升格仍需 LEM 或 propositional resizing（DESIGN §4 登记的收费位置，未机械化）；(b) **不**声称 HoTT/立方类型论内部矛盾或不一致；(c) `rounded←` 的 witness 是 ℚ 层显式 δ 项，**不**依赖代表元选择；(d) registers_new_claim:false——ℚ 层标准可构造计算，非 HoTT 元定理，不依赖 univalence / HIT 特有规则。 |
-## 追加登记：MP-DEDEKIND-OMEGA-TA-AC（靶 A·AC 格 stuckness 演示，2026-09-17 收据 / 2026-09-18 补登记）
+### 历史登记：MP-DEDEKIND-OMEGA-TA-AC（靶 A·AC 格 stuckness 演示，2026-09-17 收据 / 2026-09-18 补登记）
 
 来源：修订片 027 §2.2（显式化 surface）+ §3.2 打法原则 +
 `MissileFourChargeDemo.agda`（收费演示二：AC 格）+ `ALIGNMENT-MATRIX-F2.md` 的
@@ -803,7 +807,7 @@ F2-4 格。源码、双探针与收据五件套随 commit `9be3cbe` 入库；**�
 |---|---|---|---|---|
 | CAND-F2-7-TA-AC | AC 格（公理化选择函数 `ch : (n : ℕ) → Σ[ k ∈ ℕ ] P n k` 以 postulate 注入，无计算规则）下，闭 ℕ 项 `n-ac = ch 0 .fst` 的范式为中性卡住形态——内核对 `n-ac ≡ zero`（TA-AC-01）与 `n-ac ≡ suc zero`（TA-AC-02）的 refl 均判不可互换，错误消息分别含 `MissileFourChargeDemo.ch 0 .Cubical.Foundations.Prelude.fst != zero` 与 `!= 1`。与 TA（UA 格，`9d4b3c5`）同法的 stuckness 演示，构成 027 §2.2「显式化 surface」的第二个机械实例。 | `META_NEGATIVE_CHECK_AS_EXPECTED`（commit `9be3cbe`） | runs `20260917-MP-DEDEKIND-OMEGA-TA-AC-01 / 20260917-MP-DEDEKIND-OMEGA-TA-AC-02` 的 `RUN.json`（`META_NEGATIVE_CHECK_AS_EXPECTED`，stderr 0）、`stdout.txt`（内核拒绝消息 + 中性范式）、`source-manifest.json`（固定 ProbeACZero / ProbeACSuc / ChargeDemo / TOOLCHAIN / AGDA_LIBRARIES 哈希）。**收据完整性注**：当前机器按 `command_argv` 重放 TA-AC-01，stdout/stderr 与收据**逐位一致**（431B，sha256 `f7b37d65…`），但退出码观察为 42 而收据字段记 1——内核拒绝证据完全可复现，仅 exit_code 整数字段为记录偏差（同见的还有 TA-03/04）；不予改写历史收据，在此如实登记。 | **不**声称 HoTT 不一致（公理注入导致的非规范是已知元定理现象，非矛盾，027 §8）；**不**声称「不可归约」已被内部证明——本包是**负向探针**（refl 被核拒绝）+ 内核亲自打印卡住范式，不是对象层 `¬ (n-ac ≡ zero)` 的证明（027 §4 拒证二元性）；**不**声称覆盖全部显式假设收费形态（LEM 格见下节 `MP-DEDEKIND-OMEGA-TA-LEM`，UA 格见 `CAND-F2-7-TA`，Huber 完整结果仍为 `SOURCE_REPORTED_NOT_REPLAYED`）；exit≠0 是**预期失败即收据**，非工程失败；`registers_new_claim:false`。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-TA-LEM（靶 A·LEM 格 stuckness 演示，2026-09-18）
+### 历史登记：MP-DEDEKIND-OMEGA-TA-LEM（靶 A·LEM 格 stuckness 演示，2026-09-18）
 
 来源：修订片 027 §2.2（显式化 surface）+ `MissileFourChargeDemo.agda`（收费演示一：
 LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受闭的 ℕ 项 n-lem / n-ac——
@@ -819,7 +823,7 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 |---|---|---|---|---|
 | CAND-F2-7-TA-LEM | LEM 格（公理化排中律 `LEM : (A : Set) → A ⊎ (A → ⊥)` 以 postulate 注入，无计算规则）下，闭 ℕ 项 `n-lem`（`with LEM ℕ` 分支归约）的范式为中性卡住形态——内核对 `n-lem ≡ zero`（TA-LEM-01）与 `n-lem ≡ suc zero`（TA-LEM-02）的 refl 均判不可互换。与 TA-AC（AC 格，`9be3cbe`）/ TA（UA 格，`9d4b3c5`）结构对称，三者合取 = 027 §2.2「显式化 surface」三类公理注入的 stuckness 机械演示。 | `META_NEGATIVE_CHECK_AS_EXPECTED`（本轮提交） | runs `20260918-MP-DEDEKIND-OMEGA-TA-LEM-01 / 20260918-MP-DEDEKIND-OMEGA-TA-LEM-02` 的 `RUN.json`（`META_NEGATIVE_CHECK_AS_EXPECTED`，exit 42，stderr 0）、`stdout.txt`、`environment.txt`、`source-manifest.json`（固定 ProbeLEMZero / ProbeLEMSuc / ChargeDemo / TOOLCHAIN / AGDA_LIBRARIES 哈希）。**可重放性已现场双重验证**：按 `RUN.json` 的 `command_argv`（`/usr/bin/env` + XDG 环境 + `--ignore-interfaces`，自包含、不依赖接口缓存状态）从仓库根独立重放两次，exit / stdout / stderr 与收据**逐位一致**（stdout 3117B / 3108B，exit 42）。 | **不**声称 HoTT 不一致（公理注入导致的非规范是已知元定理现象，非矛盾，027 §8）；**不**声称「不可归约」已被内部证明——本包是**负向探针**（refl 被核拒绝）+ 内核亲自打印卡住范式，不是对象层 `¬ (n-lem ≡ zero)` 的证明（027 §4 拒证二元性）；**不**声称 LEM 的对象层后果（M3 的 `LEMᵒ` 假设用法与 M3-UNC 的去条件化仍是对象层收据，本包仅在元层演示 canonicity 收费）；exit≠0 是**预期失败即收据**，非工程失败；`registers_new_claim:false`。 |
 
-## 追加登记：MP-DEDEKIND-OMEGA-REAL-LAYER（Book §11.2「ℝ 层」陈述精确化 B0 + 充裕性 B1a，2026-09-18）
+### 历史登记：MP-DEDEKIND-OMEGA-REAL-LAYER（Book §11.2「ℝ 层」陈述精确化 B0 + 充裕性 B1a，2026-09-18）
 
 来源：修订片 029 §4.1（第一前置任务：陈述精确化，不可跳过）。本节钉死收费命题的
 精确形态、登记 (b′) 路径 1 的可行性裁定（B0），并证明 (a) 充裕性方向（B1a，run `-02`）。
@@ -852,7 +856,7 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 |---|---|---|---|---|
 | CAND-F2-7-REAL-LAYER | Book §11.2 的「ℝ 层」收费命题被钉死为精确类型：`ℝLayerAt ℓ = Σ[ R ∈ Type ℓ ] (isSet R × (R ≃ DedekindReals ℓ))`，其中 `DedekindReals ℓ = Σ[ LU ∈ (ℚ → hProp ℓ) × (ℚ → hProp ℓ) ] dcut (fst LU) (snd LU)`，`dcut` 为 Defn 11.2.1 四条件的量词显式形态（inhabited×2 / rounded×2 为 `∥ Σ … ∥₁` 命题截断形态且 rounded 双向 `≃`；disjoint `¬ (L q × U q)`；located `(q < r) → ∥ L q ⊎ U r ∥₁`，Book ∨ 截断记号，勘误三后形态；三项勘误史见本节头部与 CLAIM-PACKAGE §3-E）；付费方式精确化为 `PropResizing ℓ`（取法 2）与 `LEMProp ℓ`（取法 3）；「单一 Ω」精确化为 `SingleOmega ℓ = Σ[ Ω ∈ Type ℓ ] (isSet Ω × (Ω ≃ hProp ℓ))`。**关键裁定（§3）**：Book §11.2 取法 4（初始 σ-frame）证伪了「ℝ层 ⇒ LEM 或 resizing」的直接必要性，故 `Necessity ℓ` 收窄为 `ℝLayerAt ℓ → SingleOmega ℓ`，并按 029 §2 降格条款登记为 `CONJECTURE`。**(a) 充裕性已机器证明（B1a）**：`sufficiency : (ℓ : Level) → SingleOmega ℓ → ℝLayerAt ℓ`——给定基层级 Ω 与 `Ω ≃ hProp ℓ`，代理空间 `DedekindReals*`（Ω-值 cut 的子集型）活在 ℓ 层、是 set、且 `≃ DedekindReals ℓ`（经逐点 e 搬运的载体 iso + 跨层 Σ-cong）。 | **(a) 充裕性 `MACHINE_PROVED_WITH_SCOPE`**（B1a，run `-02`，纯构造无 postulate）；(b′) 必要性维持 `CONJECTURE` | run `20260918-MP-DEDEKIND-OMEGA-REAL-LAYER-02`（勘误二形态，历史）与 **`20260919-MP-DEDEKIND-OMEGA-REAL-LAYER-04`（当前）** 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0）与收据五件套；`source-manifest.json` 固定 CutRealLayer（含勘误后陈述与 B1a 证明体）/ TOOLCHAIN / AGDA_LIBRARIES 哈希；statement 阶段历史收据 `-01`（其源 hash 因 B0 勘误过期，已在本节头部登记）；逐字原文转写于 `CLAIM-PACKAGE-REAL-LAYER.md §1`（源：`HoTT/theory-schema/upstream/book-578b85cc/reals.tex` §11.2）；勘误节登记两项陈述修订。 | **(b′) 必要性 `Necessity ℓ` 未证并维持 `CONJECTURE`**（029 §2 条款；`SingleOmega` 与 `PropResizing` 的等价/蕴含方向未论证）；**「收费位置」判词（不可免费/击落）在 (b′) 证明出现前不得升级为 `MACHINE_PROVED`——B1a 证明的只是「付费即得」，不是「必付费」**；**不**声称等价定理已证、resizing/LEM 必要性已证、ℝ 层完备性已证；**不**声称 HoTT 不一致；**确认** ℚ 层四条件已机器证明（GOLD-02 收据，本表前节）；B1a 证明形态为「假设作为显式前提的构造性蕴含」，偏离 checklist 原计划的 postulate 形态（已登记，属加强而非减弱）；`registers_new_claim:false`。 |
 
-## 追加登记：B 线收官（B1b 诊断绕过结局 + B1b′/B2 降格确认 + B3 基准，2026-09-18，修订片 030）
+### 历史登记：B 线收官（B1b 诊断绕过结局 + B1b′/B2 降格确认 + B3 基准，2026-09-18，修订片 030）
 
 > 本节登记 029 §2「两个都要」合同的收官侧。**B1b/B1b′/B2 的论断全部为元层分析
 > （`AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT`），非内核收据**；机器证据仅限本表
@@ -865,7 +869,7 @@ LEM 格）。该演示此前仅在源码注释中声明（「内核照样接受�
 | **B2 靶 A 不可归约** | **声模型论证撤回**（Astra 二审 005 采纳，030 §4 勘误）：原「两方向各有声模型」只指定单次 `LEM ℕ` 应用取值，非完整模型；且 Book `thm:not-lem`（SOURCE_REPORTED）：LEM∞ 与 univalence 不相容——ChargeDemo 组合（LEM∞ 公设 + `--cubical` 原生 UA）按 Book 不一致，无声模型，「内部证明不可能」随之失效。已机器见证仅剩**语法层事实**（refl 拒绝 + 内核亲印中性范式；exit≠0 须核对预期诊断类别）。 | `QUESTION`（理由修正：声模型/不可证论证未成立，依赖未完成模型工作或 Book 反论形式化；UA-opaque 演示（TA-01）公设非 LEM∞ 不触发不相容，原则上可救但须构造完整模型） | 030 §4 勘误块（2026-09-19 晚）+ TA 族收据（本表前节；身份修正见 TA-LEM 行） | 不因探针收据升格；Huber 维持 `SOURCE_REPORTED_NOT_REPLAYED` 按其论文演算范围使用；不声称对象层定理 |
 | **B3 范围诚实性** | 当前 repo **无公开稿文本**（028 为修复方案非公开稿）——三方对照的公开稿一侧为空集，今日平凡成立。**判词基准落盘**（公开稿产生时强制）：(1) 不得「击落 HoTT」作数学主张；(2) 最高措辞 =「非现实性机械锚定 + 逼选结构」；(3) 收费表述保留币种不确定性；(4) B1b′/B2/Huber 三等级不得升格。 | `BASELINE_READY_VACUOUS_TODAY`（公开稿产生时转为对照执行） | 修订片 030 §5；audit map §5 基准条目 | 空集对照不冒充实质对照；公开稿产生之日重跑 |
 
-## 追加登记：收官补强两件（反弹消毒收据 + 必要性 LEM-条件版，2026-09-19）
+### 历史登记：收官补强两件（反弹消毒收据 + 必要性 LEM-条件版，2026-09-19）
 
 > 用户指令「开始，全部做了」的产出（dev-notes/0048/0049 脉络）。两件均为
 > `registers_new_claim:false` 的候选收据，无 postulate。
@@ -1391,3 +1395,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-318 | 对原闭时间t∈[0,1]和原闭参数u∈[0,1]，未改动closedMotion两个坐标绝对值均≤real-ℕ256；沿全内点一致性，同一界适用于原motion的所有开参数。证明由原系数/分子界、t<1/2或t>1/4的located分支、正分母与平方和估计给出，无有限采样。 | `FORMAL_CHECKED_WITH_SCOPE / UNIFORM_COORDINATE_BOUND_256` | `absProductSquares/quotientAbsBound/closingNAbsBound/earlyKScale/lateNSquareBound/closedBaseBounds/closedMotionUniformBound/motionUniformBound`；同run | 明确粗坐标界256，不称Lean的60、最优界或欧氏半径256；不是速度/弧长/物理实现、环境同胚或所有实时间无条件空间界。 |
 | C-319 | NativeMotionEvidence的12字段在同一未改动motion/closedMotion和原域上装配联合连续、每片实际像同胚、内点一致、原n/m全初末图、端部相遇时间、完整纤维及开闭参数界。另对该固定末态参数化定义WeakFinalCoverage=∀w∈原Weak去点圆,∃u∈原开区间,motion(1,u)=w的平面点；证明它↔原Circle Lift↔RealNonzeroApartness。给定Lift，显式返回原参数及命中原点的等式。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_MAP_RECORD_AND_EXACT_WEAK_COVERAGE_CRITERION` | `WeakFinalCoverage/ChosenWeakFinalOutput/liftGivesChosenWeakFinalOutput/weakFinalCoverageGivesLift/weakFinalCoverageIffLift/weakFinalCoverageIffRealPrinciple/NativeMotionEvidence/nativeMotionEvidence`；同run | 未给无条件Weak覆盖、原则否定/独立性或LEM必要性；必要性仅该固定最终图的覆盖，不是任意同胚必需。记录装配不证明物理/全Lean模型翻译/四层失配或整体Goal完成；旧公设及配置边界保持。 |
+
+
+## 同一原生几何对象对上的操作合同分离（2026-09-21）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-NATIVE-TASK-INTEGRATION-001` | `C-320` | `formal/agda-unimath/hott-z/NativeTaskIntegration.agda`及原NativeMotion/Rich/FiniteTrace依赖 | `verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01/`；固定no-erasure without-K，fresh完整依赖exit0 | `FORMAL_CHECKED_WITH_SCOPE / SAME_PAIR_DISTINCT_OPERATIONS` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-320 | 固定原nRich/mRich。CurveRun(r,s)要求真实连续切片嵌入族、原闭图初末态、内点一致、实际正向切片映射和坐标界256；actualCurveRun以未改动原F给出CurveRun(nRich,mRich)。同一对象对的原有限AmbientStep Success为空，故不存在从该CurveRun成功转为该Ambient成功的函数，不存在对所有Rich对的统一转换，两成功类型不等价。原非平凡ambient交换控制及Rich不相等同时保留。 | `FORMAL_CHECKED_WITH_SCOPE / NO_SUCCESS_PRESERVING_CROSS_CONTRACT_ADAPTER` | `CurveRun/actualCurveRun/samePairDifferentOperations/noCurveToAmbientAtActualPair/noUniformCurveToAmbient/noCurveAmbientEquivalence/nontrivialAmbientControl/samePairStillRichDistinct`；同run | 对象对相同但操作/完成类型不同，不是同一P与非P；未证明HoTT实际承诺被否定转换。不是全部现实复原/生产历史、无条件Weak覆盖、任意操作不可达或完整四弹失配/一致性认证。 |

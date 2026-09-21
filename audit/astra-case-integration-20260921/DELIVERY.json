@@ -1,0 +1,42 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_WITH_SCOPE",
+  "claim_ids": [
+    "C-320"
+  ],
+  "primary_run": "HoTT/verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01",
+  "primary_seconds": 452.872885,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-TASK-INTEGRATION-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "compiled_local_modules": 31,
+  "import_modules": 1102,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 1,
+  "draft_checks": 1,
+  "theory": "Pinned without-K no-erasure agda-unimath with inherited foundation postulates; not safe Cubical and not a whole-theory consistency certificate.",
+  "unproved": [
+    "Identification of the original broad physical/provenance task with either model",
+    "A real theory or consumer promise to perform the rejected adapter",
+    "Unconditional Weak coverage, whole-model translation, physical execution and complete four-stage target"
+  ],
+  "parent_goal": "OPEN"
+}

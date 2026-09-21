@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 171,
+  "later_machine_proved_claim_count": 172,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-NATIVE-TASK-INTEGRATION-001",
+   "claim_ids": "C-320",
+   "source": "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda",
+   "run": "HoTT/verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "same_actual_rich_pair_with_distinct_continuous_and_ambient_success_contracts",
+   "verdict": "SAME_PAIR_OPERATION_CONTRACT_SEPARATION_NOT_HOTT_CONTRADICTION",
+   "notes": "CurveRun nRich mRich inhabited by unchanged motion with actual slice maps, full closed endpoints, joint continuity, interior agreement and bound256; finite AmbientStep Success on the exact same pair is empty. No success-converting map at that pair, universal adapter or equivalence of these success types; nontrivial ambient swap control retained. Does not identify either contract with all original physical/provenance operations, establish a false promise by HoTT, supply unconditional Weak coverage or prove four-stage target success."
+  },
   {
    "proof_id": "MP-ASTRA-NATIVE-MOTION-BUNDLE-001",
    "claim_ids": "C-318–C-319",
