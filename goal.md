@@ -1,6 +1,6 @@
 # HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / P1_RMIN_ACCEPTED_WITH_SCOPE / NEXT_P2_KTHEORY_SIP`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / P1_RMIN_ACCEPTED_WITH_SCOPE / P2_SIP_NO_K_WITHIN_SCOPE / NEXT_P3_KAPP_DENOMINATOR_SELECTION`
 > Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-P0 与 `P1-RMIN-SPEC-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务；它不完成 `OriginTop`、完整物理过程或任何 HoTT 缺陷结论。下一最小单元是 `P2-KTHEORY-SIP-001`：冻结 HoTT Book §9.8 的 Structure Identity Principle 分母，检验其是否只保留明确结构，或实际把裸 H/U 误当作 P1 的 `Done_s`。它不重做 C-250–C-324、Flash、D1/D2/D3、Book 已审核心、既有同胚/曲线变形，也不先扫描外部消费者。P2 完成一个新理论分母后，P3 才能以 ABX 进行外部消费者审计；P4 必须有理论语义与实现差异的实际触发。
+P0、`P1-RMIN-SPEC-001` 与 `P2-KTHEORY-SIP-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务。P2 的受限结论是 `NO_K_THEORY_WITHIN_SIP_DENOMINATOR`：Book §9.8 的 SIP 明确要求结构及正、逆结构保持，并不将裸 H/U 自动升格为 `Done_s`；已有原生 SIP 边界证明仅作为部分复用和正控制。下一最小单元为 `P3-KAPP-DENOMINATOR-001`：先按 `goal-3.md` 的学术和本地资产侦察规定，选择一个未覆盖、版本固定且具有入口/调用链的真实消费者分母；P3 的选择完成前不启动外部 K 结论。它不重做 C-250–C-324、Flash、D1/D2/D3、旧 SIP 证明、Book 已审规则或无版本关键词扫描。P4 仍必须有理论语义与实现差异的实际触发。
 
 四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 
