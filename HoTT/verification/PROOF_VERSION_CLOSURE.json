@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 174,
+  "later_machine_proved_claim_count": 176,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -79,6 +79,16 @@
   "entries": []
  },
   "later_packages": [
+  {
+   "proof_id": "MP-ASTRA-MARKOV-REVERSE-001",
+   "claim_ids": "C-323–C-324",
+   "source": "HoTT/formal/agda-unimath/hott-z/MarkovCountableChoice.agda",
+   "run": "HoTT/verification/runs/20260921-MP-ASTRA-MARKOV-REVERSE-001-01",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "kind": "supplied_rational_bounds_and_explicit_countable_choice_markov_converse",
+   "verdict": "DATA_SENSITIVE_CONVERSE_AND_CHOICE_CONDITIONAL_WEAK_EQUIVALENCE",
+   "notes": "Actual decidable sign test on supplied narrow rational bounds detects apartness; BookMarkov gives nonzero-to-apartness with chosen or merely existing full bounds data. Rational zero/one controls and exact Markov equivalence on the C321 binary-real subfamily without choice. Separately explicit level-ACℕ lzero supplies mere sequences from pointwise location; under that argument RNZA/fixed original Weak coverage/uniform inverse iff BookMarkov, with chosen Weak output from both hypotheses. No global principle instance, unconditional arbitrary-Dedekind converse, necessity/independence of choice, physical or four-stage target claim."
+  },
   {
    "proof_id": "MP-ASTRA-WEAK-COVERAGE-MARKOV-001",
    "release_ref": "e1471ee02c3763882132da0949a69752443afe2c",
