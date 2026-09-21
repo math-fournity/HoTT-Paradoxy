@@ -1,7 +1,11 @@
 {
   "active": [
+    "A-ASTRA-CONTINUING-GOAL-20260919",
     "I-DIRECTION-PORTFOLIO-20260912",
-    "I-OUTCOME-PANORAMA-20260912"
+    "I-OUTCOME-PANORAMA-20260912",
+    "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+    "A-R4-HOTT-NAT-EFFECTIVITY-001",
+    "A-PREMISE-001"
   ],
   "current_core": {
     "core_sha256": "b4a57785eef22cffb471028d73a8641549ce1cead5763ab8f6c31727945b8999",
@@ -16,19 +20,16 @@
   },
   "execution_control": {
     "background_work": false,
-    "checkpoint_result": ".codex/cognition/checkpoints/S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE/result.json",
-    "current_phase": "PHASE_1_COMPLETE",
-    "last_checkpoint_session": "S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE",
+    "checkpoint_result": ".codex/cognition/checkpoints/S-AUD-20260921-ASTRA-ASSUMPTION-INTEGRATION/result.json",
+    "last_checkpoint_session": "S-AUD-20260921-ASTRA-ASSUMPTION-INTEGRATION",
     "new_math_research_started": true,
-    "next_minimal_verification": "NONE_BY_DEFAULT. Start phase two only if a new explicit user instruction or a documented 判词改变凭据 identifies a concrete same-task commitment, counterexample, source/run invalidation, or unmet fixed six-obligation question.",
-    "phase_1_result_record": "R-ASTRA-ASSUMPTION-INTEGRATION-20260921",
+    "next_minimal_verification": "当前原四弹范围判词与证据保存完成后不默认扩张：原强结论未建立，精确局部结果保留；新版审阅包、一般反向/最弱原则/独立性和其他消费者为可选研究。后继仅由会改变当前结论的具体同任务承诺、反例机制、证据失效、实际审阅需求或用户新任务触发。已有v1及C321–324独立source/run/report可检查，不重复旧核或资格检查来制造进展。原广义现实与六义务未完成，不将本次审计当击落或App Goal完成；Coq仅source-contract级。",
     "release_parent_commit": "293d368",
     "release_ref": "governance-v4.0.0",
-    "second_phase_status": "NOT_OPENED",
     "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
-    "status": "FOUR_STAGE_REDO_PHASE_1_COMPLETE_WITH_SCOPE"
+    "status": "SCOPED_REDO_VERDICT_SAVED_NO_DEFAULT_EXPANSION"
   },
-  "latest_session": "S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE",
+  "latest_session": "S-AUD-20260921-ASTRA-ASSUMPTION-INTEGRATION",
   "load_policy": {
     "fresh_model_behavior": "NOT_RUN",
     "full_set": [
@@ -312,27 +313,19 @@
     },
     "A-ASTRA-CONTINUING-GOAL-20260919": {
       "depends_on": [],
-      "evidence_status": "PARKED_PENDING_EXPLICIT_PHASE2_TRIGGER",
+      "evidence_status": "USER_AUTHORIZED / FULL_OBJECTIVE_UNFINISHED",
       "full_sources": [
         "Astra继续尝试/四弹一体完整研究策略.md"
       ],
       "kind": "activity",
-      "lifecycle_status": "SUPERSEDED",
+      "lifecycle_status": "ACTIVE_WORK",
       "path": "Astra继续尝试/四弹一体完整研究策略/010 - 断点检查接入与总目标执行账本.md",
       "related_records": [
         "R-ASTRA-BREAKPOINT-20260919",
         "S-PLAN-20260919-ASTRA-CONTINUING-GOAL"
       ],
-      "resolution": {
-        "evidence": [
-          "goal.md",
-          "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
-          "audit/astra-assumption-integration-20260921/DELIVERY.json"
-        ],
-        "reason": "The user replaced the current goal with a two-phase redo. These remain historical or phase-two candidates and cannot auto-start."
-      },
       "scope": "Current App objective 完成四弹一体的redo; retain complete accepted breakpoint/four-stage/ZCode-absorption/governance scope in strategy010. Partial model qualification is not parent completion.",
-      "status": "parked_by_four_stage_redo_goal"
+      "status": "active"
     },
     "A-ASTRA-TRAJECTORY-AUDIT-001": {
       "depends_on": [],
@@ -3518,7 +3511,7 @@
     "A-HOTT-MACHINE-OVERVIEW-GOAL-002": {
       "classification": "ACTIVE_HOTT_NONREALITY_MACHINE_OVERVIEW_GOAL",
       "depends_on": [],
-      "evidence_status": "PARKED_PENDING_EXPLICIT_PHASE2_TRIGGER",
+      "evidence_status": "USER_AUTHORIZED_ACTIVE_GOAL",
       "full_sources": [
         "goal.md",
         ".codex/research/hott/HOTT-MACHINE-OVERVIEW-ACTIVE-GOAL.md",
@@ -3546,7 +3539,7 @@
         "核心认知.md"
       ],
       "kind": "active_goal",
-      "lifecycle_status": "SUPERSEDED",
+      "lifecycle_status": "ACTIVE_WORK",
       "path": "goal.md",
       "related_records": [
         "A-HOTT-MACHINE-OVERVIEW-GOAL-001",
@@ -3598,14 +3591,6 @@
         "A-PREMISE-001",
         "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001"
       ],
-      "resolution": {
-        "evidence": [
-          "goal.md",
-          "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
-          "audit/astra-assumption-integration-20260921/DELIVERY.json"
-        ],
-        "reason": "The user replaced the current goal with a two-phase redo. These remain historical or phase-two candidates and cannot auto-start."
-      },
       "revalidation": "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: core generation-7 recorded and the fourth document renamed; PREMISE-001 registered as the next action inside the same goal; no mathematical scope changed. S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at .codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md, audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md, feature-list.md, goal.md, rulings.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
       "scope": "Complete the exact objective in root goal.md, continuously maintaining governance and evidence across compaction boundaries; completion still requires one exact-HoTT, HoTT-essential, natural-consumer, same-reality-task A/B witness plus the declared coverage gates.",
       "source_hashes": {
@@ -3627,7 +3612,7 @@
         "goal.md": "5c21d3ffed766244988ea4751d2259d7563d9a1ecc03ecbd15ad81b6e001e5c5",
         "rulings.md": "f17977cb7e7df4936566b8e9a02d2577a6c0a6fa0a62f9f5893154d24a5999a7"
       },
-      "status": "parked_by_four_stage_redo_goal"
+      "status": "active"
     },
     "A-HOTT-PROGRAMMATIC-COMPLETENESS-001": {
       "classification": "PROGRAMMATIC_EXPLORATION_COMPLETENESS_ENVELOPE",
@@ -5479,7 +5464,7 @@
     "A-PREMISE-001": {
       "classification": "EXHAUSTIVE_HOTT_PREMISE_INVENTORY_P1_P2_WITH_USER_P3_P4",
       "depends_on": [],
-      "evidence_status": "PARKED_PENDING_EXPLICIT_PHASE2_TRIGGER",
+      "evidence_status": "STEP3_AI_EXECUTED_35_35_PENDING_EXTERNAL_AUDIT / 9 NON-REAL CANDIDATES / NO_NEW_MATH_CLAIM",
       "full_sources": [
         "Atria的方案/修订片/008 - PREMISE-001 HoTT 前提集穷尽清单与 P1–P4 分工.md",
         "Atria的方案/修订片.md",
@@ -5497,7 +5482,7 @@
         "feature-list.md"
       ],
       "kind": "candidate_search_task",
-      "lifecycle_status": "SUPERSEDED",
+      "lifecycle_status": "ACTIVE_WORK",
       "path": "Atria的方案/修订片/008 - PREMISE-001 HoTT 前提集穷尽清单与 P1–P4 分工.md",
       "related_records": [
         "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
@@ -5506,14 +5491,6 @@
         "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001"
       ],
       "research_parent": "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
-      "resolution": {
-        "evidence": [
-          "goal.md",
-          "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
-          "audit/astra-assumption-integration-20260921/DELIVERY.json"
-        ],
-        "reason": "The user replaced the current goal with a two-phase redo. These remain historical or phase-two candidates and cannot auto-start."
-      },
       "revalidation": "修订片 014（map 空间与现象饱和纪律，310f7a9）、step-6 五族审计（f8eaa53）与 step-5 第五族产出（389bea0）提交后 source_hashes 过期；本 checkpoint 重绑到当前 hash。Claim、scope 与 evidence_status 不变。",
       "scope": "First finite denominator that is HoTT's own premise set (PREMISE_DENOMINATOR_V1 categories A-G). P1/P2 are structural and omission analysis only; P3/P4 are now AI-executed per revision shard 009 (plan-revise 74c8177, user authorization 2026-09-16) with mandatory P3P4_AUDIT_TRAIL and AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT status; external AI retrospective audit is the terminal review layer; the user retains non-interventional veto power. A 'non-real premise' verdict remains a candidate, not a conclusion: delivery still requires the GEN-001 chain (frozen grammar enumeration -> reduction-preserving -> native kernel) per MATH_PROOF_BEFORE_DELIVERY_V1. Does not cover unnamed premises outside the denominator.",
       "source_hashes": {
@@ -5542,7 +5519,7 @@
         "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md": "c92d174a39e1635777032aca35ac6271fc39373a7d3a115b23a9ee26ae99c0da",
         "核心认知.md": "b4a57785eef22cffb471028d73a8641549ce1cead5763ab8f6c31727945b8999"
       },
-      "status": "parked_by_four_stage_redo_goal"
+      "status": "active"
     },
     "A-PROJECTION-REVISION-REPAIR-001": {
       "depends_on": [],
@@ -5876,7 +5853,7 @@
     "A-R4-HOTT-NAT-EFFECTIVITY-001": {
       "classification": "EXECUTABLE_CUBICAL_NAT_PATH_CONVERSION_CERTIFIED_INPUT_TARGET",
       "depends_on": [],
-      "evidence_status": "PARKED_PENDING_EXPLICIT_PHASE2_TRIGGER",
+      "evidence_status": "TASKSPEC_FROZEN / IMPLEMENTATION_NOT_STARTED",
       "full_sources": [
         ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
         ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
@@ -5886,7 +5863,7 @@
         "goal.md"
       ],
       "kind": "candidate_search_task",
-      "lifecycle_status": "SUPERSEDED",
+      "lifecycle_status": "ACTIVE_WORK",
       "path": ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
       "related_records": [
         "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
@@ -5901,14 +5878,6 @@
         "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001"
       ],
       "research_parent": "A-R3-R4-GODEL-RETURN-001",
-      "resolution": {
-        "evidence": [
-          "goal.md",
-          "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
-          "audit/astra-assumption-integration-20260921/DELIVERY.json"
-        ],
-        "reason": "The user replaced the current goal with a two-phase redo. These remain historical or phase-two candidates and cannot auto-start."
-      },
       "revalidation": "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: user 2026-09-16 epistemological correction reorders the next action to PREMISE-001 (HoTT premise set as the first finite denominator); R4 is retained in active without lifecycle change and its TaskSpec remains valid in parallel. S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at .codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md, audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md, goal.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
       "scope": "Qualify exact cubical implementations and define a certified acceptance relation excluding incomplete terms and unchecked recursion; advance only Nat/Path/conversion/effectivity obligations.",
       "source_hashes": {
@@ -5919,7 +5888,7 @@
         "audit/r3-r4-godel/REPORT.md": "413597e950998ae7ed3974cc572e19db1f6568892e0c5daca8982ff6f741df22",
         "goal.md": "5c21d3ffed766244988ea4751d2259d7563d9a1ecc03ecbd15ad81b6e001e5c5"
       },
-      "status": "parked_by_four_stage_redo_goal"
+      "status": "active"
     },
     "A-RACE-TIMEOUT-FORMAL-001": {
       "claim_ids": [
@@ -7463,7 +7432,7 @@
     },
     "R-ASTRA-ASSUMPTION-INTEGRATION-20260921": {
       "depends_on": [],
-      "evidence_status": "PHASE_1_REDO_COMPLETED_WITH_SCOPE / SOURCE_CONTRACT_AUDITED_NOT_COQ_REPLAY",
+      "evidence_status": "SOURCE_CONTRACT_AUDITED_NOT_COQ_REPLAY / ORIGINAL_TARGET_NOT_ESTABLISHED",
       "full_sources": [
         "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
         "audit/astra-assumption-integration-20260921/INPUT-VERIFICATION.json",
@@ -7475,10 +7444,9 @@
       "related_records": [
         "S-AUD-20260921-ASTRA-ASSUMPTION-INTEGRATION",
         "R-ASTRA-MARKOV-REVERSE-20260921",
-        "R-ASTRA-CASE-INTEGRATION-20260921",
-        "S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE"
+        "R-ASTRA-CASE-INTEGRATION-20260921"
       ],
-      "scope": "The six original user statements/five historical plans, C321–324, geometry/arithmetic controls, nine qualified proof packages and fixed primary locator source were reconciled. The original whole four-stage defeat target is not established: the same-task bridge and unconditional actual theoretical commitment are absent in the inspected scope. Exact local results remain. This is not a global HoTT safety theorem, Coq replay, physical realization result, or phase-two candidate proof.",
+      "scope": "Six original user statements/five historical plans re-read and reconciled with C321–324 and existing geometry/arithmetic. Nine selected packages18qualification checks, no new kernel run/claim. Fourteen primary Coq source files at478aeef5 pinned; visible locator/apartness/modulus/LEM contexts and partial formalization distinguished. No exported-minimal-assumptions/full-library/Coq-validity certificate, no global absence, physical or four-stage target theorem.",
       "source_hashes": {
         "HoTT/formal/agda-unimath/hott-z/BinaryWitnessReal.agda": "0ef84bd0153c5da6d1c5b448020b514aa38349e372ac817560f3e4fd11ed0be2",
         "HoTT/formal/agda-unimath/hott-z/BinaryWitnessWeights.agda": "73e69d3bf8705bd36e20256311de7d60993680ab866560b40bf1cbbbc1e9e5fa",
@@ -7556,7 +7524,7 @@
         "audit/astra-assumption-integration-20260921/upstream-locator/theories/DProp.v": "d1b3a0d1dd66102110e8693150bcf2efced74678116c6d1f165e81c4e6c30409",
         "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v": "c5f4ce80a73483d0cdeaa8484a5db526a995b856e615810316832b696b12ce08"
       },
-      "status": "original_four_stage_redo_completed_with_scope_target_not_established"
+      "status": "original_four_stages_reconciled_with_explicit_assumptions_and_primary_source_contracts"
     },
     "R-ASTRA-BOOK-SCOPE-20260920": {
       "depends_on": [],
@@ -8617,23 +8585,6 @@
       "related_records": [
         "S-RES-20260921-ASTRA-MARKOV-REVERSE",
         "A-ASTRA-CONTINUING-GOAL-20260919"
-      ],
-      "status": "complete_with_scope"
-    },
-    "S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE": {
-      "depends_on": [],
-      "evidence_status": "PHASE_1_COMPLETION_AUDIT_WITH_SCOPE",
-      "full_sources": [
-        ".codex/research/hott/sessions/S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE/SESSION.md",
-        ".codex/research/hott/sessions/S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE/RUNS.json",
-        ".codex/research/hott/sessions/S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE/CORE_COGNITION_AUDIT.md"
-      ],
-      "kind": "session",
-      "lifecycle_status": "HISTORICAL",
-      "path": ".codex/research/hott/sessions/S-COM-20260921-ASTRA-FOUR-STAGE-REDO-COMPLETE/SESSION.md",
-      "related_records": [
-        "R-ASTRA-ASSUMPTION-INTEGRATION-20260921",
-        "S-AUD-20260921-ASTRA-ASSUMPTION-INTEGRATION"
       ],
       "status": "complete_with_scope"
     },
@@ -13891,7 +13842,7 @@
     "A-KC-AUDIT-GAP-001",
     "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001"
   ],
-  "revision": 210,
+  "revision": 209,
   "schema_migration": {
     "from": "hott-working-state/v1",
     "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",

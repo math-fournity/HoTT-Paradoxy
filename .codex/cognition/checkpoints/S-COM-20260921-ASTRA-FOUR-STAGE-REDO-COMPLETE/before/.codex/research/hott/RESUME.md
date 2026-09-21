@@ -11,11 +11,7 @@
 
 > v5 P1-5 深切档（2026-09-18）：本节历史积累的逐会话块已逐字迁至 `RESUME-log/固定恢复-历史会话块.md`（query_first）；RESUME 其余历史停止点见 `RESUME-log/停止点-0*.md`。本文件 = 固定恢复流程 + 当前停止点。
 
-## 当前阶段（2026-09-21）
-
-四弹一体原方案 redo 已以第三十五轮范围判词完成第一阶段。`goal.md` 是唯一 current owner；第二阶段未开启。新工作必须先满足判词改变凭据，旧机器统观/PREMISE/R4 不再自动接续。
-
-## 历史停止点
+## 当前停止点
 
 S-RES-20260916-161-PREMISE-001-STEP5-GEN001-FIRSTCHAIN：PREMISE-001 step-5 的 **GEN-001 首链完成**（判词 `GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE`，commit f62ec04；revision 160->161 由本 canonical checkpoint 登记）。TASK-FAMILY-WITNESS-RECOVERABILITY（E-02）全链：声明 2 个新构造子（`downstream_guard` / `downstream_needs_true_late`）→ 9 atoms x 598 contexts = 14,352 checks、remainder=0 → 2,736 原始分离归约为 52 个规范见证 → 3 个越界见证（WV-0040 / WV-0041B / WV-0049）对 15 个既有文法 within=False → Cubical Agda 2.8.0 + cubical v0.9 四路核收据。**这是能力验收不是数学结论**：不进 CLAIM_EVIDENCE_MATRIX；E-02 仍 pending external audit。治理修复：revision 160 由 e3ab84b+82eaa71 out-of-band 应用导致 HEAD.tracked 缺 9 文件 / records 缺 160 记录 / `plan()` BLOCKED，已在本 checkpoint 修复并登记（旧 HEAD 备份 `.codex/cognition/HEAD.json.pre-repair-bak`）。下一步（AI 全自动，修订片 009）：step-5 其余四族（COMPLETION-PROCESS 优先；DIVISIBILITY 三联与 EXISTENCE-VS-AVAILABILITY 留外部审计复核后跑）+ step-6 omission audit。无新数学 claim；未 push、未 tag。
 
