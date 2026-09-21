@@ -1,6 +1,6 @@
 # HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / FOUR_TRACK_FIRST_PASS_COMPLETE / NEXT_P5_SUCCESSOR_DISCOVERY / GOAL_ACTIVE`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / FOUR_TRACK_FIRST_PASS_COMPLETE / P5_SUCCESSOR_SELECTED / NEXT_P6_ORIGIN_STRUCTURE_COMPARISON / GOAL_ACTIVE`
 > Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务。P2 的受限结论是 `NO_K_THEORY_WITHIN_SIP_DENOMINATOR`：Book §9.8 的 SIP 明确要求结构及正、逆结构保持，并不将裸 H/U 自动升格为 `Done_s`。P3 的受限结论是 `NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR`：版本固定 UniMath SIP 使用点显式构造函子代数结构并证明 univalence，没有把它作为 P1 过程完成。P4 没有实际触发。这些是首个分母 pass 的有界结果，不是整体 goal 的停止条件。当前下一单元是 `P5-SUCCESSOR-DISCOVERY-001`：主动从未覆盖理论、实际消费者、对象理论和实现差异入口生成一个新的可检验分母；它必须先完成学术与本地/历史资产侦察，不能重做已有 SIP、Book、ABX 或 UniMath 分母。所有结论均不外推为 HoTT 全局无问题或 HoTT 缺陷结论。
+P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务。P2 的受限结论是 `NO_K_THEORY_WITHIN_SIP_DENOMINATOR`：Book §9.8 的 SIP 明确要求结构及正、逆结构保持，并不将裸 H/U 自动升格为 `Done_s`。P3 的受限结论是 `NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR`：版本固定 UniMath SIP 使用点显式构造函子代数结构并证明 univalence，没有把它作为 P1 过程完成。P4 没有实际触发。这些是首个分母 pass 的有界结果，不是整体 goal 的停止条件。`P5-SUCCESSOR-DISCOVERY-001` 已完成公开文献与本地资产侦察：没有新增实际 K 或实现差异，cohesive 模型属于已知防御/边界；它选定 `P6-ORIGIN-STRUCTURE-STRATIFIED-COMPARISON-001`，把 `OriginPresentation` 与标记、分层、相对 diagram/cohesive 对象逐字段比较。P6 先固定 R 的数学承载，再判断未来规则或消费者是否真正换题；它不能由自身推出 HoTT 缺陷结论。所有结论均不外推为 HoTT 全局无问题或 HoTT 缺陷结论。
 
 四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 

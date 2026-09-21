@@ -87,7 +87,7 @@ def main() -> None:
         'record AmbientStep', 'Success', 'noSuccessNtoM', 'bareSuccess',
     )
     require(PLAN, 'P1：`R_min` 最小规格资格化', 'P2：`K_theory` 规则级桥')
-    require(NEXT, 'R_MIN_ACCEPTED_WITH_SCOPE', 'NO_K_THEORY_WITHIN_SIP_DENOMINATOR', 'P5-SUCCESSOR-DISCOVERY-001')
+    require(NEXT, 'R_MIN_ACCEPTED_WITH_SCOPE', 'NO_K_THEORY_WITHIN_SIP_DENOMINATOR', 'P5-SUCCESSOR-DISCOVERY-001', 'P6-ORIGIN-STRUCTURE-STRATIFIED-COMPARISON-001')
     require(GOAL_SOP, '## 2.1 学术与社区既有成果检查', '## 3.1 波次坐标、最终价值与继续裁决')
 
     run_details = {}
@@ -110,10 +110,10 @@ def main() -> None:
         'status': 'PASS_WITH_SCOPE',
         'scope': (
             'Checks the local source/interface anchors, pre-existing kernel receipt boundary, '\
-            'academic-scan labels, and the later P2/P3/P5 active-goal routing update. It does not prove a new theorem, '\
+            'academic-scan labels, and the later P2/P3/P5/P6 active-goal routing update. It does not prove a new theorem, '\
             'an OriginTop theory, a theory-level K, an application K, or a HoTT defect.'
         ),
-        'verdict': 'R_MIN_ACCEPTED_WITH_SCOPE / P1_CLOSE_WITH_SCOPE / SUCCESSOR_DISCOVERY_NEXT',
+        'verdict': 'R_MIN_ACCEPTED_WITH_SCOPE / P1_CLOSE_WITH_SCOPE / P5_COMPLETE_P6_NEXT',
         'files': {rel: sha(rel) for rel in [REPORT, *SOURCES.values(), PLAN, NEXT, GOAL_SOP]},
         'preexisting_kernel_receipts': run_details,
         'academic_scan': {

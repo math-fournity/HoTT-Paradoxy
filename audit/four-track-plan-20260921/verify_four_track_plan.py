@@ -23,6 +23,9 @@ P3_VERIFY = 'audit/p3-unimath-functor-algebras-20260921/verify_p3_unimath_functo
 P3_REPORT = 'audit/p3-unimath-functor-algebras-20260921/P3-UNIMATH-FUNCTOR-ALGEBRAS-REPORT.md'
 P3_FREEZE = 'audit/p3-unimath-functor-algebras-20260921/P3-UNIMATH-FUNCTOR-ALGEBRAS-SOURCE-FREEZE.json'
 P3_RECEIPT = 'audit/p3-unimath-functor-algebras-20260921/P3-UNIMATH-FUNCTOR-ALGEBRAS-VERIFICATION.json'
+P5_VERIFY = 'audit/p5-successor-discovery-20260921/verify_p5_successor_discovery.py'
+P5_REPORT = 'audit/p5-successor-discovery-20260921/P5-SUCCESSOR-DISCOVERY-REPORT.md'
+P5_RECEIPT = 'audit/p5-successor-discovery-20260921/P5-SUCCESSOR-DISCOVERY-VERIFICATION.json'
 INDEX = 'HoTT后续研究总体方案.md'
 SHARDS = [
     'HoTT后续研究总体方案/001 - 上一轮问答与四分支校正.md',
@@ -59,7 +62,8 @@ def main() -> None:
     subprocess.check_call([sys.executable, '-B', P1_VERIFY, '--write'], cwd=ROOT)
     subprocess.check_call([sys.executable, '-B', P2_VERIFY, '--write'], cwd=ROOT)
     subprocess.check_call([sys.executable, '-B', P3_VERIFY, '--write'], cwd=ROOT)
-    for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, 'goal.md', 'feature-list.md', 'rulings.md', 'ABX行动.md', 'ABX行动/005 - 状态、停止条件与未来交接.md']:
+    subprocess.check_call([sys.executable, '-B', P5_VERIFY, '--write'], cwd=ROOT)
+    for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, P5_VERIFY, P5_REPORT, P5_RECEIPT, 'goal.md', 'feature-list.md', 'rulings.md', 'ABX行动.md', 'ABX行动/005 - 状态、停止条件与未来交接.md']:
         need(rel)
     marker(INDEX, 'logical_id: HOTT-FOUR-TRACK-PLAN')
     marker(INDEX, 'last_shard: HoTT后续研究总体方案/005 - 当前第一步与交接.md')
@@ -67,7 +71,7 @@ def main() -> None:
     marker(SHARDS[0], '### AI 最终回复')
     marker(SHARDS[1], 'P1：结构规格')
     marker(SHARDS[1], 'P4：实现忠实性')
-    marker(INDEX, 'P5_SUCCESSOR_DISCOVERY_NEXT')
+    marker(INDEX, 'P6_ORIGIN_STRUCTURE_COMPARISON_NEXT')
     marker(SHARDS[2], 'P1：`R_min` 最小规格资格化')
     marker(SHARDS[2], 'P1 已完成的范围结果')
     marker(SHARDS[2], 'P2-KTHEORY-SIP-001')
@@ -76,22 +80,25 @@ def main() -> None:
     marker(SHARDS[2], 'P3 已完成的范围结果')
     marker(SHARDS[2], 'P4 状态')
     marker(SHARDS[2], 'P5：`SUCCESSOR_DISCOVERY`')
+    marker(SHARDS[2], 'P5 已完成的范围结果')
+    marker(SHARDS[2], 'P6：`ORIGIN_STRUCTURE_STRATIFIED_COMPARISON`')
     marker(SHARDS[3], '每个工作单元的最小声明')
     marker(SHARDS[4], 'P5-SUCCESSOR-DISCOVERY-001')
-    marker('goal.md', 'NEXT_P5_SUCCESSOR_DISCOVERY')
-    marker('feature-list.md', 'NEXT_P5_SUCCESSOR_DISCOVERY')
+    marker(SHARDS[4], 'P6-ORIGIN-STRUCTURE-STRATIFIED-COMPARISON-001')
+    marker('goal.md', 'NEXT_P6_ORIGIN_STRUCTURE_COMPARISON')
+    marker('feature-list.md', 'NEXT_P6_ORIGIN_STRUCTURE_COMPARISON')
     marker('rulings.md', '四分支')
-    marker('ABX行动.md', '当前 P5 必须主动')
+    marker('ABX行动.md', 'P5 已完成四类入口比较')
     marker('ABX行动/005 - 状态、停止条件与未来交接.md', 'HoTT后续研究总体方案.md')
 
     receipt = {
         'schema_version': 'four-track-plan-verification/v1',
         'status': 'PASS_WITH_SCOPE',
         'scope': ('Verifies the plan structure, verbatim prior-answer projection, P1/P2/P3 receipts, '
-                  'and the active-goal P5 successor-discovery routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
+                  'and the active-goal P5 completion/P6 successor-routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
                   'a new topology, or a HoTT defect.'),
-        'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT]},
-        'verdict': 'FOUR_TRACK_FIRST_PASS_CLOSED_SUCCESSOR_DISCOVERY_NEXT',
+        'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, P5_VERIFY, P5_REPORT, P5_RECEIPT]},
+        'verdict': 'FOUR_TRACK_FIRST_PASS_CLOSED_P5_COMPLETE_P6_ORIGIN_STRUCTURE_NEXT',
     }
     if args.write:
         (ROOT / RECEIPT).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
