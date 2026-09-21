@@ -13,7 +13,7 @@ soft_line_target: 300
 
 `ABX` 是用户于 2026-09-21 明确命名的第二阶段候选行动。它不把旧 `Spec_A`／`Spec_B` 的算术规格分离重新叫作“第三弹”，也不把 GLM 的 Flash/G4 控制直接宣布为完成。ABX 的对象是原圆环问题中的 A、B、X：静态拓扑处理与来源—复原—过程完成要求之间，是否在某个**真实 HoTT 使用位置**发生任务失配。
 
-当前状态：`ABX-1/2_COMPONENTS_QUALIFIED_WITH_SCOPE / NO_K_WITHIN_D_ABX_1 / NO_NEW_HOTT_DEFECT_CLAIM`。用户背景原文的精确快照在[sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md](sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md)；其导入收据在[audit/abx-action-20260921/SOURCE-IMPORT.json](audit/abx-action-20260921/SOURCE-IMPORT.json)。第一合同与首个 K 分母的收据在[audit/abx-action-20260921/ABX-1-3-原对象任务合同与首个K分母.md](audit/abx-action-20260921/ABX-1-3-原对象任务合同与首个K分母.md)。历史 ZCode/GLM 内容仅作被审对象，不能以其断言替代本行动的形式义务。
+当前状态：`ABX-1/2_COMPONENTS_QUALIFIED_WITH_SCOPE / NO_K_WITHIN_D_ABX_1_AND_D_ABX_2 / NO_NEW_HOTT_DEFECT_CLAIM`。用户背景原文的精确快照在[sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md](sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md)；其导入收据在[audit/abx-action-20260921/SOURCE-IMPORT.json](audit/abx-action-20260921/SOURCE-IMPORT.json)。第一合同与首个 K 分母的收据在[audit/abx-action-20260921/ABX-1-3-原对象任务合同与首个K分母.md](audit/abx-action-20260921/ABX-1-3-原对象任务合同与首个K分母.md)，原生直接消费者分母的收据在[audit/abx-action-20260921/ABX-3-D2-原生直接消费者审计.md](audit/abx-action-20260921/ABX-3-D2-原生直接消费者审计.md)。历史 ZCode/GLM 内容仅作被审对象，不能以其断言替代本行动的形式义务。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
