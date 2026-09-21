@@ -1,0 +1,37 @@
+{
+  "schema_version": "p13-ambient-pair-rmin-evidence-freeze/v1",
+  "classification": "R_AMBIENT_SPECIALIZATION_ACCEPTED_WITH_SCOPE",
+  "sources": [
+    {"path":"HoTT/formal/astra-real-geometry/PuncturedCircle.lean","sha256":"ec67947933a44a059d1694d33b0ab8e0fe2c0dbcc4116243f2b3f379181aaa9b"},
+    {"path":"HoTT/formal/astra-real-geometry/AmbientCircle.lean","sha256":"21212e0aca957eaee871f746c98adb861ae6494163e057a512fb0ee8fe524ed0"},
+    {"path":"HoTT/formal/astra-real-geometry/DeformationCircle.lean","sha256":"7326d9fb280b35183aaa09e32723f0e4a84f82502c2ab2b0346193dc0ef73724"},
+    {"path":"HoTT/formal/astra-real-geometry/EndpointClosure.lean","sha256":"68f91c2ccba510c120be08bf81d79a0566781c1c8fef756bb580e55d0bde21bd"},
+    {"path":"HoTT/formal/astra-real-geometry/StructuredCurve.lean","sha256":"d46605371967a90fdfa0d0cb0a76d0fc49a33d3c5dac3a135210db99abc88d45"},
+    {"path":"HoTT/verification/runs/20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02/RUN.json","sha256":"918aa3da0061bba16e197f708c026f0341d707c7dcaf8a03993ecd06f44cb12d"},
+    {"path":"HoTT/verification/runs/20260920-MP-ASTRA-CURVE-DEFORMATION-001-02/RUN.json","sha256":"918f4b1f70ffacafe4a3e00a80cf174b52f0ae22588def809f2e2f367325a298"},
+    {"path":"HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02/RUN.json","sha256":"28009bf958e476d4a9b9d6ae9f8eb3db070328b905c20bc7e5be693dc17c9654"}
+  ],
+  "claims": {
+    "intrinsic_positive_control": ["C-265","C-266"],
+    "ambient_finite_negative_control": ["C-267","C-268"],
+    "curve_embedding_positive_control": ["C-269","C-270"],
+    "structured_boundary_context": ["C-275","C-276","C-277"]
+  },
+  "operation_classes": {
+    "ambient_finite": "List (Plane ≃ₜ Plane) acting through runAmbient",
+    "curve_embedding": "jointly continuous F : Icc(0,1) × Ioo(0,1) → Plane with IsEmbedding each time slice"
+  },
+  "external_classification": {
+    "ambient_isotopy": "KNOWN_STANDARD_STRUCTURE",
+    "isotopy_through_embeddings": "KNOWN_STANDARD_STRUCTURE",
+    "isotopy_extension_for_this_open_interval_model": "NOT_APPLIED_WITH_REASON",
+    "exact_hott_consumer": "NO_EXACT_HOTT_TASK_WITHIN_DECLARED_SEARCH"
+  },
+  "not_claimed": [
+    "a new Lean theorem or replay",
+    "a native HoTT formalization",
+    "a complete reality relation",
+    "an actual K",
+    "a HoTT defect"
+  ]
+}
