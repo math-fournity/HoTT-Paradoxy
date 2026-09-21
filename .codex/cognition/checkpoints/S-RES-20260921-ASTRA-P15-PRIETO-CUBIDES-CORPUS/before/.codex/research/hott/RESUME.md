@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P15后继续：P15固定页面分母给出显式Map/Face/Walk/Spherical防御和任务不同判词。P16=FOURTH_SUCCESSOR_DISCOVERY：重新做公开/本地侦察，选择一个未审版本冻结实际消费者，固定Input/Operation/Observation/Done与P7准入；不重审Prieto-Cubides、不克隆/编译/全站扫描。入口：`audit/p15-prieto-cubides-spherical-maps-agda-corpus-20260921/P15-PRIETO-CUBIDES-SPHERICAL-MAPS-AGDA-CORPUS-REPORT.md`；revision235 checkpoint。
+当前 active goal 在P14后继续：P14选择了Prieto-Cubides CPP2022作者发布Agda formalisation，P15=PRIETO_CUBIDES_SPHERICAL_MAPS_AGDA_CORPUS。只读CPP2022-paper、Map、Map.Face.Walk.Homotopy、Map.Spherical、Map.Spherical-is-enough与论文背景，按P7 K-input/K-output/K-claim/K-forgetting/K-version比较显式Map/Face/Walk和P13 bare H_intrinsic/Done。不得编译、克隆、下载未知源码或扩大到全站。入口：`audit/p14-ambient-operation-k-successor-discovery-20260921/P14-AMBIENT-OPERATION-K-SUCCESSOR-DISCOVERY-REPORT.md`；revision234 checkpoint。
 
 ## 历史停止点
 
