@@ -1,0 +1,31 @@
+{
+  "schema_version": "p11-coqhott-source-audit/v1",
+  "repository": "https://github.com/HoTT/Coq-HoTT",
+  "commit": "e3deab71b9cb53a22c00ab39dea4699dd2c89a13",
+  "source_freeze": {
+    "path": "audit/p10-second-successor-discovery-20260921/P10-COQHOTT-CANDIDATE-FREEZE.json",
+    "sha256": "9642b25dce43cafddfe5155357ab5cbc54d761b6d0f44c2c054e14cf210ddf5e"
+  },
+  "read_coverage": {
+    "README.md": "FULL_READ",
+    "theories/Colimits/Coeq.v": "FULL_READ",
+    "theories/Spaces/Circle.v": "FULL_READ",
+    "theories/Spaces/Torus/Torus.v": "FULL_READ",
+    "theories/Spaces/Torus/TorusEquivCircles.v": "FULL_READ"
+  },
+  "source_findings": {
+    "coeq_input": "Coeq takes B, A, f, g; Coeq_rec requires coeq' and a cglue' coherence path for each b : B.",
+    "circle": "Circle := Coeq Unit Unit idmap idmap; base := coeq tt; loop := cglue tt.",
+    "circle_elimination": "Circle_ind and Circle_rec require explicit base data and loop coherence.",
+    "downstream": "TorusEquivCircles uses Circle_rec together with explicit Torus base, loops and surface to prove Torus <~> Circle × Circle.",
+    "task_vocabulary_absence_scope": "No OpenRealInterval, Punctured, OriginPresentation, Done_strong, CurveRun or closure lexical occurrence in the five fixed files; this is a finite-source lexical result only.",
+    "trust_boundary": "Torus_rec_beta_surf is source-level Admitted and is consumed by the Torus equivalence proof; no compiler replay was performed."
+  },
+  "not_claimed": [
+    "a Coq-HoTT build or kernel replay",
+    "truth or falsity of the admitted torus lemma",
+    "a K",
+    "a general Coq-HoTT audit",
+    "a HoTT defect"
+  ]
+}

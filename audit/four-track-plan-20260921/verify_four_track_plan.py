@@ -44,6 +44,10 @@ P10_VERIFY = 'audit/p10-second-successor-discovery-20260921/verify_p10_second_su
 P10_REPORT = 'audit/p10-second-successor-discovery-20260921/P10-SECOND-SUCCESSOR-DISCOVERY-REPORT.md'
 P10_FREEZE = 'audit/p10-second-successor-discovery-20260921/P10-COQHOTT-CANDIDATE-FREEZE.json'
 P10_RECEIPT = 'audit/p10-second-successor-discovery-20260921/P10-SECOND-SUCCESSOR-DISCOVERY-VERIFICATION.json'
+P11_VERIFY = 'audit/p11-coqhott-circle-coequalizer-corpus-20260921/verify_p11_coqhott_circle_coequalizer.py'
+P11_REPORT = 'audit/p11-coqhott-circle-coequalizer-corpus-20260921/P11-COQHOTT-CIRCLE-COEQUALIZER-CORPUS-REPORT.md'
+P11_AUDIT = 'audit/p11-coqhott-circle-coequalizer-corpus-20260921/P11-COQHOTT-SOURCE-AUDIT.json'
+P11_RECEIPT = 'audit/p11-coqhott-circle-coequalizer-corpus-20260921/P11-COQHOTT-CIRCLE-COEQUALIZER-VERIFICATION.json'
 INDEX = 'HoTT后续研究总体方案.md'
 SHARDS = [
     'HoTT后续研究总体方案/001 - 上一轮问答与四分支校正.md',
@@ -86,7 +90,8 @@ def main() -> None:
     subprocess.check_call([sys.executable, '-B', P8_VERIFY, '--write'], cwd=ROOT)
     subprocess.check_call([sys.executable, '-B', P9_VERIFY, '--write'], cwd=ROOT)
     subprocess.check_call([sys.executable, '-B', P10_VERIFY, '--write'], cwd=ROOT)
-    for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, P5_VERIFY, P5_REPORT, P5_RECEIPT, P6_VERIFY, P6_REPORT, P6_RECEIPT, P7_VERIFY, P7_REPORT, P7_RECEIPT, P8_VERIFY, P8_REPORT, P8_FREEZE, P8_RECEIPT, P9_VERIFY, P9_REPORT, P9_FREEZE, P9_RECEIPT, P10_VERIFY, P10_REPORT, P10_FREEZE, P10_RECEIPT, 'goal.md', 'feature-list.md', 'rulings.md', 'ABX行动.md', 'ABX行动/005 - 状态、停止条件与未来交接.md']:
+    subprocess.check_call([sys.executable, '-B', P11_VERIFY, '--write'], cwd=ROOT)
+    for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, P5_VERIFY, P5_REPORT, P5_RECEIPT, P6_VERIFY, P6_REPORT, P6_RECEIPT, P7_VERIFY, P7_REPORT, P7_RECEIPT, P8_VERIFY, P8_REPORT, P8_FREEZE, P8_RECEIPT, P9_VERIFY, P9_REPORT, P9_FREEZE, P9_RECEIPT, P10_VERIFY, P10_REPORT, P10_FREEZE, P10_RECEIPT, P11_VERIFY, P11_REPORT, P11_AUDIT, P11_RECEIPT, 'goal.md', 'feature-list.md', 'rulings.md', 'ABX行动.md', 'ABX行动/005 - 状态、停止条件与未来交接.md']:
         need(rel)
     marker(INDEX, 'logical_id: HOTT-FOUR-TRACK-PLAN')
     marker(INDEX, 'last_shard: HoTT后续研究总体方案/005 - 当前第一步与交接.md')
@@ -94,8 +99,8 @@ def main() -> None:
     marker(SHARDS[0], '### AI 最终回复')
     marker(SHARDS[1], 'P1：结构规格')
     marker(SHARDS[1], 'P4：实现忠实性')
-    marker(INDEX, 'P10_COQHOTT_CANDIDATE_SELECTED')
-    marker(INDEX, 'P11_COQHOTT_CIRCLE_COEQUALIZER_CORPUS_NEXT')
+    marker(INDEX, 'P11_COQHOTT_GLUING_DEFENSE')
+    marker(INDEX, 'P12_THIRD_SUCCESSOR_DISCOVERY_NEXT')
     marker(SHARDS[2], 'P1：`R_min` 最小规格资格化')
     marker(SHARDS[2], 'P1 已完成的范围结果')
     marker(SHARDS[2], 'P2-KTHEORY-SIP-001')
@@ -116,6 +121,8 @@ def main() -> None:
     marker(SHARDS[2], 'P10：`SECOND_SUCCESSOR_DISCOVERY`')
     marker(SHARDS[2], 'P10 已完成的范围结果')
     marker(SHARDS[2], 'P11：`COQHOTT_CIRCLE_COEQUALIZER_CORPUS`')
+    marker(SHARDS[2], 'P11 已完成的范围结果')
+    marker(SHARDS[2], 'P12：`THIRD_SUCCESSOR_DISCOVERY`')
     marker(SHARDS[3], '每个工作单元的最小声明')
     marker(SHARDS[4], 'P5-SUCCESSOR-DISCOVERY-001')
     marker(SHARDS[4], 'P6-ORIGIN-STRUCTURE-STRATIFIED-COMPARISON-001')
@@ -124,8 +131,9 @@ def main() -> None:
     marker(SHARDS[4], 'P9-SHOTT-DIRUNIV-CORPUS-DENOMINATOR-001')
     marker(SHARDS[4], 'P10-SECOND-SUCCESSOR-DISCOVERY-001')
     marker(SHARDS[4], 'P11-COQHOTT-CIRCLE-COEQUALIZER-CORPUS-001')
-    marker('goal.md', 'NEXT_P11_COQHOTT_CIRCLE_COEQUALIZER_CORPUS')
-    marker('feature-list.md', 'NEXT_P11_COQHOTT_CIRCLE_COEQUALIZER_CORPUS')
+    marker(SHARDS[4], 'P12-THIRD-SUCCESSOR-DISCOVERY-001')
+    marker('goal.md', 'NEXT_P12_THIRD_SUCCESSOR_DISCOVERY')
+    marker('feature-list.md', 'NEXT_P12_THIRD_SUCCESSOR_DISCOVERY')
     marker('rulings.md', '四分支')
     marker('ABX行动.md', 'P5–P7 已给出 R 与 K')
     marker('ABX行动/005 - 状态、停止条件与未来交接.md', 'HoTT后续研究总体方案.md')
@@ -134,10 +142,10 @@ def main() -> None:
         'schema_version': 'four-track-plan-verification/v1',
         'status': 'PASS_WITH_SCOPE',
         'scope': ('Verifies the plan structure, verbatim prior-answer projection, P1/P2/P3 receipts, '
-                  'and the active-goal P5/P6/P7/P8/P9 completion, P10 selection, and P11 source-audit routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
+                  'and the active-goal P5/P6/P7/P8/P9 completion, P10 selection, P11 source-audit, and P12 discovery-routing anchors. It does not prove a new R_min theorem, a K_theory/K_app/K_engine, '
                   'a new topology, or a HoTT defect.'),
-        'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, P5_VERIFY, P5_REPORT, P5_RECEIPT, P6_VERIFY, P6_REPORT, P6_RECEIPT, P7_VERIFY, P7_REPORT, P7_RECEIPT, P8_VERIFY, P8_REPORT, P8_FREEZE, P8_RECEIPT, P9_VERIFY, P9_REPORT, P9_FREEZE, P9_RECEIPT, P10_VERIFY, P10_REPORT, P10_FREEZE, P10_RECEIPT]},
-        'verdict': 'FOUR_TRACK_FIRST_PASS_CLOSED_P5_P6_P7_P8_P9_COMPLETE_P10_COQHOTT_CANDIDATE_SELECTED_P11_NEXT',
+        'files': {rel: sha(need(rel)) for rel in [INDEX, *SHARDS, DIALOGUE, P1_VERIFY, P1_REPORT, P1_RECEIPT, P2_VERIFY, P2_REPORT, P2_RECEIPT, P3_VERIFY, P3_REPORT, P3_FREEZE, P3_RECEIPT, P5_VERIFY, P5_REPORT, P5_RECEIPT, P6_VERIFY, P6_REPORT, P6_RECEIPT, P7_VERIFY, P7_REPORT, P7_RECEIPT, P8_VERIFY, P8_REPORT, P8_FREEZE, P8_RECEIPT, P9_VERIFY, P9_REPORT, P9_FREEZE, P9_RECEIPT, P10_VERIFY, P10_REPORT, P10_FREEZE, P10_RECEIPT, P11_VERIFY, P11_REPORT, P11_AUDIT, P11_RECEIPT]},
+        'verdict': 'FOUR_TRACK_FIRST_PASS_CLOSED_P5_P6_P7_P8_P9_COMPLETE_P10_SELECTED_P11_GLUING_DEFENSE_P12_THIRD_SUCCESSOR_NEXT',
     }
     if args.write:
         (ROOT / RECEIPT).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
