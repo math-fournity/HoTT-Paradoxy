@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P18后继续：P19=ORIGIN_DIRECTED_DIAGRAM_KERNELIZATION，核原生后端能力并形式化最小结构、bare forgetful map和正负控制；无新可检查义务则RESTATEMENT_ONLY。入口：`audit/p18-fifth-successor-discovery-20260921/P18-FIFTH-SUCCESSOR-DISCOVERY-REPORT.md`；revision238。
+当前 active goal 在P17后继续：P18重新做公开/本地侦察，选未审版本冻结分母；不重审Cauchy-real语料。入口：`audit/p17-cubical-hott-cauchy-reals-corpus-20260921/P17-CUBICAL-HOTT-CAUCHY-REALS-CORPUS-REPORT.md`；revision237。
 
 ## 历史停止点
 
