@@ -1,0 +1,19 @@
+{
+  "new_kernel_replay": false,
+  "new_math_claims": [],
+  "primary_runs": [
+    {
+      "command": "python3 -B audit/p24-ercf3-proof-predicate-qualification-20260921/verify_p24_ercf3_proof_predicate_qualification.py",
+      "kind": "P24 report verifier",
+      "result": "PASS_WITH_SCOPE"
+    },
+    {
+      "command": "git ls-remote https://github.com/sinhp/HoTTLean.git HEAD refs/heads/master and git ls-remote https://github.com/coquand/agda-godel-tree.git HEAD refs/heads/main",
+      "kind": "public source pin read",
+      "result": "P25 and positive-control commits recorded in P24 source freeze"
+    }
+  ],
+  "schema_version": "hott-session-runs/v1",
+  "scope": "P24 is a source/consumer qualification, not a new proof package.",
+  "session_id": "S-RES-20260921-ASTRA-P24-ERCF3-QUALIFICATION"
+}
