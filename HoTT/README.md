@@ -3,7 +3,9 @@
 本目录是当前 HoTT–Z 研究的唯一活动入口。历史 AI 文本保留原貌，但不作为当前数学真值；当前
 结论由审计报告、主张矩阵和机器证据共同限定。
 
-## 当前持续研究主题
+当前执行顺序由顶层[MEMORY队列](<../MEMORY/001 - 当前执行队列.md>)和STATE拥有；本页提供主题与资产路由，不另建执行队列。四弹redo的本地结果式审阅入口为[review/four-stage-redo-v1](review/four-stage-redo-v1/README.md)，其证据范围见实际重放收据。
+
+## 主题背景与历史研究线（不替代当前执行队列）
 
 [Theory Schema](THEORY_SCHEMA.md)（v0.2，2026-09-09）提供固定一手版本的理论地图：核心规则、
 派生数学、语义/相干性、跨呈现计算、扩展/元理论分界、时间审查接口及来源覆盖。用于核对被审视的理论，不替代用户
@@ -68,8 +70,9 @@ formation、identity、judgmental equality、univalence/funext 的 stage/settlem
 | `sources/user-originals/matrix-book-paradoxes/` | `USER_PRIMARY_SOURCE_DERIVED_VERBATIM_VIEW` | 《宇宙编程学》第三版全文、84 张图和 10 份悖论/解答链独立原文；原作主张不自动升级 |
 | `../认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md` | `AUDITABLE_COGNITIVE_CLOSURE` | 当前 successor；Z 最终强律、时间否定、朴素集合论、HoTT 认知惯性怀疑、证据和可执行边界；不替代 current owners |
 | `ChatGPT-🌟 Z铁律论证HoTT缺乏时间维度-完整提取-20260831-1745.md` | `USER_PROVIDED_TRAJECTORY` | 用户与另一 AI 的完整对话；用于重建意图和论证演化 |
-| `formal/` | `CURRENT_IMPLEMENTATION` | 数学证明源码的权威根；当前 17 个 proof package 覆盖 Lean 通用因子化、原生 Cubical Agda 边界族和固定 agda-unimath C-05 外部重放；新结论按 topic/claim 保存，不以 `/tmp` 或聊天代码替代 |
-| `verification/` | `CURRENT_EVIDENCE` | 来源发现与形式化验证；`runs/` 保存全部 final/superseded/失败 run。当前矩阵为 17 个 current package + 3 legacy proof 行、C-01–C-148；每个 run 只支持其精确命题与导入闭包 |
+| `formal/` | `CURRENT_IMPLEMENTATION` | 数学证明源码的权威根；具体当前包、命题和scope由CLAIM_EVIDENCE_MATRIX与PROOF_VERSION_CLOSURE登记，不在本页复制易过时的包数；新结论按topic/claim保存 |
+| `verification/` | `CURRENT_EVIDENCE` | 来源发现与形式化验证；runs保存主、历史、失败和补充重放，身份分别读取；每个run只支持其精确输入/命题/环境 |
+| `review/four-stage-redo-v1/` | `LOCAL_SCOPED_REVIEW_EXPORT` | 五个真实证明入口与四类型错误控制的结果说明、锁定源包和独立位置重放；未公开，非完整四弹成功判词 |
 | `USER_CORE_DOUBT.md` | `ACCEPTED_USER-INTENT_INTERPRETATION` | 用户核心怀疑的当前哲学解释；不替代数学审计 |
 | `Z_LAW_REALITY_RELATIVE_PARADOXES.md` | `ACTIVE_CANONICAL_RESEARCH_OWNER` | Z 铁律、计算合法性、现实相对悖论、同函数异时和 Guard-Erasure 当前目标 |
 | `SELF_REFERENCE_AND_REFLECTION_INVESTIGATION.md` | `CURRENT_HISTORICAL_RECOVERY` | “直指/自指”、self-metatheory 和反射支线的来源与技术裁决 |
@@ -81,7 +84,7 @@ formation、identity、judgmental equality、univalence/funext 的 stage/settlem
 
 ## 当前一句话结论
 
-当前 **17 个冻结 proof package** 在各自固定命题、工具链和 run 范围内形成机器证据，并由 `verification/PROOF_VERSION_CLOSURE.json` 绑定到 exact commit `d3dfb0e…`；其后 `later_packages` 已追加 25 个 package / 101 条 claim，故当前登记为 42 个 package、90 条冻结机器主张 + 1 条 scoped external replay + 101 条 later 主张。C-188–C-222 形成 R1/R2 与条件 internal no-decider；C-223–C-226 重放 groupoid syntax；C-227–C-243 覆盖 2LTT/LOPS/ITT internalisation；C-244–C-249 重放一般 R3 essential incompleteness 与 Robinson Q 条件独立句。十四个新 R1/R2/R3/R4/internalisation 包仍为 `LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`。R3 的对象理论是一阶算术而非 exact HoTT；现有结果仍没有 ambient HoTT 无条件 no-decider、完整 R4/Gödel、经验现实桥梁、`NATURAL_USAGE_MISMATCH` 或 basic HoTT/2LTT 内部矛盾。
+数学当前真值应从[主张矩阵](CLAIM_EVIDENCE_MATRIX.md)、[版本登记](verification/PROOF_VERSION_CLOSURE.json)和指定run读取；冻结包、后来追加包、历史候选解释及尚有资格缺口的包不能混作全体PASS。四弹redo的现有同对象/操作合同、结构运输、算术请求和信息保持结果有各自精确证据，当前整体失配判词未成立；[第三十一轮审计](../Astra继续尝试/断点与证明机制系统检查/第三十一轮执行报告.md)列原文、原典和六义务，[第三十二轮](../Astra继续尝试/断点与证明机制系统检查/第三十二轮执行报告.md)列选定范围的本地审阅与重放。它们不认证全部历史包，也不把一般一阶算术元定理提升为exact HoTT结论。
 
 ## 快速验证
 

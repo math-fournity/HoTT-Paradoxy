@@ -1,0 +1,67 @@
+{
+  "schema_version": "astra-scoped-relocation-replay/v1",
+  "case_id": "geometry",
+  "proof_id": "MP-ASTRA-NATIVE-TASK-INTEGRATION-001",
+  "source_primary_run": "HoTT/verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01",
+  "status": "RELOCATION_REPLAY_PASS_WITH_SCOPE",
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/compiler/agda",
+    "--ignore-interfaces",
+    "--no-default-libraries",
+    "--library-file=/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/geometry/libraries",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/geometry/work/sources/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/geometry/imports.dot",
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/geometry/work/sources/HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda"
+  ],
+  "cwd": "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/geometry/work",
+  "exit_code": 0,
+  "expected_exit": 0,
+  "seconds": 464.9901226660004,
+  "observation_timeout": false,
+  "input_files_unchanged": true,
+  "interface_cache_initially_empty": true,
+  "ignore_interfaces": true,
+  "fresh_primitive_hashes_matched": 36,
+  "observed_checking_lines": 1101,
+  "observed_path_escapes": [],
+  "original_dependency_graph_equal": true,
+  "expected_diagnostic_matched": true,
+  "bundle_manifest_sha256": "bdc4f97faedf3849b92edee91ccedf3e411ea006d644e038e27d48c5fa9d2e52",
+  "compiler_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+  "replayer_sha256": "8fe74c040962770c27ba1ade70467a96a6d7b04cc80714c63a47fca398e84e15",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "artifacts": {
+    "START.json": {
+      "bytes": 1032,
+      "sha256": "d3aee51f1cc438464827c11be612d3d2251d8e8ba9c159c565198bb228195d6f"
+    },
+    "imports.dot": {
+      "bytes": 102175,
+      "sha256": "522284b57f4ceb06f5807a8fce209e117767486cef3e3f27e0062cd6a341d9dc"
+    },
+    "libraries": {
+      "bytes": 138,
+      "sha256": "fcb059de92ec159177c345839d8ac1c6346562da56d8dc699f9dd6e002fdfc12"
+    },
+    "setup.stderr.txt": {
+      "bytes": 9260,
+      "sha256": "3f6d5b7633ded1fa32cf784028e67d8da4414234eada9fe78097ebf2b774f04d"
+    },
+    "setup.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.txt": {
+      "bytes": 263313,
+      "sha256": "5ed1e20405cd035656c4b1903f3edb3d518588ad51c65b6309c445c375ee2635"
+    }
+  },
+  "scope": "Same machine/macOS arm64 exact compiler and fixed bytes in a distinct fresh directory. No OS access sandbox or network isolation claimed. Imported-source paths observed in compiler output; not an operating-system file-access trace. Negative controls are rejected fixed terms, not negative mathematical theorems."
+}

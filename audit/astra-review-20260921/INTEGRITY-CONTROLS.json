@@ -1,0 +1,42 @@
+{
+  "status": "TWO_PRECHECK_CONTROLS_PASS",
+  "results": [
+    {
+      "case": "missing-source",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/integrity controls/missing source/tools/replay.py",
+        "--agda",
+        "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/compiler/agda",
+        "--out",
+        "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/integrity controls/missing-source results",
+        "--case",
+        "geometry"
+      ],
+      "exit": 1,
+      "expected_diagnostic": "INPUT_MISMATCH:",
+      "rejected_before_output_or_Agda": true,
+      "pass": true
+    },
+    {
+      "case": "wrong-compiler",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/four-stage-review/tools/replay.py",
+        "--agda",
+        "/usr/bin/true",
+        "--out",
+        "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/integrity controls/wrong-compiler results",
+        "--case",
+        "geometry"
+      ],
+      "exit": 1,
+      "expected_diagnostic": "COMPILER_HASH_MISMATCH",
+      "rejected_before_output_or_Agda": true,
+      "pass": true
+    }
+  ],
+  "scope": "Missing one frozen proof file and a wrong compiler are rejected before any formal check. This is integrity validation, not a mathematical no-go result."
+}
