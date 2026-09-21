@@ -13,7 +13,7 @@
 
 ## 当前阶段（2026-09-21）
 
-当前 active goal 在P16后继续：P17=CUBICAL_HOTT_CAUCHY_REALS_CORPUS，审arXiv v1和固定公开代码定位，按P7区分Cauchy real构造接口与P13 bare H/Done；不编译、克隆或扩站。入口：`audit/p16-fourth-successor-discovery-20260921/P16-FOURTH-SUCCESSOR-DISCOVERY-REPORT.md`；revision236。
+当前 active goal 在P15后继续：P15固定页面分母给出显式Map/Face/Walk/Spherical防御和任务不同判词。P16=FOURTH_SUCCESSOR_DISCOVERY：重新做公开/本地侦察，选择一个未审版本冻结实际消费者，固定Input/Operation/Observation/Done与P7准入；不重审Prieto-Cubides、不克隆/编译/全站扫描。入口：`audit/p15-prieto-cubides-spherical-maps-agda-corpus-20260921/P15-PRIETO-CUBIDES-SPHERICAL-MAPS-AGDA-CORPUS-REPORT.md`；revision235 checkpoint。
 
 ## 历史停止点
 
