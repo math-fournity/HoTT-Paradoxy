@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 177,
+  "later_machine_proved_claim_count": 178,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -900,6 +900,16 @@
    "kind": "native_cubical_selected_boundary_observation",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: exact integral boundary diagrams separated as rich Sigma data, no commuting equivalences/recovery after forgetting maps, and native ua transports full data preserving separation.",
    "notes": "--safe --cubical --guardedness source, explicit CLI flags also checked in preserved draft. BoundaryIncidence unchanged from recoverable snapshot. Bare here is ambient carrier of a boundary diagram, not whole real curve."
+  },
+  {
+   "proof_id": "MP-ASTRA-PRESENTATION-FIBER-001",
+   "claim_ids": "C-326",
+   "source": "HoTT/formal/agda-unimath/hott-z/PresentationFiber.agda",
+   "toolchain": "HoTT/formal/agda-unimath/no-erasure/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260922-MP-ASTRA-PRESENTATION-FIBER-001-01",
+   "kind": "same_backend_bare_presentation_fiber_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: the Bare fiber over OpenRealInterval contains transported closed and ordinary open presentations separated by endpoint closure.",
+   "notes": "Fixed no-erasure agda-unimath source/run. This is a P1 presentation-fiber control only; it does not formalize full origin/process/Done, a HoTT defect, actual K, or reality bridge."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
