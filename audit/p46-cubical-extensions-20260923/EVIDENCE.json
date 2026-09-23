@@ -1,0 +1,94 @@
+{
+  "schema_version": "bounded-theory-source-audit/v1",
+  "baseline": "34ad06c695de7f4239dd3e7492a4f1d5687188f9",
+  "source_hashes": {
+    "HoTT/theory-schema/EXTENSIONS_AND_METATHEORY.md": "67493b934681e88ce425b58f20085576906d0f9ead2f7fd68366326275b91716",
+    "HoTT/formal/partiality-race-timeout/GuardErasure.agda": "207735163b26d857d4ccd98512b1cb13ed8ec0c163673b045fa8e8449dc0722e",
+    "HoTT/formal/partiality-race-timeout/CostFactorization.agda": "d6ac0ecb7b0824f396e94aec1cb246b04df31ef7f90320767d54a5f33b2527ea",
+    "audit/p33-2ltt-v5-self-metatheory-boundary-audit-20260922/P33-2LTT-V5-SELF-METATHEORY-BOUNDARY-AUDIT-REPORT.md": "ccf38d3c801981721359e07b9a101d46291099842469ab8c3f3396ae502ff4ea",
+    "HoTT/CLAIM_EVIDENCE_MATRIX.md": "03b90871c389139a715a9c83b1ee2e8ce8cc1e2a8c08eb49301c3fe39591333a"
+  },
+  "read_ranges": {
+    "GuardErasure.agda": "full",
+    "CostFactorization.agda": [
+      [
+        1,
+        110
+      ]
+    ],
+    "P33 report": "full",
+    "CLAIM_EVIDENCE_MATRIX": "C92-99 and C227-232 scope; no replay"
+  },
+  "external_sources": [
+    {
+      "url": "https://arxiv.org/pdf/1611.02108v1",
+      "read": "sections 3,4.1-4.3,6;7 theorem/UA scope; interval,face,comp,Glue side conditions",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://agda.readthedocs.io/en/v2.8.0/language/cubical.html",
+      "read": "interval,IUniv,transp,Partial overlap,hcomp missing side,Glue; official contract only",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1606.05223v2",
+      "read": "intro and sections2.2-2.4; semantics introduction; no clock quantification in this version",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2102.01969v3",
+      "read": "Figures1/2;3.1 forcing ticks;Def4.1/Thm4.3;5.2 boundary and induction under clocks",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1509.07584v3",
+      "read": "section2 crisp/ordinary/substitution;sections7-8 topology vs identity and R-flat",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1705.07442v5",
+      "read": "section2.2 shape/extension and substitution;Def5.3 Segal;Def10.6 Rezk",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2107.04663v2",
+      "read": "sections2.2-2.5 cost monoid,step laws and extensional phase",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://bentnib.org/quantitative-type-theory.pdf",
+      "read": "Atkey LICS2018 DOI10.1145/3209108.3209189; variable/conversion/Pi rules and substitution lemma; earlier scheme limitation",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2503.05790v2",
+      "read": "Joshua Chen;intro1.1-1.4;Def4.2.1 and5.0.8; assumptions and coherence data",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2311.18781v2",
+      "read": "intro;2.4 boxed context display and telescope decalage",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2407.09146v2",
+      "read": "sections3.1.2-3.1.4 lattice interval,modal/global tininess,simplicial monad and axioms",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2605.00812v2",
+      "read": "Def1.1-1.4 and Thm1.5-1.6 conditions; categorical vs standard UA",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1712.01800v1",
+      "read": "intro and Kan/pretype/exact-equality scope; behavioral judgments not decidable",
+      "status": "SOURCE_REPORTED_NOT_REPLAYED"
+    }
+  ],
+  "existing_evidence": "P6 object-framework comparison, P33 2LTT, P42 CHM, old breakpoint and C92-99 controls reused with their original scopes",
+  "new_math_claims": [],
+  "new_kernel_runs": [],
+  "verdict": "EXTENSION_RULES_AND_RESTRICTIONS_QUALIFIED",
+  "limitations": "E03/E05/CATT deeper metatheory excluded with reasons in report008; no all-extension compatibility, physical interpretation, whole implementation or native translation certification."
+}
