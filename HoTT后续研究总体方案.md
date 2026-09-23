@@ -11,7 +11,7 @@ soft_line_target: 300
 
 # HoTT 后续研究总体方案：四分支、次序与防漂移
 
-> 状态：THEORY_INSPECTION_IN_PROGRESS / P43_LOGIC_REALS_SOURCE_REVIEWED / P44_DERIVED_THEORY_NEXT / GOAL_ACTIVE；current revision与next action由STATE拥有。
+> 状态：THEORY_INSPECTION_IN_PROGRESS / P44_DERIVED_SOURCE_REVIEWED / P45_COMPUTATION_MODELS_NEXT / GOAL_ACTIVE；current revision与next action由STATE拥有。
 > 目标：把来源—操作—复原敏感结构、理论规则级桥、实际消费者和证明助手实现忠实性放入一个有先后关系的研究组合；避免把 ABX、旧机器统观或一次局部控制误当作整个目标。
 > 边界：本计划不证明 HoTT 缺陷、不预设四个分支必有命中，也不自动启动数学研究；它只固定下一个最小资格化单元及其后续选择规则。
 

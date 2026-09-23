@@ -2,16 +2,16 @@
 logical_id: HOTT-THEORY-INSPECTION
 mode: topical
 shard_root: HoTT理论充分检视
-last_shard: HoTT理论充分检视/005 - P43逻辑、宇宙与实数能力.md
+last_shard: HoTT理论充分检视/006 - P44派生同伦、范畴与集合.md
 append_target: -
 soft_line_target: 300
 -->
 
 # HoTT理论充分检视
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 5 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 6 个分片；缺一片即未完成，按表顺序读取。
 
-本报告按总体方案第006片检视HoTT规则、抽象选择及其关键联系。P40–P43已核基础、同一性、构造／消去及逻辑／宇宙／实数的声明源文范围，下一审派生同伦、范畴与集合。证据等级为 `SOURCE_INSPECTED_WITH_SCOPE`，模型、扩展与最终排序仍开放，不是全理论认证、机器证明或悖论发现。
+本报告按总体方案第006片检视HoTT规则、抽象选择及其关键联系。P40–P44已核基础、同一性、构造／消去、逻辑／实数及派生同伦／范畴／集合的声明源文范围；下一审计算与模型。证据等级为 `SOURCE_INSPECTED_WITH_SCOPE`，模型、扩展与最终排序仍开放，不是全理论认证、机器证明或悖论发现。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
@@ -21,6 +21,7 @@ soft_line_target: 300
 | 003 | [P41同一性、等价与前提资格](<HoTT理论充分检视/003 - P41同一性、等价与前提资格.md>) | Id/set、η、J、isEquiv、ua/SIP及旧P2/P3P4影响 | completed-with-scope |
 | 004 | [P42归纳、HIT、截断与构造资格](<HoTT理论充分检视/004 - P42归纳、HIT、截断与构造资格.md>) | Nat/W、正性、HIT语法、截断／商消去、层级及旧四项非现实归因资格 | completed-with-scope |
 | 005 | [P43逻辑、宇宙与实数能力](<HoTT理论充分检视/005 - P43逻辑、宇宙与实数能力.md>) | LEM/AC/resizing与Ω四路线、模数、HIIT实数、紧致性、旧第四弹复用与完整反思 | completed-with-scope |
+| 006 | [P44派生同伦、范畴与集合](<HoTT理论充分检视/006 - P44派生同伦、范畴与集合.md>) | 合成同伦/Whitehead/模态、Rezk及V等的识别与消去条件，完整反思 | completed-with-scope |
 <!-- governance-shard-table:end -->
 
 执行依据：[总体方案006](<HoTT后续研究总体方案/006 - 理论充分检视的首轮范围与验收.md>)、[Goal 3](goal-3.md)。当前队列由STATE拥有，源码与旧运行按各自版本复用。
