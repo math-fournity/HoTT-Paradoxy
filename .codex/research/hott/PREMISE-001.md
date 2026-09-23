@@ -14,7 +14,7 @@ soft_line_target: 300
 
 > 版本：`premise-001/v1.0`
 > 冻结日：`2026-09-16`
-> 当前资格：`HISTORICAL_DENOMINATOR_35 / SOURCE_SEMANTICS_REVIEW_REQUIRED`。P41纠正C-01/G-02、A-04与η/J；P42收窄A-03/A-11、E-02/E-04并补E-03条件；P43复核F2-7，区分Ω/完备性/有效能力；P45撤回B-01由可判定性推出全系统观察不可表达的归因，并纠正B-02瞬时执行解释。旧AI“9条非现实”不作当前已证清单。冻结分片不改写，纠正见 `HoTT理论充分检视` 第003–007片；旧运行按各自目标保留。
+> 当前资格：`HISTORICAL_DENOMINATOR_35 / RULE_LOCATIONS_RECONCILED_WITH_SCOPE / REALITY_JUDGMENTS_NOT_INHERITED`。P41–P46源文复核与P47逐35条处置统一见 `HoTT理论充分检视/009 - P47首轮范围验收与旧前提总对账.md` §4，详细证据在003–008。包括C01/G02全局命题性、构造即物理完成、η/J混排、Ω必要性、B01表达缺失、I/层级稠密、任意面填充、Tarski呈现与2LTT/累积等资格修正。旧AI“9条非现实”不作当前已证清单；P2/P3P4全部现实解释不自动继承。本次不是全部历史句子复审。冻结分片和旧run按原字节、原目标保留。
 > 方案权威：`Atria的方案/修订片/008 - PREMISE-001 HoTT 前提集穷尽清单与 P1–P4 分工.md`
 > 当前研究：`goal.md`／`goal-3.md`与总体方案006；具体队列由STATE拥有，旧goal-1仅作历史入口。
 > 程序化父级：`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`

@@ -1,6 +1,6 @@
 # HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / THEORY_INSPECTION_IN_PROGRESS / P46_EXTENSIONS_COMPLETE / P47_SYNTHESIS_NEXT / GOAL_ACTIVE`；具体当前动作和revision以STATE为准。
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / THEORY_FIRST_PASS_COMPLETE_WITH_DECLARED_SCOPE / NEXT_EXPERIMENT_PROPOSED_NOT_EXECUTED`；具体当前动作和revision以STATE为准。当前App goal的006首轮完成；更大的现实相对见证目标尚未完成。
 > Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-P1–P39已形成有范围的规格、规则、消费者、几何与反射结果，历史路径和判词见工作树。用户在机器统观回顾后明确要求把**HoTT理论的充分检视放在第一位**：当前P40改为 `P40-THEORY-INSPECTION-FIRST-001`，先覆盖规则、派生构造、可选公理、语义模型和相关变体，核抽象选择及关键交互，再排序靶前提并设计过程。此前G-04/D-01/Book§11.2三选一不再是当前第一步。详见总体方案第006片；它复用已有Schema、PREMISE与证明控制，不重建统观平台。一般`X_T`回到原圆环`X₀`仍须保任务桥。
+P1–P39已形成有范围的规格、规则、消费者、几何与反射结果，历史路径和判词见工作树。用户要求理论充分检视优先后，P40–P47已按总体方案006完成八领域及关键交互的声明范围审查、旧35条资格对账、遗漏审计与排序。交付见《HoTT理论充分检视》009–010；没有新合格悖论见证。下一建议是有限覆盖证据到有限索引交付的最小任务资格化，尚未执行；不能把开放研究自动延长为本阶段未完成。一般`X_T`回到原圆环`X₀`仍须保任务桥，不重建统观平台、不重复旧Ω/Delay/SIP控制。
 
 四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 
