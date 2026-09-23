@@ -1,0 +1,344 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 6705, "end_line": 7043, "total_lines": 18474, "next_start_line": 7044, "chunk_sha256": "0cd941ec4229b8eafdb3d7dc6a680e46c2846e65e54c6c40ee0ff6ca6d6a9d63", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+        "audit/understanding-claim-sample-batch6-20260912.json": "99e4a4bb95c96fb98437467b0ed046f137c21e007893114fed33d36437a27284",
+        "scripts/audit/fill_understanding_claim_sample_batch6.py": "c06150a3713102796effaec3ce6518c21e93ad1c860315995ce0ecf9a2b26164",
+        "scripts/audit/sample_understanding_claims_batch6.py": "f898ffea408e482f07a0d81c2a43451eecc1ae65e3f3a4edaa006b2d9110bd73"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-TRUNC-NORECOVERY-001": {
+      "classification": "SET_VALUED_TRUNCATION_NO_RECOVERY_FAMILY",
+      "depends_on": [
+        "A-EVIDENCE-HYGIENE-BATCH3-001",
+        "A-ERCF-TRUNCATION-DEFENSE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "formal": {
+        "claim_ids": [
+          "C-134",
+          "C-135",
+          "C-136",
+          "C-137",
+          "C-138"
+        ],
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "proof_id": "MP-TRUNC-NORECOVERY-001",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "run_id": "20260913-MP-TRUNC-NORECOVERY-001-01"
+      },
+      "full_sources": [
+        "audit/truncation-no-recovery-and-batch5-20260913.md",
+        "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+        "HoTT/formal/truncation-no-recovery/README.md",
+        "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+        "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-01/RUN.json",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-01/index-row-manifest.json",
+        "scripts/audit/sample_understanding_claims_batch5.py",
+        "scripts/audit/fill_understanding_claim_sample_batch5.py",
+        "audit/understanding-claim-sample-batch5-20260912.json"
+      ],
+      "kind": "formal_proof_package_and_sample",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "audit/truncation-no-recovery-and-batch5-20260913.md",
+          "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+          "HoTT/formal/truncation-no-recovery/README.md",
+          "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+          "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-01/RUN.json",
+          "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-01/index-row-manifest.json",
+          "scripts/audit/sample_understanding_claims_batch5.py",
+          "scripts/audit/fill_understanding_claim_sample_batch5.py",
+          "audit/understanding-claim-sample-batch5-20260912.json"
+        ],
+        "reason": "The set-valued no-recovery family is machine-checked on the pinned toolchain (exit 0, zero warnings): constancy of set-valued reads on point constructors, the applied no-go, Bool and Nat instances, and the proposition-valued positive control. The batch-5 proportional sample adds 40 verdicts (29/0/0/11); cumulative 202/2396 with no UNSUPPORTED and no E6. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "scope": "Bounded family theorem for set-valued consumers of native propositional truncation plus the fifth evidence-queue sample. No HoTT inconsistency; higher-dimensional targets and all untruncations are outside scope; E6 remains open.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/truncation-no-recovery/README.md": "b16f98beb79dd6516e19742557f3afb61b0f2b3d07603b9beab50a08b444894d",
+        "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json": "f077561fb09fe38ab847285d1dee7591408c6b6fe7a33bebf066eb950f58082b",
+        "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda": "934c154cbebb6183195b037476f10c49d3fc505ebe055bf7896f6e24b7879b1b",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-01/RUN.json": "5c555f14d2fbd15c77a21b785d3d64caa5ed2fde31041589a1c5ab9f04426c7f",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-01/index-row-manifest.json": "eebd957893bba18939b5722ed8b01f2cc1c4b5a4b9a081d2008a9b7bfa8a5185",
+        "audit/truncation-no-recovery-and-batch5-20260913.md": "4cb394cc616dbd4f2e2b79f1493c5fb418092e1516fb81f6eaaf02796c29d454",
+        "audit/understanding-claim-sample-batch5-20260912.json": "1b819f83654dd61455f7cba8e5de7d2838361ec36ace62cb03cf56301eb0bc2e",
+        "scripts/audit/fill_understanding_claim_sample_batch5.py": "f29d0fcbc713ba96ae787afb479fc2f94be3d0d76e672b6f93f762d883cecad0",
+        "scripts/audit/sample_understanding_claims_batch5.py": "44e1a532a339f355f52ace4f67b5e0a6faaa7b60548663bd7d0195735bf3d2d3"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-UNDERSTANDING-RECONCILIATION-001": {
+      "depends_on": [
+        "A-HISTORY-LEDGERS-001"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "理解章节/README.md",
+        "理解章节/读遍账本.md",
+        "理解章节/B0-工作史总览.md",
+        "理解章节/B1-本地GPT工作史.md",
+        "理解章节/B2-网页GPT工作史-I.md",
+        "理解章节/B3-网页GPT工作史-II.md",
+        "理解章节/B4-Gemini工作史.md",
+        "理解章节/B5-成果总账.md",
+        "核心认知.md",
+        "audit/understanding-chapter-merge-manifest.json",
+        "scripts/audit/verify_understanding_merge.py"
+      ],
+      "kind": "understanding_chapter_reconciliation",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "理解章节/README.md",
+      "scope": "File-level reconciliation is complete and non-destructive for the current 30/24 inventory (24 same-name pairs, 15 identical, 9 different, 6 top-only); C4 and C5 are top-level syntheses, while semantic equivalence and 2,396 historical claim review remain open.",
+      "status": "review_required"
+    },
+    "A-UNIMATH-E6-SCAN-001": {
+      "classification": "SOURCE_INSPECTED_BOUNDED_NEGATIVE",
+      "depends_on": [],
+      "evidence_status": "SOURCE_INSPECTED_WITH_SCOPE",
+      "full_sources": [
+        "audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+        "audit/agda-unimath-e6-source-scan-20260913.json",
+        "scripts/audit/scan_agda_unimath_e6.py",
+        "scripts/audit/test_scan_agda_unimath_e6.py"
+      ],
+      "kind": "audit",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+      "related_records": [
+        "A-NATURAL-CONSUMER-AUDIT-001",
+        "A-UNIMATH-NOSECTION-REPLAY-001"
+      ],
+      "research_parent": "A-NATURAL-CONSUMER-AUDIT-001",
+      "resolution": {
+        "evidence": [
+          "audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+          "audit/agda-unimath-e6-source-scan-20260913.json",
+          "scripts/audit/scan_agda_unimath_e6.py"
+        ],
+        "reason": "Pinned-source audit reproduces named epsilon/global-choice/positive-control anchors, a literate-aware 20 postulate / 9 primitive / 22 union count, and the actual C-05 replay closure (485 external modules; 7 declaration files). foundation.global-choice is not in that saved run, so no-global-choice is SOURCE_INSPECTED_NOT_REPLAYED_BY_THIS_RUN. No E6 was established in the bounded named-interface scan."
+      },
+      "revalidation": "S090 refreshed changed governance/audit projection hashes after direct evidence correction; mathematical proof sources and retained kernel run bodies were not rewritten. Final validators and affected proof replays remain required after checkpoint.",
+      "scope": "Lexical/source and saved-run-closure audit of pinned agda-unimath 7b81411d. No full-library semantic absence theorem, no downstream-consumer absence theorem, and no replay of foundation.global-choice.",
+      "source_hashes": {
+        "audit/agda-unimath-e6-source-scan-20260913.json": "d58bb1854a3a95c05aa1e4574eee8df597b59d61e647442410cdc4853a34f0f2",
+        "audit/unimath-e6-scan-and-nosection-replay-20260913.md": "0ca08c6f1ee04cd1544628f98e816421bec670106ca917bd7283fa4e23b1871a",
+        "scripts/audit/scan_agda_unimath_e6.py": "f38d2383aaa9de938acd949760bfe0b9ba39e3cb840ad02e8ab8477d702a86f7",
+        "scripts/audit/test_scan_agda_unimath_e6.py": "f64abff4a898fb8e1940a931f3a7c257b2a42e13d75d7de72c88214538b3f49c"
+      },
+      "status": "complete"
+    },
+    "A-UNIMATH-NOSECTION-REPLAY-001": {
+      "classification": "REPLAYED_EXTERNAL_LIBRARY_NOSECTION",
+      "depends_on": [],
+      "evidence_status": "MACHINE_REPLAYED_EXTERNAL_LIBRARY_VERSION_CLOSED_WITH_SCOPE",
+      "formal": {
+        "claim_ids": [
+          "C-05"
+        ],
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "run_id": "20260913-MP-UNIMATH-NOSECTION-REPLAY-02"
+      },
+      "full_sources": [
+        "audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+        "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+        "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+        "HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/RUN.json",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/index-row-manifest.json"
+      ],
+      "kind": "external_library_replay_package",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+      "related_records": [
+        "A-E6-DERIVED-SCAN-001",
+        "A-NOCANONICAL-POINT-001"
+      ],
+      "research_parent": "A-NATURAL-CONSUMER-AUDIT-001",
+      "resolution": {
+        "evidence": [
+          "audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+          "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+          "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+          "HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/RUN.json",
+          "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/index-row-manifest.json"
+        ],
+        "reason": "Derived file hott-z/NoCanonicalPoint.agda replayed against pinned agda-unimath 7b81411d9f60afec359d29ed1e4edf43f4711c8a under Agda 2.8.0-3d04bac with --ignore-interfaces (486 modules rechecked): exit 0, stderr 0, EXACT_INDEX_SNAPSHOT_MATCH and EXACT_EXIT_STDOUT_STDERR_MATCH. The retained -01 run records the include-root configuration failure. C-05 is therefore MACHINE_REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE; the theorem itself remains agda-unimath's. The replay assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; this does not extend replay to foundation.global-choice."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged.",
+      "scope": "One pinned agda-unimath commit and the derived file's import chain only. No originality claim; no HoTT inconsistency; no E6 claim; no transfer to other commits or libraries.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/agda-unimath/AGDA_LIBRARIES": "df9d5f7cd3d178ed44fe8c9bdacc5b2639cf39a7cfcf507fd11217f4963e2a62",
+        "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json": "76cb9fef31d2945b7597cdc267d04576ba7fb977ffa61dc5f5885c6a1e88392b",
+        "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda": "1a4b874ef4a25e5ff31e97b9802d701feebf07d6305eb8b1ae1b92bb1ed9b11f",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-01/RUN.json": "3c934976caf9d9d874beac90acf582047f2528a9af0f9135a089224a01af1d77",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/RUN.json": "6291d56dab891792842b593074e6268701a51ffb1645f0f1db00d1fb992dc152",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/index-row-manifest.json": "45d025fb392957dff0505b51cbd75b2464170d302263cc11d94adc121e17ace2",
+        "audit/unimath-e6-scan-and-nosection-replay-20260913.md": "0ca08c6f1ee04cd1544628f98e816421bec670106ca917bd7283fa4e23b1871a",
+        "scripts/audit/capture_agda_unimath_replay_run.py": "2cba8ef39c67add717ba06205f29064b50ffdfe5f68324f7ac059b27451368ee",
+        "scripts/audit/verify_formal_proof_run.py": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-VERIFICATION-EVENT-IMPORT-001": {
+      "depends_on": [],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "audit/verification-event吸收与独立核验-20260913.md",
+        "HoTT/formal/verification-event/VerificationEvent.agda",
+        "HoTT/formal/verification-event/README.md",
+        "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01/RUN.json",
+        "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01/index-row-manifest.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "audit/imports/verification-event-20260913-01a099e9/IMPORT.json",
+        "audit/imports/verification-event-20260913-01a099e9/project-negative-probe/probe.json"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/verification-event吸收与独立核验-20260913.md",
+      "related_records": [
+        "A-LOAD-GOVERNANCE-V3-001"
+      ],
+      "scope": "Imported independent-source finite verification-event model, replayed in-project: stage-preserving historical verification is constructible, past-to-current rewriting does not exist, and full stage erasure does not preserve the judgement. C-149–C-156; verdict VERIFICATION_EVENT_STAGE_BOUNDARY_WITH_POSITIVE_CONTROL.",
+      "source_hashes": {
+        "HoTT/formal/verification-event/TOOLCHAIN.json": "50d55cbbdd6c5587978045bde96b0fabe9fd76b2ef2cb61bfb3dd0dc983fd355",
+        "HoTT/formal/verification-event/VerificationEvent.agda": "04f18440566fab5ff573faaf38d37e06123a42f993da0364c8b637d0b125dd7f"
+      },
+      "status": "complete"
+    },
+    "A-W51-RPB01-MAPPING-001": {
+      "classification": "W51_GENERIC_BOUNDARY_WITH_OPEN_NATURAL_LIFT",
+      "depends_on": [
+        "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C9-W51命题化与RP-B01层映射-20260912.md",
+        ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/CONSTRUCTION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/PLAN.md",
+        ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/CLAIMS.json",
+        "audit/understanding-chapter-merge-manifest.json",
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "audit/rp-b01-extraction-interface审计-20260912.md",
+        "scripts/audit/prepare_w51_rpb01_checkpoint.py"
+      ],
+      "kind": "research_synthesis",
+      "lifecycle_status": "CURRENT",
+      "path": "理解章节/C9-W51命题化与RP-B01层映射-20260912.md",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "理解章节/C9-W51命题化与RP-B01层映射-20260912.md",
+          ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/CONSTRUCTION.md",
+          "audit/understanding-chapter-merge-manifest.json"
+        ],
+        "reason": "W51 was propositionalised in three strengths and RP-B01's layers were mapped onto the repo's machine evidence; third-layer acceptance conditions fixed. Verdict: W51_GENERIC_BOUNDARY_WITH_OPEN_NATURAL_LIFT; A11.1 stays PARKED."
+      },
+      "revalidation": "audit/understanding-chapter-merge-manifest.json re-hashed by S-GOV-20260913-106-C11-V2-REPIN: C11 was rewritten to v2 (ua row restored, row-id contract aligned, compensation-action trichotomy), so its own hash, the retrodiction checker's row-label contract and the rebuilt merge manifest needed re-pinning. Claim, scope and evidence status are unchanged.",
+      "scope": "W51xRP-B01 propositionalisation: three strengths (W51-1 local classical separation with machine-backed abstract core; W51-2 generic inheritance boundary; W51-3 HoTT-specific natural-lift mismatch, open), layer mapping B01-M/B01-E/B01-TARGET, and the four acceptance conditions plus verdict ladder for the third layer. No new mathematical claim.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/CLAIMS.json": "0599d57fa6696feaa8a46f544e945a05455b5db76540bfedf0f46ecd65bd664f",
+        ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/CONSTRUCTION.md": "71ba5c7cc07704727ddb347a63327d780d876e069645260f2c4b8b9695f32925",
+        ".codex/research/hott/sessions/S-RES-20260912-055-W51-RPB01-PROPOSITIONALISATION/evidence/rp-b01/PLAN.md": "b19f81133b4a9e6af53c42ad844730bcc7a31ba0cd466b6b11f6dea6fddd2c65",
+        "audit/understanding-chapter-merge-manifest.json": "11c6bc9a6397b96173255cbcd207b76918085d9ebd4925e348c94cfce4bd8638",
+        "理解章节/C9-W51命题化与RP-B01层映射-20260912.md": "71135a6692e8f223d7a2b52f1e991d073811ad8eb8608b54841d6cd4b4502c21"
+      },
+      "status": "complete"
+    },
+    "A-WEBGPT-R041-PAPER-001": {
+      "depends_on": [
+        "I-DIRECTION-PORTFOLIO-20260912",
+        "I-OUTCOME-PANORAMA-20260912"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+        "理解章节/C1-后续研究方向独立复审-20260912.md",
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "workspace/.codex/research/hott/reviews/SILENT-STEPS-001/PROOF_NOTE.md"
+      ],
+      "kind": "external_math_source_gap",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+      "scope": "Mathematical R041 proof note is acquired; source code, 25-test raw evidence, cf58f27 commit and incremental-container lineage remain unavailable in the current repo.",
+      "source_hashes": {
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md": "1d9b74c76fddf9cfba4a93498dcb3f11c2bffce67ba1549fa017fa4d2c0000dc"
+      },
+      "status": "review_required"
+    },
+    "G-ASTRA-LEGACY-PROOF-QUALIFICATION-001": {
+      "depends_on": [],
+      "evidence_status": "OBSERVED_WITH_SCOPE",
+      "full_sources": [
+        "audit/astra-proof-wiring-20260919/all-package-relationships-after.json"
+      ],
+      "kind": "issue",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "Astra继续尝试/断点与证明机制系统检查/第三轮执行报告/004 - 遗留范围、治理与返回数学主线.md",
+      "related_records": [
+        "S-GOV-20260919-ASTRA-PROOF-WIRING"
+      ],
+      "scope": "Seven indirect-driver command bindings, one auxiliary document hash drift, old T3 theory-label mismatch, and full main Git closure. Must be qualified when consumed; unrelated historical failures do not certify or negate the selected native packages.",
+      "status": "open"
+    },
+    "G-ASTRA-PROOF-EVIDENCE-WIRING-001": {
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/astra-breakpoint-20260919/restoration-delivery-verification.json"
+      ],
+      "kind": "issue",
+      "lifecycle_status": "CLOSED",
+      "path": "Astra继续尝试/断点与证明机制系统检查/第二轮执行报告/003 - 源码、运行、校验与失败索引.md",
+      "related_records": [
+        "S-RES-20260919-ASTRA-POINT-RESTORATION"
+      ],
+      "resolution": {
+        "evidence": [
+          "Astra继续尝试/断点与证明机制系统检查/第三轮执行报告.md",
+          "audit/astra-proof-wiring-20260919/acceptance.json",
+          "audit/astra-proof-wiring-20260919/tests-final.stderr.txt"
+        ],
+END_FULL_TEXT
+END_COGNITION_CHUNK
