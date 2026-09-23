@@ -21,6 +21,26 @@
 
 任何四件套/启动必读文件缺失、发生截断、源 hash 改变、Git 状态与记录不一致或无法区分历史/当前事实时，降低结论或进入 `BLOCKED_FULL_SET_COGNITION`，不要开始数学研究或用摘要补洞。先移除四件套之外的非必要载荷，不能裁剪用户核心原文。
 
+## 逐轮核心语义再对齐
+
+标识：`CORE_SEMANTIC_REALIGNMENT_V1`。四件套在 Session 中存在、曾经完整读过或已有 load receipt，
+只证明材料可用，不证明当前回答仍按其含义工作。凡本轮要解释、概括、评价、质疑、修正或据以选择
+用户的悖论观、数学哲学、现实同一性、时间／时序、构造过程、ASK、理论经济、圆环或其它 core 概念，
+都必须在作出实质判断和检索外部通常解释**之前**执行 source-first 再对齐：
+
+1. 从 `核心认知.md` 读取本题直接相关的完整 KC 原文；从 `扩展认知.md` 的索引定位并完整读取相关
+   阐释 shard／小节。若用户问的是跨主题总论、纠正 AI 对原意的理解、指出偏航，或无法先确定相关
+   KC，完整重读核心认知与扩展认知；方向／成果／MEMORY／近期审计均不得代替它们。
+2. 先形成四项对齐：用户主张是什么；本轮不得把它收窄成什么熟悉问题；它怎样改变当前任务／证据
+   选择；哪些证明义务仍然开放。只有完成这一步，才可调用外部文献或标准解释评价精确主张。
+3. 最终回答若重述或批评用户原意，必须给出可点击的 KC／阐释 locator，并把“忠实复述”和“证据
+   评价”分开。若不能忠实复述，停止评价并继续读取；不得以训练知识、近期 AI 报告或标准术语补洞。
+4. T0/T1 的轻量豁免不适用于上述语义触发。纯机械工作可以不重读四件套，但不得顺带产出 core
+   语义判断。压缩 receipt、hash、逐 KC 状态或旧 `ALIGNED` 标签也不能替代本轮实际消费。
+
+本合同不要求每个文件操作都重新读取全部四件套，也不建设语义 Hook 或自动真理判定器。它修补的是
+Session 级“已加载”与 turn 级“真正用于当前判断”之间的缺口；具体执行与证据边界见 PROTOCOL。
+
 ## 研究与证据纪律
 
 本 repo 保存的是研究过程和认知交接，不预设 HoTT 必然矛盾，也不把用户的 Z 铁律直接当作已证明的元定理。研究必须区分：
@@ -96,8 +116,8 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - 机械校验：`python3 -B scripts/audit/verify_governance_shards.py`；机械 PASS 只证明结构，不证明分片边界合理或内容完整。
 - 每个索引前 15 行必须带首屏 banner（`> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成…`）；缺失或残缺会被同一校验器判为失败，避免"只打开索引就以为读完"。
 - 完整项目合同见 `docs/quality/长治理文档分片与索引合同.md`；共享权威为 3.16.0 候选规范 `/Users/aurolafly/codex-worktrees/long-doc-sharding-3.16.0/docs/governance/长治理文档分片与索引规范.md`。
-- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、`方向追踪.md`（5 片 / 28 条方向行）、`全景视野.md`（8 片 / 90 条结果行）、`扩展认知.md`（8 片，AI 阐释层）。大表按家族拆成行分片时，每片自带表头两行（唯一允许的重复内容），投影的身份字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）必须留在索引里。
-- 保留单文件并登记触发条件：`核心认知.md`（三件套中唯一单文件；由 curation+manifest hash 管理，KC 平铺列表，改动须经 manager）、`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`AGENTS.md`、已完成审计报告、来源快照与历史分卷。
+- 已分片：`README.md`、`MEMORY.md`、`理解章节/C1`–`C4`、`方向追踪.md`、`全景视野.md`、`扩展认知.md`（AI 阐释层）；当前分片数与方向／结果行数一律从各自索引和投影身份字段动态取得，不在本文件固化。大表按家族拆成行分片时，每片自带表头两行（唯一允许的重复内容），投影的身份字段（marker 块、`source_state_revision`、`projection_generation`、`semantic_status`）必须留在索引里。
+- 保留单文件并登记触发条件：`核心认知.md`（四件套中唯一单文件；由 curation+manifest hash 管理，KC 平铺列表，改动须经 manager）、`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`AGENTS.md`、已完成审计报告、来源快照与历史分卷。
 
 ## 写入、Git 与交接
 

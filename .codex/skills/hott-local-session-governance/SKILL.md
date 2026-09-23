@@ -2,9 +2,9 @@
 name: hott-local-session-governance
 description: 顶层 HoTT 交接 repo 的治理差异层。用于新 Session、压缩恢复、交接、治理维护与审计：补充 BLOCKED_FULL_SET_COGNITION 停止协议、分片 KC 审计集格式及三类历史 AI 覆盖分母。完整启动、档位、写入与 checkpoint 规则由根 AGENTS、LOAD_SET 和 PROTOCOL 唯一拥有。
 metadata:
-  version: "4.0.0"
+  version: "4.1.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v3.0"
+  protocol_version: "handoff-cognition/v3.1"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---
@@ -57,3 +57,14 @@ inlineFile 是代码载荷；缺失 Drive 正文标 `ATTACHMENT_BODY_UNAVAILABLE
 完整启动、tier、压缩重付、关系水合、分片写入、数学证明门禁、checkpoint、恢复与停止条件见
 `.codex/cognition/PROTOCOL.md`；当前任务、权限、来源边界与 Git 行为见根 `AGENTS.md`。业务研究方法仍在
 `hott-paradox-research`，方案步骤仍在 `hott-paradox-search-sop`；本差异层不扩大它们的授权。
+
+## Turn级核心语义再对齐
+
+`CORE_SEMANTIC_REALIGNMENT_V1`补充的是Session加载后的认知消费。用户询问或纠正其悖论观、数学哲学、
+现实同一性、时间／时序、构造过程、ASK、理论经济等core含义时，先读取相关完整KC与扩展认知owner shard；
+跨主题总论、AI误解／偏航复盘或无法确定KC时完整重读这两个逻辑文档。近期报告、MEMORY、方向／全景、
+load receipt与hash不得替代。
+
+回答前明确：用户主张、禁止收窄、对当前任务的作用、仍待证明的义务；随后才可用外部通常解释作评价。
+纯机械T0/T1工作可以不触发，但不能附带core语义判断。实际read与final locator是一次行为证据；本Skill、
+validator或一次成功不认证所有未来turn。完整触发与失败处置以PROTOCOL §2A为准。

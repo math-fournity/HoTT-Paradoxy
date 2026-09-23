@@ -3,6 +3,7 @@
 
 Checks:
   A1: root and .codex AGENTS files do not embed a concrete generation-N identity.
+  A2: turn-level core semantic realignment contract exists in its three runtime owners.
   R3: operational governance prose contains no host-exclusive Codex wording.
   Z1: the three .zcode workspace skills are exact relative symlinks to the
       canonical .codex skill directories.
@@ -35,6 +36,12 @@ SKILL_LINKS = {
     "hott-paradox-research": "../../.codex/skills/hott-paradox-research",
     "hott-paradox-search-sop": "../../.codex/skills/hott-paradox-search-sop",
 }
+SEMANTIC_ALIGNMENT_MARKER = "CORE_SEMANTIC_REALIGNMENT_V1"
+SEMANTIC_ALIGNMENT_PATHS = (
+    Path("AGENTS.md"),
+    Path(".codex/cognition/PROTOCOL.md"),
+    Path(".codex/skills/hott-local-session-governance/SKILL.md"),
+)
 
 
 def text(path: Path) -> str:
@@ -94,6 +101,22 @@ def main(argv: list[str] | None = None) -> int:
         "findings": a1,
     }
     failures.extend({"check": "A1", **row} for row in a1)
+
+    a2: list[dict[str, object]] = []
+    for rel in SEMANTIC_ALIGNMENT_PATHS:
+        path = root / rel
+        if not path.is_file():
+            a2.append({"path": str(rel), "reason": "SEMANTIC_ALIGNMENT_OWNER_MISSING"})
+            continue
+        body = text(path)
+        if SEMANTIC_ALIGNMENT_MARKER not in body:
+            a2.append({"path": str(rel), "reason": "SEMANTIC_ALIGNMENT_MARKER_MISSING"})
+    result["checks"]["A2_turn_level_core_semantic_realignment"] = {
+        "paths": [str(path) for path in SEMANTIC_ALIGNMENT_PATHS],
+        "marker": SEMANTIC_ALIGNMENT_MARKER,
+        "findings": a2,
+    }
+    failures.extend({"check": "A2", **row} for row in a2)
 
     r3: list[dict[str, object]] = []
     for path in governance_markdown(root):

@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v3.0`（v5 分档版，2026-09-18；v2.6 及以前见 Git 历史）。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。**v3 变更**：档位判定第 0 步与分档深度、STATE 按档消费（hot 字段 vs 全文）、压缩收据制复认、审计触及集计量、ROI 遥测字段、invariant 章成为唯一不变量定义处（吸收原 `.codex/AGENTS.md` 复述清单）。
+版本：`handoff-cognition/v3.1`（v5 分档 + 逐轮语义再对齐，2026-09-23；v3.0 及以前见 Git 历史）。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。**v3.1 变更**：保留v3分档、STATE、压缩收据和审计合同，并增加turn级source-first语义再对齐，防止Session已加载材料被近期报告或训练惯性替代。
 
 ## 1. 目标和边界
 
@@ -31,6 +31,30 @@
 7. 记录 load snapshot：profile/tier、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、Git HEAD 和 dirty。加载变化或截断时重启；四件套无法全文保有则 `BLOCKED_FULL_SET_COGNITION`，优先移出四件套之外的载荷而非裁剪 core。
 8. 形成本轮 closure statement：目标、范围、授权、档位与 hydration、当前完整 KC 范围、理论配置、证据缺口、四件套交叉结果、风险最高的误判和最小可验动作。
 
+### 2A. 当前 turn 的核心语义消费 Gate
+
+标识：`CORE_SEMANTIC_REALIGNMENT_V1`。启动／压缩加载回答“材料是否进入本 Session”，本 Gate 回答
+“当前判断是否真的使用了用户已经对齐的含义”。下列任一情况触发，且不受 T0/T1 轻量豁免：
+
+- 本轮解释、概括、评价、质疑或修正用户悖论观、数学哲学及 core 概念；
+- 用户说 AI 忘记、误解、偏航，或要求比较当前结论与此前对齐内容；
+- 当前行动要靠“用户所说的 X 是什么”来选择任务、模型、证据或停止条件；
+- AI 准备用外部学界解释、训练知识或近期报告反驳／收窄用户表述。
+
+执行顺序：
+
+1. 先读相关完整 KC 和对应扩展认知 shard／小节；跨主题总论、用户纠错或相关 KC 不确定时，完整
+   重读这两个逻辑文档。`MEMORY`、方向、全景、审计报告、会话摘要和旧 load receipt 只能导航。
+2. 在内部 closure statement 或需留证的 SESSION 中写四项：`user_claim`、`forbidden_reduction`、
+   `task_consequence`、`open_proof_obligations`。这些字段是理解复核，不把用户哲学升级为数学定理。
+3. 完成忠实复述后才查外部通常解释；最终若批评用户原意，引用精确原文 locator，分别标出复述、
+   证据评价和未知。若本轮未能给出 source-backed 复述，继续读取或降级，不能先评价。
+4. 纯机械 turn 可不触发，但不得附带新的 core 语义结论。触发后只读索引、关键词命中、hash、旧
+   `ALIGNED` 标签或“此前全文读过”均不构成 PASS。
+
+Gate 的最小行为证据是当前 turn 的实际 read tool call/result 与最终 locator；静态规则和validator只
+证明合同存在。自然发生的后续 turn 或专门授权的 fresh probe 才能验证未来行为，不得由本次修复永久认证。
+
 **压缩/跨会话重付（v3 收据制，替代全额重付）**：压缩后重付 = 档内启动核 + **持有收据复认**（逐文档核对 sha256 未变 + 逐 KC 一行复认 + 抽查 N 段原文，复认记录入 SESSION.md）；全文重付仅在三触发器：`core_sha256` 变化 / 档位升级 / 用户指令。本条为对 rulings §9/§11 的合同级修订，授权见 rulings §25。
 
 工具报告 `FULL_EMITTED_BYTES_MATCH` 只表示读出字节与文件 hash 匹配，字段 `model_context` 必须保持 `NOT_CERTIFIED_BY_TOOL`。模型不能保留全文时必须公开降级，不能把“读过摘要”写成全文闭包。
@@ -48,6 +72,7 @@
 5. **关系和水合**：`depends_on` 只表达会传播 stale 的验证依赖；谱系、动机和叙事使用 `research_parent`/`related_records`，不得借此递归水合。需要底层证据时先 `query --record`，再显式 task plan；query-first 原件只有在本任务要求其全文时才提升。
 6. **写入与证明边界**：math conclusion 的 source/kernel run/index 仍由根 `MATH_PROOF_BEFORE_DELIVERY_V1` 独立控制。checkpoint 只保存已授权的状态事务：默认 dry-run，`--apply` 要求当前授权、完整 session bundle、原子 before/after 与唯一 `result.json.status=CHECKPOINT_COMMITTED`；checkpoint 不能代替数学证明。
 7. **审计与可证边界**：每个实质单元以分片审计集保留 KC 覆盖、关系、证据定位、反证条件、四件套交叉判断和下一选择。机械检查能验证字节、结构、hash 与覆盖，不能认证模型理解、数学真理或未来宿主行为。
+8. **逐轮语义再对齐**：命中 `CORE_SEMANTIC_REALIGNMENT_V1` 时，Session级全文加载或receipt不能替代当前turn相关原文／阐释的source-first消费；外部标准解释只能评价完成忠实复述后的精确主张。
 
 ## 4. 核心认知账本的使用
 
