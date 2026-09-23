@@ -2,6 +2,7 @@
 
 - [Codex 全局认知闭包持续生命周期升级（2026-09-23）](Codex全局认知闭包持续生命周期升级-20260923.md)：以本项目“构造过程”误读和四件套结构 PASS／语义消费 FAIL 为直接事故证据，先以v3.24补持续生命周期，再以v3.25补Task→Closure发现、复用/delta/owner组合和context/owner/Seed/Capsule/Audit持久化双轴；shared/runtime已以本地`governance-v3.25.0`闭合，fresh P7–P20仍未运行。
 - [构造过程误读与认知消费审计（2026-09-23）](构造过程误读与认知消费审计-20260923.md)：核心／扩展全文复读、上一回答的构造过程→耗时误读、实际取材轨迹与纠正边界；不改变数学判词或当前研究队列。
+- [P40–P47理论检视与原初问题对齐复核（2026-09-23）](P40-P47理论检视与原初问题对齐复核-20260923.md)：按更新后的持续认知闭包复核理论检视、Book形成规则与旧Russell模型，保留源文审读范围并降低P47候选优先级资格；不产生新数学证明。
 - [四件套逐轮语义对齐治理修复（2026-09-23）](四件套逐轮语义对齐治理修复-20260923.md)：补上Session加载与当前turn语义消费之间的Gate、F-023、静态防退化及C01–C10；未来行为仍须实测。
 
 `user-message-disposition.jsonl`、`ai-response-ledger.jsonl`、`tool-event-ledger.jsonl`、`webgpt-section-ledger.jsonl`、`gemini-thought-ledger.jsonl`、`gemini-execution-ledger.jsonl`、`work-product-ledger.jsonl` 和 `claim-evidence-ledger.jsonl` 是历史整合生成的 machine-managed ledger。`ledger-summary.json` 与 `verification-report.json` 给出分母和结构校验，但不认证数学真理或 AI 理解。`治理框架自反馈行为分析与未来优化依据-20260912.md` 拥有操作行为反思；`治理框架跨压缩连续性独立复审与精简升级方案-20260912.md` 是 current 分层加载方案；`核心认知generation-3与加载治理v3实施证据-20260912.md` 保存最近已封存版本，`核心认知generation-4与自反理论经济研究实施证据-20260912.md` 保存本轮 incremental core、C4、STATE/loader/C01–C10 和验证边界。旧框架对比与 generation-2 实施方案在 `history/governance-v2.1.0/`，只作历史证据。`方向追踪.md` 与 `全景视野.md` 是人读投影，不替代 ledger。
