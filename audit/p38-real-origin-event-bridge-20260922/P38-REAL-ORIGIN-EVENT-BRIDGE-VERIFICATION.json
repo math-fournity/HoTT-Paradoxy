@@ -1,14 +1,19 @@
 {
-  "schema_version": "p38-real-origin-event-bridge-verification/v1",
+  "schema_version": "p38-real-origin-event-bridge-verification/v2",
   "task_id": "P38-P1-REAL-ORIGIN-EVENT-BRIDGE-DISCOVERY-001",
   "status": "PASS_WITH_SCOPE",
-  "verdict": "PARTIAL_REUSE / STATIC_AND_LABELLED_COMPONENTS_EXIST / NO_SINGLE_REAL_ORIGIN_EVENT_BRIDGE_IN_CURRENT_ASSETS / P39_MINIMAL_EVENT_CONTRACT_DESIGN_CANDIDATE / NO_HOTT_DEFECT_OR_ACTUAL_K_CLAIM",
+  "verdict": "PARTIAL_REUSE / STATIC_PUNCTURE_OPERATION_DEFINED / NO_EXPLICIT_HISTORICAL_EVENT_BRIDGE_IN_SIX_CHECKED_MODULES / P39_ONE_BOUNDED_CONTRACT_GATE / NO_HOTT_DEFECT_OR_ACTUAL_K_CLAIM",
+  "report_sha256": "5fea43790b86be9a64cf8bb8bf18f70dfa4ba4302a8ccb9e48e28074b55bdf31",
+  "freeze_sha256": "e496da44cf5ee102fded4fa4f09a63c17a57e715db10643792720f4fc7e15908",
   "source_hash_mismatches": {},
-  "source_checks": {
-    "labelled_control": true,
-    "supplied_source": true,
-    "actual_circle": true,
-    "strong_source": true
+  "positive_checks": {
+    "static_puncture_defined": true,
+    "strong_source_selected": true,
+    "source_supplied": true,
+    "curve_process_present": true,
+    "finite_label_control": true,
+    "report_names_scope": true
   },
-  "scope": "Fixed local asset comparison only; no expression-impossibility, HoTT defect, K, engine or reality conclusion."
+  "semantic_absence_not_machine_certified": true,
+  "scope": "Only six frozen model modules were inspected. The checker verifies source identity and positive anchors; it does not establish a repository-wide negative, an impossibility theorem, a HoTT defect, or an actual K."
 }
