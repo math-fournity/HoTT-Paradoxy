@@ -14,9 +14,9 @@ soft_line_target: 300
 
 > 版本：`premise-001/v1.0`
 > 冻结日：`2026-09-16`
-> 当前判词：`DENOMINATOR_V1_FROZEN / P1_COMPLETE / P2_COMPLETE_35_35 / P3P4_AI_EXECUTED_35_35_PENDING_EXTERNAL_AUDIT`（修订片 009 角色重分工后，P3/P4 由 AI 执行并带完整审计链，等外部 AI 追溯审计）
+> 当前资格：`HISTORICAL_DENOMINATOR_35 / SOURCE_SEMANTICS_REVIEW_REQUIRED`。登记与旧AI判定已经发生；P41确认C-01全局isProp(Id)无一般HoTT前提资格，G-02须显式isSet，A-04/B-03/B-04相关解释须分层。冻结分片不改写，当前纠正见 `HoTT理论充分检视/003 - P41同一性、等价与前提资格.md`。
 > 方案权威：`Atria的方案/修订片/008 - PREMISE-001 HoTT 前提集穷尽清单与 P1–P4 分工.md`
-> 当前 Goal：`goal-1.md`（索引；权威为 STATE）
+> 当前研究：`goal.md`／`goal-3.md`与总体方案006；具体队列由STATE拥有，旧goal-1仅作历史入口。
 > 程序化父级：`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`
 
 本逻辑文档把 **HoTT 自己的前提集**当作被穷尽枚举的分母。它不把前提的"存在登记"
@@ -26,16 +26,16 @@ soft_line_target: 300
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
-| 001 | [分母 V1 冻结（A-G 条目、P1 前提与出处）](<PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md>) | A–G 七类共 30 条编号条目，每条 P1 前逐字前提陈述 + 出处；冻结收据（remainder=0） | current |
+| 001 | [分母 V1 冻结（A-G 条目、P1 前提与出处）](<PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md>) | A–G七类35条历史登记；来源资格不由remainder=0认证 | historical-source-review-required |
 | 002 | [P2 逐条登记 A-B 构造子与判定](<PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md>) | A 类 11 条 + B 类 4 条逐条 P2（reality_skeleton / divergence_point / evidence_level / omission_shape / corpus_pressure） | current |
-| 003 | [P2 逐条登记 C-G 恒等等价与设计决策](<PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md>) | C 4 + D 5 + E 4 + F 2 + G 5 共 18 条逐条 P2；完成后分母 35/35 条 P1/P2 全部完成 | current |
+| 003 | [P2 逐条登记 C-G 恒等等价与设计决策](<PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md>) | C4+D5+E4+F2+G5共20条P2历史解释；C-01/G-02及D-01等需按当前检视使用 | historical-source-review-required |
 | 004 | [P3P4 判定表（用户填写）](<PREMISE-001/004 - P3P4 判定表（用户填写）.md>) | step-3 交接仪器：35 条一行一判定对象（divergence_point），P3/P4 列留空由用户填写，含填写说明与交回方式 | superseded-by-005-006（导航表保留；判定见 005/006） |
 | 005 | [P3P4 判定与审计链 A-B（AI 执行）](<PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md>) | A 11 + B 4 共 15 条逐条 P3/P4 候选判定 + 完整 P3P4_AUDIT_TRAIL（steelman/falsifier/confidence/corpus_self_audit/depends_on） | pending-external-audit |
 | 006 | [P3P4 判定与审计链 C-G（AI 执行）](<PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md>) | C 4 + D 5 + E 4 + F 2 + G 5 共 20 条逐条 P3/P4 候选判定 + 完整审计链 + 主题簇汇总 | pending-external-audit |
 | 007 | [SUPPLY_REGISTRATION 与任务族冻结（AI 执行）](<PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md>) | step-4：9 条非现实候选的完整 SUPPLY_REGISTRATION + 5 个建议任务族（合并建议供外部审计决定） | pending-external-audit |
 | 008 | [SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）](<PREMISE-001/008 - SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）.md>) | step-5：F2 缺口层 7 条完整两问（PAT/LEM/resizing/AC/unique choice/截断时机判据/Dedekind-Ω）+ 三标注；唯一命中 PROCESS_DECLARATION_GAP 的 Dedekind-Ω 簇按 023 四标注打造两枚导弹（过程层/反弹/第二击/现实侧），已打造未发射（PENDING_KERNEL）→ **第一枚已发射并被核接受**（`MP-DEDEKIND-OMEGA-M1`，`KERNEL_ACCEPTED_WITH_SCOPE`，见修订片 024 §3 与本片 §2.5 发射记录）；第二枚（全称无理性）待发射 | pending-external-audit（发射记录为已执行事实，不改变候选身份） |<!-- governance-shard-table:end -->
 
-## 分母身份（冻结字段）
+## 历史分母身份（冻结字段原样保留，非当前来源资格）
 
 ```text
 PREMISE_DENOMINATOR_V1
@@ -62,7 +62,7 @@ PREMISE_DENOMINATOR_V1
 - 机器统观引擎证据（外部导入快照，引擎本体不在本 repo）：
   `audit/imports/machine-overview-ce-map-20260915/`、
   `audit/imports/machine-overview-computability-20260914/`
-- 当前队列与下一动作：`.codex/research/hott/STATE.json`（active 队首 `A-PREMISE-001`）
+- 当前队列与下一动作：`.codex/research/hott/STATE.json`；`A-PREMISE-001`为历史任务，不因读取本索引自动复活。
 - 方案演化账本：`git log --grep=plan-revise`；步骤账本：`git log --grep=PREMISE-001`
 
 ## 角色分工（不越界）
