@@ -14,7 +14,7 @@ soft_line_target: 300
 
 > 版本：`premise-001/v1.0`
 > 冻结日：`2026-09-16`
-> 当前资格：`HISTORICAL_DENOMINATOR_35 / SOURCE_SEMANTICS_REVIEW_REQUIRED`。登记与旧AI判定已经发生；P41确认C-01全局isProp(Id)无一般HoTT前提资格，G-02须显式isSet，A-04/B-03/B-04相关解释须分层。冻结分片不改写，当前纠正见 `HoTT理论充分检视/003 - P41同一性、等价与前提资格.md`。
+> 当前资格：`HISTORICAL_DENOMINATOR_35 / SOURCE_SEMANTICS_REVIEW_REQUIRED`。P41确认C-01全局isProp(Id)无一般前提资格，G-02须isSet，A-04/B-03/B-04须分层；P42撤回A-03/A-11的任意过程强完成归因、E-02的无损归因与E-04的物理稠密解释，并补E-03消去责任。旧AI“9条非现实”不作当前已证清单。冻结分片不改写，当前纠正见 `HoTT理论充分检视` 第003/004片；旧运行按各自目标保留。
 > 方案权威：`Atria的方案/修订片/008 - PREMISE-001 HoTT 前提集穷尽清单与 P1–P4 分工.md`
 > 当前研究：`goal.md`／`goal-3.md`与总体方案006；具体队列由STATE拥有，旧goal-1仅作历史入口。
 > 程序化父级：`.codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md`
@@ -27,7 +27,7 @@ soft_line_target: 300
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
 | 001 | [分母 V1 冻结（A-G 条目、P1 前提与出处）](<PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md>) | A–G七类35条历史登记；来源资格不由remainder=0认证 | historical-source-review-required |
-| 002 | [P2 逐条登记 A-B 构造子与判定](<PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md>) | A 类 11 条 + B 类 4 条逐条 P2（reality_skeleton / divergence_point / evidence_level / omission_shape / corpus_pressure） | current |
+| 002 | [P2 逐条登记 A-B 构造子与判定](<PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md>) | A 类 11 条 + B 类 4 条P2历史解释；A03/A04/A11及相等层按当前源文检视使用 | historical-source-review-required |
 | 003 | [P2 逐条登记 C-G 恒等等价与设计决策](<PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md>) | C4+D5+E4+F2+G5共20条P2历史解释；C-01/G-02及D-01等需按当前检视使用 | historical-source-review-required |
 | 004 | [P3P4 判定表（用户填写）](<PREMISE-001/004 - P3P4 判定表（用户填写）.md>) | step-3 交接仪器：35 条一行一判定对象（divergence_point），P3/P4 列留空由用户填写，含填写说明与交回方式 | superseded-by-005-006（导航表保留；判定见 005/006） |
 | 005 | [P3P4 判定与审计链 A-B（AI 执行）](<PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md>) | A 11 + B 4 共 15 条逐条 P3/P4 候选判定 + 完整 P3P4_AUDIT_TRAIL（steelman/falsifier/confidence/corpus_self_audit/depends_on） | pending-external-audit |

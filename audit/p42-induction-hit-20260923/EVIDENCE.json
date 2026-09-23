@@ -1,0 +1,412 @@
+{
+  "schema_version": "bounded-theory-source-audit/v1",
+  "baseline": "e8d5b917883e",
+  "book_commit": "578b85cc8d586b1677ec4335148adeb443057d24",
+  "source_hashes": {
+    "HoTT/theory-schema/upstream/book-578b85cc/formal.tex": "e621484e2e457e70536a92367cca452f34df8ecfc9a17a3bdf0e4ee67e5f0cec",
+    "HoTT/theory-schema/upstream/book-578b85cc/induction.tex": "475792764d6f41ea2269a4f7ced701bb54220bb404a29af0160f3141eb5316c1",
+    "HoTT/theory-schema/upstream/book-578b85cc/hits.tex": "d43dac381da7f978fb1d2ff6c2c2d3cca7f9b0dab90c96cd20815c13e7ab8454",
+    "HoTT/theory-schema/upstream/book-578b85cc/hlevels.tex": "cfa75d289487f91affc4f5a9907857135c8a307b59dbc1cb9e3e9f41399618cc",
+    "HoTT/theory-schema/upstream/book-578b85cc/logic.tex": "76ac2e06ffa133ede0612584fef4b9c81d698d4e0b7a4ec683131448edfed2f2",
+    "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+    "HoTT/formal/partiality-race-timeout/QuotientMonad.agda": "fd0d7f3b891911b455ba74f922a44b169b3900d34cfa2c27de06dee1c4ad8de1",
+    ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md": "5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be",
+    ".codex/research/hott/PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md": "3764c13307e84636abe47bfa77ef0967bbbd1766bf6842a72cb7db052e68a71f",
+    ".codex/research/hott/PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md": "fd3c990f6c10d780533090e53880e637cf78b50908665b7607cf4a04be83bbbd",
+    ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md": "f4bb3b2ee83287cb90f82a3553ae35e291c96fa4a3a97ff46aae3becbd0ce48c",
+    ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md": "751921bc7c2841124733bff54267bf8ba39418986ca9e86ef041000a0f2f112d",
+    ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md": "5e15f4933e0cf1c405b9bee48da9ecc7a40e8ab67b6501ed1fb193fffc2be184",
+    ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md": "f43380906f35daa93926e2a670ac3c040afaf5129be9fc8c620c7912b36b9040"
+  },
+  "read_ranges": {
+    "formal.tex": [
+      [
+        764,
+        905
+      ]
+    ],
+    "induction.tex": [
+      [
+        1,
+        146
+      ],
+      [
+        242,
+        447
+      ],
+      [
+        566,
+        635
+      ],
+      [
+        752,
+        1071
+      ]
+    ],
+    "hits.tex": [
+      [
+        1,
+        220
+      ],
+      [
+        353,
+        429
+      ],
+      [
+        1048,
+        1257
+      ],
+      [
+        2041,
+        2101
+      ]
+    ],
+    "hlevels.tex": [
+      [
+        27,
+        118
+      ],
+      [
+        447,
+        634
+      ]
+    ],
+    "logic.tex": [
+      [
+        808,
+        936
+      ]
+    ]
+  },
+  "reused_read_receipt": "P41 logic.tex 1-1278; P42 selectively reread unique choice and truncation convention",
+  "old_dependency_occurrences": [
+    {
+      "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+      "line": 48,
+      "text": "### PREMISE-A-03 · 自然数 Nat 的规则四元组"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+      "line": 129,
+      "text": "### PREMISE-A-11 · W 类型（一般归纳定义）的规则四元组"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+      "line": 292,
+      "text": "### PREMISE-E-02 · 命题截断（propositional truncation，-1-截断）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+      "line": 301,
+      "text": "### PREMISE-E-03 · 商 HIT 与高阶截断"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+      "line": 310,
+      "text": "### PREMISE-E-04 · 层级的稠密性（截断塔可任意延伸）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md",
+      "line": 43,
+      "text": "### PREMISE-A-03 · 自然数 Nat"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md",
+      "line": 126,
+      "text": "### PREMISE-A-11 · W 类型（一般归纳定义）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md",
+      "line": 149,
+      "text": "### PREMISE-E-02 · 命题截断（propositional truncation）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md",
+      "line": 161,
+      "text": "### PREMISE-E-03 · 商 HIT 与高阶截断"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md",
+      "line": 172,
+      "text": "### PREMISE-E-04 · 层级的稠密性（截断塔可任意延伸）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+      "line": 32,
+      "text": "| A-03 | Nat：消除子对任意 n 可逐步展开到完成 | 把可无限延续的**计数过程**当作**已完成的结果序列** | completion, sequencing | 低 |  |  |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+      "line": 40,
+      "text": "| A-11 | W：对每个节点的全部子树递归，良基性内置（递归必终止） | 把**树的生长过程**当作**已完成的树**；把良基性当作内置 | completion, sequencing | 低 |  |  |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+      "line": 55,
+      "text": "| E-02 | 命题截断 \\|\\|A\\|\\|：只保留存在性，与具体见证分离 | 假定分离无损；被丢弃的见证信息在后续工序不可恢复 | observability, completion | 中 |  |  |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+      "line": 56,
+      "text": "| E-03 | 商 HIT A/R：构造子 + isSet，同类内差异一次性抹平 | 把\"同类性\"的任务边界省掉，分类当作无条件成立 | observability, completion | 低 |  |  |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+      "line": 57,
+      "text": "| E-04 | 截断塔不预设上限，可任意延伸 | 把\"细分需要新的测量条件\"省掉，可分性当作理论已提供的能力 | continuity（依前提本性选定，非默认） | 中（骨架取量仪精度域） |  |  |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 66,
+      "text": "### PREMISE-A-03 · Nat"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 88,
+      "text": "- **evidence_anchors**：002 分片 A-03；CORE_RULES.md（Nat 规则 C09）；"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 91,
+      "text": "- **depends_on**：若审计批准 → SUPPLY_REGISTRATION-A-03 → 任务族\"计数过程的完成性\""
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 208,
+      "text": "### PREMISE-A-11 · W"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 220,
+      "text": "  良基性是定义边界，不是省略。**这个 steelman 强**：与 A-03 同形。"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 228,
+      "text": "- **evidence_anchors**：002 分片 A-11；CORE_RULES.md（W 规则）；"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 231,
+      "text": "- **depends_on**：若审计批准 → SUPPLY_REGISTRATION-A-11 → 任务族\"分支展开的良基性\""
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+      "line": 232,
+      "text": "  → GEN-001 链；推翻时回滚全部。与 A-03 同形，建议 GEN-001 链合并处理（任务族"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 116,
+      "text": "  在系统内**没有对象承担**。它与 E-04（量仪精度域）同形。"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 121,
+      "text": "  （KC-000043 阻力最强处），且 004 表把 G-03/E-04/D-01 全写成 continuity，"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 128,
+      "text": "  → GEN-001 链；推翻时回滚全部。与 E-04、G-03 构成 continuity 三联，"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 231,
+      "text": "### PREMISE-E-02 · 命题截断"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 241,
+      "text": "  与 A-03/A-11 不同，本条的断裂**在形式层内部成立**："
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 257,
+      "text": "- **evidence_anchors**：003 分片 E-02；CORE_RULES.md（命题截断）；"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 260,
+      "text": "- **depends_on**：若审计批准 → SUPPLY_REGISTRATION-E-02 → 任务族"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 263,
+      "text": "### PREMISE-E-03 · 商 HIT 与高阶截断"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 276,
+      "text": "- **evidence_anchors**：003 分片 E-03；CORE_RULES.md（商 HIT）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 280,
+      "text": "### PREMISE-E-04 · 层级的稠密性（截断塔可任意延伸）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 301,
+      "text": "- **evidence_anchors**：003 分片 E-04（骨架取量仪精度域）；"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 304,
+      "text": "- **depends_on**：若审计批准 → SUPPLY_REGISTRATION-E-04 → 与 D-01/G-03 合并"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 414,
+      "text": "- **depends_on**：若审计批准 → SUPPLY_REGISTRATION-G-03 → 与 D-01/E-04 合并"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 469,
+      "text": "| 非现实 | D-01、D-04、E-02、E-04、G-03、G-05 |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 471,
+      "text": "| 暂不判定 | C-02、C-03、C-04、D-02、D-03、D-05、E-01、E-03、F-02、G-01、G-02、G-04 |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 474,
+      "text": "- **continuity 三联**：D-01（转动域）/ E-04（量仪精度域）/ G-03（运动域）——"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 480,
+      "text": "- **过程 vs 已完成**：A-03 / A-11（见 005 分片）——"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+      "line": 482,
+      "text": "- **见证可恢复性**：E-02——\"信息销毁的不可逆性\"。"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 28,
+      "text": "### SUPPLY-001 · PREMISE-A-03（Nat：计数过程当作已完成）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 32,
+      "text": "- **premise_id**：PREMISE-A-03"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 45,
+      "text": "  不依赖语料频率）；但 A-03 自评 corpus 风险中偏高，**注册时保留该自评**"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 47,
+      "text": "- **evidence_anchors**：005 分片 A-03；002 分片 A-03；CORE_RULES.md（Nat 规则 C09）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 52,
+      "text": "### SUPPLY-002 · PREMISE-A-11（W：生长过程当作已完成的树）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 56,
+      "text": "- **premise_id**：PREMISE-A-11"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 69,
+      "text": "- **evidence_anchors**：005 分片 A-11；002 分片 A-11；CORE_RULES.md（W 规则）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 125,
+      "text": "- **合并建议**：与 SUPPLY-006（E-04）/SUPPLY-008（G-03）构成 continuity 三联；"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 154,
+      "text": "### SUPPLY-006 · PREMISE-E-04（截断塔稠密性：细分当作已提供能力）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 158,
+      "text": "- **premise_id**：PREMISE-E-04"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 172,
+      "text": "- **evidence_anchors**：006 分片 E-04；003 分片 E-04；EXTENSIONS_AND_METATHEORY.md（截断塔）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 176,
+      "text": "### SUPPLY-007 · PREMISE-E-02（命题截断：见证信息不可恢复）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 180,
+      "text": "- **premise_id**：PREMISE-E-02"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 194,
+      "text": "- **evidence_anchors**：006 分片 E-02；003 分片 E-02；CORE_RULES.md（命题截断）"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 245,
+      "text": "| `TASK-FAMILY-DIVISIBILITY-CONDITION-OR-CAPABILITY` | D-01, E-04, G-03 | 可分性 × 测量条件 × 消费者 | **高（三联，KC-000043 阻力最强处）** | 中（已降档） |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 247,
+      "text": "| `TASK-FAMILY-COMPLETION-PROCESS` | A-03, A-11 | 计数/展开 × 终止界 × 消费者 | 中 | 中 |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 249,
+      "text": "| `TASK-FAMILY-WITNESS-RECOVERABILITY` | E-02 | 见证 × 截断 × 工序 × 判定 | 低 | 中 |"
+    },
+    {
+      "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+      "line": 270,
+      "text": "- **corpus 高风险条目未被过滤**：D-01/E-04/G-03（语料流利度风险最高）"
+    }
+  ],
+  "external_sources": [
+    {
+      "url": "https://arxiv.org/pdf/1802.01170v2",
+      "version": "2018-04-30 v2",
+      "read": "intro; 3.1/3.2 relevant rules; 3.3.4; 3.4/4 boundary paragraphs",
+      "claim": "selected HIT computation and scoped schema, not a 2026 absence claim"
+    },
+    {
+      "url": "https://www.cs.cmu.edu/~rwh/papers/higher/paper.pdf",
+      "version": "POPL 2019 DOI 10.1145/3290314",
+      "read": "intro; 4.1 Figures 11/12",
+      "claim": "indexed CIT schema in distinct cartesian computational theory"
+    },
+    {
+      "url": "https://lmcs.episciences.org/6100/pdf",
+      "version": "LMCS 16(1:10)2020",
+      "read": "abstract; 2 Figures 1/2 and explanations",
+      "claim": "HIIT signatures and positivity restriction, not all initial algebras established"
+    }
+  ],
+  "external_status": "SOURCE_REPORTED_NOT_REPLAYED",
+  "existing_control_status": "SOURCE_INSPECTED_NOT_REPLAYED_THIS_WAVE",
+  "new_math_claims": [],
+  "new_kernel_runs": [],
+  "recovery": {
+    "protocol": "v3 receipt reattestation",
+    "core_generation": 8,
+    "unit_count": 48,
+    "goal3_and_KC47_48": "FULL_REREAD_AFTER_COMPACTION",
+    "head_tracked_hash_mismatches": [],
+    "not_certified": "Hashes do not certify model understanding"
+  },
+  "verdict": "CONSTRUCTION_AND_ELIMINATION_SIDE_CONDITIONS_QUALIFY_OLD_A03_A11_E02_E03_E04"
+}
