@@ -3,19 +3,19 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-6",
-        "path": "scripts/audit/core-cognition-curation-v6.json",
-        "sha256": "83649f5211940d7edd597b0e4d2e54808869903c50f61cd6d6225a11e4ee63b4"
-      },
-      {
         "generation": "core-cognition-generation-7",
         "path": "scripts/audit/core-cognition-curation-v7.json",
         "sha256": "74a0320703771a43978f59fbde3b2beb07bf3798ad99ede744ee824b9706d7fc"
+      },
+      {
+        "generation": "core-cognition-generation-8",
+        "path": "scripts/audit/core-cognition-curation-v8.json",
+        "sha256": "28bcccf37492157b93213e665a96e968d94e5aa8f82031f148671778775ed330"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 92,
+    "primary_denominator": 93,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
@@ -23,7 +23,8 @@
       "sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md",
       "sources/prompts/Codex-知识谱自反与第三条发现路径-用户原文-20260916.md",
       "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
-      "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md"
+      "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -31,9 +32,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "b4a57785eef22cffb471028d73a8641549ce1cead5763ab8f6c31727945b8999",
+  "core_document_sha256": "6a94bec28b18a05e268bf82e55add1a030b086b73773874bc34dc82f0dd014cf",
   "counts": {
-    "core_units": 46,
+    "core_units": 48,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -41,21 +42,21 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 27
+      "INCLUDED": 28
     },
     "messages_excluded": 65,
-    "messages_included": 27,
-    "messages_parsed": 92,
-    "primary_files": 7,
+    "messages_included": 28,
+    "messages_parsed": 93,
+    "primary_files": 8,
     "units_by_platform": {
-      "Codex": 19,
+      "Codex": 21,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v7.json",
-  "curation_sha256": "74a0320703771a43978f59fbde3b2beb07bf3798ad99ede744ee824b9706d7fc",
+  "curation_authority": "scripts/audit/core-cognition-curation-v8.json",
+  "curation_sha256": "28bcccf37492157b93213e665a96e968d94e5aa8f82031f148671778775ed330",
   "files": [
     {
       "bytes": 8124,
@@ -119,9 +120,18 @@
       "path": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
       "platform": "Codex",
       "sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078"
+    },
+    {
+      "bytes": 2965,
+      "input_role": "primary",
+      "lines": 13,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md",
+      "platform": "Codex",
+      "sha256": "59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565"
     }
   ],
-  "generation": "core-cognition-generation-7",
+  "generation": "core-cognition-generation-8",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -1778,9 +1788,27 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-09-16T12:14:00+00:00",
       "unit_count": 3
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户明确要求把本轮重申的两段本人元数学原文完整纳入四件套。两段各为一个不可切碎的语义单元；操作性开场与代码围栏保留在原始来源，不进入 KC。撤销上一轮以主题重复为由仅存 ruling 的当前处置；旧处置由 Git 保留。内容作为用户研究意识完整保留，不认证其必然性、物理前提或数学史归因。",
+      "input_role": "primary",
+      "message_text_bytes": 2464,
+      "message_text_sha256": "733c3db2955502bc2b070ce07fbe527abb280b885cf3dc512ac2a55a7d89a07f",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md",
+      "source_file_sha256": "59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565",
+      "source_header_line": 5,
+      "source_message_id": "CODEX-TARGETED-PREMISE-20260922-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-09-23T03:30:09Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-23T03:30:09+00:00",
+      "unit_count": 2
     }
   ],
-  "previous_generation_ref": "d2862787",
+  "previous_generation_ref": "4e0a7999fe88",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -3333,6 +3361,77 @@
       "timestamp_utc": "2026-09-16T12:14:00+00:00",
       "unit_bytes": 667,
       "unit_sha256": "a52e9c89c8cd451dba37c5562172fb0311b8550f322cc275b5e24ded59b20b3b"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000047",
+      "lifecycle": "QUESTION_OR_OPEN_PROBLEM",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户明确要求把本轮重申的两段本人元数学原文完整纳入四件套。两段各为一个不可切碎的语义单元；操作性开场与代码围栏保留在原始来源，不进入 KC。撤销上一轮以主题重复为由仅存 ruling 的当前处置；旧处置由 Git 保留。内容作为用户研究意识完整保留，不认证其必然性、物理前提或数学史归因。",
+      "selector": {
+        "source_line_end": 9,
+        "source_line_start": 9
+      },
+      "semantic_label": "经济性与普适性的理想抽象、合取前提与现实相对反证的完整追问",
+      "source_file": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md",
+      "source_locator": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md#L9-L9",
+      "source_message_id": "CODEX-TARGETED-PREMISE-20260922-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "733c3db2955502bc2b070ce07fbe527abb280b885cf3dc512ac2a55a7d89a07f",
+      "source_sha256": "59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565",
+      "themes": [
+        "HOTT_OBJECT",
+        "PARADOX_DISCOVERY",
+        "ABSTRACTION_AND_NEGATION",
+        "TIME_AND_TEMPORALITY",
+        "RUSSELL",
+        "ZENO",
+        "CIRCLE_PARADOX",
+        "THEORY_ECONOMY"
+      ],
+      "timestamp_original": "2026-09-23T03:30:09Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-23T03:30:09+00:00",
+      "unit_bytes": 1198,
+      "unit_sha256": "662598aaa8c407b3a1e1f331bbf88e92916a3b870cbeda380cc4379b628ca209"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000048",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [
+        {
+          "target": "KC-000047",
+          "type": "same_source_message"
+        }
+      ],
+      "selection_reason": "用户明确要求把本轮重申的两段本人元数学原文完整纳入四件套。两段各为一个不可切碎的语义单元；操作性开场与代码围栏保留在原始来源，不进入 KC。撤销上一轮以主题重复为由仅存 ruling 的当前处置；旧处置由 Git 保留。内容作为用户研究意识完整保留，不认证其必然性、物理前提或数学史归因。",
+      "selector": {
+        "source_line_end": 12,
+        "source_line_start": 12
+      },
+      "semantic_label": "针对可疑理论前提设计悖论过程，而非无靶点枚举",
+      "source_file": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md",
+      "source_locator": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md#L12-L12",
+      "source_message_id": "CODEX-TARGETED-PREMISE-20260922-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "733c3db2955502bc2b070ce07fbe527abb280b885cf3dc512ac2a55a7d89a07f",
+      "source_sha256": "59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565",
+      "themes": [
+        "PARADOX_DISCOVERY",
+        "TIME_AND_TEMPORALITY",
+        "BEING_AND_BECOMING",
+        "RUSSELL",
+        "ZENO",
+        "RESEARCH_METHOD"
+      ],
+      "timestamp_original": "2026-09-23T03:30:09Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-23T03:30:09+00:00",
+      "unit_bytes": 525,
+      "unit_sha256": "4ba23954462a4f495834a48190c0a563b23bfdd0e4e6bc17f8f6c47d8c8cd4e9"
     }
   ]
 }
