@@ -108,7 +108,7 @@ Cantor 风格例子还涉及 propositional resizing；引用该反例必须保�
 | Algebraic HIT | 自由代数及关系 | 相应代数签名和 coherence |
 | Flattening lemma | 纤维族总空间与 HIT 表达联系 | 不是任意删除依赖的规则 |
 
-§6.13 对一般语法的未封闭性是本 Schema 的显式边界。第 11 章高阶归纳-递归实数构造不能仅凭
+§6.13 对一般语法的未封闭性是本 Schema 的显式边界。第 11 章高阶归纳-归纳实数构造不能仅凭
 C16 的圆规则自动视为已被一个完整机器语法覆盖。
 
 ## D07 · n-截断、连通性与模态
@@ -180,7 +180,7 @@ Precategory 由对象类型、每对对象间的 hom-set、恒等、复合和结
 两类主要构造：Dedekind cuts 与 Cauchy reals。Dedekind cuts 的 inhabited、rounded、disjoint、
 located 条件都是定义的一部分；“一个切分”不足以替代它们。实数的 universe/Ω 条件要保留。
 
-Cauchy reals 的归纳-递归式定义、消去、运算与完备性，和 Dedekind reals 的比较、区间紧致性、
+Cauchy reals 的高阶归纳-归纳式定义、消去、运算与完备性，和 Dedekind reals 的比较、区间紧致性、
 surreal numbers 都有独立来源节。v0.1 提供回源地图，不冒充已经逐证明检查。
 
 **时间审查**：完备性/极限存在不能直接解释为某个运行程序完成了无限步骤；反过来，也不能因
