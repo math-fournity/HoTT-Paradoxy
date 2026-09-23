@@ -15,9 +15,11 @@ soft_line_target: 300
 > 状态：`ACTIVE / PROJECT_LOCAL_GOVERNANCE`  
 > 唯一职责：HoTT 非现实性悖论机器统观的完整候选空间、程序化激发方法、oracle、未知入口、覆盖路线与完成判据  
 > 项目根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
-> 当前实现/证据工作树：`/Volumes/D/HoTT-machine-overview`；`feat/machine-overview-m1`；`LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`  
-> 动态执行计划：`/Volumes/D/HoTT-machine-overview/machine-overview/HOTT-NONTERMINATION-MACHINE-OVERVIEW-PLAN.md`  
-> 当前完备性审计：`/Volumes/D/HoTT-machine-overview/machine-overview/evaluations/NONTERMINATION-OVERVIEW-COMPLETENESS-AUDIT-001/REPORT.md`
+> 当前写入根与动作：主项目main；`.codex/research/hott/STATE.json`、`goal-3.md`及四分支总体方案。
+>
+> 历史实现／证据来源：`/Volumes/D/HoTT-machine-overview`，只读；旧不可停机计划不自行恢复执行。
+>
+> 最新目标忠实性回顾：`audit/机器统观目标与针对性策略审计-20260922.md`。下方阶段表保存各具名分母的历史进度，不替代STATE当前队列。
 
 本规划回答“如何通过编程系统激发 HoTT 悖论候选，以及怎样让尚不可预知的类型持续进入”。它保留用户核心认知、方向追踪、全景视野和 AI 阐释长文的思想航向，同时把搜索空间、构造算子、消费者、观察层和证据判据变成可执行的覆盖包络。项目级方法在本路径维护；分支 worktree 只保存实现和候选证据，不能成为第二个项目治理真值。
 
