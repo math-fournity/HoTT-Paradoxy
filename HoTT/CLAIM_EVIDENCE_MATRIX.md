@@ -1439,3 +1439,24 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-325 | 在原生 Cubical Agda 中可定义最小 `OriginDirectedDiagram = Σ static:RichDiagram. ((Bool→Bool)×Bool)`，其字段保留 static boundary/source 图、trace label 和 done label。给定 `originN`/ `originM`，可证明 `bareOrigin originN ≡ bareOrigin originM`，但不存在两完整对象之间的 path，且不存在一个以裸 `Type` 为输入、同时恢复这两个给定对象的函数。另一方面，沿 `swappedDiagramPath` 通过 `liftStatic` 得到完整 `originTransport`，并保持 trace/done label。 | `FORMAL_CHECKED_WITH_SCOPE / MINIMAL_ORIGIN_STRUCTURE_EXPRESSIBLE` | `sameBareCarrier/noOriginPath/noOneBareOriginRecovery/originTransport/transportPreservesTrace/transportPreservesDone`；成功 run -03；失败 run -01（未导入 `∘`）和 -02（错误 Sigma path）保留。 | 这是有限接口控制，不是完整实圆—去点—闭合过程、物理 trace 或一般 `R_origin` 理论；不证明 HoTT 不可表达该结构，不证明实际 K、理论—实现差异、自然误用、HoTT 缺陷或四弹完成。 |
 | C-326 | 对 `Bare : RichCurve → UU` 定义 `PresentationFiber A = Σ(r:RichCurve), Bare r = A`。在 `A = OpenRealInterval`，`transportedRich` 与 `nRich` 都给出 fiber 成员；前者满足 `EndCoincidence`，后者不满足，且不存在两成员之间的 path。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_BARE_FIBER_HAS_DISTINCT_PRESENTATIONS` | `PresentationFiber/transportedMInOpenFiber/nInOpenFiber/transportedFiberClosed/nFiberNotClosed/noTransportedRichPath/noOpenFiberPath`；`MP-ASTRA-PRESENTATION-FIBER-001` run。 | 这是 `Bare` 忘却映射的指定 fiber 局部控制，不是完整来源/过程/Done 对象、一般纤维理论、HoTT 缺陷、实际 K、理论—实现差异或现实任务结论。 |
+
+## MO3有限阶段关系与原生直接合成的Acc资格（2026-09-23）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-MO3-STAGE-COLIMIT-001` | `C-327–C-330` | `formal/mo3/stage-colimit/StageColimit.agda`，真实Cubical0.9 SeqColim/Acc/PT | `verification/runs/20260923-MO3-STAGE-COLIMIT-001-04/`；Agda2.8.0-3d04bac，safe/cubical/guardedness，exit0；原始失败和错误赋值控制保留 | `FORMAL_CHECKED_WITH_SCOPE / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-327 | 对每个n:ℕ和x:Stage n=Fin(suc n)，其中StageStep n y x=(suc(fst y)≡fst x)，有Acc(StageStep n,x)。 | `FORMAL_CHECKED_WITH_SCOPE` | `natAccessible/liftAccessible/stageWellFounded`；同run | 不声称任意有限关系良基，不等物理遍历全部输入已完成。 |
+| C-328 | 对任意n及x,y:Stage n，StageStep n y x推出StageStep(suc n)(fsuc y)(fsuc x)；Stages以这些fsuc作为结构映射。 | `FORMAL_CHECKED_WITH_SCOPE` | `Stages/stepPreserved`；同run | 保边不被加强为保Acc或保终点；未声称任意嵌入的性质。 |
+| C-329 | 对原生Total=SeqColim Stages，TotalStep y x为某同一stage从b到a的递归边（StageStep n a b）及incl a=y、incl b=x的mere image。terminal k=incl{k}fzero构成显式后继链；∀k，Acc TotalStep(terminal k)→⊥，因此WellFounded TotalStep→⊥。 | `FORMAL_CHECKED_WITH_SCOPE` | `TotalStep/terminal/terminalStep/terminalNotAccessible/totalNotWellFounded`；同run | 只否定该精确关系的Acc，不证明某次运行永不结束、现实不可完成、HoTT许诺免费保Acc或内部矛盾；不是所有colimit定理。 |
+| C-330 | 对任意bound:ℕ，用恒定Stage bound、identity映射的原生SeqColim和同样阶段边mere image定义FrozenStep，则WellFounded FrozenStep。 | `FORMAL_CHECKED_WITH_SCOPE / FROZEN_STAGE_POSITIVE_CONTROL` | `Frozen.Constant/Frozen.rank/Frozen.rankStep/Frozen.frozenAccessible/Frozen.frozenWellFounded`；同run | 正控制改变为不再增长的阶段族，不自动是同一动态任务的解决；不消解所有现实解释或全理论问题。 |
+
+## 既有C-326包的缺失索引定位补全（2026-09-23）
+
+本次只补registry及旧RUN.json已登记的包→claim/source/run导航关系。旧C-326行保留；没有修改旧run、补造其index_status或冻结行，也没有在本轮重新认证旧数学结果。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ASTRA-PRESENTATION-FIBER-001` | `C-326` | `formal/agda-unimath/hott-z/PresentationFiber.agda` | `verification/runs/20260922-MP-ASTRA-PRESENTATION-FIBER-001-01/`；proof/claim身份及exit0仅按旧RUN.json转述，index_status缺失和row-manifest缺失仍保留 | `SOURCE_REPORTED_NOT_REPLAYED / LEGACY_PACKAGE_LOCATOR_RESTORED_NOT_RECERTIFIED` |
