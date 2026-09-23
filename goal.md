@@ -1,6 +1,6 @@
 # HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / P39_P1_EVENT_EXTENSION_CLOSED / P40_P3_NEW_CONSUMER_GATE_NEXT / GOAL_ACTIVE`；具体当前动作和 revision 以 `STATE.json` 为准。
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / P39_P1_EVENT_EXTENSION_CLOSED / P40_PREMISE_TARGETED_CANDIDATE_NEXT / GOAL_ACTIVE`；具体当前动作和 revision 以 `STATE.json` 为准。
 > Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成首轮；P1 取得受限强任务规格，P2/P3 的固定来源没有给出从裸等价到强完成的 K，P4 未触发。P5–P33 又分别审计了定向类型论、Circle/Coeq、环境操作、真实消费者、实数层与反射来源；各判词均限于固定分母。P34–P38 回到实际圆与过程合同，P39 一次合同检查后关闭“再添历史事件字段”的 P1 延伸：可检查的端部/闭图/过程字段已有覆盖，额外历史事件的独立 `Done_s` 尚未规定。下一项 P40 改审一个不同的实际证明使用处，先固定 [Angiuli 等的队列表示独立性论文 v2](https://arxiv.org/abs/2009.05547) 与 [Cubical Agda 示例](https://github.com/agda/cubical/blob/master/Cubical/Papers/RepresentationIndependence.agda) 的源码 commit，再核其真实输入、操作保持关系和输出承诺；无强过程任务声明即归为防御，不接到原圆环 X。各阶段路径和范围见 [Goal 3 工作路径树](goal-3-工作路径树.md)；当前动作以 `STATE.json` 为准。
+P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成首轮；P1 取得受限强任务规格，P2/P3 的固定来源没有给出从裸等价到强完成的 K，P4 未触发。P5–P33 又分别审计了定向类型论、Circle/Coeq、环境操作、真实消费者、实数层与反射来源；各判词均限于固定分母。P34–P38 回到实际圆与过程合同，P39 一次合同检查后关闭“再添历史事件字段”的 P1 延伸：可检查的端部/闭图/过程字段已有覆盖，额外历史事件的独立 `Done_s` 尚未规定。用户随后纠正 P40 的候选生成顺序：**先固定 HoTT 的某项经济性／普适性前提及其省略或理想化的条件，再设计专门瞄准该条件的过程，最后才选择 P1/P2/P3/P4 的证明或消费者审计。**因此 P40 改为有界的靶前提—过程候选准入；先前选出的队列论文只保留为来源候选和防线对照，不是当前优先寻找的 K。一般机制可以先用自己的任务 `X_T` 发现，但命中原圆环仍须另证回接 `X₀`。各阶段路径和范围见 [Goal 3 工作路径树](goal-3-工作路径树.md)；当前动作以 `STATE.json` 为准。
 
 四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 
