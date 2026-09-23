@@ -1,6 +1,6 @@
 # HoTT 现实相对研究 Goal：原四弹 redo 与四分支后续计划
 
-> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / P3_CONTINUATION_REJECTED_AS_SAME_CLASS / P18_SWITCH_TO_P1_OBJECT_THEORY / NEXT_P19_ORIGIN_DIRECTED_DIAGRAM_KERNELIZATION / GOAL_ACTIVE`
+> 状态：`PHASE_1_COMPLETE_WITH_SCOPE / P39_P1_EVENT_EXTENSION_CLOSED / P40_P3_NEW_CONSUMER_GATE_NEXT / GOAL_ACTIVE`；具体当前动作和 revision 以 `STATE.json` 为准。
 > Goal schema：`four-stage-redo-goal/v2`
 > 唯一 current objective owner：本文件  
 > 工作根：`/Volumes/D/HoTT_AI_HANDOFF_20260911`  
@@ -57,7 +57,7 @@ redo 的完成判据是：原四弹的每一层、层间桥梁、所需理论承
 
 用户要求把上一轮关于 `R_min`、`K_theory`、`K_app` 和 `K_engine` 的四分支回答完整落盘，并根据令牌经济、可判别性和反漂移要求决定先后。详细 owner 是 [HoTT后续研究总体方案.md](HoTT后续研究总体方案.md)：P1 是共同的 `R_min` 规格资格化，P2 是规则/定理级桥，P3 是 ABX 实际消费者，P4 是被触发才做的实现忠实性审计。
 
-P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成。P1 的受限结论是 `R_MIN_ACCEPTED_WITH_SCOPE`：`RichCurve` 单独不足，但当前 `Input + CurveData + Denotes/Satisfies + O + D` 可以固定圆去点—闭图—复原的共同强任务。P2 的受限结论是 `NO_K_THEORY_WITHIN_SIP_DENOMINATOR`：Book §9.8 的 SIP 明确要求结构及正、逆结构保持，并不将裸 H/U 自动升格为 `Done_s`。P3 的受限结论是 `NO_K_WITHIN_UNIMATH_FUNCTOR_ALGEBRAS_DENOMINATOR`：版本固定 UniMath SIP 使用点显式构造函子代数结构并证明 univalence，没有把它作为 P1 过程完成。P4 没有实际触发。这些是首个分母 pass 的有界结果，不是整体 goal 的停止条件。P5/P6 固定 R，P7 固定 K 五项条件，P8/P9 分别审计 Rzk 与 sHoTT `diruniv` 的实际定向层，均为显式结构防御。P10 选择的 Coq-HoTT Circle/Coeq/Torus 五文件已在 P11 完成审计：explicit glue/coherence、base/loop/surface 与 synthetic task 保留，未出现 K；其中可见 `Admitted` 仅登记为信任边界。P12/P13 已把 operation-sensitive `R_ambient` 固定为 future-K 合同。P14 选择的 Prieto-Cubides CPP 2022 Agda 语料在 P15 的固定页面审计中显示 `Map`/cyclic order、face、walk、spherical witness 与相同 `M` 上的规格等价均显式存在；它处理的是组合图嵌入任务，不是 P13 的 M/N `Done_ambient^fin` 或 `Done_curve`，因此在该页面分母内不是 K。P16 必须重新选择未审的实际消费者分母；P15 的受限防御不停止 goal，也不构成 HoTT 缺陷结论。
+P0、`P1-RMIN-SPEC-001`、`P2-KTHEORY-SIP-001` 与 `P3-UNIMATH-FUNCTOR-ALGEBRAS-001` 已完成首轮；P1 取得受限强任务规格，P2/P3 的固定来源没有给出从裸等价到强完成的 K，P4 未触发。P5–P33 又分别审计了定向类型论、Circle/Coeq、环境操作、真实消费者、实数层与反射来源；各判词均限于固定分母。P34–P38 回到实际圆与过程合同，P39 一次合同检查后关闭“再添历史事件字段”的 P1 延伸：可检查的端部/闭图/过程字段已有覆盖，额外历史事件的独立 `Done_s` 尚未规定。下一项 P40 改审一个不同的实际证明使用处，先固定 [Angiuli 等的队列表示独立性论文 v2](https://arxiv.org/abs/2009.05547) 与 [Cubical Agda 示例](https://github.com/agda/cubical/blob/master/Cubical/Papers/RepresentationIndependence.agda) 的源码 commit，再核其真实输入、操作保持关系和输出承诺；无强过程任务声明即归为防御，不接到原圆环 X。各阶段路径和范围见 [Goal 3 工作路径树](goal-3-工作路径树.md)；当前动作以 `STATE.json` 为准。
 
 四分支都保留为后续可能性，但不是四个同时运行的工作队列。每个单元必须给出判词改变凭据、一个新分母、精确任务、正反控制和停止条件；若没有新增事实，必须结束而不以文档、关键词或重复运行代替进展。
 
