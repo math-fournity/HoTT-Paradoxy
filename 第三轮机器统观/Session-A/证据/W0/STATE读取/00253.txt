@@ -1,0 +1,328 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 253, "end_line": 575, "total_lines": 18474, "next_start_line": 576, "chunk_sha256": "2cb0005e6a615149fce790d55e3951ca9043b7b8ec63be23955f1f385844e474", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/baseline.node.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsUaTransport.js2.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsHit.js2.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsQuotient.js2.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalPositive.check2.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalNegative.check2.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalLibraryFunction.check.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalImport.ghc.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/PlainCubicalImport.js2.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotConsumer.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotRespect.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotNoncomputable.stdout.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/formal/cauchy-modulus/TOOLCHAIN.json",
+        "scripts/audit/prepare_application_layer_audit_checkpoint.py"
+      ],
+      "kind": "application_layer_audit",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/application-layer-consumer审计-20260912.md",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "audit/application-layer-consumer审计-20260912.md",
+          ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/baseline.node.stdout.txt",
+          ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsUaTransport.js2.stdout.txt",
+          ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalNegative.check2.stdout.txt",
+          ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotConsumer.stdout.txt",
+          ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotNoncomputable.stdout.txt"
+        ],
+        "reason": "Fixed-version toolchain probes were actually run (Agda JS backend executed with node; GHC backend generated Haskell sources; Lean 4.33.1 evaluated quotient programs). No natural consumer found; verdict DEFENSE_WORKS (scoped)."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "scope": "Application-layer/toolchain delivery audit in a fixed version set: Agda 2.8.0-3d04bac (JS backend executed via node v26.7.0; GHC/MAlonzo source generation only, no ghc) with Cubical v0.9, and Lean 4.33.1 evaluation. Cubical content has no compilable delivery path; erased-cubical only permits erased use; Lean quotients separate qualification at type and evaluation layers. No natural consumer (E6) found; verdict DEFENSE_WORKS (SCOPED); not a mathematical claim.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalImport.agda": "3601b84e461ed15e68f9ca5ad507e031c9af9403c04a43af83d664893adf8ee0",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalImport.ghc.stdout.txt": "f039866fd3ce9e1aaef5e9b93205b2b2ca3f4926bebf1b37ecc8ddfb104754c4",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalLibraryFunction.agda": "e786cf36a378c5a0a6f6baf6684480d9da240c64e9956536f5dd1e864738f4cf",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalLibraryFunction.check.stdout.txt": "93fa6410b7e848c9946f0a89c270f77d38ab1a78d7f7f447361446cdaed4e5ac",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalNegative.agda": "d8e71f4f26193f023018b6329f365ad3a035eea883c01aee3ee9c4147aa5f438",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalNegative.check2.stdout.txt": "8a9ebe542eeabb22e17b459e4bf892a8fc60bca781f7186bb11e78102f23ce72",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalPositive.agda": "537d3072ea72cb6d287000117ad60d5a1945bcebb55fe328767a42cec84bdcb3",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/ErasedCubicalPositive.check2.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsBaseline.agda": "54c31f427cd0323b34e2205dca32a63a27b51d5ab49e4f265af92b8a6db24053",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsHit.agda": "a9efd85fa52630d0dd7d5afa4c5c787e5faf6f7dba671d0a8574d3ededcd14ee",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsHit.js2.stdout.txt": "7f0bda1d50b2fa8d02b90d0fa1b8136d7c84817e193bf07c044d47f00e0ba68c",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsQuotient.agda": "7bdc4465c00585ab3accfb4fdaae7755e27c732973d0e594a7c06b8aae4ac7af",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsQuotient.js2.stdout.txt": "7f0bda1d50b2fa8d02b90d0fa1b8136d7c84817e193bf07c044d47f00e0ba68c",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsUaTransport.agda": "7f1aca133e53fcf76cf1ea2854949b8b6b787fa0b640e8cb3da5c4a787837f95",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/JsUaTransport.js2.stdout.txt": "7f0bda1d50b2fa8d02b90d0fa1b8136d7c84817e193bf07c044d47f00e0ba68c",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/PlainCubicalImport.agda": "4683961faa057118136e660c7da3542e1ed8279596a03961de67b03f693f7042",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/PlainCubicalImport.js2.stdout.txt": "7f07cc38ac5fbec6cf8e09a8e1f2a97099373bad5aa3bf29484cda2784b89f0f",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/agda-js/baseline.node.stdout.txt": "39d42bc98c7bf67e0d2f24337d3b9fc251670ecefae001068312b1a76e22d667",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotConsumer.lean": "bac1712a920dc2a38f0d6e6ec6360309309f9ca0e91e7f1847cd848b507b50d7",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotConsumer.stdout.txt": "21d91041c5d1a59661f8936571ee5c87e96f6f0c7a532b52ec17c5b9bea8220b",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotNoncomputable.lean": "7aee6888ca05406f172bb1d4d2e52d9d50cb96cd22b26416872b9333135c469c",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotNoncomputable.stdout.txt": "da376a550de8c71ac2eb1436359d6c4ed198b2a5a0c6506d7d2b2d9a9bc9b950",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotRespect.lean": "19be0b50ef97cab8eed3761f561f458c1ec86de50cc51880ef98bfc9c688130c",
+        ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/lean/QuotRespect.stdout.txt": "64ab7466a9f41e40a7a5b6b18469c410323559cae57373abdbf69910dbcbe198",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "audit/application-layer-consumer审计-20260912.md": "d354bd39f4fbad18126c9eb3b71826de8a999f0f9523562ca96c1ce2b3945c1e"
+      },
+      "status": "complete"
+    },
+    "A-ASTRA-CONTINUING-GOAL-20260919": {
+      "depends_on": [],
+      "evidence_status": "PARKED_PENDING_EXPLICIT_PHASE2_TRIGGER",
+      "full_sources": [
+        "Astra继续尝试/四弹一体完整研究策略.md"
+      ],
+      "kind": "activity",
+      "lifecycle_status": "SUPERSEDED",
+      "path": "Astra继续尝试/四弹一体完整研究策略/010 - 断点检查接入与总目标执行账本.md",
+      "related_records": [
+        "R-ASTRA-BREAKPOINT-20260919",
+        "S-PLAN-20260919-ASTRA-CONTINUING-GOAL"
+      ],
+      "resolution": {
+        "evidence": [
+          "goal.md",
+          "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
+          "audit/astra-assumption-integration-20260921/DELIVERY.json"
+        ],
+        "reason": "The user replaced the current goal with a two-phase redo. These remain historical or phase-two candidates and cannot auto-start."
+      },
+      "scope": "Current App objective 完成四弹一体的redo; retain complete accepted breakpoint/four-stage/ZCode-absorption/governance scope in strategy010. Partial model qualification is not parent completion.",
+      "status": "parked_by_four_stage_redo_goal"
+    },
+    "A-ASTRA-TRAJECTORY-AUDIT-001": {
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/astra-1-astra-2会话轨迹审计-20260913.md",
+        ".codex/research/hott/sessions/S-AUD-20260913-101-ASTRA-TRAJECTORY/SESSION.md",
+        ".codex/research/hott/sessions/S-AUD-20260913-101-ASTRA-TRAJECTORY/CORE_COGNITION_AUDIT.md"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/astra-1-astra-2会话轨迹审计-20260913.md",
+      "related_records": [
+        "S-GOV-20260913-101-ASTRA-TRAJECTORY-STATE-REGISTRATION",
+        "S-AUD-20260913-101-ASTRA-TRAJECTORY"
+      ],
+      "scope": "Session-alias closure and workline audit for the other AI: Astra-1 = 01a099e9-66ee-7270-8bf9-04f7f1c81e62 (8 turns, 104 tool calls, gpt-6-astra/ultra); Astra-2 = 01a09a72-aeb6-7a50-81d6-d24f43c5e912 (1 turn, child of Astra-1). L2 read coverage passes by run-source comparison against commit 35cace7; L1/L3 NOT_TESTED; L5 target NOT_MET (no HoTT reality-relative paradox, no E6 consumer). Records why the goal was not reached: formalisable small-problem narrowing, C10:20 exclusivity threshold and C5:56 E6-only upgrade gate narrower than the user's own words, T3 micro-pulses, and concurrent-writer avoidance. Research queue unchanged.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "A-AUDIT-REPORT-TONGGUAN-001": {
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        ".codex/research/hott/STATE.json",
+        "HoTT/formal/ercf3-t3/README.md",
+        "audit/统观工作技术报告-20260913.md",
+        "audit/自主构造第三轮-表达与身份两轴-20260913.md",
+        "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/统观工作技术报告-20260913.md",
+      "related_records": [
+        "S-GOV-20260913-119-AUDIT-REPORT-FOR-EXTERNAL-AUDIT",
+        "A-THEORY-ECONOMY-LEDGER-001",
+        "A-AUTONOMOUS-ROUND3-001",
+        "A-C11-REVIEW-ABSORPTION-001",
+        "A-ERCF3-T3-REPAIRED-SYNTAX-001"
+      ],
+      "revalidation": "audit/统观工作技术报告-20260913.md re-hashed by S-GOV-20260913-124-INDEPENDENT-AUDIT-ABSORPTION: sections 5.1/5.2/6/8.3(d)/9.2/10/12 revised and section 14 (independent audit absorption) added. The report remains DOCUMENTED and makes no new mathematical claim. S-GOV-20260913-125-ROUND2-AUDIT-REPAIR-TAKEOVER re-pinned changed project evidence: audit/统观工作技术报告-20260913.md. S-GOV-20260913-126-PROJECTION-STATUS-ALIGNMENT re-pinned the report after section 5.1 labelled the old triage verdict historical and stated the current open-queue disposition.",
+      "scope": "Current technical audit report for the panoramic workline, revised after two independent audits. Historical S107-S109 judgments are labelled bounded/superseded; door A/B are provisional non-exhaustive routes; C-168 and the v2 proof evidence/replay contract are stated precisely. It introduces no mathematical claim.",
+      "source_hashes": {
+        "audit/统观工作技术报告-20260913.md": "dcbc731215a11aeaf9d6c4ff526bedf5e2704a769c01c6d5eec12d7dc2920918"
+      },
+      "status": "complete"
+    },
+    "A-AUTONOMOUS-ROUND2-001": {
+      "classification": "PAPER_ONLY_ARGUMENT_GAP_RESEARCH_OPEN",
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/自主构造第二轮-识别不敏感与相干义务-20260913.md",
+        "audit/triage批次与自主构造第一轮-20260913.md",
+        "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/自主构造第二轮-识别不敏感与相干义务-20260913.md",
+      "related_records": [
+        "S-RES-20260913-108-AUTONOMOUS-ROUND2",
+        "A-TRIAGE-AND-OBLIGATION-ROUND1-001",
+        "A-THEORY-ECONOMY-LEDGER-001"
+      ],
+      "revalidation": "Current scope corrected in place by S-GOV-20260913-125-ROUND2-AUDIT-REPAIR-TAKEOVER after F3/R2-1.",
+      "scope": "S108 bounded paper inspection of six observables on the owned UnlabeledTwoElement family. The inspected proposition-valued observables and the fact that uniform choice is not identification-insensitive remain useful samples. The step from an informally insensitive/formalisable specification to constructed recursor inputs (isSet B, f and congruence proof) was not established. INVARIANT_OBSTRUCTION_EMPTY_BY_CONSTRUCTION is withdrawn as a current closure verdict; the shape remains research-eligible. No new mathematical claim.",
+      "source_hashes": {
+        "audit/自主构造第二轮-识别不敏感与相干义务-20260913.md": "ffe50e65cebdd8c84d551f559fea1110b47f0e7b5688d585040604423e80b2b6"
+      },
+      "status": "complete"
+    },
+    "A-AUTONOMOUS-ROUND3-001": {
+      "classification": "BOUNDED_AXIS_CHECKS_NON_EXHAUSTIVE_PROVISIONAL_ROUTES",
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/自主构造第三轮-表达与身份两轴-20260913.md",
+        "audit/triage批次与自主构造第一轮-20260913.md",
+        "audit/自主构造第二轮-识别不敏感与相干义务-20260913.md",
+        "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md",
+        "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/自主构造第三轮-表达与身份两轴-20260913.md",
+      "related_records": [
+        "S-RES-20260913-109-AUTONOMOUS-ROUND3",
+        "A-AUTONOMOUS-ROUND2-001",
+        "A-TRIAGE-AND-OBLIGATION-ROUND1-001",
+        "A-THEORY-ECONOMY-LEDGER-001"
+      ],
+      "revalidation": "Current scope corrected in place by S-GOV-20260913-125-ROUND2-AUDIT-REPAIR-TAKEOVER after F3/F4/R2-1.",
+      "scope": "S109 bounded paper checks of three uses of an erased distinction and three expressibility candidates. These examples remain historical observations. They do not close the identity axis, expressibility axis or the whole search space. Door A and door B are provisional routes, not an exhaustive classification; C11 v2's unledgered axes and other new constructions remain eligible. No new mathematical claim.",
+      "source_hashes": {
+        "audit/自主构造第三轮-表达与身份两轴-20260913.md": "5b99865d5d83c647e6712cd41ab7e26058da7d5f852a312fdc10c51e9fe14350"
+      },
+      "status": "complete"
+    },
+    "A-BATCH10-001": {
+      "classification": "BOUNDED_SAMPLE_BATCH10",
+      "depends_on": [
+        "A-BATCH9-CALIBER-001"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "scripts/audit/sample_understanding_claims_batch10.py",
+        "scripts/audit/fill_understanding_claim_sample_batch10.py",
+        "audit/understanding-claim-sample-batch10-20260912.json"
+      ],
+      "kind": "evidence_sample",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/understanding-claim-sample-batch10-20260912.json",
+      "research_parent": "A-HISTORICAL-MATH-CLAIMS-001",
+      "resolution": {
+        "evidence": [
+          "scripts/audit/sample_understanding_claims_batch10.py",
+          "scripts/audit/fill_understanding_claim_sample_batch10.py",
+          "audit/understanding-claim-sample-batch10-20260912.json"
+        ],
+        "reason": "Batch-10 adds 40 verdicts (31/0/0/9; cumulative 402/2396 with no UNSUPPORTED and no E6); the provenance-trap entry was live-checked."
+      },
+      "scope": "Sample only.",
+      "source_hashes": {
+        "audit/understanding-claim-sample-batch10-20260912.json": "8198ae1dc959c860accaed1d90768952053a8c8e1f961c6f6324e89728e01057",
+        "scripts/audit/fill_understanding_claim_sample_batch10.py": "2d13b4c83d65b132b82dd6da00414aa4c0af6df14ab0941d1bba4b8dd56ad16a",
+        "scripts/audit/sample_understanding_claims_batch10.py": "a04232a7955570970b324289f3daed0218d11defa38d2abf3ba774fa8d4b20dc"
+      },
+      "status": "complete"
+    },
+    "A-BATCH11-001": {
+      "classification": "BOUNDED_SAMPLE_BATCH11",
+      "depends_on": [
+        "A-BATCH10-001"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "scripts/audit/sample_understanding_claims_batch11.py",
+        "scripts/audit/fill_understanding_claim_sample_batch11.py",
+        "audit/understanding-claim-sample-batch11-20260912.json"
+      ],
+      "kind": "evidence_sample",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/understanding-claim-sample-batch11-20260912.json",
+      "research_parent": "A-HISTORICAL-MATH-CLAIMS-001",
+      "resolution": {
+        "evidence": [
+          "scripts/audit/sample_understanding_claims_batch11.py",
+          "scripts/audit/fill_understanding_claim_sample_batch11.py",
+          "audit/understanding-claim-sample-batch11-20260912.json"
+        ],
+        "reason": "Batch-11 adds 40 verdicts (31/0/0/9; cumulative 442/2396 with no UNSUPPORTED and no E6)."
+      },
+      "scope": "Sample only.",
+      "source_hashes": {
+        "audit/understanding-claim-sample-batch11-20260912.json": "5b8189f54291bd1c260fd4cd9cab5cdefd18d8b6386721c8e3358174fbbe927f",
+        "scripts/audit/fill_understanding_claim_sample_batch11.py": "daca890979bd5cbcfaa2b2ee6dd961495493a9058484afb477a7032ffb93851f",
+        "scripts/audit/sample_understanding_claims_batch11.py": "662354ac4ac1d16fa6b59c32e0befdc7a85226c6a70a8200ada83a8d3822d7d7"
+      },
+      "status": "complete"
+    },
+    "A-BATCH12-001": {
+      "classification": "BOUNDED_SAMPLE_BATCH12_WITH_CALIBER_ITEMS",
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "scripts/audit/sample_understanding_claims_batch12.py",
+        "scripts/audit/fill_understanding_claim_sample_batch12.py",
+        "audit/understanding-claim-sample-batch12-20260912.json",
+        "audit/understanding-claim-sample-batch12-20260913.md"
+      ],
+      "kind": "evidence_sample",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/understanding-claim-sample-batch12-20260912.json",
+      "related_records": [
+        "A-BATCH11-001"
+      ],
+      "research_parent": "A-HISTORICAL-MATH-CLAIMS-001",
+      "resolution": {
+        "evidence": [
+          "scripts/audit/sample_understanding_claims_batch12.py",
+          "scripts/audit/fill_understanding_claim_sample_batch12.py",
+          "audit/understanding-claim-sample-batch12-20260912.json",
+          "audit/understanding-claim-sample-batch12-20260913.md"
+        ],
+        "reason": "Batch-12 adds 40 verdicts (20/0/2/18; cumulative 482/2396 with no UNSUPPORTED and no E6). Two historical items are taken over by machine results (CL-001048 -> MP-ERCF-001; CL-001564 -> MP-RACE-TIMEOUT-001 + N2). Site checks: workspace 44 SESSION / 9 PROOF_NOTE / 10 reviews; r006-r015 artifacts archive-only; 4,330 finite models; Gemini 24/24. Two caliber items recorded (2,091 vs 2,087 sources; 238 vs 237 lines)."
+      },
+      "scope": "Sample only; no claim rows; no edits to the claim ledger or understanding chapters.",
+      "source_hashes": {
+        "audit/understanding-claim-sample-batch12-20260912.json": "534fa13930f48bc8107821d629e1f619b4be3d671dac2b86413c3eb699086c35",
+        "audit/understanding-claim-sample-batch12-20260913.md": "e87e87668dae3910a0eb97f84cc08a2a7e12ed37e9494d377d729f871bcf9811",
+        "scripts/audit/fill_understanding_claim_sample_batch12.py": "c9b7a621228ea1806ae5895ddd385c0d23a75d9eb84c7c2956c469670c51e98a",
+        "scripts/audit/sample_understanding_claims_batch12.py": "effe0afe877dc6557b9935eb8d0245ef98a00156e73b0672952e5ce9f39e3b7b"
+      },
+      "status": "complete"
+    },
+    "A-BATCH9-CALIBER-001": {
+      "classification": "BOUNDED_SAMPLE_BATCH9_WITH_CALIBER_RESOLUTION",
+      "depends_on": [
+        "A-INTERFACE-DATA-CUT-BATCH8-001"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/batch9-caliber-resolution-20260913.md",
+        "scripts/audit/sample_understanding_claims_batch9.py",
+        "scripts/audit/fill_understanding_claim_sample_batch9.py",
+        "audit/understanding-claim-sample-batch9-20260912.json"
+      ],
+      "kind": "evidence_sample_and_caliber",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/batch9-caliber-resolution-20260913.md",
+      "research_parent": "A-HISTORICAL-MATH-CLAIMS-001",
+      "resolution": {
+        "evidence": [
+          "audit/batch9-caliber-resolution-20260913.md",
+          "scripts/audit/sample_understanding_claims_batch9.py",
+          "scripts/audit/fill_understanding_claim_sample_batch9.py",
+          "audit/understanding-claim-sample-batch9-20260912.json"
+        ],
+        "reason": "Batch-9 adds 40 verdicts (26/0/0/14; cumulative 362/2396 with no UNSUPPORTED and no E6) and resolves two logged caliber deltas (snapshot lag vs current ledger value; distinct statistic objects). The bounded library sweep found no totality-test consumer."
+      },
+      "scope": "Evidence queue, caliber policy and bounded library sweep; no new mathematical claim.",
+      "source_hashes": {
+        "audit/batch9-caliber-resolution-20260913.md": "fb860f255a8f65b9b3d5ed10edc8658f9cb7535601a2b8d0d786601d588e4754",
+        "audit/understanding-claim-sample-batch9-20260912.json": "c7aaafd14a20a12d296f11c56ca681f395f4f8a3a4a84b82bd6a044f51b3db24",
+        "scripts/audit/fill_understanding_claim_sample_batch9.py": "dc9d8884feec95b97dd8e7ae91c0c6d25e02932f8450c8be6dc3397ab9366845",
+        "scripts/audit/sample_understanding_claims_batch9.py": "5e3544bc5f962c06f92ece84a85fb059ba551acc0834fab5bf0f4bed01a17834"
+      },
+      "status": "complete"
+    },
+    "A-C11-REVIEW-ABSORPTION-001": {
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/c11评审吸收与独立核验-20260913.md",
+        "audit/imports/c11-review-20260913/20260913-C11统观思路独立评审.md",
+END_FULL_TEXT
+END_COGNITION_CHUNK
