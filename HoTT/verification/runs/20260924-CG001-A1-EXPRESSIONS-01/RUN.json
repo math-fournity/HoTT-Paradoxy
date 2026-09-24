@@ -1,0 +1,63 @@
+{
+  "claim_ids": [
+    "CG001-C-10",
+    "CG001-C-11",
+    "CG001-C-12",
+    "CG001-C-13",
+    "CG001-C-14"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/a1-expressions",
+    "HoTT/formal/claude-cg001/a1-expressions/A1Expressions.agda"
+  ],
+  "completed_at_utc": "2026-09-24T15:52:00.813299+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 32.111538,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "no physical claim; runner/counter/thermometer/scale are bridge labels",
+    "not HoTT inconsistency; change remains representable as a relabeling written into a type family",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only); not original mathematics"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-A1-EXPRESSIONS-001",
+  "run_id": "20260924-CG001-A1-EXPRESSIONS-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-10..C-14 exactly as stated in CLAIM.md (attribution theorem invisible<->identified; reading spaces over the loop = type with automorphism, helix = sucZ relabeling; laps not a function of position but OmegaS1 = Z; no global section of helix and shift = winding; total space of helix contractible, integer readings of it constant, sections determined by transport). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2688,
+    "path": "source-manifest.json",
+    "sha256": "7eaefdddc19eff9ad9acc1160d3a1af2d77533fa16f79dff1e77d9e1a3e13732"
+  },
+  "started_at_utc": "2026-09-24T15:51:28.701761+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16802,
+    "path": "stdout.txt",
+    "sha256": "f2722718e82c1a8661ecd3c56772a2d92833c6b1bffa14867ce5a987867104f5"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
