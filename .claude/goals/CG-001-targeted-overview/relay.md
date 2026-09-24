@@ -14,6 +14,7 @@
 | `MP-CG001-MOTION-MEASUREMENT-NEG-001` | `CG001-C-03`（负控制） | `formal/claude-cg001/motion-measurement/WrongVaryingReading.agda` | `verification/runs/20260924-CG001-MOTION-MEASUREMENT-NEG-01/`；exit 42，`UnequalTerms 1 != 0 of type ℕ` | `KERNEL_REJECTED_AS_EXPECTED` |
 | `MP-CG001-MEASUREMENT-LOG-001` | `CG001-C-08` | `formal/claude-cg001/measurement-log/MeasurementLog.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-MEASUREMENT-LOG-02/`；exit 0，stderr 0 B；目标内精确重放一致。`…-01` 作废（目标内校验器附加标记命中注释，见 `verification/20260924-CG001-MEASUREMENT-LOG-01.NOTE.md`），不应登记 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
 | `MP-CG001-LEVEL-COMPARISON-001` | `CG001-C-09` | `formal/claude-cg001/level-comparison/LevelComparison.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-LEVEL-COMPARISON-01/`；exit 0，stderr 0 B；目标内精确重放一致 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
+| `MP-CG001-A1-EXPRESSIONS-001` | `CG001-C-10`–`CG001-C-14` | `formal/claude-cg001/a1-expressions/A1Expressions.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-A1-EXPRESSIONS-01/`；exit 0，stderr 0 B；目标内精确重放一致（CG-001 关闭后的延伸，commit `31c49f7b`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
 
 各 claim 的一句话与禁止外推见各包的 `CLAIM.md`（`HoTT/formal/claude-cg001/` 下的 motion-measurement、measurement-log、level-comparison）与本目录 `证据索引.md` §3。
 
