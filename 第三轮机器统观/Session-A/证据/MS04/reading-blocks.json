@@ -1,0 +1,65 @@
+[
+  {
+    "block": 1,
+    "source": "S4",
+    "relative_lines": [
+      1,
+      26
+    ],
+    "text": "{-# OPTIONS --safe --cubical --guardedness #-}\nmodule StageColimit where\n\n-- MO3 C01: finite countdown graphs and their native sequential colimit.\n-- The aggregate edge is the mere image of an actual edge at one stage.\n-- No operational/physical completion or preservation promise is assumed.\n\nopen import Cubical.Foundations.Prelude\nopen import Cubical.Data.Nat\nopen import Cubical.Data.Sigma\nopen import Cubical.Data.Empty as Empty\nopen import Cubical.Data.Fin.Inductive.Base\nopen import Cubical.Data.Sequence.Base\nopen import Cubical.Induction.WellFounded\nopen import Cubical.HITs.SequentialColimit.Base\nopen import Cubical.HITs.PropositionalTruncation.Base\nimport Cubical.HITs.PropositionalTruncation as PT\n\nStage : ℕ → Type\nStage n = Fin (suc n)\n\n-- Step y x means that the recursive call from x may move to y.\nNatStep : ℕ → ℕ → Type\nNatStep y x = suc y ≡ x\n\nStageStep : (n : ℕ) → Stage n → Stage n → Type\n"
+  },
+  {
+    "block": 2,
+    "source": "S3",
+    "relative_lines": [
+      1,
+      36
+    ],
+    "text": "{-# OPTIONS --lossy-unification #-}\nmodule Cubical.HITs.SequentialColimit.Base where\n\nopen import Cubical.Foundations.Prelude\nopen import Cubical.Foundations.Equiv\n\nopen import Cubical.Data.Nat\nopen import Cubical.Data.Sequence\nopen import Cubical.Data.FinSequence\nopen import Cubical.Data.Fin.Inductive\n\n\nprivate\n  variable\n    ℓ ℓ' : Level\n\nopen Sequence\n\ndata SeqColim (X : Sequence ℓ) : Type ℓ where\n  incl : {n : ℕ} → X .obj n → SeqColim X\n  push : {n : ℕ} (x : X .obj n) → incl x ≡ incl (X .map x)\n\ndata FinSeqColim (m : ℕ) (X : Sequence ℓ) : Type ℓ where\n  fincl : (n : Fin (suc m)) → X .obj (fst n) → FinSeqColim m X\n  fpush : (n : Fin m) (x : X .obj (fst n))\n    → fincl (injectSuc n) x ≡ fincl (fsuc n) (X .map x)\n\nFinSeqColim→Colim : (m : ℕ) {X : Sequence ℓ} → FinSeqColim m X → SeqColim X\nFinSeqColim→Colim m (fincl n x) = incl x\nFinSeqColim→Colim m (fpush n x i) = push x i\n\nrealiseSequenceMap : {C : Sequence ℓ} {D : Sequence ℓ'}\n  → SequenceMap C D → SeqColim C → SeqColim D\nrealiseSequenceMap (sequencemap map comm) (incl x) = incl (map _ x)\nrealiseSequenceMap (sequencemap map comm) (push {n = n} x i) =\n  (push (map n x) ∙ λ i → incl (comm n x i)) i\n"
+  },
+  {
+    "block": 3,
+    "source": "S4",
+    "relative_lines": [
+      50,
+      78
+    ],
+    "text": "stepPreserved y x edge = cong suc edge\n\nTotal : Type\nTotal = SeqColim Stages\n\nTotalStep : Total → Total → Type\nTotalStep y x = ∥ (Σ[ n ∈ ℕ ]\n  Σ[ a ∈ Stage n ] Σ[ b ∈ Stage n ]\n  (StageStep n a b × ((incl {n = n} a ≡ y) ×\n                     (incl {n = n} b ≡ x)))) ∥₁\n\n-- The terminal vertex born at stage k.  At the next stage it acquires\n-- an outgoing edge to the newly introduced terminal vertex.\nterminal : ℕ → Total\nterminal k = incl {n = k} fzero\n\nterminalStep : (k : ℕ) → TotalStep (terminal (suc k)) (terminal k)\nterminalStep k = ∣ (suc k , fzero , fsuc (fzero {m = k}) ,\n  refl , refl , sym (push {n = k} (fzero {m = k}))) ∣₁\n\n-- Proposed C-329: accessibility at any point of this explicit chain\n-- would recursively supply accessibility at its successor, giving Empty.\nterminalNotAccessible : (k : ℕ) → Acc TotalStep (terminal k) → ⊥\nterminalNotAccessible k (acc next) =\n  terminalNotAccessible (suc k) (next (terminal (suc k)) (terminalStep k))\n\ntotalNotWellFounded : WellFounded TotalStep → ⊥\ntotalNotWellFounded wf = terminalNotAccessible zero (wf (terminal zero))\n\n"
+  },
+  {
+    "block": 4,
+    "source": "S2",
+    "relative_lines": [
+      1,
+      56
+    ],
+    "text": "\nmodule Cubical.Induction.WellFounded where\n\nopen import Cubical.Foundations.Prelude\nopen import Cubical.Relation.Nullary\n\nmodule _ {ℓ ℓ'} {A : Type ℓ} (_<_ : A → A → Type ℓ') where\n  WFRec : ∀{ℓ''} → (A → Type ℓ'') → A → Type _\n  WFRec P x = ∀ y → y < x → P y\n\n  data Acc (x : A) : Type (ℓ-max ℓ ℓ') where\n    acc : WFRec Acc x → Acc x\n\n  WellFounded : Type _\n  WellFounded = ∀ x → Acc x\n\n\nmodule _ {ℓ ℓ'} {A : Type ℓ} {_<_ : A → A → Type ℓ'} where\n  isPropAcc : ∀ x → isProp (Acc _<_ x)\n  isPropAcc x (acc p) (acc q)\n    = λ i → acc (λ y y<x → isPropAcc y (p y y<x) (q y y<x) i)\n\n  isPropWellFounded : isProp (WellFounded _<_)\n  isPropWellFounded p q i a = isPropAcc a (p a) (q a) i\n\n  access : ∀{x} → Acc _<_ x → WFRec _<_ (Acc _<_) x\n  access (acc r) = r\n\n  private\n    wfi : ∀{ℓ''} {P : A → Type ℓ''}\n        → ∀ x → (wf : Acc _<_ x)\n        → (∀ x → (∀ y → y < x → P y) → P x)\n        → P x\n    wfi x (acc p) e = e x λ y y<x → wfi y (p y y<x) e\n\n  module WFI (wf : WellFounded _<_) where\n    module _ {ℓ''} {P : A → Type ℓ''} (e : ∀ x → (∀ y → y < x → P y) → P x) where\n      private\n        wfi-compute : ∀ x ax → wfi x ax e ≡ e x (λ y _ → wfi y (wf y) e)\n        wfi-compute x (acc p)\n          = λ i → e x (λ y y<x → wfi y (isPropAcc y (p y y<x) (wf y) i) e)\n\n      induction :  ∀ x → P x\n      induction x = wfi x (wf x) e\n\n      induction-compute : ∀ x → induction x ≡ (e x λ y _ → induction y)\n      induction-compute x = wfi-compute x (wf x)\n\n  wf→x≮x : WellFounded _<_ → ∀ {x} → ¬ (x < x)\n  wf→x≮x wf {x} = aux x (wf x)\n    where\n      aux : ∀ x → Acc _<_ x → ¬ (x < x)\n      aux x (acc r) x<x = aux x (r x x<x) x<x\n\n  wf→x<y→x≢y : WellFounded _<_ → ∀ {x} {y} → x < y → ¬ (x ≡ y)\n  wf→x<y→x≢y wf {x} x<y x≡y = wf→x≮x wf (subst (x <_) (sym x≡y) x<y)\n"
+  },
+  {
+    "block": 5,
+    "source": "S1",
+    "relative_lines": [
+      1,
+      82
+    ],
+    "text": "\\section{Ordinal numbers}\n\\label{sec:ordinals}\n\n\\index{ordinal|(}%\n\n\\begin{defn}\\label{defn:accessibility}\n  Let $A$ be a set and\n  \\[(\\blank<\\blank):A\\to A\\to \\prop\\]\n  a binary relation on $A$.\n  We define by induction what it means for an element $a:A$ to be \\define{accessible}\n  \\indexdef{accessibility}%\n  \\indexsee{accessible}{accessibility}%\n  by $<$:\n  \\begin{itemize}\n  \\item If $b$ is accessible for every $b<a$, then $a$ is accessible.\n  \\end{itemize}\n  We write $\\acc(a)$ to mean that $a$ is accessible.\n\\end{defn}\n\nIt may seem that such an inductive definition can never get off the ground, but of course if $a$ has the property that there are \\emph{no} $b$ such that $b<a$, then $a$ is vacuously accessible.\n\nNote that this is an inductive definition of a family of types, like the type of vectors considered in \\cref{sec:generalizations}.\nMore precisely, it has one constructor, say $\\acc_<$, with type\n\\[ \\acc_< : \\prd{a:A} \\Parens{\\prd{b:A} (b<a) \\to \\acc(b)} \\to \\acc(a). \\]\n\\index{induction principle!for accessibility}%\nThe induction principle for $\\acc$ says that for any $P:\\prd{a:A} \\acc(a) \\to \\type$, if we have\n\\[f:\\prd{a:A}{h:\\prd{b:A} (b<a) \\to \\acc(b)}\n\\Parens{\\prd{b:A}{l:b<a} P(b,h(b,l))} \\to\nP(a,\\acc_<(a,h)),\n\\]\nthen we have $g:\\prd{a:A}{c:\\acc(a)} P(a,c)$ defined by induction, with\n\\[g(a,\\acc_<(a,h)) \\jdeq f(a,\\,h,\\,\\lam{b}{l} g(b,h(b,l))).\\]\nThis is a mouthful, but generally we apply it only in the simpler case where $P:A\\to\\type$ depends only on $A$.\nIn this case the second and third arguments of $f$ may be combined, so that what we have to prove is\n\\[f:\\prd{a:A} \\Parens{\\prd{b:A} (b<a) \\to \\acc(b) \\times P(b)}\n\\to P(a).\n\\]\nThat is, we assume every $b<a$ is accessible and $g(b):P(b)$ is defined, and from these define $g(a):P(a)$.\n\nThe omission of the second argument of $P$ is justified by the following lemma, whose proof is the only place where we use the more general form of the induction principle.\n\n\\begin{lem}\n  Accessibility\\index{accessibility} is a mere property.\n\\end{lem}\n\\begin{proof}\n  We must show that for any $a:A$ and $s_1,s_2:\\acc(a)$ we have $s_1=s_2$.\n  We prove this by induction on $s_1$, with\n  \\[P_1(a,s_1) \\defeq \\prd{s_2:\\acc(a)} (s_1=s_2). \\]\n  Thus, we must show that for any $a:A$ and ${h_1:\\prd{b:A} (b<a) \\to \\acc(b)}$ and\n  \\[ k_1:{\\prd{b:A}{l:b<a}{t:\\acc(b)} h_1(b,l) = t},\\]\n  we have $\\acc_<(a,h) = s_2$ for any $s_2:\\acc(a)$.\n  We regard this statement as $\\prd{a:A}{s_2:\\acc(a)} P_2(a,s_2)$, where\n  \\[P_2(a,s_2) \\defeq\n  \\prd{h_1 : \\cdots } %{h_1:\\prd{b:A} (b<a) \\to \\acc(b)}\n  {k_1 : \\cdots} % \\Parens{\\prd{b:A}{l:b<a}{t:\\acc(b)} h_1(b,l) = t} \\to\n  (\\acc_<(a,h_1) = s_2);\n  \\]\n  thus we may prove it by induction on $s_2$.\n  Therefore, we assume $h_2 : \\prd{b:A} (b<a) \\to \\acc(b)$, and $k_2$ with a monstrous but irrelevant type,\n  % \\begin{narrowmultline*}\n  %   k_2:\\prd{b:A}{l:b<a}\n  %   \\prd{h_1:\\prd{b':A} (b'<b) \\to \\acc(b')}\n  %   \\narrowbreak\n  %   \\Parens{\\prd{b':A}{l':b'<b}{t':\\acc(b')} h_1(b',l') = t'} \\to\n  %   (\\acc_<(b,h_1) = h_2(b,l)).\n  % \\end{narrowmultline*}\n  and must show that for any $h_1$ and $k_1$ with types as above,\n  we have $\\acc_<(a,h_1) = \\acc_<(a,h_2)$.\n  By function extensionality, it suffices to show $h_1(b,l) = h_2(b,l)$ for all $b:A$ and $l:b<a$.\n  This follows from $k_1$.\n\\end{proof}\n\n\\begin{defn}\n  A binary relation $<$ on a set $A$ is \\define{well-founded}\n  \\indexdef{relation!well-founded}%\n  \\indexdef{well-founded!relation}%\n  if every element of $A$ is accessible.\n\\end{defn}\n\nThe point of well-foundedness is that for $P:A\\to \\type$, we can use the induction principle of $\\acc$ to conclude $\\prd{a:A} \\acc(a) \\to P(a)$, and then apply well-foundedness to conclude $\\prd{a:A} P(a)$.\nIn other words, if from $\\fall{b:A} (b<a) \\to P(b)$ we can prove $P(a)$, then $\\fall{a:A} P(a)$.\nThis is called \\define{well-founded induction}\\indexdef{well-founded!induction}.\n"
+  },
+  {
+    "block": 6,
+    "source": "S4",
+    "relative_lines": [
+      27,
+      49
+    ],
+    "text": "StageStep n y x = NatStep (fst y) (fst x)\n\nnatAccessible : (x : ℕ) → Acc NatStep x\nnatAccessible zero = acc (λ y p → Empty.rec (snotz p))\nnatAccessible (suc x) = acc (λ y p →\n  subst (Acc NatStep) (sym (injSuc p)) (natAccessible x))\n\nliftAccessible : {n : ℕ} (x : Stage n) →\n  Acc NatStep (fst x) → Acc (StageStep n) x\nliftAccessible x (acc next) =\n  acc (λ y edge → liftAccessible y (next (fst y) edge))\n\n-- Proposed C-327: every point of every finite stage is accessible.\nstageWellFounded : (n : ℕ) → WellFounded (StageStep n)\nstageWellFounded n x = liftAccessible x (natAccessible (fst x))\n\nStages : Sequence ℓ-zero\nSequence.obj Stages n = Stage n\nSequence.map Stages x = fsuc x\n\n-- Proposed C-328: the inclusions preserve every stage edge.\nstepPreserved : {n : ℕ} (y x : Stage n) → StageStep n y x →\n  StageStep (suc n) (fsuc y) (fsuc x)\n"
+  },
+  {
+    "block": 7,
+    "source": "S4",
+    "relative_lines": [
+      79,
+      110
+    ],
+    "text": "-- Positive control: keep one stage fixed while using the same native\n-- colimit and the same definition by stage-induced relation image.\nmodule Frozen (bound : ℕ) where\n  Constant : Sequence ℓ-zero\n  Sequence.obj Constant k = Stage bound\n  Sequence.map Constant x = x\n\n  FrozenTotal : Type\n  FrozenTotal = SeqColim Constant\n\n  rank : FrozenTotal → ℕ\n  rank (incl x) = fst x\n  rank (push x i) = fst x\n\n  FrozenStep : FrozenTotal → FrozenTotal → Type\n  FrozenStep y x = ∥ (Σ[ k ∈ ℕ ]\n    Σ[ a ∈ Stage bound ] Σ[ b ∈ Stage bound ]\n    (StageStep bound a b × ((incl {n = k} a ≡ y) ×\n                           (incl {n = k} b ≡ x)))) ∥₁\n\n  rankStep : (y x : FrozenTotal) → FrozenStep y x → NatStep (rank y) (rank x)\n  rankStep y x = PT.rec (isSetℕ _ _) λ where\n    (k , a , b , edge , pa , pb) →\n      cong suc (sym (cong rank pa)) ∙ edge ∙ cong rank pb\n\n  frozenAccessible : (x : FrozenTotal) → Acc NatStep (rank x) → Acc FrozenStep x\n  frozenAccessible x (acc next) = acc λ y edge →\n    frozenAccessible y (next (rank y) (rankStep y x edge))\n\n  -- Proposed C-330: the unchanged-stage aggregate retains the qualification.\n  frozenWellFounded : WellFounded FrozenStep\n  frozenWellFounded x = frozenAccessible x (natAccessible (rank x))\n"
+  }
+]
