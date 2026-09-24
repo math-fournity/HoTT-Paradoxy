@@ -1,0 +1,526 @@
+---
+name: repo-cognitive-closure
+description: Always invoke this as the first Skill call before every other repo-* Skill, including ACP/control and Session Trajectory requests. Discover and select existing cognition, establish or rebuild the task closure, and continuously maintain minimum sufficient evidence across material decisions, corrections, phase changes, compaction, and sessions; then route to the smallest necessary domain Skills. Do not use for repo-independent questions or clearly trivial no-semantic edits.
+---
+
+# Repo Cognitive Closure
+
+## North Star
+
+The governance framework exists to make AI software engineering succeed, not to produce governance artifacts.
+The first semantic action for every task is to determine and establish the cognition needed to answer or act
+reliably. That closure must remain active, be consumed at material decisions, and be updated when its sources or
+scope change. For non-trivial repository work, this Skill is mandatory even when a domain Skill was invoked directly.
+Repo-independent or obviously trivial work may reach immediate closure only after confirming no unloaded repo
+fact can change the result.
+
+## Purpose
+
+This is the continuous cognition-consumption core router. It determines what must be known, loads and activates
+the minimum sufficient evidence, checks consumption at material decisions, handles invalidation and incremental
+rebuild, and selects relevant domain Skills. It does not implement the task, create closure files by default,
+or expand authorization.
+
+Before applying this router, fully read the current canonical workflow with:
+
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/workflows/repo-cognitive-closure.md`
+
+Read the system-wide method from the same stable tag:
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/governance/AI软件工程项目目录与认知治理规范.md`.
+
+## Applicability And Closure Levels
+
+Use this Skill whenever a reliable answer or action depends on repository facts: onboarding, explanation,
+diagnosis, review, planning, implementation, refactoring, operation, incident response, verification, status,
+history, migration, or a claim of correctness/completeness. Use it again after a new session, compaction, scope
+change, working-directory change, material asset update, or dynamic external fact change.
+
+An immediate closure is allowed only when the task is genuinely repo-independent or obviously trivial and the
+result cannot change based on unloaded project facts. “Small edit” is not enough if it changes behavior,
+requirements, state, routing, evidence, data, operations, or history.
+
+Closure depth scales with risk:
+
+| Level | Typical task | Required depth |
+|---|---|---|
+| Immediate | Repo-independent fact or unambiguous no-semantic local operation | Confirm no project fact can alter the result |
+| Local | Narrow bug/edit inside one known component | Component requirement, design contract, implementation, focused tests, current state |
+| Cross-cutting | Feature, architecture, schema, release, incident | Multiple component bundles, operations/data/risk, history and direct evidence |
+| Audit-grade | High-stakes claim or explicit user request | Claim/evidence/conflict/unknown map; persist only via explicit auditable Skill |
+
+## Define What Must Be Known
+
+Do not begin by wandering through convenient files. Translate the request into a closure ledger:
+
+1. What outcome does the user actually need: explanation, decision, change, operation, or proof?
+2. What is the success criterion, and which wrong conclusion would make the work fail?
+3. Which systems, components, roles, data, environments, external services, and lifecycle stages are involved?
+4. Which questions require “should”, “designed”, “implemented”, “verified”, “observed running”, or “why/history”?
+5. Which facts are dynamic and require current runtime or official sources?
+6. Which negative claims require a broader search before they can be stated?
+7. What remains outside scope, and does that limitation weaken the answer or action?
+
+Maintain this ledger internally unless the user explicitly requests an auditable artifact. For each question,
+track required source types, loaded evidence, conflicts, unknowns, and whether it is closed.
+
+## Repository Cognition Loading Model
+
+Confirm instruction and authority boundaries first, then load from routing layers to decisive evidence:
+
+| Need | Primary route | Decisive evidence when behavior matters |
+|---|---|---|
+| Project/system map | Root and nested README | Actual paths, imports, processes, storage, external assets |
+| Current direction/next | MEMORY | Current Git/runtime/data evidence |
+| Required behavior | Feature plus ruling/source | Acceptance assertions and authoritative user source |
+| User intent/reason | rulings or original instruction | Dated context, incident/experiment if cited |
+| Stable architecture/contract | docs system/detailed/interface/data/operations | Code, machine schema, consumers, contract tests, runtime |
+| Unsettled proposal | dev-docs | Experiments and current user decision; never current truth by location alone |
+| Actual implementation | Code/config/schema/dependency lock | Direct execution, tests, data, runtime artifacts |
+| Verification | Test/eval/audit/benchmark/run index | Actual command outputs and preserved artifacts |
+| Historical change | Git/history/incident/migration | Exact commit/diff, dates, preserved old artifacts |
+| Dynamic external fact | Current official/authoritative source | Fetched page/API/status at a recorded time |
+
+README, MEMORY, Feature, maps, summaries, and handoffs are compression/routing layers. They may tell you where
+to look; they cannot prove implementation, validation, or current runtime behavior.
+
+### Indexed Governance Shards
+
+When a canonical Markdown path contains `governance-shard-index:v1` or `governance-shard-index:v2`, treat it as the logical document index,
+not as a sufficient summary. Read its complete ordered shard table, `last_shard`, and `append_target`; then load
+the shard that owns the task scope. For `sequential` documents, current append/recent-log work must include the
+append target. Expand to adjacent or all shards only when the claim crosses their declared scopes. Never treat
+the first shard, final shard, or index synopsis as the whole logical document.
+
+The approximately 300-line shard target is non-blocking. It is a drafting and natural-boundary prompt, not a
+read cutoff, error, release gate, cleanup quota, or license to compress/delete content. When content is too large,
+prefer another semantically named shard; a unit that must remain coherent is still valid when longer. In v2, the
+shard directory has the same name as the index stem (`MEMORY.md` -> `MEMORY/`), each file is
+`NNN - topic.md`, and the filename topic, index link title, and shard H1 align. Published v1 documents remain
+read-compatible. Missing indexes, broken `last_shard`, unclear ownership, an unlisted shard, or a v2 path/title
+mismatch weakens closure until reconciled.
+
+### Feature Cognition Anchors And Derived Trace
+
+For every relevant Feature, expand the current row's cognition anchors when available:
+
+- `SRC`: ruling/spec/original requirement source;
+- `DES`: stable system/detailed design, ADR, interface or schema contract;
+- `IMP`: current code/config/schema/template/runtime path or stable symbol;
+- `VER`: test/run/query/receipt/report and its actual scope;
+- `EVD`: an implementation evidence bundle mapping Feature claims to assets and verification.
+
+A quality/release report, explicit auditable closure, or equivalent manifest may serve as `EVD`; do not require
+one new closure file per ordinary Feature. Legacy free-text anchors, missing categories, or unresolved paths are
+`LEGACY_PARTIAL`/`PARTIAL` cognition, even when the delivery column says verified. Return to the owning source,
+code, tests, and runtime before accepting the state.
+
+If the repo exposes a parser/indexer Trace, first verify its source snapshot/dirty manifest, asset universe,
+producer/schema/config versions, owner units, coverage receipts, generation status, and unresolved gaps. Use the
+graph only to narrow candidate evidence. A missing node/edge means only that this generation did not record it;
+`STALE`, `PARTIAL`, `UNRESOLVED`, or `HEURISTIC` paths require broader exact-source search. The derived index is
+never a second requirement, implementation, or verification truth.
+
+### Boot Memory And Recovery Protocol
+
+AGENTS is boot memory and mandatory routing, not the full project knowledge base. When a new session starts,
+the context was compacted, the cwd/repo changed, or the user asks for current state, next step, whether something
+was recorded, whether work can continue, or any similar repo-dependent status claim, do not rely on the compacted
+conversation summary or on AGENTS alone.
+
+Recover the minimum external work memory before answering or acting:
+
+1. load the active global/project/directory AGENTS and this closure Skill;
+2. read the target repo README for the asset map and MEMORY for current state, open questions, and next handoff;
+3. load the relevant Feature, rulings, docs README, stable design, auditable closure files, runtime artifacts, and
+   direct implementation evidence for the task;
+4. return implementation, verification, runtime, and history claims to code, config, schemas, tests, data, logs,
+   artifacts, and Git;
+5. if README or MEMORY is missing, stale, or conflicting, weaken the conclusion or repair governance routing when
+   authorized; never substitute “I remember” or a compacted summary for the missing source.
+
+## Continuous Cognitive Closure Working Set
+
+`COGNITIVE_CLOSURE_CONTINUITY_V1`. Initial loading is not a permanent pass. Maintain a logical working set with:
+
+- a **direct active set** of user intent, current requirements, invariants, working assumptions, decisive evidence,
+  conflicts, and unknowns that can change the next material decision;
+- an **indexed deferred set** whose entries name the current owner, identity, scope, version/freshness, locator, and
+  activation trigger; an index reduces context load but cannot support a material claim without source activation;
+- a **durable authority set** that can reconstruct current cognition across sessions;
+- an **inactive history set** for closed, superseded, erroneous, or currently irrelevant cognition;
+- dependencies and invalidation conditions for the decisions currently being used.
+
+Material decision points include choosing the next task or plan, defining a contract, choosing tools or evidence,
+making a strong claim, moving from analysis to implementation or implementation to verification, deciding to stop
+or complete, and drafting the final answer. At each point, identify the closure items the decision depends on and
+confirm they are current, directly active, and conflict-checked.
+
+User correction, scope/authorization changes, phase transitions, owner/commit/tag/dependency/runtime/external-fact
+changes, new counterevidence, compaction, session/cwd/worktree/system-island changes, or reuse without freshness
+make the affected slice stale. Stop actions that depend on it, reload the owning source, and rebuild only the
+smallest sufficient affected slice. Conversation continuity and “read earlier” are not freshness evidence.
+
+At every natural work-unit boundary, compute a closure delta: new, changed, invalidated, and no-longer-relevant
+facts; conflicts, unknowns, decisions, evidence, next action, and reopen/stop triggers. Apply cognition CRUD:
+
+- **create/add** reliable cognition to the active set and its unique owner when persistent;
+- **delete/retire** erroneous, superseded, or ineligible cognition from the active set while normally retaining
+  closed/superseded/replacement/Git history; physical deletion still requires separate authorization;
+- **update** the working restatement, dependencies, state, and next action, propagating stale status and editing the
+  current owner in place when persistent;
+- **read/query** through indexes to the owner and decisive evidence, checking identity, scope, version, and freshness.
+
+Use existing MEMORY/Feature/rulings/design/Topic/Goal/Git owners for work-unit, compaction, session-end, and handoff
+checkpoints. Ordinary tasks do not require a new closure file. After persistent write-back, reactivate the changed
+owner before continuing; do not keep reasoning from the superseded in-context version. The exact contract is
+`/Users/aurolafly/codex/docs/design/detailed/认知闭包持续生命周期合同.md`.
+
+## Task-To-Closure Admission And Persistence Projection
+
+`TASK_CLOSURE_ADMISSION_V1`. Before building the first working set for a non-trivial new or resumed task, form a
+minimal TaskDescriptor: objective/success, repo/system island/lifecycle, Feature/Topic/Goal, scope/non-goals/
+authorization, phase/consumer, claim/evidence level, snapshot/working state, duration/reuse/handoff, and
+invalidation conditions.
+
+Discover candidates in this order:
+
+```text
+user / active Goal / MEMORY current queue
+-> AGENTS firmware route
+-> README and docs asset map
+-> Feature / rulings / current design
+-> Topic / Closure Seed / Capsule / auditable closure
+-> code / tests / runtime / Git / external authority
+```
+
+Match candidates on objective/claim domain, system island, lifecycle, scope, consumer/phase, evidence level,
+snapshot/freshness, authorization, conflicts/unknowns, and invalidation. A similar name, directory, recent date,
+same repository, or “read before” is not a match. Choose exactly one source verdict:
+
+- `REUSE_AS_IS`: every material facet is current and sufficient;
+- `REUSE_WITH_DELTA`: a bounded part changed or is missing; preserve the unaffected slice;
+- `COMPOSE_FROM_OWNERS`: no single artifact covers the task, but current owners can form a sufficient closure;
+- `DEEPEN`: related cognition lacks the required evidence layer, consumer, lifecycle, or negative boundary;
+- `REBUILD`: identity, snapshot, owner, manifest, or dependency is stale/unverifiable;
+- `EXTERNAL_RESEARCH_REQUIRED`: the necessary fact is outside the repository and current sources are inadequate;
+- `INCONCLUSIVE`: identity, authorization, or coverage is insufficient to choose safely.
+
+Then make a separate persistence choice:
+
+- `CONTEXT_ONLY` for one-off work with no durable fact change;
+- `OWNER_UPDATE` for durable requirements, design, state, implementation, evidence, unknowns, or replacements;
+- `SEED` for a future/not-READY Topic, containing only purpose, depends_on, entry_points, unknowns, reopen_if;
+- `CAPSULE` only for high fan-out/risk/frequency, repeated multi-session closure cost, complex negative/history,
+  or explicit reusable audit, and only when the Topic is READY and current evidence answers the closure questions;
+- `AUDIT_CLOSURE` only when the user explicitly requests an auditable closure or a high-risk decision needs an
+  independent claim/evidence/conflict/unknown artifact.
+
+AGENTS owns the algorithm, not a per-task registry. README/docs indexes own the address map. MEMORY owns current
+queue, recovery, task pointers, and next action. Feature/Topic/Goal own stable relations. Capsules contain bounded
+synthesis, snapshot, evidence/conflicts/unknowns, negative boundary, invalidation, and owner pointers; they never
+duplicate current requirements, design, code, evidence, or runtime truth. Absence of a closure file does not mean
+absence of a logical closure; existence of a Capsule never bypasses freshness/admission.
+
+The exact contract is available at
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/design/detailed/任务到认知闭包选择与持久化合同.md`.
+P14-P20 cover exact reuse, delta, owner composition, Seed/Capsule thresholds, routed write-back, and false match.
+Static or fixture success does not verify future model behavior; preserve
+`TASK_CLOSURE_SELECTION_BEHAVIOR_NOT_VERIFIED` until fresh evidence exists.
+
+### Cognition Lifecycle And Task Eligibility
+
+Recovery is not permission to schedule every recently loaded topic. Classify material cognition as
+`ACTIVE_WORK`, `CURRENT_REQUIREMENT`, `OPEN_INCIDENT`, `CLOSED_INCIDENT`, `HISTORICAL_EVIDENCE`,
+`SUPERSEDED_FACT`, or `DRAFT_PROPOSAL`.
+
+Task priority is: the user's current objective; active goal or the authoritative current execution queue near the
+top of MEMORY; relevant open incidents and unfinished accepted Features; current requirements; then closed,
+historical, superseded, and draft material as background only. Recency, repetition, length, or emotional salience
+never grants task eligibility.
+
+Reopen a closed item only when the user explicitly requests it, new direct evidence invalidates closure, the same
+failure actually recurs, a relevant requirement/design/runtime change invalidates the old conclusion, or the
+current task is an incident review. An explicit historical question may inspect the item while keeping it closed.
+Before answering “what next”, anchor the selected task to the user objective or current queue. If the queue is
+missing or conflicts with current evidence, return at most PARTIAL; never guess from recent logs.
+
+### Repository Profile And System Islands
+
+- Disposable non-Git scratch: establish only reproduction identity; do not pretend it is a formal repo.
+- Formal single system: use the complete root governance skeleton and component cognition bundles.
+- Multi-component/production: use docs topic indexes and load relevant interface/data/risk/operations contracts.
+- Multi-system/multi-generation: identify the target system island and lifecycle before loading details. Do not
+  apply an active system's rules to a frozen/historical island or treat a historical design as current.
+
+If a root system registry is missing, recover boundaries from top-level/nested READMEs, current state, code,
+runtime, and Git. Record the missing registry as a governance gap; do not solve it by reading thousands of
+unrelated files.
+
+### Parallel Worktree Cognition Role
+
+`PARALLEL_WORKTREE_COGNITION_V1`. When a repository has multiple active worktrees, long-running sessions, or
+writers, establish the common base, canonical integration target, exact expected target HEAD, and role before
+mutation. Exactly one `CANONICAL_INTEGRATOR` owns current-truth updates and canonical revision/checkpoint
+allocation. Each `CONTRIBUTOR` owns only explicit implementation/test/proof/evidence paths in its branch; each
+`AUDITOR` remains read-only except for separately authorized audit paths. Directory separation proves working-file
+and index isolation, not semantic-state isolation.
+
+A contributor recovers from the canonical base, its own committed candidate history, any current dirty/index
+delta, and the target delta since base. Create a relay only when an existing task or commit record is insufficient
+for cross-session delivery. The relay must be `CANDIDATE_NOT_CURRENT` and record base/source/observed-target OIDs,
+write root, scope, modified paths, evidence, verification, conflicts/unknowns, and proposed canonical updates. It
+does not replace project MEMORY/STATE or allocate a canonical identity.
+
+Only the integrator may advance current owners after reviewing an exact candidate OID against the expected target
+HEAD. If the target, owner schema, dependencies, or requirement changed, mark the old review stale and rebuild the
+affected closure. Safe independent evidence work may continue while a role is unresolved, but current-state
+write-back stays pending. The stable contract is available with
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/design/detailed/Git多Worktree并行认知与Current-Truth集成合同.md`.
+
+## Breadth-First Execution And Current Sufficiency
+
+BREADTH_FIRST_EXECUTION_V1. Close the authorized parent outcome, major responsibilities and connections, the currently working path, and the next minimally testable integrated result. Deepen evidence needed for the current safe/correct action; future uncertainty gets a revisit trigger, not an automatic blocking dependency.
+
+When the current bounded action is adequately supported, act. Necessary root-cause, safety, migration, algorithm or technical-risk investigation may precede integration; define the evidence needed and the return point. Breadth means real working paths and accepted-scope coverage, not empty components. Research/audit/design-only and explicit full-text/full-history tasks keep their authorized result and scope.
+
+Reuse the existing plan/Topic/MEMORY; do not require another document, schema or approval. An unchanged question with no new counterevidence, invalidation or decision impact does not justify repeated expansion.
+
+### 专业术语与两种广度的认知入口
+
+以Iterative and Incremental Development / Evolutionary Design理解本合同：Walking Skeleton给出薄而真实的主要连接，Tracer Bullets使它及时获得反馈，Vertical Slicing按当前用户结果贯通必要层次。User Story Mapping帮助看见主要用户活动和连贯交付范围，不需要新地图工具或穷尽未来需求。
+
+先分清技术路径贯通和已接受用户范围覆盖；Greenfield选择最小真实骨架，Brownfield复用已有入口/状态/消费者。只读取和修改下一结果必要的部分；当前切片足够后，回父范围选择下一项结果。YAGNI / Simple Design不排除当前风险、性能/容量、难逆决策和质量所需的认知深度；规程已足以支持安全、正确、可测试、可恢复的下一动作时进入行动。专业术语不是单一ISO标准、BFS算法、特定架构要求或效果证明。
+
+## Goal Task Local Governance
+
+`GOAL_TASK_LOCAL_GOVERNANCE_V1`. After TaskDescriptor/admission, assess whether the task needs multiple work units or
+sessions, reliable recovery after compaction, repeatedly consumed special cognition, separate executor/auditor roles,
+or a high-cost evidence chain. Choose DIRECT_WORK for ordinary work, REUSE_GOVERNED_TASK for a compatible existing
+package, PREPARE_GOVERNED_TASK when the need is concrete or the user requests it, and PREPARE_ONLY when facts or
+permissions are not ready. Do not use token/file counts as a rigid threshold or turn every task into a Skill.
+
+When appropriate, use repo-cognition-governance to prepare a plan, project AGENTS routing, self-contained project
+Skills, a launch prompt of at most 4000 Unicode characters, an unoccupied goal-x identity when needed, a normally
+single-file startup closure, and the corresponding independent audit package. Judging a task suitable for a Goal is
+not permission to create a host Goal, a new session, model run, automation, or publication.
+
+For an existing governed task, first resolve the current user/actual Goal, role, scope, authorization and project
+route; fully read the selected Skill and startup closure, then mandatory cognition materials and current owners /
+direct evidence. Give an observable role-appropriate restatement before dependent action. New sessions, cross-session
+handoffs, compaction recovery and role changes require this chain before business work. Explicit full-reload materials
+cannot be replaced by hashes, summaries, old receipts or generic recovery exemptions. Ordinary later turns check
+freshness and affected slices without rebuilding the entire package unnecessarily.
+
+Global closure and project AGENTS provide two routing paths; the domain Skill checks the prerequisite again. Skill
+metadata discovery does not mean its body or references were loaded. Shared mandatory materials may serve research,
+audit, governance or mechanical-context roles: role changes consumption, not full-read obligations or permissions.
+Keep executor completion, audit completion, audit pass and business success separate. Closed/history packages do not
+revive merely because their Skill exists or their goal number is largest.
+
+This locally implemented increment is backed by the method source at
+`/Users/aurolafly/codex-worktrees/goal-task-governance-20260923/docs/design/detailed/Goal任务项目治理化合同.md`;
+fully read it when preparing or materially changing such a package. The published 3.25.0 baseline remains separately
+versioned until this increment is committed/released. Do not claim fresh/compaction behavior from static checks.
+
+## Workflow
+
+1. Confirm the user's objective, requested action, authorization, success criteria, expensive mistakes, and initial closure working set.
+2. Resolve every Git repo and active global/project/directory `AGENTS.md` boundary.
+3. Inspect `git status`, HEAD, tags, and concurrent changes before relying on current files.
+4. For a non-trivial handoff or recovery, read root `README.md`, the current queue near the top of `MEMORY.md`,
+   relevant `feature-list.md`,
+   `docs/README.md`, auditable closure indexes, and user rulings/source. Resolve any governance shard index before
+   selecting the owner/append shard.
+5. Expand `SRC/DES/IMP/VER/EVD` for relevant Features. Mark missing/legacy anchors as partial; if a derived Trace
+   is used, validate its current generation and coverage before following it.
+6. Identify the target system island and lifecycle: active, frozen, historical, or deprecated.
+7. Classify which T01-T26 topic groups can change the answer; route to the smallest domain Skill set below.
+8. Follow indexes to stable contracts, then return to code, configuration, machine schemas, tests, data,
+   processes, logs, artifacts, runs, and exact Git diffs whenever behavior or verification determines the claim.
+9. Separate user intent, current requirements, design, implementation, verification, runtime state, and history;
+   classify task eligibility so closed/historical/superseded/draft material remains background.
+10. Reconcile conflicts by fact type and time. Record material unknowns; do not turn “not found” into “absent”.
+11. Start the requested work only when the initial completion checklist is satisfied.
+12. At every material decision, consume the relevant direct active set; if a trigger fired, mark the affected slice
+    stale and rebuild it before dependent work continues.
+13. At each natural work-unit boundary, apply the cognition delta/CRUD contract. Route persistent changes to
+    `repo-cognition-governance`, then reactivate the updated owner.
+
+## Domain Skill Routing
+
+Fully read every matching Skill before substantive domain analysis or edits:
+
+| Trigger | Skill |
+|---|---|
+| New repo, missing governance, directory/knowledge bootstrap | `repo-bootstrap-governance` |
+| Poorly governed multi-generation repo requiring exhaustive selected-ref history reconstruction | `repo-legacy-reconstruction` |
+| Authorized whole-repo structure migration after reconstruction/current-truth PASS | `repo-structure-migration` |
+| Requirement, acceptance, user ruling, Feature, ADR | `repo-requirements-decisions` |
+| Architecture, component boundary, dependency, system flow | `repo-system-design` |
+| API/CLI/schema/state/concurrency/idempotency/recovery contract | `repo-detailed-design` |
+| Data model, migration, compatibility, backfill, deletion | `repo-data-migration` |
+| Test/eval, security, reliability, performance, evidence | `repo-verification-risk` |
+| Deploy, operations, incident, release, rollback, retirement | `repo-operations-lifecycle` |
+| Model, prompt, agent, tools, trajectory, truncation, leakage | `repo-ai-system-governance` |
+| Multi-client Devin/OpenCode ACP or Codex app-server facade, worker/session/turn control | `repo-acp-multi-client-control` |
+| Recursive Codex/OpenCode/Devin/ZCode Session Trajectory, context/read/behavior evidence | `repo-agent-session-trajectory` |
+| Codex Master considering, proposing, spawning, steering, waiting for, accepting, or closing native Sub Agents | `repo-subagent-governance` (proposal only until explicit user authorization) |
+
+Multiple Skills may apply. A topic checklist is not a license to load every Skill.
+
+Do not conflate the three repository-entry cases: bootstrap creates/repairs an honest skeleton; legacy
+reconstruction proves complete current/history cognition; structure migration changes paths only after that
+cognition and explicit migration authorization exist. A request for a cleaner tree cannot skip reconstruction.
+
+## Topic Bundle Selection
+
+Perform an omission scan across all groups, then load only groups that can change the conclusion:
+
+| IDs | Cognition group | Common triggers |
+|---|---|---|
+| T01-T05 | Identity/scope, requirements, ownership, domain, user flows/UX/A11y/i18n | New product/feature, boundary, user-facing workflow |
+| T06-T10 | System/detailed design, decisions, interfaces, data/schema/migration | Architecture, contract, state, storage, compatibility |
+| T11-T12 | Code/build/dependencies, configuration/environment/flags/secrets | Implementation/toolchain/config/backend change |
+| T13-T17 | Tests/evals, security, reliability, performance/cost, observability/SLO | Verification, risk, capacity, incident, release readiness |
+| T18-T21 | Deploy/release/rollback, operations, incidents, integrations/vendors | Environment or lifecycle operation |
+| T22-T24 | Current state/risks/debt, deprecation/retirement, history/lineage/provenance | Handoff, migration, deletion, generation change |
+| T25 | Model/prompt/agent/tools/isolation/truncation/eval/leakage | AI system behavior or evidence |
+| T26 | Development/review/Git/authorization | Collaboration, commit, push, publish, permissions |
+
+Examples: a schema change normally requires T02/T07/T09/T10/T13/T15/T18/T23; a concurrency incident normally
+requires T07/T15/T16/T17/T20/T22; a prompt change may require T02/T07/T12/T13/T14/T16/T25. These are prompts
+for reasoning, not fixed paperwork sets.
+
+## Source Responsibilities
+
+| Question | Primary authority |
+|---|---|
+| What should it do? | `feature-list.md` plus user source/ruling |
+| Which design/code/tests support a Feature? | Feature `SRC/DES/IMP/VER/EVD`, evidence bundle, then exact owners |
+| Why did the user decide it? | `rulings.md` or original instruction |
+| How is it designed? | current system/detailed design and ADR |
+| What does it do now? | code, config, schema, tests, direct runtime evidence |
+| Where is it? | README and nested indexes |
+| What is active/next? | MEMORY, checked against current evidence |
+| What happened historically? | Git, incident/migration history, preserved artifacts |
+
+Indexes and summaries route; they never prove implementation or validation.
+
+## Evidence And Provenance Discipline
+
+- Code presence proves only that code exists. Tests prove only what their assertions and actual run cover.
+- A design document proves the design claim, not that adapters are connected or production behavior matches.
+- Database status does not prove files/artifacts exist; files do not prove database state. Reconcile authorities.
+- Runtime claims require current process/log/data/artifact evidence and ownership/time checks to exclude stale assets.
+- Git subject lines are clues. Read the exact diff for any historical claim that affects the conclusion.
+- External facts with material change risk require current official sources; training memory is not current evidence.
+- Record evidence boundaries: what the source supports, what it does not support, version/time, and missing views.
+- Treat parser/indexer graph facts as derived routing evidence with coverage limits, never as proof that all
+  logical or business-semantic relationships exist.
+- Never expose secrets while proving that credentials/config exist; use path, permission, redacted status, or safe metadata.
+
+Choose evidence strength proportional to blast radius. A focused unit test may close a pure local helper; a schema
+migration or recovery guarantee needs real data identities, dry runs, fault paths, and reconciliation; a product
+success claim may need end-to-end runtime and independent review.
+
+## Conflicts, Gaps, And Negative Conclusions
+
+When sources disagree:
+
+1. Classify the disputed fact: user intent, current requirement, design, implementation, verification, runtime,
+   current project state, or historical explanation.
+2. Compare source authority, scope, version, timestamp, and whether the evidence is committed or dirty.
+3. Keep target state and actual state simultaneously; do not erase one to “resolve” the conflict.
+4. Prefer current direct evidence for actual behavior and current accepted sources for required behavior.
+5. If unresolved, expose both sides, state the impact, and weaken or block the conclusion.
+
+For “does not exist”, “not implemented”, “no other impact”, “all covered”, or “nothing else changed”, search
+reasonable synonyms, alternate roots, generated/runtime data, historical paths, dynamic sources, and consumers.
+State the checked boundary and blind spots. Absence of a hit is not evidence of global absence.
+
+Missing governance assets are not permission to fabricate them. Build a temporary closure from current files,
+code, runtime, and Git; route persistent repair to governance/bootstrap only when authorized.
+
+## Cross-Turn, Compaction, And Reuse
+
+A closure can be reused only while its objective, scope, sources, and dynamic facts remain valid. Re-audit after:
+
+- new session, resume after uncertain context, or automatic/manual compaction;
+- user correction, new requirement, or change from analysis to implementation/operation, implementation to
+  verification, or verification to delivery;
+- cwd/repo/system-island change;
+- new concurrent modifications, commit/tag change, release, migration, or incident evidence;
+- external official fact that may have changed.
+
+Rebuild only the affected portion when safe, but never claim continuity merely because the conversation feels
+continuous. Persisted MEMORY/docs support recovery; they are not a permanent internal memory substitute.
+Before compaction or handoff, ensure current objectives, decisions, invalidated items, evidence versions, unknowns,
+and next action are recoverable from existing owners. A fresh session must reject superseded summaries when they
+conflict with the current owner.
+
+## Answer, Action, And Handoff
+
+After closure:
+
+1. Label verified facts, supported inferences, proposals, user decisions needed, and unknowns.
+2. Answer at the user's needed altitude; do not dump the entire loading process.
+3. Respect request type: investigation/review does not authorize implementation or external mutation.
+4. For changes, implement against the closed requirement/design and verify in proportion to risk.
+5. If persistent facts changed, run `repo-cognition-governance`, reread the updated owner, and refresh the working
+   set; if none changed, avoid documentation noise.
+6. Do not claim “complete/correct/verified” beyond the closure boundary and direct evidence.
+
+## Completion Checklist
+
+- Objective, authorization, and success criteria are explicit.
+- Repo, system island, lifecycle, components, data, roles, and external systems are bounded.
+- Relevant domain Skills have been fully loaded.
+- “Should”, “designed”, “implemented”, “verified”, and “observed running” are not conflated.
+- Material claims return to evidence of matching strength and freshness.
+- Conflicts and unknowns are resolved, disclosed, or cause a weaker conclusion.
+- The selected current task is anchored to the user objective/current queue/open work; salient closed history did
+  not silently become the next task.
+- Negative conclusions have a search boundary proportional to their blast radius.
+- Relevant Feature anchors and any Trace generation were expanded and gap-checked; partial/stale indexes did not
+  substitute for exact source, tests, or runtime evidence.
+- Unrelated files and concurrent work remain untouched.
+- With multiple worktrees, the canonical integrator/target/base/current-owner set is explicit and no contributor
+  relay is presented as current truth.
+- Every material decision used current, directly active cognition; indexes and prior load receipts did not replace
+  the owning source.
+- Triggered stale slices were rebuilt, cognition CRUD was applied, and persistent changes are not stranded only in
+  conversation context.
+
+If persistent requirements, knowledge, state, routing, or deprecation facts change, finish with
+`repo-cognition-governance`. Use `auditable-cognitive-closure` only when the user explicitly requests a
+persisted auditable closure.
+
+## 整备与Git操作的任务闭包
+
+PREPARATION_CLOSURE_V1。整备是重要且可能巨大的认知闭包构建工程。先确认接管角色、父结果、完整用户范围、当前实际链路与下一真实验收；沿现有operations/plan/checklist检查目的/来源、治理/权限、工具/环境、数据/证据、启停/恢复/容量、观测审计、未来开发维护与人类授权。用户要求清单时持续维护一个owner，不为普通小任务强建平台。
+
+完整加载`/Users/aurolafly/codex-worktrees/git-ops-prep-3.13.0/docs/governance/整备工程与交接认知闭包规范.md`。文档决策闭合、实现、验证与运行分别判断；缺凭据/人类批准/实测不是可编造的设计选择，必须明确处置并限制READY。监督者按需上线时，持续证据由系统独立保存。
+
+GIT_OPERATIONS_V1。非平凡Git协作、集成、恢复、发布或角色分工还需完整读取同目录`Git协作集成与恢复行为规范.md`。确认common-dir/branch/HEAD/target、完整index和dirty所有权、现有授权、写者、集成与恢复范围；worktree共享refs/config，不等于权限隔离；规范不自动授予commit/push或破坏性动作。
+
+
+## vNext 合同消费点（VNEXT-007 skill 层，v3.21.0）
+
+标识：`VNEXT_SKILL_CONSUMPTION_V1`。本节不改变既有步骤，只声明 vNext 合同的读取与消费位置；合同位于
+`/Users/aurolafly/codex/docs/design/detailed/`（八份合同均为 `v1.0 stable`；`main` 工作树是研究快照，
+P1 单一 current 线收敛后改为稳定路径）。
+
+- 稳定引用形式（不依赖任何 worktree）：`git -C /Users/aurolafly/codex show governance-v3.25.0:<docs 下相对路径>`；工作树路径只是可读副本，tag 随治理版本更新。
+- 对象与 locator（一类当前事实一个 owner、指针不承载第二份全文）：
+  `Codex下一代治理框架VNEXT-004-对象与唯一Owner合同-v1.0.md` §二/§三/§四。
+- Brownfield 深度选择（ordinary onboarding vs 垂直重建）与 baseline 失效：
+  `Codex下一代治理框架VNEXT-002-Brownfield合同-v1.0.md` §六/§七/§十。
+- Greenfield Topic Map / Seed / Capsule / relay：
+  `Codex下一代治理框架VNEXT-003-Greenfield合同-v1.0.md` §二/§三/§七/§十。
+- Topic 事务、relay 字段、Goal 完成与 false-positive/negative：
+  `Codex下一代治理框架VNEXT-005-Topic执行与Goal完成合同-v1.0.md` §二–§五。
+- 证据等级、freshness/失效、CaseEnvelope 绑定（R-086）：
+  `Codex下一代治理框架VNEXT-006-验证与证据系统合同-v1.0.md` §二/§四/§五。
+
+边界：R-102只把Task→Closure、Seed/Capsule与owner语义编译进current admission；其余合同仍为**可选消费点**。
+这不授权完整vNext runtime迁移、发布或删除。

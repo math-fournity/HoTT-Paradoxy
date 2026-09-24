@@ -1,0 +1,514 @@
+---
+name: repo-cognition-governance
+description: Normalize and preserve persistent repository cognition whenever a task produces durable additions, corrections, invalidations, retirements, index changes, or handoff state. Independently choose context-only, owner update, Seed, Capsule, or auditable persistence; perform the full impact scan, route facts to one authority, refresh the active closure after write-back, and preserve documented/implemented/verified/runtime/history boundaries. Do not use for repo-independent work or a truly trivial edit with no semantic, state, asset, or handoff impact.
+---
+
+# Repo Cognition Governance
+
+## Governance Acceptance
+
+Governance artifacts are means, not the outcome. A governance change is successful only when it improves the
+discoverability, correctness, evidence traceability, freshness, or efficiency of current and future cognitive closure, or
+prevents Codex from bypassing or degrading continuous closure behavior. More files, rules, or Skills are not evidence
+of improvement. Before write-back, the current task must already have a valid cognitive closure.
+
+## Purpose
+
+This is the persistent cognition-update core router. It can run after user correction, material evidence change,
+a natural work unit, before compaction/handoff, or at task completion. It decides which persistent facts were
+added, changed, invalidated, or retired; loads matching domain Skills; updates one authority per responsibility;
+and requires the active closure to refresh from the updated owner. It does not require every file to change and
+does not authorize unrelated writes.
+
+Before applying this router, fully read the current canonical workflow with:
+
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/workflows/repo-cognition-governance.md`
+
+Read the system-wide method from the same stable tag:
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/governance/AI软件工程项目目录与认知治理规范.md`.
+
+## Authority, Scope, And Triggers
+
+Follow the user's current instruction and the most specific active project instructions. This Skill governs
+persistent knowledge only within the authorized task; it does not authorize unrelated code changes, external
+systems, publication, push, or destructive actions.
+
+Use it when work changes or may change requirements, parameters, design, interfaces, schema/data, configuration,
+operations, verification status, current direction, asset routing, system lifecycle, history, or cross-session
+handoff. Also use it when creating/repairing a formal repo's governance skeleton or resolving conflicting truth.
+
+Do not use it merely because code was touched. A local implementation/test edit with no semantic, state, routing,
+or durable-knowledge effect may need no governance write. The impact scan still decides; it does not force files.
+
+## Continuous Closure Write-Back Loop
+
+`COGNITIVE_CLOSURE_CONTINUITY_V1`. This Skill is not only an end-of-task documentation checklist. Trigger it when
+a user correction, accepted requirement, decisive evidence, lifecycle state, owner/index, invalidation, or
+cross-session handoff state persistently changes. First compute:
+
+```text
+new facts / changed facts / invalidated facts / no-longer-relevant facts
+conflicts / unknowns / decisions / evidence / next action / reopen-or-stop triggers
+```
+
+Then apply cognition CRUD:
+
+- **create/add** reliable durable cognition in the one owning source and add only necessary routes;
+- **delete/retire** erroneous, superseded, or ineligible cognition from the active/current lane while normally
+  preserving closed/superseded/replacement/Git history; physical deletion requires separate authorization;
+- **update** the current owner in place, preserve old state in history, and propagate stale status to dependent
+  conclusions, plans, indexes, and evidence claims;
+- **read/query** the owner and decisive evidence after write-back, refreshing the direct active and indexed deferred
+  sets before dependent work continues.
+
+Use existing MEMORY/Feature/rulings/design/Topic/Goal/Git owners for natural-work-unit, compaction, session-end,
+and handoff checkpoints. Do not require a new closure file, database, semantic Hook, or standing auditor. If no
+persistent fact changed, record `NO_CHANGE(reason)` in the current task context and leave owners untouched.
+
+The exact contract is `/Users/aurolafly/codex/docs/design/detailed/认知闭包持续生命周期合同.md`.
+
+## Task Closure Persistence Routing
+
+`TASK_CLOSURE_ADMISSION_V1`. Before durable write-back, confirm the task's source verdict and make a separate
+persistence projection. Reusing an existing Capsule does not prevent owner updates; building a new logical closure
+does not require a new file.
+
+- `CONTEXT_ONLY`: no durable fact changed; create no file or index entry.
+- `OWNER_UPDATE`: route user intent to rulings, requirements to Feature, stable contracts to design/ADR,
+  implementation to code/config/schema, verification/runtime to test/quality/run, and current state/next action
+  to MEMORY. Add only necessary thin pointers.
+- `SEED`: for a future/not-READY cross-session Topic, persist only purpose, depends_on, entry_points, unknowns,
+  and reopen_if in the existing Topic/Program owner. Do not prewrite answers.
+- `CAPSULE`: materialize only for high fan-out/risk/frequency, repeated multi-session closure cost, complex
+  negative/history, or explicit reusable audit, and only when the Topic is READY and current evidence answers its
+  closure questions. Store bounded synthesis, snapshot, claims/evidence/conflicts/unknowns, boundary, freshness/
+  invalidation, and owner pointers; never duplicate current truths.
+- `AUDIT_CLOSURE`: use the existing explicit auditable-closure route only when the user requests it or a high-risk
+  decision needs an independent claim/evidence/conflict/unknown artifact.
+
+Update README/docs indexes only for a new discoverable route. MEMORY remains the current queue/recovery/next
+owner, not an archive of every closure. If one result changes a requirement, evidence, and next action, write each
+to its own owner and connect them with thin pointers. The exact contract is available at
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/design/detailed/任务到认知闭包选择与持久化合同.md`.
+
+## Prepare Governed Goal Tasks
+
+`GOAL_TASK_LOCAL_GOVERNANCE_V1`. When closure selects PREPARE_GOVERNED_TASK, or the user explicitly requests it,
+reuse existing owners and prepare seven responsibilities: an actionable plan; project AGENTS integration; project
+Skills split by complete workflow; an executor launch prompt no longer than 4000 Unicode characters; an unoccupied
+goal-x identity when needed; a normally single-file startup closure (which may be goal-x); and, when requested or
+justified by risk, the corresponding full independent auditor package. Do not create seven files mechanically.
+
+Close purpose/scope, source authority, roles/permissions, inputs, startup, continued work, compaction/cross-session
+recovery, failure, write-back, verification, completion, activation/retirement and unknowns. AGENTS routes; Skills
+contain decisions/steps/failure/completion; the Goal/closure owns the task contract and evidence pointers; existing
+MEMORY/STATE owns progress. The closure can require actual reading of primary sources; neither a pointer list nor a
+copy of the entire repository is a substitute for a coherent startup contract.
+
+Before allocating a new goal number, inspect tracked and untracked paths, existing routes and relevant history,
+then use exclusive creation or equivalent conflict detection. Preserve historical prompts/seals/runs and distinguish
+new revisions from old evidence. Keep a user-specified .codex canonical tree; use explicit root routing when native
+Skill discovery is uncertain rather than a silently divergent second skill copy.
+
+Give executor and auditor separate bounded prompts, role-specific required reads/restatements, exclusive outputs,
+permissions and done predicates. Specify whether the auditor may write its own session evidence; it must not inherit
+executor write access to current owners. Replays that write caches use owned copies and record remapping. Do not
+pretend prompt role restrictions are an OS sandbox. Count actual prompt characters and verify startup/recovery links.
+
+Validate mechanical discovery/bytes/connections, actual model reading/consumption and business results separately;
+mark unrun fresh/compaction behavior NOT_VERIFIED. Preparation is not deployment, discovery is not invocation, and
+invocation is not success. Once the necessary chain is concrete and reviewable, return to the parent outcome; do
+not create a standing platform, registry, semantic Hook or a third core scheduler Skill.
+
+Method source (read in full for preparation/material changes):
+`/Users/aurolafly/codex-worktrees/goal-task-governance-20260923/docs/design/detailed/Goal任务项目治理化合同.md`.
+This is a local increment over published 3.25.0; source/runtime synchronization does not itself grant commit/tag/push
+permission or prove a new release. Project-specific academic viewpoints never become global defaults.
+
+## Normalize Intent Before Write-Back
+
+Classify each new statement before persisting it:
+
+- Explicit user requirement/correction: accepted requirement or constraint, with a source anchor.
+- User exploration without decision: candidate or dev-doc, not accepted truth.
+- AI-inferred improvement: proposal only; never silently promoted to user intent.
+- Settled implementation choice: design/ADR, unless it has independent user-visible requirement semantics.
+- Temporary parameter/experiment setting: current experiment/config fact, not permanent product requirement.
+- Bug: actual implementation deviates from an existing requirement; normally fix code/tests without rewriting the requirement.
+- Runtime finding: MEMORY/incident/evidence first; only stable reusable conclusions become docs.
+
+For Feature records, keep decision state and delivery state separate. “Documented”, “implemented”, “verified”,
+and “observed in one run” are distinct states and require distinct evidence.
+
+## Load The Affected Cognition Bundle
+
+Before editing durable assets, load only the affected component/system bundle:
+
+1. user intent and current required behavior;
+2. current stable system/detailed/interface/data/operations contract;
+3. actual implementation/configuration/schema/dependencies;
+4. tests and direct runtime/data evidence;
+5. MEMORY current direction/open decisions;
+6. history/incident/migration evidence when provenance or conflict requires it.
+
+An index, map, old handoff, or Feature row is not a substitute for the source that decides the update.
+
+## Before Any File Mutation
+
+Run `/Users/aurolafly/codex/tools/check_file_baseline.sh` for every existing target. Confirm repo root,
+tracked/dirty state, last file commit, HEAD, and tags. Never move, rename, or delete an existing uncommitted
+source; establish a recoverable commit or stop. Preserve concurrent work and stage only exact paths.
+
+## Parent Outcome And Return To Integration
+
+BREADTH_FIRST_EXECUTION_V1. At each natural work-unit boundary, distinguish newly usable behavior or parent integration evidence, resolved material uncertainty/risk, and preparation alone. Research and DEFER can be valuable; their counts do not add up to a completed parent capability.
+
+Once local work meets the current need, return to the incomplete integrated path. Further refinement needs a current consumer, direct necessity, a smaller-alternative check and a bounded return point. Existing investment, elegance or hypothetical reuse alone is insufficient. This is engineering judgment within existing authorization, not another user approval gate.
+
+Update current outcomes, remaining scope and next action in the existing owner/plan/MEMORY; preserve history separately. Parent completion still requires integrated acceptance for all accepted scope, not checked child tasks or complete-looking reports.
+
+### 切片完成后的范围与演进记录
+
+以Iterative and Incremental Development / Evolutionary Design回看Walking Skeleton、Tracer Bullets与Vertical Slicing的增量：技术路径已通不代表所有已接受用户活动已覆盖。复用User Story Mapping的范围视角，在原plan/Topic/MEMORY写明实际可用结果或关键未知减少、父范围剩余及下一最小可验结果；小任务不强建地图或记录平台。
+
+局部达到当前需要后返回父目标，不以YAGNI为由省略当前质量/恢复，也不因已有投入保留错误抽象。共同语义、变化原因和维护成本决定抽象，不设重复次数Gate。骨架、完整旅程、全部accepted范围和生产发布分别报告；第一版可重构/替换，ADR仍保留理由、替代、后果及复审条件。研究与审计按原授权交付，术语和报告数量不证明行为收益。
+
+## Full Impact Scan
+
+Consider every group; update only changed facts:
+
+| IDs | Group |
+|---|---|
+| T01-T05 | Identity/scope, requirements/acceptance, ownership, domain, user flows/UX/A11y/i18n |
+| T06-T10 | System design, detailed design, decisions, interfaces, data/schema/migration |
+| T11-T12 | Code/build/dependencies and configuration/environment/flags/secrets |
+| T13-T17 | Tests/evals, security, reliability/recovery, performance/cost, observability/SLO |
+| T18-T21 | Deployment/release/rollback, operations, incidents, external integrations |
+| T22-T24 | Current state/risks/debt, compatibility/retirement, history/lineage/provenance |
+| T25 | AI/model/prompt/agent/tool/isolation/truncation/eval/leakage contracts |
+| T26 | Development collaboration, review, Git, and authorization |
+
+Load every matching domain Skill listed in `repo-cognitive-closure`; do not duplicate its detailed workflow here.
+
+### Topic-Level Update Questions
+
+For each changed group, ask concrete questions:
+
+- T01-T05: Did identity, scope, non-goal, requirement, acceptance, ownership, domain meaning, or user flow change?
+- T06-T10: Did architecture, exact contract, decision, compatibility, schema, lineage, or migration change?
+- T11-T12: Did code map, dependency/toolchain, config default, environment, flag, or secret boundary change?
+- T13-T17: Did verification evidence, threat/risk, failure/recovery behavior, capacity/cost, SLO/telemetry change?
+- T18-T21: Did deploy/release/rollback, runbook, incident status, vendor limit, or integration contract change?
+- T22-T24: Did current direction, risk/debt, replacement/retirement, history, provenance, or asset identity change?
+- T25: Did model/prompt/role/tool/context/trajectory/truncation/eval/leakage semantics change?
+- T26: Did contribution/review/Git/authorization behavior change?
+
+The answer may be “no change”; record reasoning internally and leave that truth source untouched.
+
+## One Truth Per Responsibility
+
+- `AGENTS.md`: constitution, invariants, hard safety, cognition and Skill routing.
+- `README.md`: hierarchical project/system/component/asset map.
+- `feature-list.md`: current accepted/candidate/retired requirements with decision and delivery state separated.
+- `MEMORY.md`: current direction, verified findings, open decisions, next handoff, concise work history.
+- `rulings.md`: original user decision and context.
+- `docs/`: settled product/domain/design/interface/data/quality/security/operations/release/AI/history knowledge.
+- `dev-docs/`: investigations, proposals, POCs, and unsettled work.
+- Code/config/schema/tests/data/runtime/Git: actual implementation, verification, observation, and history evidence.
+
+Reference current facts elsewhere; never maintain two full current specifications.
+
+## Stable Docs And Dev-Docs
+
+Create or expand a stable doc when future work depends on a cross-component or exact contract, the risk is high,
+the same fact has been repeatedly rediscovered/misunderstood, the user requests a stable specification, or
+runtime/experiment evidence has settled a reusable conclusion.
+
+Do not create a stable doc for terminal transcripts, session plans, obvious local code details, unsettled options,
+or template parity. The complete topic README skeleton may state “not applicable yet”, but it must not invent facts.
+
+When sedimenting dev-docs:
+
+1. extract only conclusions that still hold;
+2. update Feature/source/evidence anchors and README routing;
+3. mark the old document historical/superseded or let Git preserve it;
+4. do not keep two full current specifications;
+5. retain failed experiments and incident evidence when they change future judgment.
+
+Long-lived docs should expose type, current/draft/historical/superseded identity, scope, truth boundary, freshness
+when dynamic, and replacement relation. These are cognition labels, not a document workflow state machine.
+
+## Indexed Long-Document Write-Back
+
+Before drafting the first version of an important governance document, predict its topic topology, growth,
+maintenance pattern, and common read path. If multiple stable topics, many sections, or a long sequential record
+are already foreseeable, start with a canonical index and semantic shards instead of first creating a giant
+monolith. A short heading plan is enough; do not create another approval ledger or document state machine.
+
+A governance document judged too long, repeatedly appended, growing, or difficult to navigate should become a
+canonical index plus semantic shards. Approximately 300 lines is only a soft prompt to consider the next natural
+boundary. It is never a cap, read cutoff, error, release gate, cleanup quota, or reason to compress, delete,
+densify, rewrite, or split a coherent semantic unit. When content is too large, create another shard at a natural,
+named semantic boundary; a unit that must remain coherent may exceed the target. Line count alone is not a
+mechanical failure, but an active document already judged too long does not receive a permanent legacy exemption.
+Migrate it in a bounded unit with a recoverable baseline, consumer/link scan, content reconciliation, and rollback.
+
+If a canonical path contains `governance-shard-index:v1` or `governance-shard-index:v2`, read the full index before
+mutation. New logical documents use v2: the shard directory has the same name as the index stem
+(`MEMORY.md` -> `MEMORY/`), shard files are `NNN - topic.md`, and the filename topic, index link title, and shard
+H1 align; the topic normally reuses the original section heading. Published v1 paths remain read-compatible, but
+that compatibility does not authorize new v1 documents. Update the owner shard for `topical` documents and the
+indexed `append_target` for `sequential` documents. Creating a shard requires the shard file, ordered table row,
+`last_shard`, and sequential `append_target` to change in the same commit. Do not write an unindexed shard or
+treat only the final shard as the logical truth.
+
+Current-truth owners are not append-only. When a Feature row, current design section, or topical owner becomes
+stale, edit that owner in place and preserve the old state in Git, MEMORY/history, rulings, or a sequential log.
+Never append a later "status correction", "latest", or "this supersedes above" block merely because the current
+row is long; leaving both claims visible creates two current truths. Route historical detail to its authority or
+shard at a natural semantic boundary without compressing content to meet the soft line target.
+
+Before migrating an existing monolith, establish a recoverable commit and annotated boundary tag; retain the
+canonical path as the index and reconcile headings/content plus links. Structural validation may fail broken
+paths, duplicates, or stale last/append pointers, but line-target excess must remain a non-blocking notice. Do not
+build automatic semantic splitters, shard databases, approval states, or bulk migrations by default.
+
+## Feature Cognition Anchors And Evidence Bundles
+
+When a Feature is created or its requirement, decision, delivery, implementation, or verification semantics
+change, update the owning row in place with a compact five-part route:
+
+- `SRC` requirement source;
+- `DES` current stable design/decision;
+- `IMP` implementation paths/symbols;
+- `VER` test/run/receipt and scope;
+- `EVD` implementation evidence bundle.
+
+The Feature row still owns only current requirement and delivery state. A quality/release report, explicitly
+authorized auditable closure, or equivalent bundle owns the per-Feature claim-to-asset-to-evidence mapping and
+must list each Feature ID it covers. Related Features may share one bundle; do not create one file per Feature by
+default. A verified state requires resolvable implementation, verification, and evidence anchors aligned with the
+current snapshot. Missing evidence remains a gap.
+
+Treat pre-contract free-text anchors as `LEGACY_PARTIAL` and upgrade current-queue, high-risk, and touched
+Features incrementally. Do not fabricate historical closure from filenames, commit co-change, similarity, or AI
+inference. When assets move or retire, update owners, consumers, replacement pointers, anchors, and the evidence
+bundle together.
+
+An optional parser/indexer Trace is a rebuildable derived index. Do not hand-edit generated rows or make it a
+second truth. A pilot requires concrete discovery failures, an owner, bounded asset universe, provenance/coverage,
+atomic generations, incremental-vs-fresh-full parity, benefit measures, and a retirement condition.
+
+## System Design And Detailed Design
+
+Do not force Feature rows to carry design knowledge.
+
+- System design: component boundaries, topology, data/state lifecycle, external dependencies, failure domains,
+  nonfunctional constraints, current/target separation, major tradeoffs, and legacy borrowing boundaries.
+- Detailed design: API/CLI/events/schema, algorithms, state machines, error taxonomy, concurrency, idempotency,
+  leases, recovery, migration, compatibility, and test contracts.
+
+Separate frozen semantic invariants from versioned engineering contracts. A required capability must not degrade
+into vocabulary; a field/CLI/schema v1 must not become an eternal product requirement. Route exact changes to
+the matching domain Skills and verify real consumers/adapters/runtime before raising delivery status.
+
+## System Islands, Lifecycle, And History
+
+For a multi-system/multi-generation repo, the root README is a system registry, not a giant Feature/document list.
+Each active island must make requirements, design, implementation/config, verification/runtime, and current state
+reachable. Root truth covers only cross-system constraints and routing.
+
+Frozen/historical/deprecated islands retain identity, lineage, final status, replacement/migration pointer,
+critical incidents/lessons, evidence, and historical file/Git range. Do not bulk-migrate every old document.
+Do not let historical islands participate in current routing without explicit reason.
+
+Retirement requires Feature status, README lifecycle, replacement, consumer/data migration, retained evidence,
+and misleading entry-point cleanup. Git preserves complete history; current docs preserve usable truth.
+
+## Legacy Reconstruction And Structure Migration Write-Back
+
+- A legacy commit ledger and entity registries own investigation coverage/lineage, not duplicate current truth.
+- Keep metadata/stat candidates in dev-docs. Sediment only conclusions closed by exact diff plus tip/verification
+  evidence into current Feature/design/README/MEMORY/docs.
+- System islands/generations, experiments, implementations and research lines keep stable identities and lineage.
+- Before reconstruction PASS, do not publish final path actions or claim current implementation/verification.
+- A structure-migration manifest owns tracked-path coverage, action and receipts only; it is not a system spec.
+- Each migration wave writes back actual route/lifecycle/consumer/operations/history changes in the same batch.
+- Moves, retirement and externalization retain replacements, consumers, rollback, commits/tags and evidence.
+- Finish with orphan concept/experiment/research/component/consumer, UNCLASSIFIED and collision remainder checks.
+
+These bounded ledgers are justified only for an explicit exhaustive reconstruction/migration. Do not turn them
+into a standing per-function, per-session or ordinary-repo trace platform.
+
+## Closed Knowledge Write-Back And Current Queue
+
+- Keep the authoritative current execution queue, open questions/blockers, and open incidents near the top of
+  MEMORY. Long logs and closed history must not outrank that queue.
+- When an incident closes, remove it from current/open lanes and retain `CLOSED_INCIDENT`, closed_at, closure
+  evidence, still-valid lesson, reopen_if, and the current route. Never delete history to prevent revival.
+- Superseded facts retain replacement pointers; drafts/proposals never silently enter the current queue.
+- Reopening preserves the prior closure record and adds new evidence, time, and scope. Do not silently overwrite
+  CLOSED as OPEN.
+- README routes to the queue/registry; Feature owns current requirements; rulings own original intent. Do not copy
+  a complete current queue into several assets.
+- Before finishing, check whether recent or repeated closed history still pollutes the current queue.
+
+If a local repair exists only in a dirty/untracked worktree, label it `implemented locally, not version-closed`.
+Do not claim cross-worktree or cross-machine recovery until the relevant assets have a recoverable commit.
+
+## Parallel Worktree Write-Back And Canonical Integration
+
+`PARALLEL_WORKTREE_COGNITION_V1`. Worktrees isolate working files and indexes; they do not serialize Feature,
+MEMORY, current design, STATE, checkpoint, revision, or projection-generation semantics. Before write-back with
+multiple writers, classify the current role as the single `CANONICAL_INTEGRATOR`, a `CONTRIBUTOR`, or an
+`AUDITOR`, then freeze the canonical target, expected target HEAD, common base, candidate source OID, owned paths,
+and current-owner set.
+
+A contributor commits only exclusive implementation/proof/test/evidence paths plus a relay when cross-session
+delivery needs one. The relay is `CANDIDATE_NOT_CURRENT` and records base/source/observed-target OIDs, scope,
+changed paths, verification, failures, conflicts/unknowns, proposed owner updates, and integration state. It does
+not modify the canonical queue, allocate a project revision/checkpoint, or become a second Feature/MEMORY/STATE.
+Short work may carry the same information in existing task and commit records; do not require a new handoff file.
+
+The integrator must:
+
+1. verify the exact candidate OID, base, worktree/path ownership, dirty/index state, and expected target HEAD;
+2. inspect the diff, requirements, evidence, failures, and target changes since the candidate base;
+3. integrate only accepted exclusive artifacts using merge, cherry-pick, or reviewed extraction as appropriate;
+4. update current owners in place on the canonical target and allocate each accepted logical revision/checkpoint
+   exactly once;
+5. rerun affected and integration verification, commit precisely, and report integrated commit plus accepted,
+   deferred, and rejected parts.
+
+If a contributor changed a current owner, preserve the candidate commit, extract exclusive artifacts, and have
+the integrator re-express accepted semantics on the target. Do not blindly merge the whole commit, retroactively
+renumber receipts, or delete branch history. Two branch-local passes, a clean text merge, or identical revision
+numbers do not establish canonical integration. A target/owner/dependency/requirement change invalidates the old
+review. Shared refs, tags, and config remain coordinated by the integrator. The stable contract is available with
+`git -C /Users/aurolafly/codex show governance-v3.25.0:docs/design/detailed/Git多Worktree并行认知与Current-Truth集成合同.md`.
+
+## Formal Repo Baseline
+
+Every Git repo intended to survive across sessions must have the complete governance skeleton from creation,
+including the five root tracking files, `docs/README.md`, all major topic README entries, and
+`dev-docs/README.md`. A small repo is not exempt. Initial pages may honestly say “not currently applicable”
+and state their activation condition; they must not invent system facts.
+
+Use `repo-bootstrap-governance` and the versioned template at
+`/Users/aurolafly/codex/templates/repo-governance/`. Disposable non-Git scratch directories are exempt.
+
+## Governance Framework Self-Maintenance Gate
+
+Apply this Gate before changing governance principles, global/project instruction policy, core/domain Skills,
+canonical workflows, templates, validators, Rules/Hooks/Plugins, truth ownership, host adapters, or governance
+version contracts. It applies even when the current cwd is outside the governance method repository.
+
+Before any mutation, fully load:
+
+1. `/Users/aurolafly/codex/AGENTS.md`, `README.md`, `MEMORY.md`, relevant `feature-list.md`, `rulings.md`, and ADRs;
+2. current system and detailed design, the complete technical manual's limitations/invariants, truth-sync and
+   Git/tag contracts, and guidance-completeness policy;
+3. every affected product authority plus actual runtime AGENTS/Skills/config/validator and current evidence;
+4. previous governance tag/diff and all concurrent working-tree state.
+
+Classify every fixed impact group before editing. Each must be `UPDATE`, `NO_CHANGE(reason)`, or
+`NOT_APPLICABLE(reason)`; the remainder must be zero:
+
+| ID | Fixed impact group |
+|---|---|
+| C01 | User ruling, accepted requirement, Feature and acceptance semantics |
+| C02 | Shared system/detailed design, ADR, truth ownership and limitations |
+| C03 | Canonical workflow/reference and self-contained runtime Skill copies |
+| C04 | Global/project AGENTS, recovery boot protocol, Skill descriptions and deterministic routing |
+| C05 | Templates, bootstrap, README/docs/MEMORY/Feature cognition/auditable-closure routing and replacement links |
+| C06 | Validators, recovery negative tests, fresh-session/comprehension/behavior probes |
+| C07 | Codex config/context/Rules/Hooks/plugins, permissions and secret boundaries |
+| C08 | Product-specific authorities and host adapters affected by shared changes |
+| C09 | VERSION/GOVERNANCE_VERSION, CHANGELOG, releases, commits, tags and rollback |
+| C10 | Historical evidence, superseded paths, residual unknowns and NO_CHANGE lanes |
+
+Update the responsibility-owning method repository before its runtime copy. Product-independent changes belong
+in `/Users/aurolafly/codex`; product-specific changes belong in that product's authority. A product/runtime that
+is not affected remains untouched but receives an explicit `NO_CHANGE(reason)` in the release evidence. For
+slimming, compare the previous tag concept-by-concept. Missing, corrupt, dirty, conflicting, or stale authorities
+block a confident release; do not infer them from memory.
+
+Codex uses this existing core Skill for self-maintenance. Do not create a second maintainer Skill unless repeated
+Codex-specific failures prove a genuinely independent trigger, workflow, output, and validation boundary.
+
+## Anti-Overdesign Boundary
+
+Completeness is not a license to create:
+
+- one file/checkpoint per requirement or ordinary task;
+- manually synchronized global function/section trace databases or repo replicas;
+- work-package platforms, document approval state machines, semantic gates, or standing audit agents;
+- a complete handoff document for every session;
+- Hooks that decide product semantics;
+- copied current state in README, Feature, MEMORY, docs, and dashboards simultaneously.
+
+Additional governance machinery requires at least two concrete recurring failures, or one high-impact incident
+with a direct prevention mechanism; a maintainer, smallest pilot, validation method, and retirement condition.
+Prefer repairing routing, requirements, contracts, tests, or runtime evidence first.
+
+A bounded parser/indexer-derived Trace is not prohibited by name, but it must satisfy the pilot, coverage,
+generation, parity, source-fallback, and retirement conditions above. It never becomes a hand-maintained authority.
+
+## Finish
+
+1. Validate implementation claims with proportionate tests or direct runtime evidence.
+2. Validate repository layout and changed links; run `git diff --check`.
+3. Update Feature delivery status only to the evidence-supported level.
+4. For every touched Feature, reconcile `SRC/DES/IMP/VER/EVD`; ensure its evidence bundle maps the Feature ID
+   back to current implementation and verification, or preserve an explicit gap.
+5. Update README only for routing/lifecycle changes and MEMORY only for current queue, open/closed lifecycle,
+   direction, findings, and handoff.
+6. Mark superseded docs and requirements with replacement pointers.
+7. Report changed governance assets and untouched lanes.
+8. Search the affected current-truth owner for stale claims and correction-overlay language; a later disclaimer
+   does not close a conflict while the old current claim remains active.
+9. Governance-framework changes first execute the Self-Maintenance Gate and classify truth ownership:
+   product-independent shared methods update
+   `/Users/aurolafly/codex`; host-specific methods update that product's governance repo (OpenCode uses
+   `/Users/aurolafly/opencode`); then synchronize affected runtimes and follow the multi-repo commit/tag
+   contract. Do not auto-push.
+
+10. For governance-framework slimming or reorganization, compare the previous governance tag concept-by-concept.
+   Do not remove non-obvious guidance without a precise destination and a comprehension/behavior check.
+11. Report residual unknowns and whether the change makes future cognitive closure more discoverable, correct,
+    evidence-backed, fresh, or efficient. Asset count alone is not completion evidence.
+12. Remove corrected, superseded, or no-longer-eligible cognition from the active/current lane; identify dependent
+    plans or conclusions that became stale.
+13. Reread every changed current owner needed by subsequent work and refresh the closure working set. A successful
+    write does not prove the current model stopped using its superseded in-context restatement.
+
+Do not introduce per-requirement files, manually synchronized global function trace databases, work-package platforms, document
+state machines, semantic gates, audit agents, or semantic Hooks by default.
+
+## 整备清单与Git行为写回
+
+PREPARATION_CLOSURE_V1。当前整备/交接范围的设计选择必须落定到唯一owner，逐项维护文档、实现、真实验收与运行状态；同时覆盖未来接管者和按需审计者的入口、工具、责任与恢复。自然单元、角色/版本/依赖变化、失败/修订和压缩前检查失效。缺凭据、批准和证据保持准确状态；清单勾选不产生READY，交接READY不产生父业务完成。完整方法见`/Users/aurolafly/codex-worktrees/git-ops-prep-3.13.0/docs/governance/整备工程与交接认知闭包规范.md`。
+
+GIT_OPERATIONS_V1。工作结束核actual commit/tree、精确路径、完整index、剩余dirty所有权、集成/tag/push/发布状态和恢复consumer；不把他人staged混入、不为clean丢资料、不以commit代替验证。复杂协作/冲突/恢复/发布前完整读同目录`Git协作集成与恢复行为规范.md`，沿用当前用户授权；运行与只读审计角色不得临场开发或取得Git mutation权。
+
+
+## vNext 合同消费点（VNEXT-007 skill 层，v3.21.0）
+
+标识：`VNEXT_SKILL_CONSUMPTION_V1`。本节不改变既有步骤，只声明 vNext 合同的读取与消费位置；合同位于
+`/Users/aurolafly/codex/docs/design/detailed/`（八份合同均为 `v1.0 stable`；`main` 工作树是研究快照，
+P1 单一 current 线收敛后改为稳定路径）。
+
+- 稳定引用形式（不依赖任何 worktree）：`git -C /Users/aurolafly/codex show governance-v3.25.0:<docs 下相对路径>`；工作树路径只是可读副本，tag 随治理版本更新。
+- 对象与 locator（一类当前事实一个 owner、指针不承载第二份全文）：
+  `Codex下一代治理框架VNEXT-004-对象与唯一Owner合同-v1.0.md` §二/§三/§四。
+- Brownfield 深度选择（ordinary onboarding vs 垂直重建）与 baseline 失效：
+  `Codex下一代治理框架VNEXT-002-Brownfield合同-v1.0.md` §六/§七/§十。
+- Greenfield Topic Map / Seed / Capsule / relay：
+  `Codex下一代治理框架VNEXT-003-Greenfield合同-v1.0.md` §二/§三/§七/§十。
+- Topic 事务、relay 字段、Goal 完成与 false-positive/negative：
+  `Codex下一代治理框架VNEXT-005-Topic执行与Goal完成合同-v1.0.md` §二–§五。
+- 证据等级、freshness/失效、CaseEnvelope 绑定（R-086）：
+  `Codex下一代治理框架VNEXT-006-验证与证据系统合同-v1.0.md` §二/§四/§五。
+
+边界：R-102只把Task→Closure、Seed/Capsule与owner语义编译进current persistence；其余合同仍为**可选消费点**。
+这不授权完整vNext runtime迁移、发布或删除。

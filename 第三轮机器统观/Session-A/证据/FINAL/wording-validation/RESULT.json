@@ -1,0 +1,32 @@
+{
+  "canonical_receipt": ".codex/cognition/checkpoints/S-RES-20260924-MO3-A-FINAL-WORDING/result.json",
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0
+    }
+  ],
+  "query_first_promoted": [],
+  "reused_validation": {
+    "path": "第三轮机器统观/Session-A/证据/FINAL/validation/RESULT.json",
+    "sha256": "f9f7272b1c1d839a0711d6bdb5a8979a14673eefa1249bc5541d63ae926c0870"
+  },
+  "review_required": [],
+  "revision": 282,
+  "scope": "Wording/state only; unchanged native packages reuse the actual four-package validation, no additional kernel replay",
+  "status": "PASS_WITH_SCOPE",
+  "tracked_drift": [],
+  "unchanged_native_input_drift": []
+}

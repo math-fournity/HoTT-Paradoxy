@@ -1,0 +1,298 @@
+# Workflow：Repo Cognitive Closure
+
+## 目标
+
+建立并在任务全过程维护任务相对、最小充分、证据可追溯的认知闭包。普通闭包存在当前上下文中，
+默认不生成新文件；持续维护复用现有 truth owners。
+
+这是治理体系的第一语义工作流、所有领域工作的前置，也是材料决策点的持续控制器，不是为了完成
+文档阅读清单。其价值在于让回答、设计、实现和验证始终建立在正确、当前、可追溯的认知上。
+
+## 启动恢复协议
+
+新 Session、上下文压缩后恢复、跨 repo/cwd 接手，或用户询问当前态、下一步、是否记录、能否
+继续等 repo 依赖问题时，不能把压缩摘要或 AGENTS 当作完整工作记忆。AGENTS 只负责启动内存与
+强制路由；外部工作记忆必须被重新加载。
+
+最小恢复链为：先确认全局/项目/目录 AGENTS 与本 workflow；再读取目标 repo 的 `README.md`
+建立资产地图，读取 `MEMORY.md` 获得当前态、开放问题与下一步；随后按任务读取
+`feature-list.md`、`rulings.md`、`docs/README.md`、相关稳定设计、认知闭包文件和运行实物。
+涉及实现、验证、运行或历史的主张必须继续回到底层代码、配置、schema、测试、数据、日志、
+产物和 Git。README/MEMORY 缺失、过时或冲突时，应降低结论或先修复治理入口，不能用“我记得”
+补洞。
+
+## 持续认知闭包工作集
+
+标识：`COGNITIVE_CLOSURE_CONTINUITY_V1`。启动恢复只建立第一版闭包；它不是本任务永久 PASS。
+当前任务至少区分：
+
+- **直接激活集**：即将影响判断的用户原意、current requirement、不变量、当前假设、关键证据、冲突和未知；
+- **索引延迟集**：暂不全文驻留，但有 owner、identity、scope、version/freshness、locator 和触发条件的认知；
+- **持久权威集**：可跨 Session 恢复的当前真值和直接证据；
+- **非活动历史集**：closed、superseded、错误、仅解释历史或与当前任务无关的内容；
+- **依赖/失效集**：当前判断依赖什么，哪些变化会使它 stale。
+
+索引的目的可以是降低上下文体量；当其所指事实将支撑材料主张时，必须回读 current owner。材料决策点
+包括任务/方案选择、规格、工具/证据选择、强结论、分析→实现、实现→验证、停止/完成和 final。每个
+决策点检查相关项是否直接激活、current、无未处置冲突，并检查推理是否把用户概念或要求收窄成了另一问题。
+
+用户修正、scope/授权、阶段、owner/commit/tag/依赖/运行现场/外部事实变化、新冲突、压缩和工作根变化
+使 affected slice stale。停止依赖旧判断，按需回读并增量重建；不能凭“本 Session 开头读过”或对话连续感继续。
+
+## 任务到认知闭包的准入与投影
+
+标识：`TASK_CLOSURE_ADMISSION_V1`。新任务或恢复任务先形成最小 TaskDescriptor：objective/success、repo/
+system island/lifecycle、Feature/Topic/Goal、scope/non-goals/authorization、phase/consumer、claim/evidence level、
+snapshot/working state、duration/reuse/handoff 与 invalidation。随后必须检视已有认知入口，不能直接假定要新建文件：
+
+```text
+user/Goal/MEMORY current queue
+  -> AGENTS 固件路由
+  -> README/docs 资产地图
+  -> Feature/rulings/design
+  -> Topic/Seed/Capsule/auditable closure
+  -> code/test/runtime/Git/external authority
+```
+
+候选匹配至少比较目标/claim domain、系统岛、生命周期、scope、consumer/phase、证据等级、snapshot/freshness、
+授权、冲突/未知与失效条件。来源 verdict 为 `REUSE_AS_IS / REUSE_WITH_DELTA / COMPOSE_FROM_OWNERS / DEEPEN /
+REBUILD / EXTERNAL_RESEARCH_REQUIRED / INCONCLUSIVE`。标题、目录、近期性或“此前读过”都不是复用依据。
+
+再独立裁决持久化：`CONTEXT_ONLY / OWNER_UPDATE / SEED / CAPSULE / AUDIT_CLOSURE`。普通一次性任务默认在当前
+上下文从 owners 组合；持久事实写回 requirement/design/code/evidence/MEMORY 等既有 owner。未来 Topic 未 READY
+只建 Seed；只有 high fan-out/risk/frequency、多 Session 重复成本、复杂 negative/history 或用户显式复用审计时才
+物化 Capsule。显式审计闭包仍需用户要求或高风险独立证据需要。完整合同见
+`../design/detailed/任务到认知闭包选择与持久化合同.md`。
+
+AGENTS 保存算法而非任务目录；README 保存地址空间；MEMORY 保存当前队列、恢复点和当前任务指针；Feature/Topic/
+Goal 保存稳定关联。不存在专用闭包文件不等于没有闭包；存在旧 Capsule 也不免除 admission/freshness 检查。
+
+## 分片治理文档加载
+
+若 canonical Markdown 含 `governance-shard-index:v1` 或 `governance-shard-index:v2`，它是逻辑文档索引而不是正文摘要。先读取
+index，确认 `mode`、完整 shard table、`last_shard` 和 `append_target`，再按当前问题加载 owner
+shard；`sequential` 的当前追加/最近日志任务至少加载 append target。只有主张跨多个范围时才扩展到
+相邻或全部 shards。不能把第一片、最后一片或索引摘要冒充 logical document 全文；实现/验证主张
+仍要回到底层证据。
+
+单 shard 建议不超过约 300 行，但这只是写作/换片软目标，不是读取截断点。Shard 超过该值时仍按语义完整读取，
+不能自行压缩、删减或假定剩余内容不重要。新 v2 分片的专用目录应与 index 文件 stem 同名，路径为
+`NNN - 子主题.md`，且主题与 index 链接标题/shard H1 一致；已发布 v1 可兼容读取。索引缺失、`last_shard`
+断链、owner 不明或 v2 路径/标题错位时，降低闭包结论并继续核查。
+
+## 认知生命周期与任务资格
+
+恢复不是把近期内容全部放回执行队列。加载 MEMORY/Feature/rulings/docs 后，为影响当前结论的认知
+标记生命周期：
+
+| 状态 | 任务资格 |
+|---|---|
+| `ACTIVE_WORK` | 用户本轮目标或 authoritative current queue，可执行 |
+| `CURRENT_REQUIREMENT` | 当前仍有效；仅在本轮工作触发时约束执行 |
+| `OPEN_INCIDENT` | 尚未闭环；按风险和当前队列决定是否执行 |
+| `CLOSED_INCIDENT` | 默认只作背景/教训，不进入当前任务 |
+| `HISTORICAL_EVIDENCE` | 只解释为什么，不进入当前任务 |
+| `SUPERSEDED_FACT` | 已被覆盖，只作谱系/冲突证据 |
+| `DRAFT_PROPOSAL` | 未采纳，不冒充当前要求或任务 |
+
+任务优先级固定为：用户本轮目标 -> active goal/MEMORY 顶部 current execution queue -> 相关 open
+incident/未完成 accepted Feature -> current requirements -> closed/historical/superseded/draft。新近性、
+重复次数、篇幅和情绪强度不能提升任务资格。
+
+Closed item 只有在用户明确要求、新直接证据推翻关闭条件、同一故障真实复发、相关
+requirement/design/runtime 变化使原结论失效，或本轮任务就是事故复盘时才允许重开。显式询问旧
+事故时回答其证据、关闭状态和残余风险，不自动把它变成后续改造。回答“下一步”前必须能把所选
+任务锚定到用户目标/current queue；queue 缺失或冲突时 Verdict 至多为 PARTIAL，不能从近期日志猜。
+
+## 父结果、当前动作与认知充分性
+
+BREADTH_FIRST_EXECUTION_V1。先从已授权父结果恢复主要职责、关键连接和当前实际已贯通状态，再确定下一项最小可验结果及其必需认知。当前安全/正确行动的阻塞必须有直接依据；未来可能有关的未知保留复审触发，不默认成为当前前置。
+
+已有材料充分支持当前有界动作时进入动作；需要根因、安全、迁移、算法或关键技术风险深度时先完成相称调查，再返回主链。广度按真实可用链和范围覆盖衡量，不按空壳/文件数量衡量。研究、审计、方案以及用户明确的全文/全历史范围仍按其原意完成，不强行转代码或缩范围。
+
+这些判断复用已有plan/Topic或工作记忆，不为普通闭包新建表、文件或审批；相同问题没有新反证/失效/决策影响时不重复扩读。
+
+### 专业术语与两种广度的认知入口
+
+以Iterative and Incremental Development / Evolutionary Design理解本合同：Walking Skeleton给出薄而真实的主要连接，Tracer Bullets使它及时获得反馈，Vertical Slicing按当前用户结果贯通必要层次。User Story Mapping帮助看见主要用户活动和连贯交付范围，不需要新地图工具或穷尽未来需求。
+
+先分清技术路径贯通和已接受用户范围覆盖；Greenfield选择最小真实骨架，Brownfield复用已有入口/状态/消费者。只读取和修改下一结果必要的部分；当前切片足够后，回父范围选择下一项结果。YAGNI / Simple Design不排除当前风险、性能/容量、难逆决策和质量所需的认知深度；规程已足以支持安全、正确、可测试、可恢复的下一动作时进入行动。专业术语不是单一ISO标准、BFS算法、特定架构要求或效果证明。
+
+## 步骤
+
+1. 明确用户目标、授权、结果类型、成功标准和判断错误的高代价点；建立闭包 working set。
+2. 确认所有相关 Git repo、工作目录、全局/项目/目录 AGENTS、HEAD/tag/status 和并行改动。
+3. 把任务拆成必须闭合的问题：应该怎样、实际怎样、为什么、如何证明、什么可能已变化。
+4. 读取根 README、MEMORY 顶部 current queue、相关 Feature、docs/README、认知闭包索引和用户
+   裁定/来源；形成 TaskDescriptor，枚举已有 Topic/Seed/Capsule/闭包候选并给出来源 verdict 与持久化 projection；
+   命中 shard index 时先解析完整集合再加载 owner/append shard；近期日志按任务加载，不先于 current queue 决定下一步。
+5. 相关 Feature 若有 cognition anchors，展开 `SRC/DES/IMP/VER/EVD`；从 evidence bundle 取得逐
+   claim 资产映射。旧自由文本锚点、缺失类别或无法解析路径标为 `LEGACY_PARTIAL/PARTIAL`，不能
+   用 Feature 的交付状态填补证据缺口。
+6. 若 repo 提供资产 Trace，先核对 generation 的 snapshot、producer/schema/config versions、coverage
+   和状态；只用它缩小候选范围。`STALE/PARTIAL/UNRESOLVED/HEURISTIC` 路径必须扩大 source search。
+7. 确认目标系统岛屿、生命周期、组件、数据、角色、环境和外部系统。
+8. 对 T01-T26 做遗漏检查，按最小充分原则加载零到多个领域 Skill。
+9. 索引只负责定位；行为主张回到代码/config/schema/tests/data/runtime，历史理由回到真实 commit/diff。
+10. 按事实类型与生命周期消解冲突；closed/historical/superseded 不自动进入当前任务；动态事实查
+   当前权威；负结论扩大到相称搜索范围。
+11. 区分已验证事实、有来源推断、AI 建议、待裁定和未知。
+12. 剩余未知不会推翻结论，或已导致结论降级后，才进入回答/规划/执行。
+13. 工作期间在每个材料决策点消费相关闭包项；触发失效时标 stale 并重建 affected slice。
+14. 每个自然工作单元做差分：new/changed/invalidated/no-longer-relevant facts、conflicts、unknowns、
+    decisions 和 next action；持久变化进入 governance，写回后重新激活新 owner。
+
+### 增、删、改、查
+
+- 增：把新要求、可靠事实、冲突或未知加入工作集；持久者写入唯一 owner；
+- 删：让错误、被替代或无任务资格的认知退出 active set，默认保留 closed/superseded/replacement/Git 历史；
+- 改：修订工作复述、假设、依赖、状态和下一动作，传播 stale，并原位修改 current owner；
+- 查：沿索引回读 owner/底层证据，核 identity、scope、version 和 freshness。
+
+物理删除文件、数据、历史或外部对象仍需要独立授权；“删”不能成为抹掉反例或失败的理由。
+
+## 并行 Worktree 的角色与认知基线
+
+标识：`PARALLEL_WORKTREE_COGNITION_V1`。发现多个活动 worktree、并行 Session 或长期写者时，闭包必须
+同时回答：哪个 exact commit 是共同 base，哪个 worktree/branch 是 canonical integration target，谁是
+唯一 `CANONICAL_INTEGRATOR`，谁是 `CONTRIBUTOR` 或 `AUDITOR`，哪些路径是 current-truth owners，哪些
+路径由 contributor 独占。目录不同只能证明工作文件/index 分开，不能证明认知状态、revision 或 checkpoint
+不会冲突。
+
+Contributor 的 task-relative closure 由“canonical base + 自己的 branch commits/relay + 当前 delta”组成。
+Relay 只在跨 Session 或交付边界需要时建立，必须标 `CANDIDATE_NOT_CURRENT`，至少记录 base/source OID、
+write root、scope、modified paths、evidence、verification、conflicts/unknowns 和 proposed canonical updates。
+它不替代项目 MEMORY/STATE，也不获得分配 canonical revision/checkpoint 的资格。Canonical target 前进后，
+contributor 在继续依赖旧结论前必须重新比较 target delta，标 stale/rebase/reconcile，而不是把自己的旧 branch
+称为 current。
+
+只有 integrator 在 expected target HEAD 上闭合全部已接受候选、当前 owner、消费者和验证后，才能推进项目
+current truth。若角色/target/owner 不明，安全的独立代码或证据工作可以继续，但 current-state 写回保持
+pending；不得让两个本地 PASS 共同冒充一个已集成事实。精确集成与恢复合同见
+`../design/detailed/Git多Worktree并行认知与Current-Truth集成合同.md`。
+
+## 遗留重建与结构迁移路由
+
+- 普通旧 repo 缺根入口或 topic 骨架：`repo-bootstrap-governance`；
+- 用户要求对治理缺失、多代/多系统 repo 的指定 ref 做完整历史重建：
+  `repo-legacy-reconstruction`；此时完整 commit set 是任务相对范围，不能按普通局部历史下钻缩小；
+- 用户要求全 repo 目录/文档/代码彻底重塑：先验证 reconstruction/current truth 是否充分；只有 PASS、
+  明确授权、全路径 manifest、consumer/rollback Gate 后才路由 `repo-structure-migration`；
+- 普通文件移动、局部 rename 或 bootstrap 不触发 structure migration。
+
+两个 Skills 可以组合现有 requirements/system/detailed/data/verification/operations/AI Skills，但不能
+绕过 closure，也不能互相扩大权限。Legacy reconstruction 结束前，structure migration 默认无任务资格。
+
+## Agent 控制与 Trajectory 专项路由
+
+- 设计、运行或诊断 Devin/OpenCode 原生 ACP、Codex app-server 兼容门面、多客户端
+  system/observer Broker、fresh-per-unit worker loop 或精确 cancel：加载
+  `repo-acp-multi-client-control`；
+- 递归分析 Codex/OpenCode/Devin/ZCode Session tree、branch、turn、context、reasoning、tool/result、
+  compaction、error/usage，或验证 Agent 实际看到了/读取了什么：加载
+  `repo-agent-session-trajectory`；
+- 两者改变模型、Prompt、角色、工具权限、上下文或证据语义时同时加载
+  `repo-ai-system-governance`；涉及并发/状态/恢复、质量证据和运维时再组合 matching detailed/
+  verification/operations Skills。
+- Codex Master 正在考虑、提议、启动、引导、等待、验收或关闭原生 Sub Agent 时，加载
+  `repo-subagent-governance`。它具有独立的用户授权 Gate：未获具体同意只能形成方案，不能因
+  closure/Skill 选中而 spawn；授权后仍按 exact model/profile/permission/lifecycle 工作。
+
+普通单次交互任务不因“使用了 CLI”触发 Broker Skill；只需最终文件/测试即可回答时不因 Session
+存在而触发 trajectory Skill；没有委派意图时也不触发 Sub Agent Skill。ZCode Desktop 当前没有支持
+的 CLI/ACP 控制适配器，只进入 trajectory 和人工实验路由。
+
+## 闭包深度
+
+| 层级 | 典型任务 | 要求 |
+|---|---|---|
+| 即时 | repo-independent/显然无语义操作 | 确认没有未加载 repo 事实能改变结果 |
+| 局部 | 单组件 bug/改动 | 组件需求、合同、实现、聚焦验证、当前态 |
+| 跨域 | Feature/架构/schema/发布/事故 | 多组件、数据/运维/风险、历史和直接证据 |
+| 审计 | 高风险主张或用户显式要求 | Claim/Evidence/Conflict/Unknown；仅显式 Skill 落盘 |
+
+## 认知资产与权威
+
+| 问题 | 路由 | 决定性证据 |
+|---|---|---|
+| 项目/组件在哪里 | README/目录 README | 实际路径、imports、进程、存储和外部资产 |
+| 当前方向/下一步 | MEMORY | 当前 Git/runtime/data |
+| 应该怎样/为什么 | Feature + rulings/原始来源 | 验收命题、当前用户裁定 |
+| Feature 关联哪些设计/实现/验证 | Feature `SRC/DES/IMP/VER/EVD` + evidence bundle + 可选 Trace | owner 原文、code/test/runtime 和当前 snapshot |
+| 系统/合同怎样 | system/detailed/interface/data/operations docs | code/schema/consumer/tests/runtime |
+| 未定方案 | dev-docs | 当前用户决定和实验；不能因路径升级为真值 |
+| 实际实现 | code/config/schema/lock | 执行、测试、数据和运行实物 |
+| 是否验证 | test/eval/audit/benchmark/run 索引 | 实际命令输出和产物 |
+| 历史发生什么 | Git/history/incident/migration | 精确 commit/diff/日期/旧实物 |
+
+## 证据、冲突与负结论
+
+- 文档证明设计，不证明接线；代码证明存在，不证明测试/运行；测试只证明其断言、样本和环境。
+- 运行主张核查当前进程/日志/数据/产物及归属时间，排除旧资产。
+- 冲突先分类为意图、需求、设计、实现、验证、运行、状态或历史，再比较权威、范围、版本和时间。
+- 保留目标态与实际态；无法消解就披露双方并降低/阻塞结论。
+- “不存在/未实现/无遗漏/全部覆盖”要搜索同义词、替代根、generated/runtime、历史、消费者和
+  动态来源；范围不足只说“在已检查范围内未发现”。
+- Trace 中没有 node/edge 只能证明该 generation 没有记录；先检查 asset universe、coverage、parser/
+  resolver gaps 和 snapshot，再决定是否能在声明范围内作负结论。
+- Secret 只用路径、权限和安全状态证明，不进入闭包内容。
+
+## 跨轮、阶段与失效
+
+新 Session、压缩、用户修正、分析转实现/运维、实现转验证/交付、cwd/repo/系统岛变化、并发改动、commit/tag、
+发布/迁移/事故或动态外部事实变化后，审计闭包是否失效。可增量重建，但不能凭对话连续感假装
+旧闭包永久有效。自然工作单元、压缩前和 Session 结束时，使用现有 MEMORY/Feature/rulings/design/
+Topic/Goal/Git 保存目标、决策、失效项、证据、未知和下一动作；普通任务不强制新闭包文件。
+
+## 完成判据
+
+- 目标、权限、范围和成功标准明确；
+- 系统/组件和相关 topic 已闭合；
+- 目标、设计、实现、验证、运行、历史没有混淆；
+- material claim 有相称且当前的证据；
+- 冲突、未知、动态时间点和搜索边界已披露；
+- 所选当前任务来自用户目标/current queue/open work；closed/historical 高亮没有获得调度权；
+- 没有通读无关资产，也没有只读摘要就停止；
+- 并行工作和未授权边界受到保护。
+- 多 worktree 时 canonical integrator/target/base/current-owner 已明确；contributor relay 没有冒充 current truth。
+- 材料决策所依赖的认知已直接激活；索引没有冒充证据；触发的 stale slice 已重建。
+- 本工作单元的新增、修正、退休、查询、冲突、未知和下一动作已处理；持久变化没有只留在对话中。
+- 已检查与 TaskDescriptor 匹配的现有闭包候选；复用有 freshness，未因新任务无条件造文件，也未让 Capsule 复制 current truth。
+
+## 后续
+
+持久事实变化时执行 `repo-cognition-governance`，写回后重新激活受影响 owner 再继续。用户明确要求文件化审计时执行
+`auditable-cognitive-closure`，不能为每个普通问题自动落盘。
+
+回答时区分已验证事实、来源推断、建议、待裁定和未知；调查/评审不自动授权实现。执行时按
+闭合需求和设计工作，并以相称证据验证；不把完整认知加载过程倾倒给用户。
+
+## 整备与Git操作的任务闭包
+
+PREPARATION_CLOSURE_V1。整备是重要且可能巨大的认知闭包构建工程。先确认接管角色、父结果、完整用户范围、当前实际链路与下一真实验收；沿现有operations/plan/checklist检查目的/来源、治理/权限、工具/环境、数据/证据、启停/恢复/容量、观测审计、未来开发维护与人类授权。用户要求清单时持续维护一个owner，不为普通小任务强建平台。
+
+完整加载`/Users/aurolafly/codex-worktrees/git-ops-prep-3.13.0/docs/governance/整备工程与交接认知闭包规范.md`。文档决策闭合、实现、验证与运行分别判断；缺凭据/人类批准/实测不是可编造的设计选择，必须明确处置并限制READY。监督者按需上线时，持续证据由系统独立保存。
+
+GIT_OPERATIONS_V1。非平凡Git协作、集成、恢复、发布或角色分工还需完整读取同目录`Git协作集成与恢复行为规范.md`。确认common-dir/branch/HEAD/target、完整index和dirty所有权、现有授权、写者、集成与恢复范围；worktree共享refs/config，不等于权限隔离；规范不自动授予commit/push或破坏性动作。
+
+
+## vNext 合同消费点（VNEXT-007 skill 层，v3.21.0）
+
+标识：`VNEXT_SKILL_CONSUMPTION_V1`。本节不改变既有步骤，只声明 vNext 合同的读取与消费位置；合同位于
+`/Users/aurolafly/codex/docs/design/detailed/`（八份合同均为 `v1.0 stable`；`main` 工作树是研究快照，
+P1 单一 current 线收敛后改为稳定路径）。
+
+- 稳定引用形式（不依赖任何 worktree）：`git -C /Users/aurolafly/codex show governance-v3.25.0:<docs 下相对路径>`；工作树路径只是可读副本，tag 随治理版本更新。
+- 对象与 locator（一类当前事实一个 owner、指针不承载第二份全文）：
+  `Codex下一代治理框架VNEXT-004-对象与唯一Owner合同-v1.0.md` §二/§三/§四。
+- Brownfield 深度选择（ordinary onboarding vs 垂直重建）与 baseline 失效：
+  `Codex下一代治理框架VNEXT-002-Brownfield合同-v1.0.md` §六/§七/§十。
+- Greenfield Topic Map / Seed / Capsule / relay：
+  `Codex下一代治理框架VNEXT-003-Greenfield合同-v1.0.md` §二/§三/§七/§十。
+- Topic 事务、relay 字段、Goal 完成与 false-positive/negative：
+  `Codex下一代治理框架VNEXT-005-Topic执行与Goal完成合同-v1.0.md` §二–§五。
+- 证据等级、freshness/失效、CaseEnvelope 绑定（R-086）：
+  `Codex下一代治理框架VNEXT-006-验证与证据系统合同-v1.0.md` §二/§四/§五。
+
+边界：R-102只把Task→Closure、Seed/Capsule与owner语义编译进current admission；其余合同仍为**可选消费点**。
+这不授权完整vNext runtime迁移、发布或删除。
