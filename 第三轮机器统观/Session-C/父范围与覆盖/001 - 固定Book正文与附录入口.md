@@ -8,7 +8,7 @@ index: ../父范围与覆盖.md
 
 > HUMAN_EDITED；owner=Session C。初始定位由锁定来源的既有入口清单一次性展开，随后人工维护处置。它没有自动认证任何正文已审。
 
-本页固定书式HoTT的来源边界：The Univalent Foundations Program，Book commit `578b85cc8d586b1677ec4335148adeb443057d24`。实际已全文读取原始main.tex与formal.tex（1259行EOF），章序以下表为准；附录审查刚形成W规则过程种子，还未完成语义处置。A.2/A.3是主要形式呈现，A.1差异、A.4及未编号内容均保留，不靠删去它们获得remainder=0。原始来源沿用CC BY-SA 3.0；本页是项目研究导航，不是上游认可。
+本页固定书式HoTT的来源边界：The Univalent Foundations Program，Book commit `578b85cc8d586b1677ec4335148adeb443057d24`。main.tex、formal.tex（1259行EOF）及preliminaries.tex（2044行EOF）已全文读取；实际语义处置以本表和004片为准。A.2/A.3是主要形式呈现，A.1差异、A.4及未编号内容均保留，不靠删去它们获得remainder=0。原始来源沿用CC BY-SA 3.0；本页是项目研究导航，不是上游认可。
 
 ## 1. 编号正文入口
 
@@ -16,18 +16,18 @@ index: ../父范围与覆盖.md
 
 |ID|原典位置|原始节标题|覆盖处置|语义映射|
 |---|---|---|---|---|
-|B01.01|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L4|`\section{Type theory versus set theory}`|UNREVIEWED|UNASSIGNED|
-|B01.02|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L175|`\section{Function types}`|UNREVIEWED|UNASSIGNED|
-|B01.03|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L358|`\section{Universes and families}`|UNREVIEWED|UNASSIGNED|
-|B01.04|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L437|`\section{Dependent function types (\texorpdfstring{$\Pi$}{Π}-types)}`|UNREVIEWED|UNASSIGNED|
-|B01.05|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L530|`\section{Product types}`|UNREVIEWED|UNASSIGNED|
-|B01.06|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L728|`\section{Dependent pair types (\texorpdfstring{$\Sigma$}{Σ}-types)}`|UNREVIEWED|UNASSIGNED|
-|B01.07|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L870|`\section{Coproduct types}`|UNREVIEWED|UNASSIGNED|
-|B01.08|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L959|`\section{The type of booleans}`|UNREVIEWED|UNASSIGNED|
-|B01.09|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1062|`\section{The natural numbers}`|UNREVIEWED|UNASSIGNED|
-|B01.10|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1205|`\section{Pattern matching and recursion}`|UNREVIEWED|UNASSIGNED|
-|B01.11|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1266|`\section{Propositions as types}`|UNREVIEWED|UNASSIGNED|
-|B01.12|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1547|`\section{Identity types}`|UNREVIEWED|UNASSIGNED|
+|B01.01|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L4|`\section{Type theory versus set theory}`|REVIEWED|004§2/5，N-BASE-CONTEXT/EVIDENCE|
+|B01.02|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L175|`\section{Function types}`|REVIEWED|004§2/5，N-BASE-CONTEXT|
+|B01.03|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L358|`\section{Universes and families}`|REVIEWED|004§2/5，N-BASE-SIZE|
+|B01.04|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L437|`\section{Dependent function types (\texorpdfstring{$\Pi$}{Π}-types)}`|REVIEWED|004§2/5，N-BASE-CONTEXT/SIZE|
+|B01.05|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L530|`\section{Product types}`|REVIEWED|004§2/5，N-BASE-ENCODING；编码研究待核|
+|B01.06|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L728|`\section{Dependent pair types (\texorpdfstring{$\Sigma$}{Σ}-types)}`|REVIEWED|004§2/5，N-BASE-EVIDENCE/CONTEXT|
+|B01.07|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L870|`\section{Coproduct types}`|REVIEWED|004§2/5，N-BASE-EVIDENCE|
+|B01.08|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L959|`\section{The type of booleans}`|REVIEWED|004§2/5，C-BASE-02待核，不冒完成|
+|B01.09|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1062|`\section{The natural numbers}`|REVIEWED|004§2/3，N-BASE-ENCODING|
+|B01.10|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1205|`\section{Pattern matching and recursion}`|REVIEWED|004§2/4，递归资格与精化|
+|B01.11|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1266|`\section{Propositions as types}`|REVIEWED|004§2/5，N-BASE-EVIDENCE；Book3仍待审|
+|B01.12|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1547|`\section{Identity types}`|REVIEWED|004§2/5，三个subsection及N-BASE-PATH-FAMILY|
 |B02.01|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L210|`\section{Types are higher groupoids}`|UNREVIEWED|UNASSIGNED|
 |B02.02|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L683|`\section{Functions are functors}`|UNREVIEWED|UNASSIGNED|
 |B02.03|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L748|`\section{Type families are fibrations}`|UNREVIEWED|UNASSIGNED|
@@ -124,32 +124,32 @@ index: ../父范围与覆盖.md
 
 ## 2. 附录与未编号内容
 
-附录不是105节分母的一部分。以下起始行已从原始formal.tex结构定位；C已阅读全文，但尚未逐项完成语义处置，仍列UNREVIEWED；不借Schema的历史“已读”标签认证C。
+附录不是105节分母的一部分。以下起始行已从原始formal.tex结构定位；C已阅读全文。A00/A01/A02基础接口的REVIEWED具体依据与差异见[004§4](<004 - Book基础接口的语义处置.md>)，结果为SOURCE_REPORTED；未把A03/A04自动升级。
 
 |ID|formal.tex行/范围|待审职责|覆盖处置|
 |---|---|---|---|
-|A00|1–158，Preliminaries从49开始|形式系统目的、元语法、绑定与判断说明|UNREVIEWED|
-|A01|159–453|第一呈现、convertibility及η差异；八个子节全部保留|UNREVIEWED|
-|A01.U|251|宇宙|UNREVIEWED|
-|A01.PI|286|Π|UNREVIEWED|
-|A01.SIGMA|313|Σ|UNREVIEWED|
-|A01.SUM|349|余积|UNREVIEWED|
-|A01.FIN|370|有限类型|UNREVIEWED|
-|A01.NAT|383|自然数|UNREVIEWED|
+|A00|1–158，Preliminaries从49开始|形式系统目的、元语法、绑定与判断说明|REVIEWED：004§4|
+|A01|159–453|第一呈现、convertibility及η差异；八个子节全部保留|REVIEWED：004§4与C-W-01|
+|A01.U|251|宇宙|REVIEWED：004§4|
+|A01.PI|286|Π|REVIEWED：004§4|
+|A01.SIGMA|313|Σ|REVIEWED：004§4|
+|A01.SUM|349|余积|REVIEWED：004§4|
+|A01.FIN|370|有限类型|REVIEWED：004§4|
+|A01.NAT|383|自然数|REVIEWED：004§4|
 |A01.W|410|W类型|REVIEWED：构造/递归接口，见C-W-01§6；SOURCE_REPORTED|
-|A01.ID|433|Identity|UNREVIEWED|
-|A02|454–974|第二呈现总说明与以下11子节；不能只读规则名|UNREVIEWED|
-|A02.CTX|503|上下文|UNREVIEWED|
-|A02.STRUCT|537|结构规则及未逐条印出的合同性规则|UNREVIEWED|
-|A02.U|620|宇宙|UNREVIEWED|
-|A02.PI|646|Π|UNREVIEWED|
-|A02.SIGMA|713|Σ|UNREVIEWED|
-|A02.SUM|766|余积|UNREVIEWED|
-|A02.ZERO|808|空类型|UNREVIEWED|
-|A02.UNIT|826|单位类型|UNREVIEWED|
-|A02.NAT|860|自然数|UNREVIEWED|
-|A02.ID|907|Identity|UNREVIEWED|
-|A02.DEF|943|定义|UNREVIEWED|
+|A01.ID|433|Identity|REVIEWED：004§4|
+|A02|454–974|第二呈现总说明与以下11子节；不能只读规则名|REVIEWED：004§4；非元定理证明|
+|A02.CTX|503|上下文|REVIEWED：004§4|
+|A02.STRUCT|537|结构规则及未逐条印出的合同性规则|REVIEWED：004§4；保610行排版观察|
+|A02.U|620|宇宙|REVIEWED：004§4|
+|A02.PI|646|Π|REVIEWED：004§4|
+|A02.SIGMA|713|Σ|REVIEWED：004§4|
+|A02.SUM|766|余积|REVIEWED：004§4|
+|A02.ZERO|808|空类型|REVIEWED：004§4|
+|A02.UNIT|826|单位类型|REVIEWED：004§4|
+|A02.NAT|860|自然数|REVIEWED：004§4|
+|A02.ID|907|Identity|REVIEWED：004§4|
+|A02.DEF|943|定义|REVIEWED：004§4；C17其余分支仍待审|
 |A03|975–1063|HoTT扩展总说明与两子节|UNREVIEWED|
 |A03.UA|982|函数外延性与单价性|UNREVIEWED|
 |A03.CIRCLE|1014|圆|UNREVIEWED|
@@ -163,6 +163,8 @@ index: ../父范围与覆盖.md
 |U.INTRO|[introduction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/introduction.tex) 全文|UNREVIEWED：理论对象、同伦解释与整体取舍不能由编号正文替代。|
 |U.PREFACE|[preface.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preface.tex) 全文|UNREVIEWED：核作者声明的目的/假设/呈现范围；不预先排除。|
 |U.CHAPTERS|上述11章各自未编号引导、Notes、Exercises及所有subsection|UNREVIEWED：逐章EOF阅读时定位会影响规则/前提/关系的内容；练习不要求全部重新证明，但不能以“练习”排除理论信息。|
+|U.B01.NOTES|preliminaries1850–1936|REVIEWED：004§2/4的命名配置差异，非今日实现现状。|
+|U.B01.EXERCISES|preliminaries1937–2044 EOF；16题|REVIEWED：004§3全标签语义归组；C-BASE-02实际核证仍待办。|
 |U.MACROS|[macros.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/macros.tex)、[symbols.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/symbols.tex)|UNREVIEWED：决定符号和规则读法时按依赖展开。|
 |U.LABELS|[main.labelnumbers.first-edition](../../../HoTT/theory-schema/upstream/book-578b85cc/main.labelnumbers.first-edition)|UNREVIEWED：定位辅助；计数不承担语义。|
 |U.BIB|[references.bib](../../../HoTT/theory-schema/upstream/book-578b85cc/references.bib)|UNREVIEWED：实际主张的来源链与配置比较入口。|
@@ -173,4 +175,4 @@ U.CHAPTERS是暂未细分的显式待审桶；必须在R1/R2逐章细化，不�
 
 ## 3. 双向映射剩余
 
-当前B05.03与A01.W映射到C-W-01的有范围规则/消费审查，其余编号节与附录、未编号范围仍未完成。B05.04/05虽已实际读全文，其更宽内部化/相干处置未完成，保UNREVIEWED。反向C-W-01回formal410–432及induction253–751；旧A四包精确复用已核，见复用owner，但尚未凭包名批量将本表的来源项登记为REUSED_WITH_EVIDENCE。剩余是父目标未完成的具体依据，不是OPEN_RESULT成果。
+B01.01–12及A00/A01/A02基础规则映射到004的逐项语义处置与N-BASE单元；B05.03/A01.W仍映射C-W-01。反向映射见004§2–5及过程001/002。Book1十二编号节REVIEWED是来源审查进展，C-BASE-02的编码/计算接口尚须实际判别；不与其数学结果混算。其余编号节、A03/A04/Notes及其它未编号范围仍未完成。B05.04/05虽已实际读全文，其更宽内部化/相干处置未完成，保UNREVIEWED。旧A四包精确复用已核，见复用owner，但尚未凭包名批量升级其它来源。剩余是父目标未完成的具体依据，不是OPEN_RESULT成果。

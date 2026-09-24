@@ -10,21 +10,21 @@ index: ../父范围与覆盖.md
 
 ## 1. 全部现行条目
 
-54个一级ID（C18/D12/S9/E15）与准备基线核对；28个输入文件hash无差异。此处只是父范围入口完整，不是研究覆盖充分。结果轴均为QUESTION，语义单元尚未分配；原典/配置与内部子分支在下一节保留待办。
+54个一级ID（C18/D12/S9/E15）在R0与准备基线核对。此处是父范围入口，不是研究覆盖充分。C01–09/C11的基础规则已由Book1及附录A00/A01/A02实审，详见004；其它一级仍UNREVIEWED。基础规则的来源处置不关闭表内比较分支和待核消费者。
 
 |ID|Schema正文locator|条目|覆盖处置|语义映射|
 |---|---|---|---|---|
-|C01|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L7|语法与判断形状|UNREVIEWED|UNASSIGNED|
-|C02|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L33|上下文、变量、绑定与依赖|UNREVIEWED|UNASSIGNED|
-|C03|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L53|结构规则、替换与转换|UNREVIEWED|UNASSIGNED|
-|C04|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L83|宇宙与类型资格|UNREVIEWED|UNASSIGNED|
-|C05|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L103|Π：依赖函数类型|UNREVIEWED|UNASSIGNED|
-|C06|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L136|Σ：依赖对类型|UNREVIEWED|UNASSIGNED|
-|C07|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L162|余积 A+B|UNREVIEWED|UNASSIGNED|
-|C08|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L174|空类型 0、单位类型 1、布尔类型 2|UNREVIEWED|UNASSIGNED|
-|C09|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L186|自然数、递归与归纳|UNREVIEWED|UNASSIGNED|
+|C01|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L7|语法与判断形状|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C02|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L33|上下文、变量、绑定与依赖|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C03|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L53|结构规则、替换与转换|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C04|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L83|宇宙与类型资格|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C05|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L103|Π：依赖函数类型|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C06|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L136|Σ：依赖对类型|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C07|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L162|余积 A+B|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C08|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L174|空类型 0、单位类型 1、布尔类型 2|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
+|C09|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L186|自然数、递归与归纳|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
 |C10|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L209|W 类型与一般归纳定义|UNREVIEWED|UNASSIGNED|
-|C11|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L235|Identity：同一类型内的路径|UNREVIEWED|UNASSIGNED|
+|C11|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L235|Identity：同一类型内的路径|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
 |C12|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L261|由 identity 导出的路径代数与 transport|UNREVIEWED|UNASSIGNED|
 |C13|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L278|同伦、等价与正确的 isEquiv|UNREVIEWED|UNASSIGNED|
 |C14|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L295|函数外延性|UNREVIEWED|UNASSIGNED|
@@ -71,7 +71,7 @@ index: ../父范围与覆盖.md
 
 ## 2. 必须继续展开的内部命名分支
 
-以下ID是本页内的父ID/子名定位，不是新增STATE record。多个父项可共享一条实际审查，但须明确语义保持条件；未证明相同的路线不能因为同在一行就合并。以下全部UNREVIEWED/QUESTION，未定项不排除。它是实际读Schema后提取的初始子范围，R1还要回一手正文补全，并没有宣称其已为最终完整清单。
+以下ID是本页内的父ID/子名定位，不是新增STATE record。多个父项可共享明确范围的审查，未证明相同的路线不因同在一行而合并。C01/PRESENTATION、C02/CONTEXT、C03/STRUCT、C05/PI、C08/FINITE、C09/NAT的列项已由004实审。C04/UNIVERSE除resizing对照、C06/SIGMA基础消去/命题η来源、C07/SUM除截断对照、C11/ID的J/based/refl及不默加K/UIP/reflection边界已审；相应更宽比较仍分别接Book3/7/2。C17/CHECK仅定义/精化子项已审，检查/搜索/公理配置仍待审。其余子项UNREVIEWED/QUESTION，未定项不排除。R1继续回一手正文补全，不声明最终内部清单充分。
 
 |父项及子ID|分别保留的分支/接口|原始回源入口与不得合并的原因|
 |---|---|---|
