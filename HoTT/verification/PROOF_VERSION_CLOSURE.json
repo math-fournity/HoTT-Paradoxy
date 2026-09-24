@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 182,
+  "later_machine_proved_claim_count": 186,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -920,6 +920,16 @@
    "kind": "native_sequential_colimit_accessibility_with_frozen_stage_control",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: exact finite-stage accessibility and edge preservation; explicit stage-induced aggregate chain is not accessible; frozen constant-stage aggregate is well founded.",
    "notes": "Local new package; no physical completion, arbitrary-colimit theorem, HoTT preservation promise, historical-circle solution, internal inconsistency or global completeness. Actual source/run/index and local Git closure must be checked separately. WrongPreservation control is not a proof package."
+  },
+  {
+   "proof_id": "MP-MO3-BOUQUET-ORDER-001",
+   "claim_ids": "C-331–C-334",
+   "source": "HoTT/formal/mo3/bouquet-order/BouquetOrder.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260924-MO3-BOUQUET-ORDER-001-02",
+   "kind": "native_bouquet_transport_order_with_inverse_and_constant_controls",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed native Bouquet Bool family distinguishes two ordered composite actions; actual inverse order restores every label, and constant-family transport preserves labels.",
+   "notes": "C04 ideal discrete calibration task. No physical circle/instrument, general path classification, HoTT inconsistency or global originality. Guardedness option matches pinned Prelude imports, with no local coinductive definition. Dependency audit is derived from this run; builtin inventory reuses unchanged toolchain snapshot. WrongOrder is a rejected type-boundary control, not a proof package."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

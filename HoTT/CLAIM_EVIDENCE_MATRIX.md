@@ -1460,3 +1460,16 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
 | `MP-ASTRA-PRESENTATION-FIBER-001` | `C-326` | `formal/agda-unimath/hott-z/PresentationFiber.agda` | `verification/runs/20260922-MP-ASTRA-PRESENTATION-FIBER-001-01/`；proof/claim身份及exit0仅按旧RUN.json转述，index_status缺失和row-manifest缺失仍保留 | `SOURCE_REPORTED_NOT_REPLAYED / LEGACY_PACKAGE_LOCATOR_RESTORED_NOT_RECERTIFIED` |
+
+## MO3双环路的原生运输次序与逆序恢复（2026-09-24）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-MO3-BOUQUET-ORDER-001` | `C-331–C-334` | `formal/mo3/bouquet-order/BouquetOrder.agda`；原库Bouquet、ua、subst | `verification/runs/20260924-MO3-BOUQUET-ORDER-001-02/`；Agda2.8.0-3d04bac/Cubical0.9，safe/cubical/guardedness，exit0；首run选项失败及WrongOrder拒绝保留 | `FORMAL_CHECKED_WITH_SCOPE / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-331 | Space=Bouquet Bool，Mark有a/b/c；State base=Mark，loop false沿ua(swapAB)，loop true沿ua(swapBC)，其中swapAB交换a/b且固定c，swapBC交换b/c且固定a。α=loop false，β=loop true，act p=subst State p，则act(α∙β)a≡c及act(β∙α)a≡b。 | `FORMAL_CHECKED_WITH_SCOPE` | `actα/actβ/αβ-a/βα-a`；同run | 固定族/两路径/初标记，不对全部族、路径字或现实仪器外推。 |
+| C-332 | 同C331的精确族/路径，act(α∙β)a≡act(β∙α)a→⊥，且(α∙β)≡(β∙α)→⊥。 | `FORMAL_CHECKED_WITH_SCOPE` | `c≢b/outputsDifferent/pathsDifferent`；同run | 只否定这两个相等命题；不称HoTT规则矛盾或所有回路均不可交换。 |
+| C-333 | 对同一State，任意p,q:base≡base和x:Mark，act(sym p)(act p x)≡x；并有act(sym q∙sym p)(act(p∙q)x)≡x。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_FAMILY_INVERSE_CONTROL` | `restore/restoreTwo/restoreComposite`；同run | 使用实际路径的逆且次序反转；不把交换原操作当逆操作，不证明物理可逆性或历史圆环复原。 |
+| C-334 | 对任意p:base≡base和x:Mark，常值族λ(_:Space)→Mark中的subst沿p保持x。 | `FORMAL_CHECKED_WITH_SCOPE / CONSTANT_FAMILY_CONTROL` | `constantControl`；同run | 常值族改变了依赖结构，只作敏感性对照，不替C331原族的观察。 |
