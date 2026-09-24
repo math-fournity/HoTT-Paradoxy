@@ -1,0 +1,36 @@
+{
+  "after_mismatches": [],
+  "after_paths": 37,
+  "canonical_result": ".codex/cognition/checkpoints/S-RES-20260924-MO3-C-B02/result.json",
+  "canonical_result_sha256": "7f0a38aad571e0e4a990aa55d93f36bb8fd1eaca10f03d14af05660f3a2b30f6",
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"schema_version\": \"integrated-three-way-cognition/v1\",\n  \"state_revision\": 289,\n  \"core_units_declared\": 48,\n  \"direction_count\": 38,\n  \"outcome_count\": 209,\n  \"fixed_order\": [\n    \"核心认知.md\",\n    \"方向追踪.md\",\n    \"全景视野.md\",\n    \"扩展认知.md\"\n  ],\n  \"model_context\": \"NOT_CERTIFIED_BY_TOOL\"\n}\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"schema_version\": \"governance-shard-verification/v1\",\n  \"generated_at_utc\": \"2026-09-24T11:16:32.714332+00:00\",\n  \"project_root\": \"/Volumes/D/HoTT_AI_HANDOFF_20260911\",\n  \"validator\": \"scripts/audit/validate_governance_shards.py\",\n  \"validator_sha256\": \"788dee0f376dcba2c9e0ba966560ad4862cbe2067465f3a584099640328de0fe\",\n  \"validator_source_commit\": \"2e4e4d2dbe13046470bc79e98e64735312ee9bd5\",\n  \"pinned_validator_sha256\": \"788dee0f376dcba2c9e0ba966560ad4862cbe2067465f3a584099640328de0fe\",\n  \"command\": [\n    \"/opt/homebrew/opt/python@3.14/bin/python3.14\",\n    \"-B\",\n    \"/Volumes/D/HoTT_AI_HANDOFF_20260911/scripts/audit/validate_governance_shards.py\",\n    \"--scan\",\n    \"/Volumes/D/HoTT_AI_HANDOFF_20260911\"\n  ],\n  \"exit_code\": 0,\n  \"stdout\": \"NOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md: 413 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md: 321 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md: 482 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/Astra继续尝试/断点与证明机制系统检查/对话原文/011 - 数学现实同一性、原X与第三弹校正.md: 301 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md: 314 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files/HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md: 314 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files/HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md: 314 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-C/审计/B01/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md: 346 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-C/审计/B02/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md: 345 lines exceed soft target 300; content remains valid\\nNOTICE: /Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-C/审计/R0/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md: 348 lines exceed soft target 300; content remains valid\\nPASS: governance shard indexes=1918; soft-target notices=10; v1/v2 compatible; line targets are non-blocking\\n\",\n  \"stderr\": \"\",\n  \"status\": \"PASS\",\n  \"indexes\": 1918,\n  \"soft_target_notices\": 10,\n  \"line_targets_blocking\": false,\n  \"canonical_indexes_checked\": 170,\n  \"reader_banner_issues\": []\n}\n"
+    }
+  ],
+  "core_sha256": "6a94bec28b18a05e268bf82e55add1a030b086b73773874bc34dc82f0dd014cf",
+  "kernel_replayed": false,
+  "parent_coverage": "PARENT_SCOPE_INCOMPLETE",
+  "plan_snapshot": "8a8ea9d192ec0231cff46219b57d1676a673114f5636a0fc1752348aa21fae09",
+  "query_first_promoted": [],
+  "review_required": [],
+  "revision": 289,
+  "status": "POST_CHECKPOINT_MATCH"
+}

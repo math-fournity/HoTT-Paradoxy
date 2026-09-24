@@ -10,7 +10,7 @@ index: ../父范围与覆盖.md
 
 ## 1. 全部现行条目
 
-54个一级ID（C18/D12/S9/E15）在R0与准备基线核对。此处是父范围入口，不是研究覆盖充分。C01–09/C11的基础规则已由Book1及附录A00/A01/A02实审，详见004；其它一级仍UNREVIEWED。基础规则的来源处置不关闭表内比较分支和待核消费者。
+54个一级ID（C18/D12/S9/E15）在R0与准备基线核对。此处是父范围入口，不是研究覆盖充分。各行当前处置及004/005提供对应来源依据；基础规则的完成不关闭内部比较分支和待核消费者，不在本段另建已审清单。
 
 |ID|Schema正文locator|条目|覆盖处置|语义映射|
 |---|---|---|---|---|
@@ -25,10 +25,10 @@ index: ../父范围与覆盖.md
 |C09|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L186|自然数、递归与归纳|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
 |C10|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L209|W 类型与一般归纳定义|UNREVIEWED|UNASSIGNED|
 |C11|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L235|Identity：同一类型内的路径|REVIEWED（基础规则范围）|004§2/4；结果SOURCE_REPORTED，比较分支按下文保留|
-|C12|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L261|由 identity 导出的路径代数与 transport|UNREVIEWED|UNASSIGNED|
+|C12|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L261|由 identity 导出的路径代数与 transport|REVIEWED（书式来源规则）|005§2；SOURCE_REPORTED，非Cubical/全语义翻译|
 |C13|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L278|同伦、等价与正确的 isEquiv|UNREVIEWED|UNASSIGNED|
 |C14|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L295|函数外延性|UNREVIEWED|UNASSIGNED|
-|C15|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L311|单价性|UNREVIEWED|UNASSIGNED|
+|C15|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L311|单价性|REVIEWED（书式来源规则）|005§2；SOURCE_REPORTED，非Cubical/全语义翻译|
 |C16|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L331|高阶归纳类型与圆|UNREVIEWED|UNASSIGNED|
 |C17|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L353|定义、精化、检查与证明搜索|UNREVIEWED|UNASSIGNED|
 |C18|[CORE_RULES.md](../../../HoTT/theory-schema/CORE_RULES.md) L365|元理论：结论与适用系统一起记录|UNREVIEWED|UNASSIGNED|
@@ -71,7 +71,7 @@ index: ../父范围与覆盖.md
 
 ## 2. 必须继续展开的内部命名分支
 
-以下ID是本页内的父ID/子名定位，不是新增STATE record。多个父项可共享明确范围的审查，未证明相同的路线不因同在一行而合并。C01/PRESENTATION、C02/CONTEXT、C03/STRUCT、C05/PI、C08/FINITE、C09/NAT的列项已由004实审。C04/UNIVERSE除resizing对照、C06/SIGMA基础消去/命题η来源、C07/SUM除截断对照、C11/ID的J/based/refl及不默加K/UIP/reflection边界已审；相应更宽比较仍分别接Book3/7/2。C17/CHECK仅定义/精化子项已审，检查/搜索/公理配置仍待审。其余子项UNREVIEWED/QUESTION，未定项不排除。R1继续回一手正文补全，不声明最终内部清单充分。
+以下ID是本页内的父ID/子名定位，不是新增STATE record。多个父项可共享明确范围的审查，未证明相同的路线不因同在一行而合并。C01/PRESENTATION、C02/CONTEXT、C03/STRUCT、C05/PI、C08/FINITE、C09/NAT的列项已由004实审。C04/UNIVERSE除resizing对照、C06/SIGMA基础消去/命题η来源、C07/SUM除截断对照、C11/ID的J/based/refl及不默加K/UIP/reflection边界已审；相应更宽比较仍分别接Book3/7/2。C17/CHECK仅定义/精化子项已审，检查/搜索/公理配置仍待审。C12/PATH及C15/UA书式规则已由005实审；C14/FUNEXT的本章定义/命题计算已审，UA推导仍待Book4。D05/HOMOTOPY-IND见005§4。其余子项UNREVIEWED/QUESTION，未定项不排除。R1继续回一手正文补全，不声明最终内部清单充分。
 
 |父项及子ID|分别保留的分支/接口|原始回源入口与不得合并的原因|
 |---|---|---|
@@ -99,7 +99,7 @@ index: ../父范围与覆盖.md
 |D03/LOGIC|合取/蕴含/否定；截断析取/存在；构造性选择；集合AC；unique choice；双重否定|Book1.11/3.6–3.9；量词和截断层保留。|
 |D04/OPTION|hProp-LEM；全类型可判定；集合AC；propositional resizing；UIP/K；equality reflection；Type-in-Type；一般递归|Book3/10/11及formal；正反配置分开，不将全部相加。|
 |D05/INITIAL|归纳规则；initial algebra；homotopy initial；严格正性与resizing反例|Book5；同名“初始”不代表形成时序。|
-|D05/HOMOTOPY-IND|w_d依赖归纳；w_s递归+唯一性+相干；w_h同伦初始；判断β/命题β区别|Book5.5原典566–751本次已读；是待审内部化/计算接口，C-W-01不关闭它。|
+|D05/HOMOTOPY-IND|w_d依赖归纳；w_s递归+唯一性+相干；w_h同伦初始；判断β/命题β区别|Book5.5原典566–751本次已读；源语义审查见005§4；SOURCE_REPORTED，不是三种规格等价的新机器证明。|
 |D06/HIT|interval；circle；spheres；suspension；cell complexes；hubs/spokes；pushout；truncation；quotient；algebraic HIT；flattening|Book6全部分支，边界/相干分别入审。|
 |D07/MODAL|n-truncation；connectedness；reflective subuniverse；modality；localization；lex；n-truncated map；n-connected map；factorization|Book7/RSS；反射不默带依赖消去或lex。|
 |D08/HOMOTOPY|pointed types；loop space；homotopy groups；fiber sequences；suspension；Hopf；Freudenthal；van Kampen；Whitehead theorem/principle；encode-decode；Additional Results|Book8各section及未编号引导；定理和原则分别核。|

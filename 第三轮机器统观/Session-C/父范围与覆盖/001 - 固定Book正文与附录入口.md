@@ -28,21 +28,21 @@ index: ../父范围与覆盖.md
 |B01.10|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1205|`\section{Pattern matching and recursion}`|REVIEWED|004§2/4，递归资格与精化|
 |B01.11|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1266|`\section{Propositions as types}`|REVIEWED|004§2/5，N-BASE-EVIDENCE；Book3仍待审|
 |B01.12|[preliminaries.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex) L1547|`\section{Identity types}`|REVIEWED|004§2/5，三个subsection及N-BASE-PATH-FAMILY|
-|B02.01|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L210|`\section{Types are higher groupoids}`|UNREVIEWED|UNASSIGNED|
-|B02.02|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L683|`\section{Functions are functors}`|UNREVIEWED|UNASSIGNED|
-|B02.03|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L748|`\section{Type families are fibrations}`|UNREVIEWED|UNASSIGNED|
-|B02.04|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L969|`\section{Homotopies and equivalences}`|UNREVIEWED|UNASSIGNED|
-|B02.05|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1191|`\section{The higher groupoid structure of type formers}`|UNREVIEWED|UNASSIGNED|
-|B02.06|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1238|`\section{Cartesian product types}`|UNREVIEWED|UNASSIGNED|
-|B02.07|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1393|`\section{\texorpdfstring{$\Sigma$}{Σ}-types}`|UNREVIEWED|UNASSIGNED|
-|B02.08|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1534|`\section{The unit type}`|UNREVIEWED|UNASSIGNED|
-|B02.09|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1568|`\section{\texorpdfstring{$\Pi$}{Π}-types and the function extensionality axiom}`|UNREVIEWED|UNASSIGNED|
-|B02.10|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1706|`\section{Universes and the univalence axiom}`|UNREVIEWED|UNASSIGNED|
-|B02.11|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1809|`\section{Identity type}`|UNREVIEWED|UNASSIGNED|
-|B02.12|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1931|`\section{Coproducts}`|UNREVIEWED|UNASSIGNED|
-|B02.13|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L2070|`\section{Natural numbers}`|UNREVIEWED|UNASSIGNED|
-|B02.14|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L2165|`\section{Example: equality of structures}`|UNREVIEWED|UNASSIGNED|
-|B02.15|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L2360|`\section{Universal properties}`|UNREVIEWED|UNASSIGNED|
+|B02.01|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L210|`\section{Types are higher groupoids}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.02|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L683|`\section{Functions are functors}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.03|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L748|`\section{Type families are fibrations}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.04|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L969|`\section{Homotopies and equivalences}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.05|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1191|`\section{The higher groupoid structure of type formers}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.06|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1238|`\section{Cartesian product types}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.07|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1393|`\section{\texorpdfstring{$\Sigma$}{Σ}-types}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.08|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1534|`\section{The unit type}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.09|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1568|`\section{\texorpdfstring{$\Pi$}{Π}-types and the function extensionality axiom}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.10|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1706|`\section{Universes and the univalence axiom}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.11|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1809|`\section{Identity type}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.12|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L1931|`\section{Coproducts}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.13|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L2070|`\section{Natural numbers}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.14|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L2165|`\section{Example: equality of structures}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
+|B02.15|[basics.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/basics.tex) L2360|`\section{Universal properties}`|REVIEWED|005§2；SOURCE_REPORTED，C342–343只限过程003|
 |B03.01|[logic.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/logic.tex) L11|`\section{Sets and \texorpdfstring{$n$}{n}-types}`|UNREVIEWED|UNASSIGNED|
 |B03.02|[logic.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/logic.tex) L159|`\section{Propositions as types?}`|UNREVIEWED|UNASSIGNED|
 |B03.03|[logic.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/logic.tex) L255|`\section{Mere propositions}`|UNREVIEWED|UNASSIGNED|
@@ -67,7 +67,7 @@ index: ../父范围与覆盖.md
 |B05.02|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L147|`\section{Uniqueness of inductive types}`|UNREVIEWED|UNASSIGNED|
 |B05.03|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L253|`\section{\texorpdfstring{$\w$}{W}-types}`|REVIEWED：规则/递归消费语义；定理仅SOURCE_REPORTED|[C-W-01 §6](<../过程与结果/001 - W类型的整族构造与执行完成问题.md>)；未证明全消费者性质|
 |B05.04|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L381|`\section{Inductive types are initial algebras}`|UNREVIEWED|UNASSIGNED|
-|B05.05|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L566|`\section{Homotopy-inductive types}`|UNREVIEWED|UNASSIGNED|
+|B05.05|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L566|`\section{Homotopy-inductive types}`|REVIEWED|005§4；内部化/β/唯一性/相干为SOURCE_REPORTED|
 |B05.06|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L752|`\section{The general syntax of inductive definitions}`|UNREVIEWED|UNASSIGNED|
 |B05.07|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L949|`\section{Generalizations of inductive types}`|UNREVIEWED|UNASSIGNED|
 |B05.08|[induction.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/induction.tex) L1071|`\section{Identity types and identity systems}`|UNREVIEWED|UNASSIGNED|
@@ -165,6 +165,9 @@ index: ../父范围与覆盖.md
 |U.CHAPTERS|上述11章各自未编号引导、Notes、Exercises及所有subsection|UNREVIEWED：逐章EOF阅读时定位会影响规则/前提/关系的内容；练习不要求全部重新证明，但不能以“练习”排除理论信息。|
 |U.B01.NOTES|preliminaries1850–1936|REVIEWED：004§2/4的命名配置差异，非今日实现现状。|
 |U.B01.EXERCISES|preliminaries1937–2044 EOF；16题|REVIEWED：004§3全标签语义归组；C-BASE-02实际核证仍待办。|
+|U.B02.INTRO|basics1–209|REVIEWED：005§3，同伦/高阶结构解释及其边界。|
+|U.B02.NOTES|basics2497–2566|REVIEWED：005§3，配置/模型历史报告不认证今日现状。|
+|U.B02.EXERCISES|basics2567–2699 EOF；19题|REVIEWED：005§3全标签归组；非所有题的新proof。|
 |U.MACROS|[macros.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/macros.tex)、[symbols.tex](../../../HoTT/theory-schema/upstream/book-578b85cc/symbols.tex)|UNREVIEWED：决定符号和规则读法时按依赖展开。|
 |U.LABELS|[main.labelnumbers.first-edition](../../../HoTT/theory-schema/upstream/book-578b85cc/main.labelnumbers.first-edition)|UNREVIEWED：定位辅助；计数不承担语义。|
 |U.BIB|[references.bib](../../../HoTT/theory-schema/upstream/book-578b85cc/references.bib)|UNREVIEWED：实际主张的来源链与配置比较入口。|
@@ -175,4 +178,4 @@ U.CHAPTERS是暂未细分的显式待审桶；必须在R1/R2逐章细化，不�
 
 ## 3. 双向映射剩余
 
-B01.01–12及A00/A01/A02基础规则映射到004的逐项语义处置与N-BASE单元；B05.03/A01.W仍映射C-W-01。反向映射见004§2–5及过程001/002。Book1十二编号节REVIEWED是来源审查进展，C-BASE-02的编码/计算接口尚须实际判别；不与其数学结果混算。其余编号节、A03/A04/Notes及其它未编号范围仍未完成。B05.04/05虽已实际读全文，其更宽内部化/相干处置未完成，保UNREVIEWED。旧A四包精确复用已核，见复用owner，但尚未凭包名批量升级其它来源。剩余是父目标未完成的具体依据，不是OPEN_RESULT成果。
+Book1/2、B05.03/05及A00/A01/A02的当前语义处置分别回004/005、C-W-01。其余编号节/附录后段/未编号内容仍按表待审。B05.04已读而更宽语义尚待处置；B05.05的来源审查不等其三个内部规格等价已机器证明。C-BASE-02已有C342–343精确子结果，但更宽编码/配置义务保留在过程003。旧四包不批量升级未映射来源。未审剩余不是OPEN_RESULT成果。
