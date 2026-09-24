@@ -1,0 +1,95 @@
+{
+  "schema": "mo3-final-delivery-verification/v1",
+  "status": "FAILED",
+  "manifest_sha256": "8f49c74f9db9c2967a3e19ad11749c3d0ed748414f89516080619e2b0fb3d404",
+  "subject_commit": "b4fbad4e6532cebe96cfb2eb9b562938ba9bf240",
+  "checks": [
+    {
+      "name": "seal-live",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001",
+        "--expected-sha",
+        "8f49c74f9db9c2967a3e19ad11749c3d0ed748414f89516080619e2b0fb3d404",
+        "--live-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "MP-MO3-STAGE-COLIMIT-001",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files/scripts/audit/verify_proof_version_closure.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files",
+        "--proof-id",
+        "MP-MO3-STAGE-COLIMIT-001",
+        "--evidence-only"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "MP-MO3-BOUQUET-ORDER-001",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files/scripts/audit/verify_proof_version_closure.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files",
+        "--proof-id",
+        "MP-MO3-BOUQUET-ORDER-001",
+        "--evidence-only"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "MP-MO3-FINITE-COVER-001",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files/scripts/audit/verify_proof_version_closure.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files",
+        "--proof-id",
+        "MP-MO3-FINITE-COVER-001",
+        "--evidence-only"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "MP-MO3-OPEN-COVER-MARGIN-001",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files/scripts/audit/verify_proof_version_closure.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001/files",
+        "--proof-id",
+        "MP-MO3-OPEN-COVER-MARGIN-001",
+        "--evidence-only"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "seal-after",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-001",
+        "--expected-sha",
+        "8f49c74f9db9c2967a3e19ad11749c3d0ed748414f89516080619e2b0fb3d404"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "Exact sealed bytes/live match and copied selected proof evidence relationships; no kernel rerun, no B independent semantic audit, no clean whole-tree claim"
+}

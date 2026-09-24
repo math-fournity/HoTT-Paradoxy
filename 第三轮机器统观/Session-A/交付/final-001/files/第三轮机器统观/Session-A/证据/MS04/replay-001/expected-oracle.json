@@ -1,0 +1,7 @@
+{
+  "schema":"mo3-method-oracle/v1",
+  "scope":"frozen before review outputs; same author knows intended cases, no blindness claim",
+  "granularity":{"G01":"REJECT_COVERAGE","G02":"ACCEPT_WITH_SCOPE","G03":"REJECT_COVERAGE","G04":"ACCEPT_WITH_SCOPE","G05":"REJECT_COVERAGE","G06":"REJECT_COVERAGE","G07":"REJECT_COVERAGE","G08":"ACCEPT_WITH_SCOPE","G09":"REJECT_COVERAGE","G10":"ACCEPT_WITH_SCOPE"},
+  "joint_fixture":{"domain":[0,1],"variables":["x","y","z"],"constraints":["x_eq_y","y_eq_z","x_ne_z"],"normal_constraints":["x_eq_y","y_eq_z","x_eq_z"],"expected_solution_counts_by_mask":{"negative":[8,4,4,2,4,2,2,0],"normal":[8,4,4,2,4,2,2,2]},"scope":"software observation in eight explicit assignments, not mathematical or HoTT conclusion"},
+  "order_fixture":{"initial":1,"operations":["inc","double"],"expected_ab":4,"expected_ba":3,"scope":"synthetic exact integer operations, not native transport or physical time"}
+}

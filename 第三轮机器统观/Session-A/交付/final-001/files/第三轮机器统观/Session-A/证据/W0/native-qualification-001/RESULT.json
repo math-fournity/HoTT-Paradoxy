@@ -1,0 +1,95 @@
+{
+  "schema": "mo3-native-qualification/v1",
+  "observed_utc": "2026-09-23T19:26:59.105972+00:00",
+  "toolchain_path": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+  "toolchain_sha256": "528c52765203844de5a7d99358d47bd1a83d8851b28fa82d4cc63db2ce838194",
+  "binary_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+  "library_tree": {
+    "file_count": 1111,
+    "total_bytes": 7511145,
+    "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"
+  },
+  "checks": [
+    {
+      "argv": [
+        "env",
+        "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/xdg-data",
+        "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/xdg-config",
+        "TMPDIR=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/tmp",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/libraries",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/positive",
+        "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/positive/Positive.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/positive",
+      "exit": 0,
+      "observation_seconds": 3.383559083988075,
+      "timeout_seconds": 180,
+      "stdout_sha256": "236fc6ca785eb4b7eb27cee697b9a9c634f0291af6e12ccee0a4a84a96803692",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "case": "positive",
+      "expected_exit": 0,
+      "source_sha256": "e9c7a22bb7f0b7d63a3e52d873c7e937c23de87306f0d95cd67ed79c28083526",
+      "matches_expected": true
+    },
+    {
+      "argv": [
+        "env",
+        "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/xdg-data",
+        "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/xdg-config",
+        "TMPDIR=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/tmp",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/libraries",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/negative",
+        "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/negative/Negative.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/negative",
+      "exit": 42,
+      "observation_seconds": 3.0924530409974977,
+      "timeout_seconds": 180,
+      "stdout_sha256": "fbad8a0b8f0bca87e83db0bdf3fcfc5cf373f925522edccfc1fa62a213df4ec1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "case": "negative",
+      "expected_exit": 42,
+      "source_sha256": "1ef659a4f6f69e81ef80800a03051d32316df3176e124c42cfcfc9dd8f1c2977",
+      "matches_expected": true,
+      "diagnostic_matches": true
+    },
+    {
+      "argv": [
+        "env",
+        "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/xdg-data",
+        "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/xdg-config",
+        "TMPDIR=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/tmp",
+        "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+        "--ignore-interfaces",
+        "--library-file=/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/libraries",
+        "-l",
+        "cubical-0.9",
+        "-i",
+        "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/copy-positive",
+        "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/copy-positive/Positive.agda"
+      ],
+      "cwd": "/Volumes/D/HoTT-toolchain-cache/mo3-a-qualification-eoqjmjvf/copy-positive",
+      "exit": 0,
+      "observation_seconds": 3.1359370410064002,
+      "timeout_seconds": 180,
+      "stdout_sha256": "a4f10d6e98cf3be359527f38d101d86e63d87ee75912192e469c25b857568386",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "case": "copy-positive",
+      "expected_exit": 0,
+      "source_sha256": "e9c7a22bb7f0b7d63a3e52d873c7e937c23de87306f0d95cd67ed79c28083526",
+      "matches_expected": true
+    }
+  ],
+  "status": "PASS_WITH_SCOPE",
+  "scope": "Tool qualification only; no new mathematical claim. Sources copied unchanged from preparation controls; library and builtin interface writes confined to a disposable owned copy."
+}

@@ -1,0 +1,54 @@
+A TYPE THEORY FOR SYNTHETIC ∞ -CATEGORIES 9
+By a shape we will mean a cube together with a tope in the corresponding
+singleton context. We could formalize this with a judgment and introd uction rule
+such as the following:
+(2.1) I cube t :I ⊢ φ tope
+{t :I |φ} shape
+The most important shapes for us will be the n-simplices and their boundaries and
+partial boundaries (such as horns).
+Finally, the third layer is an ordinary intensional dependent type the ory in which
+every judgment has additional contexts of cubes and topes. All t he usual type
+formers and rules leave these cube and tope contexts unchanged . As in [ Uni13], we
+include Σ-types, Π-types with judgmental η-conversion, coproduct types, identity
+types x :A,y :A ⊢ x =y type, a universe U (but see Remark 2.5), and so on. We
+assume function extensionality as in [ Uni13, §2.9], but we will not need any higher
+inductive types, nor the univalence axiom (although we expect that it, or at least
+directed analogues of it, will become important as the theory is deve loped further).
+In addition, we have various rules that relate the ﬁrst two layers to the third.
+Firstly, we state all the rules in such a way that the following substitu tion/cut rules
+are admissible:
+Ξ ⊢ t :I Ξ,x :I |Φ |Γ ⊢ a :A
+Ξ |Φ[t/x ] |Γ[t/x ] ⊢ a[t/x ] : A[t/x ]
+Ξ |Φ ⊢ ψ Ξ |Φ,ψ |Γ ⊢ a :A
+Ξ |Φ |Γ ⊢ a :A
+along with the obvious rules like weakening and contraction for the cu be and tope
+contexts.
+Secondly, we have rules ensuring that the type theory respects t he “tope logic”
+in a strict judgmental way. The appropriate sort of respect for ⊤ and ∧ is al-
+ready ensured by the cut and weakening rules. For instance, we ha ve the following
+derivations for ∧ :
+Ξ |Φ,φ,ψ |Γ ⊢ a :A
+Ξ |Φ,φ ∧ ψ,φ,ψ |Γ ⊢ a :A
+weak
+Ξ |Φ,φ ∧ ψ,φ |Γ ⊢ a :A
+cut
+Ξ |Φ,φ ∧ ψ |Γ ⊢ a :A
+cut
+Ξ |Φ,φ ∧ ψ |Γ ⊢ a :A
+Ξ |Φ,φ,φ ∧ ψ |Γ ⊢ a :A
+weak
+Ξ |Φ,φ,ψ,φ ∧ ψ |Γ ⊢ a :A
+weak
+Ξ |Φ,φ,ψ |Γ ⊢ a :A
+cut
+But in the case of ⊥ and ∨ , we have to assert elimination and computation rules,
+as shown in Figure 3. Note that the rules for ∨ say that φ ∨ ψ is a (strict) pushout
+of φ and ψ under φ ∧ ψ , as is always the case in a coherent category.
+We also require the following compatibility rule, saying that tope equalit y be-
+haves like judgmental equality:
+(2.2) Ξ |Φ ⊢ (s ≡ t) Ξ ,x :I |Φ |Γ ⊢ a :A
+Ξ |Φ |Γ[s/x ] ⊢ a[s/x ] ≡ a[t/x ]
+Note that in the premise, ≡ refers to the equality tope in the second layer, while in
+the conclusion it refers to the judgmental equality of the third laye r. Also, induc-
+tively we have Γ[ s/x ] ≡ Γ[t/x ], so both terms a[s/x ] and a[t/x ] in the conclusion
+are well-typed in the same context.

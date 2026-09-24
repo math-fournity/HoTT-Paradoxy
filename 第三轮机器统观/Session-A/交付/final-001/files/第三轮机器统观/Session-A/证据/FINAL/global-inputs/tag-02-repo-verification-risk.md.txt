@@ -1,0 +1,81 @@
+# Workflow：Repo Verification And Risk
+
+## 使用时机
+
+新增/修改验收、测试、eval、安全、可靠性、性能、容量、成本、故障注入或发布证据；需要判断“已验证”。
+
+## 认知闭包前置
+
+验证前先执行 `repo-cognitive-closure`，从当前需求、设计、实现、环境和风险恢复待证明主张。
+直接调用本 workflow 也不得从已有测试反推闭包；范围变化后重新闭合再判定证据。
+
+## 关键判断
+
+- 从 requirement/design 提取 claim，不从现有 tests 反推完整规格。
+- 证据强度按影响、可逆性、可观测性和不确定性增长。
+- static/test/integration/e2e/runtime/independent audit 分层，任何 PASS 只覆盖其断言/样本/环境/版本。
+- 失败和负证据保留；只有证明规格/假设改变后才改测试。
+- 安全/可靠性/性能覆盖 prevention、detection、response/recovery 和 residual risk。
+- AI eval 冻结 model/prompt/tool/data/judge/baseline/sample/leakage/blinding/uncertainty。
+
+## 真实链路、必要深化与反例验收
+
+BREADTH_FIRST_EXECUTION_V1。对涉及跨组件/控制/数据链路的改动，尽早把实际public输入、入口、consumer和oracle贯通验证，不能让helper/shape/收据检查代替最终行为。纯局部低风险事项仍做相称检查，不机械扩大为全系统suite。
+
+同时验证可用链路、拒绝可选深化、允许必要深入、安全/完整范围及接手恢复；不按术语、代码行、文件数或思考长度评分。新运行前冻结输入/权限/预算/判据，保留失败和不可比结果；单次成功或观察到的时延差异不证明普遍经济性。
+
+### 术语消费与反例的验证边界
+
+Walking Skeleton、Tracer Bullets、Vertical Slicing、User Story Mapping及YAGNI / Simple Design是Iterative and Incremental Development / Evolutionary Design的工程参照；词语存在只能证明结构，不能证明行为、泛化或因果收益。技术路径贯通与用户活动覆盖分别观察，骨架、完整旅程、accepted全范围与生产发布分别验收；旧试点不能自动证明新的术语增量。
+
+相称反例包括：已有链路应复用；首条切片完成后应回父范围；安全/原子性/性能风险允许先深入；重复代码语义不同不应机械抽象；fake核心边界不算真实集成；过细切分增加成本时应调整粒度；研究任务不能强转编码。删除设施后既有测试仍绿不证明它无用，核accepted义务与oracle覆盖。
+
+保留当前所需质量、重构、测试和恢复；允许明确学习用途的原型/test double，但只声明它实际证明的边界。比较真实结果、首次集成、全部范围、返工及总维护成本，不用术语次数、代码行数、文件数或思考长度替代。没有同义对照，不宣称专业名字本身改善模型表现。
+
+## 步骤
+
+1. preflight 质量文档、测试、fixture、benchmark、审计和运行证据。
+2. 从 Feature/设计提取可验证主张，不从已有测试反推全部需求。
+3. 按风险决定单元、contract、集成、端到端、回归、golden、故障注入和真实运行比例。
+4. 安全面覆盖权限、secret、输入、供应链、数据泄漏、危险动作和审计。
+5. 可靠性面覆盖失败检测、重试、幂等、恢复、备份、DR 和旧产物误判。
+6. 性能面覆盖延迟、吞吐、并发、容量、退化、资源和成本；记录环境和样本。
+7. AI 系统覆盖模型/Prompt 版本、工具使用、截断、泄漏、judge 偏差和统计不确定性。
+8. 运行测试并保存可复现命令/输出；测试文件存在不等于测试通过。
+9. 区分：documented、implemented pending verification、verified、runtime observed。
+10. 失败测试不能被静默删掉；确认是规格错误时先修需求/设计并记录理由。
+11. 多 worktree 集成至少覆盖四种反例：两个分支分配同一 revision/checkpoint、文本可自动合并但 current truth
+    语义冲突、candidate base 后 target 已前进、contributor 误改 current owner。各 branch validator PASS 只能
+    证明 branch-local 状态；只有 integrator 在 expected target HEAD 上重算 owner、序号、消费者和集成测试后，
+    才能把结果提升为 canonical verified。
+
+## 完成判据
+
+每个高影响主张有相称证据；环境和版本可复现；负向/失败路径覆盖；未知和残余风险披露；
+Feature 交付状态与证据一致。
+
+## 失败模式与影响面
+
+防止 test count/coverage 冒充需求完整、mock 绕过真实路径、旧 fixture 证明新版、无控制 benchmark、
+judge 泄漏冒充独立真理、删失败/弱化测试求绿。主要影响 T02/T07/T09-T10/T12-T20/T22-T25。
+
+
+## vNext 合同消费点（VNEXT-007 skill 层，v3.21.0）
+
+标识：`VNEXT_SKILL_CONSUMPTION_V1`。本节不改变既有步骤，只声明 vNext 合同的读取与消费位置；合同位于
+`/Users/aurolafly/codex/docs/design/detailed/`（八份合同均为 `v1.0 stable`；`main` 工作树是研究快照，
+P1 单一 current 线收敛后改为稳定路径）。
+
+- 稳定引用形式（不依赖任何 worktree）：`git -C /Users/aurolafly/codex show governance-v3.25.0:<docs 下相对路径>`；工作树路径只是可读副本，tag 随治理版本更新。
+- 对象与 locator（一类当前事实一个 owner、指针不承载第二份全文）：
+  `Codex下一代治理框架VNEXT-004-对象与唯一Owner合同-v1.0.md` §二/§三/§四。
+- Brownfield 深度选择（ordinary onboarding vs 垂直重建）与 baseline 失效：
+  `Codex下一代治理框架VNEXT-002-Brownfield合同-v1.0.md` §六/§七/§十。
+- Greenfield Topic Map / Seed / Capsule / relay：
+  `Codex下一代治理框架VNEXT-003-Greenfield合同-v1.0.md` §二/§三/§七/§十。
+- Topic 事务、relay 字段、Goal 完成与 false-positive/negative：
+  `Codex下一代治理框架VNEXT-005-Topic执行与Goal完成合同-v1.0.md` §二–§五。
+- 证据等级、freshness/失效、CaseEnvelope 绑定（R-086）：
+  `Codex下一代治理框架VNEXT-006-验证与证据系统合同-v1.0.md` §二/§四/§五。
+
+边界：合同为**可选消费点**；未声明采用前 current 行为不变；本节不授权 runtime 安装、迁移、发布或删除。

@@ -1,0 +1,300 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 1338, "end_line": 1632, "total_lines": 18474, "next_start_line": 1633, "chunk_sha256": "921693eaba21e9f7b9bb1fa093778efece75644845f492c93af2c163b6656380", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+        "audit/literature/LIT-MECH-META-001/coq-library-undecidability/QUALIFICATION.json",
+        "audit/literature/LIT-MECH-META-001/coq-library-undecidability/CURRENT_TREE_MANIFEST.json",
+        "scripts/audit/import_coq_undecidability_mm2.py",
+        "audit/R2通用性源模型资格化-20260914.md"
+      ],
+      "kind": "external_source_qualification",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/external-coq-mm2/REPLAY_SOURCE.json",
+      "related_records": [
+        "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-LIT-CLASSICS-001",
+        "A-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+        "S-RES-20260914-144-R2-SYNTHETIC-DUAL-KERNEL"
+      ],
+      "scope": "Git/codeload qualification of coq-8.15@c486697 (777 files) and current rocq-9.2@c7257b7 (720 files), selected MM2/synthetic sources and exact archive/tree identities; semantic claims remain separately proved/reviewed.",
+      "source_hashes": {
+        "HoTT/formal/external-coq-mm2/REPLAY_SOURCE.json": "8efbc449635881ba428a13dfd5bdf0b12bb20525df0e758471786781d67302c1",
+        "HoTT/formal/external-coq-mm2/SOURCE_TREE_MANIFEST.json": "addd40c47ade3669dadcb8da3ce4018db7175ba1c9623a2995de45be544646e7",
+        "audit/R2通用性源模型资格化-20260914.md": "95944ed4a0b0cb722a52f03ca41b8e6abe2bb96bc014764230f07bd4822c77f1",
+        "audit/literature/LIT-MECH-META-001/coq-library-undecidability/CURRENT_TREE_MANIFEST.json": "64283bb6e865fa9a360803fe31836fc767821aa103fffa17bbe9a9e3c0ba8222",
+        "audit/literature/LIT-MECH-META-001/coq-library-undecidability/QUALIFICATION.json": "bbf52a6c5a1c73e9438cbd91091c2f3cbb59008b0730787c2ea1ef20e46ee17b",
+        "scripts/audit/import_coq_undecidability_mm2.py": "86ea029347fe81dbf2ba45b91991943e5fe6d28db9e5113a812582c554ec90f6"
+      },
+      "status": "complete"
+    },
+    "A-COQ-MM2-UNDECIDABILITY-REPLAY-001": {
+      "claim_ids": [
+        "C-208"
+      ],
+      "classification": "EXTERNAL_MM2_SYNTHETIC_UNDECIDABILITY_REPLAY",
+      "depends_on": [],
+      "evidence_status": "REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE / LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/external-coq-mm2/CheckMM2Undec.v",
+        "HoTT/formal/external-coq-mm2/REPLAY_SOURCE.json",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/Synthetic/Definitions.v",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/Synthetic/Undecidability.v",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/MinskyMachines/MM2.v",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/MinskyMachines/MM2_undec.v",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/RUN.json",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/stdout.txt",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/stderr.txt",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "audit/R2通用性源模型资格化-20260914.md",
+        "scripts/audit/verify_coq_mm2_replay_run.py"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "MM2_SYNTHETIC_UNDECIDABILITY_REPLAYED_DEFINITION_BOUNDARY_PRESERVED",
+      "path": "HoTT/formal/external-coq-mm2/CheckMM2Undec.v",
+      "proof_id": "MP-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+      "related_records": [
+        "A-MATH-PROOF-DELIVERY-GATE-001",
+        "A-COQ-MM2-SOURCE-QUALIFICATION-001",
+        "A-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+        "A-R2-CROSS-KERNEL-CORRESPONDENCE-001",
+        "S-RES-20260914-144-R2-SYNTHETIC-DUAL-KERNEL"
+      ],
+      "research_parent": "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/RUN.json",
+          "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "audit/R2通用性源模型资格化-20260914.md"
+        ],
+        "reason": "Coq 8.15.2 rebuilt the 777-file source closure, accepted MM2_HALTING_undec, and Print Assumptions reported Closed under the global context; exact replay matched. Undecidable is the upstream synthetic implication."
+      },
+      "revalidation": "S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json; prior mathematical scopes remain unchanged.",
+      "run_id": "20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01",
+      "scope": "C-208 only: MM2_HALTING_undec under undecidable P := decidable P -> enumerable(complement SBTM_HALT). No unconditional not-decidable or Agda theorem transport.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/external-coq-mm2/CheckMM2Undec.v": "194c3a749e2324eabd75b6443081bde353ee26d7993bbdc968d6d23f97d40c12",
+        "HoTT/formal/external-coq-mm2/REPLAY_SOURCE.json": "8efbc449635881ba428a13dfd5bdf0b12bb20525df0e758471786781d67302c1",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/MinskyMachines/MM2.v": "ac4398c6d654cbb735aa75924aa8ee8c5e3d5296aab97925a4e23fc4e7248b83",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/MinskyMachines/MM2_undec.v": "c149676194ba66d1fe0dc326d731285690bdc4e5e21c3cd6b397d4238e0b5b0e",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/Synthetic/Definitions.v": "0bd1469a4cc4f17ff7124a3ac0b5487c13ee707a5395d650b5e600200a6cc8a7",
+        "HoTT/formal/external-coq-mm2/upstream-coq-8.15-c486697/theories/Synthetic/Undecidability.v": "a68519303ed4fcf99f8e261423bccaef2a4685e5ee8bebc6de4a28604539fb39",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json": "149b5ef336f38aa6a9934d59147d3781ae5dc135d335560609493d9452529571",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/RUN.json": "1c692f65cd4f3a460e0bc9d462f9358edb155496756e2a91b32f31859ae50135",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/environment.txt": "c5503f7144e6fd173add29a27b2076aa9ac1ab734c5d61304f84a3c9d0c17aba",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/index-row-manifest.json": "6611fd6739d6ed67b78a2bf69fe852b41e26ea83d639ddf00096c05859c1ed42",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/source-manifest.json": "6c18d7be5ef2e8538946f189cbcf6cb0a92e4a9add3f5daeca0cdb0ce7c1de89",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/stderr.txt": "502e77122d29e7b9d2b8e8c87d21a5e8a7d81d5fbf45d1c1024eddfe838e97c7",
+        "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01/stdout.txt": "d5c3497f5989bb89a9112080122aee102c9213953099b9e0f3b8a61e3b28407b",
+        "audit/R2通用性源模型资格化-20260914.md": "95944ed4a0b0cb722a52f03ca41b8e6abe2bb96bc014764230f07bd4822c77f1",
+        "scripts/audit/verify_coq_mm2_replay_run.py": "1093a47beedbbeea9a22848ee8d5fd82051e68f9e3ffd974b37e7d604d4e74fc"
+      },
+      "status": "complete",
+      "version_closure": {
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "scope_preserved": true,
+        "status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+      }
+    },
+    "A-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001": {
+      "claim_ids": [
+        "C-219",
+        "C-220",
+        "C-221",
+        "C-222"
+      ],
+      "classification": "R2_CONDITIONAL_INTERNAL_NOT_DECIDABLE",
+      "depends_on": [],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED / FORMAL_CHECKED_WITH_SCOPE",
+      "full_sources": [
+        "HoTT/formal/external-coq-parametric-ct/README.md",
+        "HoTT/formal/external-coq-parametric-ct/CLAIM-R2-INTERNAL-UNDEC.md",
+        "HoTT/formal/external-coq-parametric-ct/CheckInternalUndec.v",
+        "HoTT/formal/external-coq-parametric-ct/REPLAY_SOURCE.json",
+        "HoTT/formal/external-coq-parametric-ct/SOURCE_TREE_MANIFEST.json",
+        "HoTT/formal/external-coq-parametric-ct/TARGET_CLOSURE.json",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/RUN.json",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/stdout.txt",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/stderr.txt",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "audit/R2-ParametricCT内部不可判定性重放与前提边界-20260914.md",
+        "scripts/audit/import_coq_parametric_ct.py",
+        "scripts/audit/replay_coq_parametric_ct_internal_undec.py",
+        "scripts/audit/capture_coq_parametric_ct_internal_undec_run.py",
+        "scripts/audit/verify_formal_proof_run.py"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "CONDITIONAL_INTERNAL_NEGATION_UNDER_EXPLICIT_EPF_BOOL_OR_SCT",
+      "path": "HoTT/formal/external-coq-parametric-ct/CheckInternalUndec.v",
+      "proof_id": "MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+      "related_records": [
+        "A-MATH-PROOF-DELIVERY-GATE-001",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-LIT-HOTT-COMPUTABILITY-001",
+        "S-RES-20260914-146-R2-R4-LIT-THREE-SLICE"
+      ],
+      "research_parent": "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/RUN.json",
+          "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "audit/R2-ParametricCT内部不可判定性重放与前提边界-20260914.md"
+        ],
+        "reason": "Coq 8.13.2 rebuilt the 20-file target closure, accepted three internal no-decider theorems under EPF_bool + SCT, reported Closed under the global context three times, and exact replay matched."
+      },
+      "revalidation": "S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, HoTT/verification/PROOF_VERSION_CLOSURE.json, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged.",
+      "run_id": "20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01",
+      "scope": "C-219-C-222 only. EPF_bool + SCT remains an explicit premise; no ambient HoTT theorem, ProgramCode reduction, HoTT essentiality, natural consumer or reality bridge.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/external-coq-parametric-ct/CLAIM-R2-INTERNAL-UNDEC.md": "a75a72fcb58f3871169b729fccb2a49a2e249d556a027117d657446ef0ca354c",
+        "HoTT/formal/external-coq-parametric-ct/CheckInternalUndec.v": "669c028a859fa902fa71778ea7de718d0b263a16d9af9ad690c4cee43671a98a",
+        "HoTT/formal/external-coq-parametric-ct/README.md": "65ab6944b90244e2449a6411d208157cb7d884ae8630f45026c2546c9609f12d",
+        "HoTT/formal/external-coq-parametric-ct/REPLAY_SOURCE.json": "04c0378c73770ab455b0f007ef8d612a3973f226bf8c637e130b2708bc3f22fb",
+        "HoTT/formal/external-coq-parametric-ct/SOURCE_TREE_MANIFEST.json": "fd704252192cb6707ae84d4ce0089af58fbb33b930bcc5eb673d3ed73aa9609e",
+        "HoTT/formal/external-coq-parametric-ct/TARGET_CLOSURE.json": "184ce4b089b1b411713603828c8fceb8aa9202505f8b1f21f9073d1a6cc51efd",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json": "149b5ef336f38aa6a9934d59147d3781ae5dc135d335560609493d9452529571",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/RUN.json": "a95d9f4b0e41e7090a335ddf64c3ca154eaf0c2c89a4199de2893f2696689cb9",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/environment.txt": "9ab2fed83202209e6c15f4c0b1ebfe8fa5f7758de526ed0e376c39df700ad27f",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/index-row-manifest.json": "ace6fc609151a1c949d58dfe4d3e3e1e488655732618f97d0d8396c4966b6328",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/source-manifest.json": "bb63262f41be82a897e5b7b953e58bdabcff4fd5868c3ac47e43b261c6f8c960",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/stderr.txt": "072c7136da6f53251b16b0ebf6e608ee093f2f9df9b7cb11a02706da8b099ad9",
+        "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01/stdout.txt": "caf13bb3ffbb840a9ce55f33502acb7e215d6b2a12bf8d18d00d94caea81a82e",
+        "audit/R2-ParametricCT内部不可判定性重放与前提边界-20260914.md": "22fe0810216bebcd61fb59bf7294ec4f3b5155150ffa09019ad27a84aa78da3c",
+        "scripts/audit/capture_coq_parametric_ct_internal_undec_run.py": "0ec7ac1aea1587d543fca0df5b0c5774d74df4fb09cb4b011b7ff7b6e56c3f9c",
+        "scripts/audit/import_coq_parametric_ct.py": "bc6723c0bbf96da85ff808b8049598c583dffa9ed4d5b740c1becc1de887c0ac",
+        "scripts/audit/replay_coq_parametric_ct_internal_undec.py": "3cbc2a4758864eab6ac2e91a154b15e4ac8aaec8025543700a0a4d17170f65d0",
+        "scripts/audit/verify_formal_proof_run.py": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+      },
+      "status": "complete",
+      "version_closure": {
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "scope_preserved": true,
+        "status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+      }
+    },
+    "A-COQ-SYNTHETIC-INCOMPLETENESS-R3-001": {
+      "claim_ids": [
+        "C-244",
+        "C-245",
+        "C-246",
+        "C-247",
+        "C-248",
+        "C-249"
+      ],
+      "classification": "R3_CONDITIONAL_ESSENTIAL_INCOMPLETENESS_AND_ROBINSON_Q_REPLAY",
+      "depends_on": [],
+      "evidence_status": "MACHINE_REPLAYED_EXTERNAL_LIBRARY_LOCAL_UNCOMMITTED / FORMAL_CHECKED_WITH_SCOPE",
+      "full_sources": [
+        "HoTT/formal/external-coq-synthetic-incompleteness/README.md",
+        "HoTT/formal/external-coq-synthetic-incompleteness/CLAIM-R3-SYNTHETIC-INCOMPLETENESS.md",
+        "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_ARCHIVE.json",
+        "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_TREE_MANIFEST.json",
+        "HoTT/formal/external-coq-synthetic-incompleteness/TOOLCHAIN.json",
+        "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
+        "HoTT/formal/external-coq-synthetic-incompleteness/Dockerfile",
+        "HoTT/formal/external-coq-synthetic-incompleteness/CeCILL_LICENSE.txt",
+        "HoTT/formal/external-coq-synthetic-incompleteness/IMPORT.json",
+        "scripts/audit/import_coq_synthetic_incompleteness.py",
+        "scripts/audit/replay_coq_synthetic_incompleteness.py",
+        "scripts/audit/capture_coq_synthetic_incompleteness_run.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/RUN.json",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/stdout.txt",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/stderr.txt",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md"
+      ],
+      "kind": "external_formal_source_replay",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "R3_CONDITIONAL_ESSENTIAL_INCOMPLETENESS_COMPLETE_HOTT_R4_OPEN",
+      "path": "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
+      "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+      "related_records": [
+        "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-LIT-CLASSICS-001",
+        "A-LIT-HOTT-COMPUTABILITY-001",
+        "A-G-HOTT-SYNTAX-001",
+        "A-R3-R4-OBLIGATION-MATRIX-001",
+        "A-R4-HOTT-NAT-EFFECTIVITY-001",
+        "S-RES-20260915-151-R3-SOURCE-REPLAY"
+      ],
+      "research_parent": "A-R3-R4-GODEL-RETURN-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/RUN.json",
+          "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md"
+        ],
+        "reason": "Repo-contained exact source archive fresh-built in Coq 8.15.2; target/stable artifacts and qualification match prior clean builds; generic verifier exact rerun passed."
+      },
+      "revalidation": "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
+      "run_id": "20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01",
+      "scope": "C-244-C-249 only: conditional general formal-system and Robinson-Q incompleteness with all theorem parameters retained; not exact HoTT R4 or reality correspondence.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/external-coq-synthetic-incompleteness/CLAIM-R3-SYNTHETIC-INCOMPLETENESS.md": "0bc4f0038bcafcbdd0f09932c7cbb8a63f4a07dd0c3dafecf032b4977de163aa",
+        "HoTT/formal/external-coq-synthetic-incompleteness/CeCILL_LICENSE.txt": "f66c958f759f744f34c0a785ce6d7391bc2d38b6494ec00072b9d1853f2e9b8b",
+        "HoTT/formal/external-coq-synthetic-incompleteness/Dockerfile": "140ad2c458f5725f21490de58fb42a62180d80f69d81662a445b855284e94323",
+        "HoTT/formal/external-coq-synthetic-incompleteness/IMPORT.json": "50544a38e35d0431a080e24ea671f92d638a8983e5c85ff179baa54034eb8add",
+        "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v": "0918153193095b77a6106af219b76d135a184037e27997e019d51b3877593ca5",
+        "HoTT/formal/external-coq-synthetic-incompleteness/README.md": "5534ba4e7bc61c20ccbb77767266a3557a5780df9587185eef2d498484534c26",
+        "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_ARCHIVE.json": "9d28814cf50cb3498125577d9fe00585e42abbf6310394c99c93c2d428cb5734",
+        "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_TREE_MANIFEST.json": "008c4c3c97bc27dc18b84794e132ad5c3a1badf2ad3fe88a4c7776b9c517dbb5",
+        "HoTT/formal/external-coq-synthetic-incompleteness/TOOLCHAIN.json": "2c20abb569e1f56c00353e83903c3afdaa373daae0a60baa143b50954a137f72",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json": "149b5ef336f38aa6a9934d59147d3781ae5dc135d335560609493d9452529571",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/RUN.json": "b0c43216d1cdd992c818eb51056117742d46ae6c9de95ad1c5a37cdfb898dab5",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/environment.txt": "23d20a848028224468ac2946ee33c8fdbb4a628a5ab0aecbcc25d1e98639c5bf",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/index-row-manifest.json": "c4be6d3c10312a55d1f4873810645ab4f7992bfa11bf12d7a4b8bce161cbd4b4",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/source-manifest.json": "c046d0b859a0e0781ec74696e27382b9b031068da7cf7e7bf38276eed52b40f0",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/stderr.txt": "c70066e007198cd65c94f39cd956ce41b3fb79430355e4e9d02021c4ddf7020d",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/stdout.txt": "6d813f1810fe42611519538b45767230fa45d097afc51131e0cf1bf0451eb2aa",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md": "9501119e6b44a4a7b8a7e306c1efe1a73b7d9d050d4dfc4d0c719e8b01577a8d",
+        "scripts/audit/capture_coq_synthetic_incompleteness_run.py": "63ebb34e3e3898db0cc09bc832e335ec12ebe090313382cd13fb2462ca73b45e",
+        "scripts/audit/import_coq_synthetic_incompleteness.py": "8f54414ea58e03a1f642fc0a03bd4f49f0acc9c4d88906fcbf2ec876268e5705",
+        "scripts/audit/replay_coq_synthetic_incompleteness.py": "9b8bd7c9f94202b3ae5e95ec060c176c6d77eeaa75d8c5e19703223878502697",
+        "scripts/audit/verify_formal_proof_run.py": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+      },
+      "status": "complete",
+      "version_closure": {
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "scope_preserved": true,
+        "status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+      }
+    },
+    "A-CORE-GENERATION-2-001": {
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/core-cognition-generation-transition-20260912.json",
+        "核心认知.manifest.json",
+        "scripts/audit/verify_core_cognition.py"
+      ],
+      "kind": "core_generation_migration",
+      "lifecycle_status": "CLOSED",
+      "path": "audit/core-cognition-generation-transition-20260912.json",
+      "resolution": {
+        "evidence": [
+          "audit/core-cognition-generation-transition-20260912.json",
+END_FULL_TEXT
+END_COGNITION_CHUNK
