@@ -1,0 +1,73 @@
+12 EMILY RIEHL AND MICHAEL SHULMAN
+However, once we have extension types, and when writing informally and inter-
+nally to type theory (as we will do for most of the paper), it is more re adable and
+natural to regard A as a function into the universe and a as a dependent function
+A : {t :I |ψ } → U a : ∏
+t:I|φ A(t).
+(The types of A and a here are actually also extension types, with ⊥ implicit as
+noted above.) It is then natural to write the extension type as
+⣨∏
+t:I|ψ A(t)
+⏐
+⏐
+⏐φ
+a
+⟩
+or
+⣨∏
+t:I|ψ A(t)
+⏐
+⏐
+⏐φ
+λt.a (t)
+⟩
+.
+Once we introduce notations for important shapes, such as the sim plices ∆n (see
+§
+3.2), it will be natural to also use these in place of the tope φ:
+⣨∏
+t:I|ψ A(t)
+⏐
+⏐
+⏐{t:I|φ }
+a
+⟩
+or
+⣨∏
+t:I|ψ A(t)
+⏐
+⏐
+⏐
+{t:I|φ }
+λt.a (t)
+⟩
+.
+Remark 2.5. This notation does technically require a universe type, to be the
+codomain of A. Our primary motivating model of bisimplicial sets does have a
+universe by [
+Shu15], but as we will see in Appendix A.2 there are other interesting
+models where universes are not known to exist. However, our use o f universes in
+this paper will be only for notational convenience; all the results co uld equally well
+be formulated in a type theory without universes. 4
+3. Simplicial type theory
+This completes the speciﬁcation of our general type theory with sh apes and
+extension types. As a special case, we now formulate the theory t hat we will work
+in for the rest of the paper, in which the cube and tope layers form t he coherent
+theory of a strict interval. The simplices are then deﬁned as particu lar shapes in
+this coherent theory. In §5 we will deﬁne hom types by using these simplex shapes
+as “probes”.
+3.1. The strict interval. To deﬁne the coherent theory of the strict interval we
+begin with the axiomatic cubes and terms:
+2 cube 0 : 2 1 : 2
+and an axiomatic inequality tope
+x : 2,y : 2 ⊢ (x ≤ y) tope
+together with the following strict interval axioms:
+x : 2 | · ⊢(x ≤ x)
+x : 2,y : 2,z : 2 |(x ≤ y), (y ≤ z) ⊢ (x ≤ z)
+x : 2,y : 2 |(x ≤ y), (y ≤ x) ⊢ (x ≡ y)
+x : 2,y : 2 | · ⊢(x ≤ y) ∨ (y ≤ x)
+x : 2 | · ⊢(0 ≤ x)
+x : 2 | · ⊢(x ≤ 1)
+· |(0 ≡ 1) ⊢ ⊥
+4For further development of the theory of synthetic ( ∞, 1)-categories, we expect various uni-
+verses to be necessary though.

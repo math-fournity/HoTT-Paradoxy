@@ -1,0 +1,92 @@
+{
+  "schema": "mo3-copied-delivery-check/v1",
+  "status": "PASS_WITH_SCOPE",
+  "manifest_sha256": "e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd",
+  "subject_commit": "4b4dd07607d7e989293474fc61d3372ad89ef0c3",
+  "file_count": 2189,
+  "checks": [
+    {
+      "name": "seal-live",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002",
+        "--expected-sha",
+        "e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd",
+        "--live-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "20260923-MO3-STAGE-COLIMIT-001-04",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files/scripts/audit/verify_formal_proof_run.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files",
+        "--run-dir",
+        "HoTT/verification/runs/20260923-MO3-STAGE-COLIMIT-001-04"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "20260924-MO3-BOUQUET-ORDER-001-02",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files/scripts/audit/verify_formal_proof_run.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-BOUQUET-ORDER-001-02"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "20260924-MO3-FINITE-COVER-001-08",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files/scripts/audit/verify_formal_proof_run.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-FINITE-COVER-001-08"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "20260924-MO3-OPEN-COVER-MARGIN-001-01",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files/scripts/audit/verify_formal_proof_run.py",
+        "--project-root",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002/files",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-OPEN-COVER-MARGIN-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "seal-after",
+      "argv": [
+        "python3",
+        "-B",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/Session-A/交付/final-002",
+        "--expected-sha",
+        "e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "Byte seal/live/after and four copied raw source/run/index relationships. No kernel rerun, no Git-history copy claim, no B semantic audit; version closure remains the original-repo selected checks."
+}

@@ -1,0 +1,299 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 3988, "end_line": 4281, "total_lines": 18474, "next_start_line": 4282, "chunk_sha256": "1db6764aa514a6f496eb0f8616a6d3e35987dde041bd3bba23868cb5897dfdda", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+        "audit/understanding-claim-sample-batch8-20260912.json": "e5bfee7432e8cc243b93bbb0ce1b22d4a0efc8d08b672ce69dd896c4f2bbc9a0",
+        "scripts/audit/fill_understanding_claim_sample_batch8.py": "9ab9ca4556aab07f17e904e8d0dc47539a5c0135b12de00df13c8c9ea48988dd",
+        "scripts/audit/sample_understanding_claims_batch8.py": "5b065b04c6283801ff216e27df273cd15578f4cea72c2f141f80961be66ed77b"
+      },
+      "status": "complete"
+    },
+    "A-KC-AUDIT-GAP-001": {
+      "classification": "SESSION_PER_KC_AUDIT_GAP",
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "scripts/audit/build_core_cognition_audit.py",
+        ".codex/research/hott/sessions/S-RES-20260913-086-N40-NOCANONICAL-NATIVE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260913-086-N40-NOCANONICAL-NATIVE/SESSION.md",
+        "audit/S086至S089-checkpoint收据缺失与治理修复设计-20260913.md"
+      ],
+      "kind": "governance_gap",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": ".codex/research/hott/sessions",
+      "path_mode": "scope_locator",
+      "resolution": {
+        "evidence": [
+          "scripts/audit/build_core_cognition_audit.py",
+          ".codex/research/hott/sessions/S-RES-20260913-086-N40-NOCANONICAL-NATIVE/CORE_COGNITION_AUDIT.md",
+          "audit/S086至S089-checkpoint收据缺失与治理修复设计-20260913.md"
+        ],
+        "reason": "Directory audit shows sessions S-RES-20260913-067 .. S-RES-20260913-085 (19 sessions) lack the protocol-required CORE_COGNITION_AUDIT.md while POST-CHECKPOINT.json still recorded PASS. From S086 the per-KC audit file is restored and verified with scripts/audit/build_core_cognition_audit.py --verify-only. No retroactive fabrication of the missing semantic assessments."
+      },
+      "revalidation": "scripts/audit/build_core_cognition_audit.py re-hashed by S-GOV-20260913-100-FOUR-SET-UPGRADE after the four-set upgrade (AGENTS.md now lists the fourth document; the claim matrix was re-appended at S099 and its pins are refreshed here; the core-cognition audit builder gained the essay_change field).",
+      "scope": "S067–S085 lack semantic 36-KC audits and are not retroactively reconstructed. The directory path is a scope locator; explicit hydration loads direct evidence files rather than the directory as text.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-086-N40-NOCANONICAL-NATIVE/CORE_COGNITION_AUDIT.md": "0a78280d29ce2e4e1495ee72a771f05eb2131f42fa5ef84e6e5698455157dd01",
+        "scripts/audit/build_core_cognition_audit.py": "605b1d57868f035b812f69db4a86e13563fe0b737057e665f86e23231e6b8322"
+      },
+      "status": "open"
+    },
+    "A-LEDGER-RETRODICTION-CHECK-001": {
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/ledger-retrodiction-check-20260913.json",
+        "scripts/audit/verify_ledger_retrodiction.py",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/ledger-retrodiction-check-20260913.json",
+      "related_records": [
+        "S-RES-20260913-103-P1-TIME-LINE-AUDIT",
+        "A-P1-TIME-LINE-BOUNDED-NEGATIVE-001"
+      ],
+      "revalidation": "scripts/audit/verify_ledger_retrodiction.py re-hashed by S-GOV-20260913-106-C11-V2-REPIN: C11 was rewritten to v2 (ua row restored, row-id contract aligned, compensation-action trichotomy), so its own hash, the retrodiction checker's row-label contract and the rebuilt merge manifest needed re-pinning. Claim, scope and evidence status are unchanged.",
+      "scope": "Mechanical retrodiction check for the C11 grid: 18 packages verified for matrix package row + verdict token, per-claim matrix rows, final run receipt files with exit_code 0, and source-manifest file hashes (66 files re-hashed); verdicts contain no NATURAL_USAGE_MISMATCH / INTERNAL_INCONSISTENCY; distribution 17 payment-device-available + 1 absent (MP-NOCANONICAL-001, no real consumer). Self-test has three controls. Scope: mechanical bookkeeping and file facts only; semantics of the ledger rows are not verified.",
+      "source_hashes": {
+        "scripts/audit/verify_ledger_retrodiction.py": "88df7d577f25e718de37f6cd6b57088fc29a8b207d0c1732d6411f219d6eb9d4"
+      },
+      "status": "complete"
+    },
+    "A-LIBRARY-INTERFACE-NO-RECOVERY-001": {
+      "classification": "LIBRARY_INTERFACE_SHAPE_NO_UNIFORM_ENUMERATION",
+      "depends_on": [
+        "A-TRUNC-COMPLETION-FORMS-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "formal": {
+        "claim_ids": [
+          "C-141"
+        ],
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "proof_id": "MP-TRUNC-NORECOVERY-001",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "run_id": "20260913-MP-TRUNC-NORECOVERY-001-03"
+      },
+      "full_sources": [
+        "audit/library-interface-no-recovery-and-batch7-20260913.md",
+        "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+        "HoTT/formal/truncation-no-recovery/README.md",
+        "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+        "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/RUN.json",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/index-row-manifest.json",
+        "scripts/audit/sample_understanding_claims_batch7.py",
+        "scripts/audit/fill_understanding_claim_sample_batch7.py",
+        "audit/understanding-claim-sample-batch7-20260912.json"
+      ],
+      "kind": "formal_proof_extension_and_sample",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/library-interface-no-recovery-and-batch7-20260913.md",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "audit/library-interface-no-recovery-and-batch7-20260913.md",
+          "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+          "HoTT/formal/truncation-no-recovery/README.md",
+          "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+          "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/RUN.json",
+          "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/index-row-manifest.json",
+          "scripts/audit/sample_understanding_claims_batch7.py",
+          "scripts/audit/fill_understanding_claim_sample_batch7.py",
+          "audit/understanding-claim-sample-batch7-20260912.json"
+        ],
+        "reason": "C-141 instantiates the no-recovery fence on the pinned library's isFinSet interface shape: the enumeration component is a proposition, so no uniform pick of a specific enumeration exists. Run -03 re-checks the package (exit 0, zero warnings, exact replay); the batch-7 sample adds 40 verdicts (27/0/0/13); cumulative 282/2396 with no UNSUPPORTED and no E6. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "scope": "Library-interface-shape boundary plus the seventh sample. No concrete misuse is claimed; E6 remains open.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/truncation-no-recovery/README.md": "b16f98beb79dd6516e19742557f3afb61b0f2b3d07603b9beab50a08b444894d",
+        "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json": "f077561fb09fe38ab847285d1dee7591408c6b6fe7a33bebf066eb950f58082b",
+        "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda": "934c154cbebb6183195b037476f10c49d3fc505ebe055bf7896f6e24b7879b1b",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/RUN.json": "45d52b9a634815867720d628b61a6c685cec6707ab3eec42e74a3e98b4c6f2d4",
+        "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03/index-row-manifest.json": "752e5ef72075bd7faca59677bcf0fb6c86b8b201af6160f5ac52fe6d26135aa7",
+        "audit/library-interface-no-recovery-and-batch7-20260913.md": "a6686be02e88b216c1711681e4ca2e1769c7b2191c809d9f3634f7c1f3ec0649",
+        "audit/understanding-claim-sample-batch7-20260912.json": "1e16dd25d69aca359eaf3db0b23d020252efae148b0180299e27ed3f9aa33e2c",
+        "scripts/audit/fill_understanding_claim_sample_batch7.py": "a2bbc2c3404542960db6c40022ab759643e5d8caa80cf572cc71a061a204c651",
+        "scripts/audit/sample_understanding_claims_batch7.py": "3b6afd9fe3270b4205a7c9a7b156dc02802c33802cd06256655204702940b34a"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-LIT-CLASSICS-001": {
+      "classification": "CLASSIC_PREMISE_CHAIN_ESTABLISHED_WITH_SCOPE",
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED / PRIMARY_RELEVANT_SECTIONS_REVIEWED / POST_AND_ROSSER_PRIMARY_BODY_REVIEWED / HOTT_COMPUTABILITY_FIRST_SLICE",
+      "full_sources": [
+        ".codex/research/hott/LIT-CLASSICS-001.md",
+        ".codex/research/hott/LIT-CLASSICS-001/001 - 范围、来源身份与转换证据.md",
+        ".codex/research/hott/LIT-CLASSICS-001/002 - Turing与Church：可计算、通用机与不可判定.md",
+        ".codex/research/hott/LIT-CLASSICS-001/003 - Gödel、Rosser与Löb：算术化、独立句与自担保.md",
+        ".codex/research/hott/LIT-CLASSICS-001/004 - Kleene、Post、Rice与Lawvere：定点、半判定与语义边界.md",
+        ".codex/research/hott/LIT-CLASSICS-001/005 - 现代机器化对照与R2-R4前提.md",
+        ".codex/research/hott/LIT-CLASSICS-001/006 - 当前判词、缺口与下一机器工作包.md",
+        "audit/literature/LIT-CLASSICS-001/mineru/IMPORT.json",
+        "scripts/audit/import_lit_classics_mineru.py",
+        "audit/literature/PDF-to-Markdown-20260914/README.md",
+        "audit/literature/LIT-CLASSICS-001/mineru-supplement/RECEIPT.json",
+        "scripts/audit/import_lit_classics_mineru_supplement.py",
+        "audit/literature/LIT-CLASSICS-001/mineru-rosser-primary/RECEIPT.json",
+        "scripts/audit/import_lit_classics_rosser_primary.py",
+        "audit/Post-1944原文来源与首轮审读-20260914.md",
+        "audit/literature/LIT-CLASSICS-001/post-1944-primary/IMPORT.json",
+        "audit/literature/LIT-CLASSICS-001/post-1944-primary/PAGE_MAP.json",
+        "audit/literature/LIT-CLASSICS-001/post-1944-primary/full.txt",
+        "scripts/audit/import_post_1944_primary.py",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md"
+      ],
+      "kind": "literature_primary_corpus_review",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": ".codex/research/hott/LIT-CLASSICS-001.md",
+      "related_records": [
+        "A-HOTT-MACHINE-OVERVIEW-GOAL-001",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-LIT-DENOMINATOR-001",
+        "A-CUBICAL-PROGRAM-CODE-001",
+        "S-RES-20260914-138-LIT-CLASSICS-FIRST-PASS",
+        "S-RES-20260914-139-LIT-CLASSICS-SUPPLEMENT",
+        "S-RES-20260914-140-ROSSER-PRIMARY-REVIEW",
+        "A-CUBICAL-NAT-PROGRAM-CODE-001",
+        "S-RES-20260914-141-R2-NATCODE",
+        "A-CUBICAL-FAIR-ENUMERATION-001",
+        "S-RES-20260914-142-R2-FAIR",
+        "A-CUBICAL-SEMI-HALTING-001",
+        "S-RES-20260914-143-R2-SEMIHALT",
+        "A-COQ-MM2-SOURCE-QUALIFICATION-001",
+        "A-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+        "A-CUBICAL-MM2-BRIDGE-001",
+        "A-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+        "A-R2-CROSS-KERNEL-CORRESPONDENCE-001",
+        "S-RES-20260914-144-R2-SYNTHETIC-DUAL-KERNEL",
+        "A-POST-1944-PRIMARY-REVIEW-001",
+        "A-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+        "A-ORACLE-MODALITIES-SOURCE-QUALIFICATION-001",
+        "A-CUBICAL-GROUPOID-SYNTAX-REPLAY-001",
+        "A-LIT-HOTT-COMPUTABILITY-001",
+        "S-RES-20260914-146-R2-R4-LIT-THREE-SLICE",
+        "A-CE-MAP-001",
+        "A-R3-R4-GODEL-RETURN-001",
+        "S-RES-20260915-150-CE-MAP-V1",
+        "A-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+        "A-R3-R4-OBLIGATION-MATRIX-001",
+        "A-R4-HOTT-NAT-EFFECTIVITY-001",
+        "S-RES-20260915-151-R3-SOURCE-REPLAY"
+      ],
+      "revalidation": "S-RES-20260915-151-R3-SOURCE-REPLAY: R3 source theorem and R4 target/effectivity boundary incorporated; comprehensive corpus remains open. S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
+      "scope": "Classic premise chain through Post 1944 primary and the first Parametric CT/Oracle/2LTT/groupoid-syntax successor slice. Tarski/HBL/Rice-Shapiro/Rogers/Myhill/Chaitin, citation chains and selected theorem replays remain open.",
+      "source_hashes": {
+        ".codex/research/hott/LIT-CLASSICS-001.md": "f3912f721e20f0c19ed150a3383439fbcfd491e4ff8d28b4ecdaa3fa8e864dba",
+        ".codex/research/hott/LIT-CLASSICS-001/001 - 范围、来源身份与转换证据.md": "f3e82018f0d7a0d277401b1650c2b1de67ba50063ee907bf4f93632b23f50232",
+        ".codex/research/hott/LIT-CLASSICS-001/002 - Turing与Church：可计算、通用机与不可判定.md": "40c85f018eedfe45222e420558f3165b73a9e3b47e4822717e478baf686bc6a2",
+        ".codex/research/hott/LIT-CLASSICS-001/003 - Gödel、Rosser与Löb：算术化、独立句与自担保.md": "3e8b1e17a2a5504e4116db1c105208631db116d6b634667b7e07a4f39a1cea16",
+        ".codex/research/hott/LIT-CLASSICS-001/004 - Kleene、Post、Rice与Lawvere：定点、半判定与语义边界.md": "ebc3a27923dfbe87ae3d8f1fcbee9a8ecdf327d975c2237dd1502ea78b0ca3c9",
+        ".codex/research/hott/LIT-CLASSICS-001/005 - 现代机器化对照与R2-R4前提.md": "7483e703f7fd07aa936ebb5a051b4e3309dc49317df4428fad42517690087123",
+        ".codex/research/hott/LIT-CLASSICS-001/006 - 当前判词、缺口与下一机器工作包.md": "56b7dbca1522264bf457bbc9b1303b780acd83527bdb19bc2279471116f72e85",
+        "audit/Post-1944原文来源与首轮审读-20260914.md": "3e5e947407b42a87185311eeabd05256259aa754eb5046085e7464f61e082b65",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md": "9501119e6b44a4a7b8a7e306c1efe1a73b7d9d050d4dfc4d0c719e8b01577a8d",
+        "audit/literature/LIT-CLASSICS-001/mineru-rosser-primary/RECEIPT.json": "7ca0c6041ef645fe39d2f1d715d8ef79422daee4c49d15a14a7f1a1af4077c1f",
+        "audit/literature/LIT-CLASSICS-001/mineru-supplement/RECEIPT.json": "25e7e9227330763e668d04f173147a5ddb1dcccd0c0e68bc49df81d6ef7fff98",
+        "audit/literature/LIT-CLASSICS-001/mineru/IMPORT.json": "51d824f30f681af2309014fb8a8645391bbf0f9ea2dd8a387ad70cebad07b091",
+        "audit/literature/LIT-CLASSICS-001/post-1944-primary/IMPORT.json": "30ec21f76c2306b492ae7108a98f99bc3949029f03bf9c2ad47ae2bcb819bb1b",
+        "audit/literature/LIT-CLASSICS-001/post-1944-primary/PAGE_MAP.json": "3747d0f1baaac75f586c6da70be9e26b8f813240519d03cc3afae52aa35faffd",
+        "audit/literature/LIT-CLASSICS-001/post-1944-primary/full.txt": "c094f0f8426e8a41ec77e811ba391948352fcd836693fda7d4e09814fc4b5b10",
+        "audit/literature/PDF-to-Markdown-20260914/README.md": "ac3b3f66f044e1fe40fdb311b44fb19e65ed261e05f77997f7ed4c8c204d096e",
+        "scripts/audit/import_lit_classics_mineru.py": "e6f745486029c3682719deb0330e41d68e899f56467ffaa686973e1e0dcd5870",
+        "scripts/audit/import_lit_classics_mineru_supplement.py": "66c6c95ef5c0af78a12bdac5b08ee681e24092539eb65343955cc361655841ae",
+        "scripts/audit/import_lit_classics_rosser_primary.py": "2cf3cd460dd416439dca23a93f05b182a46f98c05ff76c8877ca9aeb97bbcad6",
+        "scripts/audit/import_post_1944_primary.py": "b6cce34d1d542096d8e4813eac5b4a65aa3dba784af9c899186c4a94f45b42df"
+      },
+      "status": "active"
+    },
+    "A-LIT-DENOMINATOR-001": {
+      "classification": "LITERATURE_DISCOVERY_DENOMINATOR_V1_FROZEN",
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / DENOMINATOR_V1_FROZEN",
+      "full_sources": [
+        ".codex/research/hott/LIT-DENOMINATOR-001.md",
+        ".codex/research/hott/LIT-DENOMINATOR-001/001 - 范围、渠道与证据语义.md",
+        ".codex/research/hott/LIT-DENOMINATOR-001/002 - 查询分母与机器发现收据.md",
+        ".codex/research/hott/LIT-DENOMINATOR-001/003 - 预注册核心 Seed 与谱系覆盖槽.md",
+        ".codex/research/hott/LIT-DENOMINATOR-001/004 - 候选分层、反遗漏与 UNCLASSIFIED.md",
+        ".codex/research/hott/LIT-DENOMINATOR-001/005 - 冻结判词、未完成审查与下一批全文.md",
+        "audit/literature/LIT-DENOMINATOR-001/discovery-20260914/MANIFEST.json",
+        "scripts/audit/build_lit_denominator_discovery.py",
+        "scripts/audit/triage_lit_denominator_candidates.py",
+        "scripts/audit/test_lit_denominator.py",
+        "audit/literature/LIT-DENOMINATOR-001/discovery-20260914/TRIAGE-RECEIPT.json",
+        ".codex/research/hott/LIT-CLASSICS-001.md"
+      ],
+      "kind": "literature_coverage_denominator",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/literature/LIT-DENOMINATOR-001/discovery-20260914",
+      "path_mode": "scope_locator",
+      "related_records": [
+        "A-HOTT-MACHINE-OVERVIEW-GOAL-001",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "S-RES-20260914-133-LIT-DENOMINATOR-001",
+        "A-LIT-CLASSICS-001",
+        "S-RES-20260914-139-LIT-CLASSICS-SUPPLEMENT",
+        "S-RES-20260914-140-ROSSER-PRIMARY-REVIEW",
+        "S-RES-20260914-146-R2-R4-LIT-THREE-SLICE"
+      ],
+      "revalidation": "S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: denominator v1 remains frozen; current seed statuses now record Post, Parametric CT, Oracle Modalities and groupoid-syntax evidence without changing the discovery snapshot. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at .codex/research/hott/LIT-CLASSICS-001.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified.",
+      "scope": "Cutoff 2026-09-14; seven topic families, declared channels/venues, 18 queries over Crossref/OpenAlex, 1,941 unique candidates, total non-excluding title triage and 33 forced core seeds. Denominator frozen; primary corpus review and comprehensive coverage remain open.",
+      "source_hashes": {
+        ".codex/research/hott/LIT-CLASSICS-001.md": "f3912f721e20f0c19ed150a3383439fbcfd491e4ff8d28b4ecdaa3fa8e864dba",
+        ".codex/research/hott/LIT-DENOMINATOR-001.md": "0aa620e116fc7445cdd666440f2998c6002e0ffc77b9711302d17e6ea17c86da",
+        ".codex/research/hott/LIT-DENOMINATOR-001/001 - 范围、渠道与证据语义.md": "4a3298096b47efcd4d99388d8e9420a3989a8ce56503926e968e53ef7fb46be9",
+        ".codex/research/hott/LIT-DENOMINATOR-001/002 - 查询分母与机器发现收据.md": "36d3d4262bea7b918a203be6c2aef9c3d902547773a2d55784206ab4eff24e92",
+        ".codex/research/hott/LIT-DENOMINATOR-001/003 - 预注册核心 Seed 与谱系覆盖槽.md": "c3b6c1387f0ad03207dd03666a843cbd697733f8ad1c7a47d8dc0662102af11e",
+        ".codex/research/hott/LIT-DENOMINATOR-001/004 - 候选分层、反遗漏与 UNCLASSIFIED.md": "c5ef902432b394b2fc9f70e7f5da61c3c9af9bc1457976f89f70bbf58a5cc45a",
+        ".codex/research/hott/LIT-DENOMINATOR-001/005 - 冻结判词、未完成审查与下一批全文.md": "06e3d5fbba324ea47c3fe582ab9522254fbc108fb0274e1285a76a5914990596",
+        "audit/literature/LIT-DENOMINATOR-001/discovery-20260914/MANIFEST.json": "47a6dcbc9dda9820e613747a5993845444c60ec3c3200331660bbf57fcb8fa9c",
+        "audit/literature/LIT-DENOMINATOR-001/discovery-20260914/TRIAGE-RECEIPT.json": "4c44647d5ed19f6826016cf69f540e86716498b6e30255c822723bebbf8b02db",
+        "scripts/audit/build_lit_denominator_discovery.py": "0b711afa159e802a7cf1e4447b4749d803b6498abfba4c48f4487e701080992f",
+        "scripts/audit/test_lit_denominator.py": "a75d78cd7304a811c1ef640c6ec295a0df5147223ed0189f7f09f0d5c1bc1593",
+        "scripts/audit/triage_lit_denominator_candidates.py": "327f561d8d901191246ebb36620666fe267c962e00357ac190eba4acb9d09627"
+      },
+      "status": "complete"
+    },
+    "A-LIT-HOTT-COMPUTABILITY-001": {
+      "classification": "HOTT_COMPUTABILITY_MODALITY_SYNTAX_PRIMARY_CORPUS",
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / MIXED_MACHINE_REPLAY_AND_SOURCE_QUALIFICATION",
+      "full_sources": [
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001.md",
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001/001 - 来源身份、证据等级与覆盖边界.md",
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001/002 - Parametric CT、EPF 与内部不可判定性.md",
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001/003 - Oracle Modalities 的公理、模态与时序.md",
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001/004 - 2LTT、groupoid-syntax 与下一候选.md",
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001/005 - 2LTT replacement机器结果与消费者下一步.md",
+        "audit/2LTT内部纤维替换导致UIP机器证明与悖论判别-20260915.md",
+        "HoTT/formal/two-level-fibrant-replacement-uip/CLAIM-TWO-LEVEL-FIBRANT-REPLACEMENT-UIP.md",
+        "HoTT/verification/runs/20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01/RUN.json",
+        "HoTT/verification/runs/20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01/index-row-manifest.json",
+        "audit/LIT-HOTT-COMPUTABILITY首轮来源资格化与接口映射-20260914.md",
+        "audit/R2-ParametricCT内部不可判定性重放与前提边界-20260914.md",
+        "audit/G-HOTT-SYNTAX首个精确机器切片与2LTT边界-20260914.md",
+        "audit/Post-1944原文来源与首轮审读-20260914.md",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/IMPORT.json",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/SOURCE_TREE_MANIFEST.json",
+        ".codex/research/hott/LIT-HOTT-COMPUTABILITY-001/006 - internal classifier消费者与受限恢复.md",
+END_FULL_TEXT
+END_COGNITION_CHUNK

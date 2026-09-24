@@ -1,0 +1,51 @@
+{
+  "status": "CHECKED_WITH_SCOPE",
+  "observed_utc": "2026-09-24T01:39:43.884705+00:00",
+  "source_drift": [],
+  "label_mismatches": [],
+  "input_cases": 10,
+  "prior_replay_result_bytes_equal": true,
+  "commands": [
+    {
+      "name": "shards",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "three-way",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "formal-run",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260923-MO3-STAGE-COLIMIT-001-04"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "selected-version",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-STAGE-COLIMIT-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "boundary": "Current byte/structure/native-run/Git evidence checks; kernel not rerun; semantic reviews remain human-audited."
+}

@@ -1,0 +1,177 @@
+{
+  "canonical_receipt": ".codex/cognition/checkpoints/S-RES-20260924-MO3-A-FINAL/result.json",
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit": 0,
+      "name": "three-way"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0,
+      "name": "shards"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_core_cognition.py",
+        "--core",
+        "核心认知.md",
+        "--manifest",
+        "核心认知.manifest.json",
+        "--curation",
+        "scripts/audit/core-cognition-curation-v8.json",
+        "--transition",
+        "audit/core-cognition-generation-8-transition-20260922.json"
+      ],
+      "exit": 0,
+      "name": "core"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260923-MO3-STAGE-COLIMIT-001-04"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-STAGE-COLIMIT-001-run"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-STAGE-COLIMIT-001"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-STAGE-COLIMIT-001-version"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-BOUQUET-ORDER-001-02"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-BOUQUET-ORDER-001-run"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-BOUQUET-ORDER-001"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-BOUQUET-ORDER-001-version"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-FINITE-COVER-001-08"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-FINITE-COVER-001-run"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-FINITE-COVER-001"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-FINITE-COVER-001-version"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-OPEN-COVER-MARGIN-001-01"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-OPEN-COVER-MARGIN-001-run"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-OPEN-COVER-MARGIN-001"
+      ],
+      "exit": 0,
+      "name": "MP-MO3-OPEN-COVER-MARGIN-001-version"
+    }
+  ],
+  "core_sha256": "6a94bec28b18a05e268bf82e55add1a030b086b73773874bc34dc82f0dd014cf",
+  "observed_utc": "2026-09-24T07:29:02.094486+00:00",
+  "primary_runs": [
+    {
+      "exit": 0,
+      "local_input_drift": [],
+      "proof_id": "MP-MO3-STAGE-COLIMIT-001",
+      "run": "20260923-MO3-STAGE-COLIMIT-001-04"
+    },
+    {
+      "exit": 0,
+      "local_input_drift": [],
+      "proof_id": "MP-MO3-BOUQUET-ORDER-001",
+      "run": "20260924-MO3-BOUQUET-ORDER-001-02"
+    },
+    {
+      "exit": 0,
+      "local_input_drift": [],
+      "proof_id": "MP-MO3-FINITE-COVER-001",
+      "run": "20260924-MO3-FINITE-COVER-001-08"
+    },
+    {
+      "exit": 0,
+      "local_input_drift": [],
+      "proof_id": "MP-MO3-OPEN-COVER-MARGIN-001",
+      "run": "20260924-MO3-OPEN-COVER-MARGIN-001-01"
+    }
+  ],
+  "query_first_promoted": [],
+  "quotes": {
+    "006": {
+      "applied_proposed": true,
+      "ids": [
+        "KC-000037",
+        "KC-000038",
+        "KC-000039",
+        "KC-000040"
+      ],
+      "unchanged": true
+    },
+    "008": {
+      "applied_proposed": true,
+      "ids": [
+        "KC-000044",
+        "KC-000045",
+        "KC-000046"
+      ],
+      "unchanged": true
+    }
+  },
+  "review_required": [],
+  "revision": 281,
+  "schema": "mo3-final-validation/v1",
+  "scope": "Selected four existing native evidence packages plus state/source/structure, no new kernel replay or independent B audit; full-registry legacy mismatch not repaired",
+  "status": "PASS_WITH_SCOPE",
+  "tracked_drift": [],
+  "tracked_paths": 33
+}

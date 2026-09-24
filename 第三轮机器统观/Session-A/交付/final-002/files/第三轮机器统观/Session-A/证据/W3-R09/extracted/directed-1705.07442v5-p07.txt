@@ -1,0 +1,49 @@
+A TYPE THEORY FOR SYNTHETIC ∞ -CATEGORIES 7
+1 cube
+I cube J cube
+I × J cube
+(t :I) ∈ Ξ
+Ξ ⊢ t :I Ξ ⊢ ⋆ : 1
+Ξ ⊢ s :I Ξ ⊢ t :J
+Ξ ⊢ ⟨s,t ⟩ :I × J
+Ξ ⊢ t :I × J
+Ξ ⊢ π1(t) : I
+Ξ ⊢ t :I × J
+Ξ ⊢ π2(t) : J
+Figure 1. The cube layer
+We introduce our basic type theory with shapes in §2, and specialize to the
+simplicial type theory using the strict interval in §3. In §4 we prove some basic
+results about extension types and how they commute with each oth er and with the
+other type constructors.
+Then in §5 we give the basic deﬁnition of a Segal type and study is structure as
+a sort of “category”, while in §6 we study the corresponding behavior of “functors”
+and “natural transformations”. Section 7 is devoted to a special kind of Segal type
+that we call “discrete”; semantically these correspond to homoto pically constant
+simplicial spaces; if Segal and Rezk types are the “categories”, dis crete types are
+the “groupoids”. Then in §8 we study covariant and contravariant type families,
+which are families of discrete types that vary functorially over a Seg al type; these
+are the synthetic analogue of covariant and contravariant ﬁbrat ions or presheaves.
+In particular, they satisfy the Yoneda lemma, as we show in §9.
+In §10 we deﬁne Rezk types, which are Segal types satisfying a “complete ness”
+or “univalence” condition identifying the type-theoretic identity ty pe with the cate-
+gorical isomorphisms. And in §11 we study homotopy coherent adjunctions between
+Segal and Rezk types.
+Finally, in Appendix A we brieﬂy discuss the motivating semantics in bisimpli-
+cial sets and other “model categories with shapes”, and show tha t our Segal and
+Rezk types correspond to Segal spaces and complete Segal spac es. The analogous
+correspondence for covariant ﬁbrations follows from recent wor k of [ R V17, KV14,
+dB16, Ras17].
+The authors with to thank the anonymous referee for a lengthy list of cogent
+suggestions and Arthur Azevedo de Amorim for catching a number o f typos and
+imprecisions in the syntax for our type theory with shapes.
+2. Type theory with shapes
+Our type theory has three layers. The ﬁrst two are basically ordina ry coherent
+ﬁrst-order logic, in which we express the theory of a strict interva l; the third layer
+is then a homotopy type theory over the ﬁrst two. For clarity and g enerality, in this
+section we describe only the formal apparatus of the type theory ; in §3 we will then
+add to it the axioms of a strict interval that we will use in the rest of t he paper.
+2.1. Cubes, topes, shapes, and types. The ﬁrst layer is a simple intuitionistic
+type theory with ﬁnite product types and nothing else. We call the t ypes in this
+layer cubes; in our theory they will be ﬁnite powers of the one “generating cube ”
+2. The formal rules for the cube layer are shown in Figure 1; here Ξ is a context of
+variables belonging to cubes.

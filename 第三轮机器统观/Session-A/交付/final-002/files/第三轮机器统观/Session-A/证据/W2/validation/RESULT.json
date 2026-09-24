@@ -1,0 +1,40 @@
+{
+  "schema": "mo3-proof-evidence-validation/v1",
+  "checks": {
+    "formal-run": {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260923-MO3-STAGE-COLIMIT-001-04"
+      ],
+      "exit": 0,
+      "status": "PASS_WITH_SCOPE",
+      "summary": ""
+    },
+    "selected-evidence": {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-MO3-STAGE-COLIMIT-001"
+      ],
+      "exit": 2,
+      "status": "BLOCKED",
+      "summary": "MATRIX_IDENTITY_NOT_UNIQUE:MP-ASTRA-PRESENTATION-FIBER-001:0"
+    },
+    "global-version": {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py"
+      ],
+      "exit": 2,
+      "status": "BLOCKED",
+      "summary": "MATRIX_IDENTITY_NOT_UNIQUE:MP-ASTRA-PRESENTATION-FIBER-001:0"
+    }
+  },
+  "builtin_source_count": 36,
+  "builtin_drift": [],
+  "scope": "selected package evidence only; global version result separate; no reality or originality certification"
+}

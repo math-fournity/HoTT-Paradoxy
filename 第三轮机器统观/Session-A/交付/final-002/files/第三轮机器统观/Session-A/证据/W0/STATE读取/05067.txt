@@ -1,0 +1,334 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 5067, "end_line": 5395, "total_lines": 18474, "next_start_line": 5396, "chunk_sha256": "bfb677ffcf87a23ba7269df320ce9c288afa0db206b13449decb906f7847fce7", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+      "terminology": "INDEPENDENT_CUBICAL_TYPE0_ANALOGUE_NOT_EXTERNAL_SOURCE_REPLAY",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-ONLINE-CAUSALITY-FORMAL-001": {
+      "claim_ids": [
+        "C-106",
+        "C-107",
+        "C-108",
+        "C-109"
+      ],
+      "classification": "ONLINE_CAUSALITY_BOUNDARY_WITH_POSITIVE_CONTROLS",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/OnlineCausality.agda",
+        "HoTT/formal/partiality-race-timeout/OnlineCausality.README.md",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/online-causality机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "COMPLETE_KNOWLEDGE_VERSUS_ONLINE_QUALIFICATION_SEPARATED",
+      "path": "HoTT/formal/partiality-race-timeout/OnlineCausality.agda",
+      "proof_id": "MP-ONLINE-CAUSALITY-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/online-causality机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0 with zero warnings; source, toolchain and index-row hashes match; exact replay passed. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-ONLINE-CAUSALITY-001-01",
+      "scope": "Native Cubical Agda online-causality boundary: no time-0 lookahead (C-106), reading the first input at time 0 (C-107) and the second from time 1 (C-108), and the knowledge gap between complete stream functions and online strategies (C-109). Boundary with positive controls; not a HoTT paradox; no physical-time claim.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/partiality-race-timeout/OnlineCausality.README.md": "b7171a6bbc2d2d9d979c433bd9926b9dd941934d6183a5919f7c60ca80895eb1",
+        "HoTT/formal/partiality-race-timeout/OnlineCausality.agda": "5827ddde8aa6de64b6639881d4756cd871c89a7d7a15fd366f7d70f39753e126",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/RUN.json": "92d13907088023e8e2b533fb63e5ad270e771d2efcc9409120c0f9a8ee3efa49",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/index-row-manifest.json": "53a29634281292b684f83696f07f736c7c949bfce67c3df3153d40519e85e06e",
+        "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01/source-manifest.json": "f4842a26833f036d71f35204210a30e4a7de94d75203ded10f95862531fef694",
+        "audit/online-causality机器证明实施证据-20260912.md": "682cf3e0c067a0efe7c4db6f322be41064e258d13252e448d7ace4e54d713c93"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-ORACLE-MODALITIES-SOURCE-QUALIFICATION-001": {
+      "classification": "ORACLE_MODALITIES_SOURCE_AND_AXIOM_BOUNDARY_QUALIFIED",
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / SOURCE_QUALIFIED_NOT_REPLAYED",
+      "full_sources": [
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/IMPORT.json",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/SOURCE_TREE_MANIFEST.json",
+        "scripts/audit/import_oracle_modalities_source.py",
+        "audit/LIT-HOTT-COMPUTABILITY首轮来源资格化与接口映射-20260914.md",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/README.md",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/LICENSE",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/OracleModality.agda",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/RelativisedCC.agda",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/ParallelSearch.agda",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Continuity.agda",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Axioms/ComputableChoice.agda",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Axioms/MarkovInduction.agda",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Axioms/NegativeResizing.agda"
+      ],
+      "kind": "external_source_qualification",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/IMPORT.json",
+      "related_records": [
+        "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+        "A-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+        "A-LIT-HOTT-COMPUTABILITY-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-CAND-2LTT-FIBRANT-REPLACEMENT-UIP-001",
+        "S-RES-20260914-146-R2-R4-LIT-THREE-SLICE"
+      ],
+      "scope": "Full 34-file MIT source at e6e3f75, with Turing-reducibility consumers and negative-resizing/Markov-induction/phi0/computable-choice postulates mapped. Exact Agda 2.6.4.3/Cubical v0.7 replay remains open.",
+      "source_hashes": {
+        "audit/LIT-HOTT-COMPUTABILITY首轮来源资格化与接口映射-20260914.md": "183cbf6a465151fc7c5bae7866077077b3ec44f6ed8f00fd0927f91f6b2f9406",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/IMPORT.json": "1644b64b6193a97fec0c7266e41e48918916acf91e61ea49de855593d5c10dbb",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/SOURCE_TREE_MANIFEST.json": "65dceab66a3d7eb40318f9686af08f987c359b49f2ffe3d1d304b686bb7ad790",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Axioms/ComputableChoice.agda": "b9c6e00b32a1adf8384e8b5a23eb668c98784630847985d1279cb09fc0ea301b",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Axioms/MarkovInduction.agda": "d0f11e983684d43fa39996874ed60dcee599a43ebb3068ac6492db5479390603",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Axioms/NegativeResizing.agda": "f6cb68c0f7fb819f97043cd342061e0ae842a27ea09764f42321e491ba706b4e",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/Continuity.agda": "4261f72e3953996860e9e8534f60ab1320fc8d299ff62435b2791a10bad736a0",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/LICENSE": "e0d3e36bcf246c906ca25fc605c33f6f7caf9c3678d535b75084486f10acc17c",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/OracleModality.agda": "9f84e020a587046a8144ea9d584361ae2fc024ecda43964df807e18c0021706b",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/ParallelSearch.agda": "51e3a66412c5d6c70141d7d4d9e555227246cb08d2fd9c9e2c5ce88c813bffad",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/README.md": "ed7585e603636a19de7d20ea017f01b16c8cf93cfb96b22fb569b0eab752ed8b",
+        "audit/literature/LIT-HOTT-COMPUTABILITY-001/oracle-modalities/source-e6e3f75/RelativisedCC.agda": "a716ec1b89e7f859ab327e2fc59cd27c9ddcb39d387ac4a9d3938fb7dcca3c98",
+        "scripts/audit/import_oracle_modalities_source.py": "a32a228ea6520472bd756324ab685845bc329a09171e1f5bb96110db0724ead2"
+      },
+      "status": "complete"
+    },
+    "A-P1-TIME-LINE-BOUNDED-NEGATIVE-001": {
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/p1-时序线候选与支付装置审计-20260913.md",
+        "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/p1-时序线候选与支付装置审计-20260913.md",
+      "related_records": [
+        "S-RES-20260913-103-P1-TIME-LINE-AUDIT",
+        "A-THEORY-ECONOMY-LEDGER-001",
+        "A-LEDGER-RETRODICTION-CHECK-001"
+      ],
+      "scope": "P1 time-line work package: candidate fixed as 'deliver the already-settled result at stage k'; payment devices D1-D6 audited (stage index, guard-erasure criterion, partial/strict classifiers, refined representation, context family, eliminator congruence obligation); checklist re-read of the N1/N5/N10/T4 candidate sets finds no candidate with (coarse-domain interface + must recover + same stage/layer). Verdict P1_BOUNDED_NEGATIVE_PAYMENT_DEVICE_AVAILABLE; no new mathematical claim; no duplicate proof package.",
+      "source_hashes": {
+        "audit/p1-时序线候选与支付装置审计-20260913.md": "e987beb7b1039a33ebf30d11b57145a7ed1536fc3ac23d304364d936c5afab94"
+      },
+      "status": "complete"
+    },
+    "A-P2-P3-CHECKLIST-001": {
+      "depends_on": [],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/p2-p3与粗域接口搜索-20260913.md",
+        "理解章节/C11-HoTT理论经济账本与悖论位置判别-20260913.md",
+        "audit/p1-时序线候选与支付装置审计-20260913.md",
+        "audit/coarse-consumer-scan-20260913.json"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/p2-p3与粗域接口搜索-20260913.md",
+      "related_records": [
+        "S-RES-20260913-104-P2-P3-AND-COARSE-SCAN",
+        "A-P1-TIME-LINE-BOUNDED-NEGATIVE-001",
+        "A-COARSE-CONSUMER-SCAN-001"
+      ],
+      "revalidation": "audit/p2-p3与粗域接口搜索-20260913.md re-hashed by S-GOV-20260913-105-C11-REVIEW-ABSORPTION: the P2/P3 report gained a v2 framing note: the grid is a check coordinate rather than a gate, and P3 must pass the degeneration test. Claim and scope unchanged.",
+      "scope": "P2/P3 application of the C11 checklist: P2 (same-layer) payment device is a level increment — available but expensive, consumer missing (S053 P8); P3 (intersection) has the strongest formal prerequisites because MP-NOCANONICAL-001 (C-142-C-148) already proves no uniform choice exists, and MP-ONLINE-CAUSALITY-001 gives the stage boundary. Both verdicts are PREDICTION_HOLDS_NO_CONSUMER; no new mathematical claim.",
+      "source_hashes": {
+        "audit/p2-p3与粗域接口搜索-20260913.md": "358c577173a4f2768fdbae89be2f56e27444b56373ba8f042b2427189c210ef2"
+      },
+      "status": "complete"
+    },
+    "A-PARADOX-FAILURE-LEDGER-001": {
+      "classification": "PARADOX_FAILURE_LEDGER",
+      "depends_on": [
+        "A-T3-REFLECTION-NAMED-001"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/paradox-failure-ledger-20260913.md"
+      ],
+      "kind": "synthesis",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/paradox-failure-ledger-20260913.md",
+      "research_parent": "A-HISTORICAL-MATH-CLAIMS-001",
+      "resolution": {
+        "evidence": [
+          "audit/paradox-failure-ledger-20260913.md"
+        ],
+        "reason": "Consolidates every candidate attempted in S031-S070 with its machine verdict and revival condition; the ladder remains at REPRESENTATION_BOUNDARY and E6 is absent."
+      },
+      "scope": "Synthesis of existing machine results only; no new claim.",
+      "source_hashes": {
+        "audit/paradox-failure-ledger-20260913.md": "c0afa2bd7758a60c2358b7358062a085df3f8caa5a527b16b84097d67205dc0a"
+      },
+      "status": "complete"
+    },
+    "A-PARADOX-HOTT-SYNTHESIS-001": {
+      "depends_on": [
+        "A-HISTORICAL-MATH-CLAIMS-001",
+        "A-DIRECTION-PARADOX-REVIEW-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "理解章节/A2-参照悖论谱.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/THEORY_SCHEMA.md",
+        "HoTT/SELF_REFERENCE_AND_REFLECTION_INVESTIGATION.md"
+      ],
+      "kind": "domain_synthesis",
+      "lifecycle_status": "CURRENT",
+      "path": "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+      "scope": "Dual-perspective explanation of six reference paradoxes, project candidates, rejected attacks and HoTT handling mechanisms; no new native proof.",
+      "status": "complete"
+    },
+    "A-PARTIAL-DECISION-FORMAL-001": {
+      "claim_ids": [
+        "C-118",
+        "C-119",
+        "C-120",
+        "C-121",
+        "C-122",
+        "C-123"
+      ],
+      "classification": "PARTIAL_DECISION_BOUNDARY_WITH_POSITIVE_CONTROL",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/partial-decision/PartialDecision.agda",
+        "HoTT/formal/partial-decision/README.md",
+        "HoTT/formal/partial-decision/TOOLCHAIN.json",
+        "HoTT/formal/partial-decision/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/partial-decision机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "MINIMAL_NATIVE_STRICT_VS_PARTIAL_CLASSIFIER_BOUNDARY",
+      "path": "HoTT/formal/partial-decision/PartialDecision.agda",
+      "proof_id": "MP-PARTIAL-DECISION-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/partial-decision机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0 with zero warnings; source, toolchain and index-row hashes match; exact replay passed. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-PARTIAL-DECISION-001-01",
+      "scope": "Minimal native boundary between a strict classifier and a partial classifier definable only up to weak bisimilarity: no strict Q -> Delay Bool extension (C-120), no strict Q -> Bool consumer (C-122), partial classifier Q -> D-approximate exists (C-121), representative-level strict classifier exists and separates a,b (C-118, C-119, C-123). Boundary result with positive control; not a HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/partial-decision/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/partial-decision/PartialDecision.agda": "fb1322d59dcf793b186d8ae053e88530d65780d22478de8760b9a085c365da34",
+        "HoTT/formal/partial-decision/README.md": "e47cf44886a86197fe8bbc8372b44808abd24df12191584575629ec56bfdac85",
+        "HoTT/formal/partial-decision/TOOLCHAIN.json": "2e6aa6a0fd3b29db14520d23fc49f6f62b08d27d992f0599484e609c644adb7a",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/RUN.json": "3ef19040873e861cacd7a6dfba494c57982f101ed167acaebac73d568155909d",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/index-row-manifest.json": "6507ced5c8116ec51da9acfec7c62e312e895d5bf88d4376314868895ac130a8",
+        "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01/source-manifest.json": "2bb925cc315a2fa4fd25da7abb06a843a3628f8ca4127ff961c96962e4bf2fbd",
+        "audit/partial-decision机器证明实施证据-20260912.md": "8614d2fc65db2dde13a6da58d0913dcbe297c224ad07359213f595706e646edf"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-PATH-CERTIFICATE-FORMAL-001": {
+      "claim_ids": [
+        "C-100",
+        "C-101",
+        "C-102",
+        "C-103",
+        "C-104",
+        "C-105"
+      ],
+      "classification": "MERE_MOVE_NON_INHABITED_WITH_NATIVE_PATH_CONTROLS",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.README.md",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/path-certificate机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "PATH_MOVE_EXISTS_MERE_MOVE_EMPTY_NATIVE_CUBICAL",
+      "path": "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+      "proof_id": "MP-PATH-CERTIFICATE-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/path-certificate机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, toolchain and index-row hashes match; exact replay passed. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+END_FULL_TEXT
+END_COGNITION_CHUNK
