@@ -28,7 +28,9 @@ def listing():
         q=ROOT/p
         if not q.is_file() or q.is_symlink() or q.suffix in ('.pyc','.agdai') or '__pycache__' in p.parts:return
         s=p.as_posix()
-        if s.startswith('第三轮机器统观/Session-A/交付/') or s.endswith('执行异常-旧暂停复活-20260924.md'):return
+        delivery='第三轮机器统观/Session-A/交付/'
+        historical=(s.startswith(delivery+'final-001-verification/') or s in [delivery+'final-001/SEAL.json',delivery+'final-001/MANIFEST.json'])
+        if (s.startswith(delivery) and not historical) or s.endswith('执行异常-旧暂停复活-20260924.md'):return
         reasons.setdefault(s,set()).add(why)
     def tree(p,why):
         for q in (ROOT/p).rglob('*'):add(q,why)
