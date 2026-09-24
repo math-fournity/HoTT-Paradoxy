@@ -21,13 +21,14 @@
 
 | 候选 | 建议去向 | 内容 | 证据 |
 |---|---|---|---|
-| A1 沿运动测量 | 方向追踪（新方向或挂在 DIR-U-A-REALITY-RELATIVE 下）；全景视野（新结果行） | 在“运动 = 恒等路径”这一 HoTT 读法下，任何取值于集合的仪表沿运动不变；现实中从冷镇到暖镇温度计会变。判词 QUALIFIED_HIT（有范围）。与 Astra C-251、C-264（去点）同一连通性事实，差量是新过程（沿运动测量）与一般定理 C-01(v)、依赖出路 C-06 | 工作台 §4.1；run `20260924-CG001-MOTION-MEASUREMENT-01` |
+| A1 沿运动测量 | 方向追踪（新方向或挂在 DIR-U-A-REALITY-RELATIVE 下）；全景视野（新结果行） | 在“运动 = 恒等路径”这一 HoTT 读法下，任何取值于集合的仪表沿运动不变；现实中从冷镇到暖镇温度计会变。判词 QUALIFIED_HIT（有范围；条件于立场 S，见 R3-1；若采用 MO3-C B02 的窄读法则为 STRONG_CANDIDATE）。与 Astra C-251、C-264（去点）同一连通性事实，差量是新过程（沿运动测量）与一般定理 C-01(v)、依赖出路 C-06 | 工作台 §4.1；run `20260924-CG001-MOTION-MEASUREMENT-01` |
 | C1 实数的测量记录 | 全景视野（结果行，与 W10 同族的差量） | Book HIIT 实数：真实的有限测量记录在 HoTT 中可得（有限选择）；无穷记录需要 AC_ω（关键否定方向为猜想；书 L937 “may not be”）。判词 REFUTED（有限任务）/ BOUNDARY（无穷记录）。观察：HoTT 基础部分给潜无穷、不给实无穷，与用户的有限测量前提同向 | 工作台 §4.2；run `20260924-CG001-MEASUREMENT-LOG-02` |
 | I1 逐层一致推不出整体相同 | 全景视野（结果行） | 截断 Whitehead 与球面截面引理机器检查；有限 CW 复形只需有限层（AI 推导，猜想）；任意类型的 Whitehead 原则不可证（来源报告）是对非超完备模型的正确拒绝。判词 REFUTED（有限任务）/ BOUNDARY（无穷维理想比较） | 工作台 §4.3；run `20260924-CG001-LEVEL-COMPARISON-01` |
 
 ## R3 需要用户或 integrator 决定的问题
 
-1. A1 的判词依赖一个解释立场：“Think in HoTT”指使用 HoTT 的合成读法（路径即运动）；按 GOAL (e)，“同成本”以保留合成经济 E 为基准。若审计认为 Book intro L85–91 的“purely homotopically”声明使这一读法不成立，A1 应降为 STRONG_CANDIDATE 或 BOUNDARY（已宣告范围）。
+1. A1 的判词依赖一个解释立场 S：“Think in HoTT”指使用 Book 自己给出的合成读法（intro L83–84：函数 “is regarded as a continuous map”；L104–105：恒等类型 “is just the path space A^I of all continuous maps I → A”）；按 GOAL (e)，“同成本”以保留合成经济 E 为基准。G4 发现，研究 integrator 的来源处置 MO3-C B02（`第三轮机器统观/Session-C/父范围与覆盖/005`，B02.01/B02.02）持更窄读法：“本章来源不把 Id 等同轨迹时钟”；ap 的连续性“不能直接指任意物理映射或分析拓扑连续性”。若裁定采用该读法（或认为 intro L86–91 的 “purely homotopically” 排除立场 S），A1 应降为 STRONG_CANDIDATE（缺 (e) 的“未偷换任务”）。请用户或 integrator 裁定。
+5. B02 各行自写的重开条件是“新实际 consumer/反例或形式化不符”。A1 的过程（沿运动测量）与 C-01–C-07 可以作为重开 B02.01/B02.02 的输入，由 integrator 决定是否重开；本目标不写 Session C 文件。
 2. 是否把 `.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py`（复用规范校验器、只替换索引检查）的做法吸收进项目治理，或改为由 integrator 登记后用规范校验器重验。
 3. 目标内校验器比规范校验器多一条子串标记 `postulate`，会命中注释（run `20260924-CG001-MEASUREMENT-LOG-01` 因此作废）。若吸收这个校验器，建议改为只扫描非注释代码，或者保留现状、要求注释回避该词。本目标没有在失败后放宽它。
 4. I1 的有限 CW 版本（k ≥ max(dim A, dim B − 1) 的 k-连通映射是等价）目前是 AI 推导的猜想，只有填胞腔一步机器检查。是否值得用 `Cubical.CW.*` 整体形式化，由 integrator 或用户决定。
