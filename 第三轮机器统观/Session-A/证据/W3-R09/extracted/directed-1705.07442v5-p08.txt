@@ -1,0 +1,62 @@
+8 EMILY RIEHL AND MICHAEL SHULMAN
+φ ∈ Φ
+Ξ |Φ ⊢ φ Ξ ⊢ ⊤ tope Ξ |Φ ⊢ ⊤ Ξ ⊢ ⊥ tope
+Ξ |Φ ⊢ ⊥
+Ξ |Φ ⊢ ψ
+Ξ ⊢ φ tope Ξ ⊢ ψ tope
+Ξ ⊢ (φ ∧ ψ ) tope
+Ξ |Φ ⊢ φ Ξ |Φ ⊢ ψ
+Ξ |Φ ⊢ φ ∧ ψ
+Ξ |Φ ⊢ φ ∧ ψ
+Ξ |Φ ⊢ φ
+Ξ |Φ ⊢ φ ∧ ψ
+Ξ |Φ ⊢ ψ
+Ξ ⊢ φ tope Ξ ⊢ ψ tope
+Ξ ⊢ (φ ∨ ψ ) tope
+Ξ |Φ ⊢ φ
+Ξ |Φ ⊢ φ ∨ ψ
+Ξ |Φ ⊢ ψ
+Ξ |Φ ⊢ φ ∨ ψ
+Ξ |Φ,φ ⊢ χ Ξ |Φ,ψ ⊢ χ Ξ |Φ ⊢ φ ∨ ψ
+Ξ |Φ ⊢ χ
+Ξ ⊢ s :I Ξ ⊢ t :I
+Ξ ⊢ (s ≡ t) tope
+Ξ ⊢ s :I
+Ξ |Φ ⊢ (s ≡ s)
+Ξ |Φ ⊢ (s ≡ t)
+Ξ |Φ ⊢ (t ≡ s)
+Ξ |Φ ⊢ (s ≡ t) Ξ |Φ ⊢ (t ≡ v)
+Ξ |Φ ⊢ (s ≡ v)
+Ξ |Φ ⊢ (s ≡ t) Ξ ,x :I ⊢ ψ tope Ξ |Φ ⊢ ψ [s/x ]
+Ξ |Φ ⊢ ψ [t/x ]
+Ξ ⊢ t : 1
+Ξ |Φ ⊢ t ≡ ⋆
+Ξ ⊢ s :I Ξ ⊢ t :J
+Ξ |Φ ⊢ π1(⟨s,t ⟩) ≡ s
+Ξ ⊢ s :I Ξ ⊢ t :J
+Ξ |Φ ⊢ π2(⟨s,t ⟩) ≡ t
+Ξ ⊢ t :I × J
+Ξ |Φ ⊢ t ≡ ⟨ π1(t),π 2(t)⟩
+Figure 2. The tope layer
+The second layer is an intuitionistic logic over the ﬁrst. We refer to its types
+as topes, thinking of them as polytopes embedded in a cube (namely, the “cub e
+context” Ξ). Topes admit operations of ﬁnite conjunction and disj unction, but not
+negation, implication, or either quantiﬁer. 3 There is also a basic “equality tope”,
+which we write with the symbol ≡ , since it will be visible to the third layer as a
+“strict” or “judgmental” equality. (In the theory of a strict inter val introduced in
+§3.1, there will also be an inequality tope.)
+The formal rules of the tope layer are shown in Figure 2; here Φ is a list of topes.
+Note that we include the β and η rules for ﬁnite product cubes as introductions
+for equality topes. We state all the rules in “natural deduction sty le”, ensuring the
+admissibility of the usual structural rules like weakening, contract ion, substitution,
+and cut. For instance, here are the substitution rules:
+Ξ ⊢ t :I Ξ,x :I ⊢ φ tope
+Ξ ⊢ φ[t/x ] tope
+Ξ ⊢ t :I Ξ,x :I |Φ ⊢ ψ
+Ξ |Φ[t/x ] ⊢ ψ [t/x ]
+and here is the cut rule for topes:
+Ξ |Φ ⊢ ψ Ξ |Φ,ψ ⊢ χ
+Ξ |Φ ⊢ χ
+3W e could probably include the existential quantiﬁer to obta in a full “coherent logic”, and
+possibly even go beyond this, but for the theory of a strict in terval we only need conjunction and
+disjunction.
