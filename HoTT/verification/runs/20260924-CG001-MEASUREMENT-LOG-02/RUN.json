@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CG001-C-08"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/measurement-log",
+    "HoTT/formal/claude-cg001/measurement-log/MeasurementLog.agda"
+  ],
+  "completed_at_utc": "2026-09-24T14:19:02.248800+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 34.303758,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "does not prove or refute that the infinite record is unobtainable without countable choice (needs a countermodel)",
+    "does not formalize the Book HIIT Cauchy reals; instantiation to them rests on the source-reported archimedean property",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only); not original mathematics"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-MEASUREMENT-LOG-001",
+  "run_id": "20260924-CG001-MEASUREMENT-LOG-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-08 exactly as stated in CLAIM.md (generic in the carrier type U and the reading relation Reads: every finite record merely exists by finite choice; restriction; countable choice as an explicit hypothesis suffices for the infinite record; a carried rational approximation gives the infinite record). Goal-local index only. Supersedes run -01 (source comment reworded only).",
+  "source_manifest": {
+    "bytes": 2693,
+    "path": "source-manifest.json",
+    "sha256": "a1dd24462f284a1dce4ba08a5b05d4d989eb0be2ee3ca4217f2207d9aa74bea2"
+  },
+  "started_at_utc": "2026-09-24T14:18:27.945042+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 19113,
+    "path": "stdout.txt",
+    "sha256": "e01a102f520614d78124b6613290dcff54f98342078704219463e06b39192c69"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
