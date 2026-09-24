@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 191,
+  "later_machine_proved_claim_count": 193,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -940,6 +940,16 @@
    "kind": "native_dedekind_finite_subcover_extraction_and_uniform_index_boundary",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: exact rational finite-cover/chain adequacy; Nat-indexed extraction from mere finite-subcover existence, finite-list generator completeness, concrete index output/gap control; no selector uniform over all index Types.",
    "notes": "Safe Cubical/guardedness/two-level. Actual Dedekind cut unit interval, not rational sampling. Does not supply compactness from arbitrary pointwise covers, recover a hidden chosen list, establish a physical deadline, or claim HoTT inconsistency. Three unique UnsupportedIndexedMatch computation limitations retained in stdout and documented; no universal definitional-computation claim on transported indexed proofs. Existing cut/arithmetic/noUniformChoice sources are exact local snapshots with provenance. WrongTouching is a control, not a package."
+  },
+  {
+   "proof_id": "MP-MO3-OPEN-COVER-MARGIN-001",
+   "claim_ids": "C-340–C-341",
+   "source": "HoTT/formal/mo3/finite-cover/OpenCoverMargins.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260924-MO3-OPEN-COVER-MARGIN-001-01",
+   "kind": "native_open_interval_inner_cover_and_strict_closed_margin_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: all strictly inner rational intervals pointwise cover the actual open Dedekind unit interval; no finite subfamily does; any fixed strict inner rational closed interval has one-member coverage in the same family.",
+   "notes": "Safe Cubical/guardedness/two-level; actual cut points, not rational sampling. No full Book inductive-cover HIT replay or refutation, no HoTT inconsistency/physical discreteness, and no substitution of the changed closed-inner target for the whole-open task. Shared C02 helper sources remain byte-identical; this run's declaration audit reports no warnings."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

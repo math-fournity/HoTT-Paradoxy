@@ -1489,3 +1489,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-337 | overlapping族0↦(-1,3/4)、1↦(1/4,2)、其余↦(2,2)的给定mere有限覆盖输入，natSelector输出原列表[0,1]（Path等式；较早直接构造输入另有refl计算）。touching族0↦(-1,1/2)、1↦(1/2,2)、其余↦(2,2)在实际rationalCut(1/2)处无索引覆盖，故∀xs，Cover touching xs→⊥。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_AND_GAP_CONTROLS` | `selectedIndices/fromMereChainIndices/extractedOriginalIndices/natSelectorIndices/halfInUnit/touchingMissesHalf/touchingNoFiniteCover`；同run | touching不满足覆盖输入，是错误实例；不由软件有限未命中推出无界失败或物理完成结论。 |
 | C-338 | 每个有限Nat列表xs在某有限n的words n(upto n)中出现；若候选集中有Cert，则inspect成功；由mere成功stage可取得唯一最小stage并提取真实列表和Cert。 | `FORMAL_CHECKED_WITH_SCOPE / DECLARED_LIST_GENERATOR_COVERAGE` | `generatorComplete/inspectComplete/certificateStage/leastStage/fromMereChain`；同run | 完备性仅本有限列表生成器，不是全HoTT搜索完备；保留UnsupportedIndexedMatch限制，不称任意transported证明都会定义性归约。 |
 | C-339 | 不存在UniformSelector=(I:Type₀)(F:I→Interval)→∥Σxs:List I,GenericCover I F xs∥→Σxs:List I,GenericCover I F xs。归约用恒定(-1,2)区间族、真实非空unit interval及既有univalent无统一无标签选点证明。 | `FORMAL_CHECKED_WITH_SCOPE / UNIFORM_INDEX_INTERFACE_BOUNDARY` | `singleCover/mereConstantCover/coverHead/choiceFromSelector/noUniformSelector`；同run中的NoCanonicalPoint精确依赖 | 不否定每个固定I有某个选择或额外枚举/标签下的算法；不声称Book承诺此强接口，不构成HoTT矛盾或现实相对失配。 |
+
+## MO3整开区间与严格内缩余量的有限覆盖（2026-09-24）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-MO3-OPEN-COVER-MARGIN-001` | `C-340–C-341` | `formal/mo3/finite-cover/OpenCoverMargins.agda`及manifest中的真实cut/有理数依赖 | `verification/runs/20260924-MO3-OPEN-COVER-MARGIN-001-01/`；safe/cubical/guardedness/two-level，exit0，无warning；WrongWholeCover错误边界控制另存 | `FORMAL_CHECKED_WITH_SCOPE / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-340 | 固定R=DedekindReals ℓ-zero，Inner=Σl,r:ℚ,(0<l)×(l<r)×(r<1)，OpenUnit x=Lower x 0×Upper x 1。∀x，OpenUnit x→∥Σi:Inner,CoveredBy i x∥；但∀xs:List Inner，FiniteCoversOpen xs→⊥，其中有限覆盖保留原Inner成员与同一pointwise目标。 | `FORMAL_CHECKED_WITH_SCOPE` | `pointwiseInnerCover/smallBound/lookupBound/noFiniteInnerCover`；同run，漏点为实际rationalCut(mid 0 s) | 是此固定族的pointwise性质，未形式化Book inductive-cover HIT或否定其紧致性定理；不由数学稠密性推出物理事实。 |
+| C-341 | 对所有有理0<a<b<1，存在给定数据i:Inner，使∀x:R，ClosedBetween a b x→CoveredBy i x；ClosedBetween按下cut包含定义a≤x≤b。给出的i端点是mid 0 a和mid b 1，另有[1/4,3/4]实例。 | `FORMAL_CHECKED_WITH_SCOPE / STRICT_INNER_TARGET_POSITIVE_CONTROL` | `innerChoice/innerClosedSingle/closedExample`；同run | 正控制改变目标为固定严格内缩闭区间，不是原整个OpenUnit任务的完成，也不证明任意族的compactness。 |
