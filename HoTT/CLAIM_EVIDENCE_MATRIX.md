@@ -1473,3 +1473,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-332 | 同C331的精确族/路径，act(α∙β)a≡act(β∙α)a→⊥，且(α∙β)≡(β∙α)→⊥。 | `FORMAL_CHECKED_WITH_SCOPE` | `c≢b/outputsDifferent/pathsDifferent`；同run | 只否定这两个相等命题；不称HoTT规则矛盾或所有回路均不可交换。 |
 | C-333 | 对同一State，任意p,q:base≡base和x:Mark，act(sym p)(act p x)≡x；并有act(sym q∙sym p)(act(p∙q)x)≡x。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_FAMILY_INVERSE_CONTROL` | `restore/restoreTwo/restoreComposite`；同run | 使用实际路径的逆且次序反转；不把交换原操作当逆操作，不证明物理可逆性或历史圆环复原。 |
 | C-334 | 对任意p:base≡base和x:Mark，常值族λ(_:Space)→Mark中的subst沿p保持x。 | `FORMAL_CHECKED_WITH_SCOPE / CONSTANT_FAMILY_CONTROL` | `constantControl`；同run | 常值族改变了依赖结构，只作敏感性对照，不替C331原族的观察。 |
+
+## MO3有理区间的有限原索引交付与一般索引边界（2026-09-24）
+
+本包R是固定CutRealLayer.DedekindReals ℓ-zero；InUnit按Book下截集包含式定义0≤x≤1。Cover F xs要求每个这样的实际cut点merely落在xs中某个原索引的开区间。Book的紧致性定理本身不由本包重新证明；输入mere有限子覆盖与仅有任意逐点覆盖分别保留。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-MO3-FINITE-COVER-001` | `C-335–C-339` | `formal/mo3/finite-cover/GenericFiniteCover.agda`及manifest中全部本地传递依赖 | `verification/runs/20260924-MO3-FINITE-COVER-001-08/`；Agda2.8.0/Cubical0.9，safe/cubical/guardedness/two-level，exit0；保留索引匹配计算警告、失败与错误证书控制 | `FORMAL_CHECKED_WITH_SCOPE / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-335 | ∀F:ℕ→ℚ×ℚ及xs:List ℕ，严格重叠Cert F xs→Cover F xs；反向Cover F xs→∥Σys:List ℕ,Cert F ys∥。Cert含首左端<0、相邻严格重叠、末右端>1。反向可重排/另选链，不声称同一xs本身满足链顺序。 | `FORMAL_CHECKED_WITH_SCOPE` | `IntervalCover.chainSound`、`FiniteSubcover.finiteCoverToChain`；实际rationalCut与buildChain；同run | 覆盖全部给定cut区间点，非有限采样；不由此证明任意逐点覆盖具有有限子覆盖。 |
+| C-336 | ∀F:ℕ→Interval，∥Σxs:List ℕ,Cover F xs∥→Σxs:List ℕ,Cover F xs；并经双向membership映射得到同一GenericCover合同在I=ℕ处的natSelector。 | `FORMAL_CHECKED_WITH_SCOPE` | `extractFiniteSubcover/toGenericCover/toNatCover/natSelector`；同run | 依赖实际mere有限子覆盖输入及给定Nat索引函数；不恢复某个隐藏的原选表，不从仅有点覆盖无条件取得紧致性。 |
+| C-337 | overlapping族0↦(-1,3/4)、1↦(1/4,2)、其余↦(2,2)的给定mere有限覆盖输入，natSelector输出原列表[0,1]（Path等式；较早直接构造输入另有refl计算）。touching族0↦(-1,1/2)、1↦(1/2,2)、其余↦(2,2)在实际rationalCut(1/2)处无索引覆盖，故∀xs，Cover touching xs→⊥。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_AND_GAP_CONTROLS` | `selectedIndices/fromMereChainIndices/extractedOriginalIndices/natSelectorIndices/halfInUnit/touchingMissesHalf/touchingNoFiniteCover`；同run | touching不满足覆盖输入，是错误实例；不由软件有限未命中推出无界失败或物理完成结论。 |
+| C-338 | 每个有限Nat列表xs在某有限n的words n(upto n)中出现；若候选集中有Cert，则inspect成功；由mere成功stage可取得唯一最小stage并提取真实列表和Cert。 | `FORMAL_CHECKED_WITH_SCOPE / DECLARED_LIST_GENERATOR_COVERAGE` | `generatorComplete/inspectComplete/certificateStage/leastStage/fromMereChain`；同run | 完备性仅本有限列表生成器，不是全HoTT搜索完备；保留UnsupportedIndexedMatch限制，不称任意transported证明都会定义性归约。 |
+| C-339 | 不存在UniformSelector=(I:Type₀)(F:I→Interval)→∥Σxs:List I,GenericCover I F xs∥→Σxs:List I,GenericCover I F xs。归约用恒定(-1,2)区间族、真实非空unit interval及既有univalent无统一无标签选点证明。 | `FORMAL_CHECKED_WITH_SCOPE / UNIFORM_INDEX_INTERFACE_BOUNDARY` | `singleCover/mereConstantCover/coverHead/choiceFromSelector/noUniformSelector`；同run中的NoCanonicalPoint精确依赖 | 不否定每个固定I有某个选择或额外枚举/标签下的算法；不声称Book承诺此强接口，不构成HoTT矛盾或现实相对失配。 |
