@@ -1500,3 +1500,14 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-340 | 固定R=DedekindReals ℓ-zero，Inner=Σl,r:ℚ,(0<l)×(l<r)×(r<1)，OpenUnit x=Lower x 0×Upper x 1。∀x，OpenUnit x→∥Σi:Inner,CoveredBy i x∥；但∀xs:List Inner，FiniteCoversOpen xs→⊥，其中有限覆盖保留原Inner成员与同一pointwise目标。 | `FORMAL_CHECKED_WITH_SCOPE` | `pointwiseInnerCover/smallBound/lookupBound/noFiniteInnerCover`；同run，漏点为实际rationalCut(mid 0 s) | 是此固定族的pointwise性质，未形式化Book inductive-cover HIT或否定其紧致性定理；不由数学稠密性推出物理事实。 |
 | C-341 | 对所有有理0<a<b<1，存在给定数据i:Inner，使∀x:R，ClosedBetween a b x→CoveredBy i x；ClosedBetween按下cut包含定义a≤x≤b。给出的i端点是mid 0 a和mid b 1，另有[1/4,3/4]实例。 | `FORMAL_CHECKED_WITH_SCOPE / STRICT_INNER_TARGET_POSITIVE_CONTROL` | `innerChoice/innerClosedSingle/closedExample`；同run | 正控制改变目标为固定严格内缩闭区间，不是原整个OpenUnit任务的完成，也不证明任意族的compactness。 |
+
+## MO3-C的Bool函数编码积与依赖计算接口（2026-09-24）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-MO3-COVERAGE-ENCODED-PAIR-001` | `C-342–C-343` | `formal/mo3-coverage/encoded-pair/EncodedPair.agda`；本地Bool/Nat/Id，显式ext/ext-id参数 | `verification/runs/20260924-MO3-COVERAGE-ENCODED-PAIR-001-02/`；Agda2.8.0-3d04bac，safe/without-K/exact-split，exit0；NEG02拒绝裸refl为运行控制 | `FORMAL_CHECKED_WITH_SCOPE / LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-342 | 固定本地Bool/Nat/Id及Encoded=Bool→Nat；给定对Bool索引Set族的dependent ext与恒等律ext(λx.refl)=refl，对所有C:Encoded→Set、d:Πa,b:Nat.C(pair a b)、a,b:Nat，指定encoded-elim C d(pair a b)=d a b。η-canonical与delivered-zero为同假设下的中间/实例结果。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_HYPOTHESES` | `WithExt.η-canonical/encoded-β/delivered-zero`；primary02 | 是原生intensional Id片段的条件命题，不证明假设有模型、不证明整个Book/Cubical翻译、不含UA或HIT；不把命题β提升为判断β，也不推出程序不终止。 |
+| C-343 | 对本地PrimitivePair及任意C:PrimitivePair→Set、d:Πa,b.C(pack a b)，primitive-elim C d(pack a b)=d a b由refl成立；且∀a,b:Nat，left(pair a b)=a由refl成立。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_CONTROLS` | `primitive-β/projection-β`；primary02，不依赖WithExt参数 | 控制只说明这些具体定义的计算行为。直接投影可以完成取左分量任务，因此NEG02不是该任务不可完成的证明；未证明任何现实相对HoTT失配。 |
