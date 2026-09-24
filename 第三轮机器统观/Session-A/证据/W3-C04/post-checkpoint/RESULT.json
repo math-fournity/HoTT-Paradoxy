@@ -1,0 +1,29 @@
+{
+  "after_image_drift": [],
+  "canonical_receipt": ".codex/cognition/checkpoints/S-RES-20260924-MO3-A-C04/result.json",
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit": 0,
+      "name": "three-way"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0,
+      "name": "shards"
+    }
+  ],
+  "query_first_promoted": [],
+  "review_required": [],
+  "revision": 275,
+  "status": "CHECKPOINT_COMMITTED",
+  "tracked_paths": 33
+}
