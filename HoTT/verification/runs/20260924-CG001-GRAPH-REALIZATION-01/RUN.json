@@ -1,0 +1,60 @@
+{
+  "claim_ids": [
+    "CG001-C-19",
+    "CG001-C-20"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/graph-realization",
+    "HoTT/formal/claude-cg001/graph-realization/GraphRealization.agda"
+  ],
+  "completed_at_utc": "2026-09-25T03:12:44.160927+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 9.905758,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "no physical claim; state/step/height are bridge labels",
+    "not HoTT inconsistency; the graph itself (V with relation E, unrealized) carries varying readings",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only); not original mathematics"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-GRAPH-REALIZATION-001",
+  "run_id": "20260924-CG001-GRAPH-REALIZATION-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-19..C-20 exactly as stated in CLAIM.md (for any V, E and set P, Iso between maps out of the graph realization HIT into P and edge-invariant maps V -> P; irreflexive relations and diagonal-vanishing set-valued two-point functions cannot separate adjacent vertices after realization; four-place ring instance: distinct states and a height profile changing along a step before realization, no reading of the realized ring restricting to it, edge-invariant readings constant). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2703,
+    "path": "source-manifest.json",
+    "sha256": "738e5b217b35118a3ee2c596b043865ddc329fa4f6db1fd432b7bdc6d830f576"
+  },
+  "started_at_utc": "2026-09-25T03:12:34.255169+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 5738,
+    "path": "stdout.txt",
+    "sha256": "3b00e856010ae4f00d85f1623987496661e9d2b5e590d250fddee2a0f85a78e3"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

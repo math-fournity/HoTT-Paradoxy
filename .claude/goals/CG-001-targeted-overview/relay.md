@@ -15,6 +15,14 @@
 | `MP-CG001-MEASUREMENT-LOG-001` | `CG001-C-08` | `formal/claude-cg001/measurement-log/MeasurementLog.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-MEASUREMENT-LOG-02/`；exit 0，stderr 0 B；目标内精确重放一致。`…-01` 作废（目标内校验器附加标记命中注释，见 `verification/20260924-CG001-MEASUREMENT-LOG-01.NOTE.md`），不应登记 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
 | `MP-CG001-LEVEL-COMPARISON-001` | `CG001-C-09` | `formal/claude-cg001/level-comparison/LevelComparison.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-LEVEL-COMPARISON-01/`；exit 0，stderr 0 B；目标内精确重放一致 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
 | `MP-CG001-A1-EXPRESSIONS-001` | `CG001-C-10`–`CG001-C-14` | `formal/claude-cg001/a1-expressions/A1Expressions.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-A1-EXPRESSIONS-01/`；exit 0，stderr 0 B；目标内精确重放一致（CG-001 关闭后的延伸，commit `31c49f7b`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
+| `MP-CG001-MOTION-ORDER-SPLIT-001` | `CG001-C-15`–`CG001-C-18` | `formal/claude-cg001/motion-order-split/MotionOrderSplit.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-MOTION-ORDER-SPLIT-01/`；exit 0，stderr 0 B；目标内精确重放一致（会话 6fd0312a） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
+| `MP-CG001-MOTION-ORDER-SPLIT-NEG-001` | `CG001-C-18`（负控制） | `formal/claude-cg001/motion-order-split/WrongGlobalState.agda` | `verification/runs/20260924-CG001-MOTION-ORDER-SPLIT-NEG-01/`；exit 42，`1 != 0` | `KERNEL_REJECTED_AS_EXPECTED` |
+| `MP-CG001-GRAPH-REALIZATION-001` | `CG001-C-19`–`CG001-C-20` | `formal/claude-cg001/graph-realization/GraphRealization.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-GRAPH-REALIZATION-01/`；exit 0，stderr 0 B；目标内精确重放一致 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
+| `MP-CG001-GRAPH-REALIZATION-NEG-001` | `CG001-C-19`、`CG001-C-20`（负控制） | `formal/claude-cg001/graph-realization/WrongRealizedHeight.agda` | `verification/runs/20260924-CG001-GRAPH-REALIZATION-NEG-01/`；exit 42，边界不一致 | `KERNEL_REJECTED_AS_EXPECTED` |
+| `MP-CG001-CIRCLE-TWO-FACES-001` | `CG001-C-21`–`CG001-C-22` | `formal/claude-cg001/circle-two-faces/CircleTwoFaces.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-CIRCLE-TWO-FACES-01/`；exit 0，stderr 0 B；目标内精确重放一致 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
+| `MP-CG001-CIRCLE-TWO-FACES-NEG-001` | `CG001-C-22`（负控制） | `formal/claude-cg001/circle-two-faces/WrongTrivialLoop.agda` | `verification/runs/20260924-CG001-CIRCLE-TWO-FACES-NEG-01/`；exit 42，`loop i != base` | `KERNEL_REJECTED_AS_EXPECTED` |
+| `MP-CG001-TIME-DIRECTION-001` | `CG001-C-23`–`CG001-C-24` | `formal/claude-cg001/time-direction/TimeDirection.agda`（命题全文 `CLAIM.md`） | `verification/runs/20260924-CG001-TIME-DIRECTION-01/`；exit 0，stderr 0 B；目标内精确重放一致 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（待登记） |
+| `MP-CG001-TIME-DIRECTION-NEG-001` | `CG001-C-24`（负控制） | `formal/claude-cg001/time-direction/WrongDownStep.agda` | `verification/runs/20260924-CG001-TIME-DIRECTION-NEG-01/`；exit 42，`1 != 0` | `KERNEL_REJECTED_AS_EXPECTED` |
 
 各 claim 的一句话与禁止外推见各包的 `CLAIM.md`（`HoTT/formal/claude-cg001/` 下的 motion-measurement、measurement-log、level-comparison）与本目录 `证据索引.md` §3。
 
@@ -25,6 +33,7 @@
 | A1 沿运动测量 | 方向追踪（新方向或挂在 DIR-U-A-REALITY-RELATIVE 下）；全景视野（新结果行） | 在“运动 = 恒等路径”这一 HoTT 读法下，任何取值于集合的仪表沿运动不变；现实中从冷镇到暖镇温度计会变。判词 QUALIFIED_HIT（有范围；条件于立场 S，见 R3-1；若采用 MO3-C B02 的窄读法则为 STRONG_CANDIDATE）。与 Astra C-251、C-264（去点）同一连通性事实，差量是新过程（沿运动测量）与一般定理 C-01(v)、依赖出路 C-06 | 工作台 §4.1；run `20260924-CG001-MOTION-MEASUREMENT-01` |
 | C1 实数的测量记录 | 全景视野（结果行，与 W10 同族的差量） | Book HIIT 实数：真实的有限测量记录在 HoTT 中可得（有限选择）；无穷记录需要 AC_ω（关键否定方向为猜想；书 L937 “may not be”）。判词 REFUTED（有限任务）/ BOUNDARY（无穷记录）。观察：HoTT 基础部分给潜无穷、不给实无穷，与用户的有限测量前提同向 | 工作台 §4.2；run `20260924-CG001-MEASUREMENT-LOG-02` |
 | I1 逐层一致推不出整体相同 | 全景视野（结果行） | 截断 Whitehead 与球面截面引理机器检查；有限 CW 复形只需有限层（AI 推导，猜想）；任意类型的 Whitehead 原则不可证（来源报告）是对非超完备模型的正确拒绝。判词 REFUTED（有限任务）/ BOUNDARY（无穷维理想比较） | 工作台 §4.3；run `20260924-CG001-LEVEL-COMPARISON-01` |
+| A1 归因深化（会话 6fd0312a） | 全景视野（A1 结果行的补充）；方向追踪（A1 归因） | 稠密性不在合成运动里（C-15–C-17）；实现的价格：困难恰好出在“相邻即相同”（C-19、C-20）；圆在 HoTT 中有两副面孔，用户圆环一半被认同咬住、一半被零大小的点咬住（C-21、C-22，结合 Astra C-283–C-324）；合成时间没有先后也没有方向，有向出路只买回了钟（C-23、C-24）。归因总表见 `.claude/思考与发现/CN-015`；入口 `.claude/总索引.md` | 各包 CLAIM.md 与 run；`证据索引.md` §6 |
 
 ## R3 需要用户或 integrator 决定的问题
 
@@ -33,3 +42,4 @@
 2. 是否把 `.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py`（复用规范校验器、只替换索引检查）的做法吸收进项目治理，或改为由 integrator 登记后用规范校验器重验。
 3. 目标内校验器比规范校验器多一条子串标记 `postulate`，会命中注释（run `20260924-CG001-MEASUREMENT-LOG-01` 因此作废）。若吸收这个校验器，建议改为只扫描非注释代码，或者保留现状、要求注释回避该词。本目标没有在失败后放宽它。
 4. I1 的有限 CW 版本（k ≥ max(dim A, dim B − 1) 的 k-连通映射是等价）目前是 AI 推导的猜想，只有填胞腔一步机器检查。是否值得用 `Cubical.CW.*` 整体形式化，由 integrator 或用户决定。
+6. **让非 Claude 的 AI 也能看见 Claude 的总索引**（会话 6fd0312a 提出）：建议 integrator 在 `AGENTS.md` 或 `README` 加一行指针，指向 `.claude/总索引.md`（Claude 全部工作、思考与发现的入口，含使用与维护规则）。Claude 未改这两个文件，因为它们由 integrator 维护并有他人未提交的改动。
