@@ -10,6 +10,16 @@ tree hashes, exact replay of command_argv), and replaces only the shared-matrix 
 check with a check against this goal's own index file.  Results are labelled
 GOAL_LOCAL_INDEX_ONLY and never claim INDEXED_IN_CLAIM_EVIDENCE_MATRIX.
 
+Rzk (sHoTT) runs, captured by capture_rzk_proof_run.py (2026-09-25), are checked
+the same way; for .rzk sources it also requires the #lang rzk-1 pragma and
+rejects postulate/assume markers.
+
+Lean 4 runs, captured by capture_lean_proof_run.py (2026-09-25, set-level model
+statements only), are checked the same way; for .lean sources it rejects sorry,
+admit, native_decide, axiom declarations, unsafe, implemented_by, extern, opaque
+and kernel-skipping options, fails on any sorryAx in the output, and reports the
+#print axioms lines of accepted runs.
+
 Usage:
   python3 .claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py \
       --run-dir HoTT/verification/runs/<run-id> [--rerun] [--expect-rejected]
@@ -92,7 +102,33 @@ def validate(run_relative: Path, rerun: bool, expect_rejected: bool) -> dict[str
             flags = cv.agda_options(text)
             if "--safe" not in flags or "--cubical" not in flags:
                 raise Err(f"AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:{relative}")
+        if relative.suffix == ".rzk":
+            # Rzk (sHoTT) sources, added 2026-09-25 with capture_rzk_proof_run.py
+            text = data.decode("utf-8")
+            if not text.startswith("#lang rzk-1"):
+                raise Err(f"RZK_LANG_PRAGMA_REQUIRED:{relative}")
+            for marker in ("#postulate", "#assume", "uses (", "--allow-holes"):
+                if marker in text:
+                    raise Err(f"RZK_FORBIDDEN_MARKER:{relative}:{marker}")
+        if relative.suffix == ".lean":
+            # Lean 4 sources, added 2026-09-25 with capture_lean_proof_run.py
+            text = data.decode("utf-8")
+            for word in ("sorry", "admit", "native_decide", "unsafe", "implemented_by", "extern", "opaque"):
+                if re.search(rf"\b{word}\b", text):
+                    raise Err(f"LEAN_FORBIDDEN_MARKER:{relative}:{word}")
+            for pattern in (r"^\s*(private\s+|protected\s+)?axiom\b", r"debug\.skipKernelTC", r"ofReduceBool", r"reduceBool"):
+                if re.search(pattern, text, flags=re.MULTILINE):
+                    raise Err(f"LEAN_FORBIDDEN_MARKER:{relative}:{pattern}")
         source_paths.append(relative.as_posix())
+    axiom_report = None
+    if run.get("proof_assistant") == "Lean 4":
+        out_text = stdout_path.read_bytes().decode("utf-8", errors="replace")
+        if "sorryAx" in out_text:
+            raise Err("LEAN_SORRY_AXIOM_IN_OUTPUT")
+        axiom_report = {
+            "axiom_free_theorems": out_text.count("does not depend on any axioms"),
+            "theorems_with_axioms": [line for line in out_text.splitlines() if "depends on axioms" in line],
+        }
     external = [cv.check_external_dependency(row) for row in manifest.get("external_dependencies", [])]
 
     index_text = GOAL_INDEX.read_text(encoding="utf-8")
@@ -128,6 +164,7 @@ def validate(run_relative: Path, rerun: bool, expect_rejected: bool) -> dict[str
         "shared_matrix_index": "NOT_INDEXED_RELAY_DRAFT_ONLY",
         "replay": replay,
         "git_status": run.get("git_status"),
+        **({"lean_axiom_report": axiom_report} if axiom_report is not None else {}),
     }
 
 
