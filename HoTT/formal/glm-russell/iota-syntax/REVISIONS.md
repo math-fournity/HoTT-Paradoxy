@@ -27,3 +27,11 @@
 3. **核心困难定位**：HIT 边界检查要求子句面的**定义性**匹配；一切通过 `subst`/`compPath-unique` 传递的构造在 i=0 面上留下不归约的传输项。真正需要的是一次性给出左边缘定义性等于 elaborated `refl ∙ (p∙r)` 的三立方（或改写子句消除前缀——被覆盖子句的边界一致性阻断）。
 4. **候选工具余量**（供后继会话）：`compPathP`（Prelude 226，异质 PathP 组合子，签名已见首行未展开）；`compPath-unique` 的直接 hfill 内联改写；Raw-树商路线（评审的备选，其 r∘q/id 方向亦有坑，见本会话分析）。
 5. **处置**：C01 保持开放；本会话上下文不足以完成三立方工程，建议在 fresh 会话（全上下文预算）中专门执行，或先做 M1（评审 Q6 的第二项，不依赖 C01）。源文件未动（仍为收据哈希版本）。
+
+## 2026-09-26（再续）：C01 第三次尝试落地（同会话，用户指示继续）
+
+**结果：`RealisticIotaSyntaxSet.agda` 编译通过，`realisticIotaSyntaxIsASet : isSet Tm` 机器证明成立**（GLM-R1-C01 升级为 `KERNEL_ACCEPTED_WITH_SCOPE`，运行 `20260926-GLM-IOTA-SYNTAX-02`，exit 0，19.3s，stderr 0 B，proof id `MP-GLM-RUSSELL-IOTA-002`）。
+
+**第三次尝试的构造（供后继引用）**：前两次失败的根因——`_∙_` 的定义自带隐藏 `refl` 前缀（`p ∙ q := refl ∙∙ p ∙∙ q`），cond 子句再用 `_∙_` 造成双重前缀，`refl ∙ X` 在 hcomp 角落不归约。修正：cond 子句改用**显式三段复合** `_∙∙_`——`cong (λ x → cond x v w) (q u) ∙∙ unlift (val u) v w ∙∙ liftq (val u) v w`，其中 `unlift true v w = betaT v w`、`liftq true v w = q v`。字面量头时 cong 前缀定义性归约为 `refl`（`cong f refl ≡ refl`，已机器实验证实），于是子句值定义性地等于 `refl ∙∙ betaT t s ∙∙ q t`——恰是 `betaT t s ∙ q t`（`_∙_` 的展开式），即已证 `squareLeft` 的左边缘。路径构造子子句直接 `squareLeft (betaT t s) (q t)`，收尾 `isSetRetract val lit (λ t → sym (q t)) isSetBool`。**不需要 lUnit 粘贴，不需要三立方**——评审 Q3 的"差一步粘贴"判断在此意义上正确：差的那一步是改复合的呈现方式，不是构造新方块。
+
+**范围与移交**：C01 仅覆盖本一阶 ι 片段（完整 β 需替换装置，未触碰）。**对 C-67(a) 读法的含义**（评审 Q4.1 预登记）：本片段内"真实等式语法是集合"已机器成立，故 C-67(a) 的 `syntax∞IsNotASet` 之非集合性在本片段对应物上完全来自 swap 式注入。是否据此修订 Opus 的 C-67(a) 表述，须经用户转 Opus 走其 REVISIONS 流程（rulings 34：GLM 不写 `.claude/`）。
