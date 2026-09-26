@@ -31,3 +31,15 @@
 ## 备份
 
 迁移前的完整历史（含原始 blob）保存在本地裸仓库 **`/Volumes/D/HoTT-pre-lfs-backup-20260926`**（349MB，未推送）。该备份是本次改写的回退点与原始 blob 的独立副本；其保存与最终处置由用户决定。
+
+## 备份覆盖范围（2026-09-26 全量推送后）
+
+**GitHub（`math-fournity/HoTT-Paradoxy`，private）已有**：全部 5 个分支（`main`、`codex/astra-proof-wiring-snapshot-20260919`、`codex/astra-restoration-snapshot-20260919`、`codex/semantic-overview`、`feat/machine-overview-m1`）、全部 9 个 governance tag、LFS 对象（`archive/objects.pack`，217MB）——即本 repo 的**全部常规 git refs 与可达对象**。
+
+**仅本地、不推送**（按设计）：
+
+1. **19 个 `refs/codex/turn-diffs/checkpoints/*` 检查点 ref**：指向改写前历史，其中含原始 206.9MB 常规 blob（GitHub 硬拒绝）；重写它们会摧毁"指向改写前哈希"的留证身份。已复制进本地裸备份（19/19），持久性不依赖工作仓库。
+2. **治理排除目录**（按 AGENTS/裁定永不入 Git）：`private-audit/`（原始 model-io 与凭据类）、`AI对话录/` 与 `workspace/`（各自有独立 git 历史的嵌套历史 repo）、`Atria的工作目录/.evidence/`。如需异地备份，须走独立渠道（非本 repo 的 Git）。
+3. **可再生构建产物**：`*.agdai`、`__pycache__/`、`.DS_Store`（.gitignore 排除，按设计）。
+
+结论：GitHub 持有本 repo git 宇宙的完整镜像；改写前历史由本地裸备份 + 检查点 ref 双份持有；敏感与嵌套历史按治理边界留在本地。
