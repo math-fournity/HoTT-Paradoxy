@@ -1,0 +1,57 @@
+{
+ "schema_version": "formal-proof-run/v1",
+ "run_id": "20260926-GLM-ASCENT-STALL-01",
+ "proof_id": "MP-GLM-RUSSELL-STALL-001",
+ "claim_ids": [
+  "GLM-R2-C01",
+  "GLM-R2-C02"
+ ],
+ "command_argv": [
+  "/usr/bin/env",
+  "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+  "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+  "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+  "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+  "--ignore-interfaces",
+  "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+  "-l",
+  "cubical-0.9",
+  "-i",
+  "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/glm-russell/universe-ascent-stall",
+  "HoTT/formal/glm-russell/universe-ascent-stall/AscentStallAtSets.agda"
+ ],
+ "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+ "duration_seconds": 10.604,
+ "exit_code": 0,
+ "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+ "proof_assistant": "Cubical Agda",
+ "proof_assistant_version": "Agda version 2.8.0-3d04bac",
+ "scope": "M1 batch 1: for every SET member X of any universe, its loop space is a set (C01) and its double loop space is contractible (C02) - the local-global ascent engine stalls at set members; HIT-free (imports: Prelude, Equiv, Univalence, HLevels only).",
+ "non_goals": [
+  "Does not prove the universe is a 1-type without HITs (needs forall-X isSet, unprovable)",
+  "Does not prove nonexistence of HIT-free non-sets in Type0",
+  "First-level HIT-free non-settling is C-63 (Opus, uip-escape) - not duplicated here"
+ ],
+ "git_status": "LOCAL_UNCOMMITTED_AT_RUN_TIME",
+ "index_status": "GOAL_LOCAL_INDEX_ONLY (ruling 34)",
+ "environment": {
+  "bytes": 309,
+  "path": "environment.txt",
+  "sha256": "a2de178371e31fa32eaebf1da6fafea1f19e77a7706bd3bed3a00a3c3f9da067"
+ },
+ "stderr": {
+  "bytes": 0,
+  "path": "stderr.txt",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ "stdout": {
+  "bytes": 5670,
+  "path": "stdout.txt",
+  "sha256": "b507ac46129f578e74e0aa96155740fbd9ac438c3071c145f97b0ffbf6e32f29"
+ },
+ "source_manifest": {
+  "bytes": 611,
+  "path": "source-manifest.json",
+  "sha256": "3f56a6f3236ce1b0d8d9e3716dea0eb9c9588f8003339bc2fe16cd71dddaa304"
+ }
+}
