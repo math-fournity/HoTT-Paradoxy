@@ -2,6 +2,32 @@
 
 本文件是 `/Volumes/D/HoTT_AI_HANDOFF_20260911` 顶层新 repo 的项目级治理入口。它补充全局 `~/.codex/AGENTS.md`，不替代全局规则；若两者冲突，遵循更具体且不扩大授权的项目事实。项目目标是把 LocalGPT、WebGPT、Gemini 的历史工作、用户原始问题、理解章节和可验证产物组织成可持续的 HoTT 悖论/现实相对研究工作区。
 
+## Goal任务治理化、全Session认知与角色恢复
+
+标识：`GOAL_TASK_LOCAL_GOVERNANCE_V1` / `HIGHEST_DIRECTIVE_ROLE_LOADING_V1`。全局`repo-cognitive-closure`
+仍是第一语义动作；本项目所有Session，包括T0/T1治理和机械任务，随后必须完整读取
+`.codex/skills/hott-local-session-governance/SKILL.md`、`.codex/cognition/TASK_ROUTING.md`与单体`最高指示.md`。
+先确认当前用户/实际Goal及角色，再使用材料；读取最高指示不自动启动数学研究。
+
+- 最高指示在首次进入、跨Session、压缩恢复、角色切换或正文版本改变时无条件全文重读；研究/理论审计
+  每换语义单元或主要靶前提也重读，不受通用receipt豁免。普通后续turn核角色与freshness，触发失效才重建；
+  不把每条shell命令当新理论单元。角色为研究生成、独立审计、来源解释、治理对齐、机械背景，动作按最高指示§0A。
+- 第三轮原A/B任务使用Goal6/Goal6-audit及Goal5领域细则；用户新开续做C/D时，完整读既有
+  `hott-machine-overview-execution`/`hott-machine-overview-audit` Skill的Goal7分支和单体
+  `goal-7.md`/`goal-7-audit.md`。Goal7承担父范围充分性修复与同一第三轮的接续，不是第四轮。
+  旧final-002和旧完成状态是历史输入；C必须先论证父范围到研究集合的充分性，再完成研究，不能只结案自选集。
+- `.codex`是本项目canonical Skill树。宿主未显示Skill菜单时仍按以上路径读取；隐式匹配、metadata、索引、
+  hash和旧“已加载”不能替代全文。角色路由只选择方法，不授予Goal创建、模型运行、Sub Agent或写权限。
+- 跨Session/压缩后，在业务判断之前重新完整读取本角色Skill和单体闭包、最高指示，并按PROTOCOL恢复当前
+  状态/原文/证据。公开说明角色/Goal、已读版本/EOF、原意与成功标准、未完成项及下一动作；不索取隐藏推理。
+- A/B/C/D均只在用户明确启动/继续后执行；方案、最大编号、旧日志或Skill存在不使研究自动复活。
+  C/D的新包准备不创建宿主任务或改研究STATE。B/D只读研究/current owners，写各自获准审计路径，
+  不checkpoint或提交Git；具体身份、路径和权限按TASK_ROUTING及对应Goal，不跨角色继承。
+
+任务适用性评估、全局泛化与验收见`dev-docs/Goal任务项目治理化与全局复用方案-20260923.md`；当前路由由
+`TASK_ROUTING.md`拥有，实际研究状态仍由STATE拥有。上述全Session附加义务优先于下表T0/T1加载豁免；
+四件套原有适用档位、固定顺序、source-first语义再对齐、证明门禁和checkpoint合同保持。
+
 ## 当前工作根与来源边界
 
 - 当前工作根必须是本目录的顶层 Git repo。开始前确认 `git rev-parse --show-toplevel` 等于本目录；`AI对话录/` 和 `workspace/` 是磁盘上保留的嵌套历史 repo，已由顶层 `.gitignore` 排除，不是当前工作根。
@@ -151,3 +177,16 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 领域附加条款（不随档位豁免）：HoTT 悖论研究每轮推进一个可检查构造/未知点，并在父级覆盖包络记录 cell、遗漏与 successor；方案执行走 `hott-paradox-search-sop`（七段循环 + 反思清单；方案优化必须 git 提交 `plan-revise(...)`，步骤提交携带反思结论，不提交不得继续下一步；当前步骤由 `goal-1.md` 索引、权威是 STATE）；历史审计/交接不自动启动新数学研究；修改本地治理框架须先重建 closure、按全局自维护 Gate 识别 C01–C10、验证并提交，不误改 dirty 的共享治理主库；来源快照与环境冲突时保留双方、记录 conflict/unknown，不得用新名/new hash 掩盖。压缩/跨会话重付按 `PROTOCOL` 收据制复认执行（全文重付仅在三触发器：core hash 变/升档/用户指令）。
 
 本项目的成功标准不是文件数量，而是未来 AI 能在有限误判风险下知道“用户要什么、过去各 AI 实际做了什么、哪些产物可复现、哪些结论未证实、当前应从哪里继续，以及本轮是否沿着全部核心认知航向工作”。
+
+## 积极思考
+
+你的回复风格，有时候缺乏一种主动性。就是让我看不到足够充分的你的工作的价值，和后续的有价值的工作是什么？
+
+其实有些事情你可以自己想出来，怎样继续做，就会让跟奇妙的事情被看到或者说发生。
+
+所以我认为你应该对自己即将给用户汇报的工作结果进行更为积极和全面的思考，并且你的回复不应该是过于干脆俐落的，而是应该让内容更为饱满和平滑的。
+
+## 简体中文优先
+
+尽量使用简体中文回答用户的问题，但是必要的术语、词汇是可以使用英文的。
+

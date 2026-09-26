@@ -1,10 +1,10 @@
 ---
 name: hott-local-session-governance
-description: 顶层 HoTT 交接 repo 的治理差异层。用于新 Session、压缩恢复、交接、治理维护与审计：补充 BLOCKED_FULL_SET_COGNITION 停止协议、分片 KC 审计集格式及三类历史 AI 覆盖分母。完整启动、档位、写入与 checkpoint 规则由根 AGENTS、LOAD_SET 和 PROTOCOL 唯一拥有。
+description: HoTT项目各档共用的认知与任务角色治理。新Session、跨Session、压缩恢复、角色切换以及治理/机械任务均先用它加载最高指示并确定消费角色；另负责BLOCKED、KC审计和来源边界。第三轮执行/审计路由到专用Skill，不自动启动研究。
 metadata:
-  version: "4.1.0"
+  version: "4.3.0"
   role: "governance"
-  protocol_version: "handoff-cognition/v3.1"
+  protocol_version: "handoff-cognition/v3.2"
   business_skill: "hott-paradox-research"
   core_cognition: "核心认知.md"
 ---
@@ -15,6 +15,27 @@ metadata:
 `.codex/cognition/LOAD_SET.json`、`.codex/cognition/PROTOCOL.md` 与角色表；纯治理不因此自动开始数学研究。
 目录名 `.codex` 是历史路径，不限定宿主。能够读取 repo 文件并执行 `python3` 的宿主共享同一真值树、
 runtime 和中立收据；宿主差异只写入 session 的 `host/model/tier/load_receipt` 元数据。
+
+## 全Session输入、任务选择与恢复
+
+先完整执行全局repo-cognitive-closure，再读root AGENTS和`TASK_ROUTING.md`。所有项目Session均全文读
+单体`最高指示.md`；按当前用户/实际Goal选RESEARCH_GENERATION、INDEPENDENT_AUDIT、SOURCE_EXPLANATION、GOVERNANCE_ALIGNMENT
+或MECHANICAL_CONTEXT，并回答其§0A对应理解题。角色只改变消费/行动，不改变读取范围或扩大权限。
+
+匹配原第三轮A/B时分别读执行/审计Skill与Goal6/Goal6-audit及其领域细则；匹配续做C/D时复用同两Skill的
+Goal7分支，完整读root`goal-7.md`/`goal-7-audit.md`。C补父范围充分性与研究义务，D审C固定新交付；
+旧A closed/旧seal不授予新完成资格。路径按repo根及`.codex/skills/`解析；即使host未显示Skill也实际读取。
+按实际用户/Goal/角色选择，不能因编号最新切换。新包只准备时，不注册C研究状态、不启动任务。
+
+新Session、跨Session、压缩、角色/版本变化后，先重新全文读共同入口、当前角色Skill、单体闭包和最高指示，
+然后回当前owner/证据恢复阶段、未证项、已失败动作和下一步。研究每换理论单元/主要靶前提另全文重读最高指示；
+普通后续turn做有效性检查，不每条命令重复。四件套按原档位和source-first触发，不能以本入口替代它们。
+
+公开恢复说明含任务/角色/实际读取版本与EOF、原意/验收、未完项和下一动作；不输出隐藏推理。缺件/截断先补，
+源冲突停相关决定；旧Goal、最大编号或近期日志不能获得活动资格。Task路由只管入口，STATE仍管研究current事实。
+
+本Skill被T0/T1调用也不自动触发数学研究或T3写回。B的自身审计记录可以在明确获准路径保存，但不能推进
+STATE/投影、修A成果或Git提交。用户仅让准备A/B材料时不创建/启动任何其他AI。
 
 ## BLOCKED_FULL_SET_COGNITION
 

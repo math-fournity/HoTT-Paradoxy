@@ -10,10 +10,14 @@
 | `../AGENTS.md`（repo 根） | 宪法与分档路由（T0–T3）——更高层入口 |
 | `cognition/PROTOCOL.md` | 执行合同（会话生命周期步骤、档位深度、invariant 章、审计与 checkpoint 规则） |
 | `cognition/LOAD_SET.json` | 机读加载清单（层归属 + v5 tier 扩展键） |
-| `skills/SKILL_ROLES.json` | 三角色名册（governance/business/execution） |
+| `skills/SKILL_ROLES.json` | 共同/业务/legacy执行及机器统观执行/审计角色；A/B与续做C/D按TASK_ROUTING选择 |
+| `cognition/TASK_ROUTING.md` | 项目任务与最高指示角色、Goal6原任务/Goal7续做闭包及恢复入口，不拥有进度 |
 | `skills/hott-local-session-governance/SKILL.md` | 治理 SOP 差异层（BLOCKED 协议、审计集格式、历史覆盖分母） |
 | `skills/hott-paradox-research/SKILL.md` | 业务研究方法论 |
-| `skills/hott-paradox-search-sop/SKILL.md` | 方案执行 SOP（goal-1.md 索引） |
+| `skills/hott-paradox-search-sop/SKILL.md` | 有界执行循环；legacy才绑定goal-1，当前任务按路由定位 |
+| `skills/hott-machine-overview-execution/SKILL.md` | 原A用Goal6/5；续做C用Goal7，先父范围充分性再研究结案 |
+| `skills/hott-machine-overview-audit/SKILL.md` | 原B用Goal6-audit；续做D用Goal7-audit，审不同固定交付 |
+| `../最高指示.md` | 全Session全文输入；研究、审计、治理、机械任务按§0A消费 |
 | `tools/cognition_runtime.py` | canonical 加载器/checkpoint 引擎（`plan`/`read`/`check`/`query`/`checkpoint`） |
 | `research/hott/STATE.json` | 机器真值账本（身份与分母从 `current_core` 动态取得） |
 | `research/hott/sessions/`、`cognition/checkpoints/` | 会话档案与事务收据（不自动常驻） |

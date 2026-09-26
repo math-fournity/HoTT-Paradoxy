@@ -1,6 +1,6 @@
 # 顶层综合 repo 认知与交接协议
 
-版本：`handoff-cognition/v3.1`（v5 分档 + 逐轮语义再对齐，2026-09-23；v3.0 及以前见 Git 历史）。本协议是本 repo 的当前执行合同；它参考并重写适配了 WebGPT 快照中的双 Skill 治理，但不把快照中的旧 root、旧 host 状态或旧 PASS 当成当前事实。**v3.1 变更**：保留v3分档、STATE、压缩收据和审计合同，并增加turn级source-first语义再对齐，防止Session已加载材料被近期报告或训练惯性替代。
+版本：`handoff-cognition/v3.2`（2026-09-23：Goal任务治理化与最高指示角色加载）。保留v3.1的分档、STATE、四件套顺序、逐轮source-first、压缩收据与审计；新增各档共用认知入口和A/B角色恢复。它不把来源快照或旧PASS当当前事实，也不认证未来模型行为。
 
 ## 1. 目标和边界
 
@@ -30,6 +30,22 @@
 6. 在进入实际研究/审计动作前完成三方交叉检查（T1 查 latest+active 一致性；T2/T3 全三方）：当前方向是否服务 core；每个方向是否有结果或明确 `NO_RESULT_YET`；每个结果是否有方向或有理由的 `UNMAPPED`；STATE/MEMORY/投影的 revision/hash 是否一致。不能以补写“最新版”覆盖冲突。
 7. 记录 load snapshot：profile/tier、每个文件的 layer/selection reason、SHA-256、bytes、lines、实际范围、Git HEAD 和 dirty。加载变化或截断时重启；四件套无法全文保有则 `BLOCKED_FULL_SET_COGNITION`，优先移出四件套之外的载荷而非裁剪 core。
 8. 形成本轮 closure statement：目标、范围、授权、档位与 hydration、当前完整 KC 范围、理论配置、证据缺口、四件套交叉结果、风险最高的误判和最小可验动作。
+
+### 2G. Goal治理化与角色强制输入
+
+本节对所有档位生效，T0/T1不豁免。完成全局closure前置、确认root后，全文读共同治理Skill、
+`TASK_ROUTING.md`及`最高指示.md`。按实际用户/Goal选择研究生成、独立审计、来源解释、治理对齐或机械背景，
+按最高指示§0A输出对应理解复核；非研究任务不得因读入数学材料自行开始研究。
+
+匹配A/B时完整读专用Skill及goal6单体闭包，并按其实际读取领域细则和底层证据。新Session、跨Session、
+压缩恢复、角色或这些正文版本变化后，先重新全文读这些入口再恢复行动；最高指示在理论单元/靶前提变化时
+另有逐次重读。原四件套压缩receipt规则继续适用，但不能豁免本节指定文件，也不能替代source-first触发。
+
+LOAD_SET把共同路由/最高指示列入boot，只证明加载器会列它们；具体Skill按角色实际读，不能把roles schema
+验证读取当模型已消费正文。模型须以当前论证、过程和source-backed复述支持消费，不以自动化强词自证理解。
+
+本项目只使用既有loader与STATE。`TASK_ROUTING.md`是人工维护的任务入口映射，不拥有进度或启动权限；
+本文、Skill和Goal的存在不授权创建新任务/子代理，也不改变审计者只读current owners的边界。
 
 ### 2A. 当前 turn 的核心语义消费 Gate
 

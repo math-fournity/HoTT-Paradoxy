@@ -2,11 +2,12 @@
 name: hott-paradox-search-sop
 description: 执行"用现实对齐寻找 HoTT 非现实前提"这条方案的 SOP。按步骤驱动 PREMISE-001 / GEN-001 链；每完成一个流程、以及每次穿越上下文压缩边界之后，系统调查前一个阶段或 Session 的工作是否应当调整和优化方案；每次方案优化必须立即 git 提交，使方案演化在 git log 中可追踪。
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
   role: "execution"
   language: "zh-CN"
   plan_index: "Atria的方案/修订片.md"
-  goal_file: "goal-1.md"
+  task_route: ".codex/cognition/TASK_ROUTING.md"
+  legacy_goal_file: "goal-1.md"
   state_index: ".codex/research/hott/STATE.json"
   governance_skill: "hott-local-session-governance"
   business_skill: "hott-paradox-research"
@@ -19,8 +20,9 @@ metadata:
 它不产生数学结论，也不替代业务研究 Skill；它规定**每一步怎么走、走完怎么反思、
 反思改了方案怎么留痕**。
 
-用户通过 `goal-1.md`（一个只含指引的索引文件）配合 `/goal` 驱动本 Skill；本 Skill
-也可以在用户授权下自设 goal 推进。
+先按`.codex/cognition/TASK_ROUTING.md`绑定当前任务。legacy PREMISE/GEN方案才使用`goal-1.md`及下节旧方案地图；
+第三轮使用`goal-6.md`的治理闭包、`goal-5.md`的领域SOP和专用执行Skill。本Skill的七段循环、反思与精确提交纪律
+可复用，不能把legacy队列带入新任务。只有用户明确授权Goal时才可创建；复杂度判断不自动授予此权限。
 
 ## 1. 何时触发本 Skill
 
@@ -35,7 +37,7 @@ metadata:
 触发本 Skill **之前**必须先完成本地治理 Skill 的启动闭包（四件套全文 + STATE）。
 本 Skill 不重复四件套加载，只消费其结果。
 
-## 2. 方案地图（只指路，不复制正文）
+## 2. legacy方案地图（只在当前任务确为PREMISE/GEN时使用）
 
 | 职责 | 位置 |
 |---|---|
@@ -49,7 +51,7 @@ metadata:
 | goal 索引 | `goal-1.md` |
 | 方案演化轨迹 | `git log --grep=plan-revise` |
 
-**权威顺序**：方案的当前真值是修订片正文 + STATE；`goal-1.md` 只是指针，冲突时以
+**legacy权威顺序**：方案的当前真值是修订片正文 + STATE；`goal-1.md` 只是指针，冲突时以
 修订片与 STATE 为准。四件套（核心认知/方向追踪/全景视野/扩展认知）是用户原文与
 投影权威，本 Skill 不改写它们。
 
@@ -60,8 +62,9 @@ metadata:
 **S-1 闭包恢复**：沿用治理 Skill，确认四件套已全文加载、STATE 已读、本 Skill 已加载。
 压缩后或跨 Session 接手时，按 §4 补齐。
 
-**S-2 定位当前步骤**：读 STATE 的 `active` 队首与 `next_minimal_verification`，
-对照 `goal-1.md` 的"当前步骤"。三者冲突时以 STATE 为准，并把 `goal-1.md` 指针同步过去。
+**S-2 定位当前步骤**：按当前任务绑定读STATE中对应active/next与任务owner，不把任意队首当本任务。
+legacy对照goal-1；第三轮对照goal6/goal5及本轮record。用户新授权与旧队列不一致时先依法注册/切换，
+不能让旧STATE取消新用户任务，也不能未登记就声称已写回。
 
 **S-3 执行该步骤**：按修订片 008 的字段规格产出（P1 逐字前提 + 出处；P2 结构分析：
 `reality_skeleton` / `divergence_point` / `evidence_level` / 至少一个 `OMISSION_SHAPE`）。
@@ -81,7 +84,7 @@ AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT，不得自证为结论）；生效复核�
 
 **S-6 收尾**：dev-notes 归档 + 按**修订片 020** 产出分片审计集（沿用治理 Skill §5，2026-09-17 起取代单文件逐 KC 回评）。审计集与本单元产出同一次提交或同一次 checkpoint 事务落盘。
 
-**S-7 推进步骤指针**：更新 STATE（经 checkpoint）与 `goal-1.md` 的"当前步骤"段。
+**S-7 推进步骤指针**：更新STATE（经checkpoint）和当前任务的进度owner；仅legacy才更新goal-1当前步骤。
 
 ## 4. 穿越压缩边界后的恢复
 
@@ -90,7 +93,7 @@ AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT，不得自证为结论）；生效复核�
 1. 读 STATE（`active` / `execution_control` / `latest_session`）；
 2. 读最近 1–2 条 dev-notes 条目（本 Session 的用户问题与最终回复）；
 3. 跑 `git log --grep=plan-revise` 与 `git log` 最近若干条，区分**方案修订**与**步骤产出**；
-4. 对照 `goal-1.md` 的"当前步骤"；
+4. 按TASK_ROUTING重读当前角色Skill/单体闭包并对照其步骤；仅legacy使用goal-1；最高指示按全Session/理论单元触发全文重读；
 5. 若最近一次步骤产出**没有**附带 `reflection:` 痕迹（无论 no-plan-change 还是 revised），
    则该步骤的 S-4 未完成，**先补反思再继续**。
 

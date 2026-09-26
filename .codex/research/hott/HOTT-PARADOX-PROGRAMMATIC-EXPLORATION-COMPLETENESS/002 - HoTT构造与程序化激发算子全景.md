@@ -91,5 +91,6 @@ index: ../HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md
 
 ## 七、组合覆盖策略
 
-首轮按 TC、OP、方向族逐轴 walking skeleton；第二轮覆盖有理论依赖的 TC×OP 和 OP×Consumer pair；第三轮只对出现信号或文献要求的三元/高阶组合深化。采用 covering array、依赖约束和 type-directed pruning；每次保留 unselected cells 与原因。强制纳入 OP-14 反解释，避免生成器只寻找支持用户假说的候选。
+逐轴薄路径与有理论依赖的pair保留为基础检查，同时从首遍设置结构驱动入口：共同取舍、联合前提、重要接口、参数族和整体任务可直接提出三元或更高阶问题，无需先有低层异常或文献命中。成员、成员组合和更大语义单元可递归重组，不设置固定交互阶数作为完备阈值。
 
+多输入联合不能仅拆成pairwise边，有序过程不能压成无序集合；共享背景即使没有调用边也可形成研究对象。选择必须有类型/来源/任务依据，混合不相容配置不得进入同一组合。covering array和type-directed pruning只支持其实际包络，未选项保留原因、可能影响及重开条件。每单元结果回到父问题，结构驱动与信号驱动均有实际选择记录。OP-14反解释保留在核证阶段，不用它抢先关闭候选生成。
