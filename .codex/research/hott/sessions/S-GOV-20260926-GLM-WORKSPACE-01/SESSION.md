@@ -15,6 +15,7 @@
 | 入口地图登记 | `README/001` 关键入口新增一条 | README = 资产地图 owner |
 | 会话记录 | 本文件 | T1 结束义务 |
 | Git 清账（用户本轮授权） | 17 个逻辑批次提交全部未提交变更（本地 commit，未 push/tag）；详见 GLM 工作日志任务④ | 用户"全部提交、分批提交"指令 |
+| GitHub 对接与推送（用户本轮授权） | origin=math-fournity/HoTT-Paradoxy、repo 级身份锁定、LFS 迁移（644 提交重写）+ 哈希桥、`--force-with-lease` 推送 main=94322935（LFS 217MB 上传，远端身份=math-fournity）；详见工作日志任务⑤ 与 audit/github-push-20260926/ | 用户指定远程/身份、登录凭据、选择路径 A |
 
 ## 未做与边界
 
