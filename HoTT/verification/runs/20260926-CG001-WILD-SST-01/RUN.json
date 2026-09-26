@@ -1,0 +1,58 @@
+{
+  "claim_ids": [
+    "CG001-C-64"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/wild-sst",
+    "HoTT/formal/claude-cg001/wild-sst/WildSST.agda"
+  ],
+  "completed_at_utc": "2026-09-26T07:50:14.803151+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 33.528975,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Not a proof that semi-simplicial types are undefinable in HoTT, and not an inconsistency.",
+    "One instance and one index choice; it shows the presheaf-style definition lacks coherence, not the full list of missing coherences."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-WILD-SST-001",
+  "run_id": "20260926-CG001-WILD-SST-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda: the presheaf-style record WildSST (simplices, face maps, semi-simplicial identities) with the hexagon condition Coh2; Coh2 holds whenever every X n is a set; the instance spin (X n = S1, identity faces, one identity rotLoop) satisfies all face identities but its two routes wind once and twice at base, so Coh2 fails.",
+  "source_manifest": {
+    "bytes": 2658,
+    "path": "source-manifest.json",
+    "sha256": "206dcfde9c579e61a868a7ea27228bbea1e839f897de369a050d7220a41011b4"
+  },
+  "started_at_utc": "2026-09-26T07:49:41.274176+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16540,
+    "path": "stdout.txt",
+    "sha256": "03c997d1d2ecc3e228da5ac5c3936cb726051c669bbb683272dac3b9212aa09f"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

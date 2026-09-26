@@ -1,0 +1,52 @@
+{
+  "claim_ids": [
+    "CG001-C-61"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
+    "--toolchain",
+    "HoTT/formal/claude-cg001/pedometer-ablation-lean/LEAN_TOOLCHAIN.json",
+    "HoTT/formal/claude-cg001/terra-models-uip-lean/TerraModelsUIP.lean",
+    "HoTT/formal/claude-cg001/terra-models-uip-lean/WrongSecondGrant.lean"
+  ],
+  "completed_at_utc": "2026-09-26T07:09:45.487381+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.823981,
+  "environment": {
+    "bytes": 697,
+    "path": "environment.txt",
+    "sha256": "f5150cd65b172840e971f9ae748af2edc92f963b7c4cba2f404c53a0f1a068e6"
+  },
+  "exit_code": 1,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "A rejection shows only that this claimed equation fails in the transcribed model."
+  ],
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-TERRA-MODELS-UIP-LEAN-NEG-001",
+  "run_id": "20260926-CG001-TERRA-MODELS-UIP-LEAN-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-61: claiming by rfl that the second redemption of the same code is granted must be rejected (the kernel computes denied).",
+  "source_manifest": {
+    "bytes": 3905,
+    "path": "source-manifest.json",
+    "sha256": "5f284706009ab7e9d0fbf9939fbff91f0493cbfc31b58b8cc3af39fee56af950"
+  },
+  "started_at_utc": "2026-09-26T07:09:44.663186+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 1367,
+    "path": "stdout.txt",
+    "sha256": "f092e257653dac27c1ddbb69e76c82893849b79da008e3e73da072bfb9b47445"
+  },
+  "theory_variant": "Lean 4 kernel; set-level model statements only"
+}
