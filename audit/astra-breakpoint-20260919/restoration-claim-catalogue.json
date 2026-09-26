@@ -1,0 +1,65 @@
+{
+  "schema": "astra-restoration-catalogue/v1",
+  "asset_role": "HUMAN_EDITED_EXACT_SPECIFICATIONS",
+  "packages": [
+    {
+      "proof_id": "MP-ASTRA-RESTORE-CRITERION-001",
+      "claim_ids": "C-261–C-262",
+      "source": "HoTT/formal/astra-breakpoint-check/PointRestoration.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-RESTORE-CRITERION-01",
+      "statements": [
+        [
+          "C-261",
+          "任意ℓ、C:Type ℓ与p:C。Puncture=Σx:C.¬(x≡p)，Completed=Puncture⊎Unit，extend为自然包含/指定点映射。SplitRestore=Σdecode:C→Completed.∀x extend(decode x)≡x，与PointDecidable=∀x Dec(x≡p)之间有两个方向的函数。",
+          "Restoration.splitToDecision, decisionToSplit, restorationCriterion"
+        ],
+        [
+          "C-262",
+          "同一C,p，给定PointDecidable，构造Iso Completed C与Completed≃C，正向函数正是extend，逆向为decode，双逆律显式检查；不需附加isSet C。",
+          "Restoration.decodeRight, decodeLeft, restorationIso, restorationEquiv"
+        ]
+      ],
+      "limits": "不声称两个证据类型之间的≃，不赋予拓扑，不将可判定性默认为实数输入已有；无物理复原或HoTT缺陷结论。",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-QCIRCLE-RESTORE-001",
+      "claim_ids": "C-263",
+      "source": "HoTT/formal/astra-breakpoint-check/RationalRestoration.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-QCIRCLE-RESTORE-01",
+      "statements": [
+        [
+          "C-263",
+          "既有QCircle={(x,y):ℚ²|x²+y²=1}及east=(1,0)，由discreteℚ与命题纤维获得pointDecision，构造(PuncturedQCircle⊎Unit)≃QCircle；正向保留删点包含与east；ua运输对任意Completed元素与extend有路径相等。",
+          "discreteQCircle, restoreQCircle, punctureInclusionPreserved, specifiedPointPreserved, transportPreservesRestore, northRestored"
+        ]
+      ],
+      "limits": "仅有理代数点集及原生类型等价；无拓扑/同胚/连续路径/实数完成/物理动作许可证明。",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    {
+      "proof_id": "MP-ASTRA-HIT-RESTORE-CONTROL-001",
+      "claim_ids": "C-264",
+      "source": "HoTT/formal/astra-breakpoint-check/HomotopyRestorationControl.agda",
+      "run": "HoTT/verification/runs/20260919-MP-ASTRA-HIT-RESTORE-CONTROL-02",
+      "statements": [
+        [
+          "C-264",
+          "对HIT S¹与base，沿同一内部路径排除定义的自然extend不存在SplitRestore，且不存在PointDecidable。证明消费circleExclusion及整数绕数的非平凡路径控制。",
+          "allExtendedAtBase, splitWouldContract, noHomotopySplit, noPointDecision"
+        ]
+      ],
+      "limits": "不是点集圆删一个几何点的命题；不是HoTT无法处理几何复原。首次失败只是extend导入名冲突。",
+      "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+      "kind": "astra_natural_point_restoration",
+      "verdict": "KERNEL_ACCEPTED_INDEXED_LOCAL / GLOBAL_DELIVERY_GATE_PARTIAL",
+      "release_ref": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    }
+  ]
+}

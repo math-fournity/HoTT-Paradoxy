@@ -1,0 +1,103 @@
+{
+  "schema_version": "astra-third-option-controls/v1",
+  "verifier_sha256": "70749b4979c69acc6a35e88672162c931f2694f78636b0cbfdaf234110acebfa",
+  "scope": "Five claimed lexical cases plus one string-literal holdout; finite executable controls, not a lexer completeness proof.",
+  "results": [
+    {
+      "name": "SafePositive",
+      "kernel_exit": 0,
+      "expected_safe": true,
+      "verifier": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "SYNTHETIC-SafePositive",
+        "proof_id": "SYNTHETIC-OPTION-CONTROL",
+        "claim_ids": [
+          "SYNTHETIC-CONTROL"
+        ],
+        "source_paths": [
+          "SafePositive.agda"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "git_status": null,
+        "scope": null,
+        "non_goals": null
+      },
+      "source": "audit/astra-hott-third-20260919/synthetic-option-controls/SafePositive/SafePositive.agda"
+    },
+    {
+      "name": "UnsafeNegative",
+      "kernel_exit": 0,
+      "expected_safe": false,
+      "verifier": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:UnsafeNegative.agda"
+      },
+      "source": "audit/astra-hott-third-20260919/synthetic-option-controls/UnsafeNegative/UnsafeNegative.agda"
+    },
+    {
+      "name": "BlockComment",
+      "kernel_exit": 0,
+      "expected_safe": false,
+      "verifier": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:BlockComment.agda"
+      },
+      "source": "audit/astra-hott-third-20260919/synthetic-option-controls/BlockComment/BlockComment.agda"
+    },
+    {
+      "name": "LineComment",
+      "kernel_exit": 0,
+      "expected_safe": false,
+      "verifier": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:LineComment.agda"
+      },
+      "source": "audit/astra-hott-third-20260919/synthetic-option-controls/LineComment/LineComment.agda"
+    },
+    {
+      "name": "NestedComment",
+      "kernel_exit": 0,
+      "expected_safe": false,
+      "verifier": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:NestedComment.agda"
+      },
+      "source": "audit/astra-hott-third-20260919/synthetic-option-controls/NestedComment/NestedComment.agda"
+    },
+    {
+      "name": "StringLiteral",
+      "kernel_exit": 0,
+      "expected_safe": false,
+      "verifier": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "SYNTHETIC-StringLiteral",
+        "proof_id": "SYNTHETIC-OPTION-CONTROL",
+        "claim_ids": [
+          "SYNTHETIC-CONTROL"
+        ],
+        "source_paths": [
+          "StringLiteral.agda"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "git_status": null,
+        "scope": null,
+        "non_goals": null
+      },
+      "source": "audit/astra-hott-third-20260919/synthetic-option-controls/StringLiteral/StringLiteral.agda",
+      "forced_safe_exit": 42,
+      "forced_safe_diagnostic": "Checking StringLiteral (/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-hott-third-20260919/synthetic-option-controls/StringLiteral/StringLiteral.agda).\n/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-hott-third-20260919/synthetic-option-controls/StringLiteral/StringLiteral.agda:6.11-24: error: [SafeFlagPostulate]\nCannot postulate witness with safe flag\nwhen scope checking the declaration\n  witness : Set\n"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+# 长治理文档分片与索引合同
+
+> 状态：current for project-local governance v3.3.0
+> Owner：顶层 `AGENTS.md`、`.codex/cognition/PROTOCOL.md`、`.codex/skills/hott-local-session-governance/SKILL.md`
+> 共享方法权威：`/Users/aurolafly/codex-worktrees/long-doc-sharding-3.16.0/docs/governance/长治理文档分片与索引规范.md`（3.16.0 候选，尚未在共享主库打 tag）
+> 非目标：给任何 Markdown 设行数上限；在没有基线、consumer 扫描和内容对账时批量搬运历史文档
+
+## 1. 为什么分片
+
+持续追加、妨碍定位、把"稳定入口 + 当前状态 + 长历史"混在一个文件里的治理文档，会让未来 Session
+既难以先定位再读取，也容易写错位置。分片的目标是可发现性、读取效率和追加正确性，不是让文件变短。
+
+本项目当前事实：顶层 repo 在 v3.2.0 时 shard index = 0；`README.md`、`MEMORY.md`、
+`理解章节/C1–C4` 属于"活跃维护且入口/历史混装"，在 v3.3.0 迁移为逻辑文档索引。
+
+## 2. 判定标准（不是行数）
+
+**约 300 行是写作与换片软目标，不是上限、不是错误条件、不是发布 Gate、不是清理配额。** 超过它只会
+在 validator 输出中产生 `NOTICE`，退出码仍为 0；不得为迎合数字压缩、删减、过密排版或拆散必须整体
+理解的语义单元。
+
+应当转为索引 + 分片的信号：
+
+1. 文档会继续按时间或编号追加；
+2. 一次任务通常只需要其中一个主题或时间段；
+3. AI 需要反复搜索才能确定该读哪一段、该往哪里追加；
+4. 文档混合稳定入口、当前状态与长历史；
+5. 存在自然、稳定、可命名的语义边界；
+6. 索引能比原单文件更准确地表达完整边界与最新追加位置。
+
+不应分片的信号：高度内聚、通常必须全文读取、分片会产生大量跨片依赖、或内容属于来源快照/历史交付
+分卷/machine-managed 数据。`AGENTS.md` 不分片；Skill 必须自包含，不得退化为指针壳。
+
+## 3. 逻辑文档合同（v2）
+
+canonical 路径不变，改为索引文件；正文 shard 放在**同名**子目录中：
+
+```markdown
+<!-- governance-shard-index:v2
+logical_id: MEMORY
+mode: sequential
+shard_root: MEMORY
+last_shard: MEMORY/002 - 顺序日志.md
+append_target: MEMORY/002 - 顺序日志.md
+soft_line_target: 300
+-->
+
+<!-- governance-shard-table:start -->
+| Shard | 文件 | 语义范围 | 状态 |
+|---|---|---|---|
+| 001 | [当前执行队列](<MEMORY/001 - 当前执行队列.md>) | 当前队列 | current |
+<!-- governance-shard-table:end -->
+```
+
+每个 shard 顶部：
+
+```markdown
+<!-- governance-shard:v2
+logical_id: MEMORY
+shard_id: 001
+index: ../MEMORY.md
+-->
+```
+
+强制要求：
+
+- `shard_root` 必须等于索引文件 stem，且 shard 直接位于该目录内，文件名 `NNN - 子主题.md`；
+- table 中的 Shard ID 与文件名 `NNN` 一致；索引链接标题 = shard 第一个 H1 = 文件名主题；
+- table 顺序是逻辑阅读顺序，ID 与路径一经发布不复用、不重排；
+- `last_shard` 必须等于 table 最后一项；`topical` 的 `append_target` 必须是 `-`，`sequential` 必须等于 `last_shard`；
+- 索引只放路由、边界与迁移来源，不复制 shard 全文；shard 目录内不得出现未被索引的 Markdown。
+- **读取 banner**：索引前 15 行内必须有一行以 `> ⚠️ 逻辑文档索引：` 开头，并同时包含 `全文 = 本索引 +` 与
+  `缺一片即未完成`。它给"只打开索引就以为读完"的行为一个首屏可见的阻断；由
+  `scripts/audit/verify_governance_shards.py` 机械检查（缺失即 `MISSING_READER_BANNER` / `INCOMPLETE_READER_BANNER`，退出码 1）。
+  banner 放在 v2 marker 块之后，不占用 marker 行，validator 的 20 行发现窗口仍然满足。
+
+`topical` 保存当前真值，修改 owner shard；`sequential` 按序追加到 `append_target`。两类都不允许用
+"状态修正/最新版/以此为准"覆盖块制造双当前真值；旧状态由 Git、`MEMORY/`、`rulings.md` 或顺序日志保留。
+
+## 4. 读取与写入算法
+
+读取：
+
+1. 先读 canonical 索引，取得逻辑身份、模式、完整 shard 集合、`last_shard` 与 `append_target`；
+2. 按任务读 owner shard；顺序追加型任务还要读 `append_target`；
+3. 结论跨片时才扩展相邻片；
+4. 实现、验证、运行主张仍回到底层证据，shard 只是认知载体；
+5. **不得**把索引、第一片或最后一片冒充逻辑文档全文。
+
+写入：topical 改 owner shard；sequential 追加到 `append_target`；新建 shard 必须与索引行、`last_shard`、
+`append_target` 在同一次提交/同一个 checkpoint 事务中一起更新。
+
+`.codex/tools/cognition_runtime.py`（3.3.0）在加载链上强制这些规则：
+
+- 计划阶段把索引展开为"索引 + 按 table 顺序的全部分片"，`plan.documents` 逐片给出 path/sha256/bytes/lines，
+  并标记 `logical_id`/`logical_role`/`full_load`；`plan.logical_documents` 给出每个逻辑文档的 `mode`/`shard_count`；
+- 覆盖校验必须覆盖逻辑文档的每一片，缺片即 `COVERAGE_INCOMPLETE`；
+- 结构错误一律 fail closed：`SHARD_INDEX_KEYS_MISSING`、`SHARD_INDEX_MODE_INVALID`、
+  `SHARD_INDEX_LAST_SHARD_MISMATCH`、`SHARD_INDEX_APPEND_TARGET_MISMATCH`、`SHARD_INDEX_ROOT_MISMATCH`、
+  `SHARD_NAME_MISMATCH`、`SHARD_TITLE_MISMATCH`、`UNLISTED_SHARD`、`SHARD_NOT_IN_CHECKPOINT`；
+- 受 checkpoint 管理的逻辑文档（`MUTABLE`：`MEMORY.md`、`方向追踪.md`、`全景视野.md`）的分片同样进入
+  `HEAD.json.tracked`，只能在同一个原子事务里与索引一起写入。
+
+## 5. 机械校验
+
+```bash
+python3 -B scripts/audit/verify_governance_shards.py --out <receipt.json>
+```
+
+- `scripts/audit/validate_governance_shards.py` 是本项目 pin 的共享 3.16.0 候选校验器副本
+  （source commit `2e4e4d2`，source sha256 `fb75648…`）；包装器校验副本自身 sha256，发现漂移即
+  `VALIDATOR_PINNED_COPY_DRIFT` 并退出 1。
+- 校验内容：marker、路径、唯一性、孤儿 shard、逻辑 ID、table 顺序、`last_shard`、`append_target`，
+  v2 另查同名 shard root、`NNN - 子主题.md` 与标题一致性；超软目标只输出 `NOTICE`。
+- 机械 PASS 不证明分片边界合理，也不证明内容完整；首次迁移必须另做标题/内容对账与链接检查。
+- 计数口径：`.codex/cognition/checkpoints/<session-id>/after/` 会保留该次事务写入的逻辑文档副本，因此一次迁移后的
+  `indexes` 数 = canonical 索引数 + 对应 checkpoint after 副本数（这些副本连同其全部分片一起保存，结构检查同样有效）。
+- **表格式投影/登记文档的行分片规则**（`方向追踪.md`、`全景视野.md` 这一族）：大表可按家族拆成多个行分片；
+  每个行分片必须自带完整的表头两行（否则 Markdown 表格渲染失效），这是唯一允许的重复内容，并必须逐行对账：
+  原文每一行恰好被消费一次，额外出现的行只能是表头行 × (行分片数 − 1)。投影的**身份与状态字段**
+  （`<!-- integrated-…:v…` 标记块、`source_state_revision`、`projection_generation`、`semantic_status`）
+  必须留在 canonical 索引里，因为 runtime 与 `verify_projection_freshness.py` 从该物理路径读取它们。
+- 版本边界：共享主库 `/Users/aurolafly/codex` 仍提供旧的 v1/200 行版本；待 `governance-v3.16.0`
+  在共享主库打 tag 后，应从主库重新同步本副本并更新 provenance 头。
+
+## 6. 迁移程序（对既有单文件）
+
+1. 先建立可恢复基线：独立 commit + annotated boundary tag；
+2. 做 consumer/链接扫描，列出按路径读取该文件的脚本、receipt、STATE 记录和文档引用；
+3. 用索引 + 分片承载原文，正文逐字保留；允许的字节差异只来自索引/分片元数据块；
+4. 对账：标题集合与顺序相同；剔除元数据块后按索引顺序拼接的正文与原文件逐行 SHA 相同；行多重集与计数相同；
+5. 同一批更新 consumer、README 路由、`feature-list`/`MEMORY` 当前状态与 STATE 记录 hash/`revalidation`；
+6. 跑 validator、runtime 单测、fresh 三件套校验与负向测试；失败时按 boundary tag 回滚，不得删内容以求 PASS。
+
+## 7. 当前已分片文档与保留项
+
+已分片（v3.3.0）：
+
+| 逻辑文档 | 模式 | shard 数 | 说明 |
+|---|---|---|---|
+| `README.md` | topical | 4 | 当前入口、历史交接包说明、加载与验证、交换/归档/接手 |
+| `MEMORY.md` | sequential | 3 | 当前执行队列、当前证据上限与恢复入口、当前验证状态与顺序日志（`append_target`） |
+| `理解章节/C1`–`C4` | topical | 4/6/5/6 | 长的活跃知识章按原 H2 语义簇分片 |
+| `方向追踪.md` | topical | 5 | 三方职责与状态语义、治理与用户方向、LocalGPT/WebGPT 方向、证据与覆盖方向+覆盖表、交叉审视与优先级；28 条 `DIR-*` 行全部分配 |
+| `全景视野.md` | topical | 8 | 使用规则与状态语义、治理/门禁/骨架、当前机器证明包、距离与消费者审计、抽样与证据卫生、ERCF-3/T3 脉冲、历史来源结果与关系、当前未完成；89 条 `OUT-*` 行全部分配 |
+| `扩展认知.md` | topical | 8 | 常驻**第四件**（AI 阐释层，`essay-role:v1`）：问题意识与理论简化、前提改变与时间、芝诺/圆环/ASK/两种方向、走进 HoTT 与理论自反、表达界限与编写说明、第三条发现路径（知识谱当考察对象）、AI 数学的两件事（助力/阻力符号翻转）、现实对齐（理论是现实的骨架式模仿）；46 段用户原文逐字内嵌，但 `核心认知.md` 仍是唯一用户原文权威 |
+
+四件套的加载语义：**索引 + 全部分片 = 逻辑文档全文**，缺片即未完成（runtime 强制全片覆盖，
+`verify_fresh_three_way.py` 逐片读取）。分片只提高写入局部性与导航能力，不减少每次 Session 的必读内容。
+第四件的角色边界由 `LOAD_SET.full_set_roles` 与 `essay-role:v1` 声明：AI 阐释层，不产出数学结论、不反向改写 core。
+
+保留单文件并登记复审触发条件：
+
+- `核心认知.md`：三件套中唯一保持单文件的成员。它由 curation+生成器管理、以 `核心认知.manifest.json`
+  与 generation transition 的 hash 锁定，且是 36 条 KC 的平铺原文清单（KC id 本身就是导航键）。
+  触发条件（需先改 manager）：只有 KC 数量本身使单文件无法可靠加载时，才由 `build_core_cognition.py`
+  生成分片与复合 hash，绝不手工拆分。
+- `HoTT/CLAIM_EVIDENCE_MATRIX.md`：proof Gate 的**唯一**快速索引，`verify_formal_proof_run.py` 以
+  行级 `line_sha256` 校验、`mark_proof_run_indexed.py` 按行扫描，20+ run receipt 指向它。
+  触发条件：行级 proof 收据工具改为分片感知后，才可迁移。
+- `AGENTS.md`：不设行数上限、不分片。
+- 已完成的审计报告（如 `audit/治理框架跨压缩连续性独立复审与精简升级方案-20260912.md` 762 行）与
+  `实施方案-三AI历史整合与核心认知治理.md`：属于历史证据，需要时由 `docs`/`audit` 索引路由，不重新分片。
+- `sources/**`、`HoTT/sources/**`、`archive/**`、`onboarding/volumes/**`、`dev-notes/**`、`private-audit/**`：
+  来源快照、历史交付分卷或私有审计输入，不按本规范机械迁移。
+- `.codex/research/hott/STATE.json`：machine-managed JSON（当前 6,490 行），其增长治理属于数据模型问题，
+  不在本 Markdown 分片合同内。
+
+## 8. 非目标
+
+- 不为每一节、每一条 requirement、每一次 Session 建 shard；
+- 不建立 shard 数据库、审批状态机、自动摘要器或语义分片 Hook；
+- 不把行数当质量指标、完成标准或清理配额；
+- 不用分片替代语义审读、数学验证或 proof Gate。

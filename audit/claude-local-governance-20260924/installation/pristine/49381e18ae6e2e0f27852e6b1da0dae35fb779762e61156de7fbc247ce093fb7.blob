@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "core-cognition/v2",
+  "title": "Curated chronological direct-user core cognition ledger",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "asset_class",
+    "canonical_manager",
+    "curation_authority",
+    "curation_sha256",
+    "generation",
+    "previous_generation_ref",
+    "build_policy",
+    "files",
+    "message_disposition",
+    "counts",
+    "units",
+    "core_document_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "core-cognition/v2"},
+    "asset_class": {"const": "MACHINE_MANAGED_CANONICAL"},
+    "canonical_manager": {"const": "scripts/audit/build_core_cognition.py"},
+    "curation_authority": {"type": "string", "pattern": "^scripts/audit/core-cognition-curation-v[0-9]+\\.json$"},
+    "curation_sha256": {"$ref": "#/$defs/hash"},
+    "generation": {"type": "string", "pattern": "^core-cognition-generation-[0-9]+$"},
+    "previous_generation_ref": {"type": "string", "minLength": 1},
+    "core_document_sha256": {"$ref": "#/$defs/hash"},
+    "build_policy": {"type": "object"},
+    "files": {
+      "type": "array",
+      "minItems": 3,
+      "items": {"$ref": "#/$defs/file"}
+    },
+    "message_disposition": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/message"}
+    },
+    "counts": {
+      "type": "object",
+      "required": ["primary_files", "messages_parsed", "messages_included", "messages_excluded", "core_units", "dispositions", "units_by_platform"]
+    },
+    "units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/unit"}
+    }
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "file": {
+      "type": "object",
+      "required": ["path", "platform", "input_role", "sha256", "bytes", "lines", "message_count_parsed"],
+      "properties": {
+        "path": {"type": "string"},
+        "platform": {"enum": ["LocalGPT", "WebGPT", "Gemini", "Codex"]},
+        "input_role": {"const": "primary"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "lines": {"type": "integer", "minimum": 1},
+        "message_count_parsed": {"type": "integer", "minimum": 1}
+      }
+    },
+    "message": {
+      "type": "object",
+      "required": [
+        "source_message_id", "platform", "input_role", "source_file", "source_file_sha256",
+        "source_message_ordinal", "source_record_index", "source_header_line", "timestamp_original",
+        "timestamp_utc", "timestamp_parse_policy", "message_text_sha256", "message_text_bytes",
+        "disposition", "disposition_reason", "unit_count"
+      ],
+      "properties": {
+        "source_message_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]*-M-[0-9]{3}$"},
+        "platform": {"enum": ["LocalGPT", "WebGPT", "Gemini", "Codex"]},
+        "input_role": {"const": "primary"},
+        "source_file": {"type": "string"},
+        "source_file_sha256": {"$ref": "#/$defs/hash"},
+        "source_message_ordinal": {"type": "integer", "minimum": 1},
+        "source_record_index": {"type": "integer", "minimum": 1},
+        "source_header_line": {"type": "integer", "minimum": 1},
+        "timestamp_original": {"type": "string"},
+        "timestamp_utc": {"type": "string"},
+        "timestamp_parse_policy": {"type": "string"},
+        "message_text_sha256": {"$ref": "#/$defs/hash"},
+        "message_text_bytes": {"type": "integer", "minimum": 1},
+        "disposition": {"type": "string", "minLength": 1},
+        "disposition_reason": {"type": "string", "minLength": 1},
+        "unit_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "selector": {
+      "type": "object",
+      "required": ["source_line_start", "source_line_end"],
+      "properties": {
+        "source_line_start": {"type": "integer", "minimum": 1},
+        "source_line_end": {"type": "integer", "minimum": 1},
+        "start_at": {"type": "string"},
+        "start_after": {"type": "string"},
+        "end_before": {"type": "string"},
+        "end_after": {"type": "string"}
+      }
+    },
+    "unit": {
+      "type": "object",
+      "required": [
+        "id", "source_message_id", "platform", "timestamp_original", "timestamp_utc",
+        "timestamp_parse_policy", "source_file", "source_locator", "source_sha256",
+        "source_message_ordinal", "source_message_sha256", "selector", "semantic_label",
+        "selection_reason", "author_class", "themes", "lifecycle", "unit_sha256",
+        "unit_bytes", "relations"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^KC-[0-9]{6}$"},
+        "source_message_id": {"type": "string"},
+        "platform": {"enum": ["LocalGPT", "WebGPT", "Gemini", "Codex"]},
+        "timestamp_original": {"type": "string"},
+        "timestamp_utc": {"type": "string"},
+        "timestamp_parse_policy": {"type": "string"},
+        "source_file": {"type": "string"},
+        "source_locator": {"type": "string"},
+        "source_sha256": {"$ref": "#/$defs/hash"},
+        "source_message_ordinal": {"type": "integer", "minimum": 1},
+        "source_message_sha256": {"$ref": "#/$defs/hash"},
+        "selector": {"$ref": "#/$defs/selector"},
+        "semantic_label": {"type": "string", "minLength": 1},
+        "selection_reason": {"type": "string", "minLength": 1},
+        "author_class": {"const": "USER_OWNED_DIRECT"},
+        "themes": {"type": "array", "items": {"type": "string"}},
+        "lifecycle": {"type": "string"},
+        "unit_sha256": {"$ref": "#/$defs/hash"},
+        "unit_bytes": {"type": "integer", "minimum": 1},
+        "relations": {"type": "array", "items": {"type": "object"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "schema_version": "mo3-case-anchor-fix-evidence/v1",
+  "status": "PASS_WITH_SCOPE",
+  "checks": {
+    "goal-route-tests": true,
+    "v5-invariants": true,
+    "shards": true,
+    "before-seal": true,
+    "historical-seal": true,
+    "changed-diff": true,
+    "skill-execution": true,
+    "skill-audit": true,
+    "two_user_originals_byte_identical": true,
+    "circle_original_preserved": true,
+    "fourteen_questions_retained": true,
+    "three_representations_retained": true,
+    "twenty_four_audit_dimensions_retained": true,
+    "monolithic_directive_retained": true,
+    "independent_task_contract_present": true,
+    "unconditional_circle_question_removed": true,
+    "forced_historical_pair_removed": true,
+    "fixed_topic_holdout_removed": true,
+    "scope_and_proof_requirements_retained": true,
+    "all_four_prompts_under_4000": true,
+    "changed_file_links_exist": true,
+    "governance_loads_current_directive": true,
+    "research_loads_current_directive": true,
+    "active_task_plan_readable": true,
+    "all_planned_paths_changed": true
+  },
+  "commands": [
+    {
+      "label": "goal-route-tests",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/audit",
+        "-p",
+        "test_goal_task_governance.py",
+        "-v"
+      ],
+      "exit": 0,
+      "seconds": 0.2880527080124011
+    },
+    {
+      "label": "v5-invariants",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_v5_invariants.py"
+      ],
+      "exit": 0,
+      "seconds": 0.052990625001257285
+    },
+    {
+      "label": "shards",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0,
+      "seconds": 8.467725250011426
+    },
+    {
+      "label": "before-seal",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/mo3-case-anchor-fix-20260923/before",
+        "--expected-sha",
+        "c6f552d481578b34f80f24ebce910df5260657c6bd4cb9fe417d841497dae5d2"
+      ],
+      "exit": 0,
+      "seconds": 0.06044983300671447
+    },
+    {
+      "label": "historical-seal",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "第三轮机器统观/整备/验证/preparation-seal",
+        "--expected-sha",
+        "091a1d1548c1248602458dd96570857d586f184d92624e6a3825ee95a2b06e1e"
+      ],
+      "exit": 0,
+      "seconds": 0.06207633299345616
+    },
+    {
+      "label": "changed-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "最高指示.md",
+        "goal-5.md",
+        "goal-6.md",
+        "goal-5-audit.md",
+        "goal-6-audit.md",
+        ".codex/skills/hott-machine-overview-execution/SKILL.md",
+        ".codex/skills/hott-machine-overview-audit/SKILL.md",
+        ".codex/cognition/TASK_ROUTING.md",
+        "第三轮机器统观/治理整备/Session-A-goal提示词.txt",
+        "第三轮机器统观/治理整备/Session-B-goal提示词.txt",
+        "第三轮机器统观/整备/Session-A-goal提示词.txt",
+        "第三轮机器统观/整备/Session-B-goal提示词.txt",
+        "第三轮机器统观/整备/Session-A-工作闭包.md",
+        "第三轮机器统观/整备/Session-B-工作闭包.md",
+        "feature-list.md",
+        "rulings.md",
+        "README/001 - 当前入口与关键文件.md",
+        "第三轮机器统观/README.md"
+      ],
+      "exit": 0,
+      "seconds": 0.019121792007354088
+    },
+    {
+      "label": "skill-execution",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-execution"
+      ],
+      "exit": 0,
+      "seconds": 0.04030554200289771
+    },
+    {
+      "label": "skill-audit",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-audit"
+      ],
+      "exit": 0,
+      "seconds": 0.0393201249971753
+    }
+  ],
+  "prompt_counts": {
+    "第三轮机器统观/整备/Session-A-goal提示词.txt": {
+      "unicode_codepoints": 1534,
+      "sha256": "98c3278eeea03c8fb7555ac18da5a4313ba5d8ed6d07ecff140a560b739c4330"
+    },
+    "第三轮机器统观/整备/Session-B-goal提示词.txt": {
+      "unicode_codepoints": 1342,
+      "sha256": "5a7c07d16ad43105ee15e2b5984b8b60a7f03466beaa651954e9500ab9d66496"
+    },
+    "第三轮机器统观/治理整备/Session-A-goal提示词.txt": {
+      "unicode_codepoints": 1394,
+      "sha256": "e5d4ac5b51020177f8a86cbeb45a950a90ddd562541a93ff2ce55124d276bbc4"
+    },
+    "第三轮机器统观/治理整备/Session-B-goal提示词.txt": {
+      "unicode_codepoints": 1266,
+      "sha256": "cfa372be7ef533002fc12e7fbffa4d1ef25d69cd8d081f54d77e12a0b19fab47"
+    }
+  },
+  "links_checked": 67,
+  "broken_links": [],
+  "plans": {
+    "governance": {
+      "snapshot": "866b68b76ff4826648e4a356f7d115ccca9f916f0b35570fd61d82594b5a5a49",
+      "selected": {
+        ".codex/cognition/TASK_ROUTING.md": "b322c8626f7af96d700cd79bb48ca5e8551a59cc617658076fbc27b2b22b3161",
+        "最高指示.md": "bda9203e604dfafdb9a7dd4f03f74c4980d8c9aa475a4707f290259d13e55dd2"
+      },
+      "promotion": []
+    },
+    "research": {
+      "snapshot": "892c6eebf2fd05d373484a27633e1d4bb72c98cca9dab560110807c117078f1c",
+      "selected": {
+        ".codex/cognition/TASK_ROUTING.md": "b322c8626f7af96d700cd79bb48ca5e8551a59cc617658076fbc27b2b22b3161",
+        "最高指示.md": "bda9203e604dfafdb9a7dd4f03f74c4980d8c9aa475a4707f290259d13e55dd2"
+      },
+      "promotion": []
+    }
+  },
+  "active_task_review_fields": {
+    "review_required": [
+      "MO3-GOVERNED-A"
+    ]
+  },
+  "state_observation": {
+    "revision": 270,
+    "before_sha256": "cbc3ecb8372b1278a00cf1ec85667e5ef0dda15f21196c26bd04754d8f19b710",
+    "after_sha256": "cbc3ecb8372b1278a00cf1ec85667e5ef0dda15f21196c26bd04754d8f19b710",
+    "writer": "verifier does not write STATE; concurrent A may change it"
+  },
+  "paths": [
+    {
+      "path": "最高指示.md",
+      "before_sha256": "52ec819579ad95dc800a70520e50147b0c4999a391d7f24e480856ce7cae600f",
+      "after_sha256": "bda9203e604dfafdb9a7dd4f03f74c4980d8c9aa475a4707f290259d13e55dd2",
+      "changed": true
+    },
+    {
+      "path": "goal-5.md",
+      "before_sha256": "3bf7bf7f550c8fee95195372d35ee751db23cce30067fc8c575298cf6b9e2cf7",
+      "after_sha256": "7ebcdddf3a3f4c999d9598ac2d1b7b769385716d3b2a9bae211d580b7a34d663",
+      "changed": true
+    },
+    {
+      "path": "goal-6.md",
+      "before_sha256": "aa069071bb54b3a75223603141e0e59cb8c791eb830de83cc75b13980cf11d81",
+      "after_sha256": "b1b2ac132ce01b7949259e3eae2ef3980054ffd5b730104f4b64310d237f6e37",
+      "changed": true
+    },
+    {
+      "path": "goal-5-audit.md",
+      "before_sha256": "5fba897ab2be483fff44091f3816e21ca39b13b1be4e632afb5e1c64ccd07539",
+      "after_sha256": "1890552f21b50776c70fb421bf6d0f9c01b7ff68a9f8856669f34e95a0f9acfe",
+      "changed": true
+    },
+    {
+      "path": "goal-6-audit.md",
+      "before_sha256": "d4d16002f7d14f308ea2463d00bfc1e7b0c31004e5b8e14075d22b53bde402ce",
+      "after_sha256": "3e75cc70646c1c960dd8575f08afafd82ba4c77feeae94ba21f0b849b8bdfe89",
+      "changed": true
+    },
+    {
+      "path": ".codex/skills/hott-machine-overview-execution/SKILL.md",
+      "before_sha256": "6b54f6dc3d07b58eb22aedfde3fb9cb6c4b15c0e5f12882f1c86bbc6b555bec8",
+      "after_sha256": "ee73a06f147df410cf4dcd005a782bafda6aa4599405a5af41388caedaf78f04",
+      "changed": true
+    },
+    {
+      "path": ".codex/skills/hott-machine-overview-audit/SKILL.md",
+      "before_sha256": "a393809c07e0f22585b5bb230e59eb255204e4f600cb97f36058bfa02d6f9461",
+      "after_sha256": "9cc546ce0769965d7cb16165ff8fb82fd76ce00ca8305c147133f9d5b2d6066a",
+      "changed": true
+    },
+    {
+      "path": ".codex/cognition/TASK_ROUTING.md",
+      "before_sha256": "c9df25f051891bfbbe074030f2df7a4041d6d63b53d8d85ce7bda50423997b2d",
+      "after_sha256": "b322c8626f7af96d700cd79bb48ca5e8551a59cc617658076fbc27b2b22b3161",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/治理整备/Session-A-goal提示词.txt",
+      "before_sha256": "9113ac04b01faecb7cdb1e147d9e9d5805c42b470910cc6fffa81d10e8d45232",
+      "after_sha256": "e5d4ac5b51020177f8a86cbeb45a950a90ddd562541a93ff2ce55124d276bbc4",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/治理整备/Session-B-goal提示词.txt",
+      "before_sha256": "85378320dce1739db5cadfcc2ac439336b91b1a22c4134125478263f7c449bf2",
+      "after_sha256": "cfa372be7ef533002fc12e7fbffa4d1ef25d69cd8d081f54d77e12a0b19fab47",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-A-goal提示词.txt",
+      "before_sha256": "4dc6a7a169bc9b9226dea16eb82851c624ba7cd8d6c041914b21c40fdb0ddd68",
+      "after_sha256": "98c3278eeea03c8fb7555ac18da5a4313ba5d8ed6d07ecff140a560b739c4330",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-B-goal提示词.txt",
+      "before_sha256": "d04a9cb1df359d66e462b189ce5980987e70af43a6e65e85dbbd2c136bf4ccc3",
+      "after_sha256": "5a7c07d16ad43105ee15e2b5984b8b60a7f03466beaa651954e9500ab9d66496",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-A-工作闭包.md",
+      "before_sha256": "19a66796fcb1001a856c0fdc15c4818c93364da4240bdfe27a0e1fe3702a6e78",
+      "after_sha256": "3ee00a9af9c69166194fdc424a05d525249e2d939386e1d45e4ea6ee687672ba",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-B-工作闭包.md",
+      "before_sha256": "c52c5410c1a57cb9ffd549e7f7e670dc62ad41e4d77b20f52cc521124e52295f",
+      "after_sha256": "fca6c4dd3beee8385890ad9843b3400f9977bc8c3bb39bbedae3edb25328e3dd",
+      "changed": true
+    },
+    {
+      "path": "feature-list.md",
+      "before_sha256": "40f0608364e0310c72ec38d006c2f26fe78d528f37c5fd8e3c9dc635e749596e",
+      "after_sha256": "f65cb2077d800cee318a4f30a05d6608e5a6da6ed80c6382ebe516f861261300",
+      "changed": true
+    },
+    {
+      "path": "rulings.md",
+      "before_sha256": "ecbd888b6f39eb31a6f948f8cd92b3f2ed4d27dc9525f993df07f2652f0ad997",
+      "after_sha256": "f43f0e1591c490f96ad4337377fa55a21dd3c41455e334949160c55ca1928844",
+      "changed": true
+    },
+    {
+      "path": "README/001 - 当前入口与关键文件.md",
+      "before_sha256": "29efe3493f6239324b8fa993037361e6f3904dffaa6725772f118167efd13f85",
+      "after_sha256": "3d4c37d5d9edc188d1f15b9b460b0f9937311d90de2b16ece1e0692c6e9de073",
+      "changed": true
+    },
+    {
+      "path": "第三轮机器统观/README.md",
+      "before_sha256": "a3629a5b13e7e341d260367c7047300f4a73694bbbf416c8d30f0b24ab21f1d8",
+      "after_sha256": "400b2b4605a1fe165bbc648a3671bef9b9b671c08b1b0f2bd8cc5e0097792ce3",
+      "changed": true
+    }
+  ],
+  "limits": [
+    "text checks and real loader behavior only",
+    "manual semantic audit is separately recorded",
+    "fresh LLM behavior NOT_RUN",
+    "active A consumption NOT_CERTIFIED",
+    "no mathematics or A result audited"
+  ]
+}

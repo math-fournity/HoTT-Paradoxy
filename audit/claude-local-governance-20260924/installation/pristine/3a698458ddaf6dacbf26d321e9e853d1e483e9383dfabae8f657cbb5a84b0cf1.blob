@@ -1,0 +1,75 @@
+<!-- governance-shard:v2
+logical_id: hott-paradox-programmatic-exploration-completeness
+shard_id: 004
+index: ../HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md
+-->
+
+# 开放世界未知、反遗漏与自扩展机制
+
+## 一、为什么“未知”需要机制而不是清单末尾一句话
+
+HoTT 理论、实现、应用和相关计算理论会继续变化；真正精彩的悖论也可能来自当前 taxonomy 没有的组合。系统不能预写全部未来对象，但可以保证：任何新证据都有进入位置；旧分类表达不了时允许扩展；新发现会使依赖的旧完整性结论失效；下一轮会针对暴露的遗漏设计判别任务。
+
+## 二、七类 UnknownIngress
+
+| ID | 入口 | 首次处置 |
+|---|---|---|
+| `UI-01` | 新论文、定理、综述、正式化项目 | 固定版本/来源/读取范围；映射或提出 new construct/operator |
+| `UI-02` | 社区实现新版本、issue、PR、失败日志 | 比较旧/新语义与 consumer；旧 run 按依赖 stale |
+| `UI-03` | 新自然 consumer 或现实应用合同 | 固定 task identity；重评 reality/essentiality |
+| `UI-04` | 当前 TC/OP/Oracle 无法表达的现象 | provisional new ID、边界、与旧项关系、最小判别 |
+| `UI-05` | 跨 kernel/model/version 差分 | 先分类 specification/environment/implementation，不抢先归因 |
+| `UI-06` | 新反例/正实例/防线 | 标出推翻的 assumption/reduction/coverage；保存 counterevidence |
+| `UI-07` | 用户对时间、现实、ASK 或悖论语义的新修正 | core curation/ruling/Feature 路由；重建相关 envelope |
+
+## 三、反遗漏技术
+
+1. `Reverse mechanism scan`：从目标 observation 反推所有可能 producers；
+2. `Reverse consumer scan`：从每个理论构造列出能读取其被忘信息的 contexts；
+3. `Pairwise interaction coverage`：在有类型/依赖约束下覆盖关键 TC×OP、OP×Consumer；
+4. `Mutation score`：已知有效 oracle 能否识别语义改变的 mutants；survivor 指向 blind spot；
+5. `Metamorphic relation audit`：用无需 known answer 的不变量找违反；
+6. `Differential transfer`：同一 TaskSpec 跨框架/版本/表示，检查翻译与行为；
+7. `Independent taxonomy comparison`：与论文综述、HoTT book章节、库 module map 或外部研究计划交叉；
+8. `Natural-consumer mining`：从实际 API callers、instances、eliminators、tactics 和 examples 反推任务；
+9. `Historical prediction`：用冻结旧 envelope 解释后来出现的结果，不能回写输入；
+10. `Failure archaeology`：失败 proof/search/compile/run 的最小原因是否属于未列 operator/oracle；
+11. `Counter-hypothesis generation`：强制生成保持原任务的正模型/表示防线；
+12. `Coverage shadow`：记录 generator 因 type/universe/size/parser/budget 排除的候选形状。
+13. `Granularity counterfactual`：固定source/任务，换切分和顺序独立重建单元；比较关系、联合条件与本层问题，再删中层只留叶子检查什么问题消失。
+14. `Structural multiscale scan`：从共同背景、整体任务与互补接口直接找不同粒度单元，不等单点异常；用另一组织法寻找跨组漏项。未知属性不算假，缺共同属性不等于缺相互作用。
+
+## 四、独立留出
+
+M4 完整评估至少覆盖：source holdout、独立作者任务、自然 consumer holdout、第二 kernel framework transfer、temporal historical prediction 和防线应成功的 negative holdout。来源、冻结时间、污染检查、proposer/evaluator visibility 与样本边界进入 receipt。一次命中只说明该案例；连续无命中只说明具名分母。
+
+## 五、意外发现的吸收协议
+
+出现意外结果时：
+
+1. 先保存 raw source/run/proof，不修改 oracle；
+2. 判断它是新事实、现有类别的新实例、证据异常还是环境差异；
+3. 定位旧 envelope 缺失字段；
+4. 构造最小正负 controls 和竞争解释；
+5. 若分类不足，新增 provisional TC/OP/consumer/oracle；
+6. 查找所有依赖旧 coverage/negative verdict 的报告，标 stale/review required；
+7. 把最小判别任务放入下一 bounded successor；
+8. 只有稳定复用后才更新本规划；普通案例进入具体 family owner。
+
+## 六、每轮 Completeness Audit
+
+每个 Session 逐 KC 回评之外，再回答：本轮张量 cells/未触达 axes；generator 支持/拒绝/无法表示；finite remainder 或 infinite fairness；reducer preservation/换题；oracle 假阳/假阴与独立性；source/consumer denominator 与 stale；现实对应/HoTT essentiality；out-of-envelope/holdout；taxonomy 修订；下一 successor/停止/reopen。
+
+同时核语义单元/关系/组合/共同取舍/整体的独立分母、嵌套与重叠、实际上下往返、无信号高层检查、粒度反事实和结论跨层依据。全部叶子正常不能关闭父问题；一项高层示例不能替代已接受的其余中高层义务。新关系揭示遗漏时，重评相关负结论，不只加一个案例。
+
+这些内容进入现有 Session/plan/report，不强制新建每轮矩阵。若无当前任务关系，明确 `NOT_APPLICABLE`。
+
+## 七、Coverage 状态
+
+使用：`PLANNED`、`BOUNDED_IN_PROGRESS`、`DECLARED_SET_COMPLETE`、`FAIR_ENUMERATION_ACTIVE`、
+`REDUCTION_COMPLETE_FOR_CLASS`、`NO_HIT_WITHIN_SCOPE`、`INCONCLUSIVE`、`STALE`、`OPEN_WORLD_ACTIVE`。
+任何 `COMPLETE` 都带 exact denominator 和 evidence locator；source/operator/consumer/oracle/reduction 变化按依赖传播 stale。
+
+## 八、开放世界与停止条件
+
+开放世界意味着每个已完成 pass 仍有未来 ingress，不意味着当前任务永远运行。一个 pass 在声明 cells、denominator、controls、omission audit 与 evidence 闭合后停止；有 material successor 就形成新的有界单元。只有用户要求长期持续、且当前有授权和信息价值时继续。避免把所有未来论文、框架和组合塞进一个无法完成的 backlog。

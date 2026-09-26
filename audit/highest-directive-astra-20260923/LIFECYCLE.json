@@ -1,0 +1,32 @@
+{
+  "scope": "Two user-authorized Astra Ultra reading trials, two turns each",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "ultra",
+  "agent_type": "default",
+  "fork_turns": "none",
+  "model_attestation": "REQUESTED_EXACT_MODEL; NO_INDEPENDENT_BACKEND_FINGERPRINT",
+  "permission_boundary": "INSTRUCTED_READ_ONLY; OBSERVED_READ_COMMANDS; NOT_A_READ_ONLY_SANDBOX_CLAIM",
+  "agents": [
+    {
+      "task": "/root/directive_trial_a",
+      "branch_id": "01a0cede-e026-73d0-bc41-5ec5de7cd279",
+      "final_status": "completed",
+      "final_answers": 2,
+      "archived": true
+    },
+    {
+      "task": "/root/directive_trial_b",
+      "branch_id": "01a0cedf-4803-7522-a78f-a09959ed7bed",
+      "final_status": "completed",
+      "final_answers": 2,
+      "archived": true
+    }
+  ],
+  "observed_descendants": 0,
+  "active_child_turns_at_cleanup": 0,
+  "terminal_evidence": "collaboration.list_agents showed exactly root and both completed trials",
+  "archive_evidence": "mcp__codex_app__set_thread_archived returned archived=true for both branch IDs",
+  "close_tool_exposed": false,
+  "close_receipt": null,
+  "cleanup_status": "TERMINAL_NO_ACTIVE_NO_DESCENDANTS_AND_ARCHIVED_WITHOUT_CLOSE_RECEIPT"
+}

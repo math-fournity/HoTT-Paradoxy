@@ -1,0 +1,30 @@
+{
+  "schema_version": "hott-skill-roles/v2",
+  "version": "2.2.0",
+  "roles": {
+    "governance": {
+      "name": "hott-local-session-governance",
+      "path": ".codex/skills/hott-local-session-governance/SKILL.md"
+    },
+    "business": {
+      "name": "hott-paradox-research",
+      "path": ".codex/skills/hott-paradox-research/SKILL.md"
+    },
+    "execution": {
+      "name": "hott-paradox-search-sop",
+      "path": ".codex/skills/hott-paradox-search-sop/SKILL.md"
+    },
+    "machine_overview_execution": {
+      "name": "hott-machine-overview-execution",
+      "path": ".codex/skills/hott-machine-overview-execution/SKILL.md"
+    },
+    "machine_overview_audit": {
+      "name": "hott-machine-overview-audit",
+      "path": ".codex/skills/hott-machine-overview-audit/SKILL.md"
+    }
+  },
+  "entry": "AGENTS.md",
+  "automatic_host_discovery": "NOT_ASSUMED; root AGENTS and .codex/cognition/TASK_ROUTING.md explicitly route existing and task-specific roles",
+  "same_invocation": "Governance and business form one invocation; execution role is loaded when driving the plan steps or the reflection loop. Internal routing is not recursive restart",
+  "source_reference": "WebGPT historical design is preserved under sources/webgpt/workspace-snapshot/.codex"
+}

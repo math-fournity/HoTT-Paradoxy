@@ -1,0 +1,133 @@
+<!-- governance-shard:v2
+logical_id: CLAUDE-LOCAL-GOVERNANCE-PLAN-20260924
+shard_id: 003
+index: ../Claude-Code项目本地治理安装方案-20260924.md
+-->
+
+# 目标布局与完整工作链
+
+## 1. 推荐的目标结构
+
+以下是拟安装结构，当前尚不存在这些Claude项目入口。`.codex`正文不迁移，业务目录不重建：
+
+```text
+repo/
+├── AGENTS.md                         # 共享项目规则唯一正文
+├── CLAUDE.md                         # 导入AGENTS，连接Claude适配说明
+├── docs/ai/Claude-Code项目适配.md       # 只拥有本机宿主映射及验证边界
+├── .codex/
+│   ├── skills/<五个现有工作法>/       # 完整canonical Skill正文/引用/模板
+│   ├── cognition/                    # 唯一LOAD_SET/PROTOCOL/HEAD/事务
+│   ├── research/hott/                # 唯一STATE及Session证据
+│   └── tools/cognition_runtime.py    # 唯一加载与checkpoint实现
+└── .claude/
+    ├── settings.json                 # 项目Agent deny、auto memory选择
+    └── skills/
+        ├── hott-local-session-governance -> ../../.codex/skills/hott-local-session-governance
+        ├── hott-paradox-research -> ../../.codex/skills/hott-paradox-research
+        ├── hott-paradox-search-sop -> ../../.codex/skills/hott-paradox-search-sop
+        ├── hott-machine-overview-execution -> ../../.codex/skills/hott-machine-overview-execution
+        └── hott-machine-overview-audit -> ../../.codex/skills/hott-machine-overview-audit
+```
+
+目录链接必须指向整个Skill目录，以保留references/templates/scripts的相对定位；不能只链接SKILL.md。路径按链接所在`.claude/skills/`计算，必须是`../../.codex/...`。使用本机macOS能力；Windows复制/跨机器安装不在本轮承诺范围。
+
+这个布局复用官方支持的[项目Skill目录及symlink发现](https://code.claude.com/docs/en/skills)。入口薄，是因为完整共享规则被导入、完整工作法被指向同一真实目录；不是重新写一套精简技能。日后规范只改canonical一次。
+
+## 2. 可审阅的入口草案
+
+拟建根`CLAUDE.md`：
+
+```markdown
+@AGENTS.md
+@docs/ai/Claude-Code项目适配.md
+```
+
+导入[AGENTS的官方方式](https://code.claude.com/docs/en/memory)使文件直接进入启动上下文；不依赖模型是否愿意打开一句自然语言指针。现有全局同读设置与import的重复读取由文档所述去重处理，实际加载仍列为未来验收项。
+
+`docs/ai/Claude-Code项目适配.md`的必备正文职责已经确定：
+
+1. 当前宿主为本机Claude Code；个人入口是`~/.claude/CLAUDE.md`，通用Skill从`~/.claude/skills`读取；`~/.codex/AGENTS.md`和Codex API不是Claude操作接口。
+2. `.codex/`仍是本项目canonical树；最高指示、四件套、角色、source-first、数学门禁与checkpoint要求完全复用共享owner，不复制正文。
+3. 普通文件读写/搜索/网页分别使用Claude的Read、Edit/Write、Grep/Glob或必要Bash、WebSearch/WebFetch；canonical manager写入继续经原manager，不用Edit直接写STATE/core/registry。
+4. 新会话或压缩恢复先确认实际用户任务/角色，再完整读共同Skill、TASK_ROUTING、对应角色Skill/单体Goal和最高指示，按档位加载剩余材料并作可见理解复核。菜单发现和Skill再次调用都不能替代强制从磁盘重读。
+5. 禁止Agent、Explore/Plan委派、team、forked Skill、后台AI或用shell/SDK绕开禁令。用户安排的独立审计主会话是另一种权限来源，不由此会话创建。
+6. `goal-*.md`是repo任务合同；Claude `/goal`、Codex Goal API、`cognition_runtime checkpoint`、Claude `/rewind`、Git分别具有自己的状态语义，不互相代替。
+7. main Agent每turn使用现有Claude归档Skill，遵守其ID/共享锁/私有staging/完整prompt和final约定。主机轨迹仍是Claude原始证据，不伪装成Codex reader已支持。
+8. 记录实际`host/model/tier/load_receipt`，model/provider/context未知就标UNKNOWN；历史Astra身份不能替换成当前Claude运行事实。
+9. 所有未实测项目保持NOT_VERIFIED；压缩、模型/provider、CLI、源文、设置或角色改变使相关验证失效。
+
+这份适配说明是宿主能力映射。共享SOP不能出现两套研究标准或两份状态；旧v5设计中“不允许宿主分支”的目标是防止方法与真值分叉，不能被解释为虚构Claude也拥有Codex工具。
+
+## 3. 最小项目设置草案
+
+```json
+{
+  "permissions": {
+    "deny": ["Agent"]
+  },
+  "autoMemoryEnabled": false
+}
+```
+
+推荐在这个项目关闭Claude自动记忆，使已经存在的repo MEMORY/STATE继续是唯一当前态。它不删除已有Claude记忆；日后若启用，只允许作为派生线索而非研究权威。该选择可按项目回滚，不改变用户其他项目。依据：[Auto memory项目设置](https://code.claude.com/docs/en/memory)。
+
+`Agent` deny复述项目硬禁令，且不依赖全局设置永远不变；[官方子代理文档](https://code.claude.com/docs/en/sub-agents)明确该工具可用于阻止委派。它不构成OS级隔离，也不能证明任意Bash/MCP无法启动别的进程；无委派仍须由项目权限、工具现场与实际行为共同核验。
+
+安装前如果`.claude/settings.json`已由用户或别的工作创建，读取并保留其所有未知键，合并deny而非覆盖列表；已有相反autoMemory选择则展示精确差异再按本轮实际授权裁决。第一版不添加allow、bypass、模型、effort、provider、凭据、MCP、插件、自动循环、Hook或自动任务。
+
+不在项目设置复制`agents-md@builtin`选项：官方说明该选项不从project/local层生效，本机用户层已经有它。根import提供明确项目入口，不因此修改用户全局配置。
+
+## 4. 启动到完成的整条链
+
+```text
+用户从项目根启动Claude并给出具体任务
+  → 个人全局治理 + 根CLAUDE导入AGENTS/宿主说明
+  → repo-cognitive-closure确认目的、权限、版本、并行owner
+  → common Skill + TASK_ROUTING选择上下文角色
+  → 当前角色Skill/单体Goal + 最高指示全文与理解复核
+  → 本档位必读集合（逻辑索引展开全部必要分片）
+  → 当前owner/query/task hydration与直接证据
+  → 获准工作、按命题等级核验
+  → 独占Session证据；必要时canonical checkpoint
+  → Claude版dev-notes精确归档final草稿
+  → 同一final对外交付
+```
+
+T1治理任务先读STATE的`current_core/active/latest_session/unresolved/revision`热字段；这不是新数据模型。研究T2、状态/数学交付T3按现行合同补齐完整STATE及审计，不拿T1捷径消减研究义务。
+
+研究读取必须使用本次snapshot与相同profile/task。只读命令仍为：
+
+```bash
+python3 -B .codex/tools/cognition_runtime.py plan --profile research
+python3 -B .codex/tools/cognition_runtime.py query --record RECORD_ID
+python3 -B .codex/tools/cognition_runtime.py plan --profile research --task RECORD_ID
+```
+
+后两条的`RECORD_ID`必须来自当前任务，不能在此方案中固定到别的AI的C。按help与plan返回值调用read/check，逐块确认正文范围/EOF；不把整段输出放进超出工具上限的单次结果。loader只接受canonical常规文件路径，`.claude/skills/...`不得进入payload或loader `--path`。
+
+读到最高指示后，治理角色回答：保护原意/发现工作法进入当前行动；最大风险是把入口安装、读到文件、理解、执行、验证混为一谈；新的入口只保证发现路线存在；理解仍需当轮source-backed表现。这一复核不产生数学候选，也不取得研究执行权。
+
+## 5. 恢复、长任务与任务身份
+
+Claude会话resume保留记录、压缩重注入根指令，均不能认证四件套和角色正文已重新消费。[压缩说明](https://code.claude.com/docs/en/how-claude-code-works)只描述宿主机制；本项目额外的全文/复认合同照常生效。最高指示及当前角色Goal有专门全文触发，不被摘要免除。
+
+第一版从普通用户消息启动已明确授权的有界任务，不启用Claude `/goal`、`/loop`或Stop-hook续行。将来若用户确实要求Claude自动持续推进，另建**宿主启动词**引用同一Goal正文，明确每轮外部评价器不是业务验收者、费用和停止/恢复边界。不得声称Claude具备Codex的`create_goal/update_goal`或“三轮blocked”接口。原Astra提示词保留原字节，新Claude提示词不继承未授予的模型/commit/角色权限。
+
+当前C在另一个AI工作：新增Claude入口不接管C、不重注册MO3、不改latest_session。用户未来若让Claude接手，需要先核当前C是否仍写同一owner；同一时点仍只允许一个研究integrator。此是任务交接判断，不是安装时阻塞独占文档工作的理由。
+
+## 6. 状态、证明和归档不会因换宿主变弱
+
+所有状态事务仍由canonical writer执行dry-run→apply；`result.json.status=CHECKPOINT_COMMITTED`是应用证据。Claude文件checkpoint或`/rewind`不替代它。尤其通过Bash运行Python的写入不由Claude的普通文件rewind完整覆盖；不允许只回退STATE/MEMORY中的某一个文件而破坏一致性。
+
+F-011仍要求精确命题、对应原生kernel、repo源码/run/index及范围；本机Agda路径与第三方依赖根据TOOLCHAIN核身份。不把工具chain改放`~/.claude`，也不为安装重跑数学证明。B/D的缓存和重放副本仍遵守独占路径。
+
+对话归档复用已安装Claude版`dev-notes-archive`。其`${CLAUDE_SESSION_ID}`是Skill替换机制，不能把字面占位符当shell环境变量随意运行。由该Skill把实际身份传给helper；无身份如实fallback。共享锁目录`~/.codex/dev-notes-skill-locks/`有意保留，避免两个宿主同时分配dev-notes编号。真实两轮ID替换/归档行为待额度恢复验证。
+
+## 7. 选择理由与备选
+
+共享canonical树+目录symlink保留完整Skill及引用，避免双正文漂移；根import处理不同启动发现状态；原Python工具已具备需要的文件/状态能力，因此不建设MCP、插件、后台daemon或新loader。
+
+若将来链接发现失败：保留AGENTS显式路径读取作为诊断/工作法入口，原生Skill发现验收判失败；先查官方版本与实际设置，不静默复制一套`.claude`正文。若跨平台确实不能使用symlink，再评估有源hash、确定性生成与漂移检查的分发副本，那是新的兼容方案。
+
+不采用批量`codex→claude`替换、整个`.codex`复制、将项目Skills装到个人全局、将四件套放进自动记忆、把全文放进启动Hook，以及用子代理分摊必读原文。它们分别会混淆来源、制造双真值、外溢项目政策、改变完整读取合同或违反禁委派要求。

@@ -41,3 +41,14 @@ index: ../Flash的第一次寻找尝试.md
 - 已证：来源携带的类型学区分 + 正控制（收据 `-02`）。
 - 未证：不可定义性、实际植入现场、圆环全形式化、R 与 H 在 HoTT 的普遍分离。
 - 无 ∀ 新主张；无 postulate；收据 `-01`（失败）保留为命名空间教训。
+:
+## 5. UNIT-2 执行结果（同日，四项指令）
+
+- ① → `NoBreakoutFromBare`（收据 NO-BREAKOUT-01 全绿）：参数多态定理
+  `∀ C p → ¬((x:C)→¬(x≡p))`；范围=closed-argument 不可行+具体实例，非元定理。
+- ③ → `BreakpointBridge`（收据 BRIDGE-03 全绿）：ExcludedCarrier 与
+  SourceCarrier 同型；断点排除 ≡ 无理排除（类型层同一构造）。
+- ② → G1 第一批：cubical 库负结果 + unimath 正面卫生（ℝ 恒 lsuc、析取已
+  截断）；「植入」假说在已检语料未获支持；G1 维持开放。
+- ④ → 参数化优先维持，点集建模延后。
+

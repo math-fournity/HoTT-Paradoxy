@@ -1,0 +1,111 @@
+<!-- governance-shard:v2
+logical_id: CLAUDE-LOCAL-GOVERNANCE-PLAN-20260924
+shard_id: 004
+index: ../Claude-Code项目本地治理安装方案-20260924.md
+-->
+
+# 分阶段安装与回滚清单
+
+## 1. 实施原则与写集合
+
+本清单覆盖准备→canonical文档修正→项目入口安装→离线验收→未来Claude行为验收。当前只完成准备和方案；下面的安装动作均未执行。用户之后明确要求实施时，可依此连续完成已授权的离线部分；不能因没有额度伪造行为PASS，也无需等待额度才能制作静态配置。
+
+改共享规则前重读当前治理self-maintenance必读包及上一tag差异；本方案不是对整个共享治理主库的发布审计。改动的项目知识由本项目canonical文件拥有，Claude通用adapter仍由现有共享仓库adapter拥有。方案目前不要求修改`~/.claude`、`~/.codex`、OpenCode或共享核心算法。
+
+拟写集合分为：
+
+- **新增入口**：根`CLAUDE.md`、`.claude/settings.json`、五个目录symlink、`docs/ai/Claude-Code项目适配.md`。
+- **必要canonical修正**：根AGENTS的全局宿主绑定与治理路由；研究Skill/引用/五个模板/checkpoint模板中H02–H06；search SOP的当前Goal7入口。修改发生在唯一正文，不在链接侧维护副本。
+- **必要索引**：README入口片、docs/ai和dev-docs薄链接；Feature/rulings只写实际获准接入与证据级别。涉及受checkpoint管理的owner由其integrator完成一致事务，不由安装脚本直接写。
+- **实施证据**：独占`audit/claude-local-governance-20260924/`后续run、T1 Session记录和本Session归档。
+
+既有四件套正文、STATE/HEAD、研究会话成果、proof/run、旧Goal和启动词、历史manifest/seal、`.zcode`、源码来源及其他AI的文件均不在默认安装写集合。若规范修正使某活动record的source pin过期，必须让实际integrator按语义复核后更新；不把旧pin直接刷新成“已理解”。
+
+## 2. P0：固定现场和可审阅方案
+
+| ID | 状态 | 输入→行动→通过判据 |
+|---|---|---|
+| P0-01 | 已做 | 用户要求→T1/GOVERNANCE_ALIGNMENT、方案与无模型调用边界；不启动业务。 |
+| P0-02 | 已做 | root/Git/dirty/index→保留取证；已知并行研究者保有current truth。 |
+| P0-03 | 已做 | 66份治理/任务文档→全文阅读及逐文件处置；71个文件的路径检索另列162命中。 |
+| P0-04 | 已做 | 官方文档→第001片机制映射；本机2.1.281与用户配置核对。 |
+| P0-05 | 已做 | loader plan→保存两profile当前体积；不声称正文已装入Claude。 |
+| P0-06 | 安装时重做 | 重新核源hash、当前branch/HEAD、所有拟写路径和个人同名Skill；任何变化先复审相关slice。 |
+
+本轮工作树不干净，且有并行commit。不得把“clean全仓”作为通过前提，更不得用reset/stash/clean取得它；需要的是own-scope可恢复、他人改动保留、完整index不被混入。
+
+## 3. P1：先收敛当前可执行文本
+
+| ID | 状态 | 行动与验收 |
+|---|---|---|
+| P1-01 | 待实施 | 对每个existing目标运行`check_file_baseline.sh`；记录tracked/dirty、file commit、HEAD/tag；新文件记ABSENT。 |
+| P1-02 | 待实施 | 根AGENTS首段解除强制读Codex全局文件的绑定；同一段保留当前宿主全局规范与更具体项目约束。 |
+| P1-03 | 待实施 | 按H02/H03改所有活跃模板与reference的当前读取句；原始strategy、来源、旧seal和历史版本段落逐字保留。 |
+| P1-04 | 待实施 | 对齐H04：现有四件套档位/复认规则、最高指示和角色Goal专门全文触发；逐概念确认无丢失、无任意缩减。 |
+| P1-05 | 待实施 | 修checkpoint模板完整bundle，明确示例不能直接apply；不改变writer/schema。 |
+| P1-06 | 待实施 | 将Astra、Chat、Codex状态API与历史授权逐处分类：历史保留，当前通用语义修正，Claude工具差异放adapter；不批量替换名称。 |
+| P1-07 | 待实施 | 历史MANIFEST标识为旧交付依据，另保存本次源manifest；不重写旧19项hash来冒充旧版本吻合。 |
+| P1-08 | 待实施 | 检查当前record的source_hashes消费者与旧封存；新版触发stale时交实际integrator重新消费，不修改旧at-run证据。 |
+
+每项改动都要给原句、当前语义、新句与消费者。安装的目标是让同一合同被Claude正确消费，不顺便清理所有历史研究状态。README/Feature中的业务进度若与STATE不同，登记给事实owner，不由本治理contributor代改。
+
+## 4. P2：接入Claude项目发现
+
+| ID | 状态 | 行动与验收 |
+|---|---|---|
+| P2-01 | 待实施 | 按第003片创建根CLAUDE及完整宿主说明，import只指repo内可读常规文件；核循环/断链/导入深度。 |
+| P2-02 | 待实施 | 建`.claude/skills`，创建五个精确相对目录symlink；已存在同目标则保持，冲突实体或不同目标则不覆盖。 |
+| P2-03 | 待实施 | 结构化编辑项目settings，合并Agent deny、设置本项目auto memory false；不写模型、API key、provider或全局配置。 |
+| P2-04 | 待实施 | 核所有Skill frontmatter和description，保留metadata；没有fork、agent、模型覆盖、动态shell注入或allowed-tools新增。 |
+| P2-05 | 待实施 | 核每个链接的realpath、SKILL正文hash及references/scripts相对可达；canonical Python入口仍从`.codex`运行。 |
+| P2-06 | 待实施 | 给README/docs添加薄链接；写T1安装记录及精确安装receipt，不注册新research task或改变STATE revision。 |
+
+首次创建链接的命令形态如下，**只在source存在、target完全不存在（包括dangling symlink）且用户已要求安装时执行**：
+
+```bash
+ln -s ../../.codex/skills/hott-local-session-governance .claude/skills/hott-local-session-governance
+ln -s ../../.codex/skills/hott-paradox-research .claude/skills/hott-paradox-research
+ln -s ../../.codex/skills/hott-paradox-search-sop .claude/skills/hott-paradox-search-sop
+ln -s ../../.codex/skills/hott-machine-overview-execution .claude/skills/hott-machine-overview-execution
+ln -s ../../.codex/skills/hott-machine-overview-audit .claude/skills/hott-machine-overview-audit
+```
+
+不使用`ln -sf`覆盖未知目标。真实安装receipt记录每个target的类型、原状态/字节或link、安装后状态/hash、canonical target及对应source hash。对所有普通文本继续使用当前宿主结构化Edit/Write或apply_patch。链接建立不是业务文件写入或模型运行。
+
+## 5. P3：无需Claude额度的验收
+
+| ID | 状态 | 检查与失败处置 |
+|---|---|---|
+| P3-01 | 待安装后 | strict JSON/YAML解析、字段名、五Skill名称/description、引用/realpath；失败只修本次资产。 |
+| P3-02 | 待安装后 | `.claude`只含声明入口和五链接，不含第二份STATE/core/runtime、agents、额外MCP或插件；个人`~/.claude`前后hash不变。 |
+| P3-03 | 待安装后 | 用原validator/角色route测试检查共享方法；先记录baseline，再对比本次delta，既有失败不伪装成新增。 |
+| P3-04 | 待安装后 | 两个profile只读plan通过；固定顺序/全部分片、最高指示、任务路由仍存在，未误引`.claude`alias进入状态。 |
+| P3-05 | 待安装后 | 在独占临时fixture中检查缺Skill、断链、错误目标、源hash漂移、settings冲突拒绝；不得破坏真实项目来做负例。 |
+| P3-06 | 待安装后 | `claude doctor`会话外诊断设置；不能执行会话内`/doctor`、`/init`、`/import`、`-p`或prompt。结果只称安装诊断。 |
+| P3-07 | 待安装后 | 逐源新旧diff概念核对：研究原意、最高指示重读、KC审计、证明门禁、权限、失败恢复、完成条件均有去向。 |
+| P3-08 | 待安装后 | 在fixture演练receipt回滚、后来用户修改目标的冲突拒绝；源/canonical业务资产不会被链接清理删除。 |
+| P3-09 | 待安装后 | own-scope空白/链接检查；精确显示改动与保留dirty，按实际授权决定是否commit/tag，绝不自动push。 |
+
+可复用检查入口：
+
+```bash
+python3 -B scripts/audit/verify_governance_shards.py --help
+python3 -B scripts/audit/verify_v5_invariants.py --help
+python3 -B scripts/audit/test_goal_task_governance.py
+python3 -B .codex/skills/hott-paradox-research/checks/test_cognition_runtime.py
+```
+
+实际运行前核当前脚本的读写范围；输出只写本轮独占证据路径。未修改runtime时不为数量重跑所有数学proof。新symlink接入需验证的是真实入口和canonical解析；“五个链接存在”不能证明Claude已经发现它们。
+
+## 6. 回滚、版本与并行保护
+
+本方案阶段没有运行时变更，因此现在不存在“已安装后回滚”。实施时：
+
+1. 安装前保存自己的精确目标before字节、权限及symlink状态；现有dirty文件保留完整现场，不把HEAD版本当唯一baseline。
+2. 新文件/链接回滚前，核它仍等于安装receipt。相同才移除本安装新增项；有后续编辑就保留并报告差异，不能覆盖用户新内容。
+3. canonical文本只反向应用本次独占hunk；有并行变化时做base/installed/current三方检查，不whole-repo reset。
+4. settings只撤销本次变化，保留其他键；`.claude`目录仅在确定本任务创建且为空时移除。永远不递归删除symlink指向的`.codex`。
+5. source pins、依赖结论和事实索引随被接受语义处理，不用回滚把旧收据改写为新事实。current owners有变化时仍走原事务恢复合同。
+6. Git只提交精确path/hunk，先核完整index；如果没有commit/tag授权，交付标`LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`。治理正式发布另须完成既有版本合同，不移动旧tag、不自动push。
+
+不为本次八类入口建设新的常驻安装服务或研究状态平台。小型确定性验证脚本与一次性receipt足够；若将来需批量分发多机器，再独立设计迁移/原子安装工具。
