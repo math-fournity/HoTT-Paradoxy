@@ -1511,3 +1511,52 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | C-342 | 固定本地Bool/Nat/Id及Encoded=Bool→Nat；给定对Bool索引Set族的dependent ext与恒等律ext(λx.refl)=refl，对所有C:Encoded→Set、d:Πa,b:Nat.C(pair a b)、a,b:Nat，指定encoded-elim C d(pair a b)=d a b。η-canonical与delivered-zero为同假设下的中间/实例结果。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_HYPOTHESES` | `WithExt.η-canonical/encoded-β/delivered-zero`；primary02 | 是原生intensional Id片段的条件命题，不证明假设有模型、不证明整个Book/Cubical翻译、不含UA或HIT；不把命题β提升为判断β，也不推出程序不终止。 |
 | C-343 | 对本地PrimitivePair及任意C:PrimitivePair→Set、d:Πa,b.C(pack a b)，primitive-elim C d(pack a b)=d a b由refl成立；且∀a,b:Nat，left(pair a b)=a由refl成立。 | `FORMAL_CHECKED_WITH_SCOPE / POSITIVE_CONTROLS` | `primitive-β/projection-β`；primary02，不依赖WithExt参数 | 控制只说明这些具体定义的计算行为。直接投影可以完成取左分量任务，因此NEG02不是该任务不可完成的证明；未证明任何现实相对HoTT失配。 |
+
+## T1 的 H₀：内容恢复与可观察 append-only audit state（2026-09-25）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-TERRA-T1-H0-001` | `C-344–C-346` | `formal/terra-t1-h0/H0Audit.agda`；本地 `CLAIM.md`；Cubical v0.9 的 Bool／Sigma／List | `verification/runs/20260925-MP-TERRA-T1-H0-001-01/`；Cubical Agda 2.8.0-3d04bac，`--safe --cubical --guardedness`，exit 0 | `FORMAL_CHECKED_WITH_SCOPE / MACHINE_PROVED_LOCAL_UNCOMMITTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-344 | 在固定 `Action={forward,backward}`、`apply forward=apply backward=not`、`undo forward=backward` 的 Cubical Bool 模型中，对任意 `c:Bool` 与 `log:List AuditEvent`，`current(step (undo forward) (step forward (c,log))) ≡ c`。 | `FORMAL_CHECKED_WITH_SCOPE` | `H0Audit.contentUndo/undo-law`；run `20260925-MP-TERRA-T1-H0-001-01` | 只证明固定 Bool content action 的**内容投影**恢复；不证明任意 Content/Action/FHIR update 的 inverse，也不证明完整 state 返回初始值。 |
+| C-345 | 在同一模型中，对任意 `c,log`，`audit(step (undo forward) (step forward (c,log))) ≡ log ++ [evForward,evBackward]`；每个 event 由对应的同一 `step` 的 `recordEvent` 产生。 | `FORMAL_CHECKED_WITH_SCOPE` | `H0Audit.auditAppend/++-assoc/step`；同 run | 不证明 FHIR server 自动生成 e1/e2，亦不证明 authorization、query、retention、NIST enforcement、HPT merge/replay 或真实 append-only storage。 |
+| C-346 | 对具体 `initial=(true,[])` 与 `afterUndo=step backward (step forward initial)`，有 `current afterUndo ≡ current initial` 且 `¬(afterUndo ≡ initial)`。 | `FORMAL_CHECKED_WITH_SCOPE / COMPLETE_STATE_CONTROL` | `H0Audit.initialContentRestored/initialAuditRecordsBoth/fullStateNotReturn`；同 run | 非相等依赖这个具体 Bool/list/event instance；不证明所有非空 audit log、所有 state space 或任何现实操作都不回原点。 |
+
+## T1 的 H₀ interface：同一 update 的 actor/event、授权 query 与 capability 边界（2026-09-25）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-TERRA-T1-H0-INTERFACE-001` | `C-347–C-350` | `formal/terra-t1-h0-interface/H0AuditInterface.agda`；本地 `CLAIM.md`；Cubical v0.9 的 Bool／Sigma／List | `verification/runs/20260925-MP-TERRA-T1-H0-INTERFACE-001-01/`；Cubical Agda 2.8.0-3d04bac，`--safe --cubical --guardedness`，exit 0 | `FORMAL_CHECKED_WITH_SCOPE / MACHINE_PROVED_LOCAL_UNCOMMITTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-347 | 在固定三 actor／两 action／Bool content 的模型中，`forwardPermit` 可居住，`step updater forward initial forwardPermit` 在**同一个 step** 中 append `event updater forward true false`，该 event 的 actor/action 投影分别为 updater/forward。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_PRIMITIVE_ACTION_CONTROL` | `H0AuditInterface.forwardPermit/forwardEventIsInternal/forwardEventCarriesActor/forwardEventCarriesAction`；run `20260925-MP-TERRA-T1-H0-INTERFACE-001-01` | 不证明任意 production update 自动产生 FHIR AuditEvent；固定 `Permit` 只是本模型 capability 数据。 |
+| C-348 | `auditor` 的 `CanReadAudit` 见证可居住，且其 `readAudit` 读取 `afterUndo` 时精确得到由 updater 的 forward/backward 两步产生的两个带 actor/action/前后 Bool 内容的 event。 | `FORMAL_CHECKED_WITH_SCOPE / AUTHORIZED_QUERY_INTERFACE_CONTROL` | `H0AuditInterface.auditReaderPermit/authorizedQuery`；同 run | 不证明真实 authentication、authorization policy、FHIR search、audit backend、retention 或 NIST deployment enforcement。 |
+| C-349 | 在固定 capability interface 中，`¬ CanUpdate outsider forward (current initial)` 且 `¬ CanReadAudit outsider afterUndo`。 | `FORMAL_CHECKED_WITH_SCOPE / FIXED_INTERFACE_REJECTION` | `H0AuditInterface.outsiderCannotUpdate/outsiderCannotRead`；同 run | 只否定此有限 datatype interface 的 outsider capabilities；不建模管理员、攻击者、权限提升、网络或密码学。 |
+| C-350 | 在同一 actor/capability 模型中，`contentRestored : current afterUndo ≡ current initial` 与 `fullStateNotReturn : ¬ (afterUndo ≡ initial)` 同时成立。 | `FORMAL_CHECKED_WITH_SCOPE / CONTENT_VS_COMPLETE_STATE_SEPARATION` | `H0AuditInterface.contentRestored/fullStateNotReturn`；同 run | 不证明所有 content/action/log 都有该性质；不把完整 audit state 的非回返说成现实物理不可逆定律。 |
+
+## T1 的 H₀ generic metadata：任意 supplied audit payload 的结构正控制（2026-09-26）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-TERRA-T1-H0-GENERIC-001` | `C-351–C-353` | `formal/terra-t1-h0-generic/H0AuditGeneric.agda`；本地 `CLAIM.md`；Cubical v0.9 的 Sigma／List | `verification/runs/20260926-MP-TERRA-T1-H0-GENERIC-001-01/`；Cubical Agda 2.8.0-3d04bac，`--safe --cubical --guardedness`，exit 0 | `FORMAL_CHECKED_WITH_SCOPE / MACHINE_PROVED_LOCAL_UNCOMMITTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-351 | 对任意 `Content`、`Actor`、`Action`、`Metadata`、`apply`、`undo` 和显式 `undo-law`，任意 supplied `u,a,m₁,m₂,c,log` 均有 `contentUndo`：二次同一 `step` 后恢复内容投影。 | `FORMAL_CHECKED_WITH_SCOPE / EXPLICIT_UNDO_LAW` | `H0AuditGeneric.contentUndo`；run `20260926-MP-TERRA-T1-H0-GENERIC-001-01` | `undo-law` 是显式前提，不证明任意现实 update 可撤销或任意 action 系统都有 inverse。 |
+| C-352 | 对同一参数和任意 supplied `m₁,m₂`，`auditAppend` 证明两个同一 `step` 产生的 event 保留 actor/action/before/after/metadata，逐项 append 在最终 log 中。 | `FORMAL_CHECKED_WITH_SCOPE / GENERIC_METADATA_CARRIED_BY_SAME_STEP` | `H0AuditGeneric.auditAppend/recordEvent/step`；同 run | 不证明实际 FHIR schema/profile、metadata 真值、timestamp、签名、authorization enforcement、retention 或 HPT merge/replay。 |
+| C-353 | 对任意 supplied `u,a,m₁,m₂,c`，空初始 log 下 `contentRestoredAtInitial` 与 `fullStateNotReturn` 同时成立。 | `FORMAL_CHECKED_WITH_SCOPE / GENERIC_CONTENT_VS_COMPLETE_STATE_SEPARATION` | `H0AuditGeneric.contentRestoredAtInitial/fullStateNotReturn`；同 run | 非回返使用初始空 log 和至少两次 step 的结构；不证明一般现实不可逆性、所有 deployment 或任何 HoTT 全局结论。 |
+
+## T2 的一次性授权码：bare 可复制接口与 stateful server 正控制（2026-09-26）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-TERRA-T2-ONESHOT-001` | `C-354–C-356` | `formal/terra-t2-one-shot/OneShotCapability.agda`；本地 `CLAIM.md`；Cubical v0.9 的 Sigma／List | `verification/runs/20260926-MP-TERRA-T2-ONESHOT-001-01/`；Cubical Agda 2.8.0-3d04bac，`--safe --cubical --guardedness`，exit 0 | `FORMAL_CHECKED_WITH_SCOPE / MACHINE_PROVED_LOCAL_UNCOMMITTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-354 | 对任意 `A : Type`，`duplicate : A → A × A` 可定义；对固定 `authorizationCode` 有 `duplicate authorizationCode ≡ (authorizationCode , authorizationCode)`。 | `FORMAL_CHECKED_WITH_SCOPE / BARE_VALUE_DUPLICATION_CONTROL` | `OneShotCapability.duplicate/duplicatedCode/duplicateIsTwoCopies`；run `20260926-MP-TERRA-T2-ONESHOT-001-01` | 只说明普通 Cubical 积接口允许一个**数据值**进入两个使用位置；不证明所有现实资源可复制、Book 的所有上下文规则、任何攻击能力或 HoTT 结论。 |
+| C-355 | 在固定 pure interface `pureRedeem : Code → Token` 中，`pureTwice authorizationCode ≡ (accessToken , accessToken)`。 | `FORMAL_CHECKED_WITH_SCOPE / BARE_PURE_INTERFACE_NEGATIVE_CONTROL` | `OneShotCapability.pureRedeem/pureTwice/pureCopiesBothGrant`；同 run | 这是故意选择的非状态 pure interface，不能代表 OAuth 或所有 code→token 函数；不从此推出“HoTT 使一次性任务失败”。 |
+| C-356 | 对同一 `duplicatedCode` 的两份分量按序调用固定 stateful `redeem`，第一次 reply 为 `granted accessToken`，第二次为 `denied`，最终 server status 是 `consumed`，event log 是 `[grantAttempt,denialAttempt]`。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_CORE_TASK_STATEFUL_POSITIVE_CONTROL` | `OneShotCapability.firstCopyGrants/secondCopyIsDenied/serverHasConsumedCode/bothAttemptsRecorded`；同 run | 只证明顺序、单 code、固定有限 state model；不证明真实 OAuth 的 client/redirect binding、原子并发、PKCE/TLS、安全性、日志持久化、生产部署或所有 HoTT representations。 |

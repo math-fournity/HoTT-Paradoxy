@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 195,
+  "later_machine_proved_claim_count": 208,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -960,6 +960,46 @@
    "kind": "native_intensional_encoded_pair_conditional_beta_and_positive_controls",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: conditional dependent beta for Bool-to-Nat pair encoding with explicit ext/ext-id; primitive dependent beta and direct projection controls.",
    "notes": "Safe without-K exact-split native local Bool/Nat/Id fragment, no imported mathematical library. Explicit extensionality hypotheses are not proved consistent here. NEG02 UnequalTerms is an exact expression/type-check observation, not a theorem of general non-reducibility or divergence. No univalence, HIT, full Book translation, physical claim or qualified paradox. Earlier builtin-import runs 01/NEG01 and source snapshots preserved; primary02 has a self-contained local mathematical source."
+  },
+  {
+   "proof_id": "MP-TERRA-T1-H0-001",
+   "claim_ids": "C-344–C-346",
+   "source": "HoTT/formal/terra-t1-h0/H0Audit.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260925-MP-TERRA-T1-H0-001-01",
+   "kind": "native_cubical_bool_list_append_only_audit_state_positive_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed Bool content inverse restores the content projection, the same primitive step appends its event, and a concrete complete audit state does not return to its initial value.",
+   "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with no postulates. This is a model-level positive control for Terra audit 017, not FHIR deployment behavior, NIST enforcement, authorization/query/retention proof, HPT merge/replay, a general representation theorem, or a verdict on HoTT reality-relative paradoxes. Source/run are local uncommitted evidence."
+  },
+  {
+   "proof_id": "MP-TERRA-T1-H0-INTERFACE-001",
+   "claim_ids": "C-347–C-350",
+   "source": "HoTT/formal/terra-t1-h0-interface/H0AuditInterface.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260925-MP-TERRA-T1-H0-INTERFACE-001-01",
+   "kind": "native_cubical_actor_capability_and_authorized_audit_query_interface_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: one permitted update internally appends an actor/action event; an authorized reader queries both events; outsider update/read capabilities are empty; content returns while the full audit state does not.",
+   "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with no postulates. A finite capability/interface model only: not FHIR conformance, NIST implementation, real authorization or security proof, persistence/retention/WORM, cryptographic logging, HPT merge/replay, a general representation theorem, or a verdict on HoTT reality-relative paradoxes. Source/run are local uncommitted evidence."
+  },
+  {
+   "proof_id": "MP-TERRA-T1-H0-GENERIC-001",
+   "claim_ids": "C-351–C-353",
+   "source": "HoTT/formal/terra-t1-h0-generic/H0AuditGeneric.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260926-MP-TERRA-T1-H0-GENERIC-001-01",
+   "kind": "native_cubical_generic_content_action_metadata_append_only_audit_state_positive_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: for arbitrary supplied content/actor/action/metadata and an explicit content inverse law, the same step carries complete metadata in two appended events, restores the content projection, and does not return an initially empty complete audit state.",
+   "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with no postulates. This is a parameterized structural model, not a proof that arbitrary actions have an inverse, a formal FHIR schema/profile, FHIR deployment behavior, NIST enforcement, real authorization/security, persistence/retention/WORM, cryptographic logging, HPT merge/replay, a general representation theorem, or a verdict on HoTT reality-relative paradoxes. Source/run are local uncommitted evidence."
+  },
+  {
+   "proof_id": "MP-TERRA-T2-ONESHOT-001",
+   "claim_ids": "C-354–C-356",
+   "source": "HoTT/formal/terra-t2-one-shot/OneShotCapability.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20260926-MP-TERRA-T2-ONESHOT-001-01",
+   "kind": "native_cubical_bare_value_duplication_and_stateful_one_shot_server_interface_controls",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: a bare Code value can be paired with itself and a chosen pure Code-to-Token interface grants twice, while a stateful server transition over the same copied code grants once, denies once, and records consumption.",
+   "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with no postulates. This is a minimal core OAuth-like sequential interface control, not OAuth conformance, client/redirect binding, authentication, PKCE/TLS, concurrency atomicity, production security, deployment behavior, a theorem about all HoTT representations, a proof of linear type-system absence, or a verdict on HoTT reality-relative paradoxes. Source/run are local uncommitted evidence."
   }
  ],
  "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
