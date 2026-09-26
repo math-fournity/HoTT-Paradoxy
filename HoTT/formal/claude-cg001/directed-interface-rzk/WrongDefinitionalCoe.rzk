@@ -1,0 +1,63 @@
+#lang rzk-1
+
+-- Negative control for CG001-C-57 (expected KERNEL_REJECTED).
+-- proof id : MP-CG001-DIRECTED-INTERFACE-NEG-001
+--
+-- In SameCalculusSwitch.rzk the arrow Gl A B φ carries El along as φ only
+-- because the directed-univalence interface says so (coe-Gl uses its section
+-- law).  Claiming the same by refl, without the interface doing any work,
+-- must be rejected: covariant transport along an arbitrary arrow is not
+-- definitionally any given function.
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define is-contr
+  ( A : U)
+  : U
+  := Σ ( a : A) , ( ( b : A) → a = b)
+
+#define dhom
+  ( A : U)
+  ( x y : A)
+  ( f : hom A x y)
+  ( C : A → U)
+  ( u : C x)
+  ( v : C y)
+  : U
+  := ( t : Δ¹) → C (f t) [ t ≡ 0₂ ↦ u , t ≡ 1₂ ↦ v ]
+
+#define is-covariant
+  ( A : U)
+  ( C : A → U)
+  : U
+  := ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+   → is-contr (Σ ( v : C y) , dhom A x y f C u v)
+
+#define covariant-transport
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x y : A)
+  ( f : hom A x y)
+  ( u : C x)
+  : C y
+  := first (first (is-cov x y f u))
+
+#define coe-by-refl
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( A B : S)
+  ( f : hom S A B)
+  ( φ : El A → El B)
+  ( u : El A)
+  : covariant-transport S El is-cov A B f u = φ u
+  := refl

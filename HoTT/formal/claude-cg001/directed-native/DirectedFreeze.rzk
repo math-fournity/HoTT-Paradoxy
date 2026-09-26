@@ -1,0 +1,157 @@
+#lang rzk-1
+
+-- Directed readings, checked natively in simplicial HoTT
+-- (Claude, session 91a6cdaa, 2026-09-25), in reply to Terra's audit 005 (O-016).
+--
+-- proof id : MP-CG001-DIRECTED-NATIVE-001
+-- claims   : CG001-C-45 (full statement in CLAIM.md)
+--
+-- Theory: Riehl-Shulman simplicial type theory as implemented by Rzk 0.11.3,
+-- with no postulates, no assumed axioms and no modalities.  Definitions follow RS17
+-- (hom as an extension type over the 1-simplex, Definition 7.1 for discrete
+-- types) in the spelling of the rzk-lang/sHoTT library, restated here so that
+-- the file is self-contained.
+--
+-- C-45 (a) every function acts on arrows (ap-hom) and sends identity arrows to
+--          identity arrows (by refl): functoriality comes for free, as in the
+--          undirected case;
+--      (b) if the reading type B is discrete, every reading f : A -> B takes
+--          path-equal values at the two ends of every arrow of A;
+--      (c) in particular, if Bool (declared as an inductive type) is discrete,
+--          readings into Bool freeze along arrows, and an arrow from false to
+--          true yields a path false = true; likewise for the natural numbers;
+--      (d) identity types keep their inverses: for any path p, p followed by
+--          its reverse is refl.  A step written as a path is still undone by
+--          its reverse; only a step written as an arrow has no inverse.
+--
+-- Not proved here: that Bool or N is discrete.  The Rzk 0.11.3 documentation
+-- states that the induction principle of Bool does not prove it, and that it
+-- is equivalent to a disconnectedness principle that the unaugmented theory
+-- cannot prove (source, not replayed).
+
+-- ------------------------------------------------------------------
+-- Shapes, arrows, paths
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define id-hom
+  ( A : U)
+  ( x : A)
+  : hom A x x
+  := \ t → x
+
+#define hom-eq
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : hom A x y
+  := idJ (A , x , \ y' p' → hom A x y' , id-hom A x , y , p)
+
+#define is-equiv
+  ( A B : U)
+  ( f : A → B)
+  : U
+  := Σ ( r : B → A)
+    , Σ ( s : B → A)
+    , Σ ( η : ( a : A) → r (f a) = a)
+    , ( ( b : B) → f (s b) = b)
+
+-- RS17 Definition 7.1
+#define is-discrete
+  ( A : U)
+  : U
+  := ( x : A) → ( y : A) → is-equiv (x = y) (hom A x y) (hom-eq A x y)
+
+-- ------------------------------------------------------------------
+-- (a) functoriality on arrows comes for free
+
+#define ap-hom
+  ( A B : U)
+  ( f : A → B)
+  ( x y : A)
+  ( α : hom A x y)
+  : hom B (f x) (f y)
+  := \ t → f (α t)
+
+#define ap-hom-id
+  ( A B : U)
+  ( f : A → B)
+  ( x : A)
+  : ap-hom A B f x x (id-hom A x) = id-hom B (f x)
+  := refl
+
+-- ------------------------------------------------------------------
+-- (b) readings into a discrete type freeze along every arrow
+
+#define discrete-reading-freezes
+  ( A B : U)
+  ( is-discrete-B : is-discrete B)
+  ( f : A → B)
+  ( x y : A)
+  ( α : hom A x y)
+  : f x = f y
+  := ( first (is-discrete-B (f x) (f y))) (ap-hom A B f x y α)
+
+-- ------------------------------------------------------------------
+-- (c) ordinary data, conditionally on its discreteness
+
+#data Bool := false | true
+
+#data ℕ := zero | succ (n : ℕ)
+
+#define Bool-reading-freezes
+  ( is-discrete-Bool : is-discrete Bool)
+  ( A : U)
+  ( f : A → Bool)
+  ( x y : A)
+  ( α : hom A x y)
+  : f x = f y
+  := discrete-reading-freezes A Bool is-discrete-Bool f x y α
+
+#define discrete-Bool-arrow-is-path
+  ( is-discrete-Bool : is-discrete Bool)
+  ( α : hom Bool false true)
+  : false = true
+  := ( first (is-discrete-Bool false true)) α
+
+#define ℕ-reading-freezes
+  ( is-discrete-ℕ : is-discrete ℕ)
+  ( A : U)
+  ( f : A → ℕ)
+  ( x y : A)
+  ( α : hom A x y)
+  : f x = f y
+  := discrete-reading-freezes A ℕ is-discrete-ℕ f x y α
+
+-- ------------------------------------------------------------------
+-- (d) paths keep their inverses in simplicial HoTT
+
+#define rev
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : y = x
+  := idJ (A , x , \ y' _ → y' = x , refl , y , p)
+
+#define concat
+  ( A : U)
+  ( x y z : A)
+  ( p : x = y)
+  ( q : y = z)
+  : x = z
+  := idJ (A , y , \ z' _ → x = z' , p , z , q)
+
+#define path-there-and-back
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : concat A x y x p (rev A x y p) = refl
+  := idJ (A , x , \ y' p' → concat A x y' x p' (rev A x y' p') = refl , refl , y , p)

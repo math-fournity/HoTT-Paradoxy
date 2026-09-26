@@ -1,0 +1,59 @@
+{
+  "schema_version": "claude-cg001-lean-toolchain/v1",
+  "tool": "lean",
+  "version": "4.34.0",
+  "version_line": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "theory": "Lean 4 kernel (dependent type theory with inductive types, proof-irrelevant Prop, definitional UIP); used only for set-level model statements, never for HoTT paths",
+  "prefix": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0",
+  "pinned_files": [
+    {
+      "relative_path": "bin/lean",
+      "bytes": 49968,
+      "sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554"
+    },
+    {
+      "relative_path": "bin/leanchecker",
+      "bytes": 78224,
+      "sha256": "cfde41cb11dde58c84e9c60c551fd104bb2fc1104ad44dca932a923120272a35"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared.dylib",
+      "bytes": 179044704,
+      "sha256": "2c4cdca4a03ef56e2c37e3d1ecd202ae5310e146e41580c6036770965ea93ef6"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared_1.dylib",
+      "bytes": 16736,
+      "sha256": "e44858e227323a23ce7416c5678415d2d022582b1627ad3690117ce73cd6345a"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared_2.dylib",
+      "bytes": 16736,
+      "sha256": "be68927a4f282b99383e82af4d481b4ffe59f2a243aea20dae0e60b39c2ae182"
+    },
+    {
+      "relative_path": "lib/lean/libInit_shared.dylib",
+      "bytes": 16736,
+      "sha256": "cb203e0bc0e6ab3250b2804d3e5398ad3a91544b5e049674532f73b7a062ef7f"
+    },
+    {
+      "relative_path": "lib/lean/libLake_shared.dylib",
+      "bytes": 10072896,
+      "sha256": "60a94628397814203d86428fa6015f9d844c4c4c74cda8667e687a4ea5b5f5ac"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean",
+      "bytes": 5888,
+      "sha256": "36f732d9cbfce0cbd1234dec6144186944c2580be32c13d942f8eb4b703d8f5c"
+    },
+    {
+      "relative_path": "lib/lean/Init/Prelude.olean",
+      "bytes": 3397592,
+      "sha256": "582efca88f372de1718ec8549e2501e7d29808822518cb72535b34f53866ad91"
+    }
+  ],
+  "provenance": "elan toolchain leanprover/lean4:v4.34.0, already installed on this machine before 2026-09-25 (directory dated 2026-09-18); not downloaded for CG-001",
+  "isolation": "runs call the pinned binaries by absolute path with env -i style environment: PATH=<prefix>/bin:/usr/bin:/bin, LEAN_SYSROOT=<prefix>, LEAN_PATH=<temporary build dir>; the elan proxy is never invoked",
+  "incident": "2026-09-25 10:09-10:12: a first, unisolated leanchecker call resolved 'lean' through the elan proxy on PATH, whose default channel 'stable' made elan download and install leanprover/lean4:v4.34.1 (about 2.7 GB) without the user's prior permission. That toolchain is not used by any CG-001 run; it was reported to the user, who decides whether to keep it.",
+  "source_policy": "no sorry, admit, native_decide, axiom declarations, unsafe, implemented_by, extern, opaque or kernel-skipping options in sources; every main theorem is followed by #print axioms"
+}

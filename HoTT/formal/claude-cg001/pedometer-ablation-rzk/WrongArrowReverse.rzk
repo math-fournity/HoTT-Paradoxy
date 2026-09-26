@@ -1,0 +1,26 @@
+#lang rzk-1
+
+-- Negative control for CG001-C-53 (expected KERNEL_REJECTED).
+-- proof id : MP-CG001-PEDOMETER-ABLATION-RZK-NEG-001
+--
+-- A path is reversed by path induction (rev in CarriedMonotone.rzk).  An arrow
+-- has no such reverse: the directed interval has no reversal operation, so
+-- reusing an arrow from x to y as an arrow from y to x must be rejected at
+-- its endpoints.
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define reverse-arrow
+  ( A : U)
+  ( x y : A)
+  ( f : hom A x y)
+  : hom A y x
+  := \ t → f t
