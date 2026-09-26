@@ -1,0 +1,48 @@
+{
+  "claim_ids": [
+    "CG001-C-58"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/rzk-v0.11.3-macos-arm64/rzk",
+    "typecheck",
+    "HoTT/formal/claude-cg001/two-town-rzk/WrongReturnAlongGo.rzk"
+  ],
+  "completed_at_utc": "2026-09-25T18:18:01.278211+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.106872,
+  "environment": {
+    "bytes": 478,
+    "path": "environment.txt",
+    "sha256": "667feaff3eb66032c4a63878c9396a2d789f28b4b19d8572f76f73cd73aac6b8"
+  },
+  "exit_code": 1,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "shows only that an arrow's endpoints are fixed by its type; it does not show that no arrow B -> A exists"
+  ],
+  "proof_assistant": "Rzk",
+  "proof_assistant_version": "0.11.3",
+  "proof_id": "MP-CG001-TWO-TOWN-NEG-001",
+  "run_id": "20260925-CG001-TWO-TOWN-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-58 (expected KERNEL_REJECTED): in the arrow branch the outbound arrow Gl A B phi, an element of hom S A B, cannot be used as the return step, an element of hom S B A (cannot unify term B with term A); unlike rev p for paths, arrows have no formal reverse, so the return must be a second, independent step.",
+  "source_manifest": {
+    "bytes": 1467,
+    "path": "source-manifest.json",
+    "sha256": "635a9a4adeee67802df8c51f99dbdcf9cbfc3268ba415e004ed6239e31e0f976"
+  },
+  "started_at_utc": "2026-09-25T18:18:01.171075+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 640,
+    "path": "stderr.txt",
+    "sha256": "7b160c9a0d0d6f310d9c80a8077ac476f2eef6efd9d5c6c5d5d91d6aacb362dd"
+  },
+  "stdout": {
+    "bytes": 3619,
+    "path": "stdout.txt",
+    "sha256": "4e171a151597694f8e282a6c3d4a4b189b4bfa97c3676e954165c42f0e71b870"
+  },
+  "theory_variant": "sHoTT (Riehl-Shulman simplicial type theory) as implemented by Rzk"
+}

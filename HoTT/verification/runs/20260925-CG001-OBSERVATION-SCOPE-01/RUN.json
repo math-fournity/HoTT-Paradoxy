@@ -1,0 +1,60 @@
+{
+  "claim_ids": [
+    "CG001-C-44"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/observation-scope",
+    "HoTT/formal/claude-cg001/observation-scope/ObservationScope.agda"
+  ],
+  "completed_at_utc": "2026-09-25T09:08:18.682013+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 19.477211,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "standard facts (path induction, transport, apd); not original mathematics",
+    "does not say HoTT cannot complete a git-status-like task: the index layer (d) completes it",
+    "HistCtx is the Boolean-list simplification of Homotopical Patch Theory addendum A.3, not the full History HIT",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only)"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-OBSERVATION-SCOPE-001",
+  "run_id": "20260925-CG001-OBSERVATION-SCOPE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-44 exactly as stated in CLAIM.md ((a) for any types A, B, any t : (a b : A) -> a = b -> B and p : a = b, t a b p = t a a refl, so no Bool transition test is false on the no-op and true on an edit; (b) for any family M, g : (c : A) -> M c -> P, p and x, g b (transport (cong M p) x) = g a x, and g agrees along paths in Sigma A M; (c) for o : (c : A) -> D c, transport (cong D p) (o a) = o b; (d) on the history-indexed context HIT every Bool function agrees at hdoc [] and hdoc (true :: []), the index test isEmptyHistory separates [] from true :: [], and no Bool function on the HIT agrees with it on all named contexts). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2703,
+    "path": "source-manifest.json",
+    "sha256": "c927307ded9abed5ed020bd0ad8f0c0ba1aad2d6c23a6f2b8b9fd0c94801abe9"
+  },
+  "started_at_utc": "2026-09-25T09:07:59.204802+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 10526,
+    "path": "stdout.txt",
+    "sha256": "59493fded6b5fc1b5be87f255823c221ee1c76aba610a9983679fa86d7d0253e"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CG001-C-42"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/discrete-ring",
+    "HoTT/formal/claude-cg001/discrete-ring/DiscreteRing.agda"
+  ],
+  "completed_at_utc": "2026-09-25T08:08:56.504709+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 30.601192,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a discrete model used as a positive control for the density premise of the user's ring story; not a point-set circle and not a claim that physical space is discrete",
+    "does not prove that the dense (Dedekind-real) case cannot be completed; that side rests on Astra's C-319/C-322/C-324 and on literature (conditional)",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only); not original mathematics"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-DISCRETE-RING-001",
+  "run_id": "20260925-CG001-DISCRETE-RING-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-42 exactly as stated in CLAIM.md (for every n, with M n the points of Fin (suc n) different from fzero and N n = Fin n, restore j = fsuc j covers every point of M n by finite case analysis, is injective, and gives an Iso and an equivalence N n = M n). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2683,
+    "path": "source-manifest.json",
+    "sha256": "e6ba1d6ea169c1d0311b427c573e08192f6c47cd5fe6e73a151c1113aab2cc3a"
+  },
+  "started_at_utc": "2026-09-25T08:08:25.903517+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16090,
+    "path": "stdout.txt",
+    "sha256": "8d9f07dc5a57c5e8c9a8ce27177d5718941c1a9c46ead9faf4bb457e88f30e1d"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CG001-C-47"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-halting",
+    "HoTT/formal/claude-cg001/pedometer-halting/PedometerHalting.agda"
+  ],
+  "completed_at_utc": "2026-09-25T13:11:19.173266+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 33.931154,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "non-halting of one specified search under the path-and-transport reading; not undecidability, not a timeout, not 'HoTT cannot count' (part (c) counts in HoTT)",
+    "the reading 'a walk is a path, carried things are transported' is an interpretation bridge (CN-028), conditional on stance S for physical walks",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only)"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PEDOMETER-HALTING-001",
+  "run_id": "20260925-CG001-PEDOMETER-HALTING-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, --safe --cubical --guardedness, no postulates: CG001-C-47 exactly as in CLAIM.md ((a) for any type, path p, family B, readout read and start value, the value carried by transport over n round trips p . sym p equals the start value for every n, no n has read (after n) = 2 + read start, and the fuel-bounded stopping-time search returns nothing for every fuel; (b) the helix counter adds one per forward loop (refl) yet its round-trip walk never halts; (c) positive control: the walk as a list of steps reaches reading 2 after one round trip and the same search halts at fuel 1 with just 1 (refl)). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2703,
+    "path": "source-manifest.json",
+    "sha256": "a845d8f8a669b09132b7458b7ba9d1bd505cfe849fc3d3072e2c52ff9997fdb4"
+  },
+  "started_at_utc": "2026-09-25T13:10:45.242112+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16759,
+    "path": "stdout.txt",
+    "sha256": "3cc9efd95d668736c53c2685b95e222a3f1ff64c38b46b0b7f4ef44659e6cfbf"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

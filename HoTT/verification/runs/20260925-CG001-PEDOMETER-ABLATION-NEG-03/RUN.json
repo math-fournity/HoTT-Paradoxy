@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CG001-C-50"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-ablation",
+    "HoTT/formal/claude-cg001/pedometer-ablation/WrongAntiWalkAdvances.agda"
+  ],
+  "completed_at_utc": "2026-09-25T14:25:41.155956+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 30.395715,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a rejected refl shows only that this definitional claim fails; the general statement is C-49 (e)"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PEDOMETER-ABLATION-NEG-003",
+  "run_id": "20260925-CG001-PEDOMETER-ABLATION-NEG-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-50 (expected KERNEL_REJECTED): in the escape HIT the claim by refl that the reverse of go also adds a step (subst Ped (sym go) (pos 0) = pos 1) must be rejected; the kernel computes negsuc 0.",
+  "source_manifest": {
+    "bytes": 2922,
+    "path": "source-manifest.json",
+    "sha256": "05f8cc72522fb0e5e4c49fa791250c436523fc60ab2ec7a531766b65fc3ac756"
+  },
+  "started_at_utc": "2026-09-25T14:25:10.760241+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 17044,
+    "path": "stdout.txt",
+    "sha256": "940d728817aaf536fa7e2bb6a15862f2fbf6e72f50cfe9939c043ddd8084d5d4"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

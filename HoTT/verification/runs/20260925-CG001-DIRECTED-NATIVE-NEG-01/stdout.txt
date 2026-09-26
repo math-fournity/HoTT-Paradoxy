@@ -1,0 +1,73 @@
+An error occurred when typechecking!
+Type Error:
+Definitions in context:
+  Δ¹ : 2 → TOPE
+  hom : (A : U) → (x : A) → (y : A) → U
+  A : U
+  B : U
+  f : A → B
+  x : A
+  y : A
+  α : hom A x y
+when typechecking
+  \ (A : U) → \ (B : U) → \ (f : A → B) → \ (x : A) → \ (y : A) → \ (α : hom A x y) → refl
+against type
+  (A : U) → (B : U) → (f : A → B) → (x : A) → (y : A) → (α : hom A x y) → f x =_{ B } f y
+
+when typechecking
+  \ (B : U) → \ (f : A → B) → \ (x : A) → \ (y : A) → \ (α : hom A x y) → refl
+against type
+  (B : U) → (f : A → B) → (x : A) → (y : A) → (α : hom A x y) → f x =_{ B } f y
+
+when typechecking
+  \ (f : A → B) → \ (x : A) → \ (y : A) → \ (α : hom A x y) → refl
+against type
+  (f : A → B) → (x : A) → (y : A) → (α : hom A x y) → f x =_{ B } f y
+
+when typechecking
+  \ (x : A) → \ (y : A) → \ (α : hom A x y) → refl
+against type
+  (x : A) → (y : A) → (α : hom A x y) → f x =_{ B } f y
+
+when typechecking
+  \ (y : A) → \ (α : hom A x y) → refl
+against type
+  (y : A) → (α : hom A x y) → f x =_{ B } f y
+
+when typechecking
+  \ (α : hom A x y) → refl
+against type
+  (α : hom A x y) → f x =_{ B } f y
+
+when typechecking
+  refl
+against type
+  f x =_{ B } f y
+
+when unifying term (expected)
+  f x : B
+with term (actual)
+  f y : B
+
+when unifying term (expected)
+  x
+with term (actual)
+  y
+
+when unifying term (expected)
+  x
+with term (actual)
+  y
+
+
+Local tope context is unrestricted (⊤).
+
+HoTT/formal/claude-cg001/directed-native/WrongFreeze.rzk (line 26, column 6):
+  Error occurred when checking
+    #define freeze-without-discreteness
+
+cannot unify term
+  x
+with term
+  y
+

@@ -1,0 +1,50 @@
+{
+  "claim_ids": [
+    "CG001-C-57"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/rzk-v0.11.3-macos-arm64/rzk",
+    "typecheck",
+    "HoTT/formal/claude-cg001/directed-interface-rzk/SameCalculusSwitch.rzk"
+  ],
+  "completed_at_utc": "2026-09-25T17:12:12.509425+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.249355,
+  "environment": {
+    "bytes": 478,
+    "path": "environment.txt",
+    "sha256": "667feaff3eb66032c4a63878c9396a2d789f28b4b19d8572f76f73cd73aac6b8"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "does not construct S or replay GWB; the interface's consistency is GWB's theorem (source, not replayed); (c)'s composition hypotheses stand for GWB Lemma 6.16 and RS17 functoriality",
+    "not an ablation of the groupoid law: paths stay invertible in the same calculus; the switch is the process primitive (identity path vs arrow)",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only)"
+  ],
+  "proof_assistant": "Rzk",
+  "proof_assistant_version": "0.11.3",
+  "proof_id": "MP-CG001-DIRECTED-INTERFACE-001",
+  "run_id": "20260925-CG001-DIRECTED-INTERFACE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Rzk 0.11.3 (sHoTT), no postulates, no assumed axioms, no modalities: CG001-C-57 exactly as in CLAIM.md, relative to an explicit directed-univalence interface taken as hypotheses (S : U, El : S -> U covariant per RS17 Def 8.2, and for all A B the map from hom S A B to El A -> El B given by covariant transport is an equivalence, i.e. GWB Theorem 6.13 at fixed endpoints; s, z on El A with z not in the image of s and z /= s (s z)): (a) no path A = A carries El along as s, and a path round trip returns z so the stop contract fails; (b) the arrow Gl A A s carries El along as s and a two-arrow walk reaches s (s z); (c) given a composition with functorial covariant transport (hypotheses), the composite round-trip arrow carries z to s (s z). Same calculus, same S, El, fibre and stop contract in (a) and (b); only the kind of step differs. Goal-local index only.",
+  "source_manifest": {
+    "bytes": 1500,
+    "path": "source-manifest.json",
+    "sha256": "b371d247e59a2a7de5df5a80800e95db7b26137683f409e29f9ae5009e462992"
+  },
+  "started_at_utc": "2026-09-25T17:12:12.259803+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 1293,
+    "path": "stderr.txt",
+    "sha256": "d63b90a3ed53b2b28481dc55b4da2afb52b8387de88e5677fd86091d4df45805"
+  },
+  "stdout": {
+    "bytes": 18,
+    "path": "stdout.txt",
+    "sha256": "a8556b63c8a266fd32519f6532b6139fb3537c45dc5de8f6e60c786426346002"
+  },
+  "theory_variant": "sHoTT (Riehl-Shulman simplicial type theory) as implemented by Rzk"
+}

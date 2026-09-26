@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CG001-C-43"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/rational-lift",
+    "HoTT/formal/claude-cg001/rational-lift/WrongGapInverse.agda"
+  ],
+  "completed_at_utc": "2026-09-25T08:23:57.289116+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 48.028798,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a rejected run is not a theorem; it shows that the gap point has no parameter"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-RATIONAL-LIFT-NEG-001",
+  "run_id": "20260925-CG001-RATIONAL-LIFT-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control, expected KERNEL_REJECTED: claiming by refl that 0r times 0r is 1r in the rationals (an inverse at the gap) must fail (0 != 1).",
+  "source_manifest": {
+    "bytes": 2693,
+    "path": "source-manifest.json",
+    "sha256": "2124135180e255e17e4447403037691a2ef02f0b9740a094234f61616bc20c5d"
+  },
+  "started_at_utc": "2026-09-25T08:23:09.260318+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 23440,
+    "path": "stdout.txt",
+    "sha256": "484531e724d8aa4a3b3a2a0986e35ec93f02371660cf87f21b9177b813673e98"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
