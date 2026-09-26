@@ -46,6 +46,8 @@
 
 34. 用户于 2026-09-26 确定 GLM 侧工作模式：在 Opus（Claude）暂时无法回复期间，GLM 可与用户继续沿罗素悖论思路（A7 的罗素面）研究与探讨；Opus 恢复后，GLM 不得干扰其继续工作。边界：(a) GLM 的全部罗素线产物写入 `GLM-5.3-Flash/`（goal 包用 `GR-` 前缀，入口为 `GLM-5.3-Flash/罗素线-平行工作索引.md`），不写 `.claude/`、不写 STATE/方向追踪/全景视野投影、不占用 Opus 的编号体系（`CN-`/`CG-`/回信编号）；(b) 与 Opus 已有成果的关系是引用与独立复核，给 locator 并保留其状态标签，不重复登记、不擅自升级证据等级；(c) Opus 恢复后 GLM 默认停止该线新构造、转只读待命，双线并行须用户明确指示；(d) 汇合只经由用户：以平行工作索引为移交入口，由 integrator/Opus 决定是否并入共享真值，GLM 不代写共享矩阵行；(e) 数学结论仍按裁定 15 门禁，GLM 新证明以 `glm-`/`GLM-` 前缀落共享门禁位置，目标内索引在本目录。
 
+35. 用户于 2026-09-26 指定：本 repo 的 GitHub 远程为 `https://github.com/math-fournity/HoTT-Paradoxy`（`origin`，`main` 分支）；repo 级提交身份锁定为 `math-fournity <math-fournity@proton.me>`（本地 config，含 `credential.https://github.com.username` 提示），后续提交与推送一律使用该身份，推送仅指向该远程，不改动全局 git 配置。远端已有 LICENSE 初始提交以无关历史合并接入（保留用户在目标仓库选择的 License，本地 602 个提交哈希不被重写）。历史提交的作者身份不追溯改写；推送的执行时间与大文件（`archive/objects.pack`，206.9MB，超 GitHub 100MB 限制）处理路径由用户另行决策。该裁定不授权把凭据写入任何文件或聊天记录。
+
 ## 2026-09-12：核心认知作为反训练惯性的上下文工程（用户原文）
 
 ~~~text
