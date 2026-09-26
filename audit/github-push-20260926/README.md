@@ -39,7 +39,12 @@
 **仅本地、不推送**（按设计）：
 
 1. **19 个 `refs/codex/turn-diffs/checkpoints/*` 检查点 ref**：指向改写前历史，其中含原始 206.9MB 常规 blob（GitHub 硬拒绝）；重写它们会摧毁"指向改写前哈希"的留证身份。已复制进本地裸备份（19/19），持久性不依赖工作仓库。
-2. **治理排除目录**（按 AGENTS/裁定永不入 Git）：`private-audit/`（原始 model-io 与凭据类）、`AI对话录/` 与 `workspace/`（各自有独立 git 历史的嵌套历史 repo）、`Atria的工作目录/.evidence/`。如需异地备份，须走独立渠道（非本 repo 的 Git）。
-3. **可再生构建产物**：`*.agdai`、`__pycache__/`、`.DS_Store`（.gitignore 排除，按设计）。
+2. **可再生构建产物**：`*.agdai`、`__pycache__/`、`.DS_Store`（.gitignore 排除，按设计）。
 
-结论：GitHub 持有本 repo git 宇宙的完整镜像；改写前历史由本地裸备份 + 检查点 ref 双份持有；敏感与嵌套历史按治理边界留在本地。
+**Git 之外三块的处置（2026-09-26 用户决策后完成）**：
+
+- `AI对话录/`（独立 git repo，master）→ 私有仓库 `math-fournity/HoTT-Paradoxy-dialogue`（全历史凭据扫描 106 blob 0 命中后推送）。
+- `workspace/`（独立 git repo，main + 2 tag）→ 私有仓库 `math-fournity/HoTT-Paradoxy-workspace`（1883 blob 0 命中）。
+- `private-audit/`（原始 model-io，治理禁止入 Git）→ 加密归档 `/Volumes/D/HoTT-private-audit-backup-20260926.tar.gz.enc`（AES-256 + PBKDF2，20.8MB，42 文件逐字节比对一致）；解密口令存于本机登录钥匙串（服务名 `HoTT-private-audit-backup-20260926`，`security find-generic-password -a math-fournity -s HoTT-private-audit-backup-20260926 -w` 取回）。口令本身不落盘、不入对话记录。
+
+结论：GitHub 侧 = 主 repo 完整镜像 + 两个独立历史 repo；本地备份盘 = 改写前历史裸备份 + 检查点 ref + private-audit 加密归档。三层合起来构成完整备份；`private-audit` 的明文仍只有工作盘一份，其异地副本是加密态。
