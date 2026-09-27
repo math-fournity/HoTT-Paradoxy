@@ -10,7 +10,7 @@
 3. **KS ξ-族**：`FAM (b , q) := ΣPathP (q , D q)`——每个点自带环路数据成为该点处的环路。
 4. **总装**：等值环 `loopE := equivEq (funExt FAML)`；群胚假设经 `univalence` 传递压平它；双层 `cong (cong ·)` 求值/投影到具体点 `(c₀ , τ)`；τ ≠ refl 由 `uaβ` + `a (tt,tt) = (ff,tt)` 的可计算差异给出（负控制正是它）。
 
-**边界声明**：HIT-free 指证明的导入与构造不使用任何 HIT 类型；cubical 库的传递接口图（`--ignore-interfaces` 全量重检时）包含 `Cubical.HITs.*` 模块（如 PropositionalTruncation），属库基础设施，未进入本证明的任何构造。
+**边界声明**：HIT-free 指证明的导入与构造不使用任何 HIT 类型；cubical 库的传递接口图（`--ignore-interfaces` 全量重检时）包含 `Cubical.HITs.*` 模块（如 PropositionalTruncation），属库基础设施，未进入本证明的任何构造。**（2026-09-27 措辞更正一）**RUN.json scope 中 "KS … n=1 instance, **replayed**" 应读作 "KS 策略 n=1 实例的**简化实现**"：种子形状（自指 Σ 构件）与 KS 相同，但非平凡性机制不同——KS 经归纳假设在单点传播（ξ 族 + IH），本包用具体对合 + uaβ + 集合压平。收据文件哈希锁定不改，以本条为准。**（措辞更正二）**"一般 n 的推广路径同时明朗"过于乐观：本包机制对一般 n 是否可均匀化未知；一般 n 应按 KS 原结构（Loopₙ 塔 + U_n^{≤n} + IH 单点传播）另行实施。
 
 ## 2026-09-26 深夜（会话尾）：单元 2 的路线侦察——三条死路（已被第四条路取代，留档）
 
