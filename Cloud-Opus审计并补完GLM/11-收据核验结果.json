@@ -1,0 +1,822 @@
+{
+  "schema_version": "copus-run-verification/v1",
+  "generated_at_utc": "2026-09-27T07:07:53+00:00",
+  "completed_at_utc": "2026-09-27T07:25:08+00:00",
+  "verifier": "Cloud-Opus审计并补完GLM/tools/verify_copus_run.py",
+  "verifier_sha256": "54375a03811cbe4db661639c961620cd376e2b06edc95d97355d595c9d193c86",
+  "rerun": true,
+  "run_count": 21,
+  "pass_count": 11,
+  "negative_rejected_count": 10,
+  "fail_count": 0,
+  "exact_replay_count": 21,
+  "index_meaning": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE: one row per identity in 证据索引.md and presence in HoTT/CLAIM_EVIDENCE_MATRIX.md; not the canonical INDEXED_IN_CLAIM_EVIDENCE_MATRIX / PROOF_VERSION_CLOSURE status (integrator-owned).",
+  "runs": [
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-GLM-REPAIR-01",
+      "proof_id": "MP-COPUS-GLM-FIX-001",
+      "claim_ids": [
+        "COPUS-GLM-FIX-C02a",
+        "COPUS-GLM-FIX-C02b"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC02Faithful.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntax.agda",
+        "HoTT/formal/glm-russell/iota-syntax/ArtificialEquationControl.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-GLM-FIX-001": "2af73211222b9cf25fc4a0e001d6acb7f3a038870af95a91acdfb9666e6e4cf4",
+        "20260927-COPUS-GLM-REPAIR-01": "b9da2681fae61566e40163b0ef30c79a28a0eb591bd053d6efe3448a5de35ba6",
+        "COPUS-GLM-FIX-C02a": "6860067679c6a069be5cef684ace2f87b0dd11656fca4a0141dbc0f8814dacd9",
+        "COPUS-GLM-FIX-C02b": "31986511fb78b0718fe4038111cd9ff204de9a148b928564ad0addacfb725ae4"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 29.976
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-GLM-REPAIR-NEG-01",
+      "proof_id": "MP-COPUS-GLM-FIX-NEG-001",
+      "claim_ids": [
+        "GLM-R3-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/glm-repairs/GroupoidNegFixed.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-GLM-FIX-NEG-001": "53ec0b076a01667cba0a5a139430ae7edfdb547a7d6d714181d277c7202238dc",
+        "20260927-COPUS-GLM-REPAIR-NEG-01": "0ad28b7d05f75cf91660122ce5700576e7475e7280561e6bc8d16bb045180119",
+        "GLM-R3-C01": "8b15076f98637460ee5fb4a00eb0b1556ce305f61462c1b87881683c0b3f64b2"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 30.245
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-GLM-REPAIR-NEG-02",
+      "proof_id": "MP-COPUS-GLM-FIX-NEG-002",
+      "claim_ids": [
+        "GLM-R3-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/glm-repairs/GroupoidNegTrivialLoop.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-GLM-FIX-NEG-002": "4b7cb6cb291b71c95eb7c15d0978e166c361e4a42f5f5ac470cdcb8782604466",
+        "20260927-COPUS-GLM-REPAIR-NEG-02": "4f0c3cac8c54a0c833ef715948ff847a2500db5df4c90431b4ede259842bb5e4",
+        "GLM-R3-C01": "8b15076f98637460ee5fb4a00eb0b1556ce305f61462c1b87881683c0b3f64b2"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 29.829
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-GLM-REPAIR-NEG-03",
+      "proof_id": "MP-COPUS-GLM-FIX-NEG-003",
+      "claim_ids": [
+        "GLM-R1-C03"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC03NegTrivialInterp.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntax.agda",
+        "HoTT/formal/glm-russell/iota-syntax/ArtificialEquationControl.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-GLM-FIX-NEG-003": "d030f7a1937671c08cee8021f06c67d5eff17372c65a59ae4875135045929850",
+        "20260927-COPUS-GLM-REPAIR-NEG-03": "9b40c4e5f0f9bfaf60495815aedb8f9d2a255a61f71ff9e4570d09e00e6825ea",
+        "GLM-R1-C03": "1513af73edd22fadf8cad7341e4fa4f2d7c452f156b3e23d3bb8a5140cbff44b"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 30.198
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-GLM-REPAIR-Q7-01",
+      "proof_id": "MP-COPUS-Q7-001",
+      "claim_ids": [
+        "COPUS-Q7-C01"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/glm-repairs/Q7AnnotatedReplay.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-Q7-001": "8b64f68f25e02ba26b11091dd7ccdb7c43ffecc79dcbc79570d7407521b30b26",
+        "20260927-COPUS-GLM-REPAIR-Q7-01": "87902fc5288c57eae0fb71b626885e868794d3734be21e73975f718b51f05015",
+        "COPUS-Q7-C01": "073a8c6fc365b3389d49cd4fb4de8d8df7ddc4fe7261038be3517ab681b0fdd6"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 29.435
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-CERT-GLM-01",
+      "proof_id": "MP-COPUS-HITSCAN-001",
+      "claim_ids": [
+        "COPUS-R1-C01",
+        "COPUS-R1-C02",
+        "COPUS-R1-C03"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/CertGLM.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda",
+        "HoTT/formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda",
+        "HoTT/formal/glm-russell/universe-ascent-stall/AscentStallAtSets.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-001": "48cba47844246e81f315fe62c5bd7ecebf7eca8bf0b6c6457271398c956b0e25",
+        "20260927-COPUS-HITSCAN-CERT-GLM-01": "00a079cd03d34f2b6728507ef340730795afdc5b6ee4d6255930e30052a93d7a",
+        "COPUS-R1-C01": "a8054276a540da23f252a8ef40e674ee96fcd6462cfca64ea37109ce2a61e6d1",
+        "COPUS-R1-C02": "9a26e60a1dac28df739676f642fa817b42be4c25839d95d54930c99a3d7a7b2c",
+        "COPUS-R1-C03": "0719b92a5cd32310c3fdafdc3d3145d6a224a20f99acebb7ad21fa693507b5f0"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 36.965
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-CERT-KS-01",
+      "proof_id": "MP-COPUS-HITSCAN-003",
+      "claim_ids": [
+        "COPUS-R1-C05"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/CertKS.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda",
+        "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSUniverseTower.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-003": "9328d7194eedb8b8eabd4f3c7a302f3ea7411fcdbcc35b22566bbca0ca443895",
+        "20260927-COPUS-HITSCAN-CERT-KS-01": "d7c4af3740a02d89177e99f91db2981582c6390f72aefea55be034ea3b206975",
+        "COPUS-R1-C05": "70a190f20543487f35dce71df46c67d6c0ca37b25fdfc64d8bd3c250ab1d3cbb"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 87.933
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-CERT-OPUS-01",
+      "proof_id": "MP-COPUS-HITSCAN-002",
+      "claim_ids": [
+        "COPUS-R1-C04",
+        "COPUS-R6-C01"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/CertOpus.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda",
+        "HoTT/formal/claude-cg001/uip-escape/UIPEscape.agda",
+        "HoTT/formal/claude-cg001/universe-questioning/UniverseHasNoLevel.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-002": "057c93ca7864aa16bcba21742daa787a2af11cb1e6fbb79946656cea5f900bac",
+        "20260927-COPUS-HITSCAN-CERT-OPUS-01": "40d517a81be9c2c6e595f6197a2c0f2b0e56e60937d8d1018edd67858f46db5d",
+        "COPUS-R1-C04": "c8c7cc7b83123b8915ddc195ad45d1e22af55edf2a315452d301c19e34e9c5fa",
+        "COPUS-R6-C01": "6234f9cf42dfe5b6366d1980f603fefed43ba8d423bfeb3b48cea4b31594a727"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 141.635
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-CERT-OPUS-02",
+      "proof_id": "MP-COPUS-HITSCAN-004",
+      "claim_ids": [
+        "COPUS-R1-C06"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/CertC71.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda",
+        "HoTT/formal/claude-cg001/hset-universe/HSetNotSet.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-004": "1830eff89cd84ba4a87f36399fac962c57fc994e1324d0e34f7daafb91cefc07",
+        "20260927-COPUS-HITSCAN-CERT-OPUS-02": "d6c30767070a1299e6d01ccdaf7558acfc2f753e2e937fab79c36fe75a147190",
+        "COPUS-R1-C06": "c777d40050e23eb7e3ad5a51d4ede511b870c2120cf587dc71f7feb0856640cc"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 31.836
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-NEG-01",
+      "proof_id": "MP-COPUS-HITSCAN-NEG-001",
+      "claim_ids": [
+        "COPUS-R1-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/NegCertIota.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntaxSet.agda",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntax.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-NEG-001": "d16d80057aff9ab2f93e0acbc9d519e4cf4f6f3d427f4261eb68ea1d7f5c63a3",
+        "20260927-COPUS-HITSCAN-NEG-01": "41b66aebe554251651c1841a6b6d8b6bb8f98a2a59d746a3f5b8dacd80c0924b",
+        "COPUS-R1-C01": "a8054276a540da23f252a8ef40e674ee96fcd6462cfca64ea37109ce2a61e6d1"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 32.032
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-NEG-02",
+      "proof_id": "MP-COPUS-HITSCAN-NEG-002",
+      "claim_ids": [
+        "COPUS-R6-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/NegCertC75.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda",
+        "HoTT/formal/claude-cg001/universe-questioning/UniverseHasNoLevel.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-NEG-002": "9784de404305775e07bd2a40c50c34574c28088a1342cc38e980789520ba6080",
+        "20260927-COPUS-HITSCAN-NEG-02": "0c4f13fa374ea124816565ad28e29dbcf1f1bfd8a3742b411bfbee7f9c6d23b0",
+        "COPUS-R6-C01": "6234f9cf42dfe5b6366d1980f603fefed43ba8d423bfeb3b48cea4b31594a727"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 141.704
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-HITSCAN-NEG-03",
+      "proof_id": "MP-COPUS-HITSCAN-NEG-003",
+      "claim_ids": [
+        "COPUS-R1-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/NegCertPT.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/hitscan/HITScan.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-HITSCAN-NEG-003": "e90565a34f970409ebc2b1c80419800dd8cb9dda8e08de21dd3c442ccc75a401",
+        "20260927-COPUS-HITSCAN-NEG-03": "d5253b009ed4aa18158891ac126326987aac4bd3e634192c3b20fd1c2383ffe7",
+        "COPUS-R1-C01": "a8054276a540da23f252a8ef40e674ee96fcd6462cfca64ea37109ce2a61e6d1"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 30.019
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-KS-UNIVERSE-TOWER-01",
+      "proof_id": "MP-COPUS-KS-TOWER-001",
+      "claim_ids": [
+        "COPUS-KS-C01",
+        "COPUS-KS-C02",
+        "COPUS-KS-C03",
+        "COPUS-KS-C04",
+        "COPUS-KS-C05"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSUniverseTower.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-KS-TOWER-001": "7a9980314d1bed547a068a42e64aa49db870d4fd5486d0034abc4266447f7d41",
+        "20260927-COPUS-KS-UNIVERSE-TOWER-01": "905f6334aa253f61e5bd95434474757bdf48fad8c866efc12d28e78e68e505d2",
+        "COPUS-KS-C01": "097aa307a213791c52af492466eb1eb451696e9a8e04df40125390bbd73021de",
+        "COPUS-KS-C02": "9def52e908282d59933122488ffc6e7d4798aa0bf4c825ec1cdfd7628f1798fa",
+        "COPUS-KS-C03": "08e5dc7b65b4ae48482110a0bc9e81ecd65f7a353ecdcada657d752e892b17d5",
+        "COPUS-KS-C04": "93cf3e4aca370928169a1310f384f6084995a9472e481fa2cb0064c7ae23f235",
+        "COPUS-KS-C05": "574cdb61314e6937b61d759cf98d6ec2fc59cb654d5e7826411dd09d4f4f8ea3"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 71.86
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-KS-UNIVERSE-TOWER-NEG-01",
+      "proof_id": "MP-COPUS-KS-TOWER-NEG-001",
+      "claim_ids": [
+        "COPUS-KS-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSNegTrivialBase.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSUniverseTower.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-KS-TOWER-NEG-001": "0ef8abadf5297a2c1263673908076320a185634b43df7a17d28ae6972e01459d",
+        "20260927-COPUS-KS-UNIVERSE-TOWER-NEG-01": "e2cb588b84f0597f561dc9e7bf5dce0531332cabd2a056460cb7d4eb8a725eeb",
+        "COPUS-KS-C01": "097aa307a213791c52af492466eb1eb451696e9a8e04df40125390bbd73021de"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 72.719
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-KS-UNIVERSE-TOWER-NEG-02",
+      "proof_id": "MP-COPUS-KS-TOWER-NEG-002",
+      "claim_ids": [
+        "COPUS-KS-C01"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSNegOvershoot.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSUniverseTower.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-COPUS-KS-TOWER-NEG-002": "8d6d10a020e6f4ddeae7c7999aaec80d24b73cb28d0ef86edf1ff0d1dfe9d5b1",
+        "20260927-COPUS-KS-UNIVERSE-TOWER-NEG-02": "f09fd1fca2d735f5f4998d254f4bcb50f3b6035bbf4df3c5c393153731ae8b07",
+        "COPUS-KS-C01": "097aa307a213791c52af492466eb1eb451696e9a8e04df40125390bbd73021de"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 73.044
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-REPLAY-GLM-ASCENT-STALL-01",
+      "proof_id": "MP-GLM-RUSSELL-STALL-001",
+      "claim_ids": [
+        "GLM-R2-C01",
+        "GLM-R2-C02"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/glm-russell/universe-ascent-stall/AscentStallAtSets.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-GLM-RUSSELL-STALL-001": "f612e85593543c81aa58b76a0c3c81781a777db2f8d33bc8e1e93b78146da6b8",
+        "20260927-COPUS-REPLAY-GLM-ASCENT-STALL-01": "e5cd2357c81de1d6d89ecfff9f25cab1e4b42147856fd08e5e2d83ac70cee9c1",
+        "GLM-R2-C01": "efc1af084275c2ea7c4dfe68882ba10c9938fa281600ac37acd62034f9b8cf29",
+        "GLM-R2-C02": "b7f347ed53ec9aec013b13006c0a2b8ad90b553a94f72865d41a48d7d3a38f5b"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 16.851
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-01",
+      "proof_id": "MP-GLM-RUSSELL-GROUPOID-001",
+      "claim_ids": [
+        "GLM-R3-C01"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-GLM-RUSSELL-GROUPOID-001": "c3bd134c1f5bb5d264345505b10ff741d7fdc9afb40111066ed9b9baa6d63053",
+        "20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-01": "77afcb7a945eb2455458dd072317968b2275f64140f184a1e36914d29740cc30",
+        "GLM-R3-C01": "8b15076f98637460ee5fb4a00eb0b1556ce305f61462c1b87881683c0b3f64b2"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 30.061
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-NEG-01",
+      "proof_id": "MP-GLM-RUSSELL-GROUPOID-NEG-001",
+      "claim_ids": [
+        "GLM-R3-C01"
+      ],
+      "run_status": "REJECTED_BEFORE_TYPE_CHECKING",
+      "exit_code": 42,
+      "rejection_stage": "SCOPE_OR_PARSE",
+      "agda_error_tag": "NotInScope",
+      "source_paths": [
+        "HoTT/formal/glm-russell/groupoid-universe/WrongGroupoidWitness.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-GLM-RUSSELL-GROUPOID-NEG-001": "0ac278a5fa93e7b7512b4565bb9056a4776bc3115c8c2d9018528b6856edd2e8",
+        "20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-NEG-01": "37e28c3ff1b322cbd63ec59dae2072007be724273584a254f01b75a15b418520",
+        "GLM-R3-C01": "8b15076f98637460ee5fb4a00eb0b1556ce305f61462c1b87881683c0b3f64b2"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 29.533
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01",
+      "proof_id": "MP-GLM-RUSSELL-IOTA-001",
+      "claim_ids": [
+        "GLM-R1-C02",
+        "GLM-R1-C03"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/glm-russell/iota-syntax/ArtificialEquationControl.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntax.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-GLM-RUSSELL-IOTA-001": "adb1c291bbaeebf7f2bf6b106475232c849e088c2f18758c01480fc8e6af7f5f",
+        "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01": "32cb82dac0da32e2776c102df46d2fe3e1ed40c624625c268fbcafdaf6fa9d75",
+        "GLM-R1-C02": "57a59497fca1e23b0edc6fe6a31145be3a217aff4a7b6431695a4423291dd594",
+        "GLM-R1-C03": "1513af73edd22fadf8cad7341e4fa4f2d7c452f156b3e23d3bb8a5140cbff44b"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 29.921
+    },
+    {
+      "status": "PASS_WITH_SCOPE",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-02",
+      "proof_id": "MP-GLM-RUSSELL-IOTA-002",
+      "claim_ids": [
+        "GLM-R1-C01"
+      ],
+      "run_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "exit_code": 0,
+      "rejection_stage": null,
+      "agda_error_tag": null,
+      "source_paths": [
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntaxSet.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntax.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-GLM-RUSSELL-IOTA-002": "6130da6465fb1ed767cb291ed69c408b720fdebca3a4404319c316dbf8b9b2b1",
+        "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-02": "ffe43406a291bda3b64e4083d3c7cbe7a25413c1dade305def2033bfa5074645",
+        "GLM-R1-C01": "94d03769379b34000265a128a2be7c9cd599e2e3b1e69a51485a789892b894c9"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "ACCEPT",
+      "verify_seconds": 29.738
+    },
+    {
+      "status": "NEGATIVE_CONTROL_REJECTED_AS_EXPECTED",
+      "verifier": "Cloud-Opus goal-local (reuses canonical verify_formal_proof_run.py checks; index = goal index + matrix presence)",
+      "canonical_verifier_sha256": "c8f96327729aa28e73c6fa09db0d810623eff35e7baa940fcdffc192fb556b55",
+      "run_id": "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-NEG-01",
+      "proof_id": "MP-GLM-RUSSELL-IOTA-NEG-001",
+      "claim_ids": [
+        "GLM-R1-C03"
+      ],
+      "run_status": "KERNEL_REJECTED",
+      "exit_code": 42,
+      "rejection_stage": "TYPE_CHECKING",
+      "agda_error_tag": "UnequalTerms",
+      "source_paths": [
+        "HoTT/formal/glm-russell/iota-syntax/WrongArtIsRefl.agda",
+        "HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json",
+        "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+        "HoTT/formal/glm-russell/iota-syntax/ArtificialEquationControl.agda",
+        "HoTT/formal/glm-russell/iota-syntax/RealisticIotaSyntax.agda"
+      ],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE",
+      "goal_index_row_sha256": {
+        "MP-GLM-RUSSELL-IOTA-NEG-001": "f17a9340821ac9a669cab8ecbd22ea8297a9d20f24eb74f6a808d10b10d3ccc3",
+        "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-NEG-01": "da6d1d4a9e9df94c6fa5dc501f740ac23b109ee2ec82464bbdeceb8926bb9632",
+        "GLM-R1-C03": "1513af73edd22fadf8cad7341e4fa4f2d7c452f156b3e23d3bb8a5140cbff44b"
+      },
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "expected_outcome": "REJECT",
+      "verify_seconds": 29.671
+    }
+  ]
+}
