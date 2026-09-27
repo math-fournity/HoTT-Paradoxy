@@ -43,7 +43,8 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
   - `hitscan/`：HIT 名称级闭包扫描器 `HITScan.agda`、四个证书文件、三个负证书；`CLAIM.md`。
   - `glm-repairs/`：C02 忠实版与断裂演示、修复负控制、近失控制、Q7 注解重放；`CLAIM.md`。
   - `TOOLCHAIN.linux-x86_64.json`、`AGDA_LIBRARIES.linux-x86_64`：Linux 工具链记录。
-- **运行收据**：`HoTT/verification/runs/20260927-COPUS-*`（D2 交付时 21 个；终局轮追加 2 个：`-KS-CATALOG-OF-SETS-01/-NEG-01`，见证据索引 §4；formal-proof-run/v1 schema）。
+  - `LEAN_TOOLCHAIN.linux-x86_64.json`：Lean 4.34.0 Linux 工具链记录（与 Opus 的 macOS 工具链同一源码 commit）。
+- **运行收据**：`HoTT/verification/runs/20260927-COPUS-*`（D2 交付时 21 个；终局轮追加 4 个：`-KS-CATALOG-OF-SETS-01/-NEG-01`，以及 Opus 的 Lean 对照 C-72 的 Linux 重放 `-REPLAY-CG001-UNIVERSE-SET-LEAN-01/-NEG-01`，与 Opus 的 macOS 收据逐字节相同；见证据索引 §4；formal-proof-run/v1 schema）。
 - **GLM 文件的修订**：只追加，不改原句——`HoTT/formal/glm-russell/{groupoid-universe,iota-syntax}/REVISIONS.md`（追加）、`universe-ascent-stall/REVISIONS.md`（新建）、`GLM-5.3-Flash/` 下 GN-002 修订块三、GN-003 修订块二、策略快照附录四、M2 附注、平行工作索引 §5 末行与 §10、工作日志修订块。
 - **工具**：`tools/`（捕获、单运行核验、全量核验脚本）。
 - **附件**：`附件/`（首次捕获留档与首轮核验结果，见 `01` §5）。
@@ -51,7 +52,7 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
 ## 怎样复核
 
 1. 按 `01-工具链与复现.md` §4 布置工具链（路径与哈希以 `TOOLCHAIN.linux-x86_64.json` 为准）。
-2. `python3 -B Cloud-Opus审计并补完GLM/tools/verify_all_runs.py --rerun`：全部 `20260927-COPUS-*` 运行逐字节重放（21 个约 17 分钟，终局轮追加的 2 个约 2.5 分钟）。
+2. `python3 -B Cloud-Opus审计并补完GLM/tools/verify_all_runs.py --rerun`：全部 `20260927-COPUS-*` 运行逐字节重放（21 个约 17 分钟，终局轮追加的 4 个约 4 分钟；Lean 运行需先按 `LEAN_TOOLCHAIN.linux-x86_64.json` 布置 Lean）。
 3. 对任何一个主张：`证据索引.md` → 对应 `CLAIM.md` 的逐字形式命题 → 源码 → 运行收据。
 
 ## 边界

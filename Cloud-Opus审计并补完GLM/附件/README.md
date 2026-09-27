@@ -30,3 +30,10 @@
 | 各证明目录下的 `*.agdai`、`tools/__pycache__/` | Agda 与 Python 自动生成的缓存，已被 `.gitignore` 排除；可随时由源码重建 |
 | `/home/user/toolchain/`（Agda 二进制与发布包、cubical 库、XDG 缓存） | 第三方发布物，不是本工作的文档或代码。来源 URL、字节数与 sha256 记录在 `HoTT/formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json`，复现方法见 `01` §4；若需要把二进制本身也纳入版本管理，建议用 Git LFS 或发布附件，而不是普通提交 |
 | 会话宿主的日志与配置（`/root/.cache`、`/root/.claude*`、`/etc` 下的文件） | 运行环境自身的文件，不是本工作的产物 |
+
+## 3. 追加（2026-09-27，Lean 重放）
+
+| 文件 | 是什么 | 在哪里被用到 |
+|---|---|---|
+| `失败捕获-20260927-Lean缺Init配套文件/20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01/`、`…-NEG-01/`（各 5 个文件） | Lean 重放的**首次捕获**，原样留档。选择性解压时漏了 `lib/lean/Init.olean.server`，两次都在读工具链文件时失败（`failed to open file … Init.olean.server`），没有走到任何证明。捕获工具的第一版还把负控制记成了"按预期被拒"，理由不对 | 工具链记录 `HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json` 的 `extraction_incident`；捕获工具 `tools/capture_copus_lean_run.py` 的 `classify_failure`（负控制只在目标文件本身被拒时才算数）及其单测 `tools/test_capture_copus_lean_run.py`（用这两份留档作测试输入）；补齐文件后同 ID 重新捕获的正式运行在 `HoTT/verification/runs/` |
+| `工作过程文件/verify-static-终局轮-25个运行.json` | 终局轮全部 25 个 `20260927-COPUS-*` 运行的静态核验（13 通过、12 负控制按预期被拒、0 失败；核验器 sha256 `54375a03…3c86`，未改动） | `00-工作日志.md` Lean 重放条目 |
