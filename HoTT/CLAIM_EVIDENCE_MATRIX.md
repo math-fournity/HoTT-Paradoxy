@@ -1676,3 +1676,20 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | CG001-C-68 | 一般第二级相干 `Coh₃`（P₄）：`notCoh₃ : ¬ Coh₃ flatSurfᵢ`、`coh₃Trivial : Coh₃ flatTrivialᵢ` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-P4-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-P4-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
 | CG001-C-69 | 圆周值结构上 `Coh₂` ⇔ 绕数上闭链方程；`spinW` 不相干、`uniformW` 相干 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WINDING-COCYCLE-01`、`20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
 | CG001-C-70 | 集合 ⇒ `Coh₂ᵢ`；群胚 ⇒ `Coh₂ᵢ` 为命题且 `Coh₃` 成立；`flatS¹` 数据唯一 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-LEVELS-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+
+#### 自查轮追加：Lean 对照的补充控制（2026-09-27）
+
+> 用户要求对本会话后来的工作做声明层与证明层的自查。查出 Opus 的 `CG001-C-65` 负控制 `WrongRoute.lean` 注释声称检验"首尾记账、内核拒绝"，实际报错落在一步的参数上、由细化器报出；`CG001-C-72` 负控制的注释也把细化器拒绝写成 "KERNEL_REJECTED"。两个主定理不受影响。补上的控制见 `formal/cloud-opus-glm-audit/lean-controls/CLAIM.md`；原包只增不改的说明 `formal/claude-cg001/wild-sst-lean/REVISIONS.md`、`formal/claude-cg001/universe-set-lean/REVISIONS.md`。工具链记录 `formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN_META.linux-x86_64.json`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COPUS-LEAN-C65-ENDPOINT-NEG-001` | `CG001-C-65` 首尾负控制 | `formal/cloud-opus-glm-audit/lean-controls/WrongRouteEndpoint.lean` | `verification/runs/20260927-COPUS-LEAN-C65-ENDPOINT-NEG-01/`；exit 1，`ELABORATION_ERROR_IN_TARGET` | `NEGATIVE_CONTROL_REJECTED`（细化器在第二、三步的接口处拒绝） |
+| `MP-COPUS-LEAN-C65-KERNEL-001` | `COPUS-LEAN-C01` | `formal/cloud-opus-glm-audit/lean-controls/KernelRoute.lean` | `verification/runs/20260927-COPUS-LEAN-C65-KERNEL-01/`；exit 0（含 `leanchecker --fresh`） | `KERNEL_ACCEPTED_WITH_SCOPE`（经 `Lean.addDecl` 由内核接受；Lean 4，UIP） |
+| `MP-COPUS-LEAN-C65-KERNEL-NEG-001` | `COPUS-LEAN-C01` 负控制 | `formal/cloud-opus-glm-audit/lean-controls/KernelRouteEndpoint.lean` | `verification/runs/20260927-COPUS-LEAN-C65-KERNEL-NEG-01/`；exit 1，`KERNEL_ERROR_IN_TARGET` | `NEGATIVE_CONTROL_REJECTED`（内核本身：`(kernel) application type mismatch`） |
+| `MP-COPUS-LEAN-C72-KERNEL-001` | `COPUS-LEAN-C02` | `formal/cloud-opus-glm-audit/lean-controls/KernelCast.lean` | `verification/runs/20260927-COPUS-LEAN-C72-KERNEL-01/`；exit 0（含 `leanchecker --fresh`） | `KERNEL_ACCEPTED_WITH_SCOPE`（经 `Lean.addDecl` 由内核接受；Lean 4，UIP） |
+| `MP-COPUS-LEAN-C72-KERNEL-NEG-001` | `COPUS-LEAN-C02` 负控制 | `formal/cloud-opus-glm-audit/lean-controls/KernelCastFlips.lean` | `verification/runs/20260927-COPUS-LEAN-C72-KERNEL-NEG-01/`；exit 1，`KERNEL_ERROR_IN_TARGET` | `NEGATIVE_CONTROL_REJECTED`（内核本身：`(kernel) declaration type mismatch`） |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| COPUS-LEAN-C01 | `kernelRouteA`：陈述取自 `routeA`、证明项为显式首尾的 `Eq.trans stepOne (Eq.trans stepTwo stepThree)`，经 `Lean.addDecl` 交给内核而被接受；`kernelRouteA_states_routeA : @kernelRouteA = @routeA := rfl`；均不依赖公理 | `MACHINE_PROVED_WITH_SCOPE` | run `20260927-COPUS-LEAN-C65-KERNEL-01`；负控制 `20260927-COPUS-LEAN-C65-KERNEL-NEG-01`、`20260927-COPUS-LEAN-C65-ENDPOINT-NEG-01` | UIP 类型论中的命题；不给 `CG001-C-65` 增加新数学；负控制不证明 Lean 内核一般可靠 |
+| COPUS-LEAN-C02 | `kernelCastIsId : ∀ (p : Bool = Bool), cast p true = true`（证明项 `fun p => Eq.refl true`，经 `Lean.addDecl` 交给内核）被接受；`kernelCastIsId_states_castIsId : @kernelCastIsId = fun p => castIsId p true := rfl` | `MACHINE_PROVED_WITH_SCOPE` | run `20260927-COPUS-LEAN-C72-KERNEL-01`；负控制 `20260927-COPUS-LEAN-C72-KERNEL-NEG-01` | UIP 类型论中的命题，不是 HoTT 命题 |

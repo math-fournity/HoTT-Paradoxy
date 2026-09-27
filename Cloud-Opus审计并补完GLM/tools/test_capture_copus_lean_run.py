@@ -6,6 +6,9 @@ Why: the first Lean replay attempt failed on a missing toolchain file
 capture tool recorded the negative control as "rejected as expected".  A
 negative control must count only when Lean rejects the target file itself.
 The first two cases below are the archived failed receipts of that attempt.
+Later the same day the tool learned to tell a "(kernel)" error in the target
+(the kernel itself refused a declaration) from an elaborator error; two cases
+test that split.
 
 Run from the repository root:  python3 -B Cloud-Opus审计并补完GLM/tools/test_capture_copus_lean_run.py
 """
@@ -19,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 TOOL = ROOT / "Cloud-Opus审计并补完GLM/tools/capture_copus_lean_run.py"
 FAILED = ROOT / "Cloud-Opus审计并补完GLM/附件/失败捕获-20260927-Lean缺Init配套文件"
 U = Path("HoTT/formal/claude-cg001/universe-set-lean")
+K = Path("HoTT/formal/cloud-opus-glm-audit/lean-controls")
 
 
 def load():
@@ -41,6 +45,13 @@ def main() -> int:
         ("Opus macOS negative control (genuine rejection)",
          (ROOT / "HoTT/verification/runs/20260926-CG001-UNIVERSE-SET-LEAN-NEG-01/stdout.txt").read_text(encoding="utf-8"),
          [U / "UniverseIsSet.lean", U / "WrongCastFlips.lean"], "ELABORATION_ERROR_IN_TARGET"),
+        ("synthetic: the kernel itself refuses a declaration in the target",
+         f"## lean {U / 'UniverseIsSet.lean'}\n## lean {K / 'KernelCastFlips.lean'}\n"
+         f"{K / 'KernelCastFlips.lean'}:17:0: error: (kernel) declaration type mismatch, 'kernelCastFlips' has type\n## exit 1\n",
+         [U / "UniverseIsSet.lean", K / "KernelCast.lean", K / "KernelCastFlips.lean"], "KERNEL_ERROR_IN_TARGET"),
+        ("synthetic: a kernel error in an earlier source is not a rejection of the target",
+         f"## lean {K / 'KernelCast.lean'}\n{K / 'KernelCast.lean'}:39:0: error: (kernel) declaration type mismatch\n## exit 1\n",
+         [K / "KernelCast.lean", K / "KernelCastFlips.lean"], "ERROR_IN_EARLIER_SOURCE"),
         ("synthetic: error in an earlier source",
          f"## lean {U / 'UniverseIsSet.lean'}\n{U / 'UniverseIsSet.lean'}:3:0: error: unknown identifier 'x'\n## exit 1\n",
          [U / "UniverseIsSet.lean", U / "WrongCastFlips.lean"], "ERROR_IN_EARLIER_SOURCE"),
