@@ -37,3 +37,39 @@
 |---|---|---|
 | `失败捕获-20260927-Lean缺Init配套文件/20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01/`、`…-NEG-01/`（各 5 个文件） | Lean 重放的**首次捕获**，原样留档。选择性解压时漏了 `lib/lean/Init.olean.server`，两次都在读工具链文件时失败（`failed to open file … Init.olean.server`），没有走到任何证明。捕获工具的第一版还把负控制记成了"按预期被拒"，理由不对 | 工具链记录 `HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json` 的 `extraction_incident`；捕获工具 `tools/capture_copus_lean_run.py` 的 `classify_failure`（负控制只在目标文件本身被拒时才算数）及其单测 `tools/test_capture_copus_lean_run.py`（用这两份留档作测试输入）；补齐文件后同 ID 重新捕获的正式运行在 `HoTT/verification/runs/` |
 | `工作过程文件/verify-static-终局轮-25个运行.json` | 终局轮全部 25 个 `20260927-COPUS-*` 运行的静态核验（13 通过、12 负控制按预期被拒、0 失败；核验器 sha256 `54375a03…3c86`，未改动） | `00-工作日志.md` Lean 重放条目 |
+
+## 4. 收尾轮补记（2026-09-27）：对上一轮盘点的更正与补入
+
+**更正**：上一轮"git 盘点"只查了会话暂存区。它对仓库外新文件的 `find` 输出被 `head -40` 截断，前 40 行全是系统文件，所以漏看了 `/tmp/claude-0/` 根目录下的过程文件和 `/tmp/claude-0/scratch/` 里的 Agda 草稿。它们大多产生于上下文压缩之前（05:49–06:40）。本轮不截断地重新扫描了整个文件系统，按下表补入，并把这次遗漏登记为审计集 004 片的偏差 #12。
+
+| 文件（`工作过程文件/` 下） | sha256（前 16 位） | 是什么 |
+|---|---|---|
+| `capture_all.log` | `519b1f8968787192` | 21 个 D2 运行的捕获日志（06:24–06:40） |
+| `早期摸底与开发输出/iota1.out`、`iota2.out`、`iota-art.out`、`iota-neg.out`、`stall.out`、`neg-gu.out` | `be8648228ee89c2d`、`96aec398b5a8cfeb`、`7d782c7e6d8c4c2a`、`0cbdac82c0161d86`、`2f01a030fb1771a9`、`db5abc59c0799e56` | 开工时对 GLM 六运行的非 canonical 摸底重跑（05:49）。`neg-gu.out` 就是发现 F-NEG-1（负控制死在作用域检查）的那次输出 |
+| `早期摸底与开发输出/r1.out` | `073ffc42739f2c1e` | R1 名称级扫描的早期探查输出（05:49） |
+| `早期摸底与开发输出/ks.out` | `96e72ec2effdabb7` | 一般 n 定理首次全量检查的输出（06:14） |
+| `早期摸底与开发输出/neg.out`、`c.out` | `fc15757eb1017b12`、`9e7152bde5aefefe` | 修复负控制与负证书的开发期检查输出 |
+| `早期摸底与开发输出/report.out` | `634626b267818e98` | HITScan 对全部目标的完整闭包报告（06:18，由草稿 `ReportAll.agda` 产生） |
+| `HITScan开发草稿/`（11 个 `.agda`：`ScanExplore`–`ScanExplore6`、`ScanDbg`、`ScanTest`、`ScanKS`、`ScanC71`、`ReportAll`） | 见各文件 | HITScan 的开发草稿。正式版是 `HoTT/formal/cloud-opus-glm-audit/hitscan/`；草稿不是证据，保留以示开发经过 |
+| `收尾轮/zeno-replays.log` | `932d2cf1dca1431a` | 芝诺线 16 个 Linux 重放的捕获日志 |
+| `收尾轮/verify-static-收尾轮-41个运行.json` | `4813cfcbf09619be` | 全部 41 个 `20260927-COPUS-*` 运行的静态核验（21 通过、20 负控制按预期被拒、0 失败） |
+| `收尾轮/verify-zeno-rerun.jsonl` | 见提交 | 芝诺线 16 个重放的逐字节重放核验（`tools/verify_zeno_replays.sh`） |
+| `收尾轮/shards-收尾.json` | 见提交 | 收尾提交前分片校验器的输出 |
+
+**没有入库的 Kraus–Sattler 论文副本**：一般 n 对照时读的是 arXiv:1311.4002v3 的摘要页与 ar5iv 全文（2026-09-27 06:06 下载）。该文在 arXiv 采用非独占分发许可（`arxiv.org/licenses/nonexclusive-distrib/1.0/`），只授权 arXiv 分发，所以全文副本不提交进本仓库。所读文件的身份记录如下，引用的原句位置见 `06-一般n外归纳（D3）.md` 与 `ks-universe-tower/CLAIM.md`：
+
+| 文件 | 来源 | 字节 | sha256 |
+|---|---|---|---|
+| `ks-abs.html` | `https://arxiv.org/abs/1311.4002` | 46015 | `c22770f5f227f7452095ecb49183ef6fc8bd50565b105e535a24396b31345618` |
+| `ks-ar5iv.html` | `https://ar5iv.labs.arxiv.org/html/1311.4002` | 330886 | `96e2d078135480f168651af8fe4117cd7ff7c9b59060f12635f1786fa312cea3` |
+| `ks.txt`、`ks2.txt` | 上面 ar5iv 页面的两次文本提取 | 49746、48662 | `7c4755b048dbdc1a731d346bc928b9c07c01723e90ac7c1dbdfe1cf834c4cd2c`、`5c98d737d25830513340ac7ef4b5b754d7413507054e81c8242ab5779f305452` |
+
+**本轮其余不入库的临时文件**：
+- `cmp.tmp`：阅读副本拼接，用于逐字节比对；
+- `lean_capture.sh`：捕获脚本的节选；
+- `zeno_appendix.txt`：已写进社区稿 01 附录 A；
+- `zeno_runs.txt`：运行清单，已写进 `tools/verify_zeno_replays.sh`；
+- `shards2.json`–`shards5.json`：中间的校验输出，只收最终一份；
+- `ref-0500`：用于扫描的空时间戳文件。
+
+**会话宿主的文件**（`/tmp/claude-code*.log`、`/tmp/environment-manager*`、`/tmp/mcp-config-*.json`、`/tmp/claude-0/bash-edit-diff/`、`/home/claude/.claude/`、`/root/.claude/`、`/root/.ccr/`）是运行环境自身的日志、配置与凭据，不是本工作的产物，**绝不**提交。
