@@ -1629,3 +1629,16 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | COPUS-KS-C06 | `catalogOfSetsTwoSteps : isOfHLevel 3 (hSet ℓ-zero) × (¬ isSet (hSet ℓ-zero))` | `MACHINE_PROVED_WITH_SCOPE` | run `20260927-COPUS-KS-CATALOG-OF-SETS-01`；负控制 `-NEG-01` | 只关于装集合的目录 `hSet ℓ-zero`；"追问两步就停"是对两个分量的读法 |
+
+#### Lean 对照 `CG001-C-72` 的 Linux 重放（2026-09-27）
+
+> Opus 的 UIP 世界对照（`CG001-C-72`，原运行在 macOS）。本会话用 Lean 4.34.0 的 Linux release 资产重放；它与 Opus 的工具链同一源码 commit `293d5d0c0c3f3dded4688b3ccd6a33939ac5102b`，`Init.olean`、`Init/Prelude.olean` 两平台逐字节相同。工具链记录 `formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json`；驱动沿用 CG-001 的 `lean_check.py`，未改动。首次捕获因漏解 `Init.olean.server` 失败，已整体留档于 `Cloud-Opus审计并补完GLM/附件/失败捕获-20260927-Lean缺Init配套文件/`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-UNIVERSE-SET-LEAN-001` | `CG001-C-72` | `formal/claude-cg001/universe-set-lean/UniverseIsSet.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01/`；exit 0；stdout 与原运行逐字节相同 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_BYTE_IDENTICAL_REPLAY`（Lean 4，UIP；不是 HoTT 命题） |
+| `MP-CG001-UNIVERSE-SET-LEAN-NEG-001` | `CG001-C-72` 负控制 | `formal/claude-cg001/universe-set-lean/WrongCastFlips.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-NEG-01/`；exit 1，拒绝在目标文件第 11 行 | `NEGATIVE_CONTROL_REJECTED`（细化阶段：`cast p true` 不定义性等于 `false`） |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-72 | `theorem universeIsSet {A B : Type} (p q : A = B) : p = q := rfl`；`castIsId`、`noFlip`（均不依赖公理） | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-UNIVERSE-SET-LEAN-01`、`20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01`；负控制 `-NEG-01` 两份 | UIP 类型论中的命题，不是 HoTT 命题；在终局判词中只作粗粒度对照（同时压平了高阶结构） |
