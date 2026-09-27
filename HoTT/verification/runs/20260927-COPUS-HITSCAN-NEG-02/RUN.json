@@ -1,0 +1,69 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "COPUS-R6-C01"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/hitscan",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/cloud-opus-glm-audit/hitscan/NegCertC75.agda"
+  ],
+  "completed_at_utc": "2026-09-27T06:37:44.859586+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 137.572539,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/hitscan/NegCertC75.agda:16.9-13: error: [UnequalTerms]\nquote Cubical.HITs.Truncation.Base.HubAndSpoke ∷\nquote Cubical.HITs.Susp.Base.Susp ∷\nquote Cubical.HITs.S1.Base.S¹ ∷\nquote Cubical.HITs.EilenbergMacLane1.Base.EM₁ ∷\nquote Cubical.HITs.EilenbergMacLane1.Base.EM₁-raw ∷ []",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/hitscan",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-COPUS-HITSCAN-NEG-002",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260927-COPUS-HITSCAN-NEG-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Scanner teeth: 'C-75 universeHasNoLevel is HIT-free' must be rejected, naming the Eilenberg–MacLane HITs.",
+  "source_manifest": {
+    "bytes": 2725,
+    "path": "source-manifest.json",
+    "sha256": "e8f7b4def73a3a34dc3c60298ba559f551445e0ae80af542ba3a7770db624c88"
+  },
+  "started_at_utc": "2026-09-27T06:35:27.287047+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 27867,
+    "path": "stdout.txt",
+    "sha256": "9970e6a90ed85e00087f5b9c26112351e8feef421ccdce73dc32f38a0ca76ed3"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
