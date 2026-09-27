@@ -1642,3 +1642,37 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-72 | `theorem universeIsSet {A B : Type} (p q : A = B) : p = q := rfl`；`castIsId`、`noFlip`（均不依赖公理） | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-UNIVERSE-SET-LEAN-01`、`20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01`；负控制 `-NEG-01` 两份 | UIP 类型论中的命题，不是 HoTT 命题；在终局判词中只作粗粒度对照（同时压平了高阶结构） |
+
+#### 芝诺线（Opus 的 A7：无穷相干）的 Linux 重放（2026-09-27）
+
+> 为 `docs/社区审计提交/01-芝诺悖论的幽灵.md` 捕获。Agda v2.8.0 Linux 资产 + cubical v0.9（逐字节一致）；Lean 4.34.0 Linux 资产（与原工具链同一源码 commit）。Opus 的原运行 `20260926-CG001-*` 保持原样。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-SST-FINITE-LEVELS-001` | `CG001-C-62` | `formal/claude-cg001/sst-finite-levels/SSTLevels.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-SST-FINITE-LEVELS-NEG-001` | `CG001-C-62` 负控制 | `formal/claude-cg001/sst-finite-levels/WrongFace.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-001` | `CG001-C-64` | `formal/claude-cg001/wild-sst/WildSST.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-NEG-001` | `CG001-C-64` 负控制 | `formal/claude-cg001/wild-sst/WrongSpinCoherent.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-LEAN-001` | `CG001-C-65` | `formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-LEAN-NEG-001` | `CG001-C-65` 负控制 | `formal/claude-cg001/wild-sst-lean/WrongRoute.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-NEG-01/`；exit 1，`ELABORATION_ERROR_IN_TARGET` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST2-001` | `CG001-C-66` | `formal/claude-cg001/wild-sst/WildSST2.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST2-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST2-NEG-001` | `CG001-C-66` 负控制 | `formal/claude-cg001/wild-sst/WrongSurfTrivial.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST2-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-SELF-INTERPRETATION-001` | `CG001-C-67` | `formal/claude-cg001/self-interpretation/SelfInterpretation.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SELF-INTERPRETATION-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-SELF-INTERPRETATION-NEG-001` | `CG001-C-67` 负控制 | `formal/claude-cg001/self-interpretation/WrongFlipIsIdentity.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SELF-INTERPRETATION-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-P4-001` | `CG001-C-68` | `formal/claude-cg001/wild-sst/WildSSTP4Flat.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-P4-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-P4-NEG-001` | `CG001-C-68` 负控制 | `formal/claude-cg001/wild-sst/WrongSurfMoveTrivial.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-P4-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WINDING-COCYCLE-001` | `CG001-C-69` | `formal/claude-cg001/wild-sst/WindingCocycle.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WINDING-COCYCLE-NEG-001` | `CG001-C-69` 负控制 | `formal/claude-cg001/wild-sst/WrongSpinWCocycle.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-LEVELS-001` | `CG001-C-70` | `formal/claude-cg001/wild-sst/WildSSTP4Levels.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-LEVELS-NEG-001` | `CG001-C-70` 负控制 | `formal/claude-cg001/wild-sst/WrongS2Groupoid.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-62 | `SST≤0 … SST≤5 : Type₁` 与平凡居民（外部生成器逐层打印） | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-SST-FINITE-LEVELS-01`、`20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-64 | `WildSST`、`Coh₂`、`setsCohere`；`spin`：两条路线绕 1 圈与 2 圈，`spinIncoherent : ¬ Coh₂ spin` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-65 | Lean 4（UIP）：`theorem coh2 (S : WildSST) : Coh2 S := fun _ _ _ _ _ _ _ => rfl` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-LEAN-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-66 | `surf≢refl`；`flat` 上两个不同的六边形填充；`Deg₃` 对一个成立、对另一个不成立 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST2-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST2-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-67 | 玩具语法自解释两难：`faithful∞`、`syntax∞IsNotASet`、`noFaithfulForFacts` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-SELF-INTERPRETATION-01`、`20260927-COPUS-REPLAY-CG001-SELF-INTERPRETATION-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-68 | 一般第二级相干 `Coh₃`（P₄）：`notCoh₃ : ¬ Coh₃ flatSurfᵢ`、`coh₃Trivial : Coh₃ flatTrivialᵢ` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-P4-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-P4-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-69 | 圆周值结构上 `Coh₂` ⇔ 绕数上闭链方程；`spinW` 不相干、`uniformW` 相干 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WINDING-COCYCLE-01`、`20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-70 | 集合 ⇒ `Coh₂ᵢ`；群胚 ⇒ `Coh₂ᵢ` 为命题且 `Coh₃` 成立；`flatS¹` 数据唯一 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-LEVELS-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
