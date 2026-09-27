@@ -43,7 +43,7 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
   - `hitscan/`：HIT 名称级闭包扫描器 `HITScan.agda`、四个证书文件、三个负证书；`CLAIM.md`。
   - `glm-repairs/`：C02 忠实版与断裂演示、修复负控制、近失控制、Q7 注解重放；`CLAIM.md`。
   - `TOOLCHAIN.linux-x86_64.json`、`AGDA_LIBRARIES.linux-x86_64`：Linux 工具链记录。
-- **运行收据**：`HoTT/verification/runs/20260927-COPUS-*`（21 个，formal-proof-run/v1 schema）。
+- **运行收据**：`HoTT/verification/runs/20260927-COPUS-*`（D2 交付时 21 个；终局轮追加 2 个：`-KS-CATALOG-OF-SETS-01/-NEG-01`，见证据索引 §4；formal-proof-run/v1 schema）。
 - **GLM 文件的修订**：只追加，不改原句——`HoTT/formal/glm-russell/{groupoid-universe,iota-syntax}/REVISIONS.md`（追加）、`universe-ascent-stall/REVISIONS.md`（新建）、`GLM-5.3-Flash/` 下 GN-002 修订块三、GN-003 修订块二、策略快照附录四、M2 附注、平行工作索引 §5 末行与 §10、工作日志修订块。
 - **工具**：`tools/`（捕获、单运行核验、全量核验脚本）。
 - **附件**：`附件/`（首次捕获留档与首轮核验结果，见 `01` §5）。
@@ -51,7 +51,7 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
 ## 怎样复核
 
 1. 按 `01-工具链与复现.md` §4 布置工具链（路径与哈希以 `TOOLCHAIN.linux-x86_64.json` 为准）。
-2. `python3 -B Cloud-Opus审计并补完GLM/tools/verify_all_runs.py --rerun`：21 个运行逐字节重放（约 17 分钟）。
+2. `python3 -B Cloud-Opus审计并补完GLM/tools/verify_all_runs.py --rerun`：全部 `20260927-COPUS-*` 运行逐字节重放（21 个约 17 分钟，终局轮追加的 2 个约 2.5 分钟）。
 3. 对任何一个主张：`证据索引.md` → 对应 `CLAIM.md` 的逐字形式命题 → 源码 → 运行收据。
 
 ## 边界
@@ -59,4 +59,4 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
 - 两道用户门（P-exist；形成规则是回答还是回避）原样保留，裁定权在用户。
 - 一般 n 是 Kraus–Sattler 2015 的**已知定理**在本仓库的重放，不是新数学；新的是它在本仓库的原生形式化、(L, k) 一般化的归纳步与名称级无 HIT 证书，以及它对归因的作用。
 - STATE、checkpoint、方向追踪、全景视野、`PROOF_VERSION_CLOSURE.json` 属 integrator，未写；`.claude/` 的既有内容未改（修订走 `09` 的提案）。
-- 本会话的 21 个新主张与终局判词尚待用户安排的外部复核（请求见 [13](13-外部复核请求.md)）。
+- 本会话的新主张（D2 的 21 个，加终局轮的 COPUS-KS-C06）与终局判词尚待用户安排的外部复核（请求见 [13](13-外部复核请求.md)）。
