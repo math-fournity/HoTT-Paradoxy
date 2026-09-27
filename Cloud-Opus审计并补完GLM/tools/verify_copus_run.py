@@ -14,6 +14,10 @@ belongs to the integrator; so the index is checked against (a) exactly one row p
 identity in Cloud-Opus审计并补完GLM/证据索引.md and (b) the presence of every
 identity in HoTT/CLAIM_EVIDENCE_MATRIX.md.  The result is labelled accordingly and
 never claims INDEXED_IN_CLAIM_EVIDENCE_MATRIX in the canonical sense.
+Added 2026-09-27 (self-audit of the Lean work): for a Lean run whose manifest
+lists a Cloud-Opus Lean toolchain record, the whole-tree hashes in that record
+(init_tree, extra_trees) are recomputed here too; the driver re-checks only the
+pinned files, and the canonical verifier knows no Lean tree labels.
 
 Usage:
   python3 Cloud-Opus审计并补完GLM/tools/verify_copus_run.py --run-dir HoTT/verification/runs/<id> [--rerun] [--expect-rejected]
@@ -137,6 +141,16 @@ def validate(run_relative: Path, rerun: bool, expect_rejected: bool) -> dict:
                 raise Err(f"AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:{relative}")
         source_paths.append(relative.as_posix())
     external = [cv.check_external_dependency(row) for row in manifest.get("external_dependencies", [])]
+    trees_rechecked = []
+    for relative in source_paths:
+        if relative.startswith("HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN") and relative.endswith(".json"):
+            record = cv.read_json(ROOT / relative)
+            prefix = Path(record["prefix"])
+            for tree in ([record["init_tree"]] if record.get("init_tree") else []) + list(record.get("extra_trees", [])):
+                actual = cv.deterministic_tree(prefix / tree["relative_path"])
+                if actual != {k: tree.get(k) for k in ("file_count", "total_bytes", "tree_sha256")}:
+                    raise Err(f"LEAN_TREE_MISMATCH:{tree['relative_path']}")
+                trees_rechecked.append(tree["relative_path"])
 
     index_text = GOAL_INDEX.read_text(encoding="utf-8")
     matrix_text = MATRIX.read_text(encoding="utf-8")
@@ -165,6 +179,7 @@ def validate(run_relative: Path, rerun: bool, expect_rejected: bool) -> dict:
         "run_status": run["status"], "exit_code": run["exit_code"],
         "rejection_stage": run.get("rejection_stage"), "agda_error_tag": run.get("agda_error_tag"),
         "source_paths": source_paths, "external_dependencies": external,
+        "toolchain_trees_rechecked": trees_rechecked,
         "index": "GOAL_LOCAL_INDEX_PLUS_MATRIX_PRESENCE", "goal_index_row_sha256": goal_rows,
         "replay": replay, "git_status": run.get("git_status"),
     }

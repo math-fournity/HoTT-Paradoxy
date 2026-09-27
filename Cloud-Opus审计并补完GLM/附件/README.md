@@ -73,3 +73,12 @@
 - `ref-0500`：用于扫描的空时间戳文件。
 
 **会话宿主的文件**（`/tmp/claude-code*.log`、`/tmp/environment-manager*`、`/tmp/mcp-config-*.json`、`/tmp/claude-0/bash-edit-diff/`、`/home/claude/.claude/`、`/root/.claude/`、`/root/.ccr/`）是运行环境自身的日志、配置与凭据，不是本工作的产物，**绝不**提交。
+
+## 5. 自查轮追加（2026-09-27）
+
+| 文件（`工作过程文件/自查轮/` 下） | sha256（前 16 位） | 是什么 |
+|---|---|---|
+| `lean-controls-capture.log` | `067093379f2344fa` | `tools/capture_lean_controls.sh` 五个运行的捕获输出（每行一个 JSON） |
+| `试跑-KernelRoute-leanchecker计时.log` | `61e49d8c3e82def8` | 正式捕获前的试跑：`KernelRoute.lean` 加 `leanchecker --fresh`（重查含 Lean 库在内的全部常量）用时 2 分 35 秒、exit 0；据此决定内核级正对照也跑 `leanchecker --fresh` |
+
+**工具链的变化**：为了让 `import Lean` 可用，从同一本地发布包 `lean-4.34.0-linux.zip`（sha256 `5f14e0f3…`）再解出 `lib/lean/Lean/**`、`lib/lean/Lean.*`、`lib/lean/Std/**`、`lib/lean/Std.*`（`unzip -n`，不覆盖已有文件；解完重算 `lib/lean/Init` 整树哈希，未变）。新记录 `HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN_META.linux-x86_64.json` 钉住它们；二进制不入库，理由同 §2。

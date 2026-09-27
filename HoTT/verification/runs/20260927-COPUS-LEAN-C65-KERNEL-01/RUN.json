@@ -1,0 +1,61 @@
+{
+  "audit_notes": [
+    "Self-audit control of 2026-09-27 (Cloud-Opus): Lean 4.34.0 Linux release asset, same source commit 293d5d0c as the macOS toolchain of the Opus runs; the CG-001 driver lean_check.py is used unchanged."
+  ],
+  "audit_session": "Cloud-Opus (Claude Code cloud session), branch claude/charming-pasteur-mvzlio",
+  "claim_ids": [
+    "COPUS-LEAN-C01"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
+    "--toolchain",
+    "HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN_META.linux-x86_64.json",
+    "--leanchecker",
+    "HoTT/formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean",
+    "HoTT/formal/cloud-opus-glm-audit/lean-controls/KernelRoute.lean"
+  ],
+  "completed_at_utc": "2026-09-27T10:10:44.395208+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 156.13193,
+  "environment": {
+    "bytes": 782,
+    "path": "environment.txt",
+    "sha256": "25be5f68ffded23ddd067ea5db2297884cc36a1b08eb9a2dc8f6190dba5a00d5"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "A statement in a type theory with UIP; adds no mathematics to CG001-C-65 (kernelRouteA and routeA prove the same proposition)"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-COPUS-LEAN-C65-KERNEL-001",
+  "rejection_stage": null,
+  "run_id": "20260927-COPUS-LEAN-C65-KERNEL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "kernelRouteA: Eq.trans stepOne (Eq.trans stepTwo stepThree) assembled with mkAppN, every endpoint explicit, handed to the kernel with Lean.addDecl under the statement of routeA, is accepted; kernelRouteA_states_routeA : @kernelRouteA = @routeA := rfl; no axioms; leanchecker --fresh replays the module.",
+  "source_manifest": {
+    "bytes": 7948,
+    "path": "source-manifest.json",
+    "sha256": "3a14e0096ba8222b3c55ed4d6aef0ecbe980572693581218613e636b82d77029"
+  },
+  "started_at_utc": "2026-09-27T10:08:08.263168+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. For Lean, rejection_stage says which stage: KERNEL_ERROR_IN_TARGET means the kernel itself refused a declaration (a '(kernel)' error); ELABORATION_ERROR_IN_TARGET means the elaborator refused the target and the term never reached the kernel.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 556,
+    "path": "stdout.txt",
+    "sha256": "5f93b658ee0e588802e7128320fe9dd82ad9d1698793b142ceee70bda25cb926"
+  },
+  "theory_variant": "Lean 4 kernel; set-level model statements only"
+}

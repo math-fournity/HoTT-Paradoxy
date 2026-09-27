@@ -22,6 +22,22 @@ Differences from the CG-001 tool, each recorded in RUN.json:
   * expected_outcome, outcome_matches_expectation and rejection_stage are
     recorded, so tools/verify_copus_run.py can check negative controls.
 
+Added later on 2026-09-27 (self-audit of the Lean work):
+  * extra_trees in the toolchain record (lib/lean/Lean, lib/lean/Std) are
+    checked at capture time exactly like init_tree;
+  * rejection_stage separates KERNEL_ERROR_IN_TARGET (Lean printed a
+    "(kernel)" error for the target file: the kernel itself refused a
+    declaration, e.g. one handed to it with Lean.addDecl) from
+    ELABORATION_ERROR_IN_TARGET (the elaborator refused the target; the term
+    never reached the kernel);
+  * RUN.json carries status_vocabulary_note: the status word KERNEL_REJECTED
+    is the repository-wide word for "the proof checker rejected the target"
+    (it is what verify_copus_run.py and the other receipts use); for Lean,
+    rejection_stage says which stage did it.  The two Lean negative-control
+    replays captured earlier the same day (UNIVERSE-SET-LEAN-NEG-01,
+    WILD-SST-LEAN-NEG-01) say KERNEL_REJECTED with stage
+    ELABORATION_ERROR_IN_TARGET: the elaborator rejected them.
+
 Usage (cwd = repository root):
   python3 -B Cloud-Opus审计并补完GLM/tools/capture_copus_lean_run.py \
       --run-id 20260927-COPUS-<NAME>-01 --proof-id <ID> --claim-id <ID> \
@@ -88,6 +104,7 @@ IO_FAILURE_MARKERS = ("failed to open file", "unknown module prefix", "No such f
 def classify_failure(stdout: str, sources: list[Path]) -> str:
     """Name the step that failed, from the driver's '## <step>' headers.
 
+    KERNEL_ERROR_IN_TARGET       the last source was compiled and Lean reported a "(kernel)" error in it
     ELABORATION_ERROR_IN_TARGET  the last source was compiled and Lean reported an error in it
     ERROR_IN_EARLIER_SOURCE      compilation stopped at a source before the target
     TOOLCHAIN_OR_IO_FAILURE      Lean could not read a toolchain or build file
@@ -109,6 +126,8 @@ def classify_failure(stdout: str, sources: list[Path]) -> str:
     if step.startswith("leanchecker"):
         return "LEANCHECKER_FAILURE"
     target = sources[-1].as_posix()
+    if step == f"lean {target}" and f"{target}:" in text and "error: (kernel)" in text:
+        return "KERNEL_ERROR_IN_TARGET"
     if step == f"lean {target}" and f"{target}:" in text and "error:" in text:
         return "ELABORATION_ERROR_IN_TARGET"
     if step.startswith("lean "):
@@ -148,12 +167,12 @@ def main() -> int:
             raise SystemExit(f"LEAN_TOOLCHAIN_FILE_MISMATCH:{row['relative_path']}")
         external.append({"label": f"lean-{row['relative_path']}", "local_path": str(path),
                          "bytes": len(data), "sha256": sha(data)})
-    tree_record = toolchain.get("init_tree")
-    if tree_record:
+    tree_records = ([toolchain["init_tree"]] if toolchain.get("init_tree") else []) + list(toolchain.get("extra_trees", []))
+    for tree_record in tree_records:
         actual = deterministic_tree(prefix / tree_record["relative_path"])
         expected = {k: tree_record[k] for k in ("file_count", "total_bytes", "tree_sha256")}
         if actual != expected:
-            raise SystemExit("LEAN_INIT_TREE_MISMATCH")
+            raise SystemExit(f"LEAN_TREE_MISMATCH:{tree_record['relative_path']}")
     asset = toolchain.get("release_asset")
     if asset:
         data = Path(asset["local_archive"]).read_bytes()
@@ -185,7 +204,7 @@ def main() -> int:
     # A negative control counts only when Lean rejects the TARGET (last) source itself.
     # A failure while compiling an earlier source, a missing toolchain file, or a
     # leanchecker failure is a tool failure, never a rejection "for the right reason".
-    genuine_rejection = stage == "ELABORATION_ERROR_IN_TARGET"
+    genuine_rejection = stage in ("KERNEL_ERROR_IN_TARGET", "ELABORATION_ERROR_IN_TARGET")
     matches = accepted if args.expect == "ACCEPT" else genuine_rejection
 
     env_text = "\n".join([
@@ -197,7 +216,8 @@ def main() -> int:
         f"lean_version={version}",
         f"leanchecker_fresh_replay={'yes' if args.leanchecker else 'no'}",
         "theory_variant=Lean 4 kernel; set-level model statements only (equality has UIP; no HoTT paths)",
-        "dependency_policy=pinned toolchain files by SHA-256 (launchers, shared libraries, Init.olean, Init/Prelude.olean) re-checked by the driver on every replay; whole lib/lean/Init tree hash checked at capture; minimal environment; no elan",
+        "dependency_policy=pinned toolchain files by SHA-256 (launchers, shared libraries, top-level .olean files and companions) re-checked by the driver on every replay; whole-tree hashes checked at capture: "
+        + ", ".join(t["relative_path"] for t in tree_records) + "; minimal environment; no elan",
         "secret_policy=no credentials, signed redirects, cookies or full environment dump retained",
     ]) + "\n"
 
@@ -227,6 +247,10 @@ def main() -> int:
         "expected_outcome": args.expect,
         "outcome_matches_expectation": matches,
         "rejection_stage": stage,
+        "status_vocabulary_note": ("KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. "
+                                   "For Lean, rejection_stage says which stage: KERNEL_ERROR_IN_TARGET means the kernel itself refused a "
+                                   "declaration (a '(kernel)' error); ELABORATION_ERROR_IN_TARGET means the elaborator refused the target "
+                                   "and the term never reached the kernel."),
         "scope": args.scope,
         "non_goals": args.non_goal,
         "audit_session": "Cloud-Opus (Claude Code cloud session), branch claude/charming-pasteur-mvzlio",
