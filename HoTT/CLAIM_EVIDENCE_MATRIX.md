@@ -1616,3 +1616,16 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | COPUS-GLM-FIX-C02a | `valBetaT-refl : (t s : Tm) → cong val (betaT t s) ≡ refl`、`valBetaF-refl`（证明为 refl） | `FORMAL_CHECKED_WITH_SCOPE` | run `20260927-COPUS-GLM-REPAIR-01` | 一阶 ι 玩具片段 |
 | COPUS-GLM-FIX-C02b | `glmFormHoldsAtArt : Path (Path Type (f boolTy) (f boolTy)) refl refl` 且 `faithfulFormFailsAtArt : ¬ (cong f art ≡ refl)` | `FORMAL_CHECKED_WITH_SCOPE / RUPTURE_EXHIBIT` | 同上 | 只说明 GLM 原陈述形式不能区分真实与人工等式 |
 | COPUS-Q7-C01 | GLM-R3-C01 各中间步骤的显式类型重述（`hlevel3≡isGroupoid`、`a-moves`、`fst-τ`、`τ≠refl-annotated`、`fst-FAM`、`eval-loopE`、`setOfSelfEquivs`、`Q7-theorem`） | `FORMAL_CHECKED_WITH_SCOPE` | run `20260927-COPUS-GLM-REPAIR-Q7-01` | 审计者读法的内核确认；不加新数学 |
+
+### 终局轮追加（2026-09-27）
+
+> 写终局判词（`Cloud-Opus审计并补完GLM/14-罗素面终局判词.md`）之后追加。原为暂存区的一行类型检查，按用户"全部代码入库"的要求入库并按 F-011 捕获。同一授权（委托工作单 §6，D2 最终集成行）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COPUS-KS-TOWER-002` | `COPUS-KS-C06` | `formal/cloud-opus-glm-audit/ks-universe-tower/CatalogOfSetsTwoSteps.agda` | `verification/runs/20260927-COPUS-KS-CATALOG-OF-SETS-01/`；exit 0（73 s） | `MACHINE_PROVED_WITH_SCOPE`（KS 5.10 在 n = 0 的实例；无 HIT 见 COPUS-R1-C05） |
+| `MP-COPUS-KS-TOWER-NEG-003` | `COPUS-KS-C06` 负控制 | `formal/cloud-opus-glm-audit/ks-universe-tower/KSNegCatalogOfSetsIsSet.agda` | `verification/runs/20260927-COPUS-KS-CATALOG-OF-SETS-NEG-01/`；exit 42，`[UnequalTerms]` | `NEGATIVE_CONTROL_REJECTED`（3 层读不成 2 层） |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| COPUS-KS-C06 | `catalogOfSetsTwoSteps : isOfHLevel 3 (hSet ℓ-zero) × (¬ isSet (hSet ℓ-zero))` | `MACHINE_PROVED_WITH_SCOPE` | run `20260927-COPUS-KS-CATALOG-OF-SETS-01`；负控制 `-NEG-01` | 只关于装集合的目录 `hSet ℓ-zero`；"追问两步就停"是对两个分量的读法 |

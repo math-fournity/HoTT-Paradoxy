@@ -19,6 +19,12 @@
 
 实例锚点（同文件）：`instance-n0 : ¬ isSet (Type ℓ-zero)`（= C-63 的命题）、`instance-n1 : ¬ isOfHLevel 3 (Type (ℓ-suc ℓ-zero))`（= GLM-R3-C01 的命题）、`instance-n2 : ¬ isOfHLevel 4 (Type (ℓ-suc (ℓ-suc ℓ-zero)))`（新）。
 
+**终局轮追加（2026-09-27）**：`CatalogOfSetsTwoSteps.agda`（proof id `MP-COPUS-KS-TOWER-002`，另一文件，导入本包，不改本包源码）。
+
+| claim | 形式命题（Agda，逐字） | 读法（数学事实） |
+|---|---|---|
+| COPUS-KS-C06 | `catalogOfSetsTwoSteps : isOfHLevel 3 (hSet ℓ-zero) × (¬ isSet (hSet ℓ-zero))`，证明为 `KS-Theorem-5-10-U≤ 0` | 装着一切集合的目录是群胚、不是集合：KS Thm 5.10 在 n = 0 的实例（`T (lvl 0) 0` 按定义即 `TypeOfHLevel ℓ-zero 2` = `hSet ℓ-zero`）。终局判词的邻近对照"两步就停"。运行 `20260927-COPUS-KS-CATALOG-OF-SETS-01`；负控制 `KSNegCatalogOfSetsIsSet.agda`（`MP-COPUS-KS-TOWER-NEG-003`，运行 `-NEG-01`：把 3 层读成 2 层，类型检查阶段 `[UnequalTerms]` 被拒）。 |
+
 ## 2. 与 KS 原文逐项对照
 
 | KS | 本文件 | 说明 |
