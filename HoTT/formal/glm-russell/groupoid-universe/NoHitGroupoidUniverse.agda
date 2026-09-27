@@ -1,23 +1,28 @@
 {-# OPTIONS --safe --cubical --guardedness #-}
 
--- M1c: HIT-free proof that Type l1 is NOT a groupoid (KS n=1 instance),
--- simplified route (design doc: GLM-5.3-Flash/M1c设计书).  SCAFFOLD:
--- this file currently delivers the definitions and the computational
--- fact (two involutions of Bool*Bool do not commute); the hard kernel
--- lemma (transport-in-path-family = conjugation) and the final assembly
--- are marked TODO and NOT claimed.  No claim IDs issued yet.
+-- M1c COMPLETE (units 1-3, GLM-R3-C01): HIT-free proof that the
+-- universe Type (ℓ-suc ℓ-zero) is NOT a groupoid (KS n=1 instance).
+-- Kernel: the self-sliding square D via compPathL→PathP + path
+-- algebra; the KS xi-family FAM via ΣPathP (q , D q); nontriviality at
+-- (c₀ , τ) with τ the a-loop; assembly via univalence transfer and
+-- equivEq.  See REVISIONS.md for the full attempt history.
 
 module NoHitGroupoidUniverse where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.Equiv using (isEquiv)
+open import Cubical.Foundations.Equiv using (_≃_ ; isEquiv ; idEquiv ;
+  equivEq)
 open import Cubical.Foundations.Isomorphism using (iso ; isoToIsEquiv)
-open import Cubical.Foundations.Univalence using (ua ; pathToEquiv)
-open import Cubical.Foundations.HLevels using (isSet×)
+open import Cubical.Foundations.Univalence using (ua ; uaβ ; univalence)
+open import Cubical.Foundations.GroupoidLaws using (assoc ; lCancel ; lUnit)
+open import Cubical.Foundations.Path using (compPathL→PathP)
+open import Cubical.Foundations.HLevels using (isOfHLevel ; isSet× ;
+  isPropIsSet ; isOfHLevelRespectEquiv)
 open import Cubical.Data.Bool using (Bool ; true ; false ; not ; notnot ;
   true≢false)
 open import Cubical.Data.Bool.Properties using (isSetBool)
 open import Cubical.Data.Sigma using (_×_ ; fst ; snd)
+open import Cubical.Data.Sigma.Properties using (ΣPathP)
 open import Cubical.Relation.Nullary using (¬_)
 
 -- The subuniverse of sets (KS: U^{<=0}), a member of Type l1.
@@ -65,20 +70,81 @@ b-isEquiv = isoToIsEquiv (iso b b b-invol b-invol)
 X-isSet : isSet X
 X-isSet = isSet× isSetBool isSetBool
 
--- TODO (kernel, unit 2) — SHAPE RESOLVED (2026-09-26 session-end note):
--- the ABSTRACT conjugation lemma below is ILL-TYPED: for abstract rho,
--- neither `PathP (λ i → rho i ≡ rho i) tau sigma` nor
--- `transport (λ i → rho i ≡ rho i) tau` accept tau : c ≡ c, because
--- rho i0 does not reduce for an abstract path.  With the CONCRETE
--- rho := Σ-path (ua ea, isProp→PathP part) everything changes: ua has
--- definitional boundary, so rho i0 ≡ c0 definitionally and all
--- PathP/transport statements typecheck with computable endpoints.
--- Unit 2 therefore works with concrete rho/tau at c0 := (X , X-isSet):
---   q := cong (λ c → c ≡ c) rho : (c0 ≡ c0) ≡ (c0 ≡ c0)
---   h : q ≡ refl (from isOfHLevel 3 (Type (ℓ-suc ℓ)))
---   cong (transport-at-tau) h gives transport q tau ≡ tau
--- refute by computing transport q tau's first Σ-component as the
--- conjugated equivalence (ua-normalisation + a/b facts), landing on
--- a∘b≠b∘a.  Tools: fromPathP/toPathP/PathPIsoPath (Foundations.Path),
--- ua-beta lemmas, doubleCompPath-filler (faces now reducible).
--- No claim IDs issued yet.
+----------------------------------------------------------------------
+-- The kernel (M1c unit 2): the self-sliding square, landed.
+-- For any loop q : b ≡ b, D q : PathP (λ i → q i ≡ q i) q q — the square
+-- underlying "a loop is a loop at each of its own points".  Route:
+-- compPathL→PathP applied to pure path algebra
+-- (sym q ∙ q ∙ q ≡ (sym q ∙ q) ∙ q ≡ refl ∙ q ≡ q).  All propositional;
+-- no definitional walls (session-end obstruction resolved).
+----------------------------------------------------------------------
+
+D : ∀ {ℓ} {C : Type ℓ} {b : C} (q : b ≡ b) → PathP (λ i → q i ≡ q i) q q
+D q = compPathL→PathP
+  ( (sym q ∙ q ∙ q) ≡⟨ assoc (sym q) q q ⟩
+    ((sym q ∙ q) ∙ q) ≡⟨ cong (λ s → s ∙ q) (lCancel q) ⟩
+    (refl ∙ q) ≡⟨ sym (lUnit q) ⟩ q ∎ )
+
+-- The KS xi-family: every point of Loop carries its own loop data as a
+-- loop AT itself.
+FAM : {ℓ : Level} (x : Loop ℓ) → x ≡ x
+FAM (b , q) = ΣPathP (q , D q)
+
+----------------------------------------------------------------------
+-- Nontriviality witness at the concrete point.
+----------------------------------------------------------------------
+
+ea : X ≃ X
+ea = (a , a-isEquiv)
+
+c₀ : B ℓ-zero
+c₀ = (X , X-isSet)
+
+-- The a-loop at c₀ (a Σ-path over ua of the a-equivalence).
+τ : c₀ ≡ c₀
+τ = ΣPathP (ua ea ,
+            isProp→PathP (λ i → isPropIsSet {A = ua ea i}) X-isSet X-isSet)
+
+τ≠refl : ¬ (τ ≡ refl)
+τ≠refl h = true≢false (cong fst chain)
+  where
+  t1 = uaβ ea (true , true)
+  t2 = cong (λ e → transport e (true , true)) (cong (cong fst) h)
+  t3 = transportRefl (true , true)
+  chain = sym t3 ∙ sym t2 ∙ t1
+
+-- Standalone forcing lemma (pattern validated in isolation).
+forceEquivLoop : {ℓ : Level} (G : isOfHLevel 3 (Type (ℓ-suc ℓ)))
+                 (L : Type (ℓ-suc ℓ)) (e : L ≃ L) (p : e ≡ e) → p ≡ refl
+forceEquivLoop G L e p =
+  isOfHLevelRespectEquiv 2 univalence (G L L) e e p refl
+
+-- GLM-R3-C01: the universe Type (ℓ-suc ℓ-zero) is NOT a groupoid,
+-- HIT-free (KS n=1 instance).  Suppose G.  Then Loop ≃ Loop is a set
+-- (univalence transfer of G Loop Loop).  The FAM-family gives a loop
+-- at idEquiv; set-ness forces it to refl; evaluating at the concrete
+-- point (c₀ , τ) and projecting the first component forces τ ≡ refl
+-- — refuted above.
+¬universeIsGroupoid : ¬ isOfHLevel 3 (Type (ℓ-suc ℓ-zero))
+¬universeIsGroupoid G = τ≠refl τIsRefl
+  where
+  L : Type (ℓ-suc ℓ-zero)
+  L = Loop ℓ-zero
+
+  theId : L ≃ L
+  theId = idEquiv L
+
+  FAML : (x : L) → x ≡ x
+  FAML x = FAM x
+
+  loopE : theId ≡ theId
+  loopE = equivEq (funExt FAML)
+
+  forced : loopE ≡ refl
+  forced = forceEquivLoop G L theId loopE
+
+  atPt : FAML (c₀ , τ) ≡ refl
+  atPt = cong (cong (λ e → e .fst (c₀ , τ))) forced
+
+  τIsRefl : τ ≡ refl
+  τIsRefl = cong (cong fst) atPt
