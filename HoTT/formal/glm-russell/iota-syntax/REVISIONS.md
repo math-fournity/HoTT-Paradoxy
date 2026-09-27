@@ -35,3 +35,24 @@
 **第三次尝试的构造（供后继引用）**：前两次失败的根因——`_∙_` 的定义自带隐藏 `refl` 前缀（`p ∙ q := refl ∙∙ p ∙∙ q`），cond 子句再用 `_∙_` 造成双重前缀，`refl ∙ X` 在 hcomp 角落不归约。修正：cond 子句改用**显式三段复合** `_∙∙_`——`cong (λ x → cond x v w) (q u) ∙∙ unlift (val u) v w ∙∙ liftq (val u) v w`，其中 `unlift true v w = betaT v w`、`liftq true v w = q v`。字面量头时 cong 前缀定义性归约为 `refl`（`cong f refl ≡ refl`，已机器实验证实），于是子句值定义性地等于 `refl ∙∙ betaT t s ∙∙ q t`——恰是 `betaT t s ∙ q t`（`_∙_` 的展开式），即已证 `squareLeft` 的左边缘。路径构造子子句直接 `squareLeft (betaT t s) (q t)`，收尾 `isSetRetract val lit (λ t → sym (q t)) isSetBool`。**不需要 lUnit 粘贴，不需要三立方**——评审 Q3 的"差一步粘贴"判断在此意义上正确：差的那一步是改复合的呈现方式，不是构造新方块。
 
 **范围与移交**：C01 仅覆盖本一阶 ι 片段（完整 β 需替换装置，未触碰）。**对 C-67(a) 读法的含义**（评审 Q4.1 预登记）：本片段内"真实等式语法是集合"已机器成立，故 C-67(a) 的 `syntax∞IsNotASet` 之非集合性在本片段对应物上完全来自 swap 式注入。是否据此修订 Opus 的 C-67(a) 表述，须经用户转 Opus 走其 REVISIONS 流程（rulings 34：GLM 不写 `.claude/`）。
+
+## 2026-09-27：Cloud-Opus 审计修订（审计者写入；不改上文任何一句）
+
+> 依据：委托工作单 `GLM-5.3-Flash/审计请求/20260927-委托工作单-审计修正补完交付最终卷宗.md` §3（R4、R5、R1）与 §6 写入权限。审计全文：`Cloud-Opus审计并补完GLM/02-断裂审计-逐命题（D1）.md` §2.1–2.3、`05-R2至R8处置.md` R4。三个定理的形式层都被内核接受（Linux 复现 `20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01/-02/-NEG-01`）；断裂在声明层与控制层。
+
+1. **GLM-R1-C02：见证不陈述所声称的事实（实质性越界）。** CLAIM L15/L20 说"`val` 的两个 βι 子句逐字是 `refl`……`valReflT`/`valReflF` 见证"。但见证的类型是
+   `valReflT : (t s : Tm) → Path (Path Bool (val (cond (lit true) t s)) (val t)) refl refl`，
+   其中**没有路径构造子 `betaT`**：内层 `refl` 能写出，只说明两端点定义性相等；外层 `refl ≡ refl` 随即恒成立，与 `val` 在 `betaT` 上做了什么无关。机器演示（`HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC02Faithful.agda`，运行 `20260927-COPUS-GLM-REPAIR-01`）：
+   - 忠实形式成立：`valBetaT-refl : (t s : Tm) → cong val (betaT t s) ≡ refl`、`valBetaF-refl`（证明为 `refl`；COPUS-GLM-FIX-C02a）；
+   - GLM 的陈述形式在**人工等式** `art` 处照样成立：`glmFormHoldsAtArt : Path (Path Type (f boolTy) (f boolTy)) refl refl`；而忠实形式在 `art` 处被驳斥：`faithfulFormFailsAtArt : ¬ (cong f art ≡ refl)`（COPUS-GLM-FIX-C02b）。
+   结论：GLM 声称的**事实为真**，但原见证不能区分真实等式与人工等式，因而不能充当"真实等式判据由此机器化"的证据。以后引用 C02 一律用忠实形式 COPUS-GLM-FIX-C02a；`valReflT/F` 只作"端点定义性相等"的记录。
+
+2. **GLM-R1-C03：标题与 L21 的"必须"越界；负控制不检验论证。**
+   - 形式内容是一个注入实例：加入一条被解释为 `ua flipNotEquiv` 的人工等式后 `¬ isSet TmA`。"非落定**必须**人工注入"是对一切非落定来源的全称断言，形式内容不支持（CLAIM 自己的"禁止外推"也与标题的"必须"相抵）。改读为："注入一条被解释为非平凡自等价的人工等式，**足以**破坏集合性。"
+   - 负控制 `WrongArtIsRefl` 被拒的理由（`art i != boolTy`）是真的，但它只说明 `art` 不**定义性**等于 `refl`，不检验 C03 的论证。补充近失控制 `HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC03NegTrivialInterp.agda`：把 `art` 的解释换成常路径（`f' (art i) = Bool`）后，GLM 的证明脚本逐字被拒（`cong f' art` 是 `refl`，不是 `ua flipNotEquiv`；运行 `20260927-COPUS-GLM-REPAIR-NEG-03`）。这说明 C03 依赖人工等式的**非平凡解释**。
+
+3. **GLM-R1-C01：形式无断裂，读法越界。** `realisticIotaSyntaxIsASet : isSet Tm` 成立。但 `Tm` 同构于 `Bool`（`val (lit b)` 定义性等于 `b`，`q : t ≡ lit (val t)` 已在 `RealisticIotaSyntaxSet.agda` 中证明），没有上下文、依赖、替换；GN-002 修订块二"本片段内'理论自身的表述完全落定（集合）'是机器定理"是命名放大。改读为："一个同构于 Bool 的两等式玩具 HIT 语法是集合（机器定理）；它不是'理论自身的表述'。"另注：`Tm` 本身是 HIT（`betaT/betaF` 是路径构造子），HITScan 负证书 `NegCertIota` 如实点名 `Tm`（运行 `20260927-COPUS-HITSCAN-NEG-01`）。
+
+4. **上节（2026-09-26 再续）末段"C-67(a) 的 `syntax∞IsNotASet` 之非集合性在本片段对应物上完全来自 swap 式注入"**：限定在本玩具片段内成立；不能外推为"C-67(a) 的非集合性不是自指的固有代价"。真实类型论完整语法（含替换、β、η）不截断时是否为集合仍开放。对 Opus C-67(a) 读法的修订提案见 `Cloud-Opus审计并补完GLM/09-致Opus差量报告与patch提案（D6）.md` P3（经用户转交，本会话不写 `.claude/`）。
+
+5. **收据**：GLM 原收据哈希锁定，不改。原 `source-manifest.json` 不是 canonical schema；canonical 形式的 Linux 复现见上列运行，由 `Cloud-Opus审计并补完GLM/tools/verify_copus_run.py --rerun` 逐字节重放核验（结果：`Cloud-Opus审计并补完GLM/11-收据核验结果.json`）。
