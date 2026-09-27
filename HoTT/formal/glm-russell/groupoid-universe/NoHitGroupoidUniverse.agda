@@ -65,10 +65,20 @@ b-isEquiv = isoToIsEquiv (iso b b b-invol b-invol)
 X-isSet : isSet X
 X-isSet = isSet× isSetBool isSetBool
 
--- TODO (kernel, next session): conjugation lemma
---   transport (λ i → ρ i ≡ ρ i) τ ≡ sym ρ ∙ τ ∙ ρ (orientation TBD);
--- then: q := cong (λ c → c ≡ c) ρ at c0 := (X , X-isSet) is a loop in
--- Type l1 at the member (c0 ≡ c0); q = refl would force the conjugated
--- b-loop to equal the b-loop, refuted by a∘b≠b∘a after pathToEquiv/ua
--- normalisation; assemble
---   ¬ isOfHLevel 3 (Type (ℓ-suc ℓ)).
+-- TODO (kernel, unit 2) — SHAPE RESOLVED (2026-09-26 session-end note):
+-- the ABSTRACT conjugation lemma below is ILL-TYPED: for abstract rho,
+-- neither `PathP (λ i → rho i ≡ rho i) tau sigma` nor
+-- `transport (λ i → rho i ≡ rho i) tau` accept tau : c ≡ c, because
+-- rho i0 does not reduce for an abstract path.  With the CONCRETE
+-- rho := Σ-path (ua ea, isProp→PathP part) everything changes: ua has
+-- definitional boundary, so rho i0 ≡ c0 definitionally and all
+-- PathP/transport statements typecheck with computable endpoints.
+-- Unit 2 therefore works with concrete rho/tau at c0 := (X , X-isSet):
+--   q := cong (λ c → c ≡ c) rho : (c0 ≡ c0) ≡ (c0 ≡ c0)
+--   h : q ≡ refl (from isOfHLevel 3 (Type (ℓ-suc ℓ)))
+--   cong (transport-at-tau) h gives transport q tau ≡ tau
+-- refute by computing transport q tau's first Σ-component as the
+-- conjugated equivalence (ua-normalisation + a/b facts), landing on
+-- a∘b≠b∘a.  Tools: fromPathP/toPathP/PathPIsoPath (Foundations.Path),
+-- ua-beta lemmas, doubleCompPath-filler (faces now reducible).
+-- No claim IDs issued yet.
