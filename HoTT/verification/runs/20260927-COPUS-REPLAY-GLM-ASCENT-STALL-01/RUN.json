@@ -1,0 +1,71 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [
+    "Linux replay (Agda v2.8.0 Linux asset, cubical v0.9 byte-identical) of the GLM run of 2026-09-26; GLM's original receipt is left untouched (hash-locked)."
+  ],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "GLM-R2-C01",
+    "GLM-R2-C02"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/universe-ascent-stall",
+    "HoTT/formal/glm-russell/universe-ascent-stall/AscentStallAtSets.agda"
+  ],
+  "completed_at_utc": "2026-09-27T06:26:03.064273+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 15.87237,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/universe-ascent-stall"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not show HITs are necessary for any ascent (KS tower ascends HIT-free: COPUS-KS-C01)"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-GLM-RUSSELL-STALL-001",
+  "rejection_stage": null,
+  "run_id": "20260927-COPUS-REPLAY-GLM-ASCENT-STALL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-GLM-ASCENT-STALL-01: for a set X, isSet (X ≡ X) in Type ℓ and isContr (Ω²(Type ℓ, X)). HIT-free at name level (COPUS-R1-C02/C03). The 'engine stalls' reading uses the HIT-free bridge localGlobal (COPUS-R6-C01) and is an interpretation.",
+  "source_manifest": {
+    "bytes": 2357,
+    "path": "source-manifest.json",
+    "sha256": "471128fc56e6d89496ff0dabaa8033dbf0e8f78bfc61b08674f98d5702bb3563"
+  },
+  "started_at_utc": "2026-09-27T06:25:47.191903+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 5315,
+    "path": "stdout.txt",
+    "sha256": "95bd09fb817d357e36d811db50a2aa0503a5408c5b9171476f813ec4e90afd6c"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

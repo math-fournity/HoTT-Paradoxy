@@ -1,0 +1,73 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [
+    "Linux replay (Agda v2.8.0 Linux asset, cubical v0.9 byte-identical) of the GLM run of 2026-09-26; GLM's original receipt is left untouched (hash-locked).",
+    "Re-capture of 2026-09-27: the first capture of this run id was the first Agda invocation after the XDG data directory was created, so its stdout also listed 19 one-time checks of Agda.Builtin.* modules and its byte-exact replay failed (REPLAY_OUTPUT_MISMATCH). The first capture is preserved unchanged under Cloud-Opus审计并补完GLM/附件/首次捕获-20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01/ (stdout sha256 ffcfb0f6...027e); proof sources, command and exit status are identical."
+  ],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "GLM-R1-C02",
+    "GLM-R1-C03"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax",
+    "HoTT/formal/glm-russell/iota-syntax/ArtificialEquationControl.agda"
+  ],
+  "completed_at_utc": "2026-09-27T07:07:39.508963+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 29.629609,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not certify cong val (betaT t s) ≡ refl (see MP-COPUS-GLM-FIX-001)",
+    "Toy first-order ι fragment only"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-GLM-RUSSELL-IOTA-001",
+  "rejection_stage": null,
+  "run_id": "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-GLM-IOTA-SYNTAX-01. Kernel facts: valReflT/valReflF (refl ≡ refl in Path Bool (val (cond (lit b) t s)) (val t), i.e. only that the endpoints agree definitionally) and ¬isSetTmA. Audit reading: GLM-R1-C02 as DECLARED (ι path constructors interpreted as refl) is NOT what valReflT states; the faithful statement is COPUS-GLM-FIX-C02a.",
+  "source_manifest": {
+    "bytes": 2548,
+    "path": "source-manifest.json",
+    "sha256": "639ee8a8d794a128f2468a104fbd6f71e3c9fb0dcdf15b2a8cb25a5b7a9a9cec"
+  },
+  "started_at_utc": "2026-09-27T07:07:09.879354+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9356,
+    "path": "stdout.txt",
+    "sha256": "b3f1585af179b8a6e66810dac10d362c50586564edad737c056e02aba8d8fddb"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

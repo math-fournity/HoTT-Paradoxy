@@ -1,0 +1,71 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [
+    "First type-checked as a scratchpad one-liner (no receipt); moved into the repository and captured on the user's instruction that all code of this work be tracked."
+  ],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "COPUS-KS-C06"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/ks-universe-tower",
+    "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/CatalogOfSetsTwoSteps.agda"
+  ],
+  "completed_at_utc": "2026-09-27T08:45:07.909938+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 73.346712,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/ks-universe-tower"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Says nothing about Type ℓ-zero itself (that is C-75, which uses HITs)",
+    "'Questioning' and 'stops at step two' are readings of the two components, not formal content"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-COPUS-KS-TOWER-002",
+  "rejection_stage": null,
+  "run_id": "20260927-COPUS-KS-CATALOG-OF-SETS-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "catalogOfSetsTwoSteps : isOfHLevel 3 (hSet ℓ-zero) × (¬ isSet (hSet ℓ-zero)), proved as KS-Theorem-5-10-U≤ 0 (T (lvl 0) 0 = TypeOfHLevel ℓ-zero (2 + 0) = hSet ℓ-zero definitionally). The adjacent control of the Russell-face final verdict: the level-by-level questioning of the catalog of all sets answers NO at step 1 and YES at step 2.",
+  "source_manifest": {
+    "bytes": 2565,
+    "path": "source-manifest.json",
+    "sha256": "84dd524eae55e341b77c79ec23bef25f44310c8737f7d1dccb81635185dfa8c2"
+  },
+  "started_at_utc": "2026-09-27T08:43:54.563226+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 20363,
+    "path": "stdout.txt",
+    "sha256": "141f8e7ea0e7962ec5f97644c1f181f6f8bd1ee35d965a6f173e64e92af87a03"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1560,3 +1560,119 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-354 | 对任意 `A : Type`，`duplicate : A → A × A` 可定义；对固定 `authorizationCode` 有 `duplicate authorizationCode ≡ (authorizationCode , authorizationCode)`。 | `FORMAL_CHECKED_WITH_SCOPE / BARE_VALUE_DUPLICATION_CONTROL` | `OneShotCapability.duplicate/duplicatedCode/duplicateIsTwoCopies`；run `20260926-MP-TERRA-T2-ONESHOT-001-01` | 只说明普通 Cubical 积接口允许一个**数据值**进入两个使用位置；不证明所有现实资源可复制、Book 的所有上下文规则、任何攻击能力或 HoTT 结论。 |
 | C-355 | 在固定 pure interface `pureRedeem : Code → Token` 中，`pureTwice authorizationCode ≡ (accessToken , accessToken)`。 | `FORMAL_CHECKED_WITH_SCOPE / BARE_PURE_INTERFACE_NEGATIVE_CONTROL` | `OneShotCapability.pureRedeem/pureTwice/pureCopiesBothGrant`；同 run | 这是故意选择的非状态 pure interface，不能代表 OAuth 或所有 code→token 函数；不从此推出“HoTT 使一次性任务失败”。 |
 | C-356 | 对同一 `duplicatedCode` 的两份分量按序调用固定 stateful `redeem`，第一次 reply 为 `granted accessToken`，第二次为 `denied`，最终 server status 是 `consumed`，event log 是 `[grantAttempt,denialAttempt]`。 | `FORMAL_CHECKED_WITH_SCOPE / SAME_CORE_TASK_STATEFUL_POSITIVE_CONTROL` | `OneShotCapability.firstCopyGrants/secondCopyIsDenied/serverHasConsumedCode/bothAttemptsRecorded`；同 run | 只证明顺序、单 code、固定有限 state model；不证明真实 OAuth 的 client/redirect binding、原子并发、PKCE/TLS、安全性、日志持久化、生产部署或所有 HoTT representations。 |
+
+## Cloud-Opus 审计并补完 GLM：GLM 线最终集成、一般 n（KS 5.9/5.10）与 HIT 名称级证书（2026-09-27）
+
+> 授权：用户委托工作单 `GLM-5.3-Flash/审计请求/20260927-委托工作单-审计修正补完交付最终卷宗.md` §6（"`HoTT/CLAIM_EVIDENCE_MATRIX.md`（仅 D2 最终集成行）"）。写入者：Claude Code 云端会话（Cloud-Opus），分支 `claude/charming-pasteur-mvzlio`。
+> 工具链：Agda v2.8.0 **Linux x86-64** release 资产 + cubical v0.9（与 `dedekind-omega-missile/TOOLCHAIN.json` 的 cubical 逐字节一致；Agda 为同一 release 的另一平台资产），记录 `formal/cloud-opus-glm-audit/TOOLCHAIN.linux-x86_64.json`。全部运行 `--safe --cubical --guardedness --ignore-interfaces`。
+> 索引状态：运行 `index_status = PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE`；`verification/PROOF_VERSION_CLOSURE.json` 属 integrator，未写。目标内索引 `Cloud-Opus审计并补完GLM/证据索引.md`；核验 `Cloud-Opus审计并补完GLM/tools/verify_copus_run.py`（复用 canonical 检查并逐字节重放）。审计报告与卷宗：`Cloud-Opus审计并补完GLM/`。
+> GLM 的原运行 `20260926-GLM-*` 保持原样（哈希锁定）；其 schema 非 canonical（见审计报告 R5），此处以 `20260927-COPUS-REPLAY-GLM-*` 为 canonical 副本。
+> 编号约定：本节提到 Opus 的主张时一律写带命名空间的 `CG001-C-NN`（Opus CG-001 目标内索引 `.claude/goals/CG-001-targeted-overview/证据索引.md`）；本矩阵其它节里同号的 `C-63`、`C-71`、`C-75` 等是别的证明包的 claim，与本节无关。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-GLM-RUSSELL-IOTA-001` | `GLM-R1-C02`、`GLM-R1-C03` | `formal/glm-russell/iota-syntax/ArtificialEquationControl.agda`（+ `RealisticIotaSyntax.agda`） | `verification/runs/20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01/`；exit 0 | `FORMAL_CHECKED_WITH_SCOPE`（GLM 证明，本会话 canonical 重放） |
+| `MP-GLM-RUSSELL-IOTA-NEG-001` | `GLM-R1-C03` 负控制 | `formal/glm-russell/iota-syntax/WrongArtIsRefl.agda` | `verification/runs/20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-NEG-01/`；exit 42，`art i != boolTy` | `NEGATIVE_CONTROL_REJECTED`（只测 art ≢ refl，不测 C03 论证） |
+| `MP-GLM-RUSSELL-IOTA-002` | `GLM-R1-C01` | `formal/glm-russell/iota-syntax/RealisticIotaSyntaxSet.agda` | `verification/runs/20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-02/`；exit 0 | `FORMAL_CHECKED_WITH_SCOPE` |
+| `MP-GLM-RUSSELL-STALL-001` | `GLM-R2-C01`、`GLM-R2-C02` | `formal/glm-russell/universe-ascent-stall/AscentStallAtSets.agda` | `verification/runs/20260927-COPUS-REPLAY-GLM-ASCENT-STALL-01/`；exit 0 | `FORMAL_CHECKED_WITH_SCOPE / HIT_FREE_NAME_LEVEL (COPUS-R1-C02/C03)` |
+| `MP-GLM-RUSSELL-GROUPOID-001` | `GLM-R3-C01` | `formal/glm-russell/groupoid-universe/NoHitGroupoidUniverse.agda` | `verification/runs/20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-01/`；exit 0 | `FORMAL_CHECKED_WITH_SCOPE / HIT_FREE_NAME_LEVEL (COPUS-R1-C01) / KS_N1_FAITHFUL_REPLAY` |
+| `MP-GLM-RUSSELL-GROUPOID-NEG-001` | `GLM-R3-C01` 原负控制 | `formal/glm-russell/groupoid-universe/WrongGroupoidWitness.agda` | `verification/runs/20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-NEG-01/`；exit 42，`[NotInScope] true` | `REJECTED_BEFORE_TYPE_CHECKING / CONTROL_INVALID`（由 `MP-COPUS-GLM-FIX-NEG-001/002` 取代） |
+| `MP-COPUS-KS-TOWER-001` | `COPUS-KS-C01`–`COPUS-KS-C05` | `formal/cloud-opus-glm-audit/ks-universe-tower/KSUniverseTower.agda`；本地 `CLAIM.md` | `verification/runs/20260927-COPUS-KS-UNIVERSE-TOWER-01/`；exit 0（72 s） | `MACHINE_PROVED_WITH_SCOPE / HIT_FREE_NAME_LEVEL (COPUS-R1-C05) / KNOWN_THEOREM_REPLAYED (Kraus–Sattler 2015)` |
+| `MP-COPUS-KS-TOWER-NEG-001` | `COPUS-KS-C01` 负控制 | `formal/cloud-opus-glm-audit/ks-universe-tower/KSNegTrivialBase.agda` | `verification/runs/20260927-COPUS-KS-UNIVERSE-TOWER-NEG-01/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED`（平凡基环） |
+| `MP-COPUS-KS-TOWER-NEG-002` | `COPUS-KS-C01` 负控制 | `formal/cloud-opus-glm-audit/ks-universe-tower/KSNegOvershoot.agda` | `verification/runs/20260927-COPUS-KS-UNIVERSE-TOWER-NEG-02/`；exit 42 | `NEGATIVE_CONTROL_REJECTED`（证书层级精确，不越级） |
+| `MP-COPUS-HITSCAN-001` | `COPUS-R1-C01`–`COPUS-R1-C03` | `formal/cloud-opus-glm-audit/hitscan/CertGLM.agda`（+ `HITScan.agda`） | `verification/runs/20260927-COPUS-HITSCAN-CERT-GLM-01/`；exit 0；stdout 含全部闭包 | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE`（名称级，边界见 hitscan/CLAIM.md） |
+| `MP-COPUS-HITSCAN-002` | `COPUS-R1-C04`、`COPUS-R6-C01` | `formal/cloud-opus-glm-audit/hitscan/CertOpus.agda` | `verification/runs/20260927-COPUS-HITSCAN-CERT-OPUS-01/`；exit 0 | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` |
+| `MP-COPUS-HITSCAN-003` | `COPUS-R1-C05` | `formal/cloud-opus-glm-audit/hitscan/CertKS.agda` | `verification/runs/20260927-COPUS-HITSCAN-CERT-KS-01/`；exit 0 | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` |
+| `MP-COPUS-HITSCAN-004` | `COPUS-R1-C06` | `formal/cloud-opus-glm-audit/hitscan/CertC71.agda` | `verification/runs/20260927-COPUS-HITSCAN-CERT-OPUS-02/`；exit 0 | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` |
+| `MP-COPUS-HITSCAN-NEG-001` | `COPUS-R1-C01` 扫描器负控制 | `formal/cloud-opus-glm-audit/hitscan/NegCertIota.agda` | `verification/runs/20260927-COPUS-HITSCAN-NEG-01/`；exit 42，点名 `Tm` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-COPUS-HITSCAN-NEG-002` | `COPUS-R6-C01` 扫描器负控制 | `formal/cloud-opus-glm-audit/hitscan/NegCertC75.agda` | `verification/runs/20260927-COPUS-HITSCAN-NEG-02/`；exit 42，点名 `HubAndSpoke, Susp, S¹, EM₁, EM₁-raw` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-COPUS-HITSCAN-NEG-003` | `COPUS-R1-C01` 扫描器负控制 | `formal/cloud-opus-glm-audit/hitscan/NegCertPT.agda` | `verification/runs/20260927-COPUS-HITSCAN-NEG-03/`；exit 42，点名 `∥_∥₁` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-COPUS-GLM-FIX-001` | `COPUS-GLM-FIX-C02a`、`COPUS-GLM-FIX-C02b` | `formal/cloud-opus-glm-audit/glm-repairs/IotaC02Faithful.agda` | `verification/runs/20260927-COPUS-GLM-REPAIR-01/`；exit 0 | `FORMAL_CHECKED_WITH_SCOPE / DECLARATION_PROOF_REPAIR` |
+| `MP-COPUS-GLM-FIX-NEG-001` | `GLM-R3-C01` 修复负控制 | `formal/cloud-opus-glm-audit/glm-repairs/GroupoidNegFixed.agda` | `verification/runs/20260927-COPUS-GLM-REPAIR-NEG-01/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-COPUS-GLM-FIX-NEG-002` | `GLM-R3-C01` 近失控制 | `formal/cloud-opus-glm-audit/glm-repairs/GroupoidNegTrivialLoop.agda` | `verification/runs/20260927-COPUS-GLM-REPAIR-NEG-02/`；exit 42，`true != false` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-COPUS-GLM-FIX-NEG-003` | `GLM-R1-C03` 近失控制 | `formal/cloud-opus-glm-audit/glm-repairs/IotaC03NegTrivialInterp.agda` | `verification/runs/20260927-COPUS-GLM-REPAIR-NEG-03/`；exit 42 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-COPUS-Q7-001` | `COPUS-Q7-C01` | `formal/cloud-opus-glm-audit/glm-repairs/Q7AnnotatedReplay.agda` | `verification/runs/20260927-COPUS-GLM-REPAIR-Q7-01/`；exit 0 | `FORMAL_CHECKED_WITH_SCOPE` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| GLM-R1-C01 | `realisticIotaSyntaxIsASet : isSet Tm`（Tm：Bool 字面量 + cond + 两条 ι 路径构造子的玩具 HIT，Tm ≃ Bool） | `FORMAL_CHECKED_WITH_SCOPE` | run `20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-02` | 不是"理论自身的表述完全落定"；无替换/上下文/依赖；完整类型论语法未触及 |
+| GLM-R1-C02 | 形式上只有 `valReflT/F : Path (Path Bool (val (cond (lit b) t s)) (val _)) refl refl`（端点定义性相等） | `FORMAL_CHECKED_WITH_SCOPE / DECLARATION_PROOF_RUPTURE` | run `20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01` | **不**陈述"ι 路径构造子被解释为 refl"；该内容由 COPUS-GLM-FIX-C02a 陈述 |
+| GLM-R1-C03 | `¬isSetTmA : ¬ isSet TmA`（加入一条被解释为 `ua not` 的人工等式后） | `FORMAL_CHECKED_WITH_SCOPE` | runs `20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-01`、`-NEG-01`、`20260927-COPUS-GLM-REPAIR-NEG-03` | 不证明"非落定必须人工注入" |
+| GLM-R2-C01 | `universeLoopSpaceAtSetIsSet : ∀ {ℓ} (X : Type ℓ) (pX : isSet X) → isSet (Path (Type ℓ) X X)` | `FORMAL_CHECKED_WITH_SCOPE / HIT_FREE_NAME_LEVEL` | run `20260927-COPUS-REPLAY-GLM-ASCENT-STALL-01`；COPUS-R1-C02 | — |
+| GLM-R2-C02 | `noLevel2AscentAtSets : ∀ {ℓ} (X : Type ℓ) (pX : isSet X) → isContr (Path (Path (Type ℓ) X X) refl refl)` | `FORMAL_CHECKED_WITH_SCOPE / HIT_FREE_NAME_LEVEL` | 同上；COPUS-R1-C03 | 不推出"HIT 对上升必要"（宇宙塔无 HIT 也上升：COPUS-KS-C01） |
+| GLM-R3-C01 | `¬universeIsGroupoid : ¬ isOfHLevel 3 (Type (ℓ-suc ℓ-zero))` | `FORMAL_CHECKED_WITH_SCOPE / HIT_FREE_NAME_LEVEL / KS_N1_FAITHFUL_REPLAY` | runs `20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-01`、`20260927-COPUS-GLM-REPAIR-NEG-01/02`、`20260927-COPUS-GLM-REPAIR-Q7-01`；COPUS-R1-C01 | 原负控制 `-NEG-01` 无效（作用域错误） |
+| COPUS-KS-C01 | `KS-Theorem-5-9 : (n : ℕ) → ¬ isOfHLevel (2 + n) (Type (lvl n))`，`lvl zero = ℓ-zero`，`lvl (suc n) = ℓ-suc (lvl n)` | `MACHINE_PROVED_WITH_SCOPE / HIT_FREE_NAME_LEVEL` | run `20260927-COPUS-KS-UNIVERSE-TOWER-01`；负控制 `-NEG-01/02`；COPUS-R1-C05 | Kraus–Sattler 2015 的已知定理（重放，非新数学）；不证明任何固定宇宙无层 |
+| COPUS-KS-C02 | `workOrderForm : (n : ℕ) → ¬ isOfHLevel (n + 2) (Type (iterSuc n ℓ-zero))`，`iterSuc zero ℓ = ℓ`，`iterSuc (suc n) ℓ = iterSuc n (ℓ-suc ℓ)` | `MACHINE_PROVED_WITH_SCOPE / HIT_FREE_NAME_LEVEL` | 同上 | 同上 |
+| COPUS-KS-C03 | `KS-Theorem-5-10-U≤ : (n : ℕ) → isOfHLevel (3 + n) (T (lvl n) n) × ¬ isOfHLevel (2 + n) (T (lvl n) n)`，`T L k = TypeOfHLevel L (2 + k)` | `MACHINE_PROVED_WITH_SCOPE / HIT_FREE_NAME_LEVEL` | 同上 | — |
+| COPUS-KS-C04 | `KS-Theorem-5-10-Loop : (n : ℕ) → isOfHLevel (3 + n) (Loop (lvl n) n) × ¬ isOfHLevel (2 + n) (Loop (lvl n) n)` | `MACHINE_PROVED_WITH_SCOPE / HIT_FREE_NAME_LEVEL` | 同上 | — |
+| COPUS-KS-C05 | `step : (L : Level) (k : ℕ) → NT L k → NT (ℓ-suc L) (suc k)`（U_L^{≤k} 的非平凡 (k+1)-环 ⇒ U_{L+1}^{≤k+1} 的非平凡 (k+2)-环） | `MACHINE_PROVED_WITH_SCOPE` | 同上 | — |
+| COPUS-R1-C01 | `Path (List Name) (hitsOf ¬universeIsGroupoid) []`、`Path Nat (sizeOf ¬universeIsGroupoid) 251` | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | run `20260927-COPUS-HITSCAN-CERT-GLM-01`；负控制 `20260927-COPUS-HITSCAN-NEG-01/03` | 名称级闭包（反射所见）；不是"可在无 HIT 元理论中证明"的元定理 |
+| COPUS-R1-C02 | `hitsOf universeLoopSpaceAtSetIsSet ≡ []`，`sizeOf ≡ 189` | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | run `20260927-COPUS-HITSCAN-CERT-GLM-01` | 同上 |
+| COPUS-R1-C03 | `hitsOf noLevel2AscentAtSets ≡ []`，`sizeOf ≡ 190` | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | 同上 | 同上 |
+| COPUS-R1-C04 | `hitsOf typeIsNotASet ≡ []`（Opus `CG001-C-63`），`sizeOf ≡ 101` | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | run `20260927-COPUS-HITSCAN-CERT-OPUS-01` | 同上 |
+| COPUS-R1-C05 | `hitsOf` 对 `KS-Theorem-5-9`、`workOrderForm`、`KS-Theorem-5-10-U≤`、`KS-Theorem-5-10-Loop` 均为 `[]`（363/364/363/364 名） | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | run `20260927-COPUS-HITSCAN-CERT-KS-01` | 同上 |
+| COPUS-R1-C06 | `hitsOf hSetNotSet ≡ []`（Opus `CG001-C-71`），`sizeOf ≡ 149` | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | run `20260927-COPUS-HITSCAN-CERT-OPUS-02` | 同上 |
+| COPUS-R6-C01 | `hitsOf localGlobal ≡ []`（Opus `CG001-C-75` 包的 local-global 桥），`sizeOf ≡ 201` | `MACHINE_CHECKED_CERTIFICATE_WITH_SCOPE` | run `20260927-COPUS-HITSCAN-CERT-OPUS-01`；负控制 `20260927-COPUS-HITSCAN-NEG-02`（`CG001-C-75` 主定理依赖 HIT） | 同上 |
+| COPUS-GLM-FIX-C02a | `valBetaT-refl : (t s : Tm) → cong val (betaT t s) ≡ refl`、`valBetaF-refl`（证明为 refl） | `FORMAL_CHECKED_WITH_SCOPE` | run `20260927-COPUS-GLM-REPAIR-01` | 一阶 ι 玩具片段 |
+| COPUS-GLM-FIX-C02b | `glmFormHoldsAtArt : Path (Path Type (f boolTy) (f boolTy)) refl refl` 且 `faithfulFormFailsAtArt : ¬ (cong f art ≡ refl)` | `FORMAL_CHECKED_WITH_SCOPE / RUPTURE_EXHIBIT` | 同上 | 只说明 GLM 原陈述形式不能区分真实与人工等式 |
+| COPUS-Q7-C01 | GLM-R3-C01 各中间步骤的显式类型重述（`hlevel3≡isGroupoid`、`a-moves`、`fst-τ`、`τ≠refl-annotated`、`fst-FAM`、`eval-loopE`、`setOfSelfEquivs`、`Q7-theorem`） | `FORMAL_CHECKED_WITH_SCOPE` | run `20260927-COPUS-GLM-REPAIR-Q7-01` | 审计者读法的内核确认；不加新数学 |
+
+### 终局轮追加（2026-09-27）
+
+> 写终局判词（`Cloud-Opus审计并补完GLM/14-罗素面终局判词.md`）之后追加。原为暂存区的一行类型检查，按用户"全部代码入库"的要求入库并按 F-011 捕获。同一授权（委托工作单 §6，D2 最终集成行）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-COPUS-KS-TOWER-002` | `COPUS-KS-C06` | `formal/cloud-opus-glm-audit/ks-universe-tower/CatalogOfSetsTwoSteps.agda` | `verification/runs/20260927-COPUS-KS-CATALOG-OF-SETS-01/`；exit 0（73 s） | `MACHINE_PROVED_WITH_SCOPE`（KS 5.10 在 n = 0 的实例；无 HIT 见 COPUS-R1-C05） |
+| `MP-COPUS-KS-TOWER-NEG-003` | `COPUS-KS-C06` 负控制 | `formal/cloud-opus-glm-audit/ks-universe-tower/KSNegCatalogOfSetsIsSet.agda` | `verification/runs/20260927-COPUS-KS-CATALOG-OF-SETS-NEG-01/`；exit 42，`[UnequalTerms]` | `NEGATIVE_CONTROL_REJECTED`（3 层读不成 2 层） |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| COPUS-KS-C06 | `catalogOfSetsTwoSteps : isOfHLevel 3 (hSet ℓ-zero) × (¬ isSet (hSet ℓ-zero))` | `MACHINE_PROVED_WITH_SCOPE` | run `20260927-COPUS-KS-CATALOG-OF-SETS-01`；负控制 `-NEG-01` | 只关于装集合的目录 `hSet ℓ-zero`；"追问两步就停"是对两个分量的读法 |
+
+#### Lean 对照 `CG001-C-72` 的 Linux 重放（2026-09-27）
+
+> Opus 的 UIP 世界对照（`CG001-C-72`，原运行在 macOS）。本会话用 Lean 4.34.0 的 Linux release 资产重放；它与 Opus 的工具链同一源码 commit `293d5d0c0c3f3dded4688b3ccd6a33939ac5102b`，`Init.olean`、`Init/Prelude.olean` 两平台逐字节相同。工具链记录 `formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json`；驱动沿用 CG-001 的 `lean_check.py`，未改动。首次捕获因漏解 `Init.olean.server` 失败，已整体留档于 `Cloud-Opus审计并补完GLM/附件/失败捕获-20260927-Lean缺Init配套文件/`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-UNIVERSE-SET-LEAN-001` | `CG001-C-72` | `formal/claude-cg001/universe-set-lean/UniverseIsSet.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01/`；exit 0；stdout 与原运行逐字节相同 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_BYTE_IDENTICAL_REPLAY`（Lean 4，UIP；不是 HoTT 命题） |
+| `MP-CG001-UNIVERSE-SET-LEAN-NEG-001` | `CG001-C-72` 负控制 | `formal/claude-cg001/universe-set-lean/WrongCastFlips.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-NEG-01/`；exit 1，拒绝在目标文件第 11 行 | `NEGATIVE_CONTROL_REJECTED`（细化阶段：`cast p true` 不定义性等于 `false`） |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-72 | `theorem universeIsSet {A B : Type} (p q : A = B) : p = q := rfl`；`castIsId`、`noFlip`（均不依赖公理） | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-UNIVERSE-SET-LEAN-01`、`20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-01`；负控制 `-NEG-01` 两份 | UIP 类型论中的命题，不是 HoTT 命题；在终局判词中只作粗粒度对照（同时压平了高阶结构） |
+
+#### 芝诺线（Opus 的 A7：无穷相干）的 Linux 重放（2026-09-27）
+
+> 为 `docs/社区审计提交/01-芝诺悖论的幽灵.md` 捕获。Agda v2.8.0 Linux 资产 + cubical v0.9（逐字节一致）；Lean 4.34.0 Linux 资产（与原工具链同一源码 commit）。Opus 的原运行 `20260926-CG001-*` 保持原样。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-SST-FINITE-LEVELS-001` | `CG001-C-62` | `formal/claude-cg001/sst-finite-levels/SSTLevels.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-SST-FINITE-LEVELS-NEG-001` | `CG001-C-62` 负控制 | `formal/claude-cg001/sst-finite-levels/WrongFace.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-001` | `CG001-C-64` | `formal/claude-cg001/wild-sst/WildSST.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-NEG-001` | `CG001-C-64` 负控制 | `formal/claude-cg001/wild-sst/WrongSpinCoherent.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-LEAN-001` | `CG001-C-65` | `formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-LEAN-NEG-001` | `CG001-C-65` 负控制 | `formal/claude-cg001/wild-sst-lean/WrongRoute.lean` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-NEG-01/`；exit 1，`ELABORATION_ERROR_IN_TARGET` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST2-001` | `CG001-C-66` | `formal/claude-cg001/wild-sst/WildSST2.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST2-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST2-NEG-001` | `CG001-C-66` 负控制 | `formal/claude-cg001/wild-sst/WrongSurfTrivial.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST2-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-SELF-INTERPRETATION-001` | `CG001-C-67` | `formal/claude-cg001/self-interpretation/SelfInterpretation.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SELF-INTERPRETATION-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-SELF-INTERPRETATION-NEG-001` | `CG001-C-67` 负控制 | `formal/claude-cg001/self-interpretation/WrongFlipIsIdentity.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-SELF-INTERPRETATION-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-P4-001` | `CG001-C-68` | `formal/claude-cg001/wild-sst/WildSSTP4Flat.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-P4-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-P4-NEG-001` | `CG001-C-68` 负控制 | `formal/claude-cg001/wild-sst/WrongSurfMoveTrivial.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-P4-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WINDING-COCYCLE-001` | `CG001-C-69` | `formal/claude-cg001/wild-sst/WindingCocycle.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WINDING-COCYCLE-NEG-001` | `CG001-C-69` 负控制 | `formal/claude-cg001/wild-sst/WrongSpinWCocycle.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-WILD-SST-LEVELS-001` | `CG001-C-70` | `formal/claude-cg001/wild-sst/WildSSTP4Levels.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-01/`；exit 0 | `KERNEL_ACCEPTED_WITH_SCOPE / CROSS_PLATFORM_REPLAY`（Opus 原证，Linux 重放） |
+| `MP-CG001-WILD-SST-LEVELS-NEG-001` | `CG001-C-70` 负控制 | `formal/claude-cg001/wild-sst/WrongS2Groupoid.agda` | `verification/runs/20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-NEG-01/`；exit 42，`UnequalTerms` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-62 | `SST≤0 … SST≤5 : Type₁` 与平凡居民（外部生成器逐层打印） | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-SST-FINITE-LEVELS-01`、`20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-64 | `WildSST`、`Coh₂`、`setsCohere`；`spin`：两条路线绕 1 圈与 2 圈，`spinIncoherent : ¬ Coh₂ spin` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-65 | Lean 4（UIP）：`theorem coh2 (S : WildSST) : Coh2 S := fun _ _ _ _ _ _ _ => rfl` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-LEAN-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-66 | `surf≢refl`；`flat` 上两个不同的六边形填充；`Deg₃` 对一个成立、对另一个不成立 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST2-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST2-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-67 | 玩具语法自解释两难：`faithful∞`、`syntax∞IsNotASet`、`noFaithfulForFacts` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-SELF-INTERPRETATION-01`、`20260927-COPUS-REPLAY-CG001-SELF-INTERPRETATION-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-68 | 一般第二级相干 `Coh₃`（P₄）：`notCoh₃ : ¬ Coh₃ flatSurfᵢ`、`coh₃Trivial : Coh₃ flatTrivialᵢ` | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-P4-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-P4-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-69 | 圆周值结构上 `Coh₂` ⇔ 绕数上闭链方程；`spinW` 不相干、`uniformW` 相干 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WINDING-COCYCLE-01`、`20260927-COPUS-REPLAY-CG001-WINDING-COCYCLE-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
+| CG001-C-70 | 集合 ⇒ `Coh₂ᵢ`；群胚 ⇒ `Coh₂ᵢ` 为命题且 `Coh₃` 成立；`flatS¹` 数据唯一 | `MACHINE_PROVED_WITH_SCOPE`（Opus；本会话 Linux 重放） | runs `20260926-CG001-WILD-SST-LEVELS-01`、`20260927-COPUS-REPLAY-CG001-WILD-SST-LEVELS-01`；负控制两份 | 见 Opus 证据索引对应行的禁止外推；不证明半单纯类型不可定义 |
