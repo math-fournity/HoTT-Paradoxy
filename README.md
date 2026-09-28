@@ -26,11 +26,15 @@ soft_line_target: 300
 
 ## 算思对话存档（2026-09-28）
 
-> 十轮完整问答（395 行），由外部 AI 使用"算思系统"（Operatorial Thinking）重新审视本仓中
+> 十轮完整问答，由外部 AI 使用"算思系统"（Operatorial Thinking）重新审视本仓中
 > 关于罗素悖论与芝诺悖论的用户观察。通过用户逐轮追问，发现了算思系统的第0层前提——
 > **计算阅读框架**（把数学文本当程序读，而非逻辑读法），以及构造/查询二分、三因子模型、
 > 只需一跃原理、目的不变式护栏。本仓的核心认知（KC-000016 等）被确认为这些发现的源头。
 >
-> 全文：[DIALOGUE-foundation-discovery-20260928.md](DIALOGUE-foundation-discovery-20260928.md)
-> （外部 AI 的回传存档；与本仓的 `核心认知.md` 互补——KC 是用户的原文，本存档是这些原文
-> 在另一个框架下的再生产实验及其反思。）
+> 三个版本互补：
+> - **逐字记录**（GUI 复制粘贴级别，Q1-Q9 每轮完整原文含全部格式化内容）：[DIALOGUE-verbatim-20260928.md](DIALOGUE-verbatim-20260928.md)（474 行）
+> - **格式化内容主题重组**（18 章节按概念归类的全部结构化分析块）：[DIALOGUE-formatted-content-20260928.md](DIALOGUE-formatted-content-20260928.md)（493 行）
+> - **会议纪要骨架**（谁说了什么）：[DIALOGUE-foundation-discovery-20260928.md](DIALOGUE-foundation-discovery-20260928.md)（395 行）
+>
+> 与本仓的 `核心认知.md` 互补——KC 是用户的原文，这三份存档是这些原文在算思框架下的
+> 再生产实验及其反思。
