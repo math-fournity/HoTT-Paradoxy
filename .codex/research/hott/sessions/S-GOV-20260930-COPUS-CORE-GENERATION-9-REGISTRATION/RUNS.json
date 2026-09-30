@@ -1,0 +1,37 @@
+{
+  "base_snapshot": "f9d8d719b8301c1261e16a5949dacc337a5c9aa06a8365e9a2315e9b072c52f2",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20260930-COPUS-CORE-GENERATION-9-REGISTRATION/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v9.json --transition-output audit/core-cognition-generation-9-transition-20260930.json --transition-from-ref 4603eb2a5a6b27c7732931a171c1ab54e6d74b79 --write",
+      "generation": "core-cognition-generation-8/48 -> core-cognition-generation-9/51",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=48 / remainder=0",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v9.json --transition audit/core-cognition-generation-9-transition-20260930.json",
+      "status": "PASS_WITH_SCOPE",
+      "tool": "scripts/audit/verify_core_cognition.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "note": "Core entry and registration authorized by the user on 2026-09-27; no mathematical claim is delivered by this checkpoint.",
+  "push_policy": "branch push only; the two tags need the user's machine",
+  "registered_formal_runs": {
+    "accepted": 23,
+    "byte_exact_replay_result": "Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/verify-all-rerun-46个运行.json",
+    "cloud_opus_runs": 46,
+    "negative_controls_rejected_as_expected": 23,
+    "note": "registered by reference, not re-run by this checkpoint; each keeps its own F-011 receipt"
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260930-COPUS-CORE-GENERATION-9-REGISTRATION",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_AND_LINE_REGISTRATION"
+}
