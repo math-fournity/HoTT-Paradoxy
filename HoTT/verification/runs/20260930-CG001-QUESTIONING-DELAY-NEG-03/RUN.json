@@ -1,0 +1,74 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [],
+  "audit_session": "Claude CG001 line, Claude Code cloud session 01FJANnV, branch claude/charming-pasteur-mvzlio, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-79"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/questioning-delay/WrongSetsStopAtOne.agda"
+  ],
+  "completed_at_utc": "2026-09-30T13:54:37.375624+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 231.769424,
+  "environment": {
+    "bytes": 1114,
+    "path": "environment.txt",
+    "sha256": "714e9b271cb765436f2cd0735f583208b123fb78beaf458e8b8dde9018bc8cbb"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/questioning-delay/WrongSetsStopAtOne.agda:18.9-13: error: [UnequalTerms]\nCubical.Data.Maybe.nothing != just 1 of type\nCubical.Data.Maybe.Maybe Agda.Builtin.Nat.Nat\nwhen checking that the expression refl has type\nrunFor 0 (question (hSet ℓ-zero) (gatheringJudge 1)) ≡ just 1",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/questioning-delay",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a rejected negative control proves nothing beyond the rejection of this one statement"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-QUESTIONING-DELAY-NEG-003",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260930-CG001-QUESTIONING-DELAY-NEG-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-79: claims by refl that on the catalogue of sets (gatheringJudge 1) the program stops at stage 1; expected rejection nothing != just 1",
+  "source_manifest": {
+    "bytes": 3352,
+    "path": "source-manifest.json",
+    "sha256": "9509fb47dc94637ab6a48dce1fab2525cd94a5f77da540caf7fb2e7285d1a5ec"
+  },
+  "started_at_utc": "2026-09-30T13:50:45.606200+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 27888,
+    "path": "stdout.txt",
+    "sha256": "d41b91e28c58784785c210b972783d4ad795a7edfe80a0156b0c6dc0746c2fc1"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
