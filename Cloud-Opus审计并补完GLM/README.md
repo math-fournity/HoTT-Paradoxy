@@ -3,6 +3,11 @@
 > 2026-09-27。执行者：Claude Code 云端会话（本目录称 Cloud-Opus），分支 `claude/charming-pasteur-mvzlio`。
 > 委托：用户指令"完全审计并补完 GLM 的工作……非常需要注意的是，GLM 容易在声明层和证明层发生断裂……全部做完再停下"，以及 [委托工作单](../GLM-5.3-Flash/审计请求/20260927-委托工作单-审计修正补完交付最终卷宗.md)（§3 缺陷 R1–R8、§4 一般 n、§6 写入权限、验收项 D1–D6）。
 > 编号约定：本目录各文的 C-63、C-67、C-71、C-72、C-75、C-76 指 Opus CG-001 目标内索引的 `CG001-C-NN`，不是共享矩阵其它节里同号的 claim。
+>
+> **2026-09-30 补记**（用户当日的新指令：重查两份社区稿是不是人话、授权入核与登记、自查我自己后来的工作，尤其是 Lean）：
+> - 自查发现并补了一处 Lean 证据上的断裂：Opus 线的两个 Lean 负控制，注释说"被内核或端点检查拒绝"，实际是被**elaborator**（前端）在参数检查处拒绝，没到内核。我没有改原文件和原收据，而是新加了 5 个运行（端点级对照、内核级对照，含 `leanchecker --fresh`），并写了修订说明。详见 [证据索引 §4.5](证据索引.md)、[00 工作日志](00-工作日志.md) 的 2026-09-30 条和审计集 004 §9。
+> - 两份社区稿改写为人话的第 2 版。
+> - 入核与登记已完成：核心认知第 9 代（51 条），方向追踪、全景视野、扩展认知、MEMORY、RESUME、STATE 已经由正规 checkpoint 写入。记录见 [15 入核与登记记录](15-入核与登记记录.md)。下文凡写"尚未入核""integrator 未写"的句子，是写作当时的状态，原句保留，以本补记为准。
 
 ## 一句话结论
 
@@ -35,6 +40,7 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
 | 工具链、复现方法、收据核验 | [01 工具链与复现](01-工具链与复现.md)、[11 收据核验结果](11-收据核验结果.json) |
 | 全部证明包 / 运行 / claim 的唯一索引 | [证据索引](证据索引.md)（另见 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 末节） |
 | 治理留痕：T2 分片审计集 | [本会话审计集](10-T2审计集/Cloud-Opus本会话审计集.md)、[GLM 三单元追溯审计集](10-T2审计集/GLM三单元追溯审计集.md) |
+| 入核与登记做了什么、没做什么、怎么核对（2026-09-30） | [15 入核与登记记录](15-入核与登记记录.md) |
 | 做了什么、按什么顺序、遇到什么问题 | [00 工作日志](00-工作日志.md) |
 | GLM-Auditor 一侧（与你对话、做过同行评审的那个会话）的认知问题，人话版 | [12 GLM-Auditor认知评审（人话版）](12-GLM-Auditor认知评审（人话版）.md) |
 
@@ -46,7 +52,11 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
   - `glm-repairs/`：C02 忠实版与断裂演示、修复负控制、近失控制、Q7 注解重放；`CLAIM.md`。
   - `TOOLCHAIN.linux-x86_64.json`、`AGDA_LIBRARIES.linux-x86_64`：Linux 工具链记录。
   - `LEAN_TOOLCHAIN.linux-x86_64.json`：Lean 4.34.0 Linux 工具链记录（与 Opus 的 macOS 工具链同一源码 commit）。
-- **运行收据**：`HoTT/verification/runs/20260927-COPUS-*`（D2 交付时 21 个；终局轮追加 4 个：`-KS-CATALOG-OF-SETS-01/-NEG-01`，以及 Opus 的 Lean 对照 C-72 的 Linux 重放 `-REPLAY-CG001-UNIVERSE-SET-LEAN-01/-NEG-01`，与 Opus 的 macOS 收据逐字节相同；见证据索引 §4；formal-proof-run/v1 schema）。
+  - `LEAN_TOOLCHAIN_META.linux-x86_64.json`（2026-09-30 新增）：补记 Lean 的 `lib/lean/Lean`（7302 个文件）和 `lib/lean/Std`（2928 个文件）两棵库树的哈希，因为内核级对照要用到它们。
+  - `lean-controls/`（2026-09-30 新增）：Lean 负控制的自查补强。`WrongRouteEndpoint.lean`、`KernelRoute.lean`、`KernelRouteEndpoint.lean`、`KernelCast.lean`、`KernelCastFlips.lean` 与 `CLAIM.md`。它们用 `Lean.addDecl` 直接把手工拼出的项交给内核，证明 Opus 线两个对照"确实会被内核拒绝"，而不是只被前端拒绝。
+- **运行收据**：`HoTT/verification/runs/20260927-COPUS-*`，共 46 个（23 个接受、23 个负控制被拒绝）。
+  - D2 交付时 21 个；终局轮追加 4 个（`-KS-CATALOG-OF-SETS-01/-NEG-01`，以及 Opus 的 Lean 对照 C-72 的 Linux 重放 `-REPLAY-CG001-UNIVERSE-SET-LEAN-01/-NEG-01`，与 Opus 的 macOS 收据逐字节相同）。
+  - 其后补了 Opus 线 CG-001 其余 Agda/Lean 证明包的 Linux 重放（16 个，`-REPLAY-CG001-*`），以及 2026-09-30 自查轮的 5 个 Lean 内核级对照（`-LEAN-C65-*`、`-LEAN-C72-*`）。见证据索引 §4；formal-proof-run/v1 schema。
 - **GLM 文件的修订**：只追加，不改原句——`HoTT/formal/glm-russell/{groupoid-universe,iota-syntax}/REVISIONS.md`（追加）、`universe-ascent-stall/REVISIONS.md`（新建）、`GLM-5.3-Flash/` 下 GN-002 修订块三、GN-003 修订块二、策略快照附录四、M2 附注、平行工作索引 §5 末行与 §10、工作日志修订块。
 - **工具**：`tools/`（捕获、单运行核验、全量核验脚本）。
 - **附件**：`附件/`（首次捕获留档与首轮核验结果，见 `01` §5）。
@@ -54,12 +64,13 @@ GLM 的**六个形式命题全部为真、没有空洞**；断裂集中在**声�
 ## 怎样复核
 
 1. 按 `01-工具链与复现.md` §4 布置工具链（路径与哈希以 `TOOLCHAIN.linux-x86_64.json` 为准）。
-2. `python3 -B Cloud-Opus审计并补完GLM/tools/verify_all_runs.py --rerun`：全部 `20260927-COPUS-*` 运行逐字节重放（21 个约 17 分钟，终局轮追加的 4 个约 4 分钟；Lean 运行需先按 `LEAN_TOOLCHAIN.linux-x86_64.json` 布置 Lean）。
+2. `python3 -B Cloud-Opus审计并补完GLM/tools/verify_all_runs.py --rerun`：全部 `20260927-COPUS-*` 运行逐字节重放。46 个运行的一次完整重放用了约 40 分钟，结果是 46 个全部逐字节一致、0 个失败（时间戳与逐运行结果见[结果文件](附件/工作过程文件/自查轮/verify-all-rerun-46个运行.json)）。Lean 运行需先按 `LEAN_TOOLCHAIN.linux-x86_64.json` 和 `LEAN_TOOLCHAIN_META.linux-x86_64.json` 布置 Lean。
+   - 单个运行用 `tools/verify_copus_run.py <run-id>`。它除了比对输出，还核对负控制是在**目标文件**、**正确阶段**（elaborator 还是内核）、因**正确原因**被拒绝的。
 3. 对任何一个主张：`证据索引.md` → 对应 `CLAIM.md` 的逐字形式命题 → 源码 → 运行收据。
 
 ## 边界
 
 - 两道用户门（P-exist；形成规则是回答还是回避）原样保留，裁定权在用户。
 - 一般 n 是 Kraus–Sattler 2015 的**已知定理**在本仓库的重放，不是新数学；新的是它在本仓库的原生形式化、(L, k) 一般化的归纳步与名称级无 HIT 证书，以及它对归因的作用。
-- STATE、checkpoint、方向追踪、全景视野、`PROOF_VERSION_CLOSURE.json` 属 integrator，未写；`.claude/` 的既有内容未改（修订走 `09` 的提案）。
+- ~~STATE、checkpoint、方向追踪、全景视野、`PROOF_VERSION_CLOSURE.json` 属 integrator，未写；`.claude/` 的既有内容未改（修订走 `09` 的提案）。~~ **【2026-09-30 更新】** 用户当日授权入核与登记，STATE、方向追踪、全景视野等已经由正规 checkpoint 写入（见 [15](15-入核与登记记录.md)）。仍然没写的是 `PROOF_VERSION_CLOSURE.json`：本会话的运行没有进入 integrator 的版本闭合登记，状态写作 `FORMAL_CHECKED_WITH_SCOPE` 与 `NOT_IN_PROOF_VERSION_CLOSURE_REGISTRY`。`.claude/` 的既有内容没有改。
 - 本会话的新主张（D2 的 21 个，加终局轮的 COPUS-KS-C06）与终局判词尚待用户安排的外部复核（请求见 [13](13-外部复核请求.md)）。

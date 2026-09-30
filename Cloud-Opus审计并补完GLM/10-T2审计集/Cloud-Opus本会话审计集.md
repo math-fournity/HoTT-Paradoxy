@@ -23,3 +23,5 @@ soft_line_target: 300
 <!-- governance-shard-table:end -->
 
 没有 canonical checkpoint：STATE、checkpoint 与会话目录属 integrator。2026-09-27 核实：`MEMORY/001 - 当前执行队列.md` 写"C 为唯一续做研究 integrator"（Goal7 / MO3-COVERAGE-C）；STATE 热字段 `active` 含 `MO3-COVERAGE-C`，`latest_session = S-RES-20260924-MO3-C-B02`，`revision = 289`。本会话未写这些位置，也不伪造事务 `result.json`。
+
+**【2026-09-30 更新】** 上一段是 2026-09-27 的状态。用户当日授权入核与登记后，本会话经 canonical checkpoint 写了这些位置（`S-GOV-20260930-COPUS-CORE-GENERATION-9-REGISTRATION`，`result.json` 状态 `CHECKPOINT_COMMITTED`，revision 289 到 290），没有改变 integrator 的队列。本集 002 片仍是第 8 代（48 条）的审计；第 9 代（51 条）的逐条审计在 checkpoint 的会话目录里。004 片 §9 记了这一轮的偏差与遗留。
