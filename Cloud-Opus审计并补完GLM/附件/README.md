@@ -92,7 +92,7 @@
 | `neg-cite.md` | `aa612f2918daa803` | 引用检查的负控制样本：去掉否定号、行号越界、行号指错、文件不存在，必须被抓到；另有一行合法省略，必须通过 |
 | `run-neg-paths.txt` | `7fe9cb712a9460ff` | 路径检查在负控制样本上的输出：2 处缺失，退出码 1 |
 | `run-neg-citations.txt` | `fa910c857dd4015a` | 引用检查在负控制样本上的输出：4 处失败、1 处警告，退出码 1 |
-| `run-real-paths.txt` | `d5ad6557035e0932` | 路径检查在 6 份真实文档上的输出：全部存在，退出码 0（按写成这一份时的文档状态；之后文档再有改动，检查数量会变，重跑即可） |
+| `run-real-paths.txt` | `9311a7d57e7a887c` | 路径检查在 6 份真实文档上的输出：全部存在，退出码 0（按写成这一份时的文档状态；之后文档再有改动，检查数量会变，重跑即可） |
 | `run-real-citations.txt` | `219bd270f54515b1` | 引用检查在两份社区稿上的输出：54 条行号引用、47 条逐字引用，通过；1 条警告是差一行的引用（见 15 §7） |
 
 **工具链的变化**：为了让 `import Lean` 可用，从同一本地发布包 `lean-4.34.0-linux.zip`（sha256 `5f14e0f3…`）再解出 `lib/lean/Lean/**`、`lib/lean/Lean.*`、`lib/lean/Std/**`、`lib/lean/Std.*`（`unzip -n`，不覆盖已有文件；解完重算 `lib/lean/Init` 整树哈希，未变）。新记录 `HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN_META.linux-x86_64.json` 钉住它们；二进制不入库，理由同 §2。
