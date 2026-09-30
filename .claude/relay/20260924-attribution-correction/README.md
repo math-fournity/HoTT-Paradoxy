@@ -1,6 +1,8 @@
 # 待 integrator 应用：归因修正补丁（2026-09-24）
 
-> 状态：**CANDIDATE_NOT_CURRENT**。由 Claude（Opus 5.5，会话 bb204ea1）起草，按用户选择由研究 integrator（Codex Session C）在其检查点事务中应用。本目录所有文件都是草案或预览；Claude 没有写核心认知、扩展认知、STATE、sources/、Schema、rulings 或 Codex 技能。
+> 2026-09-30 更新：本补丁已由 Cloud-Opus 审计会话按用户 2026-09-27 的授权应用。P1 到 P8 与 P10 已应用：P1 另加了 GLM 平台；P3、P4 因为同时入核了 KC-000050、KC-000051 而与草案不同（curation v9 含三个来源，生成结果为 51 个单元，`previous_generation_ref` 改为本仓库可解析的完整提交哈希，transition 文件名为 `audit/core-cognition-generation-9-transition-20260930.json`）；P5 由 canonical checkpoint 完成。P9（时间审查地图）不在本仓库，未应用；P11（Codex SOP 技能第 119 行）与 Schema 的平台枚举须过用户本机的全局自维护 Gate，未应用；P12 无需改。记录：`Cloud-Opus审计并补完GLM/15-入核与登记记录.md`。下面是应用前的原文，保留为历史。
+>
+> 状态（应用前）：**CANDIDATE_NOT_CURRENT**。由 Claude（Opus 5.5，会话 bb204ea1）起草，按用户选择由研究 integrator（Codex Session C）在其检查点事务中应用。本目录所有文件都是草案或预览；Claude 没有写核心认知、扩展认知、STATE、sources/、Schema、rulings 或 Codex 技能。
 >
 > 应用前请独立核对：本文件列出的基准哈希是否仍等于你工作树中的文件；沙盒复现步骤（§4）是否在你那边得到同一个核心哈希。
 

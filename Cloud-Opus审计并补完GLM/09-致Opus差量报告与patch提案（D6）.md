@@ -4,6 +4,21 @@
 
 > 2026-09-27；Cloud-Opus 审计会话 → 本仓库 Opus 线（`.claude/`）。按委托工作单 §6，`.claude/` 对本会话只读：以下是**提案**，由用户转交 Opus 走其 REVISIONS／修订流程；本会话没有写 `.claude/` 的任何文件（包括总索引，见文末 D 节）。
 
+> **【2026-09-30 更新：提案已落地】**用户 2026-09-27 授权“入核和登记……立即完成所有剩余的你可以完成的工作”，上面“`.claude/` 对本会话只读、提案由用户转交”的做法因此不再适用。落地情况（全部只加不改，原文保留；`git diff` 逐文件核过只有插入）：
+>
+> | 提案 | 落地位置 |
+> |---|---|
+> | P1 | `.claude/思考与发现/CN-039 - …md` §7 第 2 条之下的修订块；§10 第 3 条之下的完成注记 |
+> | P2 | CN-039 §7 第 1 条之下的修订块；§7“我的判断”之后的修订块（该块同时吸收 P5 的精确表述） |
+> | P3 | `HoTT/formal/claude-cg001/self-interpretation/REVISIONS.md` 新增一节 |
+> | P4 | `.claude/goals/CG-001-targeted-overview/证据索引.md` §15 补注（C-63）与 §19 补注（C-75、C-76） |
+> | P5 | **点名不成立**：核对后，“发动机/燃料”一类比喻不在 CN-039 里（`.claude/` 下没有这个词），只出现在 GLM 一侧的文件和 GLM-Auditor 的问答里。上面 P5 那句“CN-039 与 GLM 文件都曾……”对 CN-039 的部分是我写错了。精确表述仍被吸收进 CN-039 的“我的判断”修订块，但不是作为对 CN-039 的更正 |
+> | P6 | `.claude/总索引/` 的 002、003、004、005 已更新（含 Opus 线遗漏的 CN-039、C-75、C-76、`universe-questioning` 包的补登） |
+> | P7 | CN-039 §5 第 3 条之下的修订块；证据索引 §19 补注；`HoTT/formal/claude-cg001/universe-questioning/REVISIONS.md`（新建，因为 `CLAIM.md` 已被运行收据的哈希钉住，不能改） |
+> | P8 | 告知性质，无需改动 |
+>
+> 另：`.claude/goals/CG-001-targeted-overview/relay.md` 文首加了一条 2026-09-30 加注，说明 R1、R2、R3 各自的现状；其中 R3 第 6 条（让非 Claude 的 AI 也能看见总索引）已在根 README 的分片 001 里加了一行指针。
+
 ## A. 与 Opus 证据直接相关的新事实
 
 | # | 新事实 | 身份 | 证据 |
@@ -74,4 +89,5 @@
 
 ## D. 本会话对 `.claude/` 的写入
 
-- 无。本文早先的计划是在 `.claude/总索引/005` 追加一行登记；考虑到委托工作单 §6 的只读边界，改为 P6 提案，由用户决定是否转交 Opus 执行。
+- ~~无。本文早先的计划是在 `.claude/总索引/005` 追加一行登记；考虑到委托工作单 §6 的只读边界，改为 P6 提案，由用户决定是否转交 Opus 执行。~~
+- **【2026-09-30 更新】**有。用户授权后写了：`.claude/总索引/002`（原位更新）、`003`、`004`、`005`（追加）；`.claude/思考与发现/CN-039` 的修订块；`.claude/goals/CG-001-targeted-overview/证据索引.md` 的 §15、§19 补注；同目录 `relay.md` 文首的加注；`.claude/relay/20260924-attribution-correction/README.md` 文首的应用说明（此前已写）。`.claude/` 里其他文件没有动。另在 Opus 的证明包目录里写了 `HoTT/formal/claude-cg001/self-interpretation/REVISIONS.md`（追加一节）、`universe-questioning/REVISIONS.md`（新建）、`wild-sst-lean/REVISIONS.md` 与 `universe-set-lean/REVISIONS.md`（自查轮，此前已写）。

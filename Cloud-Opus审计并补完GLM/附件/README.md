@@ -80,5 +80,40 @@
 |---|---|---|
 | `lean-controls-capture.log` | `067093379f2344fa` | `tools/capture_lean_controls.sh` 五个运行的捕获输出（每行一个 JSON） |
 | `试跑-KernelRoute-leanchecker计时.log` | `61e49d8c3e82def8` | 正式捕获前的试跑：`KernelRoute.lean` 加 `leanchecker --fresh`（重查含 Lean 库在内的全部常量）用时 2 分 35 秒、exit 0；据此决定内核级正对照也跑 `leanchecker --fresh` |
+| `verify-all-rerun-46个运行.json` | `732033ba7d6adab8` | `tools/verify_all_runs.py --rerun` 对全部 46 个 `20260927-COPUS-*` 运行的结果：23 个接受、23 个负控制被拒、46 个输出逐字节一致、0 个失败（逐运行的状态、阶段、用时都在里面） |
+| `verify-all-rerun.log` | `2573eff7f98aeee7` | 同一次完整重放的运行日志 |
+| `check-doc-tools/` | 见下表 | 两个文稿核对工具（`tools/check_doc_paths.py`、`tools/check_doc_citations.py`）的负控制样本与输出（2026-09-30，见 [15](../15-入核与登记记录.md) §7） |
+
+`check-doc-tools/` 里的文件：
+
+| 文件 | sha256（前 16 位） | 是什么 |
+|---|---|---|
+| `neg-doc.md` | `6e8443de0cbf2bf7` | 路径检查的负控制样本：一处目录名拼错、一处相对链接指错，必须被抓到 |
+| `neg-cite.md` | `aa612f2918daa803` | 引用检查的负控制样本：去掉否定号、行号越界、行号指错、文件不存在，必须被抓到；另有一行合法省略，必须通过 |
+| `run-neg-paths.txt` | `7fe9cb712a9460ff` | 路径检查在负控制样本上的输出：2 处缺失，退出码 1 |
+| `run-neg-citations.txt` | `fa910c857dd4015a` | 引用检查在负控制样本上的输出：4 处失败、1 处警告，退出码 1 |
+| `run-real-paths.txt` | `9311a7d57e7a887c` | 路径检查在 6 份真实文档上的输出：全部存在，退出码 0（按写成这一份时的文档状态；之后文档再有改动，检查数量会变，重跑即可） |
+| `run-real-citations.txt` | `219bd270f54515b1` | 引用检查在两份社区稿上的输出：54 条行号引用、47 条逐字引用，通过；1 条警告是差一行的引用（见 15 §7） |
 
 **工具链的变化**：为了让 `import Lean` 可用，从同一本地发布包 `lean-4.34.0-linux.zip`（sha256 `5f14e0f3…`）再解出 `lib/lean/Lean/**`、`lib/lean/Lean.*`、`lib/lean/Std/**`、`lib/lean/Std.*`（`unzip -n`，不覆盖已有文件；解完重算 `lib/lean/Init` 整树哈希，未变）。新记录 `HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN_META.linux-x86_64.json` 钉住它们；二进制不入库，理由同 §2。
+
+## 6. 入核与登记轮追加（2026-09-30）
+
+| 文件（`工作过程文件/入核与登记/` 下） | sha256（前 16 位） | 是什么 |
+|---|---|---|
+| `verify_core_cognition.txt` | `63a35575649261d9` | 第 9 代核心认知的校验：`PASS_WITH_SCOPE`，51 个单元，48 条旧单元全部原样保留，`transition_remainder=0` |
+| `verify_three_way_cognition.txt` | `fdba77d9136fde1b` | 核心认知、扩展认知、方向追踪与全景视野的三方校验输出 |
+| `verify_governance_shards.txt` | `ded57b942b0cba85` | 分片结构校验：`PASS`，1929 个索引，0 个首屏 banner 问题 |
+| `cognition_runtime_plan_governance-摘要.txt` | `e56b15677d63f4d3` | `cognition_runtime.py plan --profile governance` 的关键字段：revision 290，latest_session 是本次登记的 session（完整输出 210920 字节，只是只读加载清单，不入库） |
+
+这些输出只证明结构与哈希，不证明模型理解，也不证明数学（命令与预期见 [15](../15-入核与登记记录.md) §7）。
+
+**没有收存的东西，以及理由**：
+
+- checkpoint 载荷（约 2 MB 的 JSON）：它由 `scripts/audit/prepare_copus_core_generation_9_checkpoint.py` 在提交 `10d5fb22` 的树上生成，它的全部效果已经完整保存在 `.codex/cognition/checkpoints/S-GOV-20260930-COPUS-CORE-GENERATION-9-REGISTRATION/` 的 `before/`、`after/` 与 `transaction.json` 里；再存一份是重复。
+- 会话暂存区里的一次性编辑脚本（对 13、14 的改写脚本等）：它们的效果就是 git 里的那几次提交，脚本本身没有独立价值。
+- 会话宿主的文件：理由同 §4。
+
+## 7. 标签（2026-09-30）
+
+云端会话的 git 通道不放行标签推送，所以 `Cloud-Opus对GLM的审计`、`Cloud-Opus工作完成` 两个附注标签只存在于云端容器。`附件/标签/` 保存了它们的说明文字（逐字取自原标签）和一个在你自己机器上重新打出、推送它们的脚本 `create-and-push-tags.sh`。脚本没有在云端运行（标签推送在这里被拒绝，按环境规则不重试、不绕过）；只做过语法检查。标签指向当时的提交（`df7e2560`、`5dbd8561`），不是最新提交；要不要把"工作完成"挪到最新状态，由你决定，办法写在脚本的注释里。

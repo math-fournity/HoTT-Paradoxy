@@ -3,19 +3,19 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-7",
-        "path": "scripts/audit/core-cognition-curation-v7.json",
-        "sha256": "74a0320703771a43978f59fbde3b2beb07bf3798ad99ede744ee824b9706d7fc"
-      },
-      {
         "generation": "core-cognition-generation-8",
         "path": "scripts/audit/core-cognition-curation-v8.json",
         "sha256": "28bcccf37492157b93213e665a96e968d94e5aa8f82031f148671778775ed330"
+      },
+      {
+        "generation": "core-cognition-generation-9",
+        "path": "scripts/audit/core-cognition-curation-v9.json",
+        "sha256": "09370b958df736b7572b999ea11d991a707d9a03482f4ded661cc7aa1aa8348f"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 93,
+    "primary_denominator": 96,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
@@ -24,7 +24,10 @@
       "sources/prompts/Codex-知识谱自反与第三条发现路径-用户原文-20260916.md",
       "sources/prompts/Codex-AI数学用好与超越-用户原文-20260916.md",
       "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
-      "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md"
+      "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md",
+      "sources/prompts/Claude-归因是正题-用户原文-20260924.md",
+      "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md",
+      "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -32,9 +35,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "6a94bec28b18a05e268bf82e55add1a030b086b73773874bc34dc82f0dd014cf",
+  "core_document_sha256": "2c0e311b952fe4358773c3199c0372a7842cfdd52e6d14387cbd405c79609831",
   "counts": {
-    "core_units": 48,
+    "core_units": 51,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -42,21 +45,23 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 28
+      "INCLUDED": 31
     },
     "messages_excluded": 65,
-    "messages_included": 28,
-    "messages_parsed": 93,
-    "primary_files": 8,
+    "messages_included": 31,
+    "messages_parsed": 96,
+    "primary_files": 11,
     "units_by_platform": {
+      "Claude": 2,
       "Codex": 21,
+      "GLM": 1,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v8.json",
-  "curation_sha256": "28bcccf37492157b93213e665a96e968d94e5aa8f82031f148671778775ed330",
+  "curation_authority": "scripts/audit/core-cognition-curation-v9.json",
+  "curation_sha256": "09370b958df736b7572b999ea11d991a707d9a03482f4ded661cc7aa1aa8348f",
   "files": [
     {
       "bytes": 8124,
@@ -129,9 +134,36 @@
       "path": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md",
       "platform": "Codex",
       "sha256": "59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565"
+    },
+    {
+      "bytes": 779,
+      "input_role": "primary",
+      "lines": 9,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Claude-归因是正题-用户原文-20260924.md",
+      "platform": "Claude",
+      "sha256": "89076899be25f75c4bcc8bdb92d9a08aae347c52d7e8b0c8a0904a18a43019a9"
+    },
+    {
+      "bytes": 1671,
+      "input_role": "primary",
+      "lines": 15,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md",
+      "platform": "Claude",
+      "sha256": "1b37b69fb305778006b10745a1bcff93e763a91ce932ca5142754d7f026ec226"
+    },
+    {
+      "bytes": 2213,
+      "input_role": "primary",
+      "lines": 19,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md",
+      "platform": "GLM",
+      "sha256": "ac9b6600d708cfb19b59299e087d1ab0e7a1a9043d3e7fbd4fc7b79457d49034"
     }
   ],
-  "generation": "core-cognition-generation-8",
+  "generation": "core-cognition-generation-9",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -1806,9 +1838,63 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-09-23T03:30:09+00:00",
       "unit_count": 2
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户明确修正 KC-000005、KC-000020 中“至于悖论作为矛盾，它到底是否定了哪个前提，那是未来的下一个故事”一句的工作次序效力，并要求改掉原始文档；随后在选择题中选定“保留原话并加修正”。原话作为历史记录保留；本单元只含用户本人的一句修正原文。上下文与选项文字由 Claude 记录，留在来源文件的说明里，不进入 KC。不认证任何具体归因结论。",
+      "input_role": "primary",
+      "message_text_bytes": 144,
+      "message_text_sha256": "721189899122b9e625ee3930043c7fb1955427c078514da4676b6ea52a38d80a",
+      "platform": "Claude",
+      "source_file": "sources/prompts/Claude-归因是正题-用户原文-20260924.md",
+      "source_file_sha256": "89076899be25f75c4bcc8bdb92d9a08aae347c52d7e8b0c8a0904a18a43019a9",
+      "source_header_line": 7,
+      "source_message_id": "CLAUDE-ATTRIBUTION-CORRECTION-20260924-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-09-24T15:15:19Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-24T15:15:19+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户 2026-09-26 在 Claude 会话中提出的罗素原则 P1–P3：理论无法拒绝其论域元素的存在性问题；对论域元素存在性的追问若在现实中引发无法停机的计算（无限追溯），即为成功。用户 2026-09-27 明确要求把它入核。两段是同一原则的组成部分，作为一个语义单元；消息首句是对上文 AI 表述的回应，保留在来源文件，不进入 KC。内容作为用户研究意识完整保留，不认证其必然性，也不认证任何 HoTT 上的具体结论。",
+      "input_role": "primary",
+      "message_text_bytes": 467,
+      "message_text_sha256": "7efd41765ad812faa53780f6ba2d0e24ecebc0a068a9834543d5917fb3e3a00e",
+      "platform": "Claude",
+      "source_file": "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md",
+      "source_file_sha256": "1b37b69fb305778006b10745a1bcff93e763a91ce932ca5142754d7f026ec226",
+      "source_header_line": 9,
+      "source_message_id": "CLAUDE-RUSSELL-PRINCIPLE-20260926-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-09-26T20:27:28Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-26T20:27:28+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户 2026-09-26 在 GLM 会话第 5 轮提交的同线第二批原文：算符先行于存在性落定的次序非法、对论域元素身份的合法性追溯有静态与动态两种读法，以及以“无限追溯”为成功判据。它比第一批 P1–P3 多出这三点，故不按重复排除；用户 2026-09-27 明确要求把它入核。整条五段是一个连贯的论证，作为一个语义单元。内容作为用户研究意识完整保留，不认证其必然性，也不认证任何 HoTT 上的具体结论。",
+      "input_role": "primary",
+      "message_text_bytes": 1132,
+      "message_text_sha256": "996a4e166110a3f646763344975071b4a53aa6a7dea4d27cdc1afa574348e111",
+      "platform": "GLM",
+      "source_file": "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md",
+      "source_file_sha256": "ac9b6600d708cfb19b59299e087d1ab0e7a1a9043d3e7fbd4fc7b79457d49034",
+      "source_header_line": 9,
+      "source_message_id": "GLM-RUSSELL-OPERATOR-BEFORE-EXISTENCE-20260926-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-09-26T22:41:01Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-26T22:41:01+00:00",
+      "unit_count": 1
     }
   ],
-  "previous_generation_ref": "4e0a7999fe88",
+  "previous_generation_ref": "4603eb2a5a6b27c7732931a171c1ab54e6d74b79",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -3432,6 +3518,95 @@
       "timestamp_utc": "2026-09-23T03:30:09+00:00",
       "unit_bytes": 525,
       "unit_sha256": "4ba23954462a4f495834a48190c0a563b23bfdd0e4e6bc17f8f6c47d8c8cd4e9"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000049",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Claude",
+      "relations": [],
+      "selection_reason": "用户明确修正 KC-000005、KC-000020 中“至于悖论作为矛盾，它到底是否定了哪个前提，那是未来的下一个故事”一句的工作次序效力，并要求改掉原始文档；随后在选择题中选定“保留原话并加修正”。原话作为历史记录保留；本单元只含用户本人的一句修正原文。上下文与选项文字由 Claude 记录，留在来源文件的说明里，不进入 KC。不认证任何具体归因结论。",
+      "selector": {
+        "source_line_end": 9,
+        "source_line_start": 9
+      },
+      "semantic_label": "归因是要与用户仔细探讨的正题，撤回“下一个故事”的工作次序",
+      "source_file": "sources/prompts/Claude-归因是正题-用户原文-20260924.md",
+      "source_locator": "sources/prompts/Claude-归因是正题-用户原文-20260924.md#L9-L9",
+      "source_message_id": "CLAUDE-ATTRIBUTION-CORRECTION-20260924-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "721189899122b9e625ee3930043c7fb1955427c078514da4676b6ea52a38d80a",
+      "source_sha256": "89076899be25f75c4bcc8bdb92d9a08aae347c52d7e8b0c8a0904a18a43019a9",
+      "themes": [],
+      "timestamp_original": "2026-09-24T15:15:19Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-24T15:15:19+00:00",
+      "unit_bytes": 144,
+      "unit_sha256": "721189899122b9e625ee3930043c7fb1955427c078514da4676b6ea52a38d80a"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000050",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Claude",
+      "relations": [],
+      "selection_reason": "用户 2026-09-26 在 Claude 会话中提出的罗素原则 P1–P3：理论无法拒绝其论域元素的存在性问题；对论域元素存在性的追问若在现实中引发无法停机的计算（无限追溯），即为成功。用户 2026-09-27 明确要求把它入核。两段是同一原则的组成部分，作为一个语义单元；消息首句是对上文 AI 表述的回应，保留在来源文件，不进入 KC。内容作为用户研究意识完整保留，不认证其必然性，也不认证任何 HoTT 上的具体结论。",
+      "selector": {
+        "source_line_end": 15,
+        "source_line_start": 13
+      },
+      "semantic_label": "论域元素的存在性是理论无法拒绝的问题；对它的追问若在现实中不停机，即为罗素式成功（P1–P3）",
+      "source_file": "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md",
+      "source_locator": "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md#L13-L15",
+      "source_message_id": "CLAUDE-RUSSELL-PRINCIPLE-20260926-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "7efd41765ad812faa53780f6ba2d0e24ecebc0a068a9834543d5917fb3e3a00e",
+      "source_sha256": "1b37b69fb305778006b10745a1bcff93e763a91ce932ca5142754d7f026ec226",
+      "themes": [
+        "PARADOX_DISCOVERY",
+        "BEING_AND_BECOMING",
+        "RUSSELL",
+        "COMPUTATIONAL_LEGITIMACY",
+        "EXISTENCE_NEGATION_DUALITY"
+      ],
+      "timestamp_original": "2026-09-26T20:27:28Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-26T20:27:28+00:00",
+      "unit_bytes": 363,
+      "unit_sha256": "d208e428252386f67297d8ab06412bd0e22fd4cdad40ddcccfd16d9366ae90a0"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000051",
+      "lifecycle": "QUESTION_OR_OPEN_PROBLEM",
+      "platform": "GLM",
+      "relations": [],
+      "selection_reason": "用户 2026-09-26 在 GLM 会话第 5 轮提交的同线第二批原文：算符先行于存在性落定的次序非法、对论域元素身份的合法性追溯有静态与动态两种读法，以及以“无限追溯”为成功判据。它比第一批 P1–P3 多出这三点，故不按重复排除；用户 2026-09-27 明确要求把它入核。整条五段是一个连贯的论证，作为一个语义单元。内容作为用户研究意识完整保留，不认证其必然性，也不认证任何 HoTT 上的具体结论。",
+      "selector": {
+        "source_line_end": 19,
+        "source_line_start": 11
+      },
+      "semantic_label": "算符先于存在性落定是数学上不合理的次序；对论域元素身份的合法性追溯是永不停机的计算（罗素线第二批）",
+      "source_file": "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md",
+      "source_locator": "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md#L11-L19",
+      "source_message_id": "GLM-RUSSELL-OPERATOR-BEFORE-EXISTENCE-20260926-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "996a4e166110a3f646763344975071b4a53aa6a7dea4d27cdc1afa574348e111",
+      "source_sha256": "ac9b6600d708cfb19b59299e087d1ab0e7a1a9043d3e7fbd4fc7b79457d49034",
+      "themes": [
+        "HOTT_OBJECT",
+        "PARADOX_DISCOVERY",
+        "TIME_AND_TEMPORALITY",
+        "BEING_AND_BECOMING",
+        "RUSSELL",
+        "COMPUTATIONAL_LEGITIMACY",
+        "EXISTENCE_NEGATION_DUALITY"
+      ],
+      "timestamp_original": "2026-09-26T22:41:01Z",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-09-26T22:41:01+00:00",
+      "unit_bytes": 1132,
+      "unit_sha256": "996a4e166110a3f646763344975071b4a53aa6a7dea4d27cdc1afa574348e111"
     }
   ]
 }
