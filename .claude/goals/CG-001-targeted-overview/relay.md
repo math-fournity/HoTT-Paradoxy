@@ -6,6 +6,13 @@
 >
 > **2026-09-25 原位收敛（会话 91a6cdaa；Terra 复审 003 的 O-011）**：R2 的 A1 行与“A1 归因深化”行按 CN-020、CN-022 改写，删去已撤回的判词与说法；R1 增加 C-30–C-38 的五行；R2 增加 A1′ 一行；R3 第 1 条加注、增加第 8 条。改写前的原文逐字保存在文末“修订记录”。本文件中凡与 CN-022 冲突之处，以 CN-022 为准。
 
+> **2026-09-30 加注（Cloud-Opus 云端会话；用户 2026-09-27 授权“入核和登记……立即完成所有剩余的你可以完成的工作”；只加注，不改下文）**：
+> - **R3 中关于用户新原则的一项已完成**：P1–P3 与同日第二批原文已入核（KC-000050、KC-000051），用户 2026-09-24 的归因修正也已入核（KC-000049），核心认知第 9 代共 51 条。补丁草案 P1–P12 的逐项去向见 `Cloud-Opus审计并补完GLM/15-入核与登记记录.md` §3。
+> - **R2 中 A7 与罗素面的候选条目已登记**：经 canonical checkpoint（`S-GOV-20260930-COPUS-CORE-GENERATION-9-REGISTRATION`，STATE revision 289 到 290）写入方向追踪 `DIR-U-A7-INFINITE-COHERENCE`、`DIR-U-RUSSELL-EXISTENCE-QUESTIONING`、`DIR-G-ATTRIBUTION-IS-MAIN-TOPIC` 与全景视野 `OUT-U-A7-INFINITE-COHERENCE`、`OUT-U-RUSSELL-UNIVERSE-QUESTIONING`、`OUT-U-COPUS-GLM-AUDIT`、`OUT-TOP-ATTRIBUTION-CORRECTION-APPLIED`。R2 里对应的草稿行因此被取代。
+> - **R1 仍未登记**：共享矩阵里没有 `CG001-C-NN` 的行（矩阵里提到它们的，只有 Cloud-Opus 那一节的交叉引用）。R1 的草稿需要按矩阵现行格式写入，并为每个运行另建 index-row manifest，且草稿自己写着“登记前请独立核对”；这是 integrator 的工作，或需要用户明确指示。
+> - **R3 第 6 条已做**：根 README 的分片 001（`README/001 - 当前入口与关键文件.md`）的关键入口里加了一行，指向 `.claude/总索引.md`。`AGENTS.md` 没有动（它由 integrator 维护）。
+> - 这些登记是在用户授权下直接做的，没有经过本机的 Codex Session C；若它在 2026-09-24 之后又做过 checkpoint，合并时的处理办法见 `Cloud-Opus审计并补完GLM/15-入核与登记记录.md` §6。
+
 ## R1 共享矩阵行草稿（`HoTT/CLAIM_EVIDENCE_MATRIX.md`）
 
 若登记，请由 integrator 按矩阵现行格式写入，并在 run 的 `RUN.json` 之外另建 index-row manifest（本目标不改 RUN.json）。草稿如下：
