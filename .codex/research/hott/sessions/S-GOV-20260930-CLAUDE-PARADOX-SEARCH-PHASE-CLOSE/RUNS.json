@@ -1,0 +1,53 @@
+{
+  "base_snapshot": "5246ccdeeb6fc9e9d588acc2380b9218c63b2336f21f3cfe82d7843a3f8e47c3",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20260930-CLAUDE-PARADOX-SEARCH-PHASE-CLOSE/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--output <payload>",
+      "status": "PREPARED",
+      "tool": "scripts/audit/prepare_claude_paradox_search_phase_close_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    },
+    {
+      "command": "README 01 02 03",
+      "status": "OK (83 named paths and links)",
+      "tool": "Cloud-Opus审计并补完GLM/tools/check_doc_paths.py"
+    },
+    {
+      "command": "(default 01 02)",
+      "status": "PASS (54 citations, 1 pre-existing WARN; 47/47 verbatim)",
+      "tool": "Cloud-Opus审计并补完GLM/tools/check_doc_citations.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "note": "Phase close of the HoTT paradox search: registration only; no mathematical claim is delivered by this checkpoint.",
+  "pre_existing_failures_not_caused_here": [
+    "scripts/audit/verify_proof_version_closure.py: LATER_COMMAND_SOURCE_MISMATCH:MP-COQ-MM2-UNDECIDABILITY-REPLAY-001 (same on a clean HEAD worktree)",
+    "scripts/audit/verify_math_proof_delivery_governance.py: MARKER_MISSING:.codex/AGENTS.md:math-proof-delivery-gate:v1 (same on a clean HEAD worktree)"
+  ],
+  "push_policy": "commit and normal push to origin/main after this checkpoint, as the user asked",
+  "related_goal_local_runs": {
+    "comparison": "normalized stdout identical to the Linux receipts line by line; exit codes and statuses equal; MISMATCHES 0",
+    "cross_platform_replays": [
+      "20260930-CG001-QUESTIONING-DELAY-MACOS-01",
+      "20260930-CG001-QUESTIONING-DELAY-MACOS-NEG-01",
+      "20260930-CG001-QUESTIONING-DELAY-MACOS-NEG-02",
+      "20260930-CG001-QUESTIONING-DELAY-MACOS-NEG-03",
+      "20260930-CG001-QUESTIONING-DELAY-MACOS-NEG-04",
+      "20260930-CG001-QUESTIONING-DELAY-LEAN-MACOS-01",
+      "20260930-CG001-QUESTIONING-DELAY-LEAN-MACOS-NEG-01"
+    ],
+    "index": ".claude/goals/CG-001-targeted-overview/证据索引.md",
+    "note": "same session, registered in the Claude CG-001 goal-local index, not delivered through this checkpoint",
+    "verification": "verify_cg001_run.py --rerun: two PASS_WITH_SCOPE, five NEGATIVE_CONTROL_REJECTED_AS_EXPECTED, all EXACT_EXIT_STDOUT_STDERR_MATCH"
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260930-CLAUDE-PARADOX-SEARCH-PHASE-CLOSE",
+  "session_kind": "GOVERNANCE_PHASE_CLOSE_REGISTRATION"
+}

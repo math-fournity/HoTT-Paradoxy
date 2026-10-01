@@ -1,0 +1,46 @@
+{
+  "base_snapshot": "5be5bdf9342d51400450de10c02e541716ba1e5dbb80a0ead0dfd559151e3ab6",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20260930-CLAUDE-CORE-GENERATION-10-UR/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v10.json --transition-output audit/core-cognition-generation-10-transition-20260930.json --transition-from-ref 2199202f128e3573f23084bcb2dafb361f86930f --write",
+      "generation": "core-cognition-generation-9/51 -> core-cognition-generation-10/54",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=51 / remainder=0",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v10.json --transition audit/core-cognition-generation-10-transition-20260930.json",
+      "status": "PASS_WITH_SCOPE",
+      "tool": "scripts/audit/verify_core_cognition.py"
+    },
+    {
+      "command": "--output <payload>",
+      "status": "PREPARED",
+      "tool": "scripts/audit/prepare_claude_core_generation_10_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "note": "Core entry of the user's 2026-09-30 statements with context and the essay shard the user asked for; no mathematical claim is delivered by this checkpoint.",
+  "push_policy": "no push by this session without the user's instruction",
+  "related_goal_local_runs": {
+    "claim": "CG001-C-83",
+    "index": ".claude/goals/CG-001-targeted-overview/证据索引.md",
+    "note": "same session, registered in the Claude CG-001 goal-local index, not delivered through this checkpoint",
+    "runs": [
+      "20260930-CG001-TRUNCATION-QUESTIONING-01",
+      "20260930-CG001-TRUNCATION-QUESTIONING-NEG-01",
+      "20260930-CG001-TRUNCATION-QUESTIONING-NEG-02"
+    ],
+    "verification": "verify_cg001_run.py --rerun: PASS_WITH_SCOPE and two NEGATIVE_CONTROL_REJECTED_AS_EXPECTED, EXACT_EXIT_STDOUT_STDERR_MATCH"
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260930-CLAUDE-CORE-GENERATION-10-UR",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_AND_ESSAY_SHARD"
+}
