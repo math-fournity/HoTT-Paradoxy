@@ -1,0 +1,70 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "COPUS-GLM-FIX-C02a",
+    "COPUS-GLM-FIX-C02b"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/glm-repairs",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax",
+    "HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC02Faithful.agda"
+  ],
+  "completed_at_utc": "2026-09-27T06:38:44.297802+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 29.417591,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/glm-repairs",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-COPUS-GLM-FIX-001",
+  "rejection_stage": null,
+  "run_id": "20260927-COPUS-GLM-REPAIR-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Faithful GLM-R1-C02: cong val (betaT t s) ≡ refl (and betaF), by refl; rupture exhibit: GLM's statement form also holds at the artificial equation art while the faithful form is refuted there.",
+  "source_manifest": {
+    "bytes": 2733,
+    "path": "source-manifest.json",
+    "sha256": "a096d614b3659a1c4a179c5059888afc0f57233fe8766c85e6b847401c376c47"
+  },
+  "started_at_utc": "2026-09-27T06:38:14.880211+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9555,
+    "path": "stdout.txt",
+    "sha256": "8bb0d9f9bfa3da66520c656c232e5547dc7001f6c007036f2af53d2e0b1c1d86"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

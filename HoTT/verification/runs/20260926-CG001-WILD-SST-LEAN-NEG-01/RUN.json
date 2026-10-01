@@ -1,0 +1,52 @@
+{
+  "claim_ids": [
+    "CG001-C-65"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
+    "--toolchain",
+    "HoTT/formal/claude-cg001/pedometer-ablation-lean/LEAN_TOOLCHAIN.json",
+    "HoTT/formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean",
+    "HoTT/formal/claude-cg001/wild-sst-lean/WrongRoute.lean"
+  ],
+  "completed_at_utc": "2026-09-26T07:51:39.629753+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.911292,
+  "environment": {
+    "bytes": 697,
+    "path": "environment.txt",
+    "sha256": "f5150cd65b172840e971f9ae748af2edc92f963b7c4cba2f404c53a0f1a068e6"
+  },
+  "exit_code": 1,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "A rejection shows only that this mis-ordered step fails to typecheck."
+  ],
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-WILD-SST-LEAN-NEG-001",
+  "run_id": "20260926-CG001-WILD-SST-LEAN-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-65: route A with its last rewrite applied to the swapped pair must be rejected (the swapped step needs the reversed order proof).",
+  "source_manifest": {
+    "bytes": 3855,
+    "path": "source-manifest.json",
+    "sha256": "80764f9ec6c1c72da7ffe78cbb53b041b1ccc9f48f8b406d406b0a017b175f5c"
+  },
+  "started_at_utc": "2026-09-26T07:51:38.718214+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 668,
+    "path": "stdout.txt",
+    "sha256": "5c8bb28563766bae38c5332afb52b237f3d3e198b598c203833a9b5521d97be2"
+  },
+  "theory_variant": "Lean 4 kernel; set-level model statements only"
+}

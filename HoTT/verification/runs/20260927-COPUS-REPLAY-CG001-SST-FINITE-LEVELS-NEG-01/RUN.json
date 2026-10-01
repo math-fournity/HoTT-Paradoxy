@@ -1,0 +1,68 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [
+    "Linux replay (Agda v2.8.0 Linux asset, cubical v0.9 byte-identical) of the Opus run of 2026-09-26 with the same include root; the original receipt is left untouched."
+  ],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "CG001-C-62"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/sst-finite-levels",
+    "HoTT/formal/claude-cg001/sst-finite-levels/WrongFace.agda"
+  ],
+  "completed_at_utc": "2026-09-27T09:15:58.578567+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 16.74697,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/sst-finite-levels/WrongFace.agda:27.40-43: error: [UnequalTerms]\nx2 != x3 of type A0\nwhen checking that the expression x12 has type A1 x1 x3",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/claude-cg001/sst-finite-levels"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-SST-FINITE-LEVELS-NEG-001",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260927-COPUS-REPLAY-CG001-SST-FINITE-LEVELS-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-CG001-SST-FINITE-LEVELS-NEG-01: a face x013 built from the wrong edge x12 is rejected.",
+  "source_manifest": {
+    "bytes": 2553,
+    "path": "source-manifest.json",
+    "sha256": "b79d2aa285617c1102e0fc1c37f98d763918322b5d6e9d09afe76249968b0ca8"
+  },
+  "started_at_utc": "2026-09-27T09:15:41.831597+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 5878,
+    "path": "stdout.txt",
+    "sha256": "cfd1dfa7fff78425cc17c41e03a18582df680c37d37269563f4305dd1119e2e6"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

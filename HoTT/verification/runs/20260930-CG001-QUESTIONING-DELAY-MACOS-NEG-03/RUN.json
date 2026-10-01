@@ -1,0 +1,75 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-79"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/questioning-delay/WrongSetsStopAtOne.agda"
+  ],
+  "completed_at_utc": "2026-09-30T22:26:42.563618+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 87.566154,
+  "environment": {
+    "bytes": 1061,
+    "path": "environment.txt",
+    "sha256": "5d54aede851177a7681374f2385f242875920498ae091aa4a73c8091feb85453"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay/WrongSetsStopAtOne.agda:18.9-13: error: [UnequalTerms]\nCubical.Data.Maybe.nothing != just 1 of type\nCubical.Data.Maybe.Maybe Agda.Builtin.Nat.Nat\nwhen checking that the expression refl has type\nrunFor 0 (question (hSet ℓ-zero) (gatheringJudge 1)) ≡ just 1",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a rejected negative control proves nothing beyond the rejection of this one statement",
+    "A cross-platform replay adds no claim; it checks that the same sources give the same kernel verdict on a second platform."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-QUESTIONING-DELAY-NEG-003",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260930-CG001-QUESTIONING-DELAY-MACOS-NEG-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-79: claims by refl that on the catalogue of sets (gatheringJudge 1) the program stops at stage 1; expected rejection nothing != just 1 [macOS cross-platform replay of the Linux run 20260930-CG001-QUESTIONING-DELAY-NEG-03 (handoff W12): same proof id, claim ids, sources and include roots; captured with the Claude line's macOS tool and pinned toolchain.]",
+  "source_manifest": {
+    "bytes": 3522,
+    "path": "source-manifest.json",
+    "sha256": "3d92281c8bc58badae0f5bcec5e4a052f5a9b1cad49b7cbf45f0017f37e78ef4"
+  },
+  "started_at_utc": "2026-09-30T22:25:14.997464+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29642,
+    "path": "stdout.txt",
+    "sha256": "38f1aa4012c90fd2afdaa9032c64f06599fa81a02a1ae1837ef9763664692678"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

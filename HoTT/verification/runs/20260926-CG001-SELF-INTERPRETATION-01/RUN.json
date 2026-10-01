@@ -1,0 +1,58 @@
+{
+  "claim_ids": [
+    "CG001-C-67"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/self-interpretation",
+    "HoTT/formal/claude-cg001/self-interpretation/SelfInterpretation.agda"
+  ],
+  "completed_at_utc": "2026-09-26T08:10:08.607230+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 18.50758,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "A miniature of the self-interpretation obstruction, not a model of type theory; does not show HoTT cannot interpret itself by any method.",
+    "Not an inconsistency of HoTT."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-SELF-INTERPRETATION-001",
+  "run_id": "20260926-CG001-SELF-INTERPRETATION-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda toy syntax with one equation swap interpreted as the argument flip: untruncated, a faithful interpretation into the universe exists and the syntax is not a set; truncated to a set, it interprets into hProp but no function into the univalent universe sends swap to the flip.",
+  "source_manifest": {
+    "bytes": 2713,
+    "path": "source-manifest.json",
+    "sha256": "ef7e8415f81e2087b9b844b2f107e732c7cee9babb6bda68b23c165b1a426e49"
+  },
+  "started_at_utc": "2026-09-26T08:09:50.099650+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9820,
+    "path": "stdout.txt",
+    "sha256": "e1251edf3493dc494a72ae535798015379177f0f6d876a14f41bcc7006069166"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

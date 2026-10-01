@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CG001-C-55"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "HoTT/formal/claude-cg001/pedometer-semantics/WrongPRevHalts.agda"
+  ],
+  "completed_at_utc": "2026-09-25T15:38:19.127687+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 33.191525,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a rejected refl shows only this one-step claim fails; divergence for all steps is C-55 (b)"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PEDOMETER-SEMANTICS-NEG-001",
+  "run_id": "20260925-CG001-PEDOMETER-SEMANTICS-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-55 (expected KERNEL_REJECTED): under the P-rev specification on the escape HIT (return = sym go, counter carried by subst, read by abs), the claim by refl that the stop program returns 1 after one step of budget must be rejected; the kernel runs it and finds nothing.",
+  "source_manifest": {
+    "bytes": 2920,
+    "path": "source-manifest.json",
+    "sha256": "6091a328fd8ffca451855ffa3c07a71610cf8dd6da13195810d60a03f53aedb1"
+  },
+  "started_at_utc": "2026-09-25T15:37:45.936162+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 17089,
+    "path": "stdout.txt",
+    "sha256": "ef76c6e77bc2573b258dc8de733f43e96202a1d9af33fedfef59825350d5a7ac"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
