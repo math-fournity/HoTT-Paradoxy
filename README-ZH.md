@@ -72,7 +72,7 @@ ASK 是研究发起人起的名字，意思是：回答一个问题之前，先�
 - 回到由实数组成、点没有大小的圆：对我们考察的那一种复原方式，要证明弯回去的线段恰好铺满原来缺了一点的圆，就需要一条叫作 Markov 原则的额外原则，它说的是“一场不可能永远没有结果的搜索，终究会有结果”。这一步也由计算机检查过（出自参与本项目的另一个 AI）。据已有文献，这条原则在 HoTT 里很可能既证不出、也驳不倒；这是文献支持的判断，不是我们的证明。
 - 我们的解读：在实数的圆上，幽灵又露了一次面，这次的样子是一场停不下来的搜索。至于研究发起人的圆环原案，能不能在 HoTT 里被完整、忠实地写下来，至今还是开放的问题。
 
-见 [圆环原文](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md)、[离散圆的证明](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/formal/claude-cg001/discrete-ring/CLAIM.md)、[圆环与 Markov 原则的工作笔记](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/.claude/思考与发现/CN-024%20-%20圆环复原与%20Markov%20原则：复原撞上一条停机原则.md)。
+见 [圆环原文](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md)、[离散圆的证明](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/formal/claude-cg001/discrete-ring/CLAIM.md)，以及[供深入追溯的研究笔记（中文，位于 dev；不是证明）](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/.claude/思考与发现/CN-024%20-%20圆环复原与%20Markov%20原则：复原撞上一条停机原则.md)。
 
 ## 3. 罗素的幽灵：计算的眼光
 
@@ -196,7 +196,7 @@ ASK 是研究发起人起的名字，意思是：回答一个问题之前，先�
 
 > 我认为，圆环悖论和我们这个repo中对其的进一步的讨论、分析，复活了芝诺悖论的幽灵。
 
-所以第 2 节把圆环及其后续讨论作为这条研究线来讲；无穷相干则是一条由 AI 提出的、独立的芝诺式候选，不是 09-27 总判定的指称对象。这个版本同时修订了社区审计稿 01 和收尾报告第 92 行，保留 A7 的机器证据与未解决问题，不把用户的总判定冒充成对 A7 的逐项裁定。
+所以第 2 节把圆环及其后续讨论作为这条研究线来讲；无穷相干则是一条由 AI 提出的、独立的芝诺式候选，不是 09-27 总判定的指称对象。这个版本同时修订了社区审计稿 01 和收尾报告中的归因说明，保留 A7 的机器证据与未解决问题，不把用户的总判定冒充成对 A7 的逐项裁定。
 
 ## 7. 怎样检验我们
 
@@ -214,52 +214,18 @@ ASK 是研究发起人起的名字，意思是：回答一个问题之前，先�
 python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubical.agda-lib --lean-sysroot /path/to/lean-4.34.0 --jobs 4
 ```
 
-它按每一份运行记录重建命令，逐个运行，再和记录比较：结局（接受或拒绝）必须一致；输出在把仓库路径和库路径换成占位符之后逐行比较。负控制只有再次被拒才算通过；输出也一致，就说明它是因为记录下来的那个理由被拒。只看一个：`--only <运行编号>`；列出全部：`--list`。全部串行跑完约需一个半小时。运行记录里的命令保存的是当时那台机器的绝对路径；逐字节重放的原始工具在 `dev` 分支（`.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py`、`Cloud-Opus审计并补完GLM/tools/verify_copus_run.py`）。
+它按每一份运行记录重建命令，逐个运行，再和记录比较：结局（接受或拒绝）必须一致；输出在把仓库路径和库路径换成占位符之后逐行比较。负控制只有再次被拒才算通过；输出也一致，就说明它是因为记录下来的那个理由被拒。只看一个：`--only <运行编号>`；列出全部：`--list`。全部串行跑完约需一个半小时。运行记录里的命令保存的是当时那台机器的绝对路径，不能原样拿到另一台机器执行。一般重放请使用本分支的 `tools/replay.py`；需要把结果与原始脚本逐字节比较的读者，可选用保留在 `dev` 的[研究线原始重放脚本](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py)和[审计线原始重放脚本](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools/verify_copus_run.py)。这是深入复核用的技术工具，不是普通阅读的前置。
 
-运行记录引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json) 记着本分支 699 个文件各自的 SHA-256，以及它们取自 `dev` 的哪个提交。
+运行记录引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json) 记着本分支 703 个文件各自的 SHA-256，以及它们取自 `dev` 的哪个提交。
 
 ## 8. 这项研究是怎样做出来的
 
-问题意识、对悖论的看法和最后的判定，都来自研究发起人；这份说明里的引文都是研究发起人的原话。形式化、证明和互相审计，由几个 AI 系统分工完成，它们的工作也互相检查过。研究的全部过程，包括研究发起人的原话账本 `核心认知.md`、各条线索的来龙去脉、走过的弯路、AI 之间的审计往来，都在 [`dev` 分支](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev)。结论文档里提到、但不在本分支的路径如下：
+研究问题、对悖论的看法和哲学判断来自研究发起人；几个 AI 系统协助把想法写成精确命题、检查证明并相互复核。`main` 上的命题文件、证明源码和运行记录，展示了哪些数学说法经过了计算机检查。
 
-| 路径 | 在 `dev` 上 |
-|---|---|
-| `.claude/goals/CG-001-targeted-overview` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/goals/CG-001-targeted-overview) |
-| `.claude/goals/CG-001-targeted-overview/证据索引.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/.claude/goals/CG-001-targeted-overview/%E8%AF%81%E6%8D%AE%E7%B4%A2%E5%BC%95.md) |
-| `.claude/goals/CG-002-a7-infinite-coherence` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/goals/CG-002-a7-infinite-coherence) |
-| `.claude/goals/CG-003-a7-self-audit` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/goals/CG-003-a7-self-audit) |
-| `.claude/思考与发现` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/%E6%80%9D%E8%80%83%E4%B8%8E%E5%8F%91%E7%8E%B0) |
-| `Cloud-Opus审计并补完GLM` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM) |
-| `Cloud-Opus审计并补完GLM/01-工具链与复现.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/01-%E5%B7%A5%E5%85%B7%E9%93%BE%E4%B8%8E%E5%A4%8D%E7%8E%B0.md) |
-| `Cloud-Opus审计并补完GLM/02-断裂审计-逐命题（D1）.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/02-%E6%96%AD%E8%A3%82%E5%AE%A1%E8%AE%A1-%E9%80%90%E5%91%BD%E9%A2%98%EF%BC%88D1%EF%BC%89.md) |
-| `Cloud-Opus审计并补完GLM/11-收据核验结果.json` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/11-%E6%94%B6%E6%8D%AE%E6%A0%B8%E9%AA%8C%E7%BB%93%E6%9E%9C.json) |
-| `Cloud-Opus审计并补完GLM/13-外部复核请求.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/13-%E5%A4%96%E9%83%A8%E5%A4%8D%E6%A0%B8%E8%AF%B7%E6%B1%82.md) |
-| `Cloud-Opus审计并补完GLM/14-罗素面终局判词.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/14-%E7%BD%97%E7%B4%A0%E9%9D%A2%E7%BB%88%E5%B1%80%E5%88%A4%E8%AF%8D.md) |
-| `Cloud-Opus审计并补完GLM/README.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/README.md) |
-| `Cloud-Opus审计并补完GLM/tools` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools) |
-| `Cloud-Opus审计并补完GLM/tools/capture_zeno_line_replays.sh` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools/capture_zeno_line_replays.sh) |
-| `Cloud-Opus审计并补完GLM/附件/20260926-Session问答原文存档（用户上传，GLM-Auditor会话）.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/%E9%99%84%E4%BB%B6/20260926-Session%E9%97%AE%E7%AD%94%E5%8E%9F%E6%96%87%E5%AD%98%E6%A1%A3%EF%BC%88%E7%94%A8%E6%88%B7%E4%B8%8A%E4%BC%A0%EF%BC%8CGLM-Auditor%E4%BC%9A%E8%AF%9D%EF%BC%89.md) |
-| `Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/verify-all-rerun-46个运行.json` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/%E9%99%84%E4%BB%B6/%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B%E6%96%87%E4%BB%B6/%E8%87%AA%E6%9F%A5%E8%BD%AE/verify-all-rerun-46%E4%B8%AA%E8%BF%90%E8%A1%8C.json) |
-| `GLM-5.3-Flash/README.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/GLM-5.3-Flash/README.md) |
-| `GLM-5.3-Flash/审计请求` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/GLM-5.3-Flash/%E5%AE%A1%E8%AE%A1%E8%AF%B7%E6%B1%82) |
-| `GLM-5.3-Flash/思考与发现` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/GLM-5.3-Flash/%E6%80%9D%E8%80%83%E4%B8%8E%E5%8F%91%E7%8E%B0) |
-| `GLM-5.3-Flash/策略快照/20260926-D2后罗素线策略-大白话快照.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/GLM-5.3-Flash/%E7%AD%96%E7%95%A5%E5%BF%AB%E7%85%A7/20260926-D2%E5%90%8E%E7%BD%97%E7%B4%A0%E7%BA%BF%E7%AD%96%E7%95%A5-%E5%A4%A7%E7%99%BD%E8%AF%9D%E5%BF%AB%E7%85%A7.md) |
-| `GLM-5.3-Flash/裁定问题/20260926-M2-形成规则是回答还是回避-两面陈词.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/GLM-5.3-Flash/%E8%A3%81%E5%AE%9A%E9%97%AE%E9%A2%98/20260926-M2-%E5%BD%A2%E6%88%90%E8%A7%84%E5%88%99%E6%98%AF%E5%9B%9E%E7%AD%94%E8%BF%98%E6%98%AF%E5%9B%9E%E9%81%BF-%E4%B8%A4%E9%9D%A2%E9%99%88%E8%AF%8D.md) |
-| `HoTT/CLAIM_EVIDENCE_MATRIX.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/CLAIM_EVIDENCE_MATRIX.md) |
-| `README.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/README.md) |
-| `Terra对Opus的审计` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Terra%E5%AF%B9Opus%E7%9A%84%E5%AE%A1%E8%AE%A1) |
-| `Terra对Opus的审计/Opus给GPT的回应` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Terra%E5%AF%B9Opus%E7%9A%84%E5%AE%A1%E8%AE%A1/Opus%E7%BB%99GPT%E7%9A%84%E5%9B%9E%E5%BA%94) |
-| `sources/prompts/Claude-归因是正题-用户原文-20260924.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/Claude-%E5%BD%92%E5%9B%A0%E6%98%AF%E6%AD%A3%E9%A2%98-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260924.md) |
-| `sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/Claude-%E7%BD%97%E7%B4%A0%E5%8E%9F%E5%88%99P1%E8%87%B3P3-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260926.md) |
-| `sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/GLM-%E7%AE%97%E7%AC%A6%E5%85%88%E8%A1%8C%E4%BA%8E%E5%AD%98%E5%9C%A8%E6%80%A7%E8%90%BD%E5%AE%9A-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260926.md) |
-| `全景视野.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E5%85%A8%E6%99%AF%E8%A7%86%E9%87%8E.md) |
-| `扩展认知.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E6%89%A9%E5%B1%95%E8%AE%A4%E7%9F%A5.md) |
-| `扩展认知/011 - 本来应该很简单的事：UR 与芝诺的模式匹配.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E6%89%A9%E5%B1%95%E8%AE%A4%E7%9F%A5/011%20-%20%E6%9C%AC%E6%9D%A5%E5%BA%94%E8%AF%A5%E5%BE%88%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%8B%EF%BC%9AUR%20%E4%B8%8E%E8%8A%9D%E8%AF%BA%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D.md) |
-| `方向追踪.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E6%96%B9%E5%90%91%E8%BF%BD%E8%B8%AA.md) |
-| `核心认知.md` | [打开](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E6%A0%B8%E5%BF%83%E8%AE%A4%E7%9F%A5.md) |
+原始对话、AI 工作笔记、审计往来和没有采纳的探索保留在 `dev`，用于还原研究过程；它们本身不等于数学证据，也不是理解本页结论的必读材料。想追溯过程的读者可以从 [`dev` 分支的 README](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/README.md) 进入。那里收有更完整的历史和技术记录，主要供想深入核查或接手工作的人参考。
 
 ## 9. 关于本分支
 
-- `main`（本分支）只放支撑结论的内容：结论文档、精确命题、证明源码、运行记录与重放方法。它由 `dev` 的提交 [`247b7324`](https://github.com/math-fournity/HoTT-Paradoxy/commit/247b7324c2cfcfe14a5c934dd3a96b00d0afc98a) 按清单生成（`dev` 上的 `scripts/release/build_main_release.py` 与 `scripts/release/main-release-spec.json`），不在本分支上直接修改。要更新，就在 `dev` 上改清单或结论文档，再重新生成。
+- `main`（本分支）只放支撑结论的内容：结论文档、精确命题、证明源码、运行记录与重放方法。它由 `dev` 的提交 [`975a8e20`](https://github.com/math-fournity/HoTT-Paradoxy/commit/975a8e20b57a639c6aec705b7461939284769acf) 按清单生成（`dev` 上的 `scripts/release/build_main_release.py` 与 `scripts/release/main-release-spec.json`），不在本分支上直接修改。要更新，就在 `dev` 上改清单或结论文档，再重新生成。
 - `dev`：全部研究过程，所有工作都在那里进行。
 - 本说明另有俄、德、法、英文版本，内容相同。社区审计稿与 `CLAIMS.md` 也有这四种语言的译本；译本由 AI 翻译，以中文为准。
