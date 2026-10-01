@@ -1,5 +1,7 @@
 # HoTT 的芝诺
 
+**中文** · [Русский](03-HoTT的芝诺-RU.md) · [Deutsch](03-HoTT的芝诺-DE.md) · [Français](03-HoTT的芝诺-FR.md) · [English](03-HoTT的芝诺-EN.md)
+
 **“是同一个”，为什么在它的宇宙里永远了结不了**
 
 社区审计稿 · 第 1 版 · 2026-09-30 · 仓库 `math-fournity/HoTT-Paradoxy`

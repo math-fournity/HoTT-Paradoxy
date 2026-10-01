@@ -6,7 +6,7 @@
 
 **关键词**　同伦类型论；单价性；高阶归纳类型；截断层级；Delay 单子；无穷相干；芝诺悖论；非现实性悖论
 
-> **关于本分支**：`main` 只放支撑结论的关键内容：结论文档、精确命题、证明源码、运行收据与重放方法。研究的全部过程在 [`dev` 分支](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev)：研究发起人的原话账本、方向与结果投影、各 AI 的工作区与审计往来、治理与状态。本分支由 `dev` 的提交 [`17b4aec9`](https://github.com/math-fournity/HoTT-Paradoxy/commit/17b4aec95f124329d4d5b43dc30611ae8369a358) 按清单生成（[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)），不在本分支上直接修改。本说明另有俄、德、法、英文版本，内容相同。
+> **关于本分支**：`main` 只放支撑结论的关键内容：结论文档、精确命题、证明源码、运行收据与重放方法。研究的全部过程在 [`dev` 分支](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev)：研究发起人的原话账本、方向与结果投影、各 AI 的工作区与审计往来、治理与状态。本分支由 `dev` 的提交 [`24950d5d`](https://github.com/math-fournity/HoTT-Paradoxy/commit/24950d5d19ee6d0e7edc6c2d6ff93f1c18a2c2e1) 按清单生成（[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)），不在本分支上直接修改。本说明另有俄、德、法、英文版本，内容相同。
 
 ## 1. 研究发起人的定义与判定
 
@@ -76,7 +76,7 @@
 - [`CLAIMS.md`](CLAIMS.md)：每个命题的精确陈述、证据与禁止外推；按证明包列出主运行、负控制与跨平台重放。
 - 证明源码：`HoTT/formal/`。每个包的 `CLAIM.md` 写明命题全文与范围。
 - 运行收据：`HoTT/verification/runs/`，共 107 个，其中 49 个被内核接受，58 个是预期被拒的负控制（它们检验的是精确的边界，不是失败的历史）。部分命题在 macOS 与 Linux 两个平台上各有运行。
-- [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)：本分支 678 个文件各自的 SHA-256 与角色，以及它们取自 `dev` 的哪个提交。
+- [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)：本分支 699 个文件各自的 SHA-256 与角色，以及它们取自 `dev` 的哪个提交。
 
 工具链：Cubical Agda 2.8.0 与 cubical 库 v0.9（选项写在各源文件里：`--safe --cubical --guardedness`）；Lean 4.34.0，只用核心库、不含 Mathlib，用来做“相同是事实”的对照。收据引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。
 

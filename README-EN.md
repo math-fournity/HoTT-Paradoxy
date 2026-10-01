@@ -6,7 +6,7 @@
 
 **Keywords.** homotopy type theory; univalence; higher inductive types; truncation levels; delay monad; infinite coherence; Zeno's paradox; non-reality paradox
 
-> **About this branch.** `main` holds only the content that supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. The whole research process is on the [`dev` branch](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev): the ledger of the researcher's original statements, the direction and outcome projections, the AI workspaces, audits and exchanges, governance and state. This branch is generated from commit [`17b4aec9`](https://github.com/math-fournity/HoTT-Paradoxy/commit/17b4aec95f124329d4d5b43dc30611ae8369a358) of `dev` according to a manifest ([`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)) and is not edited directly. This README also exists in Chinese, Russian, German and French with the same content. The conclusion papers, the phase-close report and `CLAIMS.md` are written in Chinese; papers 01 and 02 open with an English summary.
+> **About this branch.** `main` holds only the content that supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. The whole research process is on the [`dev` branch](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev): the ledger of the researcher's original statements, the direction and outcome projections, the AI workspaces, audits and exchanges, governance and state. This branch is generated from commit [`24950d5d`](https://github.com/math-fournity/HoTT-Paradoxy/commit/24950d5d19ee6d0e7edc6c2d6ff93f1c18a2c2e1) of `dev` according to a manifest ([`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)) and is not edited directly. This README also exists in Chinese, Russian, German and French with the same content. The conclusion papers, the phase-close report and `CLAIMS.md` are written in Chinese; papers 01 and 02 open with an English summary.
 
 ## 1. The researcher's definition and verdicts
 
@@ -78,7 +78,7 @@ Further reading (in Chinese, opening with an English summary): [community audit 
 - [`CLAIMS.md`](CLAIMS.md) (in Chinese): the precise statement, evidence and forbidden extrapolations of each claim; for each proof package, the main runs, negative controls and cross-platform replays.
 - Proof sources: `HoTT/formal/`. Each package's `CLAIM.md` gives the full statements and their scope.
 - Run receipts: `HoTT/verification/runs/`, 107 in all: 49 accepted by the kernel and 58 negative controls rejected as expected (they test precise boundaries; they are not a history of failures). Some claims have runs on both macOS and Linux.
-- [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json): the SHA-256 and role of each of the 678 files on this branch, and the `dev` commit they come from.
+- [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json): the SHA-256 and role of each of the 699 files on this branch, and the `dev` commit they come from.
 
 Toolchain: Cubical Agda 2.8.0 with the cubical library v0.9 (the options `--safe --cubical --guardedness` are set in each source file); Lean 4.34.0, core library only (no Mathlib), for the controls in which sameness is a fact. The toolchain records cited by the receipts are in `HoTT/formal/dedekind-omega-missile/` (Agda on macOS), `HoTT/formal/claude-cg001/pedometer-ablation-lean/` (Lean on macOS) and `HoTT/formal/cloud-opus-glm-audit/` (Linux); the first two directories keep their location on `dev` and hold only these records on this branch.
 
