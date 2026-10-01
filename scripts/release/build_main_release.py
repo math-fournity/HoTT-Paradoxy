@@ -11,7 +11,7 @@ commit, never from the working tree, so the result is determined by (commit, spe
   must have the recorded SHA-256 at the source commit, or the build fails;
 * CLAIMS.md, copied verbatim from three places on dev (two sections of HoTT/CLAIM_EVIDENCE_MATRIX.md, the
   goal-local relay rows and the claim one-liners of the Claude master index), plus a generated run table;
-* README.md from scripts/release/main-README.md, tools/replay.py from scripts/release/replay.py;
+* README.md and README-ZH/EN/FR/DE.md from the templates listed in the spec, tools/replay.py from scripts/release/replay.py;
 * RELEASE-MANIFEST.json: every file with its SHA-256 and role, the runs, the units, and the paths that the
   documents mention but that stay on dev.
 
@@ -35,7 +35,12 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[2]
 SPEC = "scripts/release/main-release-spec.json"
-README_TEMPLATE = "scripts/release/main-README.md"
+TABLE_LABELS = {
+    "zh": ("路径", "在 `dev` 上", "打开"),
+    "en": ("Path", "On `dev`", "open"),
+    "fr": ("Chemin", "Sur `dev`", "ouvrir"),
+    "de": ("Pfad", "In `dev`", "öffnen"),
+}
 REPLAY = "scripts/release/replay.py"
 GITIGNORE = "_build/\n*.agdai\n*.olean\n__pycache__/\n"
 
@@ -248,11 +253,16 @@ def main() -> int:
     def in_release(path: str) -> bool:
         return path in included or any(p.startswith(path.rstrip("/") + "/") for p in included)
     on_dev = sorted(p for p in mentioned if not in_release(p) and git("ls-tree", commit, "--", p).strip())
-    rows = ["| 路径 | 在 `dev` 上 |", "|---|---|"]
+    dev_links = []
     for p in on_dev:
         kind = "tree" if git("ls-tree", commit, "--", p).decode().split()[1] == "tree" else "blob"
-        rows.append(f"| `{p}` | [打开]({repo}/{kind}/dev/{quote(p, safe='/')}) |")
-    dev_table = "\n".join(rows)
+        dev_links.append((p, f"{repo}/{kind}/dev/{quote(p, safe='/')}"))
+
+    def dev_table(lang: str) -> str:
+        head, where, label = TABLE_LABELS[lang]
+        rows = [f"| {head} | {where} |", "|---|---|"]
+        rows += [f"| `{p}` | [{label}]({url}) |" for p, url in dev_links]
+        return "\n".join(rows)
 
     link_rewrites: dict[str, list] = {}
     for path in spec["docs"]:
@@ -289,15 +299,21 @@ def main() -> int:
         "tools/replay.py": replay_py,
         ".gitignore": GITIGNORE.encode("utf-8"),
     }
-    file_total = len(files) + len(generated) + 2  # + README.md and RELEASE-MANIFEST.json
-    readme = blob(commit, README_TEMPLATE).decode("utf-8")
-    for key, value in {"REPO": repo, "SOURCE_COMMIT": commit, "SOURCE_SHORT": commit[:8], "RUN_TOTAL": str(len(runs)),
-                       "RUN_ACCEPTED": str(accepted), "RUN_REJECTED": str(len(runs) - accepted),
-                       "FILE_TOTAL": str(file_total), "DEV_PATHS_TABLE": dev_table}.items():
-        readme = readme.replace("{{" + key + "}}", value)
-    if "{{" in readme:
-        raise SystemExit("README_PLACEHOLDER_LEFT")
-    generated["README.md"] = readme.encode("utf-8")
+    templates = spec["readme_templates"]
+    readme_outputs = [out for t in templates for out in t["outputs"]]
+    if "README.md" not in readme_outputs or len(set(readme_outputs)) != len(readme_outputs):
+        raise SystemExit(f"README_OUTPUTS_INVALID:{readme_outputs}")
+    file_total = len(files) + len(generated) + len(readme_outputs) + 1  # + RELEASE-MANIFEST.json
+    for t in templates:
+        readme = blob(commit, t["template"]).decode("utf-8")
+        for key, value in {"REPO": repo, "SOURCE_COMMIT": commit, "SOURCE_SHORT": commit[:8], "RUN_TOTAL": str(len(runs)),
+                           "RUN_ACCEPTED": str(accepted), "RUN_REJECTED": str(len(runs) - accepted),
+                           "FILE_TOTAL": str(file_total), "DEV_PATHS_TABLE": dev_table(t["lang"])}.items():
+            readme = readme.replace("{{" + key + "}}", value)
+        if "{{" in readme:
+            raise SystemExit(f"README_PLACEHOLDER_LEFT:{t['template']}")
+        for out_name in t["outputs"]:
+            generated[out_name] = readme.encode("utf-8")
 
     manifest = {
         "schema_version": "hott-paradoxy-main-release/v1",

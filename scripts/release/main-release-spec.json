@@ -272,9 +272,44 @@
   },
   "generated": [
     "README.md",
+    "README-ZH.md",
+    "README-EN.md",
+    "README-FR.md",
+    "README-DE.md",
     "CLAIMS.md",
     "RELEASE-MANIFEST.json",
     "tools/replay.py",
     ".gitignore"
+  ],
+  "readme_templates": [
+    {
+      "lang": "zh",
+      "template": "scripts/release/main-README.md",
+      "outputs": [
+        "README.md",
+        "README-ZH.md"
+      ]
+    },
+    {
+      "lang": "en",
+      "template": "scripts/release/main-README-EN.md",
+      "outputs": [
+        "README-EN.md"
+      ]
+    },
+    {
+      "lang": "fr",
+      "template": "scripts/release/main-README-FR.md",
+      "outputs": [
+        "README-FR.md"
+      ]
+    },
+    {
+      "lang": "de",
+      "template": "scripts/release/main-README-DE.md",
+      "outputs": [
+        "README-DE.md"
+      ]
+    }
   ]
 }

@@ -1,21 +1,20 @@
-# HoTT-Paradoxy：结论与证据
+# HoTT-Paradoxy：同伦类型论中的非现实性悖论——结论与证据
 
-> **这是 `main` 分支**，只放支撑结论的关键内容：结论文档、精确命题、证明源码、运行收据与重放方法。研究的全部过程在 [`dev` 分支]({{REPO}}/tree/dev)：研究发起人的原话账本、方向与结果投影、各 AI 的工作区与审计往来、治理与状态。本分支由 `dev` 的提交 [`{{SOURCE_SHORT}}`]({{REPO}}/commit/{{SOURCE_COMMIT}}) 按清单生成（[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)），不在本分支上直接修改。
+**中文** · [English](README-EN.md) · [Français](README-FR.md) · [Deutsch](README-DE.md)
 
-## 一屏读懂
+**摘要**　同伦类型论（HoTT）为了经济与普适，把“相同”从一次检查就落定的事实，改成了可以一层层追问“以什么方式相同”的结构：同构的东西就是同一个（单价性），任意高维的形状在宇宙里一次齐备（高阶归纳类型）。我们把“确认两个东西是不是同一个”写成一个逐层追问的程序：第 k 问检查这份相同是否已在第 k 层了结（即是否为 h-层 k+1 的类型），每一问由判定器交出带证明的“是”或“否”，答“是”就停并报出层数。我们在 Cubical Agda 中证明：对任何判定器，这个程序在宇宙上（含高阶归纳类型）与乘积 ∏ₙ K(ℤ,n+1) 上都等于永不停机的程序 `never`；成员高度封顶时，它恰好在封顶所决定的那一问停；按同一组方程转写到“相同是事实”的 Lean 4，第 1 问就停；对集合截断发问也在第 1 问停，但截断把相同的多种方式合成了一种，而且解码不回宇宙。研究发起人把非现实性悖论定义为“本来应该很简单的事情，甚至在X理论中，都做不到”（UR），把这一结果读作与芝诺悖论同形的悖论，并判断它很可能就是本项目要找的那一个。数学事实大多不新：乘积一侧是 HoTT Book 的例 8.8.6；宇宙一侧，书中（2013）写为预计可证、尚未做出，本仓库给出了机器证明。新的主要是读法，以及它指向的前提，首先是单价性。第二条线：半单纯类型的统一定义在书式 HoTT 中至今写不出，这是公开的开放问题；研究发起人判定这条线“复活了芝诺悖论的幽灵”。全部正向命题由证明器内核检查（Cubical Agda 2.8.0 与 cubical 0.9；Lean 4.34.0），附负控制与 {{RUN_TOTAL}} 个可重放的运行收据。我们不宣称 HoTT 不一致；“很可能已经找到”是研究发起人的判断，不是定理。
 
-同伦类型论（HoTT）为了好用，把“相同”从一次检查就落定的事实，改成了可以一层层追问“以什么方式相同”的结构：同构的东西就是同一个（单价性），任意高维的形状在宇宙里一次齐备（高阶归纳类型）。这里收的是由此而来的两件事：
+**关键词**　同伦类型论；单价性；高阶归纳类型；截断层级；Delay 单子；无穷相干；芝诺悖论；非现实性悖论
 
-1. **HoTT 的芝诺**：两个东西是不是同一个，本来是一句话的事；在 HoTT 的宇宙里，它永远了结不了。研究发起人把它读作与芝诺同形的“非现实性悖论”，判断“我们很可能已经找到了”，并以此收尾第一阶段的查找（2026-09-30）。
-2. **芝诺悖论的幽灵（无穷相干）**：半单纯结构这样一个在“相同是事实”的世界里一行写完的定义，在 HoTT 里每补一级相干，就长出下一级。每个固定层都写得出；对层数统一的定义至今写不出，这是公开的开放问题，它的不可能性没有被证明。
+> **关于本分支**：`main` 只放支撑结论的关键内容：结论文档、精确命题、证明源码、运行收据与重放方法。研究的全部过程在 [`dev` 分支]({{REPO}}/tree/dev)：研究发起人的原话账本、方向与结果投影、各 AI 的工作区与审计往来、治理与状态。本分支由 `dev` 的提交 [`{{SOURCE_SHORT}}`]({{REPO}}/commit/{{SOURCE_COMMIT}}) 按清单生成（[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)），不在本分支上直接修改。本说明另有英、法、德文版本，内容相同。
 
-“不合理”的判定属于研究发起人，不是数学定理。本仓库**不**宣称 HoTT 不一致：正向命题都由证明器内核检查通过，没有推出任何矛盾。
+## 1. 研究发起人的定义与判定
 
 研究发起人对“非现实性悖论”的操作定义（2026-09-30，原话）：
 
 > `UR`=`本来应该很简单的事情，甚至在X理论中，都做不到`，我想这就是一种类似芝诺悖论的`不合理`。
 
-“现实”指 UR 的前半句，“悖论”指整句；判定“不合理”的，是一眼看过去的人。研究发起人的两句判定（原话）：
+“现实”指 UR 的前半句，“悖论”指整句；判定“不合理”的，是一眼看过去的人。这一判定属于研究发起人，不是数学定理。研究发起人的两句判定（原话）：
 
 > 本repo复活了芝诺悖论的幽灵和罗素悖论的幽灵，并且找到的HoTT理论的问题。
 
@@ -25,7 +24,7 @@
 
 （2026-09-30）
 
-## 1. HoTT 的芝诺：“是同一个”永远了结不了
+## 2. HoTT 的芝诺：“是同一个”永远了结不了
 
 **那件本来很简单的事**：确认两个东西是不是同一个。
 
@@ -63,7 +62,7 @@
 
 详读：[社区审计稿 03《HoTT 的芝诺》](docs/社区审计提交/03-HoTT的芝诺.md)（最短，末尾有五个审计问题）；[02《罗素悖论的幽灵》](docs/社区审计提交/02-罗素悖论的幽灵.md)；[第一阶段收尾报告](docs/HoTT悖论查找阶段收尾报告-20260930.md)。
 
-## 2. 芝诺悖论的幽灵：无穷相干
+## 3. 芝诺悖论的幽灵：无穷相干
 
 - **取舍**：单价性让同构即相同，“相同”变成了数据。例如 Bool 与自己“相同”有两个真的不同的证明，沿第二个搬运 `true` 得到 `false`（CG001-C-63）。
 - **过程**：写下半单纯结构，用点、线、三角形、四面体一层层粘出形状，要求“面的面”对得上。经典数学里这是一行定义。
@@ -72,16 +71,16 @@
 
 详读：[社区审计稿 01《芝诺悖论的幽灵》](docs/社区审计提交/01-芝诺悖论的幽灵.md)。
 
-## 3. 命题与证据
+## 4. 命题与证据
 
 - [`CLAIMS.md`](CLAIMS.md)：每个命题的精确陈述、证据与禁止外推；按证明包列出主运行、负控制与跨平台重放。
 - 证明源码：`HoTT/formal/`。每个包的 `CLAIM.md` 写明命题全文与范围。
 - 运行收据：`HoTT/verification/runs/`，共 {{RUN_TOTAL}} 个，其中 {{RUN_ACCEPTED}} 个被内核接受，{{RUN_REJECTED}} 个是预期被拒的负控制（它们检验的是精确的边界，不是失败的历史）。部分命题在 macOS 与 Linux 两个平台上各有运行。
 - [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)：本分支 {{FILE_TOTAL}} 个文件各自的 SHA-256 与角色，以及它们取自 `dev` 的哪个提交。
 
-工具链：Cubical Agda 2.8.0 与 cubical 库 v0.9（选项写在各源文件里：`--safe --cubical --guardedness`）；Lean 4.34.0，只用核心，用来做“相同是事实”的对照。收据引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。
+工具链：Cubical Agda 2.8.0 与 cubical 库 v0.9（选项写在各源文件里：`--safe --cubical --guardedness`）；Lean 4.34.0，只用核心库、不含 Mathlib，用来做“相同是事实”的对照。收据引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。
 
-## 4. 怎样重放
+## 5. 怎样重放
 
 装好 Agda 2.8.0、cubical v0.9 与 Lean 4.34.0 之后，在仓库根目录运行：
 
@@ -93,21 +92,13 @@ python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubi
 
 收据里的命令记录的是捕获时那台机器的绝对路径。逐字节重放的原始工具在 `dev` 分支（`.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py`、`Cloud-Opus审计并补完GLM/tools/verify_copus_run.py`）。
 
-## 5. 文中提到、但不在本分支的路径
+## 6. 文中提到、但不在本分支的路径
 
 结论文档里还提到研究过程中的文件：研究发起人的原话账本 `核心认知.md`、方向与结果投影、各 AI 的工作区、审计往来、目标内索引等。它们都在 `dev` 分支：
 
 {{DEV_PATHS_TABLE}}
 
-## 6. 分支
+## 7. 分支
 
 - `main`（本分支）：结论与证据。由 `dev` 上的 `scripts/release/build_main_release.py` 按 `scripts/release/main-release-spec.json` 生成。要更新，就在 `dev` 上改清单或结论文档，再重新生成；不在本分支上直接提交。
 - `dev`：全部研究过程，所有工作都在那里进行。
-
-## English summary
-
-This branch holds only what supports the conclusions of the HoTT-Paradoxy search: the conclusion papers, precise claims, proof sources, run receipts and a portable replay. The whole research process (the researcher's original statements, the direction and outcome projections, the AI workspaces, audits and governance) is on the [`dev` branch]({{REPO}}/tree/dev).
-
-The finding, in the researcher's reading: whether two things are the same is a one-sentence matter in ordinary logic and mathematics, yet in the universe of homotopy type theory it never settles. A program that asks level by level whether sameness has settled (a delay-monad program with a judge that returns a proof either way) is proved inside HoTT to equal the non-terminating program `never` for every judge, on the universe and on the product of Eilenberg–MacLane spaces K(ℤ,n+1) from Example 8.8.6 of the HoTT Book. The same equations transcribed to Lean, where equality is a mere fact, stop at stage 1; with the height of the members capped, the program stops exactly at the cap; asked about the set truncation, it also stops at stage 1, but truncation merges the ways of being the same and cannot be decoded back into the universe. On 2026-09-30 the researcher judged this to be, very likely, the non-reality paradox the project was looking for, shaped like Zeno's paradox, and closed the first phase of the search.
-
-A second line, the "ghost of Zeno" (infinite coherence: a uniform definition of semi-simplicial types in book HoTT is a well-known open problem, not proved impossible), stands by the researcher's verdict of 2026-09-27. The underlying mathematics is mostly not new; what is offered is the reading and the premise it points to, first univalence. No inconsistency of HoTT is claimed. The proofs are kernel-checked in Cubical Agda 2.8.0 (cubical 0.9) and Lean 4.34.0, with negative controls; `python3 tools/replay.py` replays every receipt with your own toolchain and compares the outcome and the normalized output.
