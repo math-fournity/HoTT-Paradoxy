@@ -265,8 +265,6 @@ The questions, the view of paradoxes and the final verdicts come from the initia
 | `.claude/goals/CG-002-a7-infinite-coherence` | [open](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/goals/CG-002-a7-infinite-coherence) |
 | `.claude/goals/CG-003-a7-self-audit` | [open](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/goals/CG-003-a7-self-audit) |
 | `.claude/思考与发现` | [open](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/.claude/%E6%80%9D%E8%80%83%E4%B8%8E%E5%8F%91%E7%8E%B0) |
-| `.claude/总索引.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/.claude/%E6%80%BB%E7%B4%A2%E5%BC%95.md) |
-| `.claude/调研请求/20260930-相同永远了结不了-社区先例调研请求.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/.claude/%E8%B0%83%E7%A0%94%E8%AF%B7%E6%B1%82/20260930-%E7%9B%B8%E5%90%8C%E6%B0%B8%E8%BF%9C%E4%BA%86%E7%BB%93%E4%B8%8D%E4%BA%86-%E7%A4%BE%E5%8C%BA%E5%85%88%E4%BE%8B%E8%B0%83%E7%A0%94%E8%AF%B7%E6%B1%82.md) |
 | `Cloud-Opus审计并补完GLM` | [open](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM) |
 | `Cloud-Opus审计并补完GLM/01-工具链与复现.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/01-%E5%B7%A5%E5%85%B7%E9%93%BE%E4%B8%8E%E5%A4%8D%E7%8E%B0.md) |
 | `Cloud-Opus审计并补完GLM/02-断裂审计-逐命题（D1）.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/02-%E6%96%AD%E8%A3%82%E5%AE%A1%E8%AE%A1-%E9%80%90%E5%91%BD%E9%A2%98%EF%BC%88D1%EF%BC%89.md) |
@@ -284,17 +282,11 @@ The questions, the view of paradoxes and the final verdicts come from the initia
 | `GLM-5.3-Flash/策略快照/20260926-D2后罗素线策略-大白话快照.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/GLM-5.3-Flash/%E7%AD%96%E7%95%A5%E5%BF%AB%E7%85%A7/20260926-D2%E5%90%8E%E7%BD%97%E7%B4%A0%E7%BA%BF%E7%AD%96%E7%95%A5-%E5%A4%A7%E7%99%BD%E8%AF%9D%E5%BF%AB%E7%85%A7.md) |
 | `GLM-5.3-Flash/裁定问题/20260926-M2-形成规则是回答还是回避-两面陈词.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/GLM-5.3-Flash/%E8%A3%81%E5%AE%9A%E9%97%AE%E9%A2%98/20260926-M2-%E5%BD%A2%E6%88%90%E8%A7%84%E5%88%99%E6%98%AF%E5%9B%9E%E7%AD%94%E8%BF%98%E6%98%AF%E5%9B%9E%E9%81%BF-%E4%B8%A4%E9%9D%A2%E9%99%88%E8%AF%8D.md) |
 | `HoTT/CLAIM_EVIDENCE_MATRIX.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/CLAIM_EVIDENCE_MATRIX.md) |
-| `HoTT/verification/PROOF_VERSION_CLOSURE.json` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/HoTT/verification/PROOF_VERSION_CLOSURE.json) |
 | `README.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/README.md) |
 | `Terra对Opus的审计` | [open](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Terra%E5%AF%B9Opus%E7%9A%84%E5%AE%A1%E8%AE%A1) |
 | `Terra对Opus的审计/Opus给GPT的回应` | [open](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev/Terra%E5%AF%B9Opus%E7%9A%84%E5%AE%A1%E8%AE%A1/Opus%E7%BB%99GPT%E7%9A%84%E5%9B%9E%E5%BA%94) |
-| `rulings.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/rulings.md) |
-| `scripts/audit/verify_math_proof_delivery_governance.py` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/scripts/audit/verify_math_proof_delivery_governance.py) |
-| `scripts/audit/verify_proof_version_closure.py` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/scripts/audit/verify_proof_version_closure.py) |
-| `sources/prompts/Claude-UR与芝诺的模式匹配-用户原文-20260930.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/Claude-UR%E4%B8%8E%E8%8A%9D%E8%AF%BA%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260930.md) |
 | `sources/prompts/Claude-归因是正题-用户原文-20260924.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/Claude-%E5%BD%92%E5%9B%A0%E6%98%AF%E6%AD%A3%E9%A2%98-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260924.md) |
 | `sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/Claude-%E7%BD%97%E7%B4%A0%E5%8E%9F%E5%88%99P1%E8%87%B3P3-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260926.md) |
-| `sources/prompts/Codex-非现实性悖论的目标与A向读法-用户原文-20260930.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/Codex-%E9%9D%9E%E7%8E%B0%E5%AE%9E%E6%80%A7%E6%82%96%E8%AE%BA%E7%9A%84%E7%9B%AE%E6%A0%87%E4%B8%8EA%E5%90%91%E8%AF%BB%E6%B3%95-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260930.md) |
 | `sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/sources/prompts/GLM-%E7%AE%97%E7%AC%A6%E5%85%88%E8%A1%8C%E4%BA%8E%E5%AD%98%E5%9C%A8%E6%80%A7%E8%90%BD%E5%AE%9A-%E7%94%A8%E6%88%B7%E5%8E%9F%E6%96%87-20260926.md) |
 | `全景视野.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E5%85%A8%E6%99%AF%E8%A7%86%E9%87%8E.md) |
 | `扩展认知.md` | [open](https://github.com/math-fournity/HoTT-Paradoxy/blob/dev/%E6%89%A9%E5%B1%95%E8%AE%A4%E7%9F%A5.md) |
@@ -304,6 +296,6 @@ The questions, the view of paradoxes and the final verdicts come from the initia
 
 ## 9. About this branch
 
-- `main` (this branch) holds only what supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. It is generated from commit [`d766ebd9`](https://github.com/math-fournity/HoTT-Paradoxy/commit/d766ebd95e480cb182d812f11a5a5959fb248c10) of `dev` according to a manifest (`scripts/release/build_main_release.py` and `scripts/release/main-release-spec.json` on `dev`), and is not edited directly. To update it, change the manifest or the conclusion documents on `dev` and generate it again.
+- `main` (this branch) holds only what supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. It is generated from commit [`247b7324`](https://github.com/math-fournity/HoTT-Paradoxy/commit/247b7324c2cfcfe14a5c934dd3a96b00d0afc98a) of `dev` according to a manifest (`scripts/release/build_main_release.py` and `scripts/release/main-release-spec.json` on `dev`), and is not edited directly. To update it, change the manifest or the conclusion documents on `dev` and generate it again.
 - `dev`: the whole research process; all work happens there.
 - This README also exists in Chinese, Russian, German and French with the same content. The community audit papers and `CLAIMS.md` are also available in these four languages; the translations are AI translations, and the Chinese text is authoritative.
