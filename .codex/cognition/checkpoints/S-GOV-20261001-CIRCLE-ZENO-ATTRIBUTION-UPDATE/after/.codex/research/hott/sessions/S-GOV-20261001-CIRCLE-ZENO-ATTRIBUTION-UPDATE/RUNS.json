@@ -1,0 +1,60 @@
+{
+  "base_snapshot": "8dc6d58d26a0d9ab3983dd312eb35d97580f29beef20fc6c10e0a1ee615b699d",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261001-CIRCLE-ZENO-ATTRIBUTION-UPDATE/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v11.json --transition-output audit/core-cognition-generation-11-transition-20261001.json --transition-from-ref af6a4127198e01e799f79075a9b92cb010c0ff74 --write",
+      "generation": "core-cognition-generation-10/54 -> core-cognition-generation-11/55",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=54 / remainder=0",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v11.json --transition audit/core-cognition-generation-11-transition-20261001.json",
+      "status": "PASS_WITH_SCOPE / transition_remainder=0 / model_context=NOT_CERTIFIED_BY_TOOL",
+      "tool": "scripts/audit/verify_core_cognition.py"
+    },
+    {
+      "command": "python3 -B scripts/audit/verify_governance_shards.py",
+      "status": "PASS / 1957 indexes / 12 non-blocking soft-target notices / reader_banner_issues=0",
+      "tool": "scripts/audit/verify_governance_shards.py"
+    },
+    {
+      "command": "read-only source/hash verification for Chinese community README and paper 01 translations",
+      "status": "PASS / 8 translation:v1 headers match exact Chinese source hashes",
+      "tool": "scripts/release/build_main_release.py translation_header"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "tool": "git diff --check"
+    },
+    {
+      "command": "--output <temporary payload>",
+      "status": "PREPARED; read-only with respect to project files",
+      "tool": "scripts/audit/prepare_circle_zeno_attribution_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only canonical result.json proves application",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "open": [
+    "circle K and HoTT task-fidelity/formalization",
+    "A7 uniform-definition impossibility",
+    "community/external audit and all unrelated phase-close items",
+    "Goal7 / MO3-COVERAGE-C"
+  ],
+  "release": {
+    "commit_or_push": false,
+    "main_templates_updated": true,
+    "reason": "No committed source ref or explicit push authorization was supplied.",
+    "release_tree_built": false
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20261001-CIRCLE-ZENO-ATTRIBUTION-UPDATE",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_AND_ATTRIBUTION_CORRECTION"
+}

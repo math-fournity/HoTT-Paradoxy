@@ -3,19 +3,19 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-9",
-        "path": "scripts/audit/core-cognition-curation-v9.json",
-        "sha256": "09370b958df736b7572b999ea11d991a707d9a03482f4ded661cc7aa1aa8348f"
-      },
-      {
         "generation": "core-cognition-generation-10",
         "path": "scripts/audit/core-cognition-curation-v10.json",
         "sha256": "192eca5f212affc62cc1d6858159771b522e2b5c9d82e6191b945bbbb054ead3"
+      },
+      {
+        "generation": "core-cognition-generation-11",
+        "path": "scripts/audit/core-cognition-curation-v11.json",
+        "sha256": "c7e274d3fcec7c5be2991842329cee3a053c5754b97c7e48122cb2b039a2dbf9"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 100,
+    "primary_denominator": 101,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
@@ -29,7 +29,8 @@
       "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md",
       "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md",
       "sources/prompts/Codex-非现实性悖论的目标与A向读法-用户原文-20260930.md",
-      "sources/prompts/Claude-UR与芝诺的模式匹配-用户原文-20260930.md"
+      "sources/prompts/Claude-UR与芝诺的模式匹配-用户原文-20260930.md",
+      "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -37,9 +38,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "c4ec670e519b2d38bfcdbee6d626dd875237852aede7b0cb1e768c7389714e98",
+  "core_document_sha256": "3cd3326f4bb8578c6e4c4e9e14b1c1b6fa590f9a4c12d64f83e88eb37a5b07f8",
   "counts": {
-    "core_units": 54,
+    "core_units": 55,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -47,23 +48,23 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 34
+      "INCLUDED": 35
     },
     "messages_excluded": 66,
-    "messages_included": 34,
-    "messages_parsed": 100,
-    "primary_files": 13,
+    "messages_included": 35,
+    "messages_parsed": 101,
+    "primary_files": 14,
     "units_by_platform": {
       "Claude": 3,
-      "Codex": 23,
+      "Codex": 24,
       "GLM": 1,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v10.json",
-  "curation_sha256": "192eca5f212affc62cc1d6858159771b522e2b5c9d82e6191b945bbbb054ead3",
+  "curation_authority": "scripts/audit/core-cognition-curation-v11.json",
+  "curation_sha256": "c7e274d3fcec7c5be2991842329cee3a053c5754b97c7e48122cb2b039a2dbf9",
   "files": [
     {
       "bytes": 8124,
@@ -181,9 +182,18 @@
       "path": "sources/prompts/Claude-UR与芝诺的模式匹配-用户原文-20260930.md",
       "platform": "Claude",
       "sha256": "a7577323fc91bbb3cb53df590362677282f65fd3f919e246f89666e6113e00d0"
+    },
+    {
+      "bytes": 498,
+      "input_role": "primary",
+      "lines": 7,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md",
+      "platform": "Codex",
+      "sha256": "53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc"
     }
   ],
-  "generation": "core-cognition-generation-10",
+  "generation": "core-cognition-generation-11",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -1984,9 +1994,27 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-09-30T21:35:32+00:00",
       "unit_count": 0
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户对 2026-09-27 总判定中“芝诺悖论的幽灵”所指对象的直接澄清：它指圆环悖论以及仓库后来围绕它的讨论与分析，不是 A7 无穷相干；用户也指出 main README 已按此理解。该消息是对悖论观与既有判定的原意补充，不是 AI 转述，不推出圆环已被忠实形式化，也不改变 A7 的机器证据或开放问题。完整原消息逐字保存在来源文件。",
+      "input_role": "primary",
+      "message_text_bytes": 206,
+      "message_text_sha256": "b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md",
+      "source_file_sha256": "53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc",
+      "source_header_line": 5,
+      "source_message_id": "CODEX-CIRCLE-ZENO-GHOST-20261001-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-10-01",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-01T00:00:00+00:00",
+      "unit_count": 1
     }
   ],
-  "previous_generation_ref": "2199202f128e3573f23084bcb2dafb361f86930f",
+  "previous_generation_ref": "af6a4127198e01e799f79075a9b92cb010c0ff74",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -3795,6 +3823,35 @@
       "timestamp_utc": "2026-09-30T21:20:28+00:00",
       "unit_bytes": 1360,
       "unit_sha256": "56be033f7b12ea3350855bd196e232730b1254a7a1734276a08ff2b8a36a404a"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000055",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户对 2026-09-27 总判定中“芝诺悖论的幽灵”所指对象的直接澄清：它指圆环悖论以及仓库后来围绕它的讨论与分析，不是 A7 无穷相干；用户也指出 main README 已按此理解。该消息是对悖论观与既有判定的原意补充，不是 AI 转述，不推出圆环已被忠实形式化，也不改变 A7 的机器证据或开放问题。完整原消息逐字保存在来源文件。",
+      "selector": {
+        "source_line_end": 7,
+        "source_line_start": 7
+      },
+      "semantic_label": "芝诺悖论的幽灵：圆环悖论及其后续仓库讨论、分析；A7 无穷相干不是该用户判定所指",
+      "source_file": "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md",
+      "source_locator": "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md#L7-L7",
+      "source_message_id": "CODEX-CIRCLE-ZENO-GHOST-20261001-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd",
+      "source_sha256": "53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc",
+      "themes": [
+        "PARADOX_DISCOVERY",
+        "ZENO",
+        "CIRCLE_PARADOX"
+      ],
+      "timestamp_original": "2026-10-01",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-01T00:00:00+00:00",
+      "unit_bytes": 206,
+      "unit_sha256": "b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd"
     }
   ]
 }

@@ -226,13 +226,13 @@ Gut zwei Wochen später führte uns Russells Blick zum Universum der HoTT; die U
 
 Bevor wir das Obige fanden, folgten wir eine Weile einer anderen zenonartigen Spur. Die HoTT kennt etwas, das „semi-simpliziale Struktur“ heißt: eine Form, Stufe für Stufe aus Punkten, Strecken, Dreiecken und Tetraedern zusammengeklebt, mit der Forderung, dass die „Seiten der Seiten“ zusammenpassen. In einer Welt, in der Dasselbe-Sein eine Tatsache ist, lässt sie sich in einer Zeile definieren; in der HoTT wächst jedes Mal, wenn eine Stufe des „Zusammenpassens“ hinzugefügt wird, eine Forderung auf der nächsten Stufe nach. Jede endliche Stufe lässt sich aufschreiben (vom Computer bis Stufe 5 geprüft), aber eine einzige Definition, die alle Stufen auf einmal erfasst, hat bisher niemand gefunden. Das ist seit mehr als zehn Jahren ein bekanntes offenes Problem; dass es unmöglich ist, wurde ebenfalls nicht bewiesen. Die vollständige Darstellung steht im Auditdokument 01.
 
-**Eine Berichtigung zu den Namen.** Der Titel des Auditdokuments 01, der Abschlussbericht und die vorige Fassung dieses README haben die Wendung „das Gespenst von Zenons Paradoxon“ für diese Spur verwendet. Am 2026-10-01 hat die initiierende Person klargestellt, dass die Wendung das Ringparadoxon meint (Originalwortlaut, Auszug):
+**Eine Berichtigung zu den Namen.** Der Titel des Auditdokuments 01, der Abschlussbericht und die vorige Fassung dieses README haben die Wendung „das Gespenst von Zenons Paradoxon“ für die Spur der unendlichen Kohärenz verwendet. Am 2026-10-01 stellte die initiierende Person klar, dass die Wendung das Ringparadoxon und die späteren Diskussionen und Analysen dazu im Repository meint (Originalwortlaut, Auszug):
 
-> ……我说了复活了芝诺悖论的幽灵到底是指什么？我指的的是圆环悖论啊！
+> 我认为，圆环悖论和我们这个repo中对其的进一步的讨论、分析，复活了芝诺悖论的幽灵。
 
-> **Übersetzung.** „… Als ich ‚das Gespenst von Zenons Paradoxon wiederbelebt‘ gesagt habe – was habe ich damit eigentlich gemeint? Ich meinte das Ringparadoxon!“
+> **Übersetzung.** „Ich denke, dass das Ringparadoxon und die weiteren Diskussionen und Analysen dazu in diesem Repository das Gespenst von Zenons Paradoxon wiederbelebt haben.“
 
-Die unendliche Kohärenz ist eine zenonartige Kandidatenspur, die wir (die KI-Systeme im Projekt) konstruiert haben. Sie hat ihren eigenen Wert, ist aber nicht das, was die initiierende Person „das Gespenst von Zenons Paradoxon“ nennt. Überarbeitete Fassungen der beiden Dokumente werden gesondert veröffentlicht.
+Abschnitt 2 erzählt das Ringbeispiel bereits in Alltagssprache. Die unendliche Kohärenz ist ein eigener, von den Projekt-KIs vorgeschlagener zenonartiger Kandidat und nicht der Gegenstand des Urteils vom 2026-09-27. Diese Ausgabe korrigiert Auditdokument 01 und die Zuschreibung in Zeile 92 des Abschlussberichts; A7s Maschinenbelege und die offene Frage nach einer einheitlichen Definition bleiben unverändert.
 
 ## 7. Wie man uns überprüft
 

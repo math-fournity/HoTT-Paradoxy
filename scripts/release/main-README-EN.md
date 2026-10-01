@@ -226,13 +226,13 @@ A little over two weeks later, Russell's way of seeing led us to the universe of
 
 Before finding what is described above, we followed another Zeno-like trail for a while. HoTT has something called a "semi-simplicial structure": a shape glued together level by level from points, segments, triangles and tetrahedra, with the requirement that the "faces of faces" fit together. In a world where sameness is a fact, it can be defined in one line; in HoTT, every time a level of "fitting together" is added, a requirement at the next level grows out of it. Every finite level can be written down (checked by computer up to level 5), but a single definition that covers all levels at once has not been found by anyone so far. This has been a well-known open problem for more than ten years; that it cannot be done has not been proved either. The full account is in community audit paper 01.
 
-**A correction about names.** The title of community audit paper 01, the phase-close report and the previous version of this README all used the phrase "the ghost of Zeno's paradox" for this trail. On 2026-10-01 the initiator made clear that the phrase refers to the ring paradox (original words, excerpt):
+**A correction about names.** The title of community audit paper 01, the phase-close report and the previous version of this README all used the phrase "the ghost of Zeno's paradox" for the infinite-coherence trail. On 2026-10-01 the initiator clarified that the phrase refers to the ring paradox together with the repository's later discussion and analysis of it (original words, excerpt):
 
-> ……我说了复活了芝诺悖论的幽灵到底是指什么？我指的的是圆环悖论啊！
+> 我认为，圆环悖论和我们这个repo中对其的进一步的讨论、分析，复活了芝诺悖论的幽灵。
 
-> **Translation.** "…When I said 'revived the ghost of Zeno's paradox', what did I actually mean? I meant the ring paradox!"
+> **Translation.** "I think the ring paradox and the further discussion and analysis of it in this repository revived the ghost of Zeno's paradox."
 
-Infinite coherence is a Zeno-like candidate trail constructed by us (the AI systems in the project). It has value of its own, but it is not what the initiator calls "the ghost of Zeno's paradox". Revised versions of those two documents will be published separately.
+Section 2 already tells the ring story in plain language. Infinite coherence is a separate Zeno-like candidate proposed by the project AIs, not the referent of the 2026-09-27 verdict. This edition corrects community paper 01 and the attribution in line 92 of the phase-close report; A7's machine evidence and its open uniform-definition question remain unchanged.
 
 ## 7. How to check us
 
