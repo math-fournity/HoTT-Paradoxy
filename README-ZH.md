@@ -1,12 +1,12 @@
 # HoTT-Paradoxy：同伦类型论中的非现实性悖论——结论与证据
 
-**中文** · [English](README-EN.md) · [Français](README-FR.md) · [Deutsch](README-DE.md)
+**中文** · [Русский](README-RU.md) · [Deutsch](README-DE.md) · [Français](README-FR.md) · [English](README-EN.md)
 
 **摘要**　同伦类型论（HoTT）为了经济与普适，把“相同”从一次检查就落定的事实，改成了可以一层层追问“以什么方式相同”的结构：同构的东西就是同一个（单价性），任意高维的形状在宇宙里一次齐备（高阶归纳类型）。我们把“确认两个东西是不是同一个”写成一个逐层追问的程序：第 k 问检查这份相同是否已在第 k 层了结（即是否为 h-层 k+1 的类型），每一问由判定器交出带证明的“是”或“否”，答“是”就停并报出层数。我们在 Cubical Agda 中证明：对任何判定器，这个程序在宇宙上（含高阶归纳类型）与乘积 ∏ₙ K(ℤ,n+1) 上都等于永不停机的程序 `never`；成员高度封顶时，它恰好在封顶所决定的那一问停；按同一组方程转写到“相同是事实”的 Lean 4，第 1 问就停；对集合截断发问也在第 1 问停，但截断把相同的多种方式合成了一种，而且解码不回宇宙。研究发起人把非现实性悖论定义为“本来应该很简单的事情，甚至在X理论中，都做不到”（UR），把这一结果读作与芝诺悖论同形的悖论，并判断它很可能就是本项目要找的那一个。数学事实大多不新：乘积一侧是 HoTT Book 的例 8.8.6；宇宙一侧，书中（2013）写为预计可证、尚未做出，本仓库给出了机器证明。新的主要是读法，以及它指向的前提，首先是单价性。第二条线：半单纯类型的统一定义在书式 HoTT 中至今写不出，这是公开的开放问题；研究发起人判定这条线“复活了芝诺悖论的幽灵”。全部正向命题由证明器内核检查（Cubical Agda 2.8.0 与 cubical 0.9；Lean 4.34.0），附负控制与 107 个可重放的运行收据。我们不宣称 HoTT 不一致；“很可能已经找到”是研究发起人的判断，不是定理。
 
 **关键词**　同伦类型论；单价性；高阶归纳类型；截断层级；Delay 单子；无穷相干；芝诺悖论；非现实性悖论
 
-> **关于本分支**：`main` 只放支撑结论的关键内容：结论文档、精确命题、证明源码、运行收据与重放方法。研究的全部过程在 [`dev` 分支](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev)：研究发起人的原话账本、方向与结果投影、各 AI 的工作区与审计往来、治理与状态。本分支由 `dev` 的提交 [`ece3ec6f`](https://github.com/math-fournity/HoTT-Paradoxy/commit/ece3ec6f240b280a95fd98b3afa4c15cb2727ebe) 按清单生成（[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)），不在本分支上直接修改。本说明另有英、法、德文版本，内容相同。
+> **关于本分支**：`main` 只放支撑结论的关键内容：结论文档、精确命题、证明源码、运行收据与重放方法。研究的全部过程在 [`dev` 分支](https://github.com/math-fournity/HoTT-Paradoxy/tree/dev)：研究发起人的原话账本、方向与结果投影、各 AI 的工作区与审计往来、治理与状态。本分支由 `dev` 的提交 [`17b4aec9`](https://github.com/math-fournity/HoTT-Paradoxy/commit/17b4aec95f124329d4d5b43dc30611ae8369a358) 按清单生成（[`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)），不在本分支上直接修改。本说明另有俄、德、法、英文版本，内容相同。
 
 ## 1. 研究发起人的定义与判定
 
@@ -76,7 +76,7 @@
 - [`CLAIMS.md`](CLAIMS.md)：每个命题的精确陈述、证据与禁止外推；按证明包列出主运行、负控制与跨平台重放。
 - 证明源码：`HoTT/formal/`。每个包的 `CLAIM.md` 写明命题全文与范围。
 - 运行收据：`HoTT/verification/runs/`，共 107 个，其中 49 个被内核接受，58 个是预期被拒的负控制（它们检验的是精确的边界，不是失败的历史）。部分命题在 macOS 与 Linux 两个平台上各有运行。
-- [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)：本分支 677 个文件各自的 SHA-256 与角色，以及它们取自 `dev` 的哪个提交。
+- [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)：本分支 678 个文件各自的 SHA-256 与角色，以及它们取自 `dev` 的哪个提交。
 
 工具链：Cubical Agda 2.8.0 与 cubical 库 v0.9（选项写在各源文件里：`--safe --cubical --guardedness`）；Lean 4.34.0，只用核心库、不含 Mathlib，用来做“相同是事实”的对照。收据引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。
 
