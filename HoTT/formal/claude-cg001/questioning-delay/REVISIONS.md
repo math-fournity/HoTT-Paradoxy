@@ -15,3 +15,10 @@
 - `CLAIM.md` 在“这件事改变了什么”第 2 条说“同一个程序该停处都停”，所列里含“Lean 里的宇宙第 1 问停（C-80）”。
 - 精确说法：在 Cubical Agda 内部（ℕ、Bool、`Gathering n`、宇宙），这是字面意义的同一个定义 `question`。Lean 一侧是按同一组燃料方程写成的有限燃料运行，是同一个过程的转写，不是跨系统的同一个对象。这与同文“禁止外推”第 6 条一致。
 - 同日在更新根 README 时的两项自检中发现；根 README、CN-046 与 Claude 总索引 002 已改为精确说法。形式命题、源码与运行收据不变。
+
+## 2026-09-30：macOS 跨平台重放（本机 Claude Code 会话 eadb3381；交接说明 W12）
+
+- 本包原先只在 Linux 上捕获与重放（七个运行 `20260930-CG001-QUESTIONING-DELAY-*`）。在本机 macOS 上照同一 proof id、claim id、源码与 include 根重捕了全部七个，运行编号带 `-MACOS-`；Lean 的两个用固定工具链 `HoTT/formal/claude-cg001/pedometer-ablation-lean/LEAN_TOOLCHAIN.json`，不经 elan。
+- 对照：七对运行退出码与状态相同；把两边的仓库根、cubical 库根、Lean 库根换成占位符以后，stdout 逐行相同；stderr 都是 0 字节。驱动与日志：`.claude/explore/20260930-阶段收尾/`。
+- 七个新运行都经 `verify_cg001_run.py --rerun` 精确重放（两个 `PASS_WITH_SCOPE`，五个 `NEGATIVE_CONTROL_REJECTED_AS_EXPECTED`），登记在 CG-001 证据索引 §23。
+- `CLAIM.md` 不改（它被运行收据的哈希钉住）；其中“运行只在 Linux 上重放”一句，自本条起不再成立。命题范围不变。
