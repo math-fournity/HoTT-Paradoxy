@@ -226,13 +226,13 @@ Un peu plus de deux semaines plus tard, le regard de Russell nous a conduits jus
 
 Avant de trouver ce qui est décrit plus haut, nous avons suivi un temps une autre piste à la manière de Zénon. HoTT connaît une chose appelée « structure semi-simpliciale » : une forme collée niveau par niveau à partir de points, de segments, de triangles et de tétraèdres, avec l'exigence que les « faces des faces » s'accordent. Dans un monde où l'identité est un fait, elle se définit en une ligne ; dans HoTT, chaque fois qu'on ajoute un niveau d'« accord », une exigence pousse au niveau suivant. Chaque niveau fini peut être écrit (vérifié par ordinateur jusqu'au niveau 5), mais personne n'a trouvé jusqu'ici une définition unique qui couvre tous les niveaux à la fois. C'est un problème ouvert bien connu depuis plus de dix ans ; qu'il soit impossible n'a pas non plus été démontré. L'exposé complet se trouve dans le document d'audit 01.
 
-**Une rectification à propos des noms.** Le titre du document d'audit 01, le rapport de clôture de phase et la version précédente de ce README ont tous employé l'expression « le fantôme du paradoxe de Zénon » pour cette piste. Le 2026-10-01, la personne à l'origine du projet a précisé que cette expression désigne le paradoxe de l'anneau (propos originaux, extrait) :
+**Une rectification à propos des noms.** Le titre du document d'audit 01, le rapport de clôture de phase et la version précédente de ce README ont tous employé l'expression « le fantôme du paradoxe de Zénon » pour la piste de cohérence infinie. Le 1er octobre 2026, la personne à l'origine du projet a précisé que cette expression désigne le paradoxe de l'anneau ainsi que les discussions et analyses ultérieures du dépôt à ce sujet (propos originaux, extrait) :
 
-> ……我说了复活了芝诺悖论的幽灵到底是指什么？我指的的是圆环悖论啊！
+> 我认为，圆环悖论和我们这个repo中对其的进一步的讨论、分析，复活了芝诺悖论的幽灵。
 
-> **Traduction.** « … Quand j'ai dit « ressuscité le fantôme du paradoxe de Zénon », qu'est-ce que je voulais dire au juste ? Je voulais parler du paradoxe de l'anneau ! »
+> **Traduction.** « Je pense que le paradoxe de l'anneau et les discussions et analyses ultérieures à son sujet dans ce dépôt ont ressuscité le fantôme du paradoxe de Zénon. »
 
-La cohérence infinie est une piste candidate à la manière de Zénon, construite par nous (les systèmes d'IA du projet). Elle a sa propre valeur, mais ce n'est pas ce que la personne à l'origine du projet appelle « le fantôme du paradoxe de Zénon ». Des versions révisées de ces deux documents seront publiées séparément.
+La section 2 raconte déjà le paradoxe de l'anneau en langage courant. La cohérence infinie est une piste candidate distincte à la manière de Zénon, proposée par les IA du projet ; ce n'est pas le référent du verdict du 27/09/2026. Cette édition corrige le document d'audit 01 et l'attribution à la ligne 92 du rapport de clôture ; les preuves machine d'A7 et la question ouverte de la définition uniforme restent inchangées.
 
 ## 7. Comment nous vérifier
 
@@ -304,6 +304,6 @@ Les questions, la façon de voir les paradoxes et les verdicts finaux viennent d
 
 ## 9. À propos de cette branche
 
-- `main` (cette branche) ne contient que ce qui étaye les conclusions : les documents de conclusion, les énoncés précis, les sources des preuves, les reçus d'exécution et le moyen de les rejouer. Elle est générée à partir du commit [`8fa2263b`](https://github.com/math-fournity/HoTT-Paradoxy/commit/8fa2263b6b708d75260cf012c5a3119efdb1f1db) de `dev` selon un manifeste (`scripts/release/build_main_release.py` et `scripts/release/main-release-spec.json` sur `dev`) et n'est pas modifiée directement. Pour la mettre à jour, on modifie le manifeste ou les documents de conclusion sur `dev`, puis on la génère de nouveau.
+- `main` (cette branche) ne contient que ce qui étaye les conclusions : les documents de conclusion, les énoncés précis, les sources des preuves, les reçus d'exécution et le moyen de les rejouer. Elle est générée à partir du commit [`d766ebd9`](https://github.com/math-fournity/HoTT-Paradoxy/commit/d766ebd95e480cb182d812f11a5a5959fb248c10) de `dev` selon un manifeste (`scripts/release/build_main_release.py` et `scripts/release/main-release-spec.json` sur `dev`) et n'est pas modifiée directement. Pour la mettre à jour, on modifie le manifeste ou les documents de conclusion sur `dev`, puis on la génère de nouveau.
 - `dev` : l'ensemble du processus de recherche ; tout le travail s'y fait.
 - Ce README existe aussi en chinois, en russe, en allemand et en anglais, avec le même contenu. Les documents d'audit et `CLAIMS.md` existent également dans ces quatre langues ; les traductions sont faites par IA, et le texte chinois fait foi.
