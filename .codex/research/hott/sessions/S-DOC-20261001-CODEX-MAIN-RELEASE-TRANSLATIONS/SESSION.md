@@ -31,3 +31,13 @@ T1 启动核已消费：根 `AGENTS.md`、`README.md` 索引与任务相关的 0
 - `git diff --check`：PASS。
 
 端到端 `build_main_release.py --source <commit> --out <dir>` 尚未运行：该脚本有意只读取提交中的 source，当前改动与既有 Opus 文件都尚未被用户授权提交。提交后应在包含全部翻译源和发布脚本变更的精确 `dev` commit 上运行该构建，再独立审阅输出和 `RELEASE-MANIFEST.json`；该动作不等同于授权直接修改或 push `main`。
+
+## 发布闭合（2026-10-01，用户随后明确授权）
+
+上文的“未提交／未生成／未 push”是本单元第一阶段的历史快照。研究发起人随后明确要求“完成提交和推送”，据此完成了以下受控发布；本节是该 session 的当前交付状态。
+
+- `dev`：签名提交 `24950d5d19ee6d0e7edc6c2d6ff93f1c18a2c2e1`，`release: add five-language community and claims translations`；包含发布脚本与清单、16 个社区稿译本、4 个 `CLAIMS` 模板以及本 session 的初始记录。
+- 生成：以该 exact `dev` commit 运行 `python3 -B scripts/release/build_main_release.py --source 24950d5d19ee6d0e7edc6c2d6ff93f1c18a2c2e1 --out <empty-directory>`；输出的 `RELEASE-MANIFEST.json` 记录 698 个文件、16 个社区稿译本、4 个 `CLAIMS` 模板，且其 source commit、所有文件 SHA-256、五语 README/CLAIMS 语言栏和占位符检查均通过。
+- `main`：在独立的、干净的临时 worktree 中只写入上述生成物，签名提交 `827a926ffaaf20cd56da022a1ae9632ab852df1d`，`main: publish five-language translations`；其 manifest 仍明确 pin 到 `dev` 的 `24950d5d`，后续仅记录 session 的 `dev` 提交不改变这份已发布快照。
+- 远端：`git push --atomic origin dev:dev main:main` 成功；随后 `git ls-remote --heads origin refs/heads/dev refs/heads/main` 分别返回 `24950d5d19ee6d0e7edc6c2d6ff93f1c18a2c2e1` 与 `827a926ffaaf20cd56da022a1ae9632ab852df1d`。
+- 保留边界：预先存在的未跟踪文件 `dev-notes/0103 - 2026-09-30 - Files pasted by the user.md` 未被暂存、提交或推送；临时 `main` worktree 在清洁状态下已移除。未改数学命题、证明源码、运行收据、STATE、方向或全景投影。
