@@ -1,6 +1,6 @@
 {
   "schema_version": "hott-paradoxy-main-release-spec/v1",
-  "release_id": "main-20260930-phase-close",
+  "release_id": "main-20261001-five-languages",
   "repository": "https://github.com/math-fournity/HoTT-Paradoxy",
   "dev_branch": "dev",
   "purpose": "The main branch holds only the content that supports the conclusions: conclusion documents, precise claims, proof sources, run receipts and a portable replay. Everything else stays on dev.",
@@ -13,6 +13,39 @@
     "docs/社区审计提交/02-罗素悖论的幽灵.md",
     "docs/社区审计提交/03-HoTT的芝诺.md"
   ],
+  "doc_translations": {
+    "note": "AI translations next to the Chinese originals on dev: <name>-RU.md, -DE.md, -FR.md, -EN.md. Each opens with a translation:v1 header recording the SHA-256 of the Chinese original; the build fails if it is stale. On main the Chinese originals get the language bar; on dev they are unchanged (STATE pins their hashes).",
+    "sources": [
+      "docs/社区审计提交/README.md",
+      "docs/社区审计提交/01-芝诺悖论的幽灵.md",
+      "docs/社区审计提交/02-罗素悖论的幽灵.md",
+      "docs/社区审计提交/03-HoTT的芝诺.md"
+    ]
+  },
+  "language_bar": {
+    "note": "Order set by the researcher on 2026-10-01: Chinese, Russian, German, French, English.",
+    "order": [
+      "zh",
+      "ru",
+      "de",
+      "fr",
+      "en"
+    ],
+    "labels": {
+      "zh": "中文",
+      "ru": "Русский",
+      "de": "Deutsch",
+      "fr": "Français",
+      "en": "English"
+    },
+    "suffix": {
+      "zh": "-ZH",
+      "ru": "-RU",
+      "de": "-DE",
+      "fr": "-FR",
+      "en": "-EN"
+    }
+  },
   "packages": [
     "HoTT/formal/claude-cg001/sst-finite-levels",
     "HoTT/formal/claude-cg001/uip-escape",
@@ -270,6 +303,43 @@
       ]
     }
   },
+  "claims_templates": [
+    {
+      "lang": "zh",
+      "outputs": [
+        "CLAIMS.md",
+        "CLAIMS-ZH.md"
+      ]
+    },
+    {
+      "lang": "ru",
+      "template": "scripts/release/main-CLAIMS-RU.md",
+      "outputs": [
+        "CLAIMS-RU.md"
+      ]
+    },
+    {
+      "lang": "de",
+      "template": "scripts/release/main-CLAIMS-DE.md",
+      "outputs": [
+        "CLAIMS-DE.md"
+      ]
+    },
+    {
+      "lang": "fr",
+      "template": "scripts/release/main-CLAIMS-FR.md",
+      "outputs": [
+        "CLAIMS-FR.md"
+      ]
+    },
+    {
+      "lang": "en",
+      "template": "scripts/release/main-CLAIMS-EN.md",
+      "outputs": [
+        "CLAIMS-EN.md"
+      ]
+    }
+  ],
   "generated": [
     "README.md",
     "README-ZH.md",
@@ -278,6 +348,11 @@
     "README-FR.md",
     "README-EN.md",
     "CLAIMS.md",
+    "CLAIMS-ZH.md",
+    "CLAIMS-RU.md",
+    "CLAIMS-DE.md",
+    "CLAIMS-FR.md",
+    "CLAIMS-EN.md",
     "RELEASE-MANIFEST.json",
     "tools/replay.py",
     ".gitignore"

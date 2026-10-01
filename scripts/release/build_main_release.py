@@ -11,9 +11,14 @@ commit, never from the working tree, so the result is determined by (commit, spe
   must have the recorded SHA-256 at the source commit, or the build fails;
 * CLAIMS.md, copied verbatim from three places on dev (two sections of HoTT/CLAIM_EVIDENCE_MATRIX.md, the
   goal-local relay rows and the claim one-liners of the Claude master index), plus a generated run table;
+  CLAIMS-ZH.md is the same file; CLAIMS-RU/DE/FR/EN.md come from translation templates, each of which records the
+  SHA-256 of the Chinese sections it translates, and the build fails when that hash no longer matches;
+* translations of the community audit papers (`<name>-RU.md` etc. next to the Chinese original on dev), each with
+  a header that records the SHA-256 of the Chinese original it translates; a stale translation fails the build.
+  On main the Chinese originals get the same language bar as their translations; on dev they stay as they are;
 * README.md and README-ZH/RU/DE/FR/EN.md from the templates listed in the spec, tools/replay.py from scripts/release/replay.py;
-* RELEASE-MANIFEST.json: every file with its SHA-256 and role, the runs, the units, and the paths that the
-  documents mention but that stay on dev.
+* RELEASE-MANIFEST.json: every file with its SHA-256 and role, the runs, the units, the translations and the
+  paths that the documents mention but that stay on dev.
 
 Usage:
   python3 -B scripts/release/build_main_release.py --source <commit-ish> --out <empty directory>
@@ -42,8 +47,43 @@ TABLE_LABELS = {
     "fr": ("Chemin", "Sur `dev`", "ouvrir"),
     "de": ("Pfad", "In `dev`", "öffnen"),
 }
+# run table of CLAIMS: header row, "accepted", "rejected as expected", list separator, comma
+RUN_TABLE_LABELS = {
+    "zh": ("| 运行 | 证明 | 命题 | 证明器 | 记录的结局 | 单元 |", "接受", "被拒（预期）", "、", "，"),
+    "ru": ("| Запуск | Доказательство | Утверждения | Система | Записанный результат | Блок |", "принято", "отклонено (ожидаемо)", ", ", ", "),
+    "de": ("| Lauf | Beweis | Aussagen | Beweisassistent | Aufgezeichnetes Ergebnis | Einheit |", "akzeptiert", "abgelehnt (erwartet)", ", ", ", "),
+    "fr": ("| Exécution | Preuve | Énoncés | Assistant de preuve | Résultat enregistré | Unité |", "accepté", "rejeté (attendu)", ", ", ", "),
+    "en": ("| Run | Proof | Claims | Proof assistant | Recorded outcome | Unit |", "accepted", "rejected (expected)", ", ", ", "),
+}
 REPLAY = "scripts/release/replay.py"
 GITIGNORE = "_build/\n*.agdai\n*.olean\n__pycache__/\n"
+
+
+def translation_header(text: str) -> dict:
+    """Fields of the `<!-- translation:v1 ... -->` block that opens a translation (empty dict if absent)."""
+    m = re.match(r"<!-- translation:v1\n(.*?)\n-->\n", text, re.S)
+    if not m:
+        return {}
+    fields = {}
+    for line in m.group(1).split("\n"):
+        key, sep, value = line.partition(":")
+        if sep:
+            fields[key.strip()] = value.strip()
+    return fields
+
+
+def language_bar(order: list[str], labels: dict, current: str, target) -> str:
+    """`中文 · Русский · …` with the current language in bold and the others linked to target(lang)."""
+    return " · ".join(f"**{labels[l]}**" if l == current else f"[{labels[l]}]({target(l)})" for l in order)
+
+
+def insert_after_title(text: str, line: str) -> str:
+    """Insert `line` as its own paragraph right after the first level-1 heading."""
+    lines = text.split("\n")
+    for i, row in enumerate(lines):
+        if row.startswith("# "):
+            return "\n".join(lines[:i + 1] + ["", line] + lines[i + 1:])
+    raise SystemExit("NO_TITLE_FOR_LANGUAGE_BAR")
 
 
 def git(*args: str) -> bytes:
@@ -101,16 +141,58 @@ def path_mentions(text: str) -> set[str]:
     return found
 
 
+def claims_body(commit: str, cs: dict) -> str:
+    """Sections 1-3 of CLAIMS.md: copied verbatim from dev; the CLAIMS translations translate exactly this text."""
+    body = []
+    titles = ["## 1. 罗素线与 UR：追问程序、邻近对照与截断对照", "## 2. Cloud-Opus 的审计与补完：宇宙塔的一般 n、高阶归纳类型证书、GLM 线与跨平台重放"]
+    order_idx = [1, 0]  # the Claude section first, then the Cloud-Opus section
+    sections = cs["matrix_sections"]
+    for title, idx in zip(titles, order_idx):
+        src = sections[idx]
+        body += [title, "", f"> 来源：`dev` 上 `{src['file']}` 的“{src['heading'][3:]}”一节。", "",
+                 section(blob(commit, src["file"]).decode("utf-8"), src["heading"]), ""]
+    relay = cs["relay_rows"]
+    relay_text = blob(commit, relay["file"]).decode("utf-8")
+    one = cs["claim_one_liners"]
+    one_text = blob(commit, one["file"]).decode("utf-8")
+    body += [
+        "## 3. 芝诺线、Delay 语义与共用对照",
+        "",
+        "> 这些命题的行在 `dev` 上的目标内索引里（`.claude/goals/CG-001-targeted-overview/relay.md` 的 R1 草稿），尚未登记进共享矩阵；"
+        "每个运行另有逐字节重放的输出，在 `dev` 上的 `.claude/goals/CG-001-targeted-overview/verification/`。命题全文与禁止外推以各包的 `CLAIM.md` 为准。",
+        "",
+        "### 3.1 证明包与运行（逐字）",
+        "",
+        "| Package ID | Claim IDs | 源码 | 证据 | 判词 |",
+        "|---|---|---|---|---|",
+        *table_rows(relay_text, relay["proof_ids"]),
+        "",
+        "### 3.2 命题一句话（逐字）",
+        "",
+        "| 命题 | 一句话 | 包 |",
+        "|---|---|---|",
+        *table_rows(one_text, one["claims"]),
+    ]
+    return "\n".join(body)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--source", required=True, help="commit-ish on dev to build from")
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--out", help="empty output directory (required unless --claims-body-sha)")
+    ap.add_argument("--claims-body-sha", action="store_true",
+                    help="print the SHA-256 of sections 1-3 of CLAIMS.md at --source (the value a CLAIMS translation records) and exit")
     args = ap.parse_args()
 
     commit = git("rev-parse", "--verify", f"{args.source}^{{commit}}").decode().strip()
     commit_date = git("show", "-s", "--format=%cI", commit).decode().strip()
     spec = json.loads(blob(commit, SPEC))
     repo = spec["repository"]
+    if args.claims_body_sha:
+        print(sha(claims_body(commit, spec["claims_sources"]).encode("utf-8")))
+        return 0
+    if not args.out:
+        raise SystemExit("--out is required")
 
     out = Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
@@ -128,6 +210,41 @@ def main() -> int:
 
     for path in spec["docs"]:
         add(path, "CONCLUSION_DOCUMENT")
+
+    # translations of conclusion documents: `<name>-RU.md` etc. next to the Chinese original
+    bar = spec["language_bar"]
+    order, labels, suffix = bar["order"], bar["labels"], bar["suffix"]
+    translations = []
+    doc_paths = list(spec["docs"])
+    for source in spec["doc_translations"]["sources"]:
+        if source not in files:
+            raise SystemExit(f"TRANSLATED_SOURCE_NOT_A_DOC:{source}")
+        stem = source[:-3]
+        name = os.path.basename(stem)
+
+        def target(lang: str, name: str = name) -> str:
+            return f"{name}.md" if lang == "zh" else f"{name}{suffix[lang]}.md"
+
+        source_sha = sha(files[source]["data"])
+        for lang in order:
+            if lang == "zh":
+                continue
+            path = f"{stem}{suffix[lang]}.md"
+            add(path, "CONCLUSION_DOCUMENT_TRANSLATION")
+            doc_paths.append(path)
+            text = files[path]["data"].decode("utf-8")
+            head = translation_header(text)
+            if head.get("source") != source or head.get("language") != lang:
+                raise SystemExit(f"TRANSLATION_HEADER_INVALID:{path}")
+            if head.get("source_sha256") != source_sha:
+                raise SystemExit(f"TRANSLATION_STALE:{path}:records {head.get('source_sha256')} but {source} is {source_sha}")
+            if language_bar(order, labels, lang, target) not in text.split("\n"):
+                raise SystemExit(f"TRANSLATION_LANGUAGE_BAR_MISSING:{path}")
+            translations.append({"path": path, "language": lang, "source": source, "source_sha256": source_sha,
+                                 "translator": head.get("translator"), "status": "CURRENT"})
+        files[source]["language_bar"] = language_bar(order, labels, "zh", target)
+        files[source]["source_sha256"] = source_sha
+
     for package in spec["packages"]:
         members = tracked(commit, package)
         if not members:
@@ -186,61 +303,72 @@ def main() -> int:
         units[key] = {"title": unit["title"], "claims": unit["claims"], "runs": members}
     unassigned = [r["run_id"] for r in runs if not any(r["run_id"] in u["runs"] for u in units.values())]
 
-    # CLAIMS.md
-    cs = spec["claims_sources"]
-    parts = [
-        "# 命题与证据",
-        "",
-        f"> 本文件由 `dev` 上的 `scripts/release/build_main_release.py` 从提交 `{commit[:8]}` 生成，不在本分支修改。第 1、2 节逐字取自 `dev` 上共享证据矩阵 "
-        "`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的两节（不含原标题行）；第 3 节逐字取自 `dev` 上的目标内索引草稿与 Claude 总索引；第 4 节由各运行的收据生成。"
-        "文中 `formal/…`、`verification/runs/…` 指本分支 `HoTT/` 下的同名路径；其余过程文件的路径在 `dev` 上（见 README 第 5 节）。",
-        "",
-    ]
-    titles = ["## 1. 罗素线与 UR：追问程序、邻近对照与截断对照", "## 2. Cloud-Opus 的审计与补完：宇宙塔的一般 n、高阶归纳类型证书、GLM 线与跨平台重放"]
-    order = [1, 0]  # the Claude section first, then the Cloud-Opus section
-    sections = cs["matrix_sections"]
-    for title, idx in zip(titles, order):
-        src = sections[idx]
-        parts += [title, "", f"> 来源：`dev` 上 `{src['file']}` 的“{src['heading'][3:]}”一节。", "",
-                  section(blob(commit, src["file"]).decode("utf-8"), src["heading"]), ""]
-    relay = cs["relay_rows"]
-    relay_text = blob(commit, relay["file"]).decode("utf-8")
-    one = cs["claim_one_liners"]
-    one_text = blob(commit, one["file"]).decode("utf-8")
-    parts += [
-        "## 3. 芝诺线、Delay 语义与共用对照",
-        "",
-        "> 这些命题的行在 `dev` 上的目标内索引里（`.claude/goals/CG-001-targeted-overview/relay.md` 的 R1 草稿），尚未登记进共享矩阵；"
-        "每个运行另有逐字节重放的输出，在 `dev` 上的 `.claude/goals/CG-001-targeted-overview/verification/`。命题全文与禁止外推以各包的 `CLAIM.md` 为准。",
-        "",
-        "### 3.1 证明包与运行（逐字）",
-        "",
-        "| Package ID | Claim IDs | 源码 | 证据 | 判词 |",
-        "|---|---|---|---|---|",
-        *table_rows(relay_text, relay["proof_ids"]),
-        "",
-        "### 3.2 命题一句话（逐字）",
-        "",
-        "| 命题 | 一句话 | 包 |",
-        "|---|---|---|",
-        *table_rows(one_text, one["claims"]),
-        "",
-        "## 4. 运行清单",
-        "",
-        "| 运行 | 证明 | 命题 | 证明器 | 记录的结局 | 单元 |",
-        "|---|---|---|---|---|---|",
-    ]
-    for r in runs:
-        member_of = "、".join(k for k, u in units.items() if r["run_id"] in u["runs"]) or "—"
-        claims = "、".join(c.replace("`", "") for c in r["claim_ids"]) or "—"
-        parts.append(f"| `{r['run_id']}` | `{r['proof_id']}` | {claims} | {r['proof_assistant']} | "
-                     f"{'接受' if r['expected'] == 'accepted' else '被拒（预期）'}，exit {r['recorded_exit']}，`{r['recorded_status']}` | {member_of} |")
-    claims_md = ("\n".join(parts).rstrip("\n") + "\n").encode("utf-8")
+    # CLAIMS.md: sections 1-3 are copied verbatim from dev (the part the translations translate), section 4 is generated
+    body_text = claims_body(commit, spec["claims_sources"])
+    body_sha = sha(body_text.encode("utf-8"))
+
+    def run_table(lang: str) -> str:
+        head, yes, no, list_sep, comma = RUN_TABLE_LABELS[lang]
+        rows = [head, "|---|---|---|---|---|---|"]
+        for r in runs:
+            member_of = list_sep.join(k for k, u in units.items() if r["run_id"] in u["runs"]) or "—"
+            claims = list_sep.join(c.replace("`", "") for c in r["claim_ids"]) or "—"
+            outcome = yes if r["expected"] == "accepted" else no
+            rows.append(f"| `{r['run_id']}` | `{r['proof_id']}` | {claims} | {r['proof_assistant']} | "
+                        f"{outcome}{comma}exit {r['recorded_exit']}{comma}`{r['recorded_status']}` | {member_of} |")
+        return "\n".join(rows)
+
+    claims_outputs: dict[str, bytes] = {}
+    claims_translations = []
+    for t in spec["claims_templates"]:
+        lang = t["lang"]
+
+        def claims_target(l: str) -> str:
+            return "CLAIMS-ZH.md" if l == "zh" else f"CLAIMS{suffix[l]}.md"
+
+        expected_bar = language_bar(order, labels, lang, claims_target)
+        if lang == "zh":
+            text = "\n".join([
+                "# 命题与证据",
+                "",
+                expected_bar,
+                "",
+                f"> 本文件由 `dev` 上的 `scripts/release/build_main_release.py` 从提交 `{commit[:8]}` 生成，不在本分支修改。第 1、2 节逐字取自 `dev` 上共享证据矩阵 "
+                "`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的两节（不含原标题行）；第 3 节逐字取自 `dev` 上的目标内索引草稿与 Claude 总索引；第 4 节由各运行的收据生成。"
+                "文中 `formal/…`、`verification/runs/…` 指本分支 `HoTT/` 下的同名路径；其余过程文件的路径在 `dev` 上（见 README 第 6 节）。"
+                "另有俄、德、法、英文译本（AI 翻译，以本中文版为准）；`CLAIMS.md` 与 `CLAIMS-ZH.md` 相同。",
+                "",
+                body_text,
+                "",
+                "## 4. 运行清单",
+                "",
+                run_table("zh"),
+            ])
+        else:
+            text = blob(commit, t["template"]).decode("utf-8")
+            head = translation_header(text)
+            if head.get("source") != "CLAIMS.md" or head.get("language") != lang:
+                raise SystemExit(f"CLAIMS_TRANSLATION_HEADER_INVALID:{t['template']}")
+            if head.get("source_body_sha256") != body_sha:
+                raise SystemExit(f"CLAIMS_TRANSLATION_STALE:{t['template']}:records {head.get('source_body_sha256')} but sections 1-3 are {body_sha}")
+            if expected_bar not in text.split("\n"):
+                raise SystemExit(f"CLAIMS_TRANSLATION_LANGUAGE_BAR_MISSING:{t['template']}")
+            for key, value in {"REPO": repo, "SOURCE_COMMIT": commit, "SOURCE_SHORT": commit[:8], "RUN_TABLE": run_table(lang)}.items():
+                text = text.replace("{{" + key + "}}", value)
+            if "{{" in text:
+                raise SystemExit(f"CLAIMS_PLACEHOLDER_LEFT:{t['template']}")
+            claims_translations.append({"language": lang, "template": t["template"], "outputs": t["outputs"],
+                                        "source_body_sha256": body_sha, "translator": head.get("translator"), "status": "CURRENT"})
+        data = (text.rstrip("\n") + "\n").encode("utf-8")
+        for out_name in t["outputs"]:
+            claims_outputs[out_name] = data
+    if "CLAIMS.md" not in claims_outputs:
+        raise SystemExit("CLAIMS_MD_MISSING")
 
     # paths that the documents mention but that stay on dev
     included = set(files)
     mentioned = set()
-    for path in spec["docs"]:
+    for path in doc_paths:
         text = files[path]["data"].decode("utf-8")
         base = os.path.dirname(path)
         for token in path_mentions(text):
@@ -266,7 +394,7 @@ def main() -> int:
         return "\n".join(rows)
 
     link_rewrites: dict[str, list] = {}
-    for path in spec["docs"]:
+    for path in doc_paths:
         text = files[path]["data"].decode("utf-8")
         base = os.path.dirname(path)
         changed = []
@@ -290,13 +418,19 @@ def main() -> int:
         new_text = re.sub(r"(\[[^\]\n]*\])\(([^)\n]+)\)", fix, text)
         if changed:
             files[path]["data"] = new_text.encode("utf-8")
-            files[path]["role"] = "CONCLUSION_DOCUMENT_LINKS_TO_DEV"
+            files[path]["role"] += "_LINKS_TO_DEV"
             link_rewrites[path] = changed
+
+    # on main the Chinese originals carry the same language bar as their translations
+    for source in spec["doc_translations"]["sources"]:
+        entry = files[source]
+        entry["data"] = insert_after_title(entry["data"].decode("utf-8"), entry["language_bar"]).encode("utf-8")
+        entry["role"] += "_WITH_LANGUAGE_BAR"
 
     replay_py = blob(commit, REPLAY)
     accepted = sum(1 for r in runs if r["expected"] == "accepted")
     generated = {
-        "CLAIMS.md": claims_md,
+        **claims_outputs,
         "tools/replay.py": replay_py,
         ".gitignore": GITIGNORE.encode("utf-8"),
     }
@@ -332,7 +466,14 @@ def main() -> int:
         "paths_mentioned_but_on_dev": on_dev,
         "receipt_sources_kept_on_dev": sorted(on_dev_seen.values(), key=lambda e: e["path"]),
         "document_links_rewritten_to_dev": link_rewrites,
-        "files": [{"path": p, "role": v["role"], "bytes": len(v["data"]), "sha256": sha(v["data"]), "source": "dev:" + commit[:8]}
+        "translations": {
+            "note": "AI translations; the Chinese originals are authoritative. Each translation records the SHA-256 of the "
+                    "Chinese text it translates, and the build fails when that hash no longer matches.",
+            "documents": translations,
+            "claims": {"source": "CLAIMS.md sections 1-3", "source_body_sha256": body_sha, "templates": claims_translations},
+        },
+        "files": [{"path": p, "role": v["role"], "bytes": len(v["data"]), "sha256": sha(v["data"]), "source": "dev:" + commit[:8],
+                   **({"dev_sha256": v["source_sha256"]} if "source_sha256" in v else {})}
                   for p, v in sorted(files.items())]
                  + [{"path": p, "role": "GENERATED", "bytes": len(d), "sha256": sha(d)} for p, d in sorted(generated.items())],
     }
