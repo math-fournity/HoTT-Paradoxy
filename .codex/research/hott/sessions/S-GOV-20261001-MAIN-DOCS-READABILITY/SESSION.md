@@ -48,8 +48,10 @@
 - `扩展认知/011`: ALIGNED — UR and the user's 2026-10-01 ring attribution are kept in their current scope.
 - Shards `002`, `004`, `006`, `007`, `008` are `NOT_TOUCHED`; re-open them only if a later public-doc edit relies on their specific claims.
 
-## Verification boundary and next step
+## Verification and outcome
 
-- At record creation, the reader-report diff and release-spec diff pass `git diff --check`; the release spec parses as JSON.
-- Preserve untouched working-tree material and other worktrees. Do not stage private `dev-notes` or parallel audit work.
-- Next: commit the exact report/spec/ruling/session delta on `dev`, build the curated tree from that commit, inspect the generated diff, fast-forward push `dev` and `main`, then record the verified refs in `MEMORY`.
+- The report, release spec, and governance edits passed `git diff --check`; the release spec parses as JSON. The governance-shard validator passed (1,966 indexes; 12 informational soft-target notices; no reader-banner errors).
+- Main was built by the canonical release builder from exact dev source commit `247b7324c2cfcfe14a5c934dd3a96b00d0afc98a`. Build result: 699 files, 107 run receipts (49 accepted, 58 expected rejects), 33 referenced source paths remain on dev. The generated file set matched the isolated main worktree; changes were limited to generated README/CLAIMS source provenance, release manifest, and the phase-close report.
+- Signed main commit `276f8a4b4f4513efe05ae99e99d0f7626e66d21d` has parent `a5df2e32a8b76aeadcbf8205bb452bf03c5fe6b8`; signature verified and fast-forward push to `origin/main` succeeded. The release manifest names `main-20261001-reader-friendly-report-followup` and exact dev source `247b7324…`.
+- The phase-close report was the only additional reader-facing narrative document needing this pass. Recent README/community-paper rewrites were left intact; formal claims, proofs, run receipts and release mechanics remain exact technical evidence. No proof replay was run because `HoTT/` and `tools/` were unchanged.
+- The release status was recorded in `MEMORY/001` and appended to `MEMORY/003`. The exact final dev and main refs were checked against the remote after pushing; unrelated user changes and other worktrees were not staged or modified.
