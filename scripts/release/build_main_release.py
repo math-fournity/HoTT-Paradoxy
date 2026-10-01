@@ -11,7 +11,7 @@ commit, never from the working tree, so the result is determined by (commit, spe
   must have the recorded SHA-256 at the source commit, or the build fails;
 * CLAIMS.md, copied verbatim from three places on dev (two sections of HoTT/CLAIM_EVIDENCE_MATRIX.md, the
   goal-local relay rows and the claim one-liners of the Claude master index), plus a generated run table;
-* README.md and README-ZH/EN/FR/DE.md from the templates listed in the spec, tools/replay.py from scripts/release/replay.py;
+* README.md and README-ZH/RU/DE/FR/EN.md from the templates listed in the spec, tools/replay.py from scripts/release/replay.py;
 * RELEASE-MANIFEST.json: every file with its SHA-256 and role, the runs, the units, and the paths that the
   documents mention but that stay on dev.
 
@@ -37,6 +37,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SPEC = "scripts/release/main-release-spec.json"
 TABLE_LABELS = {
     "zh": ("路径", "在 `dev` 上", "打开"),
+    "ru": ("Путь", "В `dev`", "открыть"),
     "en": ("Path", "On `dev`", "open"),
     "fr": ("Chemin", "Sur `dev`", "ouvrir"),
     "de": ("Pfad", "In `dev`", "öffnen"),
