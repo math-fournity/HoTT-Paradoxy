@@ -262,6 +262,6 @@ Original conversations, AI working notes, audit exchanges and exploratory paths 
 
 ## 9. About this branch
 
-- `main` (this branch) holds only what supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. It is generated from commit [`975a8e20`](https://github.com/math-fournity/HoTT-Paradoxy/commit/975a8e20b57a639c6aec705b7461939284769acf) of `dev` according to a manifest (`scripts/release/build_main_release.py` and `scripts/release/main-release-spec.json` on `dev`), and is not edited directly. To update it, change the manifest or the conclusion documents on `dev` and generate it again.
+- `main` (this branch) holds only what supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. It is generated from commit [`72520807`](https://github.com/math-fournity/HoTT-Paradoxy/commit/72520807057c974a7d565159b2fe1e6f47be972d) of `dev` according to a manifest (`scripts/release/build_main_release.py` and `scripts/release/main-release-spec.json` on `dev`), and is not edited directly. To update it, change the manifest or the conclusion documents on `dev` and generate it again.
 - `dev`: the whole research process; all work happens there.
 - This README also exists in Chinese, Russian, German and French with the same content. The community audit papers and `CLAIMS.md` are also available in these four languages; the translations are AI translations, and the Chinese text is authoritative.
