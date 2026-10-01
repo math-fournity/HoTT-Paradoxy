@@ -256,3 +256,19 @@ source-first消费。
    - 三段原文入核为核心认知第 10 代，经 canonical checkpoint `S-GOV-20260930-CLAUDE-CORE-GENERATION-10-UR`；
    - 方向追踪、全景视野、STATE 的阶段收尾登记，经其后的 checkpoint `S-GOV-20260930-CLAUDE-PARADOX-SEARCH-PHASE-CLOSE`；
    - 收尾报告：`docs/HoTT悖论查找阶段收尾报告-20260930.md`。
+
+## 2026-09-30：分支：`dev` 放研究过程，`main` 只放支撑结论的关键内容
+
+用户原话（2026-09-30，Claude Code 会话 eadb3381）：
+
+~~~text
+我觉得是这样，我们需要建立一个新的分支，我用户设置github上的默认展示分支，或者你如果可以处理一下把当前这个repo的main分支整理好，然后改名为dev分支，然后把main分支腾出来。专门放支撑结论的关键性内容。现在的main分支，更像是一个dev分支，东西太乱了。
+~~~
+
+执行裁定：
+
+1. **`dev`**：原来的 `main` 改名为 `dev`，全部历史原样保留（原 `main` 的最后一个提交 `74d172f7` 是 `dev` 的祖先）。研究、治理与登记工作都在 `dev` 上进行；各 AI 的本地副本改为跟踪 `origin/dev`。
+2. **`main`**：只放支撑结论的关键内容，即结论文档（收尾报告与三份社区审计稿）、精确命题（`CLAIMS.md`）、证明源码、运行收据、可移植重放（`tools/replay.py`）与发布清单（`RELEASE-MANIFEST.json`）。它是一条与 `dev` 没有共同祖先的独立历史，由 `dev` 上的 `scripts/release/build_main_release.py` 按 `scripts/release/main-release-spec.json` 从某个 `dev` 提交生成。不在 `main` 上直接提交，也不在两条分支之间合并。
+3. **选材原则**：沿用研究发起人 2026-09-19 的公开交付裁定（`MATH-FOURNITY-公开仓库规划-20260919.md` 文首）：读者得到最终结果、精确命题、可复现机器证据、明确边界与开放问题，不必消费用户与 AI 的对话、四件套、dev-notes、治理过程或调试失败史。每个收录的运行，它的收据登记的源文件都在 `main` 里，而且哈希一致；唯一的例外是 Lean 收据登记的驱动脚本 `.claude/goals/CG-001-targeted-overview/tools/lean_check.py`，它留在 `dev`，`tools/replay.py` 重复它的步骤。
+4. **更新 `main`**：在 `dev` 上改清单或结论文档并提交，再重新生成、推送 `main`；推送 `main` 要研究发起人授权。GitHub 的默认展示分支仍是 `main`。
+5. **记录**：第一次生成的源提交、`main` 提交与全量重放结果，记在 `.claude/总索引/005 - 工作日志.md` 的对应条目。

@@ -21,6 +21,8 @@ panorama_projection: 20260930-outcome-293
 -->
 
 > 合同：`docs/quality/长治理文档分片与索引合同.md`。本页和各分片里的状态是 2026-09-30 阶段收尾时的快照（STATE revision 293；核心认知第 10 代，54 条；方向追踪 v1.14，全景视野 v1.15）。状态的权威在各自的 owner 文件，本页只做路由；快照过期时以 owner 为准。
+>
+> **分支**（2026-09-30 起）：本分支是 `dev`，放全部研究过程，所有工作都在这里进行。对外展示的结论与证据在 `main` 分支，由 `scripts/release/build_main_release.py` 从 `dev` 生成，不直接编辑（`rulings.md` 2026-09-30 末节）。
 
 ## 一屏读懂
 

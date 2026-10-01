@@ -79,7 +79,7 @@
 - 运行收据：`HoTT/verification/runs/`，共 {{RUN_TOTAL}} 个，其中 {{RUN_ACCEPTED}} 个被内核接受，{{RUN_REJECTED}} 个是预期被拒的负控制（它们检验的是精确的边界，不是失败的历史）。部分命题在 macOS 与 Linux 两个平台上各有运行。
 - [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json)：本分支 {{FILE_TOTAL}} 个文件各自的 SHA-256 与角色，以及它们取自 `dev` 的哪个提交。
 
-工具链：Cubical Agda 2.8.0 与 cubical 库 v0.9（选项写在各源文件里：`--safe --cubical --guardedness`）；Lean 4.34.0，只用核心，用来做“相同是事实”的对照。
+工具链：Cubical Agda 2.8.0 与 cubical 库 v0.9（选项写在各源文件里：`--safe --cubical --guardedness`）；Lean 4.34.0，只用核心，用来做“相同是事实”的对照。收据引用的工具链记录在 `HoTT/formal/dedekind-omega-missile/`（macOS 上的 Agda）、`HoTT/formal/claude-cg001/pedometer-ablation-lean/`（macOS 上的 Lean）与 `HoTT/formal/cloud-opus-glm-audit/`（Linux）；前两个目录沿用 `dev` 上的位置，在本分支里只放这些记录文件。
 
 ## 4. 怎样重放
 
