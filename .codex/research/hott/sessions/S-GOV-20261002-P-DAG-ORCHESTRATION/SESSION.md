@@ -13,6 +13,7 @@
 - origin-audit correction：无泄漏 HoTT replay 尚未以同卡、同任务重定位既有实际 Q；此前 ZFC source/Battle 的推进只可保留为 calibration/control，不能满足 ZFC Q 释放条件。
 - isolation correction：HOTT-DISCOVERY-007 观察到 global instruction injection/tool attempt；旧 fresh CLI `BLIND_CARD` 继续暂停，H-005/H-006 agent 输出不再作为合格 blind evidence。`governance-v3.26.0` App Server direct lane通过 zero-material health与HOTT-DISCOVERY-008，成为严格 NodeCard 范围内可复用的盲态 runner；`governance-v3.26.1`随后完成该节点的 direct-wire trajectory audit。它不资格化任意 broker/profile，也不追溯认证旧 CLI。
 - trajectory correction：H008 私有双向 App Server wire 曾被 shared reader全标为`unknown`，不能据此写成无轨迹。3.26.1 adapter以真实shape fixture修复后，重建一条terminal turn、tool/result/approval=0和summary-only reasoning；完整 injected context、hidden reasoning、L4/L5保持独立未知。
+- duration correction：用户指出180秒不应成为 App Server理论节点的默认硬中止；通过 private wire/liveness可持续观察，十分钟或更长的推理本身正常。后续NodeCard改为60秒observation cadence、默认无自动interrupt、只有明确hard-stop predicate才中断。H010已在修订前91秒自然终态，保留历史180秒字段，不追溯改写。
 - auth correction：empty `CODEX_HOME` health node消除了旧 global path却在模型采样前 `401`；不复制现有 file-auth 到模型工具可读的临时 home。H-008改用 R-035 pre/post deny gates、独立0600 temporary auth和finally删除，运行后无借用文件残留。
 - open proof obligations：H-008 的 Π/h-level discovery candidate已被 Book `thm:hlevel-prod`直接支付，故不是 replay release。目标层版本固定的标准 ZFC actual consumer、native positive Q、P3 lifecycle source、同卡共同 Q、同一任务与 UR 均未建立。P2 已有范围严格的 Isabelle/ZF formula-semantics reentry source，但它尚未提供共同 Q。
 

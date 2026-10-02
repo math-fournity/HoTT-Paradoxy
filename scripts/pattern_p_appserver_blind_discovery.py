@@ -122,14 +122,46 @@ def prompt_input_gate(
 
 
 async def run_discovery(
-    paths: dict[str, Path], regression: Any, broker: Any, prompt: str
+    paths: dict[str, Path],
+    regression: Any,
+    broker: Any,
+    prompt: str,
+    *,
+    observation_interval_seconds: float,
+    hard_timeout_seconds: float | None,
+    interrupt_grace_seconds: float,
 ) -> dict[str, Any]:
-    """Run one bounded no-tool discovery turn and preserve only private raw content."""
+    """Run one no-tool discovery turn without a default wall-clock interruption.
+
+    The private wire and liveness receipt are the live observation surface. A hard
+    interruption is used only when the NodeCard explicitly supplies a positive
+    resource budget.
+    """
     terminal = asyncio.Event()
     agent_parts: list[str] = []
     completed: dict[str, Any] = {}
     counts = {"command": 0, "file_change": 0, "approval_request": 0}
     started = time.monotonic()
+    thread_id = ""
+    turn_id = ""
+
+    def write_liveness(status: str) -> None:
+        private_json(
+            paths["private"] / "run-liveness.json",
+            {
+                "schema_version": "p-dag-blind-discovery-liveness/v1",
+                "status": status,
+                "thread_id": thread_id,
+                "turn_id": turn_id,
+                "elapsed_seconds": round(time.monotonic() - started, 3),
+                "observation_interval_seconds": observation_interval_seconds,
+                "hard_timeout_seconds": hard_timeout_seconds,
+                "command": counts["command"],
+                "file_change": counts["file_change"],
+                "approval_request": counts["approval_request"],
+            },
+            regression,
+        )
 
     async def notify(method: str, params: dict[str, Any]) -> None:
         if method == "item/agentMessage/delta" and isinstance(params.get("delta"), str):
@@ -193,6 +225,7 @@ async def run_discovery(
         }
         if not all(exact_start.values()):
             raise RuntimeError(f"thread/start echo mismatch: {exact_start}")
+        private_json(paths["private"] / "thread-start.json", thread_start, regression)
         turn_start = await rpc.request(
             "turn/start",
             {
@@ -208,21 +241,48 @@ async def run_discovery(
         turn_id = str(turn.get("id") or "")
         if not turn_id:
             raise RuntimeError("turn/start returned no turn id")
-        try:
-            await asyncio.wait_for(terminal.wait(), timeout=180)
-        except asyncio.TimeoutError:
-            await rpc.request("turn/interrupt", {"threadId": thread_id, "turnId": turn_id}, timeout=30)
+        private_json(paths["private"] / "turn-start.json", turn_start, regression)
+        write_liveness("RUNNING")
+        hard_deadline = (
+            started + hard_timeout_seconds
+            if hard_timeout_seconds is not None
+            else None
+        )
+        while not terminal.is_set():
+            wait_seconds = observation_interval_seconds
+            if hard_deadline is not None:
+                wait_seconds = min(wait_seconds, max(0.0, hard_deadline - time.monotonic()))
             try:
-                await asyncio.wait_for(terminal.wait(), timeout=20)
+                await asyncio.wait_for(terminal.wait(), timeout=wait_seconds)
             except asyncio.TimeoutError:
-                return {"status": "TIMEOUT_NO_TERMINAL_OUTPUT", "thread_id": thread_id,
-                        "turn_id": turn_id, "exact_start": exact_start, **counts}
+                write_liveness("STILL_RUNNING")
+                if hard_deadline is None or time.monotonic() < hard_deadline:
+                    continue
+                await rpc.request(
+                    "turn/interrupt",
+                    {"threadId": thread_id, "turnId": turn_id},
+                    timeout=30,
+                )
+                write_liveness("HARD_TIMEOUT_INTERRUPT_REQUESTED")
+                try:
+                    await asyncio.wait_for(terminal.wait(), timeout=interrupt_grace_seconds)
+                except asyncio.TimeoutError:
+                    write_liveness("HARD_TIMEOUT_NO_TERMINAL_OUTPUT")
+                    return {
+                        "status": "HARD_TIMEOUT_NO_TERMINAL_OUTPUT",
+                        "thread_id": thread_id,
+                        "turn_id": turn_id,
+                        "exact_start": exact_start,
+                        "observation_interval_seconds": observation_interval_seconds,
+                        "hard_timeout_seconds": hard_timeout_seconds,
+                        "interrupt_grace_seconds": interrupt_grace_seconds,
+                        **counts,
+                    }
+        write_liveness("TERMINAL")
         text = "".join(agent_parts).strip()
         final_path = paths["private"] / "final.txt"
         final_path.write_text(text + ("\n" if text else ""), encoding="utf-8")
         final_path.chmod(0o600)
-        private_json(paths["private"] / "thread-start.json", thread_start, regression)
-        private_json(paths["private"] / "turn-start.json", turn_start, regression)
         completed_turn = completed.get("turn") if isinstance(completed.get("turn"), dict) else {}
         words = len(text.split())
         content_ok = bool(text) and words <= 350
@@ -249,6 +309,9 @@ async def run_discovery(
             "output_schema_ok": output_schema_ok,
             "turn_status": completed_turn.get("status"),
             "elapsed_seconds": round(time.monotonic() - started, 3),
+            "observation_interval_seconds": observation_interval_seconds,
+            "hard_timeout_seconds": hard_timeout_seconds,
+            "interrupt_grace_seconds": interrupt_grace_seconds,
             **counts,
         }
     finally:
@@ -263,11 +326,38 @@ def main() -> int:
     parser.add_argument("--authorization", required=True)
     parser.add_argument("--project-root", type=Path, required=True)
     parser.add_argument("--prompt-file", type=Path, required=True)
+    parser.add_argument(
+        "--observation-interval-seconds",
+        type=float,
+        default=60.0,
+        help="write private RUNNING/STILL_RUNNING liveness every interval; never interrupts by itself",
+    )
+    parser.add_argument(
+        "--hard-timeout-seconds",
+        type=float,
+        default=0.0,
+        help="positive value explicitly authorizes automatic turn/interrupt; 0 means no automatic wall-clock stop",
+    )
+    parser.add_argument(
+        "--interrupt-grace-seconds",
+        type=float,
+        default=20.0,
+        help="terminal grace only after an explicit positive hard timeout",
+    )
     args = parser.parse_args()
     if "R-035" not in args.authorization:
         raise SystemExit("--authorization must include R-035")
     method_repo = args.method_repo.resolve()
     project_root = args.project_root.resolve()
+    if args.observation_interval_seconds <= 0:
+        raise SystemExit("--observation-interval-seconds must be positive")
+    if args.hard_timeout_seconds < 0:
+        raise SystemExit("--hard-timeout-seconds must be non-negative")
+    if args.interrupt_grace_seconds <= 0:
+        raise SystemExit("--interrupt-grace-seconds must be positive")
+    hard_timeout_seconds = (
+        args.hard_timeout_seconds if args.hard_timeout_seconds > 0 else None
+    )
     prompt = read_frozen_turn(args.prompt_file)
     if "You are a blind P-DISCOVERY mapper." not in prompt:
         raise SystemExit("--prompt-file does not contain the frozen blind discovery profile")
@@ -304,7 +394,17 @@ def main() -> int:
             raise RuntimeError("post-auth sandbox permission gate failed")
         os.environ.clear()
         os.environ.update(regression.regression_process_env(paths))
-        behavior = asyncio.run(run_discovery(paths, regression, broker, prompt))
+        behavior = asyncio.run(
+            run_discovery(
+                paths,
+                regression,
+                broker,
+                prompt,
+                observation_interval_seconds=args.observation_interval_seconds,
+                hard_timeout_seconds=hard_timeout_seconds,
+                interrupt_grace_seconds=args.interrupt_grace_seconds,
+            )
+        )
         private_json(paths["private"] / "blind-discovery-behavior.json", behavior, regression)
         summary = {
             "run_id": args.run_id,
@@ -321,6 +421,8 @@ def main() -> int:
             "command_count": behavior.get("command"),
             "file_change_count": behavior.get("file_change"),
             "approval_request_count": behavior.get("approval_request"),
+            "observation_interval_seconds": behavior.get("observation_interval_seconds"),
+            "hard_timeout_seconds": behavior.get("hard_timeout_seconds"),
             "source_auth_content_recorded": False,
         }
     except Exception as exc:
