@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG-RUNNER-ISOLATION-002：空 CODEX_HOME 认证边界结果（2026-10-02）](20261002-P-DAG-RUNNER-ISOLATION-002-RESULT.md)：空 home 取消了可见用户 AGENTS 路径，却因 keyring 无可用认证在模型采样前 `401` 失败；现有 file-auth 不复制进模型可读取的临时 home，盲态任务等待独立认证 runner。
+
 - [P-DAG-HOTT-DISCOVERY-007：盲态 CLI 上下文泄漏与终止收据（2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-007-ACCESS-LEAK.md)：`/tmp` cwd、只读、`--ignore-user-config` 和 `--ignore-rules` 仍未阻止 global instruction injection；worker 尝试读取全局 Skill、扫描 workspace 与调用 Git 后被停止。所有 fresh-CLI blind evidence 因而降级，后继必须先跑零理论 runner-isolation health node。
 
 - [P-DAG-HOTT-DISCOVERY-006：宽基础理论画像的 D-L6 回归（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-006-Terra-Max.md)：宽盲态 profile 正确把单价的逆方向停为 `DISCOVERY_DIRECT_RULE_ANSWER`，却因“一项即停”的旧合同没有选下一个基础位置；由此把 D‑L6 补成有界三项的 D‑L6b continuation，仍不构成 HoTT replay pass。
