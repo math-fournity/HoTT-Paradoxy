@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H028：AC0／Power Set 的活跃义务与来源包支付控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-028-AC0-POW-Terra-Max.md)：Isabelle/ZF 中的 AC0 定义、被断言的 AC0 以及带 well-order 前提的定理是三种不同状态；这张受控卡新增 P1 的 `L5b` 和 `L7b`，不形成 ZFC Q、ZFC 矛盾或 runtime construction 结论。
+
 - [P-DAG ZFC H025–H027：constructible-inner-powerset 来源控制与外部隔离重试（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-025-027-CONSTRUCTIBLE-POW-Terra-Max.md)：两次预认证失败保留为运行证据；外部 experiment root 的同字节 source-match 成功显示 concrete `LCarrier` 的有限域内部化是 guarded model-layer consumer，`Q`仍未出现，P2/P3不启动。
 
 - [P-DAG ZFC H023/H024：relative-powerset 模型边界控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-023-024-RELATIVE-POW-Terra-Max.md)：Isabelle 相对模型中的 internal/external powerset 不绝对只支持一向模型边界；外部 source-match 正确拒绝把它升格为 standard-ZFC consumer Q。

@@ -1,0 +1,34 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261002-P-DAG-H028-PAYMENT-SCAN",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "P-DAG-ZFC-SOURCE-028-AC0-POW",
+      "kind": "controlled_app_server_source_match",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "max",
+      "status": "TERMINAL_SOURCE_CONTROL",
+      "source_sha256": "3953f40986a937b25d3f04072155e05c7e0f4e8fdae6182878b07a3110ad5c6c",
+      "prompt_sha256": "9c43dd8422e28b7410e70f83e9f0309d61a2d01dc159711be6bc017a18cab550",
+      "wire_sha256": "9a6f408d294e44b1078dcc95cc6c6852b6af1f818694969cea95d71d1b03531a",
+      "behavior_final_sha256": "1ebf6a4f00beb79b7acf8cd38b3ce1c2be4d0fd62d36d71907460457678af8c3",
+      "liveness": "RUNNING -> STILL_RUNNING -> TERMINAL; automatic_wall_clock_interrupt=false",
+      "verdict": "SOURCE_CONSUMER_GAP / FORMULA_ONLY_NOT_ACTIVE_DEMAND / CONDITIONAL_PAYMENT_NOT_ACTIVE / NOT_ZFC_Q_LOCATED",
+      "evidence": "audit/20261002-P-DAG-ZFC-SOURCE-028-AC0-POW-Terra-Max.md"
+    },
+    {
+      "id": "P-DAG-H028-DOCUMENT-VALIDATION",
+      "kind": "project_structure_and_evidence_validation",
+      "status": "PASS_WITH_NONBLOCKING_NOTICES",
+      "commands": [
+        "git diff --check",
+        "python3 -B scripts/audit/verify_governance_shards.py",
+        "python3 /Users/aurolafly/codex/tools/session_trajectory.py catalog/tree/scan/search/inspect/coverage"
+      ],
+      "scope": "structure, source hashes, trajectory identity, and documentation consistency; not a mathematical proof"
+    }
+  ]
+}
