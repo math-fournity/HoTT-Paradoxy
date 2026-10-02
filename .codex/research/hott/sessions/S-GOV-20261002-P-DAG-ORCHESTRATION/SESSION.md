@@ -28,10 +28,12 @@
 11. `P-DAG-RUNNER-HEALTH-001`：Terra/Max health node 在无理论输入下返回 `RUNNER_HEALTH_PASS`，说明 Source-004 的连接失败不是永久禁用；它仅资格化下一次有界 worker。
 12. `P-DAG-HOTT-REPLAY-001`：no-leak Book packet node在 deadline 后没有可观察终态，标 `TIMEOUT_NO_TERMINAL_OUTPUT`；此后收据改为 CLI `-o` final artifact。
 13. `P-DAG-HOTT-REPLAY-002`：终态输出成功捕获，agent正确返回 `SOURCE_INSUFFICIENT`。Master 判断它没有测试一遍发现，而是发现 P-DISCOVERY/P-VALIDATION 被混淆；F-034和分段修复由此建立。
+14. `P-DAG-HOTT-DISCOVERY-003`：分段后第一 discovery node在90秒没有final artifact；只有一次改变执行预算和输出长度的后继被允许。
+15. `P-DAG-HOTT-DISCOVERY-004`：长观察窗捕获一张合法 `MODEL_RECALL_SITE_CANDIDATE`，但 Q? 是 universe-index preservation 的 meta-layer问题，不是 native prospective task；P1新增 D-L5/native-task anchor，F-035登记，HoTT gate仍未释放。
 
 ## 证据与停止
 
-- public evidence：`audit/20261002-P-DAG-BATTLE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-004-NODECARD.md`、`audit/20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md`、`audit/20261002-P-DAG-RUNNER-HEALTH-001-NODECARD.md`、`audit/20261002-P-DAG-HOTT-REPLAY-001-NODECARD.md`、`audit/20261002-P-DAG-HOTT-REPLAY-002-Terra-Max.md`、`audit/20261002-模式P刀具系统起源—实作对照审计.md`、`audit/20261002-P-DAG-AppServer-资格检查.md`；
+- public evidence：`audit/20261002-P-DAG-BATTLE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-004-NODECARD.md`、`audit/20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md`、`audit/20261002-P-DAG-RUNNER-HEALTH-001-NODECARD.md`、`audit/20261002-P-DAG-HOTT-REPLAY-001-NODECARD.md`、`audit/20261002-P-DAG-HOTT-REPLAY-002-Terra-Max.md`、`audit/20261002-P-DAG-HOTT-DISCOVERY-003-NODECARD.md`、`audit/20261002-P-DAG-HOTT-DISCOVERY-004-Terra-Max.md`、`audit/20261002-模式P刀具系统起源—实作对照审计.md`、`audit/20261002-P-DAG-AppServer-资格检查.md`；
 - private/scratch evidence：`/tmp/hott-p-dag-battle-001/`、`/tmp/hott-p-dag-source-001/`、`/tmp/hott-p-dag-source-002/`、`/tmp/hott-p-dag-battle-002/`、`/tmp/hott-p-dag-source-003/`（empty final-output directory）；
 - no checkpoint：本轮没有改数学 STATE、方向投影、全景投影或数学 claim matrix；
-- next action：以预封存 `P-DISCOVERY` NodeCard 执行独立、无答案泄漏的 HoTT line discovery；其 `MODEL_RECALL_SITE_CANDIDATE` 再经 source tracer与`P-VALIDATION`检验。只有完整链在同一理论变体、同一 u/F/C/Q/I/O/Done 上达到 release predicate，ZFC Q 升级才解除；在此之前，ZFC source cards只作校准／control。每一自然单元先做 delta self-audit，再用精确 Git commit 记录有效修订。
+- next action：以预封存、D-L5-compliant `P-DISCOVERY` NodeCard 执行一次新的无答案泄漏 HoTT line discovery；其 `MODEL_RECALL_SITE_CANDIDATE` 再经 source tracer与`P-VALIDATION`检验。只有完整链在同一理论变体、同一 u/F/C/Q/I/O/Done 上达到 release predicate，ZFC Q 升级才解除；在此之前，ZFC source cards只作校准／control。每一自然单元先做 delta self-audit，再用精确 Git commit 记录有效修订。

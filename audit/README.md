@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [P-DAG-HOTT-DISCOVERY-004：长观察窗无泄漏 HoTT 发现结果（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-004-Terra-Max.md)：首次捕获 discovery trace，但候选落在 universe-index 元层问题；它促成 P1 的 `D-L5/native-task anchor`，不能算 HoTT replay pass。
+
+- [P-DAG-HOTT-DISCOVERY-003：无泄漏 HoTT 一遍发现 NodeCard（2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-003-NODECARD.md)：90 秒没有终态输出，保留为 timing failure；H-004 是唯一改变观察窗与输出契约的后继重试。
+
 - [P-DAG-HOTT-REPLAY-001：无答案泄漏 HoTT 校准 NodeCard（2026-10-02）](20261002-P-DAG-HOTT-REPLAY-001-NODECARD.md)：第一次 Book source packet 校准在输出可观察前超时；它留下冻结输入与终态边界，不能被读成 P 或 HoTT 的失败。
 
 - [P-DAG-HOTT-REPLAY-002：修复输出捕获后的无泄漏 HoTT 校准结果（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-REPLAY-002-Terra-Max.md)：终态收据成功捕获，代理正确拒绝虚构 consumer；Master 据此发现 discovery 与 validation 被同一 gate 混淆，修订为 `P-DISCOVERY → source tracer → P-VALIDATION`。
