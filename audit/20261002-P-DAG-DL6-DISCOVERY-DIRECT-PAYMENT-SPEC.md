@@ -57,3 +57,18 @@ If the answer is not visible from the frozen packet, discovery may still output 
 ## 4. Boundary
 
 This refinement only prevents an obvious discovery-stage false positive. It says nothing about HoTT consistency, the existing HoTT research result, ZFC, or a general claim about model capability.
+
+## 5. D-L6b / bounded alternate-site continuation
+
+HOTT-DISCOVERY-006 passed D-L6 but showed that a direct-answer screen can become an early-stop sink: the response discarded univalence correctly, then stopped although the broad profile contained other foundation interfaces. D-L6b is therefore a **selection-protocol** refinement, not another theory condition:
+
+```text
+If a first obvious site fails D-L5 or D-L6, record it as a rejected control and
+inspect at most two further obvious foundational sites in the same blind response.
+Return exactly one eligible MODEL_RECALL_SITE_CANDIDATE if one remains; otherwise
+return NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY after the bounded scan.
+```
+
+The bound of three total sites preserves the user's one-pass heuristic: it is one response with a small, explicit alternative set, not a traversal of theory X or its derived details. Each rejected site must still state its short reason. A direct-answer screen is terminal only when no eligible site remains within that bound.
+
+The new regression oracle is H-006: univalence should appear as a rejected D-L6 control, while the worker must then consider a non-identical foundational alternative or explicitly establish that the bounded profile has none.

@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG-HOTT-DISCOVERY-006：宽基础理论画像的 D-L6 回归（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-006-Terra-Max.md)：宽盲态 profile 正确把单价的逆方向停为 `DISCOVERY_DIRECT_RULE_ANSWER`，却因“一项即停”的旧合同没有选下一个基础位置；由此把 D‑L6 补成有界三项的 D‑L6b continuation，仍不构成 HoTT replay pass。
+
 - [P-DAG-DL6：发现阶段的直接偿付筛查规格（2026-10-02）](20261002-P-DAG-DL6-DISCOVERY-DIRECT-PAYMENT-SPEC.md)：由 H‑005 的 `isEquiv(idtoeqv)` 候选触发。若冻结规则本身已直接提供 Q? 的 answer，盲态节点必须记录 `DISCOVERY_DIRECT_RULE_ANSWER`，不把它送入来源验证或三刀会合；D‑L6 不取代 P1 L6 的完整来源核验。
 
 - [P-DAG-HOTT-DISCOVERY-005：D-L5 原生任务锚点的 HoTT 发现与来源验证（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-005-Terra-Max.md)：无泄漏 discovery 首次提出“以等价形成宇宙路径”的原生任务，因而通过 `D-L5`；固定 HoTT Book 原典立即显示 `ua` 是 `idtoeqv` 的逆，故该 Q 在 P1 `L6` 被判为接口已支付的平凡控制，不能释放 HoTT replay 或 ZFC gate。
