@@ -1,0 +1,30 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261002-P-DAG-H031-H032-P3-ATOMIC",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "P-DAG-ZFC-SOURCE-031-AC-POW-P3-ATOMIC",
+      "status": "INPUT_CONTRACT_FAILURE_NO_AGENT_OUTPUT",
+      "reason": "source-match profile marker absent before App Server sampling"
+    },
+    {
+      "id": "P-DAG-ZFC-SOURCE-032-AC-POW-P3-ATOMIC",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "max",
+      "source_sha256": "8f02e7ec0a2396972a1693572bc046d9906cc430b67b45a072eb1ffbd1e2e126",
+      "prompt_sha256": "360f02a55427896c714cd0cc19636da56ac193f4659449c0d54dda3b9a8dc75b",
+      "wire_sha256": "9f25c0e7bff9c6b176e72e9ed4585a15c2777cae6e25c77808db1da1d12272ba",
+      "status": "P3_FORMATION_AS_ATOMIC_CONTROL",
+      "scope": "proof context witness only; construction semantics not supplied; not ZFC B direction"
+    },
+    {
+      "id": "P-DAG-H031-H032-DOCUMENT-VALIDATION",
+      "status": "PASS_WITH_NONBLOCKING_SHARD_NOTICES",
+      "commands": ["git diff --check", "verify_governance_shards.py", "session_trajectory catalog/tree/coverage/search/inspect"],
+      "result": "62-KC audit count=62; governance-shard validation PASS with 14 nonblocking soft-target notices"
+    }
+  ]
+}

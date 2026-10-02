@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H031/H032：AC proof witness 的 P3 原子形成控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-031-032-AC-POW-P3-ATOMIC-Terra-Max.md)：H031的profile marker缺失在采样前失败；H032同源复测显示`exE`是proof-context局部见证，未提供P3构造状态或ZFC B向结论。
+
 - [P-DAG ZFC H029/H030：axiomatized AC、Power Set 和 Gate Ledger 回归（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-029-030-AC-POW-PROOF-GATELEDGER-Terra-Max.md)：H029的支付链内容正确但公开gate标签错置；H030以固定五行Ledger复测，限定地通过proof-system层的直接支付分类，不形成ZFC Q或可执行selector。
 
 - [P-DAG ZFC H028：AC0／Power Set 的活跃义务与来源包支付控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-028-AC0-POW-Terra-Max.md)：该片段先是 `SOURCE_CONSUMER_GAP`，然后区分 Isabelle/ZF 中的 AC0 定义、被断言的 AC0 和带 well-order 前提的定理；这张字段控制新增 P1 的 `L5b` 和 `L7b`，不形成 ZFC Q、ZFC 矛盾或 runtime construction 结论。
