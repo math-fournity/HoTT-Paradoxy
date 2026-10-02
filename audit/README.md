@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [P-DAG-HOTT-REPLAY-001：无答案泄漏 HoTT 校准 NodeCard（2026-10-02）](20261002-P-DAG-HOTT-REPLAY-001-NODECARD.md)：第一次 Book source packet 校准在输出可观察前超时；它留下冻结输入与终态边界，不能被读成 P 或 HoTT 的失败。
+
+- [P-DAG-HOTT-REPLAY-002：修复输出捕获后的无泄漏 HoTT 校准结果（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-REPLAY-002-Terra-Max.md)：终态收据成功捕获，代理正确拒绝虚构 consumer；Master 据此发现 discovery 与 validation 被同一 gate 混淆，修订为 `P-DISCOVERY → source tracer → P-VALIDATION`。
+
 - [P-DAG-SOURCE-005：Isabelle/ZF Cantor 来源卡的 Master 直接审读（2026-10-02）](20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md)：固定 Isabelle mirror commit 的 `PowI`／`PowD`／`cantor` 源码直接审读；证明任务提到 `Pow(A)` 不等于 source-defined same-`u` semantic consumer，也不提供 P2/P3 或 ZFC Q。
 
 - [模式 P 刀具系统：起源—实作对照审计（2026-10-02）](20261002-模式P刀具系统起源—实作对照审计.md)：逐项回读罗素原初张力、P-first、Power Set 纠偏、一遍匹配、三把刀、案例、Terra/Max、MatchTrace 与动态 DAG 讨论；区分规格遗漏、执行偏差、runner/evidence failure 与原初理念是否被挑战，并释放 HoTT replay gate。

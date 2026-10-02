@@ -22,7 +22,7 @@ metadata:
 1. 冻结 `TaskCard`：`T/u/F/C/Q/I/O/Done`、source hashes、控制、未知、成功/停止条件；
 2. 为每名 worker 写并在启动前封存 `NodeCard`：唯一目标、非目标、exact model/effort、runner、access profile、文件/URL allowlist、输出、prompt/source identity、wall-clock deadline、partial-output policy、超时/取消和 `recursion=false`；
 3. 按节点选择 `BLIND_CARD`、`PINNED_LOCAL_SOURCE`、`PRIMARY_WEB_SOURCE`、`PROJECT_EVIDENCE_REVIEW` 或 `BATTLE_PACK`。盲态不得读取项目既有答案；来源节点可以在明确允许时读原典、dev/main/其它分支或联网；
-4. P1 先独立定位并冻结公共位置卡；P2/P3 只在同一冻结卡上独立映射。若 source 缺 `C/I/O/Done`，先派 source tracer，不能由裸 relation 填补；
+4. 先区分 `P-DISCOVERY` 与 `P-VALIDATION`：盲态发现可交付 `MODEL_RECALL_SITE_CANDIDATE`，但 C/I/O/Done 必须标 `UNKNOWN`；source tracer 与验证态 P1 才能冻结可交给 P2/P3 的公共位置卡。若验证 source 缺 `C/I/O/Done`，不能由裸 relation、模型回忆或 theorem name 填补；
 5. 输出必须含 `Claims/Evidence/Conflicts/Unknowns/Mutations/Verification/Recommendation` 与 P1/P2/P3 的 E0–E7 MatchTrace；
 6. 只在字段、来源、任务、guard 或控制发生实质冲突时启动有界 Battle：challenge → one reply → independent arbiter → Master verdict；
 7. Master 以一手 source、保存运行、同一任务控制优先于代理一致性裁决；Master 自己的 claim 也必须接受独立质询；

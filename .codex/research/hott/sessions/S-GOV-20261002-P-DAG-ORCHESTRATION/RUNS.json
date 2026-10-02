@@ -84,6 +84,45 @@
       ],
       "status": "RUNNER_CONNECTION_FAILURE / NO_AGENT_OUTPUT / NO_MATCHTRACE / NO_SOURCE_CARD_UPDATE",
       "audit": "audit/20261002-P-DAG-SOURCE-004-NODECARD.md"
+    },
+    {
+      "id": "P-DAG-RUNNER-HEALTH-001",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd82-a249-7ee3-ab08-18cf6a669c57"
+      ],
+      "status": "RUNNER_HEALTH_PASS / NO_THEORY_ANALYZED",
+      "audit": "audit/20261002-P-DAG-RUNNER-HEALTH-001-NODECARD.md"
+    },
+    {
+      "id": "P-DAG-HOTT-REPLAY-001",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd84-90c6-7a33-889b-fe955c624e42"
+      ],
+      "status": "TIMEOUT_NO_TERMINAL_OUTPUT / NO_HOTT_REPLAY_VERDICT",
+      "audit": "audit/20261002-P-DAG-HOTT-REPLAY-001-NODECARD.md"
+    },
+    {
+      "id": "P-DAG-HOTT-REPLAY-002",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd86-aa21-75a3-ad39-8f36e76bdaa6"
+      ],
+      "status": "TERMINAL_OUTPUT_CAPTURED / SOURCE_INSUFFICIENT / DISCOVERY_VALIDATION_SPLIT_REQUIRED",
+      "audit": "audit/20261002-P-DAG-HOTT-REPLAY-002-Terra-Max.md"
     }
   ],
   "source_reads": [
