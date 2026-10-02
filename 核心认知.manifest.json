@@ -3,19 +3,19 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-10",
-        "path": "scripts/audit/core-cognition-curation-v10.json",
-        "sha256": "192eca5f212affc62cc1d6858159771b522e2b5c9d82e6191b945bbbb054ead3"
-      },
-      {
         "generation": "core-cognition-generation-11",
         "path": "scripts/audit/core-cognition-curation-v11.json",
         "sha256": "c7e274d3fcec7c5be2991842329cee3a053c5754b97c7e48122cb2b039a2dbf9"
+      },
+      {
+        "generation": "core-cognition-generation-12",
+        "path": "scripts/audit/core-cognition-curation-v12.json",
+        "sha256": "b6a64dc10fb527c1aaab3e8ce3b504d81f12b931afe6904d36d77d56f400d319"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 101,
+    "primary_denominator": 107,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
@@ -30,7 +30,8 @@
       "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md",
       "sources/prompts/Codex-非现实性悖论的目标与A向读法-用户原文-20260930.md",
       "sources/prompts/Claude-UR与芝诺的模式匹配-用户原文-20260930.md",
-      "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md"
+      "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md",
+      "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -38,9 +39,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "3cd3326f4bb8578c6e4c4e9e14b1c1b6fa590f9a4c12d64f83e88eb37a5b07f8",
+  "core_document_sha256": "7d3f7748e203249b718880b3aca8783fd6606f4695a977007660d9913828c35f",
   "counts": {
-    "core_units": 55,
+    "core_units": 61,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -48,23 +49,23 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 35
+      "INCLUDED": 41
     },
     "messages_excluded": 66,
-    "messages_included": 35,
-    "messages_parsed": 101,
-    "primary_files": 14,
+    "messages_included": 41,
+    "messages_parsed": 107,
+    "primary_files": 15,
     "units_by_platform": {
       "Claude": 3,
-      "Codex": 24,
+      "Codex": 30,
       "GLM": 1,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v11.json",
-  "curation_sha256": "c7e274d3fcec7c5be2991842329cee3a053c5754b97c7e48122cb2b039a2dbf9",
+  "curation_authority": "scripts/audit/core-cognition-curation-v12.json",
+  "curation_sha256": "b6a64dc10fb527c1aaab3e8ce3b504d81f12b931afe6904d36d77d56f400d319",
   "files": [
     {
       "bytes": 8124,
@@ -191,9 +192,18 @@
       "path": "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md",
       "platform": "Codex",
       "sha256": "53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc"
+    },
+    {
+      "bytes": 3687,
+      "input_role": "primary",
+      "lines": 29,
+      "message_count_parsed": 6,
+      "path": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "platform": "Codex",
+      "sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa"
     }
   ],
-  "generation": "core-cognition-generation-11",
+  "generation": "core-cognition-generation-12",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -2012,9 +2022,117 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-10-01T00:00:00+00:00",
       "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户直接校正后续研究对象的层级：芝诺、罗素与 HoTT 所审视的是支持大范围数学的基础理论；历史悖论和过程是揭示该理论承诺的手段。原话是长期选靶方法论，不是对任何新理论的数学结论。",
+      "input_role": "primary",
+      "message_text_bytes": 709,
+      "message_text_sha256": "3cb0a8f35d158324048668297137f6fc36604c3a65921221f0006b069c98a9b9",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_file_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "source_header_line": 7,
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-001",
+      "source_message_ordinal": 1,
+      "source_record_index": 1,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户直接指出 AI 不应把菲尔兹奖入口当作固定筛选门。该简短追问改变今后理论选择与来源使用的原则，必须与相邻长说明一同常驻。",
+      "input_role": "primary",
+      "message_text_bytes": 48,
+      "message_text_sha256": "610a64a8d72e9439b766a878bfef40752da5a5717128f4642ba83ba42630ed99",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_file_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "source_header_line": 11,
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-002",
+      "source_message_ordinal": 2,
+      "source_record_index": 2,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户要求利用模型已有数学知识作启发式发现，尤其针对 ZFC；这延续 KC-000007、KC-000040 的第三条发现路径。原话是发现方法，不许可声称读取权重、训练样本或已证明候选。",
+      "input_role": "primary",
+      "message_text_bytes": 460,
+      "message_text_sha256": "61f332f99ae9ac0df3dc369c347a4414b2d697d7e9d6a5302a7ea191993ace33",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_file_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "source_header_line": 15,
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-003",
+      "source_message_ordinal": 3,
+      "source_record_index": 3,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户明确给出后续理论审视的 P-first 顺序：深刻刻画罗素的计算、存在性、自指和最后一跃，再以模式 P 审视 ZFC、HoTT 与更早理论。原话是研究先验和方法论，不证明任何社区历史判断或 ZFC 命中。",
+      "input_role": "primary",
+      "message_text_bytes": 1450,
+      "message_text_sha256": "a0a5066bed8e9b051a480bbe80c0f7bc48a34806d99b95cff39f9e19569d5416",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_file_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "source_header_line": 19,
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-004",
+      "source_message_ordinal": 4,
+      "source_record_index": 4,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户进一步校正 P 的作用：历史悖论从极其明显的理论承诺起步，P 是对正确起点的深读工具，不是到处穷举的清单。该消息防止未来将方法误用为无边界搜索。",
+      "input_role": "primary",
+      "message_text_bytes": 247,
+      "message_text_sha256": "c1a67464ccc047c1fec2ca474ac56c936c393a02f20c17e543d78c18de0f7783",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_file_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "source_header_line": 23,
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-005",
+      "source_message_ordinal": 5,
+      "source_record_index": 5,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户明确要求把本批后续工作的理念性指导完整纳入每次加载的核心认知；这是对持续使用和输入地位的直接裁定。它不改变原文与 AI 阐释、候选或数学结论之间的证据边界。",
+      "input_role": "primary",
+      "message_text_bytes": 210,
+      "message_text_sha256": "24fcf875263293c3e38f6d0cff6ec408d140a47e936e1203651273b39e9294dd",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_file_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "source_header_line": 27,
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-006",
+      "source_message_ordinal": 6,
+      "source_record_index": 6,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
     }
   ],
-  "previous_generation_ref": "af6a4127198e01e799f79075a9b92cb010c0ff74",
+  "previous_generation_ref": "a89c1d2ef7090479b5e5ee7884ba52670991ed78",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -3852,6 +3970,184 @@
       "timestamp_utc": "2026-10-01T00:00:00+00:00",
       "unit_bytes": 206,
       "unit_sha256": "b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000056",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户直接校正后续研究对象的层级：芝诺、罗素与 HoTT 所审视的是支持大范围数学的基础理论；历史悖论和过程是揭示该理论承诺的手段。原话是长期选靶方法论，不是对任何新理论的数学结论。",
+      "selector": {
+        "source_line_end": 9,
+        "source_line_start": 9
+      },
+      "semantic_label": "后续靶须是支撑数学大厦的基础理论，过程用于揭示理论承诺",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md#L9-L9",
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-001",
+      "source_message_ordinal": 1,
+      "source_message_sha256": "3cb0a8f35d158324048668297137f6fc36604c3a65921221f0006b069c98a9b9",
+      "source_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "themes": [
+        "HOTT_OBJECT",
+        "HOTT_PARADOX",
+        "PARADOX_DISCOVERY",
+        "RUSSELL",
+        "ZENO",
+        "CIRCLE_PARADOX"
+      ],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 709,
+      "unit_sha256": "3cb0a8f35d158324048668297137f6fc36604c3a65921221f0006b069c98a9b9"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000057",
+      "lifecycle": "QUESTION_OR_OPEN_PROBLEM",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户直接指出 AI 不应把菲尔兹奖入口当作固定筛选门。该简短追问改变今后理论选择与来源使用的原则，必须与相邻长说明一同常驻。",
+      "selector": {
+        "source_line_end": 13,
+        "source_line_start": 13
+      },
+      "semantic_label": "菲尔兹奖入口不是后续理论选择的硬门",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md#L13-L13",
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-002",
+      "source_message_ordinal": 2,
+      "source_message_sha256": "610a64a8d72e9439b766a878bfef40752da5a5717128f4642ba83ba42630ed99",
+      "source_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "themes": [],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 48,
+      "unit_sha256": "610a64a8d72e9439b766a878bfef40752da5a5717128f4642ba83ba42630ed99"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000058",
+      "lifecycle": "QUESTION_OR_OPEN_PROBLEM",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户要求利用模型已有数学知识作启发式发现，尤其针对 ZFC；这延续 KC-000007、KC-000040 的第三条发现路径。原话是发现方法，不许可声称读取权重、训练样本或已证明候选。",
+      "selector": {
+        "source_line_end": 17,
+        "source_line_start": 17
+      },
+      "semantic_label": "以模型已有数学知识启发式挖掘 ZFC 问题与理论抽象的阿喀琉斯之踵",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md#L17-L17",
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-003",
+      "source_message_ordinal": 3,
+      "source_message_sha256": "61f332f99ae9ac0df3dc369c347a4414b2d697d7e9d6a5302a7ea191993ace33",
+      "source_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "themes": [
+        "HOTT_OBJECT",
+        "HOTT_PARADOX",
+        "PARADOX_DISCOVERY",
+        "ABSTRACTION_AND_NEGATION"
+      ],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 460,
+      "unit_sha256": "61f332f99ae9ac0df3dc369c347a4414b2d697d7e9d6a5302a7ea191993ace33"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000059",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户明确给出后续理论审视的 P-first 顺序：深刻刻画罗素的计算、存在性、自指和最后一跃，再以模式 P 审视 ZFC、HoTT 与更早理论。原话是研究先验和方法论，不证明任何社区历史判断或 ZFC 命中。",
+      "selector": {
+        "source_line_end": 21,
+        "source_line_start": 21
+      },
+      "semantic_label": "先深刻刻画罗素的计算—存在—自指模式 P，再审视 ZFC、HoTT 与早期理论",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md#L21-L21",
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-004",
+      "source_message_ordinal": 4,
+      "source_message_sha256": "a0a5066bed8e9b051a480bbe80c0f7bc48a34806d99b95cff39f9e19569d5416",
+      "source_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "themes": [
+        "HOTT_OBJECT",
+        "HOTT_PARADOX",
+        "PARADOX_DISCOVERY",
+        "TIME_AND_TEMPORALITY",
+        "BEING_AND_BECOMING",
+        "RUSSELL",
+        "RESEARCH_METHOD",
+        "SELF_REFERENCE",
+        "EXISTENCE_NEGATION_DUALITY"
+      ],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 1450,
+      "unit_sha256": "a0a5066bed8e9b051a480bbe80c0f7bc48a34806d99b95cff39f9e19569d5416"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000060",
+      "lifecycle": "RESEARCH_CONTEXT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户进一步校正 P 的作用：历史悖论从极其明显的理论承诺起步，P 是对正确起点的深读工具，不是到处穷举的清单。该消息防止未来将方法误用为无边界搜索。",
+      "selector": {
+        "source_line_end": 25,
+        "source_line_start": 25
+      },
+      "semantic_label": "正确起点是极其明显的核心理论承诺，模式 P 不是无边界搜索",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md#L25-L25",
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-005",
+      "source_message_ordinal": 5,
+      "source_message_sha256": "c1a67464ccc047c1fec2ca474ac56c936c393a02f20c17e543d78c18de0f7783",
+      "source_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "themes": [
+        "HOTT_OBJECT",
+        "HOTT_PARADOX",
+        "PARADOX_DISCOVERY",
+        "RUSSELL",
+        "ZENO"
+      ],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 247,
+      "unit_sha256": "c1a67464ccc047c1fec2ca474ac56c936c393a02f20c17e543d78c18de0f7783"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000061",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户明确要求把本批后续工作的理念性指导完整纳入每次加载的核心认知；这是对持续使用和输入地位的直接裁定。它不改变原文与 AI 阐释、候选或数学结论之间的证据边界。",
+      "selector": {
+        "source_line_end": 29,
+        "source_line_start": 29
+      },
+      "semantic_label": "后续理念性指导应完整进入核心认知并在每次工作时加载",
+      "source_file": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md#L29-L29",
+      "source_message_id": "CODEX-FUTURE-THEORY-RUSSELL-P-20261002-M-006",
+      "source_message_ordinal": 6,
+      "source_message_sha256": "24fcf875263293c3e38f6d0cff6ec408d140a47e936e1203651273b39e9294dd",
+      "source_sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+      "themes": [],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 210,
+      "unit_sha256": "24fcf875263293c3e38f6d0cff6ec408d140a47e936e1203651273b39e9294dd"
     }
   ]
 }
