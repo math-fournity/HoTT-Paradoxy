@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [P-DAG H015–H017：具体宇宙的 P1 重放与 P2/P3 差分（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-REPLAY-015-017-Terra-Max.md)：无泄漏 P1 重放定位到 `U + staged completion question`，随后同卡 P2/P3 分别得到不适用与非准入环。它是 HoTT A 向过程位置的限定重放，不是内部矛盾或 ZFC 成功。
+
+- [H018：宇宙询问的任务忠实性与 UR 边界（Master，2026-10-02）](20261002-P-DAG-HOTT-TASK-FIDELITY-018-Master.md)：区分形式程序、源码任务、用户的 A 向 UR 判断和未建立的 B 向准入环；据此将 HoTT replay lock 限定性解除到 ZFC discovery/calibration，保留所有 ZFC 升级门。
+
 - [P-DAG H014：具体宇宙 subject 的 P1 盲态重放（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-014-Terra-Max.md)：D-L8 令 worker 从 `C` 与 `Delay` 收缩到具体累积宇宙 `U`；随后 source review 发现其 Q?仍被缩为可逐层回答的固定 `k` 分支，促成 D-L9 completion-fidelity anchor。
 
 - [P-DAG H013：P1 subject/process 盲态重放（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-013-Terra-Max.md)：D-L7 使无泄漏 worker 拒绝把 `Delay` 当最终 subject，并把 `C` 的 h-level 与询问过程分开；同时暴露 `C` 仍是 schematic subject，成为 D-L8 的精确反控制。该节点也首次保存了 RUNNING→STILL_RUNNING→TERMINAL 的 append-only liveness 历史。
