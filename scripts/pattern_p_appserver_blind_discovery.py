@@ -63,6 +63,19 @@ def write_worker_workspace(paths: dict[str, Path], regression: Any) -> None:
     regression.atomic_write_text(paths["probe_readme"], WORKER_README, 0o600)
 
 
+def read_frozen_turn(prompt_file: Path) -> str:
+    """Extract the sole fenced text payload; audit prose must not enter model input."""
+    raw = prompt_file.read_text(encoding="utf-8")
+    opener = "```text\n"
+    start = raw.find(opener)
+    if start < 0:
+        raise RuntimeError("--prompt-file must contain one fenced text payload")
+    end = raw.find("\n```", start + len(opener))
+    if end < 0 or raw.find(opener, start + len(opener)) >= 0:
+        raise RuntimeError("--prompt-file must contain exactly one fenced text payload")
+    return raw[start + len(opener):end]
+
+
 def prompt_input_gate(
     paths: dict[str, Path], regression: Any, project_root: Path, prompt: str
 ) -> dict[str, Any]:
@@ -88,10 +101,13 @@ def prompt_input_gate(
     checks = {
         "project_root_absent": str(project_root.resolve()) not in result.stdout,
         "questioning_delay_absent": "QuestioningDelay" not in result.stdout,
+        "pedometer_semantics_absent": "PedometerSemantics" not in result.stdout,
         "zfc_q_absent": "ZFC_Q_LOCATED" not in result.stdout,
         "power_set_absent": "Power Set" not in result.stdout,
         "p_pattern_skill_absent": "hott-pattern-p-dynamic-dag-orchestration" not in result.stdout,
         "known_ua_answer_absent": "ua : (A ≃ B)" not in result.stdout,
+        "universe_no_level_answer_absent": "universeHasNoLevel" not in result.stdout,
+        "q_is_never_answer_absent": "QIsNever" not in result.stdout,
         "worker_contract_present": "Isolated Blind Discovery Worker" in result.stdout,
         "task_prompt_present": "You are a blind P-DISCOVERY mapper." in result.stdout,
     }
@@ -252,7 +268,7 @@ def main() -> int:
         raise SystemExit("--authorization must include R-035")
     method_repo = args.method_repo.resolve()
     project_root = args.project_root.resolve()
-    prompt = args.prompt_file.read_text(encoding="utf-8")
+    prompt = read_frozen_turn(args.prompt_file)
     if "You are a blind P-DISCOVERY mapper." not in prompt:
         raise SystemExit("--prompt-file does not contain the frozen blind discovery profile")
     require_clean_method_repo(method_repo)
