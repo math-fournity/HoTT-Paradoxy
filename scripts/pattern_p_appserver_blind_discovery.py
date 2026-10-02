@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Run one sealed Pattern-P discovery turn through the isolated Codex App Server lane.
+"""Run one sealed Pattern-P turn through the isolated Codex App Server lane.
 
-The frozen prompt is sent only as the App Server turn input.  The worker receives a
-text-only workspace that does not contain the prompt, the project, a prior answer,
-or source material.  Raw prompt-input/wire/stderr/final text remain in a private
-0700/0600 run tree; stdout intentionally contains only a safe execution summary.
+The frozen prompt is sent only as the App Server turn input.  ``blind-discovery``
+has no theory source, project answer, or prior result.  ``source-match`` permits
+only a frozen source card in that prompt and still prohibits project answers and
+tools.  Raw prompt-input/wire/stderr/final text remain in a private 0700/0600 run
+tree; stdout intentionally contains only a safe execution summary.
 """
 from __future__ import annotations
 
@@ -24,9 +25,9 @@ MODEL = "gpt-5.6-terra"
 EFFORT = "max"
 TIER = "default"
 PERMISSIONS = "governance-regression-fresh"
-WORKER_AGENTS = """# Isolated Blind Discovery Worker
+WORKER_AGENTS = """# Isolated Pattern-P Worker
 
-This workspace contains no theory source, project answer, or task materials.
+This workspace contains no project answer, prior result, or task materials.
 Follow only the exact user turn. Do not use tools, files, web, commands, Git,
 credentials, configuration inspection, delegation, or artifact creation.
 Return only the requested public answer and then stop.
@@ -77,7 +78,11 @@ def read_frozen_turn(prompt_file: Path) -> str:
 
 
 def prompt_input_gate(
-    paths: dict[str, Path], regression: Any, project_root: Path, prompt: str
+    paths: dict[str, Path],
+    regression: Any,
+    project_root: Path,
+    prompt: str,
+    profile: str,
 ) -> dict[str, Any]:
     """Inspect the compiled prompt before auth is borrowed or a model is sampled."""
     env = regression.regression_process_env(paths)
@@ -98,19 +103,36 @@ def prompt_input_gate(
     prompt_path.chmod(0o600)
     stderr_path.write_text(result.stderr, encoding="utf-8")
     stderr_path.chmod(0o600)
-    checks = {
+    checks: dict[str, bool] = {
         "project_root_absent": str(project_root.resolve()) not in result.stdout,
-        "questioning_delay_absent": "QuestioningDelay" not in result.stdout,
-        "pedometer_semantics_absent": "PedometerSemantics" not in result.stdout,
-        "zfc_q_absent": "ZFC_Q_LOCATED" not in result.stdout,
-        "power_set_absent": "Power Set" not in result.stdout,
         "p_pattern_skill_absent": "hott-pattern-p-dynamic-dag-orchestration" not in result.stdout,
-        "known_ua_answer_absent": "ua : (A ≃ B)" not in result.stdout,
-        "universe_no_level_answer_absent": "universeHasNoLevel" not in result.stdout,
-        "q_is_never_answer_absent": "QIsNever" not in result.stdout,
-        "worker_contract_present": "Isolated Blind Discovery Worker" in result.stdout,
-        "task_prompt_present": "You are a blind P-DISCOVERY mapper." in result.stdout,
+        "worker_contract_present": "Isolated Pattern-P Worker" in result.stdout,
     }
+    if profile == "blind-discovery":
+        checks.update(
+            {
+                "questioning_delay_absent": "QuestioningDelay" not in result.stdout,
+                "pedometer_semantics_absent": "PedometerSemantics" not in result.stdout,
+                "zfc_q_absent": "ZFC_Q_LOCATED" not in result.stdout,
+                "power_set_absent": "Power Set" not in result.stdout,
+                "known_ua_answer_absent": "ua : (A ≃ B)" not in result.stdout,
+                "universe_no_level_answer_absent": "universeHasNoLevel" not in result.stdout,
+                "q_is_never_answer_absent": "QIsNever" not in result.stdout,
+                "task_prompt_present": "You are a blind P-DISCOVERY mapper." in result.stdout,
+            }
+        )
+    elif profile == "source-match":
+        checks.update(
+            {
+                "source_profile_present": "You are a P-VALIDATION source mapper." in result.stdout,
+                "frozen_source_card_present": "BEGIN FROZEN SOURCE CARD" in result.stdout,
+                "old_p2_control_absent": "P2-DELAY-001" not in result.stdout,
+                "old_p3_control_absent": "P3-DELAY-001" not in result.stdout,
+                "old_h010_output_absent": "HOTT-DISCOVERY-010" not in result.stdout,
+            }
+        )
+    else:
+        raise RuntimeError(f"unknown Pattern-P runner profile: {profile}")
     return {
         "returncode": result.returncode,
         "input_sha256": sha256_bytes(raw),
@@ -127,11 +149,12 @@ async def run_discovery(
     broker: Any,
     prompt: str,
     *,
+    profile: str,
     observation_interval_seconds: float,
     hard_timeout_seconds: float | None,
     interrupt_grace_seconds: float,
 ) -> dict[str, Any]:
-    """Run one no-tool discovery turn without a default wall-clock interruption.
+    """Run one no-tool Pattern-P turn without a default wall-clock interruption.
 
     The private wire and liveness receipt are the live observation surface. A hard
     interruption is used only when the NodeCard explicitly supplies a positive
@@ -149,7 +172,7 @@ async def run_discovery(
         private_json(
             paths["private"] / "run-liveness.json",
             {
-                "schema_version": "p-dag-blind-discovery-liveness/v1",
+                "schema_version": f"p-dag-{profile}-liveness/v1",
                 "status": status,
                 "thread_id": thread_id,
                 "turn_id": turn_id,
@@ -285,24 +308,36 @@ async def run_discovery(
         final_path.chmod(0o600)
         completed_turn = completed.get("turn") if isinstance(completed.get("turn"), dict) else {}
         words = len(text.split())
-        content_ok = bool(text) and words <= 350
+        word_limit = 350 if profile == "blind-discovery" else 900
+        content_ok = bool(text) and words <= word_limit
         clean = all(value == 0 for value in counts.values())
-        required_sections = {f"D{index}": f"D{index}" in text for index in range(6)}
-        candidate_count = text.count("MODEL_RECALL_SITE_CANDIDATE")
-        no_candidate_count = text.count("NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY")
-        terminal_choice_ok = (candidate_count == 1 and no_candidate_count == 0) or (
-            candidate_count == 0 and no_candidate_count == 1
-        )
-        output_schema_ok = all(required_sections.values()) and terminal_choice_ok
+        if profile == "blind-discovery":
+            required_sections = {f"D{index}": f"D{index}" in text for index in range(6)}
+            candidate_count = text.count("MODEL_RECALL_SITE_CANDIDATE")
+            no_candidate_count = text.count("NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY")
+            terminal_choice_ok = (candidate_count == 1 and no_candidate_count == 0) or (
+                candidate_count == 0 and no_candidate_count == 1
+            )
+            output_schema_ok = all(required_sections.values()) and terminal_choice_ok
+        elif profile == "source-match":
+            required_sections = {f"E{index}": f"E{index}" in text for index in range(8)}
+            candidate_count = 0
+            no_candidate_count = 0
+            terminal_choice_ok = True
+            output_schema_ok = all(required_sections.values())
+        else:
+            raise RuntimeError(f"unknown Pattern-P runner profile: {profile}")
         return {
             "status": "PASS" if content_ok and clean and output_schema_ok else "FAIL_OUTPUT_OR_TOOL_CONTRACT",
             "thread_id": thread_id,
             "turn_id": turn_id,
+            "profile": profile,
             "exact_start": exact_start,
             "response_nonempty": bool(text),
             "final_sha256": sha256_bytes(text.encode("utf-8")),
             "final_bytes": len(text.encode("utf-8")),
             "final_words": words,
+            "word_limit": word_limit,
             "required_sections": required_sections,
             "candidate_count": candidate_count,
             "no_candidate_count": no_candidate_count,
@@ -326,6 +361,12 @@ def main() -> int:
     parser.add_argument("--authorization", required=True)
     parser.add_argument("--project-root", type=Path, required=True)
     parser.add_argument("--prompt-file", type=Path, required=True)
+    parser.add_argument(
+        "--profile",
+        choices=("blind-discovery", "source-match"),
+        default="blind-discovery",
+        help="blind discovery omits theory source; source match permits only a frozen source card in the turn input",
+    )
     parser.add_argument(
         "--observation-interval-seconds",
         type=float,
@@ -359,8 +400,14 @@ def main() -> int:
         args.hard_timeout_seconds if args.hard_timeout_seconds > 0 else None
     )
     prompt = read_frozen_turn(args.prompt_file)
-    if "You are a blind P-DISCOVERY mapper." not in prompt:
-        raise SystemExit("--prompt-file does not contain the frozen blind discovery profile")
+    if args.profile == "blind-discovery":
+        if "You are a blind P-DISCOVERY mapper." not in prompt:
+            raise SystemExit("--prompt-file does not contain the frozen blind discovery profile")
+    elif (
+        "You are a P-VALIDATION source mapper." not in prompt
+        or "BEGIN FROZEN SOURCE CARD" not in prompt
+    ):
+        raise SystemExit("--prompt-file does not contain the frozen source-match profile")
     require_clean_method_repo(method_repo)
     sys.path.insert(0, str(method_repo / "tools"))
     import governance_regression as regression  # type: ignore
@@ -380,7 +427,7 @@ def main() -> int:
         if receipt.get("verdict", {}).get("status") != "PASS":
             raise RuntimeError("pre-copy auth borrowing gate failed")
         write_worker_workspace(paths, regression)
-        input_gate = prompt_input_gate(paths, regression, project_root, prompt)
+        input_gate = prompt_input_gate(paths, regression, project_root, prompt, args.profile)
         private_json(paths["private"] / "prompt-input-gate.json", input_gate, regression)
         if input_gate["status"] != "PASS":
             raise RuntimeError("model-visible prompt preflight failed")
@@ -400,15 +447,22 @@ def main() -> int:
                 regression,
                 broker,
                 prompt,
+                profile=args.profile,
                 observation_interval_seconds=args.observation_interval_seconds,
                 hard_timeout_seconds=hard_timeout_seconds,
                 interrupt_grace_seconds=args.interrupt_grace_seconds,
             )
         )
-        private_json(paths["private"] / "blind-discovery-behavior.json", behavior, regression)
+        behavior_name = (
+            "blind-discovery-behavior.json"
+            if args.profile == "blind-discovery"
+            else "source-mapping-behavior.json"
+        )
+        private_json(paths["private"] / behavior_name, behavior, regression)
         summary = {
             "run_id": args.run_id,
             "status": behavior["status"],
+            "profile": args.profile,
             "model": MODEL,
             "effort": EFFORT,
             "permission_profile": PERMISSIONS,
