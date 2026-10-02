@@ -2,7 +2,7 @@
 name: hott-pattern-p-dynamic-dag-orchestration
 description: 在用户已授权的 P1/P2/P3 共同锻造中，按证据条件动态调度 Terra/Max worker、来源节点与有界 Battle；逐节点决定盲态、本地分支、网络原典和项目证据的可见性，Master 负责来源裁决与唯一写回。仅用于模式 P 的 ZFC/HoTT 重放，不自动启动研究或 worker。
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   role: "task-scoped-orchestration"
   owner: "dev-docs/模式P动态DAG调度.md"
 ---
@@ -20,7 +20,7 @@ metadata:
 ## Master 运行步骤
 
 1. 冻结 `TaskCard`：`T/u/F/C/Q/I/O/Done`、source hashes、控制、未知、成功/停止条件；
-2. 为每名 worker 写并在启动前封存 `NodeCard`：唯一目标、非目标、exact model/effort、runner、access profile、文件/URL allowlist、输出、prompt/source identity、observation cadence、明确 hard-stop predicate、partial-output policy、取消和 `recursion=false`；盲态 App Server理论节点默认**没有**短墙钟自动中止；
+2. 为每名 worker 写并在启动前封存 `NodeCard`：唯一目标、非目标、exact model/effort、runner、access profile、文件/URL allowlist、输出、prompt/source identity、observation cadence、operator-review rule、partial-output policy、取消和 `recursion=false`；盲态 App Server 理论节点没有任何可配置的自动墙钟中止。超过观察窗只产生可审计的 liveness；预算、失联或取消只是要求 Master 复核的条件，不能由 runner 按经过秒数自行 `turn/interrupt`；
 3. 按节点选择 `BLIND_CARD`、`PINNED_LOCAL_SOURCE`、`PRIMARY_WEB_SOURCE`、`PROJECT_EVIDENCE_REVIEW` 或 `BATTLE_PACK`。盲态不得读取项目既有答案；来源节点可以在明确允许时读原典、dev/main/其它分支或联网。旧 fresh CLI 的 `BLIND_CARD` 因 HOTT-DISCOVERY-007 可见的 global-instruction/tool injection 继续标为 `BLIND_RUNNER_ISOLATION_UNQUALIFIED`，空 `CODEX_HOME` health node也保留为采样前 `401`。用户授权的 `governance-v3.26.0` App Server lane先通过 zero-material health，再在 HOTT-DISCOVERY-008 对冻结 D-L6b Prompt 得到无工具 terminal trace；后续`governance-v3.26.1` reader才完成该次 direct-wire audit。H015–H017在同一 exact lane将blind P1推进为 concrete `U` + completion question，并以同卡P2/P3完成差分验证；它资格化后继ZFC **discovery/calibration**，但不构成 ZFC Q、UR或数学结论。今后新的盲态理论节点只可复用这一 exact lane 或先重新资格化同等 NodeCard、prompt-input、permission/auth gate、raw terminal evidence和trajectory source；此运行资格不追溯修复旧 CLI 证据；
 4. 先区分 `P-DISCOVERY` 与 `P-VALIDATION`：盲态发现可交付 `MODEL_RECALL_SITE_CANDIDATE`，但 C/I/O/Done 必须标 `UNKNOWN`；它还须通过 D-L5（Q? 是 prospective native task）、D-L6（packet-visible F 尚未直接回答 Q?）、D-L7（写出被询问的理论 subject 与过程，不能以 Delay／evaluator 等过程骨架偷换 subject）、D-L8（profile已列具体基础对象时，不能把 schematic C／property 当最终 subject）和 D-L9（多阶段 process 的 Q? 必须问完成，不能只问 local branch）。D-L6 命中时将该 site 记为 `DISCOVERY_DIRECT_RULE_ANSWER` 控制；D-L7 缺 subject/task anchor 时记为 `DISCOVERY_PROCESS_SKELETON_ONLY` 控制；D-L8 只停在抽象变量时记为 `DISCOVERY_SCHEMATIC_SUBJECT_ONLY` 控制；D-L9 只问单层分支时记为 `DISCOVERY_LOCAL_BRANCH_ONLY`控制；D-L6b 允许同一响应最多检查两个额外显眼 site，只有剩余 site 通过五道门才派 source tracer、P2 或 P3，三项都被筛掉才停止。source tracer 与验证态 P1 才能冻结可交给 P2/P3 的公共位置卡。若验证 source 缺 `C/I/O/Done`，不能由裸 relation、模型回忆或 theorem name 填补；
 5. 输出必须含 `Claims/Evidence/Conflicts/Unknowns/Mutations/Verification/Recommendation` 与 P1/P2/P3 的 E0–E7 MatchTrace；
@@ -41,4 +41,4 @@ metadata:
 
 ## 失败、停止与写回
 
-`ACCESS_LEAK_SUSPECTED`、模型/effort 不匹配、权限未回显、`RUNNER_CONNECTION_FAILURE`、source pack 不足、task switch、显式 hard-stop 后未终态、`TRAJECTORY_PARSER_COVERAGE_GAP`或 Battle 无新增证据时，停止受影响子图并保留有界证据。可见 global instruction、未授权 tool call 或 workspace discovery 都属于 `ACCESS_LEAK_SUSPECTED`：已写出的 terminal text也必须隔离，不能填 source card或支持负结论。App Server 节点超过一个观察窗只写`STILL_RUNNING` liveness 并继续；它不是 timeout verdict。只有 NodeCard 预先声明的资源／预算／人工取消条件实际触发后，才请求`turn/interrupt`并在明确 grace后记录`HARD_TIMEOUT_NO_TERMINAL_OUTPUT`。连接失败发生在模型采样前时，记录为 `RUNNER_CONNECTION_FAILURE / NO_AGENT_OUTPUT`，不得归咎于模型、理论或 source。缺 rollout但有双向 wire时不是 failure；按范围做 trajectory audit。每一自然单元更新任务 SOP 的过程记录和相关审计；持久用户要求进 `rulings.md`，当前 Feature 状态进 `feature-list.md`，README/AGENTS 仅保留路由。研究发起人已要求刀具的有效修订进入 Git log：在当前 P-DAG scope 内完成 baseline、结构／JSON／diff 验证和 owner 回读后，Master 精确 stage 该自然单元的工具、收据和路由路径并 commit；不混入无关 dirty 路径，不 tag/push。完成后关闭 worker；无 close receipt 时如实记录终态与缺口。
+`ACCESS_LEAK_SUSPECTED`、模型/effort 不匹配、权限未回显、`RUNNER_CONNECTION_FAILURE`、source pack 不足、task switch、`TRAJECTORY_PARSER_COVERAGE_GAP`或 Battle 无新增证据时，停止受影响子图并保留有界证据。可见 global instruction、未授权 tool call 或 workspace discovery 都属于 `ACCESS_LEAK_SUSPECTED`：已写出的 terminal text也必须隔离，不能填 source card或支持负结论。App Server 节点超过一个观察窗只写`STILL_RUNNING` liveness 并继续；它不是 timeout verdict。当前 runner 没有自动或计时的 `turn/interrupt` 路径。若将来需要人工中断，必须先把独立控制器、触发者、权限、terminal receipt 和 race 处置资格化；不能把它伪装成 timeout outcome。连接失败发生在模型采样前时，记录为 `RUNNER_CONNECTION_FAILURE / NO_AGENT_OUTPUT`，不得归咎于模型、理论或 source。缺 rollout但有双向 wire时不是 failure；按范围做 trajectory audit。每一自然单元更新任务 SOP 的过程记录和相关审计；持久用户要求进 `rulings.md`，当前 Feature 状态进 `feature-list.md`，README/AGENTS 仅保留路由。研究发起人已要求刀具的有效修订进入 Git log：在当前 P-DAG scope 内完成 baseline、结构／JSON／diff 验证和 owner 回读后，Master 精确 stage 该自然单元的工具、收据和路由路径并 commit；不混入无关 dirty 路径，不 tag/push。完成后关闭 worker；无 close receipt 时如实记录终态与缺口。

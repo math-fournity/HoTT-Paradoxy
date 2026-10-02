@@ -544,3 +544,19 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 偏差至少分开：`IDEA_SPEC_INCOMPLETE`、`EXECUTION_DEVIATION`、`RUNNER_OR_EVIDENCE_FAILURE`、`EXPECTED_CALIBRATION_FAILURE` 与 `ORIGINAL_IDEA_CHALLENGED`。一个模型未命中不能直接反驳“清晰 P 应能一遍产生线索”，须先核 P 规格、盲态、理论变体与 runner 健康。
 4. 当前 full audit 发现 HoTT 无泄漏重放尚未重定位既有实际 Q，而 ZFC source/Battle 已提前进入共同锻造。故从此 ZFC 可作为工具校准和控制，`ZFC_Q_LOCATED`／ZFC UR 的升级须等待独立 HoTT replay release gate；这是执行顺序纠正，不是 ZFC 或 P 已失败的数学结论。
 5. 本裁定授权相应 SOP、审计、Feature、MEMORY、会话收据和精确 Git commit；不授权把审计升级为数学结论、tag、push、发布或无关工作树写入。
+
+## 2026-10-02：App Server 理论 worker 不设自动墙钟上限
+
+用户原话：
+
+~~~text
+这个上限是不是太短了？很多时候思考10分钟也是正常的，不过通过App Server，你可以实时看到子代理的工作情况，所以这个上限的设置我认为很没有必要。
+~~~
+
+执行裁定：
+
+1. 对 P-DAG 的 App Server 理论 worker，经过的时间只作为 private wire、thread/turn 与 append-only liveness 的观察量；它不是失败、理论判词、模型能力判词或自动终止条件。
+2. 当前 `scripts/pattern_p_appserver_blind_discovery.py` 删除 `--hard-timeout-seconds`、`--interrupt-grace-seconds` 与自动 `turn/interrupt` 分支。它每个 observation window 只写 `STILL_RUNNING`；十分钟或更长的正常推理必须继续可观察。
+3. 预算、成本、失联迹象和用户取消进入 NodeCard 的 `operator-review rule`，要求 Master 基于实时证据作判断；它们不能被编码为由 runner 依秒表执行的中断。若未来确有人工中断需求，先单独资格化控制器、权限、race 处置和 terminal receipt。
+4. H010 的 180 秒和 20 秒 grace 是历史运行事实，保留在历史 NodeCard／收据中，不能回写；它不构成当前或未来 NodeCard 的默认或可配置上限。
+5. 此裁定改变的是 P-DAG 的运行和证据合同，不改变 P1/P2/P3 的理论职责，也不产生关于 HoTT、ZFC 或任何数学系统的数学结论。

@@ -151,14 +151,12 @@ async def run_discovery(
     *,
     profile: str,
     observation_interval_seconds: float,
-    hard_timeout_seconds: float | None,
-    interrupt_grace_seconds: float,
 ) -> dict[str, Any]:
-    """Run one no-tool Pattern-P turn without a default wall-clock interruption.
+    """Run one no-tool Pattern-P turn with observation, never a time-based stop.
 
-    The private wire and liveness receipt are the live observation surface. A hard
-    interruption is used only when the NodeCard explicitly supplies a positive
-    resource budget.
+    The private wire and liveness receipt are the live observation surface.
+    Elapsed time is evidence for the Master to inspect; it never triggers an
+    automatic ``turn/interrupt`` request from this runner.
     """
     terminal = asyncio.Event()
     agent_parts: list[str] = []
@@ -173,14 +171,14 @@ async def run_discovery(
         nonlocal liveness_sequence
         liveness_sequence += 1
         snapshot = {
-            "schema_version": f"p-dag-{profile}-liveness/v1",
+            "schema_version": f"p-dag-{profile}-liveness/v2",
             "sequence": liveness_sequence,
             "status": status,
             "thread_id": thread_id,
             "turn_id": turn_id,
             "elapsed_seconds": round(time.monotonic() - started, 3),
             "observation_interval_seconds": observation_interval_seconds,
-            "hard_timeout_seconds": hard_timeout_seconds,
+            "automatic_wall_clock_interrupt": False,
             "command": counts["command"],
             "file_change": counts["file_change"],
             "approval_request": counts["approval_request"],
@@ -277,41 +275,13 @@ async def run_discovery(
             raise RuntimeError("turn/start returned no turn id")
         private_json(paths["private"] / "turn-start.json", turn_start, regression)
         write_liveness("RUNNING")
-        hard_deadline = (
-            started + hard_timeout_seconds
-            if hard_timeout_seconds is not None
-            else None
-        )
         while not terminal.is_set():
-            wait_seconds = observation_interval_seconds
-            if hard_deadline is not None:
-                wait_seconds = min(wait_seconds, max(0.0, hard_deadline - time.monotonic()))
             try:
-                await asyncio.wait_for(terminal.wait(), timeout=wait_seconds)
+                await asyncio.wait_for(
+                    terminal.wait(), timeout=observation_interval_seconds
+                )
             except asyncio.TimeoutError:
                 write_liveness("STILL_RUNNING")
-                if hard_deadline is None or time.monotonic() < hard_deadline:
-                    continue
-                await rpc.request(
-                    "turn/interrupt",
-                    {"threadId": thread_id, "turnId": turn_id},
-                    timeout=30,
-                )
-                write_liveness("HARD_TIMEOUT_INTERRUPT_REQUESTED")
-                try:
-                    await asyncio.wait_for(terminal.wait(), timeout=interrupt_grace_seconds)
-                except asyncio.TimeoutError:
-                    write_liveness("HARD_TIMEOUT_NO_TERMINAL_OUTPUT")
-                    return {
-                        "status": "HARD_TIMEOUT_NO_TERMINAL_OUTPUT",
-                        "thread_id": thread_id,
-                        "turn_id": turn_id,
-                        "exact_start": exact_start,
-                        "observation_interval_seconds": observation_interval_seconds,
-                        "hard_timeout_seconds": hard_timeout_seconds,
-                        "interrupt_grace_seconds": interrupt_grace_seconds,
-                        **counts,
-                    }
         write_liveness("TERMINAL")
         text = "".join(agent_parts).strip()
         final_path = paths["private"] / "final.txt"
@@ -356,8 +326,7 @@ async def run_discovery(
             "turn_status": completed_turn.get("status"),
             "elapsed_seconds": round(time.monotonic() - started, 3),
             "observation_interval_seconds": observation_interval_seconds,
-            "hard_timeout_seconds": hard_timeout_seconds,
-            "interrupt_grace_seconds": interrupt_grace_seconds,
+            "automatic_wall_clock_interrupt": False,
             **counts,
         }
     finally:
@@ -382,19 +351,7 @@ def main() -> int:
         "--observation-interval-seconds",
         type=float,
         default=60.0,
-        help="write private RUNNING/STILL_RUNNING liveness every interval; never interrupts by itself",
-    )
-    parser.add_argument(
-        "--hard-timeout-seconds",
-        type=float,
-        default=0.0,
-        help="positive value explicitly authorizes automatic turn/interrupt; 0 means no automatic wall-clock stop",
-    )
-    parser.add_argument(
-        "--interrupt-grace-seconds",
-        type=float,
-        default=20.0,
-        help="terminal grace only after an explicit positive hard timeout",
+        help="write private RUNNING/STILL_RUNNING liveness every interval; never stops a turn",
     )
     args = parser.parse_args()
     if "R-035" not in args.authorization:
@@ -403,13 +360,6 @@ def main() -> int:
     project_root = args.project_root.resolve()
     if args.observation_interval_seconds <= 0:
         raise SystemExit("--observation-interval-seconds must be positive")
-    if args.hard_timeout_seconds < 0:
-        raise SystemExit("--hard-timeout-seconds must be non-negative")
-    if args.interrupt_grace_seconds <= 0:
-        raise SystemExit("--interrupt-grace-seconds must be positive")
-    hard_timeout_seconds = (
-        args.hard_timeout_seconds if args.hard_timeout_seconds > 0 else None
-    )
     prompt = read_frozen_turn(args.prompt_file)
     if args.profile == "blind-discovery":
         if "You are a blind P-DISCOVERY mapper." not in prompt:
@@ -460,8 +410,6 @@ def main() -> int:
                 prompt,
                 profile=args.profile,
                 observation_interval_seconds=args.observation_interval_seconds,
-                hard_timeout_seconds=hard_timeout_seconds,
-                interrupt_grace_seconds=args.interrupt_grace_seconds,
             )
         )
         behavior_name = (
@@ -487,7 +435,9 @@ def main() -> int:
             "file_change_count": behavior.get("file_change"),
             "approval_request_count": behavior.get("approval_request"),
             "observation_interval_seconds": behavior.get("observation_interval_seconds"),
-            "hard_timeout_seconds": behavior.get("hard_timeout_seconds"),
+            "automatic_wall_clock_interrupt": behavior.get(
+                "automatic_wall_clock_interrupt"
+            ),
             "source_auth_content_recorded": False,
         }
     except Exception as exc:
