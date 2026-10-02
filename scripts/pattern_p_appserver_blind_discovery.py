@@ -358,6 +358,16 @@ def main() -> int:
         raise SystemExit("--authorization must include R-035")
     method_repo = args.method_repo.resolve()
     project_root = args.project_root.resolve()
+    private_root = args.private_root.resolve()
+    try:
+        private_root.relative_to(project_root)
+    except ValueError:
+        pass
+    else:
+        raise SystemExit(
+            "--private-root must be outside --project-root so ancestor AGENTS.md "
+            "cannot enter the isolated App Server preflight"
+        )
     if args.observation_interval_seconds <= 0:
         raise SystemExit("--observation-interval-seconds must be positive")
     prompt = read_frozen_turn(args.prompt_file)
@@ -374,7 +384,7 @@ def main() -> int:
     import governance_regression as regression  # type: ignore
     import agent_session_broker as broker  # type: ignore
 
-    experiment_root = args.private_root.resolve() / "governance-regression"
+    experiment_root = private_root / "governance-regression"
     paths = regression.regression_home_paths(experiment_root, args.run_id, method_repo)
     receipt: dict[str, Any] | None = None
     summary: dict[str, Any] = {"run_id": args.run_id, "status": "NOT_STARTED"}
