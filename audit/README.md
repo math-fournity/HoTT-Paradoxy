@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG H014：具体宇宙 subject 的 P1 盲态重放（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-014-Terra-Max.md)：D-L8 令 worker 从 `C` 与 `Delay` 收缩到具体累积宇宙 `U`；随后 source review 发现其 Q?仍被缩为可逐层回答的固定 `k` 分支，促成 D-L9 completion-fidelity anchor。
+
 - [P-DAG H013：P1 subject/process 盲态重放（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-013-Terra-Max.md)：D-L7 使无泄漏 worker 拒绝把 `Delay` 当最终 subject，并把 `C` 的 h-level 与询问过程分开；同时暴露 `C` 仍是 schematic subject，成为 D-L8 的精确反控制。该节点也首次保存了 RUNNING→STILL_RUNNING→TERMINAL 的 append-only liveness 历史。
 
 - [P-DAG H011/H012：询问过程的 P2/P3 source-match 接力（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-VALIDATION-011-012-Terra-Max.md)：在与 H010 同一 `QuestioningDelay.agda` source card 上，P2 判 `NOT_APPLICABLE`、P3 判 `COMPLETION_PROCESS_NOT_ADMISSION_CYCLE`；两次 App Server node 均具 E0–E7、exact echo、零工具事件与 private wire trajectory receipt。它验证三刀不因“逐层询问”表面而互相代填字段，不释放 HoTT replay 或 ZFC gate。
