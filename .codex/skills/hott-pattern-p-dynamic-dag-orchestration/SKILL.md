@@ -27,6 +27,7 @@ metadata:
 6. 只在字段、来源、任务、guard 或控制发生实质冲突时启动有界 Battle：challenge → one reply → independent arbiter → Master verdict；
 7. Master 以一手 source、保存运行、同一任务控制优先于代理一致性裁决；Master 自己的 claim 也必须接受独立质询；
 8. 收集 prompt/source/output hash、模型/effort、权限、worker/session/turn 终态和未知。只有 Master 写回 `模式P三把刀`、Feature、rulings、MEMORY 或其它 current owner。
+9. 在每个自然锻造单元运行 delta `SelfAuditCard`：把实际节点、控制、失败和工具修订对照原初 P 讨论，区分 `IDEA_SPEC_INCOMPLETE`、`EXECUTION_DEVIATION`、`RUNNER_OR_EVIDENCE_FAILURE`、`EXPECTED_CALIBRATION_FAILURE` 与 `ORIGINAL_IDEA_CHALLENGED`。创建／退休刀具、改变成功定义、跨 HoTT→ZFC 转移或用户要求时执行 full origin audit；方法和当前 owner 在 SOP 005 与 origin-audit 收据中。
 
 ## 访问与运行边界
 
@@ -38,4 +39,4 @@ metadata:
 
 ## 失败、停止与写回
 
-`ACCESS_LEAK_SUSPECTED`、模型/effort 不匹配、权限未回显、source pack 不足、task switch、timeout 未终态或 Battle 无新增证据时，停止受影响子图并保留有界证据。超时节点若没有 terminal output，状态为 `TIMEOUT_NO_TERMINAL_OUTPUT`：中间检索、计划或 console 片段不能填 source card，也不能支持负结论。每一自然单元更新任务 SOP 的过程记录和相关审计；持久用户要求进 `rulings.md`，当前 Feature 状态进 `feature-list.md`，README/AGENTS 仅保留路由。研究发起人已要求刀具的有效修订进入 Git log：在当前 P-DAG scope 内完成 baseline、结构／JSON／diff 验证和 owner 回读后，Master 精确 stage 该自然单元的工具、收据和路由路径并 commit；不混入无关 dirty 路径，不 tag/push。完成后关闭 worker；无 close receipt 时如实记录终态与缺口。
+`ACCESS_LEAK_SUSPECTED`、模型/effort 不匹配、权限未回显、`RUNNER_CONNECTION_FAILURE`、source pack 不足、task switch、timeout 未终态或 Battle 无新增证据时，停止受影响子图并保留有界证据。超时节点若没有 terminal output，状态为 `TIMEOUT_NO_TERMINAL_OUTPUT`：中间检索、计划或 console 片段不能填 source card，也不能支持负结论。连接失败发生在模型采样前时，记录为 `RUNNER_CONNECTION_FAILURE / NO_AGENT_OUTPUT`，不得归咎于模型、理论或 source。每一自然单元更新任务 SOP 的过程记录和相关审计；持久用户要求进 `rulings.md`，当前 Feature 状态进 `feature-list.md`，README/AGENTS 仅保留路由。研究发起人已要求刀具的有效修订进入 Git log：在当前 P-DAG scope 内完成 baseline、结构／JSON／diff 验证和 owner 回读后，Master 精确 stage 该自然单元的工具、收据和路由路径并 commit；不混入无关 dirty 路径，不 tag/push。完成后关闭 worker；无 close receipt 时如实记录终态与缺口。

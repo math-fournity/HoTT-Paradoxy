@@ -532,3 +532,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. 每个自然锻造单元在 baseline、结构／JSON／diff 检查和 current owner 回读后，Master 只 stage 本单元的工具、P-DAG SOP、来源／Battle审计、会话收据及必要 routing/Feature/MEMORY 路径，commit 到当前分支。不得混入并行工作者的 dirty 路径；不 tag、push 或发布，除非用户另行授权。
 3. 新刀具需要一个独立的理论职责、不同于既有 P1/P2/P3 的失败模式、最小正／负控制和与 ZFC 同卡会合的贡献；来源节点超时、proof-layer 层级修订或单次 prompt 模板问题本身不自动构成第四把刀。
 4. 该裁定不将 Git 历史、代理输出或工具修订升级为 ZFC 的数学结论、内在矛盾或 UR；它只保证演化的可审计性和可回退性。
+
+## 2026-10-02：模式 P 刀具系统须自审其原初理念与实际运行
+
+研究发起人进一步要求：P-DAG 的 SOP 必须加入系统的自我审计；从尚未有刀具系统时关于罗素张力、模式 P、盲重放、Power Set、P1/P2/P3、案例、代理自我说明到动态 DAG 的全部讨论，都要一一找出并与实际锻造对照。出现不对齐时，必须判断是原初理念被实践直接挑战，还是运行中出现了本不该发生的规格、执行、来源或基础设施问题。
+
+执行裁定：
+
+1. 每个自然锻造单元先做 delta self-audit；创建/退休刀具、改变成功定义、从 HoTT 校准转向 ZFC 定位、或用户要求时重做 full origin audit。唯一 SOP owner 是 `dev-docs/模式P动态DAG调度/005 - 原初理念对照、自审与偏差处置.md`。
+2. 审计必须逐 source unit 记录：原初要求、实际行为与证据、对齐／不对齐判词、偏差分类、修复／停止和可推翻条件。不得把 AI 自己的旧总结当作用户原话，也不得请求或保存隐藏思维。
+3. 偏差至少分开：`IDEA_SPEC_INCOMPLETE`、`EXECUTION_DEVIATION`、`RUNNER_OR_EVIDENCE_FAILURE`、`EXPECTED_CALIBRATION_FAILURE` 与 `ORIGINAL_IDEA_CHALLENGED`。一个模型未命中不能直接反驳“清晰 P 应能一遍产生线索”，须先核 P 规格、盲态、理论变体与 runner 健康。
+4. 当前 full audit 发现 HoTT 无泄漏重放尚未重定位既有实际 Q，而 ZFC source/Battle 已提前进入共同锻造。故从此 ZFC 可作为工具校准和控制，`ZFC_Q_LOCATED`／ZFC UR 的升级须等待独立 HoTT replay release gate；这是执行顺序纠正，不是 ZFC 或 P 已失败的数学结论。
+5. 本裁定授权相应 SOP、审计、Feature、MEMORY、会话收据和精确 Git commit；不授权把审计升级为数学结论、tag、push、发布或无关工作树写入。

@@ -2,7 +2,7 @@
 logical_id: PATTERN_P_DYNAMIC_DAG_ORCHESTRATION
 mode: topical
 shard_root: 模式P动态DAG调度
-last_shard: 模式P动态DAG调度/004 - 运行引擎、验证与治理影响.md
+last_shard: 模式P动态DAG调度/005 - 原初理念对照、自审与偏差处置.md
 append_target: -
 soft_line_target: 300
 -->
@@ -26,6 +26,7 @@ soft_line_target: 300
 | 002 | [动态展开、访问等级与冻结接力](<模式P动态DAG调度/002 - 动态展开、访问等级与冻结接力.md>) | DAG 初始骨架、触发式扩展、盲态/来源/项目/网络访问和并行边界 | current |
 | 003 | [Battle、裁决与收据](<模式P动态DAG调度/003 - Battle、裁决与收据.md>) | 分歧触发、互相质询、Master 参与和裁决、证据优先级、停止与写回 | current |
 | 004 | [运行引擎、验证与治理影响](<模式P动态DAG调度/004 - 运行引擎、验证与治理影响.md>) | App Server/CLI 运行选择、当前资格边界、验证计划和 C01–C10 影响表 | current |
+| 005 | [原初理念对照、自审与偏差处置](<模式P动态DAG调度/005 - 原初理念对照、自审与偏差处置.md>) | 每个自然锻造单元的系统自审、原初讨论的完整复盘、偏差分类、纠偏与 Git 审计链 | current |
 <!-- governance-shard-table:end -->
 
 ## 总体不变量

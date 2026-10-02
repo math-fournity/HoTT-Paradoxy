@@ -3,7 +3,7 @@
   "session_id": "S-GOV-20261002-P-DAG-ORCHESTRATION",
   "tier": "T2",
   "role": "GOVERNANCE_ALIGNMENT",
-  "status": "P_DAG_SOP_IMPLEMENTED_WITH_TWO_SOURCE_PASSES_LAYER_BATTLE_AND_TIMEOUT_CONTROL_SCOPE",
+  "status": "P_DAG_SOP_IMPLEMENTED_WITH_SOURCE_LAYER_BATTLE_FAILURE_TAXONOMY_AND_ORIGIN_AUDIT_SCOPE",
   "new_formal_runs": [],
   "agent_runs": [
     {
@@ -71,6 +71,19 @@
       ],
       "status": "TIMEOUT_NO_TERMINAL_OUTPUT / TERMINATED_BY_MASTER_SIGINT / NO_FINAL_ARTIFACT / NO_SOURCE_CLAIM",
       "audit": "audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md"
+    },
+    {
+      "id": "P-DAG-SOURCE-004-RUNNER-CONNECTION-FAILURE",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118"
+      ],
+      "status": "RUNNER_CONNECTION_FAILURE / NO_AGENT_OUTPUT / NO_MATCHTRACE / NO_SOURCE_CARD_UPDATE",
+      "audit": "audit/20261002-P-DAG-SOURCE-004-NODECARD.md"
     }
   ],
   "source_reads": [
@@ -113,6 +126,13 @@
       "source": "Mathlib4 ZFSet model @ d13f23b723b8a846827a245b89c10fc7d3f11612",
       "scope": "static powerset definition and extensional membership negative control for P3",
       "status": "SOURCE_REPORTED_BY_NODE_WITH_SCOPE / NO_QUALIFYING_P3_SOURCE"
+    }
+  ],
+  "governance_events": [
+    {
+      "id": "P-DAG-ORIGIN-AUDIT-001",
+      "status": "FULL_ORIGIN_AUDIT_COMPLETED_WITH_SCOPE / HOTT_REPLAY_CALIBRATION_REQUIRED_BEFORE_ZFC_Q_UPGRADE",
+      "audit": "audit/20261002-模式P刀具系统起源—实作对照审计.md"
     }
   ],
   "non_goals": [

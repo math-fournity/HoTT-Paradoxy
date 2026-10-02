@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [模式 P 刀具系统：起源—实作对照审计（2026-10-02）](20261002-模式P刀具系统起源—实作对照审计.md)：逐项回读罗素原初张力、P-first、Power Set 纠偏、一遍匹配、三把刀、案例、Terra/Max、MatchTrace 与动态 DAG 讨论；区分规格遗漏、执行偏差、runner/evidence failure 与原初理念是否被挑战，并释放 HoTT replay gate。
+
+- [P-DAG-SOURCE-004：Isabelle/ZF Cantor 消费者的预封存 NodeCard（Terra / Max，2026-10-02）](20261002-P-DAG-SOURCE-004-NODECARD.md)：固定 `PowI`／`PowD`／`cantor` 来源包后，CLI 在模型输出前遭遇 `workspace routing discovery failed`；记录为 runner connection failure，不构成来源或 P1 判词。
+
 - [P-DAG-SOURCE-003：Power Set 来源三节点的超时与收据纪律修订（Terra / Max，2026-10-02）](20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md)：三张 `PRIMARY_WEB_SOURCE` 节点在四分钟观察窗内没有 terminal output 后被 Master 取消；没有 source claim，促成 prelaunch NodeCard、deadline 与 partial-output fail-closed 规则。
 
 - [P-DAG-SOURCE-002 与 BATTLE-002：ZF/ZFC 语法、proof-layer 与 P3 层级分离（Terra / Max，2026-10-02）](20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md)：Metamath `pwex` 作为 proof-system consumer 的层级边界、Isabelle/ZF 公式—满足—reentry P2 chain、同卡 P3 gap，以及由此新增的 P1 L2c/layer-integrity 门。
