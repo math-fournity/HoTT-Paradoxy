@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG H013：P1 subject/process 盲态重放（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-013-Terra-Max.md)：D-L7 使无泄漏 worker 拒绝把 `Delay` 当最终 subject，并把 `C` 的 h-level 与询问过程分开；同时暴露 `C` 仍是 schematic subject，成为 D-L8 的精确反控制。该节点也首次保存了 RUNNING→STILL_RUNNING→TERMINAL 的 append-only liveness 历史。
+
 - [P-DAG H011/H012：询问过程的 P2/P3 source-match 接力（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-VALIDATION-011-012-Terra-Max.md)：在与 H010 同一 `QuestioningDelay.agda` source card 上，P2 判 `NOT_APPLICABLE`、P3 判 `COMPLETION_PROCESS_NOT_ADMISSION_CYCLE`；两次 App Server node 均具 E0–E7、exact echo、零工具事件与 private wire trajectory receipt。它验证三刀不因“逐层询问”表面而互相代填字段，不释放 HoTT replay 或 ZFC gate。
 
 - [模式 P 刀具系统：全历史逐段理念—实作对照审计（2026-10-02）](20261002-P-DAG-刀具系统全历史逐段对照审计.md)：从三刀出现前的原初计算张力、AI 启发式、理论级靶与 A/B/UR 边界，到 0108/0109 全部直接 conversation units、H010 和 observation-first 修订的可复算审计分母；逐项区分原初理念、规格遗漏、执行偏差、runner/evidence failure 与可证伪后继。它替代旧起源审计作为当前 full-audit owner，旧报告仍保留为历史输入。
