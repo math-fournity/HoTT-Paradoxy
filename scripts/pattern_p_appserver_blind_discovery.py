@@ -167,24 +167,35 @@ async def run_discovery(
     started = time.monotonic()
     thread_id = ""
     turn_id = ""
+    liveness_sequence = 0
 
     def write_liveness(status: str) -> None:
+        nonlocal liveness_sequence
+        liveness_sequence += 1
+        snapshot = {
+            "schema_version": f"p-dag-{profile}-liveness/v1",
+            "sequence": liveness_sequence,
+            "status": status,
+            "thread_id": thread_id,
+            "turn_id": turn_id,
+            "elapsed_seconds": round(time.monotonic() - started, 3),
+            "observation_interval_seconds": observation_interval_seconds,
+            "hard_timeout_seconds": hard_timeout_seconds,
+            "command": counts["command"],
+            "file_change": counts["file_change"],
+            "approval_request": counts["approval_request"],
+        }
         private_json(
             paths["private"] / "run-liveness.json",
-            {
-                "schema_version": f"p-dag-{profile}-liveness/v1",
-                "status": status,
-                "thread_id": thread_id,
-                "turn_id": turn_id,
-                "elapsed_seconds": round(time.monotonic() - started, 3),
-                "observation_interval_seconds": observation_interval_seconds,
-                "hard_timeout_seconds": hard_timeout_seconds,
-                "command": counts["command"],
-                "file_change": counts["file_change"],
-                "approval_request": counts["approval_request"],
-            },
+            snapshot,
             regression,
         )
+        history_path = paths["private"] / "run-liveness.jsonl"
+        with history_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(snapshot, ensure_ascii=False, sort_keys=True) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        history_path.chmod(0o600)
 
     async def notify(method: str, params: dict[str, Any]) -> None:
         if method == "item/agentMessage/delta" and isinstance(params.get("delta"), str):
