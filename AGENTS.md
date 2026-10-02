@@ -17,7 +17,7 @@
   `goal-7.md`/`goal-7-audit.md`。Goal7承担父范围充分性修复与同一第三轮的接续，不是第四轮。
   旧final-002和旧完成状态是历史输入；C必须先论证父范围到研究集合的充分性，再完成研究，不能只结案自选集。
 - `.codex`是本项目canonical Skill树。宿主未显示Skill菜单时仍按以上路径读取；隐式匹配、metadata、索引、
-  hash和旧“已加载”不能替代全文。角色路由只选择方法，不授予Goal创建、模型运行、Sub Agent或写权限。
+  hash和旧“已加载”不能替代全文。角色路由只选择方法，不授予Goal创建、模型运行、Sub Agent或写权限；唯一例外是本文件「模式 P 动态 DAG 的任务限定授权」所规定的、用户 2026-10-02 明确授权的 P-DAG 节点。
 - 跨Session/压缩后，在业务判断之前重新完整读取本角色Skill和单体闭包、最高指示，并按PROTOCOL恢复当前
   状态/原文/证据。公开说明角色/Goal、已读版本/EOF、原意与成功标准、未完成项及下一动作；不索取隐藏推理。
 - A/B/C/D均只在用户明确启动/继续后执行；方案、最大编号、旧日志或Skill存在不使研究自动复活。
@@ -153,15 +153,16 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `.codex/tools/cognition_runtime.py` 的 `plan/read/check` 是只读加载器；checkpoint 默认 dry-run，只有用户已授予的写权限和显式 `--apply` 才能写入状态。每个 applied checkpoint 必须在同一事务中写入 `SESSION.md`、`RUNS.json` 和通过当前 generation 全量/顺序检查的 `CORE_COGNITION_AUDIT.md`，并产生 `.codex/cognition/checkpoints/<session-id>/transaction.json`、before/after 副本和 `result.json`。只有 canonical `result.json.status=CHECKPOINT_COMMITTED` 才能证明 checkpoint 已应用；Session 自写的 `POST-CHECKPOINT.json` 只能引用该收据，不能自我证明。历史缺收据只能登记缺口，禁止追溯伪造事务。
 - Git 操作遵守全局基线规范：精确检查 dirty/index，保留既有嵌套 repo 与用户修改，精确 stage，提交后回读 HEAD、hash、验证结果。顶层 repo 的本次初始化与提交由用户本轮明确授权；不自动 push、发布、恢复已移走目录或删除历史。
 
-## 禁止启动 Sub Agent（用户 2026-09-17 裁定）
+## 模式 P 动态 DAG 的任务限定授权（用户 2026-10-02）
 
-- 本项目**禁止启动任何 Sub Agent**：不得调用 `spawn_agent` / multi_agent 工具，不得提议、
-  启动、等待或恢复 Sub Agent。全局 AGENTS 的「Codex Master-to-Sub Agent 治理」条款在本项目
-  中收窄为**恒定的禁止状态**，不存在 PROPOSE_ONLY 之外的任何状态。
-- 所有工作由当前 Session 的 AI 直接完成。需要独立复核时，由**用户安排的外部 AI 追溯审计**
-  （修订片 009 / 017 的角色 D）承担，不由 Sub Agent 承担；本项目的强制审计层（P3P4_AUDIT_TRAIL、
-  分片审计集、checkpoint 收据）已经提供留痕，Sub Agent 不是替代品。
-- 发现任何残留 Sub Agent 句柄：只关闭、登记缺口，不消费其输出。
+2026-09-17 的 blanket Sub Agent 禁令保留为历史规则，并继续约束本项目的一般工作；用户 2026-10-02 对**模式 P 的 P1/P2/P3 共同锻造、ZFC 定位与 HoTT 盲重放**作出任务限定的后续授权：Master 可以按证据依赖建立动态 DAG，启动不同刀具、来源核对、控制和 Battle 节点，并逐节点决定是否允许联网、只读 `dev`／`main`／其它分支或保持无泄漏盲态。
+
+- 唯一执行入口是 `.codex/skills/hott-pattern-p-dynamic-dag-orchestration/SKILL.md` 与 `dev-docs/模式P动态DAG调度.md`。它们规定 TaskCard、NodeCard、访问等级、有界 Battle、Master 裁决、收据与停止；Skill 的存在不自动启动节点。
+- 当前任务限定的 worker 请求固定为 `gpt-5.6-terra / max`，只读、无递归、无 Git/current-owner 写权。不得以原生 `spawn_agent` 的其它 profile/model/effort 作静默替代；默认一轮至多三名并行 worker，Battle 按依赖串行，新增节点必须有明确 gap/冲突触发。
+- `BLIND_CARD` 不得读取项目已有答案、分支或网络；来源／控制／Battle 节点的可见材料和网络权限由 Master 在 NodeCard 中逐项列出。网络、`dev`、`main` 或其它分支的读取是证据权限，不是 worker 的一般权限。
+- Battle 不是多数投票，也不索取隐藏思维。worker 只能交付公开的 MatchTrace、来源与反事实；Master 可以提出 claim，但该 claim 必须接受独立质询，最终以一手 source、同一任务控制和相称运行证据裁决。
+- 只有 Master 写回本项目 current owners。App Server 仅在 exact model/effort 与 read-only sandbox、approval policy 得到实际资格化后使用；当前未资格化时使用已验证的 fresh CLI lane，或停止相应节点。发现旧的 native Sub Agent 句柄仍只关闭、登记，且不把它们当作 P-DAG 证据。
+- 此 scoped exception 不授权一般 swarm、写入委派、推送、发布、凭据访问、外部系统 mutation 或把 DAG 输出升级为数学结论。研究发起人随后明确授权：P-DAG 的刀具规格、来源／Battle／timeout 收据和必要路由更新在完成精确 baseline、验证与 owner 回读后，应以**精确路径 Git commit**保留审计谱系；该授权不扩大到无关 dirty 路径、tag、push 或发布。其它任务仍适用原禁令和全局 `repo-subagent-governance` 合同。
 
 ## 任务路由（v5 分档）
 
@@ -189,4 +190,3 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 ## 简体中文优先
 
 尽量使用简体中文回答用户的问题，但是必要的术语、词汇是可以使用英文的。
-

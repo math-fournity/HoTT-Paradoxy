@@ -1,0 +1,124 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-GOV-20261002-P-DAG-ORCHESTRATION",
+  "tier": "T2",
+  "role": "GOVERNANCE_ALIGNMENT",
+  "status": "P_DAG_SOP_IMPLEMENTED_WITH_TWO_SOURCE_PASSES_LAYER_BATTLE_AND_TIMEOUT_CONTROL_SCOPE",
+  "new_formal_runs": [],
+  "agent_runs": [
+    {
+      "id": "P-DAG-BATTLE-001",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd1b-039b-77e1-895a-b5ff743ce497",
+        "01a0fd1b-028d-7442-a124-e3e4a6af5577",
+        "01a0fd1d-180b-7742-8c04-d83975b92ba1"
+      ],
+      "status": "RESOLVED_BY_SOURCE / SOURCE_CONSUMER_GAP",
+      "audit": "audit/20261002-P-DAG-BATTLE-001-Terra-Max.md"
+    },
+    {
+      "id": "P-DAG-SOURCE-001",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd24-e045-7e53-b290-ae608e851408",
+        "01a0fd24-e017-7330-8f84-cc677ee47132",
+        "01a0fd2c-5031-7923-b5a1-b19b5d50c37d",
+        "01a0fd2c-4f56-7e10-95e5-08e62223ecb8"
+      ],
+      "status": "FORMAL_CONSUMER_SOURCE_FOUND / P2_NOT_APPLICABLE / P3_SEMANTICS_NOT_SUPPLIED / NO_COMMON_Q",
+      "audit": "audit/20261002-P-DAG-SOURCE-001-Terra-Max.md"
+    },
+    {
+      "id": "P-DAG-SOURCE-002-AND-BATTLE-002",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd3d-a12b-7851-9f56-c9aa1469ed62",
+        "01a0fd3d-a0d6-74e3-8105-e6fed4ff0566",
+        "01a0fd3d-a03d-7ca1-95cb-6fc2d0b4f7e4",
+        "01a0fd45-dae0-7a31-ba81-d859daa94586",
+        "01a0fd4f-fb3b-7531-873b-500e807149b8",
+        "01a0fd48-9ab9-73c3-a379-4d2a7a5e8a59",
+        "01a0fd48-9a7c-72a0-b169-9b08ffefd1e5",
+        "01a0fd4c-2a1d-7d21-bfec-f3172b85d04c"
+      ],
+      "status": "P2_MATCHED_WITH_SCOPE / P1_SOURCE_CARD_NO_Q / P3_SEMANTICS_NOT_SUPPLIED / PROOF_LAYER_ONLY / NO_COMMON_Q",
+      "audit": "audit/20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md"
+    },
+    {
+      "id": "P-DAG-SOURCE-003-TIMEOUT",
+      "runner": "fresh Codex CLI",
+      "model_request": "gpt-5.6-terra",
+      "effort_request": "max",
+      "sandbox": "read-only",
+      "approval": "never",
+      "nodes": [
+        "01a0fd5f-0afa-7773-8245-f873a22e49cc",
+        "01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3",
+        "01a0fd5f-0b21-70f0-8a90-7efa8c9ea504"
+      ],
+      "status": "TIMEOUT_NO_TERMINAL_OUTPUT / TERMINATED_BY_MASTER_SIGINT / NO_FINAL_ARTIFACT / NO_SOURCE_CLAIM",
+      "audit": "audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md"
+    }
+  ],
+  "source_reads": [
+    {
+      "id": "SRC-MATHLIB-ZFSET-001",
+      "source": "Mathlib4 v4.16.0 ZFSet model",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/a6276f4c6097675b1cf5ebd49b1146b735f38c02/Mathlib/SetTheory/ZFC/Basic.lean",
+      "scope": "source header plus powerset/mem_powerset and funs/mem_funs declarations",
+      "status": "PRIMARY_SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-HOTT-POWERSET-CONTROL-001",
+      "source": "HoTT Book first-edition-611-ga1a258c, §10.3 Lemma 10.3.7",
+      "url": "https://homotopytypetheory.org/wp-content/uploads/2013/03/hott-online-611-ga1a258c.pdf",
+      "scope": "cross-theory power-set consumer control only",
+      "status": "SOURCE_REPORTED_BY_ISOLATED_NODE_NOT_PROJECT_REPLAYED"
+    },
+    {
+      "id": "SRC-CODEX-APPSERVER-001",
+      "source": "local codex-cli 0.157.0 schema + shared broker source",
+      "scope": "thread/turn fields and sandbox-forwarding qualification",
+      "status": "SOURCE_INSPECTED_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-METAMATH-POWERSET-001",
+      "source": "Metamath set.mm @ 160dfc7e4ec5f201f5bae4ca5a5eeb67242902b5",
+      "url": "https://github.com/metamath/set.mm/blob/160dfc7e4ec5f201f5bae4ca5a5eeb67242902b5/set.mm",
+      "scope": "ax-pow through pwex proof-system contract only; no fresh verifier replay",
+      "status": "PRIMARY_SOURCE_READ_WITH_SCOPE / PROOF_LAYER_ONLY"
+    },
+    {
+      "id": "SRC-ISABELLE-ZF-FORMULA-001",
+      "source": "Isabelle2020 ZF/Constructible/Formula.thy",
+      "url": "https://isabelle.in.tum.de/website-Isabelle2020/dist/library/ZF/ZF-Constructible/Formula.html",
+      "scope": "formula/sats/Forall/Cons/incr_bv/DPow syntax-semantics interface",
+      "status": "PRIMARY_SOURCE_READ_WITH_SCOPE / P2_MATCHED_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-MATHLIB-ZFSET-P3-002",
+      "source": "Mathlib4 ZFSet model @ d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "scope": "static powerset definition and extensional membership negative control for P3",
+      "status": "SOURCE_REPORTED_BY_NODE_WITH_SCOPE / NO_QUALIFYING_P3_SOURCE"
+    }
+  ],
+  "non_goals": [
+    "No ZFC inconsistency, mathematical theorem, or ZFC Q claim.",
+    "No claim that Mathlib ZFSet model is standard ZFC or that its source contract creates P2/P3 tension.",
+    "No App Server worker smoke, no broker modification, and no global Codex configuration change.",
+    "No Git commit, tag, push, or external mutation."
+  ]
+}

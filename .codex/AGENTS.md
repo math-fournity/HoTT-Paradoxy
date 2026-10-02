@@ -17,6 +17,8 @@
 | `skills/hott-paradox-search-sop/SKILL.md` | 有界执行循环；legacy才绑定goal-1，当前任务按路由定位 |
 | `skills/hott-machine-overview-execution/SKILL.md` | 原A用Goal6/5；续做C用Goal7，先父范围充分性再研究结案 |
 | `skills/hott-machine-overview-audit/SKILL.md` | 原B用Goal6-audit；续做D用Goal7-audit，审不同固定交付 |
+| `skills/hott-pattern-p-dynamic-dag-orchestration/SKILL.md` | 模式 P 的任务限定动态 DAG：P1/P2/P3、来源、控制与 Battle 节点由 Master 按证据依赖调度；只在根 AGENTS 的 2026-10-02 scoped authorization 下使用 |
+| `../dev-docs/模式P动态DAG调度.md` | P-DAG 的 TaskCard、NodeCard、访问等级、Battle、App Server/CLI 运行边界与验证 owner |
 | `../最高指示.md` | 全Session全文输入；研究、审计、治理、机械任务按§0A消费 |
 | `tools/cognition_runtime.py` | canonical 加载器/checkpoint 引擎（`plan`/`read`/`check`/`query`/`checkpoint`） |
 | `research/hott/STATE.json` | 机器真值账本（身份与分母从 `current_core` 动态取得） |
