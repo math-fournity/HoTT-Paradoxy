@@ -1,6 +1,8 @@
 # 审计资产入口
 
-- [P-DAG ZFC H028：AC0／Power Set 的活跃义务与来源包支付控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-028-AC0-POW-Terra-Max.md)：Isabelle/ZF 中的 AC0 定义、被断言的 AC0 以及带 well-order 前提的定理是三种不同状态；这张受控卡新增 P1 的 `L5b` 和 `L7b`，不形成 ZFC Q、ZFC 矛盾或 runtime construction 结论。
+- [P-DAG ZFC H029/H030：axiomatized AC、Power Set 和 Gate Ledger 回归（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-029-030-AC-POW-PROOF-GATELEDGER-Terra-Max.md)：H029的支付链内容正确但公开gate标签错置；H030以固定五行Ledger复测，限定地通过proof-system层的直接支付分类，不形成ZFC Q或可执行selector。
+
+- [P-DAG ZFC H028：AC0／Power Set 的活跃义务与来源包支付控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-028-AC0-POW-Terra-Max.md)：该片段先是 `SOURCE_CONSUMER_GAP`，然后区分 Isabelle/ZF 中的 AC0 定义、被断言的 AC0 和带 well-order 前提的定理；这张字段控制新增 P1 的 `L5b` 和 `L7b`，不形成 ZFC Q、ZFC 矛盾或 runtime construction 结论。
 
 - [P-DAG ZFC H025–H027：constructible-inner-powerset 来源控制与外部隔离重试（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-025-027-CONSTRUCTIBLE-POW-Terra-Max.md)：两次预认证失败保留为运行证据；外部 experiment root 的同字节 source-match 成功显示 concrete `LCarrier` 的有限域内部化是 guarded model-layer consumer，`Q`仍未出现，P2/P3不启动。
 
