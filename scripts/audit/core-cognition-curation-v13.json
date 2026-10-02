@@ -1,0 +1,34 @@
+{
+  "schema_version": "core-cognition-curation/v2",
+  "asset_class": "HUMAN_EDITED_CURATION_AUTHORITY",
+  "generation": "core-cognition-generation-13",
+  "previous_generation_ref": "52a1c79df5fa0d4b69bae6f04e6783f528f8601b",
+  "scope": "Preserve every generation-12 direct-user unit exactly (61/61) and append one complete 2026-10-02 Codex user message refining the role of Russell pattern P. The user reports that after the last leap, AI feedback matched the expected discovery behavior: with core cognition and a correctly written P, the model may use its learned knowledge about theory X to match P without enumerating every detail and may produce a first-pass clue. This is recorded as a conditional methodological heuristic and user observation, not as a guarantee of model behavior, a statement that P has already been written correctly, evidence that a theory has a defect, or permission to treat neural-network content as inspectable evidence.",
+  "inherits": {
+    "path": "scripts/audit/core-cognition-curation-v12.json",
+    "sha256": "b6a64dc10fb527c1aaab3e8ce3b504d81f12b931afe6904d36d77d56f400d319",
+    "generation": "core-cognition-generation-12"
+  },
+  "sources": [
+    {
+      "platform": "Codex",
+      "message_id_prefix": "CODEX-RUSSELL-P-ONEPASS-20261002",
+      "path": "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+      "sha256": "1b280968cc14702750d68de2b04314e3a017edfab08d67ec8d9ce425a94b184d"
+    }
+  ],
+  "message_decisions": [
+    {
+      "source_message_id": "CODEX-RUSSELL-P-ONEPASS-20261002-M-001",
+      "disposition": "INCLUDED",
+      "reason": "用户直接补充模式 P 的发现功能：P 是启发 AI 利用关于理论 X 的已有知识进行模式匹配的模式；当 P 写对时，理论审视不必遍历理论及其衍生的全部细节，而可以在一遍中匹配出线索。该原话改变未来发现动作和对模式 P 的验收要求，属于直接研究方法论。它保留为用户条件性期望与观察，不成为全模型性能定理、数学证明或可审计的神经网络读取声明。"
+    }
+  ],
+  "units": [
+    {
+      "source_message_id": "CODEX-RUSSELL-P-ONEPASS-20261002-M-001",
+      "semantic_label": "模式 P 写对后以理论 X 的已有知识一遍匹配线索，而非遍历全部细节",
+      "source_lines": [9, 9]
+    }
+  ]
+}

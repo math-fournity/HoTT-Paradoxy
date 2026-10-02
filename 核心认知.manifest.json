@@ -3,19 +3,19 @@
   "build_policy": {
     "curation_lineage": [
       {
-        "generation": "core-cognition-generation-11",
-        "path": "scripts/audit/core-cognition-curation-v11.json",
-        "sha256": "c7e274d3fcec7c5be2991842329cee3a053c5754b97c7e48122cb2b039a2dbf9"
-      },
-      {
         "generation": "core-cognition-generation-12",
         "path": "scripts/audit/core-cognition-curation-v12.json",
         "sha256": "b6a64dc10fb527c1aaab3e8ce3b504d81f12b931afe6904d36d77d56f400d319"
+      },
+      {
+        "generation": "core-cognition-generation-13",
+        "path": "scripts/audit/core-cognition-curation-v13.json",
+        "sha256": "41adf72e6215f5abd1498b0dc2af242e77b96d503914e2d99c91fcd50a40f8fd"
       }
     ],
     "duplicate_policy": "retain evolution; omit exact/redundant cross-platform repetition with per-message reason",
     "inline_metadata_policy": "compact human locator only; full provenance remains in manifest",
-    "primary_denominator": 107,
+    "primary_denominator": 108,
     "primary_inputs_only": [
       "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
       "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
@@ -31,7 +31,8 @@
       "sources/prompts/Codex-非现实性悖论的目标与A向读法-用户原文-20260930.md",
       "sources/prompts/Claude-UR与芝诺的模式匹配-用户原文-20260930.md",
       "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md",
-      "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md"
+      "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+      "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md"
     ],
     "relayed_ai_policy": "retained in source/disposition, excluded from USER_OWNED_DIRECT current core",
     "semantic_boundary": "human-curated exact source ranges; one KC per coherent user idea",
@@ -39,9 +40,9 @@
     "timestamp_policy": "UTC sort; WebGPT naive export timestamp interpreted as America/New_York"
   },
   "canonical_manager": "scripts/audit/build_core_cognition.py",
-  "core_document_sha256": "7d3f7748e203249b718880b3aca8783fd6606f4695a977007660d9913828c35f",
+  "core_document_sha256": "55d514b1a707b727a7aa6c00af6e6ff799d844eea04ff4b11927b5159e36d9ef",
   "counts": {
-    "core_units": 61,
+    "core_units": 62,
     "dispositions": {
       "EXCLUDED_ATTACHMENT_OR_AVAILABILITY": 7,
       "EXCLUDED_CONTINUATION_ONLY": 14,
@@ -49,23 +50,23 @@
       "EXCLUDED_REDUNDANT_NO_NEW_COGNITION": 5,
       "EXCLUDED_RELAYED_AI_OR_COMPOSITE_CONTEXT": 16,
       "EXCLUDED_RESEARCH_ADMINISTRATION": 9,
-      "INCLUDED": 41
+      "INCLUDED": 42
     },
     "messages_excluded": 66,
-    "messages_included": 41,
-    "messages_parsed": 107,
-    "primary_files": 15,
+    "messages_included": 42,
+    "messages_parsed": 108,
+    "primary_files": 16,
     "units_by_platform": {
       "Claude": 3,
-      "Codex": 30,
+      "Codex": 31,
       "GLM": 1,
       "Gemini": 13,
       "LocalGPT": 6,
       "WebGPT": 8
     }
   },
-  "curation_authority": "scripts/audit/core-cognition-curation-v12.json",
-  "curation_sha256": "b6a64dc10fb527c1aaab3e8ce3b504d81f12b931afe6904d36d77d56f400d319",
+  "curation_authority": "scripts/audit/core-cognition-curation-v13.json",
+  "curation_sha256": "41adf72e6215f5abd1498b0dc2af242e77b96d503914e2d99c91fcd50a40f8fd",
   "files": [
     {
       "bytes": 8124,
@@ -201,9 +202,18 @@
       "path": "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
       "platform": "Codex",
       "sha256": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa"
+    },
+    {
+      "bytes": 1100,
+      "input_role": "primary",
+      "lines": 9,
+      "message_count_parsed": 1,
+      "path": "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+      "platform": "Codex",
+      "sha256": "1b280968cc14702750d68de2b04314e3a017edfab08d67ec8d9ce425a94b184d"
     }
   ],
-  "generation": "core-cognition-generation-12",
+  "generation": "core-cognition-generation-13",
   "message_disposition": [
     {
       "disposition": "INCLUDED",
@@ -2130,9 +2140,27 @@
       "timestamp_parse_policy": "source-offset",
       "timestamp_utc": "2026-10-02T00:00:00+00:00",
       "unit_count": 1
+    },
+    {
+      "disposition": "INCLUDED",
+      "disposition_reason": "用户直接补充模式 P 的发现功能：P 是启发 AI 利用关于理论 X 的已有知识进行模式匹配的模式；当 P 写对时，理论审视不必遍历理论及其衍生的全部细节，而可以在一遍中匹配出线索。该原话改变未来发现动作和对模式 P 的验收要求，属于直接研究方法论。它保留为用户条件性期望与观察，不成为全模型性能定理、数学证明或可审计的神经网络读取声明。",
+      "input_role": "primary",
+      "message_text_bytes": 581,
+      "message_text_sha256": "3516b80fe0b18ac8946d39864551a78d96dde2e3c16f2f30710b5bc8c4b11d0b",
+      "platform": "Codex",
+      "source_file": "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+      "source_file_sha256": "1b280968cc14702750d68de2b04314e3a017edfab08d67ec8d9ce425a94b184d",
+      "source_header_line": 7,
+      "source_message_id": "CODEX-RUSSELL-P-ONEPASS-20261002-M-001",
+      "source_message_ordinal": 7,
+      "source_record_index": 1,
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_count": 1
     }
   ],
-  "previous_generation_ref": "a89c1d2ef7090479b5e5ee7884ba52670991ed78",
+  "previous_generation_ref": "52a1c79df5fa0d4b69bae6f04e6783f528f8601b",
   "schema_version": "core-cognition/v2",
   "units": [
     {
@@ -4148,6 +4176,34 @@
       "timestamp_utc": "2026-10-02T00:00:00+00:00",
       "unit_bytes": 210,
       "unit_sha256": "24fcf875263293c3e38f6d0cff6ec408d140a47e936e1203651273b39e9294dd"
+    },
+    {
+      "author_class": "USER_OWNED_DIRECT",
+      "id": "KC-000062",
+      "lifecycle": "POSITION_OR_REFINEMENT",
+      "platform": "Codex",
+      "relations": [],
+      "selection_reason": "用户直接补充模式 P 的发现功能：P 是启发 AI 利用关于理论 X 的已有知识进行模式匹配的模式；当 P 写对时，理论审视不必遍历理论及其衍生的全部细节，而可以在一遍中匹配出线索。该原话改变未来发现动作和对模式 P 的验收要求，属于直接研究方法论。它保留为用户条件性期望与观察，不成为全模型性能定理、数学证明或可审计的神经网络读取声明。",
+      "selector": {
+        "source_line_end": 9,
+        "source_line_start": 9
+      },
+      "semantic_label": "模式 P 写对后以理论 X 的已有知识一遍匹配线索，而非遍历全部细节",
+      "source_file": "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+      "source_locator": "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md#L9-L9",
+      "source_message_id": "CODEX-RUSSELL-P-ONEPASS-20261002-M-001",
+      "source_message_ordinal": 7,
+      "source_message_sha256": "3516b80fe0b18ac8946d39864551a78d96dde2e3c16f2f30710b5bc8c4b11d0b",
+      "source_sha256": "1b280968cc14702750d68de2b04314e3a017edfab08d67ec8d9ce425a94b184d",
+      "themes": [
+        "BEING_AND_BECOMING",
+        "RESEARCH_METHOD"
+      ],
+      "timestamp_original": "2026-10-02",
+      "timestamp_parse_policy": "source-offset",
+      "timestamp_utc": "2026-10-02T00:00:00+00:00",
+      "unit_bytes": 581,
+      "unit_sha256": "3516b80fe0b18ac8946d39864551a78d96dde2e3c16f2f30710b5bc8c4b11d0b"
     }
   ]
 }
