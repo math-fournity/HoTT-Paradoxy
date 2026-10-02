@@ -81,7 +81,7 @@ P2/P3_NOT_LAUNCHED
 NOT_ZFC_Q_LOCATED
 ```
 
-它只证明这个冻结 Prompt、模型、source 和字段格式下，公开自我说明已能把门分别放对；不能证明未来所有理论、prompt或模型都稳定如此。
+它只证明这个冻结 Prompt、模型、source 和字段格式下，公开自我说明已能把门分别放对；不能证明未来所有理论、prompt或模型都稳定如此。`SOURCE_PACKET_DIRECT_PAYMENT`还只关闭 P1 的未支付义务路径：它不把 proof acceptance升级为现实／计算完成，也不关闭 B 向；B 向仍需要 P3 的实际构造状态与同一任务证据。
 
 ## 4. 运行与轨迹证据
 

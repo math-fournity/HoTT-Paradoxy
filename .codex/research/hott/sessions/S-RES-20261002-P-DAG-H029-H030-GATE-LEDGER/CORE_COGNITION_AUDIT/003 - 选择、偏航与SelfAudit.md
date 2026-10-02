@@ -15,7 +15,7 @@ H029没有因存在式或AC术语而被当作ZFC问题；它先被严格限定�
 | 动作 | 依据 | 禁止事项 | 反证／回退 |
 |---|---|---|---|
 | 寻找同层实际consumer source | H029/30只验证proof-system支付，L2b对象/实际use仍缺 | 不把proof theorem当consumer | 缺C/I/O/Done则停为control。 |
-| 派P2/P3 | 无 | 不在已支付proof Q上强行映射 | 只有未付Q才能启动。 |
+| 派P2/P3 | H029/H030无P3 transition | 不在已支付proof Q上强行映射，也不把支付当作关闭B向 | 只有来源给实际构造状态或未付Q才能启动。 |
 | 视H030为P完成 | 无 | 一次source/prompt通过不能泛化 | 新source标签错置则重开。 |
 | 创建P4 | 无 | 说明字段是P1职责 | Gate Ledger已吸收。 |
 
