@@ -96,10 +96,14 @@ The correct label is **not** `D_L5_FAILED`. D-L5 did the work it was designed to
 | Actual action | One permitted D-L5 regression retry on the same thin packet, followed by Master source validation. |
 | Alignment verdict | `ALIGNED_WITH_CALIBRATION`: the discovery stage produced an actual native task, and validation immediately checked whether it was already paid by the theory. |
 | Deviation class | `EXPECTED_CALIBRATION_FAILURE`, not `ORIGINAL_IDEA_CHALLENGED`. The fixed packet found a native task but not a nontrivial one. |
-| Tool impact | No new P1/P2/P3 rule and no P4. The event validates the separation `D-L5 → L6`, and records that the two gates are not redundant. |
+| Tool impact | D-L6 is added as a discovery-stage direct-payment screen; it predicts only packet-visible direct answers and does not replace validation L6. P2/P3 remain unchanged and no P4 is created. |
 | Falsifier | A source-grounded HOTT candidate that meets D-L5 and remains nontrivial under L6/L7 would change this particular control; a repeat of the same thin packet is prohibited. |
 | Next trigger | A separately justified, richer no-answer-leak HoTT source packet must be frozen before another discovery run. It must not expose the existing project answer. |
 
 ## 6. Scope boundary
 
 This artifact establishes a bounded finding about the P-DAG method and the named source presentation. It does not establish a defect, inconsistency, nontermination result, UR, or mathematical theorem about HoTT. It also does not release the ZFC gate.
+
+## 7. Follow-up specification receipt
+
+The resulting D-L6 specification is recorded in [`20261002-P-DAG-DL6-DISCOVERY-DIRECT-PAYMENT-SPEC.md`](20261002-P-DAG-DL6-DISCOVERY-DIRECT-PAYMENT-SPEC.md). It changes the next discovery contract, rather than reinterpreting H-005 after the fact: H-005 remains an admissible D-L5 candidate under the prior contract and the regression input for the new direct-payment screen.

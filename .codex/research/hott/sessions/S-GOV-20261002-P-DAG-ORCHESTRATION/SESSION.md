@@ -31,6 +31,7 @@
 14. `P-DAG-HOTT-DISCOVERY-003`：分段后第一 discovery node在90秒没有final artifact；只有一次改变执行预算和输出长度的后继被允许。
 15. `P-DAG-HOTT-DISCOVERY-004`：长观察窗捕获一张合法 `MODEL_RECALL_SITE_CANDIDATE`，但 Q? 是 universe-index preservation 的 meta-layer问题，不是 native prospective task；P1新增 D-L5/native-task anchor，F-035登记，HoTT gate仍未释放。
 16. `P-DAG-HOTT-DISCOVERY-005`：D-L5 版本在同一薄 packet 上成功给出 univalence 的原生等价使用任务 `e:A≃B ⟼ p:A=B`；Master 对固定 HoTT Book source 复核后，因 `ua` 是 `idtoeqv` 的 inverse，判 `D_L5_DISCOVERY_PASS / P1_L6_TRIVIAL_CONTROL`。它验证两道门的分工，不是 HoTT replay pass；该薄 packet 已用尽。
+17. `P-DAG-DL6-SPEC-001`：H-005 暴露 discovery 仍允许 packet-visible direct answer 伪装成线索，故新增 D-L6/direct-payment screen。它是 L6 的发现态预筛，H-005 为回归控制；P2/P3 和 ZFC gate 不变。
 
 ## 证据与停止
 
