@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [模式 P 刀具系统：全历史逐段理念—实作对照审计（2026-10-02）](20261002-P-DAG-刀具系统全历史逐段对照审计.md)：从三刀出现前的原初计算张力、AI 启发式、理论级靶与 A/B/UR 边界，到 0108/0109 全部直接 conversation units、H010 和 observation-first 修订的可复算审计分母；逐项区分原初理念、规格遗漏、执行偏差、runner/evidence failure 与可证伪后继。它替代旧起源审计作为当前 full-audit owner，旧报告仍保留为历史输入。
+
 - [P-DAG-RUNNER-ISOLATION-002：空 CODEX_HOME 认证边界结果（2026-10-02）](20261002-P-DAG-RUNNER-ISOLATION-002-RESULT.md)：空 home 取消了可见用户 AGENTS 路径，却因 keyring 无可用认证在模型采样前 `401` 失败；现有 file-auth 不复制进模型可读取的临时 home，盲态任务等待独立认证 runner。
 
 - [P-DAG-HOTT-DISCOVERY-007：盲态 CLI 上下文泄漏与终止收据（2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-007-ACCESS-LEAK.md)：`/tmp` cwd、只读、`--ignore-user-config` 和 `--ignore-rules` 仍未阻止 global instruction injection；worker 尝试读取全局 Skill、扫描 workspace 与调用 Git 后被停止。所有 fresh-CLI blind evidence 因而降级，后继必须先跑零理论 runner-isolation health node。
