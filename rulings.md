@@ -560,3 +560,9 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 预算、成本、失联迹象和用户取消进入 NodeCard 的 `operator-review rule`，要求 Master 基于实时证据作判断；它们不能被编码为由 runner 依秒表执行的中断。若未来确有人工中断需求，先单独资格化控制器、权限、race 处置和 terminal receipt。
 4. H010 的 180 秒和 20 秒 grace 是历史运行事实，保留在历史 NodeCard／收据中，不能回写；它不构成当前或未来 NodeCard 的默认或可配置上限。
 5. 此裁定改变的是 P-DAG 的运行和证据合同，不改变 P1/P2/P3 的理论职责，也不产生关于 HoTT、ZFC 或任何数学系统的数学结论。
+
+## 2026-10-02：盲态 App Server 实验目录必须位于业务项目根之外
+
+用户此前指出，Codex App Server 应启动在单独的目录中；本轮实际预检确认，仅创建独立`CODEX_HOME`不足以实现这个要求：若 experiment root 位于业务项目的子目录，cwd仍会沿父目录发现业务项目的`AGENTS.md`。
+
+执行裁定：每个盲态 App Server NodeCard 必须记录业务项目根与外部 experiment root 的不相交关系；run-scoped、安全、非 secret 的`CODEX_HOME/AGENTS.md`允许读取并在permission gate中正向核验，业务项目、method repo、auth、config、current home和网络仍拒读。项目内`private-audit/`只保存私有审计原件，不能作为盲态 worker 的运行根。H025/H026保留为预认证失败证据，H027的外部根重试只证明该一次运行链。

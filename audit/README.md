@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H025–H027：constructible-inner-powerset 来源控制与外部隔离重试（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-025-027-CONSTRUCTIBLE-POW-Terra-Max.md)：两次预认证失败保留为运行证据；外部 experiment root 的同字节 source-match 成功显示 concrete `LCarrier` 的有限域内部化是 guarded model-layer consumer，`Q`仍未出现，P2/P3不启动。
+
 - [P-DAG ZFC H023/H024：relative-powerset 模型边界控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-023-024-RELATIVE-POW-Terra-Max.md)：Isabelle 相对模型中的 internal/external powerset 不绝对只支持一向模型边界；外部 source-match 正确拒绝把它升格为 standard-ZFC consumer Q。
 
 - [P-DAG ZFC H019–H022：all-subobjects site 与当前 source gap（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-DISCOVERY-019-VALIDATION-020-022-Terra-Max.md)：后 HoTT-replay 的 blind P1 定位到“所有子对象”形成接口却正确判它被 formation 直接支付；冻结 Mathlib ZFSet consumer card进一步判 `NO_DISTINCT_Q`。记录了 H020 relay 漏冻结的修复，并明确下一 source 必须提供真实正义务。
