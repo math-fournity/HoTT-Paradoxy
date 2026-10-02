@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H019–H022：all-subobjects site 与当前 source gap（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-DISCOVERY-019-VALIDATION-020-022-Terra-Max.md)：后 HoTT-replay 的 blind P1 定位到“所有子对象”形成接口却正确判它被 formation 直接支付；冻结 Mathlib ZFSet consumer card进一步判 `NO_DISTINCT_Q`。记录了 H020 relay 漏冻结的修复，并明确下一 source 必须提供真实正义务。
+
 - [P-DAG H015–H017：具体宇宙的 P1 重放与 P2/P3 差分（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-REPLAY-015-017-Terra-Max.md)：无泄漏 P1 重放定位到 `U + staged completion question`，随后同卡 P2/P3 分别得到不适用与非准入环。它是 HoTT A 向过程位置的限定重放，不是内部矛盾或 ZFC 成功。
 
 - [H018：宇宙询问的任务忠实性与 UR 边界（Master，2026-10-02）](20261002-P-DAG-HOTT-TASK-FIDELITY-018-Master.md)：区分形式程序、源码任务、用户的 A 向 UR 判断和未建立的 B 向准入环；据此将 HoTT replay lock 限定性解除到 ZFC discovery/calibration，保留所有 ZFC 升级门。
