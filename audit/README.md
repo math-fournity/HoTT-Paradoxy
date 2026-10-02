@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG-HOTT-DISCOVERY-005：D-L5 原生任务锚点的 HoTT 发现与来源验证（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-005-Terra-Max.md)：无泄漏 discovery 首次提出“以等价形成宇宙路径”的原生任务，因而通过 `D-L5`；固定 HoTT Book 原典立即显示 `ua` 是 `idtoeqv` 的逆，故该 Q 在 P1 `L6` 被判为接口已支付的平凡控制，不能释放 HoTT replay 或 ZFC gate。
+
 - [P-DAG-HOTT-DISCOVERY-004：长观察窗无泄漏 HoTT 发现结果（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-004-Terra-Max.md)：首次捕获 discovery trace，但候选落在 universe-index 元层问题；它促成 P1 的 `D-L5/native-task anchor`，不能算 HoTT replay pass。
 
 - [P-DAG-HOTT-DISCOVERY-003：无泄漏 HoTT 一遍发现 NodeCard（2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-003-NODECARD.md)：90 秒没有终态输出，保留为 timing failure；H-004 是唯一改变观察窗与输出契约的后继重试。
