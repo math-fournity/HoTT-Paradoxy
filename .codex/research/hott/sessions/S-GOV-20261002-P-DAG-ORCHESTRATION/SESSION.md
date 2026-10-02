@@ -24,10 +24,11 @@
 7. `P-DAG-SOURCE-003`：三张 `PRIMARY_WEB_SOURCE` 卡试图寻找 Cantor 型同层 consumer 与 P3 lifecycle；4 分钟后仍无 terminal output 或 final artifact，Master `SIGINT` 停止。没有 source conclusion；NodeCard 增加启动前封存、deadline 与 partial-output fail-closed 规则。
 8. `P-DAG-SOURCE-004`：预封存 Isabelle/ZF Cantor source pack 后，CLI 回显 exact Terra/Max profile，但在模型采样前 `workspace routing discovery failed`。结果为 `RUNNER_CONNECTION_FAILURE / NO_AGENT_OUTPUT`；它不是 source-negative 或 P1 verdict。
 9. `P-DAG-ORIGIN-AUDIT-001`：逐项复盘罗素原初张力、P-first、Power Set、盲重放、P1/P2/P3、案例、代理解释和动态 DAG。它将 HoTT replay gate 提前越过与 V1 过早完成表述标为 execution deviation，并将 timeout/connection 分为 runner/evidence failure；SOP 005 与 F-033 由此建立。
+10. `P-DAG-SOURCE-005`：Master 直接审读固定 Isabelle/ZF `ZF_Base.thy` 的 `PowI`／`PowD`／`cantor`。它是 target-layer proof-task／theorem control，缺 same-`u` semantic consumer、native Q 和 P3 transition；不等同于 agent result，也不推进 ZFC Q。
 
 ## 证据与停止
 
-- public evidence：`audit/20261002-P-DAG-BATTLE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-004-NODECARD.md`、`audit/20261002-模式P刀具系统起源—实作对照审计.md`、`audit/20261002-P-DAG-AppServer-资格检查.md`；
+- public evidence：`audit/20261002-P-DAG-BATTLE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-001-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md`、`audit/20261002-P-DAG-SOURCE-004-NODECARD.md`、`audit/20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md`、`audit/20261002-模式P刀具系统起源—实作对照审计.md`、`audit/20261002-P-DAG-AppServer-资格检查.md`；
 - private/scratch evidence：`/tmp/hott-p-dag-battle-001/`、`/tmp/hott-p-dag-source-001/`、`/tmp/hott-p-dag-source-002/`、`/tmp/hott-p-dag-battle-002/`、`/tmp/hott-p-dag-source-003/`（empty final-output directory）；
 - no checkpoint：本轮没有改数学 STATE、方向投影、全景投影或数学 claim matrix；
 - next action：先恢复 runner health，再以预封存 NodeCard 执行独立、无答案泄漏的 HoTT replay。只有它在同一理论变体、同一 u/F/C/Q/I/O/Done 上达到 release predicate，ZFC Q 升级才解除；在此之前，ZFC source cards只作校准／control。每一自然单元先做 delta self-audit，再用精确 Git commit 记录有效修订。

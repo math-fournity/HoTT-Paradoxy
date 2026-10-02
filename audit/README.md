@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG-SOURCE-005：Isabelle/ZF Cantor 来源卡的 Master 直接审读（2026-10-02）](20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md)：固定 Isabelle mirror commit 的 `PowI`／`PowD`／`cantor` 源码直接审读；证明任务提到 `Pow(A)` 不等于 source-defined same-`u` semantic consumer，也不提供 P2/P3 或 ZFC Q。
+
 - [模式 P 刀具系统：起源—实作对照审计（2026-10-02）](20261002-模式P刀具系统起源—实作对照审计.md)：逐项回读罗素原初张力、P-first、Power Set 纠偏、一遍匹配、三把刀、案例、Terra/Max、MatchTrace 与动态 DAG 讨论；区分规格遗漏、执行偏差、runner/evidence failure 与原初理念是否被挑战，并释放 HoTT replay gate。
 
 - [P-DAG-SOURCE-004：Isabelle/ZF Cantor 消费者的预封存 NodeCard（Terra / Max，2026-10-02）](20261002-P-DAG-SOURCE-004-NODECARD.md)：固定 `PowI`／`PowD`／`cantor` 来源包后，CLI 在模型输出前遭遇 `workspace routing discovery failed`；记录为 runner connection failure，不构成来源或 P1 判词。
