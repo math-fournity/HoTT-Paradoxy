@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG-HOTT-DISCOVERY-007：盲态 CLI 上下文泄漏与终止收据（2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-007-ACCESS-LEAK.md)：`/tmp` cwd、只读、`--ignore-user-config` 和 `--ignore-rules` 仍未阻止 global instruction injection；worker 尝试读取全局 Skill、扫描 workspace 与调用 Git 后被停止。所有 fresh-CLI blind evidence 因而降级，后继必须先跑零理论 runner-isolation health node。
+
 - [P-DAG-HOTT-DISCOVERY-006：宽基础理论画像的 D-L6 回归（Terra / Max，2026-10-02）](20261002-P-DAG-HOTT-DISCOVERY-006-Terra-Max.md)：宽盲态 profile 正确把单价的逆方向停为 `DISCOVERY_DIRECT_RULE_ANSWER`，却因“一项即停”的旧合同没有选下一个基础位置；由此把 D‑L6 补成有界三项的 D‑L6b continuation，仍不构成 HoTT replay pass。
 
 - [P-DAG-DL6：发现阶段的直接偿付筛查规格（2026-10-02）](20261002-P-DAG-DL6-DISCOVERY-DIRECT-PAYMENT-SPEC.md)：由 H‑005 的 `isEquiv(idtoeqv)` 候选触发。若冻结规则本身已直接提供 Q? 的 answer，盲态节点必须记录 `DISCOVERY_DIRECT_RULE_ANSWER`，不把它送入来源验证或三刀会合；D‑L6 不取代 P1 L6 的完整来源核验。

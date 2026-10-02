@@ -60,7 +60,7 @@ This refinement only prevents an obvious discovery-stage false positive. It says
 
 ## 5. D-L6b / bounded alternate-site continuation
 
-HOTT-DISCOVERY-006 passed D-L6 but showed that a direct-answer screen can become an early-stop sink: the response discarded univalence correctly, then stopped although the broad profile contained other foundation interfaces. D-L6b is therefore a **selection-protocol** refinement, not another theory condition:
+HOTT-DISCOVERY-006's saved text showed a direct-answer screen can become an early-stop sink: the response discarded univalence correctly, then stopped although the broad profile contained other foundation interfaces. HOTT-DISCOVERY-007 subsequently showed the CLI family was not context-isolated, so H-006 is not an independent blind behavior result. The protocol defect is nevertheless visible in the frozen H-006 prompt itself, which permitted one direct-answer verdict to end the response. D-L6b is therefore a **selection-protocol** refinement, not another theory condition:
 
 ```text
 If a first obvious site fails D-L5 or D-L6, record it as a rejected control and

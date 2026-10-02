@@ -2,6 +2,8 @@
 
 > **身份：** `P_DISCOVERY_TERMINAL_OUTPUT / D_L5_PASS / D_L6_DIRECT_PAYMENT_PASS / ALTERNATE_SITE_CONTINUATION_REQUIRED / NOT_A_HOTT_REPLAY_PASS`。
 
+> **2026-10-02 隔离更正：** HOTT-DISCOVERY-007 证明这类 fresh CLI 启动仍会注入 global instruction 并可发起 tool call。本文件保存 H-006 的 prompt/output 字节和 D-L6b 设计触发，但不再将它当作合格的 blind Terra/Max 行为证据；其盲态状态为 `CONTEXT_ISOLATION_NOT_QUALIFIED`。
+
 ## 1. Execution receipt
 
 | Field | Value |

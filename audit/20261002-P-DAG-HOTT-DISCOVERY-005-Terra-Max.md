@@ -4,6 +4,8 @@
 >
 > **最终判词：** H-005 在无答案泄漏的薄 HoTT source packet 上首次把候选 `Q?` 写成一项原生等价使用任务；但固定 HoTT Book 来源显示该任务正是 univalence 所承诺的逆方向。因此它通过 D-L5，随后在 P1 的 L6/Q-friction 被拒绝，不能成为 HoTT 重放的张力 Q。
 
+> **2026-10-02 隔离更正：** HOTT-DISCOVERY-007 后发现同一 fresh CLI family 会注入 global instruction 并允许 tool attempt。因此本文件中 worker 的“无答案泄漏”身份降为 `BLIND_CONTEXT_ISOLATION_NOT_QUALIFIED`；下文 Master 对固定 Book source 的直接验证仍是独立的来源控制，未因该 runner 发现而撤回。
+
 ## 1. 执行收据与隔离边界
 
 | Field | Value |
