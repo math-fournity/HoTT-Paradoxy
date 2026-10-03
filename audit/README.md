@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H035–H042：D-L10 平衡基础承诺画像与有界无候选（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-DISCOVERY-035-042-BALANCED-DL10-Terra-Max.md)：开放画像重识别全子对象；D-L10拒绝由存在断言发明checker；RepFun直接支付函数像；runner输出oracle修复经H042 fresh验证，得到六项画像内的`NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY`。
+
 - [P-DAG ZFC H033/H034：Zorn、Power Set、TFin 的 P1/P3 同卡控制（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-033-034-ZORN-POWERSET-P1P3-Terra-Max.md)：归纳闭包和Hausdorff theorem局部见证不能分别被P3伪作生命周期或被P1伪作独立consumer；当前卡保留`SOURCE_CONSUMER_GAP / NO_NATIVE_Q`。
 
 - [P-DAG ZFC H031/H032：AC proof witness 的 P3 原子形成控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-031-032-AC-POW-P3-ATOMIC-Terra-Max.md)：H031的profile marker缺失在采样前失败；H032同源复测显示`exE`是proof-context局部见证，未提供P3构造状态或ZFC B向结论。
