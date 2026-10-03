@@ -38,7 +38,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 
 | atomic_id | 角色 | exact session | 原子身份 | A1状态 |
 |---|---|---|---|---|
-| `N25A` | S-A formal source tracer | `01a0fd24-e045-7e53-b290-ae608e851408` | Mathlib ZFSet形式化模型source定位。 | `PENDING` |
+| `N25A` | S-A formal source tracer | `01a0fd24-e045-7e53-b290-ae608e851408` | Mathlib ZFSet形式化模型source定位。 | `ATOMIC_AUDIT_COMPLETE` |
 | `N25B` | S-B math control tracer | `01a0fd24-e017-7330-8f84-cc677ee47132` | HoTT Book跨理论正控制。 | `PENDING` |
 | `N25C` | P2-A source-pack mapper | `01a0fd2c-5031-7923-b5a1-b19b5d50c37d` | 对冻结Mathlib card的P2映射。 | `PENDING` |
 | `N25D` | P3-A source-pack mapper | `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | 对冻结Mathlib card的P3映射。 | `PENDING` |

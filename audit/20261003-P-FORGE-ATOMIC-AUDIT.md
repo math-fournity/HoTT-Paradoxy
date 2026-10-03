@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/027 - N24C Battle来源仲裁.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/027 - N24C Battle来源仲裁.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/028 - N25A MathlibZFSet形式模型消费者定位.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/028 - N25A MathlibZFSet形式模型消费者定位.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 27 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 28 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / C_CARDS=27 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=101`。
+> **当前状态：** `A1_ACTIVE / C_CARDS=28 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=100`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -48,4 +48,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 025 | [N24A Battle关系即消费者主张](<20261003-P-FORGE-ATOMIC-AUDIT/025 - N24A Battle关系即消费者主张.md>) | `N24A` | Battle-001 advocate | `ALIGNED_ROLE / Q_STATUS_UNINFERABLE_AS_RUN` |
 | 026 | [N24B Battle消费者合同质询](<20261003-P-FORGE-ATOMIC-AUDIT/026 - N24B Battle消费者合同质询.md>) | `N24B` | Battle-001 challenger | `ALIGNED_ROLE / Q_NARROW_WITH_SCOPE` |
 | 027 | [N24C Battle来源仲裁](<20261003-P-FORGE-ATOMIC-AUDIT/027 - N24C Battle来源仲裁.md>) | `N24C` | Battle-001 arbiter | `ALIGNED / Q_REJECT_WITH_SCOPE` |
+| 028 | [N25A MathlibZFSet形式模型消费者定位](<20261003-P-FORGE-ATOMIC-AUDIT/028 - N25A MathlibZFSet形式模型消费者定位.md>) | `N25A` | SOURCE-001 formal source tracer | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 <!-- governance-shard-table:end -->
