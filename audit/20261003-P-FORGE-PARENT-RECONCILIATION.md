@@ -2,18 +2,18 @@
 logical_id: P_FORGE_PARENT_RECONCILIATION
 mode: sequential
 shard_root: 20261003-P-FORGE-PARENT-RECONCILIATION
-last_shard: 20261003-P-FORGE-PARENT-RECONCILIATION/012 - R12 反射盲态选择与来源支付.md
-append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/012 - R12 反射盲态选择与来源支付.md
+last_shard: 20261003-P-FORGE-PARENT-RECONCILIATION/013 - R13 方法修订是否真正服务Q收敛.md
+append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/013 - R13 方法修订是否真正服务Q收敛.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 12 个已回接分片；R13的两张原子卡已封存，现可进行R13回接；缺一父级即不能进入 A3 综合。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 13 个分片；R01--R13均已回接，仍须完成A3跨卡综合才可完成全量审计。
 
 # P-FORGE 父级回接审计
 
 > **身份：** `A2_PARENT_RECONCILIATION / SOURCE_LIMITED_PARENT_COMPARISON / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_COMPLETE_AFTER_R13_MASTER_DECISION_REOPEN / A2_RESUMED_PENDING_R13 / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A3_NOT_STARTED`。
+> **当前状态：** `A2_COMPLETE / PARENT_CARDS=13/13 / PARENT_REMAINDER=0 / A3_CROSS_CARD_SYNTHESIS_PENDING`。
 
 本逻辑文档将当前130个已登记且已封存的原子单位回接到原始 `R01--R13` 粗单元；R13的`N33,N34`现已可供回接。`R00`、`R14`、`R15`是目标／最终综合／分母冻结的历史上下文，不替代这13个父级的逐项回接。每张父卡只给出：原汇总主张、成员分母、原子证据所支持的范围、被修正或撤回的部分、P/Q影响、财富与重开条件。
 
@@ -32,4 +32,5 @@ soft_line_target: 300
 | 010 | [R10 有界形成与对角化候选分叉](<20261003-P-FORGE-PARENT-RECONCILIATION/010 - R10 有界形成与对角化候选分叉.md>) | `H069,H070,H071,H072` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 | 011 | [R11 有限构造桥与同一任务检验](<20261003-P-FORGE-PARENT-RECONCILIATION/011 - R11 有限构造桥与同一任务检验.md>) | `H073` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 | 012 | [R12 反射盲态选择与来源支付](<20261003-P-FORGE-PARENT-RECONCILIATION/012 - R12 反射盲态选择与来源支付.md>) | `H074,H075` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
+| 013 | [R13 方法修订是否真正服务Q收敛](<20261003-P-FORGE-PARENT-RECONCILIATION/013 - R13 方法修订是否真正服务Q收敛.md>) | `N33,N34` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
