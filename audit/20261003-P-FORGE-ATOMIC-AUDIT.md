@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/130 - N34 P/Q共同涌现Master修订.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/130 - N34 P/Q共同涌现Master修订.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/130 - N34 P-Q共同涌现Master修订.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/130 - N34 P-Q共同涌现Master修订.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 130 个已封存分片；分母与卡数一致，R13父级回接完成前仍不得进入 A3，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 130 个已封存分片；缺一片即未完成。分母与卡数一致，A3 已完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -156,5 +156,5 @@ AtomicAuditCard；分母、逐卡回放、R01--R13父级回接和A3综合均已�
 | 127 | [B002 派生刀具来源门分支审查](<20261003-P-FORGE-ATOMIC-AUDIT/127 - B002 派生刀具来源门分支审查.md>) | `B002-H061-DERIVED-GATE` | branch-qualified derived-gate contract critic | `ALIGNED_BRANCH_SCOPE / CONTRACT_HYPOTHESIS / Q_SAFETY_REPAIR` |
 | 128 | [B003 派生刀具来源门分支仲裁](<20261003-P-FORGE-ATOMIC-AUDIT/128 - B003 派生刀具来源门分支仲裁.md>) | `B003-H062-DERIVED-GATE` | branch-qualified derived-gate text arbiter | `ALIGNED_BRANCH_SCOPE / BATTLE_INCONCLUSIVE / Q_SAFETY_REPAIR` |
 | 129 | [N33 校准来源层与站位Master修订](<20261003-P-FORGE-ATOMIC-AUDIT/129 - N33 校准来源层与站位Master修订.md>) | `N33` | R13 CAL/source-layer/station Master decision | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR_WITH_SCOPE` |
-| 130 | [N34 P/Q共同涌现Master修订](<20261003-P-FORGE-ATOMIC-AUDIT/130 - N34 P/Q共同涌现Master修订.md>) | `N34` | R13 QConvergenceLink Master decision | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR_WITH_SCOPE` |
+| 130 | [N34 P-Q共同涌现Master修订](<20261003-P-FORGE-ATOMIC-AUDIT/130 - N34 P-Q共同涌现Master修订.md>) | `N34` | R13 QConvergenceLink Master decision | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->

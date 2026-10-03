@@ -4,7 +4,7 @@ shard_id: 130
 index: ../20261003-P-FORGE-ATOMIC-AUDIT.md
 -->
 
-# N34 P/Q共同涌现Master修订
+# N34 P-Q共同涌现Master修订
 
 > **AtomicAuditCard：** `N34 / NON_H_MASTER_DECISION / R13_Q_EMERGENCE_CONVERGENCE_REPAIR / ATOMIC_AUDIT_COMPLETE_WITH_SCOPE`。
 
