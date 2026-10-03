@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_HMZ-002_HMZ-003_CLOSED_WITH_SCOPE / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_PREFLIGHT_REJECTED_WITH_SCOPE / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -24,6 +24,7 @@ P-DAG、STATE mutation、proof assistant kernel run、tag、push 或发布。
 - 本次最高指示：第七稿 `最高指示.md` 全文，按 `RESEARCH_GENERATION` 角色消费；
 - 当前 Feature/ruling/MEMORY 与 archive root；
 - 原典／文献：HMZ-S-001…S-011，精确 locators 与 SHA-256 位于本 run 的 `SOURCE-CATALOG.md`。
+- 预检控制：Voevodsky 2006 Hλ（HMZ-S-019）与 Makkai 1996 anafunctor 预印本（HMZ-S-020）；后者七段原件、重建 PDF 与全文索引在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-005-makkai-anafunctor-preflight/`。
 
 `cognition_runtime.py plan --profile governance` 仍被既有 `HEAD.json`—`MEMORY/001` 状态快照不匹配而
 fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直接路径回读，研究结论限于 archive 中的显式范围。
@@ -47,6 +48,13 @@ type discipline、computation与proof-assistant implementation。Isabelle/ZF 的
 Grayson 的 computation-versus-axiom 区别、Rijke/Spitters 的 type-discipline 文献、HoTT Library 的
 axioms-block-computation控制共同得到 `EXPLICIT_FORMATION_PAYMENT / NOT_A_Q`。这补强了本 Session 的
 P-lane负控制，而不产生 ZFC Q。
+
+随后两项 single-source preflight 没有被误写成第四／第五个完整分母。Hλ 只有 type-system／proof-compiler
+图景，缺 ZFC-side同一 `u/F/C/I/O/Done`。Makkai 1996 则提供一个更强的真实消费者控制：从“逐对存在积”到
+“一个指定 ordinary product functor”需要 simultaneous Choice；product anafunctor 改为交付同构稳定的全部
+product diagrams，故改变 `Done`；更强 Cartesian-closed 任务又以 SCSA 支付。Makkai 的基础是无 AC 的
+constructive G-B，不是 ZFC 同层对象语言，也没有 formation-use reentry。两项都判
+`ADMISSION_REJECTED_WITH_SCOPE`，但后者把“actual consumer”从泛称变成了可重复使用的 contract control。
 
 ## §7 重新呈现与 14 题定位
 
@@ -84,5 +92,6 @@ coarse classification 说成完成。对 ZFC class language，过程是尝试在
 ## 失效与下一触发
 
 本 run 的任何 `NO_CANDIDATE_SEED` 会因下列证据失效：新的 UF 创立原典；明确将 Power Set 与 R-card 连接的来源；
-ZFC 内同一 Done 的未付 consumer；或满足 H0 transport T0–T5 的正向材料。未出现这些时，后续若继续应建立新的
-source denominator，不重开已关闭的卡。
+ZFC 内同一 Done 的未付 consumer；或满足 H0 transport T0–T5 的正向材料。Makkai 控制还把第三项收紧为：来源必须
+声称 ordinary specified output 已由 mere existence 获得，且不以 Choice、标签、代表、或输出／Done 改写支付。
+未出现这些时，后续若继续应建立新的 source denominator，不重开已关闭的卡。

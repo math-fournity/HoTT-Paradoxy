@@ -1,0 +1,4587 @@
+                 Avoiding the axiom of choice in general category theory
+                            by M. Makkai! (McGill University)
+
+
+
+
+Contents:
+
+
+       Introduction                                                         p. 1
+
+
+       §1. Anafunctors                                                      p. 8
+
+
+       §2. Adjoint anafunctors                                              p. 37
+
+
+       §3. Anabicategories                                                  p. 47
+
+
+       §4. The anabicategory of saturated anafunctors                       p. 72
+
+
+       §5. The effects of weak versions of the axiom of choice              p. 79
+
+
+       References                                                           p. 89
+
+
+
+
+!The author's research has been supported by NSERC Canada and FCAR Quebec
+
+                                             1
+                  Avoiding the axiom of choice in general category theory
+                             by M. Makkai! (McGill University)
+
+
+
+Introduction
+
+
+In Category Theory, there is an underlying principle according to which the right notion of
+"equality" for objects in a category is isomorphism. Let me refer to the principle as the
+principle of isomorphism. According to the principle of isomorphism, any object isomorphic to
+a given one should be able to serve the same categorical purposes as the given one. Of course,
+the principle of isomorphism may be read as a limitation on what properties of objects are to
+be considered in category theory; but the principle also carries with it the assertion that by so
+restricting the properties of objects, we are not losing any essential element of the situation.
+
+
+Therefore, when singling out an object with a certain property, we should be content with
+determining the object up to isomorphism only. Indeed, the categorical operations defined by
+universal properties (products, exponentials, etc) determine the object-parts of their values at
+given arguments only up to isomorphism. The idea behind the notion of anafunctor, the main
+new concept in this paper (see 2.1.(i) to (v) below; a reference of the form m.n.(...) is to item
+n.(...) in Section m) is that the same principle should extend to values of functors: their
+object-values are to be determined up to isomorphism only.
+
+
+General category theory in its usual form does not quite live up to the principle of
+isomorphism; the ubiquitous use of the Axiom of Choice in general category theory is a related
+fact. A simple example is at hand when, for a category C having binary products of objects,
+we pass to the consideration of "the" product functor P = ( )×( ):C×CA @C . The definition
+                                                                     π        π
+of P requires the simultaneous choice of a specific product (AM 1NA×BA 2@B)
+corresponding to each pair (A, B) of objects. To be sure, in most examples of a category C
+such a simultaneous choice can be made without the Axiom of Choice; however, we want to
+use the product functor in the theory for any category C with binary products, without
+knowing anything further about C . Whether or not an explicit choice of products is available,
+something of the canonicity of the resulting entity (functor) is lost when we make a particular
+choice of products. Actually, talking about the product functor becomes imprecise; there are,
+
+
+
+!The author's research has been supported by NSERC Canada and FCAR Quebec
+
+                                                1
+in general, many possible product functors.
+
+
+The general form of the above type of use of the Axiom of Choice is in taking "the" adjoint of
+a functor on the basis of the representability of a family of Set-valued functors derived from
+the given functor. Every time we use the Adjoint Functor Theorem to get an adjoint, we use
+the Axiom of Choice in the described manner.
+
+
+There are similar violations of canonicity and attendant uses of the Axiom of Choice in the
+definitions of various concrete monoidal categories, and higher dimensional categorical
+objects.
+
+
+In this paper, I propose a revision of the notion of functor, that of anafunctor, and consequent
+revisions of certain higher dimensional concepts, that makes possible a theory based more
+thoroughly on canonical constructions than ordinary category theory, and specifically, that
+rectifies the violations described above of the principle of isomorphism. The revisions are
+non-intrusive in the sense that category theory with anafunctors is of the same general shape as
+with ordinary functors. It seems that there is no limitation of the applicability of anafunctors in
+any context where functors are used. The resulting theory avoids Choice to a large extent
+(although not completely; see below), and still has the same general form as classical general
+category theory. If one employs the full Axiom of Choice, the new theory reduces to the
+classical one. Without the Axiom of Choice, we have a product anafunctor
+P = ( )×( ):C×CA @C defined canonically on the basis of of C having binary products.
+The adjoint of a(n) (ana)functor, an anafunctor, is given canonically once the condition
+mentioned above on representability is fulfilled. Anafunctors have natural transformations,
+which are the arrows of a category as usual; categories with anafunctors and natural
+transformations form a bicategory. We have anabicategories, anamonoidal categories, with
+basic theories similar in outline to those of their usual counterparts.
+
+
+Whereas "anafunctor" is a generalization of "functor", a certain specialization of the notion of
+"anafunctor", "saturated anafunctor" is the one that should be regarded as the finished form of
+the concept; an ordinary functor is (usually) not a saturated anafunctor. Saturated anafunctors
+(1.(vi)) satisfy the analog of Leibniz's principle of substitutability of equal for equal: if an
+object in the codomain category of the saturated anafunctor is isomorphic to a value of the
+anafunctor, then it is itself a value of the anafunctor at the same argument, "in a uniquely
+determined way". It turns out that saturated anafunctors are sufficient; there is a canonical way
+of "saturating" any anafunctor, the result of which, a saturated anafunctor, is isomorphic (via a
+
+
+                                                2
+canonical natural isomorphism) to the given anafunctor.
+
+
+The most important difference between using anafunctors and using functors is a result of the
+fact that the category Ana(X,A) of (small) anafunctors between two fixed small categories
+X and A is not small (unless X or A is empty). However, under the assumption of a certain
+weak consequence, here called the Small Cardinality Selection Axiom (SCSA), of the Axiom
+of Choice, Ana(X,A) is equivalent (in fact, in the strong sense) to a small category. Thus,
+the SCSA ensures the Cartesian closed character of the bicategory of small categories with
+anafunctors and natural transformations (with "Cartesian closed" meant in the natural
+bicategorical sense). The SCSA is closely related to A. Blass' axiom (in [Bl]) of Small
+Violations of Choice (SVC), another weak choice principle.
+
+
+There is a well-known and important approach to category theory relative to a largely arbitrary
+topos. See [Be2], [P], [P/Sch], [Jo]. The theory uses the formalism of indexed categories
+([P/Sch], [Jo]), or alternatively and essentially equivalently, that of fibrations ([Be1], [Be2]).
+Category theory done internally in E is a part of indexed category theory over E . Indexed
+category theory over E may use the axiom of choice externally. For instance, in [P/Sch], a
+form of the Initial Object Theorem is proved, and from this, an appropriate form of the Adjoint
+Functor Theorem is inferred, by the same kind of use of the axiom of choice as the one that
+goes into constructing the product functor mentioned above.
+
+
+The approach of the present paper is, in a sense, orthogonal to that of indexed category theory;
+neither approach does what the other does, but they can be combined to work together. When
+a topos lacks the necessary axiom of choice, the product functor mentioned above for an
+internal category with products (where the mere existence of products, rather than their
+specifiability, is assumed internally) does not exist internally, and will not exist for the
+externalization, an indexed category, of the internal category. However, the present paper's
+approach will provide an internal anafunctor in place of the product functor without assuming
+Choice in the topos. In fact, the development of the present paper, can be relativized to any
+topos. In [M/P], anafunctor theory will be put into the context of indexed category theory over
+a topos, and a connection will be established with stacks and stack completions. It will be
+shown that a suitable variant of the SCSA, one that is equivalent to saying that internal
+categories have internal stack-completions, will ensure that the bicategory of internal
+categories, internal anafunctors and natural transformations is Cartesian closed.
+
+
+The present paper is only the beginning of the development of "anafunctor theory". Let me
+
+
+                                                3
+briefly indicate an area of category theory where anafunctors are relevant. This is the general
+(or universal) algebra of structured categories. The usual kinds of structured categories (lex
+categories, regular categories, (elementary) toposes (in this case, use only isomorphism
+2-cells), and many more) form locally finitely presentable bicategories. The latter have a
+theory formally similar to that of locally finitely presentable categories of [G/U] . This theory
+has only partly been codified at the present time, but various key elements of it, such as the
+theory of bicategorical (indexed or weighted) limits (see, e.g., [S]), have been clarified. The
+sequel [Ma2] will deal with locally finitely presentable bicategories and related matters by
+employing anafunctors, giving more canonical answers to existence questions than the usual
+theory, and avoiding the Axiom of Choice. I now give two indications, to be worked out in
+loc.cit., why anafunctors are useful for a "canonical" version of the general algebra of
+structured categories.
+
+
+One may maintain that, when dealing with a category C with finite products, it is not
+necessary to invoke the product functor ( )×( ):C×CA @C ; after all, all that this does is to
+pick a particular product for each argument-pair, and we have the experience that in most
+cases this is not necessary. However, if we want to make the theory of categories with finite
+products (fp categories) a part of the algebra of structured categories along the lines hinted at
+above, then the product functor is forced on us. In this theory, C induces a functor (a
+
+                                         f A@Cat on the opposite of the bicategory FPf of
+restricted representable functor) C:FPop
+the finitely presentable fp categories to the bicategory Cat of small categories, and the above
+
+product functor is the value of C at the 1-cell [X]A         @[Y, Z] in FPf ; here, [X] is
+the fp category freely generated by the object X , similarly for [Y, Z] , and the arrow is
+
+induced by the mapping X @Y×Z . (The mapping C@C is the basic identification of the
+objects of a locally finitely presentable bicategory with a Cat-valued functor. The reader will
+be familiar with the 1-dimensional analog of the described constructions; replace FPf with
+Ringf , the category of finitely presentable commutative rings with 1, replace Cat by
+Set , take a ring R in place of C , take × to be the multiplication in R , and the above
+will refer to the multiplication-operation () ⋅ ():R×RA @R . ) In brief, the point of view of
+the bicategorical algebra of structured categories necessitates the consideration of something
+like the product functor. We have mentioned that anafunctor theory is capable of providing the
+needed entity in a canonical fashion.
+
+
+Another example for the use of anafunctors is as follows. Consider the notion of the free
+structured category F(G) of a given kind generated by the graph G . For the sake of a
+
+
+                                                4
+convincing example, let us talk about categories with finite limits and finite colimits (without
+any further restriction) as the given kind. Suppose G is a finite graph. In this case, F(G) has
+an explicit description, consisting of iterated formal limits and colimits, starting with the
+generators; in particular, certainly, there is no need for Choice in the construction of F(G) .
+(Andre Joyal has recently given a beautiful theory of just this free construction, and its
+enriched generalizations.) However, to verify the universal property of F(G) , against all
+maps ϕ:GA @C into a category C with finite limits and colimits, in the usual theory we do
+need some form of the axiom of choice. In fact, we are required to construct a functor
+F:F(G)A @C preserving finite limits and colimits and satisfying the initial conditions given
+by ϕ . The construction of F requires a series of choices of limits and colimits in C , which
+cannot be done without Choice. The use of an anafunctor in place of F eliminates the need of
+the Axiom of Choice, and in fact makes F canonical.
+
+
+Of course, the last example is a crucial one for the general algebra of structured categories; in
+this theory, we would not want to do without free objects such as F(G) .
+
+
+
+Let me turn to remarks on the set-theory used in the paper.
+
+
+The set-theoretic foundations used in this paper are "minimal", and probably the reader will
+have no problem following the paper even if he skips these (brief) preliminaries.
+
+
+We work in a constructive set-theory with sets and classes. For the sake of definiteness, we
+take as our foundations the Gödel-Bernays (G-B) axioms for sets and classes [G], without the
+Axiom of Choice, and without the Axiom of Regularity (Foundation), and we employ
+intuitionistic predicate logic to deduce consequences of the axioms. (We could accommodate
+ur-elements, but to do so would require some explanations that we do not want to give; thus,
+all things in our theory are classes, and some classes (precisely those that are elements of some
+class) are sets; the axiom of extensionality is assumed in an unrestricted form.) We do not use
+Grothendieck universes.
+
+
+The use of the adjective "small" will, as usual, signify that the entity it qualifies is a set. Thus,
+a small class is the same thing as a set.
+
+
+A category A is given by a class of objects Ob(A) , and a class Arr(A) of arrows, with
+further data as usual. Thus, we do not make the blanket assumption that a category has small
+
+
+                                                  5
+hom-sets; if it does, it is said to be locally small. A small category has both Ob(A) and
+Arr(A) sets; of course, Arr(A) being a set implies that Ob(A) is one as well. A small
+category can be regarded as a single set (e.g., as a tuple (QAR,Arr(A),...) ), and we
+may talk about the class (and eventually, the category) of all small categories.
+
+
+Note that a category isomorphic to a small category is small (by the Axiom of Replacement).
+
+
+Within G-B, one cannot talk about the category of all functors XA@A for two fixed, but
+arbitrary categories X , A ; there are no collections whose members are proper classes. Of
+course, there is no problem when the categories X , A are small, or even when just X is
+small (since in the latter case functors XA@A are (may be regarded as) sets). However, within
+the framework of the formal base-theory G-B, we may contemplate metacategories; an
+example is FUN(X,A) , the metacategory of all functors XA@A and natural transformations.
+
+Formally, a metacategory is given by predicates (formulas) Ob(X, 
+                                                                 P) , Arr(f, 
+                                                                             P) ,
+
+Dom(f, X, P) , Codom(f, X, P)    , Comp(f, g, h, P)  of the base-theory (in our case, G-B),
+with the free variables shown, all ranging over classes, together with the assumption that, for a
+
+fixed value of the parameters 
+                              P , the obvious equivalents of the category axioms (which
+
+become first order formulas, having only 
+                                         P as free variables, built up of the given predicates)
+                                                                   on the parameters
+hold. The said assumption may be a consequence of an assumption C(P)
+                              is X,A [although a category X is given by classes
+P . In the case of Fun(X,A) , P
+QXR , Arr(X) , ..., these can be combined, although somewhat artificially, into a single
+class; if we do not want to do this, 
+                                     P will be a longer tuple, listing all the data-classes of both
+
+categories X,A ], and C(P)  is the assumption that X , A are indeed categories. Of course,
+the idea of a metacategory is just one instance of a family of meta-concepts similarly
+fashioned from a formal concept such as "category". One can e.g. talk about CAT , the
+meta-2-category of all categories, functors and natural transformations; Cat is the 2-category
+of small categories, functors and natural transformations.
+
+
+Let me note that I will usually drop the "meta" prefix from constructs such as metafunctor,
+meta-natural transformation, etc.
+
+
+Although [F/S] does not mention a formalized base-theory in which the exposition is made, it
+is rather clear that a class-set theory is meant such as G-B; no universes are employed. On the
+
+
+                                                6
+other hand, the explicit base-theory in [CWM] is Zermelo-Fraenkel (ZF) set theory, a theory of
+sets without class-variables. One universe (a set U with appropriate properties) is used, and
+the word "small" is reserved for members of U . [CWM] uses "class" in a somewhat
+non-standard manner; classes in [CWM] are non-small sets.
+
+
+Our base-theory is like that of [F/S]; in particular our categories and the categories in [F/S]
+may be large (classes); the word "small" is used here in agreement with [F/S]; however, [F/S]
+does not mention "metacategories". The "metacategories" of [CWM] are our categories. Our
+metacategories are introduced on the same principle as those of [CWM], but the difference in
+the base-theories makes the meanings of the term different.
+
+
+
+The use of the prefix "ana" has been suggested by Dusko Pavlovic. He noted the use of "pro-"
+in category theory (profunctor, proobject), and noted that in biology, the terms "anaphase" and
+"prophase" are used in the same context.
+
+
+At a time when the work on this paper had essentially been completed, Robert Paré told me
+that he had had related ideas in the 1970's, and he had lectured about them at a meeting in
+New York in 1975, although he had not published his work.
+
+
+Some time after the first version of this paper was written, I was informed that a special case
+of the notion of anafunctor, and of the notion of natural transformation of anafunctors, the case
+when the domain category is 1 , the terminal category, have been introduced in [J/S], under
+the name of "clique" and morphism of cliques. In [J/S], cliques are used for certain special
+purposes; beyond the definition of cliques and their morphisms, there is essentially no overlap
+between [J/S] and this paper. For more precise references, see toward the end of §1 of this
+paper.
+
+
+I thank Dusko Pavlovic, Bill Boshuck, Marek Zawadowski, Gonzalo Reyes, Bill Lawvere,
+Ervin Fried and Bob Paré for valuable conversations on the subject of this paper. I also thank
+the Referee of the paper for two very careful readings of the paper, and for several remarks
+that helped improve the paper substantially.
+
+
+
+
+                                                7
+                                         § 1. Anafunctors
+
+
+
+Let X and A be categories. An anafunctor F with domain X and codomain A , in
+
+notation F:XA a @A , or just simply F:XA @A , is given by the following data 1.(i),(ii) and
+conditions 1.(iii)-(v):
+
+
+        1.(i) A class QFR , with maps σ:QFRA @Ob(X) ("source"), τ :QFRA @Ob(A)
+("target"). QFR is the class of specifications; s∈QFR "specifies the value τ (s) at the
+argument σ(s) ". For X∈X (that is, X∈Ob(X) ), we write QFRX for the class
+{s∈QFR: σ(s)=X} , and Fs(X) for τ (s) ; the notation Fs(X) presumes that
+s∈QFRX .
+        1.(ii) For each X, Y∈X , x∈QFRX , y∈QFRY and f:XA @Y ( ∈Arr(X) ), an
+arrow Fx, y(f):Fx(X)A @Fy(Y) in A .
+        1.(iii) For every X∈X , QFRX is inhabited.
+        1.(iv) For all X∈X and x∈QFRX , we have Fx, x(1X) = 1F X .
+                                                                        x
+        1.(v) Whenever X, Y, Z∈X , x∈QFRX , y∈QFRY , z∈QFRZ , and
+
+
+           f %YE
+                        g              Fx, y(f)
+                                                %FyYE       Fy, z(g)
+         L
+        XA     {          @hZ   , then   FxXAL          {          @hFzZ
+               h                                    Fx, z(h)
+
+
+(a circle in a diagram means that the diagram commutes), i.e.,
+Fx, z(gf) = Fy, z(g)vFx, y(f) .
+
+
+With any given X∈X , A∈A , we put QFR(X, A) def
+                                             = {x∈QFRX: Fx(X)=A} .
+
+
+The anafunctor F:XA @A is locally small if all the classes QFR(X, A) (X∈X , A∈A) are
+sets. It is weakly small if the classes QFRX are all small ( X∈X ); thus, "weakly small"
+implies "locally small". Finally, F is small iff it is weakly small, and the category X is
+small. Notice that if F is small, then it is given by a set of data, beyond the data for A ; in
+particular, we may consider the class of all small anafunctors with a fixed codomain A , an
+arbitrary (not necessarily small) category.
+
+
+
+
+                                                8
+If F:XA a @A , and s∈QFRX , t∈QFRX , then Fs, t(1X):FsXA @FtX is an
+isomorphism, with inverse Ft, s(1X) . In particular, the value of F at X , Fs(X) , is
+determined up to isomorphism.
+
+
+Any (ordinary) functor F:XA @A is, essentially, an anafunctor, by putting QFR = Ob(X) ,
+σ(X) = X , τ (X) = F(X) (thus QFRX = {X} ), with the obvious specification of the rest of
+the structure.
+
+
+A more abstract way of defining the concept is as follows. A discrete category is one in which
+all arrows are identities; an antidiscrete category is one in which for any pair (U, V) of
+objects, there is exactly one arrow UA@V . A discrete (antidiscrete) opfibration is one in
+which every fiber is a discrete (antidiscrete) category. A discrete opfibration is a functor
+
+G:SA @B such that for any a:AA@B in B and S∈G-1(A) , there is exactly one arrow
+
+s:SA@T with some T∈G-1(B) such that G(s) = a ; an antidiscrete opfibration is a
+
+functor G:SA @B such that for any a:AA@B in B , S∈G-1(A) and T∈G-1(B) , there
+is exactly one arrow s:SA@T such that G(s) = a . Now,
+
+
+       1*. An anafunctor F:XA @A may be given by a span
+
+
+                  F0tQFRG        F1
+                W t                hA
+              X                                                                   (1)
+
+
+of functors in which F0 is an antidiscrete opfibration that is surjective on objects.
+
+
+Indeed, with F:XA@A being an anafunctor in the original sense, we let QFR be the category
+whose object-class is what was QFR above, whose arrows f:xA@y are the same as arrows
+f:σ(x)A@σ(y) in X , with the obvious composition; F0 is the obvious forgetful functor
+(clearly an antidiscrete opfibration); F1 maps s to τ (s) and f:xA@y to Fx, y(f) .
+Conversely, if we have an anafunctor in the new sense, we put the object-class of QFR for
+QFR in the old sense, σ(x) = F0(x) , τ (x) = F1(x) , and for f:XA@Y in X ,
+x, y∈QFR with F0(x)=X , F0(y)=Y , we put Fx, y(f) = F1(f) for the unique
+
+f:xA@y for which F0(f) = f .
+
+
+
+
+                                               9
+        2. Example. Suppose the category A has binary products; that is, for every A, B∈A ,
+there is at least one product diagram
+
+
+                   π0 tCG      π1
+               AW                hB .                                     (1)
+
+
+
+Then we have the following anafunctor P:A×AA @A . QPR consists of all product diagrams
+of the form (1); for s the diagram in (1), σ(s)=(A, B) and τ (s)=C . In the formulation
+
+of 1*. , QPR is the category of all product diagrams, where arrows are given as in (2) below.
+In other words, for (A, B)∈A×A , QPR((A, B)) is the class of all product diagrams (1), with
+the given A , B , but all other data variable; for s∈QPR((A, B)) given by (1),
+Ps((A, B)) = C . For s∈QPR((A, B)) given by the data in (1), and
+s’∈QPR((A’, B’)) , given by data as in (1) but primed, and for
+(f, g):(A, B)A @(A’, B’) ( ∈Arr(A×A) ), Ps, s’((f, g)):CA @C’ is the unique h
+making the diagram
+
+
+                    π0 tCG       π
+                   W             1
+                A                  hB
+               f            h       Pg                                  (2)
+                P             
+                A’s            P %B’
+                  π’0      C’    L π’  1
+
+commute; the universal property of the product consisting of the primed data ensures that
+Ps, s’((f, g)) is well-defined. It is fairly clear that the conditions 1.(iii) to (v) are all
+satisfied.
+
+
+The above-defined P is the product-anafunctor for the category A , "replacing" the
+product-functor (A, B) @A×B . Whereas the definition of the latter requires a non-canonical
+choice of a particular product A×B for each pair (A, B) of objects, and thus, in general, for
+its definition, the product-functor needs the Axiom of Choice (AC), the product-anafunctor
+does not involve any non-canonical choice, in particular, it does not need the AC. Of course, it
+is still to be demonstrated that the product-anafunctor does enough of the job of the
+product-functor, for it to be a reasonable replacement. At any rate, it will turn out (see below)
+that if the product-functor exists, then the product-anafunctor is isomorphic to it, by an
+appropriate notion of (natural) isomorphism.
+
+
+                                                10
+An anafunctor F:XA a @A is saturated if it satisfies the following additional condition:
+
+
+       1.(vi) (unique transfer) Whenever s∈QFR(X, A) , and µ:AA≅@B is an isomorphism
+(in A ) , then there is a unique t∈QFR(X, B) such that µ = Fs, t(1X) .
+
+
+With F an anafunctor, and continuing with the above notation, if QFR(X, A) is inhabited,
+then A is a possible value of F at the argument X . Note that the possible values of F at a
+given X form a subclass of an isomorphism class of objects in A ; if F is saturated, they
+form a complete isomorphism class.
+
+
+An anafunctor determines its values at least up to isomorphism; a saturated one determines its
+values exactly up to isomorphism. Among anafunctors, the ordinary functors and the saturated
+anafunctors represent two extremes; our ultimate goal here is to promote the use of the
+saturated anafunctors as the ones that stand for the point of view that objects (in this case the
+values of the anafunctor) should be determined exactly up to isomorphism, just as they are
+when they are determined by a universal property.
+
+
+
+      2. Example (continued). The product anafunctor P:A×AA @A is saturated, as it is
+immediately seen.
+
+
+
+Note that if F:XA@A is saturated , X∈X , s∈QFR(X, A) , then for any B∈A we have the
+bijection
+
+
+                        ≅
+       QFR(X, B)A           @Iso(A, B)
+                                                                                          (2')
+          t                @ Fs, t(1X) .
+
+This bijection is not canonical; it depends on the choice of s∈QFR(X, A) . Nevertheless, it
+follows that for a saturated anafunctor F:XA @A , if A is locally small, then so is F , and if
+both X and A are small, then so is F .
+
+
+Assume F:XA @A is a saturated anafunctor. We have a form of "isomorphic transfer" not
+only for the values but also for the arguments of F . More precisely,
+
+
+
+                                               11
+     3. For F:XA @A a saturated anafunctor, a pair of isomorphisms
+
+(f:XA≅@Y, g:AA≅@B) induces a bijection QFR(X, A)A≅@QFR(Y, B) , defined by
+s@t  Fs, t(f)=g .
+
+
+Let us fix f:XA≅@Y and g:AA≅@B . Let s∈QFR(X, A) ; I claim that there is a unique
+t∈QFR(Y, B) such that Fs, t(f)=g . Once this is shown, for any t∈QFR(Y, B) there is
+
+unique s∈QFR(X, A) such that Ft, s(f-1) = g-1 , that is, Fs, t(f)=g , and the
+definition above indeed gives a bijection s@t .
+
+
+Let t0∈QFRY , s∈QFR(X, A) , t∈QFR(Y, B) , and consider the commutative triangle
+
+
+                  AG
+                      Fs, t(f)
+                          g
+       Fs, t (f) { %B
+            0     P 
+                        F     (1 )
+               Ft Y        t0, t   Y
+                 0
+
+consisting of isomorphisms. It follows that saying that Fs, t(f)=g is equivalent to saying
+that the triangle
+
+
+                  AG
+                      g
+                          g
+       Fs, t (f) { %B
+            0     P 
+                        F   (1 )
+               Ft Y        t0, t   Y
+                 0
+
+
+commutes. But by 1.(vi), for any g:AA≅@B , there is a unique t satisfying this latter
+
+condition, that is, Ft , t(1Y) = gv(Fs, t (f))-1 .
+                      0                  0
+
+
+
+With X* denoting the groupoid of all isomorphisms in X , and similarly for A* , we have,
+
+
+
+       4. With F:XA@A a saturated anafunctor, the mapping in 3. defines a functor
+
+
+                                             12
+       X*×A*A        @SET :
+                          (X, A) @QFR(X, A)
+                           
+                     (f, g)P                 s@t
+                                              P
+                          (Y, B) @QFR(Y, B)
+
+Equivalently,
+
+
+        5. An anafunctor as in 1*. is saturated iff the induced functor QFR*A @X*×A* is a
+discrete opfibration.
+
+
+
+
+A natural transformation h:FA @G of anafunctors XA
+                                                   F@
+                                                 AG@A is given by
+
+       6.(i) a family 〈 hs, t:FsXA@GtX 〉 X∈X, s∈QFRX, t∈QGRX of arrows in A such
+that
+
+
+     6.(ii) (naturality) for every f:XA @Y in X , and for every s∈QFRX , t∈QGRX ,
+u∈QFRY , v∈QGRY , the square
+
+
+                            Fs, u(f)
+                    FsXA               @FuY
+                      
+                hs, t                   hu, v                                       (3)
+                      P                   P
+                     GtXA              @GvY
+                            Gt, v(f)
+
+
+commutes .
+
+
+                                                            F          F
+An equivalent definition is this. Given anafunctors (XM 0NQFRA             @A) ,
+     G            G
+(XM 0NQGRA           @A) in the style of 1*. , a natural transformation from F to G is the
+same as a natural transformation h in the usual sense as in the following diagram:
+
+
+
+
+                                              13
+                 QFR G
+        F0     O          F
+                       {
+       +                        @hA
+      XM
+       i       QFR×XQGARA Ph     @
+                        { B
+        G0           P  G
+                        L
+                 QGR
+
+
+Continuing with the notation of 6., note that if s, u∈QFRX , t, v∈QGRX , then hu, v is
+determined by hs, t ; this is because of the commmutativity of
+
+
+                        Fs, u(1X)
+                   FsXA          @FuX
+                            ≅
+                    
+              hs, t               Phu, v                                 (4)
+                    P       ≅
+                   GtXA          @G X       .
+                        Gt, v(1X) v
+
+
+Suppose we have a family 〈 (si∈QFRXi, ti∈QGRXi) 〉 i∈I such that for all X∈X , X=Xi
+for some i∈I . Suppose we have 〈 hi:Fs (Xi)A@Gt (Xi) 〉 i∈I such that the naturality
+                                             i  i
+condition (3) holds for these data, that is,
+
+
+                           Fs , s (f)
+                  Fs XiA                 @Fs Xj
+                             i j
+                    i                        j
+               hi            {             hj
+                                           P                                    (3')
+                   P
+                  Gs XiA            @Gt Xj
+                    i    Gt , t (f)    j
+                           i j
+
+for any i, j∈I , and f:XiA@Xj .
+
+
+
+        7. Under the stated conditions, there is a unique h:FA@G such that hs , t = hi
+                                                                             i i
+for all i∈I ;
+
+
+
+
+                                           14
+the rest of the data for h are determined by appropriate instances of the diagram (4).
+
+
+For any anafunctor XAF@A , we have the identity natural transformation 1F:FA@F , defined
+by (1F)s, t def= Fs, t(1X):FsXA @FtX . Naturality of 1F is a consequence of 1.(v).
+As a consequence of 7., h:FA@F is equal to 1F iff hs, s = 1F X for all X∈X ,
+                                                                 s
+s∈QFRX .
+
+
+                                      A Ph GF@
+Composition of kvh:FA @H of h , k in XA Pk    @A is defined in the expected
+                                      A     H@
+manner: for s∈QFRX , u∈QHRX , (kvh)s, u:FsXA @HuX is the composite of
+       hs, t           kt, u
+FsXA           @GtXA           @HuX , with any t∈QGRX ;
+
+       3.(iii) (kvh)s, u def
+                          = kt, uvhs, t ;
+
+
+for one thing, such t exists; for another, with arbitrary t, t’∈QGRX , the commutative
+diagram
+
+
+                 1F X = Fs, s(1X)
+            FsXA s               @FsX
+             
+       hs, t                         hs, t’
+             P      Gt, t’(1X)         P
+            GtXA                 @ G
+                         ≅           t’X
+             
+       kt, u                        kt’, u
+             P                        P
+            HuXA1                @ H    X
+                  HuX = Hu, u(1X) u
+
+
+shows that (kvh)s, u is well-defined (independent of the choice of t ). The naturality
+(3.(ii)) of kvh so defined is seen immediately; and so are the associativity of the composition
+of natural transformations, and the identity character of the identity natural transformations.
+
+
+
+
+      2. Example (continued). Q:A×AAa@A qualifies as a product-anafunctor if, for any
+A, B∈A , there is a mapping associating with any s∈QQR((A, B)) a product diagram
+
+
+
+
+                                              15
+                 0 tQs(A, B)G
+                πs                      πs
+                                       1
+              AW                          hB
+
+such that, for any s∈QQQ((A, B)) , t∈QQR((A’, B’)) , a:AA@A’ , b:BA@B’ , we
+have that
+
+
+
+                    0 tQs(A, B)G
+                   πs                     πs
+                                         1
+               AW               hB
+              a             
+               P Qst(a, b)       Pb
+               A’st          P      B’
+                 π0             B
+                    TQ (A’, B’)L πt
+                             t             1
+
+commutes. Certainly, any product-functor, making a choice of each product, will, as an
+anafunctor, satisfy the stated condition. But notice that any such Q is isomorphic to P : with
+s∈QPQ((A, B)) as in (2) , and t∈QQR((A, B)) , we can put hs, t:CA@Qs(A, B) to be
+the unique isomorphism i that makes
+
+
+
+                 0 tQs(A, B)G
+                πs                       πs
+                W                       1
+               As             Oi      hB
+                                      B
+                                  
+                        π0   FCC π1
+
+commute; h so defined is an isomorphism PA≅@Q as it is easily seen. In particular, if the
+product-functor exists, it is isomorphic to the product-anafunctor (which always exists).
+
+
+
+Given categories A , X , with X small, Ana(X, A) , Sana(X, A) denote the categories
+of all small anafunctors, respectively small saturated anafunctors, XA@A ; arrows are the
+natural transformations, with composition as given above; Sana(X, A) is a full subcategory
+of Ana(X, A) . When A and X are both small, we might still have anafunctors XA@A that
+are not small; however, as we said above, all saturated ones are small, and thus belong to
+Sana(X,A) . We should point out that if A has an isomorphism class of objects which is
+not small (a very common occurrence), and F:XA@A takes a value in such an isomorphism
+class, then F cannot be saturated and small at the same time; the category Sana(X, A) is
+
+
+                                               16
+of importance mainly when both A and X are small. Let us also point out that, for small X
+and A , Ana(X, A) , and even Sana(X, A) , cannot be shown to be equivalent to a small
+category; however, a weak version of the Axiom of Choice will suffice for this last conclusion;
+see later.
+
+
+For convenience of expression, we will talk about the metacategories ANA(X,A) ,
+SANA(X,A) of all anafunctors, resp. saturated anafunctors XA@A , with natural
+transformations as arrows. The notations ANAls(X,A) , SANAls(X,A) , ANAws(X,A)
+, SANAws(X,A) , referring to "locally small", resp. "weakly small" anafunctors, are
+self-explanatory. The latter are full subcategories of ANA(X,A) .
+
+
+Recall the identification of any functor G:XA @A with an anafunctor; the latter is obviously
+weakly small. This identification extends to natural transformations, and we have a fully
+faithful functor j=jX,A:FUN(X, A)A @ANAws(X, A) , to which we will refer as an
+inclusion.
+
+
+It is easily seen that if h:FA@G is a natural transformation, then h is an isomorphism in
+
+ANA(X,A) iff each component hs, t is an isomorphism (in A ) (for h-1 defined by
+
+(h-1)t, s = (hs, t)-1 , we get h-1vh = 1F , hvh-1 = 1G because the
+s, s-components of both composites are identities) .
+
+
+
+Given anafunctors XA
+                       F @
+                           A , a renaming transformation 
+                                                         h:FA≡@G is a system
+                   A   G @
+
+h = 〈 h[X, A] 〉
+              X∈Ob(X), A∈Ob(A) of bijections
+h[X, A]=(s@s):QFR(X, A)A≅@QGR(X, A) preserving the effect of the anafunctors F ,
+G on arrows: Fs, s’(f) = Gs, s’(f) whenever f:XA@X’ is an arrow in X , A∈A ,
+s∈QFR(X, A) , s’∈QFR(X’, A) . Continuing the above notation,
+
+
+
+       7'. Every renaming transformation induces a natural isomorphism
+
+
+h:FA≅@G for which hs, s = 1A ( s∈QFR(X, A) ); condition (3') holds because of the
+assumption on effect on arrows (in general, hs, t = Gs, t(1X) ( s∈QFRX , t∈QGRX )).
+We now will see that for saturated anafunctors, natural isomorphisms and renaming
+
+
+                                              17
+transformations are in a bijective correspondence.
+
+
+Suppose that F, G∈SANA(X,A) , and h:FA≅@G . Let us fix X∈X . Note that the
+isomorphism h in particular ensures that any possible values A, B of F , resp. G , at X are
+isomorphic; hence, the possible values of F and those of G at X are the same. Let A be
+any common possible value at X . I claim that
+
+
+
+       8. for any s∈QFR(X, A) , there is a unique t∈QGR(X, A) such that hs, t = 1A .
+
+
+
+Indeed, let s0∈QFR(X, A) , t0∈QGR(X, A) , and consider, with any s∈QFR(X, A) and
+t∈QGR(X, A) , the following commutative diagram of isomorphisms:
+
+
+                          hs , t
+                    AA                 @A
+                            0 0
+
+       Fs , s(1X)
+                                      G
+                               {          t0, t(1X)
+         0        P                       P
+                    AA                 @A
+                            hs, t
+
+
+This implies that hs, t = 1A iff
+
+
+                          hs , t
+                    AA                 @A
+                            0 0
+
+       Fs , s(1X)
+                                      G
+                                          t0, t(1X)
+         0       P                        P
+                    AA                 @A
+                               1A
+
+
+commutes; the last condition determines Gt , t(1X) in terms of ( s0 , t0 and) s ; by
+                                              0
+unique transfer (1.(vi)), there is a unique t with this property.
+
+
+In this argument, we used that G was saturated; using also that F is so, we get
+
+
+
+
+                                              18
+       9. For h:FA≅@G in SANA(X,A) , X∈X , A∈A , the condition hs, s = 1A for
+
+s∈QFR(X, A) , s∈QGR(X, A) establishes a bijection
+
+(s@s):QFR(X, A)A≅@QGR(X, A) for which Fs, t(f) = Gs, t
+                                                      (f) holds for all
+f:XA@Y , s∈QFRX , t∈QFRY .
+
+
+Therefore, by 7'. also, we have
+
+
+
+
+       9'. For F, G∈ANA(X,A) , the natural isomorphisms h:FA≅@G are in a bijective
+
+correspondence with renaming transformations 
+                                             h:FA≡@G .
+
+
+
+Let us emphasize (in view of the lack of the Axiom of Choice) that a functor Φ:CA @D is an
+equivalence of (meta)categories if there exist a functor Ψ:DA @C and natural isomorphisms
+
+α:1CA≅@ΨΦ , β:1DA≅@ΦΨ . Note that if the functor Φ:CA @D is full and faithful, and
+there exists a function Ψ:Ob(D)A @Ob(C) together with a function D @ βD assigning an
+
+isomorphism βD:DA≅@ΦΨD to each object D∈D (for which we say that Φ is uniformly
+essentially surjective), then Φ is an equivalence; in fact, there is a unique way of making Ψ
+
+into a functor Ψ:DA @C and defining the isomorphism α:1CA≅@ΨΦ so that 〈 βD 〉 D
+
+becomes an isomorphism β:1DA≅@ΦΨ , and αΨ = Ψβ , βΦ = Φα .
+
+
+
+       10. Let X , A be small categories. The inclusion i:Sana(X,A)A @Ana(X,A) is
+an equivalence of categories.
+
+
+
+
+Proof. Let F∈Ana(X,A) ; we define F#∈Sana(X,A) , called the saturation of F , as
+
+follows. For X∈X , A∈A , we let SX, A be the set of all pairs (s∈QFRX, µ:FsXA≅@A) .
+Let  be the relation on SX, A defined by
+
+
+
+
+                                             19
+                                 F      (1 )
+                             FsXA s, s’ X @
+                                            Fs’X
+       (s, µ)  (s’, µ’) 
+                         def    µ k≅     +≅ µ’    commutes.
+                                      A
+
+
+It is immediately seen that  is an equivalence relation. We put QF#R(X, A) to be
+SX, A/ , the set of equivalence-classes [s, µ] of elements (s, µ) of SX, A . Given
+
+a=[s, µ] ∈ QF#RX , b=[t, ν ] ∈ QF#RY and f:XA@Y , F#            a, b(f) is defined so as to
+make the outside rectangle in the diagram
+
+
+                                       # (f)
+                                      Fa,
+                aXA
+               F# i
+                                          b                @)F#bY
+                                                           O
+                O      Iµ’       Fs’, t’(f)        ν’     
+               µ   ≅   ) s’
+                           F   X A             @ F t’ i
+                                                     Y      ≅  ν
+                        
+                     Fs, s’(1X)        Ft, t’(1Y) I        
+               FsXA                                        @FtY
+                                      Fs, t(f)
+
+
+commute. The commutativity of the rest of the diagram shows that the definition is
+
+independent of the choice of the representatives. It is easy to see that 1.(iv),(v) hold for F# so
+                                                                          #XA≅@B ; we want that
+defined. To see 1.(vi) for F# , let a=[s, µ] ∈ QF#RX , and let ρ:Fa
+
+there is unique b = [t, ν ] with B = F#               #
+                                         bX and Fa, b(1X) = ρ ; this means that
+
+
+                         FsXA     µ    @F#aX
+                                         
+               Fs, t(1X)
+                        P                Pρ                                     (5)
+
+                       FtXA            @ B
+                                  ν
+
+should commute; we can take b = [s, ρvµ] to satisfy this; clearly, the commutativity of (5)
+implies that (t, ν )  (s, ρvµ) , which shows the required uniqueness.
+
+
+We give ηF:FA≅@F# ( F∈Ana(X,A) ) as an application of 7. We let I = QFR ,
+〈 (si, ti) 〉 i∈I = 〈 (s, [s, 1 τ (s)]) 〉 s∈QFR , with Xs = σ(s) , and abbreviating
+
+[s, 1 τ (s)] as s , we let, for s∈QFRX , (ηF)s:Fs(X)A @Fs    #(X) be the identity
+
+
+
+                                                 20
+1F X . It is immediate that ηF is a natural transformation (by 7.; (3') now holds), and that it
+    s
+is an isomorphism. This completes the proof of 10.
+
+
+Let us note the effect of the saturation functor ( )#:Ana(X,A)A @Sana(X,A) on
+
+arrows. Given h:FA @G in Ana(X,A) , a=[s, µ]∈F#X , b=[t, ν ]∈G#X , h#     a, b is
+defined so as to make the outside rectangle in
+
+
+                                      h#
+                #XA
+               Fa i
+                                       a, b           @)Gb#X
+                O     µ’
+                       I                         ν’
+                                                    O
+               µ                                      ≅ 
+                                 h
+                  ≅ )Fs’XA       s’, t’ @F Y
+                                                  i        ν
+                   F                Ft, t’(1Y) I 
+                                              t’
+                                                           
+                       s, s’(1X)
+               FsXA                                    @GtX
+                                      hs, t
+
+
+commute; the rest of the diagram shows that the definition of h#  a, b is independent of the
+choice of the representatives; it is easy to see that h# so defined is a natural transformation
+
+F#A@G# . Further, it is easily seen that ( )# so defined is a functor. The functor ( )# is
+the same as the one obtained from i and 〈 ηF 〉 F in the remark before 10., denoted by Ψ
+there.
+
+
+
+Given a weakly small anafunctor F:XA @A , using the Global Axiom of Choice (GAC), the
+existence of a class-function that picks an element of every inhabited set, we let
+
+(X∈X) @ sX∈QFRX be a choice-function, and we consider the functor F!:XA @A for
+
+which F!(X) = Fs (X) , F!(f:XA@Y) def           = Fs , s (f):F!XA @F!Y (it is
+                      X                               X    Y
+                  !
+immediate that F is a functor). We also have, with any F as above, a natural isomorphism
+
+α:FA @jF! (with j the inclusion of functors in anafunctors) defined by
+
+       (αs, X:FsXA@FXX) def
+                         = (Fs, s (1X):FsXA @Fs X) .
+                                 X             X
+
+Making the choices involved simultaneously for all F∈ANAws(X,A) , we obtain, using the
+
+
+                                               21
+GAC , that
+
+
+
+
+       11(GAC). The inclusion FUN(X,A)A @ANAws(X,A) is an equivalence of
+metacategories; when X is small, the inclusion Fun(X,A)A @Ana(X,A) is an
+equivalence of categories.
+
+
+
+11. is reassuring since it says that we have not strayed from the notion of functor too far.
+
+
+It should be noted that, without any choice,
+
+
+
+       11'. Any small anafunctor into Set is isomorphic to a functor; for any small
+category X , the inclusion Fun(X,Set)A @Ana(X,Set) is an equivalence of
+categories.
+
+
+
+Proof. Let F:XA @Set be a small anafunctor. An element of F at X∈X is a family
+x= 〈 xs 〉 s∈QFRX such that xs∈FsX , and (Fs, t(1X))(xs)=xt for s, t∈QFRX .
+Clearly, any component xs of x determines the whole of x , and in fact, any pair
+(s∈QFRX, a∈FsX) determines a unique element x at X for which xs=a ; let us denote
+x by [s, a] .
+
+
+Given F , we define the functor F:XA @Set as follows. We put F(X) equal to the set of
+
+all elements of F at X . We define, for f:XA@Y , the function F(f):F(X)A@F(Y) by
+
+putting F(f)(x) equal to the unique element y at Y for which yu=Fs, u(f)(xs) for
+
+any (equivalently, for some) pair (s∈QFRX, u∈QFRY) . It is easily seen that F is
+
+well-defined as a functor F:XA @Set by these stipulations. We have the natural
+
+isomorphism αF:FA≅@F whose components (αF)s, X:FsXA@FX are given by
+(αF)s, X(a) = [s, a] . This completes the proof.
+
+
+
+
+                                                22
+Many concrete categories (categories of algebras, of topological spaces, etc.) that have a
+faithful forgetful functor to Set share the property of Set stated in 11'.; I do not see how
+to make a general-enough statement of this state of affairs.
+
+
+Another, rather obvious, case of this situation is in the next statement.
+
+
+
+       11". The anafunctor F is isomorphic to an ordinary functor when the domain
+category of F has finitely many objects.
+
+
+
+(By " S is finite", we mean "there are a natural number n and a surjection
+{i: i<n}A $S ".) Note, however, that we cannot say that the inclusion
+Fun(X,A)A @Ana(X,A) is an equivalence even when X is 1 , the terminal category.
+
+
+
+
+We turn to the composition of anafunctors. Let XA F @AA G @M be anafunctors. There is a
+natural composition GvF:XA @A , also written just GF , an anafunctor, defined as follows.
+For X∈X , we let QGFRX be the class of all pairs
+
+
+        a = (s∈QFRX, t∈QGR(FsX))
+
+
+(in other words,
+
+
+       QGFRX def
+              =           $     QGR(FsX) )                                  (6)
+                      s∈QFRX
+
+and for a as displayed, (GF)a def
+                               = Gt(Fs(X)) . Note that if also M∈M ,
+
+
+       QGFR(X, M) ≅ $ QFR(X, A)×QGR(A, M) .
+                         A∈A
+
+For the action of GF on arrows, with a as above, and with
+b = (u∈QFRY, v∈QGR(FuX)) , and with f:XA @Y , we put
+(GF)a, b(f) def  = Gt, v(Fs, u(f) . It is immediate that GF is a anafunctor.
+
+
+It is immediate that the composition of weakly small anafunctors is weakly small.
+
+
+                                                23
+If F and G are given by the spans (XM      NQFRA       @A) , (AM NQGRA            @M) ,
+then the composite GF is given by the "composite span" (XM    NQFR×AQGRA          @M) .
+
+We can extend composition to a functor
+
+
+       ANA(X,A)×ANA(A,M)A v @ANA(X,M)                                       (7)
+
+
+in a natural way. With data as in
+
+
+
+       XA    Ph @@AAA    Pk @@M
+             F           I
+                                                                     (8)
+        A    G           J
+
+first we define v(h, 1I) , denoted Ih , by
+
+
+       (Ih)a, b = It, v(hs, u) ;
+
+
+here, a = (s∈QFRX, t∈QIR(FsX)) , b = (u∈QGRX, v∈QIR(FuX)) ;
+
+
+the naturality of Ih is immediate.
+
+
+In defining v(1F , k) , denoted kF , we make use of the fact that, to specify a natural
+transformation of anafunctors, it suffices to specify "enough" components of it, with the
+appropriate naturality conditions satisfied (see 7.). Accordingly, let
+a = (s∈QFRX, t∈QIR(FsX)) , b = (s∈QFRX, u∈QJR(FsX)) ; we let
+(kF)a, b:(IF)a(X)A @(JF)b(X) be
+(kF)a, b def = kt, u:ItFs(X)A @JuFs(X) ; the (needed partial) naturality of kF is
+immediate.
+
+
+Next, we need to verify that thus we have defined functors
+
+
+       ( )vI:ANA(X,A)A              @ANA(X,M) ,
+
+       Fv( ):ANA(A,M)A              @ANA(X,M) ;
+
+we leave the task to the reader.
+
+
+
+                                             24
+Finally, we need that
+
+
+               IvFA           @IvG
+                           Ih
+
+              kF
+                              kG
+                  P              P
+                  JvFA     Jh @JvG
+
+commutes. With evaluating IvF at (s∈QFRX, t∈QIR(FsX)) , JvG at
+(u∈QGRX, v∈QJR(GuX)) , IvG at (u∈QGRX, w∈QIR(GuX)) , and JvF at
+(s∈QFRX, r∈QJR(FsX)) , the diagram becomes
+
+
+                         It, w(hs, u)
+           ItFsXA                        @IwGuX
+       kt, r                                 k
+             
+              P                             P w, v
+           JrFsXA                        @JvGuX      ,
+                         Jr, v(hs, u)
+
+
+whose commutativity is an instance of the naturality of k . By 7. again, this suffices.
+
+
+It is well-known (Prop. 1, II.3, p. 37 in [CWM]) that what we did above determines uniquely
+the functor (7).
+
+
+It is clear that, for X and A small, (7) restricts to a composition-functor
+
+
+       Ana(X,A)×Ana(A,M)A v @Ana(X,M)                                             (7')
+
+
+
+Let us turn to the question of associativity of composition of functors. With anafunctors
+
+
+       XA F @AA G @MA H @S ,
+
+
+we find the associativity isomorphism
+
+
+       α = αF, G, H:H(GF)A ≅ @(HG)F
+
+
+
+                                               25
+given (see 7'.) by the renaming transformation α for which
+
+
+       α[X, S] : ((s, t), u)  @ (s, (t, u))
+
+whenever X∈X , s∈QFRX , t∈QGR(FsX) , u∈QHR(GtFs(X)) , S=HuGtFs(X) . It is
+easy to see that αF, G, H is natural in each of F , G and H , and that the pentagonal
+associativity coherence diagram ((1.1)(A.C.) in [Be1], pp. 5 and 6) commutes. With the
+identity functor 1A:AA@A as an anafunctor, we have the left and right identity isomorphisms
+
+
+       λF:1AFA≅@F , ρF:I1AA≅@I
+
+(see (8)) defined by (λF)((s, X), s), X = 1F X ( s∈QFRX ) , and similarly for ρF .
+                                            s
+Both λF and ρF are natural in F , and they satisfy identity coherence ((1.1)(I.C.) loc.cit.).
+
+
+We have the ingredients of a metabicategory (see loc.cit.).
+
+
+
+       12. Conclusion. Categories, anafunctors between them, and natural transformations
+between the latter form, with the given notions of composition, a meta-bicategory ANACAT .
+The identification of ordinary functors with anafunctors provides an inclusion
+i:CATA @ANACAT ( CAT is the meta 2-category of categories, functors and natural
+transformations), which is the identity on objects, and locally fully faithful.
+       We also have the bicategory AnaCat of small categories, small anafunctors between
+them, and all natural transformations between the latter. The 2-category Cat of small
+categories has a locally fully faithful inclusion into AnaCat , which is an equivalence of
+bicategories provided the Axiom of Choice holds.
+
+
+
+G. M. Kelly gave us once the healthy advice to use simple terminology in higher dimensional
+category theory. For instance, "functor" of bicategories should mean "homomorphism of
+bicategories"; a functor between bicategories cannot reasonably mean anything but a mapping
+that respects the whole bicategory structure and not just the reduct to the category structure.
+Similarly, "product" in a bicategory should mean what is usually called "biproduct". Also, I
+say "equivalence of bicategories" for "biequivalence". (As a reminder, I note that by an
+
+
+
+                                               26
+equivalence of bicategories S and A , I mean a pair of functors SA
+                                                                      F @
+                                                                 M        A such that
+                                                                      G N
+GF J 1S , FG J 1A , the latter equivalences meant in the metabicategories of endofunctors of
+S , A , respectively. As usual, we say of a single functor F:SA @A that it is an equivalence if
+it can be expanded with further data to form an equivalence). Maybe I am carrying Kelly's
+advice farther than he intended; I hope no confusion will arise.
+
+
+Small categories with saturated anafunctors between them also form a bicategory named
+SanaCat , which is equivalent to AnaCat . This is a consequence of 10., together with the
+fact that, in the proof of 10., the isomorphisms ηF are obtained uniformly from F not just
+within a given Ana(X,A) , but also uniformly in the variables X , A .
+
+
+In some detail, SanaCat has the following structure. With reference to the
+saturation-functor
+
+
+
+                 X,M : Ana(X,M)A
+       ( )# = ( )#                         @Sana(X,M)
+
+(see 10.), a composition-functor in SanaCat ,
+
+
+       v# = v#X,A,M:Sana(X,A)×Sana(A,M)A                 @Sana(X,M) ,
+
+is defined by Gv#F = (GvF)# , and correspondingly for natural transformations. The
+associativity isomorphisms
+
+
+
+        F, G, H : Hv (Gv F)A
+       α#           #   #             @(Hv#G)v#F
+
+are determined so as to make
+
+
+
+
+                                              27
+                       α#
+                        F, G, H
+       Hv#(Gv#F)A                  @(Hv#G)v#F
+         η O
+                                        O η
+       Hv(Gv#F)                       (Hv#G)vF
+
+       Hvη O
+                                        O ηvF
+        Hv(GvF)A                   @ (HvG)vF
+                       αF, G, H
+
+commute.
+
+
+Using 10., we can see that
+
+
+
+       12.' The inclusion mapping SanaCatA          @AnaCat is an equivalence of
+bicategories.
+
+
+
+It is more natural to make the totality of small categories, with saturated anafunctors between
+them, an anabicategory in which composition is an anafunctor; see §4.
+
+
+Terminal object and product in a (meta-)bicategory are defined as expected by universal
+properties defining the result of the operation up to an equivalence rather than isomorphism.
+
+Placing ourselves in a fixed (meta)bicategory, we say that AM πNCAπ’@B is a product
+diagram if, for any object D , the functor
+
+
+       (π(-),π'(-)):Hom(D, C)A @Hom(D, A)×Hom(D, B)
+
+                      DAf@C      @ (πf, π’f)
+
+is an equivalence of categories. As usual, AM πNA×BAπ’@B denotes, ambiguously, a
+product diagram on (A, B) .
+
+
+T is a terminal object if, for any A , Hom(A, T)A @1 , with 1 the one-object, one-arrow
+category, is an equivalence of categories.
+
+
+We say that a bicategory is Cartesian if it has a terminal object and binary products.
+
+
+                                               28
+       13. AnaCat and ANACAT are Cartesian.
+
+
+
+In fact, the Cartesian structure in ANACAT ( AnaCat ) is computed as in CAT ( Cat ).
+
+
+
+The Cartesian closed nature of Cat , the (2-)category of all small categories is a fundamental
+fact. What prevents AnaCat from being Cartesian closed is that, for A , X small categories,
+Ana(X,A) is not necessarily equivalent to a small category. In §5, we will see that a weak
+form of the Axiom of Choice will ensure this, and hence the Cartesian closed nature of
+AnaCat . Here, we give the relevant facts that hold without further set-theoretical hypotheses.
+
+
+We first formulate a characterization of anafunctors of the form F:X×MA @A ,
+("bi-anafunctors") analogous to Prop. II.3.1 in [CWM]. Suppose we have
+
+
+      classes QFR((X, M)) ( X∈X, M∈M ) ,
+      objects Fs(X, M) ∈ A ( s∈QFR((X, M)) ),
+      arrows Fs, t(f, M):Fs(X, M)A @Ft(Y, M) ,
+Fs, u(X, g):Fs(X, M)A @Fu(X, N) ( f:XA@Y , g:MA@N , s∈QFR((X, M)) ,
+t∈QFR((Y, M)) , u∈QFR((X, N)) )
+
+
+such that
+
+
+      (i) for any X∈X , the data define an anafunctor FX=F(X, -):MA @A
+( QFXRM = QFR((X, M)) , etc.), and similarly for F(-, M):XA @A ;
+
+
+       (ii) for any f:XA@Y in X , g:MA@N in M , and for all appropriate specifications, the
+diagram
+
+
+                                     Fs, t(X, g)
+                      Fs(X, M)A                     @Ft(X, N)
+                                                         
+               Fs, u(f, M) 
+                              P                          P Ft, v(f, N)
+                        Fu(Y, M)A                   @Fv(Y, N)
+                                  F   u, v(Y, g)
+
+commutes. Then we have a unique anafunctor F:X×MA @A having as sections F(X, -) ,
+
+
+                                              29
+F(-, M) the given data.
+
+
+I leave the verification to the reader.
+
+
+Given categories X , A , we consider the metacategory ANA(X,A) , and the evaluation
+anafunctor
+
+
+        e = eX, A : X×ANA(X,A)A @A                                                (8)
+
+
+determined as follows. For X∈X , F∈ANA(X,A) ,
+
+
+        QeR((X, F)) def
+                     = QFQX ;                                                     (8')
+
+
+for s∈QFQX ,
+
+
+                  = Fs(X) ;
+        es(X, F) def
+
+
+with also u∈QFRY , f:XA@Y ,
+
+
+                       = Fs, u(f) .
+        es, u((f, F)) def
+
+
+With h:FA@G ( ∈ Arr(ANA(X,A)) ) , t∈QGRX ,
+
+
+                       = hs, t ;
+        es, t((X, h)) def
+
+
+the diagram
+
+
+                                     es, t(X, h)
+                        es(X, F)A                  @et(X, G)
+                             
+                  es, u(f, F)                           et, v(f, G)
+                             P                           P
+                       eu(Y, F)A                   @ev(Y, G)
+                                     eu, v(Y, h)
+
+
+is identical to
+
+
+
+
+                                              30
+                                         hs, t
+                             Fs(X)A                @Gt(X)
+                      Fs, u(f)
+                                                    G
+                                P                      P t, v(f)
+                             Fu(Y)A                @Gv(Y)              ,
+                                         hu, v
+
+
+which commutes by the naturality of h . This shows (by the characterization of
+"bi-anafunctors") that e is an anafunctor.
+
+
+Whereas eX, A in (8) is a metafunctor, for X small, its restriction
+
+
+       eX, A : X×Ana(X,A)A @A                                              (9)
+
+
+to Ana(X,A) , the category of small anafunctors XA@A , is a functor (denoted by the same
+symbol as the metafunctor in (8)).
+
+
+In propositions 14., 15., 16. and 17. below, X , Y are small categories, A is an arbitrary
+category.
+
+
+
+       14. e = eX, A (see (9)) induces an equivalence of categories
+
+                        = ev(X×(-)) : Ana(Y,Ana(X,A)) A J @ Ana(X×Y,A) .
+                      ϕdef
+
+       15. The inclusion
+
+                      i : Fun(Y,Ana(X,A)) A J @ Ana(Y,Ana(X,A))
+is an equivalence of categories.
+
+
+Note that 15. implies that Ana(X,A) shares the property of Set given in 11'.
+
+
+       16. There is an isomorphism
+
+                      ψ : Fun(Y,Ana(X,A)) A ≅ @ Ana(X×Y,A)
+of categories for which ψ ≅ ivϕ , with i and ϕ from 15. and 14.
+
+
+
+
+                                              31
+Proof of 14., 15. and 16. The functors in these assertions form the diagram
+
+
+       Ana(Y,Ana(X,A)) A                      ϕ              @ Ana(X×Y,A)
+                             1                                "
+                                                            ψ
+                             i                                                          (9)
+                                                          
+                                      Fun(Y,Ana(X,A))
+
+We'll define ψ , show the properties given in 16., and show that ϕ is full and faithful. Since
+i is full and faithful, both assertions 14. and 15. will follow. We will have that, in (9), all
+three functors are equivalences of categories, one in fact is an isomorphism.
+
+
+Given H ∈ Ana(Y,Ana(X,A)) , X∈X , Y∈Y , we have
+
+
+       Qev(X×H)R((X, Y)) = {((X, a), s): a∈QHRY, s∈QHaYRX}
+
+(remember that QeR((X, HaY)) =QHaYRX ) and
+
+
+       (ev(X×H))((X, a), s)(X, Y) = (HaY)sX .
+
+
+Let also K ∈ Ana(Y,Ana(X,A)) . A natural transformation h:ev(X×H)A @ev(X×K)
+has components
+
+
+       h((X, a), s), ((X, b), t):(HaY)sXA @(KbY)tX .
+
+
+Starting with h , we define j:HA @K by specifying the natural transformation
+ja, b:HaYA @KbY by making (ja, b)s, t:(HaY)sXA @(KbY)tX equal to
+h((X, a), s), ((X, b), t) . This works, and j is the unique natural transformation HA@K
+mapped by the functor (9) to h ; this amounts to the fact that ϕ is fully faithful.
+
+
+Given the small anafunctor G:X×YA @A , we define H = ψ-1(G) , H:YA @Ana(X,A) as
+follows. With Y∈Y , H(Y):XA@A is the (obviously small) anafunctor G(-, Y) , that is
+
+
+       QH(Y)RX = QGR((X, Y)) , (H(Y))sX = Gs(X, Y)
+
+and
+
+
+                                               32
+      (H(Y))s, t(f) = Gs, t(f, Y) ( s∈QH(Y)RX , t∈QH(Y)RX’ , f:XA@X’ );
+
+
+moreover, for g:YA@Y’ , H(g):H(Y)A @H(Y’) is the natural transformation for which
+
+
+      (H(g))s, t = Gs, t(X, g) .
+
+
+Conversely, given any functor H:YA @Ana(X,A) , the listed equalities define a unique
+
+small G:X×YA a @A ; in other words, ψ is a bijection of the object-classes of the two
+
+categories in 16. If g:GA@F , then ψ-1(g)=h:HA@K for h defined by
+
+
+             (hY)s, t = gs, t            ( s∈QGR(X, Y) , t∈QFR(X, Y) )
+
+
+(here, G, F∈Ana(X×Y,A) , H=ψ-1(G) , K=ψ-1(F) ), and the mapping g@h is a
+
+bijection Nat(G, F)A ≅ @Nat(ψ-1G, ψ-1F) . This defines the isomorphism ψ of 16.
+
+
+To show the isomorphism ψ ≅ ivϕ , for a functor H:YA @Ana(X,A) , and G=ψ(H) , we
+exhibit an isomorphism αH:ev(X×H) ≅ G . Calculating ev(X×H) in this case, we get
+
+
+      Qev(X×H)R((X, Y), A) = {((X, Y), s):s∈QGR((X, Y), A)} .
+
+We can define the renaming transformation α:ev(X×H)A≡@G by defining
+
+
+      α[(X, Y), A] :       Qev(X×H)R((X, Y), A)        A ≅ @ QGR((X, Y), A)
+as
+                                         ((X, Y), s)      @ s.
+
+The corresponding natural isomorphism αH:ev(X×H)A≅@G has
+
+
+             (αH)((X, Y), s), s = 1G (X, Y) .                        (10)
+                                    s
+
+We need to see that αH is natural in H∈Fun(Y,Ana(X,A)) . Because of (10), naturality
+
+means that for H, K∈Fun(Y,Ana(X,A)) , j:HA@K , h=ϕ(j) , # =ψ-1(j) ,
+s∈QH(Y)RX , t∈QK(Y)RX , we have
+
+
+                                            33
+       h((X, Y), s), ((X, Y), t) = # s, t ( :(HY)sXA@(KY)tX ).
+
+
+But this equality is true; both sides are equal to (jY)s, t .
+
+
+This completes the proof.
+
+
+
+We also arrive at the conclusion mentioned after 15.: if K:YA @Ana(X,A) is an anafunctor,
+we have a functor H:YA @Ana(X,A) isomorphic to it; H is obtained from G = ev(X×K)
+as above. In particular, the anafunctor H(Y):XA@A has
+
+
+       QH(Y)RX = {(a, s): a∈QKRY, s∈QKa(Y)RX} ;
+
+the "uncertainty" from K is absorbed into the values of H .
+
+
+Here is a rather special, but useful, result.
+
+
+
+       17. When the category X has finitely many objects, the functor
+
+
+                ι v() : Ana(Y,Fun(X,A))A             @Ana(Y,Ana(X,A))
+
+induced by the inclusion ι :Fun(X,A))A @Ana(X,A) is an equivalence of categories.
+
+
+Proof. Since ι is full and faithful, it is immediate that so is ι v() . To show that ι v() is
+uniformly essentially surjective on objects, it suffices to show that the composite with the
+equivalence ϕ of (9) ,
+
+
+       ϕv( ι v()) : Ana(Y,Fun(X,A))A                 @Ana(X×Y,A) ,
+
+is so. Let G:X×YAa@A . Define F:YA a @Fun(X,A) as follows. Put QFRY def
+                                                                      =
+    & QGR((X, Y)) ; for a∈QFRY , Fa(Y)(X) def   = Ga(X)(X, Y) ; for x:XA@X’ ,
+X∈QXR
+Fa(Y)(x) def   = Ga(X), a(X’)(x, Y) (note that a(X)∈QGR((X, Y)) ,
+a(X’)∈QGR((X’, Y)) ); for y:YA@Y’ , a∈QFRY , a’∈QFRY’ , the components of the
+natural transformation Fa, a’(f):Fa(Y)A@Fa’(Y’) are defined as
+
+
+                                                34
+                   = Ga(X), a’(X)(X, y):Ga(X)(X, Y)A
+     (Fa, a’(f))X def                                                     @Ga’(X)(X, Y’) .
+
+It is easy to check that F is an anafunctor; the only point where the finiteness of QXR is
+used is the inhabitedness of the set QFRY =     & QGR((X, Y)) ; as a finite product of
+                                             X∈QXR
+inhabited sets, it is inhabited.
+
+
+We need to exhibit a natural isomorphism h:(ϕv( ι v())(F)A ≅ @G . But
+(ϕv( ι v())(F) = ev(X× ι (F)) has
+               Qev(X× ι (F))R((X, Y)) = {((X, a), X): a∈QFRY}
+and
+               (ev(X× ι (F)))((X, a), X)(X, Y) = Fa(Y)(X) ( = Ga(X)(X, Y) ).
+Thus, we may define h by
+               h((X, a), X),a(X) = 1G              ;
+                                        a(X)(X, Y)
+7. ensures that h is well-defined.
+
+
+
+
+When in 16., we put X = 1 , we note the isomorphism 1×Y ≅ Y , and we write A+ for
+
+Ana(1,A) (we may call A+ the category of small anaobjects of A ), we obtain the
+
+isomorphism Ana(Y,A) ≅ Fun(Y,A+) of categories. In other words, (small) anafunctors
+YA@A may be identified with ordinary functors from the same domain Y into the category
+
+A+ of (small) anaobjects of the codomain A , and this identification extends to natural
+transformations. This shows that the notion of anafunctor and that of natural transformation of
+anafunctors can be reduced to the case when the domain category is 1 . This fact was
+suggested by the Referee.
+
+
+When in 14., we put both X and Y equal to 1 , we obtain the equivalence A++ J A+ . In
+
+fact, writing µA:A++AJ@A+ for a (the) quasi-inverse of the equivalence ϕ:A+AJ@A++
+
+given in 14., and ηA:AA @A+ for the inclusion functor A ≅ Fun(1,A)A @Ana(1,A) ,
+
+we have an idempotent monad (()+,µ,η) on the bicategory AnaCat (both "idempotent"
+and "monad" understood in the suitable bicategorical sense); this fact will be explored in
+
+[M/P]. Further, in [M/P], it will be shown that A+ is a stack-completion of A ; the full
+explanation of this fact requires putting anafunctors into the context of indexed category
+
+
+                                               35
+theory.
+
+
+As I mentioned in the Introduction, the construction of the category A+ is also given in [J/S],
+
+where A+ is named the category of cliques of A ; see Chapter 1, §1 of [J/S]. The general
+
+properties of cliques and A+ are not developed in [J/S]; A+ is used in [J/S] for purposes
+different from those of this paper.
+
+
+Written out explicitly, A+ is the following category. An object A of A+ (a clique, or a
+small anaobject of A ) is given by an inhabited set QAR , an QAR-indexed family
+
+〈 As 〉 s∈QAR of objects As of A , and an assignment of an isomorphism As, t:AsA≅@At
+to each pair (s, t) of elements of S such that As, s=1A and At, uvAs, t=As, u
+                                                            s
+whenever s, t,u∈S . A morphism h:AA @A’ is a family
+
+
+          h = 〈 hs, s’:AsA @A’
+                             s’ 〉 s∈QAR, s’∈QA’R
+
+such that
+
+
+                            hs, s’
+                     AsA             @As’
+                                      
+               As, t
+                    P          {      PAs’, t’
+                     AtA             @At’
+                            ht, t’
+
+
+for all appropriate values of the parameters.
+
+
+By a (not necessarily small) anaobject of A , we mean a (not necessarily small) anafunctor
+1A @A ; we will use (in the next section) a similar notation in relation to anaobjects in general
+as we did above for small anaobjects; for a general anaobject A , QAR may be a proper class.
+
+
+
+
+                                                36
+                                    § 2. Adjoint anafunctors
+
+
+
+Anafunctors provide solutions without introducing non-canonical choices to existence
+problems when data are given by universal properties. The best example for this is the
+existence of an adjoint anafunctor when the "local existence criterion" is satisfied.
+
+
+
+Given the anafunctors XA
+                       F @
+                          A , we say that F is a left-adjoint to G ( F!G ) if we have,
+                       M
+                       G N
+for any X∈X , A∈A , s∈QFRX , v∈QGRA a bijection ϕs, v , mapping f to g as in
+
+
+                FsXA f @A
+               
+                  XA g @GvA                                                         (1)
+
+
+between A(FsX, A) and X(X, GvA) , which is natural in X and A in the expected sense:
+for any Y∈X , t∈QFRY and h:XA@Y in addition to the above data, in
+
+
+                    F h        f
+                FsXA st @FtYA    @A
+               
+                     XA h @YA    @GvA ,
+
+we have ϕs, v(fvFsth) = ϕt, v(f)vh , and similarly for data in A .
+
+
+We leave it to the reader to check that this is the same as the standard internal definition in the
+metabicategory ANACAT : the existence of η:1XA @GF and ε :FGA @1A such that
+
+
+       F(GF)iA          α   @)(FG)F                  (GF)GiA          α   @)G(FG)
+                        ≅                                             ≅
+                                                                         
+             Fη        {  ε G                           ηG        { G ε
+                      IFH                                           IGH
+
+where the α's are the appropriate associativity isomorphisms. In particular, if F!G , and
+F’≅F , G’≅G , then F’!G’ ; and if F!G , F’!G , then F’≅F .
+
+
+Let XM G NA be an anafunctor (in particular, G may be an ordinary functor), and X∈X .
+We say that the triple (B∈A, u∈QGRB, η:XA@GuB) is good for X if it has the universal
+
+
+                                                37
+property that for any (A∈A, v∈QGRA, g:XA@GvA) there is a unique f:BA@A with
+
+g = Gu, v(f)vη . XM G NA satisfies the condition of local existence of a left adjoint if for
+every X∈X , there is at least one good triple for X .
+
+
+
+
+        1. Assume that the anafunctor XM G NA satisfies the condition of local existence of
+a left adjoint. Then there is a (canonical) anafunctor F:XA@A which is left adjoint to G .
+
+
+
+Proof. We define F:XA @A as follows. For any X∈X , QFRX is the class of all good triples
+for X . If s=(B, u, η)∈QFRX , Fs(X) def= B . If also t=(C, v, θ )∈QFRY , g:XA@Y ,
+then Fs, t(g) is the unique f:BA@C such that
+
+
+        XA η @GuB
+        
+       g    {         G
+        
+        P              P u, v(f)
+        YA        @GvC              .
+             θ
+
+The bijection ϕs, v (see (1)) is as follows. If s=(B, u, η)∈QFRX and v∈QGRA , for
+f:FsXA@A , the corresponding g:XA@GvA is g=Gu, v(f)vη . The remaining details are
+similar to the ones in the basic theory of adjoint functors (see [CWM]).
+
+
+
+When G is a functor, F constructed above is a saturated anafunctor. Indeed, given
+
+s=(B, B, η)∈QFRX and µ:BA≅@C , the condition for t=(C, C, θ )∈QFRX to satisfy
+Fs, t(1X) = µ is that the diagram
+
+
+                 η%GB
+                 XL
+                  G        Gµ
+                  θ     g P
+                         GC
+
+commutes, which determines θ .
+
+
+Let us also note that if X, A, G are all small, then so is F .
+
+
+
+                                              38
+The example in 1.2. is, of course, a special case of 1., which is the main source of naturally
+occurring anafunctors.
+
+
+Another special case of 1. says that any functor, or even anafunctor, which is fully faithful and
+essentially surjective has a quasi-inverse anafunctor; thus it is an equivalence (without the
+axiom of choice) in the sense of the metabicategory ANACAT . We call an anafunctor which is
+
+an equivalence in the sense of ANACAT an anaequivalence of categories. F:XA a @A is
+fully faithful if for every X∈X and Y∈X , for some (equivalently, for all) s∈QFRX ,
+t∈QFRY , the mapping Fs, t:X(X, Y)A @A(FsX, FtY) is a bijection. The same F is
+essentially surjective if for all A∈A , there is X∈X and s∈QFRX such that A≅FsX . We
+have
+
+
+
+       2. Any fully faithful and essentially surjective (ana)functor is an anaequivalence of
+categories.
+
+
+By 1.11".,
+
+
+
+
+       2'. The inclusion AA @A+ ( =Ana(1,A) ) is an anaequivalence.
+
+
+
+Completeness properties of functor-categories depend, in the usual treatment, on non-canonical
+choices. Assume I ,X and A are categories, and A has I-indexed limits. Then the proof
+that the functor category Fun(X,A) has I-indexed limits proceeds by picking particular
+limits in A of the I-indexed diagrams in A obtained by evaluating the given I-indexed
+diagram in Fun(X,A) .
+
+
+For the case when the category I has finitely many objects, we can avoid the choices. In fact,
+in this case the metacategory ANA(X,A) of anafunctors is better than the base category A ;
+it has specified limits (given as a function with arguments the I-diagrams in A ) even if A is
+not assumed to have specified limits. We will have results concerning arbitrary small limit
+types I ; see propositions 6. and 7. below, and also the last section of the paper.
+
+
+
+
+                                               39
+      3. Suppose that the small category I has finitely many objects, and the category A
+has I-indexed limits. Then ANA(X,A) has specified I-indexed limits.
+
+
+Proof. For simplicity of notation, we show why ANA(X,A) has specified binary products if
+A has binary products; the general case is only notationally different (but also see 4. below).
+Given F, G∈ANA(X,A) , we define F×G∈ANA(X,A) as follows. We put
+
+
+QF×GRX = {(s∈QFRX, t∈QGRX, FsXM π NAA π’@GtX): (π, π’) is a product in A} .
+
+For a∈QF×GRX as displayed, (F×G)aX = A . If also a’∈QF×GRX’ with similar
+ingredients, and f:XA @X’ , (F×G)a, a’(f) is the arrow g in the following
+commutative diagram:
+
+
+
+                            π+J
+                                A
+
+                                      kπ’
+                          FsX    
+                                g { tF
+                                         G X
+              Fs, s’(f)      {
+                        P           P t, t’(f)
+                                  
+                       Fs’X’ i P )Gt’X’
+                           π        π’
+                                   A’                   .
+
+
+I leave it to the reader to define the projections FM π NF×GA π’@G , and to check the
+universal property of the product.
+
+
+We have the following variant of 3.
+
+
+
+      4. Suppose that X , A and I are small categories, and I has finitely many objects.
+Assume that A has I-indexed limits. Then Ana(X,A) has specified I-indexed limits.
+
+
+Proof. By 1., we have Lim:AI (=Fun(I,A)) A          @ A , an anafunctor right adjoint to
+∆:AA@AI . Since A is small, Lim is (can be taken to be) small; thus, the adjunction
+∆ ! Lim lives in the bicategory AnaCat . As any bicategory, AnaCat has a representable
+functor to ANACAT , represented by any object of it:
+
+
+
+
+                                               40
+       Ana(X,-) = AnaCat(X,-) : AnaCatA                    @ANACAT
+
+(as explained before, we mean a homomorphism of bicategories when we talk about a functor
+of bicategories). As any functor of bicategories, Ana(X,-) preserves any adjunction in its
+domain. Thus, we have the adjunction
+
+
+                                        *
+       Ana(X,Fun(I,A)) A
+                         Lim @
+                       M >* N Ana(X,A) ,                                                   (2)
+                                   ∆
+
+
+where Lim* , ∆* are the functors Ana(X,Lim) , Ana(X,∆) , resp. We have the
+equivalences
+
+
+       Ana(X,Fun(I,A)) J Ana(X,Ana(I,A))
+                              O
+                              17
+                      J Ana(I,Ana(X,A)) J Fun(I,Ana(X,A)) .
+                      O                 O
+                      14                          15
+
+Composing them with (2), we get
+
+
+
+                       A
+       Fun(I,Ana(X,A)) M
+                                   Lim @
+                                    >       N Ana(X,A) .
+                                    ∆
+
+
+Going through the above equivalences, one can check that ∆ is isomorphic to ∆:BA @BI
+
+for B = Ana(X,A) . Thus, up to isomorphism, Lim            is the desired limit-functor.
+
+
+
+
+The conclusion of 4. holds, in particular, for A+ = Ana(1,A) .
+
+
+Of course, the similar result for colimits is a consequence, by passing to the opposite category.
+But also for other finitary categorical operations defined by universal properties, we have
+
+similar conclusions, at least for A+ . E.g.,
+
+
+
+
+                                                41
+        5. Suppose that the small category A is Cartesian closed. Then A+ , the category of
+small anaobjects of A (a category anaequivalent to A ; see 2'.), is also Cartesian closed, and
+in fact has specified finite products and exponentials.
+
+
+Proof. An exponential diagram on a pair (X, Y) of objects in A is a diagram of the form
+
+
+              ZA                    @Y
+                           e
+         pJ           q                                                          (3)
+         +             k
+       X                   W
+
+
+such that (p, q) is a product, and e satisfies the usual universal property of the evaluation
+morphism of an exponential (think of
+
+
+              X×Y A                        @Y
+                       X          e
+         πJ       π’
+        +           k X
+       X             Y                          ;
+
+
+the definition is that for any
+
+
+
+                JZ’A                  @Y
+                             e’
+              
+           +
+           p’               q’
+                           k
+       X                       W’
+
+
+such that (p’, q’) is a product, there is a unique commutative diagram of the form
+
+
+                  ZA            @Y
+                                e
+            pJO
+            +      k
+                         q         O
+                                  
+       1X X                Of 1Y
+                           W
+          O                                                              (4)
+          Xi                   
+                  )
+                           W’
+                                  
+            p’         q’
+                  Z’A        e’ @Y     .
+
+
+Of course, a category with finite products is Cartesian closed iff there exists an exponential
+diagram on any pair of objects.)
+
+
+                                                    42
+If ∆ abbreviates (3), we indicate the components of ∆ by putting the subscript ∆ to the
+corresponding symbol in (3); e.g., W∆ for the object W in (3), etc.
+
+
+Let A , B be anaobjects of A . Define the anaobject BA as follows. Let QBAR be the set
+of all (s, u, ∆) such that s∈QAR , u∈QBR , and ∆ is an exponential diagram on
+
+(As, Bu) . For a=(s, u, ∆)∈QBAR , let (BA)a def   = W∆ . Here and below,
+
+a=(s, u, ∆)∈QBAR and a’=(s’, u’, ∆’)∈QBAR . (BA)a, a’:W∆A @W∆’ is defined to
+be the arrow g in the unique commutative diagram
+
+
+                  Z A             @Bu
+                               e
+             p∆J∆
+               +  
+                           q∆
+                           k       
+                                  
+                             g ≅B
+             As              W∆
+       As, s’      h
+             P ≅            P       u, u’ ;                                          (5)
+             As’                     
+                      ) ∆’ 
+                              W
+               i
+             p∆’ P  q∆’            P
+                      Z∆’A     e’ @Bu’
+
+the reasons why the latter uniquely exists are the universal property of ∆’ , and the fact that
+As, s’ , Bu, u’ are isomorphisms.
+
+
+The exponential diagram
+
+
+              A×BAA     @B
+                     e
+         πJ       π’
+        +           k A
+       A             B
+
+
+on (A, B) is given as follows. QA×BAR def
+                                       = QBAR ; (A×BA)a = Z∆ ; (A×BA)a, a’ is
+the arrow h in (5). For t∈QAR , πa, t:ZA @As’ is As, tvp∆ ; π’ is similar. For
+v∈QBR , ea, v:ZA @Bv is Bu, vve∆ .
+
+
+The verification of the needed properties of these data is omitted.
+
+
+
+
+                                               43
+        6. Let X be a small category, A a category having all small limits. Then every small
+diagram in Ana(X,A) has a limit in ANA(X,A) ; that is, with
+ϕ:Ana(X,A)A@ANA(X,A) the inclusion, for any small I and Γ:IA@Ana(X,A) ,
+lim(ϕvΓ) exists in ANA(X,A) . Moreover, there is a class-function assigning, to any small
+diagram Γ in Ana(X,A) , a limit-cone in ANA(X,A) on ϕvΓ . If A is locally small, the
+limit-objects in the assigned limit-cones are locally small anafunctors.
+
+
+Proof. Let Γ = ( 〈 FI 〉 I∈I, 〈 fi:FIA@FJ 〉 (i:IA@J)∈I) be a small diagram in
+Ana(X,A) . We define L = lim Γ ∈ ANA(X,A) as follows.
+
+
+Fix X∈X , to define QLRX . We let IX be the category whose objects are pairs (I, s)
+with I∈I and s∈QFIRX , and whose arrows (I, s)A@(J, t) are (s, t, i) with
+i:IA@J (that is, an arrow (I, s)A@(J, t) is just an arrow IA@J , with the information
+on the domain (I, s) and the codomain (J, t) attached; we will write
+i:(I, s)A@(J, t) instead of (s, t, i):(I, s)A@(J, t) ). By the hypotheses, IX is a
+small category. Consider the diagram ΓX:IXA@A that assigns the object FI, sX ≡
+(FI)s(X) to (I, s) , and the arrow fi, s, t ≡ (fi)s, t:FI, sXA@FJ, tX to
+i:(I, s)A@(J, t) . We define QLRX to be the class of all limit-cones on ΓX in A ; for
+π∈QLRX , π= 〈 πI, s:[π]A @FI, sX 〉 (I, s)∈ΓjX , we put Lπ(X) = [π] .
+
+Let g:XA@Y be an arrow, π∈QLRX , ρ∈QLRY , to define
+h ≡ Lπ, ρ(g):Lπ(X)A@Lρ(X) . h is given uniquely by the condition that
+
+                         πI, s
+               L π XA               @FI, sX
+              h 
+                          {          FI, s, tg
+                 P                       P
+               L ρ YA               @FI, tY
+                         πI, t
+
+commutes for all I∈I , s∈QFRX , t∈QFRY . Indeed, first of all, the diagram
+
+
+
+
+                                            44
+                         J   LπX
+                      
+          πI, s            {                 πI, s’
+             +         f1 , s, s’             k
+       FI, sX A                               @ FI, s’X
+                          I
+
+                                              
+                        FI, s, s’1X
+                                             
+                                             F
+        FI, s, tg              {                       g
+                                      +
+                                                    I, s’, t
+                        k
+                             FI, tY
+
+
+shows that the arrow kI, t def= FI, s, tgvπI, s : LπXA@FI, tY does not depend on s
+(the upper commutativity is by π being a cone, the lower by the functoriality of FI ; the
+equality f1 , s, s’ = (1F )s, s’ = Fs, s’(1X) holds by the compatibility of the
+            I               I
+diagram Γ , and the definition of 1F .) Next, the diagram
+                                    I
+
+
+                                         J     LπX
+                                      
+                       πI, s                 {              πJ, u
+                           +                                   k
+                   FI, sX A                                    @ FJ, uX
+                                        fi, s, u
+
+              FI, s, t                                            
+                                                                      F
+                      P                      {                   P J, u, v
+                   FI, tY A                                    @ FJ, vY
+                                        fi, t, v
+
+
+shows that 〈 kI, t 〉 (I, t)∈Ob(IjY) is a cone on the diagram ΓjY . Since
+〈 ρI, t:LρYA@FI, tY 〉 I, t is a limit cone, there is a unique h:LπXA@LρY such that
+hvρI, t = kI, t for all I and t , which is our assertion on h .
+
+
+Having defined Lπ, ρ(g) , I leave it to the reader to check that L so defined is indeed an
+anafunctor. We have λI:LA@FI for which λI, π, s=πI, s , for all appropriate values of
+the parameters; moreover, 〈 λI 〉 I is a limit cone on the diagram ϕvΓ ; the verification is
+omitted.
+
+
+
+Note that, in this proof, in order to build the required I-type limit, we use a whole class of
+other limit-types, to construct limits in A . However, when each FI is in particular a functor,
+
+
+                                                     45
+than each IjX is isomorphic to I ; this shows that we have
+
+
+
+        7. Assuming that A has I-type limits, then I-type diagrams of functors XA@A have
+specified limits in ANA(X,A) .
+
+
+
+The last observation is due to the Referee.
+
+
+
+
+                                              46
+                                        § 3. Anabicategories
+
+
+
+In a two-dimensional category, for a given pair of objects (0-cells), the totality of arrows
+(1-cells) from one to the other form a category; in short, arrows are objects in categories, and
+thus, one should attempt to determine them only up to isomorphism. This means that, for a
+given triple of 0-cells A , B , C composition of arrows AA@B with arrows BA@C , instead
+of being a functor as it is in a bicategory, should be an anafunctor, preferably a saturated one.
+
+
+The definition of anabicategory is obtained from that of bicategory by natural modifications,
+amounting to replacing functors by anafunctors in all places. There is a good abstract way of
+saying this: an anabicategory is ANACAT-enriched bicategory. I will not attempt to make this
+completely explicit, although I believe this is the right way of looking at the concept. From the
+description that follows, the reader may get a reasonably good idea of the notion of an
+V-enriched bicategory, for any Cartesian (in fact, for any monoidal) bicategory V . The point
+is that the more general notion ( V-enriched bicategory) is easier to grasp than the more
+concrete one ( ANACAT-enriched bicategory) , because there are fewer elements of the abstract
+situation available for manipulation than there are in the concrete one. This was already fondly
+pointed out by me in [Ma1] in the context of the notion of 2-category.
+
+
+An anabicategory A has data 1.(i) to (vi), satisfying conditions (vii) and (viii):
+
+
+       1.      (i) Objects (0-cells).
+
+
+
+               (ii) For any pair of objects A , B a category A(A, B) , or simply [A, B] ,
+
+of arrows (1-cells) AA @B (the objects of [A, B] ), and 2-cells as α in AA
+                                                                               f @
+                                                                            A gPα@B (the
+arrows of the category [A, B] ).
+
+
+
+           (iii) For any object A , an identity anaobject of [A, A] (an anafunctor
+1A:1A @[A, A] ).
+
+
+
+               (iv) For any objects A , B , C , an anafunctor
+
+
+                                                47
+                      vA, B, C:[A, B]×[B, C]A @[A, C]
+
+(composition).
+
+
+               (v) λA, B:1Bv( )A ≅ @1[A, B] and ρA, B:( )v1AA ≅ @1[A, B] (left
+and right identity isomorphisms); here, 1Bv( ) is an abbreviated notation for the composite
+(in ANACAT ) of
+
+
+                                 [A, B]×1B                       vA, B, B
+       [A, B]A ≅ @[A, B]×1A                  @[A, B]×[B, B]A                @[A, B] ;
+
+the natural transformations λ = λA, B , ρ = ρA, B have components
+
+
+       λa; j:1B, jvafA≅@f , ρb; i:fvb1A, iA≅@f
+
+(f:AA@B , i∈Q1AR , j∈Q1BR , a∈QvA, B, BR(f, 1B, j) , b∈QvA, A, BR(1A, i, f) ).
+
+
+
+             (vi) For any objects A , B , C , D , the associativity isomorphism, a 2-cell
+αA, B, C, D between composite arrows as shown in
+
+                                         v        ×[C, D]
+                  [A, B]×[B, C]×[C, D]A A, B, C         @[A, C]×[C, D]
+       [A, B]×vB, C, D                                         v
+                                              αA, B, C, DD 
+                                                               
+                                                      '≅ P
+                                                                    A, C, D
+                            P
+                     [A, B]×[B, D]A                         @[A, D]             .
+                                             vA, B, D
+
+The natural transformation α = αA, B, C, D has components
+
+
+                 αa, b, c, d : hvb(gvaf)A ≅ @(hvcg)vdf
+
+( f:AA@B , g:BA@C , h:CA@D , a∈QvA, B, CR(f, g) , b∈QvA, C, DR(gvaf, h) ,
+c∈QvB, C, DR(g, h) , d∈QvA, B, DR(f, hvcg) ).
+
+
+Remark. To simplify notation, here and below we ignore the canonical equivalences and
+
+
+                                             48
+isomorphisms that are part of the Cartesian bicategorical structure of ANACAT . Thus, when
+we want to state the notion of " V-enriched bicategory", there is another object in the diagram,
+and the left-hand side looks like
+
+
+               ( [A, B]⊗[B, C] ) ⊗[C, D]
+                       J P p
+                 [A, B]⊗ ( [B, C]⊗[C, D])
+
+       [A, B]⊗vB, C, D      
+                             P
+                    [A, B]⊗[B, D]             ,
+
+
+with p the appropriate canonical equivalence in A . In ANACAT , p is in fact an
+isomorphism.
+
+
+
+               (vii) (Associativity coherence). Let A, B, C, D and E be objects. With a
+logic that should be easy to guess, we make the following abbreviations:
+
+
+       0      = [A, B]×[B, C]×[C, D]×[D, E]
+       1      = [A, C]×[C, D]×[D, E]
+       2      = [A, B]×[B, D]×[D, E]
+       3      = [A, B]×[B, C]×[C, E]
+       12     = [A, D]×[D, E]
+       13     = [A, C]×[C, E]
+       23     = [A, B]×[B, E]
+       123    = [A, E]
+
+
+       〈 0, 1 〉       = vA, B, C×[C, D]×[D, E]             : 0A @1
+       〈 0, 2 〉       = [A, B]×vB, C, D×[D, E]             : 0A @2
+       〈 0, 3 〉       = [A, B]×[B, C]×vC, D, E             : 0A @3
+       〈 1, 12 〉      = vA, C, D×[D, E]                    : 1A @12
+       〈 1, 13 〉      = [A, C]vC, D, E                     : 1A @13
+       〈 2, 12 〉      = vA, B, D×[D, E]                    : 2A @12
+       〈 2, 23 〉      = [A, B]×vB, D, E                    : 2A @23
+       〈 3, 13 〉      = vA, B, C×[C, E]                    : 3A @13
+       〈 3, 23 〉      = [A, B]×vB, C, E                    : 3A @23
+
+
+                                                  49
+       〈 12, 123 〉    = vA, D, E                            : 12A @123
+       〈 13, 123 〉    = vA, C, E                            : 13A @123
+       〈 23, 123 〉    = vA, B, E                            : 23A @123
+
+
+We have the cube
+
+
+
+                 % 12 A             
+                                         @%123
+                     O                   O
+         1L A              @ 13 L             
+         O                   O               
+         
+                     2 A      A       @ 23
+           %               %
+          0AL              @ 3 L
+
+with the edges the anafunctors indicated. Each face of the cube has a 2-cell in it as follows:
+
+
+the front face:
+        (13) = id                         : 〈 1,13 〉 〈 0,1 〉 A @ 〈 3,13 〉 〈 0,3 〉
+(both composites are canonically isomorphic to vA, B, C×vC, D, E ; taking the products in
+ANACAT as in CAT, the isomorphism is the identity);
+the back face:
+        (13)2 = αA, B, D, E               : 〈 12, 123 〉 〈 2, 12 〉 A @ 〈 23, 123 〉 〈 2, 23 〉 ;
+the bottom face:
+        (23) = [A, B]×αB, C, D, E         : 〈 2, 23 〉 〈 0, 2 〉 A @ 〈 3, 23 〉 〈 0, 3 〉 ;
+the top face:
+        (23)1 = αA, C, D, E               : 〈 12, 123 〉 〈 1, 12 〉 A @ 〈 13, 123 〉 〈 1, 13 〉 ;
+the left face:
+        (12) = αA, B, C, D×[D, E]         : 〈 1, 12 〉 〈 0, 1 〉 A @ 〈 2, 12 〉 〈 0, 2 〉 ;
+the right face:
+        (12)3 = αA, B, C, E               : 〈 13, 123 〉 〈 3, 13 〉 A @ 〈 23, 123 〉 〈 3, 23 〉 .
+
+
+With triple composites meant as associated to the left, there are six composite anafunctors
+from 0 to 123:
+
+
+       〈 123 〉 = 〈 12,123 〉 〈 1,12 〉 〈 0,1 〉 ,
+       〈 132 〉 = 〈 13,123 〉 〈 1,13 〉 〈 0,1 〉 ,
+       〈 213 〉 = 〈 12,123 〉 〈 2,12 〉 〈 0,2 〉 ,
+
+
+                                               50
+       〈 231 〉 = 〈 23,123 〉 〈 2,23 〉 〈 0,2 〉 ,
+       〈 312 〉 = 〈 13,123 〉 〈 3,13 〉 〈 0,3 〉 ,
+       〈 321 〉 = 〈 23,123 〉 〈 3,23 〉 〈 0,3 〉 ;
+
+
+and six composite natural transformations between the latter, which (after ignoring canonical
+isomorphisms in ANACAT ) are as follows:
+
+
+       
+       123 = (12)v 〈 12,123 〉               : 〈 123 〉 A @ 〈 213 〉 ,
+         = 〈 0,1 〉 v(23)1
+       123                                  : 〈 123 〉 A @ 〈 132 〉 ,
+         = 〈 0,2 〉 v(13)2
+       213                                  : 〈 213 〉 A @ 〈 231 〉 ,
+       
+       231 = 〈 23,123 〉 v(23)               : 〈 231 〉 A @ 〈 321 〉 ,
+       
+       132 = 〈 13,123 〉 v(13)               : 〈 132 〉 A @ 〈 312 〉 ,
+         = 〈 0,3 〉 v(12)3
+       312                                  : 〈 312 〉 A @ 〈 321 〉 .
+
+
+We obtain the following diagram of natural transformations:
+
+
+                                    
+               123 % 〈 213 〉 A 213 @ 〈 231 〉 E     231
+                                                     g
+       〈 123 〉 LG
+                                                      % 〈 321 〉
+                      g 〈 132 〉 A               C 312
+                123
+                                      @ 〈 312 〉                   .
+                                      132
+
+The associativity-coherence condition is that the last diagram be commutative, for any choice
+
+of A , B , C , D and E . This is essentially a pentagon since  132 is (can be taken to be)
+the identity; the above way of presenting it is more symmetric.
+
+
+When we present the last diagram componentwise, we take a 4-tuple
+(f:AA@B, g:BA@C, h:CA@D, i:DA@E) of arrows, and compute their (five) composites
+with all possible bracketings. Since there are twelve distinct compositions to be performed
+(corresponding to the twelve edges of the cube), we will use twelve arbitrary specifications for
+ten composition anafunctors (ten because any one of them is determined by selecting three out
+of the five given objects); two of them are used twice (see the formulas above for the
+composites 0A @123 ). The condition becomes the coherence pentagon ((1.1)(A.C.) in [Be1],
+
+
+                                              51
+p. 6), with the twelve arbitrary specifications appropriately added; explicitly
+
+
+                                 α
+                  iv6((hv4g)v5f)A 5, 6, 7, 8@(iv7(hv4g))v8f
+
+       iv3, 6α1, 2, 4, 5 O                                              α
+                                                                      P 4, 7, 9, 11v8, 12f
+                  iv3(hv2(gv1f))                        {       ((iv9h)v11)gv12f
+
+                                                                    )
+                  α2, 3, 9, 10           k                        H α1, 10, 11, 12
+                                        (iv9h)v10(gv1f)                                          ,
+
+
+with the numbers 1 to 12 standing for appropriate, but otherwise arbitrary, specifications.
+
+
+
+               (viii) (Identity coherence) Consider
+
+
+                        [A, B]×[B, B]×[B, C]
+
+       (1Bv())×[B, C]
+                     =F G=O[A, B]×71B8×[B, C] H=[A, B]×(1Bv())
+                           P                                            P
+                               [A, B]×[B, C]
+                                 I=  vA, B, C
+                                            P
+                                       [A, C]
+
+and
+
+
+                     A                          IFG                        @
+       [A, B]×[B, C] A I               PIλA, B (α                       @ [A, C] .
+                                         OIρB, C P A, B, B, C)G
+                     A                          IHG                        @
+
+The condition is the commutativity
+
+
+                      (αA, B, B, C)G
+               IFGA                             @JIHG
+                                   {         
+                IλA, B                    IρB, C
+                           k           +
+                                I                           .
+
+
+
+                                                        52
+In components, this becomes
+
+
+                                   αa, b, c, d
+              gvb(1B, ivaf)A                      @(gvc1B, i)vdf
+                                        {       
+                      gvb, eλa; i     kgv f   + ρc; ivd, ef
+                                          e
+
+( f:AA@B , g:BA@C , etc. ).
+
+
+
+A one-object bicategory is a monoidal category; its objects are the 1-cells of the bicategory,
+arrows the 2-cells, tensor-product is composition of 1-cells, the (two-sided) unit I is the
+identity 1-cell 1* . A one-object anabicategory is an anamonoidal category. An anamonoidal
+category is a category A , with, among others, a unit anaobject I=IA of A (that is, an
+anafunctor I:1A@A ) and a tensor-product anafunctor ⊗:A×AA @A ; for objects A , B , we
+have tensors A⊗aB , for any specification a∈Q⊗R(A, B) . (Note the changed order in A⊗aB
+of the arguments with respect to the notation of composites.) To say that ⊗ is saturated is to
+
+say that whenever µ:A⊗aBA≅@C , there is a unique b∈Q⊗R(A, B) such that C = A⊗bB
+and µ = 1A⊗a, b1B ; if so, and if I is saturated too, we say that A is a saturated
+anamonoidal category.
+
+
+
+2. Example. Let R be a commutative ring (with 1); ModR the category of R-modules.
+ModR is a saturated anamonoidal category, with the following canonical structure.
+Q⊗R(A, B) is the set of all entities a=(C, η:(A, B)A @C) where η is a universal
+(R-)bilinear map from (A, B) : for any bilinear ϕ:(A, B)A @D , there is unique f:CA @D
+such that ϕ=fvη ; we put A⊗aB = C . Given also b=(F, θ :(D, E)A @F) ∈ Q⊗R(D, E) ,
+and f:AA@D , g:BA@E , f⊗a, bg:A⊗aBA @D⊗bE is the unique arrow h:CA@F for
+
+which θ = fvη . The unit anaobject is the saturation 7R8#:1A@ModR of 7R8:1A@ModR
+picking out R as a module over itself. I leave the definition of the identity and associativity
+isomorphisms to the reader. This is the usual definition of ModR as a monoidal category,
+except for the absence of a non-canonical choice of the tensors, and a somewhat
+artificial-looking way of dealing with the unit object. (We could leave the unit object as it
+usually is, given by 7R8:1A@ModR (as an anafunctor), but then ModR is not saturated; we
+will see the advantages of saturation for anamonoidal categories when we discuss morphisms
+
+
+
+                                              53
+between them.) The usual verification of the monoidal properties works with no essential
+change to show that we indeed have an anamonoidal category. It is in fact saturated; the part
+of this fact that concerns the tensor-operation is essentially equivalent to saying that the
+universal bilinear map is unique up to a unique isomorphism.
+
+
+
+3. Example. Given a category X with (not necessarily specified) pullbacks, we have the
+anabicategory Span(X) of spans in X , defined as follows. The objects are the objects of
+                                                           f       f
+X , an arrow f:XA @Y in Span(X) is a pair f = (XM 1NΦA 2@Y) of arrows in X ;
+                    f’       f’
+with also f’ = (XM 1NΦ’A 2@Y):XA@Y , a 2-cell ϕ:fA@f’ is an arrow ϕ:ΦA@Φ’
+
+        1ϕ=f1 , f’j=f
+with f’          2     2 ; composition of 2-cells is composition in X . With f as above,
+             g     g
+and g = (YM 1NΓA 2@Z) : YA@Z , we define QvX, Y, ZR(f, g) as the set of pullback
+diagrams
+
+
+                 jΨ       k
+                 +          k
+               Φ      W       Γ ;                                               (1)
+              f2     k +   g   1
+                      Y
+
+                                             f j    g k
+denoting (1) by a , we define gvaf to be (XM 1 NΨA 2 @Z):XA@Z . Given, in
+                                        g’    g’
+addition to data as above, also g’ = (YM 1NΓ’A 2@Z) : YA@Z ,
+a’∈QvX, Y, ZR(f’, g’) , γ :gA@g’ , ϕva, a’ γ :gvafA @g’va’f’ is defined by the
+arrow ψ:ΨA @Ψ’ we can put in the diagram
+
+
+                             Ψ
+                         
+                      +      k
+                     Φ      WΓ
+                +  k +  k
+                          
+               Xi ϕ
+                    )Yi  γ )Z
+                    P          P
+                    Φ’
+                     i  W     )Γ’
+                           
+                             Ψ’
+
+
+
+                                              54
+by the universal property of the lower pullback. The identity 1X:XA@X is given by the span
+      1       1
+(XM XNXA X @X) (the identity anaobject of Span(X)(X, X) is now an ordinary
+object). The identity and associativity isomorphisms for the composition are given by
+canonical isomorphisms of pullbacks; the picture
+
+
+               α
+            6GA 3, 6, 5,
+                         7@7
+                    
+             3W h5 
+           P+ k + kP                                                        (2)
+
+         + k + k + k
+             1    2     4
+
+       X         Y        Z        W
+
+contains the construction of the associativity isomorphism
+
+
+       α3,6,5,7: 4v6(2v31)A ≅ @(4v52)v71 ;
+
+in (2), each of the items 3 , 5 , 6 and 7 is obtained by taking a pullback. The rest of the
+definition and the verification that all this gives an anabicategory are left to the reader. In fact,
+the definition is the usual one ( (2.6) in [Be1]) for the bicategory of spans, with the
+non-canonical choices removed. The composition functors are saturated in this example.
+
+
+
+A morphism of anabicategories will be called an anafunctor (of anabicategories); this is the
+natural counterpart of "homomorphism of bicategories" (see [Be1]), or functor of bicategories
+as we called it above. With X and A anabicategories, an anafunctor F:XA @A is given by
+data 4.(i)-(iv), satisfying 4.(v)-(vi), all given below. Again, we actually have a more general
+notion, that of an anafunctor of V-enriched bicategories.
+
+
+
+        4.     (i) A class QFR , with maps σ:QFRA @QXR ("source"), τ :QFRA @QAR
+("target"). QFR is the class of specifications; x∈QFR "specifies the value τ (x) at the
+argument σ(x) ". For X∈X , we write QFRX for the class {x∈QFR: σ(x)=X} , and
+Fx(X) for τ (x) ; the notation Fx(X) presumes that x∈QFRX . As before, we write
+QFR(X, A) for {x∈QFRX: Fx(X)=A} .
+
+
+
+                                                 55
+(I note that it would be natural to make QFR(X, A) into a category; indeed, saturation for F
+will mean an additional structure, with QFR(X, A) made the object-class of a groupoid; I
+will not pursue this in this paper, but see [Ma2]).
+
+
+
+            (ii) For any x∈QFRX , y∈QFRY , an anafunctor
+Fx, y:X(X, Y)A @A(FxX, FyY) .
+
+
+
+             (iii) (Composition isomorphism) For x and y as before, and z∈QFRZ , an
+isomorphism natural transformation Fx, y, z as in
+
+
+                                            vX, Y, Z
+             X(X, Y)×X(Y, Z)A                                @X(X, Z)
+                    
+        Fx, y×Fy, z                              Fx, y, z%    Fx, z
+                                                                 
+                    P                                   L ≅      P
+        A(FxX, FyY)×A(FyY, FzZ)A v                         @A(FxX, FzZ)        .
+                                         FxX, FyY, FzZ
+
+
+The components of Fx, y, z are 2-cells of the form
+
+
+Fx, y, z; s, t, u; a, b:(Fy, z; tg)vb(Fx, y; sf)A ≅ @Fx, z; u(gvaf) .                (3)
+
+
+
+              (iv) (Identity isomorphism) For any X∈X and x∈QFRX , an isomorphism Fx
+as in
+
+
+                  1X%X(X, X)
+                     Fx 
+               1L
+                G            F
+                       LB
+                          ≅ 
+                               x, x ;
+              1F X     g    P
+                x        A(FxX, FxX)
+
+the components of Fx are of the form Fx; u, i, j:1F X, jA≅@Fx, x; u(1X, i) .
+                                                   x
+
+
+
+
+                                             56
+               (v) (Composition coherence) We arrive at the coherence condition for the
+transition isomorphisms Fx, y, z without explicit use of further specifications by drawing
+diagrams of anafunctors and natural transformations in the style of 1.(vii). Assume
+
+
+       XA f @YA g @ZA h @W
+
+
+and
+
+
+       x∈QFRX , y∈QFRY , z∈QFRZ , w∈QFRW .
+
+
+Let us abbreviate:
+
+
+ = F X , Y = F Y , Z = F Z , W = F W ,
+X    x          y          z          w
+1 = X(X, Y), 2 = X(Y, Z), 3 = X(Z, W), 4 = X(X, Z), 5 = X(Y, W), 6 = X(X, W),
+      Y),
+1 = A(X,  2 = A(Y,
+                   Z),
+                      3 = A(Z,
+                               W),
+                                  4 = A(X,
+                                           Z),
+                                              5 = A(Y,
+                                                       W), 6 = A(X,
+                                                                     W).
+                                                                       
+
+and consider
+
+
+                                 4×3                  @ 6
+                              %                        %
+               1×2×3
+                   L         O            L  O
+                       A                 @ 1×5             
+                  O                                      
+                                          O           
+                                            A        @ 6 ,
+                            %                %
+                                  4×3
+                         
+                1×2×3L A                  @1×5 L
+
+with edges
+
+
+       〈 1 〉 = Fx, y×Fy, z×Fz, w           : 1×2×3A        〉 ,
+                                                        @1×2×3
+       〈 2 〉 = X(X, Y)×vY, Z, W            : 1×2×3A     @1×5 ,
+                  Y)×
+       〈 3 〉 = A(X,  v                     A
+                                           : 1×2×3        ,
+                                                        @1×5
+                       Y, Z, W
+       〈 4 〉 = Fx, y×Fy, w                           ,
+                                           : 1×5A @1×5
+       〈 5 〉 = vX, Y, Z×X(Z, W)            : 1×2×3A @4×3 ,
+
+       〈 6 〉 = v          W)
+                    Z×A(Z,                  A
+                                           : 1×2×3        ,
+                                                        @4×3
+                X, Y,
+
+
+                                             57
+       〈 7 〉 = Fx, z×Fz, w                     : 4×3A         ,
+                                                           @4×3
+       〈 8 〉 = vX, Z, W                        : 4×3A      @6 ,
+       〈 9 〉 = vX, Y, W                        : 1×5A      @6 ,
+       〈 10 〉 = v   W                          A
+                                               : 1×5       @6 ,
+                 X, Y,
+       〈 11 〉 = FX, W                          : 6A     @6 ,
+       〈 12 〉 = v   W                          A
+                                               : 4×3       @6 .
+                 X, Z,
+
+The front and left faces are themselves composites as follows:
+
+
+       1×2×3
+           A         〈3〉            
+                                    @1×5                A
+                                                      1×2×3           〈6〉       @ 4×3  
+         O 〈 1.2 〉             〈 4.2 〉 O
+                                                      O 〈 1.4 〉           〈 7.2 〉 O
+                                                                                     
+                                                        
+           A
+       1×2×3           〈 13 〉       @1×5             1×2×3   A      〈 14 〉    @ 4×3   
+          O 〈 1.1 〉            〈 4.1 〉 O              O 〈 1.3 〉          〈 7.1 〉 O
+                                                         
+       1×2×3A                       @1×5              1×2×3A                     @4×3 .
+                       〈2〉                                            〈5〉
+
+where the arrows are the ones obtained by the above pattern. The faces of the cube each have
+an isomorphism 2-cell in them as follows:
+
+
+        the lower front face:
+               X(X, Y)×Fy, z, w :          〈 13 〉 〈 1.1 〉 A @ 〈 4.1 〉 〈 2 〉 ;
+        the upper front face:
+               id                    :     Fx, y×v      W A @ Fx, y×vY, Z, W ;
+                                                     Y, Z,
+the (complete) front face:
+        [1] = (Fx, y×v    Y, 
+                              Z, 
+                                 W)(X(X, Y)×Fy, z, w) : 〈 3 〉 〈 1 〉 A @ 〈 4 〉 〈 2 〉 ;
+the back face:
+        [2] = Fx, z, w                                     : 〈 15 〉 〈 10 〉 A @ 〈 14 〉 〈 11 〉 ;
+the bottom face:
+        [3] = αX, Y, Z, W                                  : 〈 11 〉 〈 8 〉 A @ 〈 12 〉 〈 2 〉 ;
+the top face:
+        [4] = αX, Y, Z,                                : 〈 15 〉 〈 9 〉 A @ 〈 13 〉 〈 6 〉 ;
+                           W
+        the lower left face:
+               id                    :     vX, Y, Z×Fz, w A @ vX, Y, Z×Fz, w ;
+        the upper left face:
+
+
+                                                58
+                           W)
+              Fx, y, z×A(Z,               :            〈 6 〉 〈 1.4 〉 A      @ 〈 7.2 〉 〈 14 〉 ;
+the (complete) left face:
+                           W))(v
+        [5] = (Fx, y, z×A(Z,                                              : 〈6〉 〈1〉 A          @ 〈7〉 〈5〉 ;
+                                   X, Y, Z×Fz, w)
+the right face:
+        [6] = Fx, y, w                                                    : 〈 10 〉 〈 4 〉 A      @ 〈 11 〉 〈 9 〉 .
+
+We have six composite arrows from 1×2×3 to       6 in the cube, and six 2-cells between them;
+the commutativity of the resulting hexagon is the requirement:
+
+
+
+               [4] 〈 1 〉  % 〈 10 〉 〈 3 〉 〈 1 〉 A〈 10 〉 [1]@ 〈 10 〉 〈 4 〉 〈 2 〉 E             [6] 〈 2 〉
+                     
+                                                                                                g
+〈 12 〉 〈 6 〉 〈 1 〉 L
+                   G                                      {                                         〈 11 〉 〈 9 〉 〈 2 〉
+                                                                                               %
+                                                                                              〈 11 〉 [3]
+              〈 12 〉 [5]      g 〈 12 〉 〈 7 〉 〈 5 〉 A               @ 〈 11 〉 〈 8 〉 〈 5 〉 C
+                                                       [2] 〈 5 〉
+
+The componentwise form of the condition can be obtained by chasing an arbitrary element
+(f, g, h) ∈ 1×2×3 around. It can also be obtained directly from the corresponding condition
+for bicategories (see (4.1)(M.1) in [Be1]), by putting in further indices in a meaningful way.
+
+Starting with XA f @YA g @ZA h @W , x∈QFRX , y∈QFRY , z∈QFRZ , w∈QFRW ,
+
+and 1, ..., 7 and 1, ..., 10 from appropriate specification-sets, we use the
+abbreviations
+
+
+                                           
+             x, y; 1(f) , Fg = Fy, z; 2(g) , Fh = Fz, w; 4(h) ,
+        Ff = F
+        
+        F(gv2f) = Fx, z, 3(gv2f) , F(hv6g) = Fy, w; 5(hv6g) ,
+        
+        F(hv (gv f)) = F
+               9      2 x, w; 6(hv9(gv2f)) ,
+        
+        F((hv6g)v10f)) = Fx, w; 7((hv6g)v10f)) ,
+        
+        F                   2,  1, 2 , F5, 6 = Fy, z, w; 2,
+                               3;                           4,
+                                                                5;
+                                                                  5, 6 ,
+          1, 2 = Fx, y, z; 1,
+                           4,
+        F4, 9 = Fx, z, w; 3,     4, 9 , F8, 10 = Fx, y, w; 1,
+                               6;                            5,
+                                                                 7;
+                                                                   8, 10 ,
+        
+        Fα                        7(α2, 9, 6, 10) .
+            2, 9, 6, 10 = Fx, w; 6,
+
+
+
+The following diagram is to be commutative:
+
+
+                                                         59
+               v (Fg
+                    v Ff)
+                         A          α1, 3, 5, 7       v Fg)
+                                                             v Ff     
+              Fh 3    1                             @(Fh  5          7
+       
+       Fhv                                                    F      v7, 8Ff
+                     
+           3, 4F1, 2                                              5, 6
+                       P
+                Fhv F(g                              F(hvPg)v Ff
+                     4    v f)2            {                 6        8
+                F                                           F
+                  4, 9 
+                                                             8, 10
+                F(hv P(gv f)A                         vPg)v f)
+                                                     @F((h
+                      9       2     α
+                                    F                        6        10
+                                      2, 9, 6, 10
+
+
+
+              (vi) (Identity coherence) We give the componentwise form of the condition
+
+only. For f:XA @Y in X , x∈QFRX , y∈QFRY , and appropriate specifications 
+                                                                          1, 
+                                                                             2,
+
+3, 1, 2, 3,i, j,
+
+
+                               F v      F      (f)
+       (1Y, i)v1Fx, y; 3 (f)M y; 1 1, 2 x, y; 3
+Fy, y; 1                                             N1F (Y), jv2Fx, y; 3(f)
+                                                        y
+               F                                                           
+                 x, y, y; 3, 1, 2; 1, 3           {                       P
+                                                                                     λ2, j
+                 P
+            (1Y, iv3f)A
+     Fx, y; 2                                                      @           (f)
+                                                                        Fx, y; 3              ,
+                                        Fx, y; 
+                                               2, 
+                                                  3(λ3, i)
+
+and a similar commutativity involving the ρ's.
+
+
+
+From now on, we assume that the anabicategory A has saturated identity functors
+1A:1A @[A, A] (1.(iii)), and saturated composition functors
+vA, B, C:[A, B]×[B, C]A @[A, C] (1.(iv)); in this case, let us call A saturated. For A
+saturated, there is a useful reformulation of the notion of anafunctor XA @A , trading in the
+associativity isomorphisms for certain operations on specifications.
+
+
+Let F:XA @A be an anafunctor of anabicategories. For simplicity, assume that the sets
+QFRX are singletons. With the notation of 4.(iii), in the context of (3) there, with the
+subscripts x, y, z dropped, the saturation of the composition functor
+
+
+       v = vX, Y, Z:A(FX, FY)vA(FY, FZ)A @A(FX, FZ) ,                                        (4)
+
+
+                                               60
+gives a uniquely determined a∈QvR such that (Ftg)v
+                                                  a(Fsf) = Fu(gvaf) and
+
+       1F gvb, a1F f = Fs, t, u; a, b .                                                         (5)
+         t        s
+
+
+Here, a depends on ( f , g and) s, t, u, a and b ; however, the dependence on b is
+illusory. Consider the following commutative diagrams:
+
+
+                                1F gvb’, b1F f
+             Ftgvb’FsfA                                     @ FtgvbFsf
+                                  t         s
+
+                                                                J
+        1F gvb’, a1F                      {                  
+                                                           1F gvb, a1F f
+                                                  +
+          t          s                                            t            s
+                                   k
+                                       FtgvaFsf
+
+
+                                1F gvb’, b1F f
+             Ftgvb’FsfA                                     @ FtgvbFsf
+                                  t         s
+
+                                                                J
+                                          {                  
+        Fs, t, u; a, b’
+                                                           Fs, t, u; a, b
+                                   k             +
+                                    Fu(gvaf)
+
+
+(the first is the functoriality of (4), the second is the naturality of FX, Y, Z of 4.(iii)).
+
+Together they show that if a is suitable for b , then it is suitable for b’ , with the other data
+
+being the same. Thus, we have a as a function of s , t , a and u :
+
+
+
+
+       4. (iii*) (Action on specifications)
+
+               a = F(s, t, u; a)               (s∈QFRf, t∈QFRg , a∈QvR((f, g)) ,
+
+                                        u∈QFR(gvaf) ; a∈QvR((Fsf, Ftg)) )
+such that
+       Fu(gvaf) = Ft(g)vaFs(f)
+and
+       Fu, u’( γ va, a’ϕ) = (Ft, t’( γ ))va, a’(Fs, s’(ϕ))
+
+
+                                                  61
+(ϕ:fA@f’ , γ :gA@g’ , a’ = F(s’, t’, u’; a’) ; the last equality corresponds to the
+naturality of FX, Y, Z of 4.(iii)).
+
+
+
+Next, we realize that in this context composition coherence (4.(v)) has as a consequence the
+identity
+
+
+
+
+       4. (v*) (Action on associativity isomorphisms)
+
+
+               F6, 7(αa, b, c, d) = αa, b, c, d ;
+
+
+here reference is made to the data
+
+
+                                  g
+          YA                                  @ Z
+         O                             B   
+                                           
+        f                                    
+                   gvaf
+                                     hvcg        h
+                                               
+              L     hvb(gvaf)           g P
+              XA                              @FW
+               A          (hv g)v f           @
+                                 c       d
+
+                                 F2g
+          FYA                                       @FZ
+          O                                  B   
+                                                 
+       F1f                          F5(hvcg) 
+             F3(gvaf)                            F4h
+                                                         
+                    
+               L       F6(hvb(gvaf))            g P
+         FXA                                        @FW
+                A          F ((hv g)v f)            @
+                           7         c       d
+
+
+and a = F(1, 2, 3; a) , b = F(3, 4, 6; b) , c = F(2, 4, 5; c) , d = F(1, 5, 7; d) .
+
+
+
+The identity isomorphisms (4.(iv)) can similarly be traded in for specifications. Let A∈A . The
+
+
+                                                 62
+saturation of 1A means that whenever µ:1A, iA≅@ # , there is a unique j∈Q1AR such that
+
+     A, j and µ=1A, i, j . The identity isomorphism of 4.(iv) has components
+# =1
+
+
+
+
+       FX, u; i, j:1FX, jA ≅ @Fu(1X, i) .
+
+
+Given the data in the last display, by the saturation of 1A , there is unique 
+                                                                              i such that
+      = Fu(1X, i) and
+1FX, i
+
+
+                  1FX, j, 
+                          i = FX, u; i, j .                                           (5')
+
+
+Again, 
+       i here does not depend on j ; 
+                                     i=F(u; i) . Thus, the data 4.(iv) can be replaced by
+
+
+
+
+       4. (iv*)         i=F(u; i)             ( i∈Q71X8R , u∈QFR(1X, i) )
+such that
+                  Fu(1X, i) = 1FX, 
+                                   i
+and
+                                            i’
+                  Fu, u’(1X, i, i’) = 1FX, i, 
+(           
+ i=F(u; i) , i’=F(u’; i’) ).
+
+
+
+Then 4.(vi) becomes
+
+
+
+
+       4. (vi*) Ft, u(λa, i) = λa,      ( f:XA@Y , λa, i:1Y, ivafA≅@f , s∈QFRf ,
+                                   i
+t∈QFY, YR(1Y, i) , u∈QFR(1Y, ivaf) ; a = F(s, t, u; a) , the latter from 4.(iii*) ,
+
+and 
+    i = F(t; i) ), and similarly for ρ .
+
+
+
+Conversely, even without assuming that A is saturated, in the definition of an anafunctor
+F:XA @A with all QFRX singletons, we can dispense with the composition isomorphisms
+
+4.(iii) and the identity isomorphisms 4.(iv), and instead, use the data 4.(iii*), 4.(iv*), satisfying
+
+
+
+                                                 63
+4.(v*) and 4.(vi*). Indeed, if F is given by 4.(i),(ii),(iii*),(iv*),(v*) and (vi*), there is a
+unique anafunctor F:XA @A in the original sense that is related to the F we start with as
+just described; we use (5) and (5') as the definition of composition isomorphisms and identity
+isomorphisms, respectively. The essential point is that 4.(v) and 4.(vi) and will hold.
+
+
+
+An anamonoidal functor is, by definition, an anafunctor between anabicategories with one
+object, with the one specification set for the object-function being a singleton. Explicitly, with
+X and A anamonoidal categories, A saturated, an anamonoidal functor F:XA @A is given
+by an anafunctor F:XA @A of the ordinary categories X and A , a mapping assigning to
+each s∈QFRX , t∈QFRY , a∈Q⊗R(X, Y) , u∈QFR(A⊗aB) a specification
+
+a = F(s, t, u; a) ∈ Q⊗R(FsX, FtY) such that
+
+
+       Fu(X⊗aY) = (FsX)⊗a(FtY) ,
+
+
+       Fu, u’(f⊗a, a’g) = (Fs, s’f)⊗a, a’(Ft, t’g) ( f:XA@X’ , g:YA@Y’ , etc.),
+
+
+and a mapping assigning to each i∈QIXR , u∈QFR(IX, i) , a specification 
+                                                                        i = F(u; i)
+such that
+
+
+       F(IX, i) = IA, 
+                      i
+
+                          j
+       F(IX, i, j) = IA, i,
+
+
+and such that the conditions 4.(v*), 4.(vi*) hold.
+
+
+In case F is a functor (each QFRX is a singleton), a becomes a function of a alone, thus
+F is given with a function also denoted F:Q⊗R(X, Y)A @Q⊗R(FX, FY) and another
+function F:QIXRA @QIAR such that
+
+
+       F(X⊗aY) = (FX)⊗Fa(FY) ,
+
+
+       F(f⊗a, a’g) = (Ff)⊗Fa, Fa’(Fg)                ( f:XA@X’ , g:YA@Y’ , etc.),
+
+
+
+
+                                                64
+       F(αa, b, c, d) = αFa, Fb, Fc, Fd ,
+
+
+       F(λa, i) = λFa, Fi , F(ρa, i) = ρFa, Fi           ( λa, i: IX,i⊗aAA≅@A , etc.).
+
+
+We may call such an F a monoidal functor between the anamonoidal categories; a monoidal
+functor is precisely a structure preserving map of anamonoidal categories. It is pointed out
+next that monoidal functors of anamonoidal categories correspond exactly to the (not
+necessarily strict) monoidal functors of monoidal categories in the usual sense [E/K].
+
+
+First, given any monoidal category X in the usual sense, we can construct its saturation X# ,
+
+a saturated anamonoidal category, as follows. The underlying category of X# is the same as
+
+that of X ; the anaoperation ⊗#:X×XA @X is the saturation of the functor ⊗:X×XA @X .
+
+This means that Q⊗#R(X, Y) is the class of all entities a = (X, Y, µ:X⊗YA≅@Z) , with
+
+X⊗aY = Z , and for f:XA@X’ , g:YA@Y’ , f⊗a, a’g = µ’v(f⊗g)vµ-1 . Similarly, the
+
+unit anaobject of X# is the saturation of 7I8:1A@X .
+
+
+Now, given the monoidal categories X and A , we can form their saturations X# , A# , and
+we have a bijection
+
+
+              Hom(X,A)A ≅ @Hom(X#,A#) ,                                        (5")
+
+
+where the first Hom is the collection of all monoidal functors XA @A in the usual sense, the
+
+second all monoidal functors X#A @A# as defined above. This bijection is given as follows:
+
+to F:XA @A corresponds F#:X#A @A# , where for a as above,
+
+
+              F#(a) = (FX, FY, F(µ)viX, Y:FX⊗FYA≅@FZ) ,
+
+
+where iX, Y:FX⊗FYA≅@F(X⊗Y) is the canonical isomorphism given with F ; the action of
+
+F# on identity specifications is defined similarly. The verification of the bijection (5") is
+omitted (see also [Ma3]).
+
+
+
+
+                                             65
+2. Example (continued). Let ϕ:RA @S be a homomorphism of commutative rings. With
+ModR , ModS understood as "the" usual monoidal categories, it is common knowledge that we
+have a monoidal functor
+
+
+       F = ( )⊗RS : ModRA           @ModS ;                                       (6)
+
+
+this is because
+
+
+(*) (X⊗RS)⊗S(Y⊗RS) is canonically isomorphic to (X⊗RY)⊗RS ( X, Y ∈ ModR ).
+
+
+However, in (6) there are two places where non-canonical choices have been made: one is the
+definition of the monoidal categories, the other is the definition of the functor itself. Making
+the categories anamonoidal categories in the way explained before, and making the functor an
+anamonoidal functor, we avoid all non-canonical choices.
+
+
+Explicitly, F as an anafunctor F:ModRA            @ModS is given by QFRX def   = the class of
+all universal R-bilinear maps of the form (X, S)A @Y ; for s the last-displayed map,
+Fs(X) is Y as an S-module (in the usual sense); the action of F on morphisms is the
+
+straightforward one. The action 4.(iii*) on specifications is obtained by making the proof of (*)
+explicit. Given universal R-bilinear maps
+
+
+       (X, S)A     1 @X ,
+       (Y, S)A        ,
+                   2 @Y
+
+       (X, Y)A       @Z ,
+                   a
+
+       (Z, S)A         ,
+                   3 @Z
+
+
+we construct a canonically defined S-bilinear map
+
+
+         Y)
+       (X,  A     a   @Z ,                                                             (7)
+
+
+briefly described as follows. The composite
+
+
+
+
+                                               66
+       (X, S, Y, S)A                  @ (Z, S)A         3
+                                                         Z     @
+       (x, u, y, v)          @(a(x, y), u ⋅ v) @3(a(x, y), u ⋅ v)
+
+is R-linear in each variable. By the universal property of 1 , this gives rise to the
+componentwise R-linear map
+
+
+         Y, S)A
+       (X,                    @Z ,
+
+and that of 2 then gives (7) canonically; we can then show that (7) has the required universal
+
+property. This is the description of the action 4.(iii*) of F on specifications. The rest of the
+data and conditions are left to the reader to provide.
+
+
+
+3. Example (continued). Let F:XA @A be a pullback-preserving functor between categories
+
+with pullbacks. F gives rise to an anafunctor F:Span(X)A @Span(A) of
+
+anabicategories. The action of F on objects is that of F ; the action on arrows of F is
+
+induced by that of F ; now, all specification-sets QFRX are singletons, QFRX = {X} , and
+the effect of F on arrows, FX, Y:Span(X)(X, Y)A @Span(A)(FX, FY) , is an ordinary
+functor, for each X,Y∈X . The identity isomorphisms are identities. Instead of the composition
+
+isomorphisms, we give the action 4.(iii*) of F on specifications; remember there are no
+s, t, u now. Indeed, this is nothing but the action of F again; a∈QvR(f, g) is a pullback
+
+square, a is its F-image:
+
+
+                         Ψ
+                     a                                               FΨ
+                                                                    Fa
+                 +              k                                 +          k
+               Φ      W         Γ                @           
+                                                                FΦ      W        
+                                                                                FΓ
+
+            f               
+                              g                            
+                                                             Ff              
+                                                                              Fg
+         +              k +                k            +               k +             k
+       X                 Y                  Z       FX                  FY              FZ   .
+
+
+It is immediate that we have 4.(v*): the diagram (2) is mapped into a similar diagram by F .
+
+
+                                           A F @A
+A transformation h:FA @G , of anafunctors XA   @ of anabicategories, is given by data
+                                             G
+
+
+                                                   67
+5.(i), (ii) and conditions 5.(iii), (iv).
+
+
+
+        5.   (i) For X∈X , x∈QFRX , x’∈QGRX , an anaobject hx, x’ of the
+
+hom-category A(FxX, Gx’X) , hx, x’:1Aa@A(FxX, Gx’X) . hx, x’ has components
+hx, x’, m:FxXA @Gx’X ( m∈Qhx, x’R ) .
+
+
+              (ii) For the data in (i) and Y∈X , y∈QFRY , y’∈QGRY , a natural
+transformation hx, x’, y, y’ as in
+
+
+                       )        A(FxX, FyY)
+             Fx, y                                     hy, y’v( )
+                    
+                                                        k
+        X(X, Y)                 hx, x’, y, y’
+                                                           A(FxX, Gy’Y)
+                                              P           )
+                                                     ( )vh
+             Gx’, y’
+                            k                               x, x’
+                              A(Gx’X, Gy’Y)                              ;
+
+
+Here, hy, y’v( ) abbreviates the composite of
+
+
+                                        h     ×⋅ ⋅ ⋅
+A(FxX, FyY)≅1×A(FxX, FyY)A y, y’                     @A(FyY, Gy’Y)×A(FxX, FyY)
+                                                                   A v @A(F X, G
+                                                                               x   y’Y)
+
+hx, x’, y, y’ has components
+
+
+hx, x’, y, y’; s, s’; a, b; m, n :
+                    hy, y’; nvaFx, y; s(f)A                 @Gx’, y’; s’(f)vbhx, x’; m .
+
+The conditions that follow will be given in their componentwise forms only.
+
+
+                (iii) With reference to
+
+
+                                       gv1f
+        XA f @YA g @Z , XA                    @Y ,
+
+
+                                                     68
+                                          
+            x, y; s(f) , Fg = Fy, z; t(g) , F(gv1f) = Fx, z; u(gv1f) ,
+       Ff = F
+    
+    Gf = Gx’, y’; s’(f) , Gg = Gy’, z’; t’(g) , 
+                                                 G(gv1f) = Gx’, z’; u’(gv1f) ,
+                                        
+        1, 4 = Fx, y, z; s, t, u; 1, 4 , G1, 6 = Gx’, y’, z’; s’, t’, u’; 1, 6 ,
+       F
+      
+      hX = hx, x’, m ,  hY = hy, y’, n , hZ = hz, z’, p ,
+ h2, 3 = hx, x’, z, z’; u, u’; 2, 3; m, p , h8, 12 = hy, y’, z, z’; t, t’; 8, 12; n, p ,
+      h14, 10 = hx, x’, y, y’; s, s’; 14, 10; m, n ,
+      α1 = α4, 5, 8, 9 , α2 = α10, 11, 6, 7 , α3 = α14, 15, 12, 13 ,
+
+
+                   h v F(g
+                         v f)A             h2, 3      v f)v h
+                                                     @G(g
+           hZv5, 2
+                   Z 2
+                        O≅
+                               1                            1 3 X          
+                                                            ≅O  G6, 1v7, 3hX
+                  F1, 4 
+                        
+                   h v (Fg
+                          v Ff)
+                                                        v Gf)v h
+                                                       (Gg
+                  Z 5
+                    α  P   ≅
+                             4               {           ≅
+                                                            6
+                                                            O α
+                                                                    7 X
+                   v Fg)v Ff
+                 (h
+                     1                                 v (Gf
+                                                      Gg          v h )
+                                                                 2
+                    Z 8       9                            11       10 X
+                    
+       h8, 12v9, 13Ff                                       O Ggv
+                         P                                            15, 11h14, 10
+                     v h )v FfM
+                   (Gg                       ≅       NGgv15(hYv14Ff)              .
+                       12 Y 13               α3
+
+
+               (iv) With all appropriate values of the parameters,
+
+
+                             ρ1, j                       λ2, k
+hx, x’; mv11F X, jA                      @hx, x’M                    N1G      v h
+                             ≅                             ≅
+             x                                                          x’X, k 2 x, x’; m
+             O                                                              O
+              h    v                        {              Gx’; tv4, 2hx, x’
+             x, x’ 3, 1 x; s
+                         F
+                                                                              
+hx, x’; mv3Fx, x; s1X, iA                                     @Gx’, x’; t1X, iv4hx, x’; m.
+                         hx, x’, x, x’; s, t; 3, 4; m, m
+
+
+
+The transformation h is natural [the more usual terminology would be: strong] if each
+natural transformation hx, x’, y, y’ is an isomorphism.
+
+
+Consider saturated anamonoidal categories and anamonoidal functors between them:
+
+ A F @A . A transformation h:FA @G (in the sense of one between anafunctors of
+XA
+     G @
+
+                                              69
+anabicategories) involves an anaobject h*, * of A . Let us take this to be IA , the unit
+anaobject of A ; let us call such transformations h monoidal. Then
+
+
+         = hs, s’; a, b; m, m:Fs(X)⊗aIA, mA
+       h def                                              @IA, m⊗bGs’(X)
+
+gives rise, via the identity isomorphisms, to hs, s’:Fs(X)A @Gs’(X) :
+
+
+                                  h
+       Fs(X)⊗aIA, m                        @IA, m⊗bGs’(X)
+         ρa; m
+              ≅                 {             ≅
+                                                  λb; m
+              P                                   P
+           Fs(X)A                             @Gs’(X)     ;
+                                hs, s’
+
+
+indeed, we easily see that the resulting lower horizontal arrow is independent of the parameters
+a, b and m . Inspection shows that conditions 5.(iii) and 5.(iv) reduce to the following:
+
+
+                     hu, u’
+Fu(X⊗aY)A                                @Gu’(X⊗aY)
+     k                      k                 k      , i.e., hu, u’ = hs, s’⊗a, aht, t’ ,
+     k                      k                 k
+FsX⊗aFtYA                                @Gs’X⊗aGt’Y
+                  s, s’⊗a, aht, t’
+          h
+
+
+with a = F(s, t, u; a) and a = G(s’, t’, u’; a) ; and
+
+
+                      hu, v = IA,F(u; i),G(v; i) ( : IA,F(u; i)A @IA,G(v; i) )
+
+
+(here i∈QIXR , u∈QFR(IX, i) , v∈QGR(IX, i); recall that F(u; i),G(v; i)∈QIAR .)
+
+
+When F and G are (monoidal) functors, these data and conditions further reduce to
+
+
+       hA:FAA       @GA ,
+
+       hA⊗ B = hA⊗Fa, GahB ,
+          a
+
+
+
+
+                                                 70
+       hI          = IA, Fi, Gi .
+            X, i
+
+Now, the mapping (5") becomes an isomorphism of categories
+
+
+       Hom(X,A)A ≅ @Hom(X#,A#)
+
+
+between the category Hom(X,A) of monoidal functors XA@A and monoidal natural
+
+transformations in the classical sense (see [E/K]), and the category Hom(X#,A#) of the
+
+monoidal functors between the saturations X# , A# and their monoidal transformations.
+
+
+
+
+                                            71
+                       § 4. The anabicategory of saturated anafunctors
+
+
+
+The saturated composition of two saturated anafunctors (or sanafunctors, for short) is obtained
+by saturating the ordinary composite introduced in §1. Since saturation involves taking
+quotients of equivalence relations, it is natural to define the composite of sanafunctors up to
+isomorphism only, by allowing the quotients to be replaced by sets that are bijectively related
+
+to them. In this way, we get the metaanabicategory SANACAT# of categories and
+
+sanafunctors, and the anabicategory SanaCat# of small categories and (small) sanafunctors
+
+between them. From the point of view of the present paper, SanaCat# and SANACAT#
+seem to be the right universes for category theory.
+
+
+We now assemble the definition of SanaCat# , the anabicategory of small categories and
+
+saturated anafunctors, in explicit terms; the consideration of SANACAT# will be left to the
+reader.
+
+
+Recall that, for X , A small categories, Sana(X,A) denotes the category of sanafunctors
+from X to A and their natural transformations. With X , A and M arbitrary small categories,
+we define the composition anafunctor
+
+
+          v = vX,A,M:Sana(X,A)×Sana(A,M)A                 @Sana(X,M)                        (1)
+
+
+as follows. Recall the criterion for a "bi-anafunctor" stated in §1. after 1.13; according to this,
+we only have to define, for F∈Sana(X,A) , G∈Sana(A,M) and H∈Sana(X,M) , that
+is,
+
+
+                    F% A G           G                                                   (2)
+                 
+               XLA                       @hM ,
+                             H
+
+the specification-sets QvR((F, G), H) and the sections
+
+
+          ( )vF : Sana(A,M)A         @Sana(X,M) ,                                           (3)
+
+
+
+
+                                                 72
+       Gv( ) : Sana(X,A)A           @Sana(X,M)                                       (4)
+
+
+appropriately.
+
+
+For F∈Sana(X,A) , G∈Sana(A,M) and H∈Sana(X,M) , QvR((F, G), H) is defined
+as the set of all families α = 〈 αX 〉 X∈Ob(X) of maps
+
+
+       αX ∈         &             QHR(X, GtFsX)
+           (s∈QFR(X), t∈QGR(FsX))
+
+
+       αX : (s∈QFR(X), t∈QGR(FsX))                   @ αX(s, t)∈QHR(X, GtFsX) .           (5)
+
+
+such that α satisfies the following condition (i).
+
+
+
+       (i) For all f:XA@Y , s∈QFR(X) , t∈QGR(FsX) , u∈QFR(Y) , v∈QGR(FuY) ,
+if a = αX(s, t), b = αY(u, v) , we have
+
+
+                 Gt, v(Fs, u(f)) = Ha, b(f) .
+
+
+α as in (5) satisfying (i) is called a composition specification (for " H=FvG " ).
+
+Note that, under the notation of (i), Ha(X) = (GvαF)a(X) = GtFs(X) when
+αX(s, t) = a .
+
+We have that any composition specification α for " H=FvG " satisfies the following (ii)
+and (iii).
+
+
+
+     (ii) For any X∈Ob(X) , M∈Ob(M) , a∈QHR(X, M) and s∈QFRX , there is
+t∈QGR(FsX) such that M = GtFsX and αX(s, t) = a .
+
+
+Indeed, take any v∈QGR(FsX) , and let b=αX(s, v) ; since G is saturated, there is a
+(unique) t∈QGR(FsX, M) such that
+
+
+
+
+                                               73
+       Gv, t(1F X) = Hb, a(1X) : GvFsX A             @M.
+               s
+
+But then for a’ =αX(s, t) , by (i) we have Hb, a(1X) = Hb, a’(1X) , which, since H is
+saturated, implies a’ = a .
+
+
+
+      (iii) For all X, M, s, t, u, v such that GtFsX = GvFuX = M , we have that
+αX(s, t) = αX(u, v) iff Gt, vFs, u(1X) = 1M .
+
+Indeed, by (ii), Gt, vFs, u(1X) = Hab(1X) with a = αX(s, t), b = αX(u, v) ; since
+H is saturated, Hab(1X) = 1M iff a=b .
+
+
+A partial composition specification for " H=GvF " is a family α = 〈 αX 〉 X∈Ob(X) of
+functions αX with domain dom(αX) ⊂ $             QGR(FsX) =
+                                         s∈QFRX
+{(s, t):s∈QFR(X), t∈QGR(FsX)} such that for any X∈Ob(X) , there are
+s∈QFR(X) , t∈QGR(FsX) with (s, t)∈dom(αX) , and (i) holds for
+(s, t)∈dom(αX) , (u, v)∈dom(αY) . Any partial composition specification can be
+uniquely extended to a complete one for the same relation " H=GvF " ; given any
+u∈QFR(X) , v∈QGR(FuX) , choose (s, t) as above, and define b = αX(u, v) so as to
+satisfy
+
+
+       Gt, v(Fs, u(1X)) = Ha, b(1X) ;
+
+
+a unique such b exists because H is saturated. It is easy to verify that the full specification
+so defined, also denoted by α , will satisfy (i).
+
+
+
+To define the section (3), first of all, we have to show that QvR((F, G)) is inhabited ( F
+
+and G as before). For H = GvαF , with suitable α , we take (GvF)# ; here GvF is the
+
+composite as anafunctors in the sense of §1, and ( )# is the saturation functor. According to
+
+the definition of H = (GvF)# , a typical element of QHR(X, M) is an equivalence class
+
+[(s, t, µ)] with s∈QFR(X) , t∈QGR(FsX) and µ:GtFsXA≅@M , where the
+underlying equivalence relation is defined by
+
+
+
+                                               74
+                                        G   F    1
+                                   GtFsXAtt’ ss’ X@
+                                              {     Gt’Fs’X
+        (s, t, µ)(s’, t’, µ’)       µ        µ ’  k +
+                                                              .
+
+                                                         M
+
+To define the composition specification α , we put αX(s, t) = [(s, t, 1G F X)]
+                                                                          t s
+( s∈QFRX , t∈QGR(FsX) ). With further data as in (i), the definition of H = (GvF)# gives
+that H[(s, t, 1)], [(u, v, 1)](f) = Gt, vFs, u(f) ; thus, (i) indeed holds. We have
+shown that QvR((F, G)) is inhabited.
+
+
+To define the effect of the section (3) on arrows, we take
+
+
+
+       XA F @AA
+                G         @M
+              A PG’ν      @
+
+and for α∈QvR((F, G)) , α’∈QvR((F, G’)) , we define
+
+
+       ν vα, α’F : (GvαF)A        @(G’vα’F) ;                                         (6)
+
+
+that is, we determine the component
+
+
+       ( ν vα, α’F)a, a’:(GvαF)aXA          @(G’vα’F)a’X
+
+for any a∈QGvαFRX , a’∈QG’vα’FRX . But, by (ii), we can take s∈QFRX ,
+t∈QGR(FsX) , t’∈QG’R(FsX) such that αX(s, t) = a , αX(s, t’) = a’ ; we define
+
+
+       ( ν vα, α’F)a, a’ = ν t, t’ : GtFsX A         @ Gt’FsX .                       (7)
+
+
+If, instead of s, t, t’ , we take u, v, v’ , then by (ii), and the commutativity of
+
+
+                                         ν t, t’
+                             GtFsXA                   @Gt’FsX
+              Gt, v(Fs, u1X)=1                    1 H =Gt’, v’(Fs, u1X)
+                            P Ha                      a’ 
+                                                          P
+                          GvFuXA ν                    @Gv’FuX
+                                           v, v’
+
+
+                                               75
+(the naturality of ν ), we see that the same value is obtained in (7). We omit the verification
+that (6) so defined is an nt, and that (3) so defined is an anafunctor.
+
+
+The definition of (4) is analogous; we get, for
+
+
+        A FPρ
+       XA         @AA G @M ,
+           F’     @
+
+       (Gvα, β ρ)a, b = Gt, u(ρs, s’):GtFsXA                  @GuFs’X
+
+( αX(s, t) = a , αX(s’, u) = b ). Finally, condition (ii) in the characterization of
+"bi"anafunctors is
+
+
+                           Gvα, β ρ
+                  GvαFA                @ GvβF’
+       ν vα, α’F 
+                             {            ν v
+                                            P    β, β’F’
+                  P
+                G’vα’FAG’v             @ρG’vβ’F’          ,
+                               α’β’
+
+which becomes, in components,
+
+
+                        Gtuρss’
+             GtFsXA       @ GuF’   s’X
+       ν tt’        {         ν uu’
+              P                 P
+            Gt’FsXAG       @ G     F’ X ,
+                    t’u’ρss’ u’ s’
+
+which holds by the naturality of ν .
+
+
+In fact, the composition anafunctor (1) is itself saturated. To see this, let H = GvαF and
+
+h:HA ≅ @K ; by 1.9., h is given by bijections
+
+
+       (a@a):QGvαFR(X, M)A ≅ @QKR(X, M) .
+
+
+We want to show that there is a unique β∈QvR((F, G), K) for which h = 1Gvα, β1F . For
+
+
+
+                                                  76
+X∈X , s∈QFRX , t∈QGR(FsX) , and M = GtFsX , let us define
+
+          = 
+βX(s, t) def  αX(s, t) . We have that β satisfies (i): with αX(s, t) = a ,
+αX(u, v) = b , we have GtvFsu(f) = Hab(f) since α is a composition specification;
+but Hab(f) = Kab(f) by 1.9.; the desired equality follows.
+
+
+Let a∈QGvαFR(X, M) . On the one hand, ha, a = 1M (see 1.9.). On the other hand, choose
+
+(s, t) such that αX(s, t) = a ; then βX(s, t) = a , and (1Gvα, β1F)a, a =
+(1Gvα, βF)a, a = (1G)t, t = 1M . This shows that ha, a = (1Gvα, β1F)a, a ; since we
+
+have "enough" pairs of specifications (a, a) (see 1.7.), it follows that h = 1Gvα, β1F . It is
+also clear that β is uniquely determined.
+
+
+
+                                                     X:XA @X , the saturation of the
+For any small category X , the identity sanafunctor 1#
+
+ordinary identity functor, has Q1X
+                                 #R(X, X’) = Iso(X, X’) , the set of all isomorphisms
+
+from X to X’ , and, for f:XA @Y , i∈Q1#       XR(X, X’) , j∈Q1XR(Y, Y’) ,
+                                                              #
+
+
+
+                   i, j(f) = jvfvi
+                #)                 -1 :X’A @Y’ .
+              (1X
+
+
+The identity anaobjects in SanaCat# are given the ordinary objects 1#
+                                                                    X.
+
+
+We may make SanaCat# into a saturated anabicategory, by taking the saturation
+
+71X#8#:1A a @[X,X] to be the identity anaobject for X ; we will not carry out this
+change.
+
+
+                                         ≅ @F of the left identity isomorphism
+For F:XA @A , the component λα:1#
+                                AvαFA
+                    ≅
+           Xvα( )A @1[X, A] is given (see 1.9) by the mappings
+λ = λX, A:1#
+
+
+       λ[X, A] : (a∈Q1#
+                      AvFR(X, A))             @ (a∈QFR(X, A)) ,
+
+one for each pair (X∈Ob(X), A∈Ob(A)) , defined thus: if s∈QFRX , i∈Q1#
+                                                                     AR(FsX) ,
+a=αX(s, i) , then a is determined (through the saturatedness of F ) by the conditions
+
+
+
+                                             77
+FaX = A , Fsa(1X) = i ; it is easy to see that this does define a@a uniquely, and the
+
+                     AvF)a, b(f) = Fa, b(f) holds ( f:XA@Y, a∈Q1AvFR(X),
+equality (see 1.9) (1#                                                  #
+
+b∈Q1# AvFR(Y) ), showing that λα is properly defined. The naturality of λ has also to be
+checked. Similarly, we define the right identity isomorphisms.
+
+
+The associativity isomorphism
+
+
+α = αX,A,M,P:(vX,A,P)v(vX,A,M×[M,P])A ≅ @(vX,A,P)v([X,A]×vA,M,P)
+
+has components
+
+
+       α = αα, β, γ , δ :Hvβ(GvαF)A ≅ @(Hv γ G)v δ F
+
+( F∈Sana(X,A) , G∈Sana(A,M) , H∈Sana(M,P) , etc.), defined through the renaming
+
+transformation α given by the maps
+
+
+       α[X, P] : (a∈QHvβ(GvαF)R(X, P))A ≅ @(a∈Q(Hv γ G)v δ FR(X, P))
+
+
+( X∈Ob(X) , P∈Ob(P) ) thus: if a = βX(αX(s, t), u) , then a = δ X(s, γ F X(t, u)) .
+                                                                                     s
+I leave all verifications, including the associativity and identity coherences, to the reader.
+
+
+Extending 1.10, we have
+
+
+
+
+       SanaCat# and AnaCat are equivalent as anabicategories.
+
+
+
+We have not given the notion of equivalence of anabicategories; the formulation of this notion,
+and the verification of the last-stated proposition are left to the reader.
+
+
+
+
+                                              78
+                   § 5. The effects of weak versions of the axiom of choice.
+
+
+
+In the previous parts of the paper, we left open whether the bicategory AnaCat is Cartesian
+closed. In this section, we show that a very weak version of the AC, one that is consistent with
+the negations of most of the usual special cases of the AC, is sufficient to ensure that the said
+conclusion holds.
+
+
+This section is somewhat incomplete; since the first version of this paper was written, further,
+and partly better, results have been found, in a collaboration of Robert Paré and the author; it
+is planned that they will be described in [M/P]. On the other hand, it incorporates substantial
+improvements that were kindly communicated to me by the Referee.
+
+
+In this section, we sometimes use classical logic throughout; the marking (CL) indicates that
+the result in question depends on classical logic (the principle of excluded middle).
+
+
+For sets A , B , A≅B abbreviates that there is a bijection AA≅@B . I propose the following
+axiom of class-set theory.
+
+
+
+Small Cardinality Selection Axiom (SCSA). There is a class-function assigning, to each set
+
+A , a set kAk and a bijection ι A:AA≅@kAk such that, for each set B , the class
+{kAk: A≅B} is a set.
+
+
+
+Of course, under the Global AC (there is a class-function that assigns to each inhabited set a
+member of that set), and by using classical logic (whose validity is a consequence of the AC,
+by the well-known argument of R. Diaconescu (see [Jo], 5.23, p. 141)), we have the SCSA in
+the strong form when 〈 B 〉 = {kAk: A≅B} is a singleton; now, kAk is the usual cardinality
+of A ; the global version of choice is needed for the function A@ ι A .
+
+
+As the Referee has pointed out, and as will be explained below, the SCSA is related to
+A. Blass' Axiom of Small Violations of Choice (SVC) (see [Bl], section 4., p.41). This axiom
+is as follows.
+
+
+
+
+                                               79
+SVC. There is a set S such that, for every set A , there exists an ordinal α and a function
+from a subset of S×α onto A .
+
+
+
+The following global version of the SVC was also pointed out by the Referee; although it
+appeared implicitly in the first version of this paper, as a fact about the universe of sets
+constructible from a fixed set.
+
+
+
+GSVC. There are a set S and a class-function mapping S×Ord onto V , the class of all
+sets.
+
+
+
+In [Bl], Blass shows that the SVC is a "very weak form of the axiom of choice". It holds in
+L(T) , the universe of sets constructible over an arbitrary transitive set T ( T∈L(T) ), and it
+holds in HOD(T) , the universe of hereditarily ordinal definable sets over T , for an arbitrary
+set T (use T as a single additional parameter, in addition to ordinals, in definitions of
+members of HOD(T) ). Moreover, it holds in P. Cohen's symmetric models, derived from
+generic models, used by Cohen to show the independence of the Axiom of Choice. Any of
+these facts show that SVC is consistent with the negation of any of a certain class of special
+
+cases of the AC; such a special case, call it AC* , may e.g. be the statement that there is a
+
+well-ordering of the set of all reals. If we have a model M of set-theory in which AC* fails,
+then there is a (transitive) set T "responsible" for this failure (the transitive closure of  in
+
+the example), and L(M)(T) , that is, L(T) taken relative to M , will also exhibit the failure
+
+of AC* ; but L(M)(T) satisfies the SVC.
+
+
+On the other hand, Blass shows the independence of SVC from ZF by a forcing argument
+using a proper class of forcing conditions.
+
+
+All the mentioned results of Blass seem to have straightforward variants for the GSVC; in the
+first version of this paper, a detailed proof was given of the fact that L(T) , with T a
+transitive set, satisfies the GSVC.
+
+
+The next result, the fact that the GSVC implies the SCSA, is due to the Referee. In the first
+
+
+
+                                               80
+version of the paper, I had the weaker result that, assuming that the Axiom of Choice holds in
+V , we have that any standard model of G-B satisfying the GSVC also satisfies the SCSA.
+
+
+
+
+       1.(CL) The GSVC implies the SCSA.
+
+
+Proof. Let, by the GVSC, S be a set and E:S×OrdA $V a surjection. For any a∈V , let
+ρa be the least ordinal ρ for which {s∈S:E(s, ρ)=a} ≠ ∅ , and let j(a) = {s: s∈S,
+E(s, ρa)=a} ; clearly, j(a) ≠ ∅ .
+
+
+Let A be arbitrary set. Define RA={ρa:a∈A} , and let πA:RAA≅@λA be the unique
+order-preserving bijection of RA (ordered as the ordinals are) onto an ordinal. Let kAk =
+{(j(a), πA(ρa)): a∈A} , and iA:AA @kAk be given by iA(a)=(j(a), πA(ρa)) .
+Note that kAk ⊂ S× λA . Clearly, iA is a surjection. But if a, b∈A and iA(a)=iA(b) ,
+then ρa=ρb , and picking any s∈j(a)=j(b) , we have that a=E(s, ρa)=E(s, ρb)=b ;
+
+this shows that iA is also an injection, and thus a bijection, iA:AA≅@kAk .
+
+
+Let B be an arbitrary set. The class C of ordinals that can be mapped into P(B) in a 1-1
+way is a set (Hartog's theorem), since the mapping with domain the set W of all
+well-orderings (W, <W) of subsets W of P(B) , assigning to (W, <W) the order-type of
+(W, <W) , is a surjection WA $C . Thus, there exist ordinals that cannot be mapped 1-1 into
+P(B) ; let α be any, e.g. the least, such.
+
+I claim that for any A such that A ≅ B , we have that kAk ⊂ S×α . Once this is shown, we
+obviously have that 〈 B 〉 = {kAk: A≅B} is a set as required.
+
+
+If f:BA $α is a surjection, then the map ξ @f-1( ξ ) : αA @P(B) is 1-1 ; it follows
+that B cannot be mapped surjectively onto α . But if g:B ≅ A , then we have
+
+
+                 g     a@ρa     π
+              BA ≅ @AA       $RA ≅A @λA ,
+
+and if also λA≥α , then ( α≠∅ ) λA , and hence also B , can be mapped surjectively onto
+α . It follows that if A≅B , then λA < α . Therefore, if A≅B , then kAk⊂S× λA⊂S×α as
+desired.
+
+
+                                              81
+As a consequence of 2. and remarks made earlier, we have, e.g., that
+
+
+
+
+        2.(CL) For an arbitrary transitive set T , L(T) is a model of G-B+SCSA . In fact,
+the class-function witnessing the SCSA can be chosen to be a definable class (that is, definable
+with parameters in the structure (X, ∈X) , for X = L(T) ).
+
+
+
+We turn to the effect of SCSA on anafunctors.
+
+
+
+
+        3.(SCSA) (Assume the SCSA.) For any small categories X , A , there is a small full
+subcategory A(X,A) of Sana(X,A) such that the inclusion A(X,A)A @Sana(X,A)
+is an equivalence of categories.
+
+
+Proof. We use the notation of the statement of the SCSA; we write 〈 B 〉 for {kAk: A≅B} .
+Let Γ be the set of all sets G for which there are a subset S of Ob(X)×Ob(A) and a
+
+function Φ ∈      &      〈 Iso(A, A) 〉 ( Iso(A, A) is the set of all isomorphisms AA≅@A
+              (X, A)∈S
+in A ) such that G is of the form
+
+
+       G=       $     Φ(X, A) def
+                               = {((X, A), u): u∈Φ(X, A)} ;
+            (X, A)∈S
+
+indeed, it is clear that Γ is a set. The class (in fact, set) of objects of A(X,A) is defined to
+be the set of sanafunctors (saturated anafunctors) G:XA @A such that QGR , the set of
+specifications of G , belongs to Γ . Since Γ is a set, and X , A are small, it is clear that the
+class of sanafuntors described is a set; A(X,A) , a full subcategory of Sana(X,A) , is
+small.
+
+
+To show that the inclusion A(X,A)A        @Sana(X,A) is an equivalence, we exhibit, for any
+F∈Sana(X,A) , a sanafunctor %F& ∈ A(X, A) and an isomorphism ι F:FA ≅ @%F& . Let
+F be given. Remember that, since F is saturated, QFR(X, A) ≅ Iso(A, A) and hence,
+kQFR(X, A)k ∈ 〈 Iso(A, A) 〉 whenever X∈X , A∈A and QFR(X, A) is inhabited (see
+§1., (2')). We put
+
+
+
+                                                82
+       S = {(X, A)∈Ob(X)×Ob(A): QFR(X, A) is inhabited},
+
+
+       Q%F&R =           $   kQFR(X, A)k ;
+                  (X, A)∈S
+
+this ensures that Q%F&R ∈ Γ , and thus, once %F& is fully defined, that %F&∈A(X,A) .
+Note that we have
+
+
+       Q%F&R =           $   kQFR(X, A)k ;                                 (1)
+                  X∈X, A∈A
+
+this holds because, in general for any family 〈 Ci:i∈I 〉 of sets,
+
+
+        $ C = $ {C : i∈I, Ci is inhabited} .
+       i∈I i i∈I i
+
+Continuing with the definition of %F& , we put, for (X, A)∈S , u∈QFR(X, A) ,
+
+
+       σ%F&((X, A), u) = X ,      τ %F&((X, A), u) = A .
+
+It follows by (1) that
+
+
+       Q%F&R(X, A) = {((X, A), u): u∈kQFR(X, A)k}
+
+for any X∈Ob(X) , A∈Ob(A) .
+
+
+We define the natural transformation ι F via a renaming transformation ι F:FA≡@%F& ; the
+mapping
+
+
+        ι F[X, A] : QFR(X, A)A ≅ @R%F&Q(X, A)
+
+is defined by
+
+
+        ι F[X, A](v) = ((X, A), ι QFR(X, A)(v)) ,
+
+with ι QFR(X, A):QFR(X, A)A @kQFR(X, A)k being given by the SCSA. The effect of
+%F& on morphisms is thereby determined: we put
+
+                                             83
+       %F&s, t(f) = Fs, t(f)
+
+whenever f:XA @Y , s∈QFRX , t∈QFRY , s = ι F[X, A](s) , t = ι F[Y, A](t) . It is
+
+clear that the sanafunctor %F& and the natural isomorphism ι F:FA≅@%F& are thus
+well-defined; and as we said above, it follows that %F& ∈ A(X,A) .
+
+
+
+
+       4.(SCSA) For any small categories X , A , there is a small full subcategory A(X,A)
+of Ana(X,A) such that the inclusion A(X,A)A @Ana(X,A) is an equivalence of
+categories.
+
+
+
+Proof. Combine 3. with 1.10.
+
+
+
+The main result of this section is that, under the SCSA, AnaCat is Cartesian closed. In a
+
+natural way, in any bicategory, we say that AX is an exponential of (X, A) , with evaluation
+
+e:X×AXA @A , if for any object Y , the functor
+
+
+       (X×())ve : Hom(Y, AX) A                  @ Hom(X×Y, A)
+                      YAf@AX              @   (X×YAX×f@X×AXAe@A)
+
+is an equivalence of categories; a bicategory is Cartesian closed if it is Cartesian and has
+exponentials of all pairs of objects.
+
+
+
+
+       5.(SCSA) AnaCat is Cartesian closed.
+
+
+Proof. By 1.18, Anacat is Cartesian, with the product structure computed as in Cat . 1.14.
+
+and 4. imply that exponentials exist; in fact, A(X,A) will act as an exponential AX in
+Anacat , with evaluation morphism e:X×A(X,A)A @A the restriction to X×A(X,A) of the
+map defined in (8), (8') and (9) in §1.
+
+
+
+
+                                               84
+Since SanaCat is equivalent (as a bicategory) to AnaCat (1.12'), we have
+
+
+
+
+       6.(SCSA) SanaCat is Cartesian closed.
+
+
+
+Terminal object, product and exponentiation in an anabicategory are defined by modifying the
+
+definitions for bicategories. In a anabicategory, we say that AM πNCAπ’@B is a product
+diagram if, for any object D , the anafunctor
+
+
+       (πv(-),π'v(=)) : Hom(D, C) A                  @ Hom(D, A)×Hom(D, B)
+
+is an anaequivalence of categories. To emphasize the possibly obvious, here
+πv(-):Hom(D, C)A @Hom(D, A) is the section of the composition anafunctor
+
+       vD, C, A : Hom(D, C)×Hom(C, A) A               @ Hom(D, A)
+
+at π∈Hom(C, A) ; or what is the same, the composite of vD, C, A with
+
+
+       Hom(D, C)×7π8 : Hom(D, C)×1A                  @Hom(D, C)×Hom(C, A) .
+
+AX , with e:X×AXA @A (evaluation), is an exponential of (X, A) if for any Y , the
+anafunctor
+
+
+       (X×(-))ve : Hom(Y, AX) A             @ Hom(X×Y, A)
+
+is an anaequivalence of categories.
+
+
+T is a terminal object if, for any A , Hom(A, T)A @1 , with 1 the one-object, one-arrow
+category, is an anaequivalence of categories.
+
+
+An anabicategory A is Cartesian if it has a terminal object, and binary products of arbitrary
+pairs of objects, and it is Cartesian closed if, in addition, it has exponentials. The definitions
+of the concepts involved are straightforward versions of the corresponding definitions for
+
+
+
+                                                85
+bicategories.
+
+
+
+
+       7.(SCSA) SanaCat# is Cartesian closed.
+
+
+The proof, whose details I leave to the reader, is based on the fact that the identity mapping is
+
+an equivalence of anabicategories between SanaCat# and SanaCat , the latter understood
+as an anabicategory, and on the fact that the Cartesian closed character of an anabicategory is
+invariant under equivalences. Although the notion of "equivalence of anabicategories" has not
+been explicitly stated, the reader will not find it difficult to complete the proof.
+
+
+
+Let me mention that the main result 5. holds with the SCSA replaced by Blass' SVC. The
+proof involves a weaker version of the SCSA, which is a consequence of the SVC, and suffices
+for the conclusion of 5. This weaker version of SCSA will be discussed in the context of
+indexed category theory over a topos in [M/P]. The interest of the said variant of SCSA is
+heightened by the fact that it holds in all Grothendieck toposes, whereas direct topos-theoretic
+translates of SVC do not.
+
+
+To end the paper, we will consider consequences of the Axiom of Regularity. Actually, only a
+consequence having the form of a weak version of the Axiom of Choice of the said axiom is
+used; this consequence I call the
+
+
+
+Axiom of Hierarchy (AH). There is a family 〈 Vα:α∈Ord 〉 of sets indexed by the ordinals
+whose union abc Vα is the class of all sets.
+            α∈Ord
+
+As is well-known, the AH is made true by the Axiom of Regularity through the von-Neumann
+hierarchy 〈 Vα:α∈Ord 〉 of pure (regular) sets. In what follows, we will assume the AH, and
+also the validity of classical logic.
+
+
+                                                               such that if A is
+The AH gives a metafunction assigning to any class A a subset A⊂A
+
+non-empty, then so is 
+                      A ; if A is non-empty, 
+                                             A = A∩Vα for α the least α for which
+
+A∩Vα≠∅ , 
+         A = ∅ otherwise . Combined with the GAC, we have a meta-choice-function,
+
+
+                                               86
+assigning to every non-empty class an element of it. Therefore, using the proof of 1.11, we can
+conclude the following strengthening of 1.11:
+
+
+
+
+      8.(GAC,AH) The inclusion FUN(X,A)A @ANA(X,A) is an equivalence of
+metacategories.
+
+
+(This was observed by the Referee, correcting a careless statement I originally made.)
+
+
+We have
+
+
+
+
+      9.(AH,CL) The inclusion ANAws(X,A)A @ANA(X,A) is an equivalence of
+metacategories. In particular, if X is a small category, the inclusion
+Ana(X,A)A @ANA(X,A) is an equivalence of metacategories.
+
+
+Indeed, given any F∈ANA(X,A) , define 
+                                      F∈Ana(X,A) by Q
+                                                     FRX = (QFRX) (with the
+
+latter () understood as in A@
+                               A above), and otherwise restricting the data of F
+
+appropriately; 1.1.(iii) for 
+                             F is ensured by the construction, and all other laws of "anafunctor"
+
+are automatically true for  F . We have the natural isomorphism h:F    A≅@F whose
+                        R(X, A) ( ⊂QFR(X, A) ) are identities.
+components hs, s for s∈QF
+
+
+We can now generalize, under the AH, 1.10 to obtain
+
+
+
+
+      10.(AH,CL) The inclusion SANA(X,A)A @ANA(X,A) is an equivalence of
+metacategories, provided A is locally small.
+
+
+To see this, note that in the proof of 1.10, the construction of F# is legitimate provided A is
+
+locally small, and F:XAa@A is weakly small; the class SX, A introduced there is a set in
+this case, and we may consider the set of equivalence classes of the equivalence relation  on
+
+SX, A as needed there. (Note, however, that F# constructed is not necessarily weakly small.)
+
+
+                                               87
+We obtain the functor ()#:ANAws(X,A)A@SANA(X,A) such that for every
+
+F∈ANAws(X,A) , F ≅ F# with a canonical isomorphism; that is, in
+
+
+                               L=()#vK
+                M
+       SANA(X,A)A                              N
+                     i                        @ ANA(X,A)
+                                           K )
+                                  J
+               ()#         I               + H I
+                            ANAws(X, A)                     ,
+
+
+where I and J are inclusions, and K is the quasi-inverse of I given by 9., we have
+
+Jv()#≅I . But then
+
+
+       JvL ≅ Jv()#vK ≅ IvK ≅ Id ,                                                  (2)
+
+
+and
+
+
+       JvLvJ = Jv()#vKvJ ≅ IvKvJ ≅ J = JvId ,
+
+
+which, since J is full and faithful, implies that
+
+
+       LvJ ≅ Id .                                                                  (3)
+
+
+(2) and (3) show what we want.
+
+
+As an immediate consequence of 9. and 2.6, we have
+
+
+
+
+       11.(AH,CL) Suppose that the category A has small limits, and X is a small
+category. Then ANA(X,A) and Ana(X,A) have specified small limits.
+
+
+
+
+                                               88
+References
+
+
+
+[Be1] J. Benabou, Introduction to bicategories. In: Reports of the Midwest Category Seminar,
+Lecture Notes in Math. 47, Springer-Verlag, 1967; pp. 1-77.
+
+
+[Be2] J. Benabou, Fibered categories and the foundations of naive category theory. J.
+Symbolic Logic 50(1985), 10-37.
+
+
+[Bl] A. Blass, Injectivity, projectivity, and the axiom of choice. Trans. Amer. Math. Soc.
+255(1979), 31-59.
+
+
+[F/S] P. J. Freyd, A. Scedrov, Categories, Allegories. North-Holland Mathematical Library,
+vol. 39, North-Holland, 1990.
+
+
+[G/U] P. Gabriel and F. Ulmer, Lokal präsentierbare Kategorien. Lecture Notes in Math. 221,
+Springer-Verlag, 1971.
+
+
+[G] K. Gödel, The Consistency of the Continuum Hypothesis. Ann. Math. Studies 3., Princeton
+Univ. Press, 1940.
+
+
+[E/K] S. Eilenberg and G. M. Kelly, Closed categories. In: Proceedings of the Conference on
+Categorical Algebra, La Jolla, 1965. Springer-Verlag, 1966; pp. 421-562.
+
+
+[J] T. Jech, Set Theory. Academic Press, 1978.
+
+
+[Jo] P. T. Johnstone, Topos Theory. Academic Press, 1977.
+
+
+[J/S] A. Joyal and R. Street, The geometry of tensor calculus. Advances in Math. 88(1991),
+55-112.
+
+
+[CWM] S. Mac Lane, Categories for the Working Mathematician. Springer-Verlag, 1971.
+
+
+[Ma1] M. Makkai, Stone duality for first order logic. Advances in Math. 65(1987), 97-170.
+
+
+[Ma2] M. Makkai, Contributions to the theory of doctrines. In preparation.
+
+
+                                              89
+[Ma3] M. Makkai, Generalized sketches as a framework for completeness theorems. To
+appear in J. Pure and Applied Algebra.
+
+
+[M/P] M. Makkai and R. Pare, Anafunctors and indexed category theory. In preparation.
+
+
+[P] J. Penon, Theories de categories. Diagrammes 2 (1979), pp. P.1-P.54.
+
+
+[P/Sch] R. Pare and D. Schumacher, Abstract families and the adjoint functor theorem. In: P.
+T. Johnstone and R. Pare (ed's), Indexed categories and their applications, Lecture Notes in
+Math. 661, Springer-Verlag, 1978; pp. 1-125.
+
+
+[S] R. Street, Fibrations in bicategories. Cahiers Top. Geom. Diff. 21(1980), 111-160.
+
+
+
+
+                                              90
+

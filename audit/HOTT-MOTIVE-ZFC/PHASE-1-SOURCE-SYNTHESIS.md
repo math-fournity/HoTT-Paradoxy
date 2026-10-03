@@ -133,3 +133,13 @@ Voevodsky 2006 的 [Hλ 预检](20261003-HMZ-004-hlambda-preflight/MANIFEST.md)�
 proof compiler、受算法验证的子系统、扩张产生 ZF proof obligation、model-level 与 type-system-level 的差别。
 但本身没有给出 ZFC-side 同一 `u/F/C/I/O/Done`，也没有 source-supported P2/P3。因此它被归档为
 `ADMISSION_REJECTED_WITH_SCOPE`，而非被错误登记为第四份“Q 发现”或无边界完整 run。
+
+Makkai 1996 的 [anafunctor 预检](20261003-HMZ-005-makkai-anafunctor-preflight/MANIFEST.md)则检验了另一条、
+更接近真实消费者的线：从“每对对象存在一个积”到“给每对对象选定一个 ordinary product functor”。来源明确写出
+这个 ordinary-output task 的 simultaneous Choice，并用 output contract 不同的 product anafunctor 作为 canonical
+替代；更强 Cartesian-closed 任务又明确使用 SCSA。它因此给出 `EXPLICIT_CHOICE_PAYMENT + OUTPUT_CONTRACT_CHANGE`，
+而非同一 Done 的未付 consumer；同样是 `ADMISSION_REJECTED_WITH_SCOPE`。
+
+这两份预检促成一项 SOP 澄清：相关关键词或一个实际 consumer 本身不足以开启完整 run；只有新 `R_i`、精确
+ZFC-side `u/F/C/I/O/Done`、未付同一 Done 或 formation-use交错才足够。预检保存否定性控制和重开条件，不能被
+合并进“已读完三轮”的分母。

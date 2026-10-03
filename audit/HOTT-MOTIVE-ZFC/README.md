@@ -62,6 +62,8 @@ FINDINGS.md
 一份未通过 successor admission 的作者技术原典保存在 [HMZ-004 Hλ预检](20261003-HMZ-004-hlambda-preflight/MANIFEST.md)。
 它是可复核来源，不是第四个完整 run，也不产生 Q。
 
+第二份预检是 [HMZ-005 Makkai anafunctor 消费者控制](20261003-HMZ-005-makkai-anafunctor-preflight/MANIFEST.md)。它以实际范畴论 consumer 分开“逐对存在 binary products”“指定 ordinary product functor”与“anafunctor 的不同输出契约”：Choice／selection 被来源明确支付，替代构造改变 `Done`，所以同样不是第四个完整 run 或 Q。
+
 ## 本次整备的影响边界
 
 | 项目面 | 处置 |
