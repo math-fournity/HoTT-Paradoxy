@@ -1,0 +1,758 @@
+                                                          c 2006 Cambridge University Press
+Math. Struct. in Comp. Science (2006), vol. 16, pp. 1–18. 
+doi:10.1017/S0960129506005615 Printed in the United Kingdom
+
+
+
+Ordinal computations
+P E T E R K O E P K E† and M A R T I N K O E R W I E N‡
+†
+ Rheinische Friedrich-Wilhelms-Universität Bonn, Mathematisches Institut,
+Beringstraße 1, 53115 Bonn, Germany
+Email: koepke@math.uni-bonn.de
+‡
+ Équipe de Logique Mathématique, UFR de Mathématiques, Université Denis-Diderot Paris 7,
+2 place Jussieu, 75251 Paris Cedex 05, France
+Email: koerwien@logique.jussieu.fr
+
+Received 20 September 2005; revised 28 December 2005 and 23 January 2006
+
+
+
+The notion of ordinal computability is defined by generalising standard Turing computability
+on tapes of length ω to computations on tapes of arbitrary ordinal length. The fundamental
+theorem on ordinal computability states that a set x of ordinals is ordinal computable from
+ordinal parameters if and only if x is an element of the constructible universe L. In this
+paper we present a new proof of this theorem that makes use of a theory SO axiomatising
+the class of sets of ordinals in a model of set theory. The theory SO and the standard
+Zermelo–Fraenkel axiom system ZFC can be canonically interpreted in each other. The
+proof of the fundamental theorem is based on showing that the class of sets that are ordinal
+computable from ordinal parameters forms a model of SO.
+
+
+
+1. Introduction
+In Koepke (2005), the first author defined ordinal Turing machines and the associated
+notion of ordinal computability. The main result of Koepke (2005) asserts that ordinal
+computability is an absolute and stable notion.
+
+Theorem 1. A set x of ordinals is ordinal computable from a finite set of ordinal
+parameters if and only if it is an element of the constructible universe L.
+
+  In the present paper we give a new proof of the theorem that does not depend on coding
+the elements of L into an ordinal Turing machine. To connect ordinal computability and
+constructibility, the proof introduces two notions that might be of further interest:
+— a recursive truth function T : Ord → 2 ;
+— a theory SO satisfied by the class of sets of ordinals in a model of ZFC.
+In Section 2 we recall the basic definitions of ordinal computability. The theory SO
+and some consequences are presented in Section 3. In Section 4 we define a structure
+(, ≡, ) for the language of set theory within SO. We show in Section 5 that (, ≡, )
+is actually a model of ZFC. Section 6 defines the recursive truth function T , which is
+ordinal computable. The function T codes so much information that one can read off a
+P. Koepke and M. Koerwien                                                                    2
+
+
+
+
+Fig. 1. A standard Turing computation. Head positions are indicated by boxes.
+
+
+
+model of SO from T (Section 7). All the components are put together in Section 8 to
+prove the main theorem.
+   Our work was inspired by the infinite time Turing machines introduced by Joel D.
+Hamkins, Jeff Kidder and Andy Lewis (Hamkins and Lewis 2000). The theory SO was
+studied in the the second author’s diploma thesis (Koerwien 2001).
+
+
+
+2. Ordinal Turing machines
+One can visualise a standard Turing computation as a time-like sequence of elementary
+read-write-move operations carried out by one or more ‘heads’ on ‘tapes’. The sequence of
+actions is determined by the initial tape contents and by a finite Turing program. We may
+assume that Turing machines act on tapes whose cells are indexed by the set ω (= ) of
+natural numbers 0, 1, . . . and contain 0’s or 1’s. A standard Turing computation is depicted
+in Figure 1.
+   An obvious generalisation from the perspective of transfinite ordinal theory is to extend
+such calculations to tapes whose cells are indexed by the class Ord of all ordinal numbers.
+At limit ordinals the tape contents, program states and head positions are defined as
+inferior limits. This is depicted in Figure 2.
+   Such ordinal Turing machines are formalised by the following definitions.
+
+Definition 1.
+
+ (a) A command is a 5-tuple C = (s, c, c , m, s ) where s, s ∈ ω and c, c , m ∈ {0, 1}; the
+     natural number s is the state of the command C. The effect of the command C is
+     that if the machine is in state s and reads the symbol c under its read-write head, it
+     then writes the symbol c , moves the head left if m = 0 or right if m = 1, and goes
+     into state s . States correspond to the ‘line numbers’ or labels of some programming
+     languages.
+Ordinal computations                                                                                              3
+
+
+
+
+Fig. 2. An ordinal computation. Head positions are indicated by boxes.
+
+
+ (b) A program is a finite set P of commands satisfying the following structural condi-
+     tions:
+     (i) If (s, c, c , m, s ) ∈ P , there is (s, d, d , n, t ) ∈ P with c = d; thus, in state s the
+         machine can react to reading a ‘0’ as well as to reading a ‘1’.
+    (ii) If (s, c, c , m, s ) ∈ P and (s, c, c , m , s ) ∈ P , then c = c , m = m , s = s ; this means
+         that the course of the computation is completely determined by the sequence of
+         program states and the initial cell contents.
+ (c) For a program P , let
+
+                              states(P ) = {s | ∃c, c , m, s : (s, c, c , m, s ) ∈ P }
+
+    be the set of program states.
+
+  The intended semantics of a program is to modify the contents of the transfinite Turing
+tape according to the program commands. At a given time, zeros and ones on the tape
+can be described as a function c : Ord → 2. In our applications the content function c
+will always have a bounded carrier, that is, {ξ ∈ Ord | c(ξ) = 0} is a set. This allows us
+to code the collection of all (relevant) tape contents as one definable class . We could,
+for example, define
+
+                                = {d | ∃ϑ ∈ Ord d : ϑ → 2} =<Ord 2.
+
+In the following we shall, however, treat tape contents as if they were defined for all
+ordinals.
+P. Koepke and M. Koerwien                                                                      4
+
+Definition 2. Let P be a program. A triple
+
+                             S : ϑ → ω, H : ϑ → Ord, T : ϑ → 
+
+is an ordinal computation by P if the following hold:
+ (a) ϑ is a successor ordinal or ϑ = Ord; ϑ is the length of the computation.
+ (b) S(0) = H(0) = 0; the machine starts in state 0 with head position 0.
+ (c) If t < ϑ and S(t) ∈ state(P ), then ϑ = t + 1; the machine stops if the machine state is
+     not a program state of P .
+ (d) If t < ϑ and S(t) ∈ state(P ), then t+1 < ϑ; choose the unique command (s, c, c , m, s ) ∈
+     P with S(t) = s and T (t)H(t) = c. This command is executed as follows:
+                               
+                                c , if ξ = H(t)
+               T (t + 1)ξ =
+                                T (t)ξ , otherwise
+               S(t + 1) = s
+                          
+                           H(t) + 1, if m = 1
+               H(t + 1) =    H(t) − 1, if m = 0 and H(t) is a successor ordinal
+                             0, otherwise.
+                          
+
+ (e) If t < ϑ is a limit ordinal, the machine constellation at t is determined by taking
+     inferior limits:
+
+                                ∀ξ ∈ Ord T (t)ξ = lim inf T (r)ξ
+                                                       r→t
+                                            S(t) = lim inf S(r)
+                                                       r→t
+                                           H(t) =      lim inf H(s).
+                                                     s→t,S (s)=S (t)
+
+The computation is obviously recursively determined by the initial tape contents T (0) and
+the program P . We call it the ordinal computation by P with input T (0). If the computation
+stops, ϑ = β + 1 is a successor ordinal and T (β) is the final tape content. In this case we
+say that P computes T (β) from T (0) and write P : T (0) → T (β).
+
+Definition 3. A partial function F :    is ordinal computable if there is a program P
+such that P : T → F(T ) for every T ∈ dom(F).
+
+   By coding, the notion of ordinal computability can be extended to other domains. We
+can, for example, code an ordinal δ ∈ Ord by the characteristic function χ{δ} : Ord → 2,
+χ{δ} (ξ) = 1 iff ξ = δ, and give the following definition.
+
+Definition 4. A partial function F : Ord  Ord is ordinal computable if the function
+χ{δ} → χ{F(δ)} is ordinal computable.
+
+Definition 5. A subset x ⊆ Ord is ordinal computable from a finite set of ordinal parameters
+if there is a finite subset z ⊆ Ord and a program P such that P : χz → χx .
+
+ Obviously, ordinal computability extends standard Turing computability. Standard
+methods, such as coding several ordinal tapes in one ordinal tape, can also be implemented
+Ordinal computations                                                                        5
+
+in ordinal Turing machines. A number of concrete ordinal programs are given in
+Koepke (2005); as usual, algorithms are defined in intuitive pseudo-code.
+   As an example, consider the Gödel pairing function for ordinals, which will be used
+later to code syntactical notions. It is defined recursively by
+               G(α, β) = {G(α , β  ) | max(α , β  ) < max(α, β) or
+                           (max(α , β  ) = max(α, β) and α < α) or
+                           (max(α , β  ) = max(α, β) and α = α and β  < β)}.
+We sketch an algorithm for computing γ = G(α, β) that can be implemented straightfor-
+wardly on a Turing machine with several tapes, each holding one of the variables. We
+represent the ordinal α by its characteristic function χα , that is, by a tape starting with α
+ones, having value zero otherwise.
+Goedel_Pairing:
+0 alpha’:=0
+1 beta’:=0
+2 eta:=0
+3 flag:=0
+4 gamma:=0
+5 if alpha=alpha’ and beta=beta’ then print gamma, stop fi
+6 if alpha’=eta and and beta’=eta and flag=0 then
+      alpha’=:0, flag:=1, go to 5 fi
+7 if alpha’=eta and and beta’=eta and flag=1 then
+      eta:=eta+1, alpha’:=eta, beta’:=0, gamma:=gamma+1, go to 5 fi
+8 if beta’<eta and flag=0 then
+      beta’:=beta’+1, gamma:=gamma+1, go to 5 fi
+9 if alpha’<eta and flag=1 then
+      alpha’:=alpha’+1, gamma:=gamma+1, go to 5 fi
+  Observe that by the computation rules in Definition 2 (e) this algorithm will always
+cycle to Command 5 at limit times. The inverse functions G0 and G1 satisfying
+                                     ∀γγ = G(G0 (γ), G1 (γ))
+are also ordinal computable. To compute G0 (γ), compute G(α, β) for α, β  γ until you
+find α, β with G(α, β) = γ, then set G0 (γ) = α.
+
+
+3. The theory SO of sets of ordinals
+Ordinal Turing computations do not directly produce highly hierarchical sets but ordinals
+and sets of ordinals. It is well known that a model of Zermelo–Fraenkel set theory with
+the axiom of choice (ZFC) is determined by its sets of ordinals (Jech 2003, Theorem
+13.28). This motivates the formulation of a theory SO that axiomatises the sets of ordinals
+in a model of ZFC. The theory SO is two-sorted, where the intended interpretations are
+ordinals and sets of ordinals. Let LSO be the language
+                                 LSO := {On, SOn, <, =, ∈, g}
+P. Koepke and M. Koerwien                                                                                 6
+
+where On and SOn are unary predicate symbols, <, = and ∈ are binary predicate symbols,
+and g is a two-place function. The intended standard interpretation of g is given by the
+Gödel pairing function G. To simplify the notation, we use lower-case Greek letters to
+range over elements of On and lower case Roman letters to range over elements of
+SOn.
+
+Definition 6. The theory SO is formulated in the first-order language LSO and consists of
+the following axioms:
+ 1 Well-ordering axiom (WO):
+      ∀α, β, γ(¬α < α ∧ (α < β ∧ β < γ → α < γ) ∧ (α < β ∨ α = β ∨ β < α))∧
+         ∀a(∃α(α ∈ a) → ∃α(α ∈ a ∧ ∀β(β < α → ¬β ∈ a))).
+ 2 Axiom of infinity (INF – existence of a limit ordinal):
+      ∃α(∃β(β < α) ∧ ∀β(β < α → ∃γ(β < γ ∧ γ < α))).
+ 3 Axiom of extensionality (EXT):
+      ∀a, b(∀α(α ∈ a ↔ α ∈ b) → a = b).
+ 4 Initial segment axiom (INI):
+      ∀α∃a∀β(β < α ↔ β ∈ a).
+ 5 Boundedness axiom (BOU):
+      ∀a∃α∀β(β ∈ a → β < α).
+ 6 Pairing axiom (GPF – Gödel Pairing Function):
+      ∀α, β, γ(g(β, γ)  α ↔ ∀δ, ((δ, ) <∗ (β, γ) → g(δ, ) < α)).
+   Here (α, β) <∗ (γ, δ) stands for
+      ∃η, ϑ(η = max(α, β) ∧ ϑ = max(γ, δ)∧
+         (η < ϑ ∨ (η = ϑ ∧ α < γ) ∨ (η = ϑ ∧ α = γ ∧ β < δ))),
+   where γ = max(α, β) abbreviates (α > β ∧ γ = α) ∨ (α  β ∧ γ = β).
+ 7 Surjectivity of pairing (SUR):
+      ∀α∃β, γ(α = g(β, γ)).
+ 8 Axiom schema of separation (SEP):
+   For all LS O -formulae ϕ(α, P1 , . . . , Pn ), where P1 , . . . , Pn are variables for ordinals or sets
+   of ordinals, postulate:
+      ∀P1 , . . . , Pn ∀a∃b∀α(α ∈ b ↔ α ∈ a ∧ ϕ(α, P1 , . . . , Pn )).
+ 9 Axiom schema of replacement (REP):
+   For all LS O -formulae ϕ(α, β, P1 , . . . , Pn ), where P1 , . . . , Pn are variables for ordinals or
+   sets of ordinals, postulate:
+      ∀P1 , . . . , Pn (∀ξ, ζ1 , ζ2 (ϕ(ξ, ζ1 , P1 , . . . , Pn ) ∧ ϕ(ξ, ζ2 , P1 , . . . , Pn ) → ζ1 = ζ2 ) →
+         ∀a∃b∀ζ(ζ ∈ b ↔ ∃ξ ∈ aϕ(ξ, ζ, P1 , . . . , Pn ))).
+10 Powerset axiom (POW):
+      ∀a∃b(∀z(∃α(α ∈ z) ∧ ∀α(α ∈ z → α ∈ a) → ∃ξ∀β(β ∈ z ↔ g(β, ξ) ∈ b))).
+
+  In a model of ZFC, the class of sets of ordinals together with the standard relations
+<, = and ∈, and the Gödel pairing function G constitutes a model of SO. Note that the
+powerset axiom of SO requires the axiom of choice since it stipulates the existence of
+well-ordered powersets. Thus, we have the following theorem.
+Ordinal computations                                                                             7
+
+Theorem 2. The theory SO can be interpreted in the theory ZFC.
+
+   For the converse direction, which will be proved in the two subsequent sections, we
+first indicate that all basic mathematical notions can be reasonably formalised within the
+system SO. Beyond the specific requirements of the present paper, this also shows that
+the theory SO might have some wider interest as a foundational theory.
+   For the formalisation of mathematics within SO we make use of the familiar class term
+notation A = {α | ϕ(α)} to denote classes of ordinals. If A = {α | ϕ(α)} is a non-empty
+class of ordinals, that is, ∀α ∈ A On(α), let min(A) denote the minimal element of A. The
+existence of a unique minimum follows from the axioms INI, SEP and WO. BOU ensures
+the existence of an upper bound for each set a, the least of which will be denoted lub(a).
+By INI, the classes ια := {β | β < α} are sets. Using SEP and INI, one sees that the union
+and intersection of two sets are again sets. Finite sets are denoted by {α0 , α1 , . . . , αn−1 }.
+Their existence is implied by INI and SEP. We write POW(b, a) for b being a set satisfying
+POW for a; note that in SO the set b is not uniquely determined by a. ω denotes the
+least element of the class of limit numbers, which by INF is not empty. Finally, let
+0 := min({α | On(α)}), 1 := lub({0}), and so on.
+   The inverse functions G1 , G2 of G are defined via the properties α = G1 (β) ↔ ∃γ(β =
+G(α, γ)) and α = G2 (β) ↔ ∃γ(β = G(γ, α)). The axioms GPF and SUR imply the well-
+known properties of the Gödel pairing function and its projections, such as the bijectivity
+and monotonicity properties. To simplify the notation, we write (α, β) := G(α, β). Every
+set can be regarded as a set of pairs a = {(α, β) | (α, β) ∈ a}, or more generally as a set of
+n-tuples. In this way, n-ary relations and functions on ordinals can be represented by sets.
+We now define some further notions connected with relations and functions.
+
+Definition 7. For sets or classes R, X, Y , f, we define the following notions in SO:
+
+                            := ι0
+                    dom(R) := {α | ∃β((α, β) ∈ R)}
+                     ran(R) := {β | ∃α((α, β) ∈ R)}
+                      fun(f) := ∀α, β1 , β2 ((α, β1 ) ∈ f ∧ (α, β2 ) ∈ f → β1 = β2 )
+                f : X → Y := fun(f) ∧ dom(f) = X ∧ ran(f) ⊂ Y
+                   α = f(β) := (α, β) ∈ f
+                        αRβ := (α, β) ∈ R
+                     X × Y := {γ | G1 (γ) ∈ X ∧ G2 (γ) ∈ Y }
+                      X  Y := {(α, β) ∈ X | α ∈ Y }.
+
+  The axioms of SO imply that these notions have their usual basic properties. We can
+now prove transfinite induction and recursion in SO.
+
+Theorem 3 (SO). Let ϕ(α, X1 , . . . , Xn ) be an LS O -formula. Then for all X1 , . . . , Xn ,
+
+                        ∀α((∀β < αϕ(β, X1 , . . . , Xn )) → ϕ(α, X1 , . . . , Xn ))
+P. Koepke and M. Koerwien                                                                8
+
+implies
+                                    ∀αϕ(α, X1 , . . . , Xn ).
+   Proof. If the statement were not true, by WO, there would be a minimal counterexample
+α, contradicting the assumption.
+Theorem 4 (SO). Let R : On × SOn → On be a function defined by some formula
+ϕ(α, f, β, X1 , . . . , Xn ). Then there exists a unique function F : On → On defined by a
+formula ψ(α, β, X1 , . . . , Xn ) such that
+                                 ∀α(F(α) = R(α, F  ια )).                              (∗)
+  Proof. The proof is similar to the proof of the recursion theorem in ZF: we define
+the notion of approximation functions, which are set-functions defined on proper initial
+segments of Ord, satisfying (∗) on their domain. Then we obtain F as the union of all of
+these approximation functions.
+   As in ZF, this result can be generalised from the relation < to arbitrary set-like
+well-founded relations. One could now develop further mathematical notions – numbers,
+spaces, first-order syntax and semantics – in SO in much the same way as one does in
+standard set theory.
+
+
+4. Assembling sets along well-founded relations
+In standard set theory, a set z can be represented as a point in a well-founded relation:
+consider the ∈-relation on the transitive closure TC({z}) with the distinguished element
+z ∈ TC({z}). By the Mostowski isomorphism theorem, z is uniquely determined by the
+isomorphism type of the pair (z, ∈ TC({z})). So one may represent z by some pair (x, Rx )
+such that Rx is a well-founded relation on ordinals and (x, Rx ) ∼
+                                                                 = (z, ∈ TC({z})).
+   Working in the theory SO, we can assume that the relation Rx is a set of ordinals and
+that the point (x, Rx ) is coded as a set of ordinals by defining the ordered pair of an
+ordinal and a set of ordinals as
+                               (x, Rx ) = {G(x, α) | α ∈ Rx }.
+So we assume SO for the following construction. We shall eventually define a model of
+ZFC within SO. Constructions of set-theoretic structures from collections of well-founded
+relations are common in higher-order recursion theory, such as, for example, in the
+construction of the admissible set Lω1CK from the hyperarithmetic reals (Sacks 1990).
+Definition 8. An ordered pair x = (x, Rx ) is a point if Rx is a well-founded relation on
+ordinals and x ∈ dom(Rx ). Let  be the class of all points. Unless specified otherwise, we
+use Rx to denote the well-founded relation of the point x.
+  Note that, according to our previous considerations, one can reasonably define the class
+ in SO as well as in ZFC. In ZFC, (x, ∈ TC({x})) is a point, and any point x = (x, Rx )
+can be interpreted as a standard set I(x): define recursively
+                      Ix : dom(Rx ) → V , by Ix (u) = {Ix (v) | vRx u}.
+Ordinal computations                                                                                             9
+
+Then let I(x) = Ix (x) be the interpretation of x. Note that for points x and y
+       Ix (u) = Iy (v) iff {Ix (u ) | u Rx u} = {Ix (v  ) | v  Ry v}
+                        iff (∀u Rx u∃v  Ry vIx (u ) = Iy (v  )) ∧ (∀v  Ry v∃u Rx uIx (u ) = Iy (v  )).
+This means that the relation Ix (u) = Iy (v) in the variables u and v can be defined recursively
+without actually forming the interpretations Ix (u) and Ix (v). Hence this relation can be
+defined in SO.
+Definition 9. With Rx and Ry well-founded relations on ordinals, define a relation ≡ on
+points (u, Rx ), (v, Ry ) by induction on the product well-order Rx × Ry :
+                               (u, Rx ) ≡ (v, Ry ) iff ∀u Rx u∃v  Ry v(u , Rx )
+                                        ≡ (v  , Ry ) ∧ ∀v  Ry v∃u Rx u(u , Rx )
+                                        ≡ (v  , Ry ).
+Lemma 1 (SO). ≡ is an equivalence relation on .
+  Proof.
+Reflexivity: Consider a point x = (x, Rx ). We show by induction on Rx that for all
+   u ∈ dom(Rx ) we have (u, Rx ) ≡ (u, Rx ). Assume that the claim holds for all vRx u.
+   Consider some vRx u. By the induction assumption, (v, Rx ) ≡ (v, Rx ). This implies
+                                        ∀vRx u∃wRx u(v, Rx ) ≡ (w, Rx ).
+   By symmetry, we also have
+                                        ∀wRx u∃vRx u(v, Rx ) ≡ (w, Rx ).
+   Together these imply (u, Rx ) ≡ (u, Rx ).
+   In particular, x = (x, Rx ) ≡ (x, Rx ) = x.
+Symmetry: Consider points x = (x, Rx ) and y = (y, Ry ). We show by induction on the
+   well-founded relation Rx × Ry that
+                                   (u, Rx ) ≡ (v, Ry ) iff (v, Ry ) ≡ (u, Rx ).
+   Assume that the claim holds for all (u , v  ) with u Rx u and v  Ry v. Assume that (u, Rx ) ≡
+   (v, Ry ). To show that (v, Ry ) ≡ (u, Rx ), consider v  Ry v. By assumption, take u Rx u such
+   that (u , Rx ) ≡ (v  , Ry ). By the induction assumption on symmetry, (v  , Ry ) ≡ (u , Rx ).
+   Hence
+                                       ∀v  Ry v∃u Rx u(v  , Ry ) ≡ (u , Rx ).
+   Similarly,
+                                       ∀u Rx u∃v  Ry v(v  , Ry ) ≡ (u , Rx ),
+   and thus (v, Ry ) ≡ (u, Rx ). This shows
+                                    (u, Rx ) ≡ (v, Ry ) → (v, Ry ) ≡ (u, Rx ).
+   By the symmetry of the situation, the implication from right to left also holds and
+                                    (u, Rx ) ≡ (v, Ry ) ↔ (v, Ry ) ≡ (u, Rx ).
+P. Koepke and M. Koerwien                                                                                 10
+
+    In particular, for x = (x, Rx ) and y = (y, Ry )
+                                               x ≡ y ↔ y ≡ x.
+Transitivity: Consider points x = (x, Rx ), y = (y, Ry ) and z = (z, Rz ). We show by induction
+   on the well-founded relation Rx × Ry × Rz that
+                       (u, Rx ) ≡ (v, Ry ) ∧ (v, Ry ) ≡ (w, Rz ) → (u, Rx ) ≡ (w, Rz ).
+    Assume that the claim holds for all (u , v  , w  ) with u Rx u, v  Ry v and w  Rz w. Assume
+    also that
+                                   (u, Rx ) ≡ (v, Ry ) ∧ (v, Ry ) ≡ (w, Rz ).
+    To show that (u, Rx ) ≡ (w, Rz ), consider u Rx u. By (u, Rx ) ≡ (v, Ry ), take v  Ry v such
+    that (u , Rx ) ≡ (v  , Ry ). By (v, Ry ) ≡ (w, Rz ), take w  Rz w such that (v  , Ry ) ≡ (w  , Rz ).
+    By the inductive assumption, (u , Rx ) ≡ (v  , Ry ) and (v  , Ry ) ≡ (w  , Rz ) imply that
+    (u , Rx ) ≡ (w  , Rz ). Thus,
+                                     ∀u Rx u∃w  Rz w(u , Rx ) ≡ (w  , Rz ).
+    Similarly,
+                                     ∀w  Rz w∃u Rx u(u , Rx ) ≡ (w  , Rz ).
+    So, (u, Rx ) ≡ (w, Rz ). In particular, for x = (x, Rx ), y = (y, Ry ) and z = (z, Rz )
+                                          x ≡ y ∧ y ≡ z → x ≡ z.
+
+  We now define a membership relation for points.
+
+Definition 10. Let x = (x, Rx ) and y = (y, Ry ) be points. Then set
+                                      x  y iff ∃vRy yx ≡ (v, Ry ).
+Lemma 2 (SO). The equivalence relation ≡ is a congruence relation with respect to ,
+that is,
+                                 x  y ∧ x ≡ x ∧ y ≡ y  → x  y  .
+  Proof. Let x  y ∧ x ≡ x ∧ y ≡ y  → x  y  . Take vRy y such that x ≡ (v, Ry ). By
+y ≡ y  , take v  Ry y  such that (v, Ry ) ≡ (v  , Ry ). Since ≡ is an equivalence relation, the
+equivalences x ≡ x , x ≡ (v, Ry ) and (v, Ry ) ≡ (v  , Ry ) imply x ≡ (v  , Ry ). Hence x  y  .
+
+
+5. The class of points satisfies ZFC
+We show that the class  of points with the relations ≡ and  satisfies the axioms ZFC
+of Zermelo–Fraenkel set theory with the axiom of choice. For the existence axioms of
+ZFC we prove a lemma about combining points into a single point.
+
+Lemma 3 (SO). Let (xi | i ∈ A) be a set-sized definable sequence of points, that is, A is a
+set of ordinals and the function i → xi ∈  is definable. Then there is a point y = (y, Ry )
+Ordinal computations                                                                                11
+
+such that for all points x
+                                       x  y iff ∃i ∈ Ax ≡ xi .
+  Proof. For i ∈ A let xi = (xi , Ri ). Define points xi = (xi , Ri ) by ‘colouring’ every element
+of dom(Ri ) by the ‘colour’ i:
+                        xi = (i, xi ) and Ri = {((i, α), (i, β)) | (α, β) ∈ Ri }.
+The points (xi , Ri ) and (xi , Ri ) are isomorphic, so (xi , Ri ) ≡ (xi , Ri ). We may thus assume
+that the domains of the well-founded relations Ri are pairwise disjoint. Take some
+    
+y ∈ i∈A dom(Ri ) and define the point y = (y, Ry ) by
+                                             
+                                      Ry =     Ri ∪ {(xi , y) | i ∈ A}.
+                                          i∈A
+
+Consider i ∈ A. If x ∈ dom(Ri ), the iterated Ri -predecessors of x are equal to the iterated
+Ry -predecessors of x. Hence (x, Ri ) ≡ (x, Ry ).
+  Assume now that x  y. Take vRy y such that x ≡ (v, Ry ). Take i ∈ A such that v = xi .
+By the previous remark,
+                               x ≡ (v, Ry ) = (xi , Ry ) ≡ (xi , Ri ) = xi .
+Conversely, consider i ∈ A and x ≡ xi . Then x ≡ xi = (xi , Ri ) ≡ (xi , Ry ) and xi Ry y. This
+implies x  y.
+  We are now able to canonically interpret the theory ZFC within SO.
+Theorem 5 (SO).  = (, ≡, ) is a model of ZFC.
+  Proof.
+Extensionality: We need to show the axiom of extensionality holds in :
+                                 ∀x∀y(∀z(z  x ↔ z  y) → x ≡ y).
+    Consider points x and y such that ∀z(z  x ↔ z  y), and consider uRx x. Then
+    (u, Rx )  (x, Rx ) = x. By assumption, (u, Rx )  (y, Ry ). By definition, take vRy y such
+    that (u, Rx ) ≡ (v, Ry ). Thus
+                                     ∀uRx x∃vRy y(u, Rx ) ≡ (v, Ry ).
+    By exchanging x and y, we also get
+                                     ∀vRy y∃uRx x(u, Rx ) ≡ (v, Ry ).
+   Hence x ≡ y.
+Pairing: We need to show the axiom of pairing holds in :
+                               ∀x∀y∃z∀w(w  z ↔ (w ≡ x ∨ w ≡ y)).
+    Consider points x = (x, Rx ) and y = (y, Ry ). By the comprehension lemma, Lemma 3,
+    there is a point z = (z, Rz ) such that for all points w
+                                       w  z ↔ (w ≡ x ∨ w ≡ y).
+P. Koepke and M. Koerwien                                                                        12
+
+Unions: We need to show the axiom of unions holds in :
+
+                              ∀x∃y∀z(z  y ↔ ∃w(w  x ∧ z  w)).
+
+   Consider a point x = (x, Rx ). Let
+
+                           A = {i ∈ dom(Rx ) | ∃u ∈ dom(Rx )iRx uRx x}.
+
+   For i ∈ A define the point xi = (i, Rx ). By the comprehension lemma, Lemma 3, there
+   is a point y = (y, Ry ) such that for all points z
+
+                                       z  y ↔ ∃i ∈ Az ≡ xi .
+
+   To show the axiom, consider some z  y. Take i ∈ A such that z ≡ xi . Take
+   u ∈ dom(Rx ) such that iRx uRx x. Then z ≡ xi = (i, Rx )  (u, Rx )  (x, Rx ) = x, that is,
+   ∃w(z  w  x).
+   Conversely, assume that ∃w(z  w  x) and take w such that z  w  x. Take uRx x
+   such that w ≡ (u, Rx ). Then z  (u, Rx ). Take iRx u such that z ≡ (i, Rx ) = xi . Then
+   z  y.
+Replacement schema: We need to show the replacement schema holds in , that is, for
+   every first-order formula ϕ(u, v) in the language of ≡ and  the following is true
+   in :
+
+         ∀u, v, v  ((ϕ(u, v) ∧ ϕ(u, v  )) → v ≡ v  ) → ∀x∃y∀z(z  y ↔ ∃u(u  x ∧ ϕ(u, z))).
+
+   Note that the formula ϕ may contain further free parameters, which we do not
+   mention for the sake of simplicity. Assume that ∀u, v, v  ((ϕ(u, v) ∧ ϕ(u, v  )) → v ≡ v  )
+   and let x = (x, Rx ) be a point. Let A = {i | iRx x}. For each i ∈ A we have the
+   point (i, Rx )  (x, Rx ) = x. Using replacement and choice in SO, we can pick for each
+   i ∈ A a point zi = (zi , Rzi ) such that ϕ((i, Rx ), zi ) holds if such a point exists. By the
+   comprehension lemma, Lemma 3, there is a point y = (y, Ry ) such that for all points z
+
+                                       z  y ↔ ∃i ∈ Az ≡ zi .
+
+   To show the instance of the replacement schema under consideration, assume that
+   z  y. Take i ∈ A such that z ≡ zi . Then (i, Rx )  (x, Rx ) = x, ϕ((i, Rx ), zi ) and
+   ϕ((i, Rx ), z). Hence ∃u(u  x ∧ ϕ(u, z)).
+   Conversely, assume that ∃u(u  x ∧ ϕ(u, z)). Take u  x such that ϕ(u, z). Take
+   iRx x, i ∈ A such that u ≡ (i, Rx ). Then ϕ((i, Rx ), z). By the definition of zi , we have
+   ϕ((i, Rx ), zi ). The functionality of the formula ϕ implies z ≡ zi . Hence ∃i ∈ Az ≡ zi and
+   z  y.
+Separation schema: The replacement schema also implies the separation schema.
+Powersets: We need to show the axiom of powersets holds in :
+
+                             ∀x∃y∀z(z  y ↔ ∀w(w  z → w  x)).
+
+   By the separation schema, it suffices to show that
+
+                             ∀x∃y∀c(∀w(w  c → w  x) → c  y).
+Ordinal computations                                                                                           13
+
+   Consider a point x = (x, Rx ). Let F = dom(Rx ) ∪ ran(Rx ) be the field of Rx . By the
+   powerset axiom of SO, choose some set P such that Pow(P , F):
+                ∀z(∃α(α ∈ z) ∧ ∀α(α ∈ z → α ∈ F) → ∃ξ∀β(β ∈ z ↔ (β, ξ) ∈ P )).
+   Choose two large ordinals δ and y such that
+                            ∀α ∈ Fα < δ and ∀ξ(ξ ∈ ran(P ) → (δ, ξ) < y).
+   Define a point y = (y, Ry ) by
+                  Ry = Rx ∪ {(β, (δ, ξ)) | (β, ξ) ∈ P } ∪ {((δ, ξ), y) | ξ ∈ ran(P )}.
+   To show the axiom, consider some point c = (c, Rc ) such that ∀w(w  c → w  x).
+   Define a corresponding subset z of F by
+                                   z = {β ∈ F | ∃vRc c(v, Rc ) ≡ (β, Rx )}.
+   We may assume for simplicity that z = . By the powerset axiom of SO, choose
+   ξ ∈ ran(P ) such that
+                                            ∀β(β ∈ z ↔ (β, ξ) ∈ P ).
+   We claim that ((δ, ξ), Ry ) ≡ c and thus c  y.
+   Consider βRy (δ, ξ). By the definition of Ry , we have (β, ξ) ∈ P , so β ∈ z. By the
+   definition of z, choose vRc c such that (v, Rc ) ≡ (β, Rx ) ≡ (β, Ry ).
+   Conversely, consider vRc c. Then (v, Rc )  (c, Rc ) = c. The subset property implies
+   (v, Rc )  (x, Rx ) = x. Take βRx x such that (v, Rc ) ≡ (β, Rx ) ≡ (β, Ry ). But, by definition,
+   β ∈ z, (β, ξ) ∈ P and βRy (δ, x).
+Axiom of choice: We need to show the axiom of choice holds in :
+   ∀x((∀y, z((y  x ∧ z  x) → (∃uu  y ∧ (¬y ≡ z → ¬∃u(u  y ∧ u  z))))) →
+                    ∃w∀y(y  x → ∃u((u  w ∧ u  y) ∧ ∀v((v  w ∧ v  y) → u ≡ v)))).
+   Let x = (x, Rx ) ∈  be a point such that
+             ∀y, z((y  x ∧ z  x) → (∃uu  y ∧ (¬y ≡ z → ¬∃u(u  y ∧ u  z)))).
+   Choose an ordinal α ∈ dom(Rx ) and define the point w = (α, Rw ) by letting its
+   ‘elements’ be least ordinals in the ‘elements’ of x:
+      Rw = Rx ∪ {(ξ, α) | ∃ζ(ξRx ζRx x ∧ (∀ξ  < ξ∀ζ  ((ζ, Rx ) ≡ (ζ  , Rx ) → ¬(ξRx ξ  Rx ζ))))}.
+   To show that w witnesses the axiom of choice for x, consider a point y with y  x.
+   We may assume that y is of the form y = (ζ, Rx ) where ζRx x. By the assumption on
+   x, there exists u  y. Take some ξ such that (ξ, Rx ) ≡ u. We may assume that ζ and ξ
+   with these properties are chosen so that ξ is minimal in the ordinals. Then
+                   ξRx ζRx x ∧ (∀ξ  < ξ∀ζ  ((ζ, Rx ) ≡ (ζ  , Rx ) → ¬(ξRx ξ  Rx ζ))),                      (+)
+   so ξRw α. Thus u  w. To show the uniqueness of this u with u  w ∧ u  y, consider
+   some v with v  w ∧ v  y. We may assume that v is of the form v = (ξ  , Rw ) with
+   ξ  Rw α. By the definition of Rw , we choose some ζ  such that
+                ξ  Rx ζ  Rx x ∧ (∀ξ  < ξ  ∀ζ  ((ζ  , Rx ) ≡ (ζ  , Rx ) → ¬(ξ  Rx ξ  Rx ζ  ))).   (×)
+P. Koepke and M. Koerwien                                                                      14
+
+   Now
+                      v  y  x and v = (ξ  , Rw )  (ζ  , Rw )  (x, Rx ) = x.
+   Since the ‘elements’ of x are ‘pairwise disjoint’, we have y ≡ (ζ  , Rw ). Since y ≡ (ζ, Rx ),
+   the conditions (+) and (×) become equivalent and define the same ordinal ξ = ξ  .
+   Hence
+                                    u ≡ (ξ, Rx ) ≡ (ξ  , Rw ) ≡ v.
+Foundation schema: We need to show the foundation schema holds in , that is, for every
+   first-order formula ϕ(u) in the language of ≡ and  the following is true in :
+                              ∃uϕ(u) → ∃y(ϕ(y) ∧ ∀z(z  y → ¬ϕ(z)).
+    Note that the formula ϕ may contain further free parameters, which we do not mention
+    for the sake of simplicity. Assume that ∃uϕ(u). Take a point x = (x, Rx ) such that
+    ϕ(x). Since Rx is well-founded, we may take an Rx -minimal y ∈ dom(Rx ) such that
+    ϕ((y, Rx )). Letting y also denote the point (y, Rx ), we have ϕ(y). To prove the axiom,
+    consider some point z  y . Take vRx y such that z ≡ (v, Rx ). By the Rx -minimal choice
+    of y, we have ¬ϕ((v, Rx )). Hence ¬ϕ(z).
+Infinity: We need to show the axiom of infinity holds in , that is,
+          ∃x((∃yy  x) ∧ (∀y(y  x → ∃z(z  x ∧ ∀u(u  z ↔ (u  y ∨ u ≡ y)))))).
+   In SO, let ω be the smallest limit ordinal. We show that
+                                       x = (ω, < (ω + 1)2 )
+   witnesses the axiom. Since (0, < (ω + 1)2 )  (ω, < (ω + 1)2 ), we have ∃yy  x.
+   Consider some y  x. We may assume that y = (n, < (ω + 1)2 ) for some n < ω. Set
+                                     z = (n + 1, < (ω + 1)2 ).
+   It is easy to check that
+                               z  x ∧ ∀u(u  z ↔ (u  y ∨ u ≡ y)).
+
+Theorem 6. In the set theoretical universe V , consider a class S ⊆ {x | x ⊆ Ord} such
+that S = (Ord, S, <, =, ∈, G) is a model of the theory SO. Then there is a unique inner
+model (M, ∈) of ZFC such that S = {v ∈ M | v ⊆ Ord}.
+  Proof. Define the model  = (, ≡, ) from (Ord, S, <, =, ∈, G) as above. Consider a
+point x = (x, Rx ) ∈ . Then x is also an ordinal in the sense of V . In S, apply the
+recursion theorem to the well-founded relation Rx and obtain an order-preserving map
+                                 σ : (dom(Rx ), Rx ) → (Ord, <).
+Transfer the map σ to V by defining
+                      σ̃ = {(α, β) | S  σ(α) = β} : dom(Rx ) → Ord .
+This map is order-preserving and witnesses the fact that Rx is well-founded in V . So
+(x, Rx ) is a point in the sense of V . In V , define the interpretation function I :  → V
+Ordinal computations                                                                          15
+
+recursively by
+
+                   Ix : dom(Rx ) → V , by Ix (u) = {Ix (v) | vRx u} and I(x) = Ix (x).
+
+Set
+
+                                         M = {I(x) | x ∈ }.
+
+Transitivity:
+   Consider y ∈ I(x) ∈ M. Choose vRx x such that y = Ix (v). Then (v, Rx ) ∈  and
+
+                                       y = Ix (v) = I((v, Rx )) ∈ M.
+
+   So M is transitive.
+Surjectivity:
+   The above definitions imply that the function I :  → M is surjective and preserves
+   ≡ and =, and  and ∈:
+
+                      ∀x, y ∈  : ((x ≡ y ↔ I(x) = I(y)) ∧ (x  y ↔ I(x) ∈ I(y))).
+
+Inner model:
+   The above imply that M is a transitive ∈-model of the ZFC-axioms, that is, M is an
+   inner model.
+S = {v ∈ M | v ⊆ Ord}:
+  Let v ∈ S. We build a point that will be interpreted as v. Choose an ordinal α such
+  that v ⊆ α. Define a well-founded relation Rx on α + 1 by
+
+                                 ξRx ζ iff (ξ < ζ < α or (ζ = α ∧ ξ ∈ v)).
+
+      Then x = (α, Rx ) is a point. Let Ix (u) = {Ix (v) | vRx u} be the recursive interpretation
+      function for x. For ζ < α we have Ix (ζ) = ζ since we have inductively
+
+                                Ix (ζ) = {Ix (ξ) | ξRx ζ} = {ξ | ξ < ζ} = ζ.
+
+      Therefore,
+
+                            I(x) = Ix (α) = {Ix (ξ) | ξRx α} = {ξ | ξ ∈ v} = v.
+
+      Hence, v = I(x) ∈ M.
+      The previous argument also shows that one may canonically represent an ordinal ξ
+      by the point (ξ, < (ξ + 1)2 ):
+
+                                          I((ξ, < (ξ + 1)2 )) = ξ.
+
+      For the converse inclusion, consider some v ∈ M, v ⊆ α ∈ Ord. Choose a point x ∈ 
+      such that I(x) = v. Since S satisfies the separation schema,
+
+                    v = {ξ < α | ξ ∈ v} = {ξ < α | S  (ξ, < (ξ + 1)2 )  x} ∈ S.
+
+The model M is unique since it is determined by its sets of ordinals (see Jech (2003,
+Theorem 13.28).
+P. Koepke and M. Koerwien                                                                             16
+
+6. A recursive truth predicate
+The Gödel pairing function G allows us to code a finite sequence α0 , . . . , αn−1 of ordinals
+as a single ordinal:
+                                   α = G(. . . G(G(α0 , α1 ), α2 ) . . . ).
+The usual operations on finite sequences, such as concatenation, cutting at a certain length
+and substitution, are ordinal computable using the Gödel functions G, G0 , G1 . This means
+we can code terms and formulae of a first-order language by single ordinals in an ordinal
+computable way.
+  We introduce a language LT suitable for structures of the form
+                                            (α, <, G ∩ α3 , f),
+where G ∩ α3 is viewed as a ternary relation and f : α → α is a unary function. The
+language has variables vn = G(0, n) for n < ω and constant symbols cξ = G(1, ξ) for
+ξ ∈ Ord; the symbol cξ will be interpreted as the ordinal ξ. Terms are defined recursively:
+variables and constant symbols are terms; if t is a term, then G(2, t) is a term as well,
+which stands for f(t). Atomic formulae are of the form:
+— G(3, G(t1 , t2 )) where t1 , t2 are terms – this stands for the equality t1 = t2 .
+— G(4, G(t1 , t2 )) where t1 , t2 are terms – this stands for the inequality t1 < t2 .
+— G(5, G(G(t1 , t2 ), t3 )) where t1 , t2 , t3 are terms – this stands for the relation t3 = G(t1 , t2 ).
+LT -Formulae are defined recursively. Atomic formulae are formulae, and if ϕ and ψ are
+formulae, then the following are formulae as well:
+— G(6, ϕ) – this stands for the negation ¬ϕ.
+— G(7, G(ϕ, ψ)) – this stands for the conjunction (ϕ ∧ ψ).
+— G(8, G(vn , ϕ)) where vn is a variable – this stands for the existential quantification ∃vn ϕ.
+Then the satisfaction relation
+                                       (α, <, G ∩ α3 , f)  ϕ[b]
+for ϕ an LT -formula and b an assignment of values in α can be defined as usual. If the
+function f is ordinal computable, this property is ordinal computable, since the recursive
+Tarski truth definition can be carried out by an ordinal Turing machine.
+  We define the truth predicate T : Ord → {0, 1} recursively by
+                       T (α) = 1 iff (α, <, G ∩ α3 , T  α)  G0 (α)[G1 (α)].
+The assignments α → T (α) can be enumerated successively by an ordinal Turing machine.
+Hence T is ordinal computable.
+
+
+7. T codes a model of SO
+The truth predicate T contains information about a large class of sets of ordinals.
+Definition 11. For ordinals µ and α, define
+                                T (µ, α) = {β < µ | T (G(α, β)) = 1}.
+Ordinal computations                                                                                 17
+
+Set
+
+                                     S = {T (µ, α) | µ, α ∈ Ord}.
+
+Theorem 7. (Ord, S, <, =, ∈, G) is a model of the theory SO.
+
+  Proof. Axioms 1 to 7 are obvious. The proofs of Axiom schemas 8 and 9 rest on a
+Levy-type reflection principle. For ϑ ∈ Ord, define
+
+                                       Sϑ = {T (µ, α) | µ, α ∈ ϑ}.
+
+Then, for any LSO -formula ϕ(v0 , . . . , vn−1 ) and η ∈ Ord, there is some limit ordinal ϑ > η
+such that
+                ∀ξ0 , . . . , ξn−1 ∈ ϑ((Ord, S, <, =, ∈, G)  ϕ[ξ0 , . . . , ξn−1 ]
+                                       iff (ϑ, Sϑ , <, =, ∈, G)  ϕ[ξ0 , . . . , ξn−1 ]).
+
+  Since all elements of Sϑ can be defined from the truth function T and ordinals < ϑ,
+the right-hand side can be evaluated in the structure (ϑ, <, G ∩ ϑ3 , T ) by an LT -formula
+ϕ∗ that can be recursively computed from ϕ. Hence,
+                   ∀ξ0 , . . . , ξn−1 ∈ ϑ((Ord, S, <, =, ∈, G)  ϕ[ξ0 , . . . , ξn−1 ]
+                                          iff (ϑ, <, G ∩ ϑ3 , T )  ϕ∗ [ξ0 , . . . , ξn−1 ]).
+
+   So sets witnessing Axioms 8 and 9 can be defined over (ϑ, <, G ∩ ϑ3 , T ), and are thus
+elements of S.
+   The powerset axiom, Axiom 10, can be shown by a similar reflection argument.
+
+
+8. Ordinal computability corresponds to constructibility
+Before proving the fundamental theorem on ordinal computability, recall the definition of
+Gödel’s model L of constructible sets. It is defined as the union of a hierarchy of levels
+Lα :
+                                              
+                                       L=         Lα
+                                                      α∈Ord
+                                                              
+where the levels are defined recursively by L0 = , Lδ = α<δ Lα for limit ordinals δ,
+and Lα+1 is the set of all sets that are first-order definable in the structure (Lα , ∈). The
+model L is the ⊆-smallest inner model of set theory. An inner model is a transitive proper
+class satisfying the usual Zermelo–Fraenkel axioms ZFC. The standard reference for the
+theory of the model L is the monograph Devlin (1984).
+   We can now prove our main theorem.
+
+Theorem 8. A set x of ordinals is ordinal computable from a finite set of ordinal
+parameters if and only if it is an element of the constructible universe L.
+
+  Proof. Let x ⊆ Ord be ordinal computable by the program P from the finite set
+{α0 , . . . , αk−1 } of ordinal parameters: P : χ{α0 , . . . , αk−1 } → χx . By the simple nature of the
+P. Koepke and M. Koerwien                                                                     18
+
+computation procedure, the same computation can be carried out inside the inner model
+L:
+                                (L, ∈)  P : χ{α0 , . . . , αk−1 } → χx .
+Hence, χX ∈ L and x ∈ L.
+   Conversely, consider x ∈ L. Since (Ord, S, <, =, ∈, G) is a model of the theory SO, there
+is an inner model M of set theory such that
+                                  S = {z ⊆ Ord | z ∈ M}.
+Since L is the ⊆-smallest inner model, L ⊆ M. Hence x ∈ M and x ∈ S. Let x = T (µ, α).
+By the computability of the truth predicate, x is ordinal computable from the parameters
+µ and α.
+
+
+References
+Devlin, K (1984) Constructibility, Perspectives in Mathematical Logic, Springer-Verlag.
+Hamkins, J. and Lewis, A (2000) Infinite Time Turing Machines. J. Symbolic Logic 65 (2) 567–604.
+Jech, T (2003) Set Theory. The Third Millennium Edition, Springer Monographs in Mathematics,
+   Springer-Verlag.
+Koepke, P (2005) Turing computations on ordinals. Bull. Symbolic Logic 11 (3) 377–397.
+Koerwien, M (2001) Die Theorie der Ordinalzahlmengen und ihre Beziehung zur Gödelschen
+   Konstruktibilitätstheorie, Diploma Thesis, Bonn.
+Sacks, G. E. (1990) Higher Recursion Theory, Perspectives in Mathematical Logic, Springer-Verlag.
+

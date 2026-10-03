@@ -87,6 +87,8 @@ FINDINGS.md
 
 第七份预检是 [HMZ-013 universe shift 的 H0 传输](20261003-HMZ-013-universe-shift-h0-preflight/MANIFEST.md)。Voevodsky 的 type-universe 模型确实连接到“ZFC with \(\omega+2\) universes”，Shulman 的 Grothendieck universe source 也给出实际 universe-juggling consumer；但它们运行在 model/large-cardinal scope，并且 Shulman 明说换 universe 后没有理由认为同一个 \(G\) 保持原性质。该来源因此成为 `H0→Z0` 的反类比／payment control，状态为 `ADMISSION_REJECTED_WITH_SCOPE`。
 
+第八份预检是 [HMZ-014 schema/operator/truth](20261003-HMZ-014-schema-operator-truth-preflight/MANIFEST.md)。它检查 H9 的逐公式 Separation schema 是否会被实际来源升级为 whole-\(V\) 的统一 `Build(p,a)`。Koepke–Koerwien 的可用 truth 装置反而明示 formula code、语言、结构、ordinal recursion、machine semantics和reflection；Shulman也区分单个 schema 与代码化的 all-axioms truth。故这是 `SCHEMA_OPERATOR_CONTROL / ADMISSION_REJECTED_WITH_SCOPE`，没有形成P2/P3/P4/P5的ZFC Q。
+
 ## 本次整备的影响边界
 
 | 项目面 | 处置 |

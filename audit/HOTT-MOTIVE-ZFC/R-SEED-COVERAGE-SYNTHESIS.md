@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：首批 R 种子覆盖综合
 
-> **身份：** `CROSS_RUN_SEED_COVERAGE / SIX_CLOSED_DENOMINATORS + SEVEN_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+> **身份：** `CROSS_RUN_SEED_COVERAGE / SIX_CLOSED_DENOMINATORS + EIGHT_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
 
 ## 1. 这一阶段已经覆盖什么
 
@@ -16,6 +16,8 @@
 | `R-SET-CONTROL` | HMZ-001 HoTT Book internal `V`/ZFC control；HMZ-007 Power source；HMZ-009 Book Power Set–quotient preflight；HMZ-010 Isabelle/ZF quotient consumer preflight；HMZ-011/012 totality bridge。 | HoTT 内的 cumulative hierarchy与CIC/Prop Power construction反驳“互译/Power一词即候选”；Book 给出“等价类作为 \(\mathcal P(A)\) 子集”的 bridge，Isabelle/ZF 给出 actual quotient consumer 和 `RepFun`／congruence payment，Dochtermann给有限 Done到无限totality的 reality bridge。 | 一个版本固定的 consumer，既保留 Book 的 Power Set-subset formation route，又把 finite-style completion 保留为同一 `u/F/C/I/O/Done`，或给出可审计的未付 formation-use。 |
 
 `H0→Z0` 也获得一条新的、但是否定性的来源化处置：HMZ-013 将 Voevodsky 的 universe-model correspondence 与 Shulman 的 Grothendieck-universe consumer 对照。它给出 technical correspondence，却显示模型／inaccessible／smallness scope和同一 \(G\) 的 identity 都被来源明确限制；因此不是正向 H0 transport。
+
+`R-CONSTRUCT`／`R-MACHINE` 的 H9 schema—operator 支路也获得 HMZ-014 的来源控制：逐公式 schema、公式编码与受限 truth construction 都有显式语言、结构、reflection和递归条件；没有来源把它们升级为 bare-ZFC 内部的 whole-\(V\) `Build(p,a)`。这保留 H9 为开放 admission class，但不把 schema 本身误报为 P。
 
 ## 2. 这不是“没有找到”，而是对候选空间的收紧
 

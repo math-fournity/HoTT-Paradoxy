@@ -182,3 +182,5 @@ Isabelle consumer又换成 `RepFun`。因此 `Done_h` 与 `Done_z` 未被证明�
 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE / SAME_TASK_NOT_ESTABLISHED / P_REQUALIFICATION_REQUIRED`；它为未来的同一任务证据定义了精确缺口，而非建立Q。
 
 [HMZ-013 universe-shift H0 preflight](20261003-HMZ-013-universe-shift-h0-preflight/MANIFEST.md)检查了另一条非 quotient 的 H0 入口。Voevodsky 2013将 \(U_i\) 的 model 置于“ZFC with \(\omega+2\) universes”，Shulman 2008则以inaccessible \(\kappa\) 的 \(V_\kappa\) 和 universe-juggling 讨论实际 category-theory consumer。后者明确保留了“同一个 \(G\) 未必跨 universe 保持”的 guard。故这一对来源提供 `TECHNICAL_CORRESPONDENCE + EXPLICIT_SCOPE/IDENTITY_PAYMENT`，但不保留 same task、P2/P3或H0 transport，判`ADMISSION_REJECTED_WITH_SCOPE`。
+
+[HMZ-014 schema/operator/truth preflight](20261003-HMZ-014-schema-operator-truth-preflight/MANIFEST.md)随后处理H9：ZFC的每公式 schema 与理想化 `Build(p,a)` 的差别。Koepke–Koerwien 的 ordinal truth source把formula code、特定语言、指定结构、ordinal computation和reflection都显式交付；Shulman 也把单个axiom/schema与被Gödel编码的all-axioms truth分开。结果是`EXPLICIT_CODE_STRUCTURE_RECURSION_REFLECTION_PAYMENT / WHOLE_V_BUILD_NOT_SUPPLIED / ADMISSION_REJECTED_WITH_SCOPE`，而不是用“有代码”或“有递归truth”伪造罗素式reentry。

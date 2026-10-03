@@ -15,9 +15,9 @@ soft_line_target: 300
 |---|---|
 | 当前 core | `core-cognition-generation-13`，62 个 KC。 |
 | 工作单元 | `HOTT-MOTIVE-ZFC-SOP` 的首个来源分母闭合。 |
-| 当前判词 | `ALIGNED_WITH_SIX_SOURCE_RUNS_FOUR_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_ONE_REALITY_TOTALITY_BRIDGE_AND_ONE_H0_UNIVERSE_ANTI_ANALOGY / NO_ZFC_Q_CLAIM`。 |
-| 关键张力 | 用户要求用 P 发现基础理论 Q；六份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary和finite-Done/infinite-totality bridge。HMZ-013补充H0 universe route：technical correspondence存在，但model/inaccessible/smallness scope与source显式的same-G guard阻断transport。HMZ-009/010/012/013均未给P2/P3。 |
-| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给一个越过HMZ-013 scope/identity guard的 H0→Z0 正向传输，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
+| 当前判词 | `ALIGNED_WITH_SIX_SOURCE_RUNS_FIVE_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_ONE_REALITY_TOTALITY_BRIDGE_ONE_H0_UNIVERSE_ANTI_ANALOGY_AND_ONE_H9_SCHEMA_CONTROL / NO_ZFC_Q_CLAIM`。 |
+| 关键张力 | 用户要求用 P 发现基础理论 Q；六份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary和finite-Done/infinite-totality bridge。HMZ-013的scope/identity guard阻断H0 universe transport；HMZ-014的code/language/structure/reflection guard阻断schema→whole-V Build跳跃。均未给P2/P3。 |
+| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给一个越过HMZ-013 scope/identity guard的 H0→Z0 正向传输，给一个whole-V Build consumer越过HMZ-014 code/structure/reflection guard，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 覆盖 | 状态 |
@@ -56,3 +56,5 @@ Book的universe/resizing、Isabelle的equiv/congruence/type preconditions、rout
 升级为P3 lifecycle或Q。
 
 HMZ-013的差量表明，“universe”共同词本身也不能替代H0传输：Voevodsky model中的set-theoretic universe和Shulman category consumer中的\(V_\kappa\)都带有显式scope/identity控制。该来源用现实消费者的same-G caveat保护同一任务，而不是预支它。
+
+HMZ-014的差量将同一纪律推进到schema/truth：公式代码、递归truth或reflection并不等于whole-\(V\)内部算符；受限structure与source声明的递归/反射条件是payment。没有一个消费者把这些条件抹去时，P的罗素形状不能由术语相似产生。
