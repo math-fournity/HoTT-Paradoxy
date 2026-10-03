@@ -2,21 +2,21 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/128 - B003 派生刀具来源门分支仲裁.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/128 - B003 派生刀具来源门分支仲裁.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/129 - N33 校准来源层与站位Master修订.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/129 - N33 校准来源层与站位Master修订.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 128 个已封存分片；账本已重开并登记两个待审单位，缺其卡即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 129 个已封存分片；账本仍有 `N34` 待审，缺其卡即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A1_REOPENED_PENDING_N33_N34 / A2_SUSPENDED_PENDING_A1 / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=128 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=2`。
+> **当前状态:** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A1_REOPENED_PENDING_N34 / A2_SUSPENDED_PENDING_A1 / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=129 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=1`。
 
 本 campaign 的当前分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 006 重冻结。这个表暂只列128张已经封存的
-AtomicAuditCard；账本新登记的`N33,N34`必须各有一张卡后才可恢复A2，不能因索引短而被视为排除。
+AtomicAuditCard；账本新登记的`N34`必须有一张卡后才可恢复A2，不能因索引短而被视为排除。
 
 > **顺序纠偏：** `N31` 的UUID时间身份 `01a0fcae…` 位于 `N09=01a0fcac…` 与 `N10=01a0fcb1…` 之间，但旧账本把它列在N23之后。A1已先封存N10--N30f，形成可见的执行顺序偏差；本条不伪造旧顺序，而是在第050卡补审N31，并要求A2父单元回接时保留此偏差与实际时间位置。
 
@@ -153,4 +153,5 @@ AtomicAuditCard；账本新登记的`N33,N34`必须各有一张卡后才可恢�
 | 126 | [B001 派生刀具来源门采样前失败](<20261003-P-FORGE-ATOMIC-AUDIT/126 - B001 派生刀具来源门采样前失败.md>) | `B001-H060-DERIVED-GATE` | branch-qualified derived-gate prelaunch failure | `RUNNER_OR_EVIDENCE_FAILURE / NO_AGENT_OUTPUT / Q_SAFETY_REPAIR` |
 | 127 | [B002 派生刀具来源门分支审查](<20261003-P-FORGE-ATOMIC-AUDIT/127 - B002 派生刀具来源门分支审查.md>) | `B002-H061-DERIVED-GATE` | branch-qualified derived-gate contract critic | `ALIGNED_BRANCH_SCOPE / CONTRACT_HYPOTHESIS / Q_SAFETY_REPAIR` |
 | 128 | [B003 派生刀具来源门分支仲裁](<20261003-P-FORGE-ATOMIC-AUDIT/128 - B003 派生刀具来源门分支仲裁.md>) | `B003-H062-DERIVED-GATE` | branch-qualified derived-gate text arbiter | `ALIGNED_BRANCH_SCOPE / BATTLE_INCONCLUSIVE / Q_SAFETY_REPAIR` |
+| 129 | [N33 校准来源层与站位Master修订](<20261003-P-FORGE-ATOMIC-AUDIT/129 - N33 校准来源层与站位Master修订.md>) | `N33` | R13 CAL/source-layer/station Master decision | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->

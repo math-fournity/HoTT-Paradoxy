@@ -6,7 +6,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 
 # A0 R13方法修订Master单位补足与重冻结
 
-> **状态：** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A0_REFROZEN / C_CANONICAL=127 / C_BRANCH=3 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / N33_N34_PENDING_A1`。
+> **状态：** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A0_REFROZEN / C_CANONICAL=127 / C_BRANCH=3 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / N33_COMPLETE_N34_PENDING_A1`。
 
 ## 1. 触发：R13的两个方法决定不能只留在粗粒度父卡
 
@@ -22,7 +22,7 @@ R01--R13锻打单位”的说法失效，故A0定点重开。
 
 | atomic_id | unit_kind / parent | raw identity | 改变的P/Q责任 | 分母判词 | A1状态 |
 |---|---|---|---|---|---|
-| `N33` | `NON_H_MASTER_DECISION / R13` | Git commit `f51a205a4c87a84a0b6a87e41f3c3eb98519d82d`，`research: tighten P calibration and station controls`，2026-10-03 02:33:16 -0400。 | 引入CAL-0..4、L-A..L-E、S1..S5，分开control、来源层、station与Theory-Q。 | `UNIQUE_MASTER_DECISION(1)` | `PENDING_A1` |
+| `N33` | `NON_H_MASTER_DECISION / R13` | Git commit `f51a205a4c87a84a0b6a87e41f3c3eb98519d82d`，`research: tighten P calibration and station controls`，2026-10-03 02:33:16 -0400。 | 引入CAL-0..4、L-A..L-E、S1..S5，分开control、来源层、station与Theory-Q。 | `UNIQUE_MASTER_DECISION(1)` | `ATOMIC_AUDIT_COMPLETE` |
 | `N34` | `NON_H_MASTER_DECISION / R13` | Git commit `47ea9deb8e1059ade41bdc6639e9e5cbaf3a72f2`，`research: bind P forging to Q convergence`，2026-10-03 02:54:44 -0400。 | 为ForgeIntent／TaskCard／SelfAudit加入Target-Q、Candidate-Q、Control-Q、状态前后、可证伪Q增量与`TOOL_ONLY_DRIFT`边界。 | `UNIQUE_MASTER_DECISION(1)` | `PENDING_A1` |
 
 两个 commit 有不同OID、时间、直接 source、修改集合和P/Q效果，不能互相去重，也不等同于后来的 R13 audit report。
@@ -38,8 +38,8 @@ current canonical D_atomic       = 127
 branch candidate executions      = 3
 current D_atomic                 = 130
 C_identity_remainder             = 0
-completed AtomicAuditCards       = 128
-C_audit_remainder                = 2
+completed AtomicAuditCards       = 129
+C_audit_remainder                = 1
 ```
 
 `N33,N34`按可核Git时间位于R12之后、R13粗单元之前；它们的精确父级是R13。A1必须先分别审计其`AS_RUN`、
