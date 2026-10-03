@@ -1,0 +1,1612 @@
+                          Realizability algebras II :
+                          new models of ZF + DC
+                                     Jean-Louis Krivine
+                                 July 1, 2010 (updated March 6, 2013)
+
+
+
+
+Introduction
+The technology of classical realizability was developed in [15, 18] in order to extend the
+proof-program correspondence (also known as Curry-Howard correspondence) from pure
+intuitionistic logic to the whole of mathematical proofs, with excluded middle, axioms of ZF,
+dependent choice, existence of a well ordering on P (N), . . .
+We show here that this technology is also a new method in order to build models of ZF and
+to obtain relative consistency results.
+The main tools are :
+• The notion of realizability algebra [18], which comes from combinatory logic [2] and plays
+a role similar to a set of forcing conditions. The extension from intuitionistic to classical logic
+was made possible by Griffin’s discovery [7] of the relation between the law of Peirce and the
+instruction call-with-current-continuation of the programming language SCHEME.
+In this paper, we only use the simplest case of realizability algebra, which I call standard
+realizability algebra ; somewhat like the binary tree in the case of forcing.
+• The theory ZFε [13] which is a conservative extension of ZF, with a notion of strong mem-
+bership, denoted as ε.
+The theory ZFε is essentially ZF without the extensionality axiom. We note an analogy with
+the Fraenkel-Mostowski models with “urelements” : we obtain a non well orderable set,
+which is a Boolean algebra denoted ‫ג‬2, all elements of which (except 1) are empty. But
+we also notice two important differences :
+• The final model of ZF + ¬ AC is obtained directly, without taking a suitable submodel.
+• There exists an injection from the “pathological set” ‫ג‬2 into R, and therefore R is also not
+well orderable.
+We show the consistency, relatively to the consistency of ZF, of the theory ZF + DC (depen-
+dent choice) with the following properties :
+    there exists a sequence (Xn )n∈N of infinite subsets of R, the “cardinals” of which are
+strictly increasing (this means that there is an injection but no surjection from Xn to Xn+1 ),
+and such that Xm ×Xn is equipotent with Xmn for m, n ≥ 2 ;
+    there exists a sequence of infinite subsets of R, the “cardinals” of which are strictly de-
+creasing.
+
+                                                  1
+More detailed properties of R in this model are given in theorems 35 and 39.
+As far as I know, these consistency results are new, and it seems they cannot be obtained by
+forcing. But, in any case, the fact that the simplest non trivial realizability model (which I
+call the model of threads) has a real line with such unusual properties, is of interest in itself.
+Another aspect of these results, which is interesting from the point of view of computer sci-
+ence, is the following : in [18], we introduce read and write instructions in a global memory,
+in order to realize a weak form of the axiom of choice (well ordering of R). Therefore, what
+we show here, is that these instructions are indispensable : without them, we can build a
+realizability model in which R is not well ordered.
+
+
+Standard realizability algebras
+The structure of realizability algebra, and the particular case of standard realizability algebra
+are defined in [18]. They are variants of the usual notion of combinatory algebra. Here, we
+only need the standard realizability algebras, the definition of which we recall below :
+We have a countable set Π0 which is the set of stack constants.
+We define recursively two sets : Λ (the set of terms) and Π (the set of stacks). Terms and stacks
+are finite sequences of elements of the set :
+                            Π0 ∪ {B,C , E , I , K ,W, cc, ς, k, (, ), [, ], . }
+which are obtained by the following rules :
+• B,C , E , I , K ,W, cc, ς are terms (elementary combinators) ;
+• each element of Π0 is a stack (empty stacks) ;
+• if ξ, η are terms, then (ξ)η is a term (this operation is called application) ;
+• if ξ is a term and π a stack, then ξ . π is a stack (this operation is called push) ;
+• if π is a stack, then k[π] is a term.
+A term of the form k[π] is called a continuation. From now on, it will be denoted as kπ .
+A term which does not contain any continuation (i.e. in which the symbol k does not appear)
+is called proof-like.
+Every stack has the form π = ξ1 . . . . . ξn . π0 , where ξ1 , . . . , ξn ∈ Λ and π0 ∈ Π0 , i.e. π0 is a stack
+constant.
+If ξ ∈ Λ and π ∈ Π, the ordered pair (ξ, π) is called a process and denoted as ξ ? π ;
+ξ and π are called respectively the head and the stack of the process ξ ? π.
+The set of processes Λ×Π will also be written Λ ? Π.
+Notation.
+For sake of brevity, the term (. . . (((ξ)η 1 )η 2 ) . . .)η n will be also denoted as (ξ)η 1 η 2 . . . η n or
+ξη 1 η 2 . . . η n , if the meaning is clear. For example : ξηζ = (ξ)ηζ = (ξη)ζ = ((ξ)η)ζ.
+We now choose a recursive bijection from Λ onto N, which is written ξ 7−→ nξ .
+We put σ = (BW )(B )B (the characteristic property of σ is given below).
+For each n ∈ N, we define n ∈ Λ recursively, by putting : 0 = K I ; n + 1 = (σ)n ;
+n is the n-th integer and σ is the successor in combinatory logic.
+We define a preorder relation Â on Λ ? Π. It is the least reflexive and transitive relation such
+that, for all ξ, η, ζ ∈ Λ and π, $ ∈ Π, we have :
+
+
+                                                      2
+(ξ)η ? π Â ξ ? η . π.
+I ? ξ . π Â ξ ? π.
+K ? ξ . η . π Â ξ ? π.
+E ? ξ . η . π Â (ξ)η ? π.
+W ? ξ . η . π Â ξ ? η . η . π.
+C ? ξ . η . ζ . π Â ξ ? ζ . η . π.
+B ? ξ . η . ζ . π Â (ξ)(η)ζ ? π.
+cc ? ξ . π Â ξ ? kπ . π.
+kπ ? ξ . $ Â ξ ? π.
+ς ? ξ . η . π Â ξ ? n η . π.
+For instance, with the definition of 0 and σ given above, we have :
+0 ? ξ . η . π Â η ? π ; σ ? ξ . η . ζ . π Â (ξη)(η)ζ ? π.
+                          ⊥ of Λ ? Π which is a final segment for this preorder, which means
+Finally, we have a subset ⊥
+that : ξ ? π ∈ ⊥
+               ⊥, ξ ? π Â ξ ? π ⇒ ξ0 ? π0 ∈ ⊥
+                   0   0
+                                            ⊥.
+In other words, we ask that ⊥
+                            ⊥ has the following properties :
+(ξ)η ? π ∉ ⊥⊥ ⇒ ξ?η.π ∉ ⊥   ⊥.
+I ?ξ.π ∉ ⊥  ⊥ ⇒ ξ?π ∉ ⊥ ⊥.
+K ?ξ.η.π ∉ ⊥   ⊥ ⇒ ξ?π ∉ ⊥   ⊥.
+E ?ξ.η.π ∉ ⊥   ⊥ ⇒ (ξ)η ? π ∉ ⊥ ⊥.
+W ?ξ.η.π ∉ ⊥    ⊥ ⇒ ξ?η.η.π ∉ ⊥    ⊥.
+C ?ξ.η.ζ.π ∉ ⊥   ⊥ ⇒ ξ?ζ.η.π ∉ ⊥    ⊥.
+B ?ξ.η.ζ.π ∉ ⊥   ⊥ ⇒ (ξ)(η)ζ ? π ∉ ⊥⊥.
+cc ? ξ . π ∉ ⊥
+             ⊥ ⇒ ξ ? kπ . π ∉ ⊥
+                              ⊥.
+kπ ? ξ . $ ∉ ⊥
+             ⊥ ⇒ ξ?π ∉ ⊥  ⊥.
+ς?ξ.η.π ∉ ⊥    ⊥ ⇒ ξ?nη .π ∉ ⊥  ⊥.
+Remark. Thus, the only arbitrary elements in a standard realizability algebra are the set Π0 of stack
+constants and the set ⊥
+                      ⊥ of processes.
+
+
+c-terms and λ-terms
+We call c-term a term which is built with variables, the elementary combinators B , C , E , I ,
+K , W , cc, ς and the application (binary function). A closed c-term is exactly what we have
+called a proof-like term.
+Given a c-term t and a variable x, we define inductively on t , a new c-term denoted by λx t ,
+which does not contain x. To this aim, we apply the first possible case in the following list :
+1. λx t = (K )t if t does not contain x.
+2. λx x = I .
+3. λx t u = (C λx(E )t )u if u does not contain x.
+4. λx t x = (E )t if t does not contain x.
+5. λx t x = (W )λx(E )t (if t contains x).
+6. λx(t )(u)v = λx(B )t uv (if uv contains x).
+In [18], it is shown that this definition is correct. This allows us to translate every λ-term into
+a c-term. In the following, almost every c-term will be written as a λ-term.
+The fundamental property of this translation is given by theorem 1, which is proved in [18] :
+
+                                                 3
+Theorem 1. Let t be a c-term with the only variables x 1 , . . . , x n ; let ξ1 , . . . , ξn ∈ Λ and π ∈ Π.
+Then λx 1 . . . λx n t ? ξ1 . . . . . ξn . π Â t [ξ1 /x 1 , . . . , ξn /x n ] ? π.
+
+Remark. The property we need for the term σ (the successor) is σ ? ξ . η . ζ . π Â (ξη)(η)ζ ? π (to prove
+theorem 18). Therefore, by theorem 1, we could define σ = λnλ f λx(n f )( f )x. The definition we
+chose is much simpler.
+
+
+
+The formal system
+We write formulas and proofs in the language of first order logic. This formal language con-
+sists of :
+• individual variables x, y, . . . ;
+• function symbols f , g , . . . ; each one has an arity, which is an integer ; function symbols of
+arity 0 are called constant symbols.
+• relation symbols ; each one has an arity ; relation symbols of arity 0 are called propositional
+constants. We have two particular propositional constants >, ⊥ and three particular binary
+relation symbols ε/ , ∉, ⊆.
+The terms are built in the usual way with individual variables and function symbols.
+Remark. We use the word “term” with two different meanings : here as a term in a first order language,
+and previously as an element of the set Λ of a realizability algebra. I think that, with the help of the
+context, no confusion is possible.
+The atomic formulas are the expressions R(t 1 , . . . , t n ), where R is a n-ary relation symbol, and
+t 1 , . . . , t n are terms.
+Formulas are built as usual, from atomic formulas, with the only logical symbols →, ∀ :
+• each atomic formula is a formula ;
+• if A, B are formulas, then A → B is a formula ;
+• if A is a formula and x an individual variable, then ∀x A is a formula.
+Notations. The formula A 1 → (A 2 → (· · · (A n → B ) · · ·)) will be written A 1 , A 2 , . . . , A n → B .
+The usual logical symbols are defined as follows :
+¬A ≡ A → ⊥ ; A∨B ≡ (A → ⊥), (B → ⊥) → ⊥ ; A∧B ≡ (A, B → ⊥) → ⊥ ; ∃x F ≡ ∀x (F → ⊥) → ⊥.
+More generally, we shall write ∃x{F 1 , . . . , F k } for ∀x(F 1 , . . . , F k → ⊥) → ⊥.
+We shall sometimes write F ~ for a finite sequence of formulas F 1 , . . . , F k ;
+                          ~
+Then, we shall also write F → G for F 1 , . . . , F k → G and ∃x{F          ~ } for ∀x(F
+                                                                                       ~ → ⊥) → ⊥.
+A ↔ B is the pair of formulas {A → B, B → A}.
+The rules of natural deduction are the following (the A i ’s are formulas, the x i ’s are variables
+of c-term, t , u are c-terms, written as λ-terms) :
+1. x 1 : A 1 , . . . , x n : A n ` x i : A i .
+2. x 1 : A 1 , . . . , x n : A n ` t : A → B , x 1 : A 1 , . . . , x n : A n ` u : A ⇒ x 1 : A 1 , . . . , x n : A n ` t u : B .
+3. x 1 : A 1 , . . . , x n : A n , x : A ` t : B ⇒ x 1 : A 1 , . . . , x n : A n ` λx t : A → B .
+4. x 1 : A 1 , . . . , x n : A n ` t : A ⇒ x 1 : A 1 , . . . , x n : A n ` t : ∀x A where x is an individual variable
+which does not appear in A 1 , . . . , A n .
+5. x 1 : A 1 , . . . , x n : A n ` t : ∀x A ⇒ x 1 : A 1 , . . . , x n : A n ` t : A[τ/x] where x is an individual
+variable and τ is a term.
+
+
+                                                               4
+6. x 1 : A 1 , . . . , x n : A n ` cc : ((A → B ) → A) → A (law of Peirce).
+7. x 1 : A 1 , . . . , x n : A n ` t : ⊥ ⇒ x 1 : A 1 , . . . , x n : A n ` t : A for every formula A.
+
+
+The theory ZFε
+We write below a set of axioms for a theory called ZFε . Then :
+• We show that ZFε is a conservative extension of ZF.
+• We define the realizability models and we show that each axiom of ZFε is realized by a
+proof-like c-term, in every realizability model.
+It follows that the axioms of ZF are also realized by proof-like c-terms in every realizability
+model.
+We write the axioms of ZFε with the three binary relation symbols ε/ , ∉, ⊆. Of course, x ε y
+and x ∈ y are the formulas x ε/ y → ⊥ and x ∉ y → ⊥.
+The notation x ≃ y → F means x ⊆ y, y ⊆ x → F . Thus x ≃ y, which represents the usual
+(extensional) equality of sets, is the pair of formulas {x ⊆ y, y ⊆ x}.
+We use the notations (∀x ε a)F (x) for ∀x(¬F (x) → x ε/ a) and
+        ~ (x) for ¬∀x(F
+(∃x ε a)F               ~ (x) → x ε/ a).
+For instance, (∃x ε y) t ≃ u is the formula ¬∀x(t ⊆ u, u ⊆ t → x ε/ y).
+The axioms of ZFε are the following :
+    0. Extensionality axioms.
+    ∀x∀y[x ∈ y ↔ (∃z ε y)x ≃ z] ; ∀x∀y[x ⊆ y ↔ (∀z ε x)z ∈ y].
+    1. Foundation scheme.
+    ∀x 1 . . . ∀x n ∀a(∀x((∀y ε x)F [y, x 1 , . . . , x n ] → F [x, x 1 , . . . , x n ]) → F [a, x 1 , . . . , x n ])
+    for every formula F [x, x 1 , . . . , x n ].
+The intuitive meaning of axioms 0 and 1 is that ε is a well founded relation, and that the
+relation ∈ is obtained by “ collapsing ” ε into an extensional binary relation.
+The following axioms essentially express that the relation ε satisfies the axioms of Zermelo-
+Fraenkel except extensionality.
+    2. Comprehension scheme.
+    ∀x 1 . . . ∀x n ∀a∃b∀x(x ε b ↔ (x ε a ∧ F [x, x 1 , . . . , x n ]))
+    for every formula F [x, x 1 , . . . , x n ].
+    3. Pairing axiom.
+    ∀a∀b∃x{a ε x, b ε x}.
+    4. Union axiom.
+    ∀a∃b(∀x ε a)(∀y ε x) y ε b.
+    5. Power set axiom.
+    ∀a∃b∀x(∃y ε b)∀z(z ε y ↔ (z ε a ∧ z ε x)).
+    6. Collection scheme.
+    ∀x 1 . . . ∀x n ∀a∃b(∀x ε a)(∃y F [x, y, x 1 , . . . , x n ] → (∃y ε b)F [x, y, x 1 , . . . , x n ])
+    for every formula F [x, y, x 1 , . . . , x n ].
+    7. Infinity scheme.
+    ∀x 1 . . . ∀x n ∀a∃b{a ε b , (∀x ε b)(∃y F [x, y, x 1 , . . . , x n ] → (∃y ε b)F [x, y, x 1 , . . . , x n ])}
+
+                                                                  5
+   for every formula F [x, y, x 1 , . . . , x n ].
+The usual Zermelo-Fraenkel set theory is obtained from ZFε by identifying the predicate
+symbols ε/ and ∉. Thus, the axioms of ZF are written as follows, with the predicate symbols
+∉, ⊆ (recall that x ≃ y is the conjunction of x ⊆ y and y ⊆ x) :
+   0. Equality and extensionality axioms.
+   ∀x∀y[x ∈ y ↔ (∃z ∈ y)x ≃ z] ; ∀x∀y[x ⊆ y ↔ (∀z ∈ x)z ∈ y].
+   1. Foundation scheme.
+   ∀x 1 . . . ∀x n ∀a(∀x((∀y ∈ x)F [y, x 1 , . . . , x n ] → F [x, x 1 , . . . , x n ]) → F [a, x 1 , . . . , x n ])
+   for every formula F [x, x 1 , . . . , x n ] written with the only relation symbols ∉, ⊆.
+   2. Comprehension scheme.
+   ∀a∃b∀x(x ∈ b ↔ (x ∈ a ∧ F [x, x 1 , . . . , x n ]))
+   for every formula F [x, x 1 , . . . , x n ] written with the only relation symbols ∉, ⊆.
+   3. Pairing axiom.
+   ∀a∀b∃x{a ∈ x, b ∈ x}.
+   4. Union axiom.
+   ∀a∃b(∀x ∈ a)(∀y ∈ x) y ∈ b.
+   5. Power set axiom.
+   ∀a∃b∀x(∃y ∈ b)∀z(z ∈ y ↔ (z ∈ a ∧ z ∈ x)).
+   6. Collection scheme.
+   ∀x 1 . . . ∀x n ∀a∃b(∀x ∈ a)(∃y F [x, y, x 1 , . . . , x n ] → (∃y ∈ b)F [x, y, x 1 , . . . , x n ])
+   for every formula F [x, y, x 1 , . . . , x n ] written with the only relation symbols ∉, ⊆.
+   7. Infinity scheme.
+   ∀x 1 . . . ∀x n ∀a∃b{a ∈ b , (∀x ∈ b)(∃y F [x, y, x 1 , . . . , x n ] → (∃y ∈ b)F [x, y, x 1 , . . . , x n ])}
+   for every formula F [x, y, x 1 , . . . , x n ] written with the only relation symbols ∉, ⊆.
+Remark. The usual statement of the axiom of infinity is the particular case of this scheme, where a
+is ;, and F (x, y) is the formula y ≃ x ∪ {x}.
+
+Let us show that ZFε is a conservative extension of ZF. First, it is clear that, if ZFε ` F , where
+F is a formula of ZF (i.e. written only with ∉ and ⊆), then ZF ` F ; indeed, it is sufficient to
+replace ε/ with ∉ in any proof of ZFε ` F .
+Conversely, we must show that each axiom of ZF is a consequence of ZFε .
+
+Theorem 2.
+i) ZFε ` ∀a(a ⊆ a) (and thus a ≃ a).
+ii) ZFε ` ∀a∀x(x ε a → x ∈ a).
+
+i) Using the foundation axiom, we assume ∀x(x ε a → x ⊆ x), and we must show a ⊆ a ;
+therefore, we add the hypothesis x ε a. It follows that x ⊆ x, then x ≃ x, and therefore :
+∃y{x ≃ y, y ε a}, that is to say x ∈ a. Thus, we have ∀x(x ε a → x ∈ a), and therefore a ⊆ a.
+ii) Just shown.
+     Q . E . D.
+
+Corollary 3. ZFε ` ∀x(x ∈ a → x ∈ b) → a ⊆ b.
+
+
+
+                                                                 6
+We must show x ε a → x ∈ b, which follows from x ∈ a → x ∈ b and x ε a → x ∈ a (theo-
+rem 2(ii)).
+   Q . E . D.
+
+Lemma 4. ZFε ` a ⊆ b, ∀x(x ∈ b → x ∈ c) → a ⊆ c.
+
+We must show x ε a → x ∈ c, which follows from x ε a → x ∈ b and x ∈ b → x ∈ c.
+   Q . E . D.
+
+Theorem 5. ZFε ` ∀x∀y∀z(x ⊆ y, y ⊆ z → x ⊆ z).
+
+Let F (b) ≡ ∀x∀z(x ⊆ b, b ⊆ z → x ⊆ z). We show F (b) by foundation :
+thus, we suppose a ⊆ b, b ⊆ c, u ε a and we want to show u ∈ c.
+From u ε a, a ⊆ b, we get u ∈ b and thus, u ≃ v for some v ε b ;
+from v ε b, b ⊆ c, we get v ∈ c and thus, v ≃ w for some w ε c.
+Now, we have u ⊆ v, v ⊆ w and v ε b ; by the foundation axiom hypothesis, we get u ⊆ w ;
+but we have also w ⊆ v, v ⊆ u and v ε b, so that we get w ⊆ u.
+Finally, we have u ≃ w and w ε c, and therefore u ∈ c.
+    Q . E . D.
+
+Corollary 6. ZFε ` a ⊆ b ↔ ∀x(x ∈ a → x ∈ b).
+
+By corollary 3, we have only to show a ⊆ b → ∀x(x ∈ a → x ∈ b).
+From x ∈ a, it follows x ≃ y for some y ε a ; from a ⊆ b, we get y ∈ b, and therefore y ≃ z
+for some z ε b. Now, from x ≃ y, y ≃ z and theorem 5, we get x ≃ z. But, we have z ε b, and
+therefore x ∈ b.
+    Q . E . D.
+It is now easy to deduce the equality and extensionality axioms of ZF :
+∀x(x ≃ x) ; ∀x∀y(x ≃ y → y ≃ x) ; ∀x∀y∀z(x ≃ y, y ≃ z → x ≃ z) ;
+∀x∀x 0 ∀y∀y 0 (x ≃ x 0 , y ≃ y 0 , x ∉ y → x 0 ∉ y 0 ) ; ∀x∀y(∀z(z ∉ x ↔ z ∉ y) → x ≃ y) ;
+∀x∀y(x ⊆ y ↔ ∀z(z ∉ y → z ∉ x)).
+Remark. This shows that ≃ is an equivalence relation which is compatible with the relations ∈ and
+⊆ ; but, in general, it is not compatible with ε. This is the equality relation for ZF ; it will be called
+extensional equivalence.
+Notation. The formula ∀z(z ε/ y → z ε/ x) will be written x ⊂ y. The ordered pair of formulas
+x ⊂ y, y ⊂ x will be written x ∼ y.
+By theorem 2, we get ZFε ` ∀x∀y(x ⊂ y → x ⊆ y). Thus ⊂ will be called strong inclusion,
+and ∼ will be called strong extensional equivalence.
+• Foundation scheme.
+Let F [x] be written with only ∉, ⊆ and let G[x] be the formula ∀y(y ≃ x → F [y]). Clearly ,
+∀x G[x] is equivalent to ∀x F [x]. Therefore, from axiom scheme 1 of ZFε , it is sufficient to
+show : ∀b(∀x(x ∈ b → F [x]) → F [b]) → (∀x(x ε a → G[x]) → G[a]), i.e. :
+∀b(∀x(x ∈ b → F [x]) → F [b]), ∀x∀y(x ε a, y ≃ x → F [y]), a ≃ b → F [b].
+Therefore, it is sufficient to prove : ∀x∀y(x ε a, y ≃ x → F [y]), a ≃ b → ∀x(x ∈ b → F [x]).
+From x ∈ b, a ≃ b, we deduce x ∈ a and therefore (by axiom 0), x 0 ε a for some x 0 ≃ x. Finally,
+we get F [x] from ∀x∀y(x ε a, y ≃ x → F [y]).
+
+                                                     7
+ • Comprehension scheme : ∀a∃b∀x(x ∈ b ↔ (x ∈ a ∧ F [x]))
+for every formula F [x, x 1 , . . . , x n ] written with ∉, ⊆.
+From the axiom scheme 2 of ZFε , we get ∀x(x ε b ↔ (x ε a ∧ F [x])). If x ∈ b, then x ≃ x 0 , x 0 ε b
+for some x 0 . Thus x 0 ε a and F [x 0 ]. From x ≃ x 0 and x 0 ε a, we deduce x ∈ a. Since ⊆ and ∈ are
+compatible with ≃, it is the same for F ; thus, we obtain F [x].
+Conversely, if we have F [x] and x ∈ a, we have x ≃ x 0 and x 0 ε a for some x 0 . Since F is
+compatible with ≃, we get F [x 0 ], thus x 0 ε b and x ∈ b.
+• Pairing axiom : ∀x∀y∃z{x ∈ z, y ∈ z}.
+Trivial consequence of axiom 3 of ZFε , and theorem 2(ii).
+• Union axiom : ∀a∃b∀x∀y(x ∈ a, y ∈ x → y ∈ b).
+From x ∈ a we have x ≃ x 0 and x 0 ε a for some x 0 ; we have y ∈ x, therefore y ∈ x 0 , thus y ≃ y 0
+and y 0 ε x 0 for some y 0 . From axiom 4 of ZFε , x 0 ε a and y 0 ε x 0 , we get y 0 ε b ; therefore y ∈ b, by
+y ≃ y 0.
+• Power set axiom : ∀a∃b∀x∃y{y ∈ b , ∀z(z ∈ y ↔ (z ∈ a ∧ z ∈ x))}
+Given a, we obtain b by axiom 5 of ZFε ; given x, we define x 0 by the condition :
+∀z(z ε x 0 ↔ (z ε a ∧ z ∈ x)) (comprehension scheme of ZFε ). By definition of b, there exists
+y ε b such that ∀z(z ε y ↔ z ε a ∧ z ε x 0 ), and therefore ∀z(z ε y ↔ z ε a ∧ z ∈ x). It follows easily
+that ∀z(z ∈ y ↔ z ∈ a ∧ z ∈ x).
+• Collection scheme : ∀a∃b(∀x ∈ a)(∃y F [x, y] → (∃y ∈ b)F [x, y])
+for every formula F [x, y, x 1 , . . . , x n ] written with the only relation symbols ∉, ⊆.
+From x ∈ a and ∃y F [x, y], we get x ≃ x 0 , x 0 ε a for some x 0 , and thus ∃y F [x 0 , y] since F is
+compatible with ≃. From axiom scheme 6 of ZFε , we get (∃y ε b)F [x 0 , y], and therefore :
+(∃y ∈ b)F [x, y], by theorem 2(ii), again because F is compatible with ≃.
+• Infinity scheme : ∀a∃b{a ∈ b , (∀x ∈ b)(∃y F [x, y] → (∃y ∈ b)F [x, y])}
+for every formula F [x, y, x 1 , . . . , x n ] written with the only relation symbols ∉, ⊆.
+Same proof.
+   Q . E . D.
+
+
+
+Realizability models of ZFε
+As usual in relative consistency proofs, we start with a model M of ZFC, called the ground
+model or the standard model. In particular, the integers of M are called the standard integers.
+The elements of M will be called individuals.
+In the sequel, the model M will be our universe, which means that every notion we consider
+is defined in M . In particular, the realizability algebra (Λ, Π, ⊥
+                                                                  ⊥) is an individual of M .
+We define a realizability model N , with the same set of individuals as M . But N is not a
+model in the usual sense, because its truth values are subsets of Π instead of being 0 or 1.
+Therefore, although M and N have the same domain (the quantifier ∀x describes the same
+domain for both), the model N may (and will, in all non trivial cases) have much more
+individuals than M , because it has individuals which are not named. In particular, it will
+have non standard integers.
+
+
+
+                                                      8
+Remark. This is a great difference between realizability and forcing models of ZF. In a forcing model,
+each individual is named in the ground model ; it follows that integers, and even ordinals, are not
+changed.
+For each closed formula F with parameters in M , we define two truth values :
+kF k ⊆ Π and |F | ⊆ Λ.
+|F | is defined immediately from kF k as follows :
+                               ξ ∈ |F | ⇔ (∀π ∈ kF k) ξ ? π ∈ ⊥
+                                                              ⊥.
+Notation. We shall write ξ ||− F (read “ ξ realizes F ”) for ξ ∈ |F |.
+kF k is now defined by recurrence on the length of F :
+• F is atomic ;
+then F has one of the forms >, ⊥, a ε/ b, a ⊆ b, a ∉ b where a, b are parameters in M . We set :
+k>k = ; ; k⊥k = Π ; ka ε/ bk = {π ∈ Π; (a, π) ∈ b}.
+ka ⊆ bk, ka ∉ bk are defined simultaneously by induction on (rk(a)∪ rk(b),rk(a)∩ rk(b))
+(rk(a) being the rank of a).
+ka ⊆ bk = {ξ . π; ξ ∈ Λ, π ∈ Π, (c, π) ∈ a, ξ ||− c ∉ b} ;
+          [
+           c
+ka ∉ bk = {ξ . ξ0 . π; ξ, ξ0 ∈ Λ, π ∈ Π, (c, π) ∈ b, ξ ||− a ⊆ c, ξ0 ||− c ⊆ a}.
+          [
+              c
+• F ≡ A → B ; then kF k = {ξ . π ; ξ ||− A, π ∈ kB k}.
+                        [
+• F ≡ ∀x A : then kF k = kA[a/x]k.
+                                   a
+The following theorem is an essential tool :
+
+Theorem 7 (Adequacy lemma).
+Let A 1 , . . . , A n , A be closed formulas of ZFε , and suppose that x 1 : A 1 , . . . , x n : A n ` t : A.
+If ξ1 ||− A 1 , . . . , ξn ||− A n then t [ξ1 /x 1 , . . . , ξn /x n ] ||− A. In particular, if ` t : A, then t ||− A.
+
+We need to prove a (seemingly) more general result, that we state as a lemma :
+
+Lemma 8. Let A 1 [~          z], . . . , A n [~
+                                              z], A[~   z] be formulas of ZFε , with ~
+                                                                                     z = (z 1 , . . . , z k ) as free variables,
+and suppose that x 1 : A 1 [~            z], . . . , x n : A n [~
+                                                                z] ` t : A[~
+                                                                           z].
+If ξ1 ||− A 1 [~
+               a ], . . . , ξn ||− A n [~ a ] for some parameters (i.e. individuals in M ) ~              a = (a 1 , . . . , a k ),
+then t [ξ1 /x 1 , . . . , ξn /x n ] ||− A[~    a ].
+
+Proof by recurrence on the length of the derivation of x 1 : A 1 [~
+                                                                  z], . . . , x n : A n [~
+                                                                                         z] ` t : A[~
+                                                                                                    z].
+We consider the last used rule.
+1. x 1 : A 1 [~
+              z], . . . , x n : A n [~
+                                     z] ` x i : A i [~
+                                                     z]. This case is trivial.
+2. We have the hypotheses :
+x 1 : A 1 [~
+           z], . . . , x n : A n [~
+                                  z] ` u : B [~
+                                              z] → A[~
+                                                     z] ; x 1 : A 1 [~
+                                                                     z], . . . , x n : A n [~
+                                                                                            z] ` v : B [~
+                                                                                                        z] ; t = uv.
+By the induction hypothesis, we have u[ξ/~              ~ x ] ||− B [~a /~z] → A[~     a /~z] and v[ξ/~~  x ] ||− B [~
+                                                                                                                     a /~
+                                                                                                                        z].
+Therefore (uv)[~           ξ/~x ] ||− A[~
+                                        a /~
+                                           z] which is the desired result.
+3. We have the hypotheses :
+x 1 : A 1 [~
+           z], . . . , x n : A n [~
+                                  z], y : B [~
+                                             z] ` u : C [~ z] ; A[~
+                                                                  z] ≡ B [~       z] ; t = λy u.
+                                                                          z] → C [~
+We want to show that (λy u)[ξ/~              ~  x ] ||− B [~
+                                                           a /~
+                                                              z] → C [~
+                                                                      a /~
+                                                                         z]. Thus, let :
+η ||− B [~    z] and π ∈ kC [~
+           a /~                       a /~z]k. We must show :
+
+
+                                                                9
+(λy u)[~              ⊥ or else u[~
+         x] ? η . π ∈ ⊥
+       ξ/~                        ξ/~
+                                    x , η/y] ? π ∈ ⊥
+                                                   ⊥.
+Now, by the induction hypothesis, we have u[~     ξ/~
+                                                    x , η/y] ||− C [~
+                                                                    a /~
+                                                                       z],
+which gives the result.
+4. We have the hypotheses :
+x 1 : A 1 [~
+           z], . . . , x n : A n [~
+                                  z] ` t : B [~z] ; A[~    z] ≡ ∀z 1 B [~ z] ; ξi ||− A i [a 1 /z 1 , a 2 /z 2 , . . . , a k /z k ] ;
+the variable z 1 is not free in A 1 [~          z], . . . , A n [~
+                                                                 z].
+We have to show that t [~            ξ/~x ] ||− ∀z 1 B [~ a /~z] i.e. t [~ξ/~x ] ||− ∀z 1 B [a 2 /z 2 , . . . , a k /z k ]. Thus, we take
+an arbitrary set b in M and we show t [ξ/~                    ~  x ] ||− B [b/z 1 , a 2 /z 2 , . . . , a k /z k ].
+By the induction hypothesis, it is sufficient to show that ξi ||− A i [b/z 1 , a 2 /z 2 , . . . , a k /z k ].
+But this follows from the hypothesis on ξi , because z 1 is not free in the formulas A i .
+5. We have the hypotheses :
+x 1 : A 1 [~
+           z], . . . , x n : A n [~
+                                  z] ` t : ∀y B [y,~
+                                                   z] ; A[~
+                                                          z] ≡ B [τ[~ z]/y,~z] ; ξi ||− A i [~
+                                                                                             a ].
+By the induction hypothesis, we have t [~               ξ/~x ] ||− ∀y B [y,~  z] ; therefore t [~
+                                                                           a /~                   ξ/~
+                                                                                                    x ] ||− B [b/y,~
+                                                                                                                   a /~
+                                                                                                                      z]
+for every parameter b. We get the desired result by taking b = τ[~                    a ].
+6. The result follows from the following :
+
+Theorem 9. For every formulas A, B , we have cc ||− ((A → B ) → A) → A.
+
+Let ξ ||− (A → B ) → A and π ∈ kAk. Then cc ? ξ . π Â ξ ? kπ . π which is in ⊥
+                                                                             ⊥, because
+kπ ||− A → B by lemma 10.
+     Q . E . D.
+
+Lemma 10. If π ∈ kAk, then kπ ||− A → B .
+
+Indeed, let ξ ||− A ; then kπ ? ξ . π0 Â ξ ? π ∈ ⊥
+                                                 ⊥ for every stack π0 ∈ kB k.
+   Q . E . D.
+7. We have the hypothesis x 1 : A 1 [~
+                                     z], . . . , x n : A n [~
+                                                            z] ` t : ⊥.
+By the induction hypothesis, we have t [~      ξ/~ x ] ||− ⊥. Since k⊥k = Π, we have t [~ξ/~x] ? π ∈ ⊥
+                                                                                                     ⊥ for
+every π ∈ kA[~                         ~
+                z]k, and therefore t [ξ/~
+             a /~                          x ] ||− A[~   a /~
+                                                            z] which is the desired result.
+This completes the proof of lemma 8 and theorem 7.
+   Q . E . D.
+
+
+Realized formulas and coherent models
+
+In the ground model M , we interpret the formulas of the language of ZF : this language
+consists of ∉, ⊆ ; we add some function symbols, but these functions are always defined,
+in M , by some formulas written with ∉, ⊆. We suppose that this ground model satisfies ZFC.
+The value, in M , of a closed formula F of the language of ZF, with parameters in M , is of
+course 1 or 0. In the first case, we say that M satisfies F , and we write M |= F .
+In the realizability model N , we interpret the formulas of the language of ZFε , which con-
+sists of ε/ , ∉, ⊆ and the same function symbols as in the language of ZF. The domain of N
+and the interpretation of the function symbols are the same as for the model M .
+The value, in N , of a closed formula F of ZFε with parameters (in M or in N , which is the
+same thing) is an element of P (Π) which is denoted as kF k, the definition of which has been
+given above.
+Thus, we can no longer say that N satisfies (or not) a given closed formula F . But we shall
+
+                                                                  10
+say that N realizes F (and we shall write N ||− F ), if there exists a proof-like term θ such
+that θ ||− F . We say that two closed formulas F ,G are interchangeable if N ||− F ↔ G.
+Notice that, if kF k = kGk, then F ,G are interchangeable (indeed I ||− F → G), but the converse
+is far from being true.
+The model N allows us to make relative consistency proofs, since it is clear, from the ad-
+equacy lemma (theorem 7), that the class of formulas which are realized in N is closed by
+deduction in classical logic. Nevertheless, we must check that the realizability model N is
+coherent, i.e. that it does not realize the formula ⊥. We can express this condition in the
+following form :
+            For every proof-like term θ, there exists a stack π ∈ Π such that θ ? π ∉ ⊥
+                                                                                      ⊥.
+When the model N is coherent, it is not complete, except in trivial cases. This means that
+there exist closed formulas F of ZFε such that N 6||− F and N 6||− ¬F .
+
+
+The axioms of ZFε are realized in N
+• Extensionality axioms.
+We have k∀z(z ∉ b → z ε/ a)k =            {ξ . π; ξ ||− c ∉ b, π ∈ kc ε/ ak}
+                                      [
+                                      c
+by definition of the value of k∀z(z ∉ b → z ε/ a)k ;
+and ka ⊆ bk = {ξ . π; (c, π) ∈ a, ξ ||− c ∉ b} by definition of ka ⊆ bk.
+               [
+                   c
+Therefore, we have ka ⊆ bk = k∀z(z ∉ b → z ε/ a)k, so that :
+I ||− ∀x∀y(x ⊆ y → ∀z(z ∉ y → z ε/ x)) and I ||− ∀x∀y(∀z(z ∉ y → z ε/ x) → x ⊆ y).
+In the same way, we have :
+k∀z(a ⊆ z, z ⊆ a → z ε/ b)k =     {ξ . ξ0 . π; ξ ||− a ⊆ c, ξ0 ||− c ⊆ a; π ∈ kc ε/ bk}
+                                 [
+                                  c
+by definition of the value of k∀z(a ⊆ z, z ⊆ a → z ε/ b)k ;
+and ka ∉ bk = {ξ . ξ0 . π; (c, π) ∈ b, ξ ||− a ⊆ c, ξ0 ||− c ⊆ a}} by definition of ka ∉ bk.
+               [
+                  c
+Therefore, we have ka ∉ bk = k∀z(a ⊆ z, z ⊆ a → z ε/ b)k, so that :
+I ||− ∀x∀y(x ∉ y → ∀z(x ⊆ z, z ⊆ x → z ε/ y)) ; I ||− ∀x∀y(∀z(x ⊆ z, z ⊆ x → z ε/ y) → x ∉ y).
+Notation. We shall write ~        ξ for a finite sequence (ξ1 , . . . , ξn ) of terms. Therefore, we shall write
+~
+ξ ||− ~
+      A for ξi ||− A i (i = 1, . . . , n).
+In particular, the notation ~         ξ ||− a ≃ b means ξ1 ||− a ⊆ b, ξ2 ||− b ⊆ a ;
+the notation ~   ξ ||− A ↔ B means ξ1 ||− A → B , ξ2 ||− B → A.
+• Foundation scheme.
+
+Theorem 11. For every finite sequence F   ~ [x, x 1 , . . . , x n ] of formulas, we have :
+            ~ [y] → y ε/ x), F
+Y ||− ∀x(∀y(F                ~ [x] → ⊥) → ∀x(F~ [x] → ⊥)
+with Y = A A and A = λaλ f ( f )(a)a f (Turing fixed point combinator).
+
+Let ξ ||− ∀x(∀y(F  ~ [y] → y ε/ x), F
+                                    ~ [x] → ⊥). We show, by induction on the rank of a, that :
+Y ? ξ .~η . π ∈ ⊥
+                ⊥, for every π ∈ Π and ~η ||− F ~ [a].
+Since Y ? ξ .~η . π Â ξ ? Yξ .~η . π, it suffices to show ξ ? Yξ .~η . π ∈ ⊥
+                                                                           ⊥.
+                  ~               ~
+Now, ξ ||− ∀y(F [y] → y ε/ a), F [a] → ⊥, so that it suffices to show Yξ ||− ∀y(F     ~ [y] → y ε/ a), in
+other words Yξ ||− F   ~ [b] → b ε/ a for every b. Let ~        ~ [b] and $ ∈ kb ε/ ak. Thus, we have
+                                                          ζ ||− F
+
+                                                        11
+(b, $) ∈ a, therefore rk(b) < rk(a) so that Y ? ξ .~ζ.$ ∈ ⊥
+                                                          ⊥ by induction hypothesis. It follows
+that Yξ ?~    ζ.$ ∈ ⊥
+                    ⊥, which is the desired result.
+    Q . E . D.
+It follows from theorem 11 that the axiom scheme 1 of ZFε (foundation) is realized.
+• Comprehension scheme.
+Let a be a set, and F [x] a formula with parameters. We put b = {(x, ξ . π); (x, π) ∈ a, ξ ||− F [x]} ;
+then, we have trivially kx ε/ bk = kF (x) → x ε/ ak.
+Therefore I ||− ∀x(x ε/ b → (F (x) → x ε/ a)) and I ||− ∀x((F (x) → x ε/ a) → x ε/ b).
+• Pairing axiom.
+We consider two sets a and b, and we put c = {a, b}×Π. We have ka ε/ ck = kb ε/ ck = k⊥k, thus
+I ||− a ε c and I ||− b ε c.
+Remark. Except in trivial cases, c has many other elements than a and b, which have no name in M .
+• Union axiom.
+Given a set a, let b = Cl(a) (the transitive closure of a, i.e. the least transitive set which
+contains a). We show ky ε/ b → x ε/ ak ⊆ ky ε/ x → x ε/ ak : indeed, let ξ . π ∈ ky ε/ b → x ε/ ak, i.e.
+ξ ||− y ε/ b and (x, π) ∈ a. Therefore, x ⊆ Cl(a), i.e. x ⊆ b and thus ky ε/ bk ⊃ ky ε/ xk.
+Thus, we have ξ ||− y ε/ x, which gives the result.
+It follows that I ||− ∀x∀y((y ε/ x → x ε/ a) → (y ε/ b → x ε/ a)).
+• Power set axiom.
+Given a set a, let b = P (Cl(a)×Π)×Π. For every set x, we put :
+y = {(z, ξ . π); ξ ||− z ε x, (z, π) ∈ a}. We have y = {(z, ξ . π); ξ ||− z ε x, π ∈ kz ε/ ak}, and therefore :
+kz ε/ yk = kz ε x → z ε/ ak. Thus :
+I ||− ∀z(z ε/ y → (z ε x → z ε/ a)) and I ||− ∀z((z ε x → z ε/ a) → z ε/ y).
+Now, it is obvious that y ∈ P (Cl(a)×Π), and therefore (y, π) ∈ b for every π ∈ Π.
+Thus, we have ky ε/ bk = Π = k⊥k. It follows that :
+λ f ( f )I I ||− ∀x(∀y(∀z(z ε/ y → (z ε x → z ε/ a)), ∀z((z ε x → z ε/ a) → z ε/ y) → y ε/ b) → ⊥).
+• Collection scheme.
+Given a set a, and a formula F [x, y] with parameters, let :
+   b = {Φ(x, ξ)×Cl(a); x ∈ Cl(a), ξ ∈ Λ} with
+       S
+
+   Φ(x, ξ) = {y of minimum rank ; ξ ||− F [x, y]} or Φ(x, ξ) = ; if there is no such y.
+We show that k∀y(F [x, y] → x ε/ a)k ⊆ k∀y(F [x, y] → y ε/ b)k :
+Suppose indeed that ξ . π ∈ k∀y(F [x, y] → x ε/ a)k, i.e. (x, π) ∈ a and ξ ||− F [x, y] for some y.
+By definition of Φ(x, ξ), there exists y 0 ∈ Φ(x, ξ). Moreover, we have x ∈ Cl(a), π ∈ Cl(a), and
+therefore (y 0 , π) ∈ b ; it follows that π ∈ ky 0 ε/ bk. But, since y 0 ∈ Φ(x, ξ), we have ξ ||− F [x, y 0 ]
+and thus ξ . π ∈ kF [x, y 0 ] → y 0 ε/ bk, which gives the result.
+We have proved that I ||− ∀x(∀y(F [x, y] → y ε/ b) → ∀y(F [x, y] → x ε/ a)).
+• Infinity scheme.
+Given a set a, we define b as the least set such that :
+               {a}×Π ⊆ b and ∀x(∀π ∈ Π)(∀ξ ∈ Λ)((x, π) ∈ b ⇒ Φ(x, ξ)×{π} ⊆ b)
+where Φ(x, ξ) is defined as above.
+We have {a}×Π ⊆ b, thus ka ε/ bk = k⊥k, and therefore I ||− a ε b.
+We now show that k∀y(F [x, y] → x ε/ b)k ⊆ k∀y(F [x, y] → y ε/ b)k :
+Suppose indeed that ξ . π ∈ k∀y(F [x, y] → x ε/ b)k, i.e. (x, π) ∈ b and ξ ||− F [x, y] for some y.
+By definition of Φ(x, ξ), there exists y 0 ∈ Φ(x, ξ). By definition of b, we have (y 0 , π) ∈ b, i.e.
+
+                                                      12
+π ∈ ky 0 ε/ bk. Now, since y 0 ∈ Φ(x, ξ), we have ξ ||− F [x, y 0 ] and thus :
+ξ . π ∈ kF [x, y 0 ] → y 0 ε/ bk, which gives the result.
+We have proved that I ||− a ε b and I ||− ∀x(∀y(F [x, y] → y ε/ b) → ∀y(F [x, y] → x ε/ b)).
+
+
+Function symbols and equality
+According to our needs, we shall add to the language of ZFε , some function symbols f , g , . . .
+of any arity. A k-ary function symbol f will be interpreted, in the realizability model N , by
+a functional relation, which is defined in the ground model M by a formula F [x 1 , . . . , x k , y]
+of ZF. Thus, we assume that M |= ∀x 1 . . . ∀x k ∃!y F [x 1 , . . . , x k , y]
+(∃!y F [y] is the conjunction of ∀y∀y 0 (F [y], F [y 0 ] → y = y 0 ) and ∃y F [y]).
+The axiom schemes of ZFε , written in the extended language, are still realized in the model
+N , because the above proofs remain valid.
+On the other hand, in order to make sure that the axiom schemes of ZF, which use a k-ary
+function symbol f , are still realized, one must check that this symbol is compatible with ≃,
+i.e. that the following formula is realized in N :
+∀x 1 . . . ∀x k (x 1 ≃ y 1 , . . . , x k ≃ y k → f x 1 . . . x k ≃ f y 1 . . . y k ).
+We now add a new rule to build formulas of ZFε :
+If t , u are two terms and F is a formula of ZFε , then t = u ,→ F is a formula of ZFε .
+The formula t = u ,→ ⊥ is denoted t 6= u.
+The formula t 6= u → ⊥, i.e. (t = u ,→ ⊥) → ⊥ is denoted t = u.
+The truth value of these new formulas is defined as follows, assuming that t , u, F are closed,
+with parameters in N :
+kt = u ,→ F k = ; if t 6= u ; kt = u ,→ F k = kF k if t = u.
+It follows that :
+kt 6= uk = ; = k>k if t 6= u ; kt 6= uk = Π = k⊥k if t = u ;
+kt = uk = k> → ⊥k if t 6= u ; kt = uk = k⊥ → ⊥k if t = u.
+Proposition 12 shows that t = u ,→ F and t = u → F are interchangeable.
+
+Proposition 12.
+i) λx(x)I ||− (t = u → F ) → (t = u ,→ F ) ;
+ii) λxλy(cc)λk(y)(k)x ||− (t = u ,→ F ), t = u → F .
+
+i) Let ξ ||− t = u → F and π ∈ kt = u ,→ F k. Thus, we have t = u and π ∈ kF k.
+We must show λx(x)I ? ξ . π ∈ ⊥  ⊥, that is ξ ? I . π ∈ ⊥
+                                                        ⊥. This is immediate, by hypothesis on ξ,
+since I ||− t = u.
+ii) Let ξ ||− t = u ,→ F , η ||− t = u and π ∈ kF k. We must show that :
+λxλy(cc)λk(y)(k)x ? ξ . η . π ∈ ⊥    ⊥, soit η ? kπ ξ . π ∈ ⊥
+                                                            ⊥.
+If t 6= u, then η ||− > → ⊥, hence the result.
+If t = u, then ξ ||− F , thus ξ ? π ∈ ⊥⊥, therefore kπ ξ ||− ⊥.
+But we have η ||− ⊥ → ⊥, and therefore η ? kπ ξ . π ∈ ⊥      ⊥.
+      Q . E . D.
+Proposition 13 shows that the formulas t = u and ∀x(u ε/ x → t ε/ x) (Leibniz equality) are
+interchangeable.
+
+                                                  13
+Proposition 13.
+i) I ||− t = u ,→ ∀x(u ε/ x → t ε/ x) ;
+ii) I ||− ∀x(u ε/ x → t ε/ x) → t = u.
+
+i) It suffices to check that I ||− ∀x(u ε/ x → t ε/ x) when t = u, which is obvious.
+ii) We must show that I ||− ∀x(u ε/ x → t ε/ x), t 6= u → ⊥. Thus let ξ ||− ∀x(u ε/ x → t ε/ x),
+η ||− t 6= u and π ∈ Π ; we must show that ξ ? η . π ∈ ⊥  ⊥.
+We have ξ ||− u ε/ a → t ε/ a for every a ; we take a = {t }×Π, thus kt ε/ ak = Π, hence π ∈ kt ε/ ak.
+If t = u, we have η ||− ⊥, thus η ||− u ε/ a, hence the result.
+If t 6= u, we have ku ε/ ak = ; = k>k, thus η ||− u ε/ a, hence the result.
+      Q . E . D.
+We now show that the axioms of equality are realized.
+
+Proposition 14. I ||− ∀x(x = x) ; I ||− ∀x∀y(x = y ,→ y = x) ;
+I ||− ∀x∀y∀z(x = y ,→ (y = z ,→ x = z)) ;
+I ||− ∀x∀y(x = y ,→ (F [x] → F [y])) for every formula F with one free variable, with parameters.
+
+Trivial, by definition of ,→.
+    Q . E . D.
+
+
+Conservation of well-foundedness
+
+Theorem 15 says that every well founded relation in the ground model M , gives a well foun-
+ded relation in the realizability model N .
+
+Theorem 15. Let f be a binary function such that f (x, y) = 1 is a well founded relation in the
+ground model M . Then, for every formula F [x] of ZFε with parameters in M :
+Y ||− ∀x(∀y( f (y, x) = 1 ,→ F [y]) → F [x]) → ∀x F [x]
+with Y = A A and A = λaλ f ( f )(a)a f .
+
+Let us fix a and let ξ ||− ∀x(∀y( f (y, x) = 1 ,→ F [y]) → F [x]). We show, by induction on a,
+following the well founded relation f (x, y) = 1, that Y ? ξ . π ∈ ⊥      ⊥ for every π ∈ kF [a]k.
+Thus, suppose that π ∈ kF [a]k ; since Y ?ξ . π Â ξ? Yξ . π, we need to show that ξ? Yξ . π ∈ ⊥       ⊥.
+By hypothesis, we have ξ ||− ∀y( f (y, a) = 1 ,→ F [y]) → F [a] ; thus, it suffices to show that :
+Yξ ||− f (y, a) = 1 ,→ F [y] for every y. This is clear if f (y, a) 6= 1, by definition of ,→.
+If f (y, a) = 1, we must show Yξ ||− F [y], i.e. Y ?ξ . ρ ∈ ⊥  ⊥ for every ρ ∈ kF [y]k. But this follows
+from the induction hypothesis.
+     Q . E . D.
+
+
+Sets in M give type-like sets in N
+
+We define a unary function symbol ‫ ג‬by putting ‫(ג‬a) = a×Π for every individual a (element
+of the ground model M ).
+For each set E of the ground model M , we also introduce the unary function 1E with values
+in {0, 1}, defined as follows :
+1E (a) = 1 if a ∈ E ; 1E (a) = 0 if a ∉ E .
+The formula 1E (x) = 1 ,→ A will also be denoted as x ε ‫ג‬E ,→ A.
+
+                                                  14
+In particular, a ε/ ‫ג‬E is identical with a ε ‫ג‬E ,→ ⊥ that is 1E (a) 6= 1.
+We shall write ∀x ‫ג‬E A[x] for ∀x(x ε ‫ג‬E ,→ A[x]).
+Proposition 12 shows that x ε ‫ג‬E ,→ A and x ε ‫ג‬E → A are interchangeable.
+Therefore ∀x ‫ג‬E A[x] and ∀x(x ε ‫ג‬E → A[x]) are also interchangeable. We have :
+                 k∀x ‫ג‬E A[x]k =    kA[a/x]k and |∀x ‫ג‬E A[x]| =
+                                [                              \
+                                                                 |A[a/x]|.
+                                             a∈E                                       a∈E
+As already said, we shall add to the language of ZFε , some function symbols of any arity,
+which will be interpreted in the ground model M by some functional relations. Then every
+formula of the form ∀~         x (t 1 [~
+                                       x ] = u 1 [~
+                                                  x ], . . . , t k [~
+                                                                    x ] = u k [~
+                                                                               x ] → t [~
+                                                                                        x ] = u[~ x ]) which is satisfied in the
+model M , is realized in the model N (t 1 , u 1 , . . . , t k , u k , t , u are terms of the language).
+Indeed, we verify immediately that :
+I ||− ∀~
+       x (t 1 [~          x ] ,→ (. . . ,→ (t k [~
+               x ] = u 1 [~                      x ] = u k [~    x ] ,→ t [~
+                                                                           x ] = u[~x ])) . . .).
+It follows that if, for instance, t [x 0 , x 1 ] sends E 0 ×E 1 into D in the model M , then it sends
+‫ג‬E 0 ×‫ג‬E 1 into ‫ג‬D in the model N . Indeed, we have then :
+M |= ∀x 0 ∀x 1 (1E 0 (x 0 ) = 1, 1E 1 (x 1 ) = 1 → 1D (t [x 0 , x 1 ]) = 1) and therefore, we have :
+I ||− ∀x 0 ∀x 1 (1E 0 (x 0 ) = 1 ,→ (1E 1 (x 1 ) = 1 ,→ 1D (t [x 0 , x 1 ]) = 1)), in other words :
+         ‫ג‬E      ‫ג‬E
+I ||− ∀x 0 0 ∀x 1 1 (t [x 0 , x 1 ] ε ‫ג‬D).
+Notice, in particular, that the characteristic function 1E , which takes its values in the set
+2 = {0, 1} in the model M , sends ‫ג‬E into ‫ג‬2 in the realizability model N .
+We shall denote ∧, ∨, ¬ the (trivial) Boolean algebra operations in {0, 1} (they should not be
+confused with the logical connectives ∧, ∨, ¬). In this way, we have defined three function
+symbols of the language of ZFε ; thus, in the realizability model N , they define a Boolean
+algebra structure on the set ‫ג‬2.
+Remarks.
+i) A set of the form ‫ג‬E behaves somewhat like a type, in the sense of computer science, because any
+function of the model M with domain (resp. range) E 1 ×· · ·×E k becomes a function of the model N
+with domain (resp. range) ‫ג‬E 1 ×· · ·×‫ג‬E k .
+ii) The Boolean algebra ‫ג‬2 is, in general, non trivial i.e. it has ε-elements 6= 0, 1. Notice that they are
+all empty : indeed, it is easy to check that I ||− ∀x ‫ג‬2 ∀y(x 6= 1 → y ε/ x).
+
+
+The set N
+        e of integers in N
+We add to the language of ZFε a constant symbol 0 and a unary function symbol s. Their
+interpretation in the model M is as follows :
+0 is ; ; s(a) is {a}×Π for every set a, in other words s(a) = ‫{(ג‬a}).
+In the realizability model N , s(a) is the singleton of a. Indeed, we have trivially :
+kb ε/ s(a)k = kb 6= ak (i.e. ; if a 6= b and Π if a = b) and it follows that :
+I ||− ∀x∀y(y ε/ sx → x 6= y) ; I ||− ∀x∀y(x 6= y → y ε/ sx).
+For each n ∈ N, the term s n 0 will also be written n.
+Remark. In the definition of the set of integers in the realizability model N , we prefer to use the
+singleton as the successor function s, instead of the usual one x 7−→ x∪{x}, which is more complicated
+to define. It would give : s(a) = {(a, K . π); π ∈ Π} ∪ {(x, 0 . π); (x, π) ∈ a}.
+
+
+
+
+                                                              15
+Theorem 16. The following formulas are realized in N :
+i) ∀x∀y(sx = s y ,→ x = y) ;
+ii) ∀x(sx 6≃ 0) ;
+iii) ∀x∀y(x ≃ y → sx ≃ s y) ;
+iv) ∀x∀y(sx ≃ s y → x ≃ y).
+
+This shows, in particular, that the function s is compatible with the extensional equiva-
+lence ≃.
+i) We check that I ||− sa = sb ,→ a = b. We may suppose sa = sb, because
+ksa = sb ,→ a = bk = ; if sa 6= sb. But, in this case, we have a = b, by definition of sa, sb.
+ii) We have ka ∉ 0k = k∀x(x ≃ a → x ε/ 0)k = ;, since kx ε/ 0k = ;. Now ka ε/ sak = Π and
+therefore we have, for any ξ ∈ Λ, λx(x)ξ ||− (a ∉ ; → a ε/ sa) → ⊥ ; thus :
+λx(x)ξ ||− ∀x(x ∉ ; → x ε/ sa) → ⊥. But this means exactly that λx(x)ξ ||− sa ⊆ 0 → ⊥, and
+therefore λxλy(x)ξ ||− sa ≃ 0 → ⊥.
+iii) We show that the formula a ≃ b → sa ≃ sb is realized ; it suffices to realize the formula
+a ≃ b → sa ⊆ sb. We prove it by means of already realized sentences.
+We need to prove a ≃ b, x ∉ sb → x ε/ sa. But x ε/ sa has the same truth value as x 6= a. Thus,
+we simply have to prove a ≃ b → a ∈ sb. But a ∈ sb follows from b ε sb and a ≃ b.
+iv) In the same way, we prove the formula sa ≃ sb → a ≃ b and, in fact sa ⊆ sb → a ≃ b.
+The formula sa ⊆ sb is ∀x(x ∉ sb → x ε/ sa) ; but x ε/ sa is the same as x 6= a. Thus, from
+sa ⊆ sb we obtain a ∈ sb, i.e. (∃x ε sb) x ≃ a. But x ε sb is the same as x = b, so that we
+obtain a ≃ b.
+    Q . E . D.
+The individuals s n 0 are obviously distinct, for n ∈ N. Therefore, we can define :
+                                 e = {(s n 0, n . π); n ∈ N, π ∈ Π}
+                                 N
+and we have :
+       e = ; if a is not of the form s n 0, with n ∈ N ;
+ka ε/ Nk
+          Nk = {n . π; π ∈ Π}.
+ks n 0 ε/ e
+The formula x ε N    e will also be written ent(x).
+In the sequel, we shall use the restricted quantifier ∀x N , which we also write ∀x ent , with
+                                                                 e
+
+the following meaning :
+k∀x ent F [x]k = k∀x N F [x]k = {n . π; n ∈ N, π ∈ kF [s n 0]k}.
+                        e
+
+The restricted existential quantifier ∃x N or ∃x ent is defined as :
+                                             e
+
+∃x ent F [x] ≡ ∃x N F [x] ≡ ¬∀x ent ¬F [x].
+                   e
+
+Proposition 17 shows that these quantifiers have indeed the intended meaning : the formulas
+∀x ent F [x] and ∀x(x ε N   e → F [x]) are interchangeable.
+
+Proposition 17.
+i) λxλyλz(y)(x)z ||− ∀x ent F [x] → ∀x(¬F [x] → x ε/ e
+                                                     N) ;
+                                                  ent
+ii) λxλy(cc)λk(x)k y ||− ∀x(¬F [x] → x ε/ N) → ∀x F [x].
+                                          e
+
+i) Let ξ ||− ∀x ent F [x], η ||− ¬F [a] and $ ∈ ka ε/ Nk.
+                                                      e Thus, we have a = s n 0 for some n ∈ N
+             Nk 6= ;) and $ = n . π. We must show that η ? ξn . π ∈ ⊥
+(since ka ε/ e                                                         ⊥.
+Now, by hypothesis on ξ, we have ξ ? n . ρ ∈ ⊥     ⊥ for any ρ ∈ kF [s n 0]k ; that is ξn ||− F [s n 0].
+Since η ||− ¬F [s n 0], we have η ? ξn . π ∈ ⊥
+                                             ⊥, which is the desired result.
+
+                                                  16
+                               e and n . π ∈ k∀x ent F [x]k, with n ∈ N and π ∈ kF [s n 0]k.
+ii) Let ξ ||− ∀x(¬F [x] → x ε/ N)
+We have : λxλy(cc)λk(x)k y ? ξ . n . π Â ξ ? kπ . n . π.
+Now, we have kπ ||− ¬F [s n 0] and n . π ∈ ks n 0 ε/ Nk.
+                                                     e Therefore ξ ? kπ . n . π ∈ ⊥
+                                                                                  ⊥.
+    Q . E . D.
+
+Theorem 18 (Recurrence scheme). For every formula F [~                  x , y] :
+                N
+i) I ||− ∀~x ∀n (∀y(F [~
+                       x , s y] → F [~
+                                     x , y]), F [~x , n] → F [~x , 0]).
+                e
+
+                 N
+ii) I ||− ∀~x ∀n (∀y(F [~
+                        x , y] → F [~x , s y]), F [~
+                                                   x , 0] → F [~
+                                                               x , n]).
+                 e
+
+
+i) Let n ∈ N, ~
+              a a sequence of individuals, ξ ||− ∀y(F [~                   a , y]), π ∈ kF [~
+                                                             a , s y] → F [~                 a , 0]k.
+We must show that, for every α ||− F [~  a , n], we have I ? n . ξ . α . π ∈ ⊥   ⊥.
+In fact, we show, by recurrence on n, that n ? ξ . α . π ∈ ⊥      ⊥.
+This is immediate if n = 0. In order to go from n to n + 1, we suppose now α ||− F [~               a , sn] ;
+we have n + 1 ? ξ . α . π Â σn ? ξ . α . π Â σ ? n . ξ . α . π Â n ? ξ . ξα . π.
+But, by hypothesis on ξ, we have ξ ||− F [~                a , n] ; thus ξα ||− F [~
+                                              a , sn] → F [~                         a , n].
+Hence the result, by the recurrence hypothesis.
+ii) Let n ∈ N, ~    a a sequence of individuals, ξ ||− ∀y(F [~                 a , s y]), α ||− F [~
+                                                                   a , y] → F [~                   a , 0] and
+π ∈ kF [~ a , 0]k. We must show that I ? n . ξ . α . π ∈ ⊥
+                                                         ⊥ ; this follows from lemma 19, with k = 0.
+    Q . E . D.
+
+Lemma 19. Let n, k ∈ N, ξ ||− ∀y(F [y] → F [s y]), α ||− F [s k 0] and π ∈ kF [s k n]k.
+Then n ? ξ . α . π ∈ ⊥
+                     ⊥.
+
+The proof is done for all integers k, by recurrence on n. This is immediate if n = 0.
+In order to go from n to n + 1, we suppose now π ∈ kF [s k (n + 1)]k, i.e. π ∈ kF [s k+1 n]k.
+We have n + 1 ? ξ . α . π Â σn ? ξ . α . π Â σ ? n . ξ . α . π Â n ? ξ . ξα . π.
+But, by hypothesis on ξ, we have ξ ||− F [s k 0] → F [s k+1 0] ; thus ξα ||− F [s k+1 0].
+Hence the result, by the recurrence hypothesis.
+    Q . E . D.
+Definition. We denote by int(n) the formula ∀x(∀y(s y ε/ x → y ε/ x), n ε/ x → 0 ε/ x).
+Theorem 21 shows that the formulas int(n) and n ε N     e are interchangeable, i.e. the formula
+∀n(int(n) ↔ n ε N) is realized by a proof-like term : this is the storage theorem for integers.
+                e
+
+Lemma 20. λg λx(g )(σ)x ||− ∀y(s y ε/ N
+                                      e → y ε/ N).
+                                               e
+
+We show that λg λx(g )(σ)x ||− sb ε/ N    e → b ε/ N
+                                                   e for every individual b.
+This is obvious if b is not of the form s n 0, since then kb ε/ Nk     e = ;. Thus, it remains to show :
+                    n+1             n                         n+1
+λg λx(g )(σ)x ||− s     0 ε/ N
+                             e → s 0 ε/ eN. Thus, let ξ ||− s     0 ε/ e
+                                                                       N ; we must show :
+λg λx(g )(σ)x ? ξ . n . π ∈ ⊥ ⊥, i.e. ξ ? σn . π ∈ ⊥
+                                                   ⊥, which is clear, since σn = n + 1.
+   Q . E . D.
+
+Theorem 21 (Storage theorem).
+i) I ||− ∀x N int(x).
+            e
+
+ii) T ||− ∀x(int(x), x ε/ N
+                          e → ⊥) with T = λnλ f ((n)λg λx(g )(σ)x) f 0.
+
+
+
+
+                                                          17
+i) It is theorem 18(i), if we take for F [x, y] the formula y ε/ x.
+                                 N and π ∈ Π. We must show T ? ν . φ . π ∈ ⊥
+ii) Let ν ||− int(a), φ ||− a ε/ e                                         ⊥, that is :
+ν ? λg λx(g )(σ)x . φ . 0 . π ∈ ⊥
+                                ⊥.
+By hypothesis, we have ν ||− ∀y(s y ε/ N  e → y ε/ e
+                                                   N), a ε/ N
+                                                            e → 0 ε/ e
+                                                                     N.
+But we have 0 . π ∈ k0 ε/ Nk by definition of N and, by lemma 20 :
+                            e                     e
+λg λx(g )(σ)x ||− ∀y(s y ε/ Ne → y ε/ N).
+                                      e Hence the result.
+    Q . E . D.
+From theorem 18(ii), it follows immediately that the recurrence scheme of ZF is realized
+in N ; it is the scheme :
+∀~x (∀y(F [~
+           x , y] → F [~             x , 0] → (∀n ∈ N)F
+                       x , s y]), F [~              e [~x , n]) for every formula F [~
+                                                                                     x , y] of ZF (i.e. writ-
+ten with ∉, ⊆, 0, s).
+Then, indeed, the formula F is compatible with the extensional equivalence ≃.
+Since the function s is compatible with ≃, we deduce from lemma 20 that the formula :
+∀y(y ∈ Ne → s y ∈ N)
+                  e is realized in N ; the formula 0 ∈ N e is also obviously realized.
+From the recurrence scheme just proved, we deduce that :
+             N
+             e is the set of integers of the model N , considered as a model of ZF.
+
+Theorem 22.
+i) Let f : Nk → N be a recursive function. Then, the formula :
+∀x 1N . . . ∀x kN ( f (x 1 , . . . , x k ) ε e
+                                             N) is realized in N .
+    e           e
+
+                  k
+ii) Let g : N → 2 be a recursive function. Then, the formula :
+∀x 1N . . . ∀x kN (g (x 1 , . . . , x k ) = 1 ∨ g (x 1 , . . . , x k ) = 0) is realized in N .
+    e           e
+
+
+i) This can be written ∀x 1ent . . . ∀x kent ent( f (x 1 , . . . , x k )). The proof is done in [18, 15].
+ii) We have N ||− (∀x 1 ε ‫ ג‬N) . . . (∀x k ε ‫ ג‬N) g (x 1 , . . . , x k ) ε ‫ג‬2.
+Now, since g is recursive, we have, by (i) :
+N ||− (∀x 1 ε eN) . . . (∀x k ε e
+                                N) g (x 1 , . . . , x k ) ε e
+                                                            N.
+Hence the result, by lemma 23.
+    Q . E . D.
+
+Lemma 23. λxλyλ f ( f )x y ||− ∀x ‫ג‬2 (x 6= 1, x 6= 0 → x ε/ N).
+                                                            e
+
+We have to show :
+λxλyλ f ( f )x y ||− >, ⊥ → 0 ε/ N e and λxλyλ f ( f ) f x y ||− ⊥, > → 1 ε/ e
+                                                                             N.
+Thus let ξ ||− > (i.e. ξ ∈ Λ arbitrary) and η ||− ⊥. We have to show :
+λxλyλ f ( f )x y ? ξ . η . 0 . π ∈ ⊥
+                                   ⊥ and λxλyλ f ( f )x y ? η . ξ . 1 . π ∈ ⊥
+                                                                            ⊥
+which is trivial.
+   Q . E . D.
+Remarks. i) In the present paper, theorem 22 is used only in trivial particular cases.
+ii) Let us recall the difference between ‫ ג‬N and N e (the set of integers in the model N ) ; we have :
+          N                              n
+ξ ||− ∀x F [x] iff (∀n ∈ N)(∀π ∈ kF [s 0]k) ξ ? π ∈ ⊥
+        ‫ג‬                                             ⊥.
+ξ ||− ∀x F [x] iff (∀n ∈ N)(∀π ∈ kF [s 0]k) ξ ? n . π ∈ ⊥
+        N                              n
+                                                        ⊥.
+        e
+
+Notice that we have K ||− ∀x(x ε/ ‫ ג‬N → x ε/ N), in other words K ||− N
+                                                e                         e ⊂ ‫ ג‬N. This means that, in N ,
+the set N
+        e of integers is strongly included in ‫ ג‬N. In the particular realizability model considered below
+(and, in fact, in every non trivial realizability model), the formula ‫ ג‬N 6⊆ Ne is realized.
+
+
+                                                                  18
+Non extensional and dependent choice
+For each formula F (x, y 1 , . . . , y m ) of ZFε , we add a function symbol f F of arity m + 1, with the
+axiom : ∀~ y (∀k N F [ f F (k,~
+                              y ),~y ] → ∀x F [x,~  y ])
+                 e
+                 ent
+           y (∀k F [ f F (k,~
+or else : ∀~                     y ),~y ] → ∀x F [x,~  y ]).
+It is the axiom scheme of non extensional choice, in abbreviated form NEAC.
+Remarks. i) The axiom scheme NEAC does not imply the axiom of choice in ZF, because we do not
+suppose that the symbol f F is compatible with the extensional equivalence ≃. It is the reason why
+we speak about non extensional axiom of choice. On the other hand, as we show below, it implies DC
+(the axiom of dependent choice).
+ii) It seems that we could take for f F a m-ary function symbol and use the following simpler (and
+logically equivalent) axiom scheme NEAC’ : ∀~   y (F [ f F (~
+                                                            y ),~
+                                                                y ] → ∀x F [x,~
+                                                                              y ]).
+But this axiom scheme cannot be realized, even though the axiom scheme NEAC is realized by a very
+simple proof-like term (theorem 24), provided the instruction ς is present.
+More precisely, we can define a function f F in M , such that NEAC is realized in N , but this is impos-
+sible for NEAC’.
+
+Theorem 24 (NEAC).
+For each closed formula ∀x∀~       y F , we can define a (m + 1)-ary function symbol f F such that :
+             y (∀k ent F [ f F (k,~
+λx(ς)xx ||− ∀~                    y )/x,~y ] → ∀x F [x,~
+                                                       y ]).
+
+For each k ∈ N we put P k = {π ∈ Π; ξ ? k . π ∉ ⊥⊥, k = nξ }.
+                                                   [
+For each individual x, we have : k∀x F [x,~ y ]k = kF [a,~    y ]k.
+                                                            a
+Thus, there exists a function f F such that, given k ∈ N and ~
+                                                             y such that P k ∩ k∀x F [x,~
+                                                                                        y ]k 6= ;,
+we have P k ∩ kF [ f F (k,~
+                          y ),~
+                              y ]k 6= ;.
+Now, we want to show λx(ς)xx ||− ∀k ent F [ f F (k,~        y ),~
+                                                                y ] → F [x,~
+                                                                           y ], for every individuals x,~
+                                                                                                        y.
+Thus, let ξ ||− ∀k ent F [ f F (k,~   y ] and π ∈ kF [a,~
+                                  y ),~                   y ]k ; we must show λx(ς)xx ? ξ . π ∈ ⊥   ⊥.
+If this is false, we have ς ? ξ . ξ . π ∉ ⊥  ⊥ and therefore ξ ? j . π ∉ ⊥    ⊥ with j = nξ .
+It follows that π ∈ P j ∩ kF [a,~   y ]k ; thus, there exists π ∈ P j ∩ kF [ f F ( j ,~
+                                                                   0
+                                                                                      y ),~
+                                                                                          y ]k.
+Now, we have j . π0 ∈ k∀k ent F [ f F (k,~       y ]k, and therefore, by hypothesis on ξ, we have :
+                                             y ),~
+ξ ? j . π0 ∈ ⊥  ⊥. This is in contradiction with π0 ∈ P j .
+     Q . E . D.
+
+
+NEAC implies DC
+
+Let us call DCS (dependent choice scheme) the following axiom scheme :
+∀~z(∀x∃y F [x, y,~  z] → ∀n ent ∃!y S F [n, y,~
+                                              z] ∧ ∀n ent ∃y∃y 0 {S F [n, y,~
+                                                                            z], S F [sn, y 0 ,~
+                                                                                              z], F [y, y 0 ,~
+                                                                                                             z]}).
+where F is a formula of ZFε with free variables x, y,~       z ; the formula S F is written below.
+In the following, we omit the variables ~      z (the parameters), for sake of simplicity.
+The usual axiom of dependent choice DC is obtained by taking for F [x, y, z 0 , z 1 ] the formula
+y ε z 0 ∧ (x ε z 0 → <x, y> ε z 1 ).
+We now show how to define the formula S F , so that ZFε , NEAC ` DCS ; we shall conclude
+that DC is realized.
+So, let us assume ∀x∃y F [x, y]. By NEAC, there is a function symbol f such that :
+∀x∃k ent F [x, f (k, x)]. We define the formula R F [x, y] as follows :
+
+                                                       19
+R F [x, y] ≡ ∃k ent {F [x, f (k, x)], ∀i ent (i < k → ¬F [x, f (i , x)]), y = f (k, x)}.
+This means : “y = f (k, x) for the first integer k such that F [x, f (k, x)] ”.
+Therefore, R F is functional, i.e. we have ∀x∃!y R F (x, y).
+S F is defined so as to represent a sequence obtained by iteration of the function given by R F ,
+beginning (arbitrarily) at 0 :
+S F (n, x) ≡ ∀z[∀m∀y∀y 0 (<m, y> ε z, R F (y, y 0 ) → <sm, y 0 > ε z), <0, 0> ε z → <n, x> ε z].
+It should be clear that, with this definition of S F , we obtain :
+∀n ent ∃!y S F [n, y] and ∀n ent ∃y∃y 0 {S F [n, y], S F [sn, y 0 ], F [y, y 0 ]}.
+Thus, DCS is provable from ZFε and NEAC.
+Remark. We have used the binary function symbol <x, y> which is defined, in the ground model M ,
+in the usual way : <a, b> = {{a}, {a, b}}. The formulas ∀x∀x 0 ∀y∀y 0 (<x, y> = <x 0 , y 0 > ,→ x = x 0 ),
+∀x∀x 0 ∀y∀y 0 (<x, y> = <x 0 , y 0 > ,→ y = y 0 ), are trivially realized by I .
+
+
+Properties of the Boolean algebra ‫ג‬2
+Let (x < y) be the binary recursive function defined as follows in M :
+(m <n) = 1 if m, n ∈ N, m < n ; else (m <n) = 0.
+
+Theorem 25. For every choice of ⊥    ⊥, the relation (x < y) = 1 is, in N , a strict well founded
+partial order, which is the usual order on integers (i.e. on N).
+                                                             e
+
+Indeed, the formulas : ∀x((x <x) 6= 1) and ∀x∀y∀z((x < y) = 1 ,→ ((y <z) = 1 ,→ (x <z) = 1))
+are trivially realized.
+Moreover, since the relation (x < y) = 1 is well founded, we have (theorem 15) :
+Y ||− ∀x(∀y((y <x) = 1 ,→ F [y]) → F [x]) → ∀x F [x]
+for every formula F [x] with parameters and one free variable.
+By theorem 22(ii), the binary recursive function (x < y) sends Ne 2 into {0, 1}, in the model N .
+Therefore, it suffices to check that the following formulas are realized in N :
+∀x N ∀y N (y ≤ x → (x < y) 6= 1) ; ∀x N ∀y N (x < y → (x < y) = 1).
+   e       e                            e     e
+
+Now the following formulas are trivially realized :
+∀x ‫ ג‬N ∀y ‫ ג‬N ∀z ‫ ג‬N (x = y + z → (x < y) 6= 1) ; ∀x ‫ ג‬N ∀y ‫ ג‬N ∀z ‫ ג‬N (y = x + z + 1 → (x < y) = 1).
+    Q . E . D.
+In the ground model M , we put, for each integer n :
+                          n = {0, 1, . . . , n − 1} = {0, s0, . . . , s n−1 0}.
+The functions n 7−→ n and n 7−→ ‫ג‬n are defined in the realizability model N , with do-
+main ‫ג‬N.
+
+Theorem 26.
+The following formulas are realized in N :
+i) ∀x ‫ ג‬N ∀m ‫ ג‬N ((x <m) = 1 ↔ x ε ‫ג‬m) ;
+ii) ∀m ‫ ג‬N ∀n ‫ ג‬N ((m <n) = 1 → ‫ג‬m ⊂ ‫ג‬n) ;
+iii) ∀x ‫ ג‬N ∀m ‫ ג‬N ((x <m) = 1 ↔ ∃y ‫ ג‬N (m = x + y + 1)).
+
+Remember that x ⊂ y is the formula ∀z(z ε/ y → z ε/ x).
+
+
+
+
+                                                       20
+i) We have trivially k(a <m) 6= 1k = ka ε/ ‫ג‬mk for every a, m ∈ N.
+ii) By transitivity of the relation (m <n) = 1 (theorem 25).
+iii) We observe that k(a <m) 6= 1k = k(∀y ε ‫ ג‬N)(m 6= a + y + 1)k for every a, m ∈ N.
+     Q . E . D.
+For each n ε ‫ ג‬N (and, in particular, for each n ε N, e i.e. for each integer of N ), the set de-
+fined, in N , by (x <n) = 1 (the strict initial segment defined by n) is therefore extensionally
+equivalent to ‫ג‬n.
+
+Theorem 27. In N , the application (x, y) 7−→ m y + x is a bijection from ‫ג‬m× ‫ג‬n onto ‫(ג‬mn).
+Indeed, the following formulas are realized in N by I :
+i) ∀m ‫ ג‬N ∀n ‫ ג‬N ∀x ‫ג‬m ∀y ‫ג‬n ((m y + x) ε ‫ג‬mn) ;
+ii) ∀m ‫ ג‬N ∀n ‫ ג‬N ∀x ‫ג‬m ∀x 0‫ג‬m ∀y ‫ג‬n ∀y 0‫ג‬n (m y + x = m y 0 + x 0 ,→ x = x 0 ) ;
+     ∀m ‫ ג‬N ∀n ‫ ג‬N ∀x ‫ג‬m ∀x 0‫ג‬m ∀y ‫ג‬n ∀y 0‫ג‬n (m y + x = m y 0 + x 0 ,→ y = y 0 ) ;
+iii) ∀m ‫ ג‬N ∀n ‫ ג‬N ∀z ‫ג‬mn ∃x ‫ג‬m ∃y ‫ג‬n (z = m y + x).
+
+i) and ii) We simply have to replace ∀m ‫ ג‬N and ∀x ‫ג‬m with their definitions, which are :
+∀m ‫ ג‬N F ≡ ∀m(1N (m) = 1 ,→ F ) ; ∀x ‫ג‬m F ≡ ∀x((x <m) = 1 ,→ F ).
+We see immediately that these two formulas are realized by I .
+iii) We show that :
+I ||− ∀m ‫ ג‬N ∀n ‫ ג‬N ∀z ‫ ג‬N (∀x ‫ ג‬N ∀y ‫ ג‬N ((x <m) = 1 ,→ ((y <n) = 1 ,→ z 6= m y + x)) → (z <mn) 6= 1).
+Thus, we consider :
+m, n, z 0 ∈ N ; ξ ∈ Λ, ξ ||− ∀x ‫ ג‬N ∀y ‫ ג‬N ((x <m) = 1 ,→ ((y <n) = 1 ,→ z 6= m y + x))
+and π ∈ k(z 0 <mn) 6= 1k. We must show I ? ξ . π ∈ ⊥          ⊥, that is ξ ? π ∈ ⊥
+                                                                                 ⊥.
+We have k(z 0 <mn) 6= 1k 6= ;, therefore z 0 < mn. Thus, there exist x 0 , y 0 ∈ N, x 0 < m, y 0 < n
+such that z 0 = mx 0 + y 0 . Now, by hypothesis on ξ, we have :
+ξ ||− (x 0 <m) = 1 ,→ ((y 0 <n) = 1 ,→ z 0 6= m y 0 + x 0 ), in other words ξ ||− ⊥.
+     Q . E . D.
+
+
+Injection of ‫ג‬n into P (N)
+                        e
+
+Remember that we have fixed a recursive bijection : ξ 7−→ nξ from Λ onto N. The inverse
+bijection will be denoted n 7−→ ξn .
+This bijection is used in the execution rule of the instruction ς, which is as follows :
+                                     ς ? ξ . η . π Â ξ ? n η . π.
+We define, in M , a function ∆ : N → 2 by putting ∆(n) = 0 ⇔ ξn ||− ⊥.
+In this way, we have defined a function symbol ∆, in the language of ZFε . In the realizability
+model N , the symbol ∆ represents a function from ‫ ג‬N into ‫ג‬2. In particular, the function ∆
+sends the set Ne of integers of the model N into the Boolean algebra ‫ג‬2.
+
+Theorem 28. Let us put θ = λxλy(ς)y xx ; then, we have :
+                          θ ||− ∀x ‫ג‬2 (x 6= 0 → ∃n ent {∆(n) 6= 0, ∆(n) ≤ x})
+where ≤ is the order relation of the Boolean algebra ‫ג‬2 : y ≤ x is the formula x = (y ∨x).
+
+We must show θ ||− ∀x ‫ג‬2 (x 6= 0, ∀n ent (∆(n) 6= 0 → x 6= ∆(n)∨x) → ⊥).
+Thus, let a ∈ {0, 1}, ξ ||− a 6= 0, η ||− ∀n ent (∆(n) 6= 0 → a 6= ∆(n)∨a) and π ∈ Π.
+We must show θ ? ξ . η . π ∈ ⊥    ⊥ that is ς ? η . ξ . ξ . π ∈ ⊥
+                                                                ⊥, or else η ? nξ . ξ . π ∈ ⊥
+                                                                                            ⊥.
+
+                                                    21
+By hypothesis on η, it suffices to show nξ . ξ . π ∈ k∀n ent (∆(n) 6= 0 → a 6= ∆(n)∨a)k, that is, by
+definition of the quantifier ∀n ent : ξ . π ∈ k∆(nξ ) 6= 0 → a 6= ∆(nξ )∨ak.
+This amounts to show ξ ||− ∆(nξ ) 6= 0 and a = ∆(nξ )∨a.
+• Proof of ξ ||− ∆(nξ ) 6= 0 : if ∆(nξ ) = 1, this is trivial, because k∆(nξ ) 6= 0k = ; ;
+if ∆(nξ ) = 0, then ξ ||− ⊥, by definition of ∆.
+• Proof of a = ∆(nξ )∨a : this is obvious if a = 1 ; if a = 0, then ξ ||− ⊥, by hypothesis on ξ.
+Therefore ∆(nξ ) = 0 by definition of ∆, hence the result.
+    Q . E . D.
+By theorem 28, the set {∆(n); n ε N,     e ∆(n) 6= 0} is, in the realizability model N , a countable
+dense subset of the Boolean algebra ‫ג‬2 : this means that each element 6= 0 of this Boolean
+algebra has a lower bound of the form ∆(n), with n ε N     e and ∆(n) 6= 0.
+It follows that the application of ‫ג‬2 into P ( e  N) given by :
+                                   x 7−→ {n ε N; ∆(n) ≤ x, ∆(n) 6= 0}
+                                              e
+is one to one : indeed, if a, b ε ‫ג‬2 with a 6= b, then a + b 6= 0 ; thus, there exists an integer n ε N
+                                                                                                      e
+such that ∆(n) 6= 0 and ∆(n) ≤ a + b. Therefore, we have ∆(n) ≤ a iff (b ∧∆(n)) = 0.
+But, since ∆(n) 6= 0, we get : ∆(n) ≤ a iff ∆(n) 6≤ b.
+We have shown :
+
+Theorem 29.
+The formula : “ there exists an injection of ‫ג‬2 into P ( e
+                                                        N) ” is realized in the model N .
+
+
+Corollary 30. The formula : “ for every integer n there exists an injection of ‫ג‬n into P (N)
+                                                                                          e ”
+is realized in the model N .
+
+Using theorem 27 we see, by recurrence on m, that the model N realizes the formula :
+“ ∀m N ((‫ג‬2)m is equipotent to ‫(ג‬2m )) ” ; and therefore also the formula :
+      e
+
+“ ∀m N (there exists an injection of ‫(ג‬2m ) into P (N))
+                                                     e ”.
+      e
+
+Finally, by theorem 26(ii), we see that the following formula is realized :
+“ ∀n N (there exists an injection of ‫ג‬n into P ( e
+                                                 N)) ”.
+     e
+
+   Q . E . D.
+
+
+
+Realizability models in which R is not well ordered
+‫ג‬2 atomless
+Theorem 31. We suppose there exist two proof-like terms ω0 , ω1 such that, for every π ∈ Π,
+we have ω0 kπ ||− ⊥ or ω1 kπ ||− ⊥. Then, the Boolean algebra ‫ג‬2 is non trivial. Indeed :
+θ ||− ∀x(x 6= 1, x 6= 0 → x ε/ ‫ג‬2) → ⊥ with θ = λ f (cc)λk(( f )(ω1 )k)(ω0 )k.
+
+Let ξ ||− ∀x(x 6= 1, x 6= 0 → x ε/ ‫ג‬2) and π ∈ Π. We must show :
+θ ?ξ.π ∈ ⊥    ⊥, that is ξ ? ω1 kπ . ω0 kπ . π ∈ ⊥
+                                                 ⊥.
+But, by hypothesis on ξ, we have ξ ||− >, ⊥ → ⊥ and ξ ||− ⊥, > → ⊥. Hence the result, by
+hypothesis on ω1 , ω0 .
+   Q . E . D.
+
+
+
+                                                  22
+Remark. When the Boolean algebra ‫ג‬2 is non trivial, there are necessarily non standard integers in
+the realizability model N , i.e. integers which are not in M . Indeed, let a ε ‫ג‬2, a 6= 0, 1 ; by theorem 28,
+there is an integer n such that ∆(n) 6= 0, ∆(n) ≤ a ; thus ∆(n) 6= 1. The integer n cannot be standard,
+since ∆(m) = 0 or 1 if m is in M .
+
+Theorem 32. We suppose that there exists three proof-like terms α0 , α1 , α2 such that, for every
+ξ ∈ Λ and π ∈ Π, we have kπ ξα0 ||− ⊥ or kπ ξα1 ||− ⊥ or kπ ξα2 ||− ⊥.
+Then, the Boolean algebra ‫ג‬2 is atomless. Indeed :
+θ ||− ∀x[∀y(x ∧y 6= 0, x ∧y 6= x → y ε/ ‫ג‬2), x 6= 0 → x ε/ ‫ג‬2]
+with θ = λxλy(cc)λk((x)(k)yα0 )((x)(k)yα1 )(k)yα2 .
+
+By a simple computation, we see that we must show :
+i) θ ||− (⊥, ⊥ → ⊥), ⊥ → ⊥.
+ii) θ ||− |>, ⊥ → ⊥| ∩ |⊥, > → ⊥|, > → ⊥.
+Proof of (i) : let η ∈ |⊥, ⊥ → ⊥| and ξ ∈ |⊥|. We must show θ ? η . ξ . π ∈ ⊥
+                                                                            ⊥, that is :
+η ? kπ ξα0 . ((η)(kπ )ξα1 )(kπ )ξα2 . π ∈ ⊥
+                                          ⊥.
+But, from ξ ||− ⊥, we deduce kπ ξζ ||− ⊥ for every ζ ∈ Λc .
+Since η ||− ⊥, ⊥ → ⊥, we have ((η)(kπ )ξα1 )(kπ )ξα2 ||− ⊥ and therefore :
+η ? kπ ξα0 . ((η)(kπ )ξα1 )(kπ )ξα2 . π ∈ ⊥
+                                          ⊥.
+Proof of (ii) : let η ∈ |>, ⊥ → ⊥| ∩ |⊥, > → ⊥| and ξ ∈ Λc . Again, we must show that :
+η ? kπ ξα0 . ((η)(kπ )ξα1 )(kπ )ξα2 . π ∈ ⊥
+                                          ⊥. If this is false, then :
+kπ ξα0 6||− ⊥ (because η ||− ⊥, > → ⊥) and ((η)(kπ )ξα1 )(kπ )ξα2 6||− ⊥ (because η ||− >, ⊥ → ⊥).
+But, since η ||− ⊥, > → ⊥ (resp. >, ⊥ → ⊥), we have kπ ξα1 6||− ⊥ (resp. kπ ξα2 6||− ⊥).
+This contradicts the hypothesis of the theorem.
+    Q . E . D.
+
+
+R not well orderable
+Theorem 33.
+We suppose that there exists a proof-like term ω such that, for every ξ, ξ0 ∈ Λ, ξ 6= ξ0 and π ∈ Π,
+we have ωkπ ξ ||− ⊥ or ωkπ ξ0 ||− ⊥.
+Then we have, for every formula F with three free variables :
+θ ||− ∀m ‫ ג‬N ∀n ‫ ג‬N ∀z[(m <n) = 1 ,→
+                        (∀x∀y∀y 0 (F (x, y, z), F (x, y 0 , z), y 6= y 0 → ⊥), ∀y ‫ג‬n ¬∀x ‫ג‬m ¬ F (x, y, z) → ⊥)]
+with θ = λxλx 0 (cc)λk(x 0 )λz(xzz)(ω)kz.
+
+Remark. This shows that, if (m <n) = 1, then (‫ג‬m ⊂ ‫ג‬n and) there is no surjection of ‫ג‬m onto ‫ג‬n :
+indeed, it suffices to take, for F (x, y, z), the formula <x, y> ε z.
+Assume this is false ; then, there exist m, n ∈ N with m < n, an individual c, two terms
+ξ, ξ0 ∈ Λ and a stack π ∈ Π such that :
+θ ? ξ . ξ0 . π ∉ ⊥⊥;
+ξ ||− ∀x∀y∀y [F (x, y, c), F (x, y 0 , c), y 6= y 0 → ⊥] ;
+                 0
+
+ξ0 ||− ∀y ‫ג‬n ¬∀x ‫ג‬m ¬ F (x, y, c).
+Therefore, we have ξ0 ? η . π ∉ ⊥       ⊥ with η = λz(ξzz)(ω)kπ z. By hypothesis on ξ0 we have, for
+every integer i < n : η 6||− ∀x ‫ג‬m ¬F (x, i , c). Thus, there exists an integer m i < m such that
+η 6||− ¬F (m i , i , c). It follows that there exist ξi ∈ Λ and πi ∈ Π such that ξi ||− F (m i , i , c) and
+
+                                                      23
+η ? ξi . πi ∉ ⊥⊥. By definition of η, we get ξ ? ξi . ξi . ωkπ ξi . πi ∉ ⊥         ⊥. By hypothesis on ξ, it
+follows that ωkπ ξi 6||− i 6= i ; in other words, we have ωkπ ξi 6||− ⊥ for every integer i < n.
+By the hypothesis of the theorem, it follows that we have ξi = ξ j for every i , j < n.
+But, since m i < m < n and i < n, there exist i , j < n, i 6= j such that m i = m j = k.
+Then, ξi = ξ j ||− F (k, i , c), F (k, j , c) and ωkπ ξi ||− i 6= j since ki 6= j k = ;.
+Therefore, by hypothesis on ξ, we have ξ ? ξi . ξi . ωkπ ξi . πi ∈ ⊥          ⊥, which is a contradiction.
+    Q . E . D.
+Now, we see that, with the hypothesis of theorem 33, there is no surjection from ‫ג‬2 onto
+‫ג‬2×‫ג‬2. Indeed, by theorem 27, there exists a bijection from ‫ג‬2×‫ג‬2 onto ‫ג‬4 and, by theorem 33,
+there is no surjection from ‫ג‬2 onto ‫ג‬4. But, by theorem 32, ‫ג‬2 is infinite ; it follows that ‫ג‬2
+cannot be well ordered.
+Now, by theorem 29, ‫ג‬2 is equipotent with a subset of P (N).   e Therefore, the hypothesis
+of theorems 32 and 33 are sufficient in order that the following formula be realized in the
+model N :
+                        There is no well ordering on the set of reals.
+In fact, the hypothesis of theorem 33 is sufficient : this follows from theorem 34.
+Theorem 34.
+Same hypothesis as theorem 33 : there exists a proof-like term ω such that, for every π ∈ Π and
+ξ, ξ0 ∈ Λ, ξ 6= ξ0 , we have ωkπ ξ ||− ⊥ or ωkπ ξ0 ||− ⊥.
+Then we have, for every formula F with three free variables :
+θ ||− ∀z{∀x[∀n ent F (n, x, z) → x ε/ ‫ג‬2], ∀n∀x∀y[¬F (n, x, z)¬F (n, y, z), x 6= y → ⊥] → ⊥}
+with θ = λxλx 0 (cc)λk(x)λn(cc)λh(x 0 hh)(ωk)λ f ( f )hn.
+Remark. This formula means that, in the realizability model N , there is no surjection from the set of
+integers Ne onto ‫ג‬2 : it suffices to take for F (x, y, z) the formula <x, y> ε/ z (the graph of an hypothet-
+ical surjection being <x, y> ε z).
+Reasoning by contradiction, we suppose that there is an individual c, a stack π ∈ Π, and two
+terms ξ, ξ0 such that :
+ξ ||− ∀x[∀n ent F (n, x, c) → x ε/ ‫ג‬2] ; ξ0 ||− ∀n∀x∀y[¬F (n, x, c)¬F (n, y, c), x 6= y → ⊥] and
+θ ? ξ . ξ0 . π ∉ ⊥⊥.
+Therefore, we have ξ ? η . π ∉ ⊥         ⊥, with η = λn(cc)λh(ξ0 hh)(ωkπ )λ f ( f )hn.
+By hypothesis on ξ, we have η 6||− ∀n ent F (n, 0, c) and η 6||− ∀n ent F (n, 1, c). Thus, we see that
+there exist n 0 , n 1 ∈ N, π0 ∈ kF (n 0 , 0, c)k and π1 ∈ kF (n 1 , 1, c)k such that η ? n 0 . π0 ∉ ⊥   ⊥ and
+η ? n 1 . π1 ∉ ⊥ ⊥. By performing these two processes, we obtain :
+ξ ? kπ 0 . kπ 0 . ζ 0 . π 0 ∉ ⊥
+ 0
+                              ⊥ et ξ0 ? kπ1 . kπ1 . ζ1 . π1 ∉ ⊥
+                                                              ⊥,
+with ζ0 = (ωkπ )λ f ( f )kπ0 n 0 and ζ1 = (ωkπ )λ f ( f )kπ1 n 1 .
+By hypothesis on ξ0 , we have ξ0 ||− ¬F (n 0 , 0, c), ¬F (n 0 , 0, c), 0 6= 0 → ⊥. Since kπ0 ||− ¬F (n 0 , 0, c),
+we see that ζ0 6||− ⊥ and, in the same way, ζ1 6||− ⊥.
+Thus, by the hypothesis of the theorem, we have :
+λ f ( f )kπ0 n 0 = λ f ( f )kπ1 n 1 , and therefore n 0 = n 1 and π0 = π1 .
+But, we have ξ0 ||− ¬F (n 0 , 0, c), ¬F (n 0 , 1, c), 0 6= 1 → ⊥. Moreover, we have :
+π0 ∈ kF (n 0 , 0, c)k and π1 ∈ kF (n 1 , 1, c)k, thus π0 ∈ kF (n 0 , 1, c)k since n 0 = n 1 , π0 = π1 .
+Therefore kπ0 ||− ¬F (n 0 , 0, c) and ¬F (n 0 , 1, c). Moreover, we have obviously ζ0 ||− 0 6= 1, since
+k0 6= 1k = ;. Therefore, we have ξ0 ? kπ0 . kπ0 . ζ0 . π0 ∈ ⊥     ⊥, which is a contradiction.
+     Q . E . D.
+
+
+                                                       24
+Theorems 33 and 34 show that ‫ג‬2 is infinite and not equipotent with ‫ג‬2× ‫ג‬2, thus not well
+orderable. Since ‫ג‬2 is equipotent with a subset of P ( eN) (theorem 29), we have shown that
+P (N) is not well orderable, with the hypothesis of theorem 33.
+   e
+More precisely, by corollary 30, we know that ‫ג‬n is equipotent with a subset of P (N)e for
+each integer n. Therefore, we have :
+
+Theorem 35. With the hypothesis of theorem 33, the following formula is realized :
+“ There exists a sequence Xn of infinite subsets of P (N)
+                                                       e such that, for every integers m, n ≥ 2 :
+• there is an injection from Xn into Xn+1 ;
+• there is no surjection from Xn onto Xn+1 ;
+• Xm ×Xn and Xmn are equipotent ”.
+
+For each integer n ≥ 2, the set n = {0, 1, . . . , n − 1} is a ring : the ring of integers modulo n ; the
+Boolean algebra {0, 1} is a set of idempotents in this ring. These ring operations extend to the
+realizability model, giving a ring structure on ‫ג‬n, and ‫ג‬2 is a set of idempotents in ‫ג‬n.
+For each a ε ‫ג‬2, the equation ax = x defines an ideal in ‫ג‬n, which we denote as a ‫ג‬n.
+The application x 7−→ ax is a retraction from ‫ג‬n onto a ‫ג‬n.
+
+Proposition 36. The following formulas are realized in N :
+i) ∀n ‫ ג‬N ∀a ‫ג‬2 (the application x 7−→ (ax, (1 − a)x) is a bijection
+                                                                     from ‫ג‬n onto a ‫ג‬n ×(1 − a)‫ג‬n).
+ii) ∀m ‫ ג‬N ∀n ‫ ג‬N ∀a ‫ג‬2 (the application (x, y) 7−→ m y + x is a bijection
+                                                                     from a ‫ג‬m×a ‫ג‬n onto a ‫(ג‬mn)).
+
+i) Trivial : the inverse is (y, y 0 ) 7−→ y + y 0 .
+ii) By theorem 27, this application is injective ; clearly, it sends a ‫ג‬m×a ‫ג‬n into a ‫(ג‬mn).
+Conversely, if z ε a ‫(ג‬mn), then there exists x ε ‫ג‬m and y ε ‫ג‬n such that z = m y + x ;
+thus, we have z = az = ma y + ax with ax ε a ‫ג‬m and a y ε a ‫ג‬n.
+    Q . E . D.
+
+Theorem 37. We suppose that, for each α ∈ Λ, π ∈ Π, and every distinct ζ0 , ζ1 , ζ2 ∈ Λ, we have
+kπ αζ0 ||− ⊥ or kπ αζ1 ||− ⊥ or kπ αζ2 ||− ⊥.
+Then, for each formula F (x, y, z) with three free variables, we have :
+θ ||− ∀z∀m ‫ ג‬N ∀n ‫ ג‬N ∀a ‫ג‬2 [(2m <n) = 1 ,→
+                   (a 6= 0, ∀x∀y∀y 0 (F (x, y, z), F (x, y 0 , z), y 6= y 0 → ⊥), ∀y ‫ג‬n ∃x ‫ג‬m F (x, a y, z) → ⊥)]
+with θ = λaλxλy(cc)λk(y)λz(xzz)(k)az.
+
+Remark. This formula means that, if n > 2m, a ε ‫ג‬2, a 6= 0, then there is no surjection from ‫ג‬m onto
+a ‫ג‬n : it suffices to take F (x, y, z) ≡ <x, y> ε z.
+Reasoning by contradiction, let us consider m, n ∈ N with n > 2m, a ∈ {0, 1}, an individual c,
+three terms α, ξ, η ∈ Λ and π ∈ Π such that :
+θ ?α.ξ.η.π ∉ ⊥    ⊥ , α ||− a 6= 0, ξ ||− ∀x∀y∀y 0 (F (x, y, c), F (x, y 0 , c), y 6= y 0 → ⊥),
+η ||− ∀y ¬∀x ¬F (x, a y, c).
+        ‫ג‬ n    ‫ג‬ m
+
+We have θ ? α . ξ . η . π Â η ? θ 0 . π and therefore η ? θ 0 . π ∉ ⊥    ⊥ with θ 0 = λz(ξzz)(kπ )αz.
+It follows that, for every y ∈ {0, . . . , n − 1}, we have θ 6||− ∀x ¬F (x, a y, c).
+                                                              0        ‫ג‬ m
+
+Thus, there exist two functions y 7−→ x y (resp. y 7−→ ζ y ) from {0, . . . , n −1} into {0, . . . , m −1}
+(resp. into Λ), such that ζ y ||− F (x y , a y, c) and θ 0 ? ζ y . $ y ∉ ⊥⊥ (for some suitable stacks $ y ).
+
+                                                       25
+Now, we have θ 0 ? ζ y . $ y Â ξ ? ζ y . ζ y . κ y . $ y with κ y = kπ αζ y ; therefore, we have :
+ξ ? ζy . ζy . κy . $y ∉ ⊥      ⊥ for each y ∈ {0, . . . , n − 1}.
+By hypothesis on ξ (with y = y 0 ), it follows that κ y 6||− ⊥ for every y < n.
+It follows first that α 6||− ⊥ and therefore, we have a = 1 ; thus ζ y ||− F (x y , y, c).
+Moreover, since n > 2m, there exist y 0 , y 1 , y 2 < n distinct, such that x y 0 = x y 1 = x y 2 .
+But, following the hypothesis of the theorem, the terms ζ y 0 , ζ y 1 , ζ y 2 cannot be distinct, be-
+cause κ y 0 , κ y 1 , κ y 2 6||− ⊥. Therefore we have, for instance, ζ y 0 = ζ y 1 ; then, we apply the hy-
+pothesis on ξ with y = y 0 , y 0 = y 1 , which gives ξ?ζ y 0 . ζ y 1 . κ . $ ∈ ⊥⊥ for every κ ∈ Λ and $ ∈ Π.
+But it follows that ξ ? ζ y 0 . ζ y 0 . κ y 0 . $ y 0 ∈ ⊥ ⊥ which is a contradiction.
+     Q . E . D.
+
+Corollary 38. With the hypothesis of theorem 37, the following formulas are realized :
+i) ∀n N ∀a ‫ג‬2 (a 6= 0 → there is no surjection from ‫ג‬n onto a ‫(ג‬n + 1)).
+      e
+
+ii) ∀n N ∀a ‫ג‬2 ∀b ‫ג‬2 (a ∧b = 0, b 6= 0 → there is no surjection from a ‫ג‬n onto b ‫ג‬2).
+       e
+
+iii) ∀n N ∀a ‫ג‬2 ∀b ‫ג‬2 (a ∧b = a, a 6= b → there is no surjection from a ‫ג‬n onto b ‫ג‬2).
+        e
+
+
+i) Suppose that there is a surjection from ‫ג‬n onto a ‫(ג‬n + 1). Then, by the recurrence scheme
+                                                    N, there exists a surjection from (‫ג‬n)k onto
+(theorem 18(ii)), we see that, for each integer k ∈ e
+(a ‫(ג‬n + 1))k ; and, by proposition 36(ii) and the recurrence scheme, it follows that there is a
+surjection from ‫(ג‬nk ) onto a ‫((ג‬n + 1)k ).
+But, for k > n, we have (n + 1)k > 2n k and this contradicts theorem 37.
+ii) Since a ∧b = 0, the rings (a + b)‫ג‬n and a ‫ג‬n × b ‫ג‬n are isomorphic. Reasoning by contra-
+diction, there would exist a surjection from (a + b)‫ג‬n onto b ‫ג‬2×b ‫ג‬n, thus also onto b ‫(ג‬2n)
+(proposition 36(ii)), thus a surjection from ‫ג‬n onto b ‫(ג‬2n), which contradicts (i).
+iii) Otherwise, there would exist a surjection from a ‫ג‬n onto (b − a)‫ג‬2, which contradicts (ii).
+     Q . E . D.
+Applications.
+i) By DC, since ‫ג‬2 is atomless, there exists in ‫ג‬2 a strictly decreasing sequence. Hence, by
+corollary 38(iii) and theorem 29, there exists a sequence of infinite subsets of P (N),
+                                                                                    e the “car-
+dinals” of which are strictly decreasing.
+ii) Applying corollary 38(ii) with n = 2, we see that there exist two subsets of P (N)
+                                                                                    e the “car-
+dinals” of which are incomparable ; which means that there is no surjection of one of them
+onto the other.
+More precisely, let B be the image of ‫ג‬2 by the injection in P ( eN) given by theorem 29 ; then
+we have :
+Theorem 39. With the hypothesis of theorem 37, the following formula is realized in N :
+There exists a subset B of P (N)
+                              e (the real line of the model N ), such that
+B is an atomless Boolean algebra for the usual order ⊆ on P ( eN),
+with ;, N ∈ B ; a, b ∈ B ⇒ a ∩ b ∈ B.
+        e
+If a ∈ B, a 6= ; then there is no surjection from B onto aB×aB
+(where aB means {x ∈ B; x ⊆ a}).
+If a, b ∈ B, a, b 6= ; and a∩b = ;, then there is no surjection from aB onto bB (the “cardinals”
+of aB, bB are incomparable).
+If a, b ∈ B, a ⊆ b and a 6= b, then there is no surjection from aB onto bB (the “cardinal” of
+aB is strictly less than the “cardinal” of bB).
+
+                                                    26
+In other words, for a, b ∈ B, we have : a ⊆ b ⇔ there exists a surjection from bB onto aB.
+The order, in the atomless Boolean algebra B, is the order on the “cardinals” of its initial
+segments.
+
+
+The model of threads
+This model is the canonical instance of a non trivial coherent realizability model. It is defined
+as follows :
+Let n 7−→ πn be an enumeration of the stack constants and let n 7−→ θn be a recursive
+enumeration of the proof-like terms. For each n ∈ N, the thread with number n is the set of
+processes which appear during the execution of the process θn ? πn . In other words, it is
+the set of all processes ξ ? π such that θn ? πn Â ξ ? π.
+Note that every term which appears in the n-th thread contains the only stack constant πn .
+We define ⊥ ⊥c (the complement of ⊥    ⊥) as the union of all threads. Thus, a process ξ ? π is
+     c
+   ⊥ iff (∃n ∈ N) θn ? πn Â ξ ? π.
+in ⊥
+Therefore, we have ξ ? π ∈ ⊥ ⊥ iff the process ξ ? π never appears in any thread.
+For every term ξ, we have ξ ||− ⊥ iff ξ never appears in head position in any thread.
+If ξ is a proof-like term, we have ξ = θn for some integer n, and therefore ξ ? πn ∉ ⊥   ⊥, by
+              ⊥. It follows that the model of threads is coherent.
+definition of ⊥
+If ξ ∈ Λ, ξ 6||− ⊥ then ξ appears in head position in at least one thread. This thread is unique,
+unless ξ is a proof-like term, because it is determined by the number of any stack constant
+which appears in ξ.
+
+Theorem 40. The hypothesis of theorems 31, 32, 33 and 37 are satisfied in the model of threads.
+
+The hypothesis of theorems 33 and 31 are trivially satisfied if we take :
+ω = (λx xx)λx xx, ω0 = (ω)0, and ω1 = (ω)1.
+Moreover, the hypothesis of theorem 37 is obviously stronger than the hypothesis of theo-
+rem 32.
+We check the hypothesis of theorem 37 by contradiction : we suppose kπ αζ0 6||− ⊥, kπ αζ1 6||− ⊥
+and kπ αζ2 6||− ⊥. Therefore, these three terms appear in head position, and moreover in the
+same thread : indeed, since they contain the stack π, this thread has the same number as the
+stack constant of π.
+Let us consider their first appearance in head position, for instance with the order 0, 1, 2.
+Therefore we have, in this thread : kπ αζ0 ? ρ 0 Â α ? π Â · · · Â kπ αζ1 ? ρ 1 Â α ? π Â · · ·
+But, at the second appearance of α?π, the thread enters into a loop, and the term kπ αζ2 can
+never arrive in head position, since ζ1 6= ζ2 .
+    Q . E . D.
+
+
+
+References
+ [1] S. Berardi, M. Bezem, T. Coquand. On the computational content of the axiom of choice.
+     J. Symb. Log. 63 (1998), p. 600-622.
+
+ [2] H.B. Curry, R. Feys. Combinatory Logic. North-Holland (1958).
+
+                                               27
+ [3] W. Easton. Powers of regular cardinals. Ann. Math. Logic 1 (1970), p. 139-178.
+
+ [4] H. Friedman. The consistency of classical set theory relative to a set theory with intuition-
+     istic logic. Journal of Symb. Logic, 38 (2) (1973) p. 315-319.
+
+ [5] H. Friedman. Classically and intuitionistically provably recursive functions.
+     In: Higher set theory. Springer Lect. Notes in Math. 669 (1977) p. 21-27.
+
+ [6] J.-Y. Girard. Une extension de l’interprétation fonctionnelle de Gödel à l’analyse.
+     Proc. 2nd Scand. Log. Symp. (North-Holland) (1971) p. 63-92.
+
+ [7] T. Griffin. A formulæ-as-type notion of control.
+     Conf. record 17th A.C.M. Symp. on Principles of Progr. Languages (1990).
+
+ [8] S. Grigorieff. Combinatorics on ideals and forcing.
+     Ann. Math. Logic 3(4) (1971), p. 363-394.
+
+ [9] W. Howard. The formulas–as–types notion of construction.
+     Essays on combinatory logic, λ-calculus, and formalism, J.P. Seldin and J.R. Hindley ed.,
+     Acad. Press (1980) p. 479–490.
+
+[10] J. M. E. Hyland. The effective topos.
+     The L.E.J. Brouwer Centenary Symposium (Noordwijkerhout, 1981), 165–216,
+     Stud. Logic Foundations Math., 110, North-Holland, Amsterdam-New York, 1982.
+
+[11] G. Kreisel. On the interpretation of non-finitist proofs I.
+     J. Symb. Log. 16 (1951) p. 248-26.
+
+[12] G. Kreisel. On the interpretation of non-finitist proofs II.
+     J. Symb. Log. 17 (1952), p. 43-58.
+
+[13] J.-L. Krivine. Typed lambda-calculus in classical Zermelo-Fraenkel set theory.
+     Arch. Math. Log., 40, 3, p. 189-205 (2001).
+     http://www.pps.jussieu.fr/~krivine/articles/zf_epsi.pdf
+
+[14] J.-L. Krivine. Dependent choice, ‘quote’ and the clock.
+     Th. Comp. Sc., 308, p. 259-276 (2003).
+     http://hal.archives-ouvertes.fr/hal-00154478
+     Updated version at :
+     http://www.pps.jussieu.fr/~krivine/articles/quote.pdf
+
+[15] J.-L. Krivine. Realizability in classical logic.
+     In Interactive models of computation and program behaviour.
+     Panoramas et synthèses, Société Mathématique de France, 27, p. 197-229 (2009).
+     http://hal.archives-ouvertes.fr/hal-00154500
+     Updated version at :
+     http://www.pps.jussieu.fr/~krivine/articles/Luminy04.pdf
+
+
+
+
+                                                28
+[16] J.-L. Krivine. Realizability : a machine for Analysis and set theory.
+     Geocal’06 (febr. 2006 - Marseille); Mathlogaps’07 (june 2007 - Aussois).
+     http://cel.archives-ouvertes.fr/cel-00154509
+     Updated version at :
+     http://www.pps.jussieu.fr/~krivine/articles/Mathlog07.pdf
+
+[17] J.-L. Krivine. Structures de réalisabilité, RAM et ultrafiltre sur N. (2008)
+     http://hal.archives-ouvertes.fr/hal-00321410
+     Updated version at :
+     http://www.pps.jussieu.fr/~krivine/articles/Ultrafiltre.pdf
+
+[18] J.-L. Krivine. Realizability algebras : a program to well order R.
+     Logical Methods in Computer Science, vol. 7, 3:02, p. 1-47 (2011)
+     http://hal.archives-ouvertes.fr/hal-00483232
+     Updated version at :
+     http://www.pps.jussieu.fr/~krivine/articles/Well_order.pdf
+
+
+
+
+                                                29
+

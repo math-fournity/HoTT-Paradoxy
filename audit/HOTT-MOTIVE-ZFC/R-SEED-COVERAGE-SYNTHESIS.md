@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：首批 R 种子覆盖综合
 
-> **身份：** `CROSS_RUN_SEED_COVERAGE / EIGHT_CLOSED_DENOMINATORS + TEN_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+> **身份：** `CROSS_RUN_SEED_COVERAGE / NINE_CLOSED_DENOMINATORS + ELEVEN_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
 
 ## 1. 这一阶段已经覆盖什么
 
@@ -22,6 +22,8 @@
 HMZ-015/016增加一项作用于整个项目的方法结论：predicativity/VCP 文献已经清楚讨论totality、循环定义、actual/completed infinite与ZF的impredicativity locus。因此“社区完全没有看到罗素侧花纹”不能作为ZFC候选的论据；用户P若有进一步发现力，必须在P1/P2/P5/P6的理论对象、consumer、预支使用和同一Done上给出独立证据。
 
 HMZ-017/018再补充P5的 community antecedent：constructive logic/type theory明确把 existence proof 与 program/termination/correctness delivery连接。于是用户P的附加证据义务进一步收紧：它不能仅说“存在未给程序”，而须找到同一ZFC consumer声称constructive-like Done又预支使用未支付对象的来源事实。
+
+HMZ-019/020进一步排除了另一个粗略说法：classical realizability能够在显式`ZFε`／realizability model中把ZF-related proofs与proof-like programs连接。因此P5不能以“ZF必然没有程序语义”建立；剩余问题仍是ordinary同层ZFC consumer、其Done与未支付预支使用，而非model semantic correspondence本身。
 
 ## 2. 这不是“没有找到”，而是对候选空间的收紧
 

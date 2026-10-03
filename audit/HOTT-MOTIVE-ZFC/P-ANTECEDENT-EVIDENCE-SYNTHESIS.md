@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：模式 P 的社区 antecedent 与剩余证据矩阵
 
-> **身份：** `CROSS_RUN_P_SPECIFICATION_SYNTHESIS / EIGHT_CLOSED_DENOMINATORS + TEN_PREFLIGHTS / CURRENT_SOURCE_ADMISSION_FRONTIER / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+> **身份：** `CROSS_RUN_P_SPECIFICATION_SYNTHESIS / TEN_CLOSED_DENOMINATORS + TWELVE_PREFLIGHTS / CURRENT_SOURCE_ADMISSION_FRONTIER / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
 
 ## 1. 为什么需要这张矩阵
 
@@ -17,13 +17,13 @@
 | **P2 不可另账** | type stratification、predicative alternatives和模型层级提供历史方案。 | 证明将 \(u\) 外置、改为参数或切换层级会损失**同一**现代任务；不能只说“看起来很基础”。 | [HMZ-016 Q-Cards](20261003-HMZ-016-community-antecedent-p-comparison/Q-CARDS.md) |
 | **P3 存在性/完成 totality 追问** | VCP、impredicativity、actual/completed totality批评明确存在。 | 一个 \(Q(u)\) 与精确 formation/consumer 绑定，且不是研究者添加的“应该可计算”规范。 | [HMZ-016 E-Cards](20261003-HMZ-016-community-antecedent-p-comparison/E-CARDS.md) |
 | **P4 自指或无终点依赖** | Russell/Poincaré/VCP给出历史循环诊断；Feferman还讨论累积/构造层级。 | 在固定 ZFC object/card 中显示 direct reentry 或无下降上升链，而不是泛称“无限”。 | [HMZ-014](20261003-HMZ-014-schema-operator-truth-preflight/FINDINGS.md) |
-| **P5 预支使用** | Palmgren的constructive contract明确把 existence→program→termination/correctness作为 delivery；社区知道存在与可用构造可不同。 | 一个**同一理论**的 actual consumer 在 source 尚未支付其自身 declared Done 时预支使用 \(u\)。仅“ZFC没有程序提取”不够。 | [HMZ-018](20261003-HMZ-018-constructive-delivery-p-comparison/FINDINGS.md) |
+| **P5 预支使用** | Palmgren给constructive delivery；Krivine还在显式classical realizability/`ZFε` model中给ZF-related proof/program correspondence。 | 一个**ordinary同一理论**的 actual consumer 在 source 尚未支付其自身 declared Done 时预支使用 \(u\)。constructive或model-semantic program correspondence均不能替代它。 | [HMZ-018](20261003-HMZ-018-constructive-delivery-p-comparison/FINDINGS.md)、[HMZ-020](20261003-HMZ-020-classical-realizability-p5-comparison/FINDINGS.md) |
 | **P6 同一任务 / UR** | Dochtermann给有限 Done→complete partition bridge；Feferman记录 competing practice readings。 | source/proof 保留同一 subject、operation、observation、Done，不能让 `METAPHOR`、sethood、模型或实际运行互相代替。 | [HMZ-012](20261003-HMZ-012-totality-partition-reality-source/FINDINGS.md) |
 
 ### 净判词
 
 ```text
-COMMUNITY_ANTECEDENT: P0 / P3 / P4 / existence-delivery distinction = YES
+COMMUNITY_ANTECEDENT: P0 / P3 / P4 / constructive and model-semantic existence-delivery distinction = YES
 FULL USER-P CONTRACT: NOT ESTABLISHED
 ZFC SAME-CARD P1–P6 CONVERGENCE: NOT FOUND
 ZFC Q: NOT LOCATED

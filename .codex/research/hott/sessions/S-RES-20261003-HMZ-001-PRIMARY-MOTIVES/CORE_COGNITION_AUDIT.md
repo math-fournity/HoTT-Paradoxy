@@ -15,9 +15,9 @@ soft_line_target: 300
 |---|---|
 | 当前 core | `core-cognition-generation-13`，62 个 KC。 |
 | 工作单元 | `HOTT-MOTIVE-ZFC-SOP` 的首个来源分母闭合。 |
-| 当前判词 | `ALIGNED_WITH_EIGHT_SOURCE_RUNS_FIVE_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_ONE_REALITY_TOTALITY_BRIDGE_ONE_H0_UNIVERSE_ANTI_ANALOGY_ONE_H9_SCHEMA_CONTROL_AND_EXTENDED_COMMUNITY_ANTECEDENT_COMPARISONS / NO_ZFC_Q_CLAIM`。 |
-| 关键张力 | 用户要求用 P 发现基础理论 Q；八份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary、finite-Done/infinite-totality bridge、predicativity/VCP以及constructive delivery antecedents。HMZ-016覆盖P0/P3/P4，HMZ-018覆盖existence/delivery distinction；P1/P2及same-theory P5 preemptive consumer/P6仍无source bridge。 |
-| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给一个越过HMZ-013 scope/identity guard的 H0→Z0 正向传输，给一个whole-V Build consumer越过HMZ-014 code/structure/reflection guard，提供P1/P2/P5-preemptive-use/P6的actual source bridge，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
+| 当前判词 | `ALIGNED_WITH_NINE_SOURCE_RUNS_FIVE_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_ONE_REALITY_TOTALITY_BRIDGE_ONE_H0_UNIVERSE_ANTI_ANALOGY_ONE_H9_SCHEMA_CONTROL_AND_EXTENDED_CONSTRUCTIVE_CLASSICAL_PROGRAM_ANTECEDENT_CONTROLS / NO_ZFC_Q_CLAIM`。 |
+| 关键张力 | 用户要求用 P 发现基础理论 Q；九份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary、finite-Done/infinite-totality bridge、predicativity/VCP、constructive delivery和classical realizability controls。HMZ-016覆盖P0/P3/P4，HMZ-018/020覆盖delivery/program semantics；P1/P2及ordinary same-theory P5 preemptive consumer/P6仍无source bridge。 |
+| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给一个越过HMZ-013 scope/identity guard的 H0→Z0 正向传输，给一个whole-V Build consumer越过HMZ-014 code/structure/reflection guard，提供P1/P2/ordinary-P5-preemptive/P6的actual source bridge，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 覆盖 | 状态 |
@@ -62,3 +62,5 @@ HMZ-014的差量将同一纪律推进到schema/truth：公式代码、递归trut
 HMZ-016的差量校正了项目对P的历史定位：Feferman的predicativity/VCP文献已给P0/P3/P4的community antecedent。审计不能因此消除用户P的附加字段，但必须要求任何“更深刻、社区没防守”的主张把差异落到P1/P2/P5/P6和真实consumer，而非重述completed-totality或vicious-circle词汇。
 
 HMZ-018进一步校正P5：constructive delivery的program/termination/correctness contract也是已有来源传统。现在P5的独立内容不应是抽象的“存在不等于构造”，而是某一理论自身的actual consumer是否在其source尚未支付constructive-like Done时预支使用对象。
+
+HMZ-020继续校正P5的模型层：classical realizability可将ZF-related proofs置入proof-program correspondence，但其source明确支付realizability algebra、continuation、`ZFε`和M/N semantics。任何进一步P5主张必须区分这种model-semantic correspondence与ordinary ZFC consumer的预支使用，不能把它们合并。
