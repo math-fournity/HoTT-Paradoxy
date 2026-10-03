@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/126 - B001 派生刀具来源门采样前失败.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/126 - B001 派生刀具来源门采样前失败.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/127 - B002 派生刀具来源门分支审查.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/127 - B002 派生刀具来源门分支审查.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 126 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 127 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=126 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=2`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=127 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=1`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -151,4 +151,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 124 | [H074 反射阶段盲态候选控制](<20261003-P-FORGE-ATOMIC-AUDIT/124 - H074 反射阶段盲态候选控制.md>) | `H074` | R12 reflection stage blind tracer | `EXECUTION_DEVIATION / OUTPUT_CONTRACT_PARTIAL / Q_SAFETY_REPAIR` |
 | 125 | [H075 反射阶段来源直接支付](<20261003-P-FORGE-ATOMIC-AUDIT/125 - H075 反射阶段来源直接支付.md>) | `H075` | R12 Reflection source payment | `ALIGNED / SOURCE_PACKET_DIRECT_PAYMENT / Q_REJECT_WITH_SCOPE` |
 | 126 | [B001 派生刀具来源门采样前失败](<20261003-P-FORGE-ATOMIC-AUDIT/126 - B001 派生刀具来源门采样前失败.md>) | `B001-H060-DERIVED-GATE` | branch-qualified derived-gate prelaunch failure | `RUNNER_OR_EVIDENCE_FAILURE / NO_AGENT_OUTPUT / Q_SAFETY_REPAIR` |
+| 127 | [B002 派生刀具来源门分支审查](<20261003-P-FORGE-ATOMIC-AUDIT/127 - B002 派生刀具来源门分支审查.md>) | `B002-H061-DERIVED-GATE` | branch-qualified derived-gate contract critic | `ALIGNED_BRANCH_SCOPE / CONTRACT_HYPOTHESIS / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
