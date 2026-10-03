@@ -11,6 +11,8 @@
 > **首批动机覆盖综合：** [R 种子覆盖综合](R-SEED-COVERAGE-SYNTHESIS.md)。
 >
 > **P 字段来源矩阵：** [community antecedent 与剩余证据](P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)。
+>
+> **候选集成交接：** [主 worktree 集成交接单](INTEGRATION-HANDOFF.md)。它是候选分支的范围、验证和集成说明，CANDIDATE_NOT_CURRENT；不改变本项目的来源前沿或主分支当前真值。
 
 ## 项目边界
 
