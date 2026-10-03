@@ -11,7 +11,7 @@
 | 字段 | 值 |
 |---|---|
 | 候选分支 | codex/hott-motive-zfc-literature |
-| 候选内容 payload tip（本交接单除外） | 2dc5aaa2 governance: retain visual evidence across session recovery |
+| 候选内容 payload tip（本交接单除外） | 468d0dd1 research: screen large-cardinal realizability control |
 | 已闭合来源调查快照 | 7e1a111af545f5c458d36b59e16c248fca1c077a |
 | 分叉共同基线 | 6341e337b578e77149444a7b4ca243a109121840 |
 | 目标分支（观察时） | refs/heads/dev = 0ab997b17102119582ed7b542d6f7aa65fe6302b |
@@ -39,6 +39,7 @@
 11. **视觉证据压缩恢复合同：** f8b867fe fix: preserve visual audit evidence across compaction。它把“读过页图”与“已有可恢复页级审计”分开：每页必须在打开下一页前写入`VISUAL-REVIEW.md`，没有行的渲染图一律是`RENDERED_UNAUDITED`，压缩或交接后从最早未落签页重读。它以W-003为回归样本保存原始页图，未形成来源结论或ZFC Q。
 12. **Krivine classical-realizability 全文筛读：** 1d553697 research: recover Krivine realizability source screen。它按上述恢复合同重审W-003全部11页150dpi与9页关键300dpi，登记BBC algebra、`ZF_ε`、ground model `M`、realizability model `N`、proof-like realizers、CC/DC及ultrafilter／`V=L`条件。结论是`MODEL_SEMANTIC_PAYMENT_CONTROL_NOT_Q`：该来源阻止把“ZF必然没有程序语义”用作宽泛攻击句，但没有ordinary ZFC same-task consumer或未付Done。
 13. **项目级视觉恢复路由：** 2dc5aaa2 governance: retain visual evidence across session recovery。它把同一不变量提升到每次都加载的`hott-local-session-governance` 4.4.0 与`TASK_ROUTING`：任一图像观察一旦承担证据，必须先写进该任务现有owner；压缩后只消费已写行。它不创建统一图片数据库，也不宣称未来会话自动合规。
+14. **large-cardinal realizability 控制筛读：** 468d0dd1 research: screen large-cardinal realizability control。它以Dagstuhl开放的CSL 2024原件逐页审读W-004，保存18张150dpi与9张300dpi审计页图、一次`server_not_running`远程MinerU失败收据和来源笔记。`ZF_ε`／`GB_ε`／ground model、realizability algebra、class／Choice与large-cardinal相对一致性条件构成显式模型语义支付；处置为`MODEL_SEMANTIC_PAYMENT_CONTROL_NOT_Q`，没有ordinary bare ZFC same-task consumer或未付Done。
 
 可选的归档增量 67cce86a 只追加了当前 worktree 集成交接对话记录。是否移植该一项取决于目标 dev 的 dev-notes 归档策略；它不影响研究内容、SOP 或文献地图。
 
@@ -55,21 +56,21 @@
 1. 本文件；
 2. [项目档案根](README.md)；
 3. [ZFC Q corpus archive](../ZFC-Q-CORPUS-MAP/README.md)；
-4. [ZQCM-001 findings](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/FINDINGS.md)、[W-003 classical-realizability notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W003.md)、[W-005 source notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W005.md)、[W-010 control notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W010.md)、[W-011 precision notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W011.md)、[W-012 iterative-set seed](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SEED-W012-ITERATIVE-SET.md)、[W-013 Aczel source notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W013.md)与[W-014 potential-hierarchy seed](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SEED-W014-POTENTIAL-HIERARCHY.md)；
+4. [ZQCM-001 findings](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/FINDINGS.md)、[W-003 classical-realizability notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W003.md)、[W-004 large-cardinal realizability notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W004.md)、[W-005 source notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W005.md)、[W-010 control notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W010.md)、[W-011 precision notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W011.md)、[W-012 iterative-set seed](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SEED-W012-ITERATIVE-SET.md)、[W-013 Aczel source notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W013.md)与[W-014 potential-hierarchy seed](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SEED-W014-POTENTIAL-HIERARCHY.md)；
 5. [P 字段来源矩阵](P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)；
 6. [第一阶段来源综合](PHASE-1-SOURCE-SYNTHESIS.md)；
 7. [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)；
 8. [路线种子 009](../../dev-docs/菲尔兹奖后续理论级目标路线图/009%20-%20HoTT创建动机反投影ZFC候选路线.md)；
 9. 每个 run 的 MANIFEST.md、FINDINGS.md 和必要的 source card。
 
-由此能够恢复的当前研究结论是：九个冻结来源分母和十一份预检均已存档；ZQCM-001已积累完整筛读后仍为R-source的W-005/W-009、完整筛读后仍为`NOT_Q`的`EXTENSIONALITY_SITE_SEED`、完整foundation-job control的W-010、Aczel的CZF／Power Set／formation control、Krivine的classical-realizability模型语义支付控制，以及stage／potential formation全文未得seed；当前是 CURRENT_SOURCE_ADMISSION_FRONTIER；没有 ZFC_Q、没有 H0→Z0 正向传输，也没有数学证明结论。下一轮只允许由新的、能改变 P1/P2/P5/P6、同一任务或 T0–T5 前沿的来源触发。
+由此能够恢复的当前研究结论是：九个冻结来源分母和十一份预检均已存档；ZQCM-001已积累完整筛读后仍为R-source的W-005/W-009、完整筛读后仍为`NOT_Q`的`EXTENSIONALITY_SITE_SEED`、完整foundation-job control的W-010、Aczel的CZF／Power Set／formation control、Krivine与Fontanella–Geoffroy–Matthews的classical-realizability模型语义支付控制，以及stage／potential formation全文未得seed；当前是 CURRENT_SOURCE_ADMISSION_FRONTIER；没有 ZFC_Q、没有 H0→Z0 正向传输，也没有数学证明结论。下一轮只允许由新的、能改变 P1/P2/P5/P6、同一任务或 T0–T5 前沿的来源触发。
 
 ## 4. 推荐的集成程序
 
 1. **保全主 worktree。** 主 worktree 的实际维护者先完成或保留其自身 dirty/index 工作；不得由本候选的集成者在该树中执行 reset、restore、clean、stash、pull 或切分支。
 2. **冻结目标。** 从共享 refs 读取当前 refs/heads/dev OID 和 git worktree list --porcelain。若目标、AGENTS、Feature、rulings 或当前 owner 已变化，重新审阅本交接单。
 3. **建立干净的集成 worktree。** 从冻结的 dev 建一个短期 integration branch/worktree；它是审阅与冲突解决场所，不是主 worktree 的替代品。
-4. **选择性移植。** 先 cherry-pick 913a1a18，跳过 674df726，再 cherry-pick 772e0fca^..7e1a111a、322c6e2f、b58efeb7、b72c94df、4638f3f6、53a578f4、6f247692、d7380ada、ab51edd8、c606514b、f8b867fe、1d553697 和 2dc5aaa2。每个冲突都按当前目标分支的语义裁决，不能整仓使用 ours 或 theirs。
+4. **选择性移植。** 先 cherry-pick 913a1a18，跳过 674df726，再 cherry-pick 772e0fca^..7e1a111a、322c6e2f、b58efeb7、b72c94df、4638f3f6、53a578f4、6f247692、d7380ada、ab51edd8、c606514b、f8b867fe、1d553697、2dc5aaa2 和 468d0dd1。每个冲突都按当前目标分支的语义裁决，不能整仓使用 ours 或 theirs。
 5. **重点审阅重叠 owner。** 当前三方 merge 预演已显示实际文本冲突至少涉及：
 
     .codex/skills/SKILL_ROLES.json
