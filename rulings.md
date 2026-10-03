@@ -643,3 +643,19 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 审计优先覆盖模式P形成、P1/P2/P3 fixtures、实际source controls、HoTT replay、Power Set来源与guard、Tool-Birth、P3-C、reflection/CAL以及P/Q修订；纯发布、翻译、归档和不构成自然锻造单元的提交不进入分母。
 4. 每封存一轮后，才可开始下一轮；阶段性总综合只能在所有列入轮次完成后进行。任何新规格缺口可以精确修复并提交，但前序轮次仍按其当时的证据范围保留。
 5. 本裁定授权audit campaign、必要的当前Feature／MEMORY／审计索引和精确Git commit；不恢复暂停的Goal，不启动新的理论worker／网络节点，不改变数学STATE或理论结论。
+
+## 2026-10-03：原子锻打全量审计必须有可引用 SOP
+
+研究发起人原话：
+
+~~~text
+你做一个新的SOP，并命名之，把审计流程标准化。我要使用这个新的SOP的名字和/goal，驱动你完成完整、全面的审计。
+~~~
+
+执行裁定：
+
+1. 新建稳定引用名 `P-FORGE-ATOMIC-AUDIT-SOP`，全名“模式 P 原子锻打全量审计 SOP”，canonical path 为`dev-docs/模式P原子锻打全量审计SOP.md`。它是 `P-FORGE-SOP` 的专门历史审计合同，不改变三把刀、P-DAG 或原子账本各自的 current owner。
+2. 审计必须把 `AUDIT_CARD`、`COARSE_NATURAL_UNIT`、`H_NUMBERED_NODE`、`NON_H_SESSION_RUN`、无统一 ID 的执行、Master 决策和仅有 NodeCard 的计划分开。A0 先穷尽候选执行族、去重、拆分和排除，并冻结精确原子分母；A1 才按发生顺序逐卡重放；A2 回接粗自然单元；A3 最后综合。任何 unresolved identity 都阻止“完整审计”判词。
+3. 每张 AtomicAuditCard 必须分开 `AS_RUN` 与 `CURRENT_CONTRACT_COUNTERFACTUAL`，保留实际的 P/Q 状态、来源、可见输入、运行／失败、QConvergenceLink、同一任务反事实、偏差、Wealth、falsifier 和重开条件。后来的规则可以解释为何要修正旧运行，不能倒灌成旧运行已经通过的条件。
+4. 该 SOP 的核心不变量仍是 `P/Q_CO_FORGING`：工具改动只有在产生／收紧／桥接／淘汰／会合 Candidate-Q，或明确保护固定卡免于误报时才算本研究的推进；否则如实登记`TOOL_ONLY_DRIFT`。审计完成也不等于`ZFC_Q_LOCATED`、ZFC 不一致或 P 已被永久证明有效。
+5. 未来可直接使用：`按照SOP=P-FORGE-ATOMIC-AUDIT-SOP，继续推进，直至无法推进。` 该调用从 A0 开始，且不自动恢复当前暂停的 Goal、启动理论 worker／网络节点、创建新刀、改数学 STATE、tag、push或发布。本裁定授权 SOP、入口路由、Feature、MEMORY和精确 Git commit。

@@ -2,7 +2,7 @@
 name: hott-pattern-p-dynamic-dag-orchestration
 description: 在用户已授权的 P1/P2/P3 共同锻造中，按证据条件动态调度 Terra/Max worker、来源节点与有界 Battle；逐节点决定盲态、本地分支、网络原典和项目证据的可见性，Master 负责来源裁决与唯一写回。仅用于模式 P 的 ZFC/HoTT 重放，不自动启动研究或 worker。
 metadata:
-  version: "2.3.0"
+  version: "2.3.1"
   role: "task-scoped-orchestration"
   owner: "dev-docs/模式P动态DAG调度.md"
 ---
@@ -11,7 +11,7 @@ metadata:
 
 ## 何时使用
 
-用户要求用多个 worker 分别使用 P1、P2、P3，要求 Battle，或要求 Master 为模式 P 的 ZFC／HoTT 共同锻造按节点决定项目、分支与网络访问时使用。先完成全局 `repo-cognitive-closure`，再按逻辑文档规则完整读取 [刀具系统理念](../../../dev-docs/刀具系统理念.md) 与 [动态 DAG SOP](../../../dev-docs/模式P动态DAG调度.md)。理念图先恢复“这次节点保护什么原初发现动作”；SOP 再冻结可执行的 TaskCard、NodeCard 和证据边界。用户引用 `P-FORGE-SOP`、要求连续锻造／新刀／全历史自审，或要求以Power Set的罗素防御作约束时，还要完整读 [P-FORGE-SOP](../../../dev-docs/模式P刀具持续锻造SOP.md)。它不因文件存在而自动启动任何数学研究、App Server、CLI worker、网络请求或 Git 写入。
+用户要求用多个 worker 分别使用 P1、P2、P3，要求 Battle，或要求 Master 为模式 P 的 ZFC／HoTT 共同锻造按节点决定项目、分支与网络访问时使用。先完成全局 `repo-cognitive-closure`，再按逻辑文档规则完整读取 [刀具系统理念](../../../dev-docs/刀具系统理念.md) 与 [动态 DAG SOP](../../../dev-docs/模式P动态DAG调度.md)。理念图先恢复“这次节点保护什么原初发现动作”；SOP 再冻结可执行的 TaskCard、NodeCard 和证据边界。用户引用 `P-FORGE-SOP`、要求连续锻造／新刀／全历史自审，或要求以Power Set的罗素防御作约束时，还要完整读 [P-FORGE-SOP](../../../dev-docs/模式P刀具持续锻造SOP.md)。用户引用 `P-FORGE-ATOMIC-AUDIT-SOP` 时，还要完整读 [模式 P 原子锻打全量审计 SOP](../../../dev-docs/模式P原子锻打全量审计SOP.md)，先完成 A0 分母冻结，再逐单位审计；这个审计引用不自动启动新的理论 worker。它不因文件存在而自动启动任何数学研究、App Server、CLI worker、网络请求或 Git 写入。
 
 ## 当前授权与范围
 

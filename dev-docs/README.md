@@ -18,4 +18,6 @@
 
 - [P-FORGE-SOP：模式 P 刀具持续锻造、新刀具出生与全历史自审](模式P刀具持续锻造SOP.md)：用户可在后续 `/goal` 直接引用的总操作合同。它把持续打磨、Tool-BirthCard、理念—实作自审、全历史分母、`PowerSetDefenseLedger`、`CAL-0`至`CAL-4`校准、来源层与Power Set station审查，以及把每一锻绑定到Q的生成／收紧／桥接／淘汰／会合的`QConvergenceLink`串成一条流程；每一细节仍路由到已有的三刀、P-DAG 与审计 owner。
 
+- [P-FORGE-ATOMIC-AUDIT-SOP：模式 P 原子锻打全量审计](模式P原子锻打全量审计SOP.md)：对“锻刀＝发现 Q”的历史过程做逐原子、来源受限的兵棋审计。它将审计卡、粗自然单元、H 节点、non-H session/run、无 ID 执行和 Master 决策分开，先冻结精确分母，再逐卡重放、去重、写回与提交；不能用 R00--R14 的宏观综合代替实际锻打的全量审计。未来 `/goal` 可直接引用稳定名 `P-FORGE-ATOMIC-AUDIT-SOP`；该 SOP 不会自行恢复已暂停的 Goal 或启动新理论节点。
+
 - [模式 P 动态 DAG 调度](模式P动态DAG调度.md)：当前 P1/P2/P3 共同锻造的 Master 调度 SOP 与项目内 Skill。它把 worker 的盲态、来源、项目分支、网络、Battle、Master 裁决、App Server/CLI 运行资格和证据收据分成按节点决定的合同；只在用户 2026-10-02 的任务限定授权下使用。

@@ -19,7 +19,7 @@ soft_line_target: 300
 
 新开或恢复 P-DAG、准备修改 P1/P2/P3 的职责、提出新刀或改变成功定义时，先读 [刀具系统理念](<刀具系统理念.md>) 的完整逻辑文档。它让 Master 先回答“这次节点在保护哪一项原初发现动作”，再冻结 TaskCard；它不替代本 SOP 的 NodeCard、来源、权限、trajectory 或同一任务证据。需要把原初讨论与实际运行逐段相对照时，再按 005 的条件进入 full origin audit。
 
-用户若在 `/goal` 中引用 `P-FORGE-SOP`，或要求连续锻造、新刀出生、全历史自审／对照和 Power Set 防御审查，先完整读 [P-FORGE-SOP](<模式P刀具持续锻造SOP.md>)。它协调本 SOP、三刀、full audit 与 Git 写回，要求每个节点以 `QConvergenceLink` 说明其怎样让固定Q卡生成、收紧、桥接、淘汰、会合或免于误报；新增的 `PowerSetDefenseLedger` 让任何“超越 Power Set 的罗素防御”候选先面对具体来源 guard；它不替代本 SOP 的逐节点授权。
+用户若在 `/goal` 中引用 `P-FORGE-SOP`，或要求连续锻造、新刀出生、全历史自审／对照和 Power Set 防御审查，先完整读 [P-FORGE-SOP](<模式P刀具持续锻造SOP.md>)。它协调本 SOP、三刀、full audit 与 Git 写回，要求每个节点以 `QConvergenceLink` 说明其怎样让固定Q卡生成、收紧、桥接、淘汰、会合或免于误报；新增的 `PowerSetDefenseLedger` 让任何“超越 Power Set 的罗素防御”候选先面对具体来源 guard；它不替代本 SOP 的逐节点授权。用户若明确引用 `P-FORGE-ATOMIC-AUDIT-SOP`，还须完整读 [模式 P 原子锻打全量审计 SOP](<模式P原子锻打全量审计SOP.md>)：它先分开审计卡、粗自然单元和实际运行分母，再进行逐单位历史重放；在 A0--A3 审计中不得因该引用启动新的理论 worker。
 
 ## 适用范围
 
