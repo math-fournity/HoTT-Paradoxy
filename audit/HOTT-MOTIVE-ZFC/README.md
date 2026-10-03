@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / PROJECT_DEFINED / RUN_NOT_STARTED`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / RUN_001_CLOSED_WITH_SCOPE / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -11,8 +11,9 @@
 本目录是文献调查项目 `HOTT-MOTIVE-ZFC-INVESTIGATION` 的档案根。它保存每次已启动调查的冻结来源分母、
 原件与派生阅读材料的身份、R/Z/Q 卡、消费者控制、覆盖收据与 findings；它不保存或替代项目的数学证明资产。
 
-当前状态：**SOP 与档案根已定义，但尚未启动任何调查 run。** 因而这里没有可报告的 HoTT 动机分母、
-ZFC 候选、`H0→Z0` 传输判词或文献完成度。
+当前状态：首个来源 run 已闭合：[20261003-HMZ-001-primary-motives](20261003-HMZ-001-primary-motives/MANIFEST.md)。
+它已对十个冻结来源保存 R/Z/Q/control cards，并完成其范围内的来源追踪；结果是一个 ZFC 的
+class/meta-language 表示边界和两类显式支付，而不是 `ZFC_Q`、`H0→Z0` 传输判词或全项目的“文献已完成”结论。
 
 ## Run 命名与目录合同
 
@@ -42,7 +43,7 @@ FINDINGS.md
 
 | Run ID | 冻结范围 | 状态 | Findings | 备注 |
 |---|---|---|---|---|
-| — | — | `RUN_NOT_STARTED` | — | 等待用户以 `HOTT-MOTIVE-ZFC-SOP` 启动。 |
+| `20261003-HMZ-001-primary-motives` | HoTT／UF 首批创立动机、Shulman 的 ZFC/NBG 分析、Isabelle/ZF、Metamath 形式呈现、Mumford 与 Shulman 真实消费者控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [FINDINGS](20261003-HMZ-001-primary-motives/FINDINGS.md) | 0 个 `CANDIDATE_SEED`；class/meta-language 是来源支持的表示边界且有 NBG 支付；结构／choice／machine 路径均有显式支付；Power Set 与 H0 transport 未资格化。 |
 
 ## 本次整备的影响边界
 
@@ -51,5 +52,5 @@ FINDINGS.md
 | 用户要求／路线 | `UPDATE`：调用名、来源调查和存档范围已固定。 |
 | SOP／Skill／任务路由 | `UPDATE`：项目 Skill、SOP、AGENTS、TASK_ROUTING和SKILL_ROLES已连接。 |
 | Archive／证据 | `UPDATE`：档案根、run ID、coverage与原件身份合同已定义。 |
-| 外部来源／下载／worker／P-DAG | `NO_RUNTIME_ACTION`：尚未启动任何调查、下载或模型运行。 |
-| 数学结论／STATE／Power Set station | `NO_CHANGE`：本项目整备不产生理论候选或数学主张。 |
+| 外部来源／下载 | `UPDATE`：已归档可公开取得的 IAS/arXiv/Brown/Metamath 原件，并保留访问失败的边界；未使用登录、付费或远程 OCR。 |
+| worker／P-DAG／数学结论／STATE／Power Set station | `NO_CHANGE`：本 run 没有启动 worker、P-DAG、STATE mutation 或数学证明；Power Set 未被升级为候选。 |

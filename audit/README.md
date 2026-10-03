@@ -1,6 +1,6 @@
 # 审计资产入口
 
-- [HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案](HOTT-MOTIVE-ZFC/README.md)：`HOTT-MOTIVE-ZFC-SOP` 的项目档案根。当前仅完成 SOP／项目整备，尚无冻结来源分母或实际调查 run；未来每个 run 在该根下独立保存 MANIFEST、R/Z/Q cards、consumer controls、coverage与findings。
+- [HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案](HOTT-MOTIVE-ZFC/README.md)：`HOTT-MOTIVE-ZFC-SOP` 的项目档案根。首个 [HMZ-001 primary-motives run](HOTT-MOTIVE-ZFC/20261003-HMZ-001-primary-motives/MANIFEST.md) 已在十个冻结来源内闭合：找到一个 ZFC class/meta-language 表示边界和显式支付控制，尚无 ZFC Q、H0 传输或数学结论。
 
 - [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，进行中）](20261003-P-FORGE-PQ-WARGAME.md)：按冻结轮次逐一回放模式P从原初目标、夹具、HoTT重放、ZFC来源、RK-0、Tool-Birth到CAL/PQ修订的实际Q增量和反事实；当前仅R00完成，R01待审，不能用本索引代替逐轮判词。
 

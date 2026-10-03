@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+.i { font-family: "Arial Narrow";
+     font-size: x-small;
+     color: gray;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .setvar { color: red; }
+  .wff { color: blue; }
+  .class { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+-->
+</STYLE>
+<LINK href="mmset.css" title="mmset"
+    rel="stylesheet" type="text/css">
+<LINK href="mmsetalt.css" title="mmsetalt"
+    rel="alternate stylesheet" type="text/css">
+<TITLE>rankpw - Metamath Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"><A HREF=
+    "mmset.html"><IMG SRC="mm.gif"
+      BORDER=0
+      ALT="MPE Home"
+      TITLE="MPE Home"
+      HEIGHT=32 WIDTH=32 ALIGN=TOP STYLE="margin-bottom:0px"></A>
+    </TD>
+    <TD ALIGN=CENTER COLSPAN=2 VALIGN=TOP><FONT SIZE="+3" COLOR="#006633"><B>
+Metamath Proof Explorer
+      </B></FONT></TD>
+    <TD ALIGN=RIGHT VALIGN=TOP WIDTH="25%">
+      <FONT SIZE=-1 FACE=sans-serif>
+      <A HREF="unbndrank.html">
+      &lt; Previous</A>&nbsp;&nbsp;
+      <A HREF="rankpwg.html">Next &gt;</A>
+      </FONT><FONT FACE=sans-serif SIZE=-2>
+      <BR><A HREF="mmtheorems99.html#rankpw">Nearby theorems</A>
+      </FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 ALIGN=LEFT VALIGN=TOP><FONT SIZE=-2
+      FACE=sans-serif>
+      <A HREF="../mm.html">Mirrors</A>&nbsp; &gt;
+      &nbsp;<A HREF="../index.html">Home</A>&nbsp; &gt;
+      &nbsp;<A HREF="mmset.html">MPE Home</A>&nbsp; &gt;
+      &nbsp;<A HREF="mmtheorems.html">Th. List</A>&nbsp; &gt;
+      &nbsp;rankpw
+      </FONT>
+    </TD>
+    <TD COLSPAN=2 ALIGN=RIGHT VALIGN=TOP>
+      <FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://metamath.tirix.org/mpests/rankpw.html">Structured
+version</A>&nbsp;&nbsp; <A
+HREF="https://expln.github.io/metamath/asrt/rankpw.html">Visualization
+version</A>&nbsp;&nbsp; 
+      <A HREF="../mpegif/rankpw.html">GIF version</A>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<CENTER><B><FONT SIZE="+1">Theorem <FONT
+COLOR="#006633">rankpw</FONT></FONT></B>&nbsp;<SPAN CLASS=r
+STYLE="color:#A87100">9849</SPAN></CENTER>
+<CENTER><TABLE><TR><TD ALIGN=LEFT><B>Description: </B>The rank of the powerset
+is the successor of the rank.  Part of Exercise
+       30 of [<A HREF="mmset.html#Enderton">Enderton</A>] p. 207.  (Contributed
+by NM, 22-Nov-2003.)  (Revised by
+       Mario Carneiro, 17-Nov-2014.)</TD></TR></TABLE></CENTER>
+
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Hypothesis">
+<CAPTION><B>Hypothesis</B></CAPTION>
+<TR><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD>rankpw.1</TD><TD>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866; </SPAN><SPAN
+CLASS=class STYLE="color:#C3C">&#x1D434;</SPAN> &isin; V</SPAN></TD></TR>
+</TABLE></CENTER>
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Assertion">
+<CAPTION><B>Assertion</B></CAPTION>
+<TR><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD><FONT COLOR="#006633"><B>rankpw</B></FONT></TD><TD>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866;
+</SPAN>(rank&lsquo;&#119979; <SPAN CLASS=class
+STYLE="color:#C3C">&#x1D434;</SPAN>) = suc (rank&lsquo;<SPAN CLASS=class
+STYLE="color:#C3C">&#x1D434;</SPAN>)</SPAN></TD></TR>
+</TABLE></CENTER>
+
+
+<HR NOSHADE SIZE=1>
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Proof of theorem">
+<CAPTION><B>Proof of Theorem <FONT
+   COLOR="#006633">rankpw</FONT></B></CAPTION>
+<TR><TH>Step</TH><TH>Hyp</TH><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD>1</TD><TD>&nbsp;</TD><TD>rankpw.1</TD><TD><A NAME="1"></A>
+<SPAN CLASS=i>. . 3</SPAN>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866; </SPAN><SPAN
+CLASS=class STYLE="color:#C3C">&#x1D434;</SPAN> &isin; V</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>2</TD><TD>&nbsp;</TD><TD><A HREF="unir1.html"
+TITLE="The cumulative hierarchy of sets covers the universe. Proposition 4.45 (b) to (a) of...">unir1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A87100">9814</SPAN></TD><TD><A NAME="2"></A>
+<SPAN CLASS=i>. . 3</SPAN>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866; </SPAN><FONT
+SIZE="+1">&cup;</FONT> (&#x1D445;<SUB>1</SUB> &ldquo; On) = V</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>3</TD><TD><A HREF="#1">1</A>, <A HREF="#2">2</A></TD><TD><A
+HREF="eleqtrri.html"
+TITLE="Substitution of equal classes into membership relation. (Contributed by NM,...">eleqtrri</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F11E00">2860</SPAN></TD><TD><A NAME="3"></A>
+<SPAN CLASS=i>. 2</SPAN>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866; </SPAN><SPAN
+CLASS=class STYLE="color:#C3C">&#x1D434;</SPAN> &isin; <FONT
+SIZE="+1">&cup;</FONT> (&#x1D445;<SUB>1</SUB> &ldquo; On)</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>4</TD><TD>&nbsp;</TD><TD><A HREF="rankpwi.html"
+TITLE="The rank of a power set. Part of Exercise 30 of [Enderton] p. 207. (Contributed by...">rankpwi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A87100">9825</SPAN></TD><TD><A NAME="4"></A>
+<SPAN CLASS=i>. 2</SPAN>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866; </SPAN>(<SPAN
+CLASS=class STYLE="color:#C3C">&#x1D434;</SPAN> &isin; <FONT
+SIZE="+1">&cup;</FONT> (&#x1D445;<SUB>1</SUB> &ldquo; On) &rarr;
+(rank&lsquo;&#119979; <SPAN CLASS=class STYLE="color:#C3C">&#x1D434;</SPAN>) =
+suc (rank&lsquo;<SPAN CLASS=class
+STYLE="color:#C3C">&#x1D434;</SPAN>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>5</TD><TD><A HREF="#3">3</A>, <A HREF="#4">4</A></TD><TD><A
+HREF="ax-mp.html"
+TITLE="Rule of Modus Ponens. The postulated inference rule of propositional calculus. See,...">ax-mp</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FA0000">5</SPAN></TD><TD><A NAME="5"></A>
+<SPAN CLASS=i>1</SPAN>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866;
+</SPAN>(rank&lsquo;&#119979; <SPAN CLASS=class
+STYLE="color:#C3C">&#x1D434;</SPAN>) = suc (rank&lsquo;<SPAN CLASS=class
+STYLE="color:#C3C">&#x1D434;</SPAN>)</SPAN></TD></TR>
+</TABLE></CENTER>
+<CENTER><TABLE CELLSPACING=5><TR><TD ALIGN=LEFT><FONT SIZE=-1><B>Colors of
+variables:</B> &nbsp; &nbsp;<SPAN CLASS=wff
+STYLE="color:blue;font-style:normal">wff</SPAN> <SPAN CLASS=setvar
+STYLE="color:red;font-style:normal">setvar</SPAN> <SPAN CLASS=class
+STYLE="color:#C3C;font-style:normal">class</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This proof depends on syntax axioms:</B> 
+&nbsp;<SPAN CLASS=math> = </SPAN><A HREF="wceq.html">wceq</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70A00">1570</SPAN> &nbsp;<SPAN CLASS=math> &isin;
+</SPAN><A HREF="wcel.html">wcel</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F51100">2145</SPAN> &nbsp;<SPAN CLASS=math>V</SPAN><A
+HREF="cvv.html">cvv</A>&nbsp;<SPAN CLASS=r STYLE="color:#EE2800">3451</SPAN>
+&nbsp;<SPAN CLASS=math>&#119979; </SPAN><A HREF="cpw.html">cpw</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E53900">4557</SPAN> &nbsp;<SPAN CLASS=math><FONT
+SIZE="+1">&cup;</FONT> </SPAN><A HREF="cuni.html">cuni</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">4867</SPAN> &nbsp;<SPAN CLASS=math> &ldquo; </SPAN><A
+HREF="cima.html">cima</A>&nbsp;<SPAN CLASS=r STYLE="color:#DB4800">5654</SPAN>
+&nbsp;<SPAN CLASS=math>On</SPAN><A HREF="con0.html">con0</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D44F00">6361</SPAN> &nbsp;<SPAN CLASS=math>suc </SPAN><A
+HREF="csuc.html">csuc</A>&nbsp;<SPAN CLASS=r STYLE="color:#D44F00">6363</SPAN>
+&nbsp;<SPAN CLASS=math>&lsquo;</SPAN><A HREF="cfv.html">cfv</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D25100">6537</SPAN> &nbsp;<SPAN
+CLASS=math>&#x1D445;<SUB>1</SUB></SPAN><A HREF="cr1.html">cr1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A97100">9759</SPAN> &nbsp;<SPAN CLASS=math>rank</SPAN><A
+HREF="crnk.html">crnk</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A97100">9760</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This proof depends on axioms:</B> &nbsp;<A
+HREF="ax-mp.html">ax-mp</A>&nbsp;<SPAN CLASS=r STYLE="color:#FA0000">5</SPAN>
+&nbsp;<A HREF="ax-1.html">ax-1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#FA0000">6</SPAN> &nbsp;<A HREF="ax-2.html">ax-2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FA0000">7</SPAN> &nbsp;<A
+HREF="ax-3.html">ax-3</A>&nbsp;<SPAN CLASS=r STYLE="color:#FA0000">8</SPAN>
+&nbsp;<A HREF="ax-gen.html">ax-gen</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F60C00">1828</SPAN> &nbsp;<A HREF="ax-4.html">ax-4</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F60C00">1842</SPAN> &nbsp;<A
+HREF="ax-5.html">ax-5</A>&nbsp;<SPAN CLASS=r STYLE="color:#F60E00">1943</SPAN>
+&nbsp;<A HREF="ax-6.html">ax-6</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F60F00">2000</SPAN> &nbsp;<A HREF="ax-7.html">ax-7</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F50F00">2041</SPAN> &nbsp;<A
+HREF="ax-8.html">ax-8</A>&nbsp;<SPAN CLASS=r STYLE="color:#F51100">2147</SPAN>
+&nbsp;<A HREF="ax-9.html">ax-9</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F51100">2155</SPAN> &nbsp;<A
+HREF="ax-10.html">ax-10</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F51200">2178</SPAN> &nbsp;<A
+HREF="ax-11.html">ax-11</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F51200">2194</SPAN> &nbsp;<A
+HREF="ax-12.html">ax-12</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F51200">2213</SPAN> &nbsp;<A
+HREF="ax-ext.html">ax-ext</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F21C00">2733</SPAN> &nbsp;<A
+HREF="ax-rep.html">ax-rep</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E04300">5232</SPAN> &nbsp;<A
+HREF="ax-sep.html">ax-sep</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF4300">5249</SPAN> &nbsp;<A
+HREF="ax-nul.html">ax-nul</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF4400">5260</SPAN> &nbsp;<A
+HREF="ax-pow.html">ax-pow</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF4500">5327</SPAN> &nbsp;<A
+HREF="ax-pr.html">ax-pr</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DE4500">5391</SPAN> &nbsp;<A
+HREF="ax-un.html">ax-un</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C45D00">7749</SPAN> &nbsp;<A
+HREF="ax-reg.html">ax-reg</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#AB6F00">9579</SPAN> &nbsp;<A
+HREF="ax-inf2.html">ax-inf2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#AA7000">9635</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This proof depends on definitions:</B>
+&nbsp;<A HREF="df-bi.html">df-bi</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#FA0100">210</SPAN> &nbsp;<A
+HREF="df-an.html">df-an</A>&nbsp;<SPAN CLASS=r STYLE="color:#FA0200">402</SPAN>
+&nbsp;<A HREF="df-or.html">df-or</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90500">862</SPAN> &nbsp;<A
+HREF="df-3or.html">df-3or</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">1104</SPAN> &nbsp;<A
+HREF="df-3an.html">df-3an</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">1105</SPAN> &nbsp;<A
+HREF="df-tru.html">df-tru</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F70A00">1573</SPAN> &nbsp;<A
+HREF="df-fal.html">df-fal</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F70A00">1583</SPAN> &nbsp;<A
+HREF="df-ex.html">df-ex</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F70B00">1813</SPAN> &nbsp;<A
+HREF="df-nf.html">df-nf</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F70B00">1817</SPAN> &nbsp;<A
+HREF="df-sb.html">df-sb</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F51000">2100</SPAN> &nbsp;<A
+HREF="df-mo.html">df-mo</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F31900">2565</SPAN> &nbsp;<A
+HREF="df-eu.html">df-eu</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F31900">2595</SPAN> &nbsp;<A
+HREF="df-clab.html">df-clab</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F21C00">2740</SPAN> &nbsp;<A
+HREF="df-cleq.html">df-cleq</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F21C00">2753</SPAN> &nbsp;<A
+HREF="df-clel.html">df-clel</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F11D00">2836</SPAN> &nbsp;<A
+HREF="df-nfc.html">df-nfc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F11F00">2910</SPAN> &nbsp;<A
+HREF="df-ne.html">df-ne</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F11F00">2957</SPAN> &nbsp;<A
+HREF="df-ral.html">df-ral</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F02200">3078</SPAN> &nbsp;<A
+HREF="df-rex.html">df-rex</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F02200">3088</SPAN> &nbsp;<A
+HREF="df-reu.html">df-reu</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EF2700">3367</SPAN> &nbsp;<A
+HREF="df-rab.html">df-rab</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EF2800">3414</SPAN> &nbsp;<A HREF="df-v.html">df-v</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EE2800">3453</SPAN> &nbsp;<A
+HREF="df-sbc.html">df-sbc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#ED2D00">3740</SPAN> &nbsp;<A
+HREF="df-csb.html">df-csb</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EC2F00">3848</SPAN> &nbsp;<A
+HREF="df-dif.html">df-dif</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB2F00">3902</SPAN> &nbsp;<A
+HREF="df-un.html">df-un</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB2F00">3904</SPAN> &nbsp;<A
+HREF="df-in.html">df-in</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB2F00">3906</SPAN> &nbsp;<A
+HREF="df-ss.html">df-ss</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB3000">3916</SPAN> &nbsp;<A
+HREF="df-pss.html">df-pss</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB3000">3919</SPAN> &nbsp;<A
+HREF="df-nul.html">df-nul</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E83500">4280</SPAN> &nbsp;<A
+HREF="df-if.html">df-if</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E63800">4483</SPAN> &nbsp;<A
+HREF="df-pw.html">df-pw</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E53900">4559</SPAN> &nbsp;<A
+HREF="df-sn.html">df-sn</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E53A00">4585</SPAN> &nbsp;<A
+HREF="df-pr.html">df-pr</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E53A00">4587</SPAN> &nbsp;<A
+HREF="df-op.html">df-op</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E53A00">4591</SPAN> &nbsp;<A
+HREF="df-uni.html">df-uni</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">4868</SPAN> &nbsp;<A
+HREF="df-int.html">df-int</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E23E00">4908</SPAN> &nbsp;<A
+HREF="df-iun.html">df-iun</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E23F00">4953</SPAN> &nbsp;<A
+HREF="df-br.html">df-br</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E14100">5104</SPAN> &nbsp;<A
+HREF="df-opab.html">df-opab</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E04200">5168</SPAN> &nbsp;<A
+HREF="df-mpt.html">df-mpt</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E04200">5187</SPAN> &nbsp;<A
+HREF="df-tr.html">df-tr</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E04300">5213</SPAN> &nbsp;<A
+HREF="df-id.html">df-id</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DD4700">5546</SPAN> &nbsp;<A
+HREF="df-eprel.html">df-eprel</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DD4700">5551</SPAN> &nbsp;<A
+HREF="df-po.html">df-po</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DC4700">5559</SPAN> &nbsp;<A
+HREF="df-so.html">df-so</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DC4700">5560</SPAN> &nbsp;<A
+HREF="df-fr.html">df-fr</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DC4800">5604</SPAN> &nbsp;<A
+HREF="df-we.html">df-we</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DC4800">5606</SPAN> &nbsp;<A
+HREF="df-xp.html">df-xp</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5657</SPAN> &nbsp;<A
+HREF="df-rel.html">df-rel</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5658</SPAN> &nbsp;<A
+HREF="df-cnv.html">df-cnv</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5659</SPAN> &nbsp;<A
+HREF="df-co.html">df-co</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5660</SPAN> &nbsp;<A
+HREF="df-dm.html">df-dm</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5661</SPAN> &nbsp;<A
+HREF="df-rn.html">df-rn</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5662</SPAN> &nbsp;<A
+HREF="df-res.html">df-res</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4800">5663</SPAN> &nbsp;<A
+HREF="df-ima.html">df-ima</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DB4900">5664</SPAN> &nbsp;<A
+HREF="df-pred.html">df-pred</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D54F00">6303</SPAN> &nbsp;<A
+HREF="df-ord.html">df-ord</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D44F00">6364</SPAN> &nbsp;<A
+HREF="df-on.html">df-on</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D44F00">6365</SPAN> &nbsp;<A
+HREF="df-lim.html">df-lim</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D44F00">6366</SPAN> &nbsp;<A
+HREF="df-suc.html">df-suc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D44F00">6367</SPAN> &nbsp;<A
+HREF="df-iota.html">df-iota</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D35100">6493</SPAN> &nbsp;<A
+HREF="df-fun.html">df-fun</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D25100">6539</SPAN> &nbsp;<A
+HREF="df-fn.html">df-fn</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D25100">6540</SPAN> &nbsp;<A HREF="df-f.html">df-f</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D25100">6541</SPAN> &nbsp;<A
+HREF="df-f1.html">df-f1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D25100">6542</SPAN> &nbsp;<A
+HREF="df-fo.html">df-fo</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D25100">6543</SPAN> &nbsp;<A
+HREF="df-f1o.html">df-f1o</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D25100">6544</SPAN> &nbsp;<A
+HREF="df-fv.html">df-fv</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D25100">6545</SPAN> &nbsp;<A
+HREF="df-ov.html">df-ov</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C95A00">7421</SPAN> &nbsp;<A
+HREF="df-om.html">df-om</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C25F00">7876</SPAN> &nbsp;<A
+HREF="df-2nd.html">df-2nd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C16000">8000</SPAN> &nbsp;<A
+HREF="df-frecs.html">df-frecs</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BD6300">8292</SPAN> &nbsp;<A
+HREF="df-wrecs.html">df-wrecs</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BC6300">8323</SPAN> &nbsp;<A
+HREF="df-recs.html">df-recs</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BC6400">8372</SPAN> &nbsp;<A
+HREF="df-rdg.html">df-rdg</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BB6400">8411</SPAN> &nbsp;<A
+HREF="df-r1.html">df-r1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A97100">9761</SPAN> &nbsp;<A
+HREF="df-rank.html">df-rank</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A97100">9762</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This theorem is used by:</B> &nbsp;<A
+HREF="rankpwg.html">rankpwg</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A87100">9850</SPAN> &nbsp;<A
+HREF="ranklim.html">ranklim</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A87100">9851</SPAN> &nbsp;<A
+HREF="r1pwALT.html">r1pwALT</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A87100">9853</SPAN> &nbsp;<A
+HREF="rankuni.html">rankuni</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A77100">9872</SPAN> &nbsp;<A
+HREF="rankc2.html">rankc2</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A77200">9881</SPAN> &nbsp;<A
+HREF="rankxpu.html">rankxpu</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A77200">9886</SPAN> &nbsp;<A
+HREF="rankmapu.html">rankmapu</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#A77200">9888</SPAN></FONT></TD></TR>
+</TABLE></CENTER>
+<TABLE BORDER=0 WIDTH="100%">
+<TR><TD WIDTH="25%">&nbsp;</TD>
+<TD ALIGN=CENTER VALIGN=BOTTOM>
+<FONT SIZE=-2 FACE=sans-serif>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+</FONT></TD><TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH="25%">
+<FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://validator.w3.org/check?uri=referer">
+W3C validator</A>
+</FONT></TD></TR></TABLE>
+</BODY></HTML>

@@ -1,0 +1,875 @@
+                                                        TYPE THEORY AND HOMOTOPY
+
+                                                                        STEVE AWODEY
+
+
+
+
+arXiv:1010.1810v1 [math.CT] 9 Oct 2010
+                                                                       1. Introduction
+                                         The purpose of this informal survey article is to introduce the reader
+                                         to a new and surprising connection between Geometry, Algebra, and
+                                         Logic, which has recently come to light in the form of an interpreta-
+                                         tion of the constructive type theory of Per Martin-Löf into homotopy
+                                         theory, resulting in new examples of certain algebraic structures which
+                                         are important in topology. This connection was discovered quite re-
+                                         cently, and various aspects of it are now under active investigation by
+                                         several researchers. (See [AW09, AHW09, War08, BG09, GG08, Garar,
+                                         GvdB08, Lum09, BG10, Voe06].)
+                                         1.1. Type theory. Martin-Löf type theory is a formal system origi-
+                                         nally intended to provide a rigorous framework for constructive mathe-
+                                         matics [ML75, ML98, ML84]. It is an extension of the typed λ-calculus
+                                         admitting dependent types and terms. Under the Curry-Howard cor-
+                                         respondence [How80], one identifies types with propositions, and terms
+                                         with proofs; viewed thus, the system is at least as strong as second-
+                                         order logic, and it is known to interpret constructive set theory [Acz74].
+                                         Indeed, Martin-Löf type theory has been used successfully to formalize
+                                         large parts of constructive mathematics, such as the theory of general-
+                                         ized recursive definitions [NPS90, ML79]. Moreover, it is also employed
+                                         extensively as a framework for the development of high-level program-
+                                         ming languages, in virtue of its combination of expressive strength and
+                                         desirable proof-theoretic properties [NPS90, Str91].
+                                            In addition to simple types A, B, . . . and their terms x : A ⊢ b(x) : B,
+                                         the theory also has dependent types x : A ⊢ B(x), which are regarded
+                                         as indexed families of types. There are simple type forming operations
+                                         A × B and A → B, as well  P as operations on dependentQ     types, including
+                                         in particular the sum       x:A B(x) and product        x:A B(x) types (see
+                                         the appendix for details). The Curry-Howard interpretation of the
+                                         operations A × B and A → B is as propositional conjunction and
+                                             Thanks to Pieter Hofstra, Peter Lumsdaine, and Michael Warren for their con-
+                                         tributions to this article, and to Per Martin-Löf and Erik Palmgren for supporting
+                                         this work over many years.
+                                                                                 1
+2                                STEVE AWODEY
+
+implication, of course; the dependent types x : A ⊢ B(x) are predicates,
+or more generally, relations,
+                   x1 : A1 , . . . , xn : An ⊢ R(x1 , . . . , xn ),
+                 P                    Q
+and the sum        and product            operations are the existential ∃ and
+universal ∀ quantifiers, respectively.
+   It is now natural to further extend the type theory with a primitive
+equality relation, corresponding to the equality formulas of first-order
+logic. Specifically, given two terms a, b of the same type A, one can
+form a new identity type IdA (a, b), representing the proposition that
+a and b are equal; a term of this type thus represents a proof of the
+proposition that a equals b. In the intensional version of the theory,
+with which we are concerned here, one thus has two different notions
+of equality: propositional equality is the notion represented by the
+identity types, in that two terms are propositionally equal just if their
+identity type IdA (a, b) is inhabited by a term. By contrast, defini-
+tional equality is a primitive relation on terms and is not represented
+by a type; it behaves much like equality between terms in the simply-
+typed lambda-calculus, or any conventional equational theory.
+   If the terms a and b are definitially equal, then (since they can be
+freely substituted for each other) they are also propositionally equal;
+but the converse is generally not true in the intensional version of the
+theory (the rules for identity types are given in the appendix). In the
+extensional theory, by contrast, the two notions of equality are forced
+by an additional rule to coincide. As a consequence, the extensional
+version of the theory is essentially a dependent type theory with a
+standard, extensional equality relation. As is well-known, however, the
+price one pays for this simplification is a loss of desirable proof-theoretic
+properties, such as strong normalization and decidable type checking
+and equality of terms [Str93, Str91, Hof95a].
+   In the intensional theory, each type A is thus endowed by the iden-
+tity types IdA (a, b) with a non-trivial structure. Indeed, this structure
+was observed by Hofmann and Streicher in [HS98] to satisfy condi-
+tions analogous to the familiar laws for groupoids.1 Specifically, the
+posited reflexivity of propositional equality produces identity proofs
+r(a) : IdA (a, a) for any term a : A, playing the role of a unit arrow 1a
+for a; and when f : IdA (a, b) is an identity proof, then (corresponding
+    1A groupoid is like a group, but with a partially-defined composition operation.
+Precisely, a groupoid can be defined as a category in which every arrow has an
+inverse. A group is thus a groupoid with only one object. Groupoids arise in
+topology as generalized fundamental groups, not tied to a choice of basepoint (see
+below).
+                    TYPE THEORY AND HOMOTOPY                             3
+
+to the symmetry of identity) there also exists a proof f −1 : IdA (b, a),
+to be thought of as the inverse of f ; finally, when f : IdA (a, b) and
+g : IdA (b, c) are identity proofs, then (corresponding to transitivity)
+there is a new proof g ◦ f : IdA (a, c), thought of as the composite of f
+and g. Moreover, this structure on each type A can be shown to satisfy
+the usual groupoid laws, but significantly, only up to propositional
+equality. We shall return to this point below.
+   The constructive character, computational tractability, and proof-
+theoretic clarity of the type theory are owed in part to this rather
+subtle treatment of equality between terms, which itself is expressible
+within the theory using the identity types IdA (a, b). Unlike extensional
+equality, which is computationally intractable, the expressibility of in-
+tensional equality within the theory leads to a system that is both
+powerful and expressive while retaining its important computational
+character. The cost of intensionality, however, has long been the result-
+ing difficulty of finding a natural, conventional semantic interpretation.
+(See [Hof97, Car86, Hof95b, Dyb96] for previous semantics).
+   The new approach presented here constructs a bridge from con-
+structive type theory to algebraic topology, exploiting both the ax-
+iomatic approach to homotopy of Quillen model categories, as well
+as the related algebraic methods involving (weak) higher-dimensional
+groupoids. This at once provides two new domains of interpretation
+for type theory. In doing so, it also permits logical methods to be
+combined with the traditional algebraic and topological approaches to
+homotopy theory, opening up a range of possible new applications of
+type theory in homotopy and higher-dimensional algebra. It also allows
+the importation into homotopy theory of computational tools based on
+the type theory, such as the computer proof assistants Coq and Agda
+(cf. [TLG06]).
+
+1.2. Homotopy theory. In homotopy theory one is concerned with
+spaces and continuous mappings up to homotopy; a homotopy be-
+tween continuous maps f, g : X          / Y is a continuous map ϑ : X ×
+[0, 1]   / Y satisfying ϑ(x, 0) = f (x) and ϑ(x, 1) = g(x). Such a homo-
+topy ϑ can be thought of as a “continuous deformation” of f into g.
+Two spaces are said to be homotopy-equivalent if there are continuous
+maps going back and forth, the composites of which are homotopical
+to the respective identity mappings. Such spaces may be thought of
+as differing only by a continuous deformation. Algebraic invariants,
+such as homology or the fundamental group, are homotopy-invariant,
+in that any spaces that are homotopy-equivalent must have the same
+invariants.
+4                           STEVE AWODEY
+
+   It is natural to also consider homotopies between homotopies, re-
+ferred to as higher homotopies. When we consider a space X, a
+distinguished point p ∈ X, and the paths in X beginning and ending
+at p, and identify such paths up to homotopy, the result is the funda-
+mental group π(X, p) of the space at the point. Pursuing an idea of
+Grothendieck’s [Gro83], modern homotopy theory generalizes this clas-
+sical construction in several directions: first, we remove the dependence
+on the base-point p by considering the fundamental groupoid π(X),
+consisting of all points and all paths up to homotopy. Next, rather than
+identifying homotopic paths, we can consider the homotopies between
+paths as distinct, new objects of a higher dimension (just as the paths
+themselves are homotopies between points). Continuing in this way, we
+obtain a structure consisting of the points of X, the paths in X, the ho-
+motopies between paths, the higher homotopies between homotopies,
+and so on for even higher homotopies. The resulting structure π∞ (X)
+is called the fundamental weak ∞-groupoid of X. Such higher-
+dimensional algebraic structures now play a central role in homotopy
+theory (see e.g. [KV91]); they capture much more of the homotopical
+information of a space than does the fundamental group π(X, p), or the
+groupoid π(X) = π1 (X), which is a quotient of π∞ (X) by collapsing
+the higher homotopies. As discussed in subsection 2.4 below, it has
+recently been shown that such higher-dimensional groupoids also arise
+naturally in intensional type theory.
+   Another central concept in modern homotopy theory is that of a
+Quillen model structure, which captures axiomatically some of the
+essential features of homotopy of topological spaces, enabling one to
+“do homotopy” in different mathematical settings, and to express the
+fact that two settings carry the same homotopical information. Quillen
+[Qui67] introduced model categories as an abstract framework for ho-
+motopy theory which would apply to a wide range of mathematical
+settings. Such a structure consists of the specification of three classes
+of maps (the fibrations, weak equivalences, and cofibrations) satisfy-
+ing certain conditions typical of the leading topological examples. The
+resulting framework of axiomatic homotopy theory allows the devel-
+opment of the main lines of classical homotopy theory (fundamental
+groups, homotopies of maps, strong and weak equivalence, homotopy
+limits, etc.) independently of any one specific setting. Thus, for in-
+stance, it is also applicable not only in spaces and simplicial sets, but
+also in new settings, as in the work of Voevodsky on the homotopy the-
+ory of schemes [MV99], or that of Joyal [Joy02, Joy] and Lurie [Lur09]
+on quasicategories. In the work under consideration here (subsection
+2.3), it is shown that Martin-Löf type theory can be interpreted in any
+                    TYPE THEORY AND HOMOTOPY                            5
+
+model category. This allows the use of type theory to reason formally
+and systematically about homotopy theory.
+                2. The homotopy interpretation
+2.1. Background. Among the most thorough, recent treatments of
+the extensional type theory are the two papers [MP00, MP02] by Mo-
+erdijk and Palmgren from 2000 and 2002. The authors also announced
+a projected third paper devoted to the intensional theory, which never
+appeared. Their intention was presumably to make use of higher cate-
+gories and, perhaps, Quillen model structures. No preliminary results
+were stated, but see [Pal03].
+   In 2006, Vladimir Voevodsky gave a series of lectures at Stanford
+University entitled “Homotopy lambda-calculus”, in which an inter-
+pretation of intensional type theory into simplicial sets was proposed
+(see [Voe06]). At the same time, and independently, the author and
+his doctoral student Michael Warren established the interpretation of
+intensional type theory in Quillen model structures, following a sug-
+gestion of Moerdijk.
+   All of these approaches derive from the pioneering work of Hoffmann
+and Streicher [HS98], which we now summarize.
+2.2. Groupoid semantics. A model of type theory is extensional if
+the following reflection rule is satisfied:
+                          p : IdA (a, b)
+                                         Id-reflection
+                           a=b:A
+I.e., the identity type IdA (a, b) in extensional models captures no more
+information than whether or not the terms a and b are definitionally
+equal. Although type checking is decidable in the intensional theory, it
+fails to be so in the extensional theory obtained by adding Id-reflection
+as a rule governing identity types. This fact is the principal moti-
+vation for studying intensional rather than extensional type theories
+(cf. [Str91] for a discussion of the difference between the intensional
+and extensional forms of the theory). A good notion of a model for the
+extensional theory is due to Seely [See84], who showed that one can in-
+terpret type dependency in locally cartesian closed categories in a very
+natural way. (There are certain coherence issues, prompting a later
+refinement by Hofmann [Hof97], but this need not concern us here.)
+Of course, intensional type theory can also be interpreted this way, but
+then the interpretation of the identity types necessarily becomes trivial
+in the above sense
+   The first natural, non-trivial semantics for intensional type theory
+were developed by Hoffmann and Streicher [HS98] using groupoids,
+6                            STEVE AWODEY
+
+which are categories in which every arrow is an iso. The category
+of groupoids is not locally cartesian closed [Pal03], and the model
+employs certain fibrations (equivalently, groupoid-valued functors) to
+model type dependency. Intuitively, the identity type over a groupoid
+G is interpreted as the groupoid G→ of arrows in G, so that an identity
+proof f : IdA (a, b) becomes an arrow f : a → b in G. The interpre-
+tation no longer validates extensionality, since there can be different
+elements a, b related by non-identity arrows f : a → b. Indeed, there
+may be many different such arrows f, g : a ⇒ b ; however—unlike in the
+type theory—these cannot in turn be further related by identity terms
+of higher type ϑ : IdIdA (f, g), since a (conventional) groupoid generally
+has no such higher-dimensional structure. Thus the groupoid semantics
+validates a certain truncation principle, stating that all higher identity
+types are trivial—a form of extensionality one dimension up. In par-
+ticular, the groupoid laws for the identity types are strictly satisfied in
+these models, rather than holding only up to propositional equality.
+   This situation suggests the use of the higher-dimensional analogues of
+groupoids, as formulated in homotopy theory, in order to provide mod-
+els admitting non-trivial higher identity types. Such higher groupoids
+occur naturally as the (higher) fundamental groupoids of spaces (as
+discussed above). A step in this direction was made by Garner [Garar],
+who uses a 2-dimensional notion of fibration to model intensional type
+theory in 2-groupoids, and shows that when various truncation axioms
+are added, the resulting theory is sound and complete with respect
+to this semantics. In his dissertation [War08], Warren showed that
+infinite-dimensional groupoids also give rise to models, which validate
+no such additional truncation axioms (see also [War10]). Such models
+do, however, satisfy type-theoretically unprovable strictness conditions
+such as the associativity of composition. It seems clear that one will
+ultimately need to use weak infinite dimensional groupoids in order
+to faithfully model the full intensional type theory (see subsection 2.4
+below).
+
+
+2.3. Homotopical models of type theory. Groupoids and their ho-
+momorphisms arise in homotopy theory as a “model” (i.e. a representa-
+tion) of topological spaces with homotopy classes of continuous maps.
+There are other models as well, such as simplicial sets. The idea of
+a Quillen model structure (cf. [Qui67, Bou77]) is to axiomatize the
+common features of these different models of homotopy, allowing one
+to develop the theory in an abstract general setting, and to compare
+different particular settings.
+                     TYPE THEORY AND HOMOTOPY                              7
+
+   This axiomatic framework also provides a convenient way of specify-
+ing a general semantics for intensional type theory, not tied to a particu-
+lar choice of groupoids, 2-groupoids, ∞-groupoids, simplicial sets, etc.,
+or even spaces themselves. The basic result in this connection states
+that it is possible to model the intensional type theory in any Quillen
+model category [AW09] (see also [War08]). The idea is that a type is
+interpreted as an abstract “space” X and a term x : X ⊢ a(x) : A as a
+continuous function a : X       / A. Thus e.g. a closed term a : A is a point
+a of A, an identity term p : IdA (a, b) is then a path p : a ❀ b in A (a ho-
+motopy between points!). A “higher” identity term ϑ : IdIdA (a,b) (p, q)
+is a homotopy between the paths p and q, and so on for even higher
+identity terms and higher homotopies. In this interpretation, one uses
+abstract “fibrations” to interpret dependent types, and abstract “path
+spaces” to model identity types, recovering the groupoid model and its
+relatives as special cases.
+   In [GG08] it was then shown that the type theory itself carries a
+natural homotopy structure (i.e. a weak factorization system), so that
+the theory is not only sound, but also logically complete with respect to
+such abstract homotopical semantics. While some “coherence” issues
+regarding the strictness of the interpretation remain to be worked out
+(again, see [War08], as well as [BG10]), together these results clearly
+establish not only the viability of the homotopical interpretation as a
+semantics for type theory, but also the possibility of using type theory
+to reason in Quillen model structures. That is to say, they suggest that
+intensional type theory can be seen as a “logic of homotopy theory”.
+   In order to describe the interpretation in somewhat more detail, we
+first recall a few standard definitions. In any category C, given maps
+f :A        / B and g : C    / D, we write f ⋔ g to indicate that f has
+the left-lifting property (LLP) with respect to g: for any commutative
+square
+                                        h   /C
+                                    A       >
+                                f       j        g
+                                            
+                                 B          /D
+                                        i
+
+
+there exists a diagonal map j : B    / C such that j ◦f = h and g ◦j = i.
+If M is any collection of maps in C, we denote by ⋔ M the collection of
+maps in C having the LLP with respect to all maps in M. The collection
+of maps M⋔ is defined similarly. A weak factorization system (L, R) in
+a category C consists of two collections L (the “left-class”) and R (the
+“right-class”) of maps in C such that:
+8                             STEVE AWODEY
+
+    (1) Every map f : A       / B has a factorization as f = p ◦ i, where
+        i ∈ L and p ∈ R.
+                                      i    /C
+                                A@
+                                     @@
+                                         @@ p
+                                       @@
+                                     f       
+                                           B,
+    (2) L = ⋔ R and L⋔ = R.
+   A (closed) model category [Qui67] is a bicomplete category C equipped
+with subcategories F (fibrations), C (cofibrations) and W (weak equiv-
+alences), satisfying the following two conditions: (1) Given any maps
+g ◦ f = h, if any two of f, g, h are weak equivalences, then so is the
+third; (2) both (C, F ∩ W) and (C ∩ W, F) are weak factorization sys-
+tems. A map f in a model category is a trivial cofibration if it is both
+a cofibration and a weak equivalence. Dually, a trivial fibration is a
+map which is both a fibration and a weak equivalence. An object A is
+said to be fibrant if the canonical map A      / 1 is a fibration. Dually,
+A is cofibrant if 0    / A is a cofibration.
+   Examples of model categories include the following:
+    (1) The category Top of topological spaces, with fibrations the Serre
+        fibrations, weak equivalences the weak homotopy equivalences,
+        and cofibrations those maps which have the LLP with respect
+        to trivial fibrations. The cofibrant objects in this model struc-
+        ture are retracts of spaces constructed, like CW-complexes, by
+        attaching cells.
+    (2) The category SSet of simplicial sets, with cofibrations the monomor-
+        phisms, fibrations the Kan fibrations, and weak equivalences the
+        weak homotopy equivalences. The fibrant objects for this model
+        structure are the Kan complexes.
+    (3) The category Gpd of (small) groupoids, with cofibrations the
+        homomorphisms that are injective on objects, fibrations the
+        Grothendieck fibrations, and weak equivalences the categorical
+        equivalences. Here all objects are both fibrant and cofibrant.
+See e.g. [DS95, Hov99] for further examples and details.
+  Finally, recall that in any model category C, a (very good) path object
+ I
+A for an object A consists of a factorization
+                                    r
+                              A FF      / AI                          (1)
+                                 FF
+                                   FF
+                                      F    p
+                                  ∆ FF# 
+                                          A × A,
+                     TYPE THEORY AND HOMOTOPY                              9
+
+of the diagonal map ∆ : A        / A × A as a trivial cofibration r followed
+by a fibration p (see [Hov99]). Paradigm examples of path objects
+are given by exponentiation by a suitable “unit interval” I in either
+Gpd or, when the object A is a Kan complex, in SSet. In e.g. the
+former case, GI is just the “arrow groupoid” G→ , consisting of all
+arrows in the groupoid G. Path objects always exist, but are not
+uniquely determined. In many examples, however, they can be chosen
+functorially.
+   We can now describe the homotopy interpretation of type theory
+more precisely. Whereas the idea of the Curry-Howard correspon-
+dence is often summarized by the slogan “Propositions as Types”, the
+idea underlying the homotopy interpretation is instead “Fibrations as
+Types”. In classical topology, and in most model categories, a fibra-
+tion p : E     / X can be thought of as a family of objects Ex varying
+continuously in a parameter x ∈ X. (The path-lifting property of a
+topological fibration describes how to get from one fiber Ex = p−1 (x)
+to another Ey along a path f : x ❀ y). This notion gives the inter-
+pretation of type dependency. Specifically, assume that C is a finitely
+complete category with (at least) a weak factorization system (L, R).
+Because most interesting examples arise from model categories, we re-
+fer to maps in L as trivial cofibrations and those in R as fibrations. A
+judgement ⊢ A : type is then interpreted as a fibrant object A of C.
+Similarly, a dependent type x : A ⊢ B(x) : type is interpreted as a
+fibration p : B     / A. Terms x : A ⊢ b(x) : B(x) in context are inter-
+preted as sections b : A     / B of p : B     / A, i.e. p ◦ b = 1A . Thinking
+of fibrant objects as types and fibrations as dependent types, the nat-
+ural interpretation of the identity type IdA (a, b) should then be as the
+fibration of paths in A from a to b, so that the type x, y : A ⊢ IdA (x, y)
+should be the “fibration of all paths in A”. That is, it should be a path
+object for A.
+Theorem 2.1 ([AW09]). Let C be a finitely complete category with a
+weak factorization system and a functorial choice of stable path objects
+AI : i.e., given any fibration A       / X and any map f : Y    / X, the
+evident comparison map is an isomorphism,
+                            f ∗ (AI ) ∼
+                                      = f ∗ (A)I .
+Then C is a model of Martin-Löf type theory with identity types.
+   The proof exhibits the close connection between type theory and
+axiomatic reasoning in this setting: We verify the rules for the identity
+types (see the Appendix). Given a fibrant object A, the judgement
+x, y : A ⊢ IdA (x, y) is interpreted as the path object fibration p :
+10                            STEVE AWODEY
+
+AI    / A × A, see (1). Because p is then a fibration, the formation rule
+
+                       x, y : A ⊢ IdA (x, y) : type
+is satisfied. Similarly, the introduction rule
+                         x : A ⊢ r(x) : IdA (x, x)
+is valid because the interpretation r : A     / AI is a section of p over
+∆:A       / A × A. For the elimination and conversion rules, assume that
+the following premisses are given
+            x : A, y : A, z : IdA (x, y) ⊢ D(x, y, z) : type,
+                                        x : A ⊢ d(x) : D(x, x, r(x)).
+We have, therefore, a fibration q : D / AI together with a map d :
+A   / D such that q ◦ d = r. This data yields the following (outer)
+commutative square:
+                                           d   /D
+                                A              =
+                                r          j         q
+                                                
+                                AI             / AI
+                                           1
+
+Because q is a fibration and r is, by definition, a trivial cofibration,
+there exists a diagonal filler j, which we choose as the interpretation
+of the term:
+            x, y : A, z : IdA (x, y) ⊢ J(d, x, y, z) : D(x, y, z).
+Commutativity of the bottom triangle is precisely this conclusion of the
+elimination rule, and commutativity of the top triangle is the required
+conversion rule:
+             x : A ⊢ J(d, x, x, r(x)) = d(x) : D(x, x, r(x)).
+   Examples of categories satisfying the hypotheses of this theorem in-
+clude groupoids, simplicial sets, and many simplicial model categories
+[Qui67] (including, e.g., simplicial sheaves and presheaves). There is
+a question of selecting the diagonal fillers j as interpretations of the
+J-terms in a “coherent way”, i.e. respecting substitutions of terms for
+variables. Some solutions to this problem are discussed in [AW09,
+War08, Gar07]. One neat solution is implicit in the recent work of
+Riehl [Rie10] on “algebraic” Quillen model structures. A systematic
+investigation of the issue of coherence, along with several examples of
+coherent models derived from homotopy theory, can be found in the
+recent work [BG10] of van den Berg and Garner.
+                     TYPE THEORY AND HOMOTOPY                            11
+
+2.4. Higher algebraic structures. Given the essential soundness
+and completeness of type theory with respect to the homotopical in-
+terpretation, we may further ask how expressive the logical system is,
+as a language for homotopy theory? From this point of view, we think
+of the types in the intensional theory as spaces, the terms of the type
+A are the points of the “space” A, the identity type IdA (a, b) repre-
+sents the collection of paths from a to b, and the higher identities are
+homotopies between paths, homotopies between homotopies of paths,
+etc., and we ask what homotopically relevant facts, properties, and
+structures are logically expressible. The topological fact that paths
+and homotopies do not form a groupoid, but only a groupoid up to
+homotopy, is of course reminiscent of the logical fact that the identity
+types only satisfy the groupoid laws up to propositional equality. This
+apparent analogy between homotopy theory and type theory can now
+be made precise, and indeed can be recognized as one and the same
+fact, resting entirely on the homotopical interpretation of the logic.
+The fundamental weak ω-groupoid of a space is namely a construction
+entirely within the logical system — it belongs, as it were, to the logic
+of homotopy theory, as we now proceed to explain.
+
+2.4.1. Weak ω-groupoids. It has recently been shown by Peter Lums-
+daine [Lum09] and, independently, Benno van den Berg and Richard
+Garner [BG09, vdB], that the tower of identity types over any fixed
+base type A in the type theory bears an infinite dimensional algebraic
+structure of exactly the kind arising in homotopy theory, called a weak
+ω-groupoid ([KV91, Lei02, Che07, Bro87]).
+   In somewhat more detail, in the globular approach to higher groupoids
+[Lei04, Bat98], a weak ω-groupoid has objects (“0-cells”), arrows (“1-
+cells”) between objects, 2-cells between 1-cells, and so on, with various
+composition operations and laws depending on the kind of groupoid in
+question (strict or weak, n- or ω-, etc.). We first require the notion of
+a globular set, which may be thought of as an “infinite-dimensional”
+graph. Specifically, a globular set ([Bat98, Str00]) is a presheaf on the
+category G generated by arrows
+                            s0        s1
+                                 /         /    /
+                        0        /1        /2       / ...
+                            t0        t1
+
+subject to the equations ss = ts, st = tt. More concretely, a globular
+set A• has a set An of “n-cells” for each n ∈ N, and each (n + 1)-cell x
+has parallel source and target n-cells s(x), t(x). (Cells x, y of dimension
+> 0 are parallel if s(x) = s(y) and t(x) = t(y); all 0-cells are considered
+parallel.)
+12                                 STEVE AWODEY
+
+
+                                                                         f
+
+                                             f
+           a      a    f     b          a          $ b        a          ϑ                b
+           •      •          /•         •      α :•           • α                         D•
+                                                                                  _*4 β
+                                             
+                                             g
+                                                                    !       }
+                                                                         g
+
+
+
+                 Figure 1. Some cells in dimensions 0–3.
+
+     For example, given a type A in a type theory T, the terms of types
+                                  A, IdA , IdIdA , . . . ,
+together with the evident indexing projections, e.g. s(p) = a and t(p) =
+b for p : IdA (a, b), form a globular set Â.
+   A strict ω-groupoid is an infine-dimensional groupoid satisfying, in
+all dimensions, associativity, unit, and inverse laws given by equations
+between certain cells. Such a groupoid has an underlying globular set
+consisting of cells of each dimension, and any globular set A• generates
+a free strict ω-groupoid F (A• )—just as any set generates a free group,
+and any graph, a free groupoid. The cells of F (A• ) are free (strictly
+associative) pastings-together of cells from A• and their formal duals,
+including degenerate pastings from the identity cells of F (A• ). In a
+strict ω-groupoid, cells can be composed along a common boundary in
+any lower dimension, and the composition satisfies various associativity,
+unit, and interchange laws, captured by the generalized associativity
+law: each labelled pasting diagram has a unique composite.
+   In a weak ω-groupoid, by contrast, we do not expect strict associa-
+tivity, and so we may have multiple composition maps for each shape
+of pasting diagram; but we do demand that these composites agree up
+to cells of the next dimension, and that these associativity cells satisfy
+coherence laws of their own, and so on.
+   Now, this is exactly the situation we find in intensional type theory.
+For instance, even in constructing a term witnessing the transitivity of
+identity, one finds that there is no single canonical candidate. Specifi-
+cally, as a composition for the pasting diagram
+                                    ·       /·           /·
+
+or more concretely, a term c such that
+            x, y, z : X, p : Id(x, y), q : Id(y, z) ⊢ c(q, p) : Id(x, z),
+                       TYPE THEORY AND HOMOTOPY                                     13
+
+there are the two equally natural terms cl , cr obtained by applying
+(Id-elim) to p and q respectively. These are not definitionally equal,
+but are propositionally equal, i.e. equal up to a 2-cell, for there is a
+term e with
+    x, y, z : X, p : Id(x, y), q : Id(y, z) ⊢ e(q, p) : Id(cl (q, p), cr (q, p)).
+Indeed, we have the following:
+Theorem 2.2 ([Lum09, BG09]). Let A be any type in a system T of
+intensional Martin-Löf type theory. Then the globular set Â of terms
+of type
+                           A, IdA , IdIdA , . . .
+carries a natural weak ω-groupoid structure.
+  It is now quite natural to ask what special properties this particular
+ω-groupoid has in virtue of its type-theoretic construction. In light
+of related syntactic constructions of other types of free algebras, a
+reasonable conjecture is that it is the free weak ω-groupoid, up to
+a suitable notion of equivalence. We return to this question below.
+2.4.2. Weak n-groupoids. A further step in exploring the connection
+between type theory and homotopy is to investigate the relationship
+between type theoretic “truncation” (i.e. higher-dimensional extention-
+ality principles) and topological “truncation” of the higher fundamental
+groups. Spaces for which the homotopy type is already completely de-
+termined by the fundamental groupoid are called homotopy 1-types,
+or simply 1-types [Bau95]. More generally, one has n-types, which are
+thought of as spaces which have no homotopical information above di-
+mension n. One of the goals of homotopy theory is to obtain good
+models of homotopy n-types. For example, the category of groupoids
+is Quillen equivalent to the category of 1-types; in this precise sense,
+groupoids are said to model homotopy 1-types. A famous conjecture
+of Grothendieck’s is that (arbitrary) homotopy types are modeled by
+weak ∞-groupoids (see e.g. [Bat98] for a precise statement).
+   Recent work [AHW09] by the author, Pieter Hofstra, and Michael
+Warren has shown that the 1-truncation of the intensional theory, ar-
+rived at by adding the analogue of the Id-reflection rule for all terms
+of identity type, generates a Quillen model structure on a category of
+structured graphs that is Quillen equivalent to that of groupoids. In a
+precise sense, the truncated system of 1-dimensional type theory thus
+models the homotopy 1-types.
+   In a bit more detail, for every globular set A• one can define a system
+of type theory T(A• ), the basic terms of which are the elements of the
+14                           STEVE AWODEY
+
+various An , typed as terms of the corresponding identity type deter-
+mined by the globular structure: e.g. a ∈ An is a basic term of type
+IdA (s(a), t(a)), where s, t : An ⇒ An−1 are the source and target maps,
+at dimension n, of A• . Since we know from the result of Lumsdaine et
+al. [Lum09, BG09], just reviewed, that for any type X, the underlying
+globular set of terms of the various identity types X, IdX , IdIdX , . . .
+gives rise to a weak ω-groupoid, we can infer that in particular the
+globular set of terms over the ground type A0 in the theory T(A• )
+form such a groupoid, generated type-theoretically from the arbi-
+trary globular set A• . Let us call this weak ω-groupoid Gω (A• ), the
+type-theoretically free weak ω-groupoid generated by A• . This con-
+struction is investigated in depth in [AHW09], where certain groupoids
+of this kind are termed Martin-Löf complexes (technically, these are
+the algebras for the globular monad just described).
+   It is clearly of interest to investigate the relationship between this
+type-theoretic construction of higher groupoids and both the alge-
+braically free higher groupoids, on the one hand, and the higher group-
+oids arising from spaces as fundamental groupoids, on the other. As a
+first step, one can consider the 1-dimensional truncation of the above
+construction, and the resulting (1-) groupoid G1 (A• ). For that case, the
+following result relating G1 (A• ) to the usual, algebraically free groupoid
+is established in the work cited:
+Theorem 2.3 ([AHW09]). The type-theoretically free groupoid is equiv-
+alent to the algebraically free groupoid.
+  Furthermore, it is shown that the 1-truncated Martin-Löf complexes
+admit a Quillen model structure equivalent to that of (1-) groupoids.
+The following then results from known facts from homotopy theory:
+Theorem 2.4 ([AHW09]). The 1-truncated Martin-Löf complexes clas-
+sify homotopy 1-types.
+  Obviously, one should now proceed to higher groupoids and the cor-
+responding type theories truncated at higher dimensions.
+            3. Conclusion: The logic of homotopy
+   The application of logic in geometry and topology via categorical
+algebra has a precedent in the development of topos theory. Invented
+by Grothendieck as an abstract framework for sheaf cohomology, the
+notion of a topos was soon discovered to have a logical interpretation,
+admitting the use of logical methods into topology (see e.g. [JT84]
+for just one of many examples). Equally important was the resulting
+flow of geometric and topological ideas and methods into logic, e.g.
+                    TYPE THEORY AND HOMOTOPY                            15
+
+sheaf-theoretic independence proofs, topological semantics for many
+non-classical systems, and an abstract treatment of realizability (see
+the encyclopedic work [Joh03]).
+   An important and lively research program in current homotopy the-
+ory is the pursuit (again following Grothendieck [Gro83]) of a gen-
+eral concept of “stack,” subsuming sheaves of homotopy types, higher
+groupoids, quasi-categories, and the like. Two important works in this
+area have just appeared (Lurie, Higher Topos Theory [Lur09]; Joyal,
+Theory of Quasi-Categories [Joy]). It may be said, somewhat roughly,
+that the notion of a “higher-dimensional topos” is to homotopy what
+that of a topos is to topology (as in [JT91]). This concept also has
+a clear categorical-algebraic component via Grothendieck’s “homotopy
+hypothesis”, which states that n-groupoids are combinatorial models
+for homotopy n-types, and ∞-groupoids are models for arbitrary ho-
+motopy types of spaces. Still missing from the recent development of
+higher-dimensional toposes, however, is a logical aspect analogous to
+that of (1-dimensional) topos theory. The research surveyed here sug-
+gests that such a logic is already available in intensional type theory.
+The homotopy interpretation of Martin-Löf type theory into Quillen
+model categories, and the related results on type-theoretic construc-
+tions of higher groupoids, are analogous to the basic results inter-
+preting extensional type theory and higher-order logic in (1-) toposes.
+They clearly indicate that the logic of higher toposes—i.e., the logic of
+homotopy—is, rather remarkably, a form of intensional type theory.
+
+               Appendix A. Rules of type theory
+This appendix recalls (some of) the rules of intensional Martin-Löf type
+theory. See [ML84, NPS90, Jac99] for detailed presentations.
+
+Judgement forms. There are four basic forms of judgement:
+                      A : type       a:A
+                      a=b:A          A = B : type
+Each form can occur also with free variables: e.g. if A is a type, then
+                          x : A ⊢ B(x) : type
+is called a dependent type, regarded as an A-indexed family of types.
+The part x : A to the left of the turnstile ⊢ is called the context of the
+judgement. More generally, a list of variable declarations x1 : A1 , x2 :
+A2 , . . . , xn : An is a context whenever the judgements A1 : type and
+                   x1 : A1 , ..., xm : Am ⊢ Am+1 : type
+16                           STEVE AWODEY
+
+are derivable, for 1 ≤ m < n. Given such a context Γ, the judgement
+Γ ⊢ A : type means that A is a type (in context Γ), while Γ ⊢ a :
+A indicates that a is a term of type A (in context Γ); the equality
+judgements have their usual meaning.
+
+Formation rules.
+              P     Given an A-indexed
+                                     Q family of types B(x), the de-
+pendent sum x:A .B(x) and product x:A .B(x) can be formed. The
+identity type introduces a new dependent type IdA for any type A.
+                   x : A ⊢ B(x) : type Q
+                     Q                   formation
+                       x:A B(x) : type
+
+
+
+                   x : A ⊢ B(x) : type P
+                     P                   formation
+                        x:A B(x) : type
+
+
+
+                          A : type
+                                               Id formation
+              x : A, y : A ⊢ IdA (x, y) : type
+
+Under the Curry-Howard correspondence, sums correspond to existen-
+tial quantifiers, products to universal quantifiers, and identity types to
+equations. The behavior of each of these types is specified by introduc-
+tion, elimination and conversion rules.
+
+Rules for dependent products.
+                  x : A ⊢ f (x) : B(x) Q
+                            Q            introduction
+                  λx.f (x) : x:A B(x)
+
+                             Q
+                 a:A    f : x:A B(x) Q
+                                       elimination
+                   app(f, a) : B(a).
+
+              a:A      x : A ⊢ f (x) : B(x) Q
+                                             conversion
+             app λx.f (x), a = f (a) : B(a)
+
+The introduction rule states thatQ for every family of terms f (x) : B(x)
+there is a term λx.f (x) of type x:A B(x). The elimination rule cor-
+responds to the application of a term f of the indexed product to
+a : A. Finally, the conversion rule for states that the application term
+app(−, a) behaves correctly when applied to a term of the form λx.f (x).
+                        TYPE THEORY AND HOMOTOPY                              17
+
+Rules for dependent sums.
+                       a:A       b : B(a) P
+                               P            introduction
+                       ha, bi : x:A B(x)
+      P
+ p:       x:A B(x)     x : A, y : B(x) ⊢ c(x, y) : C(hx, yi) P
+                                                               elimination
+                         σ(c, p) : C(p)
+
+a:A          b : B(a)      x : A, y : B(x) ⊢ c(x, y) : C(hx, yi) P
+                                                                   conversion
+                 σ(c, ha, bi) = c(a, b) : C(ha, bi)
+The variables x : A, y : B(a) are bound in the the notation σ(c, p).
+  Note that when A and B are types in the same context, the usual
+product A × B and function  P A → B Q    types from the simply typed
+λ-calculus are recovered as x:A B and x:A B, respectively.
+Rules for identity types.
+                             a:A          Id introduction
+                        r(a) : IdA (a, a)
+
+                     x : A, y : A, z : IdA (x, y) ⊢ B(x, y, z) : type
+                                                            
+ c : IdA (a, b)                 x : A ⊢ d(x) : B x, x, r(x)
+                                                              Id elimination
+                     J(d, a, b, c) : B(a, b, c)
+
+                                a:A                    Id conversion
+             J d, a, a, r(a)     = d(a) : B a, a, r(a)
+The introduction rule provides a witness r(a) that a is identical to
+itself, called the reflexivity term. The distinctive elimination rule can
+be recognized as a form of Leibniz’s law. The variable x : A is bound
+in the the notation J(d, a, b, c).
+                                    References
+[Acz74] P. Aczel. The strength of Martin-Löf’s type theory with one universe. In
+        S. Miettinen and J J. Vaananen, editors, Proceedings of the Symposium
+        on Mathematical Logic, pages 1–32, 1974.
+[AHW09] S. Awodey, P. Hofstra, and M. A. Warren. Martin-Löf complexes. 2009.
+        Submitted, on the arXiv as arXiv:0906.4521.
+[AW09] S. Awodey and M. A. Warren. Homotopy theoretic models of identity
+        types. Math. Proc. Camb. Phil. Soc., 146:45–55, 2009.
+[Bat98] M. A. Batanin. Monoidal globular categories as a natural environment
+        for the theory of weak n-categories. Adv. Math., 136(1):39–103, 1998.
+[Bau95] H.-J. Baues. Homotopy types. In I. M. James, editor, Handbook of Alge-
+        braic Topology, pages 1–72. North-Holland, Amsterdam, 1995.
+18                             STEVE AWODEY
+
+[BG09]   B. van den Berg and R. Garner. Types are weak ω-groupoids. Submitted,
+         2009.
+[BG10]   B. van den Berg and R. Garner. Topological and simplicial models of
+         identity types. Submitted, 2010.
+[Bou77] A. K. Bousfield. Constructions of factorization systems in categories.
+         Journal of Pure and Applied Algebra, 9:207–220, 1977.
+[Bro87] R. Brown. From groups to groupoids. Bulletin of the London Mathemat-
+         ical Society, 19:113–134, 1987.
+[Car86] J. Cartmell. Generalised algebraic theories and contextual categories.
+         Ann. Pure Appl. Logic, 32(3):209–243, 1986.
+[Che07] E. Cheng. An ω-category with all duals is an ω-groupoid. Appl. Categ.
+         Structures, 15(4):439–453, 2007.
+[DS95]   W. G. Dwyer and J. Spalinski. Homotopy theories and model categories.
+         In I. M. James, editor, Handbook of Algebraic Topology, pages 73–126.
+         North-Holland, Amsterdam, 1995.
+[Dyb96] P. Dybjer. Internal type theory. In Proc. BRA TYPES workshop, Torino,
+         June 1995, volume 1158 of Lecture Notes in Comput. Sci., Berlin, 1996.
+         Springer-Verlag.
+[Gar07] R. Garner. Cofibrantly generated natural weak factorisation systems.
+         2007. Submitted, on the arXiv as math.CT/0702290.
+[Garar] R. Garner. Two-dimensional models of type theory. Math. Structures
+         Comput. Sci., To appear.
+[GG08] N. Gambino and R. Garner. The identity type weak factorisation system.
+         Submitted, on the arXiv as arXiv:0803.4349v1, 2008.
+[Gro83] A. Grothendieck. Pursuing stacks. Unpublished letter to Quillen, 1983.
+[GvdB08] R. Garner and B. van den Berg. Types are weak ω-groupoids. Submitted,
+         2008.
+[Hof95a] M. Hofmann. Extensional Concepts in Intensional Type Theory. PhD
+         thesis, University of Edinburgh, 1995.
+[Hof95b] M. Hofmann. On the interpretation of type theory in locally cartesian
+         closed categories. In J. Tiuryn and Leszek Pacholski, editors, Computer
+         Science Logic 1994, pages 427–441. Springer, 1995.
+[Hof97]  M. Hofmann. Syntax and semantics of dependent types. In P. Dybjer
+         and A. M. Pitts, editors, Semantics and Logics of Computation, Pub-
+         lications of the Newton Institute, pages 79–130. Cambridge University
+         Press, Cambridge, 1997.
+[Hov99] M. Hovey. Model Categories, volume 63 of Math. Surveys and Monogr.
+         American Mathematical Society, Providence, Rhode Island, 1999.
+[How80] W. A. Howard. The formulae-as-types notion of construction. In J. P.
+         Seldin and J. R. Hindley, editors, To H. B. Curry: Essays on Combina-
+         tory Logic, Lambda Calculus and Formalism, pages 479–490. Academic
+         Press, London, 1980.
+[HS98]   M. Hofmann and T. Streicher. The groupoid interpretation of type the-
+         ory. In Sambin and Smith [SS98], pages 83–111.
+[Jac99]  B. Jacobs. Categorical Logic and Type Theory. North-Holland Publishing
+         Co., Amsterdam, 1999.
+[Joh03] P. T. Johnstone. Sketches of an Elephant. Oxford University Press, Ox-
+         ford, 2003. 2 vol.s.
+                       TYPE THEORY AND HOMOTOPY                                  19
+
+[Joy]     A. Joyal. The Theory of Quasi-Categories. In preparation.
+[Joy02]   A. Joyal. Quasi-categories and Kan complexes. Journal of Pure and Ap-
+          plied Algebra, 175:207–222, 2002.
+[JT84]    A. Joyal and M. Tierney. An Extension of the Galois theory of
+          Grothendieck, volume 51 of Memoirs of the AMS. American Mathemat-
+          ical Society, 1984.
+[JT91]    A. Joyal and M. Tierney. Strong stacks and classifying spaces. In Cat-
+          egory Theory (Como, 1990), volume 1488 of Lecture Notes in Math.,
+          pages 213–236, Berlin, 1991. Springer.
+[KV91]    M. M. Kapranov and V. A. Voevodsky. ∞-groupoids and homotopy
+          types. Cahiers de Topologie et Géometrie Différentielle Catégoriques,
+          32(1):29–46, 1991.
+[Lei02]   T. Leinster. A survey of definitions of n-category. Theory Appl. Categ.,
+          10:1–70 (electronic), 2002.
+[Lei04]   T. Leinster. Higher Operads, Higher Categories. Number 298 in London
+          Math. Soc. Lecture Note Ser. Cambridge University Press, Cambridge,
+          2004.
+[Lum09]   P. L. Lumsdaine. Weak ω-categories from intensional type theory. In
+          Typed Lambda-calculus and its applications, 2009.
+[Lur09]   J. Lurie. Higher Topos Theory. Princeton University Press, 2009.
+[ML75]    P. Martin-Löf. An intuitionistic theory of types: predicative part. In
+          H. E. Rose and J. C. Shepherdson, editors, Logic Colloquium ’73, pages
+          73–118, Amsterdam, 1975. North-Holland.
+[ML79]    P. Martin-Löf. Constructive mathematics and computer programming.
+          In Proceedings of the 6th International Congress for Logic, Methodology
+          and Philosophy of Science, Amsterdam, 1979. North-Holland.
+[ML84]    P. Martin-Löf. Intuitionistic Type Theory. Bibliopolis, Napoli, 1984.
+[ML98]    P. Martin-Löf. An intuitionistic theory of types. In Sambin and Smith
+          [SS98], pages 127–172. This paper was originally a 1972 preprint from
+          the Department of Mathematics at the University of Stockholm.
+[MP00]    I. Moerdijk and E. Palmgren. Wellfounded trees in categories. Ann. Pure
+          Appl. Logic, 104:189–218, 2000.
+[MP02]    I. Moerdijk and E. Palmgren. Type theories, toposes and constructive set
+          theory: predicative aspects of AST. Ann. Pure Appl. Logic, 114:155–201,
+          2002.
+[MV99]    F. Morel and V. Voevodsky. A1 -homotopy theory of schemes. Publica-
+          tions Mathématiques de l’I.H.E.S., 90:45–143, 1999.
+[NPS90]   B. Nordström, K. Petersson, and J. M. Smith. Programming in Martin-
+          Löf ’s Type Theory. An Introduction. Oxford University Press, 1990.
+[Pal03]   E. Palmgren. Groupoids and local cartesian closure. Department of
+          Mathematics Technical Report 2003:21, Uppsala University, 2003.
+[Qui67]   D. Quillen. Homotopical Algebra, volume 43 of Lecture Notes in Mathe-
+          matics. Springer, Berlin-Heidelberg, 1967.
+[Rie10]   E. Riehl. Algebraic model structures. 2010. on the archive under
+          arXiv:0910.2733v2.
+[See84]   R. A. G. Seely. Locally cartesian closed categories and type theory. Math.
+          Proc. Camb. Phil. Soc., 95:33–48, 1984.
+20                              STEVE AWODEY
+
+[SS98]  G. Sambin and J. Smith, editors. Twenty-Five Years of Constructive
+        Type Theory, volume 36 of Oxford Logic Guides, Oxford, 1998. Oxford
+        University Press.
+[Str91] T. Streicher. Semantics of Type Theory. Progress in Theoretical Com-
+        puter Science. Birkhauser, Basel, 1991.
+[Str93] T. Streicher. Investigations Into Intensional Type Theory. Habilitation-
+        sschrift, Ludwig-Maximilians-Universität München, November 1993.
+[Str00] R. Street. The petit topos of globular sets. J. P. Appl. Algebra, 154:299–
+        315, 2000.
+[TLG06] L. Théry, P. Letouzey, and G. Gonthier. Coq. In Freek Wiedijk, editor,
+        The Seventeen Provers of the World, Lecture Notes in Computer Science,
+        pages 28–35. Springer, Berlin-Heidelberg, 2006.
+[vdB]   B. van den Berg. Types as weak ω-categories. Lecture delivered in Upp-
+        sala, 2006, and unpublished notes.
+[Voe06] V. Voevodsky. A very short note on the homotopy λ-calculus. Unpub-
+        lished note, 2006.
+[War08] M. A. Warren. Homotopy Theoretic Aspects of Constructive Type The-
+        ory. PhD thesis, Carnegie Mellon University, 2008.
+[War10] M. Warren. The strict omega-groupoid interpretation of type theory.
+        2010. Forthcoming.
+

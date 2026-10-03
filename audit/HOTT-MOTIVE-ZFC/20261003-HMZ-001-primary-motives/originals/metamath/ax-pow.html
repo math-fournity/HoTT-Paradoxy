@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+.i { font-family: "Arial Narrow";
+     font-size: x-small;
+     color: gray;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .setvar { color: red; }
+  .wff { color: blue; }
+  .class { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+-->
+</STYLE>
+<LINK href="mmset.css" title="mmset"
+    rel="stylesheet" type="text/css">
+<LINK href="mmsetalt.css" title="mmsetalt"
+    rel="alternate stylesheet" type="text/css">
+<TITLE>ax-pow - Metamath Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"><A HREF=
+    "mmset.html"><IMG SRC="mm.gif"
+      BORDER=0
+      ALT="MPE Home"
+      TITLE="MPE Home"
+      HEIGHT=32 WIDTH=32 ALIGN=TOP STYLE="margin-bottom:0px"></A>
+    </TD>
+    <TD ALIGN=CENTER COLSPAN=2 VALIGN=TOP><FONT SIZE="+3" COLOR="#006633"><B>
+Metamath Proof Explorer
+      </B></FONT></TD>
+    <TD ALIGN=RIGHT VALIGN=TOP WIDTH="25%">
+      <FONT SIZE=-1 FACE=sans-serif>
+      <A HREF="intv.html">
+      &lt; Previous</A>&nbsp;&nbsp;
+      <A HREF="zfpow.html">Next &gt;</A>
+      </FONT><FONT FACE=sans-serif SIZE=-2>
+      <BR><A HREF="mmtheorems54.html#ax-pow">Nearby theorems</A>
+      </FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 ALIGN=LEFT VALIGN=TOP><FONT SIZE=-2
+      FACE=sans-serif>
+      <A HREF="../mm.html">Mirrors</A>&nbsp; &gt;
+      &nbsp;<A HREF="../index.html">Home</A>&nbsp; &gt;
+      &nbsp;<A HREF="mmset.html">MPE Home</A>&nbsp; &gt;
+      &nbsp;<A HREF="mmtheorems.html">Th. List</A>&nbsp; &gt;
+      &nbsp;ax-pow
+      </FONT>
+    </TD>
+    <TD COLSPAN=2 ALIGN=RIGHT VALIGN=TOP>
+      <FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://metamath.tirix.org/mpests/ax-pow.html">Structured
+version</A>&nbsp;&nbsp; <A
+HREF="https://expln.github.io/metamath/asrt/ax-pow.html">Visualization
+version</A>&nbsp;&nbsp; 
+      <A HREF="../mpegif/ax-pow.html">GIF version</A>
+      </FONT>
+    </TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<CENTER><B><FONT SIZE="+1">Axiom <FONT
+COLOR="#006633">ax-pow</FONT></FONT></B>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF4500">5327</SPAN></CENTER>
+<CENTER><TABLE><TR><TD ALIGN=LEFT><B>Description: </B>Axiom of Power Sets.  An
+axiom of Zermelo-Fraenkel set theory.  It
+       states that a set <SPAN CLASS=math><SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN></SPAN> exists that includes the power set of
+a given
+       set <SPAN CLASS=math><SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN></SPAN> i.e. contains every subset of <SPAN
+CLASS=math><SPAN CLASS=setvar STYLE="color:red">&#x1D465;</SPAN></SPAN>.  The
+variant <A HREF="axpow2.html">axpow2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF4500">5329</SPAN>
+       uses explicit subset notation.  A version using class notation is
+       <A HREF="pwex.html">pwex</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF4500">5342</SPAN>.  (Contributed by NM,
+21-Jun-1993.)</TD></TR></TABLE></CENTER>
+
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Assertion">
+<CAPTION><B>Assertion</B></CAPTION>
+<TR><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD><FONT COLOR="#006633"><B>ax-pow</B></FONT></TD><TD>
+<SPAN CLASS=math><SPAN CLASS=hidden STYLE="color:gray">&#8866;
+</SPAN>&exist;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN>&forall;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN>(&forall;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN>(<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN>) &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN>)</SPAN></TD></TR>
+</TABLE></CENTER>
+
+
+<CENTER><A HREF="mmset.html#distinct">Distinct variable</A> group: <SPAN
+CLASS=math> &nbsp; <SPAN CLASS=setvar STYLE="color:red">&#x1D465;</SPAN>,<SPAN
+CLASS=setvar STYLE="color:red">&#x1D466;</SPAN>,<SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN>,<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN></SPAN></CENTER>
+<HR NOSHADE SIZE=1>
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Detailed syntax breakdown of axiom">
+<CAPTION><B>Detailed syntax breakdown of Axiom <FONT
+   COLOR="#006633">ax-pow</FONT></B></CAPTION>
+<TR><TH>Step</TH><TH>Hyp</TH><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD>1</TD><TD>&nbsp;</TD><TD>vw</TD><TD><A NAME="1"></A>
+<SPAN CLASS=i>. . . . . . 7</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">setvar </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D464;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>2</TD><TD>&nbsp;</TD><TD>vz</TD><TD><A NAME="2"></A>
+<SPAN CLASS=i>. . . . . . 7</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">setvar </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D467;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>3</TD><TD><A HREF="#1">1</A>, <A HREF="#2">2</A></TD><TD><A
+HREF="wel.html"
+TITLE="Extend wff definition to include atomic formulas with the membership predicate. This...">wel</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F51100">2146</SPAN></TD><TD><A NAME="3"></A>
+<SPAN CLASS=i>. . . . . 6</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>4</TD><TD>&nbsp;</TD><TD>vx</TD><TD><A NAME="4"></A>
+<SPAN CLASS=i>. . . . . . 7</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">setvar </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D465;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>5</TD><TD><A HREF="#1">1</A>, <A HREF="#4">4</A></TD><TD><A
+HREF="wel.html"
+TITLE="Extend wff definition to include atomic formulas with the membership predicate. This...">wel</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F51100">2146</SPAN></TD><TD><A NAME="5"></A>
+<SPAN CLASS=i>. . . . . 6</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>6</TD><TD><A HREF="#3">3</A>, <A HREF="#5">5</A></TD><TD><A
+HREF="wi.html"
+TITLE="If ` ph ` and ` ps ` are wff's, so is ` ( ph -> ps ) ` or ' ` ph ` implies ` ps ` '....">wi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FA0000">4</SPAN></TD><TD><A NAME="6"></A>
+<SPAN CLASS=i>. . . . 5</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff </SPAN>(<SPAN
+CLASS=setvar STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN>)</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>7</TD><TD><A HREF="#6">6</A>, <A HREF="#1">1</A></TD><TD><A
+HREF="wal.html"
+TITLE="Extend wff definition to include the universal quantifier ('for all'). ` A. x ph `...">wal</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70A00">1568</SPAN></TD><TD><A NAME="7"></A>
+<SPAN CLASS=i>. . . 4</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff
+</SPAN>&forall;<SPAN CLASS=setvar STYLE="color:red">&#x1D464;</SPAN>(<SPAN
+CLASS=setvar STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN>)</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>8</TD><TD>&nbsp;</TD><TD>vy</TD><TD><A NAME="8"></A>
+<SPAN CLASS=i>. . . . 5</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">setvar </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D466;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>9</TD><TD><A HREF="#2">2</A>, <A HREF="#8">8</A></TD><TD><A
+HREF="wel.html"
+TITLE="Extend wff definition to include atomic formulas with the membership predicate. This...">wel</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F51100">2146</SPAN></TD><TD><A NAME="9"></A>
+<SPAN CLASS=i>. . . 4</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff </SPAN><SPAN
+CLASS=setvar STYLE="color:red">&#x1D467;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN></SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>10</TD><TD><A HREF="#7">7</A>, <A HREF="#9">9</A></TD><TD><A
+HREF="wi.html"
+TITLE="If ` ph ` and ` ps ` are wff's, so is ` ( ph -> ps ) ` or ' ` ph ` implies ` ps ` '....">wi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FA0000">4</SPAN></TD><TD><A NAME="10"></A>
+<SPAN CLASS=i>. . 3</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff
+</SPAN>(&forall;<SPAN CLASS=setvar STYLE="color:red">&#x1D464;</SPAN>(<SPAN
+CLASS=setvar STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN>) &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN>)</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>11</TD><TD><A HREF="#10">10</A>, <A
+HREF="#2">2</A></TD><TD><A HREF="wal.html"
+TITLE="Extend wff definition to include the universal quantifier ('for all'). ` A. x ph `...">wal</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70A00">1568</SPAN></TD><TD><A NAME="11"></A>
+<SPAN CLASS=i>. 2</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff
+</SPAN>&forall;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN>(&forall;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN>(<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN>) &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN>)</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>12</TD><TD><A HREF="#11">11</A>, <A
+HREF="#8">8</A></TD><TD><A HREF="wex.html"
+TITLE="Extend wff definition to include the existential quantifier ('there exists').">wex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70B00">1812</SPAN></TD><TD><A NAME="12"></A>
+<SPAN CLASS=i>1</SPAN>
+<SPAN CLASS=math><SPAN CLASS=typecode STYLE="color:gray">wff
+</SPAN>&exist;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN>&forall;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN>(&forall;<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN>(<SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D464;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D465;</SPAN>) &rarr; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D467;</SPAN> &isin; <SPAN CLASS=setvar
+STYLE="color:red">&#x1D466;</SPAN>)</SPAN></TD></TR>
+</TABLE></CENTER>
+<CENTER><TABLE CELLSPACING=5><TR><TD ALIGN=LEFT><FONT SIZE=-1><B>Colors of
+variables:</B> &nbsp; &nbsp;<SPAN CLASS=wff
+STYLE="color:blue;font-style:normal">wff</SPAN> <SPAN CLASS=setvar
+STYLE="color:red;font-style:normal">setvar</SPAN> <SPAN CLASS=class
+STYLE="color:#C3C;font-style:normal">class</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This axiom is used by:</B> &nbsp;<A HREF="zfpow.html">zfpow</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#DF4500">5328</SPAN> &nbsp;<A HREF="axpow2.html">axpow2</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#DF4500">5329</SPAN> &nbsp;<A HREF="axprlem1.html">axprlem1</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#DE4500">5385</SPAN> &nbsp;<A HREF="axprlem2.html">axprlem2</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#DE4500">5386</SPAN> &nbsp;<A HREF="axprlem1OLD.html">axprlem1OLD</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#DE4500">5390</SPAN> &nbsp;<A HREF="axpowg.html">axpowg</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#6170FF">35797</SPAN> &nbsp;<A HREF="axpowg2.html">axpowg2</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#6170FF">35798</SPAN> &nbsp;<A HREF="sn-exelALT.html">sn-exelALT</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#C726FA">43253</SPAN></FONT></TD></TR></TABLE></CENTER>
+<TABLE BORDER=0 WIDTH="100%">
+<TR><TD WIDTH="25%">&nbsp;</TD>
+<TD ALIGN=CENTER VALIGN=BOTTOM>
+<FONT SIZE=-2 FACE=sans-serif>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+</FONT></TD><TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH="25%">
+<FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://validator.w3.org/check?uri=referer">
+W3C validator</A>
+</FONT></TD></TR></TABLE>
+</BODY></HTML>

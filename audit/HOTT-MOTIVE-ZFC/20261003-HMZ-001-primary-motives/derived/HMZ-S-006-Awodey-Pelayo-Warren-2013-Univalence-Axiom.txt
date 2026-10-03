@@ -1,0 +1,342 @@
+                                           Voevodsky’s Univalence Axiom in homotopy type
+
+
+
+
+arXiv:1302.4731v1 [math.HO] 19 Feb 2013
+                                                               theory
+
+                                                   Steve Awodey, Álvaro Pelayo and Michael A. Warren
+
+
+                                                                               Abstract
+                                                    In this short note we give a glimpse of homotopy type theory, a
+                                                new field of mathematics at the intersection of algebraic topology and
+                                                mathematical logic, and we explain Vladimir Voevodsky’s univalent
+                                                interpretation of it. This interpretation has given rise to the univalent
+                                                foundations program, which is the topic of the current special year at
+                                                the Institute for Advanced Study.
+
+                                              The Institute for Advanced Study in Princeton is hosting a special pro-
+                                          gram during the academic year 2012-2013 on a new research theme that
+                                          is based on recently discovered connections between homotopy theory, a
+                                          branch of algebraic topology, and type theory, a branch of mathematical
+                                          logic and theoretical computer science. In this brief paper our goal is to
+                                          take a glance at these developments. For those readers who would like to
+                                          learn more about them, we recommend a number of references throughout.
+                                              Type theory was invented by Bertrand Russell [20], but it was first
+                                          developed as a rigorous formal system by Alonzo Church [3, 4, 5]. It now
+                                          has numerous applications in computer science, especially in the theory of
+                                          programming languages [19]. Per Martin-Löf [15, 11, 13, 14], among others,
+                                          developed a generalization of Church’s system which is now usually called
+                                          dependent, constructive, or simply Martin-Löf type theory; this is the
+                                          system that we consider here. It was originally intended as a rigorous frame-
+                                          work for constructive mathematics.
+                                              In type theory objects are classified using a primitive notion of type, sim-
+                                          ilar to the data-types used in programming languages. And as in program-
+                                          ming languages, these elaborately structured types can be used to express
+                                          detailed specifications of the objects classified, giving rise to principles of
+                                          reasoning about them. To take a simple example, the objects of a product
+                                          type A × B are known to be of the form ha, bi, and so one automatically
+                                          knows how to form them and how to decompose them. This aspect of type
+
+                                                                                   1
+theory has led to its extensive use in verifying the correctness of computer
+programs. Type theories also form the basis of modern computer proof
+assistants, which are used for formalizing mathematics and verifying the
+correctness of formalized proofs. For example, the powerful Coq proof as-
+sistant [6] has recently been used to formalize and verify the correctness of
+the proof of the celebrated Feit-Thompson Odd-Order theorem [7].
+    One problem with understanding type theory from a mathematical point
+of view, however, has always been that the basic concept of type is unlike
+that of set in ways that have been hard to make precise. This difficulty has
+now been solved by the idea of regarding types, not as strange sets (perhaps
+constructed without using classical logic), but as spaces, regarded from the
+perspective of homotopy theory
+    In homotopy theory one is concerned with spaces and continuous map-
+pings between them, up to homotopy; a homotopy between a pair of contin-
+uous maps f : X → Y and g : X → Y is a continuous map H : X ×[0, 1] → Y
+satisfying H(x, 0) = f (x) and H(x, 1) = g(x). The homotopy H may be
+thought of as a “continuous deformation” of f into g. The spaces X and Y
+are said to be homotopy equivalent, X ≃ Y , if there are continuous maps
+going back and forth, the composites of which are homotopical to the re-
+spective identity mappings, i.e. if they are isomorphic “up to homotopy”.
+Homotopy equivalent spaces have the same algebraic invariants (e.g. homol-
+ogy, or the fundamental group), and are said to have the same homotopy
+type.
+    Homotopy type theory is a new field of mathematics which interprets
+type theory from a homotopical perspective. In homotopy type theory, one
+regards the types as spaces, or homotopy types, and the logical constructions
+(such as the product A × B) as homotopy-invariant constructions on spaces.
+In this way, one is able to manipulate spaces directly, without first having
+to develop point-set topology or even define the real numbers. Homotopy
+type theory is connected to several topics of interest in modern algebraic
+topology, such as ∞-groupoids and Quillen model structures (see [18]); we
+will only mention one simple example below, namely the homotopy groups
+of spheres.
+    To briefly explain the homotopical perspective of types, consider the
+basic concept of type theory, namely that the term a is of type A, which is
+written:
+                                    a : A.
+This expression is traditionally thought of as akin to “a is an element of the
+set A.” However, in homotopy type theory we think of it instead as “a is
+
+
+                                      2
+a point of the space A.” Similarly, every term f : A → B is regarded as a
+continuous function from the space A to the space B.
+     This perspective clarifies features of type theory which were puzzling
+from the perspective of types as sets; for instance, that one can have non-
+trivial types X such that (X → X) ∼    = X + 1. But the key new idea of the
+homotopy interpretation is that the logical notion of identity a = b of two
+objects a, b : A of the same type A can be understood as the existence of a
+path p : a     b from point a to point b in the space A. This also means that
+two functions f, g : A → B are identical just in case they are homotopic,
+since a homotopy is just a family of paths px : f (x)      g(x) in B, one for
+each x : A. In type theory, for every type A there is a (formerly somewhat
+mysterious) type IdA of identities between objects of A; in homotopy type
+theory, this is just the path space AI of all continuous maps I → A from the
+unit interval. (See [2, 1, 18].)
+     At around the same time that Awodey and Warren advanced the idea of
+homotopy type theory, Voevodsky showed how to model type theory using
+Kan simplicial sets, a familiar setting for classical homotopy theory, thus
+arriving independently at essentially the same idea around 2005. Both were
+inspired by the prior work of Hofmann and Streicher, who had constructed
+a model of type theory using groupoids [9].
+     Voevodsky moreover recognized that this simplicial interpretation sat-
+isfies a further crucial property, which he termed univalence, and which is
+not usually assumed in type theory. Adding univalence to type theory in
+the form of a new axiom has far-reaching consequences, many of which are
+natural, simplifying and compelling. The Univalence Axiom thus fur-
+ther strengthens the homotopical view of type theory, since it holds in the
+simplicial model, but fails in the view of types as sets.
+     The basic idea of the Univalence Axiom can be explained as follows. In
+type theory, one can have a universe U , the terms of which are themselves
+types, A : U , etc. Of course, we do not have U : U , so only some types are
+terms of U – call these the small types. Like any type, U has an identity
+type IdU , which expresses the identity relation A = B among small types.
+Thinking of types as spaces, U is a space, the points of which are spaces; to
+understand its identity type, we must ask, what is a path p : A        B be-
+tween spaces in U ? The Univalence Axiom says that such paths correspond
+to homotopy equivalences A ≃ B, as explained above (the actual notion of
+equivalence required is slightly different). A bit more precisely, given any
+(small) types A and B, in addition to the type IdU (A, B) of identities be-
+tween A and B there is the type Eq(A, B) of equivalences from A to B.
+Since the identity map on any object is an equivalence, there is a canonical
+
+                                     3
+map,
+                           IdU (A, B) → Eq(A, B).
+The Univalence Axiom states that this map is itself an equivalence. At the
+risk of oversimplifying, we can state this succinctly as follows:
+
+Univalence Axiom (A = B) ≃ (A ≃ B).
+
+In other words, identity is equivalent to equivalence.
+     From the homotopical point of view, this says that the universe U is
+something like a classifying space for (small) homotopy types, which is a
+practical and natural assumption. From the logical point of view, however,
+it is revolutionary: it says that isomorphic things can be identified! Mathe-
+maticians are of course used to identifying isomorphic structures in practice,
+but they generally do so with a wink, knowing that the identification is not
+“officially” justified by foundations. But in this new foundational scheme,
+not only are such structures formally identified, but the different ways in
+which such identifications may be made themselves form a structure that
+one can (and should!) take into account.
+     Part of the appeal of homotopy type theory with the Univalence Axiom
+is the many interesting connections it reveals between logic and homotopy.
+Another remarkable aspect is that it can be carried out in a computer
+proof assistant, since type theory exhibits such good computational prop-
+erties (see [21, 8] on the use of computer proof assistants in general). In
+practical terms, this means that it is possible to use the powerful, currently
+available proof assistants based on type theory, like the Coq system, to de-
+velop mathematics involving homotopy theory, to verify the correctness of
+proofs, and even to provide some degree of automation of proofs.
+     To give just one example, in homotopy type theory one can directly
+define the n-dimensional sphere S n as a type, with its associated principles
+of reasoning. Moreover, for any type A one can define the homotopy groups
+πn (A), again in a very direct way in terms of the identity type IdA explained
+above. One can then reason directly in type theory, using the principles
+associated with these constructions, and prove for example that πn (S n ) = Z
+for n ≥ 1 (as has recently been done by G. Brunerie and D. Licata at the
+Institute for Advanced Study, using the Univalence Axiom in an essential
+way). Finally, the proof can be formalized in a proof assistant and verified by
+a computer. In this way, one not only has new methods of proof in classical
+homotopy theory, but indeed ones which provide associated computational
+tools.
+
+
+                                      4
+    Voevodsky has christened this combination of homotopy type theory
+with the Univalence Axiom, implemented on a computer proof assistant, the
+Univalent Foundations program. It can be regarded as a new foundation
+for mathematics in general, not just for homotopy theory, as Voevodsky has
+shown by developing an extensive code library of formalized mathematics
+in this setting. Moreover, he is promoting more interaction between pure
+mathematicians and the developers of such proof assistants, as is occurring
+in the special year on Univalent Foundations at the Institute for Advanced
+Study.
+    For those interested in contributing to this new kind of mathematics, it
+may be encouraging to know that there are many interesting open questions.
+The most pressing of them is perhaps the “constructivity” of the Univalence
+Axiom itself, conjectured by Voevodsky in [23]. It concerns the effect of
+adding the Univalence Axiom on the computational behavior of the system
+of type theory, and thus on the existing proof assistants. Another major
+direction, of course, is the further formalization of classical results and cur-
+rent mathematical research in the univalent setting. We expect that it will
+eventually be possible to formalize large amounts of modern mathematics
+in this setting, and that doing so will give rise to both theoretical insights
+and good numerical algorithms (extracted from code in a proof assistant).
+    In this direction, together with Voevodsky, the last two authors are work-
+ing on an approach to the theory of integrable systems (using the new notion
+of p-adic integrable system as a test case) in the univalent setting. A pre-
+liminary treatment is the construction of the p-adic numbers is given in [17].
+One of Voevodsky’s goals (as we understand it) is that in a not too distant
+future, mathematicians will be able to verify the correctness of their own
+papers by working within the system of univalent foundations formalized in
+a proof assistant, and that doing so will become natural even for pure math-
+ematicians (the same way that most mathematicians now typeset their own
+papers in TEX). We believe that this aspect of the univalent foundations
+program distinguishes it from other approaches to foundations, by providing
+a practical utility for the working mathematician.
+    Our goal in this announcement has been to give a brief and intentionally
+superficial glimpse of two closely related, recent developments: homotopy
+type theory and Voevodsky’s univalent foundations program. At present,
+these subjects are still developing quite rapidly, and the current literature
+is (with few exceptions) highly specialized and, unfortunately, largely in-
+accessible to those without prior knowledge of homotopy theory and logic.
+One exception is the survey article [18], which goes into much greater depth
+than the present article, while still being intended for a general mathemati-
+
+                                       5
+cal readership; it also contains an introduction to the use of the Coq proof
+assistant in the univalent setting. See also [1, 10, 23].
+
+    Acknowledgements. We thank the Institute for Advanced Study for the
+excellent resources which have been made available to the authors during the
+preparation of this article. We thank Thierry Coquand, Dan Grayson, and
+Vladimir Voevodsky for useful discussions on the topic of this paper, and the
+referees for helpful suggestions. Awodey is partly supported by National Sci-
+ence Foundation Grant DMS-1001191 and Air Force OSR Grant 11NL035.
+Pelayo is partly supported by NSF CAREER Grant DMS-1055897, NSF
+Grant DMS-0635607, and Spain Ministry of Science Grant Sev-2011-0087.
+Warren is supported by the Oswald Veblen Fund.
+
+
+References
+  [1] S. Awodey, Type theory and homotopy.              On the arXiv as
+      arXiv:1010:1810v1, 2010.
+
+  [2] S. Awodey and M. A. Warren, Homotopy theoretic models of iden-
+      tity types, Mathematical Proceedings of the Cambridge Philosophical
+      Society 146 (2009), no. 1, 45-55.
+
+  [3] A. Church, A set of postulates for the foundation of logic, Annals of
+      Mathematics. Second Series 34 (1933), no. 4, 839-864.
+
+  [4]          , A formulation of the simple theory of types, Journal of Sym-
+        bolic Logic 5 (1940), 56-68.
+
+  [5]          , The Calculi of Lambda-Conversion, Annals of Mathematics
+        Studies, no. 6, Princeton University Press, Princeton, N. J., 1941.
+
+  [6] http://coq.inria.fr
+
+  [7] http://research.microsoft.com/en-us/news/features/gonthierproof-101112.aspx
+
+  [8] T. C. Hales, Formal proof, Notices of the American Mathematical
+      Society 55 (2008), no. 11, 1370-1380.
+
+  [9] M. Hofmann and T. Streicher, The groupoid interpretation of type
+      theory, Twenty-five years of constructive type theory (Venice, 1995),
+      Oxford Univ. Press, New York, 1998, pp. 83–111.
+
+ [10] http://homotopytypetheory.org
+
+                                       6
+[11] P. Martin-Löf, An intuitionistic theory of types: predicative part, Logic
+     Colloquium ’73 (Bristol, 1973), North-Holland, Amsterdam, 1975, pp.
+     73-118. Studies in Logic and the Foundations of Mathematics, Vol. 80.
+
+[12]         , Constructive mathematics and computer programming. In
+       Proceedings of the 6th International Congress for Logic, Methodol-
+       ogy and Philosophy of Science, Amsterdam, 1979. North-Holland.
+
+[13]          , Constructive mathematics and computer programming, Logic,
+       methodology and philosophy of science, VI (Hannover, 1979), North-
+       Holland, Amsterdam, 1982, pp. 153-175.
+
+[14]          , Intuitionistic type theory, Studies in Proof Theory. Lecture
+       Notes, vol. 1, Bibliopolis, Naples, 1984.
+
+[15]           , An intuitionistic theory of types, Twenty-five years of con-
+       structive type theory (Venice, 1995), Oxford Univ. Press, New York,
+       1998, originally a 1972 preprint from the Department of Mathematics
+       at the University of Stockholm, pp. 127-172.
+
+[16] B. Nordström, K. Petersson, and J. M. Smith: Programming in
+     Martin-Löf’s Type Theory. An Introduction. Oxford University Press,
+     1990.
+
+[17] Á. Pelayo, V. Voevodsky, M. A. Warren: A preliminary univalent
+     formalization of the p-adic numbers, submitted, on the arXiv as
+     arXiv:math/1302.1207, 2013.
+
+[18] Á. Pelayo, M. A. Warren:       Homotopy type theory and Vo-
+     evodsky’s univalent foundations, submitted, on the arXiv as
+     arXiv:math/1210.5658, 2012.
+
+[19] B. C. Pierce, Types and Programming Languages, MIT Press, Cam-
+     bridge, MA, 2002.
+
+[20] B. Russell, Mathematical Logic as Based on the Theory of Types,
+     American Journal of Mathematics 30 (1908), 222–262.
+
+[21] C. Simpson, Computer theorem proving in mathematics, Letters in
+     Mathematical Physics 69 (2004), 287-315.
+
+[22] V. Voevodsky, Notes on type systems, Unpublished notes,
+     http://www.math.ias.edu/~vladimir/Site3/Univalent_Foundations.html,
+     2009.
+
+                                      7
+ [23]         ,       Univalent   foundations    project,       Mod-
+        ified   version     of  an     NSF     grant      application,
+        http://www.math.ias.edu/~vladimir/Site3/Univalent_Foundations.html,
+        2010.
+
+
+Steve Awodey
+Carnegie Mellon University
+Department of Philosophy
+Pittsburgh, PA 15213 USA
+
+Institute for Advanced Study
+School of Mathematics, Einstein Drive
+Princeton, NJ 08540 USA
+E-mail addresses: awodey@cmu.edu, awodey@math.ias.edu
+
+
+Álvaro Pelayo
+Washington University
+Department of Mathematics
+One Brookings Drive, Campus Box 1146
+St Louis, MO 63130 USA
+
+Institute for Advanced Study
+School of Mathematics, Einstein Drive
+Princeton, NJ 08540 USA
+E-mail addresses: apelayo@math.wustl.edu, apelayo@math.ias.edu
+
+
+Michael A. Warren
+Institute for Advanced Study
+School of Mathematics, Einstein Drive
+Princeton, NJ 08540 USA.
+E-mail address: mwarren@math.ias.edu
+
+
+
+
+                                  8
+

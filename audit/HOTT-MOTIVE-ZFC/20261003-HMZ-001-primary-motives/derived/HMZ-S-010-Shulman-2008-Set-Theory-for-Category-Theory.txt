@@ -1,0 +1,1983 @@
+                                                         SET THEORY FOR CATEGORY THEORY
+
+                                                                           MICHAEL A. SHULMAN
+
+
+
+
+arXiv:0810.1279v2 [math.CT] 7 Oct 2008
+                                                 Abstract. Questions of set-theoretic size play an essential role in category
+                                                 theory, especially the distinction between sets and proper classes (or small sets
+                                                 and large sets). There are many different ways to formalize this, and which
+                                                 choice is made can have noticeable effects on what categorical constructions
+                                                 are permissible. In this expository paper we summarize and compare a num-
+                                                 ber of such “set-theoretic foundations for category theory,” and describe their
+                                                 implications for the everyday use of category theory. We assume the reader
+                                                 has some basic knowledge of category theory, but little or no prior experience
+                                                 with formal logic or set theory.
+
+
+                                                                              1. Introduction
+                                            Since its earliest days, category theory has had to deal with set-theoretic ques-
+                                         tions. This is because unlike in most fields of mathematics outside of set theory,
+                                         questions of size play an essential role in category theory.
+                                            A good example is Freyd’s Special Adjoint Functor Theorem: a functor from
+                                         a complete, locally small, and well-powered category with a cogenerating set to a
+                                         locally small category has a left adjoint if and only if it preserves small limits. This
+                                         is always one of the first results I quote when people ask me “are there any real
+                                         theorems in category theory?” So it is all the more striking that it involves in an
+                                         essential way notions like ‘locally small’, ‘small limits’, and ‘cogenerating set’ which
+                                         refer explicitly to the difference between sets and proper classes (or between small
+                                         sets and large sets).
+                                            Despite this, in my experience there is a certain amount of confusion among users
+                                         and students of category theory about its foundations, and in particular about what
+                                         constructions on large categories are or are not possible. Most introductory category
+                                         theory books and courses quite rightly ignore deeper set-theoretic questions, which
+                                         will only confuse most beginners. However, intermediate and advanced students of
+                                         category theory may naturally begin to wonder about these questions.
+                                            It turns out that there are several possible foundational choices for category
+                                         theory, and which choice is made can have noticeable effects on what is possible
+                                         and what is not. The purpose of this informal paper is to summarize and compare
+                                         some of these proposed foundations, including both ‘set-theoretical’ and ‘category-
+                                         theoretical’ ones, and describe their implications for the everyday use of category
+                                         theory. I assume the reader has some basic knowledge of category theory, such as
+                                         can be obtained from [ML98] or [Awo06], but little or no experience with formal
+                                         logic or set theory. I found some brief excursions into mathematical logic unavoid-
+                                         able, but I have tried to explain all logical notions as they occur and relegate the
+                                         more complicated logical discussion to footnotes.
+
+                                           Date: November 26, 2024.
+                                                                                        1
+2                                  MICHAEL A. SHULMAN
+
+
+   Related papers include [Fef69, Appendix II] (by G. Kreisel) and [Bla84]; a his-
+torical survey can be found in [Krö07]. Since my goal is expository, I have tried to
+restrict citations to those most useful for the student, when such exist. Likewise,
+this is not a history paper, so I will concentrate on current understanding.
+   Finally, this is a work in progress, so suggested corrections and improvements,
+both in mathematical content and exposition, are extremely welcome. Please also
+let me know if you have suggestions for other references to include. Numerous
+people have already helped me with editing and feedback; I would like to especially
+thank Damir Dzhafarov and Kenny Easwaran for useful discussions about set theory
+and foundations; Antonio Montalban for explaining why the reflection principle
+doesn’t violate the incompleteness theorem; Peter Lumsdaine for pointing out that
+a transitive set model without full power sets can be countable; and Colin McLarty
+for directing my attention to the categorical replacement axiom.
+
+                                  2. Size does matter
+   Before diving into set theory, it’s natural to wonder why we need to worry about
+size issues at all. In this section I’ll review two theorems of basic category theory
+(interestingly, both due to Peter Freyd) which, I think, display the essential nature
+of size considerations. Since this section is just motivation, I’ll be vague about the
+exact meaning of ‘set’, ‘class’, ‘small’, and ‘large’, assuming the reader has some
+familiarity with their use.
+   First of all, we say that a category is complete if it admits all limits indexed
+by small categories; that is, categories with only a set of objects and a set of
+morphisms. The basic example of a complete category is Set: if A is small and
+F : A → Set is a functor, then the limit set lim(F ) consists of families (xa )a∈A
+such that xa ∈ F a and for all f : a → b in A, F f (xa ) = xb . There is the dual
+notion of cocomplete.
+   It is essential in giving this definition that we restrict to small limits, since there
+are many large limits that Set does not admit.QFor example, if X is a set with
+more than one element, then the A-fold product a∈A X exists if A is any set, but
+not if A is a proper class. More generally, we have the following, which is our first
+theorem in which size considerations are essential.
+Theorem 2.1. If a category A has products indexed by the collection Arr(A) of
+arrows in A, then A is a preorder. In particular, any small complete category is a
+preorder, and no large category that is not a preorder can admit products indexed
+by proper classes.
+Proof. Suppose that we had two different arrows f, g : a → b, and Q form the product
+                                    |Arr(A)|
+Q
+  Arr(A) b. Then f and  g give us 2          different arrows a →  Arr(A) b; but there
+are only |Arr(A)| total arrows in A, a contradiction.1                              
+   Thus, in order to capture most interesting examples, the notion of complete
+category must allow large categories, but restrict to small limits.
+   However, many large categories do admit some large limits. For example, most
+large categories admit an intersection for any family of monomorphisms with com-
+mon codomain, no matter how large. This is usually, but not always, because
+   1The use of proof by contradiction in this argument is essential. In intuitionistic logic the
+theorem can fail; see [Hyl88] or [McL92a, Ch. 24].
+                       SET THEORY FOR CATEGORY THEORY                               3
+
+
+the category is well-powered, meaning that each object has only a set of iso-
+morphism classes of subobjects. Other large limits also often exist; see, for exam-
+ple, [Kel86, KK81].
+   Well-poweredness figures prominently in our second example: the Special Adjoint
+Functor Theorem. Recall that a family Q of objects in a category A is said to be
+cogenerating if whenever f 6= g : a ⇒ b are unequal parallel arrows, there exists
+an arrow h : b → q with q ∈ Q such that hf 6= hg. We are usually only interested
+in this when Q is a set. Recall also that a category A is locally small if for any
+objects a, b the collection of morphisms A(a, b) is a set.
+Theorem 2.2. If A is locally small, complete, well-powered and has a cogenerating
+set, and B is locally small, then a functor G : A → B has a left adjoint if and only
+if it preserves small limits.
+Proof. It suffices to construct, for each b ∈ B, an arrow b → GF b, for some object
+F b ∈ A, which
+             Q is initial
+                    Q      among arrows b → Ga. To define F b, we first form the
+product p = q∈Q B(b,Gq) q in A. This product exists since Q is a set, B is locally
+small, and A is complete. Since G preserves products, we have an induced map
+b → Gp. Now let F b be the intersection of all monomorphisms a ֌ p such that
+b → Gp factors through Ga → Gp. This intersection exists since A is well-powered
+and complete. Since G preserves monomorphisms and intersections, we have an
+induced map b → GF b. We leave it to the reader to verify that this has the desired
+universal property (or see [ML98, V.8]).                                         
+
+   For example, if A satisfies the hypotheses of the theorem and C is any small
+category, then the functor category [ C, A] is locally small and the diagonal functor
+∆ : A → [ C, A] preserves limits, hence has a left adjoint. Thus any such A is also
+cocomplete.
+   Of course, as pointed out in the introduction, size distinctions play an essential
+role in this theorem. As stated, it applies to small categories just as well as large
+ones, but it becomes somewhat degenerate: any small category is locally small,
+well-powered, and has a cogenerating set, so we obtain the following.
+Corollary 2.3. If A is a complete lattice and G : A → B preserves greatest lower
+bounds, then it has a left adjoint.
+   While undoubtedly important, this result is only a pale shadow of the full Adjoint
+Functor Theorem. Moreover, the Adjoint Functor Theorem is not just a bit of fluff;
+there are examples even outside of pure category theory where it is the only known
+way to construct an adjoint. So, like it or not, we are forced to deal with the
+question of size in category theory.
+
+                                      3. ZFC
+   With that motivation under our belts, we now turn to a quick summary of set
+theory. A natural question to begin with is: what is a set ? One modern answer is
+that sets are special sorts of collections, which can be manipulated in well-defined
+ways that
+    (a) suffice for applications in mathematics, but
+    (b) are not powerful enough to reproduce the well-known paradoxes.
+4                                  MICHAEL A. SHULMAN
+
+
+There are three classical paradoxes of set theory, traditionally known as Russell’s,
+Cantor’s, and Burali-Forti’s.2 Russell’s paradox is non-categorical in flavor, while
+Burali-Forti’s requires ordinal numbers (see Theorem 7.3), so here we recall only
+Cantor’s.
+Theorem 3.1. There is no set containing all sets as members.
+Proof. Suppose that V were such a set. Then every subset of V , being a set, would
+be a member of V ; thus PV ⊂ V and so |PV | ≤ |V |, contradicting Cantor’s proof
+by diagonalization that |A| < |PA| for any A.                                   
+
+   Thus, if we want to manipulate sets in the intuitive ways we are used to, there
+must be some limitation on what collections we are allowed to call ‘sets’. The
+modern solution is to use a system of axioms which allows us to construct enough
+sets to do mathematics, but not to construct problematic sets such as V .
+   The set-theoretic axioms which have come to be accepted as standard are today
+called ZFC (Zermelo-Fraenkel set theory with Choice) and can be found
+in any book on set theory (I like [Dev93, End77] as introductions, while [Jec03] is
+encyclopedic) or on the Internet. For later reference, we divide the axioms of zfc
+into four types.
+      (i) The basic axioms: extensionality, foundation (or regularity), pairing, union,
+          empty set, and separation.
+     (ii) The size-increasing axioms: replacement and power set.
+    (iii) The size-assertion axiom: infinity.
+    (iv) The axiom of choice.
+Most of these are well-known or obvious. The axiom schema of separation states
+that for any set A and any definable property ϕ(x), the set {x ∈ A | ϕ(x)} exists.
+The axiom schema of replacement states that for any set A and any definable
+property ϕ(x, y) such that for any x ∈ A, there is a unique y with ϕ(x, y), the
+set {y | ∃x ∈ A ϕ(x, y)} exists. These are both both axiom schemas: there is
+one separation axiom for each definable property ϕ and one replacement axiom for
+each definable and ‘functional’ property ϕ. In the presence of the other axioms, the
+replacement schema implies the separation schema.
+   To be precise, definable here means ‘definable in the formal first-order language
+of set theory’. But don’t worry if you don’t know any logic; this really just means
+that it can be described in ordinary mathematical language, referring only to sets
+or things that can be defined in terms of sets (which includes most of mathematics).
+For example, ‘x is a continuous function from R to R’ is a definable property of x,
+so separation allows us to form the set of all such functions (taking, A to be, say,
+the power set of R × R).
+   All the ordinary constructions of mathematics can be performed using these
+axioms. For instance, we can define the ordered pair (a, b) as the set {{a}, {a, b}},
+which exists by pairing, and the cartesian product A × B as
+                     n                                                 o
+            A × B = z ∈ P P(A ∪ B) ∃ a ∈ A : ∃ b ∈ B : z = (a, b) ,
+
+   2Cesare Burali-Forti (1861–1931) is one of those mathematicians who are easily mistaken for
+two people by the unwary student. Other distinguished members of this club include Tullio
+Levi-Civita (1873–1941) and Gösta Mittag-Leffler (1846–1927).
+                                  SET THEORY FOR CATEGORY THEORY                                                            5
+
+
+which exists by power-set and separation. Similarly, the set B A of functions from
+A to B can be defined by
+                   n                                              o
+              B A = f ∈ P(A × B) ∀ a ∈ A : ∃ ! b ∈ B : (a, b) ∈ f .
+
+   Let me comment briefly on the axiom schema of replacement, which may seem
+the strangest one in the list from a categorical point of view. In particular, it may
+seem odd to call it a size-increasing axiom, since it merely replaces a set by an
+isomorphic one, or at most a quotient. We will see in later sections that given
+the other (also non-categorical) axioms of zfc, replacement in fact allows us to
+construct much larger sets than would otherwise be possible. But we will also
+see that above and beyond this, replacement plays a subtle and important role in
+category theory—so much so that this paper could easily have been subtitled “a
+tale of the replacement axiom”!
+Remark 3.2. The approach of zfc, and its relatives to be described in later sections,
+is not the only way to avoid paradoxes in set theory. For example, in NFU (New
+Foundations with Urelements), any collection of things characterized by a ‘stratified’
+property is a set. This allows for the existence of an actual set of all sets, while
+still avoiding paradoxes; see [Hol98] for a good introduction. However, nfu is not
+much good for category theory, since the category Set it produces is not cartesian
+closed [McL92b].
+
+                                      4. Ordinals and cardinals
+   We now briefly review the theory of ordinal and cardinal numbers. Succinctly,
+a cardinal number is a canonically chosen representative for a bijection class
+of sets, while an ordinal number is a canonically chosen representative for an
+isomorphism class of well-ordered sets. Here a well-ordering on a set is a total
+ordering such that every nonempty subset has a least element. The ordinals have
+the following properties.
+      (i) Every ordinal α has an immediate successor α + 1, obtained by adding an
+          extra element at the end of a well-ordering of type α.
+     (ii) There is a natural well-ordering on the collection of all ordinals: α ≤ β iff
+          α is isomorphic to an initial segment of β.
+    (iii) The induced well-ordering on {β : β < α} is in the isomorphism class
+          represented by α.
+    (iv) Every set is well-orderable, and hence bijective to some ordinal (this is
+          equivalent to the axiom of choice).
+Because of (iii), one definition of an ordinal number (due to von Neumann) is as
+the set of all smaller ordinals. Thus, the ordinals begin with the natural numbers
+0 = ∅, 1 = {0}, 2 = {0, 1}, and so on, but continue afterwards with
+
+                                                                                              ω                  ω
+   ω, ω + 1, . . . , ω · 2, . . . , ω · 3, . . . , ω 2 , . . . , ω 3 , . . . , ω ω , . . . , ω ω , . . . , ω ω       ,...
+We note in passing that the replacement axioms are first necessary to construct
+ω · 2 = {0, 1, 2, . . . , ω, ω + 1, ω + 2, . . . }. Without replacement, we can construct
+each ordinal ω + n, but we cannot collect them all as elements of a single set. We
+can construct well-ordered sets isomorphic to ω · 2 without replacement, however,
+6                               MICHAEL A. SHULMAN
+
+
+so the von Neumann definition of an ordinal is only appropriate in the presence of
+replacement.
+    All the ordinals listed above are countable (bijective with ω). We denote the
+first uncountable ordinal by ω1 , the next ordinal not bijective with ω1 by ω2 , and
+so on. In fact, we can define a cardinal number to be an ordinal not bijective with
+any smaller ordinal. It follows that the cardinal numbers are also well-ordered, and
+can be indexed by the ordinal numbers. We write ℵα for the αth cardinal number;
+thus ℵ0 = ω, ℵ1 = ω1 , and so on. Every set X is bijective to a unique cardinal |X|,
+called its cardinality. If κ is a cardinal, we write 2κ for |Pκ|.
+    There are two types of ordinals. Those of the form α + 1, for some α, are called
+successor ordinals, while the rest are called limit ordinals. Every cardinal is a
+limit ordinal. A cardinal is a successor cardinal or a limit cardinal just when
+its indexing ordinal is a successor or limit ordinal.
+    Just as the well-ordering of N justifies the usual sort of mathematical induction,
+the well-ordering of ordinals justifies definition and proof by transfinite induc-
+tion. This involves proving or constructing something in stages, one for each ordi-
+nal. The two cases of successor ordinals and limit ordinals are usually dealt with
+differently; for α + 1 we base the construction on α, while for a limit ordinal β we
+base it on all other ordinals α < β. We consider several important examples, three
+from set theory and one from category theory.
+
+Example 4.1. The definition of the alephs can be phrased as a transfinite induction:
+we set ℵ0 = ω, let ℵα+1 be the smallest cardinal greater than ℵα , and for a limit β
+we let ℵβ = limα<β ℵα .
+  Similarly, we define i0 = ω, iα+1 = 2iα , and iβ = limα<β iα . The Generalized
+Continuum Hypothesis (GCH) is equivalent to ℵα = iα for all α.
+
+Example 4.2. Define a set Vα for each ordinal α by transfinite induction as follows.
+
+                             V0 = ∅
+                           Vα+1 = PVα
+                                  [
+                             Vβ =    Vα        (β a limit).
+                                   α<β
+
+
+The sets Vα are called the cumulative hierarchy. The axiom of foundation is
+equivalent
+         S to the assertion that every set is in Vα for some α; this is often phrased
+as V = Vα , even though the class V of all sets is not itself a set.
+   The rank of a set X is the smallest α such that X ∈ Vα . For instance, the
+rank of each ordinal α is α + 1. Most ordinary mathematical objects, as usually
+constructed from sets, have very low rank: the rank of N = ω is ω + 1, the rank of
+Z is ω + 2, the rank of Q is ω + 5, and the rank of R is ω + 9 (or even less, if we
+are sufficiently clever).
+
+Example 4.3. For any set X, let Def(X) denote the set of all subsets of X which are
+definable from elements of X. By this I mean all sets of the form {x ∈ X | ϕ(x)}
+for some definable property ϕ(x) which refers only to elements of X—that is, its
+parameters and quantifiers (“for all y” or “there exists y”) range only over elements
+                        SET THEORY FOR CATEGORY THEORY                               7
+
+
+of X. We define sets Lα by transfinite induction as follows.
+
+                             L0 = ∅
+                           Lα+1 = Def(Lα )
+                                  [
+                             Lβ =     Lα       (β a limit).
+                                   α<β
+                                                                         S
+The sets Lα are called the constructible hierarchy and the class L = Lα is called
+the constructible universe. The axiom of constructibility is the assertion that V = L;
+that is, that every set is constructible. (Note that this does not mean Vα = Lα !)
+Most set theorists do not believe this axiom is ‘true’, because it is so restrictive
+about what sets exist, but it cannot be proven or disproven from zfc alone, though
+it does contradict some large cardinal axioms (see §9).
+
+Example 4.4. Let A be a cocomplete category and S be a pointed endofunctor,
+meaning a functor S : A → A equipped with a natural transformation σ : IdA → S.
+For any object X ∈ A we define a sequence of objects Xα , together with morphisms
+Xγ → Xα for γ < α, by transfinite induction as follows.
+
+                          X0 = X
+                       Xα+1 = SXα
+                          Xβ = colimα<β Xα         (β a limit).
+
+The colimit at limit ordinals is, of course, over the diagram formed by the mor-
+phisms Xγ → Xα , which we define by a parallel transfinite induction. Namely, at
+a successor stage each morphism Xγ → Xα+1 is the composite
+                                         σ
+                           Xγ −→ Xα −→ SXα = Xα+1 ,
+
+while at a limit stage the morphisms Xγ → Xβ are just the colimit cocone.
+   If for some ordinal δ, the maps Xγ → Xα are isomorphisms for all δ < γ < α,
+we say that this process converges. The intuition is that this happens when SX
+is defined from X by a ‘small amount of data’, since then for a large enough limit
+ordinal α, all the data necessary to construct SXα will be contained in the objects
+Xγ for γ < α, so we will have SXα ∼    = Xα . Converging sequences of this sort are
+often used to construct reflections for subcategories and colimits in categories of
+algebras; an encyclopedic reference is [Kel80, Kel82].
+   A similar procedure is often followed in homotopy theory, but in this case usually
+we instead want the maps Xγ → Xα to become ‘weak equivalences’ in an appro-
+priate sense. For example, if A is the category of topological spaces and ‘weak
+equivalence’ means ‘weak homotopy equivalence’ (that is, a map inducing isomor-
+phisms on all homotopy groups), then it usually suffices to take δ = ω. This is
+because homotopy groups are detected by maps out of spheres, but spheres are
+compact, and so a map from a sphere into a well-behaved sequential colimit must
+factor through some finite stage. However, in more complicated arguments, very
+large values of δ may be necessary. In homotopy theory this is called the small
+object argument, because it relies on the ‘smallness’ of objects like spheres; see, for
+instance, [Hov99]. For a version of the small object argument which does converge
+in the category-theoretic sense, see [Gar].
+8                                  MICHAEL A. SHULMAN
+
+
+                            5. Logic and Incompleteness
+   A common mistake is to regard the axioms of zfc as assertions only about ‘the
+real’ universe of sets, when in fact they are satisfied by many different ‘universes of
+sets’. This is not a philosophical statement, but a mathematical one. The reader is
+free to entertain a Platonic belief that a ‘real’ universe of sets exists (as many set
+theorists seem to do), but it will still be true that the axioms of zfc support many
+different models in addition to this ‘real’ one. To clarify the situation it is helpful
+to consider an analogy.
+   The axioms of group theory are the following; they deal with a collection of
+things and a binary operation “·”.
+       • For all x, y, z we have x · (y · z) = (x · y) · z.
+       • There exists an e such that for all x, we have x · e = x = e · x.
+       • For all x, there exists a y such that x · y = e = y · x.
+A model of these axioms is a collection of things with a binary operation satisfying
+them. Of course, this is just a group. We can prove theorems from the axioms,
+which will then be true statements about any group. However, some statements,
+like “for all x and y, x · y = y · x”, are neither provable nor disprovable from the
+axioms; these are true for some groups and false for others.
+   In fact, Gödel’s Completeness Theorem says that if a statement is unprovable
+from the axioms of a theory T , then there exist some models of the theory in which
+it is true and others in which it is false. We say that a theory is consistent if
+its axioms do not imply a contradiction; the completeness theorem can then be
+rephrased as “any consistent theory has a model”. Conversely, the rather more
+obvious Soundness Theorem says that any theory with a model is consistent.
+   Now, the axioms of zfc, which we summarized in §3, deal with a collection of
+things and a binary relation ∈. A model of the axioms of set theory is a collection
+of things, which we usually call sets 3, together with a binary relation ∈, usually
+called membership, which satisfy the axioms. Let us call such a model a universe.
+   We can prove many theorems from zfc (in fact, we can develop most of math-
+ematics), and these theorems will then be true statements about any universe.
+However, just as for the theory of groups, some statements are neither provable nor
+disprovable from the axioms; a classic example is the Continuum Hypothesis (CH).
+In fact, given any universe, we can construct from it both a universe in which ch
+is true and a universe in which
+                             S     ch is false. The former is easy to describe: the
+constructible universe L = Lα is always a model of zfc+ch. The latter requires
+a more involved technique called forcing which is irrelevant to us here. Thus, if
+zfc is consistent, then both zfc+ch and zfc + not ch are consistent.
+   Of course, one is entitled to wonder whether zfc is consistent; that is, whether
+there are any universes. This is no more or less valid, from a purely logical stand-
+point, as wondering whether there are any groups. We are used to the existence of
+lots of groups, but all the groups we are familiar with are constructed within the
+framework of a stronger theory—namely, set theory. In other words, assuming the
+existence of a universe, we can construct groups, but with only the axioms of group
+theory, we can’t expect to get anywhere. By analogy, we can’t expect to be able to
+
+   3As we have stated them, the axioms of zfc do not allow objects which are not sets. It is
+easy to modify them to allow such ‘urelements’, but there seems little point to doing so, since
+experience shows that everything in mathematics can be constructed using sets.
+                           SET THEORY FOR CATEGORY THEORY                                        9
+
+
+prove the existence of a universe unless we work within the framework of some yet
+stronger theory.
+    Gödel’s Second Incompleteness Theorem is a formal way of saying this: no rea-
+sonable4 and consistent axiom system T which includes arithmetic (such as zfc)
+can prove its own consistency. It can be found in many books on logic (I like [CL01]
+for mathematicians, while everyone should read [Hof79]), but the proof is so simple
+in outline that every mathematician should be exposed to it. First, by coding logical
+statements and proofs as natural numbers, Gödel enabled T to talk about prov-
+ability and consistency. He then constructed a statement G about natural numbers
+which said in effect “this statement is not provable in T ”. Thus, if G is provable, it
+is false. Hence, if T is consistent, it cannot prove G, and thus G is true. So there is
+a statement which is true, but not provable in T ; this is the First Incompleteness
+Theorem. Note that the completeness theorem then implies that any reasonable
+and consistent theory has more than one model.
+    Now, the same coding of statements and proofs produces a statement about
+natural numbers which expresses ‘internally’ our inability to derive a contradiction
+from the axioms of T ; call this statement Con(T ). By internalizing the proof of
+the First Incompleteness Theorem, we can prove in T that Con(T ) implies that G
+is not provable, and hence that G is true. Since T cannot prove that G is true, it
+follows that T cannot prove Con(T ); this is the Second Incompleteness Theorem.5
+    By the completeness theorem, it follows that we cannot prove in T the existence
+of a model for T . Moreover, if we can prove the existence of a model for T in some
+other theory T ′ , then T ′ implies Con(T ), and therefore Con(T ) does not imply
+Con(T ′ ); otherwise it would imply Con(Con(T )), contradicting the incompleteness
+theorem.6 So if one theory can prove the existence of a model for another, the first
+theory is irreducibly stronger in this precise sense.
+Remark 5.1. Actually, even without knowing the incompleteness theorem, or if
+we have an ‘unreasonable’ T to which it does not apply, it is easy to see that a
+proof of Con(T ) in T would be useless anyway. For since anything follows from a
+contradiction, if T were inconsistent, it would also prove Con(T ). Thus, a proof
+of Con(T ) in T would still not allow us to conclude that T is actually consistent.
+The incompleteness theorem gives the stronger result that a proof of Con(T ) in T
+in fact implies that T is inconsistent.
+    4By ‘reasonable’ I mean that there is a systematic way to verify whether or not any given
+statement is an axiom. This excludes, for example, the system whose axioms are ‘all true state-
+ments about the natural numbers’, to which of course the incompleteness theorem does not apply,
+but which is not much use as an axiom system in practice.
+    5The attentive reader will notice that this implies that if T is consistent, then there exist
+models of T in which Con(T ) is false! To make sense of this, remember that Con(T ) actually
+says something like “there does not exist a natural number n which codes for a proof of 0 = 1 in
+T .” Since T is consistent, there is no such proof, and thus no ‘real’ natural number can code one,
+but bizarre models of T can contain ‘nonstandard’ natural numbers which satisfy the arithmetical
+property which we interpret as coding for such a proof.
+    6Care is needed, however, when dealing with theories like zfc that have infinitely many axioms.
+It is possible to have a consistent theory T in which one can define a set M and prove, for each
+axiom ψ of T , that ψ is true in M . Such a theorem-schema does not contradict the incompleteness
+theorem; that would require proving a single theorem in T to the effect of “for each axiom ψ of
+T , ψ is true in M ”. Ironically, one example of such a theory T is zfc + “zfc is inconsistent”,
+which (by the incompleteness theorem) is consistent if zfc is; see [Kun80, IV.10]. We will see in
+§11 that zfc itself is almost such a theory.
+10                              MICHAEL A. SHULMAN
+
+
+    A similar result called Tarski’s undefinability theorem says that there is no de-
+finable property ϕ of natural numbers such that ϕ(n) is true in some model of T
+if and only if n is the Gödel code of a statement which is true in that model. For
+suppose there were. Let ψ1 , ψ2 , . . . be an enumeration of all definable properties
+of natural numbers, and for any n let #n(n) be the Gödel code of the statement
+ψn (n). Now the statement “ϕ(#n(n)) is false” is a definable property of n, so it is
+equal to ψk for some k. Then we have (in our model)
+                 ψk (k) ⇐⇒ ϕ(#k(k)) is false ⇐⇒ ψk (k) is false
+which is absurd; thus ϕ cannot exist.
+   On the other hand, since mathematical logic can be formalized in set theory just
+as most branches of mathematics can, zfc has no problem talking about truth in
+a model which is a set. That is, in zfc there is a definable property ϕ such that
+ϕ(n, x) is true if and only if n is the Gödel code of a statement which is true in x,
+regarded as a model of set theory. This will also be important later on.
+Remark 5.2. The axioms of set theory and of group theory do differ in an important
+philosophical way. The axioms of group theory are chosen because we see many
+objects ‘in nature’ which satisfy them (whatever that means), and we want to
+study all these objects under one heading. On the other hand, we do not see many
+examples of universes in nature—many people would argue that we see only one.
+The axioms of set theory are chosen for their usefulness, sufficiency, and consistency
+in working with sets, rather than claiming to be the ‘correct’ description of an
+independently occurring class of models.
+
+                       6. Classes and large categories
+   With some basic set theory under our belts, we now move on to category theory.
+By analogy with the theory of groups and the theory of sets discussed in §5, we can
+consider the theory of categories. This theory deals with two types of things, called
+‘objects’ and ‘arrows’, together with domain, codomain, identity, and composition
+functions satisfying unit and associativity axioms. A model of this theory is, of
+course, a category. Note that this abstract notion of ‘a category’ can be defined
+without reference to any sort of set theory.
+   In the context of a universe V , we generally refer to a category whose collections
+of objects and arrows are sets in V as a small category. When working with small
+categories with respect to some universe, we have all the tools of set theory at our
+disposal, and everything we might expect to be true, is. For example, given any
+two small categories A and B, there is a small category [ A, B] whose objects are
+functors A → B and whose arrows are natural transformations.
+   However, frequently even when working in the context of set theory, we want
+to consider categories which are not small. The obvious example is the category
+Set = Set[V ] whose objects are all sets (that is, all elements of the universe V )
+and whose arrows are all functions between sets. Cantor’s paradox ensures that
+Set is not small. Non-small categories are usually called (surprise!) large.
+   If we are content to work with one large category at a time, we can just use the
+theory of categories described above. It is when we want to construct new large
+categories and functors that we run into problems, because the powerful tools of
+set theory are no longer at our disposal for working with collections of objects that
+are not sets. Our goal is to consider various methods for dealing with this problem.
+                        SET THEORY FOR CATEGORY THEORY                               11
+
+
+   First of all, there is an approach that remains completely within zfc. We define
+a class to be a collection of sets specified by some property expressible in the
+language of set theory. Instead of working directly with classes, for which we have
+no axioms, we can then work instead with the properties which characterize them.
+For example, the property “X is a pair (G, ·) where G is a set and · is a binary
+operation on G making it into a group” is expressible in the language of set theory,
+so there is a class of all groups—by which we mean all groups defined from the
+universe V . Of course, there is also a class of all sets, which we usually identify
+with the universe V . Note that classes of this sort are actually implicit in the
+axioms of zfc; for example, the axiom of replacement says that the image of a set
+under any ‘class function’ is a set. Some classes, of course, are sets; those which
+are not sets are called proper classes.
+   We then define a large category to be one, such as Set and Grp, whose
+collections of objects and arrows are classes in this sense. We can now perform
+some basic constructions on large categories. For example, if P and Q are properties
+expressible in set theory, then “X is a pair (Y, Z) such that Y satisfies P and Z
+satisfies Q” is also so expressible. Thus the cartesian product of two classes is a
+class, and the cartesian product of two large categories is another large category. We
+can also prove that Set and other familiar categories are complete and cocomplete,
+as defined in §2.
+
+
+
+Remark 6.1. Most large categories which arise in applications are also locally small;
+that is, they have only a set of morphisms between any two objects.. This property
+is undeniably important, as we saw in the proof of the Adjoint Functor Theorem,
+but we will mostly ignore it, because it plays almost no role when discussing foun-
+dations: locally small categories present exactly the same set-theoretic issues that
+all large categories do.
+
+
+
+    However, this approach to large categories has the disadvantage that we have
+no axioms for manipulating classes; they are not ‘things’ that zfc knows about at
+all. Thus, instead of working with classes directly, we have to work with the logical
+formulas which characterize their elements, and interpret any construction in these
+terms.
+    In particular, the language of zfc does not include a way to quantify over classes.
+In other words, no theorem containing the phrases “for any large category A” or
+“there exists a large category A” can be even stated, let alone proven, in zfc. This
+includes, for example, the Adjoint Functor Theorem. Usually this is dealt with by
+proving instead a ‘meta-theorem’ of the form “for any large category A, we can
+prove in zfc that (some statement about A)”, but again in stating such a theorem
+we have moved beyond zfc into some sort of ‘meta-language’.
+    Moreover, even this trick cannot handle theorems whose hypotheses involve quan-
+tification over classes. For example, consider the final statement in Theorem 2.1: if
+a large category has products indexed by proper classes, then it is a preorder. Even
+if we fix a large category A, the statement “A has products indexed by proper
+classes” is of the form “for any class . . . ”, and thus cannot be stated in zfc. Hence
+we cannot prove this result even as a theorem-schema in zfc.
+12                               MICHAEL A. SHULMAN
+
+
+                               7. Axioms for classes
+   To resolve these sorts of issues, we are motivated to extend zfc by introducing
+classes as a new type of thing, in addition to sets, along with axioms for manipulat-
+ing them. A good overview of such class-set theories can be found in [Lév76]. Prob-
+ably the most common such theory is von Neumann-Bernays-Gödel (NBG)
+set theory. Its axioms can also be found in books or on the Internet; as with zfc
+we divide them into several groups.
+      (i) Typing: only sets can be elements of sets or classes.
+     (ii) The basic axioms: extensionality for sets and classes, the empty set, pairing
+          and union for sets, foundation for sets and classes, and comprehension.
+    (iii) The size-increasing axioms: power sets and limitation of size.
+    (iv) The size-assertion axiom: an infinite set exists.
+     (v) The axiom of choice.
+The axiom schema of comprehension states that for any property ϕ(x) which does
+not quantify over classes, there is a class {x | ϕ(x)} of all sets x such that ϕ(x).
+The limitation of size axiom says that a class is a set if and only if it is not bijective
+with the class V of all sets. Thus, sets are precisely the classes which are ‘not too
+big’, while all proper classes are the same size.
+   Comprehension and limitation of size easily imply separation and replacement,
+so the sets in nbg satisfy zfc. Moreover, nbg can be shown to be a conservative
+extension of zfc. That means that any statement about sets which is provable in
+nbg is also provable in zfc. In fact, if we start with any model of zfc, then taking
+the classes to be those defined in §6, we obtain a model of nbg. Thus, using nbg
+really entails no ‘ontological’ commitment beyond that of zfc.
+   However, unlike zfc, the language of nbg allows us to quantify over classes
+(although such quantifications cannot be used in the comprehension axiom). Thus,
+theorems such as the Adjoint Functor Theorem can be stated and proven formally
+within nbg. To prove the large-category version of Theorem 2.1, we have to be
+careful to avoid talking about 2|Arr(A)| , which doesn’t exist in nbg, but we can
+instead directly derive a contradiction to the axiom of limitation of size.
+   Moreover, nbg makes constructions on classes easier to deal with. For example,
+comprehension proves easily that any two classes have a cartesian product, and thus
+so do any two large categories. We can also perform more complicated constructions
+as long as they don’t produce things that are ‘too big’.
+Example 7.1. Let A be a large category; we construct its idempotent-splitting A,
+also called Karoubian completion or Cauchy completion. The objects of A are the
+idempotents of A; that is, arrows e with ee = e. The property “e is an arrow
+of A and ee = e” is expressible in nbg and doesn’t quantify over classes, so by
+comprehension, there is a class of all such idempotents. Similarly, the arrows of A
+from e to e′ are the arrows f with f e = f and e′ f = f ; this is likewise expressible
+without quantification over classes, so there is a class of all such arrows. The rest
+of the structure of A follows in the same way.
+Example 7.2. Let A be a large monoidal category; we construct a strict monoidal
+category A′ monoidally equivalent to A. One of the usual constructions is to let
+the objects of A′ be finite strings of objects of A, with morphisms induced by those
+of A. Since the property “X is a function from some natural number n to the class
+of objects of A” does not quantify over classes, the class of all such functions exists;
+                            SET THEORY FOR CATEGORY THEORY                                         13
+
+
+we take this to be the class of objects of A′ . Any such function (as a class of ordered
+pairs) is bijective with n and thus is a set. The rest of the structure is similar.
+   Another example of the usefulness of having a good axiomatic system for classes
+lies in our ability to make a large number of choices. Suppose that A is a category
+with finite products; it is usual to make a choice of a product X × Y for each pair
+of objects X, Y ∈ A in order to define a product functor A × A → A. In particular
+cases there is usually a standard choice of X × Y , but to do this in general one
+needs an axiom of choice for the objects of A. If A is a large category, then one
+needs an axiom of choice for classes. We call this the axiom of global choice; it
+turns out to have the following equivalent forms.
+       (i) We can choose an element from each of any class of nonempty sets.
+      (ii) We can choose an element from each of any collection of nonempty classes.7
+     (iii) The class V of all sets can be well-ordered.
+Global choice (and hence ordinary choice as well) is a consequence of the axioms of
+nbg, by the following observation of von Neumann.
+Theorem 7.3. In nbg, there is a well-ordering of V .
+Proof. The class Ω of ordinals is well-ordered. Thus, if it were a set, it would itself
+be an ordinal; but then it would have a successor, which is absurd. Thus Ω is not
+a set (this is Burali-Forti’s paradox). By limitation of size, Ω is bijective to V , and
+thus V acquires a well-ordering.                                                       
+    If one objects to global choice despite the pleasing cleverness of this argument,
+it is not hard to modify the axioms of nbg so that they no longer imply it. Here
+we should also mention [Mak96]. However, global choice is implicitly used by many
+familiar categorical constructions.
+Example 7.4. We have already noted that if A has products, then applying ver-
+sion (ii) of global choice, we can choose a product X × Y for each pair X, Y and
+thereby define a functor A × A → A. Similar remarks, of course, apply to other
+limits and colimits, and other objects defined by universal properties, such as tensor
+products.
+Example 7.5. If F : A → B is a functor which is full, faithful, and essentially
+surjective, then by choosing for each b ∈ B an object Gb ∈ A and an isomorphism
+F Ga ∼= b, we can construct an inverse equivalence G : B → A.
+Example 7.6. By choosing one object in each isomorphism class, we can show that
+any large category has a skeleton.
+Example 7.7. Let W be a class of morphisms in a large category A; we want to
+construct a ‘localization’ A[W −1 ] by formally adding inverses to the morphisms in
+W . The objects of A[W −1 ] are the same as those of A, while its morphisms are
+supposed to be equivalence classes of zigzags
+                                     ∼                         ∼
+                                   · ←− · −→ · · · · · −→ · ←−
+    7Note, however, that there is a standard trick in zfc which enables us to choose an element
+from each of any set of nonempty classes. To be precise, if we have a formula ϕ(x, y) such that
+for any x ∈ X there is a y with ϕ(x, y), we can define a function f on X such that ϕ(x, f (x)) for
+all x ∈ X. We do this by first considering, for each x ∈ X, the class of all sets y of least rank such
+that ϕ(x, y); this is a set since it is a subset of some Vα . We then apply the ordinary axiom of
+choice.
+14                                      MICHAEL A. SHULMAN
+
+
+of morphisms in A, where the backwards arrows are in W . Comprehension guar-
+antees there is a class of such zigzags. However, we cannot define the quotient of
+a class by an equivalence relation whose equivalence classes are proper classes—
+at least not in the usual way, since no class can be an element of another class.
+But what we can do instead is use global choice to choose one zigzag from each
+equivalence class, thereby obtaining a class of morphisms for A[W −1 ].
+   Of course, in general, A[W −1 ] defined in this way need not be locally small or
+at all amenable to computation. In practice, there are usually alternate ways to
+construct A[W −1 ], which also show that in those cases it is locally small.
+Example 7.8. The left derived functors of a functor F evaluated at an object X of
+some abelian category are given by choosing a projective resolution · · · → P1 →
+P0 → X and computing the homology of the chain complex · · · → F P1 → F P0 . Of
+course, defining the whole derived functor requires the global choice of a projective
+resolution for each object X.
+   On the other hand, nbg is not quite as comfortable an axiom system as we
+might like. Consider mathematical induction, which is surely a basic notion in
+mathematics if ever there was one. In zfc, we can prove induction for any defin-
+able statement ϕ(n), by considering the set {n ∈ N | not ϕ(n)} and using the fact
+that N is well-ordered. In nbg the same argument works only if ϕ does not involve
+quantification over class variables, due to the analogous restriction in the compre-
+hension axiom. This includes all statements for which zfc could prove induction
+(as it must, since nbg is a conservative extension of zfc), but not all statements
+in our ‘new language’ which can refer to classes.
+   One might object to this consequence of nbg on the philosophical grounds that
+mathematical induction ‘should’ be true for all statements ϕ, without needing
+technical restrictions on quantification. But the failure of induction also has real
+consequences for dealing with classes. For instance, we cannot prove by induction
+on n that every large category A has an n-fold cartesian product An . In this case,
+we can construct An directly as the class of functions from n into A, but it is
+troubling that the induction proof is not allowed in nbg.8 If any reader can think
+of a natural statement about large categories, normally proven by induction, and
+not having an obvious alternate proof in nbg, I would be very interested.
+   We may, of course, strengthen the comprehension axiom of nbg to allow formu-
+las with arbitrary quantification (sometimes called impredicative comprehension),
+thereby recovering full mathematical induction. This gives a variant of nbg usually
+called Morse-Kelley (MK) set theory. However, by doing so we lose conser-
+vativity over zfc. In mk one can prove that the class V of all sets is a model for
+zfc and conclude that zfc is consistent. For example, to prove the separation and
+replacement axioms, we first apply comprehension to construct the desired set or
+
+     8In defense of nbg, I should say that it was originally conceived not to deal with large categories,
+but to provide a finitely axiomatizable theory equivalent to zfc, and at that it succeeds. This is
+not immediately obvious, since we have stated comprehension as an axiom schema, but it turns
+out that a finite number of its instances suffice to imply the rest. There is no great mystery about
+this: we simply observe that any definable property ϕ is built up from a finite number of building
+blocks like ‘and’, ‘or’ and ‘there exists’, and the corresponding class {x | ϕ(x)} can be built up by
+a corresponding finite number of constructions like intersection, union, and projection. However,
+it does depend on limiting comprehension to properties not quantifying over classes; thus mk (see
+below) is not finitely axiomatizable in this way.
+                            SET THEORY FOR CATEGORY THEORY                                        15
+
+
+function as a class, then apply limitation of size to conclude that it is a set. It then
+follows from the incompleteness theorem that Con(zfc) does not imply Con(mk).9
+So unlike nbg, mk is a genuinely stronger theory than zfc.
+   Even mk, however, is not fully satisfactory in the constructions it allows for large
+categories. For example, if A and B are large categories, nothing we have seen so
+far allows us to construct a functor category [ A, B] . There is no problem when A
+is small, since then each functor A → B is itself a set by replacement, and so we
+have a class of such—but when A is large, this argument fails. However, there is
+no intuitive reason preventing us from making such a construction: the collection
+of functions from one class to another seems like a perfectly good collection.
+   We could envision adding more axioms which enable us to perform these and
+other constructions with classes. In fact, the best possible world would be if classes
+could be manipulated just like sets, and any construction we could do for sets could
+also be done for classes. This would be easy to achieve: we could just write down
+another copy of the zfc axioms, substituting ‘class’ for ‘set’ everywhere in the
+second copy. On the other hand, it seems terribly wasteful to have two copies of
+every axiom, when all we really want to say is that classes and sets behave in just
+the same ways, except that sets can’t be too large. In the next section we consider
+a cleaner solution.
+
+                  8. Inaccessibles and Grothendieck universes
+   In zfc, there are three ways to prove the existence of larger and larger sets.
+     (1) By fiat : the axiom of infinity asserts that there exists an infinite set.
+         Without it, only finite sets can be constructed.
+     (2) By powers: the axiom of power sets produces a set PA larger than a given
+         set A (by Cantor’s diagonalization argument).
+     (3) By limits: The axiom of replacement guarantees that the union of any
+         family of sets indexed by a set is also a set.10 If the family is infinite and
+         increasing in size, its union will be larger than any of its elements. For
+         example, this applies to a family such as A, PA, PPA, . . . .
+This is where I got the terminology ‘size-assertion’ and ‘size-increasing’ in §3; the
+axiom of infinity produces a large set by fiat, while the axioms of power set and
+replacement produce larger sets from existing ones. However, not all cardinalities
+can be reached by these methods; we introduce special names for those that can’t.
+    9Why, the reader may reasonably wonder, can we not do the same in nbg? We can prove in
+nbg that V satisfies any particular axiom of zfc, but as in footnote 6, to conclude Con(zfc) we
+need instead the single theorem “for all axioms ψ of zfc, V satisfies ψ”. To even state this formally
+when there are infinitely many axioms, we must encode axioms by their Gödel numbers. Just as
+zfc can talk about truth in set models, in nbg we have a definable property ϕ such that ϕ(n) is
+true if and only if n is the Gödel code of a true statement involving only sets—but this ϕ involves
+quantification over classes. Thus, we require the strength of mk to form the class {x | ψ(x)} given
+only the Gödel number of ψ, as is necessary for the above proof of Con(zfc). This distinction
+is well explained in [Mos50, Mos51], along with resulting concrete examples of the failure of full
+mathematical induction and full class comprehension in nbg.
+    10In more detail, let A be a set and F a class function on A. Such an F is characterized by
+some definable property ϕ such that for any x ∈ A there exists a unique y with ϕ(x, y). Then
+replacementSgives the set {y | ∃x ∈ A ϕ(x, y)}, to which we can then apply the union axiom to
+give the set x∈A F (x). It is natural to wonder why I call replacement the culprit here, when the
+union axiom seems at least equally culpable; one answer is that, as we will see below, small models
+of zfc satisfying the union axiom abound, while ones satisfying replacement are quite rare.
+16                               MICHAEL A. SHULMAN
+
+
+       (i) A cardinal is uncountable if it is larger than the smallest infinite set.
+      (ii) A cardinal κ is a strong limit if for any λ < κ we have 2λ < κ.
+     (iii) A cardinal κ is regular if it is not the union of a family of sets of size < κ
+           indexed by a set of size < κ.
+     (iv) A cardinal is inaccessible if it is uncountable, a strong limit, and regular.
+
+
+   For example, the first uncountable cardinal ℵ1 is regular, since the countable
+union of countable sets is countable, but it is not a strong limit, since 2ℵ0 ≥ ℵ1 .
+On the other hand, the cardinal iω (see Example 4.1) is a strong limit, but not
+regular.
+   Now, in any universe V , the set Vα with its induced relation of membership
+is itself a model of many of the axioms of zfc. It is easy to see that if α is
+a limit ordinal greater than ω, then Vα satisfies the basic axioms, choice, power
+set, and infinity—all the axioms of zfc except replacement. In particular, since
+|Vω+α | = iα , without replacement we can only construct sets of cardinality < iω .
+   It turns out that if α is an inaccessible cardinal, then Vα is also a model of
+replacement, and hence of all of zfc. (The converse, however, is false, as we will
+see in §11.) The proof is the same as the proof in mk that V satisfies replacement,
+using the inaccessibility of α in place of limitation of size. When α is inaccessible
+we call Vα a Grothendieck universe. One can equivalently define a Grothendieck
+universe to be a set U which is transitive (x ∈ y ∈ U implies x ∈ U ) and closed
+under pairing, power sets, and indexed unions. It turns out that this is equivalent
+to asserting U = Vκ for some inaccessible κ; see [Bou72].
+   Now suppose there exists an inaccessible, and let κ be the smallest inaccessible.
+Then Vκ satisfies zfc and also “there does not exist an inaccessible”; hence it is
+impossible to prove in zfc that there exists an inaccessible. But this is not really
+surprising, since we have essentially defined inaccessibles to be those cardinals which
+are unreachable by all the ways that zfc knows to build bigger sets!
+   More that this is true, however. If we write ZFC+I for zfc + “there exists
+an inaccessible”, then even assuming that zfc is consistent, it is not possible to
+prove that zfc+i is consistent. For just as we can prove in mk that V is a model
+of zfc, we can prove in zfc that any Grothendieck universe is a model of zfc;
+hence zfc+i implies Con(zfc). Thus, by the incompleteness theorem, Con(zfc)
+does not imply Con(zfc+i). In other words, in contrast to the situation for ch, we
+cannot construct, from an arbitrary universe, another universe satisfying zfc+i.
+Note that Con(zfc), which is provable in zfc+i but not in zfc, is a statement not
+about sets but about natural numbers—albeit a rather complicated one.
+   Laying aside questions of existence and consistency for the moment, we can solve
+the problems raised at the end of §7 as follows. Working in zfc+i, we choose an
+inaccessible κ, and re-define set to mean ‘element of Vκ ’ and class to mean ‘set not
+necessarily in Vκ ’. Thus defined, sets and classes will behave in exactly the same
+way, except that sets are limited in rank. A more common terminology, however,
+which we will adopt, is not to redefine ‘set’ but to refer to elements of Vκ as small
+sets and other sets as large sets.
+   Note that small sets have a limitation on rank rather than cardinality. No small
+set can be larger in cardinality than κ, but many sets with small cardinality are
+not small, such as the singleton {κ}. The class of setsS with small cardinality is not
+a model of zfc, since it is not closed under unions ( {κ} = κ), nor is it itself a set
+                           SET THEORY FOR CATEGORY THEORY                                        17
+
+
+(even a large one). Thus, if we want a category Set of small sets whose collection
+of objects is a large set, we need to use rank rather than cardinality.11
+   Of course, any category of sets is determined up to equivalence by the cardi-
+nalities of its objects, so in some sense, this doesn’t matter. For this reason, it is
+common to also call sets small if their cardinality is small, and in category theory,
+where we work with objects up to isomorphism anyway, this is usually harmless.
+   This third approach allows many more large categories than the first two. For
+instance, for any two large categories A and B, there is a functor category [ A, B] .
+Note that unlike in nbg, where all proper classes have the same size, [ A, B] will
+generally be larger than A or B. In particular, the term large category in this
+approach is significantly more inclusive than it is in the previous two.
+   One should think of the classes in nbg and mk as corresponding to the large sets
+of rank (or cardinality) ≤ κ. In fact, one can make this precise. If κ is inaccessible,
+we obtain a model of mk (and hence nbg) by taking Vκ for the sets and Vκ+1 = PVκ
+for the classes. (Note that this means we can prove Con(mk) in zfc+i, so zfc+i
+is strictly stronger than mk.) Similarly, we obtain a model of nbg (but not mk) if
+we take Vκ for the sets and Def(Vκ ) for the classes (recall Example 4.3).
+   In [Str81], sets and categories of cardinality ≤ κ (which are those appearing, up
+to isomorphism, in Vκ+1 ) were called moderate. We will refer to sets and categories
+in Def(Vκ ) as small-definable. Small-definable categories are those which would
+exist as classes even in zfc or nbg; this includes nearly all large categories in which
+we are actually interested for their own sake. However, the existence of other large
+categories is frequently quite useful for formal reasons; it is the primary advantage
+of using inaccessibles. In the following examples we assume an inaccessible κ.
+Example 8.1. Any large category A has a presheaf category [ Aop , Set] , and if A is
+locally small, it has a Yoneda embedding y : A ֒→ [ Aop , Set] . Limits and colimits
+in large functor categories can still be calculated pointwise, so [ Aop , Set] is still
+complete and cocomplete. Important properties of A can be expressed in terms
+of y; for example, A is total (see [Kel86]) if y has a left adjoint. Totality can be
+expressed without reference to [ Aop , Set] (although not without quantifying over
+classes), but at the price of a certain amount of economy and clarity.
+Example 8.2. Any large A has an endofunctor category [ A, A] , which is strict
+monoidal under composition of functors. If A is also monoidal, then the functor
+A → [ A, A] taking X ∈ A to (X ⊗ −) is strong monoidal. We can thus apply the
+idea of [ML98, XI.3 Ex. 3] to find a strictification of A inside [ A, A] .
+Example 8.3. It is well-known in algebraic geometry that the category Sch of
+schemes is equivalent to a certain subcategory of [ Ring, Set] . The category Sch
+also has other definitions (for instance, as locally affine locally ringed spaces), show-
+ing that it is small-definable (up to equivalence) and locally small. However, iden-
+tifying it with a subcategory of [Ring, Set]] is often useful, yet impossible unless
+the latter category exists.
+
+   11There is, however, an approach to universes based on cardinality: for any infinite cardinal
+κ let Hκ denote the set of sets which are hereditarily of cardinality < κ; that is, their transitive
+closure has cardinality < κ. Then Hκ ⊂ Vκ , and if κ is regular and uncountable, Hκ satisfies all
+the axioms of zfc except power set. Moreover, κ is inaccessible if and only if Hκ satisfies all of
+zfc, and if and only if Hκ = Vκ .
+18                               MICHAEL A. SHULMAN
+
+
+Example 8.4. Similarly, the category Ind(A) of ind-objects in a large category A
+can be identified with the small filtered colimits of representable presheaves in
+[ Aop , Set] . Like Sch, the category Ind(A) has an alternate description showing
+that it is small-definable (up to equivalence, as long as A is), but this description
+of it is frequently also useful.
+Example 8.5. Let U : CptHaus → Set be the forgetful functor from compact
+Hausdorff spaces to sets. A quasi-topological space is a set X equipped with a sub-
+functor of Set(U −, X) : CptHausop → Set satisfying certain natural conditions;
+see [Spa63]. The category QTop of quasi-topological spaces is cartesian closed, and
+was a contender for a convenient category of spaces before the current ascendancy
+of compactly generated spaces (for which see [ML98, VII.8] and [May99, Ch. 5]).
+   Since a single quasi-topological space contains a large amount of data, QTop is
+not small-definable, though it is locally small. Hence nbg and mk are insufficient
+to guarantee that QTop even exists. Also, a fixed set X supports a large num-
+ber of quasi-topologies, and QTop is not well-powered or well-copowered. It is,
+however, complete and cocomplete, and admits intersections of arbitrary families
+of monomorphisms and cointersections of arbitrary families of epimorphisms.
+Example 8.6. In addition to its reassuring psychological effect, moderateness (and
+small-definability) of a category can have mathematical consequences. This is be-
+cause a set A is moderate if and only if weScan express it as an increasing union of
+small sets indexed by small ordinals, A = α<κ Aα where each Aα is small. Thus,
+we can prove things about moderate sets by a transfinite induction in which every
+stage of the induction is small. For example, a proof of Freyd given in [Str81] shows
+that if A is moderate, total, and the left adjoint of y preserves finite limits, then
+A actually has a small generating set and is a Grothendieck topos.
+   Sometimes it is useful to assume more than one inaccessible. For example, when
+doing formal category theory we may want to form the category (or 2-category) of
+all large categories, or of all locally small categories. Of course, the class of all large
+categories is not a set, even a large one. (The class of small-definable categories is
+a large set, but it is not closed under constructions such as functor categories.) To
+resolve this issue, we can use the techniques of §§6–7 to introduce classes that are
+larger than large sets, or we can assume a second inaccessible λ > κ, define large
+to mean an element of Vλ , and use very large to mean a set not necessarily in Vλ .
+(Some authors have used ‘quasi-category’ for what we call a ‘very large category’,
+but we eschew that term in view of its quite different recent connotations [Joy02].
+The term ‘meta-category’ is also sometimes used.)
+   Having a very large category CAT of large categories allows us to make state-
+ments like the following.
+        • Taking a small category to its presheaf category is a functor from the
+          category Cat of small categories to the category CAT of large ones.
+        • Taking a ring R to the category of R-modules is a functor from Ring to
+          CAT.
+        • Taking a monoidal category V to the category V-Cat of small V-enriched
+          categories is a functor from MONCAT to CAT.
+If we want to have a functor taking V to the very large category V-CAT of large
+V-enriched categories, its codomain will have to be an extremely large category of
+very large categories, so we need at least three inaccessibles. One is unavoidably
+                          SET THEORY FOR CATEGORY THEORY                                     19
+
+
+reminded of how, in the original category theory paper [EM45], (large) categories
+were introduced only in order to serve as the domains and codomains of functors.
+
+                              9. Aside: large cardinals
+   Notice the strong analogy between the axiom “there exists an inaccessible” and
+the axiom of infinity: both construct “by fiat” larger sets than can otherwise be
+shown to exist. Other axioms of this sort, asserting the existence of inaccessibles
+satisfying various extra properties, are also used in modern set theory. Of course,
+these are stronger assumptions than the mere existence of an inaccessible. In fact,
+the existence of even one cardinal with one of these stronger properties usually
+implies the existence of many smaller inaccessibles.
+   Let me attempt to give a flavor of just how large such large cardinals can get.
+(The terminological collision between ‘large category’ and ‘large cardinal’ is unfor-
+tunate, but context usually suffices to distinguish.) A subset X ⊂ κ is said to be
+closed unbounded if sup(X) = κ and whenever Y ⊂ X and sup(Y ) < κ, then
+also sup(Y ) ∈ X. A subset X ⊂ κ is stationary if it has nonempty intersection
+with every closed unbounded set. Evidently any stationary set is unbounded, and
+hence (if κ is inaccessible) has cardinality κ.
+   An inaccessible κ is said to be Mahlo if the set of inaccessibles less than κ is
+stationary in κ. This implies that there are κ inaccessibles less than κ, but also
+that there are κ inaccessibles λ < κ such that there are λ inaccessibles less than λ,
+and κ inaccessibles below κ with this property, and so on. This pattern continues
+for many larger types of cardinals:
+       • If κ is weakly compact, then Mahlo cardinals are stationary in κ.
+       • If κ is measurable, then weakly compact cardinals are stationary in κ.
+       • If κ is supercompact, then measurable cardinals are stationary in κ.
+       • If κ is extendible, then supercompact cardinals are stationary in κ.
+       • If κ is superhuge, then extendible cardinals are stationary in κ.
+Unlike for Mahlo cardinals, these stationarity properties are not the definitions of
+these larger cardinals, but consequences thereof.12 Their actual definitions can be
+found in books (for example, [Jec03, Kan03]) or the Internet.
+   The purpose of large cardinals in set theory is not just to see how large sets can
+get, but to provide a yardstick to measure the strength of other axioms, and in some
+cases even to prove new results about ‘small’ sets. For instance, the existence of a
+measurable cardinal implies that V 6= L, the existence of infinitely many Woodin
+cardinals implies projective determinacy, and at least some set theorists hope that
+a large cardinal axiom can be found which will settle the continuum hypothesis;
+see [Mad88a, Mad88b].
+   Perhaps surprisingly, set theorists currently believe that there is an upper bound
+to how large large cardinals can get: there are notions of n-huge cardinal for all
+n < ω, but the limiting case of an ‘ω-huge’ cardinal is known to be inconsistent
+with zfc. However, even large-cardinal axioms only slightly weaker than ω-hugeness
+have so far resisted all efforts to disprove them.
+   12When comparing large cardinal axioms in set theory, consistency strength is usually more
+important than raw size. Obviously, if there are many X cardinals below any Y cardinal, then
+the consistency of a Y implies that of an X, but the converse is not always true. For example,
+a huge cardinal implies the consistency of extendible cardinals, and hence of supercompact ones,
+but the least huge cardinal is less than the least supercompact cardinal (if both exist).
+20                                  MICHAEL A. SHULMAN
+
+
+   Returning to category theory, it is natural to wonder whether large cardinal
+properties could have noticeable effects on Set and categories constructed from
+it. This is indeed the case, although for most category-theoretic purposes one
+inaccessible is as good as another. For example, it is proven in [AR94, A.5] that
+Setop has a small dense full subcategory if and only if there do not exist arbitrarily
+large measurable cardinals. If there are no measurable cardinals, then the single
+set N is dense in Setop , and thus Setop is equivalent to a full subcategory of the
+category of M -sets, where M is the monoid of endomorphisms of N.13
+   In general, while large cardinal axioms in set theory usually assert the existence
+of one or more cardinals with a certain property, what tends to matter for cate-
+gory theory is the character of the particular ‘size of the universe’ cardinal κ. For
+example, what matters for the result quoted above is whether the measurable car-
+dinals are unbounded below κ, rather than how many measurable cardinals there
+are in ‘absolute’ terms. Moreover, in most cases, the assertion that “the cardinal
+of the universe has property P ” can be phrased in nbg (and sometimes even zfc),
+without requiring the existence of any sets larger than the universe.
+   The most interesting examples of this sort that I know of concern Vopěnka’s
+principle. This has many equivalent forms; here are a few categorical ones.
+        • No locally presentable category has a large discrete full subcategory.
+        • Every complete or cocomplete category with a small dense full subcategory
+          is locally presentable.
+        • Every category with a small dense full subcategory is well-copowered.
+None of these can even be stated in zfc, since they all involve quantification over
+large categories, but there is no problem in nbg. Vopěnka’s principle has many other
+pleasing consequences for the structure of locally presentable categories (see [AR94,
+Ch. 6]), and also implies the existence of arbitrary cohomological localizations in
+homotopy theory [CSS05], which are not known to exist in zfc.
+   We say that a cardinal κ is Vopěnka if Vopěnka’s principle holds in zfc+i with
+κ as the size of the universe. This is equivalent to saying that Vopěnka’s principle
+holds in Vκ regarded as a model of mk, but stronger than the analogous assertion
+involving nbg. Since Setop is not locally presentable, the assertions I have made
+so far imply that measurable cardinals are unbounded below any Vopěnka cardinal,
+but more is true: if κ is Vopěnka, then the sets
+                                  {λ < κ | λ is measurable}
+                               {λ < κ | λ is extendible in Vκ }
+are stationary in κ. This makes the existence of even one Vopěnka cardinal quite
+a strong assumption, as large-cardinal axioms go. On the other hand, Vopěnka
+cardinals are stationary in any ‘almost huge’ cardinal.
+
+                               10. Inaccessibles or not?
+   So, should we assume inaccessibles? As we have seen, the existence of an
+inaccessible—even the consistency of the existence of an inaccessible—is unprovable
+from zfc, so such an assumption is a genuine strengthening of the axioms. On the
+   13I am inclined to regard this as an argument in favor of the existence of measurable cardinals,
+though of course others may disagree. Note that Setop is also equivalent to the category of
+profinite Boolean algebras (by Stone duality), and to the category of algebras for the double-
+power-set monad on Set.
+                            SET THEORY FOR CATEGORY THEORY                                        21
+
+
+other hand, there are many philosophical and mathematical arguments that can
+be advanced in its favor; see [Mad88a] for a fascinating discussion. Moreover, we
+have seen that it is quite weak compared to many large-cardinal axioms commonly
+used in modern set theory, and from which no contradiction has yet been derived.
+Thus, it seems unlikely that the existence of inaccessibles can be disproven from
+zfc (though it is provably impossible to prove that it can’t be!).
+   However, from the point of view of ordinary category theory, these questions are
+not as relevant, because the role of inaccessibles in category theory is quite different
+from their role in set theory. In category theory, inaccessibles mostly play the role of
+a convenience which simplifies the statements and proofs of our theorems, without
+really entailing any deep ontological commitment. This is because we think of the
+small sets as the ‘real’ sets; we only introduced the large ones as a well-behaved
+model for proper classes. All ordinary mathematical objects, like groups, rings,
+topological spaces, manifolds, and so on, are small.
+   Moreover, all categories of ordinary objects which arise in practice, such as Set
+and Grp, are small-definable, and would exist as classes even in zfc or nbg. And
+we saw that categories such as Sch and Ind(A) have equivalent forms which are
+small-definable, even though they can also be usefully characterized with reference
+to categories that are not.
+   In a similar way, a statement like “V 7→ V-Cat is a functor” can be regarded
+merely as a ‘code’ which encapsulates many individual statements in a concise
+way. For example, it implies that any monoidal functor V → W induces a functor
+V-Cat → W-Cat, and composition is preserved. However, for any particular
+monoidal functor V → W, we could easily check this directly, without needing to
+assert the existence of the whole functor, and thus its very large codomain CAT.14
+Thus, often in category theory, the assumption of inaccessibles can be regarded
+as merely a convenience (although a very convenient one!). Thus, it is natural
+to wonder under what conditions the use of inaccessibles can be eliminated from
+categorical arguments.
+   There is another unsatisfactory aspect of zfc+i. We have asserted that we only
+consider objects smaller than κ to be ‘ordinary mathematical objects’, but what
+if at some later date we discover that there happens to be a group larger than κ
+which we want to include as a mathematical object? Clearly this means that we
+chose the wrong κ to define ‘small’ and ‘large’ and we should choose a larger one. In
+particular, we may want to use category theory to study the category of categories,
+and then apply our results to large categories as well as small ones.
+   To ensure that such switches would always be possible, Grothendieck proposed
+an axiom that there are arbitrarily large inaccessibles, or equivalently that every set
+is contained in a Grothendieck universe. (Actually, this was the first axiom using
+universes to be proposed for category theory; only later did Mac Lane observe that
+one universe was usually sufficient.) This is still quite a weak large-cardinal axiom.
+Note that this use of multiple inaccessibles is different from our discussion of very
+large and extremely large categories in §8; here we are changing the size of the
+universe, rather than using multiple universes at once.
+
+    14One cannot help, however, being reminded of how infinite sets in pre-Cantorian mathematics
+were only regarded as ‘potentialities’ rather than completed entities, and how at first even ordinary
+large categories were viewed with suspicion. It seems that the trend of mathematical development
+is towards recognizing ever larger entities as having an independent existence.
+22                              MICHAEL A. SHULMAN
+
+
+   Now, as long as we haven’t made use of any properties of κ beyond its inacces-
+sibility, all our results proven for κ will also be true for our new, larger, κ. This
+means that all our theorems implicitly begin with “For any inaccessible κ, . . . ”.
+However, the arbitrariness of κ may make us somewhat uneasy. Furthermore, there
+is no a priori guarantee that the properties of particular objects will be preserved
+by change of universe. For example, suppose that we prove in zfc+i, for some prop-
+erty ϕ, that there exists a small group G such that ϕ(G, H) is true for all small
+groups H. (The assertion that G is a limit or colimit of some specified diagram in
+Grp is of this sort.) This will then be true whether ‘small’ is interpreted relative
+to one inaccessible or another, but there is no a priori reason why the group G
+with this property need be the same in the two cases. Thus we have no way to
+conclude that there is a G satisfying ϕ(G, H) for all groups H. In particular cases
+this is obvious; for example, we have explicit ways to compute (small) limits and
+colimits in Grp which do not depend on the size of the universe. But the absence
+of a general truth of this sort means that care is needed when engaging in such
+‘universe-juggling’.
+
+              11. Natural models and reflection principles
+   In an attempt to remedy these problems, let us investigate more specifically
+what properties of inaccessibility are really necessary for category theory. The
+most important consequence of inaccessibility of κ appears to be that Vκ is a model
+of zfc which is itself a set in our assumed larger model V . Thus it is natural to
+look more generally at sets which are models of zfc.
+   Now, a priori a model of zfc consists only of a set M and a relation E ⊂ M ×M ,
+to be interpreted as ‘membership’, such that the axioms of zfc hold. However, we
+want the elements of a set in M to be the same as its elements in V , so it is natural
+to require that E coincides with the actual membership relation ∈ in V , and that
+M is transitive, meaning that x ∈ y ∈ M implies x ∈ M . In fact, any model
+is isomorphic to a transitive one, called its (Mostowski) transitive collapse,
+via an isomorphism defined inductively by T (x) = {T (y) | yEx}. Thus, nothing
+essential is lost by considering only transitive models.
+   However, pathologies still exist among transitive models. In particular, if there
+exists any model of zfc, then there exists one which is transitive and countable—
+despite the fact that in zfc one can prove the existence of uncountable sets! This
+is known as Skolem’s paradox. The reason is that a set x which is countable in V
+may be uncountable to the eyes of M , since the bijection from x to ω may not be
+in M .
+   Skolem’s paradox follows from a model-theoretic result called the Löwenheim-
+Skolem theorem. Like Gödel’s incompleteness theorems and Tarski’s undefinability
+theorem, the Löwenheim-Skolem theorem also has important philosophical impli-
+cations for any axiomatic foundation of mathematics. For this reason, and because
+we will re-use the same ideas later, I will now sketch a proof of it.
+   If ϕ is any statement and M is any structure (that is, a potential model of some
+theory, like a group or a universe), let ϕM denote ϕ relativized to M , meaning
+that all its quantifiers are restricted to range only over elements of M . If M ⊂ N
+we say that ϕ(x1 , . . . , xn ) is reflected from N to M if
+                                                                               
+            ∀x1 ∈ M · · · ∀xn ∈ M ϕN (x1 , . . . , xn ) ⇐⇒ ϕM (x1 , . . . , xn ) .
+                           SET THEORY FOR CATEGORY THEORY                                      23
+
+
+If all statements ϕ are reflected from N to M , we say that M is an elementary
+substructure of N and write M ≺ N ; clearly in this case M is a model of some
+theory if and only if N is.
+    The downward Löwenheim-Skolem theorem says that given any structure N and
+any infinite S ⊂ N , there exists an M ≺ N such that S ⊂ M and |M | = |S|. To
+construct such an M , start with M0 = S. Now, for each statement ϕ(x1 , . . . , xn ) of
+the form ∃y : ψ(y, x1 , . . . , xn ) and each a1 , . . . , an ∈ M0 such that ϕN (a1 , . . . , an )
+is true, choose some b ∈ N such that ψ N (b, a1 , . . . , an ) is true. Let M1 be M0
+together with S  all such ‘witnesses’ b. Iterate this process to define M2 , M3 , . . . ,
+and let M = n∈ω Mn . Since there are only countably many statements ϕ, the
+cardinality never increases, so |M | = |S|. The only potential difficulty in showing
+that M ≺ N is with quantifiers; but we have dealt with existential quantifiers
+by construction, while universal ones can be rephrased as the nonexistence of a
+counterexample (this is called the Tarski-Vaught test for elementary submodels).
+    We now obtain Skolem’s paradox by starting with a model N of zfc, applying
+this theorem for any countably infinite S ⊂ N (which exists by the axiom of infin-
+ity), then taking the transitive collapse of the resulting model M . Note that in fact
+we have proven more: if zfc (or any theory) has a model N , then it has a transitive
+model with cardinality κ for all κ ≤ |N |. The upward Löwenheim-Skolem theorem
+says that this is also true for κ > |N |.
+    To avoid Skolem’s paradox, it suffices to require that our transitive model M
+of zfc be closed under subsets: x ⊂ y ∈ M implies x ∈ M . This ensures that if
+A, B ∈ M and A and B are bijective in V , then the bijection is also in M , since
+it is a subset of A × B. A transitive model of zfc closed under subsets is called a
+natural model; see [MV59]. It is not difficult to show that any natural model is
+of the form Vα for some limit ordinal α.
+    We have seen that Vα is a natural model when α is inaccessible, but in fact
+inaccessibility is much stronger than necessary. Inaccessibility of α asserts, in par-
+ticular, that Vα contains the image of any function f : X → Vα such that X ∈ Vα .
+But saying that Vα satisfies the replacement schema only asserts this when f is
+definable from Vα ; that is, when f ∈ Def(Vα ). Note that in general any such f
+is in Vα+1 = PVα , which contains Def(Vα ) as a proper subset. Another way of
+expressing this is to say that Vα models zfc if and only if (Vα , Def(Vα )) models
+nbg, while (Vα , Vα+1 ) can only model nbg when α is inaccessible (in which case it
+also models mk). To see how nontrivial this distinction is, observe that since there
+are only countably many statements ϕ, we have |Def(Vα )| = |Vα |, while of course
+|Vα+1 | = 2|Vα | > |Vα |.
+
+Remark 11.1. One can also say that if α is inaccessible, then Vα satisfies the second-
+order replacement axiom. To understand this we need to describe second-order
+logic. The logic we have discussed so far is called first-order logic because variables
+and quantifiers only range over ‘things’; in second-order logic they are also allowed
+to range over ‘sets of things’. This distinction can be confusing, since for a first-
+order theory like zfc the ‘things’ are themselves called ‘sets’.
+   Second-order logic is more powerful than first-order logic, but suffers from an
+ambiguity of interpretation. If by ‘set of things’ we intend to mean any subset of
+the model under consideration, then we need an external set theory to define what
+is meant by this. This is the sense in which a Grothendieck universe satisfies the
+‘second-order replacement axiom’. On the other hand, if we allow the model itself
+24                               MICHAEL A. SHULMAN
+
+
+to stipulate what ‘sets of things’ exist, then second-order logic reduces to first-order
+logic augmented with an extra sort of ‘thing’ called a ‘set of things’. This occurs,
+for example, with the replacement axiom of nbg. The existence of natural models
+that are not Grothendieck universes shows that this ambiguity has teeth. For this
+reason I will continue to stick to first-order logic.
+   Now, by slightly modifying the proof of the Löwenheim-Skolem theorem, we can
+prove that for any β and S ∈ Vβ , then there is an α ≤ β such that S ∈ Vα and
+Vα ≺ Vβ . Namely, instead of a sequence M0 ⊂ M1 ⊂ M2 ⊂ . . . , we construct a
+sequence α0 < α1 < α2 < . . . , by letting αn+1 be some ordinal such that all the
+witnesses b for Vαn are contained in Vαn+1 . Setting α = limn<ω αn , it follows that
+Vα ≺ Vβ . In particular, if Vβ is a natural model, so is Vα .
+   Of course, in this case there is no guarantee that α 6= β. But if β is inaccessible,
+then at the nth stage we need to add only |Vαn | < β witnesses, so we can choose
+αn+1 < β; and since β is regular, we then have α < β. A slight improvement of
+this proof shows that if β is inaccessible, then
+                           {α < β | Vα is a natural model}
+is stationary in β, and in particular has cardinality β. Thus, the existence of natural
+models can be regarded as a sort of ‘large cardinal axiom’ significantly weaker than
+even a single inaccessible (although α need not actually be a cardinal for Vα to be
+a natural model).
+    It makes intuitive sense that we could also carry through the above argument
+using the whole universe V instead of Vβ , and thereby construct a natural model Vα
+with Vα ≺ V . Of course, this would prove Con(zfc) and violate the incompleteness
+theorem. The flaw in the argument is that with V in place of Vβ , Tarski’s unde-
+finability theorem prevents us from defining the set of witnesses b. However, we
+can rescue the argument if instead of asserting Vα ≺ V , we only assert that a given
+finite set of statements is reflected from V to Vα . This gives a theorem-schema
+called the reflection principle: for any finite set ϕ1 , . . . , ϕn of statements, we can
+prove in zfc that for any set y, there exists an α such that y ∈ Vα and ϕ1 , . . . , ϕn
+are all reflected in Vα .
+    Now, while the single statement “there exists a natural model” implies the con-
+sistency of zfc, the reflection principle suggests a version of it that does not. Let S
+be an extra constant symbol, and add to zfc the axiom “S is transitive and closed
+under subsets” along with a reflection axiom
+                                                                               
+              ∀x1 ∈ S · · · ∀xn ∈ S ϕ(x1 , . . . , xn ) ⇐⇒ ϕS (x1 , . . . , xn ) .
+
+for each statement ϕ. We denote the resulting system by by ZFC/S (“zfc with
+smallness”). It follows that for each axiom ϕ of zfc, the relativized version ϕS
+is true in zfc/s, so S is a model of zfc. We can also show S = Vk for some
+ordinal k. However, since the proof of each axiom ϕS uses a different instance of
+the reflection axiom schema, we cannot prove in zfc/s the single statement “S is
+a natural model”.
+   In fact, we can prove that zfc/s is conservative over zfc. Suppose we have any
+theorem which is provable in zfc/s; we show that it can also be proven in zfc.
+The original proof, being only finitely long, can only use the reflection schema for
+finitely many statements ϕ. Thus, by the reflection principle for zfc, we can find
+an α such that all these statements ϕ are reflected in Vα . We can then replace S
+                       SET THEORY FOR CATEGORY THEORY                               25
+
+
+by Vα and carry out the proof in zfc. Note, however, that unlike the proof for
+conservativity of nbg, we do not have a way to construct, from a model of zfc, a
+model of zfc/s with the same (small) sets.
+    The theory zfc/s is due to Feferman, who proposed it in [Fef69] as a foundation
+for category theory. Of course, we now define small to mean “element of S” and
+large to mean “set not necessarily in S”; otherwise things go mostly as before.
+Since the axioms of zfc are satisfied for all sets, we can manipulate large sets as
+we wish; so we retain that advantage of zfc+i. If we want to talk about very large
+and extremely large objects, it is easy to add multiple symbols S1 , S2 , . . . , each
+satisfying reflection and with S1 ∈ S2 ∈ · · · .
+    However, because zfc/s is conservative over zfc, we have not strengthened our
+basic set theory. In particular, anything about small objects that we prove with
+the aid of large categories would still be provable in pure zfc. Thus, we obtain a
+precise version of our intuition that the use of inaccessibles in category theory is
+merely for convenience: since many categorical proofs stated using inaccessibles can
+be formalized in zfc/s, any consequence of such a theorem not referring explicitly
+to inaccessibles is also provable purely in zfc.
+    zfc/s also eliminates at least some sources of universe-juggling. For example,
+because every statement about sets is reflected in S, anything we prove in zfc/s
+about small objects is also true about large objects. In particular, anything we
+prove about small categories, even making use of the large category Cat, will also
+be true about large categories. Moreover, any property of small objects which refers
+only to small objects is retained when reinterpreted to refer to large objects. For
+example, the statement that G is a limit of a specified small diagram in the category
+Grp of small groups can be expressed as ϕS (G) for some statement ϕ. Thus, the
+reflection principle implies that ϕ(G) is also true, and hence G satisfies the same
+universal property with respect to large groups.
+    Whether all universe-juggling can be eliminated in this way depends on our
+ontological position towards zfc/s. If we believe that zfc/s is a true representation
+of reality—that is, that there actually exists an S satisfying the reflection axioms,
+and when working in zfc/s we are making statements about that particular S—then
+of course not all objects are small. The reflection principle gives us a precise sense
+in which they ‘might as well be’ small, but if we insist on being able to make them
+actually small, we would need to augment zfc/s by a Grothendieck-like assumption
+of many natural models and continue to engage in universe-juggling.
+    However, if we instead take the position that zfc is ‘true’, while zfc/s is only a
+convenient fiction made possible by the reflection principle, then we can relegate all
+the universe-juggling to the ‘behind the scenes’ interpretation of zfc/s in zfc. That
+is, we prove all our results in zfc/s, and argue that when we want to apply them to
+particular objects in the ‘real world’ of zfc, we tacitly use the reflection principle
+to choose some Vα which contains all the objects we happen to be interested in.
+Thus the theorems of category theory take on the character of a ‘meta-theory’,
+which can be applied to any particular set of objects in the real world by choosing
+a sufficiently large Vα containing that set.
+
+
+
+Remark 11.2. This seems an appropriate place to mention Ackermann set the-
+ory, a theory of sets and classes like nbg and mk which has also been proposed as
+26                                   MICHAEL A. SHULMAN
+
+
+a foundation for category theory. Unlike nbg and mk, however, it allows classes to
+be elements of other classes.15 Its axioms are the following.
+      (i) Extensionality, foundation, and choice.
+     (ii) Any element or subset of a set is a set.
+    (iii) For any definable property ϕ(x), if all objects x satisfying ϕ(x) are sets,
+          then the class {x | ϕ(x)} exists.
+    (iv) If in the previous axiom, in addition ϕ(x) does not refer explicitly to
+          sethood (that is, to whether or not any given class is a set), then the class
+          {x | ϕ(x)} is a set.
+These axioms imply (though not obviously) that the class V of all sets is a model
+of zfc. Conversely, any model of zfc/s satisfies these axioms if ‘class’ means ‘set’
+and ‘set’ means ‘element of S’; see [Lév59, Rei70]. Thus, like nbg and zfc/s,
+Ackermann set theory is a conservative extension of zfc.16 But while it implies a
+limited reflection principle, overall it is strictly weaker than zfc/s in what it can
+say about its classes. Most of the subsequent remarks about zfc/s apply just as
+well to Ackermann set theory.
+   On the other hand, zfc/s (and likewise Ackermann set theory) is not quite
+the paradise it first appears. In order to enable ourselves to manipulate large
+objects freely without strengthening set theory, we have been forced to weaken the
+replacement axiom for small sets. In both nbg and zfc+i, we have a replacement
+axiom saying, essentially, that the image of a small set under a large function is
+small. In zfc/s, however, we can only assert this if the large function is small-
+definable (that is, in Def(S)). This distinction is invisible to zfc and nbg because
+there, all functions are (or might as well be) small-definable, while it is invisible
+to mk and zfc+i because their stronger axioms guarantee that all functions with
+small domain are small, even those that are not a priori small-definable.
+   Perhaps surprisingly, it turns out that this weakening of replacement has sig-
+nificantly annoying consequences for category theory. For example, it implies that
+the category Set = Set[S] of small sets need not admit limits and colimits for all
+functors F : A → Set when A is small, but only those for which F is also small.
+The same is true for other large categories constructed from Set. Similarly, for a
+functor u : A → B between small categories, the functor
+                                                −◦u
+                                    [ B, Set] −−−→ [ A, Set]
+will not in general have left and right adjoints (Kan extensions).
+   On the surface, these restrictions appear quite problematic; the completeness
+and cocompleteness of Set is certainly of central importance in category theory.
+One way to respond is to assert that in zfc/s, the correct definition of complete is
+    15This is not obvious from the axioms, which only assert directly the existence of classes whose
+elements are sets. To see that there must be classes containing other classes, we observe first that
+axiom (iv) implies that sethood cannot be characterized without referring to it explicitly; otherwise
+the class V of all sets would be a set. This means that since the property “∃y : x ∈ y” is true of
+all sets, it must also be true of some classes; otherwise it would characterize sethood.
+    16The intuition behind Ackermann set theory, however, is different from that of zfc. Ack-
+ermann argued that that the elements of a set must be ‘sharply delimited’, while the elements
+of a class, such as V , may depend on how broadly we interpret the concept of ‘set’. Thus, only
+properties which do not refer explicitly to sethood are ‘sharply delimited’ enough to define sets.
+It is striking that nevertheless, Ackermann’s axioms turned out a posteriori to be equivalent to
+zfc in what they can say about sets.
+                        SET THEORY FOR CATEGORY THEORY                               27
+
+
+“having limits for all small functors” rather than “having limits for all functors with
+small domain”. Similarly, if we write JA, SetK for the full subcategory of [ A, Set]
+determined by the small functors, then induced functor
+                                         −◦u
+                               JB, SetK −−−→ JA, SetK
+does have both adjoints, and we may assert that in zfc/s, the correct presheaf
+category to consider is JA, SetK rather than [ A, Set] .
+   Another advantage of JA, SetK is that unlike [ A, Set] , it is small-definable. This
+is a good thing, because in zfc/s, only small-definable categories are at all well-
+behaved. For instance, let A be a small set of objects in a locally small and small-
+definable category B. We can then prove that
+     (a) the full subcategory A of B determined by the objects in A is small;
+     (b) the inclusion functor i : A → B is small;
+     (c) for any object X ∈ B, the restricted hom-functor A(i−, X) : Aop → Set
+          is small; and thus
+     (d) the restricted Yoneda embedding B → [ Aop , Set] factors through JAop , SetK.
+However, there seems to be no way to prove any of these statements if B is not
+small-definable. Similarly, theorems like the Adjoint Functor Theorem only seem
+to work for small-definable categories.
+   As observed by Feferman, all this makes little difference in most concrete appli-
+cations, because any particular diagram, functor, or category we are interested in
+will generally be small-definable (at least, up to equivalence). However, this is not
+always trivial to verify; we saw in §8 examples of categories that were equivalent
+to small-definable ones, but not obviously. Moreover, small-definability restrictions
+are tiresome to keep track of, and some would say unaesthetic as well. In the next
+two sections, we will explore two ways to deal with this problem.
+
+                       12. Strong reflection principles
+    There is an obvious way to ‘have our cake and eat it too’: we can add to zfc/s
+the extra axiom “S is a Grothendieck universe”, or equivalently S = Vk where k
+is inaccessible. For reasons to be explained below, I will call the resulting theory
+ZMC/S. It then follows, as in zfc+i, that every functor with small domain is
+small, and all small-definability restrictions vanish.
+    Of course, this may seem like a step backwards, since we began the previous
+section by looking for a way to avoid inaccessibles. However, along the way we
+discovered the reflection principle, and we saw that the reflection axiom-schema
+of zfc/s is really what resolves many of the problems with zfc+i and allows us
+to avoid universe-juggling. Since zmc/s retains reflection, all of this is still true,
+so the only disadvantage of zfc+i which carries over to zmc/s is that it is not
+conservative over zfc.
+    In fact, zmc/s is significantly stronger than zfc+i, since reflection implies that
+k is far from the smallest inaccessible. Namely, since there exists an inaccessible,
+there must exist a small inaccessible; but then there exist two inaccessibles, and so
+there must exist two small inaccessibles, and so on. By applying reflection to the
+statement “there exists an inaccessible larger than α”, in zmc/s we can even derive
+Grothendieck’s axiom that there are arbitrarily large inaccessibles.
+    The same argument that shows zfc/s to be conservative over zfc shows that
+zmc/s is conservative over zfc + “any finite set of formulas is reflected in some
+28                               MICHAEL A. SHULMAN
+
+
+Grothendieck universe.” This stronger reflection principle turns out to be equivalent
+to the assertion that any closed unbounded (definable) class of ordinals contains
+an inaccessible, which essentially says that the cardinal of the universe is Mahlo
+(see [Lév60]). zfc augmented by this axiom is sometimes called zmc (whence the
+notation zmc/s). While rather stronger than the existence of a single inaccessible,
+and stronger even than Grothendieck’s axiom, this is still quite weak compared to
+many large-cardinal axioms, as we saw in §9.
+    Moreover, the principle incorporated in zmc is one of the most easily motivated
+large-cardinal axioms. For instance, it can be argued that it is a straightforward
+expression of the ‘inexhaustibility’ of the universe of sets by any finite number of
+operations. Additionally, it is not difficult to show (see [Lév60]) that in the presence
+of the basic axioms only, the reflection principle of zfc implies replacement, power
+set, and infinity—all the axioms of zfc which produce larger and larger sets. It
+follows that zmc is equivalent to just the basic axioms and choice together with
+the schema “any finite set of formulas is reflected in some Grothendieck universe.”
+I find this aesthetically quite appealing, because it captures exactly what category
+theory seems to need from set theory: we may not be able to have a category of all
+sets, but for any particular purpose, we can choose a category of sets large enough
+that it might as well contain all of them.
+
+
+                     13. Toposes and indexed categories
+   There is another way to deal with the small-definability issues in zfc/s: we can
+use indexed categories, a tool developed to solve a similar problem in elementary
+topos theory. Since topos theory is of interest in its own right as a foundation for
+mathematics in general, and category theory in particular, we start with a summary
+of it. Good introductions to topos theory can be found in [MLM94, McL92a],
+while [Joh02] is encyclopedic.
+   By way of motivation, observe that while zfc suffices as a foundation for most of
+mathematics, there is a sense in which it is disconnected from most mathematical
+practice. In zfc there is a global membership predicate, meaning that if I give
+you two random sets, it makes sense to ask whether one is an element of the
+other. However, in actual mathematical practice we usually only speak of local set
+membership, meaning that asking whether x ∈ A is only meaningful in the context
+of some fixed set B such that x is known to be an element of B and A is known to
+be a subset of B. In other words, the way most mathematicians usually think of a
+set (or a group, or a topological space, etc.) is as a collection of ‘abstract’ elements
+which have no ‘internal’ structure aside from being elements of that set. The only
+way that elements of two different sets relate to each other is via functions and
+relations between those sets.
+   Of course, this is a very categorical way of thinking; it is closely related to
+the assertion that we only care about objects of a category, such as Set, up to
+isomorphism. Thus, it is natural to try to axiomatize the properties of the category
+Set, instead of axiomatizing a global membership relation. (While useful, this
+motivation for topos theory is ahistorical; see [McL90].) The appropriate axioms
+can be classified just as we did for zfc and nbg.
+     (i) The basic axioms: Set is cartesian closed, has finite limits and colimits,
+         and the terminal object is a generator.
+                           SET THEORY FOR CATEGORY THEORY                                      29
+
+
+      (ii) The size-increasing axiom: every object has a ‘power object’ classifying
+           its subobjects.
+     (iii) The size-assertion axiom: there is a ‘natural numbers object’.
+     (iv) The axiom of choice: all epimorphisms split.
+An elementary topos17 is a category with finite limits and power objects; this
+implies cartesian closedness and the existence of finite colimits. A natural num-
+bers object (NNO) in a topos is an object satisfying the universal property
+of definition by recursion, or equivalently proof by induction. A topos is well-
+pointed if the terminal object 1 is a generator; this means that an object X is
+determined by its ‘elements’ x : 1 → X. Thus, a natural axiomatization of Set
+is that it is a well-pointed elementary topos with a nno and satisfying the axiom
+of choice (a WPTNC). These axioms for Set are also referred to as the Ele-
+mentary Theory of the Category of Sets (ETCS), after Lawvere’s influential
+paper [Law64, Law05]. Just as with zfc, it is an empirical observation that much
+of mathematics can be developed starting from a model of etcs.
+Remark 13.1. In fact, much mathematics can be developed from any elementary
+topos (perhaps with a nno), as long as one uses intuitionistic or constructive logic
+instead of classical logic. I will return to this point in Remark 15.1.
+   Notably absent from etcs is any analogue of the axiom of replacement. This
+means that if α is any limit ordinal greater than ω, so that Vα satisfies all the
+axioms of zfc except replacement, then the category Set[Vα ] of sets and functions
+in Vα is a wptnc. As remarked in §4, most mathematical objects outside of set
+theory have very low rank, living quite comfortably in Vω·2 , so this lends extra
+credence to the observation that etcs suffices for much of mathematics.
+   In fact, all one needs to construct a wptnc is a model of Bounded Zermelo
+set theory with Choice (BZC), which is zfc without replacement and in which
+the properties in the separation axiom are only allowed to have bounded quantifiers
+(“for all x ∈ A” rather than just “for all x”). This version of separation is variously
+called restricted, bounded, or ∆0 -separation. Conversely, from a wptnc one
+can construct a model of bzc, although some cleverness is needed to obtain a global
+membership predicate; see [MLM94, VI.10] or [Joh77, Ch. 9] for two approaches.
+Thus, etcs and bzc are equiconsistent.
+   I will discuss the implications of etcs and bzc for mathematical practice in more
+detail in §14; for now, let us consider their consequences for category theory. We
+have seen a hint already of what can go wrong without replacement in our study
+of zfc/s, where weakening the replacement axiom created unexpected problems.
+To see the more drastic problem we are now faced with, consider the meaning of
+the statement “A has small products” when A is a large category. Intuitively, this
+means that any X-indexed family of objects of A has a product, for any ‘set’ X.
+But what exactly is an “X-indexed family of objects of A”?
+   In nbg this can mean a class which is a function from X to the class of objects of
+A, while in zfc it can mean a definable property ϕ such that for any x ∈ X there
+is a unique a ∈ A with ϕ(x, a). In either case, we can then apply the replacement
+   17There is some controversy about whether the English plural of topos should be toposes or
+topoi. The paper by Grothendieck and Verdier which coined the term is in French, where the
+plural is again topos; this seems to tell against the Greek plural. However, in English topos also
+means “a literary theme or motif”, and in this case the plural used is always topoi. Unfortunately
+one cannot avoid making one choice or the other!
+30                                 MICHAEL A. SHULMAN
+
+
+axiom to obtain a set such as {a ∈ A | ∃x ∈ X f (x) = a}, and go on to construct
+the product. However, if X is instead an object of an elementary topos S, it is not
+at all clear what is even meant by an X-indexed family of objects of A.
+   On the other hand, any large category A which is constructed from S in any
+reasonable way will come with a canonical notion of X-indexed family of objects
+for any X ∈ S. To start with, S itself has such a notion: an X-indexed family of
+objects of S can be defined to be simply an arrow p : K → X. The intuition is that
+an element x ∈ X indexes the fiber p−1 (x), but of course objects of the abstract
+category S have no ‘elements’ as such. It follows that the category of X-indexed
+families of objects of S should be the slice category S/X. We can then extend this
+to other categories of ‘sets with structure’. For example, if A is the category of
+‘small groups’, meaning internal group objects in S, then an X-indexed family of
+objects of A should be an internal group object in S/X.
+   Thus, when doing category theory relative to an elementary topos S, it is natural
+to consider, instead of a single category A, a family of categories AX for each object
+X ∈ S, where AX is thought of as the category of ‘X-indexed families of objects
+of A’. Of course, these categories should be related in some way as X varies, and
+it turns out that the important property is the ability to reindex a family: if K
+is an X-indexed family and f : Y → X, then we have a Y -indexed family f ∗ K.
+The intuition is that for y ∈ Y we have (f ∗ K)y = Kf (y) . For S and categories
+constructed from it, this reindexing is given by pullback along f .
+   With this as motivation, we define an S-indexed category A to consist of
+a category AX for each object X ∈ S, together with a functor f ∗ : AX → AY
+for each arrow f : Y → X in S, and natural isomorphisms (gf )∗ ∼          = f ∗ g ∗ and
+       ∼       ∗
+IdAX = (1X ) satisfying obvious axioms.      18
+                                                  An S-indexed categoryH can also be
+                                             X
+described by assembling
+                 H          the  categories A    into a single category A equipped
+with a functor A → S assigning a family to its indexing object; in this form it is
+called a (categorical) fibration over S. Good introductions to indexed categories
+and fibrations can be found in [Joh02, Part B] and [Str].
+   If we now replace our naı̈ve large category A by an S-indexed category, all
+problems disappear. For example, we can define A to have S-indexed products if
+each reindexing functor f ∗ : AX → AY has a right adjoint (plus a commutativity
+condition). For a more general notion of completeness, we need a notion of ‘small
+category’, and the obvious candidate is an internal category in S, which consists of
+objects C0 , C1 ∈ S with arrows s, t : C1 ⇒ C0 , i : C0 → C1 , and c : C1 ×C0 C1 → C1
+satisfying obvious axioms. Any internal category C gives rise to an S-indexed
+category C with CX = S(X, C• ), and we can define a C-diagram in any S-indexed
+category A to be an object F ∈ AC0 together with a morphism s∗ F → t∗ F in AC1
+satisfying suitable axioms. The appropriate notions of limit and completeness are
+then fairly straightforward.19 Similarly, we can define local smallness, generators,
+and well-poweredness, and state and prove an Indexed Adjoint Functor Theorem.
+   We saw that S itself is represented by the S-indexed category with SX = S/X;
+we call this the self-indexing of S. It turns out that the self-indexing is always
+
+    18The 2-categorically sophisticated reader may call this a pseudofunctor Sop → CAT . This is
+fine as long as we have some external set theory with which to define a 2-category CAT of large
+enough categories.
+    19This is not quite true; I am omitting some details in an attempt to give the flavor of the
+subject without getting bogged down. See the references above for a careful treatment.
+                        SET THEORY FOR CATEGORY THEORY                                 31
+
+
+complete and cocomplete, in the indexed sense, for any elementary topos S. In par-
+ticular, this applies to Set[Vα ] for any limit ordinal α, even though such toposes are
+not complete and cocomplete   ` in the naı̈ve ‘external’ sense. For example, Set[Vω·2 ]
+fails to have the coproduct n<ω iω+n , even though it contains       ω and each iω+n .
+But this does not violate indexed cocompleteness, since iω+n n∈ω is not an ω-
+indexed family in the self-indexing of Set[Vω·2 ]: if there were such a family K → ω,
+then K would have to essentially already be the desired coproduct.
+   The situation may be clarified by observing that there is a different indexed
+category over any S = Set[Vα ] called the naı̈ve indexing, for which SX      naı̈ve is the
+category of all functions X → Vα . The self-indexing of Set[Vα ] embeds in its naı̈ve
+indexing, and the two are equivalent precisely when α is inaccessible. In between
+the two we have the definable indexing, for which SX          def is the category of all
+definable functions X → Vα . This agrees with the self-indexing whenever Vα is a
+natural model. Neither the naı̈ve indexing nor the definable indexing of Set[Vω·2 ] is
+complete or cocomplete, nor is the naı̈ve indexing of Set[Vα ] when Vα is a natural
+model that is not a Grothendieck universe; but the self-indexing of either always is.
+   In fact, if V is any model of bzc, then the resulting well-pointed topos Set[V ]
+has both a self-indexing and a definable indexing, and the assertion that V satisfies
+replacement (hence is a model of zfc) is equivalent to the assertion that these two
+indexings agree. To define a ‘naı̈ve indexing’, our universe V must live inside a
+larger universe of sets or classes, such as a model of nbg, mk, or zfc+i. In each
+of these cases, the version of replacement asserted implies that the resulting naı̈ve
+indexing is actually equivalent to the self-indexing as well.
+   We can now see that when working with large categories in zfc, we have implic-
+itly been using the definable indexing, while in nbg, mk, and zfc+i we have been
+using the naı̈ve indexing. Topos theory suggests that actually, the self-indexing is
+always the ‘correct’ indexing to use, and the role of the replacement axiom is to
+ensure that the self-indexing is equivalent to the definable or naı̈ve indexings, which
+are more intuitive and easier to work with. See [Str, §17] for further discussion of
+‘internal’ versus ‘external’ completeness.
+   Now let us return to zfc/s. Since S is a natural model20 but not a Grothendieck
+universe, the self-indexing of Set[S] agrees with its definable indexing, but not its
+                                                     X
+naı̈ve indexing. Moreover, the objects of SX self = Sdef = S/X are essentially the same
+as the small functions X → S; thus indexed completeness of Set[S] agrees with our
+proposed ad hoc redefinition of completeness in §11. More generally, any small-
+definable category in zfc/s gives rise to a Set[S]-indexed category containing only
+the small X-indexed families of objects, and the machinery of indexed categories
+automatically keeps track of all the restrictions we had to impose by hand in §11.
+For example, if C is an internal category C in Set[S], the category of C-diagrams
+in Sself is the well-behaved JC, SetK rather than the poorly-behaved [ C, Set] .
+   Thus, one may say that the problems we encountered with zfc/s arose due to
+our trying to use the naı̈ve indexing in a situation where our replacement axiom was
+only sufficient to deal with the definable indexing. Moreover, Feferman’s hypothesis
+that zfc/s suffices for basic category theory now follows from the observation that
+most theorems of basic category theory have indexed analogues.
+
+
+   20However, remember that “S is a natural model” is not a single theorem of zfc/s, but a
+schema consisting of one theorem for each axiom of zfc.
+32                                   MICHAEL A. SHULMAN
+
+
+   On the other hand, once we are willing to use indexed categories, we do not
+necessarily need to to assume a replacement axiom at all in order to do category
+theory. Thus, we could choose any wptnc S which is a set, even Set[Vω·2 ], define
+a small category to mean an internal category in S and a large category to mean an
+S-indexed category, and develop category theory that way. This way we can remain
+completely within zfc (or even something much weaker), and Grothendieck’s axiom
+of arbitrarily large inaccessibles can be replaced by the simple fact that any set is
+contained in some Vα .
+   However, the machinery of indexed categories is admittedly rather complicated,
+and it seems unreasonable to expect most users of category theory to be familiar
+with it when there are so many simpler foundational options available. If nothing
+else, though, indexed categories give a more conceptual understanding of the small-
+definability restrictions arising in zfc/s. (Of course, indexed categories are also
+crucial when working with a general elementary topos, rather than a wptnc.)
+
+             14. Aside: the strength of categorical set theory
+   Let us pause here briefly to compare the ‘category-theoretic foundation’ for math-
+ematics offered by etcs and its relatives with the ‘set-theoretic foundation’ offered
+by zfc and its cousins. This terminology is common, but one can also argue per-
+suasively (see [Law05]) that etcs is itself a set theory, meaning a theory about the
+behavior of sets. What distinguishes it from zfc is not its objects of study, but
+how it studies them: by taking functions as a basic notion rather than global mem-
+bership. Perhaps a more correct distinction would be to call etcs a categorical21
+set theory and zfc a membership set theory.
+   I mentioned in §13 that etcs is equiconsistent with bzc. In fact, if we add
+axioms to etcs and bzc saying that every set is contained in a transitive one
+and that transitive collapses exist (§11), then we can obtain a full equivalence
+between models of the two theories; see [Joh77, Ch. 9] or [Osi74]. These additional
+axioms can be proven in zfc using replacement, but are much weaker than it; in
+particular, adding them does not change the consistency strength of etcs and bzc.
+This altered version of bzc is sometimes called Mac Lane set theory (MAC).
+Thus, at least in one sense, etcs and bzc/mac are completely equivalent.
+   However, as I argued in §13, etcs may seem closer to most mathematical prac-
+tice than bzc, since it discards the usually superfluous notion of global member-
+ship. Furthermore, in line with the observed fact that most mathematicians only
+care about objects up to isomorphism, etcs can only characterize any set up to
+isomorphism; see [McL93]. Even a lot of notions in set theory, including many
+large-cardinal axioms, are invariant under isomorphism.
+   On the other hand, etcs and bzc are both significantly weaker than zfc: not
+only are they missing the replacement axiom, but they only allow separation for
+formulas with bounded quantification. This implies that just as nbg can only prove
+mathematical induction for statements not quantifying over classes, bzc can only
+prove induction for statements without unbounded quantifiers. For example, if A is
+a large category in the style of §6, then a statement such as “for all n, A has n-fold
+
+    21There is an unfortunate collision between the common and natural use of ‘categorical’ to
+mean ‘related to categories’, and the much older philosophical and logical tradition in which
+‘categorical’ means ‘absolute’ or ‘uniquely determined’. This has led some authors to use categorial
+for the former notion.
+                       SET THEORY FOR CATEGORY THEORY                              33
+
+
+products” involves unbounded quantifiers and thus cannot be proven by induction
+in bzc or etcs, at least not obviously.
+   The axiom of replacement also has other uses outside of set theory, usually
+taking the form of transfinite induction arguments. The classic example is Borel
+determinacy in descriptive set theory, which is known to be unprovable even in
+Zermelo set theory (that is, zfc without replacement but with full separation).
+Closer to home for us are transfinite constructions such as Example 4.4, which also
+require some form of replacement. For instance, the power-set functor cannot be
+iterated even ω times without replacement, since |P ω ω| = iω 6∈ Vω·2 . The same is
+true of the dual-vector-space functor. For a very detailed study of the strength of
+bzc and its cousins, see [Mat01].
+   For these reasons, it is natural to wonder whether etcs can be strengthened
+with versions of full separation and replacement to obtain a categorical set theory
+equivalent in strength to zfc. In fact, it suffices to consider replacement, since at
+least with classical logic, replacement implies full separation. There has not been
+a lot of work in this area, but several sorts of categorical replacement-type axioms
+have been proposed.
+   The perspective of §13 suggests that perhaps a categorical replacement axiom
+should essentially say “the definable indexing of Set agrees with the self-indexing”.
+In constructing the definable indexing of Set[V ] we used the fact that our sets have
+elements, but in a well-pointed topos we can replace these elements by morphisms
+1 → X. Thus, we say a well-pointed topos S satisfies replacement if for any object
+X and any definable property ϕ(x, S) such that for any ‘element’ x : 1 → X there
+exists a object Sx unique up to isomorphism with ϕ(x, Sx ), there exists a morphism
+S → X such that for any x there is a pullback square
+
+
+                                    Sx        /S
+
+
+                                                
+                                     1        / X.
+                                          x
+
+
+
+
+This version of replacement is from [McL04]; other similar ones can be found
+in [Osi74, Law05]. These references also prove that etcs plus replacement is equiv-
+alent to zfc, in the strong sense of an equivalence of models. Thus, if all we want
+is a categorical set theory equivalent to zfc, we have it.
+   On the other hand, these axioms of replacement are not fully satisfactory from
+a categorical point of view, because they all depend heavily on well-pointedness.
+As mentioned previously, all the other axioms of etcs make perfect sense without
+well-pointedness, and much mathematics can be developed from any elementary
+topos; thus it would be nice to have a version of the replacement axiom that makes
+sense without well-pointedness.
+   In [Tay99, Ch. 9] Paul Taylor proposed an axiom he called the categorical ax-
+iom of iterative replacement, which asserts directly the possibility of transfinite
+constructions on functors. This axiom makes sense without well-pointedness, but
+seemingly has not been investigated in very much detail. I do not know of any more
+explicitly replacement-like axioms that make sense for non-well-pointed toposes.
+34                              MICHAEL A. SHULMAN
+
+
+                            15. Algebraic set theory
+    The categorical set theories we have considered so far are analogues of zfc; in
+this section we consider categorical analogues of nbg and zfc+i. One motivation
+for this is to find a more categorical way to state the replacement axiom; another
+is to find an easier way to deal with large categories.
+    We saw in §13 that one appropriate notion of a large category with respect to
+an elementary topos is an indexed category. As for naı̈ve large categories in zfc,
+the elementary theory of indexed categories suffices when we only need to consider
+them one at a time. However, if we want to quantify over indexed categories (such
+as in proving the Adjoint Functor Theorem), perform constructions on them, or
+assemble them into a larger category (or a 2-category), we need to assume some
+sort of external set theory. This is automatic if our topos S is the category of small
+sets in zfc/s or zfc+i—though in the latter case there is little need for indexed
+categories.
+    A more categorical approach is to introduce a category of classes C which con-
+tains the topos S of sets and also other large categories. This is a recent area of
+active research known as algebraic set theory; good introductions are [Awo, JM95].
+The usual approach is to equip C with a collection S of small morphisms, the in-
+tuition being that a morphism is small when it has small fibers. Different authors
+choose slightly different axioms on C and S, but in general they can be classified
+as follows.
+       (i) C has finite limits and colimits, and some additional level of structure
+           allowing at least the interpretation of finitary logic.
+      (ii) Small maps are closed under composition, pullback, descent, and other
+           basic constructions.
+     (iii) Every object X of C has a powerclass Ps X classifying its small subobjects.
+     (iv) There is a universal object U of C which ‘contains all small objects’.
+I will refer to some suitable version of these axioms collectively as Algebraic Set
+Theory (AST). As with the elementary topos axioms, the axioms of ast can be
+augmented by well-pointedness, choice, and existence of a nno.
+   We define an object X ∈ C to be small if X → 1 is a small map. Any model of
+nbg gives rise to a model of ast in which the small objects are the sets. Conversely,
+the axioms of ast imply that the category S of small objects is an elementary topos,
+which inherits well-pointedness, choice, and a nno from C. Moreover, as long as
+C is well-pointed, the wptnc S also satisfies replacement, in the sense described
+in §14. We may not quite get a model of nbg by taking the objects of C to be
+the classes, since some of them may be too large (violating limitation of size), but
+in practice, working in ast with well-pointedness, choice, and a (small) nno is
+essentially equivalent to working in nbg.
+   Note that just as in a topos, the internal logic of C is restricted to bounded
+quantifiers. However, now we can interpret ‘unbounded’ quantifiers ranging over
+all small objects by using bounded quantifiers ranging over the universal object U .
+This gives a categorical explanation of why comprehension in nbg is restricted to
+formulas that only quantify over sets.
+   If we assume in addition that C is itself a topos, as in [Str05], then we obtain a
+theory equivalent to what one might call bzc+i. Adding a replacement schema for
+C, as described in §14, brings us up to zfc+i. In all cases, we can define a large
+                        SET THEORY FOR CATEGORY THEORY                                35
+
+
+category to be an internal category in C and a small category to be one in S, and the
+development of category theory then mirrors what happens in the corresponding
+membership set theory. (We could also use C to perform constructions on S-
+indexed categories, but since S satisfies replacement with respect to C there seems
+little need for the extra complication.)
+    There are many other beautiful aspects to algebraic
+                                                    S      set theory, of which I will
+only mention one: the cumulative hierarchy V = Vα and the class Ω of ordinals
+can be defined by universal properties. Define a ZF-algebra to be a partially
+ordered class A which has suprema of all small families and is equipped with a
+‘successor’ operation s : A → A. The class V of all sets, ordered by inclusion and
+with s(x) = {x}, can then be proven to be the initial ZF-algebra. The class Ω of
+ordinals is also a ZF-algebra with s(α) = α+ 1, so we have a unique homomorphism
+of ZF-algebras ρ : V → Ω; this turns out to be essentially the rank function. The
+function Ω → V sending α to Vα can be characterized by an analogous universal
+property, or as a right adjoint to ρ; see [JM95] for details.
+Remark 15.1. So far I have focused exclusively on well-pointed categorical set the-
+ories with choice, because they are the most relevant to a mathematician looking
+for a categorical substitute for zfc. As noted in Remark 13.1, however, much of
+the independent interest of topos theory comes from the fact that any elementary
+topos has an internal set-like logic, and in general this internal logic is not classi-
+cal logic but constructive logic. Well-pointedness and choice are each quite special
+properties of a topos, and both independently imply that its logic is classical.
+   Much of mathematics can be developed using constructive logic, although many
+classical definitions and results must be rephrased carefully to obtain a construc-
+tively meaningful or useful form. For example, Tychonoff ’s theorem that the prod-
+uct of compact spaces is compact is true constructively, without the axiom of choice,
+but the definition of space has to be modified; see [Joh02, Part C]. Classical concepts
+also often bifurcate into two or more inequivalent constructive ones. For example,
+there are at least three different kinds of constructive ordinals with slightly different
+properties; see [JM95, Tay96].
+   Most relevantly for us, the axiom of replacement loses much of its power con-
+structively: it no longer implies unbounded separation, Borel determinacy, or the
+usual sort of transfinite induction. Moreover, the categorical replacement axiom
+from §13 is no longer sensible in the non-well-pointed case, and it is an open ques-
+tion whether it has some more general analogue.
+   Algebraic set theory, like elementary topos theory, makes perfect sense (and is
+usually studied) without well-pointedness, but its version of replacement is also
+much weaker constructively. In fact, any elementary topos S can be embedded as
+the topos of small objects in a category C of classes, but the logic of C will not in
+general be classical even if that of S is; thus every topos ‘satisfies replacement’ in
+a constructive sense. This is analogous to the use of indexed categories to ‘define
+away’ the lack of replacement by considering only small families to begin with. The
+interested reader can learn more about constructive logic in toposes and ast from
+the references cited above.
+
+                              16. Higher categories
+  One can envision more radically ‘categorical’ foundations. For instance, it is
+hard to deny that in everyday mathematics we very rarely care about large sets as
+36                                   MICHAEL A. SHULMAN
+
+
+sets—we only care about them insofar as they form the class of objects of some
+large category. In particular, we only care about their elements up to isomorphism.
+Thus, in a sense, the ‘large’ collections which arise naturally in mathematics be-
+have fundamentally differently than the ‘small’ ones. This distinction is captured
+elegantly by the theory of indexed categories, which gives an analogue of large
+categories without making use of a prior notion of large set.
+   Analogously, we generally only care about large categories up to equivalence,
+and thus we should regard them as objects of a 2-category CAT , rather than of a
+category CAT. This seems to suggest that instead of axiomatizing the category
+of classes, a more categorical generalization of elementary toposes would be to
+axiomatize the 2-category of large categories. Notable steps have been made in this
+direction (see [Str74, Web07]), but I think it is fair to say that a fully satisfactory
+answer has not yet emerged. Since this approach also requires a good deal of
+familiarity with 2-categories, I will not attempt to explain it further here.
+   Of course, once we start to study 2-categories, we need to assemble them into 3-
+categories, and so on ad infinitum. Philosophical and mathematical remarks along
+these lines can be found in [Mak98], among other places.
+
+                                       17. Conclusion
+     We have explored many possible foundations for category theory, including:
+      (1) A naı̈ve approach which remains within zfc.
+      (2) Introducing classes as objects, as in nbg and mk.
+      (3) Using an inaccessible to distinguish small sets from large ones (zfc+i).
+      (4) Using a reflection principle, perhaps combined with inaccessibles, as in
+          zfc/s and zmc/s.
+      (5) Categorical versions of the above, using toposes (etcs) or categories of
+          classes (ast).
+Each has advantages and disadvantages, and I do not mean to put one forward
+as the correct foundation for category theory; I leave that choice to the reader’s
+aesthetic and mathematical judgment.
+   Instead, let me end by reiterating that for the basic theorems of category theory,
+the choice of foundation is essentially irrelevant. Each of the above proposals deals
+with the distinction between small and large in a way which is fully satisfactory
+for proving results such as the Adjoint Functor Theorem (except that in some
+cases we have to state it as a meta-theorem, or add small-definability restrictions).
+However, as we have seen, the choice of foundation does matter for some more
+elaborate constructions. Thus, I believe it is important for students and users of
+category theory to have some familiarity with its possible foundations, and I hope
+to have partially addressed that need here.
+
+                                          References
+[AR94]     Jiřı́ Adámek and Jiřı́ Rosický. Locally presentable and accessible categories, volume
+           189 of London Mathematical Society Lecture Note Series. Cambridge University Press,
+           Cambridge, 1994.
+[Awo]      Steve      Awodey.    An      outline    of   algebraic   set   theory.    Available   at
+           http://www.phil.cmu.edu/projects/ast/.
+[Awo06]    Steve Awodey. Category theory, volume 49 of Oxford Logic Guides. The Clarendon
+           Press Oxford University Press, New York, 2006.
+                            SET THEORY FOR CATEGORY THEORY                                        37
+
+
+[Bla84]    Andreas Blass. The interaction between category theory and set theory. In Mathematical
+           applications of category theory (Denver, Col., 1983), volume 30 of Contemp. Math.,
+           pages 5–29. Amer. Math. Soc., Providence, RI, 1984.
+[Bou72]    Nicolas Bourbaki. Univers. Théorie des topos et cohomologie étale des schémas. Tome
+           1: Théorie des topos, pages 185–217. Springer-Verlag, Berlin, 1972. Séminaire de
+           Géométrie Algébrique du Bois-Marie 1963–1964 (SGA 4). Lecture Notes in Mathe-
+           matics, Vol. 269.
+[CL01]     René Cori and Daniel Lascar. Mathematical logic, Parts I and II. Oxford University
+           Press, Oxford, 2000–2001. Translated from the 1993 French original by Donald H.
+           Pelletier.
+[CSS05]    Carles Casacuberta, Dirk Scevenels, and Jeffrey H. Smith. Implications of large-cardinal
+           principles in homotopical localization. Adv. Math., 197(1):120–139, 2005.
+[Dev93]    Keith Devlin. The joy of sets. Undergraduate Texts in Mathematics. Springer-Verlag,
+           New York, second edition, 1993. Fundamentals of contemporary set theory.
+[EM45]     Samuel Eilenberg and Saunders MacLane. General theory of natural equivalences.
+           Trans. Amer. Math. Soc., 58:231–294, 1945.
+[End77]    Herbert B. Enderton. Elements of set theory. Academic Press [Harcourt Brace Jo-
+           vanovich Publishers], New York, 1977.
+[Fef69]    Solomon Feferman. Set-theoretical foundations of category theory. In Reports of the
+           Midwest Category Seminar. III, pages 201–247. Springer, Berlin, 1969.
+[Gar]      Richard Garner. Understanding the small object argument. arXiv:0712.0724.
+[Hof79]    Douglas R. Hofstadter. Gödel, Escher, Bach: an eternal golden braid. Basic Books Inc.
+           Publishers, New York, 1979.
+[Hol98]    M. Randall Holmes. Elementary set theory with a universal set, volume 10
+           of Cahiers du Centre de Logique [Reports of the Center of Logic]. Université
+           Catholique de Louvain Département de Philosophie, Louvain, 1998. Available online
+           at http://math.boisestate.edu/∼holmes/holmes/head.pdf.
+[Hov99]    Mark Hovey. Model Categories, volume 63 of Mathematical Surveys and Monographs.
+           American Mathematical Society, 1999.
+[Hyl88]    J. M. E. Hyland. A small complete category. Ann. Pure Appl. Logic, 40(2):135–165,
+           1988.
+[Jec03]    Thomas Jech. Set theory. Springer Monographs in Mathematics. Springer-Verlag,
+           Berlin, 2003. The third millennium edition, revised and expanded.
+[JM95]     A. Joyal and I. Moerdijk. Algebraic set theory, volume 220 of London Mathematical
+           Society Lecture Note Series. Cambridge University Press, Cambridge, 1995.
+[Joh77]    P. T. Johnstone. Topos theory. Academic Press [Harcourt Brace Jovanovich Publishers],
+           London, 1977. London Mathematical Society Monographs, Vol. 10.
+[Joh02]    Peter T. Johnstone. Sketches of an Elephant: A Topos Theory Compendium: Volumes
+           1 and 2. Number 43 in Oxford Logic Guides. Oxford Science Publications, 2002.
+[Joy02]    A. Joyal. Quasi-categories and Kan complexes. Journal of Pure and Applied Algebra,
+           175:207–222, 2002.
+[Kan03]    Akihiro Kanamori. The higher infinite. Springer Monographs in Mathematics. Springer-
+           Verlag, Berlin, second edition, 2003. Large cardinals in set theory from their beginnings.
+[Kel80]    G. M. Kelly. A unified treatment of transfinite constructions for free algebras, free
+           monoids, colimits, associated sheaves, and so on. Bull. Austral. Math. Soc., 22(1):1–83,
+           1980.
+[Kel82]    G. M. Kelly. Two addenda: “A unified treatment of transfinite constructions for free
+           algebras, free monoids, colimits, associated sheaves and so on” [Bull. Austral. Math.
+           Soc. 22 (1980), no. 1, 1–83; MR 82h:18003]. Bull. Austral. Math. Soc., 26(2):221–237,
+           1982.
+[Kel86]    G. M. Kelly. A survey of totality for enriched and ordinary categories. Cahiers Topologie
+           Géom. Différentielle Catég., 27(2):109–132, 1986.
+[KK81]     G. M. Kelly and V. Koubek. The large limits that all good categories admit. J. Pure
+           Appl. Algebra, 22(3):253–263, 1981.
+[Krö07]   Ralf Krömer. Tool and object, volume 32 of Science Networks. Historical Studies.
+           Birkhäuser Verlag, Basel, 2007. A history and philosophy of category theory.
+38                                  MICHAEL A. SHULMAN
+
+
+[Kun80]  Kenneth Kunen. Set theory: an introduction to independence proofs, volume 102 of
+         Studies in Logic and the Foundations of Mathematics. North-Holland Publishing Co.,
+         Amsterdam, 1980.
+[Law64] F. William Lawvere. An elementary theory of the category of sets. Proc. Nat. Acad.
+         Sci. U.S.A., 52:1506–1511, 1964.
+[Law05] F. William Lawvere. An elementary theory of the category of sets (long version) with
+         commentary. Repr. Theory Appl. Categ., (11):1–35 (electronic), 2005. Reprinted and
+         expanded from Proc. Nat. Acad. Sci. U.S.A. 52 (1964) [MR0172807], With comments
+         by the author and Colin McLarty.
+[Lév59] Azriel Lévy. On Ackermann’s set theory. J. Symb. Logic, 24:154–166, 1959.
+[Lév60] Azriel Lévy. Axiom schemata of strong infinity in axiomatic set theory. Pacific J. Math.,
+         10:223–238, 1960.
+[Lév76] Azriel Lévy. The role of classes in set theory. In Sets and classes (on the work by
+         Paul Bernays), pages 173–215. Studies in Logic and the Foundations of Math., Vol. 84.
+         North-Holland, Amsterdam, 1976.
+[Mad88a] Penelope Maddy. Believing the axioms. I. J. Symbolic Logic, 53(2):481–511, 1988.
+[Mad88b] Penelope Maddy. Believing the axioms. II. J. Symbolic Logic, 53(3):736–764, 1988.
+[Mak96] M. Makkai. Avoiding the axiom of choice in general category theory. J. Pure Appl.
+         Algebra, 108(2):109–173, 1996.
+[Mak98] M. Makkai. Towards a categorical foundation of mathematics. In Logic Colloquium ’95
+         (Haifa), volume 11 of Lecture Notes Logic, pages 153–190. Springer, Berlin, 1998.
+[Mat01] A. R. D. Mathias. The strength of Mac Lane set theory. Ann. Pure Appl. Logic, 110(1-
+         3):107–234, 2001.
+[May99] J. P. May. A concise course in algebraic topology. Chicago Lectures in Mathematics.
+         University of Chicago Press, Chicago, IL, 1999.
+[McL90] Colin McLarty. The uses and abuses of the history of topos theory. British J. Philos.
+         Sci., 41(3):351–375, 1990.
+[McL92a] Colin McLarty. Elementary categories, elementary toposes, volume 21 of Oxford Logic
+         Guides. The Clarendon Press Oxford University Press, New York, 1992. Oxford Science
+         Publications.
+[McL92b] Colin McLarty. Failure of Cartesian closedness in NF. J. Symbolic Logic, 57(2):555–556,
+         1992.
+[McL93] Colin McLarty. Numbers can be just what they have to. Noûs, 27(4):487–498, 1993.
+[McL04] Colin McLarty. Exploring categorical structuralism. Philos. Math. (3), 12(1):37–53,
+         2004.
+[ML98]   Saunders Mac Lane. Categories For the Working Mathematician, volume 5 of Graduate
+         Texts in Mathematics. Springer, second edition, 1998.
+[MLM94] Saunders Mac Lane and Ieke Moerdijk. Sheaves in geometry and logic. Universitext.
+         Springer-Verlag, New York, 1994. A first introduction to topos theory, Corrected reprint
+         of the 1992 edition.
+[Mos50] Andrzej Mostowski. Some impredicative definitions in the axiomatic set-theory. Fund.
+         Math., 37:111–124, 1950.
+[Mos51] Andrzej Mostowski. Correction to the paper “Some impredicative definitions in the
+         axiomatic set-theory”. Fund. Math., 38:238, 1951.
+[MV59] R. Montague and R. L. Vaught. Natural models of set theories. Fund. Math., 47:219–
+         242, 1959.
+[Osi74]  Gerhard Osius. Categorical set theory: a characterization of the category of sets. J.
+         Pure Appl. Algebra, 4:79–119, 1974.
+[Rei70]  William N. Reinhardt. Ackermann’s set theory equals ZF. Ann. Math. Logic, 2(2):189–
+         249, 1970.
+[Spa63]  E. Spanier. Quasi-topologies. Duke Math. J., 30:1–14, 1963.
+[Str]    Thomas Streicher. Fibred categories à la Jean Bénabou. Available at
+         http://www.mathematik.tu-darmstadt.de/∼streicher/FIBR/FibLec.pdf.gz.
+[Str74]  Ross Street. Elementary cosmoi. I. In Category Seminar (Proc. Sem., Sydney,
+         1972/1973), pages 134–180. Lecture Notes in Math., Vol. 420. Springer, Berlin, 1974.
+[Str81]  Ross Street. Notions of topos. Bull. Austral. Math. Soc., 23(2):199–208, 1981.
+[Str05]  Thomas Streicher. Universes in toposes. In From sets and types to topology and analysis,
+         volume 48 of Oxford Logic Guides, pages 78–90. Oxford Univ. Press, Oxford, 2005.
+                          SET THEORY FOR CATEGORY THEORY                                     39
+
+
+[Tay96]   Paul Taylor. Intuitionistic sets and ordinals. J. Symbolic Logic, 61(3):705–744, 1996.
+[Tay99]   Paul Taylor. Practical foundations of mathematics, volume 59 of Cambridge Studies in
+          Advanced Mathematics. Cambridge University Press, Cambridge, 1999.
+[Web07]   Mark Weber. Yoneda structures from 2-toposes. Appl. Categ. Structures, 15(3):259–323,
+          2007.
+
