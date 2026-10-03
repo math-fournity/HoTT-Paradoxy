@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H043–H047：Gemini proof-search 草稿的 P1/P2/P3 层次差分（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-043-047-GEMINI-PROOFSEARCH-THREE-TOOL-DIFFERENTIAL-Terra-Max.md)：外部证明枚举不是ZFC consumer，代码／公式表示不是同一对象再入，循环／halt不是理论内准入状态；同时保留两个采样前profile-marker失败。
+
 - [P-DAG ZFC H035–H042：D-L10 平衡基础承诺画像与有界无候选（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-DISCOVERY-035-042-BALANCED-DL10-Terra-Max.md)：开放画像重识别全子对象；D-L10拒绝由存在断言发明checker；RepFun直接支付函数像；runner输出oracle修复经H042 fresh验证，得到六项画像内的`NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY`。
 
 - [P-DAG ZFC H033/H034：Zorn、Power Set、TFin 的 P1/P3 同卡控制（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-033-034-ZORN-POWERSET-P1P3-Terra-Max.md)：归纳闭包和Hausdorff theorem局部见证不能分别被P3伪作生命周期或被P1伪作独立consumer；当前卡保留`SOURCE_CONSUMER_GAP / NO_NATIVE_Q`。
