@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H033/H034：Zorn、Power Set、TFin 的 P1/P3 同卡控制（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-033-034-ZORN-POWERSET-P1P3-Terra-Max.md)：归纳闭包和Hausdorff theorem局部见证不能分别被P3伪作生命周期或被P1伪作独立consumer；当前卡保留`SOURCE_CONSUMER_GAP / NO_NATIVE_Q`。
+
 - [P-DAG ZFC H031/H032：AC proof witness 的 P3 原子形成控制（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-031-032-AC-POW-P3-ATOMIC-Terra-Max.md)：H031的profile marker缺失在采样前失败；H032同源复测显示`exE`是proof-context局部见证，未提供P3构造状态或ZFC B向结论。
 
 - [P-DAG ZFC H029/H030：axiomatized AC、Power Set 和 Gate Ledger 回归（Terra / Max，2026-10-02）](20261002-P-DAG-ZFC-SOURCE-029-030-AC-POW-PROOF-GATELEDGER-Terra-Max.md)：H029的支付链内容正确但公开gate标签错置；H030以固定五行Ledger复测，限定地通过proof-system层的直接支付分类，不形成ZFC Q或可执行selector。
