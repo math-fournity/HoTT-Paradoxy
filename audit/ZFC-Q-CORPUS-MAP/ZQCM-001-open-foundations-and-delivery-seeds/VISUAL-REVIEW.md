@@ -41,6 +41,32 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W009-002 | W-009 | 2 | visual/W-009/150dpi/p002.png | `pdftotext` PDF p.2；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§2标题、naive Set／Type Theory对照、`3∈N`／`3:N`、judgement与静态type information及脚注1–2；与文本层一致。 | visual/W-009/300dpi/p002.png：复核归属记号、judgement限定和subtyping脚注；该是R-source，不是ZFC Q。 |
 | VR-W009-015 | W-009 | 15 | visual/W-009/150dpi/p015.png | `pdftotext` PDF p.15；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核weak `ω`-groupoid、choice／cubical alternative、§5.2、choice公式、Σ型existence、`isProp`和negative fragment；与文本层一致。 | visual/W-009/300dpi/p015.png：逐符号复核choice公式、Σ、`isProp A`与“witness explicit”限定；只作为P5对照来源，尚非ordinary ZFC consumer。 |
 | VR-W009-020 | W-009 | 20 | visual/W-009/150dpi/p020.png | `pdftotext` PDF p.20；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核`A,B:Set`、`1+2`／`2+1`、isomorphism、`eq2iso`、`extSet`及练习25；与文本层一致。 | visual/W-009/300dpi/p020.png：逐符号复核等式、isomorphism和extensionality定义；该是类型论内部 `Set` 的作者比较，不能直接投射为ZFC Q。 |
+| VR-W009-001 | W-009 | 1 | visual/W-009/150dpi/p001.png | `pdftotext` PDF p.1；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核chapter题名、作者、summary、Type Theory作为foundation alternative和Introduction；与文本层一致。 | visual/W-009/300dpi/p001.png：复核来源身份和alternative-foundation范围；R-source，不是ZFC Q。 |
+| VR-W009-003 | W-009 | 3 | visual/W-009/150dpi/p003.png | `pdftotext` PDF p.3；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核`3∈N`／`3:N`、static judgement、representation-dependent set questions、definitional/propositional equality与univalence概述；与文本层一致。 | 不适用：p.2／20承担比较入口和internal Set的高精度核验。 |
+| VR-W009-004 | W-009 | 4 | visual/W-009/150dpi/p004.png | `pdftotext` PDF p.4；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核`Type:Type`、Russell encoding、universe hierarchy与non-cyclic使用约束；与文本层一致。 | visual/W-009/300dpi/p004.png：复核Russell例只针对type-theoretic universe，不能投射为ZFC Q。 |
+| VR-W009-005 | W-009 | 5 | visual/W-009/150dpi/p005.png | `pdftotext` PDF p.5；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核α-congruence、β-reduction、products/sums和constructors；与文本层一致。 | 不适用：类型论计算背景。 |
+| VR-W009-006 | W-009 | 6 | visual/W-009/150dpi/p006.png | `pdftotext` PDF p.6；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核propositions-as-types exercises、excluded middle及eliminators；与文本层一致。 | 不适用：不承担ordinary ZFC结论。 |
+| VR-W009-007 | W-009 | 7 | visual/W-009/150dpi/p007.png | `pdftotext` PDF p.7；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核unit／empty type、recursors和dependent-types入口；与文本层一致。 | 不适用：内部类型规则。 |
+| VR-W009-008 | W-009 | 8 | visual/W-009/150dpi/p008.png | `pdftotext` PDF p.8；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Π／Σ types、predicates／relations和existential evidence；与文本层一致。 | 不适用：p.15处理存在／choice的高精度页。 |
+| VR-W009-009 | W-009 | 9 | visual/W-009/150dpi/p009.png | `pdftotext` PDF p.9；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Σ-eliminator、projections、quantifier translation；与文本层一致。 | 不适用：类型论逻辑背景。 |
+| VR-W009-010 | W-009 | 10 | visual/W-009/150dpi/p010.png | `pdftotext` PDF p.10；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核natural-number induction／recursion和dependent-function example；与文本层一致。 | 不适用：不构成ZFC formation record。 |
+| VR-W009-011 | W-009 | 11 | visual/W-009/150dpi/p011.png | `pdftotext` PDF p.11；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核dependent eliminator、induction as dependent recursion、inductive tuples；与文本层一致。 | 不适用：内部proof／program规则。 |
+| VR-W009-012 | W-009 | 12 | visual/W-009/150dpi/p012.png | `pdftotext` PDF p.12；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核equality type、`refl`、equality recursor；与文本层一致。 | 不适用：类型论equality背景。 |
+| VR-W009-013 | W-009 | 13 | visual/W-009/150dpi/p013.png | `pdftotext` PDF p.13；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核UEP、J/eliminator与K discussion；与文本层一致。 | 不适用：不等于ZFC同一任务。 |
+| VR-W009-014 | W-009 | 14 | visual/W-009/150dpi/p014.png | `pdftotext` PDF p.14；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核proof-relevant equality、groupoid和higher equality层；与文本层一致。 | 不适用：HoTT机制背景。 |
+| VR-W009-016 | W-009 | 16 | visual/W-009/150dpi/p016.png | `pdftotext` PDF p.16；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核propositional truncation、choice translation、Diaconescu条件和propositional extensionality；与文本层一致。 | 不适用：P5的构造主义比较，不是ordinary ZFC交付合同。 |
+| VR-W009-017 | W-009 | 17 | visual/W-009/150dpi/p017.png | `pdftotext` PDF p.17；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核truncation／choice继续、types dimensions与`isSet`；与文本层一致。 | 不适用：不产生ZFC Q。 |
+| VR-W009-018 | W-009 | 18 | visual/W-009/150dpi/p018.png | `pdftotext` PDF p.18；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核stable equality、function extensionality、dimensions hierarchy与contractibility；与文本层一致。 | 不适用：类型论层级结果。 |
+| VR-W009-019 | W-009 | 19 | visual/W-009/150dpi/p019.png | `pdftotext` PDF p.19；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核dimensions summary与`Extensionality and univalence`开始；与文本层一致。 | 不适用：p.20承担`Set`／usual encoding高精度核验。 |
+| VR-W009-021 | W-009 | 21 | visual/W-009/150dpi/p021.png | `pdftotext` PDF p.21；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核isomorphism／bijection、`extSet`、equivalence与univalence的类型论内部限定；与文本层一致。 | 不适用：不当作ZFC actual consumer。 |
+| VR-W009-022 | W-009 | 22 | visual/W-009/150dpi/p022.png | `pdftotext` PDF p.22；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核isEquiv coherence、higher inductive types和propositional truncation；与文本层一致。 | visual/W-009/300dpi/p022.png：复核infinite/coinductive equivalence仅为类型论定义的选择，不创建ZFC Q。 |
+| VR-W009-023 | W-009 | 23 | visual/W-009/150dpi/p023.png | `pdftotext` PDF p.23；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核set quotients的三个constructors、integer quotient和permutable-tree入口；与文本层一致。 | visual/W-009/300dpi/p023.png：逐符号复核`A/R:Set`及set constructor；这是类型论内部formation。 |
+| VR-W009-024 | W-009 | 24 | visual/W-009/150dpi/p024.png | `pdftotext` PDF p.24；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核PTree quotient、countable choice、HIT alternative、Cauchy reals及circle HIT入口；与文本层一致。 | visual/W-009/300dpi/p024.png：复核choice／HIT替代的显式条件；不跨层变成ZFC consumer。 |
+| VR-W009-025 | W-009 | 25 | visual/W-009/150dpi/p025.png | `pdftotext` PDF p.25；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核circle base/loop、encode/decode、univalence与higher path-space说明；与文本层一致。 | visual/W-009/300dpi/p025.png：复核circle解释与nontrivial path-space的类型论范围。 |
+| VR-W009-026 | W-009 | 26 | visual/W-009/150dpi/p026.png | `pdftotext` PDF p.26；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核integers as HIT、equality constructors、`isSet`／QIT、operations lift；与文本层一致。 | 不适用：内部HIT construction。 |
+| VR-W009-027 | W-009 | 27 | visual/W-009/150dpi/p027.png | `pdftotext` PDF p.27；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核integer addition、associativity、normal forms和decidable equality；与文本层一致。 | 不适用：不产生ZFC source task。 |
+| VR-W009-028 | W-009 | 28 | visual/W-009/150dpi/p028.png | `pdftotext` PDF p.28；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核normalisation、HIT/QIT coherence和references开头；与文本层一致。 | 不适用：作者保留open problem不等于本项目Q。 |
+| VR-W009-029 | W-009 | 29 | visual/W-009/150dpi/p029.png | `pdftotext` PDF p.29；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核references尾部及HoTT/UF相关书目；与文本层一致。 | 不适用：书目只产生有界citation lead。 |
 | VR-W011-001 | W-011 | 1 | visual/W-011/150dpi/p001.png | `pdftotext` PDF p.1；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核标题、作者、abstract四主题、标准axiomatic set theory／ZFC范围与identity／extensionality声明；与文本层一致。 | visual/W-011/300dpi/p001.png：复核abstract中关于identity criterion与extensionality的作者论证范围；不是Q结论。 |
 | VR-W011-016 | W-011 | 16 | visual/W-011/150dpi/p016.png | `pdftotext` PDF p.16；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§4起始、identity judgement/proposition区分、`Id`形成规则和function application regress段；与文本层一致。 | visual/W-011/300dpi/p016.png：复核逻辑语法层的范围、identity formula和作者限定；需要另建ZFC语义／consumer桥，不能直接外推。 |
 | VR-W011-017 | W-011 | 17 | visual/W-011/150dpi/p017.png | `pdftotext` PDF p.17；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Well-def公式、functionhood预设identity、judgemental versus propositional identity与概念优先论证；与文本层一致。 | visual/W-011/300dpi/p017.png：复核循环论证条件、primitive rule和版本依赖限定；当前只可作P2逻辑层／R-source比较。 |
@@ -77,10 +103,12 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 
 ## 高精度队列
 
-已完成W-005的7个关键页、W-010的3个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+已完成W-005的7个关键页、W-009的9个关键页、W-010的3个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
 
 **W-005完成说明。** 已逐页生成、读取并落签pp.1–13的150dpi二值图；关键页1、5、7、9、11、12、13还读取了300dpi图。由于远程MinerU目前没有产生可用导出，这批记录验证的是期刊PDF、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
 
 **W-013完成说明。** 已逐页生成、读取并落签pp.1–12的150dpi二值图；关键页1、2、4、5、7、8、11还读取了300dpi图。远程MinerU的第一次命令被本地CLI page-range检查拒绝，第二次在默认全文范围内65秒无输出／无导出后中止；所以本批记录验证的是Aczel原件、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
 
 **W-011完成说明。** 已逐页生成、读取并落签pp.1–21的150dpi二值图；关键页1、16、17、18还读取了300dpi图。远程MinerU目前没有产生可用导出，这批记录验证的是Klev公开作者预印本、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
+
+**W-009完成说明。** 已逐页生成、读取并落签pp.1–29的150dpi二值图；关键页1、2、4、15、20、22、23、24、25还读取了300dpi图。远程MinerU目前没有产生可用导出，这批记录验证的是Altenkirch公开作者章节、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。

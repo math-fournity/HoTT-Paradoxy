@@ -12,7 +12,7 @@
 | W-006 | CATALOG_REVIEW | PENDING | 需拆开review、volume与章节。 |
 | W-007 | CATALOG_REVIEW | PENDING | 需合并两个报告并审实际内容。 |
 | W-008 | INCLUDED | PENDING | Matthews Guide为独立arXiv work，纠正初始元数据错配。 |
-| W-009 | INCLUDED | PENDING | W-005反向引用且是W-006的作者章节；检查直接动机与ZFC范围。 |
+| W-009 | INCLUDED | FULL_PRIMARY_R_SOURCE_SCREENED | 29页逐页source-only视觉审读完成。它给出类型论内部universe／equality／choice／HIT／quotient构造和关于usual encoding的比较性批评，未给ZFC同一对象／formation／actual consumer／Done。 |
 | W-010 | INCLUDED | PENDING | W-005反向引用且是W-006的foundation-criteria章节；优先作竞争／same-task控制。 |
 | W-011 | INCLUDED | FULL_PRIMARY_COMPARATIVE_SOURCE_SCREENED | 21页逐页source-only视觉审读完成。论文明确是概念比较，完整正文未给ordinary ZFC actual consumer；仍须区分作者identity批评与ZFC同一任务。 |
 | W-012 | INCLUDED | FULLTEXT_UNAVAILABLE_SEED | 题名、摘要和 DOI 直接涉及iterative/stage conception、cumulative hierarchy和CZF/ZF bridge；尚未取得全文。 |
