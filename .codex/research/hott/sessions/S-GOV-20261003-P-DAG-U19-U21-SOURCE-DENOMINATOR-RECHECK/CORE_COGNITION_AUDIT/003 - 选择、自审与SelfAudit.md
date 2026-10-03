@@ -841,6 +841,7 @@ next_trigger: canonical integrator disposition of 0000 archive events; a new sou
 git_record:
   candidate_branch: codex/p-dag-tool-birth-audit
   base_head: 9489204a755f7d860f7a1684c778bc0191ce7c21
+  evidence_commit: bfcb374e7eb1354db0ec567688d2687c26a3f460
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard
   no other-checkout access; no full-origin current-owner edits
 ~~~

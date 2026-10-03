@@ -278,3 +278,11 @@ T2–T6 提供的是数学证明交付、持续维护认知材料、AI 工作移
 这不是“又发现了一个理论问题”，也不代表本轮已穷尽所有早期 archive。没有本地事件 crosswalk 时，不从相同 prompt hash 推断 native 身份；没有直接 P 规格时，不把广义项目治理提升为 P 命中。full-origin owners 001–006 当前无 `0000` 显式条目／处置，但 S01[1] 已在源表中，因此其优先意义是补足 archive-event 映射与剩余单元的排除理由，而不是增加一条新的数学方法主张。
 
 本轮仅读当前 checkout 的 0000 archive、S01 来源及 full-origin audit。T5 提及的 S086–S088 报告是另一个工作产品；本轮没有据其内容形成数学判断。没有访问其他 worktree、parent trajectory、外部 repo 或网络，也没有修改 S01、full-origin owners、STATE/投影、理念/SOP、源码 archive，或产生 P1/P2/P3 同任务命中与 Tool-Birth 候选。
+
+### 16.3 精确 Git 收据
+
+0000/S01[1] archive crosswalk 候选及 SelfAuditCard 由当前 contributor commit `bfcb374e7eb1354db0ec567688d2687c26a3f460` 精确记录；只涉及本报告与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。原始 archive、S01 source、full-origin owners、STATE/投影和其它 worktree 均未改动；此 OID 保存的是候选证据，不代表 current owner 已集成。
+
+### 16.3 精确 Git 收据
+
+0000/S01[1] archive crosswalk 候选及 SelfAuditCard 由当前 contributor commit `bfcb374e7eb1354db0ec567688d2687c26a3f460` 精确记录；只涉及本报告与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。原始 archive、S01 source、full-origin owners、STATE/投影和其它 worktree 均未改动；此 OID 保存的是候选证据，不代表 current owner 已集成。

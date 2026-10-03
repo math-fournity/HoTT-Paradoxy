@@ -449,7 +449,8 @@
         "S01_primary_source_reference": "PRESENT / no 0000 archive-event crosswalk"
       },
       "result": "EARLY_METHOD_PRECURSOR_ALREADY_IN_S01 / ARCHIVE_EVENT_DISPOSITION_CANDIDATE / NOT_DIRECT_P_SPEC",
-      "scope": "current checkout only; source archive and S01 read-only; no previous worktree, parent trajectory, external report review, worker, or mathematical claim"
+      "scope": "current checkout only; source archive and S01 read-only; no previous worktree, parent trajectory, external report review, worker, or mathematical claim",
+      "evidence_commit": "bfcb374e7eb1354db0ec567688d2687c26a3f460"
     }
   ],
   "verifications": [
@@ -494,6 +495,7 @@
     {"id": "ARCHIVE-0000-T1-S01-MATCH", "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN", "result": "T1 and S01[1] visible bodies are 1,040 characters and equal after whitespace normalization; no native event crosswalk"},
     {"id": "FULL-ORIGIN-0000-DISPOSITION", "status": "ARCHIVE_SCOPE_CANDIDATE", "result": "full-origin owners already contain S01[1] but have no explicit 0000 archive disposition; T2-T6 are governance/handoff context, not direct P specs"},
     {"id": "RUNS-JSON-0000-DELTA", "status": "PASS", "result": "JSON parse, archive source hash/counts, and T1/S01 normalized text match assertions passed"},
+    {"id": "EXACT-COMMIT-0000", "status": "PASS_WITH_SCOPE", "result": "commit bfcb374e7eb1354db0ec567688d2687c26a3f460 contains only contributor report and current session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard; 0000 archive and unrelated dirty paths were not staged"},
     {"id": "EXACT-COMMIT-0107", "status": "PASS_WITH_SCOPE", "result": "commit b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0 contains only the contributor report, session RUNS/SESSION, and exclusive SelfAudit shard"},
     {"id": "EXACT-COMMIT-0093", "status": "PASS_WITH_SCOPE", "result": "commit 8633dc44a0a468d852730d1aa025c2b9417ffab8 contains exactly the contributor report and this session's RUNS/SESSION/CORE_COGNITION_AUDIT index+shard; no original archive or unrelated dirty path was staged"}
   ],
@@ -510,7 +512,7 @@
     "previous_worktree_written": false,
     "untracked_source_archives_committed": false,
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
-    "current_unit_commit": "1729443b21e445e73d414332455a82de951fe985"
+    "current_unit_commit": "bfcb374e7eb1354db0ec567688d2687c26a3f460"
   },
   "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / 0000_S01_ARCHIVE_CROSSWALK_CANDIDATE / 0106_CIRCLE_CALIBRATION_SCOPE_CANDIDATE / 0107_PRECURSOR_SCOPE_UNDISPOSITIONED / 0093_METHOD_PRECURSOR_SCOPE_UNDISPOSITIONED / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / ARCHIVE-PROMPT-SHAPE-0102-0108-0109-CONFIRMED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

@@ -177,3 +177,7 @@ commit `1729443b21e445e73d414332455a82de951fe985` 精确记录 0106 的 circle-a
 只读当前 checkout 的 `dev-notes/0000`、S01[1] 和 full-origin audit 001–006 后，发现 T1 与已纳入 S01[1] 的可见正文去空白后相同（1,040 字符；prompt hash `94a5e60e176adec962af58dcc6e10c1177445b461db6d3bc9423a725598c529b`；native event identity 未知）。该档案另有 T2–T6，主要是数学结论机器证明要求、跨会话认知连续性、评估另一 AI 接手与上下文延续；本轮不把它们冒充 P1/P2/P3 规格。该候选用于补全来源与事件处置，不新增数学结论或 Tool-Birth。
 
 Full-origin owner 001–006 已包含 S01，但没有 0000 archive disposition；本分支建议将 T1 映射到 S01[1] 作 content-match candidate，并逐项注明 T2–T6 的直接 P 资格／排除理由。owner、STATE/投影及 source archive 未改；当前角色仍为 contributor，target 未指定。
+
+## 0000 精确 Git 收据
+
+commit `bfcb374e7eb1354db0ec567688d2687c26a3f460` 精确记录 0000/S01[1] 内容 crosswalk 与 archive event dispositions 候选，只含 contributor report 和本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径；源归档与 current owners 未改。
