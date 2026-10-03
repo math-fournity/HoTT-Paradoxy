@@ -63,3 +63,5 @@ H0→Z0 TRANSPORT: NOT FORMED
 [第一阶段来源综合](PHASE-1-SOURCE-SYNTHESIS.md)、项目 [README](README.md) 和当前 run registry，再从上节四类
 改变性证据选择来源。五个 R seed 都已经过首轮来源处理，因而默认不要重复它们；新反例、版本变化、真实同一 Done
 consumer 或研究发起人扩展范围时才重开相应卡。
+
+涉及用户模式 P 的历史／社区新颖性判断时，还必须读取 [P 字段来源矩阵](P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)。它拥有P0–P6已知 antecedent、剩余实际consumer义务及下一来源准入；本文件不以“R seed未命中”代替那一矩阵。

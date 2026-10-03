@@ -9,6 +9,8 @@
 > **阶段综合：** [第一阶段来源综合](PHASE-1-SOURCE-SYNTHESIS.md)。
 >
 > **首批动机覆盖综合：** [R 种子覆盖综合](R-SEED-COVERAGE-SYNTHESIS.md)。
+>
+> **P 字段来源矩阵：** [community antecedent 与剩余证据](P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)。
 
 ## 项目边界
 
