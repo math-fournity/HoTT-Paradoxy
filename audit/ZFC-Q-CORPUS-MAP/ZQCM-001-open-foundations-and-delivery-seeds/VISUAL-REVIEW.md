@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50的300dpi图 | p.1–53 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–53已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.54继续；下一张必须先审读并立即写入`VR-W002-054`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61的300dpi图 | p.1–61 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–61已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.62继续；下一张必须先审读并立即写入`VR-W002-062`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -345,6 +345,14 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-051 | W-002 | 51 | visual/W-002/150dpi/p051.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核indexed W-types、universe-indexed constructor/induction contract、well-founded-tree/constructor-arity interpretation与natural-number W-type example。 | 这是归纳类型的类型论构造，不是ZFC set-formation consumer或Q；任何P2/P3迁移仍须单独建立。 |
 | VR-W002-052 | W-002 | 52 | visual/W-002/150dpi/p052.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核natural-number／PCF-types的W-type编码、双向递归inverse与indexed W-type family/induction的universe contract。 | 这是程序类型/归纳族的明确构造与归纳支付；不能把其递归或universe层次当作ZFC Q。 |
 | VR-W002-053 | W-002 | 53 | visual/W-002/150dpi/p053.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核W-type→indexed W-type generalisation与PCF typed-term family的具体constructor/arity/induction encoding。 | 这是对程序语法的形式归纳表达；不自动形成自指、无限追溯或ZFC Q。 |
+| VR-W002-054 | W-002 | 54 | visual/W-002/150dpi/p054.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核indexed W-types decidable equality的Π-compact条件、infinite compactification例、closure与PCF syntax的decidable equality应用。 | 这是受限归纳类型的明确前提和证明结构；不构成ZFC Q。 |
+| VR-W002-055 | W-002 | 55 | visual/W-002/150dpi/p055.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核PCF-types的indexed W-type可判等应用、Theorem 2.12.15的Π-compact／fibre-decidability前提和后续技术证明入口。 | 这是受限归纳类型的明确前提与证明结构；不构成ZFC Q。 |
+| VR-W002-056 | W-002 | 56 | visual/W-002/150dpi/p056.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核right-pair左消去对base为set的依赖、`sub`／`to-fib`的归纳定义、fibre可判等导出的constructor-injectivity与transport相容式。 | 本页以明确的set、fibre、归纳和transport前提支付indexed W-type的技术步骤；不构成ZFC Q。 |
+| VR-W002-057 | W-002 | 57 | visual/W-002/150dpi/p057.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Lemma 2.12.21中Π-compact与fibre可判等前提如何经归纳、`to-fib`、path induction和function extensionality给出transport equality可判定性。 | 这是严格列明假设的技术可判定性证明；不构成ZFC Q。 |
+| VR-W002-058 | W-002 | 58 | visual/W-002/150dpi/p058.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Theorem 2.12.15由Lemma 2.12.21在`j=i`、`p=refl`的特例完成，以及§2.13对universe、W-type、PCF semidecidability谱系的来源说明。 | 该页完成受限indexed W-type定理并标明文献来源与应用范围；不构成ZFC Q。 |
+| VR-W002-059 | W-002 | 59 | visual/W-002/150dpi/p059.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Chapter 3的domain-theory范围、其在constructive/predicative UF中的重新表述，以及经典（impredicative）集合论dcpo定义与初始朴素翻译为何没有有意义实例。 | visual/W-002/300dpi/p059.png：复核dcpo、directed-subset least-upper-bound、universe-indexed directed family和subsingleton order relation。该是ZFC／构造性对照的重要来源页，但仅提供理论设置与限制，不给ordinary ZFC consumer或Q。 |
+| VR-W002-060 | W-002 | 60 | visual/W-002/150dpi/p060.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核朴素dcpo假设怎样导向weak excluded middle、proposition poset在不同universe的supremum限制，以及carrier/order/supremum三个universe参数的明确约定。 | visual/W-002/300dpi/p060.png：逐式复核`Ω_{𝒰₀}`、first/second universe的indexed family、large-but-locally-small category和preorder/poset定义。该页将predicativity作为显式限制和支付，不可投射为ZFC Q。 |
+| VR-W002-061 | W-002 | 61 | visual/W-002/150dpi/p061.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核directed family的semidirected／inhabited定义、propositional truncation如何使directedness成为property、以及不截断时需为每对索引指定chosen `k`的明确区别。 | visual/W-002/300dpi/p061.png：逐式复核truncated existence、chosen-refinement差别、least upper bound和`𝒱`-dcpo定义。它是P5的强对照：存在性／property不自动交付chosen witness；该限制由源内规则明示支付，并非ordinary ZFC Q。 |
 
 ## 高精度队列
 
