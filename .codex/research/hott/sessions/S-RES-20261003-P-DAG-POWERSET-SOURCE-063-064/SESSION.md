@@ -51,3 +51,9 @@ core generation-13 / 62 KC，core hash `55d514b1a707b727a7aa6c00af6e6ff799d844ee
 ## 父级返回
 
 新增的是两个有界来源层事实和 direct-payment 分类；父级 `ZFC_Q_LOCATED`、Math claim、Tool-Birth 与 canonical 状态均未改变。P-DAG Goal 保持 active。
+
+## 精确 Git 收据
+
+- Evidence commit: `4a9ef232e3f086c9189a859c731411143d2bc839` (`research: record Power Set source consumer review`).
+- Commit 包含的 9 条精确路径列于 `RUNS.json` 的 `verification[id=EXACT-GIT].exact_paths`，并与 SelfAuditCard 的 `exact_paths` 对应。
+- 当前分支继续保持 `CONTRIBUTOR / CANDIDATE_NOT_CURRENT`；未指定 canonical target，未做集成、tag 或 push。

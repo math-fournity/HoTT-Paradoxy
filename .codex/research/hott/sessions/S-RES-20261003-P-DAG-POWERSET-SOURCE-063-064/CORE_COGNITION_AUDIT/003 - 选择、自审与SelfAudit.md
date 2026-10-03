@@ -67,6 +67,6 @@ git_record:
     - .codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md
     - .codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT/002 - 扩展认知与四件套交叉回评.md
     - .codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT/003 - 选择、自审与SelfAudit.md
-  evidence_commit: TO_BE_RECORDED_IN_FOLLOWUP_CLOSEOUT
+  evidence_commit: 4a9ef232e3f086c9189a859c731411143d2bc839
   current_truth_integration: NONE
 ~~~

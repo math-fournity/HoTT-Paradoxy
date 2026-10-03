@@ -404,13 +404,26 @@
     },
     {
       "id": "EXACT-GIT",
-      "status": "PENDING",
-      "result": "commit exact owned paths after validation"
+      "status": "PASS_WITH_SCOPE",
+      "result": "exact owned-path evidence commit; pre-commit git diff --cached --check exit 0",
+      "evidence_commit": "4a9ef232e3f086c9189a859c731411143d2bc839",
+      "exact_paths": [
+        ".codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md",
+        ".codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT/002 - 扩展认知与四件套交叉回评.md",
+        ".codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/CORE_COGNITION_AUDIT/003 - 选择、自审与SelfAudit.md",
+        ".codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/RUNS.json",
+        ".codex/research/hott/sessions/S-RES-20261003-P-DAG-POWERSET-SOURCE-063-064/SESSION.md",
+        "audit/20261003-P-DAG-ZFC-POWERSET-CANTOR-064-TASK-NODECARD.md",
+        "audit/20261003-P-DAG-ZFC-POWERSET-VSET-063-TASK-NODECARD.md",
+        "audit/20261003-P-DAG-ZFC-POWERSET-VSET-CANTOR-063-064-SOURCE-REVIEW.md"
+      ]
     }
   ],
   "git": {
     "branch": "codex/p-dag-tool-birth-audit",
     "starting_head": "d5760228e82dd546ca22ef0dde7afe47567ed3d3",
+    "evidence_commit": "4a9ef232e3f086c9189a859c731411143d2bc839",
     "role": "CONTRIBUTOR",
     "canonical_target": "NOT_SPECIFIED",
     "integration_state": "CANDIDATE_NOT_CURRENT",
