@@ -2,16 +2,16 @@
 logical_id: P_FORGE_PQ_WARGAME_AUDIT
 mode: sequential
 shard_root: 20261003-P-FORGE-PQ-WARGAME
-last_shard: 20261003-P-FORGE-PQ-WARGAME/016 - R14 全过程综合与未来锻造地图.md
-append_target: 20261003-P-FORGE-PQ-WARGAME/016 - R14 全过程综合与未来锻造地图.md
+last_shard: 20261003-P-FORGE-PQ-WARGAME/017 - R15 原子锻打分母冻结与范围纠正.md
+append_target: 20261003-P-FORGE-PQ-WARGAME/017 - R15 原子锻打分母冻结与范围纠正.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 16 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 17 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE：P/Q共同锻造逐轮兵棋审计
 
-> **身份：** `USER_REQUESTED_STEPWISE_METHOD_AUDIT / AUDIT_CAMPAIGN_COMPLETE / NOT_A_MATHEMATICAL_RESULT`。
+> **身份：** `USER_REQUESTED_STEPWISE_METHOD_AUDIT / COARSE_AUDIT_COMPLETE_ATOMIC_AUDIT_REQUIRED / NOT_A_MATHEMATICAL_RESULT`。
 >
 > **审计问题：** 每一轮锻造是否实际让理论 X 的 Q 生成、收紧、桥接、淘汰或会合，或者仅改善了工具外观？每一轮都按当时可见材料重放，再以当前 `P/Q_CO_FORGING` 不变量作反事实推演；不以终局知识倒灌当时的判词。
 
@@ -33,5 +33,6 @@ soft_line_target: 300
 | 013 | [R11 有限构造桥与同一任务检验](<20261003-P-FORGE-PQ-WARGAME/013 - R11 有限构造桥与同一任务检验.md>) | H073 ZF Pow与Mathlib Finset.powerset的ConstructionBridge回归 | complete; finite bridge valid only within finite task |
 | 014 | [R12 反射盲态选择与来源支付](<20261003-P-FORGE-PQ-WARGAME/014 - R12 反射盲态选择与来源支付.md>) | H074/H075 ClEx discovery、source payment与CAL/station控制 | complete; CAL-2 control rejected as theory Q |
 | 015 | [R13 方法修订是否真正服务Q收敛](<20261003-P-FORGE-PQ-WARGAME/015 - R13 方法修订是否真正服务Q收敛.md>) | f51a205a、47ea9deb及其对前序轮次的可观察约束 | complete; method repairs classified as Q-safety, not theory progress |
-| 016 | [R14 全过程综合与未来锻造地图](<20261003-P-FORGE-PQ-WARGAME/016 - R14 全过程综合与未来锻造地图.md>) | R00–R13 的状态、财富、依赖、停止范围与未来入口综合 | complete; audit complete, ZFC Q remains unformed |
+| 016 | [R14 全过程综合与未来锻造地图](<20261003-P-FORGE-PQ-WARGAME/016 - R14 全过程综合与未来锻造地图.md>) | R00–R13 的状态、财富、依赖、停止范围与未来入口综合 | complete only at coarse natural-unit granularity; atomic coverage not claimed |
+| 017 | [R15 原子锻打分母冻结与范围纠正](<20261003-P-FORGE-PQ-WARGAME/017 - R15 原子锻打分母冻结与范围纠正.md>) | 纠正15张审计卡／13个宏观单元与实际P-DAG节点分母的混淆 | active; exact atomic denominator and sequential audit required |
 <!-- governance-shard-table:end -->
