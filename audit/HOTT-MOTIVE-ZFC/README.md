@@ -12,6 +12,10 @@
 >
 > **P 字段来源矩阵：** [community antecedent 与剩余证据](P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)。
 >
+> **文献地图质量审计：** [现有来源 run 的范围与缺口](LITERATURE-MAPPING-AUDIT.md)。当前是 LITERATURE_MAP_REQUIRED；九个冻结分母的闭合不等于领域级地图已经完成。
+>
+> **文献地图执行：** [LITERATURE-MAP-001](LITERATURE-MAP-001/README.md)。当前已冻结 M0 protocol，下一步执行可重算的数据库、作者与引文检索。
+>
 > **候选集成交接：** [主 worktree 集成交接单](INTEGRATION-HANDOFF.md)。它是候选分支的范围、验证和集成说明，CANDIDATE_NOT_CURRENT；不改变本项目的来源前沿或主分支当前真值。
 
 ## 项目边界

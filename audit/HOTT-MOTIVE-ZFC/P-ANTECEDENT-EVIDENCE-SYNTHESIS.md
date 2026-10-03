@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：模式 P 的社区 antecedent 与剩余证据矩阵
 
-> **身份：** `CROSS_RUN_P_SPECIFICATION_SYNTHESIS / NINE_CLOSED_DENOMINATORS + ELEVEN_PREFLIGHTS / CURRENT_SOURCE_ADMISSION_FRONTIER / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+> **身份：** `CROSS_RUN_P_SPECIFICATION_SYNTHESIS / NINE_CLOSED_DENOMINATORS + ELEVEN_PREFLIGHTS / FROZEN_RUN_ADMISSION_FRONTIER / LITERATURE_MAP_ACTIVE_INITIAL_PASS / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
 
 ## 1. 为什么需要这张矩阵
 
@@ -41,7 +41,9 @@ ZFC Q: NOT LOCATED
 | **Existence / delivery** | Constructive alternative makes delivery contract explicit; ZF/HoTT controls do not promise it universally. | A source-defined ZFC consumer whose declared Done is program-like delivery but whose formation only gives unpaid existence. |
 | **Structural equivalence / classification** | Mumford, Makkai and quotient controls make maps/choice/output contracts explicit. | Same consumer treats a coarse/isomorphic classification as a concrete natural family or chosen output without its source-stated payment. |
 
-## 4. Current admission frontier
+## 4. 当前候选资格前沿，不是领域文献地图
+
+下列 admission lane 管的是“能否创建下一份 Q-qualification successor run”，不管“能否发现尚未纳入地图的书目记录”。当前 `LITERATURE-MAP-001` 已完成初始 M1 pass；地图阶段可以按 SOP 004 检索、去重、筛选和引文追踪，但任何新记录在通过 R/Z/Q/E、same-task 和 source-payment 门之前只能是 M-Record，不能被说成 ZFC Q 或候选命中。
 
 New work is admissible only if it changes at least one cell above. The allowed inputs are deliberately narrow:
 

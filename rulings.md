@@ -665,3 +665,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. 一次调查只能对冻结的 A–E 来源分母声称 `DENOMINATOR_COMPLETE_WITH_SCOPE`；每项必须有来源身份、R-card、Z disposition、Q／control状态、标准防线和 coverage remainder。不得以论文数量、关键词、作者动机修辞或 AI 一致性宣称彻底。
 3. `/goal` 引用该 SOP 授权其标准化的来源调查和项目档案；仍不自动授权付费／登录下载、P-DAG／worker、数学STATE、Power Set station切换、数学证明、理论结论、tag、push或发布。
 4. 调用前项目状态是 `PROJECT_DEFINED / RUN_NOT_STARTED`。SOP、档案根、路由与技能存在不等于任何文献 run、ZFC候选或`H0→Z0→Q0`传输已完成。
+
+## 2026-10-03：HOTT-MOTIVE-ZFC 必须区分冻结来源调查与领域文献地图
+
+研究发起人质询现有文献工作是否达到博士论文研究级别的领域地图，而非随意搜索或将一组冻结来源误称为完整文献。
+
+执行裁定：
+
+1. 既有九个 complete-with-scope run 和十一份预检继续保留为来源忠实、候选受控的调查成果；它们不被降格为无效，也不得再被称作领域级文献地图。
+2. HOTT-MOTIVE-ZFC-SOP 增设可复算的文献地图阶段：明确问题和地图轴、数据库／作者／引文来源、完整 query、检索日期和命中、work-family 去重、纳入／排除、双向引文追踪、coverage map、局限与范围限定的停止规则。
+3. PRISMA-S／系统综述检索方法只作为透明和可复跑的检索纪律；本项目仍按数学、逻辑、基础与数学哲学的作者原典、理论变体、形式化项目和实际消费者来组织语料，不把医疗综述模板错当数学内容方法。
+4. 没有地图协议、检索日志、筛选、引文网络和coverage map之前，任何“当前没有新来源”只指冻结来源 run 的候选资格前沿；不得外推为学界、领域或博士论文级的负结论。
+5. 本裁定授权 SOP／Skill／archive audit、Feature、MEMORY和精确 Git 谱系更新；不自动启动 P-DAG、worker、数学STATE、Power Set station、数学证明、tag、push或发布。
