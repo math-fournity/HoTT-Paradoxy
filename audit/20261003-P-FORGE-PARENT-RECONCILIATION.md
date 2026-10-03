@@ -2,18 +2,18 @@
 logical_id: P_FORGE_PARENT_RECONCILIATION
 mode: sequential
 shard_root: 20261003-P-FORGE-PARENT-RECONCILIATION
-last_shard: 20261003-P-FORGE-PARENT-RECONCILIATION/005 - R05 双通道候选激活.md
-append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/005 - R05 双通道候选激活.md
+last_shard: 20261003-P-FORGE-PARENT-RECONCILIATION/006 - R06 历史AI草稿的双通道压力测试.md
+append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/006 - R06 历史AI草稿的双通道压力测试.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 5 个分片；缺一片即未完成，按表顺序读取。后续 R06--R13 只有在其原始汇总和全部已归属原子卡都被逐项比较后才加入表，缺一父级即不能进入 A3 综合。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 6 个分片；缺一片即未完成，按表顺序读取。后续 R07--R13 只有在其原始汇总和全部已归属原子卡都被逐项比较后才加入表，缺一父级即不能进入 A3 综合。
 
 # P-FORGE 父级回接审计
 
 > **身份：** `A2_PARENT_RECONCILIATION / SOURCE_LIMITED_PARENT_COMPARISON / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A2_ACTIVE / PARENT_CARDS=5/13 / PARENT_REMAINDER=8 / A3_NOT_STARTED`。
+> **当前状态：** `A2_ACTIVE / PARENT_CARDS=6/13 / PARENT_REMAINDER=7 / A3_NOT_STARTED`。
 
 本逻辑文档将 128 张已封存的原子卡回接到原始 `R01--R13` 粗单元。`R00`、`R14`、`R15`是目标／最终综合／分母冻结的历史上下文，不替代这13个父级的逐项回接。每张父卡只给出：原汇总主张、成员分母、原子证据所支持的范围、被修正或撤回的部分、P/Q影响、财富与重开条件。
 
@@ -25,4 +25,5 @@ soft_line_target: 300
 | 003 | [R03 HoTT重放与刀具角色向量](<20261003-P-FORGE-PARENT-RECONCILIATION/003 - R03 HoTT重放与刀具角色向量.md>) | `H011,H012,H013,H014,H015,H016,H017,H018` | `PARTIALLY_SUPERSEDED_WITH_SCOPE` |
 | 004 | [R04 Power Set候选激活门](<20261003-P-FORGE-PARENT-RECONCILIATION/004 - R04 Power Set候选激活门.md>) | `H019,H020,H021,H022,H023,H024,H025,H026,H027,H028,H029,H030,H031,H032,H033,H034` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 | 005 | [R05 双通道候选激活](<20261003-P-FORGE-PARENT-RECONCILIATION/005 - R05 双通道候选激活.md>) | `H035,H036,H037,H038,H039,H040,H041,H042` | `PARTIALLY_SUPERSEDED_WITH_SCOPE` |
+| 006 | [R06 历史AI草稿的双通道压力测试](<20261003-P-FORGE-PARENT-RECONCILIATION/006 - R06 历史AI草稿的双通道压力测试.md>) | `H043,H044,H045,H046,H047` | `PARTIALLY_SUPERSEDED_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
