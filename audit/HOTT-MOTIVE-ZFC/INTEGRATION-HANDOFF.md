@@ -11,11 +11,12 @@
 | 字段 | 值 |
 |---|---|
 | 候选分支 | codex/hott-motive-zfc-literature |
-| 本次内容快照 | 7e1a111af545f5c458d36b59e16c248fca1c077a |
+| 候选分支当前 tip | 322c6e2f research: start HOTT motive literature map |
+| 已闭合来源调查快照 | 7e1a111af545f5c458d36b59e16c248fca1c077a |
 | 分叉共同基线 | 6341e337b578e77149444a7b4ca243a109121840 |
 | 目标分支（观察时） | refs/heads/dev = 0ab997b17102119582ed7b542d6f7aa65fe6302b |
 | 主 worktree（观察时） | /Volumes/D/HoTT_AI_HANDOFF_20260911；其工作区有 322 条状态记录；不得在该 checkout 直接集成。 |
-| 内容规模 | 772e0fca^..7e1a111a 含 245 条受影响路径、227 个新增路径、约 12.52 MiB 新增 blob；其中只有一个新增 blob 超过 1 MiB。 |
+| 内容规模 | 772e0fca^..7e1a111a 含 245 条受影响路径、227 个新增路径、约 12.52 MiB 新增 blob；其中只有一个新增 blob 超过 1 MiB。322c6e2f 另增加文献地图协议、初始检索记录和质量审计。 |
 
 上述 target OID 和工作区状态只是本交接单写入时的现场快照。集成开始前必须重新读取 target ref、worktree list、完整 index 和 dirty 状态；任何变化都会使旧 review 失效。
 
@@ -27,6 +28,9 @@
 
 1. **路线种子：** 913a1a18 research: map HoTT motivations to ZFC candidate seeds。它建立 R_i → Z_i → Q_i 以及 H0→Z0→Q0 的路线 owner。
 2. **SOP 与调查成果：** 772e0fca^..7e1a111a，共 23 个逻辑提交，从 SOP 整备到九个冻结来源 run、十一份预检、P 字段矩阵、防重复恢复规则和两份用户可见归档。
+3. **文献地图质量升级：** 322c6e2f research: start HOTT motive literature map。它新增 SOP 2.0 的文献地图阶段、地图质量审计、OpenAlex／Crossref／zbMATH／arXiv／IAS／citation 初始检索记录；它不产生新的 ZFC Q。
+
+可选的归档增量 67cce86a 只追加了当前 worktree 集成交接对话记录。是否移植该一项取决于目标 dev 的 dev-notes 归档策略；它不影响研究内容、SOP 或文献地图。
 
 明确**排除**：
 
@@ -53,7 +57,7 @@
 1. **保全主 worktree。** 主 worktree 的实际维护者先完成或保留其自身 dirty/index 工作；不得由本候选的集成者在该树中执行 reset、restore、clean、stash、pull 或切分支。
 2. **冻结目标。** 从共享 refs 读取当前 refs/heads/dev OID 和 git worktree list --porcelain。若目标、AGENTS、Feature、rulings 或当前 owner 已变化，重新审阅本交接单。
 3. **建立干净的集成 worktree。** 从冻结的 dev 建一个短期 integration branch/worktree；它是审阅与冲突解决场所，不是主 worktree 的替代品。
-4. **选择性移植。** 先 cherry-pick 913a1a18，跳过 674df726，再 cherry-pick 772e0fca^..7e1a111a。每个冲突都按当前目标分支的语义裁决，不能整仓使用 ours 或 theirs。
+4. **选择性移植。** 先 cherry-pick 913a1a18，跳过 674df726，再 cherry-pick 772e0fca^..7e1a111a 和 322c6e2f。每个冲突都按当前目标分支的语义裁决，不能整仓使用 ours 或 theirs。
 5. **重点审阅重叠 owner。** 当前三方 merge 预演已显示实际文本冲突至少涉及：
 
     .codex/skills/SKILL_ROLES.json
