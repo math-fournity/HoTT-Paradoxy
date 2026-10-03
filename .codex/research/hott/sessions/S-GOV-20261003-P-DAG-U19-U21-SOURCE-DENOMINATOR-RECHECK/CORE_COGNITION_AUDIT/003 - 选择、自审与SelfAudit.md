@@ -102,6 +102,62 @@ git_record:
   no_current_owner_edits; no previous-worktree trajectory/filesystem reads or writes
 ```
 
+## Delta SelfAuditCard：U20/U21 owner-ready 分母修订候选
+
+```yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-U20-U21-OWNER-REPAIR-PROPOSAL
+source_units:
+  - dev-notes/0109 U20: skill-turn-c980d46fc6fa446c9dbeb5b0b8bf264a
+  - dev-notes/0109 U21: skill-turn-4d3398c25c71415e94066b2ad405dfde
+  - full-origin audit owner 001 / 003 / 005 / 006 current versions
+  - contributor event-to-answer/artifact map in audit/20261003-P-DAG-FULL-ORIGIN-0109-U19-U21-DENOMINATOR-CONTRIBUTOR-RECHECK.md §4 and §6
+original_requirement:
+  - enumerate each relevant archived discussion event and preserve repeated-prompt relations without silently deduplicating separate answers
+  - keep parent-Goal phase separate from archive order, assistant commit time, and this child-worktree Goal
+  - do not write another worktree's current owner or trajectory from this independent branch
+actual_action:
+  - mapped U20/U21 exact turn IDs, shared prompt SHA, distinct answer SHA, and cited project commits
+  - reviewed audit owners 001/003/005/006 against those source events and found missing U20/U21 rows plus stale 0109 count/hash summary
+  - drafted exact owner deltas for source row/count, event rows, cutoff uncertainty, and raw-vs-semantic denominator; did not apply them
+  - retained parent Goal phase as UNKNOWN because current child Goal event cannot establish the parent cutoff
+alignment_verdict: OWNER_READY_EVENT_REPAIR_CANDIDATE / PARENT_PHASE_UNKNOWN / NO_OWNER_MUTATION
+deviation_class:
+  - EXECUTION_DEVIATION: two captured archive events lack explicit current-owner dispositions
+  - IDEA_SPEC_INCOMPLETE: current owner does not distinguish captured event count from unique prompt-payload/semantic-intent count
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+P1_P2_P3:
+  P1: no new theory-source match
+  P2: no logical mapping task
+  P3: no lifecycle/admission task
+PowerSet_Russell_defense:
+  premise: unchanged; no ZFC first-order source reviewed in this unit
+  ZFC_Q_status: unchanged / NOT_LOCATED
+tool_birth_card: NOT_REQUIRED (source-denominator repair proposal; no new theory pattern or tool responsibility)
+parent_goal_phase:
+  U20_U21: UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED
+  owner_declared_proxy_boundary: b810380f; not independently promoted to exact event time
+candidate_owner_delta:
+  - 001/006: update 0109 archive event count from 19 to 21; keep 17 unique prompt hashes separate
+  - 003: append U20/U21 as distinct same-prompt archive events with their own answer/artifact mappings
+  - 005: preserve phase UNKNOWN until parent Goal source is available; do not use child Goal event
+  - 006: raw captured archive event total changes by +2; maintain R10/R11 semantic exclusion as currently specified
+current_owner_mutation:
+  audit_001_006: none
+  rulings_feature_state_projection: none
+  source_archives: read-only
+falsifiers:
+  - documented current-owner event-grouping rule that already accounts for these exact turn IDs and separate answers
+  - permitted parent-Goal source proving a different phase relation
+  - a source manifest/version showing the current 0109 snapshot is not the one audited by 006
+next_trigger: canonical integrator review or next bounded uncovered source unit; parent cutoff remains open
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: d21f7905149eead414cdc06c358852c93f386805
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no previous-worktree reads/writes; no full-origin current-owner edits
+```
+
 ## 逐项对照与反事实
 
 | requirement | owner/source | 本轮事实 | 判词／反证条件 |

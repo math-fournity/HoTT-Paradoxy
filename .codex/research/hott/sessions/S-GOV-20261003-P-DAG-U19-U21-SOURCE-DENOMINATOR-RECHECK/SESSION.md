@@ -12,7 +12,7 @@
 
 本单元继续《模式 P 刀具锻造与理念自审 SOP》，处理上一单元留下的 full-origin source coverage gap。任务范围是：核当前 source manifest 的逐文件新鲜度，比较 dev-notes/0109 的归档事件分母与 full-origin audit 001/006 的分母，并逐项定位 U19–U21 与 archive/direct prompt 的关系。
 
-当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 full-origin owner 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异，需保留为三个 distinct archived events。上一轮曾将当前 child-thread Goal (`2026-10-02 22:45:22.640 -0400`) 与 full-origin audit 的 parent Goal cutoff 混同；8d4877ad 已于 16:14:59 -0400 落盘 full-origin audit，故它所审计的 Goal 不是这个 later child-thread Goal。0109 快照 mtime 22:18:41 及答复提交最晚 22:01:27 只证明 archive 在 child Goal 之前存在，不能给出 parent Goal phase。U19–U21 相对 parent Goal 的归属恢复为 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`；本分支没有读取 previous-worktree trajectory。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 仍没有 crosswalk。
+当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 full-origin owner 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异，需保留为三个 distinct archived events。上一轮曾将当前 child-thread Goal (`2026-10-02 22:45:22.640 -0400`) 与 full-origin audit 的 parent Goal cutoff 混同；8d4877ad 已于 16:14:59 -0400 落盘 full-origin audit，故它所审计的 Goal 不是这个 later child-thread Goal。0109 快照 mtime 22:18:41 及答复提交最晚 22:01:27 只证明 archive 在 child Goal 之前存在，不能给出 parent Goal phase。U19–U21 相对 parent Goal 的归属保持 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`；本分支没有读取 previous-worktree trajectory。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 仍没有 crosswalk。另已整理 001/003/005/006 的 owner-ready event-denominator 修订候选，但未改 current owner。
 
 本单元没有任何数学命题、P1/P2/P3 theory task、ZFC Q、UR 或新刀具结论。另对 U19–U21 答案中引用的 18 个本 repo commit OID 做了 `git show` 定位，确认它们对应不同的 audit、runner/SOP、replay、D-L10F/RK-0 工件路径；这只证明历史工件的存在与路径关联，不验证其数学结论。
 
@@ -41,6 +41,13 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 - 当前 0109 文件 SHA-256 是 `fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c`，mode `0600`，filesystem mtime 是 `2026-10-02T22:18:41-0400`；该快照包含 U19/U20/U21 三个 archive turn IDs。
 - U19–U21 答复引用的 18 个本 repo commits 的时间范围是 `2026-10-02T15:35:10-0400` 至 `2026-10-02T22:01:27-0400`。`b810380f` 是这批 H010 工件中的一个提交，不是当前 Goal 启动事件。
 - 这些时间只支持 archive snapshot 和 U19–U21 早于 child-thread Goal；full-origin audit 评估的是更早的 parent Goal，因此不能据此分配 parent phase。`8d4877ad` 的历史 audit 文件早于 child Goal 6 小时以上，证明目标身份不同。parent phase 保持 UNKNOWN，除非本工作线获得不越过独立-worktree边界的直接源。原始 rollout mode `0644`；只检查了当前 child Goal 事件，没有读取 parent trajectory、复制或提交 rollout。
+
+## Owner-ready event-denominator 修订候选
+
+- `001`／`006`：把 0109 archive-event count 从 19 改为 21，同时保留 17 个 unique prompt hashes 的单独计数；如果汇总 raw capture events，当前 2+11+7+19=39 应增为 41，R10/R11 的语义排除不变。
+- `003`：为 U20/U21 各增一条 event row。二者沿用 U19 的 prompt SHA，但各有独立 turn ID、answer SHA 与已列出的 commit/artifact mapping；关系记为 `SAME_PROMPT_AS_U19 / DISTINCT_ARCHIVE_EVENT_AND_ANSWER`。
+- `005`：不把 child Goal 时间写成 parent cutoff；在未获得 parent Goal 的直接来源前，将 U19–U21 phase 保持 UNKNOWN。
+- 以上只保存为 contributor proposal，没有写入 full-origin current owners。
 
 ## Load receipt
 

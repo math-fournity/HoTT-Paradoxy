@@ -83,4 +83,15 @@ S12/S13 给出 curation message IDs，conversation archive 给出不同的 `skil
 3. 增加 U20/U21 的 turn ID、answer SHA、用户 intent relation、answer/result/source/Git mapping；保留 distinct response events。
 4. 在 003/005 明确 S12/S13 exact-content overlaps 与 native event identity 的未知；不要用当前 child Goal 的 trajectory event 替代 full-origin audit 对应的 parent Goal。继续把 `b810380f` 标作 owner 已登记的阶段代理边界，并区分已观察提交时间与未观察的 parent 用户 turn 时间；在不读取 previous-worktree trajectory 的范围内，U19–U21 的 parent-phase 保持 `UNKNOWN`。
 
+### 7.1 可供 integrator 评审的精确分母修订（未应用）
+
+| Current owner | Candidate delta | Evidence / boundary |
+|---|---|---|
+| 001 §1.2、§2 | 将 0109 archive row 从 19 更新为 21 个 captured turn events；在 event ledger 增列 U20/U21。说明 U19 是该字面请求的首次出现，U19–U21 是同一 `prompt_sha256=a8f026…3331` 的三次 distinct archive turn，但后两次有自己的 turn ID 与 answer SHA；它们增加 event denominator，不增加新的 unique prompt payload。 | 0109 当前 bytes：21 `conversation-archive-turn` markers、21 user sections、17 unique prompt SHA；SHA `fdb556…8769c`。该来源在本 worktree 为 untracked snapshot。 |
+| 003 §6 后 | 增加 U20、U21 两行：沿用 U19 的相同 wall-clock request 内容／prompt SHA，分别登记 turn ID、answer SHA、答案摘要及本报告 §4 的 commit/artifact map；intent relation 标记 `SAME_PROMPT_AS_U19 / DISTINCT_ARCHIVE_EVENT_AND_ANSWER`。 | U20 的回答记录 full-origin report、D-L7–D-L9、H015–H018、H019–H022；U21 记录 D-L10F、RK-0、H049–H053。事件身份来自本地 archive marker，技术结果仅由答复和提交路径定位，未重新审数学内容。 |
+| 005 与 cutoff 说明 | 保留当前 owner 的 `b810380f` 阶段代理边界，明确它不是被 raw parent Goal event 直接观测到的时间戳；在不读取 previous-worktree trajectory 的前提下，U19–U21 relative phase 写 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`。不要用本 child thread 的 Goal 时间或 0109 mtime 代替 parent Goal。 | full-origin audit commit `8d4877ad` 早于本 thread child Goal；这证明两者不能混用，但不单独确定 parent Goal 的真实启动时刻。U20/U21 cited response commits 晚于 `b810380f`，只说明工件在记录边界之后。 |
+| 006 §1 与合计 | 将 0109 的行数／字节／SHA 保持为 1,719 / 141,651 / `fdb556…8769c`，unit coverage 改为 U1–U21、21 archive events、17 unique prompt payloads；若保留 archive-event 合计字段，把 2+11+7+19 从 39 修正为 41。R10–R11 仍保留为 capture events、按原既定规则排除于刀具语义分母。 | raw-event denominator 与 semantic-intent denominator 必须并列说明，避免把重复 prompt 直接去重或把 capture count 冒充 unique intent count。001 中旧缩写 digest 是独立漂移项，应另行修正。 |
+
+这些是 owner-ready 的候选变更，不是当前真值；本分支不触碰 001/003/005/006。父 Goal cutoff 未闭合前，不能把 U20/U21 填成 `PRE_GOAL` 或 `GOAL_CONTINUATION` 来让表格看起来完整。
+
 本报告没有修改原档案、full-origin owner、rulings、Feature、STATE、方向/全景或理念/SOP current owners。当前 Git 状态显示 STATE.json 为 dirty；本单元未写入或暂存它。没有 P1/P2/P3 theory task、source card、Tool-Birth 候选、数学结论或 external worker。

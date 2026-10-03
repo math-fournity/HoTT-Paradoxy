@@ -103,6 +103,25 @@
       "parent_or_previous_worktree_trajectory": "NOT_READ_PER_USER_INDEPENDENCE_REQUIREMENT",
       "verdict": "CURRENT_CHILD_GOAL_IS_NOT_THE_PARENT_GOAL_AUDITED_BY_8D4877AD / PARENT_PHASE_UNKNOWN",
       "scope": "corrects the previous candidate inference; does not revise the current-owner cutoff or classify U19-U21 against the parent Goal"
+    },
+    {
+      "id": "U20_U21_OWNER_READY_EVENT_DENOMINATOR_PATCH",
+      "kind": "candidate_owner_delta_specification",
+      "owners_reviewed": [
+        "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/001 - 审计范围、来源分母与逐项覆盖.md",
+        "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/003 - 三把刀、代理说明与动态DAG的逐单元对照.md",
+        "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/005 - 连续运行前的状态、后续SOP与可证伪计划.md",
+        "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/006 - 可重算来源清单、Git谱系与新刀具出生审计.md"
+      ],
+      "candidate_changes": [
+        "0109 raw archive count 19 -> 21; preserve 17 unique prompt hashes separately",
+        "add U20/U21 as distinct same-prompt archive events with separate answer/artifact mappings",
+        "keep parent-Goal phase UNKNOWN until that Goal's source is available; do not use child Goal time",
+        "raw archive event subtotal 39 -> 41; preserve R10/R11 semantic exclusion"
+      ],
+      "current_owner_mutated": false,
+      "status": "OWNER_READY_CANDIDATE / NOT_INTEGRATED / PARENT_PHASE_UNKNOWN",
+      "evidence": "audit/20261003-P-DAG-FULL-ORIGIN-0109-U19-U21-DENOMINATOR-CONTRIBUTOR-RECHECK.md §7.1"
     }
   ],
   "verifications": [
@@ -110,6 +129,7 @@
     {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006; this branch records three distinct events but leaves their parent-Goal phase UNKNOWN"},
     {"id": "CURRENT-CHILD-GOAL-ARCHIVE-ORDER", "status": "PASS_WITH_SCOPE", "result": "exact-hash 0109 snapshot and cited commits predate only the 2026-10-02 22:45:22 -0400 child Goal; they do not classify units relative to the parent Goal"},
     {"id": "PARENT-GOAL-CUTOFF-IDENTITY", "status": "UNKNOWN_WITH_BOUNDARY", "result": "full-origin audit commit 8d4877ad is from 16:14 -0400 and declares b810380f as its boundary; current child Goal starts 22:45 -0400; previous-worktree parent trajectory was not inspected, so U19-U21 parent-phase remains unknown"},
+    {"id": "OWNER-READY-DENOMINATOR-PATCH", "status": "CANDIDATE_READY_WITH_SCOPE", "result": "exact proposed deltas exist for owners 001/003/005/006, but are not integrated; raw 0109 count 21, unique prompt count 17, parent phase unknown"},
     {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
     {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},
     {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
@@ -129,8 +149,8 @@
     ],
     "previous_worktree_written": false,
     "untracked_source_archives_committed": false,
-    "prior_candidate_commit": "0cdc15c15c66b3bc74ba10c468d87267af505837",
-    "current_unit_commit": "recorded in the exact-path branch-local commit that adds this cutoff reconciliation"
+    "prior_candidate_commit": "d21f7905149eead414cdc06c358852c93f386805",
+    "current_unit_commit": "recorded in the exact-path branch-local commit that adds this owner-ready denominator proposal"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_MISATTRIBUTION_CORRECTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_MISATTRIBUTION_CORRECTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }
