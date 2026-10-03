@@ -1,0 +1,584 @@
+                                                       A CLASS OF HIGHER INDUCTIVE TYPES IN
+                                                           ZERMELO-FRAENKEL SET THEORY
+
+
+
+
+arXiv:2005.14240v2 [math.LO] 21 Jul 2021
+                                                                               ANDREW W SWAN
+
+
+
+
+                                                   Abstract. We define a class of higher inductive types that can be constructed
+                                                   in the category of sets under the assumptions of Zermelo-Fraenkel set theory
+                                                   without the axiom of choice or the existence of uncountable regular cardinals.
+                                                   This class includes the example of unordered trees of any arity.
+
+
+                                                                               1. Introduction
+                                              Higher inductive types are one of the key ideas in homotopy type theory [Uni13].
+                                           We think of an (ordinary) inductive type as the smallest type closed under certain
+                                           algebraic operations or point constructors. For instance, we define the type of
+                                           countably branching trees T to be the smallest type closed under the following
+                                           operations.
+                                                                             leaf : T
+                                                                             node : (ω → T ) → T
+                                           Within type theory we formalise the idea that T is the smallest type with the above
+                                           point constructors using recursion or induction terms. However, semantically, it is
+                                           often more convenient to think in terms of initial algebras. We say an algebra for
+                                           the above constructors is a type X together with a map 1 + X ω → X. T is then
+                                           the initial object in the category of algebras. This is a classic example of a W -type,
+                                           as defined by Moerdijk and Palmgren [MP00].
+                                              For higher inductive types, one not only has point constructors, but also path
+                                           constructors, which add proofs of identities of terms. Higher inductive types are
+                                           usually considered within HoTT and have well understood semantics within models
+                                           of HoTT [LS20], [CHM18], [CH19]. However, since they are defined within the lan-
+                                           guage of type theory, one might also consider whether they hold in interpretations
+                                           of extensional type theory in locally cartesian closed categories, and in particular
+                                           the category of sets, Set.
+                                              One of the simplest examples of higher inductive type is pushouts. In Set these
+                                           can be implemented as pushouts in the usual categorical sense. It follows that Set
+                                           contains all of the n-dimensional spheres, although there is not much you can say
+                                           about them without the univalence axiom, and indeed they turn out to be trivial in
+                                           Set. Quotients and image factorisations are examples of simple colimits that play
+                                           a useful role even within models of extensional type theory [Mai05], [AB04].
+                                              There are also more complicated examples of higher inductive types that are non
+                                           trivial in extensional type theory, and even Set, within the framework of quotient
+                                           inductive types [AK16]. In fact our examples of interest fall within a smaller class
+
+                                             Date: July 22, 2021.
+                                                                                         1
+2                                       ANDREW W SWAN
+
+
+with a simpler definition and clearer semantics. This class was studied by Blass
+[Bla83] under the name free algebras subject to identities and by Fiore, Pitts and
+Steenkamp in [FPS20] under the name QW -types (we will refer to them by the
+latter name). A well known example of such a type is that of “unordered countably
+branching trees.” We modify the definition of T above to get the higher inductive
+type TSym by adding equations as follows, where we write Sym(ω) for the type of
+permutations ω → ω.
+                     leaf : TSym
+                     node : (ω → TSym ) → TSym
+                               Y        Y
+                     perm :                 node(f ) = node(f ◦ π)
+                             f : ω→TSym π:Sym(ω)
+
+Altenkirch, Capriotti, Dijkstra, Kraus and Forsberg include this in [ACD+ 18], as
+a non trivial example of a quotient inductive(-inductive) type. As they remark,
+the obvious construction of TSym as a quotient of T requires the axiom of choice.1
+Fiore, Pitts and Steenkamp showed that in fact it is an example of a QW -type
+[FPS20, Example 2].
+   Blass showed that all QW -types can be constructed in Set under the assumption
+that regular cardinals are unbounded in the class of all ordinals. More generally free
+algebras can be constructed in cocomplete categories from the existence of regular
+cardinals of sufficiently high cardinality via the general techniques of Kelly [Kel80].
+For example this plays an important role in the construction of higher inductive
+types by Lumsdaine and Shulman [LS20]. The existence of an unbounded class of
+regular ordinals is usually a reasonable one. It follows from very weak versions of
+choice, such as WISC [vdB12] and a variant is often assumed in constructive set
+theory [AR01, Section 10]. It is also the case that every inaccessible cardinal is in
+particular regular.2
+   However, Gitik [Git80] has constructed a model of ZF in which ω is the only
+regular cardinal.3 Moreover, Blass showed that the assumption is strictly neces-
+sary, by constructing a QW -type which is isomorphic to the collection of ordinals
+hereditarily of countable cofinality, if it exists. He deduced by Gitik’s result that
+this gives an example of a QW -type that does not provably exist in Set under the
+assumptions of ZF.4
+   Fiore, Pitts and Steenkamp in loc. cit. gave an electronically verified proof that
+QW -types can be constructed in type theory using Agda sized types and universes
+closed under inductive-inductive types. We can see from Blass’ counterexample
+that some combination of these assumptions for Set must lead to the existence of
+uncountable regular cardinals. In a second paper [FPS21] the same authors showed
+
+    1For the special case above, countable choice would be enough.
+   2Note, however that even in the presence of inaccessible cardinals it can be useful to have
+proofs that are valid in ZF without further assumption: if κ is inaccessible, then Vκ is a transitive
+model of ZF, and so any proof valid in ZF can be carried out inside it (e.g. to construct HITs that
+belong to Vκ ), but Vκ itself does not contain inaccessible cardinals without further assumptions
+on κ.
+   3under certain large cardinal assumptions
+   4Using Blass’ argument and a later paper by Gitik [Git85] one can also show the following. For
+every successor ordinal α there is a transitive model of ZF where Blass’ example of a QW -type
+exists and is precisely the set of all ordinals less than ωα .
+    A CLASS OF HIGHER INDUCTIVE TYPES IN ZERMELO-FRAENKEL SET THEORY                      3
+
+
+that the weak choice principle WISC can be used in place of Agda sized types,
+again verifying the result electronically.
+   On the other hand, some higher inductive types can be constructed in Set without
+choice or unbounded regular cardinals. In addition to colimits, as mentioned above,
+the author showed in [Swa18] that W -types with reductions exist in any boolean
+topos, including Set. A similar argument shows that Sojakova’s notion of W -
+suspensions [Soj15] also exist in all boolean toposes.5
+   In this paper we will see a new class of QW -types that can be constructed in Set
+under ZF, without any assumptions of choice or existence of regular cardinals, that
+we call image preserving QW -types. This will included the example of unordered
+countably branching trees above, and more generally unordered trees of any arity.
+The proof is based on a construction of a set of all hereditarily countable sets due
+to Jech [Jec82]. We will be able to recover hereditarily countable sets as a special
+case, and moreover a later generalisation due to Holmes [Hol14].
+
+Acknowledgements. I am grateful to Jonas Frey, Simon Henry and Thomas Stre-
+icher for helpful discussion and suggestions.
+   I gratefully acknowledge the support of the Air Force Office of Scientific Research
+through MURI grant FA9550-15-1-0053. Any opinions, findings and conclusions or
+recommendations expressed in this material are those of the authors and do not
+necessarily reflect the views of the AFOSR.
+
+                            2. Image preserving QW -types
+   We now define our class of higher inductive types that we will construct in Set.
+It will be clear by the definition that this is a special case of QW -types [FPS20].
+Definition 2.1. A polynomial is a set A together with a family of sets (Ba )a∈A . We
+will refer to elements of A as constructors and say Ba is the arity of the constructor
+a ∈ A.
+Definition 2.2.P GivenBaa polynomial (Ba )a∈A , an algebra is a set X together with
+a function s :    a∈A X      → X. We refer to such s as an algebra structure on X.
+   If (X, s) and (Y, t) are algebras, we say a homomorphism is a function h : X → Y
+such that for all a ∈ A and f : Ba → X we have h(s(a, f )) = t(a, h ◦ f ).
+Remark 2.3. Although we assumed X and Y are sets in the definition above,
+we can also define algebra structures and homomorphisms for classes by replacing
+functions with class functions.
+Definition 2.4. Given a polynomial (Ba )a∈A , an image preserving equation over
+(Ba )a∈A consists of a set V , and a, b ∈ A together with l : Ba → V and r : Bb → V
+such that the image of l is equal to the image of r.
+   A family of image preserving equations consists of a set E together with a family
+of image preserving equations (Ve , ae , be , le , re )e∈E .
+Definition 2.5. Given a polynomial (Ba )a∈A and a family of image preserving
+equations, (Ve , ae , be , le , re )e∈E , an algebra is an algebra (X, s) for the polynomial
+(Ba )a∈A such that for every e ∈ E and every function h : Ve → X we have s(ae , h ◦
+le ) = s(be , h ◦ re ).
+   5A proof is left as an exercise for the reader.
+4                                 ANDREW W SWAN
+
+
+Example 2.6. Suppose we are given a set B. We consider the polynomial with two
+constructors of arity 0 and B. We consider the set of image preserving equations
+with set of variables B, and l, r : B → B defined by l = 1B and r = π for each
+permutation π ∈ Sym(B). The initial algebra is then the set of unordered trees of
+arity B. In particular, we can take B = ω to get unordered countably branching
+trees.
+Example 2.7. Given any polynomial (Ba )a∈A and set V we can consider the set
+of all image preserving equations. We will see in the next section how this allows
+us to recover hereditarily countable sets and more generally hereditarily small sets.
+Example 2.8. We will be able to deduce from the main theorem that Blass’ ex-
+ample of a QW -type that cannot be constructed in ZF cannot be viewed as an
+image preserving QW -type. However, for illumination we will give a more intu-
+itive direct reason why it does not satisfy the definition. In Blass’ example, the
+initial algebra is expected to behave like the collection of all ordinals of countable
+cofinality. In particular there is an operation sup which takes a sequence (αn )n<ω
+and is expected to behave like the supremum of the countable sequence of ordinals
+(αn )n<ω . In particular we should identify sup((αn )n<ω ) and sup((βn )n<ω ) when-
+ever αn is cofinal in βn and vice versa. However, this is much weaker than αn and
+βn containing exactly the same elements (possibly in a different order).
+
+                          3. Hereditarily small sets
+   As part of [Jec82] Jech showed how to construct the set of all hereditarily count-
+able sets in ZF. This was later generalised by Holmes [Hol14] who showed that for
+any set B we can construct a set containing all sets hereditarily with cardinality
+less than or equal to B. We in fact give a very slight further generalisation of
+Holmes’ result by instead considering families of sets (Ba )a∈A . In order to derive
+this from the main theorem 5.12, we first need to clarify the relation between image
+preserving equations and the class of hereditarily small sets, which is the topic of
+this section.
+Definition 3.1. Given a family of sets (Ba )a∈A we say a set X is small relative
+to (Ba )a∈A if for some a ∈ A there exists a surjection Ba ։ X. We say X is
+hereditarily small relative to (Ba )a∈A if X is small relative to (Ba )a∈A and all of
+its elements are hereditarily small relative to (Ba )a∈A . We write H((Ba )a∈A ) for
+the class of hereditarily small sets.
+   We view H((Ba )a∈A ) as an algebra on the polynomial (Ba )a∈A as follows. Given
+a ∈ A and f : Ba → H((Ba )a∈A ), we define s(a, f ) to be {f (b) | b ∈ Ba }.
+Lemma 3.2. H((Ba )a∈A ) satisfies all image preserving equations relative to the
+polynomial (Ba )a∈A .
+Proof. Suppose we are given a set S of variables together with l : Ba → S and
+r : Bc → S and a map h : S → H((Ba )a∈A ). We calculate as follows.
+                            s(h ◦ l) = {h(l(b)) | b ∈ Ba }
+                                    = {h(x) | x ∈ im(l)}
+                                    = {h(x) | x ∈ im(r)}
+                                    = s(h ◦ r)
+                                                                                    
+    A CLASS OF HIGHER INDUCTIVE TYPES IN ZERMELO-FRAENKEL SET THEORY                  5
+
+                                        P
+  We now fix a set of variables S :=        a∈A P(Ba ).
+
+Lemma 3.3. Suppose (X, t) is an algebra for (Ba )a∈A that satisfies all image
+preserving equations for the set of variables S above. Then there is a unique homo-
+morphism h : H((Ba )a∈A ) → X.
+Proof. In order for h to be a homomorphism, we need it to satisfy the following
+equation whenever a ∈ A and f : Ba → H((Ba )a∈A ).
+                           h({f (b) | b ∈ Ba }) = t(a, h ◦ f )
+   This defines a unique class function by ∈-induction as long as the equation above
+is well defined. That is, given g : Bc → H((Ba )a∈A ) such that {f (b) | b ∈ Ba } =
+{g(b) | b ∈ Bc } we need t(a, h ◦ f ) = t(c, h ◦ g).
+   Note that the lemma is trivial if Ba is inhabited for each a, since then H((Ba )a∈A )
+is empty. Hence we may assume Ba is empty for some a and so X has a canonical
+element x0 . Now fix a, c ∈ A and f and g as above. By induction on rank, we may
+assume h(y) is already uniquely defined for y ∈ {f (b) | b ∈ Ba }. We define a map
+k : S → X as follows.
+                    (
+                      h(y) a′ = a, C = f −1 (y) for unique y ∈ {f (b) | b ∈ Ba }
+        k(a′ , C) =
+                      x0   otherwise
+  We next define l : Ba → S and r : Bc → S as follows.
+                         l(b) := (a, {b′ ∈ Ba | f (b′ ) = f (b)})
+                         r(b) := (a, {b′ ∈ Ba | f (b′ ) = g(b)})
+  Finally, it is straightforward to verify that l and r have the same image in S,
+and that k ◦ l = h ◦ f and k ◦ r = h ◦ g. Hence it follows from the image preserving
+equation t(a, k ◦ l) = t(c, k ◦ r) that t(a, h ◦ f ) = t(c, h ◦ g) as required.   
+Theorem 3.4. If H((Ba )a∈A ) is a set, then it is the QW -type for the polynomial
+(Ba )a∈A with all image preserving equations for S.
+Proof. This follows directly from lemmas 3.2 and 3.3.                                 
+Theorem 3.5. If the QW -type for the polynomial (Ba )a∈A with all image preserv-
+ing equations for S exists, then H((Ba )a∈A ) is a set.
+Proof. Let (X, t) be the QW -type.
+   We first define a homomorphism from X to H((Ba )a∈A ). The essential idea
+is to use the fact that X is an initial algebra. However, formally speaking we
+can only apply initiality of X once we know that H((Ba )a∈A ) is an algebra and in
+particular a set, which we don’t have a priori. Hence we use a trick of approximating
+H((Ba )a∈A ) by a sequence of sets.
+   For each ordinal α we can define an algebra structure on the set (H((Ba )a∈A ) ∩
+Vα ) + 1 that agrees with the structure s on H((Ba )a∈A ) when s(a, f ) belongs to
+H((Ba )a∈A ) ∩ Vα and otherwise sends (a, f ) to the 1 component. Note furthermore
+that this operation satisfies all image preserving equations by lemma 3.2. Hence
+there is a unique homomorphism hα : X → (H((Ba )a∈A ) ∩ Vα ) + 1. Say that x ∈ X
+is defined at α if h(x) ∈ H((Ba )a∈A ) ∩ Vα and undefined otherwise. Note that for
+β ≥ α the canonical restriction map (H((Ba )a∈A )∩Vβ )+1 → (H((Ba )a∈A )∩Vα )+1
+is a homomorphism. It follows that if x is defined at α, then it is also defined at
+β and hβ (x) = hα (x). By induction every element x is defined at α for some
+6                                 ANDREW W SWAN
+
+
+ordinal α. Hence this defines a unique homomorphism X → H((Ba )a∈A ). The
+homomorphism has an inverse by lemma 3.3. Hence H((Ba )a∈A ) is in bijection
+with a set, and so a set itself.                                           
+
+                          4. Some useful propositions
+   We recall some basic classical set theory that will be useful for the construction
+of image preserving QW -types. We fill in some of the details, with the remainder
+left as an exercise for the reader.
+Proposition 4.1. For any ordinals 0 < α < β, there is a canonical surjection
+β ։ α.
+  If there is a surjection X ։ β for some set X, then there is also a surjection
+X ։ α.
+Proposition 4.2. For any well ordered set (X, <) (and in particular for sets of
+ordinals ordered by ∈), there is a unique ordinal β with a unique order isomorphism
+(X, <) ∼
+       = (β, ∈). We refer to β as the order type of (X, <).
+Proposition 4.3. For any family of sets (Xi )i∈I , there is an ordinal ℵ((Xi )i∈I )
+which is the smallest for which there is no surjection Xi ։ ℵ((Xi )i∈I ) for any
+i ∈ I. It is precisely the set of all ordinals α for which there is a surjection Xi ։ α
+for some i ∈ I.
+Proof. Note that whenever Xi ։ α, there is an equivalence relation ∼ on X, and
+a well ordering < on X/∼ such that the order type of (X/∼, <) is α. However
+there is clearly a set of such well orders by power set, and so there is a set of all
+such ordinals α. Since this is a downwards closed set of ordinals, it is an ordinal
+itself. Since the set cannot contain itself, it is the least ordinal for which there is
+no surjection from Xi for any i.                                                     
+Proposition 4.4. If κ is a cardinal number (i.e. an ordinal that is not in bijection
+with any lower ordinal), then one can define surjections
+    (1) κ ։ κ × κ
+    (2) κ ։ κn for any n < ω
+            P× κ
+    (3) κ ։ ω
+    (4) κ ։ n<ω κn
+Proof. For 1, see e.g. [Kun09, Theorem I.11.30].
+   For 3, suppose we are given a bijective pairing function (−, −) : ω × ω → ω. Any
+ordinal α can be written uniquely as α = λ + (m, n) where λ is a limit ordinal
+and m, n ∈ ω. We then decode this as the pair (m, λ + n), which clearly gives a
+bijection.
+   Deriving the other parts from these two is straightforward.                    
+
+           5. The construction of image preserving QW -types
+  We now construct image preserving QW -types in Set. This is based on Jech’s
+construction of the set of hereditarily countable sets [Jec82].
+Definition 5.1. We will define a class function Q from ordinals to sets by recursion
+on ordinals.                                                            S
+  We define Q(0) to be ∅ and for limit ordinals λ, we define Q(λ) to be α<λ Q(α).
+    A CLASS OF HIGHER INDUCTIVE TYPES IN ZERMELO-FRAENKEL SET THEORY                  7
+
+
+   We define Q(α + 1) as follows. Let X be the set of pairs (a, f ) where a ∈ A and
+f : Ba → Q(α). We then take ∼ to be the equivalence relation on X generated
+by identifying (ae , t ◦ le ) and (be , t ◦ re ) whenever t : Ve → Q(α) for e ∈ E and we
+define Q(α + 1) to be X/∼.
+Remark 5.2. For β ≤ α we have Q(β) ⊆ Q(α), by exploiting the fact that functions
+are implemented as relations not including explicit reference to their codomain, and
+noting that for f : Ba → Q(α) and g : Bb → Q(α) such that (a, f ) ∼ (b, g), f
+factors through the inclusion Q(β) ⊆ Q(α) if and only if g does.
+  We now give a series of definitions and lemmas that apply at any stage α ∈ On.
+Definition 5.3. Note that we only identify (a, f ) and (b, g) when f and g have
+the same image in Q(α). Hence we have a well defined image function im : Q(α) →
+P(Q(α)), such that whenever x = [(a, f )], im(x) is the image of f in Q(α).
+Definition 5.4. Given an element x of Q(α) of the form [(a, f )], we defined the
+rank of x, rank(x) to be the smallest ordinal β such that f factors through the
+inclusion Q(β) ⊆ Q(α). To check this is a well defined, note that it depends only
+on the image of f .
+  Note that rank(x) + 1 is the smallest ordinal β such that x ∈ Q(β).
+Definition 5.5. Given a set X ⊆ Q(α), we define the union ∪X by
+                                     [
+                              ∪X :=     im(x)
+                                           x∈X
+
+  We define the transitive closure of x ∈ Q(α), TC(x) by
+                                          [
+                              TC(x) :=       ∪n {x}
+                                           1≤n<ω
+
+Lemma 5.6. For all x ∈ Q(α), we have the following equation.
+                          rank(x) = {rank(y) | y ∈ TC(x)}
+Proof. It is clear that whenever y ∈ TC(x) we must have rank(y) < rank(x) since
+this is the case for any n < ω and any y ∈ ∪n {x} by induction on n.
+   It remains to show that for any β < rank(x), we have β = rank(y) for some
+y ∈ TC(x). By the definition of rank, im(x) cannot be contained in Q(β). Hence
+we must have x = [(a, f )] and b ∈ Ba such that f b ∈ / Q(β). For this b we have
+β ≤ rank(f b). If β = rank(f b), then f b ∈ ∪{x} ⊆ TC(x) and so β is as required.
+Otherwise, β < rank(f b) and so by induction on rank(x) we may assume β =
+rank(y) for some y ∈ TC(f b). However, TC(f b) ⊆ TC(x), so y ∈ TC(x) and β is
+again as required.                                                             
+Definition 5.7. For x ∈ Q(α), we write Rn (x) for the set {rank(z) | z ∈ ∪n {x}}.
+Lemma 5.8. For all x ∈ Q(α),
+                                            [
+                               rank(x) =           Rn (x)
+                                           1≤n<ω
+
+Proof. By lemma 5.6.                                                                  
+Definition 5.9. We define κ to be ℵ((Ba )a∈A ). We define κ+ to be the smallest
+non zero ordinal for which there is no surjection κ ։ κ+ .
+8                                          ANDREW W SWAN
+
+
+Lemma 5.10. We define for each x ∈ Q(α) and each 1 ≤ n < ω, a surjection
+Fx,n : κn ։ Rn (x) ∪ {∅}.
+Proof. We first consider the case n = 1. Suppose that x = [(a, f )]. Note that
+R1 (x) := {rank(f b) | b ∈ Ba } is a set of ordinals, and so it has an order type β ∈ On,
+                                                                                ∼
+                                                                                =
+and in particular we have a unique order isomorphism with β, say θ : β → R1 (x).
+Furthermore, by definition, there is clearly a surjection from Ba to R1 (x). It follows
+that β < κ. Hence we can define a canonical surjection Fx,1 : κ ։ R1 (x) ∪ {∅} as
+follows.                                  (
+                                            θ(α) α < β
+                            Fx,1 (α) :=
+                                            ∅      otherwise
+  Now suppose n = m + 1. We fix m ordinals less than κ, say β1 , . . . , βm and
+consider the set Y below.
+                            Y := {Ff b,m (β1 , . . . , βm ) | b ∈ Ba }
+This is again a set of ordinals with a surjection from Ba for some a ∈ A, and so as be-
+fore, we have a canonical surjection G : κ ։ Y ∪{∅}. We take Fx,n (β1 , . . . , βm , βm+1 )
+to be G(βm+1 ). We now simultaneously check that Fx,n has the correct codomain
+and is surjective.
+                             [
+            im(Fx,n ) =            ({Ff b,m (β1 , . . . , βm ) | b ∈ Ba } ∪ {∅})
+                           β1 ,...,βm <κ
+                            [
+                       =          {Ff b,m (β1 , . . . , βm ) | β1 , . . . , βm < κ} ∪ {∅}
+                           b∈Ba
+                            [
+                       =          {rank(z) | z ∈ ∪m {f b}} ∪ {∅}
+                           b∈Ba
+                       = Rn (x) ∪ {∅}
+                                                                                              
+Lemma 5.11. For any x ∈ Q(α) we have rank(x) < κ+ .
+Proof. First note that this is clear when rank(x) = 0. Hence we may assume for
+the rest of the proof rank(x) > 0.
+   By the definition of κ+ , it suffices to definePa surjection κ ։ rank(x). By
+proposition 4.4 it suffices to define a surjection 1≤n<ω κn ։ rank(x). However,
+                                             S
+by lemma 5.8 we can express rank(x) as 1≤n<ω Rn (x). Since rank(x) > 0, this
+                S
+is the same as 1≤n<ω (Rn (x) ∪ {∅}), and so we can just combine the surjections
+defined in lemma 5.10.                                                        
+Theorem 5.12. All image preserving QW -types exist in Set.
+Proof. We show that Q(κ+ ) is an initial algebra. We first need to show how to define
+an algebra structure. Suppose we are given a ∈ A and a map f : Ba → Q(κ+ ). Then
+[(a, f )] is an element of Q(κ+ + 1). By lemma 5.11 we have rank([(a, f )]) < κ+ ,
+and so f factors through Q(β) for some β < κ+ . We can then take sup(a, f ) to be
+[(a, f )] ∈ Q(β + 1).
+    We check that this structure respects the equations. Suppose that we are given
+g : Ve → Q(κ+ ). Note that g ◦le and g ◦re have the same image, and so rank([(ae , g ◦
+le )]) = rank([(be , g ◦ re )]). Hence [(ae , g ◦ le )] and [(be , g ◦ re )] must have been first
+    A CLASS OF HIGHER INDUCTIVE TYPES IN ZERMELO-FRAENKEL SET THEORY                  9
+
+
+added at the same stage, α + 1. We can now see that they were identified in the
+definition of Q(α + 1).
+   Finally, it is clear that for any other algebra structure, we can define a unique
+homomorphism out of Q(κ+ ) by recursion on ordinals.                              
+
+         6. The ranks of unordered countably branching trees
+   It follows from Jech’s construction that every hereditarily countable set has rank
+less than ω2 . In [Jec82] Jech also showed a converse statement when ω1 is singular:
+in this case there is a hereditarily countable set of rank α for every α < ω2 . We will
+show the analogous result for unordered countably branching trees. We first recall
+that Jech proved the following lemma as part of the proof of [Jec82, Theorem 2].
+Lemma 6.1. Suppose that ω1 is singular and let α < ω2 . For each fixed surjection
+f : ω1 ։ α and choice of countable cofinal sequence in ω1 , we can construct for
+each limit ordinal λ ≤ α a choice of countable cofinal subset Yλ ⊆ λ.
+  We can now show the theorem.
+Theorem 6.2. Suppose that ω1 is singular. Then for every α < ω2 there is an
+unordered countably branching tree of rank α.
+Proof. Since α < ω2 and ω1 is singular there exists a choice of sets Yλ as in lemma
+6.1 for limit ordinals λ ≤ α.
+   We construct an unordered countably branching tree tβ for each β ≤ α by induc-
+tion. We define t0 := leaf. For successor ordinals we define tβ+1 := node(λn.tβ ).
+This just leaves the case of tλ for non zero limit ordinals λ. Since Yλ is countable
+there exists a surjection g : ω ։ Yλ . Since Yλ is cofinal in a limit ordinal it is not
+                                              ∼
+                                              =
+finite. Hence there exists a bijection h : ω → Yλ , which we can construct from a
+choice of surjection g as follows:
+           h(0) = g(0)
+                  (
+                    g(n + 1) g(n + 1) 6= h(k) for all k ≤ n
+       h(n + 1) =
+                    γ        otherwise, γ least s.t. γ 6= h(k) for all k ≤ n
+   We show how to define tλ from a choice of bijection h, and then check that it is
+independent of the particular choice and so well defined.
+   We define tλ := node(λn.th(n) ). Now suppose that we are given two such bijec-
+               ∼
+               =
+tions h, h′ : ω → Yλ . Then π := h−1 ◦ h′ is a permutation of ω and h′ = h◦ π. Hence
+node(λn.th′ (n) ) and node(λn.th(n) ) are identified by one of the defining equations of
+unordered countably branching trees, ensuring that tλ is independent of the choice
+of h, as required. It is clear that rank(tβ ) = β for all β ≤ α.                      
+Corollary 6.3. If ω1 is singular, then the unique homomorphism h : T → TSym
+from countably branching trees to unordered countably branching trees is not sur-
+jective.
+Proof. Note that h preserves rank. Hence by theorem 6.2 it suffices to show that
+the rank of every (ordered) countably branching tree is less than ω1 .
+   Fix a surjective function s : ω ։ ω + (ω × ω). We construct for each ordered
+tree t a countable enumeration f (t) : ω → T whose image is the union of the set
+of proper subtrees of t and {leaf}. We define f (leaf)(n) := leaf. Now suppose
+10                                ANDREW W SWAN
+
+
+we are given a tree of the form t = node(g). By composing with s, it suffices for
+us to define two functions f0 : ω → T and f1 : ω × ω → T that jointly enumerate
+all of the proper subtrees of t (including leaf). We define f0 (n) := g(n) and
+f1 (n, m) := f (g(n))(m).
+    By lemma 5.6 the rank of each t is equal to the set of ranks of proper subtrees.
+However, by the above enumeration this is a countable ordinal and so less than ω1 ,
+as required.                                                                      
+
+                                  7. Conclusion
+   We have shown that every image preserving QW -type exists in Set under ZF
+without any additional assumptions. Although the proof is somewhat elaborate, we
+can see from the results of section 6 that some complication is necessary. The naı̈ve
+construction of defining an equivalence relation on the W -type of the underlying
+polynomial and quotienting will not work in general. As we saw, both hereditarily
+countable sets and unordered countably branching trees provide counterexamples
+when ω1 is singular.
+7.1. Generalisations and limitations of this method. The proof in section
+5 made use of the fact that we have a well defined image operation sending each
+element of the form (a, f ) to the image of f . This may not be strictly necessary for
+the proof, since the key lemma 5.10 only used the sets Rn in definition 5.7 which
+may be definable in situations without a well defined image operator. So there could
+be a more general version of the theorem that uses the same key idea. However, it is
+unclear if there are any interesting examples of QW -type that can be constructed by
+the same general method, but whose existence isn’t already a corollary of theorem
+5.12. We therefore leave it as an open problem both to generalise the theorem and
+to find interesting examples making essential use of the generalisation.
+   On the other hand there are some examples where the argument here cannot
+possibly apply. As already discussed in example 2.8, Blass’ counterexample cannot
+be constructed by this method, since it does not provably exist under ZF. However,
+there is also a much simpler example of a QW -type that exists, provably in ZF, but
+does not seem to be covered by the argument in this paper, namely free monoids.
+We consider in particular the free monoid on a set with four elements {a, b, c, d}.
+As a special case of associativity we have a(b(cd)) = (ab)(cd). However, it is
+unclear how to define R1 for this term. Since rank(a) = 0 and rank(b(cd)) = 2,
+we expect R1 (a(b(cd))) = {0, 2}. Since rank(ab) = rank(cd) = 1, we also expect
+Ra ((ab)(cd)) = {1, 1}. Since Rn play an essential role in lemma 5.10 it seems that
+it is impossible to construct free monoids by this method, even though they do
+provably exist in Set under ZF.
+   Another class of examples of QW -types that exist under ZF, but are not covered
+directly by the methods of section 5 are W -types with reductions. By their nature
+they identify two trees of different rank, so we don’t expect to have a well defined of
+rank without the observation in [Swa18] that in the presence of the law of excluded
+middle they can be viewed as an ordinary W -types of normal forms.
+7.2. Related Open Problems. The limitations of the result discussed above nat-
+urally lead to the following question.
+Open Problem 7.1. Is there a general construction of QW -types in Set under
+ZF that naturally encompasses all examples known to exist in this setting?
+    A CLASS OF HIGHER INDUCTIVE TYPES IN ZERMELO-FRAENKEL SET THEORY                         11
+
+
+   Our proof of lemma 5.10 makes essential use of the fact that any set of ordinals
+is order isomorphic to an ordinal, which in turn uses classical logic. This leaves
+open the case of intuitionistic logic, specifically the following problem.
+Open Problem 7.2. Show all image preserving QW -types exist in Set under the
+assumptions of IZF or find a model of IZF where they do not.
+  Note that the proof of theorem 6.2 made essential use of the fact that we have
+equations for all permutations π of ω. It is unclear what happens when we allow
+some permutations but not all, leading to the following question.
+Open Problem 7.3. We define the QW -type of countably branching weakly un-
+ordered trees to have the same underlying polynomial as countably branching trees
+and equations of the form node(λn.vn ) = node(λn.vπ(n) ) where π is a finitely sup-
+ported permutation of ω. Is it provable in ZF that the unique homomorphism
+from countably branching trees to weakly unordered countably branching trees is a
+surjection?
+
+                                        References
+[AB04]    Steven Awodey and Andrej Bauer. Propositions as [types]. Journal of Logic and Com-
+          putation, 14(4):447–471, 2004.
+[ACD+ 18] Thorsten Altenkirch, Paolo Capriotti, Gabe Dijkstra, Nicolai Kraus, and Fredrik Nord-
+          vall Forsberg. Quotient inductive-inductive types. In Christel Baier and Ugo Dal Lago,
+          editors, Foundations of Software Science and Computation Structures, pages 293–310,
+          Cham, 2018. Springer International Publishing.
+[AK16]    Thorsten Altenkirch and Ambrus Kaposi. Type theory in type theory using quotient
+          inductive types. In Proceedings of the 43rd Annual ACM SIGPLAN-SIGACT Sym-
+          posium on Principles of Programming Languages, POPL ’16, page 18–29, New York,
+          NY, USA, 2016. Association for Computing Machinery.
+[AR01]    Peter Aczel and Michael Rathjen. Notes on constructive set theory. Technical Re-
+          port 40, Institut Mittag-Leffler, 2001.
+[Bla83]   Andreas Blass. Words, free algebras, and coequalizers. Fundamenta Mathematicae,
+          117(2):117–160, 1983.
+[CH19]    Evan Cavallo and Robert Harper. Higher inductive types in cubical computational
+          type theory. Proc. ACM Program. Lang., 3(POPL), January 2019.
+[CHM18] Thierry Coquand, Simon Huber, and Anders Mörtberg. On higher inductive types in
+          cubical type theory. In Proceedings of the 33rd Annual ACM/IEEE Symposium on
+          Logic in Computer Science, LICS ’18, pages 255–264, New York, NY, USA, 2018.
+          ACM.
+[FPS20]   Marcelo P. Fiore, Andrew M. Pitts, and S. C. Steenkamp. Constructing infinitary
+          quotient-inductive types. In J. Goubault-Larrecq and B. König, editors, 23rd Interna-
+          tional Conference on Foundations of Software Science and Computation Structures
+          (FoSSaCS 2020), volume 12077 of Lecture Notes in Computer Science, pages 257–276.
+          Springer, 2020.
+[FPS21]   Marcelo P. Fiore, Andrew M. Pitts, and S. C. Steenkamp. Quotients, inductive types,
+          and quotient inductive types. arXiv:2101.02994, January 2021.
+[Git80]   M. Gitik. All uncountable cardinals can be singular. Israel Journal of Mathematics,
+          35(1):61–88, Sep 1980.
+[Git85]   Moti Gitik. Regular cardinals in models of ZF. Transactions of the American Mathe-
+          matical Society, 290(1):41–68, 1985.
+[Hol14]   M. Randall Holmes. On hereditarily small sets in ZF. Mathematical Logic Quarterly,
+          60(3):228–229, 2014.
+[Jec82]   Thomas Jech. On hereditarily countable sets. The Journal of Symbolic Logic, 47(1):43–
+          47, 1982.
+[Kel80]   G.M. Kelly. A unified treatment of transfinite constructions for free algebras, free
+          monoids, colimits, associated sheaves, and so on. Bulletin of the Australian Mathe-
+          matical Society, 22(1):1–83, 1980.
+12                                   ANDREW W SWAN
+
+
+[Kun09]   Kenneth Kunen. The Foundations of Mathematics. Studies in Logic: Mathematical
+          Logic and Foundations. College publications, 2009.
+[LS20]    Peter LeFanu Lumsdaine and Michael Shulman. Semantics of higher inductive types.
+          Mathematical Proceedings of the Cambridge Philosophical Society, 169(1):159–208,
+          2020.
+[Mai05]   Maria Emilia Maietti. Modular correspondence between dependent type theories and
+          categories including pretopoi and topoi. Mathematical Structures in Computer Science,
+          15:1089–1149, 12 2005.
+[MP00]    Ieke Moerdijk and Erik Palmgren. Wellfounded trees in categories. Annals of Pure and
+          Applied Logic, 104(1):189 – 218, 2000.
+[Soj15]   Kristina Sojakova. Higher inductive types as homotopy-initial algebras. In Proceedings
+          of the 42Nd Annual ACM SIGPLAN-SIGACT Symposium on Principles of Program-
+          ming Languages, POPL ’15, pages 31–42, New York, NY, USA, 2015. ACM.
+[Swa18]   Andrew Wakelin Swan. W-types with reductions and the small object argument.
+          arXiv:1802.07588, February 2018.
+[Uni13]   Univalent Foundations Program. Homotopy Type Theory: Univalent Foundations of
+          Mathematics. http://homotopytypetheory.org/book , Institute for Advanced Study,
+          2013.
+[vdB12]   Benno van den Berg. WISC in indepedent from ZF. Unpublished note available at
+          https://staff.fnwi.uva.nl/b.vandenberg3/papers/WISC.pdf, May 2012.
+

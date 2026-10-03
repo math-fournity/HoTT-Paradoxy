@@ -1,0 +1,2656 @@
+                                                        SEMANTICS OF HIGHER INDUCTIVE TYPES
+
+
+                                                           PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+
+
+arXiv:1705.07088v2 [math.LO] 5 Mar 2019
+                                                    Abstract. Higher inductive types are a class of type-forming rules, introduced
+                                                    to provide basic (and not-so-basic) homotopy-theoretic constructions in a type-
+                                                    theoretic style. They have proven very fruitful for the “synthetic” development
+                                                    of homotopy theory within type theory, as well as in formalizing ordinary
+                                                    set-level mathematics in type theory. In this article, we construct models of a
+                                                    wide range of higher inductive types in a fairly wide range of settings.
+                                                        We introduce the notion of cell monad with parameters: a semantically-
+                                                    defined scheme for specifying homotopically well-behaved notions of structure.
+                                                    We then show that any suitable model category has weakly stable typal initial
+                                                    algebras for any cell monad with parameters. When combined with the local
+                                                    universes construction to obtain strict stability, this specializes to give models
+                                                    of specific higher inductive types, including spheres, the torus, pushout types,
+                                                    truncations, the James construction, and general localisations.
+                                                        Our results apply in any sufficiently nice Quillen model category, including
+                                                    any right proper, simplicially locally cartesian closed, simplicial Cisinski model
+                                                    category (such as simplicial sets) and any locally presentable locally cartesian
+                                                    closed category (such as sets) with its trivial model structure. In particular,
+                                                    any locally presentable locally cartesian closed (∞, 1)-category is presented by
+                                                    some model category to which our results apply.
+
+
+
+                                                                                      Contents
+                                             1. Introduction                                                                                 2
+                                             2. Good model categories                                                                        6
+                                             3. Coproducts                                                                                   8
+                                             4. Pushouts in model categories                                                                10
+                                             5. Pushouts in comprehension categories                                                        11
+                                             6. Pushouts in type theory                                                                     15
+                                             7. Natural numbers                                                                             21
+                                             8. W-types                                                                                     24
+                                             9. A higher inductive type not constructible from pushouts                                     26
+                                             10. Propositional truncation                                                                   28
+                                             11. Cell monads                                                                                32
+                                             12. Cell monads with parameters                                                                38
+                                             13. Summary                                                                                    48
+                                             References                                                                                     48
+
+                                             This material is based on research sponsored by The United States Air Force Research Laboratory
+                                          under agreement number FA9550-15-1-0053. The U.S. Government is authorized to reproduce and
+                                          distribute reprints for Governmental purposes notwithstanding any copyright notation thereon.
+                                          The views and conclusions contained herein are those of the author and should not be interpreted
+                                          as necessarily representing the official policies or endorsements, either expressed or implied, of the
+                                          United States Air Force Research Laboratory, the U.S. Government, or Carnegie Mellon University.
+                                          The research presented here was also partly funded by the Swedish Research Council (VR) Grant
+                                          2015-03835 Constructive and category-theoretic foundations of mathematics.
+                                                                                            1
+2                   PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+                                      1. Introduction
+     Higher inductive types are a recent innovation in dependent type theory. They
+were originally motivated by the homotopical interpretations of type theory [AW09,
+ KL12, Uni13], as a way to construct types corresponding to homotopy-theoretic cell
+ complexes such as spheres, tori, and so on.
+     For instance, a circle can be constructed as a topological cell complex with one
+ point (0-cell) and one path (1-cell) with both endpoints glued to the point. The
+ homotopy-type-theoretic view of paths as corresponding to elements of identity
+ types suggests considering a “circle type” S 1 that is “inductively generated” by
+ a point base : S 1 and an identity loop : IdS 1 (base, base). Similarly, a torus can
+ be constructed as a cell complex with one point, two paths, and one disc (2-cell)
+whose boundary traverses the paths in one order on one side and the other order
+ on the other side; this suggests a “torus type” T 2 that is inductively generated
+ by one point base : T 2 , two identities left, right : IdT 2 (base, base), and an “iterated
+ identity” sq : IdIdT 2 (base,base) (left  right, right  left) (where  denotes the concatenation
+ of identities).
+     Although it may seem odd to consider “inductive constructors” that take values
+ not in an inductive type itself but in its identity types, it is not hard to write
+ down rules for such types in the usual dependent-type-theory style of formation,
+ introduction, elimination, and computation principles. For instance, in the case of
+ S 1 , the terms base and loop are the introduction rules, while the elimination rule says
+ that to define a section x : S 1 ` f (x) : P (x) of a type family over S 1 it suffices to give
+ a point f (base) : P (base) and a lift of the loop apf (loop) : Idloop       P (f (base), f (base))
+(see §5 for the meaning of the notation), and the computation rules say that f
+ evaluates on base and loop to the given data.
+     The above examples are “non-recursive” higher inductive types, analogous to
+ binary sum types and the empty type, considered as ordinary inductive types. The
+“most general” non-recursive higher inductive type, in the sense that all others can be
+ constructed from it, is a (homotopy) pushout: given two functions f1 : A → B1 and
+ f2 : A → B2 , their pushout is a type DQinductively generated by maps ν1 : B1 → D
+ and ν2 : B2 → D and a homotopy µ : x:A IdD (ν1 (f1 (x)), ν2 (f2 (x))). In particular,
+ from pushouts we can construct all other finite homotopy colimits (and also some
+ infinite ones, using the natural numbers type).
+     We can also consider higher inductive types that do have recursive constructors.
+ For instance, in homotopy type theory a proposition is defined toQbe a type any
+ two elements of which are equal, i.e. such that there is a term in x,y:A IdA (x, y).
+The propositional truncation of an arbitrary type A is a proposition kAk with a
+ map from A that is “universal”; it can be regarded as the higher inductive type
+ generated
+ Q            by one ordinary constructor tr : A → kAk and one higher constructor treq :
+    x,y:kAk  IdkAk (x, y). (The latter is “recursive” because the inputs x, y belong to
+ the type kAk being constructed.) Other recursive higher inductive types include the
+ n-truncation for any n (a universal map into a homotopy n-type — the propositional
+ truncation is the case n = −1) and the localization at a family of morphisms {fi }i∈I
+(the universal map into a type that “sees each fi as an isomorphism”).
+     In particular, the 0-truncation of a pushout of 0-types (types satisfying Uniqueness
+ of Identity Proofs, a.k.a. “sets”) is a pushout in the category of 0-types. If we
+ also assume Voevodsky’s univalence axiom (or just its restriction to propositions),
+                     SEMANTICS OF HIGHER INDUCTIVE TYPES                             3
+
+
+we can show that the latter category is a pretopos; see [Uni13, Chapter 10]. In
+particular, one has exact set-quotients of equivalence relations, eliminating the need
+for the cumbersome method of “setoids”. Recursive higher inductive 0-types (also
+known as “quotient inductive types” [ACDF16]) have other applications, such as
+constructing free algebras for arbitrary algebraic theories (which is not possible in a
+general elementary topos [Bla83]) and representing type theory inside itself [AK16].
+Thus, higher inductive types add power even for the representation of ordinary
+set-based mathematics inside type theory.
+   A general discussion of the syntax of higher inductive types (though not going so
+far as to propose a general definition) can be found in [Uni13, Chapter 6]. They have
+succeeded admirably at their original goal of providing types in homotopy type theory
+that behave like cell complexes in classical homotopy theory (see [Uni13, Chapter
+8] and also more recent work). Interestingly, although the original motivation came
+from inspecting small concrete cell complexes such as circles and tori, the more
+complicated recursive higher inductive types (such as n-truncation and localization)
+also correspond to constructions in classical homotopy theory (such as Postnikov
+towers and Bousfield localization) that are usually performed using cell complexes,
+albeit transfinite and often unwieldy ones. This yields a strong intuition that
+higher inductive types are somehow a type-theoretic replacement for cell complexes.
+However, there is some distance from this intuition to a formal proof that higher
+inductive types actually exist in homotopical models of type theory.
+   The goal of the present paper is to fill this gap. The basic ideas were known to
+the authors several years ago, and circulated informally in the community, but the
+results have not been written out precisely until now.
+   Roughly speaking, there are the following issues to overcome in constructing
+semantics for higher inductive types.
+
+   (i) When interpreting type theory in a model category, types are represented by
+       fibrant objects. But cell complexes are built out of colimits, which do not
+       preserve fibrancy; thus we need to “fibrantly replace” them.
+  (ii) The usual constructions of homotopy theory, including cell complexes and
+       fibrant replacement, produce the right answer only up to homotopy equivalence.
+       But the induction principle of a higher inductive type is somewhat stricter
+       than this (though it falls short of determining it up to strict isomorphism).
+ (iii) Everything in type theory is stable under substitution, so in order to be type-
+       theoretically meaningful a category-theoretic construction must be stable under
+       pullback (at least “weakly stable”, as in [LW15]). But fibrant replacement is
+       not in general stable under pullback, even weakly.
+ (iv) The constructors of an ordinary inductive type are unrelated to each other.
+       But in a higher inductive type each constructor must be able to refer to
+       the previous ones; specifically, the source and target of a path-constructor
+       generally involve the previous point-constructors. No syntactic scheme has
+       yet been proposed for this that covers all cases of interest while remaining
+       meaningful and consistent, so the “target” of an interpretation theorem is not
+       even precisely defined.
+
+As we will see, problem (ii) only arises in the recursive case; but on the other hand,
+it is not specific to higher inductive types, being a problem even for interpreting
+ordinary recursive inductive types such as natural numbers and W-types.
+4                  PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+   We present (in §12) a general context that solves problems (i)–(iii), and partially
+solves (iv) in the following sense. We describe a semantic construction (a “cell
+monad”) that enables subsequent “constructors” to refer to previous ones, and
+determines a precise semantic meaning for what the source and target of a path-
+constructor can be. However, although in particular cases it is easy to see that the
+syntactic source and targets in the specification of a higher inductive type give rise
+to the desired semantic structure, we do not give a general syntactic characterization
+of allowable “source and target terms”.1 Moreover, there are some kinds of source
+and target terms that seem natural syntactically but do not fit into our semantic
+framework.
+   For expositional clarity, instead of jumping right to the general context of cell
+monads, we begin (after preliminaries in §2 and a warm-up in §3) in §§4–6 by
+considering in detail the case of pushouts. These are subject only to problems (i)
+and (iii). We solve (i) by a simple ordinary fibrant replacement, and (iii) by pulling
+back separately along fibrations (which are easy) and acyclic cofibrations (using a
+pushout-product argument).
+   In §7 we consider the natural numbers type, which is of course simpler because it
+lacks any path-constructors, but is recursive and thus subject to problems (i)–(iii).
+We solve problem (ii) by using an algebraic fibrant replacement, which retains better
+control over the point-set-level behavior than an ordinary fibrant replacement, in
+particular enabling us to prove the type-theoretic universal property. However,
+the simple pushout-product argument for (iii) that applies in the non-recursive
+case is no longer applicable in the recursive case. Thus, to prove weak stability
+for natural numbers, we alter the usual interpretation of type theory a little by
+requiring contexts as well as types to be fibrant (this turns out to be true anyway a
+posteriori in the usual interpretation, it’s just not usually assumed explicitly at the
+outset). This allows us to ignore the case of pullback along acyclic cofibrations.
+   In §8 we consider W-types, which add only one wrinkle to natural numbers: since
+they have nontrivial parameters, we have to be able to pull back along acyclic
+cofibrations in addition to along fibrations. But requiring contexts to be fibrant
+still solves the problem, with some extra work: it ensures that acyclic cofibrations
+have retractions, which together with an “extension lemma” enables us to reduce
+an elimination problem over the domain to one over the codomain.
+   These specific cases, while admittedly rather specific, are by themselves sufficient
+for a large fraction of current homotopy type theory and synthetic homotopy theory.
+In particular, Kraus [Kra16] and van Doorn [van16] have shown that from pushouts
+and the natural numbers one can construct the propositional truncation, while
+Rijke [Rij17, Rij16] has shown that one can even construct all n-truncations along
+with some localizations, and some have even conjectured that all higher inductive
+types might be similarly constructible. To motivate the need for further work,
+therefore, in §9 we describe a specific higher inductive type that definitely cannot
+be constructed in terms of pushouts and natural numbers.
+   As one final warm-up for the general case, in §10 we discuss the propositional
+truncation. This is special in many ways, but still exhibits the one remaining basic
+new idea in our general approach, namely algebraic pushouts of monads. A sequence
+
+   1In [ACDF16] a similar semantic characterization is internalized literally, using universes, under
+the assumption of UIP; but with present technology this does not generalize to type theory without
+UIP, since (∞, 1)-categories are not known to be definable internally.
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                              5
+
+
+of such pushouts along “generating monad cells” yields what we call a cell monad,
+since it is a precise analogue of a cell complex, only built in the category of monads.
+Each generating monad cell corresponds to one constructor of a higher inductive
+type; thus we might say that higher inductive types replace the large unwieldy cell
+complexes of classical algebraic topology with small manageable “cell complexes”
+constructed at a higher level of abstraction.
+    In §11 we describe cell monads for higher inductive types without parameters,
+and in §12 we generalize to the parametrized case. Most of the work in these sections
+is just in setting up a sufficiently general context in which to prove the theorems.
+As mentioned above, we do not have a syntactic context of equal generality; but we
+explain heuristically, with many examples, how to perform a syntax-to-semantics
+translation in particular cases. We also discuss some limitations of our construction;
+most importantly, the fact that source and target terms cannot contain “fibrant
+structure” such as eliminations from other inductive and higher inductive types. This
+includes concatenation of paths, as used for instance in the standard presentaiton of
+the torus; however, for this and many other examples, we show how to work around
+the issue by using more general cofibrations. In §13 we summarize our results for
+quick reference.
+Remark 1.1. Since type-theoretic laws hold up to strict equality, whereas categorical
+ constructions are well-behaved only up to isomorphism (or homotopy), the standard
+way to interpret dependent type theory into categories involves an intermediate
+“strictification” step. For this we will use the local universes coherence method [LW15],
+which replaces any well-behaved comprehension category by a split one in such a
+way that any “weakly stable” structure possessed by the original becomes “strictly
+ stable” structure in the splitting. In §§3 and 8 we use results from [LW15] verbatim,
+while elsewhere we have to prove the analogous theorems ourselves; this is generally
+ straightforward, although it is worth noting that the “cofibrancy” of a cell monad
+ plays a role not only in the weak stability of its homotopy-initial algebras but also
+ the “representability” of its structures, both of which are necessary for the local
+ universes theorem.
+    Once such a strict algebraic structure has been built from a desired categorical
+ model, the interpretation is completed by constructing the initial such algebraic
+ structure out of the syntax of type theory, so that there is a unique structured map
+ interpreting all the syntax into the desired model. Such an initiality theorem was
+ suggested by [Car86], and proven thoroughly by [Str91] for a specific non-toy type
+ theory, the Calculus of Constructions. Such proofs are too long and bureaucratic
+ for anyone to want to write or read in detail, but opinions differ as to whether
+ they are straightforward enough that initiality for other type theories (such as
+ those considered here) may be considered established. We take no position on
+ this question; our only goal is to construct split comprehension categories with the
+ appropriate strictly stable structure to model higher inductive types, and so we will
+ simply refer to these as “models of type theory”.
+   Our perspective on higher inductive types can be summarized as follows. It is
+well-known that ordinary inductive types can be described as initial algebras for
+polynomial endofunctors (and this remains true in homotopy type theory [AGS15]).
+An algebra for an endofunctor F (in the endofunctor sense, i.e. an object X with a
+map F X → X) is the same as an algebra (in the monad sense) for the algebraically-
+free monad generated by F ; thus ordinary inductive types are equivalently initial
+6                PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+algebras for free monads on polynomial endofunctors. Since (unlike an endofunctor)
+a monad always has an initial algebra, the existence of inductive types is really
+about the existence of such free monads themselves.
+   Higher inductive types generalize from free monads to presented monads, i.e. mon-
+ads constructed as an algebraic colimit of free monads on polynomial endofunctors.
+(A colimit of monads is “algebraic” if an algebra structure for the colimit monad is
+determined by compatible algebra structures for the monads in the input diagram.)
+Intuitively, a “cell monad” is one with such a presentation that is “homotopically
+meaningful”, i.e. a “homotopy colimit of monads”. This suggests a way to say what
+it means for a category (or (∞, 1)-category) to “have higher inductive types”: that
+algebraic colimits of algebraically-free monads on polynomial endofunctors exist
+(with all these words interpreted 1-categorically or (∞, 1)-categorically as appro-
+priate). This is known to be true for locally presentable 1-categories, and ought to
+be true for locally presentable (∞, 1)-categories as well; but it is not immediately
+obvious how to make it precise in an “elementary” way.
+   While our general construction achieves a lot, there is also still a lot left to do.
+Open problems include the following.
+   • Our type theory does not contain any universes. In some respects this is a
+     feature rather than a bug, since it makes the semantics more general: our model
+     categories include all locally presentable locally cartesian closed 1-categories
+     and suffice to present all locally presentable locally cartesian closed (∞, 1)-
+     categories. Of course, if a model category does have universes, such as simplicial
+     sets [KL12] and others constructed from it [Shu15b, Shu15a, Cis14, Shu17],
+     then higher inductive types are more powerful due to “large eliminations”,
+     which are used frequently in synthetic homotopy theory.
+        However, there is an additional desirable feature that our method does not
+     produce even in models that have universes. One hopes to have universes
+     that are closed under parametrized higher inductive types, for instance that if
+     A, B1 , B2 all lie in some universe then so does some pushout of any f1 : A → B1
+     and f2 : A → B2 . But our method does not give this, because it involves
+     fibrant replacement, which does not preserve smallness of fibers. (The different
+    “cubical” methods of [CHM18] do appear to produce universes closed under
+     higher inductive types.)
+   • As mentioned above, although our method allows very general “source and
+     target terms”, it does not allow “fibrant structure” therein, such as path-
+     concatenation and eliminations from inductive types. While we can work
+     around this in many cases, it would be better to be able to drop the restriction.
+   • Of course, we would like a general syntactic scheme for higher inductive types,
+     and a general theorem interpreting such syntax using our general semantics,
+     rather than having to treat every case manually.
+   • Finally, there are various generalizations of higher inductive types that we
+     have not addressed, such as indexed higher inductive families, higher inductive-
+     inductive types (e.g. [Uni13, Chapter 11] and [AK16]), and higher inductive-
+     recursive types (e.g. [Shu14]). A starting point would be to unify our approach
+     with that of [ACDF16].
+
+                           2. Good model categories
+    We will work throughout in the following contexts.
+                         SEMANTICS OF HIGHER INDUCTIVE TYPES                                         7
+
+
+Definition 2.1. A good model category is a model category M with the fol-
+lowing additional properties.
+    (i) M is simplicial.
+   (ii) Every monomorphism in M is a cofibration.
+  (iii) Cofibrations in M are stable under arbitrary limits.
+  (iv) M is right proper, i.e. weak equivalences are preserved by pullback along
+        fibrations.
+   (v) M is locally cartesian closed, as a simplicial category.
+An excellent model category2 is a good model category that is in addition
+combinatorial, i.e. it satisfies the following further properties.
+  (vi) M is cofibrantly generated.
+ (vii) As a category, M is locally presentable.
+Example 2.2. A Cisinski model category [Cis02, Cis06] is a cofibrantly generated
+model structure on a Grothendieck topos whose cofibrations are the monomor-
+phisms. Therefore, any right proper, simplicially locally cartesian closed, simplicial
+Cisinski model category is an excellent model category. Cisinski [Cis12] and Gepner–
+Kock [GK17] have shown that any locally presentable locally cartesian closed
+(∞, 1)-category (and in particular any Grothendieck (∞, 1)-topos [Lur09]) can be
+presented by such a model category.
+Example 2.3. Any complete and cocomplete locally cartesian closed category with
+its trivial model structure (the weak equivalences are the isomorphisms and all
+morphisms are cofibrations and fibrations) is also a good model category. If it is
+locally presentable, then it is an excellent model category. Thus, we also include
+the standard examples of semantics for extensional type theory.
+Non-example 2.4. The category of groupoids, which was the first homotopical model
+of type theory [HS98], satisfies all the axioms of a good model category except that
+it is not locally cartesian closed: only fibrations of groupoids are exponentiable. It
+is possible that with some care our method could be generalized to such examples,
+at the expense of increased awkwardness (for instance, Lemma 11.9 would no longer
+be true exactly as stated).
+Remark 2.5. The first version of this paper omitted the condition that good model
+categories should be simplicially locally cartesian closed, required for copowers to
+be stable under pullback; see [Shu19] and followups.
+   Assumption (i) tells us that M is simplicially enriched, with powers and copowers3
+satisfying the pushout-product and pullback-corner axioms, and (by assumption (v))
+preserved by pullbacks. This enables us to construct path objects (which model
+identity types) as simplicial powers. Specifically, if ∆1 denotes the 1-simplex (the
+                                                                  1
+simplicial interval), then for any fibrant object A, the power A∆ is a path-object for
+                                                                      1
+                                                                            ∆1
+A. Likewise, if p : A  Γ is a fibration, then the “fibred power” A∆Γ =A       ×Γ∆1 Γ
+is a path-object for A regarded as a type over Γ; see Theorem 5.2.
+   This is important for us because it means that homotopies can be represented
+                                      1
+in adjoint form: a map A → B ∆ is equivalent to a map A ⊗ ∆1 → B, where
+   2Note that this nonce definition is different from the similarly-named [Lur09, Definition A.3.2.16],
+though it shares some of the same conditions.
+   3Also known as cotensors and tensors, respectively.
+8                PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+ A ⊗ ∆1 is the simplicial copower. Note that like other colimits, the simplicial
+ copower of p : A  Γ in the slice category over Γ is just A ⊗ ∆1 with the projection
+ A ⊗ ∆1 → A → Γ. Moreover, each slice category of M is a simplicial model category,
+ and pullback preserves both simplicial powers and copowers. Given A ∈ M /Γ, we
+write AK Γ for the simplicial power in M /Γ.
+     Every good model category is a type-theoretic model category in the sense
+ of [Shu15b], and hence the subcategory of fibrant objects is a type-theoretic fibration
+ category. In particular, cofibrations are stable under pullback, so acyclic cofibrations
+ are stable under pullback along fibrations, and hence dependent products of fibrations
+ along fibrations are fibrations. Taken together, this implies that the fibrations in
+ a good model category M form a comprehension category (M , F) that has the
+ categorical structure corresponding to type theory with dependent sums (including
+ a unit type), dependent products, and identity types.
+     To actually construct such an interpretation requires a coherence theorem making
+ all the structure strictly stable under pullback. We will use the coherence method
+ of [LW15], which applies to many different kinds of structure. The input to this
+ method is a general comprehension category (C, T ). One then defines the left
+ adjoint splitting (C, T! ) (or just C! for short) in which a type A ∈ T! (Γ) consists
+ of an object VA ∈ C, a type EA ∈ T (VA ), and a map pAq : Γ → VA . We call VA the
+“local universe” and think of this as a representative of the pullback of EA along pAq.
+ Reindexing of such types is done by simple composition (A[f ] is pAq ◦ f ) which is
+ strictly associative. The local universes technique then shows that if C satisfies a
+ technical condition (see (LF) below) and C has “weakly stable” structure of some
+ sort, meaning that it exists in each fiber T (Γ) and the reindexing of a structure is a
+ structure, then C! admits strictly stable structure (obtained by constructing weakly
+ stable structure once in the “universal case”), and thus provides semantics for the
+ corresponding type-theoretic rules. See [LW15] for details.
+     We summarize the above discussion as follows.
+
+Theorem 2.6. Any good model category M admits a natural structure of a
+comprehension category (M , F) where F(Γ) is the category of fibrations with
+codomain Γ. Moreover, (M , F) has weakly stable dependent sums, unit type,
+dependent products, and identity types, and therefore (M , F! ) has strictly stable
+dependent sums, unit type, dependent products, and identity types.
+   Similarly, writing (Mf , Ff ) for the restriction of (M , F) to fibrant objects,
+(Mf , Ff ) carries the same weakly stable structure, and hence (Mf , Ff ,! ) the same
+strictly stable structure.
+
+
+                                   3. Coproducts
+   We warm up for pushouts by considering the case of coproducts. To start with,
+we specialize the definitions from [LW15, §3.4.1] to our context of a good model
+category. We qualify these definitions with “typal” (the adjective of “type”) to
+distinguish them from the ordinary categorical constructions in M .
+
+Definition 3.1. A typal coproduct of fibrations A1 → Γ and A2 → Γ consists
+of a fibration A1 ⊕ A2 → Γ with maps νi : Ai → A1 ⊕ A2 over Γ such that for any
+fibration C → A1 ⊕ A2 with sections ti : Ai → C over νi , there exists a section
+s : A1 ⊕ A2 → C such that s ◦ νi = ti .
+                     SEMANTICS OF HIGHER INDUCTIVE TYPES                             9
+
+
+    We say M has weakly stable typal coproducts if for any A1 → Γ and A2 → Γ
+there exists a typal coproduct A1 ⊕ A2 such that for any σ : ∆ → Γ, the pullback
+σ ∗ (A1 ⊕ A2 ) with injections σ ∗ νi is a typal coproduct of σ ∗ A1 and σ ∗ A2 .
+Theorem 3.2 ([LW15, Lemma 3.4.1.4]). If M has weakly stable typal coproducts,
+then its left adjoint splitting models type theory with coproduct types.
+   Now, how do we actually construct weakly stable typal coproducts? Of course,
+since M is a model category, it has ordinary categorical coproducts, and the
+coproduct A1 + A2 → Γ satisfies all parts of Definition 3.1 except that it may not
+be a fibration. (Admittedly, for some particularly nice M , such as simplicial sets, it
+is always a fibration. However, we treat the general case not only out of a desire
+for generality, but because in the case of pushouts the analogous argument will be
+necessary even when M is simplicial sets.)
+   The obvious solution is to fibrantly replace it. Thus, let A1 + A2 → A1 ⊕ A2  Γ
+be an (acyclic cofibration, fibration) factorization.
+Theorem 3.3. For any fibrations A1  Γ and A2  Γ, the fibration A1 ⊕ A2  Γ
+is a weakly stable typal coproduct.
+Proof. We define the injections by composition with those of A1 + A2 . To show
+that A1 ⊕ A2 is a typal coproduct, let C  A1 ⊕ A2 be a fibration with sections ti
+over Ai . Then the universal property of A1 + A2 induces a section t : A1 + A2 → C,
+and the lifting property of the acyclic cofibration A1 + A2 → A1 ⊕ A2 against the
+fibration C  A1 ⊕ A2 allows us to extend this section to A1 ⊕ A2 .
+    To show that this typal coproduct is weakly stable, it suffices to show that for
+any σ : ∆ → Γ, the pullback σ ∗ (A1 + A2 ) → σ ∗ (A1 ⊕ A2 ) is again an acyclic
+cofibration. Since cofibrations are stable under pullback, this map is a cofibration;
+thus it remains to show it is a weak equivalence. Weak equivalences are not generally
+stable under pullback, but weak equivalences between fibrations are; so we would
+be done if A1 + A2 → Γ were a fibration, but the whole point is that it may not be.
+    Right properness of M ensures that weak equivalences are also stable under
+pullback along fibrations, so we would be done if σ were a fibration. In general
+it may not be either, but we can factor it as an acyclic cofibration followed by a
+fibration. Thus, without loss of generality we may assume that σ is an acyclic
+cofibration.
+    In this case, right properness tells us that the induced maps σ ∗ Ai → Ai and
+  ∗
+σ (A1 ⊕ A2 ) → (A1 ⊕ A2 ) are weak equivalences, hence acyclic cofibrations, since
+they are pullbacks of σ along fibrations. Moreover, acyclic cofibrations are closed
+under coproducts (being the left class of a weak factorization system), so the induced
+map σ ∗ A1 + σ ∗ A2 → A1 + A2 is an acyclic cofibration. Moreover, since σ ∗ is a left
+adjoint, it preserves coproducts. Thus, in the following square
+                                             ∼
+                            σ ∗ (A1 + A2 )       A1 + A2
+                                                      ∼
+                                             ∼
+                            σ ∗ (A1 ⊕ A2 )       A1 ⊕ A2
+all the marked maps are acyclic cofibrations, hence weak equivalences. Hence, by
+2-out-of-3, so is the remaining map, which is what we wanted.                 
+Corollary 3.4. The left adjoint splitting of M models coproduct types.              
+10               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+                        4. Pushouts in model categories
+   Higher inductive pushouts are not a traditionally standard type constructor, so
+we need to begin with definitions. First we consider a sort of weakly stable structure
+that only makes sense in a context where we have simplicial homotopies. In §5 we
+will rephrase this in type-theoretic language and prove the relevant local universes
+coherence theorem.
+
+
+Definition 4.1. Let f1 : A → B1 and f2 : A → B2 be morphisms between
+fibrations A  Γ and Bi  Γ. A ∆1 -typal pushout is a fibration D  Γ with
+maps νi : Bi → D over Γ and a homotopy µ : A ⊗ ∆1 → D over Γ between ν1 ◦ f1
+and ν2 ◦ f2 , such that for any fibration C  D equipped with sections ti : Bi → C
+over νi and a homotopy u : A ⊗ ∆1 → C over µ, there exists a section s : D → C
+such that s ◦ νi = ti and s ◦ µ = u.
+    We say M has weakly stable ∆1 -typal pushouts if for any f1 , f2 there exists
+a ∆1 -typal pushout D such that for any σ : ∆ → Γ, the pullback σ ∗ D with injections
+σ ∗ νi and homotopy σ ∗ µ is a ∆1 -typal pushout of σ ∗ f1 and σ ∗ f2 .
+
+
+Theorem 4.2. Any good model category has weakly stable ∆1 -typal pushouts.
+
+
+Proof. Give f1 , f2 , let Q be their explicit homotopy pushout, meaning the pushout
+of the following diagram in M :
+
+
+
+                                            ι
+                                 A+A             A ⊗ ∆1
+                               f1 +f2
+
+                                B1 + B2
+
+
+
+By construction, this satisfies all parts of Definition 4.1 except that it may not be a
+fibration over Γ. (And in this case it really isn’t, even in simplicial sets.) Let D
+be its fibrant replacement, i.e. we have a factorization Q → D  Γ as an acyclic
+cofibration followed by a fibration. Then D has injections and a homotopy obtained
+by composition from Q, and for any fibration C  D as in Definition 4.1 we can
+first define a section over Q by its universal property and then extend to D by lifting
+against the acyclic cofibration Q → D.
+    It remains to deal with weak stability. As in Theorem 3.3, for this it suffices to
+show that σ ∗ Q → σ ∗ D is an acyclic cofibration for any acyclic cofibration σ : ∆ → Γ,
+and by 2-out-of-3 it suffices to show that σ ∗ Q → Q is an acyclic cofibration. Again,
+σ ∗ preserves colimits and simplicial copowers, so σ ∗ Q is the pushout of σ ∗ B1 + σ ∗ B2
+and σ ∗ A ⊗ ∆1 under σ ∗ A + σ ∗ A. Furthermore, again as in Theorem 3.3, σ ∗ A → A
+and σ ∗ Bi → Bi are acyclic cofibrations, hence so are σ ∗ A + σ ∗ A → A + A and
+σ ∗ B1 + σ ∗ B2 → B1 + B2 .
+                          SEMANTICS OF HIGHER INDUCTIVE TYPES                      11
+
+
+  Now consider the following commutative cube, in which the left-hand and right-
+hand faces are pushouts, and the objects R and S are also pushouts.
+                                                            ∼
+                                   σ∗ A + σ∗ A                         A+A
+                                                  R
+            ∗         1
+          σ A⊗∆                ∼                          A ⊗ ∆1
+
+                                                                   ∼
+                                σ ∗ B1 + σ ∗ B2                        B1 + B2
+                                                      S
+                ∗
+                σ Q                                         Q
+
+
+To show that σ ∗ Q → Q is an acyclic cofibration, it will suffice to show that both of
+its factors σ ∗ Q → S and S → Q are such. The former is easy, since it is a pushout
+of the acyclic cofibration σ ∗ B1 + σ ∗ B2 → B1 + B2 . For the latter, a standard
+argument shows that it is the pushout of the map R → A ⊗ ∆1 in the upper square.
+However, this map is the pushout-product of the acyclic cofibration σ ∗ A → A
+and the cofibration of simplicial sets 2 → ∆1 . Thus since the model structure is
+simplicial, it is an acyclic cofibration as well.                                   
+
+                    5. Pushouts in comprehension categories
+   Inside of (ordinary, Martin-Löf) type theory, of course, we do not have a “∆1 ”,
+so Definition 4.1 does not correspond directly to anything type-theoretic the way
+Definition 3.1 does. Instead we need a version of this definition that refers only to
+identity types, which categorically means path-objects. This is an instance of “one
+type constructor stacked on top of another”, like the case of W-types considered
+in [LW15, §3.4.4]; hence we need to start by defining good classes of identity types.
+   Let (C, T ) be a comprehension category. As in [LW15], if A ∈ T (Γ) we denote
+its comprehension by Γ.A → Γ, and its reindexing along σ : ∆ → Γ by A[σ].
+   In what follows, by a family we mean an indexed family. That is, a “family
+of elements of S”, for any set S, consists of a set F and a function F → S. We
+often abuse notation by identifying elements of F with their images in S, but it is
+important that such a family is not just a subset of S. There is a category Fam
+whose objects are families F → S and whose morphisms are commutative squares.
+Definition 5.1. A stable class of identity types on C consists of:
+ • For each A ∈ T (Γ), a non-empty family GId (A) of elements of T (Γ.A.A), called
+   “good identity types” IdA . These must be weakly stable under reindexing, in
+    that for any σ : ∆ → Γ, there is a morphism of families GId (A) → GId (A[σ])
+    over the reindexing functor T (Γ.A.A) → T (∆.A[σ].A[σ]). If IdA ∈ GId (A) is a
+    good identity type for A, we abuse notation by writing IdA [σ] ∈ GId (A[σ]) for
+    its image.
+ • For each good identity type IdA ∈ GId (A), a non-empty family Gr (A, IdA ) of
+   “good reflexivity terms” that are sections of IdA [δA ] ∈ T (Γ.A). These must
+    be weakly stable under reindexing, in that we have morphisms of families
+    Gr (A, IdA ) → Gr (A[σ], IdA [σ]) over the reindexing morphisms of types and good
+    identity types.
+12                   PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+     • For each good identity type IdA and good reflexivity term r, and each type
+       C ∈ T (Γ.A.A.IdA ) equipped with a section c of C[δA , r] ∈ T (Γ.A), a non-empty
+       family GJ (IdA , r, C, c) of “good extensions” of c to a section of C itself. Of course,
+       every good extension must actually be an extension, i.e. its composite with
+       δA ◦ r must be c. Good extensions must also be weakly stable under reindexing,
+       in that we have morphisms GJ (IdA , r, C, c) → GJ (IdA [σ], r[σ], C[σ], c[σ]) over the
+       reindexings of everything else.
+  Note that the underlying data of a good identity type and a good reflexivity term
+consist equivalently of a factorization of Γ.A → Γ.A.A through the comprehension
+Γ.A.A.IdA → Γ.A.A of some type IdA .
+Theorem 5.2. If M is a good model category, then (M , F) has a stable class of
+identity types, called the canonical stable class of identity types, in which:
+  • GId (A) is the set of objects of M /Γ equipped with data exhibiting the universal
+                                               1
+     property of the simplicial power (Γ.A)∆ Γ therein.
+  • For each such object, the factorization Γ.A → (Γ.A)∆
+                                                           1
+                                                                      ∼
+                                                          Γ → Γ.A.A = Γ.A ×Γ Γ.A
+                                                       1
+     is induced by powering with the maps 2 → ∆ → 1 of simplicial sets. In
+     particular, every good identity type has exactly one good reflexivity term.
+  • For any C and c, every extension of c to IdA is good in a unique way (i.e. the
+     family of good extensions is simply the set of all extensions).
+                                       1
+Proof. The projection (Γ.A)∆    Γ → Γ.A ×Γ Γ.A is the pullback corner map for the
+fibrant object Γ.A ∈ M /Γ and the cofibration 2 → ∆1 . Since M /Γ is a simplicial
+model category, this map is a fibration, hence the comprehension of a type over
+Γ.A.A.
+    The stability of simplicial powers under pullback gives the reindexing operations
+for good identity types and good reflexivity terms. Note that unlike for many
+other type constructors such as Σ- and Π-types, although these identity types are
+determined by a 1-categorical universal property, the type-theoretic data we consider
+(the reflexivity term) is not sufficient to describe this universal property.
+                                             1
+    Similarly, the inclusion Γ.A → (Γ.A)∆   Γ is the pullback corner map for A and
+the projection ∆1 → 1. Since Γ.A is fibrant in M /Γ and ∆1 → 1 is a weak
+equivalence between cofibrant objects, this is a weak equivalence. Moreover, it
+is a split monomorphism, hence a cofibration, and thus an acyclic cofibration. It
+follows that given any C and c there exists such an extension, i.e. the family of good
+extensions defined in the theorem statement is non-empty. Of course the reindexing
+of any extension is again an extension, and pseudofunctoriality is automatic.        
+   By the adjointness between simplicial powers and copowers, a simplicial homotopy
+A ⊗ ∆1 → B between f, g : A ⇒ B is equivalently a lift of (f, g) : A → B × B to
+                                        1
+any canonical identity type IdB = B ∆ , i.e. a term of IdB [(f, g)] in context A. But
+in order to rephrase Definition 4.1 relative to a stable class of identity types, we
+also need to talk about “homotopies over homotopies”, for which we need dependent
+identity types. Inside of type theory, the dependent identity type looks like this, for
+a dependent type x : A ` B(x) type:
+         a1 : A, a2 : A, e : IdA (a1 , a2 ), b1 : A(a1 ), b2 : A(a2 ) ` Idex.B(x) (b1 , b2 ) type
+That is, it tells us how to identify two points in different fibers along a path in the
+base. Inside type theory, there are many ways to define such a type:
+                       SEMANTICS OF HIGHER INDUCTIVE TYPES                                 13
+
+
+   (i) If we first define the transport operation e∗ : B(x) → B(y) (using the elimina-
+       tor for identity types), then we can define Idex.B(x) (u, v) to be IdB(y) (e∗ (u), v).
+       This is the definition used by [Uni13] and [HoT15, BGL+ 17].
+  (ii) We could instead use IdB(x) (u, (e−1 )∗ (v)), where e−1 : IdA (y, x) is the inverse
+                            −1
+       path of e (i.e. ( – ) witnesses the symmetry of equality).
+ (iii) We could use the eliminator for identity types on e, with Idrefl   x
+                                                                       x.B(x) (u, v) defined
+       to be IdB(x) (u, v). This is the definition used by [HoT13].
+ (iv) We could define Idex.B(x) (u, v) as an inductive family, with a single constructor
+       giving for any x : A and u : B(x) an element reflu : Idrefl  x
+                                                                  x.B(x) (u, u).
+
+Compared to the first three, option (iv) has the disadvantage that Idrefl   x
+                                                                          x.B(x) (u, v) is
+not judgmentally equal to IdB(x) (u, v). However, option (iv) is also the one that
+corresponds most directly to the native path-object structure in a good model
+category, so it is the one we will adopt. In §6 we will show that our construction
+also gives pushouts relative to choices (i)–(iii), albeit in a slightly weaker sense.
+
+Definition 5.3. Suppose C has a stable class of identity types. A stable class of
+dependent identity types relative to this stable class consists of the following
+data, each of which must be weakly stable in a straightforward sense.
+  • For each A ∈ T (Γ) and B ∈ T (Γ.A), and each good identity type IdA ∈ GId (A),
+    a non-empty family GbId (A, IdA , B) of “good dependent identity types” IdA        B in
+    T (Γ.A.A.IdA .B.B).
+  • For each good dependent identity type as above, and each good reflexivity
+    term rA for IdA , a non-empty family Gbr (A, IdA , r, B, IdA B ) of “good dependent
+                                                 A
+    reflexivity terms” that are sections of IdB [δA , rA , δB ] ∈ T (Γ.A.B).
+  • For each good dependent identity type and good dependent reflexivity term
+    as above, and each type C ∈ T (Γ.A.A.IdA .B.B.IdA       B ) equipped with a section
+                           A
+    c of C[δA , rA , δB , rB ] ∈ T (Γ.A.B), a nonempty family GbJ (A, IdA , rA , B, IdA    A
+                                                                                      B , rB )
+    of “good extensions” of c to a section of C itself (which are actually extensions
+    thereof).
+
+   Similarly to the non-dependent case, the underlying data of a good dependent
+identity type and a good dependent reflexivity term consist of a factorization of the
+diagonal of Γ.A.B that lies over a given factorization of the diagonal of Γ.A, such
+that the dashed pullback map shown below is a dependent projection:
+
+    Γ.A.B                 Γ.A.A.IdA .B.B.IdA
+                                           B                               Γ.A.A.B.B
+                                            Γ.A.A.IdA .B.B
+
+
+      Γ.A                      Γ.A.A.IdA                                      Γ.A.A
+
+Theorem 5.4. If M is a good model category, then (M , F) has a canonical
+stable class of dependent identity types over the canonical stable class of
+identity types, in which:
+  • GbId (A, IdA , B) is the set of objects of M /Γ equipped with the universal property
+                                         1
+    of a simplicial power (Γ.A.B)∆     Γ .
+14                 PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+     • For each such object, the above factorization is given by the following diagram:
+                                                      1
+                    Γ.A.B               (Γ.A.B)∆
+                                               Γ                    Γ.A.A.B.B
+                                                          •
+
+                                                  1
+                        Γ.A              (Γ.A)∆
+                                              Γ                        Γ.A.A
+       In particular, every good dependent identity type has a unique good dependent
+       reflexivity term.
+     • for any C and c, every extension of c to IdA
+                                                  B is good.
+
+Proof. Similarly to the non-dependent case, the dotted projection above is the
+pullback corner map for the fibration Γ.A.B → Γ.A and the cofibration 2 → ∆1
+in the simplicial model category M /Γ, hence a fibration. The inclusion Γ.A.B →
+          1
+(Γ.A.B)∆Γ is an acyclic cofibration for the same reasons as in Theorem 5.2, so the
+set of good extensions is non-empty.                                            
+  Finally, in Definition 4.1 we also need to postcompose a homotopy with a
+dependent function. That is, given x : A ` f (x) : B(x), we need the following term:
+              a1 : A, a2 : A, e : IdA (a1 , a2 ) ` apf (e) : Idex.B(x) (f (a1 ), f (a2 ))
+Inside type theory there is a standard way to define ap, defined using the eliminator
+for the identity type. However, once again, in a good model category there is a
+different way to define it using the functoriality of simplicial powers (see Theorem 5.6).
+Thus, we also introduce this abstractly.
+Definition 5.5. Suppose C has stable classes of identity types and dependent
+identity types. A stable class of identity applications consists of, for each
+types A ∈ T (Γ) and B ∈ T (Γ.A), each section f of B, each good identity type
+and reflexivity term for A, and each corresponding dependent identity type and
+dependent reflexivity term for B, a non-empty family of “good identity applications”,
+which are sections apf of the projection Γ.A.A.IdA .B.B.IdA
+                                                          B → Γ.A.A.IdA such that
+the following squares commute:
+                               r
+                  Γ.A.B                Γ.A.A.IdA .B.B.IdA
+                                                        B            Γ.A.A.B.B
+                    f                       apf                              (f,f )
+
+                                   r
+                    Γ.A                    Γ.A.A.IdA                     Γ.A.A
+Moreover, good identity applications must be weakly stable under reindexing in an
+evident sense.
+Theorem 5.6. If M is a good model category, then (M , F) has a canonical
+stable class of identity applications over the canonical stable classes of identity
+types and dependent identity types, in which the good sections apf are the maps
+   1
+fΓ∆ induced by the functoriality of simplicial powers.
+Proof. The requisite squares commute by the two-variable functoriality of simplicial
+powers.                                                                           
+   Note that in order for these maps to be well-defined, we must require an object
+of GId (A) to be equipped with the structure of a simplicial power, and hence GId (A)
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                               15
+
+
+cannot be merely a subset of T (Γ.A.A), since this structure is not determined even
+by the reflexivity term.
+  Finally, we can define a type-theoretic notion of pushout.
+Definition 5.7. Suppose C has stable classes of identity types, dependent identity
+types, and identity applications. A stable class of typal pushouts relative to
+these stable classes consists of the following data, all weakly stable under reindexing.
+  • For each pair f1 : Γ.A → Γ.B1 and f2 : Γ.A → Γ.B2 of morphisms over Γ, a
+     non-empty family of “good pushout types” D ∈ T (Γ) equipped with “good
+     injections” νi : Γ.Bi → Γ.D over Γ.
+  • For any good pushout D and good injections νi , and any good identity type
+     for D, a non-empty family of “good glueing data” maps µ : Γ.A → Γ.D.D.IdD
+     over (ν1 f1 , ν2 f2 ).
+  • For any good identity type, good reflexivity term, and good gluing data and
+     good injections for a good pushout D, and any type C ∈ T (D) equipped with
+     sections ti over νi , a good dependent identity type IdD  C with good reflexivity
+     term, and a morphism u : A → Γ.D.D.IdD .C.C.IdD       C over  (µ, t1 , t2 ), we have a
+     non-empty family of good sections s of C such that s ◦ νi = ti , and for any
+     good identity application aps we have aps ◦ µ = u.
+Theorem 5.8. In any good model category, the ∆1 -typal pushouts (Definition 4.1)
+are a stable class of typal pushouts relative to the canonical stable classes of identity
+types, dependent identity types, and identity applications.
+Proof. The canonical stable classes were constructed exactly so that the data of
+Definition 5.7 reduces to that of Definition 4.1.                             
+
+                           6. Pushouts in type theory
+   Finally, we move to strict stability and type theory. Recall the basic condition
+on a comprehension category (C, T ) that makes local universe theorems work:
+            C has finite products, and dependent exponentials of display maps
+(LF)
+            and product projections along display maps.
+(A display map is a finite composite of the dependent projections Γ.A → Γ
+associated to the comprehensions of types.)
+   Of course, since a good model category M is locally cartesian closed, (M , F)
+always satisfies condition (LF).
+Definition 6.1. A split comprehension category C has:
+ • strictly stable identity types if it has a stable class of identity types (Defi-
+    nition 5.1) for which each family of good structures is a singleton.
+ • strictly stable dependent identity types if in addition it has a stable
+    class of dependent identity types for which each family of good structures is a
+    singleton.
+ • strictly stable identity applications if in addition it has a stable class of
+    identity applications for which each family of good structures is a singleton.
+ • strictly stable typal pushouts if in addition it has a stable class of typal
+    pushouts for which each family of good structures is a singleton.
+  Our strictly stable identity types are easily seen to be equivalent to [LW15,
+Definition 3.4.3.1] with the “Frobenius” condition omitted (which we don’t bother
+16                   PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+                                           Γ ` A type
+             Γ, a1 : A, a2 : A ` IdA (a1 , a2 ) type  Γ, a : A ` refla : IdA (a, a)
+
+                                             Γ ` A type
+          Γ, x : A, y : A, e : IdA (x, y) ` C type       Γ, x : A ` c : C[x/y, reflx /e]
+      Γ, a1 : A, a2 : A, p : IdA (a1 , a2 ) ` J(xye.C, x.c, a1 , a2 , p) : C[a1 /x, a2 /y, p/e]
+                         Γ, a : A ` J(xye.C, x.c, a, a, refla ) ≡ c[a/x]
+
+                                     Figure 1. Identity types
+
+
+                                Γ ` A type          Γ, x : A ` B type
+       Γ, a1 : A, a2 : A, e : IdA (a1 , a2 ), b1 : B[a1 /x], b2 : B[a2 /x] ` IdeB (b1 , b2 ) type
+                            Γ, a : A, b : B[a/x] ` refl0b : Idrefl a
+                                                                 B (b, b)
+
+
+                                Γ ` A type          Γ, x : A ` B type
+            Γ, x : A, y : A, e : IdA (x, y), u : B, v : B[y/x], d : IdeB (u, v) ` C type
+                       Γ, x : A, u : B ` c : C[x/y, reflx /e, u/v, refl0u /d]
+     Γ, a1 : A, a2 : A, p : IdA (a1 , a2 ), b1 : B[a1 /x], b2 : B[a2 /x], q : IdpB (b1 , b2 )
+         ` J0 (xyeuvd.C, xu.c, a1 , a2 , p, b1 , b2 , q) : C[a1 /x, a2 /y, p/e, b1 /u, b2 /v, q/d]
+      Γ, a : A, b : B[a/x] ` J0 (xyeuvd.C, xu.c, a, a, refla , b, b, refl0b ) ≡ c[a/x, b/u]
+
+                             Figure 2. Dependent identity types
+
+
+                    Γ ` A type        Γ, x : A ` B type           Γ, x : A ` f : B
+         Γ, a1 : A, a2 : A, p : IdA (a1 , a2 ) ` apx.f (a1 , a2 , p) : IdpB (f [a1 /x], f [a2 /x])
+                            Γ, a : A ` apx.f (a, a, refla ) ≡ refl0f [a/x]
+
+                                Figure 3. Identity applications
+
+
+with since our intended models all have Π-types). Syntactically, the above strictly
+stable structure corresponds to the type-theoretic rules shown in figs. 1 to 4.
+Remark 6.2. Because we are not concerned with syntactic properties such as admis-
+sibility of substitution, we have no qualms about adding variables to the context of
+the conclusion. As a result, multiple rules often have the same premises; we combine
+these by listing multiple conclusions in the same rule. This has the additional
+advantage that each multiple-conclusion rule corresponds to one new local universe
+on the semantic side. (On the other hand, unlike in some syntactic presentations,
+we do include all type judgment premises in all rules, since these are necessary
+semantically.)
+   We now briefly sketch the local universe coherence theorems for all of these
+structures; they are all straightforward applications of the techniques of [LW15].
+Theorem 6.3. If C has a stable class of identity types and satisfies (LF), then C!
+has strictly stable identity types.
+                         SEMANTICS OF HIGHER INDUCTIVE TYPES                                      17
+
+
+                      Γ ` A type         Γ ` B1 type          Γ ` B2 type
+                          Γ, x : A ` f1 : B1       Γ, x : A ` f2 : B2
+                                  Γ ` Push(x.f1 , x.f2 ) type
+    Γ, y1 : B1 ` ν1 (y1 ) : Push(x.f1 , x.f2 )     Γ, y2 : B2 ` ν2 (y2 ) : Push(x.f1 , x.f2 )
+               Γ, a : A ` µ(a) : IdPush(x.f1 ,x.f2 ) (ν1 (f1 [a/x]), ν2 (f2 [a/x]))
+
+                        Γ ` A type       Γ ` B1 type            Γ ` B2 type
+                          Γ, x : A ` f1 : B1         Γ, x : A ` f2 : B2
+            Γ, u : Push(x.f1 , x.f2 ) ` C type          Γ, y1 : B1 ` t1 : C[ν1 (y1 )/u]
+                                                               µ(x)
+   Γ, y2 : B2 ` t2 : C[ν2 (y2 )/u]      Γ, x : A ` m : IdC (t1 [f1 (a)/y1 ], t2 [f2 (a)/y2 ])
+              Γ, p : Push(x.f1 , x.f2 ) ` pe(u.C, y1 .t1 , y2 .t2 , a.m, p) : C[p/u]
+                 Γ, b1 : B1 ` pe(u.C, y1 .t1 , y2 .t2 , a.m, ν1 (b1 )) ≡ t1 [b1 /y1 ]
+                 Γ, b2 : B2 ` pe(u.C, y1 .t1 , y2 .t2 , a.m, ν2 (b2 )) ≡ t2 [b2 /y2 ]
+                     Γ, a : A ` apu.pe(u.C,y1 .t1 ,y2 .t2 ,a.m,u) (a) ≡ m[a/x]
+
+                                     Figure 4. Pushouts
+
+Proof. Just like [LW15, Theorem 3.4.3.2], only simpler due to the absence of Frobe-
+nius. If A ∈ T! (Γ) are represented by EA ∈ T (VA ), then IdA ∈ T! (Γ.A.A) is
+represented by a chosen good identity type IdEA ∈ T (VA .EA .EA ), with reflexivity
+term also chosen in the same universal case. The local universe for the elimination
+and computation rules is just as in [LW15, Theorem 3.4.3.2] without the types “Bi ”:
+                      V = [a : VA ,
+                               Y
+                           c:     x, x0 : EA (a), y : IdEA (a, x, x0 ).VC ,
+                               Y
+                           d:      x : EA (a).EC (c(x, x, rEA (a, x)))].
+(As in [LW15], we express local universes as iterated Σ-types in the internal exten-
+sional type theory of C.)                                                         
+
+Theorem 6.4. If C has a stable class of dependent identity types and satisfies (LF),
+then C! has strictly stable dependent identity types.
+Proof. If A ∈ T! (Γ) and B ∈ T! (Γ.A) is represented by EA ∈ T (VA ) and EB ∈ T (VB ),
+then IdA
+       B ∈ T! (Γ.A.A.IdA .B.B) is represented by a chosen good dependent identity
+type for EB over EA , with the local universe
+                                     [a : VA , b : (VB )EA (a) ]
+with dependent reflexivity term likewise chosen in this case. (Note that this local
+universe is the same one VA / VB used in [LW15] for Π-types and Σ-types.) The
+local universe for the elimination and computation rules is
+[a : VA ,
+     Y
+ b:     x : EA (a).VB ,
+     Y
+ c:     x, x0 : EA (a), y : IdEA (a, x, x0 ), u : EB (b(x)), u0 : EB (b(x0 )), z : IdE          0            0
+                                                                                     EB (a, x, x , y, b, u, u ).VC ,
+                                                                                      A
+
+     Y
+                                                                   EA
+ d:      x : EA (a), u : EB (b(x)).EC (c(x, x, rEA (a, x), u, u, rE  B
+                                                                       (a, x, u)))].                 
+18                   PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+   It is perhaps worth emphasizing how the above local universes are obtained
+essentially algorithmically from the rules in fig. 2, once given that the latter are
+written in the style of Remark 6.2. Namely, each premise of a rule corresponds to
+one term in the iterated Σ-type, which is a Π-type of the consequent of that premise
+over the additional variables (beyond the arbitrary context Γ) in the context of that
+premise.
+Theorem 6.5. If C has a stable class of identity applications and satisfies (LF),
+then C! has strictly stable identity applications.
+Proof. The local universe is
+                                    [a : VA
+                                         Y
+                                     b:     x : EA (a).VB ,
+                                         Y
+                                     f:     x : EA (a).EB (b(x))].                                          
+
+Theorem 6.6. If C has a stable class of typal pushouts and satisfies (LF), then C!
+has strictly stable typal pushouts.
+Proof. The local universe for the formation and introduction rules is
+                                     [a : VA , b1 : VB1 , b2 : VB2 ,
+                                           Y
+                                      f1 :     x : EA (a).EB1 (b1 ),
+                                           Y
+                                      f2 :     x : EA (a).EB2 (b2 )].
+And the local universe for the elimination and computation rules is
+[a : VA , b1 : VB1 , b2 : VB2 ,
+      Y
+ f1 :     x : EA (a).EB1 (b1 ),
+      Y
+ f2 :     x : EA (a).EB2 (b2 ),
+     Y
+ c:     u : EPush(f1 ,f2 ) (a, b1 , b2 , f1 , f2 ).VC ,
+      Y
+ t1 :     y1 : EB1 (b1 ).EC (c(ν1 (y1 ))),
+      Y
+ t2 :     y2 : EB2 (b2 ).EC (c(ν2 (y2 ))),
+                         Push(f1 ,f2 )
+      Y
+ m:       x : EA (a).IdC               (a, b1 , b2 , f1 , f2 , c, ν1 (f1 (x)), ν2 (f2 (x)), µ(x), t1 (f1 (x)), t2 (f2 (x)))].
+                                                                                                            
+Theorem 6.7. For any good model category M , the split comprehension category
+(M , F! ) has strictly stable typal pushouts, relative to the strictly stable identity
+types, dependent identity types, and identity applications obtained by strictifying
+its canonical weakly stable ones.
+Proof. Combine Theorems 5.8 and 6.6.                                                                        
+   This is almost, but not quite, the result we want. The pushout rules in fig. 4 differ
+from those commonly used (e.g. in [Uni13]) by the presence of the additional rules
+in figs. 2 and 3. The usual approach is instead to start with only identity types as
+in fig. 1, and then define dependent identity types using one of the methods (i)–(iii)
+                         SEMANTICS OF HIGHER INDUCTIVE TYPES                                          19
+
+
+                      Γ ` A type          Γ ` B1 type        Γ ` B2 type
+                        Γ, x : A ` f1 : B1          Γ, x : A ` f2 : B2
+           Γ, u : Push(x.f1 , x.f2 ) ` C type         Γ, y1 : B1 ` t1 : C[ν1 (y1 )/u]
+                                                            µ(x)
+  Γ, y2 : B2 ` t2 : C[ν2 (y2 )/u]         Γ, x : A ` m : IdC (t1 [f1 (a)/y1 ], t2 [f2 (a)/y2 ])
+  Γ, a : A ` pec(u.C, y1 .t1 , y2 .t2 , a.m, a) : Id(apu.pe(u.C,y1 .t1 ,y2 .t2 ,a.m,u) (a), m[a/x])
+
+                       Figure 5. Computation for weak pushouts
+
+listed on page 12, similarly define ap using the eliminator of identity types, and
+then state rules such as those in 4 relative to these defined structures.
+    Such definitions certainly give some classes of dependent identity types and
+identity applications, which are strictly stable if the identity types we started with
+are strictly stable. However, if such constructions are performed in (M , F! ), the
+resulting strictly stable classes will not generally be the same as those obtained
+from the canonical weakly stable ones by the local universes construction. They
+will indeed be equivalent, and we can transfer the structure of a pushout across
+such an equivalence, but at the cost of weakening the computation rule for the
+path-constructor from a judgmental equality to the existence of a path, as follows.
+Definition 6.8. A stable class of weak typal pushouts in a comprehension
+category (C, T ), relative to given stable classes of identity types, dependent iden-
+tity types, and identity applications, consists of all the data and properties in
+Definition 5.7 except that instead of aps ◦ µ = m, we have for any good iden-
+tity type IdIdD
+              C
+                ∈ T (Γ.D.D.IdD .C.C.IdD       D
+                                         C .IdC ) a non-empty family of “good” maps
+v : A → IdIdD
+            C
+               over (aps ◦ µ, m). If C is split and each family of good structures is a
+singleton, we say that C has strictly stable weak typal pushouts.
+   Of course, typal pushouts are also weak typal pushouts, since if aps ◦ µ = m we
+can compose this map with r to get v. The corresponding modified elimination
+rule in syntactic type theory is shown in fig. 5. In the case when the dependent
+identity types and identity applications are defined from the ordinary identity types
+as on page 12, this yields exactly the notion of pushout type used in [Uni13, §6.8].
+Some reasons for choosing a weak computation rule for the path-constructor are
+adumbrated in [Uni13, §6.2 and Chapter 6 Notes], one of which (non-strictness of
+the equivalence between left and right homotopies) is roughly the same reason such
+a rule appears here.
+   The following theorem could be stated for weakly stable structures in addition
+to strict ones, but we only need to apply it after the local universes splitting has
+occurred, so we don’t bother with that generality.
+Theorem 6.9. Let C be a split comprehension category equipped with strictly
+stable identity types. If C has strictly stable weak typal pushouts with respect to
+one choice of strictly stable dependent identity types and identity applications, then
+with respect to any other choice of strictly stable dependent identity types and
+identity applications it also has strictly stable weak typal pushouts.
+Proof. We use the ordinary notation for the given identity types, dependent identity
+                                                                 e
+types, identity applications, and typal pushouts, and we write Id
+                                                               g
+                                                                 B (x, y) and ap
+                                                                              gf and
+so on for some other choice of dependent identity types and identity applications.
+20                PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+Using the eliminators for dependent identity types in both directions (or equivalently
+the uniqueness-up-to-homotopy of weak factorization systems), we obtain maps in
+both directions making all the triangles commute:
+
+                                     Γ.A.A.IdA .B.B.IdA
+                                                      B
+                              A
+                             rB
+
+
+                Γ.A.B                        k   h            Γ.A.A.IdA .B.B
+
+                             A
+                            rf
+                             B
+                                                      A
+                                     Γ.A.A.IdA .B.B.Id
+                                                    g
+                                                      B
+
+Similarly, we obtain homotopies over Γ.A.A.IdA .B.B between the round-trip com-
+posites in both directions (i.e. maps Γ.A.B → Γ.A.A.IdA .B.B.IdA      A
+                                                                 B .IdB .IdIdA
+                                                                             B
+                                                                               and
+                                            A    A
+similarly), giving a homotopy equivalence Id ≃ Id . And if we have a section f of
+                                               g
+                                                     B    B
+B ∈ T (Γ.A), then the composite
+                        apf                   h
+             Γ.A.A.IdA −−→ Γ.A.A.IdA .B.B.IdA
+                                            B −
+                                              → Γ.A.A.IdA .B.B.Id
+                                                               g A
+                                                                 B
+
+is a lift of (f, f ), and has the property that when composed with rA : Γ.A →
+Γ.A.A.IdA it becomes rf   A
+                          B . Since ap
+                                    gf also has these properties, we can use identity
+elimination to produce a homotopy h◦apf ∼ ap  gf over (f, f ), i.e. a lift of (h◦apf , ap
+                                                                                       gf )
+                       A g A
+to Γ.A.A.Id .B.B.Id .Id .Id .
+            A
+                      g
+                        B        B    Id
+                                      g  A
+                                         B
+   Now, note that only the eliminator and computation rules for pushouts refer to
+dependent identity types; the formation and introduction rules can be exactly as
+given. For the eliminator, all the structure on C in the second case can be used as-
+                                            D
+given except for u : A → Γ.D.D.Id .C.C.Id  g
+                                             D, which we compose with k to produce
+                                                     C
+data for the given eliminator. This produces a section of the desired form, satisfying
+the computation rules s◦νi = ti and with a homotopy aps ◦µ ∼ k◦m. Postcomposing
+this homotopy with h (using ordinary Id-elimination) and concatenating with the
+above-constructed homotopies h ◦ aps ∼ ap fs and h ◦ k ∼ 1, we get
+                            fs ◦ µ ∼ h ◦ aps ◦ µ ∼ h ◦ k ◦ m ∼ m
+                            ap
+which is what we want. Since everything that went into the construction was
+assumed strictly stable, so is the result.                               
+
+Corollary 6.10. For any good model category M , the split comprehension category
+(M , F! ) has strictly stable weak typal pushouts, relative to the strictly stable identity
+types obtained by strictifying its canonical weakly stable ones, and the dependent
+identity types obtained from any of (i)–(iii) on page 12 and the identity applications
+obtained from Id-elimination.                                                            
+Remark 6.11. As noted in the introduction, from pushout types (and binary sums
+and the empty type) we can construct all finite (homotopy) colimits. In particular,
+the coequalizer of f, g : A → B is the pushout of [f, g] : A + A → B and the fold
+map ∇ : A + A → A. Conversely, the pushout of f1 : A → B1 and f2 : A → B2 can
+be constructed as the coequalizer of inl ◦ f1 , inr ◦ f2 : A → B1 + B2 . Thus, to obtain
+all finite colimits we could equally well have chosen to treat coequalizers rather than
+pushouts; similar issues arise in the construction of both.
+                       SEMANTICS OF HIGHER INDUCTIVE TYPES                             21
+
+
+
+          Γ ` N type            Γ ` zero : N           Γ, x : N ` succ(x) : N
+
+    Γ, x : N ` C type     Γ ` z : C[zero/x]       Γ, x : N, y : C ` s : C[succ(x)/x]
+    Γ, n : N ` nrec(x.C, z, xy.s, n) : C[n/x]      Γ ` nrec(x.C, z, xy.s, zero) ≡ z
+        Γ, n : N ` nrec(x.C, z, xy.s, succ(n)) ≡ s[n/x, nrec(x.C, z, xy.s, n)/y]
+
+                         Figure 6. Natural numbers type
+
+                               7. Natural numbers
+   As a warm-up for the recursive case, we consider the interpretation of the type
+of natural numbers. Though a standard type constructor, this is not considered
+explicitly in [LW15]; thus we begin with its local universes theory.
+Definition 7.1. In a comprehension category (C, T ), a natural numbers type
+over Γ ∈ C is a type N ∈ T (Γ) together with a section zero : Γ → Γ.N and a map
+succ : Γ.N → Γ.N over Γ, plus an operation assigning to any type C ∈ T (Γ.N)
+equipped with z : Γ → Γ.N.C over zero and s : Γ.N.C → Γ.N.C over succ, a section
+f of C such that f ◦ zero = z and f ◦ succ = s ◦ f .
+   We say C has weakly stable natural numbers types if for any Γ there is a
+natural numbers type N ∈ T (Γ) such that for any σ : ∆ → Γ, (N[σ], zero[σ], succ[σ])
+is a natural numbers type over ∆. Similarly, if C is split, it has strictly stable
+natural numbers types if it has an operation assigning to each Γ a natural
+numbers type N ∈ T (Γ) such that reindexing along any σ : ∆ → Γ preserves natural
+numbers types along with their data and specified sections.
+  Of course, if C has a terminal object (as it usually does), then the quantification
+over Γ in the latter definition follows from the special case Γ = 1. Strictly stable
+natural numbers types are the semantic version of the usual rules for a natural
+numbers type, shown in fig. 6.
+Theorem 7.2. If C satisfies (LF) and has weakly stable natural numbers types,
+then C! has strictly stable natural numbers types.
+Proof. Condition (LF) provides a terminal object. We take this to be the local
+universe for the formation and introduction rules, choosing a weakly stable natural
+numbers type over it. For the elimination and computation rules, the local universe
+is
+                         Y
+                    [c :   x : EN .VC ,
+                     z : EC (c(zero)),
+                         Y
+                     s:     x : EN , y : EC (c(x)).EC (c(succ(x)))].                   
+   In a good model category,
+                      `       the obvious candidate for a natural numbers type is the
+countable coproduct n:N 1 of copies of the terminal object, which is automatically
+a “natural numbers object” in the usual sense of category theory. As usual, the
+problem is that in general this may not be fibrant (though it is in many examples,
+such as simplicial sets). But unlike in the preceding sections,
+                                                              `it does not suffice to
+simply fibrantly replace it. If N is a fibrant replacement of n:N 1, we can extend
+the zero and successor operations to it, and for any fibration C  N equipped with
+22               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+                                          `
+z and s we can find a section of C over n:N 1 using its universal property
+                                                                     `        and then
+extend that section to N by lifting against the acyclic cofibration n:N 1 → N.
+    However, such a lift will not generally satisfy the computation rules. It might be
+possible to choose it cleverly to satisfy the computation rule for zero, but for succ
+there is essentially no hope, since the computation rule for succ relates the section
+to itself, which is impossible to obtain using a simple lifting property. Thus, we
+have to be more clever.
+    Let FN denote the endofunctor of M defined by FN (X) = X + 1. Recall that an
+endofunctor-algebra for FN is an object X together with a map FN (X) → X. A
+natural numbers object in the ordinary sense is precisely an initial such endofunctor-
+algebra. And a natural numbers type over the terminal object is precisely a fibrant
+FN -algebra N such that any fibration C  N that is also a map of FN -algebras
+has an FN -algebra section. This suggests that N is an “initial fibrant FN -algebra”;
+we now make this precise using the technology of algebraic weak factorization
+systems [GT06, Gar09, Rie11].
+    From now on, therefore, we will assume that M is an excellent model category,
+i.e. that in addition to being good it is a combinatorial model category. This allows
+us to use the technology of algebraically-free monads and algebraic colimits of
+monads [Kel80, nLa]. Let TN denote the algebraically-free monad on FN , which
+exists since FN is an accessible endofunctor. This means it is a monad TN such
+that TN -monad-algebra structures on any object correspond bijectively to FN -
+endofunctor-algebra structures on that object, by precomposition with a given
+natural transformation FN → TN . By construction of TN , it is also accessible.
+    Now, by the construction of [Gar09] and the combinatoriality of M , we have
+an accessible fibrant factorization monad R on the arrow category M → , such
+that an arrow can be given an R-algebra structure if and only if it is a fibration,
+and R preserves codomains. In particular, when restricted to arrows with terminal
+codomain, we get an accessible fibrant replacement monad R1 on M itself, such
+that an object can be given an R1 -algebra structure if and only if it is fibrant.
+                                                        f   g
+Moreover, the composite of two R-algebras X −−  Y −− Z naturally acquires an
+R-algebra structure such that the commutative square
+                                           f
+                                      X         Y
+                                    gf              g
+
+                                      Z         Z
+is a morphism of R-algebras; this is noted for instance in [Rie13, Remark 5.15].
+Theorem 7.3. If M is an excellent model category, then (M , F) has a natural
+numbers type over 1.
+Proof. Consider the algebraic coproduct of monads TN + R1 . By definition, this is
+an (accessible) monad such that a (TN + R1 )-algebra structure on an object X is
+precisely a pair of a TN -algebra structure (i.e. an FN -endofunctor-algebra structure)
+and an (unrelated) R1 -algebra structure. Let N be the initial (TN + R1 )-algebra,
+i.e. the free (TN + R1 )-algebra on the initial object, N = (TN + R1 )(∅). Since N is a
+TN -algebra, it comes with zero and succ; and since it is an R1 -algebra, it is fibrant.
+    Now suppose p : N.C  N is a fibration of FN -endofunctor-algebras. Choose an
+R-algebra structure on p. Then the composite N.C  N  1 acquires an R-algebra
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                             23
+
+
+structure, which is to say that N.C acquires an R1 -algebra structure, such that p
+is (not just an R-algebra but) an R1 -algebra map. Since N.C is also a TN -algebra
+and p is also a TN -algebra map, it follows that N.C is a (TN + R1 )-algebra and
+p is a (TN + R1 )-algebra map. But since N is the initial (TN + R1 )-algebra, any
+(TN + R1 )-algebra map with codomain N has a (TN + R1 )-algebra section, and hence
+in particular a TN -algebra section, as desired.                                
+
+   It is not clear to us whether these natural numbers types are weakly stable on
+(M , F) in general; but we can obtain weak stability with a small modification. Let
+Mf denote the subcategory of fibrant objects in M , and (Mf , Ff ) the restriction of
+the comprehension category (M , F) to Mf . Note that Mf is the smallest subcategory
+of M to which F can be restricted and still be a comprehension category, since
+every fibrant object is the comprehension of some fibration over 1. In particular,
+any semantics of type theory in (M , F) must land inside Mf , so not much is lost
+by this restriction.
+
+Lemma 7.4. For any good model category M , the comprehension category (Mf , Ff )
+also satisfies (LF).
+
+Proof. The product of fibrant objects is of course fibrant, and the assumptions on a
+good model category ensure that the dependent exponential of a fibration along a
+fibration is again a fibration, hence its domain is fibrant if its codomain is.   
+
+   Moreover, any weakly stable structure possesed by (M , F) is also possesed by
+(Mf , Ff ). Thus, all our preceding theorems about strictly stable structure in (M , F! )
+also apply to (Mf , Ff ,! ).
+
+Theorem 7.5. If M is an excellent model category, then (Mf , Ff ) has weakly
+stable natural numbers types.
+
+Proof. It suffices to show that any natural numbers type N over 1 is weakly stable,
+which is to say that for any (fibrant!) object Γ the pullback Γ∗ N is a natural numbers
+type over Γ. The proof is essentially the usual category-theoretic argument that
+pullback functors preserve natural numbers objects. Suppose C  Γ∗ N is a fibration
+over Γ equipped with a section z : Γ → C over Γ∗ (zero) and a map s : C → C
+over Γ∗ (succ). Then (since Γ is fibrant) Γ∗ C  Γ∗ Γ∗ N is a fibration, equipped
+with a point Γ∗ (z) : Γ∗ (Γ∗ (1)) = Γ∗ (Γ) → Γ∗ (C) over Γ∗ (Γ∗ (zero)) and a map
+Γ∗ (s) : Γ∗ (C) → Γ∗ (C) over Γ∗ (Γ∗ (succ)).
+   Now pull Γ∗ C back to N along the unit ηN of the adjunction Γ∗ a Γ∗ . Since η
+is natural we have Γ∗ (Γ∗ (zero)) ◦ η1 = ηN ◦ zero and Γ∗ (Γ∗ (succ)) ◦ ηN = ηN ◦ succ,
+so we have an induced map z 0 : 1 → ηN∗ Γ∗ C over zero and s0 : ηN∗ Γ∗ C → ηN∗ Γ∗ C
+over succ. Thus, using nrec for N we have a section f : N → ηN∗ Γ∗ C such that
+f ◦ zero = z 0 and f ◦ succ = s0 ◦ f , or equivalently a map g : N → Γ∗ C over ηN such
+that g ◦ zero = Γ∗ (z) ◦ η1 and g ◦ succ = Γ∗ (s) ◦ g. Finally, transposing g across
+the adjunction Γ∗ a Γ∗ , we obtain Γ∗ N → C over 1N (the adjunct of ηN ) such that
+h ◦ Γ∗ (zero) = z and h ◦ Γ∗ (succ) = s ◦ h, as desired.                             
+
+Corollary 7.6. If M is an excellent model category, then (Mf , Ff ,! ) has strictly
+stable natural numbers types.                                                    
+24                PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+                                       8. W-types
+   The construction of W-types is similar to that of natural numbers, with one
+additional wrinkle. Namely, the presence of parameters means that in weak stability
+we have to consider pullback along arbitrary morphisms σ : ∆ → Γ between fibrant
+objects, and in the case when Γ is not terminal, fibrancy of ∆ does not imply that
+σ is a fibration.
+   Since a good model category is locally cartesian closed, the weakly stable Π-types
+in (M , F) asserted by Theorem 2.6 are actually pseudo-stable [LW15, Definition
+3.4.2.8]; thus we can use the definition of weakly stable W-types relative to these
+from [LW15, Definition 3.4.4.9].
+Theorem 8.1. If M is an excellent model category, then (M , F) has W-types.
+That is, for any Γ ∈ M , A ∈ F(Γ), and B ∈ F(Γ.A), there exists a W-type as
+in [LW15, Definition 3.4.4.7].
+Proof. Let FWAB be the endofunctor of M /Γ sending X → Γ to the local exponential
+(A∗ X)B                                                ∗   B
+       A , equipped with the composite projection (A X)A → A → Γ. Since this is
+a composite of left or right adjoints between accessible categories, it is an accessible
+endofunctor, and M /Γ is locally presentable, so FWAB generates an algebraically-
+free monad TWAB . Let Γ.W be the initial algebra of TWAB + RΓ , where RΓ is the
+restriction of R to morphisms with target Γ. Then Γ.W → Γ is a fibration, since
+it is an R-algebra, and its FWAB -endofunctor-algebra structure is exactly the map
+fold required of a W-type.
+    The input to the eliminator consists, as usual, of a fibration p : Γ.W.C 
+Γ.W that is a FWAB -algebra morphism. This is not completely obvious, with the
+eliminator defined following syntax as in [LW15, Definition 3.4.4.7]; the point is that
+Γ.A.Π[B, W].Π[B, C[app0B,W ]] ∼  = Γ.A.Π[B, Σ[W, C]] by the mapping-in universal
+property of Σ-types; and by construction of Σ-types in M , the comprehension
+Γ.Σ[W, C]  Γ is just the composite Γ.W.C  Γ.W  Γ.4) As before, we choose an
+R-algebra structure on p, making this composite Γ.W.C  Γ.W  Γ an R-algebra
+and the square
+                                  Γ.W.C         Γ.W
+
+
+                                   Γ           Γ
+an R-algebra map, hence also a (TWAB + RΓ )-algebra map. Thus, since W is the
+initial (TWAB + RΓ )-algebra, this morphism has a (TWAB + RΓ )-algebra section,
+and in particular a FWAB -endofunctor-algebra section, which is wrec.        
+Remark 8.2. In [vdBM15] it is shown that 1-categorical W-types in simplicial sets
+and certain other well-behaved model categories automatically preserve fibrancy.
+But in the general case we need to include a fibrant replacement, as before.
+Theorem 8.3. If M is an excellent model category, then (Mf , Ff ) has weakly
+stable W-types.
+Proof. Let W  Γ be a W-type constructed as above for Γ ∈ M , A ∈ F(Γ), and
+B ∈ F(Γ.A); we must show that its pullback along any σ : ∆ → Γ is also a W-type.
+   4Note a typo in [LW15, Definition 3.4.4.7]: each Γ.W. · · · in the left-hand columns of the
+diagrams should be Γ.A. · · · .
+                        SEMANTICS OF HIGHER INDUCTIVE TYPES                                                25
+
+
+We consider separately the cases when σ is an acyclic cofibration or a fibration; by
+factorization this suffices for the general case.
+   If σ is a fibration, the argument is similar to that of Theorem 7.5. Suppose given
+a fibration C  σ ∗ W over ∆ with structure map d over σ ∗ (fold):
+                                                                       d
+                (σ ∗ A)! (σ ∗ f )∗ (σ ∗ B)∗ C                                                  C
+
+                                                      ∼
+                                                      =
+              (σ ∗ A)! (σ ∗ f )∗ (σ ∗ B)∗ σ ∗ W                 σ ∗ (f∗ B ∗ W)                σ∗ W
+                                                                                 σ ∗ (fold)
+
+Then using several Beck-Chevalley transformations, we have a composite map
+                 ∼                           ∼
+  A! f∗ B ∗ σ∗ C −
+                 → A! f∗ (B ∗ σ)∗ (σ ∗ B)∗ C −
+                                             → A! (A∗ σ)∗ (σ ∗ f )∗ (σ ∗ B)∗ C
+                                                                                                     σ d
+                                                          → σ∗ (σ ∗ A)! (σ ∗ f )∗ (σ ∗ B)∗ C −−
+                                                                                              ∗
+                                                                                               → σ∗ C
+that lies over the corresponding map for σ ∗ W constructed from σ ∗ (fold). Now if we
+pull this back along the unit ηW : W → σ∗ σ ∗ W we get a map d0 satisfying
+                                                           d0
+                               A! f ∗ B ∗ η W
+                                            ∗
+                                              σ∗ C                    ∗
+                                                                     ηW σ∗ C
+
+
+                                                          fold
+                                   A! f ∗ B ∗ W                        W
+                                     ∗
+and thus a section wrec : W → ηW       σ∗ C commuting with d0 and fold. Transposing
+                                     ∗
+this back across the adjunction σ a σ∗ , we obtain a section of C commuting with
+d and σ ∗ (fold), as desired.
+   On the other hand, if σ is an acyclic cofibration, then so is its pullback W∗ σ :
+ ∗
+σ W → W along the fibration W  Γ. Moreover, since ∆ is fibrant, so is the
+object σ ∗ W. Therefore, the acyclic cofibration W∗ σ admits a retraction r. Since
+(W∗ σ)∗ r∗ C ∼
+             = C, it suffices to extend the given structure d on the fibration C  σ ∗ W
+to a corresponding structure on r∗ C  W whose pullback to σ ∗ W is d. This is
+contained in the following lemma.                                                      
+Lemma 8.4. Suppose a pair of pullback squares in a good model category M :
+                                                      i
+                                           C          ∼     D
+                                          p       y              q
+                                                      j
+                                           V          ∼     W
+                                                  y
+                                                      σ
+                                           ∆          ∼     Γ
+in which all objects are fibrant, the downward-pointing arrows are fibrations, and
+the rightward-pointing arrows are acyclic cofibrations. Suppose moreover that for
+some fibration f : B  A between fibrant objects of M /Γ, the object W of M /Γ is
+a FWAB -endofunctor-algebra, the object C is a FW(σ∗ A)(σ∗ B) -endofunctor-algebra,
+and p is a FW(σ∗ A)(σ∗ B) -morphism (when V has its induced structure from W ).
+Then there is a FWAB -endofunctor-algebra structure on D inducing the structure
+on C by pullback and making q a FWAB -morphism.
+Proof. By definition, FWAB (X) = f∗ B ∗ X (with its canonical map to A forgotten),
+and similarly FW(σ∗ A)(σ∗ B) (X) = (σ ∗ f )∗ (σ ∗ B)∗ X. Thus we are given the following
+26               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+commutative diagram of solid arrows and we want to construct the dashed arrow
+making the other squares commute:
+                 (σ ∗ f )∗ (σ ∗ B)∗ C                             f∗ B ∗ D
+
+
+                                                   C                         i
+                                                                                     D
+
+
+                 (σ ∗ f )∗ (σ ∗ B)∗ V                             f∗ B ∗ W           q
+                                                       p
+
+
+                                                   V                  j
+                                                                                     W
+
+This is equivalent to solving the following lifting problem:
+                       (σ ∗ f )∗ (σ ∗ B)∗ C                   C                  D
+
+
+                            f∗ B ∗ D                       f∗ B ∗ W              W
+so it suffices to show that (σ ∗ f )∗ (σ ∗ B)∗ C → f∗ B ∗ D is an acyclic cofibration. Now
+since C = σ ∗ D, we have (σ ∗ B)∗ C = σ ∗ B ∗ D, so the map (σ ∗ B)∗ C → B ∗ D is
+a pullback of σ along the composite fibration B ∗ D → D → Γ, hence an acyclic
+cofibration. But (σ ∗ B)∗ C is also the pullback of B ∗ D along the map B ∗ σ : σ ∗ B → B,
+so by the Beck-Chevalley condition for the pullback square
+                                                       B∗ σ
+                                            σ∗ B        ∼     B
+                                        σ∗ f                   f
+                                                       A∗ σ
+                                            σ∗ A        ∼     A
+we have (σ f )∗ (σ B) C ∼
+           ∗      ∗    ∗
+                           = (A σ) f∗ B D. Thus, our desired map (σ ∗ B)∗ C → B ∗ D
+                                  ∗     ∗      ∗
+
+is equivalently the pullback (A∗ σ)∗ f∗ B ∗ D → f∗ B ∗ D of the acyclic cofibration A∗ σ
+along the fibration f∗ B ∗ D  A, and hence an acyclic cofibration.                   
+Corollary 8.5. If M is an excellent model category, then (Mf , Ff ,! ) has strictly
+stable W-types.                                                                  
+
+     9. A higher inductive type not constructible from pushouts
+   As mentioned in §1, it is known that (at least in the presence of a universe) many
+recursive higher inductive types can in fact be constructed using only pushouts
+and the natural numbers, including all n-truncations and some localizations. Thus,
+it seems worthwhile to give explicitly an example of a higher inductive type that
+cannot be so constructed.
+   Briefly, the idea is that higher inductive types can be used to construct free
+algebras for infinitary algebraic theories. However, Blass showed (modulo a large
+cardinal assumption) that these cannot be constructed in ZF [Bla83]. Therefore, no
+higher inductive types that are modelled by ZF can suffice to construct these.
+   To give this in detail, we work internally, and write x = y instead of Id(x, y). Let
+even, odd : N → N be the inclusions of the even and odd numbers respectively, and
+let par : N → N + N be the inverse of the bijection [even, odd] : N + N → N. Given
+                         SEMANTICS OF HIGHER INDUCTIVE TYPES                                        27
+
+                                                                                par         [f,g]
+functions f, g : N → A, we write f ∪g : N → A for the composite N −−→ N+N −−−→ A.
+And given a : A, we write {a} : N → A for the constant function at a.
+   Now let F be the higher inductive type generated by the following constructors
+(some numbered for later reference). Intuitively, F can be thought of as a set of
+notations for countable ordinals, so that its existence implies that of an ordinal of
+uncountable cofinality.
+  • 0 : F.
+  • S : F → F.
+  • sup : (N → F) → F.
+  • F is a 0-type. As in [Uni13, §7.3] we can ensure this with two constructors:
+       • h : (S 1 → F) → F.
+       • For each r : S 1 → F and x : S 1 , an identification r(x) = h(r).
+(1) For any f, g : N → N such that ∀n.((∃m.f (m) = n) ↔ (∃m.g(m) = n)), and
+    any h : N → F, we have sup(h ◦ f ) = sup(h ◦ g).
+(2) For any f, g : N → F we have sup(f ∪ {sup(f ∪ g)}) = sup(f ∪ g).
+(3) For any f, g : N → F we have sup(f ∪ {S(sup(f ∪ g))}) = S(sup(f ∪ g)).
+(4) This constructor requires some setup. Fix a bijection pair : N × N → N; then
+    suppose given b, c : N → N jointly surjective, and L : N → N → N such that
+    ∀n.∃m, `.(L(b(m), `) = c(n)) and ∀n.∃m, `.(L(c(m), `) = b(n)). For h : N → F,
+    set h0 (n) = sup(h ◦ L(n)). Now given such h, take by induction h0 = h, hk+1 =
+    h0k ; then set fk = hk ◦ b and gk = hk ◦ c, and finally f (pair(k, n)) = fk (n) and
+    g(pair(k, n)) = gk (n). Note that for each i, f (i), g(i) are algebraic expressions
+    in the variables h under the operation sup.
+        Now the constructor says: for each such b, c, L, and h, sup(f ) = sup(g).
+(5) sup({0}) = 0.
+Theorem 9.1 (cf. [Bla83, §9]). Assuming excluded middle and the higher inductive
+type F, there exists an uncountable regular cardinal.
+Proof. The constructors of F correspond to the operations and the similarly-
+numbered axioms of the variety of algebras considered in [Bla83, §9]. For (2), (3)
+and (5) this is fairly obvious.
+   Axiom (1) of [Bla83, §9] is sup(x0 , x1 , . . . ) = sup(y0 , y1 , . . . ), where {x0 , x1 , . . . }
+and {y0 , y1 , . . . } are equal subsets of some fixed countably infinite set of variables.
+The enumerations of such variables x0 , x1 , . . . and y0 , y1 , . . . therefore correspond
+to f, g : N → N, and the hypothesis of our (1) says that these have the same image.
+   It is not entirely clear to us how axiom (4) of [Bla83, §9] is to be interpreted
+as an equation of an algebraic theory; its statement appears to be conditional on
+certain equalities, hence essentially-algebraic rather than algebraic. Our (4) is a
+modification (which may have been essentially what was intended in [Bla83, §9])
+that is algebraic and satisfies the following two necessary properties.
+   First, we need that the canonical supremum operation on ordinal numbers
+satisfies (4) (with F interpreted as the ordinals). To see this, note that the assumption
+on L ensures that for any h, for each n there is an m with h(b(n)) ≤ h0 (c(m)), and
+dually. Thus, for any k, n there is an m with fk (n) ≤ gk+1 (m), and dually. Thus f
+and g are mutually cofinal, hence have the same supremum.
+   Second, in the proof of Subcase 3.1 in [Bla83, §9], we need (4) to imply that
+if h : N → F satisfies h(n) = sup({ h(m) | m ≤ n }), and b, c : N → N are jointly
+surjective and each cofinal, then sup(h ◦ b) = sup(h ◦ c). To see this, let L(n) : N → N
+28              PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+                   Γ ` A type                        Γ ` A type
+                  Γ ` kAk type                 Γ, x : A ` tr(x) : kAk
+
+                                     Γ ` A type
+                    Γ, x : kAk, y : kAk ` treq(x, y) : IdkAk (x, y)
+
+          Γ ` A type       Γ, z : kAk ` C type      Γ, x : A ` c : C[tr(x)/z]
+                                                               treq(x,y)
+           Γ, x : kAk, y : kAk, u : C[x/z], v : C[y/z] ` d : Idz.C       (u, v)
+                   Γ, w : kAk ` trrec(z.C, x.c, xyuv.d, a) : C[w/z]
+                   Γ, a : A ` trrec(z.C, x.c, xyuv.d, tr(a)) ≡ c[a/x]
+
+                        Figure 7. Propositional truncation
+
+be an enumeration of { m | m ≤ n }; then cofinality ensures the hypothesis of (4),
+while the other assumption ensures that h0 = h. Using (1), therefore, we have
+sup(h ◦ b) = sup(f ) = sup(g) = sup(h ◦ c).
+   Now the proof of [Bla83, §9] applies to derive a contradiction from the assumption
+that ω is the only infinite regular cardinal.                                       
+Corollary 9.2. If it is consistent with ZFC that there are arbitrarily large strongly
+compact cardinals, then ZF does not prove that the higher inductive type F exists
+in Set. In particular, since Set models type theory with pushouts and natural
+numbers, under this assumption F cannot be constructed from pushouts and the
+natural numbers.
+Proof. As in [Bla83, §9], this follows from Gitik’s [Git80] construction of a model
+of ZF with no uncountable regular cardinals, assuming the stated large cardinal
+principle.                                                                       
+   Thus, there is real extra power in recursive higher inductive types, above and
+beyond that obtainable by combining non-recursive higher inductive types and
+recursive ordinary inductive types.
+
+                         10. Propositional truncation
+   Having dealt with both higher path-constructors in §§4–6 and recursive point-
+constructors in §§7–8, we now combine them and consider a type with a recursive
+path-constructor. One of the simplest such is the propositional truncation, whose
+type-theoretic rules are shown in fig. 7. According to the usual pattern, there should
+be a second computation rule regarding treq; but the typal form of this (which, as
+in §6, is all we will obtain eventually) follows automatically since everything is a
+proposition, so we do not bother to posit it separately. The semantic version of this
+definition is as follows.
+Definition 10.1. Let C be a comprehension category with stable classes of identity
+types and dependent identity types. A stable class of propositional truncations
+consists of, for any A ∈ T (Γ) a non-empty family of “good propositional truncations”
+kAk ∈ T (Γ) with morphisms tr : Γ.A → Γ.kAk over Γ, and for any good identity
+type IdkAk a non-empty family of sections treq of the projection Γ.kAk.kAk.IdkAk 
+                       SEMANTICS OF HIGHER INDUCTIVE TYPES                               29
+
+
+Γ.kAk.kAk, plus for any C ∈ T (Γ.kAk) equipped with a section t : Γ.A → Γ.kAk.C
+                                           kAk
+over tr, a good dependent identity type IdC over IdkAk , and a section of the
+                                       kAk
+projection Γ.kAk.kAk.IdkAk .C.C.IdC → Γ.kAk.kAk.C.C over treq, a section trrec
+of C such that trrec ◦ tr = t; all equipped with appropriate reindexing operations.
+We say C has strictly stable propositional truncations if it has a stable class
+thereof in which each family of good structures is a singleton.
+
+  The local universes coherence lemma is proven as usual; we combine it with the
+analogue of Theorem 6.9.
+
+Lemma 10.2. If C satisfies (LF) and has a stable class of propositional truncations
+relative to some stable classes of identity types and dependent identity types, then
+C! has strictly stable propositional truncations relative to the identity types obtained
+by strictifying the given ones and any dependent identity types over these.
+
+Proof. The local universe for the formation and introduction rules is just VA , while
+that for the elimination and computation rules is
+
+        [a : VA ,
+             Y
+         c:     z : EkAk (a).VC
+            Y
+         t:     x : EA (a).EC (c(tr(x)))
+             Y
+         d:      x, y : EkAk (a), u : EC (c(x)), v : EC (c(y)).EIdkAk (a, x, y, u, v)]
+                                                                   C
+
+
+And if C has eliminator data relative to some other dependent identity types, then
+by composing it with the map k from Theorem 6.9 we obtain eliminator data for
+the given strictified ones, allowing us to define the desired section.          
+
+   Passing to the model-categorical context, it is useful to isolate the following
+definition.
+
+Definition 10.3. A morphism X → Γ in a good model category is a proposition
+                                                              1
+over Γ if it is equipped with a section of the projection XΓ∆ → X ×Γ X, i.e. a
+simplicial homotopy over Γ between the two projections X ×Γ X ⇒ X. A map of
+propositions over Γ is a map over Γ that preserves these sections (or homotopies).
+
+   Note that when interpreted with respect to the canonical identity types and
+dependent identity types in a good model category, the introduction rule for kAk
+says that it is a fibrant proposition with a map from A, and the elimination rule
+says that any fibration over kAk that is a map of propositions and has a section
+over A has a section over kAk.
+   Definition 10.3 does not require X → Γ to be a fibration, but when it is, the
+definition has the following reformulations.
+
+Lemma 10.4. The following are equivalent for a fibration p : X  Γ in a good
+model category.
+   (i) p admits some structure of a proposition over Γ.
+  (ii) The diagonal X → X ×Γ X is a weak equivalence.
+ (iii) The diagonal X → X ×Γ X is an acyclic cofibration.
+30               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+Proof. The diagonal is always a split mono, hence a cofibration, so (ii)⇔(iii) is easy.
+And (iii)⇒(i) by lifting in the square
+                                            r           1
+                                  X               XΓ∆
+                                   ∼
+
+                               X ×Γ X            X ×Γ X
+in which the right-hand map is a fibration since p is a fibration, as in Theorem 5.2.
+Finally, if (i) then any two parallel maps over Γ with target X are simplicially
+homotopic, by composing with the specified section. Thus, consider either projection
+X ×Γ X → X; this is a retraction of the diagonal, while the composite X ×Γ X →
+X → X ×Γ X is simplicially homotopic to the identity by the above. Thus the
+diagonal is a simplicial homotopy equivalence.                                     
+
+Lemma 10.5. Given a proposition X  Γ over Γ in a good model category, the
+following are equivalent for a further fibration Y  X.
+   (i) Y  X admits some structure of a proposition over X.
+  (ii) the composite Y  X  Γ admits some structure of a proposition over Γ.
+ (iii) the composite Y  X  Γ admits some structure of a proposition over Γ
+       such that Y → X is a map of propositions.
+Proof. We have a pullback square
+                                             ∼
+                               Y ×X Y            Y ×Γ Y
+                                        y
+                                         ∼
+                                  X              X ×Γ X
+in which the right-hand map is a fibration (the product of two fibrations in M /Γ) and
+the bottom map is an acyclic cofibration by Lemma 10.4, hence the top map is also
+an acyclic cofibration. Thus, by the 2-out-of-3 property, the diagonal Y → Y ×X Y
+is a weak equivalence (i.e. Y can be structured as a proposition over X) if and only
+if the diagonal Y → Y ×Γ Y is a weak equivalence (i.e. Y can be structured as a
+proposition over Γ). Moreover, in this case we can structure Y as a proposition over
+Γ making Y → X a map of propositions by lifting in the following square:
+                                                        1
+                         Y                        YΓ∆
+                           ∼
+                                                               1
+                      Y ×Γ Y           (Y ×Γ Y ) ×(X×Γ X) XΓ∆
+
+Here the right-hand map is a fibration since it is the pullback corner product in
+M /Γ of the fibration Y  X and the cofibration 2 → ∆1 , so such a lift exists. 
+
+   The following proof introduces one more new idea: algebraic pushouts of monads
+to “glue in recursive paths”.
+Theorem 10.6. If M is an excellent model category, then (Mf , Ff ) has a stable class
+of propositional truncations relative to its canonical stable classes of identity types
+and dependent identity types, and hence (Mf , Ff ,! ) has strictly stable propositional
+truncations.
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                           31
+
+
+Proof. Let F∆1 be the endofunctor of M /Γ defined by F∆1 (X) = (X ×Γ X) ⊗ ∆1 .
+Then an F∆1 -endofunctor-algebra structure on X consists of a simplicial homotopy
+between two maps X ×Γ X ⇒ X. These two maps can be arbitrary and are given
+as part of the algebra structure, but we can identify them with the projections by
+taking an algebraic colimit of monads.
+   If we define F2 (X) = (X ×Γ X) ⊗ 2, then an F2 -endofunctor-algebra structure
+consists of two maps X ×Γ X ⇒ X. Moreover, there is a natural transformation
+F2 → F∆1 such that the induced functor from F∆1 -endofunctor-algebras to F2 -
+endofunctor-algebras forgets the homotopy but remembers the maps. And if T2 and
+T∆1 denote the algebraically-free monads on these (accessible) endofunctors, we
+have an induced monad morphism T2 → T∆1 that has the same effect on algebras.
+   Let Id denote the identity functor with its unique monad structure, so that every
+object has a unique Id-algebra structure. Every object also has a natural (though
+not unique) T2 -algebra structure consisting of the two projections, so there is a
+monad morphism T2 → Id. Let TProp be the algebraic monad pushout:
+
+
+                                   T2           Id
+
+
+                                  T∆1         TProp
+
+
+By definition, this means that a TProp -algebra structure on an object consists
+precisely of a T∆1 -algebra structure and (the unique) Id-algebra structure whose
+underlying T2 -algebra structures coincide. In other words, a TProp -algebra is exactly
+a proposition over Γ.
+   Finally, consider the algebraic monad coproduct TProp + RΓ , and let kAk =
+(TProp + RΓ )(A). (More precisely, we define a “good” propositional truncation to
+be a fibration over Γ equipped with an isomorphism to (TProp + RΓ )(A).) Then
+kAk → Γ is a fibration, since it is an RΓ -algebra, and kAk is a proposition since it
+is a TProp -algebra, while the unit of the monad TProp + RΓ supplies tr : A → kAk.
+   The eliminator data consists of a fibration p : C  kAk that is also a TProp -
+algebra morphism, together with a map t : A → C over tr. As usual, we choose
+an R-algebra structure on p, inducing an R-algebra structure on the composite
+C  kAk  Γ such that p becomes an R-algebra morphism. Thus, t : A → C is
+a map from A to a (TProp + RΓ )-algebra, so it factors uniquely through the free
+(TProp + RΓ )-algebra on A, which by definition is kAk. And when we compose this
+factorization f : kAk → C with p, we get a factorization of tr through itself, which
+must therefore be the identity; thus f is a section of p as desired.
+   It remains to prove weak stability. Since pullback preserves limits and simplicial
+homotopies, it preserves the introduction rule, i.e. it takes propositions to proposi-
+tions. For elimination and computation, as in Theorem 8.3 we deal separately with
+the cases when σ : ∆ → Γ is a fibration or an acyclic cofibration.
+   If σ is a fibration and C  σ ∗ kAk is a fibration of propositions over ∆, then
+as usual we have a fibration σ∗ C  σ∗ σ ∗ kAk over Γ. Moreover, σ∗ also preserves
+propositions, since it is a simplicial right adjoint and hence preserves limits and
+simplicial homotopies. Thus, σ∗ C → σ∗ σ ∗ kAk is also a fibration of propositions
+over Γ, while the unit η : kAk → σ∗ σ ∗ kAk is a map of propositions. Thus, the
+pullback η ∗ σ∗ C  kAk is also a proposition over Γ. Moreover, if C has a section
+32                 PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+over σ ∗ A, then σ∗ C has a section over A, which therefore extends to a section of
+η ∗ σ∗ C, i.e. a map kAk → σ∗ C over η. This transposes to a section of C, as desired.
+    On the other hand, if σ is an acyclic cofibration, then so is kAk ∗ σ : σ ∗ kAk → kAk,
+since kAk  Γ is a fibration. Since ∆ is fibrant, so is σ ∗ kAk, and so just as in
+Theorem 8.3 kAk ∗ σ admits a retraction r. Now suppose C  σ ∗ kAk is a fibration
+of propositions over ∆, with a section c over σ ∗ A. Then r∗ C  kAk is a fibration
+whose pullback along σ is C, and by lifting in the following square
+                            σ∗ A     c
+                                          C∼
+                                           = σ∗ r∗ C            r∗ C
+                               ∼
+
+                             A                                  kAk
+we obtain a section of r∗ C over A whose pullback to ∆ is the given c. Moreover,
+since C ∼
+        = σ ∗ r∗ C, we have the following commutative square
+                                              ∼
+                                    C                  r∗ C
+                                     ∼
+                                             ∼
+                                 C ×∆ C            r ∗ C ×Γ r ∗ C
+in which all maps except the right-hand one are known to be weak equivalences:
+the left-hand one since C is a proposition over Γ, the top since it is a pullback of
+the weak equivalence σ along a fibration, and the bottom since it is a homotopy
+pullback of weak equivalences. Thus, by 2-out-of-3 the right-hand map is also a weak
+equivalence, i.e. r∗ C is a proposition over Γ. Therefore, by Lemma 10.5, we can give
+it the structure of a proposition such that r∗ C → kAk is a map of propositions. So
+we can apply trrec to obtain a section of it, which pulls back to the desired section
+of C.                                                                               
+
+                                     11. Cell monads
+   At this point we have enough examples to motivate and formulate a general
+notion of higher inductive type on the semantic side, although it remains an open
+problem to give a syntactic presentation of equal generality. In this section we
+consider “higher inductive types” without parameters; in the next section we will
+generalize to allow parameters.
+   We start with a very general notion of “typal initial algebra” in the comprehension
+category context for which we can isolate the conditions necessary to prove the local
+universes coherence theorem.
+Definition 11.1. For any category C, a fibred category of structures over C
+is a comprehension category structure (C, S) such that the functor S → C → is a
+faithful amnestic isofibration.5 We call an object of S an S-algebra, and we call a
+lifting of (X → Γ) ∈ C → to S an S-structure on it. We call a morphism in S an
+S-morphism.
+   Note that by the assumptions on S, the collection of S-structures on any X → Γ
+is a partially ordered set (not just a preordered set).
+
+   5Recall that a functor U : A → B is amnestic if whenever f : a ∼ b is an isomorphism in A
+                                                                     =
+such that U a = U b and U f = 1U a , then also a = b and f = 1a . It is an isofibration if for any
+isomorphism g : U a ∼
+                    = b, there exists an isomorphism f : a ∼
+                                                           = a0 such that U a0 = b and U f = g.
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                             33
+
+
+Definition 11.2. Let (C, T ) be a comprehension category, and let S be a fibred
+category of structures over C (note that there is no relation between S and T ). A
+typal initial S-algebra over Γ is a type H ∈ T (Γ) together with an S-structure
+on its comprehension Γ.H → Γ, such that for any C ∈ T (Γ.H) together with an
+S-algebra structure on the composite Γ.H.C → Γ.H → Γ such that Γ.H.C → Γ.H
+is an S-morphism, there exists a section Γ.H → Γ.H.C of Γ.H.C → Γ.H that is
+also an S-morphism.
+   We say C has weakly stable typal initial S-algebras if for any Γ there exists
+a typal initial S-algebra over Γ whose reindexing along any σ : ∆ → Γ is again a
+typal initial S-algebra. If C is split, we say it has strictly stable typal initial
+S-algebras if we have an operation assigning to each Γ a typal initial S-algebra
+over Γ with specified S-algebra sections, in a way that is strictly preserved by the
+split reindexing functors.
+Definition 11.3. Let (C, T ) be a comprehension category and S a fibred category
+of structures over C. Given A ∈ T (Γ) and B ∈ T (Γ.A) and any S-structure A on
+Γ.A → Γ, an S-lift of A to B is an S-structure on the composite Γ.A.B → Γ.A → Γ
+such that Γ.A.B → Γ.A becomes an S-morphism over Γ. We say that S has
+representable lifts if for any A, B, A , the functor (C/Γ)op → Set defined by
+(11.4)                (σ : ∆ → Γ) 7→ {S-lifts of A [σ] to B[σ]}
+is representable. In other words, there exists a map $ : VA ,B → Γ and an S-lift B
+of A [$] to B[$], such that for any σ : ∆ → Γ and any S-lift B 0 of A [σ] to B[σ],
+there is a unique map τ : ∆ → VA ,B such that $ ◦ τ = σ and B 0 = B[τ ].
+   Note that the notion of representable lift does involve both S and T , and also
+that the assumptions on S ensure that the functor (11.4) really does sensibly take
+values in (partially ordered) sets (rather than groupoids or categories).
+Lemma 11.5. Let (C, T ) be a comprehension category and S a fibred category
+of structures over C. If C has weakly stable typal initial S-algebras, C has a
+terminal object, and S has representable lifts, then C! has strictly stable typal initial
+S-algebras.
+Proof. Choose a weakly stable typal initial S-algebra H ∈ T (1) with S-structure
+H , and let VH = 1 and EH = H with pHq = 1. Then assign to each Γ the algebra
+(VH , EH , !); this is strictly stable by composition of names, as usual. That is, since
+the “formation” and “introduction” rules (which jointly correspond to a choice of
+S-structure on the comprehension of a type) have no premises, their local universe
+is the terminal object.
+    For the elimination rule, given a type C ∈ T! (Γ.H[Γ]) determined by (VC , EC , pCq),
+consider first the object V = VH / VC constructed as in [LW15], which classifies maps
+∆ → VH = 1 (which are unique) together with maps ∆.H[∆] → VC . In particular,
+we have a universal map c : V.H[V ] → VC giving EC [c] ∈ T (V.H[V ]).
+    Now, by representable lifts, we have a map VH [V ],EC [c] → V representing lifts of
+the S-structure H [V ] of H[V ] to EC [c]. Combining universal properties, we see
+that maps Γ → VH [V ],EC [c] correspond to choices of a map pCq : Γ.H[Γ] → VC
+together with a lift of H [Γ] to EC [pCq]. This is exactly the input to the “elimination
+and computation rules” of a typal initial S-algebra, so we take VH [V ],EC [c] as the
+local universe for that. The weak stability of H implies that the universal lift over
+34               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+VH [V ],EC [c] has a section that is an S-morphism, which we can then reindex to Γ to
+obtain a strictly stable eliminator.                                               
+   Note that we did not yet need to explicitly assume all of (LF); the assumption
+of representable lifts encodes all of this that’s relevant to S.
+   Now we move on to good model categories. In this case, our work in previous
+sections suggests that we should consider structures defined as the algebras for a
+monad. To obtain a fibred category of algebras, we need to consider fibred monads
+as well.
+Definition 11.6. A fibred monad on a category C with pullbacks is a monad T on
+C → in the category of fibrations over C. That is, T and its unit η and multiplication µ
+live in the (strict) slice 2-category of Cat over C, meaning that T preserves codomains
+and the codomain-part of η and µ are the identity, and also T preserves cartesian
+morphisms.
+    In particular, such a T induces a monad TΓ on each slice category C/Γ, and
+each pullback functor σ ∗ : C/Γ → C/∆ is a strong monad morphism, i.e. it satisfies
+σ ∗ TΓ ∼
+       = T∆ σ ∗ coherently. That is, a fibred monad is equivalently an indexed monad.
+    Let T-Alg denote the category of T-algebras, which is again fibred over C; the
+fiberwiseness of η means that the fiber of T-Alg over Γ is TΓ -Alg. We record:
+Lemma 11.7. For any fibred monad T on a category C with pullbacks, T-Alg is a
+fibred category of structures over C.                                      
+Lemma 11.8. If T is a fibred monad on a model category M , then the full
+subcategory T-Alg f of T-Alg consisting of T-algebra structures on fibrations over
+fibrant objects is a fibred category of structures over the full subcategory of fibrant
+objects Mf .                                                                         
+   The question, therefore, is what conditions we can impose on T to ensure that
+(1) (Mf , Ff ) has weakly stable initial T-Alg f -structures, and
+(2) T-Alg f has representable lifts.
+It is familiar from homotopy theory that an algebraic theory (such as an operad or,
+in this case, a monad) must be sufficiently “cofibrant” to have good homotopical
+behavior. Cofibrant objects, in turn, are generally constructed as “cell complexes”.
+Inspecting our proofs of weak stability in the preceding sections leads us to the
+following definitions.
+Lemma 11.9. Let M be a locally presentable category, and F a fibred endofunctor
+of M such that each fiber FΓ is accessible. Let TΓ be the algebraically-free monad
+on FΓ . Then these monads TΓ are also indexed, i.e. we have coherent isomorphisms
+T∆ ◦ σ ∗ ∼
+         = σ ∗ ◦ TΓ commuting with the monad structures, and hence induce a fibred
+monad T.
+Proof. As explained in [Kel80, nLa], TΓ is constructed out of colimits in M using a
+general method that depends on FΓ only insofar as we have to carry it out to some
+stage κ such that FΓ is κ-accessible. It doesn’t matter whether we go “too far”, since
+the construction converges: once we reach a κ such that FΓ is κ-accessible, continuing
+to larger values of κ doesn’t change the result. Therefore, given σ : ∆ → Γ, we can
+choose κ such that FΓ and F∆ are both κ-accessible, and then both TΓ and T∆ can
+be constructed by exactly the same colimits, only involving FΓ and F∆ respectively.
+                     SEMANTICS OF HIGHER INDUCTIVE TYPES                            35
+
+
+Since σ ∗ preserves all colimits, the isomorphisms F∆ ◦ σ ∗ ∼
+                                                            = σ ∗ ◦ FΓ therefore yield
+                      ∗ ∼ ∗
+isomorphisms T∆ ◦ σ = σ ◦ TΓ , and so on.                                           
+   Now let M be an excellent model category. For any fibration f : B → A of
+fibrant objects in M and any Γ ∈ M , let FΓf be the polynomial endofunctor of
+M /Γ determined by Γ∗ (f ), i.e. the composite
+                    Γ∗ (B)∗             Γ∗ (f )∗           Γ∗ (A)!
+             M /Γ −−−−−→ M /Γ∗ (B) −−−−→ M /Γ∗ (A) −−−−→ M /Γ
+By the Beck-Chevalley condition for dependent exponentials, FΓf is an indexed
+endofunctor, hence we have an fibred endofunctor F f , which is moreover (fiberwise)
+accessible.
+   Next, for any simplicial set K we have a further fibred endofunctor F f ⊗ K,
+which is again accessible. We denote the free fibred monad it generates by Tf,K .
+Finally, for any morphism i : K → L of simplicial sets, we have an induced map
+F f ⊗ K → F f ⊗ L, which generates a map of fibred monads Tf,K → Tf,L .
+Definition 11.10. Let M be an excellent model category.
+ • A monad cell is a fibred monad morphism Tf,K → Tf,L obtained as above
+    from a fibration f : B → A of fibrant objects in M and a cofibration i : K → L
+    of simplicial sets.
+ • A (finite) relative cell monad is a fibred monad morphism obtained as a
+   (finite) composite of pushouts of monad cells.
+ • A (finite) cell monad is a fibred monad T such that the unique map from the
+    initial fibred monad (which is the identity Id) is a (finite) relative cell monad.
+   As in previous sections, the proof of weak stability for typal initial T-algebras
+will proceed by considering separately the cases when σ is a fibration or an acyclic
+cofibration. For the fibration case, the relevant lemma will be the following.
+Lemma 11.11. For any fibred monad T on a good model category M , and any
+morphism σ : ∆ → Γ, the adjunction σ ∗ : M /Γ  M /∆ : σ∗ lifts to an adjunction
+σ ∗ : TΓ -Alg → T∆ -Alg : σ∗ .
+Proof. Since σ ∗ is a strong monad morphism, by doctrinal adjunction [Kel74] the
+entire adjunction σ ∗ a σ∗ lifts to the 2-category of categories-with-monads and
+lax monad morphisms. But the construction of categories of algebras is functorial
+on this 2-category, hence takes this adjunction to the desired adjunction between
+categories of algebras.                                                         
+   For the acyclic cofibration case, the relevant lemma will be the following analogue
+of Lemma 8.4.
+Lemma 11.12. Let S → T be a relative cell monad on an excellent model category,
+and suppose given a pair of pullback squares:
+                                            i
+                                    C       ∼      D
+                                    p   y          q
+                                            j
+                                    V       ∼      W
+                                        y
+                                            σ
+                                    ∆       ∼      Γ
+              36                    PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+              in which all objects are fibrant, the downward-pointing arrows are fibrations, and
+              the rightward-pointing arrows are acyclic cofibrations. Suppose moreover that:
+                 (i) C and V are T∆ -algebras and p is a T∆ -morphism,
+                (ii) W is a TΓ -algebra and j is a cartesian morphism in T-Alg,
+               (iii) D is an SΓ -algebra and q is an SΓ -morphism (where W has its induced
+                     SΓ -structure), and
+               (iv) i is a cartesian morphism in S-Alg (where C has its induced S∆ -structure).
+              Then there is a TΓ -structure on D such that q is a TΓ -morphism and i is a cartesian
+              morphism in T-Alg.
+             Proof. It is easy to check that this property is preserved by algebraic pushouts and
+             (possibly transfinite) composites of monad morphisms. Thus, it suffices to show that
+             monad cells Tf,K → Tf,L have this property. In this case, generalizing the argument
+             of Lemma 8.4, we have the following commutative diagram of solid arrows and we
+             want to construct a dashed arrow making the other squares commute:
+(σ ∗ f )∗ (σ ∗ B)∗ C ⊗ K                                                       f∗ B ∗ D ⊗ K
+
+
+                                   (σ ∗ f )∗ (σ ∗ B)∗ C ⊗ L                                    f∗ B ∗ D ⊗ L
+
+
+                                                                   C                                          D
+
+
+(σ ∗ f )∗ (σ ∗ B)∗ V ⊗ K                                                      f∗ B ∗ W ⊗ K
+
+
+                                   (σ ∗ f )∗ (σ ∗ B)∗ V ⊗ L                                    f∗ B ∗ W ⊗ L
+
+
+                                                                   V                                          W
+              This is equivalent to solving the following lifting problem:
+                           ((σ ∗ f )∗ (σ ∗ B)∗ C ⊗ L) t((σ∗ f )∗ (σ∗ B)∗ C⊗K) (f∗ B ∗ D ⊗ K)   D
+
+
+                                                    f∗ B ∗ D ⊗ L                               W
+              But the left-hand map is now the pushout product of (σ ∗ f )∗ (σ ∗ B)∗ C ⊗ L → f∗ B ∗ D,
+              which we showed in Lemma 8.4 to be an acyclic cofibration, and the cofibration
+              K → L of simplicial sets; thus it is also an acyclic cofibration.                     
+             Theorem 11.13. If T is a cell monad on an excellent model category M , then
+             (Mf , Ff ) has weakly stable typal initial T-Alg f -algebras.
+             Proof. As usual, for any Γ, let H  Γ be the initial (TΓ + RΓ )-algebra. Then it is a
+             fibration and a TΓ -algebra. And given any fibration C  H that is a TΓ -morphism,
+             choose an R-structure on it to make C → Γ a (TΓ + RΓ )-algebra and C → H a
+             (TΓ + RΓ )-morphism, so that it has a (TΓ + RΓ )-section. Thus, H is a typal initial
+             T-Alg f -algebra.
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                               37
+
+
+   To show that it is weakly stable, by factorization we consider separately the cases
+when σ : ∆ → Γ is a fibration or an acyclic cofibration. If σ is a fibration, then
+for any T∆ -algebra fibration C  σ ∗ H, by Lemma 11.11 we have a TΓ -algebra
+map σ∗ C  σ∗ σ ∗ H, which is a fibration since σ is a fibration. Thus, pulling it
+back along the unit H → σ∗ σ ∗ H, we obtain a TΓ -algebra fibration over H, which
+therefore has a TΓ -algebra section. This gives a map H → σ∗ C, whose transpose
+under the adjunction of Lemma 11.11 is the desired T∆ -algebra section σ ∗ H → C.
+   If σ is an acyclic cofibration, then so is its pullback H ∗ (σ) : σ ∗ H → H along the
+fibration H  Γ. Since ∆ is fibrant, so is σ ∗ H, and thus H ∗ (σ) has a retraction r.
+Now for any T∆ -algebra fibration C  σ ∗ H, let D = r∗ C, so that C ∼    = (H ∗ (σ))∗ (D).
+By Lemma 11.12 applied to the relative cell monad Id → T, we can find a TΓ -algebra
+structure on D making D → H a TΓ -algebra fibration whose pullback is C → σ ∗ H.
+Thus, applying the eliminator for H we get a TΓ -algebra section of D, which pulls
+back to a T∆ -algebra section of C.                                                      
+
+   Finally, we also have:
+
+Theorem 11.14. If T is a cell monad on an excellent model category M , then
+T-Alg f has representable lifts.
+
+Proof. To make the induction go through, we will prove the following stronger result.
+Let S → T be a relative cell monad and let Γ be a fibrant object. For any fibrations
+B  A  Γ such that A  Γ is a TΓ -algebra and B  Γ is an SΓ -algebra and
+B → A is an SΓ -algebra map, we will show that there is a representing object V for
+extensions of the S-algebra structure on B to a T-algebra structure making B → A
+into a T-algebra map, and that moreover the map V → Γ is a fibration.
+   In particular, this property implies that V is fibrant, as it must be since we are
+considering T-Alg f rather than T-Alg. But the stronger assumption that V → Γ is
+a fibration ensures that the property is preserved by both algebraic pushouts and
+(possibly transfinite) composites of monad morphisms. In the latter case we take a
+(possible transfinite) inverse composite of the representing fibrations.
+   Thus, it suffices to show that the property holds for monad cells Tf,K → Tf,L .
+In other words, we must show that if A  Γ is an (F f ⊗ L)-algebra and B  Γ is
+an (F f ⊗ K)-algebra and B → A is a (F f ⊗ K)-algebra map, there is a representing
+object for extensions of the (F f ⊗ K)-algebra structure on B to a (F f ⊗ L)-algebra
+structure making B → A into a (F f ⊗ L)-algebra map.
+   Such an extension is a dotted arrow filling in the following diagram:
+
+                       FΓf (B) ⊗ K                              B
+
+
+                                            FΓf (B) ⊗ L
+
+
+                       FΓf (A) ⊗ K                              A
+
+
+                                            FΓf (A) ⊗ L
+38               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+We define the representing object to be the following pullback:
+                                           f L
+                                              F (B)
+               V                            BΓ Γ
+                      y                              Γ
+
+
+
+                                             K                             f L
+                                    F f (B)                                   F (B)
+                 Γ                 BΓ Γ            ×    F
+                                                            f
+                                                                (B)
+                                                                      !K     AΓ Γ
+                                               Γ       AΓΓ                           Γ
+                                                                       Γ
+
+
+       F f (B)       F f (B)
+Here BΓ Γ    and AΓΓ     denote exponentials in M /Γ, while (−)K          L
+                                                                 Γ and (−)Γ denote
+simplicial powers in M /Γ. Of course, (XΓY )K    ∼    Y ⊗K
+                                              Γ = XΓ       , but we have written it
+using the former notation to make it clear that the right-hand map is the pullback
+                                                                           F f (B)   F f (B)
+corner map for the cofibration K → L and the map BΓ Γ           → AΓΓ , which is a
+                              f
+fibration since B  A and FΓ (B)  Γ are. Hence the right-hand map is a fibration,
+and thus so is its pullback on the left.
+   The bottom map is determined by the solid arrows in the previous diagram, and
+a choice of dotted arrow in the previous diagram would be equivalently a lift of this
+         f L
+             F (B)
+map to BΓ Γ          , and hence also equivalently a section of V  Γ. Moreover, the
+                     Γ
+entire diagram lives in M /Γ and is preserved by pullback; thus a choice of such a
+lift after pullback along σ is the same as a factorization of σ through V . This says
+exactly that V has the desired universal property.                                 
+Corollary 11.15. If M is an excellent model category and T is a cell monad on it,
+then (Mf , Ff ,! ) has strictly stable typal initial T-Alg f -algebras.       
+   We refrain from discussing examples until after the generalization to monads
+with parameters in the next section.
+Remark 11.16. There is a natural generalization of a cell monad that allows cells
+generated by endofunctor morphisms F f × K → F f × L for any fibration f and
+any cofibration K → L in M , rather than requiring K → L to be a cofibration of
+simplicial sets. (This is more general since 1 ⊗ K → 1 ⊗ L is a cofibration in M
+for any cofibration K → L of simplicial sets, and X × (1 ⊗ K) ∼  = X ⊗ K.) The
+above proofs go through for this generalization as long as the cofibration K → L
+satisfies the pushout-product property in M , such as if M is itself a cartesian
+monoidal model category. Similarly, we could replace simplicial sets by another
+suitable monoidal model category over which M is enriched.
+
+                         12. Cell monads with parameters
+   Now we generalize the construction of §11 to allow parameters, i.e. premises for
+the formation and introduction rules. Because our type theory has no universes,
+we have to treat type parameters separately from term parameters. Intuitively, a
+“parameter scheme” is a list of hypothesized judgments in type theory; but in this
+section we take a semantic point of view instead.
+   Recall that in a comprehension category (C, T ), a dependent projection is a
+map that is isomorphic to the comprehension of some (unspecified) type Γ.A → Γ,
+and a display map is a finite composite of dependent projections. All pullbacks of
+                     SEMANTICS OF HIGHER INDUCTIVE TYPES                            39
+
+
+dependent projections and display maps exist and are again of the same sort. We
+view a display map as a semantic version of a context extension. Let D1 and D be the
+categories whose objects are dependent projections and display maps, respectively,
+and whose morphisms are pullback squares; then the codomain projections D1 → C
+and D → C are fibrations with groupoid fibers.
+   Let T=
+        ∼ be the subcategory of T containing only the cartesian arrows; then T=
+                                                                              ∼ →C
+is also a fibration with groupoid fibers. Finally, let D1,∗ be the category whose
+objects are dependent projections equipped with a section, and whose morphisms
+are cartesian ones commuting with the sections. The forgetful functor D1,∗ → D1 is
+a discrete fibration.
+Definition 12.1. Let (C, T ) be a comprehension category. We define the set of
+parameter schemes over (C, T ) together with, for every such parameter scheme
+P, a fibration Inst(P) → C of instantiations of P, mutually inductively as follows.
+  • There is an empty parameter scheme , and Inst() = C (i.e. there is a
+     unique instantiation of  over every Γ ∈ C).
+  • If P is a parameter scheme, an extension of P by a type parameter is a new
+     parameter scheme hP, αi determined by a cartesian functor α : Inst(P) → D
+     over C. Its instantiations are determined by the following pullback:
+                         Inst(hP, αi)                    T∼
+                                                          =
+                                    y                        cod
+                                         α        dom
+                           Inst(P)           D           C
+
+
+                              C
+  • If P is a parameter scheme, an extension of P by a term parameter is a new
+    parameter scheme JP, α, βK determined by a cartesian functor α : Inst(P) → D
+                                                                        α     dom
+    over C and a cartesian functor β : Inst(P) → D1 over Inst(P) −
+                                                                 → D −−−→ C.
+    Its instantiations are determined by the following pullback:
+                       Inst(JP, α, βK)                   D1,∗
+                                    y
+                                             β
+                           Inst(P)                        D1
+                                         α                       cod
+                                                   dom
+                              C               D              C
+Remark 12.2. The above definition could be made more general; as stated it
+essentially assumes that the parameters are defined using only “pseudo-stable
+structure”, but we could in principle allow weakly stable structure as well. However,
+it is hard to think of examples requiring the more general version, so we refrain
+from introducing the complication.
+   Intuitively, α assigns the context extension in which a type or term parameter
+lives, while β assigns the type to which a term parameter belongs (which can depend
+on the context extension). For instance, if a type parameter is just Γ ` B type, then
+α will assign to every instantiation over Γ the terminal display map 1Γ . On the
+other hand, if the parameter scheme P already contains a type parameter A, then
+40               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+the additional type parameter Γ, x : A ` B type will have a functor α that assigns
+to each instantiation over Γ the comprehension of the corresponding type A.
+
+Definition 12.3. A fibred category of structures with parameters over a
+comprehension category (C, T ) consists of a parameter scheme P, a fibration S → C,
+and a faithful amnestic isofibration S → Inst(P) ×C C → over C.
+
+   If Θ is an instantiation of P over Γ, the objects of the fiber over (Θ, X → Γ) will
+be called S(Θ)-structures on X; as before they form a partially ordered set.
+
+Definition 12.4. Let (C, T ) be a comprehension category and S a fibred category
+of structures with parameters over C. For any instantiation Θ of the parameter
+scheme of S over Γ ∈ C, a typal initial S(Θ)-algebra consists of a type H ∈ T (Γ)
+and an S(Θ)-structure on Γ.H → Γ, such that for any C ∈ T (Γ.H) together with
+an S(Θ)-structure on the composite Γ.H.C → Γ.H → Γ such that Γ.H.C → Γ.H is
+an S(Θ)-morphism, there exists a section Γ.H → Γ.H.C of Γ.H.C → Γ.H that is
+also an S-morphism.
+   We say C has weakly stable typal initial S-algebras if for any Γ and Θ there
+exists a typal initial S(Θ)-algebra whose reindexing along any σ : ∆ → Γ is a
+typal initial S(Θ[σ], θ[σ])-algebra. If C is split, we say it has strictly stable typal
+initial S-algebras if we have an operation assigning to each Γ and Θ a typal initial
+S(Θ)-algebra over Γ with specified S-algebra sections, in a way that is strictly
+preserved by the split reindexing functors.
+
+Definition 12.5. Let (C, T ) be a comprehension category and S a fibred category
+of structures with parameters over C. Given A ∈ T (Γ) and B ∈ T (Γ.A) and an
+instantiation Θ of the parameter scheme over Γ, and any S(Θ)-structure A on
+Γ.A → Γ, an S-lift of A to B is an S(Θ)-structure on the composite Γ.A.B →
+Γ.A → Γ such that Γ.A.B → Γ.A becomes an S(Θ)-morphism over Γ. We say
+that S has representable lifts if for any A, B, Θ, A , the functor (C/Γ)op → Set
+defined by
+
+                      (σ : ∆ → Γ) 7→ {S-lifts of A [σ] to B[σ]}
+
+is representable. In other words, there exists a map $ : VA ,B → Γ and an S-lift B
+of A [$] to B[$], such that for any σ : ∆ → Γ and any S-lift B 0 of A [σ] to B[σ],
+there is a unique map τ : ∆ → VA ,B such that $ ◦ τ = σ and B 0 = B[τ ].
+
+   We are almost ready to prove the local universes coherence theorem, but first we
+need to address the difference between parameters over C and parameters over C! .
+Note that the dependent projections and display maps of C! are exactly the same as
+those of C.
+
+Problem 12.6. Every parameter scheme P over (C, T ) gives rise to a parameter
+scheme P! over (C, T! ) together with a cartesian functor ρ : Inst(P! ) → Inst(P)
+over C.
+
+Construction. By induction on P. Of course, ! = . We define hP, αi! = hP! , α ◦ ρi
+and JP, α, βK! = JP! , α ◦ ρ, β ◦ ρK. The well-typedness of the latter for T! is why we
+defined β to take values in D1 rather than T=    ∼ . The maps ρ in the two inductive
+                      SEMANTICS OF HIGHER INDUCTIVE TYPES                                  41
+
+
+steps are defined by the following diagrams:
+             Inst(hP, αi! )                                     (T! )=
+                                                                     ∼
+                                 ρ
+
+
+                                        Inst(hP, αi)                            T=
+                                                                                 ∼
+                                                    y                               cod
+                                ρ                       α                dom
+                Inst(P! )                 Inst(P)                D              C
+
+
+                                             C
+                                    ρ
+            Inst(JP, α, βK! )            Inst(JP, α, βK)                        D1,∗
+                                                      y
+                                    ρ                              β
+                Inst(P! )                    Inst(P)                            D1
+                                                            α                        cod
+                                                                          dom
+                                                 C                   D           C
+                                                                                           
+Definition 12.7. If S is a fibred category of structures with parameters over C,
+with parameter scheme P, we define S! to be the fibred category of structures with
+parameter scheme P! over C! obtained by pullback along ρ :
+                                S!                          S
+                                         y
+
+                                              ρ×1
+                       Inst(P! ) ×C C →              Inst(P) ×C C →
+
+Theorem 12.8. Let (C, T ) be a comprehension category and S a fibred category
+of structures with parameters over C. If C has weakly stable typal initial S-algebras,
+C satisfies (LF), and S has representable lifts, then C! has strictly stable typal initial
+S! -algebras.
+Proof. Suppose given Γ ∈ C and an instantiation Θ over Γ of the parameter scheme
+P! of S! . By induction on P, we construct a local universe VΘ for the formation and
+introduction rules (i.e. the type H ∈ T (Γ) and its S(Θ)-structure), an instantiation
+Ξ ∈ Inst(P! )VΘ , and a map pΘq : Γ → VΘ such that Θ = Ξ[pΘq].
+   In the case of , we take VΘ = 1, and Ξ and pΘq are unique.
+   In the case of hP, αi, we have inductively Θ ∈ Inst(P! ) along with VΘ , Ξ, and
+pΘq, and also α : Inst(P) → D over C and (as the additional data extending Θ to
+a T! -instantiation of hP, αi! ) a type A ∈ T! (dom(α(ρ(Θ)))), determined as usual by
+(VA , EA , pAq). Let πA : V(Θ,A) → VΘ be the local exponential
+                                 (VΘ × VA → VΘ )α(ρ(Ξ))
+in C/VΘ , which exists by (LF). Its comes with a universal evaluation map V(Θ,A) ×VΘ
+α(ρ(Ξ)) → VA . But V(Θ,A) ×VΘ α(ρ(Ξ)) is (isomorphic to) the domain of α(ρ(Ξ[πA ])),
+so together with VA and EA this evaluation map determines a type in T! over this
+domain, which is exactly what we need to extend Ξ[πA ] to an instantiation of hP, αi!
+42               PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+over V(Θ,A) . Finally, the universal property of V(Θ,A) says that p(Θ, A)q : Γ → V(Θ,A)
+can be determined by a map Γ ×VΘ α(ρ(Ξ)) → VA , but
+     Γ ×VΘ α(ρ(Ξ)) ∼
+                   = dom(α(ρ(Ξ)))[pΘq] ∼
+                                       = dom(α(ρ(Ξ[pΘq]))) ∼
+                                                           = dom(α(ρ(Θ)))
+so pAq is exactly such a map.
+   In the case of JP, α, βK, we have again inductively Θ, VΘ , Ξ, and pΘq, and also
+α : Inst(P) → D over C and β : Inst(P) → D1 over dom ◦ α, and (as the additional
+data extending Θ to a T! -instantiation of JP, α, βK! ) a section a of β(ρ(Θ)). Let
+πa : V(Θ,a) → VΘ to be the dependent exponential
+                                  α(ρ(Ξ))∗ (β(ρ(Ξ)))
+which exists by (LF). It comes with a universal evaluation map V(Θ,a) ×VΘ α(ρ(Ξ)) →
+β(ρ(Ξ)) over dom(α(ρ(Ξ))) = cod(β(ρ(Ξ))), i.e. a section of β(ρ(Ξ))[πa ], which is
+exactly what we need to extend Ξ[πa ] to an instantiation of JP, α, βK! over V(Θ,a) .
+Finally, the universal property of V(Θ,a) says that p(Θ, a)q : Γ → V(Θ,a) can be
+determined by a map α(ρ(Ξ))[pΘq] → β(ρ(Ξ)), but α(ρ(Ξ))[pΘq] ∼        = α(ρ(Ξ[pΘq])) ∼  =
+α(ρ(Θ)) and similarly for β(ρ(Ξ)), so a is itself such a map.
+    This completes the definition of VΘ , Ξ ∈ Inst(P! )VΘ , and pΘq : Γ → VΘ such that
+Θ = Ξ[pΘq]. Now let VH = VΘ and pHq = pΘq, and let EH ∈ T (VH ) be a weakly
+stable typal initial S(Ξ)-algebra, with S(Ξ)-structure H . Then (VH , EH , pHq) ∈
+T! (Γ) is the specified typal initial S(Θ)-algebra in our intended strictly stable
+structure for T! . As usual, this is strictly stable by composition of names.
+    For the elimination and computation rules, given C ∈ T! (Γ.H) determined by
+(VC , EC , pCq), consider first the object Ve = VH /VC constructed as in [LW15], which
+classifies maps σ : ∆ → VH together with maps EH [σ] → VC . In particular, we have
+universal maps v : Ve → VH and c : Ve .EH [v] → VC giving EC [c] ∈ T (Ve .EH [v]).
+    Now since S has representable lifts, we have a map VH [v],EC [c] → Ve representing
+lifts of the S-structure H [v] of EH [v] to EC [c]. Combining universal properties, we
+see that maps Γ → VH [v],EC [c] correspond to choices of maps pHq : Γ → VH and
+pCq : Γ.EH [pHq] → VC together with a lift of H [pHq] to EC [pCq]. Thus, we can
+we take VH [V ],EC [c] as the local universe for the elimination and computation rules.
+The weak stability of H implies that the universal lift over VH [V ],EC [c] has a section
+that is an S-morphism, which we can then reindex to Γ to obtain a strictly stable
+eliminator.                                                                             
+
+   Now we move on to monads with parameters. For any category C with pullbacks
+and Γ ∈ C, let Mnd (C)Γ denote the category of fibred monads on C/Γ. A fibred
+monad can be restricted along the projection C/∆ → C/Γ for any σ : ∆ → Γ, so
+these categories assemble into a fibration Mnd (C) → C.
+Definition 12.9. If (C, T ) is a comprehension category with pullbacks, a fibred
+monad with parameters on C is a parameter scheme P together with a cartesian
+morphism T : Inst(P) → Mnd (C) over C.
+   Thus, for any instantiation Θ over Γ, we have an indexed monad T(Θ) on C/Γ,
+whose fiber over 1Γ is an ordinary monad T(Θ)Γ on C/Γ. We write T-Alg Θ for the
+category of algebras of T(Θ)Γ , each of which has an underlying object of C/Γ, i.e. of
+C → over Γ. These categories vary functorially with respect to cartesian morphisms
+of Θ (in particular, isomorphisms and reindexing along morphisms in C), so we
+                       SEMANTICS OF HIGHER INDUCTIVE TYPES                              43
+
+
+have a fibration T-Alg → C with a projection T-Alg → Inst(P) ×C C → over C. The
+following are easy to verify.
+Lemma 12.10. For any fibred monad with parameters T on a comprehension
+category C with pullbacks, T-Alg is a fibred category of structures with parameters
+over C (with the same parameter scheme).                                         
+Lemma 12.11. If T is a fibred monad with parameters on a model category M ,
+then the full subcategory T-Alg f of T-Alg consisting of T-algebra structures on
+fibrations over fibrant objects is a fibred category of structures with parameters
+over Mf .                                                                       
+Definition 12.12. If M is an excellent model category, then a (finite) cell monad
+with parameters on M is a fibred monad with parameters such that each fibred
+monad T(Θ) is a (finite) cell monad on M /Γ.
+Theorem 12.13. If T is a cell monad with parameters on an excellent model
+category M , then (Mf , Ff ) has weakly stable typal initial T-Alg f -algebras.
+Proof. Note that for any σ : ∆ → Γ and any instantiation Θ over Γ, the monad
+T(Θ[σ])∆ (the value of the fibred monad T(Θ[σ]) on C/∆ at 1∆ ) coincides with the
+monad T(Θ)σ (the value of the fibred monad T(Θ) on C/Γ at σ). This is because
+T : Inst(P) → Mnd (C) preserves cartesian arrows, and definition of the reindexing
+of a fibred monad and the fact that (C/Γ)/(σ : ∆ → Γ) ≃ C/∆. Therefore, we can
+essentially repeat the proof of Theorem 11.13 once for each instantiation.      
+Theorem 12.14. If T is a cell monad with parameters on an excellent model
+category M , then T-Alg f has representable lifts.
+Proof. Inspecting Definitions 11.3 and 12.5, we see that T has representable lifts
+just when each fibred monad T(Θ) on C/Γ does. Thus, this follows directly from
+Theorem 11.14.                                                                  
+Corollary 12.15. If M is an excellent model category and T is a cell monad with
+parameters on it, then (Mf , Ff ,! ) has strictly stable typal initial T-Alg f -algebras. 
+   The proofs of Theorems 12.13 and 12.14 may seem almost too slick, as if something
+is being swept under the rug. In particular, note that in Definition 12.12 we did
+not assume any compatibility between the cell structures of the monads T(Θ)!
+However, we did assume that the resulting monads fit together into a cartesian
+morphism from instantiations to fibred monads, which implies that however the
+parameters are being used in the construction of the monads T(Θ) must be stable
+under reindexing, and this is all that is required for Theorems 12.13 and 12.14. In
+fact, the internals of Inst(P) are only needed to prove the local universes coherence
+theorem, Theorem 12.8; for Theorems 12.13 and 12.14, Inst(P) could just as well
+be any fibration over C.
+   Although Corollary 12.15 is very general, unlike our results in §§6–10 it requires
+more work to extract from Corollary 12.15 a statement about models of type theory.
+Specifically, in order to apply it to any particular higher inductive type H, we have
+to do the following.
+   (i) Manually translate the parameters of H to a parameter scheme (Defini-
+       tion 12.1). This is practically algorithmic along the lines discussed above: for
+       each parameter, α corresponds to the extended context of that parameter, and
+44                 PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+       in the case of a term parameter, β corresponds to the type of that parameter.
+       It’s just that we don’t have a general theorem that does the work for us.
+  (ii) Manually construct a cell monad T (with parameters) from the constructors
+       of H. Although it may not be obvious from the examples we have seen so far,
+       this is also pretty close to algorithmic, although there are certain limits on
+       the constructors we can handle. We will explain in more detail below.
+ (iii) Manually generalize the notions of weakly and strictly stable typal initial
+       T-Alg f -algebras to refer to stable classes of identity types, dependent identity
+       types, and identity applications rather than the simplicial structure of M ,
+       and prove an analogue of Theorem 6.9. This is also practically algorithmic:
+       transpose the left homotopies to right homotopies, replace the simplicial path
+       objects by the type-theoretic structures, and transfer by composing with the
+       equivalences h and k from Theorem 6.9.
+Ideally, of course, we would like a general correspondence between syntax and
+semantics that does all this work for us. This would entail giving a precise syntactic
+definition of what a “higher inductive type” is, which is already a significant task.6
+We leave it for future work.
+    The construction of a cell monad from a list of higher inductive constructors
+(item (ii)) goes roughly as follows. Each constructor of H corresponds to a cell of the
+monad T. The domain of that constructor, which we require to be “strictly positive”
+in H, determines the polynomial functor FWAB in the same way as for ordinary
+inductive types. (It may be possible to generalize further, for instance by allowing
+identity types of H to appear in such domains, but we ignore that possibility for
+now.) The “dimension” of the constructor determines the simplicial cofibration
+K → L: ordinary point-constructors use the cofibration ∅ → 1, 1-dimensional path-
+constructors use 2 → ∆1 , 2-path constructors use the “inclusion of the boundary
+of a 2-globe”, and so on. Finally, in the case of path-constructors, the source and
+target of the path determine the “attaching map” of the cell. This is all made
+clearer by a discussion of examples.
+
+Example 12.16. Ordinary inductive types are the special case of higher inductive
+types that have no path-constructors. In this case, each cell is of the form ∅ → TWAB ,
+so instead of a “cell complex” we are really just building a coproduct of the monads
+TWAB corresponding to each constructor. In the case of only one constructor, we
+just get TWAB itself, as we used in §8.
+   An example with two constructors is the natural numbers, for which the con-
+structor domains yield the maps ∅ → 1 and 1 → 1 respectively. The former yields
+the monad for pointed objects, the latter the monad for objects with an endomor-
+phism; thus their algebraic coproduct is the monad for pointed objects with an
+endomorphism, the same one we used in §7.
+
+Example 12.17. Any cell complex construction of a simplicial set K using “globular”
+cells can be translated into a cell monad for a higher inductive version of K. For
+
+
+
+   6The approach of [ACDF16] is promising, but inapplicable as it stands to homotopy type theory,
+due to the unsolved problem of defining (∞, 1)-categories and functors internally in type theory.
+                           SEMANTICS OF HIGHER INDUCTIVE TYPES                                      45
+
+
+    instance, the circle has a 0-dimensional cell and a 1-dimensional cell:
+                   ∅                                  1                               S1
+                                              x                                   x
+
+                            ∅            1                        2        ∆1
+    If we take simplicial copowers of this diagram with the constant endofunctor at
+    1 ∈ M , which is FW1∅ , we get a “cell endofunctor”; and then taking free monads
+    we obtain a cell monad. The corresponding higher inductive type is the usual S 1 .
+    Similarly, we can construct the sphere S 2 , and so on. In such cases, of course, the
+    technology of cell monads is overkill; we can simply take the simplicial copower
+    1 ⊗ K and fibrantly replace it, arguing as in §§4–6.
+    Example 12.18. More general non-recursive higher inductive types are constructed
+    in a similar way with nontrivial endofunctors. For instance, given fi : A → Bi as in
+    §§4–6, we have a cell endofunctor
+∅                                        F ∅→(B1 +B2 )                                                   F
+                                 x                                                              x
+                                              [inl◦f1 ,inr◦f2 ]
+                   ∅→(B1 +B2 )
+      ∅        F                                                      F ∅→A ⊗ 2        F ∅→A ⊗ ∆1
+    Note that the endofunctor F ∅→B1 +B2 is constant at B1 + B2 , while F ∅→A ⊗ 2 is
+    constant at A ⊗ 2 ∼= A + A. Thus the map marked [inl ◦ f1 , inr ◦ f2 ] really is just such
+    a copairing. Taking free monads then yields a cell monad whose higher inductive
+    type is the pushout of f1 and f2 .
+       This construction applies to a particular A, Bi , fi in some slice M /Γ; in the
+    general case we construct a parameter scheme as follows. First there are three type
+    parameters for which α : Inst(P) → D is fiberwise constant at 1Γ (i.e. A, B1 , B2
+    are all in the same arbitrary context Γ). This yields a parameter scheme P3 whose
+    instantiations consist of three types A, B1 , B2 in the same context. Then we have two
+    term parameters for which α(A, B1 , B2 ) = (Γ.A → Γ) and for which β(A, B1 , B2 )
+    is Γ.A.B1 [A] → Γ.A and Γ.A.B2 [A] → Γ.A respectively. An instantiation of the
+    resulting parameter scheme thus consists of three types A, B1 , B2 and morphisms
+    A → B1 and A → B2 over Γ.
+       We then need to verify that this construction is stable, up to isomorphism, under
+    reindexing of these data when performed in arbitrary slices. This is always obvious,
+    so subsequently we omit to mention it.
+    Example 12.19. The propositional truncation (§10) expressed as a higher inductive
+    type has two constructors:
+      • tr : A Q
+               → kAk
+      • treq : x,y:kAk IdkAk (x, y)
+    The only parameter is A, so the parameter scheme has one type parameter with α
+    fiberwise constant at 1Γ . Again we have a cell monad with two cells, but now it no
+    longer arises from a cell endofunctor.
+     ∅                                       T1                                                 T2
+                                     x                                                     x
+
+               ∅         F ∅→A                              F 2→1 ⊗ 2           F 2→1 ⊗ ∆1
+46                  PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+By definition we have F 2→1 (X) = X × X, while it is easy to verify that T1 (X) =
+X + A (the free monad on the constant endofunctor at A, whose algebras are objects
+under A). The attaching map
+
+                 F 2→1 (X) ⊗ 2 ∼
+                               = (X × X) + (X × X) → T0 (X) = X + A
+
+consists of the first and second Qproduct projections, injected into X. This is the
+semantic version of the syntax x,y:kAk IdkAk (x, y), which says that we have two
+copies of the type being defined in the domain (X × X) and the source and target of
+the path (IdkAk (x, y)) come from the first and the second copies respectively. Note
+that this map does not land in F ∅→A , only in the free monad it generates.
+
+  In general, when describing the attaching maps of a cell monad it is useful to
+know that monad morphisms S → T are equivalent to functors T-Alg → S-Alg
+over M , i.e. natural ways to assign an S-algebra structure to any T-algebra. In
+particular, if S is algebraically-free on an endofunctor F , then such a morphism is
+determined by a natural way to assign an F -endofunctor-algebra structure to any
+T-algebra.
+
+Example 12.20. The James construction JA of a type A equipped with a point
+? : A, as defined in [Bru16], has three constructors:
+     • ε : JA
+     • α :QA → JA → JA
+     • δ : x:JA IdJA (x, α(?, x))
+The parameters are A and ?, so our parameter scheme has one type parameter with
+α fiberwise constant at 1Γ , and one term parameter with α again constant at 1Γ
+while β(A) = (Γ.A → Γ).
+   The first cell is ∅ → F 0→1 , yielding a monad whose algebras are pointed objects.
+The second cell is ∅ → F A→A , yielding a monad whose algebras are objects with an
+“A-indexed family of endomorphisms” A × X → X.
+   The third cell is F 1→1 ⊗ 2 → F 1→1 ⊗ ∆1 . Since F 1→1 (X) = X, an endofunctor-
+algebra for F 1→1 ⊗ 2 is an object equipped with two endomorphisms. The nontrivial
+attaching map F 1→1 ⊗ 2 → T2 therefore consists of a natural way to assign two
+endomorphisms to a pointed object equipped with a map α : A × X → X. The
+syntax tells us that first endomorphism is the identity 1X , while the second is
+α ◦ (?, 1X ). We leave it to the reader to translate from typal initial algebras to
+dependent identity types as in Theorem 6.9.
+
+Example 12.21. Given a type I, two types i : I ` Si type and i : I ` Ti type, and
+a family of functions i : I, s : Si ` fi (s) : Ti , corresponding to a map f : S → T in
+M /I, an object X ∈ M is internally f -local if the induced precomposition map
+(I ∗ X)T → (I ∗ X)S in M /I is an equivalence. The f -localization of a type A can
+be defined as a higher inductive type with the following five constructors:
+     • loc : A
+             Q→ QLf A
+     • ext : i:I g:Si →Lf A Ti → Lf A
+     • ext0 : i:I g:Si →Lf A Ti → Lf A
+              Q Q
+             Q Q            Q
+     • rtr : i:I g:Si →Lf A s:Si IdLf A (g(s), ext(i, g, fi (s)))
+     • rtr0 : i:I h:Ti →Lf A t:Ti IdLf A (h(s), ext0 (i, h ◦ fi , t))
+             Q Q            Q
+                        SEMANTICS OF HIGHER INDUCTIVE TYPES                                  47
+
+
+The first constructor loc equips Lf A with a map from A, while the other four
+ensure that Lf A is internally f -local, being essentially a reorganization of the “bi-
+invertibility” definition of equivalence from [Uni13, Chapter 4]: ext and ext0 give two
+maps in the opposite direction, while rtr and rtr0 ensure that they are a section and
+a retraction of the precomposition map. (In [RSS17] localizations are constructed
+instead using pushouts and an auxilary higher inductive type Jf A, which is just
+Lf A with ext0 and rtr0 omitted.)
+   The parameter scheme for Lf A has one type parameter with α constant at 1Γ ,
+two more type parameters with α(I) = (Γ.I → Γ), and one term parameter with
+α(I, S, T ) = (Γ.I.S → Γ.I → Γ) and β(I, S, T ) = (Γ.I.S.T [S] → Γ.I.S). The first
+                                                                     ∗
+cell is ∅ → F ∅→A . The second and third cells are both ∅ → F T S→T , where T ∗ S
+denotes the pullback of S → I along T → I. Finally, the fourth and fifth cells are
+   ∗                             ∗
+F S S→S ⊗ (2 → ∆1 ) and F T T →T ⊗ (2 → ∆1 ), while the attaching maps can be
+obtained by interpreting the terms g(s), ext(i, g, fi (s)), h(s), and ext0 (i, h ◦ fi , t) in
+the internal extensional type theory of the locally cartesian closed category M .
+
+   Hopefully these examples are convincing of the generality of our construction
+and the relative straightforwardness of its application to individual examples. It
+does, however, have the following notable limitation: because the “attaching map”
+F f,K → Tn must be a map of fibred monads, it must exist before we take the
+monad coproduct with R, and therefore in defining it we cannot assume that
+Tn (X) is fibrant. Thus, the source and target terms of a higher constructor cannot
+use operations that only exist in fibrant types, such as path-concatenation and
+eliminators of other inductive types.
+   For instance, in the torus constructor sq : IdIdT 2 (base,base) (left  right, right  left),
+the source and target terms involve path-concatenation, so we cannot deal with
+this constructor directly. Reducing it to a 1-constructor using the “hub-and-spoke”
+method [Uni13, §6.7] does not help, since the “rim” of the wheel, and hence the
+outer boundaries of the spokes, are defined using the eliminator of S 1 , which is also
+only defined when the target is a (fibrant) type.
+   However, in this case (and many others) there is a different workaround. As
+the cofibration K → L for the monad cell corresponding to sq, we choose the
+inclusion ∂(∆1 × ∆1 ) → ∆1 × ∆1 of the boundary of the simplicial square. The
+non-fibrant monad T2 generated by the first three constructors does have simplicial
+paths left and right, which we can glue together in the appropriate ways to get a
+map from ∂(∆1 × ∆1 ). Then our new monad cell glues in a simplicial square with
+the appropriate boundary, and when we then fibrantly replace it we can deduce
+from this a “globular” 2-cell relating the two boundary composites. We leave the
+details to the interested reader.
+   In particular, any simplicial set K with finitely many nondegenerate simplices
+can be constructed as a finite complex of “simplicial cells” involving the boundary
+cofibrations ∂∆n → ∆n . Thus, this method yields a higher inductive type repre-
+senting K; although as in Example 12.17 such a simple example can be obtained
+more easily as a fibrant replacement of 1 ⊗ K.
+   The general workaround applies also to many other examples, but is not universally
+applicable. In particular, it does not apply to constructor (4) from §9, which uses
+N-induction to define the source and target! However, this problem goes away when
+the 1-categorical natural numbers object happens to be fibrant, as in simplicial sets
+or sets, since then the natural numbers type is just the natural numbers object and
+48                PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+so can eliminate into arbitrary objects. So at least in such cases our construction
+does apply to yield the F that is unachievable within ZF.
+
+                                     13. Summary
+   Through the course of the paper, we have accumulated a large amount of machin-
+ery. For reference, therefore, we give here a self-contained summary of what we have
+obtained, and what it yields specifically for the semantics of higher inductive types.
+Theorem 13.1. Let M be an excellent model category: that is, simplicial, com-
+binatorial, right proper, simplicially locally cartesian closed, and with all monos
+cofibrations, and cofibrations stable under limits. Let T be a cell monad with
+parameters on M . Then:
+   (i) The comprehension category (Mf , Ff ) of fibrant objects of M and fibrations
+       of M has weakly stable typal initial T-Alg f -algebras (Theorem 12.13).
+  (ii) T-Alg f has representable lifts (Theorem 12.14), and Mf satisfies (LF).
+ (iii) Hence by Theorem 12.8, its local universe splitting (Mf , Ff ,! ) has strictly
+       stable typal initial T-Alg f -algebras (Corollary 12.15).
+  From this general result along with Examples 12.18 to 12.21, and/or by the
+warm-up cases treated individually in §§3–8 and 10, we obtain:
+Theorem 13.2. Suppose M an excellent model category. Then the comprehension
+category (Mf , Ff ) has weakly stable structure, and its local universes splitting
+(Mf , Ff ,! ) has strictly stable structure, for the following type formers:
+    (i) coproduct types;
+   (ii) pushout types;
+  (iii) a natural numbers type;
+  (iv) W-types;
+   (v) propositional truncations;
+  (vi) James constructions;
+ (vii) localizations;
+(viii) a torus type.
+   Moreover, we expect cell monads with parameters to suffice for obtaining many
+other higher inductive types, under the limitation that the constructors do not
+involve “fibrant structure”, i.e. eliminations into the higher inductive type itself.
+   Finally, we recall that the “excellent” model categories to which these results
+apply include sets and simplicial sets (with their standard model structures); and
+more generally all locally presentable locally cartesian closed 1-categories with a
+trivial model structure, and all right proper, simplicially locally cartesian closed,
+simplicial Cisinski model categories, which suffice to present all locally presentable
+locally cartesian closed (∞, 1)-categories, including all Grothendieck (∞, 1)-toposes.
+
+                                      References
+[ACDF16] Thorsten Altenkirch, Paolo Capriotti, Gabe Dijkstra, and Fredrik Nordvall Forsberg.
+        Quotient inductive-inductive types. CoRR, 2016. arXiv:1612.02346. URL: http://arxiv.
+        org/abs/1612.02346. (On pp. 3, 4, 6, and 44)
+[AGS15] Steve Awodey, Nicola Gambino, and Kristina Sojakova. Homotopy-initial algebras in
+        type theory. Extended abstract in LICS’12, 2015. arXiv:1504.05531. (On p. 5)
+[AK16] Thorsten Altenkirch and Ambrus Kaposi. Type theory in type theory using quotient
+        inductive types. ACM SIGPLAN Notices, 51(1):18–29, 2016. (On pp. 3 and 6)
+                         SEMANTICS OF HIGHER INDUCTIVE TYPES                                       49
+
+
+[AW09] Steve Awodey and Michael A. Warren. Homotopy theoretic models of identity types.
+        Math. Proc. Camb. Phil. Soc., 146(45):45–55, 2009. arXiv:0709.0248. (On p. 2)
+[BGL+ 17] Andrej Bauer, Jason Gross, Peter LeFanu Lumsdaine, Michael Shulman, Matthieu
+        Sozeau, and Bas Spitters. The HoTT Library: A formalization of homotopy type theory
+        in Coq. Certified Programs and Proofs, 2017. arXiv:1610.04591. (On p. 13)
+[Bla83] Andreas Blass. Words, free algebras, and coequalizers. Fundamenta Mathematicae,
+        117(2):117–160, 1983. URL: http://eudml.org/doc/211359. (On pp. 3, 26, 27, and 28)
+[Bru16] Guillaume Brunerie. On the homotopy groups of spheres in homotopy type theory. PhD
+        thesis, Université de Nice, 2016. arXiv:1606.05916. (On p. 46)
+[Car86] John Cartmell. Generalised algebraic theories and contextual categories. Annals of Pure
+        and Applied Logic, 32(0):209 – 243, 1986. (On p. 5)
+[CHM18] Thierry Coquand, Simon Huber, and Anders Mörtberg. On higher inductive types
+        in cubical type theory. In Proceedings of the 33rd Annual ACM/IEEE Symposium on
+        Logic in Computer Science, LICS ’18, pages 255–264, New York, NY, USA, 2018. ACM.
+        doi:10.1145/3209108.3209197. (On p. 6)
+[Cis02] Denis-Charles Cisinski. Théories homotopiques dans les topos. J. Pure Appl. Algebra,
+        174:43–82, 2002. (On p. 7)
+[Cis06] Denis-Charles Cisinski. Les préfaisceaux comme modèles type d’homotopie, volume 308
+        of Astérisque. Soc. Math. France, 2006. (On p. 7)
+[Cis12] Denis-Charles Cisinski. Blog comment on post “The mysterious nature of
+        right properness”. http://golem.ph.utexas.edu/category/2012/05/the_mysterious_
+        nature_of_right.html#c041306, May 2012. (On p. 7)
+[Cis14] Denis-Charles Cisinski. Univalent universes for elegant models of homotopy types. 2014.
+        arXiv:1406.0058. (On p. 6)
+[Gar09] Richard Garner. Understanding the small object argument. Appl. Categ. Structures,
+        17(3):247–285, 2009. arXiv:0712.0724. (On p. 22)
+[Git80] M. Gitik. All uncountable cardinals can be singular. Israel J. Math., 35(1-2):61–88, 1980.
+        doi:10.1007/BF02760939. (On p. 28)
+[GK17] David Gepner and Joachim Kock. Univalence in locally cartesian closed ∞-categories.
+        Forum Math., 29(3):617–652, 2017. arXiv:1208.1749. (On p. 7)
+[GT06] Marco Grandis and Walter Tholen. Natural weak factorization systems. Arch. Math.
+        (Brno), 42(4):397–408, 2006. (On p. 22)
+[HoT13] HoTT Project. The homotopy type theory Agda library. http://github.com/HoTT/HoTT-
+        Agda/, 2013. (On p. 13)
+[HoT15] HoTT Project. The homotopy type theory Coq library. http://github.com/HoTT/HoTT/,
+        2015. (On p. 13)
+[HS98] Martin Hofmann and Thomas Streicher. The groupoid interpretation of type theory. In
+        Twenty-five years of constructive type theory (Venice, 1995), volume 36 of Oxford Logic
+        Guides, pages 83–111. Oxford Univ. Press, New York, 1998. (On p. 7)
+[Kel74] G. M. Kelly. Doctrinal adjunction. In Category Seminar (Proc. Sem., Sydney, 1972/1973),
+        pages 257–280. Lecture Notes in Math., Vol. 420. Springer, Berlin, 1974. (On p. 35)
+[Kel80] G. M. Kelly. A unified treatment of transfinite constructions for free algebras, free monoids,
+        colimits, associated sheaves, and so on. Bull. Austral. Math. Soc., 22(1):1–83, 1980. (On
+        pp. 22 and 34)
+[KL12] Chris Kapulkin and Peter LeFanu Lumsdaine. The simplicial model of univalent founda-
+        tions (after Voevodsky). 2012. arXiv:1211.2851. (On pp. 2 and 6)
+[Kra16] Nicolai Kraus. Constructions with non-recursive higher inductive types. LICS’16, 2016.
+        (On p. 4)
+[Lur09] Jacob Lurie. Higher topos theory. Number 170 in Annals of Mathematics Studies. Princeton
+        University Press, 2009. arXiv:math.CT/0608040. (On p. 7)
+[LW15] Peter LeFanu Lumsdaine and Michael A. Warren. The local universes model: An over-
+        looked coherence construction for dependent type theories. ACM Trans. Comput. Logic,
+        16(3):23:1–23:31, July 2015. arXiv:1411.1736. (On pp. 3, 5, 8, 9, 11, 15, 16, 17, 21, 24,
+        33, and 42)
+[nLa]   nLab authors. Transfinite construction of free algebras. https://ncatlab.org/nlab/show/
+        transfinite+construction+of+free+algebras. (On pp. 22 and 34)
+[Rie11] Emily Riehl. Algebraic model structures. New York Journal of Mathematics, 17:173–231,
+        2011. arXiv:0910.2733. (On p. 22)
+50                PETER LEFANU LUMSDAINE AND MICHAEL SHULMAN
+
+
+[Rie13]  Emily Riehl. Monoidal algebraic model structures. Journal of Pure and Applied Alge-
+         bra, 217(6):1069–1104, 2013. doi:https://doi.org/10.1016/j.jpaa.2012.09.029. URL:
+         http://www.sciencedirect.com/science/article/pii/S0022404912003052. (On p. 22)
+[Rij16] Egbert Rijke. Localization at maps between omega-compact types via a small object argu-
+         ment in HoTT. http://www.fields.utoronto.ca/talks/localization-maps-between-
+         omega-compact-types-small-object-argument-hott, May 2016. (On p. 4)
+[Rij17] Egbert Rijke. The join construction. 2017. arXiv:1701.07538. (On p. 4)
+[RSS17] Egbert Rijke, Michael Shulman, and Bas Spitters. Modalities in homotopy type theory.
+         arXiv:1706.07526, 2017. (On p. 47)
+[Shu14] Michael Shulman. Higher inductive-recursive univalence and type-directed definitions.
+         http://homotopytypetheory.org/2014/06/08/hiru-tdd/, June 2014. (On p. 6)
+[Shu15a] Michael Shulman. The univalence axiom for elegant Reedy presheaves. Homology, Homo-
+         topy, and Applications, 17(2):81–106, 2015. arXiv:1307.6248. (On p. 6)
+[Shu15b] Michael Shulman. Univalence for inverse diagrams and homotopy canonicity. Math-
+        ematical Structures in Computer Science, 25:1203–1277, 6 2015. arXiv:1203.3253,
+         doi:10.1017/S0960129514000565. (On pp. 6 and 8)
+[Shu17] Michael Shulman. Univalence for inverse EI diagrams. Homology, Homotopy and Appli-
+         cations, 19(2):219–249, 2017. arXiv: 1507.03634. (On p. 6)
+[Shu19] Mike Shulman (mathoverflow.net/users/49). Enriched cartesian closed categories. Math-
+         Overflow, 2019. URL: http://mathoverflow.net/questions/322085. (On p. 7)
+[Str91] Thomas Streicher. Semantics of type theory: correctness, completeness, and independence
+         results. Progress in Theoretical Computer Science. Birkhäuser, 1991. (On p. 5)
+[Uni13] Univalent Foundations Program. Homotopy Type Theory: Univalent Foundations of
+         Mathematics. http://homotopytypetheory.org/book/, first edition, 2013. (On pp. 2, 3,
+         6, 13, 18, 19, 27, and 47)
+[van16] Floris van Doorn. Constructing the propositional truncation using non-recursive HITs.
+        Certified Programs and Proofs ’16, 2016. arXiv:1512.02274. (On p. 4)
+[vdBM15] Benno van den Berg and Ieke Moerdijk. W-types in homotopy type theory. Mathematical
+         Structures in Computer Science, 25:1100–1115, 6 2015. doi:10.1017/S0960129514000516.
+        (On p. 24)
+

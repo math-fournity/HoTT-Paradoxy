@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -27,6 +27,7 @@ P-DAG、STATE mutation、proof assistant kernel run、tag、push 或发布。
 - 预检控制：Voevodsky 2006 Hλ（HMZ-S-019）与 Makkai 1996 anafunctor 预印本（HMZ-S-020）；后者七段原件、重建 PDF 与全文索引在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-005-makkai-anafunctor-preflight/`。
 - 新作者动机预检：Voevodsky 2011 WoLLIC（HMZ-S-021），九页原件和派生文本在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-006-wollic-machine-preflight/`；它需要具名 ZFC-in-Coq 配对来源才可升级为完整分母。
 - 配对分母：Werner 1997 与 `rocq-archive/zfc@ede712...`（HMZ-S-022／023）；原件、source tree、卡片和控制在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-007-werner-zfc-coq-pair/`。
+- R-HIGHER semantic 分母：Lumsdaine–Shulman 2019与Swan 2021（HMZ-S-024／025）；原件、R/Z/Q／control cards 在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-008-higher-hits-set-semantics/`。
 
 `cognition_runtime.py plan --profile governance` 仍被既有 `HEAD.json`—`MEMORY/001` 状态快照不匹配而
 fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直接路径回读，研究结论限于 archive 中的显式范围。
@@ -68,6 +69,11 @@ verification patch 的陈述同时防止把这个动机偷写成 UF 已无实现
 `Ens`、`IN`、`EQ`、Power、Replacement和Russell consumers，但与 WoLLIC 的关系仍不归因。论文／README／源码都明确：
 full ZFC编码要有 EM + TTDA/TTCA 等 non-computational Choice principles；`Russell.v`只反证一个先假定的包含所有`Ens`的U；`Power`在CIC的
 `sup`和`Prop`中定义。因而这个 precise pairing 形成的是支付／guard／H0非保真控制，而非 P candidate。
+
+最后，HMZ-008 对 HoTT Book R-HIGHER 做了 semantic-source pass。Lumsdaine–Shulman 的模型并非把 HIT formation 免费
+交给 Set：它需要 fibrancy、fibrant replacement、pullback/substitution stability、local universes 和 cell-monad
+限制。Swan 同时给出 ZF 内一类 QW/HIT 的正构造与另一类 QW 的 ZF/cardinal/Choice 边界。它们把 directness、模型和
+assumption 分开，不能保留 HoTT formation rule 的 same Done 或 H0 process；因此仍是控制而非 Q。
 
 ## §7 重新呈现与 14 题定位
 

@@ -132,7 +132,7 @@ run；这些已在第一阶段有来源和控制。
 Voevodsky 2006 的 [Hλ 预检](20261003-HMZ-004-hlambda-preflight/MANIFEST.md)已完成。它确实包含不同的技术语汇：
 proof compiler、受算法验证的子系统、扩张产生 ZF proof obligation、model-level 与 type-system-level 的差别。
 但本身没有给出 ZFC-side 同一 `u/F/C/I/O/Done`，也没有 source-supported P2/P3。因此它被归档为
-`ADMISSION_REJECTED_WITH_SCOPE`，而非被错误登记为第四份“Q 发现”或无边界完整 run。
+`ADMISSION_REJECTED_WITH_SCOPE`，而非被错误登记为一份“Q 发现”或无边界完整 run。
 
 Makkai 1996 的 [anafunctor 预检](20261003-HMZ-005-makkai-anafunctor-preflight/MANIFEST.md)则检验了另一条、
 更接近真实消费者的线：从“每对对象存在一个积”到“给每对对象选定一个 ordinary product functor”。来源明确写出
@@ -155,3 +155,9 @@ Voevodsky 2011 的 [WoLLIC 预检](20261003-HMZ-006-wollic-machine-preflight/MAN
 non-computational Choice principles 支付，Russell 只反证一个假定的 universal `Ens` container，Power 又是 host CIC/Prop
 construction。因此它把“ZFC-in-Coq不自然”从泛称压到可反驳的具体 task，并得出 `SOURCE_PAYMENT +
 ANTI_ANALOGY_CONTROL`。
+
+`R-HIGHER` 的 [HMZ-008 Set/ZF semantic run](20261003-HMZ-008-higher-hits-set-semantics/MANIFEST.md) 则把
+“directly”进一步校正为 task-interface 词。Lumsdaine–Shulman 的 HIT 模型要求 fibrancy、stability、local-universes
+等明确语义工作；Swan 同时给出 ZF 内正面的 image-preserving QW/HIT constructions，以及另一类 QW-type 的 ZF
+nonexistence/cardinal边界。该交叉结果说明：Set/ZF semantic construction 有正有负，却没有与 HoTT formation rule
+同一 Done 的未付消费者；因此是 `MODEL_SEMANTIC_PAYMENT + ASSUMPTION_BOUNDARY`，不是 ZFC Q 或 H0 transport。
