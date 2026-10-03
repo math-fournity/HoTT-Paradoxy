@@ -53,7 +53,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | F25（legacy N25）SOURCE-001 | `P-DAG-SOURCE-001` | 4 unique sessions: `01a0fd24-e045-7e53-b290-ae608e851408`; `01a0fd24-e017-7330-8f84-cc677ee47132`; `01a0fd2c-5031-7923-b5a1-b19b5d50c37d`; `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N25A,N25B,N25C,N25D)`；005拥有稳定ID与顺序 |
 | F26（legacy N26）SOURCE-002 + BATTLE-002 | `P-DAG-SOURCE-002-与-BATTLE-002` | 8 unique sessions; exact IDs frozen in this report and cross-checked against H/non-H registries | `FAMILY_LABEL_ONLY / SPLIT_INTO(N26A…N26H)`；005拥有稳定ID与顺序 |
 | F27（legacy N27）SOURCE-003 | `P-DAG-SOURCE-003` | 3 unique cancelled sessions: `01a0fd5f-0afa-7773-8245-f873a22e49cc`; `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3`; `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N27A,N27B,N27C)`；005拥有稳定ID与顺序 |
-| N28 SOURCE-004 | `P-DAG-SOURCE-004` | pre-sampling connection-failure session `01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118` | `UNIQUE_ATOMIC_RUNS(1)` |
+| N28 SOURCE-004 | `P-DAG-SOURCE-004` | pre-sampling connection-failure session `01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118` | `UNIQUE_ATOMIC_RUNS(1) / ATOMIC_AUDIT_COMPLETE` |
 | N29 SOURCE-005 | `20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md` | 一个Master direct-source control | `MASTER_EXECUTION_UNIT(1)` |
 | N30a runner-health-001 | `P-DAG-RUNNER-HEALTH-001` NodeCard | 只有预封存卡，未见执行收据 | `NODECARD_ONLY_NOT_COUNTED` |
 | N30b runner-isolation-002 | `P-DAG-RUNNER-ISOLATION-002-RESULT` | 实际空home认证执行，401发生在模型采样前；独立 prompt／empty-home receipt | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
