@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：首批 R 种子覆盖综合
 
-> **身份：** `CROSS_RUN_SEED_COVERAGE / SEVEN_CLOSED_DENOMINATORS + NINE_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+> **身份：** `CROSS_RUN_SEED_COVERAGE / EIGHT_CLOSED_DENOMINATORS + TEN_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
 
 ## 1. 这一阶段已经覆盖什么
 
@@ -20,6 +20,8 @@
 `R-CONSTRUCT`／`R-MACHINE` 的 H9 schema—operator 支路也获得 HMZ-014 的来源控制：逐公式 schema、公式编码与受限 truth construction 都有显式语言、结构、reflection和递归条件；没有来源把它们升级为 bare-ZFC 内部的 whole-\(V\) `Build(p,a)`。这保留 H9 为开放 admission class，但不把 schema 本身误报为 P。
 
 HMZ-015/016增加一项作用于整个项目的方法结论：predicativity/VCP 文献已经清楚讨论totality、循环定义、actual/completed infinite与ZF的impredicativity locus。因此“社区完全没有看到罗素侧花纹”不能作为ZFC候选的论据；用户P若有进一步发现力，必须在P1/P2/P5/P6的理论对象、consumer、预支使用和同一Done上给出独立证据。
+
+HMZ-017/018再补充P5的 community antecedent：constructive logic/type theory明确把 existence proof 与 program/termination/correctness delivery连接。于是用户P的附加证据义务进一步收紧：它不能仅说“存在未给程序”，而须找到同一ZFC consumer声称constructive-like Done又预支使用未支付对象的来源事实。
 
 ## 2. 这不是“没有找到”，而是对候选空间的收紧
 

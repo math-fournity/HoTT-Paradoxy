@@ -1,0 +1,1879 @@
+            Constructive logic and type theory ∗
+                            Erik Palmgren
+             Department of Mathematics, Uppsala University
+                                      March 2004
+
+
+Constructive logic is based on the leading principle that
+
+                                 (I) proofs are programs.
+
+In constructive type theory it has later been joined with the further principle that
+
+                            (II) propositions are data types.
+
+The latter is also called the propositions-as-types principle. The meaning of these
+principles is on first sight far from obvious. The purpose of these lectures is
+to explain these and their consequences and applications in computer science. A
+particular aim is to provide background for the study of Martin-Löf type theory, or
+similar theories of dependent types, and for using proof-checking systems based
+on such theories. Proofs carried out within constructive logic may be consid-
+ered as programs in a functional language, closely related to e.g. ML or Haskell.
+The importance of this is the possibility to extract from an existence proof (that,
+e.g., there are arbitrarily large prime numbers) a program t hat finds or constructs
+the purported object, and further obtain a verification that the program terminates
+(finds some number) and is correct (finds only sufficiently large prime numbers).
+The combination of construction and verification of programs has raised consider-
+able interest in computer science. Systems supporting this are known as integrated
+program logics. The combination of a program, and proofs of some of its prop-
+erties, is called proof-carrying code and is of potential importance for improving
+the trustworthiness of software in network based programming (cf. Java program-
+ming).
+   ∗ Lecture notes for a course in Applied Logic (Tillämpad logik DV1, datavetenskapliga pro-
+
+grammet). This is an extension and translation of original notes in Swedish: Konstruktiv logik,
+U.U.D.M. Lecture Notes 2002:LN1. The author is grateful for corrections and suggestions by
+Peter Dybjer, Thierry Coquand and Fredrik Dahlgren.
+
+
+                                              1
+     Constructive logic has a history well before the advent of electronic comput-
+ers. Around the turn of the century 1899-1900 there arised doubts about the con-
+sistency of the axiomatic and logical foundations for the abstract mathematics that
+had started to develop with the support of set theory. Bertrand Russell had 1903
+with his well-known paradox shown that unrestricted formation of sets from con-
+cepts may lead to outright contradictions. (Is there a set that consists of all sets
+that are not members of themselves? Answer: No.) Also other principles in use,
+such as the Axiom of Choice, had been discovered to have unintuitive and unnat-
+ural consequences, even though no paradoxes where known to arise from them.
+Ernst Zermelo showed 1908 that the set of real numbers may be well-ordered. It
+was among many mathematicians considered as a serious scientific crisis of the
+subject, known as the Grundlagenkrisis. In that mood of time the outstanding
+Dutch mathematician, and founder of modern topology, L.E.J. Brouwer started a
+critical examination and reconstruction of the foundations for mathematics, which
+went further than previous attempts, and included the very logic and not only the
+axioms. By the introduction of his intuitionistic mathematics he wanted to put
+mathematics on a secure and intuitive footing. His idea was that every proof must
+built on a so-called mental construction. At that time (1910) there were of course
+no programming languages, and not even a mathematical notion of algorithm, but
+it turned out that his notion of mental construction could be interpreted as algo-
+rithmic construction in a precise way. This requirement led Brouwer to reject a
+logical law that had been taken for granted since Aristotle, namely the Principle
+of Excluded Middle or Tertium Non Datur. This states that for every proposition
+A, either A is true or A is false, in logical symbols:
+
+                              A ∨ ¬A         (PEM).
+
+For concrete, finitely checkable, propositions there was no reason to doubt the law.
+The problematic case, according to Brouwer, is when A contains quantification
+over an infinite set, for instance the set of integers. Brouwer demonstrated that
+it was possible to develop mathematics also without the principle of excluded
+middle, and that it in many cases lead to more informative and insightful proofs.
+The immediate followers of Brouwer were not very numerous, and his use of the
+theory of choice sequences, which is inconsistent with classical logic, repelled
+many mathematicians from his philosophy. Later developments of constructive
+mathematics avoid this theory, and its results are immediately understandable and
+acceptable to mainstream mathematics (Bishop and Bridges 1985, Bridges and
+Richman 1987).
+
+
+
+
+                                         2
+1    Non-constructive proofs
+We shall illustrate how the principle of excluded middle is used in some non-
+constructive existence proofs, and how this may lead to the loss of algorithmic
+content. Here is a famous standard example, chosen for its simplicity rather than
+mathematical interest.
+
+Proposition 1.1 There are irrational numbers a and b such that ab is an rational
+number.
+                     √                                                       √ √2
+Proof. The number 2 is irrational (non-rational). Consider the number 2 .
+By the principle of excluded middle it is either rational√or irrational. If it is ra-
+tional, we may finish the proof by exhibiting a = b = 2. If it is irrational, let
+    √ √2           √
+a = 2 and b = 2. Then ab is rational, indeed we have
+
+                          b
+                              √ √2 √2 √
+                         a = ( 2 ) = ( 2)2 = 2. 2
+
+    Note that in this existence proof it was not decided which of the numbers
+     √         √ √2               √
+a = 2 or a = 2 , with b = 2, that actually gives the intended       example. One
+                                                            √ √2
+may actually show, using deeper mathematical theory, that 2 is irrational, but
+the standard proof requires several pages.
+    Many classical existence proofs are indirect, and start “Suppose that there
+is no object x such that . . . ”. The rest of the proof is devoted to show that a
+contradiction arises from this assumption. Here is a simple example involving
+infinite sequences.
+
+Proposition 1.2 Each infinite sequence of natural numbers
+
+                                a1 , a2 , a3 , . . . , ak , . . .
+
+has a minimal term, i.e. there is some n such that an ≤ ak for all k.
+
+Proof. Suppose that there is no minimal term in the sequence. For every index k
+we may then find k′ > k with ak > ak′ . Let k1 = 1. By assumption there is then
+k2 > k1 with ak1 > ak2 . Again, by the assumption, we find k3 > k2 such that ak2 >
+ak3 . Continuing in this manner we obtain an infinite sequence k1 < k2 < k3 < · · ·
+such that
+                              ak1 > ak2 > ak3 > · · · .
+This sequence of natural numbers decrease by at least one unit for every step, so
+
+                                akn ≤ a1 − (n − 1).
+
+                                               3
+Putting n = a1 + 2, we thereby find a term in the sequence less than 0, which is
+impossible. 2
+
+     This existence proof gives no information whatsoever where the minimal term
+is to be found. Not only the proof of this result is non-constructive, but the result
+is essentially non-constructive. Consider for example the sequence obtained in
+the following way: given a description of a Turing machine and an input string,
+let ak be 0 if the machine has terminated after k steps, and 1 otherwise. If we
+would be able to find the minimum of this sequence, algorithmically, we could
+also solve the general halting problem algorithmically. However this is known to
+be impossible.
+     This kind of “information-less” existence proofs are not uncommon in mathe-
+matical analysis. For instance certain results on the existence of solutions to differ-
+ential equations build on such proofs (Cauchy-Peano existence proof). There are
+rather simple examples of ordinary differential equations, whose solutions cannot
+computed from the parameters, though there are theoretical solutions (cf. Beeson
+1985)
+     Constructive mathematics and logic are founded on the idea that existence is
+taken more seriously than in classical mathematics: to prove that a certain object
+exists is the same as giving a method for constructing it. There is also the possibil-
+ity of further requiring the method to be effective according to some complexity
+measure (Nelson 1995, Bellantoni and Cook 1992). Such complexity restrictions
+gives a quite different kind of mathematics, not very well investigated as of yet.
+
+Exercises
+1.1. Recall that an algebraic real number is a real number which is a root of a
+polynomial with integer coefficients. Such numbers are closed under the usual
+arithmetical operations. Any real number which is not algebraic, is called tran-
+scendental. The numbers e and π are transcendental. Prove, using only these facts,
+that e + π or e − π is transcendental. (It is unknown which one it is, or if both are
+transcendental).
+1.2 (König’s lemma). A finite string over the alphabet {l, r} is regarded as de-
+scribing a path in a binary tree, starting from the root. Suppose that P is an infinite
+set of such paths. Show that there is an infinite string
+                                       d1 d2 d3 · · ·
+such that for every n, the string d1 d2 · · · dn is an initial segment of some path in P.
+1.3 (Brouwer’s Fan Theorem). Consider a set of paths P such that if w is in P, then
+so is each of its initial segments, i.e. if w = uv ∈ P, then u ∈ P. An infinite path
+
+                                             4
+d = d1 d2 d3 · · · is said to be barred by P, if there is some n such that d1 · · · dn ∈
+                                                                                       / P.
+Show that if every infinite path d is barred by P, then P must be finite.
+1.4. Prove that b = 2 log2 3 is irrational. Use this to give a constructive proof of
+Proposition 1.1.
+
+
+2      Typed lambda calculus
+We give a short introduction to lambda calculus, with emphasis on those parts
+which are useful in making the notion of mental construction mathematically pre-
+cise. For a comprehensive presentation of the theory, see Hindley and Seldin 1986
+or Barendregt 1992.
+The untyped lambda calculus was introduced in 1932 by the American logician
+Alonzo Church, originally intended as a foundation for mathematics. Soon after
+that it came to be used as one of the mathematical models for computability. John
+McCarthy took this calculus as a starting point when designing the programming
+language LISP in 1960. Later generations of functional programming languages,
+such as ML and Haskell, incorporated also strict typing of functions. These lan-
+guages are closely related to typed versions of the lambda calculus.
+    We introduce and study a typed lambda calculus. First the notion of type is
+defined inductively.
+Definition 2.1 Types.
+    (i) N is a type (the type of natural numbers).
+    (ii) If A and B are types, then (A × B) is a type (the product of A and B).
+
+ (iii) If A and B are types, then (A → B) is a type (the type of functions from A to
+       B).
+
+ (iv) If A and B are types, then (A + B) is a type (the disjoint union of A and B).
+     Examples of types are
+
+                   (N → (N × N))                ((N + (N × N)) → N).
+
+To reduce the number of parentheses we use the convention that × binds stronger
+than +, which in turn binds stronger than →. The above types are accordingly
+written
+                    N → N×N              N + N × N → N.
+Moreover, we use the convention that → associates to the right, so that N → N →
+N should be read N → (N → N) and not (N → N) → N.
+
+                                            5
+Remark 2.2 The type constructions (i) – (iii) are familiar from ML, but are there
+denoted nat, A * B and A -> B, respectively. In Haskell the product of A and B
+is written (A,B).
+
+    Next we define the terms, or “programs”, of lambda calculus. The most impor-
+tant constructions are abstraction λx.b, and application, apply( f , a). Abstraction
+forms from b a new function λx.b depending on a chosen variable. If b has the
+type B and x has the type A, then the new function has the type A → B. In λx.b
+the variable x is bound. The application apply( f , a) applies a function f to an
+argument a. The connection between these constructions is given by the β-rule
+
+                               apply(λx.b, a) = b[a/x],                              (1)
+
+where the right hand side means that a has been substituted for x in b. A condition
+for the validity of the rule is that no variables in a become bound by performing
+the substitution. As for first-order logic, the name of the bound variables are
+inessential. This is expressed by the α-rule:
+
+                                  λx.b = λy.b[y/x],                                  (2)
+
+where y is a variable not occurring in b. By employing this rule we can ensure that
+the β-rule is applicable. In ML λx.b is written as (fn x => b), and in Haskell
+this is \x -> b.
+    Another important construction is pairing: if a has type A and b has type
+B, we may form the pair of these ha, bi, which is of type A × B. There are two
+projections, or selectors, that extract the first and second component from this pair
+
+                         #1 (ha, bi) = a,        #2 (ha, bi) = b.                    (3)
+
+The third type construction is the disjoint union A +B of two types. It is intuitively
+the union of A and B, but with a marking of the elements, that indicates from
+which of the types the element comes, the left or right type. (This may be needed
+if A = B.) The type has two constructors inl and inr. If a has type A, then inl(a)
+has type A + B. If b has type B, then inr(b) has type A + B. To express that
+each element has one of these two forms inl(a) or inr(b), we introduce a case
+construction, or a discriminator, when. If f has type A → C and g has type B → C,
+then when(d, f , g) is of type C. It obeys the computation rules
+
+    when(inl(a), f , g) = apply( f , a),        when(inr(b), f , g) = apply(g, b).   (4)
+
+In ML there is no primitive type construction which behaves as +. However we
+may define the type construction as
+             datatype (’a,’b) sum = inl of ’a | inr of ’b
+
+                                            6
+Whereas in Haskell this would be
+
+                        data Sum a b = Inl a | Inr b
+
+    The natural numbers are most easily represented using unary notation: 0 has
+type N; if n has type N, then its successor, S(n), is of the same type N. The
+number 3 is for instance represented by the term S(S(S(0))). Such a term is
+called a numeral and is written in 3 in brief form. We introduce an operator rec
+which allows functions to be defined by a generalised form of primitive recursion,
+or structural recursion. For f of type A and g of type N → A → A the following
+equations are valid
+
+                          rec(0, f , g) = f ,                                         (5)
+                       rec(S(n), f , g) = g(n)(rec(n, f , g)).                        (6)
+
+    Next the terms are defined formally. We use the abbreviation a : A for a being
+a term of type A.
+
+Definition 2.3 Lambda terms.
+   For each type A there are infinitely many variables xA , yA , zA , . . . of that type.
+   If f : A → B and a : A, then apply( f , a) : B.
+   If xA is a variable and b : B, then λxA .b : A → B, and the variable xA is bound.
+   If a : A and b : B, then ha, bi : A × B.
+   If c : A × B, then #1 (c) : A and #2 (c) : B.
+   If a : A and B is a type, then inl(a) : A + B.
+   If b : B and A is a type, then inr(b) : A + B.
+   If d : A + B, f : A → C and g : B → C, then when(d, f , g) : C.
+   If a : N, f : A and g : N → A → A, then rec(a, f , g) : A.
+
+We shall often omit type information from variables, or other terms, when it may
+be inferred from the context. The expression apply( f , a) is abbreviated f (a).
+The abtraction λx. binds most loosely, whence the expression λx. f (a) is read
+λx.apply( f , a), while apply(λx. f , a) is written (λx. f )(a).
+    Lambda calculus is an equational theory, i.e. a theory where only equalities
+between terms are dealt with. Then logical formulae are thus expressions of the
+form s = t, where s and t are terms of the same type. As axioms we assume
+all instances of the equalities (1), (2), (3), (4), (5), (6) and t = t. The rules of
+derivation are
+                            t1 = t2       t1 = t2 t2 = t3
+                            t2 = t1           t1 = t3
+
+
+                                           7
+                 t1 = t2                t1 = t2              t1 = t2
+           t1 [t/x] = t2 [t/x]     t[t1/y] = t[t2/y]    λxA .t1 = λx .t2
+                                                                     A
+
+whose only purpose is to make calculations possible in subexpression. Using these
+one may calculate as expected.
+
+Example 2.4 Composition of functions. Let
+
+                      comp =def λ f B→C .λgA→B.λxA . f (g(x)).
+
+This term has type (B → C) → (A → B) → A → C. We have comp( f )(g)(x) =
+f (g(x)).
+
+Example 2.5 The predecessor function pd : N → N is defined by
+
+                            pd =def λx.rec(x, 0, λn.λy.n).
+
+We have
+                           pd(0) = rec(0, 0, λn.λy.n) = 0
+and
+
+                 pd(S(x)) =       rec(S(x), 0, λn.λy.n)
+                          =       (λn.λy.n)(x)(rec(x, 0, λn.λy.n))
+                          =       (λy.x)(rec(x, 0, λn.λy.n))
+                          =       x
+
+
+
+
+Example 2.6 Multiplication by 2. Define
+
+                     double =def λx.rec(x, 0, λn.λy.S(S(y))).
+
+We have double(0) = 0 and double(S(x)) = S(S(double(x))).
+Example 2.7 Representation of integers. Let Z = N + N and let inl(m) symbolise
+the negative number −(m + 1) while inr(n) symbolises the non-negative number
+n. One easily checks that this term changes sign of an integer:
+
+        neg =def λz.when(z, λu.inr(S(u)), λv.rec(v, inr(0), λn.λy.inl(n))).
+
+That is we have neg(inl(m)) = inr(S(m)), neg(inr(0)) = inr(0) and neg(inr(S(m))) =
+inl(m).
+
+                                          8
+Example 2.8 Define a lambda term I of type (A → A) → N → (A → A) which
+has the property that if applied to a numeral n, as follows, then
+                         I( f )(n) = λx. f ( f (· · · f (x) · · · ))).
+Here the number of f ’s in the right hand side is n. Observe that the right hand side
+corresponds to the composition of f with itself n times. To achieve this we use
+the recursion operator
+                   I =def λ f .λn.rec(n, λx.x, λm.λg.comp( f , g)).
+
+
+Remark 2.9 It is natural to regard the equalities (=) as computation relations, or
+reduction relations, directed from left to right, such that for example #1 (ha, bi) = a
+is read #1 (ha, bi) computes to a. In this manner we may regard the typed lambda
+calculus as a programming language. It has the unusual property that all programs
+terminate. To prove this formally is very complicated, see for instance Hindley
+and Seldin 1986, for a proof concerning a simplified calculus. The fact that all pro-
+grams terminate implies that a programming language is not Turing complete, i.e.
+there is a Turing machine computable function which cannot not be represented
+as a lambda term. (Cf. Exercise 2.5 below.) However, the calculus contains all
+computable functions that can be proved to terminate in the first order theory of
+Peano arithmetic.
+Remark 2.10 In pure untyped lambda calculus the only programming construc-
+tions are abstraction and application. It has, as the name indicates, no types so
+each term may be applied to any term whatsoever, including the term itself. For
+example, (λx.x(x))(λx.x(x)) is a well-formed term. Employing the β-rule the
+same term is obtained in one computation step! This means that there are non-
+terminating programs in the calculus. Despite its extreme simplicity the untyped
+calculus is Turing complete. It is however not easy to demonstrate this, and its
+was first done by Turing in 1936, building on results of S.C. Kleene.
+
+Exercises
+2.1 Verify the equalities in Examples 2.6, 2.7 and 2.8.
+2.2 Construct a lambda term e : N → N → N such that
+                                  e(0)(0)         =    S(0)
+                               e(0)(S(y))         =    0
+                               e(S(x))(0)         =    0
+                            e(S(x))(S(y))         =    e(x)(y).
+
+
+                                              9
+This is thus a function which may be used to decide whether two natural numbers
+are equal.
+2.3 Show that each primitive recursive function may be simulated by a lambda
+term.
+2.4 It is known that the Ackermann function a : N × N → N, defined by
+
+                              a(0, n) = S(n)
+                           a(S(m), 0) = a(m, S(0))
+                        a(S(m), S(n)) = a(m, a(S(m), n)),
+
+
+grows to quickly for being a primitive recursive function. Prove that it neverthe-
+less may be defined in the typed lambda calculus with the help of the recursion
+operator rec. [Hint 1: expand the definition of a(S(m), n) in the third line of the
+definition. Hint 2: define a function b : N → N → N such that a(m, n) = b(m)(n).
+Example 2.8 may also be useful.]
+2.5 (a) Let f : N × N → N and let g(n) = f (n, n) + 1. Prove that there is no m such
+that f (m, n) = g(n) for all n. This is the archetypical diagonialisation argument.
+    (b) Prove that g is computable, if f is computable.
+    (c) Suppose that the lambda terms contain sufficient information to deter-
+mined their type in a unique way. This may be done by furnishing the operators
+apply, when, rec, inl and inr with type information: applyA,B , whenA,B,C , recA , inlA,B
+and inrA,B (see Definition 2.3). Argue informally that the following function is
+totally defined and computable
+                 
+                  k if m in base 2 is a character-code for a lambda term t
+      f (m, n) =        of type N → N, and k is the value of t(n).
+                    0 otherwise.
+                 
+
+Use the fact that t(x) always terminate with a numeral as value when x is a nu-
+meral. (We presuppose that special symbols λ, . . . are character coded in some
+appropriate way.)
+   (d) Show using (a) – (c) that there is a computable function which cannot be
+computed by a term in the typed lambda calculus (presented in this chapter).
+
+
+3    Constructive interpretation of the logical constants
+According to Brouwer’s idea every mathematical theorem A must rest on a (men-
+tal) construction a. The construction a may be regarded as a witness to the truth
+
+                                           10
+of A. We shall here use the lambda terms which were introduced in Chapter 2
+as such constructions. This basic constructive interpretation was further clarified
+by A. Heyting (a student of Brouwer) and by A.N. Kolmogorov (the founder of
+modern probability theory). Hence it is called the Brouwer-Heyting-Kolmogorov-
+interpretation, or BHK-interpretation for short.
+    It should be pointed out that the class of constructions is not limited to the
+lambda terms that we have introduced so far, but may be extended when further
+construction methods are discovered (cf. Remark 3.4). There are some limits. One
+may be lead to think that this is a construction
+
+                1 there are n consecutive 7’s in the decimal expansion of π,
+             
+     f (n) =
+                0 otherwise.
+
+This is, a priori, not a constructive function as no one has (yet) found an algorithm
+that can decide whether there are n consecutive 7’s in the decimal expansion of π
+or not. Case distinction is allowed only if it can be decided effectively which case
+is true, for given parameters.
+
+
+BHK-interpretation. We explain what it means that a is a witness to the truth
+of the proposition A, by induction on the form of A. This will be expressed more
+briefly as a is a witness to A, or that a testifies A.
+
+   • ⊥ has no witnesses.
+
+   • p testifies s = t iff p = 0 and s and t are computed to the same thing. (Here
+     s and t are supposed to be natural numbers, or some similar finitely given
+     mathematical objects.)
+
+   • p testifies A ∧ B iff p is a pair ha, bi where a testifies A and b testifies B.
+
+   • p testifies A → B iff p is a function which to each witness a to A gives a
+     witness p(a) to B.
+
+   • p testifies A ∨ B iff p has the form inl(a), in which case a testifies A, or p
+     has the form inr(b), in which case b testifies B
+
+   • p testifies (∀x ∈ S)A(x) iff p is a function which to each element d ∈ S,
+     provides a witness p(d) to A(d).
+
+   • p testifies (∃x ∈ S)A(x) iff p is a pair hd, qi consisting of d ∈ S and a witness
+     q to A(d).
+
+
+
+                                          11
+    A proposition A is valid under the BHK-interpretation, or is constructively
+true, if there is a construction p such that p testifies A.
+    Note that this use of the word “witness” extends its usage in classical logic
+about existence statements. One may say that 2 is a witness to (∃x) x2 = 4 being
+true. The established standard terminology is rather to say that p is a proof for A,
+and the construction p is called proof-object. But to avoid confusion with formal
+derivations we use here, for pedagogical reasons, the word witness.
+Here follows some examples of BHK-interpretations. We use constructions from
+typed lambda calculus.
+Examples 3.1 1. p = λx.x is a witness to the truth of A → A. This is clear, since
+p(a) = (λx.x)(a) = a and if a testifies A, then so does p(a).
+   2. A witness to A∧B → B∧A is given by the construction f = λx.h#2 (x), #1 (x)i.
+     3. Consider the proposition ⊥ → A. A witness to this is an arbitrary function
+ f such as f (x) = 42: Suppose that a is a witness to ⊥. But according to the BHK-
+interpretation ⊥ has no witness, so we have a contradiction. By the absurdity law,
+anything follows, in particular that 42 is a witness to A.
+     Negation is defined as ¬A =def (A → ⊥). To prove ¬A amounts to proving that
+A leads to a contradiction. As usual we define A ↔ B to be (A → B) ∧ (B → A).
+Example 3.2 The contraposition law (A → B) → (¬B → ¬A) is valid in under
+the BHK-interpretation. Suppose that f testifies A → B. We wish to find a witness
+to (¬B → ¬A), i.e. (B → ⊥) → (A → ⊥). Suppose therefore that g testifies ¬B
+and a testifies A. Thereby f (a) is a witness to B, and hence g( f (a)) is a witness
+to ⊥. The construction λa.g( f (a)) thus testifies ¬A. Abstracting on g it is clear
+that λg.λa.g( f (a)) testifies ¬B → ¬A. The construction
+                                 λ f .λg.λa.g( f (a))
+is finally the witness to the law of contraposition. 2
+
+   Suppose that we have a witness p to the truth of the proposition
+                             (∀x ∈ S) (∃y ∈ T ) A(x, y).                          (7)
+Then we have for each a ∈ S that p(a) testifies (∃y ∈ T ) A(a, y). But p(a) is a
+pair hc, qi where c ∈ T and q testifies A(a, c). It follows that #2 (p(a)) testifies
+A(a, #1 (p(a))). Hence f (x) = #1 (p(x)) defines a function such that λx.#2 (p(x))
+testifies (∀x ∈ S) A(x, f (x)). This gives a method for computing y from x.
+    A proposition of the form (7) may for instance be a specification of a program,
+where S is the type of input data, T is the type of output data, and A(x, y) describes
+the desired relation between input and output. The witness p now gives a program
+ f which satisfies the specification A.
+
+                                         12
+Remark 3.3 The Principle of Excluded Middle (PEM)
+
+                                      A ∨ ¬A
+
+is not obviously valid under the BHK-interpretation, since we would need to find a
+method, which given the parameters in A, decides whether A is valid or not. If we
+restrict the possible constructions to computable functions, we may actually show
+that PEM is not constructively true. It is known that there is a primitive recursive
+function T such that T (e, x,t) = 1 in case t describes a terminating computation
+(t is, so to say, the complete “trace” of the computation) for the Turing machine e
+with input x, and having the value T (e, x,t) = 0 otherwise. By a suitable coding,
+the arguments to T may be regarded as natural numbers. The halting problem for
+e and x may now be expressed by the formula
+
+                       H(e, x) =def (∃t ∈ N) T (e, x,t) = 1.
+
+According to PEM
+
+                      (∀e ∈ N)(∀x ∈ N) H(e, x) ∨ ¬H(e, x).
+
+If this proposition were to have a computable witness, then we could decide the
+halting problem, contrary to Turing’s well-known result that this is algorithmically
+undecidable. The principle of indirect proof, reductio ad absurdum (RAA)
+
+                                    ¬¬A → A
+
+can be shown to be equivalent to PEM within intuitionistic logic, so it is not valid
+under the BHK-interpretation either. 2
+    We have seen that a witness to the truth of a proposition may be regarded
+as a program, by letting the constructions be lambda terms. In the following
+chapter we show how proofs of a proposition A carried out following the rules of
+intuitionistic logic always gives rise to a witness a to A,
+The second leading idea, to consider propositions as data types, is realised in the
+following limited sense. If the witnesses to the truth of proposition A have type S,
+the witnesses to B have type T , and the witnesses to C(x) have type U , then
+
+   • the witnesses to A ∧ B have type S × T ,
+
+   • the witnesses to A → B have type S → T
+
+   • the witnesses to A ∨ B have type S + T ,
+
+   • the witnesses to (∀x ∈ N)C(x) have type N → U ,
+
+                                        13
+   • the witnesses to (∃x ∈ N)C(x) have type N ×U
+The witnesses to s = t have type N. Since ⊥ has no witnesses, we could formally
+let these have type N as well. Conceptually there are good reasons to introduce a
+special empty type. Extend Definition 2.1 with
+      /0 is type.
+The empty type 0/ has no elements. The construction !A : 0/ → A is used to express
+that /0 is at least as empty as any other type, namely, if /0 has an element c, then
+every other type A has an element !A (c).
+According to the above it is clear that a type S corresponding to a proposition
+A may contain terms that are not witnesses to A. For instance, the proposition
+A1 = (∀n ∈ N) n = n2 has corresponding type N → N. It contains the term λx.0,
+which is not a witness to A1 .
+    It would be desirable to be able to identify propositions with data types in such
+way that a proposition A has a witness if, and only if, it is non-empty regarded as
+a data type. The logician H.B. Curry realised that for (intuitionistic) propositional
+logic a formula could be made to correspond exactly with a type by introducing
+type variables X ,Y, . . . that may stand for arbitrary types, empty or non-empty; see
+Curry and Feys 1958. W.A. Howard extended, in 1969, Curry’s idea to universally
+quantified propositions. The propositions-as-types principle is sometimes called
+the Curry-Howard isomorphism (in particular, if further relations hold between
+the reduction rules of the proofs and the programs; see Simmons 2000). A fully
+fledged version of the propositions-as-types principle came only with the intro-
+duction in 1971 of the type theory of Per Martin-Löf. In this and later work it
+emerged how this principle could be generalised to many other logical construc-
+tion, even those belonging to higher set theory.
+    For propositions containing individual variables the associated types becomes
+much more complicated. In the example A1 above the proposition n = n2 should
+be a empty type Sn = /0 for n ≥ 2 and a type containing 0, for instance Sn = {0},
+when n = 0, 1. This requires so called dependent types. The type Sn depends on
+n ∈ N, an element in another type. We return to type theory in Chapter 7.
+Remark 3.4 It is also possible to use untyped terms as constructions. An im-
+portant method is Kleene’s recursive realisability interpretation, where the con-
+structions are indices (codes) for partial recursive functions (cf. Troelstra och van
+Dalen 1988). These indices may be regarded as programs for Turing machines.
+It may be argued that construction methods beyond these are necessary if one ac-
+cepts the Church-Turing thesis on computability. While the constructions in typed
+lambda calculus, or Martin-Löf type theory, may be understood directly and in-
+dependently of other theories, the properties of the untyped constructions need to
+justified within some meta-theory.
+
+                                         14
+Exercises
+3.1 Prove that the following propositions are valid under the BHK-interpretation
+
+  (a) A ∧ B → A and A ∧ B → B
+
+  (b) A → (B → A ∧ B)
+
+  (c) A → A ∨ B and B → A ∨ B
+
+  (d) (A → C) → ((B → C) → (A ∨ B → C))
+
+  (e) A → (B → A)
+
+  (f) (A → (B → C)) → ((A → B) → (A → C))
+
+  (g) ⊥ → A
+
+  (h) A(t) → (∃x ∈ D)A(x)
+
+  (i) (∀x ∈ D)(A(x) → B) → ((∃x ∈ D)A(x) → B)), where x does not occur free
+      in B
+
+  (j) (∀x ∈ D)A(x) → A(t)
+
+  (k) (∀x ∈ D)(B → A(x)) → (B → (∀x ∈ D)A(x)), where x does not occur free
+      in B.
+
+These are the logical axioms for (first-order) intuitionistic logic. In addition there
+are the modus ponens rule, and the generalisation rule: from A, derive (∀x ∈ D)A.
+3.2 Show that the following are constructively true:
+
+  (a) ¬¬¬A → ¬A
+
+  (b) ¬(A ∨ B) ↔ ¬A ∧ ¬B.
+
+  (c) ¬(∃x ∈ D)A(x) ↔ (∀x ∈ D)¬A(x)
+
+3.3 Does any of the following (classical valid) propositions have constructive wit-
+nesses? Discuss!
+
+  (a) ¬(∀x ∈ D)A(x) → (∃x ∈ D)¬A(x).
+
+  (b) ¬(A ∧ B) → ¬A ∨ ¬B.
+
+
+
+                                         15
+4    Intuitionistic logic
+We assume that the reader is familiar with some system of natural deduction for
+predicate logic; see van Dalen 1997, Huth and Ryan 2000 or Hansen 1997. Here
+is one such system based on derivation trees.
+
+
+Derivation rules:
+
+
+       A   B                                 A∧B                      A∧B
+             (∧I)                                (∧E1)                    (∧E2)
+        A∧B                                   A                        B
+                     h
+               A
+                ..
+                 .
+              B                                  A→B              A
+                 (→ I, h)                                             (→ E)
+             A→B                                   B
+
+                                                             h        h
+                                                            A 1   B 2
+                                                             ..    ..
+                                                              .     .
+     A                      B                A∨B           C      C
+        (∨I1)                  (∨I2)                                      (∨E, h1 , h2 )
+    A∨B                    A∨B                             C
+                                                       h
+                                                 ¬A
+                                                  ..
+                                                   .
+                   ⊥                                ⊥
+                      (⊥E)                               (RAA, h)
+                   A                                A
+This is the propositional part of the rules. Note that a discharged assumption A is
+           h
+denoted A in the derivation, where h is a symbol that identifies those assumptions
+which are discharged at the same time. The symbol is placed also at the rule which
+does the discharging, and has to be unique.
+
+                             A                  (∀x)A
+                                 (∀I)                  (∀E)
+                           (∀x)A                A[t/x]
+                                                        h
+                                                   A
+                                                   ..
+                                                    .
+                         A[t/x]           (∃x)A C
+                                (∃I)                         (∃E, h)
+                         (∃x)A                C
+
+                                        16
+    The rules for the quantifiers have certain restrictions. For (∀I) the condition
+is that x may not be free in undischarged assumptions above A. This blocks a
+derivation of
+                                x = 0 → (∀x)x = 0.                              (8)
+For (∃E) the restriction is that x may not be free in C or in undischarged assump-
+tions other than those marked with h. This blocks derivations of
+
+                                 (∃x)A → (∀x)A.                                 (9)
+
+The above rules constitute a system for classical predicate logic (with equality).
+If the rule RAA is omitted, we get a system for intuitionistic predicate logic.
+Validity under the BHK-interpretation. We show that the rules of the intu-
+itionistic subsystem are valid under the BHK-interpretation, that is, if we have
+witnesses for the propositions above derivation bar then we can construct a wit-
+ness for the proposition below the derivation bar. The notation a : A is used to
+express that a is a witness to A. We presuppose that the quantification domain
+is D. To make an assumption A is interpreted as making the assumption that a
+variable x is a witness to A, i.e. x : A.
+
+
+a:A       b:B                                c : A∧B             c : A∧B
+               (∧I)                                     (∧E1)               (∧E2)
+ha, bi : A ∧ B                               #1 (c) : A          #2 (c) : B
+
+
+                h
+          x:A
+           ..
+            .
+          b:B                                    c:A→B          a:A
+                   (→ I, h)                                         (→ E)
+      λx.b : A → B                                 apply(c, a) : B
+
+
+     a:A                     b:B
+               (∨I1)                    (∨I2)
+inl(a) : A ∨ B           inr(b) : A ∨ B
+
+
+                                                           h        h
+                                                      x:A 1     y:B 2
+                                                        ..        ..
+                                                         .         .
+                                          c : A∨B d :C           e:C
+                                                                        (∨E, h1 , h2 )
+                                              when(c, λx.d, λy.e) : C
+
+
+                                        17
+                                        c:⊥
+                                                (⊥E)
+                                       !(c) : A
+                a:A                                   c : (∀x) A
+                          (∀I)                                        (∀E)
+            λx.a : (∀x) A                         apply(c,t) : A[t/x]
+                                                                  h
+                                                            y:A
+                                                             ..
+                                                              .
+             a : A[t/x]                       c : (∃x)A d : C
+                           (∃I)                                        (∃E, h)
+           ht, ai : (∃x) A                  d[#1 (c), #2 (c)/x, y] : C
+
+   We have shown
+
+Theorem 4.1 The rules for intuitionistic logic are valid under the BHK-interpretation.
+
+
+
+Example 4.2 We derive the contraposition law in intuitionistic logic
+                                         h       h1
+                                   A → B 3 A (→
+                                  h2                E)
+                           ¬B           B (→ E)
+                                 ⊥ (→ I, h )
+                                           1
+                                 ¬A    (→ I, h2)
+                              ¬B → ¬A         (→ I, h3)
+                        (A → B) → (¬B → ¬A)
+   and then do the BHK-interpretation:
+                                                 h          h
+                                     f :A→B 3 a:A 1
+                               h                            (→ E)
+                      g : ¬B 2              f (a) : B
+                                                      (→ E)
+                               g( f (a)) : ⊥
+                                                (→ I, h1)
+                             λa.g( f (a)) : ¬A
+                                                      (→ I, h2)
+                       λg.λa.g( f (a)) : ¬B → ¬A
+                                                               (→ I, h3)
+             λ f .λg.λa.g( f (a)) : (A → B) → (¬B → ¬A)
+
+
+
+Example 4.3 We derive and then make a BHK-interpretation of (∃x) (A ∧ B) →
+A ∧ (∃x) B. Here x is not free in A.
+
+
+
+                                            18
+                                                                        h
+                                                             y : A∧B 1
+                                             h                          (∧E2)
+                                 y : A∧B 1                   #2 (y) : B
+                                             (∧E1)                          (∃I)
+                                 #1 (y) : A             hx, #2 (y)i : (∃x)B
+                          h                                                 (∧I)
+        z : (∃x)(A ∧ B) 2            h#1 (y), hx, #2 (y)ii : A ∧ (∃x)B
+                                                                         (∃E, h1 )
+               h#1 (#2 (z)), h#1 (z), #2 (#2 (z))ii : A ∧ (∃x)B
+                                                                            (→ I, h2)
+     λz.h#1(#2 (z)), h#1 (z), #2 (#2 (z))ii : (∃x)(A ∧ B) → A ∧ (∃x)B
+
+   (What does the witness on the last line do?)
+
+Remark 4.4 * To indicate what open assumptions there are available at a given
+position in a proof tree one uses sequent notation. The expression
+
+                                    Ah11 , . . ., Ahnn ⊢ B
+
+states that B is proved under the open assumptions A1 , . . . , An . The order of these
+assumption does not matter, and the same formula may occur several times, but
+the markers h1 , . . ., hn have to be distinct. See Troelstra and Schwichtenberg
+1996 for a formulation of natural deduction using this notation. Under the BHK-
+interpretation the marker becomes superfluous and may be replaced by variables
+
+                              x1 : A1 , . . . , xn : An ⊢ b : B.                        (10)
+
+
+
+Model theory of intuitionistic logic.* We have seen that the intuitionistic deriva-
+tion rules are valid under the BHK-interpretation. However, for this kind of se-
+mantics there is no completeness theorem (van Dalen and Troelstra 1988). Intu-
+itionistic logic is complete for Beth-Kripke-Joyal semantics, see van Dalen 1997
+for an introduction. This semantics has the same function as Tarski semantics
+for classical logic and is very useful for demonstrating that a logical formula is
+unprovable in intuitionistic logic. (For instance one may easily give negative so-
+lutions to Exercise 3.3.)
+Non-logical axioms: induction. The BHK-semantics has only been applied to
+pure logic above. It is also possible to verify some non-logical axioms to be valid,
+for instance the induction scheme for natural numbers. The scheme may also be
+stated as an elimination rule. We now assume that the domain of quantification is
+N. The induction rule
+
+
+
+                                             19
+                                               h
+                                      A(x)
+                                        ..
+                                         .
+                        A(0)        A(S(x))
+                                            (induction, h)
+                                A(t)
+may easily be given a BHK-interpretation with the help of the recursion operator:
+                                                   h
+                                      y : A(x)
+                                          ..
+                                           .
+                     b : A(0)         c : A(S(x))
+                                                  (induction, h).
+                       rec(t, b, λx.λy.c) : A(t)
+
+Exercises
+4.1 Deduce 3.1 (a)–(k) in intuitionistic logic. (Use the soundness theorem and
+compare to the constructions you obtained in Exercise 3.1.)
+4.2 Deduce 3.2 in intuitionistic logic.
+4.3* Prove ¬¬¬A ↔ ¬A in intuitionistic logic.
+4.4 Show that the false formulae (8) and (9) are provable, if the restrictions on
+quantifiers rules are removed.
+
+
+
+
+                                          20
+  5     Brouwerian counter examples
+  In this section we present a common way to show that a proposition is construc-
+  tively unprovable. There are certain simple logical principles, that are trivially true
+  in classical logic, but which have no constructive proofs. These are the principles
+  of omniscience concerning infinite binary sequences
+
+                                 1 0 0 1 1 0 0 0 1 0 ··· .
+
+  An (infinite) binary sequence is formally a function α : N → {0, 1}. We consider
+  here two such principles, the limited principle of omniscience and the lesser lim-
+  ited principle of omniscience
+
+ (LPO) For all binary sequences α either ∃n αn = 1 or ∀n αn = 0.
+
+(LLPO) Let α be a binary sequence with at most one occurrence of 1. Then ∀n α2n =
+       0 or ∀n α2n+1 = 0.
+
+  It may easily be shown, constructively, that
+
+                                     LPO ⇒ LLPO.
+
+  In a recursive realisability interpretation LLPO is false, and hence so is LPO
+  (Troelstra and van Dalen 1988). One may also convince oneself by intuitive con-
+  siderations that LLPO does not have a constructive proof. Let α be the binary
+  sequence defined by αn = 1 if n is the first position in the decimal expansion of π
+  commencing a run of 100 consecutive 7s, and αn = 0 in other cases. A construc-
+  tive proof of LLPO would immediately give a method for deciding whether the
+  run is never started at an odd position, or is never started at an even position.
+      If P is a theorem in classical mathematics whose constructive truth we doubt,
+  we may try to show that P implies of one the principles LPO or LLPO. In case we
+  succeed in this, we should give up looking for a constructive proof of P.
+
+  Exercises
+  5.1 Establish the implication LPO ⇒ LLPO in intuitionistic logic, in particular
+  without using PEM or RAA.
+  5.2 Prove using intuitionistic logic that Theorem 1.2 implies LPO.
+
+
+
+
+                                            21
+6     Classical and intuitionstic proofs
+We have seen that proofs in intuitionistic logic have the remarkable property that
+programs may be extracted from them. Most naturally occurring proofs, in mathe-
+matical text books or journals, rely as they stand on some use of classical logic. A
+natural question is whether there is some mechanical method for translating clas-
+sical proofs to constructive proofs. It is clear that such methods must have some
+limitations in view of the counter examples of the previous chapters. Kurt Gödel
+and Gerhard Gentzen showed that there is a method for purely logical proofs, and
+certain simple theories, if the proposition proved A may be substituted by a clas-
+sically equivalent proposition A∗ . This substitute may not have the same meaning
+from a constructive point of view.
+    In classical logic, the logical constants (connectives and quantifiers) ∃ and ∨
+are actually unnecessary, since we have the following provable equivalences
+
+                                 A ∨ B ↔ ¬(¬A ∧ ¬B)                             (11)
+                                (∃x)C ↔ ¬(∀x)¬C                                 (12)
+
+for arbitrary formulae A, B,C. The fact is that if we take the right hand sides as
+definitions of the corresponding logical constants, and only use RAA, (⊥E) and
+the introduction and elimination rules for ∧, → and ∀, then we get a complete
+system for classical predicate logic (see e.g. van Dalen 1997). A formula of pred-
+icate logic where the only logical constants used are ⊥, ∧, → and ∀, is called a
+non-existential formula. (We think of A ∨ B as a form of existence statement.)
+Define the Gödel-Gentzen negative translation (·)∗ by recursion on non-existential
+formulae:
+    • ⊥∗ = ⊥,
+    • R(t1, . . . ,tn )∗ = ¬¬R(t1 , . . . ,tn) , if R is a predicate symbol,
+    • (A ∧ B)∗ = A∗ ∧ B∗ ,
+    • (A → B)∗ = A∗ → B∗ ,
+    • ((∀x)C)∗ = (∀x)C∗ .
+    It should be clear that the only thing this translation achieves is to insert two
+negation sign in front of every predicate symbol. Obviously, A is provably equiv-
+alent to A∗ using RAA.
+
+Example 6.1 Let R be a binary predicate symbol. The formula
+
+                             A = (∀x)(∃y)(R(x, y) ∨ R(y, x))
+
+                                             22
+is classically equivalent to B = (∀x)¬(∀y)¬¬(¬R(x, y) ∧ ¬R(y, x)). The Gödel-
+Gentzen translation B∗ is
+
+                     (∀x)¬(∀y)¬¬(¬¬¬R(x, y) ∧ ¬¬¬R(y, x))
+
+
+
+Theorem 6.2 Let A be a non-existential formula. If A is provable in classical
+predicate logic, then A∗ is provable in intuitionistic predicate logic.
+
+Proof. A formal proof goes by induction on derivations. Since the proof rules are
+identical for the systems, save for RAA, one needs only to prove
+
+                                    ¬¬A∗ → A∗                                    (13)
+
+in intuitionistic predicate logic, for each non-existential formula A. This is done
+by induction on the formula A, using the following theorems of intuitionistic logic.
+    ⊢ ¬¬⊥ → ⊥,
+    ⊢ ¬¬¬¬B → ¬¬B,
+    ¬¬A → A, ¬¬B → B ⊢ ¬¬(A ∧ B) → A ∧ B,
+    ¬¬B → B ⊢ ¬¬(A → B) → (A → B),
+    (∀x)(¬¬A → A) ⊢ ¬¬(∀x)A → (∀x)A.
+We leave their proofs as exercises for the reader. 2
+A non-existential formula A is called negative if every predicate symbol in A is
+immediately preceded by a negation. For such a formula every predicate symbol
+in the corresponding translation A∗ will be preceded by three negations. Intu-
+itionistically, it holds that ¬¬¬B ↔ ¬B. Consequently, every negative formula is
+equivalent to its own Gödel-Gentzen interpretation. We have
+
+Corollary 6.3 Let A be a negative, non-existential formula. If A is provable in
+classical predicate logic, then it is also provable in intuitionistic predicate logic.
+
+    Theorem 6.2 may be extended to some theories T , such that if A is provable in
+classical predicate logic using axioms from T , then A∗ is provable in intuitionistic
+predicate logic from the axioms of T . (T = /0 is thus the theorem proved above.)
+An important example is T = PA, the first-order theory of natural numbers, known
+
+
+
+
+                                         23
+as, Peano arithmetic. It has the following axioms:
+
+                   (∀x) x = x
+                   (∀x)(∀y)[x = y → y = x]
+                   (∀x)(∀y)(∀z)[x = y ∧ y = z → x = z]
+                   (∀x)(∀y)[x = y → S(x) = S(y)]
+                   (∀x)(∀y)(∀z)(∀u)[x = z ∧ y = u → x + y = z + u]
+                   (∀x)(∀y)(∀z)(∀u)[x = z ∧ y = u → x · y = z · u]
+                   (∀x) ¬S(x) = 0
+                   (∀x)(∀y)[S(x) = S(y) → x = y]
+                   (∀x) x + 0 = x
+                   (∀x)(∀y) x + S(y) = S(x + y)
+                   (∀x) x · 0 = 0
+                   (∀x)(∀y) x · S(y) = x · y + x
+                   A(0) ∧ (∀x)[A(x) → A(S(x))] → (∀x) A(x).
+
+Here A(x) is an arbitrary formula in the language {=, 0, S, +, ·}.
+   For quantifier-free P we have an additional result: if
+
+                                A = (∀x)(∃y)P(x, y)
+
+is provable from PA using classical logic, then A is already provable using in-
+tuitionistic logic from the axioms (see Troelstra and van Dalen 1988). Since A
+has the format of a program specification, it is sometimes possible to use this,
+and similar results, to extract programs from classical proofs (see Schwichtenberg
+1999).
+
+Exercises
+6.1. Let P(x) be a predicate symbol and consider A = (∃x) P(x) ∨ (∀x)¬P(x).
+Eliminate all occurrences of ∨ and ∃ with the help of (11). Then prove the Gödel-
+Gentzen translated formula in intuitionistic logic.
+6.2. Prove the following in intuitionistic logic.
+
+  (a) ⊢ ¬¬⊥ → ⊥,
+
+  (b) ⊢ ¬¬¬¬B → ¬¬B,
+
+  (c) ¬¬A → A, ¬¬B → B ⊢ ¬¬(A ∧ B) → A ∧ B,
+
+                                         24
+(d)* ¬¬B → B ⊢ ¬¬(A → B) → (A → B),
+
+(e)* (∀x)(¬¬A → A) ⊢ ¬¬(∀x)A → (∀x)A.
+
+6.3.* Suppose that T is a theory such that,
+
+    (a) T proves A ∨ ¬A, for every atomic A, using only intuitionistic logic,
+
+    (b) T proves B∗ using intuitionistic logic, for every axiom B of T .
+
+Then show that if a non-existential A is provable classically in T , then it is already
+provable intuitionistically.
+6.4.* Prove that PA satisfies the conditions in 6.3. Hint: for (a) use induction on
+natural numbers.
+
+
+7      Martin-Löf type theory
+The type theory of Martin-Löf 1984 has several notions not present in simple
+lambda calculus, such as dependent types, Π-types and Σ-types. These were in-
+troduced to realise the full propositions-as-types principle.
+
+7.1 Set-theoretic constructions: sums and products.
+To explain Π− and Σ-types we present some less common set-theoretic construc-
+tions. Let I be a set, and let Ai be a set for each i ∈ I. We say that Ai (i ∈ I) is a
+family of sets. The disjoint union, or sum of this family is a set of pairs
+
+                          (Σi ∈ I)Ai = {hi, ai | i ∈ I, a ∈ Ai }.
+
+(Two alternative notations: ∑i∈I Ai and ∪˙ i∈I Ai — note the dot.)
+
+Example 7.1 Let J = {1, 2, 3} and B1 = {0}, B2 = {0, 1}, B3 = {1, 2}. Then
+
+                  (Σ j ∈ J)B j = {h1, 0i, h2, 0i, h2, 1i, h3, 1i, h3, 2i}.
+
+
+
+Example 7.2 Let Cn = {m ∈ N : m ≤ n}, for n ∈ N. Then
+
+                      (Σn ∈ N)Cn = {hn, mi ∈ N × N | m ≤ n}.
+
+
+
+
+                                            25
+Consider once more a family Ai (i ∈ I) of sets. The cartesian product of this family
+is a set of functions
+                (Πi ∈ I)Ai = { f : I → ∪i∈I Ai | (∀i ∈ I) f (i) ∈ Ai }
+(Alternative symbolism: ∏i∈I Ai .) This is thus the set of functions f defined on I,
+where for each i ∈ I the value f (i) belongs to Ai . The range, or codomain, Ai de-
+pend on the argument i. Therefore the construction is sometimes called dependent
+function space.
+
+Example 7.3 Let B j ( j ∈ J) be a family of sets as in Example 7.1. Then (Π j ∈
+J)B j consists of four different functions f , g, h, and k, where
+                     f (1) = 0 g(1) = 0 h(1) = 0 k(1) = 0
+                     f (2) = 0 g(2) = 0 h(2) = 1 k(2) = 1
+                     f (3) = 1 g(3) = 2 h(3) = 1 k(3) = 2
+
+
+Example 7.4 Let Cn (n ∈ N) be as in Example 7.2. Note that ∪n∈NCn = N. So
+(Π ∈ N)Cn = { f : N → N | (∀n ∈ N) f (n) ∈ Cn } = { f : N → N | (∀n ∈ N) f (n) ≤
+n}.
+Remark 7.5 (Binary sums and products.) Let I = {0, 1} and C0 = A, C1 = B.
+Then
+              (Σi ∈ I)Ci = {h0, ai : a ∈ A} ∪ {h1, bi : b ∈ B},
+is a disjoint union of A and B. We denote this set as A + B. Furthermore
+             (Πi ∈ I)Ci = { f : I → C0 ∪C1 | f (0) ∈ C0 , f (1) ∈ C1 }.
+Since functions with a two-element domain I = {0, 1} may be regarded as pairs,
+we see that (Πi ∈ I)Ci is a binary cartesian product A × B.
+Remark 7.6 Suppose that Ai = A for all i ∈ I. Then we obtain (Σi ∈ I)Ai = (I ×A)
+and (Πi ∈ I)Ai = (I → A). Therefore we may regard Σ and Π as generalisations
+of the constructions × and →.
+
+7.2 Propositions as sets
+We now investigate how these constructions may be used to give interpretations
+of propositions as sets. Define a set Em,n , depending on m, n ∈ N, by:
+                                    
+                                       {0} if m = n
+                            Em,n =
+                                       /0      if m 6= n.
+Then Em,n is nonempty exactly when m = n.
+
+                                         26
+Example 7.7 The proposition (∃n ∈ N) m = 2n is true if, and only if, m is an even
+natural number. Consider now the set Sm = (Σn ∈ N) Em,2n . The only possibility
+for it to be non-empty is that (n, 0) ∈ Sm for some n, which is true when m = 2n.
+We get that
+                            Sm 6= /0 ⇔ (∃n ∈ N) m = 2n.
+
+
+Example 7.8 The proposition (∀n ∈ N)(n + k)2 = n2 + 4n + 4 is true if, and only
+if, k = 2. Form the set Tk = (Πn ∈ N) E(n+k)2 ,n2 +4n+4 . This set is non-empty
+if, and only if, the function f (n) = 0 belongs to the set, i.e. if for all n ∈ N:
+E(n+k)2 ,n2 +4n+4 = {0}, i.e. (n + k)2 = n2 + 4n + 4. Hence:
+
+                     (∀n ∈ N)(n + k)2 = n2 + 4n + 4 ⇔ Tk 6= /0.
+
+
+
+Example 7.9 The proposition (∀n ∈ N)[n = 0∨(∃m ∈ N)n = m+1] says that each
+natural number is 0 or a successor of another natural number. The corresponding
+set becomes
+                       (Πn ∈ N) [En,0 + (Σm ∈ N)En,m+1 ].
+Exercise: show that this contains exactly one element.
+
+7.3 The type theory
+In the preceding section we gave a set-theoretic description of dependent type con-
+structions, and thereby achieved a version of principle (II). However we have no
+guarantee that an element of a set correspond to an algorithmic construction. That
+is, we still have to achieve principle (I). To realise both (I) and (II) algorithmic
+counterpart to dependent types must be defined. This is done in Martin-Löf type
+theory, which is a typed lambda calculus which generalise the calculus from Chap-
+ter 2 by introducing dependent types. This system is similar to a BHK-interpreted
+version of natural deduction system for intuitionistic logic (see Chapter 4). What
+is derived in type theory are judgements of the form a : A, which may be read as
+(i) a has type A or (ii) a is a witness to the proposition A. It turns out that this idea
+of identifying propositions with types also leads to conceptual simplifications: ∧
+and ∃ may be unified in the construction Σ, while → and ∀ man be unified in the
+Π-construction. The disjunction ∨ is given by the type construction +.
+     A novelty of this system is that types may depend on other types. That a
+type B depends on z : A means essentially that the variable z occurs free in the
+type expression B. This dependence may be nested, there may yet another type C
+depending on y : B and z : A, etc. These dependencies are written
+
+                                           27
+      B is a type (z : A),
+
+      C is a type (z : A, y : B).
+
+We may also say that b is an element of B depending on z : A. This is written
+
+      b : B (z : A),
+
+Thus for a : A, we have b[a/z] : B[a/z].
+   Certain aspects of the formal treatment of dependent types will be omitted
+here (see however Section 7.4 below).
+Π-types. Let B be a type depending on x : A. The introduction rule for Π is this:
+
+                                         x:A
+                                          ..
+                                           .
+                                          b:B
+                                                     (ΠI)
+                                    λx.b : (Πx : A)B
+
+The elimination rule is
+                             f : (Πx : A)B        a:A
+                                                      (ΠE)
+                               apply( f , a) : B[a/x]
+
+The associated computation rule is apply(λx.b, a) = b[a/x] : B[a/x], often called
+the β-rule.
+    For a type B which is independent of x, we see that this becomes the BHK-
+interpretation of the rules (→ I) and (→ E) respectively, for intuitionistic logic.
+    If A is considered as the quantification domain, the rules are similar to those for
+∀. In single sorted intuitionistic logic the judgements x : A and a : A are hidden,
+since all variables and terms automatically have the type of the quantification
+domain.
+Σ-types. Let B be a type depending on x : A. The introduction for Σ is
+
+                               a:A        b : B[a/x]
+                                                     (ΣI)
+                                ha, bi : (Σx : A)B
+
+If A is regarded as the quantification domain and B is regarded as a proposition,
+we see that (ΣI) may be read as the rule (∃I).
+    In case B is independent of x, so that B[a/x] = B, we see that the rule (ΣI) has
+the same shape as (∧I). (Set-theoretically it holds in this case that: (Σx ∈ A)B =
+A × B, see Remark 7.6.)
+
+
+                                             28
+The elimination rule for Σ is the following: suppose that C is a type depending on
+z : (Σx : A)B.
+                                       x:A y:B
+                                          .. ..
+                                           . .
+                      c : (Σx : A)B d : C[hx, yi/z]
+                                                              (ΣE)
+                        split(c, λx.λy.d) : C[c/z]
+The associated computation rule is split(ha, bi, g) = g(a)(b) : C[ha, bi/z].
+If C does not depend on z, and the “hidden” judgements for the quantification
+domain are taken into account, then the rule (ΣE) is in accordance with (∃E).
+    If B is independent of x, C = A and d = x we have that
+
+                   split(ha, bi, λx.λy.x) = (λx.λy.x)(a)(b) = a.
+
+We may consider split(z, λx.λy.x) as the first projection #1 (z), and hence (∧E1) is
+generalised. (Exercise: how may #2 (z) be defined in terms of split?)
+
+Remark 7.10 In versions of type theory suitable for computer implementation,
+for instance Agda or Alf, the terms are provided with complete type information.
+For instance, the expression split(c, λx.λy.d) is written as
+
+                          split(A, (x)B, (z)C, c, λx.λy.d),
+
+where (x)B indicates that B is a family of types depending on x.
++-types. The introduction rule for the binary sum + is
+                       a:A                         b:B
+                                 (+I1)                       (+I2)
+                  inl(a) : A + B              inr(b) : A + B
+Let C be a type depending on z : A + B. The elimination rule is given by
+
+                                  x:A              y:B
+                                   ..               ..
+                                    .                .
+                  c : A + B d : C[inl(x)/z] e : C[inr(x)/z]
+                                                            (+E)
+                         when(c, λx.d, λy.e) : C[c/z]
+The computation rule is identical with (4).
+   We leave it to the reader to show how these rules generalise the rules for ∨.
+
+Remark 7.11 Functional programming and dependent types. The typing disci-
+pline in a programming language has the well-known advantage that many pro-
+gramming errors may be detected already by the compiler. Dependent types make
+
+                                         29
+it possible to sharpen this discipline, and to make further errors detectable at
+an early stage. An example of a functional language using dependent types is
+Cayenne (Augustsson 1998).
+    Suppose that we wish to write a program f for multiplying two matrices A
+and B. For the matrix product AB to be well-defined the number of columns in
+A must be the same as the number of rows in B. Denote by M(r, k) the type of
+r × k-matrices. We will thus have AB : M(r, k) for A : M(r, n) and B : M(n, k). One
+could imagine designing f (A, B) to take a special error value when the dimensions
+of the matrices are mismatching. This would however mean that dimension errors
+would not be discovered at the compilation stage. By using dependent types it is
+possible to let f have the type
+              (Πr : N)(Πn : N)(Πk : N)[M(r, n) × M(n, k) → M(r, k)],
+in which case it becomes impossible to write a well-typed program which uses f
+and make a dimension error.
+    An important application of Σ-types is to form modules. There is no need for
+a special construction as in ML. A module specification is a type of the form
+                         (Σ f1 : A1 ) · · · (Σ fn : An ) P( f1 , . . ., fn ),
+where f1 , . . . , fn are functions, or operations, and P( f1 , . . . , fn ) is regarded as a
+proposition describing their mutual relations and effects. An element
+                                     hg1 , . . ., hgn , qi · · ·i
+of this type is an implementation of the module.
+Basic types and recursive types. We give the rules for the types /0 and N. There
+is no introduction rule for /0 (as it is supposed to have no elements), on the other
+hand it has the elimination rule
+                                       c : /0
+                                               ( /0E)
+                                   !A (c) : A
+The collection of natural numbers N considered as a recursive type has the intro-
+duction rules
+                                       a:N
+                         0:N                       (NI).
+                                     S(a) : N
+The elimination rule is a fusion of the recursion operator rec and the induction
+principle. Let C be a type depending on z : N.
+                                                x : N y : C[x/z]
+                                                     .. ..
+                                                      . .
+                      t : N b : C[0/z]       c : C[S(x)/z]
+                                                                          (NE).
+                            rec(t, b, λx.λy.c) : C[t/z]
+
+                                                 30
+The computation rule is the same as for the recursion operator in Chapter 2.
+   We introduce a basic dependent type L(z), which depends on z : N.
+
+                          L(0) = /0            L(S(x)) = N.
+
+Combining this type with the function e in Exercise 2.2 we get a dependent
+L(e(m)(n)) that is empty exactly when m 6= n (cf. Em,n above). It is now easy
+to write down the sets of Example 7.7 – 7.9 as types in type theory by replacing
+“∈” by “:”.
+    Type theory may easily be extended with rules for enumeration types and re-
+cursive types of the kind used in ML or Haskell. The type B of boolean values is
+an enumeration type with following introduction and elimination rules:
+
+                         tt : B           ff : B        (BI)
+
+For a type C that depends on z : B
+
+                  c:B       d : C[tt/z]       e : C[ff/z]
+                                                               (BE)
+                           if(c, d, e) : C[c/z]
+
+The computation rules are if(tt, c, d) = c and if(ff, c, d) = d.
+     As yet another example of a recursive data type consider the type List(A) of
+lists of objects of type A. The introduction rules are
+
+                                         a:A      ℓ : List(A)
+                      nil : List(A)                           .
+                                         cons(a, ℓ) : List(A)
+
+The formulation of the associated elimination rule is left as an exercise for the
+reader (see Martin-Löf 1984 for a solution).
+Warning. A certain care has to be taken when defining new recursive data types,
+so that the property that all programs terminate is preserved. A recursive data type
+D satisfying
+                                     D=D→D                                      (14)
+will allow encoding of untyped lambda terms. Even when worse, the theory may
+also become inconsistent: if for instance there is a recursive type A given by
+
+                                      A = A → /0.                              (15)
+
+There are syntactical criteria that guarantee termination and relative consistency;
+see Dybjer 2000. In the system Agda (Chapter 9) there is a partial termination
+checker, that catches all such non-wellfounded definitions, but also forbids many
+legitimate ones.
+
+                                          31
+Type universes. A type universe is a type U consisting of other types, that is A
+is a type for each A : U . The purpose of a type universe is to admit quantification
+over types, and thus over families of types. Given a type X and B : X → U , then
+apply(B, x) = B(x) is also a type, depending on x : X . The type X → U may thus
+be viewed as the type of all types in U depending on X .
+
+Example 7.12 It is possible to introduce a very small universe U ′ consisting only
+of the types /0 and N. From this define L by recursion: let C = U ′
+
+                            L(z) =def rec(z, /0, λx.λy.N)
+
+The computation rules gives L(0) = /0 och L(S(x)) = N. 2
+In standard versions of Martin-Löf type theory there is a universe Set containing
+the basic types /0 and N, and which is moreover closed under the formation of Π-,
+Σ- and +-types. The closure condition means that
+
+   • (Πx : A)B(x) : Set, if A : Set and B : A → Set,
+
+   • (Σx : A)B(x) : Set, if A : Set and B : A → Set,
+
+   • A + B : Set, if A : Set and B : Set.
+
+Example 7.13 With the help of a universe one may define types that lacks coun-
+terpart in ML or Haskell. For instance, let for n : N and A : Set,
+
+                           F(0)(A) = A
+                         F(S(n))(A) = A → F(n)(A)
+
+
+We have F(n)(A) = A → A → · · · → A (n arrows), so the number of arguments that
+a function of this type takes depend on n. (Compare to the example with matrices
+above.) Formally we may define F as
+
+                      λn.rec(n, λA.A, λx.λy.λA.(A → y(A)),
+
+where F : N → Set → Set. (Exercise: check this using the computation rules.) 2
+
+Remark 7.14 Type universes make it possible to type polymorphic functions,
+i.e. functions which works the same way regardless of type. An example is the
+appending of lists
+
+                append : (ΠA : U ) [List(A) → List(A) → List(A)].
+
+
+                                            32
+append(N) is then the append function specialised to lists of natural numbers. 2
+Sometimes it may be necessary to pile universes on each other. The type B =
+(ΣA : Set)(Σn : N)F(n)(A) does not belong to Set, since it is not the case that
+Set : Set. The type F(n)(B) is not well-defined, since F demands that B belongs
+to Set. To construct an F which can take B as an argument we may introduce a
+larger universe Set2 which is closed under Π-, Σ- and +-constructions and which
+is such that
+
+   • Set : Set2 ,
+
+   • A : Set2 for all A : Set.
+
+Now, the same problem would occur again if in B the universe Set is replaced by
+Set2 .
+
+Remark 7.15 The simple and drastic solution to assume Set : Set leads to an in-
+consistent theory; see Martin-Löf 1971. This paradox is called Girard’s paradox.
+In practise it seems that one or two levels of universes are enough.
+
+7.4 Type theory as a formal system*
+In a formal system for Martin-Löf type theory there is not only rules for judge-
+ments of the form a : A. The types cannot be defined as grammatically simple
+as for the lambda calculus in Chapter 2. That an expression B(a) is a type, may
+depend on that we have previously showed that a : A. Therefore one needs a par-
+ticular judgement form for saying that an expression is a type. For instance rules
+of the following kind are needed
+
+                                    x:A
+                                     ..
+                                      .
+                           A type B type         z:N
+                           (Πx : A)B type      L(z) type
+Furthermore, the computation rules have a special judgement form a = b : A,
+which states that a and b can be computed to the same element of the type A.
+Because of constructions as L(·) above, there should be a way of expressing
+that two types may be computed to the same type, A = B. We have for instance
+L(e(0)(1)) = L(0) = /0.
+    A technique for managing open assumptions is to use assumption lists (see
+Remark 4.4 above)
+                            Γ ≡ x1 : A1 , . . ., xn : An .
+
+
+                                       33
+Such a list is also called a context. For type theory they are rather complicated,
+since the order between the assumptions is important: An may depend on all vari-
+ables x1 : A1 , . . . , xn−1 : An−1 . This means that, in general, an assumption early
+in the list may not be possible to discharge, until all later assumptions have been
+discharged. To ensure correct formation of contexts, there is yet another judge-
+ment form. One needs to know that an expression actually is a type before the
+assumption that a variable has this type can be added to context.
+
+                                          Γ ⊢ B type
+                                                         .
+                                        Γ, y : B context
+The assumption rule is
+                                 x1 : A1 , . . . , xn : An context
+                                                                    .
+                                 x1 : A1 , . . ., xn : An ⊢ xi : Ai
+    In computer implementations of type theory, contexts and computational equal-
+ities are handled by the system. It is thus not necessary worry about those rules,
+to be able to use the theory.
+
+Exercises
+7.1. Let I0 = {0, 1, 2}, I1 = {0, 3}, I2 = /0, A0 = {0, 1}, A1 = {0}, A2 = {1, 2} and
+A3 = /0. List the elements of the following sets
+
+  (a) (Σi ∈ I0 )Ai
+
+  (b) (Σi ∈ I1 )Ai
+
+  (c) (Πi ∈ I0 )Ai
+
+  (d) (Πi ∈ I1 )Ai
+
+  (e) (Π j ∈ I0 )(Σi ∈ I j )Ai
+
+  (f) (Σ j ∈ I0 )(Π ∈ I j )Ai
+
+7.2. Do the exercise in Example 7.9.
+7.3. Formulate an elimination rule for the recursive data type List(A).
+7.4. Define #2 (·) in terms of split.
+
+
+
+
+                                                 34
+8    Formalising mathematics
+In order to mechanically check, or construct, mathematical proofs we need first of
+all to have a mathematically precise notion of proof. This is achieved by various
+logical systems, as we have already seen examples of. But we also need some
+conventions for describing or coding mathematical objects: rational numbers, real
+numbers, matrices, functions, ordered sets, graphs, trees etc.
+     The foundation of mathematics in set theory builds on the coding of all objects
+as sets, in effect built up from the empty set /0 and set parentheses {     }. Thus
+for instance natural numbers are usually coded as
+
+                  0 = /0 1 = {0, {0}} 2 = {1, {1}}        ···    .
+
+Pairs of elements may be coded as
+
+                              ha, bi = {{a}, {a, b}}.
+
+The cartesian products A × B of two sets is the set of all ha, bi where a ∈ A and
+b ∈ B. Functions A → B are then subsets of A × B satisfying the usual condition
+of graphs of functions. For details of further such codings see e.g. (Krivine 1971).
+    The next level is to disregard from particular representation of mathemati-
+cal objects and to describe their properties abstractly. For instance, the cartesian
+product of two sets A and B may be described as a set P(A, B) together with two
+“projection” functions
+
+                     π1 : P(A, B) → A        π2 : P(A, B) → B,
+
+such that for all a ∈ A and b ∈ B there exists a unique element c ∈ P(A, B) with
+π1 (c) = a and π2 (c) = b. Thus πk picks out the kth component of the abstract pair.
+Thereby the reference to the particular coding of ZF set theory may be avoided. In
+category theory this point of view is taken to its extreme, and one dispenses with
+the reference to sets altogether. Mathematics may as well be founded on category
+theory.
+    At this level of abstraction it makes little difference whether mathematics is
+founded on set theory or type theory. We shall see below how some important
+basic notions are formalised in type theory.
+
+8.1 Sets and functions
+In mathematics a basic means of abstraction is that of regarding some objects as
+the “same” from some aspect. This is done is set theory by the introduction of
+equivalence relations and then equivalence classes. For instance, if for natural
+
+                                        35
+natural numbers N we want to disregard from everything except from whether
+they have the same parity, we introduce the equivalence classes of even and odd
+numbers:
+                   0 = {0, 2, 4, . . .}    1 = {1, 3, 5, . . .}.
+As first step an equivalence relation ≡ on N is defined
+
+                         x ≡ y ⇐⇒def x − y is divisible by 2.
+
+The equivalence classes are introduced as subsets of N: [x] = {y ∈ N : x ≡ y}.
+Then the quotient set is
+                            (N/ ≡) = {[x] : x ∈ N}
+and note that [x] = [y] iff x ≡ y. Hence e.g.
+
+                               0 = [0] = [2] = [4] = · · ·
+
+This construction is general and can be made for any set X , and any given equiv-
+alence relation ≡ on X .
+    In constructive mathematics one usually skips the introduction of equivalence
+classes, following the princple that each set X should come with an explicitly
+given equivalence relation =X . This has the advantage that the notion of set can
+be understood in a quite concrete way, and avoiding sets of sets. For instance
+the quotient set (N/ ≡) above, would be the pair (N, ≡). It is actually close to
+some practise in mathematics to use explicit equivalence relations when there is a
+possibility of confusion as in
+
+                                     7 ≡ 5 ≡ 3 (mod 2).
+
+    A setoid X will be a type X together with an equivalence relation =X on X.
+The latter means that x =X y is a family of types depending on x, y : X and that
+there are functions ref, sym and tra with
+
+      ref(a) : a =X a     (a : X),
+
+      sym(a, b, p) : b =X a         (a : X, b : X, p : a =X b),
+
+      tra(a, b, c, p, q) : a =X c     (a, b, c : X, p : a =X b, q : b =X c).
+
+We shall write x ∈ X instead of x : X.
+
+Remark 8.1 In the Bishop tradition of constructive mathematics X is called a
+preset, rather than a type, and X is called a set.
+
+
+
+                                              36
+   An extensional function f from the setoid X to the setoid Y is a pair ( f , ext f )
+where f : X → Y is function so that
+
+                ext f (a, b, p) : f (a) =Y f (b) (a, b : X , p : a =X b)
+
+Two functions f , g : X → Y are extensionally equal if there is e with
+
+                            e(a) : f (a) =Y g(a) (a : X).
+
+We shall follow the terminology of Bishop, when dealing with setoids, calling an
+extensional function simply function, and calling a function, an operation. Also
+we usuall write f also for f when there is no risk of confusion.
+
+    We introduce some standard properties for a function f : X → Y between se-
+toids. It is
+
+    - injective if u =X v whenever f (u) =Y f (v)
+
+    - surjective if for every y ∈ Y there is some x ∈ X with f (x) =Y y.
+
+    - split epi if there is a function g : Y → X so that f ◦ g = 1Y .
+
+    - bijective if it is injective and surjective.
+
+    Clearly, every function f : X → Y which is split epi is also surjective. The
+axiom of choice in classical ZF set theory can be phrased as: every surjective
+function is split epi. This is in general too strong for being constructively accept-
+able. We have however the following results.
+    An equivalence relation =Y on Y is finest, if for any other equivalence relation
+∼ on Y ,
+                                   a =Y b =⇒ a ∼ b.
+A setoid whose equivalence relation is finest is called a choice setoid.
+
+Theorem 8.2 For any setoid X and any choice setoid Y , each surjective function
+f : X → Y is split epi.
+
+Proof. Suppose f : X → Y is sujective. Then
+
+                       p(y) : (Σx ∈ X )( f (x) =Y y)    (y ∈ Y ).
+
+Let g(y) = #1 (p(y)). Then f (g(y)) =Y y is true for all y ∈ Y , but we still do not
+know that g is extensional. Define a new equivalence relation ∼ on Y by
+
+                               y ∼ z ⇐⇒ g(y) =X g(z).
+
+                                           37
+Now, since =Y is the finest equivalence relation on Y , we get the desired exten-
+sionality
+                           y =Y z =⇒ g(y) =X g(z).
+Thus g is extensional and f ◦ g = 1Y . 2
+
+
+Example 8.3 The setoid of natural numbers (N, =N ) where
+
+                              m =N n = L(e(m)(n)),
+
+is a choice setoid.
+
+   A relation R between setoids X and Y is a family of types R(x, y) (x ∈ X , y ∈ Y )
+such that
+                     R(x, y), x =X x′ , y =Y y′ =⇒ R(x′ , y′ ).
+For X = Y , we say that R is an relation on X
+
+Quotient setoids. Let X = (X, =X ) be a setoid and let ∼ be a relation on the
+setoid X , which is an equivalence relation. Then ∼ is an equivalence relation on
+X , and
+                                x =X y =⇒ x ∼ y.                             (16)
+Then X /∼ = (X, ∼) is a setoid, and i : X → X /∼ defined by i(x) = x is a function
+according to (16). We have the following extension property. If f : X → Y is a
+function with
+                            x ∼ y =⇒ f (x) =Y f (y),
+then there is a unique function f : X /∼ → Y (up to extensional equality) with
+
+                           f (i(x)) =Y f (x)     (x ∈ X ).
+
+This is the same abstract property that quotient sets has in classical ZF set theory.
+
+    The identity type construction assigns to each type A a finest equivalence re-
+lation Id(A, ·, ·), see Nordström et. al. 1990. It follows that every setoid is the
+quotient setoid of a choice setoid, in this version of type theory.
+
+Remark 8.4 For a full development of the basic theory of sets and functions in the
+constructive setting we refer to Bishop and Bridges 1985 and Mines et al. 1988.
+
+
+
+
+                                         38
+9    Implementations of type theory
+A modern implementation of Martin-Löf type theory is Agda (C. Coquand 1998).
+On top of this there is a graphical user interface Alfa (Hallgren 1998), also sup-
+porting additional notational features.
+    We describe the syntax of Agda, which is an “unsugared” version of the Alfa
+syntax. It is also possible to work with Agda syntax in Alfa by using the command
+“Edit as Text”.
+
+    • Type membership is denoted by a double colon a :: A in Agda.
+
+    • Function application f (a) is written as a juxtaposition f a with a space in
+      between.
+
+    • A dependent function type (Πx : A)B is written (x::A) -> B. For the cor-
+      responding lambda abstraction λx.b the argument type is written explicitly,
+      and becomes \(x::A) -> b. (When B does not depend on x one may write
+      A -> B.)
+
+    • The two-place Σ-type is a special case of a more general record type, where
+      components are named, and not just numbered, For instance (Σx : A)B cor-
+      responds to
+
+                          sig { fst::A; snd::B[fst/x] }
+
+      Let z be an element of this type. To access the value of the component (or
+      field) with name fst one writes z.fst. The pair ha, bi : (Σx : A)B is written
+
+                          struct { fst = a; snd = b }
+
+    • Enumeration types and recursive data types may be defined similarly as in
+      ML, with the help of the construction data. From such a definition con-
+      structors and the case is automatically generated. We give some simple
+      examples.
+      The type B of booleans is defined by
+
+                                    data tt | ff
+
+      The constructors are called tt@_ and ff@_ respectively. Corresponding to
+      if(c, d, e) we have
+
+                         case c of { tt -> d; ff -> e}
+
+                                        39
+      However, case should only be used on variables. If c is non-variable one
+      writes
+
+                 let {y = c} in case y of { tt -> d; ff -> e}
+
+      The empty type is data { } and since it does not have constructors its
+      elimination operator !(c) becomes trivial: case c of { }
+      Natural numbers N are defined recursively by
+
+                      Nat ::     Set = data zero | S (n::Nat).
+
+      (In this expression Nat :: Set means that the new type belongs to the
+      type universe Set.) The constructors of this type are zero@_ and S@_ re-
+      spectively. The case-function corresponding to this is
+
+                         case c of {zero -> u1 ; S n -> u2 },
+
+      where n may be free in in u2 .
+
+    • In Agda there are type universes Set and Type (essentially corresponding
+      to Set1 and Set2 above). These universes are closed under Π-types, record
+      types and the formation of recursive data types.
+
+    Definitions in Agda have the form
+
+        f (v1 ::     intype1 ) · · · (vn ::     intypen) ::      outtype = def
+
+where f is an identifier for the function to be defined, v1 , . . . , vn are variables for
+arguments, outtype is the type of the value and def is the defining term.
+
+Example 9.1 The +-construction from Chapter 2 is defined in Agda as
+
+     Plus (A::Set)(B::Set) :: Set
+       = data inl (x::A) | inr (y::B)
+
+Plus is thus a type constructor which takes two types from the universe Set and
+forms the disjoint union of them in the same universe. The when-function may be
+defined by
+
+     when (A::Set)(B::Set)(C::Set)
+          (c:Plus A B)(d::A->C)(e::B->C) :: C
+       = case c of {(inl x) -> d x;
+                    (inr y) -> e y}
+
+                                           40
+when thus has six arguments, of which the first three are types (these were omitted
+in Chapter 2; see however Exercise 2.3). 2
+
+Example 9.2 The recursion operator rec (Chapter 2) is defined as
+
+     rec (A::Set)(a::Nat)(f::A)(g::Nat->A->A) :: A
+       = case a of { zero     -> f;
+                     (S x)    -> g x (rec A x f g)}
+
+2
+In these examples there no essential use of dependent types. The type universes
+make it easy to handle such types. The type A -> Set consists of all families of
+types in Set that depends on A. We may introduce the abbreviation Fam A for this
+type, in Agda:
+
+    Fam (A::Set) :: Type
+      = A -> Set
+
+Example 9.3 The general recursion operator (Chapter 7) also gives the induction
+principle, and is expressed as follows
+
+     rec (A::Fam Nat)
+         (a::Nat)
+         (f::A zero@_)
+         (g::(x::Nat)->(y::A x)->A (S@_ x)) :: A a
+       = case a of { zero    -> f;
+                      (S x)  -> g x (rec A x f g)}
+
+
+2
+
+Example 9.4 The dependent type L is defined by
+
+     L (z::Nat) :: Set
+       = case z of {zero -> Empty;
+                   (S x) -> Nat}
+
+where Empty::Set = data.
+
+Example 9.5 A module of functions that find sufficiently large prime numbers
+may be written as the record type
+
+
+
+
+                                        41
+    Primefinder :: Set
+       = sig {f:: Nat -> Nat;
+              correct1 :: (n::Nat) -> Prime (f n);
+              correct2 :: (n::Nat) -> LessEq n (f n)}
+
+where Prime is a predicate which which is true precisely for prime number, and
+LessEq is the relation ≤ on N. For z::Primefinder the field z.f is a function
+that given n gives a prime number p ≥ n. (Exercise: define Prime and LessEq.)
+
+
+
+
+                                     42
+Bibliography
+A good introduction to lambda calculus is Hindley and Seldin 1986, which is
+mainly devoted to untyped and simply type calculus. For a deeper study of un-
+typed calculus Barendregt 1977 is the standard reference. Troelstra and Schwicht-
+enberg 1996 is a thorough introduction to both typed lambda calculus and proof
+theory for intuitionistic predicate logic. Barendregt 1992 treats lambda calcu-
+lus with dependent types. Martin-Löf 1984 gives an elegant presentation of his
+own type theory with “meaning explanation” and philosophical justifications. The
+original paper Martin-Löf 1972 is also strongly recommended. For an introduc-
+tion to type theory and its applications in computer science, see Coquand et. al.
+1994, Nordström et. al. 1990 and Thompson 1991. A short introduction to in-
+tuitionistic logic and its semantics is in van Dalen 1997. The standard tomes on
+constructive logical systems are van Dalen och Troelstra 1988, vol. I and II.
+
+Augustsson, Lennart (1998), Cayenne - a language with dependent types. Proc.
+of the International Conference on Functional Programming (ICFP’98). ACM
+Press, September 1998. [See also URL: www.cs.chalmers.se/˜augustss/.]
+Barendregt, H.P. (1977), The Lambda Calculus. North-Holland.
+Barendregt, H.P. (1992), Lambda calculi with types, pp. 118 – 279 i (S. Abramsky,
+D.M. Gabbay and T.S.E. Maibaum eds.) Handbook of Logic in Computer Science,
+vol 2. Oxford University Press.
+Beeson, Michael (1985), Foundations of Constructive Mathematics. Springer-
+Verlag.
+Bellantoni, Stephen, Cook, Stephen (1992). A New Recursion-Theoretic Charac-
+terization of the Polytime Functions. Computational Complexity vol. 2, 97-110.
+Bishop, Errett and Bridges, Douglas S. (1985), Constructive Analysis. Springer-
+Verlag.
+Bridges, Douglas S. och Richman, Fred (1987), Varieties of Constructive Mathe-
+matics. London Mathematical Society Lecture Notes, Vol. 97. Cambridge Uni-
+versity Press.
+Coquand, Catarina. Agda. URL: www.cs.chalmers.se/˜catarina/agda/
+Coquand, Thierry, Nordström, Bengt, Smith, Jan och von Sydow, Björn (1994),
+Type theory and Programming. The EATCS bulletin, February 1994. [Also avail-
+able at URL: www.cs.chalmers.se/˜smith/.]
+Curry, H.B. and Feys, R. (1958), Combinatory Logic. North-Holland.
+Dybjer, P. (2000), A general formulation of simultaneous inductive-recursive def-
+initions in type theory, Journal of Symbolic Logic 65(2000).
+Hallgren, Thomas. The Proof Editor Alfa.
+URL: www.cs.chalmers.se/˜hallgren/Alfa/
+Hansen, Kaj B. (1997), Grundläggande Logik. Studentlitteratur.
+Hansen, Michael R. och Rischel, Hans (1999), Introduction to Programming Us-
+ing SML. Addison-Wesley.
+Heyting, Arend (1971), Intuitionism. North-Holland.
+Hindley, J.R. och Seldin, J.P. (1986), Introduction to Combinators and Lambda
+Calculus. Cambridge University Press.
+Howard, W.A. (1980), The Formulae-as-Types Notion of Construction. To H.B.
+Curry: Essays on Combinatory Logic, Lambda Calculus and Formalism J.P. Seldin
+and J.R. Hindley (red.), Academic Press, pp. 479 – 490.
+Martin-Löf, Per (1972), An intuitionistic theory of types. Technical report, De-
+partment of Mathematics, University of Stockholm. Published in (Sambin and
+Smith 1998).
+Martin-Löf, Per (1984), Intuitionistic Type Theory. Bibliopolis.
+Martin-Löf, Per (1985), Constructive Mathematics and Computer Programming.
+Mathematical Logic and Computer Languages. C.A.R. Hoare and J.C. Shepherd-
+son (red.). Prentice-Hall.
+Mines, Ray, Richman, Fred, Ruitenburg, Wim (1988), A Course in Constructive
+Algebra. Springer.
+Mints, Grigori (2000), A Short Introduction to Intuitionistic Logic. Kluwer Aca-
+demic/Plenum Publishers.
+Nelson, Edward (1995). Ramified recursion and intuitionism. Preprint.
+www.math.princeton.edu/˜nelson/papers.html
+Nordström, Bengt, Peterson, Kent and Smith, Jan (1990), Programming in Martin-
+Löf’s Type Theory. Oxford University Press. [The book is out of print, but is ac-
+cessible in electronic form at URL:
+www.cs.chalmers.se/Cs/Research/Logic/book/ .]
+Nordström, Bengt, Peterson, Kent och Smith, Jan (2000), Martin-Löf’s type the-
+ory. Handbook of Logic in Computer Science, Vol. 5. Oxford University Press.
+Salling, Lennart (1999), Formella språk, automater och beräkningar. Eget förlag,
+Uppsala.
+Sambin, Giovanni and Smith, Jan (1998) (eds.) Twenty-Five Years of Type Theory.
+Oxford University Press.
+Schwichtenberg, Helmut (1999), Classical Proofs and Programs. Marktoberdorf
+Summer School ’99. Available at URL:
+www.mathematik.uni-muenchen.de/˜schwicht/
+Simmons, Harold (2000), Derivation and Computation. Cambridge University
+Press.
+Stirling, Colin (1992), Modal and temporal logics, pp. 477 – 563 i (S. Abram-
+sky, D.M. Gabbay and T.S.E. Maibaum eds.) Handbook of Logic in Computer
+Science, vol. 2, Oxford University Press.
+Thompson, Simon (1991), Type Theory and Functional Programming. Addison-
+Wesley.
+Thompson, Simon (1999), The Craft of Functional Programming. Addison-Wesley.
+Troelstra, Anne S. and Schwichtenberg, Helmut (1996), Basic Proof Theory, Cam-
+bridge University Press.
+Troelstra, Anne S. och van Dalen, Dirk (1988), Constructivism in Mathematics,
+Vol. I & II. North-Holland.
+van Dalen, Dirk (1997) Logic and Structure, Third edition. Springer.
+

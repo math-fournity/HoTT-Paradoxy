@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / SEVEN_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / EIGHT_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -35,6 +35,8 @@ formation/payment control，未产生 P-qualified Q。
 第六个来源 run 已闭合：[20261003-HMZ-012-totality-partition-reality-source](20261003-HMZ-012-totality-partition-reality-source/MANIFEST.md)。它以 Dochtermann 的有限分类／无限 complete partition／Power Set 叙述为 E-source bridge，再与 HoTT Book、Shulman/Metamath的 formation sources和Isabelle/ZF actual consumer对照。结果保存了 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，但 finite-process Done 与 formal set-existence Done 没有来源证明为同一任务；P2/P3和H0 transport仍不成立，因此是 `P_REQUALIFICATION_REQUIRED`，不是 Q。
 
 第七个来源 run 已闭合：[20261003-HMZ-016-community-antecedent-p-comparison](20261003-HMZ-016-community-antecedent-p-comparison/MANIFEST.md)。它将 Feferman 对 predicativity、Vicious Circle、completed totalities与ZF Separation/Power Set的历史分析，同 HoTT context、ZF formation、finite-task与显式 computation controls作字段对齐。结果承认社区对P0/P3/P4有实质 antecedent，同时保留用户P的P1/P2/P5/P6为未由该分母覆盖的独立义务；因此为`COMMUNITY_ANTECEDENT_PARTIAL / P_REQUALIFICATION_REQUIRED`，不是 Q。
+
+第八个来源 run 已闭合：[20261003-HMZ-018-constructive-delivery-p-comparison](20261003-HMZ-018-constructive-delivery-p-comparison/MANIFEST.md)。它补入Palmgren的constructive delivery contract，与ZF/HoTT实际formalization和explicit computation controls对照。结果确认社区已明确区分 existence 与 program/termination/correctness delivery；但这是一种constructive contract，冻结分母中没有ZFC consumer承诺同一Done后又未支付，因此用户P的preemptive-use条件仍为开放义务。
 
 ## Run 命名与目录合同
 
@@ -72,6 +74,7 @@ FINDINGS.md
 | `20261003-HMZ-008-higher-hits-set-semantics` | HoTT Book `R-HIGHER`，Lumsdaine–Shulman HIT semantics 与 Swan 的 ZF QW/HIT source。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-008-higher-hits-set-semantics/FINDINGS.md) | Set/ZF中存在一类 HIT/QW semantic constructions，也有明确ZF/cardinal/Choice边界；model semantic task不等于HoTT direct formation Done，0 个 P-qualified Q。 |
 | `20261003-HMZ-012-totality-partition-reality-source` | HoTT `R-STRUCT`／Book Power Set–quotient bridge、Dochtermann 2011 reality/task source、Shulman/Metamath/Paulson/Isabelle controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-012-totality-partition-reality-source/FINDINGS.md) | finite categorization→infinite totality→Power Set quotient 是来源支持的 construction bridge；但同一 Done、P2/P3与H0 transfer都未成立，0 个 P-qualified Q。 |
 | `20261003-HMZ-016-community-antecedent-p-comparison` | Feferman 2002 predicativity/VCP、HoTT context、Shulman、Dochtermann、Koepke–Koerwien controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-016-community-antecedent-p-comparison/FINDINGS.md) | 历史/社区已识别totality、vicious-circle、impredicativity和ZF loci；该分母未给user-P的actual consumer/preemptive use/same Done，0 个 P-qualified Q。 |
+| `20261003-HMZ-018-constructive-delivery-p-comparison` | Palmgren constructive logic/type theory、Feferman、Grayson、HoTT Library、Paulson、Koepke–Koerwien。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-018-constructive-delivery-p-comparison/FINDINGS.md) | 社区已明确 existence→program/termination/correctness delivery 区分；constructive与ZF contract不同，未出现同一ZFC consumer的P5 preemptive use，0 个 P-qualified Q。 |
 
 三个 run 的跨分母判断由 `PHASE-1-SOURCE-SYNTHESIS.md` 拥有；本 README 只保留入口与 run registry。
 
@@ -93,6 +96,8 @@ FINDINGS.md
 第八份预检是 [HMZ-014 schema/operator/truth](20261003-HMZ-014-schema-operator-truth-preflight/MANIFEST.md)。它检查 H9 的逐公式 Separation schema 是否会被实际来源升级为 whole-\(V\) 的统一 `Build(p,a)`。Koepke–Koerwien 的可用 truth 装置反而明示 formula code、语言、结构、ordinal recursion、machine semantics和reflection；Shulman也区分单个 schema 与代码化的 all-axioms truth。故这是 `SCHEMA_OPERATOR_CONTROL / ADMISSION_REJECTED_WITH_SCOPE`，没有形成P2/P3/P4/P5的ZFC Q。
 
 第九份预检是 [HMZ-015 predicativity/VCP](20261003-HMZ-015-predicativity-vcp-preflight/MANIFEST.md)。Feferman 2002 的历史与哲学来源表明，Russell/Poincaré、vicious circle、completed totality和ZF impredicativity已有深厚的社区 antecedent；这足以触发 HMZ-016 的完整字段比较，却不足以把用户P的consumer/preemptive-use/same-Done要求视为已经被该文献穷尽。
+
+第十份预检是 [HMZ-017 constructive existence/P5](20261003-HMZ-017-constructive-existence-p5-preflight/MANIFEST.md)。Palmgren 的constructive/type-theoretic source明示存在证明可交付程序、终止与正确性；它触发HMZ-018的完整比较。该契约帮助定义P5的严格含义，但不能被反向当作ZFC自身已承诺又未履行的delivery contract。
 
 ## 本次整备的影响边界
 
