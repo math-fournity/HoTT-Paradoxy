@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/017 - N16 P2-CLIMBER有界反射阶梯控制.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/017 - N16 P2-CLIMBER有界反射阶梯控制.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/018 - N17 P1-DELAY实际完成过程控制.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/018 - N17 P1-DELAY实际完成过程控制.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 17 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 18 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / C_CARDS=17 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=111`。
+> **当前状态：** `A1_ACTIVE / C_CARDS=18 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=110`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 003 冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -38,4 +38,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 015 | [N14 P2-CFTT实际分阶段操作控制](<20261003-P-FORGE-ATOMIC-AUDIT/015 - N14 P2-CFTT实际分阶段操作控制.md>) | `N14` | R02 actual source P2 control | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 | 016 | [N15 P3-CFTT实际操作与生命周期边界](<20261003-P-FORGE-ATOMIC-AUDIT/016 - N15 P3-CFTT实际操作与生命周期边界.md>) | `N15` | R02 actual source P3 control | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 | 017 | [N16 P2-CLIMBER有界反射阶梯控制](<20261003-P-FORGE-ATOMIC-AUDIT/017 - N16 P2-CLIMBER有界反射阶梯控制.md>) | `N16` | R02 actual source P2 control | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
+| 018 | [N17 P1-DELAY实际完成过程控制](<20261003-P-FORGE-ATOMIC-AUDIT/018 - N17 P1-DELAY实际完成过程控制.md>) | `N17` | R02 same-source P1 control | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 <!-- governance-shard-table:end -->

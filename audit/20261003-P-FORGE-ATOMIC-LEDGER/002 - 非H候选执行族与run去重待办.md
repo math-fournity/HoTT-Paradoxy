@@ -40,7 +40,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N14 P2-CFTT | `P2-CFTT-001` | unique session `01a0fcba-b793-79d1-8aa4-2ba3de0e84fd` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N15 P3-CFTT | `P3-CFTT-001` | unique session `01a0fcbd-4cd8-7ed3-b65d-08f821e9761d` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N16 P2-CLIMBER | `P2-CLIMBER-001` | unique session `01a0fcbf-b44f-7eb1-9465-6d937ced16e5` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
-| N17 P1-DELAY | `P1-DELAY-001` | unique session `01a0fccc-a8d1-7061-837b-fa9cd0575af2` | `UNIQUE_ATOMIC_RUN` |
+| N17 P1-DELAY | `P1-DELAY-001` | unique session `01a0fccc-a8d1-7061-837b-fa9cd0575af2` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N18 P2-DELAY | `P2-DELAY-001` | unique session `01a0fccf-8409-7853-8596-7787a618b4f8` | `UNIQUE_ATOMIC_RUN` |
 | N19 P3-DELAY | `P3-DELAY-001` | unique session `01a0fcca-f61a-7850-9366-b1dacbd4ac31` | `UNIQUE_ATOMIC_RUN` |
 | N20 ZFC-COFORGE-001 | `ZFC-COFORGE-001` | unique session `01a0fce9-bb7a-7723-9a12-44f0390c4abd` | `UNIQUE_ATOMIC_RUN` |
