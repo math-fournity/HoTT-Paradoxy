@@ -7,16 +7,16 @@ append_target: 20261003-P-FORGE-ATOMIC-AUDIT/128 - B003 派生刀具来源门分
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 128 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 128 个已封存分片；账本已重开并登记两个待审单位，缺其卡即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A2_ACTIVE / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A1_COMPLETE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=128 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=0`。
+> **当前状态:** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A1_REOPENED_PENDING_N33_N34 / A2_SUSPENDED_PENDING_A1 / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=128 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=2`。
 
-本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
-AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
+本 campaign 的当前分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 006 重冻结。这个表暂只列128张已经封存的
+AtomicAuditCard；账本新登记的`N33,N34`必须各有一张卡后才可恢复A2，不能因索引短而被视为排除。
 
 > **顺序纠偏：** `N31` 的UUID时间身份 `01a0fcae…` 位于 `N09=01a0fcac…` 与 `N10=01a0fcb1…` 之间，但旧账本把它列在N23之后。A1已先封存N10--N30f，形成可见的执行顺序偏差；本条不伪造旧顺序，而是在第050卡补审N31，并要求A2父单元回接时保留此偏差与实际时间位置。
 

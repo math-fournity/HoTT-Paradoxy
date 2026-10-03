@@ -7,15 +7,15 @@ append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/012 - R12 反射盲态选�
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 12 个分片；缺一片即未完成，按表顺序读取。后续 R13 只有在其原始汇总和全部已归属原子卡都被逐项比较后才加入表，缺一父级即不能进入 A3 综合。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 12 个已回接分片；A0已重开并新增R13的两张待审原子卡，只有其封存后才可加入R13，缺一父级即不能进入 A3 综合。
 
 # P-FORGE 父级回接审计
 
 > **身份：** `A2_PARENT_RECONCILIATION / SOURCE_LIMITED_PARENT_COMPARISON / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A2_ACTIVE / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A3_NOT_STARTED`。
+> **当前状态：** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A1_REOPENED_PENDING_N33_N34 / A2_SUSPENDED / PARENT_CARDS=12/13 / PARENT_REMAINDER=1 / A3_NOT_STARTED`。
 
-本逻辑文档将 128 张已封存的原子卡回接到原始 `R01--R13` 粗单元。`R00`、`R14`、`R15`是目标／最终综合／分母冻结的历史上下文，不替代这13个父级的逐项回接。每张父卡只给出：原汇总主张、成员分母、原子证据所支持的范围、被修正或撤回的部分、P/Q影响、财富与重开条件。
+本逻辑文档将当前130个已登记的原子单位回接到原始 `R01--R13` 粗单元；其中128张卡已封存，R13的`N33,N34`尚待审。`R00`、`R14`、`R15`是目标／最终综合／分母冻结的历史上下文，不替代这13个父级的逐项回接。每张父卡只给出：原汇总主张、成员分母、原子证据所支持的范围、被修正或撤回的部分、P/Q影响、财富与重开条件。
 
 <!-- governance-shard-table:start -->
 | Shard | 父级 | 原子成员 | 父级判词 |
