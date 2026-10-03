@@ -126,3 +126,10 @@ run；这些已在第一阶段有来源和控制。
 
 本文件是第一阶段来源综合，不是项目完成收据。项目仍处于 `ACTIVE / SOURCE_ADMISSION_REQUIRED`；下一步由新的
 可审来源触发，而不是由“目前未命中”的焦虑或更多同义检索触发。
+
+## 6. 预检收据：Hλ 没有触发完整 successor run
+
+Voevodsky 2006 的 [Hλ 预检](20261003-HMZ-004-hlambda-preflight/MANIFEST.md)已完成。它确实包含不同的技术语汇：
+proof compiler、受算法验证的子系统、扩张产生 ZF proof obligation、model-level 与 type-system-level 的差别。
+但本身没有给出 ZFC-side 同一 `u/F/C/I/O/Done`，也没有 source-supported P2/P3。因此它被归档为
+`ADMISSION_REJECTED_WITH_SCOPE`，而非被错误登记为第四份“Q 发现”或无边界完整 run。

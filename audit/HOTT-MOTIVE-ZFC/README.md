@@ -59,6 +59,9 @@ FINDINGS.md
 
 三个 run 的跨分母判断由 `PHASE-1-SOURCE-SYNTHESIS.md` 拥有；本 README 只保留入口与 run registry。
 
+一份未通过 successor admission 的作者技术原典保存在 [HMZ-004 Hλ预检](20261003-HMZ-004-hlambda-preflight/MANIFEST.md)。
+它是可复核来源，不是第四个完整 run，也不产生 Q。
+
 ## 本次整备的影响边界
 
 | 项目面 | 处置 |
