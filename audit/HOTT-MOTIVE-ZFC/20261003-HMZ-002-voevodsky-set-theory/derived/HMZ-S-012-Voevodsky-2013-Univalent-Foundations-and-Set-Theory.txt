@@ -1,0 +1,309 @@
+Univalent Foundations and Set Theory
+
+            Talk by Vladimir Voevodsky
+from Institute for Advanced Study in Princeton, NJ.
+
+                   May 8, 2013
+
+
+
+
+                         1
+                      Univalent foundations
+
+- are based on a class of formal deduction systems which we currently
+refer to as homotopy type theories. These theories are extensions of
+Martin-Lof type theories which are compatible with the univalent model.
+The univalent model is that which connects univalent foundations with
+set theoretic foundations and serves as means to ensure that the deduc-
+tion systems which we construct are at least as consistent as ZFC.
+The main difficulty in explaining univalent foundations lies in the fact
+that type theories encompass a wide class of deduction systems which
+currently does not have a generally accepted definition.
+
+
+                                   2
+                      Sentences of type systems
+
+In a typical type system one works with four kinds of sentences:
+
+                      x1 : T1, . . . , xn : Tn ⊢ T    type
+
+
+                         x1 : T1, . . . , xn : Tn ⊢ t : T
+
+
+                       x1 : T1, . . . , xn : Tn ⊢ T = T ′
+
+
+                      x1 : T1, . . . , xn : Tn ⊢ t = t′ : T
+where x1, . . . , xn are names of variables and T1, . . . , Tn, T, t, t′ are ex-
+pressions of the system of expressions underlying the type system.
+                                        3
+                         Derivation rules
+
+Type system is specified by the underlying system of expressions and a
+collection of derivation rules which show which sentences are derivable
+in the theory. For example most type systems would have the follow-
+ing derivation rule for sentences of the second kind where the object
+expression t starts with λ:
+                           Γ, x : T ⊢ o : T ′
+                                     ∏
+                      Γ ⊢ λx : T, o : x : T, T ′
+the following derivation rule for sentences of the first kind where the
+type expression starts with Id:
+                       Γ ⊢ o1 : T Γ ⊢ o2 : T
+                        Γ ⊢ Id T o1 o2 type
+
+                                   4
+                                h-levels
+May be the most important feature of homotopy type theories is the
+notion of h-levels. Given a type expression T in context Γ and an object
+n of type nat of natural numbers we can write a new type expression
+isof hlevel n T in Γ. This expressions are defined inductively from the
+standard type constructors as follows:
+                               ∑          ∏
+            isof hlevel 0 T =      x : T,    x′ : T, Id T, x, x′
+                          ∏          ∏
+ isof hlevel (1 + n) T =      x : T,    x′ : T, isof hlevel n (Id T, x, x′)
+Proving that a type expression is of h-level n means constructing (in
+a given context) of an object of type isof hlevel n T i.e. deriving a
+sentence of the form
+
+                         Γ ⊢ o : isof hlevel n T
+                                     5
+                          h-levels (cont.)
+For example the type nat is provably of h-level 2 which intuitively cor-
+responds to sets and the unit type and empty type are of h-level 1.
+The univalent model suggests the following interpretation of types of
+small h-levels:
+Types of h-level 1 are propositions. Inhabited types of h-level 1 are
+  provable propositions. Thus the proposition as types correspondence
+  is modified in homotopy type theory by interpreting only types of
+  h-level 1 as propositions.
+Types of h-level 2 are sets. Thus most of mathematics deals with types
+  of h-level 2 and their objects.
+Types of h-level 3 correspond to groupoids. For example the collection
+  of all finite groups in homotopy type theory is a type of h-level 3.
+
+                                   6
+                     Models of type theories
+
+Equivalence classes of sentences of the first and second kind of a type
+system T modulo the equivalence relations defined by sentences of the
+third and the fourth kind are denoted Bn+1(T ) and B  en(T ) where n is
+the length of the context. One also formally adds B0(T ) which contains
+one element pt.
+The properties of sentences such as their ability under substitution e.g.
+
+                  Γ ⊢ o : S Γ, x : S, Γ′ ⊢ T type
+                      Γ, Γ′[o/x] ⊢ T [o/x] type
+define a number partial defined operations on Bn’s and Ben’s. With this
+partially defined operations B-sets of a type theory form a model of a
+quasi-algebraic theory.
+                                    7
+                Models of type theories (cont.)
+
+Derivation rules of a type system add operations and equations to the
+theory such that ultimately the system of B-sets or B-system of a type
+theory becomes initial model of a complex quasi-algebraic theory. A
+model of the type theory is a homomorphism from its B-system to an-
+other B-system. Since under the right choice of operations B-sets of a
+type system form an initial model of a theory constructing a model of
+a type system is equivalent to constructing a B-system with a list of
+additional operations and axioms.
+
+
+
+                                  8
+                 Models of type theories (cont.)
+
+The key machinery for constructing such B-systems is the machinery
+of categories with universes. Let C be a category and p : U e → U a
+morphism. Let us fix a final object pt of C. Let us further fix for any
+morphism f : X → U a pull-back square
+                                      (q,f )
+                             (X, f ) −−→ U   e
+                            pX,f ↓           ↓p
+                                         f
+                               X         −→ U
+and let us write (X, f1, . . . , fn) etc. for the obvious iterated construc-
+tion.
+
+
+                                     9
+                   Models of type theories (cont.)
+
+Now let Bn be the set of sequences (f1, . . . , fn) where f1 : pt → U
+and fi+1 : (pt, f1, . . . , fi) → U and let B         en be the set of sequences
+(f1, . . . , fn, g) where (f1, . . . , fn) is as before and g : (pt, f1, . . . , fn) →
+f.
+W
+One easily constructs a B-system structure on these sets which is deter-
+mined up to a canonical isomorphism by the equivalence class of (C, p).
+Let us denote this B-structure as BB(C, p).
+
+
+
+
+                                          10
+                 Models of type theories (cont.)
+
+Finally, when C is a locally cartesian closed category, various additional
+type-theoretic structures of the B-sets corresponding to (C, p) can in all
+the interesting cases we know of be obtained from natural structures
+on the morphism p : W   f → W . For example the standard group of
+structures which correspond to the introduction-elimination rules of the
+dependent products are generated on BB(C, p) from a pair of morphisms
+Pe and P such that the following square is pull-back:
+                                         e −→
+                                  e, U × U    Pe e
+                       HomU (U                   U
+                        e ,IdU ×p)↓
+                  HomU (U                        ↓p
+                      HomU (U    e , U × U ) −→
+                                              P
+                                                 U
+
+
+                                    11
+                          Univalent model
+
+The current construction of the univalent model for type theory such as
+that of Coq which assumes an infinite sequence of universes Ui : Ui+1
+is based on C being the category of simplicial sets relative to ZFC with
+ω + 2 universes.
+The largest universe is used to define the set of objects of the category
+of simplicial sets. The next smaller one is used to define
+
+                                e→U
+                              p:U
+
+
+
+                                   12
+                      Univalent model (cont.)
+
+The formal definition of p : U  e → U is as follows. The set Un of n-
+simplexes of U is the set of isomorphism classes of Kan fibrations X →
+∆n given together with well-orderings on the sets Xn and such that all
+Xn belongs to one of the universes U0, . . . , Ui, . . ..
+It is easy to see that p itself is a Kan fibration. A much less trivial fact
+is that U is a Kan simplicial set and that p is a univalent fibration.
+
+
+
+
+                                     13
+                       Univalent model (cont.)
+
+In the univalent model a sentence x1 : T1, . . . , xn : Tn ⊢ T            type is
+interpreted as a tower of fibrations of (Kan) simplicial sets
+
+          [T1, . . . , Tn, T ] → [T1, . . . , Tn] → . . . → [T1] → [pt]
+and a sentence x1 : T1, . . . , xn : Tn ⊢ t : T as a section
+
+                    [t] : [T1, . . . , Tn] → [T1, . . . , Tn, T ]
+of the first fibration in this tower.
+
+
+                                         14
+                      Univalent model (cont.)
+
+In particular a type expression in the empty context ⊢ T type is
+interpreted as a Kan simplicial set and an object of a type in the empty
+context ⊢ t : T as a point of the Kan simplicial set corresponding to T .
+The standard constructors are interpreted as follows:
+     ∏
+ 1. [ x : T, T ′] = the simplicial set of sections of the fibration [T, T ′] → [T ]
+     ∑
+ 2. [ x : T, T ′] = [T, T ′]
+ 3. [Id T o1 o2] = simplicial paths from [o1] to [o2] in [T ]
+ 4. [nat] - the usual set of natural numbers considered as a simplicial
+    set.
+
+
+                                     15
+                      Univalent model (cont.)
+
+Most importantly for a universe Ui of the type theory the interpretation
+[Ui] is the simplicial subset of U such that the set of n-simplxes (Ui)n is
+the set of fibrations X → ∆n such that for each m the set of m-simplexes
+Xm of X is in the set-theoretic universe number i. If we define U ei as the
+sentence X : Ui ⊢ X type then the obvious projection [U      ei] → [Ui] is
+the universal Kan fibration with fibers in the i-th universe.
+
+
+
+
+                                    16
+                     Univalent model (cont.)
+
+One verifies relatively easily that the univalent model maps h-levels of
+types to levels of homotopy types as follows:
+
+ 1. types of h-level 0 map to contractible simplicial sets
+ 2. types of h-level 1 map to simplicial sets which are homotopy equiv-
+    alent to either a point or to the empty set
+ 3. types of h-level 2 map to simplicial sets which are homotopy equiv-
+    alent to sets
+ 4. types of h-level n+2 map to simplicial sets representing homotopy
+    n-types.
+
+
+                                    17
+                      Current developments
+
+Currently we are developing new type theories more complicated than
+the standard Martin-Lof type theory and at the same time more conve-
+nient for practical formalization of complex mathematics.
+Such type theories may easily have over a hundred derivation rules. Thus
+a careful and formalizable approach is needed to show that the newly
+constructed type theory is at least as consistent as ZFC with a given
+structure of universes.
+More precisely we need to be able to formally show that the univalent
+model extends to these new theories.
+
+
+                                   18
+                  Current developments (cont.)
+
+The first step in the development of the machinery which one needs
+to be able to verify such statements is Initiality Theorem. The theorem
+should state that the B-sets of a type system with given set of derivation
+rules form the initial model of an extension of the quasi-algebraic theory
+of B-systems extended by operations and equations which are formally
+read from the derivation rules.
+So far we do not have even a proper formulation of such a result but all
+our experience shows that it is possible and that we are moving in the
+direction where we will be able to state and prove it.
+
+
+
+                                    19
+                 Current developments (cont.)
+
+The second step in the development of such a machinery should be Op-
+erations Theorem which shows how to obtain operations of the kind
+considered in the Initiality Theorem on B-systems BB(C, p) for locally
+Cartesian closed categories from structures on p formulated in the in-
+ternal language of locally Cartesian closed categories. This step is also
+becoming intuitively more clear. In this step in particular the ideas and
+language of LF (Logical Framework) appear in a very suggestive way.
+
+
+
+
+                                   20
+                             Conclusion
+
+In my vision the more and more complex homotopy type theories will be-
+come the languages in which practical unified formalization of all math-
+ematics is done. The set theory will remain the most important bench-
+mark of consistency. The theory of interpretations of type theories in
+set-theoretic objects will be formalized in relatively simple type theo-
+ries and each new addition to the practical language will require formal
+”certification” by showing, through formally constructed interpretation,
+that it is at least as consistent as ZFC.
+                                   21
+

@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / RUN_001_CLOSED_WITH_SCOPE / NO_ZFC_Q_CLAIM`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / RUN_001_CLOSED_RUN_002_ACTIVE / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -14,6 +14,10 @@
 当前状态：首个来源 run 已闭合：[20261003-HMZ-001-primary-motives](20261003-HMZ-001-primary-motives/MANIFEST.md)。
 它已对十个冻结来源保存 R/Z/Q/control cards，并完成其范围内的来源追踪；结果是一个 ZFC 的
 class/meta-language 表示边界和两类显式支付，而不是 `ZFC_Q`、`H0→Z0` 传输判词或全项目的“文献已完成”结论。
+
+第二个来源 run 已开始：[20261003-HMZ-002-voevodsky-set-theory](20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md)。
+它检验 Voevodsky 对 ZFC formalization 和 equivalence problem 的更明确原典表述，目前处于
+`READING_AND_RECONSTRUCTION_IN_PROGRESS`，没有候选结论。
 
 ## Run 命名与目录合同
 
@@ -44,6 +48,7 @@ FINDINGS.md
 | Run ID | 冻结范围 | 状态 | Findings | 备注 |
 |---|---|---|---|---|
 | `20261003-HMZ-001-primary-motives` | HoTT／UF 首批创立动机、Shulman 的 ZFC/NBG 分析、Isabelle/ZF、Metamath 形式呈现、Mumford 与 Shulman 真实消费者控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [FINDINGS](20261003-HMZ-001-primary-motives/FINDINGS.md) | 0 个 `CANDIDATE_SEED`；class/meta-language 是来源支持的表示边界且有 NBG 支付；结构／choice／machine 路径均有显式支付；Power Set 与 H0 transport 未资格化。 |
+| `20261003-HMZ-002-voevodsky-set-theory` | Voevodsky 2011/2013 对 ZFC、equivalence、type systems 与 set theory 的原典；复用 HMZ-001 的 Shulman/Isabelle controls。 | `ACTIVE / READING_AND_RECONSTRUCTION_IN_PROGRESS` | [Reading notes](20261003-HMZ-002-voevodsky-set-theory/READING-NOTES.md) | 已定位 equivalence problem 的来源陈述；尚未有 source-defined `u/F/C/I/O/Done` 或 P-qualified Q。 |
 
 ## 本次整备的影响边界
 
