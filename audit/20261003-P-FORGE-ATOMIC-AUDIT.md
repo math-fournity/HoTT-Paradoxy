@@ -2,23 +2,25 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/050 - N31 HoTT中性卡P1定位.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/050 - N31 HoTT中性卡P1定位.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/051 - H001 HoTT重放终态缺失.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/051 - H001 HoTT重放终态缺失.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 50 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 51 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / A1_ORDER_DEVIATION_N31_RECOVERED / C_CARDS=50 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=78`。
+> **当前状态：** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=51 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=77`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
 
 > **顺序纠偏：** `N31` 的UUID时间身份 `01a0fcae…` 位于 `N09=01a0fcac…` 与 `N10=01a0fcb1…` 之间，但旧账本把它列在N23之后。A1已先封存N10--N30f，形成可见的执行顺序偏差；本条不伪造旧顺序，而是在第050卡补审N31，并要求A2父单元回接时保留此偏差与实际时间位置。
+
+> **总序边界：** H001的session `01a0fd84…` 又显示旧家族账本不是可直接消费的全局时间表。已封存卡保留其实际提交顺序；对余下成员，若没有可核的全局时间位置，A1标为 `ORDER_UNRESOLVED` 并按冻结依赖关系重放。每张卡仍记录它可核的UUID/父依赖；A2必须再把该依赖顺序同历史时间和R00--R15父单元对照。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 原子单位 | 父粗单元 | 当前判词 |
@@ -73,4 +75,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 048 | [N30e AppServer零理论健康通过](<20261003-P-FORGE-ATOMIC-AUDIT/048 - N30e AppServer零理论健康通过.md>) | `N30e` | App Server health-005 | `CAL-0 / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 | 049 | [N30f AppServer权限转发资格检查](<20261003-P-FORGE-ATOMIC-AUDIT/049 - N30f AppServer权限转发资格检查.md>) | `N30f` | Master capability inspection | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 050 | [N31 HoTT中性卡P1定位](<20261003-P-FORGE-ATOMIC-AUDIT/050 - N31 HoTT中性卡P1定位.md>) | `N31` | chronological position N09→N10; recorded late | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
+| 051 | [H001 HoTT重放终态缺失](<20261003-P-FORGE-ATOMIC-AUDIT/051 - H001 HoTT重放终态缺失.md>) | `H001` | pre-R03 HOTT-REPLAY-001 | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
