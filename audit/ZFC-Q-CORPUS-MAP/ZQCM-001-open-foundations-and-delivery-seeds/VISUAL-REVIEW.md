@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–114 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–114已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.115继续；下一张必须先审读并立即写入`VR-W002-115`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–115 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–115已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.116继续；下一张必须先审读并立即写入`VR-W002-116`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -406,6 +406,7 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-112 | W-002 | 112 | visual/W-002/150dpi/p112.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small-basis family的Scott continuity、lower/rounded subset条件与basis order关系、以及它们如何保证associated family directed。 | 这是small-basis结构的显式条件链，不构成ZFC Q。 |
 | VR-W002-113 | W-002 | 113 | visual/W-002/150dpi/p113.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small basis到rounded ideal completion的presentation isomorphism、well-defined ideal条件以及用basis/supremum证明inverse maps。 | 这是经small basis与ideal条件支付的表示定理，不构成ZFC Q。 |
 | VR-W002-114 | W-002 | 114 | visual/W-002/150dpi/p114.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small basis／small compact basis下abstract basis ideal completion的embedding-projection pair、retract/isomorphism判据以及下个bilimit章节入口。 | 这是明确basis、order和compactness条件下的presentation theorem，不构成ZFC Q。 |
+| VR-W002-115 | W-002 | 115 | visual/W-002/150dpi/p115.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核structurally continuous/algebraic bilimit中approximating families的传递、embedding保way-below/compactness和pointwise suprema公式。 | 这是bilimit保持性定理的明确条件证明，不构成ZFC Q。 |
 
 ## 高精度队列
 
