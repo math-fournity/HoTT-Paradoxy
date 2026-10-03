@@ -804,3 +804,110 @@ Git 的官方文档补足了关键的技术边界：多个 worktree 共享 refs 
 | push / main 发布投影 | 未做 |
 
 这给主 worktree AI 一条明确路径：先发现候选、再用干净 worktree 审阅和集成，而不是让它从对话、同名文件或一串 detached commits 猜测我做了什么。
+
+
+<!-- conversation-archive-turn: skill-turn-f8ea7cdffc0a4b148581d4ba79f5c356 prompt_sha256=e668a226280484ea2ed1bf45f7037d866866d49cfe5b8d1a98f021a5f163c988 answer_sha256=130a119071a7f34a13f5b95ec3d445e9bacab65b60415c80474c5fee984eda22 -->
+## 2026-10-03 · Turn skill-turn-f8ea7cdffc0a4b148581d4ba79f5c356
+
+### 用户提问
+
+我现在其实更担心你的文档搜索工作，是不是按照博士论文研究级别进行的，换句话说，你是随便搜索的，还是和写博士论文一样，对领域文献进行地图式探索的？
+
+### AI 最终回复
+
+# 诚实结论
+
+**此前的 HOTT-MOTIVE-ZFC 工作不是随便搜索，但也还没有达到博士论文式的领域文献地图。**
+
+它原先是一个来源受控的候选调查工程：九个冻结来源 run、十一份预检、原件／版本／哈希、R/Z/Q/E 卡、实际消费者、标准防线、same-task 控制和明确的停止条件。这使它能够严谨回答“这篇具体来源是否支持这个具体候选”，也能严谨保留“这个冻结分母没有命中”的负结论。
+
+但它不能回答“这个领域已经被系统搜索过了吗”。此前缺少的正是博士论文答辩会追问的检索层：
+
+| 检索维度 | 此前状态 | 现在的处理 |
+|---|---|---|
+| 原件、版本、页码、哈希、来源卡 | 强 | 保持不变。 |
+| 冻结分母、MUST_FOLLOW、局部 coverage | 强 | 明确限定为 run 内闭合。 |
+| 跨数据库完整检索式、日期、命中和分页 | 缺失 | 已进入 SEARCH-LOG。 |
+| work-family 去重、纳入／排除理由 | 只有 run 内来源处置 | 已建立 M-Record 和 SCREENING。 |
+| backward／forward citation chasing | 零散使用 | 已建立 CITATION-NETWORK 与迭代规则。 |
+| 作者、时期、语言、理论变体和来源平台覆盖 | 未形成领域地图 | 已建立 M-A 至 M-E COVERAGE-MAP。 |
+| 独立检索策略审阅 | 没有 | 明确标为 SEARCH_PEER_REVIEW_NOT_AVAILABLE，不能假装已有同行检索复核。 |
+| 范围限定的饱和判断 | 只有冻结 run 的停止条件 | 现阶段明确为 SATURATION_NOT_ASSESSED。 |
+
+这份差距和审计证据已经写入 [文献地图质量审计](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/LITERATURE-MAPPING-AUDIT.md)。
+
+## 我已经做的改进
+
+我把既有 `HOTT-MOTIVE-ZFC-SOP` 从 1.2 升为 2.0，并新增 [SOP 004：文献地图与学术检索质量](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/HoTT创建动机反投影ZFC文献调查SOP/004%20-%20文献地图与学术检索质量.md)。
+
+它把同一个 SOP 分成两个不得混淆的层：
+
+```text
+M-Record
+  文献为何被发现、来自哪里、是否去重、是否应该读
+
+R / Z / E Card
+  文献在精确理论和任务中实际说了什么
+
+Q Card
+  同一对象、formation、consumer、模式 P、controls 和 Done 是否真的会合
+```
+
+所以，书目搜索扩大的是可见来源宇宙；它不会因为题名里有 Russell、ZFC、Power Set、infinity 或 proof assistant，就自动制造新的 ZFC 候选。
+
+我还建立了 [LITERATURE-MAP-001](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/LITERATURE-MAP-001/README.md)，其协议、检索日志、候选书目、筛选、引文网络、覆盖地图和 findings 均有独立 owner。它现在的准确状态是：
+
+```text
+MAP_EXECUTION_ACTIVE
+INITIAL_PASS_ONLY
+SATURATION_NOT_ASSESSED
+SEARCH_PEER_REVIEW_NOT_AVAILABLE
+NO_FIELD_COVERAGE_CLAIM
+```
+
+## 初始地图检索已实际开始
+
+这不是空 protocol。我已经把以下通道的实际 query、日期、返回数和限制保存进 [SEARCH-LOG](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/LITERATURE-MAP-001/SEARCH-LOG.md)：
+
+- OpenAlex 的五条主题检索；
+- Crossref 的独立元数据交叉；
+- zbMATH Open 的三条数学书目检索；
+- arXiv 的两条预印本检索；
+- IAS 的 Voevodsky author-primary 通道；
+- Ahrens–North 2019 的 OpenAlex forward-citation 通道。
+
+这批初始检索已经暴露出为什么“搜几个关键词”绝不是博士级方法：
+
+- OpenAlex 的 vicious-circle set theory query 返回 **68,194** 条，几乎完全不能拿来当相关文献数；
+- Crossref 的广泛 bibliographic query 返回 **2,420,824** 条 total-results，同样不代表相关语料；
+- arXiv 的 classical realizability AND ZF query 返回 **3** 条，适合做一个边界清楚的 work-family；
+- zbMATH Open 对 univalent foundations、predicatitivity、classical realizability 分别返回 **202、132、524** 条，提供数学书目通道，但仍需筛选和去重。
+
+我已经从这些检索中建立 M-001 至 M-012 的书目记录。它们包括待审的 foundations volume、Should Type Theory Replace Set Theory as the Foundation of Mathematics?、Krivine realizability guide、Agda category-theory formalization、历史数学实践文献、Grayson introduction、predicative UF 和 Poincaré-Weyl predicativity 等。它们都只是“待全文阅读／待筛选／待去重”的 work family；没有一条被直接宣告为 ZFC Q。
+
+## 为什么采用这种标准
+
+我没有把 PRISMA 当作数学哲学内容模板。PRISMA-S 的价值在于要求完整报告检索来源和策略；Cochrane 的检索章节强调策略保存、去重／筛选、引用追踪和检索策略复核。这里借用的是这些可重算原则，而不是临床干预、PICO 或效应汇总方法。[PRISMA-S](https://www.prisma-statement.org/prisma-search) · [Cochrane 检索与筛选章节](https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-04)
+
+对于本项目，博士级地图还必须额外保存数学与逻辑领域特有的东西：作者原典、理论变体、形式化项目和版本化源码、数学实践中的实际消费者，以及历史语境。这些已写进 SOP 004 的五条地图轴。
+
+## 现在还缺什么，才可以说“博士论文级”
+
+现在还不能说完成。要得到可答辩的、范围限定的领域地图，至少还要完成：
+
+1. 取得并审读 M-001、M-002、M-003、M-005、M-009、M-010、M-011 的正式全文或章节目录；
+2. 对 M-004、M-007、M-012 进行摘要／全文筛选，明确纳入或排除；
+3. 从既有 HoTT、Feferman、Krivine、Shulman 等种子执行完整 backward citation tracing；
+4. 在数学书目、逻辑史／哲学书目、作者主页和正式 proof-assistant archive 中补齐 M-B、M-C、M-D 的覆盖；
+5. 记录英语以外的强引用、付费墙、缺少全文和语言能力造成的余项；
+6. 对每轮 query family 做范围限定的无新增 work-family 检查；只有届时才能讨论饱和；
+7. 如果未来能获得独立研究者或信息检索专家的检索策略复核，补上这一证据；在此之前继续明确保留其缺失。
+
+因此，答案是：**以前是严谨的候选来源调查；现在才开始被升级为地图式探索；离“博士论文级文献地图已完成”还有一段必须真正走完的工作。** 这次方法升级和初始地图 pass 已提交为：
+
+```text
+322c6e2f research: start HOTT motive literature map
+888ad022 docs: extend HOTT motive integration handoff
+```
+
+候选分支仍是 `codex/hott-motive-zfc-literature`。主 worktree 集成者也已经能从 [集成交接单](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md) 看见这项地图质量升级，并选择性审阅／移植它，而不把它混入当前主 worktree 的 dirty 工作。
