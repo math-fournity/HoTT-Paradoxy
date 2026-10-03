@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/122 - H072 HF形式自指来源层级控制.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/122 - H072 HF形式自指来源层级控制.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/123 - H073 ZFC有限构造桥来源边界.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/123 - H073 ZFC有限构造桥来源边界.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 122 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 123 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=122 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=6`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=123 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=5`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -147,4 +147,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 120 | [H070 形式自指脱敏直接支付对照](<20261003-P-FORGE-ATOMIC-AUDIT/120 - H070 形式自指脱敏直接支付对照.md>) | `H070` | R10 proof self-reference blind negative control | `EXECUTION_DEVIATION / OUTPUT_CONTRACT_PARTIAL / Q_SAFETY_REPAIR` |
 | 121 | [H071 形式自指具体认证正控制](<20261003-P-FORGE-ATOMIC-AUDIT/121 - H071 形式自指具体认证正控制.md>) | `H071` | R10 diagonal certification blind positive control | `ALIGNED / CONTROL_Q_ONLY / Q_CAPABILITY_CALIBRATION` |
 | 122 | [H072 HF形式自指来源层级控制](<20261003-P-FORGE-ATOMIC-AUDIT/122 - H072 HF形式自指来源层级控制.md>) | `H072` | R10 HF diagonal P2 source control | `ALIGNED / P2_LAYER_CONTROL / Q_CAPABILITY_CALIBRATION` |
+| 123 | [H073 ZFC有限构造桥来源边界](<20261003-P-FORGE-ATOMIC-AUDIT/123 - H073 ZFC有限构造桥来源边界.md>) | `H073` | R11 finite construction bridge | `IDEA_SPEC_INCOMPLETE_REPAIRED / FINITE_CONTROL / Q_CAPABILITY_CALIBRATION` |
 <!-- governance-shard-table:end -->
