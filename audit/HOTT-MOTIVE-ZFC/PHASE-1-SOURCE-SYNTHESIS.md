@@ -18,7 +18,7 @@ R_i：作者/权威来源说出的设计动机
 
 | 轮次 | 主要原典问题 | ZFC-side 精确化 | 本轮 Q 处置 |
 |---|---|---|---|
-| [HMZ-001](20261003-HMZ-001-primary-motives/MANIFEST.md) | 结构同一性、直接高阶描述、机器基础、sets/homotopy types。 | ZFC class-as-formula；NBG；Mumford family；Metamath/Isabelle formalization。 | class/meta-language 是表示边界；Mumford/Choice/语法均为显式支付；Power Set 没有 R bridge。 |
+| [HMZ-001](20261003-HMZ-001-primary-motives/MANIFEST.md) | 结构同一性、直接高阶描述、机器基础、sets/homotopy types。 | ZFC class-as-formula；NBG；Mumford family；Metamath/Isabelle formalization。 | class/meta-language 是表示边界；Mumford/Choice/语法均为显式支付；当时 Power Set 尚没有 R bridge，后由 HMZ-009 单独预检。 |
 | [HMZ-002](20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md) | Voevodsky 的 `problem of equivalence`。 | representation-sensitive property；abstract structural language；FOLDS/typed language/NBG/Choice。 | equivalence discipline 是来源支持的语言约束；没有同一对象的 formation/reentry/Done 张力。 |
 | [HMZ-003](20261003-HMZ-003-formalization-delivery/MANIFEST.md) | 类型纪律、归约计算、proof-assistant practicality。 | Isabelle/ZF 的 `Inf`、`Pow`、`Replace`、`The`、derived rules；axiom vs computation。 | 命名常量、唯一性/单值条件和规则是显式 formation payment；HoTT 自身亦有 axioms 阻断 computation。 |
 
@@ -74,7 +74,7 @@ P2/P3：source-supported reentry、admission或未付完成结构
 | equivalence invariant property | “任意性质”与“structural property”有不同 Done；语言 criterion 是明确支付。 |
 | chosen representative / skeleton | Choice、maps、well-ordering 或标记被明确要求。 |
 | `Inf`、`Pow`、`Replace` | 名称、axiom、单值／唯一性条件和 derived rules 已公开交付；没有 reentry。 |
-| Power Set | 当前作者动机分母没有与其相连的 `R → u/F/C/Done` bridge。 |
+| Power Set | 初始三轮没有 `R → u/F/C/Done` bridge；HMZ-009 后有 Book-level quotient construction bridge，HMZ-010 已给 `RepFun` route 的 actual consumer/payment control，HMZ-012又固定 finite-process / infinite-totality reality bridge，但仍缺保留 \(\mathcal P(A)\)-subset route 的 same-Done、P-qualified未付 completion。 |
 | `H0 → Z0` | 仍不能保持 HoTT 高阶相同的 subject/process/observation/Done。 |
 
 所以第一阶段的总结果是：
@@ -107,8 +107,7 @@ existence-to-name interface——逐项固定为有来源的控制。它没有�
    witness、maps、choice、marking、formation 或 language payment；
 2. **形成—使用交错：** 资料显示某个对象的合法性／存在仍需追问时，该对象已在同一理论层被算符、判断或
    consumer 使用；
-3. **Power Set bridge：** 一手 HoTT/UF 动机实际连接到 Power Set/Replacement/class formation 的同一
-   `u/F/C/I/O/Done`，而不只是共享“全体”“存在”或“构造”一词；
+3. **Power Set-subset route：** 在 HMZ-009/010/012 之后，新来源必须同时保留 \(\mathcal P(A)\)-subset formation、版本固定的 actual consumer和同一任务的 `u/F/C/I/O/Done`，或给出真正的 formation-use/admission structure；
 4. **H0 transport bridge：** 有 ZFC 一等对象能保留 H0 的 subject、process、observation 与 Done，并逐门通过
    T0–T5。
 
@@ -121,7 +120,7 @@ run；这些已在第一阶段有来源和控制。
 |---|---|---|
 | Voevodsky 2006 *homotopy λ-calculus* 等早期技术原典 | 可能提供与构造／表达有关的不同作者语言。 | 必须先显示它产生不同于三轮的 R，并有 ZFC-side counterpart。 |
 | ZFC actual consumer corpus | 只有真实 mathematical/formal consumer 才能决定 payment 是否被静默省略。 | 尚未发现同一 Done 的未付案例。 |
-| Power Set / Replacement | 它们仍是明显理论承诺，也是既有 P-FORGE 的保留站位。 | HMZ 三轮尚无 HoTT-motive bridge，也不授权从来源调查直接启动 P-DAG。 |
+| Power Set / Replacement | 它们仍是明显理论承诺，也是既有 P-FORGE 的保留站位。 | HMZ-009 已固定 Power Set–quotient technical bridge；HMZ-010 证明 `RepFun` route 的 consumer已有显式 payment；HMZ-012把“时间”收紧成 finite Done vs formal Done 的可验证 mismatch。仍缺保留 \(\mathcal P(A)\)-subset formation的同一 `C/I/O/Done` consumer，也不授权从来源调查直接启动 P-DAG。 |
 | H0→Z0 | 用户提出的最强传输路线。 | T0–T5 尚未形成正向对象。 |
 
 本文件是第一阶段来源综合，不是项目完成收据。项目仍处于 `ACTIVE / SOURCE_ADMISSION_REQUIRED`；下一步由新的
@@ -161,3 +160,23 @@ ANTI_ANALOGY_CONTROL`。
 等明确语义工作；Swan 同时给出 ZF 内正面的 image-preserving QW/HIT constructions，以及另一类 QW-type 的 ZF
 nonexistence/cardinal边界。该交叉结果说明：Set/ZF semantic construction 有正有负，却没有与 HoTT formation rule
 同一 Done 的未付消费者；因此是 `MODEL_SEMANTIC_PAYMENT + ASSUMPTION_BOUNDARY`，不是 ZFC Q 或 H0 transport。
+
+最后，[HMZ-009 HoTT Book Power Set—quotient 预检](20261003-HMZ-009-book-powerset-quotient-preflight/MANIFEST.md)补上了
+第一阶段原先刻意保留的狭窄缺口：Book 的集合论式 quotient 确实把 equivalence classes 写为 \(\mathcal P(A)\) 的子集，
+并与 \(A\sslash R\) 和 set-quotient 比较。这是 `CONSTRUCTION_BRIDGE_PARTIAL`，不是已完成的 `R→Z→Q`：Book 未交付
+bare-ZFC actual consumer，且其 own universe/resizing 与 external/internal 路线都被显式标为成本。因此本轮只升级为
+`PAIRING_SOURCE_REQUIRED`；下一个来源必须固定同一 quotient task 的 ZFC-side consumer 和 payment ledger，不能用更多 Power Set
+术语替代它。
+
+[HMZ-010 Isabelle/ZF quotient consumer 预检](20261003-HMZ-010-isabelle-zf-quotient-consumer-preflight/MANIFEST.md)随后提供了
+这个 pairing test：`EquivClass.thy` 不是只说 quotient 存在，而是定义 \(A//r\)、给出 introduction/elimination 和 class-level
+operations。然而它的 formation 是 `RepFun`／functional replacement，而不是 Book 所述 \(\mathcal P(A)\)-subset route；且 `equiv`、
+congruence、membership 与 type contracts 都明示。结论因而是 `ACTUAL_CONSUMER + F_ROUTE_MISMATCH + SOURCE_PAYMENT /
+ADMISSION_REJECTED_WITH_SCOPE`。这并不恢复“Power Set 没有 bridge”的旧结论，而是把下一入口进一步收窄到**同一 Power Set-subset
+route**的 actual consumer，或一个能显示未付 formation-use 的来源。
+
+[HMZ-012 totality/partition reality-source run](20261003-HMZ-012-totality-partition-reality-source/MANIFEST.md)进一步把 Dochtermann
+2011 的有限分类 Done、无限 complete partition、Power Set-forming class collection 和 rational-class object use 纳入冻结分母。
+它确实让“时间维度”变成一个可引用的 source bridge；但 paper自称 conceptual metaphor，ZFC formation sources说的是 sethood，
+Isabelle consumer又换成 `RepFun`。因此 `Done_h` 与 `Done_z` 未被证明相同，且无P2/P3。HMZ-012的保真结局为
+`REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE / SAME_TASK_NOT_ESTABLISHED / P_REQUALIFICATION_REQUIRED`；它为未来的同一任务证据定义了精确缺口，而非建立Q。

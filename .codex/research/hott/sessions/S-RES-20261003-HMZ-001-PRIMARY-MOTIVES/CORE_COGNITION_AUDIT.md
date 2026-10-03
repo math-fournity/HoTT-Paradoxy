@@ -15,9 +15,9 @@ soft_line_target: 300
 |---|---|
 | 当前 core | `core-cognition-generation-13`，62 个 KC。 |
 | 工作单元 | `HOTT-MOTIVE-ZFC-SOP` 的首个来源分母闭合。 |
-| 当前判词 | `ALIGNED_WITH_FIVE_SOURCE_RUNS_TWO_REJECTED_PREFLIGHTS_AND_ONE_CONTROLLED_PAIRING / NO_ZFC_Q_CLAIM`。 |
-| 关键张力 | 用户要求用 P 发现基础理论 Q；五份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard和R-HIGHER semantic model/assumption边界，两份预检排除无ZFC bridge与已支付／Done改写的 actual-consumer 假阳性，尚未给 P 所需的未付同一任务。 |
-| 反证／重开 | 新来源改变 object/formation/consumer/Done、显示未付 payment，给 H0→Z0 的正向传输，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
+| 当前判词 | `ALIGNED_WITH_SIX_SOURCE_RUNS_THREE_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_AND_ONE_REALITY_TOTALITY_BRIDGE / NO_ZFC_Q_CLAIM`。 |
+| 关键张力 | 用户要求用 P 发现基础理论 Q；六份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary和finite-Done/infinite-totality bridge。HMZ-009给Book Power Set quotient route，HMZ-010给actual Isabelle/ZF consumer但`RepFun` route不同且guards/payment明示；HMZ-012给time/totality bridge但paper的conceptual-metaphor限定和formal sethood Done阻断same-task。均未给P2/P3。 |
+| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给 H0→Z0 的正向传输，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 覆盖 | 状态 |
@@ -42,3 +42,12 @@ respecting statements”或“bare axiom只给存在”夸张成“ZFC 悖论”
 ／named constants 的明示 payment 改写成“隐藏失败”。审计中因此将 class boundary、equivalence-language criterion、
 metatheory/NBG、Choice、formation/interface、proof-formalization 与实际 consumer 分栏；未完成的不是“ZFC 安全”，
 而是 P 所要求的特定 bridge 未在本分母出现。
+
+## HMZ-009 至 HMZ-012 差量自审
+
+本次差量没有改变任一 KC 的用户原文、HoTT 机器证明或 `ZFC_Q_NOT_LOCATED`。它校正了三个来源状态：Book 以 quotient
+construction 给出 Power Set bridge；Isabelle/ZF给出一个实际 consumer，但使用不同的 `RepFun` formation route；Dochtermann给出
+finite Done→infinite totality的现实任务桥。审计仍按 core 的同一任务纪律：\(A,R\) quotient-style output 不是 H0 的自动传输；
+Book的universe/resizing、Isabelle的equiv/congruence/type preconditions、route difference，以及Dochtermann的conceptual-metaphor
+限定，都是显式 payment/control。它显示 P1 的 L2 可以通过而仍不能跨到P2/P3，也显示P3语言本身不是pending/admission生命周期。
+从而让未来检索限定在保留Power Set-subset formation且same-Done的consumer，而不把锻刀记录替代 Q 的发现。

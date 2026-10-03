@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / FIVE_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / SIX_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -31,6 +31,8 @@ formation/payment control，未产生 P-qualified Q。
 它以 Voevodsky 2011 的 WoLLIC 机器基础动机与 Werner 的 CIC↔ZFC 编码配对，但保留“不是作者归因”的边界；`Ens`／`Power`／Replacement／Russell source cards 显示 Choice、host 条件和 universal-container guard，而不是 P-qualified Q。
 
 第五个来源 run 已闭合：[20261003-HMZ-008-higher-hits-set-semantics](20261003-HMZ-008-higher-hits-set-semantics/MANIFEST.md)。它把 HoTT Book 的 `R-HIGHER` 与 Lumsdaine–Shulman、Swan 的 Set/ZF HIT/QW semantic constructions 对照：语义模型、stability与cardinal/Choice条件都被明确支付，direct formation 的同一 Done 没有被偷换为 ZFC Q。
+
+第六个来源 run 已闭合：[20261003-HMZ-012-totality-partition-reality-source](20261003-HMZ-012-totality-partition-reality-source/MANIFEST.md)。它以 Dochtermann 的有限分类／无限 complete partition／Power Set 叙述为 E-source bridge，再与 HoTT Book、Shulman/Metamath的 formation sources和Isabelle/ZF actual consumer对照。结果保存了 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，但 finite-process Done 与 formal set-existence Done 没有来源证明为同一任务；P2/P3和H0 transport仍不成立，因此是 `P_REQUALIFICATION_REQUIRED`，不是 Q。
 
 ## Run 命名与目录合同
 
@@ -65,6 +67,7 @@ FINDINGS.md
 | `20261003-HMZ-003-formalization-delivery` | Grayson 2018、Rijke/Spitters 2016、HoTT Library 2017 与 Isabelle/ZF/ Shulman 控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-003-formalization-delivery/FINDINGS.md) | ZF existence axioms → named formal constants / rules 是显式支付；HoTT自身也有阻断计算的axioms；0 个 P-qualified Q。 |
 | `20261003-HMZ-007-werner-zfc-coq-pair` | WoLLIC 2011 的 ZFC-in-proof-assistant 动机，与 Werner 1997 CIC↔ZFC 编码、`rocq-archive/zfc` code snapshot、既有 Paulson/Grayson controls 的冻结配对。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-007-werner-zfc-coq-pair/FINDINGS.md) | `Ens`／Power／Replacement／Russell guard 都处在 CIC model/formalization layer；TTDA/Choice、host条件和 bounded universal-set guard明确，0 个 P-qualified Q。 |
 | `20261003-HMZ-008-higher-hits-set-semantics` | HoTT Book `R-HIGHER`，Lumsdaine–Shulman HIT semantics 与 Swan 的 ZF QW/HIT source。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-008-higher-hits-set-semantics/FINDINGS.md) | Set/ZF中存在一类 HIT/QW semantic constructions，也有明确ZF/cardinal/Choice边界；model semantic task不等于HoTT direct formation Done，0 个 P-qualified Q。 |
+| `20261003-HMZ-012-totality-partition-reality-source` | HoTT `R-STRUCT`／Book Power Set–quotient bridge、Dochtermann 2011 reality/task source、Shulman/Metamath/Paulson/Isabelle controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-012-totality-partition-reality-source/FINDINGS.md) | finite categorization→infinite totality→Power Set quotient 是来源支持的 construction bridge；但同一 Done、P2/P3与H0 transfer都未成立，0 个 P-qualified Q。 |
 
 三个 run 的跨分母判断由 `PHASE-1-SOURCE-SYNTHESIS.md` 拥有；本 README 只保留入口与 run registry。
 
@@ -74,6 +77,12 @@ FINDINGS.md
 第二份预检是 [HMZ-005 Makkai anafunctor 消费者控制](20261003-HMZ-005-makkai-anafunctor-preflight/MANIFEST.md)。它以实际范畴论 consumer 分开“逐对存在 binary products”“指定 ordinary product functor”与“anafunctor 的不同输出契约”：Choice／selection 被来源明确支付，替代构造改变 `Done`，所以同样不是完整 run 或 Q。
 
 第三份预检是 [HMZ-006 Voevodsky WoLLIC 机器基础动机](20261003-HMZ-006-wollic-machine-preflight/MANIFEST.md)。它新增一条作者直接陈述：ZFC-based proof-assistant formalization 曾导致“不自然构造”；[HMZ-007](20261003-HMZ-007-werner-zfc-coq-pair/MANIFEST.md) 已提供可审计的 comparable pairing，但 WoLLIC 未点名 Werner，故历史指称仍未解决，且没有 Q。
+
+第四份预检是 [HMZ-009 HoTT Book 的 Power Set—quotient 建构桥](20261003-HMZ-009-book-powerset-quotient-preflight/MANIFEST.md)。Book 明确把集合论式 quotient 写成等价类构成 \(\mathcal P(A)\) 的子集，并与 HoTT 的 quotient constructions 对照；这补上了一个精确的 `R-SET-CONTROL` construction bridge，但 Book 本身没有提供 bare-ZFC actual consumer 的同一 `C/I/O/Done`，且 universe/resizing/external-versus-internal costs 被来源明示。因此状态是 `PAIRING_SOURCE_REQUIRED`，不是完整 run 或 Q。
+
+第五份预检是 [HMZ-010 Isabelle/ZF quotient consumer](20261003-HMZ-010-isabelle-zf-quotient-consumer-preflight/MANIFEST.md)。它完成 HMZ-009 所需的第一份 actual-consumer pairing：`EquivClass.thy` 定义 \(A//r\)，以 `RepFun`/functional replacement 形成等价类集合，并在 unary/binary operations 前明示 `equiv`、congruence、membership和type guards。它正因 formation route 与 Book 的 \(\mathcal P(A)\)-subset route 不同，且 payment 已明示，而被判为 `ADMISSION_REJECTED_WITH_SCOPE`；这是一项 route-split control，不是 Q。
+
+第六份预检是 [HMZ-011 Dochtermann totality bridge](20261003-HMZ-011-dochtermann-totality-preflight/MANIFEST.md)。它不是 HoTT 动机来源，而是一个有明示有限 Done／无限 totality／Power Set hand-off的 E-source；因此被准入为 HMZ-012 的冻结分母。HMZ-012 已表明它支撑一项 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，却没有让有限分类过程与形式 set-existence成为同一 Done；不能借其哲学修辞宣称 ZFC Q。
 
 ## 本次整备的影响边界
 

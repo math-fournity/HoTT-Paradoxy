@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_HMZ-012_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_HMZ-010_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / HMZ-009_POWERSET_QUOTIENT_BRIDGE_CONTROLLED_BY_HMZ-010_ROUTE_SPLIT / HMZ-011_ADMITTED_AND_CLOSED_BY_HMZ-012 / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -28,6 +28,9 @@ P-DAG、STATE mutation、proof assistant kernel run、tag、push 或发布。
 - 新作者动机预检：Voevodsky 2011 WoLLIC（HMZ-S-021），九页原件和派生文本在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-006-wollic-machine-preflight/`；它需要具名 ZFC-in-Coq 配对来源才可升级为完整分母。
 - 配对分母：Werner 1997 与 `rocq-archive/zfc@ede712...`（HMZ-S-022／023）；原件、source tree、卡片和控制在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-007-werner-zfc-coq-pair/`。
 - R-HIGHER semantic 分母：Lumsdaine–Shulman 2019与Swan 2021（HMZ-S-024／025）；原件、R/Z/Q／control cards 在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-008-higher-hits-set-semantics/`。
+- Power Set—quotient technical bridge preflight：HoTT Book source commit `578b85cc`（HMZ-S-026）的 `logic.tex`／`hits.tex`／`setmath.tex` 精确副本和 hash，以及复用的 Metamath/Shulman formation controls，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-009-book-powerset-quotient-preflight/`。
+- pairing consumer preflight：Paulson `ZF/EquivClass.thy` at `Isabelle2021-1-RC5` commit `6a65dad...`（HMZ-S-027），其 exact source、hash与对 HMZ-009 的 route/payment comparison 在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-010-isabelle-zf-quotient-consumer-preflight/`。
+- reality/task preflight and successor denominator：Anton Dochtermann 2011（HMZ-S-028）的11页作者托管原件，及其同 HoTT Book、ZFC formation sources和Isabelle/ZF consumer组成的 HMZ-012，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-011-dochtermann-totality-preflight/` 与 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-012-totality-partition-reality-source/`。
 
 `cognition_runtime.py plan --profile governance` 仍被既有 `HEAD.json`—`MEMORY/001` 状态快照不匹配而
 fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直接路径回读，研究结论限于 archive 中的显式范围。
@@ -75,6 +78,25 @@ full ZFC编码要有 EM + TTDA/TTCA 等 non-computational Choice principles；`R
 限制。Swan 同时给出 ZF 内一类 QW/HIT 的正构造与另一类 QW 的 ZF/cardinal/Choice 边界。它们把 directness、模型和
 assumption 分开，不能保留 HoTT formation rule 的 same Done 或 H0 process；因此仍是控制而非 Q。
 
+HMZ-009 接着检验了 Power Set station 的一个精确、此前缺失的文献连接：Book 将集合论式 quotient 表述为等价类是
+\(\mathcal P(A)\) 的子集，随后把这个 predicate/class construction 与 set-quotient 比较。Book 还将 universe lift、
+propositional resizing、external setoid/exact-completion 与 internal HIT route 明确分开。因此当前得到了
+`POWERSET_QUOTIENT_CONSTRUCTION_BRIDGE_PARTIAL`，却没有一个 bare-ZFC actual consumer 的同一 `C/I/O/Done`，没有
+formation-use reentry，也没有 H0→Z0 transport。此处的正确结局是 `PAIRING_SOURCE_REQUIRED`，不是以“已经有桥”为由
+跳过 P 或将 Power Set 升为 Q。
+
+HMZ-010 完成了该 bridge 的第一份 actual-consumer pairing。Isabelle/ZF `EquivClass` 的 quotient、elimination 与
+unary/binary operation lemmas 确实构成实际 consumer；但是它以 `RepFun`／functional replacement 形成 \(A//r\)，而非
+Book 的 \(\mathcal P(A)\)-subset formation。`equiv`、`respects`／congruence、membership 和 type preconditions 也被逐项
+写入 source contract。它因而把“当前无 consumer”的缺口更正为“存在 source-paid、route-mismatched consumer”，不满足
+P2/P3、H0 transport 或 Q；判 `ADMISSION_REJECTED_WITH_SCOPE`。
+
+HMZ-011/012 则为本 Session 增加一条不同于 formalization convenience 的来源桥。Dochtermann 直接把有限分类的 Done（每个
+输入都被安放）同无限 set 上的 complete partition、对所有元素“simultaneously”的 conceptual-metaphor picture、Power Set
+形成的 class collection，以及 rational classes-as-objects 放在同一叙述中。HMZ-012 将这个 E-source 与 exact formation 和
+actual-consumer controls合并后得到：它是 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，但 finite-process Done 与 formal
+set-existence Done不相同，Book/Isabelle routes也不同，且没有P2/P3或H0 transport。因此状态为`P_REQUALIFICATION_REQUIRED`，不是Q。
+
 ## §7 重新呈现与 14 题定位
 
 **第一次重新呈现。** 理论可以把对象、证明和分类变成容易携带的工具；真正要找的不是“抽象”三个字，而是
@@ -88,30 +110,37 @@ coarse classification 说成完成。对 ZFC class language，过程是尝试在
 定理；观察是其是否为 ZFC formula，Done 是内部定理而非 meta-theorem；Shulman 说明必须改到 NBG / meta-language。
 
 **第三次重新呈现。** 最顺手的旧解释是把 Power Set 叫作“一次性完成所有子集”，继而直接套罗素过程。当前原典
-没有给这个桥。注意改移到 ZFC 的 class-as-formula 边界和实际形式化支付：这产生的是更精确的表示边界，而非
-一个自指／完成张力。它阻止当前研究靠名称相似误报 Q。
+给出一个窄的 Book-level quotient bridge：等价类作为 \(\mathcal P(A)\) 的子集；HMZ-010 又给出真实 Isabelle/ZF consumer，
+但它改用 `RepFun`，并明写 relation/congruence/type payments。因而这里没有 pending formation 的 same-object reentry。
+问题现已收窄为：是否存在同一 \(A,R\) task 中**仍保留 Power Set-subset formation**的 actual consumer；而不是靠名称相似
+误报 Q。
+
+**第四次重新呈现。** Dochtermann 的来源让“时间”不再只是直觉词：有限 Done、无限 totality、全体同时施用 relation和
+Power Set hand-off已可逐页定位。但同一来源称这种映射为 conceptual metaphor；ZFC formation source交付的是 sethood，
+而非有限步骤逐一完成。因此未来的靶不是“Power Set 有什么神秘”，而是寻找一个 source-defined consumer，自己要求 finite-style
+completion作为 Done，同时仍依赖同一 Power Set-subset formation，或一个真实 formation-use/admission transition。
 
 | 题号 | 本轮回答 |
 |---:|---|
 | 1 | 理论收益 → 被改条件 → 敏感过程的链在本轮落实为 R-card → Z-card → consumer/control；没有过程的动机不能进入 Q。 |
 | 2 | HoTT/UF 单元的收益是 native homotopy language、结构识别和可形式化基础；来源在 HoTT Book、Voevodsky 2010/2014。当前本层问题是这些动机在 ZFC 哪一层变成对象与消费者。 |
-| 3 | 现实／假想活动是“用分类对象再交付可用 family”或“在某基础内陈述涉及大对象的定理”；解释裂口在具体 family/maps 或 class quantification。 |
+| 3 | 现实／假想活动包括“用分类对象再交付可用 family”“在某基础内陈述涉及大对象的定理”以及有限分类能否在无限 totality上保持同一Done；最后一项的裂口已由HMZ-012定位为same-task未建立。 |
 | 4 | 两面都检查：加进 native higher structure，也省去 set-coded representations / meta-language burden；没有把未写出的条件当不存在。 |
 | 5 | `E=direct/structural/machine convenience; T→T′=set-coded or meta-level presentation → native type/formal language; P=要求同一 consumer 交付 family 或内部陈述; O=maps/family 或 formula availability`。 |
 | 6 | P 专门碰 T，因为 universal-family Done 与 class-quantification Done 恰需要该被隐去的对象／责任；普通的单个 set construction 不会显示同样差异。 |
 | 7 | `X_i` 分成两项：family delivery 与 large-category statement；各自输入/Op/O/Done 在 `Z-CARDS` 和 `CONSUMER-CONTROLS` 固定。它们是表示边界，不是 A/B UR。 |
 | 8 | 没有把圆环或芝诺作为本轮 X_h；只以罗素式 formation/payments 为方法约束，未声称回答任何历史案例。 |
-| 9 | 最顺手旧答案是 Power Set／罗素；它会忽略来源没有将 Power Set 与 HoTT 动机连接的事实。 |
-| 10 | 本轮已实际做的候选过程是 Mumford family delivery 与 Shulman large-class statement；下一原典应寻找同一 Done 的未付 consumer 或 H0 transport。 |
+| 9 | 最顺手旧答案是 Power Set／罗素；它会忽略 Book 的 bridge、Isabelle route split和Dochtermann源内的conceptual-metaphor限定。 |
+| 10 | 本轮已实际做的候选过程是 Mumford family delivery、Shulman large-class statement、Book 的 \(A,R\) quotient bridge、Isabelle `RepFun` consumer和Dochtermann finite/infinite Done comparison；下一原典应寻找保留 Power Set route且same-Done的未付 consumer或H0 transport。 |
 | 11 | 当前模型没有把任何历史案例精化成全题；R/Z/Q 条目分别标 identity 与范围。 |
 | 12 | 邻近任务：一个固定 small category 或 automorphism-free family，ZFC/NBG/来源都能完成；它不需 class quantification 或 omitted map data。 |
-| 13 | 一句发现：理论为了把大对象和结构用得方便，会把它们压进 formula、class或分类；要求它在同一任务直接交付对象时，必须明确谁支付 classes/maps/choice。 |
-| 14 | 当前 source 显示 NBG、Choice、Mumford maps 和 Isabelle syntax 都是支付；下一角度必须是 source-defined unpaid consumer 或不同作者动机，不能宣告全理论无问题。 |
+| 13 | 一句发现：理论为了把大对象和结构用得方便，会把它们压进 formula、class、分类或完成的totality对象；要求它在同一任务直接交付对象时，必须明确谁支付 classes/maps/choice与完成条件。 |
+| 14 | 当前 source 显示 NBG、Choice、Mumford maps、Isabelle syntax以及Power Set/subset/RepFun都是支付；Dochtermann维持现实任务桥但不消除same-task缺口，下一角度必须是source-defined unpaid consumer、admission transition或不同作者动机。 |
 
 ## 失效与下一触发
 
-本 run 的任何 `NO_CANDIDATE_SEED` 会因下列证据失效：新的 UF 创立原典；明确将 Power Set 与 R-card 连接的来源；
-ZFC 内同一 Done 的未付 consumer；或满足 H0 transport T0–T5 的正向材料。Makkai 控制还把第三项收紧为：来源必须
+本 run 的任何 `NO_CANDIDATE_SEED` 会因下列证据失效：新的 UF 创立原典；对 HMZ-009 的 \(A,R\) quotient bridge给出
+**Power Set-subset formation route + finite-style same Done** actual consumer／payment ledger的来源；ZFC 内同一 Done 的未付 consumer；或满足 H0 transport T0–T5 的正向材料。Makkai 控制还把第三项收紧为：来源必须
 声称 ordinary specified output 已由 mere existence 获得，且不以 Choice、标签、代表、或输出／Done 改写支付。
 WoLLIC 则把一条具体配对义务加入：必须找到其所指的具名 ZFC-in-Coq attempt，并逐项固定对象、encoding、consumer
 与 Done。Werner 已提供一个可核查的 comparable attempt，但没有满足“Voevodsky点名”的历史归因门；下一步需要同一
