@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–116 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–116已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.117继续；下一张必须先审读并立即写入`VR-W002-117`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–117 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–117已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.118继续；下一张必须先审读并立即写入`VR-W002-118`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -408,6 +408,7 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-114 | W-002 | 114 | visual/W-002/150dpi/p114.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small basis／small compact basis下abstract basis ideal completion的embedding-projection pair、retract/isomorphism判据以及下个bilimit章节入口。 | 这是明确basis、order和compactness条件下的presentation theorem，不构成ZFC Q。 |
 | VR-W002-115 | W-002 | 115 | visual/W-002/150dpi/p115.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核structurally continuous/algebraic bilimit中approximating families的传递、embedding保way-below/compactness和pointwise suprema公式。 | 这是bilimit保持性定理的明确条件证明，不构成ZFC Q。 |
 | VR-W002-116 | W-002 | 116 | visual/W-002/150dpi/p116.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核bilimit在structural continuity/algebraicity下的保持、为什么普通continuity的对应命题会需要Choice、以及small (compact) basis传递的具体条件。 | 本页明确Choice是限制性缺口而非被静默跨越，不能形成ZFC Q。 |
+| VR-W002-117 | W-002 | 117 | visual/W-002/150dpi/p117.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核constructive single-step functions以subsingleton suprema替代classical case distinction、local-smallness前提及compact input保证Scott continuity。 | 这是从显式subsingleton/compact条件构造step function的技术支付；不构成ZFC Q。 |
 
 ## 高精度队列
 
