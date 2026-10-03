@@ -135,3 +135,13 @@ B. 某 ZFC/集合论元理论来源把模型、语义或一致性提升为 HoTT 
 ```
 
 本报告及新 Lean proof/run是贡献者交付，尚未进入canonical `dev` current owner或claim matrix。接受时必须从当时`dev` HEAD重审其输入哈希、范围与既有Q0/Q1卡，不能因本报告存在就提高 ZFC 候选等级。
+
+## 7. 新的 Zeno—HoTT 同一 Q 条件定理
+
+研究发起人进一步提出：若同一个 ZFC 的特性`Q`在芝诺上被判“已经解决”、在 HoTT 上却被判不合理，那么ZFC是否在同一个Q上产生了悖论？
+
+[MetaObservationConsistency.lean](../HoTT/formal/zfc-observation-boundary/MetaObservationConsistency.lean)现已将这个问题机器化。它把`QProfile`显式拆成O1–O5、bridge payment和原任务保持；并证明：若两个站点的**完整**QProfile相同，而一个被判`originalResolved`、另一个被判`bridgeRequired`，则不存在Q-uniform的基础观察政策。若一个需要bridge的站点却被称为原任务已经解决而bridge未支付，则它违反形式化的O3–O5充分性政策。
+
+这不是“ZFC推出False”的定理。它证明的是一个更贴近本研究的条件句：同一完整Q上的异判与一套声称统一的O3–O5完成观察不能共存。相反，若两站点只共享粗特征而payment／任务保持不同，判词可以不同；源码也有这个正控制。因此当前工作要证明的是完整QProfile映射，不能用“都和完成有关”替代。
+
+最新收据是[20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-02](../HoTT/verification/runs/20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-02/RUN.json)，所有七个选定定理无公理。H094的独立映射当前判`PROFILE_MATCH_NOT_YET_PROVED`：IEP接近`revisedResolved`，QuestioningDelay的现实解释是bridge，故尚不能直接把条件定理提升为实际ZFC实例。
