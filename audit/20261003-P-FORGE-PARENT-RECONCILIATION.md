@@ -2,18 +2,18 @@
 logical_id: P_FORGE_PARENT_RECONCILIATION
 mode: sequential
 shard_root: 20261003-P-FORGE-PARENT-RECONCILIATION
-last_shard: 20261003-P-FORGE-PARENT-RECONCILIATION/009 - R09 固定点、层级与类集合边界.md
-append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/009 - R09 固定点、层级与类集合边界.md
+last_shard: 20261003-P-FORGE-PARENT-RECONCILIATION/010 - R10 有界形成与对角化候选分叉.md
+append_target: 20261003-P-FORGE-PARENT-RECONCILIATION/010 - R10 有界形成与对角化候选分叉.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 9 个分片；缺一片即未完成，按表顺序读取。后续 R10--R13 只有在其原始汇总和全部已归属原子卡都被逐项比较后才加入表，缺一父级即不能进入 A3 综合。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 10 个分片；缺一片即未完成，按表顺序读取。后续 R11--R13 只有在其原始汇总和全部已归属原子卡都被逐项比较后才加入表，缺一父级即不能进入 A3 综合。
 
 # P-FORGE 父级回接审计
 
 > **身份：** `A2_PARENT_RECONCILIATION / SOURCE_LIMITED_PARENT_COMPARISON / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A2_ACTIVE / PARENT_CARDS=9/13 / PARENT_REMAINDER=4 / A3_NOT_STARTED`。
+> **当前状态：** `A2_ACTIVE / PARENT_CARDS=10/13 / PARENT_REMAINDER=3 / A3_NOT_STARTED`。
 
 本逻辑文档将 128 张已封存的原子卡回接到原始 `R01--R13` 粗单元。`R00`、`R14`、`R15`是目标／最终综合／分母冻结的历史上下文，不替代这13个父级的逐项回接。每张父卡只给出：原汇总主张、成员分母、原子证据所支持的范围、被修正或撤回的部分、P/Q影响、财富与重开条件。
 
@@ -29,4 +29,5 @@ soft_line_target: 300
 | 007 | [R07 罗素正控制与Power Set形成候选](<20261003-P-FORGE-PARENT-RECONCILIATION/007 - R07 罗素正控制与Power Set形成候选.md>) | `H049,H050,H051,H052,H053` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 | 008 | [R08 忒修斯花纹与同一任务消费者](<20261003-P-FORGE-PARENT-RECONCILIATION/008 - R08 忒修斯花纹与同一任务消费者.md>) | `H054,H055,H056,H057,H058,H059` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 | 009 | [R09 固定点、层级与类集合边界](<20261003-P-FORGE-PARENT-RECONCILIATION/009 - R09 固定点、层级与类集合边界.md>) | `H060,H061,H062,H063,H064,H065,H066,H067,H068` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
+| 010 | [R10 有界形成与对角化候选分叉](<20261003-P-FORGE-PARENT-RECONCILIATION/010 - R10 有界形成与对角化候选分叉.md>) | `H069,H070,H071,H072` | `SUPPORTED_BY_COMPLETED_CHILDREN_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
