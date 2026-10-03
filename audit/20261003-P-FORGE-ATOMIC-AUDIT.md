@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/100 - H050 脱敏无限制形成RK0正控制.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/100 - H050 脱敏无限制形成RK0正控制.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/101 - H051 脱敏有界全子对象RK0对照.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/101 - H051 脱敏有界全子对象RK0对照.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 100 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 101 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -125,4 +125,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 098 | [H048 P1形成起源路径自审与修复](<20261003-P-FORGE-ATOMIC-AUDIT/098 - H048 P1形成起源路径自审与修复.md>) | `H048` | bridge R06/R07 formation-origin repair | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR` |
 | 099 | [H049 ZFC全子对象形成起源路径回归](<20261003-P-FORGE-ATOMIC-AUDIT/099 - H049 ZFC全子对象形成起源路径回归.md>) | `H049` | R07 formation-lane replay | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 | 100 | [H050 脱敏无限制形成RK0正控制](<20261003-P-FORGE-ATOMIC-AUDIT/100 - H050 脱敏无限制形成RK0正控制.md>) | `H050` | R07 deidentified RK-0 positive control | `CALIBRATION / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
+| 101 | [H051 脱敏有界全子对象RK0对照](<20261003-P-FORGE-ATOMIC-AUDIT/101 - H051 脱敏有界全子对象RK0对照.md>) | `H051` | R07 bounded all-subsets RK-0 control | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 <!-- governance-shard-table:end -->
