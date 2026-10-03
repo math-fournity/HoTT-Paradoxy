@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–112 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–112已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.113继续；下一张必须先审读并立即写入`VR-W002-113`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–113 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–113已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.114继续；下一张必须先审读并立即写入`VR-W002-114`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -404,6 +404,7 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-110 | W-002 | 110 | visual/W-002/150dpi/p110.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核dyadics的inductive constructors、decidable equality、dense/no-endpoint relation和其作为rounded ideal completion示例的实际范围。 | 这是显式离散构造生成稠密序的领域论实例，不构成ZFC Q。 |
 | VR-W002-111 | W-002 | 111 | visual/W-002/150dpi/p111.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核dyadic ideal completion的small basis／non-algebraicity、small basis到continuous dcpo isomorphism和compact-basis completion的两条不同路线。 | 这是明确的presentation/embedding与compactness边界，不能形成ZFC Q。 |
 | VR-W002-112 | W-002 | 112 | visual/W-002/150dpi/p112.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small-basis family的Scott continuity、lower/rounded subset条件与basis order关系、以及它们如何保证associated family directed。 | 这是small-basis结构的显式条件链，不构成ZFC Q。 |
+| VR-W002-113 | W-002 | 113 | visual/W-002/150dpi/p113.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small basis到rounded ideal completion的presentation isomorphism、well-defined ideal条件以及用basis/supremum证明inverse maps。 | 这是经small basis与ideal条件支付的表示定理，不构成ZFC Q。 |
 
 ## 高精度队列
 
