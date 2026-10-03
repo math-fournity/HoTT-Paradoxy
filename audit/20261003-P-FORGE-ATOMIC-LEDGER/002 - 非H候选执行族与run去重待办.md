@@ -59,7 +59,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N30b runner-isolation-002 | `P-DAG-RUNNER-ISOLATION-002-RESULT` | 实际空home认证执行，401发生在模型采样前；独立 prompt／empty-home receipt | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE` |
 | N30c isolation-003 | `CODEX-APPSERVER-ISOLATION-003` | prompt-input gate在auth前停止；run id `p-dag-appserver-health-003` 与 receipt 独立 | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE_EVIDENCE_INSUFFICIENT_WITH_SCOPE` |
 | N30d isolation-004 | `CODEX-APPSERVER-ISOLATION-004` | exact direct-wire session `01a0fdd4-36a9-77e3-bd87-63a3d17077ee`，post-turn API不兼容 | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE_SOURCE_REPORTED_NOT_REPLAYED` |
-| N30e isolation-005 | `CODEX-APPSERVER-ISOLATION-005` | exact direct-wire session `01a0fdd5-71bd-76c2-983e-d2b802ee8199`，zero-theory health通过；不是H008 discovery | `UNIQUE_ATOMIC_RUN` |
+| N30e isolation-005 | `CODEX-APPSERVER-ISOLATION-005` | exact direct-wire session `01a0fdd5-71bd-76c2-983e-d2b802ee8199`，zero-theory health通过；不是H008 discovery | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE_SOURCE_REPORTED_NOT_REPLAYED` |
 | N30f AppServer资格检查 | `20261002-P-DAG-AppServer-资格检查.md` | Master host-capability source inspection，未启动 worker | `UNIQUE_MASTER_DECISION(1)` |
 
 ## 3. 下阶段的可证伪完成条件
