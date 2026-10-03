@@ -601,3 +601,90 @@ git_record:
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no other-checkout access; no full-origin current-owner edits
 ```
+
+## Delta SelfAuditCard：dev-notes/0093 中的 ABX／定向搜索前史候选
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0093-TARGETED-SEARCH-PREHISTORY
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+research_profile: RESEARCH_PROFILE_GOVERNED
+source_units:
+  - dev-notes/0093 archive turns T1–T91
+  - S05[1] in sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md
+  - full-origin audit index and shards 001–006 in this checkout
+original_requirement:
+  - 逐段审视模式 P 三刀形成之前到连续运行前的原始用户讨论
+  - 把罗素式计算/形成张力、芝诺/圆环方法和“针对性搜索而非蛮力枚举”作为不同线索保留
+  - 不以关键词、重复 prompt 或 AI 自述替代来源判定与运行证据
+  - 当前与先前 worktree 各自推进，不交叉读取、比较、等待或整合
+actual_action:
+  - current_checkout_only: true
+  - source_sha256: e704f306f1eaf18bd418853524b30fe87766b213b53167e23172b2b7524cd88e
+  - source_bytes: 559337
+  - source_lf_lines: 4980
+  - source_mode: "0644"
+  - archive_capture_blocks: 91
+  - unique_prompt_sha256: 56
+  - unique_answer_sha256: 91
+  - goal_context_envelopes: 0
+  - read_all_visible_prompt_blocks: true
+  - read_AI_answer_blocks_as_current_math_evidence: false
+  - exact_text_match: "T84 / skill-turn-673793baefbf4bca900dfea586beb876 == S05[1] after whitespace normalization"
+  - source_match_hashes: "prompt 733c3db2955502bc2b070ce07fbe527abb280b885cf3dc512ac2a55a7d89a07f; answer e179da85209abe40951daaaee8eed7134172cae91342860bc43d7a78c9963fce; S05 file 59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565"
+  - key_method_precursor: "T83: Russell as construction-process vs result and targeted strategy; T84 exact S05[1] reiteration and machine-overview dissatisfaction; T82/T87 abstract-theory premise; T60-T69 ABX/circle line; T88 correction on construction-process cognition"
+alignment_verdict: METHOD_PRECURSOR_FOUND / NOT_DIRECT_P_SPEC / SOURCE_SCOPE_GAP_CANDIDATE
+deviation_class:
+  - no ORIGINAL_IDEA_CHALLENGED
+  - no P1/P2/P3 success/failure or ZFC/HoTT mathematical claim
+  - existing full-origin inventory has no 0093 disposition; canonical integration remains pending
+pattern_universe_claim:
+  claim: "No new theory pattern is proposed by this archive census; it exposes an earlier methodology precursor that may have been outside the full-origin audit source denominator."
+  P1: "The targeting/obvious-entry heuristic may be historically related, but no same-task theory Q/consumer is formed here."
+  P2: "The Russell construction-process distinction is a method precursor only; no logic-layer translation or same-object map is tested here."
+  P3: "The archive expresses a process-oriented concern but gives no concrete source transition or completion trace for a theory task."
+  status: NOT_ENOUGH_EVIDENCE
+tool_birth_card: NOT_REQUIRED
+source_identity:
+  archive_session_id: 01a0b9df-0196-7e42-994b-54ff1a886ec3
+  archive_first_turn_id: skill-turn-076e33538baa428cbd2a5aab6d13fb3d
+  created_at_local: "2026-09-19T10:01:30-04:00"
+  native_host_message_id_crosswalk: UNKNOWN
+  T84_to_S05_relation: CONTENT_MATCH_CANDIDATE / NATIVE_EVENT_IDENTITY_UNKNOWN
+current_owner_mutation:
+  full_origin_audit_001_006: none
+  STATE_or_projections: none
+  ideology_or_SOP: none
+  source_archive_0093: read-only
+worktree_boundary:
+  other_checkout_read: false
+  other_checkout_wait_compare_or_integrate: false
+  parent_or_previous_worktree_trajectory_read: false
+scope_partition:
+  T1_T3: PROCESS_CONTEXT_NOT_DIRECT_P_SPEC
+  T4_T11: M_N_CIRCLE_PRECURSOR
+  T12_T19: ARCHIVE_GOVERNANCE_AND_OTHER_WORKLINE
+  T20_T21: ENGINE_BEHAVIOR_PRECURSOR
+  T22_T50: REDO_EXECUTION_CONTEXT
+  T51_T59: WAVE_AND_REALITY_IDENTITY_PRECURSOR
+  T60_T69: ABX_CIRCLE_AND_HOTT_SEARCH_PRECURSOR
+  T70_T81: WORKFLOW_AND_ANTI_DRIFT_REQUIREMENTS
+  T82_T88: TARGETED_THEORY_SEARCH_METHOD_PRECURSOR
+  T89_T91: COGNITION_GOVERNANCE
+cutoff:
+  exact_parent_goal_phase: UNKNOWN
+candidate_owner_delta:
+  - add dev-notes/0093 to full-origin source inventory or explicitly dispose each relevant unit
+  - distinguish method lineage from direct P1/P2/P3 specifications
+  - preserve 91 archive captures separately from 56 prompt payload groups and 91 answer hashes
+  - retain T84/S05[1] content equality without claiming native message identity
+falsifiers:
+  - full-origin owner evidence that explicitly includes 0093 under another source locator and gives unit dispositions
+  - scope definition that excludes all T83/T84 targeted-search and T60-T69 ABX method history, with a documented reason
+  - authoritative native event crosswalk changing the T84/S05[1] relation
+next_trigger: canonical integrator reviews whether 0093 belongs in the pre-tool method-lineage denominator; another archive source gap triggers a bounded successor census
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 3b3ce92ac892236310f3a05f7b6e1cf813ee2544
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+~~~

@@ -149,3 +149,11 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 ## 0107 精确 Git 收据
 
 来源范围候选、三条 turn 身份、自审卡与 RUNS 收据已由 commit `b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0` 记录。该提交只含 contributor recheck、当前 session 的 RUNS/SESSION 与独占 SelfAudit shard 四个路径；0107 archive、full-origin audit 001–006、其他 worktree 及预存 dirty/untracked 路径均未纳入。`CANDIDATE_NOT_CURRENT` 状态保持，尚未决定 full-origin owner 是否纳入 0107。
+
+## 0093 定向搜索前史候选
+
+本工作单元采用 `RESEARCH_PROFILE_GOVERNED / CONTRIBUTOR / CANDIDATE_NOT_CURRENT`：来源覆盖缺口可能改变“刀具形成前方法史”的分母，需要保留逐段证据与集成未知；它不启动数学研究、不建立第二份 current truth，也不接管另一 worktree。
+
+只用当前 checkout 中的 `dev-notes/0093`、S05[1] 与 full-origin audit 001–006 作只读核对。0093 快照为 `e704f306f1eaf18bd418853524b30fe87766b213b53167e23172b2b7524cd88e`，91 archive capture blocks、56 unique prompt hashes、91 unique answer hashes。T83 明确提出按理论前提和其过程定向搜索；T84 与 S05[1] 去空白后完全匹配；T60–T69 保存 ABX／圆环路线前史。该文档没有直接写出 P1/P2/P3 合同，也不验证其中 AI 声称的运行结果。完整逐段分区与证据见 contributor report §14 和本 session 的 delta SelfAuditCard。
+
+Owner 001–006 未修改；0093 目前只是 `UNDISPOSITIONED_PRECURSOR_SOURCE / SOURCE_SCOPE_GAP_CANDIDATE`。当前与先前 worktree 独立推进，本单元没有读取、比较、等待或整合另一 checkout，也没有读取 parent trajectory。下一步是由 canonical integrator 决定 0093 是否进入 full-origin source denominator；如扩大搜索，需先用本地源家族的范围与停止条件界定一个 bounded source census，不能把这次读到 0093 当作“已穷尽全部历史”。

@@ -309,6 +309,53 @@
       "result": "UNDISPOSITIONED_PRECURSOR_SOURCE_FOUND / CANDIDATE_NOT_CURRENT",
       "scope": "current-worktree dev-notes and current-checkout full-origin owners only; source archive read-only; no other checkout, parent trajectory, owner, or mathematical claim",
       "git_commit": "b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0"
+    },
+    {
+      "id": "METHOD-PREHISTORY-SOURCE-SCOPE-0093",
+      "kind": "local_archive_full_prompt_census_and_source_crosswalk",
+      "source": "dev-notes/0093 - 2026-09-19 - 另外一个AI正在为你的审计报告增加索引，这不应该影响你继续工作.md",
+      "source_sha256": "e704f306f1eaf18bd418853524b30fe87766b213b53167e23172b2b7524cd88e",
+      "source_bytes": 559337,
+      "source_lf_lines": 4980,
+      "source_mode": "0644",
+      "session_id": "01a0b9df-0196-7e42-994b-54ff1a886ec3",
+      "first_turn_id": "skill-turn-076e33538baa428cbd2a5aab6d13fb3d",
+      "created_at_local": "2026-09-19T10:01:30-04:00",
+      "capture_blocks": 91,
+      "unique_prompt_sha256_count": 56,
+      "unique_answer_sha256_count": 91,
+      "goal_context_envelopes": 0,
+      "semantic_disposition": {
+        "ordinal_coverage": "T1-T91 partitioned by audit report §14.2; all source blocks read; no gaps",
+        "direct_pattern_p_spec": "NOT_FOUND_IN_THIS_ARCHIVE",
+        "method_precursor": "T83 targeted-search heuristic; T82/T87 theory-abstraction premise; T84 machine-overview dissatisfaction; T60-T69 ABX/circle route; T88 construction-process cognition correction",
+        "current_evidence_limit": "archived AI replies are not current run receipts or mathematical verification"
+      },
+      "cross_source_match": {
+        "archive_turn_id": "skill-turn-673793baefbf4bca900dfea586beb876",
+        "archive_prompt_sha256": "733c3db2955502bc2b070ce07fbe527abb280b885cf3dc512ac2a55a7d89a07f",
+        "archive_answer_sha256": "e179da85209abe40951daaaee8eed7134172cae91342860bc43d7a78c9963fce",
+        "direct_source": "sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md S05[1]",
+        "direct_source_sha256": "59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565",
+        "normalized_body_chars_each": 856,
+        "comparison": "visible prompt/source bodies equal after whitespace normalization",
+        "native_event_identity": "UNKNOWN"
+      },
+      "owner_search": {
+        "paths": [
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/001 - 审计范围、来源分母与逐项覆盖.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/002 - 原初理念、前驱讨论与模式P的语义.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/003 - 三把刀、代理说明与动态DAG的逐单元对照.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/004 - 实际运行、偏差分类与反事实.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/005 - 连续运行前的状态、后续SOP与可证伪计划.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/006 - 可重算来源清单、Git谱系与新刀具出生审计.md"
+        ],
+        "mention_count": 0,
+        "explicit_source_disposition": "NOT_FOUND"
+      },
+      "result": "UNDISPOSITIONED_METHOD_PRECURSOR / SOURCE_SCOPE_GAP_CANDIDATE / NOT_DIRECT_P_SPEC",
+      "scope": "current checkout only; archive source read-only; no previous worktree, parent trajectory, ZCode log, full-origin owner mutation, worker, or mathematical claim"
     }
   ],
   "verifications": [
@@ -336,6 +383,13 @@
     {"id": "NORMALIZED-PROMPT-MATCH-0107-T3", "status": "PASS_WITH_SCOPE", "result": "0107-T3 visible body matches 0108-T1 and S12[1] after whitespace normalization; this is a content match only, not native event identity"},
     {"id": "GOVERNANCE-SHARDS-0107-DELTA", "status": "PASS", "result": "whole-repo structural scan: 2016 indexes; 16 non-blocking soft-target notices; no structural failures"},
     {"id": "RUNS-JSON-0107-DELTA", "status": "PASS", "result": "JSON parse plus independent source SHA-256 and 3-marker / 3-prompt / 0-envelope count recheck passed"},
+    {"id": "ARCHIVE-0093-STRUCTURE", "status": "PASS_WITH_SCOPE", "result": "local archive SHA e704f306…cc0a0; 91 turn markers and prompt sections, 56 distinct prompt hashes, 91 distinct answer hashes, 0 Goal-context envelopes"},
+    {"id": "ARCHIVE-0093-PROMPT-SEMANTICS", "status": "PASS_WITH_SCOPE", "result": "all T1-T91 visible prompt blocks read and partitioned in audit §14.2; T83 is a targeted-search methodology precursor; no direct P1/P2/P3 specification is asserted"},
+    {"id": "ARCHIVE-0093-T84-S05-CONTENT-MATCH", "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN", "result": "T84 and S05[1] visible bodies are both 856 chars and equal after whitespace normalization; no native message-ID crosswalk"},
+    {"id": "FULL-ORIGIN-0093-DISPOSITION", "status": "CANDIDATE_SCOPE_GAP", "result": "full-origin index and shards 001-006 have no 0093 mention or explicit disposition; canonical integrator has not decided include/exclude; owners unchanged"},
+    {"id": "RUNS-JSON-0093-DELTA", "status": "PASS", "result": "JSON parse, source hash/count assertions, and T84/S05 normalized body equality passed"},
+    {"id": "GOVERNANCE-SHARDS-0093-DELTA", "status": "PASS_WITH_SCOPE", "result": "whole-repo structural validator passed: 2016 indexes; 16 non-blocking soft-target notices; no structural errors; 003 SelfAudit shard remains coherent but above soft target"},
+    {"id": "EXACT-PATH-DIFF-0093", "status": "PASS", "result": "only the contributor report and this session's RUNS/SESSION/CORE_COGNITION_AUDIT paths are modified for this unit; index was empty before staging"},
     {"id": "EXACT-COMMIT-0107", "status": "PASS_WITH_SCOPE", "result": "commit b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0 contains only the contributor report, session RUNS/SESSION, and exclusive SelfAudit shard"}
   ],
   "git": {
@@ -353,5 +407,5 @@
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
     "current_unit_commit": "b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / 0107_PRECURSOR_SCOPE_UNDISPOSITIONED / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / ARCHIVE_PROMPT_SHAPE_0102_0108_0109_CONFIRMED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / 0107_PRECURSOR_SCOPE_UNDISPOSITIONED / 0093_METHOD_PRECURSOR_SCOPE_UNDISPOSITIONED / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / ARCHIVE-PROMPT-SHAPE-0102-0108-0109-CONFIRMED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

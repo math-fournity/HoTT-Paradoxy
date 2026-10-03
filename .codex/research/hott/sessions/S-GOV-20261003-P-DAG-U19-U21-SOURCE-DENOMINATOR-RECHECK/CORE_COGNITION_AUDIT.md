@@ -20,7 +20,7 @@ soft_line_target: 300
 |---|---|---|
 | 001 | [核心认知逐项回评](<CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md>) | KC-000001–KC-000062；本轮触及 KC56–62 来源映射，其余逐条 NOT_TOUCHED |
 | 002 | [扩展认知与四件套交叉回评](<CORE_COGNITION_AUDIT/002 - 扩展认知与四件套交叉回评.md>) | extension scope、四件套当前消费范围、current owner 与边界 |
-| 003 | [选择、自审与SelfAudit](<CORE_COGNITION_AUDIT/003 - 选择、自审与SelfAudit.md>) | delta SelfAuditCard、21-vs-19 分母差异、source overlap、cutoff 和 owner proposal |
+| 003 | [选择、自审与SelfAudit](<CORE_COGNITION_AUDIT/003 - 选择、自审与SelfAudit.md>) | delta SelfAuditCards；0109 的 21-vs-19 分母、0107/0093 前驱来源候选、source overlap、cutoff 与 owner proposal |
 <!-- governance-shard-table:end -->
 
 ## 当前身份与结果边界

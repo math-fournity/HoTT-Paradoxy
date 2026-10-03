@@ -169,3 +169,52 @@ T12 加强了当前 thread continuation 的事件分母，不改变 0102/0108/01
 0107-T3 的规范化可见正文与 0108-T1 (`skill-turn-963b77f06b94411f963d1694cfa3f977`) 以及 direct-source S12 `[1]` 去空白后完全相同；两种归档的 turn ID/answer hash 不同，但现有材料没有 native message-ID crosswalk，因此仅记为 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`。不据文本相同删除或合并任何 turn。0107-T1/T2 是较早的选靶前驱；是否应计入刀具形成的主语义分母，需要 integrator 按该 audit 的 scope 定义逐项决定。建议把 0107 作为三条独立 archive events 放入 source inventory，并明确区分“纳入谱系”与“直接规定 P”；如果排除，也要留下逐条理由。当前贡献分支不改 001–006，不把此候选提升为 full-origin owner 结论。
 
 这次发现意味着本 contributor recheck 当前支持的范围从 0109 分母扩展到一个新的来源族：full-origin source universe 仍有未处置的候选缺口；U19–U21 的计数建议和 parent-phase `UNKNOWN` 保持不变。本轮只读取当前 worktree 中已有的 0107 archive、当前 checkout 的 S12/0108 与 full-origin owner；没有访问、等待、比较或写入另一 worktree，也没有读取 parent trajectory。
+
+## 14. `dev-notes/0093`：ABX／圆环前史中的定向搜索原则
+
+### 14.1 来源身份与本轮检查范围
+
+本轮只读取本 worktree 内的 `dev-notes/0093 - 2026-09-19 - 另外一个AI正在为你的审计报告增加索引，这不应该影响你继续工作.md`、其 S05[1] 原文，以及当前 checkout 中的 full-origin audit index 与 shards 001–002。没有访问、读取、等待、比较、复制或写入此前 worktree，也没有读取 parent/previous-worktree trajectory。
+
+| 字段 | 当前本地快照 |
+|---|---|
+| SHA-256 / 字节 / LF 行数 / mode | `e704f306f1eaf18bd418853524b30fe87766b213b53167e23172b2b7524cd88e` / 559,337 / 4,980 / `0644` |
+| session / first turn / created_at | `01a0b9df-0196-7e42-994b-54ff1a886ec3` / `skill-turn-076e33538baa428cbd2a5aab6d13fb3d` / `2026-09-19T10:01:30-04:00` |
+| archive capture blocks / prompt-body hashes / answer hashes | 91 / 56 / 91 |
+| explicit `codex_internal_context source=goal` envelopes | 0 |
+
+结构计数只描述这份归档投影中的 turn marker 和 prompt block；不能替代 Host native message identity，也不用于推断当前 Goal 的精确启动时刻。session `created_at` 是档案的 session 元数据；后续 prompt block 标题延伸到 2026-09-23，不应把它误作全部消息的逐条发送时间。相同 prompt hash 不会抹去 distinct turn id 或 answer hash。
+
+### 14.2 对 91 个归档单元的逐段语义分组
+
+下表的连续序号分区覆盖 T1–T91，未留未分类区段。序号是该归档文件中 `conversation-archive-turn` 的出现顺序。`NOT_DIRECT_P_SPEC` 不等于“历史上无价值”；它只说明该 prompt 没有直接规定 P1/P2/P3 的形式合同。
+
+| 归档序号 | 数量 | 来源内容与 provisional disposition |
+|---|---:|---|
+| T1–T3 | 3 | 对既有审计和交付文档的请求；工作过程背景，`NOT_DIRECT_P_SPEC`。 |
+| T4–T11 | 8 | 第一弹 M/N、圆环、删点／复原、现实差异及其是否构成 HoTT 问题；`M_N_CIRCLE_METHOD_PRECURSOR`。 |
+| T12–T15 | 4 | 归档流程、结构化交互答复与 Goal 修订请求；`GOVERNANCE_OR_ARCHIVE_CONTEXT`。T12–T13 的 prompt hash 相同而 turn/answer hash 不同。 |
+| T16–T19 | 4 | 请求查看另一 AI/工具会话及继续“四弹”工作；该归档只证明用户提出过此请求，不证明外部会话已被读取；`OTHER_WORKLINE_CONTEXT`。T16/T18、T17/T19 各有重复 prompt payload。 |
+| T20–T21 | 2 | Lean／Agda 对 M/N 的构造和拒签问题；`M_N_ENGINE_BEHAVIOR_PRECURSOR`，但本归档不能代替底层运行收据。 |
+| T22–T50 | 29 | 对四弹 redo 的状态、启动及重复继续指令；`PROJECT_EXECUTION_CONTEXT`。相同请求仍保留各 archive event，不按 prompt 相同推断 native event 关系。 |
+| T51–T59 | 9 | 过度设计、Goal约束、redo进度、数学现实同一性及工作角色；其中 T55–T57 是 ABX 任务语境前驱，其余主要是 `WORKFLOW_CONTEXT`。 |
+| T60–T69 | 10 | 用户明确提出 ABX redo，追问 GLM 已做工作的意义、第一弹与 HoTT 社区是否知道，以及 ABX 应属于哪条搜索路线；`ABX_AND_CIRCLE_SEARCH_PRECURSOR`。T60 的长 prompt 包含 AI 先前说法，但该说法不等于经本轮复核的运行事实。 |
+| T70–T81 | 12 | 逐 wave 价值、自审、方向树、避免目标漂移，以及兼顾社区和本地历史资产的要求；`RESEARCH_PROCESS_REQUIREMENT`，不是 P 数学判词。 |
+| T82–T88 | 7 | 理论抽象与基础接口、针对性搜索、机器统观不足、HoTT 优先级及对“忽略构造过程”的纠正；`TARGETED_PATTERN_METHOD_PRECURSOR`。T83 是最直接的定向搜索种子，T84 精确重复 S05[1]，T87 重述该问题，T88 指出 AI 对“构造过程”的理解偏差。 |
+| T89–T91 | 3 | 要求跨 Session 保持认知闭包，并用 Turing-machine 比喻解释读取、写入与持久认知；`COGNITION_GOVERNANCE_CONTEXT`。 |
+
+### 14.3 对 P 起源的实际贡献与边界
+
+T83（`skill-turn-9274102d10644089a6bcc2d2c96064ff`）明确把芝诺的攻击对象说成稠密性，把罗素的攻击对象说成“构造是过程，而朴素集合论只看结果”，并要求使用有针对性的策略而非蛮力搜索。T82、T87把它放回“理论抽象形成非现实元素、这些元素成为推演前提”的用户工作假设；T84回顾整套 HoTT 机器统观为何没有满足该目标。T60–T69 则记录了 M/N 圆环分析如何从第一弹转为 ABX/HoTT 查找路线，并要求区分“提出新拓扑”与“得到 HoTT 问题的查找思路”。T88 对 construction-process 理解错位的纠正是后续认知风险的直接前驱。
+
+最重要的 exact-content crosswalk 是 `T84 / skill-turn-673793baefbf4bca900dfea586beb876` 与 `sources/prompts/Codex-理论经济与针对性悖论策略-用户原文-20260922.md` 的 S05[1]：两边规范化可见正文均为 856 字符，去空白后相同。T84 的 prompt SHA 为 `733c3db2955502bc2b070ce07fbe527abb280b885cf3dc512ac2a55a7d89a07f`、answer SHA 为 `e179da85209abe40951daaaee8eed7134172cae91342860bc43d7a78c9963fce`；S05 文件 SHA 为 `59f87cfb09a0c2124454759600ca538f6e035fdbb54024c539c2ea2fd041a565`。这是内容匹配，不是 native message-ID crosswalk，也不构成两者为不同用户意图的证明。
+
+因此，0093 为“针对目标理论前提及其特有过程设计 P”提供了比后来直接 P 文本更早的**方法前史**，但不是一份完整的 P1/P2/P3 规格：它没有三刀合同、相同任务下的 Q/I/O/Done、验证门或对子代理的运行条件。它既不能证明“AI 根据脱敏 P 一遍识别理论问题”的行为性质，也不能证明 GLM 已完成同任务 ABX，更不能把归档内 AI 声称的 Agda/HoTT 结果升级为当前证据。
+
+### 14.4 对 full-origin source inventory 的候选影响
+
+Full-origin audit 当前来源表主要列 S01–S13、`dev-notes/0014`、`0015`、`0102`、`0108`、`0109`；对其 index 与 shards 001–006 查询 `0093` / `dev-notes/0093` 均未命中。因为 T83 的定向搜索原则与 T60–T69 的 ABX 前史直接影响“刀具出现前的工作意识”范围，这构成 `UNDISPOSITIONED_PRECURSOR_SOURCE / SOURCE_SCOPE_GAP_CANDIDATE`，应由 canonical integrator 逐单元纳入或明确排除理由。
+
+建议候选处置是：把 0093 列入来源清单，记作 `METHOD_PRECURSOR / NOT_DIRECT_P_SPEC`；将 T4–T11、T20–T21、T55–T69、T82–T88 标为不同主题的相关前史；保留其余区段为 archive-level out-of-direct-P-spec disposition；明确 91 个 archive captures、56 个不同 prompt payload、91 个不同 answer hashes 是不同计量；保留 T84→S05[1] 的 content match 与 native event identity `UNKNOWN`。如果 integrator 认为其主题已由 S05 或之后的直接来源充分吸收，仍须明确标出 event-to-source 映射与排除理由。此建议不是当前 owner 更新。
+
+本轮没有读取 `dev-notes/0093` 中 AI 回答以外的另一个 session、ZCode 日志、先前 worktree 或 parent trajectory；没有改 full-origin audit shards 001–006、STATE、投影、理念/SOP、源归档或其他工作线。没有建立理论 source card、Q、P1/P2/P3 的同任务命中、Tool-Birth 候选或数学结论。来源 owner 是否采用此候选仍待独立 integrator 决定。
