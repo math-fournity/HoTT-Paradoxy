@@ -685,6 +685,7 @@ next_trigger: canonical integrator reviews whether 0093 belongs in the pre-tool 
 git_record:
   candidate_branch: codex/p-dag-tool-birth-audit
   base_head: 3b3ce92ac892236310f3a05f7b6e1cf813ee2544
+  evidence_commit: 8633dc44a0a468d852730d1aa025c2b9417ffab8
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no other-checkout access; no full-origin current-owner edits
 ~~~

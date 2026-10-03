@@ -157,3 +157,7 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 只用当前 checkout 中的 `dev-notes/0093`、S05[1] 与 full-origin audit 001–006 作只读核对。0093 快照为 `e704f306f1eaf18bd418853524b30fe87766b213b53167e23172b2b7524cd88e`，91 archive capture blocks、56 unique prompt hashes、91 unique answer hashes。T83 明确提出按理论前提和其过程定向搜索；T84 与 S05[1] 去空白后完全匹配；T60–T69 保存 ABX／圆环路线前史。该文档没有直接写出 P1/P2/P3 合同，也不验证其中 AI 声称的运行结果。完整逐段分区与证据见 contributor report §14 和本 session 的 delta SelfAuditCard。
 
 Owner 001–006 未修改；0093 目前只是 `UNDISPOSITIONED_PRECURSOR_SOURCE / SOURCE_SCOPE_GAP_CANDIDATE`。当前与先前 worktree 独立推进，本单元没有读取、比较、等待或整合另一 checkout，也没有读取 parent trajectory。下一步是由 canonical integrator 决定 0093 是否进入 full-origin source denominator；如扩大搜索，需先用本地源家族的范围与停止条件界定一个 bounded source census，不能把这次读到 0093 当作“已穷尽全部历史”。
+
+## 0093 精确 Git 收据
+
+commit `8633dc44a0a468d852730d1aa025c2b9417ffab8` 精确记录 0093 来源差分，只含 contributor report 与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。该提交不改 canonical full-origin audit、MEMORY/STATE、刀具理念/SOP 或 source archive；它只保存在本 worktree，尚未集成。

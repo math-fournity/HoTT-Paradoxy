@@ -218,3 +218,7 @@ Full-origin audit 当前来源表主要列 S01–S13、`dev-notes/0014`、`0015`
 建议候选处置是：把 0093 列入来源清单，记作 `METHOD_PRECURSOR / NOT_DIRECT_P_SPEC`；将 T4–T11、T20–T21、T55–T69、T82–T88 标为不同主题的相关前史；保留其余区段为 archive-level out-of-direct-P-spec disposition；明确 91 个 archive captures、56 个不同 prompt payload、91 个不同 answer hashes 是不同计量；保留 T84→S05[1] 的 content match 与 native event identity `UNKNOWN`。如果 integrator 认为其主题已由 S05 或之后的直接来源充分吸收，仍须明确标出 event-to-source 映射与排除理由。此建议不是当前 owner 更新。
 
 本轮没有读取 `dev-notes/0093` 中 AI 回答以外的另一个 session、ZCode 日志、先前 worktree 或 parent trajectory；没有改 full-origin audit shards 001–006、STATE、投影、理念/SOP、源归档或其他工作线。没有建立理论 source card、Q、P1/P2/P3 的同任务命中、Tool-Birth 候选或数学结论。来源 owner 是否采用此候选仍待独立 integrator 决定。
+
+### 14.5 精确 Git 收据
+
+`dev-notes/0093` 来源范围候选及 delta SelfAuditCard 由当前分支 commit `8633dc44a0a468d852730d1aa025c2b9417ffab8` 精确记录。该提交只改了本报告和本 session 的 `SESSION.md`、`RUNS.json`、`CORE_COGNITION_AUDIT.md`、`CORE_COGNITION_AUDIT/003` 五条路径；没有暂存或提交其它预存 dirty/untracked 内容、`dev-notes/0093` 原件、full-origin owners、STATE/投影或另一 worktree 内容。此 OID 是当前 contributor evidence 的来源提交，不代表 canonical owner 已集成。
