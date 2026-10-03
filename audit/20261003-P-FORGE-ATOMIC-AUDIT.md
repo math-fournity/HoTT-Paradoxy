@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/048 - N30e AppServer零理论健康通过.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/048 - N30e AppServer零理论健康通过.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/049 - N30f AppServer权限转发资格检查.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/049 - N30f AppServer权限转发资格检查.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 48 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 49 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / C_CARDS=48 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=80`。
+> **当前状态：** `A1_ACTIVE / C_CARDS=49 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=79`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -69,4 +69,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 046 | [N30c AppServer输入Gate证据缺口](<20261003-P-FORGE-ATOMIC-AUDIT/046 - N30c AppServer输入Gate证据缺口.md>) | `N30c` | App Server pre-auth input gate | `EVIDENCE_INSUFFICIENT_WITH_SCOPE / Q_SAFETY_REPAIR` |
 | 047 | [N30d AppServer后读API不兼容](<20261003-P-FORGE-ATOMIC-AUDIT/047 - N30d AppServer后读API不兼容.md>) | `N30d` | App Server health-004 | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 | 048 | [N30e AppServer零理论健康通过](<20261003-P-FORGE-ATOMIC-AUDIT/048 - N30e AppServer零理论健康通过.md>) | `N30e` | App Server health-005 | `CAL-0 / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
+| 049 | [N30f AppServer权限转发资格检查](<20261003-P-FORGE-ATOMIC-AUDIT/049 - N30f AppServer权限转发资格检查.md>) | `N30f` | Master capability inspection | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
