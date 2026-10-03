@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H061–H062：可及性归纳中的 Power Set 正向再入与字段回归（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-061-062-ACCESS-POWERSET-P2P3-Terra-Max.md)：H061 暴露 TaskCard 字段转写偏差，H062 在相同来源、模型和权限下通过精确字段回归；固定点／可及性家族只支持有界正向 proof-package guard，未定位 PS4 剩余、P3 lifecycle 或 ZFC Q。
+
 - [P-DAG Tool-Birth H058–H059：真实 NFA 幂集消费者与忒修斯最终裁定（Terra / Max，2026-10-03）](20261003-P-DAG-TOOL-BIRTH-THESEUS-POWERSET-058-059-Terra-Max.md)：Mathlib NFA的endpoint-set抽象对其语言接受Done正确；最终arbiter维持`NOT_ENOUGH_EVIDENCE`，不创建P4或Power Set攻击。
 
 - [P-DAG Tool-Birth H054–H057：忒修斯／历史身份对 Power Set 的容纳审计（Terra / Max，2026-10-03）](20261003-P-DAG-TOOL-BIRTH-THESEUS-POWERSET-054-057-Terra-Max.md)：snapshot-only正控制、history-preserving负控制、Metamath extensionality/power source和sealed arbiter共同给出`NOT_ENOUGH_EVIDENCE`；不创建P4，也未定位Power Set攻击。
