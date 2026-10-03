@@ -25,6 +25,10 @@ MODEL = "gpt-5.6-terra"
 EFFORT = "max"
 TIER = "default"
 PERMISSIONS = "governance-regression-fresh"
+BLIND_NO_CANDIDATE_TERMINALS = (
+    "NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY",
+    "NO_MODEL_RECALL_CANDIDATE / FORMATION_ORIGIN_NOT_SUPPLIED",
+)
 WORKER_AGENTS = """# Isolated Pattern-P Worker
 
 This workspace contains no project answer, prior result, or task materials.
@@ -295,7 +299,9 @@ async def run_discovery(
         if profile == "blind-discovery":
             required_sections = {f"D{index}": f"D{index}" in text for index in range(6)}
             candidate_count = text.count("MODEL_RECALL_SITE_CANDIDATE")
-            no_candidate_count = text.count("NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY")
+            no_candidate_count = sum(
+                text.count(terminal) for terminal in BLIND_NO_CANDIDATE_TERMINALS
+            )
             terminal_choice_ok = (candidate_count == 1 and no_candidate_count == 0) or (
                 candidate_count == 0 and no_candidate_count == 1
             )
