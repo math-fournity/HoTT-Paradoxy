@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/114 - H064 ZFC良基递归来源边界标记失败.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/114 - H064 ZFC良基递归来源边界标记失败.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/115 - H065 ZFC良基递归防御账本字段漂移.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/115 - H065 ZFC良基递归防御账本字段漂移.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 114 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 115 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=114 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=14`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=115 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=13`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -139,4 +139,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 112 | [H062 ZFC可及性正向再入字段回归](<20261003-P-FORGE-ATOMIC-AUDIT/112 - H062 ZFC可及性正向再入字段回归.md>) | `H062` | R09 accessibility regression | `IDEA_SPEC_INCOMPLETE_REPAIRED / POSITIVE_REENTRY_CONTROL / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 113 | [H063 ZFC良基递归来源载荷失败](<20261003-P-FORGE-ATOMIC-AUDIT/113 - H063 ZFC良基递归来源载荷失败.md>) | `H063` | R09 Vrec input-contract failure | `IDEA_SPEC_INCOMPLETE / NO_AGENT_OUTPUT / Q_SAFETY_REPAIR` |
 | 114 | [H064 ZFC良基递归来源边界标记失败](<20261003-P-FORGE-ATOMIC-AUDIT/114 - H064 ZFC良基递归来源边界标记失败.md>) | `H064` | R09 Vrec source-boundary marker failure | `IDEA_SPEC_INCOMPLETE / NO_AGENT_OUTPUT / Q_SAFETY_REPAIR` |
+| 115 | [H065 ZFC良基递归防御账本字段漂移](<20261003-P-FORGE-ATOMIC-AUDIT/115 - H065 ZFC良基递归防御账本字段漂移.md>) | `H065` | R09 Vrec defense-ledger field drift | `EXECUTION_DEVIATION / LOWER_RANK_SOURCE_MAP / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
