@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/103 - H053 Metamath秩与基础RK0对象层守卫.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/103 - H053 Metamath秩与基础RK0对象层守卫.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/104 - H054 忒修斯快照身份脱敏正控制.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/104 - H054 忒修斯快照身份脱敏正控制.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 103 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 104 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=103 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=25`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=104 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=24`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -128,4 +128,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 101 | [H051 脱敏有界全子对象RK0对照](<20261003-P-FORGE-ATOMIC-AUDIT/101 - H051 脱敏有界全子对象RK0对照.md>) | `H051` | R07 bounded all-subsets RK-0 control | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 102 | [H052 Metamath幂集RK0证明层边界](<20261003-P-FORGE-ATOMIC-AUDIT/102 - H052 Metamath幂集RK0证明层边界.md>) | `H052` | R07 Metamath proof-layer boundary | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 103 | [H053 Metamath秩与基础RK0对象层守卫](<20261003-P-FORGE-ATOMIC-AUDIT/103 - H053 Metamath秩与基础RK0对象层守卫.md>) | `H053` | R07 rank/Foundation guard | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
+| 104 | [H054 忒修斯快照身份脱敏正控制](<20261003-P-FORGE-ATOMIC-AUDIT/104 - H054 忒修斯快照身份脱敏正控制.md>) | `H054` | R08 Tool-Birth snapshot-only positive control | `ALIGNED / CONTROL_Q_ONLY / NOT_ENOUGH_EVIDENCE` |
 <!-- governance-shard-table:end -->
