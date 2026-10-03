@@ -13,10 +13,10 @@ soft_line_target: 300
 
 > **身份：** `ATOMIC_DENOMINATOR_OWNER / AUDIT_INPUT / NOT_A_THEORY_RESULT`。
 >
-> **当前状态：** `H007_H075_REGISTERED / NON_H_DENOMINATOR_PENDING / ATOMIC_AUDIT_NOT_STARTED`。
+> **当前状态：** `H001_H075_REGISTERED / NON_H_DENOMINATOR_PENDING / ATOMIC_AUDIT_NOT_STARTED`。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 范围 | 状态 |
 |---|---|---|---|
-| 001 | [H编号节点分母与去重规则](<20261003-P-FORGE-ATOMIC-LEDGER/001 - H编号节点分母与去重规则.md>) | H007--H075 每个编号单位、父宏观单元、证据家族和去重规则 | current; 69 registered, not yet individually audited |
+| 001 | [H编号节点分母与去重规则](<20261003-P-FORGE-ATOMIC-LEDGER/001 - H编号节点分母与去重规则.md>) | H001--H075 每个编号单位、父宏观单元、证据家族和去重规则 | current; 75 registered, not yet individually audited |
 <!-- governance-shard-table:end -->
