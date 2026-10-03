@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/053 - H003 HoTT发现未产出.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/053 - H003 HoTT发现未产出.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/054 - H004 HoTT发现元层偏移.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/054 - H004 HoTT发现元层偏移.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 53 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 54 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=53 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=75`。
+> **当前状态：** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=54 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=74`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -78,4 +78,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 051 | [H001 HoTT重放终态缺失](<20261003-P-FORGE-ATOMIC-AUDIT/051 - H001 HoTT重放终态缺失.md>) | `H001` | pre-R03 HOTT-REPLAY-001 | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 | 052 | [H002 HoTT发现验证混淆诊断](<20261003-P-FORGE-ATOMIC-AUDIT/052 - H002 HoTT发现验证混淆诊断.md>) | `H002` | pre-R03 HOTT-REPLAY-002 | `IDEA_SPEC_INCOMPLETE / Q_SAFETY_REPAIR` |
 | 053 | [H003 HoTT发现未产出](<20261003-P-FORGE-ATOMIC-AUDIT/053 - H003 HoTT发现未产出.md>) | `H003` | pre-R03 discovery split | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
+| 054 | [H004 HoTT发现元层偏移](<20261003-P-FORGE-ATOMIC-AUDIT/054 - H004 HoTT发现元层偏移.md>) | `H004` | pre-R03 long discovery | `IDEA_SPEC_INCOMPLETE / Q_REJECT_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
