@@ -68,7 +68,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 |---|---|---|---|---|
 | `N27A` | Cantor型数学consumer tracer | `01a0fd5f-0afa-7773-8245-f873a22e49cc` | 无terminal output，Master SIGINT。 | `ATOMIC_AUDIT_COMPLETE` |
 | `N27B` | P3 lifecycle/admission tracer | `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3` | 无terminal output，Master SIGINT。 | `ATOMIC_AUDIT_COMPLETE` |
-| `N27C` | Cantor C/I/O/Done审计 | `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | 无terminal output，Master SIGINT。 | `PENDING` |
+| `N27C` | Cantor C/I/O/Done审计 | `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | 无terminal output，Master SIGINT。 | `ATOMIC_AUDIT_COMPLETE` |
 
 `N28`仍是单一foreground retry（`01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118`），故保持已有ID；其背景尝试无console/final artifact，继续排除。
 
