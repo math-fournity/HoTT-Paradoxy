@@ -911,3 +911,114 @@ NO_FIELD_COVERAGE_CLAIM
 ```
 
 候选分支仍是 `codex/hott-motive-zfc-literature`。主 worktree 集成者也已经能从 [集成交接单](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md) 看见这项地图质量升级，并选择性审阅／移植它，而不把它混入当前主 worktree 的 dirty 工作。
+
+
+<!-- conversation-archive-turn: skill-turn-169dc8b011054996a0a890dc4e27611f prompt_sha256=75b2047bb4b35571ff6b04a6dada382861639a12b4c5b5e339b3903d2495d81e answer_sha256=fb0b7a5a85ba1efd203d872374db515756617c1b10648b72dd29b6733b40c053 -->
+## 2026-10-03 · Turn skill-turn-169dc8b011054996a0a890dc4e27611f
+
+### 用户提问
+
+你把方案落盘并给个名字，我后续要在/goal中引用它。但是，我们并不是真的写博士论文，我们只是希望尽可能地完成对全部文献的落盘、MinerU处理、文献地图的完全追溯——目的是为了早ZFC的Q，而不是博士答辩！我们常用arxiv和Codex/ChatGPT内建的浏览器通过DOI和\`[https://sci-hub.jp/](https://sci-hub.jp/)\`下载相关的文献。我们是需要博士一样的文献地图检查，但是不是要真的做成博士毕业论文项目。
+
+### AI 最终回复
+
+# 新 SOP 已落盘
+
+我把新方案命名为：
+
+```text
+ZFC-Q-CORPUS-MAP-SOP
+```
+
+全名是 **“ZFC Q 可追溯语料落盘、MinerU 与文献地图 SOP”**。
+
+你后续可以直接在 `/goal` 中使用：
+
+```text
+按照SOP=`ZFC-Q-CORPUS-MAP-SOP`,继续推进，直至本轮冻结语料没有可获取、可处理、可映射或可资格化的下一项。
+```
+
+入口文件是 [总语料 SOP](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/ZFC-Q语料落盘与文献地图SOP.md)，项目档案根是 [ZFC-Q-CORPUS-MAP](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/README.md)，执行 Skill 是 [zfc-q-corpus-map](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/skills/zfc-q-corpus-map/SKILL.md)。
+
+## 这不是博士论文项目
+
+你这次的修正已经进入方案的目标定义：
+
+> 我们借用博士论文级的**文献地图检查强度**，目的是尽可能完整地建立寻找 ZFC Q 所需的语料、来源网络和 Q 线索；不是写一篇博士毕业论文，也不把文献数量、PRISMA 表格或“搜了很多”当作成果。
+
+因此，SOP 不要求临床系统综述、PICO、效应汇总、论文答辩式章节或虚假的“学界已穷尽”结论。它要求的是实际有助于发现 Q 的六件事：
+
+1. 找到相关作品，并把同一 intellectual work 的预印本、正式版、讲演、扫描和译本分成同一 work family；
+2. 将可获得的全文落盘，并保留无法获得、版本不明、语言限制和强引用余项；
+3. 对每个 PDF 核验字节、题名、作者、页数、版本关系和 SHA-256；
+4. 用本地 MinerU 形成可搜索、可定位的派生文本；
+5. 将作者、DOI、arXiv、书目数据库、backward／forward citation 和实际消费者连成地图；
+6. 只把通过来源、同一任务和模式 P 控制的材料送进 Q LeadCard，再交给 HOTT-MOTIVE、P-FORGE 或其它专门候选流程。
+
+## 三层来源关系
+
+这个 SOP 特意把三种常被混在一起的东西分开：
+
+| 层 | 它回答什么 | 不能替代什么 |
+|---|---|---|
+| **作品身份** | 这到底是哪一篇论文／书／报告？ | DOI、作者、出版社、arXiv、正式会议或项目档案确定。 |
+| **字节获取** | 这份 PDF 是从哪里获得的？ | arXiv、DOI 浏览器页、作者／机构页、出版社、用户提供的浏览器访问路线等都记录为 `access provenance`。 |
+| **内容与 Q 资格** | 这份作品究竟说了什么，能否支持 Q？ | 必须回到已验证的原 PDF、页码和必要的视觉核对；MinerU Markdown 只是派生阅读层。 |
+
+所以，arXiv、通过 DOI 进入 Codex／ChatGPT 内建浏览器、作者或出版商页，以及你提供的浏览器访问路线都可以成为 acquisition lead。你提到的 `sci-hub.jp` 已被明确写入 SOP：它可记录为一条下载 access provenance，但不能单独证明作品身份、版本、题录、原文内容或 ZFC Q。每个实际获得的 PDF 仍要和 DOI／作者／题名／页码及正式版本关系核对。
+
+这不是在给下载路径加额外障碍；它是防止同题异版、HTML 伪装文件、错误扫描件或版本错配污染后续 MinerU、地图和 Q 分析。
+
+## 实际执行主链
+
+```mermaid
+flowchart LR
+  A["Corpus batch<br/>位置、seed、检索范围"] --> B["WorkCard<br/>作品身份与版本族"]
+  B --> C["AcquisitionCard<br/>PDF 获取与核验"]
+  C --> D["MinerU<br/>派生 Markdown/JSON"]
+  D --> E["书目与引文地图<br/>筛选、去重、coverage"]
+  E --> F["Q LeadCard<br/>线索与控制"]
+  F --> G["HOTT-MOTIVE / P-FORGE<br/>专门资格化"]
+```
+
+每一轮 `/goal` 都从一个冻结的 corpus batch 开始，而不是泛搜整个互联网。批次会固定：
+
+- 要考察的 ZFC 理论位置或 Q 路线；
+- 现有 seed、反控制和理论变体；
+- 数据库、作者、引文与正式项目入口；
+- 时期、语言、发表类型；
+- 纳入／排除、引文迭代与停止条件。
+
+它完成时只能叫 `CORPUS_COMPLETE_WITH_SCOPE`：这个批次中每个 work family 都有 acquisition、unavailable、排除或待处理处置；已接受 PDF 的核验和所需 MinerU 处理都有记录；地图、引用和 Q lead 的 remainder 可重算。它不能声称世界范围的所有相关文献都已穷尽。
+
+## 与已有 HOTT-MOTIVE 项目的关系
+
+`HOTT-MOTIVE-ZFC-SOP` 没有被替换。它现在是总语料工程的一条专门支线：
+
+```text
+ZFC-Q-CORPUS-MAP-SOP
+  └─ HOTT-MOTIVE-ZFC-SOP
+       HoTT 创建动机 → ZFC R/Z/Q/E 专门资格化
+```
+
+既有九个冻结来源 run、十一份预检和 `LITERATURE-MAP-001` 会作为 seed 与 control 被总语料工程消费，不复制原件、不重复算数，也不因为进入总语料就自动成为 Q。
+
+## 当前状态与下一步
+
+当前状态是：
+
+```text
+PROJECT_DEFINED
+CORPUS_RUN_NOT_STARTED
+HOTT_MOTIVE_SEED_AVAILABLE
+NO_Q_CLAIM
+```
+
+本轮只完成了可调用的项目合同、Skill、路由、Feature、rulings、MEMORY 和 archive root；没有下载新 PDF、没有启动 MinerU、没有触碰当前浏览器中的 Sci-Hub 标签页、没有启动 P-DAG 或 worker，也没有生成新的数学结论。
+
+在你下一次用新 SOP 启动后，我会建立首个 `ZQCM-###-scope` batch，然后按 acquisition → PDF validation → MinerU → map → Q lead 的次序连续推进。所有新内容已经提交在候选分支 `codex/hott-motive-zfc-literature`，主要提交为：
+
+```text
+b58efeb7 feat: define ZFC Q corpus map SOP
+0654f4d0 docs: hand off ZFC Q corpus map SOP
+```
