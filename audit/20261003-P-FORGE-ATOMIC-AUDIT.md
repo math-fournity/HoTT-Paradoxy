@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/120 - H070 形式自指脱敏直接支付对照.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/120 - H070 形式自指脱敏直接支付对照.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/121 - H071 形式自指具体认证正控制.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/121 - H071 形式自指具体认证正控制.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 120 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 121 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=120 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=8`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=121 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=7`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -145,4 +145,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 118 | [H068 ZFC总体类与局部集合宇宙来源控制](<20261003-P-FORGE-ATOMIC-AUDIT/118 - H068 ZFC总体类与局部集合宇宙来源控制.md>) | `H068` | R09 V/class versus univ(A) source control | `ALIGNED / TOTALITY_LAYER_CONTROL / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 119 | [H069 ZFC有界形成与映射来源控制](<20261003-P-FORGE-ATOMIC-AUDIT/119 - H069 ZFC有界形成与映射来源控制.md>) | `H069` | R10 bounded Collect/Replace/RepFun source control | `ALIGNED / FORMATION_GUARD / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 120 | [H070 形式自指脱敏直接支付对照](<20261003-P-FORGE-ATOMIC-AUDIT/120 - H070 形式自指脱敏直接支付对照.md>) | `H070` | R10 proof self-reference blind negative control | `EXECUTION_DEVIATION / OUTPUT_CONTRACT_PARTIAL / Q_SAFETY_REPAIR` |
+| 121 | [H071 形式自指具体认证正控制](<20261003-P-FORGE-ATOMIC-AUDIT/121 - H071 形式自指具体认证正控制.md>) | `H071` | R10 diagonal certification blind positive control | `ALIGNED / CONTROL_Q_ONLY / Q_CAPABILITY_CALIBRATION` |
 <!-- governance-shard-table:end -->
