@@ -2,12 +2,12 @@
 logical_id: P_FORGE_PQ_WARGAME_AUDIT
 mode: sequential
 shard_root: 20261003-P-FORGE-PQ-WARGAME
-last_shard: 20261003-P-FORGE-PQ-WARGAME/013 - R11 有限构造桥与同一任务检验.md
-append_target: 20261003-P-FORGE-PQ-WARGAME/013 - R11 有限构造桥与同一任务检验.md
+last_shard: 20261003-P-FORGE-PQ-WARGAME/014 - R12 反射盲态选择与来源支付.md
+append_target: 20261003-P-FORGE-PQ-WARGAME/014 - R12 反射盲态选择与来源支付.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 13 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 14 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE：P/Q共同锻造逐轮兵棋审计
 
@@ -31,4 +31,5 @@ soft_line_target: 300
 | 011 | [R09 固定点、层级与类集合边界](<20261003-P-FORGE-PQ-WARGAME/011 - R09 固定点、层级与类集合边界.md>) | H060–H068 fixedpoint、rank、Vrec与V/univ(A)的层级控制 | complete; guards and field repairs narrowed sites without Q-1 |
 | 012 | [R10 有界形成与对角化候选分叉](<20261003-P-FORGE-PQ-WARGAME/012 - R10 有界形成与对角化候选分叉.md>) | H069–H072 bounded formation与HF diagonal source的层级差分 | complete; self-reference calibrated but no ZFC Candidate-Q |
 | 013 | [R11 有限构造桥与同一任务检验](<20261003-P-FORGE-PQ-WARGAME/013 - R11 有限构造桥与同一任务检验.md>) | H073 ZF Pow与Mathlib Finset.powerset的ConstructionBridge回归 | complete; finite bridge valid only within finite task |
+| 014 | [R12 反射盲态选择与来源支付](<20261003-P-FORGE-PQ-WARGAME/014 - R12 反射盲态选择与来源支付.md>) | H074/H075 ClEx discovery、source payment与CAL/station控制 | complete; CAL-2 control rejected as theory Q |
 <!-- governance-shard-table:end -->
