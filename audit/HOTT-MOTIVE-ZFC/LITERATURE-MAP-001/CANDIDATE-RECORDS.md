@@ -4,7 +4,7 @@
 
 | M-Record | Work family | Report identity | 地图轴 | 来源／版本 | 初步关联 | 去重状态 |
 |---|---|---|---|---|---|---|
-| M-001 | Reflections on the Foundations of Mathematics: Univalent Foundations, Set Theory and General Thoughts | 2019 book DOI 10.1007/978-3-030-15655-8；reviews `nkaa005`/`nkab026`；chapters W-009/W-010 acquired | M-A / M-E | OpenAlex M-OA-001；ZQCM-001 W-006/009/010 | volume目录已映射；Maddy chapter已作primary comparative-control阅读，Altenkirch chapter已取得待读；其余章节保持remainder。 | NEW_WORK_FAMILY / PARTIAL_CHAPTER_COVERAGE |
+| M-001 | Reflections on the Foundations of Mathematics: Univalent Foundations, Set Theory and General Thoughts | 2019 book DOI 10.1007/978-3-030-15655-8；reviews `nkaa005`/`nkab026`；chapters W-009/W-010/W-011 acquired | M-A / M-E | OpenAlex M-OA-001；ZQCM-001 W-006/009/010/011 | volume目录已映射；Maddy chapter已作primary comparative-control阅读，Altenkirch chapter已作关键R-source阅读，Klev chapter已给出ZFC范围与extensionality site seed；其余章节保持remainder。 | NEW_WORK_FAMILY / PARTIAL_CHAPTER_COVERAGE |
 | M-002 | Should Type Theory Replace Set Theory as the Foundation of Mathematics? | 2023 DOI 10.1007/s10516-023-09676-0；arXiv:2111.06368v4 | M-A / M-E | OpenAlex M-OA-CIT-001；ZQCM-001 W-005 publisher PDF | Ahrens–North 的 forward citation；publisher PDF已核验并完成source-level视觉阅读，R-source已拆出，但尚无固定ZFC接口或Q。 | NEW_WORK_FAMILY / R_SOURCE_SCREENED |
 | M-003 | Realizability Models for Large Cardinals | 2024 DOI 10.4230/LIPIcs.CSL.2024.28 | M-C | OpenAlex M-OA-004；Dagstuhl DOI control | OpenAlex 初始题名误配已更正；该 work 是开放会议论文，讨论 classical realizability/ZF与large cardinals。 | NEW_WORK_FAMILY |
 | M-004 | Formalizing category theory in Agda | 2021 DOI 10.1145/3437992.3439922 | M-D | OpenAlex M-OA-CIT-001 | proof-assistant practical consumer lead；需验证与 ZFC/HoTT问题的同一任务关系。 | NEW_WORK_FAMILY |

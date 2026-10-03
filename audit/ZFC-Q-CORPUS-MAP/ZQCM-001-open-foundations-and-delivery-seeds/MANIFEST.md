@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-001_FROM_W005_BACKWARD_TRACE / ACQUISITION_ACTIVE / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-003_ITERATIVE_SET_SEED / ACQUISITION_ACTIVE / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -32,6 +32,8 @@
 | ZQCM-W-008 | Richard Matthews, *A Guide to Krivine Realizability for Set Theory*, arXiv:2307.13563 | M-013 | arXiv official PDF | M-C modern guide／control。 |
 | ZQCM-W-009 | Thorsten Altenkirch, *Naïve Type Theory*, DOI:10.1007/978-3-030-15655-8_5 | W-006 `V-UF-01`; W-005 B-03 | author-hosted PDF | M-A primary-motive extension。 |
 | ZQCM-W-010 | Penelope Maddy, *What Do We Want a Foundation to Do?*, DOI:10.1007/978-3-030-15655-8_13 | W-006 `V-CMP-04`; W-005 B-11 | author-hosted PDF | M-E foundation-criterion/control。 |
+| ZQCM-W-011 | Ansten Klev, *A Comparison of Type Theory with Set Theory*, DOI:10.1007/978-3-030-15655-8_12 | W-006 `V-CMP-03` | author-hosted preprint | M-A/M-E direct comparison／identity route。 |
+| ZQCM-W-012 | Ansten Klev, *The Purely Iterative Conception of Set*, DOI:10.1093/philmat/nkae018 | Klev author trace / PhilPapers metadata | author preprint / PhilArchive route | M-B/M-E stage／iterative-set route。 |
 
 ## 3. Inclusion and exclusion
 
@@ -54,3 +56,7 @@ ZQCM-001 reaches `COMPLETE_WITH_SCOPE` only when every frozen work family has a 
 Natural successors are newly discovered direct references, official versions, accessible author copies, actual consumer sources or a Q lead that satisfies a specialized SOP's entry conditions. Similar titles or a raw search hit do not automatically extend the batch.
 
 **Extension-001 rationale.** W-009 and W-010 are direct chapter-level references from the fully read W-005, already indexed as priority chapter leads in the W-006 map, and each has a public author-hosted PDF. They extend the frozen batch under the declared successor rule; they do not create a Q candidate.
+
+**Extension-002 rationale.** W-011 is a volume chapter already mapped as `V-CMP-03`; an exact author-page query exposed a public 21-page preprint. Its abstract and introduction directly distinguish standard axiomatic set theory/ZFC, types, functions and identity. Acquisition admits it to source screening, not to Q.
+
+**Extension-003 rationale.** W-012 was exposed by the same author trace and directly differentiates stage formation from iterated set-of formation. Public metadata/abstract establishes a high-priority ZFC-time/formation source seed; both direct fetch and BrowserOS test-profile access hit security verification, so it is admitted only as an `UNAVAILABLE_FULLTEXT_SEED`, not as read evidence.

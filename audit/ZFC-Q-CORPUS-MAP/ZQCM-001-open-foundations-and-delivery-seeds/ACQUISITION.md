@@ -14,3 +14,5 @@
 | ZQCM-ACQ-008 | W-008 | arXiv official PDF | ACQUIRED_VALIDATED | arXiv:2307.13563v2；65页；SHA256 `2297f7…05fac` | 等待remote standard重新资格化及视觉核验。 |
 | ZQCM-ACQ-009 | W-009 | author-hosted PDF | ACQUIRED_VALIDATED | DOI `10.1007/978-3-030-15655-8_5`；29页；SHA256 `0a7373…3bd67`。 | remote derivative待修复；排入视觉核验队列。 |
 | ZQCM-ACQ-010 | W-010 | author-hosted PDF | ACQUIRED_VALIDATED | DOI `10.1007/978-3-030-15655-8_13`；18页；SHA256 `eb3c8a…df3d5`。 | remote derivative待修复；排入视觉核验队列。 |
+| ZQCM-ACQ-011 | W-011 | author-page → Google Drive public preprint | ACQUIRED_VALIDATED | DOI `10.1007/978-3-030-15655-8_12`；21页；SHA256 `3c3555…b676e`。 | 先做identity／extensionality关键页视觉核验与source screening。 |
+| ZQCM-ACQ-012 | W-012 | author page → PhilArchive preprint | ACCESS_LIMITED_NO_BYPASS | DOI `10.1093/philmat/nkae018`、journal metadata与摘要已核；direct fetch 403，BrowserOS `test` profile显示Cloudflare verification。 | 保留metadata/abstract为seed；等待合法公开副本或作者提供版本。 |

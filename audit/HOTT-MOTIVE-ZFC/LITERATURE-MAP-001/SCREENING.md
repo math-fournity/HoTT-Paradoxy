@@ -4,7 +4,7 @@
 
 | M-Record | 筛选决定 | 依据 | 与既有 HMZ 来源的关系 | 复审条件 |
 |---|---|---|---|---|
-| M-001 | PARTIAL_CHAPTER_COVERAGE | 题名和 volume 直接覆盖 UF、set theory 与 foundations；ZQCM已固定目录、取得W-009/W-010并筛出W-010的竞争控制。 | 新二级／编辑语料；不替代 primary author sources。 | W-009 source reading及其余10个priority chapter leads的可得性／内容筛选。 |
+| M-001 | PARTIAL_CHAPTER_COVERAGE | 题名和 volume 直接覆盖 UF、set theory 与 foundations；ZQCM已固定目录、取得W-009/W-010/W-011并筛出W-010的竞争控制、W-009的关键R-source及W-011的extensionality site seed。 | 新二级／编辑语料；不替代 primary author sources。 | W-009/W-011剩余页视觉阅读及其余9个priority chapter leads的可得性／内容筛选。 |
 | M-002 | SOURCE_SCREENED_R_ONLY | 从 Ahrens–North forward citation 得到，题名直接对应 M-A/M-E；ZQCM-001已核验期刊原件并保存页级阅读证据。 | 新于既有 HMZ corpus；ZQCM W-005提供来源副本与视觉证据。 | 只在能固定`R→Z→Q`中的ZFC对象、形成与actual consumer时进入新的HMZ run；当前作者动机不构成Q。 |
 | M-003 | INCLUDED_FOR_FULL_READING | DOI核验后为开放的large-cardinal realizability models论文。 | 扩展 HMZ-020 的 model-semantic control。 | 核对与 HMZ-S-032 的版本、方法和 P5 边界。 |
 | M-004 | DEFERRED_WITH_REASON | 证明助手实际消费者可能相关，但查询本身未证明 ZFC/HoTT same-task。 | 新 M-D lead。 | 先审摘要／全文的理论和 consumer 层。 |

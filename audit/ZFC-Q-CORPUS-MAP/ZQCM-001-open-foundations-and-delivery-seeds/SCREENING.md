@@ -14,3 +14,5 @@
 | W-008 | INCLUDED | PENDING | Matthews Guide为独立arXiv work，纠正初始元数据错配。 |
 | W-009 | INCLUDED | PENDING | W-005反向引用且是W-006的作者章节；检查直接动机与ZFC范围。 |
 | W-010 | INCLUDED | PENDING | W-005反向引用且是W-006的foundation-criteria章节；优先作竞争／same-task控制。 |
+| W-011 | INCLUDED | PARTIAL_SOURCE_PRECISION_SCREENED | W-006的直接ZFC／类型论比较章节；ZFC范围、identity与functionhood关键页已审；仍须区分作者identity批评与实际ZFC同一任务。 |
+| W-012 | INCLUDED | FULLTEXT_UNAVAILABLE_SEED | 题名、摘要和 DOI 直接涉及iterative/stage conception、cumulative hierarchy和CZF/ZF bridge；尚未取得全文。 |

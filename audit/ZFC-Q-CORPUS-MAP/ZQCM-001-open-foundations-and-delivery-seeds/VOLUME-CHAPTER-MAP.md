@@ -28,7 +28,7 @@
 | V-UF-05 | *Models of HoTT and the Constructive View of Theories* — Andrei Rodin | 191–219 | 构造性／模型／实践桥接入口。 | 与W-007既有报告交叉核验。 |
 | V-CMP-01 | *Set Theory and Structures* — Neil Barton, Sy-David Friedman | 223–253 | 集合论／结构主义与表示控制入口。 | PhilArchive／作者公开版本。 |
 | V-CMP-02 | *A New Foundational Crisis in Mathematics, Is It Really Happening?* — Mirna Džamonja | 255–269 | foundations comparison 的竞争读法。 | 查作者公开版本。 |
-| V-CMP-03 | *A Comparison of Type Theory with Set Theory* — Ansten Klev | 271–292 | 直接的R→Z候选种子。 | 优先找作者／机构版本。 |
+| V-CMP-03 | *A Comparison of Type Theory with Set Theory* — Ansten Klev | 271–292 | 直接的R→Z候选种子。 | `W-011` author preprint已验证；关键source precision已筛读，仍无Q。 |
 | V-CMP-04 | *What Do We Want a Foundation to Do?* — Penelope Maddy | 293–311 | foundation-criterion／same-task控制。 | `W-010` author PDF已验证，待阅读。 |
 
 ## 3. 已尝试的公开作者稿与访问边界
@@ -39,7 +39,7 @@
 
 ## 4. 处置与余项
 
-- 该目录最初产生 `12` 个 chapter-level acquisition leads；W-009和W-010已取得，仍有 `10` 个待获取，不把任何条目自动升级为Q候选。
+- 该目录最初产生 `12` 个 chapter-level acquisition leads；W-009、W-010和W-011已取得，仍有 `9` 个待获取，不把任何条目自动升级为Q候选。
 - W-005（Altenkirch的另一篇2023文章）与 `V-UF-01` 是作者相同但作品不同的条目，必须各自做版本、PDF与论证核验。
 - W-006全卷和两篇OUP评述都尚未作为可核验全文入库；当前只是已证实的目录／路线证据。
 - 下一批优先级由已取得的W-001–005／007–008阅读和引文网络共同决定，不能仅因章节题名相近就扩展。
