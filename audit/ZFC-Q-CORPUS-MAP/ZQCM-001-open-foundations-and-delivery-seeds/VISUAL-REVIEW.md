@@ -4,7 +4,7 @@
 >
 > **顺序：** 已验证 PDF → remote standard MinerU 原始导出 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
 >
-> **状态：** W005_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / W010_TARGETED_SOURCE_ONLY_CHECK / REMOTE_DERIVATIVE_NOT_QUALIFIED。
+> **状态：** W005_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / W010_TARGETED_SOURCE_ONLY_CHECK / REMOTE_DERIVATIVE_NOT_QUALIFIED。
 
 ## 结果语义
 
@@ -45,6 +45,23 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W011-016 | W-011 | 16 | visual/W-011/150dpi/p016.png | `pdftotext` PDF p.16；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§4起始、identity judgement/proposition区分、`Id`形成规则和function application regress段；与文本层一致。 | visual/W-011/300dpi/p016.png：复核逻辑语法层的范围、identity formula和作者限定；需要另建ZFC语义／consumer桥，不能直接外推。 |
 | VR-W011-017 | W-011 | 17 | visual/W-011/150dpi/p017.png | `pdftotext` PDF p.17；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Well-def公式、functionhood预设identity、judgemental versus propositional identity与概念优先论证；与文本层一致。 | visual/W-011/300dpi/p017.png：复核循环论证条件、primitive rule和版本依赖限定；当前只可作P2逻辑层／R-source比较。 |
 | VR-W011-018 | W-011 | 18 | visual/W-011/150dpi/p018.png | `pdftotext` PDF p.18；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核rational-number example、criterion-of-identity论证、ZFC extensionality公式、universe `V` 的预设性及type-theory对照；与文本层一致。 | visual/W-011/300dpi/p018.png：逐符号复核`a=b↔∀x(x∈a↔x∈b)`、`V`和作者的“cannot be regarded”限定；形成Extensionality site seed，不构成Q。 |
+| VR-W011-002 | W-011 | 2 | visual/W-011/150dpi/p002.png | `pdftotext` PDF p.2；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核作者把本文限定为conceptual comparison、四个主题及`sets and types`入口；与文本层一致。 | 不适用：不承担Q相关最终引文。 |
+| VR-W011-003 | W-011 | 3 | visual/W-011/150dpi/p003.png | `pdftotext` PDF p.3；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Cantor／Zermelo sets/domains区分、Aczel 1978的CZF／type `V`引文及ordinal domains段；与文本层一致。 | 不适用：Aczel原典由W-013单独高精度审读。 |
+| VR-W011-004 | W-011 | 4 | visual/W-011/150dpi/p004.png | `pdftotext` PDF p.4；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核pluraliy/unity、set与type的哲学区分及脚注；与文本层一致。 | 不适用：本页是概念背景。 |
+| VR-W011-005 | W-011 | 5 | visual/W-011/150dpi/p005.png | `pdftotext` PDF p.5；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核set与type的topic-neutral／sort区别及历史性脚注；与文本层一致。 | 不适用：本页不固定ZFC consumer。 |
+| VR-W011-006 | W-011 | 6 | visual/W-011/150dpi/p006.png | `pdftotext` PDF p.6；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§2 syntax、type structure、higher types／dom及dependent-function说明；与文本层一致。 | 不适用：类型论框架背景。 |
+| VR-W011-007 | W-011 | 7 | visual/W-011/150dpi/p007.png | `pdftotext` PDF p.7；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核propositions-as-types、type `V`的比较描述、functions和`Terms and types`入口；与文本层一致。 | 不适用：不是ordinary ZFC形成记录。 |
+| VR-W011-008 | W-011 | 8 | visual/W-011/150dpi/p008.png | `pdftotext` PDF p.8；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核set-theory language、variable binding、type-theoretic primitive vocabulary与introduction／elimination rules；与文本层一致。 | 不适用：比较性语言论证。 |
+| VR-W011-009 | W-011 | 9 | visual/W-011/150dpi/p009.png | `pdftotext` PDF p.9；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核type theory openness和§2.3 judgements的开始、categorical judgement forms；与文本层一致。 | 不适用：不承担Q相关最终引文。 |
+| VR-W011-010 | W-011 | 10 | visual/W-011/150dpi/p010.png | `pdftotext` PDF p.10；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核`a:A`与`a∈b`对照、set-theoretic universe `V`、metalinguistic statement限制；与文本层一致。 | 不适用：该是作者的语言层比较，不能直接外推ZFC object-layer问题。 |
+| VR-W011-011 | W-011 | 11 | visual/W-011/150dpi/p011.png | `pdftotext` PDF p.11；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核judgement／proposition、theorem、assertion与truth段；与文本层一致。 | 不适用：未交付ZFC actual consumer。 |
+| VR-W011-012 | W-011 | 12 | visual/W-011/150dpi/p012.png | `pdftotext` PDF p.12；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核set-theory object／meta-language judgement、hypothetical judgements及context；与文本层一致。 | 不适用：不形成P再入结论。 |
+| VR-W011-013 | W-011 | 13 | visual/W-011/150dpi/p013.png | `pdftotext` PDF p.13；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§3 functions、type-theoretic application rules、set-theoretic function说明；与文本层一致。 | 不适用：函数比较背景。 |
+| VR-W011-014 | W-011 | 14 | visual/W-011/150dpi/p014.png | `pdftotext` PDF p.14；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核elementhood／identity的predicate-functional分析、Def-F与set-theoretic definition of application；与文本层一致。 | 不适用：作者没有在该页提供actual consumer。 |
+| VR-W011-015 | W-011 | 15 | visual/W-011/150dpi/p015.png | `pdftotext` PDF p.15；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核function types、lambda/application及Frege comparison；与文本层一致。 | 不适用：不把关于Frege的论述外推为ZFC Q。 |
+| VR-W011-019 | W-011 | 19 | visual/W-011/150dpi/p019.png | `pdftotext` PDF p.19；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核concluding remarks；作者称比较为conceptual architecture／ideology，并写set theory作为foundation的成功；与文本层一致。 | 不适用：这是`SOURCE_PRECISION_GAIN_NOT_Q`的反控制。 |
+| VR-W011-020 | W-011 | 20 | visual/W-011/150dpi/p020.png | `pdftotext` PDF p.20；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核references中Aczel 1978、Klev 2018a/b、Linnebo 2010及其他相邻来源；与文本层一致。 | 不适用：书目只产生受限的citation lead。 |
+| VR-W011-021 | W-011 | 21 | visual/W-011/150dpi/p021.png | `pdftotext` PDF p.21；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核references尾部、Linnebo/Rayo、Martin-Löf、Zermelo及末页边界；与文本层一致。 | 不适用：不承担Q相关引文。 |
 | VR-W013-001 | W-013 | 1 | visual/W-013/150dpi/p001.png | `pdftotext` PDF p.1；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Logic Colloquium '77／North-Holland 1978题录、题名、Peter Aczel、摘要和Introduction开头；视觉页与metadata／文本层一致。 | visual/W-013/300dpi/p001.png：复核“type of sets”、constructive interpretation和cumulative hierarchy限定；为CZF／类型论控制，不是ZFC Q。 |
 | VR-W013-002 | W-013 | 2 | visual/W-013/150dpi/p002.png | `pdftotext` PDF p.2；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核ZFC/CZF／类型论动机、explicit constructive notions、extensionality、constructive meaning与stages of Leversha's construction；与文本层一致。 | visual/W-013/300dpi/p002.png：逐句复核CZF是使用intuitionistic logic的ZF子系统、type theory是constructions的framework等范围限定；不投射为ordinary ZFC consumer。 |
 | VR-W013-003 | W-013 | 3 | visual/W-013/150dpi/p003.png | `pdftotext` PDF p.3；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§1、CZF first-order language、structural／set-existence axioms、Subset Collection、Infinity及remarks；公式块可读且与文本层对应。 | 不适用：p.4–5承担Power Set关系的高精度核验。 |
@@ -60,8 +77,10 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 
 ## 高精度队列
 
-已完成W-005的7个关键页、W-010的3个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+已完成W-005的7个关键页、W-010的3个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
 
 **W-005完成说明。** 已逐页生成、读取并落签pp.1–13的150dpi二值图；关键页1、5、7、9、11、12、13还读取了300dpi图。由于远程MinerU目前没有产生可用导出，这批记录验证的是期刊PDF、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
 
 **W-013完成说明。** 已逐页生成、读取并落签pp.1–12的150dpi二值图；关键页1、2、4、5、7、8、11还读取了300dpi图。远程MinerU的第一次命令被本地CLI page-range检查拒绝，第二次在默认全文范围内65秒无输出／无导出后中止；所以本批记录验证的是Aczel原件、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
+
+**W-011完成说明。** 已逐页生成、读取并落签pp.1–21的150dpi二值图；关键页1、16、17、18还读取了300dpi图。远程MinerU目前没有产生可用导出，这批记录验证的是Klev公开作者预印本、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
