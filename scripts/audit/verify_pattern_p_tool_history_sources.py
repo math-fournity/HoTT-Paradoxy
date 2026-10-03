@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Verify the immutable source denominator of the Pattern-P full-history audit.
+"""Verify the frozen source denominator of the Pattern-P full-history audit.
 
-The list is intentionally small and explicit.  It checks byte-level source identity;
-it does not decide whether a source is semantically in scope, whether a user message
-was correctly interpreted, or whether a tool change is justified.  Those judgments
-remain in the full-history audit and its Tool-BirthCards.
+The list is intentionally small and explicit. It checks byte-level source identity;
+the U archive is append-only, so it checks its frozen prefix at the declared cutoff
+and reports later appends separately. It does not decide whether a source is
+semantically in scope, whether a user message was correctly interpreted, or whether
+a tool change is justified. Those judgments remain in the full-history audit and its
+Tool-BirthCards.
 """
 
 from __future__ import annotations
@@ -16,7 +18,7 @@ from pathlib import Path
 import sys
 
 
-SCHEMA_VERSION = "pattern-p-full-history-source-verification/v1"
+SCHEMA_VERSION = "pattern-p-full-history-source-verification/v2"
 
 EXPECTED = (
     ("S01", "sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md", "e3db2ef6ce1bf93d0b484126b96d8e8b63a545f091eac32040e08f5aa9e449e2", 7, 3248),
@@ -36,8 +38,15 @@ EXPECTED = (
     ("R1", "dev-notes/0015 - 2026-09-17 - 第四弹方案文档收官版（027 升华重写）.md", "0c0ad4d0d2e6c5f6a0c073158c826b4e6062b43801990357908322d9ecd7a388", 46, 4095),
     ("R2", "dev-notes/0102 - 2026-09-30 - 这个repo现在被Opus接手了，它推进了很多工作，它现在因为用量而中断了，我并不是要让你接手它的工作，它用量恢复了之后可以继续工作，但是....md", "3fd6c54820ba1d4b60020347f18310a76e80c8b0c07cb3d96e2bed7e25def848", 663, 67657),
     ("C", "dev-notes/0108 - 2026-10-02 - 我觉得你们找的都有问题，你看芝诺悖论打的是微积分的基础理论，极限理论，或者说实数理论、数轴都可以.md", "cb14057dc2155cfff60e47ec2666abd042f7816f494c1122d66a5014a96f0e62", 539, 57355),
-    ("U", "dev-notes/0109 - 2026-10-02 - ZFC最大的问题，肯定在于对“时间维度”的把握上.md", "fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c", 1719, 141651),
+    ("U", "dev-notes/0109 - 2026-10-02 - ZFC最大的问题，肯定在于对“时间维度”的把握上.md", "fd0c995bd31195514ef469583a1dc9b2e6624e043b451b1ecbe84c9a08247c55", 1849, 150776),
 )
+
+# This archive is extended by the required end-of-turn transcript writer. The full
+# history audit is deliberately frozen through the final response to U19. Later
+# turns are observable but do not silently enter the U1-U19 semantic denominator.
+APPEND_ONLY_PREFIX_CUTOFFS = {
+    "U": "through skill-turn-10e7913cb3e84d919199427c034b8358 terminal answer",
+}
 
 
 def verify(root: Path) -> dict[str, object]:
@@ -52,14 +61,46 @@ def verify(root: Path) -> dict[str, object]:
             rows.append(row)
             continue
         data = path.read_bytes()
-        actual = {
-            "sha256": hashlib.sha256(data).hexdigest(),
-            "lines": data.count(b"\n"),
-            "bytes": len(data),
-        }
         expected = {"sha256": expected_sha, "lines": expected_lines, "bytes": expected_bytes}
-        row.update({"expected": expected, "actual": actual})
-        row["status"] = "PASS" if actual == expected else "MISMATCH"
+        if identifier in APPEND_ONLY_PREFIX_CUTOFFS:
+            if len(data) < expected_bytes:
+                actual = {
+                    "sha256": hashlib.sha256(data).hexdigest(),
+                    "lines": data.count(b"\n"),
+                    "bytes": len(data),
+                }
+                row.update({
+                    "expected": expected,
+                    "actual_prefix": actual,
+                    "verification_scope": "APPEND_ONLY_PREFIX",
+                    "cutoff": APPEND_ONLY_PREFIX_CUTOFFS[identifier],
+                    "status": "TRUNCATED_BEFORE_CUTOFF",
+                })
+            else:
+                prefix = data[:expected_bytes]
+                actual = {
+                    "sha256": hashlib.sha256(prefix).hexdigest(),
+                    "lines": prefix.count(b"\n"),
+                    "bytes": len(prefix),
+                }
+                appended = data[expected_bytes:]
+                row.update({
+                    "expected": expected,
+                    "actual_prefix": actual,
+                    "verification_scope": "APPEND_ONLY_PREFIX",
+                    "cutoff": APPEND_ONLY_PREFIX_CUTOFFS[identifier],
+                    "archive_current": {"lines": data.count(b"\n"), "bytes": len(data)},
+                    "appended_after_cutoff": {"lines": appended.count(b"\n"), "bytes": len(appended)},
+                })
+                row["status"] = "PASS" if actual == expected else "MISMATCH"
+        else:
+            actual = {
+                "sha256": hashlib.sha256(data).hexdigest(),
+                "lines": data.count(b"\n"),
+                "bytes": len(data),
+            }
+            row.update({"expected": expected, "actual": actual, "verification_scope": "FULL_FILE"})
+            row["status"] = "PASS" if actual == expected else "MISMATCH"
         if row["status"] != "PASS":
             failures.append(row)
         rows.append(row)

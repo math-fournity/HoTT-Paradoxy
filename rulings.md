@@ -577,3 +577,14 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. 裁定只有四种：`OLD_TOOL_FIELD_GAP`、`DERIVED_TOOL_CANDIDATE`、`UNCONTAINED_PATTERN_CANDIDATE`、`NOT_ENOUGH_EVIDENCE`。只有第三种在独立判断职责、正控制、负控制、来源／worker计划与精确 Git 收据齐备后，才可提议新编号；派生工具不自动编号。
 3. H054–H059 已将当前“忒修斯之船／历史身份—替换—provenance”裁定为 `TOOL_BIRTH_NOT_ENOUGH_EVIDENCE`：synthetic snapshot-loss clue被history-preserving control解除，Metamath extensionality/Power Set source缺同层identity consumer，Mathlib NFA真实endpoint-set consumer又显示path identity的抹除对其acceptance Done正确，sealed arbiter不支持派生或新编号。它只有在固定同一任务的Power Set consumer后才重开，届时再判断是P2表示层、P3过程层、P2×P3派生结构或未被三刀容纳的新职责。不得因圆环、SIP或历史身份词汇相近预先确定归属。
 4. P-DAG SOP 的每个自然单元加 `pattern-universe claim`；full origin audit新增可重算来源清单、Git谱系和出生审计。该裁定授权相应工具、审计、Feature、MEMORY与Git commit；不授权数学结论、无控制的新刀、tag、push或发布。
+
+## 2026-10-02：刀具系统理念必须成为 P-DAG 的可发现入口
+
+研究发起人要求将三把刀出现以前、锻造过程中形成的讨论内容和理念收成一份名为`刀具系统理念.md`的可索引文档，并将其放入 SOP 路由；未来工作者不应靠搜索旧对话才能恢复“为什么这样锻刀”。
+
+执行裁定：
+
+1. `dev-docs/刀具系统理念.md`是该理念地图的 canonical index，正文由其分片拥有。它说明罗素的计算—存在—自指张力、理论级靶与明显位置、一遍匹配启发式、P1/P2/P3 的不同惯性、案例校准、发现—验证—共同锻造、动态 DAG 和新刀出生边界。
+2. 新开／恢复 P-DAG、改变某把刀的职责、提出新刀、改变成功定义，或无法说明节点服务哪项原初发现动作时，动态 DAG 主 SOP、005 自审片和项目 Skill 均须先路由到该理念图；例行同一 Session 节点只消费其触及段落，不能把它变成机械重复阅读负担。
+3. 该文只拥有概念地图。用户原话仍由 sources/rulings 拥有，当前规格仍由 P1/P2/P3 与 TaskCard 拥有，逐段原初对齐和 Git／运行证据仍由 full origin audit 拥有。它不得被用作 ZFC、HoTT 或其它数学理论存在矛盾的证据。
+4. 本裁定授权理念文档、SOP/Skill/入口路由、MEMORY和精确 Git commit；不授权新增 worker、数学结论、tag、push或发布。
