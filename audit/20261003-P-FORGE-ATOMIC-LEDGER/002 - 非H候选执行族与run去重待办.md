@@ -32,7 +32,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N06 P2-FORGE | `P2-FORGE-001` | unique session `01a0fca3-9498-71f0-b8d6-255b9a65648b` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N07 P3-FORGE | `P3-FORGE-001` | unique session `01a0fca5-f826-7cd0-9731-09428db42c6d` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N08 P1-FORGE | `P1-FORGE-001` | unique session `01a0fca9-2ca7-76b2-b5fc-14812da9f046` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
-| N09 P3-CIRCLE | `P3-CIRCLE-001` | unique session `01a0fcac-51d5-7da1-b10b-52b3cfa4a9c3` | `UNIQUE_ATOMIC_RUN` |
+| N09 P3-CIRCLE | `P3-CIRCLE-001` | unique session `01a0fcac-51d5-7da1-b10b-52b3cfa4a9c3` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N10 P2-HOTT | `P2-HOTT-001` | unique session `01a0fcb1-2dda-7d52-920c-3ae4abcea104` | `UNIQUE_ATOMIC_RUN` |
 | N11 P3-HOTT | `P3-HOTT-001` | unique session `01a0fcb3-a8b7-76b1-ac58-a3f62bcc741b` | `UNIQUE_ATOMIC_RUN` |
 | N12 P2-ZFC | `P2-ZFC-001` | unique session `01a0fcb5-5011-7172-9b42-c09b4b9f52ee` | `UNIQUE_ATOMIC_RUN` |
