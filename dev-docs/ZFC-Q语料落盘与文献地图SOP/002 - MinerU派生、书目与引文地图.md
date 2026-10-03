@@ -32,6 +32,17 @@ MinerU Markdown、OCR和索引是阅读帮助，不替代原PDF。公式、表�
 4. **关键位置作高精度核验。** 所有可能进入 Q LeadCard 的定义、命题、公式、量词、完成条件、脚注、图表和引用页，以及150dpi发现差异的页，必须以300dpi页图或裁剪图再检视；图存入 `visual/<work-id>/300dpi/`，并在 `VISUAL-REVIEW.md` 标明PDF页、MinerU定位、差异及处置。
 5. **视觉证据不是数学结论。** 它只说明某个派生段可否被用作导航和定位；解释、同一任务、source payment和Q资格仍需回原PDF及后续专门SOP处理。
 
+### 2.1 压缩安全的逐页写回与恢复
+
+视觉阅读会把页面的版面、公式、脚注和限定词暂时放入当前上下文；这不是可恢复证据。`VISUAL-REVIEW.md` 是每个 batch 唯一的持久视觉游标，**一张实际读过的页只有在其行已写入后才取得“已审阅”身份**。
+
+1. 一个 `ReviewUnit` 至少是一张 PDF 页：`Work ID`、PDF页、150dpi图路径、当前阅读层（remote comparative或source-only）、实际核对锚点、结果、300dpi处置和下一步都写入同一页级行。对于关键页，读取300dpi图后立即补写同一行，不把高精度观察留在聊天或临时记忆中。
+2. 看完某页后、打开下一页之前，必须以结构化写入把该页追加到 `VISUAL-REVIEW.md`。可以预先生成多张图，但未有页级行的图只处于`RENDERED_UNAUDITED`，不能支持来源解释、筛选、citation、Q lead或“已完成视觉阅读”的句子。
+3. 发生上下文压缩、新Session、交接、工具中断或不确定是否已落签时，先读取本 batch 的`VISUAL-REVIEW.md`当前游标和相关`MINERU-DERIVATIVES.md`。没有持久行的先前视觉印象一律作废；从最早的`RENDERED_UNAUDITED`／缺行页回到原PDF页图重审，不能从摘要、assistant文本或私有记忆补写结论。
+4. 一个 work 的`SOURCE_ONLY_VISUAL_CHECK_COMPLETE`或`VISUAL_PASS`只可在全部150dpi页均有行、每个关键／异常页均已记录300dpi处置、并且没有`RENDERED_UNAUDITED`余项时写入。远程导出是否存在仍是另一条证据状态，不能因逐页写回而被提高。
+
+这是一项恢复和证据完整性合同，不是对模型记忆、上下文窗口或未来行为的全称保证。它防止的是已发生且可直接避免的错误：把“曾经看过图”误报为“有可追溯的视觉审计”。
+
 ## 3. 书目地图
 
 每批维护：

@@ -2,7 +2,7 @@
 name: zfc-q-corpus-map
 description: "Build a traceable corpus of literature relevant to discovering ZFC Q: acquire and verify PDFs, derive MinerU reading text, map bibliography and citations, and route only qualified leads into Q analysis when the user invokes ZFC-Q-CORPUS-MAP-SOP."
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   role: "task-scoped-corpus-research"
   sop_name: "ZFC-Q-CORPUS-MAP-SOP"
 ---
@@ -26,7 +26,7 @@ metadata:
 1. 冻结一个 corpus batch：研究问题、理论位置、seed、数据库／作者／引文入口、语言／时期、纳入排除和停止条件。
 2. 建立 WorkCard 与 AcquisitionCard。作品身份先用 DOI、作者、出版社、arXiv、正式会议／项目档案校准；浏览器或用户提供URL只记 access provenance。
 3. 用 math-paper-harvest 的原件优先路线取得全文。每个文件执行 PDF身份、页数、题名／文本层和 SHA-256 核验；失败或版本不明保持 unavailable／mismatch。
-4. 对已验证且本 batch 需要处理的 PDF，先用 ZCode 同源的 `direct remote standard` MinerU 质量通道。禁止以本地 `basic` 结果作为本项目的阅读或判断依据。保留原始 remote zip、展开的 Markdown/JSON 与身份收据；随后渲染二值化页图，逐页进行视觉核验，并对 Q 相关公式、表格、脚注、定义、量词和出现差异的页面作 300dpi 级复核。原 PDF 是权威，MinerU Markdown/JSON 只是派生阅读材料。
+4. 对已验证且本 batch 需要处理的 PDF，先用 ZCode 同源的 `direct remote standard` MinerU 质量通道。禁止以本地 `basic` 结果作为本项目的阅读或判断依据。保留原始 remote zip、展开的 Markdown/JSON 与身份收据；随后渲染二值化页图，逐页进行视觉核验，并对 Q 相关公式、表格、脚注、定义、量词和出现差异的页面作 300dpi 级复核。**每实际看完一页，必须在打开下一张页图前立即向 `VISUAL-REVIEW.md` 写入该页的审计行；未写入行的视觉印象不能作为证据。**原 PDF 是权威，MinerU Markdown/JSON 只是派生阅读材料。
 5. 在 bibliography、citation和coverage map登记 work family、版本关系、backward／forward trace、筛选和余项。
 6. 只有来源经 R/Z/Q/E、same-task、source payment和模式 P 资格化后，才从 Q LeadCard 进入 HOTT-MOTIVE-ZFC、P-FORGE或其他专门候选工作；地图本身不启动P-DAG。
 
@@ -36,7 +36,7 @@ metadata:
 - 用户提供的 `sci-hub.jp` 等访问线索只记在 AcquisitionCard 的 access provenance。PDF 仍须与 DOI／作者／题名／页码和原文版本核验；不能把该路径写成一手学术来源或以它绕过版本审计。
 - 内建网页检索是公开资料的默认路线。只有某个已冻结 work 的获取确实需要真实页面交互、`test` profile 的持久状态或视觉核验时，才可使用 BrowserOS MCP；每次使用前加载 `browseros-safe-use`，建立自己的 session／标签组，并记录它解决的具体 acquisition gap。BrowserOS 不是一般搜索的替代品，也不用于绕过访问或安全验证。
 - MinerU使用本机既有 runtime；研究发起人已授权正常公开学术PDF走 ZCode 同源的 direct remote standard 解析。远程路径不改变本地App daemon或配置；清晰敏感的文件仍须另行确认。远程解析失败时记录失败收据，转入原 PDF 的视觉阅读，不能静默降级到本地 `basic` 或把派生文本抬升为原文。
-- 视觉核验的输入、页图、比对范围、结果和高精度证据必须写入 batch 的 `VISUAL-REVIEW.md`。被用于判定的页图是可追溯证据，不能只留在临时目录；`VISUAL_PASS±` 或 `SOURCE_PRIORITY` 只描述该派生段的可用性，不构成数学或 ZFC Q 结论。
+- 视觉核验的输入、页图、比对范围、结果和高精度证据必须写入 batch 的 `VISUAL-REVIEW.md`。该文件还是**唯一的可恢复视觉游标**：压缩、Session 恢复或交接后，先读取它的当前游标；没有对应页级行、或被标为`RENDERED_UNAUDITED`的图，即使先前曾在对话中看过，也一律视为未审阅并从原 PDF 页图重新开始。被用于判定的页图是可追溯证据，不能只留在临时目录；`VISUAL_PASS±` 或 `SOURCE_PRIORITY` 只描述该派生段的可用性，不构成数学或 ZFC Q 结论。
 
 ## 完成边界
 

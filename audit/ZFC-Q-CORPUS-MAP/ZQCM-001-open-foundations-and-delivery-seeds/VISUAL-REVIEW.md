@@ -4,7 +4,15 @@
 >
 > **顺序：** 已验证 PDF → remote standard MinerU 原始导出 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
 >
-> **状态：** W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED。
+> **状态：** W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / W003_RENDERED_UNAUDITED_RECOVERY_REQUIRED / REMOTE_DERIVATIVE_NOT_QUALIFIED。
+
+## 可恢复视觉游标
+
+`VISUAL-REVIEW.md` 是本批视觉审计的唯一持久游标。压缩、Session恢复或交接后，只能消费已有页级行；“曾在对话中看过”而未有行的页面按未审阅处理。每一页完成实际视觉检查后，必须在打开下一页前写入一行；关键页的300dpi检查随后立即补写同一行。
+
+| Work ID | 已渲染资产 | 具有持久页级行的150dpi审读 | 当前状态 | 恢复动作 |
+|---|---|---|---|---|
+| W-003 | p.1–11的150dpi图；p.1–5、7–10的300dpi图 | 无 | `RENDERED_UNAUDITED_RECOVERY_REQUIRED`：此前的视觉印象未落入本 owner，不能被消费。 | 从p.1重新读取原PDF页图；每页写入一条`VR-W003-###`后才可打开下一页。 |
 
 ## 结果语义
 
@@ -18,7 +26,7 @@
 
 ## 页级记录
 
-remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当前已对source-only页面记录 PDF 页、150dpi图、文本层定位、核对项目、结果和必要300dpi图。
+remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当前已对source-only页面记录 PDF 页、150dpi图、文本层定位、核对项目、结果和必要300dpi图；没有页级行的渲染资产必须保持`RENDERED_UNAUDITED`，直至重新审读并立即写回。
 
 | VR ID | Work ID | PDF页 | 150dpi图 | MinerU定位 | 核对／结果 | 300dpi仲裁 |
 |---|---|---:|---|---|---|---|

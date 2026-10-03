@@ -6,7 +6,7 @@
 |---|---|---|---|
 | W-001 | INCLUDED | PENDING | UF面向数学家的基础说明。 |
 | W-002 | INCLUDED | PENDING | predicative UF控制。 |
-| W-003 | INCLUDED | PENDING | Krivine/ZF交付控制。 |
+| W-003 | INCLUDED | VISUAL_RECOVERY_PENDING | Krivine/ZF交付控制。已渲染页图没有持久页级审计行；此前观察不作为筛读依据，须从p.1重审并逐页写回。 |
 | W-004 | INCLUDED | PENDING | Krivine set theory guide。 |
 | W-005 | INCLUDED | PENDING | type theory versus set theory 比较。 |
 | W-006 | CATALOG_REVIEW | PENDING | 需拆开review、volume与章节。 |

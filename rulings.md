@@ -710,3 +710,14 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 1. 公开检索、页面读取、DOI核验和普通下载继续优先使用内建网页工具及既有公开路线。BrowserOS 只在某个冻结 work 的真实页面交互、持久状态或视觉核验确实是必要条件时启用，并固定使用 `test` profile、独立session和自己的标签组。
 2. BrowserOS 不能被用来绕过登录、付费墙、下载限制或反自动化／安全验证；例如当前 Nottingham 资源页的验证状态只登记为 acquisition remainder，不能通过反复交互规避。
 3. 本轮无需安装 BrowserOS MCP，也不改动任何全局治理仓库。若未来需求改变，在修改全局治理文件之前先完成该治理 repo 的精确路径提交，并按当时的 `browseros-safe-use` 和全局自维护 Gate 重新资格化。
+
+## 2026-10-03：视觉阅读必须在压缩前成为可恢复审计证据
+
+研究发起人指出：连续查看二值化文档页图、却没有在上下文压缩前把每页的阅读结果写入审计 owner，会使随后会话只剩“曾经看过”的不可核印象。这样的视觉阅读不能承担来源判断、筛选或Q资格。
+
+执行裁定：
+
+1. 每张实际阅读的页图必须在打开下一页前，立即写入 batch 的`VISUAL-REVIEW.md`页级行；该行记录页号、图路径、阅读层、核对锚点、结果和300dpi处置。未有行的页即使已渲染或在此前对话中看过，也标为`RENDERED_UNAUDITED`，不具有审计资格。
+2. 上下文压缩、新Session、交接、工具中断或是否落签不明时，先读`VISUAL-REVIEW.md`和`MINERU-DERIVATIVES.md`的当前游标；从最早无行或`RENDERED_UNAUDITED`页重新依据原PDF审读，不能从摘要、assistant文本或记忆补写结论。
+3. `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`、`VISUAL_PASS`或来源筛读完成，只有在全部150dpi页已有持久行、关键／异常页有300dpi处置且无未审阅余项时才可写入。该合同只确保视觉证据可恢复，不把页面审读、远程MinerU状态或来源解释提升为数学结论。
+4. 本裁定授权更新项目语料 Skill、SOP、当前batch audit owner、Feature、MEMORY和精确Git谱系；不授权新的数据库、后台监控、Host Goal、worker、P-DAG、数学STATE、数学结论、tag、push或发布。
