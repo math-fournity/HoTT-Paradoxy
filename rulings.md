@@ -599,3 +599,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. SOP 路由而不复制原有 owner：三刀负责字段，012负责Tool-BirthCard，004负责顺序锻造史，005负责偏差和full origin audit，NodeCard/TaskCard负责实际节点，full audit负责来源分母，Git commit负责可追溯版本。
 3. 新增`PowerSetDefenseLedger`。它先以固定来源确定Power Set的具体guard与适用范围，再要求候选在同一`u/F/C/Q/I/O/Done`任务中说明guard未支付的剩余问题和反事实控制。它不得把“加强防御”写成ZFC全面安全、历史作者意图或数学结论；ledger为空时停止升级候选。
 4. 本裁定授权SOP、路由、Feature、MEMORY、自审过程与精确 Git commit；不自动授权worker、网络、数学STATE更新、新刀编号、tag、push或发布。
+
+## 2026-10-03：重启 P-FORGE 前必须分开校准、来源层与 Power Set 站位状态
+
+研究发起人要求依据当前运行轨迹的评估作必要调整，随后仍以原来的`P-FORGE-SOP`继续。此次裁定吸收其中可由当前证据支持的三项方法问题，而不接受把既有 HoTT 记录或 ZFC 候选夸大为数学结论。
+
+执行裁定：
+
+1. P 的行为证据分为`CAL-0 INPUT_INTEGRITY`、`CAL-1 KNOWN_CONTROL`、`CAL-2 INDEPENDENT_INTERFACE_SELECTION`、`CAL-3 SOURCE_SURVIVING_PROSPECTIVE_Q`和`CAL-4 SAME_CARD_Q_CONVERGENCE`。已知罗素正控制只证明CAL-1；盲态命中一个不同接口也只到CAL-2，除非来源留下同一任务、active-demand和payment初检都不能直接清偿的prospective Q。三刀会合才可进入CAL-4，且仍不推出ZFC不一致、UR或数学定理。
+2. 每张ZFC／Power Set ForgeIntent和NodeCard必须显式标记来源层：规则／公理、proof/formalization、model/semantic、mathematical practice或construction bridge。一个证明助手中的反射、内模型或stage术语仍首先是其冻结的proof/formalization来源；它不能替代独立模型语义、真实数学实践或现实／实现同一任务的证据。
+3. `ROUND_STOP_REPEATED_GUARDS`只停止已列guard的同义重复；它不宣称Power Set已被防住，也不自动切换站位。进入`STATION_SWITCH_CANDIDATE`前必须满足013的S1–S5，尤其是完成一个非Power-Set显眼基础接口的竞争检查（S3），并由研究发起人选择下一站。当前状态保持`STATION_EXIT_REVIEW_PENDING`。
+4. H074/H075的具体作用是一个控制：脱敏盲态把`ClEx(P,a)`选为prospective proof site，固定`Reflection.thy`来源却以`ZF_ClEx_iff`／`ZF_Closed_Unbounded_ClEx`直接支付该proof-theory task；它属于`CAL-2_CONTROL_ONLY`／L-B，不是ZFC Q、L-C语义覆盖、Power Set站位竞争或新刀。
+5. 本裁定授权013、P-FORGE／P-DAG合同、Feature、MEMORY、锻造横向记录、H074/H075公开审计与精确Git提交；不恢复当前暂停的Goal，不自动启动worker、网络节点、station switch、Goal／STATE mutation、tag、push或数学结论。

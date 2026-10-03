@@ -2,12 +2,12 @@
 logical_id: PATTERN_P_THREE_TOOLS
 mode: topical
 shard_root: 模式P三把刀
-last_shard: 模式P三把刀/012 - 新刀具出生与花纹宇宙合同.md
+last_shard: 模式P三把刀/013 - P校准收敛、来源覆盖与Power Set站位退出合同.md
 append_target: -
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 12 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 13 个分片；缺一片即未完成，按表顺序读取。
 
 # 模式 P 的三把刀：P1、P2、P3
 
@@ -70,4 +70,5 @@ soft_line_target: 300
 | 010 | [代理匹配自我说明合同](<模式P三把刀/010 - 代理匹配自我说明合同.md>) | 规定每次外部 Terra / Max 探针必须交付的 source→选择→映射→归约→淘汰→反事实理由链，并限定其证据含义 | current |
 | 011 | [罗素最后一跃共享内核](<模式P三把刀/011 - 罗素最后一跃共享内核.md>) | 三把刀共用的 domain-promotion、reentry、stage-completion 内核；校准无限制形成与 Power Set 的 bounded/rank guards，不构成第四把刀 | current draft |
 | 012 | [新刀具出生与花纹宇宙合同](<模式P三把刀/012 - 新刀具出生与花纹宇宙合同.md>) | 判断新花纹能否被P1/P2/P3惯性系忠实容纳，区分旧刀缺口、派生刀与真正新刀的证据合同 | current draft |
+| 013 | [P校准收敛、来源覆盖与Power Set站位退出合同](<模式P三把刀/013 - P校准收敛、来源覆盖与Power Set站位退出合同.md>) | 将已知正控制、盲态位置线索、来源验证、同卡Q会合分级；管理理论／模型／实践／construction bridge来源覆盖，并定义Round与全局Power Set站位退出审查 | current draft |
 <!-- governance-shard-table:end -->

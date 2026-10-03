@@ -16,6 +16,6 @@
 
 - [刀具系统理念](刀具系统理念.md)：从罗素的计算—存在—自指张力到 P1/P2/P3 的不同惯性，说明案例怎样校准、发现怎样进入来源验证、为何“锻刀”与 ZFC Q 的定位共同推进，以及新刀何时才有出生资格。P-DAG 新开、恢复或改刀职责时先从这里恢复工作意识；原始用户来源和逐段运行证据仍分别由 sources/rulings 和 full origin audit 拥有。
 
-- [P-FORGE-SOP：模式 P 刀具持续锻造、新刀具出生与全历史自审](模式P刀具持续锻造SOP.md)：用户可在后续 `/goal` 直接引用的总操作合同。它把持续打磨、Tool-BirthCard、理念—实作自审、全历史分母、`PowerSetDefenseLedger`、检查维度与精确 Git 写回串成一条流程；每一细节仍路由到已有的三刀、P-DAG 与审计 owner。
+- [P-FORGE-SOP：模式 P 刀具持续锻造、新刀具出生与全历史自审](模式P刀具持续锻造SOP.md)：用户可在后续 `/goal` 直接引用的总操作合同。它把持续打磨、Tool-BirthCard、理念—实作自审、全历史分母、`PowerSetDefenseLedger`、`CAL-0`至`CAL-4`校准、来源层与Power Set station审查、检查维度和精确 Git 写回串成一条流程；每一细节仍路由到已有的三刀、P-DAG 与审计 owner。
 
 - [模式 P 动态 DAG 调度](模式P动态DAG调度.md)：当前 P1/P2/P3 共同锻造的 Master 调度 SOP 与项目内 Skill。它把 worker 的盲态、来源、项目分支、网络、Battle、Master 裁决、App Server/CLI 运行资格和证据收据分成按节点决定的合同；只在用户 2026-10-02 的任务限定授权下使用。

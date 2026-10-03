@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [P-FORGE：校准收敛、来源覆盖与 Power Set station 调整（2026-10-03）](20261003-P-FORGE-CALIBRATION-STATION-ADJUSTMENT.md)：将已知控制、独立盲态选择、来源存活Q和三刀会合分成CAL-0至CAL-4；proof/formalization、model/semantic、数学实践和construction bridge分层；Round 1停止重复guard但station保持退出审查，未定位ZFC Q。
+
+- [P-DAG H074/H075：`ClEx` stage-reflection 的盲态选择与来源支付（Terra / Max，2026-10-03）](20261003-P-DAG-H074-H075-REFLECTION-STAGE-Terra-Max.md)：H074的脱敏盲态选中`ClEx(P,a)`与proof task；H075固定`Reflection.thy`后以source theorem Done直接支付该任务，P2保持guarded global/local relation、P3无lifecycle；这是CAL-2/L-B控制，不是语义模型覆盖或ZFC Q。
+
 - [P-FORGE Round 1：Power Set 防御账本汇总（2026-10-03）](20261003-P-FORGE-POWERSET-DEFENSE-LEDGER-ROUND1.md)：汇总 RK-0、rank、fixedpoint、class/set、formation和finite bridge 的版本固定 guard；本轮所有已检查卡的PS4均为空，停止重复guard叙述，并列出下一有效source ingress条件。
 
 - [P-DAG H073：P3-C 有限 Powerset ConstructionBridgeCard 回归（Terra / Max，2026-10-03）](20261003-P-DAG-H073-P3C-FINITE-CONSTRUCTION-BRIDGE-Terra-Max.md)：ZF `Pow`和Mathlib finite powerset共有subsethood模式，但有限`Finset` output无法成为任意ZF set的同一任务；这为P3新增跨解释的ConstructionBridgeCard，保留有限completion control并阻断错误外推。
