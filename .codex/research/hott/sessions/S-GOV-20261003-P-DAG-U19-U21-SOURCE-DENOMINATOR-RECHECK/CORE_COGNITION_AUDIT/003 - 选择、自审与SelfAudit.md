@@ -911,73 +911,7 @@ next_trigger: decide whether another discovered memo family can affect P method 
 git_record:
   candidate_branch: codex/p-dag-tool-birth-audit
   base_head: e9ffcb4ad05284712299744f40b8adbc7f66f96c
-  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard
-  no other-checkout access; no full-origin current-owner edits
-~~~
-
-## Delta SelfAuditCard：0047／0058／0066／0068 secondary quote memo 来源边界
-
-~~~yaml
-card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-SECONDARY-QUOTE-MEMOS-0047-0068
-worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
-research_profile: RESEARCH_PROFILE_GOVERNED
-source_units:
-  - dev-notes/0047, 0058, 0066, 0068 quote memos
-  - local dev-notes conversation archive prompt blocks
-  - sources/**/*.md
-  - current full-origin audit index and shards 001-006
-original_requirement:
-  - separate direct user prompts, primary-source extractions, and AI-authored quote summaries
-  - trace quote-bearing memos without treating their AI prose as user or math evidence
-  - continue within the current independent worktree only
-actual_action:
-  - current_checkout_only: true
-  - files_scanned: 4
-  - file_sha256: "0047=722c65edaa5ec869828c66235ee5da058506076a2234ed158973dd28217f9052; 0058=35f143886f6803de11d133fd966e516fc0e3a6b53e116bffc5dc1aba790b9c57; 0066=0e0db7ac667efa5ff792cd5fe5f7ebbd5048db4632d661a9e911a1bec8cbe58b; 0068=b6c0e5b9162f4690aea833a54b31a043e86644675bd48590253a859ea55540a5"
-  - memo_types: "no archive markers, session IDs, native turn IDs, or prompt/answer SHA fields"
-  - quoted_body_chars: "0047=308; 0058=142; 0066=107; 0068=56"
-  - local_direct_archive_prompt_blocks_scanned: 413
-  - sources_markdown_files_scanned: 932
-  - normalized_full_body_matches: "none across checked archive prompt blocks or source Markdown"
-  - partial_phrase_hits: "0066 premise phrase and 0068 question phrase occur in sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md; this does not establish full quote equality or native event identity"
-  - AI_dialogue_dir_in_current_checkout: false
-alignment_verdict: SECONDARY_QUOTE_LEADS_FOUND / PRIMARY_EVENT_CROSSWALK_UNRESOLVED / NOT_DIRECT_P_SPEC
-deviation_class:
-  - no ORIGINAL_IDEA_CHALLENGED
-  - no P1/P2/P3 success/failure or mathematical claim
-  - no full-origin owner mutation
-pattern_universe_claim:
-  claim: "The four memos add no source-defined same-task theory pattern; they are secondary interpretation/quotation leads."
-  P1: "0047/0058 point to first-projectile/circle framing, but no native source task is recovered by this scan."
-  P2: "No logical mapping or same-object reentry is established by the memos."
-  P3: "No source lifecycle/admission transition is established by the memos."
-  status: NOT_ENOUGH_EVIDENCE
-tool_birth_card: NOT_REQUIRED
-source_identity:
-  memo_native_event_ids: UNKNOWN
-  0066_0068_phrase_overlap: CONTENT_FRAGMENT_CANDIDATE / EVENT_ID_UNKNOWN
-  0047_0058_primary_source: NOT_FOUND_WITHIN_CHECKED_CURRENT_CORPUS
-  AI_dialogue_dir: ABSENT_IN_CURRENT_CHECKOUT_ONLY
-current_owner_mutation:
-  full_origin_audit_001_006: none
-  source_prompts: read-only
-  quote_memos: read-only
-worktree_boundary:
-  other_checkout_read: false
-  other_checkout_wait_compare_or_integrate: false
-  parent_or_previous_worktree_trajectory_read: false
-candidate_owner_delta:
-  - classify all four files as secondary quote leads, not raw event rows
-  - preserve partial 0066/0068 phrase overlap without promoting it to exact source crosswalk
-  - keep 0047/0058 primary event provenance UNKNOWN; do not infer global absence from this checkout
-falsifiers:
-  - exact primary-source or native-event crosswalk for any quote
-  - full-origin owner evidence showing these memos already have explicit disposition
-  - current source corpus changing so the four memo bodies match direct source text
-next_trigger: decide whether another discovered memo family can affect P method history; otherwise return to the P1/P2/P3 same-task tool work
-git_record:
-  candidate_branch: codex/p-dag-tool-birth-audit
-  base_head: e9ffcb4ad05284712299744f40b8adbc7f66f96c
+  evidence_commit: 05be0349c8d3fba48a165d429431602b7644f690
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard
   no other-checkout access; no full-origin current-owner edits
 ~~~

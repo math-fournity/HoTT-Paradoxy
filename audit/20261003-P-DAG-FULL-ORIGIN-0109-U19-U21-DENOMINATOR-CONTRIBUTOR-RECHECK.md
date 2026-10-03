@@ -309,3 +309,7 @@ T2–T6 提供的是数学证明交付、持续维护认知材料、AI 工作移
 建议 canonical integrator 后续对四份 memo 明确登记：0047、0058 的 quoted-event identity 未恢复；0066、0068 为 ABX 原文中的相关片段候选，但 full memo body 与事件 marker 未逐字锁定；全部四份均不加为新的 raw archive event 或 direct P-spec unit。若后续在获准的同一 source tree 中找到 primary prompt／message-id crosswalk，则以它更新映射；在此之前保留 `UNKNOWN`，不填补历史空白。
 
 本轮没有产生新 pattern、Tool-BirthCard、P1/P2/P3 同任务 candidate、ZFC Q、HoTT 数学结论或网络/worker run。它减少的是历史证据分类的不确定性：现在可区分 raw archive、primary user-source extraction 和 AI-authored quote memo 三种来源等级；full-origin 001–006 仍未改动。
+
+### 17.4 精确 Git 收据
+
+四份 memo 的二手引文来源处置由当前分支 commit `05be0349c8d3fba48a165d429431602b7644f690` 记录，只修改本报告与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。未修改 memo 原件、primary-source files、full-origin current owners、STATE/投影或其它 worktree；该提交保存的是待 integrator 评议的来源边界候选。
