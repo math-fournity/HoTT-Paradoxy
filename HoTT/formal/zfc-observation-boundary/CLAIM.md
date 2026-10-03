@@ -10,14 +10,24 @@ Source: [ObservationBoundary.lean](ObservationBoundary.lean).
    `observe` identifies a `done` state and a non-`done` state, no predicate on
    `Observation` alone decides `done` for every `State`.
 
-2. `no_formal_completion_only_classifier`:
+2. `CompletionObservable`, `CompletionObservationIncomplete`, and
+   `observation_collision_implies_completion_observation_incomplete`:
+
+   `CompletionObservable observe done` means that a predicate on the observed
+   output decides the chosen completion predicate on all source states.
+   Under an observation collision between a done and non-done state, the named
+   relative incompleteness predicate follows.  This gives a formal meaning to
+   “observation is incomplete for this completion question” without assigning
+   that status to ZFC or any other theory by name.
+
+3. `no_formal_completion_only_classifier`:
 
    In the explicit two-trace fixture, both `continuousEndpoint` and
    `sequentialNoLastAction` have `formalCompletion = 1`, while `strongDone`
    distinguishes them.  No predicate of `formalCompletion` alone decides
    `strongDone` for both traces.
 
-3. `enriched_observation_decides_strong_done`:
+4. `enriched_observation_decides_strong_done`:
 
    If the fixture observation retains a terminal-event `Bool`, a classifier can
    decide this fixture's `strongDone` predicate.

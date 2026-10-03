@@ -23,10 +23,11 @@
 | 定理 | 精确内容 | 对 Q0 的作用 |
 |---|---|---|
 | `no_done_classifier_of_observation_collision` | 任意`observe`若合并一个Done与一个非Done状态，任何只依赖`observe`的谓词均不能正确判定所有状态的`done`。 | 一般逻辑核。 |
+| `observation_collision_implies_completion_observation_incomplete` | 将“观察力对给定Done问题不完备”严格定义为`¬ CompletionObservable observe done`；Done异值碰撞蕴含该相对不完备性。 | 把“观察力不完备”从口号变成带`observe/done`参数的判据。 |
 | `no_formal_completion_only_classifier` | 具体的`continuousEndpoint`与`sequentialNoLastAction`都取`formalCompletion=1`，却有相反`strongDone`；故formal completion alone不能判定strong Done。 | 最小的 O2/O3 反例结构。 |
 | `enriched_observation_decides_strong_done` | 加入terminal-event布尔观察后，具体fixture的strong Done可被判定。 | 正控制：不完整来自忘却，补回明确数据即可改变结果。 |
 
-保存的运行收据是[20261003-MP-ZFC-OBSERVATION-BOUNDARY-001-01](../HoTT/verification/runs/20261003-MP-ZFC-OBSERVATION-BOUNDARY-001-01/RUN.json)。内核接受、退出码0、stderr为空；三个`#print axioms`输出均为“不依赖任何axioms”。精确命题、非目标和解释边界见[CLAIM.md](../HoTT/formal/zfc-observation-boundary/CLAIM.md)。
+保存的当前源码运行收据是[20261003-MP-ZFC-OBSERVATION-BOUNDARY-001-02](../HoTT/verification/runs/20261003-MP-ZFC-OBSERVATION-BOUNDARY-001-02/RUN.json)。内核接受、退出码0、stderr为空；四个`#print axioms`输出均为“不依赖任何axioms”。精确命题、非目标和解释边界见[CLAIM.md](../HoTT/formal/zfc-observation-boundary/CLAIM.md)。
 
 该证明的严格范围是：`observe`碰撞加上Done差异时的不可因子化；fixture是研究语义模型。它不证明 ZFC 实际存在这个碰撞，也不证明某一真实极限来源作出了未付 LiftClaim。
 
@@ -78,6 +79,21 @@ s(n) = 1 − (1/2)^n
 2. **观察接口层已证明：** 若某一接口把强Done不同的状态压成相同观察，强Done不能只经该接口判定；加入真正所需字段的正控制会改变结论。
 3. **ZFC元理论层仍待证明：** 必须给出实际的ZFC／标准极限消费者、其输入输出和完成标准，证明它只使用了粗观察，又把`Done_formal`抬升为原过程的`Done_origin`，并且没有同一任务的桥。
 
+### 把“时间维度”变成可证伪术语
+
+这里的“时间维度”不应被理解为 ZFC 词表中少了一个叫`Time`的符号。对一个固定过程任务，它应被理解为：理论实际保留的观察能否区分**对原完成条件有差异的历史／阶段结构**。Lean 中的精确版本已经叫作`CompletionObservable observe done`：存在一个只看`observe`输出的判定，能对每个过程状态给出同一个`done`答案。
+
+所以，把研究发起人的候选判词压缩成可反驳的条件句，是：
+
+```text
+若存在一个实际的 ZFC → 极限理论接口 I 和一个固定的原过程 P，
+I 把 Done_origin 不同的过程历史压成同一数学观察，
+而来源仍用 I 的结果交付 P 已完成，且没有给出保持 Done_origin 的桥，
+则 I 对 P 的完成观察不充分。
+```
+
+这不是“ZFC 形式不一致”的定义，也不是“ZFC无法表达时间”。它是一项关于某个实际`I/P/LiftClaim`组合的可证伪归因。反例也很明确：若来源保留了足以判定`Done_origin`的过程字段，或给出一个验证过的`Done_formal ⇒ Done_origin`桥，或者明说自己改了原`Done`，这个组合就不能承担候选判词。
+
 因此机器证明支持如下**限定条件句**：
 
 > 在一个明确的忘却／粗观察接口中，若强完成性质没有因子化通过该接口，那么只看粗观察的理论结论不够判断强完成；保留并运输相应的过程／端点字段会改变结论。
@@ -101,6 +117,7 @@ H083与H084已经完成第一轮实际来源分母：
 2. Le Blanc明确将数学极限到实际无限重复的推断称为subjunctive leap；
 3. H085 的 HoTT 模型控制说明：一个模型／相对一致性来源可以完成其自身的元理论任务，而不因此完成另一个 H0 过程契约；故 H0→Z0 不能自动转移。
 4. Norton、SEP adequacy与连续端点模型继续分别提供Done替换、数学—物理边界和正控制。
+5. H086以隔离的 Terra/Max 复核本报告自身的形式范围：它确认两组Lean定理只支持相对的completion-observation边界，且仍缺一个实际 ZFC interface、同一过程桥、独立`Done_origin`与真实观察碰撞；因此本报告不能自行把Q0升级为 ZFC 判词。
 
 因此下一步不应继续重复“极限不等于过程”的一般文本。只有两类新证据值得开启下一卡：
 

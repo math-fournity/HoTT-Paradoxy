@@ -35,6 +35,36 @@ theorem no_done_classifier_of_observation_collision
     simpa [sameObservation] using atCompleted
   exact uncompletedNotDone ((hclassify uncompleted).mp atUncompleted)
 
+/-- An observation is completion-adequate precisely when a predicate on the
+    observed data can decide the specified completion predicate for every
+    state.  This definition is relative to both `observe` and `done`; it makes
+    no claim about a theory until those two interfaces have been supplied. -/
+def CompletionObservable
+    {State : Type u} {Observation : Type v}
+    (observe : State → Observation) (done : State → Prop) : Prop :=
+  ∃ classify : Observation → Prop,
+    ∀ state, classify (observe state) ↔ done state
+
+/-- A name for the precise, relative notion of observation incompleteness used
+    by the research bridge. -/
+def CompletionObservationIncomplete
+    {State : Type u} {Observation : Type v}
+    (observe : State → Observation) (done : State → Prop) : Prop :=
+  ¬ CompletionObservable observe done
+
+/-- A collision between oppositely classified process states proves the
+    corresponding observation is not completion-adequate. -/
+theorem observation_collision_implies_completion_observation_incomplete
+    {State : Type u} {Observation : Type v}
+    (observe : State → Observation) (done : State → Prop)
+    (completed uncompleted : State)
+    (sameObservation : observe completed = observe uncompleted)
+    (completedDone : done completed)
+    (uncompletedNotDone : ¬ done uncompleted) :
+    CompletionObservationIncomplete observe done := by
+  exact no_done_classifier_of_observation_collision observe done completed
+    uncompleted sameObservation completedDone uncompletedNotDone
+
 /-- Two deliberately distinct process contracts.  `continuousEndpoint` has a
     registered terminal event; `sequentialNoLastAction` has no final action.
     The type is a semantic fixture, not a model of all continuous or discrete
@@ -98,6 +128,7 @@ theorem enriched_observation_decides_strong_done :
       constructor <;> intro h <;> exact h
 
 #print axioms no_done_classifier_of_observation_collision
+#print axioms observation_collision_implies_completion_observation_incomplete
 #print axioms no_formal_completion_only_classifier
 #print axioms enriched_observation_decides_strong_done
 
