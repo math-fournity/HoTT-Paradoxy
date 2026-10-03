@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_HMZ-012_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_HMZ-010_HMZ-013_HMZ-014_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / HMZ-009_POWERSET_QUOTIENT_BRIDGE_CONTROLLED_BY_HMZ-010_ROUTE_SPLIT / HMZ-011_ADMITTED_AND_CLOSED_BY_HMZ-012 / H0_UNIVERSE_AND_H9_SCHEMA_ROUTES_CONTROLLED / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_HMZ-012_HMZ-016_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_HMZ-010_HMZ-013_HMZ-014_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / HMZ-009_POWERSET_QUOTIENT_BRIDGE_CONTROLLED_BY_HMZ-010_ROUTE_SPLIT / HMZ-011_AND_HMZ-015_ADMITTED_AND_CLOSED_BY_HMZ-012_HMZ-016 / H0_UNIVERSE_H9_SCHEMA_AND_COMMUNITY_ANTECEDENT_CONTROLLED / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -33,6 +33,7 @@ P-DAG、STATE mutation、proof assistant kernel run、tag、push 或发布。
 - reality/task preflight and successor denominator：Anton Dochtermann 2011（HMZ-S-028）的11页作者托管原件，及其同 HoTT Book、ZFC formation sources和Isabelle/ZF consumer组成的 HMZ-012，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-011-dochtermann-totality-preflight/` 与 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-012-totality-partition-reality-source/`。
 - H0 universe-transport preflight：Voevodsky 2013 `HMZ-S-012` universe-model slides与Shulman `HMZ-S-010` Grothendieck-universe / universe-juggling locators，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-013-universe-shift-h0-preflight/`。
 - H9 schema/operator preflight：Koepke–Koerwien 2006 `HMZ-S-029` original与Voevodsky/Shulman source controls，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-014-schema-operator-truth-preflight/`。
+- community antecedent preflight/full run：Feferman 2002 `HMZ-S-030` original及其与HoTT/ZF/process controls组成的HMZ-016，在`audit/HOTT-MOTIVE-ZFC/20261003-HMZ-015-predicativity-vcp-preflight/`与`audit/HOTT-MOTIVE-ZFC/20261003-HMZ-016-community-antecedent-p-comparison/`。
 
 `cognition_runtime.py plan --profile governance` 仍被既有 `HEAD.json`—`MEMORY/001` 状态快照不匹配而
 fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直接路径回读，研究结论限于 archive 中的显式范围。
@@ -104,6 +105,8 @@ set-existence Done不相同，Book/Isabelle routes也不同，且没有P2/P3或H
 HMZ-013 测试了目前最接近H0词面的另一条来源路：type-theory \(U_i\) 被技术地解释在set-theoretic universes中，Grothendieck \(V_\kappa\) 又被用作small-object scope。然而作者来源没有把它们当成同一 HoTT universe task；反而显式记录inaccessible的额外支付、smallness范围切换和同一\(G\)未必跨universe保持。结果是`H0_TRANSPORT_ANTI_ANALOGY_CONTROL`，而不是Z0或Q0。
 
 HMZ-014 则逼近罗素式schema/operator词汇：它把“每公式 Separation”与whole-\(V\) `Build(p,a)`区分开。新归档的Koepke–Koerwien truth source提供了一条可计算truth构造，但其公式代码、语言、结构、递归和reflection条件都显式，且只在指定结构中工作；这与未支付的统一内部Build不同。故H9在这一来源包中是`SCHEMA_OPERATOR_CONTROL`，没有形成P2/P3/P4/P5或Q。
+
+HMZ-015/016再向源头回查用户P的历史背景。Feferman显示VCP、completed totalities、impredicativity以及ZF Separation/Power Set的哲学位置早已被认真讨论。这个发现收紧项目的元主张：P0/P3/P4不能再被叙述成完全未被社区看见；而用户P要求的P1/P2/P5/P6仍没有从该文献自动得到。运行结果是community antecedent的有界控制，不是对user-P或ZFC的终局裁决。
 
 ## §7 重新呈现与 14 题定位
 

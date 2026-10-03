@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / SIX_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / SEVEN_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -33,6 +33,8 @@ formation/payment control，未产生 P-qualified Q。
 第五个来源 run 已闭合：[20261003-HMZ-008-higher-hits-set-semantics](20261003-HMZ-008-higher-hits-set-semantics/MANIFEST.md)。它把 HoTT Book 的 `R-HIGHER` 与 Lumsdaine–Shulman、Swan 的 Set/ZF HIT/QW semantic constructions 对照：语义模型、stability与cardinal/Choice条件都被明确支付，direct formation 的同一 Done 没有被偷换为 ZFC Q。
 
 第六个来源 run 已闭合：[20261003-HMZ-012-totality-partition-reality-source](20261003-HMZ-012-totality-partition-reality-source/MANIFEST.md)。它以 Dochtermann 的有限分类／无限 complete partition／Power Set 叙述为 E-source bridge，再与 HoTT Book、Shulman/Metamath的 formation sources和Isabelle/ZF actual consumer对照。结果保存了 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，但 finite-process Done 与 formal set-existence Done 没有来源证明为同一任务；P2/P3和H0 transport仍不成立，因此是 `P_REQUALIFICATION_REQUIRED`，不是 Q。
+
+第七个来源 run 已闭合：[20261003-HMZ-016-community-antecedent-p-comparison](20261003-HMZ-016-community-antecedent-p-comparison/MANIFEST.md)。它将 Feferman 对 predicativity、Vicious Circle、completed totalities与ZF Separation/Power Set的历史分析，同 HoTT context、ZF formation、finite-task与显式 computation controls作字段对齐。结果承认社区对P0/P3/P4有实质 antecedent，同时保留用户P的P1/P2/P5/P6为未由该分母覆盖的独立义务；因此为`COMMUNITY_ANTECEDENT_PARTIAL / P_REQUALIFICATION_REQUIRED`，不是 Q。
 
 ## Run 命名与目录合同
 
@@ -69,6 +71,7 @@ FINDINGS.md
 | `20261003-HMZ-007-werner-zfc-coq-pair` | WoLLIC 2011 的 ZFC-in-proof-assistant 动机，与 Werner 1997 CIC↔ZFC 编码、`rocq-archive/zfc` code snapshot、既有 Paulson/Grayson controls 的冻结配对。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-007-werner-zfc-coq-pair/FINDINGS.md) | `Ens`／Power／Replacement／Russell guard 都处在 CIC model/formalization layer；TTDA/Choice、host条件和 bounded universal-set guard明确，0 个 P-qualified Q。 |
 | `20261003-HMZ-008-higher-hits-set-semantics` | HoTT Book `R-HIGHER`，Lumsdaine–Shulman HIT semantics 与 Swan 的 ZF QW/HIT source。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-008-higher-hits-set-semantics/FINDINGS.md) | Set/ZF中存在一类 HIT/QW semantic constructions，也有明确ZF/cardinal/Choice边界；model semantic task不等于HoTT direct formation Done，0 个 P-qualified Q。 |
 | `20261003-HMZ-012-totality-partition-reality-source` | HoTT `R-STRUCT`／Book Power Set–quotient bridge、Dochtermann 2011 reality/task source、Shulman/Metamath/Paulson/Isabelle controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-012-totality-partition-reality-source/FINDINGS.md) | finite categorization→infinite totality→Power Set quotient 是来源支持的 construction bridge；但同一 Done、P2/P3与H0 transfer都未成立，0 个 P-qualified Q。 |
+| `20261003-HMZ-016-community-antecedent-p-comparison` | Feferman 2002 predicativity/VCP、HoTT context、Shulman、Dochtermann、Koepke–Koerwien controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-016-community-antecedent-p-comparison/FINDINGS.md) | 历史/社区已识别totality、vicious-circle、impredicativity和ZF loci；该分母未给user-P的actual consumer/preemptive use/same Done，0 个 P-qualified Q。 |
 
 三个 run 的跨分母判断由 `PHASE-1-SOURCE-SYNTHESIS.md` 拥有；本 README 只保留入口与 run registry。
 
@@ -88,6 +91,8 @@ FINDINGS.md
 第七份预检是 [HMZ-013 universe shift 的 H0 传输](20261003-HMZ-013-universe-shift-h0-preflight/MANIFEST.md)。Voevodsky 的 type-universe 模型确实连接到“ZFC with \(\omega+2\) universes”，Shulman 的 Grothendieck universe source 也给出实际 universe-juggling consumer；但它们运行在 model/large-cardinal scope，并且 Shulman 明说换 universe 后没有理由认为同一个 \(G\) 保持原性质。该来源因此成为 `H0→Z0` 的反类比／payment control，状态为 `ADMISSION_REJECTED_WITH_SCOPE`。
 
 第八份预检是 [HMZ-014 schema/operator/truth](20261003-HMZ-014-schema-operator-truth-preflight/MANIFEST.md)。它检查 H9 的逐公式 Separation schema 是否会被实际来源升级为 whole-\(V\) 的统一 `Build(p,a)`。Koepke–Koerwien 的可用 truth 装置反而明示 formula code、语言、结构、ordinal recursion、machine semantics和reflection；Shulman也区分单个 schema 与代码化的 all-axioms truth。故这是 `SCHEMA_OPERATOR_CONTROL / ADMISSION_REJECTED_WITH_SCOPE`，没有形成P2/P3/P4/P5的ZFC Q。
+
+第九份预检是 [HMZ-015 predicativity/VCP](20261003-HMZ-015-predicativity-vcp-preflight/MANIFEST.md)。Feferman 2002 的历史与哲学来源表明，Russell/Poincaré、vicious circle、completed totality和ZF impredicativity已有深厚的社区 antecedent；这足以触发 HMZ-016 的完整字段比较，却不足以把用户P的consumer/preemptive-use/same-Done要求视为已经被该文献穷尽。
 
 ## 本次整备的影响边界
 

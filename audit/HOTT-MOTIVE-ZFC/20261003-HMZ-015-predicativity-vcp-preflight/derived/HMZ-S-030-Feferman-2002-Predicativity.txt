@@ -1,0 +1,1668 @@
+                                   Predicativity
+                                  Solomon Feferman1
+
+    What is predicativity? While the term suggests that there is a single idea
+involved, what the history will show is that there are a number of ideas of
+predicativity which may lead to different logical analyses, and I shall uncover
+these only gradually. A central question will then be what, if anything, unifies
+them. Though early discussions are often muddy on the concepts and their
+employment, in a number of important respects they set the stage for the further
+developments, and so I shall give them special attention. NB. Ahistorically,
+modern logical and set-theoretical notation will be used throughout, as long as
+it does not conflict with original intentions.
+
+                 Predicativity emerges: Russell and Poincaré
+
+    To begin with, the terms predicative and non-predicative (later, impredica-
+tive) were introduced by Russell (1906) in his struggles dating from 1901 to
+carry out the logicist program in the face of the set-theoretical paradoxes. Rus-
+sell called a propositional function ϕ(x) predicative if it defines a class, i.e., if the
+class {x : ϕ(x)} exists, and non-predicative otherwise. Thus, for example, the
+propositional function x 6∈ x figuring in Russell’s paradox is impredicative. Since
+the admission of classes defined by arbitrary propositional functions in Frege’s
+execution of his logicist program led to its demise as a result of this paradox,
+if the program were to be resurrected, it would somehow have to incorporate a
+criterion for distinguishing predicative from impredicative ones. Russell’s first
+attempts to separate these were highly uncertain, and it was only through the
+engagement of Henri Poincaré in the problem starting in his article (1906) that
+progress began to be made. Poincaré took several paradoxes as examples to
+try to elicit what was common to them, namely the Burali-Forti paradox of
+the largest ordinal number, König’s paradox of the least non-definable ordinal
+    1 The subject of predicativity is one that has been of great interest to me and has peri-
+
+odically commanded much of my attention over the last forty years. It involves substantial
+developments in logic and mathematics and is of significance for the philosophy of mathemat-
+ics. However, it is still unsettled how best to assess these various aspects of predicativity. On
+March 28, 2002, for a joint meeting of the American Philosophical Association and the Associ-
+ation for Symbolic Logic, Jeremy Avigad, Geoffrey Hellman and I participated in a symposium
+organized by Paolo Mancosu entitled “Predicativity: Problems and Prospects.” In my lecture
+I concentrated on the idea of predicativity in its historical development and particularly its
+logical analysis, which has led to new problems of current interest; the present chapter is based
+on my text for that lecture. Complementarily, Avigad and Hellman dealt respectively with
+questions concerning the mathematical and philosophical significance of predicativity; their
+papers are to appear elsewhere. In addition, Mancosu and I are collaborating on a histori-
+cally organized survey of predicativity and its relations to mathematical practice which is to
+include the material below, for a compendium of the history of mathematical logic under the
+editorship of John Dawson, Aki Kanamori and Dirk van Dalen. I greatly appreciate the help
+that Paolo Mancosu has given with this chapter, especially the part having to do with early
+developments.
+
+
+
+                                               1
+number, and the Richard paradox defining, by diagonalization, a real number
+different from all definable real numbers; it was this last that Poincaré took as
+a paradigm. Note that in doing so, Poincaré shifted attention away from pur-
+ported definitions of set-theoretical objects involving only purely set-theoretical
+notions such as those of class, membership, ordinal number and cardinal num-
+ber, to purported definitions of mathematical objects more generally in which
+the notion of definability itself was an essential component. In doing so, he
+could be considered to be at cross-purposes with Russell. At any rate, Poincaré
+came up with two distinct diagnoses of the source of the paradoxes via what
+he regarded as “typical” examples. The first was that there is in each case a
+vicious circle in the purported definition. For example, in the case of Richard
+(1905), since each definition of a real number via its decimal expansion can be
+written out using a finite number of symbols, the set D of definable real num-
+bers is countable. Then by Cantor’s diagonal construction one can define a real
+number r which is distinct from each member of D; but since r is defined, it is
+a member of D, which is a contradiction. According to Poincaré, in this case
+the vicious circle lies in trying to produce the object r in D by reference to
+the supposed totality of objects in D; indirectly, then, r is defined in terms of
+itself, as one of the objects in D. Poincaré’s second diagnosis is distinct in its
+emphasis, namely that the source of each paradox lies in the assumption of the
+“actual” or “completed” infinite. Again with reference to the Richard paradox,
+one cannot assume that there is a completed totality of all definable objects of
+a certain kind; rather, each one “comes into existence” through a definition in
+terms of previously defined objects. As we shall see, in his own mathematics,
+Poincaré did not hew to the injunction against the actual infinite. And that is
+related to the issue of impredicative definitions as they occur in mathematical
+practice to which Poincaré was to return a few years later, and that we’ll also
+take up below.
+
+                              Russell’s elaborations
+    In his article “Les paradoxes de la logique” (1906a), Russell quickly took
+both the vicious circle diagnosis and, to an extent, the objection to the com-
+pleted infinite as the point of departure for his further work on predicative vs.
+impredicative definitions of classes2 :
+      I recognize ... that the clue to the paradoxes is to be found in the
+      vicious circle suggestion; I recognize further this element of truth
+      in M. Poincaré’s objection to totality, that whatever in any way
+      concerns all or any or some of a class must not be itself one of the
+      members of a class. (Russell 1973, p. 198)
+Russell then went on to make the first of his several attempts to formulate the
+VCP (Vicious Circle Principle) in syntactic terms as would be appropriate for
+a formalism in which to redevelop logicism, namely:
+   2 The quotation is from the English translation in Russell’s Essays in Analysis (1973).
+
+Many of the original texts on the antinomies and predicativity in the period 1906-1912 are
+conveniently assembled in Heinzmann (1986).
+
+
+                                            2
+      In M. Peano’s language, the principle I want to advocate may be
+      stated: “Whatever involves an apparent variable must not be among
+      the possible values of that variable.” (ibid.)
+Insofar as this form of the VCP proscribed certain formulas ϕ(x) from defining
+classes, its effect would be to exclude from ϕ any bound variables whose in-
+tended range includes the class {x : ϕ(x)} as one of its values. But, in addition,
+the bound variable ‘x’ of abstraction in {x : ϕ(x)} must not include that class
+in its range. These restrictions were then the lead-in to the formalism proposed
+in Russell’s article “Mathematical logic as based on the theory of types” (1908),
+and on whose plan Principia Mathematica was erected. As is well known, Rus-
+sell formulated the VCP in several different ways, and their precise significance
+and relation to each other has been the subject of much scrutiny and critique by
+a number of scholars, including Kurt Gödel (1944), Charles Chihara (1973) and
+Philippe de Rouilhan (1996). The formulation that is tied most closely to Rus-
+sell’s theory of types was given in the 1908 article as the following sharpening
+of the above:
+      [The VCP], in our technical language, becomes: “whatever contains
+      an apparent variable must not be a possible value of that variable.”
+      Thus [it] must be of a different type from the possible values of
+      that variable. Thus we will say that whatever contains an apparent
+      variable must be of a different type from the possible values of that
+      variable; we will say that it is of a higher type. (Russell 1908, in van
+      Heijenoort 1967, p. 163)
+Before going into the actual structure of types in Russell’s set up, let me draw
+attention to an earlier section of the article, headed All and any (ibid., pp. 156-
+159). Here, in contrast to the first quotation from Russell above, a distinction
+was made between the use of these two words. Roughly speaking, in logical
+terms, the statement that all objects x of a certain kind satisfy a certain condi-
+tion ϕ(x) is rendered by the universal quantification (∀x)ϕ(x) in which x now is
+a bound variable, while the statement that ϕ(x) holds for any x is expressed by
+leaving x as a free variable. In modern terms, the logic of the latter is treated as
+a scheme to be coupled with a rule of substitution. The importance of this dis-
+tinction for Russell has to do with the injunction against illegitimate totalities.
+In particular, with p a variable for propositions, he would admit “p is true or
+false, where p is any proposition”, i.e., the scheme p ∨ ¬p, but not the statement
+(∀p)(p ∨ ¬p) that “all propositions are true or false” (in both cases using truth
+of p to be equivalent to p). Similarly for properties P (x); significantly, Russell
+pointed out that the proposed definition of the natural numbers in the form:
+‘n is a finite integer’ means “Whatever property ϕ may be, n has the property
+ϕ provided ϕ is possessed by 0 and by the successors of possessors” (ibid., p.
+159), i.e., in symbols,
+
+               N (n) := (∀ϕ)[ϕ(0) ∧ (∀x)(ϕ(x) → ϕ(x0 )) → ϕ(n)],
+
+cannot be replaced by dropping the universal quantifier over properties ‘(∀ϕ)’.
+
+                                         3
+    Though the simplest paradoxes such as Russell’s of the class of all non-self
+membered classes or the heterologicality paradox can be construed as involving
+arbitrary classes or properties in the form of apparent variables, they do not
+involve them in the form of quantified variables. Nevertheless, these considera-
+tions led Russell to ban the use of ‘all’ in the form of unrestricted quantification
+over propositions and properties, among other things. He then faced the ques-
+tion when it is legitimate to apply universal quantification over any given kind of
+object, and here he veered away from Poincaré’s injunction against the “actual”
+infinite:
+
+      It has often been suggested that what is required in order that it
+      may be legitimate to speak of all of a collection is that the collec-
+      tion should be finite. Thus “all men are mortal” will be legitimate
+      because men form a finite class. But that is not really the reason
+      why we can speak of “all men.” What is essential...is not finitude,
+      but what may be called logical homogeneity. This property is to be-
+      long to any collection whose terms are all contained within the range
+      of significance of some one function. It would always be obvious at a
+      glance whether a collection possessed this property or not, if it were
+      not for the concealed ambiguity in common logical terms such as
+      true and false, which gives an appearance of being a single function
+      to what is really a conglomeration of many functions with different
+      ranges of significance. (ibid., p. 163)
+
+Here a new idea became central:
+
+      ...we can speak of all of a collection when and only when the col-
+      lection forms part or the whole of the range of significance of some
+      propositional function, the range of significance being defined as the
+      collection of those arguments for which the function in question is
+      significant, that is, has a value. (ibid., p. 163)
+
+That is, in more modern terms, like all functions in ordinary mathematics,
+propositional functions are partial in the sense that they have a prescribed
+domain which is given in advance of the function, and outside of which they
+are undefined. In particular, the arguments x of a propositional function ϕ
+must somehow be “prior” to the function itself. This is achieved by the type
+distinction and an ordering of types, which makes the type of x lower than the
+type of ϕ. Without further restrictions, this would lead to the formalism of the
+simple theory of types. But the VCP in the form given above requires that each
+apparent (bound) variable in ϕ also has lower type than ϕ. Together these result
+in the formalism of the ramified theory of types. At the bottom are variables of
+type 0 ranging over an unspecified non-empty domain of “individuals.” In the
+simple theory of types, types can be identified with natural numbers, classes of
+individuals are of type 1, classes of classes of individuals of type 2, and so on.
+In the ramified theory of types, as e.g., elucidated by Myhill (1974), types are
+finite descending sequences t of natural numbers of order or level the first term
+
+
+                                         4
+m1 of t. If ϕ(x) has x of type t and m is least such that m > m1 and all bound
+variables of ϕ have order less than m, then ϕ and its extension {x : ϕ(x)} is
+of type hmi_ t, and variables of that type are interpreted as ranging over all
+such classes. The atomic formulas of this language are of the form x = y where
+x, y are of the same type and x ∈ y where x is of a type t and y is of a type
+hmi_ t. Russell says that the type of one object is lower, resp. higher, than that
+of another if its level is lower, resp. higher.
+    If the domain of individuals is finite then under this interpretation for each
+type t the domain of objects of type t is finite, and the ramified interpretation
+collapses to the simple interpretation. It also follows that if one is to define the
+notion of natural numbers in purely logical terms, as would be required by the
+logicist program, it must be assumed that the domain of individuals is infinite.
+The assumption of this Axiom of Infinity was the first crack in Russell’s attempt
+to continue the logicist program within the ramified theory of types. The second
+came with the definition of natural number itself in the form, as above:
+
+                N (a) := (∀ϕ)[ϕ(0) ∧ (∀x)(ϕ(x) → ϕ(x0 )) → ϕ(a)]
+
+where 0 is the empty class at a given type t and the successor operation takes
+objects of type t to objects of type t, ϕ is of a type hmi_ t, and the variable ‘a’
+is also of type t. Here, with natural numbers interpreted as cardinal numbers in
+the sense of equivalence classes under the relation of one-one correspondence, t
+must be of a type of classes of classes. There were two problems with this. First,
+the notion of natural number is relative to any such type t, and second, most
+usual proofs of induction can’t be carried out. To show, for example, for any
+given natural number a that (∀x)[N (x) → N (a+x)], where + is suitably defined
+in cardinal-theoretic terms, one usually has to carry out an induction as follows:
+take ψ(x) := [N (x) → N (a + x)], and establish (∀x)ψ(x) by showing ψ(0) ∧
+(∀x)(ψ(x) → ψ(x0 )). But ψ is of a higher type (level) than that of the quantified
+variable ϕ in the definition of N so we can’t apply that definition to carry out
+the required induction. As Russell says, “[it] is obvious that such a state of
+things renders elementary mathematics impossible.”(ibid. p. 167). In order to
+get around this quite serious obstacle, Russell introduced his “oddly devious”
+(in Quine’s words3 ) Axiom of Reducibility. This is formulated in terms of a
+notion of predicative function ϕ!x (signaled by the exclamation mark) which
+may be described as one in which the bound variables, if any, are all of the same
+or lower type than the type of x. (Note that here ‘predicative’ is used in a very
+restricted sense.) Using variables f, g, . . . to range over predicative functions,
+the Axiom of Reducibility states that any propositional function is coextensive
+with some predicative function, schematically:
+
+                                 (∃f )(∀x)[ϕ(x) ↔ f !x]
+
+(ibid., p.171). In particular, that allows one to carry out the blocked induction
+above by replacing ψ by an associated predicative function g.
+  3 In his introductory note to Russell (1908) in van Heijenoort (1967), p. 151.
+
+
+
+
+                                             5
+    Evidently, the Axiom of Reducibility completely vitiates the system of ram-
+ified types and makes it equivalent to simple type theory, for which however,
+there is no predicative justification if one assumes the Axiom of Infinity. In
+the introduction to the second edition of Principia Mathematica, (presumably)
+Russell wrote:
+     [The Axiom of Reducibility] has a purely pragmatic justification:
+     it leads to the required results, and to no others. But clearly it
+     is not the sort of axiom with which we can rest content. On this
+     subject, however, it cannot be said that a satisfactory solution is as
+     yet obtainable. (Whitehead and Russell 1925, p. xiv)
+More specifically, at the end of that introduction Russell points out various
+places in the development of mathematics on the basis of his formalism where
+the Axiom of Reducibility is required, not only to carry out usual inductions
+on the natural numbers, as well as their generalizations to transfinite ordinal
+numbers, but also in the foundations of the theory of real numbers. In conclusion
+he writes:
+     It might be possible to sacrifice infinite well-ordered series [i.e., well-
+     ordering relations] to logical rigour, but the theory of real numbers
+     is an integral part of ordinary mathematics, and can hardly be the
+     object of a reasonable doubt. We are therefore justified in supposing
+     that some logical axiom which is true will justify it. The axiom
+     required may be more restricted than the axiom of reducibility, but,
+     if so, it remains to be discovered. (ibid., p. xlv)
+
+
+             Poincaré vs. the logicists and the Cantorians:
+                       from paradoxes to practice
+
+    In view of the lack of justification for the Axiom of Infinity and the Axiom
+of Reducibility one must count as a failure Russell’s attempt at a purely logical
+predicative foundation of mathematics beginning with the definition of the nat-
+ural numbers. But even if it had been successful, it would have done nothing
+for Poincaré. In his excellent article, “Poincaré against the logicists,” Warren
+Goldfarb writes:
+     Although the great French mathematician Henri Poincaré wrote on
+     topics in the philosophy of mathematics from as early as 1893, he
+     did not come to consider the subject of modern logic until 1905.
+     The attitude he then expressed toward the new logic was one of
+     hostility. He ... dismissed as specious both the tools devised by
+     the early logicians and the foundational programs they urged. His
+     attack was broad: Cantor, Peano, Russell, Zermelo, and Hilbert
+     all figure among its objects. Indeed, his first writing on the sub-
+     ject is extremely polemical and is laced with ridicule and deroga-
+     tion. Poincaré’s tone subsequently became more reasonable but his
+
+                                         6
+      opposition to logic and its foundational claims remained constant.
+      (Goldfarb 1988, p. 61)
+In this article Goldfarb on the whole legitimately critiques various of Poincaré’s
+objections to the indicated foundational programs, but the nature of those ob-
+jections is relevant to a fundamental shift in the further development of the
+idea(s) of predicativity and its relation to mathematical practice, so we shall
+review them here. First, as Goldfarb explains, Poincaré’s attack on the new
+logicians begins
+
+      ...with the avowed aim of showing that [they] have not eliminated
+      the need for intuition in mathematics. By showing this, he says, he
+      is vindicating Kant... This avowal is misleading, for in Poincaré’s
+      hands the notion of intuition has little in common with the Kantian
+      one. ... [Rather], for Poincaré, to assert that a mathematical truth
+      is given to us by intuition amounts to nothing more than that we
+      recognize its truth and do not need, or do not feel the need, to argue
+      for it. Intuition, in this sense, is a psychological term; it might just
+      as well be called “immediate conviction.” (ibid., p. 63)
+In particular, for Poincaré the structure of natural numbers and the associated
+principle of induction are given in intuition and do not require a foundation;
+indeed, in his view, they are presupposed in any attempt at such a founda-
+tion. In the case of the logicist program, this is seen in the very description
+of the axiomatic system, with its inductive generation of formulas and proofs;
+hence that enterprise assertedly involves a petitio principi. Goldfarb argues that
+Poincaré is mistaken in ascribing a petitio in this case, as he is in other cases.
+In a useful review of Goldfarb’s article, Michael Hallett (1990) defends Poincaré
+on this point, at least in part. What is important for us here is not which side
+is correct, but the content and influence of Poincaré’s views.
+    Poincaré’s objections to the Cantorians rests on their essential use of im-
+predicative constructions violating the VCP. Curiously, he accepted the Axiom
+of Choice on the grounds that it “is a synthetic judgment a priori [note the
+Kantian terminology]; without it the theory of cardinals would be impossible,
+for finite numbers as well as for infinite ones.”4 But he criticized Zermelo’s 1904
+proof—from the Axiom of Choice—that every set can be well-ordered, at a point
+that made use of the very common set-theoretical operation of the union U of
+a set S of sets X, U = {x : (∃X)(X ∈ S ∧ x ∈ X)}, on the grounds that what
+members U has depends on which sets belong to S and what their members
+are. In particular, it depends on whether U belongs to S and what its members
+are; thus, Poincaré identified the operation of union as illegitimately impredica-
+tive. In his response to this criticism, Zermelo (1908, in van Heijenoort 1967
+pp. 190-191) pointed out that “proofs that have this logical form are by no
+means confined to set theory; exactly the same kind can be found in analysis
+wherever the maximum or the minimum of a previously defined ‘completed’ set
+  4 Poincaré (1906), p. 313.
+
+
+
+
+                                         7
+of numbers ... is used for further inferences. This happens, for example, in the
+well-known Cauchy proof of the fundamental theorem of algebra, and up to now
+it has not occurred to anyone to regard this as something illogical.” The par-
+ticular proof cited by Zermelo proceeds by forming the minimum of the set of
+values of |p(x)| where p is a polynomial over the complex numbers. Relatedly, if
+f (x) is a continuous function on a closed interval [a, b] in the real numbers, then
+f has a minimum value (as well, of course, a maximum value) in that interval.
+This seems to appeal to the general principle of greatest lower bound (g.l.b.) for
+the real numbers R, i.e., that any bounded subset S of R has a g.l.b. (as well
+as a least upper bound, l.u.b.). The existence of the g.l.b. can be recognized
+set-theoretically as the formation of a union in terms of the association of real
+numbers x with their upper Dedekind sections Dx in the rational numbers Q,
+where
+                             Dx = {r : r ∈ Q ∧ x < r}.
+Let S ∗ = {Dx : x ∈ S}. Then the union U of the sets in S ∗ is the Dedekind
+section Dm where m = g.l.b.(S); in this one invokes the Dedekind completeness
+(or continuity) of R, according to which every Dedekind section determines a
+real number. Dually, the l.u.b.(S) is determined by the intersection of all the
+sets in S ∗ . (If one uses lower Dedekind sections, these operations are reversed.)
+    Poincaré responded to Zermelo’s specific example by asserting that the min-
+imum of |p(x)| is equally described as the minimum of {|p(x)| : x is rational}.
+More generally, for any continuous function f (x) on a compact set S in the real
+or complex numbers its minimum is the same as the minimum of the countable
+set {f (x) : x ∈ S ∧ x is rational}, and that does not require an impredicative
+step. Poincaré was correct in this response, though his argument was faulty.
+Simply, any bounded set S of rational numbers has a g.l.b. (and l.u.b.) by
+selecting a subsequence that converges to the same. In this case, one invokes
+Cauchy completeness of R for which, in contrast to Dedekind completeness,
+there is a predicative argument as will be explained below.
+    Though Poincaré rejected the actual infinite in his polemical writings (e.g.,
+“There is no actual infinite; the Cantorians forgot that, and they fell into
+contradiction.”–1906, p.316), his acceptance of the structure of natural num-
+bers and of the principle of induction on it coupled with the implicit use of
+classical logic and its assumption of the law of excluded middle at least takes
+quantification over the natural numbers to be definite, and that is a form of
+acceptance of the actual infinite. No doubt Poincaré assumed this and much
+more in his mathematical practice in analysis and topology, though he might
+have said that he could always account for his work predicatively by more care-
+ful considerations of the sort given in his response to Zermelo. There could be
+some historical interest in putting Poincaré’s “philosophical” principles (to the
+extent that they can be made precise) up against the details of his practice, but
+that is neither here nor there for our present survey. What counts is what influ-
+ence those principles had on the development of predicativity, not whether he
+abided by them himself. And what is most significant about Poincaré’s dispute
+with Zermelo in 1906-1909 is that attention was shifted away from the role of
+
+                                         8
+purportedly circular definitions in the production of the paradoxes to their role
+at the very center of mathematical practice, namely in the l.u.b. principle for
+the real numbers.
+    The other aspect of Poincaré’s dispute with Cantorians lies in their extension
+of the actual infinite to the transfinite. Of course he was not alone in this.
+Other prominent critics were Leopold Kronecker in the 19th century and L.
+E. J. Brouwer in the 20th century; but both were more radical than Poincaré
+in rejecting it also at the level of the natural numbers. In Brouwer’s case it
+lay in the identification of the law of excluded middle as the culprit in the
+Cantorian crimes, in its supposedly illegitimate employment when applied to
+infinite totalities. Since, as I have argued, Poincaré did not go that far, he can
+be considered to be laying out a middle ground between the constructivists and
+the set-theoretical platonists: namely, it is the position of being a realist with
+respect to the natural numbers and a definitionist in all else.
+
+               Weyl’s predicative development of analysis
+
+    Hermann Weyl was the first to give substance to this middle ground, in his
+famous 1918 monograph Das Kontinuum. An exegesis of that work is contained
+in the article “Weyl vindicated” (Feferman 1988) and its significance has been
+discussed in several other articles reprinted in my collection, In the Light of Logic
+(1998). There is thus no need to go over those here at any length. Rather, for
+the present purposes, a relatively brief summary is sufficient, and that is most
+simply accomplished by quoting from myself:
+
+      In the introduction to [Das Kontinuum] Weyl criticized axiomatic
+      set theory as a “house built on sand” (though the objects of, and
+      reasons for, his criticism are not made explicit.) He proposed to
+      replace this with a solid foundation, but not for all that had come to
+      be accepted from set theory; the rest he gave up willingly, not seeing
+      any other alternative. Weyl’s main aim in this work was to secure
+      mathematical analysis through a theory of the real number system
+      (the continuum) that would make no basic assumptions beyond that
+      of the structure of natural numbers N. ...Weyl did not attempt to
+      reduce...reasoning about N to something supposedly more basic. In
+      this respect Weyl agreed with Henri Poincaré that the natural num-
+      ber system and the associated principle of induction constitute an
+      irreducible minimum of theoretical mathematics, and any effort to
+      “justify” that would implicitly involve its assumption elsewhere... .
+      ...unlike Brouwer,Weyl accepted uncritically the use of classical logic
+      at this stage (though at a later date he was to champion Brouwer’s
+      views). (op. cit., pp. 51ff)
+In Weyl’s redevelopment of analysis, the rational numbers are reduced to the
+natural numbers in a standard way going back to Kronecker. But to do analysis,
+one needs representations of real numbers either as sets or sequences of rational
+
+                                         9
+numbers, and that reduces to the question of what sets or sequences of natural
+numbers may be asserted to exist. Having accepted the natural number system
+with its basic inductively defined operations such as addition and multiplication,
+Weyl accepted that each subset of N of the form {n ∈ N : A(n)} exists, where
+A is an arithmetical formula, i.e., one that contains no quantifiers ranging over
+sets, only over natural numbers. Beyond those, what other kinds of sets may
+be asserted to exist on predicative grounds? Adapting ramified type theory
+to this specific second-order context, one could consider sets of level 1, 2, 3
+and so on, where the sets of level 1 are the arithmetically definable ones, those
+of level 2 are defined by formulas in which all second order quantifiers range
+over sets of level 1, those of level 3 allow second order quantifiers only over
+sets of level 1 or sets of level 2, and so on. Carrying this over to analysis,
+one would correspondingly then have real numbers of different levels 1, 2, 3,
+... . But if S is a bounded set of real numbers of some level k, its g.l.b. and
+l.u.b. are defined by applying the operations of union, resp. intersection to
+corresponding sets S ∗ of upper Dedekind sections of the rational numbers, and
+that requires quantification over sets of level k. Thus the g.l.b., resp., l.u.b. of
+S would be of level k + 1. Weyl concluded that a development of analysis in
+such ramified terms would be unworkable; at the same time, he rejected the
+Axiom of Reducibility as untenable on predicative grounds. His solution was
+to confine himself to arithmetical sets of natural numbers and the associated
+sets and sequences of rational numbers. With real numbers identified not as
+Dedekind sections but rather as Cauchy (or fundamental) sequences hrn in∈N of
+rational numbers, sequences of real numbers can be treated as double- sequences
+rk,n of rational numbers. Then one can show that if s = hxk ik∈N is a Cauchy
+sequence of real numbers given as xk = hrk,n in∈N , then its limit t = hqn in∈N
+exists arithmetically definable from the double-sequence hrk,n ik,n∈N . Thus, in
+this form, the Cauchy completeness of the real number system is justified by
+the arithmetical comprehension axiom.
+    With the real number system secured in this way, Weyl could move on to see
+which parts of analysis could be redeveloped in this restricted version of predica-
+tivity, given the natural numbers, which one might call arithmetical analysis.5
+His main achievement was to show that substantially all of 19th century analysis
+of piece-wise continuous functions could be accounted for in this way, since any
+continuous function f of real numbers is completely determined by its behavior
+at rational arguments, and hence can be represented at the second-order level.
+Subsequent research beginning in the 1970s has been able to extend Weyl’s
+program much farther into 20th century analysis; some more details about the
+reach of that will be indicated below. What is important for this part of our
+story is not that Weyl brought forth a new idea about predicativity, but rather
+that he showed the exceptional viability mathematically of the restricted part
+of predicativity, given the natural numbers, based without ramification on the
+second-order arithmetical comprehension axiom.
+
+   5 The first formulation of arithmetical analysis in modern logical terms was given by Grze-
+
+gorczyck (1955).
+
+
+                                             10
+                        Predicativity sidelined: 1920-1950
+
+    If predicativity was to progress following these early developments it would
+need a leader and practitioners. As it turned out, neither were there, for a
+number of reasons. Its first champion, Poincaré, died in 1912, and in any case
+he had not engaged in the essential clarification or implementation of his ideas.
+As for Russell, predicative logicism in the form of ramified type theory was
+compromised by the Axiom of Reducibility. Then, following the exhausting
+task of producing the first edition of Principia Mathematica (1910-1913), Rus-
+sell turned to general problems in philosophy from an analytic perspective, and
+during World War I was drawn aside into pacifist politics. Finally, Wittgen-
+stein’s critiques of Russell’s logic and philosophy struck serious blows to his
+confidence in his ideas.
+    The case of Weyl is different: despite the relative success of his arithmetically
+predicativist program in Das Kontinuum, he fell under the spell of Brouwer
+as he became more familiar with the work of that crusading intuitionist. In
+1921 he wrote, “I now abandon my own attempt and join Brouwer.”6 He then
+engaged in contributing to intuitionistic ideas and their relation to practice,
+and championed these in the following years, but eventually he became rather
+pessimistic about its prospects. Years later he wrote:
+      Mathematics with Brouwer gains its highest intuitive clarity. He
+      succeeds in developing the beginnings of analysis in a natural man-
+      ner, all the time preserving the contact with intuition much more
+      closely than had been done before. It cannot be denied, however,
+      that in advancing to higher and more general theories, the inapplica-
+      bility of the simple laws of classical logic eventually results in almost
+      unbearable awkwardness. (Weyl 1949, p. 54)
+    The foundational program most prominently in competition with that of
+Brouwer was Hilbert’s proof-theoretical consistency program. By restricting to
+finitist methods, that was more radical than Brouwer’s, but it was much more
+ambitious in its aim to “secure” the practice of non-constructive mathematics
+via consistency proofs of appropriate formal systems. Though that was dashed
+by Gödel’s theorem on unprovability of consistency in 1931, the program took
+on new life with Gentzen’s consistency proof for arithmetic and was transformed
+by the employment of limited transfinite methods.
+    What really pushed predicativity to the sidelines, however, was the success
+of axiomatic set theory—as developed by Zermelo, Skolem and Fraenkel—in
+allaying fears about the paradoxes. Though not demonstrably consistent, in-
+tensive development of the subject without running into any difficulties gave
+comfort and confidence to its practitioners and gradually won the support of
+mathematicians at large. Nor did the impredicativity that Poincaré and Weyl
+had located in the l.u.b. principle in the real numbers generate any concern.
+  6 Weyl’s intuitionistic excursion is fully described and exemplified with relevant articles in
+
+Part II of Mancosu (1998); cf. p. 98 op. cit. for the 1921 quote.
+
+
+                                              11
+For, in mathematical practice the real numbers are regarded as a definite com-
+pleted totality independent of human constructions and definitions, not some
+vague collection of numbers “growing” under successive definitions. Then the
+l.u.b. of a bounded subset S of R merely serves to single out a specific element
+of R, not to “bring it into existence.” In this respect, it is like the least number
+operator in the set of natural numbers, which serves to single out a specific
+number in N without our always being able to say which one it is in ordinary
+systems of representation. (For example, in the solution of Waring’s problem,
+given k, there is a least n such that every natural number is a sum of at most
+n k th powers; for all but the first few k, the specific value of n is unknown.)
+Mathematicians were thus insensitive to impredicativity in practice.
+
+   A story here, recounted in my book, is apropos:
+      ...a famous wager was made in Zürich in 1918 between Weyl and
+      George Pólya, concerning the future status of the following two
+      propositions: (1) Each bounded set of real numbers has a precise
+      upper bound. (2) Each infinite subset of real numbers has a count-
+      able subset. [The latter requires the Axiom of Choice.] Weyl pre-
+      dicted that within twenty years either Pólya himself or a majority of
+      leading mathematicians would admit that the concepts of number,
+      set and countability involved in (1) and (2) are completely vague,
+      and that it is no use asking whether these propositions are true or
+      false, though any reasonably clear interpretation would make them
+      false... . the loser was to publish the conditions of the bet and the
+      fact that he lost in the Jahresberichten der Deutschen Mathematiker
+      Vereinigung... (Feferman 1998, p. 57)
+
+    The wager was never settled as such, for obvious political reasons. Accord-
+ing to Pólya (1972), “The outcome of the bet became a subject of discussion
+between Weyl and me a few years after the final date, around the end of 1940.
+Weyl thought he was 49% right and I, 51%; but he also asked me to waive the
+consequences specified in the bet, and I gladly agreed.” Pólya showed the wager
+to many friends and colleagues, and, with one exception, all thought he had
+won.
+    In axiomatic Zermelo-Fraenkel (ZF) set theory, the fundamental source of
+impredicativity is in the Separation Axiom scheme, which asserts for each well-
+formed formula ϕ(x) (possibly with parameters) of the language of ZF the
+existence of the set {x : x ∈ a ∧ ϕ(x)} for any set a. Since the formula ϕ
+may contain quantifiers ranging over the supposed “totality” of all sets, this is
+impredicative according to the VCP. Mathematically, this prima facie impred-
+icativity is given teeth by the assumption of the Axiom of Infinity, guaranteeing
+the existence of the set ω of finite ordinals (or the natural numbers) and by the
+assumption of the Power Set Axiom, guaranteeing for any set a the existence
+of P (a) = {x : x ⊆ a}. Without the Axiom of Infinity, the impredicativity of
+Separation becomes innocuous, since the system has a model in the hereditarily
+
+
+                                        12
+finite sets. With the Axiom of Infinity, the axioms of Power Set and Separation
+lead, among other things to the existence of the real number system, repre-
+sented e.g. as the set of all upper Dedekind sections in the rational numbers,
+and thence to the l.u.b. principle for arbitrary bounded sets of real numbers.
+    Though predicativity went into hibernation until the 1950s, one important
+technical development in axiomatic set theory would prove to be significant for
+it. This was Gödel’s model of the constructible sets (1939). The “standard
+interpretation” of ZF set theory, due to Zermelo in 1930, is in the cumulative
+hierarchy hVa ia∈On , defined by transfinite recursion on the class On of (finite
+and transfinite) ordinal numbers α by transfinite iteration of the power set
+operation P starting with the empty set ∅ as follows:
+                                                            [
+              V0 = ∅, Vα+1 = P (Vα ), and for limit α, Vα =     Vβ .
+                                                                β<α
+
+This is a cumulative theory of types, unlike simple type theory, since as may be
+shown by induction on α, if β < α then Vβ ⊆ Vα . Gödel defined the constructible
+hierarchy hLα iα∈On by modifying the successor step, replacing the power set
+operation by an operation PDef (a) which, for any set a, consists of all sets of the
+form {x : x ∈ a ∧ ϕa (x)} where the superscript ‘a’ indicates that all quantifiers
+in ϕ are restricted to range over a, and where all parameters in ϕ are elements
+of a. Then Lα is defined recursively by:
+                                                               [
+            L0 = ∅, Lα+1 = PDef (Lα ), and for limit α, Lα =       Lβ .
+                                                                 β<α
+
+The constructible hierarchy thus stands to the cumulative hierarchy as Russell’s
+ramified theory of types stands to the simple theory of types. In fact, the con-
+structible hierarchy may be considered to be entirely predicative except perhaps
+in its free use of arbitrary ordinals. Since ordinals are the order types of well-
+ordered sets and those are defined impredicatively by the condition that any
+non-empty subset has a least element, the constructible hierarchy is not on the
+face of it predicative. But it may be considered to be predicative in a modified
+sense, relative to the notion of arbitrary well-ordering or ordinal number.
+    An interesting restriction of the notion of constructibility is the L hierarchy
+taken up to the least uncountable ordinal ω1 , that comes into the next part
+of our story. There and in the four succeeding sections7 , somewhat technical
+notions are involved, and for the sake of brevity, it must be assumed that the
+reader is familiar with the basic concepts involved. Otherwise, the sections can
+be skimmed.
+
+    Predicativity in transition, as a chapter of definability theory
+
+    The logical analysis of predicativity reemerged in the 1950s as a chapter
+in the extension of recursion theory to various “higher” definability notions,
+  7 Through “The outer mathematical bounds of predicativity.”
+
+
+
+
+                                          13
+especially for sets of natural numbers. A systematic study of hierarchies of
+definitions of sets of natural numbers was undertaken in the early 1950s by
+Kleene and, independently, Davis and Mostowski. In Kleene’s hands, this took
+the following form, using the “Turing jump” operator which takes one from any
+set X to a set X 0 which is universal for sets that are Σ01 in X. The sets which
+are obtained from N by finite iteration of the jump operation are, up to relative
+recursiveness, all the arithmetically definable sets. These thus take for granted
+the definiteness of quantification over N , and in that sense N as a completed
+totality. Kleene (1955) defined a transfinite extension of this hierarchy, using
+the set O of Church-Kleene notations for constructive ordinals. For a ∈ O, we
+write |a| for the ordinal α denoted by a. As an analogue of the least uncountable
+ordinal ω1 , the least ordinal not constructive in the sense of Church-Kleene (i.e.,
+the least α such that there is no a ∈ O with |a| = α), is denoted ω1CK . It was
+shown by Spector (1955) that the order types of recursive well-orderings of N
+are exactly the ordinals less than ω1CK . Kleene’s extension of the finite jump
+hierarchy, and thence of the arithmetical sets, is defined inductively for each
+a ∈ O yielding a subset Ha of N , as follows. H0 = ∅ and the step from Ha to
+its successor set is by the jump operation; finally, at a limit notation, one takes
+the direct sum of the sets associated with the recursive sequence approaching it.
+Then a set is called hyperarithmetic if it is recursive in Ha for some a ∈ O. The
+collection of all such sets is denoted HY P , which properly extends the class of
+arithmetical sets. One of the main results of Kleene (1955) is that
+                                   HY P = ∆11 ,
+i.e., the collection of sets definable both in Π11 form {n : (∀X)A(n, X)} and in
+Σ11 form {n : (∃X)B(n, X)} for A, B arithmetical.
+     The connection with predicative definitions in the sense of the ramified an-
+alytic hierarchy was established as follows. The basic step in that hierarchy
+consists in passing from a collection D of subsets of N to a new collection D∗
+by putting a set S in D∗ just in case there is a formula ϕ(x) of second-order
+arithmetic such that for all n,
+                                n ∈ S ↔ (ϕ(n))D ,
+where the superscript ‘D’ indicates that all second-order quantifiers in ϕ are
+relativized to range over D. Then we can define the collections Rα for arbitrary
+ordinals α by
+                                                            [
+              R0 = ∅, Rα+1 = (Rα )∗ , and for limit α, Rα =     Rβ .
+                                                              β<α
+
+Thus the definition of the Rα proceeds exactly like the Lα in Gödel’s con-
+structible hierarchy, except that at each stage one is confined to collections of
+subsets of N . Though Rα is defined for all α, it is not hard to show that we
+get nothing new for uncountable α, in fact there is a countable α such that
+Rα = Rα+1 . Kleene (1959) proved that
+                                 HY P = Rω1CK .
+
+                                        14
+However, HY P does not exhaust the ramified hierarchy, as follows from results
+of Gandy (1960) and Spector (1960).
+    It was tentatively proposed by Kreisel (1960) to identify the predicatively
+definable sets, given the natural numbers, with the members of HY P , essentially
+for the following reasons. Call an ordinal α predicative(ly definable) if it is the
+order type of a predicatively definable well-ordering ≺ of the natural numbers;
+then a set should be considered to be predicatively definable if it belongs to Rα
+for some predicative α. Clearly, then, on those grounds all recursive ordinals are
+predicative, and so by Kleene’s equation above, each member of HY P ought
+to be accepted as predicative. For the converse, the predicative ordinals should
+only be taken to be those generated by the following “boot-strap” condition: if
+α is a predicative ordinal and ≺ is a well-ordering relation in Rα and if β is the
+order-type of ≺, then β is predicative. But then the predicative ordinals do not
+go beyond the recursive ordinals, using the result of Spector (1955) that every
+hyperarithmetic well-ordering has order type less than ω1CK : for if α is recursive
+and the well-ordering ≺ is in Rα then it is hyperarithmetic, and hence its order-
+type β is recursive. This part of the argument shows that the predicative sets
+do not go beyond HY P .
+    Actually, analogous considerations leading to this identification had been
+proposed somewhat earlier by Wang (1954), who introduced ramified formal
+systems Σα which have as a natural model the constructible sets to level ω + α
+(since Wang starts with the hereditarily finite sets). The ordinals regarded to be
+predicative are again generated by a “boot-strap” condition: if α is predicative
+and β is defined by a well-ordering relation expressed in Σα then β is predicative.
+The system Σ is taken to be the union of the Σα for α predicative. Spector (1957)
+established that the predicative ordinals in this sense are exactly those less than
+ω1CK and the sets of natural numbers definable in Σ are exactly the HY P sets.
+In a suitable sense, the sets definable in Σ are those which have HY P structure
+on their transitive closure.8
+    Though the considerations leading to the identification of the predicative
+ordinals, resp. sets of natural numbers, with the recursive ordinals, resp. hy-
+perarithmetic sets, have a certain plausibility, they ignored one crucial point if
+predicativity is only to take the natural numbers for granted as a completed
+totality, namely that they involve in an essential way (both from above and
+below) the impredicative notion of being a well-ordering relation. A step away
+from that would be to talk of predicatively provable well-orderings in a way to
+be explained next.
+
+                      Predicative provability in the 1960s
+
+   The idea, to begin with, is that instead of dealing with the collections Rα ,
+one deals (as in the systems Σα ) with a transfinite progression of formal systems
+   8 Independently of Wang, Lorenzen (1955) dealt with systems S of a character similar to
+                                                                   α
+the Σα but did not impose precise conditions on the ordinals to be admitted. Lorenzen’s main
+concern there is with what parts of mathematics can be developed predicatively.
+
+
+                                            15
+of ramified analysis RAα , using variables X β , Y β , Z β , . . . for each β ≤ α. Here
+ordinals are not to be considered set-theoretically but rather as notations chosen
+from O by some natural procedure. The formal systems RAα incorporate as
+axioms comprehension principles expressing closure under the appropriate ram-
+ified definitions. These can only provide closure conditions on the sets at each
+level; the minimal model of RAα is given by hRβ iβ≤α , but larger collections can
+also satisfy the axioms of RAα . In particular, we can interpret the variables
+X 0 , Y 0 , Z 0 , . . . as satisfying the closure conditions of any larger Rβ .
+    The crucial new point (compared to Wang’s systems) is that the predicative
+ordinals are those that cannot only be defined by (what happen to be) well-
+ordering relations in the given systems but must also be proved previously to
+be such relations. The problem is how to meet this requirement without un-
+restricted second-order quantification; the answer comes from the provability
+condition as follows. Given ≺ a binary recursive relation in the natural num-
+bers, let W Oβ (≺) express that ≺ is a linear ordering such that every non-empty
+subset X β of its field has a ≺-least element. Then if one proves W O0 (≺), it
+follows that one can “lift” the proof to establish W Oβ (≺) for each β that comes
+to be accepted. In this sense, the proof of the predicatively meaningful state-
+ment W O0 (≺) can insure all predicatively meaningful consequences W Oβ (≺)
+of the impredicative statement of well-ordering W O(≺); indeed, from the out-
+side it insures that ≺ is a well-ordering. Now Kreisel’s proposal (1958) can be
+formulated as follows. The predicative(ly provable) ordinals are generated from
+0 by the boot-strap or autonomy condition: if α is predicative and RAα proves
+W O0 (≺) for a given recursive ≺, and β is the order type of ≺ then β is pred-
+icative. The least non-predicatively provable ordinal is then proposed to be the
+least ordinal which cannot be obtained in that way.
+    Kreisel called for an independent characterization of the limit of the pred-
+icatively provable ordinals in the sense just described. That problem was solved
+independently by Schütte (1965, 1965a) and me (“Systems of predicative anal-
+ysis,” 1964), in terms of the Veblen hierarchy hχα iα of critical functions of
+ordinals defined for each ordinal α by: χ0 (ξ) = ω ξ and when α 6= 0, χα enu-
+merates in order of size the set of common fixed points ξ of all χβ for each
+β < α, i.e., {ξ : for all β < α, χβ (ξ) = ξ}. Then the function of ξ given by χξ (0)
+is normal; let Γα be the αth fixed point ξ of the equation χξ (0) = ξ. Then what
+Schütte and I showed is that the least non-predicatively provable ordinal is Γ0 .
+Outlines of proofs are to be found in the cited references. A full exposition can
+be found in Schütte’s book Proof Theory (1977), Ch. VIII.
+
+                       Predicatively justifiable systems
+
+   Taking the intrinsic interest of predicativity given the natural numbers for
+granted, after determining Γ0 to be the least non-predicatively provable ordinal
+according to the preceding proposal, one had to return to the question of how
+much mathematics could be developed predicatively. This was pursued both
+theoretically, via alternative formal systems, and by means of case studies, to
+
+
+                                          16
+be discussed below. On the theoretical side, since (as Weyl stressed) ramified
+theories are unsuitable as a framework for the development of analysis, the first
+question was to see which unramified systems could be justified on predica-
+tive grounds. A formal system T is said to be predicatively justifiable if it is
+proof-theoretically reducible to one of the systems RAα for α < Γ0 and locally
+predicatively justifiable if it is proof-theoretically reducible to the union of all
+these systems.9 If T has the same proof-theoretic strength as that progres-
+sion, then its proof-theoretic ordinal is Γ0 . In that case, though the system T
+as a whole may not be justifiable predicatively, each theorem ϕ of T rests on
+predicative grounds, at least indirectly. In practice, more can be said: T is
+conservative over the autonomous ramified progression for arithmetic sentences,
+i.e., if ϕ is arithmetical and provable in T then it is provable in that progres-
+sion. For second-order T this can often be strengthened to conservativity for
+Π11 sentences. In particular, in that case, any provable well-ordering of T is also
+predicatively provable.
+     The first two examples of unramified second-order locally predicatively jus-
+tifiable systems were given in the paper Feferman (1964). The first of these was
+obtained by replacing the progression of ramified theories RAα by a progres-
+sion HCα of unramified second order theories, based on the Hyperarithmetic
+(or ∆11 ) Comprehension Rule:
+
+(∆11 − CR) From (∀x)[P (x) ↔ Q(x)] infer (∃X)(∀x)[x ∈ X ↔ P (x)],
+where P (x) is any Π11 formula and Q(x) is any Σ11 formula (parameters allowed).
+    The motivation for ∆11 − CR is the recognizable absoluteness (or invari-
+ance) of provably ∆11 definitions, in the following sense. At each stage one has
+recognized certain closure conditions on the “open” universe of sets, and the
+definitions D(x) of sets introduced at the next stage should be independent of
+what further closure conditions may be accepted. In the words of Poincaré, the
+definitions used of objects in an incomplete totality should not be “disturbed
+by the introduction of new elements.” Thus if U represents a universe of sets
+(subsets of N ) satisfying given closure conditions and is extended to U 0 (satis-
+fying the same closure conditions and possibly further ones) one wants D to be
+                                                                     0
+provably invariant or absolute in the sense that (∀x)[DU (x) ↔ DU (x)]. This re-
+quirement is easily seen to hold for provably ∆11 formulas D, i.e., those for which
+(∀x)[D(x) ↔ P (x)] has been proved where P and Q satisfy the hypothesis of the
+rule ∆11 − CR.10 The progression of theories HCα is then obtained by suitable
+transfinite iteration of the rule ∆11 − CR. Again, one can apply the notion of
+autonomy to such a progression; it was shown that the least non-autonomous
+ordinal of this progression is Γ0 , the union of the HCα for α < Γ0 is of the same
+proof-theoretical strength as the union of the autonomous ramified progression,
+and one has conservativity for Π11 formulas.
+   9 See Feferman (1998) p. 193 for the notion of proof-theoretic reduction. Previously, I have
+
+used ‘predicatively reducible’ for what is written here as ‘predicatively justifiable.’
+  10 It has been shown in Feferman (1968) that every provably invariant formula is equivalent
+
+to a provably ∆11 formula, so the rule ∆11 − CR is fully general for this requirement.
+
+
+                                              17
+    The second locally predicatively justifiable system introduced in Feferman
+(1964) was obtained by replacing the autonomous progression of the HCα by a
+single second-order system, denoted IR. This is axiomatized by the rule ∆11 −
+CR together with what is called the Bar Rule in the proof-theoretic literature,
+which allows one to infer the full scheme of transfinite induction on a recursive
+ordering ≺ when W O(≺) has been established; correspondingly, one has a rule
+for inferring a scheme of transfinite recursion on ≺ under the same hypothesis.
+(The ‘I’ in ‘IR’ is for Induction, and the ‘R’ is for Recursion.) The main result
+concerning IR stated in Feferman (1964) is that it proves the same theorems
+as the union of the HCα for α < Γ0 , and thus it is predicatively reducible with
+conservativity for Π11 formulas.
+    The system of what is often referred to as second order arithmetic has the
+Full (Π∞1 ) Comprehension Axiom Scheme
+
+
+(Π∞
+  1 − CA)       (∃X)(∀x)[x ∈ X ↔ ϕ]
+where ϕ is an arbitrary second-order (Π∞
+                                       1 ) formula which does not contain ‘X’
+free. In 1976, Harvey Friedman introduced several subsystems of second-order
+arithmetic whose common feature is that induction is restricted to its second-
+order form, the Induction Axiom
+
+(IA)     (∀X)[(0 ∈ X) ∧ (∀x)(x ∈ X → x0 ∈ X) → (∀x)(x ∈ X)].
+In the presence of the full comprehension axiom one can infer from the induction
+axiom IA the Induction Scheme considered as the collection of all formulas of
+the form
+
+(IS)     ϕ(0) ∧ (∀x)[ϕ(x) → ϕ(x0 )] → (∀x)ϕ(x)
+for arbitrary second-order formulas ϕ. But in the restricted systems considered
+by Friedman in which the comprehension axiom is considerably weakened, that
+step is not possible. Following Friedman, these systems are indicated by a
+subscript ‘0.’ An obvious choice for such to consider with respect to the present
+subject is the system ACA0 obtained by replacing the full comprehension axiom
+scheme by the sub-scheme in which only arithmetical formulas ϕ (no bound
+second-order variables) are admitted. It is a classical result of proof theory that
+the system ACA0 is a conservative extension of the first-order system of Peano
+Arithmetic PA. On the other hand, the system ACA, which is obtained by use
+of the full induction scheme (IS) in place of (IA), is stronger than PA; it is still
+predicatively justifiable, but its proof theoretical ordinal is far below Γ0 .
+    Another locally predicatively justifiable system introduced in Friedman (1976)
+is denoted ATR0 . It has a certain similarity to IR, using axioms in place of
+rules, as follows. In place of the ∆11 − CR one has the ∆11 − CA, i.e., the axiom
+scheme
+                 (∀x)[P (x) ↔ Q(x)] → (∃X)(∀x)[x ∈ X ↔ P (x)]
+where P is Π11 and Q is Σ11 . In place of the transfinite recursion rule of IR one
+has an axiom expressing that for all well-ordering relations Z one can construct
+
+                                        18
+the Turing jump hierarchy along Z starting with any set X, i.e., the relative
+hyperarithmetical hierarchy along Z. The transfinite induction rule in IR is not
+replaced by the corresponding axiom, as that would be too strong; in place of
+it, the system ATR0 uses only the induction axiom (IA) for natural numbers
+as above. Friedman’s main result announced in 1976 was that ATR0 is locally
+predicatively justifiable with proof-theoretical ordinal Γ0 and is conservative
+over IR for Π11 sentences; a full proof of this with further interesting results
+about ATR0 is given in the paper Friedman, McAloon and Simpson (1982).
+    Various wholly or locally predicatively justifiable systems of higher type are
+surveyed in Avigad and Feferman (1998), sections 8.2 and 8.3. Systems of set
+theory related to IR were treated in Feferman (1974), while ones related to
+ATR0 have been dealt with in Simpson (1982). See also Simpson’s article
+(2002),“Predicativity: the outer limits.”
+
+  The mathematical reach of predicativity: positive developments
+
+    Having established theoretical bounds to predicativity and workable unram-
+ified predicatively justifiable systems, the next questions of interest are to see
+what parts of “everyday” mathematics can be carried out within those bounds,
+and what parts are essentially impredicative; the latter question is treated in the
+next section. It turns out in practice that if a known mathematical result can be
+established predicatively, it can already be done in a system conservative over
+Peano Arithmetic (PA). In other words, the predicative part of everyday math-
+ematics is robustly predicative. There is no theorem which can establish this; one
+can only depend on various case studies for confirming evidence. One avenue
+is that pursued in the so-called Reverse Mathematics (R.M.) program due to
+Friedman and carried on most extensively by Simpson in his book, Subsystems
+of Second Order Arithmetic (1999). The principal relevant system for the pos-
+itive work on predicative mathematics in that framework is ACA0 , described
+above, and conservative over PA. Another relevant system is much weaker, be-
+ing based only on Weak König’s Lemma, i.e., the familiar tree lemma for infinite
+branching binary trees; it is shown op. cit. that the associated system WKL0 is
+conservative over the system PRA of Primitive Recursive Arithmetic. A second
+avenue in which the positive reach of predicative mathematics has been studied
+is via a system W (for ‘Weyl’) of flexible finite types introduced in the final part
+of the article “Weyl vindicated” (Feferman 1988). The main proof-theoretical
+result concerning W is that it is a conservative extension of PA (Feferman and
+Jäger 1993, 1996). Only some points of general character concerning both of
+these approaches will be indicated here.
+    In W, types are variable; for any two types X and Y , one has existence of
+their cartesian product X × Y , and the type Y (X) of all partial functions from
+X to Y ; finally, for any type X and bounded formula ϕ one has the subtype
+{x ∈ X : ϕ(x)} of X determined by ϕ. Starting from the type N of natural
+numbers, one can introduce as usual the type Q of rational numbers, and then
+the type R of real numbers considered as Cauchy sequences of rational num-
+bers, identified under the usual equivalence relation. Then (partial) functions
+
+                                        19
+of real numbers can be treated as members of R(R) , and various spaces of such
+functions (e.g., continuous, measurable, etc.) form examples for Hilbert spaces
+and Banach spaces. Given any such space S, the functionals from S to R are
+then certain members of R(S) . In practice, only separable spaces can be treated
+predicatively, via a given countable dense subset.
+    As for the program initiated by Weyl in 1918, the full classical analysis
+of continuous functions can be carried out directly in W. Turning to more
+general classes of functions from 20th century analysis such as come out of the
+Lebesgue theory of measure, one first notes that the general notion of outer
+measure can’t be defined in W, since it makes essential use of the g.l.b. as
+applied to sets of reals, not sequences of reals. But the notion of measurable set
+can be treated via sequences of open covers whose measure is directly defined,
+and the notion of measurable function can be defined in terms of that or in
+terms of sequences of approximating step functions. One cannot prove the
+existence of Lebesgue non-measurable sets of reals; put in other terms, it is
+consistent with W that all sets of reals are Lebesgue measurable. Various
+parts of standard functional analysis have been verified in unpublished notes:
+the Riesz representation theorem, Hahn-Banach theorem, uniform boundedness
+theorem and open mapping theorem for separable Hilbert and Banach spaces.
+Finally, one can obtain the principal results of the spectral theory of bounded
+as well as unbounded self-adjoint linear operators on a separable Hilbert space.
+Subsequent to this work, it has been shown in the dissertation of Feng Ye (1999)
+that much of this work can already be carried out in a constructive subsystem
+of W, conservative over PRA.
+    By comparison, in the R.M. program sharper results have been obtained, of
+the form that over a weak base system RCA0 , various of these results in analysis
+are actually equivalent to ACA0 (if not already to WKL0 ); these are detailed in
+Simpson (1999). However, since the systems considered in the R.M. program are
+all subsystems of second-order arithmetic, there is a cost involved, namely that
+higher type notions such as those of functions of real numbers, function spaces
+and functionals, cannot be dealt with directly but must somehow be coded in
+second-order terms. If one is not concerned with obtaining exact equivalences
+between mathematical results and the second-order set and function existence
+principles on which they ultimately rest, the positive predicative development
+of analysis is carried out much more naturally in systems like W.
+
+            The outer mathematical bounds of predicativity
+
+    Turning now to mathematical results which cannot be carried out predica-
+tively, the easiest proofs of independence are those which can be established by
+models in the hyperarithmetic sets. For example, independence of the existence
+of non-measurable sets of reals stems from the fact that every ∆11 set of reals
+has HY P Lebesgue measure. Another example using HY P that was found by
+Kreisel (1959) is the impredicativity of the Cantor-Bendixson theorem, which
+
+
+
+                                       20
+asserts that every closed set of reals is the union of a perfect set and a count-
+able (scattered) set. The HY P model can also be used to obtain examples of
+impredicative theorems in Abelian group theory (Feferman 1975).
+    For independence results closer to the bounds of predicativity, one must fall
+back on proof-theoretic results. For example, any theorem equivalent to ATR0
+is at the exact limit Γ0 of predicativity, and is thus impredicative. Simpson
+(2002) gives a number of examples of theorems from descriptive set theory that
+are equivalent to ATR0 over RCA0 , such as that every uncountable closed
+(or analytic) set contains a perfect subset. Also, ATR0 is equivalent to com-
+parability of countable well-orderings. Other independence results have come
+from combinatorics rather than analysis, set theory, or algebra. They are of
+interest because the statements are arithmetical, in fact in Π02 form. One group
+of these has to do with variants of the Ramsey coloring theorem, such as the
+Paris-Harrington (1977) version independent of PA. Friedman, McAloon and
+Simpson (1982) have given a mathematically natural finite combinatorial theo-
+rem which is equivalent to ATR0 over RCA0 . Friedman showed that certain
+simple Π02 consequences of Kruskal’s theorem about embeddings of finite trees
+are not even provable in ATR0 (cf. Simpson 2002 for references and further
+developments).
+
+            Predicativity and the indispensability arguments11
+
+    The idea that natural science justifies a part of mathematics because of its
+indispensability to science—and that that is the only part of mathematics that is
+justified—is due to Willard Quine and Hilary Putnam among others. Famously,
+Quine has written:
+      So much of mathematics as is wanted for use in empirical science is
+      for me on a par with the rest of science. Transfinite ramifications
+      are on the same footing insofar as they come of a simplificatory
+      rounding out, but anything further is on a par with uninterpreted
+      systems. (Quine 1984, p. 788).
+
+Quine argued that we need the power set operation in set theory to establish
+the existence of the real numbers R and then its application once more to obtain
+such sets as that of all functions from R to R. That led him by a “simplificatory
+rounding out” to acceptance of finite iterations of the power set, but not its
+ω th iteration over the natural numbers. In other words, Quine was led thus
+to accept Zermelo set theory but nothing stronger, which he looked upon as
+“mathematical recreation and without ontological rights” (Quine 1986, p. 400).
+Penelope Maddy has characterized the indispensability arguments (for critical
+purposes), as follows:
+  11 Re the indispensability arguments, see also the relevant sections of the chapters by Resnik
+
+and Maddy in this volume.
+
+
+
+
+                                              21
+     We have good reason to believe our best scientific theories, and math-
+     ematical entities are indispensable to those theories, so we have good
+     reason to believe in mathematical entities. Mathematics is thus on
+     an ontological par with natural science. Furthermore, the evidence
+     that confirms scientific theories also confirms the required mathe-
+     matics, so [that part of] mathematics and science are on an episte-
+     mological par as well. (Maddy 1992, p. 78)
+
+   In (Feferman 1993, reprinted in 1998) I considered the significance for the
+indispensability arguments of the positive developments of parts of mathematics
+by predicative means in the following terms (1998, p. 284): if one accepts the
+indispensability arguments [of course one might argue against them on philo-
+sophical grounds] there remain two critical questions:
+
+   Q1. Just which mathematical entities are indispensable to current scientific
+theories?
+
+   Q2. Just what principles concerning those entities are needed for the re-
+quired mathematics?
+
+    The positive developments described above are brought to bear on these
+questions as follows. On their basis, I had formulated the working hypothesis
+that all of scientifically applicable analysis can be developed in the system W,
+and argued that this has been verified in its core parts (cf. 1998, pp. 280-283
+and 293-294). Of course, there are results of theoretical analysis which cannot
+be carried out predicatively, either because they are essentially impredicative in
+their very formulation, or because they are independent of predicative systems
+such as the examples given above. However, none of those affects the working
+hypothesis because they do not figure in the applicable mathematics. What
+is more to the point are examples closer to the margin scientifically, e.g., the
+proposed use of certain non-separable spaces for a quantum-mechanical model
+involving infinitely many degrees of freedom in Emch (1972, p. 103); contra that
+one can appeal to the arguments on physical grounds by Streater and Wightman
+(1978, p. 87).12 Of course the working hypothesis may yet prove to be wrong
+by other examples, but as of now, all evidence is in its favor. If one accepts it,
+one can return to the questions Q1 and Q2 as follows:
+
+     By the fact of the proof-theoretical reduction of W to PA, the only
+     ontology it commits one to is that which justifies acceptance of PA.
+     But even there, the answer to Q1 and thence to Q2 is underdeter-
+     mined. One view of PA is that it is about the natural numbers
+     as independently existing abstract objects; that is ... a platonistic
+     view, albeit an extremely moderate one. ... Or one can make use of
+     the fact that PA is reducible to HA [Heyting Arithmetic] to justify
+ 12 See Feferman (1998) p. 282 for a fuller discussion.
+
+
+
+
+                                             22
+     it on the basis of a more constructive ontology. (Feferman 1998, p.
+     296).
+From this and related arguments, I drew the conclusion that
+     ...if one accepts the indispensability arguments, practically nothing
+     philosophically definitive can be said of the entities which are then
+     supposed to have the same status—ontologically and epistemologi-
+     cally—as the entities of natural science. That being the case, what
+     do the indispensability arguments amount to? As far as I’m con-
+     cerned, they are completely vitiated. (ibid., p. 297).
+
+
+                 Rethinking predicativity II: 1970-1996.
+
+    In Kreisel’s article “Principles of proof and ordinals implicit in given con-
+cepts” (1970), he criticized existing proof theory for “the lack of a clear and
+convincing analysis of the choice of methods of proof,” and took as his ultimate
+aim “the discovery of objective criteria for such a choice” [italics in the origi-
+nal]. “What one is after is a (phenomenological) description of certain kinds P
+of mathematical reasoning; the objective question is then simply this: whether
+the proofs represented ... by derivations of a given formal system F are in P
+(soundness of F); [and] whether all proofs in P are represented in F (complete-
+ness with respect to ... provability in P).” The particular kinds of reasoning P
+considered with respect to this aim were described as an answer to the following:
+     What principles of proof do we recognize as valid once we have under-
+     stood (or, as one sometimes says, ‘accepted’) certain given concepts?
+     (Kreisel 1970, p. 489)
+As a further elaboration, “[t]he process of recognizing the validity of such prin-
+ciples (including the principles for defining new concepts, that is, formally, of
+extending a given language) is here conceived as a process of reflection... . ...
+Granted that we have to do with an area P which lends itself to the kind of
+analysis indicated, it is evident that ordinals play a basic role. They index the
+stages in the reflection process.”
+    The two principal basic concepts considered by Kreisel (op. cit., p. 490) are,
+in his terminology:
+
+   1. The concepts of ω-sequence and ω-iteration.
+
+   2. The concepts of set of natural numbers and numerical quantification.
+Kreisel pointed out that this is related to earlier work on autonomous progres-
+sions for finitist mathematics (in Kreisel 1958 and 1965) and for predicative
+mathematics (in Feferman 1964).
+    This rethinking of predicativity, and relatedly, of finitism, was persuasive
+to me except for the idea that one would expect the stages of reflection to be
+
+                                       23
+indexed by (possibly) transfinite ordinals, though such ordinals might well be
+used metamathematically in an evaluation of the proof-theoretical strength of
+the system F proposed to represent P. In my view, the F considered for a given
+P should not be taken to involve the notions of ordinal or well-ordering in any
+way that is not already contained in the basic concepts of P. The formulation
+of this went through several stages, marked among others by the publications
+(Feferman 1979 and 1991), arriving most recently at the general notion of un-
+folding, as first explained in “Gödel’s program for new axioms: why, where, how,
+and what?” (Feferman 1996). That also pointed to the possible applicability of
+the notion to systems of set theory at the other extreme to finitism, in which
+certain axioms for “large cardinals” would be derived that would fulfill Gödel’s
+view that the familiar systems such as ZFC “can be supplemented without ar-
+bitrariness by new axioms which are only the natural continuation of those set
+up so far” (Gödel 1947, p. 520). The idea of unfolding is outlined next.
+
+                           Predicativity as unfolding13
+
+    It is of the essence of the notion of unfolding that we are dealing with
+schematically presented formal systems. In the usual conception, formal
+schemata for axioms and rules of inference employ free predicate variables
+P, Q, . . . of various numbers of arguments n ≥ 0. An appropriate substitution
+for P (x1 , . . . , xn ) in such a scheme is a formula ϕ(x1 , . . . xn ), possibly with ad-
+ditional parameters. Familiar examples of axiom schemata in the propositional
+and predicate calculus are
+
+                  ¬P → (P → Q)            and       (∀x)P (x) → P (t).
+
+The induction axiom scheme in non-finitist arithmetic is given by
+
+                      P (0) ∧ (∀x)[P (x) → P (x0 )] → (∀x)P (x).
+
+In set theory, familiar axiom schemes which can be represented similarly are
+those for Separation and Replacement.
+    Also rules of inference may be represented schematically, such as Modus Po-
+nens in the propositional calculus and Universal Generalization in the predicate
+calculus, given respectively by
+
+             P, P → Q/Q          and       [P → Q(x)]/[P → (∀x)Q(x)].
+In finitist arithmetic, in which quantification over the natural numbers is not
+accepted, the basic principle of induction is given by the rule:
+
+                              P (0), P (x) → P (x0 )/P (x).
+ 13 This section is adapted from Feferman (1996).
+
+
+
+
+                                            24
+    The informal philosophy behind the use of schemata in the concept of un-
+folding is their open-endedness. That is, they are not conceived of as applying
+to a specific language whose stock of basic symbols is fixed in advance, but
+rather as applicable to any language which one comes to recognize as embody-
+ing meaningful basic notions. Put in other terms, implicit in the acceptance of
+given schemata is the acceptance of any meaningful substitution instances. But
+it need not be determined in advance which substitution instances are to be
+accepted. Thus, for example, if one accepts the axioms and rules of the classical
+propositional calculus given in schematic form, one will accept all substitution
+instances of these schemata in any language which one comes to employ.
+    The question which the notion of unfolding is supposed to address is: given
+a schematic system S, which operations and predicates—and which principles
+concerning them—ought to be accepted if one has accepted S ? The answer for
+operations is straightforward: any operation from and to individuals is accepted
+which is determined explicitly or implicitly from the basic operations of S. More-
+over, the principles which are added concerning these operations are just those
+which are derived from the way that they are introduced. Ordinarily, we would
+confine ourselves to the total operations obtained in this way, i.e., those which
+have been proved to be defined for all values of their arguments, but it should
+not be excluded that the introduction might depend on prior partial operations,
+e.g., those introduced by recursive definitions of a general form. The question
+concerning predicates in the unfolding of S is treated in operational terms as
+well, i.e.: which operations on and to predicates–and which principles concerning
+them—ought to be accepted if one has accepted S ? For this, it is necessary to
+tell at the outset which logical operations on predicates are taken for granted in
+S. For example, in the case of non-finitist classical arithmetic, these would be
+(say) the operations ¬, ∧ and ∀, while in the case of finitist arithmetic we would
+be limited to positive propositional connectives and (in one formulation) the ∃
+operator.
+    As a general background theory to unfolding for arbitrary S, one assumes a
+kind of proto-mathematical theory of operations and predicates, which makes
+only those assumptions that appear in every mathematical theory. The theory
+of operations can be typed or untyped; the latter, which is formally simpler, is
+taken to be a form of partial combinatory algebra with pairing and projection
+operations. These provide for closure of both operations and predicates under
+explicit definition. In addition, the combinatory setup allows one to construct a
+generalized recursion or fixed point operator which assures the uniform implicit
+definition from any given f of a (possibly partial) operation g satisfying
+
+                                     g = f g.
+
+   One general (logic independent) operation on predicates is given a distin-
+guished role, since we consider the case when it is not used. Given a total
+operation f on a domain M to n-ary predicates over M , say f x = Px for each
+x ∈ M , the join operation J is used to form the predicate J(f ) = P satisfying
+
+
+                                       25
+for all x, x1 , . . . , xn :
+
+                               P (x, x1 , ..., xn ) ↔ Px (x1 , . . . , xn ).
+
+   The operational unfolding of a schematic system S, in symbols U0 (S), makes
+use only of the background theory of operations over the given operations of
+S, i.e., it does not make use of any operations on or to predicates. The full
+(operational and predicate) unfolding of S, in symbols U(S) also admits the
+background theory of operations on and to predicates over the given logical
+operations of S, including the join operator J. The intermediate (operational
+and predicate) unfolding of S, in symbols U1 (S), is the same without the join
+operator. Systems are unfolded by establishing the definedness and uniqueness
+of more and more operations of the various kinds. These serve to expand the
+language and thence the formulas ϕ which can be admitted to the
+
+(Substitution Rule)             A(P )/A(x̂.ϕ(x)).
+    As an example, the schematic system NFA of Non-Finitist Arithmetic is
+given with basic operations on individuals of successor Sc, predecessor P d and
+the 0-ary operation (constant) 0, and a schematic predicate symbol P (x). In
+the intermediate and full unfoldings, the basic logical operations assumed are
+¬, ∧ and ∀. The basic axioms of NFA are simply the following three, where we
+write x0 for Sc(x):
+    Ax 1. x0 6= 0.
+    Ax 2. P d(x0 ) = x.
+    Ax 3. P (0) ∧ (∀x)[P (x) → P (x0 )] → (∀x)P (x).
+    In my paper with Thomas Strahm, “The unfolding of non-finitist arith-
+metic” (2000) the following results are proved, where ≡ is the relation of proof-
+theoretical equivalence, PA is the usual system of Peano Arithmetic, and RA<α
+is the union of the systems RAβ of ramified analysis to level β, for β < α.
+
+   (i) U0 (NFA) ≡ PA
+  (ii) U1 (NFA) ≡ RA<ω .
+ (iii) U(NFA) ≡ RA<Γ0 .
+
+In other words, the full operational and predicate unfolding of NFA is proof-
+theoretically equivalent to predicative analysis as characterized via the au-
+tonomous progression of ramified theories. The first step in getting PA con-
+tained in U0 (NFA) is to establish successively the definedness of all primitive
+recursive functions.14
+    In an abstract with Strahm, “Unfolding finitist arithmetic” (2001) we have
+announced the following result for a system FA of Finitist Arithmetic with
+  14 Actually, in Feferman and Strahm (2000) we made use of a background theory of typed
+
+operations with general Least Fixed Point operator, but we have also verified the results as
+stated here for the untyped background theory.
+
+
+                                                   26
+the restricted operations on predicates indicated above, and with the induction
+axiom replaced by the quantifier-free induction rule.15 Here we obtained, in
+terms of the system PRA of Primitive Recursive Arithmetic:
+
+                       U0 (FA) ≡ U1 (FA) ≡ U(FA) ≡ PRA.
+
+This is in accord with Tait’s argument (1981) that finitism is formally repre-
+sented by PRA.
+    Kreisel’s work on finitism in terms of certain autonomous progressions (1958
+and 1965) led to a system whose proof-theoretical strength is Peano Arithmetic
+PA. It should be possible to expand the system FA to a system FA∗ whose
+unfolding is exactly PA in strength. The guess is that this would be obtained
+by adding a suitable form of the Bar Rule in the language of FA informally
+expressed as follows: if ≺ is a decidable ordering and it has been proved (with
+free variable f ) that f is not descending in ≺, then one can apply transfinite
+induction to ≺.
+
+Conjecture.      U(FA∗ ) ≡ PA.
+If this is right, what gives Kreisel’s characterization of finitism its unexpected
+strength is his implicit use of a notion of finitist well-ordering.
+
+                      What is predicativity? (Summary)
+
+     The idea of predicativity started in a negative frame of mind with the iden-
+tification of a vicious circle in the use of definitions purported to single out
+an object D from a supposed totality V by essential reference to the entirety
+of V . Such a definition was considered to be problematic when V is in some
+sense essentially ill-defined, not “actual” or “complete.” To begin with, the fo-
+cus was on the supposed totalities of all sets or all ordinal or cardinal numbers
+in the framework of Cantorian set theory. The radical diagnosis of Kronecker,
+Poincaré and Brouwer saw a threat to mathematics in all assumptions of the
+actual infinite, even down to the natural numbers. Hilbert too, in his consis-
+tency program to secure infinitistic mathematics was infected in this way and,
+in the words of Paul Bernays, “it became his goal to do battle with Kronecker
+with his own weapon of finiteness” by way of inoculation.
+    Less radical at first, Weyl accepted the set N of natural numbers as a com-
+pleted totality, but not the real numbers, or what comes to the same thing
+foundationally, the totality of all subsets of N . Thus was born the concept of
+predicativity given the natural numbers, and the investigation of its reach in
+practice. That there is a fundamental difference between our understanding of
+the concept of natural numbers and our understanding of the set concept, even
+for sets of natural numbers, is undeniable. The study of predicativity given the
+   15 Preparation of a full presentation of the system FA and the proof of the theorem about
+
+it is in progress.
+
+
+
+                                            27
+natural numbers is thus of special foundational significance, and is the one that
+has received the most detailed investigation, as described in the sections above.
+This is not to say that only what is predicative in that sense is justified. What
+we are dealing with here are questions of relative conceptual clarity and founda-
+tional status. Parallel to the development of predicative mathematics was the
+pursuit of finitist mathematics in the hands, to begin with, of Skolem (1923)
+and, much later, Goodstein (1957). Both were overshadowed in the foundational
+wars by the intuitionists, the most radical of the radicals.
+    With the rise in the 1950s of metamathematics as a substantial discipline
+and broadly applicable tool, these directions became the subject of logical anal-
+ysis at the hands of philosophically motivated but not necessarily ideologically
+committed logicians such as Kleene and Kreisel. Kleene was concerned, in effect,
+with what definition processes (recursive, hyperarithmetic, etc.) were implicit
+in accepting given notions. Kreisel shifted the attention to what proof processes
+were implicit in these. The notion of unfolding of schematic formal systems
+evolved from his 1970 paper “Principles of proofs and ordinals implicit in given
+concepts.” The aim was to put that in more general form by not assuming the
+notion of ordinal as part of the basic description. The first results described
+above are gratifying in this respect: the full unfolding of the system NFA of
+Non-Finitist Arithmetic is equivalent to the characterization in terms of the
+autonomous progression of ramified systems, of predicativity given the natural
+numbers, while that of the system FA of Finitist Arithmetic is equivalent to
+primitive recursive arithmetic.
+    Are those the only two senses of predicativity to be considered? In one
+direction, stronger notions of predicativity than that, given the natural num-
+bers, were suggested by work in the late 1950s of Paul Lorenzen, John Myhill
+and Hao Wang. In particular, the paper of Lorenzen and Myhill (1959) in-
+volves the acceptance in a certain constructive form of the countable ordinals
+and of inductive proof and definition on them. In metamathematical terms,
+their principles would legitimate a system of strength at least that of ID1 , the
+theory of one generalized inductive definition. In quite the opposite direction,
+Edward Nelson published a monograph, Predicative Arithmetic (1986), which
+perhaps more properly should have been entitled Strictly Finitist Arithmetic,
+whose admissible principles place it within the systems of “feasible” or “poly-
+time” arithmetic that have been developed by Sam Buss and others, systems
+that form a very weak fragment of primitive recursive arithmetic (cf. Buss 1986).
+And somewhere between these are two papers of Geoffrey Hellman and myself,
+“Predicative foundations of arithmetic” (1995) and “Challenges to predicative
+foundations of arithmetic” (2000), where we argue in particular for a concept of
+predicativity given the notion of finite set, and in general for predicativity as a
+relative rather than an absolute concept. In addition, concepts of predicativity
+given the notion of finitist ordinal and even of predicativity given the notion
+of the cumulative hierarchy of sets have been indicated above. These open up
+a series of more or less specific problems to be tackled in terms of the concept
+of unfolding. To begin with, these problems call for the formulation of basic
+
+
+                                        28
+schematic systems as simple and natural as NFA and FA for the weaker or
+stronger notions indicated in the various mentioned developments, and then the
+determination of the reach of the corresponding systems of unfolding.
+    So if one accepts this more general standpoint, one answer to the question
+“What is predicativity?” is that it is a concept applicable to different founda-
+tional stances given by the rejection of the actual infinite for various domains,
+coupled with its possible limited acceptance for others. The logical problem in
+each case is to characterize exactly the limits of that particular stance. The
+potential value for philosophy then is to be able to say in sharper terms what
+arguments may be mounted for or against taking such a stance.
+    I wish to conclude with a brief indication—to the extent that it is relevant—
+of my own point of view philosophically, which has both negative and positive
+aspects.16 On the negative side, I am a confirmed anti-platonist. On the positive
+side, I am a realist insofar as the natural numbers are concerned, i.e., I believe
+that statements about the natural number structure have a determinate truth
+value independent of human proofs and constructions. What more? It might
+be thought that since I have spent so many years working on predicativity that
+I consider it the be-all and end-all in non-platonistic foundations. Rather, as I
+wrote in the Preface to In the Light of Logic, p. ix, I believe that
+
+     [predicativity given the natural numbers] should be looked upon as
+     the philosophy of how we get off the ground and sustain flight mathe-
+     matically without assuming more than the basic structure of natural
+     numbers to begin with. There are less clear-cut conceptions which
+     can lead us higher into the mathematical stratosphere, for example
+     that of various kinds of sets generated by infinitary closure condi-
+     tions. That such conceptions are less clear-cut than the natural
+     number system is no reason not to use them, but one should look
+     to see where it is necessary to use them and what we can say about
+     what it is we know when we do use them.
+
+ 16 See also Feferman (1998), pp. 123-124.
+
+
+
+
+                                             29
+                               References
+J. Avigad and S. Feferman (1998), Gödel’s functional (“Dialectica”) interpreta-
+tion, in Handbook of Proof Theory (S. Buss, ed.), Elsevier (Amsterdam), 337-
+405.
+
+S. Buss (1986), Bounded Arithmetic, Studies in Proof Theory Lecture Notes,
+Bibliopolis (Naples).
+
+C. Chihara (1973), Ontology and the Vicious Circle Principle, Cornell Univ.
+Press (Ithaca).
+
+Ph. de Rouilhan (1996), Russell et le circle des paradoxes, PUF (Paris).
+
+G. G. Emch (1972), Algebraic Methods in Statistical Mechanics and Quantum
+Field Theory, Wiley and Sons (New York).
+
+S. Feferman (1964), Systems of predicative analysis, J. Symbolic Logic 29, 1-30.
+
+S. Feferman (1968), Persistent and invariant formulas for outer extensions, Com-
+positio Mathematica 20, 29-52.
+
+S. Feferman (1974), Predicatively reducible systems of set theory, in Axiomatic
+Set Theory, Part 2 (D. S. Scott and T. Jech, eds.), Proceedings of Symposia in
+Pure Mathematics XIII, Amer. Math. Soc. (Providence), 11-32.
+
+S. Feferman (1975), Impredicativity of the existence of the largest divisible sub-
+group of an abelian p-group, in Model Theory and Algebra. A Memorial Tribute
+to Abraham Robinson (D. H. Saracino and V. B. Weispfenning, eds.), Lecture
+Notes in Mathematics 498, Springer-Verlag (Berlin), 117-130.
+
+S. Feferman (1979), A more perspicuous system for predicativity, in Konstruk-
+tionen vs. Positionen, Band II (K. Lorenz, ed.), Walter de Gruyter (Berlin),
+68-93.
+
+S. Feferman (1988), Weyl vindicated. Das Kontinuum 70 years later, in Temi
+et prospettive della logica e della filosofia della scienza contemporanee, Vol. 1,
+CLUEB (Bologna). Reprinted with a Postscript in Feferman (1998), 249-283.
+
+S. Feferman (1991), Reflecting on incompleteness, J. Symbolic Logic 56, 1-49.
+
+S. Feferman (1993), Why a little bit goes a long way. Logical foundations of sci-
+entifically applicable mathematics, in PSA 1992, Vol. 2, Philosophy of Science
+Association (East Lansing), 442-455. Reprinted in Feferman (1998), 284-298.
+
+
+
+                                       30
+S. Feferman (1996), Gödel’s program for new axioms. Why, where, how and
+what?, in Gödel ‘96 (P. Hajek, ed.), Lecture Notes in Logic 6, Assoc. for Sym-
+bolic Logic, distributed by A. K. Peters, Ltd. (Natick), 3-22.
+
+S. Feferman (1998), In the Light of Logic, Oxford Univ. Press (New York).
+
+S. Feferman and G. Hellman (1995), Predicative foundations of arithmetic, J.
+of Philosophical Logic 24, 1-17.
+
+S. Feferman and G. Hellman (2000), Challenges to predicative foundations of
+arithmetic, in Between Logic and Intuition. Essays in Honor of Charles Parsons
+(G. Sher and R. Tieszen, eds.), Cambridge Univ. Press (Cambridge), 317-338.
+
+S. Feferman and G. Jäger (1993), Systems of explicit mathematics with non-
+constructive µ-operator, Part I, Annals of Pure and Applied Logic 65, 243-263.
+
+S. Feferman and G. Jäger (1996), Systems of explicit mathematics with non-
+constructive µ-operator, Part II, Annals of Pure and Applied Logic 79, 37-52.
+
+S. Feferman and T. Strahm (2000), The unfolding of non-finitist arithmetic,
+Annals of Pure and Applied Logic 104, 75-96.
+
+S. Feferman and T. Strahm (2001), The unfolding of finitist arithmetic (ab-
+stract), Bull. Symbolic Logic 7, 111-112.
+
+H. Friedman (1976), Systems of second order arithmetic with restricted induc-
+tion, I, II (abstracts), J. Symbolic Logic 41, 557-559.
+
+H. Friedman, K. McAloon and S. Simpson (1982), A finite combinatorial princi-
+ple which is equivalent to the 1-consistency of predicative arithmetic, in Patras
+Logic Symposion (G. Metakides, ed.), North-Holland (Amsterdam), 197-230.
+
+R. O. Gandy (1960), Proof of Mostowski’s conjecture, Bulletin de l’Academie
+Polonaise des Sciences, Série des sciences mathématiques, astronomiques et
+physiques 8, 571-575.
+
+K. Gödel (1939), Consistency proof for the generalized continuum hypothesis,
+Proc. National Academy of Sciences, U.S.A. 25, 220-224. Reprinted in Gödel
+(1990), 28-32.
+
+K. Gödel (1944), Russell’s mathematical logic, in The Philosophy of Bertrand
+Russell (P. A. Schilpp, ed.), Library of Living Philosophers, vol. 5, Northwest-
+ern University (Evanston), 123-153. Reprinted in Gödel (1990), 119-141.
+
+K. Gödel (1947), What is Cantor’s continuum problem?, Amer. Mathematical
+Monthly 54, 515-525; errata, 55, 151. Reprinted in Gödel (1990) 176-187.
+
+                                       31
+K. Gödel (1990), Collected Works, Vol. II. Publications 1938-1974 (S. Fefer-
+man, et al., eds.), Oxford Univ. Press (New York).
+
+W. Goldfarb (1988), Poincaré against the logicists, in History and Philosophy of
+Modern Mathematics (W. Aspray and P. Kitcher, eds.), Minnesota Studies in
+the Philosophy of Science, Vol. XI, University of Minnesota Press (Minneapo-
+lis), 61-81.
+
+R. L. Goodstein (1957), Recursive Number Theory, North-Holland (Amster-
+dam).
+
+A. Grzegorczyck (1955), Elementary definable analysis, Fundamenta Mathemat-
+icae 41, 311-338.
+
+M. Hallett (1990), Review of Goldfarb (1988), J. Symbolic Logic 55, 1315-1319.
+
+G. Heinzmann (1986), ed. Poincaré, Russell, Zermelo et Peano. Textes de la
+discussion (1906-1912) sur les fondements des mathématiques: des antinomies
+à la prédicativité, Albert Blanchard (Paris).
+
+S. C. Kleene (1955), Hierarchies of number-theoretic predicates, Bull. Amer.
+Math. Soc. 61, 193-213.
+
+S. C. Kleene (1959), Quantification of number-theoretic functions, Compositio
+Mathematica 14, 23-40.
+
+G. Kreisel (1958), Ordinal logics and the characterization of informal concepts
+of proof, Proc. of the International Congress of Mathematicians, 14-21 August
+1958, 289-299.
+
+G. Kreisel (1959), Analysis of the Cantor-Bendixson theorem by means of the
+analytic hierarchy, Bulletin de l’Académie Polonaise des Sciences 10, 621-626.
+
+G. Kreisel (1960), La predicativité, Bulletin de la Société Mathématiques de
+France 88, 371-391.
+
+G. Kreisel (1965), Mathematical logic, in Lectures on Modern Mathematics III
+(T. L. Saaty, ed.), Wiley and Sons (New York), 95-195.
+
+G. Kreisel (1970), Principles of proof and ordinals implicit in given concepts, in
+Intuitionism and Proof Theory (A. Kino et al., eds.), North-Holland (Amster-
+dam), 489-516.
+
+P. Lorenzen (1955), Einführung in die Operative Logik und Mathematik. Springer-
+Verlag (Berlin).
+
+                                       32
+P. Lorenzen and J. Myhill (1959), Constructive definition of certain analytic
+sets of numbers, J. Symbolic Logic 24, 37-49.
+
+P. Maddy (1992), Indispensability and practice, J. of Philosophy 59, 275-289.
+
+P. Mancosu (1998), From Brouwer to Hilbert. The Debate on the Foundations
+of Mathematics in the 1920s, Oxford Univ. Press (New York).
+
+J. Myhill (1974), The undefinability of the set of natural numbers in the ramified
+Principia, in Bertrand Russell’s Philosophy (G. Nakhnikian, ed.), Duckworth
+(London), 19-27.
+
+E. Nelson (1986), Predicative Arithmetic, Princeton Univ. Press (Princeton).
+
+J. Paris and L. Harrington 1977, A mathematical incompleteness in Peano
+Arithmetic, in Handbook of Mathematical Logic (J. Barwise, ed.), North-Holland
+(Amsterdam), 1133-1142.
+
+H. Poincaré (1906), Les mathématiques et la logique, Revue de métaphysique et
+de morale 14, 294-317. Reprinted in Heinzmann (1986), 11-53.
+
+G. Pólya (1972), Eine Erinnerung an Hermann Weyl, Mathematische Zeitschrift
+126, 296-298.
+
+W. V. Quine (1984), Review of Charles Parsons’ Mathematics in Philosophy, J.
+of Philosophy 81, 783-794.
+
+W. V. Quine (1986), Reply to Charles Parsons, in The Philosophy of W. V.
+Quine, I, (L. H. Hahn and P. A. Schilpp, eds.), Library of Living Philosophers
+vol. 18, Open Court (Lasalle), 396-403.
+
+J. Richard (1905), Les principes des mathématiques et le problème des ensem-
+bles, Revue générales des sciences pures et appliquées 16, 541. English transla-
+tion in van Heijenoort (1967), 142-144.
+
+B. Russell (1906), On some difficulties in the theory of transfinite numbers and
+order types, Proc. London Mathematical Society 4, 29-53. Reprinted in Russell
+(1973), 135-164.
+
+B. Russell (1906a), Les paradoxes de la logique, Revue de métaphysique et de
+morale 14, 627-650. Reprinted in Heinzmann (1986), 121-144; English version
+under the title “On ‘insolubilia’ and their solution by mathematical logic” in
+Russell (1973), 190-214.
+
+
+
+
+                                        33
+B. Russell (1908), Mathematical logic as based on the theory of types, Amer.
+J. of Mathematics 30, 222-262. Reprinted in van Heijenoort (1967),150-182.
+
+B. Russell (1973), Essays in Analysis (D. Lackey, ed.), George Braziller (New
+York).
+
+K. Schütte (1965), Predicative well-orderings, in Formal Systems and Recursive
+Functions (J. Crossley and M. Dummett, eds.), North-Holland (Amsterdam),
+279-302.
+
+K. Schütte (1965a), Eine Grenze für die Beweisbarkeit der Transfiniten In-
+duktion in der verzweigten Typenlogik, Archiv für mathematischen Logik und
+Grundlagenforschung 7, 45-60.
+
+K. Schütte (1977), Proof Theory, Springer-Verlag (Berlin).
+
+S. Simpson (1982), Set theoretic aspects of AT R0 , in Logic Colloquium ’80 (D.
+van Dalen et al., eds.), North-Holland (Amsterdam), 255-271.
+
+S. Simpson (1999), Subsystems of Second Order Arithmetic, Perspectives in
+Mathematical Logic, Springer-Verlag (Berlin).
+
+S. Simpson (2002), Predicativity: The outer limits, in Reflections on the Foun-
+dations of Mathematics. Essays in Honor of Solomon Feferman, (W. Sieg, R.
+Sommer and C. Talcott, eds.), Lecture Notes in Logic 15, Association for Sym-
+bolic Logic, distributed by A. K. Peters, Ltd. (Natick).
+
+T. Skolem (1923), Begründung der elementaren Arithmetik durch die rekurri-
+erende Denkwiese ohne Anwendung scheinbarer Veränderlichen mit unendlichem
+Ausdehnungsbereich, Skrifter utgit av Videnskapsselskapet i Kristiania, I. Mate-
+matisk-naturvidenskabelig klasse no. 6, 1-38. English translation in van Hei-
+jenoort (1967) 302-333.
+
+C. Spector (1955), Recursive well-orderings, J. Symbolic Logic 20, 151-163.
+
+C. Spector (1957), Recursive ordinals and predicative set theory, in Summaries
+of Talks Presented at the Summer Institute for Symbolic Logic, Cornell Uni-
+versity 1957, facsimile in 1968 by microfilm-xerography, University Microfilms
+(Ann Arbor), 377-382.
+
+C. Spector (1960), Hyperarithmetical quantifiers, Fundamenta mathematicae
+48, 313-320.
+
+R. F. Streater and A. S. Wightman (1978), PCT, Spin and Statistics, and All
+That, 2nd edn., Benjamin/Cummings (New York).
+
+
+
+                                      34
+W. Tait (1981), Finitism, J. of Philosophy 78, 524-546.
+
+J. van Heijenoort (1967), From Frege to Gödel. A Source Book in Mathematical
+Logic 1879-1931, Harvard Univ. Press (Cambridge).
+
+H. Wang (1954), The formalization of mathematics, J. Symbolic Logic 19, 241-
+266.
+
+H. Weyl (1918), Das Kontinuum. Kritischen Untersuchungen über die Grund-
+lagen der Analysis, Veit (Leipzig).
+
+H. Weyl (1949), Philosophy of Mathematics and Natural Science, Princeton
+Univ. Press (Princeton).
+
+H. Weyl (1987), The Continuum. A Critical Examination of the Foundations of
+Analysis (English translation of Weyl 1918, by S. Pollard and T. Bole), Thomas
+Jefferson Press, distributed by Univ. Press of America (Latham).
+
+A. N. Whitehead and B. Russell (1925), Principia Mathematica, Vol. 1, 2nd.
+edn., Cambridge Univ. Press (Cambridge).
+
+F. Ye (1999), Strict Constructivism and the Philosophy of Mathematics, Ph. D.
+dissertation, Dept. of Philosophy, Princeton University.
+
+E. Zermelo (1908), Neuer Beweis für die Möglichkeit einer Wohlordnung, Math-
+ematische Annalen 65, 107-128. Reprinted in Heinzmann (1986), 157-178; En-
+glish translation in van Heijenoort (1967), 183-198.
+
+
+
+
+                                      35
+

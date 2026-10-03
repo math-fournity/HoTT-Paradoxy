@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：首批 R 种子覆盖综合
 
-> **身份：** `CROSS_RUN_SEED_COVERAGE / SIX_CLOSED_DENOMINATORS + EIGHT_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+> **身份：** `CROSS_RUN_SEED_COVERAGE / SEVEN_CLOSED_DENOMINATORS + NINE_PREFLIGHTS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
 
 ## 1. 这一阶段已经覆盖什么
 
@@ -18,6 +18,8 @@
 `H0→Z0` 也获得一条新的、但是否定性的来源化处置：HMZ-013 将 Voevodsky 的 universe-model correspondence 与 Shulman 的 Grothendieck-universe consumer 对照。它给出 technical correspondence，却显示模型／inaccessible／smallness scope和同一 \(G\) 的 identity 都被来源明确限制；因此不是正向 H0 transport。
 
 `R-CONSTRUCT`／`R-MACHINE` 的 H9 schema—operator 支路也获得 HMZ-014 的来源控制：逐公式 schema、公式编码与受限 truth construction 都有显式语言、结构、reflection和递归条件；没有来源把它们升级为 bare-ZFC 内部的 whole-\(V\) `Build(p,a)`。这保留 H9 为开放 admission class，但不把 schema 本身误报为 P。
+
+HMZ-015/016增加一项作用于整个项目的方法结论：predicativity/VCP 文献已经清楚讨论totality、循环定义、actual/completed infinite与ZF的impredicativity locus。因此“社区完全没有看到罗素侧花纹”不能作为ZFC候选的论据；用户P若有进一步发现力，必须在P1/P2/P5/P6的理论对象、consumer、预支使用和同一Done上给出独立证据。
 
 ## 2. 这不是“没有找到”，而是对候选空间的收紧
 
