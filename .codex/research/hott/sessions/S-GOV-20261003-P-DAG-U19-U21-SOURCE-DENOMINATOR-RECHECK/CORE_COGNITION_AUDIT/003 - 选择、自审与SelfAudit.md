@@ -345,6 +345,56 @@ git_record:
   no other-checkout access; no full-origin current-owner edits
 ~~~
 
+## Delta SelfAuditCard：0102 / 0108 / 0109 archive prompt-shape census
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-ARCHIVE-PROMPT-SHAPE-CENSUS
+source_units:
+  - dev-notes/0102 local archive snapshot
+  - dev-notes/0108 local archive snapshot
+  - dev-notes/0109 local archive snapshot
+original_requirement:
+  - count raw archive events separately from platform-injected Goal context
+  - do not silently omit captured direct user prompt events from the full-origin denominator
+actual_action:
+  - recomputed current SHA-256 for each local archive file and counted conversation-archive-turn markers, user-prompt headers, and codex_internal_context source=goal wrappers
+  - 0102: 11 markers / 11 prompt headers / 0 Goal envelopes; 0108: 7 / 7 / 0; 0109: 21 / 21 / 0
+  - confirmed that the 0109 U20/U21 excess consists of captured direct prompt blocks, not Goal-continuation wrappers
+  - retained 0102 R10/R11 as direct captured messages but semantically excluded under current full-origin owner scope
+  - did not inspect another checkout or parent trajectory
+alignment_verdict: DIRECT_PROMPT_BLOCKS_CONFIRMED / U20_U21_NOT_WRAPPER_EVENTS / OWNER_GAP_REMAINS
+deviation_class:
+  - no new execution deviation introduced
+  - existing owner-denominator gap remains; this census strengthens its event-type evidence
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; archive-shape/provenance audit only
+P1_P2_P3:
+  P1: not applicable
+  P2: not applicable
+  P3: not applicable
+tool_birth_card: NOT_REQUIRED
+current_owner_mutation:
+  full_origin_audit_001_006: none
+  rulings_feature_state_projection: none
+  source_archives: read-only
+denominator_effect:
+  raw_archived_direct_prompts: 0102=11; 0108=7; 0109=21
+  goal_context_envelopes: 0 in these three archive snapshots
+  semantic_exclusions: 0102 R10/R11 remain excluded as already recorded
+  U20_U21: still lack current-owner rows; 0109 owner declares U1-U19
+  parent_goal_phase: UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED
+falsifiers:
+  - current source SHA changes on recalc
+  - a prompt block is shown to have been platform wrapper content outside the inspected marker structure
+next_trigger: owner-level integration review or a newly discovered event/source crosswalk
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 1b6a830957beed8811edb09d07d9f64b408287c7
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+~~~
+
 ## Delta SelfAuditCard：0110-T1 / 0111-T1 cross-session prompt-payload match
 
 ~~~yaml

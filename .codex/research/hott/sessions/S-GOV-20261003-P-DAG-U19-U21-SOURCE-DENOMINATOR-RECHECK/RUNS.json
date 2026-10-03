@@ -256,6 +256,17 @@
       ],
       "result": "SAME_PROMPT_PAYLOAD / DISTINCT_ARCHIVE_TURN_AND_SESSION_IDS / NATIVE_EVENT_IDENTITY_UNKNOWN",
       "scope": "two local archive copies only; matching text and distinct archive markers do not establish whether one Host user action was cloned or the prompt was re-sent; no other checkout or parent trajectory read"
+    },
+    {
+      "id": "ARCHIVE_PROMPT_SHAPE_CENSUS_0102_0108_0109",
+      "kind": "local_archive_marker_prompt_header_context_envelope_count",
+      "sources": [
+        {"archive": "dev-notes/0102", "sha256": "3fd6c54820ba1d4b60020347f18310a76e80c8b0c07cb3d96e2bed7e25def848", "archive_markers": 11, "user_prompt_headers": 11, "goal_context_envelopes": 0, "semantic_scope": "R10/R11 remain excluded per owner"},
+        {"archive": "dev-notes/0108", "sha256": "cb14057dc2155cfff60e47ec2666abd042f7816f494c1122d66a5014a96f0e62", "archive_markers": 7, "user_prompt_headers": 7, "goal_context_envelopes": 0},
+        {"archive": "dev-notes/0109", "sha256": "fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c", "archive_markers": 21, "user_prompt_headers": 21, "goal_context_envelopes": 0}
+      ],
+      "result": "DIRECT_ARCHIVE_PROMPT_BLOCKS_CONFIRMED / NO_GOAL_ENVELOPES_IN_0102_0108_0109",
+      "scope": "current-worktree snapshots only; count equality establishes archive block shape, not native Host message-ID identity, phase timestamps, or semantic eligibility; no other checkout read"
     }
   ],
   "verifications": [
@@ -276,7 +287,8 @@
     {"id": "CURRENT-CHILD-ARCHIVE-0111", "status": "PASS_WITH_SCOPE", "result": "pre-final local archive snapshot has 11 capture markers: 4 direct user-prompt blocks and 7 Goal context envelopes; three identical boundary prompts remain three distinct events; no other checkout inspected"},
     {"id": "CURRENT-CHILD-ARCHIVE-T12-POSTFINAL", "status": "PASS_WITH_SCOPE", "result": "helper receipt and local note marker verify T12 as a fourth distinct direct boundary prompt; current 0111 snapshot is 12 events = 5 direct prompts + 7 Goal envelopes"},
     {"id": "U13-U15-RANGE-ROW-EVENT-PRECEDENT", "status": "PASS_WITH_SCOPE", "result": "0109 U13-U15 have three distinct turn IDs and answer hashes under one prompt SHA; owner 003 renders a range row retaining all three IDs; supports event-level ID preservation but not a complete semantic-intent policy"},
-    {"id": "CROSS-SESSION-T1-PROMPT-MATCH", "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN", "result": "0110-T1 and 0111-T1 share prompt SHA f76b8c…2446e but have different session IDs, turn IDs, and answer hashes; no native event crosswalk inspected"}
+    {"id": "CROSS-SESSION-T1-PROMPT-MATCH", "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN", "result": "0110-T1 and 0111-T1 share prompt SHA f76b8c…2446e but have different session IDs, turn IDs, and answer hashes; no native event crosswalk inspected"},
+    {"id": "ARCHIVE-PROMPT-SHAPE-0102-0108-0109", "status": "PASS_WITH_SCOPE", "result": "marker count equals user-prompt-header count and no Goal-context wrappers in all three local snapshots; 0109 has 21 direct prompt blocks"}
   ],
   "git": {
     "branch": "codex/p-dag-tool-birth-audit",
@@ -293,5 +305,5 @@
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
     "current_unit_commit": "c938b9e7a21635bb13dc932cd71e6802f7dafdb9"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / ARCHIVE_PROMPT_SHAPE_0102_0108_0109_CONFIRMED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

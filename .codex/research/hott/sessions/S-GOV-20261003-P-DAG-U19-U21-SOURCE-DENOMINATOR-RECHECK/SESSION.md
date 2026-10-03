@@ -132,3 +132,7 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 两个本地 archive copy 中，同一 worktree-integrity prompt SHA-256 f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e；session_id、turn_id 和 answer SHA 各不相同。当前证据只支持跨 Session 的同正文匹配与 distinct archive records，不能判断这是 fork 复制同一输入还是用户重新发送；native message identity 保持 UNKNOWN。只读比较了本 worktree 内的 archive copy，未访问另一个 checkout、parent filesystem 或 raw trajectory。
 
 该操作性问题不进入刀具形成前核心讨论分母，不改变 U19–U21 cutoff 或 full-origin owners；它补充当前 contributor 对“worktree 各自独立”的来源背景。
+
+## 0102 / 0108 / 0109 archive prompt-shape census
+
+当前本地快照的结构重数确认：0102 = 11 markers / 11 用户提问标题 / 0 Goal-context envelopes；0108 = 7 / 7 / 0；0109 = 21 / 21 / 0。0109 的 U20/U21 是直接归档 prompt blocks，而非自动续接包装。0102 的 R10/R11 也是直接 prompt，但仍按 full-origin owner 的既定范围排除于刀具语义分母。该计数只判 archive 结构，不判定逐条 Host 消息的 native identity 或精确时刻，也不解决 parent Goal cutoff；它强化 U20/U21 的 event-level 补行建议，不修改 full-origin owner 或任何数学状态。

@@ -62,6 +62,18 @@ Owner 003 把要求呈现成一行 U13–U15，仍保留三个编号；这支持
 
 这证明当前可读的两个 archive copies 含有两个 distinct session/turn records 和同一 prompt payload；它不提供 native message-ID crosswalk，也不足以判断这是 fork 复制同一条输入还是用户在两个 thread 分别重发。按 worktree independence 边界，本单元仅比较当前 checkout 中已存在的 archive copies，没有打开任何其他 worktree、parent raw trajectory 或 Git checkout。此操作性重复只作 continuation/source identity 背景，不并入刀具形成前的 pre-goal denominator，也不为 parent Goal cutoff 定时。
 
+## 12. 0102 / 0108 / 0109 archive prompt-block 与 Goal-envelope 计数核验
+
+为检验 0109 的 21 个 markers 是否含有自动注入的 Goal continuation 包装，本单元对当前本地三个 archive snapshots 按原文结构重新计数：conversation-archive-turn markers、用户提问标题、codex_internal_context source=goal openings。结果如下：
+
+| archive | SHA-256 | archive markers | user-prompt blocks | Goal-context envelopes |
+|---|---|---:|---:|---:|
+| 0102 | 3fd6c54820ba1d4b60020347f18310a76e80c8b0c07cb3d96e2bed7e25def848 | 11 | 11 | 0 |
+| 0108 | cb14057dc2155cfff60e47ec2666abd042f7816f494c1122d66a5014a96f0e62 | 7 | 7 | 0 |
+| 0109 | fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c | 21 | 21 | 0 |
+
+因此在这三份本地快照中，所有 archive markers 都对应直接记录的用户提问 block；0109 的 U20/U21 不能用“Goal wrapper capture event”解释掉。0102 中 R10/R11 仍按 full-origin owner 的既定 scope 作为直接捕获但排除于刀具语义分母；0108 的 C1–C7 和 0109 的 21 个 direct prompt blocks 则保持各自来源范围。此结构计数不提供 Host native message IDs、不决定同文 prompt 是否为同一个原始 UI action，也不确定任何单条消息相对 parent Goal 的精确时刻。parent Goal cutoff 仍 UNKNOWN。
+
 ## 5. S12/S13 与 archives 的 exact-content overlap
 
 用去空白后的用户消息正文比较 source prompt 与三份直接会话 archives，发现以下内容相同关系：
