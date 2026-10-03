@@ -11,7 +11,7 @@
 | 字段 | 值 |
 |---|---|
 | 候选分支 | codex/hott-motive-zfc-literature |
-| 候选分支当前 tip | b72c94df research: seed ZFC Q corpus and visual source audit |
+| 候选内容 payload tip（本交接单除外） | b72c94df research: seed ZFC Q corpus and visual source audit |
 | 已闭合来源调查快照 | 7e1a111af545f5c458d36b59e16c248fca1c077a |
 | 分叉共同基线 | 6341e337b578e77149444a7b4ca243a109121840 |
 | 目标分支（观察时） | refs/heads/dev = 0ab997b17102119582ed7b542d6f7aa65fe6302b |
