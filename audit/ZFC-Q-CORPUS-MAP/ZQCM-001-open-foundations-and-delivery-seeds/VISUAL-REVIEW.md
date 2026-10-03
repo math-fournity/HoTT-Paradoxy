@@ -4,7 +4,7 @@
 >
 > **顺序：** 已验证 PDF → remote standard MinerU 原始导出 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
 >
-> **状态：** W005_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / W010_TARGETED_SOURCE_ONLY_CHECK / REMOTE_DERIVATIVE_NOT_QUALIFIED。
+> **状态：** W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED。
 
 ## 结果语义
 
@@ -38,6 +38,21 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W010-001 | W-010 | 1 | visual/W-010/150dpi/p001.png | `pdftotext` PDF p.1；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核chapter题名、副题、作者、摘要、foundation jobs的限定及DOI／页码；与文本层和PDF身份一致。 | visual/W-010/300dpi/p001.png：复核摘要与“不同jobs”的限定，未见材料性差异。 |
 | VR-W010-016 | W-010 | 16 | visual/W-010/150dpi/p016.png | `pdftotext` PDF p.16；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Univalent Foundations／formalized ZFC比较、Essential Guidance／Generous Arena／Shared Standard、Metamathematical Corral／Risk Assessment，以及脚注25–29。 | visual/W-010/300dpi/p016.png：逐字复核脚注28的“I'm not sure what these thinkers take to be wrong with ZFC”与ETCS/ZFC比较限定；该不确定性是来源反控制，非ZFC无问题结论。 |
 | VR-W010-017 | W-010 | 17 | visual/W-010/150dpi/p017.png | `pdftotext` PDF p.17；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§13.4结论中对Risk Assessment、Metamathematical Corral、Generous Arena、Shared Standard、Proof Checking及set theory与新理论并存的表述；与文本层一致。 | visual/W-010/300dpi/p017.png：复核结论限定，尤其“不需要替换set theory”的作者判断；这是竞争读法／控制，不是项目结论。 |
+| VR-W010-002 | W-010 | 2 | visual/W-010/150dpi/p002.png | `pdftotext` PDF p.2；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§13.1、set-theoretic embedding、foundation jobs与历史背景；与文本层一致。 | 不适用：p.5承担Zermelo／known-paradox关键控制。 |
+| VR-W010-003 | W-010 | 3 | visual/W-010/150dpi/p003.png | `pdftotext` PDF p.3；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核pure/applied mathematics、idealization／approximation与数学工作范围；与文本层一致。 | 不适用：历史／哲学背景不构成Q。 |
+| VR-W010-004 | W-010 | 4 | visual/W-010/150dpi/p004.png | `pdftotext` PDF p.4；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核von Staudt／Hilbert remedy、axiomatization、coherence与cross-branch问题；与文本层一致。 | 不适用：不把历史问题当当前理论结论。 |
+| VR-W010-005 | W-010 | 5 | visual/W-010/150dpi/p005.png | `pdftotext` PDF p.5；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核set-theoretic operations、Zermelo axiomatization、known routes to paradox、consistency限制和iterative conception；与文本层一致。 | visual/W-010/300dpi/p005.png：复核历史语境和限定；不是对模式P所有形状的结论。 |
+| VR-W010-006 | W-010 | 6 | visual/W-010/150dpi/p006.png | `pdftotext` PDF p.6；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Risk Assessment、Generous Arena、Shared Standard与基础功能划分；与文本层一致。 | 不适用：功能分类不是ZFC Q。 |
+| VR-W010-007 | W-010 | 7 | visual/W-010/150dpi/p007.png | `pdftotext` PDF p.7；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Generous Arena、surrogate-in-`V`、model example和解释边界；与文本层一致。 | 不适用：actual／model边界是控制。 |
+| VR-W010-008 | W-010 | 8 | visual/W-010/150dpi/p008.png | `pdftotext` PDF p.8；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核`V=L`、import/export restrictions、well-motivated variants与mathematical practice；与文本层一致。 | 不适用：不替代理论内consumer证据。 |
+| VR-W010-009 | W-010 | 9 | visual/W-010/150dpi/p009.png | `pdftotext` PDF p.9；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核set-theoretic embedding／Metamathematical Corral与category-theoretic foundations入口；与文本层一致。 | 不适用：不产生P字段。 |
+| VR-W010-010 | W-010 | 10 | visual/W-010/150dpi/p010.png | `pdftotext` PDF p.10；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核unlimited categories、Essential Guidance与ETCS的比较；与文本层一致。 | 不适用：ETCS/ZFC较量仍须same-task卡。 |
+| VR-W010-011 | W-010 | 11 | visual/W-010/150dpi/p011.png | `pdftotext` PDF p.11；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核category-theoretic jobs、Essential Guidance与§13.3 Univalent Foundations入口；与文本层一致。 | 不适用：不是对ZFC规则的反例。 |
+| VR-W010-012 | W-010 | 12 | visual/W-010/150dpi/p012.png | `pdftotext` PDF p.12；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核unlimited categories、UF motivations与Voevodsky historical quotation；与文本层一致。 | 不适用：作者归属的动机不等于Q。 |
+| VR-W010-013 | W-010 | 13 | visual/W-010/150dpi/p013.png | `pdftotext` PDF p.13；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核proof complexity、Proof Checking、ZFC formal embedding与具体来源归属；与文本层一致。 | visual/W-010/300dpi/p013.png：复核Proof Checking与formal ZFC的不同任务；不能偷换consumer。 |
+| VR-W010-014 | W-010 | 14 | visual/W-010/150dpi/p014.png | `pdftotext` PDF p.14；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核CIC、three foundational ingredients、encoding和Generous Arena question；与文本层一致。 | visual/W-010/300dpi/p014.png：复核比较是作者问题设置，不是ZFC Q。 |
+| VR-W010-015 | W-010 | 15 | visual/W-010/150dpi/p015.png | `pdftotext` PDF p.15；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核universes、UF axioms、ETCS/choice、Essential Guidance与scope限制；与文本层一致。 | visual/W-010/300dpi/p015.png：复核条件、范围和作者留下的开放问题。 |
+| VR-W010-018 | W-010 | 18 | visual/W-010/150dpi/p018.png | `pdftotext` PDF p.18；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核references、Awodey／Voevodsky／Paulson／UFP等来源和末页；与文本层一致。 | 不适用：书目只产生受限citation lead。 |
 | VR-W009-002 | W-009 | 2 | visual/W-009/150dpi/p002.png | `pdftotext` PDF p.2；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§2标题、naive Set／Type Theory对照、`3∈N`／`3:N`、judgement与静态type information及脚注1–2；与文本层一致。 | visual/W-009/300dpi/p002.png：复核归属记号、judgement限定和subtyping脚注；该是R-source，不是ZFC Q。 |
 | VR-W009-015 | W-009 | 15 | visual/W-009/150dpi/p015.png | `pdftotext` PDF p.15；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核weak `ω`-groupoid、choice／cubical alternative、§5.2、choice公式、Σ型existence、`isProp`和negative fragment；与文本层一致。 | visual/W-009/300dpi/p015.png：逐符号复核choice公式、Σ、`isProp A`与“witness explicit”限定；只作为P5对照来源，尚非ordinary ZFC consumer。 |
 | VR-W009-020 | W-009 | 20 | visual/W-009/150dpi/p020.png | `pdftotext` PDF p.20；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核`A,B:Set`、`1+2`／`2+1`、isomorphism、`eq2iso`、`extSet`及练习25；与文本层一致。 | visual/W-009/300dpi/p020.png：逐符号复核等式、isomorphism和extensionality定义；该是类型论内部 `Set` 的作者比较，不能直接投射为ZFC Q。 |
@@ -103,7 +118,7 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 
 ## 高精度队列
 
-已完成W-005的7个关键页、W-009的9个关键页、W-010的3个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+已完成W-005的7个关键页、W-009的9个关键页、W-010的7个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
 
 **W-005完成说明。** 已逐页生成、读取并落签pp.1–13的150dpi二值图；关键页1、5、7、9、11、12、13还读取了300dpi图。由于远程MinerU目前没有产生可用导出，这批记录验证的是期刊PDF、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
 
@@ -112,3 +127,5 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 **W-011完成说明。** 已逐页生成、读取并落签pp.1–21的150dpi二值图；关键页1、16、17、18还读取了300dpi图。远程MinerU目前没有产生可用导出，这批记录验证的是Klev公开作者预印本、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
 
 **W-009完成说明。** 已逐页生成、读取并落签pp.1–29的150dpi二值图；关键页1、2、4、15、20、22、23、24、25还读取了300dpi图。远程MinerU目前没有产生可用导出，这批记录验证的是Altenkirch公开作者章节、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
+
+**W-010完成说明。** 已逐页生成、读取并落签pp.1–18的150dpi二值图；关键页1、5、13、14、15、16、17还读取了300dpi图。远程MinerU目前没有产生可用导出，这批记录验证的是Maddy公开作者章节、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
