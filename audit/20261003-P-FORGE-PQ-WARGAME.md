@@ -2,12 +2,12 @@
 logical_id: P_FORGE_PQ_WARGAME_AUDIT
 mode: sequential
 shard_root: 20261003-P-FORGE-PQ-WARGAME
-last_shard: 20261003-P-FORGE-PQ-WARGAME/005 - R03 HoTT重放与刀具角色向量.md
-append_target: 20261003-P-FORGE-PQ-WARGAME/005 - R03 HoTT重放与刀具角色向量.md
+last_shard: 20261003-P-FORGE-PQ-WARGAME/006 - R04 Power Set候选激活门.md
+append_target: 20261003-P-FORGE-PQ-WARGAME/006 - R04 Power Set候选激活门.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 5 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 6 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE：P/Q共同锻造逐轮兵棋审计
 
@@ -23,4 +23,5 @@ soft_line_target: 300
 | 003 | [R01 第一轮夹具与发现能力](<20261003-P-FORGE-PQ-WARGAME/003 - R01 第一轮夹具与发现能力.md>) | P1/P2/P3初始夹具、外部分类与其对Q发现能力的作用 | complete; `Q_CAPABILITY_CALIBRATION` repaired |
 | 004 | [R02 真实来源对发现能力的消费](<20261003-P-FORGE-PQ-WARGAME/004 - R02 真实来源对发现能力的消费.md>) | Delay、CFTT、Climber实际来源是否消费R01校准能力 | complete; Target/Candidate/Control-Q repaired |
 | 005 | [R03 HoTT重放与刀具角色向量](<20261003-P-FORGE-PQ-WARGAME/005 - R03 HoTT重放与刀具角色向量.md>) | H011–H018从发现到来源、P2/P3差分和任务忠实性 | complete; convergence-signature hypothesis |
+| 006 | [R04 Power Set候选激活门](<20261003-P-FORGE-PQ-WARGAME/006 - R04 Power Set候选激活门.md>) | H019–H034从明显位置到consumer／active obligation的早期分叉 | complete; signature gated by Candidate-Q |
 <!-- governance-shard-table:end -->
