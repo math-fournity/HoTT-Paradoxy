@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/112 - H062 ZFC可及性正向再入字段回归.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/112 - H062 ZFC可及性正向再入字段回归.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/113 - H063 ZFC良基递归来源载荷失败.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/113 - H063 ZFC良基递归来源载荷失败.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 112 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 113 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=112 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=16`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=113 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=15`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -137,4 +137,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 110 | [H060 ZFC固定点来源V层级活动义务](<20261003-P-FORGE-ATOMIC-AUDIT/110 - H060 ZFC固定点来源V层级活动义务.md>) | `H060` | R09 Fixedpt Power Set defense ledger | `ALIGNED / PACKAGE_GUARD_BLOCKED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 111 | [H061 ZFC可及性字段漂移阻断](<20261003-P-FORGE-ATOMIC-AUDIT/111 - H061 ZFC可及性字段漂移阻断.md>) | `H061` | R09 accessibility field drift | `IDEA_SPEC_INCOMPLETE / MATCHTRACE_FIELD_DRIFT / Q_SAFETY_REPAIR` |
 | 112 | [H062 ZFC可及性正向再入字段回归](<20261003-P-FORGE-ATOMIC-AUDIT/112 - H062 ZFC可及性正向再入字段回归.md>) | `H062` | R09 accessibility regression | `IDEA_SPEC_INCOMPLETE_REPAIRED / POSITIVE_REENTRY_CONTROL / Q_NARROW_WITHOUT_CANDIDATE_Q` |
+| 113 | [H063 ZFC良基递归来源载荷失败](<20261003-P-FORGE-ATOMIC-AUDIT/113 - H063 ZFC良基递归来源载荷失败.md>) | `H063` | R09 Vrec input-contract failure | `IDEA_SPEC_INCOMPLETE / NO_AGENT_OUTPUT / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
