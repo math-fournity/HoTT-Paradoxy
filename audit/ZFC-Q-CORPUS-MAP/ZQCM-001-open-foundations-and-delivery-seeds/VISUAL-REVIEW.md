@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50的300dpi图 | p.1–50 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–50已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.51继续；下一张必须先审读并立即写入`VR-W002-051`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50的300dpi图 | p.1–53 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–53已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.54继续；下一张必须先审读并立即写入`VR-W002-054`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -342,6 +342,9 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-048 | W-002 | 48 | visual/W-002/150dpi/p048.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small set quotient↔Ω-resizing、propositional truncation from set quotients、existence of set quotients的universal-property定义及其induction。 | 这是Powerset/quotient/replacement相关的精确相对条件，不是ZFC的直接缺陷或ordinary consumer。 |
 | VR-W002-049 | W-002 | 49 | visual/W-002/150dpi/p049.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核set quotients→propositional truncation、universe-level comparison、effectivity，以及set replacement章节起点。 | 此页继续展示quotient与truncation的双向构造和explicit universe accounting；它是来源控制，不是ZFC Q。 |
 | VR-W002-050 | W-002 | 50 | visual/W-002/150dpi/p050.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核set replacement的`U/V`-small image定义、与small set quotients的逻辑等价、primitive HIT/Ω-resizing路线和正式构造。 | visual/W-002/300dpi/p050.png：逐式复核set-replacement contract、small-quotient definition、two directions of the equivalence与universe parameters。这是W-002对replacement的精确type-theoretic处理，不是ZFC Replacement本身；未来R→Z→Q需先证明规则、对象与consumer的same-task桥。 |
+| VR-W002-051 | W-002 | 51 | visual/W-002/150dpi/p051.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核indexed W-types、universe-indexed constructor/induction contract、well-founded-tree/constructor-arity interpretation与natural-number W-type example。 | 这是归纳类型的类型论构造，不是ZFC set-formation consumer或Q；任何P2/P3迁移仍须单独建立。 |
+| VR-W002-052 | W-002 | 52 | visual/W-002/150dpi/p052.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核natural-number／PCF-types的W-type编码、双向递归inverse与indexed W-type family/induction的universe contract。 | 这是程序类型/归纳族的明确构造与归纳支付；不能把其递归或universe层次当作ZFC Q。 |
+| VR-W002-053 | W-002 | 53 | visual/W-002/150dpi/p053.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核W-type→indexed W-type generalisation与PCF typed-term family的具体constructor/arity/induction encoding。 | 这是对程序语法的形式归纳表达；不自动形成自指、无限追溯或ZFC Q。 |
 
 ## 高精度队列
 
