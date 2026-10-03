@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80的300dpi图 | p.1–82 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–82已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.83继续；下一张必须先审读并立即写入`VR-W002-083`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86的300dpi图 | p.1–86 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–86已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.87继续；下一张必须先审读并立即写入`VR-W002-087`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -374,6 +374,10 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-080 | W-002 | 80 | visual/W-002/150dpi/p080.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核general directed case中只得到propositionally truncated common upper index、先证明依赖于`k`的map为constant、再通过truncation factorisation定义`ρᵢⱼ`的步骤。 | visual/W-002/300dpi/p080.png：复核明确的“先constancy、后factor through truncation”次序及其与`I=ℕ`可直接选`i+j`的对照。这是P5的强控制：源内并未预支使用未取到的`k`，而是用constancy支付elimination；不构成ZFC Q。 |
 | VR-W002-081 | W-002 | 81 | visual/W-002/150dpi/p081.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核由`ρᵢⱼ`定义embedding、目标compatibility为proposition时可使用semidirectedness、以及由pointwise suprema证明continuity和embedding-projection pair。 | 本页继续在“证明目标为property”的明确边界内使用truncated existence；不构成ZFC Q。 |
 | VR-W002-082 | W-002 | 82 | visual/W-002/150dpi/p082.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核embedding-projection section/deflation proof与bilimit commutativity，及其再次以“目标为proposition”限定semidirected witness的用法。 | 该页完成compatibility证明的技术链，仍不发生未付witness预支或ZFC Q。 |
+| VR-W002-083 | W-002 | 83 | visual/W-002/150dpi/p083.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核`D∞`的limit universal property、compatible function family定义唯一Scott-continuous mediating map，以及相关universe范围和bilimit order comparison。 | 这是明示compatibility/universe条件下的limit construction；不构成ZFC Q。 |
+| VR-W002-084 | W-002 | 84 | visual/W-002/150dpi/p084.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核`D∞`元素为embedded approximants的directed supremum、各局部deflation的supremum为identity，以及colimit universal property的起点。 | 这是在directedness、pointwise suprema与deflation条件下建立的bilimit全局结果；不构成ZFC Q。 |
+| VR-W002-085 | W-002 | 85 | visual/W-002/150dpi/p085.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核bilimit colimit universal map由directed family suprema定义、directedness/deflation/monotonicity如何支付其well-definedness与Scott continuity。 | 这是完整universal-property证明的一页，仍有明确embedding-projection与continuity条件；不构成ZFC Q。 |
+| VR-W002-086 | W-002 | 86 | visual/W-002/150dpi/p086.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核locally small bilimit的specified relation、predicative universe-aware adaptations、partiality/lifting对weak countable choice的避免、delay-monad weak-bisimilarity quotient与countable-choice/QIIT alternatives的比较。 | visual/W-002/300dpi/p086.png：复核“avoid (weak) countable choice”的范围、weak bisimilarity quotient的额外choice、QIIT/HIT路线及作者自己的free dcpo路线。该页提供强竞争控制，不能把任何一条partiality construction直接写成ZFC Q。 |
 
 ## 高精度队列
 
