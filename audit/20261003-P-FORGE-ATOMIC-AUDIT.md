@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/066 - H016 HoTT宇宙P2不适用.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/066 - H016 HoTT宇宙P2不适用.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/067 - H017 HoTT宇宙完成非准入环.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/067 - H017 HoTT宇宙完成非准入环.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 66 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 67 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=66 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=62`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=67 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=61`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -91,4 +91,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 064 | [H014 HoTT具体宇宙局部分支](<20261003-P-FORGE-ATOMIC-AUDIT/064 - H014 HoTT具体宇宙局部分支.md>) | `H014` | R03 D-L8 calibration | `IDEA_SPEC_INCOMPLETE / Q_REJECT_WITH_SCOPE` |
 | 065 | [H015 HoTT宇宙完成问题](<20261003-P-FORGE-ATOMIC-AUDIT/065 - H015 HoTT宇宙完成问题.md>) | `H015` | R03 D-L9 discovery | `ALIGNED / Q_GENERATE_WITH_SOURCE_GAP` |
 | 066 | [H016 HoTT宇宙P2不适用](<20261003-P-FORGE-ATOMIC-AUDIT/066 - H016 HoTT宇宙P2不适用.md>) | `H016` | R03 P2 universe source-match | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
+| 067 | [H017 HoTT宇宙完成非准入环](<20261003-P-FORGE-ATOMIC-AUDIT/067 - H017 HoTT宇宙完成非准入环.md>) | `H017` | R03 P3 universe source-match | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
