@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/040 - N27A Cantor消费者未产出节点.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/040 - N27A Cantor消费者未产出节点.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/041 - N27B P3生命周期未产出节点.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/041 - N27B P3生命周期未产出节点.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 40 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 41 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / C_CARDS=40 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=88`。
+> **当前状态：** `A1_ACTIVE / C_CARDS=41 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=87`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -61,4 +61,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 038 | [N26G Metamath目标层消费者质询](<20261003-P-FORGE-ATOMIC-AUDIT/038 - N26G Metamath目标层消费者质询.md>) | `N26G` | BATTLE-002 object challenger | `ALIGNED_ROLE / Q_NARROW_WITH_SCOPE` |
 | 039 | [N26H Metamath层级仲裁](<20261003-P-FORGE-ATOMIC-AUDIT/039 - N26H Metamath层级仲裁.md>) | `N26H` | BATTLE-002 layer arbiter | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 040 | [N27A Cantor消费者未产出节点](<20261003-P-FORGE-ATOMIC-AUDIT/040 - N27A Cantor消费者未产出节点.md>) | `N27A` | SOURCE-003 cancelled Cantor tracer | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
+| 041 | [N27B P3生命周期未产出节点](<20261003-P-FORGE-ATOMIC-AUDIT/041 - N27B P3生命周期未产出节点.md>) | `N27B` | SOURCE-003 cancelled P3 tracer | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
