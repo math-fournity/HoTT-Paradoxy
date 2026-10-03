@@ -673,3 +673,22 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. 不需要为了保存方案而另开 /goal；若研究发起人要启动实际 B0--B5，可直接使用：`按照SOP=P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP，继续推进，直至无法推进。`。该调用首先重新冻结候选 ref、commit、base、target、selected/excluded commits、manifest 和 dirty disposition，不自动进行 integration、worker、数学 STATE、tag、push或发布。
 
 本裁定授权本 SOP、其入口、自审、Feature/MEMORY/rulings writeback、结构验证与精确 Git commit；不授权候选分支集成、外部来源操作或数学结论。
+
+## 2026-10-03：以圆环悖论审视 ZFC 支撑的连续统／极限完成桥
+
+用户原话：
+
+~~~text
+其实我觉得ZFC的问题我们已经找到了，就是圆环悖论的存在，就是ZFC的问题。你想，明明芝诺悖论没有解决，为什么极限理论可以声称已经在把它在ZFC中解决了呢？我们是不是应该从这个方向切入呢？
+~~~
+
+随后用户以“开始”启动本方向。逐字来源由`sources/prompts/Codex-ZFC圆环与极限完成桥-用户原文-20261003.md`拥有。
+
+执行裁定：
+
+1. 这是一项明确的**研究方向选择**：以圆环／芝诺考察 ZFC 支撑的实数、极限、连续与完成框架，尤其审视“数学完成对象存在”被解释为“先前过程已经完成”的桥。它不是用户或本项目已经证明 ZFC 形式不一致的裁定。
+2. 理论对象必须准确写为`ZFC-supported classical continuum plus an interpretation bridge`，不是 bare ZFC。Dedekind cut、Cauchy 等价、极限、紧化、同胚与现实／运动的解释属于不同层；不得因它们可在 ZFC 形式化就把所有层合称为一个公理结论。
+3. 首张卡命名`ZFC-CIRCLE-Q0`，当前仅为`Q-1_SEED / F_LANE_ONLY`。它问：何种来源内的同一任务桥使极限／completion对象的存在足以交付原圆环的强复原 Done。C/I/O/Done 还没有由一个真实消费者支付，故不得称`ZFC_Q_LOCATED`、UR或Q-4。
+4. 现有连续变形、闭参数端点与标准来源必须成为正反控制：若一个数学模型已在同一明确Done下给出末时刻复原，它反驳任何更宽的“连续数学绝不可能复原”说法；若来源明确区分数学构造和物理／过程充分性，它是`SOURCE_BRIDGE_DEFENSE`。研究者不能靠事后偷偷加未在原任务中固定的条件逃避控制。
+5. 下一项只允许`SOURCE_BRIDGE_CONSUMER_SEARCH`：固定一份实际“极限解决芝诺／圆环复原”来源，逐项提取输入、操作、观察、输出和Done，检查它是否未支付地跨越数学 completion 与原过程。没有此类来源时，按范围将候选收紧或拒绝，不以更多比喻、极限公式或Power Set词汇制造进展。
+6. 本裁定授权当前候选卡、Feature、路线图、MEMORY、来源原件与精确Git谱系；不自动启动 worker、切换Power Set站位、改STATE、创建新刀、提交之外的发布／push，或交付数学／物理结论。
