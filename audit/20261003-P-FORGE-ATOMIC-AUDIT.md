@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/088 - H038 ZFC声明操作锚函数像候选.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/088 - H038 ZFC声明操作锚函数像候选.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/089 - H039 ZFC函数像形成直接支付.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/089 - H039 ZFC函数像形成直接支付.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 88 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 89 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -113,4 +113,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 086 | [H036 ZFC封闭菜单选择子关系候选](<20261003-P-FORGE-ATOMIC-AUDIT/086 - H036 ZFC封闭菜单选择子关系候选.md>) | `H036` | R05 conditional selector candidate | `IDEA_SPEC_INCOMPLETE / Q_SAFETY_REPAIR` |
 | 087 | [H037 ZFC选择子关系父问题来源不匹配](<20261003-P-FORGE-ATOMIC-AUDIT/087 - H037 ZFC选择子关系父问题来源不匹配.md>) | `H037` | R05 selector-parent source mismatch | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 088 | [H038 ZFC声明操作锚函数像候选](<20261003-P-FORGE-ATOMIC-AUDIT/088 - H038 ZFC声明操作锚函数像候选.md>) | `H038` | R05 D-L10 functional-image clue | `ALIGNED / Q_GENERATE_WITH_SOURCE_GAP` |
+| 089 | [H039 ZFC函数像形成直接支付](<20261003-P-FORGE-ATOMIC-AUDIT/089 - H039 ZFC函数像形成直接支付.md>) | `H039` | R05 RepFun direct payment | `ALIGNED / Q_REJECT_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
