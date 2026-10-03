@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/080 - H030 ZFC选择公理证明层门账本回归.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/080 - H030 ZFC选择公理证明层门账本回归.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/081 - H031 ZFC选择公理P3预启动标记失败.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/081 - H031 ZFC选择公理P3预启动标记失败.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 80 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 81 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -105,4 +105,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 078 | [H028 ZFC选择函数活跃义务与来源支付](<20261003-P-FORGE-ATOMIC-AUDIT/078 - H028 ZFC选择函数活跃义务与来源支付.md>) | `H028` | R04 AC0 active-demand/payment control | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 079 | [H029 ZFC选择公理证明层门标签漂移](<20261003-P-FORGE-ATOMIC-AUDIT/079 - H029 ZFC选择公理证明层门标签漂移.md>) | `H029` | R04 proof-layer gate-label drift | `IDEA_SPEC_INCOMPLETE / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 080 | [H030 ZFC选择公理证明层门账本回归](<20261003-P-FORGE-ATOMIC-AUDIT/080 - H030 ZFC选择公理证明层门账本回归.md>) | `H030` | R04 fixed Gate Ledger regression | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
+| 081 | [H031 ZFC选择公理P3预启动标记失败](<20261003-P-FORGE-ATOMIC-AUDIT/081 - H031 ZFC选择公理P3预启动标记失败.md>) | `H031` | R04 P3 preflight failure | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
