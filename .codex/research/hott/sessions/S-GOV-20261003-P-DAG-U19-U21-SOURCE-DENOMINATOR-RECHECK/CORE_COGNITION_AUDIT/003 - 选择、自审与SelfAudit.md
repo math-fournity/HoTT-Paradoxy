@@ -766,3 +766,81 @@ git_record:
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no other-checkout access; no full-origin current-owner edits
 ~~~
+
+## Delta SelfAuditCard：dev-notes/0000 与 S01[1] 的 archive crosswalk
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0000-S01-ARCHIVE-CROSSWALK
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+research_profile: RESEARCH_PROFILE_GOVERNED
+source_units:
+  - dev-notes/0000 T1-T6
+  - S01[1] in sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md
+  - full-origin audit index and shards 001-006 in this checkout
+original_requirement:
+  - trace the user discussion before named P tools without mistaking broad context for direct P specification
+  - preserve event identity and source overlap separately from semantic-intent grouping
+  - use only the current independent worktree and do not inspect other checkouts or trajectories
+actual_action:
+  - current_checkout_only: true
+  - archive_sha256: be5f8f7aaa5bf06367fa6538f68abfd8b427741ff2b0b520489a8d494afcf03b
+  - archive_bytes: 73318
+  - archive_lf_lines: 776
+  - archive_mode: "0644"
+  - archive_capture_events: 6
+  - unique_prompt_sha256: 5
+  - unique_answer_sha256: 6
+  - goal_context_envelopes: 0
+  - read_all_visible_prompt_blocks: true
+  - exact_text_match: "T1 / skill-turn-194537b1632242f989d22aeadd6660b7 == S01[1] after whitespace normalization"
+  - event_hashes: "prompt 94a5e60e176adec962af58dcc6e10c1177445b461db6d3bc9423a725598c529b; answer d99f48ff5d4b3a3c00791bddd7d99c9ea480c7b040282a6b44789a2ad94a5bec; S01 file e3db2ef6ce1bf93d0b484126b96d8e8b63a545f091eac32040e08f5aa9e449e2"
+  - residual_units: "T2 machine-proof delivery; T3/T4 duplicate cognition-maintenance prompt; T5 audit another AI; T6 continuation"
+alignment_verdict: EARLY_METHOD_PRECURSOR_ALREADY_PRESENT_AS_S01 / ARCHIVE_EVENT_DISPOSITION_MISSING / NOT_DIRECT_P_SPEC
+deviation_class:
+  - no ORIGINAL_IDEA_CHALLENGED
+  - no P1/P2/P3 success/failure or mathematical claim
+  - full-origin owner has S01[1] but no explicit 0000 event/source crosswalk
+pattern_universe_claim:
+  claim: "No new theory pattern is proposed; T1 restates an already-included early method precursor, while T2-T6 are governance/continuation context."
+  P1: "T1 is a broad theoretical-economy/precondition heuristic but gives no same-task native Q or consumer."
+  P2: "No logic-layer translation or reentry contract is formed."
+  P3: "T1 mentions process and reflective loops conceptually but supplies no concrete formation-to-qualification transition."
+  status: NOT_ENOUGH_EVIDENCE
+tool_birth_card: NOT_REQUIRED
+source_identity:
+  archive_session_id: 01a094ca-b76b-7453-94ee-9390caf87e29
+  archive_first_turn_id: skill-turn-194537b1632242f989d22aeadd6660b7
+  created_at_local: "2026-09-12T16:47:22-04:00"
+  T1_to_S01_relation: CONTENT_MATCH_CANDIDATE / NATIVE_EVENT_IDENTITY_UNKNOWN
+  T3_T4: SAME_PROMPT_PAYLOAD / DISTINCT_ARCHIVE_EVENTS_AND_ANSWERS
+current_owner_mutation:
+  full_origin_audit_001_006: none
+  sources_prompts_S01: read-only
+  source_archive_0000: read-only
+worktree_boundary:
+  other_checkout_read: false
+  other_checkout_wait_compare_or_integrate: false
+  parent_or_previous_worktree_trajectory_read: false
+scope_partition:
+  T1: DIRECT_METHOD_PRECURSOR_CONTENT_ALREADY_IN_S01
+  T2: GENERAL_PROOF_DELIVERY_GOVERNANCE_NOT_DIRECT_P_SPEC
+  T3_T4: REPEATED_RESEARCH_CONTINUITY_GOVERNANCE_NOT_DIRECT_P_SPEC
+  T5: OTHER_AI_HANDOFF_REVIEW_REQUEST_NOT_DIRECT_P_SPEC
+  T6: CONTEXTUAL_CONTINUATION_NOT_AN_INDEPENDENT_SPEC
+cutoff:
+  exact_parent_goal_phase: UNKNOWN
+candidate_owner_delta:
+  - register T1-to-S01[1] as content-match candidate without deduplicating native events
+  - explicitly dispose T2-T6 as cross-cutting governance/handoff context unless a P-specific consumer is demonstrated
+  - distinguish archive-event counts from unique prompt hashes and direct P-spec counts
+falsifiers:
+  - direct source metadata establishing native message identity between T1 and S01[1]
+  - owner evidence that T2-T6 already have explicit P-specific disposition elsewhere
+  - source evidence showing a residual unit changes P1/P2/P3 tool requirements
+next_trigger: canonical integrator disposition of 0000 archive events; a new source candidate must be bounded by direct-P relevance before expansion
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 9489204a755f7d860f7a1684c778bc0191ce7c21
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard
+  no other-checkout access; no full-origin current-owner edits
+~~~

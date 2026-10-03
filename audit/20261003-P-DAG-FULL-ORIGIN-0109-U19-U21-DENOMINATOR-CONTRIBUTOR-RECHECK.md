@@ -252,3 +252,29 @@ full-origin audit shards 001–006 的来源清单没有 `0106` 条目或显式�
 ### 15.3 精确 Git 收据
 
 0106 的 circle-attribution 来源候选及 delta SelfAuditCard 由当前分支 commit `1729443b21e445e73d414332455a82de951fe985` 精确记录，只改 contributor report 和本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。未暂存或提交 0106 原件、full-origin current owners、STATE/投影、预存 dirty 文件、remote 或其它 worktree；候选仍为 `CANDIDATE_NOT_CURRENT`。
+
+## 16. `dev-notes/0000`：S01 早期方法来源的 archive crosswalk
+
+### 16.1 快照与六个 archive events
+
+本轮只读当前 checkout 中以 `dev-notes/0000` 开头的 archive、S01[1] 原文和 full-origin audit shards 001–006。快照 SHA-256 `be5f8f7aaa5bf06367fa6538f68abfd8b427741ff2b0b520489a8d494afcf03b`，73,318 bytes、776 LF lines、mode `0644`；session `01a094ca-b76b-7453-94ee-9390caf87e29`，first turn `skill-turn-194537b1632242f989d22aeadd6660b7`，archive-created-at `2026-09-12T16:47:22-04:00`。它含 6 个 archive capture blocks、5 种 prompt hash、6 种 answer hash、0 个 Goal-context envelope。
+
+| 单元 | 用户消息的来源角色 | provisional disposition |
+|---|---|---|
+| T1 | 长篇 HoTT／理论经济／存在与不存在、稠密性与构造过程提问 | `DIRECT_METHOD_PRECURSOR / CONTENT_MATCH_CANDIDATE_TO_S01[1]` |
+| T2 | 要求数学结论交付前机器证明并留存源码/结果 | `CROSS_CUTTING_PROOF_DELIVERY_GOVERNANCE / NOT_DIRECT_P_SPEC` |
+| T3–T4 | 两次相同 prompt，要求新成果后更新核心认知、方向追踪、全景视野并继续研究 | `RESEARCH_CONTINUITY_GOVERNANCE / SAME_PROMPT_PAYLOAD / DISTINCT_ARCHIVE_EVENTS` |
+| T5 | 请求评估 S086–S088 接手报告 | `OTHER_AI_HANDOFF_REVIEW_REQUEST / NOT_DIRECT_P_SPEC`；此单元不重审该报告内容 |
+| T6 | “按照你的建议处理” | `CONTEXTUAL_CONTINUATION / MEANING_DEPENDS_ON_PRIOR_TURN` |
+
+T1 (`skill-turn-194537b1632242f989d22aeadd6660b7`) 的 prompt SHA 为 `94a5e60e176adec962af58dcc6e10c1177445b461db6d3bc9423a725598c529b`，answer SHA 为 `d99f48ff5d4b3a3c00791bddd7d99c9ea480c7b040282a6b44789a2ad94a5bec`。其规范化可见正文与 `sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md` S01[1] 都是 1,040 字符，去空白后完全相同；S01 文件 SHA-256 为 `e3db2ef6ce1bf93d0b484126b96d8e8b63a545f091eac32040e08f5aa9e449e2`。这确认存在内容 crosswalk，但没有 native message-ID crosswalk，不能证明是同一 host event 或两个不同的用户意图。
+
+### 16.2 对 P 来源分母的含义
+
+T1 已由 S01[1] 作为早期问题意识纳入现有 source table：它提出理论经济与现实差异、稠密性／存在性视角、朴素集合论忽略时间／过程的不存在性视角，以及自我反思问题可能出现回环。它是模式 P 的早期方法前驱，但 archive 副本没有超出 S01[1] 的规范化正文，不能当成一份新的 P1/P2/P3 规格。
+
+T2–T6 提供的是数学证明交付、持续维护认知材料、AI 工作移交与上下文延续的背景；它们可能解释后来工具治理为什么要求持续更新认知，却没有直接规定三把刀的逻辑职责、同一任务的 Q/I/O/Done 或 Worker NodeCard。因此，本分支将 `dev-notes/0000` 交给 integrator 作 archive-level source disposition：候选做法是把 T1 映射到 S01[1] 并保留 event identity `UNKNOWN`，其余 T2–T6 依上表明确排除于直接 P 规格分母；若 integrator 认为某条治理消息直接改变了 P 方法，应指出对应任务字段或执行规则。
+
+这不是“又发现了一个理论问题”，也不代表本轮已穷尽所有早期 archive。没有本地事件 crosswalk 时，不从相同 prompt hash 推断 native 身份；没有直接 P 规格时，不把广义项目治理提升为 P 命中。full-origin owners 001–006 当前无 `0000` 显式条目／处置，但 S01[1] 已在源表中，因此其优先意义是补足 archive-event 映射与剩余单元的排除理由，而不是增加一条新的数学方法主张。
+
+本轮仅读当前 checkout 的 0000 archive、S01 来源及 full-origin audit。T5 提及的 S086–S088 报告是另一个工作产品；本轮没有据其内容形成数学判断。没有访问其他 worktree、parent trajectory、外部 repo 或网络，也没有修改 S01、full-origin owners、STATE/投影、理念/SOP、源码 archive，或产生 P1/P2/P3 同任务命中与 Tool-Birth 候选。
