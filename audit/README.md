@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG RK-0 H049–H053：罗素最后一跃的脱敏正控制与 Power Set 对照（Terra / Max，2026-10-03）](20261003-P-DAG-RK0-RUSSELL-POWERSET-049-053-Terra-Max.md)：H050无名称复现无限制同域形成的负自回代；H051在全子对象形成中识别有界正bridge；Metamath来源分别限为proof层、rank/Foundation对象guard，未形成ZFC Q。
+
 - [P-DAG P1：formation-origin 路径的自审与 H040–H042 范围校正（2026-10-03）](20261003-P-DAG-P1-FORMATION-ORIGIN-LANE-SELF-AUDIT.md)：原初用户要求从Power Set自身形成承诺导出Q；P1的L7保留formation义务，但H040 prompt将它编译为consumer-only，故H042的无候选被校正为窄范围结果并驱动D-L10F。
 
 - [P-DAG ZFC H043–H047：Gemini proof-search 草稿的 P1/P2/P3 层次差分（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-043-047-GEMINI-PROOFSEARCH-THREE-TOOL-DIFFERENTIAL-Terra-Max.md)：外部证明枚举不是ZFC consumer，代码／公式表示不是同一对象再入，循环／halt不是理论内准入状态；同时保留两个采样前profile-marker失败。

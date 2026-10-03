@@ -4,6 +4,7 @@
 
 | ID | 需求 | 当前状态 | 证据/下一步 |
 |---|---|---|---|
+| F-037 | P1 的 discovery 必须同时保留 consumer-origin 与 formation-origin 两条路径：profile 明示的核心 formation 可产生 `FORMATION_ORIGIN_PROBE`，但 Q? 不能是存在重述、不能被F直接支付或借F发明checker；缺C/I/O/Done只允许保持未知，不能越级为共同Q。罗素最后一跃以共享`RK-0`供P1/P2/P3校准，不构成P4。 | IMPLEMENTED_WITH_SCOPE / D_L10F_AND_RK0_CURRENT / H050_DEIDENTIFIED_POSITIVE_CONTROL / H051_BARE_ALLSUBSETS_DIRECT_PAYMENT / H052_H053_SOURCE_GUARD_SCOPE / ZFC_Q_NOT_LOCATED / NO_MATH_CLAIM | SRC：用户要求从Power Set自身的形成承诺导出Q、深刻刻画罗素最后一跃并连续自审；DES：P1 D-L10F、三刀011共享内核；VER：H049–H053 external Terra/Max blind/source-match、private-wire trajectory receipts与primary Metamath pages；EVD：`audit/20261003-P-DAG-RK0-RUSSELL-POWERSET-049-053-Terra-Max.md`、`audit/20261003-P-DAG-P1-FORMATION-ORIGIN-LANE-SELF-AUDIT.md`。该Feature只报告提示／来源范围中的结构差异，不证明朴素集合论历史、ZFC防御完整性、Power Set无问题或任何数学命题。 |
 | F-001 | 顶层目录成为综合 Git repo，保留原嵌套来源边界 | IMPLEMENTED | `git log`、`.gitignore`、`audit/governance-impact.md` |
 | F-002 | 保存 LocalGPT、WebGPT、Gemini 来源快照和 provenance | IMPLEMENTED_WITH_SCOPE | `sources/SOURCE_MANIFEST.json`；私有 trajectory 仅在 ignored `private-audit/` |
 | F-003 | 保存用户直接悖论／元数学原文，人工 curation 与 canonical builder 生成，完整保留来源及代际映射 | CORE13_REGISTERED_WITH_SCOPE | SRC：用户直接原文、`rulings.md` 与 hash-pinned source；IMP：curation-v13、generation-13 core/manifest/transition；VER/EVD：builder 重建、`verify_core_cognition.py`、61/61 旧 KC transition mapping 与 revision 298 checkpoint。数学真值和未来理解不由归档认证。 |

@@ -1,0 +1,15 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-DAG-H049-H053-RK0-POWERSET",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {"id":"H049","status":"FORMATION_LANE_RESTORED_DIRECT_PAYMENT_ONLY","wire_sha256":"828751e136998d7d6c0e0f81b06867b6bcf6b6afedeaefce20fd4d9399c13f0d"},
+    {"id":"H050","status":"RK0_DEIDENTIFIED_UNRESTRICTED_FORMATION_POSITIVE_CONTROL","wire_sha256":"48bfc257dc95f3702186a34b3b2ee31e9a265215a09ed08065500c2db0e1544c"},
+    {"id":"H051","status":"RK0_BOUNDED_ALLSUBSETS_DIRECT_PAYMENT_ONLY","wire_sha256":"a996e09647de021c0eab6059b18504a2457ff32db28fed8efdd2a192c1e5de36"},
+    {"id":"H052","status":"RK0_METAMATH_POWERSET_PROOF_LAYER_ALIGNMENT_GAP","wire_sha256":"e0ea1e82cbb038163abca9f23982bce44a2f5458815f2268de6c18cca9603acc"},
+    {"id":"H053","status":"RK0_RANK_FOUNDATION_OBJECT_GUARD_SOURCE_REPORTED","wire_sha256":"c24cf2aa87d8f07b0d74b6687bb5a2e67c46381c04e7213baf727a09f56ee08e"},
+    {"id":"P-DAG-H049-H053-DOCUMENT-VALIDATION","status":"PASS","commands":["git diff --check","verify_governance_shards.py","session_trajectory catalog/tree/coverage/terminal-inspect"],"evidence":"2026-10-03：git diff --check、RUNS JSON parse、62-KC row count和governance shard validator通过；H049--H053 private wires均按catalog/tree/coverage/assistant-terminal审计。"}
+  ]
+}
