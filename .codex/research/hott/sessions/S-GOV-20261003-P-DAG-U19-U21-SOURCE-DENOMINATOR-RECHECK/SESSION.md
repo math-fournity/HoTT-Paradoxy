@@ -12,7 +12,7 @@
 
 本单元继续《模式 P 刀具锻造与理念自审 SOP》，处理上一单元留下的 full-origin source coverage gap。任务范围是：核当前 source manifest 的逐文件新鲜度，比较 dev-notes/0109 的归档事件分母与 full-origin audit 001/006 的分母，并逐项定位 U19–U21 与 archive/direct prompt 的关系。
 
-当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异；这不是可以不说明地删去两个历史事件的理由。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 没有 crosswalk。full-origin audit 的事件／intent 去重政策及 U19–U21 cutoff 归属因此仍需重新闭合。
+当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 full-origin owner 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异，需保留为三个 distinct archived events。当前 worktree 原始 Goal 事件发生于 2026-10-02 22:45:22.640 -0400；同 hash 的 0109 archive snapshot mtime 为 22:18:41 -0400，且列出的 18 个本项目答复 commits 最晚为 22:01:27 -0400。因此归档快照级证据支持把 U19–U21 列入 `PRE_GOAL_HISTORICAL_CORPUS`；逐条用户消息的精确墙钟时间仍未知。本 contributor 分支没有读取 previous-worktree trajectory。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 仍没有 crosswalk。
 
 本单元没有任何数学命题、P1/P2/P3 theory task、ZFC Q、UR 或新刀具结论。另对 U19–U21 答案中引用的 18 个本 repo commit OID 做了 `git show` 定位，确认它们对应不同的 audit、runner/SOP、replay、D-L10F/RK-0 工件路径；这只证明历史工件的存在与路径关联，不验证其数学结论。
 
@@ -33,7 +33,14 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 - 来源 verdict：DEEPEN / REUSE_WITH_DELTA。复用当前 full-origin audit 与 0102/0108/0109 本地快照；新证据补出了 0109 事件数、重复 prompt groups、answer deltas、exact prompt overlaps 与内部短 hash 矛盾。
 - 持久化选择：AUDIT_CLOSURE。用户 Goal 要求逐单元 audit 和 exact Git record；本轮只提交 contributor evidence，不更新 current owner。
 - current Feature F-033、rulings、STATE、direction/panorama 不变；F-033 的 full-origin source status 仍为 SOURCE_COVERAGE_RECHECK_REQUIRED。
-- Full-origin complete/pass 不成立；本轮不裁定 U19–U21 的 cutoff 归属。
+- Full-origin complete/pass 不成立；本轮以当前线程 Goal 事件与 0109 archive snapshot 支持 U19–U21 属于 Goal 前历史，但保留逐事件墙钟时间未知。
+
+## Current Goal cutoff 的本线程证据
+
+- Canonical `session_trajectory.py` 的 `catalog/tree/scan/inspect` 只检查本线程 `01a0ffa6-1527-7802-b534-9030d6f06e79`，没有递归打开 parent 或 previous-worktree trajectory。原始 Goal event locator 是 `rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5`，时间为 `2026-10-03T02:45:22.640Z`。
+- 当前 0109 文件 SHA-256 是 `fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c`，mode `0600`，filesystem mtime 是 `2026-10-02T22:18:41-0400`；该快照包含 U19/U20/U21 三个 archive turn IDs。
+- U19–U21 答复引用的 18 个本 repo commits 的时间范围是 `2026-10-02T15:35:10-0400` 至 `2026-10-02T22:01:27-0400`。`b810380f` 是这批 H010 工件中的一个提交，不是当前 Goal 启动事件。
+- 这些时间支持归档快照中的 U19–U21 属于 Goal 前历史，但不是逐消息事件时钟；若之后取得未经 previous-worktree 的直接跨线来源，且它推翻该快照顺序，须重审。原始 rollout mode `0644`；只检查了目标 Goal 事件，没有复制或提交 rollout。
 
 ## Load receipt
 

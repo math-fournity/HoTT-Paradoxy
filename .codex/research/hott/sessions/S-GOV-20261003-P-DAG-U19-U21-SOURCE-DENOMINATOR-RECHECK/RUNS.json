@@ -22,7 +22,7 @@
         {"unit": "U20", "turn_id": "skill-turn-c980d46fc6fa446c9dbeb5b0b8bf264a", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "fec7d8a445a7526689c9905b4c5abccbb9446c03dd0bb899fa190366374cec4"},
         {"unit": "U21", "turn_id": "skill-turn-4d3398c25c71415e94066b2ad405dfde", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "89a65a0358bc39cddc9b2b399bf4263732466b9b18d077d69a506e61f84bc31e"}
       ],
-      "result": "SOURCE_COVERAGE_RECHECK_REQUIRED: 2 archived turn events lack explicit full-audit unit dispositions"
+      "result": "SOURCE_COVERAGE_GAP_CONFIRMED: U20/U21 lack current-owner rows; this contributor supports event-level pre-goal archive snapshot classification for U19-U21"
     },
     {
       "id": "SOURCE-MANIFEST-RECHECK",
@@ -57,11 +57,41 @@
       "status": "PASS_WITH_SCOPE",
       "scope": "project-repository commits named by archived answers; external shared-governance repo references not checked",
       "evidence": "audit/20261003-P-DAG-FULL-ORIGIN-0109-U19-U21-DENOMINATOR-CONTRIBUTOR-RECHECK.md §4"
+    },
+    {
+      "id": "CURRENT_GOAL_CUTOFF_VS_0109_ARCHIVE_SNAPSHOT",
+      "kind": "current_thread_goal_event_and_archive_metadata_reconciliation",
+      "goal": {
+        "host": "Codex",
+        "thread_id": "01a0ffa6-1527-7802-b534-9030d6f06e79",
+        "raw_locator": "rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5",
+        "timestamp_utc": "2026-10-03T02:45:22.640Z",
+        "timestamp_local": "2026-10-02T22:45:22.640-04:00"
+      },
+      "archive": {
+        "source": "dev-notes/0109 - 2026-10-02 - ZFC最大的问题，肯定在于对‘时间维度’的把握上.md",
+        "sha256": "fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c",
+        "mode": "0600",
+        "mtime_local": "2026-10-02T22:18:41-04:00",
+        "capture_events": 21,
+        "contains_units": ["U19", "U20", "U21"]
+      },
+      "cited_project_commit_count": 18,
+      "cited_project_commit_range_local": ["2026-10-02T15:35:10-04:00", "2026-10-02T22:01:27-04:00"],
+      "trajectory_source": {
+        "mode": "0644",
+        "read_scope": "catalog/tree/current-thread goal event inspect only",
+        "parent_or_previous_worktree_trajectory": "NOT_READ",
+        "raw_copy_or_commit": "NONE"
+      },
+      "verdict": "PRE_GOAL_ARCHIVE_SNAPSHOT_SUPPORTED / PER_EVENT_WALL_CLOCK_UNKNOWN",
+      "limits": "archive mtime and cited project commit times support the cutoff inference but do not provide individual user-message timestamps"
     }
   ],
   "verifications": [
     {"id": "ARCHIVE-R-C-U-COUNTS", "status": "PASS_WITH_U_MISMATCH", "result": "0102=11/11; 0108=7/7; 0109=21 captured events vs 19 declared units"},
-    {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006"},
+    {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006; this branch has a candidate event-level pre-goal disposition"},
+    {"id": "CURRENT-GOAL-CUTOFF-SNAPSHOT", "status": "PASS_WITH_SCOPE", "result": "current Goal event at 2026-10-02 22:45:22 -0400; exact-hash 0109 snapshot containing U19-U21 has mtime 22:18:41 -0400; cited project commits end at 22:01:27 -0400; per-event wall clocks remain unknown"},
     {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
     {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},
     {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
@@ -81,7 +111,8 @@
     ],
     "previous_worktree_written": false,
     "untracked_source_archives_committed": false,
-    "commit": "pending exact branch-local candidate commit"
+    "prior_candidate_commit": "5130ba1b636d4be1ebfe062a52f057eeae1c0a8a",
+    "current_unit_commit": "recorded in the exact-path branch-local commit that adds this cutoff reconciliation"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / CONTRIBUTOR_BUNDLE_DIFF_CHECKED / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / PRE_GOAL_ARCHIVE_SNAPSHOT_SUPPORTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }
