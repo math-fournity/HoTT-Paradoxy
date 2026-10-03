@@ -190,6 +190,33 @@
       "current_live_prompt": "same literal payload as T2-T4; absent from the observed pre-final snapshot and not yet assigned an archive turn marker",
       "result": "CHILD_THREAD_ARCHIVE_EVENT_SPLIT_WITH_SCOPE / WORKTREE_INDEPENDENCE_REASSERTED / NO_CURRENT_OWNER_CHANGE",
       "scope": "current-checkout archive snapshot only; no other checkout or parent trajectory read; not a source for parent Goal phase or full-origin 0102/0108/0109 denominator"
+    },
+    {
+      "id": "CURRENT_CHILD_ARCHIVE_0111_T12_POSTFINAL_RECEIPT",
+      "kind": "post_final_dev_notes_archive_receipt_reconciliation",
+      "source": "dev-notes/0111 - 2026-10-02 - 我第一次在你（Terra）所在的Coding Agent，也就是ChatGPT App中使用Branch Session into New....md",
+      "archive_snapshot": {
+        "sha256": "78d7255cdd1d2049a72a6e57dc513e25a8c3e557976a92504a4816340249ecc1",
+        "bytes": 71403,
+        "lines": 689,
+        "mode": "0600",
+        "mtime_local": "2026-10-03T07:08:34-04:00",
+        "capture_events": 12,
+        "direct_user_prompt_blocks": 5,
+        "goal_context_envelopes": 7
+      },
+      "archived_turn": {
+        "turn_id": "skill-turn-46680583595f4d82aa63890e827a0a27",
+        "prompt_sha256": "28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6",
+        "answer_sha256": "cef5e5b4577900de9511a3c73bea0af9b830e83e674209336401968b6670efe6",
+        "relation_to_T2_T4": "SAME_PROMPT_PAYLOAD / DISTINCT_DIRECT_EVENT_AND_ANSWER"
+      },
+      "archive_helper_receipt": {
+        "status": "ARCHIVED",
+        "stage_removed": true
+      },
+      "result": "POST_FINAL_T12_ARCHIVE_CONTENT_VERIFIED_WITH_SCOPE",
+      "scope": "current-worktree dev-notes projection only; not a Host post-delivery byte receipt; no other checkout or parent trajectory read; no parent Goal cutoff inference"
     }
   ],
   "verifications": [
@@ -207,7 +234,8 @@
     {"id": "SESSION-LOCAL-LINKS", "status": "PASS", "result": "6 local links checked; 0 missing"},
     {"id": "CORE-KC-COVERAGE", "status": "PASS", "result": "62 ordered IDs, 62 unique, exact range KC-000001–KC-000062"},
     {"id": "CACHED-EXACT-PATH-DIFF", "status": "PASS", "result": "seven exact contributor evidence paths staged; git diff --cached --check clear; no other paths staged"},
-    {"id": "CURRENT-CHILD-ARCHIVE-0111", "status": "PASS_WITH_SCOPE", "result": "pre-final local archive snapshot has 11 capture markers: 4 direct user-prompt blocks and 7 Goal context envelopes; three identical boundary prompts remain three distinct events; no other checkout inspected"}
+    {"id": "CURRENT-CHILD-ARCHIVE-0111", "status": "PASS_WITH_SCOPE", "result": "pre-final local archive snapshot has 11 capture markers: 4 direct user-prompt blocks and 7 Goal context envelopes; three identical boundary prompts remain three distinct events; no other checkout inspected"},
+    {"id": "CURRENT-CHILD-ARCHIVE-T12-POSTFINAL", "status": "PASS_WITH_SCOPE", "result": "helper receipt and local note marker verify T12 as a fourth distinct direct boundary prompt; current 0111 snapshot is 12 events = 5 direct prompts + 7 Goal envelopes"}
   ],
   "git": {
     "branch": "codex/p-dag-tool-birth-audit",
@@ -224,5 +252,5 @@
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
     "current_unit_commit": "833966c1e000f0f3b5fc5ed5da5bac667a17f829"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

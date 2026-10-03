@@ -111,3 +111,9 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 0111 在观测快照中有 11 个 archive-turn markers：4 个是直接可见用户 prompt，7 个是 archive 捕获到的 codex_internal_context source=goal continuation envelope。T2–T4 是同一 worktree-independent user prompt 的三个独立归档事件，拥有相同 prompt hash、不同 turn ID 与 answer hash。Goal envelope 计入 archive capture events，但不冒充新的用户原话；内含的 objective data 保留其 user-provided 身份。本轮 live prompt 是再次逐字重申，尚未进入该 pre-final snapshot。
 
 本轮只改变了当前分支的来源说明与 SelfAuditCard。用户要求的独立工作区边界继续作为当前任务约束；不改 rulings、Feature F-033、full-origin audit owners、STATE/投影、刀具理念或 SOP。0111 archive census 不改变 0102/0108/0109 full-origin 历史分母，也不能确定 U19–U21 相对被审计 parent Goal 的 phase；parent cutoff 仍 UNKNOWN。Goal 保持 active。
+
+## 0111 T12 post-final archive receipt
+
+上一轮 final 的归档事件现已由当前 worktree 中的 0111 marker 直接确认：T12 是直接用户 prompt，turn ID 为 skill-turn-46680583595f4d82aa63890e827a0a27，prompt SHA-256 与 T2–T4 相同，answer SHA-256 为 cef5e5b4577900de9511a3c73bea0af9b830e83e674209336401968b6670efe6。归档 helper 已返回 ARCHIVED / stage_removed=true。
+
+该次写入后的本地快照是 78d7255cdd1d2049a72a6e57dc513e25a8c3e557976a92504a4816340249ecc1，71,403 bytes / 689 lines / mode 0600，12 markers = 5 direct user prompts + 7 Goal-context envelopes。T2–T4 与 T12 是四次独立请求、同一 prompt payload、不同答案。这个核验只确认本地 dev-notes 投影；不跨查其它 worktree，不改变 pre-goal 分母或 parent Goal cutoff。

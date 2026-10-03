@@ -344,3 +344,49 @@ git_record:
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no other-checkout access; no full-origin current-owner edits
 ~~~
+
+## Delta SelfAuditCard：0111 T12 post-final archive receipt
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0111-T12-ARCHIVE-RECEIPT
+source_units:
+  - dev-notes/0111 T12: skill-turn-46680583595f4d82aa63890e827a0a27
+  - prior-turn dev-notes helper receipt: ARCHIVED / stage_removed=true
+original_requirement:
+  - each distinct direct user turn remains identifiable even when its prompt payload repeats
+  - preserve the independence boundary without reading or importing another worktree
+actual_action:
+  - verified T12 is present in the current local 0111 archive marker with prompt SHA 28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6 and answer SHA cef5e5b4577900de9511a3c73bea0af9b830e83e674209336401968b6670efe6
+  - recomputed archive snapshot SHA 78d7255cdd1d2049a72a6e57dc513e25a8c3e557976a92504a4816340249ecc1, 71,403 bytes, 689 lines, mode 0600
+  - reconciled 12 marker events as 5 direct prompts and 7 Goal-context envelopes; T2-T4 and T12 are four distinct turns with one shared prompt payload
+  - no other checkout or parent trajectory was opened
+alignment_verdict: ARCHIVE_RECEIPT_VERIFIED_WITH_SCOPE / T12_DISTINCT_EVENT / WORKTREE_BOUNDARY_PRESERVED
+deviation_class:
+  - no EXECUTION_DEVIATION observed
+  - no IDEA_SPEC_INCOMPLETE identified
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; this verifies local archive provenance only
+P1_P2_P3:
+  P1: not applicable
+  P2: not applicable
+  P3: not applicable
+tool_birth_card: NOT_REQUIRED (no theory pattern or tool responsibility change)
+current_owner_mutation:
+  full_origin_audit: none
+  rulings_feature_state_projection: none
+  ideology_and_SOP: none
+  archive_source: read-only; helper-generated current-session note only
+cutoff:
+  parent_goal_phase_for_U19_U21: UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED
+  full_origin_0102_0108_0109_denominator: unchanged
+falsifiers:
+  - a direct source event crosswalk showing T12 is not a distinct user turn
+  - evidence that the archive helper stored prompt/answer bytes differently from the visible content
+next_trigger: continue with another uncovered source unit or direct crosswalk available inside this checkout
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 0e8cea719eac9d5557d18ba372e9b7249d0ffec4
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+~~~

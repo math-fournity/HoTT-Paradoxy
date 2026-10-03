@@ -122,3 +122,11 @@ S12/S13 以 curation block ordinals（如 `S12[1]`、`S13[7]`）定位，convers
 四个直接 prompt 中，T2、T3、T4 的用户正文完全相同，即“我的本意是，你跟之前的worktree，各玩各的。”三者共用 prompt SHA-256 28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6，但分别有 turn IDs skill-turn-34fe95cdb3ec4078bfebf51e3a7df6a3、skill-turn-ea9766b15cdd43b5816c61b75e39a757、skill-turn-c856e1b4ce3246ccb851e395443e0c36，及不同 answer SHA-256。它们因此是三个不同归档事件、一个重复 prompt payload group。当前 live 用户消息再次逐字重申同一边界；它不在上面观测到的 pre-current-turn snapshot 中，尚无本 turn 的 archive marker。
 
 对本 contributor 线的操作含义是：只在当前 branch/worktree 形成、验证与提交自己的候选证据；不把另一个 worktree 的文件、Git 状态或结论作为当前行动前提。本轮只检查本 checkout 中的 0111 archive 和当前分支记录，没有打开、读取、复制、比较或写入另一个 worktree，也没有读取 parent/previous-worktree trajectory。此本地 archive census 不改 full-origin audit 的 0102/0108/0109 历史分母，不决定 U19–U21 相对 parent Goal 的 phase；该 cutoff 继续 UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED。没有改变 P1/P2/P3、ZFC_Q、Tool-Birth 或任何数学结论。
+
+## 10. T12：最终答复前归档回执与第四次独立边界 prompt
+
+上一单元 final 发送前的 dev-notes helper 已把 T12 追加到当前 thread 的本地 0111 archive。当前快照为 SHA-256 78d7255cdd1d2049a72a6e57dc513e25a8c3e557976a92504a4816340249ecc1、71,403 bytes、689 lines、mode 0600、mtime 2026-10-03T07:08:34-0400；包含 12 个 archive markers。对照 marker 与 prompt block 结构，当前是 5 个直接用户 prompt blocks 与 7 个 Goal-context envelopes。该结果是 T12 写入后的本地快照；本轮 Goal continuation envelope 尚未进入本快照。
+
+T12 的 turn ID 为 skill-turn-46680583595f4d82aa63890e827a0a27，prompt SHA-256 为 28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6，answer SHA-256 为 cef5e5b4577900de9511a3c73bea0af9b830e83e674209336401968b6670efe6。其直接用户 prompt 与 T2–T4 完全相同；因此边界陈述现有四个 distinct direct archive turns、一个重复 prompt payload group、四个不同答复身份。helper receipt 显示 status=ARCHIVED 且 stage_removed=true；这是项目内 archive helper 的写入核验，不是 Host 对最终 UI 字节的事后收据。
+
+T12 加强了当前 thread continuation 的事件分母，不改变 0102/0108/0109 的 full-origin historical denominator，也不为 U19–U21 相对 parent Goal 提供 cutoff 证据。全程只使用当前 checkout 里的 archive 与报告；没有访问或读取另一 worktree 或 parent trajectory。
