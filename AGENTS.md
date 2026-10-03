@@ -157,7 +157,7 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 2026-09-17 的 blanket Sub Agent 禁令保留为历史规则，并继续约束本项目的一般工作；用户 2026-10-02 对**模式 P 的 P1/P2/P3 共同锻造、ZFC 定位与 HoTT 盲重放**作出任务限定的后续授权：Master 可以按证据依赖建立动态 DAG，启动不同刀具、来源核对、控制和 Battle 节点，并逐节点决定是否允许联网、只读 `dev`／`main`／其它分支或保持无泄漏盲态。
 
-- 唯一执行入口是 `.codex/skills/hott-pattern-p-dynamic-dag-orchestration/SKILL.md` 与 `dev-docs/模式P动态DAG调度.md`。它们规定 TaskCard、NodeCard、访问等级、有界 Battle、Master 裁决、收据与停止；Skill 的存在不自动启动节点。
+- 唯一执行入口是 `.codex/skills/hott-pattern-p-dynamic-dag-orchestration/SKILL.md` 与《模式 P 刀具锻造与理念自审 SOP》（`dev-docs/模式P动态DAG调度.md`）；每次此类新／续接 `/goal` 都须先完整加载 `dev-docs/刀具系统理念.md` 索引及全部分片，再加载 SOP 全文。它们规定 TaskCard、NodeCard、访问等级、有界 Battle、理念—实作自审、Tool-Birth 来源门、Master 裁决、收据与停止；Skill 的存在不自动启动节点。
 - 当前任务限定的 worker 请求固定为 `gpt-5.6-terra / max`，只读、无递归、无 Git/current-owner 写权。不得以原生 `spawn_agent` 的其它 profile/model/effort 作静默替代；默认一轮至多三名并行 worker，Battle 按依赖串行，新增节点必须有明确 gap/冲突触发。
 - `BLIND_CARD` 不得读取项目已有答案、分支或网络；来源／控制／Battle 节点的可见材料和网络权限由 Master 在 NodeCard 中逐项列出。网络、`dev`、`main` 或其它分支的读取是证据权限，不是 worker 的一般权限。
 - Battle 不是多数投票，也不索取隐藏思维。worker 只能交付公开的 MatchTrace、来源与反事实；Master 可以提出 claim，但该 claim 必须接受独立质询，最终以一手 source、同一任务控制和相称运行证据裁决。

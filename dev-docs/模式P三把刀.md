@@ -67,3 +67,5 @@ soft_line_target: 300
 | 011 | [罗素最后一跃共享内核](<模式P三把刀/011 - 罗素最后一跃共享内核.md>) | 三把刀共用的 domain-promotion、reentry、stage-completion 内核；校准无限制形成与 Power Set 的 bounded/rank guards，不构成第四把刀 | current draft |
 | 012 | [新刀具出生与花纹宇宙合同](<模式P三把刀/012 - 新刀具出生与花纹宇宙合同.md>) | 判断新花纹能否被P1/P2/P3惯性系忠实容纳，区分旧刀缺口、派生刀与真正新刀的证据合同 | current draft |
 <!-- governance-shard-table:end -->
+
+P-DAG 每个新／续接 `/goal` 的必读理念入口：[刀具系统理念](<刀具系统理念.md>)。它与本三刀规格 index 职责独立，前者保存稳定的用户理念归纳，后者索引 P1/P2/P3 技术合同。

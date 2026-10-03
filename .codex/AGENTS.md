@@ -17,8 +17,9 @@
 | `skills/hott-paradox-search-sop/SKILL.md` | 有界执行循环；legacy才绑定goal-1，当前任务按路由定位 |
 | `skills/hott-machine-overview-execution/SKILL.md` | 原A用Goal6/5；续做C用Goal7，先父范围充分性再研究结案 |
 | `skills/hott-machine-overview-audit/SKILL.md` | 原B用Goal6-audit；续做D用Goal7-audit，审不同固定交付 |
-| `skills/hott-pattern-p-dynamic-dag-orchestration/SKILL.md` | 模式 P 的任务限定动态 DAG：P1/P2/P3、来源、控制与 Battle 节点由 Master 按证据依赖调度；只在根 AGENTS 的 2026-10-02 scoped authorization 下使用 |
-| `../dev-docs/模式P动态DAG调度.md` | P-DAG 的 TaskCard、NodeCard、访问等级、Battle、App Server/CLI 运行边界与验证 owner |
+| `skills/hott-pattern-p-dynamic-dag-orchestration/SKILL.md` | 《模式 P 刀具锻造与理念自审 SOP》的 Master 执行路由：P1/P2/P3、来源、控制与 Battle 节点由 Master 按证据依赖调度；新／续接 `/goal` 须先完整加载刀具理念索引；只在根 AGENTS 的 2026-10-02 scoped authorization 下使用 |
+| `../dev-docs/模式P动态DAG调度.md` | 《模式 P 刀具锻造与理念自审 SOP》：TaskCard、NodeCard、访问等级、Battle、理念—实作自审、Tool-Birth 来源门、App Server/CLI 运行边界与验证 owner |
+| `../dev-docs/刀具系统理念.md` | P-DAG 每个新／续接 `/goal` 必须完整读取的目标层级、Russell 模式 P、三刀分工、Power Set 工作前提和锻造自审理念索引 |
 | `../最高指示.md` | 全Session全文输入；研究、审计、治理、机械任务按§0A消费 |
 | `tools/cognition_runtime.py` | canonical 加载器/checkpoint 引擎（`plan`/`read`/`check`/`query`/`checkpoint`） |
 | `research/hott/STATE.json` | 机器真值账本（身份与分母从 `current_core` 动态取得） |
