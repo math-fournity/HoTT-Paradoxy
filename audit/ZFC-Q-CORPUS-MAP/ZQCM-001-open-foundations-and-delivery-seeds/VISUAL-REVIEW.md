@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86的300dpi图 | p.1–86 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–86已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.87继续；下一张必须先审读并立即写入`VR-W002-087`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89的300dpi图 | p.1–89 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–89已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.90继续；下一张必须先审读并立即写入`VR-W002-090`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -378,6 +378,9 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-084 | W-002 | 84 | visual/W-002/150dpi/p084.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核`D∞`元素为embedded approximants的directed supremum、各局部deflation的supremum为identity，以及colimit universal property的起点。 | 这是在directedness、pointwise suprema与deflation条件下建立的bilimit全局结果；不构成ZFC Q。 |
 | VR-W002-085 | W-002 | 85 | visual/W-002/150dpi/p085.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核bilimit colimit universal map由directed family suprema定义、directedness/deflation/monotonicity如何支付其well-definedness与Scott continuity。 | 这是完整universal-property证明的一页，仍有明确embedding-projection与continuity条件；不构成ZFC Q。 |
 | VR-W002-086 | W-002 | 86 | visual/W-002/150dpi/p086.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核locally small bilimit的specified relation、predicative universe-aware adaptations、partiality/lifting对weak countable choice的避免、delay-monad weak-bisimilarity quotient与countable-choice/QIIT alternatives的比较。 | visual/W-002/300dpi/p086.png：复核“avoid (weak) countable choice”的范围、weak bisimilarity quotient的额外choice、QIIT/HIT路线及作者自己的free dcpo路线。该页提供强竞争控制，不能把任何一条partiality construction直接写成ZFC Q。 |
+| VR-W002-087 | W-002 | 87 | visual/W-002/150dpi/p087.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Chapter 4将classical continuous dcpo定义改写为predicatively suitable版本的理由：way-below type不必small、Scott map只保small-indexed suprema、ind-completion、property-vs-extra-structure及两种truncation用法。 | visual/W-002/300dpi/p087.png：复核classical-choice下continuity/pseudocontinuity等价的限定。该页是“存在／结构／选择”区分的来源控制，不能用作ZFC Q。 |
+| VR-W002-088 | W-002 | 88 | visual/W-002/150dpi/p088.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small bases／ideals与continuity的路线图，以及way-below relation的“每个计算在某个stage已print x”直观、small-index directed supremum与已经出现的`x≤αᵢ`定义。 | visual/W-002/300dpi/p088.png：复核way-below的stage-sensitive定义与其proposition-valued、order/antisymmetry/transitivity性质。该是过程/阶段的显式形式化条件，不构成ZFC Q。 |
+| VR-W002-089 | W-002 | 89 | visual/W-002/150dpi/p089.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核compactness、compact propositions恰为decidable propositions、lifting中compact partial element恰有decidable domain、及其后将进入powerset finite-subset分析的入口。 | visual/W-002/300dpi/p089.png：逐式复核compactness→decidability与“`P` holds时supremum defined则存在已defined αᵢ”的推理。它给出完成/definedness的受限支付，不构成ZFC Q。 |
 
 ## 高精度队列
 
