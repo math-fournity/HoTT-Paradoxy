@@ -15,8 +15,8 @@ soft_line_target: 300
 |---|---|
 | 当前 core | `core-cognition-generation-13`，62 个 KC。 |
 | 工作单元 | `HOTT-MOTIVE-ZFC-SOP` 的首个来源分母闭合。 |
-| 当前判词 | `ALIGNED_WITH_TWO_SOURCE_PAYMENT_CONTROLS / NO_ZFC_Q_CLAIM`。 |
-| 关键张力 | 用户要求用 P 发现基础理论 Q；两份冻结来源分母给出 class/meta-language 和 equivalence-language 表示边界与支付，尚未给 P 所需的未付同一任务。 |
+| 当前判词 | `ALIGNED_WITH_THREE_SOURCE_PAYMENT_CONTROLS / NO_ZFC_Q_CLAIM`。 |
+| 关键张力 | 用户要求用 P 发现基础理论 Q；三份冻结来源分母给出 class/meta-language、equivalence-language和formation/payment表示边界，尚未给 P 所需的未付同一任务。 |
 | 反证／重开 | 新来源改变 object/formation/consumer/Done、显示未付 payment，或给 H0→Z0 的正向传输。 |
 
 <!-- governance-shard-table:start -->
@@ -37,7 +37,8 @@ soft_line_target: 300
 
 ## 自审
 
-本单元的风险不是没找到候选，而是把“ZFC 不能在其一阶对象语言量化 classes”或“不自动筛出 equivalence-
-respecting statements”夸张成“ZFC 悖论”，或把 Mumford／Shulman／Isabelle／well-ordering 的明示 payment 改写成
-“隐藏失败”。审计中因此将 class boundary、equivalence-language criterion、metatheory/NBG、Choice、proof-
-formalization 与实际 consumer 分栏；未完成的不是“ZFC 安全”，而是 P 所要求的特定 bridge 未在本分母出现。
+本单元的风险不是没找到候选，而是把“ZFC 不能在其一阶对象语言量化 classes”“不自动筛出 equivalence-
+respecting statements”或“bare axiom只给存在”夸张成“ZFC 悖论”，或把 Mumford／Shulman／Isabelle／well-ordering
+／named constants 的明示 payment 改写成“隐藏失败”。审计中因此将 class boundary、equivalence-language criterion、
+metatheory/NBG、Choice、formation/interface、proof-formalization 与实际 consumer 分栏；未完成的不是“ZFC 安全”，
+而是 P 所要求的特定 bridge 未在本分母出现。

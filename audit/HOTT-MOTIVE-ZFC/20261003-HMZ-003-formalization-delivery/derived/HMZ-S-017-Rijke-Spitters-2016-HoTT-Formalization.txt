@@ -1,0 +1,433 @@
+Egbert Rijke, Bas Spitters                    Homotopy type theory and the formalization of mathematics              NAW 5/17 nr. 3 september 2016   159
+
+
+
+Egbert Rijke                                    Bas Spitters
+Department of Philosophy                        Department of Computer Science
+Carnegie Mellon University, Pittsburgh, USA     Aarhus University, Denmark
+erijke@andrew.cmu.edu                           spitters@cs.au.dk
+
+
+
+
+Homotopy type theory
+and the formalization of
+mathematics
+
+Egbert Rijke is a PhD student at Carnegie Mellon University, working on homotopy type                     er game, for mathematicians with an ap-
+theory. Bas Spitters is associate professor at Aarhus university, working on type theory,                 preciation of detail. Finally, it gives peace
+topos theory and proof assistants. Both authors participated in the Univalent Foundations                 of mind when ones arguments have been
+Program.                                                                                                  checked very carefully with the aid of a
+                                                                                                          computer.
+Formalization of mathematics, that is the       One reason for this is that checking proofs                   Great formalization feats include: a for-
+complete reduction of mathematical argu-        for correctness can be boring or hard, and                mal proof of the Kepler conjecture [10], the
+ments to the axioms, has become more            may require a lot of effort and expertise.                four color theorem [8] and the Feit–Thomp-
+and more feasible due to the development        These issues are addressed by software                    son theorem [9] (the beginning of the clas-
+of better computer implementations and          called ‘proof assistants’, in which proofs                sification of finite simple groups). Notably,
+advances in languages and algorithms. In        can be programmed and their correctness                   the former two are huge proofs which cru-
+this article we focus on one such language,     is verified algorithmically.                              cially depend on computer computations
+homotopy type theory, which Voevodsky               Moreover, formalization of mathematics                which due to their sheer size cannot be
+has proposed as a new foundation for all        in proof assistants provides new insights                 checked as a whole by humans.
+of mathematics. It extends the usual set        and conveys new mathematical structures.
+theoretic foundations with a computation-       It is also a source of pleasure, a comput-                Importance for computer science
+al meaning, while at the same time tak-                                                                   In computer science, ideally one would
+ing the more general notion of space as                                                                   want the behavior of software to be speci-
+primitive.                                                                                                fied and we would like a formal guarantee
+                                                                                                          that it actually sticks to that specification.
+Computer formalization of mathematics                                                                     Such formal verification has become prac-
+Reasons for formalization                                                                                 tical for large software products. Exam-
+The present refereeing process for mathe-                                                                 ples of formally verified software include
+matical articles, based on social consensus                                                               a verified microkernel called seL4 [14], a
+by a small group of experts, does not guar-                                                               verified compiler for the C language [17],
+antee that all proofs are flawless. Fields                                                                and on top of the latter, parts of the SSL
+medalist Voevodsky courageously points                                                                    internet protocol [5]. Another example is a
+to an error [23] which existed for a decade                                                               verified compiler [13] for the ML functional
+in one of his own fundamental papers.                   Figure 1   Cover image of the HoTT book.          programming language.
+160 NAW 5/17 nr. 3 september 2016                Homotopy type theory and the formalization of mathematics                              Egbert Rijke, Bas Spitters
+
+
+
+
+Foundations: sets, categories, types               warn against adding meters to kilos. In                   we can compute with f as follows:
+The material conception of the mathemat-           an untyped language like set theory, such
+                                                                                                                        f (0)|= a0
+ical notion of set conceives sets as being         errors are more difficult to catch. For ex-
+build up iteratively from the empty set. For       ample, one could ask for the elements of                             f (S (n))|= aS (n, f (n)) .
+instance, the disjoint union of sets A, B may      the real number r, although this question
+be encoded as                                      has little meaning. This is the reason that                  This allows us to compute, say, f (2) re-
+                                                   even the systems which are based on set                   cursively:
+     {(4, a) ; a ! A} , {({4}, b) ; b ! B}
+                                                   theory have a weak type system build on
+                                                                                                                     f (SS0) = aS (1, f (S0))
+The natural numbers can be encoded as              top of them.
+                                                                                                                             = aS (1, aS (0, f (0)))
+0 = 4, 1 = {0}, 2 = {0, 1}, et cetera. In con-         Type theory shares much of the struc-
+trast, Lawvere’s elementary theory of the          tural properties of category theory, includ-                              = aS (1, aS (0, a0)) .
+category of sets avoids this encoding by           ing the specification of types by universal               Computation is an important aspect of any
+providing a structural account using cate-         properties. A large class of types specified              formalization. Fortunately, it is safely sup-
+gorical methods [16]. Category theory con-         in this way are the inductive types. For ex-              ported by most modern proof assistants.
+siders not only objects, but also the re-          ample, the type of natural numbers is a                   Computation is crucial to formalize proofs
+lations between them. These are captured           type with 0 : N and a successor function                  efficiently. Already, Russell and Whitehead
+using arrows (abstract functions).                 S : N " N which adhere to an induction                    used hundreds of pages in their book Prin-
+    Many familiar objects of set theory, such      principle. We will describe the type the-                 cipia Mathematica, to arrive at their proof
+as singletons, the disjoint union, the set         oretical induction principle of the natural               that 1 + 1 = 2. With modern implementa-
+of natural numbers or the power set, are           numbers, but before we do so we need to                   tions such proofs are automatic. This is
+introduced in the elementary theory of the         explain some of the concepts of dependent                 necessary as, even with this support, the
+category of sets by their universal proper-        type theory.                                              formalization of the Feit–Thompson theo-
+ty. The disjoint union will be specified as            First of all, in dependent type theory,               rem, for example, still has 170.000 lines
+the least object which allows embeddings           there is a notion of type families (or, de-               of code. Just by their sheer size, such for-
+from A, B. The natural numbers are cap-            pendent types). A type family B indexed by                malization projects need to be treated as
+tured as the least object that has a 0 and         a type A, consists of a type B (a) varying                software projects. Without verified com-
+a successor function S. Here we use ‘least’        over a variable a of type A. As an example,               putation those projects would simply be
+informally, and indeed the formal way to           there is a type list A (n), depending on n : N,           unfeasible.
+express this is the universal property. For        which gives for each n the type of lists with                 The alert reader might have observed
+instance, the universal property of N is           n elements from a type A. We often write                  that the induction principle of the natural
+the familiar property that, for every set X,       B : A " Type if B is a type family indexed                numbers only asserts the existence of a
+a base point x0 ! X and a map f : X " X            by a type A.                                              section when certain conditions are met.
+uniquely determines a sequence (xn) n of               Like a section of a family of sets, a sec-            Nothing is said about the uniqueness,
+elements of X, satisfying xn + 1 = f (xn).         tion b of a type family B indexed by A con-               whereas the universal property is about ex-
+    In the following, we shall see that type       sists of a term b (a) : B (a), depending on               istence and uniqueness. Of course, being
+theory shares many of the structural as-           a variable a : A. The sections of the type                unique depends on the notion of equal-
+pects of the theory of sets. In particular,        family B are themselves terms of a type:                  ity. The notion of equality in dependent
+many types are specified by a type theoret-        the dependent product type P(a: A) B (a).                 type theory is inductively defined, just
+ic analogue of the universal property: the         Note that there is a universal quantification             as the natural numbers. Martin-Löf, who
+induction principle.                               involved in the dependent product type: a                 first wrote down their inductive definition,
+                                                   term f of P(a: A) B (a) assigns to every a : A,           called these equality types identity types.
+Practical foundations                              a term f (a) : B (a).                                     The identity type a = A b is a family of types
+Presently, foundations for computer for-               Now we can state the induction princi-                which depends on two variables a, b of
+malization roughly fall in two classes, both       ple of the natural numbers. The induction                 type A, and every type is equipped with an
+have a structural flavor. They are either          principle tells us how to show P(n: N) P (n),             identity type. The identity type is generat-
+based on higher order logic (HOL), or on           for an arbitrary type family P : N " Type.                ed by a term refl (a) : a = A a, for every a : A.
+dependent type theory. The former is a lit-        In other words, it tells us how to prove                      Since the identity types are themselves
+tle simpler, but the latter is a more expres-      a universal quantification over the natural               type families, one might anticipate that it
+sive language for mathematics and at the           numbers, just as the induction principle                  is possible to use the induction principle
+same time provides a functional program-           you might be familiar with.                               again, to show the uniqueness of the sec-
+ming language, like Haskell or OCaml.                                                                        tions that are obtained by the induction
+    Type systems are used in most mod-             Induction principle of the natural numbers:               principle. This is indeed the case, but we
+ern programming languages to avoid pro-            Let P : N " Type be a family of types over                will not go into that here. We only note
+gramming errors, with richer type systems          the natural numbers. Given                                that this derivation requires function ex-
+allowing one to capture more errors. For                                                                     tensionality. Function extensionality is the
+                                                             a0 : P (0)
+example, adding a function R " R to a                                                                        principle that two sections f, g : P(a: A) B (a)
+2 # 2-matrix would raise a type error. This                  aS : P(n: N) P (n) " P (n + 1),
+                                                                                                             are equal precisely when they take equal
+is similar to the unit tests in physics which      there is a section f : P(n: N) P (n). Moreover,           values. Since we take identity types
+Egbert Rijke, Bas Spitters                        Homotopy type theory and the formalization of mathematics              NAW 5/17 nr. 3 september 2016   161
+
+
+
+as our notion of equality, f and g take             distinguishes between small sets and large                logic. Having such propositional identity
+equal values if there is a section of type          sets, sometimes called sets and classes. In               types seems natural, but models without
+P(a: A) f (a) =B (a) g (a). Function extension-     type theory, a universe is a type which con-              this extra requirement are mathematically
+ality cannot be proved directly in depen-           tains the ‘small’ types as its terms, and is              relevant too.
+dent type theory. However, in homotopy              closed under the mentioned constructions.
+type theory we can prove function exten-                Notably, there is no untyped element-                 The groupoid model
+sionality from Voevodsky’s univalence axi-          hood predicate (!) in type theory, as there               In the groupoid model of type theory
+om which we will discuss below.                     is in set theory. A term always comes with                equality of terms is modeled by isomor-
+                                                    a specified type. There are rules for how to              phism. A groupoid is a category in which
+Martin-Löf’s dependent type theory                  derive a term of a given type, and for how                all morphisms are invertible. Groupoids are
+Foundations based on dependent type the-            to use them to derive other things. From                  fundamental in homotopy theory. Given a
+ory are characteristically different from the       one point of view, these rules are much                   topological space one defines the funda-
+set theoretic foundations, in that the set          like the rules for how to derive a proposi-               mental groupoid, the objects of which are
+theoretic foundations have two layers (one          tion of a certain form. From another point                the points of the space, and the arrows
+for first-order logic, and one for the theory       of view, these rules are a version of the                 are the (homotopy equivalence classes of )
+of sets), whereas in dependent type theo-           universal property of a particular type con-              paths between them. The identity arrow is
+ry there is only one such layer. Predicates         structor. We have seen an instance of such                the path that stands still, composition of
+of first order logic are replaced by depen-         rules in the case of the type N, with its                 arrows is composition of paths, the inverse
+dent types. Notably, we have a dependent            induction principle.                                      of an arrow is the path in the opposite
+type x = A y of equalities in A instead of an                                                                 direction.
+equality predicate.                                 Homotopical models
+                                                                                                                   A homotopy between two paths:
+   Apart from identity types, we have types         Homotopy type theory refers to the use of
+such as the empty type, a type with one             homotopy theory to study models of de-
+element and a type N of natural numbers.            pendent type theory or the use of ideas
+                                                                                                                              •          •
+Given two types A and B, we can form their          and constructions from homotopy theo-
+cartesian product A # B and their disjoint          ry to prove theorems in type theory. So,                     Hofmann and Streicher [11] showed that
+union A + B. More generally, given a family         homotopy type theory is both a theory of                  many of the ideas from the set theoretical
+B of types indexed by a type A, we can              homotopy types and a homotopical per-                     model can be extended to the groupoid
+form their dependent product P(a: A) B (a),         spective of type theory:                                  model. Importantly, the groupoid model
+and we can also form their dependent sum                                                                      also contains a universe of all small sets,
+                                                               (homotopy type) theory
+R(a: A) B (a).                                                                                                namely the groupoid of all sets in which
+                                                                         =
+   There is a tight connection between                                                                        the arrows are the bijections between sets.
+                                                               homotopy (type theory).
+logic and type theory, which is illustrated                                                                   Since the equality type is modeled by iso-
+by the Curry–Howard correspondence, as                 Voevodsky proposes homotopy type                       morphism in the groupoid model, we see
+shown in Table 1. Apart from these logical          theory together with his univalence axiom                 that the groupoid model gives a precise
+connectives, type theory also possesses             as a new foundation for mathematics, as                   sense in which isomorphic sets may be
+types which are not directly linked to any          we will now explain.                                      identified. This is one of the early instanc-
+logical connective, including a type N of                                                                     es of the univalence axiom.
+natural numbers and a so-called universe            The set model                                                The way in which equality is modeled
+U. Famously, by the Russell paradox there           The collection of all sets forms a model                  in the groupoid model gives a fundamen-
+cannot be a set of all sets. So, one usually        of type theory. In this model, a type is in-              tal distinction between the set model and
+                                                    terpreted as a set, and a family of types                 the groupoid model: in the set model there
+                                                    over a base type X is simply an indexed                   are many distinguishable natural numbers
+ Logical connective            Type operation       collection (Yi) i ! X of sets. Universes in type          objects (e.g. N, 2N), while in the groupoid
+                                                    theory can be modeled by so-called Gro-                   model all of them are equal, because they
+ truth                         1                                                                              are all isomorphic. This fits with our usual
+                                                    thendieck universes in set theory. In this
+ falsehood                     0                    way, types can be used to talk about sets                 phrase: the natural numbers.
+                                                    in a structural way. In this model, any two
+ conjunction                   A#B                  terms of the same type can be equal in at                 The homotopy interpretation of type theory
+                                                    most one way. This leads to a variant of                  Again, it turns out to be impossible to show
+ disjunction                   A+B
+                                                    the Curry–Howard correspondence where                     that any type is a groupoid, because it is
+ universal quantification      P(x: A) P (x)        propositions are truncated. The (-1)-trun-                not provable that any two proofs of equal-
+                                                    cation A of a type A identifies all its                   ity are themselves equal in at most one
+ implication                   A"B
+                                                    terms. Such truncated types are also re-                  way. Sets (discrete spaces) and groupoids
+ existential quantification    R(x: A) P (x)        ferred to as mere propositions. Important-                (spaces for which all higher homotopy
+                                                    ly, the (dependent) sum of propositions                   groups are trivial) are just two levels of a
+ equality                      x =A y               need not be a proposition, so we need to                  hierarchy of more and more complex struc-
+Table 1 Curry–Howard correspondence                 truncate it to soundly interpret first order              tures, indeed: homotopy types.
+162 NAW 5/17 nr. 3 september 2016                Homotopy type theory and the formalization of mathematics                             Egbert Rijke, Bas Spitters
+
+
+
+
+    Just as every space gives rise to its fun-     simplicial sets. Just like sets, we can take              Not every topos satisfies this property, as
+damental groupoid, we can associate to             products and sums (disjoint unions, i.e. co-              the logic of the set theory a topos adheres
+every space its fundamental 3-groupoid.            products) of such 3-groupoids. Moreover,                  to is not classical logic, but Heyting’s in-
+Whereas in the fundamental groupoid of             we can even take dependent (co)products.                  tuitionistic logic. Nevertheless, we can re-
+a space we identified all the homotop-             This makes 3-groupoids (Kan simplicial                    strict our attention to the toposes in which
+ic paths, in the fundamental 3-groupoid            sets) into a model of type theory.                        classical logic is satisfied, by adding the
+these homotopies between paths will be                 Motivated by Grothendieck’s insight that              axiom of choice. In this sense, topos theo-
+the arrows at the next level.                      3-groupoids are ubiquitous in mathemat-                   ry subsumes classical set theory.
+    This suggests a homotopy interpreta-           ics, and by the foundational role of type                     Similarly, type theory is by its compu-
+tion of type theory, in which identities are       theory, Voevodsky proposes homotopy                       tational nature an intuitionistic theory. But
+interpreted as paths in a space, identities        type theory as a new ‘univalent’ founda-                  just as in toposes, homotopy type theory
+between identities as homotopies between           tion for all of mathematics. The connection               subsumes classical reasoning, in the sense
+paths, and so on. This idea has been made          between types and 3-groupoids is further                  that the axiom of choice can be added.
+precise by Voevodsky [12, 21] who showed           strengthened by a theorem of Van den                      The axiom of choice is satisfied, for in-
+the Kan simplicial sets form a model of            Berg, Garner and Lumsdaine, that types in                 stance, in the model of Kan simplicial
+type theory. Intuitively, simplicial sets are      Martin-Löf type theory indeed exhibit the                 sets.
+collections of triangulations. We will say         structure of an 3-groupoid [3, 15].                           Universes play a key part in the uni-
+more about them shortly. Independent-                  In the simplicial set model, we can find              valent foundations. The univalence axiom
+ly, Awodey and Warren [2] showed that a            the set model and the groupoid model, and                 characterizes the identity types on the uni-
+relaxed version of identity types can be           indeed a whole hierarchy of n-groupoid                    verse. In fact, by characterizing the identity
+interpreted in an arbitrary Quillen model          models. The 0-groupoids, which are also                   types on the universe, one describes indi-
+category (an abstract setting for homoto-          known as the (homotopy) discrete spaces,                  rectly a universal property of the universe.
+py theory). The original identity types can        are our ordinary sets [19].                               This universal property is a homotopical
+be interpreted in cloven weak factorization                                                                  analogue of the notion of a subobject clas-
+systems [4].                                       Improving set theory                                      sifier in a topos. In a topos, the subobject
+    In the homotopy interpretation of type         Zermelo–Fraenkel set theory is often con-                 classifier can be seen as the object of all
+theory, types are interpreted by spaces,           sidered to be ‘the’ foundation of mathe-                  propositions in the logic of that topos. In
+and dependent types are interpreted by             matics. This was introduced in the begin-                 the case of the sheaves over a topolog-
+fibrations. Terms of a type are points in a        ning of the previous century. There have                  ical space, this subobject classifier just
+space, and a term of a dependent type is           been several proposals to update this                     consists of the opens of the topological
+a section of the corresponding fibration.          foundation to more modern mathematical                    space. Hence, this is an important object
+    A proof of equality is a point in the path     insights. As already discussed, one such                  in the theory of toposes. By the proposi-
+space, so we see that a proof of equality          proposal is Lawvere’s structural set the-                 tions-as-types [22] paradigm (i.e. the Curry–
+between two equalities gets interpreted as         ory. This arose from the development of                   Howard correspondence), the universe plays
+a homotopy between paths. Higher equal-            Grothen­dieck’s topos theory, a vast gener-               the same role for general types. Anoth-
+ities are interpreted accordingly by higher        alization of topology applicable to a wide                er way to express this is that the uni-
+homotopies.                                        range of fields including algebraic geome-                valence axiom connects univalent type
+                                                   try. Lawvere and Tierney showed that to-                  theory with higher topos theory. Higher
+The simplicial set model                           poses can be described by a (structural)                  topos theory is a joint generalization of
+Voevodsky constructed, moreover, a uni-            set theory. A prime example of a topos is                 topos theory and the abstract theory of
+verse in simplicial sets which has a very          the topos of sets. Moreover, for a general                homotopy types [18}.
+nice property: the path space between              topological space, the variable sets, the
+two Kan simplicial sets in the universe is         so-called sheaves, over this space form                   Consequences homotopy interpretation
+weakly equivalent to the Kan simplicial set        again a topos. Another class of toposes is                Structuralism
+of weak equivalences between them. This            connected to the theory of computation. In                Another application of the univalence ax-
+property goes under the name univalence:           other words, toposes are everywhere.                      iom is the structure invariance principle
+for any two types X and Y in a universe U,             Since there are many toposes, and                     between general (algebraic) structures.
+we have a canonical (i.e. specified) equiv-        therefore many interpretations of the struc-              For instance, any two isomorphic groups
+alence                                             tural axioms of set theory, one might con-                may be identified. This idea is prominent
+                                                   sider the axioms of set theory similar to                 in Bourbaki’s vision of mathematics as
+            (X =U Y) - (X -Y) .
+                                                   the axioms of a group (in fact, both are                  the science of abstract structures, where
+Grothendieck’s homotopy hypothesis states          essentially algebraic theories). By adding                structures are important only up to iso-
+that 3-groupoids are a model for homotopy          axioms to structural set theory, one reduc-               morphism [20]. Univalent type theory sat-
+types, topological spaces up to homotopy.          es the class of models, just as one reduces               isfies the principle of structuralism [1]: that
+The hypothesis itself is very delicate due to      the class of groups by adding the axiom of                isomorphic structures may be identified.
+the difficulty of giving a precise definition      commutativity.                                            In set theoretic foundations for mathemat-
+of 3-groupoid. 3-groupoids in turn can be              In the case of structural set theory, we              ics, the principle of structuralism is simply
+modeled by a so-called model structure on          can add for example the axiom of choice.                  false.
+Egbert Rijke, Bas Spitters                                                                       Homotopy type theory and the formalization of mathematics              NAW 5/17 nr. 3 september 2016   163
+
+
+
+                                                                                                   shows that in the free type with a point                  Brunerie’s number n which we introduced
+                                                                                                   and a loop, the loop is distinguishable                   above has been defined in cubical type
+                                                                                                   from the trivial path refl). The circle is also           theory. Unfortunately, the type checker is
+                                                                                                   obtained as a special instance of suspen-                 currently too slow to compute the answer.
+                                                                                                   sions of types, and by iterated suspen-                   However, many possibilities for improve-
+                                                                                                   sions one gets the n-sphere for any n : N.                ments exists, and we expect more such
+                                                                                                   Many other familiar spaces, including the                 applications in the future.
+
+
+
+
+                                                        Illustration: Niles Johnson, Wikimedia
+                                                                                                   torus, can be defined in this way.
+                                                                                                      Many theorems about fundamental                        Axiomatic physics
+                                                                                                   groups of spheres have short new proofs in                Schreiber and Shulman [24] use homotopy
+                                                                                                   the language of homotopy type theory us-                  type theory to provide an axiomatic treat-
+                                                                                                   ing reasoning principles from type theory.                ment of modern physics, more precisely of
+                                                                                                   Also, many of the classic constructions are               local higher gauge quantum field theory.
+                Figure 2     Hopf fibration.
+                                                                                                   possible. For instance, once the spheres                  To do so they greatly generalize Lawvere’s
+                                                                                                   are defined, one may use the univalence                   axioms for synthetic differential geometry,
+                                                                                                   axiom to construct the Hopf fibration.                    which uses so-called cohesive toposes, by
+Axiomatic reasoning
+                                                                                                      One of the big accomplishments of ho-                  providing a modal type theory which can
+Since homotopy type theory can be inter-
+                                                                                                   motopy type theory is Brunerie’s proof [6]                be modeled in cohesive higher toposes.
+preted in 3-groupoids, we can actually use
+                                                                                                   that the fourth homotopy group r 4 (S3) of
+it to reason axiomatically about them. This
+                                                                                                   the 3-sphere is Z/2Z. The first part of his               Open science
+may be compared to two ways of reason-
+                                                                                                   proof shows that there is a natural number                Voevodsky proposed the thematic year
+ing in geometry: analogous to traditional
+                                                                                                   n for which r 4 (S3) is Z/nZ. He then pro-                (2012–2013) about univalent foundations
+homotopy theory we have analytic rea-
+                                                                                                   ceeds by proving that this number is 2.                   of mathematics at the Institute for Ad-
+soning using coordinates, and analogous
+                                                                                                                                                             vanced Study to bring together research-
+to reasoning in homotopy type theory we
+                                                                                                   Cubical proof assistant                                   ers from a wide variety of backgrounds
+have synthetic reasoning using axioms
+                                                                                                   In principle one should be able to compute                to develop mathematics based on his
+about points and lines and construction
+                                                                                                   the number n, which was constructed in                    univalence axiom. He organized the year
+methods such as ruler and compass. Just
+                                                                                                   the first half of the proof, thus replacing               with Awodey and Coquand. During this
+like many theorems in geometry have
+                                                                                                   tens of pages of advanced mathematics.                    year there was a pressure cooker full of
+beautiful synthetic proofs, likewise, many
+                                                                                                   However, since the univalence axiom is                    ideas from researchers coming from dif-
+theorems in algebraic topology have ele-
+                                                                                                   added as an axiom to Martin-Löf’s depen-                  ferent directions such as type theory and
+gant and very elementary proofs in homo-
+                                                                                                   dent type theory, the computation may get                 proof assistants, category theory and ab-
+topy type theory. One of the first examples
+                                                                                                   stuck on applications of the univalence                   stract homotopy theory. It was decided to
+of such reasoning, and indeed one of the
+                                                                                                   axiom. In other words, a computational                    write a book [20] as a means to collect
+first non-trivial applications of the univa-
+                                                                                                   interpretation of the univalence axiom has                the ideas and take a snapshot of the state
+lence axiom, is Shulman’s proof that the
+                                                                                                   to be provided before the algorithms for                  of the field at the end of the year. As a
+fundamental group of the circle is equiva-
+                                                                                                   computation can be extended to compute                    proof of concept, the book develops a
+lent to the integers.
+                                                                                                   with applications of the univalence axiom.                substantial amount of mathematics with-
+    Many of the classical constructions of
+                                                                                                       Fortunately, there is now a fully con-                in the univalent foundations. This includes
+CW-complexes can be specified axiomati-
+                                                                                                   structive model of the univalence axiom                   homotopy theory and algebraic topology
+cally in homotopy type theory by gener-
+                                                                                                   [7], which provides the desired computa-                  (using synthetic reasoning), but also set
+alizing the construction of inductive types
+                                                                                                   tional interpretation. This is a model of                 theory, category theory and various con-
+by specifying not only its points, but also
+                                                                                                   cubical sets, instead of simplicial sets. In              structions of the real numbers. Part of the
+(some) equalities. We call these construc-
+                                                                                                   the cubical sets, spaces are built up from                book ‘unformalizes’ code that existed only
+tions higher inductive types. The interval
+                                                                                                   squares instead of triangles. This slight                 in the computer before. This prominently
+consists of two points and an equality
+                                                                                                   modification alters the algebraic structure               includes both the ‘Foundations’ library by
+(i.e., path) between them. A circle is a
+                                                                                                   of spaces slightly, making it possible to                 Voevodsky and the substantial work on
+point with a loop, (using univalence one
+                                                                                                   give a fully constructive proof that the uni-             using higher inductive types for synthetic
+                                                                                                   valence axiom is satisfied in this model,                 reasoning. This was a new experience. Be-
+                                                                                                   whereas Voevodsky’s original proof makes                  fore, the usual procedure was to go from
+                                                                                                   use of non-computational reasoning princi-                paper proofs in mathematics to computer
+                                                                                                   ples in an essential way.                                 formalization, but this time the formaliza-
+                                                                                                       The cubical model of type theory turns                tion came first and the natural language
+
+
+                                                        Illustration: Wikimedia
+                                                                                                   out to provide a convenient language, cu-                 presentation afterwards. In these formal
+                                                                                                   bical type theory, to reason about (homo-                 proofs, the proof assistant is very helpful
+                                                                                                   topical) constructions. This type theory has              in developing the proofs, both for proofs
+Figure 3 The fundamental group of the torus with base
+                                                                                                   been implemented so that one can now                      by computation and in order to keep the
+point p has two generators a and b.                                                                compute with univalence. The term for                     bookkeeping manageable.
+164 NAW 5/17 nr. 3 september 2016                    Homotopy type theory and the formalization of mathematics                                                                Egbert Rijke, Bas Spitters
+
+
+
+
+                                                                                                                                                 source tools such as git version control.
+                                                                                                                                                 The LaTeX-sources are freely available to
+                                                                                                                                                 everyone. It was a unique experience to
+                                                                                                                                                 write a book with such a large number of
+                                                                                                                                                 authors. The efficient software tools were
+                                                                                                                                                 important in this process, but working col-
+                                                                                                                                                 lectively from one place where we could
+                                                                                                                                                 regularly meet was still crucial.
+                                                                                                                                                     Many parts of the book have been for-
+                                                                                                                                                 malized a number of times, and also in dif-
+                                                                                                                                                 ferent proof assistants such as Coq, Agda
+                                                                                                                                                 and Lean. While some details of the se-
+                                                                                                                                                 mantics remain to be worked out, we can
+
+
+
+
+                                                                                                             Photo: uf-ias-2012.wikispaces.com
+                                                                                                                                                 still be very confident that all these theo-
+                                                                                                                                                 rems are correct. Conversely, in the cases
+                                                                                                                                                 where the formalization came afterwards,
+                                                                                                                                                 usually a number of bugs were found in
+                                                                                                                                                 the book. These bugs have been correct-
+                                                                                                                                                 ed. It is worth stressing that the book has
+Participants of the Univalent Foundations Program
+                                                                                                                                                 been proof read very carefully, similar bugs
+                                                                                                                                                 showed up when other parts of mathemat-
+   The book is self-published under a per-             Often this is done by means of a ‘pull-re-                                                ics were formalized.
+missive creative commons licence. One of               quest’, the common way of contributing to                                                     The book was included on the 2013 list
+the advantages of this process is that the             an open source programming project. The                                                   of notable items published in computing
+book is still being updated regularly with             book was created in a true open source                                                    by Computing Reviews of the Association
+additions and clarifications from readers.             spirit and was developed using open                                                       of Computing Machinery (ACM).             s
+
+
+
+
+References
+1   Steve Awodey, Structuralism, invariance,                L. Rideau, A. Solovyev, E. Tassi and L. Théry,                                            Proceedings of the ACM SIGOPS 22nd Sym-
+    and univalence, Philosophia Mathematica                 A machine-checked proof of the odd order                                                  posium on Operating Systems Principles,
+    22(1) (2013), 1–11.                                     theorem, in Interactive Theorem Proving                                                   ACM, 2009, pp. 207–220.
+2   Steve Awodey and Michael Warren, Homoto-                (ITP), Lecture Notes in Computer Science,                                            15   Peter LeFanu Lumsdaine, Weak ~-Catego-
+    py theoretic models of identity types, Math-            Vol. 7998, Springer, 2013, pp. 163–179.                                                   ries from Intensional Type Theory, Springer,
+    ematical Proceedings of the Cambridge              10   Thomas Hales, Mark Adams, Gertrud Bauer,                                                  2009, pp. 172–187.
+    Philosophical Society 146(1) (2009), 45–55.             Dat Tat Dang, John Harrison, Truong Le Ho-                                           16   Tom Leinster, Rethinking set theory, Amer-
+3   Benno van den Berg and Richard Garner,                  ang, Cezary Kaliszyk, Victor Magron, Sean                                                 ican Mathematical Monthly 121(5) (2014),
+    Types are weak ~-groupoids, Proceedings                 McLaughlin, Thang Tat Nguyen, Truong                                                      403–415.
+    of the London Mathematical Society 102(2)               Quang Nguyen, Tobias Nipkow, Steven Obua,
+                                                            Joseph Pleso, Jason Rute, Alexey Solovyev,                                           17   X. Leroy, Formal certification of a compiler
+    (2011), 370–394.                                                                                                                                  back-end or: programming a compiler with
+                                                            An Hoai Thi Ta, Trung Nam Tran, Diep Thi
+4   Benno van den Berg and Richard Garner, To-              Trieu, Josef Urban, Ky Khac Vu, Roland Zum-                                               a proof assistant, in POPL, ACM, 2006, pp.
+    pological and simplicial models of identity             keller, A formal proof of the Kepler conjec-                                              42–54.
+    types, ACM transactions on computational                ture, 2015, arXiv:1501.02155.                                                        18   J. Lurie, Higher Topos Theory, Vol. 170,
+    logic (TOCL) 13(1) (2012), 3.                                                                                                                     Princeton, 2009.
+                                                       11   Martin Hofmann and Thomas Streicher, The
+5   Lennart Beringer, Adam Petcher, Katherine Q.            groupoid interpretation of type theory, in                                           19   Egbert Rijke and Bas Spitters, Sets in homo-
+    Ye and Andrew W. Appel, Verified correct-               Sambin and Smith, eds., Twenty-five Years                                                 topy type theory, MSCS 25, Special Issue 05
+    ness and security of OpenSSL HMAC, in                   of Constructive Type Theory, Oxford Logic                                                 (2015), 1172–1202.
+    USENIX Security 15, 2015, pp. 207–221.                  Guides, Vol. 36, OUP, 1998, pp. 83–111.                                              20   The Univalent Foundations Program, Homo-
+6   Guillaume Brunerie, On the Homotopy                12   Chris Kapulkin and Peter Lumsdaine, The                                                   topy Type Theory: Univalent Foundations for
+    Groups of Spheres in Homotopy Type Theo-                simplicial model of univalent foundations                                                 Mathematics, Institute for Advanced Study,
+    ry, PhD thesis, Nice, 2016, arXiv:1606.05916.           (after Voevodsky), 2012, arXiv:1211.2851.                                                 2013, homotopytypetheory.org/book.
+7   Cyril Cohen, Thierry Coquand, Simon Huber,         13   Yong Kiam Tan, Magnus O. Myreen, Ramana                                              21   Vladimir Voevodsky, The equivalence axiom
+    and Anders Mörtberg, Cubical type theory:               Kumar, Anthony Fox, Scott Owens, and Mi-                                                  and univalent models of type theory, 2010,
+    a constructive interpretation of the univa-             chael Norrish, A new verified compiler back-                                              arXiv:1402.5556, to appear in MSCS.
+    lence axiom, 2016, http://www.cse.chalmers.se/          end for CakeML, in ICFP16, 2016.
+    ~coquand/cubicaltt.pdf.                                                                                                                      22   Philip Wadler, Propositions as types, Commu-
+                                                       14   Gerwin Klein, Kevin Elphinstone, Gernot                                                   nications of the ACM 58(12) (2015), 75–84.
+8   G. Gonthier, Formal proof — the four-color              Heiser, June Andronick, David Cock, Philip
+    theorem, Notices of the AMS 55(11) (2008),                                                                                                   23   https://www.math.ias.edu/vladimir/sites/math.
+                                                            Derrin, Dhammika Elkaduwe, Kai Engelhardt,                                                ias.edu.vladimir/files/2014_08_ASC_lecture.pdf.
+    1382–1393.                                              Rafal Kolanski, Michael Norrish, Thomas
+9   G. Gonthier, A. Asperti, J. Avigad, Y. Bertot,          Sewell, Harvey Tuch and Simon Winwood,                                               24   https://ncatlab.org/schreiber/show/Modern+
+    C. Cohen, F. Garillot, S. Le Roux, A. Mah-              seL4: Formal verification of an OS kernel, in                                             Physics+formalized+in+Modal+Homotopy+
+    boubi, R. O’Connor, S. O. Biha, I. Pasca,                                                                                                         Type+Theory.
+

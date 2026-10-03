@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / TWO_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / THREE_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -18,6 +18,10 @@ class/meta-language 表示边界和两类显式支付，而不是 `ZFC_Q`、`H0�
 第二个来源 run 已闭合：[20261003-HMZ-002-voevodsky-set-theory](20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md)。
 它检验 Voevodsky 对 ZFC formalization 和 equivalence problem 的更明确原典表述，并以 Ahrens/North 的
 equivalence-principle 文献和已有 ZFC consumers 校正；结果仍是来源支持的表示边界与显式语言支付，未产生候选。
+
+第三个来源 run 已闭合：[20261003-HMZ-003-formalization-delivery](20261003-HMZ-003-formalization-delivery/MANIFEST.md)。
+它研究 ZF 的 bare-existence axioms 如何在实际形式化中通过命名 constants、条件化规则和语法层支付，结论仍是
+formation/payment control，未产生 P-qualified Q。
 
 ## Run 命名与目录合同
 
@@ -49,6 +53,7 @@ FINDINGS.md
 |---|---|---|---|---|
 | `20261003-HMZ-001-primary-motives` | HoTT／UF 首批创立动机、Shulman 的 ZFC/NBG 分析、Isabelle/ZF、Metamath 形式呈现、Mumford 与 Shulman 真实消费者控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [FINDINGS](20261003-HMZ-001-primary-motives/FINDINGS.md) | 0 个 `CANDIDATE_SEED`；class/meta-language 是来源支持的表示边界且有 NBG 支付；结构／choice／machine 路径均有显式支付；Power Set 与 H0 transport 未资格化。 |
 | `20261003-HMZ-002-voevodsky-set-theory` | Voevodsky 2011/2013 对 ZFC、equivalence、type systems 与 set theory 的原典；Ahrens/North 2022；复用 HMZ-001 的 Shulman/Isabelle/Mumford controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-002-voevodsky-set-theory/FINDINGS.md) | equivalence problem 是来源支持的表示边界；typed language/FOLDS、NBG、Choice、maps、well-ordering是明确支付；0 个 P-qualified Q。 |
+| `20261003-HMZ-003-formalization-delivery` | Grayson 2018、Rijke/Spitters 2016、HoTT Library 2017 与 Isabelle/ZF/ Shulman 控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-003-formalization-delivery/FINDINGS.md) | ZF existence axioms → named formal constants / rules 是显式支付；HoTT自身也有阻断计算的axioms；0 个 P-qualified Q。 |
 
 ## 本次整备的影响边界
 

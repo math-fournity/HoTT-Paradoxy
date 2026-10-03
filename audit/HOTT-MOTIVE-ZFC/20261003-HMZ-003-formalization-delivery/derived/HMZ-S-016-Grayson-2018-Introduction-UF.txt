@@ -1,0 +1,1457 @@
+                                                   An introduction to univalent foundations for
+                                                                 mathematicians
+
+
+
+
+arXiv:1711.01477v3 [math.LO] 8 Feb 2018
+                                                                      DANIEL R. GRAYSON
+
+                                                 Abstract. We offer an introduction for mathematicians to the
+                                                 univalent foundations of Vladimir Voevodsky, aiming to explain
+                                                 how he chose to encode mathematics in type theory and how the
+                                                 encoding reveals a potentially viable foundation for all of modern
+                                                 mathematics that can serve as an alternative to set theory.
+
+
+
+
+                                                                           Contents
+                                            Introduction                                                                1
+                                            Dedication                                                                  4
+                                            Acknowledgments                                                             5
+                                            1. What is a type?                                                          5
+                                            2. The type of natural numbers                                              7
+                                            3. Identity types                                                           9
+                                            4. Other types                                                             12
+                                            5. Formalization of mathematics                                            15
+                                            6. Univalence                                                              20
+                                            7. The interpretation                                                      25
+                                            8. Further developments                                                    26
+                                            References                                                                 28
+
+
+                                                                        Introduction
+                                            The traditional foundation for mathematics, chosen more than a cen-
+                                          tury ago, pins down basic issues, such as what numbers “really are”,
+                                          by giving them a specific arbitrary internal structure based on sets1,
+                                          which is irrelevant to modern daily mathematical discourse. Bertrand
+                                             Date: Nov 4, 2017.
+                                             2010 Mathematics Subject Classification. 03B35, 03B15.
+                                             Key words and phrases. homotopy type theory, type theory, identity type, uni-
+                                          valence axiom, univalent mathematics.
+                                             MR Author ID: 76410
+                                             1
+                                              For example, one may define 3 to be either {0, 1, 2} or {2}.
+                                                                                 1
+2                              DANIEL R. GRAYSON
+
+Russell’s contemporaneously proposed alternative foundation [47] was
+based on the theory of “types”, in which each variable is to be accom-
+panied by a type, which is drawn from a hierarchy of types of increasing
+complexity and which provides the variable’s range of values, the aim
+being to prevent the formulation of paradoxical concepts, such as the
+set of all sets. Over the intervening decades type theory has been
+developed by computer scientists into a useful tool for verifying cor-
+rectness and security of computer languages and by mathematicians
+into a useful tool for computer verification of mathematical theorems,
+such the Four Color Theorem (the original 1976 computer-assisted [14]
+Appel-Haken proof [12, 13] had gaps, but a proof was finally verified
+[29] in 2005 by computer using the proof assistant Coq [51]), the Feit-
+Thompson odd-order theorem [30], and the Kepler Conjecture about
+sphere packing [31].
+   In this brief introduction, we’ll take a glance at the world of math-
+ematics as viewed through the univalent foundations of Voevodsky,
+which is based on type theory, is part of the world of homotopy type
+theory, is formally and precisely specified, and has been under devel-
+opment over the last several years. The most fundamental novelty for
+mathematicians is that the notion of equation is recast using (depen-
+dent) types, as originally used by de Bruijn [28] in the proof checker
+Automath, and as formulated and augmented by Per Martin-Löf [43],
+so that an equation is no longer necessarily a proposition. Building on
+that, harking back to a conjecture of Grothendieck about ∞-groupoids,
+Voevodsky singles out the types with h-level (at most) n, for a natural
+number n, with the “true propositions” being the types at h-level 0,
+with the “propositions” being the types at h-level (at most) 1, with
+the “sets” being the types at h-level (at most) 2, with the objects of
+a category being the elements of a type at h-level 3 that captures the
+groupoid of isomorphisms of the category, and so on. (The quota-
+tion marks in the previous sentence are intended to indicate initially
+that these “propositions” and “sets” are intended to play the role that
+propositions and sets play in set theory, but are not the same: rather,
+they are alternative ways to formalize a common intuitive understand-
+ing of the terms2.) Thus propositions and their proofs become part
+of the language of mathematics, rather than part of the language of
+
+
+
+    2Perhaps one would prefer to use three terms, when needed to avoid ambiguity:
+set for the intuitive notion, Zermelo-Fraenkel structure for the set theory notion (as
+Voevodsky preferred to call it), and h-set for the univalent foundations notion.
+            An introduction to univalent foundations for mathematicians          3
+
+logic3, and sets become a special case of something more fundamental,
+types, worthy of independent study.
+   The formal mathematical language, together with the Univalence
+Axiom, fulfills the mathematicians’ dream: a language for mathemat-
+ics invariant under “equivalence” and thus freed from irrelevant details
+and able to merge the results of mathematicians taking different but
+equivalent approaches. Voevodsky called this invariance property of
+the language “univalence”4. It offers the hope that formalization and
+verification of today’s mathematical knowledge may be achievable, re-
+lieving referees of mathematics articles of the tedious chore of checking
+the details of proofs for correctness, allowing them to focus on impor-
+tance, originality, and clarity of exposition. Feasibility and practicality
+of the approach were demonstrated by Voevodsky in his Foundations
+[58, 64], based on Coq, and various teams have continued formalization
+efforts based on it. In section 5 we describe how the notions of group
+and torsor are encoded in the system, thereby motivating the defini-
+tions of proposition and set and aiming to expose the aspects of the
+system that make the formalization succeed.
+   Further useful expositions of the subject include these: [27, 57, 48],
+and some philosophical background is provided in [54, 55, 56, 53].
+   I turn now to a bit of speculation. The beauty of mathematics, as
+appreciated by human mathematicians, is enhanced by formalization,
+for a beautiful proof known to be correct is more beautiful than the
+same proof in unverified form. Even if formalization becomes widely
+used, it will still be humans who decide what to prove, how to prove
+it, which proofs are better than others, and which proofs are worth
+publishing in journals. A beautiful incomplete or incorrect proof can
+benefit from formalization, too – then anyone will know precisely what
+has been done, that it has been done correctly, and what remains to
+be done.
+
+
+
+  3
+    A simple way to embed logic into set theory is to associate to a proposition P
+the set {x ∈ {0} | P }. Under this embedding the true propositions are associated
+with one-element sets, propositions are associated with sets with at most one ele-
+ment, and the logical operations may be re-implemented as set theoretic operations.
+Something similar happens in univalent foundations.
+   4
+    Voevodsky explained his choice of the term “univalent” in [62]: it comes from
+a Russian translation of the Boardman and Vogt book “Homotopy Invariant Al-
+gebraic Structures on Topological Spaces”, where the term “faithful functor” is
+translated as “univalent functor”. He also said “Indeed these foundations seem to
+be faithful to the way in which I think about mathematical objects in my head.”
+4                         DANIEL R. GRAYSON
+
+   The adoption of proof formalization by a broad segment of practicing
+mathematicians will await the day when mathematicians feel more suc-
+cessful with formalization than without, as happened with TeX starting
+in the 1980’s. There is much development to be done to make proof
+assistants more powerful and easier to use. Formalization of a result
+also depends on formalization of the results cited by it, so another
+prerequisite for wide adoption is the formalization of a large body of
+existing mathematics.
+   Current proof assistants are oriented toward enabling humans to en-
+ter proofs efficiently, so perceiving the beauty of a proof by reading its
+formalization will not be as enlightening as by reading human-written
+prose about it, except for those who become proficient with the proof-
+entering mechanism. Eventually, when proof-entering technology is
+sufficiently developed, we can expect proof-reading technology to be
+developed further, and, ultimately, the optimal way to read a proof
+and to learn it will be with the active assistance of a proof assistant,
+so that details can be clarified upon demand, right down to the bot-
+tom. Anyone who has worked their way through even a fragment of
+EGA, with its numerous cross-references to earlier results, knows how
+desirable that is in a text, and how hard it is to achieve outside a uni-
+fied framework. In an automated comprehensive system, it would be
+effortless.
+   Alexander Beilinson has written [18], perhaps expressing a thought
+of I. M. Gelfand: “Modern mathematics is a unique thrust of concep-
+tual thought: once the right concept (a mathematical structure) and a
+language to deal with it are found, a whole new world unfolds.” This is
+what has happened with univalent foundations, and in this new world
+mathematicians and the beauty of mathematics will prosper.
+
+
+
+                              Dedication
+   I dedicate this article to Vladimir Voevodsky, an ingenious mathe-
+matician with an immense drive to create, who died suddenly in Sep-
+tember, 2017, at the age of 51. Our friendship began perhaps in 1994,
+when I first became aware of his work on motivic cohomology, and he
+visited me in Urbana to explain what it was about. Some mathemati-
+cians had suspected that there was a larger role for homotopy theory
+to play in motivic cohomology, but it was up to Vladimir to show the
+way, which he did with immense energy, and a detailed plan for the
+future covering many components of his program. His work, including
+a proof of the Milnor Conjecture (1970), won him the Fields Medal in
+          An introduction to univalent foundations for mathematicians    5
+
+2002, went most of the way toward the ultimate solution of the Bloch-
+Kato Conjecture (of which the Milnor Conjecture is a special case), the
+Beilinson-Lichtenbaum Conjecture, and the conjecture of Milnor about
+the Witt ring of quadratic forms. The field of motivic homotopy theory
+remains a vibrant one to this day, although Vladimir stopped partici-
+pating in it about ten years ago or so. He started thinking about the
+use of computers for formal representation and verification of mathe-
+matical statements and proof in 2002. We worked together for a week
+in Spring, 2004, brainstorming about that, dreaming about what an
+ideal system would be like, and I even wrote some code. I soon became
+occupied with other matters, but he surveyed the field, and by 2006
+had chosen type theory as the proper language. By 2010 he had chosen
+a suitable encoding of mathematics in type theory (described in this
+article) and had spent three months writing some brilliant, beautiful,
+and instructive proofs in Coq, which he dubbed Foundations [58], later
+incorporated into a broader project with more authors called UniMath
+[72]. Always eager to participate in his project, I finally found the time
+to start collaborating with him in 2011, and in 2012-2013 I attended
+the special year on the topic at the Institute for Advanced Study and
+found it bracing and enlightening. His final project was to establish
+the soundness of the univalent foundations with complete mathemati-
+cal rigor in a series of papers, eight of which he managed to write (see
+section 7). His dream to establish the univalent foundations as the
+preferred and practical framework for formalizing the world’s mathe-
+matical knowledge seems feasible, but much work remains to be done by
+the community. A fitting memorial for Vladimir would be to formalize
+his work on motivic homotopy theory in the univalent foundations.
+
+                          Acknowledgments
+   I thank the Oswald Veblen Fund and the Friends of the Institute for
+Advanced Study for supporting my stay at the Institute for Advanced
+Study in Winter/Spring, 2017, where I worked on part of this paper,
+and the Institute for Advanced Study School of Mathematics Fund for
+Mathematics for supporting my stay in Winter/Spring, 2018, where I
+finished it. I thank Benedikt Ahrens, Guillaume Brunerie, Thierry Co-
+quand, Bas Spitters, Martı́n Escardó, and Anders Mörtberg for useful
+comments on earlier drafts of this paper.
+
+                          1. What is a type?
+  In some computer programming languages, all variables are intro-
+duced along with a declaration of the type of thing they will refer
+6                         DANIEL R. GRAYSON
+
+to. For example, one may encounter types such as bool, string, int,
+and real, describing Boolean values, character strings, 32 bit integers,
+and 64 bit floating point numbers. The types are used to determine
+which statements of the programming language are grammatically well-
+formed. For example, if s of type string and x is of type real, we may
+write 1/x, but we may not write 1/s.
+    Types occur in traditional mathematics, as expressed in informal
+mathematical speech, and are used in the same way: all variables are
+introduced along with a declaration of the type of thing they will refer
+to. For example, one may say “consider a group G”, “consider a ring
+R”, or “consider an algebraic variety X over a field k”. One does not
+see circumlocutions such as “consider a thing X: if X is a group then
+. . . ”.
+    This informal use of types is not supported by first-order logic and
+Zermelo-Fraenkel set theory, where there are just two types of mathe-
+matical or logical objects: propositions and sets. Nevertheless, as with
+computer languages, here the types are used to determine which state-
+ments of the theory are grammatically well-formed. For example, if X
+and Y are sets, then we may write the proposition X ∈ Y , and if P
+and Q are propositions we may write the proposition P ∧ Q, but we
+may not write P ∈ Q or X ∧ Y .
+    In type theory, there are many more types, they support the tradi-
+tional use of types in informal mathematical speech, and they are used
+for everything. There will be enough primitive ways to form new types
+from old ones to provide everything we need to formalize mathemat-
+ics, including: logical quantifiers, functions, families, pairs, products,
+sums, and equality. Building on that, one may introduce types such
+as N, Z, Q, Group, Ring, and AbelianCategory, whose elements are,
+respectively, the natural numbers, the integers, the rational numbers,
+the groups, the rings, and the abelian categories.
+    One expresses the statement that an “element” a is of “type” X by
+writing a : X. Using that notation, each variable is introduced along
+with a declaration of the type of thing it will refer to, and the declared
+types of the variables are used to determine which statements of the
+theory are grammatically well-formed. Propositions and sets are to be
+re-implemented as types with a certain property, and we will have no
+use for the set membership operator ∈.
+    As we have said, if X and Y are types, there will be a type whose
+elements serve as functions from X to Y ; the notation for it is X → Y .
+This allows us to introduce the surprising mathematical pun f : X →
+            An introduction to univalent foundations for mathematicians             7
+
+Y , which says that f is an element of the type X → Y , and which can
+be read traditionally as saying that f is a function from X to Y .5
+   Functions behave as one would expect, and one can make new ones
+in the usual way.6
+   In the following sections we will expose various other elementary
+sorts of types, focusing most on those with novel aspects.
+
+                   2. The type of natural numbers
+   The inductive definition of the natural numbers provided by Giuseppe
+Peano in 1889 [45] is mirrored almost exactly in type theory.
+   Here are Peano’s rules7 for constructing the natural numbers in the
+form that is used in type theory.
+   P1: there is a type called N (whose elements will be called natural
+        numbers);
+   P2: there is an element of N called 0;
+   P3: if m is a natural number, then there is also a natural number
+        S(m), called the successor of m;
+   P4: given a family of types X(m) depending on a parameter m of
+        type N, in order to define a family f (m) : X(m) of elements of
+        each of them it suffices to provide an element a of X(0) and to
+        provide, for each m, a function gm : X(m) → X(S(m)). (The
+        resulting function f may be regarded as having been defined
+        inductively by the two declarations f (0) := a and f (S(m)) :=
+        gm (f (m)).)
+  5This new interpretation of the notation may appear jarring to those who are
+                                                                f
+accustomed to writing something like “consider a function X −    → Y ”, regarding the
+arrow as a pictorial representation of the function itself; we won’t do that.
+   6
+     To provide an example of making new functions in the usual way, consider
+functions f : X → Y and g : Y → Z. We define their composite g ◦ f : X → Z by
+setting g ◦ f := (a 7→ g(f (a))). Such definitions are to be regarded as syntactically
+transparent in our formal system, in the sense that two formal expressions will be
+regarded as being the same by definition if they yield the same formal expression
+after the definitions of all the symbols within them are completely expanded. Given
+two expressions that are the same by definition, we may replace one with the other
+in any other expression, at will. Here is an example: consider functions f : X → Y ,
+g : Y → Z, and h : Z → W . Then (h ◦ g) ◦ f and h ◦ (g ◦ f ) are the same by
+definition, since applying the definitions within expands both to a 7→ h(g(f (a))).
+   One may define the identity function idX : X → X by setting idX := (a 7→ a).
+Application of definitions shows that f ◦ idX is the same as a 7→ f (a), which, by
+a standard convention, is to be regarded as the same as f . A similar computation
+applies to idY ◦ f .
+   7
+    There is a reason for not calling them Peano’s Axioms in this context, since we
+wish to reserve the word “axiom” for decrees that a proposition has a proof.
+8                             DANIEL R. GRAYSON
+
+Mathematicians will recognize rule P4 as “the principle of mathemat-
+ical induction” when each X(m) is a proposition, and as “defining a
+function by recursion” if each X(m) is a fixed set Y . We will refer to
+it simply as “induction for N”.8
+   Notice that the two cases in an inductive definition correspond to
+the two ways of introducing elements of N via the use of rules P2 and
+P3. Intuitively, the induction principle for N amounts to saying that
+the element 0 and the function S “generate” the type N, in the same
+way that a set may generate the corresponding free group.
+   We introduce the following definitions.
+                                    1 := S(0)
+                                    2 := S(1)
+                                    3 := S(2)
+                                    4 := S(3)
+   We may use induction to define the sum m + n of two natural num-
+bers, as a natural number. We handle the two possible cases for
+the argument m as follows: we define 0 + n := n, and we define
+(S(m)) + n := S(m + n). Application of definitions shows, for ex-
+ample, that 2 + 2 and 4 are the same by definition, because they both
+reduce to S(S(S(S(0)))).9
+   Before we can write an equation such as 2+2 = 4, we must introduce
+a formal treatment of equality in type theory. We do that in the next
+section.
+    8Here is an example of defining a function by recursion using induction for N.
+We define the factorial function f : N → N by setting f (0) := 1 and setting
+f (S(m)) := (m + 1) · f (m). One can infer that the function gm of rule (P4) is
+n 7→ (m + 1) · n.
+   9The reduction of the expression 2 + 2 to S(S(S(S(0)))) by applying the defini-
+tions involved can be regarded as a computation, which is “complete”. Computation
+succeeds in other cases involving natural numbers, too. That is why we don’t refer
+to Peano’s rules as axioms, as we mentioned in a previous footnote, for we wish
+to reserve the word “axiom” for statements unaccompanied by effective methods
+for computation. A good example of such an axiom is the law of the excluded
+middle, which states, in our context, that any proposition P either has a proof or
+its negation has a proof. The law provides no effective way to decide which case
+we are in nor what the proof would be in that case. Nevertheless, it is consistent
+with type theory and all the axioms we intend to use, so its use as a hypothesis in
+a theorem is permissible. If one wishes to define a discontinuous function of a real
+variable, it is needed, because there is no effective way to decide whether a real
+number x is, for example, positive – even a very long computation may yield a very
+accurate rational approximation to x that is too close to 0 to determine whether x
+is positive.
+            An introduction to univalent foundations for mathematicians             9
+
+                              3. Identity types
+   The most important type is the identity type, which implements the
+intuitive notion of equality, but in a novel way; the mathematical reader
+will be more comfortable if we call it the equality type, at least initially.
+Its novelty derives from three aspects: equality between two elements
+may be considered only when the two elements are of the same type;
+equality may fail to be a proposition (unless it’s an equality between
+two elements of a set); and a proof of equality between two sets will
+amount to a bijection between them.
+   We can anticipate the consequences of the first of those three aspects
+immediately. For example, let 2Z denote the integer corresponding to 2
+and let 2Q denote the rational number corresponding to 2. Then there
+is no way to translate the valid but mathematically irrelevant equation
+2Z = 2Q of set theory into type theory, because 2Z and 2Q are elements
+of distinct types: Z and Q. Beginning mathematics students would
+be completely comfortable with this restriction. For another example,
+consider two sets (or types) X and Y . There is no way to state a
+condition that says that X is a subset (or subtype) of Y . Instead, as
+in category theory, one considers embeddings of X into Y .
+   Observe that the smallest reflexive relation on the elements of a set X
+is equality. Per Martin-Löf realized in the 1970’s that one can use this
+observation to provide an inductive definition of equality10 analogous
+to the inductive definition of the natural numbers presented in section
+2.
+   Here are Martin-Löf’s rules for constructing equality types.
+   E1: for any type X and for any elements a and b of it, there is a
+       type a = b;11
+   E2: for any type X and for any element a of it, there is an ele-
+       ment refl (a) of type a = a (the name refl comes from the word
+       “reflexivity”)
+   E3: for any type X and for any element a of it, given a family of
+       types P (b, e) depending on parameters b of type X and e of
+       type a = b, in order to define elements f (b, e) : P (b, e) of all of
+
+  10See [42, section 1.7]. An antecedent was published in [41, section 3.8.2, p. 190].
+  11 We point out the order of quantifiers in rule E1 is grammatically required.
+Suppose one tried to rephrase rule E1 to have the form “for any elements a and
+b, . . . ”. Then the puzzle would be how to formulate the condition that a and b
+have the same type, and there is no way to do that in our formal language, as
+currently designed. An arbitrary element of an arbitrary type is always introduced
+by introducing a quantifier first for its type, so the quantifier for the element can
+state the type of the element, as required.
+10                         DANIEL R. GRAYSON
+
+       them it suffices to provide an element p of P (a, refl(a)). The
+       resulting function f may be regarded as having been completely
+       defined by the single definition f (a, refl(a)) := p.
+
+
+   An element of a = b can be thought of, for now, as a proof that a is
+equal to b.
+   We see from rule E2 that refl (S(S(S(S(0))))) serves as a proof of
+2 + 2 = 4, as do refl (4) and refl (2 + 2). A beginning student might
+wish for a more detailed proof of that equation, but as a result of
+our convention above that definitions are syntactically transparent, the
+application of definitions, including inductive definitions, is regarded as
+a trivial operation.
+   We will refer to rule E3 as “induction for equality”. It says that to
+prove something about (or to construct something from) every proof
+that a is equal to something else, it suffices to consider the special case
+where the proof is the trivial proof that a is equal to itself, i.e., where
+the proof is refl(a) : a = a. Notice that the single case in such an induc-
+tion corresponds to the single way of introducing elements of equality
+types via rule E2, and compare that with P4, which dealt with the two
+ways of introducing elements of N. Intuitively, the induction principle
+for equality amounts to saying that the element refl (a) “generates” the
+system of types a = b, as b ranges over elements of A.
+   The mathematical reader who accepts Peano’s rules as valid may
+feel uneasy about the validity of Martin-Löf’s rules for equality types.
+Peano’s rules are easily accepted as valid, because they describe things
+we know about, natural numbers, and they posit inference rules which
+appear to be valid. Proofs of equality, on the other hand, are not things
+we know about, at least, not as mathematical objects in their own
+right. The informal way to justify them is to repeat that the smallest
+reflexive relation on the elements of a set X is equality, so everything
+true about equality ought to flow from reflexivity. Formally, one way to
+proceed is to justify the consistency of the formal system by providing
+an interpretation of the entire formal system in a suitable mathematical
+structure. The justification of type theory with the univalence axiom in
+that way one of the goals of a project of Voevodsky; we cite references
+in section 7.
+   For now, until we encounter univalence and its consequences, the
+reader may consider the following hints pointing toward an interpreta-
+tion (in classical mathematics) of this formal system. In that interpre-
+tation, every type X is interpreted as a set |X|, and an element a : X
+is interpreted as an element |a| ∈ |X|. A function type X → Y is
+           An introduction to univalent foundations for mathematicians       11
+
+interpreted as the set of functions from |X| to |Y |. The type N is inter-
+preted as the set |N| of natural numbers. The type a = b is interpreted
+as the one-point set {∗} if |a| = |b|, and is interpreted as the empty
+set {} if |a| 6= |b|. The element refl(a) : a = a is interpreted as the ele-
+ment ∗ of the one-point set. Using this visualization may provide some
+temporary intuition for Martin-Löf’s rules. The interpretation is not
+required to be faithful, except in the sense that the empty type (to be
+introduced below) should be interpreted as the empty set. Then if the
+formal system allowed an absurdity to be proved, the corresponding
+element a of the empty type would give an element |a| of the empty
+set, providing a contradiction in set theory.
+   Later, when univalence is introduced, the mathematical interpreta-
+tion will have to be modified so types are interpreted not as sets, but
+as topological spaces, to handle the behavior of types that are not sets.
+   We may use induction to prove symmetry of equality. In accordance
+with our discussion of implication above, we show how to produce an
+element of b = a from an element e of a = b, for any b and e. By
+induction (letting P (b, e) be b = a in rule E3 above), it suffices to
+produce an element of a = a; we choose refl (a) to achieve that.
+   Transitivity of equality is established the same way. For each a, b, c :
+X and for each p : a = b and for each q : b = c we want to produce
+an element of type a = c. By induction on q we are reduced to the
+case where c is b and q is refl(b), and we are to produce an element of
+a = b. The element p serves the purpose. Notice the similarity of this
+inductive definition with the definition given above of the sum m + n.
+   Associativity of transitivity is established the same way. We leave
+its proof as an exercise.
+   Now let’s consider how we might formulate our symmetry result.
+One way would be to assert that we have proved the following lemma.
+Lemma 3.1. For any type X and for any a, b : X, (a = b) → (b = a).
+   Aside from using → instead of =⇒ for the “implication”, it looks
+traditional, but there is a drawback that is perhaps not immediately
+apparent: standard practice in current mathematical prose is to regard
+the statement of a lemma as sufficient for application of the lemma, and
+to regard the proof (once it has been provided and verified) as irrelevant
+for the application of the lemma12. In this case, the construction of the
+symmetry function that we have provided above is not revealed in the
+statement of the lemma, but only in the proof of the lemma. Having
+  12I don’t mean to imply that the proof is useless for the mathematical reader,
+who may learn something from it, or who may modify it to prove something else.
+12                          DANIEL R. GRAYSON
+
+the precise function available for perusal might be important if b = a
+has more than one proof. Thus a better formulation would be as a
+definition, as follows.
+Definition 3.2. For any type X and for any a, b : X, let symm a,b :
+(a = b) → (b = a) be the function defined by induction by setting
+symm a,a (refl (a)) := refl (a).
+   Similarly, transitivity is best formulated as an inductive definition
+trans a,b,c : (a = b) → ((b = c) → (a = c)). We may abbreviate
+(trans a,b,c (p))(q) as p ∗ q.
+   Given 4 points a, b, c, d : X and 3 proofs p : a = b, q : b = c, r : c = d
+of equality, we may produce two proofs that a = d, namely (p ∗ q) ∗ r
+and p ∗ (q ∗ r). Because they are elements of the same type, we may
+consider the type (p ∗ q) ∗ r = p ∗ (q ∗ r). An element of it is a proof of
+associativity, and it may be constructed by induction.
+   One frequent use of equality proofs is in substitution. Let X be a
+type, and let P (x) be a family of types depending on a parameter
+x : X. Suppose a, b : X and e : a = b. Then there is a function of type
+P (a) → P (b). To prove that, it suffices, by induction, to consider the
+case where b is a and e is refl(a) and to provide a function P (a) → P (a).
+To achieve that, we provide the identity function.
+   In the case where each P (a) is a proposition (to be defined later),
+we may say that the truth of P (a) is invariant under substitution. In
+other words, equal elements of X have the same properties. In the
+case where each P (a) is not assumed to be a proposition, and thus its
+elements are ways to add extra structure to a, we may say that the
+structures can be transported from a to b by the proof e of equality.
+
+                            4. Other types
+  There are other examples of types that are conveniently presented
+as inductive definitions, in the style we have seen with the natural
+numbers and the equality types. We present three examples.
+  Firstly, there will be the “empty” type, called ∅, defined inductively,
+with no way to construct elements provided in the inductive definition.
+The inductive principle for ∅ says that to prove something about (or to
+construct something from) every element of ∅, it suffices to consider no
+special cases (!). Hence, every statement about an arbitrary element of
+∅ can be proven. As an example, we may prove that any two elements
+x and y of ∅ are equal by using induction on x.
+  An element of ∅ will be called an absurdity, and the negation ¬P of
+a proposition P will be implemented as the function type P → ∅. This
+          An introduction to univalent foundations for mathematicians   13
+
+is sensible, because an element of ¬P could be applied to an element
+of P to produce an element of ∅, i.e., an absurdity.
+   Another appropriate name for ∅ is False.
+   We may also construct a function False → X, for any type X, by
+induction, showing that from an absurdity anything follows.
+   To encode the property that X has no elements we use the type
+X → ∅. To encode the property that elements a, b : X are not equal,
+we use the type (a = b) → ∅, and we let a 6= b denote it.
+   Secondly, there will also be a type called True, defined inductively
+and provided with a single element triv ; (the name triv comes from the
+word “trivial”). Its induction principle states that, in order to prove
+something about (or to construct something from) every element of
+True, it suffices to consider the special case where the element is triv .
+As an example, we may prove, for any element u : True, that u = triv ,
+by using induction to reduce to proving triv = triv , a proof of which
+is provided by refl(triv ). One may also prove that any two elements of
+True are equal by using induction twice.
+   There is a function X → True, for any type X, namely: a 7→ triv .
+This corresponds, for propositions, to the statement that an implication
+holds if the conclusion is true.
+   The name of True is appropriate, because if P is a proposition,
+a function of type True → P could be applied to the element triv ,
+yielding an element of P , thus proving P .
+   Thirdly, there will be a type called Bool , defined by induction and
+provided with two elements, yes and no. One may prove by induction
+that any element of Bool is equal to yes or to no.
+   We may use substitution to prove yes 6= no. To do this, we introduce
+a family of types P (b) parametrized by a variable b : Bool . Define
+P (yes) := True and define P (no) := False. The definition of P (b) is
+motivated by the expectation that we will be able to prove that P (b)
+and b = yes are equivalent. If there were an element e : yes = no, we
+could substitute no for yes in triv : P (yes) to get an element of P (no),
+which is absurd. Since e was arbitrary, we have defined a function
+(yes = no) → ∅, establishing the claim.
+   In the same way, we may use substitution to prove that successors of
+natural numbers are never equal to 0, i.e., for any n : N that 0 6= S(n).
+To do this, we introduce a family of types P (i) parametrized by a
+variable i : N. Define P recursively by specifying that P (0) := True
+and P (S(m)) := False. The definition of P (i) is motivated by the
+expectation that we will be able to prove that P (i) and i = 0 are
+equivalent. If there were an element e : 0 = S(n), we could substitute
+S(n) for 0 in triv : P (0) to get an element of P (S(n)), which is absurd.
+14                              DANIEL R. GRAYSON
+
+Since e was arbitrary, we have defined a function (0 = S(n)) → ∅,
+establishing the claim.
+   Type theory provides sums of types. By this we mean if X is a
+type and Y (x) is a family of P types indexed by a parameter x of type
+X, then there will be a type x:X Y (x) whose elements are the pairs
+(a, b), where a : X and b : Y (a). This is reminiscent of the sum in set
+theory, which is implemented by the disjoint union ∐x:X Y (x). Sums
+may be implemented by an inductive definition, and they behave as
+one would expect.13
+   Using sums we may encode the fibers of a function. Given a function
+f : X → Y and an element y : Y , the fiber (or inverse image) f −1 (y)
+consists ofP points x such that f (x) = y. This is encoded by defining
+f (y) := x:X (f (x) = y). In other words, a point of the fiber is a pair
+  −1
+
+(x, e) consisting of the point x and a proof e of the equation f (x) = y.
+   There is a binary sum operation on types: for any types X and Y ,
+there is a type X ∐ Y , which is analogous to the disjoint union of
+two sets. From an element of X or an element of Y we can produce an
+element of X ∐Y . The binary sum can be implemented as a sum where
+the index type is Bool and the family of types sends yes to X and sends
+no to Y , or it may be implemented as an inductive definition. Binary
+sums behave as one would expect.
+   Our type theory will also contain products of types. By this we mean
+if X is a type and Y (x) is a family Qof types indexed by a parameter x
+of type X, then there will be a type x:X Y (x) whose elements serve as
+families of elements b : Y (a), one for each a : X. A family is much like
+a function, but without a single codomain. This is reminiscent of the
+product in set theory, which uses the same notation. Products behave
+as one would expect.14
+   There is a binary product operation on types: for any types X and
+Y , there is a type X × Y . From an element of X and an element of Y
+we can produce an element (x, y) of X × Y . The binary product can be
+implemented as an inductive definition, as a special case of products,
+or as a special case of sums. Binary products behave as one would
+expect.
+
+
+     13. . . except perhaps when X is a type that is not a set, because then the type
+X behaves like a topological space, the family Y (x) behaves like a family of spaces
+varying continuously in the parameter x, and the sum behaves like the total space
+of the family.
+   14. . . except perhaps when X is a type that is not a set, because then the product
+behaves like the space of continuous sections of the family.
+            An introduction to univalent foundations for mathematicians          15
+
+                  5. Formalization of mathematics
+   With equality types available, with all their expected properties, we
+may encode some elementary mathematical properties as types, to show
+how such encoding goes in practice, as implemented (approximately)
+in: the UniMath project [72], which is exposed by Voevodsky in [64]; as
+in the HoTT project [4], which is exposed in [17]; as in the HoTT-Agda
+project [1]; and as in the Lean theorem prover [2].
+   Let X be a type. The property that X has at most one element
+is equivalentQto the     Q property that any two elements are equal, so is
+encoded by a:X b:X (a = b). The property that X has exactly one
+element is equivalent to having an elementPsuch Q       that every other ele-
+ment is equal to it; hence it is encoded by a:X b:X (a = b).
+   Now let us consider how to formalize the mathematical notion of
+group. More precisely, we adopt as our goal the definition of a type,
+Group, whose elements are the groups, whose existence was advertised
+in the introduction.
+   Following a traditional approach, one may choose to define a group as
+a tuple (G, e, i, m), where G is a set, e is the unit element, i is the inverse
+operation, and m is the multiplication operation; one also asserts the
+truth of various properties of the operations, such as associativity.
+   Using sums, we may define a 4-tuple (G, e, i, m) as an iterated pair
+of the form (G, (e, (i, m))), and we may consider defining Group to be
+the type of such 4-tuples.
+   Well, almost: we need to specify a type whose elements will pro-
+vide the candidates for G, as the notion of sum requires. For that
+purpose, we introduce a universe, U0 ; its elements will correspond to
+“small” types. The notion of “universe” seems to have first arisen in
+the formalization of set theory by Bernays [19], building on work of von
+Neumann, in which there are three types of thing: propositions, sets,
+and classes. One of the classes has all of the sets as its elements, and it
+is analogous to our U0 . One could extend their system by introducing
+hyperclasses, one of which would have all of the classes as its elements,
+and we could regard it as analogous to a bigger universe U1 , one of
+whose elements is U0 . And so on. Indeed, such a chain of universes
+U0 , U1 , U2 , . . . is postulated in our type theory, and the concept turns
+out to be of fundamental importance. Each one is a “universe” in the
+sense that it is closed under the operations of type theory that make
+new types from old ones.15
+  15The interpretation in classical mathematics that we discussed above for veri-
+fying consistency of our formal system will need to be adjusted to provide interpre-
+tations of the universes. For that purpose one assumes that there is an ascending
+16                               DANIEL R. GRAYSON
+
+   Having introduced universes, P we may
+                                       P say P that our tuples (G, e, i, m)
+will be the elements of type G:Un e:G i:G→G (G × G → G). Here
+n is a fixed universe level, and we are engaged in specifying a type to
+encode the groups that live in Un .
+   In order to formalize the assertion that the operations satisfy various
+properties, we recall that all such propositions are to be re-implemented
+as types and their proofs are to be re-implemented as elements of those
+types. So we extend our 4-tuple to a 9-tuple (G, e, i, m, α, λ, ρ, λ′, ρ′ ),
+where α is a proof of associativity, λ is a proof of the left unit law, ρ is
+a proof of the right unit law, λ′ is a proof of the left inverse law, and
+ρ′ is a proof of the right inverse law.
+   Well, almost. The associativity property is formulated in set theory
+as
+               ∀a∈G ∀b∈G ∀c∈G m(m(a, b), c) = m(a, m(b, c)),
+so we need a type that can represent universal quantifiers. The product
+type will serve that purpose, so we can use
+                 YYY
+                            m(m(a, b), c) = m(a, m(b, c)).
+                   a:G b:G c:G
+We will take α to be an element of that type; in other words, it will
+be a function that provides, for each a, b, c a proof of the equation
+m(m(a, b), c) = m(a, m(b, c)). The other four properties are imple-
+mented in a similar way.
+   Now consider the possibility that we have two unequal proofs, α and
+α , of associativity. Then we would get two unequal groups,
+ ′
+
+                             (G, e, i, m, α, λ, ρ, λ′, ρ′ )
+and
+                        (G, e, i, m, α′, λ, ρ, λ′ , ρ′ ),
+and that would be an unintended departure from traditional mathe-
+matics. This is a consequence of the necessity to include the proofs of
+the properties in the tuple, because we are trying to define the type
+whose elements are the groups in our formal language, which provides
+no way to assert the properties of a group “on the side”. Thus we are
+led to insist that there is a proof of α = α′ , as a consequence of which
+it would follow that our two groups are equal. Each of the functions α
+and α′ assigns to any a, b, c : G a proof of m(m(a, b), c) = m(a, m(b, c)),
+and functions with unequal values can’t be equal, so we will need to
+be able to prove that any two proofs of m(m(a, b), c) = m(a, m(b, c))
+are equal. For this purpose it would be most convenient if it were true
+chain of Grothendieck universes |U0 | ∈ |U1 | ∈ |U2 | ∈ · · · , and one trusts that that
+assumption doesn’t add an inconsistency to set theory.
+            An introduction to univalent foundations for mathematicians      17
+
+more generally that any two proofs of an equation x = y between any
+two elements x and y of G are equal.
+   Thus we are led to embark on a diversion about types for which
+any two elements are equal. In informal mathematical speech and
+in set theory, any proof of a proposition is irrelevant, as it tells us
+only that the proposition is true: it provides no information that is
+needed later on. Good mathematical prose is formulated to follow that
+practice by relocating information needed later on from the proof to the
+statement being proven. That and the preceding paragraph motivate
+our definition of “proposition” in this context. A proposition is a type
+such that any two elements of it are equal. The statementQ that
+                                                              Q a type
+P is a proposition is encoded by the type isP rop(P ) := a:P b:P (a =
+b).16
+   Statements proven previously can be rephrased as saying that False
+and True are propositions.
+   Suppose P and Q are propositions. The implication P =⇒ Q can be
+implemented as the type P → Q. An element of it will transform any
+proof of P into a proof of Q. The conjunction P ∧Q can be implemented
+as the product P × Q. We may define the universal quantifier
+                                         Y
+                           ∀x:X P (x) :=   P (x)
+                                            x:X
+
+for a family of propositions P (x) depending on a parameter x : X.
+It is a proposition, and it has the properties one would expect. By
+contrast, the disjunction P ∨ Q cannot be implemented as the binary
+sum P ∐ Q, because that type will have two elements if both P and Q
+have proofs. We will return to this issue later. A similar remark applies
+to an arbitrary sum of propositions: it cannot be used to implement
+the existential quantifier.
+   We continue our diversion with a discussion of types X with the
+property that any two proofs of an equation a = b between any two
+elements a and b of X are equal, motivated by our need for G to be
+such a type, as we said above. With our definition of proposition in
+hand, we can rephrase the condition on X as positing that the equality
+type a = b between any two elements a, b : X is a proposition. A type
+X with that property is defined by Voevodsky to be a “set”. Let us
+use the notation isSet(X) to denote the type encoding this condition.
+   It can be proven that the propositions are the sets with at most one
+element, that many types, including Bool and N, are sets, and that
+
+  16For the purpose of exposition, we have chosen a definition that differs from
+Voevodsky’s and is simpler, but equivalent to it.
+18                             DANIEL R. GRAYSON
+
+many operations for making new types from old preserve the property
+of being a set.
+   Ending our diversion and returning to our formalization of the notion
+of “group”, we see that we need G to be a set. Since we can’t postulate
+that G is a set “on the side”, we have to add a proof of it to the tuple.
+Thus our final definition of “group” is that it is a 10-tuple
+                           (G, e, i, m, α, λ, ρ, λ′, ρ′ , ι),
+where ι is a proof that G is a set, i.e., it is an element of the type
+isSet(G).
+    Now consider the possibility that we have two unequal proofs, ι and
+ι′ , that G is a set. Then we would get two unequal groups,
+                           (G, e, i, m, α, λ, ρ, λ′, ρ′ , ι)
+and
+                        (G, e, i, m, α, λ, ρ, λ′, ρ′ , ι′ ),
+and that would be an unintended departure from traditional mathe-
+matics. If we were able to prove that ι = ι′ , then our two groups would
+be equal. Luckily, it is a theorem of Voevodsky that, for any type
+X, the type isSet(X) is a proposition.17 Applied to G, it shows that
+ι = ι′ , implying in turn that our two groups are equal. This fortuitous
+foundational result helps to show the feasibility of the approach.
+   We now define Group to be the type consisting of such 10-tuples; its
+elements are the groups living in Un . For precision about the universe,
+one may use a subscript, as in Groupn .
+   It should now be evident to the reader how to follow the pattern
+established above and formalize the definitions of the types of many
+sorts of mathematical objects, such as of Abelian groups, monoids,
+rings, commutative rings, and fields. For example, the type Setn of all
+sets in Un will consist of the pairs (X, ι), where X is an element Un ,
+and ι is a proof that X is a set. As above, one sees that two proofs
+that X is a set yield equal elements of Setn .
+   Now let’s consider the problem of formalizing the notion of G-torsor.
+By definition, it is a nonempty set X with a free transitive18 left action
+     17His proof depends on two axioms, both of which are consequences of the Uni-
+valence Axiom to be presented later. One of them is a strong form of function
+extensionality, which states that functions having equal values are equal.
+   18One says that G acts freely on X if gx = x implies g = e. One says that G
+acts transitively on X if, for all x, y ∈ X, there is some g ∈ G such that gx = y.
+Thus G acts freely and transitively on X if, for every x ∈ X, the function of type
+G → X given by g 7→ gx is a bijection. The conjunction of these two conditions
+is equivalent to the map G × X → X × X provided by (g, x) 7→ (gx, x) being a
+bijection, which is why these two conditions are usually stated together.
+           An introduction to univalent foundations for mathematicians   19
+
+by G. For example, if G is a subgroup of a group H, then the cosets
+of G in H are G-torsors. We may represent a G-torsor as a tuple
+                               (X, m, α, λ, ι, τ, ν),
+where m : G × X → X is the action, and the remaining components
+represent the associativity property, the left unit property, the proof
+that X is a set, the proof that G acts freely and transitively on X, and
+the proof that X is nonempty19.
+  Well, almost: what type does the proof ν of nonemptiness of X
+belong to? The only type available for the task seems to be X itself:
+suppose we were to use it. Let ν and ν ′ be unequal elements of X.
+Then we would get two unequal G-torsors,
+                               (X, m, α, λ, ι, τ, ν)
+and
+                               (X, m, α, λ, ι, τ, ν ′ ),
+and that would be a departure from traditional mathematics: two
+proofs of nonemptiness of the set underlying a torsor should not give
+two different torsors. Moreover, equipping a torsor with a point ren-
+ders the torsor canonically trivial. In set theory there is a difference
+between a pointed set and a nonempty set, and we need a formal way
+to express that difference in type theory.
+     In order to ensure that two proofs of nonemptiness (such as ν and
+ν ′ ) are always equal, we need them to be elements of a proposition, to
+be called kXk, say, and to be called the propositional truncation of X.
+Any element of X should provide a proof of nonemptiness, so there
+should be a map µ : X → kXk. One way to implement propositional
+truncation is to add it to the language and justify it later, as is done
+in [16], or one could provide the following economical definition of it,
+as is done in [72].
+     For any type X in Un , Voevodsky defines
+                        Y
+               kXk :=      (isP rop(P ) → ((X → P ) → P )).
+                       P :Un
+
+It is the conjunction of all the propositions “implied” by X, and thus
+it is a proposition. The map µ can be implemented as x 7→ P 7→ i 7→
+f 7→ f (x). Moreover, it has a universal property: any map g : X → Q
+to a proposition Q in Un factors through µ; the factorization map is
+
+  19Nonemptiness of X does not follow from the other properties.
+20                              DANIEL R. GRAYSON
+
+provided by w 7→ ((w(P ))(j))(g), where j is the proof that Q is a
+proposition.20
+   Returning to our formalization above of the type of all G-torsors, we
+may now specify that the final component ν of the tuple is to be of
+type kXk, thereby completing the formalization.
+   Similarly, we may use propositional truncation to define the disjunc-
+tion of two propositions as P ∨ Q := kP ∐ Qk. It is a proposition and
+has the properties one would expect.
+   We may use propositional truncation to define the existential quan-
+tifier                                 X
+                       ∃x:X P (x) := k    P (x)k
+                                              x:X
+
+for a family of propositions P (x) depending on a parameter x : X. It
+expresses the statement that there is some element x so that P (x) is
+true, without providing x. It is a proposition and has the properties
+one would expect.
+                          Q f : X → Y may be encoded by the type
+   Surjectivity of a function
+∀y:Y kf −1(y)k. The type y:Y f −1 (y) would not provide a suitable en-
+coding, since it is the type of sections of f .
+
+                                  6. Univalence
+   At this point, we are faced with a design decision: whether to ar-
+range for some of our identity types a = b to have multiple elements.
+Additional equalities would be useful, because they can be used in sub-
+stitutions. Alternatively, if classical mathematics were our only guide,
+we would be led to introduce an axiom that asserts that every type is
+a set. That wouldn’t lead to a contradiction, but it wouldn’t be essen-
+tial, because the classical constructions of new sets that don’t involve
+Grothendieck universes, when formalized in type theory, yield types
+that can be proved to be sets anyway, as Voevodsky has shown.
+   Let us consider the identity types X = Y corresponding to types X
+and Y in the same universe, Un say. The only obvious statement about
+such types is that X = X has an explicit and trivial proof: refl (X).
+     20The definition is quantified over a variable P in the universe U , so kXk lies
+                                                                       n
+not in Un , as desired, but in Un+1 . Moreover, one wants to be able to apply the
+universal property to propositions Q living in higher universes. To address these
+problems, Voevodsky’s proposed system includes various “resizing” rules [59], one of
+which ensures that propositions descend to lower universes. He believes it likely that
+the resizing axioms are consistent with the rest of the system, but the simplicial
+set interpretation described below does not validate them. Settling this issue is
+important.
+          An introduction to univalent foundations for mathematicians    21
+
+   We motivate a desire for further proofs of equality between types as
+follows.
+   In set theory, the equation N = {x ∈ Z | x ≥ 0} is false, if one
+uses the usual definition that Z is a certain quotient set of N × N. The
+statement is false because the elements of the two sets are different.
+The strongest thing that can be said is that there is an isomorphism
+N ≃ {x ∈ Z | x ≥ 0}. Nevertheless, a mathematician may identify the
+two sets and expect not to get into trouble.
+   In set theory, the associativity (X ∐ Y ) ∐ Z = X ∐ (Y ∐ Z) of binary
+sums is false, if one uses the usual definition that X ∐ Y is the set
+of pairs (i, z) where i = 0 or i = 1, z ∈ X if i = 0, and z ∈ Y if
+i = 1. The statement is false because the elements of the two sets
+are different. The strongest thing that can be said is that there is a
+natural isomorphism (X ∐ Y ) ∐ Z ≃ X ∐ (Y ∐ Z). Nevertheless, a
+mathematician may identify the two sets and expect not to get into
+trouble.
+   In type theory we may entertain the possibility that N and {x ∈ Z |
+x ≥ 0} are equal, and that binary sums are associative, because the
+argument above, about the elements of one set not being equal to the
+elements of the other, is not available. We may even try to re-engineer
+our formal system to make those equalities happen.
+   Here’s how Voevodsky made it happen.
+   A function f : X → Y between two types is called an equivalence if,
+for each y : Y , the fiber f −1 (y) has exactly one element. Voevodsky
+has proven that being an equivalence is a proposition.21 The inter-
+ested reader may encode this property as a type by applying encodings
+previously introduced. Thus the equivalences are the elements of a
+type, which is denoted by X ≃ Y . This definition has almost all of
+the properties one would expect for the appropriate notion of isomor-
+phism between two types. For example, one can prove that the identity
+function X → X is an equivalence, that an equivalence has an inverse
+function that is also an equivalence, and that a function with an inverse
+function is an equivalence.
+   For types X, Y : Un , we may define a function ΦX,Y : (X = Y ) →
+(X ≃ Y ) by induction: in the case where Y is X, it sends refl(X) to
+the identity equivalence. This gives a relationship between equalities
+and equivalences.
+   Voevodsky’s Univalence Axiom is stated as follows.
+
+
+  21The proof depends on two axioms that are consequences of the Univalence
+Axiom below.
+22                              DANIEL R. GRAYSON
+
+Axiom 6.1 (Univalence). The map ΦX,Y : (X = Y ) → (X ≃ Y ) is an
+equivalence.
+   This axiom provides a way to promote equivalences into equalities,
+by application of the inverse of ΦX,Y , thereby satisfying the desires
+motivated above.22
+   Now we address an issue of terminology. From this point on, the
+reader may prefer to think of an element of X = Y not as providing
+a proof that the types X and Y are equal, but as providing a way
+to identify X with Y . Different elements will provide different ways.
+This alternative reading may relieve some discomfort for readers who
+prefer to preserve the word “equality” for something that can happen
+in just one way. In line with that consideration, we will refer to the
+type X = Y as an identity type, rather than as an equality type, and
+we will refer to its elements as identities or identifications.
+   For example, a bijection θ : N ≃ {x ∈ Z | x ≥ 0} provides, via
+univalence, a proof θ′ that N = {x ∈ Z | x ≥ 0}, which in turn allows
+us to use θ′ to identify N with {x ∈ Z | x ≥ 0}. This way of putting
+it is common mathematical practice. What’s new is support for the
+practice in the language of logic.
+   Let us pause to infer an important foundational consequence. We
+know that the statements of type theory are invariant under identity
+(by substitution). With the ability to promote equivalences to iden-
+tities, we see that the statements of type theory are invariant under
+equivalence, thereby fulfilling the mathematicians’ dream: one cannot
+express a property in our formal language that fails to be invariant
+under equivalence. That invariance is a strong and useful principle,
+which flows from the precise way that the formal language has been
+restricted to the minimum required for formalization of mathematics.
+   Pairs of sets often have more than one isomorphism between them.
+Hence, in the presence of the univalence axiom, pairs of types often will
+have more than one proof of identity, and thus the universes containing
+those types are not sets. Moreover, in the absence of univalence and
+of axioms contradicting it, the universes cannot be proved to be sets.
+This is a major difference from set theory.
+   A consequence of the Univalence Axiom is that isomorphism between
+groups is the same thing as identity. In other words, given two groups
+     22The statement of the Univalence Axiom is (encoded by a type that is) a propo-
+sition, because being an equivalence is a proposition. Martı́n Escardó has pointed
+out that the proof can easily be made independent of any axioms, because, while
+proving equality of any two elements of the type asserting univalence, one has avail-
+able all the consequences of univalence. It’s desirable for statements of axioms to
+be propositions, so asserting the axioms doesn’t lead to indeterminate behavior.
+            An introduction to univalent foundations for mathematicians            23
+
+G, H : Group, let G ∼  = H denote the type of isomorphisms between G
+and H. Then the natural map G = H → G ∼        = H is an equivalence. An
+analogous statement can be proved for all the other standard mathe-
+matical structures: partially ordered set, G-torsor, monoid, ring, etc.
+This general principle is called the structure identity principle in the
+book [57, section 9.8]. The main point in the proof of it is that the
+notion of isomorphism between two instances of an algebraic struc-
+ture pays attention to every element of the structure, so the elements
+of either structure are uniquely determined by the equivalence on the
+underlying types and the elements of the other structure. As a conse-
+quence, we see that Group is not a set.
+   The structure identity principle can be used to prove, for example,
+that if X and Y are partially ordered sets, x is a minimal element of X,
+and f : X ≃ Y is an isomorphism of partially ordered sets, then f (x) is
+a minimal element of Y . The same proof works for maximal elements:
+neither proof needs to appeal to the definition of “minimal element”
+or “maximal element”, because the principle applies to all properties
+expressible in our formal language. By contrast, in set theory, to prove
+those assertions, the definitions of minimal element and of maximal el-
+ement must be examined and used, since the more permissive language
+of set theory permits statements to be written that contain mathemati-
+cal irrelevancies; for an example, consider the proposition x = 2, which
+does not imply f (x) = 2.
+   Traditionally, the objects of a category have constituted a set, but the
+natural way to formalize the category of groups is with its objects being
+the elements of the type Group. The best categories are the ones (such
+as this one) where the identities in the type of objects are equivalent
+to the isomorphisms, for it is such categories that fulfill the category
+theorists’ dream: to work in a mathematical language where one cannot
+express a property that fails to be invariant under isomorphism23; such
+categories are called univalent. See [5] for a procedure that renders
+categories univalent in a universal way.
+   On the other hand, sometimes one needs a category whose objects
+form a set; for example, one may wish to construct the geometric re-
+alization of the category as a topological space. If so, then one may
+incorporate enough extraneous data in each object of the category to
+make proofs of identity between two objects unique. For example,
+  23For example, Makkai [40] has formulated the dream this way, as a requirement
+to be satisfied by a future “Structuralist Foundation of Abstract Mathematics”
+(SFAM): “SFAM adopts isomorphism of objects in a category ... to play the role of
+equality for those objects, in the sense that ... all grammatically correct properties
+of objects of a fixed category are to be invariant under isomorphism.”
+24                                DANIEL R. GRAYSON
+
+one may equip each object in the category of finite dimensional vector
+spaces with an ordered basis – that is enough, because isomorphisms
+respecting the bases are unique.
+   As we said above, in the presence of univalence the type Group is
+not a set, but there is something positive to be said about it. Given
+two groups G, H : Group, the type G = H is a set, because the map
+G=H→G∼           = H is an equivalence of it with a set.
+   This motivates another fundamental definition of Voevodsky’s, which
+unifies and simplifies the formalization of the basic theorems of the
+subject. We define by induction on a natural number n what it means
+to say that a type X has h-level (at most) n: (1) it has h-level 0 if
+it has exactly one element; (2) it has h-level n + 1 if for any elements
+a and b of X, the type a = b has h-level n. Voevodsky has proven
+that the types of h-level 1 are the propositions24, and then one can
+see from the definition that the types of h-level 2 are the sets. We see
+also that Group is of h-level 3, which is the natural level for the type
+of objects of any groupoid. Properly defined, the type of categories
+will be of h-level 4, because the groupoid of categories is a 2-groupoid:
+an equivalence between two categories may have automorphisms. In
+general one expects the objects of an n-groupoid to be of h-level n + 2.
+   Voevodsky points out a stratification of all of mathematics into lev-
+els that follows from the stratification of types by h-level: element-level
+mathematics concerns equations between elements of sets, or proper-
+ties of elements of sets; set-level mathematics concerns isomorphisms
+between algebraic structures, or properties of algebraic structures in-
+variant under isomorphism; groupoid-level mathematics concerns equiv-
+alences of groupoids, or properties of groupoids invariant under equiv-
+alence of groupoids; and so on [64].
+   Another common mathematical practice is to speak of “natural” or
+“canonical” constructions; for example, one often states that there is no
+natural isomorphism between a vector space V and its dual vector space
+V ∗ . This practice is also directly supported now by logic, provided
+we consider naturality only with respect to isomorphisms V ∼          = V ′,
+which, by the structure identity principle, are captured by identities,
+which in turn may be used in substitutions. We may formalize the
+type
+Q of isomorphisms        between a vector space and its dual as the type
+               ∼
+   V :V ect (V = V ), where V ect is the type of vector spaces over a field k
+                   ∗
+
+
+
+
+     24Actually, he defined a proposition to be a type of h-level 1; our definition differs
+slightly.
+            An introduction to univalent foundations for mathematicians            25
+
+in universe Un . In the presence of univalence, one may prove that the
+type of such families of isomorphisms is empty.25
+                          7. The interpretation
+   The possibility that an identity type a = b has multiple elements
+presents a problem for the mathematical reader who wants to under-
+stand the situation, as well as a problem for the reader who has perused
+the interpretation for our formal system in classical mathematics that
+we sketched above. That interpretation is incompatible with the Uni-
+valence Axiom, because, roughly speaking, for a set X : Un with more
+than one element it interprets the map ΦX,X : (X = X) → (X ≃ X) as
+a function from the one point set to the set of permutations of |X|; the
+function sends the single point ∗ to the identity bijection. The func-
+tion is not a bijection, as would be required to interpret the Univalence
+Axiom.
+   The idea for repairing this is to interpret each type X as a topological
+space26 |X|, to interpret an element a : X as a point |a| of the space
+|X|, to interpret a proof of a = b as a path connecting |a| to |b| in
+|X|, and to interpret the type a = b as the space of all such paths.
+Symmetry of identity passes to reversal of paths in the interpretation,
+and transitivity of identity passes to concatenation of paths. A family
+Y (x) of types parametrized by a variable x : X will be interpreted by
+a fibration27 E(Y ) → |X| whose fibers over the points |a| ∈ |X| arising
+from elements a : X are the spaces |Y (a)|. Induction for identity will
+be interpreted by the lifting property that characterizes fibrations, as
+observed in [15]. One assumes one is given an ascending sequence of
+Grothendieck universes V0 ∈ V1 ∈ . . . and one interprets the universe
+Un by the space |Un | of all spaces in Vn ; it is a space in Vn+1 . For n ≥ 0,
+types of h-level n + 2 are interpreted by spaces whose homotopy groups
+vanish above dimension n. Validity of the Univalence Axiom in this
+interpretation is a theorem of Voevodsky [36], which builds on a 2006
+construction of A. Bousfield to show that the path lifting map from
+the space of paths between two points of |Un | to the space of homotopy
+equivalences between the corresponding fibers of the universal space
+over |Un | is a homotopy equivalence. The expository paper [34] gives
+the main ideas of the construction of the interpretation; full details
+  25Compare with the discussion in [44] or the use of the word “natural” in the
+proof of [57, Theorem 3.2.2].
+   26The topological spaces used in the interpretation are actually fibrant simplicial
+sets.
+   27In topology, a “continuous” family of topological spaces is one that is provided
+by the fibers of a continuous map that is a fibration.
+26                        DANIEL R. GRAYSON
+
+of the correctness of the interpretation, and thus of the soundness of
+the theory, will appear in a series of papers planned by Voevodsky,
+aimed at treating a large class of formal languages, some of which are
+available: [69, 61, 60, 66, 65, 63, 67, 68, 71, 70]. What necessitates so
+many details to be expressed in print is the abundance of grammatical
+rules in a formal language such as this one, each one of which has
+an incarnation in the interpretation that must be carefully considered,
+along with the way they interact with each other.
+   The Law of Excluded Middle and the Axiom of Choice are also val-
+idated by this interpretation, so classical mathematics is supported
+soundly by the univalent foundations.
+
+                    8. Further developments
+   In addition to the focus of many on establishing the soundness of
+the system and on paving the way for widespread adoption of univa-
+lent foundations and the use of proof assistants by mathematicians,
+there are other interesting developments focusing such things as com-
+putability and the study of types in their own right.
+   The phrase “synthetic homotopy theory” refers to the enterprise
+where one regards a type as a good substitute for the classical no-
+tion of topological space, and one regards a proof of identity as a good
+substitute for the notion of a path between two points of a space: the
+goal is to see which theorems of homotopy theory have analogues that
+remain provable in this context. This context is a primitive one, be-
+cause so few axioms are assumed to set up the theory, as we have seen,
+so the theorems that hold in this context will the most fundamental
+ones, capable of the most generalization. An amazing surprise is that
+so many theorems of homotopy theory hold in this rarefied context.
+   Given a type X we define the type π0 X of connected components as
+the quotient of X by the equivalence relation b = c, where b and c are
+elements of X. Voevodsky has proven that π0 X is a set (as is the case
+for the type of equivalence classes of any equivalence relation on X).
+   Given a type X and a basepoint a : X, we define the loop space ΩX
+to be the type a = a, and we equip it with the basepoint refl (a) : ΩX.
+Iterating n times yields a type Ωn X, and we may define πn X := π0 Ωn X.
+The proofs of transitivity and symmetry in section 3 provide π1 X with
+a group structure, and thus provide πn X with n group structures when
+n > 0. A basic fact of homotopy theory is that the group πn X is abelian
+for n ≥ 2, and that the various group structures are the same. To prove
+that, it suffices to show that the two composition operations on the
+type Ω2 X (coming from transitivity) agree and are commutative. (We
+            An introduction to univalent foundations for mathematicians         27
+
+don’t have to say “commutative up to homotopy” here, because in our
+context, homotopy and identity are the same.) One standard argument,
+due to Eckmann and Hilton, involves showing that a monoid object
+in the category of monoids is commutative and the two operations
+coincide. That argument is formal enough that it applies here [57,
+Theorem 2.1.6] and gives the first indication that something wonderful
+is going on. The interested reader may refer to [57, Chapter 8] or to
+[50] for more leisurely expositions of this pursuit.
+   It is not yet known how to construct types that correspond to the
+spheres S n in the univalent foundations as formalized by Voevodsky
+(except for S 1 , which can be defined as the type BZ of Z-torsors). The
+book [57] introduces spheres by adding further basic type constructors
+to the formal language – they are called “higher inductive types”. For
+example, the circle S 1 is defined inductively by declaring that there is
+a basepoint s : S 1 and that there is a loop ℓ : s = s. The higher spheres
+are done in a similar way. Voevodsky’s program for proving soundness
+of univalent foundations doesn’t include higher inductive types, but
+others are pursuing it: see [39]. Much of the work cited below uses
+higher inductive types.
+   In [38] one may find a proof that the fundamental group of S 1 is Z,
+and in [32] one may find a formalization of the Seifert–van Kampen
+theorem. In [33] one may find a formalization of the Blakers-Massey
+connectedness theorem, using higher inductive types to construct ho-
+motopy pushouts. A translation of the formal proof into classical ho-
+motopy theory was given in [46], with the expectation that it would
+go through for any ∞-topos. Finally, the proof was (manually) trans-
+lated into the language of ∞-topoi in the paper [6], yielding a new
+theorem.28 Even better would be a meta-theorem that says that type
+theory serves as an internal language for higher topoi, so manually
+rewriting and rechecking the proof in the new context would not be
+required. Some progress on that dream has recently been made in the
+papers [35, 37].
+   A type-theoretic proof that π4 (S 3 ) ∼= Z/2 is offered by the thesis
+[21] and the paper [22]. The first part of the proof demonstrates the
+existence of a natural number n satisfying π4 (S 3 ) ∼= Z/n, and the sec-
+ond part demonstrates that n = 2. The proofs are constructive, in the
+sense that the use of axioms (such as the Law of Excluded Middle or
+the Axiom of Choice) is avoided, aside from the use of the Univalence
+
+  28The companion paper [7] translates the proof into the language of Goodwillie’s
+calculus of functors (using a different “modality”) and yields a new result in that
+context, which has various known results as corollaries.
+28                       DANIEL R. GRAYSON
+
+Axiom. Although normally the use of any axiom interferes with com-
+putability, Voevodsky conjectured (albeit for a system not including
+higher inductive types) that the interference arising from the use of
+the Univalence Axiom can be bypassed. Thus one may hope to de-
+sign a proof assistant that can produce the value of n by performing a
+computation. Fundamental progress has been made in that direction
+through the development of “cubical type theory” [20, 26, 52] and of
+a proof assistant, cubicaltt [25], based on it. See also the continuing
+development of RedPRL [3], described in the papers [10, 9, 11, 24],
+and see also [8]. A formal expression for the number n has been sub-
+mitted to cubicaltt for evaluation, but the computation ran out of
+memory after running for 6 hours on a machine with plenty of memory,
+according to Brunerie. Work in that direction continues.
+   In [49] one may find a type theoretic proof of the Brouwer fixed
+point theorem, accomplished by an enhanced type theory called real-
+cohesive homotopy type theory, which supports synthetic topology side
+by side with synthetic homotopy theory. In [23] is a synthetic proof of
+the theorem that cellular cohomology computes ordinary cohomology
+of CW-complexes, under the assumption that the CW-complexes are
+finite.
+
+
+
+                            References
+ 1. Homotopy Type Theory in Agda, an Agda library of formalized
+    proofs, available at https://github.com/HoTT/HoTT-Agda.
+ 2. Lean      theorem    prover,     a   proof    assistant    together
+    with a library of formalized proofs,                 available at
+    https://github.com/leanprover/lean.
+ 3. RedPRL, a proof assistant for Computational Cubical Type The-
+    ory together with a library of formalized proofs, available at
+    http://www.redprl.org/.
+ 4. The HoTT Library, a Coq library of formalized proofs, available at
+    https://github.com/HoTT/HoTT.
+ 5. Benedikt Ahrens, Krzysztof Kapulkin, and Michael Shulman, Uni-
+    valent categories and the Rezk completion, Math. Structures Com-
+    put. Sci. 25 (2015), no. 5, 1010–1039. MR 3340533
+ 6. Mathieu Anel, Georg Biedermann, Eric Finster, and André Joyal,
+    A Generalized Blakers-Massey Theorem, 2017, preprint available
+    at arXiv:1703.09050.
+ 7.         , Goodwillie’s Calculus of Functors and Higher Topos The-
+    ory, 2017, preprint available at arXiv:1703.09632.
+         An introduction to univalent foundations for mathematicians   29
+
+ 8. Carlo Angiuli,        Guillaume Brunerie,        Thierry Coquand,
+    Kuen-Bang Hou, Robert Harper, and Daniel R. Li-
+    cata, Cartesian Cubical Type Theory, 2017, available at
+    https://github.com/dlicata335/cart-cube/raw/master/cart-cube.pdf.
+ 9. Carlo Angiuli and Robert Harper, Computational higher type the-
+    ory II: Dependent cubical realizability, 2016, preprint available at
+    arXiv:1606.09638.
+10. Carlo Angiuli, Robert Harper, and Todd Wilson, Computational
+    higher type theory I: Abstract cubical realizability, 2016, preprint
+    available at arXiv:1604.08873.
+11. Carlo Angiuli, Kuen-Bang Hou, and Robert Harper, Computational
+    Higher Type Theory III: Univalent Universes and Exact Equality,
+    2017, preprint available at arXiv:1712.01800.
+12. K. Appel and W. Haken, Every planar map is four colorable. I. Dis-
+    charging, Illinois J. Math. 21 (1977), no. 3, 429–490. MR 0543792
+13. K. Appel, W. Haken, and J. Koch, Every planar map is four col-
+    orable. II. Reducibility, Illinois J. Math. 21 (1977), no. 3, 491–567.
+    MR 0543793
+14. Kenneth I. Appel, The use of the computer in the proof of the four
+    color theorem, Proceedings of the American Philosophical Society
+    128 (1984), no. 1, 35–39.
+15. Steve Awodey and Michael A. Warren, Homotopy theoretic models
+    of identity types, Math. Proc. Cambridge Philos. Soc. 146 (2009),
+    no. 1, 45–55, preprint available at arXiv:0709.0248. MR 2461866
+16. Steven Awodey and Andrej Bauer, Propositions as [types], J. Logic
+    Comput. 14 (2004), no. 4, 447–471. MR 2081047
+17. Andrej Bauer, Jason Gross, Peter LeFanu Lumsdaine, Mike Shul-
+    man, Matthieu Sozeau, and Bas Spitters, The HoTT Library: A
+    formalization of homotopy type theory in Coq, 2016, preprint avail-
+    able at arXiv:1610.04591.
+18. A. Beilinson, I. M. Gelfand and his seminar—a presence, Notices
+    Amer. Math. Soc. 63 (2016), no. 3, 295–298, preprint available at
+    arXiv:1505.00710. MR 3445168
+19. Paul Bernays, A system of axiomatic set theory. Part I, J. Symbolic
+    Logic 2 (1937), 65–77.
+20. Marc Bezem, Thierry Coquand, and Simon Huber, A model of type
+    theory in cubical sets, 19th International Conference on Types for
+    Proofs and Programs, LIPIcs. Leibniz Int. Proc. Inform., vol. 26,
+    Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern, 2014, pp. 107–
+    128. MR 3281415
+21. Guillaume Brunerie, On the homotopy groups of spheres in ho-
+    motopy type theory, 2016, Ph.D. thesis, preprint available at
+30                        DANIEL R. GRAYSON
+
+    arXiv:1606.05916.
+22.         , The James construction and π4 (S3 ) in homotopy type the-
+    ory, 2017, preprint available at arXiv:1710.10307, accepted for pub-
+    lication in the Journal of Automated Reasoning.
+23. Ulrik Buchholtz and Kuen-Bang (Favonia) Hou, Cellular Cohomol-
+    ogy in Homotopy Type Theory, February, 2018, preprint available
+    at arXiv:1802.02191.
+24. Evan Cavallo and Robert Harper, Computational Higher Type
+    Theory IV: Inductive Types, 2018, preprint available at
+    arXiv:1801.01568.
+25. Cyril Cohen, Thierry Coquand, Simon Huber, and Anders
+    Mörtberg, Experimental implementation of cubical type theory,
+    the proof assistant cubical, written in Haskell, available at
+    https://github.com/mortberg/cubicaltt.
+26.         , Cubical Type Theory:          a constructive interpreta-
+    tion of the univalence axiom, (2015), To appear in the
+    post-proceedings of TYPES 2015. Preprint avaiable at
+    https://arxiv.org/abs/1611.02108.
+27. Thierry Coquand, Théorie des types dépendants et axiome
+    d’univalence, Astérisque (2015), no. 367-368, Exp. No. 1085, x,
+    367–386. MR 3363596
+28. N. G. de Bruijn, The mathematical language AUTOMATH, its us-
+    age, and some of its extensions, Symposium on Automatic Demon-
+    stration (Versailles, 1968), Lecture Notes in Mathematics, Vol. 125.
+    Springer, Berlin, 1970, pp. 29–61. MR 0274219
+29. Georges Gonthier, Formal proof—the four-color theorem, Notices
+    Amer. Math. Soc. 55 (2008), no. 11, 1382–1393. MR 2463991
+30. Georges Gonthier, Andrea Asperti, Jeremy Avigad, Yves Bertot,
+    Cyril Cohen, François Garillot, Stéphane Le Roux, Assia Mah-
+    boubi, Russell O’Connor, Sidi Ould Biha, Ioana Pasca, Lau-
+    rence Rideau, Alexey Solovyev, Enrico Tassi, and Laurent Théry,
+    A machine-checked proof of the odd order theorem, Interactive
+    Theorem Proving (Berlin, Heidelberg) (Sandrine Blazy, Christine
+    Paulin-Mohring, and David Pichardie, eds.), Springer Berlin Hei-
+    delberg, 2013, pp. 163–179.
+31. Thomas Hales, Mark Adams, Gertrud Bauer, Tat Dat Dang, John
+    Harrison, Le Truong Hoang, Cezary Kaliszyk, Victor Magron, Sean
+    Mclaughlin, TatThang Nguyen, et al., A formal proof of the Kepler
+    conjecture, Forum of Mathematics, Pi 5 (2017), e2.
+32. Kuen-Bang Hou and Michael Shulman, The Seifert–van Kampen
+    theorem in homotopy type theory, Computer science logic 2016,
+    LIPIcs. Leibniz Int. Proc. Inform., vol. 62, Schloss Dagstuhl.
+          An introduction to univalent foundations for mathematicians   31
+
+    Leibniz-Zent. Inform., Wadern, 2016, pp. Art. No. 22, 16.
+    MR 3566711
+33. Kuen-Bang Hou (Favonia) Hou, Eric Finster, Dan Licata, and Pe-
+    ter LeFanu Lumsdaine, A mechanization of the Blakers-Massey
+    connectivity theorem in Homotopy Type Theory, 2016, preprint
+    available at arXiv:1605.03227.
+34. Chris Kapulkin and Peter LeFanu Lumsdaine, The Simplicial
+    Model of Univalent Foundations (after Voevodsky), 2012, preprint
+    available at arXiv:1211.2851.
+35.         , The homotopy theory of type theories, 2016, preprint avail-
+    able at arXiv:1610.00037.
+36. Chris Kapulkin, Peter LeFanu Lumsdaine, and Vladimir Voevod-
+    sky, Univalence in simplicial sets, 2012, preprint available at
+    arXiv:1203.2553.
+37. Chris Kapulkin and Karol Szumio, Internal Language of
+    Finitely Complete (∞, 1)-categories, 2017, preprint available at
+    arXiv:1709.09519.
+38. Daniel R. Licata and Michael Shulman, Calculating the fundamen-
+    tal group of the circle in homotopy type theory, 2013 28th An-
+    nual ACM/IEEE Symposium on Logic in Computer Science (LICS
+    2013), IEEE Computer Soc., Los Alamitos, CA, 2013, pp. 223–232.
+    MR 3323808
+39. Peter LeFanu Lumsdaine and Mike Shulman, Semantics of higher
+    inductive types, 2017, preprint available at arXiv:1705.07088.
+40. M. Makkai, Towards a categorical foundation of mathematics, Logic
+    Colloquium ’95 (Haifa), Lecture Notes Logic, vol. 11, Springer,
+    Berlin, 1998, pp. 153–190. MR 1678360
+41. Per Martin-Löf, Hauptsatz for the intuitionistic theory of iterated
+    inductive definitions, Proceedings of the Second Scandinavian Logic
+    Symposium (Univ. Oslo, Oslo, 1970), North-Holland, Amsterdam,
+    1971, pp. 179–216. Studies in Logic and the Foundations of Math-
+    ematics, Vol. 63. MR 0387023 (52 #7870)
+42.         , An intuitionistic theory of types: predicative part, Logic
+    Colloquium ’73 (Bristol, 1973), North-Holland, Amsterdam, 1975,
+    pp. 73–118. Studies in Logic and the Foundations of Mathematics,
+    Vol. 80. MR 0387009 (52 #7856)
+43. Per Martin-Löf, Constructive mathematics and computer program-
+    ming, Logic, methodology and philosophy of science, VI (Hannover,
+    1979), Stud. Logic Found. Math., vol. 104, North-Holland, Ams-
+    terdam, 1982, pp. 153–175. MR 682410
+44. David McAllester, Morphoid type theory, a typed platonic founda-
+    tion for mathematics, preprint available at arXiv:1407.7274.
+32                   DANIEL R. GRAYSON
+
+45. Ioseph Peano, Arithmetices principia, Fratres Bocca, 1889.
+46. Charles Rezk, Proof of the Blakers-Massey Theorem, Available at
+    https://faculty.math.illinois.edu/~ rezk/freudenthal-and-blakers-massey.pdf.
+47. Bertrand Russell, Mathematical Logic as Based on the Theory of
+    Types, Amer. J. Math. 30 (1908), no. 3, 222–262. MR 1506041
+48. Michael        Shulman,           Minicourse        on       Homotopy
+    Type      Theory,    slides     from     a    talk,     available   at
+    http://home.sandiego.edu/~ shulman/hottminicourse2012/,
+    2012.
+49. Michael Shulman, Brouwer’s fixed-point theorem in real-cohesive
+    homotopy type theory, 2015, preprint available at arXiv:1509.07584.
+50. Michael Shulman, Homotopy type theory: the logic of space, 2017,
+    preprint available at arXiv:1703.03007.
+51. The Coq Development Team, The coq proof assistant, Available at
+    https://coq.inria.fr/.
+52. Coquand Thierry, Simon Huber, and Anders Mörtberg, On Higher
+    Inductive Types in Cubical Type Theory, 2018, preprint available
+    at arXiv:1802.01170.
+53. D. Tsementzis, A meaning explanation for hott, (2016), Available
+    at http://philsci-archive.pitt.edu/12824/.
+54.         ,    Univalent foundations as structuralist founda-
+    tions, Synthese 194 (2017), no. 9, 3583–3617, Available at
+    https://link.springer.com/article/10.1007/s11229-016-1109-x.
+55.         ,    What is a higher-level set?,                  Philosophia
+    Mathematica       (2017),        (forthcoming),        Available    at
+    https://academic.oup.com/philmat/article-abstract/2895117/What-is-a-Higher-L
+56. D. Tsementzis and H. Halvorson, Foundations and philoso-
+    phy, Philosopher’s Imprint (forthcoming) (2017), Available at
+    http://philsci-archive.pitt.edu/13504/.
+57. The       Univalent      Foundations        Program,         Homotopy
+    type theory:         Univalent foundations of mathematics,
+    https://homotopytypetheory.org/book, Institute for Advanced
+    Study, 2013.
+58. Vladimir      Voevodsky,       Foundations:         Development     of
+    the    univalent    foundations       of   mathematics       in   Coq,
+    a Coq library of formalized proofs,                     available at
+    https://github.com/vladimirias/Foundations.
+59.         ,    Resizing Rules - their use and seman-
+    tic justification,      slides    from     a    talk    available   at
+    https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/2011_Ber
+    2011.
+60.         , B-systems, 2014, preprint available at arXiv:1410.5389.
+         An introduction to univalent foundations for mathematicians   33
+
+61.        , C-system of a module over a monad on sets, 2014, preprint
+    available at arXiv:1407.3394.
+62.        ,     Univalent    foundations       -   new     type-theoretic
+    foundations     of    mathematics,       slides    from     a     talk
+    at IHP, Paris,         on April 22,           2014,    available at
+    https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/2014_04_
+    2014.
+63.        , A C-system defined by a universe category, Theory
+    Appl. Categ. 30 (2015), no. 37, 1181–1215, preprint available at
+    arXiv:1409.7925. MR 3402489
+64.        , An experimental library of formalized mathematics based
+    on the univalent foundations, Math. Structures Comput. Sci. 25
+    (2015), no. 5, 1278–1294. MR 3340542
+65.        , Martin-Löf identity types in the C-systems defined by a
+    universe category, 2015, preprint available at arXiv:1505.06446,
+    pp. 1–51.
+66.        , Products of families of types in the C-systems defined by a
+    universe category, 2015, preprint available at arXiv:1503.07072.
+67.        , Lawvere theories and Jf-relative monads, arXiv:1601.02158
+    (2016), 1–21, preprint available at arXiv:1601.02158.
+68.        , Products of families of types and (Π, λ)-structures on C-
+    systems, Theory Appl. Categ. 31 (2016), Paper No. 36, 1044–1094.
+    MR 3584698
+69.        , Subsystems and regular quotients of C-systems, A
+    panorama of mathematics: pure and applied; Conference on Math-
+    ematics and its Applications, (Kuwait City, 2014), Contemp.
+    Math., vol. 658, Amer. Math. Soc., Providence, RI, 2016, pp. 127–
+    137. MR 3475277
+70.        , C-systems defined by universe categories: presheaves, The-
+    ory Appl. Categ. 32 (2017), Paper No. 3, 53–112. MR 3607209
+71.        , The (Π, λ)-structures on the C-systems defined by universe
+    categories, Theory Appl. Categ. 32 (2017), Paper No. 4, 113–121.
+    MR 3607210
+72. Vladimir Voevodsky, Benedikt Ahrens, Daniel Grayson, et al.,
+    UniMath — a computer-checked library of univalent mathematics,
+    available at http://UniMath.org.
+  2409 S. Vine St., Urbana, IL 61801, USA
+  E-mail address: drg@illinois.edu
+  URL: http://dangrayson.com/
+

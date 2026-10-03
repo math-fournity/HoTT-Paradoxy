@@ -1,0 +1,640 @@
+                                                                                              The HoTT Library
+                                                                               A formalization of homotopy type theory in Coq
+
+                                                              Andrej Bauer∗                                     Jason Gross                      Peter LeFanu Lumsdaine†
+                                                     University of Ljubljana, Slovenia                           MIT, USA                     Stockholm University, Sweden
+                                                        Andrej.Bauer@andrej.com                             jgross@mit.edu                     p.l.lumsdaine@math.su.se
+                                                                                      ‡                                             §
+                                                            Michael Shulman                                 Matthieu Sozeau                           Bas Spitters¶
+                                                       University of San Diego, USA                          Inria, France                     Aarhus University, Denmark
+
+
+
+
+arXiv:1610.04591v2 [cs.LO] 9 Dec 2016
+                                                          shulman@sandiego.edu                            mattam@mattam.org                        spitters@cs.au.dk
+
+
+
+                                                                       Abstract                                                 Identity types are interpreted as path spaces, and type
+                                                                                                                             equivalence as homotopy equivalence. Type-theoretic con-
+                                        We report on the development of the HoTT library, a formal-
+                                                                                                                             structions correspond to homotopy-invariant constructions
+                                        ization of homotopy type theory in the Coq proof assistant.
+                                                                                                                             on homotopy types. In addition, homotopical intuition
+                                        It formalizes most of basic homotopy type theory, including
+                                                                                                                             gives rise to entirely new type-theoretic notions, such as
+                                        univalence, higher inductive types, and significant amounts
+                                                                                                                             higher inductive types and Voevodsky’s univalence axiom.
+                                        of synthetic homotopy theory, as well as category theory
+                                                                                                                             One can even develop homotopy theory in the language of
+                                        and modalities. The library has been used as a basis for
+                                                                                                                             type theory in a “synthetic” manner, treating (homotopy)
+                                        several independent developments. We discuss the deci-
+                                                                                                                             types as a primitive notion.
+                                        sions that led to the design of the library, and we comment
+                                                                                                                                The first formalization of homotopy type theory in a
+                                        on the interaction of homotopy type theory with recently
+                                                                                                                             proof assistant was Voevodsky’s Foundations library imple-
+                                        introduced features of Coq, such as universe polymorphism
+                                                                                                                             mented in Coq, now called the UniMath project (Voevodsky,
+                                        and private inductive types.
+                                                                                                                             Ahrens, Grayson, et al. 2016). Here we present the second
+                                                                                                                             major such library, the HoTT library, also implemented in
+                                                               1 Introduction                                                Coq, with somewhat different goals from those of UniMath.
+                                                                                                                             The library is freely available.1
+                                        Homotopy type theory is a novel approach to developing                                  Coq word count reports that the library contains 16800
+                                        mathematics in Martin-Löf’s type theory, based on inter-                             lines of specifications, 13000 lines of proofs, and 4500 lines
+                                        pretations of the theory into abstract homotopy-theoretic                            of comments. The library is self-sufficient, completely re-
+                                        settings such as certain higher toposes (Kapulkin and Lums-                          placing the Coq standard library (which is incompatible
+                                        daine 2012; Shulman 2015b). The connection between type                              with homotopy type theory) with a bare minimum neces-
+                                        theory and homotopy theory is originally due to (Awodey                              sary for basic Coq tactics to function properly (see §6).
+                                        and Warren 2009) and (Voevodsky 2006).
+                                           ∗ This material is based upon work supported by the Air Force Office              Contributions The HoTT library provides a substantive
+                                        of Scientific Research, Air Force Materiel Command, USAF under Award                 formalization of homotopy type theory. It demonstrates
+                                        No. FA9550-14-1-0096
+                                           † This material is based upon work supported by the National Science              that univalent foundations (cf. §2) provide a workable setup
+                                        Foundation under Grant No. DMS-1128155.                                              for formalization of mathematics. The library relies on
+                                           ‡ This material is based on research sponsored by The United States Air           advanced features of Coq (cf. §3), such as automatic han-
+                                        Force Research Laboratory under agreement number FA9550-15-1-0053.                   dling of universe polymorphism (cf. §3.1) and type classes
+                                        The U.S. Government is authorized to reproduce and distribute reprints for
+                                        Governmental purposes notwithstanding any copyright notation thereon.
+                                                                                                                             (cf. §3.2), management of opaque and transparent defini-
+                                        The views and conclusions contained herein are those of the authors and              tions (cf. §3.3), and automation (cf. §3.4). We used private
+                                        should not be interpreted as necessarily representing the official policies or       inductive types to implement higher inductive types (cf. §4),
+                                        endorsements, either expressed or implied, of the United States Air Force            and the Coq module system to formalize modalities (cf. §5).
+                                        Research Laboratory, the U.S. Government, or Carnegie Mellon University.
+                                           § This work has been partly funded by the CoqHoTT ERC Grant 637339.               Our development pushed Coq’s abilities, which prompted
+                                           ¶ This research was partially supported by the Guarded Homotopy                   the developers to extend and modify it for our needs (cf. §6),
+                                        Type Theory project, funded by the Villum Foundation, project number
+                                        12386.                                                                                 1 http://github.com/HoTT/HoTT or the Coq OPAM package manager
+
+
+
+
+                                                                                                                         1
+                                                            2 Basics                                                             2
+
+
+
+and to remove several bugs, for which we are most thankful.        the book (The Univalent Foundations Program 2013), which
+Overall, the success of the project relies on careful policies     we refer to as the “HoTT book”. The library provides an
+and software-engineering approaches that keep the library          automatically generated file linking the constructions in
+maintainable and usable (cf. §7). We relate our work to            the book with the corresponding Coq code.2
+other extensive implementations of homotopy type theory
+in §8.                                                             Basic type formers and their identity types The core
+                                                                   of the library is in the Basics and Types directories.
+Consistency A major concern for any piece of formalized            These files formalize fundamental results about the higher
+mathematics is trust. The HoTT library uses much more              groupoid structure of identity types, and the identity types
+than just Martin-Löf type theory, including the univalence         of basic types and type formers, such as the empty and
+axiom, pattern matching, universe polymorphism, type               unit types, universes, +, ×, Π, and Σ. This covers most of
+classes, private inductive types, second-class modules, and        Chapter 2 of the HoTT book, as well as parts of Chapters 3
+so on; how do we know these form a consistent system?              and 7 (basic definitions and facts about n-types), Chapter 4
+This is a major concern not just for us, but for every user        (equivalences; see below), and Chapter 5 (basic facts about
+of complex proof assistants, and has been addressed many           W-types).
+times in the past.                                                    The Basics directory contains absolutely basic facts ap-
+   In Coq, the typechecker’s kernel is the final gatekeeper.       plicable to all types; while the Types directory is organized
+This is fairly large, in part due to the inclusion of the module   with one file for each standard type former, roughly match-
+system. However, other advanced features such as type              ing the sections in Chapter 2 of the HoTT book. Some other
+classes and tactics are outside the kernel and hence do not        basic facts from the first part of the HoTT book can be
+endanger consistency. So, provided we trust the kernel,            found in the root theories directory, such as the compari-
+the remaining questions are the consistency of our axioms,         son of different definitions of equivalence (see below) and
+universe-polymorphic modules, and the implementation of            the proof that univalence implies function extensionality.
+private inductive types.
+   There are several possible ways to tackle these questions.      Equivalences The HoTT book devotes most of Chapter 4
+So far, the primary method available for homotopy type             to discussing various notions of equivalence. After show-
+theory is semantic: constructing a model of the theory in          ing that a large class of them are equivalent, in a precise
+some other trusted theory (such as ZFC). While this has            way, one can be agnostic on paper about which is meant.
+been done for various fragments of the theory, combining           However, for a formalization we need to choose a particular
+them all to give a unified semantic account of homotopy            definition.
+type theory together with all the features in Coq’s kernel            The intuitive notion of isomorphism or homotopy equiv-
+seems a daunting task.                                             alence consists of f : A → B and g : B → A which are
+   For this reason, UniMath avoids almost all of Coq’s fea-        inverses of each other, up to homotopy. However, in ho-
+tures (even e.g. record types), restricting itself as far as       motopy type theory the type of pairs f, g equipped with
+possible to standard Martin-Löf type theory (except for as-        two such homotopies is ill-behaved, so one needs to refine
+suming Type : Type throughout, to simulate Voevodsky’s             it somehow.
+resizing rules). However, this restriction cannot be enforced         We have chosen to use the notion called a half-adjoint
+by the kernel. We feel rather that proof assistants and com-       equivalence in the HoTT book, which adds to this type a
+puterized formalization of mathematics are at such an early        single coherence condition between the two homotopies.
+stage that it is well worth experimenting, even at the risk of     (The condition is one of the triangle identities involved
+introducing an inconsistency (which is fairly slight, due to       in an “adjoint equivalence” in category theory; the other
+the known semantic accounts of fragments of the theory).           one is then provable, but should not be assumed as data
+In any case, the skeptical reader should keep in mind that         or the homotopy type would be wrong again.) Since this
+the standard of rigor in formalized proofs is at least a great     is “the” notion of equivalence in the library, we call it sim-
+deal higher than the generally accepted level of rigor in          ply an equivalence. Other possible options are Voevod-
+traditional written mathematics.                                   sky’s definition of an equivalence as a map whose homo-
+                                                                   topy fibers are contractible, or Joyal’s suggestion of a map
+                                                                   equipped with separate left and right homotopy inverses.
+                       2 Basics                                    We do prove the equivalence of all these definitions (in
+                                                                   EquivalenceVarieties).
+We assume basic familiarity with homotopy type the-                   However, we believe that half-adjoint equivalences are
+ory (The Univalent Foundations Program 2013), and with             a better choice for the standard notion of equivalence in a
+the Coq proof assistant (Coq). There is a large overlap be-
+tween the contents of the HoTT library and the contents of             2 https://hott.github.io/HoTT/coqdoc-html/HoTTBook.html
+                                                           2 Basics                                                                      3
+
+
+
+formalization. This is because the most common way to             and then finite types as those that are merely3 equivalent
+construct an equivalence, and to use an equivalence, is by        to the standard ones:
+way of the “incoherent” notion consisting of two functions        Class Finite (X : Type) :=
+and two homotopies, called a quasi-inverse in the HoTT              { fcard : nat ;
+book, and half-adjoint equivalences record all this data.              merely_equiv_fin : merely (X ≃ Fin fcard) }.
+That is, usually we construct an equivalence by exhibiting
+                                                                  Perhaps surprisingly, being finite is still a mere proposition,
+its homotopy inverse, and then apply a “coherentification”
+                                                                  because a set is isomorphic to at most one canonical finite
+result. With half-adjoint equivalences represented as a Coq
+                                                                  set. Thus, we could have truncated the dependent sum
+record, all the data of a quasi-inverse (plus the extra coher-
+                                                                  and gotten an equivalent definition, but it would be less
+ence) is stored exactly as supplied when an equivalence is
+                                                                  convenient to reason about.
+defined. This applies in particular to the homotopy inverse,
+but also to the witnessing homotopies, though the “coher-
+                                                                  Pointed types We provide a general theory of pointed
+entification” process alters one of these homotopies, so if
+                                                                  types. The theory is facilitated by a tactic which often
+we want to preserve them both we have to manually prove
+                                                                  allows us to pretend that pointed maps and homotopies
+the extra coherence property.
+                                                                  preserve basepoints strictly. We have carefully defined
+   In addition to the definitions of equivalence appearing        pointed maps pMap and pointed homotopies pHomotopy
+in the HoTT Book, we also consider two others. One is             so that when destructed, their second components are paths
+a “relational equivalence” (a relation under which each           with right endpoints free, to which we can apply Paulin-
+element of either type is related to a unique element of          Mohring path-induction. The theory of pointed types uses
+the other) which has the advantage of being judgmentally          type classes, since the base point can usually be found
+invertible, though it increases the universe level:               automatically:
+Record RelEquiv A B :=                                            Class IsPointed (A : Type) := point : A.
+  { equiv_rel : A → B → Type;                                     Record pType :=
+     rcf : forall a, Contr { b : B & equiv_rel a b };                { pointed_type : Type ;
+     rcg : forall b, Contr { a : A & equiv_rel a b } }.                 ispointed_type : IsPointed pointed_type }.
+                                                                  Coercion pointed_type : pType Sortclass.
+The other involves “n-path-splitness”, which says that the        Record pMap (A B : pType) :=
+induced maps on the first n path spaces are split surjections.     { pointed_fun : A → B ;
+Fixpoint PathSplit (n : nat) ‘(f : A → B) : Type                       point_eq : pointed_fun (point A) = point B }.
+  := match n with                                                 Record pHomotopy {A B : pType} (f g : pMap A B) :=
+       | 0 ⇒ Unit                                                  { pointed_htpy: f == g ;
+       | S n ⇒ (forall a, hfiber f a) ∗                                point_htpy:
+                 forall x y, PathSplit n (@ap _ _ f x y)                 pointed_htpy (point A) @ point_eq g =
+     end.                                                                point_eq f }.
+                                                                  Here @ denotes the concatenation of paths.
+For n > 1, this is equivalent to being an equivalence.
+This definition has the advantage that when A and B are
+function-types and f is a precomposition map, we can              Category theory The library also includes a large devel-
+reformulate it to use homotopies rather than equalities,          opment of category theory, following Chapter 9 of the
+yielding a notion of “precomposition equivalence” (called         HoTT book and (Ahrens, Kapulkin, and Shulman 2015).
+ExtendableAlong) that often avoids function extensional-          This part of the library was presented in detail in (Gross,
+ity. This is particularly useful for the universal property of    Chlipala, and Spivak 2014), from which we quote only the
+modalities (§5).                                                  following:
+                                                                        We wound up adopting the Coq version under
+                                                                        development by homotopy type theorists, mak-
+                                                                        ing critical use of its stronger universe polymor-
+                                                                        phism and higher inductive types. . . [which] can
+Finite sets We define standard finite types Fin n as usual,             simplify the Coq user experience dramatically. . .
+Fixpoint Fin (n : nat) : Type :=                                  The category theory library employs a different style of
+  match n with                                                    formalization from the core library, using so-called “blast”
+     | 0 ⇒ Empty
+                                                                     3 As in the HoTT book, “merely” signifies the use of a propositional
+     | S n ⇒ Fin n + Unit
+                                                                  truncation, in this instance an existence of an equivalence rather than a
+   end.                                                           concretely given one.
+                                                    3 Features of Coq                                                        4
+
+
+
+tactics that automatically try many lemmas to produce a        for each P : Type → Type taking values in mere proposi-
+proof by brute force. We avoid this approach in the core       tions, we have a classifier for maps whose fibers satisfy P;
+library to make proofs more readable and give better control   this also includes all modalities (see §5).
+over proof terms, cf. §3.3.                                       In this part of the library, universe polymorphism works
+   Timany and Jacobs (2016)4 provide another extensive         nicely and leads to a satisfactory treatment of subobject
+library for category theory over the HoTT library.             classifiers in a predicative setting. As a test, we verified
+                                                               that in hSets epimorphisms are surjective. The proof looks
+                                                               like the usual impredicative one, but in fact, is entirely
+Synthetic Homotopy theory The library also contains a
+                                                               predicative thanks to universe polymorphism.
+variety of other definitions and results, many relevant to
+synthetic homotopy theory or higher category theory. This
+includes classifying spaces of automorphism groups, the                            3.2   Type classes
+Cantor space, the theory of idempotents with the results
+                                                               Coq’s type class system is a very convenient mechanism
+of (Shulman 2015a), and the definition of ∞-groups with
+                                                               for automatic derivation of instances of structures. The
+actions. Such non-trivial additions to the core provide
+                                                               instance search follows a logic programming discipline
+strong evidence that the overall design is sustainable and
+                                                               which is sometimes difficult to predict and control, a poten-
+usable.
+                                                               tial problem for proof-relevant settings such as homotopy
+                                                               type theory. Nevertheless, it is safe to use the type class
+                                                               mechanism as long as it is employed to find only mere
+                 3    Features of Coq                          propositions, as all their instances are equal. Luckily, being
+                                                               an equivalence, deriving a truncation level, and placing a
+In our library we made use of a number of useful features
+                                                               type into a subuniverse, are all of this kind, and so our li-
+of Coq, some established and others relatively new. In
+                                                               brary does use type classes in these non-problematic cases.
+this section we discuss most of these; two of the most
+                                                               We follow the development style of the math-classes li-
+substantial we give their own sections (§4 and §5).
+                                                               brary (Spitters and Weegen 2011; Krebbers and Spitters
+                                                               2013; Castéran and Sozeau 2012), but since we have a better
+           3.1       Universe polymorphism                     behaved equality and quotients, we can avoid an extensive
+                                                               use of setoids.
+Coq’s type theory supports an infinite progression of cu-         As is well known, one can only push the type class mech-
+mulative universes, and constructions that are polymorphic     anism so far. For instance, we cannot add a rule for auto-
+in the universes (Sozeau and Tabareau 2014). Our library       matic instantiation of inverses of equivalence, as it makes
+heavily relies on the flexible treatment of universe poly-     Coq look for “the inverse of the inverse of the inverse . . . ”.
+morphism, which allows us to forego universe annotations
+in specifications. However, one needs to be careful because    Transfer from Σ-types to record types Type classes are
+Coq’s heuristic for minimizing the number of universes and     (dependently typed) record types, so many of the central
+constraints occasionally produces undesirable constraints,     concepts in the library are expressed as record types (rather
+or just does not cope with them very well. For instance,       than nested Σ-types). To avoid proving a series of general
+the formalization of cumulative hierarchy of sets by Ledent    lemmas over and over, separately for each record type, we
+(2014) induced unexpected universe inconsistencies that        implemented a tactic issig that allows us to automatically
+could only be resolved with explicit universe constraint       transfer general facts about iterated Σ-types to record types.
+annotations. These were indeed implemented in response         For example, Contr and IsEquiv are record types, and the
+to our troubles, and are now part of the standard Coq dis-     tactic is able to automatically prove that
+tribution.
+   Timany and Jacobs (2015) propose cumulative inductive         forall A, {x : A & forall y:A, x = y} ≃ Contr A.
+types in Coq. It seems this would indeed alleviate most of     and
+the issues in our library, too.                                   forall A B, forall f : A → B,
+                                                                   IsEquiv f ≃
+Object classifier Following Section 4.8 of the HoTT book,            {g : B → A &
+we formalized the proof that the universe is an object clas-            {r : Sect g f &
+sifier, a fundamental concept in higher topos theory. From              {s : Sect f g &
+this we can show that the propositions hProp form a large                  forall x : A, r (f x) = ap f (s x) }}}.
+subobject classifier. In fact, we show more generally that     A fairly substantial use of this tactic arises in the devel-
+                                                               opment of factorization systems (e.g. epi-mono factoriza-
+  4 https://github.com/amintimany/Categories-HoTT              tion), for the proof of uniqueness of factorizations (our
+                                                    3 Features of Coq                                                      5
+
+
+
+path_factorization, Theorem 7.6.6 in the HoTT book). The                @ (concat_1p _ @@ concat_1p _)
+book proof expresses the uniqueness using a threefold nest-             @ (concat_whisker _ _ _ _ p q)
+ing of Σ-types followed by a threefold cartesian product. In            @ (concat_1p _ @@ concat_1p _)^
+the formalization this corresponds to a record type with six            @ (concat_p1 _ @@ concat_p1 _)^
+fields. The formal proof requires delicate transformations              @ (whiskerL_1p q @@ whiskerR_p1 p).
+between records and Σ-types that would be very laborious       Here @ denotes concatenation of paths and @@ denotes
+to perform without issig.                                      horizontal composition of 2-dimensional paths. It might
+                                                               be easier to find a proof using rewrite-type tactics, but we
+The η-rule for record types Recent versions of Coq sup-        want this particular one.
+port an extensionality η-rule for record types, implemented       We could benefit from good support for construction of
+by primitive projections. When we adapted the library to       explicit proof terms. Sozeau’s dependent pattern matching
+use primitive projections, the compilation time for the en-    compiler (Sozeau 2010b) aims to provide such support in
+tire library dropped by a factor of two. We were also able     Coq. It is similar to how Agda works. Unfortunately, it cur-
+to replace eight different kinds of natural transformations    rently depends on both the equality type being in Prop and
+with a single one, remove applications of function exten-      uniqueness of identity proofs, which is incompatible with
+sionality from a number of proofs, and greatly speed up the    univalence. This issue has been solved in Agda (Cockx, De-
+tactics for transfer between Σ-types are record types.         vriese, and Piessens 2014) and is currently being adapted to
+                                                               Coq as part of the Equations package (Mangin and Sozeau
+Type classes for axioms We also use type classes to track      2015). The prelude of the HoTT library can already be pro-
+the use of the univalence and function extensionality ax-      cessed using Equations, and we hope to be able to use it for
+ioms. These axioms are defined to depend on an instance        the entire library in the future.
+of a class that inhabits a dummy type. For instance, here is
+function extensionality:
+Monomorphic Axiom dummy_fe : Type0.                                               3.4 Automation
+Monomorphic Class Funext := { fev : dummy_fe }.
+Axiom isequiv_apD10 :                                          Once we collected a large number of lemmas about paths,
+  forall ‘{Funext} (A : Type) (P : A → Type) f g,              we organized them in a rewrite database and used it to
+     IsEquiv (@apD10 A P f g).                                 simplify proofs. Currently, we rewrite terms in a standard
+                                                               fashion, that is with J-elimination. However, we are likely
+Here, apD10 is the canonical map from paths in the function
+                                                               to obtain better proof terms by using the technology of
+type to homotopies between functions.
+                                                               generalized rewriting (Sozeau 2010a), which would also
+   Any theorem that uses function extensionality must then
+                                                               know how to rewrite with equivalences, and other suitable
+state this fact explicitly with a ‘{Funext} assumption. This
+                                                               general relations. For instance,
+makes it easy to tell which parts of the library depend
+on which axioms, without the need for Print Assumptions.       forall {A B:Type},
+We make Funext inhabit a dummy type rather than the              IsHProp A → (A ≃ B) → IsHProp B
+actual type of isequiv_apD10 so that the latter can be used    can be proved by rewriting without invoking the univa-
+at multiple universe levels with only a single assumption      lence axiom. This is done by first showing that the basic
+of Funext.                                                     type constructors Π, Σ respect equivalence, and that con-
+                                                               tractibility transfers along equivalence. All concepts built
+         3.3 Transparency and Opacity                          from these will then also respect equivalence. So, surpris-
+                                                               ingly, even now that we have quotients in our type theory,
+Since equality in homotopy type theory is proof-relevant,      the technology initially developed for setoid rewriting is
+our lemmas are more often transparent than in most Coq         still useful.
+developments. This means that much more care must be              Two other tactics are worth mentioning. First, we have
+taken to construct the right, coherent, proof terms. An        a tactic transparent assert, like ordinary assert (allowing
+example is the proof of the Eckmann-Hilton theorem for         on-the-fly interactive proof of assertions) except that the
+identity types (Theorem 2.1.6 of the HoTT book), which is      term produced remains transparent in the rest of the proof.
+given explicitly using (higher) composites and whiskerings:    (Meanwhile, this has been ported for inclusion in standard
+Definition eckmann_hilton                                      Coq.) Second, we implemented a custom version of the
+ {A : Type} {x:A} (p q : 1 = 1 :> (x = x)) :                   apply tactic which uses a more powerful unification algo-
+ p@q=q@p                                                       rithm than the one used by the standard apply tactic. This
+ := (whiskerR_p1 p @@ whiskerL_1p q)^                          idea is inspired by similar techniques in ssreflect (Gonthier,
+      @ (concat_p1 _ @@ concat_p1 _)                           Mahboubi, and Tassi 2015).
+                                                 4 Higher inductive types                                                6
+
+
+
+          4    Higher inductive types                           Module Export Interval.
+
+Higher inductive types are one of the main novelties in         Private Inductive interval : Type1 :=
+homotopy type theory. Where usual inductive types allow           | zero : interval
+us to freely generate terms in a type, higher inductive types     | one : interval.
+also allow us to freely generate equalities. Examples include
+the interval (two points and a path), the circle (a point and   Axiom seg : zero = one.
+a self loop), suspensions, set quotients, and more complex
+examples that we shall discuss briefly.                         Definition interval_ind (P : interval → Type)
+   Coq does not implement higher inductive types natively,       (a : P zero) (b : P one) (p : seg # a = b)
+so we simulate them using Licata’s trick (Licata and Shul-       : forall x:interval, P x
+man 2013). This method was originally used in Agda; to           := fun x ⇒ (match x return _ → P x with
+make it possible in Coq, experimental private inductive types                      | zero ⇒ fun _ ⇒ a
+had to be added (Bertot 2013). Private inductive types are                         | one ⇒ fun _ ⇒ b
+defined inside a module, within which they behave as usual.                      end) p.
+Outside the module their induction principles and pattern
+matching are no longer available; but functions that were       Axiom interval_ind_beta_seg :
+defined inside the module using those principles can still        forall (P : interval → Type)
+be called, and importantly still compute on constructors.           (a : P zero) (b : P one) (p : seg # a = b),
+   Licata’s trick uses this to implement higher inductive           apD (interval_ind P a b p) seg = p.
+types whose induction principles compute definitionally
+on point-constructors. For instance, the definition of the      End Interval.
+interval is shown in Figure 1. Here # denotes transport,
+@ is concatenation of paths, and apD is application of a        Definition interval_rec (P : Type) (a b : P) (p : a = b)
+dependent function to a path. Importantly, interval_rec a b      : interval → P :=
+ p zero reduces to a, because zero is actually a constructor     interval_ind (fun _ ⇒ P) a b (transport_const _ _ @ p).
+of interval. The axiom seg could be used to derive a contra-
+diction within the module; but this is not possible outside     Definition interval_rec_beta_seg
+the module, so all we need to do is check that the code          (P : Type) (a b : P) (p : a = b) :
+inside the module is safe.                                       ap (interval_rec P a b p) seg = p.
+   Note that in interval_ind rather than simply matching
+on x, we apply the match statement to the path hypothesis                   Fig. 1: The higher inductive interval
+p (but then never use it). If the path-hypotheses were not
+“used” anywhere in the match, Coq would notice this and
+conclude that two invocations of the induction principle
+ought to be judgmentally equal as soon as they have the         is possible to simulate them using private inductive types.
+same point-hypotheses, even if their path-hypotheses differ,    The surreals are thus in the library, while the Cauchy re-
+also leading to inconsistency. (This was noticed by Bordg.)     als have been formalized elsewhere (Gilbert 2016), as has
+   The library currently includes higher inductive defini-      another example of a higher inductive-inductive type, the
+tions of the interval, the circle, suspensions, truncations,    partiality monad (Altenkirch, Danielsson, and Kraus 2016).
+set-quotients, and homotopy colimits such as coequalizers       The formalization of the Cauchy reals and the partiality
+and pushouts, as well as the flattening lemma, all from         monad is based on an experimental Coq implementation
+Chapter 6 of the HoTT book. The library also formalizes         of inductive-inductive types.5 We plan to include these
+some basic synthetic homotopy theory from Chapter 8,            developments into the library as soon as the support for
+such as using the encode-decode method to prove that the        inductive-inductive types is sufficiently mature.
+fundamental group of the circle is the integers.                  Finally, we note that since private inductive types do
+   The library contains some of the more experimental           not technically use the path constructors, higher inductive
+higher inductive types from the HoTT book. The cumula-          types defined in this way sometimes end up in a universe
+tive hierarchy of well-founded sets from Chapter 10 was         that is too low. This can usually be fixed with explicit
+formalized by Ledent (2014) and is now part of the library.     universe annotations.
+Two higher inductive-inductive types from Chapter 11, the
+Cauchy reals and the surreal numbers are trickier. Even
+ordinary inductive-inductive types (Nordvall Forsberg and
+Setzer 2012) are not supported in Coq 8.5, but fortunately it     5 Sozeau, https://github.com/mattam82/coq/tree/IR
+                                                6 Technical changes to Coq                                                  7
+
+
+
+         5    Modalities and modules                                Second, Coq is very strict about matching modules
+                                                                 against module types: it insists that the universe parame-
+Type-theoretic modalities, cf. Section 7.7 of the HoTT book      ters and constraints match the specified ones exactly. Thus,
+and (Rijke, Shulman, and Spitters 2016), generalize the n-       in the formalization we had to battle Coq’s universe heuris-
+truncations in homotopy type theory. They were used in           tics and tightly control universes with explicit annotations
+cohesive homotopy type theory of Schreiber and Shulman           in both definitions and proofs. We persevered with frequent
+(2012). While we were able to formalize proofs and con-          use of Set Printing Universes and Show Universes, but we
+structions about modalities in a straightforward manner,         cannot recommend manual treatment of universe levels.
+the overall architecture of the definitions was quite tricky        Third, Coq insists that every field in a module be fully
+to implement.                                                    polymorphic, while in several places we wanted to express
+   Chapter 7 of the HoTT book contains a number of facts         additional constraints on the universe levels. We found a
+about truncations and connectedness which actually hold          way around it which is far from ideal. It would be helpful if
+(as remarked therein) for any modality, with exactly the         we could control universe indices and constraints in mod-
+same proofs. In the library we therefore formalized general      ules more precisely, although we fear having to do even
+facts about modalities, following Chapter 7, and then instan-    more manual bookkeeping of universes. It would be inter-
+tiated them to truncations, which we defined as particular       esting to attempt to formalize modalities in Agda or Lean,
+instances of modalities.                                         although it is not clear how this could be accomplished,
+   A modality is an operator       which acts on types and       since neither seem to support the kind of polymorphism
+satisfies a universal property that quantifies over all types.   that we needed.
+One might expect the formalization of to be a universe-             Despite all these problems, the modalities code in the
+polymorphic record type whose fields are the operator and        library is quite usable; from the outside one rarely needs
+its universal property. This does not work however, because      to worry about the universe issues. In particular, the n-
+the fields would share a common universally quantified uni-      truncation is defined as a modality, and most of the basic
+verse index i, and would thus express the wrong universal        theorems about truncation are obtained by specialization
+property. That is, we need to express that         at level i    from general theorems about modalities. This seems to
+has the universal propety with respect to every level j, not     work quite smoothly in the rest of the library, although the
+only i. We needed a construct like record types, but allow-      user looking for a theorem about truncations has to know
+ing each field to be individually universe-polymorphic.          to check the general theorems about modalities.
+   The solution was an undocumented feature of the Coq
+module system, which we briefly review. Coq provides ML-
+style modules similar to those of OCaml, the programming                6     Technical changes to Coq
+language used to implement Coq. Modules and type classes
+are similar, but the former are not first-class objects and      From the beginning, the development of the library has
+therefore cannot be used for formalization of structures. In-    involved close collaboration with Coq developers, most no-
+stead, modules serve a software-engineering purpose: they        tably Sozeau. A number of changes to the Coq system were
+are used to organize source code into units, and to control      needed when we started, but today the library compiles
+visibility of implementation details. By a fortunate design      with standard Coq 8.5.1 and later. Our library has served
+choice, each entry in a module carries its own universal         as a testing platform for a number of new Coq features.
+quantification over the universe levels.                         Inefficiencies and bugs were reported by us and quickly
+                                                                 addressed by the Coq developers. We mention several note-
+   The library formalizes a modality as a module type so
+                                                                 worthy changes to Coq:
+that it can have the correct universal property. However, we
+lose many of the benefits of record types and type classes,        • The inductive definition of the identity type has a
+as well as notational conveniences.                                  single constructor, and so Coq puts it in Prop, con-
+   First, to pass a simple argument to a parametrized mod-           trary to what is needed in homotopy type theory.
+ule (a functor in the ML-terminology), we need to wrap it            The indices-matter option of Coq, which was im-
+into a module, which considerably increases the complex-             plemented already by Herbelin for the purposes of the
+ity of the code. Even worse, it prevents us from defining            Foundations library (Voevodsky 2015), changes this
+families of modalities, such as n-truncations indexed by a           behavior to the desired one.
+truncation index n. We used the standard trick of passing
+from families to display maps, and included in the definition      • We avoid the impredicative Prop altogether and only
+of modality an additional field Modality : Type, to be used          use hProp. An element of hProp consists of a type
+as the domain of a display map which encodes a family of             together with a proof that the type has at most one
+modalities. For instance, truncations are implemented as a           element. This small change makes the whole standard
+single module which sets Modality to trunc_index.                    library unusable, and many tactics stop working, too.
+                                                        8 Related work                                                           8
+
+
+
+     The solution was rather drastic: we ripped out the                              8 Related work
+     standard library and replaced it with a minimal core
+     that is sufficient for the basic tactics to work. There is    The HoTT library was initiated as an attempt to understand
+     experimental work that aims to disentangle the tactics        the contents of Voevodsky’s Foundations library (Voevod-
+     and the standard libary,6 which we hope to use in the         sky 2015). In the beginning we closely followed the order
+     future.                                                       of development of concepts in the Foundations library, but
+                                                                   usually with our own proofs.
+  • The private inductive types are another experimental              Nowadays the Foundations library has been incorpo-
+    addition to Coq which allowed us to implement higher           rated into UniMath (Voevodsky, Ahrens, Grayson, et al.
+    inductive types. This was already discussed in §4.             2016). UniMath and HoTT still share many ideas about how
+                                                                   to formalize homotopy type theory, with a few differences:
+                                                                   UniMath uses the inconsistent assumption Type : Type as a
+           7     Software engineering                              simplifying device, whereas we deal with all the complex-
+The collaborative development of the library was made              ities of universe polymorphism; UniMath takes a conser-
+possible by using modern software engineering tools:               vative approach with respect to advanced Coq technology,
+                                                                   whereas our library actually inspired a number of Coq fea-
+  • We use GitHub as a platform for version control and            tures and serves as a testbed for new ones; finally, the HoTT
+    discussion of the code. We have a strict “two pairs of         library uses higher inductive types, which are generally
+    eyes” policy according to which a code change may be           avoided by UniMath.
+    accepted only after it has been reviewed by two other             Various external developments have also used the HoTT
+    developers. This encourages good collaboration and             library as a base, including libraries for the interpretation of
+    the use of standardized naming schemes.                        the database query language SQL in homotopy theory (Chu
+  • An extensive style guide facilitates collaboration and         et al. 2016), and for monadic semantics of probabilistic com-
+    allows others to contribute and build on the library.          putation with continuous data types (Faissole and Spitters
+    We use the GitHub wiki to keep track of documen-               2016).
+    tation, and we automatically generate browsable and               There are implementations of homotopy type theory
+    replayable literate code with Coqdoc and Proviola7             in other proof assistants. The HoTT-Agda library11 was
+    tools. Our library is also one of the test cases for the       initially started as a parallel development in Agda, but
+    JavaScript interface for Coq.8                                 quickly took a different direction and experienced extensive
+                                                                   development of synthetic homotopy theory. The private
+  • We use Travis9 for continuous integration. It checks           inductive types were inspired by Licata’s trick, which was
+    whether a proposed code change compiles, which                 originally implemented in Agda.
+    serves as a very useful sanity check. Travis also al-             A new formalization of homotopy type theory in the
+    lowed us to keep track of compilation time, which may          proof assistant Lean (Moura et al. 2015) is growing at an
+    be an issue with such a large library. We built tools          impressive rate. Lean’s type class system is a particularly
+    that help identify causes of performance degradation.          useful feature.
+    When the culprit was a Coq change, we reported it to              A related development is the prototype implementation
+    Coq developers who quickly fixed the issue.                    of cubical type theory (Cohen et al. 2016), which includes
+                                                                   a computational interpretation of univalence and (some)
+  • The installation procedure for the HoTT library is
+                                                                   higher inductive types. This improves on one of the lim-
+    fairly complicated, as it requires a customized Coq
+                                                                   itations of our setting, the use of axioms for univalence
+    installation. We provide automated scripts that help
+                                                                   and function extensionality, which block computation in
+    users with the installation. We also made the library
+                                                                   some proofs. We look forward to the integration of this
+    available through the very successful OCaml Package
+                                                                   technology in proof assistants.
+    Manager (OPAM).
+  • The use of Proof General together with Emacs TAGS
+    allows us to easily navigate the library and find defi-                           9 Conclusion
+    nitions of terms; Company-coq10 provides even better
+    facilities.                                                    We have developed a large, well-designed, and well-docu-
+   6 Gallego Arias, http://github.com/ejgallego/coq/tree/coqlib-
+                                                                   mented library for homotopy type theory, which formalizes
+                                                                   a large portion of the HoTT book, including higher in-
+cleanup-master
+   7 http://mws.cs.ru.nl/proviola/                                 ductive types, and employs universe polymorphism. The
+   8 https://x80.org/rhino-hott/                                   library has successfully been used as a basis for several
+   9 https://travis-ci.org/
+  10 https://github.com/cpitclaudel/company-coq                      11 https://github.com/HoTT/HoTT-Agda
+                                                      REFERENCES                                                            9
+
+
+
+more specific formalizations. It serves as a testing ground       Theory Library in Coq”. In: Proc. Interactive Theorem
+for new Coq features, as well as a foundation on which to         Proving 2014. Ed. by Gerwin Klein and Ruben Gamboa.
+experiment with formalizing new ideas and applications of         Vol. 8558. LNCS. Springer, pp. 275–291. doi: 10.1007/
+homotopy type theory.                                             978-3-319-08970-6_18.
+                                                                Kapulkin, Chris and Peter LeFanu Lumsdaine (2012). “The
+                                                                  Simplicial Model of Univalent Foundations (after Voevod-
+                     References                                   sky)”. arXiv:1211.2851.
+                                                                Krebbers, Robbert and Bas Spitters (2013). “Type classes
+Ahrens, Benedikt, Krzysztof Kapulkin, and Michael Shul-
+                                                                  for efficient exact real arithmetic in Coq”. In: LMCS 9.1:1.
+  man (2015). “Univalent categories and the Rezk comple-
+                                                                  arXiv:1106.3448, pp. 1–27. doi: 10.2168/LMCS- 9(1:
+  tion”. In: Mathematical Structures in Computer Science
+                                                                  01)2013.
+  25.05. arXiv:1303.0584, pp. 1010–1039.
+                                                                Ledent, Jérémy (2014). Modeling set theory in homotopy type
+Altenkirch, Thorsten, Nils Anders Danielsson, and Nicolai
+                                                                  theory. url: http : / / perso . ens - lyon . fr / jeremy .
+  Kraus (2016). “Partiality, Revisited: The Partiality Monad
+                                                                  ledent/internship_report.pdf.
+  as a Quotient Inductive-Inductive Type”. Preprint, arXiv:
+                                                                Licata, Daniel R and Michael Shulman (2013). “Calculating
+  1610.09254.
+                                                                  the fundamental group of the circle in homotopy type
+Awodey, Steve and Michael A. Warren (2009). “Homotopy
+                                                                  theory”. In: Proc. ACM/IEEE Symposium on Logic in Com-
+  theoretic models of identity types”. In: Mathematical
+                                                                  puter Science, 2013. IEEE Computer Society, pp. 223–232.
+  Proceedings of the Cambridge Philosophical Society 146,
+                                                                Mangin, Cyprien and Matthieu Sozeau (2015). “Equations
+  pp. 45–55.
+                                                                  for Hereditary Substitution in Leivant’s Predicative Sys-
+Bertot, Yves (2013). “Private Inductive Types: Proposing a
+                                                                  tem F: A Case Study”. In: Proc. Logical Frameworks and
+  language extension”. url: https : / / coq . inria . fr /
+                                                                  Meta Languages: Theory and Practice, 2015. Ed. by Iliano
+  files/coq5_submission_3.pdf.
+                                                                  Cervesato and Kaustuv Chaudhuri. Vol. 185. EPTCS. Open
+Castéran, Pierre and Matthieu Sozeau (2012). A gentle intro-
+                                                                  Publishing Association, pp. 71–86. doi: 10.4204/EPTCS.
+  duction to type classes and relations in Coq. url: https:
+                                                                  185.5.
+  //hal.archives-ouvertes.fr/hal-00702455.
+                                                                Moura, Leonardo de et al. (2015). “The Lean Theorem Prover
+Chu, Shumo et al. (2016). “HoTTSQL: Proving Query
+                                                                  (System Description)”. In: Automated Deduction – CADE-
+  Rewrites with Univalent SQL Semantics”. Preprint,
+                                                                  25. Ed. by Amy P. Felty and Aart Middeldorp. Vol. 9195.
+  arXiv:1607.04822.
+                                                                  LNCS, pp. 378–388. doi: 10.1007/978- 3- 319- 21401-
+Cockx, Jesper, Dominique Devriese, and Frank Piessens
+                                                                  6_26.
+  (2014). “Pattern matching without K”. In: Proc. Interna-
+                                                                Nordvall Forsberg, Fredrik and Anton Setzer (2012). “A fi-
+  tional Conference on Functional Programming (ICFP 2014).
+                                                                  nite axiomatisation of inductive-inductive definitions”.
+  Ed. by Johan Jeuring and Manuel M. T. Chakravarty.
+                                                                  In: Logic, Construction, Computation. Ed. by Ulrich Berger
+  Vol. 49. SIGPLAN Notices. ACM, pp. 257–268.
+                                                                  et al. Vol. 3. Ontos mathematical logic. De Gruyter,
+Cohen, Cyril et al. (2016). “Cubical Type Theory: a construc-
+                                                                  pp. 259–287.
+  tive interpretation of the univalence axiom”. To appear,
+                                                                Rijke, Egbert, Michael Shulman, and Bas Spitters (2016).
+  Proc. Types for Proofs and Programs (TYPES 2015). url:
+                                                                  “Modalities in homotopy type theory”. In preparation.
+  https : / / www . math . ias . edu / ~amortberg / papers /
+                                                                Schreiber, Urs and Michael Shulman (2012). “Quantum
+  cubicaltt.pdf.
+                                                                  Gauge Field Theory in Cohesive Homotopy Type The-
+The Coq Development Team (2016). “The Coq proof assis-
+                                                                  ory”. In: Proc. 9th Workshop on Quantum Physics and
+  tant”. url: http://coq.inria.fr/.
+                                                                  Logic, QPL 2012. Ed. by Ross Duncan and Prakash Panan-
+Faissole, Florian and Bas Spitters (2016). Synthetic topology
+                                                                  gaden. arXiv:1408.0054.
+  in Homotopy Type Theory for probabilistic programming.
+                                                                Shulman, Michael (2015a). “Idempotents in intensional type
+  url: https://www.cs.au.dk/~spitters/ProbProg.
+                                                                  theory”. arXiv:1507.03634; to appear in Logical Meth-
+  pdf.
+                                                                  ods in Computer Science.
+Gilbert, Gaëtan (2016). “Formalising real numbers in Ho-
+                                                                – (2015b). “Univalence for inverse diagrams and homotopy
+  motopy Type Theory”. To appear in Proc. Certified Pro-
+                                                                  canonicity”. In: Mathematical Structures in Computer Sci-
+  grams and Proofs 2017, arXiv:1610.05072.
+                                                                  ence 25.5. arXiv:1203.3253, pp. 1203–1277. issn: 0960-
+Gonthier, Georges, Assia Mahboubi, and Enrico Tassi (2015).
+                                                                  1295. doi: 10.1017/S0960129514000565.
+  A Small Scale Reflection Extension for the Coq system.
+                                                                Sozeau, Matthieu (2010a). “A new look at generalized rewrit-
+  Research Report RR-6455. Inria Saclay Île de France. url:
+                                                                  ing in type theory”. In: Journal of Formalized Reasoning
+  https://hal.inria.fr/inria-00258384.
+                                                                  2.1, pp. 41–62.
+Gross, Jason, Adam Chlipala, and David I. Spivak (2014).
+                                                                – (2010b). “Equations: A dependent pattern-matching com-
+  “Experience Implementing a Performant Category-
+                                                                  piler”. In: Proc. Interactive Theorem Proving 2010. Ed. by
+                                                     REFERENCES                                                        10
+
+
+
+  Matt Kaufmann and Lawrence C. Paulson. Vol. 6172.              Leuven. url: https://lirias.kuleuven.be/handle/
+  LNCS. Springer, pp. 419–434.                                   123456789/540270.
+Sozeau, Matthieu and Nicolas Tabareau (2014). “Universe        The Univalent Foundations Program (2013). Homotopy Type
+  polymorphism in Coq”. In: Proc. Interactive Theorem            Theory: Univalent Foundations for Mathematics. Institute
+  Proving 2010. Ed. by Gerwin Klein and Ruben Gamboa.            for Advanced Study: http : / / homotopytypetheory .
+  Vol. 8558. LNCS. Springer, pp. 499–514.                        org/book.
+Spitters, Bas and Eelis van der Weegen (2011). “Type Classes   Voevodsky, Vladimir (2006). “A very short note on the
+  for Mathematics in Type Theory”. In: Mathematical Struc-       homotopy λ-calculus”. http : / / www . math . ias . edu /
+  tures in Computer Science 21, pp. 1–31. doi: 10 . 1017 /       ~vladimir / Site3 / Univalent _ Foundations _ files /
+  S0960129511000119.                                             Hlambda_short_current.pdf.
+Timany, Amin and Bart Jacobs (2015). “First Steps Towards      – (2015). “Experimental library of univalent formalization
+  Cumulative Inductive Types in CIC”. In: Proc. Theoretical      of mathematics”. In: Mathematical Structures in Computer
+  Aspects of Computing – ICTAC 2015. Vol. 9399. LNCS,            Science 25. arXiv:1401.0053, pp. 1278–1294.
+  pp. 608–617. doi: 10.1007/978-3-319-25150-9_36.              Voevodsky, Vladimir, Benedikt Ahrens, Daniel Grayson,
+– (2016). Category theory in Coq 8.5: Extended version. CW       et al. (2016). UniMath: Univalent Mathematics. https :
+  Reports CW697. Department of Computer Science, KU              //github.com/UniMath.
+

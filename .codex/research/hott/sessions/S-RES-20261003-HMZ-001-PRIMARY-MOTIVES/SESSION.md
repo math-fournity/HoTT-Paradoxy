@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_AND_HMZ-002_CLOSED_WITH_SCOPE / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_CLOSED_WITH_SCOPE / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -41,6 +41,12 @@ fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直
 2011 type-system notes、Ahrens/North 2022 和既有 Shulman/Isabelle/Mumford controls 共同显示，author-reported
 `problem of equivalence` 是表示纪律／语言边界；没有 source-defined P reentry、unpaid Done 或 H0 transport。
 该结果不改变 HMZ-001 的 `ZFC_Q_NOT_LOCATED`，只增加第二条来源有界控制。
+
+第三个来源分母 `HMZ-003-formalization-delivery` 进一步检查 bare-existence axiom、named constants、
+type discipline、computation与proof-assistant implementation。Isabelle/ZF 的 `Inf`/`Pow`/`Replace`/`The`接口、
+Grayson 的 computation-versus-axiom 区别、Rijke/Spitters 的 type-discipline 文献、HoTT Library 的
+axioms-block-computation控制共同得到 `EXPLICIT_FORMATION_PAYMENT / NOT_A_Q`。这补强了本 Session 的
+P-lane负控制，而不产生 ZFC Q。
 
 ## §7 重新呈现与 14 题定位
 
