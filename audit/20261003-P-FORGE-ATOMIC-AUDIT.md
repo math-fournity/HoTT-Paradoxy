@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/084 - H034 ZFC佐恩引理归纳闭包P1消费缺口.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/084 - H034 ZFC佐恩引理归纳闭包P1消费缺口.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/085 - H035 ZFC开放画像重识别全子对象形成.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/085 - H035 ZFC开放画像重识别全子对象形成.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 84 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 85 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -109,4 +109,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 082 | [H032 ZFC选择公理P3证明上下文控制](<20261003-P-FORGE-ATOMIC-AUDIT/082 - H032 ZFC选择公理P3证明上下文控制.md>) | `H032` | R04 P3 proof-context control | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 083 | [H033 ZFC佐恩引理归纳闭包P3控制](<20261003-P-FORGE-ATOMIC-AUDIT/083 - H033 ZFC佐恩引理归纳闭包P3控制.md>) | `H033` | R04 Zorn/TFin P3 control | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 084 | [H034 ZFC佐恩引理归纳闭包P1消费缺口](<20261003-P-FORGE-ATOMIC-AUDIT/084 - H034 ZFC佐恩引理归纳闭包P1消费缺口.md>) | `H034` | R04 Zorn/TFin P1 consumer gap | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
+| 085 | [H035 ZFC开放画像重识别全子对象形成](<20261003-P-FORGE-ATOMIC-AUDIT/085 - H035 ZFC开放画像重识别全子对象形成.md>) | `H035` | R05 open-profile reidentification | `CALIBRATION / OUTPUT_CONTRACT_FAILURE` |
 <!-- governance-shard-table:end -->
