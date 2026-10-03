@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/096 - H046 Gemini外部算法时间P3边界.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/096 - H046 Gemini外部算法时间P3边界.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/097 - H047 Gemini表示与同一对象再入边界.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/097 - H047 Gemini表示与同一对象再入边界.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 96 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 97 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -121,4 +121,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 094 | [H044 Gemini外部时间P3预启动失败](<20261003-P-FORGE-ATOMIC-AUDIT/094 - H044 Gemini外部时间P3预启动失败.md>) | `H044` | R06 Gemini P3 preflight failure | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 | 095 | [H045 Gemini编码再入P2预启动失败](<20261003-P-FORGE-ATOMIC-AUDIT/095 - H045 Gemini编码再入P2预启动失败.md>) | `H045` | R06 Gemini P2 preflight failure | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 | 096 | [H046 Gemini外部算法时间P3边界](<20261003-P-FORGE-ATOMIC-AUDIT/096 - H046 Gemini外部算法时间P3边界.md>) | `H046` | R06 Gemini external-time P3 control | `ALIGNED / Q_SAFETY_REPAIR` |
+| 097 | [H047 Gemini表示与同一对象再入边界](<20261003-P-FORGE-ATOMIC-AUDIT/097 - H047 Gemini表示与同一对象再入边界.md>) | `H047` | R06 Gemini representation/reentry P2 control | `ALIGNED / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
