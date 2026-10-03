@@ -51,3 +51,6 @@ finite Done→infinite totality的现实任务桥。审计仍按 core 的同一�
 Book的universe/resizing、Isabelle的equiv/congruence/type preconditions、route difference，以及Dochtermann的conceptual-metaphor
 限定，都是显式 payment/control。它显示 P1 的 L2 可以通过而仍不能跨到P2/P3，也显示P3语言本身不是pending/admission生命周期。
 从而让未来检索限定在保留Power Set-subset formation且same-Done的consumer，而不把锻刀记录替代 Q 的发现。
+`HOTT-MOTIVE-ZFC-SOP 1.2`已将该经验固化为`RealityTaskBridgeCard`：E-source必须明示 bridge qualifier，
+并把`Done_h/Done_Z`、理论侧 pairing和same-task判词逐项记下。这个机制保留现实任务的研究价值，同时防止将隐喻或形式 sethood
+升级为P3 lifecycle或Q。

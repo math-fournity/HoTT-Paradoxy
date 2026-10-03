@@ -96,6 +96,8 @@ HMZ-011/012 则为本 Session 增加一条不同于 formalization convenience �
 形成的 class collection，以及 rational classes-as-objects 放在同一叙述中。HMZ-012 将这个 E-source 与 exact formation 和
 actual-consumer controls合并后得到：它是 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，但 finite-process Done 与 formal
 set-existence Done不相同，Book/Isabelle routes也不同，且没有P2/P3或H0 transport。因此状态为`P_REQUALIFICATION_REQUIRED`，不是Q。
+这项经验已回写为 `HOTT-MOTIVE-ZFC-SOP 1.2`：`HMZ-E`／RealityTaskBridgeCard 现在独立保存 `Done_h/Done_Z`、bridge qualifier、
+同一任务矩阵和理论侧 pairing；`METAPHOR`／`ANALOGY`不再允许自动跨到P3或Q。
 
 ## §7 重新呈现与 14 题定位
 

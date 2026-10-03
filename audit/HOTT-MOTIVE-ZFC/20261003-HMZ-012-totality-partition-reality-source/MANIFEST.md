@@ -14,7 +14,7 @@
 |---|---|---|---|---|
 | `HMZ-S-001` | A/B | HoTT Book introduction, commit `578b85cc`（HMZ-001 reuse）。 | `READ_REUSED` | `R-STRUCT`: HoTT source says isomorphic structures may be identified; it does not name this quotient/power-set route. |
 | `HMZ-S-026` | B | HoTT Book `logic.tex` / `hits.tex` / `setmath.tex`, same commit（HMZ-009 reuse）。 | `READ_REUSED` | `R-SET-CONTROL` technical bridge: quotient as Power Set subset; universe/resizing and internal/external controls. |
-| `HMZ-S-028` | E/D | Anton Dochtermann 2011 author-hosted paper（HMZ-011）。 | `READ_FULL_REUSED` | finite Done, infinite “all at once” conceptual bridge, Power Set/subset justification, rational-object consumer. |
+| `HMZ-S-028` | E/D | Anton Dochtermann 2011 author-hosted paper（HMZ-011）。 | `READ_FULL_REUSED` | finite Done, infinite “all at once” conceptual bridge, Power Set/subset justification, rational-object consumer; see `HMZ-E-001` in `E-CARDS.md`. |
 | `HMZ-S-010` | C | Shulman 2008（HMZ-001 reuse）。 | `READ_REUSED` | fixed ZFC axiom taxonomy: Separation and Power Set as formation resources, plus class/meta-language limits. |
 | `HMZ-S-007` | C | Metamath `ax-pow` / `pwex`（HMZ-001 reuse）。 | `READ_REUSED` | exact proof-formalization presentation of Power Set formation; no completion process claim. |
 | `HMZ-S-011` | C/D | Isabelle2021-1 ZF manual（HMZ-001 reuse）。 | `READ_REUSED` | `RepFun` is functional replacement, with formation rules. |

@@ -14,7 +14,7 @@
 included: 7 / 7
 read / exact identity: 7 / 7
 deferred / unavailable / unhandled: 0 / 0 / 0
-R dispositions: 1 existing HoTT R + 1 E-source bridge
+R/E dispositions: 1 existing HoTT R + 1 `RealityTaskBridgeCard`
 Q cards: 3, all non-candidate controls or requalification states
 denominator status: COMPLETE_WITH_SCOPE
 ```

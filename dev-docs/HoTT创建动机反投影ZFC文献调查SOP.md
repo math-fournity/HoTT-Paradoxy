@@ -11,7 +11,9 @@ soft_line_target: 300
 
 # HOTT-MOTIVE-ZFC-SOP：HoTT 创建动机反投影 ZFC 文献调查与候选档案
 
-> **身份：** `TASK_SCOPED_LITERATURE_PROJECT_SOP / SOURCE_ARCHIVE_WORKFLOW / NOT_A_ZFC_THEOREM_OR_AUTOMATIC_GOAL`。
+> **身份：** `TASK_SCOPED_LITERATURE_PROJECT_SOP / SOURCE_ARCHIVE_WORKFLOW / REALITY_TASK_BRIDGE_AWARE / NOT_A_ZFC_THEOREM_OR_AUTOMATIC_GOAL`。
+>
+> **当前修订：** `SOP 1.2`。新增 E-source 的有限／现实任务—形式 totality 处理：它可触发冻结分母，但不能自动把隐喻、认知 Done 或形式 sethood 认定为同一任务。
 >
 > **调用名：** `HOTT-MOTIVE-ZFC-SOP`。
 >
@@ -23,6 +25,8 @@ soft_line_target: 300
 
 ```text
 R_i（HoTT动机原典） → Z_i（精确ZFC侧规则／消费者） → Q_i（模式P候选）
+                              ↑
+                         E_j（现实／认知任务—形式构造桥）
 ```
 
 这项 SOP 管理来源分母、原件与派生阅读材料、卡片、控制、覆盖和恢复；它不预设 ZFC 有缺陷、不将动机写成数学结论，也不因调用自动启动 P-DAG、worker、Goal／STATE mutation或数学证明。
@@ -36,7 +40,7 @@ R_i（HoTT动机原典） → Z_i（精确ZFC侧规则／消费者） → Q_i（
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
-| 001 | [项目身份、来源分母与卡片](<HoTT创建动机反投影ZFC文献调查SOP/001 - 项目身份、来源分母与卡片.md>) | 项目边界、来源分类、R/Z/Q与H0传输卡、分母冻结 | current |
-| 002 | [标准调查流程与候选资格](<HoTT创建动机反投影ZFC文献调查SOP/002 - 标准调查流程与候选资格.md>) | 阶段化作业、原典调查、ZFC还原、模式P、消费者／标准防线与证据分级 | current |
+| 001 | [项目身份、来源分母与卡片](<HoTT创建动机反投影ZFC文献调查SOP/001 - 项目身份、来源分母与卡片.md>) | 项目边界、来源分类、R/Z/Q/E与H0传输卡、分母冻结 | current |
+| 002 | [标准调查流程与候选资格](<HoTT创建动机反投影ZFC文献调查SOP/002 - 标准调查流程与候选资格.md>) | 阶段化作业、原典调查、ZFC还原、现实任务桥、模式P、消费者／标准防线与证据分级 | current |
 | 003 | [档案、完成、恢复与停止](<HoTT创建动机反投影ZFC文献调查SOP/003 - 档案、完成、恢复与停止.md>) | archive layout、可复算清单、coverage、阶段结束、重开与 `/goal` 恢复词 | current |
 <!-- governance-shard-table:end -->

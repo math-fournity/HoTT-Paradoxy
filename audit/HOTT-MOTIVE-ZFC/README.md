@@ -50,6 +50,7 @@ SOURCE-CATALOG.md
 R-CARDS.md
 Z-CARDS.md
 Q-CARDS.md
+E-CARDS.md               # only when an E-source is central to the denominator
 CONSUMER-CONTROLS.md
 COVERAGE.md
 FINDINGS.md
