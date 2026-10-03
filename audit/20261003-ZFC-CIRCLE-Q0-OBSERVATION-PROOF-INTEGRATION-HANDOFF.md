@@ -7,8 +7,8 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate evidence head | `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` |
-| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification) |
+| candidate evidence head | `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` |
+| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
 | canonical target disposition | `dev` had unrelated dirty work, including uncommitted `ZFC-CIRCLE-Q1` / H081–H082; this relay does not alter it. |
@@ -29,6 +29,8 @@
 12. The current source-aligned Lean controls now contain both sides: named `limitOutcomeDone` and `finalStageDone` are non-equivalent for the geometric-sequence model, while a separate closed continuous-time model has a terminal parameter at which its trajectory is at the goal. An explicit `CompletionBridge` is the only formal positive transport rule from `formalDone` to `originDone`.
 13. H092 validates a published independent philosophical source (Bathfield 2018) that treats convergence/finite duration as insufficient by itself to settle sequential-act completion; it names no ZFC consumer and is recorded as an interpretive bridge diagnosis, not a theorem.
 14. H093 arbitrates IEP and Bathfield as `SOURCE_TASK_CONTRACT_DIVERGENCE`: IEP has an explicit natural-language Done replacement, but the frozen record has no common state domain and no named pointwise completion equivalence. `CompletionEquivalent` and its no-axiom Lean proof now state the exact evidence shape needed for same-task identity.
+15. `MP-ZFC-META-OBSERVATION-CONSISTENCY-001` formalizes the research initiator's new Zeno–HoTT proposal: full QProfiles explicitly contain O1–O5 plus payment/preservation; identical full profiles with `originalResolved` versus `bridgeRequired` judgments break Q-uniformity and the proposed O3–O5 adequacy policy. A coarse-Q countercontrol is included.
+16. H094 independently maps the frozen current Zeno and HoTT evidence into this model and returns `PROFILE_MATCH_NOT_YET_PROVED`; it preserves the conditional theorem but prevents premature actual-ZFC instantiation.
 
 ## What an integrator may accept
 
@@ -40,6 +42,7 @@
 - H087/H091 as an actual-source `Q_BRIDGE_CANDIDATE`: the source makes a ZFC-supported Standard Solution claim and explicitly replaces the last-step completion requirement, but it does not state a proof that the replacement preserves the stronger original process Done.
 - The P-DAG classification `ACTUAL_C_FOUND / SOURCE_DONE_REPLACEMENT_EXPLICIT / MODEL_PAYMENT_VISIBLE / FORMAL_NON_EQUIV_CONTROL_AVAILABLE / SAME_TASK_IDENTITY_NOT_PROVED` as a contributor candidate awaiting semantic integration.
 - The refined classification `INDEPENDENT_CRITICAL_BRIDGE_DIAGNOSIS / SOURCE_TASK_CONTRACT_DIVERGENCE / COMPLETION_EQUIVALENCE_EVIDENCE_CONDITION` as the current bounded research front.
+- The conditional policy result `SAME_FULL_Q + OPPOSITE_JUDGMENTS → ¬QUniform` and the candidate O1/O2-without-O3–O5 fixture, both with explicit actual-profile mapping obligations.
 
 ## What an integrator must not infer
 
@@ -48,6 +51,7 @@
 - H083/H084 do not locate a ZFC Q; H085 does not transmit H0 to Z0.
 - H087/H091 do not prove ZFC inconsistent, show that continuous-time endpoint arrival is impossible, or prove that IEP's revised completion condition is false. They identify a source-level task-replacement/identity question with an exact formal control.
 - H092/H093 do not resolve the source dispute, show that every continuous model changes the task, or establish a ZFC defect. They identify the exact missing common-domain equivalence bridge.
+- The meta-observation theorem does not assert that actual Zeno and HoTT share a full QProfile, that IEP makes an `originalResolved` rather than `revisedResolved` claim, or that ZFC has an object-language contradiction. H094 is current evidence for those gaps.
 - No file in this commit is an automatic update to canonical `HoTT/CLAIM_EVIDENCE_MATRIX.md`, `STATE.json`, `MEMORY`, `Feature`, `rulings`, or P-DAG current owners.
 - Do not cherry-pick over the dirty canonical worktree. Create a clean integration worktree from the then-current `dev`, re-evaluate the target delta, and semantically merge the reports with the current Q0/Q1 owner.
 
@@ -76,6 +80,10 @@ python3 -B HoTT/formal/zfc-observation-boundary/capture_geometric.py 20261003-MP
 python3 -B HoTT/formal/zfc-observation-boundary/capture_geometric.py 20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-04
   → KERNEL_ACCEPTED_WITH_DECLARED_AXIOMS_AND_SCOPE; exit 0; stderr empty
   → non-equivalence and closed-continuous-time endpoint positive controls included
+
+python3 -B HoTT/formal/zfc-observation-boundary/capture_meta_observation.py 20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-02
+  → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
+  → seven O1–O5/QProfile policy theorems have no axioms
 
 python3 -B HoTT/formal/astra-real-geometry/capture_structured.py 20260920-MP-ASTRA-STRUCTURED-CURVE-001-03
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
