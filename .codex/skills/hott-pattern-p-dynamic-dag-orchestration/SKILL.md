@@ -2,7 +2,7 @@
 name: hott-pattern-p-dynamic-dag-orchestration
 description: 在用户已授权的 P1/P2/P3 共同锻造中，按证据条件动态调度 Terra/Max worker、来源节点与有界 Battle；逐节点决定盲态、本地分支、网络原典和项目证据的可见性，Master 负责来源裁决与唯一写回。仅用于模式 P 的 ZFC/HoTT 重放，不自动启动研究或 worker。
 metadata:
-  version: "1.3.0"
+  version: "1.4.0"
   role: "task-scoped-orchestration"
   owner: "dev-docs/模式P动态DAG调度.md"
 ---
@@ -29,7 +29,7 @@ metadata:
 7. Master 以一手 source、保存运行、同一任务控制优先于代理一致性裁决；Master 自己的 claim 也必须接受独立质询；
 8. 对每个用于材料性判断的 App Server terminal node，在解释 output 前运行 `TrajectoryReceipt`：以当前 shared `session_trajectory.py` 对私有 direct wire 依次 `catalog → tree → filtered scan/search → 必要时 inspect/context → coverage`，记录 source view、thread/turn、tool/approval、terminal、private extract mode和 L1–L5 分层。没有 persisted rollout 时标 `PERSISTED_ROLLOUT_UNAVAILABLE / BIDIRECTIONAL_APP_SERVER_WIRE_AVAILABLE`，不能标“没有轨迹”；reasoning只可记 Host 输出的`summary`或`OPAQUE/UNAVAILABLE`，不得从最终文字反推。真实 envelope 被 reader 识别为`unknown`时标`TRAJECTORY_PARSER_COVERAGE_GAP`，隔离该节点的行为解释，先走 fixture→shared-reader repair→re-audit，不能绕过。
 9. 收集 prompt/source/output hash、模型/effort、权限、worker/session/turn 终态、TrajectoryReceipt和未知。只有 Master 写回 `模式P三把刀`、Feature、rulings、MEMORY 或其它 current owner。
-10. 在每个自然锻造单元运行 delta `SelfAuditCard`：把实际节点、控制、失败和工具修订对照原初 P 讨论，区分 `IDEA_SPEC_INCOMPLETE`、`EXECUTION_DEVIATION`、`RUNNER_OR_EVIDENCE_FAILURE`、`EXPECTED_CALIBRATION_FAILURE` 与 `ORIGINAL_IDEA_CHALLENGED`。创建／退休刀具、改变成功定义、跨 HoTT→ZFC 转移或用户要求时执行 full origin audit；方法和当前 owner 在 SOP 005 与 origin-audit 收据中。
+10. 在每个自然锻造单元运行 delta `SelfAuditCard`：把实际节点、控制、失败和工具修订对照原初 P 讨论，区分 `IDEA_SPEC_INCOMPLETE`、`EXECUTION_DEVIATION`、`RUNNER_OR_EVIDENCE_FAILURE`、`EXPECTED_CALIBRATION_FAILURE` 与 `ORIGINAL_IDEA_CHALLENGED`；还须写 `pattern-universe claim`，逐一尝试 P1/P2/P3 容纳，记录保持或扭曲的对象／过程／观察／Done，并裁定 `OLD_TOOL_FIELD_GAP`、`DERIVED_TOOL_CANDIDATE`、`UNCONTAINED_PATTERN_CANDIDATE` 或 `NOT_ENOUGH_EVIDENCE`。新刀具只在 [`模式P三把刀/012 - 新刀具出生与花纹宇宙合同.md`](../../../dev-docs/模式P三把刀/012%20-%20新刀具出生与花纹宇宙合同.md) 的 Tool-BirthCard、正负控制和 Git 谱系齐备后提出；创建／退休刀具、改变成功定义、跨 HoTT→ZFC 转移或用户要求时执行 full origin audit；方法和当前 owner 在 SOP 005 与 origin-audit 收据中。
 
 ## 访问与运行边界
 

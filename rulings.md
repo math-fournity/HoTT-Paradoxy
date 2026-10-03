@@ -566,3 +566,14 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 用户此前指出，Codex App Server 应启动在单独的目录中；本轮实际预检确认，仅创建独立`CODEX_HOME`不足以实现这个要求：若 experiment root 位于业务项目的子目录，cwd仍会沿父目录发现业务项目的`AGENTS.md`。
 
 执行裁定：每个盲态 App Server NodeCard 必须记录业务项目根与外部 experiment root 的不相交关系；run-scoped、安全、非 secret 的`CODEX_HOME/AGENTS.md`允许读取并在permission gate中正向核验，业务项目、method repo、auth、config、current home和网络仍拒读。项目内`private-audit/`只保存私有审计原件，不能作为盲态 worker 的运行根。H025/H026保留为预认证失败证据，H027的外部根重试只证明该一次运行链。
+
+## 2026-10-03：刀具花纹宇宙与新刀具出生必须先经容纳审计
+
+研究发起人补充：P1/P2/P3 随打造形成的“惯性系”可能限制其能够容纳的花纹宇宙。新刀可以从一把或多把旧刀派生，也可以是旧刀的花纹宇宙无法忠实容纳的新花纹；但创建新刀前必须认真论证，论证与验证进入 Git 谱系。研究发起人同时提出“忒修斯之船能否用于进攻 Power Set”作为这一出生审计的首个候选。
+
+执行裁定：
+
+1. 新花纹不得因名称新、现有输出不舒服、模型分歧或来源缺口自动成为 P4；先按 `Tool-BirthCard` 分别尝试 P1/P2/P3 映射，列出对象、过程、观察、Done 保持或扭曲的最小见证。
+2. 裁定只有四种：`OLD_TOOL_FIELD_GAP`、`DERIVED_TOOL_CANDIDATE`、`UNCONTAINED_PATTERN_CANDIDATE`、`NOT_ENOUGH_EVIDENCE`。只有第三种在独立判断职责、正控制、负控制、来源／worker计划与精确 Git 收据齐备后，才可提议新编号；派生工具不自动编号。
+3. 当前“忒修斯之船／历史身份—替换—provenance”只获得 `TOOL_BIRTH_RESEARCH_OPEN`：它必须先固定一个同一任务的 Power Set consumer，再判断它是P2的表示／等同层、P3的过程／完成层、P2×P3的派生结构，还是未被三刀容纳的新职责。不得因圆环、SIP或历史身份词汇相近就预先确定归属。
+4. P-DAG SOP 的每个自然单元加 `pattern-universe claim`；full origin audit新增可重算来源清单、Git谱系和出生审计。该裁定授权相应工具、审计、Feature、MEMORY与Git commit；不授权数学结论、无控制的新刀、tag、push或发布。
