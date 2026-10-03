@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/078 - H028 ZFC选择函数活跃义务与来源支付.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/078 - H028 ZFC选择函数活跃义务与来源支付.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/079 - H029 ZFC选择公理证明层门标签漂移.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/079 - H029 ZFC选择公理证明层门标签漂移.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 78 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 79 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=78 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=50`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=79 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=49`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -103,4 +103,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 076 | [H026 ZFC内模型来源祖先指令控制](<20261003-P-FORGE-ATOMIC-AUDIT/076 - H026 ZFC内模型来源祖先指令控制.md>) | `H026` | R04 ancestor-isolation retry | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 077 | [H027 ZFC内模型幂集受控来源匹配](<20261003-P-FORGE-ATOMIC-AUDIT/077 - H027 ZFC内模型幂集受控来源匹配.md>) | `H027` | R04 constructible-source match | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 078 | [H028 ZFC选择函数活跃义务与来源支付](<20261003-P-FORGE-ATOMIC-AUDIT/078 - H028 ZFC选择函数活跃义务与来源支付.md>) | `H028` | R04 AC0 active-demand/payment control | `IDEA_SPEC_INCOMPLETE_REPAIRED / Q_SAFETY_REPAIR_WITH_SCOPE` |
+| 079 | [H029 ZFC选择公理证明层门标签漂移](<20261003-P-FORGE-ATOMIC-AUDIT/079 - H029 ZFC选择公理证明层门标签漂移.md>) | `H029` | R04 proof-layer gate-label drift | `IDEA_SPEC_INCOMPLETE / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
