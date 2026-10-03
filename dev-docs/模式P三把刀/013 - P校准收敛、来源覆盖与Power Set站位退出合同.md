@@ -73,8 +73,9 @@ Next state / stop condition
 | `Q_CONVERGE` | 三刀同卡会合。 | 仅此时可登记 `Q-4 / ZFC_Q_LOCATED`。 |
 | `Q_REJECT` | 来源支付或 guard 关闭固定候选。 | 登记 `Q-R`，是有界发现而非失败。 |
 | `Q_SAFETY_REPAIR` | 修复能防止一张已冻结卡被误报为Q。 | 合法维护，但必须列被保护的卡和回归。 |
+| `Q_CAPABILITY_CALIBRATION` | 受控正负fixture验证P能辨认未来 Candidate-Q 的必要结构，并列出 Target-Q、消费它的真实 source card和停止条件。 | 发现能力增长；不改变特定理论卡的Q状态。 |
 
-没有上述联系的工具修改是`TOOL_ONLY_DRIFT`。它可作为一般运行维护存在，却不累计为 P-FORGE 的研究进展，
+`Q_CAPABILITY_CALIBRATION`不能取代真实来源：若没有被校准的P字段、成对controls、Target-Q、明确的下一真实source card和停止条件，它不成立。没有上述联系的工具修改是`TOOL_ONLY_DRIFT`。它可作为一般运行维护存在，却不累计为 P-FORGE 的研究进展，
 不得以它延后 Q 的重新定位、增加理论节点或宣称“正在逼近”。这条纪律把“锻刀”和“发现 Q”保持为同一个
 可审计过程，而不把刀具数量、prompt 数量或 guard 数量当作代理指标。
 

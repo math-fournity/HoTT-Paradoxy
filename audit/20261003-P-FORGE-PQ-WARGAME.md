@@ -20,5 +20,5 @@ soft_line_target: 300
 |---|---|---|---|
 | 001 | [审计合同、轮次分母与兵棋规则](<20261003-P-FORGE-PQ-WARGAME/001 - 审计合同、轮次分母与兵棋规则.md>) | 范围、轮次地图、共同卡、证据纪律、逐步写回规则 | current |
 | 002 | [R00 原初目标与锻造起点](<20261003-P-FORGE-PQ-WARGAME/002 - R00 原初目标与锻造起点.md>) | P 出现前的原初目标、P/Q关系与第一轮锻造的起点 | complete |
-| 003 | [R01 第一轮夹具与发现能力](<20261003-P-FORGE-PQ-WARGAME/003 - R01 第一轮夹具与发现能力.md>) | P1/P2/P3初始夹具、外部分类与其对Q发现能力的作用 | complete; method repair pending |
+| 003 | [R01 第一轮夹具与发现能力](<20261003-P-FORGE-PQ-WARGAME/003 - R01 第一轮夹具与发现能力.md>) | P1/P2/P3初始夹具、外部分类与其对Q发现能力的作用 | complete; `Q_CAPABILITY_CALIBRATION` repaired |
 <!-- governance-shard-table:end -->
