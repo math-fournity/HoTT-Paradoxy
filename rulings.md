@@ -707,3 +707,18 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 6. 当前“最终责任是否指向ZFC”保持`OPEN_ATTRIBUTION_HYPOTHESIS`。只有一份实际来源无支付地将具体`Done_formal`提升为固定原任务`Done_origin`，才可按同一卡讨论归因分布；若来源已改变Done、提供保持关系或没有LiftClaim，则它按范围成为反控制。下一动作仅为`SOURCE_LIFTCLAIM_CONSUMER_SEARCH`。
 
 本裁定授权用户primary、Q1候选卡、H081/H082节点与收据、P3-C字段、Feature/MEMORY/路线记录及精确Git提交；不授权修改STATE、Power Set站位切换、数学／物理结论、tag、push或发布。
+
+## 2026-10-03：以 HoTT 的完成 Q 检验 ZFC 时间观察完备性的候选判词
+
+用户原话的逐字source由`sources/prompts/Codex-ZFC-HoTT时间观察不完备-用户原文-20261003.md`拥有。用户提出：既有HoTT中发现的“不合理Q”可能是ZFC在时间维度观察力不完备的更强证据；最终判词也许应是“ZFC不是完全没有时间观察力，而是观察力不完备”。
+
+执行裁定：
+
+1. 用户提出的是一个有价值的**比较性归因假说**，命名为`ZFC-HOTT-Q2 / ZFC_TIME_OBSERVATION_INCOMPLETENESS_HYPOTHESIS`。它比较集合论模型／一致性验收的`Done_meta`与固定HoTT Q的`Done_Q`，不把HoTT Q直接写成ZFC形式矛盾或所有HoTT的现实结论。
+2. HoTT Q当前可用的证据链须保留三层：`QuestioningDelay`对固定`Type ℓ-zero`的形式`never/¬Halts`过程；H015–H018的source/process对应与用户A向UR判定；以及“该判定不是kernel对所有现实任务的证明”。三层不能由“ZFC放过HoTT”一句合并。
+3. HoTT Book关于set-theoretic model和Whitehead principle在set-built模型中“invisible”的文字，连同Kapulkin–Lumsdaine的单纯集模型／相对一致性结果，只能说明模型、抽象理论与其观察范围必须分层。Kapulkin–Lumsdaine的强度为`ZFC + two inaccessible cardinals`，不得缩写成bare ZFC无条件验收。
+4. H083的冻结来源匹配结果为`METATHEORETIC_SCOPE_CONTROL`：当前来源没有定义模型／一致性验收会消费Q的`C/I/O/Done`，也没有`Done_meta → Done_Q`或现实过程的LiftClaim。因此它不支持“ZFC已经被证明时间观察不完备”；它严格收紧了未来必须寻找的证据。
+5. `MetaAcceptance / ObservationFamily / VisibilityPolicy`目前不进入P3-C或新刀：它们缺来源定义的独立判断职责。Tool-Birth裁定为`NOT_ENOUGH_EVIDENCE`，不得以研究者自行设想的验收器替代真实source contract。
+6. 最终判词候选保持`HYPOTHESIS_UNTESTED`。其下一项仅为`SOURCE_ACCEPTANCE_CONTRACT_SEARCH`：冻结一份实际模型／一致性／基础验收来源的C/I/O/Done、它的`AdequacyLift`、它对固定Q的观察状态和Payment。来源若只完成形式模型、明确Q在域外或给出保持关系，按范围成为控制而不升级Q。
+
+本裁定授权Q2卡、H083 NodeCard/payload/report、P3/Feature/MEMORY/路线记录、session审计和精确Git提交；不授权新刀、STATE、Power Set站位、数学／物理结论、tag、push或发布。
