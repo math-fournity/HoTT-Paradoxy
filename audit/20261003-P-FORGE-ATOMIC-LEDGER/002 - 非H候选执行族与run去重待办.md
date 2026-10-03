@@ -56,7 +56,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N28 SOURCE-004 | `P-DAG-SOURCE-004` | pre-sampling connection-failure session `01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118` | `UNIQUE_ATOMIC_RUNS(1) / ATOMIC_AUDIT_COMPLETE` |
 | N29 SOURCE-005 | `20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md` | 一个Master direct-source control | `MASTER_EXECUTION_UNIT(1) / ATOMIC_AUDIT_COMPLETE` |
 | N30a runner-health-001 | `P-DAG-RUNNER-HEALTH-001` NodeCard | 只有预封存卡，未见执行收据 | `NODECARD_ONLY_NOT_COUNTED` |
-| N30b runner-isolation-002 | `P-DAG-RUNNER-ISOLATION-002-RESULT` | 实际空home认证执行，401发生在模型采样前；独立 prompt／empty-home receipt | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
+| N30b runner-isolation-002 | `P-DAG-RUNNER-ISOLATION-002-RESULT` | 实际空home认证执行，401发生在模型采样前；独立 prompt／empty-home receipt | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE` |
 | N30c isolation-003 | `CODEX-APPSERVER-ISOLATION-003` | prompt-input gate在auth前停止；run id `p-dag-appserver-health-003` 与 receipt 独立 | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
 | N30d isolation-004 | `CODEX-APPSERVER-ISOLATION-004` | exact direct-wire session `01a0fdd4-36a9-77e3-bd87-63a3d17077ee`，post-turn API不兼容 | `UNIQUE_ATOMIC_RUN` |
 | N30e isolation-005 | `CODEX-APPSERVER-ISOLATION-005` | exact direct-wire session `01a0fdd5-71bd-76c2-983e-d2b802ee8199`，zero-theory health通过；不是H008 discovery | `UNIQUE_ATOMIC_RUN` |
