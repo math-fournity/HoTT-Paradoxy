@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG P1：formation-origin 路径的自审与 H040–H042 范围校正（2026-10-03）](20261003-P-DAG-P1-FORMATION-ORIGIN-LANE-SELF-AUDIT.md)：原初用户要求从Power Set自身形成承诺导出Q；P1的L7保留formation义务，但H040 prompt将它编译为consumer-only，故H042的无候选被校正为窄范围结果并驱动D-L10F。
+
 - [P-DAG ZFC H043–H047：Gemini proof-search 草稿的 P1/P2/P3 层次差分（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-043-047-GEMINI-PROOFSEARCH-THREE-TOOL-DIFFERENTIAL-Terra-Max.md)：外部证明枚举不是ZFC consumer，代码／公式表示不是同一对象再入，循环／halt不是理论内准入状态；同时保留两个采样前profile-marker失败。
 
 - [P-DAG ZFC H035–H042：D-L10 平衡基础承诺画像与有界无候选（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-DISCOVERY-035-042-BALANCED-DL10-Terra-Max.md)：开放画像重识别全子对象；D-L10拒绝由存在断言发明checker；RepFun直接支付函数像；runner输出oracle修复经H042 fresh验证，得到六项画像内的`NO_MODEL_RECALL_CANDIDATE / DIRECT_PAYMENT_ONLY`。
