@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-FORGE Round 1：Power Set 防御账本汇总（2026-10-03）](20261003-P-FORGE-POWERSET-DEFENSE-LEDGER-ROUND1.md)：汇总 RK-0、rank、fixedpoint、class/set、formation和finite bridge 的版本固定 guard；本轮所有已检查卡的PS4均为空，停止重复guard叙述，并列出下一有效source ingress条件。
+
 - [P-DAG H073：P3-C 有限 Powerset ConstructionBridgeCard 回归（Terra / Max，2026-10-03）](20261003-P-DAG-H073-P3C-FINITE-CONSTRUCTION-BRIDGE-Terra-Max.md)：ZF `Pow`和Mathlib finite powerset共有subsethood模式，但有限`Finset` output无法成为任意ZF set的同一任务；这为P3新增跨解释的ConstructionBridgeCard，保留有限completion control并阻断错误外推。
 
 - [P-DAG H069–H072：有界 set formation 与形式 self-reference 的分叉校准（Terra / Max，2026-10-03）](20261003-P-DAG-H069-H072-BOUND-FORMATION-SELFREF-Terra-Max.md)：H069将给定domain／单值／subset限制确认为真实ZF formation guard；H071可在人工给定任务时盲态定位diagonal线索，H072一手来源则将其限为HF syntax/proof-theory与外部formalisation，未形成active Q或P3生命周期。
