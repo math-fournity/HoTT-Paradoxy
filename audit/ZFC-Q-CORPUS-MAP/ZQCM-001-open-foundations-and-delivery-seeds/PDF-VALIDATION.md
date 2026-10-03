@@ -1,6 +1,6 @@
 # ZQCM-001 PDF Validation
 
-> **状态：** TEN_WORK_FAMILIES_VALIDATED / ELEVEN_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
+> **状态：** ELEVEN_WORK_FAMILIES_VALIDATED / TWELVE_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
 
 | ACQ ID | 文件 | file/PDF | 页数 | 题名／作者核对 | SHA-256 | 版本判词 | 状态 |
 |---|---|---|---:|---|---|---|---|
@@ -15,7 +15,8 @@
 | ZQCM-ACQ-009 | originals/Altenkirch_2019_Naive_Type_Theory_….pdf | PDF 1.5 | 29 | metadata空白；首页题名、Thorsten Altenkirch、Nottingham affiliation和chapter summary与DOI chapter identity一致。 | `0a7373b12fb109c266254d21f7b775575d73b48e439cfa6b2740a83fcec3bd67` | AUTHOR_HOSTED_CHAPTER_VERSION_MATCH | VALIDATED |
 | ZQCM-ACQ-010 | originals/Maddy_2019_What_Do_We_Want_A_Foundation_To_Do_….pdf | PDF 1.7 | 18 | 首页chapter title、Penelope Maddy、Springer chapter DOI和页码293一致。 | `eb3c8aa6e95e5fcb289083d9a3af511578304e739b2a978a1f6fe0e1c7ddf3d5` | AUTHOR_HOSTED_CHAPTER_VERSION_MATCH | VALIDATED |
 | ZQCM-ACQ-011 | originals/Klev_2019_A_Comparison_of_Type_Theory_with_Set_Theory_….pdf | PDF 1.5 | 21 | 首页题名、Ansten Klev、ZFC范围说明、chapter身份和公开作者来源一致。 | `3c3555f3325f49857e92002dca14aa5e5343d54368daf81dbeffefefa5bb676e` | AUTHOR_HOSTED_PREPRINT_CHAPTER_MATCH | VALIDATED |
+| ZQCM-ACQ-013 | originals/Aczel_1978_Type_Theoretic_Interpretation_Constructive_Set_Theory.pdf | PDF 1.4 | 12 | metadata、首页题名／Peter Aczel／Logic Colloquium '77及pp.55–66与DOI `10.1016/S0049-237X(08)71989-X`一致。 | `4b6714c5fdcd262839ffd9c942f65c11be9cc7b84e1a3c4d59e83379bbe5d1b0` | INSTITUTIONAL_COURSE_COPY_PRIMARY_WORK_MATCH | VALIDATED |
 
-W-006尚未取得可验证PDF，故不在本表虚列为已验证作品。
+W-006、W-012和W-014尚未取得可验证PDF，故不在本表虚列为已验证作品。
 
 用户先提供了Downloads副本（终端受隐私限制无法读取），随后提供可读的`/Volumes/D/HoTT_AI_HANDOFF_20260911/外部资料/s10516-023-09676-0.pdf`。后者已作为上表的publisher version导入和验证；Downloads副本不再作为独立未验证语料项使用。

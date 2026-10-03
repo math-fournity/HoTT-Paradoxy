@@ -1,6 +1,6 @@
 # ZQCM-001 Work Families
 
-> **状态：** 十二个冻结／延展 work family；W-001–005、W-007–011的PDF已验证；W-006与W-012保留访问余项。
+> **状态：** 十四个冻结／延展 work family；W-001–005、W-007–011、W-013的PDF已验证；W-006、W-012与W-014保留全文余项。
 
 | Work ID | 版本／报告关系 | DOI／arXiv／书目身份 | 筛选状态 | Q 关系 |
 |---|---|---|---|---|
@@ -16,3 +16,5 @@
 | ZQCM-W-010 | W-006 chapter／W-005 direct backward reference；公开作者版本。 | DOI:10.1007/978-3-030-15655-8_13 | PDF_VALIDATED / REMOTE_DERIVATIVE_BLOCKED | foundation-criterion/control，尚未形成Q。 |
 | ZQCM-W-011 | W-006 direct comparison chapter；公开作者预印本。 | DOI:10.1007/978-3-030-15655-8_12 | PDF_VALIDATED / PARTIAL_SOURCE_PRECISION_SCREENED / REMOTE_DERIVATIVE_BLOCKED | ZFC scope／identity／functionhood来源，尚未形成Q。 |
 | ZQCM-W-012 | author-trace article；stage versus pure iterative set conception。 | DOI:10.1093/philmat/nkae018 | METADATA_ABSTRACT_VERIFIED / FULLTEXT_ACCESS_LIMITED | highest-priority time／formation seed，尚未形成Q。 |
+| ZQCM-W-013 | Logic Colloquium '77 original paper；CZF的类型论解释。 | DOI:10.1016/S0049-237X(08)71989-X；pp.55–66 | PDF_VALIDATED / SOURCE_ONLY_VISUAL_REVIEW_COMPLETE / REMOTE_DERIVATIVE_STALLED | CZF／Power Set／set-formation的primary control；不是ordinary ZFC Q。 |
+| ZQCM-W-014 | Review of Symbolic Logic article；potential hierarchy versus actual hierarchy。 | DOI:10.1017/S1755020313000014；pp.205–228 | METADATA_ABSTRACT_VERIFIED / FULLTEXT_NOT_ACQUIRED | potential／actual hierarchy source seed；尚未形成Q。 |

@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-003_ITERATIVE_SET_SEED / ACQUISITION_ACTIVE / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-005_ITERATIVE_SET_PRIMARY_AND_POTENTIAL_SEEDS / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -18,6 +18,24 @@
 
 本批不主张 ZFC 有矛盾、HoTT 有内部矛盾、P5 已命中或任何新的 ZFC Q。
 
+### 1.1 TaskDescriptor 与研究型 profile
+
+| 字段 | 当前值 |
+|---|---|
+| TaskDescriptor | `ZQCM-TD-001`；`RESEARCH_PROFILE_GOVERNED`。 |
+| 父结果 | 一份能由 P-FORGE、HOTT-MOTIVE-ZFC 和后续 ZFC Q 专项工作消费的、来源可追溯的语料与文献地图；不产生 ZFC Q 结论。 |
+| 为什么不是普通直接工作 | 已有跨 Session 的原件、版本族、access remainder、视觉／派生质量状态、引文边和反控制；新的一手原典或一项实际 consumer 会改变后续是否建立专门资格化卡，而摘要、作者动机或 OCR 误升级为 Q 的风险很高。 |
+| 当前活跃方向 | `ZQCM-DIR-ITERATIVE-FORMATION` 与 `ZQCM-DIR-IDENTITY-EXTENSIONALITY`；见下表。远程 MinerU 是质量支持通道，不是独立理论方向。 |
+| 持久 owner | 本 manifest 负责 profile／方向；`WORK-FAMILIES`、`ACQUISITION`、`PDF-VALIDATION`、`MINERU-DERIVATIVES`、`VISUAL-REVIEW`、`CITATION-NETWORK`、`COVERAGE-MAP`、`Q-LEADS` 各自拥有其事实；`MEMORY/001`只保留当前前沿。 |
+| 非目标 | 不新建研究数据库、图服务、后台监控、Host Goal、worktree、Sub Agent、数学 STATE 或自动 P-DAG。profile 本身不证明长期行为收益，保持 `RESEARCH_PROJECT_ADAPTIVE_BEHAVIOR_NOT_VERIFIED`。 |
+
+| direction_id | 状态／决定 | 最小判别行动 | 证据边界与停止／重开 |
+|---|---|---|---|
+| `ZQCM-DIR-ITERATIVE-FORMATION` | `ACTIVE`：判断“阶段／纯迭代／潜在层级”语料能否给出一个**固定的 ZFC formation 与实际 consumer**桥，还是只能提供构造性／哲学控制。 | 将 W-013 的可见原页事实与 W-012／W-014 的摘要级种子并列，寻找一个版本固定的 ZFC 侧 actual consumer；它必须保留同一对象、操作、观察和 Done。 | W-013 是 CZF／类型论解释，不等于 ZFC；W-012、W-014尚未获全文。若找不到保留同一任务的 ZFC consumer，停在 `CONTROL_OR_SEED_ONLY`；取得合法全文或实际 consumer 时重开。 |
+| `ZQCM-DIR-IDENTITY-EXTENSIONALITY` | `ACTIVE`：判断 W-011 的 extensionality／identity 位置是否能进入同一任务的 ZFC bridge，或应稳定为 type-theoretic comparison control。 | 找到一个实际 ZFC consumer，明确其 identity／extensionality 输入、输出和完成条件；先与现有 ETCS／同构／实际 consumer 控制比对。 | W-011 的现有关键论证在类型论 judgement 层，尚不是 ZFC Q。若实际 consumer直接支付该任务或只重述类型论比较，停止为 `SOURCE_PRECISION_GAIN_NOT_Q`；新增来源能固定未付同一任务时重开。 |
+
+`ZQCM-NET-005` 的 citation expansion 是 `PARKED`：它在任一活跃方向完成本轮 source screen，或出现新的直接作者／actual-consumer reference 后才重开，避免把“继续收集”本身误当作研究进展。
+
 ## 2. 冻结 work family
 
 | Work ID | 标题／身份 | 来源地图记录 | 首选获取路线 | 预期作用 |
@@ -34,6 +52,8 @@
 | ZQCM-W-010 | Penelope Maddy, *What Do We Want a Foundation to Do?*, DOI:10.1007/978-3-030-15655-8_13 | W-006 `V-CMP-04`; W-005 B-11 | author-hosted PDF | M-E foundation-criterion/control。 |
 | ZQCM-W-011 | Ansten Klev, *A Comparison of Type Theory with Set Theory*, DOI:10.1007/978-3-030-15655-8_12 | W-006 `V-CMP-03` | author-hosted preprint | M-A/M-E direct comparison／identity route。 |
 | ZQCM-W-012 | Ansten Klev, *The Purely Iterative Conception of Set*, DOI:10.1093/philmat/nkae018 | Klev author trace / PhilPapers metadata | author preprint / PhilArchive route | M-B/M-E stage／iterative-set route。 |
+| ZQCM-W-013 | Peter Aczel, *The Type Theoretic Interpretation of Constructive Set Theory*, 1978, DOI:10.1016/S0049-237X(08)71989-X | W-012／constructive-set bridge 的一手历史控制 | Cornell public course copy → DOI／publisher metadata cross-check | M-B/M-C：CZF、Power Set／subset collection、type-of-sets formation 与 explicit payment control。 |
+| ZQCM-W-014 | Øystein Linnebo, *The Potential Hierarchy of Sets*, 2013, DOI:10.1017/S1755020313000014 | Cambridge Core metadata／abstract | Cambridge official page → author／institutional open copy route | M-B/M-E potential／actual hierarchy source seed。 |
 
 ## 3. Inclusion and exclusion
 
@@ -60,3 +80,7 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-002 rationale.** W-011 is a volume chapter already mapped as `V-CMP-03`; an exact author-page query exposed a public 21-page preprint. Its abstract and introduction directly distinguish standard axiomatic set theory/ZFC, types, functions and identity. Acquisition admits it to source screening, not to Q.
 
 **Extension-003 rationale.** W-012 was exposed by the same author trace and directly differentiates stage formation from iterated set-of formation. Public metadata/abstract establishes a high-priority ZFC-time/formation source seed; both direct fetch and BrowserOS test-profile access hit security verification, so it is admitted only as an `UNAVAILABLE_FULLTEXT_SEED`, not as read evidence.
+
+**Extension-004 rationale.** W-013 is a publicly available 1978 primary source that W-012 explicitly uses as the relevant Aczel model lineage. It is admitted as a CZF／type-theoretic formation and Power Set control, after its Cornell course copy was cross-checked against the publisher DOI, opening page, pagination and hash. It is not a substitute for W-012 and does not create a ZFC Q.
+
+**Extension-005 rationale.** W-014 was found by an exact official Cambridge Core search. Its abstract directly frames the cumulative hierarchy as potential rather than actual and describes the resulting modal theory as equi-interpretable with ZF. No full PDF has been accepted, so it is a metadata／abstract seed only; its presence does not support page-level or Q claims.

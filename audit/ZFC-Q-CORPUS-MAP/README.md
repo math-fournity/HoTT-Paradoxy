@@ -16,7 +16,7 @@
 
 ## 当前状态
 
-首个 batch 已冻结：[ZQCM-001 open foundations and delivery seeds](ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)。它已扩展至10个直接work family，其中9个已有身份核验通过的PDF；W-005已完成原件级逐页视觉阅读并提取R-source与反控制。远程MinerU当前有两条失败收据，尚未产生可消费派生物；原件视觉阅读不会被误写成远程转换成功。尚无新Q、数学证明、P-DAG或worker活动。
+首个 batch 已冻结：[ZQCM-001 open foundations and delivery seeds](ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)。它现有14个 work family；其中11个已有身份核验通过的原件、共12个已验证 PDF 文件（W-005有作者版和期刊版两个报告版本）。W-005及W-013已完成原件级视觉阅读；W-013补入了 Aczel 1978 对 CZF、Power Set、类型论集合形成和 presentation 的一手控制。W-012、W-014仍只到可核的元数据／摘要级种子。远程MinerU当前没有可消费派生物；原件视觉阅读不会被误写成远程转换成功。尚无新Q、数学证明、P-DAG或worker活动。
 
 ## Batch registry
 
