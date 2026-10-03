@@ -16,7 +16,7 @@
 
 - [刀具系统理念](刀具系统理念.md)：从罗素的计算—存在—自指张力到 P1/P2/P3 的不同惯性，说明案例怎样校准、发现怎样进入来源验证、为何“锻刀”与 ZFC Q 的定位共同推进，以及新刀何时才有出生资格。P-DAG 新开、恢复或改刀职责时先从这里恢复工作意识；原始用户来源和逐段运行证据仍分别由 sources/rulings 和 full origin audit 拥有。
 
-- [P-FORGE-SOP：模式 P 刀具持续锻造、新刀具出生与全历史自审](模式P刀具持续锻造SOP.md)：用户可在后续 `/goal` 直接引用的总操作合同。它把持续打磨、Tool-BirthCard、理念—实作自审、全历史分母、`PowerSetDefenseLedger`、`CAL-0`至`CAL-4`校准、来源层与Power Set station审查，以及把每一锻绑定到Q的生成／收紧／桥接／淘汰／会合的`QConvergenceLink`串成一条流程；每一细节仍路由到已有的三刀、P-DAG 与审计 owner。
+- [P-FORGE-SOP：模式 P 刀具持续锻造、新刀具出生与全历史自审](模式P刀具持续锻造SOP.md)：用户可在后续 `/goal` 直接引用的总操作合同。它把持续打磨、Tool-BirthCard、理念—实作自审、全历史分母、`PowerSetDefenseLedger`、`CAL-0`至`CAL-4`校准、来源层与Power Set station审查，以及把每一锻绑定到Q的生成／收紧／桥接／淘汰／会合的`QConvergenceLink`串成一条流程；新增的`SourceBackflowGate`要求外部候选文献先经EvidenceEnvelope、R/Z/Q路线和I0--I4分流，只有I4才能提出ForgeIntent。每一细节仍路由到已有的三刀、P-DAG 与审计 owner。
 
 - [P-FORGE-ATOMIC-AUDIT-SOP：模式 P 原子锻打全量审计](模式P原子锻打全量审计SOP.md)：对“锻刀＝发现 Q”的历史过程做逐原子、来源受限的兵棋审计。它将审计卡、粗自然单元、H 节点、non-H session/run、无 ID 执行和 Master 决策分开，先冻结精确分母，再逐卡重放、去重、写回与提交；不能用 R00--R14 的宏观综合代替实际锻打的全量审计。未来 `/goal` 可直接引用稳定名 `P-FORGE-ATOMIC-AUDIT-SOP`；该 SOP 不会自行恢复已暂停的 Goal 或启动新理论节点。
 

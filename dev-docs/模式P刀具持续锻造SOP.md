@@ -2,12 +2,12 @@
 logical_id: PATTERN_P_CONTINUOUS_FORGE_SOP
 mode: topical
 shard_root: 模式P刀具持续锻造SOP
-last_shard: 模式P刀具持续锻造SOP/001 - 操作合同、检查维度与幂集防御账本.md
+last_shard: 模式P刀具持续锻造SOP/002 - 文献来源回流门与系统影响.md
 append_target: -
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 1 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 2 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE-SOP：模式 P 刀具持续锻造、新刀具出生与全历史自审
 
@@ -25,4 +25,5 @@ soft_line_target: 300
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
 | 001 | [操作合同、检查维度与幂集防御账本](<模式P刀具持续锻造SOP/001 - 操作合同、检查维度与幂集防御账本.md>) | 代码块逐项覆盖、阶段流程、`QConvergenceLink`、检查维度、`PowerSetDefenseLedger`、写回与 Git 合同、可引用启动句 | current |
+| 002 | [文献来源回流门与系统影响](<模式P刀具持续锻造SOP/002 - 文献来源回流门与系统影响.md>) | 外部候选来源的 EvidenceEnvelope、I0--I4 分流、ForgeIntent 准入、三刀和站位影响 | current |
 <!-- governance-shard-table:end -->

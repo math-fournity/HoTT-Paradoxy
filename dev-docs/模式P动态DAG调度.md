@@ -21,6 +21,8 @@ soft_line_target: 300
 
 用户若在 `/goal` 中引用 `P-FORGE-SOP`，或要求连续锻造、新刀出生、全历史自审／对照和 Power Set 防御审查，先完整读 [P-FORGE-SOP](<模式P刀具持续锻造SOP.md>)。它协调本 SOP、三刀、full audit 与 Git 写回，要求每个节点以 `QConvergenceLink` 说明其怎样让固定Q卡生成、收紧、桥接、淘汰、会合或免于误报；新增的 `PowerSetDefenseLedger` 让任何“超越 Power Set 的罗素防御”候选先面对具体来源 guard；它不替代本 SOP 的逐节点授权。用户若明确引用 `P-FORGE-ATOMIC-AUDIT-SOP`，还须完整读 [模式 P 原子锻打全量审计 SOP](<模式P原子锻打全量审计SOP.md>)：它先分开审计卡、粗自然单元和实际运行分母，再进行逐单位历史重放；在 A0--A3 审计中不得因该引用启动新的理论 worker。
 
+当外部候选 worktree、文献调查或来源综合被拿来改变 P-FORGE 的任何判断时，先完成 [路线级文献回流审计 SOP](<P-FORGE路线级文献回流审计SOP.md>) 的 B0--B3：candidate-only I0/I1不能生成TaskCard，I2/I3须经CURRENT_EVIDENCE，只有I4才可成为新的ForgeIntent入口。该门不会把文献调用变成一般worker授权。
+
 ## 适用范围
 
 本文件仅服务于模式 P 的共同锻造：当前是 ZFC Power Set 线与将来的 HoTT 盲重放。用户 2026-10-02 已明确允许 Master 按节点需要启动 Terra / Max 代理，也明确允许某些节点阅读项目 `dev`／`main`／其它分支或联网，而另一些节点必须保持盲态。每一个节点仍须由 Master 给出精确输入、权限、验收、停止和递归禁止；这不是无限代理授权。

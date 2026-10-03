@@ -6,6 +6,8 @@
 
 - [P-FORGE 路线级文献回流审计 SOP：首次设计自审（2026-10-03）](20261003-P-FORGE-LITERATURE-BACKFLOW-SOP-SELF-AUDIT.md)：审计新的回流 SOP 是否把文献路线与 P/Q 共同锻造、R/Z/Q/H0/Z0 分层、候选 worktree 边界、支付/route/同一任务控制和 B0--B5 checklist 真实编译为执行合同。它的结论只覆盖计划设计；候选文献冻结、integration 与实际文献回流尚未开始。
 
+- [P-FORGE：原子锻打历史与文献回流的系统影响（2026-10-03）](20261003-P-FORGE-历史与文献回流系统影响.md)：说明历史原子审计怎样把“锻刀＝固定Q的状态变化”编译为D13/QConvergenceLink，文献回流怎样把外部来源改为SourceBackflowGate，并列出对三把刀、CAL、SourceLayerCoverageMatrix、Power Set station和未来ForgeIntent的实际影响与未改变事项。
+
 - [P-FORGE 路线级文献回流审计：LEB-20261003-002（2026-10-03，候选范围完成）](20261003-P-FORGE-LITERATURE-BACKFLOW.md)：对候选 ref 的两个固定 commit 做 B0--B5 回流，最终冻结 LEB-20261003-002，9 条路线均完成 RB-D01--RB-D16 卡和影响分流。结果是 I0=2、I1=7、I2/I3/I4=0、零 Candidate-Q、零 ForgeIntent、零 current-owner mutation；它精化来源前沿，不集成候选分支，也不改变 `ZFC_SITE_SELECTED / Q-0 UNFORMED / ZFC_Q_NOT_LOCATED` 的 current 范围。
 
 - [P-FORGE：P/Q 共同涌现与收敛的路线重对齐（2026-10-03）](20261003-P-FORGE-Q-EMERGENCE-CONVERGENCE-REALIGNMENT.md)：把“锻刀＝发现Q”的研究不变量编译为`QConvergenceLink`；区分Q的生成、收紧、桥接、淘汰、会合和有界的`Q_SAFETY_REPAIR`，排除没有Q关联的`TOOL_ONLY_DRIFT`。

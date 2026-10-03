@@ -13,6 +13,10 @@ metadata:
 
 用户要求用多个 worker 分别使用 P1、P2、P3，要求 Battle，或要求 Master 为模式 P 的 ZFC／HoTT 共同锻造按节点决定项目、分支与网络访问时使用。先完成全局 `repo-cognitive-closure`，再按逻辑文档规则完整读取 [刀具系统理念](../../../dev-docs/刀具系统理念.md) 与 [动态 DAG SOP](../../../dev-docs/模式P动态DAG调度.md)。理念图先恢复“这次节点保护什么原初发现动作”；SOP 再冻结可执行的 TaskCard、NodeCard 和证据边界。用户引用 `P-FORGE-SOP`、要求连续锻造／新刀／全历史自审，或要求以Power Set的罗素防御作约束时，还要完整读 [P-FORGE-SOP](../../../dev-docs/模式P刀具持续锻造SOP.md)。用户引用 `P-FORGE-ATOMIC-AUDIT-SOP` 时，还要完整读 [模式 P 原子锻打全量审计 SOP](../../../dev-docs/模式P原子锻打全量审计SOP.md)，先完成 A0 分母冻结，再逐单位审计；这个审计引用不自动启动新的理论 worker。它不因文件存在而自动启动任何数学研究、App Server、CLI worker、网络请求或 Git 写入。
 
+### 外部来源回流前置
+
+若计划把候选 worktree、文献调查 archive、来源综合或其它外部来源包用于改变 P-FORGE 的 source frontier、Power Set station、P1/P2/P3字段或既有候选，先完整读 [P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP](../../../dev-docs/P-FORGE路线级文献回流审计SOP.md)，并完成相称的 B0--B3。`LiteratureEvidenceEnvelope` 与 `RouteBackflowCard` 是新 TaskCard 的上游证据，不是 worker prompt 的额外语料：candidate-only 的 I0/I1 只更新来源前沿，I2/I3先需CURRENT_EVIDENCE，只有 I4 才允许提出 ForgeIntent候选。没有该门的外部文献不得直接进入 TaskCard、NodeCard、Battle或worker source pack。
+
 ## 当前授权与范围
 
 本项目中原有的 blanket Sub Agent 禁令只在本 Skill 所指的 `P-DAG` 任务上被用户 2026-10-02 的动态 DAG 指令替代。每个实际 worker 仍固定为 `gpt-5.6-terra` / `max`、只读、无递归、无 Git/current-owner 写权；不使用 native `spawn_agent` 的非 Terra profile 作为替代。默认一轮至多三名并行 worker；Battle 节点按依赖串行，新的 source 或 Battle 节点必须由明确 gap 触发。

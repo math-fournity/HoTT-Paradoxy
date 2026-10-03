@@ -95,6 +95,8 @@ Next state / stop condition
 
 `L-A`到`L-E`不是“越外层越真”的等级。它们是不同证据责任。每个 candidate 必须声明它需要哪些层；缺层时保持 gap，不能用已经覆盖的层补写。
 
+外部候选文献或工作树不能直接把一格从 GAP 改为 COVERED：先经 `SourceBackflowGate` 冻结 EvidenceEnvelope，并按 I0--I4处置。candidate-only 的 I0/I1只记录“来源前沿已精化”；只有已接受为 current evidence 的 I2/I3 才能改当前 coverage，I4仍只允许提出 ForgeIntent，不能代替CAL或Q会合。
+
 ## 4. Power Set 站位状态机
 
 ### 4.1 Round 停止
