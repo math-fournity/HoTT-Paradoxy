@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/086 - H036 ZFC封闭菜单选择子关系候选.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/086 - H036 ZFC封闭菜单选择子关系候选.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/087 - H037 ZFC选择子关系父问题来源不匹配.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/087 - H037 ZFC选择子关系父问题来源不匹配.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 86 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 87 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -111,4 +111,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 084 | [H034 ZFC佐恩引理归纳闭包P1消费缺口](<20261003-P-FORGE-ATOMIC-AUDIT/084 - H034 ZFC佐恩引理归纳闭包P1消费缺口.md>) | `H034` | R04 Zorn/TFin P1 consumer gap | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 085 | [H035 ZFC开放画像重识别全子对象形成](<20261003-P-FORGE-ATOMIC-AUDIT/085 - H035 ZFC开放画像重识别全子对象形成.md>) | `H035` | R05 open-profile reidentification | `CALIBRATION / OUTPUT_CONTRACT_FAILURE` |
 | 086 | [H036 ZFC封闭菜单选择子关系候选](<20261003-P-FORGE-ATOMIC-AUDIT/086 - H036 ZFC封闭菜单选择子关系候选.md>) | `H036` | R05 conditional selector candidate | `IDEA_SPEC_INCOMPLETE / Q_SAFETY_REPAIR` |
+| 087 | [H037 ZFC选择子关系父问题来源不匹配](<20261003-P-FORGE-ATOMIC-AUDIT/087 - H037 ZFC选择子关系父问题来源不匹配.md>) | `H037` | R05 selector-parent source mismatch | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 <!-- governance-shard-table:end -->
