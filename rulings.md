@@ -643,3 +643,14 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 审计优先覆盖模式P形成、P1/P2/P3 fixtures、实际source controls、HoTT replay、Power Set来源与guard、Tool-Birth、P3-C、reflection/CAL以及P/Q修订；纯发布、翻译、归档和不构成自然锻造单元的提交不进入分母。
 4. 每封存一轮后，才可开始下一轮；阶段性总综合只能在所有列入轮次完成后进行。任何新规格缺口可以精确修复并提交，但前序轮次仍按其当时的证据范围保留。
 5. 本裁定授权audit campaign、必要的当前Feature／MEMORY／审计索引和精确Git commit；不恢复暂停的Goal，不启动新的理论worker／网络节点，不改变数学STATE或理论结论。
+
+## 2026-10-03：HoTT创建动机可以反投影为 ZFC 候选入口，但不直接构成 ZFC Q
+
+研究发起人提出：HoTT 的发明者在已有 ZFC／集合论基础下仍认为有必要建立 HoTT 的理由 `R1,R2,R3,…`，可以作为寻找 ZFC 候选 `Q1,Q2,Q3,…` 的线索；既有 HoTT 现象 `H0` 也可引出“在 ZFC 中的对应物 `Z0` 是否存在”的问题，进而审视 `Q0=H0(Z0)`。
+
+执行裁定：
+
+1. 建立 `MOTIVATION_BACKPROJECTION_SEED` 路线：每一项必须经过 `R_i（原典动机）→ Z_i（具体 ZFC 规则／代价／消费者）→ Q_i（经模式 P 资格化的同一任务候选）`。作者的动机不是 ZFC 错误或矛盾的证据。
+2. `H0→Z0→Q0` 是严格的传输问题，不是类比结论。只有当 ZFC 侧保持理论内对象、formation、同一任务、未支付完成追问、P2/P3形状和正反控制时，才可形成 `Q0`；否则应登记为 `ANTI_ANALOGY_CONTROL`。
+3. 结构同一性／同构、构造性与机器实现、高阶对象的直接表达等是首批来源种子；其中结构同一性路线必须先消费现有 ETCS／Mumford／Mathlib 控制，不能把“代表的自然选择”偷偷代入普通选择任务。
+4. 本裁定只授权路线图、rulings、Feature、MEMORY与精确 Git 谱系的记录；不恢复暂停的 P-FORGE、不启动 worker／网络节点、不切换 Power Set station、不创建 Goal／STATE candidate、不主张 ZFC 的数学问题已经定位。
