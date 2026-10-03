@@ -283,6 +283,29 @@ T2–T6 提供的是数学证明交付、持续维护认知材料、AI 工作移
 
 0000/S01[1] archive crosswalk 候选及 SelfAuditCard 由当前 contributor commit `bfcb374e7eb1354db0ec567688d2687c26a3f460` 精确记录；只涉及本报告与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。原始 archive、S01 source、full-origin owners、STATE/投影和其它 worktree 均未改动；此 OID 保存的是候选证据，不代表 current owner 已集成。
 
-### 16.3 精确 Git 收据
+## 17. 0047／0058／0066／0068：secondary quote memo 的原始来源边界
 
-0000/S01[1] archive crosswalk 候选及 SelfAuditCard 由当前 contributor commit `bfcb374e7eb1354db0ec567688d2687c26a3f460` 精确记录；只涉及本报告与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。原始 archive、S01 source、full-origin owners、STATE/投影和其它 worktree 均未改动；此 OID 保存的是候选证据，不代表 current owner 已集成。
+### 17.1 文件身份与来源类型
+
+这四份 `dev-notes` 都是 AI 写成的“用户陈述/提问 + AI 裁定/回复”备忘录，不是 `conversation-archive-turn` 原始 archive：没有 session id、turn id、prompt hash 或 answer hash 字段。各自当前字节身份如下：
+
+| Memo | SHA-256 | 字节 / LF 行 / mode | 引文正文长度 | provisional status |
+|---|---|---:|---:|---|
+| `dev-notes/0047 - 用户对击落思路本质认知的裁定` | `722c65edaa5ec869828c66235ee5da058506076a2234ed158973dd28217f9052` | 2,498 / 32 / `0644` | 308 | `SECONDARY_QUOTE / PRIMARY_EVENT_UNRESOLVED` |
+| `dev-notes/0058 - 芝诺复活论点裁定（用户哲学核心精化）` | `35f143886f6803de11d133fd966e516fc0e3a6b53e116bffc5dc1aba790b9c57` | 3,112 / 40 / `0644` | 142 | `SECONDARY_QUOTE / PRIMARY_EVENT_UNRESOLVED` |
+| `dev-notes/0066 - 是否宣判HoTT中找不到非现实元素` | `0e0db7ac667efa5ff792cd5fe5f7ebbd5048db4632d661a9e911a1bec8cbe58b` | 1,310 / 22 / `0644` | 107 | `SECONDARY_QUOTE / PARTIAL_SOURCE_OVERLAP / EVENT_ID_UNKNOWN` |
+| `dev-notes/0068 - 创建者维护者认知分层裁定` | `b6c0e5b9162f4690aea833a54b31a043e86644675bd48590253a859ea55540a5` | 2,128 / 32 / `0644` | 56 | `SECONDARY_QUOTE / PARTIAL_SOURCE_OVERLAP / EVENT_ID_UNKNOWN` |
+
+### 17.2 当前本地可核对的内容关系
+
+我从四份 memo 的 “用户陈述/提问” 引文块提取可见正文，并在当前 checkout 的 413 个 `dev-notes` archive user-prompt blocks 与 `sources/**/*.md` 的 932 份 Markdown 文件中比对规范化全文。四段 memo 引文都没有与 archive prompt 或 source Markdown 构成全文相等／包含关系；其中 0066、0068 的若干句首片段出现在 `sources/prompts/Codex-ABX行动-用户指令与GLM背景-20260921.md`（文件 SHA-256 `9ab5669a9ffd676e8275885c75c9f926febfe05003bbdde705c061d9d45a573a`，209 LF lines）中，但并未建立 memo quote 到原始 event 的完整逐字 crosswalk。它只支持 `PHRASE_FRAGMENT_MATCH / EVENT_ID_UNKNOWN`，不能据此合并事件。
+
+对这四个精确路径查询 full-origin audit index 与 shards 001–006，没有显式 memo/source disposition。当前 checkout 中 `AI对话录/` 路径不存在；这只说明本 worktree 没有该目录，不证明其它存储位置或原始 Host source 不存在，也不授权去读取此前 worktree。0047、0058 的 primary event 目前没有在已检查的 local `dev-notes` archive 或 `sources` 中找到；0066、0068 有相邻 ABX prompt 片段，但 source/event 身份仍未落到 native turn。
+
+### 17.3 对 P 历史分母的建议
+
+这些 memo 应作为 `SECONDARY_QUOTE_LEADS / NOT_PRIMARY_EVENT_ROWS` 留在历史材料层。0047 提供对第一弹 M/N／现实同一性的回顾，0058 提供“圆环复活芝诺”读法，0066 与 0068 记录理论元素与社区知情层级的 AI 阐释；它们可以提示应回找哪类原始消息，不能直接证明用户在某个 native turn 中说过这些完整句子，也不能把 AI 裁定作为 P 的正确规格或数学事实。
+
+建议 canonical integrator 后续对四份 memo 明确登记：0047、0058 的 quoted-event identity 未恢复；0066、0068 为 ABX 原文中的相关片段候选，但 full memo body 与事件 marker 未逐字锁定；全部四份均不加为新的 raw archive event 或 direct P-spec unit。若后续在获准的同一 source tree 中找到 primary prompt／message-id crosswalk，则以它更新映射；在此之前保留 `UNKNOWN`，不填补历史空白。
+
+本轮没有产生新 pattern、Tool-BirthCard、P1/P2/P3 同任务 candidate、ZFC Q、HoTT 数学结论或网络/worker run。它减少的是历史证据分类的不确定性：现在可区分 raw archive、primary user-source extraction 和 AI-authored quote memo 三种来源等级；full-origin 001–006 仍未改动。

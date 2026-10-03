@@ -181,3 +181,15 @@ Full-origin owner 001–006 已包含 S01，但没有 0000 archive disposition�
 ## 0000 精确 Git 收据
 
 commit `bfcb374e7eb1354db0ec567688d2687c26a3f460` 精确记录 0000/S01[1] 内容 crosswalk 与 archive event dispositions 候选，只含 contributor report 和本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径；源归档与 current owners 未改。
+
+## 0047／0058／0066／0068 secondary quote memos
+
+本轮核对了 4 份 AI-authored memo：它们各自有用户引文和 AI 裁定/回复，但没有 `conversation-archive-turn` marker、session ID、turn ID 或 prompt/answer SHA。将引文正文与当前 413 个本地 archive prompt blocks、932 个 `sources/**/*.md` 文件作规范化全文匹配，未发现完整 quote body 的 exact/substring match；0066/0068 的若干 phrase fragment 在 ABX primary prompt 中出现，仍不足以确立事件身份。`AI对话录/` 目录不在此 worktree；不访问先前 worktree/其它路径来补齐它。
+
+将四份 memo 保留为 `SECONDARY_QUOTE_LEADS / PRIMARY_EVENT_CROSSWALK_UNRESOLVED`：0066/0068 的内容需按部分文本关联但 native identity UNKNOWN；0047/0058 仍无已识别的 primary path。未把它们计为 direct P spec 或数学事实；full-origin owners 001–006 未改。详见 report §17 / SelfAudit；下一步若没有获准 primary source，新方向不应继续围绕这四份二手 memo 展开，应回 P1/P2/P3 same-task tool work。
+
+## 0047／0058／0066／0068 secondary quote memos
+
+本轮核对了 4 份 AI-authored memo：它们各自有用户引文和 AI 裁定/回复，但没有 `conversation-archive-turn` marker、session ID、turn ID 或 prompt/answer SHA。将引文正文与当前 413 个本地 archive prompt blocks、932 个 `sources/**/*.md` 文件作规范化全文匹配，未发现完整 quote body 的 exact/substring match；0066/0068 的若干 phrase fragment 在 ABX primary prompt 中出现，仍不足以确立事件身份。`AI对话录/` 目录不在此 worktree；不访问先前 worktree/其它路径来补齐它。
+
+将四份 memo 保留为 `SECONDARY_QUOTE_LEADS / PRIMARY_EVENT_CROSSWALK_UNRESOLVED`：0066/0068 的内容需按部分文本关联但 native identity UNKNOWN；0047/0058 仍无已识别的 primary path。未把它们计为 direct P spec 或数学事实；full-origin owners 001–006 未改。详见 report §17 / SelfAudit；下一步若没有获准 primary source，新方向不应继续围绕这四份二手 memo 展开，应回 P1/P2/P3 same-task tool work。
