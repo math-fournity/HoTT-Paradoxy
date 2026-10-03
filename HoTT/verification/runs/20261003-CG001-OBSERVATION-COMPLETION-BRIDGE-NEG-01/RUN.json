@@ -1,0 +1,86 @@
+{
+  "agda_error_tag": "UnequalSorts",
+  "audit_notes": [
+    "Expected type-checking rejection exposes the failed identity demanded by a purported uniform restoration."
+  ],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-84"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/observation-completion-bridge",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/observation-completion-bridge/WrongObservationCompletionBridge.agda"
+  ],
+  "completed_at_utc": "2026-10-03T22:47:21.325516+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 90.050776,
+  "environment": {
+    "bytes": 1069,
+    "path": "environment.txt",
+    "sha256": "cbd00f4009170502115509a2ffa5d4e2bfe33c49ee7417faaec278fddee5b49f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/observation-completion-bridge/WrongObservationCompletionBridge.agda:13.30-41: error: [UnequalSorts]\nType₁ != Type\nwhen checking that the expression Type ℓ-zero has type Type",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/observation-completion-bridge",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "A rejection of this constant term is not a proof that every possible decoder proposal has been independently enumerated.",
+    "Does not formalize ZFC or prove an observation-completeness conclusion."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-OBSERVATION-COMPLETION-BRIDGE-NEG-001",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20261003-CG001-OBSERVATION-COMPLETION-BRIDGE-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-84: a constant attempted section from the truncated universe cannot establish restoration of each original universe element.",
+  "source_manifest": {
+    "bytes": 3185,
+    "path": "source-manifest.json",
+    "sha256": "4079d2e552fcfd45197a1eee8ebd1efb869cd869c40ab4f1a92686b808f4e720"
+  },
+  "started_at_utc": "2026-10-03T22:45:51.274740+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29999,
+    "path": "stdout.txt",
+    "sha256": "dce70e7671fc925318f50fc842a9e464365af021b92ab407a10c891cb367563f"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

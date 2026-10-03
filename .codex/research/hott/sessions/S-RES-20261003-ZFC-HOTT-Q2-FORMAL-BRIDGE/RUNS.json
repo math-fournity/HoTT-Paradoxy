@@ -1,0 +1,36 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261003-ZFC-HOTT-Q2-FORMAL-BRIDGE",
+  "tier": "T3",
+  "role": "RESEARCH_GENERATION",
+  "status": "C357_KERNEL_ACCEPTED_WITH_SCOPE_INDEXED_Q2_FORMAL_CONTROL",
+  "formal_runs": [
+    {
+      "run_id": "20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02",
+      "proof_id": "MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+      "claim_ids": ["C-357"],
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "verifier": "scripts/audit/verify_formal_proof_run.py => PASS_WITH_SCOPE / --rerun => EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "closure": "verify_proof_version_closure.py --proof-id ... --evidence-only => LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED"
+    },
+    {
+      "run_id": "20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-02",
+      "proof_id": "MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001",
+      "claim_ids": ["C-357"],
+      "status": "KERNEL_REJECTED / TYPE_CHECKING / Bool != A",
+      "role": "negative control"
+    }
+  ],
+  "preserved_preliminary_runs": [
+    "20261003-CG001-OBSERVATION-COMPLETION-BRIDGE-01",
+    "20261003-CG001-OBSERVATION-COMPLETION-BRIDGE-02",
+    "20261003-CG001-OBSERVATION-COMPLETION-BRIDGE-03",
+    "20261003-CG001-OBSERVATION-COMPLETION-BRIDGE-NEG-01",
+    "20261003-CG001-OBSERVATION-COMPLETION-BRIDGE-NEG-02"
+  ],
+  "non_goals": [
+    "No formalization of ZFC, simplicial models or AcceptanceContract.",
+    "No proof of ZFC time-observation incompleteness, HoTT inconsistency, truncation error or UR reality correspondence.",
+    "No update to STATE, Power Set station or new blade."
+  ]
+}

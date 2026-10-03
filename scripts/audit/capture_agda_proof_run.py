@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Run one pinned Cubical Agda proof and persist an immutable F-011 receipt."""
+"""Run one pinned Cubical Agda proof and persist an immutable F-011 receipt.
+
+The source directory is always an import root.  A proof that deliberately
+reuses local modules with independent historical directories can additionally
+declare project-relative ``--include-root`` entries.  They are recorded in the
+captured command, while every actual local source dependency remains pinned by
+an explicit ``--manifest-file`` entry.
+"""
 from __future__ import annotations
 
 import argparse
@@ -87,6 +94,15 @@ def main() -> int:
     parser.add_argument("--source", required=True)
     parser.add_argument("--toolchain", required=True)
     parser.add_argument("--manifest-file", action="append", default=[])
+    parser.add_argument(
+        "--include-root",
+        action="append",
+        default=[],
+        help=(
+            "additional project-relative Agda import directory; repeatable. "
+            "The source directory remains the first import root."
+        ),
+    )
     parser.add_argument("--scope", required=True)
     parser.add_argument("--non-goal", action="append", default=[])
     args = parser.parse_args()
@@ -152,8 +168,7 @@ def main() -> int:
     # -i root = 命名空间首段之前的目录，否则 ModuleNameDoesntMatchFileName。
     # 兼容两种布局：无子目录（root=父目录，历史行为不变）；有子目录
     # （模块路径 A/B/C.agda，root=声明根）。判定依据 = 模块名与相对路径的一致性。
-    module_path_guess = source_parent
-    include_root = source_parent
+    default_include_root = source_parent
     src_text = (root / source).read_text(encoding="utf-8", errors="replace")
     import re as _re
     m_mod = _re.search(r"^module\s+([A-Za-z0-9_.-]+)", src_text, _re.M)
@@ -167,7 +182,16 @@ def main() -> int:
             root_parts = list(source.with_suffix("").parts)
             trim = len(root_parts) - len(declared_parts)
             if trim > 0:
-                include_root = str(root / Path(*root_parts[:trim]))
+                default_include_root = root / Path(*root_parts[:trim])
+
+    include_roots = [default_include_root]
+    for value in args.include_root:
+        relative = safe_relative(value)
+        candidate = root / relative
+        if not candidate.is_dir() or candidate.is_symlink():
+            raise CaptureError(f"INCLUDE_ROOT_NOT_DIRECTORY_OR_SYMLINK:{relative.as_posix()}")
+        if candidate not in include_roots:
+            include_roots.append(candidate)
     env_command = [
         "/usr/bin/env",
         f"XDG_DATA_HOME={cache['xdg_data_home']}",
@@ -177,9 +201,10 @@ def main() -> int:
         "--ignore-interfaces",
         f"--library-file={root / library_registry}",
         "-l", f"cubical-{cubical['version']}",
-        "-i", include_root,
-        source.as_posix(),
     ]
+    for include_root in include_roots:
+        env_command.extend(["-i", str(include_root)])
+    env_command.append(source.as_posix())
     version_command = env_command[:4] + [str(agda_binary), "--version"]
     version = subprocess.run(version_command, cwd=root, capture_output=True, check=False)
     if version.returncode != 0:

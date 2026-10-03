@@ -89,6 +89,8 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20260915-MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001-01` | `MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001` / `C-239`–`C-243` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | ITT regular replacement→False、degenerate QIT replacement、DFib+Trans→RFib、motive/emptyctx assumptions；Coq 8.13.2 exact replay；完整 Model_structure 不在范围 |
 | `20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01` | `MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001` / `C-244`–`C-249` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | `csl@cd7d849` 807-file archive fresh build；一般 formal-system essential incompleteness、EPFμ→CTQ 与 Robinson Q 条件独立句；1,284 stable artifacts + theorem/assumption probe exact replay；first-order R3，不外推 exact HoTT R4 |
 
+| `20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02` | `MP-ZFC-HOTT-OBSERVATION-BRIDGE-001` / `C-357` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Cubical Agda 2.8.0 + cubical 0.9；统一捕获器固定6个本地导入根和12个源码文件。原universe Q为`never`、集合截断Q第一步停和无统一section的联合桥控制；negative run `-NEG-02`在`Bool != A`处拒绝。它不形式化ZFC模型／验收或时间观察完备性。 |
+
 **依赖闭包登记缺口（独立审计发现 F6，2026-09-13）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、
 `REPAIRED-SYNTAX` 五个历史 run 的 `source-manifest.json` 只固定了直接导入模块，未列入编译器实际检查的传递依赖
 （各缺 `DiagonalLemma.agda`；`REPAIRED-SYNTAX` 另缺 `DecodingFence.agda`）。缺口登记在

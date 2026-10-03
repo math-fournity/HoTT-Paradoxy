@@ -721,4 +721,12 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. `MetaAcceptance / ObservationFamily / VisibilityPolicy`目前不进入P3-C或新刀：它们缺来源定义的独立判断职责。Tool-Birth裁定为`NOT_ENOUGH_EVIDENCE`，不得以研究者自行设想的验收器替代真实source contract。
 6. 最终判词候选保持`HYPOTHESIS_UNTESTED`。其下一项仅为`SOURCE_ACCEPTANCE_CONTRACT_SEARCH`：冻结一份实际模型／一致性／基础验收来源的C/I/O/Done、它的`AdequacyLift`、它对固定Q的观察状态和Payment。来源若只完成形式模型、明确Q在域外或给出保持关系，按范围成为控制而不升级Q。
 
+执行补充（本轮实际分析／证明／机器证明）：
+
+7. 研究发起人明确要求沿此思路继续做分析、证明和机器证明后，新增`C-357`。它在原生Cubical Agda中机器证明：固定原universe Q为`never`、集合截断Q第一步停，且不存在统一section恢复所有原universe元素；同层`Bool`伪恢复被类型检查拒绝。该结果是“粗完成观察不等于原对象恢复”的形式控制，连接Q2与未来AcceptanceContract审计。
+8. `C-357`不证明实际ZFC模型或元理论验收器使用了这一粗化，不能直接完成“ZFC时间观察力不完备”的判词。它把该判词的来源义务进一步明确为：实际验收器是否有等价的观察压缩、是否作adequacy Lift、以及是否提供恢复／保持Payment。
+9. 两次主源码的预期失败（缺`¬_`、合取语法）和第一份负控制的sort mismatch均保存为独立run及源码snapshot；canonical primary/negative分别在完整主张和`Bool != A`恢复义务处通过／拒绝。不得把早期失败删去、改写或说成数学反例。
+
+10. 后续直接阅读 KLV 与 HoTT Book 后，H083 的范围结论被精化而非推翻：KLV 确实有特定规则集的模型／相对一致`Done_meta`，但并非本项目完整 Cubical Agda Q 的同理论变体模型；Book 的基础／可表示性陈述没有过程完成接口。故当前问题改写为基础充分性判准是否含过程完成观察，而不是“ZFC 没有模型验收”或“ZFC 无法表达时间”。`ZFC_TIME_OBSERVATION_INCOMPLETENESS_HYPOTHESIS`仍未证明。
+
 本裁定授权Q2卡、H083 NodeCard/payload/report、P3/Feature/MEMORY/路线记录、session审计和精确Git提交；不授权新刀、STATE、Power Set站位、数学／物理结论、tag、push或发布。
