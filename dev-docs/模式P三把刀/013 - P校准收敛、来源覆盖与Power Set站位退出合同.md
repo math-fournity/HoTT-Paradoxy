@@ -24,6 +24,7 @@ P 的目标不是不断增加 prompt 门，也不是把“成功抓到已知罗�
 ```text
 Calibration target: location / language reentry / construction order / same-task bridge
 Target-Q / Candidate-Q / Control-Q: research task shape, frozen local card, and calibration/control role
+Candidate activation lane: C_LANE (consumer) / F_LANE (declared formation) / NONE for capability fixture
 Input identity: blind profile or fixed source card; answer-leak exclusions
 Known-control status: which expected positive/negative control is being exercised?
 Independent-interface status: is the interface distinct from the fixture family?
