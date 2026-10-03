@@ -4,7 +4,7 @@
 
 | Work ID | 初筛 | 全文筛选 | 原因／待证事实 |
 |---|---|---|---|
-| W-001 | INCLUDED | PENDING | UF面向数学家的基础说明。 |
+| W-001 | INCLUDED | FULL_PRIMARY_UF_MOTIVE_AND_H0_CONTROL_SCREENED | 33页原件已按逐页写回合同审读。作者给出Russell/type-hierarchy历史、formalization、universe、equivalence→identity及解释层的HoTT来源；这些均未固定ZFC actual consumer、same-task或未付Done。 |
 | W-002 | INCLUDED | PENDING | predicative UF控制。 |
 | W-003 | INCLUDED | FULL_PRIMARY_CLASSICAL_REALIZABILITY_CONTROL_SCREENED | 11页原件已按逐页写回合同恢复审读。BBC／`ZF_ε`／`M`／`N`与proof-like-realizer支付构成模型语义控制；没有ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-004 | INCLUDED | FULL_PRIMARY_REALIZABILITY_LARGE_CARDINAL_CONTROL_SCREENED | remote未启动服务即失败，随后完成18页原PDF逐页视觉审读。`ZF_ε`／`GB_ε`／`V`／`A`／large-cardinal consistency和class／Choice条件构成显式模型支付；没有ordinary ZFC actual consumer、same-task或未付Done。 |

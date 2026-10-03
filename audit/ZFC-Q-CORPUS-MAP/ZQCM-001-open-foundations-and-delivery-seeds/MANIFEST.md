@@ -32,7 +32,7 @@
 | direction_id | 状态／决定 | 最小判别行动 | 证据边界与停止／重开 |
 |---|---|---|---|
 | `ZQCM-DIR-ITERATIVE-FORMATION` | `ACTIVE`：判断“阶段／纯迭代／潜在层级”语料能否给出一个**固定的 ZFC formation 与实际 consumer**桥，还是只能提供构造性／哲学控制。 | 将 W-013 的可见原页事实与 W-012／W-014 的摘要级种子并列，寻找一个版本固定的 ZFC 侧 actual consumer；它必须保留同一对象、操作、观察和 Done。 | W-013 是 CZF／类型论解释，不等于 ZFC；W-012、W-014尚未获全文。若找不到保留同一任务的 ZFC consumer，停在 `CONTROL_OR_SEED_ONLY`；取得合法全文或实际 consumer 时重开。 |
-| `ZQCM-DIR-IDENTITY-EXTENSIONALITY` | `ACTIVE`：判断 W-011 的 extensionality／identity 位置是否能进入同一任务的 ZFC bridge，或应稳定为 type-theoretic comparison control。 | 找到一个实际 ZFC consumer，明确其 identity／extensionality 输入、输出和完成条件；先与现有 ETCS／同构／实际 consumer 控制比对。 | W-011 的现有关键论证在类型论 judgement 层，尚不是 ZFC Q。若实际 consumer直接支付该任务或只重述类型论比较，停止为 `SOURCE_PRECISION_GAIN_NOT_Q`；新增来源能固定未付同一任务时重开。 |
+| `ZQCM-DIR-IDENTITY-EXTENSIONALITY` | `ACTIVE`：判断 W-001 的H0（equivalence→identity）与 W-011 的 extensionality／identity 位置是否能进入同一任务的 ZFC bridge，或应稳定为 type-theoretic comparison／反类比控制。 | 找到一个实际 ZFC consumer，明确其 identity／extensionality 输入、输出和完成条件；先与现有 ETCS／同构／实际 consumer 控制比对。 | W-001的`Φ`／Univalence和W-011的关键论证都在类型论层，尚不是 ZFC Q。若实际 consumer直接支付该任务或只重述类型论比较，停止为 `SOURCE_PRECISION_GAIN_NOT_Q`；新增来源能固定未付同一任务时重开。 |
 
 `ZQCM-NET-005` 的 citation expansion 是 `PARKED`：它在任一活跃方向完成本轮 source screen，或出现新的直接作者／actual-consumer reference 后才重开，避免把“继续收集”本身误当作研究进展。
 

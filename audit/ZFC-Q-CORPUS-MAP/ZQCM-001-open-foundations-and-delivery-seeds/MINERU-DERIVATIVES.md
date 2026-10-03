@@ -6,7 +6,7 @@
 >
 > **视觉核验合同：** 每份成功远程派生物必须经过150dpi二值页图逐页视觉核验；Q相关／异常位置另行300dpi复核。详见本批[`VISUAL-REVIEW.md`](VISUAL-REVIEW.md)。
 >
-> **状态：** REMOTE_DERIVATIVE_NOT_QUALIFIED / W003_W004_W005_W007_W008_W009_W010_W011_W013_SOURCE_VISUAL_REVIEW_COMPLETE。
+> **状态：** REMOTE_DERIVATIVE_NOT_QUALIFIED / W001_W003_W004_W005_W007_W008_W009_W010_W011_W013_SOURCE_VISUAL_REVIEW_COMPLETE。
 
 | MIN ID | ACQ ID | 输入哈希 | 命令／版本 | 页范围 | 派生路径 | 结果／限制 |
 |---|---|---|---|---|---|---|
@@ -16,6 +16,8 @@
 | MIN-REMOTE-QUAL-004 | ACQ-004 | 425e910298e062118483af2ba3de9f0cbfc397cd5ca6ace5484bdbeb6286fc0f | mineru 4.0.8 / `parse --remote --json --wait 60` | default first 10 | — | `FAILED_SERVER_NOT_RUNNING`：2026-10-03读取`server status --json`确认`running:false`、无队列后运行；CLI要求启动本地server。为避免改变可能与桌面App共享的服务，未启动／重配；没有remote导出。 |
 | MIN-REMOTE-QUAL-008 | ACQ-008 | 2297f7b0c93bf4e17209f4466df8fa75624d12142d79d0cf19c6b76574505fac | mineru 4.0.8 / `parse --remote --json --wait 60` | default CLI scope | — | `FAILED_SERVER_NOT_RUNNING`：2026-10-03读取`server status --json`确认`running:false`、无队列后运行；CLI要求启动本地server。为避免改变可能与桌面App共享的服务，未启动／重配；没有remote导出。 |
 | MIN-REMOTE-QUAL-007 | ACQ-007 | 64517f1b01ba7f40b3f7bdac9a1033be932e8805a606b054e16bde1fe1b4cb2a | mineru 4.0.8 / `parse --remote --json --wait 60` | default CLI scope | — | `FAILED_SERVER_NOT_RUNNING`：2026-10-03读取`server status --json`确认`running:false`、无队列后运行；CLI要求启动本地server。为避免改变可能与桌面App共享的服务，未启动／重配；没有remote导出。 |
+| MIN-REMOTE-QUAL-001 | ACQ-001 | 3b2d4c6585ba36d46875ad499feacf7a36c00675af43d3e76a4682935368bc71 | mineru 4.0.8 / `parse --remote --json --wait 60` | default CLI scope | — | `FAILED_SERVER_NOT_RUNNING`：2026-10-03读取`server status --json`确认`running:false`、无队列后运行；此前mineru-kit direct remote standard曾记录`REMOTE_RESPONSE_STALLED`，本次不启动／重配共享服务；没有remote导出。 |
+| MIN-W001-SOURCE-ONLY-001 | ACQ-001 | 3b2d4c6585ba36d46875ad499feacf7a36c00675af43d3e76a4682935368bc71 | Ghostscript 10.04.0 `pngmono` + actual visual inspection | PDF pp.1–33 | visual/W-001/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：逐页即时写入`VR-W001-001`至`033`；关键pp.1、2、15、21、22、25另有300dpi。没有remote MinerU输出，不能称其通过MinerU核验。 |
 | MIN-W004-SOURCE-ONLY-001 | ACQ-004 | 425e910298e062118483af2ba3de9f0cbfc397cd5ca6ace5484bdbeb6286fc0f | Ghostscript 10.04.0 `pngmono` + actual visual inspection | PDF pp.1–18 | visual/W-004/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：逐页即时写入`VR-W004-001`至`018`；关键pp.1–7、10、13另有300dpi。Ghostscript报告CMap repaired/ignored诊断，关键内容均回原PDF页图复核；没有remote MinerU输出，不能称其通过MinerU核验。 |
 | MIN-W007-SOURCE-ONLY-001 | ACQ-007 | 64517f1b01ba7f40b3f7bdac9a1033be932e8805a606b054e16bde1fe1b4cb2a | Ghostscript 10.04.0 `pngmono` + actual visual inspection | PDF pp.1–37 | visual/W-007/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：逐页即时写入`VR-W007-001`至`037`；关键pp.9、16、21、23、28、34另有300dpi。没有remote MinerU输出，不能称其通过MinerU核验。 |
 | MIN-W008-SOURCE-ONLY-001 | ACQ-008 | 2297f7b0c93bf4e17209f4466df8fa75624d12142d79d0cf19c6b76574505fac | Ghostscript 10.04.0 `pngmono` + actual visual inspection | PDF pp.1–65 | visual/W-008/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：逐页即时写入`VR-W008-001`至`065`；关键pp.11、15、16、18、19、30、46另有300dpi。没有remote MinerU输出，不能称其通过MinerU核验。 |
