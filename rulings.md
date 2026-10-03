@@ -687,5 +687,26 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 1. 新建调用名 `ZFC-Q-CORPUS-MAP-SOP`。它以 acquisition→PDF验证→MinerU派生→书目／引文地图→Q lead routing 为主链，目标是给模式 P 和其它 ZFC Q 路线提供尽可能完整、可读、可核验的文献语料。
 2. “全部文献”只可在冻结并持续扩展的 corpus、数据库、作者、引文和访问边界内使用；必须保存 unavailable、paywall、语言、版本和未处理强引用的余项，不能声称世界范围绝对穷尽。
 3. 作品身份与内容权威由 DOI、作者、出版社、arXiv、正式会议／项目档案和原始 PDF 校准。浏览器下载页和用户提供的访问路线（包括 `sci-hub.jp`）只记录为 access provenance；每个获得的 PDF 仍须做 file/page/title/hash 核验，不能由下载路径本身认证题录或内容。
-4. MinerU 是本地派生阅读层。原 PDF 永远保留为来源权威；关键引文、页码、公式和Q相关断言必须能回到原页，不由 OCR／Markdown 单独证明。
+4. MinerU 是派生阅读层。原 PDF 永远保留为来源权威；正常公开学术PDF可使用 ZCode 同源的 direct remote standard 服务或本地basic对照，均须记录tier、服务、输入哈希与输出身份。关键引文、页码、公式和Q相关断言必须能回到原页，不由 OCR／Markdown 单独证明；明显敏感的文件仍需另行确认远程上传。
 5. `HOTT-MOTIVE-ZFC-SOP`、P-FORGE和未来其他理论语料是新总语料工程的支线或消费者；进入语料图不自动创造 Q、启动P-DAG、worker、数学STATE、Power Set station、数学证明、tag、push或发布。
+
+## 2026-10-03：ZFC Q 语料的远程 MinerU 与视觉核验链
+
+研究发起人纠正本轮本地 `basic` 批处理方向，要求不再使用本地basic；应先由服务器端 MinerU 处理 PDF，再以二值化文档页图视觉检查 MinerU 结果，并对关键位置进行高精度视觉复核。
+
+执行裁定：
+
+1. 正常公开学术PDF的唯一 MinerU 质量路径改为 ZCode 同源的 `direct remote standard`。本地 `basic` 的已开始或既有partial输出不再进入阅读、引用、Q资格或视觉复核；它只能作为停止收据保留。
+2. 每个成功远程派生物须保留原始zip、展开的Markdown／JSON和输入／输出身份；随后使用150dpi `pngmono` 二值页图逐页交错完成“渲染—目检—与对应派生段对照—落签”。
+3. 任何准备承担 Q 线索、定义、命题、公式、量词、完成条件、脚注、图表或150dpi差异的页面，必须保存300dpi页图或裁剪图作高精度视觉复核。出现材料性差异时，原PDF取得该段的阅读与引文优先权；不改写远程原始输出以伪造一致。
+4. 该链只验证派生阅读材料的页面对齐和可用范围，不自行形成ZFC Q、数学结论或任何理论缺陷结论；文献身份、解释、同一任务、source payment和模式P资格仍须分别核验。
+
+## 2026-10-03：ZFC Q 语料的 BrowserOS 条件性授权
+
+研究发起人允许：若有必要，可使用 BrowserOS MCP 的 `test` profile；若确有安装或修改全局BrowserOS治理的必要，必须先确保被更新的内容已经提交到对应 Git repo。研究发起人同时明确，不能让安装后的工具说明把所有网页工作都错误地导向 BrowserOS。
+
+执行裁定：
+
+1. 公开检索、页面读取、DOI核验和普通下载继续优先使用内建网页工具及既有公开路线。BrowserOS 只在某个冻结 work 的真实页面交互、持久状态或视觉核验确实是必要条件时启用，并固定使用 `test` profile、独立session和自己的标签组。
+2. BrowserOS 不能被用来绕过登录、付费墙、下载限制或反自动化／安全验证；例如当前 Nottingham 资源页的验证状态只登记为 acquisition remainder，不能通过反复交互规避。
+3. 本轮无需安装 BrowserOS MCP，也不改动任何全局治理仓库。若未来需求改变，在修改全局治理文件之前先完成该治理 repo 的精确路径提交，并按当时的 `browseros-safe-use` 和全局自维护 Gate 重新资格化。

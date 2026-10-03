@@ -1,6 +1,6 @@
 # ZFC-Q-CORPUS-MAP：ZFC Q 可追溯语料落盘、MinerU 与文献地图
 
-> **身份：** PROJECT_ARCHIVE_ROOT / PROJECT_DEFINED / CORPUS_RUN_NOT_STARTED / NO_Q_CLAIM。
+> **身份：** PROJECT_ARCHIVE_ROOT / CORPUS_RUN_ACTIVE / NO_Q_CLAIM。
 >
 > **SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -16,4 +16,10 @@
 
 ## 当前状态
 
-尚未冻结首个 corpus batch。后续 `/goal` 调用先创建 `ZQCM-###-scope` batch 的 manifest，再按 SOP 运行。当前没有新Q、没有新的数学证明、没有P-DAG或worker活动。
+首个 batch 已冻结：[ZQCM-001 open foundations and delivery seeds](ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)。它已扩展至10个直接work family，其中9个已有身份核验通过的PDF；W-005已完成原件级逐页视觉阅读并提取R-source与反控制。远程MinerU当前有两条失败收据，尚未产生可消费派生物；原件视觉阅读不会被误写成远程转换成功。尚无新Q、数学证明、P-DAG或worker活动。
+
+## Batch registry
+
+| Batch ID | 范围 | 状态 | 入口 |
+|---|---|---|---|
+| ZQCM-001-open-foundations-and-delivery-seeds | UF foundations／predicative UF／Krivine ZF delivery seeds；W-005 publisher source；以及W-005反向引用导出的两篇公开chapter source。 | ACQUISITION_ACTIVE / EXTENSION-001 | [MANIFEST](ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md) |

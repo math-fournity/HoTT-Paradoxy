@@ -177,9 +177,10 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 研究发起人要求将“尽可能完成与 ZFC Q 有关文献的发现、全文落盘、MinerU 派生处理和可追溯地图”建立为独立项目；目标是为模式 P、Power Set、H0→Z0 与其它明显理论位置寻找可靠的 Q 线索，不是写博士论文或将书目数量变成结论。唯一调用名是 `ZFC-Q-CORPUS-MAP-SOP`，由 `.codex/skills/zfc-q-corpus-map/SKILL.md` 与 `dev-docs/ZFC-Q语料落盘与文献地图SOP.md` 共同拥有，项目档案根是 `audit/ZFC-Q-CORPUS-MAP/README.md`。
 
-- 仅在用户明确引用该 SOP、要求继续该语料工程或要求其某个明确阶段时启动。调用授权其定义的公开元数据／全文发现、原件落盘、PDF 核验、MinerU 本地派生、地图与 Q lead routing；不自动授权 P-DAG、worker、数学STATE、Power Set station、新刀、数学证明、tag、push或发布。
+- 仅在用户明确引用该 SOP、要求继续该语料工程或要求其某个明确阶段时启动。调用授权其定义的公开元数据／全文发现、原件落盘、PDF 核验、direct remote standard MinerU派生、二值页图／高精度视觉核验、地图与 Q lead routing；不自动授权 P-DAG、worker、数学STATE、Power Set station、新刀、数学证明、tag、push或发布。
 - `全部文献`的操作含义是冻结并持续扩展的 corpus 内尽可能完整的 acquisition/map closure，不是声称全世界相关文献绝对穷尽。访问失败、付费墙、语言／版本限制和未处理引用必须保留为 remainder。
-- DOI、作者、出版社、arXiv、正式会议／项目档案是作品身份和原文权威；浏览器下载页及用户提供的访问路线（包括 `sci-hub.jp`）只记录为 access provenance，不能单独证明版本、题录、原文内容或候选结论。每个获得的 PDF 必须按获取 SOP 核对 PDF 身份、题名、页码／文本层和哈希；MinerU 输出是派生阅读材料，不覆盖原件。
+- DOI、作者、出版社、arXiv、正式会议／项目档案是作品身份和原文权威；浏览器下载页及用户提供的访问路线（包括 `sci-hub.jp`）只记录为 access provenance，不能单独证明版本、题录、原文内容或候选结论。每个获得的 PDF 必须按获取 SOP 核对 PDF 身份、题名、页码／文本层和哈希；对正常公开学术PDF，研究发起人已授权使用 ZCode 同源的 MinerU direct remote standard 通道，随后以150dpi二值页图逐页视觉核验，并对关键／异常位置作300dpi复核；仍须记录 tier、服务、输出与视觉证据身份。所有 MinerU 输出是派生阅读材料，不覆盖原件。
+- 公开资料默认走内建网页检索。某个冻结 work 的 acquisition 确实需要真实页面交互、持久浏览器状态或视觉核验时，研究发起人授权按全局 `browseros-safe-use` 使用 BrowserOS MCP 的 `test` profile；它不因存在就接管所有网页工作，也不授权绕过 paywall、登录门或安全验证。当前没有安装或改动全局BrowserOS治理的需要；若将来确需这类全局改变，必须先将受影响治理内容在其对应 Git repo 中提交，再执行更新。
 - `HOTT-MOTIVE-ZFC-SOP` 是总语料工程的一条已建立支线：其现有 run 作为 corpus seed／control，不重复复制也不因进入总语料自动升级为 Q。
 
 ## 任务路由（v5 分档）

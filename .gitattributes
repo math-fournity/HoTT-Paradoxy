@@ -3,3 +3,6 @@
 # HMZ 来源原件必须按下载字节保留；Metamath 的官方 HTML 自带行尾空格，不能为 diff 格式检查改写。
 /audit/HOTT-MOTIVE-ZFC/*/originals/metamath/*.html whitespace=-trailing-space
 archive/objects.pack filter=lfs diff=lfs merge=lfs -text
+
+# PDF corpus sources are byte-preserved binary records; never line-diff or normalize them.
+*.pdf binary
