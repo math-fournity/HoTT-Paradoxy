@@ -22,7 +22,7 @@
         {"unit": "U20", "turn_id": "skill-turn-c980d46fc6fa446c9dbeb5b0b8bf264a", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "fec7d8a445a7526689c9905b4c5abccbb9446c03dd0bb899fa190366374cec4"},
         {"unit": "U21", "turn_id": "skill-turn-4d3398c25c71415e94066b2ad405dfde", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "89a65a0358bc39cddc9b2b399bf4263732466b9b18d077d69a506e61f84bc31e"}
       ],
-      "result": "SOURCE_COVERAGE_GAP_CONFIRMED: U20/U21 lack current-owner rows; this contributor supports event-level pre-goal archive snapshot classification for U19-U21"
+      "result": "SOURCE_COVERAGE_GAP_CONFIRMED: U20/U21 lack current-owner rows; this contributor preserves them as distinct events and leaves parent-Goal phase unknown"
     },
     {
       "id": "SOURCE-MANIFEST-RECHECK",
@@ -101,7 +101,7 @@
         "timestamp_local": "2026-10-02T22:45:22.640-04:00"
       },
       "parent_or_previous_worktree_trajectory": "NOT_READ_PER_USER_INDEPENDENCE_REQUIREMENT",
-      "verdict": "CURRENT_CHILD_GOAL_IS_NOT_THE_PARENT_GOAL_AUDITED_BY_8D4877AD / PARENT_PHASE_UNKNOWN",
+      "verdict": "CURRENT_CHILD_THREAD_GOAL_EVENT_IS_NOT_EVIDENCE_OF_PARENT_GOAL_START / PARENT_PHASE_UNKNOWN",
       "scope": "corrects the previous candidate inference; does not revise the current-owner cutoff or classify U19-U21 against the parent Goal"
     },
     {
@@ -128,7 +128,7 @@
     {"id": "ARCHIVE-R-C-U-COUNTS", "status": "PASS_WITH_U_MISMATCH", "result": "0102=11/11; 0108=7/7; 0109=21 captured events vs 19 declared units"},
     {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006; this branch records three distinct events but leaves their parent-Goal phase UNKNOWN"},
     {"id": "CURRENT-CHILD-GOAL-ARCHIVE-ORDER", "status": "PASS_WITH_SCOPE", "result": "exact-hash 0109 snapshot and cited commits predate only the 2026-10-02 22:45:22 -0400 child Goal; they do not classify units relative to the parent Goal"},
-    {"id": "PARENT-GOAL-CUTOFF-IDENTITY", "status": "UNKNOWN_WITH_BOUNDARY", "result": "full-origin audit commit 8d4877ad is from 16:14 -0400 and declares b810380f as its boundary; current child Goal starts 22:45 -0400; previous-worktree parent trajectory was not inspected, so U19-U21 parent-phase remains unknown"},
+    {"id": "PARENT-GOAL-CUTOFF-IDENTITY", "status": "UNKNOWN_WITH_BOUNDARY", "result": "full-origin audit commit 8d4877ad is from 16:14 -0400 and declares b810380f as its boundary; current child-thread Goal event occurs at 22:45 -0400 and cannot identify the earlier parent Goal start; previous-worktree parent trajectory was not inspected, so U19-U21 parent-phase remains unknown"},
     {"id": "OWNER-READY-DENOMINATOR-PATCH", "status": "CANDIDATE_READY_WITH_SCOPE", "result": "exact proposed deltas exist for owners 001/003/005/006, but are not integrated; raw 0109 count 21, unique prompt count 17, parent phase unknown"},
     {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
     {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},

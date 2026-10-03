@@ -60,7 +60,7 @@ cutoff:
     thread_id: 01a0ffa6-1527-7802-b534-9030d6f06e79
     raw_locator: rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5
     timestamp: 2026-10-02T22:45:22.640-04:00
-    relation_to_audited_parent_goal: DISTINCT_THREAD_GOAL / NOT_A_VALID_CUTOFF
+    relation_to_audited_parent_goal: CHILD_THREAD_EVENT / NOT_A_VALID_PARENT_GOAL_START
   audited_parent_goal:
     full_origin_audit_commit: 8d4877ad8abd110cb31973408eb46d0155de14fd
     full_origin_audit_timestamp: 2026-10-02T16:14:59-04:00
@@ -182,11 +182,13 @@ source_units:
   - prior candidate conclusion in commit 0cdc15c1
 actual_action:
   - compared the target audit's commit time 16:14:59 -0400 with the current child Goal event at 22:45:22 -0400
-  - identified that the current Goal event belongs to this independent child worktree and cannot time-classify the parent Goal audited by 8d4877ad
+  - identified that the current Goal event belongs to this child thread and cannot establish the earlier parent Goal start audited by 8d4877ad; the long-running Goal's semantic identity across threads remains unadjudicated
   - retracted the prior PRE_GOAL assignment for U19-U21 relative to that parent Goal
-alignment_verdict: EXECUTION_DEVIATION_CORRECTED / PARENT_CUTOFF_STILL_UNKNOWN
+  - corrected the stale RUNS summary that presented child-relative archive order as a parent-phase classification
+  - narrowed the claim: the current event is not the parent Goal start; whether both threads continue the same long-running user Goal is not adjudicated here
+alignment_verdict: EXECUTION_DEVIATION_CORRECTED / THREAD_EVENT_SCOPE_CLARIFIED / PARENT_CUTOFF_STILL_UNKNOWN
 deviation_class:
-  - EXECUTION_DEVIATION: conflated the current child-thread Goal with the earlier parent Goal that defines the audit's phase split
+  - EXECUTION_DEVIATION: used a child-thread Goal event as if it fixed the earlier parent Goal cutoff; its relation to the long-running Goal's semantic identity is not decided here
   - no ORIGINAL_IDEA_CHALLENGED
 worktree_boundary:
   previous_worktree_or_parent_trajectory: NOT_READ

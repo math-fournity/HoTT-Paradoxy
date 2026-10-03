@@ -40,7 +40,7 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 - Canonical `session_trajectory.py` 的 `catalog/tree/scan/inspect` 只检查本线程 `01a0ffa6-1527-7802-b534-9030d6f06e79`，没有递归打开 parent 或 previous-worktree trajectory。原始 Goal event locator 是 `rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5`，时间为 `2026-10-03T02:45:22.640Z`。
 - 当前 0109 文件 SHA-256 是 `fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c`，mode `0600`，filesystem mtime 是 `2026-10-02T22:18:41-0400`；该快照包含 U19/U20/U21 三个 archive turn IDs。
 - U19–U21 答复引用的 18 个本 repo commits 的时间范围是 `2026-10-02T15:35:10-0400` 至 `2026-10-02T22:01:27-0400`。`b810380f` 是这批 H010 工件中的一个提交，不是当前 Goal 启动事件。
-- 这些时间只支持 archive snapshot 和 U19–U21 早于 child-thread Goal；full-origin audit 评估的是更早的 parent Goal，因此不能据此分配 parent phase。`8d4877ad` 的历史 audit 文件早于 child Goal 6 小时以上，证明目标身份不同。parent phase 保持 UNKNOWN，除非本工作线获得不越过独立-worktree边界的直接源。原始 rollout mode `0644`；只检查了当前 child Goal 事件，没有读取 parent trajectory、复制或提交 rollout。
+- 这些时间只支持 archive snapshot 和 U19–U21 早于当前 child-thread Goal；full-origin audit 的 `8d4877ad` 文件更早，故 child-thread 事件不能作为它所审 parent Goal 的启动时间。它们可能属于同一长期目标在不同 worktree/thread 下的延续；本分支不据此声称两个目标的语义身份不同。parent phase 保持 UNKNOWN，除非本工作线获得不越过独立-worktree边界的直接源。原始 rollout mode `0644`；只检查了当前 child Goal 事件，没有读取 parent trajectory、复制或提交 rollout。
 
 ## Owner-ready event-denominator 修订候选
 
