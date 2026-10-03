@@ -5,7 +5,7 @@
 | Network ID | Seed | 方向 | 发现数 | 去重后 work family | 状态／下一动作 |
 |---|---|---|---:|---:|---|
 | ZQCM-NET-001 | W-001 | backward/forward | — | — | 获取原件后读取参考文献与引用入口。 |
-| ZQCM-NET-002 | W-003/W-004 | backward/forward | W-003 p.11列10项相关文献；W-004尚未筛读 | Berardi–Bezem–Coquand、Berger–Oliva、Krivine 2011–2014、Streicher、Spector等为受限backward leads | `W003_BACKWARD_LOGGED / W004_FORWARD_PENDING`：先筛是否存在ordinary ZFC actual consumer；引用清单本身不扩展work family或形成Q。 |
+| ZQCM-NET-002 | W-003/W-004 | backward/forward | W-003 p.11列10项；W-004 pp.17–18列24项相关文献 | Krivine、Friedman、Kunen、Matthews 2023 (W-008)、Rathjen、Setzer、Suzuki、Williams等为受限backward leads | `W003_W004_BACKWARD_LOGGED / W004_FORWARD_PENDING`：先筛是否存在ordinary ZFC actual consumer；引用清单本身不扩展work family或形成Q。 |
 | ZQCM-NET-003 | W-005/W-006/W-007 | author/bridge | 12 catalogued chapter leads | 9 pending acquisition; W-009/W-010/W-011 acquired | W-006的章节作者与W-005/W-007的作者路线已分开；下一步按`VOLUME-CHAPTER-MAP.md`筛选作者版本。 |
 | ZQCM-NET-004 | W-005 | backward | 16 cited entries; 4 direct existing/priority bridge relations | 2 priority acquisition leads: V-UF-01, V-CMP-04 | [`CITATION-TRACE-W005.md`](CITATION-TRACE-W005.md)；forward trace仍PENDING。 |
 | ZQCM-NET-005 | W-012/W-013/W-014 | author／historical／bridge | 3 related formation-family works；未声称已验证direct citation edge | 1 accepted primary control; 2 metadata／abstract seeds | `PARKED`：W-013已固定CZF／Power Set／type-theoretic formation控制；W-012/W-014的合法全文或一个ZFC actual consumer是重开条件。 |

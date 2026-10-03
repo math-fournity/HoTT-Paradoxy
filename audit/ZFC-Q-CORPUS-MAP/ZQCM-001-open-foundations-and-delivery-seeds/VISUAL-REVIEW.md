@@ -4,7 +4,7 @@
 >
 > **顺序：** 已验证 PDF → remote standard MinerU 原始导出 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
 >
-> **状态：** W003_W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED。
+> **状态：** W003_W004_W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED。
 
 ## 可恢复视觉游标
 
@@ -13,6 +13,7 @@
 | Work ID | 已渲染资产 | 具有持久页级行的150dpi审读 | 当前状态 | 恢复动作 |
 |---|---|---|---|---|
 | W-003 | p.1–11的150dpi图；p.1–5、7–10的300dpi图 | p.1–11 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页及预定关键300dpi页均按恢复合同重审并落签。 | 视觉恢复完成；后续来源筛读只可消费这些页级行，并另行记录其Q资格结论。 |
+| W-004 | p.1–18的150dpi图；p.1–7、10、13的300dpi图 | p.1–18 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与预定9张300dpi关键页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 
 ## 结果语义
 
@@ -134,10 +135,30 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W003-009 | W-003 | 9 | visual/W-003/150dpi/p009.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Theorem 11的proof、Lemma 12与从finite sequence in `M`进行的dependent-choice构造；所有对象仍在`Λ`、`M`、`ZF_ε`与realizability关系的指定层内。 | visual/W-003/300dpi/p009.png：复核DC公式及finite sequence in `M`的条件。此页为同一模型构造的延续，未建立ordinary ZFC实际消费者的输入／输出／Done。 |
 | VR-W003-010 | W-003 | 10 | visual/W-003/150dpi/p010.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核§4 well ordering on `R`、closed `ZF_ε` formula、proof-like term、ultrafilter、`M_D`与ground model `M`的关系。 | visual/W-003/300dpi/p010.png：复核`M_D`满足choice的理由是预设`M ⊨ ZFC`，且`M ⊨ V=L`才给出constructible-reals／continuum-hypothesis结论。这些是外加模型假设与构造，不是对bare ZFC的无条件攻击或其ordinary consumer。 |
 | VR-W003-011 | W-003 | 11 | visual/W-003/150dpi/p011.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核References、Berardi–Bezem–Coquand、Berger–Oliva、Krivine 2011–2014、Streicher与Spector的书目，以及末页边界。 | 不适用：书目只提供受限citation lead；不单独构成ordinary ZFC consumer或Q。 |
+| VR-W004-001 | W-004 | 1 | visual/W-004/150dpi/p001.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核题名、Laura Fontanella／Guillaume Geoffroy／Richard Matthews、CSL 2024、DOI、Abstract与§1起始。摘要把realizability写成proof/program correspondence，并把ZF realizability models与four large-cardinal axioms的相对一致性条件分开。 | visual/W-004/300dpi/p001.png：复核作者、DOI、abstract 的“assuming its consistency”及“assuming their consistency relative to ZFC or ZF”限定。该处是模型构造范围，不是ordinary ZFC actual consumer或Q。 |
+| VR-W004-002 | W-004 | 2 | visual/W-004/150dpi/p002.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核IZF／ZF、forcing、AC与large-cardinal axioms的介绍及四类large cardinal的范围。作者明说对AC的realizability model仍不清楚何为explicit realizer，并把后续构造置于相对一致性前提。 | visual/W-004/300dpi/p002.png：复核关于AC explicit realizer的不确定性、`M ⊨ ZFC`／`M ⊨ V=L`式模型前提的区分和large cardinal相对一致性范围。该页不能提供ordinary ZFC已支付或未支付的同一consumer。 |
+| VR-W004-003 | W-004 | 3 | visual/W-004/150dpi/p003.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核文章结构、ZF realizability models、`ZF_ε`、two membership relations、`λ_c`-terms、stacks、truth/falsity values与Definition 1。 | visual/W-004/300dpi/p003.png：复核以 model `V` of ZF 为输入、`ZF_ε`作为conservative extension，以及由realizers形成consistent theory后才induce a model of ZF的条件链。它是显式model/semantics construction，不是bare ZFC consumer。 |
+| VR-W004-004 | W-004 | 4 | visual/W-004/150dpi/p004.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核stacks、realizers、processes、evaluation preorder、Definitions 2–3、Von Neumann hierarchy、rank／footprint以及`ZF_ε`开头。 | visual/W-004/300dpi/p004.png：复核realizability algebra在 model `V` of ZF 内定义、transfinite hierarchy的使用和two membership relations。模型、rank 和非扩展关系均被显式携带，不能当作ordinary ZFC层的无支付交付。 |
+| VR-W004-005 | W-004 | 5 | visual/W-004/150dpi/p005.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核first-order logic without equality、`L_ε`／`L_ε`、usual／strict membership、extensional collapse、Theorem 4及realizability-model construction起点。 | visual/W-004/300dpi/p005.png：复核该文以`ZF_ε`的conservative extension、two membership relations与model `V`为明确前提。它是对模型语言与解释层的构造，不能据此直接声称ordinary ZFC存在P5预支使用。 |
+| VR-W004-006 | W-004 | 6 | visual/W-004/150dpi/p006.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核`(A,V)`-names、A-definable functions、truth/falsity values的联合归纳、realizability theory与Definition 6。 | visual/W-004/300dpi/p006.png：复核proper class、rank、closed `λ_c` term、realizer set `R`及一致性条件。这是有明确模型输入和语义支付的实现，不构成ordinary ZFC的未付完成性。 |
+| VR-W004-007 | W-004 | 7 | visual/W-004/150dpi/p007.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Theorem 7、Definition 8、reish names／pairing与ground-model properties transfer。文中明确指出该方法一般不提供ground-model elements的straightforward interpretation。 | visual/W-004/300dpi/p007.png：复核realizability model定义必须含 model `V` of ZF 与algebra `A`，以及reish-name解释边界。这是模型翻译／表示边界控制，不是ordinary ZFC task的consumer证据。 |
+| VR-W004-008 | W-004 | 8 | visual/W-004/150dpi/p008.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核ε-ordinal、reish-name、ordered-pair encoding与relativization over transitive sets的定义。 | 不适用：本页继续模型内的pairing／relativization技术，没有固定ordinary ZFC consumer、同一任务输入／输出或未付Done。 |
+| VR-W004-009 | W-004 | 9 | visual/W-004/150dpi/p009.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Propositions 18–19、Theorem 20与Lemma 21，均以transitive set/class、model `N`、rank和internal-name构造为条件。 | 不适用：该页证明模型内relativization／name层性质，未提供ordinary ZFC formation/consumer或P字段会合。 |
+| VR-W004-010 | W-004 | 10 | visual/W-004/150dpi/p010.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核inaccessible cardinal、Grothendieck universe、weak Power Set、second-order Collection、Proposition 23及从ground model构造ε-inaccessible set的条件。 | visual/W-004/300dpi/p010.png：复核本节明确假定`ZFC + inaccessible cardinal`一致性，再构造与之等一致的`ZF + inaccessible set`模型。它是相对一致性／模型语义结果，不能作为bare ZFC缺陷或actual consumer证据。 |
+| VR-W004-011 | W-004 | 11 | visual/W-004/150dpi/p011.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Lemma 25、Theorem 26与Corollary 27，使用inaccessible set、realizability algebra、Weak Power Set／Second-order Collection等显式条件。 | 不适用：本页只建立模型中ε-inaccessible与inaccessible的传递，未产生ordinary ZFC consumer或同一任务Done。 |
+| VR-W004-012 | W-004 | 12 | visual/W-004/150dpi/p012.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Remark 28、Mahlo cardinal／Mahlo set、Definitions 29/31与Lemma 32。所有结论以ground-model Mahlo/inaccessible set和realizability algebra为条件。 | 不适用：该页是模型内large-cardinal preservation，未给ordinary ZFC consumer或P5 payment gap。 |
+| VR-W004-013 | W-004 | 13 | visual/W-004/150dpi/p013.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Theorem 33、Corollary 34及GB／`GB_ε`的two-sorted class extension。 | visual/W-004/300dpi/p013.png：复核Mahlo结论继续以realizability model、set `z`和algebra containment为条件；GB extension另显式增加classes、Class Separation／Induction／Collection等结构。它是扩展模型语言的支付，不是bare ZFC内部反例。 |
+| VR-W004-014 | W-004 | 14 | visual/W-004/150dpi/p014.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核GB／`GB_ε`的conservative extension、models with classes、Definitions 36/38/40及measurable／Reinhardt section入口。 | 不适用：该页再次增加class structure、language和model tuple，支持模型层支付控制，未提供ordinary ZFC same-task consumer。 |
+| VR-W004-015 | W-004 | 15 | visual/W-004/150dpi/p015.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Löś theorem、Choice、elementary embedding、critical point、measurable cardinal、GB model及Theorem 43的明确假设。 | 不适用：作者说明无Choice时Löś theorem／first-order definability可失效，并以GB/model/embedding条件构造结果；这恰是显式前提支付而非ordinary ZFC漏洞。 |
+| VR-W004-016 | W-004 | 16 | visual/W-004/150dpi/p016.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Theorems 44–45、measurable／Reinhardt cardinal的GB-model假设和Conclusion。作者总结所有四类large-cardinal结果都假定相对ZFC/ZF一致性，并指出larger algebra仍是开放问题。 | 不适用：这里是条件性模型构造的明确结论，不能转述为ordinary ZFC Q或无条件program-delivery结果。 |
+| VR-W004-017 | W-004 | 17 | visual/W-004/150dpi/p017.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核future-work限定与References [1]–[17]，含Friedman、Krivine、Kunen、Kleene等来源。 | 不适用：书目与未来方向只能产生受限citation lead；不因为出现ZFC／choice／realizability术语自动扩展work family或形成Q。 |
+| VR-W004-018 | W-004 | 18 | visual/W-004/150dpi/p018.png | remote output unavailable；直接审读Dagstuhl原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核References [18]–[24]、Matthews 2023 guide（W-008）、Rathjen、Setzer、Suzuki、Williams以及末页边界。 | 不适用：书目提供受限citation lead；W-008已是独立work family，其他文献须先过纳入与actual-consumer筛选。 |
 
 ## 高精度队列
 
-已完成W-003的9个关键页、W-005的7个关键页、W-009的9个关键页、W-010的7个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+已完成W-003的9个关键页、W-004的9个关键页、W-005的7个关键页、W-009的9个关键页、W-010的7个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+
+**W-004完成说明。** `mineru parse --remote --json --wait 60`在已确认`running:false`的本机服务上返回`server_not_running`；为避免改变可能与桌面App共享的服务，未启动或重配。随后以原PDF从p.1逐页审读并即时落签pp.1–18的150dpi二值图，关键页1–7、10、13亦读取300dpi图。Ghostscript报告CMap repaired/ignored诊断，但所有用于本记录的题录、摘要、定义、条件和引用页均以原PDF页图视觉核对；本记录不表示MinerU转换成功。来源资格结论另写入`SOURCE-NOTES-W004.md`。
 
 **W-003完成说明。** 压缩恢复时，原有图像虽存在却没有页级审计行，故此前视觉印象被明确作废；随后从p.1重新逐页读取并即时落签pp.1–11的150dpi二值图，关键页1–5、7–10亦读取300dpi图。远程MinerU仍没有可用导出，所以此处验证的是Krivine原件与页图的可读／定位范围，而不是MinerU转换质量。来源资格结论见`SOURCE-NOTES-W003.md`。
 
