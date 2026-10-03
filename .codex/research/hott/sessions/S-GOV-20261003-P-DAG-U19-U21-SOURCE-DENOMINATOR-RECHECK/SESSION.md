@@ -62,6 +62,12 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 - 因此已有六个 whitespace-normalized exact-text matches 保持 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`。不能据文字相同把 direct-source ordinal 与 archive turn 合并。
 - 此单元没有查询或读取 parent/previous-worktree trajectory；若需要更强 identity crosswalk，必须来自当前已允许的源或新的授权，不跨工作线自行取证。
 
+## Parent-session archive 0110：Goal continuation provenance
+
+- 本 worktree 中的 `dev-notes/0110` archive snapshot SHA-256 为 `574e5a84690c5f65734633f658b373788efeefc02a7a700f28568ca608c340cb`，包含 3 个 distinct user turns（U1–U3）；session metadata 的 `created_at` 为 2026-10-02 22:33:07 -0400，mtime 为 22:43:33 -0400。
+- U2 直接提及已有的 `/goal` 并要求回忆其后续修改；U3 纠正 AI，并在用户消息中重述完整中文 Goal 提示词。由此确定此归档属于 Goal continuation 证据候选，不是 pre-goal 理念分母；它不记录 parent Goal 的精确启动 event/time。
+- 此处只读当前 worktree 已存在的 archive copy；未读取 parent raw trajectory 或 parent worktree 文件。full-origin audit current owner 尚未列入 0110。
+
 ## Load receipt
 
 核心身份：core-cognition-generation-13 / 62 KC，core hash 55d514b1a707b727a7aa6c00af6e6ff799d844eea04ff4b11927b5159e36d9ef，STATE revision 298。理念索引＋001–004 与 SOP index＋001–005 均在本轮按顺序全文读取，文件 hashes 与 EOF 已核；本 session 只复述本轮相关字段。
