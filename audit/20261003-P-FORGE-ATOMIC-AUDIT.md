@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/102 - H052 Metamath幂集RK0证明层边界.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/102 - H052 Metamath幂集RK0证明层边界.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/103 - H053 Metamath秩与基础RK0对象层守卫.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/103 - H053 Metamath秩与基础RK0对象层守卫.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 102 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 103 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -127,4 +127,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 100 | [H050 脱敏无限制形成RK0正控制](<20261003-P-FORGE-ATOMIC-AUDIT/100 - H050 脱敏无限制形成RK0正控制.md>) | `H050` | R07 deidentified RK-0 positive control | `CALIBRATION / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 | 101 | [H051 脱敏有界全子对象RK0对照](<20261003-P-FORGE-ATOMIC-AUDIT/101 - H051 脱敏有界全子对象RK0对照.md>) | `H051` | R07 bounded all-subsets RK-0 control | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 102 | [H052 Metamath幂集RK0证明层边界](<20261003-P-FORGE-ATOMIC-AUDIT/102 - H052 Metamath幂集RK0证明层边界.md>) | `H052` | R07 Metamath proof-layer boundary | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
+| 103 | [H053 Metamath秩与基础RK0对象层守卫](<20261003-P-FORGE-ATOMIC-AUDIT/103 - H053 Metamath秩与基础RK0对象层守卫.md>) | `H053` | R07 rank/Foundation guard | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 <!-- governance-shard-table:end -->
