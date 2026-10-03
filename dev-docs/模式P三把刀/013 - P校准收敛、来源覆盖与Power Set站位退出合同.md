@@ -28,6 +28,7 @@ Known-control status: which expected positive/negative control is being exercise
 Independent-interface status: is the interface distinct from the fixture family?
 Discovery result: no candidate / site candidate / prospective Q?
 Validation result: source layer, active-demand/payment, P2/P3, controls
+QConvergenceLink: candidate identity, Q state before/after, and generate/narrow/bridge/converge/reject effect
 Novelty boundary: not pre-supplied as this profile's expected answer or prior project answer
 Falsifier: what output/source would lower this level?
 Next state / stop condition
@@ -54,7 +55,28 @@ Next state / stop condition
 - input contract、field relay 或 layer map 的实际失败可由一个最小修订预防，并有回归收据；
 - 一个 Tool-BirthCard 显示 P1/P2/P3 都出现不可消除的 distortion witness。
 
-“模型没有命中”“想再精细一点”“又发现一个相似 guard”不构成修刀理由。每次修订须写明它会改变哪一个 `CAL-*` 判词；没有校准影响时，记为 `NO_NEW_CALIBRATION_DELTA`。
+“模型没有命中”“想再精细一点”“又发现一个相似 guard”不构成修刀理由。每次修订须写明它会改变哪一个 `CAL-*` 判词，以及它怎样改变一张固定 Q 卡或保护其不被误判；没有校准影响时，记为 `NO_NEW_CALIBRATION_DELTA`。
+
+### 2.3 `QConvergenceLink`：校准服务于 Q 的共同涌现
+
+`CAL-*`衡量的是 P 在何种输入与来源条件下表现出何种能力；它不是 P-FORGE 的独立终点。P-FORGE 的
+研究进程由 [009](<009 - ZFC共同锻造与成功判据.md>) 的 Q 状态管理：`Q-0 UNFORMED`、`Q-1 SEED`、
+`Q-2 ACTIVE_CANDIDATE`、`Q-3 BRIDGING`、`Q-4 CONVERGED`或`Q-R REJECTED_WITH_SCOPE`。
+
+每一个校准、来源、guard、Tool-BirthCard 或 Battle 必须说明它对某张 Q 卡的作用：
+
+| verdict | 何时允许 | 对 P-FORGE 的含义 |
+|---|---|---|
+| `Q_GENERATE` | 在显眼 `u/F` 上出现可来源核验的 prospective Q。 | 新卡从 `Q-0` 进入 `Q-1`。 |
+| `Q_NARROW` | 一个来源或控制排除具体 Q 形状，同时留下更窄的同一任务空间。 | 保留可重开条件，不把理论写成安全。 |
+| `Q_BRIDGE` | P2 或 P3 为固定卡补上来源支持的片段。 | 允许从 `Q-2` 向 `Q-3` 检查。 |
+| `Q_CONVERGE` | 三刀同卡会合。 | 仅此时可登记 `Q-4 / ZFC_Q_LOCATED`。 |
+| `Q_REJECT` | 来源支付或 guard 关闭固定候选。 | 登记 `Q-R`，是有界发现而非失败。 |
+| `Q_SAFETY_REPAIR` | 修复能防止一张已冻结卡被误报为Q。 | 合法维护，但必须列被保护的卡和回归。 |
+
+没有上述联系的工具修改是`TOOL_ONLY_DRIFT`。它可作为一般运行维护存在，却不累计为 P-FORGE 的研究进展，
+不得以它延后 Q 的重新定位、增加理论节点或宣称“正在逼近”。这条纪律把“锻刀”和“发现 Q”保持为同一个
+可审计过程，而不把刀具数量、prompt 数量或 guard 数量当作代理指标。
 
 ## 3. `SourceLayerCoverageMatrix`
 
@@ -116,6 +138,8 @@ reasons                  = L-C/L-D/L-E仍有明确 gap；S3的非Power-Set显眼
                            Constructible Reflection proof-theory control，不能冒充S3或L-C。
 P calibration            = CAL-1 known controls; H074/H075构成一个已被来源直接支付的
                            CAL-2 independent-interface selection control；CAL-3/CAL-4未到达
+Q convergence             = Power Set remains Q-0 UNFORMED; existing cards either narrow/reject
+                           candidate shapes or repair their classification, but do not yet supply Q-1/Q-4
 ```
 
 ## 5. 重新启动 `/goal` 的最小首动作
@@ -124,6 +148,7 @@ P calibration            = CAL-1 known controls; H074/H075构成一个已被来�
 
 ```text
 SourceLayerTarget / Calibration target and current CAL level
+QConvergenceLink: fixed candidate/card, Q state before/after and expected delta
 Power Set station impact / S1–S5 delta
 P1/P2/P3 or P3-C fields to change
 same-task controls / stop and reopen condition

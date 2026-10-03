@@ -17,12 +17,12 @@ soft_line_target: 300
 
 ## 用途与边界
 
-本 SOP 把持续打磨 P1/P2/P3、审查新刀具、核对原初理念与实际锻造、处理 Power Set 的已知防御、保存 Git 谱系，连成一条可执行的工作链。它路由到各现有 owner，不复制它们的字段或证据。
+本 SOP 把持续打磨 P1/P2/P3、审查新刀具、核对原初理念与实际锻造、让固定候选的 Q 生成／收紧／桥接／淘汰／会合、处理 Power Set 的已知防御、保存 Git 谱系，连成一条可执行的工作链。它路由到各现有 owner，不复制它们的字段或证据。
 
 它不自动创建 Goal、启动 worker、联网、修改数学 STATE、给出数学结论或授予新的权限。每个理论节点仍遵循 P-DAG 的 TaskCard／NodeCard、当前用户授权与来源边界。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 语义范围 | 状态 |
 |---|---|---|---|
-| 001 | [操作合同、检查维度与幂集防御账本](<模式P刀具持续锻造SOP/001 - 操作合同、检查维度与幂集防御账本.md>) | 代码块逐项覆盖、阶段流程、检查维度、`PowerSetDefenseLedger`、写回与 Git 合同、可引用启动句 | current |
+| 001 | [操作合同、检查维度与幂集防御账本](<模式P刀具持续锻造SOP/001 - 操作合同、检查维度与幂集防御账本.md>) | 代码块逐项覆盖、阶段流程、`QConvergenceLink`、检查维度、`PowerSetDefenseLedger`、写回与 Git 合同、可引用启动句 | current |
 <!-- governance-shard-table:end -->

@@ -611,3 +611,23 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. `ROUND_STOP_REPEATED_GUARDS`只停止已列guard的同义重复；它不宣称Power Set已被防住，也不自动切换站位。进入`STATION_SWITCH_CANDIDATE`前必须满足013的S1–S5，尤其是完成一个非Power-Set显眼基础接口的竞争检查（S3），并由研究发起人选择下一站。当前状态保持`STATION_EXIT_REVIEW_PENDING`。
 4. H074/H075的具体作用是一个控制：脱敏盲态把`ClEx(P,a)`选为prospective proof site，固定`Reflection.thy`来源却以`ZF_ClEx_iff`／`ZF_Closed_Unbounded_ClEx`直接支付该proof-theory task；它属于`CAL-2_CONTROL_ONLY`／L-B，不是ZFC Q、L-C语义覆盖、Power Set站位竞争或新刀。
 5. 本裁定授权013、P-FORGE／P-DAG合同、Feature、MEMORY、锻造横向记录、H074/H075公开审计与精确Git提交；不恢复当前暂停的Goal，不自动启动worker、网络节点、station switch、Goal／STATE mutation、tag、push或数学结论。
+
+## 2026-10-03：锻刀与发现 Q 是同一件事，P-FORGE 必须持续审计共同涌现
+
+研究发起人原话：
+
+~~~text
+所以你其实应该想想，走了这么久，我们到底是不是在正确的道路上：锻刀（元层、模式P组）与发现ZFC的问题Q，不是两件事，而是一件事。锻刀的本意，是为了让发现Q这件事更加地规范化、自动化，是通过锻刀来`涌现`Q的发现、来逼近Q——让多把刀持续锻打来收敛我们的P and Q发现过程。站在这个需要被认真记录下来的视角看，你应该持续地进行这个视角的自我审计——在你的SOP中。
+~~~
+
+研究发起人指出：锻 P1/P2/P3 与发现 ZFC 的问题 Q 不是两件事，而是一件事。锻刀的本意是让发现 Q
+逐步规范化、自动化；多把刀的持续打磨应使 P 和 Q 的发现过程产生可审计的涌现与收敛，而不是形成一个
+脱离 Q 的元层工具项目。
+
+执行裁定：
+
+1. `P-FORGE-SOP`的主不变量是 `P/Q_CO_FORGING`。每次修刀、来源卡、control、Battle或新刀审查都必须说明它如何使固定候选卡的 Q 生成、收紧、桥接、淘汰或会合；工具字段、prompt、账本和Git提交不再能独立构成研究进展。
+2. 共同涌现使用工作流状态`Q-0 UNFORMED`、`Q-1 SEED`、`Q-2 ACTIVE_CANDIDATE`、`Q-3 BRIDGING`、`Q-4 CONVERGED`，以及有界的`Q-R REJECTED_WITH_SCOPE`。它们是证据成熟度状态，允许完整来源直接形成较晚状态或guard随时淘汰候选；`Q-4`仍只能由三刀同卡会合取得。这不是数学对象层的状态机，也不保证自动找到 Q；它只规定 AI、来源与三把刀的公开产物怎样被合成为或排除为同一候选。
+3. 每个 ForgeIntent、TaskCard／NodeCard和SelfAuditCard必须有`QConvergenceLink`。没有Q状态／候选空间变化的改动，只在它明确保护某一固定卡免于误判时可标为`Q_SAFETY_REPAIR`；否则是`TOOL_ONLY_DRIFT`，应从P-FORGE研究线停止，不以“锻刀”名义继续累积。
+4. 当前Power Set只处在`Q-0 UNFORMED`：它仍是显眼基础位置，已有guard和H074/H075等控制只给出了候选空间收紧或分类防护，尚未产生同层active Q或三刀会合。该状态不宣称ZFC没有问题，也不自动换站。
+5. 本裁定授权更新三刀共同锻造合同、P-FORGE、P-DAG self-audit／NodeCard／Skill、理念图、Feature、MEMORY、审计和精确Git谱系；不恢复暂停的Goal、不启动新worker、不创建P4、不改变STATE／数学结论、tag或push。
