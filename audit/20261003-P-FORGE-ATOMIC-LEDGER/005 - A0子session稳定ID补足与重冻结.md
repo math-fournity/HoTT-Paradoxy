@@ -25,50 +25,50 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 来源：`audit/20261002-P-DAG-BATTLE-001-Terra-Max.md`，SHA-256
 `8719c90b38635d79422631eb6c734d9edcedb673052ef9807bae417148967eb7`。
 
-| atomic_id | 角色 | exact session | 原子身份 |
-|---|---|---|---|
-| `N24A` | B-A advocate | `01a0fd1b-039b-77e1-895a-b5ff743ce497` | relation-as-minimal-consumer立场。 |
-| `N24B` | B-B challenger | `01a0fd1b-028d-7442-a124-e3e4a6af5577` | consumer-contract立场。 |
-| `N24C` | B-C independent arbiter | `01a0fd1d-180b-7742-8c04-d83975b92ba1` | 只消费sealed battle pack的裁决。 |
+| atomic_id | 角色 | exact session | 原子身份 | A1状态 |
+|---|---|---|---|---|
+| `N24A` | B-A advocate | `01a0fd1b-039b-77e1-895a-b5ff743ce497` | relation-as-minimal-consumer立场。 | `ATOMIC_AUDIT_COMPLETE` |
+| `N24B` | B-B challenger | `01a0fd1b-028d-7442-a124-e3e4a6af5577` | consumer-contract立场。 | `PENDING` |
+| `N24C` | B-C independent arbiter | `01a0fd1d-180b-7742-8c04-d83975b92ba1` | 只消费sealed battle pack的裁决。 | `PENDING` |
 
 ### 2.2 F25（legacy N25）：SOURCE-001
 
 来源：`audit/20261002-P-DAG-SOURCE-001-Terra-Max.md`，SHA-256
 `a7b7f70e08aab6c37fee8244a583a357ff47542e961c9809e6364a6ac744f0b6`。
 
-| atomic_id | 角色 | exact session | 原子身份 |
-|---|---|---|---|
-| `N25A` | S-A formal source tracer | `01a0fd24-e045-7e53-b290-ae608e851408` | Mathlib ZFSet形式化模型source定位。 |
-| `N25B` | S-B math control tracer | `01a0fd24-e017-7330-8f84-cc677ee47132` | HoTT Book跨理论正控制。 |
-| `N25C` | P2-A source-pack mapper | `01a0fd2c-5031-7923-b5a1-b19b5d50c37d` | 对冻结Mathlib card的P2映射。 |
-| `N25D` | P3-A source-pack mapper | `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | 对冻结Mathlib card的P3映射。 |
+| atomic_id | 角色 | exact session | 原子身份 | A1状态 |
+|---|---|---|---|---|
+| `N25A` | S-A formal source tracer | `01a0fd24-e045-7e53-b290-ae608e851408` | Mathlib ZFSet形式化模型source定位。 | `PENDING` |
+| `N25B` | S-B math control tracer | `01a0fd24-e017-7330-8f84-cc677ee47132` | HoTT Book跨理论正控制。 | `PENDING` |
+| `N25C` | P2-A source-pack mapper | `01a0fd2c-5031-7923-b5a1-b19b5d50c37d` | 对冻结Mathlib card的P2映射。 | `PENDING` |
+| `N25D` | P3-A source-pack mapper | `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | 对冻结Mathlib card的P3映射。 | `PENDING` |
 
 ### 2.3 F26（legacy N26）：SOURCE-002 与 BATTLE-002
 
 来源：`audit/20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md`，SHA-256
 `2b4ec6660996e0c6b8e610f6faaeec99044b97e5e23590b79f0bb4c49e263beb`。
 
-| atomic_id | 角色 | exact session | 原子身份 |
-|---|---|---|---|
-| `N26A` | S-C Metamath tracer | `01a0fd3d-a12b-7851-9f56-c9aa1469ed62` | ZFC-side proof-system source。 |
-| `N26B` | S-D Isabelle P2 tracer | `01a0fd3d-a0d6-74e3-8105-e6fed4ff0566` | Isabelle/ZF formula source。 |
-| `N26C` | S-E P3 source tracer | `01a0fd3d-a03d-7ca1-95cb-6fc2d0b4f7e4` | Mathlib ZFSet P3 negative source。 |
-| `N26D` | P1-B Isabelle mapper | `01a0fd45-dae0-7a31-ba81-d859daa94586` | Isabelle P1 card。 |
-| `N26E` | P3-B Isabelle mapper | `01a0fd4f-fb3b-7531-873b-500e807149b8` | Isabelle P3 card。 |
-| `N26F` | C-A proof advocate | `01a0fd48-9ab9-73c3-a379-4d2a7a5e8a59` | proof-system consumer立场。 |
-| `N26G` | C-B object challenger | `01a0fd48-9a7c-72a0-b169-9b08ffefd1e5` | target-layer consumer质询。 |
-| `N26H` | C-C layer arbiter | `01a0fd4c-2a1d-7d21-bfec-f3172b85d04c` | layer-integrity裁决。 |
+| atomic_id | 角色 | exact session | 原子身份 | A1状态 |
+|---|---|---|---|---|
+| `N26A` | S-C Metamath tracer | `01a0fd3d-a12b-7851-9f56-c9aa1469ed62` | ZFC-side proof-system source。 | `PENDING` |
+| `N26B` | S-D Isabelle P2 tracer | `01a0fd3d-a0d6-74e3-8105-e6fed4ff0566` | Isabelle/ZF formula source。 | `PENDING` |
+| `N26C` | S-E P3 source tracer | `01a0fd3d-a03d-7ca1-95cb-6fc2d0b4f7e4` | Mathlib ZFSet P3 negative source。 | `PENDING` |
+| `N26D` | P1-B Isabelle mapper | `01a0fd45-dae0-7a31-ba81-d859daa94586` | Isabelle P1 card。 | `PENDING` |
+| `N26E` | P3-B Isabelle mapper | `01a0fd4f-fb3b-7531-873b-500e807149b8` | Isabelle P3 card。 | `PENDING` |
+| `N26F` | C-A proof advocate | `01a0fd48-9ab9-73c3-a379-4d2a7a5e8a59` | proof-system consumer立场。 | `PENDING` |
+| `N26G` | C-B object challenger | `01a0fd48-9a7c-72a0-b169-9b08ffefd1e5` | target-layer consumer质询。 | `PENDING` |
+| `N26H` | C-C layer arbiter | `01a0fd4c-2a1d-7d21-bfec-f3172b85d04c` | layer-integrity裁决。 | `PENDING` |
 
 ### 2.4 F27（legacy N27）：SOURCE-003
 
 来源：`audit/20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md`，SHA-256
 `803c8720e74016710268d0fc5fc94376b795f3cdf94d2c35794187288e2585a1`。
 
-| atomic_id | 唯一目标 | exact session | 原子身份 |
-|---|---|---|---|
-| `N27A` | Cantor型数学consumer tracer | `01a0fd5f-0afa-7773-8245-f873a22e49cc` | 无terminal output，Master SIGINT。 |
-| `N27B` | P3 lifecycle/admission tracer | `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3` | 无terminal output，Master SIGINT。 |
-| `N27C` | Cantor C/I/O/Done审计 | `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | 无terminal output，Master SIGINT。 |
+| atomic_id | 唯一目标 | exact session | 原子身份 | A1状态 |
+|---|---|---|---|---|
+| `N27A` | Cantor型数学consumer tracer | `01a0fd5f-0afa-7773-8245-f873a22e49cc` | 无terminal output，Master SIGINT。 | `PENDING` |
+| `N27B` | P3 lifecycle/admission tracer | `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3` | 无terminal output，Master SIGINT。 | `PENDING` |
+| `N27C` | Cantor C/I/O/Done审计 | `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | 无terminal output，Master SIGINT。 | `PENDING` |
 
 `N28`仍是单一foreground retry（`01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118`），故保持已有ID；其背景尝试无console/final artifact，继续排除。
 
