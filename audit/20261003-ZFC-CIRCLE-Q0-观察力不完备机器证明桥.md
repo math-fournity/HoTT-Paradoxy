@@ -25,6 +25,7 @@
 | `no_done_classifier_of_observation_collision` | 任意`observe`若合并一个Done与一个非Done状态，任何只依赖`observe`的谓词均不能正确判定所有状态的`done`。 | 一般逻辑核。 |
 | `observation_collision_implies_completion_observation_incomplete` | 将“观察力对给定Done问题不完备”严格定义为`¬ CompletionObservable observe done`；Done异值碰撞蕴含该相对不完备性。 | 把“观察力不完备”从口号变成带`observe/done`参数的判据。 |
 | `completion_bridge_delivers_origin_done` | 只有把`formalDone → originDone`作为显式`CompletionBridge`输入，才可将同一state的formal Done运输为origin Done。 | 正控制：缺桥不能由同一个词“完成”补出；有桥时运输确实可做。 |
+| `completion_equivalence_supplies_bridge` | `CompletionEquivalent`要求在同一state domain上逐点`formalDone ↔ originDone`，它才可推出forward bridge。 | H093需要的“同一任务身份”可被写成精确证明义务。 |
 | `no_formal_completion_only_classifier` | 具体的`continuousEndpoint`与`sequentialNoLastAction`都取`formalCompletion=1`，却有相反`strongDone`；故formal completion alone不能判定strong Done。 | 最小的 O2/O3 反例结构。 |
 | `enriched_observation_decides_strong_done` | 加入terminal-event布尔观察后，具体fixture的strong Done可被判定。 | 正控制：不完整来自忘却，补回明确数据即可改变结果。 |
 

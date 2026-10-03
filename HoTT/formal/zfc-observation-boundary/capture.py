@@ -73,7 +73,7 @@ def main() -> None:
         "schema_version": "formal-proof-run/v1",
         "run_id": RUN_ID,
         "proof_id": PROOF_ID,
-        "claim_ids": ["ZFC-OBS-001", "ZFC-OBS-002", "ZFC-OBS-003", "ZFC-OBS-004", "ZFC-OBS-005"],
+        "claim_ids": ["ZFC-OBS-001", "ZFC-OBS-002", "ZFC-OBS-003", "ZFC-OBS-004", "ZFC-OBS-005", "ZFC-OBS-006"],
         "proof_assistant": "Lean",
         "proof_assistant_version": version,
         "theory_variant": "Lean 4 core propositional logic and inductive fixture; not a formalization of ZFC or real analysis.",
@@ -84,7 +84,7 @@ def main() -> None:
         "duration_seconds": (completed - started).total_seconds(),
         "exit_code": result.returncode,
         "status": "KERNEL_ACCEPTED_WITH_SCOPE" if accepted else "KERNEL_REJECTED",
-        "scope": "Observation collision proves relative completion-observation incompleteness and blocks a Done classifier through the coarse observation; an explicit statewise CompletionBridge is the positive transport control; enriched terminal-event observation is a second positive control.",
+        "scope": "Observation collision proves relative completion-observation incompleteness and blocks a Done classifier through the coarse observation; an explicit statewise CompletionBridge is the positive transport control; CompletionEquivalent formalizes the stronger same-task identity condition; enriched terminal-event observation is a second positive control.",
         "non_goals": [
             "No theorem about ZFC, real numbers, actual physical motion, or an actual source LiftClaim.",
             "No proof that every mathematical completion loses process data.",

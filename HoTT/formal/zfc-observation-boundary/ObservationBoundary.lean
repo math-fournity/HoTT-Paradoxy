@@ -60,6 +60,12 @@ def CompletionBridge
     {State : Type u} (formalDone originDone : State → Prop) : Prop :=
   ∀ state, formalDone state → originDone state
 
+/-- The stronger same-task claim: the two named completion predicates have the
+    same truth value on every state of one common state domain. -/
+def CompletionEquivalent
+    {State : Type u} (leftDone rightDone : State → Prop) : Prop :=
+  ∀ state, leftDone state ↔ rightDone state
+
 /-- Positive bridge control: once the required bridge has actually been
     supplied, a formal completion can be transported to the origin predicate
     for the same named state. -/
@@ -68,6 +74,15 @@ theorem completion_bridge_delivers_origin_done
     (bridge : CompletionBridge formalDone originDone)
     (state : State) (formal : formalDone state) : originDone state :=
   bridge state formal
+
+/-- A genuine same-task completion equivalence supplies the forward bridge,
+    but a shared informal word does not establish this premise. -/
+theorem completion_equivalence_supplies_bridge
+    {State : Type u} (leftDone rightDone : State → Prop)
+    (equivalent : CompletionEquivalent leftDone rightDone) :
+    CompletionBridge leftDone rightDone := by
+  intro state left
+  exact (equivalent state).mp left
 
 /-- A collision between oppositely classified process states proves the
     corresponding observation is not completion-adequate. -/
@@ -147,6 +162,7 @@ theorem enriched_observation_decides_strong_done :
 #print axioms no_done_classifier_of_observation_collision
 #print axioms observation_collision_implies_completion_observation_incomplete
 #print axioms completion_bridge_delivers_origin_done
+#print axioms completion_equivalence_supplies_bridge
 #print axioms no_formal_completion_only_classifier
 #print axioms enriched_observation_decides_strong_done
 

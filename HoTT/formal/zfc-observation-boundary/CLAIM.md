@@ -28,14 +28,22 @@ Source: [ObservationBoundary.lean](ObservationBoundary.lean).
    completion be transported to origin completion for the same state.  A shared
    natural-language label does not supply this premise.
 
-4. `no_formal_completion_only_classifier`:
+4. `CompletionEquivalent` and `completion_equivalence_supplies_bridge`:
+
+   The stronger same-task condition is a pointwise equivalence of two named
+   completion predicates over one state domain.  Lean checks that such an
+   equivalence supplies the forward bridge.  This is the exact formal shape of
+   the evidence requested by the H093 cross-source adjudication; no actual
+   source equivalence is asserted here.
+
+5. `no_formal_completion_only_classifier`:
 
    In the explicit two-trace fixture, both `continuousEndpoint` and
    `sequentialNoLastAction` have `formalCompletion = 1`, while `strongDone`
    distinguishes them.  No predicate of `formalCompletion` alone decides
    `strongDone` for both traces.
 
-5. `enriched_observation_decides_strong_done`:
+6. `enriched_observation_decides_strong_done`:
 
    If the fixture observation retains a terminal-event `Bool`, a classifier can
    decide this fixture's `strongDone` predicate.
