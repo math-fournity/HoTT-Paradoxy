@@ -15,9 +15,9 @@ soft_line_target: 300
 |---|---|
 | 当前 core | `core-cognition-generation-13`，62 个 KC。 |
 | 工作单元 | `HOTT-MOTIVE-ZFC-SOP` 的首个来源分母闭合。 |
-| 当前判词 | `ALIGNED_WITH_SIX_SOURCE_RUNS_THREE_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_AND_ONE_REALITY_TOTALITY_BRIDGE / NO_ZFC_Q_CLAIM`。 |
-| 关键张力 | 用户要求用 P 发现基础理论 Q；六份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary和finite-Done/infinite-totality bridge。HMZ-009给Book Power Set quotient route，HMZ-010给actual Isabelle/ZF consumer但`RepFun` route不同且guards/payment明示；HMZ-012给time/totality bridge但paper的conceptual-metaphor限定和formal sethood Done阻断same-task。均未给P2/P3。 |
-| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给 H0→Z0 的正向传输，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
+| 当前判词 | `ALIGNED_WITH_SIX_SOURCE_RUNS_FOUR_REJECTED_PREFLIGHTS_ONE_CONTROLLED_PAIRING_ONE_POWERSET_ROUTE_SPLIT_ONE_REALITY_TOTALITY_BRIDGE_AND_ONE_H0_UNIVERSE_ANTI_ANALOGY / NO_ZFC_Q_CLAIM`。 |
+| 关键张力 | 用户要求用 P 发现基础理论 Q；六份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment、ZFC-in-CIC model/Choice/Russell guard、R-HIGHER semantic model/assumption boundary和finite-Done/infinite-totality bridge。HMZ-013补充H0 universe route：technical correspondence存在，但model/inaccessible/smallness scope与source显式的same-G guard阻断transport。HMZ-009/010/012/013均未给P2/P3。 |
+| 反证／重开 | 新来源改变 object/formation/consumer/Done、为 HMZ-009 保留 \(\mathcal P(A)\)-subset formation且把finite-style completion保留为同一 \(A,R\) quotient task Done的actual-consumer payment ledger、显示未付 payment，给一个越过HMZ-013 scope/identity guard的 H0→Z0 正向传输，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 覆盖 | 状态 |
@@ -54,3 +54,5 @@ Book的universe/resizing、Isabelle的equiv/congruence/type preconditions、rout
 `HOTT-MOTIVE-ZFC-SOP 1.2`已将该经验固化为`RealityTaskBridgeCard`：E-source必须明示 bridge qualifier，
 并把`Done_h/Done_Z`、理论侧 pairing和same-task判词逐项记下。这个机制保留现实任务的研究价值，同时防止将隐喻或形式 sethood
 升级为P3 lifecycle或Q。
+
+HMZ-013的差量表明，“universe”共同词本身也不能替代H0传输：Voevodsky model中的set-theoretic universe和Shulman category consumer中的\(V_\kappa\)都带有显式scope/identity控制。该来源用现实消费者的same-G caveat保护同一任务，而不是预支它。

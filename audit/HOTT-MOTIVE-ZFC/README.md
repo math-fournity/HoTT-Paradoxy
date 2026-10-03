@@ -85,6 +85,8 @@ FINDINGS.md
 
 第六份预检是 [HMZ-011 Dochtermann totality bridge](20261003-HMZ-011-dochtermann-totality-preflight/MANIFEST.md)。它不是 HoTT 动机来源，而是一个有明示有限 Done／无限 totality／Power Set hand-off的 E-source；因此被准入为 HMZ-012 的冻结分母。HMZ-012 已表明它支撑一项 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE`，却没有让有限分类过程与形式 set-existence成为同一 Done；不能借其哲学修辞宣称 ZFC Q。
 
+第七份预检是 [HMZ-013 universe shift 的 H0 传输](20261003-HMZ-013-universe-shift-h0-preflight/MANIFEST.md)。Voevodsky 的 type-universe 模型确实连接到“ZFC with \(\omega+2\) universes”，Shulman 的 Grothendieck universe source 也给出实际 universe-juggling consumer；但它们运行在 model/large-cardinal scope，并且 Shulman 明说换 universe 后没有理由认为同一个 \(G\) 保持原性质。该来源因此成为 `H0→Z0` 的反类比／payment control，状态为 `ADMISSION_REJECTED_WITH_SCOPE`。
+
 ## 本次整备的影响边界
 
 | 项目面 | 处置 |

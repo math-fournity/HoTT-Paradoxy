@@ -75,7 +75,7 @@ P2/P3：source-supported reentry、admission或未付完成结构
 | chosen representative / skeleton | Choice、maps、well-ordering 或标记被明确要求。 |
 | `Inf`、`Pow`、`Replace` | 名称、axiom、单值／唯一性条件和 derived rules 已公开交付；没有 reentry。 |
 | Power Set | 初始三轮没有 `R → u/F/C/Done` bridge；HMZ-009 后有 Book-level quotient construction bridge，HMZ-010 已给 `RepFun` route 的 actual consumer/payment control，HMZ-012又固定 finite-process / infinite-totality reality bridge，但仍缺保留 \(\mathcal P(A)\)-subset route 的 same-Done、P-qualified未付 completion。 |
-| `H0 → Z0` | 仍不能保持 HoTT 高阶相同的 subject/process/observation/Done。 |
+| `H0 → Z0` | HMZ-013 的 universe-model / Grothendieck route 给出来源化反类比：model/large-cardinal scope、smallness switch与同一对象控制均不保留 HoTT H0 的 subject/process/observation/Done。 |
 
 所以第一阶段的总结果是：
 
@@ -180,3 +180,5 @@ route**的 actual consumer，或一个能显示未付 formation-use 的来源。
 它确实让“时间维度”变成一个可引用的 source bridge；但 paper自称 conceptual metaphor，ZFC formation sources说的是 sethood，
 Isabelle consumer又换成 `RepFun`。因此 `Done_h` 与 `Done_z` 未被证明相同，且无P2/P3。HMZ-012的保真结局为
 `REALITY_TASK_TO_TOTALITY_CONSTRUCTION_BRIDGE / SAME_TASK_NOT_ESTABLISHED / P_REQUALIFICATION_REQUIRED`；它为未来的同一任务证据定义了精确缺口，而非建立Q。
+
+[HMZ-013 universe-shift H0 preflight](20261003-HMZ-013-universe-shift-h0-preflight/MANIFEST.md)检查了另一条非 quotient 的 H0 入口。Voevodsky 2013将 \(U_i\) 的 model 置于“ZFC with \(\omega+2\) universes”，Shulman 2008则以inaccessible \(\kappa\) 的 \(V_\kappa\) 和 universe-juggling 讨论实际 category-theory consumer。后者明确保留了“同一个 \(G\) 未必跨 universe 保持”的 guard。故这一对来源提供 `TECHNICAL_CORRESPONDENCE + EXPLICIT_SCOPE/IDENTITY_PAYMENT`，但不保留 same task、P2/P3或H0 transport，判`ADMISSION_REJECTED_WITH_SCOPE`。

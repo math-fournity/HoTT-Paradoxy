@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_HMZ-012_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_HMZ-010_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / HMZ-009_POWERSET_QUOTIENT_BRIDGE_CONTROLLED_BY_HMZ-010_ROUTE_SPLIT / HMZ-011_ADMITTED_AND_CLOSED_BY_HMZ-012 / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_HMZ-008_HMZ-012_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_HMZ-010_HMZ-013_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / HMZ-009_POWERSET_QUOTIENT_BRIDGE_CONTROLLED_BY_HMZ-010_ROUTE_SPLIT / HMZ-011_ADMITTED_AND_CLOSED_BY_HMZ-012 / H0_UNIVERSE_ROUTE_CONTROLLED / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -31,6 +31,7 @@ P-DAG、STATE mutation、proof assistant kernel run、tag、push 或发布。
 - Power Set—quotient technical bridge preflight：HoTT Book source commit `578b85cc`（HMZ-S-026）的 `logic.tex`／`hits.tex`／`setmath.tex` 精确副本和 hash，以及复用的 Metamath/Shulman formation controls，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-009-book-powerset-quotient-preflight/`。
 - pairing consumer preflight：Paulson `ZF/EquivClass.thy` at `Isabelle2021-1-RC5` commit `6a65dad...`（HMZ-S-027），其 exact source、hash与对 HMZ-009 的 route/payment comparison 在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-010-isabelle-zf-quotient-consumer-preflight/`。
 - reality/task preflight and successor denominator：Anton Dochtermann 2011（HMZ-S-028）的11页作者托管原件，及其同 HoTT Book、ZFC formation sources和Isabelle/ZF consumer组成的 HMZ-012，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-011-dochtermann-totality-preflight/` 与 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-012-totality-partition-reality-source/`。
+- H0 universe-transport preflight：Voevodsky 2013 `HMZ-S-012` universe-model slides与Shulman `HMZ-S-010` Grothendieck-universe / universe-juggling locators，在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-013-universe-shift-h0-preflight/`。
 
 `cognition_runtime.py plan --profile governance` 仍被既有 `HEAD.json`—`MEMORY/001` 状态快照不匹配而
 fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直接路径回读，研究结论限于 archive 中的显式范围。
@@ -98,6 +99,8 @@ actual-consumer controls合并后得到：它是 `REALITY_TASK_TO_TOTALITY_CONST
 set-existence Done不相同，Book/Isabelle routes也不同，且没有P2/P3或H0 transport。因此状态为`P_REQUALIFICATION_REQUIRED`，不是Q。
 这项经验已回写为 `HOTT-MOTIVE-ZFC-SOP 1.2`：`HMZ-E`／RealityTaskBridgeCard 现在独立保存 `Done_h/Done_Z`、bridge qualifier、
 同一任务矩阵和理论侧 pairing；`METAPHOR`／`ANALOGY`不再允许自动跨到P3或Q。
+
+HMZ-013 测试了目前最接近H0词面的另一条来源路：type-theory \(U_i\) 被技术地解释在set-theoretic universes中，Grothendieck \(V_\kappa\) 又被用作small-object scope。然而作者来源没有把它们当成同一 HoTT universe task；反而显式记录inaccessible的额外支付、smallness范围切换和同一\(G\)未必跨universe保持。结果是`H0_TRANSPORT_ANTI_ANALOGY_CONTROL`，而不是Z0或Q0。
 
 ## §7 重新呈现与 14 题定位
 
