@@ -1,0 +1,58 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20261003-P-DAG-SOP-WORKTREE-INDEPENDENCE",
+  "tier": "T1",
+  "role": "CONTRIBUTOR / P-DAG governance evidence",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "workers": [],
+  "runs": [],
+  "verifications": [
+    {
+      "id": "GOVERNANCE_SHARD_STRUCTURE",
+      "command": "python3 -B scripts/audit/verify_governance_shards.py",
+      "status": "PASS",
+      "scope": "whole current repo scan",
+      "result": "2015 indexes; v1/v2 compatible; 15 soft-target notices are non-blocking; no errors"
+    },
+    {
+      "id": "SESSION_RUNS_JSON",
+      "command": "python3 -m json.tool <this RUNS.json>",
+      "status": "PASS",
+      "result": "JSON parses"
+    },
+    {
+      "id": "LOCAL_MARKDOWN_LINKS",
+      "command": "bounded Python resolver over current changed owners and session audit files",
+      "status": "PASS",
+      "result": "4 local Markdown links checked in the exclusive session audit bundle; 0 missing"
+    },
+    {
+      "id": "CORE_KC_COVERAGE",
+      "command": "bounded Python ID count over CORE_COGNITION_AUDIT/001",
+      "status": "PASS",
+      "result": "62 rows, 62 unique IDs, exact KC-000001 through KC-000062 order"
+    },
+    {
+      "id": "CURRENT_OWNER_EXCLUSION",
+      "command": "git diff --quiet -- rulings.md feature-list.md 'dev-docs/刀具系统理念/001 - 目标层级与明显起点.md'",
+      "status": "PASS",
+      "result": "all three current-owner paths match starting HEAD; contributor left owner updates pending"
+    },
+    {
+      "id": "CACHED_EXACT_PATH_DIFF",
+      "command": "git diff --cached --check",
+      "status": "PASS",
+      "result": "six exact contributor session-audit paths staged; no other paths staged; no whitespace errors"
+    }
+  ],
+  "git": {
+    "branch": "codex/p-dag-tool-birth-audit",
+    "starting_head": "73717b1d36d7866089124027cc7e00308f0e63d1",
+    "scope": [".codex/research/hott/sessions/S-GOV-20261003-P-DAG-SOP-WORKTREE-INDEPENDENCE/"],
+    "preexisting_unrelated_dirty_paths_preserved": true,
+    "previous_worktree_written": false,
+    "commit": "to be recorded by branch history; no self-referential commit hash is embedded"
+  },
+  "status": "EXACT_SESSION_AUDIT_BUNDLE_STAGED_AND_DIFF_CHECKED"
+}
