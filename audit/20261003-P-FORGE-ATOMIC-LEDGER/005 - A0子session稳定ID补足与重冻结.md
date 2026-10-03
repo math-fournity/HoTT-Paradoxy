@@ -28,7 +28,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 | atomic_id | 角色 | exact session | 原子身份 | A1状态 |
 |---|---|---|---|---|
 | `N24A` | B-A advocate | `01a0fd1b-039b-77e1-895a-b5ff743ce497` | relation-as-minimal-consumer立场。 | `ATOMIC_AUDIT_COMPLETE` |
-| `N24B` | B-B challenger | `01a0fd1b-028d-7442-a124-e3e4a6af5577` | consumer-contract立场。 | `PENDING` |
+| `N24B` | B-B challenger | `01a0fd1b-028d-7442-a124-e3e4a6af5577` | consumer-contract立场。 | `ATOMIC_AUDIT_COMPLETE` |
 | `N24C` | B-C independent arbiter | `01a0fd1d-180b-7742-8c04-d83975b92ba1` | 只消费sealed battle pack的裁决。 | `PENDING` |
 
 ### 2.2 F25（legacy N25）：SOURCE-001
