@@ -677,3 +677,130 @@ dev-notes/0112 - 2026-10-03 - 按照SOP=`HOTT-MOTIVE-ZFC-SOP`,继续推进，直
 它们是 `dev-notes-archive` 工作流生成的用户可见对话投影。该工作流明确要求归档后不自动 stage、commit、push，因为其中可能含有完整用户原文和敏感内容。因此我没有把它们混入研究提交。
 
 所以，准确说：**当前所有研究／SOP 正文改动已经提交；两份归档记录仍在 worktree 中但尚未提交。**
+
+
+<!-- conversation-archive-turn: skill-turn-7361cae3ab08450881dd93d453182ff9 prompt_sha256=a6c27f493d76035c0121bbbad208c9252073d10c73f88edfc5bf136f5a707fa8 answer_sha256=6c1e9e8cb6c3320d68cda6da09b05821558d3ba706635e92eaf93c80d00470be -->
+## 2026-10-03 · Turn skill-turn-7361cae3ab08450881dd93d453182ff9
+
+### 用户提问
+
+把该提交的提交了。思考一下，如何让主worktree上的AI可以拿到你的工作成果呢？到网络上搜索一下大家使用Codex的多git worktree的最佳实践，告诉我接下来应该如何做？或者说，你需要做什么？写详细的说明+索引的文档吗？
+
+### AI 最终回复
+
+# 已完成的提交与可发现性
+
+你授权提交的两份归档已经提交：
+
+    7e1a111a docs: archive HOTT motive ZFC investigation turns
+
+我还完成了主 worktree 接收成果所必需的最小准备，并提交为：
+
+    8059d9a2 docs: add HOTT motive ZFC integration handoff
+
+当前候选成果不再只挂在 detached HEAD 上，而是固定在共享 Git ref：
+
+    codex/hott-motive-zfc-literature
+
+我已从主 worktree 只读验证：它可以直接读取该分支和 [集成交接单](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md)。因此，主 worktree 上的 AI 不需要访问这段聊天记录，也不需要猜测当前 detached commit 在哪里。
+
+## 先澄清：主 worktree 与 main 分支不是一回事
+
+当前主 worktree 位于 /Volumes/D/HoTT_AI_HANDOFF_20260911，它的工作分支是 dev；本项目约定研究过程在 dev 上，main 是从 dev 生成的展示／发布投影。接收这批研究成果的正确目标是 dev，不能直接修改 main。
+
+现场快照显示主 worktree 有 322 条工作区状态记录，并且 dev 已继续向前移动。它不是安全的直接集成场所。不能在这个 checkout 中 reset、restore、clean、stash、pull、切分支或直接 cherry-pick。
+
+| 位置 | 职责 | 当前处理 |
+|---|---|---|
+| 主 worktree 的 dev | 当前研究真值与正在进行的工作 | 保持不动，先由它自己的维护者处理 dirty 状态 |
+| 候选分支 codex/hott-motive-zfc-literature | 本次来源调查成果 | 已固定，可只读审阅 |
+| 新的 integration worktree | 合并、冲突裁决和验证 | 下一步从冻结的 dev OID 建立 |
+| main 投影 | 展示／发布 | 仅在 dev 集成后按现有发布流程生成 |
+
+## 我查到的 Codex 与 Git 实践
+
+OpenAI 的当前 Codex 指引把“开始前选择正确的 workspace、branch 或 fresh worktree”作为重要习惯：当前 checkout 适合小型调查，隔离变更应使用新的 worktree，并从预定 base 开始。它也把 diff review 作为完成环的一部分。[OpenAI：Remote 工程工作流](https://developers.openai.com/blog/mastering-codex-remote-for-engineering)
+
+OpenAI 对长时程 Codex 工作的建议同样是：把规格、约束、状态和决策落进 repo 的持久材料，worktree 用于隔离运行、保持 diff 可审阅、降低相互干扰；外化的项目记忆使新会话能够恢复工作，而不是依赖旧对话。[OpenAI：长时程 Codex 任务](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)
+
+Git 的官方文档补足了关键的技术边界：多个 worktree 共享 refs 与通常的 config，但各自有工作文件和 index。因此 worktree 解决的是文件隔离，不能自动合并项目语义、当前状态或责任归属；不同分支必须通过审阅过的 commit 来交接。[Git worktree 文档](https://git-scm.com/docs/git-worktree)
+
+这三条共同导出适合本项目的最小模式：一个主工作面、一个显式候选分支、一个干净集成 worktree、一个唯一集成者。
+
+## 我没有再造一套文档系统
+
+不需要新建大而重复的“主 worktree 知识库”、数据库或额外总索引。研究内容已经有唯一 owner：
+
+- [HOTT-MOTIVE-ZFC 档案根](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/README.md)：九个冻结来源 run、十一份预检和来源入口；
+- [P 字段来源矩阵](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)：当前 CURRENT_SOURCE_ADMISSION_FRONTIER；
+- [HOTT-MOTIVE-ZFC-SOP](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)：调查、归档、停止与恢复规则。
+
+我新增的 [集成交接单](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md) 只承担跨 worktree 所缺的五项信息：
+
+1. 候选 ref 与精确内容快照；
+2. 共同基线和观察到的 dev target；
+3. 应选择和应排除的 Git 提交；
+4. 已预见的文本冲突和语义重叠 owner；
+5. 干净集成、验证和最终推进 dev 的顺序。
+
+它已经从 archive README 链接，因此这是一份有入口的交接单，而不是孤立说明文件。
+
+## 主 worktree AI 接下来应怎样做
+
+### 1. 先只读定位候选
+
+主 worktree 的 AI 应先重新核对现场，然后读候选的交接单：
+
+    git worktree list --porcelain
+    git show refs/heads/codex/hott-motive-zfc-literature:audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md
+
+交接单规定了最小阅读顺序：交接单 → archive README → P 矩阵 → 阶段综合 → SOP → 路线 009 → 各 run 的 MANIFEST/FINDINGS/source cards。
+
+### 2. 先保全主 worktree 自己的工作
+
+主 worktree 当前有大量已修改、已暂存或未跟踪内容。应由当前维护者先继续、提交或明确保留它们；本次来源调查候选不接管这些内容，也不使用 stash 或 reset 来制造“干净”。
+
+### 3. 在新 worktree 做集成预演
+
+待 dev 的目标 OID 冻结后，建立短期 integration branch/worktree，从这个精确 OID 开始。交接单要求选择性移植：
+
+1. 先审阅并移植路线种子 913a1a18；
+2. 明确跳过 674df726，它是无关的广泛 snapshot；
+3. 再移植 772e0fca^..7e1a111a 的 23 个 HOTT-MOTIVE 逻辑提交；
+4. 在集成 worktree 中处理冲突和验证。
+
+不能直接 merge 整个候选分支，因为它的祖先中包含那个应排除的 snapshot。
+
+### 4. 按 owner 语义处理冲突
+
+三方 merge 预演已经显示至少三个实际文本冲突：
+
+- .codex/skills/SKILL_ROLES.json
+- feature-list.md
+- rulings.md
+
+此外，AGENTS.md、MEMORY/001 - 当前执行队列.md、dev-docs/README.md、刀具系统理念.md 和 P-FORGE SOP owner 有语义重叠。集成者必须从两边提取仍成立的内容，在 dev 的当前 owner 中原位重述；不能用 ours 或 theirs 整块覆盖。
+
+### 5. 通过集成验证后才推进 dev
+
+集成候选至少应通过：
+
+    git diff --check
+    python3 -B scripts/audit/verify_governance_shards.py
+    python3 -B scripts/audit/verify_pattern_p_tool_history_sources.py --root .
+
+并复核 archive manifest、链接、提交选择范围与“没有 ZFC 数学结论”的边界。只有这样，唯一的 CANONICAL_INTEGRATOR 才应推进 dev；push 和从 dev 生成 main 投影仍是后续独立动作。
+
+## 现在的实际状态
+
+| 项目 | 状态 |
+|---|---|
+| 对话归档提交 | 已完成，7e1a111a |
+| 候选分支 | 已建立，codex/hott-motive-zfc-literature |
+| 主 worktree 可读发现 | 已验证 |
+| 候选集成交接单和 archive 索引 | 已完成，8059d9a2 |
+| 直接合并进主 worktree | 未做，且当前不安全 |
+| 干净集成 worktree 与冲突解决 | 下一项需要执行的集成工作 |
+| push / main 发布投影 | 未做 |
+
+这给主 worktree AI 一条明确路径：先发现候选、再用干净 worktree 审阅和集成，而不是让它从对话、同名文件或一串 detached commits 猜测我做了什么。
