@@ -2,7 +2,7 @@
 name: hott-motive-zfc-literature
 description: Investigate and archive HoTT creation motives as source-grounded ZFC candidate seeds when the user invokes HOTT-MOTIVE-ZFC-SOP; map R_i to Z_i to P-qualified Q_i without treating motives as ZFC defects.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   role: "task-scoped-literature-investigation"
   sop_name: "HOTT-MOTIVE-ZFC-SOP"
 ---
@@ -15,8 +15,11 @@ metadata:
 
 - [调查 SOP](../../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 - [动机反投影路线种子](../../../dev-docs/菲尔兹奖后续理论级目标路线图/009%20-%20HoTT创建动机反投影ZFC候选路线.md)
+- [项目档案根](../../../audit/HOTT-MOTIVE-ZFC/README.md)
 
 本 Skill 不因文件存在、路线种子或一个动机关键词自动启动调查、P-DAG、worker、网络检索、Goal／STATE mutation、数学证明或理论结论。
+
+项目档案根可以先于任何调查 run 存在；`PROJECT_DEFINED / RUN_NOT_STARTED` 只证明入口、ID和归档合同已经就绪。只有用户以调用名启动后，才在该根下冻结来源分母并创建实际 run。
 
 ## 不可跳过的工作身份
 

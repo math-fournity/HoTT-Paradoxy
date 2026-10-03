@@ -654,3 +654,14 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. `H0→Z0→Q0` 是严格的传输问题，不是类比结论。只有当 ZFC 侧保持理论内对象、formation、同一任务、未支付完成追问、P2/P3形状和正反控制时，才可形成 `Q0`；否则应登记为 `ANTI_ANALOGY_CONTROL`。
 3. 结构同一性／同构、构造性与机器实现、高阶对象的直接表达等是首批来源种子；其中结构同一性路线必须先消费现有 ETCS／Mumford／Mathlib 控制，不能把“代表的自然选择”偷偷代入普通选择任务。
 4. 本裁定只授权路线图、rulings、Feature、MEMORY与精确 Git 谱系的记录；不恢复暂停的 P-FORGE、不启动 worker／网络节点、不切换 Power Set station、不创建 Goal／STATE candidate、不主张 ZFC 的数学问题已经定位。
+
+## 2026-10-03：HOTT-MOTIVE-ZFC-SOP 文献调查与候选档案项目
+
+研究发起人要求：把 HoTT 创建动机到 ZFC 候选的各种文献调查作为一个项目，建立新的标准化 SOP，命名后可在 `/goal` 中引用，以驱动彻底的调查和存档。
+
+执行裁定：
+
+1. 正式调用名为 `HOTT-MOTIVE-ZFC-SOP`，canonical SOP 是 `dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md`，项目 Skill 是 `.codex/skills/hott-motive-zfc-literature/SKILL.md`，档案根为 `audit/HOTT-MOTIVE-ZFC/README.md`。
+2. 一次调查只能对冻结的 A–E 来源分母声称 `DENOMINATOR_COMPLETE_WITH_SCOPE`；每项必须有来源身份、R-card、Z disposition、Q／control状态、标准防线和 coverage remainder。不得以论文数量、关键词、作者动机修辞或 AI 一致性宣称彻底。
+3. `/goal` 引用该 SOP 授权其标准化的来源调查和项目档案；仍不自动授权付费／登录下载、P-DAG／worker、数学STATE、Power Set station切换、数学证明、理论结论、tag、push或发布。
+4. 调用前项目状态是 `PROJECT_DEFINED / RUN_NOT_STARTED`。SOP、档案根、路由与技能存在不等于任何文献 run、ZFC候选或`H0→Z0→Q0`传输已完成。

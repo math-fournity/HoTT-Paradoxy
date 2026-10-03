@@ -164,6 +164,15 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - 只有 Master 写回本项目 current owners。App Server 仅在 exact model/effort 与 read-only sandbox、approval policy 得到实际资格化后使用；当前未资格化时使用已验证的 fresh CLI lane，或停止相应节点。发现旧的 native Sub Agent 句柄仍只关闭、登记，且不把它们当作 P-DAG 证据。
 - 此 scoped exception 不授权一般 swarm、写入委派、推送、发布、凭据访问、外部系统 mutation 或把 DAG 输出升级为数学结论。研究发起人随后明确授权：P-DAG 的刀具规格、来源／Battle／timeout 收据和必要路由更新在完成精确 baseline、验证与 owner 回读后，应以**精确路径 Git commit**保留审计谱系；该授权不扩大到无关 dirty 路径、tag、push 或发布。其它任务仍适用原禁令和全局 `repo-subagent-governance` 合同。
 
+## HoTT 创建动机反投影 ZFC 文献调查（用户 2026-10-03）
+
+研究发起人已将“HoTT 作者为何在已有集合论基础下仍提出 HoTT”的文献调查，设为反投影 ZFC 候选来源的独立项目；唯一调用名是 `HOTT-MOTIVE-ZFC-SOP`。它由 `.codex/skills/hott-motive-zfc-literature/SKILL.md` 与 `dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md` 共同拥有，路线种子是 `dev-docs/菲尔兹奖后续理论级目标路线图/009 - HoTT创建动机反投影ZFC候选路线.md`，项目档案根是 `audit/HOTT-MOTIVE-ZFC/README.md`。
+
+- 仅在用户明确引用该 SOP、要求彻底调查／存档或继续该项目时启动。调用会授权 SOP 所定义的公开来源调查、R/Z/Q 卡和项目档案；它不因一个动机关键词自动启动，也不自动恢复其它 Goal。
+- 每项必须经过 `R_i（HoTT 原典动机）→Z_i（精确集合论侧规则／代价／消费者）→Q_i（模式 P 与同一任务资格）`。作者动机不是 ZFC 不一致或缺陷的证据。
+- `H0→Z0→Q0` 是专用传输门；ZFC 侧若在对象、formation、同一任务、未支付完成性、P2/P3形状或控制上不保真，判为 `ANTI_ANALOGY_CONTROL`，不得改写成 ZFC 无问题或调查失败。
+- P-DAG、worker、模型运行、数学STATE、Power Set station切换、数学结论和新刀都需各自的现行授权与合同；该文献 SOP 不以“彻底调查”名义扩大权限。
+
 ## 任务路由（v5 分档）
 
 治理强度与任务风险成正比。档位四变量：**主张风险 × 自治程度 × 视界长度 × 状态改写**；会话首条声明档位并记入 SESSION.md，越档即停（任务中途升级→立即升档过门，不允许"先交付后补证"）。
