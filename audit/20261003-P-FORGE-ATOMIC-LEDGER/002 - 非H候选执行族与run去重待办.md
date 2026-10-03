@@ -16,16 +16,18 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 缺少价值，只表示它尚不能贡献精确总数。
 
 目前已从 N06--N28 提取出 37 个彼此不同的 session ID，并与 H 报告中可提取的身份交叉检查为无交集，
-故它们可以作为原子总分母的已确认 non-H 运行。N01--N05、N29和N30仍须继续拆分或按Master／未采样身份处置。
+故它们可以作为原子总分母的已确认 non-H 运行。N01--N05、N29和N30已确认实际发生但没有统一runtime ID；
+它们构成11个额外的工作单元，不与37个session run混写。
 
 ## 2. 已识别的 non-H 候选执行族
 
 | 候选族 | 最小来源报告 | 初步身份 | 去重／拆分任务 |
 |---|---|---|---|
-| N01 P2逻辑翻译探针 | `20261002-P2-计算逻辑翻译探针-Terra-Max.md` | external calibration | 提取独立session与terminal。 |
-| N02 朴素集合论脱敏正控制 | `20261002-模式P-朴素集合论脱敏正控制-Terra-Max.md` | deidentified control | 核对是否单一session及与H050不同。 |
-| N03 HoTT无泄漏第一次负控制 | `20261002-模式P-HoTT无泄漏盲重放-Terra-Max.md` | blind negative control | 核对session，排除与H001--H010重叠。 |
-| N04/N05 ZFC一遍匹配双prompt | `20261002-模式P一遍匹配ZFC盲测-Terra-Max.md` | two prompt-bounded probes | 分开两个prompt的session／terminal identity。 |
+| N01 P2逻辑翻译探针 | `20261002-P2-计算逻辑翻译探针-Terra-Max.md` | 代理已完成、无后代；无独立runtime identity | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N02 朴素集合论脱敏正控制 | `20261002-模式P-朴素集合论脱敏正控制-Terra-Max.md` | 代理已完成、无后代；与后来的H050不可凭名称合并 | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N03 HoTT无泄漏第一次负控制 | `20261002-模式P-HoTT无泄漏盲重放-Terra-Max.md` | 代理已完成、无后代；prompt-bounded run | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N04 ZFC一遍匹配初版 | `20261002-模式P一遍匹配ZFC盲测-Terra-Max.md` §2--§5 | 第一次独立prompt-bounded probe | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N05 ZFC一遍匹配L0--L2复测 | 同报告 §6 | 新的修订prompt probe | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
 | N06 P2-FORGE | `P2-FORGE-001` | unique session `01a0fca3-9498-71f0-b8d6-255b9a65648b` | `UNIQUE_ATOMIC_RUN` |
 | N07 P3-FORGE | `P3-FORGE-001` | unique session `01a0fca5-f826-7cd0-9731-09428db42c6d` | `UNIQUE_ATOMIC_RUN` |
 | N08 P1-FORGE | `P1-FORGE-001` | unique session `01a0fca9-2ca7-76b2-b5fc-14812da9f046` | `UNIQUE_ATOMIC_RUN` |
@@ -41,7 +43,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 | N18 P2-DELAY | `P2-DELAY-001` | unique session `01a0fccf-8409-7853-8596-7787a618b4f8` | `UNIQUE_ATOMIC_RUN` |
 | N19 P3-DELAY | `P3-DELAY-001` | unique session `01a0fcca-f61a-7850-9366-b1dacbd4ac31` | `UNIQUE_ATOMIC_RUN` |
 | N20 ZFC-COFORGE-001 | `ZFC-COFORGE-001` | unique session `01a0fce9-bb7a-7723-9a12-44f0390c4abd` | `UNIQUE_ATOMIC_RUN` |
-| N21 ZFC-COFORGE-003 | `ZFC-COFORGE-003-P1` | unique session `01a0fced-d62d-76a3-a2eb-f1ccdb0c801c` | `UNIQUE_ATOMIC_RUN` |
+| N21 ZFC-COFORGE-002（文件名沿用003） | `ZFC-COFORGE-003-P1` | unique session `01a0fced-d62d-76a3-a2eb-f1ccdb0c801c`; 锻造史称其为`COFORGE-002-P1` | `UNIQUE_ATOMIC_RUN / NAMING_ALIAS` |
 | N22 ZFC-COFORGE-004 | `ZFC-COFORGE-004` | unique session `01a0fcfa-5379-7842-8643-560af9a32ef5` | `UNIQUE_ATOMIC_RUN` |
 | N23 ZFC-COFORGE-005 | `ZFC-COFORGE-005-P1` | unique session `01a0fcfd-e6f5-7ff2-a3ac-b920081a0b48` | `UNIQUE_ATOMIC_RUN` |
 | N24 Battle-001 | `P-DAG-BATTLE-001` | 3 unique sessions: `01a0fd1b-039b-77e1-895a-b5ff743ce497`; `01a0fd1b-028d-7442-a124-e3e4a6af5577`; `01a0fd1d-180b-7742-8c04-d83975b92ba1` | `UNIQUE_ATOMIC_RUNS(3)` |
@@ -49,8 +51,13 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 | N26 SOURCE-002 + BATTLE-002 | `P-DAG-SOURCE-002-与-BATTLE-002` | 8 unique sessions; exact IDs frozen in this report and cross-checked against H/non-H registries | `UNIQUE_ATOMIC_RUNS(8)` |
 | N27 SOURCE-003 | `P-DAG-SOURCE-003` | 3 unique cancelled sessions: `01a0fd5f-0afa-7773-8245-f873a22e49cc`; `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3`; `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | `UNIQUE_ATOMIC_RUNS(3)` |
 | N28 SOURCE-004 | `P-DAG-SOURCE-004` | pre-sampling connection-failure session `01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118` | `UNIQUE_ATOMIC_RUNS(1)` |
-| N29 SOURCE-005 | `20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md` | Master direct-source control | 标记无worker／有Master动作。 |
-| N30 runner／isolation／qualification | `P-DAG-RUNNER-HEALTH-001`、`RUNNER-ISOLATION-002`、`CODEX-APPSERVER-ISOLATION-003/004/005`、`AppServer-资格检查` | execution-envelope controls | 逐项确认是否采样、是否影响候选卡、是否已经由H007--H010覆盖。 |
+| N29 SOURCE-005 | `20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md` | 一个Master direct-source control | `MASTER_EXECUTION_UNIT(1)` |
+| N30a runner-health-001 | `P-DAG-RUNNER-HEALTH-001` NodeCard | 只有预封存卡，未见执行收据 | `NODECARD_ONLY_NOT_COUNTED` |
+| N30b runner-isolation-002 | `P-DAG-RUNNER-ISOLATION-002-RESULT` | 实际空home认证执行，401发生在模型采样前 | `NO_MODEL_SAMPLING_BUT_EXECUTION_UNIT(1)` |
+| N30c isolation-003 | `CODEX-APPSERVER-ISOLATION-003` | 实际prompt-input gate在auth前停止 | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N30d isolation-004 | `CODEX-APPSERVER-ISOLATION-004` | 实际到达App Server，post-turn API不兼容 | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N30e isolation-005 | `CODEX-APPSERVER-ISOLATION-005` | zero-theory health通过；不是H008 discovery本身 | `DOCUMENTED_EXECUTION_IDENTITY_MISSING(1)` |
+| N30f AppServer资格检查 | `20261002-P-DAG-AppServer-资格检查.md` | Master host-capability source inspection | `MASTER_EXECUTION_UNIT(1)` |
 
 ## 3. 下阶段的可证伪完成条件
 
@@ -63,5 +70,5 @@ NO_MODEL_SAMPLING_BUT_EXECUTION_UNIT
 OUT_OF_SCOPE_WITH_REASON
 ```
 
-届时才能计算 `H75 + non-H unique runs = exact atomic denominator`。在那之前，R15的`>=112`只是不应再被降低的
-下界，不是完成分母。
+届时才能计算 `H75 + non-H unique runs + classified no-ID/Master units = exact atomic denominator`。
+在那之前，R15的`>=112`是身份去重session/run下界，`>=123`是完整锻打工作单元下界，二者都不是完成分母。
