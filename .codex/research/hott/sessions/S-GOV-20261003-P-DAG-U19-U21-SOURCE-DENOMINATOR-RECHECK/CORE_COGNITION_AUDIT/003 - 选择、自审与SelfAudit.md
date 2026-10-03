@@ -536,3 +536,67 @@ git_record:
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no other-checkout access; no full-origin current-owner edits
 ~~~
+
+## Delta SelfAuditCard：0107 菲尔兹目标选择前驱的来源范围复核
+
+```yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0107-FIELDS-TARGET-PRECURSOR-SCOPE
+source_units:
+  - dev-notes/0107 T1: skill-turn-99521765525f4380b0e3db180fcfc4bc
+  - dev-notes/0107 T2: skill-turn-aacfa2dc18014e0895899d0d815deee0
+  - dev-notes/0107 T3: skill-turn-5621a4ac78074690ab4be4ecf9e31b32
+  - full-origin audit 001–006 source inventory, coverage map, exclusions
+  - current-checkout direct source S12[1] and dev-notes/0108 T1
+original_requirement:
+  - audit the discussion lineage from before the P tools existed through the later continuous run
+  - do not silently omit a relevant source family or merge turns from matching text alone
+  - preserve each worktree's independent progress; use no other-checkout files or trajectory as input
+actual_action:
+  - verified current local 0107 archive SHA-256 1fd5fa9c340823ea37aa4dc6d1fc6ec8ef3fc90ed61623ca9ef865e2b34de249, 303 lines, 37976 bytes, mode 0600
+  - counted 3 archive markers, 3 direct user-prompt headers, and 0 Goal-context envelopes
+  - assigned provisional lineage roles: T1 Fields-target proposal request; T2 comparison of a competing answer; T3 correction toward foundational-theory targets
+  - searched full-origin audit 001–006 and found no 0107 reference or explicit disposition
+  - confirmed 0107-T3, 0108-T1, and S12[1] have the same visible prompt payload after whitespace normalization; archive turns and answer hashes differ, while native event identity remains UNKNOWN
+  - recorded 0107 as a scope-gap candidate; did not edit full-origin current owners, STATE/projections, source archive, or previous worktree
+alignment_verdict: UNDISPOSITIONED_PRECURSOR_SOURCE_FOUND / EVENT_ID_UNKNOWN / CANDIDATE_NOT_CURRENT
+deviation_class:
+  - no ORIGINAL_IDEA_CHALLENGED
+  - existing full-origin source-universe omission candidate; integration disposition not made by this contributor
+  - no mathematical claim and no P-tool success/failure judgment
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; this unit audits source scope and archive identity only
+P1_P2_P3:
+  P1: not applicable; no theory card or Q evaluated
+  P2: not applicable; content match is not a logical translation
+  P3: not applicable; no lifecycle/admission process evaluated
+tool_birth_card: NOT_REQUIRED (no new theory pattern or tool responsibility)
+source_identity:
+  archive_0107_T3_prompt_sha256: 3cb0a8f35d158324048668297137f6fc36604c3a65921221f0006b069c98a9b9
+  archive_0108_T1_turn_id: skill-turn-963b77f06b94411f963d1694cfa3f977
+  archive_0108_T1_answer_sha256: 7354e6e9770782dec558dd4f6f6e6e296cb416212899719ebb6eb218d286f090
+  direct_source_locator: S12[1]
+  relation: CONTENT_MATCH_CANDIDATE / NATIVE_EVENT_IDENTITY_UNKNOWN
+current_owner_mutation:
+  full_origin_audit_001_006: none
+  rulings_feature_state_projection: none
+  source_archive_0107: read-only; not staged or committed
+worktree_boundary:
+  other_checkout_read: false
+  other_checkout_wait_or_integrate: false
+  parent_or_previous_worktree_trajectory_read: false
+parent_goal_phase: UNKNOWN / NO_DIRECT_GOAL_EVENT_USED
+candidate_owner_delta:
+  - list 0107 in the full-origin source inventory or explicitly justify exclusion by source unit
+  - preserve three archive turn IDs even though T3 text matches 0108-T1 and S12[1]
+  - distinguish archive-event denominator, semantic-intent grouping, and direct-P-spec denominator
+falsifiers:
+  - owner evidence showing 0107 was intentionally assessed under a different source locator with explicit unit dispositions
+  - direct event-ID crosswalk showing 0107-T3 and 0108-T1 are the same native Host event rather than two captured archive events
+  - scope definition showing all Fields-target discussion is explicitly outside the requested tool-birth lineage
+next_trigger: canonical integrator decides 0107's source-unit dispositions or a directly permitted event-ID crosswalk appears
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 73c760c73e1f72fc1a7e3fbec46dc3876ae8b9e1
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+```

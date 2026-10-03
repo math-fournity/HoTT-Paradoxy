@@ -153,3 +153,19 @@ S12/S13 以 curation block ordinals（如 `S12[1]`、`S13[7]`）定位，convers
 T12 的 turn ID 为 skill-turn-46680583595f4d82aa63890e827a0a27，prompt SHA-256 为 28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6，answer SHA-256 为 cef5e5b4577900de9511a3c73bea0af9b830e83e674209336401968b6670efe6。其直接用户 prompt 与 T2–T4 完全相同；因此边界陈述现有四个 distinct direct archive turns、一个重复 prompt payload group、四个不同答复身份。helper receipt 显示 status=ARCHIVED 且 stage_removed=true；这是项目内 archive helper 的写入核验，不是 Host 对最终 UI 字节的事后收据。
 
 T12 加强了当前 thread continuation 的事件分母，不改变 0102/0108/0109 的 full-origin historical denominator，也不为 U19–U21 相对 parent Goal 提供 cutoff 证据。全程只使用当前 checkout 里的 archive 与报告；没有访问或读取另一 worktree 或 parent trajectory。
+
+## 13. `dev-notes/0107`：菲尔兹选靶前史与未处置的来源族
+
+在检查 full-origin archive inventory 是否覆盖用户要求的“刀具出现之前到连续运行”的工作线时，我发现当前 checkout 还有一份未跟踪、本地只读的 `dev-notes/0107` archive。它不在 full-origin audit 001–006 的来源表、coverage map 或排除表中；对这些 owner 做 `rg 0107` 未发现显式 scope disposition。该来源不是 P1/P2/P3 的直接规格，但其主题与后来明确要求选“理论级基础靶”的转向有关，故应作为可能遗漏的前驱来源交由 canonical integrator 明确纳入或说明排除理由。
+
+当前归档快照身份：SHA-256 `1fd5fa9c340823ea37aa4dc6d1fc6ec8ef3fc90ed61623ca9ef865e2b34de249`，303 行、37,976 bytes、mode `0600`；frontmatter 标为 session `01a0fb08-ef43-7210-9ea7-41e27c6aa32d`、first turn `skill-turn-99521765525f4380b0e3db180fcfc4bc`、created_at `2026-10-02T01:49:52-04:00`。文件中有 3 个 `conversation-archive-turn` markers、3 个直接用户提问标题、0 个 Goal-context envelopes。时间元数据只描述此本地归档，不足以独自指定任何 parent Goal cutoff。
+
+| archive turn | 用户输入角色（候选） | prompt SHA-256 | answer SHA-256 | 当前建议 disposition |
+|---|---|---|---|---|
+| `skill-turn-99521765525f4380b0e3db180fcfc4bc` | 从菲尔兹奖作品中挑后续目标 | `d7a9fe4efa6c68c77cd570794419701bc88d601395093dad5032e39c522f4bd5` | `c23f7984961e0fd3ca6abcef9fee700319672041db6ba01916a398bc1ab5b8c1` | `TARGET_SELECTION_PRECURSOR / NOT_DIRECT_P_SPEC`：显示最初按奖项作品选靶的路线。 |
+| `skill-turn-aacfa2dc18014e0895899d0d815deee0` | 比较另一个 AI 对上述选靶问题的回答 | `091b97e4ce5c39c2a5ee75ba14b244812522f537fa5255245f57ef69b64be243` | `904e8d8f1d520d6274cbf86309d8fe1cc94c399ab5c8fb269d91cbc9d35aec57` | `TARGET_CRITERION_PRECURSOR / NOT_DIRECT_P_SPEC`：仍在评估选靶标准，未提出 P1/P2/P3 合同。 |
+| `skill-turn-5621a4ac78074690ab4be4ecf9e31b32` | 用户纠正目标层级，要求打支撑数学的基础理论 | `3cb0a8f35d158324048668297137f6fc36604c3a65921221f0006b069c98a9b9` | `818139eb2af90fcf1d4a2f08491794a580c70a2fbeacda1beb5fd8ae1ad29c96` | `FOUNDATION-THEORY-TARGET-REORIENTATION / EVENT_ID_UNKNOWN`：语义上是后续理论靶转向的直接前驱。 |
+
+0107-T3 的规范化可见正文与 0108-T1 (`skill-turn-963b77f06b94411f963d1694cfa3f977`) 以及 direct-source S12 `[1]` 去空白后完全相同；两种归档的 turn ID/answer hash 不同，但现有材料没有 native message-ID crosswalk，因此仅记为 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`。不据文本相同删除或合并任何 turn。0107-T1/T2 是较早的选靶前驱；是否应计入刀具形成的主语义分母，需要 integrator 按该 audit 的 scope 定义逐项决定。建议把 0107 作为三条独立 archive events 放入 source inventory，并明确区分“纳入谱系”与“直接规定 P”；如果排除，也要留下逐条理由。当前贡献分支不改 001–006，不把此候选提升为 full-origin owner 结论。
+
+这次发现意味着本 contributor recheck 当前支持的范围从 0109 分母扩展到一个新的来源族：full-origin source universe 仍有未处置的候选缺口；U19–U21 的计数建议和 parent-phase `UNKNOWN` 保持不变。本轮只读取当前 worktree 中已有的 0107 archive、当前 checkout 的 S12/0108 与 full-origin owner；没有访问、等待、比较或写入另一 worktree，也没有读取 parent trajectory。

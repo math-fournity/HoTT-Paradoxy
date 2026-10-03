@@ -4,15 +4,17 @@
 > role: CONTRIBUTOR / P-DAG source-coverage evidence
 > host: Codex App; model family GPT-6 (exact deployment identifier/effort unavailable)
 > active goal: 01a0ffa6-1527-7802-b534-9030d6f06e79
-> scope: reconcile current dev-notes/0109 event denominator and direct-source/archive overlaps with the full-origin audit
+> scope: reconcile dev-notes/0109 event denominator, direct-source/archive overlaps, and newly identified dev-notes/0107 target-selection precursor with the full-origin audit
 > mathematical claim: NONE; worker nodes: NONE; checkpoint: NOT_APPLIED
 > integration state: CANDIDATE_NOT_CURRENT; canonical target/integrator not designated
 
 ## 本自然单元目标与结论
 
-本单元继续《模式 P 刀具锻造与理念自审 SOP》，处理上一单元留下的 full-origin source coverage gap。任务范围是：核当前 source manifest 的逐文件新鲜度，比较 dev-notes/0109 的归档事件分母与 full-origin audit 001/006 的分母，并逐项定位 U19–U21 与 archive/direct prompt 的关系。
+本单元继续《模式 P 刀具锻造与理念自审 SOP》，处理上一单元留下的 full-origin source coverage gap，并扩展核对此前未列出的 `dev-notes/0107`。任务范围是：核当前 source manifest 的逐文件新鲜度，比较 dev-notes/0109 的归档事件分母与 full-origin audit 001/006 的分母，定位 U19–U21 与 archive/direct prompt 的关系，并判断 0107 是否是应被显式处置的目标选择前驱。
 
-当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 full-origin owner 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异，需保留为三个 distinct archived events。上一轮曾将当前 child-thread Goal (`2026-10-02 22:45:22.640 -0400`) 与 full-origin audit 的 parent Goal cutoff 混同；8d4877ad 已于 16:14:59 -0400 落盘 full-origin audit，故它所审计的 Goal 不是这个 later child-thread Goal。0109 快照 mtime 22:18:41 及答复提交最晚 22:01:27 只证明 archive 在 child Goal 之前存在，不能给出 parent Goal phase。U19–U21 相对 parent Goal 的归属保持 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`；本分支没有读取 previous-worktree trajectory。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 仍没有 crosswalk。另已整理 001/003/005/006 的 owner-ready event-denominator 修订候选，但未改 current owner。
+当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 full-origin owner 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异，需保留为三个 distinct archived events。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 仍没有 crosswalk。另已整理 001/003/005/006 的 owner-ready event-denominator 修订候选，但未改 current owner。
+
+后续扫描发现当前 checkout 还有 `dev-notes/0107`：3 个直接 prompt events 未出现在 full-origin audit 001–006，也没有显式 scope disposition。T1/T2 是菲尔兹作品选靶讨论的前驱，T3 将标准转向支撑数学的基础理论；T3 与 0108-T1/S12[1] 正文匹配，但 native event identity unknown。故 full-origin source universe 的完整性仍有候选缺口；0107 的归属需由 canonical integrator 显式裁定，不能因 0108 有重复文本便静默删除。上一轮关于 parent cutoff 的修正保持：U19–U21 相对 parent Goal 的归属为 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`；本分支未读取 previous-worktree trajectory。
 
 本单元没有任何数学命题、P1/P2/P3 theory task、ZFC Q、UR 或新刀具结论。另对 U19–U21 答案中引用的 18 个本 repo commit OID 做了 `git show` 定位，确认它们对应不同的 audit、runner/SOP、replay、D-L10F/RK-0 工件路径；这只证明历史工件的存在与路径关联，不验证其数学结论。
 
@@ -137,3 +139,9 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 ## 0102 / 0108 / 0109 archive prompt-shape census
 
 当前本地快照的结构重数确认：0102 = 11 markers / 11 用户提问标题 / 0 Goal-context envelopes；0108 = 7 / 7 / 0；0109 = 21 / 21 / 0。0109 的 U20/U21 是直接归档 prompt blocks，而非自动续接包装。0102 的 R10/R11 也是直接 prompt，但仍按 full-origin owner 的既定范围排除于刀具语义分母。该计数只判 archive 结构，不判定逐条 Host 消息的 native identity 或精确时刻，也不解决 parent Goal cutoff；它强化 U20/U21 的 event-level 补行建议，不修改 full-origin owner 或任何数学状态。
+
+## 0107 菲尔兹选靶前史来源复核
+
+本 worktree 的 0107 archive SHA-256 `1fd5fa9c340823ea37aa4dc6d1fc6ec8ef3fc90ed61623ca9ef865e2b34de249`（303 行 / 37,976 bytes / mode 0600）含 3 markers、3 个直接用户 prompt、0 个 Goal-context envelopes。T1 问从菲尔兹奖论文中选目标；T2 比较另一个 AI 的答案；T3 纠正目标层级，要求针对支撑数学的大基础理论。当前 full-origin owner 001–006 搜索不到 `0107`，也未见明确排除理由。T1/T2 应作为目标选择前驱候选逐项处置，不冒充 P 规格；T3 与 0108-T1 及 S12[1] 正文相同，但 archive/native event 身份未知。
+
+本轮仅读当前 checkout 内的 archive、S12 与 full-origin shards；没有访问、等待、比较或写入另一 worktree，也没有读取 parent trajectory。full-origin owner 与 STATE/projections 均未修改；此发现使 source-completeness 维持 open，U19–U21 parent-phase 仍为 UNKNOWN。
