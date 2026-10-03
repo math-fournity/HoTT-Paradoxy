@@ -11,7 +11,7 @@
 | W-005 | INCLUDED | PENDING | type theory versus set theory 比较。 |
 | W-006 | CATALOG_REVIEW | PENDING | 需拆开review、volume与章节。 |
 | W-007 | CATALOG_REVIEW | PENDING | 需合并两个报告并审实际内容。 |
-| W-008 | INCLUDED | PENDING | Matthews Guide为独立arXiv work，纠正初始元数据错配。 |
+| W-008 | INCLUDED | FULL_PRIMARY_REALIZABILITY_GUIDE_CONTROL_SCREENED | 65页原件已按逐页写回合同审读。`ZF_ε`／ground model／algebra／terms-stacks／Weak Power Set／reish／transport／Choice／forcing均有显式model payment；Remark 16.8给出模型内transport limitation及universal-lift处理，没有ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-009 | INCLUDED | FULL_PRIMARY_R_SOURCE_SCREENED | 29页逐页source-only视觉审读完成。它给出类型论内部universe／equality／choice／HIT／quotient构造和关于usual encoding的比较性批评，未给ZFC同一对象／formation／actual consumer／Done。 |
 | W-010 | INCLUDED | FULL_PRIMARY_COMPARATIVE_CONTROL_SCREENED | 18页逐页source-only视觉审读完成。Maddy区分多个foundation jobs，保留ZFC的具体角色与边界；未给ZFC内部formation／actual consumer／P条件。 |
 | W-011 | INCLUDED | FULL_PRIMARY_COMPARATIVE_SOURCE_SCREENED | 21页逐页source-only视觉审读完成。论文明确是概念比较，完整正文未给ordinary ZFC actual consumer；仍须区分作者identity批评与ZFC同一任务。 |
