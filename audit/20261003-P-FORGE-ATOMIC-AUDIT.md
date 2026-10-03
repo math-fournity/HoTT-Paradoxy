@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/118 - H068 ZFC总体类与局部集合宇宙来源控制.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/118 - H068 ZFC总体类与局部集合宇宙来源控制.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/119 - H069 ZFC有界形成与映射来源控制.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/119 - H069 ZFC有界形成与映射来源控制.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 118 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 119 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=118 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=10`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=119 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=9`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -143,4 +143,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 116 | [H066 ZFC良基递归防御账本字段回归](<20261003-P-FORGE-ATOMIC-AUDIT/116 - H066 ZFC良基递归防御账本字段回归.md>) | `H066` | R09 Vrec defense-ledger regression | `ALIGNED / STRICT_LOWER_RANK_GUARD / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 | 117 | [H067 ZFC累积总体脱敏元层控制](<20261003-P-FORGE-ATOMIC-AUDIT/117 - H067 ZFC累积总体脱敏元层控制.md>) | `H067` | R09 cumulative-totality blind control | `ALIGNED / META_LEVEL_CONTROL / Q_CAPABILITY_CALIBRATION` |
 | 118 | [H068 ZFC总体类与局部集合宇宙来源控制](<20261003-P-FORGE-ATOMIC-AUDIT/118 - H068 ZFC总体类与局部集合宇宙来源控制.md>) | `H068` | R09 V/class versus univ(A) source control | `ALIGNED / TOTALITY_LAYER_CONTROL / Q_NARROW_WITHOUT_CANDIDATE_Q` |
+| 119 | [H069 ZFC有界形成与映射来源控制](<20261003-P-FORGE-ATOMIC-AUDIT/119 - H069 ZFC有界形成与映射来源控制.md>) | `H069` | R10 bounded Collect/Replace/RepFun source control | `ALIGNED / FORMATION_GUARD / Q_NARROW_WITHOUT_CANDIDATE_Q` |
 <!-- governance-shard-table:end -->
