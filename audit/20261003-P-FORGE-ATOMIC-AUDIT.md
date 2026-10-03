@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/093 - H043 Gemini外部证明搜索层次控制.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/093 - H043 Gemini外部证明搜索层次控制.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/094 - H044 Gemini外部时间P3预启动失败.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/094 - H044 Gemini外部时间P3预启动失败.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 93 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 94 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -118,4 +118,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 091 | [H041 ZFC平衡画像终端语义假阴性](<20261003-P-FORGE-ATOMIC-AUDIT/091 - H041 ZFC平衡画像终端语义假阴性.md>) | `H041` | R05 terminal-equivalent false negative | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 | 092 | [H042 ZFC平衡画像无候选预言机回归](<20261003-P-FORGE-ATOMIC-AUDIT/092 - H042 ZFC平衡画像无候选预言机回归.md>) | `H042` | R05 output-oracle regression | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 | 093 | [H043 Gemini外部证明搜索层次控制](<20261003-P-FORGE-ATOMIC-AUDIT/093 - H043 Gemini外部证明搜索层次控制.md>) | `H043` | R06 Gemini proof-search P1 layer control | `ALIGNED / Q_NARROW_WITHOUT_CANDIDATE_Q` |
+| 094 | [H044 Gemini外部时间P3预启动失败](<20261003-P-FORGE-ATOMIC-AUDIT/094 - H044 Gemini外部时间P3预启动失败.md>) | `H044` | R06 Gemini P3 preflight failure | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 <!-- governance-shard-table:end -->
