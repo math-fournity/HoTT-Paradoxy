@@ -287,3 +287,60 @@ git_record:
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no parent trajectory/filesystem access; no current-owner edits
 ```
+
+## Delta SelfAuditCard：0111 当前线程归档事件与 worktree 独立边界
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0111-WORKTREE-INDEPENDENCE-ARCHIVE-SPLIT
+source_units:
+  - current user turn: “我的本意是，你跟之前的worktree，各玩各的。”
+  - dev-notes/0111 pre-current-turn local archive snapshot
+original_requirement:
+  - 当前 worktree 与此前 worktree 各自独立推进；不要交叉依赖或替另一条工作线作决定
+  - 保留直接用户 prompt、archive event marker 与平台 Goal-context envelope 的来源身份差异
+actual_action:
+  - read only the archive and audit evidence present in this checkout
+  - recorded snapshot SHA-256 156c222e1c2b08867038dc9a18d330a847fc158af5781b97184c40fca108947b, 69,669 bytes, 671 lines, mode 0600, mtime 2026-10-03T06:00:27-0400
+  - counted 11 archive markers: 4 direct user-prompt blocks and 7 codex_internal_context source=goal envelopes
+  - confirmed 0111-T2/T3/T4 use the same prompt SHA-256 but distinct turn IDs and answer SHA-256 values
+  - current live prompt repeats the same literal wording but is not included in the observed pre-final snapshot
+  - did not inspect, read, compare, copy, or write another checkout; did not read parent/previous-worktree trajectory
+alignment_verdict: WORKTREE_BOUNDARY_REASSERTED / ARCHIVE_EVENT_TYPES_DISTINGUISHED / NO_CROSS_WORKTREE_ACCESS
+deviation_class:
+  - no EXECUTION_DEVIATION in this turn
+  - no IDEA_SPEC_INCOMPLETE discovered by this repeated boundary
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; archive-source classification only
+P1_P2_P3:
+  P1: not applicable; no theory source card or Q
+  P2: not applicable; no same-object logical mapping
+  P3: not applicable; no theory lifecycle/admission transition
+tool_birth_card: NOT_REQUIRED (no theory pattern or tool duty changed)
+PowerSet_Russell_defense:
+  status: unchanged; no first-order ZFC source examined
+  ZFC_Q_status: NOT_LOCATED / unchanged
+current_owner_mutation:
+  full_origin_audit: none
+  rulings_feature_state_projection: none
+  ideology_and_SOP: none
+  source_archive: read-only; pre-final snapshot hash recorded, not committed
+archive_denominator:
+  current_0111_snapshot_events: 11
+  direct_user_prompt_blocks: 4
+  goal_context_envelopes: 7
+  T2_T4: SAME_PROMPT_PAYLOAD / DISTINCT_ARCHIVE_EVENTS_AND_ANSWERS
+  full_origin_0102_0108_0109_denominator: unchanged
+cutoff:
+  parent_goal_phase_for_U19_U21: UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED
+  0111_scope: current-thread archive structure only; does not identify parent Goal start
+falsifiers:
+  - source inspection showing any of the seven envelope-only blocks also contains a direct user-authored prompt outside the wrapper
+  - an authoritative event crosswalk changing whether T2-T4 are distinct turns
+next_trigger: another uncovered source family or a permitted direct crosswalk; continue only within this independent checkout
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: e23348cc195b2a20a74ce64561fe41f8ba5b9f31
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+~~~

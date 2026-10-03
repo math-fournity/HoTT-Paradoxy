@@ -157,6 +157,39 @@
       "current_owner_mutated": false,
       "status": "OWNER_READY_CANDIDATE / NOT_INTEGRATED / PARENT_PHASE_UNKNOWN",
       "evidence": "audit/20261003-P-DAG-FULL-ORIGIN-0109-U19-U21-DENOMINATOR-CONTRIBUTOR-RECHECK.md §7.1"
+    },
+    {
+      "id": "CURRENT_CHILD_ARCHIVE_0111_WORKTREE_BOUNDARY",
+      "kind": "local_child_thread_archive_event_classification",
+      "source": "dev-notes/0111 - 2026-10-02 - 我第一次在你（Terra）所在的Coding Agent，也就是ChatGPT App中使用Branch Session into New....md",
+      "source_snapshot": {
+        "sha256": "156c222e1c2b08867038dc9a18d330a847fc158af5781b97184c40fca108947b",
+        "bytes": 69669,
+        "lines": 671,
+        "mode": "0600",
+        "mtime_local": "2026-10-03T06:00:27-04:00",
+        "session_id": "01a0ffa6-1527-7802-b534-9030d6f06e79",
+        "first_turn_id": "skill-turn-348e1c0380ac459f9bd6eeb2491d7464",
+        "capture_events": 11,
+        "direct_user_prompt_blocks": 4,
+        "goal_context_envelopes": 7
+      },
+      "repeated_direct_prompt_group": {
+        "turn_ids": [
+          "skill-turn-34fe95cdb3ec4078bfebf51e3a7df6a3",
+          "skill-turn-ea9766b15cdd43b5816c61b75e39a757",
+          "skill-turn-c856e1b4ce3246ccb851e395443e0c36"
+        ],
+        "prompt_sha256": "28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6",
+        "answer_sha256": [
+          "ba651b501dab986f26d88c642ea1eafb27f9cf0cfc6c8de4a84b42b27871524f",
+          "160324b5d1179ca3d6438db4ee0fa32e308423f283e7d26dbe50ada4d272c9e4",
+          "75bd777ccb209d7054123e95a0df570db3314da226199f48b9a22c15452f3cc5"
+        ]
+      },
+      "current_live_prompt": "same literal payload as T2-T4; absent from the observed pre-final snapshot and not yet assigned an archive turn marker",
+      "result": "CHILD_THREAD_ARCHIVE_EVENT_SPLIT_WITH_SCOPE / WORKTREE_INDEPENDENCE_REASSERTED / NO_CURRENT_OWNER_CHANGE",
+      "scope": "current-checkout archive snapshot only; no other checkout or parent trajectory read; not a source for parent Goal phase or full-origin 0102/0108/0109 denominator"
     }
   ],
   "verifications": [
@@ -173,7 +206,8 @@
     {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
     {"id": "SESSION-LOCAL-LINKS", "status": "PASS", "result": "6 local links checked; 0 missing"},
     {"id": "CORE-KC-COVERAGE", "status": "PASS", "result": "62 ordered IDs, 62 unique, exact range KC-000001–KC-000062"},
-    {"id": "CACHED-EXACT-PATH-DIFF", "status": "PASS", "result": "seven exact contributor evidence paths staged; git diff --cached --check clear; no other paths staged"}
+    {"id": "CACHED-EXACT-PATH-DIFF", "status": "PASS", "result": "seven exact contributor evidence paths staged; git diff --cached --check clear; no other paths staged"},
+    {"id": "CURRENT-CHILD-ARCHIVE-0111", "status": "PASS_WITH_SCOPE", "result": "pre-final local archive snapshot has 11 capture markers: 4 direct user-prompt blocks and 7 Goal context envelopes; three identical boundary prompts remain three distinct events; no other checkout inspected"}
   ],
   "git": {
     "branch": "codex/p-dag-tool-birth-audit",
@@ -190,5 +224,5 @@
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
     "current_unit_commit": "recorded in the exact-path branch-local commit that adds the 0110 continuation-source audit"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

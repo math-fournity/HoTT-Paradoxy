@@ -102,3 +102,11 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 | Tool-BirthCard | NOT_REQUIRED | 没有新理论花纹、新职责或同卡数学贡献 |
 | Battle | 未触发 | 发现 audit 计数缺口，不是代理/来源立场冲突 |
 | Git exact-path commit | 本轮待完成 | 只提交 report + session audit，不提交 untracked 源文件或 current owners |
+
+## 0111 当前线程归档与 worktree 边界重申
+
+用户再次明确：当前 worktree 与此前 worktree 各自独立推进。本轮只在当前 checkout 核对 0111 local archive snapshot 和本分支 session evidence；没有访问、读取、比较、复制或修改另一个 worktree，也没有读取 parent/previous-worktree trajectory。
+
+0111 在观测快照中有 11 个 archive-turn markers：4 个是直接可见用户 prompt，7 个是 archive 捕获到的 codex_internal_context source=goal continuation envelope。T2–T4 是同一 worktree-independent user prompt 的三个独立归档事件，拥有相同 prompt hash、不同 turn ID 与 answer hash。Goal envelope 计入 archive capture events，但不冒充新的用户原话；内含的 objective data 保留其 user-provided 身份。本轮 live prompt 是再次逐字重申，尚未进入该 pre-final snapshot。
+
+本轮只改变了当前分支的来源说明与 SelfAuditCard。用户要求的独立工作区边界继续作为当前任务约束；不改 rulings、Feature F-033、full-origin audit owners、STATE/投影、刀具理念或 SOP。0111 archive census 不改变 0102/0108/0109 full-origin 历史分母，也不能确定 U19–U21 相对被审计 parent Goal 的 phase；parent cutoff 仍 UNKNOWN。Goal 保持 active。

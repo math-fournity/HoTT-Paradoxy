@@ -112,3 +112,13 @@ S12/S13 以 curation block ordinals（如 `S12[1]`、`S13[7]`）定位，convers
 该 archive/session snapshot 的 `created_at=22:33:07-04:00` 晚于 owner-declared `b810380f` 和 full-origin audit commit `8d4877ad`；因此它是 continuation delta 来源，不应混入 pre-goal denominator。它提供了三条 continuation user-turn 证据，并把用户自己的 Goal 原文定位出来。archive/session `created_at` 与 file mtime 不是逐条 message 的 Host clock；0110-T2/T3 表明当时 Goal 已存在，但不确定 Goal 的精确启动时刻，也不能把 U19–U21 相对于 Goal 的 phase 由此补定。此 worktree 只读了本地 archive 副本，没有打开 parent raw trajectory 或 parent 工作目录。
 
 候选 owner 处置是：在 continuation delta 入口单独登记 0110-T1/T2/T3 及上述 source provenance，不并入 `PRE_GOAL_HISTORICAL_CORPUS` 的 0102/0108/0109 分母；保留 T1 的工作树边界，T2/T3 的 Goal 文本恢复语义，并继续把 parent Goal precise start 标作 `UNKNOWN`，直到出现获准的直接时间来源。
+
+## 9. 0111：当前 child thread 归档事件与独立工作区边界
+
+本节只记录当前 worktree 内的 dev-notes/0111 archive snapshot，不以它推断或读取任何其它 checkout。观测快照身份为 SHA-256 `156c222e1c2b08867038dc9a18d330a847fc158af5781b97184c40fca108947b`、69,669 bytes、671 lines、mode 0600、mtime 2026-10-03T06:00:27-0400；frontmatter 的 session_id 是 01a0ffa6-1527-7802-b534-9030d6f06e79，与当前 Goal thread ID 相同，first_turn_id 为 skill-turn-348e1c0380ac459f9bd6eeb2491d7464。该 digest 标识本段观察时的 pre-current-turn archive snapshot；本轮最终答复归档后，0111 会追加新 turn，届时文件 digest 和事件数会变化。
+
+该快照有 11 个 conversation-archive-turn markers。其中 4 个 prompt block 直接载有可见用户消息；另 7 个 prompt block 载有 codex_internal_context source=goal 包装，并在 assistant response 前闭合。按来源身份，这 7 个是 goal-continuation context envelope 捕获事件，不应当作为 7 条新的用户原话或 7 项独立要求；其中包裹的 objective 文本仍保留其 user-provided-data 身份。故快照分母为 11 个 archive capture events、4 个直接用户 prompt blocks，以及 7 个 goal-context envelopes；三种计数不能互相代替。
+
+四个直接 prompt 中，T2、T3、T4 的用户正文完全相同，即“我的本意是，你跟之前的worktree，各玩各的。”三者共用 prompt SHA-256 28565a11886fcce2c23a1aec13eeb19c1f6c8635599ab1b8f994bcbdcbe4b8c6，但分别有 turn IDs skill-turn-34fe95cdb3ec4078bfebf51e3a7df6a3、skill-turn-ea9766b15cdd43b5816c61b75e39a757、skill-turn-c856e1b4ce3246ccb851e395443e0c36，及不同 answer SHA-256。它们因此是三个不同归档事件、一个重复 prompt payload group。当前 live 用户消息再次逐字重申同一边界；它不在上面观测到的 pre-current-turn snapshot 中，尚无本 turn 的 archive marker。
+
+对本 contributor 线的操作含义是：只在当前 branch/worktree 形成、验证与提交自己的候选证据；不把另一个 worktree 的文件、Git 状态或结论作为当前行动前提。本轮只检查本 checkout 中的 0111 archive 和当前分支记录，没有打开、读取、复制、比较或写入另一个 worktree，也没有读取 parent/previous-worktree trajectory。此本地 archive census 不改 full-origin audit 的 0102/0108/0109 历史分母，不决定 U19–U21 相对 parent Goal 的 phase；该 cutoff 继续 UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED。没有改变 P1/P2/P3、ZFC_Q、Tool-Birth 或任何数学结论。
