@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG ZFC H067–H068：开放层级总体的元语言边界与 `V`／`univ(A)` 对照（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-DISCOVERY-067-068-CUMULATIVE-TOTALITY-Terra-Max.md)：脱敏 P1 正确拒绝把没有 final stage 的总体叙述变成理论内任务；官方 Isabelle ZF 文档以 `V`的 class/predicate 身份和 `univ(A)`的独立有限 universe package use 支持该边界。
+
 - [P-DAG ZFC H063–H066：累积层级、秩与 `Vrec` 的 Power Set 防御审计（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-063-066-VREC-RANK-POWERSET-Terra-Max.md)：H063/H064 的采样前 prompt 合同失败、H065 的账本字段漂移和 H066 的单变量回归共同表明：严格低秩 `Vrec` recursion 与后续层级 Power Set placement 是来源局部 guard；PS4仍为空，P3未出现，未定位 ZFC Q。
 
 - [P-DAG ZFC H061–H062：可及性归纳中的 Power Set 正向再入与字段回归（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-061-062-ACCESS-POWERSET-P2P3-Terra-Max.md)：H061 暴露 TaskCard 字段转写偏差，H062 在相同来源、模型和权限下通过精确字段回归；固定点／可及性家族只支持有界正向 proof-package guard，未定位 PS4 剩余、P3 lifecycle 或 ZFC Q。
