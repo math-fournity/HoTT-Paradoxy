@@ -51,7 +51,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 | atomic_id | 角色 | exact session | 原子身份 | A1状态 |
 |---|---|---|---|---|
 | `N26A` | S-C Metamath tracer | `01a0fd3d-a12b-7851-9f56-c9aa1469ed62` | ZFC-side proof-system source。 | `ATOMIC_AUDIT_COMPLETE` |
-| `N26B` | S-D Isabelle P2 tracer | `01a0fd3d-a0d6-74e3-8105-e6fed4ff0566` | Isabelle/ZF formula source。 | `PENDING` |
+| `N26B` | S-D Isabelle P2 tracer | `01a0fd3d-a0d6-74e3-8105-e6fed4ff0566` | Isabelle/ZF formula source。 | `ATOMIC_AUDIT_COMPLETE` |
 | `N26C` | S-E P3 source tracer | `01a0fd3d-a03d-7ca1-95cb-6fc2d0b4f7e4` | Mathlib ZFSet P3 negative source。 | `PENDING` |
 | `N26D` | P1-B Isabelle mapper | `01a0fd45-dae0-7a31-ba81-d859daa94586` | Isabelle P1 card。 | `PENDING` |
 | `N26E` | P3-B Isabelle mapper | `01a0fd4f-fb3b-7531-873b-500e807149b8` | Isabelle P3 card。 | `PENDING` |
