@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/012 - N11 P3-HOTT中性卡构造语义边界.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/012 - N11 P3-HOTT中性卡构造语义边界.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/013 - N12 P2-ZFC幂集卡逻辑适用性边界.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/013 - N12 P2-ZFC幂集卡逻辑适用性边界.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 12 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 13 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A1_ACTIVE / C_CARDS=12 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=116`。
+> **当前状态：** `A1_ACTIVE / C_CARDS=13 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=115`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 003 冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -33,4 +33,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 010 | [N09 P3-CIRCLE圆环构造语义边界](<20261003-P-FORGE-ATOMIC-AUDIT/010 - N09 P3-CIRCLE圆环构造语义边界.md>) | `N09` | R01 P3 source-boundary control | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 011 | [N10 P2-HOTT中性卡适用性边界](<20261003-P-FORGE-ATOMIC-AUDIT/011 - N10 P2-HOTT中性卡适用性边界.md>) | `N10` | pre-R03 neutral HoTT P2 control | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 | 012 | [N11 P3-HOTT中性卡构造语义边界](<20261003-P-FORGE-ATOMIC-AUDIT/012 - N11 P3-HOTT中性卡构造语义边界.md>) | `N11` | pre-R03 neutral HoTT P3 control | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
+| 013 | [N12 P2-ZFC幂集卡逻辑适用性边界](<20261003-P-FORGE-ATOMIC-AUDIT/013 - N12 P2-ZFC幂集卡逻辑适用性边界.md>) | `N12` | pre-R04 neutral ZFC P2 control | `ALIGNED / Q_SAFETY_REPAIR_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
