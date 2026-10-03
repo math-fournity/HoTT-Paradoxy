@@ -25,7 +25,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | 候选族 | 最小来源报告 | 初步身份 | 去重／拆分任务 |
 |---|---|---|---|
 | N01 P2逻辑翻译探针 | `20261002-P2-计算逻辑翻译探针-Terra-Max.md` | 代理已完成、无后代；独立设计 prompt／输出，未返 runtime ID | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE` |
-| N02 朴素集合论脱敏正控制 | `20261002-模式P-朴素集合论脱敏正控制-Terra-Max.md` | 代理已完成、无后代；与后来的H050输入、runner与输出不同 | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
+| N02 朴素集合论脱敏正控制 | `20261002-模式P-朴素集合论脱敏正控制-Terra-Max.md` | 代理已完成、无后代；与后来的H050输入、runner与输出不同 | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE` |
 | N03 HoTT无泄漏第一次负控制 | `20261002-模式P-HoTT无泄漏盲重放-Terra-Max.md` | 独立 prompt-bounded run；外加 resizing 的拒绝形成 L3 修复 | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
 | N04 ZFC一遍匹配初版 | `20261002-模式P一遍匹配ZFC盲测-Terra-Max.md` §2--§5 | 第一次独立prompt-bounded probe，Ord/V 输出 | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
 | N05 ZFC一遍匹配L0--L2复测 | 同报告 §6 | 修订后输入与唯一 Power Set 输出不同于N04 | `UNIQUE_DOCUMENTED_EXECUTION(1)` |
