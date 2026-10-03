@@ -7,8 +7,8 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate head | `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` |
-| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay) |
+| candidate head | `9b0b82a5b50517d119875d40563c4f09dca5cc64` |
+| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and independent formal-scope control) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
 | canonical target disposition | `dev` had unrelated dirty work, including uncommitted `ZFC-CIRCLE-Q1` / H081–H082; this relay does not alter it. |
@@ -22,6 +22,7 @@
 5. `MP-ZFC-GEOMETRIC-COMPLETION-001`：Lean/Mathlib proves for `s(n)=1−(1/2)^n` that every finite natural-number stage is below `1`, the sequence tends to `1`, and the named limit outcome does not imply a finite-stage endpoint. Its source, two immutable run receipts and exact declared classical dependencies are included.
 6. `MP-ASTRA-STRUCTURED-CURVE-001` has been replayed against current `StructuredCurve.lean`, producing `20260920-MP-ASTRA-STRUCTURED-CURVE-001-03`: current real-topology inputs again prove that bare open-image equivalence cannot transport boundary coincidence, while rich presentations provide positive controls.
 7. One synthesis report now joins the abstract observation theorem, the direct real-analysis result, and the replayed C-275–C-277 geometry control, while listing exact non-goals.
+8. H086 is an independently run Terra/Max formal-scope control. It accepts only the frozen proof statements and concludes that they define a relative observation-boundary criterion, while an actual ZFC interface, original-process bridge, independently fixed Done and real collision evidence remain absent.
 
 ## What an integrator may accept
 
@@ -47,6 +48,9 @@
 
 python3 -B HoTT/formal/zfc-observation-boundary/capture.py 20261003-MP-ZFC-OBSERVATION-BOUNDARY-001-01
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
+
+python3 -B HoTT/formal/zfc-observation-boundary/capture.py 20261003-MP-ZFC-OBSERVATION-BOUNDARY-001-02
+  → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty; four selected theorems have no axioms
 
 python3 -B HoTT/formal/zfc-observation-boundary/capture_geometric.py 20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-02
   → KERNEL_ACCEPTED_WITH_DECLARED_AXIOMS_AND_SCOPE; exit 0; stderr empty
