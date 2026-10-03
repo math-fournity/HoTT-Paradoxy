@@ -33,6 +33,23 @@ Source: [GeometricCompletion.lean](GeometricCompletion.lean).
    hasFiniteStageEndpoint` is false.  This is the direct formal non-implication
    between the named analysis result and finite-stage endpoint arrival.
 
+7. `zeno_limit_outcome_done_not_equiv_final_stage_done`:
+
+   With the source-aligned aliases `limitOutcomeDone` and `finalStageDone`, the
+   two predicates are not equivalent for this geometric sequence.  This is a
+   precise task-switch control: if a source replaces the second predicate by
+   the first, equivalence requires a separate bridge rather than a change of
+   label alone.
+
+8. `closed_continuous_time_has_endpoint_arrival` and
+   `closed_continuous_time_has_terminal_witness`:
+
+   In a deliberately separate positive-control model whose time domain is the
+   closed interval `[0, 1]`, a trajectory has an actual terminal parameter at
+   which it is at its goal.  This proves that the finite-stage result above
+   does not rule out a continuous-time endpoint model; a separate bridge is
+   still required to call such model arrival an original process completion.
+
 ## Research interpretation
 
 This is a direct real-analysis control for the inquiry.  It checks the exact

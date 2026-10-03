@@ -52,6 +52,23 @@ def CompletionObservationIncomplete
     (observe : State → Observation) (done : State → Prop) : Prop :=
   ¬ CompletionObservable observe done
 
+/-- An explicit, statewise bridge is the extra assumption needed to turn a
+    formal completion predicate into a distinct origin/process completion
+    predicate.  It is deliberately data in the theorem statement, never
+    inferred from a shared label such as "complete". -/
+def CompletionBridge
+    {State : Type u} (formalDone originDone : State → Prop) : Prop :=
+  ∀ state, formalDone state → originDone state
+
+/-- Positive bridge control: once the required bridge has actually been
+    supplied, a formal completion can be transported to the origin predicate
+    for the same named state. -/
+theorem completion_bridge_delivers_origin_done
+    {State : Type u} (formalDone originDone : State → Prop)
+    (bridge : CompletionBridge formalDone originDone)
+    (state : State) (formal : formalDone state) : originDone state :=
+  bridge state formal
+
 /-- A collision between oppositely classified process states proves the
     corresponding observation is not completion-adequate. -/
 theorem observation_collision_implies_completion_observation_incomplete
@@ -129,6 +146,7 @@ theorem enriched_observation_decides_strong_done :
 
 #print axioms no_done_classifier_of_observation_collision
 #print axioms observation_collision_implies_completion_observation_incomplete
+#print axioms completion_bridge_delivers_origin_done
 #print axioms no_formal_completion_only_classifier
 #print axioms enriched_observation_decides_strong_done
 

@@ -98,7 +98,7 @@ def main() -> None:
         "schema_version": "formal-proof-run/v1",
         "run_id": RUN_ID,
         "proof_id": PROOF_ID,
-        "claim_ids": ["ZFC-GEO-001", "ZFC-GEO-002", "ZFC-GEO-003", "ZFC-GEO-004", "ZFC-GEO-005", "ZFC-GEO-006"],
+        "claim_ids": ["ZFC-GEO-001", "ZFC-GEO-002", "ZFC-GEO-003", "ZFC-GEO-004", "ZFC-GEO-005", "ZFC-GEO-006", "ZFC-GEO-007", "ZFC-GEO-008"],
         "proof_assistant": "Lean",
         "proof_assistant_version": version,
         "theory_variant": "Lean 4.34.1 plus pinned Mathlib real-analysis/topology; not a formalization of ZFC or a physical-motion theory.",
@@ -110,7 +110,7 @@ def main() -> None:
         "duration_seconds": (completed - started).total_seconds(),
         "exit_code": result.returncode,
         "status": "KERNEL_ACCEPTED_WITH_DECLARED_AXIOMS_AND_SCOPE" if accepted else "KERNEL_REJECTED",
-        "scope": "A concrete geometric real sequence tends to 1 while no finite natural-number stage equals 1; the named limit outcome does not imply finite-stage endpoint arrival.",
+        "scope": "A concrete geometric real sequence tends to 1 while no finite natural-number stage equals 1; the named limit outcome does not imply, and is not equivalent to, finite-stage endpoint arrival. A separate closed-continuous-time model supplies an endpoint-arrival positive control.",
         "non_goals": [
             "No theorem that a limit settles or fails to settle any physical or philosophical completion condition.",
             "No theorem about all limit theories, all real-number constructions, or all ZFC models.",

@@ -24,6 +24,7 @@
 |---|---|---|
 | `no_done_classifier_of_observation_collision` | 任意`observe`若合并一个Done与一个非Done状态，任何只依赖`observe`的谓词均不能正确判定所有状态的`done`。 | 一般逻辑核。 |
 | `observation_collision_implies_completion_observation_incomplete` | 将“观察力对给定Done问题不完备”严格定义为`¬ CompletionObservable observe done`；Done异值碰撞蕴含该相对不完备性。 | 把“观察力不完备”从口号变成带`observe/done`参数的判据。 |
+| `completion_bridge_delivers_origin_done` | 只有把`formalDone → originDone`作为显式`CompletionBridge`输入，才可将同一state的formal Done运输为origin Done。 | 正控制：缺桥不能由同一个词“完成”补出；有桥时运输确实可做。 |
 | `no_formal_completion_only_classifier` | 具体的`continuousEndpoint`与`sequentialNoLastAction`都取`formalCompletion=1`，却有相反`strongDone`；故formal completion alone不能判定strong Done。 | 最小的 O2/O3 反例结构。 |
 | `enriched_observation_decides_strong_done` | 加入terminal-event布尔观察后，具体fixture的strong Done可被判定。 | 正控制：不完整来自忘却，补回明确数据即可改变结果。 |
 
@@ -47,10 +48,16 @@ s(n) = 1 − (1/2)^n
 | `zenoPartialSum_tendsto_one` | `s`在实数通常拓扑中趋于`1`。 | 没有否定通常极限定理。 |
 | `zeno_limit_outcome_without_finite_stage_endpoint` | `hasLimitOutcome ∧ ¬ hasFiniteStageEndpoint`。 | 同一数学对象可同时满足“极限结果成立”与“没有有限编号阶段到端点”。 |
 | `zeno_limit_outcome_does_not_imply_finite_stage_endpoint` | `¬ (hasLimitOutcome → hasFiniteStageEndpoint)`。 | 直接拒绝把这两个已命名的命题当作无条件蕴含。 |
+| `zeno_limit_outcome_done_not_equiv_final_stage_done` | `¬ (limitOutcomeDone ↔ finalStageDone)`。 | 对“把无最后阶段的条件换成极限结果”给出严格的非等价控制。 |
+| `closed_continuous_time_has_endpoint_arrival` | 闭实数时间区间内有terminal parameter，轨迹在该参数取目标值。 | 正控制：有限阶段定理并未否定连续端点模型可以有到达。 |
 
 保存的运行收据是[20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-01](../HoTT/verification/runs/20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-01/RUN.json)。它由固定的 Lean 4.34.1 与本机锁定的 Mathlib 构建接受，退出码为0、stderr为空；Lean 明示其依赖`propext`、`Classical.choice`、`Quot.sound`。因此它是**带已声明经典／Mathlib依赖的实分析证明**，不能描述成无公理 core 证明。完整命题与非目标见[GeometricCompletion-CLAIM.md](../HoTT/formal/zfc-observation-boundary/GeometricCompletion-CLAIM.md)。
 
 这个结果精确支持一件事：标准实分析的`Tendsto`结论，与“某个有限自然数阶段达到端点”是两件可分开的数学陈述。它不替任何现实过程预设哪个才是唯一合法的`Done`，也不把“无有限阶段”偷换成“在某个连续时间端点绝不完成”。那个额外的过程判词正是需要被来源和同一任务桥检验的部分。
+
+H091已经找到一份实际来源，IEP *Zeno’s Paradoxes*，明示 Standard Solution 对“旅行是否需要最后一步”回答“不需要”，并把拒绝该直觉列为采用 Standard Solution 的代价。新的第七条定理使这一来源的最小形式控制可检查：若把`finalStageDone`改称为`limitOutcomeDone`，二者在本几何模型中并不等价。因此来源可以**透明地改写／替换**完成条件，却不能仅凭名称把两种条件证明为同一。该控制仍不证明它的连续时间模型无法完成；它只禁止把“明示替换”误报为“已保持原条件”。
+
+第八条是反向的正控制：在独立定义的闭实数时间区间中，`terminalTime = 1`确实属于时间域，`continuousTrajectory terminalTime = 1`被Lean接受。这正是一个来源若要支付连续端点模型桥可以给出的数学部分。它也划清了结论边界：本项目并不从“无自然数最后阶段”推出“连续端点不可能到达”；真正待问的是来源是否把这个模型到达与**同一个原过程**的`Done_origin`明示连接。
 
 ## 4. 已有的实连续几何机器控制
 

@@ -26,6 +26,24 @@ def hasLimitOutcome : Prop :=
 def hasFiniteStageEndpoint : Prop :=
   ∃ n : ℕ, zenoPartialSum n = 1
 
+/-- Names used only for the source-aligned task-switch control below.  They
+    describe the two fixed formal predicates, not an unrestricted account of
+    physical completion. -/
+abbrev limitOutcomeDone : Prop := hasLimitOutcome
+abbrev finalStageDone : Prop := hasFiniteStageEndpoint
+
+/-- A separate positive-control time domain: the closed real interval contains
+    an actual terminal parameter.  It is deliberately distinct from the
+    natural-number stage index of `zenoPartialSum`. -/
+abbrev ClosedTime := Set.Icc (0 : ℝ) 1
+
+def continuousTrajectory (t : ClosedTime) : ℝ := t
+
+def terminalTime : ClosedTime := ⟨1, by constructor <;> norm_num⟩
+
+def continuousEndpointArrival : Prop :=
+  continuousTrajectory terminalTime = 1
+
 theorem zenoPartialSum_strictly_below_one (n : ℕ) :
     zenoPartialSum n < 1 := by
   unfold zenoPartialSum
@@ -65,11 +83,34 @@ theorem zeno_limit_outcome_does_not_imply_finite_stage_endpoint :
   intro h
   exact zeno_has_no_finite_stage_endpoint (h zeno_has_limit_outcome)
 
+/-- The two explicitly named completion predicates are not equivalent on this
+    geometric-sequence model.  This is a source-aligned control for any claim
+    that replaces a final-stage condition by a limit-outcome condition. -/
+theorem zeno_limit_outcome_done_not_equiv_final_stage_done :
+    ¬ (limitOutcomeDone ↔ finalStageDone) := by
+  intro h
+  exact zeno_has_no_finite_stage_endpoint (h.mp zeno_has_limit_outcome)
+
+/-- Positive control: a model whose time domain is a *closed* real interval
+    can contain a terminal parameter at which its trajectory is at the goal.
+    This theorem does not identify that model-side arrival with any physical or
+    independently specified process-completion condition. -/
+theorem closed_continuous_time_has_endpoint_arrival :
+    continuousEndpointArrival := by
+  rfl
+
+theorem closed_continuous_time_has_terminal_witness :
+    ∃ t : ClosedTime, continuousTrajectory t = 1 :=
+  ⟨terminalTime, rfl⟩
+
 #print axioms zenoPartialSum_strictly_below_one
 #print axioms zenoPartialSum_never_reaches_one
 #print axioms zenoPartialSum_tendsto_one
 #print axioms zeno_limit_outcome_without_finite_stage_endpoint
 #print axioms zeno_limit_outcome_does_not_imply_finite_stage_endpoint
+#print axioms zeno_limit_outcome_done_not_equiv_final_stage_done
+#print axioms closed_continuous_time_has_endpoint_arrival
+#print axioms closed_continuous_time_has_terminal_witness
 
 end
 

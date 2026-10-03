@@ -20,14 +20,22 @@ Source: [ObservationBoundary.lean](ObservationBoundary.lean).
    “observation is incomplete for this completion question” without assigning
    that status to ZFC or any other theory by name.
 
-3. `no_formal_completion_only_classifier`:
+3. `CompletionBridge` and `completion_bridge_delivers_origin_done`:
+
+   A bridge is an explicit statewise implication from a named formal completion
+   predicate to a named origin/process completion predicate.  The theorem
+   checks the positive control: only once that bridge is supplied can formal
+   completion be transported to origin completion for the same state.  A shared
+   natural-language label does not supply this premise.
+
+4. `no_formal_completion_only_classifier`:
 
    In the explicit two-trace fixture, both `continuousEndpoint` and
    `sequentialNoLastAction` have `formalCompletion = 1`, while `strongDone`
    distinguishes them.  No predicate of `formalCompletion` alone decides
    `strongDone` for both traces.
 
-4. `enriched_observation_decides_strong_done`:
+5. `enriched_observation_decides_strong_done`:
 
    If the fixture observation retains a terminal-event `Bool`, a classifier can
    decide this fixture's `strongDone` predicate.
