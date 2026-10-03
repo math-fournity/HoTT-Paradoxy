@@ -2,12 +2,12 @@
 logical_id: P_FORGE_PQ_WARGAME_AUDIT
 mode: sequential
 shard_root: 20261003-P-FORGE-PQ-WARGAME
-last_shard: 20261003-P-FORGE-PQ-WARGAME/009 - R07 罗素正控制与Power Set形成候选.md
-append_target: 20261003-P-FORGE-PQ-WARGAME/009 - R07 罗素正控制与Power Set形成候选.md
+last_shard: 20261003-P-FORGE-PQ-WARGAME/010 - R08 忒修斯花纹与同一任务消费者.md
+append_target: 20261003-P-FORGE-PQ-WARGAME/010 - R08 忒修斯花纹与同一任务消费者.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 9 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 10 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE：P/Q共同锻造逐轮兵棋审计
 
@@ -27,4 +27,5 @@ soft_line_target: 300
 | 007 | [R05 双通道候选激活](<20261003-P-FORGE-PQ-WARGAME/007 - R05 双通道候选激活.md>) | H035–H042 D-L10、formation-origin遗漏与D-L10F修复 | complete; C_LANE/F_LANE repaired |
 | 008 | [R06 历史AI草稿的双通道压力测试](<20261003-P-FORGE-PQ-WARGAME/008 - R06 历史AI草稿的双通道压力测试.md>) | H043–H047 Gemini proof-search differential对双通道的边界回归 | complete; external proof-search excluded from both lanes |
 | 009 | [R07 罗素正控制与Power Set形成候选](<20261003-P-FORGE-PQ-WARGAME/009 - R07 罗素正控制与Power Set形成候选.md>) | H049–H053 RK-0、bare all-subsets、rank、Foundation的形成通道回归 | complete; RK-0 calibrated, bare formation did not activate Q-1 |
+| 010 | [R08 忒修斯花纹与同一任务消费者](<20261003-P-FORGE-PQ-WARGAME/010 - R08 忒修斯花纹与同一任务消费者.md>) | H054–H059 snapshot／lineage、extensionality与NFA消费者的Tool-Birth审计 | complete; provenance route rejected without a same-task consumer |
 <!-- governance-shard-table:end -->
