@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/049 - N30f AppServer权限转发资格检查.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/049 - N30f AppServer权限转发资格检查.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/050 - N31 HoTT中性卡P1定位.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/050 - N31 HoTT中性卡P1定位.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 49 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 50 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
