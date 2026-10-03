@@ -2,7 +2,7 @@
 name: hott-local-session-governance
 description: HoTT项目各档共用的认知与任务角色治理。新Session、跨Session、压缩恢复、角色切换以及治理/机械任务均先用它加载最高指示并确定消费角色；另负责BLOCKED、KC审计和来源边界。第三轮执行/审计路由到专用Skill，不自动启动研究。
 metadata:
-  version: "4.3.0"
+  version: "4.4.0"
   role: "governance"
   protocol_version: "handoff-cognition/v3.2"
   business_skill: "hott-paradox-research"
@@ -36,6 +36,14 @@ Goal7分支，完整读root`goal-7.md`/`goal-7-audit.md`。C补父范围充分�
 
 本Skill被T0/T1调用也不自动触发数学研究或T3写回。B的自身审计记录可以在明确获准路径保存，但不能推进
 STATE/投影、修A成果或Git提交。用户仅让准备A/B材料时不创建/启动任何其他AI。
+
+## 视觉证据的压缩恢复
+
+标识：`VISUAL_EVIDENCE_WRITEBACK_V1`。当 PDF 页图、截图、图表、白板或任何图像观察将承担来源、运行、数学、审计或项目状态判断时，图像被显示给当前会话不构成可恢复证据。实际检查完一个任务定义的最小视觉单元后，必须在打开下一视觉单元前，把它的输入身份、定位、观察、证据等级、边界和下一游标写入该任务**已有**的 evidence owner。
+
+压缩、新Session、交接、工具中断或无法确定是否已写入时，先读取该 owner；只有其中已落盘的视觉行／卡可被消费。已渲染、曾在对话中查看、或只存在于 assistant 叙述中的图像观察，一律按`RENDERED_UNAUDITED`／未审阅处理，并从原图或原件重新检查。不得用压缩摘要、语言模型记忆、旧 assistant 文本或“看起来像已读”的页图名称补写结论。
+
+该规则不要求建立统一截图数据库、每页新文件或每次视觉操作提交 Git。它要求复用任务已有的来源笔记、运行收据、视觉审计或其他 evidence owner；视觉单元的大小由任务风险和观察粒度决定。写入、运行和一次恢复演练只能证明其明确范围，不能认证所有未来模型、所有图像任务或每次压缩都自动遵循本规则。
 
 ## BLOCKED_FULL_SET_COGNITION
 
