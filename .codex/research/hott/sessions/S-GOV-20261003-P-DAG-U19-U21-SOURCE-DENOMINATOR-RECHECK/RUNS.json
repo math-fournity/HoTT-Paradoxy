@@ -1,0 +1,78 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20261003-P-DAG-U19-U21-SOURCE-DENOMINATOR-RECHECK",
+  "tier": "T1",
+  "role": "CONTRIBUTOR / P-DAG source-coverage evidence",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "workers": [],
+  "runs": [
+    {
+      "id": "SOURCE-DENOMINATOR-RECHECK-0109",
+      "kind": "local_read_only_source_reconciliation",
+      "source": "dev-notes/0109 - 2026-10-02 - ZFC最大的问题，肯定在于对‘时间维度’的把握上.md",
+      "source_sha256": "fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c",
+      "source_lines": 1719,
+      "source_bytes": 141651,
+      "capture_events": 21,
+      "prompt_sha256_unique_count": 17,
+      "declared_full_audit_units": 19,
+      "turn_events": [
+        {"unit": "U19", "turn_id": "skill-turn-3d195a9b315541dc8de06731bbc10e56", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "84df8c503771175876bab0c073ce5d777401fe47dbd7a6890d9995a068f68388"},
+        {"unit": "U20", "turn_id": "skill-turn-c980d46fc6fa446c9dbeb5b0b8bf264a", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "fec7d8a445a7526689c9905b4c5abccbb9446c03dd0bb899fa190366374cec4"},
+        {"unit": "U21", "turn_id": "skill-turn-4d3398c25c71415e94066b2ad405dfde", "prompt_sha256": "a8f026a330d0cabe637cf6e68e507f9b353c29958afdb6d34b6aeb63f9ba3331", "answer_sha256": "89a65a0358bc39cddc9b2b399bf4263732466b9b18d077d69a506e61f84bc31e"}
+      ],
+      "result": "SOURCE_COVERAGE_RECHECK_REQUIRED: 2 archived turn events lack explicit full-audit unit dispositions"
+    },
+    {
+      "id": "SOURCE-MANIFEST-RECHECK",
+      "kind": "local_read_only_hash_lines_bytes_recompute",
+      "manifest": "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/006 - 可重算来源清单、Git谱系与新刀具出生审计.md",
+      "status": "PASS_WITH_SEPARATE_INTERNAL_SUMMARY_DRIFT",
+      "listed_source_files": 18,
+      "sha_lines_bytes_matches": 18,
+      "mismatches": 0,
+      "note": "audit shard 001 的缩写0109 hash 与006完整hash不一致；当前0109 bytes 与006完整hash相符"
+    },
+    {
+      "id": "CROSS_SOURCE_TEXT_RECONCILIATION",
+      "kind": "whitespace_normalized_prompt_body_comparison",
+      "status": "IDENTITY_UNRESOLVED",
+      "matches": [
+        "S12[1] == 0108 C1",
+        "S12[3] == 0108 C7",
+        "S12[4] == 0109 U1",
+        "S12[5] == 0109 U2",
+        "S12[6] == 0109 U3",
+        "S13[7] == 0109 U4"
+      ],
+      "unmatched_within_checked_archives": ["S12[2]"],
+      "native_message_id_crosswalk": "NOT_FOUND_IN_CHECKED_ASSETS"
+    }
+  ],
+  "verifications": [
+    {"id": "ARCHIVE-R-C-U-COUNTS", "status": "PASS_WITH_U_MISMATCH", "result": "0102=11/11; 0108=7/7; 0109=21 captured events vs 19 declared units"},
+    {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006"},
+    {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
+    {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},
+    {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
+    {"id": "SESSION-LOCAL-LINKS", "status": "PASS", "result": "6 local links checked; 0 missing"},
+    {"id": "CORE-KC-COVERAGE", "status": "PASS", "result": "62 ordered IDs, 62 unique, exact range KC-000001–KC-000062"},
+    {"id": "CACHED-EXACT-PATH-DIFF", "status": "PASS", "result": "seven exact contributor evidence paths staged; git diff --cached --check clear; no other paths staged"}
+  ],
+  "git": {
+    "branch": "codex/p-dag-tool-birth-audit",
+    "starting_head": "f8c5ab138c6efd2d2944e3357daf8a6020fb67b4",
+    "role": "CONTRIBUTOR",
+    "canonical_target": "NOT_SPECIFIED",
+    "integration_state": "CANDIDATE_NOT_CURRENT",
+    "write_scope": [
+      "audit/20261003-P-DAG-FULL-ORIGIN-0109-U19-U21-DENOMINATOR-CONTRIBUTOR-RECHECK.md",
+      ".codex/research/hott/sessions/S-GOV-20261003-P-DAG-U19-U21-SOURCE-DENOMINATOR-RECHECK/"
+    ],
+    "previous_worktree_written": false,
+    "untracked_source_archives_committed": false,
+    "commit": "pending exact branch-local candidate commit"
+  },
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / CONTRIBUTOR_BUNDLE_DIFF_CHECKED / NO_MATH_CLAIM"
+}
