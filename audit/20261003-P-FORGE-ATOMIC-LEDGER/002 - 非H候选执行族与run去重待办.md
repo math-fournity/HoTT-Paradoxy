@@ -47,7 +47,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N21 ZFC-COFORGE-002（文件名沿用003） | `ZFC-COFORGE-003-P1` | unique session `01a0fced-d62d-76a3-a2eb-f1ccdb0c801c`; 锻造史称其为`COFORGE-002-P1` | `UNIQUE_ATOMIC_RUN / NAMING_ALIAS / ATOMIC_AUDIT_COMPLETE` |
 | N22 ZFC-COFORGE-004 | `ZFC-COFORGE-004` | unique session `01a0fcfa-5379-7842-8643-560af9a32ef5` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N23 ZFC-COFORGE-005 | `ZFC-COFORGE-005-P1` | unique session `01a0fcfd-e6f5-7ff2-a3ac-b920081a0b48` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
-| N31 P1-HOTT | `P1-HOTT-001` | unique session `01a0fcae-e115-7ac1-a4fb-12bfdabd7a46`；独立中性 HoTT P1 定位，不属于 H001--H075 | `UNIQUE_ATOMIC_RUN` |
+| N31 P1-HOTT | `P1-HOTT-001` | unique session `01a0fcae-e115-7ac1-a4fb-12bfdabd7a46`；独立中性 HoTT P1 定位，不属于 H001--H075 | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE / ACTUAL_TIME_BETWEEN_N09_AND_N10` |
 | N32 P2-FORGE首次CLI参数失败 | `P2-FORGE-001`同一报告 §运行身份 | 首次命令在模型启动前因全局参数位置错误退出；第二次才产生N06 session，失败改变实际可运行命令 | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE` |
 | F24（legacy N24）Battle-001 | `P-DAG-BATTLE-001` | 3 unique sessions: `01a0fd1b-039b-77e1-895a-b5ff743ce497`; `01a0fd1b-028d-7442-a124-e3e4a6af5577`; `01a0fd1d-180b-7742-8c04-d83975b92ba1` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N24A,N24B,N24C)`；005拥有稳定ID与顺序 |
 | F25（legacy N25）SOURCE-001 | `P-DAG-SOURCE-001` | 4 unique sessions: `01a0fd24-e045-7e53-b290-ae608e851408`; `01a0fd24-e017-7330-8f84-cc677ee47132`; `01a0fd2c-5031-7923-b5a1-b19b5d50c37d`; `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N25A,N25B,N25C,N25D)`；005拥有稳定ID与顺序 |
