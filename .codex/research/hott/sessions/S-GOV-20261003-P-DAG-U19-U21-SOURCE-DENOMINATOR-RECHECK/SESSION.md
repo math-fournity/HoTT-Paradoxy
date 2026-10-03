@@ -103,6 +103,7 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 | Battle | 未触发 | 发现 audit 计数缺口，不是代理/来源立场冲突 |
 | Git exact-path commit (0110 continuation-source unit) | 已完成：e23348cc195b2a20a74ce64561fe41f8ba5b9f31 | 精确提交 report + session audit；未提交 untracked 源文件或 current owners |
 | Git exact-path commit (0111 archive-classification unit) | 已完成：833966c1e000f0f3b5fc5ed5da5bac667a17f829 | 精确提交 report + session audit；未提交 private archive 或 current owners |
+| Git exact-path commit (T12 post-final receipt reconciliation) | 已完成：0eb7847188d66e6c8e77662509f2f65e2e9b2ad6 | 精确提交 report + session audit；未提交 private archive 或 current owners |
 
 ## 0111 当前线程归档与 worktree 边界重申
 
