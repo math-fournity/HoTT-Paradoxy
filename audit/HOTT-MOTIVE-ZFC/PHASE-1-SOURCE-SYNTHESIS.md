@@ -1,0 +1,128 @@
+# HOTT-MOTIVE-ZFC：第一阶段来源综合
+
+> **身份：** `CROSS_RUN_SYNTHESIS / THREE_FROZEN_DENOMINATORS / PROJECT_ACTIVE / NOT_A_ZFC_Q_OR_MATH_CLAIM`。
+>
+> **覆盖对象：** HMZ-001、HMZ-002、HMZ-003；17 个不同 `HMZ-S` 来源身份，另有跨 run 的精确复用。
+
+## 1. 这三轮实际完成了什么
+
+本项目不是在问“哪一篇文章说 ZFC 有问题”。它把 HoTT/UF 的创立动机拆成：
+
+```text
+R_i：作者/权威来源说出的设计动机
+  → Z_i：ZFC、集合论实践、形式化或元语言中的精确对象/formation/consumer
+  → Q_i：只有在同一任务、未付义务与模式 P 条件都满足时才成立
+```
+
+三轮合起来，已覆盖三个主要动机族：
+
+| 轮次 | 主要原典问题 | ZFC-side 精确化 | 本轮 Q 处置 |
+|---|---|---|---|
+| [HMZ-001](20261003-HMZ-001-primary-motives/MANIFEST.md) | 结构同一性、直接高阶描述、机器基础、sets/homotopy types。 | ZFC class-as-formula；NBG；Mumford family；Metamath/Isabelle formalization。 | class/meta-language 是表示边界；Mumford/Choice/语法均为显式支付；Power Set 没有 R bridge。 |
+| [HMZ-002](20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md) | Voevodsky 的 `problem of equivalence`。 | representation-sensitive property；abstract structural language；FOLDS/typed language/NBG/Choice。 | equivalence discipline 是来源支持的语言约束；没有同一对象的 formation/reentry/Done 张力。 |
+| [HMZ-003](20261003-HMZ-003-formalization-delivery/MANIFEST.md) | 类型纪律、归约计算、proof-assistant practicality。 | Isabelle/ZF 的 `Inf`、`Pow`、`Replace`、`The`、derived rules；axiom vs computation。 | 命名常量、唯一性/单值条件和规则是显式 formation payment；HoTT 自身亦有 axioms 阻断 computation。 |
+
+这三轮每一轮都保存了 `MANIFEST`、`SOURCE-CATALOG`、R/Z/Q 卡、真实 consumer 控制、coverage 和 findings，
+并固定公开原件的 URL、版本、哈希、页／行 locator 与派生阅读材料。
+
+## 2. 三种“有问题”的东西必须分开
+
+### A. 来源支持的表示边界
+
+这是真实、可报告的来源结果：
+
+- 纯 ZFC 的 class-as-formula 方式不能在对象语言中量化 classes；
+- ZFC 语言容许 representation-sensitive、非 equivalence-invariant 的表述；
+- raw axioms 可以只断言存在，因此实际形式化增加名称、条件和派生规则；
+- set-coded / untyped 表述与 richer type discipline 在错误预防、语法和计算上有不同成本。
+
+这些是 **表示、语言或工程接口的边界**。它们不自动是理论的数学矛盾、现实相对 UR 或模式 P 命中。
+
+### B. 来源显示的支付
+
+在三轮中，理论或实际消费者并非一律假装没有成本。相反，来源公开支付了所需结构：
+
+| 支付 | 来源作用 |
+|---|---|
+| NBG 的 class language／meta-language | 把大范畴量化从纯 ZFC 的对象语言移到带 class 的语言或元层。 |
+| ordinary/global Choice | 构造 skeleton、inverse equivalence、product functor 等时选择代表或对象。 |
+| maps／family data | Mumford 不把 coarse moduli classification 当作 universal family。 |
+| typed language / FOLDS criterion | 把 structural/equivalence-invariant properties 与任意表述分开。 |
+| named ZF constants、single-valued / unique rules | 将 raw-existence axiom 变成实际 formalization 接口。 |
+| well-ordering | 在 Voevodsky 的技术模型中使 standard isomorphism 有明示的唯一性条件。 |
+| HoTT implementation boundary | HoTT Library 记录某些 axioms 也会阻断 computation。 |
+
+这不是“ZFC 获得了总免疫”。它只说明：对已冻结的具体任务，来源中已经写出了 payment，不能把同一任务的完成困难由 AI 偷加进去。
+
+### C. 模式 P 所需、目前仍未出现的结构
+
+一个合格 Q 至少需要同一理论层的：
+
+```text
+u：对象语言的一等对象
+F：形成/交接接口
+C：真实 consumer
+I/O/Done：输入、操作、观察、完成条件
+P2/P3：source-supported reentry、admission或未付完成结构
+```
+
+第一阶段的所有候选都在这一步停止：
+
+| 入口 | 阻断位置 |
+|---|---|
+| class / large category | 类不是 ZFC 内对象；meta-language 或 NBG 是明确换层。 |
+| equivalence invariant property | “任意性质”与“structural property”有不同 Done；语言 criterion 是明确支付。 |
+| chosen representative / skeleton | Choice、maps、well-ordering 或标记被明确要求。 |
+| `Inf`、`Pow`、`Replace` | 名称、axiom、单值／唯一性条件和 derived rules 已公开交付；没有 reentry。 |
+| Power Set | 当前作者动机分母没有与其相连的 `R → u/F/C/Done` bridge。 |
+| `H0 → Z0` | 仍不能保持 HoTT 高阶相同的 subject/process/observation/Done。 |
+
+所以第一阶段的总结果是：
+
+```text
+SOURCE-SUPPORTED ZFC BOUNDARIES: YES
+P-QUALIFIED ZFC Q: NO
+H0→Z0 TRANSPORT: NOT FORMED
+“ZFC has no Q”: NOT INFERRED
+```
+
+## 3. 对原始研究目的的自审
+
+用户不是要一份“ZFC 很灵活”的辩护，也不是要把任何技术不便都称为悖论。P 的作用是检查：某个基础理论是否在
+同一任务中先把未形成、未支付或仍须合法性追问的对象交给后续使用。
+
+第一阶段确实对这个问题做了更严格的准备：它把最容易误报的四种假阳性——语言限制、class 量化、代表选择、
+existence-to-name interface——逐项固定为有来源的控制。它没有完成的是发现一个 `u/F/C/I/O/Done` 同时保真、
+且存在 P2/P3 张力的实际 ZFC consumer。
+
+因此，第一阶段既不是“已经找到 ZFC Q”，也不是“锻刀与发现脱钩”。每一张 `Q-R`、`SOURCE_PAYMENT` 或
+`ANTI_ANALOGY_CONTROL` 都是对 P 的负校准：它说明哪一种表面花纹不能让 Q 涌现。接下来若继续，必须让新来源
+有机会改变这个判词，不能只重复已知 payment。
+
+## 4. 后续 source admission：只有四种来源值得进入下一轮
+
+下一份分母只有满足以下至少一项时才建立：
+
+1. **未付真实 consumer：** 来源中的 ZFC-side consumer 声称与已支付任务相同的 Done，却没有实际提供其所需
+   witness、maps、choice、marking、formation 或 language payment；
+2. **形成—使用交错：** 资料显示某个对象的合法性／存在仍需追问时，该对象已在同一理论层被算符、判断或
+   consumer 使用；
+3. **Power Set bridge：** 一手 HoTT/UF 动机实际连接到 Power Set/Replacement/class formation 的同一
+   `u/F/C/I/O/Done`，而不只是共享“全体”“存在”或“构造”一词；
+4. **H0 transport bridge：** 有 ZFC 一等对象能保留 H0 的 subject、process、observation 与 Done，并逐门通过
+   T0–T5。
+
+若一份材料只再次说明“HoTT 更方便”“ZFC 是一阶语言”“需要 choice”或“类型系统防错”，则它不进入新的
+run；这些已在第一阶段有来源和控制。
+
+## 5. 仍开放、但尚未获准成为 Q 的研究入口
+
+| 入口 | 为什么仍值得看 | 当前缺口 |
+|---|---|---|
+| Voevodsky 2006 *homotopy λ-calculus* 等早期技术原典 | 可能提供与构造／表达有关的不同作者语言。 | 必须先显示它产生不同于三轮的 R，并有 ZFC-side counterpart。 |
+| ZFC actual consumer corpus | 只有真实 mathematical/formal consumer 才能决定 payment 是否被静默省略。 | 尚未发现同一 Done 的未付案例。 |
+| Power Set / Replacement | 它们仍是明显理论承诺，也是既有 P-FORGE 的保留站位。 | HMZ 三轮尚无 HoTT-motive bridge，也不授权从来源调查直接启动 P-DAG。 |
+| H0→Z0 | 用户提出的最强传输路线。 | T0–T5 尚未形成正向对象。 |
+
+本文件是第一阶段来源综合，不是项目完成收据。项目仍处于 `ACTIVE / SOURCE_ADMISSION_REQUIRED`；下一步由新的
+可审来源触发，而不是由“目前未命中”的焦虑或更多同义检索触发。

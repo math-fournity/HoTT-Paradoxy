@@ -1,6 +1,6 @@
 # 审计资产入口
 
-- [HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案](HOTT-MOTIVE-ZFC/README.md)：`HOTT-MOTIVE-ZFC-SOP` 的项目档案根。三个冻结分母已经闭合：[HMZ-001](HOTT-MOTIVE-ZFC/20261003-HMZ-001-primary-motives/MANIFEST.md) 给出 class/meta-language 表示边界；[HMZ-002](HOTT-MOTIVE-ZFC/20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md) 将 equivalence problem 还原为语言支付；[HMZ-003](HOTT-MOTIVE-ZFC/20261003-HMZ-003-formalization-delivery/MANIFEST.md) 检查存在/命名/可交付接口；尚无 ZFC Q、H0 传输或数学结论。
+- [HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案](HOTT-MOTIVE-ZFC/README.md)：`HOTT-MOTIVE-ZFC-SOP` 的项目档案根。三个冻结分母已经闭合：[HMZ-001](HOTT-MOTIVE-ZFC/20261003-HMZ-001-primary-motives/MANIFEST.md) 给出 class/meta-language 表示边界；[HMZ-002](HOTT-MOTIVE-ZFC/20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md) 将 equivalence problem 还原为语言支付；[HMZ-003](HOTT-MOTIVE-ZFC/20261003-HMZ-003-formalization-delivery/MANIFEST.md) 检查存在/命名/可交付接口；[阶段综合](HOTT-MOTIVE-ZFC/PHASE-1-SOURCE-SYNTHESIS.md) 定义下一轮仅可由未付 consumer、formation-use交错、Power Set R-bridge或H0正向传输触发。尚无 ZFC Q、H0 传输或数学结论。
 
 - [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，进行中）](20261003-P-FORGE-PQ-WARGAME.md)：按冻结轮次逐一回放模式P从原初目标、夹具、HoTT重放、ZFC来源、RK-0、Tool-Birth到CAL/PQ修订的实际Q增量和反事实；当前仅R00完成，R01待审，不能用本索引代替逐轮判词。
 

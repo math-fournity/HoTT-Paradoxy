@@ -6,6 +6,8 @@
 >
 > **路线种子：** [HoTT创建动机反投影ZFC候选路线](../../dev-docs/菲尔兹奖后续理论级目标路线图/009%20-%20HoTT创建动机反投影ZFC候选路线.md)
 
+> **阶段综合：** [第一阶段来源综合](PHASE-1-SOURCE-SYNTHESIS.md)。
+
 ## 项目边界
 
 本目录是文献调查项目 `HOTT-MOTIVE-ZFC-INVESTIGATION` 的档案根。它保存每次已启动调查的冻结来源分母、
@@ -54,6 +56,8 @@ FINDINGS.md
 | `20261003-HMZ-001-primary-motives` | HoTT／UF 首批创立动机、Shulman 的 ZFC/NBG 分析、Isabelle/ZF、Metamath 形式呈现、Mumford 与 Shulman 真实消费者控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [FINDINGS](20261003-HMZ-001-primary-motives/FINDINGS.md) | 0 个 `CANDIDATE_SEED`；class/meta-language 是来源支持的表示边界且有 NBG 支付；结构／choice／machine 路径均有显式支付；Power Set 与 H0 transport 未资格化。 |
 | `20261003-HMZ-002-voevodsky-set-theory` | Voevodsky 2011/2013 对 ZFC、equivalence、type systems 与 set theory 的原典；Ahrens/North 2022；复用 HMZ-001 的 Shulman/Isabelle/Mumford controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-002-voevodsky-set-theory/FINDINGS.md) | equivalence problem 是来源支持的表示边界；typed language/FOLDS、NBG、Choice、maps、well-ordering是明确支付；0 个 P-qualified Q。 |
 | `20261003-HMZ-003-formalization-delivery` | Grayson 2018、Rijke/Spitters 2016、HoTT Library 2017 与 Isabelle/ZF/ Shulman 控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-003-formalization-delivery/FINDINGS.md) | ZF existence axioms → named formal constants / rules 是显式支付；HoTT自身也有阻断计算的axioms；0 个 P-qualified Q。 |
+
+三个 run 的跨分母判断由 `PHASE-1-SOURCE-SYNTHESIS.md` 拥有；本 README 只保留入口与 run registry。
 
 ## 本次整备的影响边界
 
