@@ -692,3 +692,18 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 4. 现有连续变形、闭参数端点与标准来源必须成为正反控制：若一个数学模型已在同一明确Done下给出末时刻复原，它反驳任何更宽的“连续数学绝不可能复原”说法；若来源明确区分数学构造和物理／过程充分性，它是`SOURCE_BRIDGE_DEFENSE`。研究者不能靠事后偷偷加未在原任务中固定的条件逃避控制。
 5. 下一项只允许`SOURCE_BRIDGE_CONSUMER_SEARCH`：固定一份实际“极限解决芝诺／圆环复原”来源，逐项提取输入、操作、观察、输出和Done，检查它是否未支付地跨越数学 completion 与原过程。没有此类来源时，按范围将候选收紧或拒绝，不以更多比喻、极限公式或Power Set词汇制造进展。
 6. 本裁定授权当前候选卡、Feature、路线图、MEMORY、来源原件与精确Git谱系；不自动启动 worker、切换Power Set站位、改STATE、创建新刀、提交之外的发布／push，或交付数学／物理结论。
+
+## 2026-10-03：将 ZFC—极限—芝诺问题精化为元—子—过程完成桥
+
+用户原话的逐字 source 由`sources/prompts/Codex-ZFC元理论子理论时间与完成桥-用户原文-20261003.md`拥有。其中心判断是：可将ZFC视作极限理论的Meta Theory；若元层与子层均遗漏时间／可计算过程的观察维度，元层无法识别子层把芝诺问题改写为极限完成的边界；圆环因强制观察$M$、$N$的逼近和复原过程而使该边界显现。
+
+执行裁定：
+
+1. 这是对`FND-CONTINUUM-004 / ZFC-CIRCLE-Q0`的**归因与证据架构细化**，不是一项“ZFC没有时间概念”的已证明结论。严格说，ZFC在本任务中首先是实数／极限理论的基础或环境形式框架；是否称其为严格意义的外部metatheory，需要另行固定对象语言、元语言与解释层。
+2. 以后必须分开三件事：ZFC语言没有原生时间primitive；ZFC可否用集合表示状态、步骤、数列或计算；以及来源是否将子理论的`Done_formal`升格为原过程的`Done_origin`。第一件不能推出第二件失败；第二件成立也不自动支付第三件。
+3. 新候选命名为`ZFC-CIRCLE-Q1 / MetaSubBoundaryVisibility-Q?`，当前身份为`Q-1_SEED / F_LANE_ATTRIBUTION_REFINEMENT`。它问：什么版本固定来源内的`LiftClaim`与`Payment`允许`T_meta → T_sub → Process`把形式完成交付为原过程完成。它不是bare ZFC不一致、极限定理反例、UR或已定位ZFC Q。
+4. `MetaSubProcessBoundaryCard`被确定为P3-C的派生字段：必须逐项冻结`MetaSide / SubTheorySide / BridgeSource / ProcessSide / LiftClaim / Preservation / Payment`，并以可表示性、显式端点、显式Done改写、已支付桥和无LiftClaim作控制。它不创建P4，不代替P3的`Draft/Admitted/OperatorUse`来源状态机，也不强行调用P2。
+5. H081预启动时缺`R-035`，未采样；H082只修该字段重跑。它以冻结来源包获得`Q_NARROW`：排除“没有原生时间符号所以无法表示过程”的读法，留下`SOURCE_CONSUMER_GAP`和实际`LiftClaim`来源搜索。其范围、实际模型/权限、zero-tool记录与L1--L5限制由`audit/20261003-P-DAG-ZFC-CIRCLE-081-082-Terra-Max.md`拥有。
+6. 当前“最终责任是否指向ZFC”保持`OPEN_ATTRIBUTION_HYPOTHESIS`。只有一份实际来源无支付地将具体`Done_formal`提升为固定原任务`Done_origin`，才可按同一卡讨论归因分布；若来源已改变Done、提供保持关系或没有LiftClaim，则它按范围成为反控制。下一动作仅为`SOURCE_LIFTCLAIM_CONSUMER_SEARCH`。
+
+本裁定授权用户primary、Q1候选卡、H081/H082节点与收据、P3-C字段、Feature/MEMORY/路线记录及精确Git提交；不授权修改STATE、Power Set站位切换、数学／物理结论、tag、push或发布。
