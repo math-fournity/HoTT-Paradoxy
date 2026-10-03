@@ -2,12 +2,12 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/091 - H041 ZFC平衡画像终端语义假阴性.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/091 - H041 ZFC平衡画像终端语义假阴性.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/092 - H042 ZFC平衡画像无候选预言机回归.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/092 - H042 ZFC平衡画像无候选预言机回归.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 91 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 92 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
@@ -116,4 +116,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 089 | [H039 ZFC函数像形成直接支付](<20261003-P-FORGE-ATOMIC-AUDIT/089 - H039 ZFC函数像形成直接支付.md>) | `H039` | R05 RepFun direct payment | `ALIGNED / Q_REJECT_WITH_SCOPE` |
 | 090 | [H040 ZFC平衡画像语义无候选输出失败](<20261003-P-FORGE-ATOMIC-AUDIT/090 - H040 ZFC平衡画像语义无候选输出失败.md>) | `H040` | R05 balanced profile oracle failure | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
 | 091 | [H041 ZFC平衡画像终端语义假阴性](<20261003-P-FORGE-ATOMIC-AUDIT/091 - H041 ZFC平衡画像终端语义假阴性.md>) | `H041` | R05 terminal-equivalent false negative | `RUNNER_OR_EVIDENCE_FAILURE / Q_SAFETY_REPAIR` |
+| 092 | [H042 ZFC平衡画像无候选预言机回归](<20261003-P-FORGE-ATOMIC-AUDIT/092 - H042 ZFC平衡画像无候选预言机回归.md>) | `H042` | R05 output-oracle regression | `ALIGNED / Q_CAPABILITY_CALIBRATION_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
