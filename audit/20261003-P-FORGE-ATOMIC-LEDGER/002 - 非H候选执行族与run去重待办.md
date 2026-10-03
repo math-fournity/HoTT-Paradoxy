@@ -36,7 +36,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N10 P2-HOTT | `P2-HOTT-001` | unique session `01a0fcb1-2dda-7d52-920c-3ae4abcea104` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N11 P3-HOTT | `P3-HOTT-001` | unique session `01a0fcb3-a8b7-76b1-ac58-a3f62bcc741b` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N12 P2-ZFC | `P2-ZFC-001` | unique session `01a0fcb5-5011-7172-9b42-c09b4b9f52ee` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
-| N13 P3-ZFC | `P3-ZFC-001` | unique session `01a0fcb8-10ad-7942-ac49-43fd51af318d` | `UNIQUE_ATOMIC_RUN` |
+| N13 P3-ZFC | `P3-ZFC-001` | unique session `01a0fcb8-10ad-7942-ac49-43fd51af318d` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N14 P2-CFTT | `P2-CFTT-001` | unique session `01a0fcba-b793-79d1-8aa4-2ba3de0e84fd` | `UNIQUE_ATOMIC_RUN` |
 | N15 P3-CFTT | `P3-CFTT-001` | unique session `01a0fcbd-4cd8-7ed3-b65d-08f821e9761d` | `UNIQUE_ATOMIC_RUN` |
 | N16 P2-CLIMBER | `P2-CLIMBER-001` | unique session `01a0fcbf-b44f-7eb1-9465-6d937ced16e5` | `UNIQUE_ATOMIC_RUN` |
