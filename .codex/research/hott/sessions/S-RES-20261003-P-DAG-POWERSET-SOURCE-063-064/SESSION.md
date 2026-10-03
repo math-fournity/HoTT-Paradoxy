@@ -57,3 +57,13 @@ core generation-13 / 62 KC，core hash `55d514b1a707b727a7aa6c00af6e6ff799d844ee
 - Evidence commit: `4a9ef232e3f086c9189a859c731411143d2bc839` (`research: record Power Set source consumer review`).
 - Commit 包含的 9 条精确路径列于 `RUNS.json` 的 `verification[id=EXACT-GIT].exact_paths`，并与 SelfAuditCard 的 `exact_paths` 对应。
 - 当前分支继续保持 `CONTRIBUTOR / CANDIDATE_NOT_CURRENT`；未指定 canonical target，未做集成、tag 或 push。
+
+## Continuation delta：H065 scope overdelivery
+
+H065 由前一 source report 中的未激活 `Pi(A,B)` 线索触发。冻结卡为 [H065 NodeCard](../../../../../audit/20261003-P-DAG-ZFC-POWERSET-PI-065-TASK-NODECARD.md)，SHA-256 `cc765e0f05dbd4541504d89e6481a3d60caef2db18cb19284dacebbe6a2d9854`。
+
+执行中第一次无行号打开官方 `ZF_Base` 页面，web 工具标注页面总长 644 行，并返回超出卡片局部范围的内容；第二次指定 `lineno=249` 仍返回第 194–340 行。两次响应都超出卡片限定的 `Pi(A,B)` 局部范围，返回内容已隔离，不用于来源主张。H065 状态为 `SOURCE_SCOPE_OVERDELIVERED / NODE_STOPPED / NO_PI_SOURCE_VERDICT`；不能据此声称 `Pi(A,B)` 提出、支付或未支付任何 Q。该失败只改变这条 source node 的资格，不改变 H063/H064 结论、Power Set 定位或 ZFC Q 状态。
+
+自审分类：第一次宽范围请求为 `EXECUTION_DEVIATION`；带行号请求仍返回过宽窗口，记录为 `RUNNER_OR_EVIDENCE_FAILURE`。无 P1/P2/P3 匹配结论，无 Tool-Birth，无 worker、trajectory、Isabelle 执行或数学主张。原四件套、理念与 SOP 读取收据沿用本 Session；H065 只增加本 continuation delta。
+
+H065 exact-path evidence/closeout commit 将在 `RUNS.json` 的 `EXACT-GIT-H065` 和新增 SelfAudit shard 中登记；本次仍保持 contributor/candidate，尚未 canonical integration。

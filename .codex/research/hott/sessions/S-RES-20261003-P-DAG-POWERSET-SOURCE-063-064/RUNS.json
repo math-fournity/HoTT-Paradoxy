@@ -364,6 +364,22 @@
       "raw_page_hash": "NOT_AVAILABLE_FROM_WEB_TOOL",
       "verdict": "PROOF_SYSTEM_TASK_PRESENT / SOURCE_PACKET_DIRECT_PAYMENT / NO_RESIDUAL_Q",
       "model_session": "NONE"
+    },
+    {
+      "id": "H065-ISABELLE-ZF-PI-POWERSET-CONSUMER",
+      "kind": "primary_web_source_scope_attempt",
+      "nodecard_path": "audit/20261003-P-DAG-ZFC-POWERSET-PI-065-TASK-NODECARD.md",
+      "nodecard_sha256": "cc765e0f05dbd4541504d89e6481a3d60caef2db18cb19284dacebbe6a2d9854",
+      "source_version": "Isabelle2025-2 / ZF_Base",
+      "source_url": "https://isabelle.in.tum.de/library/FOL/ZF/ZF_Base.html",
+      "tool_refs": ["turn9view0", "turn11view0", "turn10view1", "turn10view2"],
+      "observed_output": [
+        "unanchored open returned a 644-line page result, beyond the NodeCard's Pi-local scope",
+        "open at line 249 still returned lines 194-340 (147 lines), beyond the NodeCard's Pi-local scope",
+        "the overbroad page bodies were excluded from H065 source claims"
+      ],
+      "verdict": "SOURCE_SCOPE_OVERDELIVERED / NODE_STOPPED / NO_PI_SOURCE_VERDICT",
+      "model_session": "NONE"
     }
   ],
   "verification": [
@@ -403,6 +419,11 @@
       "result": "RUNS JSON parses; 29 four-set file receipts; 62 unique ordered KC rows; local links resolve"
     },
     {
+      "id": "H065-SOURCE-SCOPE",
+      "status": "RUNNER_OR_EVIDENCE_FAILURE",
+      "result": "web.open exceeded the Pi-local source scope both with and without a line locator; outputs excluded and node stopped"
+    },
+    {
       "id": "EXACT-GIT",
       "status": "PASS_WITH_SCOPE",
       "result": "exact owned-path evidence commit; pre-commit git diff --cached --check exit 0",
@@ -418,17 +439,23 @@
         "audit/20261003-P-DAG-ZFC-POWERSET-VSET-063-TASK-NODECARD.md",
         "audit/20261003-P-DAG-ZFC-POWERSET-VSET-CANTOR-063-064-SOURCE-REVIEW.md"
       ]
+    },
+    {
+      "id": "EXACT-GIT-H065",
+      "status": "PENDING",
+      "result": "commit H065 scope-failure card and delta SelfAudit on exact paths after validation"
     }
   ],
   "git": {
     "branch": "codex/p-dag-tool-birth-audit",
     "starting_head": "d5760228e82dd546ca22ef0dde7afe47567ed3d3",
     "evidence_commit": "4a9ef232e3f086c9189a859c731411143d2bc839",
+    "followup_base_head": "fd2f8da9188f947d1b6f6325f1f28c3950c12075",
     "role": "CONTRIBUTOR",
     "canonical_target": "NOT_SPECIFIED",
     "integration_state": "CANDIDATE_NOT_CURRENT",
     "other_worktree_access": false,
     "current_owner_paths_mutated": []
   },
-  "status": "SOURCE_INSPECTED_WITH_SCOPE / POWERSET_SITE_RETAINED / ZFC_Q_NOT_LOCATED / NO_TOOL_BIRTH / NO_MATH_CLAIM"
+  "status": "H063_H064_SOURCE_INSPECTED_WITH_SCOPE / H065_SOURCE_SCOPE_OVERRUN / PI_UNASSESSED / POWERSET_SITE_RETAINED / ZFC_Q_NOT_LOCATED / NO_TOOL_BIRTH / NO_MATH_CLAIM"
 }
