@@ -631,3 +631,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 每个 ForgeIntent、TaskCard／NodeCard和SelfAuditCard必须有`QConvergenceLink`。没有Q状态／候选空间变化的改动，只在它明确保护某一固定卡免于误判时可标为`Q_SAFETY_REPAIR`；否则是`TOOL_ONLY_DRIFT`，应从P-FORGE研究线停止，不以“锻刀”名义继续累积。
 4. 当前Power Set只处在`Q-0 UNFORMED`：它仍是显眼基础位置，已有guard和H074/H075等控制只给出了候选空间收紧或分类防护，尚未产生同层active Q或三刀会合。该状态不宣称ZFC没有问题，也不自动换站。
 5. 本裁定授权更新三刀共同锻造合同、P-FORGE、P-DAG self-audit／NodeCard／Skill、理念图、Feature、MEMORY、审计和精确Git谱系；不恢复暂停的Goal、不启动新worker、不创建P4、不改变STATE／数学结论、tag或push。
+
+## 2026-10-03：P/Q 共同锻造必须接受逐轮兵棋审计
+
+研究发起人要求：对所有锻打轮次从头到尾做一次基于“锻刀＝发现Q”的自我审计。审计必须逐轮执行，不能看一眼所有轮次就给出全局判词；每一轮都要作来源受限的兵棋推演，并把由回放产生的未来探索方向保存为可审计财富。
+
+执行裁定：
+
+1. 新建 sequential audit campaign。每一自然轮次按当时的实际来源、工具版本、NodeCard／source report／Git证据分别重放；当前的`QConvergenceLink`只作为反事实镜头，不倒灌为当时已满足的合同。
+2. 每轮必须单独给出起始P/Q状态、实际动作、实际Q增量、反事实、偏差分类、可推翻条件、下一轮依赖和`Wealth`。`Wealth`只能标`HYPOTHESIS`、`READY_FOR_FORGE_INTENT`或`REJECTED`，不因被记录就启动节点或升级为理论结论。
+3. 审计优先覆盖模式P形成、P1/P2/P3 fixtures、实际source controls、HoTT replay、Power Set来源与guard、Tool-Birth、P3-C、reflection/CAL以及P/Q修订；纯发布、翻译、归档和不构成自然锻造单元的提交不进入分母。
+4. 每封存一轮后，才可开始下一轮；阶段性总综合只能在所有列入轮次完成后进行。任何新规格缺口可以精确修复并提交，但前序轮次仍按其当时的证据范围保留。
+5. 本裁定授权audit campaign、必要的当前Feature／MEMORY／审计索引和精确Git commit；不恢复暂停的Goal，不启动新的理论worker／网络节点，不改变数学STATE或理论结论。

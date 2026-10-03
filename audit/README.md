@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，进行中）](20261003-P-FORGE-PQ-WARGAME.md)：按冻结轮次逐一回放模式P从原初目标、夹具、HoTT重放、ZFC来源、RK-0、Tool-Birth到CAL/PQ修订的实际Q增量和反事实；当前仅R00完成，R01待审，不能用本索引代替逐轮判词。
+
 - [P-FORGE：P/Q 共同涌现与收敛的路线重对齐（2026-10-03）](20261003-P-FORGE-Q-EMERGENCE-CONVERGENCE-REALIGNMENT.md)：把“锻刀＝发现Q”的研究不变量编译为`QConvergenceLink`；区分Q的生成、收紧、桥接、淘汰、会合和有界的`Q_SAFETY_REPAIR`，排除没有Q关联的`TOOL_ONLY_DRIFT`。
 
 - [P-FORGE：校准收敛、来源覆盖与 Power Set station 调整（2026-10-03）](20261003-P-FORGE-CALIBRATION-STATION-ADJUSTMENT.md)：将已知控制、独立盲态选择、来源存活Q和三刀会合分成CAL-0至CAL-4；proof/formalization、model/semantic、数学实践和construction bridge分层；Round 1停止重复guard但station保持退出审查，未定位ZFC Q。
