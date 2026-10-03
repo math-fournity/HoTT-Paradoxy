@@ -57,7 +57,7 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 | `N26E` | P3-B Isabelle mapper | `01a0fd4f-fb3b-7531-873b-500e807149b8` | Isabelle P3 card。 | `ATOMIC_AUDIT_COMPLETE` |
 | `N26F` | C-A proof advocate | `01a0fd48-9ab9-73c3-a379-4d2a7a5e8a59` | proof-system consumer立场。 | `ATOMIC_AUDIT_COMPLETE` |
 | `N26G` | C-B object challenger | `01a0fd48-9a7c-72a0-b169-9b08ffefd1e5` | target-layer consumer质询。 | `ATOMIC_AUDIT_COMPLETE` |
-| `N26H` | C-C layer arbiter | `01a0fd4c-2a1d-7d21-bfec-f3172b85d04c` | layer-integrity裁决。 | `PENDING` |
+| `N26H` | C-C layer arbiter | `01a0fd4c-2a1d-7d21-bfec-f3172b85d04c` | layer-integrity裁决。 | `ATOMIC_AUDIT_COMPLETE` |
 
 ### 2.4 F27（legacy N27）：SOURCE-003
 
