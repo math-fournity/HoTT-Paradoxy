@@ -145,3 +145,7 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 本 worktree 的 0107 archive SHA-256 `1fd5fa9c340823ea37aa4dc6d1fc6ec8ef3fc90ed61623ca9ef865e2b34de249`（303 行 / 37,976 bytes / mode 0600）含 3 markers、3 个直接用户 prompt、0 个 Goal-context envelopes。T1 问从菲尔兹奖论文中选目标；T2 比较另一个 AI 的答案；T3 纠正目标层级，要求针对支撑数学的大基础理论。当前 full-origin owner 001–006 搜索不到 `0107`，也未见明确排除理由。T1/T2 应作为目标选择前驱候选逐项处置，不冒充 P 规格；T3 与 0108-T1 及 S12[1] 正文相同，但 archive/native event 身份未知。
 
 本轮仅读当前 checkout 内的 archive、S12 与 full-origin shards；没有访问、等待、比较或写入另一 worktree，也没有读取 parent trajectory。full-origin owner 与 STATE/projections 均未修改；此发现使 source-completeness 维持 open，U19–U21 parent-phase 仍为 UNKNOWN。
+
+## 0107 精确 Git 收据
+
+来源范围候选、三条 turn 身份、自审卡与 RUNS 收据已由 commit `b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0` 记录。该提交只含 contributor recheck、当前 session 的 RUNS/SESSION 与独占 SelfAudit shard 四个路径；0107 archive、full-origin audit 001–006、其他 worktree 及预存 dirty/untracked 路径均未纳入。`CANDIDATE_NOT_CURRENT` 状态保持，尚未决定 full-origin owner 是否纳入 0107。

@@ -597,6 +597,7 @@ next_trigger: canonical integrator decides 0107's source-unit dispositions or a 
 git_record:
   candidate_branch: codex/p-dag-tool-birth-audit
   base_head: 73c760c73e1f72fc1a7e3fbec46dc3876ae8b9e1
+  commit: b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no other-checkout access; no full-origin current-owner edits
 ```
