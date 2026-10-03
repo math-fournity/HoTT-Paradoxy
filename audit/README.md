@@ -1,6 +1,8 @@
 # 审计资产入口
 
-- [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，进行中）](20261003-P-FORGE-PQ-WARGAME.md)：按冻结轮次逐一回放模式P从原初目标、夹具、HoTT重放、ZFC来源、RK-0、Tool-Birth到CAL/PQ修订的实际Q增量和反事实；当前仅R00完成，R01待审，不能用本索引代替逐轮判词。
+- [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，粗粒度历史）](20261003-P-FORGE-PQ-WARGAME.md)：R00--R15保留原初目标、13个粗粒度自然单元与当时的R14综合；它是父级因果图，不能代替原子分母。
+
+- [P-FORGE 原子锻打全量审计：A0--A3（2026-10-03，完成）](20261003-P-FORGE-ATOMIC-SYNTHESIS.md)：在精确冻结的130个历史单位内，完成A0分母、A1逐卡回放、A2父级回接和A3跨卡综合。结果是`ATOMIC_AUDIT_COMPLETE_WITH_SCOPE`、`ZFC_SITE_SELECTED / Q-0 UNFORMED / ZFC_Q_NOT_LOCATED`；不宣称ZFC无问题、站位切换、新刀或数学结论。原子卡、分母与父级证据分别由[原子campaign](20261003-P-FORGE-ATOMIC-AUDIT.md)、[原子账本](20261003-P-FORGE-ATOMIC-LEDGER.md)和[父级回接](20261003-P-FORGE-PARENT-RECONCILIATION.md)拥有。
 
 - [P-FORGE：P/Q 共同涌现与收敛的路线重对齐（2026-10-03）](20261003-P-FORGE-Q-EMERGENCE-CONVERGENCE-REALIGNMENT.md)：把“锻刀＝发现Q”的研究不变量编译为`QConvergenceLink`；区分Q的生成、收紧、桥接、淘汰、会合和有界的`Q_SAFETY_REPAIR`，排除没有Q关联的`TOOL_ONLY_DRIFT`。
 

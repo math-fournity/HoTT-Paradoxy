@@ -13,10 +13,12 @@ soft_line_target: 300
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_COMPLETE_AFTER_R13_MASTER_DECISION_REOPEN / A2_COMPLETE / A3_CROSS_CARD_SYNTHESIS_PENDING / PARENT_CARDS=13/13 / PARENT_REMAINDER=0 / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=130 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=0`。
+> **当前状态:** `A0_A1_A2_A3_COMPLETE / ATOMIC_AUDIT_COMPLETE_WITH_SCOPE / PARENT_CARDS=13/13 / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=130 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=0`。
 
-本 campaign 的当前分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 006 重冻结。这个表暂只列128张已经封存的
-AtomicAuditCard；分母与卡数虽已一致，R13父级必须回接`N33,N34`并完成父级判词后才可进入A3，不能因索引短而跳过。
+本 campaign 的当前分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 006 重冻结。这个表列出130张已经封存的
+AtomicAuditCard；分母、逐卡回放、R01--R13父级回接和A3综合均已完成，不能因索引短而误作数学结论。
+
+> **A3 综合：** [P-FORGE 原子锻打全量审计：A3跨卡综合](<20261003-P-FORGE-ATOMIC-SYNTHESIS.md>)已封存。它只综合本分母内的P/Q共同锻造、偏差、财富与重开条件；不创建ZFC Q、站位切换或新刀。
 
 > **顺序纠偏：** `N31` 的UUID时间身份 `01a0fcae…` 位于 `N09=01a0fcac…` 与 `N10=01a0fcb1…` 之间，但旧账本把它列在N23之后。A1已先封存N10--N30f，形成可见的执行顺序偏差；本条不伪造旧顺序，而是在第050卡补审N31，并要求A2父单元回接时保留此偏差与实际时间位置。
 

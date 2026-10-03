@@ -13,7 +13,7 @@ soft_line_target: 300
 
 > **身份：** `ATOMIC_DENOMINATOR_OWNER / AUDIT_INPUT / NOT_A_THEORY_RESULT`。
 >
-> **当前状态：** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A0_REFROZEN / A1_REOPENED_PENDING_N33_N34 / C_CANONICAL=127 / C_BRANCH=3 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / NOT_A_THEORY_RESULT`。
+> **当前状态：** `A0_REOPENED_BY_R13_MASTER_DECISION_GAP / A0_REFROZEN / A1_COMPLETE / A3_COMPLETE_WITH_SCOPE / C_CANONICAL=127 / C_BRANCH=3 / C_ATOMIC=130 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=0 / NOT_A_THEORY_RESULT`。
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 范围 | 状态 |
@@ -23,5 +23,5 @@ soft_line_target: 300
 | 003 | [A0分母冻结、来源交叉核验与跨分支执行](<20261003-P-FORGE-ATOMIC-LEDGER/003 - A0分母冻结、来源交叉核验与跨分支执行.md>) | exact source universe、N31、004/005 raw sessions、branch-qualified Tool-Birth executions、排除项与 A1 顺序规则 | historical A0 snapshot at 127; superseded by 004/005 |
 | 004 | [A0预采样执行补充与N32登记](<20261003-P-FORGE-ATOMIC-LEDGER/004 - A0预采样执行补充与N32登记.md>) | 报告内多次启动尝试的规则、P2-FORGE首次参数错误、SOURCE-004背景尝试排除与128单位修正 | historical count amendment; child-ID repair follows in 005 |
 | 005 | [A0子session稳定ID补足与重冻结](<20261003-P-FORGE-ATOMIC-LEDGER/005 - A0子session稳定ID补足与重冻结.md>) | Battle/SOURCE多session家族的stable child atomic IDs、A0重开/重冻结、A1恢复点 | historical; superseded by 006 for current denominator |
-| 006 | [A0 R13方法修订Master单位补足与重冻结](<20261003-P-FORGE-ATOMIC-LEDGER/006 - A0 R13方法修订Master单位补足与重冻结.md>) | R13两次改变P/Q准入的Master Git decision、唯一身份、去重和130单位重冻结 | current; N33/N34 pending A1 |
+| 006 | [A0 R13方法修订Master单位补足与重冻结](<20261003-P-FORGE-ATOMIC-LEDGER/006 - A0 R13方法修订Master单位补足与重冻结.md>) | R13两次改变P/Q准入的Master Git decision、唯一身份、去重和130单位重冻结 | current; N33/N34 audited, A0/A1 closed |
 <!-- governance-shard-table:end -->

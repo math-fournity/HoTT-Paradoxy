@@ -13,7 +13,7 @@ soft_line_target: 300
 
 > **身份：** `A2_PARENT_RECONCILIATION / SOURCE_LIMITED_PARENT_COMPARISON / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态：** `A2_COMPLETE / PARENT_CARDS=13/13 / PARENT_REMAINDER=0 / A3_CROSS_CARD_SYNTHESIS_PENDING`。
+> **当前状态：** `A2_COMPLETE / PARENT_CARDS=13/13 / PARENT_REMAINDER=0 / A3_CROSS_CARD_SYNTHESIS_COMPLETE / ATOMIC_AUDIT_COMPLETE_WITH_SCOPE`。
 
 本逻辑文档将当前130个已登记且已封存的原子单位回接到原始 `R01--R13` 粗单元；R13的`N33,N34`现已可供回接。`R00`、`R14`、`R15`是目标／最终综合／分母冻结的历史上下文，不替代这13个父级的逐项回接。每张父卡只给出：原汇总主张、成员分母、原子证据所支持的范围、被修正或撤回的部分、P/Q影响、财富与重开条件。
 
