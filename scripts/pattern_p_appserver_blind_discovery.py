@@ -299,6 +299,11 @@ async def run_discovery(
             terminal_choice_ok = (candidate_count == 1 and no_candidate_count == 0) or (
                 candidate_count == 0 and no_candidate_count == 1
             )
+            # A standalone exact terminal verdict is the semantic content of D2.
+            # Keep the other D-sections mandatory, but do not reject an otherwise
+            # structured no-candidate trace merely because its terminal is headed
+            # by the verdict instead of repeating the literal ``D2`` label.
+            required_sections["D2"] = required_sections["D2"] or terminal_choice_ok
             output_schema_ok = all(required_sections.values()) and terminal_choice_ok
         elif profile == "source-match":
             required_sections = {f"E{index}": f"E{index}" in text for index in range(8)}
