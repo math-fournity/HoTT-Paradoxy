@@ -14,7 +14,7 @@
 
 当前结论是有界的：full-audit 006 列出的 18 个 source files 在本地当前 bytes 上全部匹配；0102 有 11 个 archive turns、0108 有 7 个、0109 有 21 个，而 001/006 只登记 U1–U19。0109 内 U19–U21 prompt SHA 相同，turn IDs 和 answer SHA 各异；这不是可以不说明地删去两个历史事件的理由。S12/S13 的若干直接用户原文与 0108/0109 archive prompt 在去空白后正文相同，但 direct source message IDs 与 archive turn IDs 没有 crosswalk。full-origin audit 的事件／intent 去重政策及 U19–U21 cutoff 归属因此仍需重新闭合。
 
-本单元没有任何数学命题、P1/P2/P3 theory task、ZFC Q、UR 或新刀具结论。
+本单元没有任何数学命题、P1/P2/P3 theory task、ZFC Q、UR 或新刀具结论。另对 U19–U21 答案中引用的 18 个本 repo commit OID 做了 `git show` 定位，确认它们对应不同的 audit、runner/SOP、replay、D-L10F/RK-0 工件路径；这只证明历史工件的存在与路径关联，不验证其数学结论。
 
 U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contributor recheck](../../../../../audit/20261003-P-DAG-FULL-ORIGIN-0109-U19-U21-DENOMINATOR-CONTRIBUTOR-RECHECK.md)。
 

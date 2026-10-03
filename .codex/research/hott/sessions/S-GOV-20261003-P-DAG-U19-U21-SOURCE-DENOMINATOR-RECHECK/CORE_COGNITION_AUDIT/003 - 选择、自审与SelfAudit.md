@@ -25,6 +25,7 @@ actual_action:
   - recalculated all 18 source manifest records against current bytes; all matched full SHA/line/byte entries
   - counted 0109: 21 user sections, 21 archive-turn markers, 17 prompt payload hashes
   - compared U19/U20/U21: same prompt SHA, three distinct turn IDs, three different answer hashes and visible response deltas
+  - resolved 18 project commit OIDs cited by the U19-U21 answer bodies and inspected their current-repo commit subjects/changed path lists; shared-governance repository refs remain out of this check
   - found existing audit declares U1-U19 and has no U20/U21 IDs/dispositions
   - found U13-U15 is another same-prompt group individually audited, so no general dedupe policy is documented
   - found whitespace-normalized exact text overlap S12[1]/[3]/[4]/[5]/[6], S13[7] with archive 0108 C1/C7 and 0109 U1-U4; source/Host event identity remains unknown

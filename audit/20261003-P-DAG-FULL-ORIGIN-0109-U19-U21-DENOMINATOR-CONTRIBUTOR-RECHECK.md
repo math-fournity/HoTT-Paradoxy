@@ -34,6 +34,16 @@
 | U20 | `skill-turn-c980d46fc6fa446c9dbeb5b0b8bf264a` | 同 U19 | `fec7d8a445a7526689c9905b4c5abccbb9446c03dd0bb899fa190366374cec4` | 报告 full-history audit、D-L7–D-L9、HoTT 限定 replay、ZFC 状态和运行证据。 |
 | U21 | `skill-turn-4d3398c25c71415e94066b2ad405dfde` | 同 U19 | `89a65a0358bc39cddc9b2b399bf4263732466b9b18d077d69a506e61f84bc31e` | 报告 D-L10F、RK-0、H049–H053 与 Gemini 旧文作为控制。 |
 
+归档回复实际引用的项目 Git 对象均在当前 repo object database 中可解析；以下完整 OID/subject/path facts 由本轮在当前分支执行 `git show` 得到：
+
+| 用户 turn | 回复里的项目 commit OIDs | 已核实的项目变更范围 |
+|---|---|---|
+| U19 | `3060452a67a2df7a2010074c178527b4a42affc1`; `a9e796102ef2fddfcd66e0aee0c0a8fb78b0ba61`; `15d2bbd972ff3d0eb6cc2a1c5d589f492597fafa`; `c678f737444ff913e1c9efcbf5645f8fbae7c5ed`; `b810380f715fa1960cf4ab229c45d02cef0937a5` | App Server trajectory audit/H010 NodeCard and source validation、观察/无墙钟中断规则、H010 replay 与打造过程记录。 |
+| U20 | `8d4877ad8abd110cb31973408eb46d0155de14fd`; `73989d3bbc6fd7f0e6bd7fe20d7e80f958fc68e2`; `6fe90224a779ddf4ffaee6a992952d14516448d9`; `a4f6ca731f701bb005b421eb9936b66076155dfa`; `754727f55c2bfcf49c1068638a2d23d14bdfef97`; `4faffd4d7e5f3a3826793fefc97680e200c9f2aa`; `137ede0e2350daa6d1e522d842c77a59fd45c0bc`; `d66a78d4ad4ece0e8cd2d403fe3c80c7ede3f94c`; `f32c2293a39db46b6e11a1e055297d97a26c2209` | full-origin report、source-aware/liveness rules、D-L7/D-L8/D-L9、HoTT H015–H018 replay、ZFC H019–H022 source gap、continuation self-audit。 |
+| U21 | `3d7918e56b661e17b11ea6a7cc3f31c5939bb773`; `a39e9afac295615d516baf9bb7757323a590959a`; `a4cc5c8861b7e213e103c122c4ca87c3383ce390`; `43eeacd11e141354b147d3f0d981d3a9782b09d4` | formation-origin D-L10F and no-candidate terminal、RK-0 shared kernel、H049–H053 Power Set control evidence. |
+
+U19 的答复还提到了 shared-governance repo 的 reader/runtime commit refs；它们不是本项目 Git 对象，未在本 contributor unit 中对外部 repo 重做核验。上表只审计 `HoTT_AI_HANDOFF_20260911` 当前 repo 中可见、与回答明确关联的 project commits；commit 目标路径可佐证有对应工件，不单独证明回答中的技术/数学结论。
+
 三个 user prompt payload 完全相同；turn IDs 不同，assistant answer SHA 不同，且每次可见回复记录了不同的实际研究／工具状态。这支持两种合法的审计表达，但当前 owner 没有选定其中一种：
 
 1. **Event-level denominator（建议）：** 将 U19、U20、U21 各列一行，标记相同 prompt 的重复请求关系，并分别链接各自不同的答复、commit 和运行证据；或
