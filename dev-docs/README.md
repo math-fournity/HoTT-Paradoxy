@@ -14,6 +14,8 @@
 
 - [HOTT-MOTIVE-ZFC-SOP：HoTT 创建动机反投影 ZFC 文献调查与候选档案](HoTT创建动机反投影ZFC文献调查SOP.md)：用户可在 `/goal` 中引用的文献项目 SOP。它将 HoTT/UF 原典动机逐项建立 `R_i → Z_i → Q_i` 卡，冻结来源分母、原件／派生阅读材料、真实消费者、标准防线、`H0→Z0→Q0` 传输门和覆盖收据；项目档案根为 `../audit/HOTT-MOTIVE-ZFC/README.md`。调用 SOP 不自动产生 ZFC 候选、P-DAG 节点或数学结论。
 
+- [ZFC-Q-CORPUS-MAP-SOP：ZFC Q 可追溯语料落盘、MinerU 与文献地图](ZFC-Q语料落盘与文献地图SOP.md)：用户可在 `/goal` 中引用的总语料工程。它将 DOI／arXiv／作者或出版商页面／用户提供浏览器访问线索分成 acquisition provenance 与作品身份，完成 PDF 核验、MinerU 派生、书目与引文地图和 Q lead routing；目的在尽可能完整地建立寻找 ZFC Q 所需的语料与线索，不把它包装成博士论文或自动升级为 Q。档案根为 `../audit/ZFC-Q-CORPUS-MAP/README.md`；HOTT-MOTIVE-ZFC 是其专门支线。
+
 - [模式 P 的三把刀：P1、P2、P3](模式P三把刀.md)：P1 的理论位置定位、P2 的计算—逻辑翻译、P3 的构造状态／准入次序，各自的打造惯性、正负控制、停止条件和持续横向比较；它们是研究工具草案，不是任何理论已有问题的结论。
 
 - [刀具系统理念](刀具系统理念.md)：从罗素的计算—存在—自指张力到 P1/P2/P3 的不同惯性，说明案例怎样校准、发现怎样进入来源验证、为何“锻刀”与 ZFC Q 的定位共同推进，以及新刀何时才有出生资格。P-DAG 新开、恢复或改刀职责时先从这里恢复工作意识；原始用户来源和逐段运行证据仍分别由 sources/rulings 和 full origin audit 拥有。

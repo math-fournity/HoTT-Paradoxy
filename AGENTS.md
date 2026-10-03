@@ -173,6 +173,15 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `H0→Z0→Q0` 是专用传输门；ZFC 侧若在对象、formation、同一任务、未支付完成性、P2/P3形状或控制上不保真，判为 `ANTI_ANALOGY_CONTROL`，不得改写成 ZFC 无问题或调查失败。
 - P-DAG、worker、模型运行、数学STATE、Power Set station切换、数学结论和新刀都需各自的现行授权与合同；该文献 SOP 不以“彻底调查”名义扩大权限。
 
+## ZFC Q 可追溯语料落盘、MinerU 与文献地图（用户 2026-10-03）
+
+研究发起人要求将“尽可能完成与 ZFC Q 有关文献的发现、全文落盘、MinerU 派生处理和可追溯地图”建立为独立项目；目标是为模式 P、Power Set、H0→Z0 与其它明显理论位置寻找可靠的 Q 线索，不是写博士论文或将书目数量变成结论。唯一调用名是 `ZFC-Q-CORPUS-MAP-SOP`，由 `.codex/skills/zfc-q-corpus-map/SKILL.md` 与 `dev-docs/ZFC-Q语料落盘与文献地图SOP.md` 共同拥有，项目档案根是 `audit/ZFC-Q-CORPUS-MAP/README.md`。
+
+- 仅在用户明确引用该 SOP、要求继续该语料工程或要求其某个明确阶段时启动。调用授权其定义的公开元数据／全文发现、原件落盘、PDF 核验、MinerU 本地派生、地图与 Q lead routing；不自动授权 P-DAG、worker、数学STATE、Power Set station、新刀、数学证明、tag、push或发布。
+- `全部文献`的操作含义是冻结并持续扩展的 corpus 内尽可能完整的 acquisition/map closure，不是声称全世界相关文献绝对穷尽。访问失败、付费墙、语言／版本限制和未处理引用必须保留为 remainder。
+- DOI、作者、出版社、arXiv、正式会议／项目档案是作品身份和原文权威；浏览器下载页及用户提供的访问路线（包括 `sci-hub.jp`）只记录为 access provenance，不能单独证明版本、题录、原文内容或候选结论。每个获得的 PDF 必须按获取 SOP 核对 PDF 身份、题名、页码／文本层和哈希；MinerU 输出是派生阅读材料，不覆盖原件。
+- `HOTT-MOTIVE-ZFC-SOP` 是总语料工程的一条已建立支线：其现有 run 作为 corpus seed／control，不重复复制也不因进入总语料自动升级为 Q。
+
 ## 任务路由（v5 分档）
 
 治理强度与任务风险成正比。档位四变量：**主张风险 × 自治程度 × 视界长度 × 状态改写**；会话首条声明档位并记入 SESSION.md，越档即停（任务中途升级→立即升档过门，不允许"先交付后补证"）。

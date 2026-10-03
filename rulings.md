@@ -677,3 +677,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. PRISMA-S／系统综述检索方法只作为透明和可复跑的检索纪律；本项目仍按数学、逻辑、基础与数学哲学的作者原典、理论变体、形式化项目和实际消费者来组织语料，不把医疗综述模板错当数学内容方法。
 4. 没有地图协议、检索日志、筛选、引文网络和coverage map之前，任何“当前没有新来源”只指冻结来源 run 的候选资格前沿；不得外推为学界、领域或博士论文级的负结论。
 5. 本裁定授权 SOP／Skill／archive audit、Feature、MEMORY和精确 Git 谱系更新；不自动启动 P-DAG、worker、数学STATE、Power Set station、数学证明、tag、push或发布。
+
+## 2026-10-03：ZFC Q 文献工作是全量语料与地图工程，不是博士论文项目
+
+研究发起人明确：希望尽可能完成与发现 ZFC Q 有关文献的落盘、MinerU处理和可追溯文献地图；博士级的部分是检索质量检查，不是把项目做成博士毕业论文。项目常用 arXiv、DOI、Codex／ChatGPT内建浏览器和用户提供的浏览器访问线索获取相关文献。
+
+执行裁定：
+
+1. 新建调用名 `ZFC-Q-CORPUS-MAP-SOP`。它以 acquisition→PDF验证→MinerU派生→书目／引文地图→Q lead routing 为主链，目标是给模式 P 和其它 ZFC Q 路线提供尽可能完整、可读、可核验的文献语料。
+2. “全部文献”只可在冻结并持续扩展的 corpus、数据库、作者、引文和访问边界内使用；必须保存 unavailable、paywall、语言、版本和未处理强引用的余项，不能声称世界范围绝对穷尽。
+3. 作品身份与内容权威由 DOI、作者、出版社、arXiv、正式会议／项目档案和原始 PDF 校准。浏览器下载页和用户提供的访问路线（包括 `sci-hub.jp`）只记录为 access provenance；每个获得的 PDF 仍须做 file/page/title/hash 核验，不能由下载路径本身认证题录或内容。
+4. MinerU 是本地派生阅读层。原 PDF 永远保留为来源权威；关键引文、页码、公式和Q相关断言必须能回到原页，不由 OCR／Markdown 单独证明。
+5. `HOTT-MOTIVE-ZFC-SOP`、P-FORGE和未来其他理论语料是新总语料工程的支线或消费者；进入语料图不自动创造 Q、启动P-DAG、worker、数学STATE、Power Set station、数学证明、tag、push或发布。

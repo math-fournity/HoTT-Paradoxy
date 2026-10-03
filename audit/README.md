@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [ZFC-Q-CORPUS-MAP：ZFC Q 可追溯语料落盘、MinerU 与文献地图](ZFC-Q-CORPUS-MAP/README.md)：`ZFC-Q-CORPUS-MAP-SOP` 的总语料档案根。它拥有 acquisition、PDF核验、MinerU派生、书目／引文地图、coverage和Q lead routing；当前仅完成项目定义，HOTT-MOTIVE-ZFC 的九个来源 run 作为首批seed／control，不自动复制或升级为候选。
+
 - [HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案](HOTT-MOTIVE-ZFC/README.md)：`HOTT-MOTIVE-ZFC-SOP` 的项目档案根。五个冻结分母已经闭合：[HMZ-001](HOTT-MOTIVE-ZFC/20261003-HMZ-001-primary-motives/MANIFEST.md) 给出 class/meta-language 表示边界；[HMZ-002](HOTT-MOTIVE-ZFC/20261003-HMZ-002-voevodsky-set-theory/MANIFEST.md) 将 equivalence problem 还原为语言支付；[HMZ-003](HOTT-MOTIVE-ZFC/20261003-HMZ-003-formalization-delivery/MANIFEST.md) 检查存在/命名/可交付接口；[HMZ-007](HOTT-MOTIVE-ZFC/20261003-HMZ-007-werner-zfc-coq-pair/MANIFEST.md) 将 WoLLIC 的 ZFC-in-proof-assistant 动机和 Werner 的具体 CIC model／Choice／Russell guard 配对为 payment/control；[HMZ-008](HOTT-MOTIVE-ZFC/20261003-HMZ-008-higher-hits-set-semantics/MANIFEST.md) 将 R-HIGHER 与 Set/ZF HIT semantic models 和条件边界分开；两个来源预检分别拒绝 Hλ 的无ZFC-side bridge，及 [Makkai ordinary-functor/anafunctor](HOTT-MOTIVE-ZFC/20261003-HMZ-005-makkai-anafunctor-preflight/MANIFEST.md) 的显式Choice payment与Done改变；[R 种子覆盖综合](HOTT-MOTIVE-ZFC/R-SEED-COVERAGE-SYNTHESIS.md) 规定后续只接受可改变新R、未付consumer、Power Set bridge或H0传输的来源。尚无 ZFC Q、H0 传输或数学结论。
 
 - [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，进行中）](20261003-P-FORGE-PQ-WARGAME.md)：按冻结轮次逐一回放模式P从原初目标、夹具、HoTT重放、ZFC来源、RK-0、Tool-Birth到CAL/PQ修订的实际Q增量和反事实；当前仅R00完成，R01待审，不能用本索引代替逐轮判词。
