@@ -241,3 +241,49 @@ git_record:
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no previous-worktree reads/writes; no current-owner edits
 ```
+
+## Delta SelfAuditCard：0110 parent-session Goal continuation source
+
+```yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0110-GOAL-CONTINUATION-ARCHIVE
+source_units:
+  - dev-notes/0110 parent-session archive: 3 distinct skill-turn events
+  - U2 asks about the current /goal's preceding content
+  - U3 states that the /goal content is a Chinese prompt and directly repeats it
+original_requirement:
+  - recover exact user-origin wording for the active tool-forging /goal
+  - keep pre-goal historical corpus separate from work produced after a Goal is active
+  - maintain independent worktree boundary; do not use the parent raw trajectory as a shortcut
+actual_action:
+  - verified archive SHA-256 574e5a84690c5f65734633f658b373788efeefc02a7a700f28568ca608c340cb, 20,261 bytes, 325 lines, 3 turn markers and 3 user sections
+  - recorded U1 branch-integrity question, U2 goal-content retrieval question, and U3 direct restatement of the Chinese goal prompt with their turn/prompt/answer hashes in the contributor report
+  - classified U2/U3 as continuation evidence because U2 directly refers to an already-existing /goal and U3 supplies its wording; exact parent Goal creation time remains unknown
+  - kept this parent archive as a current-worktree source copy; did not access parent filesystem or raw trajectory
+alignment_verdict: GOAL_CONTINUATION_SOURCE_IDENTIFIED / PARENT_GOAL_START_TIME_UNKNOWN
+deviation_class:
+  - no ORIGINAL_IDEA_CHALLENGED
+  - no P1/P2/P3 theory behavior judged
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; this is Goal-source provenance, not a mathematical result
+tool_birth_card: NOT_REQUIRED (no theory pattern or tool-duty change)
+parent_goal_boundary:
+  owner_proxy: b810380f
+  exact_start_event: UNKNOWN
+  evidence_bound: U2/U3 show the Goal was already being discussed; archive/session times do not supply its exact start event
+continuation_delta_candidate:
+  - 0110-T1: branch/worktree integrity question; operational worktree context
+  - 0110-T2: goal-content retrieval; explicit evidence the Goal is already active
+  - 0110-T3: direct recovery of full Chinese Goal prompt; goal-text provenance
+current_owner_mutation:
+  full_origin_audit: none
+  sources: read-only
+falsifiers:
+  - an exact parent Goal event timestamp that changes the phase boundary
+  - evidence that this 0110 archive snapshot is not the parent-session source it identifies
+next_trigger: integrator review of the continuation-source delta or another uncovered source family
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: d6e4df21af251841a19da8cacf388fb66abc6f0e
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no parent trajectory/filesystem access; no current-owner edits
+```

@@ -64,6 +64,26 @@
       "scope": "header/identity metadata and previously checked exact-text matches only; no parent trajectory opened"
     },
     {
+      "id": "PARENT_SESSION_0110_GOAL_CONTINUATION_ARCHIVE",
+      "kind": "local_archived_user_turn_provenance_review",
+      "source": "dev-notes/0110 - 2026-10-02 - 我第一次在你（Terra）所在的Coding Agent，也就是ChatGPT App中使用Branch Session into New....md",
+      "archive_sha256": "574e5a84690c5f65734633f658b373788efeefc02a7a700f28568ca608c340cb",
+      "bytes": 20261,
+      "lines": 325,
+      "mode": "0600",
+      "session_id": "01a0ff8e-7790-7441-b7e6-791cca626a08",
+      "created_at_local": "2026-10-02T22:33:07-04:00",
+      "mtime_local": "2026-10-02T22:43:33-04:00",
+      "archived_turns": [
+        {"unit": "0110-T1", "turn_id": "skill-turn-6f102b0439554d8bb17caa88d24835d3", "prompt_sha256": "f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e", "answer_sha256": "9b225e33a66d2e16f16c04d91bdef948d1d1bd374f56d5a3c64da3f5de57b8e0", "role": "worktree integrity boundary"},
+        {"unit": "0110-T2", "turn_id": "skill-turn-a6bfba8c42384058b676c6f260e56469", "prompt_sha256": "2a6c3d4cfcdb58756fd318af9d961da7b4136e58d4950bf5eca1977c484d24cf", "answer_sha256": "bef9d5e68c1cd4f03bf9716b3b70b881b1661bd5799d60cc321068b80c45beab", "role": "direct reference to already-running /goal"},
+        {"unit": "0110-T3", "turn_id": "skill-turn-4b1adac945c84dacb4a96837743edd2d", "prompt_sha256": "5923592ff696050c8a2b8b20db7c6d1006702f500069d1687b3e617606babd49", "answer_sha256": "7edc199beb7104bbaa252d8cc168574189b59ae7e581fcb9ac1445fb3dec4ad3", "role": "direct recovery of the Chinese Goal prompt"}
+      ],
+      "continuation_evidence": "U2 explicitly asks about content after our /goal; U3 corrects the AI and directly supplies the full Chinese Goal prompt",
+      "status": "GOAL_CONTINUATION_SOURCE_CANDIDATE / EXACT_PARENT_START_UNKNOWN",
+      "scope": "local archive copy only; no parent raw trajectory or filesystem access"
+    },
+    {
       "id": "U19_U21_ANSWER_TO_PROJECT_GIT_MAP",
       "kind": "git_object_and_changed_path_lookup",
       "answer_events": 3,
@@ -148,6 +168,7 @@
     {"id": "CROSS-SOURCE-EVENT-ID-METADATA", "status": "UNKNOWN_WITH_EXPLICIT_SOURCE_LIMIT", "result": "direct sources are date-only with block ordinals; archives have session/turn IDs but no inspected mapping from S12/S13 blocks to archive/native message IDs"},
     {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
     {"id": "CROSS-SOURCE-ID-CLOSURE", "status": "UNKNOWN_WITH_EXPLICIT_SOURCE_LIMIT", "result": "S12/S13 provide date-level metadata and block ordinals; 0108/0109 provide archive Session/turn IDs, but inspected artifacts contain no native message-ID crosswalk; exact text matches remain candidate links only"},
+    {"id": "0110-GOAL-CONTINUATION-SOURCE", "status": "PASS_WITH_SCOPE", "result": "current-worktree archive has three distinct parent-session turn markers; U2/U3 explicitly reference and restate the already-existing /goal; the parent Goal's exact start event/time remains unavailable"},
     {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},
     {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
     {"id": "SESSION-LOCAL-LINKS", "status": "PASS", "result": "6 local links checked; 0 missing"},
@@ -166,8 +187,8 @@
     ],
     "previous_worktree_written": false,
     "untracked_source_archives_committed": false,
-    "prior_candidate_commit": "7983c000c8a036e2a2a9f099004060f6aee6a288",
-    "current_unit_commit": "recorded in the exact-path branch-local commit that adds this source-identity metadata audit"
+    "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
+    "current_unit_commit": "recorded in the exact-path branch-local commit that adds the 0110 continuation-source audit"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_METADATA_RECHECKED_WITH_UNKNOWN / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_MISATTRIBUTION_CORRECTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

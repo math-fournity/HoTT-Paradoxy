@@ -98,3 +98,17 @@ S12/S13 以 curation block ordinals（如 `S12[1]`、`S13[7]`）定位，convers
 这些是 owner-ready 的候选变更，不是当前真值；本分支不触碰 001/003/005/006。父 Goal cutoff 未闭合前，不能把 U20/U21 填成 `PRE_GOAL` 或 `GOAL_CONTINUATION` 来让表格看起来完整。
 
 本报告没有修改原档案、full-origin owner、rulings、Feature、STATE、方向/全景或理念/SOP current owners。当前 Git 状态显示 STATE.json 为 dirty；本单元未写入或暂存它。没有 P1/P2/P3 theory task、source card、Tool-Birth 候选、数学结论或 external worker。
+
+## 8. `dev-notes/0110`：Goal 文本恢复与 parent-session continuation 来源
+
+当前 worktree 中还有 parent session 的 `dev-notes/0110` 归档副本：SHA-256 `574e5a84690c5f65734633f658b373788efeefc02a7a700f28568ca608c340cb`，325 行／20,261 bytes，mode `0600`；frontmatter 给出 `session_id=01a0ff8e-7790-7441-b7e6-791cca626a08`、`first_turn_id=skill-turn-6f102b0439554d8bb17caa88d24835d3`、archive `created_at=2026-10-02T22:33:07-04:00`，当前文件 mtime 为 `22:43:33-04:00`。它含 3 个 distinct archive turn：
+
+| turn | user request / source role | prompt SHA-256 | answer SHA-256 | continuation relevance |
+|---|---|---|---|---|
+| `0110-T1` / `skill-turn-6f102b0439554d8bb17caa88d24835d3` | 询问 Branch Session into New Git Worktree 会否丢弃未提交内容；这是 worktree 内容与边界问题。 | `f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e` | `9b225e33a66d2e16f16c04d91bdef948d1d1bd374f56d5a3c64da3f5de57b8e0` | 为当前 contributor 与 previous-worktree 隔离边界提供直接语境，不是 P1/P2/P3 规格。 |
+| `0110-T2` / `skill-turn-a6bfba8c42384058b676c6f260e56469` | 直接提到“我们的/goal之后的内容”，要求重现最后两次改动。 | `2a6c3d4cfcdb58756fd318af9d961da7b4136e58d4950bf5eca1977c484d24cf` | `bef9d5e68c1cd4f03bf9716b3b70b881b1661bd5799d60cc321068b80c45beab` | 直接证明 parent session 中用户当时把 Goal 视为已在运行；answer 内 Git diff 不由此自动升级为本单元核实的实现事实。 |
+| `0110-T3` / `skill-turn-4b1adac945c84dacb4a96837743edd2d` | 用户纠正 AI：`/goal` 后是简体中文 prompt，并在消息中完整重述“继续推进……一一自我审计、对照”的目标文本。 | `5923592ff696050c8a2b8b20db7c6d1006702f500069d1687b3e617606babd49` | `7edc199beb7104bbaa252d8cc168574189b59ae7e581fcb9ac1445fb3dec4ad3` | 是 Goal 文本恢复的直接用户来源，属于继续运行时的目标澄清，不是刀具形成前的新理论规格。 |
+
+该 archive/session snapshot 的 `created_at=22:33:07-04:00` 晚于 owner-declared `b810380f` 和 full-origin audit commit `8d4877ad`；因此它是 continuation delta 来源，不应混入 pre-goal denominator。它提供了三条 continuation user-turn 证据，并把用户自己的 Goal 原文定位出来。archive/session `created_at` 与 file mtime 不是逐条 message 的 Host clock；0110-T2/T3 表明当时 Goal 已存在，但不确定 Goal 的精确启动时刻，也不能把 U19–U21 相对于 Goal 的 phase 由此补定。此 worktree 只读了本地 archive 副本，没有打开 parent raw trajectory 或 parent 工作目录。
+
+候选 owner 处置是：在 continuation delta 入口单独登记 0110-T1/T2/T3 及上述 source provenance，不并入 `PRE_GOAL_HISTORICAL_CORPUS` 的 0102/0108/0109 分母；保留 T1 的工作树边界，T2/T3 的 Goal 文本恢复语义，并继续把 parent Goal precise start 标作 `UNKNOWN`，直到出现获准的直接时间来源。
