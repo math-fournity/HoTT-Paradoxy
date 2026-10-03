@@ -4,7 +4,7 @@
 >
 > **顺序：** 已验证 PDF → remote standard MinerU 原始导出 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
 >
-> **状态：** W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / W003_RENDERED_UNAUDITED_RECOVERY_REQUIRED / REMOTE_DERIVATIVE_NOT_QUALIFIED。
+> **状态：** W003_W005_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED。
 
 ## 可恢复视觉游标
 
@@ -12,7 +12,7 @@
 
 | Work ID | 已渲染资产 | 具有持久页级行的150dpi审读 | 当前状态 | 恢复动作 |
 |---|---|---|---|---|
-| W-003 | p.1–11的150dpi图；p.1–5、7–10的300dpi图 | 无 | `RENDERED_UNAUDITED_RECOVERY_REQUIRED`：此前的视觉印象未落入本 owner，不能被消费。 | 从p.1重新读取原PDF页图；每页写入一条`VR-W003-###`后才可打开下一页。 |
+| W-003 | p.1–11的150dpi图；p.1–5、7–10的300dpi图 | p.1–11 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页及预定关键300dpi页均按恢复合同重审并落签。 | 视觉恢复完成；后续来源筛读只可消费这些页级行，并另行记录其Q资格结论。 |
 
 ## 结果语义
 
@@ -123,10 +123,23 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W013-010 | W-013 | 10 | visual/W-013/150dpi/p010.png | `pdftotext` PDF p.10；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核Pairing、Union、Restricted Separation、Strong／Subset Collection与Infinity的type-theoretic validity constructions；与文本层一致。 | 不适用：p.11处理presentation／choice的高精度页。 |
 | VR-W013-011 | W-013 | 11 | visual/W-013/150dpi/p011.png | `pdftotext` PDF p.11；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核§7、DC、base／presentation定义、PA、representational availability及CZF^I／realizability补偿路线；与文本层一致。 | visual/W-013/300dpi/p011.png：逐字复核“particular way the set is given”、`Every set has a presentation`与缺少可用表示的限定；这是显式payment control。 |
 | VR-W013-012 | W-013 | 12 | visual/W-013/150dpi/p012.png | `pdftotext` PDF p.12；remote output unavailable | `SOURCE_ONLY_VISUAL_CHECK`：核References、Aczel／Friedman／Grayson／Leversha／Martin-Löf／Myhill等书目和末页边界；与文本层一致。 | 不适用：不承担Q相关引文。 |
+| VR-W003-001 | W-003 | 1 | visual/W-003/150dpi/p001.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核题名、Jean-Louis Krivine、2018-11-14与Introduction。该页把bar recursion置于classical realizability中，明确讨论proof–program correspondence、BBC algebra、CC/DC，并把后续结果限定在与realizability algebra关联的ZF model；可读且与W-003身份一致。 | visual/W-003/300dpi/p001.png：复核题录及“model of ZF associated with this realizability algebra”、closed `λ_c`-term与`ZF + Dependent choice + Every real is constructible`的条件性表述。它是模型／语义支付控制，不是ordinary ZFC actual consumer或Q。 |
+| VR-W003-002 | W-003 | 2 | visual/W-003/150dpi/p002.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核§1 BBC realizability algebra的`Λ,Π,⊥`、terms、processes、stacks、continuation、execution preorder和proof-like terms。该页给出明确的运行／语义结构，不是bare ZFC的无条件交付主张。 | visual/W-003/300dpi/p002.png：逐式复核`cc`、abort、stack save、oracle以及execution规则。结论仅限该BBC algebra；不能由此推出ordinary ZFC consumer已经承诺或满足同一程序式Done。 |
+| VR-W003-003 | W-003 | 3 | visual/W-003/150dpi/p003.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核process execution、`⊥`、coherent algebra、`ZF_ε`的conservative extension、truth values与realizability relation；页文可读。 | visual/W-003/300dpi/p003.png：复核起点是ordinary ground model `M` of ZFC（或ZF+V=L），但构造的realizability model `N`虽同domain却不同language与truth values，并有non-extensional strong membership。这是理论／模型层的明确分界，不能压成ordinary ZFC内部的同一consumer或Q。 |
+| VR-W003-004 | W-003 | 4 | visual/W-003/150dpi/p004.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核`N`的truth values、ground model `M`上的functional、`M`／`N`共享domain下的application、restricted quantifier、Theorem 3与Proposition 4的条件。 | visual/W-003/300dpi/p004.png：复核“every function is defined in this way”只针对ground model `M`，并明确说一般情形在`N`中为false；定理还要求`M` transitive and countable。该页再次给出模型依赖和显式条件，不支持ordinary ZFC的无支付交付读法。 |
+| VR-W003-005 | W-003 | 5 | visual/W-003/150dpi/p005.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核从proof-like term和`Σ^0_1`算术公式得到计算满足该式的integer的remark，ZF axioms、dependent choice、well ordering／continuum hypothesis的realizers，以及process-execution lemmas。 | visual/W-003/300dpi/p005.png：复核程序提取依赖“axioms which have themselves such realizers”；文中分别说明classical realizability给ZF axioms的realizers、bar recursion给dependent choice的realizer。它记录的是附带明确支付条件的模型语义，不是ordinary ZFC自身预支同一Done。 |
+| VR-W003-006 | W-003 | 6 | visual/W-003/150dpi/p006.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Corollary 7、Theorem 8及对forcing的decreasing-chain condition说明，构造依赖BBC algebra的terms、execution与reduction。 | 不适用：没有本页所需的300dpi关键引用；该页是bar-recursion技术条件，未固定ordinary ZFC actual consumer或同一任务Done。 |
+| VR-W003-007 | W-003 | 7 | visual/W-003/150dpi/p007.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核bar recursion operator、closed proof-like `λ`-terms、Turing fixed point operator、countable-choice公式和Theorem 9。 | visual/W-003/300dpi/p007.png：复核CC在“model of ZF associated with the BBC realizability algebra”中realized的限定，以及`ZF_ε`公式范围。该有明确模型、代数与term层支付，不能当作ordinary ZFC的同层consumer。 |
+| VR-W003-008 | W-003 | 8 | visual/W-003/150dpi/p008.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Lemma 10、递归构造、dependent-choice公式和Theorem 11；页文把DC实现置于ZF model与BBC algebra的关联中。 | visual/W-003/300dpi/p008.png：复核DC公式是`ZF_ε`公式，Theorem 11的realizer和“model of ZF associated with the BBC realizability algebra”限定。它提供有界的classical-realizability control，不能升级为ZFC自身的程序交付合同。 |
+| VR-W003-009 | W-003 | 9 | visual/W-003/150dpi/p009.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Theorem 11的proof、Lemma 12与从finite sequence in `M`进行的dependent-choice构造；所有对象仍在`Λ`、`M`、`ZF_ε`与realizability关系的指定层内。 | visual/W-003/300dpi/p009.png：复核DC公式及finite sequence in `M`的条件。此页为同一模型构造的延续，未建立ordinary ZFC实际消费者的输入／输出／Done。 |
+| VR-W003-010 | W-003 | 10 | visual/W-003/150dpi/p010.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核§4 well ordering on `R`、closed `ZF_ε` formula、proof-like term、ultrafilter、`M_D`与ground model `M`的关系。 | visual/W-003/300dpi/p010.png：复核`M_D`满足choice的理由是预设`M ⊨ ZFC`，且`M ⊨ V=L`才给出constructible-reals／continuum-hypothesis结论。这些是外加模型假设与构造，不是对bare ZFC的无条件攻击或其ordinary consumer。 |
+| VR-W003-011 | W-003 | 11 | visual/W-003/150dpi/p011.png | remote output unavailable；直接重审原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核References、Berardi–Bezem–Coquand、Berger–Oliva、Krivine 2011–2014、Streicher与Spector的书目，以及末页边界。 | 不适用：书目只提供受限citation lead；不单独构成ordinary ZFC consumer或Q。 |
 
 ## 高精度队列
 
-已完成W-005的7个关键页、W-009的9个关键页、W-010的7个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+已完成W-003的9个关键页、W-005的7个关键页、W-009的9个关键页、W-010的7个关键页、W-011的4个关键页和W-013的7个关键页；其余候选包括任何可能进入Q LeadCard的定义／命题／公式／量词／完成条件、脚注和表格，以及150dpi出现差异的页。
+
+**W-003完成说明。** 压缩恢复时，原有图像虽存在却没有页级审计行，故此前视觉印象被明确作废；随后从p.1重新逐页读取并即时落签pp.1–11的150dpi二值图，关键页1–5、7–10亦读取300dpi图。远程MinerU仍没有可用导出，所以此处验证的是Krivine原件与页图的可读／定位范围，而不是MinerU转换质量。来源资格结论见`SOURCE-NOTES-W003.md`。
 
 **W-005完成说明。** 已逐页生成、读取并落签pp.1–13的150dpi二值图；关键页1、5、7、9、11、12、13还读取了300dpi图。由于远程MinerU目前没有产生可用导出，这批记录验证的是期刊PDF、文本层和页图的对应关系，不能被表述为MinerU转换质量结论。
 

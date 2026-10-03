@@ -6,7 +6,7 @@
 |---|---|---|---|
 | W-001 | INCLUDED | PENDING | UF面向数学家的基础说明。 |
 | W-002 | INCLUDED | PENDING | predicative UF控制。 |
-| W-003 | INCLUDED | VISUAL_RECOVERY_PENDING | Krivine/ZF交付控制。已渲染页图没有持久页级审计行；此前观察不作为筛读依据，须从p.1重审并逐页写回。 |
+| W-003 | INCLUDED | FULL_PRIMARY_CLASSICAL_REALIZABILITY_CONTROL_SCREENED | 11页原件已按逐页写回合同恢复审读。BBC／`ZF_ε`／`M`／`N`与proof-like-realizer支付构成模型语义控制；没有ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-004 | INCLUDED | PENDING | Krivine set theory guide。 |
 | W-005 | INCLUDED | PENDING | type theory versus set theory 比较。 |
 | W-006 | CATALOG_REVIEW | PENDING | 需拆开review、volume与章节。 |
