@@ -588,3 +588,14 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. 新开／恢复 P-DAG、改变某把刀的职责、提出新刀、改变成功定义，或无法说明节点服务哪项原初发现动作时，动态 DAG 主 SOP、005 自审片和项目 Skill 均须先路由到该理念图；例行同一 Session 节点只消费其触及段落，不能把它变成机械重复阅读负担。
 3. 该文只拥有概念地图。用户原话仍由 sources/rulings 拥有，当前规格仍由 P1/P2/P3 与 TaskCard 拥有，逐段原初对齐和 Git／运行证据仍由 full origin audit 拥有。它不得被用作 ZFC、HoTT 或其它数学理论存在矛盾的证据。
 4. 本裁定授权理念文档、SOP/Skill/入口路由、MEMORY和精确 Git commit；不授权新增 worker、数学结论、tag、push或发布。
+
+## 2026-10-03：P-FORGE-SOP 统一持续锻造、新刀与幂集防御审查
+
+研究发起人重新给出 `/goal` 的连续操作合同：持续打磨刀具并允许经过认真论证的新刀；每一修订进入 Git；将刀具实际锻造与`刀具系统理念.md`逐项对照，区分原初理念受挑战和本不该发生的规格／执行／来源问题；完整回查刀具出现前到 `/goal`连续运行前的讨论；并将“Power Set 可能是对朴素 Russell 风险的加强防御，进攻必须超越这层理解”变成后续 ZFC审查的工作条件。
+
+执行裁定：
+
+1. 新建稳定引用名`P-FORGE-SOP`，全名“模式 P 刀具持续锻造、新刀具出生与全历史自审 SOP”，canonical path为`dev-docs/模式P刀具持续锻造SOP.md`。后续 `/goal` 可直接引用它，按其阶段或检查维度缩小本轮工作。
+2. SOP 路由而不复制原有 owner：三刀负责字段，012负责Tool-BirthCard，004负责顺序锻造史，005负责偏差和full origin audit，NodeCard/TaskCard负责实际节点，full audit负责来源分母，Git commit负责可追溯版本。
+3. 新增`PowerSetDefenseLedger`。它先以固定来源确定Power Set的具体guard与适用范围，再要求候选在同一`u/F/C/Q/I/O/Done`任务中说明guard未支付的剩余问题和反事实控制。它不得把“加强防御”写成ZFC全面安全、历史作者意图或数学结论；ledger为空时停止升级候选。
+4. 本裁定授权SOP、路由、Feature、MEMORY、自审过程与精确 Git commit；不自动授权worker、网络、数学STATE更新、新刀编号、tag、push或发布。

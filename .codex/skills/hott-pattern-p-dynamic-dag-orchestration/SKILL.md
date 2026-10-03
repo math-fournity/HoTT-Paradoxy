@@ -2,7 +2,7 @@
 name: hott-pattern-p-dynamic-dag-orchestration
 description: 在用户已授权的 P1/P2/P3 共同锻造中，按证据条件动态调度 Terra/Max worker、来源节点与有界 Battle；逐节点决定盲态、本地分支、网络原典和项目证据的可见性，Master 负责来源裁决与唯一写回。仅用于模式 P 的 ZFC/HoTT 重放，不自动启动研究或 worker。
 metadata:
-  version: "1.5.0"
+  version: "1.6.0"
   role: "task-scoped-orchestration"
   owner: "dev-docs/模式P动态DAG调度.md"
 ---
@@ -11,7 +11,7 @@ metadata:
 
 ## 何时使用
 
-用户要求用多个 worker 分别使用 P1、P2、P3，要求 Battle，或要求 Master 为模式 P 的 ZFC／HoTT 共同锻造按节点决定项目、分支与网络访问时使用。先完成全局 `repo-cognitive-closure`，再按逻辑文档规则完整读取 [刀具系统理念](../../../dev-docs/刀具系统理念.md) 与 [动态 DAG SOP](../../../dev-docs/模式P动态DAG调度.md)。理念图先恢复“这次节点保护什么原初发现动作”；SOP 再冻结可执行的 TaskCard、NodeCard 和证据边界。它不因文件存在而自动启动任何数学研究、App Server、CLI worker、网络请求或 Git 写入。
+用户要求用多个 worker 分别使用 P1、P2、P3，要求 Battle，或要求 Master 为模式 P 的 ZFC／HoTT 共同锻造按节点决定项目、分支与网络访问时使用。先完成全局 `repo-cognitive-closure`，再按逻辑文档规则完整读取 [刀具系统理念](../../../dev-docs/刀具系统理念.md) 与 [动态 DAG SOP](../../../dev-docs/模式P动态DAG调度.md)。理念图先恢复“这次节点保护什么原初发现动作”；SOP 再冻结可执行的 TaskCard、NodeCard 和证据边界。用户引用 `P-FORGE-SOP`、要求连续锻造／新刀／全历史自审，或要求以Power Set的罗素防御作约束时，还要完整读 [P-FORGE-SOP](../../../dev-docs/模式P刀具持续锻造SOP.md)。它不因文件存在而自动启动任何数学研究、App Server、CLI worker、网络请求或 Git 写入。
 
 ## 当前授权与范围
 
@@ -19,7 +19,7 @@ metadata:
 
 ## Master 运行步骤
 
-0. 新开／恢复 P-DAG、修改 P1/P2/P3 职责、提出新刀或改变成功定义时，先从理念图确认当前节点属于理论级靶、罗素计算张力、P1/P2/P3 的何种惯性、案例校准、共同锻造或 Tool-BirthCard；不能把理念图当作 source card 或理论结论。例行同一 Session 节点只重读其触及段落，并保持 005 的 delta self-audit；
+0. 新开／恢复 P-DAG、修改 P1/P2/P3 职责、提出新刀或改变成功定义时，先从理念图确认当前节点属于理论级靶、罗素计算张力、P1/P2/P3 的何种惯性、案例校准、共同锻造或 Tool-BirthCard；不能把理念图当作 source card 或理论结论。引用 `P-FORGE-SOP` 时，进一步冻结它要求的ForgeIntent、检查维度和PowerSetDefenseLedger（若Power Set在范围内）。例行同一 Session 节点只重读其触及段落，并保持 005 的 delta self-audit；
 1. 冻结 `TaskCard`：`T/u/F/C/Q/I/O/Done`、source hashes、控制、未知、成功/停止条件；
 2. 为每名 worker 写并在启动前封存 `NodeCard`：唯一目标、非目标、exact model/effort、runner、access profile、文件/URL allowlist、输出、prompt/source identity、observation cadence、operator-review rule、partial-output policy、取消和 `recursion=false`；`source-match` prompt必须含 runner 所要求的精确 profile marker `You are a P-VALIDATION source mapper.`，角色专用文字置于其后；marker缺失时是采样前 `INPUT_CONTRACT_FAILURE / NO_AGENT_OUTPUT`，不得归因模型或理论。`blind-discovery` 的精确 terminal verdict可作为D2的语义行，但D0/D1/D3–D5、唯一终态、字数和零工具仍必须全部满足；不得用一句孤立 verdict 伪造完整 trace。盲态 App Server 理论节点没有任何可配置的自动墙钟中止。超过观察窗只产生可审计的 liveness；预算、失联或取消只是要求 Master 复核的条件，不能由 runner 按经过秒数自行 `turn/interrupt`；
 3. 按节点选择 `BLIND_CARD`、`PINNED_LOCAL_SOURCE`、`PRIMARY_WEB_SOURCE`、`PROJECT_EVIDENCE_REVIEW` 或 `BATTLE_PACK`。盲态不得读取项目既有答案；来源节点可以在明确允许时读原典、dev/main/其它分支或联网。旧 fresh CLI 的 `BLIND_CARD` 因 HOTT-DISCOVERY-007 可见的 global-instruction/tool injection 继续标为 `BLIND_RUNNER_ISOLATION_UNQUALIFIED`，空 `CODEX_HOME` health node也保留为采样前 `401`。用户授权的 `governance-v3.26.0` App Server lane先通过 zero-material health，再在 HOTT-DISCOVERY-008 对冻结 D-L6b Prompt 得到无工具 terminal trace；后续`governance-v3.26.1` reader才完成该次 direct-wire audit。H015–H017在同一 exact lane将blind P1推进为 concrete `U` + completion question，并以同卡P2/P3完成差分验证；它资格化后继ZFC **discovery/calibration**，但不构成 ZFC Q、UR或数学结论。今后新的盲态理论节点只可复用这一 exact lane 或先重新资格化同等 NodeCard、prompt-input、permission/auth gate、raw terminal evidence和trajectory source；此运行资格不追溯修复旧 CLI 证据；

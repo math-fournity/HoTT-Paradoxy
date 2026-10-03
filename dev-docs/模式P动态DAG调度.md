@@ -19,6 +19,8 @@ soft_line_target: 300
 
 新开或恢复 P-DAG、准备修改 P1/P2/P3 的职责、提出新刀或改变成功定义时，先读 [刀具系统理念](<刀具系统理念.md>) 的完整逻辑文档。它让 Master 先回答“这次节点在保护哪一项原初发现动作”，再冻结 TaskCard；它不替代本 SOP 的 NodeCard、来源、权限、trajectory 或同一任务证据。需要把原初讨论与实际运行逐段相对照时，再按 005 的条件进入 full origin audit。
 
+用户若在 `/goal` 中引用 `P-FORGE-SOP`，或要求连续锻造、新刀出生、全历史自审／对照和 Power Set 防御审查，先完整读 [P-FORGE-SOP](<模式P刀具持续锻造SOP.md>)。它协调本 SOP、三刀、full audit 与 Git 写回，新增的 `PowerSetDefenseLedger` 让任何“超越 Power Set 的罗素防御”候选先面对具体来源 guard；它不替代本 SOP 的逐节点授权。
+
 ## 适用范围
 
 本文件仅服务于模式 P 的共同锻造：当前是 ZFC Power Set 线与将来的 HoTT 盲重放。用户 2026-10-02 已明确允许 Master 按节点需要启动 Terra / Max 代理，也明确允许某些节点阅读项目 `dev`／`main`／其它分支或联网，而另一些节点必须保持盲态。每一个节点仍须由 Master 给出精确输入、权限、验收、停止和递归禁止；这不是无限代理授权。
