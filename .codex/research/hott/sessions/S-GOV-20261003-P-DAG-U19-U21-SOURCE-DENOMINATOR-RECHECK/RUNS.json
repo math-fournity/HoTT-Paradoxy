@@ -357,6 +357,52 @@
       "result": "UNDISPOSITIONED_METHOD_PRECURSOR / SOURCE_SCOPE_GAP_CANDIDATE / NOT_DIRECT_P_SPEC",
       "scope": "current checkout only; archive source read-only; no previous worktree, parent trajectory, ZCode log, full-origin owner mutation, worker, or mathematical claim",
       "evidence_commit": "8633dc44a0a468d852730d1aa025c2b9417ffab8"
+    },
+    {
+      "id": "CIRCLE-ATTRIBUTION-SOURCE-SCOPE-0106",
+      "kind": "local_archive_full_prompt_census_and_source_crosswalk",
+      "source": "dev-notes/0106 - 2026-10-01 - 以下内容你必须全部读完再开始行动.md",
+      "source_sha256": "728833f4885920015804b0c772a2516383c3f69fe8ff9993342351b9cd867bfb",
+      "source_bytes": 75263,
+      "source_lf_lines": 625,
+      "source_mode": "0600",
+      "session_id": "01a0f7b9-ef31-7ba1-9704-71cadf50b2d3",
+      "first_turn_id": "skill-turn-910417f878be4e62989a326cb7b0a66a",
+      "created_at_local": "2026-10-01T10:06:43-04:00",
+      "capture_blocks": 17,
+      "unique_prompt_sha256_count": 11,
+      "unique_answer_sha256_count": 17,
+      "goal_context_envelopes": 0,
+      "semantic_disposition": {
+        "T1": "pasted Opus report and README/Git publishing request; quoted Opus assertions not verified as current facts",
+        "T2_T4": "circle/Zeno-ghost attribution clarification; relevant calibration context, not direct P1/P2/P3 specification",
+        "T5_T17": "publishing, translation, Git status, and branch policy; not direct P-tool specification"
+      },
+      "cross_source_match": {
+        "archive_turn_id": "skill-turn-6c5e0016b3094821b09911b2147a0b6d",
+        "archive_prompt_sha256": "b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd",
+        "archive_answer_sha256": "52a39f3edb966432e657fd9123e3070c4d83a1494600b6c9ea118c08c8bb6519",
+        "direct_source": "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md S11[1]",
+        "direct_source_sha256": "53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc",
+        "normalized_body_chars_each": 80,
+        "comparison": "visible prompt/source bodies equal after whitespace normalization",
+        "native_event_identity": "UNKNOWN"
+      },
+      "owner_search": {
+        "paths": [
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/001 - 审计范围、来源分母与逐项覆盖.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/002 - 原初理念、前驱讨论与模式P的语义.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/003 - 三把刀、代理说明与动态DAG的逐单元对照.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/004 - 实际运行、偏差分类与反事实.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/005 - 连续运行前的状态、后续SOP与可证伪计划.md",
+          "audit/20261002-P-DAG-刀具系统全历史逐段对照审计/006 - 可重算来源清单、Git谱系与新刀具出生审计.md"
+        ],
+        "mention_count": 0,
+        "explicit_source_disposition": "NOT_FOUND"
+      },
+      "result": "CIRCLE_ATTRIBUTION_PRECURSOR / NOT_DIRECT_P_SPEC / SOURCE_SCOPE_DISPOSITION_CANDIDATE",
+      "scope": "current checkout only; archive source read-only; no previous worktree, parent trajectory, old repository, remote, full-origin owner mutation, worker, or mathematical claim"
     }
   ],
   "verifications": [
@@ -391,6 +437,11 @@
     {"id": "RUNS-JSON-0093-DELTA", "status": "PASS", "result": "JSON parse, source hash/count assertions, and T84/S05 normalized body equality passed"},
     {"id": "GOVERNANCE-SHARDS-0093-DELTA", "status": "PASS_WITH_SCOPE", "result": "whole-repo structural validator passed: 2016 indexes; 16 non-blocking soft-target notices; no structural errors; 003 SelfAudit shard remains coherent but above soft target"},
     {"id": "EXACT-PATH-DIFF-0093", "status": "PASS", "result": "only the contributor report and this session's RUNS/SESSION/CORE_COGNITION_AUDIT paths are modified for this unit; index was empty before staging"},
+    {"id": "ARCHIVE-0106-STRUCTURE", "status": "PASS_WITH_SCOPE", "result": "local archive SHA 728833f4…67bfb; 17 capture markers, 11 prompt hashes, 17 answer hashes, 0 Goal-context envelopes"},
+    {"id": "ARCHIVE-0106-T3-S11-CONTENT-MATCH", "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN", "result": "T3 and S11[1] visible bodies are both 80 characters and equal after whitespace normalization; no native event crosswalk"},
+    {"id": "FULL-ORIGIN-0106-DISPOSITION", "status": "CANDIDATE_SCOPE_DISPOSITION", "result": "full-origin index and shards 001-006 have no 0106 reference; T2-T4 are circle-attribution calibration context, while remaining prompts are mostly publishing/workflow history; owners unchanged"},
+    {"id": "RUNS-JSON-0106-DELTA", "status": "PASS", "result": "JSON parse, source hash/count assertions, and T3/S11 normalized body equality passed"},
+    {"id": "EXACT-PATH-DIFF-0106", "status": "PASS", "result": "only contributor report and current session audit paths are modified for this unit; 0106 archive remains untouched"},
     {"id": "EXACT-COMMIT-0107", "status": "PASS_WITH_SCOPE", "result": "commit b792c1f6f335aa66499b3e08a8d03a0d2d7ea7e0 contains only the contributor report, session RUNS/SESSION, and exclusive SelfAudit shard"},
     {"id": "EXACT-COMMIT-0093", "status": "PASS_WITH_SCOPE", "result": "commit 8633dc44a0a468d852730d1aa025c2b9417ffab8 contains exactly the contributor report and this session's RUNS/SESSION/CORE_COGNITION_AUDIT index+shard; no original archive or unrelated dirty path was staged"}
   ],
@@ -409,5 +460,5 @@
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
     "current_unit_commit": "8633dc44a0a468d852730d1aa025c2b9417ffab8"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / 0107_PRECURSOR_SCOPE_UNDISPOSITIONED / 0093_METHOD_PRECURSOR_SCOPE_UNDISPOSITIONED / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / ARCHIVE-PROMPT-SHAPE-0102-0108-0109-CONFIRMED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / 0106_CIRCLE_CALIBRATION_SCOPE_CANDIDATE / 0107_PRECURSOR_SCOPE_UNDISPOSITIONED / 0093_METHOD_PRECURSOR_SCOPE_UNDISPOSITIONED / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / ARCHIVE-PROMPT-SHAPE-0102-0108-0109-CONFIRMED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

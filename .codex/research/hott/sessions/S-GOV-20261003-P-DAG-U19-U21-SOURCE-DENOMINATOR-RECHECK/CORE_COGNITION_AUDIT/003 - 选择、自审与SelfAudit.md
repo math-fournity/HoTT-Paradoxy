@@ -345,6 +345,82 @@ git_record:
   no other-checkout access; no full-origin current-owner edits
 ~~~
 
+## Delta SelfAuditCard：dev-notes/0106 圆环归属校准前驱候选
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-0106-CIRCLE-ATTRIBUTION-CALIBRATION
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+research_profile: RESEARCH_PROFILE_GOVERNED
+source_units:
+  - dev-notes/0106 T1-T17
+  - S11[1] in sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md
+  - full-origin audit index and shards 001-006 in this checkout
+original_requirement:
+  - preserve the user's circle/Zeno referent and its correction chain as source context where it affects P history
+  - distinguish circle attribution calibration from direct P1/P2/P3 tool requirements
+  - do not use historical AI/Opus reports as proof of Git or runtime facts
+  - keep this worktree independent from the previous checkout
+actual_action:
+  - current_checkout_only: true
+  - archive_sha256: 728833f4885920015804b0c772a2516383c3f69fe8ff9993342351b9cd867bfb
+  - archive_bytes: 75263
+  - archive_lf_lines: 625
+  - archive_mode: "0600"
+  - archive_capture_events: 17
+  - unique_prompt_sha256: 11
+  - unique_answer_sha256: 17
+  - goal_context_envelopes: 0
+  - read_all_visible_prompt_blocks: true
+  - key_relevant_events: "T2/T3/T4 circle-attribution clarification; T3 exact-content matches S11[1]"
+  - excluded_context: "T1 and T5-T17 primarily describe README publishing, translation, Git status, and branch policy; quoted Opus assertions were not treated as verified state"
+  - direct_crosswalk: "T3 prompt SHA b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd, answer SHA 52a39f3edb966432e657fd9123e3070c4d83a1494600b6c9ea118c08c8bb6519; S11 source SHA 53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc; normalized bodies both 80 characters"
+alignment_verdict: CIRCLE_ATTRIBUTION_PRECURSOR_FOUND / NOT_DIRECT_P_SPEC / SOURCE_SCOPE_DISPOSITION_CANDIDATE
+deviation_class:
+  - no ORIGINAL_IDEA_CHALLENGED
+  - no P1/P2/P3 success/failure or math claim
+  - current full-origin source list has no 0106 row/disposition; integration decision remains open
+pattern_universe_claim:
+  claim: "0106 adds circle-attribution source context but does not propose a new theory pattern or tool duty."
+  P1: "No native theory object/Q/consumer is introduced by these turns."
+  P2: "No same-object logical translation or reentry is tested."
+  P3: "No theory formation/admission transition is supplied."
+  status: NOT_ENOUGH_EVIDENCE
+tool_birth_card: NOT_REQUIRED
+source_identity:
+  archive_session_id: 01a0f7b9-ef31-7ba1-9704-71cadf50b2d3
+  archive_first_turn_id: skill-turn-910417f878be4e62989a326cb7b0a66a
+  created_at_local: "2026-10-01T10:06:43-04:00"
+  T3_to_S11_relation: CONTENT_MATCH_CANDIDATE / NATIVE_EVENT_IDENTITY_UNKNOWN
+current_owner_mutation:
+  full_origin_audit_001_006: none
+  STATE_or_projections: none
+  source_archive_0106: read-only / untracked / not committed
+worktree_boundary:
+  other_checkout_read: false
+  other_checkout_wait_compare_or_integrate: false
+  parent_or_previous_worktree_trajectory_read: false
+scope_partition:
+  T1: PASTED_OPUS_REPORT_AND_PUBLISHING_CONTEXT_NOT_VERIFIED
+  T2_T4: CIRCLE_ATTRIBUTION_CALIBRATION_PRECURSOR_NOT_DIRECT_P_SPEC
+  T5_T17: REPO_PUBLISHING_TRANSLATION_AND_BRANCH_POLICY_NOT_DIRECT_P_SPEC
+cutoff:
+  exact_parent_goal_phase: UNKNOWN
+candidate_owner_delta:
+  - add 0106 as a calibration-source candidate or explicitly exclude it with event-level rationale
+  - preserve T2/T3/T4 as distinct archive markers while recording T3-to-S11 content match
+  - keep T1/T5-T17 outside direct P tool denominator unless a specific unit is shown to alter P design
+falsifiers:
+  - owner evidence showing 0106 T2-T4 were already explicitly dispositioned under S11 with turn-level mapping
+  - native event crosswalk identifying T3 as the same Host event as S11[1]
+  - source-scope decision excluding circle-attribution context from the requested pre-tool history
+next_trigger: canonical integrator dispositions 0106 T2-T4; another source family requires its own bounded census
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 4d0aa37b5dbf457e6a159cd4fc186033e454a8cd
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard
+  no other-checkout access; no full-origin current-owner edits
+~~~
+
 ## Delta SelfAuditCard：0102 / 0108 / 0109 archive prompt-shape census
 
 ~~~yaml

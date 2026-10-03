@@ -222,3 +222,29 @@ Full-origin audit 当前来源表主要列 S01–S13、`dev-notes/0014`、`0015`
 ### 14.5 精确 Git 收据
 
 `dev-notes/0093` 来源范围候选及 delta SelfAuditCard 由当前分支 commit `8633dc44a0a468d852730d1aa025c2b9417ffab8` 精确记录。该提交只改了本报告和本 session 的 `SESSION.md`、`RUNS.json`、`CORE_COGNITION_AUDIT.md`、`CORE_COGNITION_AUDIT/003` 五条路径；没有暂存或提交其它预存 dirty/untracked 内容、`dev-notes/0093` 原件、full-origin owners、STATE/投影或另一 worktree 内容。此 OID 是当前 contributor evidence 的来源提交，不代表 canonical owner 已集成。
+
+## 15. `dev-notes/0106`：圆环归属澄清的 archive-event 前驱
+
+### 15.1 本地来源与直接用户事件
+
+本轮只读取本 worktree 中的 `dev-notes/0106 - 2026-10-01 - 以下内容你必须全部读完再开始行动.md`、S11[1] 对应的来源快照和 full-origin audit index/shards 001–006。0106 是当前本地未跟踪 archive，原件 mode `0600` 保持只读。
+
+| 字段 | 当前本地快照 |
+|---|---|
+| SHA-256 / 字节 / LF 行数 | `728833f4885920015804b0c772a2516383c3f69fe8ff9993342351b9cd867bfb` / 75,263 / 625 |
+| session / first turn / created_at | `01a0f7b9-ef31-7ba1-9704-71cadf50b2d3` / `skill-turn-910417f878be4e62989a326cb7b0a66a` / `2026-10-01T10:06:43-04:00` |
+| archive captures / unique prompt hashes / unique answer hashes / Goal envelopes | 17 / 11 / 17 / 0 |
+
+和 0093 相比，0106 的三个用户事件与 S11 的圆环归属裁定较近：T2 问 2026-09-27 的“芝诺幽灵”在 canonical current truth 中应挂到哪批圆环工作；T3 澄清圆环悖论及 repo 后续讨论分析复活了芝诺悖论幽灵；T4 表示歧义已解决并要求继续。T2/T3/T4 是三个 distinct archive markers；不能因话题接近或 T3 重复而直接合成单一事件。
+
+T3 (`skill-turn-6c5e0016b3094821b09911b2147a0b6d`) 与 `sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md` S11[1] 去空白后完全相同：两边可见文本各 80 字符；prompt SHA `b8db00be8fbb1f7db0814e7eb5b005708fd5e20781f40a69f4ee51512bf629cd`，answer SHA `52a39f3edb966432e657fd9123e3070c4d83a1494600b6c9ea118c08c8bb6519`，S11 文件 SHA `53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc`。此为 `CONTENT_MATCH_CANDIDATE / NATIVE_EVENT_IDENTITY_UNKNOWN`，不是原生 message-ID crosswalk。
+
+T1 是另一个长 prompt：用户贴入 Opus 的 README/Git 发布报告，询问此前的 Git 操作、改写 main 文档和未完成事项；T5–T17 主要追问推送、README 人话化、未提交改动及分支上传策略。T1 里的 Opus 叙述和远端 commit/ref 自述没有在本单元独立核实，不能当作当前 Git 事实。它们是工作流程／发布语境，不直接规定 P1/P2/P3。
+
+### 15.2 对 full-origin source scope 的候选处置
+
+full-origin audit shards 001–006 的来源清单没有 `0106` 条目或显式处置；对这些 owner 检索 `0106` 与 `dev-notes/0106` 均无命中。因为 S11 已经作为 `CALIBRATION_CONTEXT` 纳入，而 T2–T4 正是用户澄清该校准语境的相邻 archive turns，0106 是 `CIRCLE_ATTRIBUTION_CALIBRATION_PRECURSOR / SOURCE_SCOPE_DISPOSITION_CANDIDATE`，不是直接刀具规格。
+
+建议 canonical integrator 对 T2/T3/T4 逐条记为“圆环归属校准背景／非 P 规格”，保留 T3 与 S11[1] 的内容匹配及 native event identity 未知；T1、T5–T17 可按 repo 发布／翻译／分支治理工作排除出 P 工具语义分母，同时保留 archive event 计数和理由。若认为 S11[1] 已完整承载 T2–T4 的语义，也须明确 event-to-source 映射；文本相同本身不足以证明其余 turns 冗余。此建议不是 current-owner 更新，也不改变 P 的成功标准或当前 ZFC 状态。
+
+本轮没有读取 `/Volumes/...` 上的旧 repo、ZCode 日志或先前 worktree；没有执行 T1 中被引用的 `git pull`，也没有访问任何 remote。只核查当前 checkout 中的归档快照、S11 direct source 和 full-origin owners。没有新建 math claim、P1/P2/P3 Q、Tool-BirthCard 或数学结论。

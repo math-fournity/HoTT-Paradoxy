@@ -161,3 +161,9 @@ Owner 001–006 未修改；0093 目前只是 `UNDISPOSITIONED_PRECURSOR_SOURCE 
 ## 0093 精确 Git 收据
 
 commit `8633dc44a0a468d852730d1aa025c2b9417ffab8` 精确记录 0093 来源差分，只含 contributor report 与本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。该提交不改 canonical full-origin audit、MEMORY/STATE、刀具理念/SOP 或 source archive；它只保存在本 worktree，尚未集成。
+
+## 0106 圆环归属校准来源候选
+
+继续对 S11 exact-content crosswalk 做边界检查时，当前 checkout 的 `dev-notes/0106` 出现第二个未处置的 archive-source 候选。快照 SHA 为 `728833f4885920015804b0c772a2516383c3f69fe8ff9993342351b9cd867bfb`，17 capture events、11 unique prompt hashes、17 unique answer hashes、0 Goal-context envelopes。T2/T3/T4 是圆环归属澄清；T3 与 S11[1] 相同正文，但 native event identity 未知。该archive主要其他事件是README发布/翻译和Git分支策略，Opus/远端陈述未作当前事实使用。
+
+因此将0106记为 `CIRCLE_ATTRIBUTION_PRECURSOR / NOT_DIRECT_P_SPEC / SOURCE_SCOPE_DISPOSITION_CANDIDATE`。本轮只在当前 checkout 读0106、S11和full-origin owners；不读历史提到的旧repo或previous worktree，不运行该档案中的命令。Full-origin owner、Feature、MEMORY/STATE均未改；见report §15和session SelfAudit。下一步仍由canonical integrator决定T2/T3/T4是否进入审计来源分母；当前分支保留候选状态。
