@@ -11,7 +11,7 @@
 | 字段 | 值 |
 |---|---|
 | 候选分支 | codex/hott-motive-zfc-literature |
-| 候选内容 payload tip（本交接单除外） | b72c94df research: seed ZFC Q corpus and visual source audit |
+| 候选内容 payload tip（本交接单除外） | 4638f3f6 research: map ZFC identity and formation source seeds |
 | 已闭合来源调查快照 | 7e1a111af545f5c458d36b59e16c248fca1c077a |
 | 分叉共同基线 | 6341e337b578e77149444a7b4ca243a109121840 |
 | 目标分支（观察时） | refs/heads/dev = 0ab997b17102119582ed7b542d6f7aa65fe6302b |
@@ -31,6 +31,7 @@
 3. **文献地图质量升级：** 322c6e2f research: start HOTT motive literature map。它新增 SOP 2.0 的文献地图阶段、地图质量审计、OpenAlex／Crossref／zbMATH／arXiv／IAS／citation 初始检索记录；它不产生新的 ZFC Q。
 4. **总语料工程定义：** b58efeb7 feat: define ZFC Q corpus map SOP。它定义 ZFC-Q-CORPUS-MAP-SOP，作为 HOTT-MOTIVE 支线之外的总 acquisition、PDF核验、MinerU、书目／引文地图和Q lead routing合同。
 5. **首个总语料 batch：** b72c94df research: seed ZFC Q corpus and visual source audit。它创建 ZQCM-001，记录十个work family、九个已核验work family、W-005期刊版的13页原件级视觉阅读、W-010的关键比较控制页、W-005 backward citation 与W-006 chapter map。它同时留下远程MinerU的两条实际失败收据；没有把原件视觉阅读称为MinerU成功，也没有形成ZFC Q。该提交新增原始PDF与审计页图，`.gitattributes`因而将PDF声明为byte-preserved binary。
+6. **ZFC identity／formation seeds：** 4638f3f6 research: map ZFC identity and formation source seeds。它新增Klev的直接比较章节及关键页视觉证据，登记`EXTENSIONALITY_SITE_SEED`，并把Klev 2024 的stage／purely-iterative set论文登记为未取得全文的高优先级seed。它明确不把任一source seed升级为ZFC Q。
 
 可选的归档增量 67cce86a 只追加了当前 worktree 集成交接对话记录。是否移植该一项取决于目标 dev 的 dev-notes 归档策略；它不影响研究内容、SOP 或文献地图。
 
@@ -47,21 +48,21 @@
 1. 本文件；
 2. [项目档案根](README.md)；
 3. [ZFC Q corpus archive](../ZFC-Q-CORPUS-MAP/README.md)；
-4. [ZQCM-001 findings](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/FINDINGS.md)、[W-005 source notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W005.md)与[W-010 control notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W010.md)；
+4. [ZQCM-001 findings](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/FINDINGS.md)、[W-005 source notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W005.md)、[W-010 control notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W010.md)、[W-011 precision notes](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W011.md)与[W-012 iterative-set seed](../ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SEED-W012-ITERATIVE-SET.md)；
 5. [P 字段来源矩阵](P-ANTECEDENT-EVIDENCE-SYNTHESIS.md)；
 6. [第一阶段来源综合](PHASE-1-SOURCE-SYNTHESIS.md)；
 7. [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)；
 8. [路线种子 009](../../dev-docs/菲尔兹奖后续理论级目标路线图/009%20-%20HoTT创建动机反投影ZFC候选路线.md)；
 9. 每个 run 的 MANIFEST.md、FINDINGS.md 和必要的 source card。
 
-由此能够恢复的当前研究结论是：九个冻结来源分母和十一份预检均已存档；ZQCM-001已积累原件、地图与受控来源读法；当前是 CURRENT_SOURCE_ADMISSION_FRONTIER；没有 ZFC_Q、没有 H0→Z0 正向传输，也没有数学证明结论。下一轮只允许由新的、能改变 P1/P2/P5/P6、同一任务或 T0–T5 前沿的来源触发。
+由此能够恢复的当前研究结论是：九个冻结来源分母和十一份预检均已存档；ZQCM-001已积累原件、地图、`EXTENSIONALITY_SITE_SEED`与stage／formation未读seed；当前是 CURRENT_SOURCE_ADMISSION_FRONTIER；没有 ZFC_Q、没有 H0→Z0 正向传输，也没有数学证明结论。下一轮只允许由新的、能改变 P1/P2/P5/P6、同一任务或 T0–T5 前沿的来源触发。
 
 ## 4. 推荐的集成程序
 
 1. **保全主 worktree。** 主 worktree 的实际维护者先完成或保留其自身 dirty/index 工作；不得由本候选的集成者在该树中执行 reset、restore、clean、stash、pull 或切分支。
 2. **冻结目标。** 从共享 refs 读取当前 refs/heads/dev OID 和 git worktree list --porcelain。若目标、AGENTS、Feature、rulings 或当前 owner 已变化，重新审阅本交接单。
 3. **建立干净的集成 worktree。** 从冻结的 dev 建一个短期 integration branch/worktree；它是审阅与冲突解决场所，不是主 worktree 的替代品。
-4. **选择性移植。** 先 cherry-pick 913a1a18，跳过 674df726，再 cherry-pick 772e0fca^..7e1a111a、322c6e2f、b58efeb7 和 b72c94df。每个冲突都按当前目标分支的语义裁决，不能整仓使用 ours 或 theirs。
+4. **选择性移植。** 先 cherry-pick 913a1a18，跳过 674df726，再 cherry-pick 772e0fca^..7e1a111a、322c6e2f、b58efeb7、b72c94df 和 4638f3f6。每个冲突都按当前目标分支的语义裁决，不能整仓使用 ours 或 theirs。
 5. **重点审阅重叠 owner。** 当前三方 merge 预演已显示实际文本冲突至少涉及：
 
     .codex/skills/SKILL_ROLES.json
