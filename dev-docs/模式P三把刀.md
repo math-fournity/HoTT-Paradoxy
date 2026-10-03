@@ -2,12 +2,12 @@
 logical_id: PATTERN_P_THREE_TOOLS
 mode: topical
 shard_root: 模式P三把刀
-last_shard: 模式P三把刀/010 - 代理匹配自我说明合同.md
+last_shard: 模式P三把刀/011 - 罗素最后一跃共享内核.md
 append_target: -
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 10 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 11 个分片；缺一片即未完成，按表顺序读取。
 
 # 模式 P 的三把刀：P1、P2、P3
 
@@ -64,4 +64,5 @@ soft_line_target: 300
 | 008 | [全部打造验收](<模式P三把刀/008 - 全部打造验收.md>) | P1/P2/P3 的独立刀刃、外部代理控制、真实 source 会合和持续校准边界；V1 基础锻造，不是 ZFC Q 已定位 | historical foundation |
 | 009 | [ZFC共同锻造与成功判据](<模式P三把刀/009 - ZFC共同锻造与成功判据.md>) | 将锻刀与 ZFC Q 定位视为同一循环；拥有会合标准、当前差距和联合盲测记录 | current |
 | 010 | [代理匹配自我说明合同](<模式P三把刀/010 - 代理匹配自我说明合同.md>) | 规定每次外部 Terra / Max 探针必须交付的 source→选择→映射→归约→淘汰→反事实理由链，并限定其证据含义 | current |
+| 011 | [罗素最后一跃共享内核](<模式P三把刀/011 - 罗素最后一跃共享内核.md>) | 三把刀共用的 domain-promotion、reentry、stage-completion 内核；校准无限制形成与 Power Set 的 bounded/rank guards，不构成第四把刀 | current draft |
 <!-- governance-shard-table:end -->
