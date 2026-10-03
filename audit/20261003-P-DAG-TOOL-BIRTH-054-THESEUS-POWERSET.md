@@ -62,8 +62,8 @@ identity-observer(h_gradual, h_rebuild) may still require different answers
 ## 6. 当前裁定与反证条件
 
 ```text
-verdict: TOOL_BIRTH_RESEARCH_OPEN
-provisional containment: DERIVED_TOOL_CANDIDATE or NOT_ENOUGH_EVIDENCE
+verdict: TOOL_BIRTH_NOT_ENOUGH_EVIDENCE
+provisional containment: conditional Trace–Snapshot–Identity interface only
 new numbered tool: NOT PROPOSED
 Power Set attack: NOT LOCATED
 ```
@@ -73,3 +73,7 @@ Power Set attack: NOT LOCATED
 1. P2×P3 能在不新增独立判断职责的情况下完整表示 trace、snapshot、identity observer 与 Done；则它是旧刀字段／派生合同；
 2. 某个真实 consumer 确实以 extensional snapshot 作历史身份的充分代理，且同一任务显示原任务条件丢失；则它成为强候选；
 3. 所有自然 consumer 都显式携带 history 或只问 snapshot equality；则 Power Set 路线在该范围内无攻击。
+
+## 7. H054–H057 的实际结果
+
+H054 给出 synthetic snapshot-loss clue，H055的history-preserving control清除了该特定塌缩，H056在Metamath extensionality/Power Set source中找不到trace identity consumer，H057 sealed arbiter按出生合同裁定`NOT_ENOUGH_EVIDENCE`。H058随后加入真实Mathlib NFA set-of-endpoints consumer：具体Path被保留为另一表示，acceptance只要求接受endpoint存在，故历史压缩对该任务正确；H059最终arbiter仍维持`NOT_ENOUGH_EVIDENCE`。因此本卡从探索状态收敛为：**保留接口草图和精确重开条件，但不提出P4、派生current tool或Power Set攻击。** 完整运行审计见`audit/20261003-P-DAG-TOOL-BIRTH-THESEUS-POWERSET-054-057-Terra-Max.md`与`audit/20261003-P-DAG-TOOL-BIRTH-THESEUS-POWERSET-058-059-Terra-Max.md`。

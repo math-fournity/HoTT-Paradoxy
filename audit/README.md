@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [P-DAG Tool-Birth H058–H059：真实 NFA 幂集消费者与忒修斯最终裁定（Terra / Max，2026-10-03）](20261003-P-DAG-TOOL-BIRTH-THESEUS-POWERSET-058-059-Terra-Max.md)：Mathlib NFA的endpoint-set抽象对其语言接受Done正确；最终arbiter维持`NOT_ENOUGH_EVIDENCE`，不创建P4或Power Set攻击。
+
+- [P-DAG Tool-Birth H054–H057：忒修斯／历史身份对 Power Set 的容纳审计（Terra / Max，2026-10-03）](20261003-P-DAG-TOOL-BIRTH-THESEUS-POWERSET-054-057-Terra-Max.md)：snapshot-only正控制、history-preserving负控制、Metamath extensionality/power source和sealed arbiter共同给出`NOT_ENOUGH_EVIDENCE`；不创建P4，也未定位Power Set攻击。
+
 - [P-DAG RK-0 H049–H053：罗素最后一跃的脱敏正控制与 Power Set 对照（Terra / Max，2026-10-03）](20261003-P-DAG-RK0-RUSSELL-POWERSET-049-053-Terra-Max.md)：H050无名称复现无限制同域形成的负自回代；H051在全子对象形成中识别有界正bridge；Metamath来源分别限为proof层、rank/Foundation对象guard，未形成ZFC Q。
 
 - [P-DAG P1：formation-origin 路径的自审与 H040–H042 范围校正（2026-10-03）](20261003-P-DAG-P1-FORMATION-ORIGIN-LANE-SELF-AUDIT.md)：原初用户要求从Power Set自身形成承诺导出Q；P1的L7保留formation义务，但H040 prompt将它编译为consumer-only，故H042的无候选被校正为窄范围结果并驱动D-L10F。

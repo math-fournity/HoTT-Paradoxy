@@ -575,5 +575,5 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 
 1. 新花纹不得因名称新、现有输出不舒服、模型分歧或来源缺口自动成为 P4；先按 `Tool-BirthCard` 分别尝试 P1/P2/P3 映射，列出对象、过程、观察、Done 保持或扭曲的最小见证。
 2. 裁定只有四种：`OLD_TOOL_FIELD_GAP`、`DERIVED_TOOL_CANDIDATE`、`UNCONTAINED_PATTERN_CANDIDATE`、`NOT_ENOUGH_EVIDENCE`。只有第三种在独立判断职责、正控制、负控制、来源／worker计划与精确 Git 收据齐备后，才可提议新编号；派生工具不自动编号。
-3. 当前“忒修斯之船／历史身份—替换—provenance”只获得 `TOOL_BIRTH_RESEARCH_OPEN`：它必须先固定一个同一任务的 Power Set consumer，再判断它是P2的表示／等同层、P3的过程／完成层、P2×P3的派生结构，还是未被三刀容纳的新职责。不得因圆环、SIP或历史身份词汇相近就预先确定归属。
+3. H054–H059 已将当前“忒修斯之船／历史身份—替换—provenance”裁定为 `TOOL_BIRTH_NOT_ENOUGH_EVIDENCE`：synthetic snapshot-loss clue被history-preserving control解除，Metamath extensionality/Power Set source缺同层identity consumer，Mathlib NFA真实endpoint-set consumer又显示path identity的抹除对其acceptance Done正确，sealed arbiter不支持派生或新编号。它只有在固定同一任务的Power Set consumer后才重开，届时再判断是P2表示层、P3过程层、P2×P3派生结构或未被三刀容纳的新职责。不得因圆环、SIP或历史身份词汇相近预先确定归属。
 4. P-DAG SOP 的每个自然单元加 `pattern-universe claim`；full origin audit新增可重算来源清单、Git谱系和出生审计。该裁定授权相应工具、审计、Feature、MEMORY与Git commit；不授权数学结论、无控制的新刀、tag、push或发布。
