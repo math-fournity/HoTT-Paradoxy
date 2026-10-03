@@ -4,6 +4,8 @@
 
 - [P-FORGE 原子锻打全量审计：A0--A3（2026-10-03，完成）](20261003-P-FORGE-ATOMIC-SYNTHESIS.md)：在精确冻结的130个历史单位内，完成A0分母、A1逐卡回放、A2父级回接和A3跨卡综合。结果是`ATOMIC_AUDIT_COMPLETE_WITH_SCOPE`、`ZFC_SITE_SELECTED / Q-0 UNFORMED / ZFC_Q_NOT_LOCATED`；不宣称ZFC无问题、站位切换、新刀或数学结论。原子卡、分母与父级证据分别由[原子campaign](20261003-P-FORGE-ATOMIC-AUDIT.md)、[原子账本](20261003-P-FORGE-ATOMIC-LEDGER.md)和[父级回接](20261003-P-FORGE-PARENT-RECONCILIATION.md)拥有。
 
+- [P-FORGE 路线级文献回流审计 SOP：首次设计自审（2026-10-03）](20261003-P-FORGE-LITERATURE-BACKFLOW-SOP-SELF-AUDIT.md)：审计新的回流 SOP 是否把文献路线与 P/Q 共同锻造、R/Z/Q/H0/Z0 分层、候选 worktree 边界、支付/route/同一任务控制和 B0--B5 checklist 真实编译为执行合同。它的结论只覆盖计划设计；候选文献冻结、integration 与实际文献回流尚未开始。
+
 - [P-FORGE：P/Q 共同涌现与收敛的路线重对齐（2026-10-03）](20261003-P-FORGE-Q-EMERGENCE-CONVERGENCE-REALIGNMENT.md)：把“锻刀＝发现Q”的研究不变量编译为`QConvergenceLink`；区分Q的生成、收紧、桥接、淘汰、会合和有界的`Q_SAFETY_REPAIR`，排除没有Q关联的`TOOL_ONLY_DRIFT`。
 
 - [P-FORGE：校准收敛、来源覆盖与 Power Set station 调整（2026-10-03）](20261003-P-FORGE-CALIBRATION-STATION-ADJUSTMENT.md)：将已知控制、独立盲态选择、来源存活Q和三刀会合分成CAL-0至CAL-4；proof/formalization、model/semantic、数学实践和construction bridge分层；Round 1停止重复guard但station保持退出审查，未定位ZFC Q。

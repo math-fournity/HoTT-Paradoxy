@@ -659,3 +659,17 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 每张 AtomicAuditCard 必须分开 `AS_RUN` 与 `CURRENT_CONTRACT_COUNTERFACTUAL`，保留实际的 P/Q 状态、来源、可见输入、运行／失败、QConvergenceLink、同一任务反事实、偏差、Wealth、falsifier 和重开条件。后来的规则可以解释为何要修正旧运行，不能倒灌成旧运行已经通过的条件。
 4. 该 SOP 的核心不变量仍是 `P/Q_CO_FORGING`：工具改动只有在产生／收紧／桥接／淘汰／会合 Candidate-Q，或明确保护固定卡免于误报时才算本研究的推进；否则如实登记`TOOL_ONLY_DRIFT`。审计完成也不等于`ZFC_Q_LOCATED`、ZFC 不一致或 P 已被永久证明有效。
 5. 未来可直接使用：`按照SOP=P-FORGE-ATOMIC-AUDIT-SOP，继续推进，直至无法推进。` 该调用从 A0 开始，且不自动恢复当前暂停的 Goal、启动理论 worker／网络节点、创建新刀、改数学 STATE、tag、push或发布。本裁定授权 SOP、入口路由、Feature、MEMORY和精确 Git commit。
+
+## 2026-10-03：路线级文献回流审计的计划、检查表与自审
+
+研究发起人要求把一轮新的“路线级回流审计”完整记录为命名方案，认真标准化其检查维度，形成 checklist，完成这份方案并用 checklist 自审；并询问此后是否应以方案名作为 /goal 的启动内容。
+
+执行裁定：
+
+1. 新建稳定引用名 `P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP`，全名“P-FORGE 路线级文献回流审计 SOP”，canonical path 是 `dev-docs/P-FORGE路线级文献回流审计SOP.md`。该方案是 P-FORGE 的来源回流专用合同，不取代三刀、P-FORGE-SOP、原子审计或候选文献 archive 的 owner。
+2. 它把 HoTT 创建动机反投影 ZFC 的 R_i→Z_i→Q_i 与 H0→Z0→Q0 分开，并禁止从动机、术语、模型、proof assistant 或一般“时间/存在”话语直接推出 ZFC Q。每个路线卡须固定 LiteratureEvidenceEnvelope、RB-D01--RB-D16、T/u/F/C/I/O/Done、P1/P2/P3、payment、route/layer、Target/Candidate/Control-Q、controls、falsifier、I0--I4影响和 owner/action。
+3. 在候选 worktree 未作为 current evidence 接受前，路线卡只能是 candidate；不得改写 dev 的 current owner、130 个原子卡的 AS_RUN、A3 结论，或直接启动 worker/网络/Battle。若实际产生候选资格，最多形成新 ForgeIntent；它不等于 ZFC_Q_LOCATED、Q-4 或数学结论。
+4. 当前完成的是方案设计及其首次自审，状态为 `PLAN_READY / EXECUTION_INPUT_NOT_FROZEN / LITERATURE_BACKFLOW_NOT_EXECUTED`。实际执行顺序固定为 B0 evidence freeze、B1 route inventory、B2 route cards、B3 impact triage、B4 selective re-audit、B5 synthesis and self-audit。
+5. 不需要为了保存方案而另开 /goal；若研究发起人要启动实际 B0--B5，可直接使用：`按照SOP=P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP，继续推进，直至无法推进。`。该调用首先重新冻结候选 ref、commit、base、target、selected/excluded commits、manifest 和 dirty disposition，不自动进行 integration、worker、数学 STATE、tag、push或发布。
+
+本裁定授权本 SOP、其入口、自审、Feature/MEMORY/rulings writeback、结构验证与精确 Git commit；不授权候选分支集成、外部来源操作或数学结论。

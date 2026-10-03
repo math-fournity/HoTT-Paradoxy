@@ -20,4 +20,6 @@
 
 - [P-FORGE-ATOMIC-AUDIT-SOP：模式 P 原子锻打全量审计](模式P原子锻打全量审计SOP.md)：对“锻刀＝发现 Q”的历史过程做逐原子、来源受限的兵棋审计。它将审计卡、粗自然单元、H 节点、non-H session/run、无 ID 执行和 Master 决策分开，先冻结精确分母，再逐卡重放、去重、写回与提交；不能用 R00--R14 的宏观综合代替实际锻打的全量审计。未来 `/goal` 可直接引用稳定名 `P-FORGE-ATOMIC-AUDIT-SOP`；该 SOP 不会自行恢复已暂停的 Goal 或启动新理论节点。
 
+- [P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP：模式 P 路线级文献回流审计](P-FORGE路线级文献回流审计SOP.md)：将 HoTT 创建动机反投影 ZFC 的候选文献，按 R_i→Z_i→Q_i 与 H0→Z0→Q0 的路线卡回流既有 P-FORGE 审计。它固定 LiteratureEvidenceEnvelope、16 个 RB 维度、payment/route/layer/同一任务控制、I0--I4 选择性影响分流和 B0--B5 checklist；候选 worktree 未整合时只可产生候选性路线卡。未来 `/goal` 可直接引用稳定名 `P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP`，从 B0 证据冻结开始，不自动集成、启动 worker 或宣称 ZFC Q。
+
 - [模式 P 动态 DAG 调度](模式P动态DAG调度.md)：当前 P1/P2/P3 共同锻造的 Master 调度 SOP 与项目内 Skill。它把 worker 的盲态、来源、项目分支、网络、Battle、Master 裁决、App Server/CLI 运行资格和证据收据分成按节点决定的合同；只在用户 2026-10-02 的任务限定授权下使用。
