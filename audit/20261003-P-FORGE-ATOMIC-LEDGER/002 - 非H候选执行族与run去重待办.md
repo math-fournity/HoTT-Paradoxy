@@ -49,10 +49,10 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N23 ZFC-COFORGE-005 | `ZFC-COFORGE-005-P1` | unique session `01a0fcfd-e6f5-7ff2-a3ac-b920081a0b48` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N31 P1-HOTT | `P1-HOTT-001` | unique session `01a0fcae-e115-7ac1-a4fb-12bfdabd7a46`；独立中性 HoTT P1 定位，不属于 H001--H075 | `UNIQUE_ATOMIC_RUN` |
 | N32 P2-FORGE首次CLI参数失败 | `P2-FORGE-001`同一报告 §运行身份 | 首次命令在模型启动前因全局参数位置错误退出；第二次才产生N06 session，失败改变实际可运行命令 | `UNIQUE_DOCUMENTED_EXECUTION(1) / ATOMIC_AUDIT_COMPLETE` |
-| N24 Battle-001 | `P-DAG-BATTLE-001` | 3 unique sessions: `01a0fd1b-039b-77e1-895a-b5ff743ce497`; `01a0fd1b-028d-7442-a124-e3e4a6af5577`; `01a0fd1d-180b-7742-8c04-d83975b92ba1` | `UNIQUE_ATOMIC_RUNS(3)` |
-| N25 SOURCE-001 | `P-DAG-SOURCE-001` | 4 unique sessions: `01a0fd24-e045-7e53-b290-ae608e851408`; `01a0fd24-e017-7330-8f84-cc677ee47132`; `01a0fd2c-5031-7923-b5a1-b19b5d50c37d`; `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | `UNIQUE_ATOMIC_RUNS(4)` |
-| N26 SOURCE-002 + BATTLE-002 | `P-DAG-SOURCE-002-与-BATTLE-002` | 8 unique sessions; exact IDs frozen in this report and cross-checked against H/non-H registries | `UNIQUE_ATOMIC_RUNS(8)` |
-| N27 SOURCE-003 | `P-DAG-SOURCE-003` | 3 unique cancelled sessions: `01a0fd5f-0afa-7773-8245-f873a22e49cc`; `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3`; `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | `UNIQUE_ATOMIC_RUNS(3)` |
+| F24（legacy N24）Battle-001 | `P-DAG-BATTLE-001` | 3 unique sessions: `01a0fd1b-039b-77e1-895a-b5ff743ce497`; `01a0fd1b-028d-7442-a124-e3e4a6af5577`; `01a0fd1d-180b-7742-8c04-d83975b92ba1` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N24A,N24B,N24C)`；005拥有稳定ID与顺序 |
+| F25（legacy N25）SOURCE-001 | `P-DAG-SOURCE-001` | 4 unique sessions: `01a0fd24-e045-7e53-b290-ae608e851408`; `01a0fd24-e017-7330-8f84-cc677ee47132`; `01a0fd2c-5031-7923-b5a1-b19b5d50c37d`; `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N25A,N25B,N25C,N25D)`；005拥有稳定ID与顺序 |
+| F26（legacy N26）SOURCE-002 + BATTLE-002 | `P-DAG-SOURCE-002-与-BATTLE-002` | 8 unique sessions; exact IDs frozen in this report and cross-checked against H/non-H registries | `FAMILY_LABEL_ONLY / SPLIT_INTO(N26A…N26H)`；005拥有稳定ID与顺序 |
+| F27（legacy N27）SOURCE-003 | `P-DAG-SOURCE-003` | 3 unique cancelled sessions: `01a0fd5f-0afa-7773-8245-f873a22e49cc`; `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3`; `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | `FAMILY_LABEL_ONLY / SPLIT_INTO(N27A,N27B,N27C)`；005拥有稳定ID与顺序 |
 | N28 SOURCE-004 | `P-DAG-SOURCE-004` | pre-sampling connection-failure session `01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118` | `UNIQUE_ATOMIC_RUNS(1)` |
 | N29 SOURCE-005 | `20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md` | 一个Master direct-source control | `MASTER_EXECUTION_UNIT(1)` |
 | N30a runner-health-001 | `P-DAG-RUNNER-HEALTH-001` NodeCard | 只有预封存卡，未见执行收据 | `NODECARD_ONLY_NOT_COUNTED` |

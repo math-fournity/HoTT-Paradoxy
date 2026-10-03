@@ -15,7 +15,7 @@ soft_line_target: 300
 >
 > **当前状态：** `A1_ACTIVE / C_CARDS=24 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=104`。
 
-本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 003 冻结。这个表只列已经封存的
+本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
 
 <!-- governance-shard-table:start -->
