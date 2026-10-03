@@ -143,3 +143,15 @@ Makkai 1996 的 [anafunctor 预检](20261003-HMZ-005-makkai-anafunctor-preflight
 这两份预检促成一项 SOP 澄清：相关关键词或一个实际 consumer 本身不足以开启完整 run；只有新 `R_i`、精确
 ZFC-side `u/F/C/I/O/Done`、未付同一 Done 或 formation-use交错才足够。预检保存否定性控制和重开条件，不能被
 合并进“已读完三轮”的分母。
+
+Voevodsky 2011 的 [WoLLIC 预检](20261003-HMZ-006-wollic-machine-preflight/MANIFEST.md)则给出一条新的作者级
+`R-MACHINE` 原话：ZFC-based proof-assistant formalization 曾导致“不自然构造”。它没有列出被指的项目、编码或
+同一 Done，故不能从修辞直接造 Z-card；状态是 `PAIRING_SOURCE_REQUIRED`。这条线的下一步不是再找同义讲演，而是
+寻找被作者话语实际指向的具名 ZFC-in-Coq attempt 或另一份同一任务技术原典。
+
+这个配对随后以 [HMZ-007 Werner ZFC-in-CIC](20261003-HMZ-007-werner-zfc-coq-pair/MANIFEST.md) 闭合为一个
+独立冻结分母。Werner 并非被 WoLLIC 明确点名，因而保留 `CANDIDATE_PAIRING_NOT_ATTRIBUTED`；但其论文和源码给出
+精确的 `Ens`／Power／Replacement／Russell consumers。结果不是 Q：full ZFC 在该 model 中以 EM + TTDA/TTCA 等
+non-computational Choice principles 支付，Russell 只反证一个假定的 universal `Ens` container，Power 又是 host CIC/Prop
+construction。因此它把“ZFC-in-Coq不自然”从泛称压到可反驳的具体 task，并得出 `SOURCE_PAYMENT +
+ANTI_ANALOGY_CONTROL`。

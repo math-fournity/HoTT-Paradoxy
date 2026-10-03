@@ -1,6 +1,6 @@
 # HOTT-MOTIVE-ZFC：HoTT 创建动机反投影 ZFC 文献调查档案
 
-> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / THREE_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
+> **身份：** `PROJECT_ARCHIVE_ROOT / HUMAN_EDITED / FOUR_CLOSED_SOURCE_RUNS / NO_ZFC_Q_CLAIM`。
 >
 > **SOP：** [HOTT-MOTIVE-ZFC-SOP](../../dev-docs/HoTT创建动机反投影ZFC文献调查SOP.md)
 >
@@ -24,6 +24,9 @@ equivalence-principle 文献和已有 ZFC consumers 校正；结果仍是来源�
 第三个来源 run 已闭合：[20261003-HMZ-003-formalization-delivery](20261003-HMZ-003-formalization-delivery/MANIFEST.md)。
 它研究 ZF 的 bare-existence axioms 如何在实际形式化中通过命名 constants、条件化规则和语法层支付，结论仍是
 formation/payment control，未产生 P-qualified Q。
+
+第四个来源 run 已闭合：[20261003-HMZ-007-werner-zfc-coq-pair](20261003-HMZ-007-werner-zfc-coq-pair/MANIFEST.md)。
+它以 Voevodsky 2011 的 WoLLIC 机器基础动机与 Werner 的 CIC↔ZFC 编码配对，但保留“不是作者归因”的边界；`Ens`／`Power`／Replacement／Russell source cards 显示 Choice、host 条件和 universal-container guard，而不是 P-qualified Q。
 
 ## Run 命名与目录合同
 
@@ -56,6 +59,7 @@ FINDINGS.md
 | `20261003-HMZ-001-primary-motives` | HoTT／UF 首批创立动机、Shulman 的 ZFC/NBG 分析、Isabelle/ZF、Metamath 形式呈现、Mumford 与 Shulman 真实消费者控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [FINDINGS](20261003-HMZ-001-primary-motives/FINDINGS.md) | 0 个 `CANDIDATE_SEED`；class/meta-language 是来源支持的表示边界且有 NBG 支付；结构／choice／machine 路径均有显式支付；Power Set 与 H0 transport 未资格化。 |
 | `20261003-HMZ-002-voevodsky-set-theory` | Voevodsky 2011/2013 对 ZFC、equivalence、type systems 与 set theory 的原典；Ahrens/North 2022；复用 HMZ-001 的 Shulman/Isabelle/Mumford controls。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-002-voevodsky-set-theory/FINDINGS.md) | equivalence problem 是来源支持的表示边界；typed language/FOLDS、NBG、Choice、maps、well-ordering是明确支付；0 个 P-qualified Q。 |
 | `20261003-HMZ-003-formalization-delivery` | Grayson 2018、Rijke/Spitters 2016、HoTT Library 2017 与 Isabelle/ZF/ Shulman 控制。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-003-formalization-delivery/FINDINGS.md) | ZF existence axioms → named formal constants / rules 是显式支付；HoTT自身也有阻断计算的axioms；0 个 P-qualified Q。 |
+| `20261003-HMZ-007-werner-zfc-coq-pair` | WoLLIC 2011 的 ZFC-in-proof-assistant 动机，与 Werner 1997 CIC↔ZFC 编码、`rocq-archive/zfc` code snapshot、既有 Paulson/Grayson controls 的冻结配对。 | `CLOSED_WITH_SCOPE / DENOMINATOR_COMPLETE_WITH_SCOPE` | [Findings](20261003-HMZ-007-werner-zfc-coq-pair/FINDINGS.md) | `Ens`／Power／Replacement／Russell guard 都处在 CIC model/formalization layer；TTDA/Choice、host条件和 bounded universal-set guard明确，0 个 P-qualified Q。 |
 
 三个 run 的跨分母判断由 `PHASE-1-SOURCE-SYNTHESIS.md` 拥有；本 README 只保留入口与 run registry。
 
@@ -63,6 +67,8 @@ FINDINGS.md
 它是可复核来源，不是第四个完整 run，也不产生 Q。
 
 第二份预检是 [HMZ-005 Makkai anafunctor 消费者控制](20261003-HMZ-005-makkai-anafunctor-preflight/MANIFEST.md)。它以实际范畴论 consumer 分开“逐对存在 binary products”“指定 ordinary product functor”与“anafunctor 的不同输出契约”：Choice／selection 被来源明确支付，替代构造改变 `Done`，所以同样不是第四个完整 run 或 Q。
+
+第三份预检是 [HMZ-006 Voevodsky WoLLIC 机器基础动机](20261003-HMZ-006-wollic-machine-preflight/MANIFEST.md)。它新增一条作者直接陈述：ZFC-based proof-assistant formalization 曾导致“不自然构造”；[HMZ-007](20261003-HMZ-007-werner-zfc-coq-pair/MANIFEST.md) 已提供可审计的 comparable pairing，但 WoLLIC 未点名 Werner，故历史指称仍未解决，且没有 Q。
 
 ## 本次整备的影响边界
 

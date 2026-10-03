@@ -1,0 +1,130 @@
+  Talk at WoLLIC (Upenn, May 2011) by Vladimir Voevodsky
+
+            Univalent Foundations are:
+1. Foundations of mathematics which can be used both for
+   constructive and for non-constructive mathematics.
+2. Foundations which naturally include ”axiomatization” of
+   the categorical and higher categorical thinking.
+3. Foundations which can be conveniently formalized using
+   the well known in computer science class of languages
+   called Martin-Lof type systems.
+4. Foundations which are based on direct axiomatization of
+   the ”world” of homotopy types instead of the ”world” of
+   sets.
+                            1
+                   A bit of history
+
+1. Multiple attempts to use existing foundations (ZFC -
+   Zermelo-Freankel theory with the Axiom of Choice) as
+   the basis of formalization of mathematics in the language
+   of proof assistants such as Coq all led to very unnatural
+   constructions.
+2. In 1996, Martin Hofmann and Thomas Streicher con-
+   structed a new semantics for type theory which inter-
+   preted types not as sets but as groupoids.
+3. In 2005/2006 Steve Awodey and his students discovered
+   the connection between the Martin-Lof identity types and
+   factorization axioms of the abstract homotopy theory.
+   This led to their interpretation as path spaces.
+                             2
+                 A bit of history (cont.)
+4. At about the same time I introduced the idea of univalent
+   fibrations and conjectured that there exists a semantics
+   for Martin-Lof type systems which interprets universes as
+   bases of the univalent fibrations.
+5. In the fall of 2009 I understood how to combine the ideas
+   of Steve Awodey with my ideas to obtain a far reach-
+   ing generalization of the groupoid interpretation. It was
+   eventually called the univalent model of Martin-Lof type
+   theories.
+6. In February 2010 I started to write a Coq library of math-
+   ematical constructions based on the univalent model. See
+   http://github.com/vladimirias/Foundations
+                             3
+                Some of the key ideas
+1. Univalent model suggest a definition for the type of ”weak
+   equivalences” between two types. These equivalences sat-
+   isfy all the standard properties one would expect from
+   equivalences between higher groupoids or homotopy types.
+   Most of such properties have now been fromaly proved.
+   All constructions written in the context of the univalent
+   semantics are invariant under these equivalences.
+2. Not all types are to be interpreted as sets. There is a
+   filtration on type expressions by their ”h-levels”.
+ (a) Types of h-level 0 are ”contractible” i.e. equivalent to
+     the one point type.
+ (b) Types of h-level 1 correspond to ”propositions”.
+                             4
+ (c) Types of h-level 2 correspond to sets.
+ (d) Types of h-level 3 correspond to groupoids.
+ (e) Types of higher levels correspond to higher groupoids
+     or, equivalently, to more general homotopy types.
+3. Types with decidable equality have level ≤ 2 e.g. the
+   usual inductive types such as natural numbers, trees etc.
+   are sets.
+4. Typical examples of types of level > 2 are universes.
+5. The univalent model satisfies a new axiom which is called
+   the univalence axiom. It imposes the condition that the
+   identity type between two types is naturally weakly equiv-
+   alent to the type of weak equivalences between these
+   types.
+                             5
+             Some of the key ideas (cont.)
+6. The univalence axiom implies the functional extensional-
+   ity both for ”straight” functions and for dependent func-
+   tions. It also implies that two logically equivalent ”propo-
+   sitions” (types of h-level 1) are equal.
+7. The univalence axiom implies that the universe of types
+   of h-level n has h-level n + 1. In particular, the type
+   of ”propositions” is a ”set” and the type of ”sets” is a
+   ”groupoid”.
+8. The univalence axiom implies similar statements for types
+   with structures e.g. one can prove using the univalence
+   axiom that the identity type between two groups is equiv-
+   alent to the type of isomorphisms between these groups.
+                              6
+            Some of the key ideas (cont.)
+9. Unlike many other axioms (e.g. the axiom of excluded
+   middle), the univalence axiom is expected ”to have com-
+   putational content”. In other words computation/normalization
+   should be extendable in a certain sense to terms which
+   involve the univalence axiom. For example there is the
+   following precise:
+   Conjecture 1. There exists a terminating algorithm which
+   for any term expression t of type nat constructed using
+   the univalence axiom (in any way) returns a term expres-
+   sion t1 of type nat which does not use univalence axiom
+   (in any way) and a proof that t = t1 (which may use the
+   univalence axiom).
+                            7
+          Current state of development.
+
+1. The basic properties of weak equivalences, h-levels etc.
+   have been formalized in Coq. These results do not de-
+   pend on the univalence axiom. Some of the proofs require
+   functional extensionality.
+2. The current approach to the universe management in Coq
+   is not flexible enough for many of the more advanced and
+   interesting applications of the univalent approach. I am
+   talking to the Coq development people about this issues.
+   At the moment, in order not to stall the development of
+   interesting mathematics I am using a patch provided by
+   Hugo Herbelin which switches off the universe consistency
+   verification in Coq.
+                             8
+3. Modulo the disclaimer of the previous paragraph we have
+   been able to formalize a very important construction - the
+   construction of true set-quotients of types. This opens the
+   way for the formalization of many areas of mathematics
+   which were unaccessible to direct type-theoretic formal-
+   ization due to the usual problems with quotients in type
+   theory.
+4. There is a growing community of people working on the
+   issues connected with the univalent foundations. There
+   will be a full year program on this topic at the Institute
+   for Advanced Study in 2012-2013 co-organized by Steve
+   Awodey, Thierry Coquand and myself. For information
+   on the program See http://www.math.ias.edu/sp/univalent
+   .
+                              9
+

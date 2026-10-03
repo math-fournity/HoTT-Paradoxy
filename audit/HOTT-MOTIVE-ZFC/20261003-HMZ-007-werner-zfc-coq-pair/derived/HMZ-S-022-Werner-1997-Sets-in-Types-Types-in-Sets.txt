@@ -1,0 +1,674 @@
+                  Sets in Types, Types in Sets
+
+
+                                Benjamin Werner
+                           INRIA{Ro quen ourt BP 105
+                            78 153 LE CHESNAY edex
+                                    FRANCE
+                            benjamin.wernerinria.fr
+
+
+
+      Abstra t.    We present two mutual en odings, respe tively of the Cal-
+       ulus of Indu tive Constru tions in Zermelo-Frnkel set theory and the
+      opposite way. More pre isely, we a tually onstru t two families of en-
+       odings, relating the number of universes in the type theory with the
+      number of ina essible ardinals in the set theory. The main result is that
+      both hierar hies of logi al formalisms interleave w.r.t. expressive power
+      and thus are essentially equivalent. Both en odings are quite elementary:
+      type theory is interpreted in set theory through a generalization of Co-
+      quand's simple proof-irrelevan e interpretation. Set theory is en oded in
+      type theory using a variant of A zel's en oding; we have formally he ked
+      this last part using the Coq proof assistant.
+
+
+1 Introdu tion
+This work is an attempt towards better understanding of the expressiveness of
+powerful type theories. We here investigate the Cal ulus of Indu tive Constru -
+tions (CIC); this formalism is, with some variants, the one implemented in the
+proof systems Coq [6℄ and Lego. It is essentially a typed - al ulus with the
+following features:
+ { Dependent types, allowing the representation of propositions as types, through
+   the Curry-Howard isomorphism.
+ { An impredi ative level, i.e. the al ulus is an extension of Girard's system
+   F , allowing polymorphi types and thus impredi ative reasoning.
+ { A hierar hy of predi ative universes, quite similar to Martin-Lofs' [17℄.
+ { Indu tive types, generalizing the primitive integers of Godel's system T .
+     From the point of view of normalization and/or onsisten y proofs, the om-
+bination of these di erent features is still not fully understood. Known normal-
+ization proofs, as well as model onstru tions, make use of ina essible ardinals,
+i.e. go beyond usual set theory. The question we try to address in the present
+work is whether ina essible ardinals are ne essary to build a model of CIC,
+or equivalently whether CIC is as strong as usual Zermelo-Frnkel set theory
+(ZFC).
+     In the next se tion we present CIC in a more formal way. In se tion 3 we
+give an interpretation of CIC in ZFC; these semanti s generalize Coquand's
+proof-irrelevan e semanti s and are extremely straightforward. The number of
+ina essible ardinals needed is exa tly the number of universes of the modelized
+type theory. In se tion 4, we do the reverse work by en oding ZFC in CIC,
+adapting work of A zel [1{3℄. We however have to assume a type-theoreti al
+axiom of hoi e in CIC to be able to en ode full ZFC. We then an en ode ZFC
+with n ina essible ardinals in CIC equipped with n + 1 universes. This gives
+lead to ni ely interleaving relative onsisten y proofs. The situation is summed
+up in the on lusion.
+    The paper paper tries to be as self- ontained as possible. For matters of
+spa e, we keep our des ription of indu tive types informal, relying on examples
+and referring to the relevant publi ations. Some basi notions of - al ulus and
+set theory are required. The en oding of set theory in CIC is not extensively
+des ribed but has been formally he ked on the Coq proof-assistant; the brave
+reader an he k details looking at the proof- les [21℄.
+
+2 De nition of the Type Theory
+We give a presentation of the type theory in the style of Pure Type Systems
+(PTS, see [5℄). We distinguish two parts: the rules dealing with the formation of
+fun tion types, -abstra tion and appli ation on one hand, and indu tive types
+on the other.
+
+2.1 Fun tion types
+The sorts of the al ulus are Prop and Typei where i is a stri tly positive integer;
+we will generally use s to denote them:
+                               s := Prop j Typei
+We give ourselves a ountable set of variables, generally denoted by x; y; z; a; b, ,
+X , et .
+    The terms of the al ulus are des ribed by the following grammar:
+                        t := x j (t t) j x : t:t j x : t:t
+The rst three ases orrespond to the usual onstru tors for -terms: variable,
+appli ation and typed abstra tion. The term x : A:B is the type of fun tions
+mapping terms of type A to type B . The value x of the argument might o ur
+in B sin e the al ulus allows dependent types. In the ase where x does not
+o ur free in B , x : A:B an be written A ! B .
+    We write t[x n u℄ for the term t in whi h the free o urren es of the variable
+x are repla ed by u. The substitution being de ned the usual way. We write B
+for the -redu tion whi h is de ned as the ontextual losure of:
+                             (x : A:t u) ! t[x n u℄
+The re exive, transitive and symmetri        losure of B is alled - onversion,
+written = .
+               (Prop) [℄ ` Prop : Type1         (Type i ) [℄ ` Typei : Typei+1
+
+                                  ` A : Prop                      ` A : Typei
+                (Cum-Prop)                         (Cum i )
+                                  ` A : Typei                    ` A : Typei+1
+                                    ` A : Prop        ; (x : A) ` B : Typej
+                   (Pi-Prop j )
+                                              ` x : A:B : Typej
+                                ` A : Typei        ; (x : A) ` B : Typej
+                     (Pi i;j )
+                                       ` x : A:B : Typemax(i;j )
+                                      ` A : Typei         ` P : Prop
+                          (Impr)
+                                            ` x : a:P : Prop
+                                ; (x : A) ` t : B        ` x : A:B : s
+                      (Lam)
+                                         ` x : A:t : x : A:B
+                           (App)      ` u : x : A:B           `v:A
+                                            ` (u v ) : B [x n v ℄
+                                     `u:A          `B:s           A= B
+                        (Conv)
+                                                  `u:B
+
+                      Fig. 1.   Rules for the fun tional fragment of CIC
+
+
+    The typing rules of the system are given for gure 1. They orrespond to
+Luo's Extended Cal ulus of Constru tions1 des ribed in [16℄.
+    A well-formed type is a term of type some sort in a given ontext. The sorts
+Typei are alled the universes; they are hierar hally embedded in ea h other
+through the umulativity rules Cumi . Universal quanti ation is represented by
+the  -types. An important point is that in Prop, we an quantify over all uni-
+verses (impredi ativity). In Typei however, quanti ation is restri ted to types
+living below universe i, i.e. over terms of type Typej with j  i.
+
+2.2 Indu tive types
+Indu tive types are a very important extension to a type system meant to for-
+malize a tual mathemati s. Among others, they are used to de ne data types
+and logi al onne tives and they play an essential role in the present work.
+Coquand and Paulin-Mohring [10℄ motivate this extension and give a formal
+des ription of generi indu tive types. The Coq referen e manual [6℄ ontains a
+des ription of the urrently implemented version of indu tive de nitions due to
+Paulin-Mohring.
+1   Luo's ECC also in ludes  -types whi h are a parti ular ase of the indu tive types des ribed
+    below.
+Notations An indu tive type is the smallest type losed by a list of onstru tors.
+The most well-known example is maybe the de nition of unary integers:
+                    Indu tive Nat : Type1 := O : Nat
+                                           j S : Nat ! Nat:
+    Whi h de nes three obje ts Nat, O and S of the given types. To ea h indu -
+tive type are asso iated elimination s hemes orresponding to ase analysis and
+stru tural re ursion and indu tion. In this ase the type of these s hemes is:
+
+   P : Nat ! s:(P O) ! (n : Nat:(P n) ! (P (S n))) ! n : Nat:(P n)
+with s ranging over the sorts Prop and Typei .
+    The redu tion rules asso iated to these s hemes are de ned as usual, and in
+this ase orrespond to the re ursor R of system T . In what follows however,
+we will generally not mention the elimination s heme expli itly and rather use
+a more expli it ML-like notation whi h, we believe is not ambiguous in the
+ onstru tions treated below. For instan e:
+                    De nition add : Nat ! Nat ! Nat :=
+                        O n 7! n
+                      j (S p) n 7! (S (add p n)):
+   Of ourse, the orresponding new redu tion rules are taken into a ount by
+the onversion rule Conv; for instan e (add (S O) (S O)) and (S (S O)) are
+identi ed.
+
+Restri tions Two main restri tions assure that indu tive de nitions do not
+endanger the onsisten y of the system. The rst one is well-known and of syn-
+ta ti al nature: re ursive arguments must o ur in stri tly positive position in
+the type of onstru tors; see [10℄ for details. Typi aly the following de nition is
+prohibited sin e the rst o urren e of foo in the type of C is negative:
+Indu tive foo : Typei :=
+  C : (foo ! foo) ! foo:
+   Semanti ally, the positivity ondition ensures that the indu tive de nition
+ orresponds to the least x-point of a monotone operator.
+    The se ond restri tion is more interesting and essential to what follows. If
+the indu tive type is of type Typei , then all arguments of its onstru tors must
+live in the same universe or lower, i.e. using the umulativity rule, the arguments
+of the onstru tors must be themselves of type Typei . Releasing this restri tion
+would allow the onstru tion of paradoxes and break the onsisten y of the
+system; see [8℄ for instan e. The ne essity for this restri tion will also appear
+quite learly in the proof-irrelevan e interpretation and some of its onsequen es
+are shown in the next paragraph.
+Two de nitions of the existential An important point is that, in this paper,
+we do not use indu tive de nitions of type Prop. Some propositions ertainly are
+de ned indu tively, but they an be onstru ted using an impredi ative en oding.
+The key example is the existential quanti ation. Given A : Typei and P : A ! s
+we de ne the proposition 9a : A:(P a) as:
+    Indu tive 9a : A:(P a) : Prop :=       9 i : (a : A)(P a) ! 9a : A:(P a):
+   But this indu tive de nition is exa tly equivalent to:
+       De nition 9a : A:(P a) := X : Prop:(a : A:(P a) ! X ) ! X:
+    The important point is that there are no elimination rules of indu tive propo-
+sitions towards Typei .
+    There is however an alternative de nition for the existential quanti er, name-
+ly the  -type living in Typei :
+    Indu tive a : A:(P a) : Typei :=          : (a : A)(P a) ! 9a : A:(P a):
+    Ea h of these two de nitions has it advantages and drawba ks. In the rst
+ ase, the existential lives at the bottom of the universe hierar hy, and thus we
+ an always quantify over it, wherever we are. On the other hand, we annot
+extra t the witness of an existential proof: proving 9a : A:(P a) does not mean
+that we an exhibit a term of type A.
+    In the ase of the  -type, we are able to de ne  su h that ( ( a p)) B a.
+But we annot onsider this  -type in types living lower in the hierar hy.
+    We an noti e that if one does not use the impredi ative level in CIC, the
+resulting theory is, in spirit, very lose to the one of Martin-Lof [17℄. The way we
+view the impredi ative level in the present work is similar to Chur h's Higher-
+Order Logi : the obje ts live in the predi ative levels, and Prop is used to express
+properties about them; we annot however build obje ts out of proofs. This idea
+is obvious in the proof-irrelevan e semanti s.
+
+3 Proof-Irrelevan e Semanti s for CIC
+3.1 General Idea
+In this se tion, we will write 0 for the empty set, and 1 for the anoni al singleton
+f0g.
+     Sin e Reynolds [19℄, it is well-known that \polymorphism is not set-theoreti ",
+i.e. it is not possible to interpret impredi ative types (here of type Prop) by set-
+s. This will however be possible for the predi ative fragment of our theory, in
+whi h the obje ts live. The proof-irrelevan e semanti s are an interpretation of
+the type theory in lassi al set theory following two simple ideas:
+ { Propositions are interpreted either by the empty set or by a anoni al s-
+    ingleton, depending upon their validity in the model. As a onsequen e all
+    proof-terms are identi ed. In the same way, the interpretation of Prop is
+    f0; 1g.
+ { On the predi ative level, types are simply interpreted as sets. In parti ular
+   the fun tion type x : A:B is interpreted by the full set of set-theoreti
+   fun tion between the interpretations of A and B .
+    The ideas of these interpretation are very ommon. They an be found, for
+instan e, in [9,11,13℄.
+    We will all A(i) the interpretation of Typei . From the se ond assertion above
+and the typing rule Pii;i we need the following losure ondition:
+                            8A; B 2 A(i):BA 2 A(i):
+In parti ular this implies that 2A 2 A(i), sin e jPropj = f0; 1g 2 A(i). It is
+a tually not too diÆ ult to he k that the existen e of a set A(i) verifying the
+( rst) losure ondition above implies the existen e of an ina essible ardinal.
+
+3.2 Ina essible ardinals
+In what follows, we will assume the existen e of an ina essible ardinal to build
+the interpretation of ea h universe. The notions of set theory used are quite
+ ommon (see [14,15℄ for instan e).
+De nition 1 (Ina essible ardinal). An in nite ardinal  is said to be i-
+na essible if and only if:
+ { For any ardinal < , 2 < .
+ { Let ( i )i2I be a family of ardinals <  indexed by a ardinal I < ; then
+   supi2i ( i ) < .
+    The main idea behind the notion of ina essible ardinal is that its existen e
+allows the onstru tion of a set whi h is a itself a model of ZFC. It therefore
+enhan es the expressive power of the theory. The following onstru tions are
+usual in the literature.
+    We write P for the powerset.
+
+De nition 2. For every ordinal , we de ne a set V by indu tion over :
+ { V0  0S
+ { V  < P (V ) if > 0.
+The following result is a onsequen e of the foundation axiom and the proofs
+are well-known.
+De nition 3 (Rank of a set). For every set X , there exists a smallest ordinal
+ su h that X 2 V . is alled the rank of X , written rk(X ).
+
+Lemma 4. If  is an ina essible ardinal, then V veri es the axioms of ZFC.
+In parti ular if A 2 V and for every a 2 A, Ba 2 V , then a2A BA 2 V .
+3.3 The Interpretation
+From here on, we assume the existen e of an in reasing sequen e of ina essible
+ ardinals (i )i2N . For every i we de ne A(i)  Vi .
+    We an now de ne the interpretation. The interpretation j j of a ontext
+   of length n is a set of n-tuples. The interpretation j ` tj of a judgement
+   ` t : T does not depend upon T and is a fun tion of domain j j.
+    As often for similar onstru tions, [4,18℄ among others, we rst de ne the
+interpretation as a partial fun tion. The de nition is a stru tural indu tion over
+the syntax; here, P ex lusively denotes propositions ( lauses 3 and 4):
+
+
+                           j[℄j  1                                                  (1)
+                  j ; (x : A)j  f( ; ); 2 j j ^ 2 j ` Aj( )g                        (2)
+
+           j ` pj( )  0 if p is a proof in                           (3)
+    j ` x : A:P j( )  1 if 8 2 j ` Aj( ):j ; (x : A) ` P j( ; ) = 1 (4)
+    j ` x : A:P j( )  0 if 9 2 j ` Aj( ):j ; (x : A) ` P j( ; ) = 0 (5)
+    j ` x : A:T j( )   2j `Aj j ; (x : A) ` T j( ; )
+                                        ( )                           (6)
+        j ` Propj( )  f0; 1g                                         (7)
+       j ` Typei j( )  A(i)                                          (8)
+     j ` x : A:B j( )  a 2 jAjI 7! jB jI x a  ;                     (9)
+        j ` (u v)j( )  juj( )(jvj( ))                               (10)
+           j ` xj( )  i                                             (11)
+
+Interpretation of indu tive types The interpretation of ea h indu tive type
+is de ned indu tively, in the set-theoreti al sense. Again, we avoid detailing a
+tedious generi de nitions and on entrate on an example; onsider the de nition
+of lists:
+                Indu tive list : Typei := nil : list
+                                        j ons : A ! list ! list:
+where A : Typei . We en ode the onstru tor using set-theoreti al natural num-
+bers 0,1,2. . . . The set jlistj is (if it exists) the smallest subset of A(i) verifying:
+ { 0 2 jlistj
+ { if a 2 jAj and l 2 jlistj, then (1; a; l) 2 jlistj.
+    The two lauses orrespond to the two onstru tors; the interpretation of the
+latter is natural:
+
+ { jnilj  0
+ { j( ons a l)j  (1; jaj; jlj) or, to be pre ise, the ( urry ed) fun tion whi h to
+   a 2 jAj and l 2 jlistj asso iates (1; a; l).
+    Note that we deliberately omit the interpretation of the ontext in this ex-
+ample, sin e they do not play a relevant role and would ompli ate notations.
+This interpretation generalizes smoothly to de nitions with arbitrary many on-
+stru tors of arbitrary arity2 .
+    The stri t positivity ondition assures that the indu tive de nition above
+ orresponds to a monotone operator over sets. Sin e the arguments of the on-
+stru tor are all of type Typei , the soundness result below will ensure that their
+respe tive interpretations are elements of A(i) and thus this monotone operator
+will a tually admit a least x-point in A(i).
+    The stru tural ordering of the elements of the indu tive type is re e ted
+by a well-founded ordering of its interpretation. This gives rise to a natural
+interpretation of the elimination s hemes we do not detail here.
+
+Soundness results We show our interpretation is de ned and sound on well-
+formed judgements. In order to treat the onversion rule, we rst have to he k
+that the interpretation is stable by redu tion. For matters of spa e we do not
+detail the parts of the proof dealing with indu tive types and the orresponding
+redu tions.
+Lemma 5 (Substitution). Let ; (x : A);  ` t : T and ` a : A be two
+derivable judgements. If 2 j j, 2 j ` Aj( ), = j ` aj( ), ( ; ; Æ ) 2
+j ; (x : A); j and j ; (x : A);  ` tj( ; ; Æ) is de ned, then so is j ; [x n a℄ `
+t[x n a℄j( ; Æ) and
+            j ; [x n a℄ ` t[x n a℄j( ; Æ) = j ; (x : A);  ` tj( ; ; Æ):
+By indu tion over the proof that j ; (x : A);  ` tj( ; ; Æ ) is de ned.
+Lemma 6 (Subje t redu tion). Let ` u : U be a derivable judgement. If
+j j is de ned and j ` uj( ) is de ned for any in j j, if u B u0 , then
+                             j ` u0 j( ) = j ` uj( )
+and in parti ular, the left-hand part of the equation is de ned.
+By indu tion over the proof that j ` uj( ) is de ned (whi h follows the stru -
+ture of u). The key ase where u is the redu ed redex is treated by the previous
+lemma.
+Corollary 7. Let ` u : U and ` u0 : U 0 be two derivable judgements su h
+that j ` u : U j( ) and j ` u0 : U j( ) are de ned for 2 j j. Then
+                           j ` u0 j( ) = j ` uj( ):
+Immediate, by the previous lemma, subje t redu tion and on uen e of B .
+2   Note however that we take advantage of the fa t that every onstru tor awaits a xed number
+    of arguments, whi h is always trues in CIC.
+Theorem 8 (Soundness). Let                  ` t : T be a derivable judgement. Then j j
+is de ned, and for any element            of j j:
+                                   j ` tj( ) 2 j ` T j( )
+in parti ular, both obje ts are de ned.
+By indu tion over the stru ture of the derivation. The previous orollary takes
+ are of the onversion rule.
+Corollary 9. There is no derivation of [℄ `  : Prop: .
+De nition 10. A well-formed ontext                  is said to be onsistent if and only if
+j j is not empty.
+Remark 11. If a ontext             is onsistent, there is no derivation of            `       :
+Prop: .
+De nition 12. We all Type-theoreti al Des ription Axiom on level i (TTDAi ),
+the following proposition:
+     A; B : Typei :P : A ! B ! Prop:(a : A:9b : B:(P a b)) !
+                                        9f : A ! B:(a : A:(P a (f a)))
+Theorem 13. The following ontext built up from instan es of TTDAi and the
+ex luded middle is onsistent:
+      (e : P : Prop:P _ :P ); (a1 : TTDA1 ); (a2 : TTDA2 ); : : : ; (an : TTDAn )
+It is obvious that jP : Prop:P _:P j = 1. One easily he ks that jTTDAi j = 1 is
+equivalent to the usual set-theoreti al axiom of hoi e; it is thus onsidered true,
+sin e we work in ZFC3 . The following alternative type-theoreti formulation of
+the hoi e axiom will also be useful.
+De nition 14. We all Type-theoreti al Choi e Axiom on the level i (TTCAi ),
+the following proposition:
+A : Typei :R : A ! A ! Prop:(equiv A R) !
+                          9f : A ! A:x; y : A:(R x y) ! (f x) =A (f y)
+where (equiv A R) expresses that R is an equivalen e relation over A, namely:
+equiv := A : Typei :R : A ! A ! Prop:
+                                  ((x : A)(R x x))
+                                ^ ((x; y : A)(R x y) ! (R y x))
+                                ^ ((x; y; z : A)(R x y) ! (R y z ) ! (R x z ))
+3   To be pre ise, the interpretation of TTDAi is equivalent to the axiom of hoi e restri ted to
+    the elements of A(i); it is however an easy and usual result that the latter is a onsequen e
+    of the general set-theoreti al axiom of hoi e.
+Again, one easily he ks that jT T CAi j = 1 is a onsequen e of the axiom of
+ hoi e. We might thus on lude:
+Theorem 15. The following ontext built up from instan es of TTDAi , TTCAi
+and the ex luded middle is onsistent:
+   (e : P : Prop:P _ :P ); (a1 : TTDA1 ); (a2 : TTDA2 ); : : : ; (an : TTDAn );
+                            (a1 : TTCA1 ); (a2 : TTCA2 ); : : : ; (an : TTCAn :
+    Let us write CICi for the fragment of CIC where we only use universes up to
+Typei , and ZFCi for ZFC equipped with i ina essible ardinals. We an remark
+that we an build the interpretation for CICi using only i 1 ina essibles; whi h
+allows us to state a ner version of the theorem:
+Theorem 16. If ZFCi 1 is onsistent, then so is the following ontext of CICi :
+   (e : P : Prop:P _ :P ); (a1 : TTDA1 ); (a2 : TTDA2 ); : : : ; (an : TTDAn );
+                            (a1 : TTCA1 ); (a2 : TTCA2 ); : : : ; (an : TTCAn :
+
+3.4 Comment
+The type-theoreti al des ription axiom is valid in the model be ause the set-
+theoreti al axiom of hoi e is valid in ZFC, but also, and mainly, be ause the
+fun tion type x : A:B is interpreted by the full spa e of set-theoreti al fun -
+tions. A tually we might view the hypothesis TTDA as a way to express, in the
+type theory, that the model is full. In the next se tion we develop this point by
+showing that TTDA is a tually a suÆ ient onstraint to for e the model to be
+full, sin e adding TTDA to the type theory allows to en ode full ZF.
+    It is ertainly not obvious how to build a model for the Cal ulus of Indu tive
+Constru tions whi h would not be full (and not require the existen e of ina es-
+sibles). A tually, it is, to our knowledge, an open problem whether this is at all
+possible.
+    We should also say a word about the link with normalization proofs. Al-
+tenkir h [4℄ has presented a new te hnique in whi h proving normalization for
+a type theory essentially boils down to the onstru tion of a ertain kind of
+model. This idea has been used by Mellies and Werner in a normalization proof
+for Pure Type Systems [18℄. Sin e, in the latter work, indu tive types where not
+ onsidered, it was possible to avoid using ina essibles at the ost of a notable
+ ompli ation of the model onstru tion. We mention this be ause su h normal-
+ization proofs an be parti ularly well be built up along the proof-irrelevan e
+interpretation. For matters of spa e, and sin e this is not the primary topi of
+the present paper, we do not deal further with normalization here.
+
+4 En oding ZFC in CIC
+In this se tion, we present an adaptation of Peter A zel's en oding of set theory
+in type theory. We have formalized and he ked our version of the en oding using
+the Coq theorem prover[21℄.
+    Before des ribing the te hni al di eren es with A zel's original work, we
+should mention the di erent motivations that drive us here. A zel uses Martin-
+Lof predi ative type theory; he wanted to demonstrate the pertinen e this the-
+ory as a foundational formalism and was mainly interested in onstru tivity.
+It was therefore mu h more important to him to obtain a onstru tive type
+theory than to study the links with the usual lassi al (and impredi ative and
+non- onstru tive) Zermelo-Frnkel set theory. Here, we are more primitively
+interested in \brute for e" expressive power and impredi ativity.
+    We parametrize our development by a universe index i. The reader might
+  nd more details in the Coq proof- le [21℄ and A zel's original work [1{3℄.
+
+4.1 The sets
+Peter A zel's en oding is a beautyful and very re ned pie e of type theory. The
+main idea is that sets an be build up indu tively following the foundation axiom:
+the elements are stru turally smaller than the set whi h ontains them.
+                          Indu tive Set : Typei+1 :=
+                            sup : A : Typei :(A ! Set) ! Set:
+    Intuitively (sup A f ) is the set whose elements are the obje ts of the form
+(f a) where a ranges over the type A; mixing type and set theory notations
+we ould write it ff (a); a : Ag. Note that (sup A f ) ontains at most as many
+elements as the type A (less if, for instan e, f is a onstant fun tion).
+    A good rst example is the onstru tion of the pair-set, orresponding to the
+set-theoreti al axiom of pairing. Sin e the set fE; E 0 g has atmost two elements,
+the obvious hoi e is to use the booleans as base type:
+                      De nition Pair : Set ! Set ! Set :=
+                       fun E1 E2 7! (sup bool (fun true 7! E1
+                                                      j false 7! E )):
+                                                                   2
+
+
+     Another one is the empty set, whi h uses the empty type4 :
+                    De nition Empty := (sup bot fun : bot ! Set):
+
+4.2 The propositions
+Before we an prove the de nitions above a tually verify the orresponding set-
+theoreti axioms, we have to de ide how to translate the propositions of set
+theory. Set theory is a rst order theory with two (binary) predi ates: member-
+ship and equality. One rst de nes equality, by stru tural re ursion, in a way
+whi h aptures the extentionality axiom:
+           De nition Eq : Set ! Set ! Prop :=
+            fun (sup A f ) (sup B g) 7! ((a : A:9b : B:(Eq (f a) (g b)))
+                                       ^ (b : B:9a : A:(Eq (f a) (g b))))
+4   The empty type bot is the indu tive type with no onstru tor.
+   On top of this, one easily de nes membership:
+
+                    De nition In : Set ! Set ! Prop :=
+                     fun E (sup A f ) 7! 9a : A:(Eq E (f a)):
+
+    It is in these two last de nitions that we made a hoi e di erent from A zel's:
+we hose to represent the propositions of set theory by obje ts of type Prop as
+opposed to A zel who translates propositions to obje ts either of type Typei or
+of type Typei+1 .
+    In any ase, given the two de nitions above, we an he k the onstru tion of
+the unordered pair a tually is a witness of the orresponding axiom of Zermelo
+set theory by proving the three following lemmas:
+
+             (A; B : Set)(In A (Pair A B )
+             (A; B : Set)(In B (Pair A B )
+             (A; B; C : Set)(In C (Pair A B ) ! (Eq A C ) _ (Eq B C )
+
+  Note that equality over sets is not represented by the usual Leibniz equality.
+Thus, we have to prove that all our en odings are extentional. For example:
+
+              A; A0 ; B : Set:(In A B ) ! (Eq A A0 ) ! (In A0 B ):
+
+
+4.3 Comparing the two approa hes
+
+From a onstru tive point of view, the main drawba k of our en oding is that,
+sin e we annot extra t the existential witness of existential proofs, it is to prove
+9X : Set:(P X ) and to a tually exhibit a term E of type Set together with a
+proof of (P E ). A side e e t is the diÆ ulty we have proving the repla ement
+s hemata as des ribed in se tion 4.5.
+    The advantage is that, as opposed to A zel, we gain unbounded quanti a-
+tion (over all sets) thanks to impredi ativity and avoid umbersome distin tions
+between restri ted and unrestri ted formulas, leading to various formulations of
+the omprehension s heme.
+    We should however remark that in many ases, we an avoid relying on the
+usual repla ement s heme, using the higher-order features of CIC instead.
+
+
+4.4 The other omputational onstru tions
+
+The other onstru tions underlying the set theory Z, namely union, omprehen-
+sion s heme and the powerset an then be de ned without diÆ ulty. Possible
+de nitions are:
+              De nition Power : Set ! Set ! Set :=
+               fun E 7! (sup (Set ! Prop)
+                             P : Set ! Prop:(Compr P E )):
+              De nition Union : Set ! Set :=
+               fun (sup A f ) 7! (sup a : A:(1 (f a))
+                                      fun( a b) 7! (2 (f a) b)):
+              De nition Comp : Set ! (Set ! Prop) ! Set :=
+               fun (sup A f ) 7! (sup a : A:(P (f a))
+                                      fun( a p) 7! (f a)):
+   From there we an, for instan e, de ne the interse tion set in the usual way:
+      De nition Inter : Set ! Set :=
+       fun E 7! (Comp (Union E ) e : Set:a : Set:(In a E ) ! (In e a)):
+Of ourse, one then has to he k the usual properties for all these onstru tions.
+   A very ni e onstru tion is the set of natural numbers, orresponding to the
+axiom of in nity, obtained using the type of natural numbers:
+                  De nition en : Nat ! Set :=
+                      O 7! Empty
+                   (S n) 7! (Union (Pair (en n) (Power (en n)))):
+               De nition NAT := (sup Nat en ):
+   All these de nitions are basi ally A zel's ones, ex ept the powerset whi h
+obviously strongly relies on impredi ativity. A rst onsequen e is:
+Theorem 17. The set theory Z an be en oded in CCI2 +EM.
+
+4.5 Non- omputational onstru tions: repla ement and hoi e
+The situation is more ompli ated regarding the repla ement s hemata and the
+(set theoreti al) axiom of hoi e. Both axioms rely on assumptions of the form
+8A:9B: : : :. Sin e we work with a non- omputational existential quanti er, we
+have no han e to a tually build a set out of this assumption. We an however
+prove, using TTDA, the set theoreti al axiom. The proofs are quite straightfor-
+ward but too long to be detailed here; we refer to the proof- le [21℄ for details.
+
+Formulations of the repla ement s hemata The en oding of the following
+ olle tion s heme an be proven in CIC, assuming TTDA. It is parametrized by
+a binary predi ate P :
+   (8X : 9Y : P (X; Y )) ) 8E : 9A : (8x 2 E : 9y 2 A : P (x; y )):
+Furthermore, suppose P is a fun tional predi ate, namely
+   8x; y; y0 : P (x; y) ^ P (x; y0 ) ) y = y0 :
+Then, assuming TTDA and the ex luded middle, we an prove the usual repla e-
+ment s hemata:
+   8X : 9Y : 8y : (y 2 Y () 9x 2 X : P (x; y)):
+   We an then state:
+Theorem 18. The set theory ZF an be en oded in CCI2 +EM+TTDA3 .
+A possible en oding of the axiom of hoi e Let us, for instan e, onsider
+the following formulation of the set-theoreti al axiom of hoi e:
+   Let E be set su h that:
+    { all elements of E are non-empty (i.e. bear one element)
+    { the interse tion of two elements of E is non-empty
+   Then there exists a set X su h that the interse tion of X with any ele-
+   ment of E bears exa tly one element.
+Viewing this statement in the en oding, we may onsider E is of the form
+(sup A f ). Using TTDA, we an prove the existen e of a fun tion g of type
+A ! Set, su h that for any inhabitant a of type A, we have (In (g a) (f a)).
+Suppose however that a and b are two di erent inhabitants of A, su h that
+(Eq (f a) (f b)); we annot on lude that (Eq (g a) (g b)). The set (sup A g ) is
+therefore not an adequate witness for the axiom of hoi e: its interse tion with
+the element (f a) of E might possibly bear several elements (here (g a) and
+(g b)). We have to further assume TTCA, to deal orre tly with this extention-
+ality problem and prove the lemma above. The on lusion then is:
+Theorem 19. The set theory ZFC an be en oded in CCI3 using the assump-
+tions EM+TTDA3 TTCA3 .
+
+4.6 Ina essible Cardinals
+Up to here, we have only used two universes Typei and Typei+1 . As a onse-
+quen e CIC2 (with axioms) is suÆ ient to en ode ZFC. We now show that we
+are able to build expli it en odings for ina essible ardinals.
+    The idea is remarkably simple and builds on the only typing rule we have
+not used so far, namely umulativity. We dupli ate the whole en oding in a new
+universe; for simpli ity of notations we suppose that i is at least 2 and rede ne
+sets one level below:
+                    Indu tive Set0 : Typei :=
+                      sup0 : A : Typei 1 :(A ! Set0 ) ! Set0 :
+    The new type Set0 then orresponds to A(1), the set of \small sets" whi h
+is obviously losed for all set-theoreti al axioms. Indeed we have an obvious
+inje tion from Set0 to Set:
+                  De nition inj : Set0 ! Set :=
+                   fun (sup0 A f ) 7! (sup A a : A:(inj (f a))):
+And we an a tually de ne the big set of small sets:
+                                 Big := (sup Set0 inj ):
+And, for instan e, it is surprisingly simple to prove that Big is losed for the
+powerset:
+                  E : Set:(In E Big) ! (In (Power E ) Big):
+Of ourse this dupli ation of the en oding an be repeated several times using
+several universes.
+    At the urrent day, we have not expli itly proven in Coq the set Big implies
+the existen e of an ina essible ardinal. The main reason is that this would
+imply developing the whole theory of ordinals in ZFC en oded in Coq. Pre isely,
+su h a development is under way, along the lines of Paul Taylor's de nition of
+ onstru tive ordinals [20℄. It seems however reasonable to anti ipate the formal
+result of proving the existen e of ina essible ordinals in Coq, whi h is our nal
+relative onsisten y result:
+Theorem 20. The set theory ZFC with n ina essible ardinals an be en oded
+in
+CICn+2 +EM+TTDAn+2 .
+
+5 Con lusion
+Building on ideas of A zel, Coquand and others, we have presented two families
+of relative onsisten y proofs between ZFC and CIC, depending on how many
+ina essible ardinals (resp. universes) we assume. This shows these two families
+have interleaving logi al strengths; the situation is summed up in the following
+  gure.
+                        ZFCi+1                         CICi+2
+
+
+                        ZFCi                           CICi+1
+
+
+
+                        ZFC2                           CIC3
+
+
+                        ZFC1                           CIC2
+
+
+
+                        ZFC0                           CIC1
+
+
+Both proofs are quite simple in spirit, and even the details are still mu h less
+ umbersome than what metatheoreti al reasoning an often be.
+    Some work remains to be done. The formal proof of the existen e of ina es-
+sible ardinals of ourse, but also we believe the axioms used in oq in order to
+en ode ZF and ZFC might be slightly simpli ed. To be pre ise, we onje ture:
+1. When en oding ZF in CIC, it should be possible to rely on a weaker (but
+   possibly more verbose) axiom than TTDA, whose justi ation unpleasantly
+   relies on the set-theoreti axiom of hoi e.
+2. Along the lines of the Dia ones u-Goodman-Myhill paradox, it should be
+   possible to prove the ex luded middle in CIC under the assumptions TTDA
+   and TTCA.
+More generally, it remains an open problem, up-to-where hoi e axioms are ne -
+essary for CIC to a hieve the expressiveness of ZF or ZFC 5 .
+    This work does not give birth to fundamental new on epts. We hope however
+it helps to bring various pie es of mathemati s together. Espe ially we believe it
+sheds some new lights on the on ept of type universes, whi h are often diÆ ult
+to grasp.
+
+A knowledgements
+I am grateful to Peter A zel, Thierry Coquand and Samuel La as for helpful
+ex hanges on the topi . The idea of investigating this topi was given to me by
+Christine Paulin-Mohring and Martin Ho man.
+
+Referen es
+  1. P. A zel. The Type Theoreti Interpretation of Constru tive Set Theory. Logi
+     Colloquium 77, Ma intyre, Pa holsky and Paris (editors), Springer, 1977.
+  2. P. A zel. The Type Theoreti Interpretation of Constru tive Set Theory: Choi e
+     Prin iples. In The L. E. J. Brouwer Centenary Symposium, A. S. Troelstra and
+     D. van Dalen (editors), North-Holland, 1982.
+  3. P. A zel. The Type Theoreti Interpretation of Constru tive Set Theory: Indu -
+     tive De nitions. Pro eedings of Methodology and Philosophy of S ien es, 1985.
+  4. T. Altenkir h. Constru tions, Indu tive Types and Strong Normalization. Ph.D.
+     Thesis, University of Edinburgh, 1993.
+  5. H. Barendregt. Lambda Cal uli with Types. In Handbook of Logi in Computer
+     S ien e, Vol II, Elsevier, 1992
+  6. B. Barras et al. The Coq Proof Assistant Referen e Manual, Version 6.1. INRIA
+     Te hni al Report, 1996.
+  7. A. Chur h. A Formulation of the Simple Theory of Types. Journal of Symboli
+     Logi , 5 (1), pp. 56-68, 1940.
+  8. T. Coquand. An Analysis of Girard's Paradox. Pro eeding of LICS, IEEE press,
+     1985.
+  9. T. Coquand. Metamathemati al Investigations of a Cal ulus of Constru tions.
+     In P. Oddifredi (editor), Logi and Computer S ien e. A ademi Press, 1990.
+     Rapport de re her he INRIA 1088.
+ 10. T. Coquand and C. Paulin-Mohring. Indu tively de ned types. In P. Martin-Lof
+     et G. Mints (editors), Pro eedings of Colog'88. Springer-Verlag, LNCS 417, 1990.
+ 11. P. Dybjer. Indu tive sets and families in Martin-Lof's type theory and their set-
+     theoreti semanti s. In G. Huet and G. Plotkin (editors), Logi al Frameworks,
+     Cambridge University Press, 1991.
+ 12. J.-Y. Girard. Interpretation fon tionnelle et elimination des oupures de
+     l'arithmetique d'ordre superieur, These d'Etat, Universite Paris 7, 1972.
+5   Or alternatively whether one an exhibit a relative onsisten y proof of CIC+TTDA+TTCA
+    in CIC.
+13. D. Howe. On Computational Open-Endedness in Martin-Lof's Type Theory. Pro-
+     eedings of LICS, 1991.
+14. J.-L. Krivine. Theorie Axiomatique des Ensembles, Presses Universitaires de
+    Fran e, 1969.
+15. K. Kunen. Set Theory, An Introdu tion { Independen e Proofs, North-Holland,
+    1980.
+16. Z. Luo. An Extended Cal ulus of Constru tions. Ph.D. Thesis, University of Ed-
+    inburgh, 1990.
+17. P. Martin-Lof. Intuitionisti Type Theory. Studies in Proof Theory, Bibliopolis,
+    1984.
+18. P.-A. Mellies and B. Werner. A Generi Normalization Proof for Pure Type Sys-
+    tems. Submitted and vailable on http://pauilla .inria.fr/~werner/, 1996.
+19. J. C. Reynolds. Polymorphism is not Set-theoreti . Pro eedings Int. Symp. on
+    Semanti s of Data Types, Sophia-Antipolis, LNCS 173, Springer, 1984.
+20. P. Taylor. Intuitionisti Sets and Ordinals. Journal of symboli Logi , 61(3), pp.
+    705-744, 1996.
+21. B. Werner. An En oding of ZFC Set Theory in Coq. Coq proof- le, available on
+    http://pauilla .inria.fr/ werner/ or as part of Coq distribution, 1997.
+

@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_HMZ-002_HMZ-003_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_PREFLIGHT_REJECTED_WITH_SCOPE / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_HMZ-002_HMZ-003_HMZ-007_CLOSED_WITH_SCOPE / HMZ-004_HMZ-005_PREFLIGHT_REJECTED_WITH_SCOPE / HMZ-006_PAIRING_LEAD_CLOSED_BY_HMZ-007 / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -25,6 +25,8 @@ P-DAG、STATE mutation、proof assistant kernel run、tag、push 或发布。
 - 当前 Feature/ruling/MEMORY 与 archive root；
 - 原典／文献：HMZ-S-001…S-011，精确 locators 与 SHA-256 位于本 run 的 `SOURCE-CATALOG.md`。
 - 预检控制：Voevodsky 2006 Hλ（HMZ-S-019）与 Makkai 1996 anafunctor 预印本（HMZ-S-020）；后者七段原件、重建 PDF 与全文索引在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-005-makkai-anafunctor-preflight/`。
+- 新作者动机预检：Voevodsky 2011 WoLLIC（HMZ-S-021），九页原件和派生文本在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-006-wollic-machine-preflight/`；它需要具名 ZFC-in-Coq 配对来源才可升级为完整分母。
+- 配对分母：Werner 1997 与 `rocq-archive/zfc@ede712...`（HMZ-S-022／023）；原件、source tree、卡片和控制在 `audit/HOTT-MOTIVE-ZFC/20261003-HMZ-007-werner-zfc-coq-pair/`。
 
 `cognition_runtime.py plan --profile governance` 仍被既有 `HEAD.json`—`MEMORY/001` 状态快照不匹配而
 fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直接路径回读，研究结论限于 archive 中的显式范围。
@@ -55,6 +57,17 @@ P-lane负控制，而不产生 ZFC Q。
 product diagrams，故改变 `Done`；更强 Cartesian-closed 任务又以 SCSA 支付。Makkai 的基础是无 AC 的
 constructive G-B，不是 ZFC 同层对象语言，也没有 formation-use reentry。两项都判
 `ADMISSION_REJECTED_WITH_SCOPE`，但后者把“actual consumer”从泛称变成了可重复使用的 contract control。
+
+WoLLIC 2011 提供了更直接的作者级机器动机：slide 2 明确点名 ZFC-based proof-assistant formalization，
+并报告它们导致“不自然构造”。但讲演既未列举尝试，也没有给出 ZFC encoding、consumer 或 Done；它只能建立
+`HMZ-R-014` 与“寻找具名 attempt”的下一来源义务。slide 8 对 Coq universe management 和关闭 consistency
+verification patch 的陈述同时防止把这个动机偷写成 UF 已无实现代价。状态为 `PAIRING_SOURCE_REQUIRED`，不重开
+完整 A–E 分母、不创建 Z card 或 Q。
+
+这个 pairing 已由 Werner 1997 的 CIC↔ZFC 论文及 historical Coq/ZF archive 组成 HMZ-007 完整冻结分母。来源确实给出
+`Ens`、`IN`、`EQ`、Power、Replacement和Russell consumers，但与 WoLLIC 的关系仍不归因。论文／README／源码都明确：
+full ZFC编码要有 EM + TTDA/TTCA 等 non-computational Choice principles；`Russell.v`只反证一个先假定的包含所有`Ens`的U；`Power`在CIC的
+`sup`和`Prop`中定义。因而这个 precise pairing 形成的是支付／guard／H0非保真控制，而非 P candidate。
 
 ## §7 重新呈现与 14 题定位
 
@@ -94,4 +107,7 @@ coarse classification 说成完成。对 ZFC class language，过程是尝试在
 本 run 的任何 `NO_CANDIDATE_SEED` 会因下列证据失效：新的 UF 创立原典；明确将 Power Set 与 R-card 连接的来源；
 ZFC 内同一 Done 的未付 consumer；或满足 H0 transport T0–T5 的正向材料。Makkai 控制还把第三项收紧为：来源必须
 声称 ordinary specified output 已由 mere existence 获得，且不以 Choice、标签、代表、或输出／Done 改写支付。
-未出现这些时，后续若继续应建立新的 source denominator，不重开已关闭的卡。
+WoLLIC 则把一条具体配对义务加入：必须找到其所指的具名 ZFC-in-Coq attempt，并逐项固定对象、encoding、consumer
+与 Done。Werner 已提供一个可核查的 comparable attempt，但没有满足“Voevodsky点名”的历史归因门；下一步需要同一
+ZFC-level未付consumer、明确R→Power Set bridge或保真H0 transport。未出现这些时，后续若继续应建立新的 source denominator，
+不重开已关闭的卡。

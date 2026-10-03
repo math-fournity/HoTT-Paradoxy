@@ -15,9 +15,9 @@ soft_line_target: 300
 |---|---|
 | 当前 core | `core-cognition-generation-13`，62 个 KC。 |
 | 工作单元 | `HOTT-MOTIVE-ZFC-SOP` 的首个来源分母闭合。 |
-| 当前判词 | `ALIGNED_WITH_THREE_SOURCE_RUNS_AND_TWO_PREFLIGHT_CONTROLS / NO_ZFC_Q_CLAIM`。 |
-| 关键张力 | 用户要求用 P 发现基础理论 Q；三份冻结来源分母给出 class/meta-language、equivalence-language和formation/payment表示边界，两份预检分别排除无ZFC bridge与已支付／Done改写的 actual-consumer 假阳性，尚未给 P 所需的未付同一任务。 |
-| 反证／重开 | 新来源改变 object/formation/consumer/Done、显示未付 payment，或给 H0→Z0 的正向传输。 |
+| 当前判词 | `ALIGNED_WITH_FOUR_SOURCE_RUNS_TWO_REJECTED_PREFLIGHTS_AND_ONE_CONTROLLED_PAIRING / NO_ZFC_Q_CLAIM`。 |
+| 关键张力 | 用户要求用 P 发现基础理论 Q；四份冻结来源分母给出 class/meta-language、equivalence-language、formation/payment和ZFC-in-CIC model/Choice/Russell guard边界，两份预检排除无ZFC bridge与已支付／Done改写的 actual-consumer 假阳性，尚未给 P 所需的未付同一任务。 |
+| 反证／重开 | 新来源改变 object/formation/consumer/Done、显示未付 payment，给 H0→Z0 的正向传输，或直接识别 WoLLIC 所指的具名 ZFC-in-Coq attempt。 |
 
 <!-- governance-shard-table:start -->
 | Shard | 文件 | 覆盖 | 状态 |
@@ -30,7 +30,7 @@ soft_line_target: 300
 
 - **扩展认知 001–012：** 本轮实际使用“理论为便利改变条件 → 针对过程 → 控制”的方法，避免把原典的
   `directly`、`official`、`machine`、`canonical` 或 `Choice` 词汇当结论；第 010–012 片尤其要求把 P 限于 formation、consumer、
-  payment 和同一任务。R/Z/Q cards 与 HMZ-C-001–006，以及 Makkai 的 HMZ-C-010 contract control，是这一消费的可见证据。
+  payment 和同一任务。R/Z/Q cards 与 HMZ-C-001–006、Makkai 的 HMZ-C-010 contract control、WoLLIC的R-014、Werner的Ens/Choice/Russell controls是这一消费的可见证据。
 - **方向追踪：** 本轮是用户授权的后续基础理论来源路线，未触发或替代 P-FORGE 的 Power Set station；已有
   `ZFC_Q_NOT_LOCATED` 保持。
 - **全景视野：** 本单元不修改任何 HoTT machine proof 或现实相对判词，只增加一个来源有界的未来理论调查结果。
