@@ -32,11 +32,14 @@ actual_action:
   - found whitespace-normalized exact text overlap S12[1]/[3]/[4]/[5]/[6], S13[7] with archive 0108 C1/C7 and 0109 U1-U4; source/Host event identity remains unknown
   - found current 001 abbreviated 0109 digest differs from the exact current digest in 006 and on disk; 006 matches on-disk bytes
   - cataloged the current Codex session and inspected only its Goal event; did not traverse parent/previous-worktree trajectory
-  - verified current Goal event timestamp 2026-10-03T02:45:22.640Z / 2026-10-02T22:45:22.640-04:00
-  - verified 0109 exact-hash archive mtime 2026-10-02T22:18:41-04:00 and U19-U21 membership; archive snapshot precedes Goal by 26m41s
-  - verified the 18 referenced project commits range from 2026-10-02T15:35:10-04:00 through 2026-10-02T22:01:27-04:00, all before the Goal event
+  - verified current child-thread Goal event timestamp 2026-10-03T02:45:22.640Z / 2026-10-02T22:45:22.640-04:00
+  - verified 0109 exact-hash archive mtime 2026-10-02T22:18:41-04:00 and U19-U21 membership; archive snapshot precedes the child-thread Goal by 26m41s only
+  - verified the 18 referenced project commits range from 2026-10-02T15:35:10-04:00 through 2026-10-02T22:01:27-04:00, all before the child Goal event
   - observed current-thread raw rollout mode 0644; did not copy or modify trajectory data
-alignment_verdict: SOURCE_DENOMINATOR_MISMATCH / PRE_GOAL_ARCHIVE_SNAPSHOT_SUPPORTED / PER_EVENT_WALL_CLOCK_UNKNOWN
+  - found the full-origin audit's creating commit 8d4877ad predates the current child-thread Goal by more than six hours and already declares b810380f as its stage boundary
+  - withdrew the prior inference that the current child-thread Goal timestamp classifies U19-U21 relative to the parent Goal under audit
+  - did not inspect the parent/previous-worktree rollout or filesystem
+alignment_verdict: SOURCE_DENOMINATOR_MISMATCH / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_NOT_APPLICABLE
 deviation_class:
   - EXECUTION_DEVIATION: declared event list U1-U19 omits two captured archive turns without an explicit disposition
   - IDEA_SPEC_INCOMPLETE: no documented rule distinguishes archive-event count from unique prompt-payload or semantic-intent count
@@ -53,10 +56,17 @@ PowerSet_Russell_defense:
   residual_candidate: none
   ZFC_Q_status: unchanged / NOT_LOCATED
 cutoff:
-  current_goal_event:
+  current_child_goal_event:
     thread_id: 01a0ffa6-1527-7802-b534-9030d6f06e79
     raw_locator: rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5
     timestamp: 2026-10-02T22:45:22.640-04:00
+    relation_to_audited_parent_goal: DISTINCT_THREAD_GOAL / NOT_A_VALID_CUTOFF
+  audited_parent_goal:
+    full_origin_audit_commit: 8d4877ad8abd110cb31973408eb46d0155de14fd
+    full_origin_audit_timestamp: 2026-10-02T16:14:59-04:00
+    owner_declared_boundary_commit: b810380f715fa1960cf4ab229c45d02cef0937a5
+    owner_declared_boundary_timestamp: 2026-10-02T15:53:28-04:00
+    actual_parent_goal_event: NOT_REOBSERVED_PER_WORKTREE_INDEPENDENCE
   archive_snapshot:
     source: dev-notes/0109 - 2026-10-02 - ZFC最大的问题，肯定在于对“时间维度”的把握上.md
     sha256: fdb556b5173f9138880ad94c8e0b1a4d47fb90f73aeeca48f05bb1f9a5e8769c
@@ -65,13 +75,14 @@ cutoff:
     contains: U19/U20/U21
   cited_project_commit_range: 2026-10-02T15:35:10-04:00 .. 2026-10-02T22:01:27-04:00
   b810380f: 2026-10-02 15:53:28 -0400; H010/timing-policy artifact commit, not Goal-start event
-  assignment: PRE_GOAL_HISTORICAL_CORPUS_SUPPORTED_BY_ARCHIVE_SNAPSHOT; individual user-turn wall-clock UNKNOWN
+  child_goal_relation: archive snapshot and cited commits precede child-thread Goal
+  parent_goal_assignment: UNKNOWN; child-thread time and archive mtime do not resolve it
   trajectory_boundary: inspected current-thread Goal event only; parent/previous-worktree trajectory NOT_READ per independence requirement
 falsifiers:
   - exact source/crosswalk showing the 21 raw turns are already completely represented by a documented 19-unit semantic grouping
   - archived message IDs proving the S12/S13 overlaps are the same events or separate user restatements
-  - an exact per-message source timestamp contradicting current archive-snapshot ordering
-  - evidence that the 0109 mtime was preserved while U19-U21 content was appended only after Goal start
+  - permitted direct evidence identifying the parent Goal event and its relation to U19-U21
+  - evidence that the full-origin audit's declared b810380f boundary was not the intended parent-Goal phase boundary
   - verifier run demonstrating the 001 abbreviated digest points to a different intentionally preserved historical source version
 current_owner_mutation:
   full_origin_owner: none
@@ -81,12 +92,12 @@ candidate_owner_updates:
   - reconcile event count vs semantic-intent count; identify U20/U21 response evidence
   - correct 001 summary digest or route it to 006 exact hash
   - add a cross-source mapping for S12/S13 overlaps with native IDs or explicit UNKNOWN
-  - assign U19-U21 as separate PRE_GOAL_HISTORICAL_CORPUS events while preserving their repeated-prompt relation and unknown per-event clock
+  - record U19-U21 as three distinct archived events; keep phase relative to the audited parent Goal UNKNOWN until its own source is available
 toolbirth: NOT_REQUIRED
-next_trigger: canonical integration, per-event timestamp/crosswalk evidence that changes the classification, or another bounded uncovered source unit; do not inspect the previous worktree
+next_trigger: canonical integration, permitted parent-cutoff source/crosswalk evidence, or another bounded uncovered source unit; do not inspect the previous worktree
 git_record:
   candidate_branch: codex/p-dag-tool-birth-audit
-  base_head: 5130ba1b636d4be1ebfe062a52f057eeae1c0a8a
+  base_head: 0cdc15c15c66b3bc74ba10c468d87267af505837
   exact_paths: report + session RUNS/SESSION/CORE_COGNITION_AUDIT
   no_current_owner_edits; no previous-worktree trajectory/filesystem reads or writes
 ```
@@ -99,7 +110,33 @@ git_record:
 | U19–U21 重复 prompt | dev-notes/0109 | Same prompt SHA, distinct turn IDs and answer SHA; answers record distinct deliverables | Do not drop two events without mapping; if a documented grouping exists, link every answer/artifact. |
 | S12/S13 与 archive 重叠 | S12/S13 direct source; archive 0108/0109 | Six whitespace-normalized body matches; no native turn ID crosswalk | MESSAGE_IDENTITY_UNKNOWN; content match does not prove same event. |
 | Audit summary SHA | full-origin 001 vs 006 vs current source | 001 abbreviation begins 8b; 006/current begin fdb | summary stale or historical version unknown; exact hash should own present snapshot. |
-| Historical cutoff | current-thread Goal event, 0109 archive snapshot mtime/hash, cited project commit times | all three U19-U21 events are present in the exact-hash 0109 snapshot whose mtime precedes the Goal event; their cited commits also predate Goal | PRE_GOAL_HISTORICAL_CORPUS_SUPPORTED_BY_ARCHIVE_SNAPSHOT; per-event wall-clock UNKNOWN. |
+| Historical cutoff | parent full-origin audit boundary vs current child-thread Goal event | 0109 snapshot and cited commits predate the child Goal; audit commit 8d4877ad and its b810380f boundary predate that child Goal by hours | CHILD_GOAL_NOT_APPLICABLE; U19-U21 phase relative to audited parent Goal remains UNKNOWN. |
 | Theory result | none | no ZFC/HoTT task was evaluated in this census | NO_MATH_CLAIM; no change to ZFC/HoTT status. |
 
 本单元完成的是源事件差异的检出与重算，不是 full-origin audit 的 current-owner repair 或其最终验收；Goal 保持 active。
+
+## Correction SelfAuditCard：不得用 child Goal 替代 parent audit cutoff
+
+```yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-PARENT-CUTOFF-IDENTITY-CORRECTION
+source_units:
+  - full-origin audit index: PRE_GOAL_HISTORICAL_CORPUS / GOAL_CONTINUATION_DELTA boundary
+  - commit 8d4877ad: first full-origin audit artifact and its recorded b810380f boundary
+  - current child-thread Goal event: rollout...jsonl:5
+  - prior candidate conclusion in commit 0cdc15c1
+actual_action:
+  - compared the target audit's commit time 16:14:59 -0400 with the current child Goal event at 22:45:22 -0400
+  - identified that the current Goal event belongs to this independent child worktree and cannot time-classify the parent Goal audited by 8d4877ad
+  - retracted the prior PRE_GOAL assignment for U19-U21 relative to that parent Goal
+alignment_verdict: EXECUTION_DEVIATION_CORRECTED / PARENT_CUTOFF_STILL_UNKNOWN
+deviation_class:
+  - EXECUTION_DEVIATION: conflated the current child-thread Goal with the earlier parent Goal that defines the audit's phase split
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_boundary:
+  previous_worktree_or_parent_trajectory: NOT_READ
+  current_owner_edits: none
+next_action:
+  - keep U19-U21 as three distinct source events
+  - do not assign their phase relative to the parent Goal without a permitted direct source
+  - continue independent source-unit mapping that does not require crossing worktree boundaries
+```

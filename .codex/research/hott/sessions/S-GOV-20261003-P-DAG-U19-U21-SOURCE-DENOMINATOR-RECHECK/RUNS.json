@@ -84,14 +84,32 @@
         "parent_or_previous_worktree_trajectory": "NOT_READ",
         "raw_copy_or_commit": "NONE"
       },
-      "verdict": "PRE_GOAL_ARCHIVE_SNAPSHOT_SUPPORTED / PER_EVENT_WALL_CLOCK_UNKNOWN",
-      "limits": "archive mtime and cited project commit times support the cutoff inference but do not provide individual user-message timestamps"
+      "verdict": "PRE_CHILD_GOAL_ARCHIVE_SNAPSHOT_SUPPORTED / DOES_NOT_ASSIGN_PARENT_GOAL_PHASE",
+      "limits": "archive mtime and cited project commit times only order materials relative to this child-thread Goal; they do not identify the earlier parent Goal or provide individual user-message timestamps"
+    },
+    {
+      "id": "PARENT_GOAL_CUTOFF_IDENTITY_RECHECK",
+      "kind": "full_origin_audit_commit_vs_current_child_goal_lineage",
+      "full_origin_audit_commit": {
+        "oid": "8d4877ad8abd110cb31973408eb46d0155de14fd",
+        "timestamp_local": "2026-10-02T16:14:59-04:00",
+        "declared_boundary_commit": "b810380f715fa1960cf4ab229c45d02cef0937a5",
+        "declared_boundary_timestamp_local": "2026-10-02T15:53:28-04:00"
+      },
+      "current_child_goal": {
+        "thread_id": "01a0ffa6-1527-7802-b534-9030d6f06e79",
+        "timestamp_local": "2026-10-02T22:45:22.640-04:00"
+      },
+      "parent_or_previous_worktree_trajectory": "NOT_READ_PER_USER_INDEPENDENCE_REQUIREMENT",
+      "verdict": "CURRENT_CHILD_GOAL_IS_NOT_THE_PARENT_GOAL_AUDITED_BY_8D4877AD / PARENT_PHASE_UNKNOWN",
+      "scope": "corrects the previous candidate inference; does not revise the current-owner cutoff or classify U19-U21 against the parent Goal"
     }
   ],
   "verifications": [
     {"id": "ARCHIVE-R-C-U-COUNTS", "status": "PASS_WITH_U_MISMATCH", "result": "0102=11/11; 0108=7/7; 0109=21 captured events vs 19 declared units"},
-    {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006; this branch has a candidate event-level pre-goal disposition"},
-    {"id": "CURRENT-GOAL-CUTOFF-SNAPSHOT", "status": "PASS_WITH_SCOPE", "result": "current Goal event at 2026-10-02 22:45:22 -0400; exact-hash 0109 snapshot containing U19-U21 has mtime 22:18:41 -0400; cited project commits end at 22:01:27 -0400; per-event wall clocks remain unknown"},
+    {"id": "FULL-AUDIT-OWNER-SEARCH", "status": "GAP_CONFIRMED", "result": "U20/U21 turn IDs are absent from full-origin audit index/shards 001-006; this branch records three distinct events but leaves their parent-Goal phase UNKNOWN"},
+    {"id": "CURRENT-CHILD-GOAL-ARCHIVE-ORDER", "status": "PASS_WITH_SCOPE", "result": "exact-hash 0109 snapshot and cited commits predate only the 2026-10-02 22:45:22 -0400 child Goal; they do not classify units relative to the parent Goal"},
+    {"id": "PARENT-GOAL-CUTOFF-IDENTITY", "status": "UNKNOWN_WITH_BOUNDARY", "result": "full-origin audit commit 8d4877ad is from 16:14 -0400 and declares b810380f as its boundary; current child Goal starts 22:45 -0400; previous-worktree parent trajectory was not inspected, so U19-U21 parent-phase remains unknown"},
     {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
     {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},
     {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
@@ -111,8 +129,8 @@
     ],
     "previous_worktree_written": false,
     "untracked_source_archives_committed": false,
-    "prior_candidate_commit": "5130ba1b636d4be1ebfe062a52f057eeae1c0a8a",
+    "prior_candidate_commit": "0cdc15c15c66b3bc74ba10c468d87267af505837",
     "current_unit_commit": "recorded in the exact-path branch-local commit that adds this cutoff reconciliation"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / PRE_GOAL_ARCHIVE_SNAPSHOT_SUPPORTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_MISATTRIBUTION_CORRECTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

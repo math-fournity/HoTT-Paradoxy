@@ -71,9 +71,9 @@ S12/S13 给出 curation message IDs，conversation archive 给出不同的 `skil
 
 - Full-audit 001/006 对 0109 声明 19 个用户 conversation units；实物有 21 个归档 turn markers。当前 owner 没有给 U20/U21 `IN_SCOPE / PRECURSOR / OUT_OF_SCOPE` disposition，也没有记录它们与 U19 的 duplicate/restatement 关系。审计 shard 003 的 U1–U19 表中没有 U20/U21；全 audit owner 内也没有这两个 turn ID。
 - U20 与 U21 的 visible answer/action 已在其他 current evidence 上形成局部结果：H049–H053、D-L10F、RK-0 和后续 Git commits 出现在 005/006 或对应 audit assets 中；但“后继行为已列”不能代替“触发该行为的用户事件已逐项登记”。
-- 006 所称的 `b810380f`（2026-10-02 15:53:28 `-0400`）是 H010／timing-policy 工件提交，不是本轮 `/goal` 的实际启动时间。当前 worktree 的 Codex rollout 在原始 locator `rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5` 记录了该 `/goal` 的 `thread_goal_updated` 事件：`2026-10-03T02:45:22.640Z`，即 `2026-10-02T22:45:22.640-04:00`。本地 `dev-notes/0109` 当前 SHA 与 006 一致，且文件系统显示 mtime 为 `2026-10-02T22:18:41-04:00`；该快照含 U19–U21 三个 distinct turn IDs。U19–U21 答复引用的 18 个本 repo commits 全部不晚于 `2026-10-02T22:01:27-04:00`。因此，现有归档快照与其答复工件共同支持将 U19–U21 放入 `PRE_GOAL_HISTORICAL_CORPUS`；它们的逐条用户消息／答复精确墙钟仍未从 parent trajectory 得到，本分支也没有读取该 previous-worktree trajectory。文件 mtime 是归档快照元数据，不冒充 per-message timestamp。`b810380f` 应留作历史工件边界，不能继续冒充 `/goal` cutoff。
-- U19–U21 用户输入正文 SHA 相同，turn IDs 与 answer SHA 各异；答复依次涉及 H010／轨迹适配、全历史与 HoTT/ZFC 状态、D-L10F/RK-0/H049–H053。来源身份和回复分母应采用 event-level 表述：逐事件保留三条输入、三条不同回答与各自工件，并标明“归档快照支持 pre-goal，逐事件时间未观测”。不应把两条重复 prompt 从历史事件分母删掉。full-origin 完成声明仍不能成立，因为当前 owner 还没有处理 U20/U21。
-
+- 上一轮把本 worktree Goal 的时间用于分类 U19–U21，是对象身份错配，现撤回。当前子线程的 rollout locator `rollout-2026-10-02T22-44-29-01a0ffa6-1527-7802-b534-9030d6f06e79.jsonl:5` 记录了一个 Goal event，时间为 `2026-10-02T22:45:22.640-04:00`；但 full-origin audit 已在 commit `8d4877ad`（`2026-10-02T16:14:59-04:00`）落盘，其索引用 `b810380f`（`15:53:28-04:00`）划分 parent Goal 的 historical/continuation 阶段。故 22:45 的 child-thread Goal 不能替代 full-origin audit 所指的 earlier parent Goal cutoff。
+- `dev-notes/0109` 的 exact-hash snapshot mtime `2026-10-02T22:18:41-04:00`、21 个 turn markers 及 U19–U21 answer commits 最晚 `22:01:27-04:00`，只能证明这些材料在**当前 child Goal** 之前已存在。它不能证明它们在 parent Goal 之前已存在。U20/U21 所引 commits 晚于 audit owner 当前登记的 `b810380f`；这是 continuation 方向的佐证，但不是每条用户消息的 event timestamp。因为按用户“两个 worktree 各自独立”的边界，本分支不读取 previous-worktree trajectory，U19–U21 相对 parent Goal 的 phase assignment 必须保持 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`。不能从这个 child Goal 推出 U19–U21 都属于 pre-goal。
+- U19–U21 用户输入正文 SHA 相同，turn IDs 与 answer SHA 各异；答复依次涉及 H010／轨迹适配、全历史与 HoTT/ZFC 状态、D-L10F/RK-0/H049–H053。来源事件分母仍须保留三个独立 turn；其 parent-Goal phase 暂不裁定。full-origin current owner 仍没有 U20/U21 两行，因此全历史完成声明仍不成立。
 ## 7. 候选 owner 修订（未应用）
 
 作为 contributor，我没有改 full-origin audit 001–006。建议唯一 canonical integrator 后续审核：
@@ -81,6 +81,6 @@ S12/S13 给出 curation message IDs，conversation archive 给出不同的 `skil
 1. 修正 001 对 0109 的旧缩写 digest，或只保留指向 006 完整 hash 的 locator；006 的 digest 与当前 source bytes 相符。
 2. 更新 001/006 的 U denominator：记录 21 个 archive turn events、17 个 archive prompt payload hashes，并按实际选择明示 event-level 或 semantic-intent-level unit definition。
 3. 增加 U20/U21 的 turn ID、answer SHA、用户 intent relation、answer/result/source/Git mapping；保留 distinct response events。
-4. 在 003/005 明确 S12/S13 exact-content overlaps 与 native event identity 的未知；把 `b810380f` 降为 H010 工件边界，以当前 Goal 的原始 trajectory event 作为 cutoff，并依据已在 cutoff 前落盘的 0109 archive snapshot 将 U19–U21 作为 distinct `PRE_GOAL_HISTORICAL_CORPUS` events 登记，同时保留逐消息墙钟 `UNKNOWN`。不要把 archive mtime 冒充每条消息时间，也不要读取 previous-worktree trajectory 来越过用户的独立工作边界。
+4. 在 003/005 明确 S12/S13 exact-content overlaps 与 native event identity 的未知；不要用当前 child Goal 的 trajectory event 替代 full-origin audit 对应的 parent Goal。继续把 `b810380f` 标作 owner 已登记的阶段代理边界，并区分已观察提交时间与未观察的 parent 用户 turn 时间；在不读取 previous-worktree trajectory 的范围内，U19–U21 的 parent-phase 保持 `UNKNOWN`。
 
 本报告没有修改原档案、full-origin owner、rulings、Feature、STATE、方向/全景或理念/SOP current owners。当前 Git 状态显示 STATE.json 为 dirty；本单元未写入或暂存它。没有 P1/P2/P3 theory task、source card、Tool-Birth 候选、数学结论或 external worker。
