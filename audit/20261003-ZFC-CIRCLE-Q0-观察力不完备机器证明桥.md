@@ -1,6 +1,6 @@
 # ZFC-CIRCLE-Q0：观察力不完备的机器证明桥
 
-> **身份：** `CONTRIBUTOR_CANDIDATE_NOT_CURRENT / FORMAL_LOGICAL_CORE + REUSED_CONCRETE_GEOMETRY_CONTROL / NOT_A_FORMALIZATION_OF_ZFC_OR_FINAL_ZFC_VERDICT`。
+> **身份：** `CONTRIBUTOR_CANDIDATE_NOT_CURRENT / FORMAL_LOGICAL_CORE + DIRECT_REAL_ANALYSIS + REPLAYED_CONCRETE_GEOMETRY_CONTROL / NOT_A_FORMALIZATION_OF_ZFC_OR_FINAL_ZFC_VERDICT`。
 
 ## 1. 要证明的最小逻辑核
 
@@ -30,9 +30,30 @@
 
 该证明的严格范围是：`observe`碰撞加上Done差异时的不可因子化；fixture是研究语义模型。它不证明 ZFC 实际存在这个碰撞，也不证明某一真实极限来源作出了未付 LiftClaim。
 
-## 3. 已有的实连续几何机器控制
+## 3. 几何级数的实分析机器对照
 
-项目已有一个更接近圆环的 Lean/mathlib 控制：
+新的[GeometricCompletion.lean](../HoTT/formal/zfc-observation-boundary/GeometricCompletion.lean)不再只用抽象的二元
+fixture，而是对最接近芝诺二分法的实数序列运行 Lean/Mathlib：
+
+```text
+s(n) = 1 − (1/2)^n
+```
+
+| 已机器检查的命题 | 精确内容 | 研究上排除的混淆 |
+|---|---|---|
+| `zenoPartialSum_strictly_below_one` | 对任意自然数`n`，`s(n) < 1`。 | 不能把任一有限阶段误说成已达端点。 |
+| `zenoPartialSum_never_reaches_one` | 对任意`n`，`s(n) ≠ 1`。 | 收紧为明确的有限阶段否定。 |
+| `zenoPartialSum_tendsto_one` | `s`在实数通常拓扑中趋于`1`。 | 没有否定通常极限定理。 |
+| `zeno_limit_outcome_without_finite_stage_endpoint` | `hasLimitOutcome ∧ ¬ hasFiniteStageEndpoint`。 | 同一数学对象可同时满足“极限结果成立”与“没有有限编号阶段到端点”。 |
+| `zeno_limit_outcome_does_not_imply_finite_stage_endpoint` | `¬ (hasLimitOutcome → hasFiniteStageEndpoint)`。 | 直接拒绝把这两个已命名的命题当作无条件蕴含。 |
+
+保存的运行收据是[20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-01](../HoTT/verification/runs/20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-01/RUN.json)。它由固定的 Lean 4.34.1 与本机锁定的 Mathlib 构建接受，退出码为0、stderr为空；Lean 明示其依赖`propext`、`Classical.choice`、`Quot.sound`。因此它是**带已声明经典／Mathlib依赖的实分析证明**，不能描述成无公理 core 证明。完整命题与非目标见[GeometricCompletion-CLAIM.md](../HoTT/formal/zfc-observation-boundary/GeometricCompletion-CLAIM.md)。
+
+这个结果精确支持一件事：标准实分析的`Tendsto`结论，与“某个有限自然数阶段达到端点”是两件可分开的数学陈述。它不替任何现实过程预设哪个才是唯一合法的`Done`，也不把“无有限阶段”偷换成“在某个连续时间端点绝不完成”。那个额外的过程判词正是需要被来源和同一任务桥检验的部分。
+
+## 4. 已有的实连续几何机器控制
+
+项目已有一个更接近圆环的 Lean/mathlib 控制；本轮已对当前源码重新运行，而非只引用历史收据：
 
 | 证据 | 已形式化的内容 | 与新逻辑核的关系 |
 |---|---|---|
@@ -40,7 +61,7 @@
 | `C-276` | 让ambient、parameters和completion一起运输时，`PresentationEquivalence`存在并保持boundary coincidence。 | 丰富观察／显式bridge的正控制。 |
 | `C-277` | 指定整数坐标边界观察精确对应，且坐标交换下仍可显式运输。 | 不是所有丰富结构都不可运输；关键是保留正确字段。 |
 
-源码中的关键定理是[StructuredCurve.lean](../HoTT/formal/astra-real-geometry/StructuredCurve.lean:76)的`no_bare_coincidence_transport`；当前矩阵行[C-275–C-277](../HoTT/CLAIM_EVIDENCE_MATRIX.md:1164)与保存的运行收据`20260920-MP-ASTRA-STRUCTURED-CURVE-001-02`拥有其既有范围。
+源码中的关键定理是[StructuredCurve.lean](../HoTT/formal/astra-real-geometry/StructuredCurve.lean:76)的`no_bare_coincidence_transport`；当前矩阵行[C-275–C-277](../HoTT/CLAIM_EVIDENCE_MATRIX.md:1164)记录既有主张索引。本轮对同一当前源码的新运行收据是[20260920-MP-ASTRA-STRUCTURED-CURVE-001-03](../HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-03/RUN.json)：Lean 4.34.0 在锁定的真实拓扑依赖下退出码0、stderr为空，并逐项打印了`propext`、`Classical.choice`、`Quot.sound`依赖。它复核的是这份几何控制本身，不把它升级为物理运动或 ZFC 的证明。
 
 由此得到两层相互校验：
 
@@ -49,9 +70,15 @@
 连续几何层：BareEquivalent + 不同 BoundaryCoincident ⇒ bare carrier不能自动运输completion性质
 ```
 
-## 4. 对“观察力不完备”的精确推进
+## 5. 对“观察力不完备”的精确推进
 
-这些内核证明支持如下**限定结论**：
+现在有三层不同的、可分开审计的结论：
+
+1. **实分析层已证明：** 对指定几何级数，极限端点成立而无有限阶段端点成立；二者不能以文字压成同一数学谓词。
+2. **观察接口层已证明：** 若某一接口把强Done不同的状态压成相同观察，强Done不能只经该接口判定；加入真正所需字段的正控制会改变结论。
+3. **ZFC元理论层仍待证明：** 必须给出实际的ZFC／标准极限消费者、其输入输出和完成标准，证明它只使用了粗观察，又把`Done_formal`抬升为原过程的`Done_origin`，并且没有同一任务的桥。
+
+因此机器证明支持如下**限定条件句**：
 
 > 在一个明确的忘却／粗观察接口中，若强完成性质没有因子化通过该接口，那么只看粗观察的理论结论不够判断强完成；保留并运输相应的过程／端点字段会改变结论。
 
@@ -62,15 +89,18 @@
 - 某个实际来源已经无付款地从`Done_formal`跳到`Done_origin`；
 - ZFC 形式不一致或所有 HoTT 模型失效。
 
+这也校正了“ZFC 没有时间维度”的粗说法。这里已形式化的有限索引、极限和端点都可被精确讨论；目前可检验的候选不是`O1`完全不能表示顺序或阶段，而是某个实际的`O2`形式结果是否被**没有充分过程观察的情况下**当成`O3`过程完成。把责任最终指向 ZFC，需要完成第3层的来源与桥证明，不能由第1、2层自动推出。
+
 这些未完成事项正是 Q0/Q1 的来源卡要补的`LiftClaim / Payment / same-task`义务。机器证明没有取代它们，反而给了一个可复用的判别准则：只要未来来源宣称“形式完成已经就是过程完成”，就必须给出令`strongDone`因子化通过其所用 observation 的桥；否则它的主张处于本定理所描述的失败形状。
 
-## 5. 下一步与停止
+## 6. 下一步与停止
 
 H083与H084已经完成第一轮实际来源分母：
 
 1. SEP *Supertasks*有实际completion LiftClaim，却显式区分最终动作与每一步完成；
 2. Le Blanc明确将数学极限到实际无限重复的推断称为subjunctive leap；
-3. Norton、SEP adequacy与连续端点模型继续分别提供Done替换、数学—物理边界和正控制。
+3. H085 的 HoTT 模型控制说明：一个模型／相对一致性来源可以完成其自身的元理论任务，而不因此完成另一个 H0 过程契约；故 H0→Z0 不能自动转移。
+4. Norton、SEP adequacy与连续端点模型继续分别提供Done替换、数学—物理边界和正控制。
 
 因此下一步不应继续重复“极限不等于过程”的一般文本。只有两类新证据值得开启下一卡：
 
