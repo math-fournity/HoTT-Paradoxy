@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [P-DAG H069–H072：有界 set formation 与形式 self-reference 的分叉校准（Terra / Max，2026-10-03）](20261003-P-DAG-H069-H072-BOUND-FORMATION-SELFREF-Terra-Max.md)：H069将给定domain／单值／subset限制确认为真实ZF formation guard；H071可在人工给定任务时盲态定位diagonal线索，H072一手来源则将其限为HF syntax/proof-theory与外部formalisation，未形成active Q或P3生命周期。
+
 - [P-DAG ZFC H067–H068：开放层级总体的元语言边界与 `V`／`univ(A)` 对照（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-DISCOVERY-067-068-CUMULATIVE-TOTALITY-Terra-Max.md)：脱敏 P1 正确拒绝把没有 final stage 的总体叙述变成理论内任务；官方 Isabelle ZF 文档以 `V`的 class/predicate 身份和 `univ(A)`的独立有限 universe package use 支持该边界。
 
 - [P-DAG ZFC H063–H066：累积层级、秩与 `Vrec` 的 Power Set 防御审计（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-SOURCE-063-066-VREC-RANK-POWERSET-Terra-Max.md)：H063/H064 的采样前 prompt 合同失败、H065 的账本字段漂移和 H066 的单变量回归共同表明：严格低秩 `Vrec` recursion 与后续层级 Power Set placement 是来源局部 guard；PS4仍为空，P3未出现，未定位 ZFC Q。
