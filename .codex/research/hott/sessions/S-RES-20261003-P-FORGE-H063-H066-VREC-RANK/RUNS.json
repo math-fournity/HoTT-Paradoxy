@@ -1,0 +1,49 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-FORGE-H063-H066-VREC-RANK",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "H063",
+      "status": "INPUT_CONTRACT_FAILURE_NO_AGENT_OUTPUT",
+      "detail": "Prompt omitted the unique fenced text payload; runner rejected before auth/prompt-input/model sampling."
+    },
+    {
+      "id": "H064",
+      "status": "INPUT_CONTRACT_FAILURE_NO_AGENT_OUTPUT",
+      "detail": "Payload omitted BEGIN FROZEN SOURCE CARD boundary; runner rejected before auth/prompt-input/model sampling."
+    },
+    {
+      "id": "H065",
+      "status": "FIELD_RELAY_PASS_MATCHTRACE_LEDGER_FIELD_DRIFT",
+      "thread_id": "01a10012-974a-7950-bbff-7cc46373eda6",
+      "turn_id": "01a10012-9806-7312-b107-19889e2d5b31",
+      "wire_sha256": "64e4684e5e00783db1f14ce6c42391e2c5c1d811ec0e5af58854d7ec6bcc716f",
+      "final_sha256_normalized": "d554ff7bf6bb66569d42dd06a17672a1f7f660c027eef8ff852f5920b6bc976a"
+    },
+    {
+      "id": "H066",
+      "status": "FIELD_RELAY_REGRESSION_PASS_WITH_SCOPE",
+      "thread_id": "01a10016-a982-7d40-82e7-b8dcf1eef0d5",
+      "turn_id": "01a10016-aa3b-75b3-8829-d35053c1b47a",
+      "wire_sha256": "ef2a6fbe08b920b93685251be2f06534ccf898c7b3826036630d2729551ee75c",
+      "final_sha256_normalized": "b57668d0310b603f3c05abdc250a838ab8fa57e91f45bf091e608a799cccb1f7"
+    },
+    {
+      "id": "P-FORGE-H063-H066-DOCUMENT-VALIDATION",
+      "status": "PASS",
+      "commands": [
+        "git diff --check",
+        "verify_governance_shards.py",
+        "verify_pattern_p_tool_history_sources.py",
+        "RUNS JSON parse",
+        "62-KC row count",
+        "canonical read_frozen_turn preflight",
+        "session_trajectory catalog/tree/coverage/terminal-inspect"
+      ],
+      "evidence": "2026-10-03: git diff --check, governance shard validator, Pattern-P source verifier, RUNS JSON parse, 62-KC row count and canonical H066 read_frozen_turn preflight replay passed. These checks establish artifact/source structure and prompt contract, not a mathematical conclusion."
+    }
+  ]
+}
