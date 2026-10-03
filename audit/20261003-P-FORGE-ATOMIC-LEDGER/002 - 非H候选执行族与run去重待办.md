@@ -43,7 +43,7 @@ canonical current branch 的 non-H 集合现为 **40** 个 exact session、**7**
 | N17 P1-DELAY | `P1-DELAY-001` | unique session `01a0fccc-a8d1-7061-837b-fa9cd0575af2` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N18 P2-DELAY | `P2-DELAY-001` | unique session `01a0fccf-8409-7853-8596-7787a618b4f8` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N19 P3-DELAY | `P3-DELAY-001` | unique session `01a0fcca-f61a-7850-9366-b1dacbd4ac31` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
-| N20 ZFC-COFORGE-001 | `ZFC-COFORGE-001` | unique session `01a0fce9-bb7a-7723-9a12-44f0390c4abd` | `UNIQUE_ATOMIC_RUN` |
+| N20 ZFC-COFORGE-001 | `ZFC-COFORGE-001` | unique session `01a0fce9-bb7a-7723-9a12-44f0390c4abd` | `UNIQUE_ATOMIC_RUN / ATOMIC_AUDIT_COMPLETE` |
 | N21 ZFC-COFORGE-002（文件名沿用003） | `ZFC-COFORGE-003-P1` | unique session `01a0fced-d62d-76a3-a2eb-f1ccdb0c801c`; 锻造史称其为`COFORGE-002-P1` | `UNIQUE_ATOMIC_RUN / NAMING_ALIAS` |
 | N22 ZFC-COFORGE-004 | `ZFC-COFORGE-004` | unique session `01a0fcfa-5379-7842-8643-560af9a32ef5` | `UNIQUE_ATOMIC_RUN` |
 | N23 ZFC-COFORGE-005 | `ZFC-COFORGE-005-P1` | unique session `01a0fcfd-e6f5-7ff2-a3ac-b920081a0b48` | `UNIQUE_ATOMIC_RUN` |
