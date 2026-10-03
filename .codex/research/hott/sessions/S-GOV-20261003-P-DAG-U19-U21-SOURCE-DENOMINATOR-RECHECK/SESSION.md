@@ -167,3 +167,7 @@ commit `8633dc44a0a468d852730d1aa025c2b9417ffab8` 精确记录 0093 来源差分
 继续对 S11 exact-content crosswalk 做边界检查时，当前 checkout 的 `dev-notes/0106` 出现第二个未处置的 archive-source 候选。快照 SHA 为 `728833f4885920015804b0c772a2516383c3f69fe8ff9993342351b9cd867bfb`，17 capture events、11 unique prompt hashes、17 unique answer hashes、0 Goal-context envelopes。T2/T3/T4 是圆环归属澄清；T3 与 S11[1] 相同正文，但 native event identity 未知。该archive主要其他事件是README发布/翻译和Git分支策略，Opus/远端陈述未作当前事实使用。
 
 因此将0106记为 `CIRCLE_ATTRIBUTION_PRECURSOR / NOT_DIRECT_P_SPEC / SOURCE_SCOPE_DISPOSITION_CANDIDATE`。本轮只在当前 checkout 读0106、S11和full-origin owners；不读历史提到的旧repo或previous worktree，不运行该档案中的命令。Full-origin owner、Feature、MEMORY/STATE均未改；见report §15和session SelfAudit。下一步仍由canonical integrator决定T2/T3/T4是否进入审计来源分母；当前分支保留候选状态。
+
+## 0106 精确 Git 收据
+
+commit `1729443b21e445e73d414332455a82de951fe985` 精确记录 0106 的 circle-attribution 来源范围候选与 SelfAuditCard，包含 contributor report 和本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径；原始 archive、full-origin owners、STATE/投影及其它 worktree 未提交。

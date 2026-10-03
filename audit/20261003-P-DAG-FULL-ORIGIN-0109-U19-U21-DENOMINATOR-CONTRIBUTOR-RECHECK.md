@@ -248,3 +248,7 @@ full-origin audit shards 001–006 的来源清单没有 `0106` 条目或显式�
 建议 canonical integrator 对 T2/T3/T4 逐条记为“圆环归属校准背景／非 P 规格”，保留 T3 与 S11[1] 的内容匹配及 native event identity 未知；T1、T5–T17 可按 repo 发布／翻译／分支治理工作排除出 P 工具语义分母，同时保留 archive event 计数和理由。若认为 S11[1] 已完整承载 T2–T4 的语义，也须明确 event-to-source 映射；文本相同本身不足以证明其余 turns 冗余。此建议不是 current-owner 更新，也不改变 P 的成功标准或当前 ZFC 状态。
 
 本轮没有读取 `/Volumes/...` 上的旧 repo、ZCode 日志或先前 worktree；没有执行 T1 中被引用的 `git pull`，也没有访问任何 remote。只核查当前 checkout 中的归档快照、S11 direct source 和 full-origin owners。没有新建 math claim、P1/P2/P3 Q、Tool-BirthCard 或数学结论。
+
+### 15.3 精确 Git 收据
+
+0106 的 circle-attribution 来源候选及 delta SelfAuditCard 由当前分支 commit `1729443b21e445e73d414332455a82de951fe985` 精确记录，只改 contributor report 和本 session 的 RUNS、SESSION、CORE_COGNITION_AUDIT 索引／分片五条路径。未暂存或提交 0106 原件、full-origin current owners、STATE/投影、预存 dirty 文件、remote 或其它 worktree；候选仍为 `CANDIDATE_NOT_CURRENT`。

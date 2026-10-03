@@ -417,6 +417,7 @@ next_trigger: canonical integrator dispositions 0106 T2-T4; another source famil
 git_record:
   candidate_branch: codex/p-dag-tool-birth-audit
   base_head: 4d0aa37b5dbf457e6a159cd4fc186033e454a8cd
+  evidence_commit: 1729443b21e445e73d414332455a82de951fe985
   exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT index+shard
   no other-checkout access; no full-origin current-owner edits
 ~~~
