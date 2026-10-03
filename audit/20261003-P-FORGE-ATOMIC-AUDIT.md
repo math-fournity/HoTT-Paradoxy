@@ -2,18 +2,18 @@
 logical_id: P_FORGE_ATOMIC_AUDIT_CAMPAIGN
 mode: sequential
 shard_root: 20261003-P-FORGE-ATOMIC-AUDIT
-last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/124 - H074 反射阶段盲态候选控制.md
-append_target: 20261003-P-FORGE-ATOMIC-AUDIT/124 - H074 反射阶段盲态候选控制.md
+last_shard: 20261003-P-FORGE-ATOMIC-AUDIT/125 - H075 反射阶段来源直接支付.md
+append_target: 20261003-P-FORGE-ATOMIC-AUDIT/125 - H075 反射阶段来源直接支付.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 124 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 125 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE 原子锻打审计
 
 > **身份：** `A1_ATOMIC_REPLAY_CAMPAIGN / SOURCE_LIMITED_WARGAME / NOT_A_MATHEMATICAL_RESULT`。
 >
-> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=124 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=4`。
+> **当前状态:** `A1_ACTIVE / A1_ORDER_DEVIATION_MULTI_UNIT_RECORDED / ORDER_UNRESOLVED_DEPENDENCY_REPLAY / C_CARDS=125 / C_ATOMIC=128 / C_IDENTITY_REMAINDER=0 / C_AUDIT_REMAINDER=3`。
 
 本 campaign 的完整分母由 [原子锻打账本](<20261003-P-FORGE-ATOMIC-LEDGER.md>) 005 重冻结。这个表只列已经封存的
 AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索引短而被视为排除。
@@ -149,4 +149,5 @@ AtomicAuditCard；未列成员仍由分母账本保留为待审，不能因索�
 | 122 | [H072 HF形式自指来源层级控制](<20261003-P-FORGE-ATOMIC-AUDIT/122 - H072 HF形式自指来源层级控制.md>) | `H072` | R10 HF diagonal P2 source control | `ALIGNED / P2_LAYER_CONTROL / Q_CAPABILITY_CALIBRATION` |
 | 123 | [H073 ZFC有限构造桥来源边界](<20261003-P-FORGE-ATOMIC-AUDIT/123 - H073 ZFC有限构造桥来源边界.md>) | `H073` | R11 finite construction bridge | `IDEA_SPEC_INCOMPLETE_REPAIRED / FINITE_CONTROL / Q_CAPABILITY_CALIBRATION` |
 | 124 | [H074 反射阶段盲态候选控制](<20261003-P-FORGE-ATOMIC-AUDIT/124 - H074 反射阶段盲态候选控制.md>) | `H074` | R12 reflection stage blind tracer | `EXECUTION_DEVIATION / OUTPUT_CONTRACT_PARTIAL / Q_SAFETY_REPAIR` |
+| 125 | [H075 反射阶段来源直接支付](<20261003-P-FORGE-ATOMIC-AUDIT/125 - H075 反射阶段来源直接支付.md>) | `H075` | R12 Reflection source payment | `ALIGNED / SOURCE_PACKET_DIRECT_PAYMENT / Q_REJECT_WITH_SCOPE` |
 <!-- governance-shard-table:end -->
