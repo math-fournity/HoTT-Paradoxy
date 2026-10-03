@@ -56,6 +56,12 @@ U19–U21 的 user prompt payload 完全相同；turn IDs 不同，assistant ans
 
 Owner 003 把要求呈现成一行 U13–U15，仍保留三个编号；这支持把 archive-event identity 与表格 presentation grouping 分开。它没有证明语义意图只有一个，也没有给三条答复各自的完整 artifact map。对 U19–U21，event-level denominator 因而更适合作为首选 contributor 修订：每个 turn ID / answer hash 都要保留；如另报语义归并，必须有显式 event-to-intent mapping，不能从 prompt SHA 相同自动推出。
 
+### Cross-session branch-integrity prompt match: 0110-T1 / 0111-T1
+
+本 worktree 中的 parent-session archive 0110-T1 与 child-thread archive 0111-T1 也有完全相同的 prompt payload SHA-256 f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e；可见正文都询问 Branch Session into New Git Worktree 是否会带来未提交内容完整性问题。它们分别属于 session 01a0ff8e-7790-7441-b7e6-791cca626a08 / turn skill-turn-6f102b0439554d8bb17caa88d24835d3，和 session 01a0ffa6-1527-7802-b534-9030d6f06e79 / turn skill-turn-348e1c0380ac459f9bd6eeb2491d7464；answer SHA-256 分别为 9b225e33a66d2e16f16c04d91bdef948d1d1bd374f56d5a3c64da3f5de57b8e0 与 f5b2f12809d359478b5280ba17436d85527c6a1117d124f7223f8e9398cb31db。
+
+这证明当前可读的两个 archive copies 含有两个 distinct session/turn records 和同一 prompt payload；它不提供 native message-ID crosswalk，也不足以判断这是 fork 复制同一条输入还是用户在两个 thread 分别重发。按 worktree independence 边界，本单元仅比较当前 checkout 中已存在的 archive copies，没有打开任何其他 worktree、parent raw trajectory 或 Git checkout。此操作性重复只作 continuation/source identity 背景，不并入刀具形成前的 pre-goal denominator，也不为 parent Goal cutoff 定时。
+
 ## 5. S12/S13 与 archives 的 exact-content overlap
 
 用去空白后的用户消息正文比较 source prompt 与三份直接会话 archives，发现以下内容相同关系：

@@ -123,3 +123,11 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 ## U13–U15 同 prompt 事件分母对照
 
 本分支重新回核了 full-origin audit shard 003 §4 与 0109 的三个原始 turn marker。U13–U15 prompt SHA 均为 377a580b17c77b477c13d882fcbcc73b652fcfc07a0c3b38facce8735cca0baa，turn IDs 和 answer SHA 各自不同；audit 003 用 U13–U15 范围行呈现同一要求，但保留三个编号。此例支持把展示合行与事件去重区分开，也使 event-level denominator 成为 U19–U21 修订的首选；full-origin owner 未被修改，用户 turn 的 parent-phase 仍 UNKNOWN。
+
+另比较了当前本地 0110-T1 与 0111-T1：两条 Branch Session 文件完整性问题的 prompt SHA 完全相同，但 session ID、turn ID 和 answer SHA 都不同。此处只记录同一 payload 的跨 session archive match；它不能判断 App 是否克隆了一条原始输入、用户是否在两个 session 分别发送，也不提供 parent Goal 的事件时间。没有访问 parent/previous-worktree checkout 或 trajectory，跨 session native event identity 保持 UNKNOWN。
+
+## 0110-T1 / 0111-T1 cross-session prompt-payload match
+
+两个本地 archive copy 中，同一 worktree-integrity prompt SHA-256 f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e；session_id、turn_id 和 answer SHA 各不相同。当前证据只支持跨 Session 的同正文匹配与 distinct archive records，不能判断这是 fork 复制同一输入还是用户重新发送；native message identity 保持 UNKNOWN。只读比较了本 worktree 内的 archive copy，未访问另一个 checkout、parent filesystem 或 raw trajectory。
+
+该操作性问题不进入刀具形成前核心讨论分母，不改变 U19–U21 cutoff 或 full-origin owners；它补充当前 contributor 对“worktree 各自独立”的来源背景。

@@ -232,6 +232,30 @@
       "owner_representation": "one display row spans U13-U15 and retains the full ID range",
       "result": "EVENT_RANGE_PRESENTATION_PRECEDENT / EVENT_LEVEL_DENOMINATOR_PREFERRED_WITH_SCOPE",
       "scope": "same-prompt archive events and current committed owner presentation only; does not establish all semantic-intent groups or parent Goal phase; no other checkout read"
+    },
+    {
+      "id": "CROSS_SESSION_T1_WORKTREE_INTEGRITY_PROMPT_MATCH",
+      "kind": "local_archive_same_prompt_cross_session_identity_review",
+      "sources": [
+        {
+          "archive": "dev-notes/0110",
+          "archive_sha256": "574e5a84690c5f65734633f658b373788efeefc02a7a700f28568ca608c340cb",
+          "session_id": "01a0ff8e-7790-7441-b7e6-791cca626a08",
+          "turn_id": "skill-turn-6f102b0439554d8bb17caa88d24835d3",
+          "prompt_sha256": "f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e",
+          "answer_sha256": "9b225e33a66d2e16f16c04d91bdef948d1d1bd374f56d5a3c64da3f5de57b8e0"
+        },
+        {
+          "archive": "dev-notes/0111",
+          "archive_sha256_at_T12_snapshot": "78d7255cdd1d2049a72a6e57dc513e25a8c3e557976a92504a4816340249ecc1",
+          "session_id": "01a0ffa6-1527-7802-b534-9030d6f06e79",
+          "turn_id": "skill-turn-348e1c0380ac459f9bd6eeb2491d7464",
+          "prompt_sha256": "f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e",
+          "answer_sha256": "f5b2f12809d359478b5280ba17436d85527c6a1117d124f7223f8e9398cb31db"
+        }
+      ],
+      "result": "SAME_PROMPT_PAYLOAD / DISTINCT_ARCHIVE_TURN_AND_SESSION_IDS / NATIVE_EVENT_IDENTITY_UNKNOWN",
+      "scope": "two local archive copies only; matching text and distinct archive markers do not establish whether one Host user action was cloned or the prompt was re-sent; no other checkout or parent trajectory read"
     }
   ],
   "verifications": [
@@ -251,7 +275,8 @@
     {"id": "CACHED-EXACT-PATH-DIFF", "status": "PASS", "result": "seven exact contributor evidence paths staged; git diff --cached --check clear; no other paths staged"},
     {"id": "CURRENT-CHILD-ARCHIVE-0111", "status": "PASS_WITH_SCOPE", "result": "pre-final local archive snapshot has 11 capture markers: 4 direct user-prompt blocks and 7 Goal context envelopes; three identical boundary prompts remain three distinct events; no other checkout inspected"},
     {"id": "CURRENT-CHILD-ARCHIVE-T12-POSTFINAL", "status": "PASS_WITH_SCOPE", "result": "helper receipt and local note marker verify T12 as a fourth distinct direct boundary prompt; current 0111 snapshot is 12 events = 5 direct prompts + 7 Goal envelopes"},
-    {"id": "U13-U15-RANGE-ROW-EVENT-PRECEDENT", "status": "PASS_WITH_SCOPE", "result": "0109 U13-U15 have three distinct turn IDs and answer hashes under one prompt SHA; owner 003 renders a range row retaining all three IDs; supports event-level ID preservation but not a complete semantic-intent policy"}
+    {"id": "U13-U15-RANGE-ROW-EVENT-PRECEDENT", "status": "PASS_WITH_SCOPE", "result": "0109 U13-U15 have three distinct turn IDs and answer hashes under one prompt SHA; owner 003 renders a range row retaining all three IDs; supports event-level ID preservation but not a complete semantic-intent policy"},
+    {"id": "CROSS-SESSION-T1-PROMPT-MATCH", "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN", "result": "0110-T1 and 0111-T1 share prompt SHA f76b8c…2446e but have different session IDs, turn IDs, and answer hashes; no native event crosswalk inspected"}
   ],
   "git": {
     "branch": "codex/p-dag-tool-birth-audit",
@@ -268,5 +293,5 @@
     "prior_candidate_commit": "d6e4df21af251841a19da8cacf388fb66abc6f0e",
     "current_unit_commit": "41a0686a66905ac530ddcecd435dfa9bb5099dec"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_UNKNOWN / 0110_CONTINUATION_SOURCE_IDENTIFIED / 0111_ARCHIVE_EVENT_TYPES_DISTINGUISHED / T12_ARCHIVE_RECEIPT_VERIFIED / U13_U15_RANGE_ROW_PRECEDENT_RECHECKED / CROSS_SESSION_T1_PROMPT_MATCH_CANDIDATE / WORKTREE_INDEPENDENCE_REASSERTED / PARENT_GOAL_START_UNKNOWN / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }

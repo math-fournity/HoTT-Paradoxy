@@ -345,6 +345,52 @@ git_record:
   no other-checkout access; no full-origin current-owner edits
 ~~~
 
+## Delta SelfAuditCard：0110-T1 / 0111-T1 cross-session prompt-payload match
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-CROSS-SESSION-T1-PROMPT-MATCH
+source_units:
+  - current-worktree archive copy dev-notes/0110 T1
+  - current-worktree archive copy dev-notes/0111 T1
+original_requirement:
+  - preserve prompt payload identity separately from archive turn/session identity
+  - do not inspect or use another worktree to resolve this source mapping
+actual_action:
+  - read the exact T1 prompt blocks in both local archive copies
+  - verified identical prompt SHA-256 f76b8c736de742a4ee0c57156f39c6925dc669e0259d2f23ff39272aa402446e
+  - verified different session IDs, turn IDs, and answer SHA-256 values
+  - classified as SAME_PROMPT_PAYLOAD / DISTINCT_ARCHIVE_TURN_AND_SESSION_IDS / NATIVE_EVENT_IDENTITY_UNKNOWN
+  - did not open another checkout, parent filesystem, or raw trajectory
+alignment_verdict: SOURCE_CROSS_SESSION_PROMPT_MATCH_WITH_EVENT_IDENTITY_UNKNOWN
+deviation_class:
+  - no EXECUTION_DEVIATION observed
+  - no IDEA_SPEC_INCOMPLETE established
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; operational prompt provenance only
+P1_P2_P3:
+  P1: not applicable
+  P2: not applicable
+  P3: not applicable
+tool_birth_card: NOT_REQUIRED
+current_owner_mutation:
+  full_origin_audit: none
+  rulings_feature_state_projection: none
+  source_archives: read-only
+parent_goal_phase:
+  status: UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED
+  basis: matching prompt payload does not establish source-event identity or event time
+falsifiers:
+  - native message-ID crosswalk proving one captured event was cloned between archive files
+  - direct timestamped sources establishing that the two same-text turns were independently sent
+next_trigger: permitted native event crosswalk or integrator review; no other-checkout read
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 4849febd60653a631865c991aec08a55f85e694d
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+~~~
+
 ## Delta SelfAuditCard：U13–U15 repeated-prompt range-row precedent
 
 ~~~yaml
