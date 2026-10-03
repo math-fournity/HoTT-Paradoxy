@@ -345,6 +345,56 @@ git_record:
   no other-checkout access; no full-origin current-owner edits
 ~~~
 
+## Delta SelfAuditCard：U13–U15 repeated-prompt range-row precedent
+
+~~~yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-U13-U15-RANGE-ROW-EVENT-PRECEDENT
+source_units:
+  - dev-notes/0109 U13: skill-turn-c9af5d7ba12343139a157a1e845e7e81
+  - dev-notes/0109 U14: skill-turn-42a48323f15842c684252dd3181b530e
+  - dev-notes/0109 U15: skill-turn-6f847ba1ef9c4ba098c18ead343be605
+  - full-origin owner 003 §4: U13–U15 aggregate display row
+original_requirement:
+  - repeated prompt payloads may be related, but distinct archive turns and their different answers must remain identifiable
+  - use current-checkout source evidence to refine the U19–U21 denominator proposal without crossing worktree boundaries
+actual_action:
+  - verified U13–U15 share prompt SHA 377a580b17c77b477c13d882fcbcc73b652fcfc07a0c3b38facce8735cca0baa
+  - recorded three distinct archive turn IDs and three distinct answer SHA-256 values
+  - inspected full-origin audit shard 003 §4: its display row spans U13–U15 and retains all three source-unit identifiers
+  - concluded that grouped table presentation does not establish event deduplication; event-level identity is the better-supported contributor denominator, while semantic grouping needs an explicit event-to-intent map
+  - left full-origin current owners unchanged and did not access another checkout or parent trajectory
+alignment_verdict: RANGE_ROW_PRESERVES_EVENT_IDS_WITH_SCOPE / EVENT_LEVEL_REPAIR_PREFERRED
+deviation_class:
+  - no EXECUTION_DEVIATION observed in this unit
+  - no IDEA_SPEC_INCOMPLETE established
+  - no ORIGINAL_IDEA_CHALLENGED
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; archive denominator and owner-presentation audit only
+P1_P2_P3:
+  P1: not applicable; no theory card or source-defined Q
+  P2: not applicable; no same-object mapping
+  P3: not applicable; no theory lifecycle transition
+tool_birth_card: NOT_REQUIRED (no new theory pattern or tool duty)
+current_owner_mutation:
+  full_origin_audit_001_006: none
+  rulings_feature_state_projection: none
+  source_archive: read-only
+denominator_effect:
+  0109_archive_events: remains 21 in local snapshot
+  full_origin_owner_declared_units: remains U1-U19
+  U20_U21: still lack current-owner rows/dispositions
+  preferred_candidate: preserve event-level IDs; report unique prompt payload count separately
+falsifiers:
+  - direct owner source showing its U13-U15 range intentionally represents one semantic-intent unit and defines the mapping rule for all repeated prompts
+  - evidence that U13-U15 turn markers or differing answers are capture duplicates rather than distinct events
+next_trigger: owner-side grouping semantics evidence, canonical integrator review, or another uncovered source unit
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 4849febd60653a631865c991aec08a55f85e694d
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no other-checkout access; no full-origin current-owner edits
+~~~
+
 ## Delta SelfAuditCard：0111 T12 post-final archive receipt
 
 ~~~yaml

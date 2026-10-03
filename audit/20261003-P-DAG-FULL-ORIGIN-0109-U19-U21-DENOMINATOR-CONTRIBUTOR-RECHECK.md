@@ -44,12 +44,17 @@
 
 U19 的答复还提到了 shared-governance repo 的 reader/runtime commit refs；它们不是本项目 Git 对象，未在本 contributor unit 中对外部 repo 重做核验。上表只审计 `HoTT_AI_HANDOFF_20260911` 当前 repo 中可见、与回答明确关联的 project commits；commit 目标路径可佐证有对应工件，不单独证明回答中的技术/数学结论。
 
-三个 user prompt payload 完全相同；turn IDs 不同，assistant answer SHA 不同，且每次可见回复记录了不同的实际研究／工具状态。这支持两种合法的审计表达，但当前 owner 没有选定其中一种：
+U19–U21 的 user prompt payload 完全相同；turn IDs 不同，assistant answer SHA 不同，且每次可见回复记录了不同的实际研究／工具状态。结合 U13–U15 的 range-row precedent，当前证据更支持把 archive event IDs 作为主要分母，并把重复 prompt payload／语义归并作为独立投影。完整 owner 尚未声明 19 是 raw event count 还是另一个单位分母；U13–U15 的例子说明 range-row 本身不等于去重。
 
-1. **Event-level denominator（建议）：** 将 U19、U20、U21 各列一行，标记相同 prompt 的重复请求关系，并分别链接各自不同的答复、commit 和运行证据；或
-2. **Semantic-intent denominator：** 说明 19 是归并后的 intent unit 数，把 U20/U21 明确映射到 U19，同时分别保留两个回答与实现变化的审计链接。
+因此，contributors 建议的 repair 以 event-level denominator 为主：补列 U20/U21 并保留 U19–U21 三个 distinct event IDs、answer hashes 与回答／工件映射；unique prompt SHA 与任何 semantic-intent grouping 另列为辅助计数。若 integrator 认为 owner 现有 19 已采用别的语义单位，仍须逐项映射 21 个 archive turn 到那些单位，不能由相同 prompt 自动推定。
 
 不能把“用户内容重复”当作省略两个归档 turn 或其不同回答的理由。一个内部一致性对照是 U13–U15：三个同 prompt hash 的 turn 在 full-audit 001/003 中被分别记作 U13–U15。
+
+### U13–U15 的 range-row 对照
+
+我回到原文与 full-origin owner 003 §4 核验这个对照。0109 中三个 archive markers 分别是 skill-turn-c9af5d7ba12343139a157a1e845e7e81、skill-turn-42a48323f15842c684252dd3181b530e、skill-turn-6f847ba1ef9c4ba098c18ead343be605；prompt SHA 均为 377a580b17c77b477c13d882fcbcc73b652fcfc07a0c3b38facce8735cca0baa，三个 answer SHA 分别为 03d87de54dc356d3ea8763c5184bac6c8a32555c37e48549d0337afe1436a01f、e679f216af78cabb05c48a796d8659ce03d0b5ef7d71ce06a1495920539cb6de、8fbe60f995273b98f705b04c121b5b6e4e1a885dac438d9eefedd7a2aca5ceab。
+
+Owner 003 把要求呈现成一行 U13–U15，仍保留三个编号；这支持把 archive-event identity 与表格 presentation grouping 分开。它没有证明语义意图只有一个，也没有给三条答复各自的完整 artifact map。对 U19–U21，event-level denominator 因而更适合作为首选 contributor 修订：每个 turn ID / answer hash 都要保留；如另报语义归并，必须有显式 event-to-intent mapping，不能从 prompt SHA 相同自动推出。
 
 ## 5. S12/S13 与 archives 的 exact-content overlap
 

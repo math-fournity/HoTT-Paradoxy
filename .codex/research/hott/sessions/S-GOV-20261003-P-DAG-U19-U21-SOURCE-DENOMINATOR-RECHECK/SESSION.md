@@ -118,3 +118,7 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 上一轮 final 的归档事件现已由当前 worktree 中的 0111 marker 直接确认：T12 是直接用户 prompt，turn ID 为 skill-turn-46680583595f4d82aa63890e827a0a27，prompt SHA-256 与 T2–T4 相同，answer SHA-256 为 cef5e5b4577900de9511a3c73bea0af9b830e83e674209336401968b6670efe6。归档 helper 已返回 ARCHIVED / stage_removed=true。
 
 该次写入后的本地快照是 78d7255cdd1d2049a72a6e57dc513e25a8c3e557976a92504a4816340249ecc1，71,403 bytes / 689 lines / mode 0600，12 markers = 5 direct user prompts + 7 Goal-context envelopes。T2–T4 与 T12 是四次独立请求、同一 prompt payload、不同答案。这个核验只确认本地 dev-notes 投影；不跨查其它 worktree，不改变 pre-goal 分母或 parent Goal cutoff。
+
+## U13–U15 同 prompt 事件分母对照
+
+本分支重新回核了 full-origin audit shard 003 §4 与 0109 的三个原始 turn marker。U13–U15 prompt SHA 均为 377a580b17c77b477c13d882fcbcc73b652fcfc07a0c3b38facce8735cca0baa，turn IDs 和 answer SHA 各自不同；audit 003 用 U13–U15 范围行呈现同一要求，但保留三个编号。此例支持把展示合行与事件去重区分开，也使 event-level denominator 成为 U19–U21 修订的首选；full-origin owner 未被修改，用户 turn 的 parent-phase 仍 UNKNOWN。
