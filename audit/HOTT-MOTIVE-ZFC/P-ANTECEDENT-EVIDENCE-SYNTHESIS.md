@@ -53,6 +53,16 @@ New work is admissible only if it changes at least one cell above. The allowed i
 
 The completed discovery screens did not produce one of these inputs. That is a bounded stopping fact, never an assertion that all relevant literature has been read or that no future ZFC Q exists.
 
+### Skolem / model-relativity screen
+
+This pass also screened Skolem-related primary/reference material rather than opening a new denominator merely because “countable externally, uncountable internally” sounds like an existence tension. Skolem’s later [*Abstract Set Theory* excerpt](https://mathshistory.st-andrews.ac.uk/Extras/Skolem_Set_Theory/) explicitly advertises set-theoretic relativism; the [Stanford Encyclopedia account of Skolem’s Paradox](https://plato.stanford.edu/archives/sum2023/entries/paradox-skolem/) distinguishes the model’s interpreted membership relation from external membership and explains why the apparent countable/uncountable conflict is not an outright contradiction. The available sources supplied a model-semantic layer control, but no fixed same-layer consumer or `NeedBuild → OperatorUse → BuildDone` transition.
+
+```text
+discovery disposition: MODEL_SEMANTIC_REPEATED_GUARD
+new HMZ denominator: NOT ADMITTED
+reason: no change to P1/P2/P5-preemptive/P6 admission frontier
+```
+
 ## 5. Recovery
 
 Future `HOTT-MOTIVE-ZFC-SOP` work begins here together with [R 种子覆盖综合](R-SEED-COVERAGE-SYNTHESIS.md), [阶段来源综合](PHASE-1-SOURCE-SYNTHESIS.md) and the project [README](README.md). Each successor must name which row/column it changes before a new denominator is created.
