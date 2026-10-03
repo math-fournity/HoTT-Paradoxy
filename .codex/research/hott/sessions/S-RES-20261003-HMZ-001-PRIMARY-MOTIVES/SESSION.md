@@ -4,7 +4,7 @@
 >
 > **关联 Goal：** `HOTT-MOTIVE-ZFC-SOP`。
 >
-> **状态：** `HMZ-001_CLOSED_WITH_SCOPE / HMZ-002_READING_IN_PROGRESS / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
+> **状态：** `HMZ-001_AND_HMZ-002_CLOSED_WITH_SCOPE / NO_CANDIDATE_SEED / NO_STATE_MUTATION / NO_MATH_CLAIM`。
 
 ## 任务与授权
 
@@ -37,9 +37,10 @@ fail-closed；本单元没有伪造 checkpoint 来绕过它。上述原件由直
 4. Isabelle/ZF 确认 ZF 的实际 formalization、Replacement scheme 与 practical syntax payment，阻断“ZFC 不能机器化”的广义跳跃；
 5. Power Set 仍没有来自 HoTT 动机的 R-source bridge；`H0→Z0` 的 T0–T5 没有正向来源输入。
 
-闭合 HMZ-001 后，本 Session 已建立 `HMZ-002-voevodsky-set-theory` 的冻结分母：Voevodsky 2011 Göteborg、
-2013 ASL 与 2011 type-system notes。该 successor 的初读定位到 author-reported `problem of equivalence`；它仍未
-形成 Z-card 或 Q-card，不改变本 Session 的 HMZ-001 结论。
+闭合 HMZ-001 后，本 Session 建立并闭合了 `HMZ-002-voevodsky-set-theory`：Voevodsky 2011 Göteborg、2013 ASL、
+2011 type-system notes、Ahrens/North 2022 和既有 Shulman/Isabelle/Mumford controls 共同显示，author-reported
+`problem of equivalence` 是表示纪律／语言边界；没有 source-defined P reentry、unpaid Done 或 H0 transport。
+该结果不改变 HMZ-001 的 `ZFC_Q_NOT_LOCATED`，只增加第二条来源有界控制。
 
 ## §7 重新呈现与 14 题定位
 

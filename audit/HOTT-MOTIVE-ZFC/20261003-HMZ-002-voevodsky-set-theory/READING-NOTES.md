@@ -1,4 +1,4 @@
-# HMZ-002：第一轮阅读笔记（未形成 Q）
+# HMZ-002：第一轮阅读笔记（来源重建完成，未形成 Q）
 
 ## Source-reported observations
 
@@ -10,6 +10,8 @@
    但作者要求每项新语言扩张通过相对于 ZFC 的形式 certification。
 4. **Voevodsky 2011 Notes：** 其 technical construction 为取得标准 isomorphism 使用 well-orderings；
    这是一项可见的代表／选择支付，而不是“相同即可无代价行动”的证明。
+5. **Ahrens & North 2022：** EP 讨论明确说 set-theoretic foundations 中某些表述不随同构保持，例为
+   `1 ∈ ℕ`；要建立 EP，需要限制为合适的 properties/structures，并给出 typed-language criterion。
 
 ## First candidate distinction
 
@@ -28,5 +30,5 @@ Nearest controls:
   derived syntax explicit; Voevodsky's own technical model pays with well-ordering.
 ```
 
-The present result is `R_SOURCE_REPORTED / Z_RECONSTRUCTION_PENDING / NOT_A_Q`. It must not be reported as
+The present result is `R_SOURCE_REPORTED / Z_RECONSTRUCTION_COMPLETE_WITH_SCOPE / NOT_A_Q`. It must not be reported as
 “Voevodsky proved that ZFC has the desired P problem.”
