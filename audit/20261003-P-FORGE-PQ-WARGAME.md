@@ -2,12 +2,12 @@
 logical_id: P_FORGE_PQ_WARGAME_AUDIT
 mode: sequential
 shard_root: 20261003-P-FORGE-PQ-WARGAME
-last_shard: 20261003-P-FORGE-PQ-WARGAME/007 - R05 双通道候选激活.md
-append_target: 20261003-P-FORGE-PQ-WARGAME/007 - R05 双通道候选激活.md
+last_shard: 20261003-P-FORGE-PQ-WARGAME/008 - R06 历史AI草稿的双通道压力测试.md
+append_target: 20261003-P-FORGE-PQ-WARGAME/008 - R06 历史AI草稿的双通道压力测试.md
 soft_line_target: 300
 -->
 
-> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 7 个分片；缺一片即未完成，按表顺序读取。
+> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 8 个分片；缺一片即未完成，按表顺序读取。
 
 # P-FORGE：P/Q共同锻造逐轮兵棋审计
 
@@ -25,4 +25,5 @@ soft_line_target: 300
 | 005 | [R03 HoTT重放与刀具角色向量](<20261003-P-FORGE-PQ-WARGAME/005 - R03 HoTT重放与刀具角色向量.md>) | H011–H018从发现到来源、P2/P3差分和任务忠实性 | complete; convergence-signature hypothesis |
 | 006 | [R04 Power Set候选激活门](<20261003-P-FORGE-PQ-WARGAME/006 - R04 Power Set候选激活门.md>) | H019–H034从明显位置到consumer／active obligation的早期分叉 | complete; signature gated by Candidate-Q |
 | 007 | [R05 双通道候选激活](<20261003-P-FORGE-PQ-WARGAME/007 - R05 双通道候选激活.md>) | H035–H042 D-L10、formation-origin遗漏与D-L10F修复 | complete; C_LANE/F_LANE repaired |
+| 008 | [R06 历史AI草稿的双通道压力测试](<20261003-P-FORGE-PQ-WARGAME/008 - R06 历史AI草稿的双通道压力测试.md>) | H043–H047 Gemini proof-search differential对双通道的边界回归 | complete; external proof-search excluded from both lanes |
 <!-- governance-shard-table:end -->
