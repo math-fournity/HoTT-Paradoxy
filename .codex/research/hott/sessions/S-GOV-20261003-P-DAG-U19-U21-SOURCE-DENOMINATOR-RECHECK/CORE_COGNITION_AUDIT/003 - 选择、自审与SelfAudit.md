@@ -198,3 +198,46 @@ next_action:
   - do not assign their phase relative to the parent Goal without a permitted direct source
   - continue independent source-unit mapping that does not require crossing worktree boundaries
 ```
+
+## Delta SelfAuditCard：S12/S13 与 archive turn 的身份字段复核
+
+```yaml
+card_id: SELF-AUDIT-S-GOV-20261003-P-DAG-S12-S13-ARCHIVE-EVENT-ID-CROSSWALK
+source_units:
+  - sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md (S12 [1]-[6])
+  - sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md (S13 [7])
+  - dev-notes/0108 direct conversation archive metadata / C1, C7
+  - dev-notes/0109 direct conversation archive metadata / U1-U4
+original_requirement:
+  - keep direct user source identity separate from archive turn identity
+  - do not merge repeated-looking prompts unless a source crosswalk establishes event identity
+actual_action:
+  - re-read both direct-source files and confirmed their own metadata states date-only chronology and curation block ordinals
+  - inspected 0108/0109 archive headers and matched marker format: archive session_id / first_turn_id / created_at plus per-turn skill-turn IDs
+  - confirmed no inspected source field links S12/S13 block ordinals to native or archive event IDs
+  - kept six exact-body overlaps as content candidates only; no parent/previous-worktree trajectory accessed
+alignment_verdict: SOURCE_PROVENANCE_GAP_CONFIRMED / CONTENT_MATCH_NOT_EVENT_ID
+deviation_class:
+  - no ORIGINAL_IDEA_CHALLENGED
+  - no mathematical or P1/P2/P3 judgment
+worktree_role: CONTRIBUTOR / CANDIDATE_NOT_CURRENT
+pattern_universe_claim: none; this is a source-identity check only
+P1_P2_P3:
+  P1: not applicable
+  P2: not applicable
+  P3: not applicable
+tool_birth_card: NOT_REQUIRED (no theory pattern or tool responsibility change)
+current_owner_mutation:
+  full_origin_audit: none
+  rulings_feature_state_projection: none
+  source_archives: read-only
+candidate_owner_delta:
+  - retain the six text overlaps with identity UNKNOWN until a direct ID crosswalk is available
+  - do not count content equality as proof of one or multiple user events
+next_trigger: a permitted direct source/ID crosswalk or further bounded source-coverage unit
+git_record:
+  candidate_branch: codex/p-dag-tool-birth-audit
+  base_head: 7983c000c8a036e2a2a9f099004060f6aee6a288
+  exact_paths: contributor report + session RUNS/SESSION/CORE_COGNITION_AUDIT
+  no previous-worktree reads/writes; no current-owner edits
+```

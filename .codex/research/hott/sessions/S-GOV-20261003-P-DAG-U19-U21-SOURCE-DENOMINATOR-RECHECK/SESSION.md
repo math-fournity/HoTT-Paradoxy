@@ -49,6 +49,19 @@ U19–U21 的来源对照、prompt/answer hashes 与 owner gap 详见 [contribut
 - `005`：不把 child Goal 时间写成 parent cutoff；在未获得 parent Goal 的直接来源前，将 U19–U21 phase 保持 UNKNOWN。
 - 以上只保存为 contributor proposal，没有写入 full-origin current owners。
 
+## S12/S13 与 archive turn 的 identity metadata
+
+- 两份 `sources/prompts` 直接文件声明原记录仅有日期，并用 `[1]–[6]`、`[7]` 保留同日相对序号；其 inspected metadata 没有 native message ID、turn ID 或 per-message timestamp。
+- `dev-notes/0108`、`0109` archive frontmatter 提供 `session_id`、`first_turn_id`、`created_at`；每条事件另有 `skill-turn-*` archive marker，但没有字段把这些 marker 映射到 S12/S13 ordinal。
+- 因此六条 exact-text match 仍只是 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`。不能据文字相同就决定“同一消息”或“重复用户意图”。没有读取 parent/previous-worktree trajectory。
+
+## S12/S13 到 archive 的 event-ID metadata 检查
+
+- S12/S13 直接来源只给日期和同日 curation ordinals（S12 `[1]`–`[6]`、S13 `[7]`），不含 native `message_id`、`turn_id` 或精确 message clock。
+- 0108/0109 archive frontmatter 给出 archive `session_id`、`first_turn_id`、`created_at`；逐条 turn marker 使用 `skill-turn-*`。检查到的文件没有把这些 archive IDs 映射回 S12/S13 ordinals。
+- 因此已有六个 whitespace-normalized exact-text matches 保持 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`。不能据文字相同把 direct-source ordinal 与 archive turn 合并。
+- 此单元没有查询或读取 parent/previous-worktree trajectory；若需要更强 identity crosswalk，必须来自当前已允许的源或新的授权，不跨工作线自行取证。
+
 ## Load receipt
 
 核心身份：core-cognition-generation-13 / 62 KC，core hash 55d514b1a707b727a7aa6c00af6e6ff799d844eea04ff4b11927b5159e36d9ef，STATE revision 298。理念索引＋001–004 与 SOP index＋001–005 均在本轮按顺序全文读取，文件 hashes 与 EOF 已核；本 session 只复述本轮相关字段。

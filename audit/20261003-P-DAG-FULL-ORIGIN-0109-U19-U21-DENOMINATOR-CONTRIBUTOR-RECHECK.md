@@ -65,7 +65,9 @@ U19 的答复还提到了 shared-governance repo 的 reader/runtime commit refs�
 | S13 `[7]` | 0109 U4 | 去空白后正文相同 | `MESSAGE_IDENTITY_UNKNOWN` |
 | S12 `[2]` | 0102/0108/0109 已检查用户消息 | 未找到去空白后的正文相同项 | 不作全局缺失结论；S12 本身仍是直接用户来源 |
 
-S12/S13 给出 curation message IDs，conversation archive 给出不同的 `skill-turn-*` turn IDs；当前文件未提供原生 Host message ID 交叉表。正文相同不能单独证明“同一消息被复制”，也不能证明它们是新发出的独立用户消息。因此这是一项 source provenance crosswalk gap，而非删源或数学分歧。
+S12/S13 以 curation block ordinals（如 `S12[1]`、`S13[7]`）定位，conversation archive 则给出不同的 `skill-turn-*` turn IDs；当前文件未提供原生 Host message ID 交叉表。正文相同不能单独证明“同一消息被复制”，也不能证明它们是新发出的独立用户消息。因此这是一项 source provenance crosswalk gap，而非删源或数学分歧。
+
+本单元又核了这些文件自己的来源字段：S12/S13 明确说明原始记录只稳定提供日期，并以 `[1]–[6]`、`[7]` 保留同日相对顺序；正文未带原生 `message_id`、`turn_id` 或精确消息时刻。0108/0109 archive 的 frontmatter 有 Session 级 `session_id`、`first_turn_id`、`created_at`，逐条 marker 则是 `skill-turn-*`；这些字段没有把 S12/S13 block ordinal 映射到具体 archive turn。因此六处相同正文只能留为 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`。如不读 parent trajectory 或取得新的用户来源交叉表，这个 event identity 未知应保留，不用文字相同代替身份。
 
 ## 6. Full-audit coverage 与 cutoff 的当前判定
 
@@ -89,6 +91,7 @@ S12/S13 给出 curation message IDs，conversation archive 给出不同的 `skil
 |---|---|---|
 | 001 §1.2、§2 | 将 0109 archive row 从 19 更新为 21 个 captured turn events；在 event ledger 增列 U20/U21。说明 U19 是该字面请求的首次出现，U19–U21 是同一 `prompt_sha256=a8f026…3331` 的三次 distinct archive turn，但后两次有自己的 turn ID 与 answer SHA；它们增加 event denominator，不增加新的 unique prompt payload。 | 0109 当前 bytes：21 `conversation-archive-turn` markers、21 user sections、17 unique prompt SHA；SHA `fdb556…8769c`。该来源在本 worktree 为 untracked snapshot。 |
 | 003 §6 后 | 增加 U20、U21 两行：沿用 U19 的相同 wall-clock request 内容／prompt SHA，分别登记 turn ID、answer SHA、答案摘要及本报告 §4 的 commit/artifact map；intent relation 标记 `SAME_PROMPT_AS_U19 / DISTINCT_ARCHIVE_EVENT_AND_ANSWER`。 | U20 的回答记录 full-origin report、D-L7–D-L9、H015–H018、H019–H022；U21 记录 D-L10F、RK-0、H049–H053。事件身份来自本地 archive marker，技术结果仅由答复和提交路径定位，未重新审数学内容。 |
+| 001/003 的 S12/S13 overlap 处 | 保留 S12[1]/[3]/[4]/[5]/[6]、S13[7] 与 archive C1/C7/U1–U4 的文本命中，但标 `CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN`，不作为 event deduplication crosswalk。 | direct-source headers 只提供日期与 block ordinals；archive headers/markers 提供 session/turn 视图，未提供两者间 native message-ID mapping。 |
 | 005 与 cutoff 说明 | 保留当前 owner 的 `b810380f` 阶段代理边界，明确它不是被 raw parent Goal event 直接观测到的时间戳；在不读取 previous-worktree trajectory 的前提下，U19–U21 relative phase 写 `UNKNOWN / PARENT_CUTOFF_NOT_REOBSERVED`。不要用本 child thread 的 Goal 时间或 0109 mtime 代替 parent Goal。 | full-origin audit commit `8d4877ad` 早于本 thread child Goal；这证明两者不能混用，但不单独确定 parent Goal 的真实启动时刻。U20/U21 cited response commits 晚于 `b810380f`，只说明工件在记录边界之后。 |
 | 006 §1 与合计 | 将 0109 的行数／字节／SHA 保持为 1,719 / 141,651 / `fdb556…8769c`，unit coverage 改为 U1–U21、21 archive events、17 unique prompt payloads；若保留 archive-event 合计字段，把 2+11+7+19 从 39 修正为 41。R10–R11 仍保留为 capture events、按原既定规则排除于刀具语义分母。 | raw-event denominator 与 semantic-intent denominator 必须并列说明，避免把重复 prompt 直接去重或把 capture count 冒充 unique intent count。001 中旧缩写 digest 是独立漂移项，应另行修正。 |
 

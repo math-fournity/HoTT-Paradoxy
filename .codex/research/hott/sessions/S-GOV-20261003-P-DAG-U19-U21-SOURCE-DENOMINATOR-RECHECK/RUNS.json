@@ -50,6 +50,20 @@
       "native_message_id_crosswalk": "NOT_FOUND_IN_CHECKED_ASSETS"
     },
     {
+      "id": "CROSS_SOURCE_EVENT_ID_METADATA_AUDIT",
+      "kind": "read_only_source_header_and_archive_metadata_review",
+      "sources": [
+        "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+        "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+        "dev-notes/0108 - 2026-10-02 - 我觉得你们找的都有问题，你看芝诺悖论打的是微积分的基础理论，极限理论，或者说实数理论、数轴都可以.md",
+        "dev-notes/0109 - 2026-10-02 - ZFC最大的问题，肯定在于对‘时间维度’的把握上.md"
+      ],
+      "direct_source_metadata": "date-only plus curation block ordinals [1]-[7]; no native message_id/turn_id or per-message clock in inspected headers",
+      "archive_metadata": "session_id/first_turn_id/created_at plus per-turn skill-turn-* markers; no crosswalk to S12/S13 block ordinals",
+      "status": "CONTENT_MATCH_CANDIDATE / EVENT_ID_UNKNOWN",
+      "scope": "header/identity metadata and previously checked exact-text matches only; no parent trajectory opened"
+    },
+    {
       "id": "U19_U21_ANSWER_TO_PROJECT_GIT_MAP",
       "kind": "git_object_and_changed_path_lookup",
       "answer_events": 3,
@@ -116,6 +130,7 @@
       "candidate_changes": [
         "0109 raw archive count 19 -> 21; preserve 17 unique prompt hashes separately",
         "add U20/U21 as distinct same-prompt archive events with separate answer/artifact mappings",
+        "retain S12/S13 text overlaps as content candidates with event identity UNKNOWN; do not deduplicate from text equality",
         "keep parent-Goal phase UNKNOWN until that Goal's source is available; do not use child Goal time",
         "raw archive event subtotal 39 -> 41; preserve R10/R11 semantic exclusion"
       ],
@@ -130,7 +145,9 @@
     {"id": "CURRENT-CHILD-GOAL-ARCHIVE-ORDER", "status": "PASS_WITH_SCOPE", "result": "exact-hash 0109 snapshot and cited commits predate only the 2026-10-02 22:45:22 -0400 child Goal; they do not classify units relative to the parent Goal"},
     {"id": "PARENT-GOAL-CUTOFF-IDENTITY", "status": "UNKNOWN_WITH_BOUNDARY", "result": "full-origin audit commit 8d4877ad is from 16:14 -0400 and declares b810380f as its boundary; current child-thread Goal event occurs at 22:45 -0400 and cannot identify the earlier parent Goal start; previous-worktree parent trajectory was not inspected, so U19-U21 parent-phase remains unknown"},
     {"id": "OWNER-READY-DENOMINATOR-PATCH", "status": "CANDIDATE_READY_WITH_SCOPE", "result": "exact proposed deltas exist for owners 001/003/005/006, but are not integrated; raw 0109 count 21, unique prompt count 17, parent phase unknown"},
+    {"id": "CROSS-SOURCE-EVENT-ID-METADATA", "status": "UNKNOWN_WITH_EXPLICIT_SOURCE_LIMIT", "result": "direct sources are date-only with block ordinals; archives have session/turn IDs but no inspected mapping from S12/S13 blocks to archive/native message IDs"},
     {"id": "CURRENT-OWNER-EXCLUSION", "status": "PASS", "result": "this unit wrote none of those owners; full-origin audit/rulings/Feature were clean against HEAD; STATE.json was already dirty and was left unchanged; source archives were read-only"},
+    {"id": "CROSS-SOURCE-ID-CLOSURE", "status": "UNKNOWN_WITH_EXPLICIT_SOURCE_LIMIT", "result": "S12/S13 provide date-level metadata and block ordinals; 0108/0109 provide archive Session/turn IDs, but inspected artifacts contain no native message-ID crosswalk; exact text matches remain candidate links only"},
     {"id": "GOVERNANCE-SHARDS", "status": "PASS", "result": "whole repo scan: 2016 indexes; 15 non-blocking soft-target notices; no structural failures"},
     {"id": "SESSION-JSON", "status": "PASS", "result": "RUNS.json parses after content finalization"},
     {"id": "SESSION-LOCAL-LINKS", "status": "PASS", "result": "6 local links checked; 0 missing"},
@@ -149,8 +166,8 @@
     ],
     "previous_worktree_written": false,
     "untracked_source_archives_committed": false,
-    "prior_candidate_commit": "d21f7905149eead414cdc06c358852c93f386805",
-    "current_unit_commit": "recorded in the exact-path branch-local commit that adds this owner-ready denominator proposal"
+    "prior_candidate_commit": "7983c000c8a036e2a2a9f099004060f6aee6a288",
+    "current_unit_commit": "recorded in the exact-path branch-local commit that adds this source-identity metadata audit"
   },
-  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_MISATTRIBUTION_CORRECTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
+  "status": "SOURCE_DENOMINATOR_GAP_CONFIRMED / OWNER_REPAIR_CANDIDATE_READY / CROSS_SOURCE_EVENT_ID_METADATA_RECHECKED_WITH_UNKNOWN / PARENT_GOAL_CUTOFF_UNKNOWN / CHILD_GOAL_MISATTRIBUTION_CORRECTED / CONTRIBUTOR_EVIDENCE / NO_MATH_CLAIM"
 }
