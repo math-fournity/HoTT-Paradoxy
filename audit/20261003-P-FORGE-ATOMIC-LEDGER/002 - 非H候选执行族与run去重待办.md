@@ -15,8 +15,8 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 `H001--H075`已在001片登记；本片的行不与H编号混计。`PENDING_RUN_DEDUP`不是负结论，也不表示该报告
 缺少价值，只表示它尚不能贡献精确总数。
 
-目前已从下表 N06--N23 提取出 18 个彼此不同的 session ID，并与 H 报告中可提取的身份交叉检查为无交集，
-故它们可以作为原子总分母的已确认 non-H 运行。N01--N05及N24之后仍须继续拆分。
+目前已从 N06--N28 提取出 37 个彼此不同的 session ID，并与 H 报告中可提取的身份交叉检查为无交集，
+故它们可以作为原子总分母的已确认 non-H 运行。N01--N05、N29和N30仍须继续拆分或按Master／未采样身份处置。
 
 ## 2. 已识别的 non-H 候选执行族
 
@@ -44,11 +44,11 @@ index: ../20261003-P-FORGE-ATOMIC-LEDGER.md
 | N21 ZFC-COFORGE-003 | `ZFC-COFORGE-003-P1` | unique session `01a0fced-d62d-76a3-a2eb-f1ccdb0c801c` | `UNIQUE_ATOMIC_RUN` |
 | N22 ZFC-COFORGE-004 | `ZFC-COFORGE-004` | unique session `01a0fcfa-5379-7842-8643-560af9a32ef5` | `UNIQUE_ATOMIC_RUN` |
 | N23 ZFC-COFORGE-005 | `ZFC-COFORGE-005-P1` | unique session `01a0fcfd-e6f5-7ff2-a3ac-b920081a0b48` | `UNIQUE_ATOMIC_RUN` |
-| N24 Battle-001 | `20261002-P-DAG-BATTLE-001-Terra-Max.md` | source-isolated advocates plus arbiter | 拆出每个立场和arbiter terminal。 |
-| N25 SOURCE-001 | `20261002-P-DAG-SOURCE-001-Terra-Max.md` | source consumer / P2 / P3 relay | 抽取每个实际source-mapper terminal。 |
-| N26 SOURCE-002 + BATTLE-002 | `20261002-P-DAG-SOURCE-002-与-BATTLE-002-Terra-Max.md` | proof-layer/source/Battle family | 拆source nodes与arbiter，去重同卡重述。 |
-| N27 SOURCE-003 | `20261002-P-DAG-SOURCE-003-TIMEOUT-Terra-Max.md` | three cancelled web nodes | 逐一登记无terminal节点。 |
-| N28 SOURCE-004 | `20261002-P-DAG-SOURCE-004-NODECARD.md` | pre-sampling connection failure | 作为失败执行单元保留。 |
+| N24 Battle-001 | `P-DAG-BATTLE-001` | 3 unique sessions: `01a0fd1b-039b-77e1-895a-b5ff743ce497`; `01a0fd1b-028d-7442-a124-e3e4a6af5577`; `01a0fd1d-180b-7742-8c04-d83975b92ba1` | `UNIQUE_ATOMIC_RUNS(3)` |
+| N25 SOURCE-001 | `P-DAG-SOURCE-001` | 4 unique sessions: `01a0fd24-e045-7e53-b290-ae608e851408`; `01a0fd24-e017-7330-8f84-cc677ee47132`; `01a0fd2c-5031-7923-b5a1-b19b5d50c37d`; `01a0fd2c-4f56-7e10-95e5-08e62223ecb8` | `UNIQUE_ATOMIC_RUNS(4)` |
+| N26 SOURCE-002 + BATTLE-002 | `P-DAG-SOURCE-002-与-BATTLE-002` | 8 unique sessions; exact IDs frozen in this report and cross-checked against H/non-H registries | `UNIQUE_ATOMIC_RUNS(8)` |
+| N27 SOURCE-003 | `P-DAG-SOURCE-003` | 3 unique cancelled sessions: `01a0fd5f-0afa-7773-8245-f873a22e49cc`; `01a0fd5f-0abc-7ec2-82f1-fe67d40bfff3`; `01a0fd5f-0b21-70f0-8a90-7efa8c9ea504` | `UNIQUE_ATOMIC_RUNS(3)` |
+| N28 SOURCE-004 | `P-DAG-SOURCE-004` | pre-sampling connection-failure session `01a0fd6f-a6d8-7db1-a4a4-7184ff2ac118` | `UNIQUE_ATOMIC_RUNS(1)` |
 | N29 SOURCE-005 | `20261002-P-DAG-SOURCE-005-Isabelle-ZF-Cantor-Master.md` | Master direct-source control | 标记无worker／有Master动作。 |
 | N30 runner／isolation／qualification | `P-DAG-RUNNER-HEALTH-001`、`RUNNER-ISOLATION-002`、`CODEX-APPSERVER-ISOLATION-003/004/005`、`AppServer-资格检查` | execution-envelope controls | 逐项确认是否采样、是否影响候选卡、是否已经由H007--H010覆盖。 |
 
@@ -63,5 +63,5 @@ NO_MODEL_SAMPLING_BUT_EXECUTION_UNIT
 OUT_OF_SCOPE_WITH_REASON
 ```
 
-届时才能计算 `H75 + non-H unique runs = exact atomic denominator`。在那之前，R15的`>=93`只是不应再被降低的
+届时才能计算 `H75 + non-H unique runs = exact atomic denominator`。在那之前，R15的`>=112`只是不应再被降低的
 下界，不是完成分母。
