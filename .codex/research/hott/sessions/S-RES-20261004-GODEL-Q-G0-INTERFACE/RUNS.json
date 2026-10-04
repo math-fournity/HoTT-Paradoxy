@@ -1,0 +1,59 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261004-GODEL-Q-G0-INTERFACE",
+  "tier": "T2",
+  "role": "RESEARCH_GENERATION",
+  "status": "G0_SOURCE_DENOMINATOR_FROZEN_ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE_PARENT_COMPLETION_INTERFACE_UNDERDETERMINED_NO_GODEL_THEOREM",
+  "new_formal_runs": [],
+  "source_reads": [
+    {
+      "id": "SRC-G0-PLAN-001",
+      "source": "GODEL-Q-REFLECTION-SOP, CC-20261004-godel-q-reflection, F-050, C-359 and C-366",
+      "identity": "repo-current owners at dev HEAD e3d9d7293",
+      "scope": "G0 contract, existing conditional-policy theorem and process-representability control",
+      "status": "PROJECT_SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-G0-METAMATH-001",
+      "source": "metamath/set.mm README, verifiers.md and .github/workflows/verifiers.yml",
+      "identity": "develop@160ebb63ec17ff00a809520a420c92914a424622; local source-document hashes recorded in G0 audit §3.1",
+      "scope": "ZFC-facing set.mm database and multi-verifier acceptance workflow",
+      "status": "PRIMARY_OPEN_SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-G0-COMPLETION-002",
+      "source": "IEP, Norton and SEP source-contract card",
+      "identity": "audit/20261004-ZFC-ACTUAL-Q-A2-标准解法来源完成合同.md",
+      "scope": "standard-solution revised-vs-strict completion contract and source-switch control",
+      "status": "SOURCE_CONTRACT_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-G0-SCREEN-003",
+      "source": "two bounded public-web search batches for Metamath/Zeno and proof-assistant/Zeno interfaces",
+      "identity": "queries and returned-scope summary in audit/20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md §7.1",
+      "scope": "no unified source found within stated queries; not a global absence claim",
+      "status": "BOUNDED_EXTERNAL_SCREENING"
+    }
+  ],
+  "p_dag_runs": [],
+  "verification": [
+    {
+      "id": "VERIFY-G0-DOCS-001",
+      "command": "python3 -B scripts/audit/verify_governance_shards.py",
+      "status": "PASS_WITH_SOFT_TARGET_NOTICES",
+      "scope": "project shard structure after G0 owner updates"
+    },
+    {
+      "id": "VERIFY-G0-DIFF-002",
+      "command": "git diff --check on exact changed tracked paths plus --no-index check for the new audit",
+      "status": "PASS",
+      "scope": "G0 changed paths only; pre-existing dev-notes trailing whitespace remains outside this unit"
+    }
+  ],
+  "non_goals": [
+    "No theorem that bare ZFC is inconsistent or lacks all process representations.",
+    "No local replay of a Metamath verifier or theorem about its totality.",
+    "No release of G1-G6 from a proof-acceptance card alone.",
+    "No start of the upper T-PRECISION-DIAGONAL-SOP program."
+  ]
+}

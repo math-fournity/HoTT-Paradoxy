@@ -11,13 +11,13 @@ soft_line_target: 300
 
 # GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案
 
-> **身份：** PLAN_READY / RESEARCH_PROFILE_GOVERNED / NOT_A_MATHEMATICAL_THEOREM。
+> **身份：** RESEARCH_PROFILE_GOVERNED / G0_ACTIVE_WITH_SCOPE / NOT_A_MATHEMATICAL_THEOREM。
 >
 > **稳定引用名：** GODEL-Q-REFLECTION-SOP。
 >
 > **父结果：** F-050 已完成的有界证据／控制记录；本方案在该记录之外研究真实 completion acceptance interface 与 Q，不重写 C-359 至 C-366，也不自动重开 F-050。
 >
-> **当前激活状态：** PLAN_READY / EXECUTION_NOT_STARTED / DOES_NOT_REOPEN_F050_CLOSED_WITH_SCOPE。研究发起人可用本页末尾的启动词明确开始这条新路线；计划文件本身不改变 F-050 的收尾状态。
+> **当前激活状态：** `G0_SOURCE_DENOMINATOR_FROZEN / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`。当前 Goal 已明确启动 G0；F-050 的已有界收尾仍不因本模块恢复。G1–G6 仍须等同一来源的 process contract、`OriginDone`、`ρ` 与 bridge。
 
 ## 当前层级与调用边界
 
@@ -54,7 +54,7 @@ soft_line_target: 300
 
 ~~~text
 按照 SOP=GODEL-Q-REFLECTION-SOP，先建立或重建 CC-20261004-godel-q-reflection 认知闭包，
-再从 G0 的目标接口冻结开始推进。保持现有 Goal 的暂停状态，除非研究发起人另行恢复或创建该方案对应 Goal；
+再从 G0 的目标接口冻结开始推进。当前 Goal 已完成 G0 的 interface denominator；保持 F-050 的 `CLOSED_WITH_SCOPE`，除非研究发起人另行给出重开条件；
 不得把旧 R3/R4、C-359 条件模型、H0 trace fragment 或来源沉默升级为 哥德尔式 ZFC 结论。
 ~~~
 
