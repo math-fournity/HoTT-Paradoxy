@@ -775,6 +775,19 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 
 本裁定授权该阶段定位的直接用户source、Feature／MEMORY／rulings更新与精确Git谱系；不授权将收敛标签升级为数学定理、启动无关扫描、改变数学STATE、tag、push或外部发布。
 
+## 2026-10-04：bare ZFC 理论精度目标的纠正
+
+研究发起人明确纠正：“我一直说的都是bare ZFC理论精度不够。”此前将这一目标回应为“没有 bare ZFC 的形式矛盾”是目标层级错误：NO_BARE_ZFC_CONFLICT_CLAIM只表示当前没有、也不应伪称 ZFC 推出 False；它不能作为对 bare ZFC 理论精度问题的回答、反驳或结案。
+
+执行裁定：
+
+1. 当前主张是 BARE_ZFC_Q_PRECISION_INSUFFICIENCY_HYPOTHESIS：bare ZFC 可将时间、数列、状态、程序和证明编码为集合，不等于它的原生基础接口已经要求或判定 Q 所需的观察——FormalDone 与 OriginDone 的区分、二者之间的 completion bridge、以及无 bridge 时不得完成提升的责任。
+2. 该主张不以“ZFC没有时间 primitive”推导“ZFC不能表示时间”；它问的是理论精度／默认判定职责。未来形式化必须固定一个 BareZFCPrecisionContract：base-facing observation interface、外部过程及其 OriginDone、形式模型及其 FormalDone、投影、bridge/payment和正反控制。可证明的目标是：在明确的投影与保真前提下，裸接口不能决定或强制 Q；不得由一个自造的 forgetful map直接宣称所有 bare ZFC 都无法观察 Q。
+3. C-359至C-363保留其正确身份：它们是完成提升、来源合同与固定 HoTT Q 的形式控制。F-048的 ACTUAL_Q_UNIFICATION_REJECTED_WITH_SCOPE 只关闭“当前来源分母的实际同 Q／统一政策”支线；它不关闭、支持或反驳本条 bare-ZFC 理论精度假说。
+4. 下一最小行动是先制定并审计 BareZFCPrecisionContract，再选择一个版本固定的 ZFC-facing interface 进行机器化。其验收必须区分表达能力、默认观察力、实际来源政策和现实任务解释；没有这个合同，不得将新的 Lean fixture写成 bare ZFC 结论。
+
+本裁定授权F-049、当前恢复入口、合同设计、相称的来源／模型／机器证明和精确Git提交；不授权将该假说提前写成 ZFC 推出 False、全称的ZFC不可表示性、tag、push或外部发布。
+
 ## 2026-10-04：ZFC 实际同 Q SOP 在固定来源分母的收尾判词
 
 `ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`的 A1–A5 已对固定分母执行：用户圆环原文、IEP、Norton、SEP、已机证的圆环模型家族和固定 Cubical Agda HoTT Q。完整卡与逐字段裁决由`audit/20261004-ZFC-ACTUAL-Q-A1-A5-收尾裁决.md`拥有。

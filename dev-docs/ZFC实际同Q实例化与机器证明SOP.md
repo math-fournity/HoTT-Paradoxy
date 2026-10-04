@@ -29,6 +29,8 @@ same full QProfile + opposite judgments → ¬ QUniform
 
 本 SOP 继承 `P-FORGE-SOP`、`P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP`、`ZFC-CIRCLE-Q0/Q1` 与 `ZFC-HOTT-Q2` 的 owner，不创建第二套 current state、第二套 P1/P2/P3 或自动的数学判词。
 
+> **范围纠正（2026-10-04）：** 本 SOP 只处理“实际同 Q 与来源归属的 completion-policy”支线。其 ACTUAL_Q_UNIFICATION_REJECTED_WITH_SCOPE 收尾不裁定 bare ZFC 的理论精度是否足以原生观察 Q；该上位问题由F-049及rulings的 BARE_ZFC_Q_PRECISION_INSUFFICIENCY_HYPOTHESIS 拥有。后续不得把本 SOP 的 NO_ZFC_POLICY_CONFLICT_CLAIM 改述成对 bare-ZFC 精度目标的否定。
+
 ## 逻辑全文分片
 
 <!-- governance-shard-table:start -->
