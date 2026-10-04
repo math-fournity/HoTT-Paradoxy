@@ -1,0 +1,48 @@
+{
+  "schema_version": "source-replay-run/v1",
+  "run_id": "20261004-SOURCE-REPLAY-SETMM-OBJECT-CODING-001",
+  "status": "EXACT_SETMM_DATABASE_VERIFIED_AND_OBJECT_CODING_SOURCE_INSPECTED_WITH_SCOPE",
+  "database": {
+    "repository": "https://github.com/metamath/set.mm",
+    "commit": "160ebb63ec17ff00a809520a420c92914a424622",
+    "raw_url": "https://raw.githubusercontent.com/metamath/set.mm/160ebb63ec17ff00a809520a420c92914a424622/set.mm",
+    "external_cache_path": "/Volumes/D/HoTT-downloads/godel-q-setmm-160ebb/set.mm",
+    "bytes": 51466065,
+    "etag": "3f1169002e9fec21b6ff3f71bf6638b4bfc9bd5ac337e2c027b697f80e9cb707",
+    "sha256": "d8420798bcedcd04fcfe337736e2609b66914c76f8f2db967fa79673d5026b2a",
+    "git_blob_sha1": "75aac81031ffdc99ca832e1300c3fc30af13c7f7",
+    "identity_check": "A blob-only Git fetch of commit 160ebb… reports the same SHA-1 blob ID as git hash-object on the downloaded file."
+  },
+  "verifier": {
+    "repository": "https://github.com/metamath/metamath-exe.git",
+    "commit": "9898f5d1bb27045d764dd01672862a1c2a3b4f5e",
+    "tree_sha1": "993c23d2df0ebecdd529a0d56fdefe0a5424c0e1",
+    "build_command": "cd src && cc m*.c -o metamath",
+    "binary_sha256": "35351c6d9c1795604e3cfa8ef8359c5118c45b54ca415e61e54d2813512feb68",
+    "build_exit_code": 0,
+    "version_banner": "Metamath - Version 0.200.pre 17-Aug-2026"
+  },
+  "verification": {
+    "command": "printf 'READ \"<exact set.mm path>\"\\nVERIFY PROOF *\\nEXIT\\n' | metamath",
+    "exit_code": 0,
+    "statement_count": 252401,
+    "axiom_statement_count": 3072,
+    "proof_statement_count": 47917,
+    "proof_verification_result": "All proofs in the database were verified in 9.21 s.",
+    "stdout_sha256": "e9c342aa9ffae67916162b999506277027e3a6e606bfa769516b25e454fe8580",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_stdout_whitespace": "stdout.txt preserves two terminal-emitted trailing spaces; this artifact is excluded from text-style diff checking so its recorded SHA-256 stays faithful to the actual verifier output."
+  },
+  "source_inspection": {
+    "formula_coding": ["df-goel", "df-goal", "df-fmla", "fmla"],
+    "generic_formal_system": ["df-mfs", "df-mpps", "df-mthm", "mthmpps", "mthmppsfi"],
+    "provability_boundary": ["cprvb", "ax-prv1", "ax-prv2", "ax-prv3", "bj-babygodel"],
+    "source_scope": "The source defines set-coded formulas, satisfaction, and generic Metamath formal-system/provable-pre-statement objects. It does not, in the inspected exact source, construct the Prv predicate, derive it from the actual set.mm database, or construct the required Gödel sentence."
+  },
+  "non_goals": [
+    "No theorem that bare ZFC is inconsistent, incomplete, or lacks a time/observation dimension.",
+    "No proof that the current set.mm database is itself represented by a particular object T in mFS.",
+    "No proof that the primitive Prv symbol is adequate for set.mm or any target theory.",
+    "No actual diagonal sentence, HBL instantiation, parent OriginDone, reality map, completion bridge, or actual Q policy."
+  ]
+}

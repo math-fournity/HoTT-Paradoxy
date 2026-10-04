@@ -8,7 +8,7 @@
 >
 > **宿主：** Codex desktop，Master；未启动 Sub Agent 或 App Server worker。对 `mm-lean4` 的 exact toolchain build 仅观察到 RC2 toolchain 下载开始，未产生 binary。
 >
-> **状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / G1_TO_G6_NOT_RELEASED / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
+> **状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_SETMM_DATABASE_VERIFIER_REPLAYED / G2_SETMM_OBJECT_CODING_SOURCE_REQUALIFICATION_ACTIVE_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_MAPPING_OPEN / INTERNAL_PROVABILITY_ADEQUACY_OPEN / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / G1_G3_TO_G6_NOT_RELEASED / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
 
 ## 1. 任务与完成标准
 
@@ -45,6 +45,7 @@
 | ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；`reflect_prf_lift1`只是 host proof transport，`has_reflect`是 Lean meta helper，`godel_completeness_theorem`是 completeness；均未有 numeric Gödel coding/fixed point 或 parent bridge。 |
 | generic Gödel baseline | `Foundation@f3972f…` First/Second | `MACHINE_REPLAYED_GENERIC_GODEL_TECHNICAL_BASELINE_WITH_SCOPE`：code/quote/substitution/provability实际重放；没有target-specific ZFC/process实例化。 |
 | Foundation target-mapping control | project wrappers + exact Foundation source | 正控制确认 `𝗭𝗙𝗖 : SetTheory` 与 generic `ArithmeticTheory` theorem interface；负控制拒绝直接传入 `𝗭𝗙𝗖`。同树又有 `ω`／自然数递归模型正控制，却没有 concrete `DirectInterpretation` occurrence。这是 `FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE`，不是 ZFC 不完备性 theorem。 |
+| set.mm internalization requalification | exact database + compiled official verifier | 47,917 `$p` proofs 实际通过 `VERIFY PROOF *`；source还定义ZF set-coded formula/satisfaction和generic `mFS/mPPSt/mThm`。但 `Prv` lacking a definition，actual database→`mFS` mapping和Diag未支付。 |
 | 外部技术校准 | JAR/AFP + fixed Agda BRA source | 把 code/numeral bridge、内部 provability adequacy、proof representability 与 fixed point 分开；只作 G2 field calibration，外部 developments 未在本机 replay，也不是 ZFC/parent-Q source。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
 

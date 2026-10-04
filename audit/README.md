@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [GODEL-Q G2：set.mm 对象层编码与 internalization 重资格化（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-SETMM-INTERNALIZATION-REQUALIFICATION.md)：固定 `set.mm@160ebb…` 由固定 `metamath-exe@9898f5d…` 对全部 47,917 个 `$p` proofs 实际验证；同时核对其 ZF 内 Gödel-set、satisfaction、generic formal-system/proof relation与未定义 `Prv` 的边界。它打开 target-specific mapping audit，不构成 bare ZFC、actual diagonal或parent completion theorem。
+
 - [GODEL-Q G0：真实接口分母与统一来源筛选（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md)：冻结 Metamath proof acceptance、IEP/Norton completion contract、C-366 process representation，以及 Foundation/Flypitch controls；追加四查询的 unified-source screening。结论是当前来源分母完成而 parent completion interface 仍未定义，绝不等于 bare ZFC 或全局来源不存在的结论。
 
 - [GODEL-Q G2：外部哥德尔化技术校准（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-EXTERNAL-TECHNICAL-CALIBRATION.md)：对 JAR/AFP 与固定 Agda BRA source 交叉核对后，GodelizationCard 增加 `NumeralBridge` 和 `InternalProvabilityAdequacy`。它说明为何 host quotation、proof transport或外部 checker不能取代理论内部的 code/numeral/provability支付；不构成 ZFC 或本项目 Q 的 theorem。
