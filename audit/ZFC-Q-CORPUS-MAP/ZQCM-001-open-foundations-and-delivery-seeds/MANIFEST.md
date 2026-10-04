@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-013_W015_ACQUISITION / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-014_W015_SOURCE_SCREEN / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -100,3 +100,5 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-012 rationale.** V-UF-05 has now completed source-only visual review and its bounded source screen. Rodin’s author preprint directly juxtaposes a `P(A)` that may be spoken of as a set-theoretic construction with the Power Set axiom as an existential guarantee for any given set. It is therefore a precise HoTT-motive / Power Set rule-versus-existential source seed. The same source places ZF externally as a basis for HoTT model theory, makes its proposal for scientific representation explicitly philosophical and imprecise, and does not fix an ordinary bare-ZFC consumer, a same task, or an unpaid Done. It qualifies as a controlled `R_i → Z_i` ingress, not as a ZFC Q candidate.
 
 **Extension-013 rationale.** V-SET-01's bibliography explicitly names Džamonja–Panza's *Asymptotic quasi-completeness and ZFC*. Exact author-site, HAL, Chapman institutional-record and Springer DOI checks found a 23-page HAL author deposit, with title/authors and final chapter identity cross-validated. The source is admitted as W-015 because it is a direct, public, version-qualified successor that may sharpen the relationship between ZFC, independence, singular cardinals and actual set-theoretic practice. It is acquisition-qualified only: title/abstract language about incompleteness or quasi-completeness is not a Q, and page-level source screening remains required.
+
+**Extension-014 rationale.** W-015 has now completed source-only visual review and its bounded source screen. Its technical subject is a qualified contrast between regular-cardinal independence and singular-cardinal constraints within ZFC; the recurring “power set function” is explicitly a cardinal-arithmetic class-function, while forcing, model, Choice and large-cardinal conditions remain visible. Its philosophical account of `de re` access and pure sets is equally explicit about its semantic / epistemic role. These materials make W-015 a strong control against turning ZFC incompleteness or a Power Set word match into Q. It does not supply an ordinary bare-ZFC actual consumer, same task, formation-use reentry, or unpaid Done.
