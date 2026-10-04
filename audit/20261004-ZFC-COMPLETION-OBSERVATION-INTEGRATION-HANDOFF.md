@@ -6,10 +6,10 @@
 
 | 字段 | 值 |
 |---|---|
-| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure; `bad180ce036d6b409c16611786dfb268d8685c83` — external candidate B0–B3 and independent replay; `f2e9aad684f6db85ff54a742d829795f6123c31c` — IEP/SEP/Norton 当日一手文本复核；`63d7d39c4941beadfbfe791aaf68e84038df6c46` — guarded B-to-P backtrace。 |
+| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure; `bad180ce036d6b409c16611786dfb268d8685c83` — external candidate B0–B3 and independent replay; `f2e9aad684f6db85ff54a742d829795f6123c31c` — IEP/SEP/Norton 当日一手文本复核；`63d7d39c4941beadfbfe791aaf68e84038df6c46` — guarded B-to-P backtrace；`5202eb1c697a93ab1d1423ae89b99984cce2cc1f` — Meta/Sub completion-audit bridge；`334d5c63af6625e45fc25a74dcfe81706339152c` — HOTT-MOTIVE-ZFC candidate backflow audit；`0a268484f6f770ae8c59193fd558429423ca25ed` — completion-promotion tension formalization。 |
 | contributor worktree | `/Users/aurolafly/.codex/worktrees/3d2f/HoTT_AI_HANDOFF_20260911`，detached HEAD |
 | common merge base with `dev` | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
-| observed canonical target | `dev@81140216b519f418a5064ca21258c8ffa0afa7f8`，工作树 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，dirty；观察时间 2026-10-04。 |
+| observed canonical target | `dev@c65449762a79ac9650362612ae25eb85bce0b678`，工作树 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，dirty；观察时间 2026-10-04。 |
 | required integration role | 唯一 `CANONICAL_INTEGRATOR`；不得直接在 dirty canonical worktree reset、stash、clean 或 cherry-pick。 |
 
 `dev` 已含另一条 ZFC-Q 形式化历史（例如 `e2c2a16e`、`5cb19202`、`213a616a`）。本候选与其主题重叠，语义不必然重复；集成者必须比较，而不能把提交题目相似当作自动合并依据。
@@ -20,9 +20,11 @@
 2. 两个可重放 Lean run（`...-01` 是初次收据，`...-02` 是 claim 文本更新后的当前收据）；
 3. H100–H105 的 NodeCard、frozen payload、公开 source-MatchTrace 汇总和 P-DAG delta 自审；
 4. `S-RES-20261004-ZFC-P-CLOSING` 分片核心认知审计；
-5. 九个 fresh Lean/Cubical Agda proof-run、两项 Agda negative control、H106 current-byte source replay，以及 [`verify_zfc_completion_observation_closure.py`](../scripts/audit/verify_zfc_completion_observation_closure.py) 的 PASS receipt；
+5. 十三个 fresh Lean/Cubical Agda proof-run（含正向与预期拒绝的负控制）、H106 current-byte source replay，以及 [`verify_zfc_completion_observation_closure.py`](../scripts/audit/verify_zfc_completion_observation_closure.py) 的 PASS receipt；
 6. `MetaSubtheoryAudit.lean` 的正向 bridge theorem、coarse-promotion negative control及其 source/run receipts；
-7. 本交接单。
+7. `CompletionPromotionTension.lean`：把 P 精确定义为“从 formal completion 导出 origin completion 的政策规则”，并以同一 countertrace 证明未经 bridge 的 promotion 不健全；包含 bridge-paid 正控制和预期拒绝的负控制；
+8. `20261004-P-FORGE-LITERATURE-BACKFLOW-HOTT-MOTIVE-ZFC-CANDIDATE-AUDIT.md`：按 B0–B5 审计冻结 HOTT-MOTIVE-ZFC 候选的八条路线，结果是 I1 source-frontier refinement，非 Q；
+9. 本交接单。
 
 它不修改 `STATE.json`、`MEMORY`、`feature-list.md`、`rulings.md`、方向／全景投影、README 或 canonical claim matrix。这些 current owner 只能由 integrator 在当时的 `dev` HEAD 上重审后原位更新。
 
@@ -48,6 +50,11 @@ candidate C-359 的 source-scope theorem 一起审阅，不能被接成实际数
 bridge contract。它不与 candidate C-359 重复：前者检查 meta acceptance→origin promotion 的接口责任，后者检查
 跨 Zeno/HoTT policy scope。二者都仍需 actual source consumer 才能进入 current ZFC diagnosis。
 
+`CompletionPromotionTension.lean` 在这两个层次之间补上了政策语义：`PAdopted` 是一条可导规则，不等于
+`CompletionBridge`；若同一状态已有 formal A 和 origin-not-Done B，该政策就相对于过程语义不健全。它还证明
+Q-missing 本身不蕴含 P adoption，因此 `Q→P` 仍必须由实际许可／采纳来源支付。该包不改变 candidate C-359 的
+source-scope boundary，也不能被读成 actual ZFC 的矛盾。
+
 集成者必须选择性比较这两组 proof 的语义、scope、claim ID 和 source receipts；不得两个版本并列为两条
 “ZFC 已矛盾”的 current claim。候选自身也明确保留 actual source scope、actual QProfile、P→B 和 full ZFC
 axiom-schema encoding 的未支付边界。
@@ -63,6 +70,7 @@ axiom-schema encoding 的未支付边界。
 - 一切极限或截断都换题；
 - IEP 与 HoTT 作者或整个数学共同体采用同一 P；
 - `P → B` 已有来源因果链；
+- P 已在实际共同体政策中被采用，或其 completion bridge 未支付；
 - main 的 HoTT UR 解释已经是内核定理。
 
 ## 4. 已知依赖与集成前的核对
@@ -83,6 +91,7 @@ H100–H105的来源结论引用下列已存在或须同步带入的材料：IEP
 
    ```sh
    /Users/aurolafly/.elan/bin/lean HoTT/formal/zfc-observation-boundary/CompletionSubstitutionProfile.lean
+   /Users/aurolafly/.elan/bin/lean HoTT/formal/zfc-observation-boundary/CompletionPromotionTension.lean
    python3 -B scripts/audit/verify_zfc_completion_observation_closure.py
    python3 -B scripts/audit/verify_governance_shards.py
    python3 -B scripts/audit/verify_pattern_p_tool_history_sources.py --root .
