@@ -6,7 +6,7 @@
 
 | 字段 | 值 |
 |---|---|
-| contributor evidence commit | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — `research: converge ZFC completion observation diagnosis` |
+| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure. |
 | contributor worktree | `/Users/aurolafly/.codex/worktrees/3d2f/HoTT_AI_HANDOFF_20260911`，detached HEAD |
 | common merge base with `dev` | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target | `dev@213a616a653ca964127a710497f231a0a3d3fef9`，工作树 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，dirty；观察时间 2026-10-04。 |
@@ -20,7 +20,8 @@
 2. 两个可重放 Lean run（`...-01` 是初次收据，`...-02` 是 claim 文本更新后的当前收据）；
 3. H100–H105 的 NodeCard、frozen payload、公开 source-MatchTrace 汇总和 P-DAG delta 自审；
 4. `S-RES-20261004-ZFC-P-CLOSING` 分片核心认知审计；
-5. 本交接单。
+5. 九个 fresh Lean/Cubical Agda proof-run、两项 Agda negative control、H106 current-byte source replay，以及 [`verify_zfc_completion_observation_closure.py`](../scripts/audit/verify_zfc_completion_observation_closure.py) 的 PASS receipt；
+6. 本交接单。
 
 它不修改 `STATE.json`、`MEMORY`、`feature-list.md`、`rulings.md`、方向／全景投影、README 或 canonical claim matrix。这些 current owner 只能由 integrator 在当时的 `dev` HEAD 上重审后原位更新。
 
@@ -52,6 +53,7 @@ H100–H105的来源结论引用下列已存在或须同步带入的材料：IEP
 
    ```sh
    /Users/aurolafly/.elan/bin/lean HoTT/formal/zfc-observation-boundary/CompletionSubstitutionProfile.lean
+   python3 -B scripts/audit/verify_zfc_completion_observation_closure.py
    python3 -B scripts/audit/verify_governance_shards.py
    python3 -B scripts/audit/verify_pattern_p_tool_history_sources.py --root .
    git diff --check
