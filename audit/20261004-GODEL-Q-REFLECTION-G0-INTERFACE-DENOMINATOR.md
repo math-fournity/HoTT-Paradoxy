@@ -6,7 +6,7 @@
 >
 > **日期：** 2026-10-04。
 >
-> **结论身份：** `SOURCE_INTERFACE_DENOMINATOR / G0_PARTIAL_PASS / NOT_A_GODEL_THEOREM / NOT_A_BARE_ZFC_INCONSISTENCY_CLAIM`。
+> **结论身份：** `SOURCE_INTERFACE_DENOMINATOR / G0_SOURCE_PASS_COMPLETE_WITH_SCOPE / NOT_A_GODEL_THEOREM / NOT_A_BARE_ZFC_INCONSISTENCY_CLAIM`。
 >
 > **本轮判词：** `ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE`，但对研究发起人关心的芝诺／圆环／H0 原过程，仍为 `PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`。因此不释放 G1–G6 的实际过程链。
 
@@ -149,7 +149,7 @@ G1_TO_G6_NOT_RELEASED_FOR_THE_PARENT_Q_CHAIN
 
 它**不**支持：bare ZFC 有形式矛盾；Metamath、IEP 或 Norton 已承认 Q；不存在任何可把这三类责任连接起来的未来来源；或者 C-359 的条件 consequence 已被实际实例化。
 
-## 7. 下一最小判别行动与重开条件
+## 7. 统一来源筛选、停止与重开条件
 
 ### 7.1 受限来源筛选的负结果
 
@@ -167,6 +167,35 @@ G1_TO_G6_NOT_RELEASED_FOR_THE_PARENT_Q_CHAIN
 > 寻找一个版本固定的 actual source，令同一 source owner 同时给出 `(i)` 明确的 ZFC-facing formal acceptance、`(ii)` 一个特定过程类别的 `OriginDone`、以及 `(iii)` 从前者到后者的 bridge、task switch 或明确拒绝。
 
 若找到了，才能用该 source 重建 GodelizationCard 并重新决定是否释放 G1。若该 source 明确说 `Done` 已被改写，结果应登记为 `SOURCE_INTERFACE_DEFENSE_WITH_SCOPE`；若保持来源分裂，结果是本 card 的有界 underdetermination，不是 bare-ZFC 结论。
+
+### 7.2 统一来源的最后一轮有界筛选
+
+在已有两批筛选之外，本轮以四个精确查询重查统一接口：
+
+```text
+"Zeno's paradox" "Gödel" formalization proof assistant
+"Zeno's paradox" "internal provability" ZFC
+"Zeno's paradox" Isabelle formalization proof
+"Zeno's paradox" Metamath formalization
+```
+
+返回材料仍是哲学／物理讨论、一般 Zeno 条目或不相干的形式化线索；没有一条在同一版本固定 source owner 下同时给出：
+
+```text
+ZFC-facing formal acceptance
++ a specified Zeno/circle/H0-like OriginDone
++ an explicit bridge, task switch, or rejection between the two
+```
+
+这只建立 `BOUNDED_UNIFIED_SOURCE_SCREENING_NO_MATCH`，绝不是关于全网、全历史或数学上不存在这种来源的结论。结合 §3 的六个角色与 Foundation/Flypitch 的 mapping controls，G0 的**当前来源分母**现在可以收束为：
+
+```text
+G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE
+PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE
+G1_TO_G6_NOT_RELEASED
+```
+
+“complete”只说本卡承诺的来源分母、角色分离、正反控制和有界检索已经完成；它不说整个 GODEL-Q 方案、bare ZFC 分析或任何数学 theorem 已完成。
 
 ## 8. 可复查动作
 

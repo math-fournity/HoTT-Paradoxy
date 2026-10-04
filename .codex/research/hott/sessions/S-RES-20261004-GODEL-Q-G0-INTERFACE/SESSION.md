@@ -8,7 +8,7 @@
 >
 > **宿主：** Codex desktop，Master；未启动 Sub Agent 或 App Server worker。对 `mm-lean4` 的 exact toolchain build 仅观察到 RC2 toolchain 下载开始，未产生 binary。
 >
-> **状态：** `G0_SOURCE_DENOMINATOR_FROZEN / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
+> **状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / G1_TO_G6_NOT_RELEASED / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
 
 ## 1. 任务与完成标准
 
@@ -29,8 +29,8 @@
 | closure verdict | `REUSE_WITH_DELTA + EXTERNAL_RESEARCH_REQUIRED`：既有 GODEL-Q closure/plan/C-359/C-366 足以规定问题；真实 ZFC-facing acceptance source 仍需外部核验。 |
 | persistence | `OWNER_UPDATE + AUDIT_CLOSURE`：用户先前要求跨 Session 闭包，且 G0 新增动态外部来源、分母、反控制和 current frontier。 |
 | profile | `RESEARCH_PROFILE_GOVERNED`：实际 source、编码、completion bridge 与 cross-session evidence 可改变后续阶段资格。 |
-| active direction | 仅 G0。Metamath proof acceptance 已冻结；parent process interface 尚未冻结。 |
-| stop/reopen | 同一来源未同时支付 `Accept_T`、`OriginDone` 与 bridge 时，停在 source-bound underdetermination；出现版本固定统一 source、用户重定原过程、或 source policy/revision 变化时重开。 |
+| active direction | G0 的当前来源分母已完成。Metamath proof acceptance 已冻结；parent process interface 尚未冻结，G1–G6不能启动。 |
+| stop/reopen | 当前 source pass 已在统一-source 筛选后结束；出现版本固定统一 source、经验证 target mapping、用户重定原过程、或 source policy/revision变化时才重开最小单元。 |
 
 ## 3. 直接证据与边界
 
@@ -57,7 +57,7 @@
 - [CC-20261004-godel-q-reflection](../../../../../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)：跨 Session 活动集、失效条件与 T 上位方案关系；
 - [本单元 core audit](CORE_COGNITION_AUDIT.md)：逐 KC、扩展认知、G0 分层和下一选择。
 
-唯一下一动作是：寻找**同一版本固定 source**，其 owner 同时给出 ZFC-facing formal acceptance、一个特定过程的 `OriginDone`，以及 bridge、task switch 或明确拒绝。若改走 Foundation generic theorem，则先要提供受验证的 actual interpretation／arithmetization；direct type mismatch 不能被误读成数学上的不可能。未出现该 source 前，保持 G1–G6 `NOT_RELEASED`。
+四查询的最后一轮 unified-source screening 没有新增候选；G0 因而在当前来源分母内完成。它不是“再找更多同型 checker”的许可。只有出现**同一版本固定 source**，其 owner 同时给出 ZFC-facing formal acceptance、一个特定过程的 `OriginDone`，以及 bridge、task switch 或明确拒绝时，才重开 G0/G1。若改走 Foundation generic theorem，则先要提供受验证的 actual interpretation／arithmetization；direct type mismatch 不能被误读成数学上的不可能。未出现该 source 前，保持 G1–G6 `NOT_RELEASED`。
 
 ## 5. 不做与范围
 

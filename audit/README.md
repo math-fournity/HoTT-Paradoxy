@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [GODEL-Q G0：真实接口分母与统一来源筛选（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md)：冻结 Metamath proof acceptance、IEP/Norton completion contract、C-366 process representation，以及 Foundation/Flypitch controls；追加四查询的 unified-source screening。结论是当前来源分母完成而 parent completion interface 仍未定义，绝不等于 bare ZFC 或全局来源不存在的结论。
+
 - [GODEL-Q G2：外部哥德尔化技术校准（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-EXTERNAL-TECHNICAL-CALIBRATION.md)：对 JAR/AFP 与固定 Agda BRA source 交叉核对后，GodelizationCard 增加 `NumeralBridge` 和 `InternalProvabilityAdequacy`。它说明为何 host quotation、proof transport或外部 checker不能取代理论内部的 code/numeral/provability支付；不构成 ZFC 或本项目 Q 的 theorem。
 
 - [GODEL-Q G2：Foundation ZFC 到通用哥德尔接口的映射缺口控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)：在固定 Foundation/Lean 4.34 source closure 中，正控制确认 `ZermeloFraenkelChoice : SetTheory` 和 generic `ArithmeticTheory` theorem 都真实存在；负控制显示二者不能直接应用。它只要求未来 target mapping 支付实际 interpretation／arithmetization，不给出 bare ZFC 的不完备性或完成观察结论。
