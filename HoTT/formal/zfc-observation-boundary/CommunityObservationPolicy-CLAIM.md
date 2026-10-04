@@ -85,6 +85,14 @@ substantive bridges are made explicit.
     added. This prevents the model from treating P as already derived from
     bare ZFC.
 
+11. `normative_tension_fixture_is_inhabited` and
+    `normative_tension_fixture_not_formally_incompatible`
+
+    A concrete abstract fixture satisfies the Q-missing/permission/adoption
+    fields and gives a community that values A and rejects B. The tension is
+    inhabited, so its presence cannot itself be substituted for the separate
+    A/B incompatibility or truth constraint required for `False`.
+
 ## Non-goals
 
 - No theorem that ZFC is inconsistent, incomplete, or incapable of representing

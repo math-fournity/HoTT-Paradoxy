@@ -219,6 +219,36 @@ theorem Q_absence_incompatible_A_and_B_yields_false
       Derives (zfc1 baseZFC) .undesirableOutcomeB)) : False := by
   exact incompatible (Q_absence_activates_A_and_B baseZFC community)
 
+/-- A concrete policy fixture: it assumes the abstract observation capacity is
+    absent, permits P, and records the policy's explicit adoption of P.  It is
+    a control model, not a claim about actual mathematical practice. -/
+def missingQPolicyFixture (baseZFC : Theory) : CommunityAdoption baseZFC where
+  hasObservationQ := False
+  lacksObservationQ := fun h => h
+  permitted := fun c => c = .mathematicalIllusionP
+  absencePermitsP := fun _ => rfl
+  adoptsP := fun _ => .base (Or.inr rfl)
+
+/-- A community may value A and reject B in the normative sense without that
+    value judgment itself supplying a formal incompatibility premise. -/
+def tensionValuesFixture : CommunityValues where
+  wanted := fun _ => True
+  unwanted := fun _ => True
+  wantsA := True.intro
+  rejectsB := True.intro
+
+theorem normative_tension_fixture_is_inhabited (baseZFC : Theory) :
+    NormativeTension (zfc1 baseZFC) tensionValuesFixture :=
+  Q_absence_produces_normative_tension baseZFC
+    (missingQPolicyFixture baseZFC) tensionValuesFixture
+
+/-- The control fixture refutes the attempted move from an inhabited normative
+    tension to a claim that the tension is formally impossible. -/
+theorem normative_tension_fixture_not_formally_incompatible (baseZFC : Theory) :
+    ¬ (¬ NormativeTension (zfc1 baseZFC) tensionValuesFixture) := by
+  intro incompatible
+  exact incompatible (normative_tension_fixture_is_inhabited baseZFC)
+
 /-- Negative control: the A/P cycle cannot generate a claim without a base
     premise. -/
 def emptyTheory : Theory := fun _ => False
@@ -255,6 +285,8 @@ theorem zfc1_is_strict_over_empty :
 #print axioms Q_absence_violates_truth_constraint
 #print axioms object_level_false_requires_formal_incompatibility
 #print axioms Q_absence_incompatible_A_and_B_yields_false
+#print axioms normative_tension_fixture_is_inhabited
+#print axioms normative_tension_fixture_not_formally_incompatible
 #print axioms emptyTheory_derives_no_claim
 #print axioms zfc1_is_strict_over_empty
 

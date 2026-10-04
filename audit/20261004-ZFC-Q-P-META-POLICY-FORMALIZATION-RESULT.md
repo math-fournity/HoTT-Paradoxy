@@ -68,8 +68,11 @@ Lean 形式化保留了这四层，而没有直接把它们写成既成事实：
 
 这些不是形式化遗漏，而是下一层所需的**来源定义、同一任务 bridge、以及现实／计算证据**。此前完成的直接 Zeno↔HoTT 同 Q 审计也已经显示，不能把“都谈完成”当作同一任务。新的政策模型不推翻那项控制；它只是让将来一旦有真正的 Q/P/A/B 映射时，推理不会再在“ZFC”与“数学共同体政策”之间悄悄换层。
 
+H099 已将用户提出的候选 `CompletionSubstitutionP` 直接放回 IEP／SEP 与 `QuestioningDelay` 的来源字段中审计，结论是 `P_TO_B_SOURCE_UNPROVED`：A 侧有多个 source-defined Done，B 侧有一个形式程序结果，但没有同一任务、同一 P、P→B 或实际采纳的来源链。详见 [H099](audit/20261004-P-DAG-ZFC-QP-099-Terra-Max.md)。
+
 ## 5. 证据与审计边界
 
 - [H098 的独立 Scope 审计](audit/20261004-P-DAG-ZFC-QP-098-Terra-Max.md) 以 exact Terra/Max、冻结输入和零工具运行完成；它确认模型只能支持条件性政策结论。
+- [H099 的来源映射](audit/20261004-P-DAG-ZFC-QP-099-Terra-Max.md) 将当前最强的候选 P 逐字段退回到实际 source obligations，而不是让 Lean 规则反向制造来源事实。
 - [形式化合同](audit/20261004-ZFC-Q-P-META-POLICY-FORMALIZATION-CONTRACT.md) 固定 Q/P/A/B 的来源义务、成功条件与反证条件。
 - 本结果仍是 `CONTRIBUTOR_CANDIDATE_NOT_CURRENT`，尚未写入 canonical `HoTT/CLAIM_EVIDENCE_MATRIX.md` 或 dirty `dev` 的 current owners。

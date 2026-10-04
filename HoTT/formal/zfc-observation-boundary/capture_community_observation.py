@@ -79,6 +79,8 @@ def main() -> None:
             "ZFC-COMMUNITY-POLICY-008",
             "ZFC-COMMUNITY-POLICY-009",
             "ZFC-COMMUNITY-POLICY-010",
+            "ZFC-COMMUNITY-POLICY-011",
+            "ZFC-COMMUNITY-POLICY-012",
         ],
         "proof_assistant": "Lean",
         "proof_assistant_version": version,
@@ -90,7 +92,7 @@ def main() -> None:
         "duration_seconds": (completed - started).total_seconds(),
         "exit_code": result.returncode,
         "status": "KERNEL_ACCEPTED_WITH_SCOPE" if accepted else "KERNEL_REJECTED",
-        "scope": "Conditional operational-consequence equivalence of baseZFC+A and baseZFC+P under explicit rules; Q-absence/permission/adoption derives the A/B fork; normative tension is distinct from formal inconsistency; False requires a separately supplied truth constraint or A/B incompatibility; an empty-base negative control shows P is an added policy claim.",
+        "scope": "Conditional operational-consequence equivalence of baseZFC+A and baseZFC+P under explicit rules; Q-absence/permission/adoption derives the A/B fork; a concrete fixture shows normative tension is inhabited and is distinct from formal inconsistency; False requires a separately supplied truth constraint or A/B incompatibility; an empty-base negative control shows P is an added policy claim.",
         "non_goals": [
             "No theorem that actual ZFC is inconsistent or lacks a particular observation capacity.",
             "No assertion that the mathematical community adopts P or derives B.",
