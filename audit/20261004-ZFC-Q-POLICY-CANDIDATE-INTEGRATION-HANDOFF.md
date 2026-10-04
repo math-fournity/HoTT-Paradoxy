@@ -2,7 +2,7 @@
 
 > **身份：** `CANDIDATE_NOT_CURRENT / INTEGRATION_REQUIRED / NO_CANONICAL_OWNER_MUTATION_IN_THIS_WORKTREE`。
 >
-> **本候选内容范围：** `35448f86^..5e04698c`（包括最初 C-359 包、C-360 至 C-365、来源范围审计和形式化收尾矩阵），branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。本交接单自身的后续更新不倒灌进这组 content commits；集成前仍须重新读取 branch tip。
+> **本候选内容范围：** `35448f86^..5e04698c`（包括最初 C-359 包、C-360 至 C-365、来源范围审计和形式化收尾矩阵），worktree 编号 `02` 的 branch `dev-02`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。本交接单自身的后续更新不倒灌进这组 content commits；集成前仍须重新读取 branch tip。
 >
 > **最近观察的 canonical target：** `refs/heads/dev = 213a616a653ca964127a710497f231a0a3d3fef9`；它是本次读取时的事实，不是可直接写入目标。
 

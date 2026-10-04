@@ -2,7 +2,7 @@
 
 > **身份：** `CANDIDATE_BRANCH_RESEARCH_CLOSURE / FORMAL_AND_SOURCE_CONVERGENCE / FORMALIZATION_CLOSED_WITH_SCOPE / NOT_A_BARE_ZFC_INCONSISTENCY`。
 >
-> **范围：** 当前 branch `codex/zfc-q-policy-formalization` 上的 C-359 至 C-365、芝诺来源完成政策、用户圆环的受限 ABX 合同、fixed Cubical Agda HoTT Q，以及已冻结的 HoTT 创建动机文献回流。它总结一轮收尾，不改 canonical `dev` 的 current truth。
+> **范围：** worktree 编号 `02` 的 branch `dev-02` 上的 C-359 至 C-365、芝诺来源完成政策、用户圆环的受限 ABX 合同、fixed Cubical Agda HoTT Q，以及已冻结的 HoTT 创建动机文献回流。它总结一轮收尾，不改 canonical `dev` 的 current truth。
 
 ## 1. 已经收敛到的 ZFC 问题位置
 
@@ -96,7 +96,7 @@ ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY = NOT_REACHED
 
 ## 6. 交付与集成边界
 
-- 当前结果位于 contributor branch `codex/zfc-q-policy-formalization`，尚未进入 dirty 的 canonical `dev`。
+- 当前结果位于 worktree 编号 `02` 的 contributor branch `dev-02`，尚未进入 dirty 的 canonical `dev`。
 - 本 branch 的 C-359 至 C-365 及其 run receipts 已 version-closed；candidate handoff 已给 canonical integrator 精确的 conflict/verification 顺序。
 - `dev` 的 current owners、STATE、MEMORY 和 core generation 不在本 branch 改写；需要干净 integration worktree 和 canonical integrator 才能消费这些候选。
 - 这份 closure 不把用户的研究判断、IEP 的来源叙述、Lean theorem 或 Agda theorem 混成同一种事实。它保留未来可能的正向实例化，也保留来源直接拒绝范围时的反向终局。
