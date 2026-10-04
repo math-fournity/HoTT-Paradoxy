@@ -5,7 +5,7 @@
 | Work ID | 版本／报告关系 | DOI／arXiv／书目身份 | 筛选状态 | Q 关系 |
 |---|---|---|---|---|
 | ZQCM-W-001 | arXiv v3 是本批首选报告；正式发表关系待核。 | arXiv:1711.01477v3；zbMATH 6945518 | PDF_VALIDATED / FULL_PRIMARY_UF_MOTIVE_AND_H0_CONTROL_SCREENED / SOURCE_ONLY_VISUAL_REVIEW_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED | H0来源精度／反类比控制；全文未给ZFC actual consumer或same-task，尚未形成Q。 |
-| ZQCM-W-002 | arXiv v8 是首选报告。 | arXiv:2301.12405v8 | PDF_VALIDATED / REMOTE_DERIVATIVE_REQUALIFICATION_REQUIRED | 仅可能是 predicative/control lead。 |
+| ZQCM-W-002 | arXiv v8 是首选报告。 | arXiv:2301.12405v8 | PDF_VALIDATED / FULL_PRIMARY_PREDICATIVE_UF_AND_POWER_SET_PAYMENT_CONTROL_SCREENED / SOURCE_ONLY_VISUAL_REVIEW_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED | predicative UF、Power Set／Replacement、covered-vs-small与PCF payment control；没有ordinary ZFC actual consumer或same-task，尚未形成Q。 |
 | ZQCM-W-003 | arXiv v4 是首选报告；zbMATH record并存。 | arXiv:1502.00112v4；zbMATH 6748874 | PDF_VALIDATED / FULL_PRIMARY_CLASSICAL_REALIZABILITY_CONTROL_SCREENED / SOURCE_ONLY_VISUAL_REVIEW_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED | P5 model-semantic payment control；全文未给ordinary ZFC same-task consumer或未付Done，尚未形成Q。 |
 | ZQCM-W-004 | DOI正式会议论文；Dagstuhl开放PDF。 | DOI:10.4230/LIPIcs.CSL.2024.28 | PDF_VALIDATED / FULL_PRIMARY_REALIZABILITY_LARGE_CARDINAL_CONTROL_SCREENED / SOURCE_ONLY_VISUAL_REVIEW_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED | classical realizability／large-cardinal model-semantic payment control；全文未给ordinary ZFC same-task consumer或未付Done，尚未形成Q。 |
 | ZQCM-W-005 | 2023 DOI期刊版与2023-01-08 arXiv v4作者公开版本构成同一work family；仓储PDF路径仍受限。 | DOI:10.1007/s10516-023-09676-0；arXiv:2111.06368v4 | PUBLISHER_PDF_VALIDATED / SOURCE_VISUAL_REVIEW_COMPLETE / REMOTE_DERIVATIVE_BLOCKED | R-source已拆出；尚无合格Q Lead。 |

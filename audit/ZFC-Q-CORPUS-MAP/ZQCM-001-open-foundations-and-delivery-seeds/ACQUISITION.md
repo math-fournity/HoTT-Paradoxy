@@ -5,7 +5,7 @@
 | ACQ ID | Work ID | Route | 获取状态 | PDF／版本判词 | 下一动作 |
 |---|---|---|---|---|---|
 | ZQCM-ACQ-001 | W-001 | arXiv official PDF | ACQUIRED_VALIDATED | arXiv:1711.01477v3；33页；SHA256 `3b2d4c…8bc71` | source-only视觉核验与全文筛读已完成；remote standard仍未资格化。下一有效动作仅是固定ordinary ZFC consumer／same-task bridge或新增的版本明确一手来源。 |
-| ZQCM-ACQ-002 | W-002 | arXiv official PDF | ACQUIRED_VALIDATED | arXiv:2301.12405v8；192页；SHA256 `1a6d4c…1b160` | 等待remote standard重新资格化及分段视觉核验。 |
+| ZQCM-ACQ-002 | W-002 | arXiv official PDF | ACQUIRED_VALIDATED | arXiv:2301.12405v8；192页；SHA256 `1a6d4c…1b160` | remote CLI返回`server_not_running`，未启动共享服务；原PDF192页source-only视觉审读和全文资格筛选已完成。下一有效动作是受限citation mapping或版本固定ordinary ZFC actual-consumer bridge。 |
 | ZQCM-ACQ-003 | W-003 | arXiv official PDF | ACQUIRED_VALIDATED | arXiv:1502.00112v4；11页；SHA256 `4bbed1…62ba3` | 等待remote standard重新资格化及视觉核验。 |
 | ZQCM-ACQ-004 | W-004 | Dagstuhl/LIPIcs official PDF | ACQUIRED_VALIDATED | DOI `10.4230/LIPIcs.CSL.2024.28`；18页；SHA256 `425e91…fc0f`。 | `mineru parse --remote --json --wait 60`返回`server_not_running`；未启动本地共享服务。原PDF18页source-only视觉审读已完成；remote derivative仍待独立重新资格化。 |
 | ZQCM-ACQ-005 | W-005 | DOI → repository → arXiv author route → user-provided publisher PDF | PUBLISHER_VERSION_VALIDATED | repository `OutputFile/16794952`直取403且展示页安全验证；arXiv:2111.06368v4和用户提供的期刊版均已入库。期刊版13页、Springer metadata、DOI、标题、作者与首页一致，SHA256 `14d904…aa8d`。 | 期刊版已做source-only视觉核验；remote derivative待独立通道修复。 |
