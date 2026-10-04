@@ -818,3 +818,29 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. 只有取得同源的 H0Map、AdequacyLift、QObservation 与 payment 后，才重新把芝诺 A 和 HoTT B 放进 C-359 的实际同 Q 检验。若来源保留 H0，理论变体不匹配，或只作模型 Done 而无 adequacy lift，都构成有界控制，不是 ZFC Q。
 
 本裁定授权用户 source、F-050、SOP、来源卡、P-DAG source nodes、相称的机器化、Feature/MEMORY/方向/全景记录和精确Git提交；不授权将 H0→Z0 假说写成 ZFC 形式矛盾、修改数学STATE、tag、push或外部发布。
+
+## 2026-10-04：来源子图停止不能代替 Q/P/A/B 总证明闭环
+
+研究发起人直接指出：此前工作在尚未完成全部形式化与机器证明时停止；需要说明距离总完成还差什么，以及为什么没有继续。
+
+执行裁定：
+
+1. `SOURCE_ACCEPTANCE_UNDERDETERMINED_WITH_SCOPE`、`H0_Z0_VARIANT_GAP_WITH_SCOPE`及任何类似来源判词，只结束其精确 source/model target；它们绝不表示研究发起人要求的“Q/P/A/B 总证明闭环”已经完成。
+2. 新的总合同固定为`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`。它把工作分为 M0（既有数学核）、M1（exact H0Map）、M2（实际 P）、M3（bare-ZFC-facing Q interface）、M4（SameFullQ）和 M5（bare ZFC 归因）。每一个后续动作都必须支付一个明确 M-id，或给出其 target 的有界负结论与下一条路线。
+3. C-359–C-364保留为控制库，不能再被叙述为总完成；首个新增机器产物 C-365 只支付 M1 的 native `Delay/runFor` trace fragment，明确不等于 complete H0Map。
+4. 任何未来停下都必须按总 SOP §5 判定：实际正闭环、逐义务有界拒绝，或 formal target 仍未定义。来源缺口、一个模型不适配、一个 worker 没有答案、timeout、局部 trace 或新 fixture均不足以宣布总任务完成。
+
+本裁定授权总 SOP、M1–M5 的版本固定形式规格、原生 proof assistant运行、收据、Feature/MEMORY/方向/claim matrix/audit写回与精确Git提交；不授权把项目自定义政策或局部模型等同于bare ZFC、伪称数学共同体已经接受未找到的前提、tag、push或外部发布。
+
+## 2026-10-04：总证明闭环的连续认知与问题解决方法
+
+研究发起人将当前 /goal 明确为：按`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`完成全部可定义的形式化和机器证明，未完成前不准关闭 /goal；任何问题先自行思考，再检查学术论文、GitHub/开源代码和开源数学软件的处理方式；自己的尝试与调查必须落入可恢复的认知闭包。
+
+执行裁定：
+
+1. 每个 M1–M5 单元必须先记录自身的对象/命题/候选构造/反控制，再调查一手论文、官方文档、GitHub source/issue/test和相关 proof assistant/library；随后明确同一 calculus、可翻译 fragment、不同理论或只词汇相似的差分。
+2. 这一循环的材料不能只存在于对话。总 SOP、对应 F1–F4 audit、Feature/MEMORY/方向和 proof/run claim assets 分别保存：初始构想、来源/开源调查、差分裁决、机器构造、失败/控制、下一义务和范围。
+3. “查不到”只关闭经过冻结范围的 source route；“自己做出局部模型”只证明该模型的命题。两者均不得替代 H0Map、C_accept、AdequacyLift、SameFullQ 或 bare-ZFC 归因的独立支付。
+4. 本轮用户目标不允许因来源子图结束、局部 theorem、模型版本不匹配、worker 无输出、timeout 或证据登记故障关闭总 /goal。遇到登记/验证故障时先修复该故障，再继续对应的数学义务。
+
+本裁定授权上述认知闭包、来源/开源调查、形式证明、验证、精确Git提交与必要 current-owner 写回；不授权把项目定义冒充学术界/数学共同体事实、忽略原始来源、tag、push或外部发布。

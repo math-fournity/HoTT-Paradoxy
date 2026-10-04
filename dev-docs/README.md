@@ -6,6 +6,8 @@
 
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
 
+- [ZFC-H0-FINAL-PROOF-CLOSURE-SOP：ZFC 的 Q/P/A/B 总形式化与机器证明闭环](ZFC-H0最终形式化与机器证明闭环SOP.md)：总任务的执行合同。它把 H0→Z0 的来源停止改回一个局部事件，统一管理 fixed H0 semantic transport、A 侧真实过程、P/Q 的 bare-ZFC-facing 接口、SameFullQ 和最终结论；每一工作单元必须支付 M0–M5 的一个明确义务，不能用新的条件 fixture 冒充最终证明。
+
 - [Goal任务项目治理化与全局复用方案](Goal任务项目治理化与全局复用方案-20260923.md)：本轮root/Skills/最高指示角色化接入、A/B Goal6单体闭包、全局两核心增量及C01–C10/验收边界。新提示词见[治理化入口](../第三轮机器统观/README.md)。
 
 - [机器统观的多层次语义覆盖与格化组织方案](机器统观的多层次语义覆盖与格化组织方案-20260923.md)：保留形成时的候选设计与历史执行状态；不作当前选题模板。A/B闭包与提示词见[第三轮入口](../第三轮机器统观/README.md)。

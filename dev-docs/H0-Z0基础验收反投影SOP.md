@@ -123,7 +123,7 @@ Z0 的正确问题是：
 | H0_Q_PRESERVED_WITH_SCOPE | 来源以明确 map 或 theorem 保留 H0 的 relevant observation。 | 该来源对 Q 有防御，不能支撑 ZFC 缺陷。 |
 | H0_Z0_UNPAID_ADEQUACY_LIFT_CANDIDATE | 同一来源有 adequacy lift，却没有 H0 observation/payment。 | 获得 ZFC Q 的来源级候选，进入 P1/P3 与机器化。 |
 | H0_Z0_ACTUAL_POLICY_CONFLICT_WITH_SCOPE | 同一真实 acceptance policy 同时容纳 A 与 B，且 Q/P/bridge 已逐字段支付。 | 才可重新调用 C-359 的实际实例化。 |
-| SOURCE_ACCEPTANCE_UNDERDETERMINED_WITH_SCOPE | 只有模型／一致性结论，无 adequacy lift。 | 停止该 source，不将其写成 ZFC Q。 |
+| SOURCE_ACCEPTANCE_UNDERDETERMINED_WITH_SCOPE | 只有模型／一致性结论，无 adequacy lift。 | 停止该 source，不将其写成 ZFC Q；它只停止这个来源子图，若总任务仍要求最终形式化，必须交接至 `ZFC-H0-FINAL-PROOF-CLOSURE-SOP` 的 M1–M5 闭环。 |
 
 重开只由新的一手来源、精确理论变体的保真 translation，或研究发起人对 H0/OriginDone 的修正触发。不得以更多普通 Zeno 文献、更多 generic factorization fixture 或“ZFC 无时间 primitive”重开。
 

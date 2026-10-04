@@ -1,5 +1,11 @@
 # 审计资产入口
 
+- [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。
+
+- [ZFC-H0 总证明闭环 F1-B：CCHM feature coverage（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1B-CCHM-COVERAGE.md)：保存本项目先验构造、论文/Agda/GitHub/GCTT对照和逐 feature coverage。结论是 CCHM family 相关但未支付 native coinductive Delay、EM1/HIT/universe 的 exact H0Map；下一检验是原 CCHM `cubicaltt` 语法/语义对 coinductive records 的覆盖。
+
+- [ZFC-H0 总证明闭环 F1-C：原 CCHM 实现与 clocked-cubical 候选（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1C-CLOCKED-CUBICAL.md)：直接审读 `cubicaltt` README/grammar 后，确认其具体 implementation 没有 native `record/coinductive` rule；再对 GCTT/CCTT/Agda guarded docs 形成下一 translation-card。它仅关闭 original-CCHM implementation target，保留 clocked target 的未支付 translation。
+
 - [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它收紧 H098 的原典追溯，不作 ZFC Q 结论。
 
 - [H0→Z0 HZ0-2：CCHM 标准模型与 fixed H0 依赖闭包（2026-10-04）](20261004-H0-Z0-HZ0-2-CCHM依赖闭包审计.md)：将 MPIM 第一条模型收紧为 standard CCHM family，并用 cubical v0.9 的 exact `EM₁`、suspension、truncation源码审查它到 H0 的距离。结论是`H0_DEPENDENCY_CLOSURE_UNPAID_WITH_SCOPE`，不作 ZFC Q 结论。
