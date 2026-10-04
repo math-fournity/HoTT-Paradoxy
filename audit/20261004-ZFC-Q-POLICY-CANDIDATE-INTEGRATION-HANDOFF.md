@@ -2,7 +2,9 @@
 
 > **身份：** `CANDIDATE_NOT_CURRENT / INTEGRATION_REQUIRED / NO_CANONICAL_OWNER_MUTATION_IN_THIS_WORKTREE`。
 >
-> **本候选范围：** `35448f86..d17abfb9`，branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。
+> **本候选内容范围：** `35448f86^..00427fc7`（包括最初 C-359 包，至本次 source/formal closure），branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。本交接单自身的后续更新不倒灌进这组 content commits；集成前仍须重新读取 branch tip。
+>
+> **最近观察的 canonical target：** `refs/heads/dev = 213a616a653ca964127a710497f231a0a3d3fef9`；它是本次读取时的事实，不是可直接写入目标。
 
 ## 1. 本候选交付什么
 
@@ -13,7 +15,7 @@
 | `C-363` | Lean 4 core 的统一政策条件定理：同一完整 QProfile 的原任务已解决／bridge-required 异判破坏 `QUniform`；O3–O5 无 bridge 控制与 payment-difference 反控制一并保存。 |
 | `C-360` | Cubical Agda 原生控制：固定截断 Q 的 stage-one completion 不反射为原 universe Q 的有限 halt；负控制在 `nothing != just 1` 处被拒绝。 |
 | `C-361` | Lean/Mathlib 实分析控制：(1-2^{-n}) 的形式极限不推出任何有限自然数阶段到达 endpoint；闭连续时间 endpoint 正控制同时成立，经典依赖明示。 |
-| 来源与范围 | IEP/Standard Solution 来源卡、跨 kernel 映射、明确的实际-Q/source-policy 未支付项。 |
+| 来源与范围 | IEP/SEP/Norton 的 Zeno-side local completion policy、跨 kernel 映射、HoTT 动机文献 B0–B2 回流，以及明确的 actual-Q/cross-case-scope 未支付项；总判词见 [收敛 closure](20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)。 |
 | 收据基础设施 | capture 工具改为由 `git rev-parse --show-toplevel` 接受 linked worktree，并可 pin Lean binary。 |
 | 用户原文 | 2026-10-04 一手原文已保存；generation-14 curation 已做 63-KC、62/62 transition 的只读预演，尚未直接覆盖 current core。 |
 
@@ -54,7 +56,7 @@ MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001 / C-361
 3. 比对 dev 与本候选的 `ZenoLimitControl.lean`；以单一 source hash、C-361 primary receipt、matrix/registry row 为准，把严格 finite-stage control保留为独立 C-361，而不归因给 Standard Solution。
 4. 用唯一 matrix／registry entries 连接 final C-359、C-360、C-361、C-362、C-363；重新跑 selected proof closure 和每个 final receipt 的 exact replay。
 5. 按 [CORE-INGESTION](../HoTT/formal/zfc-actual-q-policy/CORE-INGESTION.md) 在 canonical current STATE 上应用 core generation-14，不从本候选 worktree 拷贝 dirty STATE/HEAD。
-6. 将 source card、C-359/360/361 与实际强 P、`PolicyScopeWitness`、严格 `TaskEquiv`／跨 kernel B 的开放义务写回 canonical current owners；不能把 formal controls升级为 bare-ZFC 结论。
+6. 将 source card、C-359/360/361/362/363 与实际强 P、`PolicyScopeWitness`、严格 `TaskEquiv`／跨 kernel B／QProfile 的开放义务写回 canonical current owners；不能把 formal controls升级为 bare-ZFC 结论。
 
 ## 5. 保持开放的实际问题
 
@@ -62,7 +64,7 @@ MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001 / C-361
 
 ```text
 actual Zeno/circle State/input/step/observe/originDone
-actual source-owned strong P
+actual source-owned cross-case strong P（Zeno-side local policy 已有来源）
 A ↔ admitted P
  actual source-qualified PolicyScopeWitness
 actual Zeno–HoTT TaskEquiv（严格路径，不是唯一的实际来源路径）
