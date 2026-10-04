@@ -761,3 +761,16 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 6. 这不是实际 ZFC Q 已定位的裁定。剩余的唯一实质路线是按`ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`冻结并审计`A_source / P_source / A↔P / SameFullQ / B_bridge`。来源若明确改写 Done、拒绝 P 或不能支付 bridge，应形成有界的负结论，而不是被新的 fixture 覆盖。
 
 本裁定授权直接用户 source、C-359–C-361 formal package、运行收据、证据矩阵、Feature／MEMORY／audit 写回与精确 Git commit；不授权将此条件性证明发布为bare ZFC矛盾、改变数学STATE、启动worker、网络、tag、push或外部发布。
+
+## 2026-10-04：ZFC 问题查找进入收尾收敛阶段
+
+用户的直接表述由`sources/prompts/Codex-ZFC研究收敛阶段-用户原文-20261004.md`拥有：芝诺悖论、圆环悖论、罗素悖论的计算视角，以及 main 分支的 HoTT 分析已经共同把 ZFC 问题查找带入收尾阶段。
+
+执行裁定：
+
+1. 当前研究对象仍是`ZFC-supported classical continuum plus an interpretation / acceptance policy bridge`，不是bare ZFC的已证对象语言矛盾。收敛不把证据边界取消，而是把开放问题从“ZFC哪里可能有问题”缩为一个固定的完成观察／提升政策核。
+2. 四条线各有不可替代职责：芝诺固定`formalDone`与顺序完成的差异；圆环固定原过程、反向复原和同一Done的要求；罗素固定形成、计算合法性及对象尚未落定时不得先行使用的追问；HoTT固定可机器检查的B，即粗完成不能反射为原有限完成。C-359把这四项放进同一条件政策 consequence。
+3. 余下的`A_source / P_source / A↔P / SameFullQ / B_bridge`是收敛核的认证条件，不是新的候选方向。其任何一种有证失败——来源明示`Done_revised`、拒绝P、两个案例非同Q、跨证明器桥不成立——都应按范围闭合一条路线；不应以新增fixture、换站或更宽的ZFC扫描回避结论。
+4. 研究收尾可能产生两个同等合法的最终形态：`ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY`，或`ACTUAL_Q_UNIFICATION_REJECTED_WITH_SCOPE / SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE`。前者要求真实来源填入C-359前提；后者必须准确说明哪张卡不能支付。两者都不是“bare ZFC形式不一致”的同义词。
+
+本裁定授权该阶段定位的直接用户source、Feature／MEMORY／rulings更新与精确Git谱系；不授权将收敛标签升级为数学定理、启动无关扫描、改变数学STATE、tag、push或外部发布。
