@@ -18,14 +18,24 @@ ROOT = Path(__file__).resolve().parents[2]
 MARKER = "math-proof-delivery-gate:v1"
 REQUIRED_MARKERS = {
     "AGENTS.md": MARKER,
-    ".codex/AGENTS.md": MARKER,
     ".codex/cognition/PROTOCOL.md": MARKER,
-    ".codex/skills/hott-local-session-governance/SKILL.md": MARKER,
     ".codex/skills/hott-paradox-research/SKILL.md": MARKER,
     "docs/quality/数学结论机器证明与证据留存规范.md": "math-proof-storage-contract:v1",
     "HoTT/formal/README.md": "math-proof-source-contract:v1",
     "HoTT/verification/runs/README.md": "math-proof-run-contract:v1",
     "HoTT/CLAIM_EVIDENCE_MATRIX.md": "math-proof-index-contract:v1",
+}
+ROUTING_MARKERS = {
+    ".codex/AGENTS.md": (
+        "数学结论交付门禁",
+        "根 AGENTS `MATH_PROOF_BEFORE_DELIVERY_V1`",
+        "docs/quality/数学结论机器证明与证据留存规范.md",
+    ),
+    ".codex/skills/hott-local-session-governance/SKILL.md": (
+        "数学证明门禁",
+        ".codex/cognition/PROTOCOL.md",
+        "根 `AGENTS.md`",
+    ),
 }
 EXPECTED_ROOTS = {
     ("AGENTS.md", "proof_source_root"): "HoTT/formal",
@@ -74,6 +84,11 @@ def validate(root: Path) -> dict[str, object]:
     for rel, marker in REQUIRED_MARKERS.items():
         if marker not in bodies[rel]:
             raise ProofGovernanceError(f"MARKER_MISSING:{rel}:{marker}")
+    for rel, markers in ROUTING_MARKERS.items():
+        body = read(root, rel)
+        for marker in markers:
+            if marker not in body:
+                raise ProofGovernanceError(f"ROUTING_MARKER_MISSING:{rel}:{marker}")
     for (rel, name), expected in EXPECTED_ROOTS.items():
         safe_project_relative(field(bodies[rel], name, rel), expected, rel, name)
 
@@ -103,6 +118,7 @@ def validate(root: Path) -> dict[str, object]:
         "status": "PASS_WITH_SCOPE",
         "schema_version": "math-proof-delivery-governance-check/v1",
         "marker_files": len(REQUIRED_MARKERS),
+        "routing_files": len(ROUTING_MARKERS),
         "proof_source_root": "HoTT/formal",
         "proof_run_root": "HoTT/verification/runs",
         "proof_index": "HoTT/CLAIM_EVIDENCE_MATRIX.md",

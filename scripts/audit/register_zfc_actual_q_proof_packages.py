@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Register or refresh the ZFC-actual-Q proof packages atomically.
+"""Register or refresh the ZFC Q and bare-interface precision packages atomically.
 
-The script is deliberately narrow: it adds only C-359 through C-363 to the
+The script is deliberately narrow: it adds only C-359 through C-364 to the
 append-only `later_packages` registry, verifies their captured identity before
 writing, and recomputes the numeric later-claim count.  A final recapture may
 replace only the registered primary run of an already registered package after
@@ -72,6 +72,16 @@ PACKAGES = [
         "kind": "native_cubical_completion_gap_schema_for_fixed_hott_q",
         "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed HoTT coarse completion has a revised witness, lacks original finite halting, and admits no completion bridge.",
         "notes": "This establishes a completion-gap schema match with C-362, not SameFullQ, a cross-kernel theorem, a source policy, a ZFC model fact, or a bare ZFC inconsistency.",
+    },
+    {
+        "proof_id": "MP-BARE-ZFC-Q-PRECISION-001",
+        "claim_ids": "C-364",
+        "source": "HoTT/formal/bare-zfc-q-precision/BareZFCPrecision.lean",
+        "toolchain": "HoTT/formal/bare-zfc-q-precision/LEAN_CORE_TOOLCHAIN.json",
+        "run": "HoTT/verification/runs/20261004-MP-BARE-ZFC-Q-PRECISION-001-03",
+        "kind": "lean_core_source_bound_application_interface_q_precision_control",
+        "verdict": "FORMAL_CHECKED_WITH_SCOPE: in the fixed source-contract control, a coarse standard-resolution view neither determines OriginDone nor pays a universal completion bridge; explicit contract and code views are positive controls.",
+        "notes": "This is an interface-relative finite control bound to a ZFC-supported Standard Solution application source card. It does not formalize bare ZFC syntax/model theory, prove ZFC inconsistency, show that ZFC cannot encode time/processes, prove all standard solutions omit Q, or identify this control with the fixed HoTT Q.",
     },
 ]
 

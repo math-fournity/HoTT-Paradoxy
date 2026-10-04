@@ -4,7 +4,7 @@
 >
 > **稳定引用名：** BARE-ZFC-Q-PRECISION-SOP。
 >
-> **状态：** CONTRACT_READY / SOURCE_INTERFACE_NOT_YET_FROZEN / NO_BARE_ZFC_PRECISION_THEOREM_YET。
+> **状态：** EXECUTED_WITH_SCOPE / P0_LANGUAGE_FIXED / P1_APPLICATION_CONTRACT_FIXED / P2_C364_INTERFACE_CONTROL_MACHINE_PROVED / P3_EXPLICIT_TASK_SWITCH / BARE_SEMANTIC_INTERFACE_UNDERDETERMINED / NO_BARE_ZFC_PRECISION_THEOREM。
 
 ## 1. 研究对象
 
@@ -136,4 +136,4 @@ precision_failure :
 按照SOP=BARE-ZFC-Q-PRECISION-SOP，继续推进，直至无法推进。
 ~~~
 
-首项是 P0/P1 的合同冻结与既有 ERCF/ZCore 控制复核；不自动将 generic factorization 定理称为 bare ZFC 结论，不自动启动 worker、联网、修改数学 STATE、tag、push或发布。
+本轮已完成上述首项及 M2/M3：来源卡、H095、C-364、正负控制、主 run、精确重放和索引已进入本仓库。当前结果由 [P0/P1/P3 来源卡](../audit/20261004-BARE-ZFC-Q-PRECISION-P0-P3-来源接口与完成合同.md) 与 [C-364 claim](../HoTT/formal/bare-zfc-q-precision/CLAIM.md) 拥有。它没有令 generic factorization 定理变成 bare ZFC 结论，也没有形成 bare ZFC 的 semantic interface theorem；按第 6 节停为 `SOURCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`，直到出现能够改变 P0–P3 的新一手来源或用户固定新的 OriginDone 合同。

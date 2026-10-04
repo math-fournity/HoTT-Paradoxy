@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 215,
+  "later_machine_proved_claim_count": 216,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1055,6 +1055,16 @@
       "source": "HoTT/formal/zfc-actual-q-policy/HoTTCompletionContract.agda",
       "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed HoTT coarse completion has a revised witness, lacks original finite halting, and admits no completion bridge."
+    },
+    {
+      "claim_ids": "C-364",
+      "kind": "lean_core_source_bound_application_interface_q_precision_control",
+      "notes": "This is an interface-relative finite control bound to a ZFC-supported Standard Solution application source card. It does not formalize bare ZFC syntax/model theory, prove ZFC inconsistency, show that ZFC cannot encode time/processes, prove all standard solutions omit Q, or identify this control with the fixed HoTT Q.",
+      "proof_id": "MP-BARE-ZFC-Q-PRECISION-001",
+      "run": "HoTT/verification/runs/20261004-MP-BARE-ZFC-Q-PRECISION-001-03",
+      "source": "HoTT/formal/bare-zfc-q-precision/BareZFCPrecision.lean",
+      "toolchain": "HoTT/formal/bare-zfc-q-precision/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: in the fixed source-contract control, a coarse standard-resolution view neither determines OriginDone nor pays a universal completion bridge; explicit contract and code views are positive controls."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

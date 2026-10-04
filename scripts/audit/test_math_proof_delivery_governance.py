@@ -20,7 +20,11 @@ class MathProofDeliveryGovernanceTests(unittest.TestCase):
     def fixture(self) -> tuple[tempfile.TemporaryDirectory, Path]:
         temp = tempfile.TemporaryDirectory(prefix="math-proof-governance-")
         root = Path(temp.name)
-        required = set(V.REQUIRED_MARKERS) | {"feature-list.md", "rulings.md", "HoTT/README.md"}
+        required = (
+            set(V.REQUIRED_MARKERS)
+            | set(V.ROUTING_MARKERS)
+            | {"feature-list.md", "rulings.md", "HoTT/README.md"}
+        )
         for rel in required:
             target = root / rel
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -41,6 +45,40 @@ class MathProofDeliveryGovernanceTests(unittest.TestCase):
             path = root / rel
             path.write_text(path.read_text(encoding="utf-8").replace(V.MARKER, "marker-removed"), encoding="utf-8")
             with self.assertRaisesRegex(V.ProofGovernanceError, "MARKER_MISSING"):
+                V.validate(root)
+        finally:
+            temp.cleanup()
+
+    def test_missing_navigation_route_fails_closed(self) -> None:
+        temp, root = self.fixture()
+        try:
+            rel = ".codex/AGENTS.md"
+            path = root / rel
+            path.write_text(
+                path.read_text(encoding="utf-8").replace(
+                    "根 AGENTS `MATH_PROOF_BEFORE_DELIVERY_V1`",
+                    "route-removed",
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(V.ProofGovernanceError, "ROUTING_MARKER_MISSING"):
+                V.validate(root)
+        finally:
+            temp.cleanup()
+
+    def test_missing_local_skill_route_fails_closed(self) -> None:
+        temp, root = self.fixture()
+        try:
+            rel = ".codex/skills/hott-local-session-governance/SKILL.md"
+            path = root / rel
+            path.write_text(
+                path.read_text(encoding="utf-8").replace(
+                    ".codex/cognition/PROTOCOL.md",
+                    "protocol-route-removed",
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(V.ProofGovernanceError, "ROUTING_MARKER_MISSING"):
                 V.validate(root)
         finally:
             temp.cleanup()
