@@ -45,6 +45,16 @@ independence_of_CH : independent ZFC CH_f
 | diagonal / quotation / fixed point | `NOT_PAID` | CH independence/forcing 不等于 Gödel self-reference theorem。 |
 | parent `OriginDone`、`ρ`、bridge | `NOT_APPLICABLE_TO_THIS_SOURCE` | 该 source 的 consumer 是 formal ZFC proof relation 与 CH statement，不是 Zeno/circle/H0 completion task。 |
 
+### 3.1 `reflect`、`substitution` 与 `godel` 名称的精确去歧义
+
+后续对该 exact source 做的 source scan 不能改变上表，却排除了三种很容易发生的错误读法。完整逐项结果见 [source-scan](20261004-GODEL-Q-REFLECTION-G0-FLYPITCH-ZFC-PROOF-RELATION/source-scan.md)：
+
+- `reflect_prf_lift1` 是从 lifted formula proof 回到原 formula proof 的**宿主 proof transport**；它不是一个 `Prov_ZFC` 谓词、反射 schema 或 fixed-point construction。
+- `parse_formula.lean` 的 `has_reflect` 是 Lean meta elaboration 的 reification helper；它没有把 ZFC formula quote 成 ZFC 内自然数。
+- source 中名为 `godel_completeness_theorem` 的 theorem 是语义 completeness `T ⊢' ψ ↔ T ⊨ ψ`；它不是 Gödel 不完备性或自指。
+
+因此这张卡的最高资格仍是 `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_PRESENT`。名称相同或均含“reflect”不能替代 G2 所要求的 numeric code、T 内 provability、quote、substitution on codes 和 fixed point。
+
 ## 4. 对 G0/G2 的作用
 
 Flypitch 使 G0 的 formal side 不再只有 `set.mm` database 和 external verifier：它额外提供一个公开、深嵌入的 ZFC proof relation、substitution operation 和 source-reported machine theorem。这是 **G2 syntax/proof-relation source baseline**。

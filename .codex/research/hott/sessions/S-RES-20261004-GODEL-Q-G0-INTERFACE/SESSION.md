@@ -42,7 +42,7 @@
 | 实际 completion contract | IEP/Norton/SEP 的 A2 source card | `SOURCE_TASK_CONTRACT_DIVERGENCE_ESTABLISHED_WITH_SCOPE`，不是 ZFC checker。 |
 | process representability | C-366 Foundation/Zermelo Lean run/claim | `KERNEL_ACCEPTED_WITH_SCOPE`，不是 completion consumer。 |
 | checker implementation | `digama0/mm-lean4@58123caf…` | `META_ONLY_IMPLEMENTATION_SOURCE_WITH_BUILD_GAP`：`check` 为 `partial def`，exact RC2 build 未完成。 |
-| ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；未有 Gödel coding/fixed point 或 parent bridge。 |
+| ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；`reflect_prf_lift1`只是 host proof transport，`has_reflect`是 Lean meta helper，`godel_completeness_theorem`是 completeness；均未有 numeric Gödel coding/fixed point 或 parent bridge。 |
 | generic Gödel baseline | `Foundation@f3972f…` First/Second | `MACHINE_REPLAYED_GENERIC_GODEL_TECHNICAL_BASELINE_WITH_SCOPE`：code/quote/substitution/provability实际重放；没有target-specific ZFC/process实例化。 |
 | Foundation target-mapping control | project wrappers + exact Foundation source | 正控制确认 `𝗭𝗙𝗖 : SetTheory` 与 generic `ArithmeticTheory` theorem interface；负控制拒绝直接传入 `𝗭𝗙𝗖`。同树又有 `ω`／自然数递归模型正控制，却没有 concrete `DirectInterpretation` occurrence。这是 `FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE`，不是 ZFC 不完备性 theorem。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
