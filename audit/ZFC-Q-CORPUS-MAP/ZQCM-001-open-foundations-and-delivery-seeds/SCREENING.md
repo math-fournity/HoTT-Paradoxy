@@ -9,7 +9,7 @@
 | W-003 | INCLUDED | FULL_PRIMARY_CLASSICAL_REALIZABILITY_CONTROL_SCREENED | 11页原件已按逐页写回合同恢复审读。BBC／`ZF_ε`／`M`／`N`与proof-like-realizer支付构成模型语义控制；没有ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-004 | INCLUDED | FULL_PRIMARY_REALIZABILITY_LARGE_CARDINAL_CONTROL_SCREENED | remote未启动服务即失败，随后完成18页原PDF逐页视觉审读。`ZF_ε`／`GB_ε`／`V`／`A`／large-cardinal consistency和class／Choice条件构成显式模型支付；没有ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-005 | INCLUDED | PENDING | type theory versus set theory 比较。 |
-| W-006 | CATALOG_REVIEW | PENDING | 需拆开review、volume与章节。 |
+| W-006 | CATALOG_REVIEW | V-CMP-01_FULL_AUTHOR_PREPUBLICATION_COMPARATIVE_CONTROL_SCREENED / OTHER_CHAPTERS_PENDING | Barton–Friedman的27页作者预发表稿已完成remote失败记录、逐页视觉阅读和source screen。它给ZFCS／NBGS／universe／representation payment controls，未给ordinary ZFC actual consumer、same task或未付Done；仍须分开review、volume与其余章节。 |
 | W-007 | CATALOG_REVIEW | FULL_PRIMARY_HISTORICAL_PRACTICE_CONTROL_SCREENED | 37页原件已按逐页写回合同审读。作者给出received set-theoretic FOM的meta-theoretical／proof-verification功能批评、ZFC认识论判断、Bourbaki／isomorphism、HoTT/UF动机与bi-interpretability比较；全文未给版本固定的ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-008 | INCLUDED | FULL_PRIMARY_REALIZABILITY_GUIDE_CONTROL_SCREENED | 65页原件已按逐页写回合同审读。`ZF_ε`／ground model／algebra／terms-stacks／Weak Power Set／reish／transport／Choice／forcing均有显式model payment；Remark 16.8给出模型内transport limitation及universal-lift处理，没有ordinary ZFC actual consumer、same-task或未付Done。 |
 | W-009 | INCLUDED | FULL_PRIMARY_R_SOURCE_SCREENED | 29页逐页source-only视觉审读完成。它给出类型论内部universe／equality／choice／HIT／quotient构造和关于usual encoding的比较性批评，未给ZFC同一对象／formation／actual consumer／Done。 |

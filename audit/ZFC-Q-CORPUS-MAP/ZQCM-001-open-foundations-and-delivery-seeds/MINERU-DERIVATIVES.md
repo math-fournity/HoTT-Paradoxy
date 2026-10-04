@@ -6,7 +6,7 @@
 >
 > **视觉核验合同：** 每份成功远程派生物必须经过150dpi二值页图逐页视觉核验；Q相关／异常位置另行300dpi复核。详见本批[`VISUAL-REVIEW.md`](VISUAL-REVIEW.md)。
 >
-> **状态：** REMOTE_DERIVATIVE_NOT_QUALIFIED / W001_W002_W003_W004_W005_W007_W008_W009_W010_W011_W013_SOURCE_VISUAL_REVIEW_COMPLETE。
+> **状态：** REMOTE_DERIVATIVE_NOT_QUALIFIED / W001_W002_W003_W004_W005_W006_VCMP01_W007_W008_W009_W010_W011_W013_SOURCE_VISUAL_REVIEW_COMPLETE。
 
 | MIN ID | ACQ ID | 输入哈希 | 命令／版本 | 页范围 | 派生路径 | 结果／限制 |
 |---|---|---|---|---|---|---|
@@ -31,3 +31,5 @@
 | MIN-REMOTE-QUAL-003 | ACQ-013 | 4b6714c5fdcd262839ffd9c942f65c11be9cc7b84e1a3c4d59e83379bbe5d1b0 | mineru-kit 4.0.8 / direct remote standard with `--pages all` | — | — | `FAILED_CLIENT_PAGE_RANGE`：实际CLI把帮助中展示的`all`拒绝为invalid page_range；没有启动有效远程parse、没有导出。 |
 | MIN-REMOTE-003 | ACQ-013 | 4b6714c5fdcd262839ffd9c942f65c11be9cc7b84e1a3c4d59e83379bbe5d1b0 | mineru-kit 4.0.8 / direct remote standard / default page range | full requested | `/tmp/zqcm-remote-aczel-1978-default-pages/` | `REMOTE_RESPONSE_STALLED_65S`：请求进入等待但65秒内无stdout、无zip、无展开文件；中止后退出130。未更改本地App daemon，不能算parse成功。 |
 | MIN-W013-SOURCE-ONLY-001 | ACQ-013 | 4b6714c5fdcd262839ffd9c942f65c11be9cc7b84e1a3c4d59e83379bbe5d1b0 | Ghostscript `pngmono` + actual visual inspection | PDF pp.1–12 | visual/W-013/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有12页150dpi；pp.1、2、4、5、7、8、11另有300dpi。没有remote MinerU输出，不能称其通过MinerU核验。 |
+| MIN-REMOTE-QUAL-015 | ACQ-015 | e8116b22aa72c5741e68c2dff9059652770741abde9aec51b31e4f91eb1ea5f7 | `/Volumes/D/toolchain-cache/mineru-venv/bin/mineru` 4.0.8 / `parse --remote --json --wait 60` | default CLI scope | — | `FAILED_SERVER_NOT_RUNNING`：2026-10-04先读取`server status --json`确认`running:false`、无队列，再运行direct remote standard；CLI仍要求启动本地共享server。为避免改变可能与桌面App共享的服务，未启动／重配；没有remote导出。 |
+| MIN-W006-VCMP01-SOURCE-ONLY-001 | ACQ-015 | e8116b22aa72c5741e68c2dff9059652770741abde9aec51b31e4f91eb1ea5f7 | Ghostscript `pngmono` + actual visual inspection | PDF pp.1–27 | visual/W-006-V-CMP-01/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有27页150dpi图均已逐页审读并落签；pp.1、4、5、7、11–14、16–23另有300dpi复核。没有remote MinerU输出，不能称其通过MinerU核验。 |

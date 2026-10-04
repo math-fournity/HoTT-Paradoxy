@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-005_ITERATIVE_SET_PRIMARY_AND_POTENTIAL_SEEDS / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-006_VCMP01_AUTHOR_PREPUBLICATION_CONTROL / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -84,3 +84,5 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-004 rationale.** W-013 is a publicly available 1978 primary source that W-012 explicitly uses as the relevant Aczel model lineage. It is admitted as a CZF／type-theoretic formation and Power Set control, after its Cornell course copy was cross-checked against the publisher DOI, opening page, pagination and hash. It is not a substitute for W-012 and does not create a ZFC Q.
 
 **Extension-005 rationale.** W-014 was found by an exact official Cambridge Core search. Its abstract directly frames the cumulative hierarchy as potential rather than actual and describes the resulting modal theory as equi-interpretable with ZF. No full PDF has been accepted, so it is a metadata／abstract seed only; its presence does not support page-level or Q claims.
+
+**Extension-006 rationale.** V-CMP-01 was already a named W-006 chapter lead. An exact author-hosted public PDF supplied a 27-page, 2018-08-07 prepublication whose title/authors and volume acknowledgement match the chapter. It is admitted as a bounded comparative-control source: its conclusions about canonical representation, Grothendieck universes, ZFCS/NBGS and structural richness remain versioned author-source claims, not a replacement for the published pagination or a ZFC Q candidate.

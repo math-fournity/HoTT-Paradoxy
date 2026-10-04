@@ -26,7 +26,7 @@
 | V-UF-03 | *Higher Structures in Homotopy Type Theory* — Ulrik Buchholtz | 151–172 | 高阶结构与H0传输控制入口。 | 查作者公开版本。 |
 | V-UF-04 | *Univalent Foundations and the UniMath Library* — Anthony Bordg | 173–189 | 形式化实践／实际consumer入口。 | 查作者公开版本。 |
 | V-UF-05 | *Models of HoTT and the Constructive View of Theories* — Andrei Rodin | 191–219 | 构造性／模型／实践桥接入口。 | 与W-007既有报告交叉核验。 |
-| V-CMP-01 | *Set Theory and Structures* — Neil Barton, Sy-David Friedman | 223–253 | 集合论／结构主义与表示控制入口。 | PhilArchive／作者公开版本。 |
+| V-CMP-01 | *Set Theory and Structures* — Neil Barton, Sy-David Friedman | 223–253 | 集合论／结构主义与表示控制入口。 | 27页作者预发表稿已完成remote失败记录、逐页视觉及source screen；其ZFCS／NBGS／universe／representation controls不构成ordinary ZFC Q。 |
 | V-CMP-02 | *A New Foundational Crisis in Mathematics, Is It Really Happening?* — Mirna Džamonja | 255–269 | foundations comparison 的竞争读法。 | 查作者公开版本。 |
 | V-CMP-03 | *A Comparison of Type Theory with Set Theory* — Ansten Klev | 271–292 | 直接的R→Z候选种子。 | `W-011` author preprint已验证；关键source precision已筛读，仍无Q。 |
 | V-CMP-04 | *What Do We Want a Foundation to Do?* — Penelope Maddy | 293–311 | foundation-criterion／same-task控制。 | `W-010` author PDF已验证，待阅读。 |
@@ -36,10 +36,11 @@
 | Chapter ID | 公开入口 | 实际观察 | 当前处置 |
 |---|---|---|---|
 | V-SET-03 | University of Bristol记录页标为“Full-text PDF (accepted author manuscript)”，文件端点 `Welch_Proving_Theorems_from_Reflection_revised_14_08_18.pdf`。 | 普通抓取返回403；在BrowserOS `test` profile的独立会话打开该公开端点后，页面呈现Cloudflare “Verify you are human”挑战。未点击验证，也未规避。 | `ACCESS_LIMITED_NO_BYPASS`；保留书目、摘要、DOI `10.1007/978-3-030-15655-8_4` 和重新获取路线，不作全文或Q内容断言。 |
+| V-CMP-01 | Sy-David Friedman作者公开PDF `joint.neil.set.theory.structures.pdf`。 | 普通公开下载成功；PDF 1.5、27页、首页题名／作者／2018-08-07和本卷致谢一致，SHA256 `e8116b22…ea5f7`；remote attempt=`server_not_running`，27页source-only视觉审读完成。 | `FULL_AUTHOR_PREPUBLICATION_COMPARATIVE_CONTROL_SCREENED`；该稿的ZFCS／NBGS／Grothendieck universe／canonical-representation结论均有明示语言、模型或richness条件，尚不等于出版章全文或Q。 |
 
 ## 4. 处置与余项
 
-- 该目录最初产生 `12` 个 chapter-level acquisition leads；W-009、W-010和W-011已取得，仍有 `9` 个待获取，不把任何条目自动升级为Q候选。
+- 该目录最初产生 `12` 个 chapter-level acquisition leads；W-009、W-010、W-011和V-CMP-01已取得，仍有 `8` 个待获取。V-CMP-01已作为控制筛读，不能把任何条目自动升级为Q候选。
 - W-005（Altenkirch的另一篇2023文章）与 `V-UF-01` 是作者相同但作品不同的条目，必须各自做版本、PDF与论证核验。
 - W-006全卷和两篇OUP评述都尚未作为可核验全文入库；当前只是已证实的目录／路线证据。
 - 下一批优先级由已取得的W-001–005／007–008阅读和引文网络共同决定，不能仅因章节题名相近就扩展。

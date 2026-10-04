@@ -1,6 +1,6 @@
 # ZQCM-001 Acquisition
 
-> **状态：** ACQUISITION_ACTIVE / ELEVEN_WORK_FAMILIES_VALIDATED / TWELVE_PDF_FILES_VALIDATED / TWO_ACCESS_LIMITS_RECONFIRMED / ONE_INSTITUTIONAL_FULLTEXT_NONE_RECORD。
+> **状态：** ACQUISITION_ACTIVE / ELEVEN_WORK_FAMILIES_VALIDATED / THIRTEEN_PDF_FILES_VALIDATED / W006_PARTIAL_CHAPTER_ACQUISITION / TWO_ACCESS_LIMITS_RECONFIRMED / ONE_INSTITUTIONAL_FULLTEXT_NONE_RECORD。
 
 | ACQ ID | Work ID | Route | 获取状态 | PDF／版本判词 | 下一动作 |
 |---|---|---|---|---|---|
@@ -18,3 +18,4 @@
 | ZQCM-ACQ-012 | W-012 | author page → PhilPapers／PhilArchive public preprint endpoint | ACCESS_LIMITED_NO_BYPASS | DOI `10.1093/philmat/nkae018`、journal metadata与摘要已核。作者页和 PhilPapers 都指向 [`KLETPI-3.pdf`](https://philpapers.org/archive/KLETPI-3.pdf)；2026-10-04普通HTTPS请求仍获Cloudflare `403`，无PDF字节入库。OpenAlex同时只登记submitted-version repository record，标`is_oa:false`／`has_fulltext:false`。 | 保留metadata/abstract为seed；只在出现可正常访问的作者、机构或出版商版本时重开。 |
 | ZQCM-ACQ-013 | W-013 | [Cornell public course copy](https://www.cs.cornell.edu/courses/cs6180/2017fa/notes/week4/lecture8/Aczel_type-theory-set-theory.pdf) → publisher DOI metadata | ACQUIRED_VALIDATED | DOI `10.1016/S0049-237X(08)71989-X`；Logic Colloquium '77 (1978), pp.55–66；12页；SHA256 `4b6714…5d1b0`。 | 原件级视觉筛读完成；remote standard在65秒无输出／无zip后中止，保留收据。 |
 | ZQCM-ACQ-014 | W-014 | [Cambridge Core official page](https://www.cambridge.org/core/journals/review-of-symbolic-logic/article/abs/potential-hierarchy-of-sets/334647199574BFA9ADBCEFE379CDDB14) → [Birkbeck institutional record](https://eprints.bbk.ac.uk/id/eprint/7048/) | METADATA_ABSTRACT_VERIFIED / INSTITUTIONAL_FULLTEXT_NONE | DOI `10.1017/S1755020313000014`；*Review of Symbolic Logic* 6(2):205–228 (2013)；官方摘要可读。Birkbeck记录的`full_text_status`为`none`且页面明言full text unavailable；OpenAlex同样标`is_oa:false`、`pdf_url:null`、无repository fulltext。 | 当前合法作者／机构／出版商路线均未提供PDF；保持remainder，未获全文前不作页级、原文或Q断言。 |
+| ZQCM-ACQ-015 | W-006 / V-CMP-01 | [Friedman author-hosted PDF](https://www.logic.univie.ac.at/~dsyfriedman/papers/joint.neil.set.theory.structures.pdf) | ACQUIRED_VALIDATED / SOURCE_SCREENED_CONTROL | 2018-08-07作者预发表稿，27页；标题和两位作者与V-CMP-01一致，首页致谢明确该卷编辑／FilMat 2018。它是2019 book chapter的公开作者版本候选；尚未把27页字节等同于出版页码223–253。SHA256 `e8116b22aa72c5741e68c2dff9059652770741abde9aec51b31e4f91eb1ea5f7`。 | remote标准因shared server未运行失败；原PDF视觉审读／比较性source screen完成。下一有效动作仅是受限citation mapping或出现ordinary ZFC actual-consumer bridge。 |
