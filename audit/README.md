@@ -1,6 +1,8 @@
 # 审计资产入口
 
-- [ZFC 实际 Q 收敛阶段：形式链、来源链与当前判词（2026-10-04）](20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)：汇总 C-359–C-363、Zeno local completion policy、圆环受限 Done 合同、fixed HoTT Q 与文献回流；将 ZFC 候选收束为 `COMPLETION_BRIDGE_OBSERVATION_BOUNDARY_CANDIDATE`，并列出仅剩的正向／反向终局事件。
+- [ZFC 的 Q／P／A／B：形式化与机器证明收尾矩阵（2026-10-04）](20261004-ZFC-FORMAL-CLOSURE-MATRIX.md)：将 C-359–C-365、芝诺极限控制、fixed HoTT 反例、成员语言／未付 completion bridge 反模型、条件政策后果与全部正反控制收束为一张可复核矩阵；形式链闭合，实际跨案例来源范围保持 `SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE`。
+
+- [ZFC 实际 Q 收敛阶段：形式链、来源链与当前判词（2026-10-04）](20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)：汇总 C-359–C-365、Zeno local completion policy、圆环受限 Done 合同、fixed HoTT Q 与文献回流；将 ZFC 候选收束为 `COMPLETION_BRIDGE_OBSERVATION_BOUNDARY_CANDIDATE`，并列出仅剩的正向／反向终局事件。
 
 - [ZFC 实际 Q：芝诺 Standard Solution 的来源完成政策卡（2026-10-04）](20261004-ZFC-ACTUAL-Q-ZENO-SOURCE-COMPLETION-CARD.md)：IEP、SEP 与 Norton 确认 Zeno-side local completion policy，同时明确 `Done` 分叉和跨圆环／HoTT scope 缺口；当前判词是 `SOURCE_ZENO_POLICY_ESTABLISHED_WITH_SCOPE`，不是 bare-ZFC 结论。
 

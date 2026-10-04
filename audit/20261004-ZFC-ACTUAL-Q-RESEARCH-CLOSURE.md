@@ -1,12 +1,12 @@
 # ZFC 实际 Q 收敛阶段：形式链、来源链与当前判词
 
-> **身份：** `CANDIDATE_BRANCH_RESEARCH_CLOSURE / FORMAL_AND_SOURCE_CONVERGENCE / NOT_A_BARE_ZFC_INCONSISTENCY`。
+> **身份：** `CANDIDATE_BRANCH_RESEARCH_CLOSURE / FORMAL_AND_SOURCE_CONVERGENCE / FORMALIZATION_CLOSED_WITH_SCOPE / NOT_A_BARE_ZFC_INCONSISTENCY`。
 >
 > **范围：** 当前 branch `codex/zfc-q-policy-formalization` 上的 C-359 至 C-365、芝诺来源完成政策、用户圆环的受限 ABX 合同、fixed Cubical Agda HoTT Q，以及已冻结的 HoTT 创建动机文献回流。它总结一轮收尾，不改 canonical `dev` 的 current truth。
 
 ## 1. 已经收敛到的 ZFC 问题位置
 
-研究发起人提出的“ZFC 的时间维度观察力不完备”现在可以用一条比“ZFC 不能表达时间”更精确、也更能被反驳的句子表达：
+研究发起人提出的“ZFC 的时间维度观察力不完备”现在可以用一条比“ZFC 不能表达时间”更精确、也更能被反驳的句子表达。C-359 至 C-365 的 exact theorem、运行、反控制和外部前提已在[形式化与机器证明收尾矩阵](20261004-ZFC-FORMAL-CLOSURE-MATRIX.md)逐项闭合：
 
 > **完成桥观察边界 Q：** 当 ZFC 支撑的子理论或来源要把一个模型中的 `Done_formal` 当作原过程的 `Done_origin` 时，基础语言、子理论定理和来源验收必须显式给出原任务、允许操作、观察与完成谓词之间的 bridge。若这个 bridge 没有进入合同，ZFC 的成员语言和数学结论本身不会替使用者决定它。
 
@@ -100,3 +100,7 @@ ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY = NOT_REACHED
 - 本 branch 的 C-359 至 C-365 及其 run receipts 已 version-closed；candidate handoff 已给 canonical integrator 精确的 conflict/verification 顺序。
 - `dev` 的 current owners、STATE、MEMORY 和 core generation 不在本 branch 改写；需要干净 integration worktree 和 canonical integrator 才能消费这些候选。
 - 这份 closure 不把用户的研究判断、IEP 的来源叙述、Lean theorem 或 Agda theorem 混成同一种事实。它保留未来可能的正向实例化，也保留来源直接拒绝范围时的反向终局。
+
+## 7. 形式化收尾的停止规则
+
+本分支不再把新增抽象 Q/P fixture 视作这条路线的推进。现有七个 proof package 已经覆盖条件性政策 consequence、native HoTT B、实分析双控制、成员语言／扩张语义、未付 P 反模型与同 Q 政策 theorem。未来只有两类新事实可以重开：来源支付跨案例 `PolicyScopeWitness`，或来源／用户过程合同明确拒绝实际同 Q。没有其中之一时，正确状态保持 `SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE`。

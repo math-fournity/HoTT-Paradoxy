@@ -54,4 +54,4 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 
 这些 selected run 已经在 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 与 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 登记。运行前的草稿、失败 run 和外部文本都不能替代这一闭环。
 
-当前形式链、来源链、圆环受限合同与停止／重开条件的统一说明见[ZFC 实际 Q 收敛阶段 closure](../../../audit/20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)。
+当前形式链、来源链、圆环受限合同与停止／重开条件的统一说明见[ZFC 实际 Q 收敛阶段 closure](../../../audit/20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)。C-359 至 C-365 的 exact theorem、primary run、正反控制、依赖关系和未支付的来源范围前提汇总于[ZFC 的 Q／P／A／B：形式化与机器证明收尾矩阵](../../../audit/20261004-ZFC-FORMAL-CLOSURE-MATRIX.md)。
