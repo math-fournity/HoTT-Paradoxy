@@ -132,8 +132,14 @@ MPIM／模型线是否被错误抬回主线？
 
 ## 6. `/goal` 启动语
 
+### 6.1 方案—闭包绑定
+
+本方案唯一配套的当前认知闭包是
+[`H0-Z0-PATTERN-FIRST-CONVERGENCE-CLOSURE`](../认知闭包/2026-10-04-H0-Z0模式P优先收敛-认知闭包.md)。
+每次 Host Goal 启动、压缩恢复、主要阶段转换或任何用户修正后，先重读该闭包，再重读本方案的 PF-0～PF-5 与当前 F-050／MEMORY。闭包记录当前证据、并行工作树、未知与 Goal 身份；本方案拥有阶段、验收与停止合同。二者不可互相替代。
+
 ```text
-按照 SOP=H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP，继续推进：以 main 的固定 H0 为反向样本，先运行来源脱敏的 P1/P2/P3 ZFC 模式匹配，再按 surviving candidate 的实际 C_accept、同一任务控制与相称机器化核验。MPIM／一般模型论文仅作条件性来源支线。持续执行、写回、审计并管理当前 /goal，直至所有 active lane 到达本 SOP 的有界终态；不得把候选、来源缺口或模型输出升级为 bare ZFC 矛盾。
+按照 SOP=H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP、认知闭包=H0-Z0-PATTERN-FIRST-CONVERGENCE-CLOSURE，继续推进：以 main 的固定 H0 为反向样本，先运行来源脱敏的 P1/P2/P3 ZFC 模式匹配，再按 surviving candidate 的实际 C_accept、同一任务控制与相称机器化核验。MPIM／一般模型论文仅作条件性来源支线。持续执行、写回、审计并管理当前 /goal，直至所有 active lane 到达本 SOP 的有界终态；不得把候选、来源缺口或模型输出升级为 bare ZFC 矛盾。
 ```
 
 ## 7. 方案验收

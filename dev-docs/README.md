@@ -6,6 +6,8 @@
 
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
 
+- [H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP：以模式 P 先定位 Z0，再作来源和机器核验](H0-Z0模式P优先收敛SOP.md)：F-050 的当前执行方案。它以 fixed H0 为反向样本，先用来源脱敏的 P1/P2/P3 发现场，再由实际`C_accept`、H0Map、AdequacyLift、同一任务控制与机器化收敛；其唯一配套闭包为[H0→Z0 模式 P 优先收敛认知闭包](../认知闭包/2026-10-04-H0-Z0模式P优先收敛-认知闭包.md)。
+
 - [Goal任务项目治理化与全局复用方案](Goal任务项目治理化与全局复用方案-20260923.md)：本轮root/Skills/最高指示角色化接入、A/B Goal6单体闭包、全局两核心增量及C01–C10/验收边界。新提示词见[治理化入口](../第三轮机器统观/README.md)。
 
 - [机器统观的多层次语义覆盖与格化组织方案](机器统观的多层次语义覆盖与格化组织方案-20260923.md)：保留形成时的候选设计与历史执行状态；不作当前选题模板。A/B闭包与提示词见[第三轮入口](../第三轮机器统观/README.md)。

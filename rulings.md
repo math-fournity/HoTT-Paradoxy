@@ -832,3 +832,16 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. 这次遗漏被归类为`EXECUTION_DEVIATION / COGNITIVE_WRITEBACK_OMISSION`：用户关于 MPIM 优先级的修正改变了下一动作，我却只在对话中分析，未在继续来源节点前更新`rulings → Feature → MEMORY → direction/SOP`。未来每当用户修正理论靶、来源优先级、停止条件或成功定义，必须在继续依赖该项的行动前完成这条 owner 写回链；若当前 owner 被并发写者占用，先将裁定写入未占用的`rulings`与 source，再在节点终态后合并更新其余 current owners。不得让旧队列继续隐式授权新节点。
 
 本裁定授权本用户原件、H0-Z0 SOP 的优先级修订、F-050/MEMORY/方向的下一动作收敛、相称的验证和精确Git提交；不授权把任何 source-branch status 升格为 ZFC Q、改变数学STATE、tag、push或外部发布。
+
+## 2026-10-04：H0→Z0 后续方案、认知闭包与 Host Goal 由 Master 管理
+
+研究发起人的直接指令由`sources/prompts/Codex-H0-Z0模式P优先收敛与Goal管理-用户原文-20261004.md`拥有：为后续工作起好方案名称，建立对应认知闭包，在`/goal`引用二者，并由 Master 持续管理 Goal。
+
+执行裁定：
+
+1. 唯一复用的执行方案为`H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP`，而不是新写一套同义计划。它的 PF-A/PF-B/PF-C、PF-0至PF-5、来源支线停泊、机器化资格与有界终态由`dev-docs/H0-Z0模式P优先收敛SOP.md`拥有。
+2. 唯一配套闭包为`H0-Z0-PATTERN-FIRST-CONVERGENCE-CLOSURE`，path为`认知闭包/2026-10-04-H0-Z0模式P优先收敛-认知闭包.md`。它保存 fixed H0、用户授权、当前候选分支、活跃槽、来源边界、未知、Feature 映射、复现与 Host Goal 绑定；Verdict 为`PARTIAL / READY_TO_EXECUTE`。
+3. Host Goal=`01a106f7-75c0-7dd0-b135-63d0393bd6cf`，其 objective 逐字引用这两个稳定名；恢复、压缩、阶段切换和用户修正时，先重读闭包、方案、F-050和MEMORY，再决定继续、停泊、重开、Battle、来源或机器化。Goal 的完成只能由 PF-A/PF-B/PF-C 全部进入方案规定的有界终态，或实际 H0→Z0 政策结论已按来源与机器证据闭合时标记。
+4. 并行 worktree 已有的 plan／DiscoveryCard 是`CANDIDATE_NOT_CURRENT`输入；Master 只复用已提交的方案，不重跑同一 P1/P2/P3，并在 direct evidence 审阅后唯一写回 current owner。
+
+本裁定授权方案、闭包、README/MEMORY 索引、Feature/方向/当前队列、Host Goal 创建、相称验证与精确Git提交；不授权将目标创建等同于数学完成、改变数学STATE、tag、push或外部发布。
