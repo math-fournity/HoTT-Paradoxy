@@ -1,6 +1,6 @@
 # ZQCM-001 PDF Validation
 
-> **状态：** ELEVEN_WORK_FAMILIES_VALIDATED_PLUS_FOUR_W006_CHAPTERS / SIXTEEN_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
+> **状态：** TWENTY_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
 
 | ACQ ID | 文件 | file/PDF | 页数 | 题名／作者核对 | SHA-256 | 版本判词 | 状态 |
 |---|---|---|---:|---|---|---|---|
@@ -20,7 +20,11 @@
 | ZQCM-ACQ-016 | originals/Ahrens_North_2022_Univalent_Foundations_and_Equivalence_Principle_arXiv2202.01892v1.pdf | PDF 1.4 | 14 | metadata为空；首页题名、Benedikt Ahrens／Paige Randall North及arXiv:2202.01892v1与V-UF-02身份一致。 | `e2def8f64237f177470ef594b1eff7e2b51c87a0f7d4628759ebe43194cac352` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 | ZQCM-ACQ-017 | originals/Buchholtz_2018_Higher_Structures_in_HoTT_arXiv1807.02177v1.pdf | PDF 1.4 | 21 | metadata为空；首页题名、Ulrik Buchholtz及arXiv:1807.02177v1与V-UF-03身份一致。 | `fb5707d209eb41a5f95ec6848c50b9dcf147734eb77ce4fc702e68a9f028c67b` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 | ZQCM-ACQ-018 | originals/Bordg_2019_Univalent_Foundations_and_UniMath_arXiv1710.02723v7.pdf | PDF 1.4 | 18 | metadata为空；首页题名、Anthony Bordg、arXiv:1710.02723v7及2019日期与V-UF-04身份一致。 | `e3c6c206f872395747f11c47caa00643e48340c85a47aa21fdd8a9e477055473` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-019 | originals/Dzamonja_Kant_2018_Interview_With_a_Set_Theorist_author_preprint.pdf | PDF 1.5 | 24 | metadata为空；首页题名、Mirna Džamonja／Deborah Kant、摘要和2018作者版身份与V-SET-01一致。 | `257b625de14c32ed960da768800760ff67f7fff5f8238fe2a6b407eed4007828` | AUTHOR_SITE_PREPRINT_CHAPTER_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-020 | originals/Fontanella_2016_How_to_Choose_New_Axioms_for_Set_Theory_author_pdf.pdf | PDF 1.5 | 17 | 首页题名、Laura Fontanella、ZFC／new-axiom摘要与V-SET-02身份一致。 | `014fd8c3d7f5cae93309ce397bc0fc480fe956a32c05efbfc9c0b79bc2954b52` | AUTHOR_PDF_CHAPTER_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-021 | originals/Rodin_2018_Models_of_HoTT_Constructive_View_of_Theories_author_preprint.pdf | PDF 1.5 | 40 | 首页题名、Andrei Rodin、2018日期与摘要和V-UF-05身份一致。 | `8da304c14e2e968673d1bace05d67d4a93858741ab4f15312e29ac1dbdc7fa84` | PHILSCI_ARCHIVE_PREPRINT_CHAPTER_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-022 | originals/Dzamonja_2018_A_New_Foundational_Crisis_arXiv1802.06221v1.pdf | PDF 1.4 | 12 | 首页题名、Mirna Džamonja、arXiv:1802.06221v1及摘要与V-CMP-02身份一致。 | `76cb60b1cef742f86d75da6b5167260cac9879f427f007c91771739cc5d9fb65` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 
-W-006的V-CMP-01、V-UF-02、V-UF-03和V-UF-04均已取得可验证的作者版本；全卷、其余五条chapter lead、W-012和W-014仍未取得可验证PDF，故不在本表虚列为已验证作品。
+W-006的V-SET-01、V-SET-02、V-UF-02、V-UF-03、V-UF-04、V-UF-05、V-CMP-01和V-CMP-02均已取得可验证的作者版本；全卷、唯一剩余的V-SET-03 chapter lead、W-012和W-014仍未取得可验证PDF，故不在本表虚列为已验证作品。
 
 用户先提供了Downloads副本（终端受隐私限制无法读取），随后提供可读的`/Volumes/D/HoTT_AI_HANDOFF_20260911/外部资料/s10516-023-09676-0.pdf`。后者已作为上表的publisher version导入和验证；Downloads副本不再作为独立未验证语料项使用。

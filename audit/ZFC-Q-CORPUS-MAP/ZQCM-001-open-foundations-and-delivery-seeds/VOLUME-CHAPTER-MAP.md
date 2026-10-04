@@ -18,16 +18,16 @@
 
 | Chapter ID | 章节与作者 | 页码 | 语料作用 | 下一获取动作 |
 |---|---|---:|---|---|
-| V-SET-01 | *Interview With a Set Theorist* — Mirna Džamonja, Deborah Kant | 3–26 | 集合论实践／反控制入口。 | 查作者公开版本或正式chapter access。 |
-| V-SET-02 | *How to Choose New Axioms for Set Theory?* — Laura Fontanella | 27–42 | 新公理、理论位置和标准防线入口。 | 查作者／机构版本。 |
+| V-SET-01 | *Interview With a Set Theorist* — Mirna Džamonja, Deborah Kant | 3–26 | 集合论实践／反控制入口。 | Deborah Kant author-site 2018 preprint已验证；remote失败收据已留存，待原PDF视觉／source screen。 |
+| V-SET-02 | *How to Choose New Axioms for Set Theory?* — Laura Fontanella | 27–42 | 新公理、理论位置和标准防线入口。 | Laura Fontanella 2016 author PDF已验证；remote失败收据已留存，待原PDF视觉／source screen。 |
 | V-SET-03 | *Proving Theorems from Reflection* — Philip D. Welch | 79–97 | reflection、proof theory和P相关控制入口。 | 优先找Bristol的已标识accepted manuscript。 |
 | V-UF-01 | *Naïve Type Theory* — Thorsten Altenkirch | 101–136 | HoTT／类型论动机的原典相邻来源。 | `W-009` author PDF已验证；与W-005分开登记，待阅读。 |
 | V-UF-02 | *Univalent Foundations and the Equivalence Principle* — Benedikt Ahrens, Paige Randall North | 137–150 | univalence／结构同一性路线的来源入口。 | arXiv:2202.01892v1作者版本已验证并完成remote失败收据、14页原PDF视觉审读和source screen；equivalence principle与H0机制是来源精度／反类比控制，不等于ordinary ZFC Q。 |
 | V-UF-03 | *Higher Structures in Homotopy Type Theory* — Ulrik Buchholtz | 151–172 | 高阶结构与H0传输控制入口。 | arXiv:1807.02177v1作者版本已验证并完成remote失败收据、21页原PDF视觉审读和source screen；higher-structure／metatheory／Power Set区分构成H0来源精度与反类比控制，不等于ordinary ZFC Q。 |
 | V-UF-04 | *Univalent Foundations and the UniMath Library* — Anthony Bordg | 173–189 | 形式化实践／实际consumer入口。 | arXiv:1710.02723v7作者版本已验证并完成remote失败收据、18页原PDF视觉审读和source screen；其实际consumer是UniMath／Coq proof-library，构成payment／motivation control，不等于ordinary ZFC Q。 |
-| V-UF-05 | *Models of HoTT and the Constructive View of Theories* — Andrei Rodin | 191–219 | 构造性／模型／实践桥接入口。 | 与W-007既有报告交叉核验。 |
+| V-UF-05 | *Models of HoTT and the Constructive View of Theories* — Andrei Rodin | 191–219 | 构造性／模型／实践桥接入口。 | PhilSci-Archive 2018 author preprint已验证；remote失败收据已留存，待原PDF视觉／source screen。 |
 | V-CMP-01 | *Set Theory and Structures* — Neil Barton, Sy-David Friedman | 223–253 | 集合论／结构主义与表示控制入口。 | 27页作者预发表稿已完成remote失败记录、逐页视觉及source screen；其ZFCS／NBGS／universe／representation controls不构成ordinary ZFC Q。 |
-| V-CMP-02 | *A New Foundational Crisis in Mathematics, Is It Really Happening?* — Mirna Džamonja | 255–269 | foundations comparison 的竞争读法。 | 查作者公开版本。 |
+| V-CMP-02 | *A New Foundational Crisis in Mathematics, Is It Really Happening?* — Mirna Džamonja | 255–269 | foundations comparison 的竞争读法。 | arXiv:1802.06221v1作者版本已验证；remote失败收据已留存，待原PDF视觉／source screen。 |
 | V-CMP-03 | *A Comparison of Type Theory with Set Theory* — Ansten Klev | 271–292 | 直接的R→Z候选种子。 | `W-011` author preprint已验证；关键source precision已筛读，仍无Q。 |
 | V-CMP-04 | *What Do We Want a Foundation to Do?* — Penelope Maddy | 293–311 | foundation-criterion／same-task控制。 | `W-010` author PDF已验证，待阅读。 |
 
@@ -39,11 +39,15 @@
 | V-UF-02 | arXiv official PDF `2202.01892v1`。 | 14页作者版本已入库并经file／pdfinfo／首页／SHA256核验；remote失败收据、14页source-only视觉审读和受限source screen均已完成。 | `FULL_AUTHOR_VERSION_EQUIVALENCE_PRINCIPLE_AND_H0_SOURCE_PRECISION_SCREENED`；不预设与出版页137–150同字节，也不把类型论内的univalence／transport机制当作ordinary ZFC Q。 |
 | V-UF-03 | arXiv official PDF `1807.02177v1`。 | 21页作者版本已入库并经file／pdfinfo／首页／SHA256核验；remote失败收据、21页source-only视觉审读和受限source screen均已完成。 | `FULL_AUTHOR_VERSION_HIGHER_STRUCTURE_AND_METATHEORY_SOURCE_CONTROL_SCREENED`；不预设与出版页151–172同字节，也不把模型／HoTT内部构造边界当作ordinary ZFC Q。 |
 | V-UF-04 | arXiv official PDF `1710.02723v7`。 | 18页作者版本已入库、remote失败收据已留存，且完成全页source-only视觉与受限source screen。 | `FULL_AUTHOR_VERSION_UNIMATH_PAYMENT_AND_MOTIVE_CONTROL_SCREENED`；不预设与出版页173–189同字节，也不把其Coq/UniMath consumer当作ordinary ZFC Q。 |
+| V-SET-01 | Deborah Kant author-site PDF `PhilTalk0716.pdf`。 | 24页2018作者预印本已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页3–26同字节。 |
+| V-SET-02 | Laura Fontanella author PDF `paper philo 2016.pdf`。 | 17页2016作者PDF已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页27–42同字节。 |
+| V-UF-05 | PhilSci-Archive `MH1.pdf`。 | 40页2018作者预印本已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页191–219同字节。 |
+| V-CMP-02 | arXiv official PDF `1802.06221v1`。 | 12页2018作者版本已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页255–269同字节。 |
 | V-CMP-01 | Sy-David Friedman作者公开PDF `joint.neil.set.theory.structures.pdf`。 | 普通公开下载成功；PDF 1.5、27页、首页题名／作者／2018-08-07和本卷致谢一致，SHA256 `e8116b22…ea5f7`；remote attempt=`server_not_running`，27页source-only视觉审读完成。 | `FULL_AUTHOR_PREPUBLICATION_COMPARATIVE_CONTROL_SCREENED`；该稿的ZFCS／NBGS／Grothendieck universe／canonical-representation结论均有明示语言、模型或richness条件，尚不等于出版章全文或Q。 |
 
 ## 4. 处置与余项
 
-- 该目录最初产生 `12` 个 chapter-level acquisition leads；W-009、W-010、W-011、V-CMP-01及V-UF-02／03／04共 `7` 条已取得，仍有 `5` 条待获取。V-CMP-01与V-UF-04已作为控制筛读；V-UF-02／03仍待原件视觉与source screen，不能把任何条目自动升级为Q候选。
+- 该目录最初产生 `12` 个 chapter-level acquisition leads；W-009、W-010、W-011、V-CMP-01、V-UF-02／03／04、V-SET-01／02、V-UF-05及V-CMP-02共 `11` 条已取得，仍有唯一的V-SET-03待获取。V-CMP-01与V-UF-02／03／04已作为控制筛读；V-SET-01／02、V-UF-05和V-CMP-02仍待原件视觉与source screen，不能把任何条目自动升级为Q候选。
 - W-005（Altenkirch的另一篇2023文章）与 `V-UF-01` 是作者相同但作品不同的条目，必须各自做版本、PDF与论证核验。
 - W-006全卷和两篇OUP评述都尚未作为可核验全文入库；当前只是已证实的目录／路线证据。
 - 下一批优先级由已取得的W-001–005／007–008阅读和引文网络共同决定，不能仅因章节题名相近就扩展。

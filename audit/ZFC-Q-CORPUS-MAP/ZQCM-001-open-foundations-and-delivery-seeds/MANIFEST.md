@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-007_VUF02_VUF03_VUF04_AUTHOR_VERSION_ACQUISITION / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-008_REMAINING_PUBLIC_W006_CHAPTER_ACQUISITION / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -88,3 +88,5 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-006 rationale.** V-CMP-01 was already a named W-006 chapter lead. An exact author-hosted public PDF supplied a 27-page, 2018-08-07 prepublication whose title/authors and volume acknowledgement match the chapter. It is admitted as a bounded comparative-control source: its conclusions about canonical representation, Grothendieck universes, ZFCS/NBGS and structural richness remain versioned author-source claims, not a replacement for the published pagination or a ZFC Q candidate.
 
 **Extension-007 rationale.** V-UF-02, V-UF-03 and V-UF-04 were already named W-006 chapter leads. Exact title-and-author queries located their official arXiv PDFs, respectively 14, 21 and 18 pages. Each was admitted only as an author-version candidate after file/PDF metadata, first-page identity and SHA-256 checks; no acquired version is declared byte-identical to the 2019 book pagination. V-UF-02 has completed source-only visual review and a bounded equivalence-principle/H0 source-precision screen; V-UF-03 has completed a bounded higher-structure/metatheory/Power Set anti-analogy screen; V-UF-04 has completed a bounded payment/motive control screen. None is a Q candidate.
+
+**Extension-008 rationale.** Four remaining direct W-006 chapter leads supplied public author or institutional versions: V-SET-01 from Deborah Kant's author site, V-SET-02 from Laura Fontanella's author site, V-UF-05 from PhilSci-Archive, and V-CMP-02 from arXiv. They are 24, 17, 40 and 12 pages respectively, and each passed file/PDF metadata, first-page identity and SHA-256 checks. All four remote MinerU requests stopped at the same shared-server `server_not_running` boundary; no service was started or reconfigured. Their reported versions are acquisition-qualified only, not asserted to be byte-identical to the published pagination; each remains `SOURCE_SCREEN_PENDING`, not a Q candidate.
