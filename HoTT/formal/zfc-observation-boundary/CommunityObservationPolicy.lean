@@ -22,11 +22,35 @@ deriving DecidableEq, Repr
 /-- A base theory is represented only by the claims it makes available. -/
 abbrev Theory := Claim → Prop
 
+/-- The intended form of the user's mathematical-illusion P. A policy makes a
+completion-promotion claim: a formal/model result may be treated as completion
+of an origin process task. `verifiedBridge` is deliberately separate, because
+the policy assertion is not itself evidence that the original task, trace, or
+Done predicate has been preserved. -/
+structure CompletionPromotionSite where
+  formalDone : Prop
+  originDone : Prop
+  promotionClaim : Prop
+  verifiedBridge : Prop
+  noVerifiedBridge : ¬ verifiedBridge
+
+/-- P is an *unverified completion promotion*, not a limit equation, a bare
+actual infinity, or the formal existence of an endpoint. -/
+def IsUnverifiedCompletionPromotionP (site : CompletionPromotionSite) : Prop :=
+  site.promotionClaim ∧ ¬ site.verifiedBridge
+
+theorem completionPromotionP_lacks_verified_bridge
+    (site : CompletionPromotionSite) :
+    IsUnverifiedCompletionPromotionP site → ¬ site.verifiedBridge := by
+  intro _
+  exact site.noVerifiedBridge
+
 /-- Add one admitted claim to a theory.  This is a policy-extension operator,
 not ZFC's object-language axiom-adjoining construction. -/
 def extend (T : Theory) (c : Claim) : Theory := fun goal => T goal ∨ goal = c
 
-/-- `ZFC-1` is a label for the operational policy extension that admits P. -/
+/-- `ZFC-1` is a label for the operational policy extension that admits the
+unverified-completion-promotion P claim. -/
 def zfc1 (baseZFC : Theory) : Theory := extend baseZFC .mathematicalIllusionP
 
 /-- The alternative operational extension that admits A. -/
@@ -183,6 +207,7 @@ theorem object_level_false_requires_formal_incompatibility
 #print axioms translatePlusAToZfc1
 #print axioms translateZfc1ToPlusA
 #print axioms zfcPlusA_sameOperationalConsequences_as_zfc1
+#print axioms completionPromotionP_lacks_verified_bridge
 #print axioms zfc1_derives_A_and_B
 #print axioms PBacktrace.exposes_P
 #print axioms zfc1_B_has_P_backtrace

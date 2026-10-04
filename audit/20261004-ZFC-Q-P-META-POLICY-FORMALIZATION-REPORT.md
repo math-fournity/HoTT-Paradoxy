@@ -14,6 +14,8 @@ want(A) ∧ reject(B)    (作为价值判断)
 formal-incompatibility(A,B)  (只有它能导出 False)
 ```
 
+其中 P 的最终工作定义是：**未验证的完成提升**。它把 formal/model completion F 当成 origin-process Done D，同时没有 source-verified、task-preserving 的 F→D bridge。它不是极限等式、实际无穷或端点的数学存在本身；这些最多是 F 的候选输入。新增的 `CompletionPromotionSite` 与 `completionPromotionP_lacks_verified_bridge` 将这个区别写进 Lean。
+
 形式源码是 [CommunityObservationPolicy.lean](../HoTT/formal/zfc-observation-boundary/CommunityObservationPolicy.lean)，精确主张在 [claim 文件](../HoTT/formal/zfc-observation-boundary/CommunityObservationPolicy-CLAIM.md)。
 
 形式化采取的关键翻译是：
@@ -70,4 +72,4 @@ baseZFC+A 与 baseZFC+P 在明确 A→P、P→A 规则下
 
 初稿在直接 Lean 检查时因规则构造子的无意义隐式参数、以及转换证明的变量消去写法而被拒绝；这些是形式化实现错误，不支持任何数学结论。修正为无冗余构造子并使用等式 cases 后，最终源码增加了 `PBacktrace`：只有保存了 P→B provenance，才允许把 B 回溯到 P。
 
-最终权威运行是 `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-04`：它包含完整的七项 claim ID、最终 provenance 源码和用户原文链接，Lean 4.34.1 exit 0，十个打印定理均报告不依赖公理。此前 `-01` 是不含 provenance 增量的有效早期源码快照，`-02`／`-03`是源码已补 provenance 后、但 capture claim list 尚未补足的有效检查快照；三者均保留为历史运行。
+最终权威运行是 `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-05`：它包含完整的八项 claim ID、最终 P 定义／provenance 源码和用户原文链接，Lean 4.34.1 exit 0，十一个打印定理均报告不依赖公理。此前 `-01` 是不含 provenance 增量的有效早期源码快照，`-02`／`-03`是源码已补 provenance 后、但 capture claim list 尚未补足的有效检查快照，`-04`是 P 定义细化前的完整 claim-ID 快照；它们均保留为历史运行。

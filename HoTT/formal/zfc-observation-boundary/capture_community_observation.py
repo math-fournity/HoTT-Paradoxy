@@ -76,6 +76,7 @@ def main() -> None:
             "ZFC-COMMUNITY-POLICY-005",
             "ZFC-COMMUNITY-POLICY-006",
             "ZFC-COMMUNITY-POLICY-007",
+            "ZFC-COMMUNITY-POLICY-008",
         ],
         "proof_assistant": "Lean",
         "proof_assistant_version": version,

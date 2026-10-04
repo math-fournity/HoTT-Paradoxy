@@ -25,6 +25,15 @@ P → B          = explicit policy-level consequence
 P → A ∧ B      = conjunction produced by the policy
 ```
 
+这里的 P 现在有精确的结构定义：
+
+```text
+P(F, D) = “formal/model completion F 被政策性地提升为 origin-process Done D”
+          ∧ “没有来源验证的、保留原任务的 F → D bridge”。
+```
+
+因此，`lim sₙ = L` 本身不是 P。它是可能成为 F 的一个数学事实。P 发生在把这个事实越级读成“过程已经到达／行动已经完成／圆环已经复原”时，而同一任务的 completion bridge 尚未给出。
+
 `ZFC-1 = ZFC + A = ZFC + P` 因此在 Lean 中必须读作：在固定的 A↔P policy rules 下，`baseZFC+A` 与 `baseZFC+P` 的**可导后果相同**。它不是“实际 ZFC 的公理集合逐字相等”。
 
 ## 3. B 的两种可能身份
