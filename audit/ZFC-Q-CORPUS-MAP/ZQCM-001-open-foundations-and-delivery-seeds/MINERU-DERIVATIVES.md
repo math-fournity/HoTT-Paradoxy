@@ -6,7 +6,7 @@
 >
 > **视觉核验合同：** 每份成功远程派生物必须经过150dpi二值页图逐页视觉核验；Q相关／异常位置另行300dpi复核。详见本批[`VISUAL-REVIEW.md`](VISUAL-REVIEW.md)。
 >
-> **状态：** REMOTE_DERIVATIVE_NOT_QUALIFIED / W001_W002_W003_W004_W005_W006_VCMP01_W007_W008_W009_W010_W011_W013_SOURCE_VISUAL_REVIEW_COMPLETE / W006_VUF02_VUF03_VUF04_VSET02_SOURCE_VISUAL_REVIEW_COMPLETE / REMOTE_REQUALIFICATION_FAILED。
+> **状态：** REMOTE_DERIVATIVE_NOT_QUALIFIED / W001_W002_W003_W004_W005_W006_VCMP01_W007_W008_W009_W010_W011_W013_SOURCE_VISUAL_REVIEW_COMPLETE / W006_VUF02_VUF03_VUF04_VSET02_VCMP02_SOURCE_VISUAL_REVIEW_COMPLETE / REMOTE_REQUALIFICATION_FAILED。
 
 | MIN ID | ACQ ID | 输入哈希 | 命令／版本 | 页范围 | 派生路径 | 结果／限制 |
 |---|---|---|---|---|---|---|
@@ -40,3 +40,4 @@
 | MIN-W006-VUF02-SOURCE-ONLY-001 | ACQ-016 | e2def8f64237f177470ef594b1eff7e2b51c87a0f7d4628759ebe43194cac352 | Ghostscript `pngmono` + actual visual inspection | PDF pp.1–14 | visual/W-006-V-UF-02/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有14页150dpi图均已逐页审读并落签；pp.1、2、4–11、13另有300dpi复核。没有remote MinerU输出，不能称其通过MinerU核验。 |
 | MIN-W006-VUF03-SOURCE-ONLY-001 | ACQ-017 | fb5707d209eb41a5f95ec6848c50b9dcf147734eb77ce4fc702e68a9f028c67b | Ghostscript `pngmono` + actual visual inspection | PDF pp.1–21 | visual/W-006-V-UF-03/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有21页150dpi图均已逐页审读并落签；pp.1–14、17另有300dpi复核。没有remote MinerU输出，不能称其通过MinerU核验。 |
 | MIN-W006-VSET02-SOURCE-ONLY-001 | ACQ-020 | 014fd8c3d7f5cae93309ce397bc0fc480fe956a32c05efbfc9c0b79bc2954b52 | Ghostscript `pngmono` + actual visual inspection | PDF pp.1–17 | visual/W-006-V-SET-02/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有17页150dpi图均已逐页审读并落签；pp.1–5、8、10、12–14另有300dpi复核。没有remote MinerU输出，不能称其通过MinerU核验。 |
+| MIN-W006-VCMP02-SOURCE-ONLY-001 | ACQ-022 | 76cb60b1cef742f86d75da6b5167260cac9879f427f007c91771739cc5d9fb65 | Ghostscript `pngmono` + actual visual inspection | PDF pp.1–12 | visual/W-006-V-CMP-02/ | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有12页150dpi图均已逐页审读并落签；pp.3、4、8、9另有300dpi复核。没有remote MinerU输出，不能称其通过MinerU核验。 |

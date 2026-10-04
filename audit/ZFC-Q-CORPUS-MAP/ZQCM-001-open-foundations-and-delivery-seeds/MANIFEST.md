@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-008_REMAINING_PUBLIC_W006_CHAPTER_ACQUISITION / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-010_VSET02_AND_VCMP02_SOURCE_SCREENS / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -92,3 +92,5 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-008 rationale.** Four remaining direct W-006 chapter leads supplied public author or institutional versions: V-SET-01 from Deborah Kant's author site, V-SET-02 from Laura Fontanella's author site, V-UF-05 from PhilSci-Archive, and V-CMP-02 from arXiv. They are 24, 17, 40 and 12 pages respectively, and each passed file/PDF metadata, first-page identity and SHA-256 checks. All four remote MinerU requests stopped at the same shared-server `server_not_running` boundary; no service was started or reconfigured. Their reported versions are acquisition-qualified only, not asserted to be byte-identical to the published pagination; each remains `SOURCE_SCREEN_PENDING`, not a Q candidate.
 
 **Extension-009 rationale.** V-SET-02 has now completed source-only visual review and its bounded source screen. Fontanella explicitly places “the universe of all sets is too rich to be exhausted by some basic operations such as power set or replacement” inside an argument for inaccessible-cardinal axioms, together with reflection, `V_κ`, `L`, forcing, elementary-embedding and standard-defense boundaries. This qualifies it as a source-level Power Set neighborhood seed and control; it does not establish a bare-ZFC actual consumer, a same-task failure, or a Q candidate.
+
+**Extension-010 rationale.** V-CMP-02 has now completed source-only visual review and its bounded source screen. Džamonja’s title frames a possible foundational crisis, but the abstract and conclusion deny that one is present. Its valuable material is instead a precise comparison boundary: a standard Restricted Comprehension account of Russell, a broad P5-style comment about witnesses, and carefully separated type theory, proof assistant, model, consistency-strength and philosophical-pluralism layers. It qualifies as a standard-defense and P5 source-precision control; it does not identify an ordinary ZFC actual consumer, a same-task failure, or a Q candidate.
