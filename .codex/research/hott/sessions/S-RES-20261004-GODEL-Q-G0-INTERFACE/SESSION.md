@@ -47,6 +47,7 @@
 | Foundation target-mapping control | project wrappers + exact Foundation source | 正控制确认 `𝗭𝗙𝗖 : SetTheory` 与 generic `ArithmeticTheory` theorem interface；负控制拒绝直接传入 `𝗭𝗙𝗖`。同树又有 `ω`／自然数递归模型正控制，却没有 concrete `DirectInterpretation` occurrence。这是 `FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE`，不是 ZFC 不完备性 theorem。 |
 | set.mm internalization requalification | exact database + compiled official verifier + Appendix C | 47,917 `$p` proofs 实际通过 `VERIFY PROOF *`；source还定义ZF set-coded formula/satisfaction和generic `mFS/mPPSt/mThm`。Appendix C说明完整 mapping须另行形式化，且 `Prv` lacking a definition，故actual database→`mFS` mapping和Diag未支付。 |
 | MM0 companion control | `digama0/mm0@0d414c…` | `set.mm0`是手工翻译的 axiom system，proof WIP；它不等同于 exact raw database的 internal mFS/proof-relation mapping。 |
+| MM0 `from-mm` candidate | exact `mm0-hs` source | source commands wholesale translation，但 locked LTS 13.27/GHC 8.6.5 无 macOS ARM setup；未用当前GHC 9.4替代，故无 output或mapping claim。 |
 | 外部技术校准 | JAR/AFP + fixed Agda BRA source | 把 code/numeral bridge、内部 provability adequacy、proof representability 与 fixed point 分开；只作 G2 field calibration，外部 developments 未在本机 replay，也不是 ZFC/parent-Q source。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
 

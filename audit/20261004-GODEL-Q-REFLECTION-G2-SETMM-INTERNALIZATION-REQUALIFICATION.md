@@ -107,6 +107,26 @@ exact raw set.mm database
 
 因此 MM0 是 actual mapping obligation 的近邻对照，不是 payment。
 
+### 4.7 `from-mm` 的真实能力与当前 host toolchain gap
+
+同一固定 MM0 source 的 `mm0-hs/README.md` 和 `MM0.FromMM` source 实际给出命令：
+
+```text
+mm0-hs from-mm MM-FILE [-o MM0-FILE MMU/MMB-FILE]
+```
+
+它声称 wholesale translation from Metamath to MM0 + proof format，因而是唯一值得继续检验的 actual-database M-layer translation candidate。当前不能把它报告为已运行：该 source 的 `stack.yaml` 锁定 `lts-13.27`（GHC 8.6.5）；`STACK_ROOT` 和 `TMPDIR` 均放外置缓存的 preflight 在本机 macOS ARM 上得到 Stack `S-9443`，提示没有 `ghc-8.6.5` 的 `macosx-aarch64` setup。当前已装 GHC 9.4.8 不等价于这个 lock。
+
+因此本卡的准确状态是：
+
+```text
+MM0_FROM_MM_SOURCE_CAPABILITY_IDENTIFIED
+MM0_FROM_MM_EXACT_REPLAY_BLOCKED_BY_GHC_8_6_5_MACOS_AARCH64
+NO_TRANSLATION_OUTPUT_OR_MAPPING_CLAIM
+```
+
+重开条件是一个支持 GHC 8.6.5 的匹配 runner、来源维护者提供的版本固定可执行物，或被单独资格化的等价 toolchain；在任一条件出现前，不用新 GHC / 新 resolver 伪造 exact replay。
+
 ## 5. 对方案的实际改变
 
 此前的 `NumeralBridge` 现在被一般化为 **`ObjectCodeBridge`**：

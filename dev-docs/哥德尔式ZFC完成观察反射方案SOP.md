@@ -17,7 +17,7 @@ soft_line_target: 300
 >
 > **父结果：** F-050 已完成的有界证据／控制记录；本方案在该记录之外研究真实 completion acceptance interface 与 Q，不重写 C-359 至 C-366，也不自动重开 F-050。
 >
-> **当前激活状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_VERIFIER_REPLAYED / SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`。当前 Goal 已完成 G0 的来源分母和 set.mm G2 source requalification；F-050 的已有界收尾仍不因本模块恢复。G1、G3–G6仍须等同一来源的 process contract、`OriginDone`、`ρ` 与 bridge。
+> **当前激活状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_VERIFIER_REPLAYED / SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE / MM0_FROM_MM_EXACT_REPLAY_BLOCKED_BY_GHC_8_6_5_MACOS_AARCH64 / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`。当前 Goal 已完成 G0 的来源分母和 set.mm G2 source requalification；MM0 的唯一 actual database translation candidate 在本 host工具链上有明确阻断。F-050 的已有界收尾仍不因本模块恢复。G1、G3–G6仍须等同一来源的 process contract、`OriginDone`、`ρ` 与 bridge。
 
 ## 当前层级与调用边界
 
