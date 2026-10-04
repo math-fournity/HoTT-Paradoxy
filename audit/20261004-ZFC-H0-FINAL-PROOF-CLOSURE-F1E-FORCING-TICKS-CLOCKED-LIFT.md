@@ -105,6 +105,33 @@ MATCHING_COMPILER_BUILD_BLOCKED_BY_LOCAL_XCODE_TOOLCHAIN_WITH_SCOPE
 
 它不改变 source-level `Lift/∀Lift` 或 postulate 判断，也不能被解释为 Agda forcing-ticks 理论不一致。
 
+### 3.2 已安装 system GHC 的兼容性探针
+
+为避免把“缺少旧 GHC binary”误当作唯一可尝试路径，本轮还使用本机已有的 GHC 9.4.8 运行：
+
+```text
+STACK_ROOT=/Users/aurolafly/.cache/agda-forcing-ticks-stack-5bec849-system-ghc \
+stack --stack-yaml stack-9.0.1.yaml --system-ghc --skip-ghc-check \
+  --no-terminal build agda -j2
+```
+
+这不是匹配 compiler 的替代：冻结 source 的两个 Stack 配置分别要求 GHC 9.0.1 与 8.10.7，且
+`Agda.cabal` 对 `base`、`Cabal` 与 `template-haskell` 的上界也没有声明支持 GHC 9.4。该命令只是在独立
+`STACK_ROOT` 中测试“能否先获得一个可用于进一步差分的兼容构建”，没有修改冻结 source、项目 proof 文件或系统
+GHC。
+
+Stack 随即进入空缓存的 Hackage index 初始化。约七分钟后，缓存约为 62 MiB，进程仍停留在
+`Downloading index`，没有进入 dependency solving、Cabal configure 或 Agda compilation；为避免把无边界
+网络等待当作机器证明工作，本轮人工中止，退出状态为 `130`。所以这次探针唯一支持：
+
+```text
+SYSTEM_GHC_COMPATIBILITY_PROBE_INCONCLUSIVE_NO_COMPILER_BUILD
+```
+
+它既不补强也不推翻 3.1 的 matching-compiler / Xcode 判定；尤其不能将“未完成 Hackage 下载”写成
+GHC 9.4 与 forcing-ticks source 不兼容。下一次若重开此支路，需先取得一个版本固定的可用 compiler binary
+或一个有界、可复现的 patched-build plan，并将 patched toolchain 与 source branch 明确分开。
+
 ## 4. 对 H0Map 的影响
 
 | H0 map 字段 | 此 source 支持 | 尚未支付 |
