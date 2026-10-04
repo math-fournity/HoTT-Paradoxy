@@ -734,3 +734,40 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 **W-006 / V-UF-05完成说明。** `mineru parse --remote --json --wait 60`在已确认`running:false`的共享服务上返回`server_not_running`；为避免改变可能与桌面App共享的服务，未启动或重配。随后以PhilSci-Archive公开作者预印本从p.1逐页审读并即时落签pp.1–40的150dpi二值图，关键页1、8、12–14、18–20、34、37亦读取300dpi图。所有用于本记录的constructive-view scope、ZFC/HoTT formalization层级、proof-checking比较、`P(A)`与Power Set axiom的规则／存在对照、MLTT/HoTT judgments与identity、HoTT model theory／ZF外置元理论、initiality时态限定、结论边界和书目线索均以原PDF页图视觉核对；本记录不表示MinerU转换成功。来源资格结论另写入`SOURCE-NOTES-W006-VUF05.md`。
 
 **W-015完成说明。** `mineru parse --remote --json --wait 60`返回`server_not_running`；为避免改变可能与桌面App共享的服务，未启动或重配。随后以HAL公开作者deposit从p.1逐页审读并即时落签pp.1–23的150dpi二值图，关键页2、4、5、11–13、16、19亦读取300dpi图。所有用于本记录的HAL版本身份、ZFC不完备／singular-cardinal局部约束、power-set class-function与Power Set formation区别、forcing／model／Choice／large-cardinal条件、de-re哲学读法、ZF2／模型语义、局部quasi-categoricity和参考文献均以原PDF页图视觉核对；本记录不表示MinerU转换成功。来源资格结论另写入`SOURCE-NOTES-W015.md`。
+
+## 2026-10-04：原件视觉重资格化
+
+研究发起人要求将视觉路径作为这批 PDF 的主阅读层。下表记录新的、实际发生的页级重读；历史 `VR-*` 行仍保留为先前视觉证据，`VR2-*` 行只在当前会话实际查看了对应图后追加。每次查看一页后必须先写入本表，再打开下一页。
+
+| VR2 ID | Work ID | PDF页 | 图像 | 实际视觉结论 | 对后续处理的作用 |
+|---|---|---:|---|---|---|
+| VR2-W001-001 | W-001 | 1 | `visual/W-001/150dpi/p001.png` | 实际查看：题名、Daniel R. Grayson、2017日期、摘要、目录和Introduction开头均清晰可读。摘要把目标限定为说明Voevodsky如何把数学编码进type theory，并将其作为set theory的潜在基础替代方案；引言批评传统基础给对象指定任意内部结构。 | 确认该文是HoTT/UF动机的原页来源，而非裸ZFC对象形成或actual-consumer证据。后续按页重读其type、identity、univalence和模型解释。 |
+
+### 已有视觉处理的全覆盖审计
+
+2026-10-04对历史`VR-*`行按原 PDF 页码重新计数。下表中的`unique pages`指有一条可恢复的150dpi视觉记录的不同 PDF 页；每个主阅读版本均达到其真实页数。该审计确认既有视觉处理已经覆盖全部 20 份 PDF，不把它改写成MinerU转码成功。
+
+| 主阅读版本 | PDF页数 | `VR-*` unique pages | Source Notes | 判词 |
+|---|---:|---:|---|---|
+| W-001 | 33 | 33 | `SOURCE-NOTES-W001.md` | 全页视觉处理完成 |
+| W-002 | 192 | 192 | `SOURCE-NOTES-W002.md` | 全页视觉处理完成 |
+| W-003 | 11 | 11 | `SOURCE-NOTES-W003.md` | 全页视觉处理完成 |
+| W-004 | 18 | 18 | `SOURCE-NOTES-W004.md` | 全页视觉处理完成 |
+| W-005 | 13 | 13 | `SOURCE-NOTES-W005.md` | 全页视觉处理完成 |
+| W-007 | 37 | 37 | `SOURCE-NOTES-W007.md` | 全页视觉处理完成 |
+| W-008 | 65 | 65 | `SOURCE-NOTES-W008.md` | 全页视觉处理完成 |
+| W-009 | 29 | 29 | `SOURCE-NOTES-W009.md` | 全页视觉处理完成 |
+| W-010 | 18 | 18 | `SOURCE-NOTES-W010.md` | 全页视觉处理完成 |
+| W-011 | 21 | 21 | `SOURCE-NOTES-W011.md` | 全页视觉处理完成 |
+| W-013 | 12 | 12 | `SOURCE-NOTES-W013.md` | 全页视觉处理完成 |
+| W-006 / V-CMP-01 | 27 | 27 | `SOURCE-NOTES-W006-VCMP01.md` | 全页视觉处理完成 |
+| W-006 / V-UF-02 | 14 | 14 | `SOURCE-NOTES-W006-VUF02.md` | 全页视觉处理完成 |
+| W-006 / V-UF-03 | 21 | 21 | `SOURCE-NOTES-W006-VUF03.md` | 全页视觉处理完成；历史页13有一条重复记录 |
+| W-006 / V-UF-04 | 18 | 18 | `SOURCE-NOTES-W006-VUF04.md` | 全页视觉处理完成 |
+| W-006 / V-UF-05 | 40 | 40 | `SOURCE-NOTES-W006-VUF05.md` | 全页视觉处理完成 |
+| W-006 / V-SET-01 | 24 | 24 | `SOURCE-NOTES-W006-VSET01.md` | 全页视觉处理完成 |
+| W-006 / V-SET-02 | 17 | 17 | `SOURCE-NOTES-W006-VSET02.md` | 全页视觉处理完成 |
+| W-006 / V-CMP-02 | 12 | 12 | `SOURCE-NOTES-W006-VCMP02.md` | 全页视觉处理完成 |
+| W-015 | 23 | 23 | `SOURCE-NOTES-W015.md` | 全页视觉处理完成 |
+
+**覆盖结论。** 共 646 条历史页级视觉记录，覆盖 645 个不重复的原 PDF 页；唯一额外行是W-006/V-UF-03的第13页重复记录。20份固定主阅读版本均有对应Source Notes，因此本批原件视觉阅读层已完成。后续工作应当消费这些页级事实或做针对性的高分辨率重读，而不是因MinerU派生失败重复提交整批PDF。
