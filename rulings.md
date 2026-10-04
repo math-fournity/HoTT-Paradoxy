@@ -804,3 +804,17 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 五个 package 在提交`b2fc8c62`后通过选择性版本闭包：`C-359`–`C-363 = SELECTED_PACKAGES_VERSION_CLOSED / HEAD_BYTES_CHECKED`。该版本闭包认证源码、依赖manifest、运行收据和矩阵行，不将来源分类或哲学裁定提升为内核定理。
 
 本裁定授权C-362/C-363、来源卡、收尾裁决、Feature/MEMORY/rulings、验证与精确Git提交；不授权修改数学STATE、把来源分类升级为内核定理、tag、push或外部发布。
+
+## 2026-10-04：ZFC 的后续定位必须回到 main HoTT 的 H0
+
+用户直接问：“你认为后续的工作是什么？为什么我觉得你要找的就是main分支上的HoTT那个事情呢？”
+
+执行裁定：
+
+1. 用户指出的是此前路线的关键重心：芝诺／圆环线给出被接受的 A，main 中已经形式化的 HoTT H0 给出 B。若要检验 ZFC 的 Q/P 结构，不能只继续从芝诺侧寻找 completion-contract source；必须研究 ZFC 或明确 ZFC 扩展的基础验收怎样处理 main H0。
+2. C-364 与 F-049 保持有效，但其身份是已完成的 calibration control：它固定 Q 的观察语言和 rich-interface 正控制，不能作为 bare ZFC 研究的最终收尾，也不能代替 H0→Z0 的来源桥。
+3. 新的当前工作是 H0-Z0-FOUNDATION-ADEQUACY-SOP。H0 是 fixed Cubical Agda QuestioningDelay 的 universe never process；Z0 是一个实际 set-theoretic model/consistency/foundation acceptance contract 是否保留、排除或无支付遗漏 H0 的过程观察。它不是“在集合论里随便找一个无限过程”。
+4. 先执行 exact-variant 和 acceptance-contract 两个来源门。Kapulkin–Lumsdaine 的 simplicial model、CCHM cubical semantics、Cubical Agda 与 HoTT Book 必须分层；模型存在、relative consistency、实现计算性和基础充分性说法不能互相代替。
+5. 只有取得同源的 H0Map、AdequacyLift、QObservation 与 payment 后，才重新把芝诺 A 和 HoTT B 放进 C-359 的实际同 Q 检验。若来源保留 H0，理论变体不匹配，或只作模型 Done 而无 adequacy lift，都构成有界控制，不是 ZFC Q。
+
+本裁定授权用户 source、F-050、SOP、来源卡、P-DAG source nodes、相称的机器化、Feature/MEMORY/方向/全景记录和精确Git提交；不授权将 H0→Z0 假说写成 ZFC 形式矛盾、修改数学STATE、tag、push或外部发布。
