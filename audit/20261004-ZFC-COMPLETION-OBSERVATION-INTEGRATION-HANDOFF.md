@@ -6,7 +6,7 @@
 
 | 字段 | 值 |
 |---|---|
-| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure; `bad180ce036d6b409c16611786dfb268d8685c83` — external candidate B0–B3 and independent replay. |
+| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure; `bad180ce036d6b409c16611786dfb268d8685c83` — external candidate B0–B3 and independent replay; `f2e9aad684f6db85ff54a742d829795f6123c31c` — IEP/SEP/Norton 当日一手文本复核。 |
 | contributor worktree | `/Users/aurolafly/.codex/worktrees/3d2f/HoTT_AI_HANDOFF_20260911`，detached HEAD |
 | common merge base with `dev` | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target | `dev@81140216b519f418a5064ca21258c8ffa0afa7f8`，工作树 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，dirty；观察时间 2026-10-04。 |
