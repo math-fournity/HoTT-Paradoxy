@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 210,
+  "later_machine_proved_claim_count": 212,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -1010,6 +1010,26 @@
    "kind": "native_cubical_coarse_completion_nonreflection_control",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: the fixed stage-one completion of the set-truncated question does not imply any finite halt of the fixed original universe question.",
    "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with complete local source closure. The first negative run is retained because it failed before type checking from a missing just import; the repaired negative control is rejected at nothing != just 1. This package does not decide task identity, formalize ZFC or a semantic model, prove time-observation incompleteness, HoTT inconsistency, or a reality/UR verdict."
+  },
+  {
+   "proof_id": "MP-ZFC-ACTUAL-Q-POLICY-002",
+   "claim_ids": "C-359",
+   "source": "HoTT/formal/zfc-actual-q-policy/ActualQPolicy.lean",
+   "toolchain": "HoTT/formal/zfc-actual-q-policy/LEAN_TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-04",
+   "kind": "lean_core_conditional_completion_policy_consequence_and_controlled_process_models",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: an explicit ZFC-1 use-model carrying QMissing, an admitted strong completion-promotion P, a semantic TaskEquiv and HoTT-side B entails False; the same file distinguishes weak resolution labels, unlicensed policy admission, finite-stage noncompletion, a paid endpoint bridge, metadata equality from actual task equivalence, and the non-implication from a use-model to B.",
+   "notes": "Lean 4.34.1 core, no Mathlib imports, pinned compiler binary, no sorry/admit and every listed theorem reports no axioms. The result is conditional on the displayed use-model premises. It does not formalize bare ZFC syntax or consistency, community practice, actual Zeno/circle semantics, actual Zeno-HoTT TaskEquiv, a source-owned acceptance policy, real-analysis adequacy, or a reality/UR verdict. The rejected metadata-equality draft and superseded pre-control runs are retained separately and are not this package's evidence."
+  },
+  {
+   "proof_id": "MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+   "claim_ids": "C-360",
+   "source": "HoTT/formal/zfc-actual-q-policy/HoTTCounterexample.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01",
+   "kind": "native_cubical_fixed_hott_completion_reflection_counterexample",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: in the fixed safe Cubical Agda QuestioningDelay instance, stage-one completion of the set-truncated question does not imply a finite halt of the original universe question.",
+   "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with complete observed local dependency closure and a negative control rejected at nothing != just 1. This package does not formalize ZFC, a real-analysis model, an acceptance policy, an actual Zeno/circle process, a cross-kernel TaskEquiv, HoTT inconsistency, or a reality/UR verdict."
   },
   {
    "proof_id": "MP-TERRA-T2-ONESHOT-001",

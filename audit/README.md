@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [证明收据捕获器对 linked worktree 根的识别修复（2026-10-04）](20261004-证明收据捕获器linked-worktree根修复.md)：两只 capture 工具不再把合法 `.git` 指针 worktree 错拒为非项目根；修复以 `git rev-parse --show-toplevel` 资格化，并在本轮 Lean／Cubical Agda 真正捕获中复核。它是收据基础设施修复，不是数学结论。
+
 - [P-DAG H077–H080：极限、完成定义与圆环 Q0 的来源 Battle（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-077-080-Terra-Max.md)：Norton的实际completion合同、Bathfield/Sierpińska的bridge批评、H079采样前marker失败及H080独立裁决共同显示：争点是`Done_strict / Done_revised / Done_formal`的任务契约，不是数学事实冲突或ZFC矛盾；全局Q1仍未会合。
 
 - [P-DAG H076：ZFC-CIRCLE-Q0 completion bridge 来源匹配（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-076-Terra-Max.md)：隔离 source-match 核对四条冻结标准来源及连续变形控制。P1仅形成 completion object，P2不适用，P3-C发现标准来源明确保留数学—过程桥；判`SOURCE_BRIDGE_DEFENSE / NO_C_LANE_CONSUMER`，全局Q1不升级。

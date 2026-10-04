@@ -85,6 +85,30 @@ def exclusive_write(path: Path, data: bytes) -> None:
         os.fsync(handle.fileno())
 
 
+def require_project_git_root(root: Path) -> None:
+    """Accept both a primary checkout and a linked Git worktree.
+
+    A primary checkout normally stores a `.git` directory, whereas a linked
+    worktree stores a `.git` file pointing at the shared Git directory.  The
+    receipt still has to be rooted at the checkout itself, so verify that Git
+    resolves this exact directory as its top level rather than merely checking
+    the on-disk shape of `.git`.
+    """
+    result = subprocess.run(
+        ["git", "-C", str(root), "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    try:
+        actual = Path(result.stdout.decode("utf-8", "strict").strip()).resolve()
+    except (UnicodeError, OSError):
+        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    if actual != root:
+        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=ROOT)
@@ -108,8 +132,7 @@ def main() -> int:
     args = parser.parse_args()
 
     root = args.project_root.resolve()
-    if not (root / ".git").is_dir():
-        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    require_project_git_root(root)
     if not args.run_id or "/" in args.run_id or not all(c.isalnum() or c in "._-" for c in args.run_id):
         raise SystemExit("RUN_ID_INVALID")
     run_relative = RUN_ROOT / args.run_id

@@ -47,6 +47,42 @@ def source_row(root: Path, relative: Path) -> dict[str, object]:
     return {"path": relative.as_posix(), "bytes": len(data), "sha256": sha(data)}
 
 
+def pinned_file_row(path: Path, label: str) -> dict[str, object]:
+    if not path.is_file() or path.is_symlink():
+        raise CaptureError(f"PINNED_FILE_MISSING_OR_SYMLINK:{label}:{path}")
+    data = path.read_bytes()
+    return {
+        "label": label,
+        "local_path": str(path),
+        "bytes": len(data),
+        "sha256": sha(data),
+    }
+
+
+def require_project_git_root(root: Path) -> None:
+    """Accept both a primary checkout and a linked Git worktree.
+
+    A primary checkout normally stores a `.git` directory, whereas a linked
+    worktree stores a `.git` file pointing at the shared Git directory.  The
+    receipt still has to be rooted at the checkout itself, so verify that Git
+    resolves this exact directory as its top level rather than merely checking
+    the on-disk shape of `.git`.
+    """
+    result = subprocess.run(
+        ["git", "-C", str(root), "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    try:
+        actual = Path(result.stdout.decode("utf-8", "strict").strip()).resolve()
+    except (UnicodeError, OSError):
+        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    if actual != root:
+        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+
+
 def exclusive_write(path: Path, data: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("xb") as handle:
@@ -66,11 +102,18 @@ def main() -> int:
     parser.add_argument("--scope", required=True)
     parser.add_argument("--non-goal", action="append", default=[])
     parser.add_argument("--lean")
+    parser.add_argument(
+        "--toolchain",
+        help=(
+            "optional project-relative lean-proof-toolchain/v1 metadata; when "
+            "present, capture verifies and pins lean.root/bin/lean as an "
+            "external dependency"
+        ),
+    )
     args = parser.parse_args()
 
     root = args.project_root.resolve()
-    if not (root / ".git").is_dir():
-        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    require_project_git_root(root)
     if not args.run_id or "/" in args.run_id or not all(c.isalnum() or c in "._-" for c in args.run_id):
         raise SystemExit("RUN_ID_INVALID")
     run_relative = RUN_ROOT / args.run_id
@@ -80,19 +123,55 @@ def main() -> int:
 
     source = safe_relative(args.source)
     manifest_paths = [source]
+    toolchain_relative: Path | None = None
+    if args.toolchain:
+        toolchain_relative = safe_relative(args.toolchain)
+        if toolchain_relative not in manifest_paths:
+            manifest_paths.append(toolchain_relative)
     for value in args.manifest_file:
         path = safe_relative(value)
         if path not in manifest_paths:
             manifest_paths.append(path)
     rows = [source_row(root, path) for path in manifest_paths]
 
-    lean = args.lean or shutil.which("lean")
-    if not lean:
-        raise SystemExit("LEAN_EXECUTABLE_NOT_FOUND")
-    lean_path = Path(lean).resolve()
+    external_dependencies: list[dict[str, object]] = []
+    toolchain = None
+    if toolchain_relative is not None:
+        try:
+            toolchain = json.loads((root / toolchain_relative).read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            raise SystemExit("LEAN_TOOLCHAIN_INVALID") from exc
+        lean_spec = toolchain.get("lean") if isinstance(toolchain, dict) else None
+        lean_root = lean_spec.get("root") if isinstance(lean_spec, dict) else None
+        if (
+            not isinstance(toolchain, dict)
+            or toolchain.get("schema_version") != "lean-proof-toolchain/v1"
+            or not isinstance(lean_root, str)
+            or not Path(lean_root).is_absolute()
+        ):
+            raise SystemExit("LEAN_TOOLCHAIN_INVALID")
+        lean_path = (Path(lean_root) / "bin" / "lean").resolve()
+        if args.lean and Path(args.lean).resolve() != lean_path:
+            raise SystemExit("LEAN_TOOLCHAIN_BINARY_MISMATCH")
+        binary = pinned_file_row(lean_path, "lean-binary")
+        expected_bytes = lean_spec.get("binary_bytes")
+        expected_sha = lean_spec.get("binary_sha256")
+        if binary["bytes"] != expected_bytes or binary["sha256"] != expected_sha:
+            raise SystemExit("LEAN_TOOLCHAIN_BINARY_HASH_MISMATCH")
+        external_dependencies.append(binary)
+    else:
+        lean = args.lean or shutil.which("lean")
+        if not lean:
+            raise SystemExit("LEAN_EXECUTABLE_NOT_FOUND")
+        lean_path = Path(lean).resolve()
     version = subprocess.run([str(lean_path), "--version"], cwd=root, capture_output=True, check=False)
     if version.returncode != 0:
         raise SystemExit("LEAN_VERSION_COMMAND_FAILED")
+    version_line = version.stdout.decode("utf-8", "replace").strip()
+    if toolchain is not None:
+        expected_version = toolchain["lean"].get("version_line")
+        if not isinstance(expected_version, str) or expected_version != version_line:
+            raise SystemExit("LEAN_TOOLCHAIN_VERSION_MISMATCH")
 
     command = [str(lean_path), source.as_posix()]
     started = dt.datetime.now(dt.timezone.utc)
@@ -104,6 +183,7 @@ def main() -> int:
         "proof_id": args.proof_id,
         "run_id": args.run_id,
         "files": rows,
+        "external_dependencies": external_dependencies,
     }
     source_manifest_data = json_bytes(source_manifest)
     environment = "\n".join([
@@ -111,8 +191,8 @@ def main() -> int:
         f"machine={platform.machine()}",
         f"python={platform.python_version()}",
         f"lean_executable={lean_path}",
-        "lean_version=" + version.stdout.decode("utf-8", "replace").strip(),
-        "dependency_policy=Lean prelude only; exact source hashes are in source-manifest.json",
+        "lean_version=" + version_line,
+        "dependency_policy=Lean prelude only; exact source hashes and any requested pinned lean binary are in source-manifest.json",
         "secret_policy=no credentials or full environment dump retained",
         "",
     ]).encode("utf-8")

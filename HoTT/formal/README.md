@@ -10,10 +10,12 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 从 `MATH_PROOF_BEFORE_DELIVERY_V1` 生效后，当前 AI 要交付为已成立的数学结论，其精确证明源码必须先进入本目录。新证明优先使用 `formal/<topic-or-claim-id>/`，保存形式命题、证明、项目/构建文件和锁定依赖身份；实际运行原件进入 `../verification/runs/<run-id>/`，唯一快速索引进入 `../CLAIM_EVIDENCE_MATRIX.md`。聊天代码块、内存变量和 `/tmp` 中的唯一副本均不构成证明资产。
 
-当前 **17 个冻结 package** 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；其后 package 走同一 registry 的 `later_packages` **追加登记**。截至 `C-249` 共登记 25 个 later package / 101 条 later claim；最新的 R1/R2/R3/R4、2LTT/LOPS/ITT 程序包仍是 `LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`。Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
+当前 **17 个冻结 package** 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；其后 package 走同一 registry 的 `later_packages` **追加登记**。later package／claim 的当前计数必须从该 registry 动态读取，不能由本页的历史数字替代；每个 package 的 Git closure、运行状态和禁止外推仍以矩阵、registry 与其 run receipt 为准。Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
 
 ## 文件
 
+- `zfc-actual-q-policy/ActualQPolicy.lean`：`MP-ZFC-ACTUAL-Q-POLICY-002` / C-359；以 Lean 4 core 形式化 Q-observation、弱／强 P、A、B、`ZFC-1` use-model 与 semantic `TaskEquiv`。它证明：显示的 `ZFCOneUse + SameActualQ + B` 假设导出 `False`；Q gap 不逻辑产生 P、metadata equality 不等于任务等价、use-model 不自动产生 B，并有有限阶段／端点控制。不是 bare ZFC 的形式矛盾。
+- `zfc-actual-q-policy/HoTTCounterexample.agda`：`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / C-360；固定 Cubical Agda `QuestioningDelay` 中截断 Q 的 stage-one completion 不反射为原 universe Q 的有限 halt。它是 B 形状的原生控制，不构成 Zeno／圆环与 HoTT 的已证 task equivalence。
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。
