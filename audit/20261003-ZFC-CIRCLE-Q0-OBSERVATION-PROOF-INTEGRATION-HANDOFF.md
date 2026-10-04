@@ -7,8 +7,8 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate evidence head | `a92ca9b923647f62f30e8f73f535e61d9c8e8096` |
-| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP); `8cac63fec1276019e69c7fd92142aa23f677143b` (Zeno U0/U1 field mapping); `3aecf3141013696c48dea0c22577e9a976eb38c0` (HoTT U2 field mapping); `b43f67ebfb4a3a7beff04c0e1442b3461f96e3de` (H097 common-state control, U3/U4/U6 terminal, Lean recheck and core audit); `a92ca9b923647f62f30e8f73f535e61d9c8e8096` (Q/P/A/B policy calculus, source candidate, H098 scope audit and proof receipts) |
+| candidate evidence head | `1a9a7c5f3f8d067d3838d96ada6da8c954409ee9` |
+| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP); `8cac63fec1276019e69c7fd92142aa23f677143b` (Zeno U0/U1 field mapping); `3aecf3141013696c48dea0c22577e9a976eb38c0` (HoTT U2 field mapping); `b43f67ebfb4a3a7beff04c0e1442b3461f96e3de` (H097 common-state control, U3/U4/U6 terminal, Lean recheck and core audit); `a92ca9b923647f62f30e8f73f535e61d9c8e8096` (Q/P/A/B policy calculus, source candidate, H098 scope audit and proof receipts); `1a9a7c5f3f8d067d3838d96ada6da8c954409ee9` (P refined as unverified completion promotion, P-bridge theorem and final run -05) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
 | canonical target disposition | `dev` had unrelated dirty work, including uncommitted `ZFC-CIRCLE-Q1` / H081–H082; this relay does not alter it. |
@@ -51,7 +51,7 @@
 - The conditional policy result `SAME_FULL_Q + OPPOSITE_JUDGMENTS → ¬QUniform` and the candidate O1/O2-without-O3–O5 fixture, both with explicit actual-profile mapping obligations.
 - The stable `ZFC-HOTT-Q-UNIFORMITY-SOP` as the user-invocable continuation contract; it does not itself upgrade any profile field or canonical owner.
 - The terminal profile-mismatch control as a bounded negative result for the **direct Zeno ↔ QuestioningDelay same-Q instantiation**, together with its source cards, trajectory receipts, core audit and rechecked conditional Lean run.
-- `MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` as a **machine-checked conditional meta-policy calculus**, with final run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-04`, user source candidate, H098 scope audit and a separate source-mapping ledger.
+- `MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` as a **machine-checked conditional meta-policy calculus**, with final run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-05`, user source candidate, H098 scope audit and a separate source-mapping ledger.
 - The new user source as `CORE_CANDIDATE_PENDING_CURATION`; a canonical integrator must decide its next core-generation disposition rather than treating the contributor source file as already-loaded project doctrine.
 
 ## What an integrator must not infer
@@ -101,9 +101,9 @@ python3 -B HoTT/formal/zfc-observation-boundary/capture_meta_observation.py 2026
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
   → same seven conditional theorems rechecked; no actual Zeno/HoTT instance claimed
 
-python3 -B HoTT/formal/zfc-observation-boundary/capture_community_observation.py 20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-04
+python3 -B HoTT/formal/zfc-observation-boundary/capture_community_observation.py 20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-05
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
-  → ten meta-policy theorems print no axioms; final receipt contains seven claim IDs
+  → eleven meta-policy theorems print no axioms; final receipt contains eight claim IDs
 
 python3 -B HoTT/formal/astra-real-geometry/capture_structured.py 20260920-MP-ASTRA-STRUCTURED-CURVE-001-03
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
