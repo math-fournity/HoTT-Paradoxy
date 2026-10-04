@@ -1,0 +1,65 @@
+# ZFC Q／P／A／B 形式化候选：canonical `dev` 集成交接
+
+> **身份：** `CANDIDATE_NOT_CURRENT / INTEGRATION_REQUIRED / NO_CANONICAL_OWNER_MUTATION_IN_THIS_WORKTREE`。
+>
+> **本候选 commit：** `35448f866e8c34e5f34ceb2e91317897c5a1ac17`，branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。
+
+## 1. 本候选交付什么
+
+| 项 | 本候选的可复核结果 |
+|---|---|
+| `C-359` | Lean 4 core 的条件性政策核：强 P、`TaskEquiv` 型 `SameActualQ`、B 同时成立时导出 `False`；Q gap 不自动推出 P；metadata equality 不推出 task equivalence；use-model 不自动推出 B。 |
+| `C-360` | Cubical Agda 原生控制：固定截断 Q 的 stage-one completion 不反射为原 universe Q 的有限 halt；负控制在 `nothing != just 1` 处被拒绝。 |
+| 来源与范围 | IEP/Standard Solution 来源卡、跨 kernel 映射、明确的实际-Q/source-policy 未支付项。 |
+| 收据基础设施 | capture 工具改为由 `git rev-parse --show-toplevel` 接受 linked worktree，并可 pin Lean binary。 |
+| 用户原文 | 2026-10-04 一手原文已保存；generation-14 curation 已做 63-KC、62/62 transition 的只读预演，尚未直接覆盖 current core。 |
+
+本候选中 C-359/C-360 的 selected version closure 已在该 branch 的 HEAD 上通过：
+
+```text
+python3 -B scripts/audit/verify_proof_version_closure.py \
+  --proof-id MP-ZFC-ACTUAL-Q-POLICY-002 \
+  --proof-id MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001
+```
+
+## 2. canonical `dev` 中发现的互补候选
+
+在交接时，`/Volumes/D/HoTT_AI_HANDOFF_20260911` 的 `dev` 是 dirty，且有另一组未提交的同主题实物。它包含：
+
+```text
+HoTT/formal/zfc-actual-q-policy/ZenoLimitControl.lean
+MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001 / C-361
+```
+
+该 source 固定几何数列 (s_n=1-2^{-n})，证明其收敛到 1 而没有有限自然数阶段到达 1，并给出闭连续时间 endpoint 正控制。本 worktree 已对该 exact source 作只读 Lean 重放：exit `0`；`#print axioms` 明示 `propext`、`Classical.choice`、`Quot.sound`。这是一个有价值的**候选性 C-361**，但它仍在 dirty `dev`，未因这份交接而成为本候选 branch 的 registry 事实。
+
+它的 C-359 用 `SameFullQ := fingerprint equality` 运输政策。当前候选的 `Bool`／`Unit` 反控制已经证明这不足以代表“同一个实际 Q”。两套工作应当组合，而不是二选一：保留 C-361 的实分析控制，采用 `TaskEquiv` 门槛替代 metadata equality。
+
+## 3. 不可直接 cherry-pick 的原因
+
+1. canonical `dev` 有大量未提交 current-owner、registry、matrix、run 和 session 变化；不能 reset、stash、clean、直接 merge 或整块 `ours/theirs`。
+2. 两边都占用 `C-359`、`C-360` 和同一 `zfc-actual-q-policy/` 路径，直接 cherry-pick 会把两个不同的 Same-Q 语义并列成冲突的 current claim。
+3. current core 的 STATE/HEAD 已有未提交 generation-13 checkpoint；generation-14 只能在冻结的 canonical snapshot 上原子应用。
+
+## 4. canonical integrator 的推荐顺序
+
+1. 冻结 `dev` target OID、index、dirty 所有权与 current `STATE/HEAD`；不触碰无关路径。
+2. 逐文件比较本 commit 的 C-359 与 dev 的 C-359，保留本候选的 `TaskEquiv`、metadata counterexample、B non-forcing control；删除／归档旧 metadata-only transport，避免双真值。
+3. 对 dev 的 `ZenoLimitControl.lean` 从固定 source 重新 capture、注册、mark、freeze 和 version-close；把其严格 finite-stage control保留为独立 C-361，而不归因给 Standard Solution。
+4. 用唯一 matrix／registry entries 连接 final C-359、C-360、C-361；重新跑 selected proof closure 和每个 final receipt 的 exact replay。
+5. 按 [CORE-INGESTION](../HoTT/formal/zfc-actual-q-policy/CORE-INGESTION.md) 在 canonical current STATE 上应用 core generation-14，不从本候选 worktree 拷贝 dirty STATE/HEAD。
+6. 将 source card、C-359/360/361 与实际 `TaskEquiv`／source-owned P 的开放义务写回 canonical current owners；不能把 formal controls升级为 bare-ZFC 结论。
+
+## 5. 保持开放的实际问题
+
+集成完成后仍不能说“ZFC 已证明矛盾”。最需要来源和任务证据支付的是：
+
+```text
+actual Zeno/circle State/input/step/observe/originDone
+actual source-owned strong P
+A ↔ admitted P
+actual Zeno–HoTT TaskEquiv
+跨 kernel B 映射
+```
+
+任一项被来源明确拒绝、替换或付款，都会让 `C-359` 的条件 theorem 不能用于实际 ZFC 判词；这是预期的可证伪结果。
