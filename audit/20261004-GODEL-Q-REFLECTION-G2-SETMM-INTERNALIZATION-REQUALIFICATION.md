@@ -127,6 +127,10 @@ NO_TRANSLATION_OUTPUT_OR_MAPPING_CLAIM
 
 重开条件是一个支持 GHC 8.6.5 的匹配 runner、来源维护者提供的版本固定可执行物，或被单独资格化的等价 toolchain；在任一条件出现前，不用新 GHC / 新 resolver 伪造 exact replay。
 
+### 4.8 本机 matching runner 现场
+
+当前 host 只检测到 Docker client，没有可连接的 OrbStack daemon；`limactl list` 也报告没有 Lima instance。没有启动新的 VM、container或下载新镜像，因为那会改变环境而不是重放现有固定 source。故本轮的 `from-mm` 阻断不是“尚未尝试容器”，而是**当前可观察 runner inventory中没有一个可复用的 matching runner**。
+
 ## 5. 对方案的实际改变
 
 此前的 `NumeralBridge` 现在被一般化为 **`ObjectCodeBridge`**：
