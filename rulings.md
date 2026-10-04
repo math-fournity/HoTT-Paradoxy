@@ -844,3 +844,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 4. 本轮用户目标不允许因来源子图结束、局部 theorem、模型版本不匹配、worker 无输出、timeout 或证据登记故障关闭总 /goal。遇到登记/验证故障时先修复该故障，再继续对应的数学义务。
 
 本裁定授权上述认知闭包、来源/开源调查、形式证明、验证、精确Git提交与必要 current-owner 写回；不授权把项目定义冒充学术界/数学共同体事实、忽略原始来源、tag、push或外部发布。
+
+## 2026-10-04：采用哥德尔式 ZFC 完成观察与反射边界方案
+
+研究发起人要求从元思维和元元思维上研究如何神似地借鉴哥德尔，而不是表面模仿自指句式；并明确要求把该方案命名、完整记录，并建立可跨 Session 加载和写回的认知闭包。原文由 sources/prompts/Codex-Godel式ZFC完成观察反射方案-用户原文-20261004.md 拥有。
+
+执行裁定：
+
+1. 新方案稳定名为 GODEL-Q-REFLECTION-SOP，owner 为 dev-docs/哥德尔式ZFC完成观察反射方案SOP.md 及其三片；可审计启动闭包为 CC-20261004-godel-q-reflection。
+2. 方案的研究对象是一个真实、版本固定的 ZFC-facing completion acceptance interface 的保真编码、有限验证、对角化与 completion reflection boundary；它不是“哥德尔一般定理证明 ZFC 有时间问题”的简写。
+3. C-359 保持条件 consequence kernel，C-366 保持 representability control，历史 R3-R4 保持相关但不同的 HoTT calculus 路线。三者均不得自动充当 actual Accept_T、OriginDone、ρ、diag 或哥德尔式 theorem。
+4. 当前 Host Goal 仍是 paused。创建方案、source anchor、Feature、README/MEMORY route 与认知闭包不构成恢复指令；执行必须由研究发起人随后明确引用该 SOP 或恢复相应 Goal。
+5. 本裁定授权方案、认知闭包、必要索引、相称来源核验、形式规格、proof/run 以及精确 Git commit；不授权将方案直接升级为 bare ZFC 矛盾、启动未明示的 Host Goal、Sub Agent、发布、tag 或 push。
