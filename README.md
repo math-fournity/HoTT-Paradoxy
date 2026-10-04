@@ -12,15 +12,15 @@ soft_line_target: 300
 # HoTT-Paradoxy：在同伦类型论中寻找相对现实的悖论
 
 <!-- readme-snapshot:v1
-snapshot_date: 2026-10-01
-state_revision: 294
-core_generation: core-cognition-generation-11
-core_kc_count: 55
-direction_projection: 20261001-direction-294
-panorama_projection: 20261001-outcome-294
+snapshot_date: 2026-10-02
+state_revision: 298
+core_generation: core-cognition-generation-13
+core_kc_count: 62
+direction_projection: 20261002-direction-onepass-298
+panorama_projection: 20261002-outcome-onepass-298
 -->
 
-> 合同：`docs/quality/长治理文档分片与索引合同.md`。本页快照截至 2026-10-01（STATE revision 294；核心认知第 11 代，55 条；方向追踪 v1.15，全景视野 v1.16）。状态的权威在各自的 owner 文件，本页只做路由；快照过期时以 owner 为准。
+> 合同：`docs/quality/长治理文档分片与索引合同.md`。本页快照截至 2026-10-02（STATE revision 298；核心认知第 13 代，62 条；方向追踪 v1.19，全景视野 v1.20）。状态的权威在各自的 owner 文件，本页只做路由；快照过期时以 owner 为准。
 >
 > **分支**（2026-09-30 起）：本分支是 `dev`，放全部研究过程，所有工作都在这里进行。对外展示的结论与证据在 `main` 分支，由 `scripts/release/build_main_release.py` 从 `dev` 生成，不直接编辑（`rulings.md` 2026-09-30 末节）。
 
