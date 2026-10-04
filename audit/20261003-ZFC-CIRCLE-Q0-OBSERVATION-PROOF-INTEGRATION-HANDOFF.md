@@ -7,7 +7,7 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate evidence head | `1a9a7c5f3f8d067d3838d96ada6da8c954409ee9` |
+| candidate evidence head | `a249c9ba69bba248fbb8986214aa3d061278b531` |
 | source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP); `8cac63fec1276019e69c7fd92142aa23f677143b` (Zeno U0/U1 field mapping); `3aecf3141013696c48dea0c22577e9a976eb38c0` (HoTT U2 field mapping); `b43f67ebfb4a3a7beff04c0e1442b3461f96e3de` (H097 common-state control, U3/U4/U6 terminal, Lean recheck and core audit); `a92ca9b923647f62f30e8f73f535e61d9c8e8096` (Q/P/A/B policy calculus, source candidate, H098 scope audit and proof receipts); `1a9a7c5f3f8d067d3838d96ada6da8c954409ee9` (P refined as unverified completion promotion, P-bridge theorem and final run -05) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
@@ -37,6 +37,7 @@
 20. H097/U3 independently checks the common-state proposal. The shared eight-field `AssessmentState` is a schema only: source-defined process task, operations, observations, formal Done, origin Done, judgments and bridge evidence differ.
 21. U4/U6 therefore reach the SOP terminal `PROFILE_MISMATCH_CONTROL_CONFIRMED`. The conditional Lean theorem is freshly replayed in `20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-03`, exit 0 and no printed axioms, but cannot be instantiated because `sameQ` and the HoTT `bridgeRequired` premise are not source facts.
 22. The user then supplied a more precise Q/P/A/B policy hypothesis. `MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` machine-checks its conditional skeleton: under explicit A↔P and P→B policy rules, `baseZFC+A` and `baseZFC+P` have equal operational consequences, P yields A and B, and a PBacktrace is required to attribute B to P. It separates missing-Q/adoption, reality audit, community values, normative tension and the additional formal-incompatibility condition needed for `False`.
+23. `ZFC-QP-ACTUAL-MAPPING-SOP` ran M1–M5 through H099–H102. Its bounded result is `EVIDENCE_FRONTIER_REACHED_WITH_SCOPE`: Zeno has task-contract divergence, circle origin Done is unresolved, Q-gap is not source-mapped, and H0 has no P→B provenance. No actual policy witness was constructed.
 
 ## What an integrator may accept
 
