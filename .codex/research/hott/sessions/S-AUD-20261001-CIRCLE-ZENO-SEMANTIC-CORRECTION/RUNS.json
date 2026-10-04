@@ -1,0 +1,32 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-AUD-20261001-CIRCLE-ZENO-SEMANTIC-CORRECTION",
+  "session_kind": "SOURCE_SEMANTIC_CORRECTION",
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "checkpoint": {
+    "applied": false,
+    "reason": "The user correction changes source interpretation/ruling and audit routing, not STATE lifecycle or mathematical evidence."
+  },
+  "source_checks": [
+    {
+      "source": "HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md",
+      "scope": "Read original circle paragraphs and the explicit statement that the ghost of Zeno reappears in the circle paradox.",
+      "status": "PRIMARY_SOURCE_CONSUMED"
+    },
+    {
+      "source": "Current user correction",
+      "scope": "User directly identifies the intended referent of the 2026-09-27 Zeno ghost as the circle paradox.",
+      "status": "EXPLICIT_USER_SEMANTIC_CORRECTION"
+    },
+    {
+      "source": "CN-018, Cloud-Opus 14, community 01/02/03",
+      "scope": "Compared the circle source with later A7, Q/UR and B-oriented AI interpretations.",
+      "status": "HISTORICAL_INTERPRETATION_COMPARED"
+    }
+  ],
+  "verification_planned_after_write": [
+    "python3 -B scripts/audit/verify_governance_shards.py",
+    "git diff --check"
+  ]
+}
