@@ -38,6 +38,25 @@ Q-missing + absence-permits-P + adoption(P)
 
 如果另有一条正式真理约束排除 B，或证明 A/B 在同一政策中形式不相容，才可从这条链推出 `False`。空基理论的负控制也确保 A/P 的互推循环不会无中生有地产生 P；模型中的 P 必须是显式加入的政策声明。
 
+### 2.1 从 B 回溯 P 的额外条件
+
+研究发起人进一步要求把“反证得到不合理 B 后回溯到 P”形式化。它不能仅写成
+`B → P`：B 可能原本就是 base theory 的独立前提、来自另一条规则，或是一个还未被来源归因的
+HoTT 现象。
+
+本轮因此固定较强、可证伪的 backtrace 合同：
+
+```text
+Derives(T, B)
+∧ B is not already admitted by T
+∧ P → B is the relevant B-producing policy rule
+    ⇒ Derives(T, P).
+```
+
+`CommunityObservationPolicy.lean` 的索引化 derivation 体系会机器检查这个结论，并同时保留
+`B ∈ T` 的反控制。它形式化的是一条**政策演算中的推导来源**，不声称现实数学共同体、IEP、ZFC 或
+HoTT 已给出该 provenance。
+
 另有一个具体的抽象 fixture：它满足“缺 Q、许可 P、采纳 P、想要 A、拒绝 B”，并且 Lean 构造出该 `NormativeTension` 的见证。因此，“B 不想要”本身不能被压缩为“B 在逻辑上不可能”；要到 `False` 仍须引入可审计的真理约束或 A/B 不相容性。
 
 ## 3. B 的两种可能身份
@@ -61,4 +80,5 @@ Q-missing + absence-permits-P + adoption(P)
 | P 的精确规则和采纳来源 | 把 `permitted/adopts` 变成来源卡 | `P_NOT_SOURCE_MAPPED` |
 | A 与 P 的实际等价／互推证据 | 检验 `ZFC+A` 和 `ZFC+P` 的实际 policy equivalence | `A_P_EQUIVALENCE_UNPROVED` |
 | P 到 B 的保真同任务链 | 检验用户的“想要 A 也得到 B”机制 | `P_TO_B_UNPROVED` |
+| B 的非 base 推导 provenance | 允许由形式 B derivation 回溯到 P | `B_BACKTRACE_SOURCE_UNPROVED` |
 | A 与 B 的形式不相容 | 才可能讨论对象层 `False` | `NORMATIVE_TENSION_ONLY` |

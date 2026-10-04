@@ -40,3 +40,7 @@ R1/R2/R3 收束，且阻止把 completion 名词相似误报为同一任务。�
 同日对 IEP、SEP *Supertasks* 与 Norton 原页的复核确认：三者都把 Zeno runner 的完成语义限定在其
 own task 中，SEP/Norton尤其显式区分或改写“complete”。这支持 R1/R2 和 `SOURCE_TASK_CONTRACT_SPLIT`，
 不支付圆环／HoTT 的 policy scope。
+
+本续行还将用户“从 B 回溯 P”的反证动作写入 Lean derivation calculus：B 的 derivation 必须要么来自
+base，要么来自 `P → B`；在排除 base-B 后可回溯到 P。该 theorem 的 `base_B_is_an_alternative_derivation_origin`
+控制阻止把任意 B 自动说成 P 的现实或历史原因。

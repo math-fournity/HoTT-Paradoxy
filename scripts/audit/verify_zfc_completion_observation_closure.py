@@ -44,7 +44,7 @@ RUNS = (
         "no_axioms": True,
     },
     {
-        "run_id": "20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-04",
+        "run_id": "20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-08",
         "proof_id": "MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001",
         "status": "KERNEL_ACCEPTED_WITH_SCOPE",
         "exit": 0,

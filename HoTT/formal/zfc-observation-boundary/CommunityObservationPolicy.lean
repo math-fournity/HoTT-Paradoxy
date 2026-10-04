@@ -249,6 +249,54 @@ theorem normative_tension_fixture_not_formally_incompatible (baseZFC : Theory) :
   intro incompatible
   exact incompatible (normative_tension_fixture_is_inhabited baseZFC)
 
+/-- A policy-level B derivation has only two possible immediate origins in this
+    calculus: B was already admitted by the base theory, or the explicit
+    `P → B` rule was used.  This is the formal core of the user's requested
+    reductio-style backtrace.  It does not identify an actual historical or
+    mathematical derivation until the base and the rules have source evidence. -/
+theorem undesirable_derivation_has_base_or_policy
+    (T : Theory) (derivation : Derives T .undesirableOutcomeB) :
+    T .undesirableOutcomeB ∨ Derives T .mathematicalIllusionP := by
+  cases derivation with
+  | base h => exact Or.inl h
+  | pToB p => exact Or.inr p
+
+/-- If B was not already a base-theory claim, any derivation of B in this
+    calculus can be traced back to P.  The non-base premise is essential: a
+    bare occurrence of B alone does not license causal or historical blame on
+    P. -/
+theorem nonbase_undesirable_derivation_backtracks_to_policy
+    (T : Theory)
+    (baseDoesNotContainB : ¬ T .undesirableOutcomeB)
+    (derivation : Derives T .undesirableOutcomeB) :
+    Derives T .mathematicalIllusionP := by
+  rcases undesirable_derivation_has_base_or_policy T derivation with baseB | policy
+  · exact False.elim (baseDoesNotContainB baseB)
+  · exact policy
+
+/-- The same backtrace inside `ZFC-1`: if B is not already supplied by the
+    underlying base theory, a B derivation in the policy extension reaches the
+    explicitly admitted P.  This is an operational derivation fact, not a
+    theorem that actual ZFC has this derivation or this policy extension. -/
+theorem zfc1_nonbase_B_backtracks_to_admitted_P
+    (baseZFC : Theory)
+    (baseDoesNotContainB : ¬ baseZFC .undesirableOutcomeB)
+    (derivation : Derives (zfc1 baseZFC) .undesirableOutcomeB) :
+    Derives (zfc1 baseZFC) .mathematicalIllusionP := by
+  apply nonbase_undesirable_derivation_backtracks_to_policy (zfc1 baseZFC)
+  · intro baseB
+    rcases baseB with baseB | addedClaim
+    · exact baseDoesNotContainB baseB
+    · cases addedClaim
+  · exact derivation
+
+/-- Positive control for the limitation above: when B is a base claim, it has
+    a derivation that does not by itself expose an antecedent P. -/
+theorem base_B_is_an_alternative_derivation_origin
+    (T : Theory) (baseB : T .undesirableOutcomeB) :
+    Derives T .undesirableOutcomeB :=
+  .base baseB
+
 /-- Negative control: the A/P cycle cannot generate a claim without a base
     premise. -/
 def emptyTheory : Theory := fun _ => False
@@ -287,6 +335,10 @@ theorem zfc1_is_strict_over_empty :
 #print axioms Q_absence_incompatible_A_and_B_yields_false
 #print axioms normative_tension_fixture_is_inhabited
 #print axioms normative_tension_fixture_not_formally_incompatible
+#print axioms undesirable_derivation_has_base_or_policy
+#print axioms nonbase_undesirable_derivation_backtracks_to_policy
+#print axioms zfc1_nonbase_B_backtracks_to_admitted_P
+#print axioms base_B_is_an_alternative_derivation_origin
 #print axioms emptyTheory_derives_no_claim
 #print axioms zfc1_is_strict_over_empty
 

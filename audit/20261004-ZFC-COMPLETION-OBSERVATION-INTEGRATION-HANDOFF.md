@@ -39,6 +39,10 @@ worktree 中执行 selected C-359–C-365 version closure 和直接 Lean／Cubic
 2. `ActualQPolicy.lean`（C-359）把 `PolicyScopeWitness`、严格 `TaskEquiv` 与 HoTT-side B 的条件性
    后果明确分开，和当前 `CommunityObservationPolicy.lean` 的规范性张力模型互补，但路径重叠。
 
+本 contributor 后续的 `CommunityObservationPolicy` run `-08` 又补出受限的 B-to-P backtrace：只有 B
+不属于 base theory、且固定 calculus 的 B-producing rule 是 `P → B` 时，B derivation 才可回溯到 P。它应与
+candidate C-359 的 source-scope theorem 一起审阅，不能被接成实际数学共同体的因果史。
+
 集成者必须选择性比较这两组 proof 的语义、scope、claim ID 和 source receipts；不得两个版本并列为两条
 “ZFC 已矛盾”的 current claim。候选自身也明确保留 actual source scope、actual QProfile、P→B 和 full ZFC
 axiom-schema encoding 的未支付边界。

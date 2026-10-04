@@ -39,6 +39,13 @@ Lean 形式化保留了这四层，而没有直接把它们写成既成事实：
 
 4. **空基理论控制。** `emptyTheory_derives_no_claim` 和 `zfc1_is_strict_over_empty` 证明：A/P 互推循环不会凭空制造 P；在该演算中，P 是通过 `zfc1` 的显式扩张进入的。这准确表达了“如果共同体选了 P，它使用的是附加了 P 的政策体系”这部分逻辑，而不冒充实际 ZFC 史实。
 
+5. **反证式回溯。** `undesirable_derivation_has_base_or_policy` 证明：在这份精确的
+   derivation calculus 中，B 的 derivation 要么已经来自 base theory，要么经由 `P → B` 规则而带有
+   P antecedent。`nonbase_undesirable_derivation_backtracks_to_policy` 与
+   `zfc1_nonbase_B_backtracks_to_admitted_P` 则在“base 不含 B”这个必要前提下，把 B 回溯为 P。
+   `base_B_is_an_alternative_derivation_origin` 保留反控制：若 B 原本已在 base 内，B 的出现不能被
+   自动归罪于 P。
+
 ## 3. 这已经证明什么
 
 在固定抽象政策演算内，以下条件蕴含式已被内核检查：
@@ -54,6 +61,8 @@ Lean 形式化保留了这四层，而没有直接把它们写成既成事实：
 ```
 
 这使你的“魔鬼交易”比单纯比喻更精确：P 是一项必须被明确采纳的政策扩张；它以 A 为收益，也把 B 作为同一政策的后果带入；要称为**逻辑矛盾**，还必须给 B 一条明确的真理否定或与 A 的不相容证明。
+
+这也使“反证回溯到 P”得到准确形式：它不是从任意 B 猜测一个 P，而是在固定推导规则、排除 B 的独立 base 来源后，沿 B 的 derivation provenance 回到 P。实际 ZFC／HoTT 的回溯还需填入同样的来源和任务证据。
 
 ## 4. 这尚未证明什么
 

@@ -93,6 +93,34 @@ substantive bridges are made explicit.
     inhabited, so its presence cannot itself be substituted for the separate
     A/B incompatibility or truth constraint required for `False`.
 
+12. `undesirable_derivation_has_base_or_policy`,
+    `nonbase_undesirable_derivation_backtracks_to_policy`, and
+    `zfc1_nonbase_B_backtracks_to_admitted_P`
+
+    These theorems formalize the user's requested reductio-style return path.
+    In this fixed calculus, a derivation of B either already comes from the
+    base theory or uses the explicit `P → B` rule. If the base does not already
+    contain B, the derivation yields P; in `zfc1`, it reaches the admitted P.
+    This is a theorem about derivation provenance in the displayed policy
+    calculus, not a claim that an actual HoTT result has an actual ZFC/P cause.
+
+13. `base_B_is_an_alternative_derivation_origin`
+
+    This is the required control for the preceding backtrace: a base theory
+    can itself contain B, in which case observing B alone cannot identify P as
+    its cause. The non-base premise is therefore not cosmetic.
+
+### Development control
+
+The first draft attempted a generic `induction` over a derivation whose result
+index was already fixed to B. Lean rejected that elimination form because the
+target index was not a variable; it never became a delivery receipt. The source
+uses dependent `cases` instead, so only `base` and `pToB` are admissible B
+origins. Run `-05` captured the repaired code before this claim text was
+finalized; it is retained with its source manifest as a historical snapshot.
+Fresh run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-08` is the
+authoritative check of the final repaired source-and-claim pair.
+
 ## Non-goals
 
 - No theorem that ZFC is inconsistent, incomplete, or incapable of representing
@@ -102,6 +130,9 @@ substantive bridges are made explicit.
 - No theorem that the HoTT `QuestioningDelay` result is B, or that the same task
   is present in the Zeno and HoTT sites.
 - No claim that a missing bridge automatically makes a source owe a bridge.
+- No assertion that an actual B has a P backtrace without a source-defined
+  derivation/provenance and a proof that B was not already an independent base
+  commitment.
 
 The missing work is a source-and-task mapping: define actual Q/P/A/B, prove
 the exact `A ↔ P` policy rule or a suitable replacement, establish an actual

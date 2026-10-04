@@ -31,3 +31,14 @@ conditional policy-scope calculus 两层证据，但没有支付 actual Zeno／c
 policy scope 或 `P → B`。本 session 因而从“已有收束措辞”进入“收束的形式证据已加固”的状态，仍不宣称
 `ZFC_Q_LOCATED`。完整 B0–B3 与核验见
 [`20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md`](../../../../audit/20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md)。
+
+## 用户 Q/P/A/B 链的反证回溯（续行）
+
+用户进一步追问“这整条 Q 缺失→P→A/B→反证回溯 P”的机器证明是否已经完成。现有
+`CommunityObservationPolicy` 已经形式化其条件性前半链；本续行补上后半的 derivation provenance：
+如果 B 并非 base theory 已有命题，且该 calculus 中 B 的规则来源是 `P → B`，则 Lean 证明 B 的
+derivation 可回溯为 P；若 B 已在 base 内，则这个回溯不成立，这是保留的反控制。
+
+fresh run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-08` 以 Lean 4.34.1 exit 0 通过，20 个打印
+theorem 均无额外公理。它仍是 operational policy calculus，未把 actual ZFC、actual community P、实际
+P→HoTT-B 来源或 `TruthConstraint` 写成已证事实。
