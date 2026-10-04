@@ -1,10 +1,10 @@
 # S-RES-20261004-ZFC-QP-M6-ACTUAL-SOURCE
 
-> **身份：** `RESEARCH_GENERATION / T2 / RESEARCH_PROFILE_GOVERNED / CONTRIBUTOR_CANDIDATE_NOT_CURRENT / NO_STATE_CHECKPOINT`。
+> **身份：** `RESEARCH_GENERATION / T3_CONTRIBUTOR_EVIDENCE / RESEARCH_PROFILE_GOVERNED / CONTRIBUTOR_CANDIDATE_NOT_CURRENT / NO_STATE_CHECKPOINT`。
 > **日期：** 2026-10-04
 > **角色：** `RESEARCH_GENERATION`；P-DAG Master。
 > **宿主／模型：** Codex desktop；来源核证节点为隔离的 `gpt-5.6-terra / max` App Server。
-> **状态：** `ZFC_PROBLEM_CONVERGENCE_PHASE / M6_ACTUAL_P_CANDIDATE_CONFIRMED_WITH_SCOPE / NO_BARE_ZFC_Q_OR_INCONSISTENCY_CLAIM`。
+> **状态：** `ZFC_PROBLEM_CONVERGENCE_PHASE / M6_ACTUAL_P_CANDIDATE_CONFIRMED_WITH_SCOPE / M7_EVIDENCE_FRONTIER_REACHED_WITH_SCOPE / NO_BARE_ZFC_Q_OR_INCONSISTENCY_CLAIM`。
 
 ## 1. 任务与完成标准
 
@@ -16,7 +16,8 @@
 2. 下载、固定并直接审读一份实际实分析教材；
 3. 用 H104/H105 的 exact Terra/Max source-match、H106 的有界 Battle和 Master 原文复核，判定 UOU 来源的 F/D/promotion/payment；
 4. 用 Lean 机器核验来源卡标签与 `every-step`／`final-action` 合同分离；
-5. 把正面来源候选、反控制、未知与最小下一桥写入 contributor evidence，而不更新 dirty canonical owners。
+5. 把正面来源候选、反控制、未知与最小下一桥写入 contributor evidence，而不更新 dirty canonical owners；
+6. 建立 `ActualPolicyWitness` 的实际字段接口，并用 H107–H110 和有限来源账本判断当前分母能否闭合用户的完整 Q/P/A/B 归谬。
 
 ## 2. TaskDescriptor 与 research profile
 
@@ -25,9 +26,9 @@
 | closure verdict | `REUSE_WITH_DELTA + EXTERNAL_RESEARCH_REQUIRED`：既有 Q/P policy calculus、H083、GeometricCompletion、H099–H102 与新增 UOU PDF/用户收敛修正共同构成闭包。 |
 | persistence | `OWNER_UPDATE + AUDIT_EVIDENCE`：本 branch 的 SOP、M6 report、NodeCard/MatchTrace、formal/run receipt、用户 source 与本 session audit 保存贡献；不改 STATE/MEMORY/Feature/rulings current owners。 |
 | profile | `RESEARCH_PROFILE_GOVERNED`：来源完整性会改变 P 卡是否存在，且 App Server、外置来源和机器证明需跨 session 可审计。 |
-| active directions | D1: SEP complete-source payment control；D2: UOU formal-definition→catch-up P candidate；D3: Q / H0 bridge still unresolved. |
-| next discriminating action | 同一 UOU 传统中的 F→D bridge，或把其 D 与用户强 Done／HoTT B 同一化的版本固定来源。 |
-| stop/reopen | Done 被源显式改写或 bridge 被支付则收为 control；没有新 F/D/promotion 字段的极限同义文献不再开 node。 |
+| active directions | D1: SEP complete-source payment control；D2: UOU formal-definition→catch-up P candidate；D3: actual-policy/Q/PBacktrace/formal-incompatibility witness fields. |
+| next discriminating action | 只有能直接填 `ActualPolicyWitness` 的 adoption、actual-Q、PBacktrace、formal-A/B 或 UOU F→D bridge 字段的新来源才可重开。 |
+| stop/reopen | Done 被源显式改写或 bridge 被支付则收为 control；当前 H104–H110 分母不能闭合 witness，达到有限证据前沿；没有新字段的极限同义文献不再开 node。 |
 
 ## 3. 本轮证据边界
 
@@ -44,7 +45,8 @@
 - [M6 report](../../../../../audit/20261004-ZFC-QP-M6-SEP-P-CANDIDATE.md)：SEP 纠正与 UOU full-card M6 状态。
 - [H104](../../../../../audit/20261004-P-DAG-ZFC-QP-104-Terra-Max.md)、[H105](../../../../../audit/20261004-P-DAG-ZFC-QP-105-Terra-Max.md) 与 [H106](../../../../../audit/20261004-P-DAG-ZFC-QP-106-Terra-Max.md)：实际来源、full-card bridge review 与有界Battle。
 - [UOU source-card proof](../../../../../HoTT/formal/zfc-observation-boundary/UouCompletionPromotion-CLAIM.md) 与 [sequential-contract proof](../../../../../HoTT/formal/zfc-observation-boundary/SequentialCompletionContracts-CLAIM.md)：精确机器检查范围。
+- [实际政策见证与有限来源前沿](../../../../../audit/20261004-ZFC-QP-ACTUAL-POLICY-WITNESS-FRONTIER.md)：H107–H110、`ActualPolicyWitness` 与冻结来源账本的 M7 终局。
 
 **不做：** 不说 ZFC 不一致、不说所有极限理论错误、不把 UOU source Done 与圆环/HoTT Done 直接等同、不制造 P→H0-B provenance、不切换 Power Set station、不更新 canonical claim matrix/STATE/MEMORY/Feature/rulings。
 
-下一恢复动作：先读本 Session、M6 report、H083/H104/H105、对应 run receipts 和 current target 的 owner；仅在新来源会改变同一 F/D/bridge 字段时开启新节点。
+下一恢复动作：先读本 Session、M7 报告、H107–H110、对应 run receipts 和 current target 的 owner；仅在新来源会改变 adoption、actual-Q、PBacktrace、formal-incompatibility 或同一 F/D/bridge 字段时开启新节点。

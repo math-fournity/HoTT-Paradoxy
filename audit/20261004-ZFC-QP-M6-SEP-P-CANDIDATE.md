@@ -72,7 +72,30 @@ bridge = not supplied on the frozen card
 这些义务不会让研究回到无边界搜索。它们正是收尾的短链：固定真实来源的
 F/D/promotion，再逐项审 Done、bridge、Q 与 H0 provenance。
 
-## 5. 收敛后的下一动作
+## 5. M7：实际政策见证与来源前沿
+
+H107–H110 已将这四条短链逐项核证：
+
+| `ActualPolicyWitness` 字段 | H 节点 | 当前 verdict |
+|---|---|---|
+| `SourceToPolicyBridge` | H107 | `FOUNDATION_SCOPE_NOT_ADOPTION_BRIDGE`。 |
+| `QObservationBridge` | H108 | `SOURCE_Q_OBSERVATION_GAP_CANDIDATE`，不是 bare-ZFC 缺 Q。 |
+| `PBacktraceBridge` | H109 | `PBACKTRACE_NOT_SOURCE_MAPPED`。 |
+| `TruthAdequacyBridge` | H110 | `NORMATIVE_TENSION_SOURCE_MAPPED`，不是 `¬(A∧B)`。 |
+
+`MP-ZFC-ACTUAL-POLICY-WITNESS-001` 规定只有五字段均经来源填充时，条件性政策归谬才可
+推出 `False`；`MP-ZFC-ACTUAL-POLICY-FRONTIER-001` 则以内核检查确认目前 H104–H110 的有限分母不能
+构造这个 witness。详见 [实际政策见证与有限来源前沿](20261004-ZFC-QP-ACTUAL-POLICY-WITNESS-FRONTIER.md)。
+
+因此 M6/M7 的当前状态为：
+
+```text
+ACTUAL_P_CANDIDATE_CONFIRMED_WITH_SCOPE
++ EVIDENCE_FRONTIER_REACHED_WITH_SCOPE
++ NO_ACTUAL_ZFC_Q_OR_INCONSISTENCY_VERDICT
+```
+
+## 6. 收敛后的下一动作
 
 以 H105 的 full-card UOU 结果为 anchor，随后只寻找：
 
@@ -80,4 +103,5 @@ F/D/promotion，再逐项审 Done、bridge、Q 与 H0 provenance。
 2. 相同 promotion 形式是否出现在圆环的具体 D；
 3. HoTT 的 H0 是否能给出同一个 promotion 的 B provenance。
 
-这是一条狭窄的验证线，不再是无边界的 ZFC 搜索。
+这是一条狭窄的验证线，不再是无边界的 ZFC 搜索。若新来源不能填 M7 的 adoption、actual-Q、
+PBacktrace、formal-incompatibility 或 UOU bridge 字段，按 `TOOL_ONLY_DRIFT` 停止。

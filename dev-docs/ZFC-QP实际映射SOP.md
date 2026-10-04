@@ -152,6 +152,31 @@ source-match、外部原 PDF identity、trajectory 以及 Lean card/contract con
 是否同一任务、是否有桥、以及 ZFC 是否缺 Q，仍分别需要来源证明。
 ```
 
+### M7：ActualPolicyWitness 与有限来源分母终局
+
+当 M6 已有来源级 P 候选时，下一步不是把这个候选直接改称为“实际 ZFC-1”。先建立
+`ActualPolicyWitness`，并逐字段冻结：
+
+```text
+source P card
+→ actual-policy adoption / ZFC-1 identity
+→ actual Q absence and permission
+→ P → A
+→ source-defined P → HoTT-B backtrace
+→ formal A/B incompatibility
+```
+
+`MP-ZFC-ACTUAL-POLICY-WITNESS-001` 只在以上字段**全部**输入后推出条件性 `False`；
+`MP-ZFC-ACTUAL-POLICY-FRONTIER-001` 则将当前 H104–H110 的冻结来源分母写成可检查账本。
+
+M7 的终局规则是：若来源分母有 P 卡，却将 actual adoption 标为 `notMapped`、Q 仅为
+`sourceCandidateOnly`、PBacktrace 为 `notMapped`、A/B 为 `normativeOnly`，则登记
+`EVIDENCE_FRONTIER_REACHED_WITH_SCOPE`。这是一个有限来源分母的终局，不能被读作 bare ZFC、
+数学共同体或所有未来来源的负结论。
+
+**M7 重开条件：** 新材料必须直接填入上述五字段之一，或支付／改写 UOU F→D bridge；重复极限、
+基础地位或 HoTT 相似性的泛泛表述不产生新 ForgeIntent。
+
 ## 5. `/goal` 启动句
 
 ```text
