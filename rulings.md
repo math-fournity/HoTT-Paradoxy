@@ -734,3 +734,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 12. `C-358`在原生Cubical Agda中直接否定了固定粗完成到原Q有限完成的反射蕴含：截断版Q的stage-one completion不能推出原universe Q的有限halt；负控制正确在`nothing != just 1`处被拒。它与C-357分工：C-357审对象恢复，C-358审完成反射。二者是未来实际`AdequacyLift`／`Payment`来源的形式控制，不是ZFC、KLV、截断、HoTT一致性或UR现实判词。
 
 本裁定授权Q2卡、H083 NodeCard/payload/report、P3/Feature/MEMORY/路线记录、session审计和精确Git提交；不授权新刀、STATE、Power Set站位、数学／物理结论、tag、push或发布。
+
+## 2026-10-03：实际同 Q 的实例化与机器证明必须成为独立 SOP
+
+研究发起人要求最终完成 Q 的形式化和机器证明，并要求将工作方案命名，以便后续通过 `/goal` 稳定引用。
+
+执行裁定：
+
+1. 新建稳定引用名 `ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`，全名“ZFC 实际同 Q 实例化与机器证明 SOP”，canonical path为`dev-docs/ZFC实际同Q实例化与机器证明SOP.md`。它服务于`ZFC-CIRCLE-Q0/Q1`与`ZFC-HOTT-Q2`的实际实例化，不取代P-FORGE、P-DAG、三刀、Q0/Q1/Q2 cards或现有 proof owners。
+2. 该 SOP 的目标不是再证明抽象 fixture，而是冻结原过程、连续统来源、固定HoTT Q、来源归属的基础验收政策和跨证明器命题对应。它必须将`CompletionEquivalent`过程桥、O1–O5验收桥、`QUniform`条件 consequence 与真实来源事实分层；不得把用户／AI规定的规范、`SOURCE_UNOBSERVED`或条件布尔值写成 ZFC 已有事实。
+3. 机器化的最终交付可以是带来源认证前提的 policy consequence，必须明确写成`MACHINE_PROVED_CONSEQUENCE_WITH_SOURCE_CERTIFIED_PREMISES`；除非另有对象语言的完整形式化，不得称为`ZFC ⊢ False`。若实际同Q不成立、来源未给政策 owner或原过程Done无法冻结，按SOP给出范围明确的拒绝／不足／待裁定结论，同样完成该轮。
+4. 计划先执行A0闭包与candidate evidence freeze；若需使用candidate worktree，先走既有文献回流的B0 delta，后续集成仍须干净integration worktree和canonical integrator复核。SOP自身不自动启动worker、网络、外部写入、集成、STATE mutation、tag、push或数学结论。
+5. 后续可直接使用：`按照SOP=ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP，继续推进，直至无法推进。`。本裁定授权SOP、入口路由、Feature、MEMORY、rulings、相称验证和精确Git提交；不扩大到上述被排除的动作。

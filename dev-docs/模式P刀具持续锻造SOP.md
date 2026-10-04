@@ -15,6 +15,8 @@ soft_line_target: 300
 >
 > **稳定引用名：** `P-FORGE-SOP`。后续 `/goal` 可直接说“按 P-FORGE-SOP 对 <冻结理论卡／新花纹／Power Set 来源>继续”，或指定其中的阶段。对已经发生的锻打作逐原子全量审计时，改用其专门子合同 [P-FORGE-ATOMIC-AUDIT-SOP](<模式P原子锻打全量审计SOP.md>)。
 
+当目标不是一般 ZFC 位置锻造，而是把 `ZFC-CIRCLE-Q0/Q1`、`ZFC-HOTT-Q2` 与条件性 `QUniform` 定理推进为一个实际同 Q 的来源绑定与跨证明器证明包时，改由专门子合同 [ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP](<ZFC实际同Q实例化与机器证明SOP.md>) 执行。它先完成实际过程／来源／policy owner 的冻结，再调用本 SOP 与 P-DAG；不能以新 Lean fixture 取代实际实例。
+
 ## 用途与边界
 
 本 SOP 把持续打磨 P1/P2/P3、审查新刀具、核对原初理念与实际锻造、让固定候选的 Q 生成／收紧／桥接／淘汰／会合、处理 Power Set 的已知防御、保存 Git 谱系，连成一条可执行的工作链。它路由到各现有 owner，不复制它们的字段或证据。

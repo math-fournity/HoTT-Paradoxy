@@ -22,4 +22,6 @@
 
 - [P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP：模式 P 路线级文献回流审计](P-FORGE路线级文献回流审计SOP.md)：将 HoTT 创建动机反投影 ZFC 的候选文献，按 R_i→Z_i→Q_i 与 H0→Z0→Q0 的路线卡回流既有 P-FORGE 审计。它固定 LiteratureEvidenceEnvelope、16 个 RB 维度、payment/route/layer/同一任务控制、I0--I4 选择性影响分流和 B0--B5 checklist；候选 worktree 未整合时只可产生候选性路线卡。未来 `/goal` 可直接引用稳定名 `P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP`，从 B0 证据冻结开始，不自动集成、启动 worker 或宣称 ZFC Q。
 
+- [ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP：ZFC 实际同 Q 实例化与机器证明](ZFC实际同Q实例化与机器证明SOP.md)：将 `ZFC-CIRCLE-Q0/Q1` 与 `ZFC-HOTT-Q2` 从条件性 bridge／QUniform fixture 推向版本固定的实际 Q 实例化，或给出有界的同 Q 不成立／来源政策不足结论。它分开原过程 Done、连续统模型 Done、来源级 acceptance policy、Cubical Agda 的固定 HoTT Q、Lean consequence 和跨证明器对应；未来 `/goal` 可直接引用稳定名 `ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`，首项为 A0 闭包与候选证据冻结，不自动集成候选 worktree、启动 worker、联网或宣称 ZFC 矛盾。
+
 - [模式 P 动态 DAG 调度](模式P动态DAG调度.md)：当前 P1/P2/P3 共同锻造的 Master 调度 SOP 与项目内 Skill。它把 worker 的盲态、来源、项目分支、网络、Battle、Master 裁决、App Server/CLI 运行资格和证据收据分成按节点决定的合同；只在用户 2026-10-02 的任务限定授权下使用。
