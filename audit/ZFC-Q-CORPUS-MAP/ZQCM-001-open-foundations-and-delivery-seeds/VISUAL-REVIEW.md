@@ -4,7 +4,9 @@
 >
 > **状态：** FROZEN_BATCH_COMPLETE_WITH_SCOPE / ALL_SOURCE_READING_PDFS_VISUALLY_REVIEWED / REMOTE_DERIVATIVE_NOT_QUALIFIED。
 >
-> **顺序：** 已验证 PDF → remote standard MinerU 原始导出 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
+> **通常顺序：** 已验证 PDF → remote standard MinerU 原始导出或失败收据 → 150dpi二值页图逐页核验 → 关键／异常页300dpi复核 → 文献阅读与Q资格化。
+
+> **关闭审计的时序修正：** ACQ-005、009、010、011、019、020、022的source-only页级审读先于其2026-10-04 direct-remote失败收据；这是一项记录在`MINERU-DERIVATIVES.md`中的证据完整性修复。七次请求均未产生remote输出，因此没有把既有原PDF视觉记录伪写成MinerU输出比较，也不以这项修复改变原页的数学／来源结论。
 >
 > **状态：** W001_W003_W004_W005_W006_VCMP01_W006_VUF02_W006_VUF03_W006_VUF04_W007_W008_W009_W010_W011_W013_SOURCE_ONLY_VISUAL_CHECK_COMPLETE / REMOTE_DERIVATIVE_NOT_QUALIFIED。
 

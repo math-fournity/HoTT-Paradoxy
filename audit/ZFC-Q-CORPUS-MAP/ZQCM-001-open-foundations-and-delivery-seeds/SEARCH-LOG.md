@@ -2,7 +2,7 @@
 
 > **已继承 discovery：** HOTT-MOTIVE LITERATURE-MAP-001 的 M-OA、M-ZB、M-ARX、M-AUTH 和 M-NET 初始检索。
 >
-> **本批新增检索：** acquisition／PDF身份核验已开始；下一阶段是引用网络和access remainder。
+> **本批新增检索：** acquisition、PDF身份核验、source screen和有限citation map已完成；access remainder与潜在新来源只在`MANIFEST` §5.1的重开条件下重新资格化。
 
 | Search ID | 平台／query | 日期 | 命中／导出 | 用途 | 状态 |
 |---|---|---|---|---|---|
@@ -20,4 +20,5 @@
 | ZQCM-S-012 | W-014 OpenAlex DOI metadata → Birkbeck `eprint/7048` institutional record → Crossref/Cambridge metadata | 2026-10-04 | Birkbeck HTML元数据可公开读取，但声明`full_text_status=none`及“Full text not available from this repository”；OpenAlex也标`is_oa:false`／`pdf_url:null`／无repository fulltext。没有下载第三方转载或尝试绕过限制。 | W-014 institutional-route qualification | INSTITUTIONAL_METADATA_ONLY_FULLTEXT_NONE |
 | ZQCM-S-013 | exact title / Barton–Friedman author page query → `logic.univie.ac.at` public PDF | 2026-10-04 | 27页2018-08-07作者预发表稿普通公开下载成功，完成file／pdfinfo／首页／SHA256核验；remote MinerU失败收据、全页visual review和source screen分别落盘。 | W-006 / V-CMP-01 author-prepublication acquisition | COMPLETE_WITH_SCOPE / COMPARATIVE_CONTROL_NOT_Q |
 | ZQCM-S-014 | exact W-006 chapter title / author query → arXiv IDs `2202.01892`, `1807.02177`, `1710.02723` | 2026-10-04 | V-UF-02、V-UF-03、V-UF-04的公开arXiv作者版本取得；分别14／21／18页，均通过file／pdfinfo／首页／SHA256核验并完成remote失败收据、全页原PDF视觉核验和受限source screen。 | W-006 three chapter author-version acquisition | SOURCE_SCREEN_COMPLETE |
-| ZQCM-S-015 | exact remaining W-006 chapter title / author query → Kant author site, Fontanella author site, PhilSci-Archive, arXiv:1802.06221v1 | 2026-10-04 | V-SET-01、V-SET-02、V-UF-05、V-CMP-02的公开作者／机构版本取得；分别24／17／40／12页，均通过file／pdfinfo／首页／SHA256核验。shared MinerU server为`running:false`，四次remote standard均为`server_not_running`；尚待原PDF视觉／source screen。 | W-006 remaining accessible chapter acquisition | ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN |
+| ZQCM-S-015 | exact remaining W-006 chapter title / author query → Kant author site, Fontanella author site, PhilSci-Archive, arXiv:1802.06221v1 | 2026-10-04 | V-SET-01、V-SET-02、V-UF-05、V-CMP-02的公开作者／机构版本取得；分别24／17／40／12页，均通过file／pdfinfo／首页／SHA256核验。shared MinerU server为`running:false`，四次remote standard均为`server_not_running`；随后均完成固定主阅读版本的原PDF视觉／source screen。 | W-006 remaining accessible chapter acquisition | SOURCE_SCREEN_COMPLETE |
+| ZQCM-S-016 | completion-audit recheck: PhilPapers W-012 endpoint / Birkbeck W-014 record / existing V-SET-03 access receipt | 2026-10-04 | `https://philpapers.org/archive/KLETPI-3.pdf`普通HTTPS仍返回`403`／HTML；Birkbeck W-014 record普通访问返回200但当前owner仍以其`full_text_status=none`／无PDF处置；V-SET-03保留已记录的Bristol 403与BrowserOS人机验证边界。没有出现新的可核全文。 | frozen-batch access-remainder recheck | ACCESS_REMAINDERS_RECONFIRMED / NO_NEW_QUALIFIED_INGRESS |
