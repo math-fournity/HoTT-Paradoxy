@@ -16,7 +16,7 @@
 
 ## 当前状态
 
-全景地图计划已启动：[ZQCM-002](ZQCM-002-zfc-literature-map/MANIFEST.md)。它从 A–E 理论轴和 M0–M6 波次建立可重算的文献分母；当前只激活 M0 地图骨架，尚未把计划或现有 batch 写成“全部 ZFC 文献已完成”。
+全景地图计划已启动：[ZQCM-002](ZQCM-002-zfc-literature-map/MANIFEST.md)。它从 A–E 理论轴和 M0–M6 波次建立可重算的文献分母；M0 地图骨架现已按声明范围完成，下一步是从 A 轴的明确 remainder 冻结 M1 原典／标准防线 batch。该状态仍不把计划、检索命中或现有 batch 写成“全部 ZFC 文献已完成”。
 
 `ZQCM-001`现为`COMPLETE_WITH_SCOPE`：二十一份已接受PDF都已完成作品身份、PDF／版本和哈希核验；每个进入来源筛选的可得 work family 都有一个固定的主阅读版本，并已保留remote-MinerU收据、逐页原PDF视觉审读和来源资格筛选。W-012、W-014、V-SET-03及其他全卷章节保留为明确访问余项。此状态只关闭本批的语料处理，不断言相关文献已穷尽，也不形成ZFC Q或“ZFC没有问题”的结论。后续只在获得可核新全文、版本固定的ordinary bare-ZFC actual consumer、新的formation/payment事实，或发现可复核的既有证据错误时按SOP重开。
 
@@ -26,5 +26,5 @@
 
 | Batch ID | 范围 | 状态 | 入口 |
 |---|---|---|---|
-| ZQCM-002-zfc-literature-map | A–E 理论轴、M0–M6 波次、查询字典、来源平台、引文网络与冻结 sub-batch 的全景地图计划。 | ACTIVE_PLAN / M0_MAP_SKELETON / MAP_NOT_YET_COMPLETE / NO_Q_CLAIM / CANDIDATE_NOT_CURRENT | [MANIFEST](ZQCM-002-zfc-literature-map/MANIFEST.md) |
+| ZQCM-002-zfc-literature-map | A–E 理论轴、M0–M6 波次、查询字典、来源平台、引文网络与冻结 sub-batch 的全景地图计划。 | ACTIVE_PLAN / M0_COMPLETE_WITH_SCOPE / M1_READY_TO_FREEZE / MAP_NOT_YET_COMPLETE / NO_Q_CLAIM / CANDIDATE_NOT_CURRENT | [MANIFEST](ZQCM-002-zfc-literature-map/MANIFEST.md) |
 | ZQCM-001-open-foundations-and-delivery-seeds | UF foundations／predicative UF／Krivine ZF delivery seeds；W-005 publisher source；以及W-005反向引用和W-006 map导出的十一篇公开chapter source。 | COMPLETE_WITH_SCOPE / EXTENSION-014 / ALL_SOURCE_READING_WORK_FAMILIES_SCREENED / ACCESS_REMAINDERS_VSET03_W012_W014_AND_OTHER_VOLUME_CHAPTERS / NO_Q_LEAD | [MANIFEST](ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md) |

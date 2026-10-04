@@ -16,8 +16,8 @@
 
 | Direction | 状态 | 下一最小行动 | 成功／停止 |
 |---|---|---|---|
-| M0-A–E map skeleton | `ACTIVE` | 将 ZQCM-001、HOTT-MOTIVE 的 work family 投影到 A–E，登记未覆盖 cell、来源平台、query 与强引文入口。 | 只有每个轴都有已覆盖和未覆盖的可重算分母，才进入具体 acquisition batch。 |
-| M1 foundation formation | `PARKED_PENDING_M0` | 等 M0 形成 Zermelo/Fraenkel/von Neumann／Power Set／Replacement query 卡。 | 不以“Power Set”关键词直接开新 batch。 |
+| M0-A–E map skeleton | `COMPLETE_WITH_SCOPE` | A–E 均已有 query、平台探针、正式／作者入口、bridge 与可重算 remainder；见 `M0-QUERY-AND-COVERAGE-MATRIX.md` 与 `M0-SEARCH-LOG.md`。 | 新理论位置、平台或语言若改变 A–E 分类时重开；本轮骨架完成不表示全领域覆盖。 |
+| M1 foundation formation | `READY_TO_FREEZE_FIRST_BATCH` | 从 A 轴的 Zermelo 原典／公理史／实际 consumer remainder 中选择有明确身份、版本与可访问原件的一条路线。 | 不以“Power Set”关键词直接开新 batch；每个新 batch 仍须先冻结 WorkCard 与问题。 |
 | M2 potentiality/stages | `PARKED_PENDING_M0` | 复用 W-012/W-014/V-SET-03 access remainders，补理论位置和正式来源。 | 可得全文或实际 consumer 才进入 source run。 |
 | M3 models/independence | `PARKED_PENDING_M0` | 建立 forcing/model/large-cardinal 与 ordinary-consumer 的分离表。 | 明确 source payment 或 consumer ingress。 |
 | M4 actual consumers | `PARKED_PENDING_M0` | 从实践、形式库和正式数学消费者建立 `u/F/C/I/O/Done` 搜索条件。 | 无同层 consumer 只产生 control。 |
