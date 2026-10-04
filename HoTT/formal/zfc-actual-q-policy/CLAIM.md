@@ -96,7 +96,27 @@ hottCounterexampleToMathematicalIllusionP :
 - [SOURCE-BOUNDARY.md](SOURCE-BOUNDARY.md) 固定当前可用的 Zeno／ZFC／Standard Solution 文本能支持什么、不能支持什么。
 - [REVISIONS.md](REVISIONS.md) 保存这次包的预备失败、修复和哪些运行才能成为交付依据。
 
-## 6. 禁止外推
+## 6. `MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / `C-361`：实分析 A 控制
+
+[ZenoLimitControl.lean](ZenoLimitControl.lean) 在 Lean 4.34.0 与固定 Mathlib 依赖中使用
+
+\[
+s_n = 1 - \left(\frac12\right)^n
+\]
+
+证明：
+
+```text
+FormalA                      := Tendsto s_n (𝓝 1)
+StrictSequentialDone         := ∃ n : ℕ, s_n = 1
+¬ (FormalA → StrictSequentialDone)
+```
+
+它还证明闭实时间区间 `Set.Icc 0 1` 的 terminal parameter 确实可取到 1。因而 C-361 同时防两种错误：把“极限”偷换成某个有限自然数编号阶段已完成，或者反过来由有限阶段无末项推出连续时间端点不可能到达。
+
+Lean 的 `#print axioms` 对此包报告 `propext`、`Classical.choice`、`Quot.sound`；它们作为 Mathlib 经典实分析信任边界被明确保留。当前主收据为 [`20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-04`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-04/RUN.json)，其命令内固定了 `LEAN_PATH` 并可由通用 verifier 重放。`StrictSequentialDone` 是本包刻意设定的严格控制，**不**被归因给 Standard Solution 或数学共同体。
+
+## 7. 禁止外推
 
 本包没有证明以下任何一项：
 

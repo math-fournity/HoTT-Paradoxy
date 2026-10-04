@@ -25,6 +25,12 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 
 正运行随后必须通过；[WrongHoTTCounterexample.agda](WrongHoTTCounterexample.agda) 则必须在它伪造的 original halt witness 上被拒绝。这个区分保证“负控制失败”是目标命题的类型拒绝，而非导入事故。
 
+## 2026-10-04：C-361 的来源与独立重放
+
+`ZenoLimitControl.lean` 的受控命题来自共享 canonical `dev` 中一个同主题但尚未提交的候选。它不是按对方的 status 直接接受：本 worktree 先用其固定 Lean 4.34.0／Mathlib 环境独立执行 source，得到 exit `0` 和声明的三项经典／商公理依赖，随后将 source 与专用 capture 器纳入本分支。其命题只针对明确的 `StrictSequentialDone` 控制，不把这个严格完成谓词塞回 Standard Solution。
+
+首次本地 C-361 capture 的 Lean 执行成功，但把 `LEAN_PATH` 只留在进程环境而没有写进 `command_argv`，因而 generic verifier 的精确重放得到 `REPLAY_EXIT_MISMATCH`。`...-02` 把 `LEAN_PATH=...` 放入 `/usr/bin/env` 命令本身，但其 manifest 仍把随后修订的 CLAIM/README 当成编译输入，故 `...-03` 仍会因文档哈希漂移失效。最终 `...-04` 只 pin Lean source、toolchain、Lean path 与 capture contract；它是 current primary。`...-01` 至 `...-03` 均保留为收据合同的历史失败，不作主证据。
+
 ## 当前版本选择
 
 `20261004-MP-ZFC-ACTUAL-Q-POLICY-002-02` 首先修复了 linked-worktree 捕获器和 Lean 二进制 pin，`...-03` 加入“metadata 相等不足以证明同一个实际 Q”的 Bool／Unit 内核反控制；随后 `...-04` 又加入“ZFC-1 use-model 不会靠逻辑自动生成 B”的 vacant-formal control。前两份的 source hash 均为历史快照，不能再作 current delivery basis；`...-04` 是 current primary。

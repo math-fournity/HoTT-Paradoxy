@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 212,
+  "later_machine_proved_claim_count": 213,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -1030,6 +1030,16 @@
    "kind": "native_cubical_fixed_hott_completion_reflection_counterexample",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: in the fixed safe Cubical Agda QuestioningDelay instance, stage-one completion of the set-truncated question does not imply a finite halt of the original universe question.",
    "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with complete observed local dependency closure and a negative control rejected at nothing != just 1. This package does not formalize ZFC, a real-analysis model, an acceptance policy, an actual Zeno/circle process, a cross-kernel TaskEquiv, HoTT inconsistency, or a reality/UR verdict."
+  },
+  {
+   "proof_id": "MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001",
+   "claim_ids": "C-361",
+   "source": "HoTT/formal/zfc-actual-q-policy/ZenoLimitControl.lean",
+   "toolchain": "HoTT/formal/astra-real-geometry/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-04",
+   "kind": "lean_mathlib_strict_limit_to_finite_stage_promotion_control_with_closed_time_positive_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE / DECLARED_CLASSICAL_AXIOMS: for a fixed geometric sequence, formal limit completion does not imply a finite natural-stage endpoint; a closed continuous-time endpoint exists.",
+   "notes": "Lean 4.34.0 plus pinned Mathlib; propext, Classical.choice and Quot.sound are retained in the receipt. The primary command explicitly embeds LEAN_PATH so the generic verifier can replay it; its source manifest contains only command inputs, avoiding irrelevant prose-hash drift. It does not attribute the strict finite-stage condition to the Standard Solution, formalize ZFC, prove continuous motion lacks an endpoint, or supply actual same-Q/policy evidence."
   },
   {
    "proof_id": "MP-TERRA-T2-ONESHOT-001",

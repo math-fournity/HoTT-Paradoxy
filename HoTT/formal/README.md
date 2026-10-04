@@ -16,6 +16,7 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `zfc-actual-q-policy/ActualQPolicy.lean`：`MP-ZFC-ACTUAL-Q-POLICY-002` / C-359；以 Lean 4 core 形式化 Q-observation、弱／强 P、A、B、`ZFC-1` use-model 与 semantic `TaskEquiv`。它证明：显示的 `ZFCOneUse + SameActualQ + B` 假设导出 `False`；Q gap 不逻辑产生 P、metadata equality 不等于任务等价、use-model 不自动产生 B，并有有限阶段／端点控制。不是 bare ZFC 的形式矛盾。
 - `zfc-actual-q-policy/HoTTCounterexample.agda`：`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / C-360；固定 Cubical Agda `QuestioningDelay` 中截断 Q 的 stage-one completion 不反射为原 universe Q 的有限 halt。它是 B 形状的原生控制，不构成 Zeno／圆环与 HoTT 的已证 task equivalence。
+- `zfc-actual-q-policy/ZenoLimitControl.lean`：`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / C-361；固定 (s_n=1-2^{-n}) 的极限存在不推出任何有限自然数阶段达到 endpoint，并给出闭连续时间 endpoint 正控制。它保留 Lean/Mathlib 经典公理依赖，不归因于 Standard Solution 或 bare ZFC。
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。
