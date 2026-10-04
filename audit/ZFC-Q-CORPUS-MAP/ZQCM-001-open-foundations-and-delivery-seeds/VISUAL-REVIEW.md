@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–121 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–121已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.122继续；下一张必须先审读并立即写入`VR-W002-122`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105、122、123的300dpi图 | p.1–125 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–125已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.126继续；下一张必须先审读并立即写入`VR-W002-126`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -413,6 +413,10 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-119 | W-002 | 119 | visual/W-002/150dpi/p119.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small compact basis给exponential的small compact basis、directification/finite joins、以及sup-complete ideal completion保持性的明确假设。 | 这是受small basis、compactness、sup-completeness与finite-join条件限制的构造；不构成ZFC Q。 |
 | VR-W002-120 | W-002 | 120 | visual/W-002/150dpi/p120.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small bases给exponential small basis的retract construction、finite-join ideal argument，以及作者明说该结果未提供explicit basis description的边界。 | 这是受small-basis/sup-complete/retract条件限制的存在性结果，且作者保留了非显式构造边界；不构成ZFC Q。 |
 | VR-W002-121 | W-002 | 121 | visual/W-002/150dpi/p121.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Chapter 4 notes 对Aczel constructive set theory、propositional truncation使continuous dcpo成为subtype、避免impredicative set-theoretic constructions的来源定位。 | 此页标注来源谱系与方法差异，不构成ZFC Q。 |
+| VR-W002-122 | W-002 | 122 | visual/W-002/150dpi/p122.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Chapter 5把predicative domain theory接到untyped λ-calculus D∞、typed PCF、soundness／computational adequacy、least fixed point、semidecidability与indexed W-types的明确应用链。 | visual/W-002/300dpi/p122.png：复核两种编程语言语义消费者及其已列构造条件。该页是后续实际consumer审计的来源入口，不本身形成ZFC Q。 |
+| VR-W002-123 | W-002 | 123 | visual/W-002/150dpi/p123.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Scott D∞的inductive sequence `D₀, Dₙ₊₁`、universe bookkeeping、constant/evaluation与embedding-projection maps、及pair定理。 | visual/W-002/300dpi/p123.png：逐式复核递归层级、section/deflation公式与实际untyped λ-calculus语义入口。此为已付款的模型构造，不构成ZFC Q。 |
+| VR-W002-124 | W-002 | 124 | visual/W-002/150dpi/p124.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核D∞的iterated embedding/projection chains、pointedness、universe不增长的明确说明，以及朝自exponential isomorphism的continuous maps定义。 | 这是固定层级和embedding-projection条件下的actual model construction，不构成ZFC Q。 |
+| VR-W002-125 | W-002 | 125 | visual/W-002/150dpi/p125.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核D∞到其自exponential的两个Scott-continuous方向、由limit/colimit universal property给出的map、以及它们的pointwise-supremum表示。 | 这是建立model isomorphism的明确递归/limit构造，不构成ZFC Q。 |
 
 ## 高精度队列
 
