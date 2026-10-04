@@ -2,7 +2,7 @@
 
 > **身份：** `CANDIDATE_NOT_CURRENT / INTEGRATION_REQUIRED / NO_CANONICAL_OWNER_MUTATION_IN_THIS_WORKTREE`。
 >
-> **本候选 commit：** `35448f866e8c34e5f34ceb2e91317897c5a1ac17`，branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。
+> **本候选范围：** `35448f86..d17abfb9`，branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。
 
 ## 1. 本候选交付什么
 
