@@ -145,6 +145,20 @@ python3 -B scripts/audit/verify_proof_version_closure.py \
 
 所有 direct replay 只在 detached checkout 执行；它们不修改候选 source、canonical `dev` 或当前 contributor 的 canonical owners。
 
+### 6.3 一手来源的当日复核
+
+为避免把 candidate source card 的转述当作当前网页事实，本轮于 2026-10-04 重新读取三个一手公开页面：
+
+| 来源 | 当日可核事实 | 对本路线的作用 |
+|---|---|---|
+| IEP, *Zeno’s Paradoxes*, [Standard Solution](https://iep.utm.edu/zenos-paradoxes/) | 将 Standard Solution 说成使用 calculus/real analysis；明说“没有 final step”是被拒绝的假设；又把 ZF(C) 作为 real analysis foundation 的 majority view，并称其间接解决 Zeno。 | 确证 ZFC-supported Standard Solution 的 R1 resolution、R2 completion-condition change 和基础语境；没有圆环或 HoTT 的同一任务 bridge。 |
+| SEP, [*Supertasks*](https://plato.stanford.edu/entries/spacetime-supertasks/) | 对 Zeno walk 明确区分“执行 final action”与“完成 every step”；在 supertask 中两种 complete 不等价，并将后者局限于该任务的解释。 | 直接支持 `SOURCE_TASK_CONTRACT_SPLIT`，反对把两个 Done 自动视为同一谓词。 |
+| Norton, [*Zeno’s Paradoxes of Motion*](https://sites.pitt.edu/~jdnorton/teaching/paradox/chapters/Zeno/Zeno.html) | 显式将 completion 从“包括最后 action”改写为“做完所有 actions”，并给每个 action 一个时刻。 | 给 R2 一条透明的 source-defined transformation；它的适用对象仍是 runner/action task。 |
+
+这次复核强化而没有推翻已有来源判断：**当前标准来源把 completion 的语义选择公开写出来。** 因而它们是
+本地 Zeno policy 的来源，而不是一条无边界、不可见的共同 P；它们没有给出用户圆环 `OriginDone` 或 fixed
+HoTT question 的 `PolicyScopeWitness`。
+
 ## 7. 独立代码审读与最终判词
 
 候选代码没有把结论藏进 kernel：
@@ -169,6 +183,7 @@ python3 -B scripts/audit/verify_proof_version_closure.py \
 |---|---|
 | 理论层级 | `ALIGNED`：不把 Lean meta-policy 或最小 formula language 冒充 bare ZFC。 |
 | 圆环／芝诺原问 | `ALIGNED_WITH_OPEN_BRIDGE`：C-361 的连续端点正控制保留，未把没有有限阶段误写成没有连续到达。 |
+| 一手来源 | `ALIGNED`：IEP/SEP/Norton 当日复核确认 R1/R2 与 contract split；未将页面的 local runner policy 扩写为跨案例政策。 |
 | HoTT 使用 | `ALIGNED_WITH_SCOPE`：C-360 是 main HoTT 发现的原生控制，不是 Zeno 的同一过程。 |
 | P/Q 共同锻造 | `Q_NARROW`：提高 source/bridge 的准入精度，未凭新文件宣称 Q 会合。 |
 | 新刀 | `OLD_TOOL_FIELD_GAP = NO`：没有发现 P1/P2/P3 无法容纳的独立判断职责。 |

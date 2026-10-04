@@ -36,3 +36,7 @@ negative control 在 `nothing != just 1` 处 exit 42。
 `originDone` 不变；强 P 与 HoTT B 的 `False` 需要显式 `PolicyScopeWitness`。这正支持现有
 R1/R2/R3 收束，且阻止把 completion 名词相似误报为同一任务。完整 B0–B3 见
 `audit/20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md`。
+
+同日对 IEP、SEP *Supertasks* 与 Norton 原页的复核确认：三者都把 Zeno runner 的完成语义限定在其
+own task 中，SEP/Norton尤其显式区分或改写“complete”。这支持 R1/R2 和 `SOURCE_TASK_CONTRACT_SPLIT`，
+不支付圆环／HoTT 的 policy scope。
