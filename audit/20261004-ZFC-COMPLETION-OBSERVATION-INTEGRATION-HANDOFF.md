@@ -6,10 +6,10 @@
 
 | 字段 | 值 |
 |---|---|
-| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure. |
+| contributor evidence commits | `ab5a3542c2855324c47ab902d7fad51c20b90b02` — source/P convergence; `889526135271f371ff569506a1369beaa443027d` — fresh formal proof closure; `bad180ce036d6b409c16611786dfb268d8685c83` — external candidate B0–B3 and independent replay. |
 | contributor worktree | `/Users/aurolafly/.codex/worktrees/3d2f/HoTT_AI_HANDOFF_20260911`，detached HEAD |
 | common merge base with `dev` | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
-| observed canonical target | `dev@213a616a653ca964127a710497f231a0a3d3fef9`，工作树 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，dirty；观察时间 2026-10-04。 |
+| observed canonical target | `dev@81140216b519f418a5064ca21258c8ffa0afa7f8`，工作树 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，dirty；观察时间 2026-10-04。 |
 | required integration role | 唯一 `CANONICAL_INTEGRATOR`；不得直接在 dirty canonical worktree reset、stash、clean 或 cherry-pick。 |
 
 `dev` 已含另一条 ZFC-Q 形式化历史（例如 `e2c2a16e`、`5cb19202`、`213a616a`）。本候选与其主题重叠，语义不必然重复；集成者必须比较，而不能把提交题目相似当作自动合并依据。
@@ -24,6 +24,24 @@
 6. 本交接单。
 
 它不修改 `STATE.json`、`MEMORY`、`feature-list.md`、`rulings.md`、方向／全景投影、README 或 canonical claim matrix。这些 current owner 只能由 integrator 在当时的 `dev` HEAD 上重审后原位更新。
+
+### 经独立核验的外部候选
+
+候选 ref `codex/zfc-q-policy-formalization@ea6c338f777f51dfaaa2a44122c72f2dfaa997cb` 已在 clean detached
+worktree 中执行 selected C-359–C-365 version closure 和直接 Lean／Cubical Agda replay。它是
+`FROZEN_CANDIDATE_ONLY`，不能直接改 current truth；详细 B0–B3 和重放结果见
+[`20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md`](20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md)。
+
+它可能提供两种选择性增量：
+
+1. `ZFCMembershipLanguageBoundary.lean`（C-365）给出最小 `=`／`∈` formula language 的
+   `originDone` 外加谓词不变性，补强当前 contributor 包已具备的 interface-level boundary；
+2. `ActualQPolicy.lean`（C-359）把 `PolicyScopeWitness`、严格 `TaskEquiv` 与 HoTT-side B 的条件性
+   后果明确分开，和当前 `CommunityObservationPolicy.lean` 的规范性张力模型互补，但路径重叠。
+
+集成者必须选择性比较这两组 proof 的语义、scope、claim ID 和 source receipts；不得两个版本并列为两条
+“ZFC 已矛盾”的 current claim。候选自身也明确保留 actual source scope、actual QProfile、P→B 和 full ZFC
+axiom-schema encoding 的未支付边界。
 
 ## 3. 必须保留的证据边界
 
@@ -48,8 +66,11 @@ H100–H105的来源结论引用下列已存在或须同步带入的材料：IEP
 
 1. 从当时 `dev` 精确 OID 建立临时 clean integration worktree；保留 `/Volumes/D` 中所有 dirty 内容。
 2. `git show ab5a3542 --`审阅本包，和 `dev` 的现有 ZFC-Q proof/source cards做三方语义比对。
-3. 选择性移植本包的独占路径；若先前 H091/H093/H099 未进入 integration worktree，先建立可验证的来源前提或在 report 中降为待接入。
-4. 运行：
+3. 审阅 `ea6c338f` 的 formula-language / policy-scope candidate，并与本包的
+   `ObservationBoundary`、`CommunityObservationPolicy`、`CompletionSubstitutionProfile` 做
+   claim-by-claim 合并判定；若只接受 C-365，应以新 claim ID、source/run/index 三位一体登记。
+4. 选择性移植本包的独占路径；若先前 H091/H093/H099 未进入 integration worktree，先建立可验证的来源前提或在 report 中降为待接入。
+5. 运行：
 
    ```sh
    /Users/aurolafly/.elan/bin/lean HoTT/formal/zfc-observation-boundary/CompletionSubstitutionProfile.lean
@@ -59,7 +80,7 @@ H100–H105的来源结论引用下列已存在或须同步带入的材料：IEP
    git diff --check
    ```
 
-5. 再由 integrator 决定是否将 `CompletionSubstitutionProfile` 加入 canonical claim matrix、将 H105 收束措辞写进 current ZFC owner，以及是否更新 Feature/MEMORY/STATE。每一项都须保留上述不外推边界。
+6. 再由 integrator 决定是否将 `CompletionSubstitutionProfile`、选择性接受的 candidate proof 加入 canonical claim matrix、将 H105 收束措辞写进 current ZFC owner，以及是否更新 Feature/MEMORY/STATE。每一项都须保留上述不外推边界。
 
 ## 6. 接受后的最小 current wording
 
