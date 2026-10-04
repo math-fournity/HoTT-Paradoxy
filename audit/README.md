@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [圆环、Zeno 与 HoTT：完成模式三方映射（2026-10-04）](20261004-ZFC-ACTUAL-Q-TRIAD-COMPLETION-MAPPING.md)：逐字段对照 `T/I/Op/O/Done`，把共享的完成模式与尚未支付的来源政策范围分开；`TaskEquiv`保留为强控制，`PolicyScopeWitness`成为实际来源义务。
+
+- [ZFC 实际 Q：完成范围政策 P 的来源分母与当前判词（2026-10-04）](20261004-ZFC-ACTUAL-Q-POLICY-SCOPE-SOURCE-DENOMINATOR.md)：核对 Norton、SEP、IEP、Roberts 与 Bathfield 对“完成”的实际语义，得到来源明示的 Done 分叉、P 的 scope 定义与 `SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE`；同时将 C-359 从状态同构唯一门改为 source-owned policy scope 的实际义务。
+
 - [ZFC Q／P／A／B 形式化候选的 canonical `dev` 集成交接（2026-10-04）](20261004-ZFC-Q-POLICY-CANDIDATE-INTEGRATION-HANDOFF.md)：固定本候选 C-359/C-360、dirty `dev` 中互补的 C-361 以及唯一 matrix/registry/core-state 的整合顺序；不把两个同名 Q 语义并列成 current truth。
 
 - [证明收据捕获器对 linked worktree 根的识别修复（2026-10-04）](20261004-证明收据捕获器linked-worktree根修复.md)：两只 capture 工具不再把合法 `.git` 指针 worktree 错拒为非项目根；修复以 `git rev-parse --show-toplevel` 资格化，并在本轮 Lean／Cubical Agda 真正捕获中复核。它是收据基础设施修复，不是数学结论。

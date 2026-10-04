@@ -25,7 +25,8 @@
 | IEP 是否改写或修订问题语言 | `SOURCE_ESTABLISHED` | 它明说采用不同概念与理论，且列出需放弃的直觉。 |
 | 数学共同体实际采用 Lean 的强 `MathematicalIllusionP` | `SOURCE_UNOBSERVED` | Standard Solution／majority-view 叙述不等同于对每个 `formalDone` 的 `originDone` 证明政策。 |
 | `A ↔ AdmittedP` | `SOURCE_UNOBSERVED` | 当前文本没有给这个等价。 |
-| Zeno／圆环与 fixed Cubical Agda Q 的 `TaskEquiv` | `SOURCE_UNOBSERVED` | 需要逐字段的实际过程映射。 |
+| 严格 Zeno／圆环与 fixed Cubical Agda Q 的 `TaskEquiv` | `SOURCE_UNOBSERVED` | 这是最强反类比控制，需要逐字段的实际过程映射。 |
+| Zeno→圆环／HoTT 的 `PolicyScopeWitness` | `SOURCE_UNOBSERVED` | 现有来源分别选择其完成语义，尚未说明同一个强 P 为什么跨三个任务共同适用。 |
 
 ## 3. 与既有 Q0／Q1／Q2 的一致性
 
@@ -36,4 +37,6 @@ IEP 支持：ZFC-supported standard analysis 被称为 Standard Solution 的来�
 IEP 不支持：用户圆环强 Done 已由极限／集合论无桥地支付。
 ```
 
-这与 [ZFC-CIRCLE-Q0](../../../audit/20261003-ZFC-CIRCLE-Q0-连续统完成与圆环复原候选卡.md)、[Q1](../../../audit/20261003-ZFC-CIRCLE-Q1-元理论子理论过程边界候选卡.md) 和 [Q2](../../../audit/20261003-ZFC-HOTT-Q2-时间观察完备性比较卡.md) 的 `Q-1_SEED`／`SOURCE_BRIDGE_DEFENSE` 边界一致。它意味着：当前可以机器证明“若强 P、same actual Q 和 B 被支付会怎样”，但不能把其中任何一个外部前提伪装成已由 IEP 或 ZFC 本身给出。
+这与 [ZFC-CIRCLE-Q0](../../../audit/20261003-ZFC-CIRCLE-Q0-连续统完成与圆环复原候选卡.md)、[Q1](../../../audit/20261003-ZFC-CIRCLE-Q1-元理论子理论过程边界候选卡.md) 和 [Q2](../../../audit/20261003-ZFC-HOTT-Q2-时间观察完备性比较卡.md) 的 `Q-1_SEED`／`SOURCE_BRIDGE_DEFENSE` 边界一致。它意味着：当前可以机器证明“若强 P、范围 witness 和 B 被支付会怎样”；严格 same actual Q 是其中一条充分控制，但不能把任何一个外部前提伪装成已由 IEP 或 ZFC 本身给出。
+
+2026-10-04 的扩展来源分母进一步显示：Norton、SEP 与 Roberts 都公开区分 `Done_strict`／`Done_revised` 或 final-action completion／all-steps completion。它们形成 `SOURCE_TASK_CONTRACT_SPLIT`，不构成跨圆环与 HoTT 的政策范围证明。见 [P 的来源范围审计](../../../audit/20261004-ZFC-ACTUAL-Q-POLICY-SCOPE-SOURCE-DENOMINATOR.md) 与[三方完成模式卡](../../../audit/20261004-ZFC-ACTUAL-Q-TRIAD-COMPLETION-MAPPING.md)。

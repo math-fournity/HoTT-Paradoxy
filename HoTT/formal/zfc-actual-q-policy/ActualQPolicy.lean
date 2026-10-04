@@ -180,6 +180,27 @@ structure MathematicalIllusionP (cases : Site → CompletionCase) where
     (cases site).task.formalDone state →
     (cases site).task.originDone state
 
+/-- A policy-scope witness is weaker than an isomorphism of task state spaces.
+    It records the precise bridge that an actual comparison must justify: why
+    does a policy admitted on the Zeno-side task also claim jurisdiction over
+    the HoTT-side task?  This structure records no bibliographic provenance;
+    a source card must separately justify interpreting it as source-owned.
+    An exact `TaskEquiv` is one sufficient witness; it is deliberately not
+    the only syntactic route. -/
+structure PolicyScopeWitness
+    {cases : Site → CompletionCase}
+    (policy : MathematicalIllusionP cases) where
+  transportsAdmissibility : policy.applies .zeno → policy.applies .hott
+
+/-- The strict task-equivalence route gives a policy-scope witness whenever
+    the policy itself declares invariance under that exact equivalence. -/
+theorem policyScopeOfSameActualQ
+    {cases : Site → CompletionCase}
+    (policy : MathematicalIllusionP cases)
+    (sameQ : SameActualQ cases) : PolicyScopeWitness policy where
+  transportsAdmissibility := fun zenoApplies =>
+    policy.respectsSameActualQ sameQ zenoApplies
+
 /-- `ZFC-1` is a use-model: a base proposition together with a witnessed
     observation gap and a source-auditable policy P.  It is not object-language
     ZFC syntax or a consistency model of ZFC. -/
@@ -246,6 +267,23 @@ theorem same_actual_Q_transports_P_to_HoTT
   model.policy.respectsSameActualQ sameQ
     (model.gapAdmitsZenoP model.qMissing)
 
+/-- This is the policy-level consequence needed by an actual source card.
+    It does not demand a state-space bijection: an actual source card must
+    instead justify a reviewable scope witness explaining why P applies to
+    both tasks. -/
+theorem source_scoped_P_with_B_is_inconsistent
+    {ZFCBase : Prop} {cases : Site → CompletionCase}
+    (model : ZFCOneUse ZFCBase cases)
+    (scope : PolicyScopeWitness model.policy)
+    (b : B cases) :
+    False := by
+  rcases b with ⟨state, formalHott, notOriginHott⟩
+  exact notOriginHott
+    (model.policy.promote .hott
+      (scope.transportsAdmissibility
+        (model.gapAdmitsZenoP model.qMissing))
+      state formalHott)
+
 /-- This is the formal A/B consequence requested by the user.  It is a
     contradiction in the explicitly assumed ZFC-1 use-model, conditional on
     the actual-Q task equivalence and the policy's invariance under it. -/
@@ -255,11 +293,8 @@ theorem zfc1_same_actual_Q_P_with_B_is_inconsistent
     (sameQ : SameActualQ cases)
     (b : B cases) :
     False := by
-  rcases b with ⟨state, formalHott, notOriginHott⟩
-  exact notOriginHott
-    (model.policy.promote .hott
-      (same_actual_Q_transports_P_to_HoTT model sameQ)
-      state formalHott)
+  exact source_scoped_P_with_B_is_inconsistent model
+    (policyScopeOfSameActualQ model.policy sameQ) b
 
 /-- The combined A/B statement exposes both outcomes: A is promoted on the
     Zeno side while B makes the transported policy contradictory on HoTT. -/
@@ -633,6 +668,7 @@ theorem endpointControl_completion_bridge :
 #print axioms same_actual_Q_transports_QMissing
 #print axioms zfc1_promotes_A
 #print axioms same_actual_Q_transports_P_to_HoTT
+#print axioms source_scoped_P_with_B_is_inconsistent
 #print axioms zfc1_same_actual_Q_P_with_B_is_inconsistent
 #print axioms zfc1_yields_A_and_conflicts_with_B
 #print axioms zfcOneUse_is_ZFCMinusOne
