@@ -7,8 +7,8 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate evidence head | `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` |
-| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control) |
+| candidate evidence head | `c0fe8d1a801470110bc4a4391956828be4b27f43` |
+| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP for full QProfile mapping and conditional instantiation) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
 | canonical target disposition | `dev` had unrelated dirty work, including uncommitted `ZFC-CIRCLE-Q1` / H081–H082; this relay does not alter it. |
@@ -31,6 +31,7 @@
 14. H093 arbitrates IEP and Bathfield as `SOURCE_TASK_CONTRACT_DIVERGENCE`: IEP has an explicit natural-language Done replacement, but the frozen record has no common state domain and no named pointwise completion equivalence. `CompletionEquivalent` and its no-axiom Lean proof now state the exact evidence shape needed for same-task identity.
 15. `MP-ZFC-META-OBSERVATION-CONSISTENCY-001` formalizes the research initiator's new Zeno–HoTT proposal: full QProfiles explicitly contain O1–O5 plus payment/preservation; identical full profiles with `originalResolved` versus `bridgeRequired` judgments break Q-uniformity and the proposed O3–O5 adequacy policy. A coarse-Q countercontrol is included.
 16. H094 independently maps the frozen current Zeno and HoTT evidence into this model and returns `PROFILE_MATCH_NOT_YET_PROVED`; it preserves the conditional theorem but prevents premature actual-ZFC instantiation.
+17. `ZFC-HOTT-Q-UNIFORMITY-SOP` now owns the next work: U0–U6 freeze, field-map, compare and either instantiate the theorem or conclude a bounded profile mismatch/payment/evidence-frontier result.
 
 ## What an integrator may accept
 
@@ -43,6 +44,7 @@
 - The P-DAG classification `ACTUAL_C_FOUND / SOURCE_DONE_REPLACEMENT_EXPLICIT / MODEL_PAYMENT_VISIBLE / FORMAL_NON_EQUIV_CONTROL_AVAILABLE / SAME_TASK_IDENTITY_NOT_PROVED` as a contributor candidate awaiting semantic integration.
 - The refined classification `INDEPENDENT_CRITICAL_BRIDGE_DIAGNOSIS / SOURCE_TASK_CONTRACT_DIVERGENCE / COMPLETION_EQUIVALENCE_EVIDENCE_CONDITION` as the current bounded research front.
 - The conditional policy result `SAME_FULL_Q + OPPOSITE_JUDGMENTS → ¬QUniform` and the candidate O1/O2-without-O3–O5 fixture, both with explicit actual-profile mapping obligations.
+- The stable `ZFC-HOTT-Q-UNIFORMITY-SOP` as the user-invocable continuation contract; it does not itself upgrade any profile field or canonical owner.
 
 ## What an integrator must not infer
 
