@@ -114,6 +114,43 @@ Battle 只在同一字段有来源冲突时启动。每个节点必须带 `QConv
 4. `FORMAL_INCOMPATIBILITY_NOT_ESTABLISHED`：有政策张力但不能称对象层矛盾。
 5. `EVIDENCE_FRONTIER_REACHED_WITH_SCOPE`：冻结来源分母内无法完成某字段，记录精确缺口和重开条件。
 
+### 收敛解释
+
+上述终局是**某一来源 lane 的终局**，不是 ZFC 问题查找工作的终局。用户 2026-10-04 已明确指出：芝诺、圆环、罗素计算视角和 main 的 HoTT 分析已经使整个 ZFC 研究进入收尾／收敛阶段。故 M1–M5 的 `EVIDENCE_FRONTIER_REACHED_WITH_SCOPE` 应被读作：宽泛类比、错误 Done 和无 provenance 的路径已被淘汰，下一步只能集中寻找实际完成政策中的 P，不得重新从“ZFC 有什么问题”开始散搜。
+
+### M6：收敛后的实际 P 政策检索
+
+只检索同时含有以下要素的来源：
+
+```text
+指定的 formal F
+→ 来源实际宣布同一 process Done D
+→ 可审计的 promotion rule
+→ Q 检查是否存在／遗漏
+→ 与 HoTT-B 的可追踪同一任务关系，或明确的反控制
+```
+
+M6 的成功不预设发现 ZFC 对象层矛盾。它的目标是定位或排除“数学共同体实际使用的未验证完成提升 P”。任何新来源若只重复极限值、连续模型、H0 的 `never` 或泛泛哲学，不进入 M6 分母。
+
+### M6 的当前收敛判词（2026-10-04）
+
+`SEP Supertasks` 起初被 H103 的窄卡误报为 P 候选；与 H083 的完整来源卡对照后，
+它被改为 `SOURCE_TASK_CONTRACT_SPLIT_CONTROL`：该来源明说其 `every-step` 与
+`final-action` Done 的区分，不能被写成对用户强原 Done 的未付款提升。
+
+Uttarakhand Open University *Real Analysis* MT(N)-201 §5.1–§5.3 则形成当前 M6
+的实际来源候选：它先将 series sum 定义为 partial sums 的极限，再用有限和交付
+Achilles catch-up／paradox resolution；在固定相邻段落中，数学定义被支付，
+`F -> source-process D` 的保真 bridge 没有被给出。H104/H105 的 exact Terra/Max
+source-match、外部原 PDF identity、trajectory 以及 Lean card/contract controls 应共同读取。
+
+这使 P 的候选位置从“所有极限说法”收敛到一个更窄的可反驳命题：
+
+```text
+实际来源将定义性的 formal completion F 交付为 source-process Done D；
+是否同一任务、是否有桥、以及 ZFC 是否缺 Q，仍分别需要来源证明。
+```
+
 ## 5. `/goal` 启动句
 
 ```text

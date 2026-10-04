@@ -1,6 +1,6 @@
 # ZFC-QP-ACTUAL-MAPPING-SOP：M1–M5 实际映射终局
 
-> **身份：** `CONTRIBUTOR_CANDIDATE_NOT_CURRENT / EVIDENCE_FRONTIER_REACHED_WITH_SCOPE / NOT_A_ZFC_INCONSISTENCY_CONCLUSION`。
+> **身份：** `CONTRIBUTOR_CANDIDATE_NOT_CURRENT / LOCAL_EVIDENCE_FRONTIER_REACHED_WITH_SCOPE / ZFC_PROBLEM_CONVERGENCE_PHASE / NOT_A_ZFC_INCONSISTENCY_CONCLUSION`。
 
 ## 1. 阶段结果
 
@@ -12,10 +12,10 @@
 | M4：HoTT B | `P_TO_B_NOT_ESTABLISHED` | H101；H0 是 detector，缺 PBacktrace。 |
 | M5：Lean actual witness | `NOT_ENABLED` | A↔P、actual adoption、P→B、A⊥B 均无来源实例。 |
 
-## 2. 终局
+## 2. 本 lane 的终局与全局收敛
 
 ```text
-EVIDENCE_FRONTIER_REACHED_WITH_SCOPE
+LOCAL_EVIDENCE_FRONTIER_REACHED_WITH_SCOPE
 ```
 
 在 TaskCard 冻结的来源分母内，没有一个来源同时给出：
@@ -29,7 +29,9 @@ EVIDENCE_FRONTIER_REACHED_WITH_SCOPE
 ∧ 同一任务 PBacktrace 到 HoTT B
 ```
 
-因此当前不能把条件性 `CommunityObservationPolicy` 代入实际 ZFC，也不能把政策张力升级为对象层矛盾。
+因此当前不能把条件性 `CommunityObservationPolicy` 代入实际 ZFC，也不能把政策张力升级为对象层矛盾。这个结论关闭的是 M1–M5 的冻结来源 lane，不关闭 ZFC 问题查找。
+
+用户随后明确的正确全局读法是 `ZFC_PROBLEM_CONVERGENCE_PHASE`：P 的定义、Q 的观察合同、芝诺／圆环的 Done 控制、罗素的 PBacktrace 和 HoTT 的 detector 已经把搜索从宽泛的 ZFC 怀疑收紧为一个实际政策来源任务。下一步 M6 是寻找实际完成提升 P，不是重新铺开候选空间。
 
 ## 3. 正面所得
 
@@ -51,4 +53,4 @@ EVIDENCE_FRONTIER_REACHED_WITH_SCOPE
 | 一个 H0 来源把 promotion 产生的 B 写成同一任务后果 | M4/M5。 |
 | A、B 在一个明确形式系统内不相容 | M5 的 `False` 分支。 |
 
-除这些触发外，继续新增相似来源节点将构成 `TOOL_ONLY_DRIFT`，不应被算作 P/Q 发现推进。
+除这些触发外，继续新增相似来源节点将构成 `TOOL_ONLY_DRIFT`，不应被算作 P/Q 发现推进；M6 的新来源须满足 SOP 所列的收敛分母。

@@ -1,0 +1,70 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261004-ZFC-QP-M6-ACTUAL-SOURCE",
+  "tier": "T2",
+  "role": "RESEARCH_GENERATION",
+  "status": "ZFC_PROBLEM_CONVERGENCE_PHASE / ACTUAL_P_CANDIDATE_CONFIRMED_WITH_SCOPE / NO_BARE_ZFC_Q_OR_MATH_CLAIM",
+  "source_reads": [
+    {
+      "id": "SRC-SEP-SUPERTASK-001",
+      "source": "Stanford Encyclopedia of Philosophy, Supertasks, §1.1",
+      "identity": "https://plato.stanford.edu/entries/spacetime-supertasks/",
+      "scope": "completion claim plus explicit every-step/final-action distinction and topology qualification",
+      "status": "SOURCE_READ_WITH_SCOPE / SOURCE_TASK_CONTRACT_SPLIT_CONTROL"
+    },
+    {
+      "id": "SRC-UOU-REAL-ANALYSIS-001",
+      "source": "Uttarakhand Open University, Real Analysis, MT(N)-201, §5.1–§5.3",
+      "identity": "https://uou.ac.in/sites/default/files/slm/MT%28N%29-201.pdf",
+      "sha256": "e8c3e3bb4867b3547f3174f5623d75ea401362ca6f338d195e3723874f4b833b",
+      "scope": "finite-sum/limit definition is used to deliver Achilles catch-up/resolution; source-card F-to-D bridge absent",
+      "status": "SOURCE_READ_WITH_SCOPE / ACTUAL_P_CANDIDATE_CONFIRMED"
+    }
+  ],
+  "p_dag_runs": [
+    {
+      "id": "H103-SEP-ACTUAL-P-COMPLETION-PROMOTION-20261004",
+      "status": "PASS / NARROW_CARD_SHAPE_ONLY / SOURCE_CARD_COMPLETENESS_FAILURE_REPAIRED",
+      "model": "gpt-5.6-terra",
+      "effort": "max",
+      "final_sha256": "168ad066c69675f78e59f639cc1b791e7f7e1ddb3f35065b721406b7f4f67328",
+      "public_report": "audit/20261004-P-DAG-ZFC-QP-103-Terra-Max.md"
+    },
+    {
+      "id": "H104-UOU-REAL-ANALYSIS-ZENO-COMPLETION-PROMOTION-20261004",
+      "status": "PASS / ACTUAL_P_CANDIDATE_SOURCE_MAPPED",
+      "model": "gpt-5.6-terra",
+      "effort": "max",
+      "final_sha256": "211732988a2212710c9c194c7e8b937ea7b2016e379bcb47e094f03e0a9f87cf",
+      "public_report": "audit/20261004-P-DAG-ZFC-QP-104-Terra-Max.md"
+    },
+    {
+      "id": "H105-UOU-SERIES-DEFINITION-BRIDGE-REVIEW-20261004",
+      "status": "PASS / ACTUAL_P_CANDIDATE_CONFIRMED",
+      "model": "gpt-5.6-terra",
+      "effort": "max",
+      "final_sha256": "01cfa97fab31e5406c1e190d42b4db1e98a4c62feecee207a195c4a7211a67c1",
+      "public_report": "audit/20261004-P-DAG-ZFC-QP-105-Terra-Max.md"
+    }
+  ],
+  "new_formal_runs": [
+    {
+      "proof_id": "MP-UOU-COMPLETION-PROMOTION-SOURCE-001",
+      "run_id": "20261004-MP-UOU-COMPLETION-PROMOTION-SOURCE-001-01",
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "scope": "frozen UOU source-card labels only"
+    },
+    {
+      "proof_id": "MP-ZENO-SEQUENTIAL-COMPLETION-CONTRACTS-001",
+      "run_id": "20261004-MP-ZENO-SEQUENTIAL-COMPLETION-CONTRACTS-001-01",
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "scope": "every-step/final-action indexed-trace contract control only"
+    }
+  ],
+  "non_goals": [
+    "No ZFC object-language inconsistency or theorem of missing Q.",
+    "No universal claim about limits or physical motion.",
+    "No same-task bridge from UOU D to the user circle/strong Done.",
+    "No P-to-HoTT-B provenance or A/B formal incompatibility."
+  ]
+}
