@@ -4,7 +4,9 @@
 >
 > **稳定引用名：** H0-Z0-FOUNDATION-ADEQUACY-SOP。
 >
-> **状态：** CONTRACT_READY / H0_FIXED / Z0_SOURCE_AND_VARIANT_NOT_YET_FROZEN。
+> **状态：** SOURCE_VALIDATION_COMPONENT / H0_FIXED / DISCOVERY_ORDER_OWNED_BY_H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP。
+
+> **路由更新（2026-10-04）：** 本文继续拥有来源、理论变体、`H0Map`、`C_accept`和`AdequacyLift`的验证合同；它不再决定 Z0 的发现顺序。发现必须先通过[H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP](H0-Z0模式P优先收敛SOP.md)的 A/B 同一政策门。MPIM／一般模型论文在该门之前仅是 parked controls。
 
 ## 1. 为什么 C-364 不是终点
 
@@ -127,8 +129,8 @@ Z0 的正确问题是：
 
 重开只由新的一手来源、精确理论变体的保真 translation，或研究发起人对 H0/OriginDone 的修正触发。不得以更多普通 Zeno 文献、更多 generic factorization fixture 或“ZFC 无时间 primitive”重开。
 
-## 8. 直接调用
+## 8. 作为来源验证组件调用
 
-    按照 SOP=H0-Z0-FOUNDATION-ADEQUACY-SOP，继续推进，直至无法推进。
+    按照 SOP=H0-Z0-FOUNDATION-ADEQUACY-SOP，对已通过 A/B 同一政策门的 Z0 候选执行来源验证。
 
-第一最小行动是 HZ0-0 和 HZ0-1：冻结 main H0 fingerprint，并只读比较 KLV、CCHM、Cubical Agda 与 HoTT Book 的 exact variant / acceptance coverage。还不启动新的 proof、worker、tag、push或发布。
+当前第一调用入口是`H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP`。只有它产生`AProjection + BProjection + SameQBridge`候选后，本组件才冻结 H0 fingerprint、exact variant、AcceptanceContract与来源分母。它不自动启动新的 proof、worker、tag、push或发布。

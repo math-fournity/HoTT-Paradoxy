@@ -52,6 +52,26 @@ H0 relation / P1-P3 trace / local counterfactual
 
 `MPIM`、Chain-A、AWCCRS 目前属于 `PARKED_SOURCE_CONTROL`：只有 PF-C 的具体来源引用它们，或它们成为 exact `H0Map` 的最小证据路径时，才重新激活。
 
+### 2.1 A/B 同一政策门：任何 Z0 候选的前置资格
+
+本 SOP 的靶不是“ZFC 中有无穷总体”这一单独现象。所有候选都必须服从下列固定角色：
+
+| 符号 | 固定角色 | 禁止替换 |
+|---|---|---|
+| **A** | 芝诺／圆环线中，被数学共同体接受的完成性结果：连续统／极限或其修订完成合同使原来无最后一步的过程被判为“已解决”。 | 不能把 A 缩成一个几何级数等式、任意无穷对象或普通有限近似。 |
+| **B** | main 的 fixed `H0`：Cubical Agda `QuestioningDelay` 在 `Type ℓ-zero` 对任意 `Judge` 为 `never`，没有有限 halt witness。 | 不能把 B 换成泛泛的高阶结构、任何不终止程序或某篇模型论文。 |
+| **Q** | 基础验收对于 formal completion 与原过程／有限完成之间是否必须审查、保持或支付 bridge 的观察责任。 | 不能由研究者自定义布尔值取代真实来源政策。 |
+| **P** | 未支付的完成／adequacy promotion：把一种形式对象、极限、模型或静态总体提升为原任务的已完成。 | 不能把任意存在公理或公理接受本身自动称为 P。 |
+| **Z0** | ZFC 的核心承诺或实际基础验收接口，只有同时有 AProjection、BProjection 与 SameQBridge 的候选才成为真正 Z0。 | 不能把单独的 ω、Power Set、模型或语义论文提升为 Z0。 |
+
+因此，任何只呈现“无限阶段 + 静态总体”的对象都标为：
+
+```text
+P_CANDIDATE_NOT_YET_A_B_BRIDGE
+```
+
+它可保留为 P 的候选材料，却不能消耗主线、进入 ZFC Q 结论或机器化。此前 `ω` 卡正处于这一状态。
+
 ## 3. 执行阶段
 
 ### PF-0：重置入口与反漂移检查
@@ -72,6 +92,18 @@ H0 relation / P1-P3 trace / local counterfactual
 
 每张 NodeCard 必须冻结 `T/u/F/C/Q/I/O/Done`、`QConvergenceLink`、source visibility、停止条件和禁止外推。每次 terminal run 必须做 trajectory receipt；单次模型输出只创建候选，不裁定理论。
 
+### PF-1B：命名理论、答案脱敏的直接模式匹配
+
+PF-1 的匿名轮廓控制“描述是否偷偷把答案塞进模型”。它不能替代研究发起人要求的另一件事：让模型直接调用自己关于 **ZFC** 的既有数学知识。完成至少一张 PF-1 匿名控制卡之后，允许一张 `BLIND_CARD` 只显示理论名 `ZFC` 与 H0 的抽象完成结构，而仍禁止项目答案、来源、Power Set、模型论文和历史候选。
+
+PF-1B 的任务是：由 ZFC 的核心承诺中独立选出至多两个显眼站位，并写出为何它们可能承载 H0 同形的完成问题。它不是文献来源，不能声称该站位已是 ZFC Q；其价值是检验模式 P 加已有数学知识能否一次定位，而不是让匿名轮廓的贫乏替模型作出选择。若 PF-1B 只重选已知 Power Set，必须回到现有 guard ledger；若它选出新站位，才进入 PF-2。
+
+### PF-1C：A/B 对位、答案脱敏的桥接发现
+
+PF-1B 的单端 H0 匹配不足。PF-1C 必须在不见项目答案、既有 ZFC candidate、MPIM、模型论文和来源结论的条件下，同时给出 A 的抽象完成形状与 B 的抽象有限证书失败形状，并且只命名理论 `ZFC`。它要求 P1 从 ZFC 的显眼核心承诺中选择一个**可能解释同一完成 promotion 的桥接接口**。
+
+PF-1C 的最小输出必须列：`AProjection`、`BProjection`、`SameQBridge`、`P` 的可能位置、一个反控制和后续来源义务。若任何一项缺失，terminal 只能是候选不足；不得因为选中了 ω 或任何无穷对象而放行。
+
 ### PF-2：Master 交叉收敛
 
 Master 不以投票决定候选。对每个输出应用：
@@ -81,6 +113,8 @@ Master 不以投票决定候选。对每个输出应用：
 3. **同一任务卡：** 对象、输入、操作、观察、Done 是否可固定？
 4. **P1/P2/P3 容纳：** 是旧刀字段缺口、三刀派生结构，还是出现真正的未容纳花纹？
 5. **反控制：** 是否可被有限／有界、显式 guard、直接付款或正常 false 分支解除？
+
+6. **A/B 同一政策：** 候选是否真正提供 AProjection、BProjection 和 SameQBridge？若仅有 P 的单端形状，登记 `P_CANDIDATE_NOT_YET_A_B_BRIDGE` 并回到 PF-1C。
 
 最多保留两张 `Z0_CANDIDATE`；其它记录为 `REJECTED_WITH_SCOPE`。只有出现字段冲突才启动一次有界 Battle。
 

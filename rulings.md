@@ -818,3 +818,17 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. 只有取得同源的 H0Map、AdequacyLift、QObservation 与 payment 后，才重新把芝诺 A 和 HoTT B 放进 C-359 的实际同 Q 检验。若来源保留 H0，理论变体不匹配，或只作模型 Done 而无 adequacy lift，都构成有界控制，不是 ZFC Q。
 
 本裁定授权用户 source、F-050、SOP、来源卡、P-DAG source nodes、相称的机器化、Feature/MEMORY/方向/全景记录和精确Git提交；不授权将 H0→Z0 假说写成 ZFC 形式矛盾、修改数学STATE、tag、push或外部发布。
+
+## 2026-10-04：H0→Z0 必须以 A/B 同一政策门和模式 P 先行收敛
+
+用户明确要求建立、命名并由 `/goal` 持续执行方案；随后追问“你还在处理A和B的事情吗？你知道这里的A是什么？B是什么吗？”。
+
+执行裁定：
+
+1. 稳定方案名为`H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP`。它的直接 `/goal` 启动语由方案第6节拥有；当前 Goal 必须在压缩／跨Session后重新水合该方案与当前 Master verdict。
+2. `A`固定为芝诺／圆环线、由标准解法来源接受的 revised completion；`B`固定为 main Cubical Agda `QuestioningDelay`在宇宙上的 finite-halt failure。二者不能被单端无穷对象、几何级数、泛HoTT或模型论文替换。
+3. `Z0`只有同时给出`AProjection`、`BProjection`和`SameQBridge`时才成立；单独的Power Set、ω、累积层级、模型或语义充分性只能是`P_CANDIDATE_NOT_YET_A_B_BRIDGE`或控制。
+4. MPIM／AWCCRS在HZ0-2后的身份是`PARKED_SOURCE_CONTROL`，不是当前发现入口。此后来源只在候选已通过A/B门且需要实际`C_accept`、H0Map、AdequacyLift或过程桥时进入。
+5. `Convergence 001`产生的有界当前判词是`ACTUAL_Z0_NOT_LOCATED / ACTUAL_SAME_Q_BRIDGE_NOT_LOCATED`。它不反驳bare ZFC理论精度假说；它禁止继续用同义无穷对象、模型论文或新的toy fixture虚构桥。重开条件由Master报告第8节拥有。
+
+本裁定授权用户原文、方案、答案脱敏P-DAG卡、来源映射、Master报告、Feature/MEMORY/方向/audit入口和精确Git提交；不授权把任一候选写成bare ZFC矛盾、修改数学STATE、tag、push或外部发布。
