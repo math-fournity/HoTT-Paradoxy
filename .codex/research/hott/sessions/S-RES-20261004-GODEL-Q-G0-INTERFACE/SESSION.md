@@ -8,7 +8,7 @@
 >
 > **宿主：** Codex desktop，Master；未启动 Sub Agent 或 App Server worker。对 `mm-lean4` 的 exact toolchain build 仅观察到 RC2 toolchain 下载开始，未产生 binary。
 >
-> **状态：** `G0_SOURCE_DENOMINATOR_FROZEN / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
+> **状态：** `G0_SOURCE_DENOMINATOR_FROZEN / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
 
 ## 1. 任务与完成标准
 
@@ -44,20 +44,22 @@
 | checker implementation | `digama0/mm-lean4@58123caf…` | `META_ONLY_IMPLEMENTATION_SOURCE_WITH_BUILD_GAP`：`check` 为 `partial def`，exact RC2 build 未完成。 |
 | ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；未有 Gödel coding/fixed point 或 parent bridge。 |
 | generic Gödel baseline | `Foundation@f3972f…` First/Second | `MACHINE_REPLAYED_GENERIC_GODEL_TECHNICAL_BASELINE_WITH_SCOPE`：code/quote/substitution/provability实际重放；没有target-specific ZFC/process实例化。 |
+| Foundation target-mapping control | project wrappers + exact Foundation source | 正控制确认 `𝗭𝗙𝗖 : SetTheory` 与 generic `ArithmeticTheory` theorem interface；负控制拒绝直接传入 `𝗭𝗙𝗖`。同树又有 `ω`／自然数递归模型正控制，却没有 concrete `DirectInterpretation` occurrence。这是 `FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE`，不是 ZFC 不完备性 theorem。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
 
 ## 4. 产出与下一动作
 
 - [G0 接口分母](../../../../../audit/20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md)：三个 source roles、Metamath GodelizationCard、正反控制、查询边界和下一来源门；
+- [Foundation ZFC 映射缺口控制](../../../../../audit/20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)：同源 `SetTheory`／`ArithmeticTheory` direct-application 的正负控制与 run receipt；
 - [GODEL-Q-REFLECTION-SOP](../../../../../dev-docs/哥德尔式ZFC完成观察反射方案SOP.md)：G0 状态与 module boundary；
 - [CC-20261004-godel-q-reflection](../../../../../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)：跨 Session 活动集、失效条件与 T 上位方案关系；
 - [本单元 core audit](CORE_COGNITION_AUDIT.md)：逐 KC、扩展认知、G0 分层和下一选择。
 
-唯一下一动作是：寻找**同一版本固定 source**，其 owner 同时给出 ZFC-facing formal acceptance、一个特定过程的 `OriginDone`，以及 bridge、task switch 或明确拒绝。未出现该 source 前，保持 G1–G6 `NOT_RELEASED`。
+唯一下一动作是：寻找**同一版本固定 source**，其 owner 同时给出 ZFC-facing formal acceptance、一个特定过程的 `OriginDone`，以及 bridge、task switch 或明确拒绝。若改走 Foundation generic theorem，则先要提供受验证的 actual interpretation／arithmetization；direct type mismatch 不能被误读成数学上的不可能。未出现该 source 前，保持 G1–G6 `NOT_RELEASED`。
 
 ## 5. 不做与范围
 
-- 不构造或运行新的 Lean/Agda **proof theorem**；对 `mm-lean4` 的 build attempt 未完成，不能充当 verifier correctness / totality evidence；
+- 本轮运行的 Foundation wrappers 只检查 source interfaces 与一个预期类型拒绝，不构造 bare-ZFC 或 completion-process proof theorem；对 `mm-lean4` 的 build attempt 未完成，不能充当 verifier correctness / totality evidence；
 - 不将 Metamath proof verification 当作 Zeno、circle 或 H0 原过程的 completion；
 - 不将本工作与上位 `T-PRECISION-DIAGONAL-SOP` 的 T0 混同；后者仍 `PLAN_READY_NOT_EXECUTING`；
 - 不修改 `STATE.json`/checkpoint，不推送或发布未审阅的其它 dirty 路径；

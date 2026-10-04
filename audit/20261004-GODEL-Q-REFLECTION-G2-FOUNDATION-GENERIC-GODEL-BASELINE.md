@@ -63,6 +63,12 @@ ArithmeticTheory | standardProvability | codeOfREPred | provabilityPred
 
 更不能把通用 arithmetic provability sentence 解释为芝诺、圆环或 fixed H0 的 completion task。`OriginDone`、reality map `ρ` 与 bridge 仍是 G0 的实际缺口。
 
+### 3.2 直接实例化的类型控制
+
+本轮随后用相同 source revision 写了两个极小 wrapper。正控制确认 `ZermeloFraenkelChoice : SetTheory`、`zfc_consistent` 与两条 generic theorem interface 均可由 Lean 读取；负控制直接写出 `Arithmetic.incomplete ZermeloFraenkelChoice`。Lean 以 `SetTheory` 不能充当 `ArithmeticTheory` 拒绝后者。完整原始诊断与 hash 见 [Foundation ZFC 映射缺口控制](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)。
+
+这使“没有 target mapping”得到一个可重放的**直接应用缺口**：同源共存不构成实例化。它仍不是数学上的不可能性结果；未来若有一个具体 interpretation、embedding 或 arithmetization，并逐项支付 theorem 的前提，就必须重新审计。
+
 ## 4. 结论与下一动作
 
 ```text

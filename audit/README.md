@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [GODEL-Q G2：Foundation ZFC 到通用哥德尔接口的映射缺口控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)：在固定 Foundation/Lean 4.34 source closure 中，正控制确认 `ZermeloFraenkelChoice : SetTheory` 和 generic `ArithmeticTheory` theorem 都真实存在；负控制显示二者不能直接应用。它只要求未来 target mapping 支付实际 interpretation／arithmetization，不给出 bare ZFC 的不完备性或完成观察结论。
+
 - [GODEL-Q G0/G2：mm-lean4 M 层 checker implementation 控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-MMLEAN4-META-CHECKER-CONTROL.md)：固定 `digama0/mm-lean4@58123caf`，在非 canonical Lean 4.26.0 上实际构建，接受 official `demo0.mm` 并拒绝一处公理变异。源码 `partial def check` 与 RC2 toolchain gap 使其严格保持为 `META_ONLY` runtime control，不能支付 totality、soundness、T 内 provability 或 parent completion bridge。
 
 - [GODEL-Q G0/G2：Flypitch ZFC proof-relation source（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-FLYPITCH-ZFC-PROOF-RELATION.md)：固定 `flypitch/flypitch@d72904c` 的 Lean 3 deep embedding：`ZFC`、proof tree、`T ⊢' f` 与 substitution 都可定位，且 source 报告 CH independence theorem。它是 M 层 ZFC proof-relation baseline，当前 source replay、Gödel numbering、T 内 provability、fixed point 和 parent completion bridge 均未支付。

@@ -112,6 +112,8 @@ NO_G2_TOTALITY_OR_T_INTERNAL_REPRESENTABILITY_PAYMENT
 
 这正是 GODEL-Q 需要借鉴的技术骨架，但 theorem 的量词仍是带明确假设的 `ArithmeticTheory`。当前没有 map 将 `set.mm`／bare ZFC 的 actual interface 证明为满足这些假设，也没有将对角 sentence 解释为 parent completion task。完整运行与范围在 [Foundation 基线报告](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md) 中固定。
 
+这一缺口现已有一个精确的类型控制，而不是只靠“没有看到 map”的叙述：Foundation 同时暴露 `ZermeloFraenkelChoice : SetTheory` 和通用 `ArithmeticTheory` theorem，但把前者直接作为后者的 `T` 会被 Lean 以 `SetTheory`／`ArithmeticTheory` 类型不匹配拒绝。正、负控制及其 run receipt 见 [Foundation ZFC 映射缺口](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)。这个结果只阻断**直接**实例化；它不证明不存在可另行构造、并经完整前提验证的算术化或解释。
+
 ## 5. GodelizationCard B/C：为何不能把另外两类来源补成同一个接口
 
 | 字段 | `G0-B-IEP-NORTON` | `G0-C-C366-ZERMELO` | G0 结论 |
