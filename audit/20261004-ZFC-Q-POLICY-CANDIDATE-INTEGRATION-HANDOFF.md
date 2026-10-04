@@ -2,7 +2,7 @@
 
 > **身份：** `CANDIDATE_NOT_CURRENT / INTEGRATION_REQUIRED / NO_CANONICAL_OWNER_MUTATION_IN_THIS_WORKTREE`。
 >
-> **本候选内容范围：** `35448f86^..00427fc7`（包括最初 C-359 包，至本次 source/formal closure），branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。本交接单自身的后续更新不倒灌进这组 content commits；集成前仍须重新读取 branch tip。
+> **本候选内容范围：** `35448f86^..5e04698c`（包括最初 C-359 包、C-360 至 C-365、来源范围审计和形式化收尾矩阵），branch `codex/zfc-q-policy-formalization`，共同基线 `e10771d96940f43ebfb7747898bb1ce6ecb29b17`。本交接单自身的后续更新不倒灌进这组 content commits；集成前仍须重新读取 branch tip。
 >
 > **最近观察的 canonical target：** `refs/heads/dev = 213a616a653ca964127a710497f231a0a3d3fef9`；它是本次读取时的事实，不是可直接写入目标。
 
@@ -17,11 +17,11 @@
 | `C-365` | Lean 4 core 的成员语言不变性：最小 `=`／`∈` 一阶公式和同语言 theory 在相同 membership 的外加 Done expansion 中不变；这给 C-362/C-364 的语言边界以归纳语义证明。 |
 | `C-360` | Cubical Agda 原生控制：固定截断 Q 的 stage-one completion 不反射为原 universe Q 的有限 halt；负控制在 `nothing != just 1` 处被拒绝。 |
 | `C-361` | Lean/Mathlib 实分析控制：(1-2^{-n}) 的形式极限不推出任何有限自然数阶段到达 endpoint；闭连续时间 endpoint 正控制同时成立，经典依赖明示。 |
-| 来源与范围 | IEP/SEP/Norton 的 Zeno-side local completion policy、跨 kernel 映射、HoTT 动机文献 B0–B2 回流，以及明确的 actual-Q/cross-case-scope 未支付项；总判词见 [收敛 closure](20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)。 |
+| 来源与范围 | IEP/SEP/Norton 的 Zeno-side local completion policy、跨 kernel 映射、HoTT 动机文献 B0–B2 回流，以及明确的 actual-Q/cross-case-scope 未支付项；总判词见 [收敛 closure](20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)，七项 theorem 与 controls 的交叉核验见[形式化收尾矩阵](20261004-ZFC-FORMAL-CLOSURE-MATRIX.md)。 |
 | 收据基础设施 | capture 工具改为由 `git rev-parse --show-toplevel` 接受 linked worktree，并可 pin Lean binary。 |
 | 用户原文 | 2026-10-04 一手原文已保存；generation-14 curation 已做 63-KC、62/62 transition 的只读预演，尚未直接覆盖 current core。 |
 
-本候选中 C-359/C-360/C-361/C-362/C-363/C-364/C-365 的 selected version closure 在完成后续 commit 后应通过：
+本候选中 C-359/C-360/C-361/C-362/C-363/C-364/C-365 的 selected version closure 已在内容 tip `5e04698c` 复核通过；canonical integrator 仍须在接收后的 target snapshot 重跑：
 
 ```text
 python3 -B scripts/audit/verify_proof_version_closure.py \
