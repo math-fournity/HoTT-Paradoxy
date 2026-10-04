@@ -197,6 +197,25 @@ G1_TO_G6_NOT_RELEASED
 
 “complete”只说本卡承诺的来源分母、角色分离、正反控制和有界检索已经完成；它不说整个 GODEL-Q 方案、bare ZFC 分析或任何数学 theorem 已完成。
 
+### 7.3 形式化生态的独立 holdout 筛选
+
+为检验 §7.2 的结论是否只是搜索词选择造成的空白，本轮另以形式化生态为入口查询：
+
+```text
+"Zeno's paradox" Mizar formalization
+"Zeno's paradox" "Isabelle/ZF" formalization
+"Zeno's dichotomy" Coq formalization proof
+"Zeno's paradox" "formal proof" limit theorem prover
+```
+
+返回内容仍没有一个可升级候选：其中有哲学文献、一般连续统/极限讨论和与名称相碰的非目标材料，但没有版本固定对象将 proof assistant/ZFC-facing foundation、特定过程的 `OriginDone` 和接受桥写为同一合同。故此 pass 的准确身份是：
+
+```text
+INDEPENDENT_FORMALIZATION_ECOSYSTEM_HOLDOUT_NO_MATCH_WITH_SCOPE
+```
+
+它增加 G0 分母的独立性，不扩大任何否定结论。至此停止同类网页搜索；后续只接受新 source ingress、actual target mapping 或 user-fixed process contract。
+
 ## 8. 可复查动作
 
 ```bash
