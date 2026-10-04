@@ -158,4 +158,4 @@ MPIM／模型线是否被错误抬回主线？
 
 ## 7. 方案验收
 
-PF-B R1 已经完成第一张 formation-only control。它之后的第一件可验证工作是 PF-B2 过程锚再审，再对其冻结 profile 运行一次 P1 来源脱敏 DiscoveryCard；P2/P3 只在有同一卡父候选时运行。每张卡仍必须在不见 MPIM、AWCCRS、Power Set、既有答案和项目文件的条件下，给出可区分的 public MatchTrace。只有这样，才能检验模式 P 是否真的先于文献惯性定位 Z0。
+PF-B R1 已经完成第一张 formation-only control。PF-B2 随后冻结 process-anchor profile 并运行一次 P1，终态为`P_MATCH_NO_SITE_WITH_SCOPE`：画像只给静态 totality、有限 local step 与归纳／递归接口，没有理论原生 process-wide completion task。因无冻结父卡，P2/P3按合同不运行，PF-C仍不进入。该结束记录见[PF-B2 P1运行报告](../audit/20261004-P-DAG-H0Z0-PF-B2-INDUCTIVE-P1-Terra-Max.md)。因此本 SOP 的当前 active lanes 已达到有界终态；除非出现本方案 §4 所列的重开条件，不再追加 profile、来源搜索或形式化。这个结论只关乎冻结 profile 与本方案，不能被写成 bare ZFC 判词。

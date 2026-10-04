@@ -91,3 +91,9 @@ ZFC_Q_LOCATED = NO
 PF-B2 已将上段的要求写成可复核的方法卡：[过程锚点再审](20261004-H0-Z0-PATTERN-FIRST-PF-B2-过程锚点再审.md)。它的核心裁决是：初始 profile 给了 formation，但没有给 theory-native local step／observation、process-wide Done 或 bounded control；故 P2/P3 的空结果是画像约束，而非 ZFC 的防线。
 
 下一轮先运行一张来源脱敏 P1 卡。若 P1 没有留下冻结的 `T/u/F/Q/I/O/Done`，该卡停止为有界无候选；若留下，P2/P3 只能对该父卡接力。PF-C 仍然必须等待三刀同卡存活，不能因 PF-B2 的方法修订提前读取 MPIM、一般模型论文或实际来源。
+
+## 8. PF-B2 P1 的终态与本 Goal 的边界
+
+PF-B2 的独立 P1运行已经结束，完整实物见[运行报告](20261004-P-DAG-H0Z0-PF-B2-INDUCTIVE-P1-Terra-Max.md)。它在保留 finite step、induction/recursion 与 bounded control 的去标识画像中返回`NO_MODEL_RECALL_CANDIDATE / FORMATION_ORIGIN_NOT_SUPPLIED`。公开 trace 的理由是：totality和单步推导不足以支付一个理论原生的process-wide Done，补进建造轨迹会是画像外的发明。
+
+这个结果使 PF-B 的当前范围达到有界终态。P2/P3未运行是合同正确执行，而不是漏项；PF-C未进入是没有surviving candidate的直接后果。以后只有新的、来源固定的核心interface或native completion task才能重开本路线。它不支持任何关于bare ZFC、归纳总体或数学真理的负结论。

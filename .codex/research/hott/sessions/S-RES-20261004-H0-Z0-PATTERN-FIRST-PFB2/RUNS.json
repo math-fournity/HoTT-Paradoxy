@@ -1,0 +1,34 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261004-H0-Z0-PATTERN-FIRST-PFB2",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "H0Z0-PFB2-INDUCTIVE-P1-001",
+      "status": "BOUNDED_NO_SITE_WITHIN_PROCESS_ANCHOR_PROFILE",
+      "actor": "gpt-5.6-terra / max",
+      "profile": "blind-discovery / governance-regression-fresh / read-only / network=false / approval=never",
+      "prompt_sha256": "97c92d7be9d6b29fc7999c3bdcba9ce0534a05748046764a80c4876995057fe9",
+      "public_output_sha256": "e79589c1684dd3262ec24d81a114b23b2b67c62624e63fe1d1ec4bdd190ca741",
+      "wire_sha256": "c2fe900398206e807863ca020154b0d35353de1f4bbf9a46298630cde843e9e2",
+      "terminal": "NO_MODEL_RECALL_CANDIDATE / FORMATION_ORIGIN_NOT_SUPPLIED",
+      "side_effects": {"command": 0, "file_change": 0, "approval_request": 0},
+      "trajectory": "catalog/tree/filtered scan/coverage; direct wire only; L1/L2/L3 not certified",
+      "evidence": "audit/20261004-P-DAG-H0Z0-PF-B2-INDUCTIVE-P1-Terra-Max.md"
+    },
+    {
+      "id": "H0-Z0-PFB2-DOCUMENT-VALIDATION",
+      "status": "PASS_WITH_SCOPE",
+      "commands": [
+        "git diff --check",
+        "python3 -B scripts/audit/verify_governance_shards.py",
+        "python3 -B scripts/audit/verify_pattern_p_tool_history_sources.py --root .",
+        "python3 -B scripts/audit/verify_math_proof_delivery_governance.py",
+        "canonical session_trajectory catalog/tree/scan/coverage"
+      ],
+      "scope": "document structure, prompt identity, runtime identity and trajectory boundaries; not a mathematical proof"
+    }
+  ]
+}

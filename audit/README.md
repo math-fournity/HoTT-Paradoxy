@@ -4,6 +4,8 @@
 
 - [H0→Z0 PF-B2：H0 过程锚再审（2026-10-04）](20261004-H0-Z0-PATTERN-FIRST-PF-B2-过程锚点再审.md)：把 PF-B R1 的 formation-only 空结果定位为 profile 缺少过程锚字段，而非 ZFC 防线。下一步只运行一张保留 subject／step／local observation／process-wide Done／bounded control 的来源脱敏 P1 卡；P2/P3必须等待同一冻结父卡，PF-C仍被阻断。
 
+- [H0→Z0 PF-B2 P1：归纳总体过程锚盲态运行（2026-10-04）](20261004-P-DAG-H0Z0-PF-B2-INDUCTIVE-P1-Terra-Max.md)：P1在有 finite step、induction/recursion 与bounded control的去标识画像中拒绝将静态totality升级为native process-wide completion task。终态为`P_MATCH_NO_SITE_WITH_SCOPE`；没有父卡，P2/P3和PF-C按合同不运行。本 Goal 的active lanes因此有界结束。
+
 - [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它是避免误拼模型的条件性控制，后继只在实际`C_accept`或冻结 H0Map 直接需要该链时重开，不作 ZFC Q 结论。
 
 - [P-DAG H077–H080：极限、完成定义与圆环 Q0 的来源 Battle（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-077-080-Terra-Max.md)：Norton的实际completion合同、Bathfield/Sierpińska的bridge批评、H079采样前marker失败及H080独立裁决共同显示：争点是`Done_strict / Done_revised / Done_formal`的任务契约，不是数学事实冲突或ZFC矛盾；全局Q1仍未会合。
