@@ -73,5 +73,33 @@
     "No theorem that all limit or truncation uses replace the same task.",
     "No source proof of community-wide P adoption or P-to-B causation.",
     "No canonical current-owner update from this contributor worktree."
-  ]
+  ],
+  "candidate_branch_independent_validation": {
+    "envelope_id": "LEB-20261004-ZFC-ACTUAL-Q-POLICY-VERIFY-001",
+    "authority_status": "FROZEN_CANDIDATE_ONLY",
+    "candidate_ref": "codex/zfc-q-policy-formalization",
+    "candidate_commit": "ea6c338f777f51dfaaa2a44122c72f2dfaa997cb",
+    "candidate_base_against_observed_dev": "e10771d96940f43ebfb7747898bb1ce6ecb29b17",
+    "observed_dev_head": "81140216b519f418a5064ca21258c8ffa0afa7f8",
+    "verification_worktree": "/Users/aurolafly/.codex/worktrees/zfc-q-policy-verify-20261004",
+    "selected_proof_ids": [
+      "MP-ZFC-ACTUAL-Q-POLICY-002",
+      "MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+      "MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001",
+      "MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001",
+      "MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001",
+      "MP-ZFC-UNPAID-COMPLETION-PROMOTION-001",
+      "MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001"
+    ],
+    "proof_closure_verdict": "SELECTED_PACKAGES_VERSION_CLOSED",
+    "fresh_replay": {
+      "lean_core_modules": 5,
+      "lean_core_axiom_report": "all listed theorems report no additional axioms",
+      "mathlib_control": "exit 0; declared propext, Classical.choice, Quot.sound",
+      "cubical_positive": "exit 0",
+      "cubical_negative": "exit 42 at nothing != just 1"
+    },
+    "impact": "I1 / Q_NARROW / no canonical owner mutation",
+    "report": "audit/20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md"
+  }
 }

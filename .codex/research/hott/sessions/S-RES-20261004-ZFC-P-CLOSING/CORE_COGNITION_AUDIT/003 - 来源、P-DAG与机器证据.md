@@ -23,3 +23,16 @@ H100–H105均由外部实验根的 direct App Server wire支持。公开报告�
 ## 机器证明边界
 
 `CompletionSubstitutionProfile.lean`只证明冻结 `EvidenceStatus` fixture 的逻辑分类。它不解析IEP或HoTT原典，不证明来源作者采纳某政策，也不推导现实任务的同一性。run `...-02` 退出0、stderr空、15个打印定理无额外公理；source-manifest绑定proof、claim、TaskCard与capture脚本。
+
+## 候选分支验证增量
+
+本续行独立冻结并核验 `codex/zfc-q-policy-formalization@ea6c338f`。它不是 canonical current
+evidence：live source worktree dirty，故只使用 Git object 和 clean detached verification worktree。selected
+proof closure 对 C-359–C-365 返回 `SELECTED_PACKAGES_VERSION_CLOSED`；五个 Lean-core modules 的 theorem
+均无额外公理，C-361 的 Mathlib control 明示 classic axioms，C-360 的 Cubical Agda positive control exit 0、
+negative control 在 `nothing != just 1` 处 exit 42。
+
+它带来的事实不是 actual ZFC Q，而是更窄的形式边界：最小 `=`／`∈` formula theory 对未进入语言的
+`originDone` 不变；强 P 与 HoTT B 的 `False` 需要显式 `PolicyScopeWitness`。这正支持现有
+R1/R2/R3 收束，且阻止把 completion 名词相似误报为同一任务。完整 B0–B3 见
+`audit/20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md`。
