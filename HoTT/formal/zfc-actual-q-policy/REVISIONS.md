@@ -37,6 +37,12 @@ PolicyScopeWitness
 
 该文件的 `MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` 是 C-362 的独立 proof package；它是 C-359 的解释性中间边界和正控制，不把 `ZFCOneUse` 的来源前提自动变成实际事实。
 
+## 2026-10-04：把“同一 Q 异判”从口头结论固定成条件性政策 theorem
+
+研究发起人的终局逻辑并不止于“ZFC 没有决定 Done”。还包括：若同一个完整 Q 在芝诺侧被判原任务已解决，在 HoTT 侧又被判必须补 bridge，则同一基础观察政策无法保持统一。候选 worktree 中已有同形 Lean 代码，但它仍是 `CANDIDATE_NOT_CURRENT`，并且不能直接替代本分支的证据闭环。
+
+本分支因此重建并独立运行 [ZFCCompletionPolicyUniformity.lean](ZFCCompletionPolicyUniformity.lean)。C-363 明确给出 full profile equality、两个 judgment 与 `QUniform` 的条件 theorem，也保留“只共享 requiresBridge 时可以合理异判”的反控制。它不把当前 IEP、SEP、Norton、圆环或 Cubical Agda 来源字段填成 true／false；实际映射仍须由 source card 支付。
+
 ## 2026-10-04：HoTT wrapper 的初始导入失配与最小修复
 
 [HoTTCounterexample.agda](HoTTCounterexample.agda) 初版在使用空类型 `⊥` 时漏导入 `Cubical.Data.Empty`，因此首次尝试只得到 `Not in scope: ⊥`。该错误尚未触及所需的 completion-reflection 命题，不能被报告为数学反例。
@@ -64,5 +70,6 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 | `ZFC1IllusionPolicy.lean` | 否 | 预备草稿被 Lean 拒绝，且同 Q 概念不充分。 |
 | `ActualQPolicy.lean` | 是，`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06` 是 current primary | 以严格任务等价阻止 metadata 类比，同时单列必须由来源审计支付的政策范围；明确 Lean 字段不伪称来源归属；证明 use-model 不自动制造 B；全部交付定理无 `sorry`、无额外公理。 |
 | `ZFCObservationLanguage.lean` | 是，`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01` 是 C-362 primary | 对任何 membership-only theory 形式化外加 Done 的不决定性与 explicit bridge 正控制；不编码 ZFC 公理或其模型。 |
+| `ZFCCompletionPolicyUniformity.lean` | 是，`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01` 是 C-363 primary | 对完整 QProfile 下的 O3–O5 adequacy 与 Q-uniformity给出条件 theorem 和粗字段反控制；不填实际来源 profile。 |
 | `HoTTCounterexample.agda` | 是，`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01` 已索引并精确重放 | 固定 native Cubical Agda Q 的强 P 反例。 |
 | `WrongHoTTCounterexample.agda` | 是，作为已捕获的负控制 | `...NEG-001-01` 在 `nothing != just 1` 处拒绝伪 witness。 |

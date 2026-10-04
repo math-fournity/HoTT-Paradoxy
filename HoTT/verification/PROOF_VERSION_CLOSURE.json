@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 214,
+  "later_machine_proved_claim_count": 215,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -1050,6 +1050,16 @@
    "kind": "lean_core_membership_language_completion_boundary_and_paid_bridge_control",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: every base theory that consumes only a membership model admits, conditional on a base model, same-membership expansions with opposite external originDone readings; a shared explicit CompletionBridge determines originDone and rejects the opposite pair.",
    "notes": "Lean 4.34.1 core, no Mathlib imports, pinned compiler binary, no sorry/admit and every listed theorem reports no axioms. MembershipTheory is an explicit semantic language boundary, not an encoding of the ZFC axiom scheme. The proof does not construct a ZFC model, establish consistency/inconsistency, show that ZFC cannot define a process predicate, identify the user circle Done, or establish a source-owned acceptance policy. It formalizes only the requirement that an unmentioned external completion predicate needs an explicit specification/bridge before the base layer can determine it."
+  },
+  {
+   "proof_id": "MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001",
+   "claim_ids": "C-363",
+   "source": "HoTT/formal/zfc-actual-q-policy/ZFCCompletionPolicyUniformity.lean",
+   "toolchain": "HoTT/formal/zfc-actual-q-policy/LEAN_TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01",
+   "kind": "lean_core_conditional_completion_policy_uniformity_and_o3_o5_controls",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: equal full Q profiles with opposite originalResolved and bridgeRequired judgments violate QUniform; an original-resolution judgment with a missing required bridge violates O3O5Adequate; a payment-difference control permits reasonable different judgments.",
+   "notes": "Lean 4.34.1 core, no Mathlib imports, pinned compiler binary, no sorry/admit and every listed theorem reports no axioms. The QProfile booleans are conditional modeling inputs, not source evidence. This proof does not establish that actual Zeno, the user circle, or fixed HoTT Q share a full profile, that a source makes either judgment, that O3--O5 are ZFC axioms, or that ZFC has an object-language inconsistency."
   },
   {
    "proof_id": "MP-TERRA-T2-ONESHOT-001",

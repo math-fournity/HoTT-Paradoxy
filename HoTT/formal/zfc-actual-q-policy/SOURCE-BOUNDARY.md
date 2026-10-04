@@ -43,3 +43,5 @@ IEP 不支持：用户圆环强 Done 或 HoTT Q 已由该局部政策无桥地�
 2026-10-04 的扩展来源分母进一步显示：Norton、SEP 与 Roberts 都公开区分 `Done_strict`／`Done_revised` 或 final-action completion／all-steps completion。IEP 同时提供 local runner-policy 的实际来源文本。这形成 `SOURCE_ZENO_POLICY_ESTABLISHED_WITH_SCOPE + SOURCE_TASK_CONTRACT_SPLIT`，仍不构成跨圆环与 HoTT 的政策范围证明。见 [芝诺来源完成政策卡](../../../audit/20261004-ZFC-ACTUAL-Q-ZENO-SOURCE-COMPLETION-CARD.md)、[P 的来源范围审计](../../../audit/20261004-ZFC-ACTUAL-Q-POLICY-SCOPE-SOURCE-DENOMINATOR.md) 与[三方完成模式卡](../../../audit/20261004-ZFC-ACTUAL-Q-TRIAD-COMPLETION-MAPPING.md)。
 
 `C-362` 还给出一个机器化的语言边界控制：membership-only base theory 对外加 `originDone` 的真值不作判断，直到某个 specification/bridge 被支付。它不将这条一般事实归因于 ZFC 的实际实践，也不证明用户圆环 Done 在 ZFC 中不可定义；它只解释为什么来源卡必须指出那个定义或 bridge，而不能从“ZFC 能表示集合”推断它已经审查了过程完成。
+
+`C-363` 给出另一个条件性终局：完整 QProfile 相同、但一边是`originalResolved`另一边是`bridgeRequired`时，Q-uniform policy 不成立。当前来源并没有支付 profile equality 或 HoTT-side policy judgment；因此该 theorem 只能作为实际来源卡的后继 consequence，不能用来提前裁定 Standard Solution 或 ZFC。
