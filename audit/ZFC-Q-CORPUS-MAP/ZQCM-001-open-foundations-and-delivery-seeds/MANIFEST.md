@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-011_VSET01_SOURCE_SCREEN / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-012_VUF05_SOURCE_SCREEN / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -96,3 +96,5 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-010 rationale.** V-CMP-02 has now completed source-only visual review and its bounded source screen. Džamonja’s title frames a possible foundational crisis, but the abstract and conclusion deny that one is present. Its valuable material is instead a precise comparison boundary: a standard Restricted Comprehension account of Russell, a broad P5-style comment about witnesses, and carefully separated type theory, proof assistant, model, consistency-strength and philosophical-pluralism layers. It qualifies as a standard-defense and P5 source-precision control; it does not identify an ordinary ZFC actual consumer, a same-task failure, or a Q candidate.
 
 **Extension-011 rationale.** V-SET-01 has now completed source-only visual review and its bounded source screen. It is the batch's first directly practice-focused source: the authors distinguish a formal ZFC encoding, metamathematical model work, forcing/class/preservation conditions, intended-universe philosophy and an interviewee's practical judgment. This turns the “actual consumer” demand into a source-grounded method: its most concrete consumers transparently externalize model existence, consistency and relative-strength payment. It therefore qualifies as actual-practice and metamathematical-payment control, not as a bare-ZFC Q candidate. Its backward map identifies Džamonja–Panza as a priority qualification ingress, subject to independent acquisition and source screening.
+
+**Extension-012 rationale.** V-UF-05 has now completed source-only visual review and its bounded source screen. Rodin’s author preprint directly juxtaposes a `P(A)` that may be spoken of as a set-theoretic construction with the Power Set axiom as an existential guarantee for any given set. It is therefore a precise HoTT-motive / Power Set rule-versus-existential source seed. The same source places ZF externally as a basis for HoTT model theory, makes its proposal for scientific representation explicitly philosophical and imprecise, and does not fix an ordinary bare-ZFC consumer, a same task, or an unpaid Done. It qualifies as a controlled `R_i → Z_i` ingress, not as a ZFC Q candidate.
