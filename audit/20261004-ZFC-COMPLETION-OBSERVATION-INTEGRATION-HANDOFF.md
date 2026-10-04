@@ -91,7 +91,8 @@ H100–H105的来源结论引用下列已存在或须同步带入的材料：IEP
 
    ```sh
    /Users/aurolafly/.elan/bin/lean HoTT/formal/zfc-observation-boundary/CompletionSubstitutionProfile.lean
-   /Users/aurolafly/.elan/bin/lean HoTT/formal/zfc-observation-boundary/CompletionPromotionTension.lean
+   python3 -B HoTT/formal/zfc-observation-boundary/capture_completion_promotion_tension.py \
+     <fresh-positive-run-id> <fresh-negative-run-id>
    python3 -B scripts/audit/verify_zfc_completion_observation_closure.py
    python3 -B scripts/audit/verify_governance_shards.py
    python3 -B scripts/audit/verify_pattern_p_tool_history_sources.py --root .
