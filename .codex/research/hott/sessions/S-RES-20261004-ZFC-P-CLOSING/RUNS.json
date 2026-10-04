@@ -43,6 +43,20 @@
       "scope": "wrong coarse meta promotion rejected at unresolved originDone state"
     },
     {
+      "proof_id": "MP-ZFC-COMPLETION-PROMOTION-TENSION-001",
+      "run_id": "20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-001-02",
+      "path": "HoTT/verification/runs/20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-001-02/RUN.json",
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "scope": "policy P is distinct from a semantic completion bridge; Q-missing alone does not entail P adoption; bridge-paid positive control included"
+    },
+    {
+      "proof_id": "MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001",
+      "run_id": "20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001-02",
+      "path": "HoTT/verification/runs/20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001-02/RUN.json",
+      "status": "KERNEL_REJECTED",
+      "scope": "wrong promoted-policy soundness rejected at the same unresolved countertrace state"
+    },
+    {
       "proof_id": "MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001",
       "run_id": "20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04",
       "path": "HoTT/verification/runs/20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04/RUN.json",
@@ -90,6 +104,13 @@
       "actual_kernel_result": "Lean rejected the intended coarse-promotion theorem at the unresolved state",
       "failure": "capture helper looked only at stderr although Lean emitted the expected diagnostic on stdout",
       "repair": "capture helper now checks both streams; NEG-001-02 has outcome_matches_expectation=true"
+    },
+    {
+      "run_id": "20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-001-01 / 20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001-01",
+      "status": "SOURCE_PREPARATION_FAILURE",
+      "actual_kernel_result": "positive source was rejected because its import was not at the beginning; negative source then failed to locate the dependency module",
+      "failure": "initial module ordering prevented the intended positive and negative mathematical checks",
+      "repair": "move the import before the module documentation, rebuild temporary dependencies, and accept only the -02 positive/negative pair"
     }
   ],
   "non_goals": [
@@ -125,5 +146,16 @@
     },
     "impact": "I1 / Q_NARROW / no canonical owner mutation",
     "report": "audit/20261004-ZFC-ACTUAL-Q-CANDIDATE-VALIDATION-B0-B3.md"
+  },
+  "hott_motive_zfc_backflow": {
+    "envelope_id": "LE-20261004-HMZ-352e9874-B0",
+    "authority_status": "FROZEN_CANDIDATE_ONLY",
+    "candidate_ref": "codex/hott-motive-zfc-literature",
+    "candidate_commit": "352e9874eea4b074739ea0dc7f26e154581a279f",
+    "route_cards": 8,
+    "route_remainder": 0,
+    "impact": "I1 source-frontier refinement only; no I4 and no ForgeIntent",
+    "verdict": "LITERATURE_BACKFLOW_COMPLETE_WITH_SCOPE / SOURCE_FRONTIER_REFINED / ZFC_Q_NOT_LOCATED",
+    "report": "audit/20261004-P-FORGE-LITERATURE-BACKFLOW-HOTT-MOTIVE-ZFC-CANDIDATE-AUDIT.md"
   }
 }

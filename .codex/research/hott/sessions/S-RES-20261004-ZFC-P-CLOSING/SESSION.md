@@ -8,7 +8,7 @@
 | profile | `RESEARCH_PROFILE_GOVERNED`：用户要求持续完成 ZFC 收束；来源、主分支 HoTT 发现、P-DAG node 与机器命题共同改变终局措辞。 |
 | user objective | 综合芝诺、圆环、罗素计算视角与 main 的 HoTT 发现，收束 ZFC 问题查找，而不是把 P 当成独立漫游主题。 |
 | current result | `ZFC_COMPLETION_OBSERVATION_AUDIT_REQUIRED`：IEP 的 ZFC 基础语境 Standard Solution 有 R1 resolution 与 R2 Done replacement，R3 same-task payment 在固定来源包中不可得；HoTT 截断控制给同形 R1/R2/R3 结构。 |
-| formal evidence | 11 个新鲜 run：四个 ZFC Lean核、Meta/Sub Theory 正负对、P来源 profile、QuestioningDelay与C-83各自主包／负控制；closure verifier 当前 PASS。 |
+| formal evidence | 13 个新鲜 run：四个 ZFC Lean核、Meta/Sub Theory 正负对、completion-promotion 正负对、P来源 profile、QuestioningDelay与C-83各自主包／负控制；closure verifier 当前 PASS。 |
 | strict boundary | 未证明 ZFC 不一致、ZFC 缺少所有时间表达、实际共同体采用统一 P、`P → B`、实际 Zeno 与 HoTT 的同一任务等价或完整 QProfile。 |
 | next trigger | 只在来源提供 R3 preservation bridge、共同 P／采纳来源或 `P→B`来源时重开广泛发现；否则当前收尾综合保持。 |
 
@@ -53,3 +53,29 @@ formal completion 并把它升格为 origin completion，它必须提供 statewi
 fresh positive run `20261004-MP-ZFC-META-SUBTHEORY-AUDIT-001-02` 为 Lean 4.34.1 exit 0、十个 theorem
 无额外公理；负 run `...NEG-001-02` 正确拒绝 coarse meta promotion。实际 ZFC consumer 与实际圆环／芝诺
 origin Done 仍未 source-map，故本项为 `Q_NARROW` 而非 ZFC Q 会合。
+
+## completion-promotion P 的语义收束（续行）
+
+`CompletionPromotionTension.lean` 将“数学幻觉 P”从一个标签收紧为一个政策语义：P 是允许
+`formal completion → origin-process completion` 的 derivation rule，`CompletionBridge` 才是使该 rule
+对过程语义健全的 statewise 事实。coarse fixture 在同一 `unresolved` state 同时给出 A（formal Done）与
+B（origin Done 为假）；采用 P 的 policy 因而不健全。反向 control 表明：Q-missing observation 本身并不蕴含
+P adoption；bridge-paid task 上同一 rule 可以健全。
+
+fresh positive run `20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-001-02` 以 Lean 4.34.1 exit 0 通过，
+14 个打印 theorem 无额外公理；negative run `...NEG-001-02` 在同一 unresolved state 正确拒绝错误的 soundness
+证明。`-01` pair 保留为 import-placement 的实现准备失败，不作数学负控制。此结果把用户 Q/P/A/B 链的
+“P 是什么”精确化，但不改变 actual ZFC adoption、actual P→B 或 object-language contradiction 的边界。
+
+## HOTT-MOTIVE-ZFC 文献候选回流（续行）
+
+按 `P-FORGE-LITERATURE-BACKFLOW-AUDIT-SOP` 的 B0–B5，本续行冻结
+`codex/hott-motive-zfc-literature@352e9874eea4b074739ea0dc7f26e154581a279f`，排除其 dirty worktree 内容与
+`674df726` broad snapshot。八条路线（结构、形式化、Power Set totality、H0 universe、schema Build、higher
+semantics、P5 delivery、community antecedent）均完成 RB-D01–RB-D16 处置，均为 I1 candidate source-frontier
+refinement；没有 same-layer same-task unpaid consumer，故没有 I4、没有 ForgeIntent、没有 ZFC Q。
+
+这条回流使 P/Q 共同锻造更严格：未来来源必须改变实际 consumer、同形成路线、P2/P3 lifecycle、P5 preemptive use、
+P6 same Done 或 T0–T5-preserving H0 transport 中的明确字段。详情见
+`audit/20261004-P-FORGE-LITERATURE-BACKFLOW-HOTT-MOTIVE-ZFC-CANDIDATE-AUDIT.md`；该审计保持
+`FROZEN_CANDIDATE_ONLY`，不改 canonical owner。

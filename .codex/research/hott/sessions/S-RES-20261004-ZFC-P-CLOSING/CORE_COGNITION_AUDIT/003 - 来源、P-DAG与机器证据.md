@@ -48,3 +48,16 @@ base，要么来自 `P → B`；在排除 base-B 后可回溯到 P。该 theorem
 用户此前的 Meta Theory/Sub Theory 明确原文也被直接消费：新的 `MetaSubtheoryAudit.lean` 以正向 bridge
 control 和负向 coarse-promotion rejection 机器化“元理论接受子理论 formal completion 时，若要交付 origin
 completion 就须支付 bridge”的责任。它是理论责任形状，不是实际 ZFC source claim。
+
+## 本续行：P 的 promotion 语义与文献回流
+
+`CompletionPromotionTension.lean`在上段的 Meta/Sub bridge contract 上区分了两件常被自然语言混合的事：
+`PAdopted` 是从 formal Done 导出 origin Done 的政策 rule；`CompletionBridge` 才是使 rule 对过程语义健全的事实。
+coarse fixture 在同一 `unresolved` state 有 A（formal Done）和 B（origin Done 为假），内核因而拒绝 promoted
+policy 的 soundness；另一个 guard control 又表明 Q-missing 不会自动推出 P adoption。这使 user Q/P/A/B 链的
+逻辑部分更精确，但没有增加 actual-source P→B 或 community-adoption 证据。
+
+本续行也以 `LE-20261004-HMZ-352e9874-B0` 冻结另一 worktree 的 HOTT-MOTIVE-ZFC 文献候选。八张
+RouteBackflowCard的 P1/P2/P3/P5/P6、same-task、payment 和 T0–T5 处置均完成：结构/形式化来源给显式 payment，
+Power Set totality 给 task/route split，universe/HIT/realizability给 layer/transport controls，community antecedent
+只调整历史认识论基线。结果为 I1 source-frontier refinement，非 current evidence，非 Q。
