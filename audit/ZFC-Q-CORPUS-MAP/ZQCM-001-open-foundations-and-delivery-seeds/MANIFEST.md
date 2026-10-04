@@ -105,6 +105,8 @@ Natural successors are newly discovered direct references, official versions, ac
 
 **Extension-015 receipt correction.** The post-closeout completion audit found that the designated source-reading versions for ACQ-005, 009, 010, 011, 019, 020 and 022 had original-PDF visual/source-screen evidence but lacked a direct-remote MinerU attempt receipt. On 2026-10-04, `mineru server status --json` returned `running:false` with no queue; seven direct `parse --remote --json --wait 60` requests each returned `server_not_running`, with no service start, reconfiguration or output. `MINERU-DERIVATIVES.md` owns the exact commands, hashes and receipts. This repairs the processing-chain evidence; it adds no derived text and makes no new Q claim.
 
+**Extension-016 remote-service repair.** The user requested repair of the missing remote processing. On 2026-10-04 the local document-library service was started and confirmed running with remote `standard` health. A public W-001 probe reached remote analysis under both the document-library `middle_json` route and the stateless `zip` route, but both failed only while downloading the output. Current TLS checks locate the residual blocker at the official result CDN certificate; the API origin itself remains healthy. The service is kept running, but no invalid-certificate bypass, configuration rewrite, model download or derived-source claim is authorized by this repair.
+
 ### 5.1 Frozen-batch closeout
 
 `ZQCM-001`现已达到其第5节定义的`COMPLETE_WITH_SCOPE`：十五个work family均有完整PDF、版本替代、访问限制或元数据处置；二十一份已接受PDF均有身份与哈希，且每个进入来源筛选的可得 work family 都固定了带remote-MinerU收据和逐页视觉审读记录的主阅读版本；全部这类可得 work family 均有来源筛读；`WORK-FAMILIES`、`ACQUISITION`、`CITATION-NETWORK`、`COVERAGE-MAP`与`Q-LEADS`均写明了剩余边界。
