@@ -52,6 +52,7 @@
 - The stable `ZFC-HOTT-Q-UNIFORMITY-SOP` as the user-invocable continuation contract; it does not itself upgrade any profile field or canonical owner.
 - The terminal profile-mismatch control as a bounded negative result for the **direct Zeno ↔ QuestioningDelay same-Q instantiation**, together with its source cards, trajectory receipts, core audit and rechecked conditional Lean run.
 - `MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` as a **machine-checked conditional meta-policy calculus**, with final run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-04`, user source candidate, H098 scope audit and a separate source-mapping ledger.
+- The new user source as `CORE_CANDIDATE_PENDING_CURATION`; a canonical integrator must decide its next core-generation disposition rather than treating the contributor source file as already-loaded project doctrine.
 
 ## What an integrator must not infer
 
