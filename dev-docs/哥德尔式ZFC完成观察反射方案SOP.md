@@ -15,15 +15,15 @@ soft_line_target: 300
 >
 > **稳定引用名：** GODEL-Q-REFLECTION-SOP。
 >
-> **父结果：** F-050 的 ZFC Q/P/A/B 总证明闭环；本方案改变的是其中“寻找实际 completion acceptance interface 与 Q”的路径，不重写已经机器检查的 C-359 至 C-366。
+> **父结果：** F-050 已完成的有界证据／控制记录；本方案在该记录之外研究真实 completion acceptance interface 与 Q，不重写 C-359 至 C-366，也不自动重开 F-050。
 >
-> **当前激活状态：** PLAN_READY / GOAL_PAUSED / EXECUTION_NOT_STARTED。研究发起人可用本页末尾的启动词明确恢复此路线；计划文件的存在不恢复已暂停的 Host Goal。
+> **当前激活状态：** PLAN_READY / EXECUTION_NOT_STARTED / DOES_NOT_REOPEN_F050_CLOSED_WITH_SCOPE。研究发起人可用本页末尾的启动词明确开始这条新路线；计划文件本身不改变 F-050 的收尾状态。
 
 ## 当前层级与调用边界
 
 [T-PRECISION-DIAGONAL-SOP](理论精度与哥德尔式自反方案.md) 现为本方案的上位研究程序：它先定义 T-OBS 的任务相对观察精度和 T-Meta 的同一任务审计。本文件保留其原有身份，即 **T-DIAG 的实际 completion-interface 执行模块**，继续拥有 GodelizationCard 与 G0--G5。
 
-因此，研究发起人若要推进“想法 T”的完整三层结构，应调用 T-PRECISION-DIAGONAL-SOP；若已固定问题仅是 G0 的真实 Accept_T 或 G1--G5 的编码、对角化与 bridge 支付，可直接调用本 SOP。二者不是平行竞争 Goal，且均不解除 paused 状态。
+因此，研究发起人若要推进“想法 T”的完整三层结构，应调用 T-PRECISION-DIAGONAL-SOP；若已固定问题仅是 G0 的真实 Accept_T 或 G1--G5 的编码、对角化与 bridge 支付，可直接调用本 SOP。二者不是平行竞争 Goal，且均不重开 F-050。
 
 ## 方案要解决的准确问题
 

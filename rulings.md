@@ -854,7 +854,7 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 1. 新的上位稳定名为 T-PRECISION-DIAGONAL-SOP，owner 为 dev-docs/理论精度与哥德尔式自反方案.md 及其四片；跨 Session closure 为 认知闭包/T-PRECISION-DIAGONAL-001.md。两轮用户原文由 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md 拥有，四段 user/AI 全文由方案第 001 片拥有。
 2. T 不是“所有不完备都等于维度缺失”的已证明通论。它的可证明候选先分为 T-OBS 的任务相对观察因子化失败、T-DIAG 的有效编码与对角化边界、T-ZFC 的实际 bare-ZFC-facing 实例化；每层都须独立支付对象、接口、来源、同一任务和相称机器证明。
 3. 已有 GODEL-Q-REFLECTION-SOP 不废止：它是 T-DIAG 的实际 completion-interface 执行模块，保留 G0--G5 和自身 closure；T-PRECISION-DIAGONAL-SOP 为其补上 T-OBS 观察边界和 T-Meta 同一任务审计，二者不得被当成平行竞争 Goal。
-4. 当前 Host Goal 保持 paused。此裁定只授权方案、source、closure、owner 路由、相称来源核验和将来被明确启动后的形式规格／proof/run；不授权把想法 T、C-359、C-364、C-366 或来源沉默写成 bare ZFC 的形式矛盾、已证理论缺陷或已完成哥德尔式定理。
+4. F-050 已以 CLOSED_WITH_SCOPE 收尾；本裁定只授权方案、source、closure、owner 路由、相称来源核验和将来被明确启动后的形式规格／proof/run。它不重开 F-050，也不授权把想法 T、C-359、C-364、C-366 或来源沉默写成 bare ZFC 的形式矛盾、已证理论缺陷或已完成哥德尔式定理。
 5. T0 的第一项还包括用现有 curation manager 判断这两轮用户原文是否进入新 core generation；在完成该步骤前，它们是完整保存的 plan source，而不是自动的核心认知 current fact。
 
 ## 2026-10-04：采用哥德尔式 ZFC 完成观察与反射边界方案

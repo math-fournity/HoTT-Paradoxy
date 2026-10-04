@@ -1,12 +1,12 @@
 # 未定过程与设计工作区
 
-- [GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案](哥德尔式ZFC完成观察反射方案SOP.md)：研究发起人 2026-10-04 明确采纳的后续方案。它不把一般不完备性口号贴到 ZFC；它要求先冻结真实、版本固定的 ZFC-facing completion acceptance interface，再依次支付 Code、有限 checker、Accept_T、OriginDone、bridge、对角化和元元层同一任务审计。稳定启动名为 GODEL-Q-REFLECTION-SOP；当前为 PLAN_READY / GOAL_PAUSED，配套可审计闭包为 [CC-20261004-godel-q-reflection](../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)。
+- [GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案](哥德尔式ZFC完成观察反射方案SOP.md)：研究发起人 2026-10-04 明确采纳的后续方案。它不把一般不完备性口号贴到 ZFC；它要求先冻结真实、版本固定的 ZFC-facing completion acceptance interface，再依次支付 Code、有限 checker、Accept_T、OriginDone、bridge、对角化和元元层同一任务审计。稳定启动名为 GODEL-Q-REFLECTION-SOP；当前为 PLAN_READY / EXECUTION_NOT_STARTED / F050_CLOSED_WITH_SCOPE_PRESERVED，配套可审计闭包为 [CC-20261004-godel-q-reflection](../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)。
 
 这里保存尚未成为当前真值的调查方案、迁移草案、实验计划和审计过程。正式需求写根 `feature-list.md`，用户原意写 `rulings.md`，稳定设计写 `docs/`，当前状态写 `MEMORY.md`；不要把本目录的草案直接当成已实现或已验证。
 
 当前主方案：[`实施方案-三AI历史整合与核心认知治理.md`](../实施方案-三AI历史整合与核心认知治理.md)。
 
-- [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，并完整保存紧邻两轮哥德尔式元／元元讨论。方案分为 T-OBS 相对观察精度、T-DIAG 自编码完成接口和 T-ZFC 实例化；跨 Session 的恢复入口为 `认知闭包/T-PRECISION-DIAGONAL-001.md`。当前严格处于 `PLAN_READY_NOT_EXECUTING`：它不自动恢复已暂停的 ZFC-H0 总证明 Goal，也不把 T、条件性观察边界或既有控制包写成 bare ZFC 缺陷定理。
+- [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，并完整保存紧邻两轮哥德尔式元／元元讨论。方案分为 T-OBS 相对观察精度、T-DIAG 自编码完成接口和 T-ZFC 实例化；跨 Session 的恢复入口为 `认知闭包/T-PRECISION-DIAGONAL-001.md`。当前严格处于 `PLAN_READY_NOT_EXECUTING / F050_CLOSED_WITH_SCOPE_PRESERVED`：它不自动重开 F-050，也不把 T、条件性观察边界或既有控制包写成 bare ZFC 缺陷定理。
 
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
 

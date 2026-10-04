@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [T-PRECISION-DIAGONAL-SOP](../dev-docs/理论精度与哥德尔式自反方案.md)。
 >
-> **当前生命周期：** READY / NOT_STARTED / DOES_NOT_RESUME_PAUSED_ZFC_H0_GOAL。
+> **当前生命周期：** READY / NOT_STARTED / DOES_NOT_REOPEN_F050_CLOSED_WITH_SCOPE。
 
 ## TaskDescriptor
 
@@ -25,7 +25,7 @@
 3. C-364：相对观察／因子化失败的有限控制；
 4. C-359：带 SameFullQ、P、B 前提的条件性 policy consequence；
 5. GODEL-Q-REFLECTION-SOP 与 CC-20261004-godel-q-reflection：仅当 T-DIAG 被选中时，作为其 G0--G5 执行模块；
-6. ZFC-H0-FINAL-PROOF-CLOSURE-SOP：现有 M0–M5 义务与禁止外推；
+6. ZFC-H0-FINAL-PROOF-CLOSURE-SOP：F-050 已有界收尾的 M0–M5 控制、禁止外推与重开条件；
 7. 当前 Feature、MEMORY、rulings、Git HEAD/status。
 
 ## 当前已知与未支付项
@@ -36,7 +36,7 @@
 | T-DIAG 的哥德尔机制 | MODULE_READY_NOT_INSTANTIATED | GODEL-Q-REFLECTION-SOP 已定义 G0--G5 与 GodelizationCard；当前仍没有真实 Accept_ZFC、保真 ρ 或 diag。 |
 | T-Meta 的 task bridge | OPEN | OriginDone／SameFullQ 不能由元层代码自动支付。 |
 | T-ZFC | NOT_STARTED | C-359、C-364、C-366 仅是 controls。 |
-| paused ZFC-H0 Goal | PAUSED | 本 capsule 不授权恢复、提交外部研究或宣布结论。 |
+| F-050 的 ZFC-H0 闭环 | CLOSED_WITH_SCOPE | 本 capsule 不授权重开、提交外部研究或宣布结论。 |
 
 ## 恢复算法
 
@@ -48,7 +48,7 @@
 6. 只有对象、接口和 proof target 已固定时才写机器证明；
 7. 写回本 capsule 的“已知／未支付／下一动作”，并更新 Feature、MEMORY、证据 owner；
 8. 若选择 T-DIAG，读取 GODEL-Q-REFLECTION-SOP 和其闭包，复用 G0--G5，不新增平行接口路线；
-9. 若 T-ZFC 需要恢复原 Goal，必须由用户明确恢复，不能由本方案隐式解除暂停。
+9. 若 T-ZFC 可能触及 F-050 的范围，先核其明示重开条件和用户授权；不得由本方案隐式推翻 CLOSED_WITH_SCOPE。
 
 ## 失效与重开
 

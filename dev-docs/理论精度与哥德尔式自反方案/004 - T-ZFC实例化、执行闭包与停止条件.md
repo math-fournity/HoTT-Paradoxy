@@ -6,7 +6,7 @@ index: ../理论精度与哥德尔式自反方案.md
 
 # T-ZFC实例化、执行闭包与停止条件
 
-> **状态：** PLAN_READY / EXECUTION_NOT_STARTED / PAUSED_PARENT_GOAL。
+> **状态：** PLAN_READY / EXECUTION_NOT_STARTED / DOES_NOT_REOPEN_F050_CLOSED_WITH_SCOPE。
 
 ## 1. 与既有路线的关系
 
@@ -15,7 +15,7 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 - GODEL-Q-REFLECTION-SOP 的实际 completion-interface G0--G5：它是 T-DIAG 的具体执行模块，保留自身的独立调用入口和既有闭包；
 - BARE-ZFC-Q-PRECISION-SOP 的 interface-relative control；
 - ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP 的 A1–A5 实际同 Q 分母；
-- ZFC-H0-FINAL-PROOF-CLOSURE-SOP 的 M0–M5 总闭环；
+- ZFC-H0-FINAL-PROOF-CLOSURE-SOP 的 M0–M5：F-050 已以有界、formal-target-underdetermined 结论收尾；它们保留为控制与重开条件，而不是被本方案自动恢复的总闭环；
 - P1/P2/P3 三刀和 P-FORGE 的理论定位、计算翻译、构造准入职责。
 
 它把这些视为 T-ZFC 的已有 calibration，而不是把已有 C-359、C-364 或 C-366 重新命名成想法 T 已得证。
