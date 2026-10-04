@@ -75,7 +75,7 @@ The profiles encode the following source-audit outcomes:
 | `questioningDelayProfile` | H101/H102 | Internal program theorem; no ordinary task resolution/replacement supplied by the bare source. |
 
 The actual source identities, source hashes, public Terra/Max MatchTraces,
-H105 terminal wording adjudication and private trajectory receipts are recorded
+H105 terminal wording adjudication, H106 current-byte replay and private trajectory receipts are recorded
 in `audit/20261004-P-DAG-ZFC-P-100-104-Terra-Max.md`. This Lean file deliberately
 does not parse those sources or assert that their authors adopted a policy.
 

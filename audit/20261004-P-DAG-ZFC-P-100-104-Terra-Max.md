@@ -1,4 +1,4 @@
-# P-DAG H100–H105：P 的来源形状、HoTT 主分支发现与 ZFC 收尾收敛
+# P-DAG H100–H106：P 的来源形状、HoTT 主分支发现与 ZFC 收尾收敛
 
 > **身份：** `CONTRIBUTOR_CANDIDATE_NOT_CURRENT / SOURCE_TASK_CONVERGENCE / KERNEL_ACCEPTED_STATUS_CALCULUS / NOT_A_ZFC_OBJECT_LANGUAGE_INCONSISTENCY`。
 
@@ -18,7 +18,7 @@ CompletionSubstitutionP
 
 这里的“未供应”只说明固定来源包没有给出桥。它不证明世界上不存在桥，不证明数学结果错误，也不把 ZFC 的使用语境写成 ZFC 对象语言的不一致。
 
-## 2. 六个节点及其受控运行事实
+## 2. 七个节点及其受控运行事实
 
 所有节点均使用隔离 Codex App Server façade、`gpt-5.6-terra / max`、`governance-regression-fresh`、`approvalPolicy=never`、文本唯一 source-match payload、无工具／文件写入／审批。每张 prompt 在认证借用和模型采样前由 runner 的 `read_frozen_turn` 与 `debug prompt-input` 资格化；private raw wire、认证临时件与加密 reasoning 留在项目根外的 `0600/0700` 实验目录。
 
@@ -30,8 +30,13 @@ CompletionSubstitutionP
 | H103 | H099 与 H100 的 A 侧来源状态裁决 | PASS；`87b715b6fd3f3182384e65c9429da35cdc06339787d985da6f12c0131c02c4c0` | 1021 events | H099 的严格边界与 H100 的候选分类相容。 |
 | H104 | main 的集合截断对照是否出现同形 P | PASS；`2f8bda1be3729f6962d9832d066000b115a3b718c2ab9c5b670eca467eea79e7` | 1189 events | HoTT 截断与 IEP 共享 R1/R2、缺 R3 的结构形状。 |
 | H105 | ZFC 收尾判词的来源边界仲裁 | PASS；`4928573254a13b199a25b9db5bbc696afd27dad7a4ea39933afaddab682f42f7` | 1094 events | 采用 `COMPLETION_OBSERVATION_AUDIT_REQUIRED`；拒绝对象语言矛盾、共同 P 与 `P→B` 越级。 |
+| H106 | H100格式化后当前字节的source-match修复重跑 | PASS；`70c20a86e4e690e076454cef4952280dcb370cc6e3717fbdd4b65670f10c8807` | 993 events | R1/R2支持、R3不可得；只修复 hash binding。 |
 
-六条 direct App Server wire 均由 `session_trajectory.py` 以 `catalog → tree → coverage`审计：单 session、单 turn、正常 `turn_completed`、`tool_calls=0`。共享 reader 的 L1 是 `NOT_TESTED`，因为 wire 未提供完整注入指令正文；L2 是预期的 `NOT_OBSERVED`，因为 NodeCard 禁止工具。L4 由 Master 对冻结来源和公开 MatchTrace 审读，L5 仅为 node 的模型/权限/prompt/终态合同接受，不能替代理论结论。
+七条 direct App Server wire 均由 `session_trajectory.py` 以 `catalog → tree → coverage`审计：单 session、单 turn、正常 `turn_completed`、`tool_calls=0`。共享 reader 的 L1 是 `NOT_TESTED`，因为 wire 未提供完整注入指令正文；L2 是预期的 `NOT_OBSERVED`，因为 NodeCard 禁止工具。L4 由 Master 对冻结来源和公开 MatchTrace 审读，L5 仅为 node 的模型/权限/prompt/终态合同接受，不能替代理论结论。
+
+### H106：不是新理论节点，而是证据闭包修复
+
+首次 contributor 格式化清理移除了 H100 prompt／TaskCard 的末尾空行，改变字节 hash。形式含义没有变，但 H100 的历史 run 不能再被说成使用了**当前**冻结输入。H106 以当前 TaskCard `6492…12bb`、prompt `65e3…271c`重新运行；thread/turn为 `01a105a9-dc6c-7570-b469-a5e6c71442ec` / `01a105a9-dd39-7370-b0f0-20633fefb1b0`，993 events、zero tool/file/approval，E0–E7完整。它再次得到：`R1/R2 SUPPORTED; R3 UNAVAILABLE`，未改变 P、Q、station 或 CAL 状态。其唯一作用是 `Q_SAFETY_REPAIR`：防止收束结论依赖未声明的输入字节漂移。
 
 ## 3. A 侧：ZFC 基础语境中的实际 completion replacement
 
@@ -116,6 +121,10 @@ main 的 HoTT 发现和截断对照在这里不是装饰。它们提供了同一
 6. `current_zfc_closing_convergence` 将上述收敛状态合为一个无额外公理的内核定理。
 
 该证明验证的是**冻结来源状态的逻辑分类**。它没有把 IEP、HoTT、ZFC 或数学共同体编码进 Lean，更没有证明它们不一致。精确命题、源状态与禁止外推由 [claim 文件](../HoTT/formal/zfc-observation-boundary/CompletionSubstitutionProfile-CLAIM.md) 拥有。
+
+### 7.1 收束时的 fresh proof closure
+
+在 H106 修复 H100 输入 hash 后，本包没有只重跑 profile。它新鲜重放了：O2→O3 observation-collision/bridge 核、几何级数极限与有限阶段端点分离、O1–O5 条件政策、community P/A/B 条件政策、P来源 profile、main `QuestioningDelay` 主包及其错误早停负控制、C-83 截断主包及其错误沉默负控制。九项 run 的 source-manifest、main blob pin 与冻结 NodeCard/prompt hash 由 `verify_zfc_completion_observation_closure.py` 再次核验；成功 receipt 是 `audit/20261004-ZFC-COMPLETION-OBSERVATION-FORMAL-CLOSURE-RECEIPT.json`。首次验证的 hash drift receipt 保留为 `...-INITIAL-FAILURE-RECEIPT.json`，不被删除或覆盖。
 
 ## 8. 仍然开放的一条强版本义务
 
