@@ -73,6 +73,11 @@ class DependencyCoverageTests(unittest.TestCase):
         r=self.call(f"Checking Main ({self.project/self.local}).\n Checking Cubical.Base ({self.module}).\n")
         self.assertEqual((r["local_modules"],r["external_modules"],r["dependency_gaps"]),(1,1,0))
 
+    def test_foundation_zf_source_tree_label_is_pinned_as_a_tree(self):
+        row=dict(self.row)
+        row["label"]="foundation-lean-zf-source-tree"
+        self.assertEqual(formal.check_external_dependency(row),"foundation-lean-zf-source-tree")
+
     def test_missing_local_module_same_basename_is_not_accepted(self):
         other=self.project/"HoTT/formal/other/Main.agda"
         with self.assertRaisesRegex(version.ClosureError,"LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED"):

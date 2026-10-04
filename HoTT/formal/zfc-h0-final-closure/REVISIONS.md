@@ -1,5 +1,30 @@
 # M1-A 修订记录
 
+## 2026-10-04：C-366 外部 Lean 的 toolchain dispatch 更正
+
+`H0ProcessRepresentation` 的首个外部 capture `-001-01` 使用了用户全局的
+elan launcher；虽然 external Foundation checkout 本身冻结在目标 commit，
+该 launcher 在 `lake env` 下实际选择了 Lean 4.34.1，而该项目的
+`lean-toolchain` 指定 Lean 4.34.0。首个 run 因而保留为可检查的历史尝试，
+但不进入 primary evidence。
+
+capture 随后改为在冻结 checkout 中经 `elan which lean` 和 `elan which lake`
+解析 project-local toolchain，再以这些绝对 binary 路径执行。`-001-02` 与
+`-NEG-001-02` 已确认 4.34.0。随后 `-001-03` 又暴露证据 registry 的一个真实
+互操作要求：外部 Lake cwd 使 command receipt 只记录绝对 source path，不能与
+canonical project-relative `source` 字段作机械同一性核对。capture 改为
+`lake --dir <external-root> env <pinned-lean> <relative-source>`，故 `-001-04` 与
+`-NEG-001-04` 既保持 external project，又把实际检查的项目 source 以 canonical
+relative path 留在 command receipt 中，成为唯一 primary evidence。该修正不改变
+C-366 的定理文字，只修复实际运行环境、输入身份与 registry 的一致性。
+
+`-001-04` 随后还暴露了一个证据边界问题：capture 把不断演进的 package README 和总 SOP
+纳入 source manifest，尽管它们不是 Lean elaboration 的输入。这样未来的路线文字更新会制造
+伪造的 theorem-source drift。capture 因而只冻结 Lean source、negative control、package-local
+claim scope、toolchain declaration 和 capture procedure；`-001-05` 与 `-NEG-001-05` 是采用这一
+最小充分输入集后的 primary evidence。README/SOP 仍作为路由和需求 owner 被维护，但不再改变
+本定理的已检查输入身份。
+
 ## 2026-10-04：trace 的点态来源更正
 
 最初草稿把 `universeQuestioningNeverAnswers` 用作 `funExt` 的点态输入。Cubical Agda 拒绝该项：前者的类型是 `¬ Questioning.Halts`，不是逐 fuel 的 `runFor … ≡ nothing`。

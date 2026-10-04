@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 217,
+  "later_machine_proved_claim_count": 218,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1075,6 +1075,16 @@
       "source": "HoTT/formal/zfc-h0-final-closure/H0TraceObservation.agda",
       "toolchain": "HoTT/formal/zfc-h0-final-closure/TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed H0's Delay/runFor output maps to a set-valued all-nothing finite trace for every universe Judge."
+    },
+    {
+      "claim_ids": "C-366",
+      "kind": "external_foundation_lean_zermelo_sequence_representability_positive_control",
+      "notes": "This is M3_PROCESS_REPRESENTABILITY_ONLY. It rejects only the language-absence route; it does not establish bare ZFC syntax/model theory, H0Map, C_accept, AdequacyLift, SameFullQ, P/Q, or bare-ZFC attribution.",
+      "proof_id": "MP-ZFC-H0-PROCESS-REPRESENTATION-001",
+      "run": "HoTT/verification/runs/20261004-MP-ZFC-H0-PROCESS-REPRESENTATION-001-05",
+      "source": "HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation.lean",
+      "toolchain": "HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation-TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: the pinned Foundation Zermelo-model interface represents ordinal-indexed sequence graphs and unique stage values."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

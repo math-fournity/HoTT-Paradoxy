@@ -53,7 +53,7 @@ flowchart LR
 | `M0-C` | 条件性政策 consequence | C-359 已证明：显式 `ZFCOneUse + SameFullQ + P + B` 导出 `False`。 | 不得再把这些字段当作已被 bare ZFC 或历史来源证明。 |
 | `M1` | `H0Map` | 当前只定位了 CCHM family；没有 exact Cubical Agda 2.8.0 + cubical 0.9 library semantic transport。 | 逐字段 model map：universe、EM1/HIT、h-level、unguarded Delay、`never`、`runFor`、有限 halt witness；并证明需要的 preserve/reflect 命题。 |
 | `M2` | 实际 `P` | 当前仅有 source-labelled revised-completion control 和 HoTT-side specific P counterexample。 | 一个来源或正式 policy 说明它在 A 侧实际允许 `FormalDone → OriginDone`，以及适用范围。 |
-| `M3` | bare-ZFC-facing `Q` | C-364 只对一个 source-contract interface 证明观测不足；bare ZFC 的 semantic completion interface 尚未定义。 | 固定 bare ZFC 的语言/模型/acceptance interface，并以可计算的 criterion 表达“观察、拒绝或支付 bridge”。 |
+| `M3` | bare-ZFC-facing `Q` | C-364 只对一个 source-contract interface 证明观测不足；C-366 在冻结的外部 Zermelo-model interface 中以 sequence graph 正控制排除“集合论不能表示过程”的读法。bare ZFC 的 semantic completion interface 仍未定义。 | 固定 bare ZFC 的语言/模型/acceptance interface，并以可计算的 criterion 表达“观察、拒绝或支付 bridge”。 |
 | `M4` | `SameFullQ` | 现有 A5 只拒绝了一个冻结来源分母中的强实例化。 | A 与 H0 在同一对象、输入、允许操作、观察量和 Done 条件上的逐字段对应，或精确证明同一任务不成立。 |
 | `M5` | 对 bare ZFC 的归因 | 当前没有 ZFC 对象语言矛盾主张，也没有实际 `C_accept`。 | `T_meta`、额外公理、模型/验收器、I/O/Done、AdequacyLift 与来源/形式化证据。 |
 
@@ -131,6 +131,12 @@ Represent / FormalDone / OriginDone / Observe / Reject / BridgePaid / AdequacyLi
 ```
 
 然后用正控制证明该接口能够在**某些**输入上保留 process contract，用反控制检验它是否会把 A/H0 的 relevant distinction 折叠。不得把“没有 time primitive”误作“不能编码时间”。
+
+当前 C-366 已完成一个有界的前置正控制：固定 Foundation Lean 的 Zermelo model interface
+可以表示 ordinal-indexed sequence graph 与唯一阶段值。它因此关闭的是“语言／集合表示完全缺失”的
+路线，不是 M3 本身。下一份 M3 产物必须是版本固定的 `C_accept` 或 acceptance interface；若来源只
+给出语言、模型、相对一致性或过程编码而没有 completion consumer，应以
+`SOURCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE` 结束该精确来源 target。
 
 ### F4：同一任务与最终合成
 

@@ -19,6 +19,10 @@ EXTERNAL_TREE_LABELS = {
     "coq-undecidability-extracted-tree",
     "coq-parametric-ct-extracted-tree",
     "cubical-groupoid-syntax-extracted-tree",
+    # The Foundation Lean ZF model is an external source tree.  A source
+    # manifest that invokes it must pin the tree itself, not merely a README
+    # or a lockfile, because the theorem imports its `Seq` implementation.
+    "foundation-lean-zf-source-tree",
 }
 AUDIT_TOOL_PROVENANCE_PATHS = {
     # This verifier is recorded so the historical audit procedure is visible,

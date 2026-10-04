@@ -6,6 +6,10 @@
 
 - [ZFC-H0 总证明闭环 F1-C：原 CCHM 实现与 clocked-cubical 候选（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1C-CLOCKED-CUBICAL.md)：直接审读 `cubicaltt` README/grammar 后，确认其具体 implementation 没有 native `record/coinductive` rule；再对 GCTT/CCTT/Agda guarded docs 形成下一 translation-card。它仅关闭 original-CCHM implementation target，保留 clocked target 的未支付 translation。
 
+- [ZFC-H0 总证明闭环 F1-D：GCTT clocked Delay 翻译卡（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1D-GCTT-CLOCKED-DELAY-TRANSLATION.md)：固定 `gcubical` source 显示 `forall` clocks、`prev`、later、guarded data、CoNat 的 force 类比均存在；实际 checker build 因本机缺 QuickCheck 停在依赖层。该卡给出 exact `gDelay/DelayClocked/force/runFor` 义务，未把源码类比升格为 native H0 translation。
+
+- [ZFC-H0 总证明闭环 F3-A：集合论过程可表示性正控制（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F3A-ZFC-REPRESENTABILITY.md)：冻结 Foundation Lean 4 的 Zermelo model interface、function/sequence/recursion source 与 Metamath 独立控制。C-366 实际检查 ordinal-indexed sequence graph、唯一 stage value 与 definability，并以双值负控制拒绝；它排除“集合论不能表示过程”的过强读法，保留 acceptance-policy Q 作为未支付义务。
+
 - [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它收紧 H098 的原典追溯，不作 ZFC Q 结论。
 
 - [H0→Z0 HZ0-2：CCHM 标准模型与 fixed H0 依赖闭包（2026-10-04）](20261004-H0-Z0-HZ0-2-CCHM依赖闭包审计.md)：将 MPIM 第一条模型收紧为 standard CCHM family，并用 cubical v0.9 的 exact `EM₁`、suspension、truncation源码审查它到 H0 的距离。结论是`H0_DEPENDENCY_CLOSURE_UNPAID_WITH_SCOPE`，不作 ZFC Q 结论。
