@@ -19,7 +19,7 @@
 | Chapter ID | 章节与作者 | 页码 | 语料作用 | 下一获取动作 |
 |---|---|---:|---|---|
 | V-SET-01 | *Interview With a Set Theorist* — Mirna Džamonja, Deborah Kant | 3–26 | 集合论实践／反控制入口。 | Deborah Kant author-site 2018 preprint已验证；remote失败收据已留存，待原PDF视觉／source screen。 |
-| V-SET-02 | *How to Choose New Axioms for Set Theory?* — Laura Fontanella | 27–42 | 新公理、理论位置和标准防线入口。 | Laura Fontanella 2016 author PDF已验证；remote失败收据已留存，待原PDF视觉／source screen。 |
+| V-SET-02 | *How to Choose New Axioms for Set Theory?* — Laura Fontanella | 27–42 | 新公理、理论位置、Power Set／Replacement inexhaustibility与标准防线入口。 | Laura Fontanella 2016 author PDF已验证；remote失败收据已留存，17页原PDF视觉／source screen已完成。 |
 | V-SET-03 | *Proving Theorems from Reflection* — Philip D. Welch | 79–97 | reflection、proof theory和P相关控制入口。 | 优先找Bristol的已标识accepted manuscript。 |
 | V-UF-01 | *Naïve Type Theory* — Thorsten Altenkirch | 101–136 | HoTT／类型论动机的原典相邻来源。 | `W-009` author PDF已验证；与W-005分开登记，待阅读。 |
 | V-UF-02 | *Univalent Foundations and the Equivalence Principle* — Benedikt Ahrens, Paige Randall North | 137–150 | univalence／结构同一性路线的来源入口。 | arXiv:2202.01892v1作者版本已验证并完成remote失败收据、14页原PDF视觉审读和source screen；equivalence principle与H0机制是来源精度／反类比控制，不等于ordinary ZFC Q。 |
@@ -40,7 +40,7 @@
 | V-UF-03 | arXiv official PDF `1807.02177v1`。 | 21页作者版本已入库并经file／pdfinfo／首页／SHA256核验；remote失败收据、21页source-only视觉审读和受限source screen均已完成。 | `FULL_AUTHOR_VERSION_HIGHER_STRUCTURE_AND_METATHEORY_SOURCE_CONTROL_SCREENED`；不预设与出版页151–172同字节，也不把模型／HoTT内部构造边界当作ordinary ZFC Q。 |
 | V-UF-04 | arXiv official PDF `1710.02723v7`。 | 18页作者版本已入库、remote失败收据已留存，且完成全页source-only视觉与受限source screen。 | `FULL_AUTHOR_VERSION_UNIMATH_PAYMENT_AND_MOTIVE_CONTROL_SCREENED`；不预设与出版页173–189同字节，也不把其Coq/UniMath consumer当作ordinary ZFC Q。 |
 | V-SET-01 | Deborah Kant author-site PDF `PhilTalk0716.pdf`。 | 24页2018作者预印本已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页3–26同字节。 |
-| V-SET-02 | Laura Fontanella author PDF `paper philo 2016.pdf`。 | 17页2016作者PDF已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页27–42同字节。 |
+| V-SET-02 | Laura Fontanella author PDF `paper philo 2016.pdf`。 | 17页2016作者PDF已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`；原PDF已完成17页视觉审读。 | `FULL_AUTHOR_VERSION_ZFC_AXIOM_SELECTION_AND_POWER_SET_NEIGHBORHOOD_CONTROL_SCREENED`；不预设与出版页27–42同字节，且不把“Inexhaustibility”语言升格为Q。 |
 | V-UF-05 | PhilSci-Archive `MH1.pdf`。 | 40页2018作者预印本已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页191–219同字节。 |
 | V-CMP-02 | arXiv official PDF `1802.06221v1`。 | 12页2018作者版本已入库并经file／pdfinfo／首页／SHA256核验；remote attempt=`server_not_running`。 | `ACQUIRED_VALIDATED_PENDING_SOURCE_SCREEN`；不预设与出版页255–269同字节。 |
 | V-CMP-01 | Sy-David Friedman作者公开PDF `joint.neil.set.theory.structures.pdf`。 | 普通公开下载成功；PDF 1.5、27页、首页题名／作者／2018-08-07和本卷致谢一致，SHA256 `e8116b22…ea5f7`；remote attempt=`server_not_running`，27页source-only视觉审读完成。 | `FULL_AUTHOR_PREPUBLICATION_COMPARATIVE_CONTROL_SCREENED`；该稿的ZFCS／NBGS／Grothendieck universe／canonical-representation结论均有明示语言、模型或richness条件，尚不等于出版章全文或Q。 |
