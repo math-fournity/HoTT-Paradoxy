@@ -398,3 +398,52 @@ NO_MODEL_RECALL_CANDIDATE / FORMATION_ORIGIN_NOT_SUPPLIED
 这个 Host Goal 已按“所有 active lane 到达有界终态”的条件标记为完成。Goal 记录的实际用量为 787,114 tokens、6,628 秒，约 1 小时 50 分钟；它没有设置 token budget。
 
 未来只有三类新事实才应重开：研究发起人指定一个不同的显眼基础接口；版本固定的一手来源实际定义该接口的 native process-wide completion task；或新证据推翻 H0 process-anchor 的字段设计。除此之外，继续追加 profile、文献支线或 P2/P3 运行都会重新造成偏移。
+
+
+<!-- conversation-archive-turn: skill-turn-9b8979eee6bb45b7ad06c101dfc89898 prompt_sha256=5cc11fd7f25808e5484185827a12b8a35b32cbbc8c14500828f458067f94029f answer_sha256=e5881ba7993b6d99d4715f58d1c88e500700262f86cf22120a673432b77444df -->
+## 2026-10-04 · Turn skill-turn-9b8979eee6bb45b7ad06c101dfc89898
+
+### 用户提问
+
+你现在的这个git worktree上的工作，我希望保存到远程的dev-06分支上，你打算如何处理？
+
+### AI 最终回复
+
+已经按这个目标处理完毕：**当前 worktree 的工作已保存到远程 `dev-06`，且没有覆盖 `dev`、没有重写任何已有远端分支。**
+
+## 实际处理方式
+
+1. 我先核对了远端：`origin/dev-06` 当时不存在，所以这是一次安全的首次分支创建，不涉及覆盖或 force push。
+
+2. 我以当前 H0→Z0 工作的已提交头 `5cf4ab06` 为基线，从当前 worktree 创建了本地 `dev-06`。
+
+   这条历史包含本轮的三段研究提交：
+
+   - `45aae070`：H0 process-anchor 再审；
+   - `7c848e4f`：冻结新的去标识 P1 盲态卡；
+   - `5cf4ab06`：PF-B2 运行、认知闭包、逐 KC 审计和有界收尾。
+
+3. 我逐项检查了工作树中尚未提交的材料。它们包括 2 份 `dev-notes` 归档和 3 份 `git-worktree对话录`，共约 4.3 MB；敏感模式扫描没有发现私钥、token 或 API key。
+
+4. 这五份归档没有和研究结果混成一个提交，而是单独保存为：
+
+   ```text
+   86ad33c4  archive: preserve current worktree dialogue records
+   ```
+
+5. 我以精确 refspec 非强制推送了 `dev-06`，并用 `git ls-remote` 回读验证：
+
+   ```text
+   origin/dev-06 = 86ad33c4a896931b9d5aa5158639e6a6b89dce15
+   local dev-06  = 86ad33c4a896931b9d5aa5158639e6a6b89dce15
+   ```
+
+6. 本地 `dev-06` 已设置为跟踪 `origin/dev-06`，以后在这个 worktree 中继续时，默认目标明确就是该远端分支。
+
+## 保留的边界
+
+- `origin/codex/h0-z0-priority-realignment` 仍保持在 `5cf4ab06`，没有被改写。
+- canonical `dev` 没有被 merge、reset、rebase 或 push。
+- 三份历史对话录含有原始尾随空白。`git diff --check` 因此报告了这些历史文本的 whitespace warning；我没有为了消除警告而修改归档原文。
+
+本回合的对话归档会在发送前写入 `dev-notes`，并作为 `dev-06` 上紧随 `86ad33c4` 的一个精确提交推送。这样，远端 `dev-06` 会同时保留研究成果、已有工作树归档和本次分支保存操作的可恢复记录。
