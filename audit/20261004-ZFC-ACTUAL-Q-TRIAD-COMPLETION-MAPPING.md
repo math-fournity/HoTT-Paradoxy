@@ -46,7 +46,7 @@
 
 | 义务 | 当前状态 | 何种证据可支付或推翻 |
 |---|---|---|
-| 圆环 `OriginDone` 的完整过程规格 | `USER_DONE_ADJUDICATION_REQUIRED` | 用户原案或版本固定过程定义给出 State/Op/O/Done；不能由程序员补一个最后步骤。 |
+| 圆环 `OriginDone` 的完整过程规格 | `USER_CIRCLE_ORIGIN_DONE_PARTIAL / USER_DONE_ADJUDICATION_REQUIRED` | 用户原案和 ABX 已给指定 M／反向过程／来源保持的最小约束；仍需版本固定过程定义给出完整 State/Op/O/Done，不能由程序员补一个最后步骤。 |
 | Zeno→圆环政策范围 | `SOURCE_UNOBSERVED` | 一手来源明确把其连续统 completion policy 施用于原 M/N 复原，或明确排除。 |
 | Zeno→HoTT 政策范围 | `SOURCE_UNOBSERVED` | 基础验收或哲学来源把固定 HoTT completion contract 纳入同一 adequacy policy。 |
 | Agda B→Lean B | `EXTERNAL_FORMAL_RESULT_WITH_RECEIPT` | 保真跨 kernel 解释表或独立证明，不是文件名相同。 |

@@ -33,7 +33,7 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 2. **成员语言边界：** membership-only theory 对未定义的 `originDone` 没有判断力；同一 membership model 可以有相反 Done 的扩张。若补入相同 `CompletionBridge`，异判被内核拒绝。
 3. **HoTT 控制：** 在固定 Cubical Agda `QuestioningDelay` 实例中，粗 completion 不反射为原 Q 的有限 completion。
 4. **实分析控制：** 对 (1-2^{-n})，形式极限不推出有限自然数阶段 endpoint；闭连续时间端点仍可到达。
-5. **来源边界：** 当前来源仍不足以把强 P、`A ↔ P`、可审的 `PolicyScopeWitness` 或严格 `SameActualQ` 填成实际事实；因此本包没有、也不应声称已经证明关于 bare ZFC 的矛盾。
+5. **来源边界：** Standard Solution 的 Zeno-side local completion policy 已有来源；当前来源仍不足以把它提升为用户圆环／HoTT 的强 P、`A ↔ P`、可审的 `PolicyScopeWitness` 或严格 `SameActualQ`。因此本包没有、也不应声称已经证明关于 bare ZFC 的矛盾。
 
 当前交付运行为：
 
