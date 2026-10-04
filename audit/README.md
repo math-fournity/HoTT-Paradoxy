@@ -1,5 +1,11 @@
 # 审计资产入口
 
+- [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它收紧 H098 的原典追溯，不作 ZFC Q 结论。
+
+- [H0→Z0 HZ0-2：CCHM 标准模型与 fixed H0 依赖闭包（2026-10-04）](20261004-H0-Z0-HZ0-2-CCHM依赖闭包审计.md)：将 MPIM 第一条模型收紧为 standard CCHM family，并用 cubical v0.9 的 exact `EM₁`、suspension、truncation源码审查它到 H0 的距离。结论是`H0_DEPENDENCY_CLOSURE_UNPAID_WITH_SCOPE`，不作 ZFC Q 结论。
+
+- [H0→Z0 HZ0-3：reversal 模型与 foundation-language 双来源审计（2026-10-04）](20261004-H0-Z0-HZ0-3-新模型与基础语言双来源审计.md)：2026 reversal model 是 H0 的近邻语义路线，2026 replacement/univalent-completion 是近邻基础语言路线；前者未给 H0Map，后者发生任务切换。二者共同将下一搜索收紧为 exact package transport 与实际 H0 consumer。
+
 - [P-DAG H077–H080：极限、完成定义与圆环 Q0 的来源 Battle（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-077-080-Terra-Max.md)：Norton的实际completion合同、Bathfield/Sierpińska的bridge批评、H079采样前marker失败及H080独立裁决共同显示：争点是`Done_strict / Done_revised / Done_formal`的任务契约，不是数学事实冲突或ZFC矛盾；全局Q1仍未会合。
 
 - [P-DAG H076：ZFC-CIRCLE-Q0 completion bridge 来源匹配（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-076-Terra-Max.md)：隔离 source-match 核对四条冻结标准来源及连续变形控制。P1仅形成 completion object，P2不适用，P3-C发现标准来源明确保留数学—过程桥；判`SOURCE_BRIDGE_DEFENSE / NO_C_LANE_CONSUMER`，全局Q1不升级。
