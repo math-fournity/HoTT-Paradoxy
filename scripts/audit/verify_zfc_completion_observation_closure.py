@@ -65,6 +65,20 @@ RUNS = (
         "expected_error": "Tactic `assumption` failed",
     },
     {
+        "run_id": "20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-001-02",
+        "proof_id": "MP-ZFC-COMPLETION-PROMOTION-TENSION-001",
+        "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "exit": 0,
+        "no_axioms": True,
+    },
+    {
+        "run_id": "20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001-02",
+        "proof_id": "MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001",
+        "status": "KERNEL_REJECTED",
+        "exit": 1,
+        "expected_error": "Tactic `assumption` failed",
+    },
+    {
         "run_id": "20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04",
         "proof_id": "MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001",
         "status": "KERNEL_ACCEPTED_WITH_SCOPE",
@@ -113,7 +127,7 @@ FROZEN_FILES = {
 }
 
 MAIN_BLOBS = {
-    "README.md": "eef5cea125b12ab991325748ee0a67d32d0968d6",
+    "README.md": "0f9d4218ddcf8370c317697ca137dc67acdbc59f",
     "docs/社区审计提交/03-HoTT的芝诺.md": "c9057ff917cb8669186ac2f30ba95d36602192e3",
     "HoTT/formal/claude-cg001/questioning-delay/CLAIM.md": "ad397173e596fa518e739f79cadcfa33232a6e99",
     "HoTT/formal/claude-cg001/questioning-delay/QuestioningDelay.agda": "29f82274e71bcf71d8173417f1ef325586c9a4a5",

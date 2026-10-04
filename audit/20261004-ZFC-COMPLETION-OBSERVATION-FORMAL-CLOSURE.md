@@ -16,6 +16,8 @@
 | Q缺失／P采纳／A-B 的条件政策与非 base B 的反证回溯 | `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-08` | Lean core `KERNEL_ACCEPTED_WITH_SCOPE`。 |
 | Meta Theory 接受 Sub Theory completion 的 bridge 责任 | `20261004-MP-ZFC-META-SUBTHEORY-AUDIT-001-02` | Lean core `KERNEL_ACCEPTED_WITH_SCOPE`。 |
 | 粗 Meta promotion 的错误断言 | `20261004-MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001-02` | Lean `KERNEL_REJECTED`，预期诊断命中。 |
+| completion-promotion P 与 semantic bridge 的精确区分 | `20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-001-02` | Lean core `KERNEL_ACCEPTED_WITH_SCOPE`；14 个定理均无公理依赖。 |
+| 未支付 P promotion 的错误健全性断言 | `20261004-MP-ZFC-COMPLETION-PROMOTION-TENSION-NEG-001-02` | Lean `KERNEL_REJECTED`，在同一 unresolved state 命中预期诊断。 |
 | IEP／截断／bare QuestioningDelay 来源状态 | `20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04` | Lean core `KERNEL_ACCEPTED_WITH_SCOPE`。 |
 | main HoTT `QuestioningDelay` | `20261004-CG001-QUESTIONING-DELAY-ZFC-CLOSURE-01` | Cubical Agda `KERNEL_ACCEPTED_WITH_SCOPE`。 |
 | 其早停错误断言 | `20261004-CG001-QUESTIONING-DELAY-ZFC-CLOSURE-NEG-01` | Cubical Agda `KERNEL_REJECTED`，exit 42，`UnequalTerms`。 |
@@ -30,7 +32,7 @@
 
 ```sh
 python3 -B scripts/audit/verify_zfc_completion_observation_closure.py \
-  --out audit/20261004-ZFC-COMPLETION-OBSERVATION-FORMAL-CLOSURE-RECEIPT-02.json
+  --out audit/20261004-ZFC-COMPLETION-OBSERVATION-FORMAL-CLOSURE-RECEIPT-05.json
 ```
 
 脚本逐一验证：
@@ -38,11 +40,12 @@ python3 -B scripts/audit/verify_zfc_completion_observation_closure.py \
 1. 每个 `RUN.json` 的 run id、proof id、状态和退出码；
 2. stdout、stderr、environment、source-manifest 的字节数和 SHA-256；
 3. source-manifest 中全部本地 source 文件的当前 hash；
-4. main@`894e381` 的 README、社区稿 03 和 QuestioningDelay 两个 blob pin；
+4. main@`f312770` 的 README（其新增 `ZFC Failure` 用户原文头部已逐 diff 审阅）、社区稿 03 和 QuestioningDelay 两个 blob pin；
 5. H100–H105 冻结 TaskCard/prompt 的 hash；
 6. Lean core 包的 `#print axioms` 输出，及对 Mathlib 几何包保留其已声明经典依赖的边界。
 7. Meta/Sub Theory audit 的正向 bridge theorem 与负向 coarse-promotion rejection。
+8. completion-promotion calculus 的正向 bridge/soundness theorem 与同一 countertrace 上的错误健全性拒绝。
 
-PASS 只说明这套 contributor 闭包可重放、输入未漂移且同样的正负命题被保存。它不替代 canonical claim matrix 的集成工作。`...-RECEIPT.json`保留第一次通过验证的历史快照；`...-RECEIPT-02.json`绑定H106和profile `-04`后的当前闭包；`...-RECEIPT-03.json`绑定非 base B 的反证回溯 theorem 和 policy run `-08`；`...-RECEIPT-04.json`纳入 Meta/Sub Theory 的正负证明对。`RECEIPT-03` 的 pre-run-06、pre-run-07、pre-run-08 快照均由验证器拒绝覆盖后保留为明确的 stale history，当前 receipt 重新生成而非覆盖历史字节。
+PASS 只说明这套 contributor 闭包可重放、输入未漂移且同样的正负命题被保存。它不替代 canonical claim matrix 的集成工作。`...-RECEIPT.json`保留第一次通过验证的历史快照；`...-RECEIPT-02.json`绑定H106和profile `-04`后的当前闭包；`...-RECEIPT-03.json`绑定非 base B 的反证回溯 theorem 和 policy run `-08`；`...-RECEIPT-04.json`纳入 Meta/Sub Theory 的正负证明对；`...-RECEIPT-05.json`纳入 completion-promotion 的正负证明对。`RECEIPT-03` 的 pre-run-06、pre-run-07、pre-run-08 快照均由验证器拒绝覆盖后保留为明确的 stale history，当前 receipt 重新生成而非覆盖历史字节。`RECEIPT-05-STALE-PRE-MAIN-F312.json`保留更新前的失败：它发现 `main` 从 `894e381` 前进到 `f312770`，README 新增用户 Q/P/A/B 原文；直接 diff 核实这 25 行仅新增该原文、未改既有 HoTT 结果正文后，当前 pin 更新到新 blob。completion-promotion 的 `-01` 正向 run 是 import placement 的实现失败、其同轮负向 run 是依赖未建立后的 import failure；二者保留为历史，当前验证器只承认 `-02` pair。
 
 第一次验证曾正确发现 H100 的运行使用了格式化前的结尾字节、而 current TaskCard/prompt 已经被 Git whitespace 规范化。该失败收据作为历史保留；H106以当前字节重跑同一 source-match 问题，P 状态不变，新的 `...-03` Lean receipt绑定当前 TaskCard和capture script。于是本闭包不再以“语义相同”放过 source hash 漂移。
