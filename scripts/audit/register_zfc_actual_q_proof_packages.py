@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Register or refresh the three ZFC-actual-Q proof packages atomically.
+"""Register or refresh the ZFC-actual-Q proof packages atomically.
 
-The script is deliberately narrow: it adds only C-359/C-360/C-361 to the
+The script is deliberately narrow: it adds only C-359 through C-363 to the
 append-only `later_packages` registry, verifies their captured identity before
 writing, and recomputes the numeric later-claim count.  A final recapture may
 replace only the registered primary run of an already registered package after
@@ -28,7 +28,7 @@ PACKAGES = [
         "claim_ids": "C-359",
         "source": "HoTT/formal/zfc-actual-q-policy/ZFC1IllusionPolicy.lean",
         "toolchain": "HoTT/formal/zfc-actual-q-policy/LEAN_CORE_TOOLCHAIN.json",
-        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-001-06",
+        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-001-07",
         "kind": "lean_core_zfc_one_policy_consequence_with_explicit_source_hypotheses",
         "verdict": "FORMAL_CHECKED_WITH_SCOPE: explicit ZFC-1 use-model, same-Q transport and HoTT-side B counterexample entail False; Q gap alone does not imply P.",
         "notes": "Lean core with no imports or axioms. This does not formalize bare ZFC, IEP, mathematical-community consensus, an actual same-Q mapping, or physical Zeno completion. The policy/source hypotheses remain explicit.",
@@ -38,7 +38,7 @@ PACKAGES = [
         "claim_ids": "C-360",
         "source": "HoTT/formal/zfc-actual-q-policy/HoTTCounterexample.agda",
         "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
-        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-06",
+        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-07",
         "kind": "native_cubical_fixed_hott_q_counterexample_to_coarse_completion_promotion",
         "verdict": "FORMAL_CHECKED_WITH_SCOPE: the fixed stage-one completion of the set-truncated question cannot be promoted to finite halting of the original universe question.",
         "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with complete observed local import closure and a nothing != just 1 negative control. It does not decide task identity or formalize ZFC, IEP, source-owned policy, actual same-Q identity, HoTT inconsistency, or UR reality verdict.",
@@ -48,10 +48,30 @@ PACKAGES = [
         "claim_ids": "C-361",
         "source": "HoTT/formal/zfc-actual-q-policy/ZenoLimitControl.lean",
         "toolchain": "HoTT/formal/astra-real-geometry/TOOLCHAIN.json",
-        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-07",
+        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-08",
         "kind": "lean_mathlib_strict_limit_to_finite_stage_promotion_control_with_closed_time_positive_control",
         "verdict": "FORMAL_CHECKED_WITH_SCOPE / DECLARED_CLASSICAL_AXIOMS: for a fixed geometric sequence, formal limit completion does not imply a finite natural-stage endpoint; a closed continuous-time endpoint exists.",
         "notes": "Lean 4.34.0 plus pinned Mathlib; propext, Classical.choice and Quot.sound are retained in the receipt. It does not attribute the strict finite-stage condition to the Standard Solution, formalize ZFC, prove continuous motion lacks an endpoint, or supply actual same-Q/policy evidence.",
+    },
+    {
+        "proof_id": "MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+        "claim_ids": "C-362",
+        "source": "HoTT/formal/zfc-actual-q-policy/ZenoSourceCompletionContract.lean",
+        "toolchain": "HoTT/formal/zfc-actual-q-policy/LEAN_CORE_TOOLCHAIN.json",
+        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001-01",
+        "kind": "lean_core_source_certified_completion_contract_consequence",
+        "verdict": "FORMAL_CHECKED_WITH_SCOPE: a source-certified revised completion with every indexed action done but no last action cannot discharge the stricter original completion bridge required by C-359.",
+        "notes": "Norton/IEP classification remains a separately audited source-card input. Lean proves the contract consequence, not the webpages, ZFC history, an actual same-Q identification, or a bare ZFC inconsistency.",
+    },
+    {
+        "proof_id": "MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+        "claim_ids": "C-363",
+        "source": "HoTT/formal/zfc-actual-q-policy/HoTTCompletionContract.agda",
+        "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+        "run": "HoTT/verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001-01",
+        "kind": "native_cubical_completion_gap_schema_for_fixed_hott_q",
+        "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed HoTT coarse completion has a revised witness, lacks original finite halting, and admits no completion bridge.",
+        "notes": "This establishes a completion-gap schema match with C-362, not SameFullQ, a cross-kernel theorem, a source policy, a ZFC model fact, or a bare ZFC inconsistency.",
     },
 ]
 

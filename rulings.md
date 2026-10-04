@@ -774,3 +774,18 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 4. 研究收尾可能产生两个同等合法的最终形态：`ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY`，或`ACTUAL_Q_UNIFICATION_REJECTED_WITH_SCOPE / SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE`。前者要求真实来源填入C-359前提；后者必须准确说明哪张卡不能支付。两者都不是“bare ZFC形式不一致”的同义词。
 
 本裁定授权该阶段定位的直接用户source、Feature／MEMORY／rulings更新与精确Git谱系；不授权将收敛标签升级为数学定理、启动无关扫描、改变数学STATE、tag、push或外部发布。
+
+## 2026-10-04：ZFC 实际同 Q SOP 在固定来源分母的收尾判词
+
+`ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`的 A1–A5 已对固定分母执行：用户圆环原文、IEP、Norton、SEP、已机证的圆环模型家族和固定 Cubical Agda HoTT Q。完整卡与逐字段裁决由`audit/20261004-ZFC-ACTUAL-Q-A1-A5-收尾裁决.md`拥有。
+
+执行裁定：
+
+1. A1 得到`ORIGIN_DONE_MODEL_FAMILY_NONUNIQUE / USER_DONE_ADJUDICATION_REQUIRED`：用户圆环原案足以规定“不得以逼近偷换复原”的研究方向，却未唯一固定`State/Op/OriginDone`。C-269/C-272给连续闭参数端点正控制，C-294给有限环境同胚操作类no-go，C-295给显式rich source reexpression正控制；不得任择其一冒充唯一原任务。
+2. A2 得到`SOURCE_TASK_CONTRACT_DIVERGENCE_ESTABLISHED_WITH_SCOPE`：IEP 把 ZFC with Choice／标准实分析放入 Standard Solution，且不要求最后一步；Norton 明示严格完成含最后动作、解法删去该条件。C-362机器证明此来源卡分类的 revised completion 不能支付 strict original bridge。来源分类仍是`SOURCE_CERTIFIED_PREMISES`，不是Lean对历史文本的证明。
+3. A3/C-363把固定 HoTT B 重述为 generic completion gap；C-362/C-363的共同形状是`revisedDone ∧ ¬ originalDone ∧ ¬ bridge`。共同形状不等于`SameFullQ`，跨 kernel 对应表已明示这一禁止跨越。
+4. A4 在固定来源分母中未找到同时消费 Standard Solution 与 exact Cubical HoTT Q 的实际 policy owner；判`SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE`。不得把研究者自定义`QUniform`或C-359条件模型冒充这个 owner。
+5. A5 的强实际实例化判`ACTUAL_Q_UNIFICATION_REJECTED_WITH_SCOPE`。它拒绝的是该固定分母中的`SameFullQ`尝试，不是“ZFC没有问题”的全称结论。当前正结果保留为来源级的`ResolutionByRevision`完成合同发散；bare ZFC形式不一致仍未证明且不得宣称。
+6. F-048在此分母成为`CLOSED_WITH_SCOPE`。重开条件仅为新的版本固定来源实际将标准解法与 exact HoTT Q置于同一completion／adequacy政策下；不以更多fixture、泛扫描、Power Set旁支或非同层模型重开。
+
+本裁定授权C-362/C-363、来源卡、收尾裁决、Feature/MEMORY/rulings、验证与精确Git提交；不授权修改数学STATE、把来源分类升级为内核定理、tag、push或外部发布。

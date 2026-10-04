@@ -34,3 +34,9 @@ proof-index verifier。修复 wrapper 后的 `...-03` 使用 `source_manifest` �
 `KERNEL_REJECTED / NEGATIVE_CONTROL_SETUP_FAILURE`。负控制改为最小、无导入的命题后，`...POLICY-NEG-04`在
 `gap : qGap`不能作为任意`P`的证明处正确被拒，成为 C-359 的 canonical negative control。`...POLICY-001-04`
 则是增补 Q 观察代理后的初始 replay。`...POLICY-001-06`新增 pinned Lean core toolchain 和可验证的二进制散列，现为 C-359 的 primary run；它修复的是证据闭包，不改变 Lean 命题。
+
+## 2026-10-04：C-362/C-363 将来源合同与 HoTT B 统一为 completion-gap schema
+
+固定 IEP/Norton/SEP 来源卡显示：标准解法的可认证形状是`revisedResolved`，不支付“含最后动作”的 strict bridge。为避免把这一来源解释直接当作 C-359 的强 P，本轮新增 C-362：Lean core 只对来源卡给出的严格／缩减 completion contract 作逻辑推理；`WrongZenoLastAction.lean`在试图伪造最大自然动作编号时被拒绝。
+
+C-363 将 C-360 的固定 HoTT B 封装为通用`CompletionGap`。首次手动检查因注释使用了不属于 Agda 的`/- ... -/`形式而在解析阶段失败；修复为 Agda 行注释后主源码通过。负控制首次缺 record projection qualification，修复为`CompletionGap.RevisedDone`／`CompletionGap.OriginalDone`后，在预期的`nothing != just 1`处被拒。两次修复均保留失败轨迹；它们不改变 C-360 原命题或声称跨 kernel `SameFullQ`。

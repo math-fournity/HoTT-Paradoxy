@@ -76,6 +76,27 @@ StrictSequentialDone            = ∃ n, s_n = 1
 
 该包不把 `StrictSequentialDone` 归给 IEP 或数学共同体；Standard Solution 是否采用它、修改它，还是给出另一种原任务桥，仍是来源卡问题。
 
+## `MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001` / C-362
+
+[ZenoSourceCompletionContract.lean](ZenoSourceCompletionContract.lean)把 A2 来源卡中由 Norton 明确区分的两个完成合同写成 Lean core 命题：
+
+```text
+StrictLastActionCompletion = 做完所有自然数编号动作，并有一个最后动作
+RevisedAllActionsCompletion = 每个自然数编号动作都已完成
+```
+
+它机器证明：第二个命题成立，第一个命题不成立；因此一个 `revisedResolved` 且未支付 bridge 的 contract 不能交付 `originalDone`。`nortonModeledContract` 是来源卡的**人工认证分类输入**，不是 Lean 对 Norton 网页的证明；来源的 URL、行号和解释范围由 [A2 来源完成合同卡](../../../audit/20261004-ZFC-ACTUAL-Q-A2-标准解法来源完成合同.md)拥有。
+
+`WrongZenoLastAction.lean` 是负控制：伪造一个最大自然动作编号应被 Lean 在 `action ≤ 0` 的类型边界拒绝。
+
+## `MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001` / C-363
+
+[HoTTCompletionContract.agda](HoTTCompletionContract.agda)把 C-360 的固定 Cubical Agda B 封装成通用 `CompletionGap`：有 `RevisedDone` witness、没有 `OriginalDone` witness，因此不存在 `RevisedDone → OriginalDone` bridge。它机器证明 HoTT 的 gap 具有与 C-362 相同的**抽象合同形状**。
+
+这不是 `SameFullQ` 的证明。它只允许写“两个局部实例共享 `revisedDone ∧ ¬ originalDone` 的 schema”；输入、操作、现实解释、理论变体和来源政策仍不同。跨 proof assistant 的逐项对应见 [CROSS-KERNEL-COMPLETION-CONTRACT.md](CROSS-KERNEL-COMPLETION-CONTRACT.md)。
+
+`WrongHoTTCompletionBridge.agda` 是负控制：它伪造 generic bridge，必须在固定 C-360 的 `nothing != just 1` 边界被拒。
+
 ## 证据层次
 
 | 层次 | 当前证据 |
@@ -84,5 +105,6 @@ StrictSequentialDone            = ∃ n, s_n = 1
 | HoTT B control | 新鲜 Cubical Agda native kernel run；复用 C-358 的完整固定依赖，负控制应在 `nothing != just 1` 处拒绝。 |
 | 实际 Zeno／来源／ZFC policy | 未完成；按 `ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP` A1–A5 继续。 |
 | 跨证明器桥 | 只有外部 formal-result receipt 对应，尚不是单一 kernel theorem。 |
+| Zeno 来源合同 | A2 对固定 IEP/Norton 分母给出 `SOURCE_TASK_CONTRACT_DIVERGENCE_ESTABLISHED_WITH_SCOPE`；C-362 只机器化该人工来源分类的逻辑后果。 |
 
 运行与 source-manifest 的首次失败、修复和 primary-run 选择见 [REVISIONS.md](REVISIONS.md)。
