@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 215,
+  "later_machine_proved_claim_count": 216,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -1060,6 +1060,16 @@
    "kind": "lean_core_conditional_completion_policy_uniformity_and_o3_o5_controls",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: equal full Q profiles with opposite originalResolved and bridgeRequired judgments violate QUniform; an original-resolution judgment with a missing required bridge violates O3O5Adequate; a payment-difference control permits reasonable different judgments.",
    "notes": "Lean 4.34.1 core, no Mathlib imports, pinned compiler binary, no sorry/admit and every listed theorem reports no axioms. The QProfile booleans are conditional modeling inputs, not source evidence. This proof does not establish that actual Zeno, the user circle, or fixed HoTT Q share a full profile, that a source makes either judgment, that O3--O5 are ZFC axioms, or that ZFC has an object-language inconsistency."
+  },
+  {
+   "proof_id": "MP-ZFC-UNPAID-COMPLETION-PROMOTION-001",
+   "claim_ids": "C-364",
+   "source": "HoTT/formal/zfc-actual-q-policy/ZFCUnpaidCompletionPromotion.lean",
+   "toolchain": "HoTT/formal/zfc-actual-q-policy/LEAN_TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01",
+   "kind": "lean_core_unpaid_completion_promotion_countermodel_and_paid_bridge_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: any base/subtheory model with a formalDone witness and no originDone field has a same-public-fields expansion where originDone is false and completion promotion fails; an explicit bridge plus formal adequacy yields promotion.",
+   "notes": "Lean 4.34.1 core, no Mathlib imports, pinned compiler binary, no sorry/admit and every listed theorem reports no axioms. The base/subtheory interface explicitly models membership, input, step, observation and formalDone; it is not the ZFC axiom scheme or a real-analysis/physical model. The proof does not construct a ZFC model, prove consistency/inconsistency, identify the user circle contract, show an actual source accepts P, or substitute for the C-361 continuous-time control."
   },
   {
    "proof_id": "MP-TERRA-T2-ONESHOT-001",

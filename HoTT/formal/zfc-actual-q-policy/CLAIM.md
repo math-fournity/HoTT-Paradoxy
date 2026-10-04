@@ -4,7 +4,7 @@
 >
 > **用户原论述：** [2026-10-04 Q／P／A／B／ZFC-1 原文](../../../sources/prompts/Codex-ZFC-Q-P-A-B-ZFC1-用户原文-20261004.md)。
 >
-> **交付运行：** `MP-ZFC-ACTUAL-Q-POLICY-002` / [`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json)、`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` / [`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01`](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json)、`MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001` / [`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01`](../../verification/runs/20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01/RUN.json) 与 `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / [`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json) 都已通过精确重放；本页仍须与 `README.md`、`REVISIONS.md`、跨 kernel 对应表共同解释，不能把条件 theorem 缩写成“ZFC 不一致”。
+> **交付运行：** `MP-ZFC-ACTUAL-Q-POLICY-002` / [`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json)、`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` / [`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01`](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json)、`MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001` / [`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01`](../../verification/runs/20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01/RUN.json)、`MP-ZFC-UNPAID-COMPLETION-PROMOTION-001` / [`20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01`](../../verification/runs/20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01/RUN.json) 与 `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / [`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json) 都已通过精确重放；本页仍须与 `README.md`、`REVISIONS.md`、跨 kernel 对应表共同解释，不能把条件 theorem 缩写成“ZFC 不一致”。
 
 ## 1. 用户论证被怎样忠实地拆成可检验对象
 
@@ -13,6 +13,7 @@
 | `Q`：对时间／过程完成的理论观察力 | `CompletionObservable task := ∃ classify, classify (observe state) ↔ originDone state`。`QMissing` 是其否定。 | 一个明确的观察函数无法区分原完成与原未完成状态时，内核证明 `QMissing`。 | 这不是“bare ZFC 没有时间”或“ZFC 不能编码过程”；它是某个固定任务观察接口的相对性质。 |
 | `Q` 的成员语言边界 | `MembershipTheory α := MembershipModel α → Prop` 不接收 `originDone`；`CompletionExpansion` 才加入这个谓词。 | 若一个成员模型满足任意此类 base theory，它可有同一 membership、却在任一指定状态对 `originDone` 相反的两个扩张。 | 这不是 ZFC 模型存在或不一致定理，也不证明实际圆环 Done 不可在 ZFC 中定义；它严格说明：未被定义／桥接的外部 Done 不能由成员语言本身替你决定。 |
 | `Q` 的统一判词 | `QUniform assessment := equal full QProfile → equal completion judgment`；`O3O5Adequate` 要求 original-resolution 的 required bridge 已支付。 | 相同完整 profile + `originalResolved`／`bridgeRequired` 的异判，内核推出 `¬ QUniform`；无 bridge 的 original-resolution 推出 `¬ O3O5Adequate`。 | 这是条件性元政策 theorem；实际 Zeno、圆环和 HoTT Q 是否有同一完整 profile、相反判词，仍由来源和同一任务映射支付。 |
+| `P` 的未付款反模型 | `BaseSubtheoryModel` 保留 `member/input/step/observe/formalDone`；`ProcessExpansion` 才加 `originDone`。 | 只要有一个 `formalDone` witness，就存在所有 base/subtheory 字段不变而 `originDone` 为假的 expansion；因此 base/subtheory 不能语义蕴含 `CompletionPromotion`。 | 这是泛化模型论反例，不是实际 ZFC 模型、物理过程或 Standard Solution 的来源判词。 |
 | `A`：Zeno 侧的数学完成 | `∃ state, formalDone state`。 | 受控模型有一个 `limit` formal-completion witness。 | 实际 Standard Solution 是否对用户的圆环／芝诺原任务建立了这个 `A`，由来源卡决定。 |
 | 弱 `P`：数学共同体把模型结果称作“解决” | `WeakResolutionLabel`，它只能从 `formalDone` 产生 `CompletionJudgment`，不产生 `originDone`。 | 受控模型可无矛盾地把 `limit` 标为 `revisedResolved`。 | 标签是哪个真实来源、它是否声称原任务已完成。 |
 | 强 `P`：所谓“数学幻觉”实际把模型完成当原过程完成 | `MathematicalIllusionP`：在其适用站点，`formalDone state → originDone state`；`PolicyScopeWitness` 是“为何政策从 Zeno 侧扩展到 HoTT 侧”的**形式占位**。 | 强 P、scope witness 与 B 同时存在时，Lean 导出 `False`。 | IEP/SEP/Norton 现在支持 Zeno-side local completion policy；它们仍不支付到用户圆环／HoTT 的范围。Lean 不能证明某文献作者承担这个范围，须由来源卡另行支付。 |
@@ -89,6 +90,22 @@ profile(Zeno) = profile(HoTT)
 另一个定理表明，若一个需要 bridge 的案例被称作 `originalResolved` 而 bridge 未支付，则它违反该模型中的 `O3O5Adequate`。反控制 `coarse_shared_Q_can_have_different_judgments` 同时证明：只共享“都需要 bridge”并不构成矛盾；一侧若真实支付 bridge、保留任务，异判可以合理。
 
 这正好避免两种相反的误读：不能只因 Zeno 和 HoTT 都谈“完成”就宣布 ZFC 异判；也不能因为它们表面不同就忽略用户所要求的同一完整 Q 检验。当前来源状态仍是：Zeno 侧有局部 policy，圆环／HoTT 的共同 profile、policy scope 和相反 judgment 都未支付。因此 C-363 是**收尾判词的条件形式**，不是实际 ZFC 冲突已经证明。
+
+### 2.5 `MP-ZFC-UNPAID-COMPLETION-PROMOTION-001` / `C-364`：未付 P 的保字段反模型
+
+[ZFCUnpaidCompletionPromotion.lean](ZFCUnpaidCompletionPromotion.lean) 将 C-362 的语言边界提升到用户真正要的 `P`：base/subtheory interface 同时公开 `member`、`input`、`step`、`observe` 与 `formalDone`，但不公开 `originDone`。它定义：
+
+```text
+CompletionPromotion
+  := ∀ state, formalDone(state) → originDone(state)
+
+CompletionPromotionExtension
+  := Models(base/subtheory) ∧ CompletionPromotion
+```
+
+若 base/subtheory 有某个 `formalDone` witness，`unpaid_formal_completion_has_countermodel` 构造一个保留**全部**已公开 base/subtheory 字段、仍满足同一 theory、却令该 witness 的 `originDone` 为假的 expansion；它同时否定 `CompletionPromotion`。随后的 `base_subtheory_does_not_semantically_entail_unpaid_promotion` 给出等价的全称表述：该 theory 不能仅从这些公开信息语义蕴含 P。
+
+正控制也在同一文件中：`CompletionBridge` 加上 `FormalCompletionAdequacy` 会推出 `CompletionPromotion`。因此这个结果不说“所有 mathematical completion 都是假象”；它精确说：**没有把原过程 contract 写进 bridge 的 completion promotion 不是 base/subtheory 的后果，而是 `ZFC-1` 式额外加项。**
 
 ## 3. 受控 Zeno 过程模型：它证明什么，刻意不证明什么
 
@@ -168,5 +185,6 @@ Lean 的 `#print axioms` 对此包报告 `propext`、`Classical.choice`、`Quot.
 7. “反现实”“数学真理性”或“与魔鬼交易”这类哲学结论是 proof assistant 内核可判的命题。
 8. 任何实际 ZFC 模型的存在、ZFC 的一致性，或用户圆环 `OriginDone` 不能由集合论定义。
 9. IEP／SEP／Norton 的 Zeno-side policy 和 fixed HoTT Q 已具有相同 `QProfile`，或已经形成 `originalResolved`／`bridgeRequired` 的实际异判。
+10. `BaseSubtheoryModel` 是 ZFC、实分析、芝诺物理过程或用户圆环的完整语义模型。
 
 相反，本包给未来实际实例化一条清晰可推翻路线：若来源明确把 `Done_formal` 改写为不同的 `Done_revised`，或不能支付其 P 跨案例适用的 `PolicyScopeWitness`，则当前 `False` theorem 不能用于实际来源判词；严格 `TaskEquiv` 的失败只会阻断严格路径，不能单独否定一份可能存在的范围论证。只有强 P、可审的范围支付、实际 B 映射和版本固定来源都齐备，才可以把条件后果推进为 `ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY`。

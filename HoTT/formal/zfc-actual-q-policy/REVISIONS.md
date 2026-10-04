@@ -43,6 +43,12 @@ PolicyScopeWitness
 
 本分支因此重建并独立运行 [ZFCCompletionPolicyUniformity.lean](ZFCCompletionPolicyUniformity.lean)。C-363 明确给出 full profile equality、两个 judgment 与 `QUniform` 的条件 theorem，也保留“只共享 requiresBridge 时可以合理异判”的反控制。它不把当前 IEP、SEP、Norton、圆环或 Cubical Agda 来源字段填成 true／false；实际映射仍须由 source card 支付。
 
+## 2026-10-04：从“未定义 Done”深化为“未付 P 有保字段反模型”
+
+C-362 说明 membership-only base theory 不会决定一个外加 Done；但用户的目标还要求解释为什么 `P := Done_formal → Done_origin` 不是能从子理论数学结论自动得到的前提。本轮新增 [ZFCUnpaidCompletionPromotion.lean](ZFCUnpaidCompletionPromotion.lean)，让 interface 保留 `member/input/step/observe/formalDone` 全部字段，再把 `originDone` 留在 expansion。
+
+C-364 证明：只要出现 formal-completion witness，就能把 `originDone` 设为 false 而保留 base/subtheory model、所有公开字段和 formal witness；该 expansion 反驳 P，并显示 base/subtheory 不能语义蕴含该 promotion。相反，显式 bridge 加上 formal adequacy 可以推出 P。它将“ZFC-1 是加上 P 的使用扩张”从命名变为反模型与正控制兼具的机器结论。
+
 ## 2026-10-04：HoTT wrapper 的初始导入失配与最小修复
 
 [HoTTCounterexample.agda](HoTTCounterexample.agda) 初版在使用空类型 `⊥` 时漏导入 `Cubical.Data.Empty`，因此首次尝试只得到 `Not in scope: ⊥`。该错误尚未触及所需的 completion-reflection 命题，不能被报告为数学反例。
@@ -71,5 +77,6 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 | `ActualQPolicy.lean` | 是，`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06` 是 current primary | 以严格任务等价阻止 metadata 类比，同时单列必须由来源审计支付的政策范围；明确 Lean 字段不伪称来源归属；证明 use-model 不自动制造 B；全部交付定理无 `sorry`、无额外公理。 |
 | `ZFCObservationLanguage.lean` | 是，`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01` 是 C-362 primary | 对任何 membership-only theory 形式化外加 Done 的不决定性与 explicit bridge 正控制；不编码 ZFC 公理或其模型。 |
 | `ZFCCompletionPolicyUniformity.lean` | 是，`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01` 是 C-363 primary | 对完整 QProfile 下的 O3–O5 adequacy 与 Q-uniformity给出条件 theorem 和粗字段反控制；不填实际来源 profile。 |
+| `ZFCUnpaidCompletionPromotion.lean` | 是，`20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01` 是 C-364 primary | 对 base/subtheory 的公开字段给出未付 P 反模型、非蕴含 theorem 与 paid bridge 正控制；不编码实际 ZFC。 |
 | `HoTTCounterexample.agda` | 是，`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01` 已索引并精确重放 | 固定 native Cubical Agda Q 的强 P 反例。 |
 | `WrongHoTTCounterexample.agda` | 是，作为已捕获的负控制 | `...NEG-001-01` 在 `nothing != just 1` 处拒绝伪 witness。 |

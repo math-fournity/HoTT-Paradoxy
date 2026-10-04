@@ -2,7 +2,7 @@
 
 > **身份：** `CANDIDATE_BRANCH_RESEARCH_CLOSURE / FORMAL_AND_SOURCE_CONVERGENCE / NOT_A_BARE_ZFC_INCONSISTENCY`。
 >
-> **范围：** 当前 branch `codex/zfc-q-policy-formalization` 上的 C-359 至 C-363、芝诺来源完成政策、用户圆环的受限 ABX 合同、fixed Cubical Agda HoTT Q，以及已冻结的 HoTT 创建动机文献回流。它总结一轮收尾，不改 canonical `dev` 的 current truth。
+> **范围：** 当前 branch `codex/zfc-q-policy-formalization` 上的 C-359 至 C-364、芝诺来源完成政策、用户圆环的受限 ABX 合同、fixed Cubical Agda HoTT Q，以及已冻结的 HoTT 创建动机文献回流。它总结一轮收尾，不改 canonical `dev` 的 current truth。
 
 ## 1. 已经收敛到的 ZFC 问题位置
 
@@ -37,7 +37,7 @@ flowchart LR
 
 这不是 `ZFC ⊢ False`。它是对“ZFC 作为基础被实际用来验收一个子理论完成结论时，究竟有没有审查原过程完成桥”的基础政策问题。
 
-## 2. 五个已机器检查的部件
+## 2. 六个已机器检查的部件
 
 | Claim | 已证明的精确内容 | 对收尾的作用 | 禁止外推 |
 |---|---|---|---|
@@ -46,8 +46,9 @@ flowchart LR
 | C-361 | \(1-2^{-n}\) 的极限不推出某个有限自然数阶段 endpoint；闭连续时间 endpoint 正控制同时成立。 | 排除“极限必等于有限步骤到达”与“无末阶段必无连续 endpoint”两种误读。 | 不把严格 finite Done 塞回 Standard Solution。 |
 | C-362 | membership-only theory 对未定义的 `originDone` 无法选择真值；同一 `CompletionBridge` 会唯一决定它。 | 形式化 Q 的最小语言边界。 | 不证明 ZFC 无法定义时间或没有模型。 |
 | C-363 | 相同完整 QProfile 的 `originalResolved`／`bridgeRequired` 异判推出 `¬ QUniform`；bridge payment 不同的粗 profile 可合理异判。 | 形式化“同 Q 异判”这一终局政策判词和必要反控制。 | 不填实际 Zeno／圆环／HoTT profile。 |
+| C-364 | 保留 `member/input/step/observe/formalDone` 的 base/subtheory model，在有 formal witness 时仍有 `originDone=false` 的保字段反模型；paid bridge 加 formal adequacy 可推出 P。 | 机器证明 P 是未付 bridge 时的额外加项，而非 base/subtheory 的语义后果。 | 不编码实际 ZFC 或来源。 |
 
-五项 source、receipt、matrix 与版本闭合都在当前 branch 的 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 和 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 中登记；选定 package 的 Git 版本闭合已通过。
+六项 source、receipt、matrix 与版本闭合都在当前 branch 的 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 和 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 中登记；选定 package 的 Git 版本闭合已通过。
 
 ## 3. 来源链现在真正证明了什么
 
@@ -81,7 +82,7 @@ ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY = NOT_REACHED
 
 > **ZFC 支撑的 Standard Solution 能够在自己的连续 runner 合同内给出完成判词；但当前没有来源把这一判词作为跨任务的基础观察政策，来支付圆环的来源完成或 HoTT 原 Q 的完成。**
 
-因此，用户所说的“ZFC 的观察力不完备”在当前证据中的最强身份是 `COMPLETION_BRIDGE_OBSERVATION_BOUNDARY_CANDIDATE`。它已获得语言边界、来源局部政策、极限控制、HoTT 反例和条件性统一性 theorem 五层支撑；它还没有获得使其成为实际跨案例政策冲突所需的 source scope。
+因此，用户所说的“ZFC 的观察力不完备”在当前证据中的最强身份是 `COMPLETION_BRIDGE_OBSERVATION_BOUNDARY_CANDIDATE`。它已获得语言边界、未付 P 反模型、来源局部政策、极限控制、HoTT 反例和条件性统一性 theorem 六层支撑；它还没有获得使其成为实际跨案例政策冲突所需的 source scope。
 
 ## 5. 为什么现在是收尾，而不是新的漫游
 
@@ -95,6 +96,6 @@ ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY = NOT_REACHED
 ## 6. 交付与集成边界
 
 - 当前结果位于 contributor branch `codex/zfc-q-policy-formalization`，尚未进入 dirty 的 canonical `dev`。
-- 本 branch 的 C-359 至 C-363 及其 run receipts 已 version-closed；candidate handoff 已给 canonical integrator 精确的 conflict/verification 顺序。
+- 本 branch 的 C-359 至 C-364 及其 run receipts 已 version-closed；candidate handoff 已给 canonical integrator 精确的 conflict/verification 顺序。
 - `dev` 的 current owners、STATE、MEMORY 和 core generation 不在本 branch 改写；需要干净 integration worktree 和 canonical integrator 才能消费这些候选。
 - 这份 closure 不把用户的研究判断、IEP 的来源叙述、Lean theorem 或 Agda theorem 混成同一种事实。它保留未来可能的正向实例化，也保留来源直接拒绝范围时的反向终局。
