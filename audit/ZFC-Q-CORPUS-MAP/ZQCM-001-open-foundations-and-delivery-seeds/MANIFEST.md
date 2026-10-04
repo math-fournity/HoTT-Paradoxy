@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-006_VCMP01_AUTHOR_PREPUBLICATION_CONTROL / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-007_VUF02_VUF03_VUF04_AUTHOR_VERSION_ACQUISITION / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -86,3 +86,5 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-005 rationale.** W-014 was found by an exact official Cambridge Core search. Its abstract directly frames the cumulative hierarchy as potential rather than actual and describes the resulting modal theory as equi-interpretable with ZF. No full PDF has been accepted, so it is a metadata／abstract seed only; its presence does not support page-level or Q claims.
 
 **Extension-006 rationale.** V-CMP-01 was already a named W-006 chapter lead. An exact author-hosted public PDF supplied a 27-page, 2018-08-07 prepublication whose title/authors and volume acknowledgement match the chapter. It is admitted as a bounded comparative-control source: its conclusions about canonical representation, Grothendieck universes, ZFCS/NBGS and structural richness remain versioned author-source claims, not a replacement for the published pagination or a ZFC Q candidate.
+
+**Extension-007 rationale.** V-UF-02, V-UF-03 and V-UF-04 were already named W-006 chapter leads. Exact title-and-author queries located their official arXiv PDFs, respectively 14, 21 and 18 pages. Each was admitted only as an author-version candidate after file/PDF metadata, first-page identity and SHA-256 checks; no acquired version is declared byte-identical to the 2019 book pagination. V-UF-04 has since completed source-only visual review and a bounded payment/motive control screen. V-UF-02 and V-UF-03 remain acquired-but-unread source records, not Q candidates.

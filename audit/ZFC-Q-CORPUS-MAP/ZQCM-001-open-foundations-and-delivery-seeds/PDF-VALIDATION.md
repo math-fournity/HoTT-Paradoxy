@@ -1,6 +1,6 @@
 # ZQCM-001 PDF Validation
 
-> **状态：** ELEVEN_WORK_FAMILIES_VALIDATED_PLUS_W006_VCMP01_CHAPTER / THIRTEEN_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
+> **状态：** ELEVEN_WORK_FAMILIES_VALIDATED_PLUS_FOUR_W006_CHAPTERS / SIXTEEN_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
 
 | ACQ ID | 文件 | file/PDF | 页数 | 题名／作者核对 | SHA-256 | 版本判词 | 状态 |
 |---|---|---|---:|---|---|---|---|
@@ -17,7 +17,10 @@
 | ZQCM-ACQ-011 | originals/Klev_2019_A_Comparison_of_Type_Theory_with_Set_Theory_….pdf | PDF 1.5 | 21 | 首页题名、Ansten Klev、ZFC范围说明、chapter身份和公开作者来源一致。 | `3c3555f3325f49857e92002dca14aa5e5343d54368daf81dbeffefefa5bb676e` | AUTHOR_HOSTED_PREPRINT_CHAPTER_MATCH | VALIDATED |
 | ZQCM-ACQ-013 | originals/Aczel_1978_Type_Theoretic_Interpretation_Constructive_Set_Theory.pdf | PDF 1.4 | 12 | metadata、首页题名／Peter Aczel／Logic Colloquium '77及pp.55–66与DOI `10.1016/S0049-237X(08)71989-X`一致。 | `4b6714c5fdcd262839ffd9c942f65c11be9cc7b84e1a3c4d59e83379bbe5d1b0` | INSTITUTIONAL_COURSE_COPY_PRIMARY_WORK_MATCH | VALIDATED |
 | ZQCM-ACQ-015 | originals/Barton_Friedman_2018_Set_Theory_and_Structures_author_preprint.pdf | PDF 1.5 | 27 | metadata为空；首页题名、Neil Barton／Sy-David Friedman、2018-08-07日期及该卷编辑致谢，与V-CMP-01书目身份一致。 | `e8116b22aa72c5741e68c2dff9059652770741abde9aec51b31e4f91eb1ea5f7` | AUTHOR_PREPUBLICATION_CHAPTER_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-016 | originals/Ahrens_North_2022_Univalent_Foundations_and_Equivalence_Principle_arXiv2202.01892v1.pdf | PDF 1.4 | 14 | metadata为空；首页题名、Benedikt Ahrens／Paige Randall North及arXiv:2202.01892v1与V-UF-02身份一致。 | `e2def8f64237f177470ef594b1eff7e2b51c87a0f7d4628759ebe43194cac352` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-017 | originals/Buchholtz_2018_Higher_Structures_in_HoTT_arXiv1807.02177v1.pdf | PDF 1.4 | 21 | metadata为空；首页题名、Ulrik Buchholtz及arXiv:1807.02177v1与V-UF-03身份一致。 | `fb5707d209eb41a5f95ec6848c50b9dcf147734eb77ce4fc702e68a9f028c67b` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-018 | originals/Bordg_2019_Univalent_Foundations_and_UniMath_arXiv1710.02723v7.pdf | PDF 1.4 | 18 | metadata为空；首页题名、Anthony Bordg、arXiv:1710.02723v7及2019日期与V-UF-04身份一致。 | `e3c6c206f872395747f11c47caa00643e48340c85a47aa21fdd8a9e477055473` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 
-W-006的V-CMP-01已取得可验证的作者预发表稿；全卷、其余八条chapter lead、W-012和W-014仍未取得可验证PDF，故不在本表虚列为已验证作品。
+W-006的V-CMP-01、V-UF-02、V-UF-03和V-UF-04均已取得可验证的作者版本；全卷、其余五条chapter lead、W-012和W-014仍未取得可验证PDF，故不在本表虚列为已验证作品。
 
 用户先提供了Downloads副本（终端受隐私限制无法读取），随后提供可读的`/Volumes/D/HoTT_AI_HANDOFF_20260911/外部资料/s10516-023-09676-0.pdf`。后者已作为上表的publisher version导入和验证；Downloads副本不再作为独立未验证语料项使用。
