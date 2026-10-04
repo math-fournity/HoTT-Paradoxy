@@ -729,4 +729,8 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 
 10. 后续直接阅读 KLV 与 HoTT Book 后，H083 的范围结论被精化而非推翻：KLV 确实有特定规则集的模型／相对一致`Done_meta`，但并非本项目完整 Cubical Agda Q 的同理论变体模型；Book 的基础／可表示性陈述没有过程完成接口。故当前问题改写为基础充分性判准是否含过程完成观察，而不是“ZFC 没有模型验收”或“ZFC 无法表达时间”。`ZFC_TIME_OBSERVATION_INCOMPLETENESS_HYPOTHESIS`仍未证明。
 
+11. 相关 cubical computational type theory 对0-truncation与canonical values提供过程敏感的语义／canonicity控制，表明过程完成可以成为基础语义的明确观察对象；它并非本项目Cubical Agda `QuestioningDelay`的同一演算翻译。这个正控制使“ZFC时间观察力”继续指向某个实际基础验收标准的观察范围，不能泛化为“所有模型语义都抹平过程”。
+
+12. `C-358`在原生Cubical Agda中直接否定了固定粗完成到原Q有限完成的反射蕴含：截断版Q的stage-one completion不能推出原universe Q的有限halt；负控制正确在`nothing != just 1`处被拒。它与C-357分工：C-357审对象恢复，C-358审完成反射。二者是未来实际`AdequacyLift`／`Payment`来源的形式控制，不是ZFC、KLV、截断、HoTT一致性或UR现实判词。
+
 本裁定授权Q2卡、H083 NodeCard/payload/report、P3/Feature/MEMORY/路线记录、session审计和精确Git提交；不授权新刀、STATE、Power Set站位、数学／物理结论、tag、push或发布。

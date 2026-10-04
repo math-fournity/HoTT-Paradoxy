@@ -3,7 +3,7 @@
   "session_id": "S-RES-20261003-ZFC-HOTT-Q2-FORMAL-BRIDGE",
   "tier": "T3",
   "role": "RESEARCH_GENERATION",
-  "status": "C357_KERNEL_ACCEPTED_WITH_SCOPE_EXACT_REPLAY_VERSION_CLOSED_Q2_FORMAL_CONTROL",
+  "status": "C357_C358_KERNEL_ACCEPTED_WITH_SCOPE_Q2_FORMAL_CONTROLS",
   "formal_runs": [
     {
       "run_id": "20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02",
@@ -18,6 +18,21 @@
       "proof_id": "MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001",
       "claim_ids": ["C-357"],
       "status": "KERNEL_REJECTED / TYPE_CHECKING / Bool != A",
+      "role": "negative control"
+    },
+    {
+      "run_id": "20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-04",
+      "proof_id": "MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+      "claim_ids": ["C-358"],
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "verifier": "scripts/audit/verify_formal_proof_run.py => PASS_WITH_SCOPE",
+      "closure": "verify_proof_version_closure.py --proof-id ... --evidence-only => LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED before commit"
+    },
+    {
+      "run_id": "20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-NEG-03",
+      "proof_id": "MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001",
+      "claim_ids": ["C-358"],
+      "status": "KERNEL_REJECTED / TYPE_CHECKING / nothing != just 1",
       "role": "negative control"
     }
   ],

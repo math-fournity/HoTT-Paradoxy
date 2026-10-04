@@ -13,7 +13,7 @@
  "current_package_count": 17,
  "machine_proved_claim_count": 90,
  "external_replayed_claim_count": 1,
-  "later_machine_proved_claim_count": 209,
+  "later_machine_proved_claim_count": 210,
  "later_package_dependency_gap_allowlist": {
   "schema_version": "proof-dependency-gap-allowlist/v2",
   "reason": "These six exceptions describe exact historical runs whose source manifests omitted modules shown in the preserved compiler stdout. Each exception is bound to its proof ID, run ID, source-manifest hash, stdout hash and omitted source hash. It cannot be inherited by another run of the same proof. Historical manifests remain byte-preserved; all new runs must pin their complete observed local import closure.",
@@ -1000,6 +1000,16 @@
    "kind": "native_cubical_completion_observation_and_nonrestoration_control",
    "verdict": "FORMAL_CHECKED_WITH_SCOPE: a fixed universe questioning process is never, its set-truncated counterpart stops at stage one, and no uniform section restores every original universe element.",
    "notes": "Safe Cubical Agda 2.8.0/cubical-0.9, direct source closure and a Bool != A rejected recovery control. Two preliminary source failures (missing negation import; parser grouping) are preserved under their own run IDs with source snapshots. This package does not formalize ZFC, a simplicial model, model acceptance or any AcceptanceContract, and does not prove time-observation incompleteness, HoTT inconsistency, a reality/UR verdict, or that truncation is wrong."
+  },
+  {
+   "proof_id": "MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+   "claim_ids": "C-358",
+   "source": "HoTT/formal/claude-cg001/completion-reflection-failure/CompletionReflectionFailure.agda",
+   "toolchain": "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+   "run": "HoTT/verification/runs/20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-04",
+   "kind": "native_cubical_coarse_completion_nonreflection_control",
+   "verdict": "FORMAL_CHECKED_WITH_SCOPE: the fixed stage-one completion of the set-truncated question does not imply any finite halt of the fixed original universe question.",
+   "notes": "Safe Cubical Agda 2.8.0/cubical-0.9 with complete local source closure. The first negative run is retained because it failed before type checking from a missing just import; the repaired negative control is rejected at nothing != just 1. This package does not decide task identity, formalize ZFC or a semantic model, prove time-observation incompleteness, HoTT inconsistency, or a reality/UR verdict."
   },
   {
    "proof_id": "MP-TERRA-T2-ONESHOT-001",
