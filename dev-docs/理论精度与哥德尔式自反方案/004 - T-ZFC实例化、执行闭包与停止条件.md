@@ -33,6 +33,12 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 
 每阶段都先写自己的候选构造、反证条件和较小替代，再查一手论文、官方文档、GitHub/open-source proof code，并写明二者是否真是同一 calculus／同一 consumer。
 
+### T0 当前执行记录：T-OBS-001
+
+本方案的第一个 T0 已选择 T-OBS：冻结一般 World/View/project/observe 与 collision witness，来源分母由 HoTT Book §6.10 Lemma 6.10.3、Lean core Quotient.lift 和 C-364 concrete control 组成。C-367 现已由 MP-T-PRECISION-TOBS-001 在 Lean 4.34.1 core 中机器检查，包含 identity/rich observation 正控制和 Bool/Unit 伪 decoder 的 expected-negative rejection。
+
+这只完成抽象观察边界；它没有支付 G0 actual acceptance interface、Code/diag、RealityMap、OriginDone 或 bare-ZFC-facing instance。因此 T-DIAG、T-Meta 和 T-ZFC 仍须以新的最小单元重新冻结，而不能把 C-367 当作想法 T 的全域定理。
+
 ## 3. 跨 Session 认知闭包合同
 
 开始、压缩恢复、换 worktree 或从 T0–T5 切换时，必须先加载：

@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [T-PRECISION T0：抽象观察边界（2026-10-04）](20261004-T-PRECISION-T0-TOBS-ABSTRACT-OBSERVATION-BOUNDARY.md)：冻结 T-OBS-001 的 World/View/project/observe、碰撞 witness、正反控制与禁止外推；随后以 HoTT Book quotient universal property、Lean core Quotient.lift 和 C-364 控制建立来源分母。C-367 在 Lean 4.34.1 core 中机器证明“同投影异判词阻断全域 decoder”，但不归因 bare ZFC、HoTT、现实时间或哥德尔不完备性；来源分母见[配套来源卡](20261004-T-PRECISION-T0-TOBS-SOURCE-DENOMINATOR.md)。
+
 - [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。
 
 - [ZFC-H0 总证明闭环 F1-B：CCHM feature coverage（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1B-CCHM-COVERAGE.md)：保存本项目先验构造、论文/Agda/GitHub/GCTT对照和逐 feature coverage。结论是 CCHM family 相关但未支付 native coinductive Delay、EM1/HIT/universe 的 exact H0Map；下一检验是原 CCHM `cubicaltt` 语法/语义对 coinductive records 的覆盖。

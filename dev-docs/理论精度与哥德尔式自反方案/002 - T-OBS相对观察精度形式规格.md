@@ -6,7 +6,7 @@ index: ../理论精度与哥德尔式自反方案.md
 
 # T-OBS相对观察精度形式规格
 
-> **状态：** CANDIDATE_FORMAL_SPECIFICATION / NOT_YET_MACHINE_PROVED。
+> **状态：** C-367_MACHINE_PROVED_WITH_SCOPE / ABSTRACT_INTERFACE_ONLY。
 >
 > **功能：** 将“维度缺失／观察力不完备／理论精度低”从哲学直觉转成任务相对的可判定证明义务。
 
@@ -81,3 +81,9 @@ BareZFCPrecision.lean 已验证一个有限 completion-contract control：同一
 - rich interface 已使 D 可恢复：记录为 INTERFACE_PRECISION_DEFENSE_WITH_SCOPE；
 - 一般定理成立但 T-ZFC source interface 未支付：只完成抽象层，不进入 ZFC 归因；
 - 出现新真实接口、任务合同或反例时，重开对应 fixed scope。
+
+## 6. T-OBS-001 已完成的首个抽象单元
+
+T0 选择了一般函数／命题接口而不是任一具体理论：World、View、project、observe 及碰撞 witness。MP-T-PRECISION-TOBS-001 / C-367 以 Lean 4.34.1 core 机器证明第 2 节的 collision-to-no-decoder 命题，并给出 TinyWorld 的粗观察负控制和 identity/rich observation 正控制。
+
+来源层由 T0 source denominator 固定：HoTT Book §6.10 的 quotient universal property 与 Lean core Quotient.lift 说明了 factorization 必须 respect 被压平的关系；它们不被写成 Lean 公理，也不把 C-367 提升为 bare ZFC、HoTT 或现实结论。运行、负控制、claim matrix 与 selected registry evidence 均已按 C-367 的精确范围留存。

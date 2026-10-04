@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 218,
+  "later_machine_proved_claim_count": 219,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1085,6 +1085,16 @@
       "source": "HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation.lean",
       "toolchain": "HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation-TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: the pinned Foundation Zermelo-model interface represents ordinal-indexed sequence graphs and unique stage values."
+    },
+    {
+      "claim_ids": "C-367",
+      "kind": "lean_core_abstract_observation_factorisation_boundary",
+      "notes": "This is an abstract Lean-core function/Prop theorem plus a finite Bool/Unit control. It does not formalize quotient semantics, bare ZFC, HoTT-specific rules, a reality task, a Gödel diagonal, or any theorem that abstraction always causes paradox.",
+      "proof_id": "MP-T-PRECISION-TOBS-001",
+      "run": "HoTT/verification/runs/20261004-MP-T-PRECISION-TOBS-001-06",
+      "source": "HoTT/formal/t-precision-observation/ObservationPrecision.lean",
+      "toolchain": "HoTT/formal/t-precision-observation/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: if a chosen observation map identifies x and y while a chosen Prop predicate differs, no decoder through that map decides the predicate globally; identity observation is a positive control."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

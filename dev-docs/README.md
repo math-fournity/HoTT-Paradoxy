@@ -6,7 +6,7 @@
 
 当前主方案：[`实施方案-三AI历史整合与核心认知治理.md`](../实施方案-三AI历史整合与核心认知治理.md)。
 
-- [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，并完整保存紧邻两轮哥德尔式元／元元讨论。方案分为 T-OBS 相对观察精度、T-DIAG 自编码完成接口和 T-ZFC 实例化；跨 Session 的恢复入口为 `认知闭包/T-PRECISION-DIAGONAL-001.md`。当前严格处于 `PLAN_READY_NOT_EXECUTING / F050_CLOSED_WITH_SCOPE_PRESERVED`：它不自动重开 F-050，也不把 T、条件性观察边界或既有控制包写成 bare ZFC 缺陷定理。
+- [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，并完整保存紧邻两轮哥德尔式元／元元讨论。T0 已完成 T-OBS-001：C-367 在 Lean 4.34.1 core 中证明指定同投影异判词阻断全域 decoder，且有 rich-view 正控制与伪 decoder 负控制；该结果只服务抽象接口语言。T-DIAG、T-Meta 与 T-ZFC 仍未启动，跨 Session 恢复入口为 `认知闭包/T-PRECISION-DIAGONAL-001.md`，不得把 C-367 升格为 bare ZFC 缺陷定理。
 
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
 
