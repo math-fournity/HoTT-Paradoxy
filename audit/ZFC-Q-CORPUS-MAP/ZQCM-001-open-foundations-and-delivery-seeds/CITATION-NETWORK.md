@@ -1,6 +1,8 @@
 # ZQCM-001 Citation Network
 
-> **状态：** PENDING_BACKWARD_FORWARD_TRACE。
+> **状态：** BACKWARD_TRACE_CATALOGUED / FORWARD_DEFERRED_BY_SOURCE_QUALIFICATION / FROZEN_BATCH_COMPLETE_WITH_SCOPE。
+
+> **冻结批次的解释：** 表中的`FORWARD_PENDING`是历史候选目录，不是当前任务队列。W-015这个唯一直接优先继任者已经完成source screen；其余条目只有在出现可核新版本、固定ordinary bare-ZFC actual consumer或新formation/payment事实时，才按SOP另建资格化单元。既有题名、关键词、引用边或“再做一轮forward trace”本身不会重开本批。
 
 | Network ID | Seed | 方向 | 发现数 | 去重后 work family | 状态／下一动作 |
 |---|---|---|---:|---:|---|

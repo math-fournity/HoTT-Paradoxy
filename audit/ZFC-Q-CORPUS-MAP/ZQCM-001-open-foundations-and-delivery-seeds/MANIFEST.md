@@ -1,6 +1,6 @@
 # ZQCM-001：开放基础与交付种子语料
 
-> **身份：** FROZEN_CORPUS_BATCH / EXTENSION-014_W015_SOURCE_SCREEN / ACQUISITION_ACTIVE / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
+> **身份：** FROZEN_CORPUS_BATCH / COMPLETE_WITH_SCOPE / EXTENSION-014_W015_SOURCE_SCREEN / RESEARCH_PROFILE_GOVERNED / NO_Q_CLAIM。
 >
 > **总 SOP：** [ZFC-Q-CORPUS-MAP-SOP](../../../dev-docs/ZFC-Q语料落盘与文献地图SOP.md)。
 >
@@ -25,16 +25,16 @@
 | TaskDescriptor | `ZQCM-TD-001`；`RESEARCH_PROFILE_GOVERNED`。 |
 | 父结果 | 一份能由 P-FORGE、HOTT-MOTIVE-ZFC 和后续 ZFC Q 专项工作消费的、来源可追溯的语料与文献地图；不产生 ZFC Q 结论。 |
 | 为什么不是普通直接工作 | 已有跨 Session 的原件、版本族、access remainder、视觉／派生质量状态、引文边和反控制；新的一手原典或一项实际 consumer 会改变后续是否建立专门资格化卡，而摘要、作者动机或 OCR 误升级为 Q 的风险很高。 |
-| 当前活跃方向 | `ZQCM-DIR-ITERATIVE-FORMATION` 与 `ZQCM-DIR-IDENTITY-EXTENSIONALITY`；见下表。远程 MinerU 是质量支持通道，不是独立理论方向。 |
+| 当前活跃方向 | 无。本批已完成范围内的获取、视觉审读和来源资格筛选；`ZQCM-DIR-ITERATIVE-FORMATION`与`ZQCM-DIR-IDENTITY-EXTENSIONALITY`均转为`FROZEN_REMAINDER`。远程 MinerU是质量支持通道，不是独立理论方向。 |
 | 持久 owner | 本 manifest 负责 profile／方向；`WORK-FAMILIES`、`ACQUISITION`、`PDF-VALIDATION`、`MINERU-DERIVATIVES`、`VISUAL-REVIEW`、`CITATION-NETWORK`、`COVERAGE-MAP`、`Q-LEADS` 各自拥有其事实；`MEMORY/001`只保留当前前沿。 |
 | 非目标 | 不新建研究数据库、图服务、后台监控、Host Goal、worktree、Sub Agent、数学 STATE 或自动 P-DAG。profile 本身不证明长期行为收益，保持 `RESEARCH_PROJECT_ADAPTIVE_BEHAVIOR_NOT_VERIFIED`。 |
 
 | direction_id | 状态／决定 | 最小判别行动 | 证据边界与停止／重开 |
 |---|---|---|---|
-| `ZQCM-DIR-ITERATIVE-FORMATION` | `ACTIVE`：判断“阶段／纯迭代／潜在层级”语料能否给出一个**固定的 ZFC formation 与实际 consumer**桥，还是只能提供构造性／哲学控制。 | 将 W-013 的可见原页事实、W-012／W-014 的摘要级种子与 V-SET-02 关于Power Set／Replacement inexhaustibility的来源级邻域线索并列，寻找一个版本固定的 ZFC 侧 actual consumer；它必须保留同一对象、操作、观察和 Done。 | W-013 是 CZF／类型论解释，不等于 ZFC；V-SET-02把不可穷尽论述置于large-cardinal／`V_κ`／模型支付中；W-012、W-014尚未获全文。若找不到保留同一任务的 ZFC consumer，停在 `CONTROL_OR_SEED_ONLY`；取得合法全文或实际 consumer 时重开。 |
-| `ZQCM-DIR-IDENTITY-EXTENSIONALITY` | `ACTIVE`：判断 W-001 的H0（equivalence→identity）、V-UF-02的equivalence-principle来源与 W-011 的 extensionality／identity 位置是否能进入同一任务的 ZFC bridge，或应稳定为 type-theoretic comparison／反类比控制。 | 找到一个实际 ZFC consumer，明确其 identity／extensionality 输入、输出和完成条件；先与现有 ETCS／同构／实际 consumer 控制比对。 | W-001的`Φ`／Univalence、V-UF-02的typed-language／univalence机制和W-011的关键论证都在类型论层；V-UF-02还将集合论非不变例限制为对象域／性质选择，三者尚不是 ZFC Q。若实际 consumer直接支付该任务或只重述类型论比较，停止为 `SOURCE_PRECISION_GAIN_NOT_Q`；新增来源能固定未付同一任务时重开。 |
+| `ZQCM-DIR-ITERATIVE-FORMATION` | `FROZEN_REMAINDER`：本批中的“阶段／纯迭代／潜在层级”材料已处置为构造性／哲学控制或摘要级种子，尚未给出**固定的 ZFC formation 与实际 consumer**桥。 | 不在本批继续泛化扩张；只在取得 W-012／W-014 的合法全文，或出现一个版本固定并保留同一对象、操作、观察和 Done 的 ZFC actual-consumer 来源时，建立新的资格化单元。 | W-013 是 CZF／类型论解释，不等于 ZFC；V-SET-02把不可穷尽论述置于large-cardinal／`V_κ`／模型支付中；W-012、W-014尚未获全文。新来源若不能保留同一任务，仍停在 `CONTROL_OR_SEED_ONLY`。 |
+| `ZQCM-DIR-IDENTITY-EXTENSIONALITY` | `FROZEN_REMAINDER`：W-001 的H0、V-UF-02的equivalence-principle和W-011的extensionality／identity位置已稳定为类型论比较／反类比控制，未进入同一任务的ZFC bridge。 | 只在一个实际 ZFC consumer能明确其identity／extensionality输入、输出和完成条件时重开；先与现有ETCS／同构／实际consumer控制比对。 | W-001的`Φ`／Univalence、V-UF-02的typed-language／univalence机制和W-011的关键论证均在类型论层；V-UF-02还将集合论非不变例限制为对象域／性质选择。新来源若只重述类型论比较或已支付任务，停在 `SOURCE_PRECISION_GAIN_NOT_Q`。 |
 
-`ZQCM-NET-005` 的 citation expansion 是 `PARKED`：它在任一活跃方向完成本轮 source screen，或出现新的直接作者／actual-consumer reference 后才重开，避免把“继续收集”本身误当作研究进展。
+`ZQCM-NET-005` 的 citation expansion 是 `PARKED`：本批不因已有书目继续收集；只在出现新的直接作者版本、合法正式版本或实际 consumer 来源后重开，避免把“继续收集”本身误当作研究进展。
 
 ## 2. 冻结 work family
 
@@ -89,7 +89,7 @@ Natural successors are newly discovered direct references, official versions, ac
 
 **Extension-007 rationale.** V-UF-02, V-UF-03 and V-UF-04 were already named W-006 chapter leads. Exact title-and-author queries located their official arXiv PDFs, respectively 14, 21 and 18 pages. Each was admitted only as an author-version candidate after file/PDF metadata, first-page identity and SHA-256 checks; no acquired version is declared byte-identical to the 2019 book pagination. V-UF-02 has completed source-only visual review and a bounded equivalence-principle/H0 source-precision screen; V-UF-03 has completed a bounded higher-structure/metatheory/Power Set anti-analogy screen; V-UF-04 has completed a bounded payment/motive control screen. None is a Q candidate.
 
-**Extension-008 rationale.** Four remaining direct W-006 chapter leads supplied public author or institutional versions: V-SET-01 from Deborah Kant's author site, V-SET-02 from Laura Fontanella's author site, V-UF-05 from PhilSci-Archive, and V-CMP-02 from arXiv. They are 24, 17, 40 and 12 pages respectively, and each passed file/PDF metadata, first-page identity and SHA-256 checks. All four remote MinerU requests stopped at the same shared-server `server_not_running` boundary; no service was started or reconfigured. Their reported versions are acquisition-qualified only, not asserted to be byte-identical to the published pagination; each remains `SOURCE_SCREEN_PENDING`, not a Q candidate.
+**Extension-008 rationale.** Four remaining direct W-006 chapter leads supplied public author or institutional versions: V-SET-01 from Deborah Kant's author site, V-SET-02 from Laura Fontanella's author site, V-UF-05 from PhilSci-Archive, and V-CMP-02 from arXiv. They are 24, 17, 40 and 12 pages respectively, and each passed file/PDF metadata, first-page identity and SHA-256 checks. All four remote MinerU requests stopped at the same shared-server `server_not_running` boundary; no service was started or reconfigured. Their reported versions are acquisition-qualified only, not asserted to be byte-identical to the published pagination. Subsequent extensions 009–012 record their completed source screens; none is a Q candidate.
 
 **Extension-009 rationale.** V-SET-02 has now completed source-only visual review and its bounded source screen. Fontanella explicitly places “the universe of all sets is too rich to be exhausted by some basic operations such as power set or replacement” inside an argument for inaccessible-cardinal axioms, together with reflection, `V_κ`, `L`, forcing, elementary-embedding and standard-defense boundaries. This qualifies it as a source-level Power Set neighborhood seed and control; it does not establish a bare-ZFC actual consumer, a same-task failure, or a Q candidate.
 
@@ -102,3 +102,9 @@ Natural successors are newly discovered direct references, official versions, ac
 **Extension-013 rationale.** V-SET-01's bibliography explicitly names Džamonja–Panza's *Asymptotic quasi-completeness and ZFC*. Exact author-site, HAL, Chapman institutional-record and Springer DOI checks found a 23-page HAL author deposit, with title/authors and final chapter identity cross-validated. The source is admitted as W-015 because it is a direct, public, version-qualified successor that may sharpen the relationship between ZFC, independence, singular cardinals and actual set-theoretic practice. It is acquisition-qualified only: title/abstract language about incompleteness or quasi-completeness is not a Q, and page-level source screening remains required.
 
 **Extension-014 rationale.** W-015 has now completed source-only visual review and its bounded source screen. Its technical subject is a qualified contrast between regular-cardinal independence and singular-cardinal constraints within ZFC; the recurring “power set function” is explicitly a cardinal-arithmetic class-function, while forcing, model, Choice and large-cardinal conditions remain visible. Its philosophical account of `de re` access and pure sets is equally explicit about its semantic / epistemic role. These materials make W-015 a strong control against turning ZFC incompleteness or a Power Set word match into Q. It does not supply an ordinary bare-ZFC actual consumer, same task, formation-use reentry, or unpaid Done.
+
+### 5.1 Frozen-batch closeout
+
+`ZQCM-001`现已达到其第5节定义的`COMPLETE_WITH_SCOPE`：十五个work family均有完整PDF、版本替代、访问限制或元数据处置；二十一份已接受PDF均有身份与哈希，且每个进入来源筛选的可得 work family 都固定了带remote-MinerU收据和逐页视觉审读记录的主阅读版本；全部这类可得 work family 均有来源筛读；`WORK-FAMILIES`、`ACQUISITION`、`CITATION-NETWORK`、`COVERAGE-MAP`与`Q-LEADS`均写明了剩余边界。
+
+该关闭是对这个冻结范围的处理闭合，不是相关文献穷尽、ZFC无问题，或模式P被否定。可重开的唯一有效入口是：（1）W-012、W-014、V-SET-03或其他目录章出现可核的作者／机构／正式全文；（2）一个新来源固定ordinary bare-ZFC actual consumer及同一对象、操作、观察和Done；（3）一个新来源提供可资格化的formation／payment事实并跨越当前控制；或（4）发现本批的版本、身份、页级视觉或资格化结论有可复核错误。单纯题名、关键词、原有书目项或未限定的“继续做citation”不是重开条件。

@@ -1,6 +1,6 @@
 # ZQCM-001 PDF Validation
 
-> **状态：** TWENTY_ONE_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
+> **状态：** FROZEN_BATCH_COMPLETE_WITH_SCOPE / TWENTY_ONE_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
 
 | ACQ ID | 文件 | file/PDF | 页数 | 题名／作者核对 | SHA-256 | 版本判词 | 状态 |
 |---|---|---|---:|---|---|---|---|

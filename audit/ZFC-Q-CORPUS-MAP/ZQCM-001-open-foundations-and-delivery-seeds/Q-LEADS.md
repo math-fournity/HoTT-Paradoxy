@@ -1,6 +1,8 @@
 # ZQCM-001 Q Leads
 
-> **状态：** NO_QUALIFIED_Q_LEAD_YET。
+> **状态：** FROZEN_BATCH_COMPLETE_WITH_SCOPE / NO_QUALIFIED_Q_LEAD_IN_FROZEN_BATCH / REOPEN_BY_MANIFEST_5_1_ONLY。
+
+> **解释：** 下表保留的是候选、来源种子和反控制，而不是已入选的Q。除`MANIFEST` §5.1所列的新资格事实外，不因既有Q LeadCard或关键词自动启动P-DAG、模型运行或新的work family。
 
 | QL ID | Work ID | 理论位置 | 来源事实 | 竞争读法／控制 | 分流 |
 |---|---|---|---|---|---|

@@ -1,6 +1,8 @@
 # ZQCM-001 Coverage Map
 
-> **状态：** FROZEN_BATCH / ACQUISITION_ACTIVE / SATURATION_NOT_ASSESSED。
+> **状态：** FROZEN_BATCH_COMPLETE_WITH_SCOPE / SATURATION_NOT_ASSESSED / NO_Q_LEAD。
+
+> **收束：** 各行的`forward PENDING`只保留已核书目边，不表示此刻存在待处理work。W-012、W-014和V-SET-03是明确的访问余项；任何新工作都须由`MANIFEST` §5.1的重开条件重新准入。
 
 | 线 | Work family | 获取 | MinerU | 阅读／筛选 | Citation | Q lead | remainder |
 |---|---:|---|---|---|---|---|---|

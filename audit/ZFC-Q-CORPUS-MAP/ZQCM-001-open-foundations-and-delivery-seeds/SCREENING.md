@@ -1,6 +1,6 @@
 # ZQCM-001 Screening
 
-> **状态：** 已由 LITERATURE-MAP-001 初筛；待 acquisition 后的全文筛选。
+> **状态：** `COMPLETE_WITH_SCOPE`：已由 LITERATURE-MAP-001 初筛；每个进入来源筛选的可得 work family 均有已完成筛读的主阅读版本，未获得全文者保留访问／元数据处置与重开条件。
 
 | Work ID | 初筛 | 全文筛选 | 原因／待证事实 |
 |---|---|---|---|
