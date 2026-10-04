@@ -29,6 +29,14 @@ PolicyScopeWitness
 
 `PolicyScopeWitness` 在 Lean 中只是一个范围蕴含，不含书目、作者、历史接受或现实语义；它能被称为“来源归属”只有在独立 source card 给出相称证据时。`source_scoped_P_with_B_is_inconsistent` 将它和 B 明确列为前提，`zfc1_same_actual_Q_P_with_B_is_inconsistent` 保留为严格 `TaskEquiv` 的特例。新收据 `20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06` 在澄清该来源边界后重新捕获并精确重放。
 
+## 2026-10-04：把“ZFC 缺少时间观察”收紧为语言与桥接边界
+
+“ZFC 缺少时间维度”若被写成“ZFC 不能表示时间、自然数步骤或计算”，既不忠实于集合论的表达能力，也无法由本项目现有来源或 Lean 内核证明。为保住用户所指的真正问题，同时避免这个过强说法，本轮新增 [ZFCObservationLanguage.lean](ZFCObservationLanguage.lean)。
+
+它把 base theory 的输入固定为 membership model，另把 `originDone` 放进 expansion。内核证明：在已有 base model 的条件下，任意指定状态可以有 membership 不变而 Done 相反的两个扩张；但一旦指定 `CompletionBridge`，该 bridge 会唯一决定 Done。它因此精确支持“未付 completion bridge 时，基础语言不会替使用者决定原过程完成”，而不是“ZFC 绝对没有时间”。
+
+该文件的 `MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` 是 C-362 的独立 proof package；它是 C-359 的解释性中间边界和正控制，不把 `ZFCOneUse` 的来源前提自动变成实际事实。
+
 ## 2026-10-04：HoTT wrapper 的初始导入失配与最小修复
 
 [HoTTCounterexample.agda](HoTTCounterexample.agda) 初版在使用空类型 `⊥` 时漏导入 `Cubical.Data.Empty`，因此首次尝试只得到 `Not in scope: ⊥`。该错误尚未触及所需的 completion-reflection 命题，不能被报告为数学反例。
@@ -55,5 +63,6 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 |---|---|---|
 | `ZFC1IllusionPolicy.lean` | 否 | 预备草稿被 Lean 拒绝，且同 Q 概念不充分。 |
 | `ActualQPolicy.lean` | 是，`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06` 是 current primary | 以严格任务等价阻止 metadata 类比，同时单列必须由来源审计支付的政策范围；明确 Lean 字段不伪称来源归属；证明 use-model 不自动制造 B；全部交付定理无 `sorry`、无额外公理。 |
+| `ZFCObservationLanguage.lean` | 是，`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01` 是 C-362 primary | 对任何 membership-only theory 形式化外加 Done 的不决定性与 explicit bridge 正控制；不编码 ZFC 公理或其模型。 |
 | `HoTTCounterexample.agda` | 是，`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01` 已索引并精确重放 | 固定 native Cubical Agda Q 的强 P 反例。 |
 | `WrongHoTTCounterexample.agda` | 是，作为已捕获的负控制 | `...NEG-001-01` 在 `nothing != just 1` 处拒绝伪 witness。 |

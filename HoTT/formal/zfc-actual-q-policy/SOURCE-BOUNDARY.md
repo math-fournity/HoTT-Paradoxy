@@ -40,3 +40,5 @@ IEP 不支持：用户圆环强 Done 已由极限／集合论无桥地支付。
 这与 [ZFC-CIRCLE-Q0](../../../audit/20261003-ZFC-CIRCLE-Q0-连续统完成与圆环复原候选卡.md)、[Q1](../../../audit/20261003-ZFC-CIRCLE-Q1-元理论子理论过程边界候选卡.md) 和 [Q2](../../../audit/20261003-ZFC-HOTT-Q2-时间观察完备性比较卡.md) 的 `Q-1_SEED`／`SOURCE_BRIDGE_DEFENSE` 边界一致。它意味着：当前可以机器证明“若强 P、范围 witness 和 B 被支付会怎样”；严格 same actual Q 是其中一条充分控制，但不能把任何一个外部前提伪装成已由 IEP 或 ZFC 本身给出。
 
 2026-10-04 的扩展来源分母进一步显示：Norton、SEP 与 Roberts 都公开区分 `Done_strict`／`Done_revised` 或 final-action completion／all-steps completion。它们形成 `SOURCE_TASK_CONTRACT_SPLIT`，不构成跨圆环与 HoTT 的政策范围证明。见 [P 的来源范围审计](../../../audit/20261004-ZFC-ACTUAL-Q-POLICY-SCOPE-SOURCE-DENOMINATOR.md) 与[三方完成模式卡](../../../audit/20261004-ZFC-ACTUAL-Q-TRIAD-COMPLETION-MAPPING.md)。
+
+`C-362` 还给出一个机器化的语言边界控制：membership-only base theory 对外加 `originDone` 的真值不作判断，直到某个 specification/bridge 被支付。它不将这条一般事实归因于 ZFC 的实际实践，也不证明用户圆环 Done 在 ZFC 中不可定义；它只解释为什么来源卡必须指出那个定义或 bridge，而不能从“ZFC 能表示集合”推断它已经审查了过程完成。

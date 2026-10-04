@@ -9,19 +9,21 @@
 | 项 | 本候选的可复核结果 |
 |---|---|
 | `C-359` | Lean 4 core 的条件性政策核：强 P、形式 `PolicyScopeWitness`、B 同时成立时导出 `False`；`TaskEquiv` 型 `SameActualQ` 是充分的反类比控制；Q gap 不自动推出 P；metadata equality 不推出 task equivalence；use-model 不自动推出 B。 |
+| `C-362` | Lean 4 core 的成员语言边界：同一 membership model 可以有相反的外加 `originDone` 扩张；显式 `CompletionBridge` 是阻断这种异判的正控制。 |
 | `C-360` | Cubical Agda 原生控制：固定截断 Q 的 stage-one completion 不反射为原 universe Q 的有限 halt；负控制在 `nothing != just 1` 处被拒绝。 |
 | `C-361` | Lean/Mathlib 实分析控制：(1-2^{-n}) 的形式极限不推出任何有限自然数阶段到达 endpoint；闭连续时间 endpoint 正控制同时成立，经典依赖明示。 |
 | 来源与范围 | IEP/Standard Solution 来源卡、跨 kernel 映射、明确的实际-Q/source-policy 未支付项。 |
 | 收据基础设施 | capture 工具改为由 `git rev-parse --show-toplevel` 接受 linked worktree，并可 pin Lean binary。 |
 | 用户原文 | 2026-10-04 一手原文已保存；generation-14 curation 已做 63-KC、62/62 transition 的只读预演，尚未直接覆盖 current core。 |
 
-本候选中 C-359/C-360/C-361 的 selected version closure 在完成后续 commit 后应通过：
+本候选中 C-359/C-360/C-361/C-362 的 selected version closure 在完成后续 commit 后应通过：
 
 ```text
 python3 -B scripts/audit/verify_proof_version_closure.py \
   --proof-id MP-ZFC-ACTUAL-Q-POLICY-002 \
   --proof-id MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001 \
-  --proof-id MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001
+  --proof-id MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001 \
+  --proof-id MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001
 ```
 
 ## 2. canonical `dev` 中发现的互补候选
@@ -48,7 +50,7 @@ MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001 / C-361
 1. 冻结 `dev` target OID、index、dirty 所有权与 current `STATE/HEAD`；不触碰无关路径。
 2. 逐文件比较本 commit 的 C-359 与 dev 的 C-359，保留本候选的 `TaskEquiv` 严格控制、`PolicyScopeWitness`、metadata counterexample、B non-forcing control；删除／归档旧 metadata-only transport，避免双真值。
 3. 比对 dev 与本候选的 `ZenoLimitControl.lean`；以单一 source hash、C-361 primary receipt、matrix/registry row 为准，把严格 finite-stage control保留为独立 C-361，而不归因给 Standard Solution。
-4. 用唯一 matrix／registry entries 连接 final C-359、C-360、C-361；重新跑 selected proof closure 和每个 final receipt 的 exact replay。
+4. 用唯一 matrix／registry entries 连接 final C-359、C-360、C-361、C-362；重新跑 selected proof closure 和每个 final receipt 的 exact replay。
 5. 按 [CORE-INGESTION](../HoTT/formal/zfc-actual-q-policy/CORE-INGESTION.md) 在 canonical current STATE 上应用 core generation-14，不从本候选 worktree 拷贝 dirty STATE/HEAD。
 6. 将 source card、C-359/360/361 与实际强 P、`PolicyScopeWitness`、严格 `TaskEquiv`／跨 kernel B 的开放义务写回 canonical current owners；不能把 formal controls升级为 bare-ZFC 结论。
 
@@ -60,9 +62,10 @@ MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001 / C-361
 actual Zeno/circle State/input/step/observe/originDone
 actual source-owned strong P
 A ↔ admitted P
-actual source-qualified PolicyScopeWitness
+ actual source-qualified PolicyScopeWitness
 actual Zeno–HoTT TaskEquiv（严格路径，不是唯一的实际来源路径）
 跨 kernel B 映射
+实际原过程 Done 的 membership-defined bridge（C-362 只证明未定义时的边界）
 ```
 
 任一项被来源明确拒绝、替换或付款，都会让 `C-359` 的条件 theorem 不能用于实际 ZFC 判词；这是预期的可证伪结果。

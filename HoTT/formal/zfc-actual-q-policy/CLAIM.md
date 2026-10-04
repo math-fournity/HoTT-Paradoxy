@@ -4,13 +4,14 @@
 >
 > **用户原论述：** [2026-10-04 Q／P／A／B／ZFC-1 原文](../../../sources/prompts/Codex-ZFC-Q-P-A-B-ZFC1-用户原文-20261004.md)。
 >
-> **交付运行：** `MP-ZFC-ACTUAL-Q-POLICY-002` / [`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json) 与 `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / [`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json) 都已通过精确重放；本页仍须与 `README.md`、`REVISIONS.md`、跨 kernel 对应表共同解释，不能把条件 theorem 缩写成“ZFC 不一致”。
+> **交付运行：** `MP-ZFC-ACTUAL-Q-POLICY-002` / [`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json)、`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` / [`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01`](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json) 与 `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / [`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json) 都已通过精确重放；本页仍须与 `README.md`、`REVISIONS.md`、跨 kernel 对应表共同解释，不能把条件 theorem 缩写成“ZFC 不一致”。
 
 ## 1. 用户论证被怎样忠实地拆成可检验对象
 
 | 用户符号／主张 | 精确形式对象 | 已机器检查的范围 | 仍未支付的现实或来源义务 |
 |---|---|---|---|
 | `Q`：对时间／过程完成的理论观察力 | `CompletionObservable task := ∃ classify, classify (observe state) ↔ originDone state`。`QMissing` 是其否定。 | 一个明确的观察函数无法区分原完成与原未完成状态时，内核证明 `QMissing`。 | 这不是“bare ZFC 没有时间”或“ZFC 不能编码过程”；它是某个固定任务观察接口的相对性质。 |
+| `Q` 的成员语言边界 | `MembershipTheory α := MembershipModel α → Prop` 不接收 `originDone`；`CompletionExpansion` 才加入这个谓词。 | 若一个成员模型满足任意此类 base theory，它可有同一 membership、却在任一指定状态对 `originDone` 相反的两个扩张。 | 这不是 ZFC 模型存在或不一致定理，也不证明实际圆环 Done 不可在 ZFC 中定义；它严格说明：未被定义／桥接的外部 Done 不能由成员语言本身替你决定。 |
 | `A`：Zeno 侧的数学完成 | `∃ state, formalDone state`。 | 受控模型有一个 `limit` formal-completion witness。 | 实际 Standard Solution 是否对用户的圆环／芝诺原任务建立了这个 `A`，由来源卡决定。 |
 | 弱 `P`：数学共同体把模型结果称作“解决” | `WeakResolutionLabel`，它只能从 `formalDone` 产生 `CompletionJudgment`，不产生 `originDone`。 | 受控模型可无矛盾地把 `limit` 标为 `revisedResolved`。 | 标签是哪个真实来源、它是否声称原任务已完成。 |
 | 强 `P`：所谓“数学幻觉”实际把模型完成当原过程完成 | `MathematicalIllusionP`：在其适用站点，`formalDone state → originDone state`；`PolicyScopeWitness` 是“为何政策从 Zeno 侧扩展到 HoTT 侧”的**形式占位**。 | 强 P、scope witness 与 B 同时存在时，Lean 导出 `False`。 | Lean 不能证明某文献作者承担该范围；实际来源是否采用强 P、是否给出可审的政策范围，须由来源卡另行支付。 |
@@ -52,6 +53,24 @@ TaskEquiv preserves
 ```
 
 `QEvidence` 中的 O1–O5、bridge/payment 状态仍保留，但只能说明来源证据的状态，不能代替语义等价。`TaskEquiv` 因而是最严格的反类比控制；跨领域来源不必提供状态双射，却必须提供足以实例化 `PolicyScopeWitness` 的理由，即解释为什么同一个强 P 有权从 Zeno 侧扩张到 HoTT 侧。Lean 的结构字段不包含书目、作者或解释责任；“来源归属”是来源审计对该字段的外部资格要求。当前来源分母的判词见 [P 的来源范围审计](../../../audit/20261004-ZFC-ACTUAL-Q-POLICY-SCOPE-SOURCE-DENOMINATOR.md)。
+
+### 2.3 `MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` / `C-362`：成员语言不自动决定原过程完成
+
+[ZFCObservationLanguage.lean](ZFCObservationLanguage.lean) 机器化的是用户所说“元理论没有在这个维度上作出判断”的一个**最小、可反驳版本**。它不把 ZFC 简化成“不能谈时间”，而是先固定一个准确的语言边界：
+
+```text
+MembershipTheory α
+  = MembershipModel α → Prop
+
+CompletionExpansion α
+  = 同一个 membership model + 外加的 originDone : α → Prop
+```
+
+`base_model_admits_opposite_originDone_expansions` 证明：若 `base` 是某个 membership-only theory 的模型，且给定状态 `state`，则存在两个对该 theory 同样成立、membership 完全一致的 expansion；一个令 `originDone state` 成立，另一个令它不成立。这个 theorem 的前提是**已有 base model**，所以它不构造 ZFC 模型，也不触及 ZFC 一致性。
+
+同一文件还给出反向正控制。`CompletionSpecification` 可以从 membership model 定义一个指定的完成谓词；`CompletionBridge` 说明 expansion 的 `originDone` 恰等于这个 specification。`shared_completion_bridge_determines_originDone` 与 `shared_bridge_rejects_opposite_completion_readings` 证明：一旦同一 bridge 被支付，两个扩张不再能对完成状态异判。
+
+这一步把 Q 的含义收紧为：**一个基础性语言／验收层若没有把原过程 Done 纳入自己的定义或桥接合同，它本身不选择这个 Done；若补入定义或 bridge，它能够选择。** 因而它支持的是“未付 bridge 的观察边界”，不是“ZFC 无法表示时间、序列或计算”。
 
 ## 3. 受控 Zeno 过程模型：它证明什么，刻意不证明什么
 
@@ -129,5 +148,6 @@ Lean 的 `#print axioms` 对此包报告 `propext`、`Classical.choice`、`Quot.
 5. 固定 Zeno／圆环过程与固定 Cubical Agda HoTT Q 已由严格 `TaskEquiv` 连结，或有来源可支付的 `PolicyScopeWitness`；
 6. 连续端点、实分析、极限理论或集合论基础本身错误；
 7. “反现实”“数学真理性”或“与魔鬼交易”这类哲学结论是 proof assistant 内核可判的命题。
+8. 任何实际 ZFC 模型的存在、ZFC 的一致性，或用户圆环 `OriginDone` 不能由集合论定义。
 
 相反，本包给未来实际实例化一条清晰可推翻路线：若来源明确把 `Done_formal` 改写为不同的 `Done_revised`，或不能支付其 P 跨案例适用的 `PolicyScopeWitness`，则当前 `False` theorem 不能用于实际来源判词；严格 `TaskEquiv` 的失败只会阻断严格路径，不能单独否定一份可能存在的范围论证。只有强 P、可审的范围支付、实际 B 映射和版本固定来源都齐备，才可以把条件后果推进为 `ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY`。

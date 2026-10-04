@@ -14,6 +14,7 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 | 文件 | 唯一职责 |
 |---|---|
 | [ActualQPolicy.lean](ActualQPolicy.lean) | 当前 Lean 4 core 逻辑核、受控 Zeno／endpoint 正反控制与无公理检查。 |
+| [ZFCObservationLanguage.lean](ZFCObservationLanguage.lean) | membership-only base theory 对外加 `originDone` 的语言边界，以及显式 bridge 的正控制。 |
 | [LEAN_TOOLCHAIN.json](LEAN_TOOLCHAIN.json) | 当前 Lean 4.34.1 二进制版本与 SHA-256 pin；只记录 Lean core 的可信运行边界。 |
 | [ZFC1IllusionPolicy.lean](ZFC1IllusionPolicy.lean) | 保留的第一稿，已被拒绝；不可作任何 theorem 依据。 |
 | [HoTTCounterexample.agda](HoTTCounterexample.agda) | 固定 Cubical Agda HoTT Q 对强 completion-reflection P 的原生反例。 |
@@ -29,13 +30,15 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 ## 当前可交付的层次
 
 1. **逻辑核：** 若真实来源给出 `ZFCOneUse`、`PolicyScopeWitness` 和 B，则 Lean 内核已经证明结果为 `False`；严格 `SameActualQ` 是一条更强的充分控制。
-2. **HoTT 控制：** 在固定 Cubical Agda `QuestioningDelay` 实例中，粗 completion 不反射为原 Q 的有限 completion。
-3. **实分析控制：** 对 (1-2^{-n})，形式极限不推出有限自然数阶段 endpoint；闭连续时间端点仍可到达。
-4. **来源边界：** 当前来源仍不足以把强 P、`A ↔ P`、可审的 `PolicyScopeWitness` 或严格 `SameActualQ` 填成实际事实；因此本包没有、也不应声称已经证明关于 bare ZFC 的矛盾。
+2. **成员语言边界：** membership-only theory 对未定义的 `originDone` 没有判断力；同一 membership model 可以有相反 Done 的扩张。若补入相同 `CompletionBridge`，异判被内核拒绝。
+3. **HoTT 控制：** 在固定 Cubical Agda `QuestioningDelay` 实例中，粗 completion 不反射为原 Q 的有限 completion。
+4. **实分析控制：** 对 (1-2^{-n})，形式极限不推出有限自然数阶段 endpoint；闭连续时间端点仍可到达。
+5. **来源边界：** 当前来源仍不足以把强 P、`A ↔ P`、可审的 `PolicyScopeWitness` 或严格 `SameActualQ` 填成实际事实；因此本包没有、也不应声称已经证明关于 bare ZFC 的矛盾。
 
 当前交付运行为：
 
 - [`MP-ZFC-ACTUAL-Q-POLICY-002` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，精确重放一致；
+- [`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，证明 membership-only base theory 与外加 completion predicate 的边界和 bridge 正控制；
 - [`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` 的 Cubical Agda receipt](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，精确重放一致；
 - [`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` 的 Lean/Mathlib receipt](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-04/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，`LEAN_PATH` 已进入精确重放命令；
 - [`C-360` 的 Agda 负控制](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001-01/RUN.json)：`KERNEL_REJECTED`，在预期的 `nothing != just 1` 处失败。
