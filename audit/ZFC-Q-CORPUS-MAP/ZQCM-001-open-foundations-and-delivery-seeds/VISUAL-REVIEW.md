@@ -17,7 +17,7 @@
 | W-008 | p.1–65的150dpi图；p.11、15、16、18、19、30、46的300dpi图 | p.1–65 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与7张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-007 | p.1–37的150dpi图；p.9、16、21、23、28、34的300dpi图 | p.1–37 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
 | W-001 | p.1–33的150dpi图；p.1、2、15、21、22、25的300dpi图 | p.1–33 | `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`：所有150dpi页与6张关键300dpi页均按页级合同审读并落签。 | 视觉审读完成；后续来源筛读只可消费这些页级行，并另行记录Q资格结论。 |
-| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–119 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–119已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.120继续；下一张必须先审读并立即写入`VR-W002-120`，不得消费未落签页。 |
+| W-002 | p.1–192的150dpi图；p.2、10、13、14、19、30、31、34、38、43、45、50、59、60、61、62、63、65、67、68、69、77、80、86、87、88、89、90、91、94、97、98、99、105的300dpi图 | p.1–121 | `SOURCE_ONLY_VISUAL_CHECK_IN_PROGRESS`：p.1–121已逐页审读并落签；其余页只有`RENDERED_UNAUDITED`身份。 | 压缩／恢复从p.122继续；下一张必须先审读并立即写入`VR-W002-122`，不得消费未落签页。 |
 
 ## 结果语义
 
@@ -411,6 +411,8 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 | VR-W002-117 | W-002 | 117 | visual/W-002/150dpi/p117.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核constructive single-step functions以subsingleton suprema替代classical case distinction、local-smallness前提及compact input保证Scott continuity。 | 这是从显式subsingleton/compact条件构造step function的技术支付；不构成ZFC Q。 |
 | VR-W002-118 | W-002 | 118 | visual/W-002/150dpi/p118.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核compact single-step functions、small compact bases上的function-space supremum、directification把任意family变成directed family及compactness保存。 | 这是用compact/basis/sup-complete条件建立exponential construction，不能形成ZFC Q。 |
 | VR-W002-119 | W-002 | 119 | visual/W-002/150dpi/p119.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small compact basis给exponential的small compact basis、directification/finite joins、以及sup-complete ideal completion保持性的明确假设。 | 这是受small basis、compactness、sup-completeness与finite-join条件限制的构造；不构成ZFC Q。 |
+| VR-W002-120 | W-002 | 120 | visual/W-002/150dpi/p120.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核small bases给exponential small basis的retract construction、finite-join ideal argument，以及作者明说该结果未提供explicit basis description的边界。 | 这是受small-basis/sup-complete/retract条件限制的存在性结果，且作者保留了非显式构造边界；不构成ZFC Q。 |
+| VR-W002-121 | W-002 | 121 | visual/W-002/150dpi/p121.png | remote output unavailable；直接审读arXiv原PDF页图 | `SOURCE_ONLY_VISUAL_CHECK`：核Chapter 4 notes 对Aczel constructive set theory、propositional truncation使continuous dcpo成为subtype、避免impredicative set-theoretic constructions的来源定位。 | 此页标注来源谱系与方法差异，不构成ZFC Q。 |
 
 ## 高精度队列
 
