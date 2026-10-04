@@ -26,7 +26,7 @@ TRACE_PACKAGE = {
     "claim_ids": "C-365",
     "source": "HoTT/formal/zfc-h0-final-closure/H0TraceObservation.agda",
     "toolchain": "HoTT/formal/zfc-h0-final-closure/TOOLCHAIN.json",
-    "run": "HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-001-05",
+    "run": "HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-001-07",
     "kind": "native_cubical_fixed_h0_delay_finite_observation_trace_fragment",
     "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed H0's Delay/runFor output maps to a set-valued all-nothing finite trace for every universe Judge.",
     "notes": "This is H0_OPERATIONAL_FRAGMENT_ONLY. It does not construct a complete CCHM/ZFC semantics or establish H0Map, C_accept, AdequacyLift, SameFullQ, P/Q, or bare-ZFC attribution.",

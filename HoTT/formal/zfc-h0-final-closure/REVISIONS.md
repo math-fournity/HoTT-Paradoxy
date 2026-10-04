@@ -1,5 +1,26 @@
 # M1-A 修订记录
 
+## 2026-10-04：C-365 收据输入收敛与 primary recapture
+
+旧 primary `-05` 把 package README 与总 SOP 纳入 source manifest。它们用于路由、范围说明和
+current planning，却不被 Agda 的 `command_argv` 读取；后续 F1/M3 路线更新使旧 run 出现
+README/SOP hash drift，掩盖了实际 theorem source 的稳定性。
+
+capture 现只冻结 `H0TraceObservation`、负控制、三个实际 imported H0 modules、toolchain、package-local
+claim 和 capture procedure，并让 command 使用 canonical project-relative source path。`-06` / `NEG-06`
+是这个最小充分输入集的 primary recapture。该修复不改动 C-365 命题或 Agda imports；它仅使 proof receipt
+的输入身份与实际 kernel invocation 一致。
+
+## 2026-10-04：C-365 的实际 transitive import 闭包
+
+`-06` 在 version verifier 中暴露出一个真实依赖遗漏：Agda stdout 显示
+`QuestioningDelay.agda` 实际检查了 `UniverseHasNoLevel.agda`，但旧 capture 的 `UPSTREAM`
+只列出三份直接邻近模块。该模块不是可忽略的审计程序，而是 H0 universe `never` theorem 的
+transitive proof input。
+
+因此它被加入 capture 的 source manifest，并以 `-07` / `NEG-07` 重放。此 revision 扩大的是
+实际 kernel 依赖闭包，不以 allowlist 绕过依赖检查。
+
 ## 2026-10-04：C-366 外部 Lean 的 toolchain dispatch 更正
 
 `H0ProcessRepresentation` 的首个外部 capture `-001-01` 使用了用户全局的

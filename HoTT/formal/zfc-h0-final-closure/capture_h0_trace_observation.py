@@ -16,13 +16,15 @@ ROOT = Path(__file__).resolve().parents[3]
 TOOLCHAIN = Path("HoTT/formal/zfc-h0-final-closure/TOOLCHAIN.json")
 CLAIM = Path("HoTT/formal/zfc-h0-final-closure/CLAIM.md")
 README = Path("HoTT/formal/zfc-h0-final-closure/README.md")
-SOP = Path("dev-docs/ZFC-H0最终形式化与机器证明闭环SOP.md")
 SOURCE = Path("HoTT/formal/zfc-h0-final-closure/H0TraceObservation.agda")
 NEGATIVE = Path("HoTT/formal/zfc-h0-final-closure/WrongH0TraceFiniteHalt.agda")
 UPSTREAM = (
     Path("HoTT/formal/claude-cg001/pedometer-semantics/PedometerSemantics.agda"),
     Path("HoTT/formal/claude-cg001/pedometer-semantics/DelayMonad.agda"),
     Path("HoTT/formal/claude-cg001/questioning-delay/QuestioningDelay.agda"),
+    # This is a transitive source input of QuestioningDelay, observed in the
+    # real Agda compiler output and therefore part of the proof closure.
+    Path("HoTT/formal/claude-cg001/universe-questioning/UniverseHasNoLevel.agda"),
 )
 
 
@@ -53,7 +55,11 @@ def main() -> None:
     if "/" in run_id or not run_id.startswith(expected_prefix):
         raise SystemExit("RUN_ID_INVALID")
     source = NEGATIVE if negative else SOURCE
-    inputs = [ROOT / path for path in (TOOLCHAIN, CLAIM, README, SOP, SOURCE, NEGATIVE, *UPSTREAM, Path(__file__).relative_to(ROOT))]
+    # Only elaborator inputs plus the package-local claim/toolchain contract
+    # are frozen here.  The README and total SOP route to this package but are
+    # not inputs read by Agda; including evolving routing prose would create a
+    # false theorem-source drift on every planning update.
+    inputs = [ROOT / path for path in (TOOLCHAIN, CLAIM, SOURCE, NEGATIVE, *UPSTREAM, Path(__file__).relative_to(ROOT))]
     if any(not path.is_file() for path in inputs):
         raise SystemExit("REQUIRED_INPUT_MISSING")
     spec = json.loads((ROOT / TOOLCHAIN).read_text())
@@ -69,7 +75,7 @@ def main() -> None:
     argv = [
         str(agda), "--ignore-interfaces", f"--library-file={library_file}", "-l", "cubical-0.9",
         *sum((["-i", str(ROOT / root)] for root in spec["include_roots"]), []),
-        str(ROOT / source),
+        str(source),
     ]
     env = os.environ.copy()
     cache = agda.parent

@@ -51,11 +51,11 @@ flowchart LR
 | `M0-A` | A 侧的数学/来源控制 | C-361/C-362 证明固定数列与固定 Norton/IEP completion-contract control 的逻辑后果。 | 一个版本固定的原芝诺/圆环 `State/Operation/Observation/OriginDone` 规格，且不能把 revised Done 偷换成它。 |
 | `M0-B` | B 侧的 P 反例 | C-360/C-363 原生证明 fixed H0 的 coarse completion 不能给 original finite halt。 | 与 M1/M4 的跨理论对应。 |
 | `M0-C` | 条件性政策 consequence | C-359 已证明：显式 `ZFCOneUse + SameFullQ + P + B` 导出 `False`。 | 不得再把这些字段当作已被 bare ZFC 或历史来源证明。 |
-| `M1` | `H0Map` | 当前只定位了 CCHM family；没有 exact Cubical Agda 2.8.0 + cubical 0.9 library semantic transport。 | 逐字段 model map：universe、EM1/HIT、h-level、unguarded Delay、`never`、`runFor`、有限 halt witness；并证明需要的 preserve/reflect 命题。 |
-| `M2` | 实际 `P` | 当前仅有 source-labelled revised-completion control 和 HoTT-side specific P counterexample。 | 一个来源或正式 policy 说明它在 A 侧实际允许 `FormalDone → OriginDone`，以及适用范围。 |
-| `M3` | bare-ZFC-facing `Q` | C-364 只对一个 source-contract interface 证明观测不足；C-366 在冻结的外部 Zermelo-model interface 中以 sequence graph 正控制排除“集合论不能表示过程”的读法。bare ZFC 的 semantic completion interface 仍未定义。 | 固定 bare ZFC 的语言/模型/acceptance interface，并以可计算的 criterion 表达“观察、拒绝或支付 bridge”。 |
-| `M4` | `SameFullQ` | 现有 A5 只拒绝了一个冻结来源分母中的强实例化。 | A 与 H0 在同一对象、输入、允许操作、观察量和 Done 条件上的逐字段对应，或精确证明同一任务不成立。 |
-| `M5` | 对 bare ZFC 的归因 | 当前没有 ZFC 对象语言矛盾主张，也没有实际 `C_accept`。 | `T_meta`、额外公理、模型/验收器、I/O/Done、AdequacyLift 与来源/形式化证据。 |
+| `M1` | `H0Map` | C-365 只给 native finite trace；F1-B至F1-F 的冻结 CCHM/Cubical Agda/GCTT/forcing-ticks/CCTT/model 分母没有 source-provided exact transport，且 project-defined full target 尚未固定。 | 逐字段 model map：universe、EM1/HIT、h-level、unguarded Delay、`never`、`runFor`、有限 halt witness；并证明需要的 preserve/reflect 命题。 |
+| `M2` | 实际 `P` | 固定 IEP/Norton/SEP 分母的 strict promotion source payment 已被 C-362 与 task-revision source card拒绝。 | 一个来源或正式 policy 说明它在 A 侧实际允许 `FormalDone → OriginDone`，以及适用范围。 |
+| `M3` | bare-ZFC-facing `Q` | C-364 只对一个 source-contract interface 证明观测不足；C-366 在冻结的外部 Zermelo-model interface 中以 sequence graph 正控制排除“集合论不能表示过程”的读法。bare ZFC 的 semantic completion interface 在当前分母中仍未定义。 | 固定 bare ZFC 的语言/模型/acceptance interface，并以可计算的 criterion 表达“观察、拒绝或支付 bridge”。 |
+| `M4` | `SameFullQ` | A5 已对冻结 IEP/Norton/SEP + circle family + fixed H0 分母拒绝强实例化；只保留 completion-gap schema match。 | A 与 H0 在同一对象、输入、允许操作、观察量和 Done 条件上的逐字段对应，或精确证明同一任务不成立。 |
+| `M5` | 对 bare ZFC 的归因 | 当前没有 ZFC 对象语言矛盾主张，也没有实际 `C_accept`；当前来源分母中 attribution未定义。 | `T_meta`、额外公理、模型/验收器、I/O/Done、AdequacyLift 与来源/形式化证据。 |
 
 ## 3. 机器证明的三种等级
 
