@@ -47,7 +47,7 @@ H0 relation / P1-P3 trace / local counterfactual
 | 槽 | 当前问题 | 下一最小判别行动 | 停止／重开 |
 |---|---|---|---|
 | `PF-A` | `H0` 给模式 P 提供了什么不可省去的反向样本？ | 冻结 H0→ZFC discovery card 的对象、观察和 Done。 | H0 fingerprint 改变才重开。 |
-| `PF-B` | 模式 P 在不见 MPIM、模型论文、既有 ZFC 答案时，会把 ZFC 的哪个显眼基础承诺选为 Z0？ | 三把刀各做一次来源脱敏的 Terra/max discovery。 | 三刀无候选或全部仅公式／直接付款时，记录有界负结果并回审 P。 |
+| `PF-B` | 模式 P 在不见 MPIM、模型论文、既有 ZFC 答案时，会把 ZFC 的哪个显眼基础承诺选为 Z0？ | 先由 PF-B2 冻结 H0 的过程锚点；再由 P1 做一次来源脱敏 discovery，只有冻结父卡存活时才由 P2/P3 对同一卡接力。 | P1 无候选，或 P2/P3 只给 guard／缺失语义时，记录有界结果并回审 P；不得扩展 profile 代替再审。 |
 | `PF-C` | 哪个 surviving candidate 有实际 `C_accept`／`AdequacyLift`，值得来源与机器化？ | 只对 surviving card 查一手来源和同一任务控制。 | 该候选被直接付款、换题或变体缺口关闭时退出。 |
 
 `MPIM`、Chain-A、AWCCRS 目前属于 `PARKED_SOURCE_CONTROL`：只有 PF-C 的具体来源引用它们，或它们成为 exact `H0Map` 的最小证据路径时，才重新激活。
@@ -60,17 +60,31 @@ H0 relation / P1-P3 trace / local counterfactual
 2. 明确写出本轮的禁止替换：不以 MPIM、generic cubical model、ZFC 可编码程序、既有 Power Set guard 或 C-364 取代 Z0 的发现。
 3. 冻结 DiscoveryCard，给出 `H0`, `T_ZFC`, `candidate class`, `original task`, `Done`, source visibility 和正负控制。
 
+### PF-B2：H0 过程锚点再审（PF-B R1 的必要修订）
+
+若 PF-B 的首轮同 profile P1/P2/P3 只重新定位 formation site，且 P2/P3 均因没有同一过程、再入或 lifecycle 而停下，先不得把该空结果解释为 ZFC guard。Master 要回到 fixed H0，冻结以下过程锚字段：
+
+```text
+subject u / native operation F / repeatable local observation or step
+process-wide Q and finite Done / finite-or-bounded positive control
+prospective source or consumer class / forbidden invented operation
+```
+
+H0 的作用是约束 profile 保住过程完成与有限交付的区别，而不是强迫 P2 或 P3 在 H0 或新候选上命中。新的 profile 必须提供上述字段的理论画像，不能只给 `a → F(a) → F(F(a))` 之类的静态 ascent；若画像没有来源声明的 process／Done，P1 应能诚实返回无候选。该修订的 `QConvergenceLink` 是 `Q_SAFETY_REPAIR`，不是新的 Z0 candidate。
+
+PF-B2 的当前可复核记录是 [过程锚点再审](../audit/20261004-H0-Z0-PATTERN-FIRST-PF-B2-过程锚点再审.md)。它把 PF-B R1 的 formation-only 卡固定为控制，并禁止继续沿 all-subobjects、`ω` 或任何未冻结的新 profile 漫游。
+
 ### PF-1：来源脱敏的三刀发现
 
-对同一 deidentified ZFC profile 创建至多三张 `BLIND_CARD`，每张均用 `gpt-5.6-terra / max`、read-only、无网络、无项目读取、无递归。卡片不得给出 Power Set、MPIM、既有工作结论或候选答案。
+对 PF-B2 已冻结的同一 deidentified ZFC profile，先创建一张 P1 `BLIND_CARD`，用 `gpt-5.6-terra / max`、read-only、无网络、无项目读取、无递归。卡片不得给出 Power Set、MPIM、既有工作结论或候选答案。P1 无候选时本轮结束；只有 P1 留下一个冻结的 `T/u/F/Q/I/O/Done` 父卡后，P2 与 P3 才分别对**同一张卡**运行。这样既不让 P2/P3重选对象，也不让 P1 的 formation lead 单独冒充会合。
 
 | 刀 | 发现职责 | 合格输出 |
 |---|---|---|
-| P1 | 从 ZFC 的原生形成／总体承诺中，选一个理论不能绕开的主对象和 prospective completion question。 | `MODEL_RECALL_SITE_CANDIDATE` 或受界无候选；不得把公理名直接当 Q。 |
-| P2 | 从计算—存在—自指的逻辑翻译检查同一候选是否有真实再入、极性或 guard 张力。 | 可迁移关系和反控制；不得把“自指”这个词当命中。 |
-| P3 | 从过程、准入、使用与 Done 的次序检查同一候选是否有理论原生的 lifecycle／admission 问题。 | 明确 `Draft/Need/Use/Done`，或 `CONSTRUCTION_SEMANTICS_NOT_SUPPLIED`。 |
+| P1 | 从 ZFC 的原生形成／总体承诺和已冻结 process-anchor 中，选一个理论不能绕开的主对象和 prospective **process-wide** completion question。 | `MODEL_RECALL_SITE_CANDIDATE` 或受界无候选；不得把公理名、静态 totality 或单步查询当 Q。 |
+| P2 | 仅对 P1 的冻结父卡，从计算—存在—自指的逻辑翻译检查同一候选是否有真实再入、极性或 guard 张力。 | 可迁移关系和反控制；不得把“自指”这个词当命中。 |
+| P3 | 仅对 P1 的冻结父卡，从过程、准入、使用与 Done 的次序检查同一候选是否有理论原生的 lifecycle／admission 问题。 | 明确 `Draft/Need/Use/Done`，或 `CONSTRUCTION_SEMANTICS_NOT_SUPPLIED`。 |
 
-每张 NodeCard 必须冻结 `T/u/F/C/Q/I/O/Done`、`QConvergenceLink`、source visibility、停止条件和禁止外推。每次 terminal run 必须做 trajectory receipt；单次模型输出只创建候选，不裁定理论。
+每张 NodeCard 必须冻结 `T/u/F/C/Q/I/O/Done`、`QConvergenceLink`、source visibility、停止条件和禁止外推。P1 的 `C/I/O/Done` 可以保持 prospective/unknown，P2/P3 不得补造它们。每次 terminal run 必须做 trajectory receipt；单次模型输出只创建候选，不裁定理论。
 
 ### PF-2：Master 交叉收敛
 
@@ -144,4 +158,4 @@ MPIM／模型线是否被错误抬回主线？
 
 ## 7. 方案验收
 
-本 SOP 建立后，第一件可验证的工作不是新建证明，而是 PF-1 的三张来源脱敏 DiscoveryCard。它们必须在不见 MPIM、AWCCRS、Power Set、既有答案和项目文件的条件下，给出可区分的 public MatchTrace。只有这样，才能检验模式 P 是否真的先于文献惯性定位 Z0。
+PF-B R1 已经完成第一张 formation-only control。它之后的第一件可验证工作是 PF-B2 过程锚再审，再对其冻结 profile 运行一次 P1 来源脱敏 DiscoveryCard；P2/P3 只在有同一卡父候选时运行。每张卡仍必须在不见 MPIM、AWCCRS、Power Set、既有答案和项目文件的条件下，给出可区分的 public MatchTrace。只有这样，才能检验模式 P 是否真的先于文献惯性定位 Z0。

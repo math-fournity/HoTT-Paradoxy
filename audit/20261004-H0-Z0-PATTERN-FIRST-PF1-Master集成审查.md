@@ -85,3 +85,9 @@ ZFC_Q_LOCATED = NO
 | MPIM／模型来源 | `PARKED_ALIGNED` | 没有被拿来填补 P2/P3 或创造 C_accept。 |
 
 **总裁决：** 不能说全部执行细节都没有漂移；可以确认 Goal 的主方向没有被替换。修正动作是把初始 PF-B R1 作为有界控制固定，把后续 profile 扩展降为 calibration／out-of-phase 证据，回到`P_REAUDIT_REQUIRED`。任何新 PF-B profile 必须先由 Master 把它与 H0 的理论原生 process-anchor、同一 `u/F/Q/I/O/Done`、反控制和预期 P2/P3 relay 写入 current TaskCard，再启动节点。
+
+## 7. PF-B2：过程锚再审后的实施边界
+
+PF-B2 已将上段的要求写成可复核的方法卡：[过程锚点再审](20261004-H0-Z0-PATTERN-FIRST-PF-B2-过程锚点再审.md)。它的核心裁决是：初始 profile 给了 formation，但没有给 theory-native local step／observation、process-wide Done 或 bounded control；故 P2/P3 的空结果是画像约束，而非 ZFC 的防线。
+
+下一轮先运行一张来源脱敏 P1 卡。若 P1 没有留下冻结的 `T/u/F/Q/I/O/Done`，该卡停止为有界无候选；若留下，P2/P3 只能对该父卡接力。PF-C 仍然必须等待三刀同卡存活，不能因 PF-B2 的方法修订提前读取 MPIM、一般模型论文或实际来源。
