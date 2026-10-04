@@ -8,6 +8,14 @@
 
 - [ZFC-H0 总证明闭环 F1-D：GCTT clocked Delay 翻译卡（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1D-GCTT-CLOCKED-DELAY-TRANSLATION.md)：固定 `gcubical` source 显示 `forall` clocks、`prev`、later、guarded data、CoNat 的 force 类比均存在；实际 checker build 因本机缺 QuickCheck 停在依赖层。该卡给出 exact `gDelay/DelayClocked/force/runFor` 义务，未把源码类比升格为 native H0 translation。
 
+- [ZFC-H0 总证明闭环 F1-E：forcing-ticks Clocked Lift（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1E-FORCING-TICKS-CLOCKED-LIFT.md)：固定 Guarded Cubical Agda source 中的 `Lift/∀Lift/force` 比 GCTT 类比更接近 H0 Delay；`in∀`仍为 postulate，本机 Cubical Agda 2.8 实跑又显示 forcing-tick compiler variant 不匹配。它保留 exact target 与下一条 typecheck 路线，不支付 H0Map。
+
+- [ZFC-H0 总证明闭环 F1-F：exact H0Map 来源分母（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1F-H0MAP-SOURCE-DENOMINATOR.md)：将 CCHM、Cubical Agda、GCTT、forcing-ticks、CCTT 与模型／基础来源逐项放入同一 H0Map 判据。结论限定为当前来源分母没有 source-provided exact H0Map，保留 project-defined map 与总 M1 为未支付义务。
+
+- [ZFC-H0 总证明闭环：M2–M5 实际政策来源分母（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F2F5-ACCEPTANCE-POLICY-DENOMINATOR.md)：将 strict P、bare completion interface、SameFullQ 与 bare-ZFC attribution 分开复核。当前 IEP/Norton/SEP 分母给出 task revision，而没有同一 actual acceptance policy；各项只获得有界拒绝或未定义判词。
+
+- [ZFC-H0 总证明闭环：M0–M5 总完成条件审计（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-TOTAL-CLOSEOUT-AUDIT.md)：逐项比对 SOP §5。它确认当前来源分母可形成 source-bound rejection / formal-target-underdefined 判词，并列出 Goal 真正可关闭前仍需的运行、registry 和逐项验证，不把审计本身当作完成。
+
 - [ZFC-H0 总证明闭环 F3-A：集合论过程可表示性正控制（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F3A-ZFC-REPRESENTABILITY.md)：冻结 Foundation Lean 4 的 Zermelo model interface、function/sequence/recursion source 与 Metamath 独立控制。C-366 实际检查 ordinal-indexed sequence graph、唯一 stage value 与 definability，并以双值负控制拒绝；它排除“集合论不能表示过程”的过强读法，保留 acceptance-policy Q 作为未支付义务。
 
 - [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它收紧 H098 的原典追溯，不作 ZFC Q 结论。

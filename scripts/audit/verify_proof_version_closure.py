@@ -34,6 +34,10 @@ INDEX_REL = "HoTT/CLAIM_EVIDENCE_MATRIX.md"
 RUN_ROOT = PurePosixPath("HoTT/verification/runs")
 AUDIT_TOOL_PROVENANCE_PATHS = {
     "scripts/audit/verify_formal_proof_run.py",
+    # Historical Agda captures record this writer for auditability, but the
+    # recorded proof command invokes the pinned Agda binary and sources, not
+    # this later-evolving capture program.
+    "scripts/audit/capture_agda_proof_run.py",
 }
 
 
@@ -336,7 +340,18 @@ def check_later_package(
     if toolchain_rel:
         toolchain = load(ROOT / toolchain_rel)
         agda = toolchain.get("agda")
-        binary = agda.get("local_binary") if isinstance(agda, dict) else None
+        # Historical and current Cubical toolchain records use `binary` and
+        # `local_binary` respectively.  Both are concrete executable paths;
+        # accept either spelling only when the source manifest independently
+        # pins that exact external binary.
+        binary = ((agda.get("local_binary") or agda.get("binary"))
+                  if isinstance(agda, dict) else None)
+        if isinstance(binary, str) and isinstance(agda, dict):
+            if not any(
+                isinstance(row, dict) and row.get("local_path") == binary
+                for row in manifest.get("external_dependencies", [])
+            ):
+                raise ClosureError(f"LATER_AGDA_BINARY_NOT_PINNED:{proof_id}")
         if binary is None and receipt.get("proof_assistant") == "Lean" and source_rel.endswith(".lean"):
             lean = toolchain.get("lean")
             lean_root = lean.get("root") if isinstance(lean, dict) else None

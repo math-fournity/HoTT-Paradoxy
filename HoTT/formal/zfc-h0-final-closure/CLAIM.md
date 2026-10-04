@@ -38,6 +38,6 @@ H0_OPERATIONAL_FRAGMENT_TRACE_MACHINE_PROVED
 
 ## 运行与负控制
 
-- 主运行：`HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-001-05/`，Agda 2.8.0-3d04bac + cubical v0.9，`--safe --cubical --guardedness` 源码、`--ignore-interfaces` 全量重检，退出码 `0`，stderr 为空。
-- 负控制：`HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-NEG-001-05/`，退出码 `42`；伪造 `trace (question Type judgeU) 0 ≡ just 1` 时，内核在 `nothing != just 1` 拒绝。
+- 主运行：`HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-001-07/`，Agda 2.8.0-3d04bac + cubical v0.9，`--safe --cubical --guardedness` 源码、`--ignore-interfaces` 全量重检，退出码 `0`，stderr 为空。
+- 负控制：`HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-NEG-001-07/`，退出码 `42`；伪造 `trace (question Type judgeU) 0 ≡ just 1` 时，内核在 `nothing != just 1` 拒绝。
 - 证据范围：主运行实际检查 `H0TraceObservation.agda`、`PedometerSemantics.agda`、`DelayMonad.agda`、`QuestioningDelay.agda` 和 pin 的 cubical v0.9 tree。它只认证该 trace 的原生计算/路径命题。
