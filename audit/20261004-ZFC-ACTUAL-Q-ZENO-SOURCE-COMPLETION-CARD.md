@@ -71,3 +71,28 @@ ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY = NOT_REACHED
 2. 找到或排除一份来源，它将 `P_Zeno-source` 的完成政策扩张到该 circle contract 和 fixed HoTT Q，给出 `PolicyScopeWitness` 所需的范围理由。
 
 在这两项未支付时，最强且诚实的结论是：ZFC-supported Standard Solution 有一个明示的、局部的完成政策；它没有在当前来源分母中成为一个已证实的 ZFC—圆环—HoTT 统一政策。
+
+## 6. HoTT／类型论方向的邻接时间控制与有界检索
+
+为避免把“当前没有跨案例 scope source”误写成“类型论社区从未正面处理时间或 Zeno”，本轮还核对了 Diezel 与 Goncharov 的 [*Towards Constructive Hybrid Semantics*](https://drops.dagstuhl.de/storage/00lipics/lipics-vol167-fscd2020/LIPIcs.FSCD.2020.24/LIPIcs.FSCD.2020.24.pdf)（FSCD 2020）。其摘要明确将 Zeno behaviour 和连续时间称为 hybrid semantics 的特殊、不可编程特征；它用表示时间域的有序幺半群、cubical Agda 与高阶归纳归纳类型建模，并在第 9 页以 (1/2,1/2+1/4,\ldots) 为 Zeno sequence 的实例。
+
+这是一条重要的 `ADJACENT_TYPE_THEORY_TIME_CONTROL`：它支持“若任务包含 Zeno behaviour，时间／完成结构必须显式进入语义”的研究直觉，同时反驳“类型论社区从未看见时间维度”的宽泛表述。但它不是当前 `QuestioningDelay` HoTT Q，也不是 IEP Standard Solution 的 policy owner：
+
+| T0–T5 门 | 比较结果 |
+|---|---|
+| T0 theory layer | hybrid semantics / cubical Agda / ordered monoid，不是 bare ZFC 或 Standard Solution。 |
+| T1 subject | hybrid program 的潜在发散与最终 value，不是圆环 M/N 或 universe questioning。 |
+| T2 formation | directed-sequence completion／quotient 有显式构造。 |
+| T3 operation | 迭代、时间索引序列和 completion 被明示建模，未出现当前 P3 的未付使用。 |
+| T4 observation | 程序语义和 time-indexed value，不是用户圆环的来源复原观察。 |
+| T5 Done | final value／divergence 合同，不是 Standard Solution 到 HoTT 的统一 acceptance policy。 |
+
+因此它的判词是 `SOURCE_LAYER_CONTROL / TRANSPORT_ANTI_ANALOGY`，不是 `PolicyScopeWitness`。
+
+本轮还以四组精确网页检索词检查直接跨案例来源：`"homotopy type theory" "Zeno's paradox"`、`"homotopy type theory" supertask completion`、`"univalent foundations" Zeno completion`、`"type theory" "Zeno" "completion"`。结果包含 Rezk completion、hybrid semantics 和一般 HoTT 资料，却没有一份同时把 **IEP／SEP 的 Standard Solution completion policy** 施用于 **fixed `QuestioningDelay` Q** 的来源。该负结果只支持：
+
+```text
+NO_DIRECT_CROSS_CASE_POLICY_SOURCE_WITHIN_DECLARED_QUERY_SET
+```
+
+它不证明全体文献中不存在这种来源，也不关闭未来更广的版本固定来源分母。

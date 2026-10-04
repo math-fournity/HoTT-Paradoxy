@@ -47,3 +47,5 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 - [`C-360` 的 Agda 负控制](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001-01/RUN.json)：`KERNEL_REJECTED`，在预期的 `nothing != just 1` 处失败。
 
 这些 selected run 已经在 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 与 `HoTT/verification/PROOF_VERSION_CLOSURE.json` 登记。运行前的草稿、失败 run 和外部文本都不能替代这一闭环。
+
+当前形式链、来源链、圆环受限合同与停止／重开条件的统一说明见[ZFC 实际 Q 收敛阶段 closure](../../../audit/20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md)。

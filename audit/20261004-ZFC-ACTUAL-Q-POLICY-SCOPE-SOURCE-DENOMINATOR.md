@@ -73,12 +73,14 @@ SOURCE_ZENO_POLICY_ESTABLISHED_WITH_SCOPE
 SOURCE_TASK_CONTRACT_SPLIT
 SOURCE_CROSS_CASE_POLICY_SCOPE_UNOBSERVED
 USER_CIRCLE_ORIGIN_DONE_PARTIAL / USER_DONE_ADJUDICATION_REQUIRED
+ADJACENT_TYPE_THEORY_TIME_CONTROL
+NO_DIRECT_CROSS_CASE_POLICY_SOURCE_WITHIN_DECLARED_QUERY_SET
 ACTUAL_Q_POLICY_CONFLICT_WITH_SOURCE_BOUNDARY = NOT_REACHED
 ```
 
 下一项不再是搜集更多“calculus solves Zeno”的泛化网页。它必须二选一：
 
 1. 找到一个版本固定、理论级的来源，明确把 ZFC-supported completion policy 扩张到用户所要求的原过程 Done 或固定 HoTT completion contract；或
-2. 用覆盖清楚的来源分母表明这类扩张没有发生，把当前路线收束为“标准来源有局部 Zeno policy，但未形成可归因的 ZFC—圆环—HoTT 统一政策”。
+2. 用覆盖清楚的来源分母表明这类扩张没有发生，把当前路线收束为“标准来源有局部 Zeno policy，但未形成可归因的 ZFC—圆环—HoTT 统一政策”。本轮四组 direct cross-case query 已得到有界 `NO_DIRECT_CROSS_CASE_POLICY_SOURCE_WITHIN_DECLARED_QUERY_SET`；邻接的 cubical hybrid-semantics 来源是时间维度控制，不是 scope 支付。
 
 无论结果是哪一个，C-359 的条件 theorem、C-360 的 HoTT 控制、C-361 的极限／端点控制仍保留；它们不会因 source verdict 改变而被误报为 bare ZFC 矛盾。
