@@ -1,6 +1,6 @@
 # ZQCM-001 PDF Validation
 
-> **状态：** TWENTY_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
+> **状态：** TWENTY_ONE_PDF_FILES_VALIDATED / ORIGINALS_AUTHORITATIVE。
 
 | ACQ ID | 文件 | file/PDF | 页数 | 题名／作者核对 | SHA-256 | 版本判词 | 状态 |
 |---|---|---|---:|---|---|---|---|
@@ -24,6 +24,7 @@
 | ZQCM-ACQ-020 | originals/Fontanella_2016_How_to_Choose_New_Axioms_for_Set_Theory_author_pdf.pdf | PDF 1.5 | 17 | 首页题名、Laura Fontanella、ZFC／new-axiom摘要与V-SET-02身份一致。 | `014fd8c3d7f5cae93309ce397bc0fc480fe956a32c05efbfc9c0b79bc2954b52` | AUTHOR_PDF_CHAPTER_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 | ZQCM-ACQ-021 | originals/Rodin_2018_Models_of_HoTT_Constructive_View_of_Theories_author_preprint.pdf | PDF 1.5 | 40 | 首页题名、Andrei Rodin、2018日期与摘要和V-UF-05身份一致。 | `8da304c14e2e968673d1bace05d67d4a93858741ab4f15312e29ac1dbdc7fa84` | PHILSCI_ARCHIVE_PREPRINT_CHAPTER_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 | ZQCM-ACQ-022 | originals/Dzamonja_2018_A_New_Foundational_Crisis_arXiv1802.06221v1.pdf | PDF 1.4 | 12 | 首页题名、Mirna Džamonja、arXiv:1802.06221v1及摘要与V-CMP-02身份一致。 | `76cb60b1cef742f86d75da6b5167260cac9879f427f007c91771739cc5d9fb65` | OFFICIAL_ARXIV_AUTHOR_VERSION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
+| ZQCM-ACQ-023 | originals/Dzamonja_Panza_2018_Asymptotic_Quasi_completeness_and_ZFC_author_preprint.pdf | PDF 1.5 | 23 | PDF metadata／首页：*Asymptotic quasi-completeness and ZFC*，Mirna Džamonja／Marco Panza，HAL `halshs-01758982v1`（submitted 2018-04-05）；Chapman author-produced record与Springer DOI `10.1007/978-3-319-98797-2_8`（published pp.159–182）交叉核对。 | `198ec7b36604b4ec3cb4c5ab2409cce0ffdbd8876cb385845cb3590ea6cdbbef` | AUTHOR_DEPOSIT_PREPUBLICATION_MATCH / PUBLISHED_PAGINATION_NOT_ASSERTED | VALIDATED |
 
 W-006的V-SET-01、V-SET-02、V-UF-02、V-UF-03、V-UF-04、V-UF-05、V-CMP-01和V-CMP-02均已取得可验证的作者版本；全卷、唯一剩余的V-SET-03 chapter lead、W-012和W-014仍未取得可验证PDF，故不在本表虚列为已验证作品。
 
