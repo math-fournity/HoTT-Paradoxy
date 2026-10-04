@@ -64,6 +64,14 @@ Lean 形式化保留了这四层，而没有直接把它们写成既成事实：
 
 这也使“反证回溯到 P”得到准确形式：它不是从任意 B 猜测一个 P，而是在固定推导规则、排除 B 的独立 base 来源后，沿 B 的 derivation provenance 回到 P。实际 ZFC／HoTT 的回溯还需填入同样的来源和任务证据。
 
+### Meta/Sub Theory 责任
+
+`MetaSubtheoryAudit.lean` 将用户的 ZFC-meta／limit-sub theory读法接到这条政策链：一个 meta interface
+若接受 subtheory 的 formal completion，并把接受结果升格为 origin completion，则它在形式上已经承担
+`formalDone → originDone` bridge。coarse observation collision 使该 interface 无法 audit origin Done；
+bridge-aware positive control 则能通过。它使“理论精度／维度不足”成为可检查的接口性质，不把它直接写成
+actual ZFC 的 object-language 缺陷。
+
 ## 4. 这尚未证明什么
 
 当前没有机器证明、也没有来源级完成下列实际命题：

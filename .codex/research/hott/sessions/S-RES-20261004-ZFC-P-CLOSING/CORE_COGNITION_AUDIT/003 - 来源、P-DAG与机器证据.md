@@ -44,3 +44,7 @@ own task 中，SEP/Norton尤其显式区分或改写“complete”。这支持 R
 本续行还将用户“从 B 回溯 P”的反证动作写入 Lean derivation calculus：B 的 derivation 必须要么来自
 base，要么来自 `P → B`；在排除 base-B 后可回溯到 P。该 theorem 的 `base_B_is_an_alternative_derivation_origin`
 控制阻止把任意 B 自动说成 P 的现实或历史原因。
+
+用户此前的 Meta Theory/Sub Theory 明确原文也被直接消费：新的 `MetaSubtheoryAudit.lean` 以正向 bridge
+control 和负向 coarse-promotion rejection 机器化“元理论接受子理论 formal completion 时，若要交付 origin
+completion 就须支付 bridge”的责任。它是理论责任形状，不是实际 ZFC source claim。

@@ -51,6 +51,20 @@ RUNS = (
         "no_axioms": True,
     },
     {
+        "run_id": "20261004-MP-ZFC-META-SUBTHEORY-AUDIT-001-02",
+        "proof_id": "MP-ZFC-META-SUBTHEORY-AUDIT-001",
+        "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "exit": 0,
+        "no_axioms": True,
+    },
+    {
+        "run_id": "20261004-MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001-02",
+        "proof_id": "MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001",
+        "status": "KERNEL_REJECTED",
+        "exit": 1,
+        "expected_error": "Tactic `assumption` failed",
+    },
+    {
         "run_id": "20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04",
         "proof_id": "MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001",
         "status": "KERNEL_ACCEPTED_WITH_SCOPE",
@@ -177,6 +191,11 @@ def verify_run(spec: dict[str, Any], errors: list[str]) -> dict[str, Any]:
             errors.append(f"UNEXPECTED_AXIOM_DEPENDENCY:{spec['run_id']}")
         if "does not depend on any axioms" not in stdout:
             errors.append(f"NO_AXIOM_PRINT_MISSING:{spec['run_id']}")
+    if "expected_error" in spec:
+        stdout = (run_dir / "stdout.txt").read_text(encoding="utf-8", errors="replace")
+        stderr = (run_dir / "stderr.txt").read_text(encoding="utf-8", errors="replace")
+        if str(spec["expected_error"]) not in (stdout + stderr):
+            errors.append(f"EXPECTED_NEGATIVE_ERROR_MISSING:{spec['run_id']}")
     return {"run_id": spec["run_id"], "status": run.get("status"), "verified": True}
 
 

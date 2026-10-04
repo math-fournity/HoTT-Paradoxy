@@ -21,7 +21,8 @@
 3. H100–H105 的 NodeCard、frozen payload、公开 source-MatchTrace 汇总和 P-DAG delta 自审；
 4. `S-RES-20261004-ZFC-P-CLOSING` 分片核心认知审计；
 5. 九个 fresh Lean/Cubical Agda proof-run、两项 Agda negative control、H106 current-byte source replay，以及 [`verify_zfc_completion_observation_closure.py`](../scripts/audit/verify_zfc_completion_observation_closure.py) 的 PASS receipt；
-6. 本交接单。
+6. `MetaSubtheoryAudit.lean` 的正向 bridge theorem、coarse-promotion negative control及其 source/run receipts；
+7. 本交接单。
 
 它不修改 `STATE.json`、`MEMORY`、`feature-list.md`、`rulings.md`、方向／全景投影、README 或 canonical claim matrix。这些 current owner 只能由 integrator 在当时的 `dev` HEAD 上重审后原位更新。
 
@@ -42,6 +43,10 @@ worktree 中执行 selected C-359–C-365 version closure 和直接 Lean／Cubic
 本 contributor 后续的 `CommunityObservationPolicy` run `-08` 又补出受限的 B-to-P backtrace：只有 B
 不属于 base theory、且固定 calculus 的 B-producing rule 是 `P → B` 时，B derivation 才可回溯到 P。它应与
 candidate C-359 的 source-scope theorem 一起审阅，不能被接成实际数学共同体的因果史。
+
+`MetaSubtheoryAudit.lean` 则把“ZFC 作为 Meta Theory 是否应审计 limit Sub Theory 的完成边界”翻译为一条窄
+bridge contract。它不与 candidate C-359 重复：前者检查 meta acceptance→origin promotion 的接口责任，后者检查
+跨 Zeno/HoTT policy scope。二者都仍需 actual source consumer 才能进入 current ZFC diagnosis。
 
 集成者必须选择性比较这两组 proof 的语义、scope、claim ID 和 source receipts；不得两个版本并列为两条
 “ZFC 已矛盾”的 current claim。候选自身也明确保留 actual source scope、actual QProfile、P→B 和 full ZFC

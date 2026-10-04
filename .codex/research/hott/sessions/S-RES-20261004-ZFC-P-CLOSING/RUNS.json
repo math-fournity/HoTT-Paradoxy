@@ -29,6 +29,20 @@
       "scope": "includes the guarded B-to-P derivation backtrace; B may still have an independent base origin"
     },
     {
+      "proof_id": "MP-ZFC-META-SUBTHEORY-AUDIT-001",
+      "run_id": "20261004-MP-ZFC-META-SUBTHEORY-AUDIT-001-02",
+      "path": "HoTT/verification/runs/20261004-MP-ZFC-META-SUBTHEORY-AUDIT-001-02/RUN.json",
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "scope": "meta acceptance of subtheory formal completion requires a bridge before origin promotion"
+    },
+    {
+      "proof_id": "MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001",
+      "run_id": "20261004-MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001-02",
+      "path": "HoTT/verification/runs/20261004-MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001-02/RUN.json",
+      "status": "KERNEL_REJECTED",
+      "scope": "wrong coarse meta promotion rejected at unresolved originDone state"
+    },
+    {
       "proof_id": "MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001",
       "run_id": "20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04",
       "path": "HoTT/verification/runs/20261004-MP-ZFC-COMPLETION-SUBSTITUTION-PROFILE-001-04/RUN.json",
@@ -68,6 +82,15 @@
     {"node_id":"P-DAG-H104-HOTT-TRUNCATION-COMPLETION-SUBSTITUTION-MAP","status":"PASS","final_sha256":"2f8bda1be3729f6962d9832d066000b115a3b718c2ab9c5b670eca467eea79e7"},
     {"node_id":"P-DAG-H105-ZFC-COMPLETION-OBSERVATION-TERMINAL-ARBITER","status":"PASS","final_sha256":"4928573254a13b199a25b9db5bbc696afd27dad7a4ea39933afaddab682f42f7"},
     {"node_id":"P-DAG-H106-IEP-COMPLETION-SUBSTITUTION-CURRENT-BYTE-REPLAY","status":"PASS","final_sha256":"70c20a86e4e690e076454cef4952280dcb370cc6e3717fbdd4b65670f10c8807"}
+  ],
+  "verification_repairs": [
+    {
+      "run_id": "20261004-MP-ZFC-META-SUBTHEORY-AUDIT-NEG-001-01",
+      "status": "RUNNER_OR_EVIDENCE_FAILURE",
+      "actual_kernel_result": "Lean rejected the intended coarse-promotion theorem at the unresolved state",
+      "failure": "capture helper looked only at stderr although Lean emitted the expected diagnostic on stdout",
+      "repair": "capture helper now checks both streams; NEG-001-02 has outcome_matches_expectation=true"
+    }
   ],
   "non_goals": [
     "No object-language proof of a ZFC inconsistency.",

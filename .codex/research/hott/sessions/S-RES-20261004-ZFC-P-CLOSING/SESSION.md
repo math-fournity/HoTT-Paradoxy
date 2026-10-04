@@ -8,7 +8,7 @@
 | profile | `RESEARCH_PROFILE_GOVERNED`：用户要求持续完成 ZFC 收束；来源、主分支 HoTT 发现、P-DAG node 与机器命题共同改变终局措辞。 |
 | user objective | 综合芝诺、圆环、罗素计算视角与 main 的 HoTT 发现，收束 ZFC 问题查找，而不是把 P 当成独立漫游主题。 |
 | current result | `ZFC_COMPLETION_OBSERVATION_AUDIT_REQUIRED`：IEP 的 ZFC 基础语境 Standard Solution 有 R1 resolution 与 R2 Done replacement，R3 same-task payment 在固定来源包中不可得；HoTT 截断控制给同形 R1/R2/R3 结构。 |
-| formal evidence | 9 个新鲜 run：四个 ZFC Lean核、P来源 profile、QuestioningDelay与C-83各自主包／负控制；closure verifier 当前 PASS。 |
+| formal evidence | 11 个新鲜 run：四个 ZFC Lean核、Meta/Sub Theory 正负对、P来源 profile、QuestioningDelay与C-83各自主包／负控制；closure verifier 当前 PASS。 |
 | strict boundary | 未证明 ZFC 不一致、ZFC 缺少所有时间表达、实际共同体采用统一 P、`P → B`、实际 Zeno 与 HoTT 的同一任务等价或完整 QProfile。 |
 | next trigger | 只在来源提供 R3 preservation bridge、共同 P／采纳来源或 `P→B`来源时重开广泛发现；否则当前收尾综合保持。 |
 
@@ -42,3 +42,14 @@ derivation 可回溯为 P；若 B 已在 base 内，则这个回溯不成立，�
 fresh run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-08` 以 Lean 4.34.1 exit 0 通过，20 个打印
 theorem 均无额外公理。它仍是 operational policy calculus，未把 actual ZFC、actual community P、实际
 P→HoTT-B 来源或 `TruthConstraint` 写成已证事实。
+
+## Meta Theory／Sub Theory completion audit（续行）
+
+用户将 ZFC 视为极限理论的 Meta Theory，要求检验其是否有足够观察力审查 Sub Theory 的完成边界。本续行的
+`MetaSubtheoryAudit` 不把 ZFC 写成全知现实裁判，而形式化一个窄责任：若 meta interface 接受 subtheory
+formal completion 并把它升格为 origin completion，它必须提供 statewise bridge；若它的 observation 把 origin
+完成与未完成状态合并，则不能 audit origin Done。
+
+fresh positive run `20261004-MP-ZFC-META-SUBTHEORY-AUDIT-001-02` 为 Lean 4.34.1 exit 0、十个 theorem
+无额外公理；负 run `...NEG-001-02` 正确拒绝 coarse meta promotion。实际 ZFC consumer 与实际圆环／芝诺
+origin Done 仍未 source-map，故本项为 `Q_NARROW` 而非 ZFC Q 会合。
