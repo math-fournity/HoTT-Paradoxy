@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它是避免误拼模型的条件性控制，后继只在实际`C_accept`或冻结 H0Map 直接需要该链时重开，不作 ZFC Q 结论。
+
 - [P-DAG H077–H080：极限、完成定义与圆环 Q0 的来源 Battle（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-077-080-Terra-Max.md)：Norton的实际completion合同、Bathfield/Sierpińska的bridge批评、H079采样前marker失败及H080独立裁决共同显示：争点是`Done_strict / Done_revised / Done_formal`的任务契约，不是数学事实冲突或ZFC矛盾；全局Q1仍未会合。
 
 - [P-DAG H076：ZFC-CIRCLE-Q0 completion bridge 来源匹配（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-076-Terra-Max.md)：隔离 source-match 核对四条冻结标准来源及连续变形控制。P1仅形成 completion object，P2不适用，P3-C发现标准来源明确保留数学—过程桥；判`SOURCE_BRIDGE_DEFENSE / NO_C_LANE_CONSUMER`，全局Q1不升级。

@@ -115,6 +115,42 @@ Z0 的正确问题是：
 
 只有 H0Fingerprint、ModelVariantMatrix 和 AcceptanceContract 均冻结后，才允许 Terra/Max source-match node 处理 H0Map。若使用 App Server，按现有 P-DAG 的 exact Terra/max、read-only、isolated-home、trajectory policy 执行。
 
+### 6.1 发现态优先与来源支线的停止合同（2026-10-04）
+
+模型的既有数学知识和模式 P 负责**先发现**：从 fixed H0 出发，在不注入特定论文、模型名字或既有答案的条件下，定位 ZFC 的显眼基础承诺，构造 Z0／Q 候选。这个阶段的交付是可反驳的候选卡，不是来源事实或数学结论。
+
+来源工作只在候选已经指向实际`C_accept`，或验证一个明确的`H0Map`确有直接必要时启动。它必须说明本节点将改变哪一项主线判断：`T_sub` identity、`C_accept`、`Done_meta`、`H0Map`、`AdequacyLift`或`QObservation`。只有“又发现一个 cubical model”或“讲座提到 proof translation”而不改变其中任一字段，判为`REPEATED_SOURCE_BRANCH_NO_MAINLINE_DELTA`，停止该支线。
+
+MPIM／AWCCRS 类节点的正确身份是条件性控制：它们防止把不同 model family 误拼成一个 H0→Z0 合同。已经取得`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`后，后续命名或 variant 阅读只有在实际`C_accept`引用该来源、或它是已冻结 H0Map 的最短验证路径时才恢复。
+
+用户修正来源优先级、靶点、停止条件或成功定义时，先执行：
+
+    用户原件 / rulings
+      -> Feature 的 active / parked / next action
+      -> MEMORY 当前队列
+      -> direction 与本 SOP
+      -> 回读所有改动 owner
+      -> 才继续任何依赖该判断的节点
+
+并发 writer 占用 Feature/MEMORY/direction 时，不把“稍后会改”当作已经更新：先冻结 user source 与 rulings，记录旧节点为`STALE_PENDING_PRIORITY_REALIGNMENT`；节点终态后由 canonical integrator 在同一语义事务中更新其余 owner。该合同的目的不是增加文档，而是阻止失效的下一动作继续驱动来源搜索。
+
+### 6.2 `P-FIRST-Z0-DISCOVERY`：下一实际 TaskCard
+
+此卡是 H0→Z0 的发现态，不是关于 ZFC 的已证结论，也不输入 MPIM、AWCCRS、论文题名、现有 model verdict 或既有 ZFC 答案。
+
+| 字段 | 冻结内容 |
+|---|---|
+| `T` | ZFC 作为待审基础理论；当前目标是定位一个显眼基础承诺，不预设任何公理已经有问题。 |
+| `H0` | fixed Cubical Agda `QuestioningDelay`：宇宙上的 finite completion question 等于 `never`，连同其正控制与解释边界。 |
+| `P` | 罗素计算—存在—自指模式：形成／可用／完成尚未支付时，理论是否已经交出对象、算符或完成判词。 |
+| `forbidden visible answer` | Power Set、累积层级、模型语义、MPIM、AWCCRS、KLV、CCHM、任何既有 ZFC Q 报告均不得作为任务包中的指定靶点。 |
+| `required output` | 1–3 张 `Z0CandidateCard`：理论承诺、理论收益、被改变的过程条件、`u/F/Q/I/O/Done`、与 H0 的关系、同一任务反控制、何种实际`C_accept`或原典才能证伪／支持它。 |
+| `negative control` | 至少一张“看似相像但只涉及模型／编码／局部无限过程、不能承接 H0→Z0”的排除卡，防止将任意集合论无穷过程报成 Z0。 |
+| success | 发现一个可审、可被来源或反控制推翻的显眼承诺位置；成功不等于已经找到 ZFC Q。 |
+| stop | 若只得到泛泛的“ZFC 忽略时间”或只复述已知模型线索，登记`P_FIRST_NO_CONCRETE_Z0_SITE`，换核心承诺或锻造 P，不以继续文献搜索填充。 |
+
+Master 对每一张候选必须先判：它是否是 ZFC 的核心基础承诺；H0 的固定过程为什么使该承诺的形成／完成政策成为问题；没有哪个来源事实时不得把候选升级为实际`C_accept`。只有通过这三项，才可建立来源验证或 Terra/Max source-match NodeCard。
+
 ## 7. 完成、停止与重开
 
 | 判词 | 条件 | 允许结论 |

@@ -818,3 +818,17 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. 只有取得同源的 H0Map、AdequacyLift、QObservation 与 payment 后，才重新把芝诺 A 和 HoTT B 放进 C-359 的实际同 Q 检验。若来源保留 H0，理论变体不匹配，或只作模型 Done 而无 adequacy lift，都构成有界控制，不是 ZFC Q。
 
 本裁定授权用户 source、F-050、SOP、来源卡、P-DAG source nodes、相称的机器化、Feature/MEMORY/方向/全景记录和精确Git提交；不授权将 H0→Z0 假说写成 ZFC 形式矛盾、修改数学STATE、tag、push或外部发布。
+
+## 2026-10-04：H0→Z0 中来源支线不得替代模式 P 的发现态或认知写回
+
+研究发起人的直接追问见`/sources/prompts/Codex-H0-Z0来源支线与内在知识-用户原文-20261004.md`：MPIM 讲座线索是否重要或必需；模型既有数学知识是否足以先进行发现；为何在工作推进时没有把会改变下一动作的判断写回认知 owner。
+
+执行裁定：
+
+1. MPIM 的讲座页、其未命名的 Cubical Agda proof-to-set-theory model、以及 AWCCRS 的 distinct cartesian cubical model，都只是`H0Map`的**条件性来源支线**。它们不定义 Z0，不是 H0→Z0 的先决条件，也不应以“再找一篇模型论文”取代对 ZFC 显眼基础承诺的模式 P 匹配。
+2. H097/HZ0-2 已完成这条支线当前的最小判别：来源链分开、未给 exact H0Map、未给 AdequacyLift。这个范围结果保留为防止误拼模型的控制；后继 H098-A/B 只有在某个实际`C_accept`明确引用该链，或该链是验证已冻结 H0Map 的最短必要证据时才可继续。它们不再是 F-050 的无条件下一动作。
+3. H0→Z0 的主线先由模型已有数学知识与模式 P 产生候选：从 H0 的固定过程、ZFC 的显眼基础承诺、形成／可用／完成的过程性要求，提出 Z0 候选和可反驳的 Q。此发现态不得把 MPIM、论文题名或已有模型答案注入为靶点。
+4. 一手来源随后只承担三项可复核工作：固定真实`C_accept`；核它在何种`T_meta/T_sub`和附加假设下作出什么`Done_meta`判词；当该判词声称基础／过程充分性时，核`H0Map`、`QObservation`与`AdequacyLift`。模型记忆不能替代这些历史与版本事实。
+5. 这次遗漏被归类为`EXECUTION_DEVIATION / COGNITIVE_WRITEBACK_OMISSION`：用户关于 MPIM 优先级的修正改变了下一动作，我却只在对话中分析，未在继续来源节点前更新`rulings → Feature → MEMORY → direction/SOP`。未来每当用户修正理论靶、来源优先级、停止条件或成功定义，必须在继续依赖该项的行动前完成这条 owner 写回链；若当前 owner 被并发写者占用，先将裁定写入未占用的`rulings`与 source，再在节点终态后合并更新其余 current owners。不得让旧队列继续隐式授权新节点。
+
+本裁定授权本用户原件、H0-Z0 SOP 的优先级修订、F-050/MEMORY/方向的下一动作收敛、相称的验证和精确Git提交；不授权把任何 source-branch status 升格为 ZFC Q、改变数学STATE、tag、push或外部发布。
