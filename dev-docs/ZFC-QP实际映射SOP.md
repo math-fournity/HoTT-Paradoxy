@@ -141,7 +141,8 @@ M6 的成功不预设发现 ZFC 对象层矛盾。它的目标是定位或排除
 Uttarakhand Open University *Real Analysis* MT(N)-201 §5.1–§5.3 则形成当前 M6
 的实际来源候选：它先将 series sum 定义为 partial sums 的极限，再用有限和交付
 Achilles catch-up／paradox resolution；在固定相邻段落中，数学定义被支付，
-`F -> source-process D` 的保真 bridge 没有被给出。H104/H105 的 exact Terra/Max
+`F -> source-process D` 的保真 bridge 没有被给出。H106 用 SEP 的显式 Done 分叉作为
+有界 Battle control，仍判 `P_CANDIDATE_UPHELD`。H104/H105/H106 的 exact Terra/Max
 source-match、外部原 PDF identity、trajectory 以及 Lean card/contract controls 应共同读取。
 
 这使 P 的候选位置从“所有极限说法”收敛到一个更窄的可反驳命题：

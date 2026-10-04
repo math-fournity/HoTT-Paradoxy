@@ -45,7 +45,9 @@ Uttarakhand Open University 的课程文本 *Real Analysis*，MT(N)-201 §5.1–
 Achilles 追上乌龟所需的时间；邻接的 §5.3 又明说不能按通常方式把无限项逐一相加，
 并把 series sum 定义为 partial sums 的极限。该来源付清了 F 的数学定义，仍没有
 SEP/Norton 式 Done 区分或 task-preserving F→D bridge。H104/H105 已以只读 Terra/Max
-source-match、Master 原文复核和 Lean 窄卡分类完成：
+source-match、Master 原文复核和 Lean 窄卡分类完成；H106 再以 SEP 的显式 Done
+分叉作为 Battle control，裁定 `P_CANDIDATE_UPHELD`：UOU 付清 formal F 的数学定义，
+没有付清 F→source-process D 的 task-preserving bridge：
 
 ```text
 F = infinite series has a finite sum / limit
@@ -55,7 +57,7 @@ bridge = not supplied on the frozen card
 ```
 
 它已成为 M6 的第一张实际课程文本候选卡：
-`ACTUAL_P_CANDIDATE_CONFIRMED`。该状态只说该来源卡的 F/D/promotion/bridge
+`ACTUAL_P_CANDIDATE_CONFIRMED / P_CANDIDATE_UPHELD`。该状态只说该来源卡的 F/D/promotion/bridge
 字段齐备；不能单独证明 bare ZFC 采纳 P、ZFC 缺 Q、HoTT B 来自 P，或任何对象层矛盾。
 
 ## 4. 收敛线尚待闭合的短链

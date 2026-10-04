@@ -14,7 +14,7 @@
 
 1. 修正 H103 对 SEP 窄卡的假阳性，不让缺少“形式定理”冒充完整来源没有 payment；
 2. 下载、固定并直接审读一份实际实分析教材；
-3. 用 H104/H105 的 exact Terra/Max source-match 和 Master 原文复核，判定 UOU 来源的 F/D/promotion/payment；
+3. 用 H104/H105 的 exact Terra/Max source-match、H106 的有界 Battle和 Master 原文复核，判定 UOU 来源的 F/D/promotion/payment；
 4. 用 Lean 机器核验来源卡标签与 `every-step`／`final-action` 合同分离；
 5. 把正面来源候选、反控制、未知与最小下一桥写入 contributor evidence，而不更新 dirty canonical owners。
 
@@ -37,12 +37,12 @@
 | 主来源 | SEP *Supertasks*；Uttarakhand Open University *Real Analysis* MT(N)-201 §5.1–§5.3 | 逐段限定的 source evidence；后者保存于已核外置 PDF，不能替代 bare ZFC 文本。 |
 | 既有形式控制 | `MP-ZFC-GEOMETRIC-COMPLETION-001`、`MP-ZFC-OBSERVATION-BOUNDARY-001`、`MP-ZFC-META-OBSERVATION-CONSISTENCY-001`、`MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` | 已有精确范围；不从条件 meta-policy 直接推出 actual ZFC。 |
 | 新形式控制 | `MP-UOU-COMPLETION-PROMOTION-SOURCE-001`；`MP-ZENO-SEQUENTIAL-COMPLETION-CONTRACTS-001` | frozen-card / indexed trace contracts only；不是 UOU/ZFC/物理真理。 |
-| 受控 Agent | H103 / H104 / H105 source-match public MatchTrace | Prompt-bounded source mapping；不访问项目、网络或工具；private wire 不进入 Git。 |
+| 受控 Agent | H103 / H104 / H105 source-match 与 H106 Battle public MatchTrace | Prompt-bounded source mapping；不访问项目、网络或工具；private wire 不进入 Git。 |
 
 ## 4. 产出、非目标与恢复点
 
 - [M6 report](../../../../../audit/20261004-ZFC-QP-M6-SEP-P-CANDIDATE.md)：SEP 纠正与 UOU full-card M6 状态。
-- [H104](../../../../../audit/20261004-P-DAG-ZFC-QP-104-Terra-Max.md) 与 [H105](../../../../../audit/20261004-P-DAG-ZFC-QP-105-Terra-Max.md)：实际来源与 full-card bridge review。
+- [H104](../../../../../audit/20261004-P-DAG-ZFC-QP-104-Terra-Max.md)、[H105](../../../../../audit/20261004-P-DAG-ZFC-QP-105-Terra-Max.md) 与 [H106](../../../../../audit/20261004-P-DAG-ZFC-QP-106-Terra-Max.md)：实际来源、full-card bridge review 与有界Battle。
 - [UOU source-card proof](../../../../../HoTT/formal/zfc-observation-boundary/UouCompletionPromotion-CLAIM.md) 与 [sequential-contract proof](../../../../../HoTT/formal/zfc-observation-boundary/SequentialCompletionContracts-CLAIM.md)：精确机器检查范围。
 
 **不做：** 不说 ZFC 不一致、不说所有极限理论错误、不把 UOU source Done 与圆环/HoTT Done 直接等同、不制造 P→H0-B provenance、不切换 Power Set station、不更新 canonical claim matrix/STATE/MEMORY/Feature/rulings。
