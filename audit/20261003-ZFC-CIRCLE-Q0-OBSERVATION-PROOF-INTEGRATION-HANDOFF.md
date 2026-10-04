@@ -7,7 +7,8 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate evidence head | `7391ce1736a4ef334f3322cb9d55ecea96be6186` |
+| M7 substantive evidence head | `60a4136347bfe0853d24ebceec4442e6d5d63d25` |
+| latest M7 evidence commit | `60a4136347bfe0853d24ebceec4442e6d5d63d25` (`ActualPolicyWitness`, H107–H110, finite source-frontier ledger and run receipts) |
 | source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP); `8cac63fec1276019e69c7fd92142aa23f677143b` (Zeno U0/U1 field mapping); `3aecf3141013696c48dea0c22577e9a976eb38c0` (HoTT U2 field mapping); `b43f67ebfb4a3a7beff04c0e1442b3461f96e3de` (H097 common-state control, U3/U4/U6 terminal, Lean recheck and core audit); `a92ca9b923647f62f30e8f73f535e61d9c8e8096` (Q/P/A/B policy calculus, source candidate, H098 scope audit and proof receipts); `1a9a7c5f3f8d067d3838d96ada6da8c954409ee9` (P refined as unverified completion promotion, P-bridge theorem and final run -05); `27f03ddf4893f0db619e1f3992b2e480cade2dd1` (M6 actual-source mapping, SEP source-completeness repair, UOU full-card candidate, new Lean controls and core audit); `7391ce1736a4ef334f3322cb9d55ecea96be6186` (H106 bounded UOU/SEP payment Battle, source-card P upheld and M6/SOP/session update) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
@@ -39,6 +40,7 @@
 22. The user then supplied a more precise Q/P/A/B policy hypothesis. `MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` machine-checks its conditional skeleton: under explicit A↔P and P→B policy rules, `baseZFC+A` and `baseZFC+P` have equal operational consequences, P yields A and B, and a PBacktrace is required to attribute B to P. It separates missing-Q/adoption, reality audit, community values, normative tension and the additional formal-incompatibility condition needed for `False`.
 23. `ZFC-QP-ACTUAL-MAPPING-SOP` ran M1–M5 through H099–H102. Its bounded result is `EVIDENCE_FRONTIER_REACHED_WITH_SCOPE`: Zeno has task-contract divergence, circle origin Done is unresolved, Q-gap is not source-mapped, and H0 has no P→B provenance. No actual policy witness was constructed.
 24. The research initiator then clarified that this local frontier is part of a `ZFC_PROBLEM_CONVERGENCE_PHASE`, not a global negative end. M6 corrected a new SEP narrow-card false positive using H083's fuller source control: SEP explicitly distinguishes its Done contracts and is a payment/task-split control. M6 then fixed an external UOU *Real Analysis* source (MT(N)-201 §5.1–§5.3) whose finite-series-sum definition is explicitly used to deliver Achilles catch-up/resolution. H104/H105 source-match and direct PDF review classify it as `ACTUAL_P_CANDIDATE_CONFIRMED_WITH_SCOPE`: mathematical F is defined, but the frozen source card does not supply a task-preserving F→D bridge. H106’s bounded UOU/SEP Battle independently returns `P_CANDIDATE_UPHELD`: SEP pays a different, explicit Done contract and does not establish a cross-source equivalence that would discharge UOU’s bridge. `MP-UOU-COMPLETION-PROMOTION-SOURCE-001` and `MP-ZENO-SEQUENTIAL-COMPLETION-CONTRACTS-001` machine-check frozen-card fields and the every-step/final-action contract distinction, respectively. This is source-level actual-P evidence, not a bare-ZFC Q, P→H0-B, or inconsistency result.
+25. M7 turns the user’s full Q/P/A/B reductio into an explicit `ActualPolicyWitness`: source P, actual policy adoption, actual-Q absence/permission, P→A, provenance-bearing P→HoTT-B, and formal A/B incompatibility are separate required fields. H107–H110 map the current field denominator: UOU P is mapped; ZFC foundation/formalizability is not a community-adoption bridge; UOU’s missing checks are only a source-Q-gap candidate; P→HoTT-B is not source-mapped; the user’s desired-A/rejected-B judgment is normative rather than formal incompatibility. `MP-ZFC-ACTUAL-POLICY-WITNESS-001` proves the conditional reductio only after all fields are supplied; `MP-ZFC-ACTUAL-POLICY-FRONTIER-001` machine-checks that this frozen denominator cannot close the witness. This is `EVIDENCE_FRONTIER_REACHED_WITH_SCOPE`, not a global negative theorem about ZFC or mathematics.
 
 ## What an integrator may accept
 
@@ -55,6 +57,7 @@
 - The terminal profile-mismatch control as a bounded negative result for the **direct Zeno ↔ QuestioningDelay same-Q instantiation**, together with its source cards, trajectory receipts, core audit and rechecked conditional Lean run.
 - `MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001` as a **machine-checked conditional meta-policy calculus**, with final run `20261004-MP-ZFC-COMMUNITY-OBSERVATION-POLICY-001-05`, user source candidate, H098 scope audit and a separate source-mapping ledger.
 - M6's `ACTUAL_P_CANDIDATE_CONFIRMED_WITH_SCOPE / P_CANDIDATE_UPHELD` for UOU *Real Analysis* §5.1–§5.3, including H104/H105 exact Terra/Max receipts, H106's bounded SEP-control Battle, external PDF identity, full-card Master review, and the two new narrow Lean controls. The source card is an evidence candidate for mathematical-practice completion policy, not a claim about every analysis text or bare ZFC.
+- M7's `ActualPolicyWitness` conditional interface and `ActualPolicyEvidenceFrontier` finite-ledger theorem, plus H107–H110's source cards. These establish a transparent end state for the current denominator: actual-P is mapped, while adoption, actual-Q, PBacktrace and formal incompatibility are not. Both Lean receipts are `KERNEL_ACCEPTED_WITH_SCOPE`, no printed axioms, and remain contributor candidates pending canonical claim-matrix review.
 - The new user source as `CORE_CANDIDATE_PENDING_CURATION`; a canonical integrator must decide its next core-generation disposition rather than treating the contributor source file as already-loaded project doctrine.
 
 ## What an integrator must not infer
@@ -68,6 +71,7 @@
 - The U6 terminal does not refute the broader hypothesis that a ZFC-level completion-observation gap might exist. It says this frozen source denominator does not identify the same source-defined process task needed for the direct conditional-theorem instance.
 - The Q/P/A/B calculus does not prove actual ZFC lacks Q, that actual mathematicians adopt P, that P is noncomputable/nonreal, that a HoTT result is B, or that A and B are formally incompatible. It proves only what follows after those facts are supplied as explicit inputs.
 - The UOU card does not establish a consensus, prove a physical motion failure, or identify its source Done with the user's circle restoration, SEP's completion meanings, or H0's ordinary-sameness interpretation. It cannot by itself turn the M6 candidate into a ZFC-level Q verdict.
+- M7's conditional `False` is not a proof that actual ZFC is false or inconsistent. It becomes applicable only after a single actual witness supplies every explicit field, including a formal A/B incompatibility; the current frozen denominator proves the opposite bounded fact, namely that no such completed witness has been source-mapped there.
 - No file in this commit is an automatic update to canonical `HoTT/CLAIM_EVIDENCE_MATRIX.md`, `STATE.json`, `MEMORY`, `Feature`, `rulings`, or P-DAG current owners.
 - Do not cherry-pick over the dirty canonical worktree. Create a clean integration worktree from the then-current `dev`, re-evaluate the target delta, and semantically merge the reports with the current Q0/Q1 owner.
 
@@ -116,6 +120,14 @@ python3 -B HoTT/formal/zfc-observation-boundary/capture_uou_completion_promotion
 python3 -B HoTT/formal/zfc-observation-boundary/capture_sequential_completion_contracts.py 20261004-MP-ZENO-SEQUENTIAL-COMPLETION-CONTRACTS-001-01
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
   → indexed every-step/final-action contract theorems print no axioms
+
+python3 -B HoTT/formal/zfc-observation-boundary/capture_actual_policy_witness.py 20261004-MP-ZFC-ACTUAL-POLICY-WITNESS-001-02
+  → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
+  → seven conditional witness-interface theorems print no axioms
+
+python3 -B HoTT/formal/zfc-observation-boundary/capture_actual_policy_frontier.py 20261004-MP-ZFC-ACTUAL-POLICY-FRONTIER-001-01
+  → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
+  → seven finite-ledger theorems print no axioms; no global absence claim
 
 python3 -B HoTT/formal/astra-real-geometry/capture_structured.py 20260920-MP-ASTRA-STRUCTURED-CURVE-001-03
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
