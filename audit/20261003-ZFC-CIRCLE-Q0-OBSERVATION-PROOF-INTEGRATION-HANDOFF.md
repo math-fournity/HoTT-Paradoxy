@@ -7,8 +7,8 @@
 | 字段 | 值 |
 |---|---|
 | contributor branch | `codex/zfc-observation-boundary-proof` |
-| candidate evidence head | `c0fe8d1a801470110bc4a4391956828be4b27f43` |
-| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP for full QProfile mapping and conditional instantiation) |
+| candidate evidence head | `b43f67ebfb4a3a7beff04c0e1442b3461f96e3de` |
+| source commits | `f10e4af3f3ffa9d79b92f7796cb9ca1575617eb8` (generic observation boundary); `13a3ba0ab092d3bc1305692bc44b3e3dbbdfccc9` (real-analysis and geometry replay); `9b0b82a5b50517d119875d40563c4f09dca5cc64` (relative completion-observation definition and formal-scope control); `a72e8b28a50ccd87188dafbc973b0ae5884cfc35` (actual IEP source chain, Battle, Done-replacement correction and bridge controls); `e87a6f98bbbea6d9d94dfa69c68d0eb4aa664b9b` (Bathfield independent source, cross-source arbitration and same-task equivalence specification); `523b6b0b66e49faca8edaf32fb88ef1d17d2a2c7` (O1–O5 full QProfile meta-policy theorem and Zeno–HoTT mapping control); `c0fe8d1a801470110bc4a4391956828be4b27f43` (stable `/goal` SOP); `8cac63fec1276019e69c7fd92142aa23f677143b` (Zeno U0/U1 field mapping); `3aecf3141013696c48dea0c22577e9a976eb38c0` (HoTT U2 field mapping); `b43f67ebfb4a3a7beff04c0e1442b3461f96e3de` (H097 common-state control, U3/U4/U6 terminal, Lean recheck and core audit) |
 | base | `dc55ab58a00b640e5dcf957fc84a86afb5cea21f` |
 | observed canonical target at contributor start | `dev` = `bf74e68371cd33c9bffa743f068995d2d7d3c0cd` |
 | canonical target disposition | `dev` had unrelated dirty work, including uncommitted `ZFC-CIRCLE-Q1` / H081–H082; this relay does not alter it. |
@@ -32,6 +32,10 @@
 15. `MP-ZFC-META-OBSERVATION-CONSISTENCY-001` formalizes the research initiator's new Zeno–HoTT proposal: full QProfiles explicitly contain O1–O5 plus payment/preservation; identical full profiles with `originalResolved` versus `bridgeRequired` judgments break Q-uniformity and the proposed O3–O5 adequacy policy. A coarse-Q countercontrol is included.
 16. H094 independently maps the frozen current Zeno and HoTT evidence into this model and returns `PROFILE_MATCH_NOT_YET_PROVED`; it preserves the conditional theorem but prevents premature actual-ZFC instantiation.
 17. `ZFC-HOTT-Q-UNIFORMITY-SOP` now owns the next work: U0–U6 freeze, field-map, compare and either instantiate the theorem or conclude a bounded profile mismatch/payment/evidence-frontier result.
+18. H095/U1 complete the Zeno field map: IEP, SEP and Bathfield do not share a single unconditional Done. IEP pays its own continuous physical-arrival task; SEP distinguishes final-action from every-step completion; Bathfield withholds a terminating-operation bridge for a stronger sequential-act task.
+19. H096/U2 complete the HoTT field map: C-77–C-80 give a scoped internal theorem about `QuestioningDelay`, while the origin ordinary-sameness task remains an unpaid interpretation bridge. KLV's relative model result has a separate declared Done and does not make a bridge debt.
+20. H097/U3 independently checks the common-state proposal. The shared eight-field `AssessmentState` is a schema only: source-defined process task, operations, observations, formal Done, origin Done, judgments and bridge evidence differ.
+21. U4/U6 therefore reach the SOP terminal `PROFILE_MISMATCH_CONTROL_CONFIRMED`. The conditional Lean theorem is freshly replayed in `20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-03`, exit 0 and no printed axioms, but cannot be instantiated because `sameQ` and the HoTT `bridgeRequired` premise are not source facts.
 
 ## What an integrator may accept
 
@@ -45,6 +49,7 @@
 - The refined classification `INDEPENDENT_CRITICAL_BRIDGE_DIAGNOSIS / SOURCE_TASK_CONTRACT_DIVERGENCE / COMPLETION_EQUIVALENCE_EVIDENCE_CONDITION` as the current bounded research front.
 - The conditional policy result `SAME_FULL_Q + OPPOSITE_JUDGMENTS → ¬QUniform` and the candidate O1/O2-without-O3–O5 fixture, both with explicit actual-profile mapping obligations.
 - The stable `ZFC-HOTT-Q-UNIFORMITY-SOP` as the user-invocable continuation contract; it does not itself upgrade any profile field or canonical owner.
+- The terminal profile-mismatch control as a bounded negative result for the **direct Zeno ↔ QuestioningDelay same-Q instantiation**, together with its source cards, trajectory receipts, core audit and rechecked conditional Lean run.
 
 ## What an integrator must not infer
 
@@ -54,6 +59,7 @@
 - H087/H091 do not prove ZFC inconsistent, show that continuous-time endpoint arrival is impossible, or prove that IEP's revised completion condition is false. They identify a source-level task-replacement/identity question with an exact formal control.
 - H092/H093 do not resolve the source dispute, show that every continuous model changes the task, or establish a ZFC defect. They identify the exact missing common-domain equivalence bridge.
 - The meta-observation theorem does not assert that actual Zeno and HoTT share a full QProfile, that IEP makes an `originalResolved` rather than `revisedResolved` claim, or that ZFC has an object-language contradiction. H094 is current evidence for those gaps.
+- The U6 terminal does not refute the broader hypothesis that a ZFC-level completion-observation gap might exist. It says this frozen source denominator does not identify the same source-defined process task needed for the direct conditional-theorem instance.
 - No file in this commit is an automatic update to canonical `HoTT/CLAIM_EVIDENCE_MATRIX.md`, `STATE.json`, `MEMORY`, `Feature`, `rulings`, or P-DAG current owners.
 - Do not cherry-pick over the dirty canonical worktree. Create a clean integration worktree from the then-current `dev`, re-evaluate the target delta, and semantically merge the reports with the current Q0/Q1 owner.
 
@@ -86,6 +92,10 @@ python3 -B HoTT/formal/zfc-observation-boundary/capture_geometric.py 20261003-MP
 python3 -B HoTT/formal/zfc-observation-boundary/capture_meta_observation.py 20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-02
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
   → seven O1–O5/QProfile policy theorems have no axioms
+
+python3 -B HoTT/formal/zfc-observation-boundary/capture_meta_observation.py 20261003-MP-ZFC-META-OBSERVATION-CONSISTENCY-001-03
+  → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
+  → same seven conditional theorems rechecked; no actual Zeno/HoTT instance claimed
 
 python3 -B HoTT/formal/astra-real-geometry/capture_structured.py 20260920-MP-ASTRA-STRUCTURED-CURVE-001-03
   → KERNEL_ACCEPTED_WITH_SCOPE; exit 0; stderr empty
