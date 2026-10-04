@@ -45,12 +45,14 @@
 | ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；`reflect_prf_lift1`只是 host proof transport，`has_reflect`是 Lean meta helper，`godel_completeness_theorem`是 completeness；均未有 numeric Gödel coding/fixed point 或 parent bridge。 |
 | generic Gödel baseline | `Foundation@f3972f…` First/Second | `MACHINE_REPLAYED_GENERIC_GODEL_TECHNICAL_BASELINE_WITH_SCOPE`：code/quote/substitution/provability实际重放；没有target-specific ZFC/process实例化。 |
 | Foundation target-mapping control | project wrappers + exact Foundation source | 正控制确认 `𝗭𝗙𝗖 : SetTheory` 与 generic `ArithmeticTheory` theorem interface；负控制拒绝直接传入 `𝗭𝗙𝗖`。同树又有 `ω`／自然数递归模型正控制，却没有 concrete `DirectInterpretation` occurrence。这是 `FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE`，不是 ZFC 不完备性 theorem。 |
+| 外部技术校准 | JAR/AFP + fixed Agda BRA source | 把 code/numeral bridge、内部 provability adequacy、proof representability 与 fixed point 分开；只作 G2 field calibration，外部 developments 未在本机 replay，也不是 ZFC/parent-Q source。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
 
 ## 4. 产出与下一动作
 
 - [G0 接口分母](../../../../../audit/20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md)：三个 source roles、Metamath GodelizationCard、正反控制、查询边界和下一来源门；
 - [Foundation ZFC 映射缺口控制](../../../../../audit/20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)：同源 `SetTheory`／`ArithmeticTheory` direct-application 的正负控制与 run receipt；
+- [外部技术校准](../../../../../audit/20261004-GODEL-Q-REFLECTION-G2-EXTERNAL-TECHNICAL-CALIBRATION.md)：将 `NumeralBridge` 与 `InternalProvabilityAdequacy` 写入 G2 前置条件；
 - [GODEL-Q-REFLECTION-SOP](../../../../../dev-docs/哥德尔式ZFC完成观察反射方案SOP.md)：G0 状态与 module boundary；
 - [CC-20261004-godel-q-reflection](../../../../../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)：跨 Session 活动集、失效条件与 T 上位方案关系；
 - [本单元 core audit](CORE_COGNITION_AUDIT.md)：逐 KC、扩展认知、G0 分层和下一选择。
