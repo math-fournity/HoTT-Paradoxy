@@ -91,6 +91,9 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 
 | `20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02` | `MP-ZFC-HOTT-OBSERVATION-BRIDGE-001` / `C-357` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Cubical Agda 2.8.0 + cubical 0.9；统一捕获器固定6个本地导入根和12个源码文件。原universe Q为`never`、集合截断Q第一步停和无统一section的联合桥控制；negative run `-NEG-02`在`Bool != A`处拒绝。它不形式化ZFC模型／验收或时间观察完备性。 |
 | `20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-04` | `MP-ZFC-HOTT-COMPLETION-REFLECTION-001` / `C-358` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Cubical Agda 2.8.0 + cubical 0.9；统一捕获器固定6个本地导入根和11个源码文件。固定截断Q的stage-one completion不能推出原Q有限停机；negative run `-NEG-03`在`nothing != just 1`处拒绝。它不裁定任务同一性或形式化ZFC模型／验收。 |
+| `20261004-MP-ZFC-ACTUAL-Q-POLICY-001-06` | `MP-ZFC-ACTUAL-Q-POLICY-001` / `C-359` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Lean 4.34.1 core；pinned core binary、Q观察失败、P、A/B、ZFC-1使用模型与SameFullQ的条件性政策 consequence；negative run `-NEG-05`在`gap : qGap`不能作为任意`P`处拒绝。 |
+| `20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-06` | `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / `C-360` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Cubical Agda 2.8.0 + cubical 0.9；固定HoTT Q中coarse completion不能提升为original finite halting；8个实际本地依赖均已固定；negative run `-NEG-03`在`nothing != just 1`处拒绝。 |
+| `20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-07` | `MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / `C-361` | `KERNEL_ACCEPTED_WITH_SCOPE / DECLARED_CLASSICAL_AXIOMS / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Lean 4.34.0 + pinned Mathlib；固定几何极限不推出有限自然阶段终点，闭连续时间端点到达为正控制。 |
 
 **依赖闭包登记缺口（独立审计发现 F6，2026-09-13）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、
 `REPAIRED-SYNTAX` 五个历史 run 的 `source-manifest.json` 只固定了直接导入模块，未列入编译器实际检查的传递依赖

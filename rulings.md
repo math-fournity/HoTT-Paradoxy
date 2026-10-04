@@ -746,3 +746,18 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. 机器化的最终交付可以是带来源认证前提的 policy consequence，必须明确写成`MACHINE_PROVED_CONSEQUENCE_WITH_SOURCE_CERTIFIED_PREMISES`；除非另有对象语言的完整形式化，不得称为`ZFC ⊢ False`。若实际同Q不成立、来源未给政策 owner或原过程Done无法冻结，按SOP给出范围明确的拒绝／不足／待裁定结论，同样完成该轮。
 4. 计划先执行A0闭包与candidate evidence freeze；若需使用candidate worktree，先走既有文献回流的B0 delta，后续集成仍须干净integration worktree和canonical integrator复核。SOP自身不自动启动worker、网络、外部写入、集成、STATE mutation、tag、push或数学结论。
 5. 后续可直接使用：`按照SOP=ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP，继续推进，直至无法推进。`。本裁定授权SOP、入口路由、Feature、MEMORY、rulings、相称验证和精确Git提交；不扩大到上述被排除的动作。
+
+## 2026-10-04：Q 缺失、数学幻觉 P、A/B 与 ZFC-1 的第一轮机器化
+
+用户本轮原话由`sources/prompts/Codex-ZFC-Q-P-A-B-ZFC1-用户原文-20261004.md`拥有。用户要求最大程度地形式化并机器证明如下论证：ZFC 对过程时间的观察 Q 若有缺失，会允许数学幻觉 P；P 在芝诺侧带来所需的 A，却在 HoTT 的固定完成问题中暴露不想要的 B；回溯 B 可以看到 P 与 Q 缺失所造成的不可同时维持性。
+
+执行裁定：
+
+1. 这项工作采用`ZFCOneUse`，而不是把用户的“事实上的ZFC”无标记地等同于 bare ZFC。`ZFCBase`、Q gap、P、A、B、`SameFullQ`及来源政策分别成为显式字段或前提；这允许机器检查条件 consequence，同时不伪称`ZFC ⊢ False`。
+2. `QMissing`的形式代理是`¬ QObservesPromotionFailure`；后者要求存在一个 P 已适用、`formalDone`成立而`originDone`不成立的 site。`gapPermitsZenoP`仍是独立来源政策前提。Lean 机器证明`q_gap_does_not_logically_force_P`，因此不能从“Q缺失”直接推出 P。
+3. `ZFC+A ↔ ZFC+P`只有在另有`A ↔ P`时才成立；C-359将这个支付义务写为定理前提。现有 Norton/IEP 读取含显式`Done_strict → Done_revised`的来源控制，不能代替该等价或原过程 bridge。
+4. C-359（Lean core）证明：若实际`SameFullQ`使 Zeno 侧的 P 许可运输到 HoTT，而 HoTT-side B 给出`formalDone ∧ ¬ originDone`，则 B 一方面成为`QObservesPromotionFailure`并反驳`QMissing`，另一方面与 P 的`promote`字段导出`False`。C-360（Cubical Agda）给出固定 HoTT Q 上“coarse completion → original finite halting”的原生反例；C-361（Lean/Mathlib）给出几何数列中`Tendsto`不推出有限自然阶段终点的严格 P 控制，并以闭连续时间端点作正控制。
+5. 上述三条的最终 primary run、负控制、精确重放、source manifest、frozen claim rows 与选择性 evidence closure 已完整登记在`HoTT/formal/zfc-actual-q-policy/`、`HoTT/verification/runs/`、`HoTT/CLAIM_EVIDENCE_MATRIX.md`和`audit/20261004-ZFC-Q-P-A-B-第一轮形式化与机器证明.md`。当前证据等级是`LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED`，直至精确Git版本闭合完成。
+6. 这不是实际 ZFC Q 已定位的裁定。剩余的唯一实质路线是按`ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`冻结并审计`A_source / P_source / A↔P / SameFullQ / B_bridge`。来源若明确改写 Done、拒绝 P 或不能支付 bridge，应形成有界的负结论，而不是被新的 fixture 覆盖。
+
+本裁定授权直接用户 source、C-359–C-361 formal package、运行收据、证据矩阵、Feature／MEMORY／audit 写回与精确 Git commit；不授权将此条件性证明发布为bare ZFC矛盾、改变数学STATE、启动worker、网络、tag、push或外部发布。

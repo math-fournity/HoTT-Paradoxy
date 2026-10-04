@@ -14,6 +14,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 ## 文件
 
+- `zfc-actual-q-policy/`：`MP-ZFC-ACTUAL-Q-POLICY-001` / C-359 将用户提出的Q缺失、数学幻觉P、A/B和`ZFC-1`写成明确前提的Lean policy use-model；`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / C-360在原生Cubical Agda中固定HoTT Q对“coarse completion→original finite halting”的P反例；`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / C-361在固定几何级数上证明极限不推出严格有限阶段Done，并保留闭连续时间端点正控制。三者不形式化bare ZFC或实际来源政策，详见目录`CLAIM.md`。
+
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。
