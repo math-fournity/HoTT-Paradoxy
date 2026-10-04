@@ -13,6 +13,7 @@ PhilPapers、Oxford元数据和公开摘要一致说明：论文区分“sets ar
 ## 获取边界
 
 - 作者页将预印本列为推荐来源。
-- PhilArchive PDF端点在普通抓取中返回403。
+- 作者页和 PhilPapers 都指向[`KLETPI-3.pdf`](https://philpapers.org/archive/KLETPI-3.pdf)；2026-10-04的普通HTTPS请求仍返回Cloudflare `403`，所以没有原PDF字节入库。
+- OpenAlex只登记一个submitted-version repository record，并标`is_oa:false`／`has_fulltext:false`；搜索引擎展示的PDF文本预览不能替代可核原件。
 - BrowserOS `test` profile 的独立读取页显示Cloudflare安全验证；没有点击或尝试绕过。
 - 后续只接受合法公开作者副本、机构库或用户提供的可核验全文；否则保持 `FULLTEXT_UNAVAILABLE`。

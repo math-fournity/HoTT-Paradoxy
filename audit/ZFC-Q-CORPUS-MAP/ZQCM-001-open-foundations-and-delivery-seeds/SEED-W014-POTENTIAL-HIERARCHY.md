@@ -12,4 +12,4 @@ Cambridge Core 的官方题录和摘要确认作者、期刊、页码与DOI。�
 
 ## 获取边界与重开条件
 
-本轮只取得官方metadata／abstract，未接受任何全文PDF。一次精确作者／机构检索只确认书目，没有定位到作者、机构或出版社开放的可核PDF；发现的第三方转载不被接受为原件或内容来源，也未作下载／互动尝试。后续只接受合法的作者、机构或出版商开放版本；取得全文后再按 PDF identity → remote MinerU → visual review → source screen 的链条处理。没有全文时，该条保持`METADATA_SEED_NOT_Q`。
+本轮只取得官方metadata／abstract，未接受任何全文PDF。2026-10-04的OpenAlex记录给出Birkbeck institutional record [`7048`](https://eprints.bbk.ac.uk/id/eprint/7048/)，但该页明确`full_text_status=none`并显示“Full text not available from this repository”；OpenAlex同样标`is_oa:false`、`pdf_url:null`、无repository fulltext。这个记录提高了access remainder的可追溯性，不增加原文内容证据。发现的第三方转载不被接受为原件或内容来源，也未作下载／互动尝试。后续只接受合法的作者、机构或出版商开放版本；取得全文后再按 PDF identity → remote MinerU → visual review → source screen 的链条处理。没有全文时，该条保持`METADATA_SEED_NOT_Q`。
