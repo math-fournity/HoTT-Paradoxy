@@ -23,6 +23,15 @@ diag              固定点或对角化构造
 reflection        接口输出与目标判词之间的明确反射原则
 ~~~
 
+### 1.1 与 GODEL-Q-REFLECTION-SOP 的模块边界
+
+[GODEL-Q-REFLECTION-SOP](../哥德尔式ZFC完成观察反射方案SOP.md) 已经拥有实际 completion interface 的 GodelizationCard、G0--G5、正反控制和其独立闭包。T-DIAG 不复制这些卡；它把该模块放在两个更高的门之后：
+
+1. T-OBS 必须先固定这个接口究竟压平了哪一个会改变 D 的过程差异；
+2. T-Meta 必须审计其 Code、OriginDone 和 RealityMap ρ 是否仍是原任务，而不只是可进行对角化的替代任务。
+
+所以，GODEL-Q-REFLECTION-SOP 的 G0 仍是实际 interface 的最小来源行动；T-DIAG 的新增义务是把 G0--G5 的输出接回 T 的观察精度和同一任务合同。
+
 原始哥德尔路线以 Proof_T／Prov_T 为资格接口。T-DIAG 不假定目标一定是可证明性；它可研究完成接受接口 Accept_T。但若缺少有效编码、替换或真实 consumer，不能把一个手写递归、一次 timeout 或自然语言悖论称为 Gödel式实例。
 
 ## 2. 候选接口与对角目标

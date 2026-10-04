@@ -845,6 +845,18 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 
 本裁定授权上述认知闭包、来源/开源调查、形式证明、验证、精确Git提交与必要 current-owner 写回；不授权把项目定义冒充学术界/数学共同体事实、忽略原始来源、tag、push或外部发布。
 
+## 2026-10-04：想法 T 的理论精度上位方案
+
+研究发起人进一步指出：ZFC 问题的本质是理论维度缺失、理论观察力不完备或理论精度不足；想法 T 超越单一理论，可能是从较高精度理论观察不完备性的脚手架。研究发起人要求完整记录紧邻两轮 user/AI 问答，命名新方案，并建立能够跨 Session 和压缩边界持续加载、写回的认知闭包。
+
+执行裁定：
+
+1. 新的上位稳定名为 T-PRECISION-DIAGONAL-SOP，owner 为 dev-docs/理论精度与哥德尔式自反方案.md 及其四片；跨 Session closure 为 认知闭包/T-PRECISION-DIAGONAL-001.md。两轮用户原文由 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md 拥有，四段 user/AI 全文由方案第 001 片拥有。
+2. T 不是“所有不完备都等于维度缺失”的已证明通论。它的可证明候选先分为 T-OBS 的任务相对观察因子化失败、T-DIAG 的有效编码与对角化边界、T-ZFC 的实际 bare-ZFC-facing 实例化；每层都须独立支付对象、接口、来源、同一任务和相称机器证明。
+3. 已有 GODEL-Q-REFLECTION-SOP 不废止：它是 T-DIAG 的实际 completion-interface 执行模块，保留 G0--G5 和自身 closure；T-PRECISION-DIAGONAL-SOP 为其补上 T-OBS 观察边界和 T-Meta 同一任务审计，二者不得被当成平行竞争 Goal。
+4. 当前 Host Goal 保持 paused。此裁定只授权方案、source、closure、owner 路由、相称来源核验和将来被明确启动后的形式规格／proof/run；不授权把想法 T、C-359、C-364、C-366 或来源沉默写成 bare ZFC 的形式矛盾、已证理论缺陷或已完成哥德尔式定理。
+5. T0 的第一项还包括用现有 curation manager 判断这两轮用户原文是否进入新 core generation；在完成该步骤前，它们是完整保存的 plan source，而不是自动的核心认知 current fact。
+
 ## 2026-10-04：采用哥德尔式 ZFC 完成观察与反射边界方案
 
 研究发起人要求从元思维和元元思维上研究如何神似地借鉴哥德尔，而不是表面模仿自指句式；并明确要求把该方案命名、完整记录，并建立可跨 Session 加载和写回的认知闭包。原文由 sources/prompts/Codex-Godel式ZFC完成观察反射方案-用户原文-20261004.md 拥有。

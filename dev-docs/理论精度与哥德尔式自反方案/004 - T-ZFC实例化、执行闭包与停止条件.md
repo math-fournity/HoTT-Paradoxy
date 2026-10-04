@@ -12,6 +12,7 @@ index: ../理论精度与哥德尔式自反方案.md
 
 T-PRECISION-DIAGONAL-SOP 不废止：
 
+- GODEL-Q-REFLECTION-SOP 的实际 completion-interface G0--G5：它是 T-DIAG 的具体执行模块，保留自身的独立调用入口和既有闭包；
 - BARE-ZFC-Q-PRECISION-SOP 的 interface-relative control；
 - ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP 的 A1–A5 实际同 Q 分母；
 - ZFC-H0-FINAL-PROOF-CLOSURE-SOP 的 M0–M5 总闭环；
@@ -26,7 +27,7 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 | T0 | 读取本方案、T-PRECISION-DIAGONAL-001、两轮原文、KC-000024/027/059 与现有 proof owners；冻结本轮 theory/task/interface | TaskPrecisionCard 与来源分母 | T 已得证 |
 | T1 / T-OBS | 固定 W、πL、πH、r、D 和碰撞 witness；机器检查 abstract non-factorization 与 rich-interface control | 相对观察边界定理 | bare ZFC 缺陷 |
 | T2 / Gödel基线 | 用一份标准、版本固定的形式理论证明或现有成熟形式化核对 coding、Proof、Prov、substitution、diagonal 的精确前提 | 哥德尔机制的来源／机器基线 | 当前 Q 已适用对角化 |
-| T3 / T-DIAG | 选择真实 Accept_T，验证 code、consumer、diag、bridge、DifferentTask 与 BridgePaid 控制 | 受限反射／不完备结果，或有界拒绝 | ZFC 不一致 |
+| T3 / T-DIAG | 选择真实 Accept_T，并加载 GODEL-Q-REFLECTION-SOP 的 G0--G5 与 GodelizationCard；再验证 code、consumer、diag、bridge、DifferentTask 与 BridgePaid 控制 | 受限反射／不完备结果，或有界拒绝 | ZFC 不一致 |
 | T4 / T-Meta | 审核编码与原过程的同一任务、OriginDone、现实解释和来源 payment | task-preservation / bridge verdict | 元层结果自动等于现实结论 |
 | T5 / T-ZFC | 将满足 T0–T4 的 schema 接到 fixed bare-ZFC-facing interface；再与 H0、A/B 合成 | 实际实例化或范围拒绝 | 单个 fixture 是 ZFC |
 
@@ -41,6 +42,7 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 3. 当前核心认知中 KC-000024、KC-000027、KC-000036、KC-000059 与相关扩展认知；
 4. 与所选阶段对应的 proof source、run receipt、来源卡和 current Feature/MEMORY/rulings；
 5. 当前 worktree 的 branch/HEAD/status，确认没有将 candidate worktree 当 current truth。
+6. 若选中 T-DIAG：GODEL-Q-REFLECTION-SOP、其 GodelizationCard 状态与 CC-20261004-godel-q-reflection；它们是执行模块输入，不是同名第二 Goal。
 
 每个自然单元写回：本轮 T0–T5 身份、对象/接口/来源、已经支付的条件、失败条件、剩余未知、下一最小判别动作和 reopen 条件。写回后重读 current owner，不能继续消费旧摘要。
 
