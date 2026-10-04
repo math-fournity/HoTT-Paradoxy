@@ -6,7 +6,7 @@
 >
 > **角色：** `RESEARCH_GENERATION`。
 >
-> **宿主：** Codex desktop，Master；未启动 Sub Agent、App Server worker 或外部 proof compiler。
+> **宿主：** Codex desktop，Master；未启动 Sub Agent 或 App Server worker。对 `mm-lean4` 的 exact toolchain build 仅观察到 RC2 toolchain 下载开始，未产生 binary。
 >
 > **状态：** `G0_SOURCE_DENOMINATOR_FROZEN / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_FROZEN_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
 
@@ -41,6 +41,9 @@
 | 实际 proof acceptance | `metamath/set.mm develop@160ebb63…` README、verifiers policy、workflow | `SOURCE_CERTIFIED`：ZFC-facing formal proof database 与 multi-verifier acceptance policy。 |
 | 实际 completion contract | IEP/Norton/SEP 的 A2 source card | `SOURCE_TASK_CONTRACT_DIVERGENCE_ESTABLISHED_WITH_SCOPE`，不是 ZFC checker。 |
 | process representability | C-366 Foundation/Zermelo Lean run/claim | `KERNEL_ACCEPTED_WITH_SCOPE`，不是 completion consumer。 |
+| checker implementation | `digama0/mm-lean4@58123caf…` | `META_ONLY_IMPLEMENTATION_SOURCE_WITH_BUILD_GAP`：`check` 为 `partial def`，exact RC2 build 未完成。 |
+| ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；未有 Gödel coding/fixed point 或 parent bridge。 |
+| generic Gödel baseline | `Foundation@f3972f…` First/Second | `MACHINE_REPLAYED_GENERIC_GODEL_TECHNICAL_BASELINE_WITH_SCOPE`：code/quote/substitution/provability实际重放；没有target-specific ZFC/process实例化。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
 
 ## 4. 产出与下一动作
@@ -54,7 +57,7 @@
 
 ## 5. 不做与范围
 
-- 不构造或运行新的 Lean/Agda proof；G0 是 source/interface qualification，不是 theorem stage；
+- 不构造或运行新的 Lean/Agda **proof theorem**；对 `mm-lean4` 的 build attempt 未完成，不能充当 verifier correctness / totality evidence；
 - 不将 Metamath proof verification 当作 Zeno、circle 或 H0 原过程的 completion；
 - 不将本工作与上位 `T-PRECISION-DIAGONAL-SOP` 的 T0 混同；后者仍 `PLAN_READY_NOT_EXECUTING`；
 - 不修改 `STATE.json`/checkpoint，不推送或发布未审阅的其它 dirty 路径；

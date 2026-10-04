@@ -20,6 +20,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `t-precision-observation/`：`MP-T-PRECISION-TOBS-001` / C-367 是 T-PRECISION 的首个抽象 T-OBS 单元。Lean core 证明：指定 project 将 x,y 压成同一输出而指定 observe 在二者上相反时，observe 不存在只经 project 的全域 decoder；identity/rich view 是正控制，Bool/Unit 伪 decoder 被负控制拒绝。它只证明函数／命题因子化边界，不形式化 bare ZFC、HoTT、现实任务、对角化或“抽象必然导致悖论”。
 
+- `godel-q-reflection/`：`FoundationGodelBaseline.lean` 是对冻结 Foundation Lean source 中通用 Gödel第一／第二不完备性 theorem 的最小 wrapper。它已在 exact Foundation@`f3972f…`／Lean 4.34.0 source closure 下重放，精确暴露 `ArithmeticTheory`、可定义性／可枚举性、算术强度、soundness／consistency 与 standard provability 前提。它不实例化 `set.mm`、bare ZFC 或任何 completion process，详见 `audit/20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md`。
+
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。

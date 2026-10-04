@@ -1,0 +1,40 @@
+{
+  "schema_version": "godel-q-reflection-meta-checker-run/v1",
+  "run_id": "20261004-G0-MMLEAN4-META-CHECKER-001",
+  "status": "RUNTIME_OBSERVED_WITH_SCOPE_NONCANONICAL_TOOLCHAIN",
+  "purpose": "Bounded M-layer control for the GODEL-Q-REFLECTION G0/G2 boundary; not a theorem about bare ZFC or a payment of the parent completion bridge.",
+  "source": {
+    "repository": "https://github.com/digama0/mm-lean4",
+    "commit": "58123caf246f4d7afc903d8a749512449bef75c1",
+    "declared_toolchain": "leanprover/lean4:v4.26.0-rc2",
+    "actual_toolchain": "leanprover/lean4:v4.26.0",
+    "source_checker": "Metamath/Verify.lean: partial def check (fname : String) : IO DB"
+  },
+  "inputs": {
+    "positive": {
+      "url": "https://raw.githubusercontent.com/metamath/set.mm/160ebb63ec17ff00a809520a420c92914a424622/demo0.mm",
+      "sha256": "72ed7400ccf250f41af6eb7696727394e5cd126b8fa94594da8628ed79ac2c44",
+      "identity": "official demo0.mm from the frozen set.mm revision"
+    },
+    "negative": {
+      "sha256": "7fc1c309edc2f278c9bbb37ffb13286fb63506fb703241adee9da725a545afa9",
+      "derivation": "copy positive input, then change axiom a2 conclusion from t to r while preserving th1 proof"
+    }
+  },
+  "commands": [
+    "ELAN_TOOLCHAIN=leanprover/lean4:v4.26.0 lake build",
+    "ELAN_TOOLCHAIN=leanprover/lean4:v4.26.0 lake exe mm-lean4 demo0.mm",
+    "ELAN_TOOLCHAIN=leanprover/lean4:v4.26.0 lake exe mm-lean4 demo0-invalid.mm"
+  ],
+  "results": {
+    "build": {"exit_code": 0, "scope": "noncanonical compatibility build; 9 Lake jobs completed"},
+    "positive": {"exit_code": 0, "stdout": "verified, 29 objects", "stderr_bytes": 0},
+    "negative": {"exit_code": 1, "stdout": "at 76:2: at th1: bad typecode in substitution tt: term t / wff t = t", "stderr_bytes": 0}
+  },
+  "limits": [
+    "The exact source toolchain v4.26.0-rc2 was not built; the actual run used v4.26.0 stable.",
+    "A partial Lean definition and successful runtime observations do not prove totality or semantic soundness of the verifier.",
+    "This does not construct a set.mm/ZFC internal Proof_T, Prov_T, quotation, substitution, fixed point, or incompleteness theorem.",
+    "This does not define OriginDone, a reality map, or a completion bridge for Zeno, the circle, or fixed HoTT H0."
+  ]
+}

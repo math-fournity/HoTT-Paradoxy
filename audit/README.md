@@ -1,5 +1,11 @@
 # 审计资产入口
 
+- [GODEL-Q G0/G2：mm-lean4 M 层 checker implementation 控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-MMLEAN4-META-CHECKER-CONTROL.md)：固定 `digama0/mm-lean4@58123caf`，在非 canonical Lean 4.26.0 上实际构建，接受 official `demo0.mm` 并拒绝一处公理变异。源码 `partial def check` 与 RC2 toolchain gap 使其严格保持为 `META_ONLY` runtime control，不能支付 totality、soundness、T 内 provability 或 parent completion bridge。
+
+- [GODEL-Q G0/G2：Flypitch ZFC proof-relation source（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-FLYPITCH-ZFC-PROOF-RELATION.md)：固定 `flypitch/flypitch@d72904c` 的 Lean 3 deep embedding：`ZFC`、proof tree、`T ⊢' f` 与 substitution 都可定位，且 source 报告 CH independence theorem。它是 M 层 ZFC proof-relation baseline，当前 source replay、Gödel numbering、T 内 provability、fixed point 和 parent completion bridge 均未支付。
+
+- [GODEL-Q G2：Foundation 通用 Gödel技术基线（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md)：在 C-366 同一 `Foundation@f3972f`／Lean 4.34 closure 中实际重放 Gödel第一／第二不完备性 source；明确呈现 code/quote/substitution/standard provability 与假设。它是通用 ArithmeticTheory 基线，不能自动实例化 set.mm、bare ZFC 或 parent completion bridge。
+
 - [T-PRECISION T0：抽象观察边界（2026-10-04）](20261004-T-PRECISION-T0-TOBS-ABSTRACT-OBSERVATION-BOUNDARY.md)：冻结 T-OBS-001 的 World/View/project/observe、碰撞 witness、正反控制与禁止外推；随后以 HoTT Book quotient universal property、Lean core Quotient.lift 和 C-364 控制建立来源分母。C-367 在 Lean 4.34.1 core 中机器证明“同投影异判词阻断全域 decoder”，但不归因 bare ZFC、HoTT、现实时间或哥德尔不完备性；来源分母见[配套来源卡](20261004-T-PRECISION-T0-TOBS-SOURCE-DENOMINATOR.md)。
 
 - [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。

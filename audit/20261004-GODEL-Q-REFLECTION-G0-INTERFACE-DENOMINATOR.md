@@ -44,6 +44,9 @@ Code / Check   是否已有可用于哥德尔化的编码与有限检查入口
 | `G0-A-METAMATH-SETMM` | 真实形式证明接受接口 | `metamath/set.mm` 的 `develop` 为 `160ebb63ec17ff00a809520a420c92914a424622`（2026-10-04 `git ls-remote --symref`）；[README](https://github.com/metamath/set.mm/blob/160ebb63ec17ff00a809520a420c92914a424622/README.md)、[verifiers.md](https://github.com/metamath/set.mm/blob/160ebb63ec17ff00a809520a420c92914a424622/verifiers.md)、[workflow](https://github.com/metamath/set.mm/blob/160ebb63ec17ff00a809520a420c92914a424622/.github/workflows/verifiers.yml) | `set.mm` 被其 own README 说明为使用 classical logic 和 ZFC 的数据库；repository 明确把数据库变更的 proof re-verification 作为接受前动作，并列出五个独立 verifier。 | 不把 proof acceptance 定义成芝诺、圆环或 H0 的原过程完成；不提供本项目 `OriginDone`、`ρ` 或 `Bridge`。 |
 | `G0-B-IEP-NORTON` | 实际连续统／芝诺 completion consumer | 已冻结的 [A2 来源合同卡](20261004-ZFC-ACTUAL-Q-A2-标准解法来源完成合同.md)：IEP、Norton、SEP，采集 2026-10-04 | IEP 把 ZF with Choice 支撑的标准实分析放在标准芝诺解答语境；Norton 明示严格“有最后动作”的完成条件被删去，而解答采用较弱的完成合同。 | 没有一个版本固定的 ZFC proof checker、对象层 `Prov_T` 或可实行的 diagonal interface。 |
 | `G0-C-C366-ZERMELO` | 过程可表示性正控制 | [C-366 claim](../HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation-CLAIM.md)；Foundation `f3972f4204fc61e1b736ed843415894c83f35508`、Lean 4.34.0 | ordinal-indexed sequence graph、唯一 stage value、`Seq`/`lh` 的一阶可定义性在冻结模型接口中有 kernel proof。 | 它是模型层表示性控制，不是实际 source consumer，也不接受“原过程已经完成”。 |
+| `G0-D-MMLEAN4` | Metamath verifier 的 Lean 实现控制 | `digama0/mm-lean4@58123caf246f4d7afc903d8a749512449bef75c1`；[README](https://github.com/digama0/mm-lean4/blob/58123caf246f4d7afc903d8a749512449bef75c1/README.md)、`Metamath/Verify.lean` | README 给出 `lake exe mm-lean4 path/to/set.mm` 的实际 checker 入口；源码给出 parser/verification program。 | 它是 Lean 中写出的 M 层 program，不是已经证明 checker sound/total 的 theorem，也不是 `set.mm`/ZFC 内部 provability predicate。 |
+| `G0-E-FLYPITCH` | ZFC proof-relation 深嵌入来源 | `flypitch/flypitch@d72904c17fbb874f01ffe168667ba12663a7b853`；[README](https://github.com/flypitch/flypitch/tree/d72904c17fbb874f01ffe168667ba12663a7b853)、`src/fol.lean`、`src/ZFC.lean`、`src/summary.lean` | `ZFC : Theory L`、proof tree、`T ⊢' f`、proof substitution，以及 source-reported CH independence theorem 可定位。 | 这是 Lean 3 M 层的 ZFC proof relation；没有 Nat Gödel numbering、T 内 provability/fixed point、parent `OriginDone` 或 bridge。 |
+| `G0-F-FOUNDATION-GODEL` | 通用哥德尔技术的 kernel replay | `FormalizedFormalLogic/Foundation@f3972f4204fc61e1b736ed843415894c83f35508`；`First.lean`、`Second.lean`、`StandardProvability.lean` | exact Lean 4.34 source replay 实际检查 code/quote/substitution、standard provability、第一／第二不完备性 theorem。 | 适用于带 `ArithmeticTheory`、可定义性／可枚举性、算术强度、soundness／consistency假设的 generic T；不实例化 bare ZFC、set.mm、parent `OriginDone` 或 bridge。 |
 
 ### 3.1 远端 source snapshot
 
@@ -56,6 +59,10 @@ Code / Check   是否已有可用于哥德尔化的编码与有限检查入口
 | `.github/workflows/verifiers.yml` | `160ebb63…` | `6dccde49f13affdc33fbeebd06d60dc92ce940b2290e5f41bc19811df9561403` | 确认 workflow 对 `set.mm` 实际调用 verifier 的脚本形态。 |
 
 `set.mm` 在上述 immutable revision 的 HTTP HEAD 结果为 `200 OK`、`Content-Length: 51,466,065`；这证明该 pinned object 可取得，不是该数据库已在本机重跑的证据。
+
+`mm-lean4` 的本轮 checkout SHA-256 为：README `45544f6675ed117a4386eaeaa797608c46de7dc0085367fed199e0e73ebeee50`、`lean-toolchain` `12b3414dafc4575fab9eb37bb265165c5a637af839af2d300f7e931b78765706`、`Metamath/Verify.lean` `dce8d9be2bf74d003b812cae68c245d9e2ee80d27a0d1a424135adc6f04dd731`。其 pinned toolchain 是 `leanprover/lean4:v4.26.0-rc2`；本机已有 `v4.26.0` 正式版而没有该 RC。一次 `lake build` 观察到 elan 开始请求 RC2，但未得到 build binary；因此不把该尝试计作 source run。
+
+随后用本机已有 `v4.26.0` 完成的非 canonical positive/negative control 已保存为 [run receipt](20261004-GODEL-Q-REFLECTION-G0-MMLEAN4-META-CHECKER/RUN.json) 和 [范围报告](20261004-GODEL-Q-REFLECTION-G0-MMLEAN4-META-CHECKER-CONTROL.md)。该补充不改变前一句关于 exact RC2 replay 未完成的结论。
 
 ## 4. GodelizationCard A：Metamath `set.mm` 的 proof-acceptance interface
 
@@ -81,6 +88,30 @@ Code / Check   是否已有可用于哥德尔化的编码与有限检查入口
 
 **DifferentTask 反控制。** 将 `Accept_set.mm` 的 input（proof/database）、operation（verification）和 Done（valid proof accepted）替换成 runner 的动作序列或 fixed H0 的逐层追问，已经改变了对象、输入、操作、观察与完成标准。当前没有 source-supplied `ρ` 将这两类任务相连。因此不得把“Metamath 接受一个 ZFC proof”写成“ZFC 已接受芝诺或 HoTT 原过程完成”。
 
+### 4.2 `mm-lean4`：G2 的 M 层 implementation control，而非 G2 支付
+
+`digama0/mm-lean4` 的 README 是一个有用的真实实现入口：它是用 Lean 4 写成的 Metamath verifier，并说明可以构建命令行程序来检查 `set.mm`。但直接阅读当前 `Metamath/Verify.lean` 有两个决定性边界：
+
+1. 主入口是 `partial def check (fname : String) : IO DB`；这不是一个给所有有限输入提供 Lean termination theorem 的 total definition。
+2. 源码被 Lean typecheck 也不自动证明 verifier 的 semantic soundness，更不构造 `set.mm`/ZFC 内的 `Proof_T`、`Prov_T`、quotation 或 diagonal theorem。
+
+因此本卡只登记：
+
+```text
+META_ONLY_CHECKER_IMPLEMENTATION_SOURCE_IDENTIFIED
+EXACT_TOOLCHAIN_BUILD_NOT_COMPLETED_WITH_SCOPE
+NONCANONICAL_POSITIVE_AND_NEGATIVE_RUNTIME_CONTROL
+NO_G2_TOTALITY_OR_T_INTERNAL_REPRESENTABILITY_PAYMENT
+```
+
+它提高了后续 G2 的可操作性，但不能释放 G2，更不能改变 parent `OriginDone`/bridge 的缺口。
+
+### 4.3 Foundation：已机器重放的通用 Gödel技术基线
+
+冻结 `Foundation@f3972f…` 的 `First.lean` 和 `Second.lean` 已在 exact Lean 4.34.0 source closure 中实际重放。它们不是笼统地写“会有自指”，而是给出 `codeOfREPred`、quote、substitution、standard provability、first incompleteness 和 consistency-unprovability 的明确类型和依赖。
+
+这正是 GODEL-Q 需要借鉴的技术骨架，但 theorem 的量词仍是带明确假设的 `ArithmeticTheory`。当前没有 map 将 `set.mm`／bare ZFC 的 actual interface 证明为满足这些假设，也没有将对角 sentence 解释为 parent completion task。完整运行与范围在 [Foundation 基线报告](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md) 中固定。
+
 ## 5. GodelizationCard B/C：为何不能把另外两类来源补成同一个接口
 
 | 字段 | `G0-B-IEP-NORTON` | `G0-C-C366-ZERMELO` | G0 结论 |
@@ -101,6 +132,9 @@ Code / Check   是否已有可用于哥德尔化的编码与有限检查入口
 Metamath:       Code + Check + Accept_T，缺 parent OriginDone / ρ / bridge
 IEP/Norton:     completion contract + task-switch control，缺 Code + Check + Diag
 C-366:          process representation control，缺 actual consumer + acceptance policy
+mm-lean4:        M-layer checker implementation，缺 checker totality/soundness theorem 与 T-internal representation
+Flypitch:          M-layer ZFC proof relation/substitution，缺 Gödel coding/fixed point 与 parent completion bridge
+Foundation:        generic code/quote/substitution/provability/fixed-point baseline，缺 target-specific ZFC/process map
 ```
 
 所以本轮支持的最大结论是：
