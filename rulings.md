@@ -721,3 +721,15 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. 上下文压缩、新Session、交接、工具中断或是否落签不明时，先读`VISUAL-REVIEW.md`和`MINERU-DERIVATIVES.md`的当前游标；从最早无行或`RENDERED_UNAUDITED`页重新依据原PDF审读，不能从摘要、assistant文本或记忆补写结论。
 3. `SOURCE_ONLY_VISUAL_CHECK_COMPLETE`、`VISUAL_PASS`或来源筛读完成，只有在全部150dpi页已有持久行、关键／异常页有300dpi处置且无未审阅余项时才可写入。该合同只确保视觉证据可恢复，不把页面审读、远程MinerU状态或来源解释提升为数学结论。
 4. 本裁定授权更新项目语料 Skill、SOP、当前batch audit owner、Feature、MEMORY和精确Git谱系；不授权新的数据库、后台监控、Host Goal、worker、P-DAG、数学STATE、数学结论、tag、push或发布。
+
+## 2026-10-04：ZFC Q 全景文献地图与分批语料工程
+
+研究发起人要求：为尚未完成的 ZFC 文献翻查制定具名方案，并由新的 `/goal` 自主驱动直到计划的可审计完成。
+
+执行裁定：
+
+1. 计划名定为 `ZQCM-002 — ZFC Q 全景文献地图与分批语料工程`；它消费既有 `ZFC-Q-CORPUS-MAP-SOP`，不建立职责重叠的新 SOP。
+2. “全部文献”按 A–E 理论轴、M0–M6 波次、冻结 sub-batch、query/remainder、版本与访问边界的可重算地图定义；每一波达到 `MAP_COMPLETE_WITH_SCOPE` 才可声明该波完成，绝不外推为全球绝对穷尽、ZFC无问题或已找到Q。
+3. 计划先执行 M0 地图骨架，再按未覆盖 cell 驱动 M1–M6；禁止以关键词、单一数据库或已有 ZQCM-001 书目无边界扩张。
+4. 每个新来源继续执行原件身份、远程MinerU或显式失败、逐页视觉、Source Notes、citation/coverage与Q资格合同；P-DAG、worker、数学STATE、Power Set station和数学结论仍需各自授权。
+5. 本裁定授权计划、ZQCM-002 manifest、档案入口、Feature和精确本地Git谱系更新，并授权创建/激活相应 Goal；不授权tag、push或发布。
