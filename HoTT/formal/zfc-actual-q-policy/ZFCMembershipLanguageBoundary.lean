@@ -1,9 +1,10 @@
 /-!
 `MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001` makes the language claim behind
-Q explicit at the level of a minimal first-order membership language.
+Q explicit at the level of a first-order membership language.
 
-The formulas below have equality, membership, falsity, implication and
-universal quantification.  They deliberately have no `originDone` predicate.
+The formulas below have equality, membership, falsity, conjunction,
+disjunction, implication, universal quantification and existential
+quantification.  They deliberately have no `originDone` predicate.
 The kernel proves that every such formula, and hence every theory formed only
 from such formulas, is invariant under changing an external origin-completion
 predicate while keeping the membership relation fixed.
@@ -31,13 +32,17 @@ def expand
   member := membership.member
   originDone := originDone
 
-/-- A de Bruijn-style fragment of first-order membership language. -/
+/-- A de Bruijn-style first-order membership language with the standard
+    connectives used when expressing set-theoretic axiom schemes. -/
 inductive MembershipFormula where
   | equal (left right : Nat)
   | member (left right : Nat)
   | falsum
+  | and (left right : MembershipFormula)
+  | or (left right : MembershipFormula)
   | implies (left right : MembershipFormula)
   | all (body : MembershipFormula)
+  | existsF (body : MembershipFormula)
 
 def extendValuation
     (valuation : Nat → α)
@@ -51,8 +56,11 @@ def evalBase
   | .equal left right => valuation left = valuation right
   | .member left right => model.member (valuation left) (valuation right)
   | .falsum => False
+  | .and left right => evalBase model valuation left ∧ evalBase model valuation right
+  | .or left right => evalBase model valuation left ∨ evalBase model valuation right
   | .implies left right => evalBase model valuation left → evalBase model valuation right
   | .all body => ∀ value, evalBase model (extendValuation valuation value) body
+  | .existsF body => ∃ value, evalBase model (extendValuation valuation value) body
 
 /-- An external atom that is intentionally unavailable in `MembershipFormula`.
     It is used only to state the differing-completion control. -/
@@ -76,6 +84,22 @@ theorem evalBase_invariant_under_originDone
   | member leftIndex rightIndex =>
       exact sameMembership (valuation leftIndex) (valuation rightIndex)
   | falsum => rfl
+  | and leftFormula rightFormula leftIH rightIH =>
+      constructor
+      · intro leftPair
+        exact ⟨(leftIH valuation).mp leftPair.1, (rightIH valuation).mp leftPair.2⟩
+      · intro rightPair
+        exact ⟨(leftIH valuation).mpr rightPair.1, (rightIH valuation).mpr rightPair.2⟩
+  | or leftFormula rightFormula leftIH rightIH =>
+      constructor
+      · intro leftChoice
+        cases leftChoice with
+        | inl leftProof => exact Or.inl ((leftIH valuation).mp leftProof)
+        | inr rightProof => exact Or.inr ((rightIH valuation).mp rightProof)
+      · intro rightChoice
+        cases rightChoice with
+        | inl leftProof => exact Or.inl ((leftIH valuation).mpr leftProof)
+        | inr rightProof => exact Or.inr ((rightIH valuation).mpr rightProof)
   | implies leftFormula rightFormula leftIH rightIH =>
       constructor
       · intro leftImp rightPremise
@@ -94,6 +118,14 @@ theorem evalBase_invariant_under_originDone
         exact (bodyIH (extendValuation valuation value)).mp (leftAll value)
       · intro rightAll value
         exact (bodyIH (extendValuation valuation value)).mpr (rightAll value)
+  | existsF body bodyIH =>
+      constructor
+      · intro leftExists
+        rcases leftExists with ⟨value, leftProof⟩
+        exact ⟨value, (bodyIH (extendValuation valuation value)).mp leftProof⟩
+      · intro rightExists
+        rcases rightExists with ⟨value, rightProof⟩
+        exact ⟨value, (bodyIH (extendValuation valuation value)).mpr rightProof⟩
 
 abbrev MembershipTheory : Type := MembershipFormula → Prop
 

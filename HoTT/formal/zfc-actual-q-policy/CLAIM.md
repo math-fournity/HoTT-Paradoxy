@@ -4,7 +4,7 @@
 >
 > **用户原论述：** [2026-10-04 Q／P／A／B／ZFC-1 原文](../../../sources/prompts/Codex-ZFC-Q-P-A-B-ZFC1-用户原文-20261004.md)。
 >
-> **交付运行：** `MP-ZFC-ACTUAL-Q-POLICY-002` / [`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json)、`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` / [`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01`](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json)、`MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001` / [`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01`](../../verification/runs/20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01/RUN.json)、`MP-ZFC-UNPAID-COMPLETION-PROMOTION-001` / [`20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01`](../../verification/runs/20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01/RUN.json)、`MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001` / [`20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-01`](../../verification/runs/20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-01/RUN.json) 与 `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / [`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json) 都已通过精确重放；本页仍须与 `README.md`、`REVISIONS.md`、跨 kernel 对应表共同解释，不能把条件 theorem 缩写成“ZFC 不一致”。
+> **交付运行：** `MP-ZFC-ACTUAL-Q-POLICY-002` / [`20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-POLICY-002-06/RUN.json)、`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` / [`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01`](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json)、`MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001` / [`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01`](../../verification/runs/20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01/RUN.json)、`MP-ZFC-UNPAID-COMPLETION-PROMOTION-001` / [`20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01`](../../verification/runs/20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01/RUN.json)、`MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001` / [`20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-02`](../../verification/runs/20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-02/RUN.json) 与 `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / [`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01`](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json) 都已通过精确重放；本页仍须与 `README.md`、`REVISIONS.md`、跨 kernel 对应表共同解释，不能把条件 theorem 缩写成“ZFC 不一致”。
 
 ## 1. 用户论证被怎样忠实地拆成可检验对象
 
@@ -14,7 +14,7 @@
 | `Q` 的成员语言边界 | `MembershipTheory α := MembershipModel α → Prop` 不接收 `originDone`；`CompletionExpansion` 才加入这个谓词。 | 若一个成员模型满足任意此类 base theory，它可有同一 membership、却在任一指定状态对 `originDone` 相反的两个扩张。 | 这不是 ZFC 模型存在或不一致定理，也不证明实际圆环 Done 不可在 ZFC 中定义；它严格说明：未被定义／桥接的外部 Done 不能由成员语言本身替你决定。 |
 | `Q` 的统一判词 | `QUniform assessment := equal full QProfile → equal completion judgment`；`O3O5Adequate` 要求 original-resolution 的 required bridge 已支付。 | 相同完整 profile + `originalResolved`／`bridgeRequired` 的异判，内核推出 `¬ QUniform`；无 bridge 的 original-resolution 推出 `¬ O3O5Adequate`。 | 这是条件性元政策 theorem；实际 Zeno、圆环和 HoTT Q 是否有同一完整 profile、相反判词，仍由来源和同一任务映射支付。 |
 | `P` 的未付款反模型 | `BaseSubtheoryModel` 保留 `member/input/step/observe/formalDone`；`ProcessExpansion` 才加 `originDone`。 | 只要有一个 `formalDone` witness，就存在所有 base/subtheory 字段不变而 `originDone` 为假的 expansion；因此 base/subtheory 不能语义蕴含 `CompletionPromotion`。 | 这是泛化模型论反例，不是实际 ZFC 模型、物理过程或 Standard Solution 的来源判词。 |
-| ZFC 的成员语言边界 | `MembershipFormula` 含 `=`、`∈`、`⊥`、`→`、`∀`，没有 `originDone` atom。 | 每个此类公式及其 theory 在相同 membership 的不同 Done expansion 中真值不变；同一 theory 可以有相反 Done 的扩张。 | 没有编码完整 ZFC schema；它证明语言不含 Done 时的语法—语义不变性，不证明 ZFC 无法定义具体 Done。 |
+| ZFC 的成员语言边界 | `MembershipFormula` 含 `=`、`∈`、`⊥`、`∧`、`∨`、`→`、`∀`、`∃`，没有 `originDone` atom。 | 每个此类公式及其 theory 在相同 membership 的不同 Done expansion 中真值不变；同一 theory 可以有相反 Done 的扩张。 | 没有编码完整 ZFC schema；它证明语言不含 Done 时的语法—语义不变性，不证明 ZFC 无法定义具体 Done。 |
 | `A`：Zeno 侧的数学完成 | `∃ state, formalDone state`。 | 受控模型有一个 `limit` formal-completion witness。 | 实际 Standard Solution 是否对用户的圆环／芝诺原任务建立了这个 `A`，由来源卡决定。 |
 | 弱 `P`：数学共同体把模型结果称作“解决” | `WeakResolutionLabel`，它只能从 `formalDone` 产生 `CompletionJudgment`，不产生 `originDone`。 | 受控模型可无矛盾地把 `limit` 标为 `revisedResolved`。 | 标签是哪个真实来源、它是否声称原任务已完成。 |
 | 强 `P`：所谓“数学幻觉”实际把模型完成当原过程完成 | `MathematicalIllusionP`：在其适用站点，`formalDone state → originDone state`；`PolicyScopeWitness` 是“为何政策从 Zeno 侧扩展到 HoTT 侧”的**形式占位**。 | 强 P、scope witness 与 B 同时存在时，Lean 导出 `False`。 | IEP/SEP/Norton 现在支持 Zeno-side local completion policy；它们仍不支付到用户圆环／HoTT 的范围。Lean 不能证明某文献作者承担这个范围，须由来源卡另行支付。 |
@@ -113,7 +113,7 @@ CompletionPromotionExtension
 [ZFCMembershipLanguageBoundary.lean](ZFCMembershipLanguageBoundary.lean) 进一步避免“只是接口类型不带字段”的质疑。它显式实现一段最小一阶成员语言：
 
 ```text
-MembershipFormula ::= x = y | x ∈ y | ⊥ | φ → ψ | ∀ φ
+MembershipFormula ::= x = y | x ∈ y | ⊥ | φ ∧ ψ | φ ∨ ψ | φ → ψ | ∀ φ | ∃ φ
 ```
 
 `evalBase_invariant_under_originDone` 对每一个公式归纳证明：只要 membership relation 不变，外加 `originDone` predicate 怎样变化都不会改变公式真值。`satisfies_membership_theory_invariant_under_originDone` 将它提升到任意此类 formula theory；`membership_theory_has_opposite_originDone_expansions` 构造同一 theory 的两份相反 Done expansion。

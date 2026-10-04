@@ -36,7 +36,7 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 2. **成员语言边界：** membership-only theory 对未定义的 `originDone` 没有判断力；同一 membership model 可以有相反 Done 的扩张。若补入相同 `CompletionBridge`，异判被内核拒绝。
 3. **统一政策边界：** 同一完整 Q 在一侧被称为原任务已解决、另一侧要求 bridge 时，不可能仍是 Q-uniform policy；只共享粗字段时异判可合理。
 4. **未付 P 反模型：** 有 formal-completion witness 的 base/subtheory interface 若未公开 `originDone`，存在所有公开字段不变而 P 失败的 expansion；paid bridge 则可推出 P。
-5. **成员语言语义：** 含 `=`、`∈` 的最小一阶公式和任意同语言 theory 对外加 Done 不变；缺 Done 的语言本身不能选定原过程完成。
+5. **成员语言语义：** 含 `=`、`∈`、`∧`、`∨`、`→`、`∀`、`∃` 的最小一阶公式和任意同语言 theory 对外加 Done 不变；缺 Done 的语言本身不能选定原过程完成。
 6. **HoTT 控制：** 在固定 Cubical Agda `QuestioningDelay` 实例中，粗 completion 不反射为原 Q 的有限 completion。
 7. **实分析控制：** 对 (1-2^{-n})，形式极限不推出有限自然数阶段 endpoint；闭连续时间端点仍可到达。
 8. **来源边界：** Standard Solution 的 Zeno-side local completion policy 已有来源；当前来源仍不足以把它提升为用户圆环／HoTT 的强 P、`A ↔ P`、可审的 `PolicyScopeWitness`、严格 `SameActualQ` 或实际完整 `QProfile`。因此本包没有、也不应声称已经证明关于 bare ZFC 的矛盾。
@@ -47,7 +47,7 @@ Q 缺失 → 强 P 被接受 → Zeno 侧取得 A
 - [`MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，证明 membership-only base theory 与外加 completion predicate 的边界和 bridge 正控制；
 - [`MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，证明同一完整 Q profile 的原任务已解决／bridge-required 异判不可能保持政策统一性；
 - [`MP-ZFC-UNPAID-COMPLETION-PROMOTION-001` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，证明未公开 origin Done 的 base/subtheory 无法语义蕴含 completion promotion，并给出 paid bridge 正控制；
-- [`MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，证明最小成员语言公式及同语言 theory 对外加 origin Done 不变；
+- [`MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001` 的 Lean receipt](../../verification/runs/20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-02/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，证明含 `=`、`∈`、`∧`、`∨`、`→`、`∀`、`∃` 的最小成员语言公式及同语言 theory 对外加 origin Done 不变；
 - [`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` 的 Cubical Agda receipt](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，精确重放一致；
 - [`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` 的 Lean/Mathlib receipt](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-04/RUN.json)：`KERNEL_ACCEPTED_WITH_SCOPE`，`LEAN_PATH` 已进入精确重放命令；
 - [`C-360` 的 Agda 负控制](../../verification/runs/20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001-01/RUN.json)：`KERNEL_REJECTED`，在预期的 `nothing != just 1` 处失败。

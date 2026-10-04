@@ -51,9 +51,9 @@ C-364 证明：只要出现 formal-completion witness，就能把 `originDone` �
 
 ## 2026-10-04：把成员语言边界从接口约定推进到公式语义
 
-C-362/C-364 的 base interface 已经精确表达“外加 Done 不在公开字段中”，但仍可能被误读为只是一项建模约定。为排除这一歧义，本轮新增 [ZFCMembershipLanguageBoundary.lean](ZFCMembershipLanguageBoundary.lean)：它明写 `=`、`∈`、蕴含和全称量词的 de Bruijn formula 片段及其满足关系，并用公式归纳证明 external Done 不影响其中任一公式或 theory 的满足。
+C-362/C-364 的 base interface 已经精确表达“外加 Done 不在公开字段中”，但仍可能被误读为只是一项建模约定。为排除这一歧义，本轮新增 [ZFCMembershipLanguageBoundary.lean](ZFCMembershipLanguageBoundary.lean)：它明写 `=`、`∈`、`⊥`、`∧`、`∨`、蕴含、全称和存在量词的 de Bruijn formula 片段及其满足关系，并用公式归纳证明 external Done 不影响其中任一公式或 theory 的满足。
 
-C-365 因而提供语言级的理由：成员语言公式不携带 `originDone`，便不能凭同一 membership satisfaction 自动决定它。它不把该 minimal fragment冒充完整 ZFC schema；完整 schema 的编码仍是未来可替换输入，但只要它保持该语言边界，语义不变性 theorem 适用。
+C-365 因而提供语言级的理由：成员语言公式不携带 `originDone`，便不能凭同一 membership satisfaction 自动决定它。初始 `-01` proof receipt只覆盖 `⊥`、`→`、`∀` 的窄连接词片段；第二轮补入 `∧`、`∨`、`∃` 的语义与归纳分支，并以 `-02` 作为 current primary。它不把该 minimal language冒充完整 ZFC schema；完整 schema 的编码仍是未来可替换输入，但只要它保持该语言边界，语义不变性 theorem 适用。
 
 ## 2026-10-04：HoTT wrapper 的初始导入失配与最小修复
 
@@ -84,6 +84,6 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 | `ZFCObservationLanguage.lean` | 是，`20261004-MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001-01` 是 C-362 primary | 对任何 membership-only theory 形式化外加 Done 的不决定性与 explicit bridge 正控制；不编码 ZFC 公理或其模型。 |
 | `ZFCCompletionPolicyUniformity.lean` | 是，`20261004-MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001-01` 是 C-363 primary | 对完整 QProfile 下的 O3–O5 adequacy 与 Q-uniformity给出条件 theorem 和粗字段反控制；不填实际来源 profile。 |
 | `ZFCUnpaidCompletionPromotion.lean` | 是，`20261004-MP-ZFC-UNPAID-COMPLETION-PROMOTION-001-01` 是 C-364 primary | 对 base/subtheory 的公开字段给出未付 P 反模型、非蕴含 theorem 与 paid bridge 正控制；不编码实际 ZFC。 |
-| `ZFCMembershipLanguageBoundary.lean` | 是，`20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-01` 是 C-365 primary | 对最小一阶成员 language 的外加 Done 不变性、theory 不变性与相反 Done expansion 作归纳证明；不编码完整 ZFC schema。 |
+| `ZFCMembershipLanguageBoundary.lean` | 是，`20261004-MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001-02` 是 C-365 primary | 对含标准连接词和量词的最小一阶成员 language 的外加 Done 不变性、theory 不变性与相反 Done expansion 作归纳证明；不编码完整 ZFC schema。 |
 | `HoTTCounterexample.agda` | 是，`20261004-MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001-01` 已索引并精确重放 | 固定 native Cubical Agda Q 的强 P 反例。 |
 | `WrongHoTTCounterexample.agda` | 是，作为已捕获的负控制 | `...NEG-001-01` 在 `nothing != just 1` 处拒绝伪 witness。 |
