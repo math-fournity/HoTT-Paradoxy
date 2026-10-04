@@ -1,5 +1,9 @@
 # 审计资产入口
 
+- [H0→Z0 Pattern-First Convergence 001：A/B 门下的第一轮 Master 裁决（2026-10-04）](20261004-H0-Z0-PATTERN-FIRST-CONVERGENCE-001-Master.md)：固定 A 为标准解法来源的 revised completion、B 为 main fixed H0；答案脱敏模式 P 重新定位 Power Set、ω与 limit-union，但没有一张卡同时支付 AProjection、BProjection、SameQBridge、P2/P3和实际来源合同。当前是`ACTUAL_Z0_NOT_LOCATED`，保留精确重开条件。
+
+- [H0→Z0 PF-B2：H0 过程锚点再审（2026-10-04）](20261004-H0-Z0-PATTERN-FIRST-PF-B2-过程锚点再审.md)：将 initial formation-only profile 的 P2/P3 空结果收束为`Q_SAFETY_REPAIR`，固定后续同卡接力所需的 subject、operation、局部观察、process-wide Q、finite Done 与有界正控制；它是方法修订，不是 ZFC Q 结论。
+
 - [H0→Z0 HZ0-2：MPIM 模型链的题名消歧与来源追溯（2026-10-04）](20261004-H0-Z0-HZ0-2-MPIM模型链源追溯.md)：MPIM 页面中的 Cubical Agda proof-to-set-theory route 与五作者 AWCCRS recent preprint 是两条分开的模型叙述。当前已证实的是`SOURCE_CHAIN_SPLIT_NO_H0MAP_OR_ADEQUACY_LIFT`；它收紧 H098 的原典追溯，不作 ZFC Q 结论。
 
 - [H0→Z0 HZ0-2：CCHM 标准模型与 fixed H0 依赖闭包（2026-10-04）](20261004-H0-Z0-HZ0-2-CCHM依赖闭包审计.md)：将 MPIM 第一条模型收紧为 standard CCHM family，并用 cubical v0.9 的 exact `EM₁`、suspension、truncation源码审查它到 H0 的距离。结论是`H0_DEPENDENCY_CLOSURE_UNPAID_WITH_SCOPE`，不作 ZFC Q 结论。

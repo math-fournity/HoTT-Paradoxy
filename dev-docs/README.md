@@ -4,7 +4,9 @@
 
 当前主方案：[`实施方案-三AI历史整合与核心认知治理.md`](../实施方案-三AI历史整合与核心认知治理.md)。
 
-- [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
+- [H0-Z0-PATTERN-FIRST-CONVERGENCE-SOP：以模式 P 先定位 Z0，再作来源和机器核验](H0-Z0模式P优先收敛SOP.md)：当前 Goal 的执行合同。它将 A（标准解法来源的 revised completion）、B（main fixed H0）、Q、P和Z0分开；首轮已完成，Power Set／ω／limit-union都未通过 A/B 同一政策门。配套的[当前认知闭包](../认知闭包/2026-10-04-H0-Z0模式P优先收敛-认知闭包.md)规定跨 Session 恢复与四类重开条件。MPIM／一般模型论文仅在具体候选需要时重开。
+
+- [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：H0→Z0 的来源验证组件。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。只有候选先通过 A/B 门才调用；C-364仍只是校准控制。
 
 - [Goal任务项目治理化与全局复用方案](Goal任务项目治理化与全局复用方案-20260923.md)：本轮root/Skills/最高指示角色化接入、A/B Goal6单体闭包、全局两核心增量及C01–C10/验收边界。新提示词见[治理化入口](../第三轮机器统观/README.md)。
 

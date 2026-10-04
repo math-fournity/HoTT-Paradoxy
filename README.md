@@ -12,15 +12,15 @@ soft_line_target: 300
 # HoTT-Paradoxy：在同伦类型论中寻找相对现实的悖论
 
 <!-- readme-snapshot:v1
-snapshot_date: 2026-10-02
+snapshot_date: 2026-10-04
 state_revision: 298
 core_generation: core-cognition-generation-13
 core_kc_count: 62
-direction_projection: 20261002-direction-onepass-298
-panorama_projection: 20261002-outcome-onepass-298
+direction_projection: 20261004-direction-h0-z0-pattern-first-298
+panorama_projection: 20261004-outcome-h0-z0-pattern-first-298
 -->
 
-> 合同：`docs/quality/长治理文档分片与索引合同.md`。本页快照截至 2026-10-02（STATE revision 298；核心认知第 13 代，62 条；方向追踪 v1.19，全景视野 v1.20）。状态的权威在各自的 owner 文件，本页只做路由；快照过期时以 owner 为准。
+> 合同：`docs/quality/长治理文档分片与索引合同.md`。本页快照截至 2026-10-04（STATE revision 298；核心认知第 13 代，62 条；方向追踪 v1.20，全景视野 v1.21）。状态的权威在各自的 owner 文件，本页只做路由；快照过期时以 owner 为准。
 >
 > **分支**（2026-09-30 起）：本分支是 `dev`，放全部研究过程，所有工作都在这里进行。对外展示的结论与证据在 `main` 分支，由 `scripts/release/build_main_release.py` 从 `dev` 生成，不直接编辑（`rulings.md` 2026-09-30 末节）。
 
@@ -41,7 +41,7 @@ panorama_projection: 20261002-outcome-onepass-298
 | 001 | [当前入口与关键文件](<README/001 - 当前入口与关键文件.md>) | 人和 AI 各从哪里进；谁拥有哪份当前真值；按用途分组的仓库地图；关键入口登记表（含收尾报告与算思对话存档）；来源边界；本 README 的维护规则 | current |
 | 002 | [我们在找什么](<README/002 - 我们在找什么.md>) | 研究发起人的问题意识（原话逐字）、UR 这一操作定义、要找的不是内部矛盾、两个方向、罗素原则与项目目标、“精彩”的标准、归因是正题 | current |
 | 003 | [历史](<README/003 - 历史.md>) | 2026-08-31 至 09-30 的十二个阶段：发生了什么、哪次转折、学到了什么；研究发起人的纠偏线；参与者 | current |
-| 004 | [路线地图](<README/004 - 路线地图.md>) | 走过和正在走的路线全景：每条路问什么、谁提出、停在哪、留下什么；41 条方向全部归位 | current |
+| 004 | [路线地图](<README/004 - 路线地图.md>) | 走过和正在走的路线全景：每条路问什么、谁提出、停在哪、留下什么；43 条方向全部归位 | current |
 | 005 | [当前最强前缘：两个幽灵](<README/005 - 当前最强前缘：两个幽灵.md>) | 用户所说的芝诺幽灵（圆环及后续讨论）、罗素线与 UR（阶段收尾时的发现）、独立的 A7 候选、证据阶梯、开放问题与归因 | current |
 | 006 | [后续候选前缘](<README/006 - 后续候选前缘.md>) | 阶段收尾之后的排序与九组候选：审计与传播优先；下一个判别动作、升级与撤回条件、谁来做；范围内已关上的；第一阶段收尾意味着什么 | current |
 | 007 | [怎样审计、复现与反驳](<README/007 - 怎样审计、复现与反驳.md>) | 证据门禁、工具链、重放命令、证据身份词汇、怎样挑战本仓库的结论、声明层核对工具 | current |
