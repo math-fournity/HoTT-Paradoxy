@@ -8,7 +8,7 @@
 >
 > **宿主：** Codex desktop，Master；未启动 Sub Agent 或 App Server worker。对 `mm-lean4` 的 exact toolchain build 仅观察到 RC2 toolchain 下载开始，未产生 binary。
 >
-> **状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_SETMM_DATABASE_VERIFIER_REPLAYED / G2_SETMM_OBJECT_CODING_SOURCE_REQUALIFICATION_ACTIVE_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_MAPPING_OPEN / INTERNAL_PROVABILITY_ADEQUACY_OPEN / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / G1_G3_TO_G6_NOT_RELEASED / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
+> **状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_SETMM_DATABASE_VERIFIER_REPLAYED / SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE / INTERNAL_PROVABILITY_ADEQUACY_NOT_SUPPLIED_WITH_SCOPE / ACTUAL_DIAGONAL_NOT_SUPPLIED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE / G1_G3_TO_G6_NOT_RELEASED / NO_GODEL_THEOREM / NO_BARE_ZFC_INCONSISTENCY_CLAIM`。
 
 ## 1. 任务与完成标准
 
@@ -29,8 +29,8 @@
 | closure verdict | `REUSE_WITH_DELTA + EXTERNAL_RESEARCH_REQUIRED`：既有 GODEL-Q closure/plan/C-359/C-366 足以规定问题；真实 ZFC-facing acceptance source 仍需外部核验。 |
 | persistence | `OWNER_UPDATE + AUDIT_CLOSURE`：用户先前要求跨 Session 闭包，且 G0 新增动态外部来源、分母、反控制和 current frontier。 |
 | profile | `RESEARCH_PROFILE_GOVERNED`：实际 source、编码、completion bridge 与 cross-session evidence 可改变后续阶段资格。 |
-| active direction | G0 的当前来源分母已完成。Metamath proof acceptance 已冻结；parent process interface 尚未冻结，G1–G6不能启动。 |
-| stop/reopen | 当前 source pass 已在统一-source 筛选后结束；出现版本固定统一 source、经验证 target mapping、用户重定原过程、或 source policy/revision变化时才重开最小单元。 |
+| active direction | G0 与 set.mm G2 source requalification均已完成。没有可合法启动的G阶段；G1、G3–G6仍不启动。 |
+| stop/reopen | 出现版本固定统一 source、source-declared actual database→internal formal-system mapping、经验证 target mapping、用户重定原过程、或 source policy/revision变化时才重开最小单元。 |
 
 ## 3. 直接证据与边界
 
@@ -45,7 +45,8 @@
 | ZFC proof-relation source | `flypitch/flypitch@d72904c…` | `META_LEVEL_ZFC_PROOF_RELATION_SOURCE_WITH_REPLAY_GAP`：ZFC、proof tree、`T ⊢' f`和 substitution 可定位；`reflect_prf_lift1`只是 host proof transport，`has_reflect`是 Lean meta helper，`godel_completeness_theorem`是 completeness；均未有 numeric Gödel coding/fixed point 或 parent bridge。 |
 | generic Gödel baseline | `Foundation@f3972f…` First/Second | `MACHINE_REPLAYED_GENERIC_GODEL_TECHNICAL_BASELINE_WITH_SCOPE`：code/quote/substitution/provability实际重放；没有target-specific ZFC/process实例化。 |
 | Foundation target-mapping control | project wrappers + exact Foundation source | 正控制确认 `𝗭𝗙𝗖 : SetTheory` 与 generic `ArithmeticTheory` theorem interface；负控制拒绝直接传入 `𝗭𝗙𝗖`。同树又有 `ω`／自然数递归模型正控制，却没有 concrete `DirectInterpretation` occurrence。这是 `FOUNDATION_ZFC_DIRECT_INSTANTIATION_REJECTED_WITH_SCOPE`，不是 ZFC 不完备性 theorem。 |
-| set.mm internalization requalification | exact database + compiled official verifier | 47,917 `$p` proofs 实际通过 `VERIFY PROOF *`；source还定义ZF set-coded formula/satisfaction和generic `mFS/mPPSt/mThm`。但 `Prv` lacking a definition，actual database→`mFS` mapping和Diag未支付。 |
+| set.mm internalization requalification | exact database + compiled official verifier + Appendix C | 47,917 `$p` proofs 实际通过 `VERIFY PROOF *`；source还定义ZF set-coded formula/satisfaction和generic `mFS/mPPSt/mThm`。Appendix C说明完整 mapping须另行形式化，且 `Prv` lacking a definition，故actual database→`mFS` mapping和Diag未支付。 |
+| MM0 companion control | `digama0/mm0@0d414c…` | `set.mm0`是手工翻译的 axiom system，proof WIP；它不等同于 exact raw database的 internal mFS/proof-relation mapping。 |
 | 外部技术校准 | JAR/AFP + fixed Agda BRA source | 把 code/numeral bridge、内部 provability adequacy、proof representability 与 fixed point 分开；只作 G2 field calibration，外部 developments 未在本机 replay，也不是 ZFC/parent-Q source。 |
 | external source screening | 两批固定 public-web queries | `BOUNDED_SCREENING / NOT_GLOBAL_ABSENCE`。 |
 

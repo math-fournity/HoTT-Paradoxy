@@ -64,6 +64,49 @@ We do not construct this predicate in this section; this is still a project.
 
 没有当前 source 将 generic formula code用于一个 actual `set.mm` Gödel sentence，也没有 `Accept_set.mm → OriginDone_Zeno/Circle/H0` 的 source contract。故这轮不能启动 G3、G4、G5 或 parent-Q attribution。
 
+### 4.4 Appendix C 对 actual-database mapping 的直接边界
+
+[Metamath book Appendix C §C.4](https://us.metamath.org/downloads/metamath.pdf) 直接讨论 database 与 abstract formal system 的关系：一个有限 Metamath database 通常只能描述 formal system及其 universe 的有限子集；若要间接描述整个无限 formal system，需要进一步形式化 Appendix 的说明语言。它也把 `$d/$f/$e/$a/$p` source statements 与 formal-system pre-statements/statements 作说明性对应。
+
+这恰好解释本卡的 source boundary：`set.mm` 已 formalize Appendix C 的 generic ZF objects，却没有在本次 exact database source 中给出一项 source-declared construction，把这个有限 source file本身作为一个完整、明确的 internal `T ∈ mFS` object。该书说“in principle”可以继续形式化，不能被改写成这一步已经在 `set.mm@160ebb…` 被完成。
+
+### 4.5 有限 raw database 与 `mFS` 无穷变量条件
+
+对 exact raw source 的可重放 lexical inventory保存在 [source-inventory](../HoTT/verification/runs/20261004-SOURCE-REPLAY-SETMM-OBJECT-CODING-001/source-inventory.json)。它在移除 Metamath comments 后记录：
+
+```text
+355 distinct $v tokens
+1474 distinct $c tokens
+```
+
+而 `ismfs` 的 source comment和assertion要求：对每个 variable typecode，type function 的相应 preimage不是有限集。这不是矛盾：Appendix C正是用一个无限 variable universe描述 abstract formal system，有限 database仅选择其中可用的有限 source representation。
+
+它给 actual mapping 加上一项明确 obligation：
+
+```text
+finite source tokens
+  → explicit infinite-variable extension
+  → proof of its relation to the raw database frames
+  → internal T ∈ mFS construction
+```
+
+因此“把 raw `set.mm` 的 `$v` list直接拿来当 `mVR`”是一个受控反例，不是对 ZFC、set.mm 数学内容或无限变量本身的反例。
+
+### 4.6 MM0 的近邻翻译控制
+
+`digama0/mm0@0d414c0bfdaaeb7fea571895127abc1fa5a3d956` 是一个相关但不同的 companion source。其 README（SHA-256 `a62a362b425e74cdfa0881c74a5ca08adc7951876d770757b6a2f9f6d5994e46`）明确把 `examples/set.mm0` 描述为对 **set.mm axiom system 的 hand translation**，并说明相应 proof file是 WIP；`set.mm0` 内容 SHA-256 为 `1123b3e9ec3315a32a629035df04bc96ca5004a00a0adc4fba226b280c8b5dd4`。
+
+它证明的是一个重要的 DifferentTarget control：一个新语言中的手工 ZFC axiom specification，即使未来可被其 verifier检查，也不自动给出
+
+```text
+exact raw set.mm database
+→ internal mFS object
+→ internal mPPSt/mThm relation
+→ adequate Prv / diagonal
+```
+
+因此 MM0 是 actual mapping obligation 的近邻对照，不是 payment。
+
 ## 5. 对方案的实际改变
 
 此前的 `NumeralBridge` 现在被一般化为 **`ObjectCodeBridge`**：
@@ -87,4 +130,13 @@ PARENT_COMPLETION_BRIDGE_OPEN
 
 ## 6. 下一项最小判别行动
 
-只继续一件事：对 exact source / companion sources 检查是否存在一个可冻结的 `set.mm → mFS` construction，以及该 construction能否把 actual proof database接入 internal `mPPSt/mThm` representation。若没有，结论是 `SOURCE_MAPPING_OPEN_WITH_SCOPE`；若有，才逐项进入 `ObjectCodeBridge`、`InternalProvabilityAdequacy` 与 `Diag` 的 payment audit。
+exact source 与官方 Appendix C 已完成这一项 source-level检查：没有 source-declared `set.mm → mFS` construction；Appendix明确把完整 internal description留作需要进一步形式化的工作。因此本 source branch当前收束为：
+
+```text
+SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE
+ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE
+INTERNAL_PROVABILITY_ADEQUACY_NOT_SUPPLIED_WITH_SCOPE
+ACTUAL_DIAGONAL_NOT_SUPPLIED_WITH_SCOPE
+```
+
+只有一个新的版本固定 companion construction，或研究发起人授权从 Appendix C 规格自行构造并机器验证 actual mapping，才重新打开这条 G2 branch。
