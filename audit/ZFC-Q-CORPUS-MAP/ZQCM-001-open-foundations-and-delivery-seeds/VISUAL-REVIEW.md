@@ -747,27 +747,27 @@ remote MinerU恢复后，按一页一条追加派生物与原PDF的对照。当�
 
 2026-10-04对历史`VR-*`行按原 PDF 页码重新计数。下表中的`unique pages`指有一条可恢复的150dpi视觉记录的不同 PDF 页；每个主阅读版本均达到其真实页数。该审计确认既有视觉处理已经覆盖全部 20 份 PDF，不把它改写成MinerU转码成功。
 
-| 主阅读版本 | PDF页数 | `VR-*` unique pages | Source Notes | 判词 |
-|---|---:|---:|---|---|
-| W-001 | 33 | 33 | `SOURCE-NOTES-W001.md` | 全页视觉处理完成 |
-| W-002 | 192 | 192 | `SOURCE-NOTES-W002.md` | 全页视觉处理完成 |
-| W-003 | 11 | 11 | `SOURCE-NOTES-W003.md` | 全页视觉处理完成 |
-| W-004 | 18 | 18 | `SOURCE-NOTES-W004.md` | 全页视觉处理完成 |
-| W-005 | 13 | 13 | `SOURCE-NOTES-W005.md` | 全页视觉处理完成 |
-| W-007 | 37 | 37 | `SOURCE-NOTES-W007.md` | 全页视觉处理完成 |
-| W-008 | 65 | 65 | `SOURCE-NOTES-W008.md` | 全页视觉处理完成 |
-| W-009 | 29 | 29 | `SOURCE-NOTES-W009.md` | 全页视觉处理完成 |
-| W-010 | 18 | 18 | `SOURCE-NOTES-W010.md` | 全页视觉处理完成 |
-| W-011 | 21 | 21 | `SOURCE-NOTES-W011.md` | 全页视觉处理完成 |
-| W-013 | 12 | 12 | `SOURCE-NOTES-W013.md` | 全页视觉处理完成 |
-| W-006 / V-CMP-01 | 27 | 27 | `SOURCE-NOTES-W006-VCMP01.md` | 全页视觉处理完成 |
-| W-006 / V-UF-02 | 14 | 14 | `SOURCE-NOTES-W006-VUF02.md` | 全页视觉处理完成 |
-| W-006 / V-UF-03 | 21 | 21 | `SOURCE-NOTES-W006-VUF03.md` | 全页视觉处理完成；历史页13有一条重复记录 |
-| W-006 / V-UF-04 | 18 | 18 | `SOURCE-NOTES-W006-VUF04.md` | 全页视觉处理完成 |
-| W-006 / V-UF-05 | 40 | 40 | `SOURCE-NOTES-W006-VUF05.md` | 全页视觉处理完成 |
-| W-006 / V-SET-01 | 24 | 24 | `SOURCE-NOTES-W006-VSET01.md` | 全页视觉处理完成 |
-| W-006 / V-SET-02 | 17 | 17 | `SOURCE-NOTES-W006-VSET02.md` | 全页视觉处理完成 |
-| W-006 / V-CMP-02 | 12 | 12 | `SOURCE-NOTES-W006-VCMP02.md` | 全页视觉处理完成 |
-| W-015 | 23 | 23 | `SOURCE-NOTES-W015.md` | 全页视觉处理完成 |
+| 主阅读版本 | PDF页数 | `VR-*` unique pages | 300dpi关键图 | Source Notes | 判词 |
+|---|---:|---:|---:|---|---|
+| W-001 | 33 | 33 | 6 | `SOURCE-NOTES-W001.md` | 全页视觉处理完成 |
+| W-002 | 192 | 192 | 70 | `SOURCE-NOTES-W002.md` | 全页视觉处理完成 |
+| W-003 | 11 | 11 | 9 | `SOURCE-NOTES-W003.md` | 全页视觉处理完成 |
+| W-004 | 18 | 18 | 9 | `SOURCE-NOTES-W004.md` | 全页视觉处理完成 |
+| W-005 | 13 | 13 | 7 | `SOURCE-NOTES-W005.md` | 全页视觉处理完成 |
+| W-007 | 37 | 37 | 6 | `SOURCE-NOTES-W007.md` | 全页视觉处理完成 |
+| W-008 | 65 | 65 | 7 | `SOURCE-NOTES-W008.md` | 全页视觉处理完成 |
+| W-009 | 29 | 29 | 9 | `SOURCE-NOTES-W009.md` | 全页视觉处理完成 |
+| W-010 | 18 | 18 | 7 | `SOURCE-NOTES-W010.md` | 全页视觉处理完成 |
+| W-011 | 21 | 21 | 4 | `SOURCE-NOTES-W011.md` | 全页视觉处理完成 |
+| W-013 | 12 | 12 | 7 | `SOURCE-NOTES-W013.md` | 全页视觉处理完成 |
+| W-006 / V-CMP-01 | 27 | 27 | 16 | `SOURCE-NOTES-W006-VCMP01.md` | 全页视觉处理完成 |
+| W-006 / V-UF-02 | 14 | 14 | 11 | `SOURCE-NOTES-W006-VUF02.md` | 全页视觉处理完成 |
+| W-006 / V-UF-03 | 21 | 21 | 15 | `SOURCE-NOTES-W006-VUF03.md` | 全页视觉处理完成；历史页13有一条重复记录 |
+| W-006 / V-UF-04 | 18 | 18 | 8 | `SOURCE-NOTES-W006-VUF04.md` | 全页视觉处理完成 |
+| W-006 / V-UF-05 | 40 | 40 | 10 | `SOURCE-NOTES-W006-VUF05.md` | 全页视觉处理完成 |
+| W-006 / V-SET-01 | 24 | 24 | 9 | `SOURCE-NOTES-W006-VSET01.md` | 全页视觉处理完成 |
+| W-006 / V-SET-02 | 17 | 17 | 10 | `SOURCE-NOTES-W006-VSET02.md` | 全页视觉处理完成 |
+| W-006 / V-CMP-02 | 12 | 12 | 4 | `SOURCE-NOTES-W006-VCMP02.md` | 全页视觉处理完成 |
+| W-015 | 23 | 23 | 8 | `SOURCE-NOTES-W015.md` | 全页视觉处理完成 |
 
 **覆盖结论。** 共 646 条历史页级视觉记录，覆盖 645 个不重复的原 PDF 页；唯一额外行是W-006/V-UF-03的第13页重复记录。20份固定主阅读版本均有对应Source Notes，因此本批原件视觉阅读层已完成。后续工作应当消费这些页级事实或做针对性的高分辨率重读，而不是因MinerU派生失败重复提交整批PDF。
