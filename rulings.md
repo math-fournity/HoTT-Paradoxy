@@ -788,4 +788,6 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 5. A5 的强实际实例化判`ACTUAL_Q_UNIFICATION_REJECTED_WITH_SCOPE`。它拒绝的是该固定分母中的`SameFullQ`尝试，不是“ZFC没有问题”的全称结论。当前正结果保留为来源级的`ResolutionByRevision`完成合同发散；bare ZFC形式不一致仍未证明且不得宣称。
 6. F-048在此分母成为`CLOSED_WITH_SCOPE`。重开条件仅为新的版本固定来源实际将标准解法与 exact HoTT Q置于同一completion／adequacy政策下；不以更多fixture、泛扫描、Power Set旁支或非同层模型重开。
 
+五个 package 在提交`b2fc8c62`后通过选择性版本闭包：`C-359`–`C-363 = SELECTED_PACKAGES_VERSION_CLOSED / HEAD_BYTES_CHECKED`。该版本闭包认证源码、依赖manifest、运行收据和矩阵行，不将来源分类或哲学裁定提升为内核定理。
+
 本裁定授权C-362/C-363、来源卡、收尾裁决、Feature/MEMORY/rulings、验证与精确Git提交；不授权修改数学STATE、把来源分类升级为内核定理、tag、push或外部发布。

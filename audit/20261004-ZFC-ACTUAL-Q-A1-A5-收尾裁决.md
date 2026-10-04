@@ -106,6 +106,8 @@ for the fixed IEP/Norton/SEP + circle-model-family + fixed-Cubical-HoTT denomina
 
 `C-362` 与 `C-363` 的共同结构写入 [跨证明器完成合同对应表](../HoTT/formal/zfc-actual-q-policy/CROSS-KERNEL-COMPLETION-CONTRACT.md)：`SHAPE_MATCH_ESTABLISHED / SAME_FULL_Q_UNPAID`。
 
+五个 package 的源码、依赖manifest、主运行、冻结矩阵行和 Git HEAD 在提交`b2fc8c62`后通过选择性版本闭包：`SELECTED_PACKAGES_VERSION_CLOSED / HEAD_BYTES_CHECKED`。这证明证据资产可恢复，不重新证明外部来源文本或哲学归因。
+
 ## 7. 收尾结论
 
 本轮实际收敛为两个相互区分的结论：
