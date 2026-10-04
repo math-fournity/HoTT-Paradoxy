@@ -6,6 +6,8 @@
 
 - [H0→Z0 HZ0-3：reversal 模型与 foundation-language 双来源审计（2026-10-04）](20261004-H0-Z0-HZ0-3-新模型与基础语言双来源审计.md)：2026 reversal model 是 H0 的近邻语义路线，2026 replacement/univalent-completion 是近邻基础语言路线；前者未给 H0Map，后者发生任务切换。二者共同将下一搜索收紧为 exact package transport 与实际 H0 consumer。
 
+- [H0→Z0 HZ0-4：余归纳 Delay 与实际消费者来源边界（2026-10-04）](20261004-H0-Z0-HZ0-4-余归纳与实际消费者来源边界.md)：fixed H0 的 `Delay` 是独立的余归纳语义义务；guarded cubical semantics 是不同 calculus，π₄(S³) 是不同 theorem consumer。公开精确标识检索未发现项目外 H0 acceptance chain，后继仅接受 exact transport 或 actual H0 consumer。
+
 - [P-DAG H077–H080：极限、完成定义与圆环 Q0 的来源 Battle（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-077-080-Terra-Max.md)：Norton的实际completion合同、Bathfield/Sierpińska的bridge批评、H079采样前marker失败及H080独立裁决共同显示：争点是`Done_strict / Done_revised / Done_formal`的任务契约，不是数学事实冲突或ZFC矛盾；全局Q1仍未会合。
 
 - [P-DAG H076：ZFC-CIRCLE-Q0 completion bridge 来源匹配（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-076-Terra-Max.md)：隔离 source-match 核对四条冻结标准来源及连续变形控制。P1仅形成 completion object，P2不适用，P3-C发现标准来源明确保留数学—过程桥；判`SOURCE_BRIDGE_DEFENSE / NO_C_LANE_CONSUMER`，全局Q1不升级。
