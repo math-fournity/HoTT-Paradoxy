@@ -757,7 +757,7 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. `QMissing`的形式代理是`¬ QObservesPromotionFailure`；后者要求存在一个 P 已适用、`formalDone`成立而`originDone`不成立的 site。`gapPermitsZenoP`仍是独立来源政策前提。Lean 机器证明`q_gap_does_not_logically_force_P`，因此不能从“Q缺失”直接推出 P。
 3. `ZFC+A ↔ ZFC+P`只有在另有`A ↔ P`时才成立；C-359将这个支付义务写为定理前提。现有 Norton/IEP 读取含显式`Done_strict → Done_revised`的来源控制，不能代替该等价或原过程 bridge。
 4. C-359（Lean core）证明：若实际`SameFullQ`使 Zeno 侧的 P 许可运输到 HoTT，而 HoTT-side B 给出`formalDone ∧ ¬ originDone`，则 B 一方面成为`QObservesPromotionFailure`并反驳`QMissing`，另一方面与 P 的`promote`字段导出`False`。C-360（Cubical Agda）给出固定 HoTT Q 上“coarse completion → original finite halting”的原生反例；C-361（Lean/Mathlib）给出几何数列中`Tendsto`不推出有限自然阶段终点的严格 P 控制，并以闭连续时间端点作正控制。
-5. 上述三条的最终 primary run、负控制、精确重放、source manifest、frozen claim rows 与选择性 evidence closure 已完整登记在`HoTT/formal/zfc-actual-q-policy/`、`HoTT/verification/runs/`、`HoTT/CLAIM_EVIDENCE_MATRIX.md`和`audit/20261004-ZFC-Q-P-A-B-第一轮形式化与机器证明.md`。当前证据等级是`LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED`，直至精确Git版本闭合完成。
+5. 上述三条的最终 primary run、负控制、精确重放、source manifest、frozen claim rows 与选择性 evidence closure 已完整登记在`HoTT/formal/zfc-actual-q-policy/`、`HoTT/verification/runs/`、`HoTT/CLAIM_EVIDENCE_MATRIX.md`和`audit/20261004-ZFC-Q-P-A-B-第一轮形式化与机器证明.md`。精确提交`e2c2a16e`之后，三包的选择性版本闭包已判`SELECTED_PACKAGES_VERSION_CLOSED / HEAD_BYTES_CHECKED`；捕获当时的`RUN.json`仍保存其当时的local状态，不冒充事后运行。
 6. 这不是实际 ZFC Q 已定位的裁定。剩余的唯一实质路线是按`ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP`冻结并审计`A_source / P_source / A↔P / SameFullQ / B_bridge`。来源若明确改写 Done、拒绝 P 或不能支付 bridge，应形成有界的负结论，而不是被新的 fixture 覆盖。
 
 本裁定授权直接用户 source、C-359–C-361 formal package、运行收据、证据矩阵、Feature／MEMORY／audit 写回与精确 Git commit；不授权将此条件性证明发布为bare ZFC矛盾、改变数学STATE、启动worker、网络、tag、push或外部发布。
