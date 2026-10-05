@@ -70,3 +70,14 @@
 本 closure 在下列情形失效并需增量重建：用户重定义 T、选择不同任务域 D、出现实际 Accept_ZFC source、找到可执行 diag/quotation、发现 C-359/C-364/C-367 的范围被误读、理论或 proof assistant variant 改变、或当前 worktree/owner 变更。
 
 本 closure 不复制数学结论；它只保证未来工作者知道 T 的问题是什么、哪些条件尚未支付，以及从哪里恢复。两轮用户原文是否进入核心认知 generation 仍由 curation manager 处理；T0 已作出 CORE_CURATION_DEFERRED_WITH_EXPLICIT_TRIGGER 裁定：它们是已保存的 plan source，不是自动的 core current fact；新的 core generation 必须在研究发起人明确触发后作为独立 transaction 完成。
+
+## 2026-10-05：ACL2／Zeno 来源入口控制
+
+新的公开 source ingress 固定了 `chemoelectric/iris-number-system-acl2@3451a080…`。它的 README 同时使用
+ACL2 machine-checking 话语和 physical path／Zeno finite-step 话语，因而是 T 的合法跨理论候选；直接源码阅读却显示
+`zeno-dichotomy-resolution` 只证明 `dist * omega` 是 rational，未支付 physical Process、`ρ`、OriginDone 或 bridge。
+当前 host 也没有 ACL2 runtime，所以 certification 未重放。
+
+该入口的范围结论是`ACL2_ZENO_SOURCE_INGRESS_NO_ADMISSIBLE_T_TARGET_WITH_SCOPE`，详见
+`audit/20261005-T-PRECISION-ACL2-ZENO-INGRESS-001.md`。它不重开当前 T source denominator，也不成为 bare-ZFC
+结论；只有同一 source 的 version-fixed certification 与过程—bridge payment 才能重开最小相关单元。
