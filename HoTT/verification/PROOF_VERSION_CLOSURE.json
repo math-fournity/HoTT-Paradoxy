@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 220,
+  "later_machine_proved_claim_count": 236,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1071,7 +1071,7 @@
       "kind": "native_cubical_fixed_h0_delay_finite_observation_trace_fragment",
       "notes": "This is H0_OPERATIONAL_FRAGMENT_ONLY. It does not construct a complete CCHM/ZFC semantics or establish H0Map, C_accept, AdequacyLift, SameFullQ, P/Q, or bare-ZFC attribution.",
       "proof_id": "MP-ZFC-H0-TRACE-001",
-      "run": "HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-001-07",
+      "run": "HoTT/verification/runs/20261004-MP-ZFC-H0-TRACE-001-05",
       "source": "HoTT/formal/zfc-h0-final-closure/H0TraceObservation.agda",
       "toolchain": "HoTT/formal/zfc-h0-final-closure/TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed H0's Delay/runFor output maps to a set-valued all-nothing finite trace for every universe Judge."
@@ -1087,24 +1087,54 @@
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: the pinned Foundation Zermelo-model interface represents ordinal-indexed sequence graphs and unique stage values."
     },
     {
-      "claim_ids": "C-367",
-      "kind": "lean_core_abstract_observation_factorisation_boundary",
-      "notes": "This is an abstract Lean-core function/Prop theorem plus a finite Bool/Unit control. It does not formalize quotient semantics, bare ZFC, HoTT-specific rules, a reality task, a Gödel diagonal, or any theorem that abstraction always causes paradox.",
-      "proof_id": "MP-T-PRECISION-TOBS-001",
-      "run": "HoTT/verification/runs/20261004-MP-T-PRECISION-TOBS-001-06",
-      "source": "HoTT/formal/t-precision-observation/ObservationPrecision.lean",
-      "toolchain": "HoTT/formal/t-precision-observation/LEAN_CORE_TOOLCHAIN.json",
-      "verdict": "FORMAL_CHECKED_WITH_SCOPE: if a chosen observation map identifies x and y while a chosen Prop predicate differs, no decoder through that map decides the predicate globally; identity observation is a positive control."
+      "claim_ids": "C-369",
+      "kind": "external_foundation_lean_first_order_arithmetic_incompleteness_source_calibration",
+      "notes": "Pinned Foundation Lean 4 source actually builds First.lean and qualification prints explicit first-incompleteness and true-but-unprovable declarations. The missing-Sigma-one-soundness negative control is rejected. This does not instantiate an exact HoTT calculus, bare-ZFC acceptance interface, OriginDone bridge, SameFullQ, or any bare-ZFC precision verdict.",
+      "proof_id": "MP-FOUNDATION-INCOMPLETENESS-R3-001",
+      "run": "HoTT/verification/runs/20261005-MP-FOUNDATION-INCOMPLETENESS-R3-001-03",
+      "source": "HoTT/formal/external-foundation-incompleteness/Qualification.lean",
+      "toolchain": "HoTT/formal/external-foundation-incompleteness/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: frozen Foundation proves first-order arithmetic incompleteness under explicit Delta-one, R-zero strength and Sigma-one soundness assumptions; this is an R3 source calibration only."
     },
     {
-      "claim_ids": "C-368",
-      "kind": "lean_core_conditional_self_code_acceptance_bridge_boundary",
-      "notes": "This does not construct an actual Gödelization of set.mm or bare ZFC, identify proof acceptance with a Zeno/circle/H0 completion, or establish a bare-ZFC inconsistency/incompleteness theorem.",
-      "proof_id": "MP-T-PRECISION-TDIAG-001",
-      "run": "HoTT/verification/runs/20261004-MP-T-PRECISION-TDIAG-001-02",
-      "source": "HoTT/formal/t-precision-diagonal/AcceptanceDiagonal.lean",
-      "toolchain": "HoTT/formal/t-precision-diagonal/LEAN_CORE_TOOLCHAIN.json",
-      "verdict": "FORMAL_CHECKED_WITH_SCOPE: an explicit self-code, diagonal completion contract, and paid acceptance-to-originDone bridge force rejection of that code; a bridge-missing control shows self-coding alone does not create contradiction."
+      "claim_ids": "C-370–C-374",
+      "kind": "native_cubical_agda_source_corresponding_ccttmini_certificate_fragment",
+      "notes": "CCTTmini₀ is a project-defined, source-corresponding Nat/Path-refl fragment. RawCert has no hole/recursion/import/metavariable constructor; its structurally recursive checker returns a Checked object carrying a Deriv witness. This pays only the fragment certificate/checker bridge, not a full cctt/redtt/Cubical Agda calculus, Nat-valued Godel coding, representability, a fixed point, H0 transport, or bare-ZFC attribution.",
+      "proof_id": "MP-CUBICAL-GODEL-FRAGMENT-001",
+      "run": "HoTT/verification/runs/20261005-MP-CUBICAL-GODEL-FRAGMENT-001-02",
+      "source": "HoTT/formal/cubical-godel-fragment/CCTTmini.agda",
+      "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: the native Cubical Agda kernel accepts the finite CCTTmini₀ syntax, structural certificate checker, positive Path/refl witness and two rejection controls."
+    },
+    {
+      "claim_ids": "C-375–C-378",
+      "kind": "native_cubical_agda_ccttmini_nat_coding_and_total_decoder_fragment",
+      "notes": "CCTTmini₀ RawCert receives a self-delimiting bit grammar, total natural-number decoder with malformed-code fallback, image roundtrip and injectivity. The source/run preserves Cubical Agda's UnsupportedIndexedMatch warning for the auxiliary ≤-trans proof; no transport-level computation claim is made for that helper. This remains a project-defined fragment and does not establish formula/proof-predicate representability, a fixed point, full cctt/redtt semantics, H0 transport, or bare-ZFC attribution.",
+      "proof_id": "MP-CUBICAL-GODEL-NAT-CODING-001",
+      "run": "HoTT/verification/runs/20261005-MP-CUBICAL-GODEL-NAT-CODING-001-01",
+      "source": "HoTT/formal/cubical-godel-fragment/CCTTminiNat.agda",
+      "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts the CCTTmini₀ bit/Nat coding, parser roundtrip, total image decoder and code injectivity, with the preserved auxiliary transport-computation warning."
+    },
+    {
+      "claim_ids": "C-379–C-382",
+      "kind": "native_cubical_agda_ccttmini_formula_and_meta_certificate_predicate_interface",
+      "notes": "CCTTmini₀ gains Formula syntax containing provF Nat, while validCode and ProvWitness remain explicitly meta-level. A closed RawCert's code is accepted, witnesses a ProvWitness, and is cited by quoteCert; the source does not assert arithmetic representability, formula coding/substitution, a diagonal fixed point, or full HoTT/ZFC consequences. The inherited CCTTminiNat transport-computation warning remains recorded.",
+      "proof_id": "MP-CUBICAL-GODEL-FORMULA-PREDICATE-001",
+      "run": "HoTT/verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-PREDICATE-001-01",
+      "source": "HoTT/formal/cubical-godel-fragment/CCTTminiFormula.agda",
+      "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts the finite Formula/ProvWitness interface and its closed certificate quotation witness, with no representability claim."
+    },
+    {
+      "claim_ids": "C-383–C-386",
+      "kind": "native_cubical_agda_fmini_formula_nat_coding_and_syntax_level_self_substitution",
+      "notes": "Fmini is a newly bounded formula successor to CCTTmini₀: literal/free-variable expressions, prov₁ and bottom only. It receives a total Nat code/decoder, formula-code injectivity and a template self-code numeral substitution. The construction is a syntax-level diagonal shape only; it does not establish an arithmetic representation theorem for ProvWitness/validCode, a fixed-point equivalence, general binder substitution, full HoTT semantics, H0 transport or bare-ZFC attribution. The inherited CCTTminiNat warning remains preserved.",
+      "proof_id": "MP-CUBICAL-GODEL-FORMULA-CODING-001",
+      "run": "HoTT/verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-CODING-001-01",
+      "source": "HoTT/formal/cubical-godel-fragment/CCTTminiFormulaCode.agda",
+      "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts Fmini formula code/decoder/injectivity and the frozen template's self-code substitution shape, without a representability or fixed-point claim."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

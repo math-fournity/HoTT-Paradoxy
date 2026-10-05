@@ -1,28 +1,8 @@
 # 审计资产入口
 
-- [T-PRECISION 当前来源分母闭环（2026-10-04）](20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md)：将 C-367、Foundation generic Gödel基线、C-368、T-Meta same-task audit 和 T-ZFC `set.mm` instance audit收束为一个可复查的范围结论：当前 actual interface 被拒绝为 parent completion interface，bare-ZFC completion formal target 未由来源定义。它不是 bare ZFC 的缺陷定理。
+- [A-001：连续统标准解法的完成接受接口（2026-10-05）](20261005-GODEL-ZFC-A-M2M3-001-连续统完成接受接口.md)：重新核 IEP 的 ZFC-supported Standard Solution application 与 Norton 的 strict/reduced completion 区分。该实际 consumer 固定为 `SOURCE_TASK_CONTRACT_DIVERGENCE_ESTABLISHED_WITH_SCOPE`：它以修订合同处理 strict-action 条件，而未支付 strict `OriginDone` bridge；bare ZFC 的语义 completion interface 仍未被来源定义。后继为 H-001 fixed-H0 target reconciliation，不重复扩充同类芝诺文献。
 
-- [T-PRECISION T-Meta-001：same-task / bridge-payment audit（2026-10-04）](20261005-T-PRECISION-TMETA-001-SAME-TASK-BRIDGE-CARD.md) 与 [set.mm comment-scan receipt](20261005-T-PRECISION-TMETA-001-SETMM-COMMENT-SCAN.json)：冻结 actual proof acceptance、H0 trace、set-theoretic representation、completion source contract与C-368之间的字段差异，并记录可重放的 comment-level DifferentTask control。
-
-- [T-PRECISION T-ZFC-001：set.mm actual-interface instance audit（2026-10-04）](20261005-T-PRECISION-TZFC-001-SETMM-INSTANCE-CARD.md)：逐项审计 `T/Process/ρ/Accept/OriginDone/Bridge/Diag`，拒绝把 proof/database acceptance 偷换成 parent process completion。
-
-- [T-PRECISION T-DIAG-001：自编码接受与 completion bridge 的逻辑核（2026-10-04）](20261005-T-PRECISION-TDIAG-001-ACCEPTANCE-DIAGONAL-CARD.md)：在 G0 已冻结 proof-acceptance interface、但 parent process bridge 未支付的条件下，先冻结并机器化条件性 self-code/diagonal/bridge 后果。配套[来源分母](20261005-T-PRECISION-TDIAG-001-SOURCE-DENOMINATOR.md)明确 Foundation 的 generic Gödel技术与 set.mm proof acceptance 不自动构成 bare-ZFC completion interface。
-
-- [GODEL-Q G2：set.mm 对象层编码与 internalization 重资格化（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-SETMM-INTERNALIZATION-REQUALIFICATION.md)：固定 `set.mm@160ebb…` 由固定 `metamath-exe@9898f5d…` 对全部 47,917 个 `$p` proofs 实际验证；同时核对其 ZF 内 Gödel-set、satisfaction、generic formal-system/proof relation与未定义 `Prv` 的边界。它打开 target-specific mapping audit，不构成 bare ZFC、actual diagonal或parent completion theorem。
-
-- [GODEL-Q G0：真实接口分母与统一来源筛选（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md)：冻结 Metamath proof acceptance、IEP/Norton completion contract、C-366 process representation，以及 Foundation/Flypitch controls；追加四查询的 unified-source screening。结论是当前来源分母完成而 parent completion interface 仍未定义，绝不等于 bare ZFC 或全局来源不存在的结论。
-
-- [GODEL-Q G2：外部哥德尔化技术校准（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-EXTERNAL-TECHNICAL-CALIBRATION.md)：对 JAR/AFP 与固定 Agda BRA source 交叉核对后，GodelizationCard 增加 `NumeralBridge` 和 `InternalProvabilityAdequacy`。它说明为何 host quotation、proof transport或外部 checker不能取代理论内部的 code/numeral/provability支付；不构成 ZFC 或本项目 Q 的 theorem。
-
-- [GODEL-Q G2：Foundation ZFC 到通用哥德尔接口的映射缺口控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)：在固定 Foundation/Lean 4.34 source closure 中，正控制确认 `ZermeloFraenkelChoice : SetTheory` 和 generic `ArithmeticTheory` theorem 都真实存在；负控制显示二者不能直接应用。它只要求未来 target mapping 支付实际 interpretation／arithmetization，不给出 bare ZFC 的不完备性或完成观察结论。
-
-- [GODEL-Q G0/G2：mm-lean4 M 层 checker implementation 控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-MMLEAN4-META-CHECKER-CONTROL.md)：固定 `digama0/mm-lean4@58123caf`，在非 canonical Lean 4.26.0 上实际构建，接受 official `demo0.mm` 并拒绝一处公理变异。源码 `partial def check` 与 RC2 toolchain gap 使其严格保持为 `META_ONLY` runtime control，不能支付 totality、soundness、T 内 provability 或 parent completion bridge。
-
-- [GODEL-Q G0/G2：Flypitch ZFC proof-relation source（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-FLYPITCH-ZFC-PROOF-RELATION.md)：固定 `flypitch/flypitch@d72904c` 的 Lean 3 deep embedding：`ZFC`、proof tree、`T ⊢' f` 与 substitution 都可定位，且 source 报告 CH independence theorem。它是 M 层 ZFC proof-relation baseline，当前 source replay、Gödel numbering、T 内 provability、fixed point 和 parent completion bridge 均未支付。
-
-- [GODEL-Q G2：Foundation 通用 Gödel技术基线（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md)：在 C-366 同一 `Foundation@f3972f`／Lean 4.34 closure 中实际重放 Gödel第一／第二不完备性 source；明确呈现 code/quote/substitution/standard provability 与假设。它是通用 ArithmeticTheory 基线，不能自动实例化 set.mm、bare ZFC 或 parent completion bridge。
-
-- [T-PRECISION T0：抽象观察边界（2026-10-04）](20261004-T-PRECISION-T0-TOBS-ABSTRACT-OBSERVATION-BOUNDARY.md)：冻结 T-OBS-001 的 World/View/project/observe、碰撞 witness、正反控制与禁止外推；随后以 HoTT Book quotient universal property、Lean core Quotient.lift 和 C-364 控制建立来源分母。C-367 在 Lean 4.34.1 core 中机器证明“同投影异判词阻断全域 decoder”，但不归因 bare ZFC、HoTT、现实时间或哥德尔不完备性；来源分母见[配套来源卡](20261004-T-PRECISION-T0-TOBS-SOURCE-DENOMINATOR.md)。
+- [GZ-001／GZ-011 与 D-001：哥德尔式 ZFC 收敛闭环的 R3/R4 资格化、fragment 机器证明与真实接受接口控制（2026-10-05）](20261005-GODEL-ZFC-G0-R3-001-Coq资格化与Foundation后继.md) · [GZ-003 cooltt 资格化](20261005-GODEL-ZFC-G1-R4-001-cooltt资格化.md) · [GZ-004 cubicaltt 资格化](20261005-GODEL-ZFC-G1-R4-002-cubicaltt资格化.md) · [GZ-005 cctt 受限输入域资格化](20261005-GODEL-ZFC-G1-R4-003-cctt输入域资格化.md) · [GZ-006 cctt proof-code/effectivity 审计](20261005-GODEL-ZFC-G1-R4-004-cctt证明码与有效性.md) · [GZ-007 cubical derivation 来源分诊](20261005-GODEL-ZFC-G1-R4-005-精确CubicalDerivation来源分诊.md) · [GZ-008 CCTTmini₀ fragment](20261005-GODEL-ZFC-G1-R4-006-来源对应Cubical证明码片段.md) · [GZ-009 CCTTmini₀ Nat coding](20261005-GODEL-ZFC-G1-R4-007-CCTTmini自然数编码.md) · [GZ-010 formula/predicate interface](20261005-GODEL-ZFC-G1-R4-008-CCTTmini公式谓词接口.md) · [GZ-011 formula coding/self substitution](20261005-GODEL-ZFC-G1-R4-009-CCTTmini公式编码与自代入.md) · [D-001 Foundation接受接口](20261005-GODEL-ZFC-D-TDIAG-001-Foundation接受接口.md)：Foundation 的一阶算术 source 是真实的 Code/Accept/diag 正控制，但其 bridge只在“有限证明存在”的 proof task里支付，不能迁移为 H0、芝诺、圆环或 bare ZFC 的过程完成接口。按 SOP 非饥饿规则，下一单位转向真实 completion consumer 的 A-001。 |
 
 - [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。
 
@@ -31,14 +11,6 @@
 - [ZFC-H0 总证明闭环 F1-C：原 CCHM 实现与 clocked-cubical 候选（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1C-CLOCKED-CUBICAL.md)：直接审读 `cubicaltt` README/grammar 后，确认其具体 implementation 没有 native `record/coinductive` rule；再对 GCTT/CCTT/Agda guarded docs 形成下一 translation-card。它仅关闭 original-CCHM implementation target，保留 clocked target 的未支付 translation。
 
 - [ZFC-H0 总证明闭环 F1-D：GCTT clocked Delay 翻译卡（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1D-GCTT-CLOCKED-DELAY-TRANSLATION.md)：固定 `gcubical` source 显示 `forall` clocks、`prev`、later、guarded data、CoNat 的 force 类比均存在；实际 checker build 因本机缺 QuickCheck 停在依赖层。该卡给出 exact `gDelay/DelayClocked/force/runFor` 义务，未把源码类比升格为 native H0 translation。
-
-- [ZFC-H0 总证明闭环 F1-E：forcing-ticks Clocked Lift（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1E-FORCING-TICKS-CLOCKED-LIFT.md)：固定 Guarded Cubical Agda source 中的 `Lift/∀Lift/force` 比 GCTT 类比更接近 H0 Delay；`in∀`仍为 postulate，本机 Cubical Agda 2.8 实跑又显示 forcing-tick compiler variant 不匹配。它保留 exact target 与下一条 typecheck 路线，不支付 H0Map。
-
-- [ZFC-H0 总证明闭环 F1-F：exact H0Map 来源分母（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1F-H0MAP-SOURCE-DENOMINATOR.md)：将 CCHM、Cubical Agda、GCTT、forcing-ticks、CCTT 与模型／基础来源逐项放入同一 H0Map 判据。结论限定为当前来源分母没有 source-provided exact H0Map，保留 project-defined map 与总 M1 为未支付义务。
-
-- [ZFC-H0 总证明闭环：M2–M5 实际政策来源分母（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F2F5-ACCEPTANCE-POLICY-DENOMINATOR.md)：将 strict P、bare completion interface、SameFullQ 与 bare-ZFC attribution 分开复核。当前 IEP/Norton/SEP 分母给出 task revision，而没有同一 actual acceptance policy；各项只获得有界拒绝或未定义判词。
-
-- [ZFC-H0 总证明闭环：M0–M5 总完成条件审计（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-TOTAL-CLOSEOUT-AUDIT.md)：逐项比对 SOP §5。它确认当前来源分母可形成 source-bound rejection / formal-target-underdefined 判词，并列出 Goal 真正可关闭前仍需的运行、registry 和逐项验证，不把审计本身当作完成。
 
 - [ZFC-H0 总证明闭环 F3-A：集合论过程可表示性正控制（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F3A-ZFC-REPRESENTABILITY.md)：冻结 Foundation Lean 4 的 Zermelo model interface、function/sequence/recursion source 与 Metamath 独立控制。C-366 实际检查 ordinal-indexed sequence graph、唯一 stage value 与 definability，并以双值负控制拒绝；它排除“集合论不能表示过程”的过强读法，保留 acceptance-policy Q 作为未支付义务。
 

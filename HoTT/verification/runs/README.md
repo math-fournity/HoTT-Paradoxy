@@ -41,6 +41,16 @@ HoTT/verification/runs/<run-id>/
 
 run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后，才完成 `INDEXED` 状态。未索引的成功运行最多是 `RUN_OBSERVED_NOT_DELIVERABLE_AS_CONCLUSION`。
 
+## 非 kernel checker 证据
+
+下表记录与 R4 输入域资格化有关、但**不能**作为数学 theorem / `KERNEL_ACCEPTED_WITH_SCOPE`
+交付的运行。它们保留在相同的可审计 run 根中，仍须固定 source、环境、输出和 controls；它们不会进入
+`HoTT/CLAIM_EVIDENCE_MATRIX.md`，也不能绕过数学结论机器证明门禁。
+
+| run ID | 状态 | 用途 |
+|---|---|---|
+| `20261005-CCTT-R4-INPUT-DOMAIN-002` | `CHECKER_INPUT_DOMAIN_CONTROLS_PASS_WITH_SCOPE / NOT_A_KERNEL_PROOF` | cctt@`3695c69e` 的实际 build 与受限输入域 controls：Nat/Path/Glue/`coe`/`hcom` 正例通过；hole 与 self-recursion 被 project profile 拒绝但 CLI diagnostics 仍接受；类型错误输出 `ERROR` 却 exit 0；`nf loop` 是有限观察。它支付 GZ-005 的 checker contract，不能充当 proof relation、Gödel instance 或 bare ZFC 结论。 |
+
 ## 当前 run 索引
 
 | run ID | proof/claims | 状态 | 用途 |
@@ -97,6 +107,11 @@ run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后
 | `20261004-MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001-01` | `MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001` / `C-362` | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_CERTIFIED_PREMISES / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Lean 4.34.1 core；固定 Norton/IEP 来源合同中 revised completion 不支付 strict original completion bridge；negative run `-NEG-001`拒绝伪造最大自然动作。 |
 | `20261004-MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001-01` | `MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001` / `C-363` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Cubical Agda 2.8.0 + cubical 0.9；固定 HoTT B 的 generic completion-gap schema；negative run `-NEG-001`在`nothing != just 1`处拒绝。 |
 | `20261004-MP-BARE-ZFC-Q-PRECISION-001-03` | `MP-BARE-ZFC-Q-PRECISION-001` / `C-364` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | Lean 4.34.1 core；固定的 coarse standard-resolution view 不能决定 OriginDone 或支付 universal completion bridge；rich contract view 与 finite code view 为正控制。negative run `-NEG-004`在`False ↔ True`分支拒绝；`-NEG-001`保留为诊断检查了错误输出流的 setup failure。 |
+| `20261005-MP-FOUNDATION-INCOMPLETENESS-R3-001-03` | `MP-FOUNDATION-INCOMPLETENESS-R3-001` / `C-369` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | frozen Foundation Lean first-order arithmetic 第一不完备性 source calibration；`First.lean` 实际 Lake build，qualification 检查 first-incompleteness/true-unprovable declarations 与 axioms；负控制 `...NEG-001-03` 在缺少 `T.SoundOnHierarchy 𝚺 1` 时被拒。此前 `-01`/`-02` 为保留的 capture-contract failures，不是 primary。 |
+| `20261005-MP-CUBICAL-GODEL-FRAGMENT-001-02` | `MP-CUBICAL-GODEL-FRAGMENT-001` / `C-370`–`C-374` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX` | `CCTTmini₀` 的 finite RawCert、structural checker、positive Path/refl witness、ill-scoped/wrong-suc controls；negative run `...NEG-001-02` 在 `true != false` 处被拒绝。它只支付 source-corresponding fragment certificate bridge，未给 Nat Gödel编码或 full HoTT。 |
+| `20261005-MP-CUBICAL-GODEL-NAT-CODING-001-01` | `MP-CUBICAL-GODEL-NAT-CODING-001` / `C-375`–`C-378` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX / WARNING_SCOPED` | 同一 `RawCert` 的 bit/Nat code、total fallback decoder、image roundtrip 与 injectivity；主 stdout 保留 `UnsupportedIndexedMatch` warning，negative run `...NEG-001-01` 在 coded positive ≠ `zeroC` 处拒绝。它不含 formula predicate、representability 或 fixed point。 |
+| `20261005-MP-CUBICAL-GODEL-FORMULA-PREDICATE-001-01` | `MP-CUBICAL-GODEL-FORMULA-PREDICATE-001` / `C-379`–`C-382` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX / WARNING_SCOPED` | `provF Nat` formula syntax、meta-level `validCode`/`ProvWitness`、closed quote 和 `ProvHolds` witness；negative run 把 quoted formula 错当 `botF` 时被拒绝。对象算术表示性、formula coding/substitution和fixed point仍未支付。 |
+| `20261005-MP-CUBICAL-GODEL-FORMULA-CODING-001-01` | `MP-CUBICAL-GODEL-FORMULA-CODING-001` / `C-383`–`C-386` | `KERNEL_ACCEPTED_WITH_SCOPE / INDEXED_IN_CLAIM_EVIDENCE_MATRIX / WARNING_SCOPED` | Fmini formula code/decoder/injectivity和模板的 self-code numeral substitution；negative run 把 self instance错当`bot₁`时被拒绝。它只给 syntax-level diagonal shape，不给 representability或fixed point。 |
 
 **依赖闭包登记缺口（独立审计发现 F6，2026-09-13）**：`ARITH-TAGS`、`BIT-CODING`、`STREAMING-PARSER`、`FORMULA-CODING`、
 `REPAIRED-SYNTAX` 五个历史 run 的 `source-manifest.json` 只固定了直接导入模块，未列入编译器实际检查的传递依赖

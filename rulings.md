@@ -845,50 +845,16 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 
 本裁定授权上述认知闭包、来源/开源调查、形式证明、验证、精确Git提交与必要 current-owner 写回；不授权把项目定义冒充学术界/数学共同体事实、忽略原始来源、tag、push或外部发布。
 
-## 2026-10-04：想法 T 的理论精度上位方案
+## 2026-10-04：哥德尔式 ZFC 路线必须按总闭环而非局部缺口推进
 
-研究发起人进一步指出：ZFC 问题的本质是理论维度缺失、理论观察力不完备或理论精度不足；想法 T 超越单一理论，可能是从较高精度理论观察不完备性的脚手架。研究发起人要求完整记录紧邻两轮 user/AI 问答，命名新方案，并建立能够跨 Session 和压缩边界持续加载、写回的认知闭包。
-
-执行裁定：
-
-1. 新的上位稳定名为 T-PRECISION-DIAGONAL-SOP，owner 为 dev-docs/理论精度与哥德尔式自反方案.md 及其四片；跨 Session closure 为 认知闭包/T-PRECISION-DIAGONAL-001.md。两轮用户原文由 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md 拥有，四段 user/AI 全文由方案第 001 片拥有。
-2. T 不是“所有不完备都等于维度缺失”的已证明通论。它的可证明候选先分为 T-OBS 的任务相对观察因子化失败、T-DIAG 的有效编码与对角化边界、T-ZFC 的实际 bare-ZFC-facing 实例化；每层都须独立支付对象、接口、来源、同一任务和相称机器证明。
-3. 已有 GODEL-Q-REFLECTION-SOP 不废止：它是 T-DIAG 的实际 completion-interface 执行模块，保留 G0--G5 和自身 closure；T-PRECISION-DIAGONAL-SOP 为其补上 T-OBS 观察边界和 T-Meta 同一任务审计，二者不得被当成平行竞争 Goal。
-4. F-050 已以 CLOSED_WITH_SCOPE 收尾；本裁定只授权方案、source、closure、owner 路由、相称来源核验和将来被明确启动后的形式规格／proof/run。它不重开 F-050，也不授权把想法 T、C-359、C-364、C-366 或来源沉默写成 bare ZFC 的形式矛盾、已证理论缺陷或已完成哥德尔式定理。
-5. T0 的第一项还包括用现有 curation manager 判断这两轮用户原文是否进入新 core generation；在完成该步骤前，它们是完整保存的 plan source，而不是自动的核心认知 current fact。
-
-## 2026-10-04：采用哥德尔式 ZFC 完成观察与反射边界方案
-
-研究发起人要求从元思维和元元思维上研究如何神似地借鉴哥德尔，而不是表面模仿自指句式；并明确要求把该方案命名、完整记录，并建立可跨 Session 加载和写回的认知闭包。原文由 sources/prompts/Codex-Godel式ZFC完成观察反射方案-用户原文-20261004.md 拥有。
+研究发起人明确指出：此前把“当前还不能将哥德尔式核自动归因成 bare ZFC 的时间观察力缺失”说成“哥德尔路线无法继续”是错误的终止判断。用户要求建立一个可由 `/goal` 稳定引用的方案，并维护其跨 Session、跨压缩持续加载与写回的认知闭包，使未来工作不会因局部桥未支付而中途停下。
 
 执行裁定：
 
-1. 新方案稳定名为 GODEL-Q-REFLECTION-SOP，owner 为 dev-docs/哥德尔式ZFC完成观察反射方案SOP.md 及其三片；可审计启动闭包为 CC-20261004-godel-q-reflection。
-2. 方案的研究对象是一个真实、版本固定的 ZFC-facing completion acceptance interface 的保真编码、有限验证、对角化与 completion reflection boundary；它不是“哥德尔一般定理证明 ZFC 有时间问题”的简写。
-3. C-359 保持条件 consequence kernel，C-366 保持 representability control，历史 R3-R4 保持相关但不同的 HoTT calculus 路线。三者均不得自动充当 actual Accept_T、OriginDone、ρ、diag 或哥德尔式 theorem。
-4. 当前 Host Goal 仍是 paused。创建方案、source anchor、Feature、README/MEMORY route 与认知闭包不构成恢复指令；执行必须由研究发起人随后明确引用该 SOP 或恢复相应 Goal。
-5. 本裁定授权方案、认知闭包、必要索引、相称来源核验、形式规格、proof/run 以及精确 Git commit；不授权将方案直接升级为 bare ZFC 矛盾、启动未明示的 Host Goal、Sub Agent、发布、tag 或 push。
+1. 新建稳定引用名 `GODEL-ZFC-CONVERGENCE-SOP`，全名“哥德尔式 ZFC 理论精度收敛闭环 SOP”，canonical path 为`dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md`；对应唯一跨 Session 闭包为`认知闭包/GODEL-ZFC-CONVERGENCE-001.md`。
+2. 它不替代 `T-PRECISION-DIAGONAL-SOP` 的理论规格、R3–R4 的独立句／HoTT 保真任务，或`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`的 M0–M5 证明义务；它只拥有这三条线之间的路线登记、successor、总完成状态机和恢复合同。
+3. source gap、模型变体不匹配、compiler/toolchain失败、timeout、局部 theorem、局部负控制、局部来源拒绝或任一 scoped negative，只能关闭其冻结 target。每个局部关闭都必须产生改变判别面的 successor，或记录一个可验证的 external blocker 后转向独立 READY route；不得把“这一轮没有现成下一步”写成总完成。
+4. 总 `/goal` 只可在实际正闭环、全部声明路线有界结算、正式目标经用户／来源审计仍不可确定，或用户明确暂停／取消时结束。一般 Gödel 结果、宿主 proof assistant、项目自定义接口和来源沉默均不得升级为 bare ZFC 的理论精度结论。
+5. 每个自然单位必须更新闭包中的 active route、来源／proof snapshot、paid/unpaid bridge、范围 verdict、successor、reopen 条件和精确 Git 谱系；`MEMORY`、Feature 等当前 owner 在 file baseline 安全时再更新，不得覆盖其它 writer 的 dirty 工作。
 
-## 2026-10-04：采纳理论精度—对角自反上位方案并要求持续闭包
-
-研究发起人明确要求“调整方案，走这个新的方案”，要求把紧邻的元／元元哥德尔式回复完整记录成可由 `/goal` 引用的命名方案，并在多 Session、压缩恢复之间持续加载和写回相应认知闭包。逐字用户来源由`sources/prompts/Codex-T-PRECISION-DIAGONAL-SOP-采纳与闭包续航指令-20261004.md`拥有。
-
-执行裁定：
-
-1. 上位方案的稳定名为`T-PRECISION-DIAGONAL-SOP`，canonical owner 为`dev-docs/理论精度与哥德尔式自反方案.md`及其001–004分片；唯一跨 Session capsule 为`认知闭包/T-PRECISION-DIAGONAL-001.md`。不另造一份与其竞争或复制当前真值的方案／闭包。
-2. 该方案把 T-OBS、T-DIAG、T-Meta 与 T-ZFC 分层。`GODEL-Q-REFLECTION-SOP`继续作为T-DIAG的实际completion-interface执行模块；选择T-DIAG时必须复用其G0–G5及`CC-20261004-godel-q-reflection`，不得新建同义的GodelizationCard路线。
-3. “已采纳”只确认方案、恢复入口、写回职责和可引用启动词；它不自动选择T-DIAG/T-Meta/T-ZFC的后继单元，不恢复F-050，也不将C-367、条件性对角骨架、来源沉默或host层运行升级为想法T、bare ZFC精度缺陷、actual Q或ZFC对象语言矛盾。
-4. 每次后续`/goal`启动先重建受影响闭包，冻结唯一T单元的任务域、接口、理论变体、来源分母、反控制与停止条件；每一自然单元随后把新用户合同、来源、形式命题、run、失败、结论边界和下一判别动作写回各自唯一owner，并回读`T-PRECISION-DIAGONAL-001`。
-
-本裁定授权以上source、plan、closure、Feature、MEMORY、入口与相称Git谱系更新；不扩大为自动外部研究、Sub Agent、Host Goal、发布、tag或push授权。
-
-## 2026-10-04：T-PRECISION 的连续执行与总体完成语义
-
-研究发起人直接追问：“为什么你没有全部做完再停下？”这纠正了先前把 `T-PRECISION-DIAGONAL-SOP` 的“最小判别单元”误当作整体停止点的执行错误。
-
-执行裁定：
-
-1. T-OBS、哥德尔机制基线、T-DIAG、T-Meta 和 T-ZFC 是同一想法 T 的连续证据链。每个原子单元只约束一次研究的对象冻结、来源分母、反控制、机器证明与写回粒度；它不是再次请求研究发起人批准的门，也不是总体 Goal 的完成条件。
-2. 在总体 Goal active 时，Master 必须在每个原子单元后依照该单元暴露的证据缺口，自动选择仍能改变总体结论的最小后继单元。路由级正结果、受限负结论或 source-target 未支付只结束该路由，并须先检查是否释放另一个 T-DIAG、T-Meta 或 T-ZFC 后继。
-3. 整体只能在全部已承诺路径均取得相称的机器证明、受限负结论或明确外部不可支付条件，并完成方案、认知闭包、Feature、MEMORY、来源／证据 owner 与 Git 谱系写回后停止。这个收尾仍是授权范围内的研究路线收尾，不等价于“所有理论没有问题”或“bare ZFC 没有问题”。
-4. 本裁定授权更新 T-PRECISION 的停止语义、持续认知闭包、来源／开源调查、相称形式化与机器证明、精确 Git 提交和 current-owner 写回；不授权把任一局部结论升级为 bare ZFC 对象语言矛盾、数学共同体事实或外部发布。
+本裁定授权上述 SOP、closure、项目路由、开发索引、必要的 ruling 写回、相称验证与精确 Git commit；不自动启动研究、worker、网络、push、tag、外部写入或清理／接管其它 worktree 的未提交资产。
