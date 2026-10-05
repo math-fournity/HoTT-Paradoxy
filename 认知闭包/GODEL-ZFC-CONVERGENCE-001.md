@@ -91,3 +91,18 @@
 本闭包在以下任一事实改变时需要增量重建：用户修改 `OriginDone` 或总目标；新的 actual acceptance source；R3/R4 proof source 版本变化；H0 calculus/implementation 变体变化；任何 Run/claim evidence 被修订或撤销；当前 worktree/HEAD/owner 变化；或一个 new counterexample/payment 改变路线依赖。
 
 局部 verdict 的 `reopen_if` 由其 RouteUnitRecord 拥有。总路线只在 `GODEL-ZFC-CONVERGENCE-SOP` 第 003 片 C1–C4 的终局条件下停止；“这轮没有现成下一步”不是合法停机理由。
+
+## 8. 创建时自审（2026-10-04）
+
+| 检查维度 | 结果 | 证据或边界 |
+|---|---|---|
+| 稳定发现入口 | PASS | `dev-docs/README.md`、`TASK_ROUTING.md` 均显式路由 `GODEL-ZFC-CONVERGENCE-SOP`。 |
+| 方案完整性 | PASS | index + 4 个 semantic shard 覆盖父结果、路线、状态机、恢复与 `/goal`；`verify_governance_shards.py` 通过。 |
+| 当前／历史职责 | PASS | T-PRECISION、R3–R4、ZFC-H0、proof/run/claim matrix 保持原 owner；本 SOP 不复制数学证据。 |
+| 防止局部停止 | PASS（合同层） | I1–I3、`LOCAL_CLOSED → SUCCESSOR_REQUIRED` 和 C1–C4 明确区分局部与总完成。它约束未来执行流程，不能单凭文本保证未来模型一定遵守。 |
+| 跨 Session 恢复 | PASS（设计层） | §5 恢复算法要求回读 actual HEAD/status、plan、closure、四件套、route evidence 与上一 successor；fresh model 行为尚未实测。 |
+| `/goal` 可用性 | PASS | 启动词长度为 663 Unicode 字符，小于 4000；当前 host `get_goal` 返回 `null`，故本 SOP 处于准备状态而未自行启动。 |
+| 并发／dirty 保护 | PASS（当前边界） | 当前 `MEMORY/001`、`feature-list.md` 等存在非本提交 dirty delta；本轮没有覆盖它们，closure 明确登记安全写回前提。 |
+| Git 可恢复性 | PASS（本地） | 初始方案 commit 为 `0406460a`，并由本地 ref `codex/godel-zfc-convergence-plan` 保留。它尚未因此获得远程集成／发布身份。 |
+
+自审结论：`GOAL_PREPARED_NOT_AUTOSTARTED`。下一次明确 `/goal` 应从 `G0-R3-SOURCE-REPLAY-001` 或安全恢复后发现的已持有 active unit 开始；不把这份准备工作写成任何数学结论。
