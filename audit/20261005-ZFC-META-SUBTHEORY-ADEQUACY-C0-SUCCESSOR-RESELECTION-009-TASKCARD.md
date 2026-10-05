@@ -60,6 +60,28 @@ concrete task/bridge 的来源，登记为 control/source seed后退出，不再
   但它没有 ZFC-specific M 或 fixed Done；
 - Earman--Norton的 physical bridge正控制禁止把连续模型一概判为不完成。
 
+## 第一 source screen outcome（Benveniste et al. 2012）
+
+`Non-Standard Semantics of Hybrid Systems Modelers` 已支付一个有价值但受限的比较控制：
+
+```text
+basic ZFC + three non-standard-analysis axioms
+→ ordered infinitesimal time base T={n∂}
+→ operational/constructive/Kahn semantics for hybrid-system programs
+→ explicit handling of zero-crossings, program acceptance/rejection and Zeno-related execution issues.
+```
+
+这满足 `S/Q/FormalDone/P` 的 extension-level source contract，并明确把执行语义、离散步和
+adaptive discretization作为同一问题。但 `M` 是 ZFC extension，source没有证明 bare ZFC 本身不能
+承载等价语义，也没有把其 language-level task接到 Zeno/圆环 `OriginDone`。判词为：
+
+```text
+ZFC_EXTENSION_TEMPORAL_OPERATIONAL_SEMANTICS_POSITIVE_CONTROL
+BARE_ZFC_SUBTRACTION_COMPARISON_UNPAID
+```
+
+详细字段见 [C0R9 comparative-control card](20261005-ZFC-META-SUBTHEORY-ADEQUACY-C0R9-HYBRID-NONSTANDARD-COMPARATIVE-CONTROL.md)。
+
 ## 停止、升级与重开
 
 | 结果 | 处置 |
