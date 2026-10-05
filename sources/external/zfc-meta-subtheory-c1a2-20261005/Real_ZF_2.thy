@@ -1,0 +1,379 @@
+(* 
+    This file is a part of IsarMathLib - 
+    a library of formalized mathematics written for Isabelle/Isar.
+
+    Copyright (C) 2020-2026 Slawomir Kolodynski
+
+    This program is free software; Redistribution and use in source and binary forms, 
+    with or without modification, are permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, 
+   this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation and/or 
+   other materials provided with the distribution.
+   3. The name of the author may not be used to endorse or promote products 
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED 
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. *)
+
+section \<open> Basic properties of real numbers \<close>
+
+theory Real_ZF_2 imports OrderedField_ZF MetricSpace_ZF
+begin
+
+text\<open> Isabelle/ZF and IsarMathLib do not have a set of real numbers built-in. 
+  The \<open>Real_ZF\<close> and \<open>Real_ZF_1\<close> theories provide a construction but here we do not use it in any way
+  and we just assume that we have a model of real numbers (i.e. a completely ordered field) 
+  as defined in the \<open>Ordered_Field\<close> theory. The construction only assures us that objects with 
+  the desired properties exist in the ZF world. \<close>
+
+subsection\<open>Basic notation for real numbers\<close>
+
+text\<open> In this section we define notation that we will use whenever real numbers play a role, i.e. 
+  most of mathematics.\<close>
+
+text\<open> The next locale sets up notation for contexts where real numbers are used. 
+  Note we define the (real) natural numbers $\mathbb{N}$ as starting from one. \<close>
+
+locale reals =
+  fixes Reals("\<real>") and Add and Mul and ROrd
+  assumes R_are_reals: "IsAmodelOfReals(\<real>,Add,Mul, ROrd)"
+
+  fixes zero ("\<zero>")
+  defines zero_def[simp]: "\<zero> \<equiv> TheNeutralElement(\<real>,Add)"
+
+  fixes one ("\<one>")
+  defines one_def[simp]: "\<one> \<equiv> TheNeutralElement(\<real>,Mul)"
+
+  fixes realmul (infixl "\<cdot>" 71)
+  defines realmul_def[simp]: "x \<cdot> y \<equiv> Mul`\<langle>x,y\<rangle>"
+
+  fixes realadd (infixl "\<ra>" 69)
+  defines realadd_def[simp]: "x \<ra> y \<equiv> Add`\<langle>x,y\<rangle>"
+
+  fixes realminus("\<rm> _" 89)
+  defines realminus_def[simp]: "(\<rm>x) \<equiv> GroupInv(\<real>,Add)`(x)"
+
+  fixes realsub (infixl "\<rs>" 90)
+  defines realsub_def [simp]: "x\<rs>y \<equiv> x\<ra>(\<rm>y)"
+
+  fixes lesseq (infix "\<lsq>" 68)
+  defines lesseq_def [simp]: "x \<lsq> y \<equiv> \<langle>x,y\<rangle> \<in>  ROrd"
+
+  fixes sless (infix "\<ls>" 68)
+  defines sless_def [simp]: "x \<ls> y \<equiv> x\<lsq>y \<and> x\<noteq>y"
+
+  fixes nonnegative ("\<real>\<^sup>+")
+  defines nonnegative_def[simp]: "\<real>\<^sup>+ \<equiv> Nonnegative(\<real>,Add, ROrd)"
+
+  fixes positiveset ("\<real>\<^sub>+")
+  defines positiveset_def[simp]: "\<real>\<^sub>+ \<equiv> PositiveSet(\<real>,Add, ROrd)"
+
+  fixes setinv ("\<sm> _" 72)
+  defines setninv_def [simp]: "\<sm>A \<equiv> GroupInv(\<real>,Add)``(A)"
+
+  fixes non_zero ("\<real>\<^sub>0")
+  defines non_zero_def[simp]: "\<real>\<^sub>0 \<equiv> \<real>-{\<zero>}"
+
+  fixes abs ("\<bar> _ \<bar>")
+  defines abs_def [simp]: "\<bar>x\<bar> \<equiv> AbsoluteValue(\<real>,Add,ROrd)`(x)"
+
+  fixes dist
+  defines dist_def[simp]: "dist \<equiv> {\<langle>p,\<bar>fst(p) \<rs> snd(p)\<bar>\<rangle> . p \<in> \<real>\<times>\<real>}" 
+
+  fixes two ("\<two>")
+  defines two_def[simp]: "\<two> \<equiv> \<one> \<ra> \<one>"
+
+  fixes inv ("_\<inverse> " [96] 97)
+  defines inv_def[simp]: 
+    "x\<inverse> \<equiv> GroupInv(\<real>\<^sub>0,restrict(Mul,\<real>\<^sub>0\<times>\<real>\<^sub>0))`(x)"
+
+  fixes half ("\<onehalf>")
+  defines half_def [simp]: "\<onehalf> \<equiv> \<two>\<inverse>"
+
+  fixes listsum ("\<Sum> _" 70)
+  defines listsum_def[simp]: "\<Sum>s \<equiv> Fold(Add,\<zero>,s)"
+
+  fixes nat_mult (infix "\<nm>" 95)
+  defines nat_mult_def [simp]: "n\<nm>x \<equiv> \<Sum>{\<langle>k,x\<rangle>. k\<in>n}"
+
+  fixes realsq ("_\<^sup>2" [96] 97)
+  defines realsq_def [simp]: "x\<^sup>2 \<equiv> x\<cdot>x"
+
+  fixes oddext ("_ \<degree>")
+  defines oddext_def [simp]: "f\<degree> \<equiv> OddExtension(\<real>,Add,ROrd,f)"
+
+  fixes disk
+  defines disk_def [simp]: "disk(c,r) \<equiv> Disk(\<real>,dist,ROrd,c,r)"
+
+  fixes rxn ("\<nat>")
+  defines rxn_def [simp]: "\<nat> \<equiv> \<Inter> {N \<in> Pow(\<real>). \<one> \<in> N \<and> (\<forall>n. n\<in>N \<longrightarrow> n\<ra>\<one> \<in> N)}"
+
+  fixes listprod ("\<Prod> _" 70)
+  defines listprod_def [simp]: "\<Prod>s \<equiv> Fold(Mul,\<one>,s)"
+
+  fixes pow
+  defines pow_def [simp]: "pow(n,x) \<equiv> \<Prod>{\<langle>k,x\<rangle>. k\<in>n}"
+
+  fixes has_supremum ("_ {has a supremum}" [90] 91) 
+  defines has_supremum_def [simp]: "A {has a supremum} \<equiv> HasAsupremum(ROrd,A)"
+
+  fixes has_infimum ("_ {has an infimum}" [90] 91) 
+  defines has_infimum_def [simp]: "A {has an infimum} \<equiv> HasAnInfimum(ROrd,A)"
+
+  fixes sup
+  defines sup_def [simp]: "sup(A) \<equiv> Supremum(ROrd,A)"
+
+  fixes inf
+  defines inf_def [simp]: "inf(A) \<equiv> Infimum(ROrd,A)"
+
+text\<open> The assumptions of the \<open>field1\<close> locale (that sets the context for ordered fields) 
+  hold in the \<open>reals\<close> locale \<close>
+
+lemma (in reals) field1_is_valid: shows "field1(\<real>, Add, Mul,ROrd)"
+proof
+  from R_are_reals show "IsAring(\<real>, Add, Mul)" and "Mul {is commutative on} \<real>"
+    and "ROrd \<subseteq> \<real> \<times> \<real>" and "IsLinOrder(\<real>,  ROrd)" 
+    and "\<forall>x y. \<forall>z\<in>\<real>. \<langle>x, y\<rangle> \<in> ROrd \<longrightarrow> \<langle>Add`\<langle>x, z\<rangle>, Add`\<langle>y, z\<rangle>\<rangle> \<in> ROrd"
+    and "Nonnegative(\<real>, Add, ROrd) {is closed under} Mul"
+    and "TheNeutralElement(\<real>, Add) \<noteq> TheNeutralElement(\<real>, Mul)"
+    and "\<forall>x\<in>\<real>. x \<noteq> TheNeutralElement(\<real>,Add) \<longrightarrow> (\<exists>y\<in>\<real>. Mul`\<langle>x, y\<rangle> = TheNeutralElement(\<real>,Mul))"
+    using IsAmodelOfReals_def IsAnOrdField_def IsAnOrdRing_def by auto
+qed
+  
+text\<open> We can use theorems proven in the  \<open>field1\<close> locale in the \<open>reals\<close> locale. 
+  Note that since the the \<open>field1\<close> locale is an extension of the \<open>ring1\<close> locale, which is an 
+  extension of \<open>ring0\<close> locale, this makes available also the theorems proven in 
+  the \<open>ring1\<close> and \<open>ring0\<close> locales. \<close>
+
+sublocale reals < field1 Reals Add Mul realadd realminus realsub realmul zero one two 
+  realsq listsum nat_mult listprod pow ROrd lesseq sless abs positiveset nonnegative
+  using field1_is_valid by auto
+
+text\<open>Let's recall basic properties of the real line. \<close>
+
+lemma (in reals) basic_props: shows  "ROrd {is total on} \<real>" and "Add {is commutative on} \<real>"
+  using OrdRing_ZF_1_L4(2,3) by auto 
+
+text\<open> The distance function \<open>dist\<close> defined in the \<open>reals\<close> locale is a metric. \<close>
+
+lemma (in reals) dist_is_metric: shows 
+  "dist : \<real>\<times>\<real> \<rightarrow> \<real>\<^sup>+" 
+  "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle> = \<bar>x \<rs> y\<bar>"
+  "\<forall>x\<in>\<real>.dist`\<langle>x,x\<rangle> = \<zero>"
+  "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle> = dist`\<langle>y,x\<rangle>"
+  "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>.\<forall>z\<in>\<real>. \<bar>x \<rs> z\<bar> \<lsq> \<bar>x \<rs> y\<bar> \<ra> \<bar>y \<rs> z\<bar>"
+  "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>.\<forall>z\<in>\<real>. dist`\<langle>x,z\<rangle> \<lsq> dist`\<langle>x, y\<rangle> \<ra> dist`\<langle>y,z\<rangle>"
+  "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle> = \<zero> \<longrightarrow> x=y" 
+  "IsApseudoMetric(dist,\<real>,\<real>,Add,ROrd)"
+  "IsAmetric(dist,\<real>,\<real>,Add,ROrd)"
+proof -
+  show I: "dist : \<real>\<times>\<real> \<rightarrow> \<real>\<^sup>+" using add_group.group_op_closed add_group.inverse_in_group OrdRing_ZF_1_L4 
+      OrderedGroup_ZF_3_L3B  ZF_fun_from_total by simp
+  then show II:"\<forall>x\<in>\<real>.\<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle> = \<bar>x\<rs>y\<bar>" using ZF_fun_from_tot_val0 by auto
+  then show III: "\<forall>x\<in>\<real>.dist`\<langle>x,x\<rangle> = \<zero>" using add_group.group0_2_L6 OrderedGroup_ZF_3_L2A by simp
+  { fix x y
+    assume "x\<in>\<real>" "y\<in>\<real>"
+    then have "(\<rm>(x\<rs>y)) = y\<rs>x" using add_group.group0_2_L12 by simp
+    moreover from \<open>x\<in>\<real>\<close> \<open>y\<in>\<real>\<close> have "\<bar>\<rm>(x\<rs>y)\<bar> =\<bar>x\<rs>y\<bar>"
+      using add_group.group_op_closed add_group.inverse_in_group basic_props(1) OrderedGroup_ZF_3_L7A
+      by simp
+    ultimately have "\<bar>y\<rs>x\<bar> = \<bar>x\<rs>y\<bar>" by simp
+    with \<open>x\<in>\<real>\<close> \<open>y\<in>\<real>\<close> II have "dist`\<langle>x,y\<rangle> = dist`\<langle>y,x\<rangle>" by simp
+  } thus IV: "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle> = dist`\<langle>y,x\<rangle>" by simp
+  { fix x y
+    assume "x\<in>\<real>" "y\<in>\<real>" "dist`\<langle>x,y\<rangle> = \<zero>"  
+    with II have "\<bar>x\<rs>y\<bar> = \<zero>" by simp
+    with \<open>x\<in>\<real>\<close> \<open>y\<in>\<real>\<close> have "x\<rs>y = \<zero>" 
+      using add_group.group_op_closed add_group.inverse_in_group OrderedGroup_ZF_3_L3D by auto
+    with \<open>x\<in>\<real>\<close> \<open>y\<in>\<real>\<close> have"x=y" using add_group.group0_2_L11A by simp
+  } thus V: "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle> = \<zero> \<longrightarrow> x=y" by auto
+  { fix x y z
+    assume "x\<in>\<real>" "y\<in>\<real>" "z\<in>\<real>"
+    then have "\<bar>x\<rs>z\<bar> = \<bar>(x\<rs>y)\<ra>(y \<rs> z)\<bar>" using add_group.cancel_middle(5) by simp
+    with \<open>x\<in>\<real>\<close> \<open>y\<in>\<real>\<close> \<open>z\<in>\<real>\<close> have "\<bar>x\<rs>z\<bar>  \<lsq> \<bar>x\<rs>y\<bar> \<ra> \<bar>y \<rs> z\<bar>"
+      using add_group.group_op_closed add_group.inverse_in_group OrdRing_ZF_1_L4(2,3) OrdGroup_triangle_ineq
+      by simp
+  } thus  "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>.\<forall>z\<in>\<real>. \<bar>x \<rs> z\<bar> \<lsq> \<bar>x \<rs> y\<bar> \<ra> \<bar>y \<rs> z\<bar>" by simp
+  with II show "\<forall>x\<in>\<real>.\<forall>y\<in>\<real>.\<forall>z\<in>\<real>. dist`\<langle>x,z\<rangle> \<lsq> dist`\<langle>x, y\<rangle> \<ra> dist`\<langle>y,z\<rangle>" by auto
+  with I III IV V show "IsApseudoMetric(dist,\<real>,\<real>,Add,ROrd)" and "IsAmetric(dist,\<real>,\<real>,Add,ROrd)"
+    unfolding IsApseudoMetric_def IsAmetric_def by auto
+qed
+
+text\<open>Real numbers form an ordered loop.\<close>
+
+lemma (in reals) reals_loop: shows "IsAnOrdLoop(\<real>,Add,ROrd)"
+proof -
+  have "IsAloop(\<real>,Add)" using add_group.group_is_loop by simp
+  moreover from R_are_reals have "ROrd \<subseteq> \<real> \<times> \<real>" and "IsPartOrder(\<real>,ROrd)"
+    using IsAmodelOfReals_def IsAnOrdField_def IsAnOrdRing_def Order_ZF_1_L2 
+    by auto
+  moreover 
+  { fix x y z assume A: "x\<in>\<real>" "y\<in>\<real>"  "z\<in>\<real>"
+    then have "x\<lsq>y \<longleftrightarrow> x\<ra>z \<lsq> y\<ra>z" 
+      using ord_transl_inv ineq_cancel_right by blast
+    moreover from A have "x\<lsq>y \<longleftrightarrow> z\<ra>x \<lsq> z\<ra>y"
+      using ord_transl_inv OrderedGroup_ZF_1_L5AE by blast
+    ultimately have "(x\<lsq>y \<longleftrightarrow> x\<ra>z \<lsq> y\<ra>z) \<and> (x\<lsq>y \<longleftrightarrow> z\<ra>x \<lsq> z\<ra>y)"
+      by simp
+  }
+  ultimately show "IsAnOrdLoop(\<real>,Add,ROrd)" unfolding IsAnOrdLoop_def by auto
+qed
+
+text\<open> The assumptions of the  \<open>pmetric_space\<close> locale hold in the \<open>reals\<close> locale. \<close>
+
+lemma (in reals) pmetric_space_valid: shows "pmetric_space(\<real>,Add, ROrd,dist,\<real>)" 
+  unfolding pmetric_space_def pmetric_space_axioms_def loop1_def
+  using reals_loop dist_is_metric(8) 
+  by blast 
+
+text\<open>The assumptions of the \<open>metric_space\<close> locale hold in the \<open>reals\<close> locale.\<close>
+
+lemma (in reals) metric_space_valid: shows "metric_space(\<real>,Add, ROrd,dist,\<real>)"
+proof -
+  have "\<forall>x\<in>\<real>. \<forall>y\<in>\<real>. dist`\<langle>x,y\<rangle>=\<zero> \<longrightarrow> x=y"
+    using dist_is_metric(9) unfolding IsAmetric_def by auto
+  then show ?thesis unfolding metric_space_def metric_space_axioms_def 
+    using pmetric_space_valid by simp
+qed
+
+text\<open>Some properties of the order relation on reals: \<close>
+
+lemma (in reals) pos_is_lattice: shows 
+  "IsLinOrder(\<real>,ROrd)"
+  "IsLinOrder(\<real>\<^sub>+,ROrd \<inter> \<real>\<^sub>+\<times>\<real>\<^sub>+)"
+  "(ROrd \<inter> \<real>\<^sub>+\<times>\<real>\<^sub>+) {is a lattice on} \<real>\<^sub>+"
+proof -
+  show "IsLinOrder(\<real>,ROrd)" using OrdRing_ZF_1_L1 unfolding IsAnOrdRing_def by simp
+  moreover have "\<real>\<^sub>+ \<subseteq> \<real>" using pos_set_in_gr by simp 
+  ultimately show "IsLinOrder(\<real>\<^sub>+,ROrd \<inter> \<real>\<^sub>+\<times>\<real>\<^sub>+)" using ord_linear_subset(2) by simp
+  moreover have "(ROrd \<inter> \<real>\<^sub>+\<times>\<real>\<^sub>+) \<subseteq> \<real>\<^sub>+\<times>\<real>\<^sub>+" by auto
+  ultimately show "(ROrd \<inter> \<real>\<^sub>+\<times>\<real>\<^sub>+) {is a lattice on} \<real>\<^sub>+" using lin_is_latt by simp
+qed
+
+text\<open>Of course the set of positive real numbers is nonempty as one is there.\<close>
+
+lemma (in reals) pos_non_empty: shows "\<real>\<^sub>+\<noteq>0"
+  using R_are_reals ordring_one_is_pos 
+  unfolding IsAmodelOfReals_def IsAnOrdField_def by auto
+
+text\<open>We say that a relation $r$  \<open>down-directs\<close> a set $R$ if every two-element subset
+  of $R$ has a lower bound. The next lemma states that the natural order relation on real numbers
+  down-directs the set of positive reals. \<close>
+
+lemma (in reals) rord_down_directs: shows "ROrd {down-directs} \<real>\<^sub>+" 
+  using pos_is_lattice(3) pos_non_empty meet_down_directs down_dir_mono
+  unfolding IsAlattice_def by blast
+
+text\<open> We define the topology on reals as the metric topology
+  coming from the \<open>dist\<close> metric (i.e. consisting of the unions of open disks). \<close>
+
+definition (in reals) RealTopology ("\<tau>\<^sub>\<real>")
+  where "\<tau>\<^sub>\<real> \<equiv> MetricTopology(\<real>,\<real>,Add,ROrd,dist)"
+
+text\<open>A more explicit definition of the real topology in notation used in the \<open>reals\<close> context. \<close>
+
+lemma (in reals) real_toplology_def_alt: 
+  shows "\<tau>\<^sub>\<real> = {\<Union>A. A \<in> Pow(\<Union>c\<in>\<real>.{disk(c,r). r \<in> \<real>\<^sub>+})}"
+  unfolding MetricTopology_def RealTopology_def by simp
+  
+text\<open>Real numbers form a Hausdorff topological space with topology generated by open disks. \<close>
+
+theorem (in reals) reals_is_top: 
+  shows "\<tau>\<^sub>\<real> {is a topology}" "\<Union>\<tau>\<^sub>\<real> = \<real>" "\<tau>\<^sub>\<real> {is T\<^sub>2}"
+  using rord_down_directs metric_space_valid pmetric_space_valid pmetric_space.pmetric_is_top 
+    pmetric_space.metric_top_carrier metric_space.metric_space_T2
+  unfolding RealTopology_def by simp_all
+
+text\<open>The definition of the model of real numbers requires that every nonempty set that is bounded
+  above has a supremum. In the next theorem we show that every nonempty sets that is bounded below
+  has an infimum.\<close>
+
+lemma (in reals) bounded_below_has_inf:
+  assumes "A\<noteq>\<emptyset>" "IsBoundedBelow(A,ROrd)" shows "HasAnInfimum(ROrd,A)"
+  using R_are_reals assms complete_bounded_below_inf
+  unfolding IsAmodelOfReals_def IsAnOrdField_def IsAnOrdRing_def IsLinOrder_def
+  by auto
+
+text\<open>Every nonempty bounded above subset of reals has a supremum. This follows straight from
+  the definition of (a model of) real numbers, included here as dual to \<open>bounded_below_has_inf\<close>.\<close>
+
+lemma (in reals) bounded_above_has_sup: assumes "A\<noteq>\<emptyset>" "IsBoundedAbove(A,ROrd)" 
+  shows "HasAsupremum(ROrd,A)"
+  using R_are_reals assms unfolding IsAmodelOfReals_def IsComplete_def HasAsupremum_def
+  by simp
+
+text\<open>Each nonempty set of nonnegative reals is bounded below. This is really an ordered loop
+  property, we rewrite it here in the \<open>reals\<close> context for easy reference.\<close>
+
+lemma (in reals) nonneg_reals_bound_below: assumes "A\<subseteq>\<real>\<^sup>+"
+  shows "IsBoundedBelow(A,ROrd)"
+  using assms loop1_valid_in_group3 loop1.nonnegative_bounded_below 
+  by simp
+
+text\<open>Each nonempty set of nonnegative numbers has an infimum which is nonnegative.\<close>
+
+lemma (in reals) nneg_has_nneg_inf: assumes "A\<noteq>\<emptyset>" "A\<subseteq>\<real>\<^sup>+"
+  shows "A {has an infimum}" and "inf(A) \<in> \<real>\<^sup>+"
+proof -
+  from assms show "A {has an infimum}" 
+    using nonneg_reals_bound_below bounded_below_has_inf by simp
+  with assms(2) show "inf(A) \<in> \<real>\<^sup>+"
+    using loop1_valid_in_group3 loop1.inf_nonneg_nonneg by simp
+qed
+
+text\<open>For sets that are bounded below we have $\inf(A+B) = (\inf A) + (\inf B)$
+  This is an ordered loop property, we bring it here via ordered groups.\<close>
+
+theorem (in reals) inf_sum_sum_inf: 
+  assumes "A\<noteq>\<emptyset>" "IsBoundedBelow(A,ROrd)" "B\<noteq>\<emptyset>" "IsBoundedBelow(B,ROrd)"
+  shows "{x\<ra>y. \<langle>x,y\<rangle> \<in> A\<times>B} {has an infimum}" and
+    "inf(A) \<ra> inf(B) = inf({x\<ra>y. \<langle>x,y\<rangle> \<in> A\<times>B})"
+  using assms bounded_below_has_inf 
+    loop1_valid_in_group3 loop1.ordloop_inf_sum_sum_inf by simp_all
+
+text\<open>For sets that are bounded above we have $\sup(A+B) = (\sup A) + (\inf B)$
+  This is an ordered loop property, we bring it here via ordered groups.\<close>
+
+theorem (in reals) sup_sum_sum_sup: 
+  assumes "A\<noteq>\<emptyset>" "IsBoundedAbove(A,ROrd)" "B\<noteq>\<emptyset>" "IsBoundedAbove(B,ROrd)"
+  shows "{x\<ra>y. \<langle>x,y\<rangle> \<in> A\<times>B} {has a supremum}" and
+    "sup(A) \<ra> sup(B) = sup({x\<ra>y. \<langle>x,y\<rangle> \<in> A\<times>B})"
+  using assms bounded_above_has_sup 
+    loop1_valid_in_group3 loop1.ordloop_sup_sum_sum_sup by simp_all
+
+text\<open>In particular $\inf(A+B) = (\inf A) + (\inf B)$ holds for subsets of nonnegative reals.\<close>
+
+corollary (in reals) nonneg_inf_sum_inf: 
+  assumes "A\<noteq>\<emptyset>" "A\<subseteq>\<real>\<^sup>+" "B\<noteq>\<emptyset>" "B\<subseteq>\<real>\<^sup>+"
+  shows "{x\<ra>y. \<langle>x,y\<rangle> \<in> A\<times>B} {has an infimum}" and
+    "inf(A) \<ra> inf(B) = inf({x\<ra>y. \<langle>x,y\<rangle> \<in> A\<times>B})"
+  using assms nonneg_reals_bound_below inf_sum_sum_inf by simp_all
+
+text\<open>In the context of real numbers having an infimum is the same as being nonempty and bounded 
+  below.\<close>
+
+lemma (in reals) has_inf_is_nempty_bb: 
+  shows "A {has an infimum} \<longleftrightarrow> A\<noteq>\<emptyset> \<and> IsBoundedBelow(A,ROrd)"
+  using linord set_inf_not_empty has_inf_bounded_below bounded_below_has_inf
+  unfolding IsLinOrder_def by auto
+
+text\<open>In the context of real numbers having a supremum is the same as being nonempty and bounded 
+  above.\<close>
+
+lemma (in reals) has_sup_is_nempty_ba:
+  shows "A {has a supremum} \<longleftrightarrow> A\<noteq>\<emptyset> \<and> IsBoundedAbove(A,ROrd)"
+  using linord set_sup_not_empty has_sup_bounded_above bounded_above_has_sup
+  unfolding IsLinOrder_def by auto
+
+end
