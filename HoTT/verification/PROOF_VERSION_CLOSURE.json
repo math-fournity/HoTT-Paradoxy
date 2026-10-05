@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 220,
+  "later_machine_proved_claim_count": 221,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1105,6 +1105,16 @@
       "source": "HoTT/formal/t-precision-diagonal/AcceptanceDiagonal.lean",
       "toolchain": "HoTT/formal/t-precision-diagonal/LEAN_CORE_TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: an explicit self-code, diagonal completion contract, and paid acceptance-to-originDone bridge force rejection of that code; a bridge-missing control shows self-coding alone does not create contradiction."
+    },
+    {
+      "claim_ids": "C-369",
+      "kind": "lean_core_source_certified_application_adequacy_contract",
+      "notes": "Not a bare-ZFC theorem or contradiction; source classifications remain audit inputs.",
+      "proof_id": "MP-ZFC-META-SUBTHEORY-ADEQUACY-001",
+      "run": "HoTT/verification/runs/20261005-MP-ZFC-META-SUBTHEORY-ADEQUACY-001-04",
+      "source": "HoTT/formal/zfc-meta-subtheory-adequacy/ApplicationAdequacy.lean",
+      "toolchain": "HoTT/formal/zfc-meta-subtheory-adequacy/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: source-certified application adequacy failure is derived exactly for unpaid, non-switched original-resolution cases; paid bridge, task switch, model-only, and H0-missing-SameQ controls are separated."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
