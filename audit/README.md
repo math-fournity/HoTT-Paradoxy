@@ -1,5 +1,31 @@
 # 审计资产入口
 
+- [GODEL-Q G2：MM0 matching runner、comment-normalized `set.mm` translation 与 MMB verification（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-MM0-FROM-MM-MATCHING-RUNNER.md)：固定`mm0@0d414c0`在locked GHC 8.6.5／LTS 13.27 matching runner上完成build；raw `set.mm@160ebb` direct parser在六条现代`$j` metadata strings处拒绝，而Metamath全proof重新验证的comment-normalized derivative被翻译为MM0/MMB并由`mm0-c`验证。它是M层wholesale translation control，不构成raw-byte direct replay、ZF内`mFS/Prv` mapping、actual diagonal或parent completion bridge。
+
+- [T-PRECISION 当前来源分母闭环（2026-10-04）](20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md)：将 C-367、Foundation generic Gödel基线、C-368、T-Meta same-task audit 和 T-ZFC `set.mm` instance audit收束为一个可复查的范围结论：当前 actual interface 被拒绝为 parent completion interface，bare-ZFC completion formal target 未由来源定义。它不是 bare ZFC 的缺陷定理。
+
+- [T-PRECISION T-Meta-001：same-task / bridge-payment audit（2026-10-04）](20261005-T-PRECISION-TMETA-001-SAME-TASK-BRIDGE-CARD.md) 与 [set.mm comment-scan receipt](20261005-T-PRECISION-TMETA-001-SETMM-COMMENT-SCAN.json)：冻结 actual proof acceptance、H0 trace、set-theoretic representation、completion source contract与C-368之间的字段差异，并记录可重放的 comment-level DifferentTask control。
+
+- [T-PRECISION T-ZFC-001：set.mm actual-interface instance audit（2026-10-04）](20261005-T-PRECISION-TZFC-001-SETMM-INSTANCE-CARD.md)：逐项审计 `T/Process/ρ/Accept/OriginDone/Bridge/Diag`，拒绝把 proof/database acceptance 偷换成 parent process completion。
+
+- [T-PRECISION T-DIAG-001：自编码接受与 completion bridge 的逻辑核（2026-10-04）](20261005-T-PRECISION-TDIAG-001-ACCEPTANCE-DIAGONAL-CARD.md)：在 G0 已冻结 proof-acceptance interface、但 parent process bridge 未支付的条件下，先冻结并机器化条件性 self-code/diagonal/bridge 后果。配套[来源分母](20261005-T-PRECISION-TDIAG-001-SOURCE-DENOMINATOR.md)明确 Foundation 的 generic Gödel技术与 set.mm proof acceptance 不自动构成 bare-ZFC completion interface。
+
+- [GODEL-Q G2：set.mm 对象层编码与 internalization 重资格化（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-SETMM-INTERNALIZATION-REQUALIFICATION.md)：固定 `set.mm@160ebb…` 由固定 `metamath-exe@9898f5d…` 对全部 47,917 个 `$p` proofs 实际验证；同时核对其 ZF 内 Gödel-set、satisfaction、generic formal-system/proof relation与未定义 `Prv` 的边界。官方 Appendix C 给出数据库 field 到 abstract formal-system component 的说明性对应，但未给出内部 `mFS` witness；截至公开 `develop@584b685…` 的下一增量也没有新 mapping candidate。它打开 target-specific mapping audit，不构成 bare ZFC、actual diagonal或parent completion theorem。
+
+- [GODEL-Q G0：真实接口分母与统一来源筛选（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md)：冻结 Metamath proof acceptance、IEP/Norton completion contract、C-366 process representation，以及 Foundation/Flypitch controls；追加四查询的 unified-source screening。结论是当前来源分母完成而 parent completion interface 仍未定义，绝不等于 bare ZFC 或全局来源不存在的结论。
+
+- [GODEL-Q G2：外部哥德尔化技术校准（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-EXTERNAL-TECHNICAL-CALIBRATION.md)：对 JAR/AFP 与固定 Agda BRA source 交叉核对后，GodelizationCard 增加 `NumeralBridge` 和 `InternalProvabilityAdequacy`。它说明为何 host quotation、proof transport或外部 checker不能取代理论内部的 code/numeral/provability支付；不构成 ZFC 或本项目 Q 的 theorem。
+
+- [GODEL-Q G2：Foundation ZFC 到通用哥德尔接口的映射缺口控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md)：在固定 Foundation/Lean 4.34 source closure 中，正控制确认 `ZermeloFraenkelChoice : SetTheory` 和 generic `ArithmeticTheory` theorem 都真实存在；负控制显示二者不能直接应用。它只要求未来 target mapping 支付实际 interpretation／arithmetization，不给出 bare ZFC 的不完备性或完成观察结论。
+
+- [GODEL-Q G0/G2：mm-lean4 M 层 checker implementation 控制（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-MMLEAN4-META-CHECKER-CONTROL.md)：固定 `digama0/mm-lean4@58123caf`，在非 canonical Lean 4.26.0 上实际构建，接受 official `demo0.mm` 并拒绝一处公理变异。源码 `partial def check` 与 RC2 toolchain gap 使其严格保持为 `META_ONLY` runtime control，不能支付 totality、soundness、T 内 provability 或 parent completion bridge。
+
+- [GODEL-Q G0/G2：Flypitch ZFC proof-relation source（2026-10-04）](20261004-GODEL-Q-REFLECTION-G0-FLYPITCH-ZFC-PROOF-RELATION.md)：固定 `flypitch/flypitch@d72904c` 的 Lean 3 deep embedding：`ZFC`、proof tree、`T ⊢' f` 与 substitution 都可定位，且 source 报告 CH independence theorem。它是 M 层 ZFC proof-relation baseline，当前 source replay、Gödel numbering、T 内 provability、fixed point 和 parent completion bridge 均未支付。
+
+- [GODEL-Q G2：Foundation 通用 Gödel技术基线（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md)：在 C-366 同一 `Foundation@f3972f`／Lean 4.34 closure 中实际重放 Gödel第一／第二不完备性 source；明确呈现 code/quote/substitution/standard provability 与假设。它是通用 ArithmeticTheory 基线，不能自动实例化 set.mm、bare ZFC 或 parent completion bridge。
+
+- [T-PRECISION T0：抽象观察边界（2026-10-04）](20261004-T-PRECISION-T0-TOBS-ABSTRACT-OBSERVATION-BOUNDARY.md)：冻结 T-OBS-001 的 World/View/project/observe、碰撞 witness、正反控制与禁止外推；随后以 HoTT Book quotient universal property、Lean core Quotient.lift 和 C-364 控制建立来源分母。C-367 在 Lean 4.34.1 core 中机器证明“同投影异判词阻断全域 decoder”，但不归因 bare ZFC、HoTT、现实时间或哥德尔不完备性；来源分母见[配套来源卡](20261004-T-PRECISION-T0-TOBS-SOURCE-DENOMINATOR.md)。
+
 - [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。
 
 - [ZFC-H0 总证明闭环 F1-B：CCHM feature coverage（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1B-CCHM-COVERAGE.md)：保存本项目先验构造、论文/Agda/GitHub/GCTT对照和逐 feature coverage。结论是 CCHM family 相关但未支付 native coinductive Delay、EM1/HIT/universe 的 exact H0Map；下一检验是原 CCHM `cubicaltt` 语法/语义对 coinductive records 的覆盖。

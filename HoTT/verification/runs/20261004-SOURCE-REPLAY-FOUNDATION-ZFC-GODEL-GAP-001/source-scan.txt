@@ -1,0 +1,26 @@
+Source-tree scan performed against Foundation@f3972f4204fc61e1b736ed843415894c83f35508.
+
+Command family A:
+  rg -n --glob '*.lean' 'DirectInterpretation|InterpretedBy|⊳|⊲' Foundation
+
+Result boundary:
+  All hits were in Foundation/FirstOrder/LK/Interpretation.lean, where the generic
+  DirectInterpretation / InterpretedBy classes and their generic composition/refl methods are defined.
+  No other Foundation source file contained these identifiers or notations in this scan.
+
+Command family B:
+  rg -n --glob '*.lean' 'NaturalNumberRec|isω|SetTheory.succ|Arithmetic' Foundation/FirstOrder/SetTheory
+
+Selected positive source facts:
+  Foundation/FirstOrder/SetTheory/Z/Z.lean defines omega, proves omega successor closure,
+  and has natural-number induction for definable predicates in a SetTheory model.
+  Foundation/FirstOrder/SetTheory/NaturalNumberRec.lean defines Blueprint.CSeq and result,
+  proves result_existsUnique and result_succ, and supplies a SetTheory definability instance
+  for the result function.
+
+Interpretation boundary:
+  Model-level natural-number recursion and definability are present. The scan did not find a
+  concrete source-tree DirectInterpretation instance connecting ZermeloFraenkelChoice to the
+  ArithmeticTheory source used by Foundation's incompleteness theorem. This is an exact-tree
+  source-structure observation only; it does not prove the nonexistence of an interpretation
+  in mathematics, in another revision, or through a construction not represented by this class.

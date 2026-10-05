@@ -1,0 +1,7 @@
+FFL.FirstOrder.SetTheory.ZermeloFraenkelChoice : FFL.FirstOrder.SetTheory
+FFL.FirstOrder.SetTheory.zfc_consistent : FFL.Entailment.Consistent 𝗭𝗙𝗖
+FFL.FirstOrder.Arithmetic.incomplete (T : FFL.FirstOrder.ArithmeticTheory) [FFL.FirstOrder.Theory.Δ₁ T] [𝗥₀ ⪯ T]
+  [T.SoundOnHierarchy 𝚺 1] : FFL.Entailment.Incomplete T
+FFL.FirstOrder.Arithmetic.consistent_unprovable (T : FFL.FirstOrder.ArithmeticTheory) [FFL.FirstOrder.Theory.Δ₁ T]
+  [𝗜𝚺₁ ⪯ T] [FFL.Entailment.Consistent T] : T ⊬ ↑(FFL.FirstOrder.Theory.consistent T)
+'FFL.FirstOrder.SetTheory.zfc_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]

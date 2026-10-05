@@ -16,7 +16,19 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `zfc-actual-q-policy/`：`MP-ZFC-ACTUAL-Q-POLICY-001` / C-359 将用户提出的Q缺失、数学幻觉P、A/B和`ZFC-1`写成明确前提的Lean policy use-model；`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / C-360在原生Cubical Agda中固定HoTT Q对“coarse completion→original finite halting”的P反例；`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / C-361在固定几何级数上证明极限不推出严格有限阶段Done，并保留闭连续时间端点正控制；C-362与C-363将 Norton/IEP 的 revised completion 来源合同和固定HoTT B分别写成相同的 completion-gap schema。它们不形式化bare ZFC或实际来源政策，详见目录`CLAIM.md`。
 
+- `zfc-meta-subtheory-adequacy/`：`MP-ZFC-META-SUBTHEORY-ADEQUACY-001` / C-369 将一个来源认证的 application adequacy contract写为Lean core条件定理：unpaid original-resolution application为failure，paid bridge、explicit task switch、model-only和缺SameQ_H0均为控制。C6D只在用户固定finite-stage `OriginDone`、IEP Standard Solution resolution language和source-backed adequacy criterion的范围内，将该条件定理实例化为`CORE_ADEQUACY_FAILURE_WITH_SCOPE`；它不证明bare ZFC对象语言矛盾或学界唯一判词。
+
+- `zfc-dense-quantized-motion/`：`MP-ZFC-DENSE-QUANTIZED-MOTION-001` / C-370 在Lean core检查固定八单位half-step过程`8→4→2→1→0`的有限完成与第3步未完成；它是用户稠密—量化对照的离散正控制，不是物理时空或ZFC theorem。
+
+- `zfc-dense-quantized-contract/`：`MP-ZFC-DENSE-QUANTIZED-CONTRACT-001` / C-371 在共同符号化余量状态空间检查dense/quantized controls前三阶段相同而finite-stage completion predicates不逐点等价，并保留dense stage-4 Done的拒绝控制。C-361保持真实数极限／连续端点范围，C-370保持八单位递归范围；C-371不把它们偷换为同一物理模型。
+
 - `bare-zfc-q-precision/`：`MP-BARE-ZFC-Q-PRECISION-001` / C-364 以一个来源绑定的有限 completion-contract control 区分粗标准解答 view、OriginDone 与 completion bridge：同一粗 resolved view 不能决定 OriginDone 或支付 universal bridge；显式 contract view 与 code view 是正控制。它是 ZFC-supported Standard Solution application interface 的精度控制，**不**形式化 bare ZFC 本身，不主张 ZFC 不能编码过程或 ZFC 不一致，详见目录`CLAIM.md`。
+
+- `t-precision-observation/`：`MP-T-PRECISION-TOBS-001` / C-367 是 T-PRECISION 的首个抽象 T-OBS 单元。Lean core 证明：指定 project 将 x,y 压成同一输出而指定 observe 在二者上相反时，observe 不存在只经 project 的全域 decoder；identity/rich view 是正控制，Bool/Unit 伪 decoder 被负控制拒绝。它只证明函数／命题因子化边界，不形式化 bare ZFC、HoTT、现实任务、对角化或“抽象必然导致悖论”。
+
+- `t-precision-diagonal/`：`MP-T-PRECISION-TDIAG-001` / C-368 是 T-PRECISION 的条件性 T-DIAG 逻辑核。Lean core 证明：已支付的 self-code、diagonal completion contract 与 `Accept → OriginDone` bridge 使该 self-code 不可被接受；bridge-missing 与 bridge-paid controls 分离“自指”与实际 completion bridge。它不构造 set.mm/bare-ZFC 的 actual Gödelization，不把 proof acceptance 等同芝诺／圆环／H0 完成，也不证明 ZFC 不一致或想法 T 已得证。
+
+- `godel-q-reflection/`：`FoundationGodelBaseline.lean` 是对冻结 Foundation Lean source 中通用 Gödel第一／第二不完备性 theorem 的最小 wrapper。它已在 exact Foundation@`f3972f…`／Lean 4.34.0 source closure 下重放，精确暴露 `ArithmeticTheory`、可定义性／可枚举性、算术强度、soundness／consistency 与 standard provability 前提。它不实例化 `set.mm`、bare ZFC 或任何 completion process，详见 `audit/20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-GENERIC-GODEL-BASELINE.md`。同目录的 `FoundationZFCGodelGap.lean` 与 `WrongFoundationZFCGodelInstantiation.lean` 是一对 target-mapping 控制：前者检查 Foundation 的 `ZermeloFraenkelChoice : SetTheory`、Lean 元层 `zfc_consistent` 和 generic theorem interfaces；后者故意直接实例化并应在 `SetTheory`／`ArithmeticTheory` 类型不匹配处被拒绝。对应 [运行收据](../verification/runs/20261004-SOURCE-REPLAY-FOUNDATION-ZFC-GODEL-GAP-001/RUN.json) 与 [范围报告](../../audit/20261004-GODEL-Q-REFLECTION-G2-FOUNDATION-ZFC-GODEL-MAPPING-GAP.md) 不构成 bare ZFC 不一致性、不完备性或时间观察力的定理。
 
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。

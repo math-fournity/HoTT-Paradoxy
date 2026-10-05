@@ -1,8 +1,14 @@
 # 未定过程与设计工作区
 
+- [GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案](哥德尔式ZFC完成观察反射方案SOP.md)：研究发起人 2026-10-04 明确采纳的后续方案。它不把一般不完备性口号贴到 ZFC；它要求先冻结真实、版本固定的 ZFC-facing completion acceptance interface，再依次支付 Code、有限 checker、Accept_T、OriginDone、bridge、对角化和元元层同一任务审计。稳定启动名为 GODEL-Q-REFLECTION-SOP；G0 当前来源分母已完成：Metamath proof-acceptance interface 已冻结，Appendix C 给出说明性 database/frame correspondence，MM0 matching runner 已完成六条`$j` metadata规范化数据库的full MM0/MMB translation与`mm0-c` verification control；但 raw parser direct replay、ZF内`mFS` mapping、adequate `Prv`、parent completion interface和 G1–G6仍未支付。详见 [matching-runner audit](../audit/20261004-GODEL-Q-REFLECTION-G2-MM0-FROM-MM-MATCHING-RUNNER.md)、[set.mm 内部化重资格化](../audit/20261004-GODEL-Q-REFLECTION-G2-SETMM-INTERNALIZATION-REQUALIFICATION.md)、[G0 接口分母](../audit/20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md) 与配套可审计闭包 [CC-20261004-godel-q-reflection](../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)。
+
 这里保存尚未成为当前真值的调查方案、迁移草案、实验计划和审计过程。正式需求写根 `feature-list.md`，用户原意写 `rulings.md`，稳定设计写 `docs/`，当前状态写 `MEMORY.md`；不要把本目录的草案直接当成已实现或已验证。
 
 当前主方案：[`实施方案-三AI历史整合与核心认知治理.md`](../实施方案-三AI历史整合与核心认知治理.md)。
+
+- [ZFC-META-SUBTHEORY-ADEQUACY-SOP：ZFC 元理论—子理论充分性最终闭环](ZFC元理论子理论充分性最终闭环SOP.md)：研究发起人纠正“外围接口分母已收束”不等于 bare ZFC 核心问题已进入或已完成后建立的总执行合同。它禁止将 proof checker、`set.mm`、ACL2、generic Gödel 或项目 fixture 当作核心靶；要求固定 actual ZFC-founded foundation context `M`、连续统／极限子理论 `S`、芝诺／圆环原任务 `Q`、实际 promotion `P`、`FormalDone`／`OriginDone`、Bridge 与 foundation adequacy responsibility，并以 C0–C6 连续路线和最终 kernel proof 作出 failure 或 defense verdict。未来 `/goal` 直接引用稳定名 `ZFC-META-SUBTHEORY-ADEQUACY-SOP`；唯一跨 Session closure 是 [ZFC-META-SUBTHEORY-ADEQUACY-001](../认知闭包/ZFC-META-SUBTHEORY-ADEQUACY-001.md)。
+
+- [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，随后明确采纳它作为可跨 Session 执行和持续写回的方案。第 001 片完整保存紧邻两轮哥德尔式元／元元讨论及采纳指令。C-367 机器化相对观察边界，C-368机器化 paid self-code/diagonal/bridge 的拒绝边界；T-Meta/T-ZFC 随后逐项审计 actual `set.mm` interface，并将其拒绝为 parent completion interface，同时保持 bare-ZFC completion target 未定义。当前来源分母已受限收束，完整 closeout 与重开条件见`audit/20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md`；不得把 C-367/C-368 或实例拒绝升格为 bare ZFC 缺陷定理。
 
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
 

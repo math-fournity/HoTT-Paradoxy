@@ -1,0 +1,20 @@
+{
+  "next": "Apply checkpoint and verify MEMORY text, plan snapshot, and current closeout owner.",
+  "role": "GOVERNANCE_ALIGNMENT",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-GOV-20261005-T-PRECISION-ACL2-MEMORY-WRITEBACK-001",
+  "status": "ACL2_MEMORY_WRITEBACK_CHECKPOINT_PENDING",
+  "tier": "T3",
+  "verification": [
+    {
+      "command": "cognition_runtime.py checkpoint --apply",
+      "scope": "atomic current-owner state writeback",
+      "status": "PENDING"
+    },
+    {
+      "command": "cognition_runtime.py plan --profile research; cognition_runtime.py check",
+      "scope": "post-write recovery",
+      "status": "PENDING"
+    }
+  ]
+}

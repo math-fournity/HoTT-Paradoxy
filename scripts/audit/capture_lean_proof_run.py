@@ -47,6 +47,18 @@ def source_row(root: Path, relative: Path) -> dict[str, object]:
     return {"path": relative.as_posix(), "bytes": len(data), "sha256": sha(data)}
 
 
+def external_file_row(path: Path, label: str) -> dict[str, object]:
+    if not path.is_absolute() or not path.is_file() or path.is_symlink():
+        raise CaptureError(f"EXTERNAL_FILE_INVALID:{label}:{path}")
+    data = path.read_bytes()
+    return {
+        "label": label,
+        "local_path": str(path),
+        "bytes": len(data),
+        "sha256": sha(data),
+    }
+
+
 def exclusive_write(path: Path, data: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("xb") as handle:
@@ -69,7 +81,17 @@ def main() -> int:
     args = parser.parse_args()
 
     root = args.project_root.resolve()
-    if not (root / ".git").is_dir():
+    # A linked Git worktree has a `.git` *file* pointing at the common
+    # directory, so testing `.git.is_dir()` rejects a valid project root.
+    # Ask Git for the authoritative top-level instead; this also rejects a
+    # nested directory supplied as --project-root.
+    git_root = subprocess.run(
+        ["git", "-C", str(root), "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if git_root.returncode != 0 or Path(git_root.stdout.strip()).resolve() != root:
         raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
     if not args.run_id or "/" in args.run_id or not all(c.isalnum() or c in "._-" for c in args.run_id):
         raise SystemExit("RUN_ID_INVALID")
@@ -104,6 +126,7 @@ def main() -> int:
         "proof_id": args.proof_id,
         "run_id": args.run_id,
         "files": rows,
+        "external_dependencies": [external_file_row(lean_path, "lean-core-binary")],
     }
     source_manifest_data = json_bytes(source_manifest)
     environment = "\n".join([

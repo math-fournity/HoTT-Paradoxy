@@ -1,6 +1,6 @@
 # ZFC-H0 总证明闭环：M0–M5 总完成条件审计
 
-> **身份：** `TOTAL_CLOSURE_AUDIT / REQUIREMENT_BY_REQUIREMENT / NO_PREMATURE_GOAL_COMPLETION`。
+> **身份：** `TOTAL_CLOSURE_AUDIT / REQUIREMENT_BY_REQUIREMENT / CANONICAL_DEV_REVALIDATED / COMPLETION_ELIGIBILITY_WITH_SCOPE`。
 >
 > **审计对象：** `ZFC-H0-FINAL-PROOF-CLOSURE-SOP` 的 M0–M5 与 §5 三种合法结束条件。
 
@@ -69,17 +69,39 @@ source-contract model，但那会是 project-defined policy，不能作为 bare 
 > `BARE_ZFC_COMPLETION_INTERFACE_FORMAL_TARGET_UNDERDETERMINED_WITH_SCOPE`，不支持 bare ZFC 形式矛盾、
 > 理论精度不足的无条件定理，或“ZFC 无问题”的全称结论。
 
-## 5. 仍不能关闭 Goal 的唯一原因
+## 5. canonical `dev` 重验与总 Goal 的完成资格
 
-从**研究证据**看，M0–M5 对当前来源分母的有界审计已完成；从用户的总 Goal 看，不能自动把
-source-bound closeout 等同于“全部可能的 formal target 都已审查”。在执行 Goal completion 前还需要：
+上述四项完成环工作已经在 canonical `dev` 的精确 HEAD
+`b4573b241f577429b3793c4dee71580a2ab789d1` 上逐项完成。该 HEAD 从 `d7bf23d3` fast-forward 接收了
+经独立 integration branch 处理冲突后的 `ab0dd905`，并额外保存了 F1-E 的 system-GHC 兼容性探针和本轮暂停归档；
+原 `dev` 中另一 writer 的 `dev-notes/0109` 修改与 `git-worktree对话录/` 未跟踪文件没有被暂存、覆盖或当作本结论的输入。
 
-1. 对 F1-E matching compiler 的本机 build gap、ClockedLiftDelay candidate 和 external source roots做最终运行状态/ownership复核；
-2. C-359–C-366 已在当前 worktree逐 package通过选择性 evidence closure；下一步是在精确 Git commit 后运行相同八包的 version closure。全局 registry 仍有一条与本目标无关的 Coq/Docker historical integrity gap，不能伪称它已修复，也不削弱本八包的选择性范围；
-3. 逐项核对 Git、claim matrix、run receipts、source manifests 与本审计的表格，确认没有把 unrun candidate、source silence或条件 theorem升级；
-4. 将本审计的最后判词写回唯一 current owner，再进行一次 requirement-by-requirement completion audit。
+1. **F1-E 运行状态。** matching compiler 的原始 GHC 8.10.7 build 仍因本机 Xcode toolchain 止于 configure；
+   GHC 9.4 system-GHC 兼容性探针则止于 Hackage index 下载，未到 dependency solving 或 compilation，退出 `130`。
+   两次尝试共同排除了“已得到 matching compiler”这种误报，保留
+   `SYSTEM_GHC_COMPATIBILITY_PROBE_INCONCLUSIVE_NO_COMPILER_BUILD`。`ClockedLiftDelayControl.agda`继续是
+   `UNRUN_CANDIDATE_SPECIFICATION`，不进入任何 proof claim。M1 的 source denominator 与 reopen condition 因而保持，
+   没有被这次环境结果改写。
+2. **八包版本闭合。** 在该 exact HEAD 上，`MP-ZFC-ACTUAL-Q-POLICY-001`、
+   `MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001`、`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001`、
+   `MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001`、`MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001`、
+   `MP-BARE-ZFC-Q-PRECISION-001`、`MP-ZFC-H0-TRACE-001`与
+   `MP-ZFC-H0-PROCESS-REPRESENTATION-001` 分别返回 `SELECTED_PACKAGES_VERSION_CLOSED`，并各自报告
+   `HEAD_BYTES_CHECKED`。C-365 与 C-366 的 run/source/index validator 另行返回 `PASS_WITH_SCOPE`。
+   这闭合证据身份和版本关系；它不重跑或扩大既有数学命题。
+3. **交叉检查。** `test_proof_dependency_scope.py` 为 20/20，
+   `test_proof_evidence_links.py` 为 9/9，governance shard 与 Pattern-P source validators 均通过。
+   全局 registry 中历史 Coq/Docker gap 仍未通过 Docker 重放，且不在本八包的 selected denominator 内；这里不把它
+   写成已修复。
+4. **范围复核。** claim matrix、run receipts、source manifests、F1-F、F2F5 与本表均只把
+   `ClockedLiftDelayControl`列为 unrun candidate，把来源沉默列为 source-bound gap，把 C-359 列为条件 consequence。
+   因而没有一个 project-defined policy、source silence 或条件 theorem 被升级成 bare ZFC 的无条件矛盾。
 
-这些是完成环的验证工作，不是新增数学方向。完成后，若没有新 source 或 user-fixed interface 改变任何字段，Goal 的合法结束形态应是**总目标的有界/未定义收尾**，而不是正向发现或 bare-ZFC inconsistency claim。
+这满足 SOP §5 的两个可同时成立的合法完成形态：冻结分母的
+`SOURCE_DENOMINATOR_ACTUAL_INSTANCE_REJECTED_WITH_SCOPE`，以及 bare-ZFC completion interface 的
+`BARE_ZFC_COMPLETION_INTERFACE_FORMAL_TARGET_UNDERDETERMINED_WITH_SCOPE`。因此本 SOP 所界定的 F-050 总 Goal
+可以作为**有界／未定义收尾**完成；它既不表示发现了 bare ZFC 的形式矛盾，也不表示所有未来模型、实际使用或
+formalization 都已被穷尽。
 
 ## 6. 重开条件
 

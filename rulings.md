@@ -844,3 +844,65 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 4. 本轮用户目标不允许因来源子图结束、局部 theorem、模型版本不匹配、worker 无输出、timeout 或证据登记故障关闭总 /goal。遇到登记/验证故障时先修复该故障，再继续对应的数学义务。
 
 本裁定授权上述认知闭包、来源/开源调查、形式证明、验证、精确Git提交与必要 current-owner 写回；不授权把项目定义冒充学术界/数学共同体事实、忽略原始来源、tag、push或外部发布。
+
+## 2026-10-04：想法 T 的理论精度上位方案
+
+研究发起人进一步指出：ZFC 问题的本质是理论维度缺失、理论观察力不完备或理论精度不足；想法 T 超越单一理论，可能是从较高精度理论观察不完备性的脚手架。研究发起人要求完整记录紧邻两轮 user/AI 问答，命名新方案，并建立能够跨 Session 和压缩边界持续加载、写回的认知闭包。
+
+执行裁定：
+
+1. 新的上位稳定名为 T-PRECISION-DIAGONAL-SOP，owner 为 dev-docs/理论精度与哥德尔式自反方案.md 及其四片；跨 Session closure 为 认知闭包/T-PRECISION-DIAGONAL-001.md。两轮用户原文由 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md 拥有，四段 user/AI 全文由方案第 001 片拥有。
+2. T 不是“所有不完备都等于维度缺失”的已证明通论。它的可证明候选先分为 T-OBS 的任务相对观察因子化失败、T-DIAG 的有效编码与对角化边界、T-ZFC 的实际 bare-ZFC-facing 实例化；每层都须独立支付对象、接口、来源、同一任务和相称机器证明。
+3. 已有 GODEL-Q-REFLECTION-SOP 不废止：它是 T-DIAG 的实际 completion-interface 执行模块，保留 G0--G5 和自身 closure；T-PRECISION-DIAGONAL-SOP 为其补上 T-OBS 观察边界和 T-Meta 同一任务审计，二者不得被当成平行竞争 Goal。
+4. F-050 已以 CLOSED_WITH_SCOPE 收尾；本裁定只授权方案、source、closure、owner 路由、相称来源核验和将来被明确启动后的形式规格／proof/run。它不重开 F-050，也不授权把想法 T、C-359、C-364、C-366 或来源沉默写成 bare ZFC 的形式矛盾、已证理论缺陷或已完成哥德尔式定理。
+5. T0 的第一项还包括用现有 curation manager 判断这两轮用户原文是否进入新 core generation；在完成该步骤前，它们是完整保存的 plan source，而不是自动的核心认知 current fact。
+
+## 2026-10-04：采用哥德尔式 ZFC 完成观察与反射边界方案
+
+研究发起人要求从元思维和元元思维上研究如何神似地借鉴哥德尔，而不是表面模仿自指句式；并明确要求把该方案命名、完整记录，并建立可跨 Session 加载和写回的认知闭包。原文由 sources/prompts/Codex-Godel式ZFC完成观察反射方案-用户原文-20261004.md 拥有。
+
+执行裁定：
+
+1. 新方案稳定名为 GODEL-Q-REFLECTION-SOP，owner 为 dev-docs/哥德尔式ZFC完成观察反射方案SOP.md 及其三片；可审计启动闭包为 CC-20261004-godel-q-reflection。
+2. 方案的研究对象是一个真实、版本固定的 ZFC-facing completion acceptance interface 的保真编码、有限验证、对角化与 completion reflection boundary；它不是“哥德尔一般定理证明 ZFC 有时间问题”的简写。
+3. C-359 保持条件 consequence kernel，C-366 保持 representability control，历史 R3-R4 保持相关但不同的 HoTT calculus 路线。三者均不得自动充当 actual Accept_T、OriginDone、ρ、diag 或哥德尔式 theorem。
+4. 当前 Host Goal 仍是 paused。创建方案、source anchor、Feature、README/MEMORY route 与认知闭包不构成恢复指令；执行必须由研究发起人随后明确引用该 SOP 或恢复相应 Goal。
+5. 本裁定授权方案、认知闭包、必要索引、相称来源核验、形式规格、proof/run 以及精确 Git commit；不授权将方案直接升级为 bare ZFC 矛盾、启动未明示的 Host Goal、Sub Agent、发布、tag 或 push。
+
+## 2026-10-04：采纳理论精度—对角自反上位方案并要求持续闭包
+
+研究发起人明确要求“调整方案，走这个新的方案”，要求把紧邻的元／元元哥德尔式回复完整记录成可由 `/goal` 引用的命名方案，并在多 Session、压缩恢复之间持续加载和写回相应认知闭包。逐字用户来源由`sources/prompts/Codex-T-PRECISION-DIAGONAL-SOP-采纳与闭包续航指令-20261004.md`拥有。
+
+执行裁定：
+
+1. 上位方案的稳定名为`T-PRECISION-DIAGONAL-SOP`，canonical owner 为`dev-docs/理论精度与哥德尔式自反方案.md`及其001–004分片；唯一跨 Session capsule 为`认知闭包/T-PRECISION-DIAGONAL-001.md`。不另造一份与其竞争或复制当前真值的方案／闭包。
+2. 该方案把 T-OBS、T-DIAG、T-Meta 与 T-ZFC 分层。`GODEL-Q-REFLECTION-SOP`继续作为T-DIAG的实际completion-interface执行模块；选择T-DIAG时必须复用其G0–G5及`CC-20261004-godel-q-reflection`，不得新建同义的GodelizationCard路线。
+3. “已采纳”只确认方案、恢复入口、写回职责和可引用启动词；它不自动选择T-DIAG/T-Meta/T-ZFC的后继单元，不恢复F-050，也不将C-367、条件性对角骨架、来源沉默或host层运行升级为想法T、bare ZFC精度缺陷、actual Q或ZFC对象语言矛盾。
+4. 每次后续`/goal`启动先重建受影响闭包，冻结唯一T单元的任务域、接口、理论变体、来源分母、反控制与停止条件；每一自然单元随后把新用户合同、来源、形式命题、run、失败、结论边界和下一判别动作写回各自唯一owner，并回读`T-PRECISION-DIAGONAL-001`。
+
+本裁定授权以上source、plan、closure、Feature、MEMORY、入口与相称Git谱系更新；不扩大为自动外部研究、Sub Agent、Host Goal、发布、tag或push授权。
+
+## 2026-10-04：T-PRECISION 的连续执行与总体完成语义
+
+研究发起人直接追问：“为什么你没有全部做完再停下？”这纠正了先前把 `T-PRECISION-DIAGONAL-SOP` 的“最小判别单元”误当作整体停止点的执行错误。
+
+执行裁定：
+
+1. T-OBS、哥德尔机制基线、T-DIAG、T-Meta 和 T-ZFC 是同一想法 T 的连续证据链。每个原子单元只约束一次研究的对象冻结、来源分母、反控制、机器证明与写回粒度；它不是再次请求研究发起人批准的门，也不是总体 Goal 的完成条件。
+2. 在总体 Goal active 时，Master 必须在每个原子单元后依照该单元暴露的证据缺口，自动选择仍能改变总体结论的最小后继单元。路由级正结果、受限负结论或 source-target 未支付只结束该路由，并须先检查是否释放另一个 T-DIAG、T-Meta 或 T-ZFC 后继。
+3. 整体只能在全部已承诺路径均取得相称的机器证明、受限负结论或明确外部不可支付条件，并完成方案、认知闭包、Feature、MEMORY、来源／证据 owner 与 Git 谱系写回后停止。这个收尾仍是授权范围内的研究路线收尾，不等价于“所有理论没有问题”或“bare ZFC 没有问题”。
+4. 本裁定授权更新 T-PRECISION 的停止语义、持续认知闭包、来源／开源调查、相称形式化与机器证明、精确 Git 提交和 current-owner 写回；不授权把任一局部结论升级为 bare ZFC 对象语言矛盾、数学共同体事实或外部发布。
+
+## 2026-10-04：bare ZFC 核心充分性研究不得再被外围接口闭环替代
+
+研究发起人直接指出：此前 T、`set.mm`、ACL2、generic Gödel 与抽象 observation/diagonal 的工作没有进入 ZFC 核心问题；没有拿到最终形式化和机器证明不得停止。研究发起人要求建立一个稳定可引用的 `/goal` 方案，并在跨 Session、压缩恢复中持续加载、写回相应认知闭包。
+
+执行裁定：
+
+1. 新稳定名为 `ZFC-META-SUBTHEORY-ADEQUACY-SOP`，canonical owner 为 `dev-docs/ZFC元理论子理论充分性最终闭环SOP.md`及其 001–004 分片；唯一跨 Session closure 为 `认知闭包/ZFC-META-SUBTHEORY-ADEQUACY-001.md`。
+2. 核心对象必须是 actual `M / S / Q / FormalDone / OriginDone / P / Bridge / Adequacy`：M 是 bare ZFC 或来源明确的 ZFC-founded foundation context，S 是其连续统／极限子理论，Q 是芝诺／圆环原任务，P 是实际 promotion。proof checker、generic Gödel、ACL2、项目 fixture、来源沉默和单一模型均只能作为 control。
+3. C0–C6 是一个连续 Goal。任一 local source gap、task switch、compiler block、proof rejection 或 control success 只关闭一个叶，必须 successor scan 并自动进入下一最小核心单元；它们不得暂停、完成或要求研究发起人逐叶重新授权。
+4. 只有总方案第 004 片的八项总完成门全部满足、source-to-spec fidelity table 和保存 kernel run 支撑 `CORE_ADEQUACY_FAILURE_WITH_SCOPE` 或 `CORE_ADEQUACY_DEFENSE_WITH_SCOPE` 后，才可完成 Goal。`CORE_CONTRACT_NOT_YET_FIXED`、`FORMAL_TARGET_UNDERDETERMINED` 或任何 surrogate closure 均保持 Goal active。
+5. H0 只有支付 `SameQ_H0` 与 `UniformJudgment` 后才可成为 core consequence；否则保留为控制，禁止以结构类比写作同 Q 异判。
+
+本裁定授权新的 primary source、Feature、SOP、closure、Task routing、MEMORY、相称来源／formalization／machine proof、精确 Git commit与既有用户授权范围内的 push；不授权把该执行合同本身当成 bare ZFC 数学缺陷或对象语言矛盾。
