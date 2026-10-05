@@ -6,6 +6,8 @@
 
 - [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，并完整保存紧邻两轮哥德尔式元／元元讨论。方案分为 T-OBS 相对观察精度、T-DIAG 自编码完成接口和 T-ZFC 实例化；跨 Session 的恢复入口为 `认知闭包/T-PRECISION-DIAGONAL-001.md`。当前严格处于 `PLAN_READY_NOT_EXECUTING`：它不自动恢复已暂停的 ZFC-H0 总证明 Goal，也不把 T、条件性观察边界或既有控制包写成 bare ZFC 缺陷定理。
 
+- [GODEL-ZFC-CONVERGENCE-SOP：哥德尔式 ZFC 理论精度收敛闭环](哥德尔式ZFC理论精度收敛闭环SOP.md)：研究发起人要求未来 `/goal` 不再把一个来源、模型、compiler、局部形式化或 scoped negative 当作整条哥德尔—ZFC 路线的停止点。本 SOP 在不复制 T-PRECISION、R3–R4 和 ZFC-H0 M0–M5 的真值职责前提下，拥有它们之间的连续推进、successor、总完成状态机和跨 Session 恢复；对应闭包为 `认知闭包/GODEL-ZFC-CONVERGENCE-001.md`。稳定启动名是 `GODEL-ZFC-CONVERGENCE-SOP`；当前为 `GOAL_PREPARED_NOT_AUTOSTARTED`，不因文档存在自行恢复研究。
+
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。
 
 - [ZFC-H0-FINAL-PROOF-CLOSURE-SOP：ZFC 的 Q/P/A/B 总形式化与机器证明闭环](ZFC-H0最终形式化与机器证明闭环SOP.md)：总任务的执行合同。它把 H0→Z0 的来源停止改回一个局部事件，统一管理 fixed H0 semantic transport、A 侧真实过程、P/Q 的 bare-ZFC-facing 接口、SameFullQ 和最终结论；每一工作单元必须支付 M0–M5 的一个明确义务，不能用新的条件 fixture 冒充最终证明。

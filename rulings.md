@@ -844,3 +844,17 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 4. 本轮用户目标不允许因来源子图结束、局部 theorem、模型版本不匹配、worker 无输出、timeout 或证据登记故障关闭总 /goal。遇到登记/验证故障时先修复该故障，再继续对应的数学义务。
 
 本裁定授权上述认知闭包、来源/开源调查、形式证明、验证、精确Git提交与必要 current-owner 写回；不授权把项目定义冒充学术界/数学共同体事实、忽略原始来源、tag、push或外部发布。
+
+## 2026-10-04：哥德尔式 ZFC 路线必须按总闭环而非局部缺口推进
+
+研究发起人明确指出：此前把“当前还不能将哥德尔式核自动归因成 bare ZFC 的时间观察力缺失”说成“哥德尔路线无法继续”是错误的终止判断。用户要求建立一个可由 `/goal` 稳定引用的方案，并维护其跨 Session、跨压缩持续加载与写回的认知闭包，使未来工作不会因局部桥未支付而中途停下。
+
+执行裁定：
+
+1. 新建稳定引用名 `GODEL-ZFC-CONVERGENCE-SOP`，全名“哥德尔式 ZFC 理论精度收敛闭环 SOP”，canonical path 为`dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md`；对应唯一跨 Session 闭包为`认知闭包/GODEL-ZFC-CONVERGENCE-001.md`。
+2. 它不替代 `T-PRECISION-DIAGONAL-SOP` 的理论规格、R3–R4 的独立句／HoTT 保真任务，或`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`的 M0–M5 证明义务；它只拥有这三条线之间的路线登记、successor、总完成状态机和恢复合同。
+3. source gap、模型变体不匹配、compiler/toolchain失败、timeout、局部 theorem、局部负控制、局部来源拒绝或任一 scoped negative，只能关闭其冻结 target。每个局部关闭都必须产生改变判别面的 successor，或记录一个可验证的 external blocker 后转向独立 READY route；不得把“这一轮没有现成下一步”写成总完成。
+4. 总 `/goal` 只可在实际正闭环、全部声明路线有界结算、正式目标经用户／来源审计仍不可确定，或用户明确暂停／取消时结束。一般 Gödel 结果、宿主 proof assistant、项目自定义接口和来源沉默均不得升级为 bare ZFC 的理论精度结论。
+5. 每个自然单位必须更新闭包中的 active route、来源／proof snapshot、paid/unpaid bridge、范围 verdict、successor、reopen 条件和精确 Git 谱系；`MEMORY`、Feature 等当前 owner 在 file baseline 安全时再更新，不得覆盖其它 writer 的 dirty 工作。
+
+本裁定授权上述 SOP、closure、项目路由、开发索引、必要的 ruling 写回、相称验证与精确 Git commit；不自动启动研究、worker、网络、push、tag、外部写入或清理／接管其它 worktree 的未提交资产。
