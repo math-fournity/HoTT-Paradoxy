@@ -11,13 +11,13 @@ soft_line_target: 300
 
 # GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案
 
-> **身份：** RESEARCH_PROFILE_GOVERNED / G0_ACTIVE_WITH_SCOPE / NOT_A_MATHEMATICAL_THEOREM。
+> **身份：** RESEARCH_PROFILE_GOVERNED / G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / G2_M_LEVEL_PRECONDITION_CONTROL_MACHINE_PROVED_WITH_SCOPE / NOT_A_MATHEMATICAL_THEOREM。
 >
 > **稳定引用名：** GODEL-Q-REFLECTION-SOP。
 >
 > **父结果：** F-050 已完成的有界证据／控制记录；本方案在该记录之外研究真实 completion acceptance interface 与 Q，不重写 C-359 至 C-366，也不自动重开 F-050。
 >
-> **当前激活状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_VERIFIER_REPLAYED / SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE / MM0_MATCHING_RUNNER_BUILT_AND_COMMENT_NORMALIZED_DATABASE_TRANSLATED_AND_MMB_VERIFIED_WITH_SCOPE / RAW_SETMM_DIRECT_PARSE_REJECTED_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`。当前 Goal 已完成 G0 的来源分母和 set.mm G2 source requalification；MM0 matching runner 已可执行并对经过六条 `$j` comment metadata规范化的数据库完成 M-level translation/verification，但 raw direct parser replay仍被该 metadata syntax拒绝。F-050 的已有界收尾仍不因本模块恢复。G1、G3–G6仍须等同一来源的 process contract、`OriginDone`、`ρ` 与 bridge。
+> **当前激活状态：** `G0_SOURCE_DENOMINATOR_COMPLETE_WITH_SCOPE / ACTUAL_PROOF_ACCEPTANCE_INTERFACE_VERIFIER_REPLAYED / SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE / M_LEVEL_SOURCE_BOUND_VOCABULARY_EXTENSION_MACHINE_PROVED_WITH_SCOPE / MM0_MATCHING_RUNNER_BUILT_AND_COMMENT_NORMALIZED_DATABASE_TRANSLATED_AND_MMB_VERIFIED_WITH_SCOPE / RAW_SETMM_DIRECT_PARSE_REJECTED_WITH_SCOPE / ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE / PARENT_COMPLETION_ACCEPTANCE_INTERFACE_UNDERDETERMINED_WITH_SCOPE`。当前 Goal 已完成 G0 的来源分母和 set.mm G2 source requalification；C-369 已将 exact raw vocabulary 的 infinite-variable-extension 子义务机器化为 M-level control，但没有构造 internal `mFS` witness。MM0 matching runner 已可执行并对经过六条 `$j` comment metadata规范化的数据库完成 M-level translation/verification，但 raw direct parser replay仍被该 metadata syntax拒绝。F-050 的已有界收尾仍不因本模块恢复。G1、G3–G6仍须等同一来源的 process contract、`OriginDone`、`ρ` 与 bridge。
 
 ## 当前层级与调用边界
 

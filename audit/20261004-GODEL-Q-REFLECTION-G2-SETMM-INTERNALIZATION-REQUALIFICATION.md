@@ -134,6 +134,30 @@ UPSTREAM_DEVELOP_DELTA_NO_G2_MAPPING_CANDIDATE_WITH_SCOPE
 
 它支持继续使用 `160ebb…` 的 source-bound gap，不能证明未来 revision、其它 companion source 或一个新写出的内部化构造永远不会支付它。尤其不能把“当前 upstream 没有看到 candidate”升级成 `mFS` witness 或 `Prv` adequacy 不可构造的定理。
 
+### 4.6.3 C-369：把无限 variable extension 写成源绑定的 M-level 控制
+
+Appendix C 与 `ismfs` 对 actual mapping 提出的首个明确结构义务是：有限 raw `$v` token pool 不能直接等于 abstract formal-system 的 variable universe；每个 source variable type 都需要一个无限 extension。本轮没有把这个义务假装成已经在 ZF 内支付，而是由
+`scripts/audit/generate_setmm_appendix_c_vocabulary.py` 对 exact raw source 作可重放提取：355 个 distinct variable、1474 个 distinct constant，变量类型分布为 `wff=61`、`setvar=139`、`class=155`。
+
+`MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-001` 随后把这份 generated vocabulary 接入 Lean 4.34.1 core。C-369 证明 source-variable embedding 为单射且保留 `$f` type，并为每个 source type 给出由 `Nat` 索引的单射 fresh family；`raw v000 = fresh wff 0` 的伪等式被同一 runner 拒绝。完整 source、正负运行与禁止外推见 [formal claim](../HoTT/formal/godel-q-reflection/SetMMAppendixCVarExtension-CLAIM.md) 和 [current positive receipt](../HoTT/verification/runs/20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-003/RUN.json)。
+
+这只把下列最左一段付成机器检查的 M-level construction：
+
+```text
+exact finite $v/$f vocabulary
+  → typed raw embedding + countably infinite fresh extension
+```
+
+仍未支付：
+
+```text
+all actual source frames → internal mAx/mStat
+actual verified proof traces → mPPSt/mThm
+internal T ∈ mFS witness → adequate Prv → target diagonal
+```
+
+所以 C-369 是 `M_LEVEL_SOURCE_BOUND_VOCABULARY_EXTENSION_MACHINE_PROVED_WITH_SCOPE`，而不是 `ACTUAL_SETMM_TO_MFS_MAPPING_PAID`。
+
 ### 4.7 `from-mm` 的真实能力与当前 host toolchain gap
 
 同一固定 MM0 source 的 `mm0-hs/README.md` 和 `MM0.FromMM` source 实际给出命令：
@@ -188,6 +212,7 @@ exact source 与官方 Appendix C 已完成这一项 source-level检查：Append
 
 ```text
 SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE
+M_LEVEL_SOURCE_BOUND_VOCABULARY_EXTENSION_MACHINE_PROVED_WITH_SCOPE
 MM0_M_LEVEL_TRANSLATION_CONTROL_VERIFIED_WITH_SCOPE
 RAW_SETMM_DIRECT_FROM_MM_PARSE_REJECTED_WITH_SCOPE
 ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE

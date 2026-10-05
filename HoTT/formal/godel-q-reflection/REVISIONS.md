@@ -1,0 +1,13 @@
+# GODEL-Q `set.mm` Appendix-C 变量扩张修订记录
+
+| Run | 状态 | 发生了什么 | 处置 |
+|---|---|---|---|
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-001` | positive accepted | 生成器从 exact raw `set.mm@160ebb…` 重生 vocabulary source，Lean 4.34.1 core 接受五条 selected theorem，且 `#print axioms` 均报告无公理。 | 保留为正向 primary 候选，待 claim-matrix 与 proof-index 闭环后再冻结。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-NEG-001` | capture classification failure | `WrongSetMMFiniteVocabulary.lean` 已实际在 `rawEmbedding v000 = freshFamily wff 0` 处被 Lean 拒绝；初版 capture 仅检查 `stderr`，而本版本 Lean 将诊断写入 `stdout`。 | 保留失败收据；修复 capture 汇总 stdout/stderr 后以 `-NEG-002` 重放。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-NEG-002` | expected rejection confirmed, provisional source manifest | 修复后的捕获器正确识别 Lean 对 raw/fresh 混同的拒绝；随后 `CLAIM.md` 的 current pointer 更新。 | 保留为有效控制谱系；后续 runner 取代其隐藏临时 import 前提。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-002` | kernel accepted, replay-contract failure | current claim、README、toolchain、generator和源审计均已冻结后，Lean 4.34.1 core 接受五条 selected theorem且均无公理；但 receipt command 没有编码临时 `LEAN_PATH`／`.olean` 依赖，独立 rerun 失败。 | 保留原始收据和失败诊断；不再作 indexed primary。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-NEG-003` | expected rejection confirmed, replay-contract superseded | positive prerequisite、byte-identical generated input和错误 raw/fresh equality均在同一 source manifest 下重放；Lean 于精确错误目标拒绝。 | 保留为控制谱系；后续 runner 取代其隐藏临时 import 前提。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-003` | kernel accepted and runner replayed, contextual-manifest drift | stable runner 将 generated `.olean` 与 `LEAN_PATH` 显式纳入实际 command；生成器逐字重生输入，Lean 4.34.1 core 接受五条 selected theorem且均无公理。随后 audit／claim current owners 继续更新，故其含 mutable contextual owners 的 manifest 不再是 current primary。 | 保留为 runner qualification；最终 manifest由 `-004` 只固定 proof-relevant files。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-NEG-004` | expected rejection confirmed, predecessor manifest | 同一 stable runner 先编译 positive prerequisite，再在精确 raw/fresh equality 目标处获得 Lean rejection。 | 保留为 control谱系；当前 primary pair由 `-004/-NEG-005` 的稳定 manifest 指向。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-004` | final positive accepted and replayable | stable runner 显式重建 generated `.olean` 与 `LEAN_PATH`；source manifest 只固定 proof-relevant files，生成器逐字重生输入，Lean 4.34.1 core 接受五条 selected theorem且均无公理。 | 当前正向 primary。 |
+| `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-NEG-005` | final expected rejection confirmed and replayable | 同一 stable runner 先编译 positive prerequisite，再在精确 raw/fresh equality 目标处获得 Lean rejection。 | 当前负控制。 |
