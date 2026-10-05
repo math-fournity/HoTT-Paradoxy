@@ -2,7 +2,7 @@
 
 > **状态：** `CURRENT_T_PRECISION_SOURCE_DENOMINATOR_CLOSED_WITH_SCOPE`。
 >
-> **范围：** T-PRECISION 已承诺的当前分母：T-OBS、Foundation generic Gödel baseline、`set.mm@160ebb…` proof acceptance、fixed H0 trace/C-365、Foundation Zermelo sequence control/C-366、IEP/Norton completion contract 和 C-368。
+> **范围：** T-PRECISION 已承诺的当前分母：T-OBS、Foundation generic Gödel baseline、`set.mm@160ebb…` proof acceptance、fixed H0 trace/C-365、Foundation Zermelo sequence control/C-366、IEP/Norton completion contract、C-368，以及随后按同一 TaskPrecisionCard 审查的 ACL2／Zeno 跨理论入口。
 
 ## 路由支付表
 
@@ -13,6 +13,7 @@
 | T3 / T-DIAG | C-368：paid self-code/diagonal/bridge ⇒ rejection；bridge-missing control。 | `MACHINE_PROVED_WITH_SCOPE` | actual target 的 `ρ`、adequate `Prv`、diag 和 parent bridge 未被 source 支付。 |
 | T4 / T-Meta | `set.mm` full verifier replay、comment-scan DifferentTask control、C-365/C-366/C-368版本闭包。 | `SAME_TASK_BRIDGE_UNPAID_WITH_SCOPE` | proof/database Done 与 H0/Zeno/Circle Done 没有同源合同。 |
 | T5 / T-ZFC | `set.mm` 是真实 ZFC-facing proof interface；其 parent interface字段逐项审计。 | `CURRENT_INTERFACE_REJECTED_WITH_SCOPE / FORMAL_TARGET_UNDERDETERMINED_WITH_SCOPE` | 当前 source 没有定义 bare-ZFC parent completion interface；项目自造的接口不会成为 bare-ZFC 结论。 |
+| 新来源控制 / ACL2-Zeno | `iris-number-system-acl2@3451a080…` README 的 Zeno／physical-path 叙述与 Lisp 的 `zeno-dichotomy-resolution` 逐项对照。 | `ACL2_ZENO_SOURCE_INGRESS_NO_ADMISSIBLE_T_TARGET_WITH_SCOPE` | 实际 theorem 仅给 `dist * omega` 的 rationality；source 未支付 physical Process、`ρ`、OriginDone、bridge 或本机 certification receipt，且它不是 ZFC instance。 |
 
 ## 当前可交付结论
 
@@ -36,4 +37,6 @@
 
 ## 认知 checkpoint 边界
 
-本轮建立了完整的 session/audit、Feature、MEMORY、plan、closure 和 Git 谱系。`cognition_runtime.py plan --profile research --task F-052` 仍被预先存在的 `HEAD.json` hash 漂移阻断：它的 revision 298 `tracked` hash 不再匹配后来已提交的 `MEMORY/001`。该 runtime fail-closed 行为被保留为 `BLOCKED_PREEXISTING_HEAD_HASH_STALE`；本轮没有手改 HEAD 或伪造 `CHECKPOINT_COMMITTED`。它不影响 C-365/C-366/C-368 的各自 kernel/registry evidence，但需要一次独立、授权的 cognition checkpoint repair 才能恢复 runtime plan/read 的自动水合。
+原始收束时发现的 revision 298 `HEAD.json` hash 漂移已由独立的 `S-GOV-20261005-T-PRECISION-CLOSURE-REPAIR` 正式 checkpoint 修复（revision 299，`result.json.status=CHECKPOINT_COMMITTED`，Git `4a75ca92`）；`cognition_runtime.py plan --profile research` 已恢复可用。`F-052` 是 Feature ID 而非 STATE task record，所以 `plan --task F-052` 的 `TASK_RECORD_SELECTION_INVALID` 是输入类别错误，不是 T 的研究阻塞或总体未收束证据。
+
+ACL2 入口审计完成后，本 closeout 的状态保持 `CURRENT_T_PRECISION_SOURCE_DENOMINATOR_CLOSED_WITH_SCOPE`：它扩大了受审跨理论来源分母，却没有提供可重开 T-DIAG、T-Meta 或 T-ZFC 的 actual payment。未来只在本文件已列的重开条件或 ACL2 审计的同源 payment 条件满足时，重新冻结受影响的最小单元。
