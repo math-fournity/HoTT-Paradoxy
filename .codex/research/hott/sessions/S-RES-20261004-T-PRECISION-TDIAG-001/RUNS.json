@@ -3,7 +3,7 @@
   "session_id": "S-RES-20261004-T-PRECISION-TDIAG-001",
   "tier": "T3",
   "role": "RESEARCH_GENERATION",
-  "status": "T_DIAG_LOGICAL_KERNEL_MACHINE_PROVED_WITH_SCOPE_ACTUAL_PARENT_BRIDGE_UNPAID_TMETA_NEXT",
+  "status": "T_DIAG_LOGICAL_KERNEL_MACHINE_PROVED_WITH_SCOPE_SELECTED_PACKAGE_VERSION_CLOSED_ON_CANDIDATE_BRANCH_ACTUAL_PARENT_BRIDGE_UNPAID_TMETA_NEXT",
   "new_formal_runs": [
     {
       "proof_id": "MP-T-PRECISION-TDIAG-001",
@@ -43,8 +43,8 @@
     },
     {
       "command": "verify_proof_version_closure.py --proof-id MP-T-PRECISION-TDIAG-001",
-      "status": "PENDING_GIT_VERSION_CLOSURE",
-      "scope": "requires the exact evidence package to be committed before HEAD-byte verification"
+      "status": "SELECTED_PACKAGES_VERSION_CLOSED / HEAD_BYTES_CHECKED",
+      "scope": "candidate branch commit 3e8c6111; canonical integration remains a separate step"
     }
   ],
   "next": "T-Meta same-task / bridge-payment adjudication; do not repeat G0 source scanning or treat C-368 as a bare-ZFC result."

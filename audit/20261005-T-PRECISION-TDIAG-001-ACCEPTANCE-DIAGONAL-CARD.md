@@ -58,6 +58,8 @@ bridge             Accept d → OriginDone (D d)
 
 机器资产使用 Lean core，并已保存 source、toolchain、正向运行、负控制、source manifest、claim matrix 与 proof-version registry。`MP-T-PRECISION-TDIAG-001` / C-368 的 primary run 是 `20261004-MP-T-PRECISION-TDIAG-001-02`；错误 bridge control `20261004-MP-T-PRECISION-TDIAG-NEG-001-01` 被预期拒绝。`-01` 保留为 capture-before-final-claim-status 的历史收据，`-02` 将 final claim/source 状态绑定到 matrix row。来源仍未把 fixed process 的 `OriginDone` 与 `Accept` 接到同一任务，故当前只能给出 `T_DIAG_LOGICAL_KERNEL_MACHINE_PROVED_WITH_SCOPE / ACTUAL_PARENT_BRIDGE_UNPAID_WITH_SCOPE`。
 
+在候选分支提交 `3e8c6111` 后，`verify_proof_version_closure.py --proof-id MP-T-PRECISION-TDIAG-001` 返回 `SELECTED_PACKAGES_VERSION_CLOSED / HEAD_BYTES_CHECKED`。这认证该候选 commit 的文件闭合；它不表示 canonical `dev` 已经集成，也不改变来源／实际任务边界。
+
 ## 6. 禁止外推
 
 本卡不预设也不证明：
