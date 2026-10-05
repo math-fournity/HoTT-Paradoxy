@@ -38,7 +38,7 @@ M_S_THEOREM_IDENTITY_AND_ADEQUACY_DUTY = UNPAID
 
 - 若把 IEP 的 generic standard analysis 直接编码成一个新 Lean theorem，Lean run只能证明该编码；它不会使 IEP P 真正消费 Mizar/Isar theorem。
 - 若把 `ExplicitTaskSwitch` 写成类型构造，得到的仍是 C-362 同类逻辑后果，不能凭此表示 bare ZFC承担或免除物理语义责任。
-- 若把 C5E 的 `ProcessCompletionAudit` 直接加作 M 的 field，会形式化**用户规范前提**，不再是来源已指定的 bare-ZFC role；这可以作为后续哲学 extension，但不能冒充当前 C6。
+- C5E 的 `ProcessCompletionAudit` 现已作为独立 `ZFC+Q_norm` 规范包（C-370–C-374）完成 Lean core 检查：它精确规定 paid bridge、explicit task switch与missing bridge的判词。它仍是**用户规范前提**，不是来源已指定的 bare-ZFC role；故不改变当前 C6 的未准入状态。
 
 ## 5. successor
 

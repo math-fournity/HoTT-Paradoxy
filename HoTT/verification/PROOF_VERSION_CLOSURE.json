@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 221,
+  "later_machine_proved_claim_count": 226,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1115,6 +1115,16 @@
       "source": "HoTT/formal/godel-q-reflection/SetMMAppendixCVarExtension.lean",
       "toolchain": "HoTT/formal/godel-q-reflection/LEAN_CORE_TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: source vocabulary preserves $f type under an injective raw embedding, and every source type admits an explicit countably infinite fresh extension; raw and fresh constructors remain distinct."
+    },
+    {
+      "claim_ids": "C-370..C-374",
+      "kind": "lean_core_user_normative_process_completion_audit",
+      "notes": "This package formalizes an explicit user-normative audit extension, ZFC+Q_norm. It validates the contract-level distinction paid bridge / explicit task switch / missing bridge. It does not formalize bare ZFC, establish that current mathematical practice follows the audit, prove an actual Zeno-to-HoTT SameFullQ mapping, or derive an object-language inconsistency.",
+      "proof_id": "MP-ZFC-NORMATIVE-PROCESS-AUDIT-001",
+      "run": "HoTT/verification/runs/20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03",
+      "source": "HoTT/formal/zfc-normative-process-audit/ProcessCompletionAudit.lean",
+      "toolchain": "HoTT/formal/zfc-normative-process-audit/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: an explicit process-completion audit reports original resolution only with a supplied FormalDone-to-OriginDone certificate; visible task switches and missing bridges cannot be silently promoted."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

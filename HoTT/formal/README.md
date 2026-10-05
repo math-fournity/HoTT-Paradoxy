@@ -10,13 +10,15 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 从 `MATH_PROOF_BEFORE_DELIVERY_V1` 生效后，当前 AI 要交付为已成立的数学结论，其精确证明源码必须先进入本目录。新证明优先使用 `formal/<topic-or-claim-id>/`，保存形式命题、证明、项目/构建文件和锁定依赖身份；实际运行原件进入 `../verification/runs/<run-id>/`，唯一快速索引进入 `../CLAIM_EVIDENCE_MATRIX.md`。聊天代码块、内存变量和 `/tmp` 中的唯一副本均不构成证明资产。
 
-当前 **17 个冻结 package** 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；其后 package 走同一 registry 的 `later_packages` **追加登记**。截至 `C-249` 共登记 25 个 later package / 101 条 later claim；最新的 R1/R2/R3/R4、2LTT/LOPS/ITT 程序包仍是 `LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED`。Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
+当前 **17 个冻结 package** 的 source/run/index 已由 `../verification/PROOF_VERSION_CLOSURE.json` 固定到 commit `d3dfb0e1869f5f05527f23ef4cb05dc95352eb10`；其后 package 走同一 registry 的 `later_packages` **追加登记**。later package 与 claim 的当前数量必须从该 registry 读取，不在本页固化容易过时的计数。Git closure 不改写历史 RUN.json 或 frozen matrix 行，也不扩大任何命题范围。
 
 ## 文件
 
 - `zfc-actual-q-policy/`：`MP-ZFC-ACTUAL-Q-POLICY-001` / C-359 将用户提出的Q缺失、数学幻觉P、A/B和`ZFC-1`写成明确前提的Lean policy use-model；`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / C-360在原生Cubical Agda中固定HoTT Q对“coarse completion→original finite halting”的P反例；`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / C-361在固定几何级数上证明极限不推出严格有限阶段Done，并保留闭连续时间端点正控制；C-362与C-363将 Norton/IEP 的 revised completion 来源合同和固定HoTT B分别写成相同的 completion-gap schema。它们不形式化bare ZFC或实际来源政策，详见目录`CLAIM.md`。
 
 - `bare-zfc-q-precision/`：`MP-BARE-ZFC-Q-PRECISION-001` / C-364 以一个来源绑定的有限 completion-contract control 区分粗标准解答 view、OriginDone 与 completion bridge：同一粗 resolved view 不能决定 OriginDone 或支付 universal bridge；显式 contract view 与 code view 是正控制。它是 ZFC-supported Standard Solution application interface 的精度控制，**不**形式化 bare ZFC 本身，不主张 ZFC 不能编码过程或 ZFC 不一致，详见目录`CLAIM.md`。
+
+- `zfc-normative-process-audit/`：`MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / C-370–C-374 将研究发起人明确提出的 `ZFC+Q_norm` 过程完成审计写成 Lean core interface：只有来源提供的 `FormalDone → OriginDone` certificate 才能给出 `originalResolved`；明确改题只能给 `revisedResolved`；bridge缺失必须给`bridgeRequired`，后二者都不能静默被报告为原任务完成。它是一个**规范性 extension**，不是 bare ZFC、历史数学共同体政策、Zeno–HoTT同Q映射或 ZFC 矛盾的形式化；详见目录`CLAIM.md`和 frozen primary run `../verification/runs/20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03/`。
 
 - `t-precision-observation/`：`MP-T-PRECISION-TOBS-001` / C-367 是 T-PRECISION 的首个抽象 T-OBS 单元。Lean core 证明：指定 project 将 x,y 压成同一输出而指定 observe 在二者上相反时，observe 不存在只经 project 的全域 decoder；identity/rich view 是正控制，Bool/Unit 伪 decoder 被负控制拒绝。它只证明函数／命题因子化边界，不形式化 bare ZFC、HoTT、现实任务、对角化或“抽象必然导致悖论”。
 

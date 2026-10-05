@@ -47,6 +47,25 @@ def source_row(root: Path, relative: Path) -> dict[str, object]:
     return {"path": relative.as_posix(), "bytes": len(data), "sha256": sha(data)}
 
 
+def external_file(path: Path, label: str) -> dict[str, object]:
+    """Pin a concrete tool binary that lies outside the project tree.
+
+    A later proof-version closure must be able to distinguish a proof source
+    from the particular Lean executable that checked it.  The generic capture
+    path previously recorded the executable only in `environment.txt`, which
+    is informative but not a source-manifest integrity binding.
+    """
+    if not path.is_file():
+        raise CaptureError(f"EXTERNAL_DEPENDENCY_MISSING:{label}:{path}")
+    data = path.read_bytes()
+    return {
+        "label": label,
+        "local_path": str(path),
+        "bytes": len(data),
+        "sha256": sha(data),
+    }
+
+
 def exclusive_write(path: Path, data: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("xb") as handle:
@@ -99,11 +118,14 @@ def main() -> int:
     result = subprocess.run(command, cwd=root, capture_output=True, check=False)
     completed = dt.datetime.now(dt.timezone.utc)
 
+    external_dependencies = [external_file(lean_path, "lean-core-binary")]
     source_manifest = {
         "schema_version": "formal-proof-source-manifest/v1",
         "proof_id": args.proof_id,
         "run_id": args.run_id,
         "files": rows,
+        "external_dependencies": external_dependencies,
+        "policy": "The Lean executable is pinned as an external dependency; the proof source is otherwise checked against Lean core only.",
     }
     source_manifest_data = json_bytes(source_manifest)
     environment = "\n".join([
@@ -158,6 +180,7 @@ def main() -> int:
         "stdout_bytes": len(result.stdout),
         "stderr_bytes": len(result.stderr),
         "source_files": len(rows),
+        "external_dependencies": len(external_dependencies),
         "index_status": run["index_status"],
     }, ensure_ascii=False))
     return result.returncode

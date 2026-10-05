@@ -1799,3 +1799,22 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | C-369 | 对由 exact raw `set.mm@160ebb…` 的 `$v/$f` declarations 生成的 355 个 `RawVar`，`rawEmbedding` 保持 source type 且为单射；对每个 source `RawType`，`freshFamily : Nat → ExtendedVar` 为单射并始终落在该 type；任意 raw variable 与 fresh variable 可区分。因此该有限 source vocabulary 有一个显式、按 type 的可数无限 fresh extension。 | `KERNEL_ACCEPTED_WITH_SCOPE / M_LEVEL_SOURCE_BOUND_VOCABULARY_EXTENSION` | `MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-001` / `20261005-MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-004`；negative control `...-NEG-005`；精确 scope 见 `formal/godel-q-reflection/SetMMAppendixCVarExtension-CLAIM.md` | 不构造 raw database 的 frame→`mAx` map、ZF 内 `T ∈ mFS` witness、proof trace→`mPPSt/mThm` adequacy、`Prv`、diag、completion bridge或任何 bare-ZFC／现实过程结论。 |
+
+## `ZFC+Q_norm` 的规范性过程完成审计（2026-10-05）
+
+> 这个 package 机器检查研究发起人明确加入的过程完成审计规范：将模型的
+> `FormalDone` 说成原任务已经完成前，必须支付 `FormalDone → OriginDone` bridge；
+> 明确改题只能得到 revised verdict。它不是 bare ZFC 的对象语言形式化，也不声称
+> 既有数学共同体已经采纳这一规范。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` | `C-370..C-374` | `formal/zfc-normative-process-audit/ProcessCompletionAudit.lean` | `verification/runs/20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03/`；Lean 4.34.1 core，固定源码／toolchain／source cards及Lean binary digest，exit 0，十二条 selected theorem 的 axiom report 均无公理 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION`：对显式 `CompletionContract`，paid bridge 才能给出 original resolution；explicit task switch 只能给 revised resolution；missing bridge 必须给 bridge-required，并且后二者都不能静默成为 original resolution。 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-370 | 对任意明确的 `CompletionContract`，若 `audit contract formal = originalResolved`，则 `contract.originDone`；该结论只经 `.paid (formalDone → originDone)` 分支取得。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 不证明 bare ZFC 已包含此 audit，不证明任何历史模型实际已有 bridge。 |
+| C-371 | 对任意 contract，明确 `explicitTaskSwitch` 时 `audit = revisedResolved` 且 `audit ≠ originalResolved`；冻结的 Norton strict/revised control 满足这一判词。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION / SOURCE_BOUND_CONTROL` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | Norton 分类是 source-card input，不由 Lean 证明其历史文本，也不推广到所有 Standard Solution。 |
+| C-372 | 对任意 contract，bridge 为 `missing` 时 `audit = bridgeRequired` 且 `audit ≠ originalResolved`。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 不推出任意实际理论缺少 bridge，也不把“没有发现”当作 source absence。 |
+| C-373 | paid positive control 同时得到 `originalResolved` 与 `originDone`。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION / POSITIVE_CONTROL` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 控制只证明规范不会一概拒绝模型、极限或连续统；不支付现实应用 bridge。 |
+| C-374 | missing-bridge negative control 有 `formalDone`，却得到 `bridgeRequired` 且不等于 `originalResolved`。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION / NEGATIVE_CONTROL` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 只否定此规范中的 silent promotion；不构成 bare ZFC、HoTT 或数学共同体矛盾。 |
