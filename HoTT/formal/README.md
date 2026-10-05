@@ -28,6 +28,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `cubical-godel-fragment/CCTTminiFormula.agda`：`MP-CUBICAL-GODEL-FORMULA-PREDICATE-001` / C-379–C-382。把 formula syntax 中的 `provF Nat` 与 meta-level `validCode`、`ProvWitness` 和 `ProvHolds` 分开；closed certificate 的 code、quotation和 witness已被检查。它还没有 formula Nat coding、substitution、object arithmetic representability或fixed point。
 
+- `cubical-godel-fragment/CCTTminiFormulaCode.agda`：`MP-CUBICAL-GODEL-FORMULA-CODING-001` / C-383–C-386。为受限 Fmini formula 提供 Nat code/decoder/injectivity，并证明模板 `prov₁(fvar 0)` 代入自身 formula code 的 syntax shape。它没有 quantified formulas、representability theorem或Gödel fixed point。
+
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。

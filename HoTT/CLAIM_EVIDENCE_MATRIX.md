@@ -1833,3 +1833,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-380 | `closedProvWitness : ProvWitness (code closedC)`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiFormula.closedProvWitness`；主 run。 | 一个 closed certificate witness，不是 full proof predicate or enumeration theorem。 |
 | C-381 | `quoteCert closedC ≡ provF (code closedC)`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiFormula.quoteClosed`；主 run。 | formula syntax 引用 code，不等于 code of formula / self-reference。 |
 | C-382 | `ProvHolds (quoteCert closedC)` 由同一 `ProvWitness` 证明。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiFormula.quoteClosedHolds`；主 run。 | `ProvHolds` 只定义了 `provF` clause；没有 implication/falsum semantics、representability或reflection。 |
+
+## GZ-011：Fmini formula code 与 syntax-level self substitution（2026-10-05）
+
+> `Fmini` 是一个新的、显式缩小的 Formula successor：`lit`/`fvar` expressions、`prov₁` 与 `⊥₁`。它支持无 binder 的 numeral substitution，故 self-code substitution 可机器化；这不是包含量词的公式理论，也没有把 `prov₁` 解释为 object-arithmetic `Provable`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-GODEL-FORMULA-CODING-001` | `C-383`–`C-386` | `formal/cubical-godel-fragment/CCTTminiFormulaCode.agda`；`FORMULA_CODING_CLAIM.md`；`--safe --cubical` | `verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-CODING-001-01/`；Cubical Agda 2.8.0-3d04bac，exit 0、preserved inherited warning；negative `...NEG-001-01` 在 self instance ≠ `bot₁` 处拒绝 | `KERNEL_ACCEPTED_WITH_SCOPE / SYNTAX_LEVEL_DIAGONAL_SHAPE_ONLY`：formula code/decoder/injectivity和模板的 self-code numeral substitution 已检查；无 representability、fixed-point equivalence或incompleteness。 |
+| `MP-CUBICAL-GODEL-FORMULA-CODING-NEG-001` | `C-383`–`C-386`（负控制） | `formal/cubical-godel-fragment/WrongCCTTminiFormulaCode.agda` | `verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-CODING-NEG-001-01/`；exit 42 | `NEGATIVE_CONTROL_REJECTED`：self instance 不被伪造为 bottom。 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-383 | `decodeExprCode : decodeExpr (codeExpr e) ≡ e`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiFormulaCode.decodeExprCode`；主 run。 | 只覆盖 `lit/fvar` expression fragment。 |
+| C-384 | `decodeFormulaCode` 与 `formulaCodeInjective`：Fmini formula code roundtrip 且单射。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | 相应 declarations；主 run。 | 不含 implication/binders或任意上游 formula syntax。 |
+| C-385 | `selfInstance template ≡ prov₁ (lit (codeFormula template))`，其中 `template = prov₁ (fvar 0)`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiFormulaCode.selfInstanceShape`；主 run。 | syntax substitution shape，不是 Gödel fixed point。 |
+| C-386 | `selfInstance template ≡ prov₁ (quoteFormula template)`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiFormulaCode.selfInstanceQuotesFormula`；主 run。 | quotation syntax不代表 `ProvWitness` 的 arithmetic representation。 |

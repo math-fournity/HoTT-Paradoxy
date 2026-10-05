@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 232,
+  "later_machine_proved_claim_count": 236,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1125,6 +1125,16 @@
       "source": "HoTT/formal/cubical-godel-fragment/CCTTminiFormula.agda",
       "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts the finite Formula/ProvWitness interface and its closed certificate quotation witness, with no representability claim."
+    },
+    {
+      "claim_ids": "C-383–C-386",
+      "kind": "native_cubical_agda_fmini_formula_nat_coding_and_syntax_level_self_substitution",
+      "notes": "Fmini is a newly bounded formula successor to CCTTmini₀: literal/free-variable expressions, prov₁ and bottom only. It receives a total Nat code/decoder, formula-code injectivity and a template self-code numeral substitution. The construction is a syntax-level diagonal shape only; it does not establish an arithmetic representation theorem for ProvWitness/validCode, a fixed-point equivalence, general binder substitution, full HoTT semantics, H0 transport or bare-ZFC attribution. The inherited CCTTminiNat warning remains preserved.",
+      "proof_id": "MP-CUBICAL-GODEL-FORMULA-CODING-001",
+      "run": "HoTT/verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-CODING-001-01",
+      "source": "HoTT/formal/cubical-godel-fragment/CCTTminiFormulaCode.agda",
+      "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts Fmini formula code/decoder/injectivity and the frozen template's self-code substitution shape, without a representability or fixed-point claim."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
