@@ -4,15 +4,15 @@
 >
 > **稳定方案：** [T-PRECISION-DIAGONAL-SOP](../dev-docs/理论精度与哥德尔式自反方案.md)。
 >
-> **当前生命周期：** PLAN_ADOPTED_FOR_CONTINUED_EXECUTION / T0_COMPLETED / T_OBS_C367_MACHINE_PROVED_WITH_SCOPE / NEXT_UNIT_REQUIRES_EXPLICIT_T_UNIT_SELECTION。
+> **当前生命周期：** PLAN_ADOPTED_FOR_CONTINUED_EXECUTION / CONTINUOUS_T_EXECUTION_ACTIVE / T0_COMPLETED / T_OBS_C367_MACHINE_PROVED_WITH_SCOPE / TDIAG_G0_SOURCE_BOUND_WITH_SCOPE / NEXT_UNIT_AUTOMATICALLY_SELECTED_FROM_EVIDENCE_GAP。
 
 ## TaskDescriptor
 
 | 字段 | 当前值 |
 |---|---|
 | 父结果 | 把“理论维度缺失／观察力不完备／理论精度”从 ZFC 的单点怀疑提升为可检验的想法 T；ZFC 是后续实例而非 T 的定义。 |
-| 用户成功标准 | 两轮完整对话和后续的方案采纳／闭包续航指令被保存；稳定方案名可由 /goal 引用；未来 Session 能恢复 T-OBS、T-DIAG、T-ZFC 的对象、证据、边界与下一动作，并持续写回该闭包。 |
-| 当前 profile | RESEARCH_PROFILE_GOVERNED：T0 与一个 T-OBS 单元已完成；后续 T-DIAG/T-Meta/T-ZFC 将改变不同的研究决定，必须重新冻结单元。 |
+| 用户成功标准 | 两轮完整对话和后续的方案采纳／闭包续航指令被保存；稳定方案名可由 /goal 引用；未来 Session 能恢复并持续完成 T-OBS、T-DIAG、T-Meta、T-ZFC 的对象、证据、边界与下一动作。原子单元不是总体停机点。 |
+| 当前 profile | RESEARCH_PROFILE_GOVERNED：T0 与一个 T-OBS 单元已完成；后续 T-DIAG/T-Meta/T-ZFC 将改变不同的研究决定，必须重新冻结单元，但 active 总体 Goal 下由 Master 自动选择后继。 |
 | 主张等级 | USER_RESEARCH_HYPOTHESIS / AI_CANDIDATE_FORMAL_SPECIFICATION / NO_MATHEMATICAL_THEOREM_YET。 |
 | canonical source | dev-docs/理论精度与哥德尔式自反方案.md 加四个 shards；用户 primary source 为 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md 与 sources/prompts/Codex-T-PRECISION-DIAGONAL-SOP-采纳与闭包续航指令-20261004.md。 |
 | 模块关系 | T-PRECISION-DIAGONAL-SOP 是上位程序；已存在的 GODEL-Q-REFLECTION-SOP 是 T-DIAG 的实际 completion-interface 执行模块，不是竞争方案。 |
@@ -33,16 +33,16 @@
 | 项目 | 状态 | 证据边界 |
 |---|---|---|
 | T-OBS 的概念骨架 | C-367_MACHINE_PROVED_WITH_SCOPE | MP-T-PRECISION-TOBS-001 的 Lean core run 证明 abstract collision-to-no-decoder；C-364 仍是 source-bound finite calibration。 |
-| T-DIAG 的哥德尔机制 | MODULE_READY_NOT_INSTANTIATED | GODEL-Q-REFLECTION-SOP 已定义 G0--G5 与 GodelizationCard；当前仍没有真实 Accept_ZFC、保真 ρ 或 diag。 |
+| T-DIAG 的哥德尔机制 | G0_SOURCE_BOUND_WITH_SCOPE / PARENT_ROUTE_UNADJUDICATED | GODEL-Q-REFLECTION-SOP 已冻结 set.mm proof-acceptance interface并重放通用哥德尔技术基线；但 parent `OriginDone`、保真 ρ、internal-provability adequacy与 actual diag 仍未支付。 |
 | T-Meta 的 task bridge | OPEN | OriginDone／SameFullQ 不能由元层代码自动支付。 |
 | T-ZFC | NOT_STARTED | C-359、C-364、C-366 仅是 controls。 |
 | F-050 的 ZFC-H0 闭环 | CLOSED_WITH_SCOPE | 本 capsule 不授权重开、提交外部研究或宣布结论。 |
 
 ## 恢复算法
 
-1. 若用户没有明确启动新的 T 单元，保留 T0/T-OBS-001 为已完成范围，不自动推进 T-DIAG、T-Meta 或 T-ZFC；
+1. 若 T-PRECISION 的总体 Goal 处于 active，保留 T0/T-OBS-001 为已完成输入，并自动选择其证据缺口释放的下一 T-DIAG、T-Meta 或 T-ZFC 单元；只有用户明确暂停、取消或替换理论对象时才停止推进；
 2. 读方案 index + 001–004、user primary source，再读本 capsule；
-3. 从 T1–T5 中选择唯一最小后继单元，冻结其 TaskPrecisionCard；T0 已由 T-OBS-001 完成；
+3. 从 T1–T5 中选择唯一最小且仍能改变总体结论的后继单元，冻结其 TaskPrecisionCard；T0 已由 T-OBS-001 完成；路由级受限负结论必须先检查是否释放别的后继，不能被当作总体完成；
 4. 先写自己的候选、前提、反证和同一任务条件；
 5. 再读一手数学来源与开源 formal source，比较理论变体；
 6. 只有对象、接口和 proof target 已固定时才写机器证明；
@@ -57,8 +57,8 @@
 | 续航字段 | 当前合同 |
 |---|---|
 | 启动名 | `T-PRECISION-DIAGONAL-SOP`。直接调用时必须先读本 closure、方案 index 与全部四片。 |
-| 活动层级 | 方案已采纳；T0/T-OBS-001 已完成；T-DIAG、T-Meta、T-ZFC 均未因采纳而自动执行。 |
-| 下一选择 | 每次 /goal 先选择一个唯一的、可判别的 T 单元；若选择 T-DIAG，先复用 GODEL-Q-REFLECTION-SOP 的 G0–G5，而不是重新创建 acceptance-interface 合同。 |
+| 活动层级 | 方案采纳本身没有自动执行后继；但研究发起人已经显式启动总体连续 Goal，因此 T0/T-OBS-001 是输入，G0 是现有 T-DIAG source-bound module，后继必须由 evidence gap 自动选择。 |
+| 下一选择 | active 总体 Goal 下，Master 自动冻结唯一的、可判别的 T 单元；若选择 T-DIAG，先复用 GODEL-Q-REFLECTION-SOP 的 G0–G5，而不是重新创建 acceptance-interface 合同。 |
 | 强制写回 | 新的用户过程合同、selected interface、T-DIAG/T-Meta/T-ZFC 的支付、失败、控制、来源身份、run 或停止条件分别写回其唯一 owner，并在本 closure 更新“已知／未支付／下一动作／重开条件”。 |
 | 禁止越级 | `PLAN_ADOPTED`、C-367、一个来源沉默、一个条件性对角骨架或一个 host-level run 都不证明想法 T、bare ZFC 精度缺陷、actual Q 或 ZFC 对象语言矛盾。 |
 | 失效触发 | 用户重定义 T 或选择具体单元；T/M/interface/OriginDone 变化；出现实际 source payment 或反例；proof assistant variant、Git HEAD/worktree owner 变化。触发后重建受影响 slice，再继续。 |

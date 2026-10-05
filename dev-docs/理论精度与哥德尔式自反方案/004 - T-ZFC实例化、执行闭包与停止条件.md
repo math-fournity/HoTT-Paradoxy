@@ -33,6 +33,8 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 
 每阶段都先写自己的候选构造、反证条件和较小替代，再查一手论文、官方文档、GitHub/open-source proof code，并写明二者是否真是同一 calculus／同一 consumer。
 
+**连续执行规则。** 上表的一行是一个可审计的原子单元，不是一次用户审批的边界。某一行得到正面结果、受限负结论或 source-target 未支付的判词后，Master 必须把该结果作为下一行的输入，自动选择仍能改变总体结论的最小后继单元。只有用户明确暂停、取消或以新理论对象替换想法 T 时，才暂停这条连续链。
+
 ### T0 当前执行记录：T-OBS-001
 
 本方案的第一个 T0 已选择 T-OBS：冻结一般 World/View/project/observe 与 collision witness，来源分母由 HoTT Book §6.10 Lemma 6.10.3、Lean core Quotient.lift 和 C-364 concrete control 组成。C-367 现已由 MP-T-PRECISION-TOBS-001 在 Lean 4.34.1 core 中机器检查，包含 identity/rich observation 正控制和 Bool/Unit 伪 decoder 的 expected-negative rejection。
@@ -50,29 +52,36 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 5. 当前 worktree 的 branch/HEAD/status，确认没有将 candidate worktree 当 current truth。
 6. 若选中 T-DIAG：GODEL-Q-REFLECTION-SOP、其 GodelizationCard 状态与 CC-20261004-godel-q-reflection；它们是执行模块输入，不是同名第二 Goal。
 
-每个自然单元写回：本轮 T0–T5 身份、对象/接口/来源、已经支付的条件、失败条件、剩余未知、下一最小判别动作和 reopen 条件。写回后重读 current owner，不能继续消费旧摘要。
+每个自然单元写回：本轮 T0–T5 身份、对象/接口/来源、已经支付的条件、失败条件、剩余未知、下一最小判别动作和 reopen 条件。写回后重读 current owner，不能继续消费旧摘要。若总体 Goal 仍处于 active，下一最小判别动作由 Master 自动启动；它不需要研究发起人对每一个原子单元再次授权。
 
-## 4. 总停止条件
+## 4. 原子路由与总体的停止条件
 
-本方案可合法停止于下列任一状态：
+下列状态只结束**其对应的冻结路由**，并且必须立即成为总体方案选择下一单元的输入：
 
-1. T_OBS_AND_T_DIAG_MACHINE_PROVED_WITH_SCOPE：抽象定理与满足严格前提的对角化边界都完成机器证明；
-2. T_DIAG_PRECONDITIONS_UNPAID_WITH_SCOPE：固定理论或真实接口无法支付 code/diag/bridge 的某一必要条件；
-3. T_ZFC_INSTANCE_REJECTED_WITH_SCOPE：T 的抽象骨架成立，但当前 ZFC-facing source interface 不是其实际实例；
-4. FORMAL_TARGET_UNDERDETERMINED：用户/来源不能冻结 D 或 actual consumer。
+1. `T_OBS_AND_T_DIAG_MACHINE_PROVED_WITH_SCOPE`：抽象定理与满足严格前提的对角化边界都完成机器证明；
+2. `T_DIAG_PRECONDITIONS_UNPAID_WITH_SCOPE`：固定理论或真实接口无法支付 code/diag/bridge 的某一必要条件；
+3. `T_ZFC_INSTANCE_REJECTED_WITH_SCOPE`：T 的抽象骨架成立，但当前 ZFC-facing source interface 不是其实际实例；
+4. `FORMAL_TARGET_UNDERDETERMINED`：冻结的用户／来源分母不能确定 D 或 actual consumer。
 
-以上均不等于“所有理论没有问题”或“ZFC 没有问题”。只有每个被选择的 T0–T5 route 都有明确范围、来源分母、反控制和重开条件时，才能称本方案在其 scope 内收尾。
+**总体方案**只有在以下条件同时满足时才可停止：
+
+1. T1–T5 的每个已承诺路由都有一个来源和反控制支撑的 machine-proof 结果、受限负结论或明确的外部不可支付条件；
+2. 每一个路由级负结论都已检查它是否释放另一个尚未尝试的 T-DIAG、T-Meta 或 T-ZFC 后继；
+3. 剩余的开放项只依赖于已明确登记的外部新来源、用户重定 D／原任务、或新的版本固定 actual interface；
+4. 方案、closure、Feature、MEMORY、来源／证据 owner 与 Git 谱系都已经写回并复读。
+
+以上仍不等于“所有理论没有问题”或“ZFC 没有问题”。它只表示这个由研究发起人授权的 T 路线已经把可执行、可判别的证据路径耗尽或完成；不能用“一个原子单元完成”或“一个 source route 结束”提前声明总体收尾。
 
 ## 5. /goal 启动词
 
 ~~~text
-按照SOP=T-PRECISION-DIAGONAL-SOP，先执行 T0：
+按照SOP=T-PRECISION-DIAGONAL-SOP，持续完成想法 T 的可执行证据链：
 完整加载 T-PRECISION-DIAGONAL-001 与本方案全部分片，
-冻结本轮选定的理论、任务域、观察投影、判词和来源分母；
-随后只推进一个最小的 T-OBS、T-DIAG 或 T-ZFC 判别单元。
-先记录自己的候选构造与反证条件，再核对一手学术来源、GitHub/open-source proof code，
-最后才构造并运行相称的机器证明。
-不得把抽象观察边界、条件性对角化、来源沉默或项目自定义接口升级为想法 T 已得证、
+将 T-OBS、哥德尔机制基线、T-DIAG、T-Meta、T-ZFC 逐个拆为最小原子判别单元；
+每个单元先冻结理论、任务域、观察投影、判词、来源分母、候选构造与反证条件，
+再核对一手学术来源、GitHub/open-source proof code，最后构造并运行相称的机器证明。
+单元完成后自动根据证据缺口选择下一单元；不得把抽象观察边界、条件性对角化、来源沉默或项目自定义接口升级为想法 T 已得证、
 bare ZFC 已有缺陷或 ZFC 对象语言矛盾。每个自然单元更新
-T-PRECISION-DIAGONAL-001、Feature、MEMORY、来源/证据 owner 与精确 Git 谱系。
+T-PRECISION-DIAGONAL-001、Feature、MEMORY、来源/证据 owner 与精确 Git 谱系；
+只有所有已承诺路径形成机器证明、受限负结论或明确的外部不可支付条件后才停止。
 ~~~
