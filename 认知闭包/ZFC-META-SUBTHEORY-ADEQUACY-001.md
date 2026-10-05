@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [ZFC-META-SUBTHEORY-ADEQUACY-SOP](../dev-docs/ZFC元理论子理论充分性最终闭环SOP.md)。
 >
-> **当前状态：** `CORE_TARGET_ACTIVE / C0_UNIVERSE_FROZEN / C1A_C1D_C5A_C5C_SCOPED_PROGRESS / NO_ACTUAL_FULL_CONTRACT / FINAL_CORE_VERDICT_NOT_PROVED`。
+> **当前状态：** `CORE_TARGET_ACTIVE / C0_UNIVERSE_FROZEN / C1A_C1D_C5A_C5F_SCOPED_PROGRESS / PHYSICAL_BRIDGE_REQUIREMENT_SOURCE_FOUND / NO_ACTUAL_FULL_CONTRACT / FINAL_CORE_VERDICT_NOT_PROVED`。
 
 ## TaskDescriptor
 
@@ -13,7 +13,7 @@
 | 父结果 | 判断 bare ZFC 或明确 ZFC-founded foundation context 对连续统／极限子理论的原过程完成提升，是否具有足够的 bridge 审查责任。 |
 | 用户成功标准 | 没有最终、版本闭合的 core machine-proof verdict 前不停止；方案可由 `/goal` 调用；跨 Session／压缩后连续恢复和写回。 |
 | 核心合同 | `M / S / Q / FormalDone / OriginDone / P / Bridge / Adequacy`，缺任何项不允许产生 core verdict。 |
-| 当前已知 | C1A–C1D冻结了 IEP/Norton application、Mizar geometric component、Isabelle/ZF real/metric/uniform infrastructure及其未耦合边界；C5A–C5C找到 mathematical faithful-representation criterion、applied-model accuracy criterion和 Norton/IEP explicit task switch。当前 strict-Q route 因 source 已改写 Done 而不能作 direct bare-ZFC failure witness；仍没有同一 actual `M/S/Q/P/Adequacy` contract。C-362/C-364/C-367/C-369、H0、`set.mm` 与 ACL2 都是控制或平行材料。 |
+| 当前已知 | C1A–C1D冻结了 IEP/Norton application、Mizar geometric component、Isabelle/ZF real/metric/uniform infrastructure及其未耦合边界；C5A–C5E找到 mathematical foundation、applied-model与constructive-role的过程责任分层；C5F证明有独立 formal-model tradition把 Zeno transition accumulation 诊断为模型不完整并要求 post-Zeno data；C0R3/SEP又明确纯数学解答不足以完成 physical Zeno answer。当前 strict-Q route因source已改写Done而不能作direct bare-ZFC failure witness；仍没有同一 actual `M/S/Q/P/Adequacy` contract。C-362/C-364/C-367/C-369、H0、`set.mm` 与 ACL2 都是控制或平行材料。 |
 | 当前最大风险 | 又把可重放的 proof checker、toy formalization、generic Gödel 或来源沉默当成 M 对 S/Q 的 actual core interface。 |
 | profile | `RESEARCH_PROFILE_GOVERNED`；C0–C6 是一个连续执行图，不是多个可以各自结束的工作包。 |
 
@@ -31,13 +31,13 @@
 6. C-362、C-364、C-365–C-369、H0 source／run／claim assets；
 7. `CoreAdequacyCandidateManifest`、当前 TaskCard、successor scan、Git branch/HEAD/status。
 
-当前 manifest owner：`audit/ZFC-META-SUBTHEORY-ADEQUACY-001-C0-CANDIDATE-MANIFEST.md`。它当前的 `remainder = 4` 表明 C0 未完成；C1A–C1D 与 C5A–C5C 的局部结果由对应 cards 拥有。未来 Agent 不得因现有 T、F-048 或 F-050 closeout 将它视为已审分母。
+当前 manifest owner：`audit/ZFC-META-SUBTHEORY-ADEQUACY-001-C0-CANDIDATE-MANIFEST.md`。它当前的 `remainder = 4` 表明 C0 未完成；C1A–C1D、C5A–C5F与C0R3的局部结果由对应 cards 拥有。未来 Agent 不得因现有 T、F-048 或 F-050 closeout 将它视为已审分母。
 
 ## 恢复算法
 
 1. 先读本 closure 与 SOP 全文，确认 `CORE_GOAL_ACTIVE`；
 2. 检查上一个叶的 `successor_scan_status`。不存在就补做，不得另开来源扫描；
-3. 从 C0 manifest 中选择唯一 highest-impact live candidate，生成 TaskCard；当前 predecessor 是 `C0-SUCCESSOR-RESELECTION-002`，只选择能首次接合 actual `M/S/Q/P/Adequacy` 的新 source candidate，而不重做已审 strict-Q task-switch、ZF infrastructure或generic proof control；
+3. 从 C0 manifest 中选择唯一 highest-impact live candidate，生成 TaskCard；当前 predecessor 是 `C0-SUCCESSOR-RESELECTION-003`，只选择能改变 physical `FormalDone ↔ OriginDone` 的 source，而不重做已审 strict-Q task-switch、ZF infrastructure、proof checker或generic proof control；
 4. 先独立写 M/S/Q/P/Bridge/Adequacy、最强 falsifier、Control+、Control−和 proof target；
 5. 再查一手来源、formalization、代码与 proof assistant；
 6. 只在 source-to-spec fidelity table 支付后进入 machine proof；

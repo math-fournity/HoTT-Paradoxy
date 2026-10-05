@@ -1,0 +1,30 @@
+{
+  "next": "C0-SUCCESSOR-RESELECTION-003: identify a version-fixed source that pays or explicitly delimits a physical FormalDone ↔ OriginDone bridge.",
+  "role": "RESEARCH_GENERATION",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261005-ZFC-META-SUBTHEORY-C5D-F-C0R3-001",
+  "status": "C5D_C5F_AND_C0R3_SOURCE_BOUND_PROGRESS_NO_CORE_CONTRACT",
+  "tier": "T3",
+  "verification": [
+    {
+      "command": "web.open/find IEP Foundations, SEP Scientific Representation/Models, SEP Zeno, Berkeley EECS-2006-114",
+      "scope": "source roles, physical applicability and hybrid-Zeno model semantics; no mathematical theorem claimed.",
+      "status": "SOURCE_INSPECTED_WITH_SCOPE"
+    },
+    {
+      "command": "curl + sha256 + pdftotext Berkeley EECS-2006-114",
+      "scope": "primary hybrid-system technical report frozen locally with PDF/text provenance.",
+      "status": "PASS"
+    },
+    {
+      "command": "verify_formal_proof_run.py --rerun C-359/C-361/C-362/C-364 saved runs",
+      "scope": "existing Lean kernel controls exact replay; no new core package.",
+      "status": "PASS_WITH_SCOPE"
+    },
+    {
+      "command": "C6 entry admission audit",
+      "scope": "existing source-to-spec arrows insufficient to release a core C6 proof.",
+      "status": "NOT_RELEASED"
+    }
+  ]
+}
