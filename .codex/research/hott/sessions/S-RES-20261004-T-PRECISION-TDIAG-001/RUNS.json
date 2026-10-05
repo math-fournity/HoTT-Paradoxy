@@ -1,0 +1,51 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261004-T-PRECISION-TDIAG-001",
+  "tier": "T3",
+  "role": "RESEARCH_GENERATION",
+  "status": "T_DIAG_LOGICAL_KERNEL_MACHINE_PROVED_WITH_SCOPE_ACTUAL_PARENT_BRIDGE_UNPAID_TMETA_NEXT",
+  "new_formal_runs": [
+    {
+      "proof_id": "MP-T-PRECISION-TDIAG-001",
+      "claim_ids": ["C-368"],
+      "run": "HoTT/verification/runs/20261004-MP-T-PRECISION-TDIAG-001-02/RUN.json",
+      "status": "KERNEL_ACCEPTED_WITH_SCOPE / exact replay / zero declared axiom dependencies"
+    },
+    {
+      "proof_id": "MP-T-PRECISION-TDIAG-NEG-001",
+      "claim_ids": ["C-368"],
+      "run": "HoTT/verification/runs/20261004-MP-T-PRECISION-TDIAG-NEG-001-01/RUN.json",
+      "status": "EXPECTED_REJECTION_CONFIRMED"
+    }
+  ],
+  "source_reads": [
+    {
+      "id": "SRC-TDIAG-FOUNDATION-001",
+      "source": "Foundation First.lean at f3972f4204fc61e1b736ed843415894c83f35508 and exact replay receipt",
+      "status": "SOURCE_REPLAYED_WITH_SCOPE_GENERIC_GODEL_BASELINE"
+    },
+    {
+      "id": "SRC-TDIAG-SETMM-002",
+      "source": "set.mm README at 160ebb63ec17ff00a809520a420c92914a424622 and G0 interface audit",
+      "status": "ACTUAL_PROOF_ACCEPTANCE_INTERFACE_SOURCE_CERTIFIED_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-TDIAG-GAP-003",
+      "source": "Foundation-ZFC mapping control and G0 internalization audit",
+      "status": "ACTUAL_PARENT_BRIDGE_UNPAID_WITH_SCOPE"
+    }
+  ],
+  "verification": [
+    {
+      "command": "verify_formal_proof_run.py --rerun",
+      "status": "PASS_WITH_SCOPE",
+      "scope": "C-368 primary run exact output replay"
+    },
+    {
+      "command": "verify_proof_version_closure.py --proof-id MP-T-PRECISION-TDIAG-001",
+      "status": "PENDING_GIT_VERSION_CLOSURE",
+      "scope": "requires the exact evidence package to be committed before HEAD-byte verification"
+    }
+  ],
+  "next": "T-Meta same-task / bridge-payment adjudication; do not repeat G0 source scanning or treat C-368 as a bare-ZFC result."
+}

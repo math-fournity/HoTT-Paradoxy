@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 219,
+  "later_machine_proved_claim_count": 220,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1095,6 +1095,16 @@
       "source": "HoTT/formal/t-precision-observation/ObservationPrecision.lean",
       "toolchain": "HoTT/formal/t-precision-observation/LEAN_CORE_TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: if a chosen observation map identifies x and y while a chosen Prop predicate differs, no decoder through that map decides the predicate globally; identity observation is a positive control."
+    },
+    {
+      "claim_ids": "C-368",
+      "kind": "lean_core_conditional_self_code_acceptance_bridge_boundary",
+      "notes": "This does not construct an actual Gödelization of set.mm or bare ZFC, identify proof acceptance with a Zeno/circle/H0 completion, or establish a bare-ZFC inconsistency/incompleteness theorem.",
+      "proof_id": "MP-T-PRECISION-TDIAG-001",
+      "run": "HoTT/verification/runs/20261004-MP-T-PRECISION-TDIAG-001-02",
+      "source": "HoTT/formal/t-precision-diagonal/AcceptanceDiagonal.lean",
+      "toolchain": "HoTT/formal/t-precision-diagonal/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: an explicit self-code, diagonal completion contract, and paid acceptance-to-originDone bridge force rejection of that code; a bridge-missing control shows self-coding alone does not create contradiction."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

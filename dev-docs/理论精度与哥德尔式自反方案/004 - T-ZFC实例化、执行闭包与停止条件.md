@@ -41,6 +41,10 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 
 这只完成抽象观察边界；它没有支付 G0 actual acceptance interface、Code/diag、RealityMap、OriginDone 或 bare-ZFC-facing instance。因此 T-DIAG、T-Meta 和 T-ZFC 仍须以新的最小单元重新冻结，而不能把 C-367 当作想法 T 的全域定理。
 
+### T-DIAG 当前执行记录：T-DIAG-001
+
+G0 已提供真实 `set.mm` proof-acceptance interface 与 Foundation generic Gödel baseline；T-DIAG-001 将其不可省略的逻辑铰链固定为 C-368。它机器证明 paid self-code/diagonal/bridge 的条件性拒绝，并以 bridge-missing control 保留“自指本身不矛盾”的反控制。来源审计随即确认：当前 `set.mm` interface 仍未支付 parent `OriginDone`、ρ、internal-provability adequacy 或 actual diagonal。因此此单元关闭的是**条件性逻辑核**，下一最小单元必须是 T-Meta 的 same-task / bridge-payment 裁决；T-ZFC 不能越过该裁决直接开始实例化。
+
 ## 3. 跨 Session 认知闭包合同
 
 开始、压缩恢复、换 worktree 或从 T0–T5 切换时，必须先加载：

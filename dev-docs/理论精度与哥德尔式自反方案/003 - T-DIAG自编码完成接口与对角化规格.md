@@ -6,7 +6,7 @@ index: ../理论精度与哥德尔式自反方案.md
 
 # T-DIAG自编码完成接口与对角化规格
 
-> **状态：** CANDIDATE_PROOF_THEORETIC_PROGRAM / NO_DIAGONAL_THEOREM_YET。
+> **状态：** T_DIAG_LOGICAL_KERNEL_MACHINE_PROVED_WITH_SCOPE / ACTUAL_PARENT_BRIDGE_UNPAID_WITH_SCOPE。
 >
 > **功能：** 将 T-OBS 的静态观察边界升级为可比较哥德尔不完备性的自反问题，但只在编码、替换、验证和 bridge 前提都被支付时启动。
 
@@ -98,3 +98,9 @@ T-DIAG 不替代 P1/P2/P3；它是 P 在满足严格可表示性条件时可能�
 - TASK_BRIDGE_UNPAID：对角任务不能证明保留原过程；
 - DIAGONAL_BOUNDARY_MACHINE_PROVED_WITH_SCOPE：前提成立，机器验证其不完备／反射边界；
 - NO_GODEL_CLAIM：任何缺项均禁止使用哥德尔式结论。
+
+## 6. T-DIAG-001：已完成的条件性逻辑核
+
+`MP-T-PRECISION-TDIAG-001` / C-368 在 Lean 4.34.1 core 中机器证明：若一个 `selfCode` 具有 explicit fixed point、`OriginDone (step selfCode) ↔ ¬ Accept selfCode` 的对角完成合同，以及 paid `Accept → OriginDone` bridge，则 `selfCode` 不可被接受。bridge-missing control 同时证明：self-coding 和 diagonal contract 自身不推出冲突；缺 bridge 时可以有 `Accept selfCode` 与 `¬ OriginDone (step selfCode)`。
+
+这实现了 T-DIAG 的逻辑语言，不等于 target-specific Gödelization。G0 的 `set.mm` proof-acceptance source 和 Foundation 的 generic theorem 都没有支付 parent `OriginDone`、ρ、actual set.mm-to-mFS mapping、internal provability adequacy 或 actual diagonal。下一单元因此是 T-Meta：审计这些未支付项是否在已冻结的同一任务中构成 source-bound bridge verdict；不得再以 C-368 自动宣布 bare ZFC 的不完备性或矛盾。

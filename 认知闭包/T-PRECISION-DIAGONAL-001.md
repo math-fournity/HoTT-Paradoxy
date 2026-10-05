@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [T-PRECISION-DIAGONAL-SOP](../dev-docs/理论精度与哥德尔式自反方案.md)。
 >
-> **当前生命周期：** PLAN_ADOPTED_FOR_CONTINUED_EXECUTION / CONTINUOUS_T_EXECUTION_ACTIVE / T0_COMPLETED / T_OBS_C367_MACHINE_PROVED_WITH_SCOPE / TDIAG_G0_SOURCE_BOUND_WITH_SCOPE / NEXT_UNIT_AUTOMATICALLY_SELECTED_FROM_EVIDENCE_GAP。
+> **当前生命周期：** PLAN_ADOPTED_FOR_CONTINUED_EXECUTION / CONTINUOUS_T_EXECUTION_ACTIVE / T0_COMPLETED / T_OBS_C367_MACHINE_PROVED_WITH_SCOPE / TDIAG_C368_LOGICAL_KERNEL_MACHINE_PROVED_WITH_SCOPE / ACTUAL_PARENT_BRIDGE_UNPAID_WITH_SCOPE / TMETA_NEXT_FROM_EVIDENCE_GAP。
 
 ## TaskDescriptor
 
@@ -33,14 +33,14 @@
 | 项目 | 状态 | 证据边界 |
 |---|---|---|
 | T-OBS 的概念骨架 | C-367_MACHINE_PROVED_WITH_SCOPE | MP-T-PRECISION-TOBS-001 的 Lean core run 证明 abstract collision-to-no-decoder；C-364 仍是 source-bound finite calibration。 |
-| T-DIAG 的哥德尔机制 | G0_SOURCE_BOUND_WITH_SCOPE / PARENT_ROUTE_UNADJUDICATED | GODEL-Q-REFLECTION-SOP 已冻结 set.mm proof-acceptance interface并重放通用哥德尔技术基线；但 parent `OriginDone`、保真 ρ、internal-provability adequacy与 actual diag 仍未支付。 |
-| T-Meta 的 task bridge | OPEN | OriginDone／SameFullQ 不能由元层代码自动支付。 |
+| T-DIAG 的哥德尔机制 | C-368_MACHINE_PROVED_WITH_SCOPE / ACTUAL_PARENT_BRIDGE_UNPAID | C-368 已形式化 paid self-code/diagonal/bridge 的拒绝边界和 bridge-missing control；G0 仍只冻结 set.mm proof acceptance与 generic technical baseline，未支付 parent `OriginDone`、保真 ρ、internal-provability adequacy与 actual diag。 |
+| T-Meta 的 task bridge | NEXT_ACTIVE_UNIT | 必须把 G0 的 actual source interface、C-368 的条件 bridge 与 fixed process `OriginDone` 作同一任务审计；不能由元层代码自动支付。 |
 | T-ZFC | NOT_STARTED | C-359、C-364、C-366 仅是 controls。 |
 | F-050 的 ZFC-H0 闭环 | CLOSED_WITH_SCOPE | 本 capsule 不授权重开、提交外部研究或宣布结论。 |
 
 ## 恢复算法
 
-1. 若 T-PRECISION 的总体 Goal 处于 active，保留 T0/T-OBS-001 为已完成输入，并自动选择其证据缺口释放的下一 T-DIAG、T-Meta 或 T-ZFC 单元；只有用户明确暂停、取消或替换理论对象时才停止推进；
+1. 若 T-PRECISION 的总体 Goal 处于 active，保留 T0/T-OBS-001 与 T-DIAG-001 为已完成输入，并自动选择其证据缺口释放的下一 T-DIAG、T-Meta 或 T-ZFC 单元；当前缺口已指向 T-Meta same-task / bridge-payment 裁决；只有用户明确暂停、取消或替换理论对象时才停止推进；
 2. 读方案 index + 001–004、user primary source，再读本 capsule；
 3. 从 T1–T5 中选择唯一最小且仍能改变总体结论的后继单元，冻结其 TaskPrecisionCard；T0 已由 T-OBS-001 完成；路由级受限负结论必须先检查是否释放别的后继，不能被当作总体完成；
 4. 先写自己的候选、前提、反证和同一任务条件；
