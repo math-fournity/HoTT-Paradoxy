@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [GODEL-ZFC-CONVERGENCE-SOP](../dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md)。
 >
-> **创建状态：** `ACTIVE / HOST_GOAL_ACTIVE_OBSERVED_2026-10-05 / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / D_TDIAG_D001_LOCAL_CLOSED / A_M2M3_A001_LOCAL_CLOSED / H_M1_H001_READY`。
+> **创建状态：** `ACTIVE / HOST_GOAL_ACTIVE_OBSERVED_2026-10-05 / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / D_TDIAG_D001_LOCAL_CLOSED / A_M2M3_A001_LOCAL_CLOSED / H_M1_H001_LOCAL_CLOSED / G1_GZ012_READY`。
 >
 > **闭包版本：** `v1`；本文件的路线状态只在实际 `/goal` 执行、路线裁决或用户改目标时原位更新。
 
@@ -15,7 +15,7 @@
 | 父结果 | 将 Gödel式技术、exact HoTT calculus、fixed H0 过程、实际 ZFC-facing acceptance interface 与 bare-ZFC Q 归因连接成一个可证明或可有界拒绝的总闭环。 |
 | 用户成功标准 | 不因单条来源／模型／工具链／局部形式化失败停下；跨 Session 和压缩后能恢复完整路线、未支付项与唯一 successor；最终只在总路线完成条件满足时结束。 |
 | 当前 profile | `RESEARCH_PROFILE_GOVERNED`。 |
-| 当前 role | `RESEARCH_GENERATION`；用户已明确调用 `GODEL-ZFC-CONVERGENCE-SOP`，宿主 Goal 已观测为 `active`；GZ-011、D-001 与 A-001 均已局部关闭，当前恢复点是 `H-001 / M1-H0Map-candidate-reconciliation`。 |
+| 当前 role | `RESEARCH_GENERATION`；用户已明确调用 `GODEL-ZFC-CONVERGENCE-SOP`，宿主 Goal 已观测为 `active`；GZ-011、D-001、A-001 与 H-001 均已局部关闭，当前恢复点是 `GZ-012 / R4-CCTTMINI-REPRESENTABILITY-BOUNDARY-001`。 |
 | 研究对象 | bare ZFC 的理论精度／过程完成观察候选，不是 ZFC 对象语言矛盾。 |
 | 总方案 | `GODEL-ZFC-CONVERGENCE-SOP`。 |
 | 已有子方案 | `T-PRECISION-DIAGONAL-SOP`、`R3-R4-GODEL-RETURN-001`、`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`。 |
@@ -58,7 +58,7 @@
 | `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | GZ-001 验证历史 Coq archive/receipt但 Docker fresh replay 外部阻塞；GZ-002 以 frozen Foundation Lean source 实际 build + qualification + missing-soundness negative control 建立独立 R3 calibration | C-369 primary source/run/index 已登记 | `GZ-003 / R4-HOTT-CALCULUS-BRIDGE-001` |
 | `G1-R4` | `PARKED_AFTER_GZ011 / GZ-012_REOPENABLE` | GZ-011 已为 Fmini 机器检查 formula code/decoder/injectivity与模板self-code substitution shape；它没有表示性或fixed point。因非饥饿规则转到 D/A。 | 需要审计 `prov₁` 与 meta-level `ProvWitness` 的 representability是否能在明确模型中支付 | `GZ-012 / R4-CCTTMINI-REPRESENTABILITY-BOUNDARY-001` |
 | `D-TDIAG` | `LOCAL_CLOSED_WITH_SCOPE` | D-001 以 Foundation C-369 支付真实 proof acceptance、code与diag；bridge只在 proof task内支付。 | H0/Zeno/Circle task bridge仍未付 | `A-001 / CompletionAcceptanceCard-001` |
-| `H-M1` | `READY / H-001_CANDIDATE_RECONCILIATION` | C-365 H0 trace、C-366 process representation、F1-B–F1-E targets；F1-E 当前可能有未提交候选 | 恢复时先核 writer/commit/target | 读取 latest M1 UnitRecord；若他人占用或 candidate 不可资格化则转 GZ-012 |
+| `H-M1` | `LOCAL_CLOSED_WITH_SCOPE / H-001` | H-001 确认 forcing-ticks clocked Lift candidate 是未提交、compiler blocked且未付 native H0 translation的外部候选 | candidate 不进入 version-closed payment | `GZ-012 / R4-CCTTMINI-REPRESENTABILITY-BOUNDARY-001` |
 | `A-M2/M3` | `LOCAL_CLOSED_WITH_SCOPE / A-001` | A-001 固定 IEP/Norton 的实际 continuous-completion consumer，判定为 source-level task revision／strict bridge unpaid；它仍不定义 bare-ZFC semantic completion interface。 | source application owner，非 bare ZFC owner | `H-001 / M1-H0Map-candidate-reconciliation` |
 | `S-M4/M5` | `WAITING_FOR_H_A_D_INPUTS` | current actual SameFullQ 分母已拒绝，不关闭其他 exact routes | H/A/D 有实际 payment | `SameFullQCard-001` |
 | `I-SYNTHESIS` | `NOT_READY` | 无 | 所有 declared routes 有 local verdict | route reconciliation |
@@ -104,6 +104,7 @@
 | GZ-011 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [Fmini formula-code audit](../audit/20261005-GODEL-ZFC-G1-R4-009-CCTTmini公式编码与自代入.md) + `MP-CUBICAL-GODEL-FORMULA-CODING-001` / C-383–C-386 | formula Nat code/decoder/injectivity and template self-code syntax shape established; no representability or fixed-point equivalence | GZ-012 / representability boundary |
 | D-001 | `D-TDIAG` | `LOCAL_CLOSED_WITH_SCOPE` | [Foundation acceptance-interface card](../audit/20261005-GODEL-ZFC-D-TDIAG-001-Foundation接受接口.md) + C-369 | actual Code/Accept/diag paid for first-order proof task; no task-preserving bridge to H0/Zeno/Circle or bare ZFC | A-001 / actual completion-acceptance source |
 | A-001 | `A-M2/M3` | `LOCAL_CLOSED_WITH_SCOPE` | [continuous-completion acceptance card](../audit/20261005-GODEL-ZFC-A-M2M3-001-连续统完成接受接口.md) + current IEP/Norton primary pages + existing C-362 control | actual ZFC-supported application consumer selects a revised completion contract; strict bridge and bare-ZFC attribution remain unpaid | H-001 / M1-H0Map-candidate-reconciliation; if external writer state cannot be qualified, GZ-012 |
+| H-001 | `H-M1` | `LOCAL_CLOSED_WITH_SCOPE` | [H0 candidate-worktree qualification](../audit/20261005-GODEL-ZFC-H-M1-001-H0候选工作树资格化.md) | forcing-ticks source/candidate is relevant but uncommitted, matching compiler blocked, and native fixed-H0 translation unpaid | GZ-012 / R4 representability boundary |
 
 ## 7. 失效、重开与总停机边界
 
