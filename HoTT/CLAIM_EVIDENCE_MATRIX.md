@@ -1801,3 +1801,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-372 | 空 context 的 `varC 0` 满足 `accepts [] (varC 0) ≡ false`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTmini.illScopedRejected`；主 run。 | 只覆盖该 fragment 的一条 ill-scoped input。 |
 | C-373 | `accepts [] (sucC (reflC zeroC)) ≡ false`；路径 certificate 不被当成 Nat certificate。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTmini.wrongSucRejected`；主 run。 | 不涵盖完整 definitional equality 或所有类型错配。 |
 | C-374 | 每一个 `Checked Γ c` 携带 `Deriv Γ (erase c) A`；`checkedSound` 与 `checkSound` 公开该证书到 derivation 的消去。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTmini.checkedSound/checkSound`；主 run。 | 这不是对任意 Raw term 的 complete checker，更不是 `Proof_T` 的算术表示性。 |
+
+## GZ-009：CCTTmini₀ 的自然数 coding / decoding（2026-10-05）
+
+> 这一包不改变 GZ-008 的 syntax 或 source correspondence，只把同一 `RawCert` 加上 self-delimiting bit grammar、Nat code、total fallback decoder 和 image roundtrip。Cubical Agda 接受主文件，但原样报告 `UnsupportedIndexedMatch` warning：辅助 `≤-trans` 在一般 transport 下不计算；因此以下 claims 不断言该辅助的 transport-computational behavior。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-GODEL-NAT-CODING-001` | `C-375`–`C-378` | `formal/cubical-godel-fragment/CCTTminiNat.agda`；`NAT_CODING_CLAIM.md`；`--safe --cubical` | `verification/runs/20261005-MP-CUBICAL-GODEL-NAT-CODING-001-01/`；Cubical Agda 2.8.0-3d04bac，exit 0，stdout 保留 `UnsupportedIndexedMatch` warning；negative `...NEG-001-01` 在 `reflC (sucC (varC zero)) != zeroC` 处拒绝 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_CORRESPONDING_NAT_CODING_FRAGMENT_ONLY`：finite RawCert 的 parser、Nat code、total image decoder 和 injectivity 已检查；不含 formula/proof predicate、representability、fixed point、full cubical semantics、H0 或 ZFC归因。 |
+| `MP-CUBICAL-GODEL-NAT-CODING-NEG-001` | `C-375`–`C-378`（负控制） | `formal/cubical-godel-fragment/WrongCCTTminiNat.agda` | `verification/runs/20261005-MP-CUBICAL-GODEL-NAT-CODING-NEG-001-01/`；exit 42 | `NEGATIVE_CONTROL_REJECTED`：编码像中的正例不能被伪称为 `zeroC`。 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-375 | `unbits-code : (bs : List Bool) → unbits (LEN bs) (codeBits bs) ≡ bs`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiNat.unbits-code`；主 run。 | 不证明任意 Nat 是某个有效 bit/certificate code。 |
+| C-376 | `parse-run`：对任意 `RawCert c`、stack/rest/fuel，prefix bit grammar `bits c ++ rest` 被 finite-fuel parser 精确还原为 `close c stack` 与原 rest。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiNat.parse-run`；主 run。 | 不验证 cctt/redtt 的完整 parser 或 conversion semantics。 |
+| C-377 | `decode-code : (c : RawCert) → decode (code c) ≡ c`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiNat.decode-code`；主 run的 preserved warning。 | 只对编码像 roundtrip；不说明 malformed Nat codes、任意 transports 或 full object syntax。 |
+| C-378 | `code-injective : code c ≡ code d → c ≡ d`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiNat.code-injective`；主 run。 | 不构成 arithmetic provability predicate、formula quotation或 diagonal fixed point。 |
