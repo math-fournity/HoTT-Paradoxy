@@ -1,5 +1,11 @@
 # 审计资产入口
 
+- [T-PRECISION 当前来源分母闭环（2026-10-04）](20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md)：将 C-367、Foundation generic Gödel基线、C-368、T-Meta same-task audit 和 T-ZFC `set.mm` instance audit收束为一个可复查的范围结论：当前 actual interface 被拒绝为 parent completion interface，bare-ZFC completion formal target 未由来源定义。它不是 bare ZFC 的缺陷定理。
+
+- [T-PRECISION T-Meta-001：same-task / bridge-payment audit（2026-10-04）](20261005-T-PRECISION-TMETA-001-SAME-TASK-BRIDGE-CARD.md) 与 [set.mm comment-scan receipt](20261005-T-PRECISION-TMETA-001-SETMM-COMMENT-SCAN.json)：冻结 actual proof acceptance、H0 trace、set-theoretic representation、completion source contract与C-368之间的字段差异，并记录可重放的 comment-level DifferentTask control。
+
+- [T-PRECISION T-ZFC-001：set.mm actual-interface instance audit（2026-10-04）](20261005-T-PRECISION-TZFC-001-SETMM-INSTANCE-CARD.md)：逐项审计 `T/Process/ρ/Accept/OriginDone/Bridge/Diag`，拒绝把 proof/database acceptance 偷换成 parent process completion。
+
 - [T-PRECISION T-DIAG-001：自编码接受与 completion bridge 的逻辑核（2026-10-04）](20261005-T-PRECISION-TDIAG-001-ACCEPTANCE-DIAGONAL-CARD.md)：在 G0 已冻结 proof-acceptance interface、但 parent process bridge 未支付的条件下，先冻结并机器化条件性 self-code/diagonal/bridge 后果。配套[来源分母](20261005-T-PRECISION-TDIAG-001-SOURCE-DENOMINATOR.md)明确 Foundation 的 generic Gödel技术与 set.mm proof acceptance 不自动构成 bare-ZFC completion interface。
 
 - [GODEL-Q G2：set.mm 对象层编码与 internalization 重资格化（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-SETMM-INTERNALIZATION-REQUALIFICATION.md)：固定 `set.mm@160ebb…` 由固定 `metamath-exe@9898f5d…` 对全部 47,917 个 `$p` proofs 实际验证；同时核对其 ZF 内 Gödel-set、satisfaction、generic formal-system/proof relation与未定义 `Prv` 的边界。它打开 target-specific mapping audit，不构成 bare ZFC、actual diagonal或parent completion theorem。

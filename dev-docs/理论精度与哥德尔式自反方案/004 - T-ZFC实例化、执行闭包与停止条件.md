@@ -45,6 +45,14 @@ T-PRECISION-DIAGONAL-SOP 不废止：
 
 G0 已提供真实 `set.mm` proof-acceptance interface 与 Foundation generic Gödel baseline；T-DIAG-001 将其不可省略的逻辑铰链固定为 C-368。它机器证明 paid self-code/diagonal/bridge 的条件性拒绝，并以 bridge-missing control 保留“自指本身不矛盾”的反控制。来源审计随即确认：当前 `set.mm` interface 仍未支付 parent `OriginDone`、ρ、internal-provability adequacy 或 actual diagonal。因此此单元关闭的是**条件性逻辑核**，下一最小单元必须是 T-Meta 的 same-task / bridge-payment 裁决；T-ZFC 不能越过该裁决直接开始实例化。
 
+### T-Meta 当前执行记录：T-Meta-001
+
+T-Meta-001 将 C-365 H0 trace、C-366 Zermelo sequence representation、C-368 conditional bridge、`set.mm` full verifier replay和IEP/Norton completion contract放在同一字段表中。它得到的不是“没有过程”或“没有 ZFC interface”，而是：proof/database validity、process representation和revised continuum completion分别支付不同任务。`set.mm` comment-scan 的 exact hash control还显示其 completion/motion/homotopic注释分别指向 uniform/metric completion、geometry isometry和homotopic retraction。没有同源 `ρ` 或 `Accept(ρ(p)) → OriginDone(p)`，故判 `T_META_SAME_TASK_BRIDGE_UNPAID_WITH_SCOPE`。
+
+### T-ZFC 当前执行记录：T-ZFC-001
+
+对唯一已冻结的 actual `set.mm` interface，T-ZFC-001逐项审查 `T/Process/ρ/Accept/OriginDone/Bridge/Diag`。`T`和proof acceptance由来源及47,917 proof verifier replay支付；parent Process、ρ、parent OriginDone和bridge没有来源支付，actual database→mFS/adequate `Prv`/target diagonal亦未支付。因此该**接口候选**被判 `T_ZFC_CURRENT_INTERFACE_REJECTED_WITH_SCOPE`，而 bare-ZFC parent completion interface 的 formal target 保持 `UNDERDETERMINED_WITH_SCOPE`。
+
 ## 3. 跨 Session 认知闭包合同
 
 开始、压缩恢复、换 worktree 或从 T0–T5 切换时，必须先加载：
@@ -75,6 +83,10 @@ G0 已提供真实 `set.mm` proof-acceptance interface 与 Foundation generic G�
 4. 方案、closure、Feature、MEMORY、来源／证据 owner 与 Git 谱系都已经写回并复读。
 
 以上仍不等于“所有理论没有问题”或“ZFC 没有问题”。它只表示这个由研究发起人授权的 T 路线已经把可执行、可判别的证据路径耗尽或完成；不能用“一个原子单元完成”或“一个 source route 结束”提前声明总体收尾。
+
+### 4.1 当前来源分母的总体收束
+
+`audit/20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md` 对 T1–T5 逐项复核：C-367、Foundation technical baseline、C-368、T-Meta same-task audit和T-ZFC current-interface audit均已有相称证据或受限负结论；残余项只依赖于该报告列出的新 actual source、用户重定原过程或新 proof run。故当前分母满足本节的总体停止条件，身份为 `CURRENT_T_PRECISION_SOURCE_DENOMINATOR_CLOSED_WITH_SCOPE`。
 
 ## 5. /goal 启动词
 
