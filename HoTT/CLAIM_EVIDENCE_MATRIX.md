@@ -1797,7 +1797,7 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
-| C-369 | 对 `ApplicationCase`，若 `applicationClaim ∧ claimsOriginalResolution ∧ requiresBridge ∧ ¬bridgePaid ∧ ¬explicitTaskSwitch`，则 `ApplicationAdequacyFailure`；`bridgePaidControl`、`taskSwitchControl`、`modelOnlyControl`分别不满足 failure，且 `h0MissingSameQ` 不能进入 `H0Eligible`。 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_CERTIFIED_APPLICATION_ADEQUACY_CONTRACT` | `MP-ZFC-META-SUBTHEORY-ADEQUACY-001` / `20261005-MP-ZFC-META-SUBTHEORY-ADEQUACY-001-04`；C4A/C5A是原source contract，C5D保留bifurcation，C5E/C6D将用户固定`OriginDone`映到`applicationUnpaid`的failure branch。 | 不证明 bare ZFC 的对象语言矛盾、ZFC 无法表示时间、所有数学模型或标准解法失败、IEP/Norton事实由内核证明、HoTT/芝诺 SameQ，或在用户合同外自动failure。 |
+| C-369 | 对 `ApplicationCase`，若 `applicationClaim ∧ claimsOriginalResolution ∧ requiresBridge ∧ ¬bridgePaid ∧ ¬explicitTaskSwitch`，则 `ApplicationAdequacyFailure`；`bridgePaidControl`、`taskSwitchControl`、`modelOnlyControl`分别不满足 failure，且 `h0MissingSameQ` 不能进入 `H0Eligible`。 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_CERTIFIED_APPLICATION_ADEQUACY_CONTRACT` | `MP-ZFC-META-SUBTHEORY-ADEQUACY-001` / `20261005-MP-ZFC-META-SUBTHEORY-ADEQUACY-001-04`；source-to-spec fields及边界见 `formal/zfc-meta-subtheory-adequacy/CLAIM.md` 和 C4A/C5A audit cards。 | 不证明 bare ZFC 的对象语言矛盾、ZFC 无法表示时间、所有数学模型或标准解法失败、IEP/Norton事实由内核证明、HoTT/芝诺 SameQ，或本 SOP 已完成。 |
 
 ## ZFC 元理论—子理论充分性：用户稠密—量化运动对照（2026-10-05）
 
