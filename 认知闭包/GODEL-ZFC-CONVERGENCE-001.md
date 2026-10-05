@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [GODEL-ZFC-CONVERGENCE-SOP](../dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md)。
 >
-> **创建状态：** `ACTIVE / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / D_TDIAG_D001_LOCAL_CLOSED / A_M2M3_A001_ACTIVE`。
+> **创建状态：** `ACTIVE / HOST_GOAL_ACTIVE_OBSERVED_2026-10-05 / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / D_TDIAG_D001_LOCAL_CLOSED / A_M2M3_A001_ACTIVE`。
 >
 > **闭包版本：** `v1`；本文件的路线状态只在实际 `/goal` 执行、路线裁决或用户改目标时原位更新。
 
@@ -15,11 +15,18 @@
 | 父结果 | 将 Gödel式技术、exact HoTT calculus、fixed H0 过程、实际 ZFC-facing acceptance interface 与 bare-ZFC Q 归因连接成一个可证明或可有界拒绝的总闭环。 |
 | 用户成功标准 | 不因单条来源／模型／工具链／局部形式化失败停下；跨 Session 和压缩后能恢复完整路线、未支付项与唯一 successor；最终只在总路线完成条件满足时结束。 |
 | 当前 profile | `RESEARCH_PROFILE_GOVERNED`。 |
-| 当前 role | `RESEARCH_GENERATION`；用户已明确调用 `GODEL-ZFC-CONVERGENCE-SOP`，GZ-005 已局部关闭，当前恢复点是 GZ-006。 |
+| 当前 role | `RESEARCH_GENERATION`；用户已明确调用 `GODEL-ZFC-CONVERGENCE-SOP`，宿主 Goal 已观测为 `active`；GZ-011 与 D-001均已局部关闭，当前恢复点是 `A-001 / CompletionAcceptanceCard-001`。 |
 | 研究对象 | bare ZFC 的理论精度／过程完成观察候选，不是 ZFC 对象语言矛盾。 |
 | 总方案 | `GODEL-ZFC-CONVERGENCE-SOP`。 |
 | 已有子方案 | `T-PRECISION-DIAGONAL-SOP`、`R3-R4-GODEL-RETURN-001`、`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`。 |
 | 当前授权边界 | 当前 `/goal` 授权版本固定来源核验、受控 checker/proof 构造、run receipts、对应 owner 写回和精确 Git commit；不授权将项目接口冒充 bare ZFC、接管其它 writer、tag、push或外部发布。 |
+
+## 1A. `/goal` 运行时锚点与反中途停止规则
+
+- **运行时事实：** 本闭包的创建状态不是宿主 Goal 的替代物。每次恢复先调用 `get_goal`，并将其 `active / paused / complete` 状态与本文件的路线状态分开读取。2026-10-05 已观测到本方案的启动词作为 `active` Goal；下一次恢复必须重新核对，不能把这个日期当作永久事实。
+- **唯一的工作单位结束语义：** 一个 RouteUnitRecord 可以是 `LOCAL_CLOSED_WITH_SCOPE`、`EXTERNAL_BLOCKED` 或 `ACTIVE`；这些都不允许结束总体 `/goal`。只有 SOP 第 003 片 C1–C4 能给出总结束语义。
+- **非空转要求：** 每次局部关闭必须在同一写回中登记一个改变判别面的 successor；若同一路线连续收紧却没有增加总图 payment，必须转向另一条 READY route。不能以“目前没有立即可跑的命令”代替 successor。
+- **压缩恢复最低动作：** `get_goal` → worktree/HEAD/dirty ownership → SOP 全文 → 本闭包 → 上一 Unit 的 successor → 四件套与当前 direct evidence。缺其中任何一项时，仅能恢复闭包，不能作依赖其上的数学或总完成判断。
 
 ## 2. 直接激活集
 
@@ -70,7 +77,7 @@
 
 ## 5. 当前恢复算法
 
-1. 检查用户是否明确调用 `GODEL-ZFC-CONVERGENCE-SOP`；未调用时本闭包仅供解释／准备，不自动研究；
+1. 调用 `get_goal` 并检查用户是否明确调用 `GODEL-ZFC-CONVERGENCE-SOP`；未调用或 Goal 已暂停／完成时本闭包仅供解释／准备，不自动研究；
 2. 读本闭包、SOP 全文、当前 `rulings`、F-050/F-049/F-048、MEMORY 和 `git status`；
 3. 完整确认 current worktree 与 dirty ownership；
 4. 实际研究时读四件套与相关 KC/扩展认知，并按 source-first 复述原意与开放义务；
@@ -96,10 +103,11 @@
 | GZ-010 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [CCTTmini formula-predicate audit](../audit/20261005-GODEL-ZFC-G1-R4-008-CCTTmini公式谓词接口.md) + `MP-CUBICAL-GODEL-FORMULA-PREDICATE-001` / C-379–C-382 | formula `provF` quotes a certificate code while acceptance/witness remain meta-level; no formula code/substitution or representability/fixed point | GZ-011 / formula Nat code and substitution |
 | GZ-011 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [Fmini formula-code audit](../audit/20261005-GODEL-ZFC-G1-R4-009-CCTTmini公式编码与自代入.md) + `MP-CUBICAL-GODEL-FORMULA-CODING-001` / C-383–C-386 | formula Nat code/decoder/injectivity and template self-code syntax shape established; no representability or fixed-point equivalence | GZ-012 / representability boundary |
 | D-001 | `D-TDIAG` | `LOCAL_CLOSED_WITH_SCOPE` | [Foundation acceptance-interface card](../audit/20261005-GODEL-ZFC-D-TDIAG-001-Foundation接受接口.md) + C-369 | actual Code/Accept/diag paid for first-order proof task; no task-preserving bridge to H0/Zeno/Circle or bare ZFC | A-001 / actual completion-acceptance source |
+| A-001 | `A-M2/M3` | `ACTIVE / SOURCE_SELECTION` | predecessor `D-001`; existing source-contract controls C-362/C-364 are deferred evidence, not yet this unit's verdict | fix one versioned ZFC-facing completion consumer and fill `Represent / FormalDone / OriginDone / Observe / Reject / BridgePaid / AdequacyLift`; source task revision must be separated from a bare-ZFC attribution | unassigned until its fixed source and controls are audited |
 
 ## 7. 失效、重开与总停机边界
 
-本闭包在以下任一事实改变时需要增量重建：用户修改 `OriginDone` 或总目标；新的 actual acceptance source；R3/R4 proof source 版本变化；H0 calculus/implementation 变体变化；任何 Run/claim evidence 被修订或撤销；当前 worktree/HEAD/owner 变化；或一个 new counterexample/payment 改变路线依赖。
+本闭包在以下任一事实改变时需要增量重建：用户修改 `OriginDone` 或总目标；宿主 Goal 的状态或启动词变化；新的 actual acceptance source；R3/R4 proof source 版本变化；H0 calculus/implementation 变体变化；任何 Run/claim evidence 被修订或撤销；当前 worktree/HEAD/owner 变化；或一个 new counterexample/payment 改变路线依赖。
 
 局部 verdict 的 `reopen_if` 由其 RouteUnitRecord 拥有。总路线只在 `GODEL-ZFC-CONVERGENCE-SOP` 第 003 片 C1–C4 的终局条件下停止；“这轮没有现成下一步”不是合法停机理由。
 
@@ -112,7 +120,7 @@
 | 当前／历史职责 | PASS | T-PRECISION、R3–R4、ZFC-H0、proof/run/claim matrix 保持原 owner；本 SOP 不复制数学证据。 |
 | 防止局部停止 | PASS（合同层） | I1–I3、`LOCAL_CLOSED → SUCCESSOR_REQUIRED` 和 C1–C4 明确区分局部与总完成。它约束未来执行流程，不能单凭文本保证未来模型一定遵守。 |
 | 跨 Session 恢复 | PASS（设计层） | §5 恢复算法要求回读 actual HEAD/status、plan、closure、四件套、route evidence 与上一 successor；fresh model 行为尚未实测。 |
-| `/goal` 可用性 | PASS | 启动词长度为 663 Unicode 字符，小于 4000；当前 host `get_goal` 返回 `null`，故本 SOP 处于准备状态而未自行启动。 |
+| `/goal` 可用性 | PASS（创建时） | 创建时启动词长度为 663 Unicode 字符，小于 4000；当时 host `get_goal` 返回 `null`，故方案没有自行启动。2026-10-05 的实际 `active` 观测由 §1A 持有，恢复时必须重新查询。 |
 | 并发／dirty 保护 | PASS（当前边界） | 当前 `MEMORY/001`、`feature-list.md` 等存在非本提交 dirty delta；本轮没有覆盖它们，closure 明确登记安全写回前提。 |
 | Git 可恢复性 | PASS（本地） | 初始方案 commit 为 `0406460a`，并由本地 ref `codex/godel-zfc-convergence-plan` 保留。它尚未因此获得远程集成／发布身份。 |
 

@@ -17,7 +17,7 @@ soft_line_target: 300
 >
 > **启动闭包：** [GODEL-ZFC-CONVERGENCE-001](../认知闭包/GODEL-ZFC-CONVERGENCE-001.md)。
 >
-> **状态：** `GOAL_PREPARED_NOT_AUTOSTARTED`。方案和闭包已经准备；只有用户明确用 `/goal` 调用或明确要求继续时，才进入研究执行。
+> **状态：** `GOAL_ACTIVE / HOST_GOAL_OBSERVED_2026-10-05`。方案已经由用户明确调用；宿主 `/goal` 的实际状态、当前 worktree 与本闭包的活动路线共同决定恢复位置。这个状态只说明任务已启动，不说明任一数学路线或总目标已经完成。
 
 ## 它解决什么
 
