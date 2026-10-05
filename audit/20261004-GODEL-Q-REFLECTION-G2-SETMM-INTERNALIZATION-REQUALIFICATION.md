@@ -107,6 +107,21 @@ exact raw set.mm database
 
 因此 MM0 是 actual mapping obligation 的近邻对照，不是 payment。
 
+### 4.6.1 `mWGFS`／`mGFS`／`mUFS`／`mMdl` 不是 raw database witness
+
+为避免把同一 formal-system section 中更丰富的对象误读成既有 mapping，本轮直接回读 exact source 的相关定义：
+
+```text
+df-mwgfs: mWGFS = { t ∈ mFS | ... }
+df-mgfs:  mGFS  = { t ∈ mWGFS | ... }
+df-mufs:  mUFS  = { t ∈ mGFS | Fun (mST ` t) }
+df-mdl:   mMdl  = { t ∈ mFS | ... }
+```
+
+这些定义提供的是对**已给定** formal-system object `t` 的 grammatical/unambiguous/model predicates；它们没有在 inspected source中给出一个 label、construction或 theorem，把 raw `set.mm@160ebb…` 的 finite database fields提升为这样的 `t`。特别地，`mWGFS`本身已经要求` t ∈ mFS`，因此它不会绕开本卡已记录的无穷 variable-type preimage obligation。
+
+本轮 full MM0 translation 的输出同样属于外部目标语言的 `sort/term/axiom/theorem` declaration/proof artifact。它可以把 actual database 的外部形式结构带入另一个 verifier；它不会自动产生 set.mm 内的 `t ∈ mFS` witness。此项检查强化的是 source-bound `ACTUAL_SETMM_TO_MFS_MAPPING_NOT_SUPPLIED_WITH_SCOPE`，不是“这样的 witness 在数学上不存在”的结论。
+
 ### 4.7 `from-mm` 的真实能力与当前 host toolchain gap
 
 同一固定 MM0 source 的 `mm0-hs/README.md` 和 `MM0.FromMM` source 实际给出命令：
