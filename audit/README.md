@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [GZ-001／GZ-002：哥德尔式 ZFC 收敛闭环的 Coq 资格化与 Foundation R3 重放（2026-10-05）](20261005-GODEL-ZFC-G0-R3-001-Coq资格化与Foundation后继.md)：Coq 历史 package 的 source/receipt 当前可验证但 fresh Docker replay 与 version closure 分别被 daemon 与 command-contract 卡住；Foundation@`f3972f` 给出独立 Lean R3 source calibration，主 build/qualification 通过，缺 `Sigma₁` soundness 的负控制被拒。两者均不实例化 HoTT 或 bare ZFC。
+
 - [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。
 
 - [ZFC-H0 总证明闭环 F1-B：CCHM feature coverage（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1B-CCHM-COVERAGE.md)：保存本项目先验构造、论文/Agda/GitHub/GCTT对照和逐 feature coverage。结论是 CCHM family 相关但未支付 native coinductive Delay、EM1/HIT/universe 的 exact H0Map；下一检验是原 CCHM `cubicaltt` 语法/语义对 coinductive records 的覆盖。

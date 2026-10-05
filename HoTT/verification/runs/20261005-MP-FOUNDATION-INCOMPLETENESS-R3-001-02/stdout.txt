@@ -1,0 +1,16 @@
+FFL.FirstOrder.Arithmetic.incomplete (T : ArithmeticTheory) [Theory.Δ₁ T] [𝗥₀ ⪯ T] [T.SoundOnHierarchy 𝚺 1] :
+  Entailment.Incomplete T
+FFL.FirstOrder.Arithmetic.incomplete_of_RE (T : ArithmeticTheory) [Theory.RE T] [𝗥₀ ⪯ T] [T.SoundOnHierarchy 𝚺 1] :
+  Entailment.Incomplete T
+FFL.FirstOrder.Arithmetic.exists_true_but_unprovable_sentence_of_sigma1sound (T : ArithmeticTheory) [Theory.Δ₁ T]
+  [𝗥₀ ⪯ T] [T.SoundOnHierarchy 𝚺 1] : ∃ δ, ℕ↓[ℒₒᵣ] ⊧ δ ∧ T ⊬ δ
+FFL.FirstOrder.Arithmetic.exists_true_but_unprovable_sentence_of_RE_of_sigma1sound (T : ArithmeticTheory) [Theory.RE T]
+  [𝗥₀ ⪯ T] [T.SoundOnHierarchy 𝚺 1] : ∃ δ, ℕ↓[ℒₒᵣ] ⊧ δ ∧ T ⊬ δ
+'FFL.FirstOrder.Arithmetic.incomplete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FFL.FirstOrder.Arithmetic.incomplete_of_RE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FFL.FirstOrder.Arithmetic.exists_true_but_unprovable_sentence_of_sigma1sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FFL.FirstOrder.Arithmetic.exists_true_but_unprovable_sentence_of_RE_of_sigma1sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

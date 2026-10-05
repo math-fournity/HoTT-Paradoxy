@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [GODEL-ZFC-CONVERGENCE-SOP](../dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md)。
 >
-> **创建状态：** `READY_FOR_EXPLICIT_GOAL / NOT_AUTOSTARTED`。
+> **创建状态：** `ACTIVE / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / G1_R4_SUCCESSOR_REQUIRED`。
 >
 > **闭包版本：** `v1`；本文件的路线状态只在实际 `/goal` 执行、路线裁决或用户改目标时原位更新。
 
@@ -48,8 +48,8 @@
 
 | Route | 起始状态 | 当前已知 | 进入条件 | 本轮/下轮的最小动作 |
 |---|---|---|---|---|
-| `G0-R3` | `READY` | 已有 Coq/Kirst–Peters/agda-godel-tree/Foundation 候选与 R3 验收 | `/goal` 且无更早 active unit | `R3-SOURCE-REPLAY-001` |
-| `G1-R4` | `WAITING_FOR_G0_EVIDENCE` | 现有 groupoid syntax 只覆盖局部 H-SYNTAX | R3 theorem package 固定后 | `R4-HOTT-CALCULUS-BRIDGE-001` |
+| `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | GZ-001 验证历史 Coq archive/receipt但 Docker fresh replay 外部阻塞；GZ-002 以 frozen Foundation Lean source 实际 build + qualification + missing-soundness negative control 建立独立 R3 calibration | C-369 primary source/run/index 已登记 | `GZ-003 / R4-HOTT-CALCULUS-BRIDGE-001` |
+| `G1-R4` | `READY` | 现有 groupoid syntax 只覆盖局部 H-SYNTAX；R3 source calibration 已有两个不同 proof-system lane | G0 local closure 已记录 | `R4-HOTT-CALCULUS-BRIDGE-001` |
 | `D-TDIAG` | `READY_AFTER_INTERFACE_SELECTION` | T-DIAG 定义了 code/accept/diag/bridge 门 | real Accept source 或明确 formal theory 已选 | `AcceptanceInterfaceCard-001` |
 | `H-M1` | `ACTIVE_IN_OTHER_WORKSPACE_STATE_UNRECONCILED` | C-365 H0 trace、C-366 process representation、F1-B–F1-E targets；F1-E 当前可能有未提交候选 | 恢复时先核 writer/commit/target | 读取 latest M1 UnitRecord；若他人占用则转 G0 |
 | `A-M2/M3` | `READY_WITH_SOURCE_GAP` | current application/source controls 不等于 bare-ZFC completion interface | 固定 actual source/interface | `CompletionAcceptanceCard-001` |
@@ -80,11 +80,12 @@
 
 ## 6. Route Ledger
 
-本表在实际执行后原位更新；当前没有已启动的 GZ unit。
+本表在实际执行后原位更新。
 
 | Unit | Route | Status | Evidence | Verdict | Required successor |
 |---|---|---|---|---|---|
-| — | — | `NOT_STARTED` | 本方案准备阶段无数学产物 | 无 | `/goal` 后执行 `G0-R3-SOURCE-REPLAY-001`，除非 safe recovery 发现已 owned 的 active unit |
+| GZ-001 | `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | [Coq / Foundation audit](../audit/20261005-GODEL-ZFC-G0-R3-001-Coq资格化与Foundation后继.md) §1–7；Coq source manifest/run verifier PASS_WITH_SCOPE，Docker daemon unavailable | historical Coq R3 is source-valid but not current fresh/version-closed; successor Foundation | GZ-002 |
+| GZ-002 | `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | `MP-FOUNDATION-INCOMPLETENESS-R3-001` primary `20261005-MP-FOUNDATION-INCOMPLETENESS-R3-001-03` + negative `...NEG-001-03` | Foundation first-order arithmetic incompleteness source calibration; no HoTT/ZFC task bridge | GZ-003 / R4 exact-calculus bridge |
 
 ## 7. 失效、重开与总停机边界
 

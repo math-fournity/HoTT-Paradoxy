@@ -18,6 +18,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `bare-zfc-q-precision/`：`MP-BARE-ZFC-Q-PRECISION-001` / C-364 以一个来源绑定的有限 completion-contract control 区分粗标准解答 view、OriginDone 与 completion bridge：同一粗 resolved view 不能决定 OriginDone 或支付 universal bridge；显式 contract view 与 code view 是正控制。它是 ZFC-supported Standard Solution application interface 的精度控制，**不**形式化 bare ZFC 本身，不主张 ZFC 不能编码过程或 ZFC 不一致，详见目录`CLAIM.md`。
 
+- `external-foundation-incompleteness/`：`MP-FOUNDATION-INCOMPLETENESS-R3-001` / C-369 固定 Foundation Lean 的 first-order arithmetic 第一不完备性源码与 toolchain，重新构建 `Foundation.FirstOrder.Incompleteness.First`，检查含 `codeOfREPred`、quote、substitution 和 `Provable` 的 theorem exports，并通过缺 `Sigma₁` soundness 的负控制。它是 G0/R3 source calibration，不是 exact HoTT、bare ZFC acceptance 或现实过程完成证明。
+
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。

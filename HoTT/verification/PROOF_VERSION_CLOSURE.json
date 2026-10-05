@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 218,
+  "later_machine_proved_claim_count": 219,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1085,6 +1085,16 @@
       "source": "HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation.lean",
       "toolchain": "HoTT/formal/zfc-h0-final-closure/H0ProcessRepresentation-TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: the pinned Foundation Zermelo-model interface represents ordinal-indexed sequence graphs and unique stage values."
+    },
+    {
+      "claim_ids": "C-369",
+      "kind": "external_foundation_lean_first_order_arithmetic_incompleteness_source_calibration",
+      "notes": "Pinned Foundation Lean 4 source actually builds First.lean and qualification prints explicit first-incompleteness and true-but-unprovable declarations. The missing-Sigma-one-soundness negative control is rejected. This does not instantiate an exact HoTT calculus, bare-ZFC acceptance interface, OriginDone bridge, SameFullQ, or any bare-ZFC precision verdict.",
+      "proof_id": "MP-FOUNDATION-INCOMPLETENESS-R3-001",
+      "run": "HoTT/verification/runs/20261005-MP-FOUNDATION-INCOMPLETENESS-R3-001-03",
+      "source": "HoTT/formal/external-foundation-incompleteness/Qualification.lean",
+      "toolchain": "HoTT/formal/external-foundation-incompleteness/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: frozen Foundation proves first-order arithmetic incompleteness under explicit Delta-one, R-zero strength and Sigma-one soundness assumptions; this is an R3 source calibration only."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
