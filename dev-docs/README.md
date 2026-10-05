@@ -1,6 +1,6 @@
 # 未定过程与设计工作区
 
-- [GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案](哥德尔式ZFC完成观察反射方案SOP.md)：研究发起人 2026-10-04 明确采纳的后续方案。它不把一般不完备性口号贴到 ZFC；它要求先冻结真实、版本固定的 ZFC-facing completion acceptance interface，再依次支付 Code、有限 checker、Accept_T、OriginDone、bridge、对角化和元元层同一任务审计。稳定启动名为 GODEL-Q-REFLECTION-SOP；当前 G0 已冻结 Metamath proof-acceptance interface，但 parent completion interface 仍未定义，详见 [G0 接口分母](../audit/20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md) 与配套可审计闭包 [CC-20261004-godel-q-reflection](../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)。
+- [GODEL-Q-REFLECTION-SOP：哥德尔式 ZFC 完成观察与反射边界方案](哥德尔式ZFC完成观察反射方案SOP.md)：研究发起人 2026-10-04 明确采纳的后续方案。它不把一般不完备性口号贴到 ZFC；它要求先冻结真实、版本固定的 ZFC-facing completion acceptance interface，再依次支付 Code、有限 checker、Accept_T、OriginDone、bridge、对角化和元元层同一任务审计。稳定启动名为 GODEL-Q-REFLECTION-SOP；当前 G0 已冻结 Metamath proof-acceptance interface，MM0 matching runner 已完成六条`$j` metadata规范化数据库的full MM0/MMB translation与`mm0-c` verification control，而 raw parser direct replay、ZF内mapping和parent completion interface仍未支付。详见 [matching-runner audit](../audit/20261004-GODEL-Q-REFLECTION-G2-MM0-FROM-MM-MATCHING-RUNNER.md)、[G0 接口分母](../audit/20261004-GODEL-Q-REFLECTION-G0-INTERFACE-DENOMINATOR.md) 与配套可审计闭包 [CC-20261004-godel-q-reflection](../认知闭包/2026-10-04-哥德尔式ZFC完成观察反射-认知闭包.md)。
 
 这里保存尚未成为当前真值的调查方案、迁移草案、实验计划和审计过程。正式需求写根 `feature-list.md`，用户原意写 `rulings.md`，稳定设计写 `docs/`，当前状态写 `MEMORY.md`；不要把本目录的草案直接当成已实现或已验证。
 

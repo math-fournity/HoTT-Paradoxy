@@ -1,5 +1,7 @@
 # 审计资产入口
 
+- [GODEL-Q G2：MM0 matching runner、comment-normalized `set.mm` translation 与 MMB verification（2026-10-04）](20261004-GODEL-Q-REFLECTION-G2-MM0-FROM-MM-MATCHING-RUNNER.md)：固定`mm0@0d414c0`在locked GHC 8.6.5／LTS 13.27 matching runner上完成build；raw `set.mm@160ebb` direct parser在六条现代`$j` metadata strings处拒绝，而Metamath全proof重新验证的comment-normalized derivative被翻译为MM0/MMB并由`mm0-c`验证。它是M层wholesale translation control，不构成raw-byte direct replay、ZF内`mFS/Prv` mapping、actual diagonal或parent completion bridge。
+
 - [T-PRECISION 当前来源分母闭环（2026-10-04）](20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md)：将 C-367、Foundation generic Gödel基线、C-368、T-Meta same-task audit 和 T-ZFC `set.mm` instance audit收束为一个可复查的范围结论：当前 actual interface 被拒绝为 parent completion interface，bare-ZFC completion formal target 未由来源定义。它不是 bare ZFC 的缺陷定理。
 
 - [T-PRECISION T-Meta-001：same-task / bridge-payment audit（2026-10-04）](20261005-T-PRECISION-TMETA-001-SAME-TASK-BRIDGE-CARD.md) 与 [set.mm comment-scan receipt](20261005-T-PRECISION-TMETA-001-SETMM-COMMENT-SCAN.json)：冻结 actual proof acceptance、H0 trace、set-theoretic representation、completion source contract与C-368之间的字段差异，并记录可重放的 comment-level DifferentTask control。

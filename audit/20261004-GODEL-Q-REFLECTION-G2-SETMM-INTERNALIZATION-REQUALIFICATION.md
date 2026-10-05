@@ -4,7 +4,7 @@
 >
 > **身份：** `EXACT_DATABASE_VERIFIER_REPLAY + SOURCE_INTERNALIZATION_INSPECTION / NOT_A_BARE_ZFC_THEOREM`。
 
-> **判词：** `SET_CODED_FORMULA_AND_GENERIC_FORMAL_SYSTEM_ASSETS_SOURCE_VERIFIED / ACTUAL_SETMM_INTERNAL_PRV_AND_DIAGONAL_NOT_PAID`。
+> **判词：** `SET_CODED_FORMULA_AND_GENERIC_FORMAL_SYSTEM_ASSETS_SOURCE_VERIFIED / MM0_MATCHING_RUNNER_BUILT_AND_COMMENT_NORMALIZED_DATABASE_TRANSLATED_AND_MMB_VERIFIED_WITH_SCOPE / RAW_SETMM_DIRECT_PARSE_REJECTED_WITH_SCOPE / ACTUAL_SETMM_INTERNAL_PRV_AND_DIAGONAL_NOT_PAID`。
 
 ## 1. 为什么这会修正 G0 的来源判断
 
@@ -115,21 +115,22 @@ exact raw set.mm database
 mm0-hs from-mm MM-FILE [-o MM0-FILE MMU/MMB-FILE]
 ```
 
-它声称 wholesale translation from Metamath to MM0 + proof format，因而是唯一值得继续检验的 actual-database M-layer translation candidate。当前不能把它报告为已运行：该 source 的 `stack.yaml` 锁定 `lts-13.27`（GHC 8.6.5）；`STACK_ROOT` 和 `TMPDIR` 均放外置缓存的 preflight 在本机 macOS ARM 上得到 Stack `S-9443`，提示没有 `ghc-8.6.5` 的 `macosx-aarch64` setup。当前已装 GHC 9.4.8 不等价于这个 lock。
+它声称 wholesale translation from Metamath to MM0 + proof format，因而是唯一值得继续检验的 actual-database M-layer translation candidate。此前 `S-9443` 只说明当前 host 缺 ARM GHC 8.6.5 setup；它没有否定 x86_64 matching runner 的可能性。本轮已在 Rosetta x86_64 lane 安装 GHC 8.6.5 bindist 与 Stack 3.11.1，以 locked `lts-13.27` 完整构建 fixed `mm0-hs` source（59 actions）。
 
 因此本卡的准确状态是：
 
 ```text
-MM0_FROM_MM_SOURCE_CAPABILITY_IDENTIFIED
-MM0_FROM_MM_EXACT_REPLAY_BLOCKED_BY_GHC_8_6_5_MACOS_AARCH64
-NO_TRANSLATION_OUTPUT_OR_MAPPING_CLAIM
+MM0_MATCHING_RUNNER_BUILT_AND_QUALIFIED
+RAW_SETMM_DIRECT_PARSE_REJECTED_WITH_SCOPE
+COMMENT_NORMALIZED_SETMM_TRANSLATED_AND_MMB_VERIFIED_WITH_SCOPE
+M_LEVEL_WHOLESALE_TRANSLATION_ONLY
 ```
 
-重开条件是一个支持 GHC 8.6.5 的匹配 runner、来源维护者提供的版本固定可执行物，或被单独资格化的等价 toolchain；在任一条件出现前，不用新 GHC / 新 resolver 伪造 exact replay。
+direct raw input control仍必须保留：`mm0-hs show-bundled <raw set.mm@160ebb>`以 exit `1` 在六条现代 double-quoted `$j` color metadata的第一条停于`parse failed ""wff""as`。对仅此六条 `$j` 注释作 single-quoted compatibility normalization后，fixed Metamath verifier 仍验证全部47,917个`$p` proofs；fixed `mm0-hs`完成 full MM0/MMB translation，fixed `mm0-c`以 exit `0`验证生成 MMB。完整证据见 [matching-runner audit](20261004-GODEL-Q-REFLECTION-G2-MM0-FROM-MM-MATCHING-RUNNER.md) 及其 [run receipt](../HoTT/verification/runs/20261004-SOURCE-REPLAY-MM0-FROM-MM-JCOMPAT-001/RUN.json)。这解除的是 host runner blocker，不能把 comment-normalized M-level translation伪称为 raw-byte direct replay、ZF 内 internalization或 G2 payment。
 
 ### 4.8 本机 matching runner 现场
 
-当前 host 只检测到 Docker client，没有可连接的 OrbStack daemon；`limactl list` 也报告没有 Lima instance。没有启动新的 VM、container或下载新镜像，因为那会改变环境而不是重放现有固定 source。故本轮的 `from-mm` 阻断不是“尚未尝试容器”，而是**当前可观察 runner inventory中没有一个可复用的 matching runner**。
+Docker client／Lima inventory的旧检查仍是当时现场的真实记录，但不再是当前 blocker。新的 runner 不依赖 VM 或容器：它以 source-declared GHC 8.6.5／Stack 3.11.1 在本机 Rosetta x86_64 lane 完成 build；host adaptation仅修复 cross-architecture compiler invocation，未更换 MM0 source revision、resolver或 Metamath database revision。
 
 ## 5. 对方案的实际改变
 
@@ -140,10 +141,12 @@ arithmetic target: code → numeral / term in T
 set-theoretic target: code → internal set/class object and usable formula position in T
 ```
 
-G2 的 Metamath 子路线由此获得一个真实源头：它可以追踪 actual database mapping、internal representation of its proof relation、adequacy of `Prv`，再检查是否可能有 target-specific diagonalization。此刻的状态是：
+G2 的 Metamath 子路线由此获得一个真实 M-level wholesale-translation control：它可以追踪 actual database的外部 formal-system translation，同时继续审计 internal representation of its proof relation、adequacy of `Prv`，再检查是否可能有 target-specific diagonalization。此刻的状态是：
 
 ```text
 G2_SETMM_OBJECT_CODING_SOURCE_REQUALIFICATION_ACTIVE_WITH_SCOPE
+M_LEVEL_WHOLESALE_TRANSLATION_CONTROL_VERIFIED_WITH_SCOPE
+RAW_DATABASE_DIRECT_PARSER_COMPATIBILITY_REJECTED_WITH_SCOPE
 ACTUAL_SETMM_TO_MFS_MAPPING_OPEN
 INTERNAL_PROVABILITY_ADEQUACY_OPEN
 ACTUAL_DIAGONAL_OPEN
@@ -154,13 +157,15 @@ PARENT_COMPLETION_BRIDGE_OPEN
 
 ## 6. 下一项最小判别行动
 
-exact source 与官方 Appendix C 已完成这一项 source-level检查：没有 source-declared `set.mm → mFS` construction；Appendix明确把完整 internal description留作需要进一步形式化的工作。因此本 source branch当前收束为：
+exact source 与官方 Appendix C 已完成这一项 source-level检查：没有 source-declared `set.mm → mFS` construction；Appendix明确把完整 internal description留作需要进一步形式化的工作。matching runner已消耗其旧 blocker，但没有改变这项 internalization缺口。因此本 source branch当前收束为：
 
 ```text
 SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE
+MM0_M_LEVEL_TRANSLATION_CONTROL_VERIFIED_WITH_SCOPE
+RAW_SETMM_DIRECT_FROM_MM_PARSE_REJECTED_WITH_SCOPE
 ACTUAL_SETMM_TO_MFS_SOURCE_MAPPING_NOT_SUPPLIED_WITH_SCOPE
 INTERNAL_PROVABILITY_ADEQUACY_NOT_SUPPLIED_WITH_SCOPE
 ACTUAL_DIAGONAL_NOT_SUPPLIED_WITH_SCOPE
 ```
 
-只有一个新的版本固定 companion construction，或研究发起人授权从 Appendix C 规格自行构造并机器验证 actual mapping，才重新打开这条 G2 branch。
+下一项不再是重复构建 MM0 runner。只有一个版本固定的 **internal** companion construction、对 `mFS/mPPSt/mThm/Prv` 的 adequate mapping，或研究发起人授权从 Appendix C 规格自行构造并机器验证 actual mapping，才实质推进这条 G2 branch。raw parser兼容性的进一步修复可以改进 direct replay identity，但本身不支付 internal mapping。
