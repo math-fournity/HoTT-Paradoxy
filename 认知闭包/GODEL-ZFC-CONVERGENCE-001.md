@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [GODEL-ZFC-CONVERGENCE-SOP](../dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md)。
 >
-> **创建状态：** `ACTIVE / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / G1_R4_SUCCESSOR_REQUIRED`。
+> **创建状态：** `ACTIVE / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / G1_R4_GZ006_SUCCESSOR_REQUIRED`。
 >
 > **闭包版本：** `v1`；本文件的路线状态只在实际 `/goal` 执行、路线裁决或用户改目标时原位更新。
 
@@ -15,11 +15,11 @@
 | 父结果 | 将 Gödel式技术、exact HoTT calculus、fixed H0 过程、实际 ZFC-facing acceptance interface 与 bare-ZFC Q 归因连接成一个可证明或可有界拒绝的总闭环。 |
 | 用户成功标准 | 不因单条来源／模型／工具链／局部形式化失败停下；跨 Session 和压缩后能恢复完整路线、未支付项与唯一 successor；最终只在总路线完成条件满足时结束。 |
 | 当前 profile | `RESEARCH_PROFILE_GOVERNED`。 |
-| 当前 role | 本闭包准备阶段为 `GOVERNANCE_ALIGNMENT`；明确 `/goal` 后转 `RESEARCH_GENERATION`。 |
+| 当前 role | `RESEARCH_GENERATION`；用户已明确调用 `GODEL-ZFC-CONVERGENCE-SOP`，GZ-005 已局部关闭，当前恢复点是 GZ-006。 |
 | 研究对象 | bare ZFC 的理论精度／过程完成观察候选，不是 ZFC 对象语言矛盾。 |
 | 总方案 | `GODEL-ZFC-CONVERGENCE-SOP`。 |
 | 已有子方案 | `T-PRECISION-DIAGONAL-SOP`、`R3-R4-GODEL-RETURN-001`、`ZFC-H0-FINAL-PROOF-CLOSURE-SOP`。 |
-| 当前授权边界 | 方案、闭包、路由、ruling 和精确 Git 谱系可维护；实际网络、worker、push、tag、外部写入或清理其它 writer 仍须按当时用户授权。 |
+| 当前授权边界 | 当前 `/goal` 授权版本固定来源核验、受控 checker/proof 构造、run receipts、对应 owner 写回和精确 Git commit；不授权将项目接口冒充 bare ZFC、接管其它 writer、tag、push或外部发布。 |
 
 ## 2. 直接激活集
 
@@ -49,7 +49,7 @@
 | Route | 起始状态 | 当前已知 | 进入条件 | 本轮/下轮的最小动作 |
 |---|---|---|---|---|
 | `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | GZ-001 验证历史 Coq archive/receipt但 Docker fresh replay 外部阻塞；GZ-002 以 frozen Foundation Lean source 实际 build + qualification + missing-soundness negative control 建立独立 R3 calibration | C-369 primary source/run/index 已登记 | `GZ-003 / R4-HOTT-CALCULUS-BRIDGE-001` |
-| `G1-R4` | `ACTIVE / GZ-005_SUCCESSOR_REQUIRED` | GZ-003 cooltt 有 OCaml toolchain gap；GZ-004 cubicaltt 有 Haskell toolchain gap，但 source 支持 Nat/Path/cubical features。下一 target 改为 cctt 的 input-domain / holes / recursion contract | cctt target 尚未资格化 | `GZ-005 / R4-CCTT-INPUT-DOMAIN-001` |
+| `G1-R4` | `ACTIVE / GZ-006_SUCCESSOR_REQUIRED` | GZ-005 已实际 build cctt@`3695c69e`：正例有 Nat/Path/Glue/`coe`/`hcom`；hole/recursion可被 CLI 诊断性接受；类型错误仍可能 exit 0。因此得到受限 checker-input contract，不得到 proof relation。 | cctt 的 object-level proof-code/effectivity 尚未资格化 | `GZ-006 / R4-CCTT-PROOF-CODE-EFFECTIVITY-001` |
 | `D-TDIAG` | `READY_AFTER_INTERFACE_SELECTION` | T-DIAG 定义了 code/accept/diag/bridge 门 | real Accept source 或明确 formal theory 已选 | `AcceptanceInterfaceCard-001` |
 | `H-M1` | `ACTIVE_IN_OTHER_WORKSPACE_STATE_UNRECONCILED` | C-365 H0 trace、C-366 process representation、F1-B–F1-E targets；F1-E 当前可能有未提交候选 | 恢复时先核 writer/commit/target | 读取 latest M1 UnitRecord；若他人占用则转 G0 |
 | `A-M2/M3` | `READY_WITH_SOURCE_GAP` | current application/source controls 不等于 bare-ZFC completion interface | 固定 actual source/interface | `CompletionAcceptanceCard-001` |
@@ -88,6 +88,7 @@
 | GZ-002 | `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | `MP-FOUNDATION-INCOMPLETENESS-R3-001` primary `20261005-MP-FOUNDATION-INCOMPLETENESS-R3-001-03` + negative `...NEG-001-03` | Foundation first-order arithmetic incompleteness source calibration; no HoTT/ZFC task bridge | GZ-003 / R4 exact-calculus bridge |
 | GZ-003 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [cooltt qualification](../audit/20261005-GODEL-ZFC-G1-R4-001-cooltt资格化.md) | raw syntax/Nat/Path/conversion static gates located; checker build unavailable in this environment | GZ-004 / cubicaltt target |
 | GZ-004 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [cubicaltt qualification](../audit/20261005-GODEL-ZFC-G1-R4-002-cubicaltt资格化.md) | Haskell checker source / Nat / Path / cubical feature evidence located; no Haskell build lane on this host | GZ-005 / cctt input-domain target |
+| GZ-005 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [cctt input-domain qualification](../audit/20261005-GODEL-ZFC-G1-R4-003-cctt输入域资格化.md) + `20261005-CCTT-R4-INPUT-DOMAIN-002` | cctt build/checker and a restricted diagnostic input contract are actual; CLI exit 0 is not acceptance and no proof-code/diagonal bridge is paid | GZ-006 / cctt proof-code/effectivity target |
 
 ## 7. 失效、重开与总停机边界
 

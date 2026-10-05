@@ -1,0 +1,38 @@
+-- GZ-005 positive cctt input.
+-- The tokens ?, undefined, import, and loop occur only in this comment.
+-- They are a lexer-control for the restricted-profile checker.
+
+inductive Nat := zero | suc Nat;
+
+natCase (x : Nat) : Nat := case x [
+  zero. zero;
+  suc x. x];
+
+natRefl (x : Nat) : x = x := refl;
+
+isEquiv (A B : U)(f : A → B) : U :=
+    (g    : B → A)
+  × (linv : (x : A) → g (f x) = x)
+  × (rinv : (x : B) → f (g x) = x)
+  × (coh  : (x : A) → (rinv (f x)) ={i. f (linv x i) = f x} refl);
+
+equiv (A B : U) : U :=
+  (f : A → B) × isEquiv A B f;
+
+idEquiv (A : U) : equiv A A :=
+  (λ x. x, λ x. x, λ x _. x, λ x _. x, λ x _ _. x);
+
+glueLine (A : U)(i : I) : U :=
+  Glue A [i=0. A, idEquiv A];
+
+glueIntro (A : U)(i : I)(x : A) : Glue A [i=0. A, idEquiv A] :=
+  glue x [i=0. x];
+
+glueElim (A : U)(i : I)(x : Glue A [i=0. A, idEquiv A]) : A :=
+  unglue x;
+
+coeId (A : U)(x : A) : A :=
+  coe 0 1 (i. A) x;
+
+hcomId (A : U)(x : A)(i : I) : A :=
+  hcom 0 1 A [i=0 _. x; i=1 _. x] x;

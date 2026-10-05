@@ -41,6 +41,16 @@ HoTT/verification/runs/<run-id>/
 
 run 只有被 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的精确 claim/proof 行引用后，才完成 `INDEXED` 状态。未索引的成功运行最多是 `RUN_OBSERVED_NOT_DELIVERABLE_AS_CONCLUSION`。
 
+## 非 kernel checker 证据
+
+下表记录与 R4 输入域资格化有关、但**不能**作为数学 theorem / `KERNEL_ACCEPTED_WITH_SCOPE`
+交付的运行。它们保留在相同的可审计 run 根中，仍须固定 source、环境、输出和 controls；它们不会进入
+`HoTT/CLAIM_EVIDENCE_MATRIX.md`，也不能绕过数学结论机器证明门禁。
+
+| run ID | 状态 | 用途 |
+|---|---|---|
+| `20261005-CCTT-R4-INPUT-DOMAIN-002` | `CHECKER_INPUT_DOMAIN_CONTROLS_PASS_WITH_SCOPE / NOT_A_KERNEL_PROOF` | cctt@`3695c69e` 的实际 build 与受限输入域 controls：Nat/Path/Glue/`coe`/`hcom` 正例通过；hole 与 self-recursion 被 project profile 拒绝但 CLI diagnostics 仍接受；类型错误输出 `ERROR` 却 exit 0；`nf loop` 是有限观察。它支付 GZ-005 的 checker contract，不能充当 proof relation、Gödel instance 或 bare ZFC 结论。 |
+
 ## 当前 run 索引
 
 | run ID | proof/claims | 状态 | 用途 |

@@ -1,0 +1,44 @@
+{
+  "schema_version": "cctt-r4-toolchain/v1",
+  "upstream": {
+    "repository": "https://github.com/AndrasKovacs/cctt",
+    "commit": "3695c69efbd5e4cbb4b92a8980f5cdae9874072a",
+    "expected_untracked_after_stack_build": [
+      "cctt.cabal"
+    ],
+    "stack_yaml_sha256": "cfa3546a7f8fca26b7f3e994769f7d804287d93a8f4f9a09053df8a62a360c12",
+    "package_yaml_sha256": "cc5b24a84b282cee9f4c1667496bd2288ac5cd397d771c90daba54cf15953258",
+    "stack_lock_sha256": "b0dc2efecdca3b5e0d25d8e17d63b510aa49d900071755c77c732d0992061d9a"
+  },
+  "build": {
+    "argv": [
+      "stack",
+      "--system-ghc",
+      "build"
+    ],
+    "why_system_ghc": "Avoids Stack's separate large GHC distribution download; the local GHC 9.4.8 is recorded at each run."
+  },
+  "normalization_observation_seconds": 2,
+  "source_profile": {
+    "rejects": [
+      "holes",
+      "undefined",
+      "imports",
+      "top-level definition cycles"
+    ],
+    "does_not_prove": [
+      "general termination",
+      "semantic consistency",
+      "full cctt proof relation",
+      "Gödel representability"
+    ]
+  },
+  "checker_acceptance": {
+    "requires": [
+      "process completion",
+      "no upstream ERROR diagnostic",
+      "a checked-definitions success marker"
+    ],
+    "does_not_use_alone": "The cctt CLI may report a type error while returning process exit code 0."
+  }
+}
