@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [GODEL-ZFC-CONVERGENCE-SOP](../dev-docs/哥德尔式ZFC理论精度收敛闭环SOP.md)。
 >
-> **创建状态：** `ACTIVE / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / G1_R4_GZ012_SUCCESSOR_REQUIRED`。
+> **创建状态：** `ACTIVE / G0_R3_SOURCE_CALIBRATION_COMPLETED_WITH_SCOPE / D_TDIAG_D001_LOCAL_CLOSED / A_M2M3_A001_ACTIVE`。
 >
 > **闭包版本：** `v1`；本文件的路线状态只在实际 `/goal` 执行、路线裁决或用户改目标时原位更新。
 
@@ -49,10 +49,10 @@
 | Route | 起始状态 | 当前已知 | 进入条件 | 本轮/下轮的最小动作 |
 |---|---|---|---|---|
 | `G0-R3` | `LOCAL_CLOSED_WITH_SCOPE` | GZ-001 验证历史 Coq archive/receipt但 Docker fresh replay 外部阻塞；GZ-002 以 frozen Foundation Lean source 实际 build + qualification + missing-soundness negative control 建立独立 R3 calibration | C-369 primary source/run/index 已登记 | `GZ-003 / R4-HOTT-CALCULUS-BRIDGE-001` |
-| `G1-R4` | `ACTIVE / GZ-012_SUCCESSOR_REQUIRED` | GZ-011 已为 Fmini 机器检查 formula code/decoder/injectivity与模板self-code substitution shape；它没有表示性或fixed point。 | 必须审计 `prov₁` 与 meta-level `ProvWitness` 的 representability是否能在明确模型中支付 | `GZ-012 / R4-CCTTMINI-REPRESENTABILITY-BOUNDARY-001` |
-| `D-TDIAG` | `READY_AFTER_INTERFACE_SELECTION` | T-DIAG 定义了 code/accept/diag/bridge 门 | real Accept source 或明确 formal theory 已选 | `AcceptanceInterfaceCard-001` |
+| `G1-R4` | `PARKED_AFTER_GZ011 / GZ-012_REOPENABLE` | GZ-011 已为 Fmini 机器检查 formula code/decoder/injectivity与模板self-code substitution shape；它没有表示性或fixed point。因非饥饿规则转到 D/A。 | 需要审计 `prov₁` 与 meta-level `ProvWitness` 的 representability是否能在明确模型中支付 | `GZ-012 / R4-CCTTMINI-REPRESENTABILITY-BOUNDARY-001` |
+| `D-TDIAG` | `LOCAL_CLOSED_WITH_SCOPE` | D-001 以 Foundation C-369 支付真实 proof acceptance、code与diag；bridge只在 proof task内支付。 | H0/Zeno/Circle task bridge仍未付 | `A-001 / CompletionAcceptanceCard-001` |
 | `H-M1` | `ACTIVE_IN_OTHER_WORKSPACE_STATE_UNRECONCILED` | C-365 H0 trace、C-366 process representation、F1-B–F1-E targets；F1-E 当前可能有未提交候选 | 恢复时先核 writer/commit/target | 读取 latest M1 UnitRecord；若他人占用则转 G0 |
-| `A-M2/M3` | `READY_WITH_SOURCE_GAP` | current application/source controls 不等于 bare-ZFC completion interface | 固定 actual source/interface | `CompletionAcceptanceCard-001` |
+| `A-M2/M3` | `ACTIVE / A-001_SOURCE_SELECTION` | Foundation proof card不能替代真实 completion consumer；当前 application/source controls 也不等于 bare-ZFC completion interface。 | 固定 actual source/interface与过程合同 | `CompletionAcceptanceCard-001` |
 | `S-M4/M5` | `WAITING_FOR_H_A_D_INPUTS` | current actual SameFullQ 分母已拒绝，不关闭其他 exact routes | H/A/D 有实际 payment | `SameFullQCard-001` |
 | `I-SYNTHESIS` | `NOT_READY` | 无 | 所有 declared routes 有 local verdict | route reconciliation |
 
@@ -95,6 +95,7 @@
 | GZ-009 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [CCTTmini Nat coding audit](../audit/20261005-GODEL-ZFC-G1-R4-007-CCTTmini自然数编码.md) + `MP-CUBICAL-GODEL-NAT-CODING-001` / C-375–C-378 | total fallback Nat decoder/image roundtrip/injectivity established with preserved Cubical warning; no formula/proof predicate or representability | GZ-010 / CCTTmini formula-predicate interface |
 | GZ-010 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [CCTTmini formula-predicate audit](../audit/20261005-GODEL-ZFC-G1-R4-008-CCTTmini公式谓词接口.md) + `MP-CUBICAL-GODEL-FORMULA-PREDICATE-001` / C-379–C-382 | formula `provF` quotes a certificate code while acceptance/witness remain meta-level; no formula code/substitution or representability/fixed point | GZ-011 / formula Nat code and substitution |
 | GZ-011 | `G1-R4` | `LOCAL_CLOSED_WITH_SCOPE` | [Fmini formula-code audit](../audit/20261005-GODEL-ZFC-G1-R4-009-CCTTmini公式编码与自代入.md) + `MP-CUBICAL-GODEL-FORMULA-CODING-001` / C-383–C-386 | formula Nat code/decoder/injectivity and template self-code syntax shape established; no representability or fixed-point equivalence | GZ-012 / representability boundary |
+| D-001 | `D-TDIAG` | `LOCAL_CLOSED_WITH_SCOPE` | [Foundation acceptance-interface card](../audit/20261005-GODEL-ZFC-D-TDIAG-001-Foundation接受接口.md) + C-369 | actual Code/Accept/diag paid for first-order proof task; no task-preserving bridge to H0/Zeno/Circle or bare ZFC | A-001 / actual completion-acceptance source |
 
 ## 7. 失效、重开与总停机边界
 
