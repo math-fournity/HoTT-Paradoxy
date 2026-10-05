@@ -22,6 +22,8 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `external-cctt-r4/`：GZ-005 的 **非 kernel checker-evidence package**。冻结 `AndrasKovacs/cctt@3695c69e` 并实际重放 Nat/Path/Glue/`coe`/`hcom` 正例、hole、top-level recursion、类型错误和有界 `nf loop` 观察。它将 cctt CLI 的诊断性接受、process exit 和项目定义的 restricted profile 分开：类型错误仍可能 exit 0，hole/recursive input 仍可被诊断性接受，故只有 profile + 无 `ERROR` diagnostic + checked marker 的合取才构成受限 input contract。它不是形式定理、proof kernel、完整 proof relation、R4 的 Gödel实例或 bare ZFC 结论。
 
+- `cubical-godel-fragment/`：`MP-CUBICAL-GODEL-FRAGMENT-001` / C-370–C-374。用 native Cubical Agda 机器检查项目定义的 `CCTTmini₀`：Nat、Path/refl、finite RawCert、structurally recursive checker 与携带 `Deriv` witness 的 `Checked` result；正例和两条拒绝控制均保存。它是对 cctt/redtt 共用 Nat/Path-refl 形状的受限 source-corresponding bridge，不是 full cubical calculus、upstream proof relation、Nat-valued Gödel编码、representability、fixed point 或 bare ZFC 结论。
+
 - `truncation-no-recovery/NoCanonicalPoint.agda`：`MP-NOCANONICAL-001`；独立 Cubical/Type₀ 证明 unlabeled 二元素呈现不存在统一选点（C-142–C-148）。这是与 agda-unimath no-section 现象的非正式对照，不是两个形式规格的已证等价，也不是外部源码重放；final run 未导入 bridge `NoCanonicalFinite.agda`。
 - `truncation-no-recovery/TruncationNoRecovery.agda`：`MP-TRUNC-NORECOVERY-001`；集合值截断不可恢复、完成候选否定形式与 `isFinSet` 形状接口边界（C-134–C-141）。
 - `agda-unimath/hott-z/NoCanonicalPoint.agda`：`MP-UNIMATH-NOSECTION-REPLAY-001` / C-05；在固定 agda-unimath@`7b81411d…` 下真实重放该派生文件及 485 个外部依赖模块。`foundation.global-choice` 不在保存 run 闭包；其 `no-global-choice` 当前只是 source-inspected。
