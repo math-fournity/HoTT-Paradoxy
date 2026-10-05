@@ -17,7 +17,7 @@ soft_line_target: 300
 >
 > **父问题：** bare ZFC 作为数学基础时，是否有足够的理论观察力审查其所支撑的连续统／极限子理论，把 `FormalDone` 提升为芝诺／圆环原任务的 `OriginDone` 是否改变了任务合同；以及同一责任能否与 main HoTT H0 的 Q 对齐。
 >
-> **当前状态：** `CORE_ADEQUACY_FAILURE_WITH_SCOPE / USER_ORIGIN_DONE_POLICY / TOTAL_GATE_1_TO_6_PASS / GIT_VERSION_CLOSURE_PENDING`。
+> **当前状态：** `CORE_ADEQUACY_FAILURE_WITH_SCOPE / USER_ORIGIN_DONE_POLICY / C0_REMAINDER_ZERO_WITH_SCOPE / TOTAL_GATE_1_TO_8_PASS_WITH_SCOPE / SELECTED_PROOF_VERSION_CLOSED / NO_BARE_ZFC_OBJECT_LANGUAGE_CONTRADICTION_CLAIM`。
 
 ## 为什么需要这一方案
 

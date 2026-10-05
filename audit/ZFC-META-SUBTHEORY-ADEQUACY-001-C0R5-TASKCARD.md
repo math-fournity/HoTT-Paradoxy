@@ -1,6 +1,6 @@
 # CoreAdequacyTaskCard — C0R5：SOP总完成门与版本闭合审计
 
-> **状态：** `GATES_1_TO_6_AND_8_PASS_WITH_SCOPE / GATE_7_GIT_VERSION_CLOSURE_PENDING`。
+> **状态：** `TOTAL_GATES_1_TO_8_PASS_WITH_SCOPE / SELECTED_PROOF_VERSION_CLOSED / GOAL_COMPLETION_ELIGIBLE_WITH_SCOPE`。
 >
 > **父合同：** SOP 004、C6D及所有C0–C6 source/run artifacts。
 
@@ -21,6 +21,6 @@ H0 exclusion, successor scans, and a clean committed version closure?
 
 ## 3. 停止与后继
 
-只有八门通过后才可以commit/push、标记Goal完成。若任何门失败，写明确未通过字段和下一C-id；不得因为已产生核心候选结论而提前停止。
+八门现已通过。本卡不把这件事扩大为bare ZFC对象语言结论：它只关闭用户固定`OriginDone`、IEP ZFC-founded Standard Solution和本项目application adequacy criterion组成的冻结合同。随后可按既有授权提交并推送候选分支；若任何新证据满足C5D/C5E或H0的reopen条件，必须新开C-id而非改写本卡。
 
-**当前审计结果。** [C0R5 total audit](ZFC-META-SUBTHEORY-ADEQUACY-001-C0R5-TOTAL-GATE-AUDIT.md)确认Gate 1–6与8已通过；Gate 7仅待精确commit、C-370/C-371版本闭合、clean branch和owner回读。此时仍不得标Goal完成。
+**最终审计结果。** [C0R5 total audit](ZFC-META-SUBTHEORY-ADEQUACY-001-C0R5-TOTAL-GATE-AUDIT.md)确认Gate 1–8已通过，其中Gate 7由`1f2145c0…`、`accde430…`以及C-369/C-370/C-371的`HEAD_BYTES_CHECKED`关闭。

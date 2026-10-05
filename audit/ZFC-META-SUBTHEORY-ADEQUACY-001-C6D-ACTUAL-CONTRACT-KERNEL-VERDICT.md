@@ -76,4 +76,4 @@ ApplicationAdequacyFailure applicationUnpaid.
 
 ## 5. 自动后继
 
-进入 **C0R5 / 总完成门审计**：不再新开同形source扫描，而是逐项检查SOP 004的八个完成门、candidate remainder、运行收据、claim matrix、版本闭合、Git与current owners。若有门未过，Goal仍必须继续；若全部通过，才可做最终commit/push和Goal状态更新。
+**C0R5 已完成。** C0 manifest的冻结候选宇宙、SOP 004的八门、C-369/C-370/C-371的selected proof-version closure、current owners和候选分支的Git记录均已复核。这个结果关闭本冻结合同下的Goal；若用户改写`OriginDone`、接受C5D的revised task，或出现能支付actual bridge／H0 SameQ的新来源，按相应reopen条件重新启动，而不把当前判词外推为bare ZFC对象语言结论。
