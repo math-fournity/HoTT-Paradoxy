@@ -33,3 +33,7 @@
 - actual database→mFS mapping、adequate `Prv`、target diagonal 与 parent process map 同时出现；
 - 研究发起人固定不同的唯一 `OriginDone`；
 - 新的直接反例或机器证明改写任一字段。
+
+## 认知 checkpoint 边界
+
+本轮建立了完整的 session/audit、Feature、MEMORY、plan、closure 和 Git 谱系。`cognition_runtime.py plan --profile research --task F-052` 仍被预先存在的 `HEAD.json` hash 漂移阻断：它的 revision 298 `tracked` hash 不再匹配后来已提交的 `MEMORY/001`。该 runtime fail-closed 行为被保留为 `BLOCKED_PREEXISTING_HEAD_HASH_STALE`；本轮没有手改 HEAD 或伪造 `CHECKPOINT_COMMITTED`。它不影响 C-365/C-366/C-368 的各自 kernel/registry evidence，但需要一次独立、授权的 cognition checkpoint repair 才能恢复 runtime plan/read 的自动水合。
