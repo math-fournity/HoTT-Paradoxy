@@ -122,6 +122,18 @@ df-mdl:   mMdl  = { t ∈ mFS | ... }
 
 本轮 full MM0 translation 的输出同样属于外部目标语言的 `sort/term/axiom/theorem` declaration/proof artifact。它可以把 actual database 的外部形式结构带入另一个 verifier；它不会自动产生 set.mm 内的 `t ∈ mFS` witness。此项检查强化的是 source-bound `ACTUAL_SETMM_TO_MFS_MAPPING_NOT_SUPPLIED_WITH_SCOPE`，不是“这样的 witness 在数学上不存在”的结论。
 
+### 4.6.2 官方当前 `develop` 的最小增量复核
+
+为避免把“后续 upstream 已补付 mapping”仅凭旧 revision 假定为否，本轮只读取了 `metamath/set.mm` 的公开 `develop` ref。2026-10-05 的远端 ref 是 `584b6852f57f281e9be1793332f1e52e077693c8`，它以本卡冻结的 `160ebb63…` 为直接 parent；commit 页面将变更命名为 *Typography of some operators*，并列出 `set.mm` 的可见改动为 `latexdef`／`htmldef` 等呈现指令的修订，而非新的 formal-system construction。[官方 commit 页面](https://github.com/metamath/set.mm/commit/584b6852f57f281e9be1793332f1e52e077693c8)（访问于 2026-10-05）
+
+因此本次 upstream check 的准确结论只是：
+
+```text
+UPSTREAM_DEVELOP_DELTA_NO_G2_MAPPING_CANDIDATE_WITH_SCOPE
+```
+
+它支持继续使用 `160ebb…` 的 source-bound gap，不能证明未来 revision、其它 companion source 或一个新写出的内部化构造永远不会支付它。尤其不能把“当前 upstream 没有看到 candidate”升级成 `mFS` witness 或 `Prv` adequacy 不可构造的定理。
+
 ### 4.7 `from-mm` 的真实能力与当前 host toolchain gap
 
 同一固定 MM0 source 的 `mm0-hs/README.md` 和 `MM0.FromMM` source 实际给出命令：
@@ -172,7 +184,7 @@ PARENT_COMPLETION_BRIDGE_OPEN
 
 ## 6. 下一项最小判别行动
 
-exact source 与官方 Appendix C 已完成这一项 source-level检查：没有 source-declared `set.mm → mFS` construction；Appendix明确把完整 internal description留作需要进一步形式化的工作。matching runner已消耗其旧 blocker，但没有改变这项 internalization缺口。因此本 source branch当前收束为：
+exact source 与官方 Appendix C 已完成这一项 source-level检查：Appendix给出 database-to-formal-system 的说明性 correspondence，却没有 source-declared `set.mm → mFS` construction；它明确把完整 internal description留作需要进一步形式化的工作。随后对公开 `develop@584b685…` 的最小增量复核也没有给出新的 G2 mapping candidate。matching runner已消耗其旧 blocker，但没有改变这项 internalization缺口。因此本 source branch当前收束为：
 
 ```text
 SETMM_OBJECT_CODE_ASSETS_VERIFIED_WITH_SCOPE
