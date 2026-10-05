@@ -1,0 +1,1457 @@
+Logical Dependence of Physical Determinism on Set-theoretic Metatheory
+Justin Clarke-Doane, Columbia University1
+Draft: July 30, 2026 (Criticism welcome!)
+1. Introduction
+Baroque questions of set-theoretic foundations are widely assumed to be irrelevant to physics.
+Let us call this the insularity thesis. In this article, I argue that this thesis is doubtful, especially
+once determinism is read the way it is actually used in physics. The dependence reaches into
+mainstream, foundational, and frontier physics, including statistical mechanics, discrete
+dynamics, canonicalization problems of the kind raised by gauge fixing, and the Kerr interior.
+I begin with three analytic layer constructions. They illustrate how, even holding fixed a
+differential expression or definitional scheme, determinism verdicts for possible systems can
+differ between canonical extensions of ZFC — Gödel’s Axiom of Constructibility (V=L) and
+ZFC plus large cardinal assumptions sufficient to imply Projective Determinacy (LC/PD). The
+differences track three aspects of determinism. One is coherence, through measurability
+assumptions built into weak formulations. Another is uniqueness, via hypotheses such as strict
+convexity whose truth can be tied to set-theoretic regularity predicates. The final one is identity,
+by means of a definition that does not pick out the same initial datum across metatheories. These
+illustrations are conceptual in the same way that familiar determinism thought experiments are.
+The paper’s main claim concerns a second layer of determinism that appears to have been largely
+overlooked in the literature. Determinism as actually used is meant to withstand admissible
+changes of gauge, mesh, coarse-graining, regulator, readout procedure, boundary prescription,
+and the like. It is also usually stated as a claim about generic or almost sure behavior. Making
+this precise forces one to ask whether the definable event sets are measurable or Baire and
+whether the associated selection problems admit regular solutions. Those regularity facts
+famously divide between V=L and LC/PD, even when pointwise membership facts are absolute.
+I isolate a template under which robust determinism profiles land at the Σ¹₂ level, the first level of
+the projective hierarchy at which regularity (not membership) can fail in V=L while holding
+under LC/PD. So ZFC alone may already not decide whether such a profile is regular. One can
+go further, however. If a determinism profile is Σ¹₂-complete under continuous reductions, then it
+is universally measurable under LC/PD and not under V=L. The paper proves two unconditional
+theorems of this kind. First, a computable nearest-neighbor Ising Hamiltonian on ℤ³, with one
+fixed zero-temperature Glauber schedule, yields a Σ¹₂-complete tail readout profile in which only
+the initial microstate varies (Theorem 5.1). Second, at the Kerr Cauchy horizon, the problem of
+choosing canonical representatives for continuous extension germs in a fixed collar contains the
+eventual agreement relation E₀. So no universally measurable rule can solve it in ZFC, while
+V=L supplies a projectively definable rule and PD forbids any projective one (Theorem 6.2). A
+Shoenfield-style no go theorem separates these selection results from bare extension existence,
+which is analytic and admits no exact Borel calibration to constructibility (Theorem 6.1).
+The Ising theorem is a coding theorem about one fixed Hamiltonian. It is not a theorem about a
+standard phase diagram under a physically distinguished disorder law. Similarly, the Kerr
+theorem canonicalizes codes of the same germ in a fixed presentation. Sections 5.5 and 6.5
+clarifies these boundaries. It is open whether a distinguished measure, topology, or model class
+1
+
+in an everyday physical theory reaches the hard part. I call the systematic investigation of such
+questions reverse physics, on rough analogy with Friedman’s and Simpson’s reverse
+mathematics. Given the entanglement of set theory and physics, any such theory would need to
+be relativized to foundational theories (“assuming ZFC + LC/PD, this robustness profile is
+regular, but it is not assuming ZFC + V=L”), or, as Quine (1951, 1990) argued, the search for
+new axioms to settle undecidables would be part and parcel to the search for new physical laws.
+2. Set-theoretic background: V=L, LC/PD, and regularity
+2.1 Two metatheories
+ZFC is the standard foundational theory for mainstream mathematics. It leaves many questions
+about sets of reals undecided. Among the best-known candidates for settling such questions are
+Gödel’s Axiom of Constructibility, V=L, and large-cardinal hypotheses strong enough to imply
+Projective Determinacy. I use “LC/PD” as shorthand for the latter package (Jech 2003; Kanamori
+2009; Martin and Steel 1989; Maddy 1997). V=L asserts that every set is constructible.
+Philosophically, it is often read as a minimality principle: there are no sets beyond those
+generated by the constructible hierarchy. Most set theorists appear to reject it, though some
+defend it as mathematically (or, in Quine’s case, physically) natural.2 Large-cardinal hypotheses
+assert the existence of strong infinite cardinals. The existence of infinitely-many Woodin
+cardinals imply PD. Under PD, every projective set of reals is Lebesgue measurable, universally
+measurable, and has the Baire property (Kechris 1995; Moschovakis 2009; Martin and Steel
+1989).
+2.2 Projective complexity and coding
+The projective hierarchy classifies sets of reals by definitional complexity. Starting with Borel
+sets, one obtains analytic sets, Σ¹₁, by continuous images or projections of Borel sets; coanalytic
+sets, Π¹₁, are their complements. Further alternations of real quantifiers produce Σ¹₂, Π¹₂, and the
+higher projective levels.
+Physical state spaces are rarely literally ℝ or ωω. The relevant spaces of fields, measures,
+histories, gauges, or initial data are often Polish or standard Borel spaces. To say that such an
+object is “coded by a real” is to fix a standard Borel presentation of the space. A “set of reals
+given by a code” is then the subset selected by the associated Borel or projective code. The
+coding is not innocuous under arbitrary changes of representation. Universal measurability is
+invariant under Borel isomorphism, not under every imaginable recoding. All claims below are
+made relative to fixed standard Borel presentations (Kechris 1995; Moschovakis 2009).
+The primitive equations and constitutive data used in physics are often Borel. The rise in
+complexity typically occurs one level up, when the claim says that there exists a completion,
+selector, or continuation that works for every admissible implementation or diagnostic. That
+quantifier pattern, rather than the use of exotic coefficients by itself, is the main interface studied
+here.
+2.3 Absoluteness and regularity
+Shoenfield absoluteness insulates a large part of ordinary analysis from forcing and from passage
+to suitable inner models. In one standard form, Σ¹₂ and Π¹₂ sentences of second-order arithmetic,
+with parameters in the smaller model, are absolute between a universe and a transitive inner
+
+2
+
+model containing all ordinals. In particular, membership in a fixed lightface Δ¹₂ set is stable for
+reals common to the models (Shoenfield 1961; Jech 2003).
+Shoenfield absoluteness does not support an indiscriminate comparison of every object described
+by the same words. V=L and a universe satisfying strong large cardinal hypotheses need not
+contain the same reals, and an intensional definition need not pick out the same extensional
+object in both. The important fact is that pointwise assertions can remain absolute across
+standard metatheoretic changes while regularity properties of whole definable sets do not.
+Whether a projective set is universally measurable or has the Baire property, and whether a
+projectively definable relation admits a selector of a specified regularity, can depend on the
+background axioms (Kechris 1995; Moschovakis 2009; Martin and Steel 1989).
+2.4 A canonical Δ¹₂ regularity failure in L
+Fix a parameter-free lightface Δ¹₂ formula which, in L, defines the canonical well-order ≺L of the
+reals of order type ω₁. Fix also a Borel isomorphism ι:ωω→(0,1) with a recursive Borel code. Let
+the same formula define W⊆(0,1)² by
+W={(x,y):ι-1(x)≺Lι-1(y)}.
+In V=L, each horizontal section Wy is countable, because every proper initial segment of the
+canonical order has countable order type, while each vertical section Wx is co-countable. If W
+were Lebesgue measurable, Fubini’s theorem would give measure 0 from the horizontal sections
+and measure 1 from the vertical sections. Hence W is not Lebesgue measurable and therefore not
+universally measurable.
+The same sectional pattern rules out the Baire property in L, by the Kuratowski–Ulam theorem
+applied to both section families. The countable horizontal sections force W to be meagre, while
+the co-countable vertical sections force W to be comeagre. Appendix A.1 gives both
+applications. The construction can also be carried out directly on 2ω×2ω. Composing with a fixed
+recursive homeomorphism 2ω×2ω≅2ω gives a lightface Δ¹₂ set D⊆2ω which is not universally
+measurable and lacks the Baire property in L. This is the form used in Theorem 4.3.
+Under LC/PD, the set defined by the same lightface Δ¹₂ formula is projective and therefore
+universally measurable and has the Baire property. It need not still be a well-order. What is fixed
+across the comparison is the defining formula; what varies is the regularity, and possibly the
+extension, of the object it defines. This distinction will recur in the analytic layer examples.
+3. Analytic determinism for possible systems: three aspects
+Analytic layer determinism is the familiar one. It asks whether a law has solutions, whether they
+are unique, and whether the present state fixes a determinate evolution in the chosen function
+space. Standard treatments of PDEs and variational problems separate existence, uniqueness, and
+continuous dependence (Hadamard 1923; Earman 1986; Brezis 2011; Evans 2010).
+The examples in this section are deliberately simple. They are not claims about actual materials,
+black holes, or finite laboratory systems. Like familiar determinism thought experiments,
+including Norton’s Dome, their function is to test what follows from a stipulated mathematical
+law package rather than to describe a practicable experiment (Norton 2008). But unlike familiar
+determinism thought experiments, the present ones show how standard analytic notions can
+
+3
+
+depend on the background set-theoretic metatheory which is almost universally ignored once
+coefficients, structural parameters, or initial data are fixed intensionally by projective definitions.
+3.1 Coherence: weak formulations and measurability
+Let Ω=(0,1)² and consider the heat equation with a potential term,
+∂ u=Δu-V(x)u, u(0,·)=u0.
+A standard weak formulation uses the bilinear form
+a(u,v)=∫Ω(∇ u·∇ v+Vuv) dx
+on H¹₀(Ω). Measurability of V is part of the ordinary meaning of this expression. V∈ L∞(Ω) is
+more than enough for the usual form methods.
+Now let W be given by the fixed Δ¹₂ formula of Section 2.4 and put V=1W. Under LC/PD, W is
+measurable, so V is a bounded measurable potential and the weak formulation is coherent. Under
+V=L, W is not measurable, so the Lebesgue integral in the displayed bilinear form is not defined
+for all admissible u,v. Appendix A gives an explicit test function witnessing the failure.
+One can alter the mathematics by using outer integrals, capacities, or a restricted test class. That
+produces a different formulation. The upshot is that the standard weak formulation attached to
+the fixed defining formula is not settled by ZFC.
+3.2 Uniqueness: a regularity-sensitive structural parameter
+Uniqueness theorems often depend on convexity, monotonicity, or Lipschitz hypotheses. These
+can be made to depend on a projective regularity statement without changing the elementary
+variational form.
+Let U⊆ℕ×ℝ be a universal lightface Π¹₂ set, so every lightface Π¹₂ subset of ℝ is a section Un.
+Let
+ψ ⇔ ∀ n∈ℕ (Un is Lebesgue measurable),
+and define γ=−1 if ψ holds and γ=+1 otherwise. Consider
+Eγ(z)=z⁴-γ z².
+Under LC/PD, every projective section is measurable, so γ=−1 and Eγ is strictly convex with
+unique minimizer 0. In L, a lightface Δ¹₂ nonmeasurable set occurs among the sections, so γ=+1
+and the global minimizers are ±1/√2. The same definitional rule yields a unique equilibrium in
+one metatheory and two in the other. The construction can be lifted to a coercive functional on a
+Hilbert space by applying the displayed energy to one mode and adding a positive quadratic term
+on its orthogonal complement (Dacorogna 2008).
+3.3 Identity: when a definition does not fix the same datum
+Finally, let C⊆ℕ be
+C={n:Un is not Lebesgue measurable}.
+Under LC/PD, C=∅. In L, C≠∅. Choose smooth bumps φn with pairwise disjoint supports and
+with
+‖φn‖Cᵐ≤2−n for every m≤ n,
+4
+
+and define
+u0(x)=Σn∈ℕ2−n1C(n)φn(x).
+The series converges in C∞. Under LC/PD it is identically zero. But in L it is nonzero. So, a
+well-posed linear PDE has a unique solution for either datum, but the same definition does not
+identify the same initial state. The difference is one of identity rather than nonuniqueness.
+3.4 Taking stock: relative possibility and infinite idealization
+These examples establish a claim about mathematical law packages. They do not establish
+physical possibility simpliciter. A common proposal is explicitly relative. A history is physically
+possible relative to a set of laws when it is logically compatible with those laws (Maudlin 2007).
+To infer possibility under the actual laws, one must first identify the actual laws. The examples
+above are possible relative to the stipulated equations and definitions. But I have not argued that
+those are physically possible. There is a similar objection about finite systems. A finite lattice, a
+finite state space, or a finite family of admissible implementations is Borel-safe. The projective
+phenomena below require infinite spaces of data or choices. It is open to a critic to argue that a
+particular infinite idealization has been made incorrectly.
+However, any such objection would cut across physical thought experiments wholesale. Nobody
+knows what the final laws will be, whether Norton’s Dome or even GR spacetimes are physically
+possible (rather than merely relatively possible assuming the physical correctness of a merely
+effective theory). The criticism must thus identify which idealizations and quantifiers a physical
+theory licenses. It cannot be inferred merely from the fact that a foundational dependence
+appears, unless one builds the desired insularity into the criterion of acceptable idealization. (My
+own view is that no sense can be made of a distinguished notion of physical possibility,
+particularly because no sense can be made of a distinguished notion of logical possibility, and
+any notion of physical possibility would assume a notion of logical possibility (Clarke-Doane
+2019, 2025). But nothing in what follows will depend on this point of view.)
+The rest of the paper asks what happens when physically motivated robustness and selection
+demands do quantify over Polish spaces of completions and implementations – even if most do
+not carry high projective complexity.
+4. The regularity layer: robustness, typicality, and canonicalization
+4.1 Three regularity switches
+At the regularity layer, the analogue of coherence is whether an event supports the probability or
+category language used to describe it. “Almost surely” presupposes measurability relative to a
+specified measure. A measure-independent assurance requires universal measurability.
+“Generically,” in the Baire category sense, presupposes the Baire property.
+The analogue of uniqueness concerns claims such as “for almost every input there is a unique
+admissible continuation.” Even when existence and uniqueness are pointwise notions, the
+ensemble statement requires a regular event set.
+The analogue of identity is canonicalization. Given a relation R⊆ X× Y of inputs and admissible
+completions, a canonicalization demand asks for a selector s:X→ Y with (x,s(x))∈ R. A
+physical application will usually impose further requirements such as gauge compatibility,
+
+5
+
+covariance, measurability, continuity on a large set, or stability under a specified class of
+representations. Mere choice is not enough (Kechris 1995; Moschovakis 2009).
+Definition 4.1. A regularity layer determinism profile is a definable set or relation encoding
+when an input is deterministically well behaved only after a specified typicality, robustness, or
+canonicalization requirement has been imposed.
+Note that the definition does not settle whether the resulting property deserves the word
+“determinism.” A reader who reserves that word for pointwise existence and uniqueness may
+substitute “robustness profile” throughout. The mathematical issue is unchanged.
+4.2 A universal-tail recipe
+Let X be a Polish input space, Y a Polish space of completions or continuations, and ℙ a Polish
+space of admissible policies, gauges, refinements, or diagnostics. Let
+Good(x,y,ρ,k,n)
+be Borel and mean that at tolerance 2−k and stage n, the pair (x,y) passes the diagnostic
+implemented by ρ. Define
+UT(x,y) ⇔ ∀ ρ∈ℙ ∀ k∈ℕ ∃ N ∀ n≥ N Good(x,y,ρ,k,n),
+and
+DET(x) ⇔ ∃ y∈ Y UT(x,y).
+Proposition 4.2 (Projective upper bound). If Good is Borel and ℙ is Polish, then UT is Π¹₁ and
+DET is Σ¹₂.
+Proof. For fixed (x,y,ρ), the quantifiers over k,N,n are countable and preserve Borelness. The
+remaining universal real quantifier over ρ makes UT coanalytic. Projecting over the real y makes
+DET Σ¹₂. ∎
+This is an upper bound schema, obviously not a theorem that every robustness claim used by a
+physicist is Σ¹₂-complete. Compactness, uniqueness, convexity, or special PDE structure may
+collapse the complexity to Borel or analytic levels. A lower bound must be proved separately.
+4.3 Completeness and forced regularity divergence
+Let X be Polish. A set A⊆ X is Σ¹₂-complete under continuous reductions when A is Σ¹₂ and
+every Σ¹₂ subset of 2ω is the continuous preimage of A.
+Theorem 4.3 (Forced universal-measurability divergence). Let X be Polish and let A⊆ X be
+Σ¹₂-complete under continuous reductions. Then:
+(1) In ZFC + LC/PD, A is universally measurable and has the Baire property.
+(2) In ZFC + V=L, A is not universally measurable.
+Proof. Under PD, every projective set is universally measurable and has the Baire property. For
+the second clause, universal measurability is preserved under Borel preimages. If A were
+universally measurable in L, every Σ¹₂ set would be universally measurable there by continuous
+reducibility. Section 2.4 supplies a lightface Δ¹₂ counterexample. ∎
+
+6
+
+There is no corresponding Baire conclusion in L. A Σ¹₂-complete set can be carried
+homeomorphically into a closed nowhere dense copy of Cantor space. The image remains
+complete but is meagre and hence has the Baire property.
+To sharpen the contrast, it is useful to distinguish two kinds of metatheory sensitivity. A
+determinism profile set exhibits can-diverge sensitivity when its regularity properties are not
+provable in ZFC. This is already enough to show that determinism claims may require
+metatheoretic supplementation, and the standard physical practice of ignoring set theory is risky.
+A determinism profile set exhibits must-diverge sensitivity when it is regular in LC/PD and not
+universally measurable in V=L. This is the worst case scenario – and it is actual, as we will see.
+4.4 Universal measurability and a distinguished physical measure
+Universal measurability is stronger than measurability under one probability measure.
+Proposition 4.4. If A is not universally measurable, then there is some Borel probability measure
+μ for which A is not measurable in the completion of μ. Nothing follows about measurability
+under a separately specified measure ν.
+Thus Theorem 4.3 does not show that a physically distinguished chance measure fails to assign a
+probability to A. It shows that no measure independent guarantee is available in L. To turn the
+result into a claim about physical chance, one must identify the measure supplied by the physical
+theory and prove that the hard profile is nonmeasurable for that measure, or prove that no such
+distinguished measure is available. This is one of the principal tasks of reverse physics.
+Universal measurability also should not be identified with full representation invariance. It is
+preserved under Borel isomorphism and secures measurability for every Borel probability on the
+fixed standard Borel space. It says nothing about arbitrary non-Borel changes of coding,
+symmetry invariance, robustness under perturbation, or the existence of a canonical selector.
+4.5 A minimal canonicalization corollary
+Let A⊆ X be projective and suppose a two-valued canonicalization rule is required to choose
+type 1 exactly on A. Such a rule is the indicator 1A. Under LC/PD it is universally measurable. If
+A is Σ¹₂-complete, then in L it is not. This elementary observation isolates the selection issue
+without conflating it with symmetry, covariance, or physical uniqueness. Whether a physical
+theory supplies the two candidate types and privileges this division is a separate question.
+5. Case study I: statistical mechanics and a fixed-Hamiltonian coding theorem
+5.1 Typicality, thermodynamic limits, and the selection layer
+Statistical mechanics is a natural setting in which to look for the regularity layer. The central
+explanatory claims are rarely pointwise claims about one exact phase point. They concern typical
+microstates, thermodynamic limits, phase selection, stability of records, and the persistence of
+macroscopic verdicts under changes of volume sequence, boundary condition, coarse graining, or
+sampling procedure. In disordered systems, the difficulty is explicit. A sequence of finite volume
+Gibbs states need not converge, and different volume or boundary procedures can generate
+different limiting states. Metastates were introduced to represent this residual variation by
+probability measures on infinite volume Gibbs states (Newman and Stein 1997; Newman, Read,
+and Stein 2022).
+
+7
+
+Still, many ordinary statistical mechanical event sets do not lie high in the projective hierarchy.
+Cylinder events are Borel. Under standard continuity and compactness assumptions, many robust
+finite window events are analytic and so measurable in ZFC. However, a further selection
+problem can arise when the coarse specification does not determine a unique limiting object.
+Let x code the interaction, temperature, disorder, and coarse preparation information. Let y code
+a proposed Gibbs state, metastate, or phase assignment. Let ρ range over admissible volume and
+boundary procedures. If
+GoodSM(x,y,ρ,k,n)
+means that the k-local marginals at volume stage n under procedure ρ agree with y to tolerance
+2−k, then the demand for a completion that works for every procedure has the form
+∃ y ∀ ρ ∀ k ∃ N ∀ n≥ N GoodSM(x,y,ρ,k,n).
+Under a Borel presentation this is Σ¹₂. That is an upper bound. Whether any physically
+distinguished model or disorder ensemble realizes the bound is not settled by the quantifier
+count.
+5.2 A conservative robust-trigger calculation
+The same restraint is visible in a simple Mentaculus-style trigger event (Loewer 2020). Let ΓPH
+be a Past-Hypothesis macroregion, let x↦ sx be a continuous readout map over a compact time
+interval, and let Kε,η be a compact space of permitted window and threshold perturbations.
+Suppose the rulebook relation
+Rε,η(x,w,κ)
+is closed. The set of pairs (x,w) for which the rulebook succeeds for every κ∈ Kε,η is then
+closed, and the set A(ε,η) of microstates admitting such a window is analytic. If (εn,ηn)↓(0,0), the
+fully robust event
+G=⋂n A(εn,ηn)
+is still analytic because the witnesses wn can be packaged into one real. So, G is measurable and
+has the Baire property in ZFC. A single operationally robust event need not be metatheoretically
+sensitive. The projection from a coanalytic completion relation, rather than robustness language
+by itself, is what produces the Σ¹₂ jump.
+5.3 The fixed system
+Let us now give an exact lower bound. The simple construction is useful because it keeps the
+physical law fixed while locating the logical work.
+Partition ℤ³ computably into nearest neighbor dimers. For example, pair (2j,k,ℓ) with (2j+1,k,ℓ)
+for every (j,k,ℓ)∈ℤ³. Put coupling J=1 on each dimer edge and coupling 0 on every other
+nearest-neighbor edge. There is no external field. Formally,
+H(σ)=-Σ{u,v}∈ Dσ(u)σ(v),
+where D is the fixed dimer set and σ∈{-1,+1}ℤ³. The infinite sum need not converge; zero
+temperature single site dynamics uses only the local energy difference, which is well defined. At
+each site there is exactly one nonzero-coupled neighbor. The unique energy minimizing update
+
+8
+
+sets the spin equal to that neighbor. Thus any configuration that is constant on every dimer is a
+stationary point of every asynchronous zero temperature update order.
+Now fix one computable fair update schedule once and for all. It visits every lattice site infinitely
+often. Because the configurations used below are stationary, no freedom in the dynamics is
+needed. The second real quantifier will range over readout paths, not update laws.
+Let Tα,β, for α,β∈ωω, be a standard universal family of trees on ω<ω such that
+WF∃ ={α:∃β (Tα,β is well founded)}
+is Σ¹₂-complete, and membership of a finite node in Tα,β depends continuously on (α,β).
+Enumerate the dimers by the nodes s∈ω<ω. For each (α,β) define an exact initial microstate σα,β
+by putting both spins of the dimer Ds equal to -1 when s∈ Tα,β and equal to +1 otherwise. Put
+every unassigned dimer, if the enumeration leaves any, in the +1 state. The map (α,β)↦σα,β is
+continuous in the product topology, and the fixed Glauber evolution leaves it unchanged.
+Let ℙ⊆(ω<ω)ω be the closed space of strict chains
+ρ(0)⊊ρ(1)⊊ρ(2)⊊….
+Define the stage-n verdict by reading the dimer indexed by ρ(n):
+V(α,β,ρ,n) = −1 if ρ(n) ∈ Tα,β, and V(α,β,ρ,n) = +1 if ρ(n) ∉ Tα,β.
+The readout relation is clopen in the finite data on which it depends.
+5.4 The theorem
+Theorem 5.1 (Fixed-Hamiltonian Ising tail-readout completeness). There are a single computable
+nearest-neighbor Ising Hamiltonian on ℤ³, a single computable fair zero temperature
+asynchronous Glauber update schedule, a continuous family of stationary initial microstates
+(σα,β), and a closed Polish space ℙ of coherent readout paths such that
+DETreg= {α:∃β ∀ρ∈ℙ ∃ N ∀ n≥ N [V(α,β,ρ,n)=+1]}
+is Σ¹₂-complete under continuous reductions.
+Proof. Fix (α,β). If Tα,β is ill founded, choose an infinite branch b. The path ρb(n)=b↾(n+1)
+belongs to ℙ and remains in the tree at every stage, so the verdict is always -1. The universal-tail
+condition fails.
+If Tα,β is well founded, let ρ∈ℙ. The chain cannot remain in the tree forever, for then its union
+would be an infinite branch. Hence ρ(N)∉ Tα,β for some N. Since a tree is downward closed, no
+extension of a node outside the tree belongs to the tree. Thus V(α,β,ρ,n)=+1 for every n≥ N.
+Therefore
+∀ρ∈ℙ ∃ N ∀ n≥ N [V(α,β,ρ,n)=+1]
+holds exactly when Tα,β is well founded. Projecting over β gives DETreg=WF∃. ∎
+Corollary 5.2. Under LC/PD, DETreg is universally measurable and has the Baire property. Under
+V=L, it is not universally measurable.
+The existential variable β does not change the external field or Hamiltonian. It indexes a
+microstate compatible with the coded input α. The dynamics, couplings, and readout rule are
+fixed.3
+9
+
+5.5 What the theorem does not prove
+The theorem is a coding theorem. The dimerized lattice is a countable register bank. The
+evolution is stationary. The admissible readout paths represent branches through a tree. The
+theorem is not a result about spontaneous symmetry breaking, an Edwards-Anderson or
+Sherrington-Kirkpatrick disorder law, chaotic size dependence, or the selection of a
+thermodynamic phase by ordinary laboratory procedures. So, calling its verdict “phase selection”
+may obscure where the complexity comes from. Nor does the theorem answer the finite
+idealization objection (mentioned in Section 3.4).. Every finite truncation of the register has a
+finite state space and a tame verdict. The complexity appears in the infinite family and in
+quantification over all coherent paths. A critic may conclude that the corresponding idealization
+is physically unmotivated. But more would need to be said. Familiar local interaction syntax
+does not force low descriptive complexity. To obtain an insularity theorem one needs substantive
+restrictions on initial state classes, measures, schedules, or admissible macroscopic questions.
+Finally, it should be flagged that β is a completion only in a formal sense. The theorem gives a
+continuous family of exact microstates above an infinite code α. It does not prove that one
+finitely specified preparation has all the σα,β as physically possible microscopic completions.
+Establishing that relation for a physically distinguished coarse graining is a missing bridge.
+6. Case study II: Kerr, bare extendibility, and germ representatives
+6.1 The current Kerr regularity picture
+In general relativity, global hyperbolicity is the standard mathematical surrogate for deterministic
+evolution. Appropriate Cauchy data determine a maximal globally hyperbolic development, but
+the development may admit extensions beyond a Cauchy horizon. Strong Cosmic Censorship is a
+family of conjectures asserting generic inextendibility at a specified regularity threshold (Wald
+1984; Dafermos 2014).
+The subextremal Kerr interior is the central rotating case. Dafermos and Luk proved that the
+Lorentzian metric extends continuously across a nontrivial part of the Cauchy horizon for their
+class of dynamical vacuum data (Dafermos and Luk 2025). Linearized analyses indicate
+curvature blow up there (Sbierski 2023; Gurriaran 2025). Sbierski’s 2026 note strengthens the
+linear instability result and supplies an input to the later nonlinear proof (Sbierski 2026b).
+Sbierski also proved that a suitable curvature blow up assumption yields local Lipschitz
+inextendibility without symmetry assumptions (Sbierski 2026a). Gurriaran proved curvature
+blow up and Lipschitz inextendibility near timelike infinity under a nonlinear Price-law-type
+assumption (Gurriaran 2026). Luk and Sbierski proved weak null singularity formation for a
+characteristic initial value problem with smooth data settling to a strictly rotating subextremal
+Kerr event horizon and satisfying appropriate upper and lower bounds. The resulting metric is
+continuously, but not Lipschitz, extendible (Luk and Sbierski 2026).
+These results identify an important regularity window and prove consequential conditional or
+model class results within it. The descriptive set-theoretic results below are orthogonal to them.
+6.2 Bare extension existence is analytically shallow
+
+10
+
+Fix a standard Borel space 𝒟 of coded initial or characteristic data and a regularity class ℛ.
+Suppose candidate local extensions across a prescribed compact horizon crossing region are
+coded by a Polish space 𝒴, and that
+Rℛ(d,y)
+is a Borel relation saying that y codes an ℛ-extension compatible with the development of d.
+Then
+Extℛ(d) ⇔ ∃ y∈𝒴 Rℛ(d,y)
+is analytic. This classification is conditional on the stated coding. Verifying that a particular weak
+Einstein solution concept has a Borel certificate relation may be analytically nontrivial. But once
+the presentation is available, the projective bound follows immediately.
+The bound rules out one tempting route to a perfect L-axis switch.
+Theorem 6.1 (Shoenfield no-go for exact bare calibration). Let a∈ωω code a Borel map x↦ dx
+and an analytic extension predicate. Suppose
+Extℛ(dx) ⇔ x∈ L[a]
+for every x∈ωω. Then every real belongs to L[a]. Consequently, in any universe containing a
+real outside L[a], no such exact calibration exists.
+Proof. Write the pullback predicate as ∃ z φ(x,z,a) with φ arithmetical. If x∈ L[a] and the
+displayed equivalence holds in the universe, then ∃ z φ(x,z,a) holds there. This is a Σ¹₁(x,a)
+statement, hence Σ¹₂(x,a), so Shoenfield absoluteness gives a witness in L[a]. Therefore
+L[a]⊨∀ x ∃ z φ(x,z,a).
+The displayed sentence is Π¹₂(a), so Shoenfield absoluteness transfers it to the universe. By the
+assumed equivalence, every real then lies in L[a]. ∎
+The conclusion is about the reals, not the whole universe. It is ℝ⊆ L[a], not V=L[a]. It also does
+not say that bare extendibility is absolute between arbitrary models that disagree about the
+parameters or the coding space. It says that a Borel pullback of an analytic predicate cannot
+exactly be the full set of a-constructible reals in an anti-L[a] universe.
+Theorem 6.1 rules out a literal equivalence between bare extension existence and constructibility
+at this projective level. Any positive comparison must concern a richer robustness or selection
+predicate, use a non-Borel data map, or abandon exact L[a] calibration.
+6.3 A fixed-collar space of continuous metric perturbations
+There is an unconditional selection theorem for a fixed collar of continuous metric codes. Fix a
+compact collar
+N=K×[0,1]
+on the extension side of a Cauchy-horizon patch, with K compact and s=0 the horizon. Let ḡ₀ be
+one continuous Lorentzian extension metric on N agreeing with the given interior metric at s=0.
+Exact Kerr has such collars, and the Dafermos-Luk theorem supplies them in its dynamical
+setting. Choose a background Riemannian norm on symmetric two-tensors and let
+B=C₀(N;Sym²T*N)
+
+11
+
+be the separable Banach space of continuous perturbations h satisfying h|K×{0}=0, with the
+uniform norm. Compactness and nondegeneracy give ε>0 such that ḡ₀+h is Lorentzian whenever
+‖h‖∞≤ε. Let X be that closed ball. It is Polish. Define equality as germs in the fixed collar by
+h Egerm h' ⇔ ∃ m≥1 ∀ (p,s)∈ K×[0,1/m] h(p,s)=h'(p,s).
+The relation is Fσ, hence Borel. A selector for Egerm is a function S:X→ X such that S(h) Egerm h
+and S(h)=S(h') whenever h Egerm h'. It chooses one coded representative of every equality-germ
+class.
+6.4 The E₀ theorem
+Let E₀ be eventual equality on 2ω:
+γ E₀ γ' ⇔ ∃ N ∀ n≥ N γ(n)=γ'(n).
+Theorem 6.2 (Fixed-collar germ-representative dichotomy). In the setting of Section 6.3:
+(1) There is a continuous injection Θ:2ω→ X with compact image F such that
+γ E₀ γ' ⇔ Θ(γ) Egerm Θ(γ').
+(2) In ZFC there is no universally measurable selector for Egerm on X or on F, and there is
+no Baire measurable selector on X or on F.
+(3) In ZFC + V=L there is a selector on X whose graph is projective.
+(4) In ZFC + PD there is no selector on X, or on F, whose graph is projective.
+Proof sketch. Choose pairwise disjoint marker balls Bn whose upper s-coordinates tend to 0, and
+continuous tensor bumps bn supported in Bn, with ‖bn‖∞ decreasing rapidly to 0. Put
+Θ(γ)=Σnγ(n)bn.
+The sum is continuous, stays in X, and two perturbations agree on some sufficiently small collar
+exactly when their bit sequences eventually agree. This proves (1).
+For (2), suppose S were universally measurable and put r=S ∘ Θ. The map r is E₀-invariant.
+Under the Bernoulli product measure, every measurable set invariant under finite coordinate flips
+has measure 0 or 1. It follows, by applying the zero-one law to preimages of a countable base of
+X, that r is almost everywhere constant. But the inverse image of one Egerm-class is contained in
+one countable E₀-class, which cannot be conull. The category argument is parallel. An
+E₀-invariant set with the Baire property is meagre or comeagre, so a Baire measurable invariant
+map is constant on a comeagre set, again impossible.
+For (3), in V=L use the canonical constructible well-order of the reals and choose the least
+member of each Borel equivalence class. The graph is projective (no sharper pointclass claim is
+needed). For (4), a function with projective graph has projective preimages of open sets. Under
+PD those preimages are universally measurable and have the Baire property, contradicting (2).
+Full details are in Appendix F. ∎
+Note that the theorem does not require the Glimm-Effros dichotomy, though it places the result
+in its natural setting. The embedded relation is exactly E₀, the canonical minimum nonsmooth
+countable Borel equivalence relation (Harrington, Kechris, and Louveau 1990; Kechris 1995).
+6.5 Interpretation: what is selected
+
+12
+
+Theorem 6.2 is unconditional, but its physical scope is narrow. Egerm identifies perturbations that
+are already the same continuous metric germ. The selector chooses one code for each germ class.
+It does not choose among inequivalent continuations of the interior spacetime. The theorem
+concerns representational canonicalization. It does not recover a unique future beyond the
+Cauchy horizon.
+The fixed-collar qualification is also key. A diffeomorphism invariant version would compare
+extensions up to local isometry over the common past. The marker construction does not
+automatically embed E₀ into that larger equivalence relation. A diffeomorphism might permute
+or erase the chart readable markers. One would need geometric rigidity or invariant marker data.
+That is open.
+Finally, the perturbations are continuous Lorentzian metrics satisfying the required boundary
+values. No vacuum Einstein equation is imposed on the extension side. This is appropriate for
+displaying the descriptive obstruction inherent in the bare C⁰ metric-germ space, but it
+recommends against calling the theorem a SCC theorem. A vacuum constrained, weak solution,
+or isometry invariant counterpart would be substantially stronger.
+Nevertheless, once a formalism represents weak continuations by a nonsmooth quotient, the
+instruction to choose a canonical representative adds mathematical content. V=L supplies a
+definable but nonregular choice. PD makes every projective rule regular and so rules out such a
+selector. The theorem does not decide whether this fixed presentation quotient is the physically
+right one.
+7. Nearby foundational dependence without bespoke physical coding
+The preceding theorems separate three claims. A projective upper bound can arise from the
+logical form of a robustness demand. A completeness result can be obtained by an explicit
+register construction. And an already given quotient problem can obstruct regular selection. The
+the general phenomenon is not an invention of the present coding.
+7.1 Pitowsky spin models
+Pitowsky proposed nonmeasurable hidden variable models for spin. Farah and Magidor proved
+that the existence of Pitowsky spin models is independent of ZFC (Farah and Magidor 2012).
+This is the closest established precedent that I am aware of in foundations of physics. It is also
+cautionary. The theorem concerns the mathematical availability of a particular hidden variable
+construction. It does not show that ordinary quantum experiments have different frequencies in
+different universes of set theory, and it does not overturn Bell’s theorem under its standard
+probability assumptions.
+The upshot is that “there is no such model” can contain more set theory than the quantum
+mechanical formalism advertises. Whether the model has an acceptable physical interpretation is
+a further question. Farah and Magidor explicitly distinguish the independence result from a direct
+physical interpretation. The same distinction governs the present paper.
+7.2 Measurable equilibrium selection
+Levy studies Borel parametrized families of games in which equilibria exist pointwise and asks
+whether they can be selected measurably. The existence of Lebesgue- or universally measurable
+equilibrium selectors is independent of ZFC, even under restrictions to zero sum games and with
+13
+
+mixed strategies allowed (Levy 2025). This is the distinction between pointwise existence and
+regular global selection emphasized here. No universal tree is inserted into the statement of the
+economic problem. The foundational sensitivity belongs to the selection demand itself.
+The importance of this result for present purposes is methodological. It blocks the assumption
+that whenever each parameter value has an admissible object, asking for a measurable family of
+such objects is merely routine analysis. The global selector can carry independent content.
+7.3 Disintegration of measures
+Backs, Jackson, and Mauldin connect Maharam’s question about uniformly σ-finite
+disintegrations to Borel uniformization and show that the answer may depend on additional set
+theoretic axioms. In particular, CH and V=L yield negative results and special Π¹₁ constructions
+(Backs, Jackson, and Mauldin 2015). Disintegration underlies conditional probability and
+ergodic theory. The lesson is that a natural global regularity question attached to ordinary
+measure theory may not be settled by ZFC.
+7.4 Robust optimization under PD
+Carassus and Ferhoune formulate robust utility maximization with projective data and use PD to
+obtain optimal strategies under their hypotheses. In separate work they develop closure,
+integration, and measurable selection results for projective functions, including ε-optimal
+selectors under PD (Carassus and Ferhoune 2024, 2025). These results show how the projective
+hierarchy can enter a mathematically motivated optimization problem without first being named
+by the modeler. They do not show that a market or physical system realizes every projective
+input, but what stronger regularity axioms do once such inputs and selection demands are
+admitted.
+7.5 The comparative moral
+These examples are more natural than the Ising register and less about physical determinism.
+There is foundational dependence in global selection and uniformization problems studied for
+independent reasons. There are also explicit coding theorems showing that physical looking local
+formalisms can realize maximal projective complexity. What remains scarce is a theorem that
+joins both virtues: a physically distinguished model and measure, together with an unengineered
+determinism profile whose regularity provably divides between serious extensions of ZFC.
+The mathematics establishes a possibility and a research program. It does not yet establish that a
+familiar physical argument to date implicitly depends on a choice between V=L and LC/PD.
+8. Objections and replies
+I have argued that determinism is entangled with a canonical debate over axiom candidates
+extending standard set theory. First, at the analytic layer, the coherence, uniqueness, and identity
+of possible physical systems differ with V=L and LC/PD. Second, once determinism as it is
+actually invoked in physics is seen to involve a regularity layer, these three features can differ in
+physical systems too. How might one respond to these arguments? I can think of the following
+ways.
+Objection 1. Physicists rarely use projective level 2 or higher sets.
+
+14
+
+This objection confuses explicit terminology with implicit structure. Consider the types of
+conditions physicists routinely impose: “There exists an admissible object y such that for every
+admissible choice ρ, y passes the robustness check.” This has the logical form
+(∃y)(∀ρ)Good(y,ρ), which is Σ¹₂ when y and ρ range over reals and Good is arithmetical or
+Borel. The mathematical structures that appear in mature physical theories naturally involve
+alternating quantifiers over infinite objects. The Kerr interior predicates of C⁰-extendibility, finite
+flux, blow-up, choice-stability, and gauge independent certification are all core concepts from the
+GR literature (Wald 1984; Dafermos 2014). Similar remarks apply to metastate existence and
+robust trigger events (Newman and Stein 1997), and to gauge fixing independence (Gribov 1978;
+Singer 1978).
+But let us suppose that this objection were correct as far as it went. What of philosophical
+interest would it show? Consider the mathematical case. Just as the MRDP Incompleteness
+reveal that seemingly elementary diophantine questions are independent of ZFC, this paper
+reveals that physical determinism—a basic property that we expect mature physical theories to
+have or to lack—can require stronger background principles than ZFC if it is understood in the
+way physics actually uses it. The significance of such results lies in their existence, not just in
+their frequency or naturalness. This independence holds even at the analytic layer for possible
+physical systems. And it arises at the regularity layer for the sorts of theoretical questions
+physicists ask.
+Objection 2. This is only about semantics. The world does not change with axioms.
+The objection is false of the analytic layer and misleading of the regularity layer. First, at the
+analytic layer, the dependence is counterfactual. Holding fixed a definitional specification of a
+possible physical system, the coherence, uniqueness, or identity of that system can toggle
+between V=L and LC/PD. This is as strong as familiar indeterminism thought experiments like
+Norton’s, but of a new kind. It shows that any of three aspects of determinism as studied by
+philosophers can vary depending on whether one assumes V=L vs. LC/PD in the metatheory.
+Second, at the regularity layer, the dependence concerns norms of theory construction, not
+semantic conventions. Compare general covariance. Its force does not derive from what
+physicists happen to mean by their words, but from a reasonable physical policy. The world does
+not care about how we coordinatize it, so neither should our theories of it. Likewise, determinism
+claims – or giving the opponent the word “determinism” (see Objection 6), “robustness profile”
+claims – are not bare pointwise assertions. In real physical contexts they are assumed to be
+typicality laden, and, where nonuniqueness arises, to involve canonicalization. Those
+commitments force a theory to quantify over rich spaces of admissible representations and to
+support “almost surely,” “generic,” or “canonical” verdicts in a representation invariant way.
+When the resulting determinism profiles lie at Σ¹₂ complexity, ZFC in general fails to decide
+whether the regularity conditions required for such verdicts are satisfiable. Once good practice is
+regimented, ZFC alone can fail to fix what our best physical frameworks say about
+representation invariant determinism profiles. The fixed presentation Kerr selection problem of
+Section 6 makes the parallel point at the identity layer.
+Objection 3. Just restrict attention to countably many, or computable, choices.
+The problem with this is that, again, determinism in physics is a fact about the world, not about
+how we happen to represent it. Whether a system is deterministic should not depend on how
+limited our descriptions are. Compare again general covariance. If admissible implementations
+15
+
+were restricted by pragmatic or epistemic considerations—computability, experimental
+accessibility, or current modeling practice—then determinism would have to be relativized to
+those considerations, and would cease to be a representation independent property of the physical
+system. If determinism is to be an objective feature of the dynamics, one would have to appeal to
+some physical structure that justifies the restriction to countably many or computable (or
+whatever) choices, such as a special gauge or a lawlike canonicalization rule. For every physical
+system where determinism matters, there would have to exist a physically distinguished choice
+class that is rich enough to capture the intended robustness, tame enough to avoid Σ¹₂ complexity,
+and canonically specified by the world. Otherwise we are back to arbitrary choices. But such
+structure is not supplied by the equations, and introducing it is, as far as I can see, in general
+unjustified. Restrictions weaken determinism into a practice relative notion of limited
+philosophical or physical interest. Of course, physicists do not mention all choices, any more
+than they mention all coordinates. But general covariance demands agreement among all choices
+of representation, no matter how useless or incomprehensible, and robustness is the same.
+Objection 4. The Σ¹₂-complete families are engineered. They are not real physics.
+The completeness arguments are explicit embeddings, but they do not depend on unphysical
+dynamics. Theorem 5.1 uses one fixed nearest neighbor Ising Hamiltonian on ℤ³ and one fixed
+fair zero temperature Glauber update schedule. It is a register construction, not a phase theorem.
+Theorem 6.2 concerns small continuous Lorentzian perturbations in a fixed collar of a Kerr
+extension. It does not impose the vacuum Einstein equations, quotient by local isometry, or select
+among inequivalent continuations. The Kerr result applies to fixed presentation germ
+canonicalization. The must diverge results show that, once one imposes robustness and typicality
+norms, Σ¹₂-hardness is available within mainstream mathematical templates. Of course, many
+specific applications land below the hardness threshold. Moving from the present embedded
+subfamilies to typical disorder laws or to the physically relevant perturbations of a particular
+black hole is a further reverse-physics question, not something one can safely assume away
+(Dafermos and Luk 2025; Newman and Stein 1997; Gribov 1978; Singer 1978).
+Moreover, for the analytic layer examples, the right standard is not actuality but whether the
+definitions describe possible systems. The literature on determinism has never required more.
+Toy models earn their keep by showing what follows from mathematically natural law
+statements even when no laboratory instantiation is in view. If one now insists that only systems
+whose specifications are already immune to foundational sensitivity count as “physical,” the
+conclusion has just been built into the screening criterion.
+Objection 5. You could fix coherence by changing the mathematics (outer measure integrals,
+non-standard analysis, and so on).
+One can sometimes repair a failure of measurability by adopting alternative conventions, like
+outer measures, Choquet capacities, or non-standard integration. But that confirms metatheoretic
+sensitivity, rather than undermining it. Such repairs are interpretive choices, not physical
+findings. For example, moving from Lebesgue measure to outer measure can restore a form of
+“measure” for non-measurable sets, but it typically breaks additivity or the link to probability,
+and it interacts differently with typicality claims. Similarly, adopting a canonical tie break via a
+constructible well-order yields definable selectors in V=L, but those selectors need not be
+measurable so do not in general support ensemble reasoning. Determinism practice presupposes
+
+16
+
+an additional regularity theory, and serious axiom candidates disagree about which theory is
+correct.
+Objection 6. Determinism should be about pointwise well-posedness only. Typicality is extra.
+I do not want to argue about the word “determinism.” If one insists on a very thin notion of
+determinism (like pointwise existence and uniqueness) then, as I have said, the regularity layer
+arguments are beside the point of determinism per se. But, whatever you call it, physics often
+needs more than this. Typicality and robustness are how deterministic structure is used to license
+predictions, to state stability results, and to articulate claims like SCC, metastability, or robust
+phase selection. And, to repeat, even if one adopts the thin notion, Section 3 shows that analytic
+determinism itself is counterfactually metatheory sensitive at all three levels – coherence,
+uniqueness, and identity – relative to at least “mathematically possible” worlds. While a
+hard-headed instrumentalist might try to reassure themselves by declaring that nonmeasurable
+sets are physically impossible, the whole point is that PD/LC and V=L disagree about which sets
+enjoy that property (and enjoy additional regularity). The insularity thesis fails either way.
+Objection 7. Even if LC/PD and V=L yield different regularity verdicts, nothing observable
+changes.
+This is incorrect, but irrelevant even if it were correct. At the analytic layer, the dependence on
+V=L versus LC/PD is directly testable for the possible systems under discussion, in the sense
+that standard ill-posedness or nonuniqueness results are testable in physics. The regularity layer
+differs in that the relevant failures manifest as implementation dependence rather than pointwise
+breakdown. But in experimental and computational practice one can often detect implementation
+dependence via mesh refinement, cross-code replication, systematic variation of admissible
+implementations, and the persistence or disappearance of robust verdicts under those changes.
+Appendix G describes diagnostics of exactly this kind. These can exert methodological pressure
+on the mathematical background used to underwrite robustness claims. So, whether the
+mathematics in which a theory is formulated can support the norms that make the theory
+physically acceptable seems cumulatively testable. Finally, the view that a difference is
+physically insignificant only if physically observable betrays the crudest kind of positivism
+whose problems largely defined the philosophy of science in the first half of the 20th century.
+What physicist with interest in the physical world would claim that the interior of a black hole
+(Dafermos and Luk 2025) is insignificant?
+Objection 8. We can just accept large cardinals sufficient for LC/PD, and the problem would go
+away.
+There are two problems with this. First, adopting large cardinals does not eliminate the
+phenomenon. It relocates it higher in the definability hierarchy. Beyond the Shoenfield absolute
+level, distinct set theories can disagree not only about regularity properties but even about set
+membership (Jech 2003; Kanamori 2009; Woodin 1988). Second, this proposal amounts to fixing
+the standards by which determinism is assessed by mathematical (even set theoretic!) fiat.
+Questions about whether a physical model is well posed or admits a canonical continuation
+certainly appear to be matters for physics to settle, not matters to be legislated by logicians.
+Objection 9. Physics uses approximations that are unaffected by these arguments.
+This objection conflates epistemology with metaphysics, like Objection 3. One question is what
+we can measure or compute. Another is what the theory says the world is like. Determinism is
+17
+
+not the claim that predictions are accurate up to some fixed ε, but that the world’s evolution is
+fixed by its present state. Retreating to “deterministic up to ε, for every ε>0” abandons
+determinism in the ordinary sense unless the ε→0 limit itself is well-defined. But the limit claims
+physicists rely on – e.g., robust convergence under arbitrarily fine refinement, independence of
+discretization or windowing in the limit, and so forth – are universal tail statements. Once made
+precise, and combined with existential quantification over an admissible completion, such claims
+can reach Σ¹₂ complexity. Whether such limiting claims are coherent and representation invariant
+can thus depend on the same set-theoretic regularity principles discussed above.4
+Are there any other objections that one could give to the arguments of the previous sections?
+There is one. If such a central concept to science as determinism is sensitive to the V=L vs.
+LC/PD dichotomy, why has nobody noticed? I suspect that there are three reasons. First, there is
+the familiar problem of specialization. Descriptive set theorists are not in general physicists, and
+vice versa, and the projective complexity of physical predicates has not, to my knowledge, been
+studied in detail. Second, easily foreseeable interactions between set theory and physics (as with
+non-measurable sets and analytic determinism) seem at most to affect possible physical systems,
+and so are of limited interest to practicing physicists. Finally, physicists and philosophers have
+failed to distinguish the two layers of determinism that I have gone to pains to articulate here,
+analytic and regularity layer determinism. While the analytic layer determinism of actual
+physical systems may be ZFC robust, regularity layer determinism is not. I suspect that theorists
+have overlooked this because regularity layer determinism had not been explicitly formulated.
+9. Reverse physics
+Reverse mathematics asks which axioms are needed to prove a mathematical theorem, usually
+over a weak base theory. Reverse physics asks a related but less uniform question: which
+mathematical axioms, regularity principles, and coding assumptions are needed to derive a
+physical generalization with its intended invariance and typicality content?
+The analogy is deliberately rough. The base theory will often be ZFC rather than a subsystem of
+second-order arithmetic. The target may be a theorem about a mathematical model rather than a
+directly observable sentence. And the foundational strength can enter through the semantics of
+probability or selection, not only through proof-theoretic strength (Friedman 1975; Simpson
+2009).
+9.1 The object of study
+Let Tphys contain the field equations, constitutive assumptions, boundary or initial conditions, and
+the explicit idealizations of a physical framework. Let M be a foundational metatheory. Write
+Tphys ⊨M Φ
+when M proves that every intended mathematical model of Tphys satisfies Φ. A reverse-physics
+analysis should record at least five things:
+(1) the standard Borel or Polish coding of the states and auxiliary objects;
+(2) the exact event, relation, or selector that represents the physical claim;
+(3) the probability measure, topology, gauge group, or equivalence relation relative to
+which regularity is required;
+
+18
+
+(4) an upper bound on definitional complexity and, where possible, a matching lower
+bound;
+(5) the weakest additional principles sufficient for the desired measurability,
+uniformization, or absoluteness result.
+The fifth item is not automatically a large cardinal question. Compactness, determinacy for a
+restricted pointclass, countable choice principles, effective uniformization, or a domain-specific
+uniqueness theorem may suffice.
+9.2 A worked Kerr agenda
+The Kerr discussion separates three targets.
+First is bare extension existence at a regularity threshold. Under a Borel certificate presentation
+this is analytic, and Theorem 6.1 rules out exact calibration to the full L[a]-axis in an anti-L[a]
+universe. The reverse physics question is therefore not “which large cardinal decides bare
+extendibility?” but whether the intended weak solution or extension relation has the stated Borel
+presentation and what absoluteness follows from it.
+Second is canonical representation of an extension germ. Theorem 6.2 proves an E₀ obstruction
+in a fixed collar. Here the metatheoretic split is that V=L supplies a projective selector, while PD
+excludes one, and ZFC excludes every universally measurable selector. The next task is to
+replace the fixed chart equivalence by local isometry over the common past. That is a rigidity
+problem, not a routine rewriting.
+Third is selection among inequivalent continuations. This is the question relevant to recovery of
+a future at the C⁰ threshold. The present theorem does not address it. A satisfactory formulation
+would specify which continuations count as solutions, what equivalence identifies physically
+identical extensions, and what lawlike regularity a selector must possess. Only then can its
+projective complexity be classified.
+For SCC itself, generic inextendibility and canonical continuation must not be conflated. If a
+stronger regularity SCC theorem holds, no selector is needed at that threshold because there are
+no extensions. At C⁰, where extensions may exist, a selection question arises only if one insists
+that determinism survive despite extendibility. Reverse physics maps these claims separately.
+9.3 A statistical mechanical agenda
+Theorem 5.1 provides a lower bound inside a fixed local dynamics. The physically important
+questions concern restrictions. One is measure. Does a standard Gibbs, metastate, or disorder
+measure assign full measure to a Borel safe region of the model space? If so, the universal
+nonmeasurability of the full profile may be irrelevant to the theory’s chances. If not, can
+nonmeasurability be proved for that distinguished measure rather than for an adversarial witness
+measure?
+A second is preparation. Can the existential completion variable be interpreted as microscopic
+slack in one physically specified macrostate, rather than as an arbitrary infinite code? This
+requires a mathematically explicit coarse graining map and a physically motivated fiber.
+A third is policy. Which boundary conditions, volume sequences, or update schedules are
+admissible? The full Polish space of coherent paths used in Theorem 5.1 is designed to realize
+
+19
+
+well-foundedness. Standard thermodynamic practice may privilege a smaller class. The
+restriction must be stated before complexity is assessed.
+A fourth is naturality. One should analyze concrete systems—Edwards-Anderson,
+Sherrington-Kirkpatrick, kinetically constrained models, or metastate constructions—without
+first planting a universal tree. A negative result showing that their canonical profiles are Borel
+would also be progress.
+9.4 Computability and other foundations
+A profile may be measurable but lack a computable selector. Conversely, restricting to
+computable policies may lower projective complexity while changing the physical claim. Work
+on computability in analysis and physics already shows that computable data can generate
+noncomputable solution behavior in familiar equations (Pour-El and Richards 1989). Reverse
+physics should keep effective and set-theoretic obstructions separate.
+Indeed, the V=L/PD contrast is only one axis. Constructive, predicative, topos-theoretic, and
+ultrafinitist frameworks can alter which state spaces, limits, or probability assignments are
+available. The right comparison depends on the physical claim. The present paper uses V=L and
+PD because they give a clean low projective regularity contrast familiar to mainstream logicians
+and set theorists. I do not assume that ZFC occupies a non-negotiable position as foundation.
+10. Conclusion: determinism after foundations
+Physicists and philosophers of physics commonly assume that disagreements in the foundations
+of mathematics—such as whether there are large cardinals or whether V=L—have no bearing on
+physical theory (Feferman 1998). This is the insularity thesis, and I have argued that it is suspect.
+There are two layers of dependence of determinism on set theory that have not been properly
+distinguished. At the analytic layer, one can construct natural models of possible systems whose
+determinism profile (coherence, uniqueness, and even the identity of the “unique” solution
+picked out by a definition) differs between V=L and large cardinal assumptions sufficient to
+imply PD. This already shows that the concept of determinism is entangled with higher set
+theory. At the regularity layer, determinism demands invariance across admissible
+implementations, and is expressed in typicality and canonicalization language. Making such
+claims precise and representation invariant requires regularity and selection conditions for
+definable sets and relations. Those conditions are generally independent of ZFC and divide
+between V=L and LC/PD. The results established here include that a fixed Ising Hamiltonian
+yields a Σ¹₂-complete tail-readout coding theorem, and a fixed Kerr collar yields an E₀
+obstruction to regular selection of representative metric-germ codes. The first is not a theorem
+about a standard phase or disorder measure. The second does is not an SCC theorem. Deeper
+physical questions belong to reverse physics (Earman 1986; Loewer 2020; Dafermos and Luk
+2025).
+Let me emphasize that the point has not been the obvious one that there are seemingly physical
+questions (e.g., about the behavior of computers searching for a contradiction in PA) that one can
+only decide by strengthening the axioms of mathematics (by, say, adding the assumption of their
+consistency). That is just Gödel’s theorem (Gödel 1931), assuming that the relevant principles
+are consistent and recursively axiomatizable (and represent all primitive recursive functions).
+V=L and LC are seriously entertained extensions of standard mathematics (Maddy 1997; Steel
+
+20
+
+2014; Koellner 2009), and the undecidables in question are in no way contrived. We have to take
+a stand on V=L and LC/PD like the stand that the pioneers of foundational studies took with
+respect to the Axiom of Choice (Jech 2003, Ch. 1; Kanamori 2009, §0). The question of which of
+V=L or LC/PD is true -- or whether it even makes sense to say that one of them is true -- is not a
+question that admits of proof. It is a question, to borrow a turn of phrase, of “deeply rooted
+mathematical taste”. As Jensen writes:
+Most proponents of V=L and similar axioms support their belief with a mild version of
+Ockham’s razor. L is adequate for all of mathematics. It gives clear answers to deep
+questions. It leads to interesting mathematics. Why should one assume more? … I do not
+understand … why a belief in the objective existence of sets obligates one to seek ever
+stronger existence postulates. Why isn’t Platonism compatible with the mild form of
+Ockham’s razor? … I doubt that one could, with the sort of evidence I have, convert the
+mathematical world to one or the other point of view. Deeply rooted differences in
+mathematical taste are too strong and would persist. (Jensen 1995, 400–401)
+One reaction to this situation is that, despite widespread opinion to the contrary, Quine was right,
+and the search for new axioms is not different from the search for new physical laws (Quine
+1951, 1990). As he puts it, “sentences such as the continuum hypothesis…which are independent
+of [standard] axioms, can…be submitted to the considerations of simplicity, economy, and
+naturalness that contribute to the molding of scientific theories generally. Such considerations
+support… [the] Axiom of Constructibility, 'V=L'” (Quine 1990, 95). This position raises familiar
+quandaries. Set theorists are not responsive to experiment in the way physicists are (Maddy
+1997, 155; 2011). But this much is true: when we say that general relativity predicts X, we mean
+that X follows from the field equations plus boundary conditions, where “follows from” is a
+relationship of entailment within a mathematical framework like ZFC + LC/PD. If that
+entailment depends on which set theoretic axioms we assume, then the theory’s content is
+metatheory sensitive. This is not a defect of our measurements or approximations. It is a fact of
+theorizing. Recognizing this clarifies the relationship between mathematical and physical
+reasoning, showing that they are allied in a way that non-Quineans have not appreciated.
+My own view (Clarke-Doane 2022, 2024, Forthcoming) is that no sense can be made of the
+claim that either V=L or LC/PD is “really right.” Each affords an arena in which to carry out
+mathematical reasoning, broadly like Euclidean and non-Euclidean geometries. The heady
+difference is that all the geometries can live in a single set theory. But any set theory takes itself
+to be maximal, to govern everything. This raises unresolved questions about how to formulate
+the “monism–pluralism” debate, and whether it is even factual. If one is a set-theoretic pluralist,
+however, then, by the arguments given here, one must be a pluralist about core physical concepts
+too. (“Concepts” rather than “concept” because if determinism is relative to set-theoretic
+foundations, then so too, presumably, is physical necessity, prediction, explanation, causation,
+and more.) As Quine writes in a different context, “Carnap has maintained that [the question of
+which axioms hold] is a question not of matters of fact but of choosing a convenient language
+form, a convenient conceptual scheme or framework for science. With this I agree, but only on
+the proviso that the same be conceded regarding scientific hypotheses generally” (1951, 43).5
+Appendix A. Analytic-layer constructions
+A.1 The definable Fubini pathology in L
+
+21
+
+Assume V=L. There is a parameter-free lightface Δ¹₂ well-order ≺ of 2ω whose initial segments
+are countable. Let
+W={(x,y)∈2ω×2ω:x≺ y}.
+Then W is lightface Δ¹₂. For every fixed y, the horizontal section
+Wy={x:x≺ y}
+is countable. For every fixed x, the vertical section
+Wx={y:x≺ y}
+is co-countable. If W were measurable for the product of the fair-coin measure with itself,
+Fubini’s theorem would give product measure 0 from the horizontal sections and product
+measure 1 from the vertical sections. Hence W is not Lebesgue measurable and therefore not
+universally measurable. The construction is a definable refinement of Sierpiński’s classical
+examples (Sierpiński 1924).
+It also lacks the Baire property.. The Kuratowski–Ulam theorem states that a set with the Baire
+property in a product of second countable Baire spaces is meagre if and only if comeagrely many
+of its vertical sections are meagre (Kechris 1995, Section 8.K); the coordinate-swap
+homeomorphism transfers the same criterion to horizontal sections. Suppose W had the Baire
+property. Every horizontal section Wy = {x : x ≺ y} is a countable initial segment, hence meagre.
+By Kuratowski–Ulam, W is meagre. Now use the other family. Every vertical section Wx = {y : x
+≺ y} is co-countable, so every vertical section of the complement Wc is countable, hence meagre.
+Since Wc has the Baire property as well, Kuratowski–Ulam makes Wc meagre; equivalently, W is
+comeagre. No set is both meagre and comeagre in the Baire space 2ω × 2ω. Hence W does not
+have the Baire property in L.
+Transporting W through fixed Borel isomorphisms gives the version on (0,1)² used in the main
+text. Under PD every projective set has all three regularity properties, so the same defining
+scheme behaves differently in the two metatheories.
+A.2 Coherence of the weak heat equation
+Let Ω=(0,1)² and transport the preceding W to a subset of Ω. Put V=1W and consider
+∂ u=Δu-Vu, u(0,·)=u₀,
+with the intended weak form on H¹₀(Ω)
+a(u,v)=∫Ω(∇ u·∇ v+Vuv) dx.
+Let
+b(x₁,x₂)=x₁(1-x₁)x₂(1-x₂).
+Then b∈ H¹₀(Ω) and b>0 in Ω. If b²1W were measurable, then
+W={x∈Ω:b²(x)1W(x)>0}
+would be measurable. Thus in L the integrand in a(b,b) is not Lebesgue measurable, and the
+intended bilinear form is not defined. Under LC/PD, V is bounded and measurable, so the
+standard weak formulation and semigroup theory apply (Brezis 2011; Evans 2010).
+
+22
+
+The conclusion concerns this formulation. It does not preclude replacing the integral, changing
+the coefficient class, or declaring the defining formula physically inadmissible.
+A.3 Uniqueness by a convexity switch
+Let U⊆ℕ×ℝ be universal for the lightface Π¹₂ subsets of ℝ, and put
+ψ⇔∀ n (Un is Lebesgue measurable).
+Define γ=−1 if ψ and γ=+1 otherwise. Under LC/PD, ψ holds. In L, the lightface Δ¹₂
+nonmeasurable set of A.1 is a Π¹₂ section, so ψ fails.
+For
+Eγ(z)=z⁴-γ z²,
+if γ=−1, then E''γ(z)=12z²+2>0 and the unique minimizer is 0. If γ=+1, the global minimizers are
+±1/√2. On a Hilbert space H with unit vector e, the functional
+ℰγ(u) =Eγ(⟨ u,e⟩)+‖u-⟨ u,e⟩ e‖²
+has the corresponding one or two minimizers. The variational calculation is elementary; all
+metatheoretic work is in the definition of γ.
+A.4 Smooth identity shift
+Let
+C={n:Un is not Lebesgue measurable}.
+Choose nonzero C∞ bumps φn with pairwise disjoint supports and
+‖φn‖Cᵐ≤2−n whenever m≤ n.
+For each fixed m, the tail from n≥ m is summable in the Cm norm. Hence
+u₀=Σn=0∞2−n1C(n)φn
+converges in every Cm norm and therefore in C∞. Under LC/PD it vanishes. In L it is nonzero
+because C is nonempty and the supports are disjoint. Standard continuous dependence for a
+well-posed linear equation then gives different unique evolutions from the same intensional
+specification (Hadamard 1923; Evans 2010).
+Appendix B. Regularity and preservation facts
+B.1 Universal measurability
+For a Polish space X, a set A⊆ X is universally measurable when it belongs to the completion of
+every Borel probability measure on X. The definition is tied to the standard Borel structure, not
+to one topology among all topologies inducing it.
+If f:Z→ X is Borel and A is universally measurable, then f-1(A) is universally measurable. Given
+a Borel probability μ on Z, let ν=f*μ. There are Borel sets B₀⊆ A⊆ B₁ with ν(B₁∖ B₀)=0. Then
+f-1(B₀)⊆ f-1(A)⊆ f-1(B₁)
+and μ(f-1(B₁∖ B₀))=0. Thus the preimage belongs to the completion of μ.
+
+23
+
+This preservation fact is what allows continuous completeness reductions to transmit
+universal-measurability failure.
+B.2 The Baire property
+A set A⊆ X has the Baire property when A△ O is meagre for some open O. Unlike universal
+measurability, the Baire property is not preserved under arbitrary continuous preimages. If a
+continuous map has a large constant fiber lying inside a meagre exceptional set, its preimage can
+be arbitrary.
+Concretely, let A⊆2ω be Σ¹₂-complete. Embed 2ω homeomorphically as a closed nowhere dense
+subset C of another copy of 2ω and let A' be the image of A. Then A' is still Σ¹₂-complete:
+compose reductions with the embedding. But A'⊆ C is meagre and therefore has the Baire
+property. Completeness alone cannot yield Baire failure.
+B.3 Projective regularity under PD
+Under PD, every projective set of reals is Lebesgue measurable, universally measurable, and has
+the Baire property. These facts transfer to projective subsets of arbitrary Polish spaces through
+standard Borel presentations. PD also yields strong uniformization and scale results, but the
+paper invokes only the stated regularity consequences except in the comparison with projective
+selector machinery (Kechris 1995; Moschovakis 2009; Martin and Steel 1989).
+B.4 Uniformization, selector maps, and transversals
+For a relation R⊆ X× Y, a uniformizing function f satisfies (x,f(x))∈ R on the projection of R.
+For an equivalence relation E on X, a selector map in the sense used in Section 6 is constant on
+each class and chooses an E-equivalent representative. Its range is a transversal, a set meeting
+every class exactly once.
+These notions should be distinguished from a selector that merely picks some y in each vertical
+section of a general relation. The no-go theorem for E₀ is about class constant selector maps and
+transversals. Ordinary choice gives such a map, but no universally measurable or Baire
+measurable one exists.
+Appendix C. The universal-tail classification
+Let X,Y,ℙ be Polish and let
+G⊆ X× Y×ℙ×ℕ×ℕ
+be Borel. Write G(x,y,ρ,k,n) for membership. Define
+B(x,y,ρ) ⇔ ∀ k ∃ N ∀ n≥ N G(x,y,ρ,k,n).
+Because all three quantifiers here range over ℕ, B is Borel. Its precise Borel rank may be high
+and is irrelevant. Now
+UT(x,y) ⇔ ∀ρ∈ℙ B(x,y,ρ).
+The complement is the projection of the Borel set
+{(x,y,ρ):¬ B(x,y,ρ)},
+so UT is coanalytic. Finally,
+
+24
+
+DET(x) ⇔ ∃ y∈ Y UT(x,y)
+is Σ¹₂.
+Suppose DET is complete for that pointclass under continuous reductions. Internally to V=L, let
+D be the lightface Δ¹₂ non-universally-measurable set from Appendix A, transported to 2ω.
+Completeness gives a continuous f with
+x∈ D⇔ f(x)∈DET.
+If DET were universally measurable, Appendix B.1 would make D universally measurable.
+Hence it is not. Under LC/PD, projective regularity gives universal measurability and the Baire
+property directly.
+Appendix D. The fixed-Hamiltonian Ising register
+D.1 Tree normal form
+Let Tr be the Polish space of trees on ω<ω, viewed as a closed subspace of 2(ω<ω). The set
+WF={T∈Tr:T is well founded}
+is Π¹₁-complete. The usual tree normal form for Σ¹₂ sets supplies a continuous map
+(α,β)↦ Tα,β
+such that
+WF∃ ={α:∃β Tα,β∈WF}
+is Σ¹₂-complete. Continuity means that for every finite node s, the truth of s∈ Tα,β is determined
+by finite initial segments of α and β.
+D.2 One fixed Hamiltonian
+Partition ℤ³ into dimers
+Dj,k,ℓ={(2j,k,ℓ),(2j+1,k,ℓ)}.
+Set Juv=1 when {u,v}=Dj,k,ℓ for some triple and Juv=0 for every other nearest-neighbor pair. Let
+the external field vanish. The local Hamiltonian difference at a site v depends only on its paired
+neighbor v*:
+Δv H=2σ(v)σ(v*).
+The unique zero-temperature minimizing update is therefore
+σ(v) ← σ(v*).
+Choose a computable schedule q:ℕ→ℤ³ such that each site occurs infinitely often. This fixes the
+evolution law completely. Every configuration constant on each dimer is stationary under q.
+Fix a computable injection c:ω<ω→ℤ³ whose range indexes dimers rather than individual sites;
+write Ds for the dimer assigned to s. Given (α,β), define σα,β by
+σα,β↾Ds = (−1,−1) if s ∈ Tα,β, and σα,β↾Ds = (+1,+1) if s ∉ Tα,β.
+and put all remaining dimers in the (+1,+1) state. Each output coordinate depends on one clopen
+tree-membership fact, so (α,β)↦σα,β is continuous. Every such state is stationary.
+25
+
+D.3 The path space and verdict
+Let
+ℙ= {ρ∈(ω<ω)ω: ρ(n)⊊ρ(n+1) for every n}.
+Failure is witnessed at a finite stage, so ℙ is closed. For ρ∈ℙ define V(α,β,ρ,n) to be the
+common spin on Dρ(n) after stage n of the fixed evolution. Stationarity gives
+V(α,β,ρ,n)=+1 ⇔ ρ(n)∉ Tα,β.
+The relation is Borel, indeed continuous when the discrete verdict space is used.
+D.4 Exact decoding
+If Tα,β has an infinite branch b, let ρ(n)=b↾(n+1). Then V=−1 at every stage. Conversely, if Tα,β is
+well founded, every strict chain leaves it at some stage. Once a chain leaves a tree, every later
+extension remains outside. Hence
+Tα,β∈WF ⇔ ∀ρ∈ℙ ∃ N ∀ n≥ N [V(α,β,ρ,n)=+1].
+Projecting over β proves Theorem 5.1. Notice that no parameter enters the Hamiltonian, the
+coupling pattern, the update schedule, or the verdict rule.
+D.5 Why the construction is not a phase theorem
+The spin read at stage n is the spin on a newly designated dimer, not the magnetization of an
+expanding physical region. The path ρ is a tree following diagnostic, not an ordinary
+asynchronous update order. The exact microstate is stationary, so no phase transition or
+relaxation phenomenon is being encoded.
+Appendix E. Bare extension and the Shoenfield obstruction
+E.1 Coding assumption
+Let 𝒟 be a standard Borel data space and 𝒴 a Polish certificate space. Fix a real a coding the
+presentation. Assume
+R(d,y,a)
+is Borel and expresses the local compatibility, regularity, boundary matching, and equation
+requirements imposed on a candidate extension. Then
+Ext(d) ⇔ ∃ y R(d,y,a)
+is Σ¹₁(a).
+This appendix does not prove that every geometric extension predicate admits such a
+presentation. For classical Ck extensions on fixed compact charts, Borel coding is standard. For
+weak solution concepts, quotient presentations, or maximal developments constructed only
+indirectly, that point requires separate analysis.
+E.2 Exact calibration collapses the real universe
+Let F:ωω→𝒟 be Borel with code absorbed into a. Then
+A={x:Ext(F(x))}
+
+26
+
+is Σ¹₁(a). Choose an arithmetical formula φ such that
+x∈ A⇔∃ z φ(x,z,a).
+Assume A=ℝ∩ L[a].
+For every x∈ L[a], the universe satisfies ∃ z φ(x,z,a). By Shoenfield absoluteness, so does L[a].
+Therefore
+L[a]⊨∀ x ∃ z φ(x,z,a).
+This is a Π¹₂(a) sentence. A second application of Shoenfield absoluteness yields
+V⊨∀ x ∃ z φ(x,z,a).
+Thus A=ℝ, and the assumed equality gives ℝ⊆ L[a].
+The theorem does not prove V=L[a]. Sets above the reals may remain outside L[a]. The
+contradiction needed by the application is simply the existence of a non-L[a] real.
+E.3 Consequences for SCC coding programs
+Suppose a proposed Kerr construction has three ingredients:
+(1) a Borel map from real codes to initial data;
+(2) a bare extension predicate presented analytically;
+(3) exact equivalence of bare extension with membership in L[a].
+In any anti-L[a] universe the three cannot coexist. Strengthening a local screen until it becomes
+equivalent to bare extension does not evade the theorem but transfers the analytic bound to the
+screen predicate. A positive construction must change at least one ingredient. It may target a
+higher complexity adversarial or canonicalization predicate, use a non-Borel data map, weaken
+exact calibration, or work in a universe with no non-L[a] reals.
+Appendix F. The fixed-collar E₀ theorem
+F.1 The perturbation space
+Let N=K×[0,1], with K a compact manifold with boundary if necessary, and fix a continuous
+Lorentzian metric ḡ₀ on N. Let H=K×{0} be the horizon boundary. Choose a continuous
+background Riemannian metric to define tensor norms and put
+B=C₀(N;Sym²T*N) ={h∈ C(N;Sym²T*N):h|H=0}.
+This is a separable Banach space in the uniform norm. Since ḡ₀ is nondegenerate and N is
+compact, there is ε>0 such that ḡ₀+h has Lorentzian signature for every h in the closed ball
+X={h∈ B:‖h‖∞≤ε}.
+Regard X as the code space. Adding ḡ₀ converts a code into a continuous Lorentzian extension
+with the same boundary values on H.
+For m≥1 let
+Cm={(h,h')∈ X²:h=h' on K×[0,1/m]}.
+Each Cm is closed. Hence
+27
+
+Egerm=⋃m≥1Cm
+is Fσ. It is plainly an equivalence relation.
+F.2 Marker embedding
+Choose points (pn,sn) with sn↓0 and pairwise disjoint coordinate balls Bn whose closures lie in
+K×(0,1]. Choose the balls so that the upper s-coordinate of Bn tends to 0. Choose continuous, or
+smooth in the interior, symmetric tensor bumps un supported in Bn, with un(pn,sn)≠0. Rescale
+them so that
+‖un‖∞≤2−n−2ε.
+For γ∈2ω put
+Θ(γ)=Σn=0∞γ(n)un.
+The supports are disjoint, and the norms tend to zero, so the sum converges uniformly and
+vanishes continuously at H. It lies in X. If two sequences agree through N-1, then
+‖Θ(γ)-Θ(γ')‖∞ ≤supn≥ N‖un‖∞,
+so Θ is continuous. It is injective because the value in Bn reads the nth bit. Since 2ω is compact
+and X is Hausdorff, Θ is a homeomorphism onto its compact image F.
+If γ E₀ γ', the two sums differ in only finitely many marker balls. A sufficiently small collar
+excludes all of them, so the perturbations define the same germ. Conversely, if the sequences
+differ at infinitely many indices, there are differing marker balls in every collar, so the germs are
+unequal. Therefore
+Θ(γ) Egerm Θ(γ') ⇔ γ E₀ γ'.
+F.3 No universally measurable selector
+Let Y be either X or F, with its subspace Borel structure. Suppose
+S:Y→ X
+is a selector map: S(h) Egerm h for every h∈ Y, and S(h)=S(h') whenever h Egerm h'. Assume S is
+universally measurable. Then
+r=S ∘ Θ:2ω→ X
+is measurable for the fair Bernoulli product measure μ and is invariant under E₀.
+Let Γ be the countable group of finite coordinate flips. Its orbits are the E₀ classes. If A⊆2ω is
+μ-measurable and Γ-invariant, then μ(A)∈{0,1}. Indeed, for every n, invariance makes
+μ(A∩[w]) the same for all cylinders [w] of length n. Summing over those cylinders gives
+μ(A∩[w])=2−nμ(A)=μ([w])μ(A).
+Thus A is independent of the algebra of cylinders and hence of the Borel σ-algebra it generates.
+Since A is measurable only for the completion, choose a Borel set B with μ(A △ B) = 0.
+Independence applies to B, and μ(A ∩ B) = μ(A) while μ(B) = μ(A), so μ(A) = μ(A ∩ B) =
+μ(A)μ(B) = μ(A)².
+For every Borel C⊆ X, the set r-1(C) is invariant and measurable, so the pushforward ν=r*μ takes
+only the values 0 and 1 on Borel sets. A 0-1 Borel probability on a Polish space is a point mass.
+28
+
+One proof uses tightness. Choose a compact K₀ with ν(K₀)=1. Cover K₀ by finitely many sets of
+diameter below 1 and form a finite Borel partition subordinate to the cover. One piece has
+measure 1; its closure inside K₀ is compact and has small diameter. Repeat inside that compact
+set with diameters tending to zero. Continuity from above gives measure 1 to the unique point in
+the nested intersection.
+Hence r(γ)=p for μ-almost every γ. For every such γ,
+p=S(Θ(γ)) Egerm Θ(γ).
+Any two points in this conull set therefore have E₀-equivalent codes, by transitivity and the
+marker equivalence. But one E₀ class is countable and μ-null. Contradiction.
+F.4 No Baire measurable selector on F
+Suppose S:F→ X is Baire measurable and a selector. Again let r=S ∘ Θ. If A⊆2ω is invariant
+under finite flips and has the Baire property, then A is meagre or comeagre. For if A is
+nonmeagre, it is comeagre in some basic cylinder [w]. Finite flips carry [w] to every cylinder of
+the same length and preserve A, so A is comeagre in their union, which is all of 2ω.
+Fix a countable base (Ui)i∈ℕ for X. Each r-1(Ui) is invariant and has the Baire property, so it is
+meagre or comeagre. Let G be the intersection of all comeagre preimages and all complements of
+meagre preimages. Then G is comeagre. Any two points of G have images belonging to exactly
+the same basic open sets, and therefore have equal images. Thus r is constant on G. As before, G
+would lie in one countable E₀ class, impossible.
+It remains to rule out a Baire measurable selector on all of X. For m≥1 let Gm be the closed
+subspace of perturbations in B vanishing on K×[0,1/m], and let G=⋃m Gm. Every element of B
+vanishes at s=0, so G is dense in B. For k∈ Gm, translation by k is a homeomorphism of B, and
+it preserves Egerm wherever both points lie in X, because h and h+k agree on K×[0,1/m]. Suppose
+S:X→ X is a Baire measurable selector and fix a countable base (Ui) for X. Each set Ai=S-1(Ui) is
+Egerm-invariant and has the Baire property. If Ai is nonmeagre, it is comeagre in some open ball.
+Given any interior point h₁ of X, density of G supplies a translation carrying a small ball inside
+that ball to a neighborhood of h₁ within X, and invariance transports comeagreness there. Since
+the interior is dense in X, each Ai is meagre or comeagre. Intersecting as before yields a
+comeagre set on which S is constant, so one Egerm class is comeagre. But each class is a countable
+union of sets X∩(h+Gm), and each h+Gm is a proper closed affine subspace of B, hence nowhere
+dense. Every class is therefore meagre. This contradiction rules out the selector on X.
+F.5 The constructible selector
+Assume V=L and fix a real code for the Polish presentation of X. Let ≤L be the canonical
+projective well-order of the reals. Define
+S(h)=the ≤L-least h'∈ X such that h' Egerm h.
+This is total and constant on classes. Its graph is defined by
+ΓS(h,h') ⇔ h' Egerm h ∧ ∀ z∈ X(z Egerm h→ h'≤L z).
+The germ relation is Borel and ≤L is projective. A further real quantifier leaves the graph
+projective. The proof makes no claim that the graph lies at Δ¹₂.
+
+29
+
+By F.3 and F.4, the selector is neither universally measurable nor Baire measurable on the
+encoded E₀ family.
+F.6 PD excludes projective selectors
+Assume PD and suppose a selector S on X, or on F, has projective graph. For every open U⊆ X,
+S-1(U) ={h:∃ y (ΓS(h,y)∧ y∈ U)}
+is projective. Under PD it is universally measurable and has the Baire property. Hence S is
+universally measurable and Baire measurable, contrary to F.3 or F.4. This proves the
+metatheoretic dichotomy.
+F.7 Scope
+The proof uses only a continuous Lorentzian collar and equality in a fixed presentation. It applies
+to exact Kerr, to a Dafermos-Luk collar when the hypotheses of that theorem are met, and to
+many non-Kerr extension problems. That breadth is mathematically useful and physically
+limiting. Nothing in the proof detects the Einstein equations beyond the horizon, local isometry,
+curvature invariants, or inequivalence of futures.
+Appendix G. Empirical and simulation considerations
+No finite experiment can survey all reals in a completion or policy space. Nor would a failure of
+numerical convergence discriminate directly between V=L and PD. The possible empirical
+relevance is indirect. A physical theory may claim that a verdict is stable under mesh
+refinement, gauge choice, boundary slack, or reconstruction method. Simulations can test finite
+families of such choices and increasing resolution. Persistent disagreement can reveal that the
+stated robustness idealization lacks a canonical implementation. The remedy may be a new
+physical restriction, a stronger analytic theorem, a different topology, or an explicit convention.
+Higher set theory is only one possible diagnosis, and usually not the first. Conversely, successful
+cross-code agreement does not prove universal measurability. It provides evidence that the tested
+region and tested policies are tame. A reverse physics theorem would explain why—perhaps by
+proving that the physically distinguished measure is concentrated on a Borel subset, that
+compactness collapses a real quantifier, or that a canonical gauge reduces the quotient.
+The evidential relation is methodological. Mathematics supplies conditions under which
+ensemble and selection claims are well defined. Physics supplies reasons to accept one state
+space, measure, topology, or equivalence relation rather than another. Neither side can be
+replaced by the slogan that axioms are empirically tested, or by the opposite slogan that
+foundations are irrelevant.
+References
+Arrigoni, Tatiana. 2011. “V = L and Intuitive Plausibility in Set Theory. A Case Study.” Bulletin
+of Symbolic Logic 17 (3): 337–360.
+Backs, Karl, Steve Jackson, and R. Daniel Mauldin. 2015. “CH, V=L, Disintegration of
+Measures, and Π¹₁ Sets.” Advances in Mathematics 274: 76–96.
+Brezis, Haim. 2011. Functional Analysis, Sobolev Spaces and Partial Differential Equations.
+New York: Springer.
+
+30
+
+Carassus, Laurence, and Massinissa Ferhoune. 2024. “Nonconcave Robust Utility Maximization
+under Projective Determinacy.” arXiv:2403.11824.
+Carassus, Laurence, and Massinissa Ferhoune. 2025. “Projective Functions.” arXiv:2507.12605.
+Clarke-Doane, Justin. 2019. “Modal Objectivity.” Nous. Vol. 53. 266-295.
+Clarke-Doane, Justin. 2022. Mathematics and Metaphilosophy. Cambridge: Cambridge
+University Press.
+Clarke-Doane, Justin. 2024. Morality and Mathematics. Revised paperback edition. Oxford:
+Oxford University Press.
+Clarke-Doane, Justin. 2025. “What is Logical Monism?” Paul Boghossian & Chris Peacocke
+(eds.), Normative Realism. Oxford: Oxford University Press.
+Clarke-Doane, Justin. Forthcoming. “What is Mathematical Pluralism?” In Alexander Paseau
+(ed.), The Blackwell Companion to the Philosophy of Mathematics. Oxford: Wiley-Blackwell.
+Dacorogna, Bernard. 2008. Direct Methods in the Calculus of Variations. 2nd ed. New York:
+Springer.
+Dafermos, Mihalis, and Jonathan Luk. 2025. “The Interior of Dynamical Vacuum Black Holes I:
+The C⁰-Stability of the Kerr Cauchy Horizon.” Annals of Mathematics 202 (2): 309–630.
+Dafermos, Mihalis. 2014. “The Mathematical Analysis of Black Holes in General Relativity.” In
+Proceedings of the International Congress of Mathematicians 2014, Vol. 3, 747–772.
+Devlin, Keith J. 1981. “Infinite Trees and the Axiom of Constructibility.” Bulletin of the London
+Mathematical Society 13 (3): 193–206.
+Earman, John. 1986. A Primer on Determinism. Dordrecht: D. Reidel.
+Evans, Lawrence C. 2010. Partial Differential Equations. 2nd ed. Providence, RI: American
+Mathematical Society.
+Farah, Ilijas, and Menachem Magidor. 2012. “Independence of the Existence of Pitowsky Spin
+Models.” arXiv:1212.0110.
+Feferman, Solomon. 1998. “Why a Little Bit Goes a Long Way: Logical Foundations of
+Scientifically Applicable Mathematics.” In In the Light of Logic, 284–298. New York: Oxford
+University Press.
+Fontanella, Laura. 2019. “How to Choose New Axioms for Set Theory?” In Stefania Centrone,
+Deborah Kant, and Deniz Sarikaya (eds.), Reflections on the Foundations of Mathematics,
+27–42. Cham: Springer.
+Fraenkel, Abraham A., Yehoshua Bar-Hillel, and Azriel Lévy. 1973. Foundations of Set Theory.
+2nd rev. ed. Amsterdam: North-Holland.
+Friedman, Harvey M. 1975. “Some Systems of Second Order Arithmetic and Their Use.” In
+Proceedings of the International Congress of Mathematicians (Vancouver, 1974), Vol. 1,
+235–242.
+Gödel, Kurt. 1931. “Über formal unentscheidbare Sätze der Principia Mathematica und
+verwandter Systeme I.” Monatshefte für Mathematik und Physik 38: 173–198.
+
+31
+
+Gribov, V. N. 1978. “Quantization of Non-Abelian Gauge Theories.” Nuclear Physics B 139
+(1–2): 1–19.
+Gurriaran, Sebastian. 2025. “Precise Asymptotics of the Spin +2 Teukolsky Field in the Kerr
+Black Hole Interior.” Communications in Mathematical Physics 406 (7): Article 152.
+Gurriaran, Sebastian. 2026. “Non-linear Instability of the Kerr Cauchy Horizon near i⁺.”
+arXiv:2603.17911.
+Hadamard, Jacques. 1923. Lectures on Cauchy’s Problem in Linear Partial Differential
+Equations. New Haven: Yale University Press.
+Harrington, Leo A., Alexander S. Kechris, and Alain Louveau. 1990. “A Glimm-Effros
+Dichotomy for Borel Equivalence Relations.” Journal of the American Mathematical Society 3
+(4): 903–928.
+Jech, Thomas. 2003. Set Theory. 3rd millennium ed., revised and expanded. Berlin: Springer.
+Jensen, Ronald. 1995. “Inner Models and Large Cardinals.” Bulletin of Symbolic Logic 1 (4):
+393–407.
+Kanamori, Akihiro. 2009. The Higher Infinite: Large Cardinals in Set Theory from Their
+Beginnings. 2nd ed. Berlin: Springer.
+Kechris, Alexander S. 1995. Classical Descriptive Set Theory. New York: Springer.
+Koellner, Peter. 2009. “On Reflection Principles.” Annals of Pure and Applied Logic 157 (2–3):
+206–219.
+Levy, Yehuda John. 2025. “Independence of Existence of Measurable Equilibrium Selections.”
+Israel Journal of Mathematics 267 (2): 901–920.
+Loewer, Barry. 2020. “The Mentaculus Vision.” In Valia Allori (ed.), Statistical Mechanics and
+Scientific Explanation: Determinism, Indeterminism and Laws of Nature, 3–29. Singapore:
+World Scientific.
+Luk, Jonathan, and Jan Sbierski. 2026. “The Formation of a Weak Null Singularity in the Interior
+of Generic Rotating Black Holes.” arXiv:2604.04877.
+Maddy, Penelope. 1997. Naturalism in Mathematics. Oxford: Clarendon Press.
+Maddy, Penelope. 2011. Defending the Axioms: On the Philosophical Foundations of Set Theory.
+Oxford: Oxford University Press.
+Martin, Donald A., and John R. Steel. 1989. “A Proof of Projective Determinacy.” Journal of the
+American Mathematical Society 2 (1): 71–125.
+Maudlin, Tim. 2007. The Metaphysics Within Physics. Oxford: Oxford University Press.
+Moschovakis, Yiannis N. 2009. Descriptive Set Theory. 2nd ed. Providence, RI: American
+Mathematical Society.
+Newman, Charles M., and Daniel L. Stein. 1997. “Metastate Approach to Thermodynamic
+Chaos.” Physical Review E 55 (5): 5194–5211.
+Newman, Charles M., Nicholas Read, and Daniel L. Stein. 2022. “Metastates and Replica
+Symmetry Breaking.” arXiv:2204.10345.
+
+32
+
+Norton, John D. 2008. “The Dome: An Unexpectedly Simple Failure of Determinism.”
+Philosophy of Science 75 (5): 786–798.
+Pinter, Charles C. 2014. A Book of Set Theory. Mineola, NY: Dover.
+Pour-El, Marian B., and J. Ian Richards. 1989. Computability in Analysis and Physics. Berlin:
+Springer.
+Quine, W. V. O. 1951. “Two Dogmas of Empiricism.” Philosophical Review 60 (1): 20–43.
+Quine, W. V. O. 1990. Pursuit of Truth. Cambridge, MA: Harvard University Press.
+Sbierski, Jan. 2023. “Instability of the Kerr Cauchy Horizon under Linearised Gravitational
+Perturbations.” Annals of PDE 9: Article 7.
+Sbierski, Jan. 2026a. “Lipschitz Inextendibility of Weak Null Singularities from Curvature
+Blow-Up.” Inventiones Mathematicae 243 (3): 961–991.
+Sbierski, Jan. 2026b. “A Note on the Instability of the Kerr Cauchy Horizon under Linearised
+Gravitational Perturbations.” arXiv:2604.06283.
+Shoenfield, Joseph R. 1961. “The Problem of Predicativity.” In Yehoshua Bar-Hillel (ed.),
+Essays on the Foundations of Mathematics, 132–139. Jerusalem: Magnes Press.
+Sierpiński, Wacław. 1924. “Sur l’hypothèse du continu (2ℵ₀ = ℵ₁).” Fundamenta Mathematicae 5
+(1): 177–187.
+Simpson, Stephen G. 2009. Subsystems of Second Order Arithmetic. 2nd ed. Cambridge:
+Cambridge University Press.
+Singer, Isadore M. 1978. “Some Remarks on the Gribov Ambiguity.” Communications in
+Mathematical Physics 60 (1): 7–12.
+Steel, John R. 2014. “Gödel’s Program.” In Juliette Kennedy (ed.), Interpreting Gödel: Critical
+Essays, 153–179. Cambridge: Cambridge University Press.
+Wald, Robert M. 1984. General Relativity. Chicago: University of Chicago Press.
+Woodin, W. Hugh. 1988. “Supercompact Cardinals, Sets of Reals, and Weakly Homogeneous
+Trees.” Proceedings of the National Academy of Sciences 85 (18): 6587–6591.
+Endnotes
+1
+
+Thanks to Avner Ash for catching a mistake in my treatment of PDEs; Will Cavendish for
+pressing me to consider the discrete case; Gabriel Goldberg for illuminating discussion of
+complexity classes and projective uniformization in L; Joel David Hamkins for general
+exchanges about the relevance of incompleteness to determinism; Douglas Blue for the virtues of
+LC/PD; John Norton and William D’Alessandro for feedback on a talk I gave on the topic at
+UNC Chapel Hill; Peter Galison, Daine L. Danielson, Siddharth Muthukrishnan, and attendees at
+my Harvard Foundations Black Hole Initiative talk on the subject; two anonymous referees for
+helpful reports; and the students in my Undecidability in Physics Fall 2025 graduate seminar at
+Columbia for probing questions about the project. This article is an experiment for me. I have
+been writing it over the course of or a couple of years in a vigorous back-and-forth with AI
+systems. I used Claude (Anthropic) and GPT (OpenAI) to help me think across fields, test
+arguments, track down references, construct proofs, and sometimes to suggest presentation. They
+33
+
+have made it possible for me to work across descriptive set theory, mathematical relativity,
+engineering, quantum foundations, and related areas in a way I could not have managed on my
+own. The claims of the paper, its structure, and, of course, any mistakes are my responsibility.
+(To my knowledge, nothing has been written on the interaction between V=L/PD and
+determinism. But for important precursors to some of the general issues discussed here, see
+Farah & Magidor 2012 and Pour-El & Richards 1989 and the references therein.)
+2
+
+For discussion of other “restrictive” axioms, besides V=L, see Fraenkel, Bar-Hillel & Lévy
+(1973, §6.4). The dominant narrative among set theorists who are willing to speak of truth or
+falsity is that V=L is false, and “clearly” so. Maddy (1997, Pt II, § 4) contains a nice explication
+of the reasons advocates of this narrative supply. But this view is “not unanimously shared”
+(Fontanella 2019, 32). Devlin writes, “What is my own view?...Currently I tend to favour
+[V=L]....At the moment I think I am in the majority of informed mathematicians, but the
+minority of set theorists...” (1981, 205). Arrigoni says, “I believe it perfectly in order to
+characterize . . . ZFC + V=L as intuitively plausible . . . ” (2011, 355). Jensen writes, “I
+personally find it a very attractive axiom” (1995, 398), and confesses “to being emotionally a
+Pythagorean” (1995, 401, n. 17), Pythagoreanism being his name for the orientation on which
+V=L embodies “an entirely coherent Pythagorean picture of the world” (1995, 401). And Pinter
+writes, “there is a strong intuitive basis for considering L to be the class of all sets. By definition,
+L contains all the sets that are describable by a formula in the language of set theory. And there is
+no practical reason to admit sets which lack any description, for we would never make use of
+such sets. They would merely sit there and muddy the waters. Thus, from this point onward we
+shall assume the following important axiom: Axiom of Constructibility: Every set is
+constructible, that is, every set is in L. This axiom is usually denoted by the symbol V=L” (2014,
+227). We will meet another supporter in the Conclusion.
+3
+
+Note that for each fixed (α,β,ϱ), the evolution is deterministic. The determinism claim here is
+the robust verdict “the refinement path phase diagnosis eventually locks to +,” which is (i) a
+universal-tail robustness requirement over a rich policy space ℙ and (ii) quantified over
+completions β. This is the recipe that forces Σ¹₂ complexity and hence activates the must diverge
+route.
+4
+
+For each fixed tolerance ε>0, a claim of the form “the diagnostic succeeds to accuracy ε beyond
+some finite refinement stage” is tame. But the robustness claims used in physics concern the
+ε→0 limit. Formally, let ℙ be a Polish space of admissible policies and let Good(x,ϱ,k,n) be a
+Borel predicate meaning that, at refinement stage n under policy ϱ, the diagnostic succeeds to
+tolerance εk, where εk↓0. The ε→0 robustness claim has the form: ∀k∈ℕ ∀ϱ∈ℙ ∃N ∀n≥N
+Good(x,ϱ,k,n). This is a universal tail condition. For each policy and each tolerance, success
+eventually stabilizes. With Good Borel and ℙ Polish, the resulting predicate is Π¹₁ in x. If one
+then forms a determinism profile by existentially quantifying over admissible completions y (as
+in the main text), one obtains a set of the form: DET(x) ⇔ ∃y ∀k ∀ϱ ∃N ∀n≥N
+Good(x,y,ϱ,k,n), which is Σ¹₂. So, even when each fixed-ε approximation claim is ZFC-absolute,
+the ε→0 robustness claim lives at Σ¹₂ complexity. By Theorem 4.3, such limit claims can be
+universally measurable under LC/PD while failing universal measurability under V=L. Finite
+precision practice does not insulate determinism from metatheory. It actually presupposes
+limiting claims whose status ZFC alone need not settle.
+5
+
+Here is the idea: any careful statement of either view must be made against some background
+theory that fixes what counts as a universe of sets. Inside that framework, “V” denotes every set
+34
+
+that the framework recognizes, so the monist’s claim that there is one true V is trivially true by
+that framework’s own lights. But taken independently of any background the claim has no
+content. One can choose to interpret it using another theory. But different choices yield different
+contents. The same holds for pluralism. Its “many universes” are sets or proper classes in one
+background, not an external plurality that both sides could recognize. What remains is, if not a
+verbal question about the meaning of the word “set” among select academics, a pragmatic
+question—which framework to use—not a factual one about what exists (Clarke-Doane 2022,
+Ch. 4; Forthcoming). Of course I do not pretend to have properly defended that view here.
+6
+
+The philosophical pattern emphasized in the main text is not altogether peculiar to the paper’s
+Σ¹₂-completeness constructions. Levy (2025) proves that universally or Lebesgue measurable
+equilibrium selection for Borel parametrized games is independent of ZFC and equivalent to the
+universal measurability of all Δ¹₂ sets, even in the two-player zero sum case. Backs, Jackson, and
+Mauldin (2015) show that Maharam’s question about uniformly σ-finite disintegrations can
+depend on set theory, and recast nonuniformity in terms of whether the atom relation is a
+countable union of Borel graphs. Carassus and Ferhoune (2024, 2025) show that dynamic
+optimization under model uncertainty uses PD to recover measurable/projective selector
+machinery and ε-optimal selectors, while also giving an L-side example in which the unique
+optimal strategy is not Lebesgue measurable. Again, these are not cases of physical determinism.
+But they show that the contrast between pointwise existence and regular global selection already
+appears, without bespoke completeness coding, in natural theories people actually study.
+
+35
+
+

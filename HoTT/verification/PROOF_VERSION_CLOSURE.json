@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 226,
+  "later_machine_proved_claim_count": 230,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1125,6 +1125,26 @@
       "source": "HoTT/formal/zfc-normative-process-audit/ProcessCompletionAudit.lean",
       "toolchain": "HoTT/formal/zfc-normative-process-audit/LEAN_CORE_TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: an explicit process-completion audit reports original resolution only with a supplied FormalDone-to-OriginDone certificate; visible task switches and missing bridges cannot be silently promoted."
+    },
+    {
+      "claim_ids": "C-375..C-376",
+      "kind": "lean_core_source_motivated_mss_domain_time_representation_control",
+      "notes": "The Sant'Anna--Bueno source fixes a ZFC MSS presentation whose functions retain domains, and distinguishes it from a domainless N-MSS reformulation. This package formalizes only a minimal representation control: graph-domain recovery determines a chosen endpoint observation, while a deliberately domainless function-only view does not determine it in a fixed two-instance witness. It does not formalize ZFC, MSS, Theorem 8, N, N-MSS, physical completion, or a bare-ZFC adequacy verdict.",
+      "proof_id": "MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001",
+      "run": "HoTT/verification/runs/20261005-MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001-04",
+      "source": "HoTT/formal/zfc-mss-domain-time-control/MSSDomainTimeControl.lean",
+      "toolchain": "HoTT/formal/zfc-mss-domain-time-control/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: retaining graph-domain data permits exact recovery of the fixed endpoint observation; removing the designated time carrier from a function-only projection leaves that observation non-determined in the exhibited pair."
+    },
+    {
+      "claim_ids": "C-377..C-378",
+      "kind": "lean_core_source_motivated_mss_phase_order_representation_control",
+      "notes": "The da Costa--Sant'Anna source contrasts prediction/future/time with phase-space state description. This package formalizes only a two-stage representation control: a parameterized trace determines a fixed ordered-endpoint observation, whereas a finite visited-state range does not determine it. It does not identify the source's full phase-space curve with the finite range projection, formalize MSS/ZFC, prove a physical prediction failure, or establish a bare-ZFC adequacy verdict.",
+      "proof_id": "MP-ZFC-MSS-PHASE-ORDER-CONTROL-001",
+      "run": "HoTT/verification/runs/20261005-MP-ZFC-MSS-PHASE-ORDER-CONTROL-002",
+      "source": "HoTT/formal/zfc-mss-phase-order-control/MSSPhaseOrderControl.lean",
+      "toolchain": "HoTT/formal/zfc-mss-phase-order-control/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: retaining the two-stage parameterized trace determines the selected order observation; a finite visited-state range is non-determining in the forward/reverse witness pair."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

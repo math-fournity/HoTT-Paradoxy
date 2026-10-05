@@ -1818,3 +1818,35 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-372 | 对任意 contract，bridge 为 `missing` 时 `audit = bridgeRequired` 且 `audit ≠ originalResolved`。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 不推出任意实际理论缺少 bridge，也不把“没有发现”当作 source absence。 |
 | C-373 | paid positive control 同时得到 `originalResolved` 与 `originDone`。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION / POSITIVE_CONTROL` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 控制只证明规范不会一概拒绝模型、极限或连续统；不支付现实应用 bridge。 |
 | C-374 | missing-bridge negative control 有 `formalDone`，却得到 `bridgeRequired` 且不等于 `originalResolved`。 | `KERNEL_ACCEPTED_WITH_SCOPE / NORMATIVE_FORMAL_SPECIFICATION / NEGATIVE_CONTROL` | `MP-ZFC-NORMATIVE-PROCESS-AUDIT-001` / `20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-03` | 只否定此规范中的 silent promotion；不构成 bare ZFC、HoTT 或数学共同体矛盾。 |
+
+## ZFC MSS 中 time primitive 消去的定义域恢复／无定义域控制（2026-10-05）
+
+> 来源：Sant'Anna--Bueno 2014；source snapshot、原页范围和翻译边界见
+> `audit/20261005-ZFC-META-SUBTHEORY-ADEQUACY-C0R8-DOMAIN-ELIMINATION-SOURCE-TO-SPEC-CONTROL.md`。
+> 该包把来源所明说的 domain-bearing ZFC MSS 与 domainless N-MSS 非完全等价作为
+> representation-control 动机；它不重放 MSS、Padoa 或 N 的完整理论，也不对 bare ZFC 作结论。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001` | `C-375`、`C-376` | `formal/zfc-mss-domain-time-control/MSSDomainTimeControl.lean` | `verification/runs/20261005-MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001-04/`；Lean 4.34.1 core；7份固定 source/document inputs、pinned Lean binary、exit 0、stderr 0 B；7条 selected theorem 的 axiom report 均无公理 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_MOTIVATED_REPRESENTATION_CONTROL`：graph/domain view 可恢复固定 endpoint membership；function-only view 在一对固定实例上不能决定该 observation。 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-375 | 对任意 `GraphTrace`，若 `∀t, (∃x, graph t x) ↔ time t`，则对于每个 endpoint，`graphOnly` 有一个仅由 graph domain 构造的 decoder，恰好决定 `EndpointAvailable trace endpoint`。 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_MOTIVATED_POSITIVE_CONTROL` | `MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001` / `20261005-MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001-04`；命题全文：`formal/zfc-mss-domain-time-control/CLAIM.md` | 不形式化 ZFC/MSS/Padoa/Theorem 8；不证明实际物理完成、所有时间观察或 bare-ZFC adequacy。 |
+| C-376 | 在固定 `shortCandidate.time={0}` 与 `longCandidate.time={0,1}`、二者有同一 `sharedFunction` 的两实例中，不存在只由 `FunctionView` 决定 `endpoint=1` membership 的全域 decoder。 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_MOTIVATED_NEGATIVE_CONTROL` | `MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001` / `20261005-MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001-04`；命题全文：`formal/zfc-mss-domain-time-control/CLAIM.md` | 不证明这些实例是 N/N-MSS 模型、N 有物理错误、endpoint 是完整 OriginDone，或 ZFC/HoTT/数学共同体矛盾。 |
+
+## MSS phase-space 状态范围与参数顺序控制（2026-10-05）
+
+> 来源：da Costa--Sant'Anna 2001 `gr-qc/0102107v2` 把 prediction/future/time 与
+> phase-space state description并列；精确 source-to-spec 边界见
+> `audit/20261005-ZFC-META-SUBTHEORY-ADEQUACY-C0R8-MSS-PHASE-ORDER-SOURCE-TO-SPEC-CONTROL.md`。
+> 包只检查一个有限 range projection，不将 source 的 phase-space curve 自动等同于该 projection。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-ZFC-MSS-PHASE-ORDER-CONTROL-001` | `C-377`、`C-378` | `formal/zfc-mss-phase-order-control/MSSPhaseOrderControl.lean` | `verification/runs/20261005-MP-ZFC-MSS-PHASE-ORDER-CONTROL-002/`；Lean 4.34.1 core；7份固定 source/document inputs、pinned Lean binary、exit 0、stderr 0 B；6条 selected theorem 的 axiom report 均无公理 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_MOTIVATED_PARAMETER_ORDER_CONTROL`：参数化 trace 保留固定 start/end order observation；visited-state range在一对 forward/reverse controls 上不能决定它。 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-377 | 对 `TemporalTrace := Bool → Bool` 与 `OrderedForward`，identity `temporalView` 存在 decoder，故决定该 order-sensitive observation。 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_MOTIVATED_POSITIVE_CONTROL` | `MP-ZFC-MSS-PHASE-ORDER-CONTROL-001` / `20261005-MP-ZFC-MSS-PHASE-ORDER-CONTROL-002`；命题全文：`formal/zfc-mss-phase-order-control/CLAIM.md` | 不形式化实际 phase space、MSS、预测、物理时序或完整 OriginDone。 |
+| C-378 | 对固定 `forwardTrace` 与 `reverseTrace`，两者 `rangeView` 相同而 `OrderedForward` 真假不同；因此不存在只由该 `RangeView` 决定 `OrderedForward` 的全域 decoder。 | `KERNEL_ACCEPTED_WITH_SCOPE / SOURCE_MOTIVATED_NEGATIVE_CONTROL` | `MP-ZFC-MSS-PHASE-ORDER-CONTROL-001` / `20261005-MP-ZFC-MSS-PHASE-ORDER-CONTROL-002`；命题全文：`formal/zfc-mss-phase-order-control/CLAIM.md` | 不把 source 的 curve等同 rangeView，不证明任何实际物理失败、bare ZFC缺陷、Zeno/圆环问题或HoTT同Q。 |

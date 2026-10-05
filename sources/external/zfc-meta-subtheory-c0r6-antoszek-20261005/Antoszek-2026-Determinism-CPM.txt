@@ -1,0 +1,1524 @@
+Synthese
+(2026) 207:247
+https://doi.org/10.1007/s11229-026-05639-1
+ORIGINAL RESEARCH
+
+Why the definition of determinism fails and how it can be
+corrected: the case of classical particle mechanics
+Antoni Antoszek1
+Received: 29 June 2025 / Accepted: 6 May 2026
+© The Author(s) 2026
+
+Abstract
+This paper aims to demonstrate how a rigorous definition of determinism can be
+formulated and applied to a formal axiomatization of a physical theory. Examining
+an example of Newtonian classical particle mechanics (CPM) formalized in set-theoretical axioms by Patrick Suppes, the paper shows why definitions of determinism
+based on the temporal development of physical systems—such as those proposed
+by Suppes (2002) and Montague (1974)—fail to assess determinism correctly. It is
+argued that, to deliver a meaningful verdict, the definition of determinism cannot
+be applied to the entire framework of CPM itself, but rather to its particular theories: definitions of specific physical systems that incorporate the force equation.
+Therefore, the verdict of determinism or indeterminism typically depends on the
+uniqueness (or non-uniqueness) of solutions to the differential equations governing the system’s behavior. The paper concludes with a demonstration of how a
+formally correct definition of determinism can be used to show the indeterminism
+of the theory of Norton’s dome stated within the framework of CPM. Although the
+example concerns pre-relativistic Newtonian mechanics, the crucial philosophical
+distinction between frameworks and theories extends beyond this case and suggests
+that assessing the determinism of any physical theory requires special caution to
+distinguish it properly from its framework.
+Keywords Classical particle mechanics · Determinism · Norton’s dome · Physical
+frameworks · Physical theories
+
+Antoni Antoszek
+ant.antoszek@student.uj.edu.pl
+1
+
+Jagiellonian University, Kraków, Poland
+
+247
+
+Page 2 of 24
+
+Synthese
+
+(2026) 207:247
+
+1 Introduction
+Is classical particle mechanics (CPM) deterministic? One way to address this question is to formalize CPM using first-order or set-theoretical axioms and then test
+whether certain initial conditions allow multiple temporal developments. This task
+has been undertaken by Richard Montague (1974) and Patrick Suppes (2002), who
+axiomatized CPM in first-order logic and set-theory, respectively. They both claimed
+that the question of determinism is almost trivial – yet, they were led to entirely different results. As Montague claims:
+We may now ask whether classical particle mechanics is deterministic, as is
+sometimes alleged. According to the following theorem, whose proof is too
+obvious to be included, the answer is negative.
+Theorem 2. [C]PM is not deterministic. (Montague, 1974, p. 330)
+On the other hand, examining his axiomatization of CPM, Suppes states that:
+The next theorem is a classic expression of the fact that particle mechanics is a
+thoroughly deterministic science … The proof rests upon elementary considerations concerning the uniqueness of solutions of the kind of differential equation exemplified by Newton’s Second Law and is thus omitted here. (Suppes,
+2002, p. 324)
+Skipping a proof due to its alleged simplicity is generally unwise, so it may seem
+that at least one of the authors made a mistake that led him to incorrect conclusions.
+However, it turns out that both theorems are formally correct. More surprisingly, this
+discrepancy does not arise from the differences in the choice of the formal language
+either (a point that will be elaborated on in the next sections). Instead, the fundamental issue lies in the definition of determinism itself: in their texts, Montague and Suppes conceived of determinism in distinct ways, which in turn led them to divergent
+conclusions.
+The purpose of this article is to discuss how an appropriate definition of determinism can be formulated and applied to an axiomatization of classical particle mechanics. While drawing on Montague’s idea of determinism, later developed by Earman,
+we argue that in order to deliver a meaningful verdict, a definition of determinism
+should not be applied to the entire framework of classical particle mechanics, but
+rather to its particular theories describing different physical systems. To demonstrate
+this, we will examine why both Suppes’ and Montague’s (Earman’s) approaches fail.
+This paper focuses on the DMAP approach to defining determinism that takes into
+account temporal developments of different realizations of a theory and the existence
+of suitable mappings between them (hence the name coined by Müller and Placek,
+2018). In Sect. 2, we will examine several attempts – some of which remain informal – to construct a DMAP-style definition of determinism, together with the basic
+terminology used by the proponents of these approaches. It will then be applied to
+Suppes’ formalization of CPM, whose axiomatic structure will be laid down and dis-
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 3 of 24
+
+247
+
+cussed in Sect. 3. Section 4 will examine why Suppes’ verdict that his axiomatization
+of CPM is deterministic is premature. The failure of his approach suggests the need
+to develop a new formal definition of determinism that follows the DMAP analysis
+and makes it applicable to the set-theoretical formalization of CPM. This will be done
+in Sect. 5. Although this definition is formally correct and consistent with DMAP, it
+ultimately fails, prompting further analysis: how can we meaningfully apply it to the
+framework? It will be argued that this can be done by asking about determinism of
+theories of a framework rather than of a framework itself; the distinction between
+theories and frameworks will be elaborated on in Sect. 6. Finally, in Sect. 7, we will
+demonstrate an application of the revised definition to the theory of Norton’s (2008)
+domes that is stated within the framework of classical particle mechanics. Assuming
+that a framework is indeterministic when any of its theories are, this analysis will lead
+to the verdict of indeterminism of classical particle mechanics.
+
+2 When is a theory deterministic?
+As Müller and Placek (2018) put it, “the core idea behind the philosophical (metaphysical) notion of determinism is that given the way things are at present, there
+is only one possible way for the future to turn out’. The authors characterize three
+approaches to defining determinism, including a ‘current orthodoxy in philosophy
+of science” – a formulation examining mappings between temporal realizations of a
+theory. The authors define this mapping-based approach, called DMAP analysis, as
+follows:
+Speaking abstractly, the diagnosis of determinism according to DMAP is a twostage affair. In a first step, all of the individual realizations of the linear temporal
+development of systems falling under the theory are put side by side. These are
+the separate possible ways a world could be that are admitted by the theory.
+Depending on the theory in question, these could be all the solutions to the
+theory’s defining equations, or a class of temporal realizations that is given in
+some other, perhaps more complex manner … In a second step, this class of
+temporal developments is checked for instances of indeterminism, in the following way: If there are two realizations that can be identified at one time, but
+whose future segments after that time cannot be identified, this signals indeterminism. If the test fails, that is, if all realizations that can be identified at one
+time can also be identified at all future times, then the theory is deterministic.
+(Müller & Placek, 2018)
+In the above description, key notions such as “theory”, “realization”, and “agreeing’
+remain ambiguous and are interpreted differently by philosophers. In his entry in
+the Routledge Encyclopedia of Philosophy, Jeremy Butterfield, a proponent of the
+DMAP approach, claims that “a theory is deterministic if and only if: any two of
+its models that agree at a time t on the state of their objects, also agree at all times
+future to t” (Butterfield, 2005). A model, corresponding to what Müller and Placek
+call a “realization”, is defined for theories describing single isolated systems to be a
+
+13
+
+247
+
+Page 4 of 24
+
+Synthese
+
+(2026) 207:247
+
+‘sequence of states for such a single system, that conforms to the laws of the theory’.
+Therefore, it does not have to be a model in a strictly logical Tarskian sense, but
+rather, as Butterfield puts it, a “toy universe” or a ‘toy possible world”. The concept
+of “state” in Butterfield’s definition remains imprecise. States are required only to
+have two general features that “are vague, and cannot be formalized’: they must be
+‘intrinsic properties”1 and they must be maximal, “that is they need to be the logically strongest consistent properties the theory can express” (Butterfield, 2005). Two
+models agree when their instantaneous slices are isomorphic. The application of isomorphism to such general models is problematic – after all, neither the structure nor
+the language of such models is specified.
+A slightly different route to define determinism in a DMAP approach is taken by
+Earman:
+In pre-QM physics it was also assumed that there is a set O of genuine physical
+magnitudes (a.k.a. “observables”) each of which takes a determinate value at
+every moment of time; call these the occurent magnitudes … A history H is a
+map from R to tuples of values of the basic magnitudes, where for any t ∈ R
+the state H(t) gives a snapshot of behavior of the basic magnitudes at time t.
+The world is Laplacian deterministic with respect to O just in case for any pair
+of histories H1 , H2 satisfying the laws of physics, if H1 (t) = H2 (t) for some t,
+then H1 (t) = H2 (t) for all t. (Earman, 2007, pp. 1369–1370)
+Here, realizations are histories, i.e. mappings from R to O; “agreeing” is understood
+as equality. One concern is that Earman’s definition applies to the world rather than to
+a theory, but this does not seem to be a real problem: it is natural to interpret histories
+as realizations of certain physical theories describing the world. What is understood
+by Butterfield as an instantaneous slice at time t, here can be seen simply as H(t), i.e.
+a state or a tuple of physical magnitudes at time t. Thus, both authors are concerned
+about states of a system, either ordered by some type of sequence (Butterfield) or by
+arguments of a function (Earman). Note that in Earman’s formulation, the notion of
+isomorphism is replaced by simple equality.2
+1
+
+Butterfield elaborates on this point:
+It is notoriously hard to say exactly what is meant by ‘intrinsic’, but the idea is to rule out properties
+which might code information about how the future just happens to go, and thus support a spurious
+determinism. Thus, to take an everyday example, ‘Fred was mortally wounded at noon’ implies that
+Fred later dies. But the property ascribed at noon is clearly extrinsic: it ‘looks ahead’ to the future.
+And so this implication does not show that there is any genuine determinism about the processes
+that led to Fred’s later death (Butterfield, 2005).
+
+2
+
+Throughout this text, we will discuss and formulate definitions that use set-theoretical identity “=” rather
+than isomorphism when identifying “sameness” of models. As some authors (see Butterfield, 1989)
+believe that identity is unreliable in this case, this choice might seem to be controversial. However, in the
+case of classical particle mechanics to which the definition is applied, switching to isomorophism does
+not appear to have any significant consequences beyond making the definition more complex. In the case
+of other theories (or – as will be later argued – frameworks) such as general relativity, there seems to be
+general consensus, backed with the famous Hole Argument, that the models are the same when they are
+isomorophic. For the purposes of this text, identity is sufficient; however, it should be clear that it can be
+straightforwardly replaced by isomorphism, most importantly in Definition 6 (Sect. 6).
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 5 of 24
+
+247
+
+This approach will turn out to be very useful. If a theory is deterministic according
+to Earman’s definition, we will say that it is Laplacian deterministic.
+The notion of a theory remains insufficiently precise in either Butterfield’s or Earman’s formulation. One of the purposes of this text is to show that in order to use
+DMAP analysis correctly, it is necessary to carefully specify what a physical theory
+is and what it is not. Examining the case of classical particle mechanics, we will
+argue that it is not meaningful to apply DMAP formulation to the whole Newtonian
+framework, but rather to its particular theories.
+A DMAP analysis requires a theory to be formulated in a precise scientific language that will allow us to find a class of realizations that is admitted by this theory.
+It is not necessary to construct a new formalization of CPM: a set-theoretical axiomatization of CPM proposed by Suppes (2002, pp. 313–324) will be sufficient for
+the purpose of this text. After introducing the formalization, we will examine Suppes’
+theorem which claims that CPM is a deterministic theory. Although the theorem is
+formally correct, the underlying definition of determinism is inadequate. To correct
+it, we will demonstrate that the definition of Laplacian determinism can be applied
+to Suppes’ formalization. The result of such application will illustrate that although
+CPM may seem to be a physical theory, we must complement it with additional axioms that allow us to assess determinism in a way that is non-trivial and meaningful.
+It may be asked why the focus is on the DMAP approach when studying the solutions to the differential equations seems to be sufficient for delivering a verdict on
+determinism of CPM. There is a historical reason for this: both Butterfield’s and
+Earman’s influential definitions cited before view determinism as an issue of mappings between temporal developments.3 This has been grounded in a rich tradition
+of applying DMAP-type analysis to the determinism of physical theories, including
+CPM, ranging from Montague and Suppes to the very recent arguments such as those
+given by Halvorson et al. (2026).
+There is also a conceptual reason for focusing on the DMAP approach. We believe
+it is sufficiently general to cover theories where analyzing the solutions to the differential equation alone is inadequate (e.g., quantum mechanics, where the Schrödinger
+equation is formally deterministic, but analyzing it in isolation fails to account for
+the theory’s inherent indeterminacy upon measurement). It also might happen that
+the initial value problem has unique solutions up to a gauge transformation; then
+the purported instances of indeterminism are merely different representations of the
+same physical scenario (for an example, see Earman, 2002). In practice, DMAP still
+assigns a great importance to the well-posedness of the initial value problem whenever possible. This philosophically general approach can almost always satisfactorily
+spell the very idea of determinism but at the same time recognizes the importance of
+differential equations. Thus, we perform our analysis, especially in Sect. 7, fully in
+the lines of the ‘marks of the current orthodoxy’, where (1) a theory is represented by
+its realizations; (2) the question of determinism is spelled out in terms of mappings
+between realizations; (3) we check for an agreement of physical states of the system;
+
+3
+
+DMAP is also a standard way of understanding determinism in encyclopedia entries (see e.g. Bishop,
+2006; Hoefer, 2024).
+
+13
+
+247
+
+Page 6 of 24
+
+Synthese
+
+(2026) 207:247
+
+(4) and practical assessment depends mostly on the behavior of defining differential
+equations (Müller & Placek, 2018, pp. 13–14).
+It must be noted that the pioneering analysis of determinism according to the
+DMAP approach was proposed by Montague (1974), who built a highly formal definition of determinism and applied it to his first-order axiomatization of classical
+particle mechanics. Years later, Earman followed Montague’s general idea, modifying his definition slightly to make it applicable to theories that are not necessarily
+formalized according to particular rules given by Montague.4 Many sections of this
+text follow Montague’s method; in particular, it turns out that different approaches
+to defining determinism deliver the same verdict on determinism or indeterminism
+of set-theoretical axioms of CPM as they did in the case of Montague’s first-order
+formalization.
+
+3 Systems of classical particle mechanics – a set-theoretical
+approach
+Let us begin by presenting the definition of the set-theoretical predicate ‘is a system
+of classical particle mechanics’ proposed by Suppes. Some non-essential difficulties
+with this formalization are discussed in the footnotes.
+First, the notion of a set-theoretical predicate requires clarification. Suppes’
+famous slogan is “to axiomatize a theory is to define a set-theoretical predicate”
+(Suppes, 2002, p. 30). However, an immediate tension arises between “axiomatizing” and ‘‘defining”, since proper definitions should be conservative and eliminable,
+unlike axioms.5 A set-theoretical predicate is one definable within set theory, ultimately using only the ∈ relation, although in such definitions many abbreviations
+may appear. It follows that “axiomatizing” a theory does not involve construing axioms in a strict logical sense. Consider Suppes’ example of the definition of the predicate “is a group”:
+(A1) x ◦ (y ◦ z) = (x ◦ y) ◦ z.
+(A2) x ◦ e = x.
+(A3) x ◦ x−1 = e.
+
+Definition 1 A is a group iff there exists a nonempty set A, a binary operation ◦ on A,
+an element e of A and an inverse operation −1 on A such that A = (A, ◦, e,−1 ) and
+for every x, y, z ∈ A the three axioms given above are satisfied. (Suppes, 2002, p. 31)
+4
+
+Consequently, Earman’s definition is less formal than Montague’s one. For example, Montague’s formalization of classical particle mechanics allows to treat “time” purely syntactically, i.e. simply as the first
+argument of some functions. Indeed, Montague’s definition can be formulated without reference to any
+informal understanding of time.
+
+5
+
+For an explanation of those criteria, see Belnap (1993).
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 7 of 24
+
+247
+
+Here, we do not “axiomatize” a theory by introducing new primitive notions, providing the axioms that describe their behavior, and claiming that each Tarskian model
+of such a theory is a group. Rather, we simply define that a certain tuple is a group
+iff there exists a set, two operations, and a constant (all understood set-theoretically)
+such that certain formulas are satisfied. While the only real axioms that may be mentioned in this case are the ones of set-theory, we will often claim that the sentences
+describing some notions (formally being a part of the definition) are “axioms” in the
+semi-formal sense described above. In fact, observe that this was exactly the case in
+the above definition of a group. In Suppes’ words:
+The difficulty with these axioms, taken in isolation, is that one does not quite
+understand how they are related to other axioms of other theories, or exactly
+how they are related to mathematical objects themselves. These uncertainties
+are easily cleared up by recognizing that in essence the axioms are part of a
+definition, namely, the definition of the predicate ‘is a group’. The axioms are
+the most important part of the definition of this predicate, because they tell us
+the most important properties that must be possessed by a mathematical object
+which satisfies the predicate ‘is a group’, or in other words, by a mathematical
+object that is a group. (Suppes, 2002, p. 31)
+Throughout, we use ‘‘structure” or ‘‘model” to mean a tuple satisfying the relevant
+predicate (unless we explicitly say otherwise). The term ‘‘realizations”, used by some
+proponents of DMAP, is more appropriate here, as this way we do not confuse them
+with models in Tarskian sense. A theory will be understood as a definition of a settheoretical predicate.
+Suppes’ aim is to state classical particle mechanics in the language of set theory.6
+The major difference between this formalization and the one presented by McKinsey
+et al. (1953) is that positions are represented as points in an affine space rather than
+vectors in a three-dimensional real space.7 Suppes argues that this makes the representation more coordinate-free.
+6
+
+This is clearly not the only way to go. Another approach would be to introduce the new primitive notions
+within the first-order logic and then claim that classical particle mechanics is a set of some sentences in
+this language, i.e. a theory in the logical sense. This route is taken by Montague (1974), whose “systems”
+(in his terminology: histories) of CPM are Tarskian models of a logical theory in a first-order language.
+The main difficulty of a ‘standard formalization’, as Suppes labels this approach, is that all mathematical
+concpets that are needed must be introduced explicitly by first-order axioms. Observe that this is highly
+inconvenient when we speak about a function being differentiable or about a convergent series (as we will
+do soon); for instance, to handle the first case, Montague defines the second derivative of some particular
+functions rather than define the second derivative in general. However, it must be noted that standard formalizations have other merits: although sometimes we want to use some mathematical concepts, assuming all facts about sets might be too much. This is precisely the account of Andréka et al. (2002) who in
+an unpublished book on axiomatizing relativity theories in a first-order language claim that while in set
+theory the truth or falsity of a predicate ⊨ is sometimes dependent on the whole set-theoretical universe,
+the first-order logic is free from such a pathology (for a more elaborate discussion on this point, see
+Andréka et al. 2002, pp. 1245–1252).
+
+7
+
+This is the difference that is stressed by Suppes himself. Other than that, the formalization from 1953
+does not distinguish from internal and external forces; it also misses Newton’s third law (McKinsey et
+al., 1953).
+
+13
+
+247
+
+Page 8 of 24
+
+Synthese
+
+(2026) 207:247
+
+Real affine spaces Let us consider a structure A = (A, B, +), where A is a set
+of points, B is a real8 vector space, and + : A × B → A. We define an operation
+− : A × A → B such that for any vector x and any points P, Q, the following equivalence holds:
+x + P = Q iﬀ Q − P = x.
+
+It may also be convenient to write P⃗Q instead of Q − P ; we will be using both
+notations.
+Now A = (A, B, +) is a real affine space iff the following axioms are satisfied:
+(1) 
+For any points P, Q ∈ A, there exists exactly one vector x ∈ B such that
+x = P⃗Q.
+(2) For any points P, Q, R ∈ A,
+⃗ = P⃗R.
+P⃗Q + QR
+
+An affine space A = (A, B, +) is said to be n-dimensional when B is an n-dimensional vector space.
+Classical space-time structure Let A = (A, B, +) be a real four-dimensional affine
+space. We define τ to be a mapping from A to the set of real numbers R, and we define
+α to be a mapping from the range of τ to A. The τ function will be understood as a
+mapping that provides the time of occurence of any space-time point-event in A, and
+for any instant t, α(t) will be understood as the origin of the fixed inertial frame of reference. Thus, such (A, τ, α) is a classical space time structure iff for any P ∈ A, the set
+{Q : τ (Q) = τ (P )} is a three-dimensional Euclidian space and τ (α(τ (P ))) = τ (P ).
+The first requirement allows us to find the point-events that are simultaneous with any
+point-event P . The second condition requires that “the origin of the inertial frame of
+reference must be temporally present at all times” (Suppes, 2002, p. 319).9
+For any t in the range of τ , we will understand A(t) as a three-dimensional real
+affine subspace of A consisting of point-events occuring at time t.10
+System of classical particle mechanics Now for any (A, τ, α), let:
+● P be a nonempty set (understood as a set of particles),
+● s : P × T → A (where T is the range of τ ; s is understood as a position
+8
+
+Obviously, we require that B is real, because we want to define a real affine space. Dropping this requirement, we would define affine spaces in general.
+
+9
+
+Note that although the α function is intended to provide the origin of the inertial frame of reference,
+there are almost no formal conditions regarding this function; it seems that we should at least demand
+that α is continuous, but other conditions appear to be necessary as well. It is interesting and important
+to consider which conditions are missing to unambigously distinguish inertial frames of reference from
+non-intertial ones.
+
+10
+
+For a different formalization of classical space-time structure (again, by defining a relevant set-theoretical predicate), see Costa et al. (1997, pp. 273–275), who define it by means of lattices.
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 9 of 24
+
+247
+
+function),11
+● m : P → R (understood as a mass function),
+● f : P × P × T → B(3) (where B(3) is a three-dimensional subspace of B; f is
+understood as a function representing internal forces),
+● g : P × T × N+ → B(3) (where N+ is the set of positive natural numbers that
+allows us to enumerate the functions; g is understood as a function representing
+external forces).
+We define an ordered five-tuple P = (P, s, m, f, g) to be a system of classical particle mechanics with respect to the classical space-time structure (A, τ, α) iff the
+following axioms are satisfied:
+1. The range of τ is a real interval.
+2. The set P is finite and nonempty.
+3. For any p ∈ P and any t ∈ T , s(p, t) ∈ A(t).
+4. For any p ∈ P and any t ∈ T , the vector function s(p, t) − α(t) is twice differentiable at t.
+5. For any p ∈ P , m(p) is a positive real number.
+6. For any p, q ∈ P and t ∈ T ,
+f (p, q, t) = −f (q, p, t).
+		
+
+7. For any p, q ∈ P and t ∈ T , the vector product of the vectors: s(p, t) − s(q, t) and
+f (p, q, t) − f (q, p, t), is equal to zero.
+8. For any p ∈ P and t ∈ T , the series:
+∞
+∑
+
+g(p, t, n)
+
+n=1
+
+is absolutely convergent.
+9. For any p, q ∈ P and t ∈ T ,12
+m(p) ·
+
+∞
+∑
+∑
+d2
+(s
+(t)
+−
+α(t))
+=
+f
+(p,
+q,
+t)
++
+g(p, t, n).
+p
+dt2
+n=1
+q∈P
+
+Classical particle mechanics may be understood as a conjunction of those axioms
+together with other requirements of the definition. Thus, according to Suppes, any
+11
+
+By using an affine space instead of a vector space, Suppes aims at a coordinate-free formulation of
+CPM. The function s gives us ‘true’ positions of particles, but they are not observable (have no empirical meaning) and, more problematically, not differentiable. To solve this problem, instead of considering
+a point-function s(p, t), we should consider a differentiable vector function s(p, t) − α(t), where the
+− : A × A → B operation is understood as before.
+12
+
+Note that in this last axiom Suppes uses the notation sp (t). We will follow this practice.
+
+13
+
+247
+
+Page 10 of 24
+
+Synthese
+
+(2026) 207:247
+
+five-tuple P = (P, s, m, f, g) that satisfies the definition is a system of classical particle mechanics.
+However, we want to slightly modify this formulation to consider a six-tuple
+P = (P, s, v, m, f, g), where v is a function representing velocity. Assessing determinism requires fully specifying initial conditions, including particle positions and
+momenta, so it is more convenient to add velocity to the model instead of fixing it
+separately for each system whose determinism we will be evaluating13. Let us axiomatize the v function in a usual way:
+10. For any p ∈ P and t ∈ T ,
+v(p, t) =
+
+d
+(sp (t) − α(t)).
+dt
+
+Now, a system of classical particle mechanics is any six-tuple P = (P, s, v, m, f, g)
+that satisfies the definition.
+Clearly, Newton’s laws are incorporated in the above axioms.14 Newton’s second
+law is represented by Axiom 9; it can be easily proven (Suppes, 2002, p. 324) that
+Newton’s first law is derivable from it. Newton’s third law is represented by Axiom
+6 and Axiom 7.15, 16
+
+4 Defining determinism of CPM – the first approach
+Suppes suggests that determinism in axiomatized CPM has already been established.
+After presenting his formalization, he claims that by proving the following theorem,
+it will be clear that “particle mechanics is thoroughly deterministic science”.
+Theorem 1 Let P = (P, s, m, f , g) and P′ = (P, s ′ , m, f , g) be two systems of particle mechanics such that for some t0 in T and every p in P :
+d
+d
+s(p, t0 ) − α(t0 ) = s ′ (p, t0 ) − α(t0 ) and dt
+(sp (t0 ) − α(t0 )) = dt
+(sp′ (t0 ) − α(t0 )).17
+
+13
+
+Such choice was made by Montague as well.
+
+14
+
+The list of axioms suggested by Suppes does not seem to be complete; for example, it would be reasonable to demand that for any p ∈ P and t ∈ T , f (p, p, t) = ⃗0, i.e. that the value of an internal force by
+which a particle acts on itself is a zero-vector.
+15
+
+While the meaning of Axiom 6 is probably obvious, Axiom 7 requires, by the use of vector product, that
+the line of action of the forces exerted by particles on themselves is parallel to the line connecting the positions of those particles. This axiom is already mentioned in Suppes’ previous formalization of CPM, with a
+note that it is not assumed in some other sources concerning classical particle mechanics (see McKinsey et
+al., 1953, p. 261). Removing this axiom from the list would not change the results presented in this article.
+16
+
+For further discussion on the relevance of particular axioms, see Suppes (2002, pp. 321–323).
+
+17
+
+Because for Suppes a system of CPM is a five-tuple without a function representing velocity, he has to
+fix the initial conditions by specifying that momenta, i.e. derivatives of a position vector, are equal at t0 .
+The move to add velocity function to the model helps avoiding this inconvenience.
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 11 of 24
+
+247
+
+Then for every t in T and every p in P s(p, t) − α(t) = s ′ (p, t) − α(t). (Suppes,
+2002, p. 324)
+Suppes does not define determinism explicitly, but his theorem reflects his interpretation. Two systems P and P′ are realizations and at some time t0 , the position
+and velocity of any particle p are equal in both of them. Although it might seem that
+Suppes’ approach is of a DMAP type, this intuition is misleading: except for the position function, in both realizations the functions m, f, g are assigned to be the same,
+i.e. equal at any time. So, instead of assuming that the states are equal at some t, it is
+assumed that except for the position function, they are equal at any t. Although Suppes does not prove Theorem 1, it is easy to come up with a proof that sheds light on
+the triviality of such “determinism”:
+Proof We fix p ∈ P and t0 , t ∈ T . From Axiom 9:
+m(p) ·
+
+∞
+∑
+∑
+d2
+(s
+(t)
+−
+α(t))
+=
+f
+(p,
+q,
+t)
++
+g(p, t, n)
+p
+dt2
+n=1
+
+m(p) ·
+
+∞
+∑
+∑
+d2 ′
+(s
+(t)
+−
+α(t))
+=
+f
+(p,
+q,
+t)
++
+g(p, t, n).
+p
+dt2
+n=1
+
+q∈P
+
+and
+
+q∈P
+
+Dividing both equations by the positive m(p), we arrive at:
+d2
+d2
+(sp (t) − α(t)) = 2 (s′p (t) − α(t)).
+2
+dt
+dt
+
+(1)
+
+Now observe that from the fundamental theorem of calculus:
+ˆ t
+
+d
+d
+d2
+(s (t) − α(t)) dt = (sp (t) − α(t)) − (sp (t0 ) − α(t0 ))
+2 p
+dt
+dt
+dt
+t0
+
+(2)
+
+d
+d
+d2 ′
+(s (t) − α(t)) dt = (s′p (t) − α(t)) − (s′p (t0 ) − α(t0 )).
+2 p
+dt
+dt
+dt
+t0
+
+(3)
+
+and
+ˆ t
+
+d
+d
+(sp (t0 ) − α(t0 )) = dt
+(s′p (t0 ) − α(t0 )) and
+Therefore, using the assumption that dt
+Equation (1), we arrive at:
+
+d
+d
+(sp (t) − α(t)) = (s′p (t) − α(t)).
+dt
+dt
+
+(4)
+
+13
+
+247
+
+Page 12 of 24
+
+Synthese
+
+(2026) 207:247
+
+Using the very same argument as above, i.e. the fundamental theorem of calculus and
+the assumption that s(p, t0 ) − α(t0 ) = s′ (p, t0 ) − α(t0 ), we arrive at:
+s(p, t) − α(t) = s′ (p, t) − α(t).
+
+(5)
+
+As p and t were fixed, that finishes the proof. 
+□
+As it can be seen, because of the strangely strong assumption that the forces are
+equal in both models, Newton’s second law together with initial conditions yields
+trivial “determinism”. Observe that neither of the approaches to DMAP analysis
+presented in Sect. 2 allowed for assuming that some parameters are equal in both
+realizations; in fact, this is what must be proven. It is only the initial conditions
+(“realizations agreeing at one time”, “H1 (t) = H2 (t)”, or “two models that agree
+at time t”) and the laws of the theory (which determine realizations, “the separate
+possible ways a world could be”) that should be assumed in case of both models.18
+A closely related approach is found in earlier literature. Examining his firstorder formalization of CPM, Montague (1974) defined the notion of determinism in
+D1 , . . . Dk which is Laplacian determinism with an additional assumption that certain functions D1 , . . . Dk are equal in both models of a theory that are considered.19
+In our case, CPM is deterministic in f and g . In Montague’s formalization with just
+one function f representing the force, it also was shown that CPM is deterministic in
+f by a reasoning similar to the above proof.
+To restore meaningfulness of (in)determinism in CPM, we must apply a more standard DMAP analysis to Suppes’ formalization. However, we encounter an immediate
+difficulty: so far there is no history function H that would be, as in the definition of
+Laplacian determinism, “a map from R to tuples of values of the basic magnitudes”
+(Earman, 2007, p. 1370). If there was such a function, we would take the following
+steps: the family of those functions, a set {HA : A is a model of CPM}, would represent the class of temporal developments. Whenever we identify that two histories
+18
+
+One might be tempted to consider extending the domains of the functions representing forces to
+f ∗ : P × P × A × A × T → B(3) and g ∗ : P × A × T × N+ → B(3) and modifying the axioms
+to accomodate that change. One understanding of such an extension is that a single system’s history now
+contains the underlying laws of physics: the functions g and f are capable of counterfactually describing
+the force that would act on a particle p at time t if its position were different. Indeed, this way we would not
+be able to prove Theorem 1. However, as the DMAP analysis requires placing individual realizations side
+by side checking for divergence, a history should be a sequence of states, mapping time to the actual values
+of basic physical magnitudes. When the force functions are turned into fields mapped over all of space A, a
+realization is no longer a temporal development, but rather an entire universe equipped with a global force
+field. We are skeptical whether such an approach allows for a meaningful DMAP-type analysis: both in
+Montague’s and Suppes’ analyses, a single system represents a specific historical realization which admits
+comparing divergent histories. A different option would be to adopt a compromise, defining
+g ∗ (p, a, t, n) =
+
+{
+
+g(p, t, n)
+0
+
+if sp (t) = a,
+otherwise
+
+and the f function in a similar way. However, it is easy to check that this would not prevent trivial determinism and Theorem 1 would still hold.
+19
+
+As we do not want to dive into the details of Montague’s formalization here, we are presenting a simplified (mostly with respect to notation and understanding of models) version of this definition. For details,
+see Montague (1974, p. 322).
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 13 of 24
+
+247
+
+HA and HA′ admitted by a theory agree at some time t0 (i.e., the states H1 (t0 ) and
+H2 (t0 ) are equal), we can check if they agree at all times t. If it is the case, then a
+theory is deterministic; otherwise, we detect indeterminism.20
+In the following section, it will be shown that such function can be found and that
+the definition of Laplacian determinism can be applied to systems of CPM.
+
+5 Defining determinism of CPM – the second approach
+We now demonstrate how Laplacian determinism can be applied to Suppes’ version
+of CPM. Again, most of the work has already been done by Montague, who described
+how to build a function that Earman calls a history, H : R → S , where S are tuples of
+basic physical magnitudes.21 We call S a set of states. For any t ∈ R that represents
+an instant, the function H “gives a snapshot of the behavior of the basic magnitudes at time t” (Earman, 2007). Importantly, Montague showed how to extend this
+function when the magnitudes are not simple functions of time. To build a relevant
+function that applies to Suppes’ systems, we will follow his work (for details, see
+Montague, 1974, p. 329).
+Consider the structure P = (P, s, v, m, f, g). For convenience, we will write
+gn (x, t) instead of g(x, t, n). We define:
+SP = {(s(x1 , t) − α(t), v(x1 , t), m(x1 ), f (x1 , x2 , t), g1 (x1 , t), g2 (x1 , t) . . . ) : t ∈ T, x1 , x2 ∈ P }.
+
+SP will be understood as the set of states, i.e. tuples of basic physical magnitudes.
+We define a function stP : P 2 × T → SP such that for any t ∈ T and x1 , x2 ∈ P ,
+the state of x1 , x2 at t is:
+stP (x1 , x2 , t) = (s(x1 , t) − α(t), v(x1 , t), m(x1 ), f (x1 , x2 , t), g1 (x1 , t), g2 (x1 , t) . . . ). (6)
+
+For the structure P and fixed t ∈ T we define the last auxiliary function
+Ft : P 2 → SP such that for any x1 , x2 ∈ P , Ft (x1 , x2 ) = stP (x1 , x2 , t). We define
+F = {Ft : t ∈ R} (the set of all Ft functions) and we finally define HP to be a function HP : T → F such that for any t ∈ T , HP (t) = Ft .22
+These definitions are needed because Suppes’ functions depend on particles and
+time, not just time. However, at the end of this procedure, we can obtain a function
+that depends only on the time parameter.
+Although obvious, it is important that each P determines a unique function.
+20
+
+Note that we slightly modify Earman’s definition. In his approach, we consider Hi functions indexed
+by a natural that describe temporal development of a system (indeed, the name ‘history’ is accurate here)
+and that are somehow admitted by a theory that we are describing. Now, to find such histories easier, it is
+better to start with certain models of the theory; following Suppes’ formalization, they will be six-tuples
+P = (P, s, v, m, f, g). For each such realization, we can then describe its temporal development by construing a relevant history function HP whose “source” is a certain model.
+21
+
+In our formalization, H : T → S , where T is a real interval. However, the procedure of building such
+function is identical as in the case in which its domain is R.
+22
+
+Note that the value of the function H for any t is another function, Ft .
+
+13
+
+247
+
+Page 14 of 24
+
+Synthese
+
+(2026) 207:247
+
+Theorem 2 If P is a system of classical particle mechanics, then there is exactly one
+HP .
+1
+2
+Proof Suppose that there are two such functions, HP
+and HP
+. If so, then there is a
+1
+1
+2
+ta ∈ T such that HP (ta ) ̸= HP (ta ), so there are functions Fta and Ft2a that are not
+equal, i.e. Ft1a (x1 , x2 ) ̸= Ft2a (x1 , x2 ) for some x1 , x2 . Then there are two functions
+st1P and st2P such that for some xa , xb ∈ P , st1P (ta , xa , xb ) ̸= st2P (ta , xa , xb ). But
+then at least one of the following holds:
+
+s(xa , ta ) − α(ta ) ̸= s(xa , ta ) − α(ta )
+
+(7)
+
+v(xa , ta ) ̸= v(xa , ta )
+
+(8)
+
+m(xa ) ̸= m(xa )
+
+(9)
+
+f (xa , xb , ta ) ̸= f (xa , xb , ta )
+
+(10)
+
+∃i ∈ N+ gi (xa , ta ) ̸= gi (xa , ta )
+
+(11)
+
+Which is clearly false. 
+□
+We can now examine whether CPM is deterministic. However, the following surprising result will eventually force us to change our approach.
+Definition 2 (Laplacian determinism of CPM). Classical particle mechanics is Laplacian deterministic iff for any two systems of classical particle mechanics P and P′ ,
+the following holds:
+∀t0 , t ∈ T (HP (t0 ) = HP′ (t0 ) ⇒ HP (t) = HP′ (t)).
+
+Theorem 3 Classical particle mechanics is not Laplacian deterministic.
+Proof We will represent vectors of A(t) as real 3-tuples of their coordinates in the standard basis. Let us fix t ∈ T . Take P = (P, s, v, m, f, g) and
+P′ = (P ′ , s′ , v ′ , m′ , f ′ , g ′ ) such that:
+
+13
+
+0 ∈ T,
+
+(12)
+
+1 ∈ T,
+
+(13)
+
+P = P ′ = {a},
+
+(14)
+
+1
+s(a, t) − α(t) = ( t3 , 0, 0),
+6
+
+(15)
+
+Synthese
+
+(2026) 207:247
+
+Page 15 of 24
+
+247
+
+s′ (a, t) − α(t) = (0, 0, 0),
+
+(16)
+
+1
+v(a, t) = ( t2 , 0, 0),
+2
+
+(17)
+
+v ′ (a, t) = (0, 0, 0),
+
+(18)
+
+m(a) = m′ (a) = 1,
+
+(19)
+
+f (a, a, t) = f ′ (a, a, t) = (0, 0, 0),
+
+(20)
+
+g(a, t, 1) = (t, 0, 0),
+
+(21)
+
+g ′ (a, t, 1) = (0, 0, 0)
+
+(22)
+
+∀i ∈ N+ ((i > 1) ⇒ (g(a, t, i) = g ′ (a, t, i) = (0, 0, 0))).
+
+(23)
+
+It is easy to check that they are models of CPM.
+Then HP (0) = HP′ (0), but HP (1) ̸= HP′ (1).
+
+□
+Taking two simple models with different force functions that coincide at one
+moment yields a trivial form of indeterminism. The result lacks physical significance
+because the functions, particularly the forces, are assigned arbitrarily. The verdict is
+similar in Montague’s formalization: he claims that because of the possibility to take
+arbitrary forces, it is “too obvious to include” the proof of the theorem that “[C]PM
+is not deterministic”. Even with physically meaningful models, the definition permits
+any two systems that briefly coincide to imply indeterminism.
+In fact, it is probably this result on trivial indeterminism that led Montague to consider the definition of determinism in: he claims that “some authors make the more
+cautious assertion that classical particle mechanics becomes deterministic once the
+force-function is specified” (Montague, 1974, p. 330). But we have already seen that
+“specifying” force by setting it equal in both considered models does not solve the
+problem either. In the following section, it will be considered why those definitions
+fail and how they can be corrected.
+
+6 Physical frameworks and physical theories
+To resolve this issue, we must distinguish between a physical framework and a physical theory. It should be noted that frameworks and theories will not be defined in
+general in a clear-cut way; as Curiel (2021, pp. 4–7) shows, it is not obvious to find
+criteria that will draw a sharp line between those two. However, despite this general difficulty, it seems possible to formalize the intuitions holding at least for CPM,
+which will be the point of this section. This will enable us to find a way of applying
+the definition of Laplacian determinism to CPM in a meaningful way.
+
+13
+
+247
+
+Page 16 of 24
+
+Synthese
+
+(2026) 207:247
+
+One idea of characterizing a framework was proposed by Friedman who describes
+the relation between Newtonian laws of motion and more specific laws, such as the
+law of gravitation, in the following way:
+The privileged frame of reference in which the law of gravitation is defined is
+what we now call an intertial frame, where an inertial frame of reference is simply one in which the Newtonian laws of motion hold … It follows that without
+the Newtonian laws of mechanics the law of universal gravitation would not
+even make empirical sense, let alone give a correct account of the empirical
+phenomena … Once again, Newton’s mechanics and gravitational physics are
+not happily viewed as symmetrically functioning elements of a larger conjunction: the former is rather a necessary part of the language or conceptual framework within which alone the latter makes empirical sense. (Friedman, 2001,
+pp. 36–37)
+Here, Newtonian framework is meant to distinguish inertial frames from non-inertial
+ones. In our formalization, it is the function α that is a part of classical space-time
+and which provides ‘the origin of the fixed inertial frame of reference’. In contrast to
+this approach, Curiel believes that what distinguishes a framework from a theory is
+the following:
+Newtonian mechanics, the heart of which is embodied in the definitions and the
+three laws Newton lays out in his Principia, is a framework. Newton’s Second
+Law in the abstract is not the equation of motion of any particular kind of physical system. It is rather the schema that any equation of motion for any particular
+kind of system treated by the framework must instantiate. Newton’s theory of
+gravity is a theory formulated in the framework of Newtonian mechanics. It
+treats that kind of physical system characterized, inter alia, by the possession of
+inertial mass, gravitational mass, spatial position, and a velocity expressible as
+the temporal derivative of spatial position, all such that the system’s dynamical
+evolution is governed by Newton’s gravitational force law. (Curiel, 2021, p. 5)
+The mention of Newton’s gravitational force law is crucial. In the physical framework of Newtonian mechanics, we are given only a very general constraint for the
+force (embodied in Newton’s third law) in any system. A theory of such a system
+contains an equation governing the behavior of a force. Informally, a framework of
+CPM is then a set of sentences that are necessary conditions that must be satisfied
+by any P to be a system of classical particle mechanics; in our formalization, those
+sentences are the nine axioms given in Sect. 3. A theory is then a framework enriched
+with additional axioms that, by Curiel words, “allow for the unified representation
+and modeling of a particular kind of physical system”.23 This idea appears in the
+23
+
+Curiel characterizes frameworks and theories mostly by giving some examples; another theory of
+Newtonian mechanics is Navier-Stokes theory. He also mentions other frameworks: special relativity,
+non-relativistic quantum mechanics, and quantum field theory; their theories are, respectively: theory of
+classical Maxwell fields, the atomic theory of elements of low atomic weight, and quantum electrodynamics (Curiel, 2021, 6).
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 17 of 24
+
+247
+
+work of Montague (1974), where extra axioms transform CPM into a gravitational
+theory. Importantly, one of those axioms incorporates an equation for gravitational
+force, i.e. a law of gravitation, so that the force function can no longer be defined
+arbitrarily. From the above observations, it is clear that for any framework F and its
+theory T (if they are both definitions of set-theoretical predicates), the models of the
+theory T should be a subset of the models of the framework F , so any system of a
+certain theory would be a system of its framework.
+It is interesting to consider what may appear in such a theory. Definitely, the force
+equation and the equation of motion must be present; while Curiel (2021, pp. 6–7)
+stresses the importance of the latter, in our case it is given by Axiom 9. We may also
+ask about the constants that appear in those equations. In an example of a harmonic
+oscillator given by Curiel, we can fix the constants that appear in its equation of
+k
+x, for instance by setting k = 5 and m = 1. Also, we might set a
+motion x′′ = − m
+√
+k
+t).
+solution to the generic equation of motion, for example by fixing x(t) = cos( m
+
+Obviously, in our case, it is not reasonable to fix a solution to the equation of motion
+as we want to examine whether a theory admits more than one such solution (which
+signals indeterminism).
+Note that although the distinction between frameworks and theories and, particularly, between different levels of theories is not sharp, it seems that applying the
+definition of determinism to a theory rather than a framework fixes the problem of
+setting an arbitrary force (and so the equation of motion) that signals unmeaningful
+indeterminism, as it was done in the proof of Theorem 3. In particular, we can consider a theory with a given force equation, fix the initial conditions and then examine
+whether there is only one possible evolution of a system. If it happens that the equation admits more than one evolution, it signals that the class of systems described by
+a theory is indeterministic. From now on, we will follow this approach.
+The important point here is that the equation of the force is admitted by the framework; not only does it have to be consistent with the axioms constituting a framework,
+but also it has to be somehow “physical”; for example, it should not be dependent on
+some contingent qualities such as naming of the particles.24 Distinguishing proper
+theories from, as Norton puts it, pathological ones is fundamental but difficult, and
+lies beyond this paper’s scope.
+In the case of classical particle mechanics, there seems to be a general agreement among both philosophers and physicists on how to distinguish theories from a
+framework, although different naming conventions for that are adopted. For example,
+Wilson (2013, p. 12) claims that while Newton’s laws provide the “basic scaffolding” of classical mechanics, “we must yet specify the sundry fi (j, t) in concrete
+ways”; Wilson calls such an equation “a special force law”. In his classic textbook
+on Newtonian mechanics, Arnold (1989, p. 8) states that Newton’s equations form
+the laws and “the form of function F”, determined experimentally, “constitutes the
+definition of [a] system”. Finally, Feynman et al. (2011) puts it shortly: “in order to
+use Newton’s laws, we have to have some formula for the force; these laws say pay
+attention to the forces”.
+24
+
+For different ways in which theory might be ‘unphysical’, see Norton (2008).
+
+13
+
+247
+
+Page 18 of 24
+
+Synthese
+
+(2026) 207:247
+
+Based on those observations, we can formulate the following definitions:
+Definition 3 (Framework of CPM). The framework of classical particle mechanics is
+the definition of a set-theoretical predicate “is a system of classical particle mechanics”. Any tuple that satisfies this predicate is a system of classical particle mechanics.
+Definition 4 (Theory of CPM). The conjunction of the framework of classical particle mechanics with the formulas from the set Θ (stated in the language of set theory)
+is a theory of classical particle mechanics iff:
+● it defines a set-theoretical predicate,
+● it is consistent,
+● there exist β ∈ Θ, γ ∈ Θ of the form:
+i) β ≡ ∀p, q ∈ P ∀t ∈ T f (p, q, t) = βterm ,
+ii) γ ≡ ∀p ∈ P ∀t ∈ T ∀n ∈ N+ g(p, t, n) = γterm ,
+where βterm , γterm are terms in the language of set theory with at most p, q, t and
+p, t, n variables free, respectively.25  
+Any tuple that satisfies the predicate defined by a theory of CPM is a system of a
+theory of classical particle mechanics.
+It seems meaningless to ask whether a framework of CPM is deterministic or indeterministic per se. Rather, we should ask whether a framework admits indeterministic
+theories, i.e. whether the theories of indeterministic physical systems can be formulated within the framework. Usually, our verdict will depend on the differential equation of motion that will appear in the theory. A proper way to examine determinism
+would again be to follow the definition of Laplacian determinism: we have to take
+two systems admitted by the theory such that their initial conditions are the same. If
+there is more than one way of evolution of such a system, the theory is indeterministic; otherwise, it is deterministic.
+Definition 5 (Laplacian determinism of framework). A framework is Laplacian
+deterministic iff its every theory is deterministic.
+Definition 6 (Laplacian determinism of the theories of CPM). A theory of classical
+particle mechanics is Laplacian deterministic iff for any two of its models P and P′ ,
+the following holds:
+∀t0 , t ∈ T (HP (t0 ) = HP′ (t0 ) ⇒ HP (t) = HP′ (t)).
+25
+
+While our analysis is confined to the idealized framework of CPM, we acknowledge that a more physically realistic ontology could incorporate interacting physical fields (e.g., classical electromagnetic fields)
+to account for interaction mechanisms and momentum conservation. However, this might not be consistent
+with the axioms defining the framework, for example Axiom 6, so Θ cannot contain such formulae in all
+cases.
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 19 of 24
+
+247
+
+We can use those definitions to finally assess whether CPM is deterministic. Note
+that we do not allow taking different interpretations of the force parameter that led to
+trivial indeterminism of CPM. We neither “set” the forces in any models of a theory
+to be equal; we are not interested in the flawed notion of determinism in. Instead, we
+consider if the differential equation, if it appears in a theory, admits different solutions. This way we reflect the intuition behind the DMAP approach that “the practical
+assessment of determinism or indeterminism of a given theory mostly depends on the
+behaviour of that theory’s defining differential equations” (Müller & Placek, 2018,
+p. 226).
+
+7 Defining determinism of CPM – the third approach
+We now use the revised method to demonstrate indeterminism in CPM. We will apply
+the definition to a system of CPM known as Norton’s (2008) dome, where the equation of motion of a particle violates the Lipschitz condition (sufficient for the existence of a unique solution). Müller and Placek (2018, pp. 232–234) argue that all
+major approaches (including DMAP) classify Norton’s dome as indeterministic.
+The dome is a system in which at time t = 0, a unit mass rests at the apex of the
+2 32
+r , where g is the constant acceleradome of a shape defined by the formula h = 3g
+tion of a unit mass in the gravitational field surrounding the surface, r is the radial
+distance from the apex, and h is the vertical distance from the apex. We set the exter1
+2
+nal force26 F acting on a particle to g dh
+dr ; calculating the derivative, we have F = r ,
+2
+
+1
+
+so from Newton’s second law ddt2r = r 2 . This differential equation has both a stationary solution r0 (t) = 0 for any t ∈ R, and the following family of solutions for a real
+parameter B :
+rB (t) =
+
+{ (t−B)4
+0
+
+144
+
+for t ≥ B
+
+for t ≤ B,
+
+(24)
+
+Although Norton uses a coordinate system that is different from Cartesian, Alexandre
+Korolev’s (2007) results show that modifying Norton’s formulation only slightly, we
+can obtain a system defined in Cartesian coordinates that preserves indeterminism of
+the dome. Before we build two models of the dome carefully following Suppes’ formalization, we will show how we will proceed in a less formal way. Let us consider
+a two-dimensional system such that:
+y(x) =
+
+3
+2
+|x| 2 .
+3g
+
+dy
+As in the original formulation, the force F is equal to g dx
+; calculating the derivative,
+we obtain the following continuous function:
+
+26
+
+Norton derives the very same force from a different equation, which is justified by the shape of the dome.
+For details, see Norton (2008).
+
+13
+
+247
+
+Page 20 of 24
+
+Synthese
+
+{√
+x
+x≥0
+√
+F (x) =
+
+− −x x < 0,
+
+(2026) 207:247
+
+(25)
+
+and our differential equation is:
+d2 x
+= F (x).
+dt2
+
+(26)
+
+We must remember that in Suppes’ formalization, the values of the position function
+(as well as of the force function) are vectors. So, to put this formally, for some basis
+B = {e1 , e2 , e3 } of R3 , the equation will be:27
+3
+∑
+d2 xi
+i=1
+
+dt
+
+e =
+2 i
+
+3
+∑
+
+Fi (x)ei ,
+
+(27)
+
+i=1
+
+where for i ∈ {1, 2, 3}, xi , Fi (x) are coordinates of the value of the position function
+and of the force function, respectively.
+For simplicity, we will consider the behavior of a particle on the dome in only one
+dimension.28 Moreover, we will describe the dome in the standard basis of R3 . Note
+that for some other choice of the basis, the Equation (27) will stay the same.
+Considering the motion in the x direction, we are back to Equation (26). For x ≥ 0,
+we retrieve the original equation that appeared in Norton’s text (although the r vari√
+2
+able is now x), i.e. ddt2x = x(t). The well-known solutions are x+
+0 (t) = 0 and
+x+
+B (t) =
+
+{ (t−B)4
+0
+
+144
+
+for t ≥ B
+
+for t ≤ B.
+
+(28)
+
+for t ≥ B
+
+for t ≤ B.
+
+(29)
+
+√
+2
+For x < 0, we have to solve ddt2x = − −x(t). It is easy to verify that the solutions
+are x−
+0 (t) = 0 and
+x−
+B (t) =
+
+{
+
+− (t−B)
+144
+0
+
+4
+
+To describe the dome in Suppes’ formalization, we should state that we consider
+only the x coordinate, provide a force equation, and set other external forces and the
+internal forces to zero. We represent vectors of A(t) (in our case they are from the R3
+space) as 3-tuples of their coordinates in the standard basis.
+
+Formally, the vector space does not necessarily have to be R3 . We choose it for simplicity, noting that
+there might be many isomorphic spaces that satisfy Suppes’ definition.
+27
+
+28
+
+This should not be controversial. The same choice is made by Müller and Placek (2018) and, more impor3
+
+2
+|x| 2 ; for
+tantly, by Norton himself. The y coordinate can be easily calculated using the formula y(x) = 3g
+our purpose, the discrepancy between two models in only x coordinate is sufficient to show indeterminism.
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 21 of 24
+
+247
+
+To formulate this in compliance with Definition 4, we first define a set-theoretic
+function G representing external forces as a set of ordered pairs:
+√
+G = {⟨(x, 1), (sgn(x) |x|, 0, 0)⟩ | x ∈ R} ∪ {⟨(x, n), (0, 0, 0)⟩ | x ∈ R, n ∈ N+ , n > 1}.(30)
+
+Let π1 (v) denote the projection function extracting the first coordinate of a vector v .
+Now we are able to define the formulas β and γ utilizing purely set-theoretic terms29:
+β ≡ ∀p, q ∈ P ∀t ∈ T f (p, q, t) = (0, 0, 0),
+
+(31)
+
+γ ≡ ∀p ∈ P ∀t ∈ T ∀n ∈ N+ g(p, t, n) = G(π1 (s(p, t) − α(t)), n).
+
+(32)
+
+The conjunction of the framework of CPM with the sentences from Θ = {β, γ} is
+the theory of Norton’s domes that is a theory admitted by the framework of classical
+particle mechanics.30 Its models will be called Norton’s domes.
+Theorem 4 Classical particle mechanics is not Laplacian deterministic.
+Proof Let us fix t ∈ T . Let P = (P, s, v, m, f, g) and P′ = (P ′ , s′ , v ′ , m′ , f ′ , g ′ ) be
+Norton’s domes such that:
+0 ∈ T,
+
+(33)
+
+2 ∈ T,
+
+(34)
+
+P = P ′ = {a},
+
+(35)
+
+s(a, 0) − α(0) = s′ (a, 0) − α(0) = (0, 0, 0),
+
+(36)
+
+v(a, 0) = v ′ (a, 0) = (0, 0, 0),
+
+(37)
+
+m(a) = m′ (a) = 1,
+
+(38)
+
+From β and γ it follows that f (a, a, t) = f ′ (a, a, t) = (0, 0, 0)
+g(a, 0, 1) = g ′ (a, 0, 1) = (0, 0, 0), so HP (0) = HP′ (0).
+
+and
+
+29
+
+This construction is necessary because Definition 4 requires γterm to be a strictly set-theoretic term. A
+standard piecewise definition is a formula rather than a term and we reflect this conditional logic by defining G as a set of ordered pairs. The first subset of G encodes the force equation of the dome by collapsing
+the cases for x ≥ 0 and x < 0 into a single algebraic expression using the signum function. The second
+subset ensures that for n > 1, the force is the zero vector, which is required to set other external forces to
+zero. Evaluating G at the argument π1 (s(p, t) − α(t)) returns a (signed) square root of the position of
+a particle at time t. This example is not only crucial for our further analysis, but also shows that β and γ
+might be complex formulas encoding quite sophisticated force equations.
+30
+
+Although claiming that it is actually admitted by Newtonian mechanics may be controversial. For criticism of the example of the dome, again see Norton (2008).
+
+13
+
+247
+
+Page 22 of 24
+
+Synthese
+
+(2026) 207:247
+
+By Axiom 9:
+m(a) ·
+
+∞
+∑
+∑
+d2
+(s
+(t)
+−
+α(t))
+=
+f
+(a,
+q,
+t)
++
+g(a, t, n)
+a
+dt2
+n=1
+
+(39)
+
+q∈P
+
+∑
+By formula β ,
+q∈P f (a, q, t) = (0, 0, 0). By formula γ , g(a, t, n) = (0, 0, 0)
+for n > 1 and g(a, t, 1) = G(π1 (sa (t) − α(t)), 1). Substituting these values and
+m(a) = 1 into Axiom 9, and projecting the equation onto its first coordinate (letting
+x(t) = π1 (sa (t) − α(t))), we obtain:
+√
+d2
+x(t)
+=
+π
+(G(x(t),
+1))
+=
+sgn(x(t))
+|x(t)|.
+1
+dt2
+
+(40)
+
+Obviously, by the definition of sgn, it means that we recover the function F defined
+in (26) and get:
+d2 x
+= F (x).
+dt2
+
+(41)
+
+As has been shown before, one solution to this equation is the following for some
+real parameter B :
+xB (t) =
+
+{ (t−B)4
+0
+
+144
+
+for t ≥ B
+
+for t ≤ B,
+
+(42)
+
+1
+, 0, 0). We know that
+so for B = 1 and t = 2, we have s(a, 2) − α(2) = ( 144
+another solution is x0 (t) = 0, so plugging it into the second model we get
+s′ (a, 2) − α(2) = (0, 0, 0).
+1
+, 0, 0) ̸= (0, 0, 0) = s′ (a, 2) − α(2). We conObviously, s(a, 2) − α(2) = ( 144
+clude that HP (0) = HP′ (0) and HP (2) ̸= HP′ (2), so this theory is not deterministic. As the theory of Norton’s domes is a theory within the framework of classical
+particle mechanics, we conclude that CPM is not Laplacian deterministic. 
+□
+
+8 Conclusions
+Recall the quotes of Montague and Suppes given in the introduction: while Montague
+believed that classical particle mechanics is not deterministic, Suppes claimed that
+it is a “throughly deterministic science”. Our analysis indicates that neither author’s
+conclusion is fully adequate. Suppes’ definition is too strong because it assumes
+identical forces in both models. This motivates revising the definition and adopting a DMAP-style analysis; however, even when applied correctly, DMAP does not
+meaningfully assess the entire CPM framework. Meaningful results arise only when
+DMAP is applied to specific theories of CPM such as the theory of Norton’s domes.
+In this case, the verdict is similar as it was in the analysis suggested by Müller and
+
+13
+
+Synthese
+
+(2026) 207:247
+
+Page 23 of 24
+
+247
+
+Placek (2018, pp. 232–234), and Norton himself (2008) – if the theory of Norton’s
+domes is stated within the framework of CPM, we can prove that classical particle
+mechanics is not deterministic.
+The fundamental distinction between frameworks and theories reaches beyond
+CPM and can be applied to other physical concepts. The moral from the formally
+simple example of assessing determinism of CPM should be the following: whenever
+we consider determinism of any physical theory, not only do we have to construct a
+philosophically adequate and formally rigorous definition of determinism, but also
+we must specify how such a definition can be used. We argued that the general constraint is that determinism of a framework should be dependent on determinism of
+each of its theories, so a DMAP-type analysis must be applied to the particular theories that describe different physical systems.
+However, in the general case the framework–theory distinction remains informally defined. Stressing the importance of this distinction in the case of defining
+determinism, we leave for future work a difficult task to find the relevant philosophical, physical, and logical criteria for distinguishing between frameworks and theories
+that may be crucial to consider determinism of other (possible) frameworks such as
+quantum mechanics.
+Acknowledgements I would like to thank Tomasz Placek and Joanna Luc for many encouraging discussions and valuable comments on several versions of this paper. I am also grateful to the two anonymous referees for their helpful and constructive remarks, which improved the strength and clarity of the
+argument.
+Funding This work was supported by the National Science Centre research grant 2022/45/B/HS1/02700.
+Data availability Not applicable.
+
+Declarations
+Competing interests The author has no competing interests to declare.
+Open Access This article is licensed under a Creative Commons Attribution-NonCommercialNoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution
+and reproduction in any medium or format, as long as you give appropriate credit to the original author(s)
+and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed
+material. You do not have permission under this licence to share adapted material derived from this article
+or parts of it. The images or other third party material in this article are included in the article’s Creative
+Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in
+the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or
+exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view
+a copy of this licence, visit http://crea​tivecommons​.org/licens​es/by-nc​-nd/4.0/.
+
+References
+Andréka, H., Madarász, J. X., & Németi, I. (2002). On the logical structure of relativity theories [With
+contributions from A. Andai, G. Sági, I. Sain, and Cs. Töke]. Alfréd Rényi Institute of Mathematics.
+https://old​.renyi.hu/p​ub/algebrai​c-logic/​LNPartI.pdf
+
+13
+
+247
+
+Page 24 of 24
+
+Synthese
+
+(2026) 207:247
+
+Arnold, V. I. (1989). Mathematical methods of classical mechanics. ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​0​.​1​0​0​7​/​9​7​8​-​1​-​4​7​5​
+7​-​2​0​6​3​-​1​​​
+Belnap, N. (1993). On rigorous definitions. Philosophical Studies, 72(2–3), 115–146. ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​0​.​
+1​0​0​7​/​b​f​0​0​9​8​9​6​7​1​​​​
+Bishop, R. (2006). Determinism and indeterminism. In D. Borchert (Ed.), Encyclopedia of philosophy
+(Vol. 3). Thompson Gale.
+Butterfield, J. (1989). The hole truth. British Journal for the Philosophy of Science, 40(1), 1–28. ​h​t​t​p​s​:​/​/​d​
+o​i​.​o​r​g​/​1​0​.​1​0​9​3​/​b​j​p​s​/​4​0​.​1​.​1​​​​
+Butterfield, J. (2005). Determinism and indeterminism. In E. Craig (Ed.), Routledge encyclopedia of philosophy. Routledge / Taylor & Francis. https://doi.org/10.4324/9780415249126-Q025-2
+Costa, N. C. A. D., Bueno, O., & French, S. (1997). Suppes predicates for space-time. Synthese, 112(2),
+271–279. https://doi.org/10.1023/a:1004984927979
+Curiel, E. (2021). Framework confirmation by newtonian abduction. Synthese, 198(S16), 3813–3851.
+https://doi.org/10.1007/s11229-019-02400-9
+Earman, J. (2002). Gauge matters. Philosophy of Science, 69(S3), S209–S220. ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​0​.​1​0​8​6​/​3​
+4​1​8​4​7​​​
+Earman, J. (2007). Aspects of determinism in modern physics. In J. Butterfield, & J. Earman (Eds.), Philosophy of physics (pp. 1369–1434). North-Holland. https://doi​.org/10.101​6/B978-0444​51560-5/​
+50017-8
+Feynman, R., Leighton, R., & Sands, M. (2011). The Feynman lectures on physics, vol. I: The New millennium edition: Mainly mechanics, radiation, and heat. Basic Books.
+Friedman, M. (2001). Dynamics of reason. Philosophy and Phenomenological Research, 68(3), 702–712
+Halvorson, H. P., Manchak, J., & Weatherall, J. O. (2026). Deterministic theories [Unpublished
+manuscript].
+Hoefer, C. (2024). Causal determinism. In E. N. Zalta, & U. Nodelman (Eds.), The Stanford encyclopedia
+of philosophy (Summer 2024). Metaphysics Research Lab, Stanford University.
+Korolev, A. (2007). Indeterminism, asymptotic reasoning, and time irreversibility in classical physics.
+Philosophy of Science, 74(5), 943–956. https://doi.org/10.1086/525635
+McKinsey, J. C. C., Sugar, A. C., & Suppes, P. (1953). Axiomatic foundations of classical particle mechanics. Journal of Rational Mechanics and Analysis, 2(2), 253–272. Retrieved June 19, 2025, from
+https://doi.org/10.1512/iumj.1953.2.52012; http://www.jstor.org/stable/24900331
+Montague, R. (1974). Deterministic theories. In R. H. Thomason (Ed.), Formal philosophy. Yale University Press.
+Müller, T., & Placek, T. (2018). Defining determinism. British Journal for the Philosophy of Science,
+69(1), 215–252. https://doi.org/10.1093/bjps/axv049
+Norton, J. D. (2008). The dome: An unexpectedly simple failure of determinism. Philosophy of Science,
+75(5), 786–798. https://doi.org/10.1086/594524
+Suppes, P. (2002). Representation and invariance of scientific structures. CSLI Publications (distributed
+by Chicago University Press).
+Wilson, M. (2013). What is “classical mechanics” anyway? In The Oxford handbook of philosophy of
+physics. Oxford University Press. https:​​​//d​oi.​or​g/10​.1093/ox​fordhb/978​019​539​2043.013.0003
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps
+and institutional affiliations.
+
+13
+
+
