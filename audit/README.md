@@ -1,6 +1,6 @@
 # 审计资产入口
 
-- [GZ-001／GZ-003：哥德尔式 ZFC 收敛闭环的 R3 资格化与首个 R4 implementation 审计（2026-10-05）](20261005-GODEL-ZFC-G0-R3-001-Coq资格化与Foundation后继.md) · [GZ-003 cooltt 资格化](20261005-GODEL-ZFC-G1-R4-001-cooltt资格化.md)：Coq 历史 package 的 source/receipt 当前可验证但 fresh Docker replay 与 version closure 分别被 daemon 与 command-contract 卡住；Foundation@`f3972f` 给出独立 Lean R3 source calibration，主 build/qualification 通过，缺 `Sigma₁` soundness 的负控制被拒。cooltt source 则明确具 Nat/Path/conversion/hole boundary，但本机没有其 OCaml/Dune/Nix/opam build lane，故 successor 切到 cubicaltt。它们均不实例化 HoTT 或 bare ZFC。
+- [GZ-001／GZ-004：哥德尔式 ZFC 收敛闭环的 R3 资格化与 R4 implementation 审计（2026-10-05）](20261005-GODEL-ZFC-G0-R3-001-Coq资格化与Foundation后继.md) · [GZ-003 cooltt 资格化](20261005-GODEL-ZFC-G1-R4-001-cooltt资格化.md) · [GZ-004 cubicaltt 资格化](20261005-GODEL-ZFC-G1-R4-002-cubicaltt资格化.md)：Coq 历史 package 的 source/receipt 当前可验证但 fresh Docker replay 与 version closure 分别被 daemon 与 command-contract 卡住；Foundation@`f3972f` 给出独立 Lean R3 source calibration，主 build/qualification 通过，缺 `Sigma₁` soundness 的负控制被拒。cooltt 与 cubicaltt source 均明确具 Nat/Path/conversion 或 cubical feature，但本机分别没有 OCaml/Dune/Nix/opam 和 Haskell/Stack/Cabal build lane，故 R4 继续转向 cctt 的输入完成语义。它们均不实例化 HoTT 或 bare ZFC。
 
 - [ZFC-H0 总证明闭环 F1-A：fixed H0 的有限观察 trace（2026-10-04）](20261004-ZFC-H0-FINAL-PROOF-CLOSURE-F1-H0-TRACE.md)：C-365 把 exact `Delay ℕ/runFor` 输出投影到 h-set trace，固定 universe question 的 all-`nothing` 观察并通过 `nothing != just 1` 负控制。它支付 M1 的 operational fragment，明确不是完整 H0Map、CCHM/ZFC 语义或 bare-ZFC 结论。
 
