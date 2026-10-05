@@ -4,17 +4,17 @@
 >
 > **稳定方案：** [T-PRECISION-DIAGONAL-SOP](../dev-docs/理论精度与哥德尔式自反方案.md)。
 >
-> **当前生命周期：** T0_COMPLETED / T_OBS_C367_MACHINE_PROVED_WITH_SCOPE / NEXT_UNIT_REQUIRES_NEW_GOAL_DECISION。
+> **当前生命周期：** PLAN_ADOPTED_FOR_CONTINUED_EXECUTION / T0_COMPLETED / T_OBS_C367_MACHINE_PROVED_WITH_SCOPE / NEXT_UNIT_REQUIRES_EXPLICIT_T_UNIT_SELECTION。
 
 ## TaskDescriptor
 
 | 字段 | 当前值 |
 |---|---|
 | 父结果 | 把“理论维度缺失／观察力不完备／理论精度”从 ZFC 的单点怀疑提升为可检验的想法 T；ZFC 是后续实例而非 T 的定义。 |
-| 用户成功标准 | 两轮完整对话被保存；稳定方案名可由 /goal 引用；未来 Session 能恢复 T-OBS、T-DIAG、T-ZFC 的对象、证据、边界与下一动作。 |
+| 用户成功标准 | 两轮完整对话和后续的方案采纳／闭包续航指令被保存；稳定方案名可由 /goal 引用；未来 Session 能恢复 T-OBS、T-DIAG、T-ZFC 的对象、证据、边界与下一动作，并持续写回该闭包。 |
 | 当前 profile | RESEARCH_PROFILE_GOVERNED：T0 与一个 T-OBS 单元已完成；后续 T-DIAG/T-Meta/T-ZFC 将改变不同的研究决定，必须重新冻结单元。 |
 | 主张等级 | USER_RESEARCH_HYPOTHESIS / AI_CANDIDATE_FORMAL_SPECIFICATION / NO_MATHEMATICAL_THEOREM_YET。 |
-| canonical source | dev-docs/理论精度与哥德尔式自反方案.md 加四个 shards；用户 primary source 为 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md。 |
+| canonical source | dev-docs/理论精度与哥德尔式自反方案.md 加四个 shards；用户 primary source 为 sources/prompts/Codex-理论精度与哥德尔式自反两轮用户原文-20261004.md 与 sources/prompts/Codex-T-PRECISION-DIAGONAL-SOP-采纳与闭包续航指令-20261004.md。 |
 | 模块关系 | T-PRECISION-DIAGONAL-SOP 是上位程序；已存在的 GODEL-Q-REFLECTION-SOP 是 T-DIAG 的实际 completion-interface 执行模块，不是竞争方案。 |
 | 主要风险 | 将“高精度”说成绝对强弱；把观察边界误称为不一致；将手写自指误称为对角化；将元层编码误称为原任务保真；将 C-359/C-364 升格为 T。 |
 
@@ -49,6 +49,21 @@
 7. 写回本 capsule 的“已知／未支付／下一动作”，并更新 Feature、MEMORY、证据 owner；
 8. 若选择 T-DIAG，读取 GODEL-Q-REFLECTION-SOP 和其闭包，复用 G0--G5，不新增平行接口路线；
 9. 若 T-ZFC 可能触及 F-050 的范围，先核其明示重开条件和用户授权；不得由本方案隐式推翻 CLOSED_WITH_SCOPE。
+
+## 方案采纳与闭包续航增量（2026-10-04）
+
+研究发起人已明确要求“走这个新的方案”，并要求在多个 Session 与压缩边界之间持续加载和写回相应闭包。此处将该要求落实为恢复合同，而不是将它误写成新的数学支付：
+
+| 续航字段 | 当前合同 |
+|---|---|
+| 启动名 | `T-PRECISION-DIAGONAL-SOP`。直接调用时必须先读本 closure、方案 index 与全部四片。 |
+| 活动层级 | 方案已采纳；T0/T-OBS-001 已完成；T-DIAG、T-Meta、T-ZFC 均未因采纳而自动执行。 |
+| 下一选择 | 每次 /goal 先选择一个唯一的、可判别的 T 单元；若选择 T-DIAG，先复用 GODEL-Q-REFLECTION-SOP 的 G0–G5，而不是重新创建 acceptance-interface 合同。 |
+| 强制写回 | 新的用户过程合同、selected interface、T-DIAG/T-Meta/T-ZFC 的支付、失败、控制、来源身份、run 或停止条件分别写回其唯一 owner，并在本 closure 更新“已知／未支付／下一动作／重开条件”。 |
+| 禁止越级 | `PLAN_ADOPTED`、C-367、一个来源沉默、一个条件性对角骨架或一个 host-level run 都不证明想法 T、bare ZFC 精度缺陷、actual Q 或 ZFC 对象语言矛盾。 |
+| 失效触发 | 用户重定义 T 或选择具体单元；T/M/interface/OriginDone 变化；出现实际 source payment 或反例；proof assistant variant、Git HEAD/worktree owner 变化。触发后重建受影响 slice，再继续。 |
+
+这次增量不要求建立第二份 closure：本文件已是 T 的唯一跨 Session capsule。新的采纳 source 进入其 source set；当前 Feature、MEMORY 与 rulings 各自保持需求、队列和用户裁定的单一职责。
 
 ## 失效与重开
 

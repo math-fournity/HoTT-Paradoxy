@@ -868,3 +868,16 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 3. C-359 保持条件 consequence kernel，C-366 保持 representability control，历史 R3-R4 保持相关但不同的 HoTT calculus 路线。三者均不得自动充当 actual Accept_T、OriginDone、ρ、diag 或哥德尔式 theorem。
 4. 当前 Host Goal 仍是 paused。创建方案、source anchor、Feature、README/MEMORY route 与认知闭包不构成恢复指令；执行必须由研究发起人随后明确引用该 SOP 或恢复相应 Goal。
 5. 本裁定授权方案、认知闭包、必要索引、相称来源核验、形式规格、proof/run 以及精确 Git commit；不授权将方案直接升级为 bare ZFC 矛盾、启动未明示的 Host Goal、Sub Agent、发布、tag 或 push。
+
+## 2026-10-04：采纳理论精度—对角自反上位方案并要求持续闭包
+
+研究发起人明确要求“调整方案，走这个新的方案”，要求把紧邻的元／元元哥德尔式回复完整记录成可由 `/goal` 引用的命名方案，并在多 Session、压缩恢复之间持续加载和写回相应认知闭包。逐字用户来源由`sources/prompts/Codex-T-PRECISION-DIAGONAL-SOP-采纳与闭包续航指令-20261004.md`拥有。
+
+执行裁定：
+
+1. 上位方案的稳定名为`T-PRECISION-DIAGONAL-SOP`，canonical owner 为`dev-docs/理论精度与哥德尔式自反方案.md`及其001–004分片；唯一跨 Session capsule 为`认知闭包/T-PRECISION-DIAGONAL-001.md`。不另造一份与其竞争或复制当前真值的方案／闭包。
+2. 该方案把 T-OBS、T-DIAG、T-Meta 与 T-ZFC 分层。`GODEL-Q-REFLECTION-SOP`继续作为T-DIAG的实际completion-interface执行模块；选择T-DIAG时必须复用其G0–G5及`CC-20261004-godel-q-reflection`，不得新建同义的GodelizationCard路线。
+3. “已采纳”只确认方案、恢复入口、写回职责和可引用启动词；它不自动选择T-DIAG/T-Meta/T-ZFC的后继单元，不恢复F-050，也不将C-367、条件性对角骨架、来源沉默或host层运行升级为想法T、bare ZFC精度缺陷、actual Q或ZFC对象语言矛盾。
+4. 每次后续`/goal`启动先重建受影响闭包，冻结唯一T单元的任务域、接口、理论变体、来源分母、反控制与停止条件；每一自然单元随后把新用户合同、来源、形式命题、run、失败、结论边界和下一判别动作写回各自唯一owner，并回读`T-PRECISION-DIAGONAL-001`。
+
+本裁定授权以上source、plan、closure、Feature、MEMORY、入口与相称Git谱系更新；不扩大为自动外部研究、Sub Agent、Host Goal、发布、tag或push授权。
