@@ -30,7 +30,7 @@ M / S / Q / FormalDone / OriginDone / P / Bridge / Adequacy
 
 | item | 排除理由 | 仍可用作 |
 |---|---|---|
-| `set.mm` proof acceptance | 支付 proof/database Done，未支付 S/Q/P 的连续统 completion。 | Code/Accept 层反控制。 |
+| `set.mm` proof acceptance + C-369 Appendix-C vocabulary extension | 支付 proof/database Done，以及 actual `$v/$f` vocabulary 的 M-level infinite-variable-extension 子义务；仍未支付 S/Q/P 的连续统 completion、internal `mFS` witness或`Prv`。 | Code/Accept 与“有限词表不是唯一阻断”的反控制。 |
 | Foundation generic Gödel | 支付一般技术机制，未实例化 actual M/S/Q/P。 | T-DIAG 条件核。 |
 | ACL2 Iris/Zeno | 不是 ZFC；固定 Lisp theorem未给 physical bridge。 | 跨理论 source-payment 反控制。 |
 | C-364/C-367/C-368 | abstract 或 source-bound fixture。 | formal proof skeleton 与反控制。 |

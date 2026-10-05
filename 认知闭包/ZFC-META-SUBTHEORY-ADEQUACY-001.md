@@ -28,7 +28,7 @@
 3. `rulings.md` 的 ZFC 元理论／子理论、T 与连续执行裁定；
 4. F-045–F-053、当前 MEMORY、`ZFC实际同Q实例化与机器证明SOP`、`BareZFC理论精度Q形式化SOP`、`ZFC-H0最终形式化与机器证明闭环SOP`；
 5. IEP/Norton/SEP 原典与对应 source cards；
-6. C-362、C-364、C-365–C-368、H0 source／run／claim assets；
+6. C-362、C-364、C-365–C-369、H0 source／run／claim assets；
 7. `CoreAdequacyCandidateManifest`、当前 TaskCard、successor scan、Git branch/HEAD/status。
 
 当前 manifest owner：`audit/ZFC-META-SUBTHEORY-ADEQUACY-001-C0-CANDIDATE-MANIFEST.md`。它的 `remainder = 5` 表明 C0 未完成；未来 Agent 不得因现有 T、F-048 或 F-050 closeout 将它视为已审分母。
