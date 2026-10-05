@@ -892,3 +892,17 @@ ZFC最大的问题，肯定在于对“时间维度”的把握上。换句话�
 2. 在总体 Goal active 时，Master 必须在每个原子单元后依照该单元暴露的证据缺口，自动选择仍能改变总体结论的最小后继单元。路由级正结果、受限负结论或 source-target 未支付只结束该路由，并须先检查是否释放另一个 T-DIAG、T-Meta 或 T-ZFC 后继。
 3. 整体只能在全部已承诺路径均取得相称的机器证明、受限负结论或明确外部不可支付条件，并完成方案、认知闭包、Feature、MEMORY、来源／证据 owner 与 Git 谱系写回后停止。这个收尾仍是授权范围内的研究路线收尾，不等价于“所有理论没有问题”或“bare ZFC 没有问题”。
 4. 本裁定授权更新 T-PRECISION 的停止语义、持续认知闭包、来源／开源调查、相称形式化与机器证明、精确 Git 提交和 current-owner 写回；不授权把任一局部结论升级为 bare ZFC 对象语言矛盾、数学共同体事实或外部发布。
+
+## 2026-10-04：bare ZFC 核心充分性研究不得再被外围接口闭环替代
+
+研究发起人直接指出：此前 T、`set.mm`、ACL2、generic Gödel 与抽象 observation/diagonal 的工作没有进入 ZFC 核心问题；没有拿到最终形式化和机器证明不得停止。研究发起人要求建立一个稳定可引用的 `/goal` 方案，并在跨 Session、压缩恢复中持续加载、写回相应认知闭包。
+
+执行裁定：
+
+1. 新稳定名为 `ZFC-META-SUBTHEORY-ADEQUACY-SOP`，canonical owner 为 `dev-docs/ZFC元理论子理论充分性最终闭环SOP.md`及其 001–004 分片；唯一跨 Session closure 为 `认知闭包/ZFC-META-SUBTHEORY-ADEQUACY-001.md`。
+2. 核心对象必须是 actual `M / S / Q / FormalDone / OriginDone / P / Bridge / Adequacy`：M 是 bare ZFC 或来源明确的 ZFC-founded foundation context，S 是其连续统／极限子理论，Q 是芝诺／圆环原任务，P 是实际 promotion。proof checker、generic Gödel、ACL2、项目 fixture、来源沉默和单一模型均只能作为 control。
+3. C0–C6 是一个连续 Goal。任一 local source gap、task switch、compiler block、proof rejection 或 control success 只关闭一个叶，必须 successor scan 并自动进入下一最小核心单元；它们不得暂停、完成或要求研究发起人逐叶重新授权。
+4. 只有总方案第 004 片的八项总完成门全部满足、source-to-spec fidelity table 和保存 kernel run 支撑 `CORE_ADEQUACY_FAILURE_WITH_SCOPE` 或 `CORE_ADEQUACY_DEFENSE_WITH_SCOPE` 后，才可完成 Goal。`CORE_CONTRACT_NOT_YET_FIXED`、`FORMAL_TARGET_UNDERDETERMINED` 或任何 surrogate closure 均保持 Goal active。
+5. H0 只有支付 `SameQ_H0` 与 `UniformJudgment` 后才可成为 core consequence；否则保留为控制，禁止以结构类比写作同 Q 异判。
+
+本裁定授权新的 primary source、Feature、SOP、closure、Task routing、MEMORY、相称来源／formalization／machine proof、精确 Git commit与既有用户授权范围内的 push；不授权把该执行合同本身当成 bare ZFC 数学缺陷或对象语言矛盾。

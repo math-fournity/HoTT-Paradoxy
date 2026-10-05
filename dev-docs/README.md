@@ -6,6 +6,8 @@
 
 当前主方案：[`实施方案-三AI历史整合与核心认知治理.md`](../实施方案-三AI历史整合与核心认知治理.md)。
 
+- [ZFC-META-SUBTHEORY-ADEQUACY-SOP：ZFC 元理论—子理论充分性最终闭环](ZFC元理论子理论充分性最终闭环SOP.md)：研究发起人纠正“外围接口分母已收束”不等于 bare ZFC 核心问题已进入或已完成后建立的总执行合同。它禁止将 proof checker、`set.mm`、ACL2、generic Gödel 或项目 fixture 当作核心靶；要求固定 actual ZFC-founded foundation context `M`、连续统／极限子理论 `S`、芝诺／圆环原任务 `Q`、实际 promotion `P`、`FormalDone`／`OriginDone`、Bridge 与 foundation adequacy responsibility，并以 C0–C6 连续路线和最终 kernel proof 作出 failure 或 defense verdict。未来 `/goal` 直接引用稳定名 `ZFC-META-SUBTHEORY-ADEQUACY-SOP`；唯一跨 Session closure 是 [ZFC-META-SUBTHEORY-ADEQUACY-001](../认知闭包/ZFC-META-SUBTHEORY-ADEQUACY-001.md)。
+
 - [T-PRECISION-DIAGONAL-SOP：理论精度、观察边界与哥德尔式自反方案](理论精度与哥德尔式自反方案.md)：研究发起人于 2026-10-04 要求把“理论维度缺失／观察力不完备／理论精度”作为想法 T 的上位研究程序，随后明确采纳它作为可跨 Session 执行和持续写回的方案。第 001 片完整保存紧邻两轮哥德尔式元／元元讨论及采纳指令。C-367 机器化相对观察边界，C-368机器化 paid self-code/diagonal/bridge 的拒绝边界；T-Meta/T-ZFC 随后逐项审计 actual `set.mm` interface，并将其拒绝为 parent completion interface，同时保持 bare-ZFC completion target 未定义。当前来源分母已受限收束，完整 closeout 与重开条件见`audit/20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md`；不得把 C-367/C-368 或实例拒绝升格为 bare ZFC 缺陷定理。
 
 - [H0-Z0-FOUNDATION-ADEQUACY-SOP：从 main HoTT H0 反投影 ZFC 的基础验收](H0-Z0基础验收反投影SOP.md)：当前下一主线。它以 main 的 fixed Cubical HoTT H0 为 B，审计集合论模型／一致性／基础资格来源是否覆盖同一理论变体、是否有 H0Map、以及是否把 Done_meta 无支付地提升为理论／过程 adequacy。它把 C-364 保留为校准控制，禁止再用普通芝诺 application source 代替 main H0。

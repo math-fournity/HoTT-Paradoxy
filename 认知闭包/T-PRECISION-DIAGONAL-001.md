@@ -71,6 +71,10 @@
 
 本 closure 不复制数学结论；它只保证未来工作者知道 T 的问题是什么、哪些条件尚未支付，以及从哪里恢复。两轮用户原文是否进入核心认知 generation 仍由 curation manager 处理；T0 已作出 CORE_CURATION_DEFERRED_WITH_EXPLICIT_TRIGGER 裁定：它们是已保存的 plan source，不是自动的 core current fact；新的 core generation 必须在研究发起人明确触发后作为独立 transaction 完成。
 
+## 核心目标分流（2026-10-04）
+
+本 closure 的 `CURRENT_T_PRECISION_SOURCE_DENOMINATOR_CLOSED_WITH_SCOPE` 只表示 T 的 abstract／surrogate interface source denominator 已收束。它不再具有 bare ZFC 核心问题的完成资格。研究发起人随后要求没有最终 machine-proof verdict 不得停止；actual `M / S / Q / FormalDone / OriginDone / P / Bridge / Adequacy` 核心合同及连续 C0–C6 执行，现由 [ZFC-META-SUBTHEORY-ADEQUACY-001](ZFC-META-SUBTHEORY-ADEQUACY-001.md) 与 `ZFC-META-SUBTHEORY-ADEQUACY-SOP` 拥有。
+
 ## 2026-10-05：ACL2／Zeno 来源入口控制
 
 新的公开 source ingress 固定了 `chemoelectric/iris-number-system-acl2@3451a080…`。它的 README 同时使用
