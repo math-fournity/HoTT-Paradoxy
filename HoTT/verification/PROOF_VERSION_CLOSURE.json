@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 221,
+  "later_machine_proved_claim_count": 223,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1115,6 +1115,26 @@
       "source": "HoTT/formal/zfc-meta-subtheory-adequacy/ApplicationAdequacy.lean",
       "toolchain": "HoTT/formal/zfc-meta-subtheory-adequacy/LEAN_CORE_TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: source-certified application adequacy failure is derived exactly for unpaid, non-switched original-resolution cases; paid bridge, task switch, model-only, and H0-missing-SameQ controls are separated."
+    },
+    {
+      "claim_ids": "C-370",
+      "kind": "lean_core_finite_quantized_half_step_motion_control",
+      "notes": "Not a theorem about physical spacetime, Planck scale, ZFC, or limit theory; C-361 is a separately verified dense counterpart.",
+      "proof_id": "MP-ZFC-DENSE-QUANTIZED-MOTION-001",
+      "run": "HoTT/verification/runs/20261005-MP-ZFC-DENSE-QUANTIZED-MOTION-001-02",
+      "source": "HoTT/formal/zfc-dense-quantized-motion/QuantizedHalfControl.lean",
+      "toolchain": "HoTT/formal/zfc-dense-quantized-motion/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed eight-unit quantized half-step process reaches zero at stage four and not stage three; it is a finite control for the user-specified dense-versus-quantized contrast."
+    },
+    {
+      "claim_ids": "C-371",
+      "kind": "lean_core_symbolic_dense_quantized_completion_contract_control",
+      "notes": "Not a theorem about physical spacetime, ZFC, limit theory, IEP source facts, or a same-task bridge; C-361 and C-370 remain separate controls.",
+      "proof_id": "MP-ZFC-DENSE-QUANTIZED-CONTRACT-001",
+      "run": "HoTT/verification/runs/20261005-MP-ZFC-DENSE-QUANTIZED-CONTRACT-001-02",
+      "source": "HoTT/formal/zfc-dense-quantized-contract/NormalizedCompletionContract.lean",
+      "toolchain": "HoTT/formal/zfc-dense-quantized-contract/LEAN_CORE_TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: fixed normalized dense and quantized controls agree through stage three but their finite-stage completion predicates are not pointwise equivalent."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",

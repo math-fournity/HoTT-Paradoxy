@@ -1,6 +1,6 @@
 # CoreAdequacyTaskCard — C0B2：独立 Isabelle/ZF 连续统子理论盘点
 
-> **状态：** `LEAF_ACTIVE / INDEPENDENT_FORMALIZATION_INVENTORY / NOT_A_CORE_VERDICT`。
+> **状态：** `LOCAL_LEAF_CLOSED / INDEPENDENT_FORMALIZATION_INVENTORY / NOT_A_CORE_VERDICT`。
 >
 > **父合同：** `C0B`；由 [C6A successor scan](ZFC-META-SUBTHEORY-ADEQUACY-001-C6A-SUCCESSOR-SCAN.md) 自动选择。
 
@@ -27,3 +27,5 @@ ZF/ZFC foundation → real numbers / sequences / limits / continuous trajectory
 ## 3. 局部停止
 
 若命中，创建独立 C1B2 card；若未命中，记录 `NO_ADMISSIBLE_CONTINUUM_CHAIN_IN_THIS_LIBRARY_VERSION`、保留 exact denominator和 successor scan，再转 C0E1。任何结果均不改变 C6A 的已有证明范围或停止 Goal。
+
+**实际结论。** [C0B2 result](ZFC-META-SUBTHEORY-ADEQUACY-001-C0B2-ISABELLE-ZF-CONTINUUM-INVENTORY.md) 在 frozen Isabelle2025-2 FOL/ZF session内没有发现可承接 S；当前 actual-defense 后继见 [successor scan](ZFC-META-SUBTHEORY-ADEQUACY-001-C0B2-SUCCESSOR-SCAN.md)。

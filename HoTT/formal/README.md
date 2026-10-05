@@ -16,6 +16,12 @@ claim_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 
 - `zfc-actual-q-policy/`：`MP-ZFC-ACTUAL-Q-POLICY-001` / C-359 将用户提出的Q缺失、数学幻觉P、A/B和`ZFC-1`写成明确前提的Lean policy use-model；`MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001` / C-360在原生Cubical Agda中固定HoTT Q对“coarse completion→original finite halting”的P反例；`MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001` / C-361在固定几何级数上证明极限不推出严格有限阶段Done，并保留闭连续时间端点正控制；C-362与C-363将 Norton/IEP 的 revised completion 来源合同和固定HoTT B分别写成相同的 completion-gap schema。它们不形式化bare ZFC或实际来源政策，详见目录`CLAIM.md`。
 
+- `zfc-meta-subtheory-adequacy/`：`MP-ZFC-META-SUBTHEORY-ADEQUACY-001` / C-369 将一个来源认证的 application adequacy contract写为Lean core条件定理：unpaid original-resolution application为failure，paid bridge、explicit task switch、model-only和缺SameQ_H0均为控制。C6D只在用户固定finite-stage `OriginDone`、IEP Standard Solution resolution language和source-backed adequacy criterion的范围内，将该条件定理实例化为`CORE_ADEQUACY_FAILURE_WITH_SCOPE`；它不证明bare ZFC对象语言矛盾或学界唯一判词。
+
+- `zfc-dense-quantized-motion/`：`MP-ZFC-DENSE-QUANTIZED-MOTION-001` / C-370 在Lean core检查固定八单位half-step过程`8→4→2→1→0`的有限完成与第3步未完成；它是用户稠密—量化对照的离散正控制，不是物理时空或ZFC theorem。
+
+- `zfc-dense-quantized-contract/`：`MP-ZFC-DENSE-QUANTIZED-CONTRACT-001` / C-371 在共同符号化余量状态空间检查dense/quantized controls前三阶段相同而finite-stage completion predicates不逐点等价，并保留dense stage-4 Done的拒绝控制。C-361保持真实数极限／连续端点范围，C-370保持八单位递归范围；C-371不把它们偷换为同一物理模型。
+
 - `bare-zfc-q-precision/`：`MP-BARE-ZFC-Q-PRECISION-001` / C-364 以一个来源绑定的有限 completion-contract control 区分粗标准解答 view、OriginDone 与 completion bridge：同一粗 resolved view 不能决定 OriginDone 或支付 universal bridge；显式 contract view 与 code view 是正控制。它是 ZFC-supported Standard Solution application interface 的精度控制，**不**形式化 bare ZFC 本身，不主张 ZFC 不能编码过程或 ZFC 不一致，详见目录`CLAIM.md`。
 
 - `t-precision-observation/`：`MP-T-PRECISION-TOBS-001` / C-367 是 T-PRECISION 的首个抽象 T-OBS 单元。Lean core 证明：指定 project 将 x,y 压成同一输出而指定 observe 在二者上相反时，observe 不存在只经 project 的全域 decoder；identity/rich view 是正控制，Bool/Unit 伪 decoder 被负控制拒绝。它只证明函数／命题因子化边界，不形式化 bare ZFC、HoTT、现实任务、对角化或“抽象必然导致悖论”。

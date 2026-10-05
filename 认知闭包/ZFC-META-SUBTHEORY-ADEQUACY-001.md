@@ -4,7 +4,7 @@
 >
 > **稳定方案：** [ZFC-META-SUBTHEORY-ADEQUACY-SOP](../dev-docs/ZFC元理论子理论充分性最终闭环SOP.md)。
 >
-> **当前状态：** `CORE_TARGET_RESTARTED_AFTER_SURROGATE_INTERFACE_DRIFT / C0_UNIVERSE_FROZEN / C1A_M_TO_S_ESTABLISHED_WITH_SCOPE / C2A_Q_MATH_FIDELITY_CLOSED / C3A_EXACT_PROMOTION_ROUTE_CLOSED / C0B1_RICH_S_FOUND / C2B_Q_MODEL_FIDELITY_CLOSED / C0C1_APPLICATION_ADEQUACY_SOURCE_FOUND / C3B_APPLICATION_P_SOURCE_PRESENT / C4A_PHYSICAL_BRIDGE_SCOPE_UNPAID / C6A_CANDIDATE_CONDITIONAL_VERDICT_MACHINE_PROVED / C0B2_ACTIVE / FINAL_CORE_VERDICT_NOT_PROVED`。
+> **当前状态：** `CORE_ADEQUACY_FAILURE_WITH_SCOPE / USER_ORIGIN_DONE_POLICY / C0_REMAINDER_ZERO_WITH_SCOPE / TOTAL_GATE_1_TO_6_PASS / GIT_VERSION_CLOSURE_PENDING / NO_BARE_ZFC_OBJECT_LANGUAGE_CONTRADICTION_CLAIM`。
 
 ## TaskDescriptor
 
@@ -13,7 +13,7 @@
 | 父结果 | 判断 bare ZFC 或明确 ZFC-founded foundation context 对连续统／极限子理论的原过程完成提升，是否具有足够的 bridge 审查责任。 |
 | 用户成功标准 | 没有最终、版本闭合的 core machine-proof verdict 前不停止；方案可由 `/goal` 调用；跨 Session／压缩后连续恢复和写回。 |
 | 核心合同 | `M / S / Q / FormalDone / OriginDone / P / Bridge / Adequacy`，缺任何项不允许产生 core verdict。 |
-| 当前已知 | IEP/Norton 的 task-switch 是核心来源线索；C1A–C4A固定了 Mizar TG/MML mathematical model、IEP physical P、model-paid/physical-unpaid bridge和strict control；C5A给出source-backed application criterion。C6A/C-369 已机器验证该**显式来源分类**的 conditional adequacy consequence和四控制。它没有变成 bare ZFC结论，故必须转独立 formalization family继续检验。C-362/C-364/C-367/C-368、H0、`set.mm` 与 ACL2 都是控制或平行材料。 |
+| 当前已知 | C1D固定IEP所述ZFC→standard-analysis foundation relation；C2C固定用户 finite-stage `OriginDone`；C3C/C4C/C4D固定dense promotion、completion-contract difference和数学控制；C5E按用户任务合同将IEP resolution language映入C-369 `applicationUnpaid`；C6D因此得到`CORE_ADEQUACY_FAILURE_WITH_SCOPE`。C5D保留IEP revised-task的替代读法；若用户接受其作为原任务，判词必须改走task-switch control。C-361/C-369/C-370/C-371均已回读核验，H0仍由SameQ未付排除。 |
 | 当前最大风险 | 又把可重放的 proof checker、toy formalization、generic Gödel 或来源沉默当成 M 对 S/Q 的 actual core interface。 |
 | profile | `RESEARCH_PROFILE_GOVERNED`；C0–C6 是一个连续执行图，不是多个可以各自结束的工作包。 |
 
@@ -31,24 +31,20 @@
 6. C-362、C-364、C-365–C-368、H0 source／run／claim assets；
 7. `CoreAdequacyCandidateManifest`、当前 TaskCard、successor scan、Git branch/HEAD/status。
 
-当前 manifest owner：`audit/ZFC-META-SUBTHEORY-ADEQUACY-001-C0-CANDIDATE-MANIFEST.md`。它的 `remainder = 5` 表明 C0 未完成；C1A–C6A 的 TaskCard、来源卡、run与 successor scan 已保存，当前自动后继是 `C0B2-INDEPENDENT-ZF-ZFC-CONTINUUM-INVENTORY`。未来 Agent 不得因现有 T、F-048 或 F-050 closeout 将它视为已审分母。
+当前 manifest owner：`audit/ZFC-META-SUBTHEORY-ADEQUACY-001-C0-CANDIDATE-MANIFEST.md`。其 frozen candidate universe已在F-A1/A2、F-B、F-C、F-D、F-E给出有界处置，`remainder = 0`；C6D是actual user-contract verdict。当前唯一未闭项目是C0R5 Gate 7：精确Git commit、C-370/C-371 proof-version closure、clean target tree和owner回读。未来Agent不得把这个版本闭合待办省略，也不得把已完成的source universe外推成所有可能来源已被穷尽。
 
 ## 恢复算法
 
-1. 先读本 closure 与 SOP 全文，确认 `CORE_GOAL_ACTIVE`；
-2. 检查上一个叶的 `successor_scan_status`。不存在就补做，不得另开来源扫描；
-3. 从 C0 manifest 中选择唯一 highest-impact live candidate，生成 TaskCard；
-4. 先独立写 M/S/Q/P/Bridge/Adequacy、最强 falsifier、Control+、Control−和 proof target；
-5. 再查一手来源、formalization、代码与 proof assistant；
-6. 只在 source-to-spec fidelity table 支付后进入 machine proof；
-7. 将 leaf verdict 写回 manifest、Feature、MEMORY、evidence owner 与 Git；
-8. 立即 successor scan。除总完成门或用户明确暂停外，不得停止。
+1. 先读本 closure 与 SOP 全文，确认C6D判词和Gate 7是否仍current；
+2. 若Gate 7未付，先完成精确Git/registry/owner闭合，不另开同形来源扫描；
+3. 若Gate 7已付，按SOP 004复核八门后才能将Goal改为complete；
+4. 如用户改写`OriginDone`或出现new actual policy/bridge source，重新激活C5D/C5E并从C0 manifest的reopen条件恢复；
+5. 禁止把本closure的failure-with-scope说成bare ZFC对象语言定理或学界唯一历史判词。
 
 ## 不可省略的未知
 
-- 哪个 actual ZFC-founded S/Q/P contract 最终满足 C1–C5；
-- foundation adequacy responsibility 是否能获得足够来源与形式规格，而非 AI 自加；
-- H0 是否存在可支付的 SameQ_H0；
-- core verdict 最终是 failure、defense还是一个需要继续活跃的 contract ambiguity。
+- Gate 7 的当前Git/proof version closure是否已完成；
+- 用户是否接受IEP revised Done为原任务（若接受，C5D task-switch control取代C5E failure branch）；
+- 是否有新版本固定来源实际定义 bare-ZFC-facing completion policy、user Q bridge或H0 SameQ。
 
-这些未知不是完成理由；它们是 C0 的候选选择输入。
+这些是reopen／版本闭合条件，不改变当前C6D在已冻结用户合同中的判词。
