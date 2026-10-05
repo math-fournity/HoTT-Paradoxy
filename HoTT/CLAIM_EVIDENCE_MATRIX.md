@@ -1817,3 +1817,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | C-376 | `parse-run`：对任意 `RawCert c`、stack/rest/fuel，prefix bit grammar `bits c ++ rest` 被 finite-fuel parser 精确还原为 `close c stack` 与原 rest。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiNat.parse-run`；主 run。 | 不验证 cctt/redtt 的完整 parser 或 conversion semantics。 |
 | C-377 | `decode-code : (c : RawCert) → decode (code c) ≡ c`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiNat.decode-code`；主 run的 preserved warning。 | 只对编码像 roundtrip；不说明 malformed Nat codes、任意 transports 或 full object syntax。 |
 | C-378 | `code-injective : code c ≡ code d → c ≡ d`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiNat.code-injective`；主 run。 | 不构成 arithmetic provability predicate、formula quotation或 diagonal fixed point。 |
+
+## GZ-010：CCTTmini₀ 的 formula / meta-predicate interface（2026-10-05）
+
+> `provF n` 被定义为有限 Formula syntax；`validCode n` 和 `ProvWitness n` 则保持显式 meta-level。这个分层防止把“我们运行过 checker”偷写成“对象算术已经表示 Provable”。run 继承 GZ-009 的 `UnsupportedIndexedMatch` warning；以下 claims 不以它为 transport computation claim。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CUBICAL-GODEL-FORMULA-PREDICATE-001` | `C-379`–`C-382` | `formal/cubical-godel-fragment/CCTTminiFormula.agda`；`FORMULA_PREDICATE_CLAIM.md`；`--safe --cubical` | `verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-PREDICATE-001-01/`；Cubical Agda 2.8.0-3d04bac，exit 0、preserved inherited warning；negative `...NEG-001-01` 在 `provF (code closedC) != botF` 处拒绝 | `KERNEL_ACCEPTED_WITH_SCOPE / META_OBJECT_BOUNDARY_EXPLICIT`：closed certificate code、formula quotation 与 meta witness interface 已检查；没有 arithmetic representability、formula coding/substitution 或 fixed point。 |
+| `MP-CUBICAL-GODEL-FORMULA-PREDICATE-NEG-001` | `C-379`–`C-382`（负控制） | `formal/cubical-godel-fragment/WrongCCTTminiFormula.agda` | `verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-PREDICATE-NEG-001-01/`；exit 42 | `NEGATIVE_CONTROL_REJECTED`：quoted certificate formula 不是 `botF`。 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| C-379 | `validCode (code closedC) ≡ true`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiFormula.closedAccepted`；主 run。 | `validCode` 是 meta-level checker，不是对象公式。 |
+| C-380 | `closedProvWitness : ProvWitness (code closedC)`。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiFormula.closedProvWitness`；主 run。 | 一个 closed certificate witness，不是 full proof predicate or enumeration theorem。 |
+| C-381 | `quoteCert closedC ≡ provF (code closedC)`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiFormula.quoteClosed`；主 run。 | formula syntax 引用 code，不等于 code of formula / self-reference。 |
+| C-382 | `ProvHolds (quoteCert closedC)` 由同一 `ProvWitness` 证明。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | `CCTTminiFormula.quoteClosedHolds`；主 run。 | `ProvHolds` 只定义了 `provF` clause；没有 implication/falsum semantics、representability或reflection。 |

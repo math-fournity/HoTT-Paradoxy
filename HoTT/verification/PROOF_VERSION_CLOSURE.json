@@ -2,7 +2,7 @@
   "current_package_count": 17,
   "external_replayed_claim_count": 1,
   "frozen_row_policy": "Proof and claim rows retain their run-time indexed status text. Current Git closure is an orthogonal registry so historical index-row manifests remain valid under append-only evolution.",
-  "later_machine_proved_claim_count": 228,
+  "later_machine_proved_claim_count": 232,
   "later_package_dependency_gap_allowlist": {
     "entries": [
       {
@@ -1115,6 +1115,16 @@
       "source": "HoTT/formal/cubical-godel-fragment/CCTTminiNat.agda",
       "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
       "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts the CCTTmini₀ bit/Nat coding, parser roundtrip, total image decoder and code injectivity, with the preserved auxiliary transport-computation warning."
+    },
+    {
+      "claim_ids": "C-379–C-382",
+      "kind": "native_cubical_agda_ccttmini_formula_and_meta_certificate_predicate_interface",
+      "notes": "CCTTmini₀ gains Formula syntax containing provF Nat, while validCode and ProvWitness remain explicitly meta-level. A closed RawCert's code is accepted, witnesses a ProvWitness, and is cited by quoteCert; the source does not assert arithmetic representability, formula coding/substitution, a diagonal fixed point, or full HoTT/ZFC consequences. The inherited CCTTminiNat transport-computation warning remains recorded.",
+      "proof_id": "MP-CUBICAL-GODEL-FORMULA-PREDICATE-001",
+      "run": "HoTT/verification/runs/20261005-MP-CUBICAL-GODEL-FORMULA-PREDICATE-001-01",
+      "source": "HoTT/formal/cubical-godel-fragment/CCTTminiFormula.agda",
+      "toolchain": "HoTT/formal/cubical-godel-fragment/TOOLCHAIN.json",
+      "verdict": "FORMAL_CHECKED_WITH_SCOPE: native Cubical Agda accepts the finite Formula/ProvWitness interface and its closed certificate quotation witness, with no representability claim."
     }
   ],
   "later_packages_policy": "Additive registry for proof packages that entered the project after the frozen d3dfb0e snapshot. The frozen 17-package receipt is never rewritten; each later entry is checked for Git-tracked source/toolchain/run files and a run receipt whose index status is INDEXED_IN_CLAIM_EVIDENCE_MATRIX with exit code 0.",
