@@ -3,11 +3,54 @@
 > 资产属性：HUMAN_EDITED。<br>
 > 唯一 owner：本目录 README；范围：本目录八份 Codex GUI 对话导出的谱系、原始 trajectory locator 与 Git/worktree 证据导航。<br>
 > 建立时间：2026-10-05。导出快照集最初由 Git commit 7b1f7f604d019508ed2d1ee982645937cad0bab8 纳入版本控制。<br>
+> 交接摘要更新：2026-10-07；下方对话内容仍是 2026-10-05 导出快照，不代表今天的实时分支状态。<br>
 > 证据边界：本文件不复制任何对话正文、工具输出、隐藏推理或补丁；它只保存未来审计所需的最小定位信息。它不作 HoTT、ZFC 或项目研究结论。
 
 本目录中的八份 Markdown 是 GUI 可见对话的简洁导出：保留用户和助手在 GUI 中可见的消息，以及每轮可见的改动文件胶囊。它们不是原始 JSONL trajectory，也不能取代原始 trajectory。
 
 这些文件具有共享的历史前缀：有些是同一 Codex 对话的 continuation rollover，有些是从同一父对话在不同 cutoff 处分叉出的新对话。若逐个从头阅读，会反复阅读同一段历史；若只按标题或当前 Git branch 猜测，又会把对话继承关系和 Git 历史混为一谈。本 README 的目的就是让未来审计者先定位关系，再只读需要的分支增量。
+
+## 给接手 AI 的一分钟导航
+
+用户说明最初建立了 9 个 worktree、其中 8 个有效；本目录实际保存 8 份导出（编号 01、02、03、04、06、07、08、09，这里没有 dev-05 文件）。合计 **11,241,127 bytes、126,503 行**，单份约 1.23–1.64 MB，而且包含共享祖先的可见对话。这个体积不是 token 估算，但足以说明：接手时先用下表和关系图，只有在需要核对原话、转折或助手当时的结案措辞时，才打开相应 GUI 导出。缺少 dev-05 导出不证明该分支不存在或没有工作。
+
+下表的“对话终点”是导出中可见的最后状态，不是数学结论。资产路径若写成 `git show <ref>:<path>`，`<ref>` 指本仓库当时可见的本地分支或 remote-tracking ref；ref 可能前进。要重建某次分支保存的精确树，读对应导出末尾的 branch-save receipt，取其 **保存提交 OID** 后运行 `git show <OID>:<path>`；存在 snapshot manifest 时以 manifest 的 exact OID／文件哈希复核。后文的 segment-start OID 和 2026-10-05 current-attachment OID 只是运行期／查找目录快照，**不是**对话终点提交。分支保存回复中的验证自述仍需回到代码、`CLAIM.md`、实际 run 与矩阵复核。
+
+| GUI 对话 | 这条工作线留下的独立增量 | 对话终点的未决项 | 最省读取量的入口 |
+|---|---|---|---|
+| [dev-08](<dev-08 - 20261005T140115Z-01a0fc02-3a4c-7a00-8ab9-f4441dacc4b5-042fff9e8b82-gui.md>) | 线程先从菲尔兹奖选靶开始，之后切到 `GODEL-Q-REFLECTION-SOP`，末段推进 C0R9–C0R11 来源筛查：ZFC 扩展／非标准时间控制与 bouncing-ball 共享任务候选。**dev-08 是 GUI 标签**；当时 CWD 是主 checkout `dev`，不要把它当成独立 Git 分支。 | 导出最后仍有“继续”；C0R11 只是 shared simulation task candidate，bare-ZFC link 和 C6 仍未支付。 | `audit/20261005-ZFC-META-SUBTHEORY-ADEQUACY-C0R9-HYBRID-NONSTANDARD-COMPARATIVE-CONTROL.md`、`audit/20261005-ZFC-META-SUBTHEORY-ADEQUACY-C0R11-BOUNCING-BALL-SHARED-CONSUMER-CANDIDATE.md`；当前资格回到 [`MEMORY/001`](../MEMORY/001%20-%20当前执行队列.md)。 |
+| [dev-01](<dev-01 - 20261005T093957Z-01a1083d-3515-7403-9b43-a5e02d8fc2d5-3647494d3660-gui.md>) | ZFC 子理论充分性、T-PRECISION／自反边界与 Q/P/A/B 收敛交叉；最终有人话状态说明，纠正了把某个局部 SOP 完成说成总体目标完成的倾向。 | 导出末端明确说：bare-ZFC 理论精度主定理和 ZFC–HoTT `SameQ_H0` 闭环尚未完成；已完成的是固定合同／来源分母内的机器化结果。 | `git show origin/dev-01:认知闭包/ZFC-META-SUBTHEORY-ADEQUACY-001.md`；当前总队列只看 [`MEMORY/001`](../MEMORY/001%20-%20当前执行队列.md) 与 F-053 owner。 |
+| [dev-02](<dev-02 - 20261004T101101Z-01a10533-7f5c-79b2-8d00-a5d797205ee5-b04cf56b8548-gui.md>) | Q/P/A/B 的 ZFC“实际 Q”形式化：C-359–C-365 的限定 Lean／Cubical Agda 包覆盖条件性 `P + B` consequence、HoTT Q、极限控制、成员语言边界、未付 completion promotion 与同 Q uniformity theorem；提交时还补推了 8 份 dev-notes 偏差。 | 该分支自己的 closure 明确保留 source policy、实际 `OriginDone`、跨案例 `SameQ`／`PolicyScopeWitness` 未支付；结论不是 `ZFC ⊢ False`。 | `git show origin/dev-02:HoTT/formal/zfc-actual-q-policy/README.md`、`git show origin/dev-02:audit/20261004-ZFC-ACTUAL-Q-RESEARCH-CLOSURE.md`、`git show origin/dev-02:audit/20261004-ZFC-FORMAL-CLOSURE-MATRIX.md`。 |
+| [dev-03](<dev-03 - 20261004T103128Z-01a1039a-331b-7c92-acdc-38841283cac8-4ccfd58f1aa3-gui.md>) | 交付重点是**完整工作树快照**：354 条路径、冻结 manifest、ActualPolicyWitness／ActualPolicyEvidenceFrontier、H107–H110 与相关运行／来源材料；导出报告称 manifest payload 哈希核对及两个 Lean 文件重跑通过。 | 这是一个含前序工作的整树快照，不是独立新增的一条总体定理；不要把“快照完整”读成 Q/P/A/B 已闭环。 | `git show origin/dev-03:audit/20261004-DEV03-WORKSPACE-SNAPSHOT.md` 与 `git show origin/dev-03:audit/20261004-DEV03-WORKSPACE-SNAPSHOT.json`；精确文件清单以 manifest 为准。 |
+| [dev-04](<dev-04 - 20261004T102801Z-01a10533-f07b-7d21-ada8-cd136ce61dd5-9c791ac1226d-gui.md>) | 从 dev-03 支线承接 16 个 ZFC completion-observation/P-Q 提交；包括 `CompletionPromotionTension.lean`、`MetaSubtheoryAudit.lean`、P→B 受限回溯、HOTT-MOTIVE-ZFC B0–B5 来源审计与工作线 manifest。 | 快照只包含该 worktree 的范围，明确排除了其他工作单元的 25 个 tracked 和 327 个未跟踪路径；分支交付／本地验证不代表父级 bare-ZFC 总证明完成。 | `git show origin/dev-04:HoTT/formal/zfc-observation-boundary/CompletionPromotionTension.lean`；`git show origin/dev-04:audit/20261004-DEV-04-WORKLINE-SNAPSHOT-MANIFEST.md`。 |
+| [dev-06](<dev-06 - 20261004T160420Z-01a106f7-75c0-7dd0-b135-63d0393bd6cf-cd2523908155-gui.md>) | 把路线转到 main 的 H0→Z0，并以 Pattern-First 检查 ZFC 是否提供 H0 所需的过程锚点；保存了 PF-B2 再审、SOP、去标识 P1 卡与受限运行。 | P1 返回 `NO_MODEL_RECALL_CANDIDATE / FORMATION_ORIGIN_NOT_SUPPLIED`：这是该卡／隔离运行的结果，不是 ZFC 全局缺少该能力的证明，也不自动证明 HoTT/ZFC 问题成立。 | `git show origin/dev-06:dev-docs/H0-Z0模式P优先收敛SOP.md`、`git show origin/dev-06:audit/20261004-H0-Z0-PATTERN-FIRST-PF-B2-过程锚点再审.md`。 |
+| [dev-07](<dev-07 - 20261004T162033Z-01a10700-dd83-7171-8601-127270b94e9e-a573664c5370-gui.md>) | dev-06 的 H0-Z0 Pattern-First 集成支线，围绕 A/B 同一政策门、P1/P2/P3 受控卡、PF-B2 过程锚修订和主线认知写回；用户随后要求把对话归档一并推送。 | 分支集成／推送已在对话内报告；它交付的是 Pattern-First 的受控结果与闭包材料，不是 H0→Z0 全链或 bare-ZFC 最终判词。 | `git show origin/dev-07:dev-docs/H0-Z0模式P优先收敛SOP.md`、`git show origin/dev-07:audit/20261004-H0-Z0-PATTERN-FIRST-CONVERGENCE-001-Master.md`。 |
+| [dev-09](<dev-09 - 20261005T051816Z-01a10843-afd2-7063-82f8-259c56f359e9-a79ef407f501-gui.md>) | Gödel-ZFC 收敛线：G0/R3 校准、G1/R4 片段、真实接受接口、fixed H0 候选、SameFullQ 对账，并保存 I-001 总合成与恢复闭包；分支以 merge 保留了原 dev-09 快照和 contributor tip。 | I-001 只判 `C2/C3`（已声明路线有界收束／形式目标仍未定义）；`C1` 正闭环不成立，不能推出 bare-ZFC 矛盾或 Gödel 定理。 | `git show origin/dev-09:audit/20261005-GODEL-ZFC-I-001-声明路线总合成.md`、`git show origin/dev-09:认知闭包/GODEL-ZFC-CONVERGENCE-001.md`。 |
+
+### 两条研究入口与最终综合的待核问题
+
+为降低首次阅读成本，可以暂时把这些对话归成两个**非排他的阅读入口**；这不是新的研究分类或已证明的统一理论：
+
+1. **Gödel 启发的编码／自反／理论精度边界**：优先看 dev-09，接着看 dev-08 中途转入该路线的来源记录；dev-01 是与 ZFC 子理论充分性、T-PRECISION 相交的交叉点。
+2. **ZFC 的过程观察、完成提升与 H0→Z0**：优先看 dev-02 的 Q/P 形式包，再按问题选择 dev-03 的快照、dev-04 的 completion-observation 工作线、dev-06→dev-07 的 Pattern-First 过程锚，以及 dev-08 的 C0R9–C0R11 来源控制。
+
+两组不是互斥分支；对话树、Git 分支树和研究方向树是三种不同关系。真正尝试综合时，先从当前 owner 确认哪条线仍有任务资格，再逐项比较：
+
+- 理论变体、实际对象与观察接口是否相同；
+- Q 的输入、操作、观察与 `OriginDone` 是否固定为同一任务；
+- Gödel 路线的编码、替换、证明谓词、对象层／元层与反射义务是否由目标理论实际承担；
+- 从 `FormalDone` 到 `OriginDone` 的 bridge／adequacy 是否有同一来源支付；
+- 各结论对应的 `CLAIM.md`、kernel run、source manifest、矩阵行和 Git snapshot 是什么。
+
+只要 `SameQ`、source-defined policy 或 bare-ZFC bridge 仍未支付，就保留两条线各自的限定结论，不用“都和时间／自指有关”把它们拼成一个已证明结论。当前任务资格与下一动作由根 [`MEMORY/001`](../MEMORY/001%20-%20当前执行队列.md)、[`feature-list.md`](../feature-list.md)、[STATE.json](../.codex/research/hott/STATE.json) 及各路线 SOP 决定；跨线复核优先读[ZFC 元理论子理论充分性 SOP](../dev-docs/ZFC元理论子理论充分性最终闭环SOP.md)、[T-PRECISION 方案](../dev-docs/理论精度与哥德尔式自反方案.md)、[Gödel-Q 反射 SOP](../dev-docs/哥德尔式ZFC完成观察反射方案SOP.md) 与[ZFC-H0 总闭环 SOP](../dev-docs/ZFC-H0最终形式化与机器证明闭环SOP.md)。本摘要只提供入口，不替代这些 current owners。
+
+### 最低成本的接手顺序
+
+1. 本 README 的本节和下面的对话分叉图：先判断这是共享父历史、child 独有增量，还是整树快照。
+2. 查表格中对应的 Git 证据入口；读取该 branch 的 closure／manifest／SOP，再根据 claim ID 打开证明源码、run 和矩阵。
+3. 只有在需要确认精确用户措辞、某次转向或助手当时的结案自述时，才打开对应 GUI 导出；不要逐个从导出开头重读继承的祖先前缀。
+4. 需要核对原始 fork cutoff 或工具调用时，按后文 Rxx 双条件 cutoff 回查 raw JSONL/audit；GUI-only Markdown 不携带完整 operation Git proof。
+5. 收尾前回到当前 MEMORY/Feature/STATE 与 source of truth；本 README 的历史摘要不改变 current queue，也不认证 commit 之后的现状。
 
 ## 先读这一节：三种不能混同的事实
 
@@ -26,10 +69,11 @@
 
 ## 快速使用路径
 
-1. 先查看下面的关系图，确定问题落在共享祖先、dev-08 主线，还是某一个 child branch。
-2. 只阅读目标 GUI 导出；若问题显然发生在它分叉之前，优先转向父 rollout，而不是重复通读多个 sibling 导出。
-3. 若需找出 GUI 文本中的精确分叉消息、工具调用、文件改动或 Git 证据，使用下方的 audit 再生成命令；GUI-only 导出本身故意不带 raw locator。
-4. 不要根据目录名、GUI 标题、当前 branch 或当前 worktree 位置猜测历史文件修改发生在哪个 branch。先检查精确 native tool invocation 的 audit provenance。
+1. 先读“一分钟导航”和下面的关系图；二者分别回答“工作线留下什么”与“GUI 对话怎样继承”。
+2. 先按表格读该线的 branch-side closure/manifest，再依赖 claim ID 打开对应证明包；仅在需要历史用户原话、转向或终点自述时才读 GUI 导出。
+3. 若问题发生在分叉前，转向相应父 rollout；不要重复读每个 sibling 的共享前缀。
+4. 若要确认精确分叉消息、工具调用或某次文件改动，使用下方 audit 再生成命令并核原生 invocation provenance；GUI-only 导出不带完整 raw locator。
+5. 当前 branch/ref 与文件变更归属必须按 Git snapshot 和 audit sidecar 核实；标题、目录名和今天的 worktree attachment 不能证明历史修改在哪个 branch 上。
 
 ## 对话分叉关系图
 
@@ -260,14 +304,16 @@ shasum -a 256 /absolute/path/to/the/Rxx.jsonl
 
 ## 面向未来审计 AI 的最小工作流
 
-1. 先读本 README 的关系图、精确 fork table 和目标行。
-2. 只打开与问题直接相关的 GUI export；把 ancestor prefix 视为共享，不用在每个 sibling 中重复通读。
-3. 如需判断问题发生在 fork 前还是 fork 后，按 Rxx 与双 cutoff 回到原始 JSONL；不要以 Markdown 段落位置推断。
-4. 如需审计一项文件改动或命令，使用 exact title 的 audit 模式，沿 FileChange → native tool invocation → hook sidecar 回查。
-5. 将结论分为：GUI 可见内容、raw lineage、at-run CWD、segment-start Git snapshot、完整 per-operation Git proof、current filesystem attachment；缺一层就明确写 UNKNOWN/PARTIAL。
+1. 先读本节 branch handoff table，选出要复用的成果和未决项；不要把八份 GUI export 当成启动必读。
+2. 读关系图与精确 fork table，确认 GUI 父子关系及双 exclusive cutoff；它们不是 Git commit graph。
+3. 沿 branch row 的 `git show <ref>:<path>` 检查本机 refs 中的 closure／manifest；若 ref 已前进，回到当时保存 OID 和 manifest 恢复精确 snapshot。
+4. 只在需要精确对话上下文时读对应 GUI export；需要原始分叉/操作证明时再运行 exact-title audit。
+5. 将结论分为 GUI 可见内容、raw lineage、at-run CWD、segment-start Git snapshot、完整 per-operation Git proof、当前 filesystem attachment；缺层时标 `UNKNOWN/PARTIAL`，数学判词回到 source/kernel/run/index。
 
 ## 本 README 的验证记录与更新清单
 
+- [x] 增加 8 条 GUI 对话的 handoff 摘要；各条明确区分了“对话末端自述”与需回到当前 owner、Git branch 和 proof/run 复核的事实。
+- [x] 将两组研究入口标为非排他导航建议，并保留同一任务、来源 bridge、current owner 和数学结论之间的未决边界。
 - [x] 本目录八份 GUI export 全部列入。
 - [x] 八个目标的 lineage audit 均为 COMPLETE。
 - [x] 每条 cross-thread 分叉都记录了逻辑父线程、物理父 rollout、双 exclusive cutoff 和 child branch-launch rollout。
