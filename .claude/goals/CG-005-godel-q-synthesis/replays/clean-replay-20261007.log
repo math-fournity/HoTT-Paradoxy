@@ -1,0 +1,16 @@
+# CG-005 独立重放（完成门 7）
+# 2026-10-07 05:28（本机会话 d58e0c0d）
+# 方法：只把 HoTT/formal/claude-cg001/godel-q/（源码、LEAN_TOOLCHAIN.json、MATHLIB_CLOSURE.json、CLAIM.md）
+# 与驱动 godelq_lean_check.py 复制（rsync --relative，共 14 个文件）到一个新的空目录
+#   scratchpad/clean-replay-052820/
+# 在该目录内执行每个运行 RUN.json 记录的 command_argv（驱动由副本位置推出仓库根），
+# 与仓库中已捕获的 stdout.txt、stderr.txt、退出码逐字节比较。
+# 结果（运行，重放退出码，记录退出码，重放 stdout 字节，记录 stdout 字节，是否一致）：
+20261007-CG001-GODEL-Q-01 0 0 5129 5129 True
+20261007-CG001-GODEL-Q-NEG-SOUNDNESS-01 1 1 1018 1018 True
+20261007-CG001-GODEL-Q-NEG-CONSISTENCY-01 1 1 2160 2160 True
+20261007-CG001-GODEL-Q-NEG-EFFECTIVENESS-01 1 1 2136 2136 True
+20261007-CG001-GODEL-Q-NEG-GODEL-II-01 1 1 733 733 True
+ALL_MATCH
+# 边界：同一台机器、同一份固定工具链与 Mathlib 构建（驱动在编译前核对了全部固定哈希）；
+# 不是跨机器或跨平台重放。

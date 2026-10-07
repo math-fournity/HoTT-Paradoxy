@@ -1,0 +1,33 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20261004-MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001-08",
+  "proof_id": "MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001",
+  "claim_ids": [
+    "C-361"
+  ],
+  "source_paths": [
+    "HoTT/formal/zfc-actual-q-policy/ZenoLimitControl.lean",
+    "HoTT/formal/zfc-actual-q-policy/CLAIM.md",
+    "HoTT/formal/zfc-actual-q-policy/README.md",
+    "HoTT/formal/astra-real-geometry/TOOLCHAIN.json",
+    "audit/astra-real-geometry-20260919/environment-qualification/LEAN_PATH.txt",
+    "sources/prompts/Codex-ZFC-Q-P-A-B-ZFC1-用户原文-20261004.md",
+    "HoTT/formal/zfc-actual-q-policy/capture_zeno_limit_control.py"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "lean-4.34.0-binary"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "For s_n = 1 - (1/2)^n, formal limit completion does not imply finite natural-stage endpoint completion; a separate closed continuous-time model has endpoint arrival.",
+  "non_goals": [
+    "Does not attribute StrictSequentialDone to the Standard Solution or mathematical community.",
+    "Does not prove that continuous motion fails to arrive, that ZFC is inconsistent, or that all limit arguments are illusory.",
+    "Does not supply an actual Zeno/HoTT same-Q mapping or source-owned acceptance policy."
+  ]
+}
