@@ -37,3 +37,5 @@
 - [BARE-ZFC-Q-PRECISION-SOP：bare ZFC 的 Q 理论精度形式化](BareZFC理论精度Q形式化SOP.md)：研究发起人 2026-10-04 澄清后的上位路线。它将“bare ZFC 的理论精度不够”写成接口相对、可证伪的 Q 观察合同：固定 ZFC-facing interface、过程合同、投影、FormalDone、OriginDone、bridge/payment、来源 owner 和正反控制。当前执行已完成 P0/P1/P3 来源绑定及 C-364 的接口相对机器控制，结论为 `SOURCE_APPLICATION_INTERFACE_CONTROL_COMPLETE / BARE_SEMANTIC_INTERFACE_UNDERDETERMINED_WITH_SCOPE`；它继承而不重命名 C-359–C-363、ERCF/ZCore 的通用边界，不能把结果偷换成 ZFC 不可表示时间或对象语言矛盾。
 
 - [模式 P 动态 DAG 调度](模式P动态DAG调度.md)：当前 P1/P2/P3 共同锻造的 Master 调度 SOP 与项目内 Skill。它把 worker 的盲态、来源、项目分支、网络、Battle、Master 裁决、App Server/CLI 运行资格和证据收据分成按节点决定的合同；只在用户 2026-10-02 的任务限定授权下使用。
+
+- [GUI-EXPORT-ASSET-RECOVERY-SOP：GUI 导出全行覆盖资产回收](GUI导出全行覆盖资产回收SOP.md)：对 `git-worktree对话录/` 八份 GUI 导出做分母冻结、diff 式字节去重、逐块亲读、收据留痕、脚本可验的全行覆盖阅读战役（研究发起人 2026-10-07 三项裁定：分层登记／哈希＋摘录＋抽样引文／机械行全部亲读）。产物为覆盖证明（remainder=0）、八线全程叙事、资产登记 v2 与原索引修订建议；不产生数学结论。跨 Session 恢复入口是 [GUI-ASSET-RECOVERY-001](../认知闭包/GUI-ASSET-RECOVERY-001.md)。
