@@ -1945,3 +1945,18 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | D09-C-384（分支原编号 C-384） | `decodeFormulaCode` 与 `formulaCodeInjective`：Fmini formula code roundtrip 且单射。 | `KERNEL_ACCEPTED_WITH_SCOPE / WARNING_SCOPED` | 相应 declarations；主 run。 | 不含 implication/binders或任意上游 formula syntax。 |
 | D09-C-385（分支原编号 C-385） | `selfInstance template ≡ prov₁ (lit (codeFormula template))`，其中 `template = prov₁ (fvar 0)`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiFormulaCode.selfInstanceShape`；主 run。 | syntax substitution shape，不是 Gödel fixed point。 |
 | D09-C-386（分支原编号 C-386） | `selfInstance template ≡ prov₁ (quoteFormula template)`。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `CCTTminiFormulaCode.selfInstanceQuotesFormula`；主 run。 | quotation syntax不代表 `ProvWitness` 的 arithmetic representation。 |
+
+## Claude CG-006 S6：Z0 的条件形式——𝗭𝗙𝗖 的算术影子与哥德尔第二不完备定理（2026-10-08）
+
+> 授权同上一 Claude 节（研究发起人 2026-10-07 全面授权；会话 `d58e0c0d`）。本节只追加。
+> 工具链同 CG-006：Lean 4.34.0 + Mathlib `5ed29652…` + Foundation `1fb01b72`，禁网编译；记录 `formal/claude-cg001/godel-q-zfc-z0/LEAN_TOOLCHAIN.json`、`MATHLIB_CLOSURE.json`（1,893 个模块，聚合 `02b0e80f…5161`）。两个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 `.claude/goals/CG-001-targeted-overview/证据索引.md` §26。
+> 读法：条件定理。两条前提 `Sh.RE`、`𝗜𝚺₁ ⪯ Sh` 是 S6 的卡点，没有证明；“Sh 一致 ⟺ 𝗭𝗙𝗖 一致”的 𝗜𝚺₁ 内部化也没有做。所以本节不推出 Z0 对 𝗭𝗙𝗖 成立，只把它化成精确的引理。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-001` | `CG001-C-103` | `formal/claude-cg001/godel-q-zfc-z0/GodelQ/ZFC/Z0Shadow.lean`（加 15 个与 `godel-q-zfc` 逐字节相同的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-GODEL-Q-ZFC-Z0-01/`；exit 0，stderr 0 B；五条定理只依赖三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL_ON_TWO_EXPLICIT_HYPOTHESES` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-NEG-ISIGMA1-001` | `CG001-C-103`（负控制） | `formal/claude-cg001/godel-q-zfc-z0/GodelQ/Negative/WrongZ0WithoutISigma1.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-Z0-NEG-ISIGMA1-01/`；exit 1，实例 `𝗜𝚺₁ ⪯ Sh` 找不到 | `NEGATIVE_CONTROL_REJECTED`：已证的 `𝗥₀ ⪯ Sh` 不能代替 `𝗜𝚺₁ ⪯ Sh` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-103 | `Sh := {σ ∣ 𝗭𝗙𝗖 ⊢ σᵗ}`（`σᵗ := arithTrln.translate σ`）：`Sh ⊢ σ ↔ 𝗭𝗙𝗖 ⊢ σᵗ`；`Sh` 一致；`𝗥₀ ⪯ Sh`；若 `[Sh.RE] [𝗜𝚺₁ ⪯ Sh]`，则 `𝗭𝗙𝗖 ⊬ arithTrln.translate (Sh.craig.consistent.val)` 且 `Sh ⊬ Sh.craig.consistent.val` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL` | run `20261008-CG001-GODEL-Q-ZFC-Z0-01`（`zfc_z0_conditional`）；负控制 `-NEG-ISIGMA1-01` | 两条前提未证；不推出 Z0 对 𝗭𝗙𝗖 成立；`Sh` 的一致性来自 Lean 元层 `Universe` 模型；不推出 `ZFC ⊢ ⊥` |

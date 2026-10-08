@@ -1,0 +1,73 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-006 line (S6), Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-103"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/Negative/WrongZ0WithoutISigma1.lean"
+  ],
+  "completed_at_utc": "2026-10-08T18:34:21.573764+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 40.040269,
+  "environment": {
+    "bytes": 1093,
+    "path": "environment.txt",
+    "sha256": "595e031edf1f219306dd9914e9115dcb3c2d3606a1dd6e0d6e705f5b3fa04acb"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not show that 𝗜𝚺₁ ⪯ Sh is false; it shows the hypothesis is load-bearing."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-Z0-NEG-ISIGMA1-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261008-CG001-GODEL-Q-ZFC-Z0-NEG-ISIGMA1-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-103: with Sh.RE but without 𝗜𝚺₁ ⪯ Sh, the Z0 conclusion cannot be obtained; the proof fails at the missing instance 𝗜𝚺₁ ⪯ Sh (the proven 𝗥₀ ⪯ Sh does not substitute)",
+  "source_manifest": {
+    "bytes": 203631,
+    "path": "source-manifest.json",
+    "sha256": "cfcc847c8e48c252239b2ade73e70a424da89fb5e792c1935b9aa0f5688c4d8f"
+  },
+  "started_at_utc": "2026-10-08T18:33:41.533884+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9947,
+    "path": "stdout.txt",
+    "sha256": "7401c3e06653390f021da06e0e6b8d63559980693dbacc244514f18f52bfb877"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}
