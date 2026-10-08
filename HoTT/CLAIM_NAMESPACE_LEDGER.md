@@ -54,4 +54,6 @@ dev-03、dev-04 的 `zfc-observation-boundary` 包、dev-06、dev-07 没有使�
 ## 5. 分支的保存
 
 - 不删除任何分支或 worktree。`origin` 上的 `dev-01` 至 `dev-09` 与各 `codex/*` 分支保持原样。
-- 只在本机、远端没有的提交：本地 `dev-08`（比 `origin/dev-08` 多 3 个归档提交，已并入 `dev`）、`codex/hott-motive-zfc-literature`（比远端多 12 个提交）、`codex/t-precision-closure-repair`（1 个提交）。它们在 CG-006 S7-h 推送到 `origin`，推送结果回填到本节。
+- 只在本机、远端没有的提交：本地 `dev-08`（比 `origin/dev-08` 多 3 个归档提交，已并入 `dev`）、`codex/hott-motive-zfc-literature`（比远端多 12 个提交）、`codex/t-precision-closure-repair`（1 个提交）。
+- 2026-10-08 已普通推送（不带 force），推送后回读远端，四条都与本地一致：`dev` `9a25268e..28f68e99`；`dev-08` `81e2f12c..3cb6a6b4`；`codex/hott-motive-zfc-literature` `b1c14dfb..c6bdf892`；新建 `codex/t-precision-closure-repair` `eaf7b97e`。
+- 其余只在本机的分支（`dev-glm-5.3`、`claude/git-worktree-path-4c282f`、`claude/gui-reaudit-continuation`）的提交都已包含在 `dev` 中，没有另行推送。主检出已切回 `dev`；worktree `.claude/worktrees/cg006-dev` 改为 detached，保留不删。
