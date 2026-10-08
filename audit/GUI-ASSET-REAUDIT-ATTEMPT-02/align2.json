@@ -1,0 +1,100 @@
+{
+ "T": 126503,
+ "blocks_total": 636,
+ "frozen_at": "2026-10-07T22:25:14Z",
+ "manifest_fingerprint": "1070422c9211211c636c4eee2e661a277019fe08dd315f0ed835f6fbb5167ae6",
+ "method_A": {
+  "K": 5,
+  "covered_total": 98779,
+  "index_cap_per_key": 8,
+  "scope": "earlier files only",
+  "use": "INFORMATIONAL_ONLY"
+ },
+ "method_B": {
+  "reason": "SOP_CONFLICT：SOP 002 §3.4 要求 git diff，超出目标的 git 白名单；见 SESSION-REAUDIT.md §4",
+  "status": "NOT_RUN"
+ },
+ "per_file": {
+  "dev-01": {
+   "N": 17161,
+   "blocks": 86,
+   "method_A_informational_covered": 0,
+   "method_A_max_run": 0,
+   "method_A_runs": 0,
+   "shared": 0,
+   "unique": 17161
+  },
+  "dev-02": {
+   "N": 14194,
+   "blocks": 71,
+   "method_A_informational_covered": 13214,
+   "method_A_max_run": 13131,
+   "method_A_runs": 737,
+   "shared": 0,
+   "unique": 14194
+  },
+  "dev-03": {
+   "N": 13602,
+   "blocks": 69,
+   "method_A_informational_covered": 11389,
+   "method_A_max_run": 10849,
+   "method_A_runs": 822,
+   "shared": 0,
+   "unique": 13602
+  },
+  "dev-04": {
+   "N": 13784,
+   "blocks": 69,
+   "method_A_informational_covered": 12449,
+   "method_A_max_run": 12277,
+   "method_A_runs": 875,
+   "shared": 0,
+   "unique": 13784
+  },
+  "dev-06": {
+   "N": 15468,
+   "blocks": 78,
+   "method_A_informational_covered": 14770,
+   "method_A_max_run": 14595,
+   "method_A_runs": 950,
+   "shared": 0,
+   "unique": 15468
+  },
+  "dev-07": {
+   "N": 15138,
+   "blocks": 76,
+   "method_A_informational_covered": 14756,
+   "method_A_max_run": 14701,
+   "method_A_runs": 963,
+   "shared": 0,
+   "unique": 15138
+  },
+  "dev-08": {
+   "N": 18458,
+   "blocks": 93,
+   "method_A_informational_covered": 16093,
+   "method_A_max_run": 15555,
+   "method_A_runs": 1374,
+   "shared": 0,
+   "unique": 18458
+  },
+  "dev-09": {
+   "N": 18698,
+   "blocks": 94,
+   "method_A_informational_covered": 16108,
+   "method_A_max_run": 15890,
+   "method_A_runs": 1300,
+   "shared": 0,
+   "unique": 18698
+  }
+ },
+ "schema": "gui-asset-reaudit/align2/v1",
+ "shared_policy": "EMPTY_BY_FALLBACK：交集无法建立，依\"疑则读之、选严\"，全部行为义务行",
+ "structure_assertions": {
+  "SHARED_union_UNIQUE_eq_T": true,
+  "block_obligation_sum_eq_unique": true,
+  "no_overlap_across_blocks": true,
+  "sum_N_eq_T": true
+ },
+ "tool": "tools/align.py"
+}
