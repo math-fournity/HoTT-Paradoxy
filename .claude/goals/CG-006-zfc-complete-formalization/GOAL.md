@@ -55,6 +55,7 @@ HoTT/formal/claude-cg001/godel-q/CLAIM.md | 已证命题 C-84..C-94 与禁止外
 .claude/goals/CG-006-zfc-complete-formalization/八线分叉后复盘.md | 八条线分叉后的目标、产出、卡点与可吸收部分
 .claude/goals/CG-006-zfc-complete-formalization/工作台.md | API 笔记、决定、进度、翻查记录
 .claude/goals/CG-006-zfc-complete-formalization/Targets与Profile.md | 八线倒查出的五个方向、两条路线（无哥德尔／有哥德尔）与 44 个画像要点的完成对照；未来工作的线头
+形式化追踪/README.md | 形式化与机器证明各线的实时进度与可能方向（2026-10-08 起的现状权威；各章在其子文件夹）
 ```
 
 ## 4. 阶段
