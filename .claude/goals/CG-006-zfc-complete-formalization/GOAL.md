@@ -54,6 +54,7 @@ HoTT/formal/claude-cg001/godel-q/CLAIM.md | 已证命题 C-84..C-94 与禁止外
 .claude/goals/CG-006-zfc-complete-formalization/GUI查阅索引.md | GPT 探索过什么、在哪一轮、实物在哪；分叉后原话清单
 .claude/goals/CG-006-zfc-complete-formalization/八线分叉后复盘.md | 八条线分叉后的目标、产出、卡点与可吸收部分
 .claude/goals/CG-006-zfc-complete-formalization/工作台.md | API 笔记、决定、进度、翻查记录
+.claude/goals/CG-006-zfc-complete-formalization/Targets与Profile.md | 八线倒查出的五个方向、两条路线（无哥德尔／有哥德尔）与 44 个画像要点的完成对照；未来工作的线头
 ```
 
 ## 4. 阶段
@@ -83,4 +84,5 @@ HoTT/formal/claude-cg001/godel-q/CLAIM.md | 已证命题 C-84..C-94 与禁止外
 ## 6. 版本记录
 
 - v1.0 2026-10-07 创建（会话 d58e0c0d）。
+- v1.2 2026-10-08（会话 d58e0c0d）：研究发起人要求“Targets with Profile”（从八份对话录末尾倒查各线目标、合并方向、写画像并逐点对照）；新增 `Targets与Profile.md` 进入闭包。
 - v1.1 2026-10-08（会话 d58e0c0d）：研究发起人裁定保留根 `CLAUDE.md`，并要求经常翻查八份对话录。新增 `方案.md`、`GUI查阅索引.md`、`八线分叉后复盘.md` 进入闭包；阶段改为 S2→S4→S5→S6→S7(a–h)→S8；完成门增加“翻查记录”和“主检出切回 dev”；写明分支规则。
