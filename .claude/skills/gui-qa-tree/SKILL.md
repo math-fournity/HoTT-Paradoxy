@@ -13,6 +13,7 @@ description: 从 Codex rollout 导出分支子文件夹中的编号化问答文�
 
 ## 步骤
 
+0. **开工、压缩或恢复之后，先读规范与闭包**：用 Read 读完 `dev-docs/GUI导出问答树SOP.md`（索引与 001–006 六片）和 `认知闭包/GUI-QA-TREE-001.md`，记下各片 EOF，再按闭包 §2 的恢复算法确定进度。2026-10-08 起它们不再随 CLAUDE.md 自动导入（见根 `CLAUDE.md` 第二节）。
 1. 导出（仅在源变化时）：`python3 -I -B audit/GUI-SYNTH-REDO/tools/qa_tree_export.py --force`
 2. 抽样（只做一次，且须在标注开始之前；2026-10-08 已完成）：`python3 -I -B audit/GUI-SYNTH-REDO/tools/check_annotations.py --stage sample`
 3. 读分支：先读 `audit/GUI-SYNTH-REDO/qa/<分支>/_branch.json`（父分支与分叉节点），再从该分支的最大编号倒着读到 0001（到分叉节点即止）。

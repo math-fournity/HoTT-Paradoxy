@@ -12,7 +12,7 @@
 ## 2. 恢复算法（每次新会话或压缩后）
 
 1. 读本闭包全文。
-2. 确认 CLAUDE.md 导入的六片规范已读到 EOF（由导入自动加载）。
+2. 用 Read 读完 SOP 索引与六片规范，确认各片读到 EOF（2026-10-08 起不再由 CLAUDE.md 自动导入；触发条件见根 `CLAUDE.md` 第二节，读取动作见 `gui-qa-tree` Skill 第 0 步）。
 3. 运行 `python3 -I -B audit/GUI-SYNTH-REDO/tools/check_annotations.py --stage annotations` 与 `--stage cards`（不带 `--unit`），以 `reports/` 中的缺口为准确定进度。不要重跑 `--stage sample`：抽样已固定，重抽会改变审计样本（工具会拒绝）。
 4. 只续做缺口所在的单元（dev-08 则只续做未完成的部分）；已标注完整的单元不重读。
 5. 不修改 `audit/GUI-SYNTH-REDO/qa/`。
