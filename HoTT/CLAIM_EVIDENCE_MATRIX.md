@@ -2039,3 +2039,21 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | CG001-C-112 | `OmegaQ = ℕ → Bool` 与找到即停的 `Delay` 搜索 `askQ`：`NeverFrom q s ↔ askQ q s ≡ never`；落定则燃料 k 内有输出；`¬ PFin`；单调追问的减半跑者 `Arrives ↔ Never`，单调前提不可去（`monotoneNeeded`）；`question C judge ≡ askQ (FromJudge.answers C judge) 1` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-SAME-Q-UNIVALENT-01`（`qual-C112`）；负控制 `-NEG-03` | 跑者到达是算术写法（减半次数无界），不用实数 |
 | CG001-C-113 | 芝诺：`askQ constFalse 0 ≡ never`、减半次数 = n、到达；H0：单价宇宙上 `question ≡ askQ answers 1`、从第 1 阶段起永不落定、跑者到达、`runFor 100 … ≡ nothing` 由 `refl`；截断宇宙 `TU`：第 1 阶段停、此后每阶段落定、跑者不到达；Z0：任一单调流满足同样的等价 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-SAME-Q-UNIVALENT-01`（`qual-C113`）；负控制 `-NEG-01`、`-NEG-02` | 三者共用类型与程序，各自的“落定”意义来自解释桥；Z0 是参数 |
+
+## Claude CG-007 W7：想法 T 的两种形式与脚手架；C6 审查力（AI 提案）；P 的两侧（2026-10-09）
+
+> 授权同上节。本节只追加。工具链同 W4a 节；导入闭包 1,889 个模块。四个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 §32。
+> 读法：机器证明（有范围）。想法 T 的形式（观察者、接口、维度）与 C6 的“审查”定义是 AI 提案，待研究发起人裁定。依赖检查核对 21 个定理不经本项目的对角声明。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-IDEA-T-C6-P-001` | `CG001-C-114`、`CG001-C-115`、`CG001-C-116` | `formal/claude-cg001/idea-t-c6-p/GodelQ/IdeaT.lean`、`C6Review.lean`、`PTwoSides.lean`、`QualificationW7.lean`（加 20 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-IDEA-T-C6-P-01/`；exit 0，stderr 0 B；144 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-IDEA-T-C6-P-NEG-001` | `CG001-C-114`（负控制） | `formal/claude-cg001/idea-t-c6-p/GodelQ/Negative/WrongLimitDecoder.lean` | `verification/runs/20261009-CG001-IDEA-T-C6-P-NEG-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：接口上的碰撞确实被用到 |
+| `MP-CG001-IDEA-T-C6-P-NEG-002` | `CG001-C-115`（负控制） | `formal/claude-cg001/idea-t-c6-p/GodelQ/Negative/WrongCompleteReview.lean` | `verification/runs/20261009-CG001-IDEA-T-C6-P-NEG-02/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：有效性确实被用到 |
+| `MP-CG001-IDEA-T-C6-P-NEG-003` | `CG001-C-116`（负控制） | `formal/claude-cg001/idea-t-c6-p/GodelQ/Negative/WrongRealP1.lean` | `verification/runs/20261009-CG001-IDEA-T-C6-P-NEG-03/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：语义 P₁ 的成立确实依赖量子化 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-114 | 经接口 π 确认维度 D：π 压平 D ⟹ 无可靠完备观察者；D 不可枚举 ⟹ 每个可靠可枚举观察者漏点不可枚举、无穷，可严格加细而仍漏；可靠完备可枚举的观察者存在 ⟺ `FiberConstant π D ∧ REPred D`；停机维度纤维恒定而无此观察者；𝗭𝗙𝗖 的“永不停机”漏点不可枚举、无穷；`limUnder` 接口判不了“有限阶段取到” | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / AI_PROPOSED_FORMAL_SHAPE` | run `20261009-CG001-IDEA-T-C6-P-01`（`qual_C114`）；负控制 `-NEG-01` | 不是“一切不完备都是维度缺失”；只在“接口 + 维度”的形状下 |
+| CG001-C-115 | `Adequate d := Arrives d ↔ ∃ n, position d n = 1`；`¬ Adequate d ↔ ¬ Done d`；每个有效、可靠的 `Review` 都不完备；𝗭𝗙𝗖 有一个 `¬ Adequate` 的跑者，其停机句与永不停机句都不可证；对任一 ℒₛₑₜ 公式 Φ，若 `𝗭𝗙𝗖 ⊢ neverS Φ ⌜d⌝ → ¬ Adequate d`，则 `{d ∣ ¬ Adequate d ∧ 𝗭𝗙𝗖 ⊬ neverS Φ ⌜d⌝}` 无穷且不可枚举 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / AI_PROPOSED_DEFINITION` | run `20261009-CG001-IDEA-T-C6-P-01`（`qual_C115`）；负控制 `-NEG-02` | 审查定义待裁定；𝗭𝗙𝗖 的审查句经 Lean 元层等价取作停机句；ℒₛₑₜ 到达句是 W5 |
+| CG001-C-116 | 有 `F x ∧ ¬ O x` 则无 `P1Rule Acc F ∧ OriginSound Acc O`；`P1Rule ∧ FormalSound ∧ ¬ REPred F ⟹ ¬ REPred Acc`；ℝ 每点 `¬ SemanticP1`，格点上成立；跑者族上二者都成立；`LooseRunnerTheory` 上 `A ↔ P ↔ CompletionSubstitution`；有效理论 `¬ A`（一条经 C-94，一条不经对角点）；真值理论有 A 与 P 而不可枚举 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-IDEA-T-C6-P-01`（`qual_C116`）；负控制 `-NEG-03` | “现实是量子化的”未证；“社区实际采用 P₁”是来源层；A ⟺ P 对 𝗭𝗙𝗖 本身两边都假 |
