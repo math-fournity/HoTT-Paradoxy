@@ -2009,3 +2009,16 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | CG001-C-109 | 对每个 `M ⊧ 𝗭𝗙𝗖`，`(arithTrln.Model M) ⊧* 𝗣𝗔`；`paInterp : 𝗭𝗙𝗖 ⊳ 𝗣𝗔`；`𝗣𝗔 ⊢ σ → 𝗭𝗙𝗖 ⊢ arithTrln.translate σ` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-GODEL-Q-ZFC-Z0-PA-01`（`qual_C109`） | 经典事实的形式化；完备性定理与模型在 Lean 元层 |
 | CG001-C-110 | `𝗣𝗔 ⪯ Sh`；`𝗜𝚺₁ ⪯ Sh`；在 `[Sh.RE]` 下 `𝗭𝗙𝗖 ⊬ arithTrln.translate (Sh.craig.consistent.val)` 且 `Sh ⊬ Sh.craig.consistent.val` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL_ON_ONE_EXPLICIT_HYPOTHESIS` | 同上（`qual_C110`）；负控制 `-NEG-RE-01` | `Sh.RE` 与内部化未证；不推出 Z0 对 𝗭𝗙𝗖 已成立；不推出 `ZFC ⊢ ⊥` |
+
+## Claude CG-007 W4a：𝗭𝗙𝗖 的定理集可枚举；Z0 归结为一条纯语法引理（2026-10-09）
+
+> 授权同上节。本节只追加。工具链与闭包同上节；目标内索引 §30。读法：机器证明（有范围）；Z0 的条件收窄为“`arithTrln.translate` 可计算”，该引理未证。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-RE-001` | `CG001-C-111` | `formal/claude-cg001/godel-q-zfc-z0-re/GodelQ/ZFC/ShRE.lean`、`QualificationShRE.lean`（加 20 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-GODEL-Q-ZFC-Z0-RE-01/`；exit 0，stderr 0 B；97 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-RE-NEG-COMP-001` | `CG001-C-111`（负控制） | `formal/claude-cg001/godel-q-zfc-z0-re/GodelQ/Negative/WrongShREWithoutComputability.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-Z0-RE-NEG-COMP-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：可计算性没有被偷偷证明 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-111 | `REPred (fun φ : Sentence ℒₛₑₜ ↦ 𝗭𝗙𝗖 ⊢ φ)`；可计算且在 𝗭𝗙𝗖 中与 `arithTrln.translate` 可证性相同的 τ 给出 `Sh.RE`；`Computable arithTrln.translate → 𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL_ON_ONE_SYNTACTIC_LEMMA` | run `20261009-CG001-GODEL-Q-ZFC-Z0-RE-01`（`qual_C111`）；负控制 `-NEG-COMP-01` | 翻译的可计算性未证；内部化未做；不推出 Z0 已成立 |
