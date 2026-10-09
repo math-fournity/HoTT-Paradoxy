@@ -1,0 +1,81 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-09",
+  "claim_ids": [
+    "CG001-C-117",
+    "CG001-C-118"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-runner-arrival",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/Turing.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/TuringZFC.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/C6Review.lean",
+    "GodelQ/ZFC/ArrivalArith.lean",
+    "GodelQ/ZFC/ArrivalZFC.lean",
+    "GodelQ/ZFC/QualificationArrival.lean"
+  ],
+  "completed_at_utc": "2026-10-09T06:34:19.853031+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 73.340712,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "cd2adb72d0739a015968de2442c12fab35c0b378a2cf47d025ec93b6a4156074"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the equivalence is for the new halting formula PhiS; nothing is claimed about the opaque PhiH = translate (codeOfREPred haltsNat)",
+    "the arrival sentence is arithmetic (remaining distance <= 2^-K written as 'halved at least K times'); no real numbers are constructed inside ZFC, the real-number reading is at the Lean meta level",
+    "ZFC consistency and numeral soundness come from Lean's Universe model; no claim that ZFC proves a contradiction"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-001",
+  "run_id": "20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "The runner's arrival sentence on Foundation's ZFC: (C-117) a Sigma1 two-place code formula theta for 'program e has halted within i steps' (codeOfPartrec'), stopF e k := exists i <= k theta e i (monotone in every PA- model), haltsF, halvedF e K n := K <= n and no stop before K ('halved at least K times'), arrF e := forall K exists N forall n >= N halvedF e K n; in every model of PA-: arrF e <-> not haltsF e; in N: halvedF <-> remaining d n <= (1/2)^K, arrF is literally the epsilon-N form and is equivalent to Arrives d (real analysis: remaining > 0 and (1/2)^K -> 0). (C-118) the L_set sentences arrS a (translation of arrF at the numeral a) are not neverS, and ZFC proves arrS a <-> neverS PhiS a for every a (semantic proof through PA- models of omega and ZFC completeness); arrS means Arrives in Universe; zfcEffective' with the new halting formula PhiS satisfies the four meta-properties; zfcRunner is a RunnerTheory, so C-101's runner part holds without the parameter harr; A_general <-> Q-complete, ZFC lacks it and the omega-rule; the diagonal process's halting, never-halting and arrival sentences are all unprovable; C-115's ZFC review rewritten with arrival sentences still leaves an infinite, non-r.e. set of uncriticised errors",
+  "source_manifest": {
+    "bytes": 205338,
+    "path": "source-manifest.json",
+    "sha256": "4a99bf35d3caf703971418e7d949f7d55d9c90eef6d432671469db5a790d4c38"
+  },
+  "started_at_utc": "2026-10-09T06:33:06.511887+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 17068,
+    "path": "stdout.txt",
+    "sha256": "0c3bb9c1bb380e2385f7e31abbf32ec8abdca5668e7fdab0edb11d314d154caa"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

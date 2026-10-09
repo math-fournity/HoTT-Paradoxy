@@ -2057,3 +2057,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | CG001-C-114 | 经接口 π 确认维度 D：π 压平 D ⟹ 无可靠完备观察者；D 不可枚举 ⟹ 每个可靠可枚举观察者漏点不可枚举、无穷，可严格加细而仍漏；可靠完备可枚举的观察者存在 ⟺ `FiberConstant π D ∧ REPred D`；停机维度纤维恒定而无此观察者；𝗭𝗙𝗖 的“永不停机”漏点不可枚举、无穷；`limUnder` 接口判不了“有限阶段取到” | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / AI_PROPOSED_FORMAL_SHAPE` | run `20261009-CG001-IDEA-T-C6-P-01`（`qual_C114`）；负控制 `-NEG-01` | 不是“一切不完备都是维度缺失”；只在“接口 + 维度”的形状下 |
 | CG001-C-115 | `Adequate d := Arrives d ↔ ∃ n, position d n = 1`；`¬ Adequate d ↔ ¬ Done d`；每个有效、可靠的 `Review` 都不完备；𝗭𝗙𝗖 有一个 `¬ Adequate` 的跑者，其停机句与永不停机句都不可证；对任一 ℒₛₑₜ 公式 Φ，若 `𝗭𝗙𝗖 ⊢ neverS Φ ⌜d⌝ → ¬ Adequate d`，则 `{d ∣ ¬ Adequate d ∧ 𝗭𝗙𝗖 ⊬ neverS Φ ⌜d⌝}` 无穷且不可枚举 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / AI_PROPOSED_DEFINITION` | run `20261009-CG001-IDEA-T-C6-P-01`（`qual_C115`）；负控制 `-NEG-02` | 审查定义待裁定；𝗭𝗙𝗖 的审查句经 Lean 元层等价取作停机句；ℒₛₑₜ 到达句是 W5 |
 | CG001-C-116 | 有 `F x ∧ ¬ O x` 则无 `P1Rule Acc F ∧ OriginSound Acc O`；`P1Rule ∧ FormalSound ∧ ¬ REPred F ⟹ ¬ REPred Acc`；ℝ 每点 `¬ SemanticP1`，格点上成立；跑者族上二者都成立；`LooseRunnerTheory` 上 `A ↔ P ↔ CompletionSubstitution`；有效理论 `¬ A`（一条经 C-94，一条不经对角点）；真值理论有 A 与 P 而不可枚举 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-IDEA-T-C6-P-01`（`qual_C116`）；负控制 `-NEG-03` | “现实是量子化的”未证；“社区实际采用 P₁”是来源层；A ⟺ P 对 𝗭𝗙𝗖 本身两边都假 |
+
+## Claude CG-007 W5：跑者的到达句——𝗭𝗙𝗖 逐个证明它与永不停机句等价（2026-10-09）
+
+> 授权同上节。本节只追加。工具链同 W4a 节；导入闭包 1,889 个模块。三个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 §33。
+> 读法：机器证明（有范围）。支付 CG001-C-101 的参数 `harr`，对象是新的停机公式 ΦS；对旧的不透明公式 ΦH 不声称。到达句是算术写法，实数的读法在 Lean 元层。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-001` | `CG001-C-117`、`CG001-C-118` | `formal/claude-cg001/godel-q-zfc-runner-arrival/GodelQ/ZFC/ArrivalArith.lean`、`ArrivalZFC.lean`、`QualificationArrival.lean`（加 21 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01/`；exit 0，stderr 0 B；139 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-001` | `CG001-C-118`（负控制） | `formal/claude-cg001/godel-q-zfc-runner-arrival/GodelQ/Negative/WrongArrivalOldPhi.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：等价依赖到达句与停机公式来自同一个 `stopF` |
+| `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-002` | `CG001-C-118`（负控制） | `formal/claude-cg001/godel-q-zfc-runner-arrival/GodelQ/Negative/WrongHaltingRunnerArrives.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-02/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：到达句区分停与不停 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-117 | θ := `(codeOfPartrec' stopFun)/[‘1’, #0, #1]` 是 Σ1 的，ℕ 里恰是 `stopB`；`stopF e k := ∃ i ≤ k, θ e i` 在每个 𝗣𝗔⁻ 模型里单调；每个 𝗣𝗔⁻ 模型里 `arrF e ↔ ¬ haltsF e`；`remaining d n ≤ (1/2)^K ↔ K ≤ n ∧ ∀ i < K, ¬ DoneBy d i`；`Arrives d ↔ ∀ K ∃ N ∀ n ≥ N, remaining d n ≤ (1/2)^K`；ℕ 里 `arrF ⌜d⌝ ↔ Arrives d` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01`（`qual_C117`） | 𝗭𝗙𝗖 内部没有构造实数 |
+| CG001-C-118 | ∀ a，`arrS a ≠ neverS ΦS a ∧ 𝗭𝗙𝗖 ⊢ arrS a 🡘 neverS ΦS a`；`Universe ⊧ arrS ⌜d⌝ ↔ Arrives d`；`𝗭𝗙𝗖 ⊢ haltsS ΦS ⌜e⌝ ↔ Done e`；存在到达的跑者，𝗭𝗙𝗖 每一刻确认尚未停而 `𝗭𝗙𝗖 ⊬ arrS ⌜d⌝`；`¬ AGeneral`、`¬ OmegaClosed`；对角过程三句都不可证；`{d ∣ ¬ Adequate d ∧ 𝗭𝗙𝗖 ⊬ arrS ⌜d⌝}` 无穷且不可枚举 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01`（`qual_C118`）；负控制 `-NEG-01`、`-NEG-02` | 对旧的 ΦH 不声称；一致与可靠经 `Universe` |

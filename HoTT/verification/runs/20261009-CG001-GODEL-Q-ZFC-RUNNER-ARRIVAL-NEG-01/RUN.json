@@ -1,0 +1,80 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-09",
+  "claim_ids": [
+    "CG001-C-118"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-runner-arrival",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/Turing.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/TuringZFC.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/C6Review.lean",
+    "GodelQ/ZFC/ArrivalArith.lean",
+    "GodelQ/ZFC/ArrivalZFC.lean",
+    "GodelQ/Negative/WrongArrivalOldPhi.lean"
+  ],
+  "completed_at_utc": "2026-10-09T06:35:33.482718+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 73.032932,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "cd2adb72d0739a015968de2442c12fab35c0b378a2cf47d025ec93b6a4156074"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the rejection shows the equivalence depends on building the arrival sentence and the halting formula from the same stopF; it does not show that ZFC cannot prove the variant"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-118: the same semantic argument applied to the opaque old halting formula PhiH must be rejected (type mismatch: the model lemma is about haltsS PhiS)",
+  "source_manifest": {
+    "bytes": 205348,
+    "path": "source-manifest.json",
+    "sha256": "647f75ba719f43435b81093bb941c102c0b2f5a15896224e4f5e081516e760d0"
+  },
+  "started_at_utc": "2026-10-09T06:34:20.449444+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 17173,
+    "path": "stdout.txt",
+    "sha256": "66d837f09fab6d8b4b894c5b846b680d51f302e1427cb67866cce8eb513d2919"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}
