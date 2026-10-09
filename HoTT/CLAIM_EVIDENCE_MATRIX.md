@@ -2022,3 +2022,20 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-111 | `REPred (fun φ : Sentence ℒₛₑₜ ↦ 𝗭𝗙𝗖 ⊢ φ)`；可计算且在 𝗭𝗙𝗖 中与 `arithTrln.translate` 可证性相同的 τ 给出 `Sh.RE`；`Computable arithTrln.translate → 𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL_ON_ONE_SYNTACTIC_LEMMA` | run `20261009-CG001-GODEL-Q-ZFC-Z0-RE-01`（`qual_C111`）；负控制 `-NEG-COMP-01` | 翻译的可计算性未证；内部化未做；不推出 Z0 已成立 |
+
+## Claude CG-007 W6：同一个 ω 追问，在一个有单价性的内核里（2026-10-09）
+
+> 授权同上节。本节只追加。工具链：Cubical Agda 2.8.0 + cubical 0.9（macOS 记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`），`--safe`，无公设。四个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 §31。
+> 读法：机器证明（有范围）。同一内核中的同一类型、同一程序与同一跑者；不证明芝诺、H0、Z0 的数学内容相同；Z0 以参数接入，“𝗭𝗙𝗖 证明不了”在 Lean 一侧。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-SAME-Q-UNIVALENT-001` | `CG001-C-112`、`CG001-C-113` | `formal/claude-cg001/same-q-univalent/SameQ.agda`（导入 `pedometer-semantics`、`questioning-delay`、`truncation-questioning`、`product-questioning`、`universe-questioning`；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-01/`；exit 0；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-SAME-Q-UNIVALENT-NEG-001` | `CG001-C-113`（负控制） | `formal/claude-cg001/same-q-univalent/WrongH0Settles.agda` | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-NEG-01/`；exit 42，`nothing != just 1` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-SAME-Q-UNIVALENT-NEG-002` | `CG001-C-113`（负控制） | `formal/claude-cg001/same-q-univalent/WrongTruncUnsettled.agda` | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-NEG-02/`；exit 42，`true != false` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-SAME-Q-UNIVALENT-NEG-003` | `CG001-C-112`（负控制） | `formal/claude-cg001/same-q-univalent/WrongRunnerWithoutMonotone.agda` | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-NEG-03/`；exit 42，`alt k != not (alt k)` | `NEGATIVE_CONTROL_REJECTED`：单调前提确实被用到 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-112 | `OmegaQ = ℕ → Bool` 与找到即停的 `Delay` 搜索 `askQ`：`NeverFrom q s ↔ askQ q s ≡ never`；落定则燃料 k 内有输出；`¬ PFin`；单调追问的减半跑者 `Arrives ↔ Never`，单调前提不可去（`monotoneNeeded`）；`question C judge ≡ askQ (FromJudge.answers C judge) 1` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-SAME-Q-UNIVALENT-01`（`qual-C112`）；负控制 `-NEG-03` | 跑者到达是算术写法（减半次数无界），不用实数 |
+| CG001-C-113 | 芝诺：`askQ constFalse 0 ≡ never`、减半次数 = n、到达；H0：单价宇宙上 `question ≡ askQ answers 1`、从第 1 阶段起永不落定、跑者到达、`runFor 100 … ≡ nothing` 由 `refl`；截断宇宙 `TU`：第 1 阶段停、此后每阶段落定、跑者不到达；Z0：任一单调流满足同样的等价 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-SAME-Q-UNIVALENT-01`（`qual-C113`）；负控制 `-NEG-01`、`-NEG-02` | 三者共用类型与程序，各自的“落定”意义来自解释桥；Z0 是参数 |

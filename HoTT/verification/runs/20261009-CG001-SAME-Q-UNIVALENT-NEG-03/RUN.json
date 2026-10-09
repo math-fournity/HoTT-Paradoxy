@@ -1,0 +1,85 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [
+    "Claude Code desktop session d58e0c0d (CG-007 W6), 2026-10-09"
+  ],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-112"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/same-q-univalent",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/same-q-univalent/WrongRunnerWithoutMonotone.agda"
+  ],
+  "completed_at_utc": "2026-10-09T05:11:09.292278+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 89.0174,
+  "environment": {
+    "bytes": 1071,
+    "path": "environment.txt",
+    "sha256": "a726b19e5b142c9d7f7daccaec77bc76d600ccdb9590da08b882f6c5da28e01a"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/same-q-univalent/WrongRunnerWithoutMonotone.agda:12.45-46: error: [UnequalTerms]\nalt k != Cubical.Data.Bool.Base.not (alt k) of type\nAgda.Builtin.Bool.Bool\nwhen checking that the expression p has type\nalt (Agda.Builtin.Nat.Nat.suc k) ≡ Agda.Builtin.Bool.Bool.true",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/same-q-univalent",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the rejection shows the corresponding claim is false or the premise is load-bearing"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-SAME-Q-UNIVALENT-NEG-003",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20261009-CG001-SAME-Q-UNIVALENT-NEG-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-112: deriving never-settled from arrival without the monotone proviso, by passing the alternating question off as monotone, must be rejected",
+  "source_manifest": {
+    "bytes": 4120,
+    "path": "source-manifest.json",
+    "sha256": "39d65a8734818da4a63d82a4710f0b9f61868d593d4c033970c8d5ec5a96550a"
+  },
+  "started_at_utc": "2026-10-09T05:09:40.274878+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 30095,
+    "path": "stdout.txt",
+    "sha256": "6fa2ab87c8dd2a2f52a4d1d7449fc3e38411fc5d719491172716c0df7dcdcbe7"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
