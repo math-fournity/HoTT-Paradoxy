@@ -3,8 +3,9 @@
 > GPT 各线在各自分支上写成的形式包，以及它们的去向。权威记录是 `HoTT/CLAIM_NAMESPACE_LEDGER.md` §3；分支命题用前缀 D01、D02、D09 区分。
 
 **2026-10-09 更新**：凡是能用本机 Lean core 重新执行的分支 Lean 源，现在都在 `dev` 上有一份可重放收据
-（`HoTT/formal/branch-formalization-coverage/`，CG001-C-123 至 C-126，运行
-`20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-05` 与 `-NEG-01`）。下表“去向”列随之更新。
+（`HoTT/formal/branch-formalization-coverage/`，CG001-C-123 至 C-126；判据运行是
+`20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-06` 与 `-NEG-02`，`-01..-05` 与 `-NEG-01` 是驱动修正期的失败尝试）。
+唯一原本被排除在外的 `GeometricCompletion.lean`（dev-03/dev-04）也已在本机 Mathlib 上重放（CG001-C-127）。
 八个 worktree 方向的逐条覆盖判定见该包 `CLAIM.md` §1。
 
 | 分支（提交） | 包 | 编号 | 去向 | 说明 |
@@ -16,7 +17,13 @@
 | dev-03（`854a6aba`） | `zfc-observation-boundary` 7 个 Lean 源 | 无 C 编号（`MP-ZFC-ACTUAL-POLICY-WITNESS-001` 等） | 留在分支；**已有 `dev` 收据** | `ObservationBoundary`、`MetaObservationConsistency`、`ActualPolicyWitness`、`ActualPolicyEvidenceFrontier`、`SepCompletionPromotion`、`SequentialCompletionContracts`、`UouCompletionPromotion` |
 | dev-04（`f97bbcb4`） | `zfc-observation-boundary` 5 个正源 + 2 个负控制 | 无 C 编号（`MP-ZFC-COMPLETION-PROMOTION-TENSION-001` 等） | 留在分支；**已有 `dev` 收据** | `CompletionPromotionTension`、`MetaSubtheoryAudit`、`CompletionSubstitutionProfile`、`CommunityObservationPolicy`；负控制在 `-NEG-01` 运行中被内核拒绝 |
 | dev-06、dev-07 | 无新的形式包 | — | 留在分支 | Pattern-First 的方案、卡片与审计；H0 过程锚七字段已由 CG-005 吸收 |
-| dev-03、dev-04 | `GeometricCompletion.lean`（两版） | `MP-ZFC-GEOMETRIC-COMPLETION-001` | 留在分支 | 依赖 Mathlib，本机 toolchain pin 未含 Mathlib 构建树，故不在 `branch-formalization-coverage/` 内；分支上的 `20261003-MP-ZFC-GEOMETRIC-COMPLETION-001-0{1..5}` 收据保持原样 |
+| dev-03、dev-04 | `GeometricCompletion.lean`（两版逐字节相同） | CG001-C-127 | ✅ **已有 `dev` 收据** | `claude-cg001/godel-q-geometric-completion/`；17 s、exit 0、8 条公理报告全为三条标准公理。上一轮记为“缺 Mathlib 构建树”的理由不成立：本机有完整 Mathlib `5ed29652`，缺的只是 pin 未列本体根（新工具 `make_mathlib_pins.py` 补上） |
+
+### 缺口清单（诚实登记）
+
+| 缺口 | 现在状态 | 为什么 |
+|---|---|---|
+| dev-09 `external-foundation-incompleteness`（D09-C-369） | `SOURCE_REPORTED_NOT_REPLAYED` | 运行依赖一个已不存在的 `/tmp` Foundation 检出。本机有 `foundation-src`（`1fb01b72`）与对应构建，**尚未**把该分支源码在其上编译。这是唯一剩下的缺口，方向 C |
 
 ## 取用
 
@@ -26,4 +33,5 @@
 
 ## 下一步
 
-- 没有进行中的工作。`external-foundation-incompleteness`（D09-C-369）需要一份本机可用的 Foundation 检出才能重执行；在拿到之前它保持 `SOURCE_REPORTED_NOT_REPLAYED`，不并入也不删除。
+- 方向 C：把 dev-09 的 `external-foundation-incompleteness`（D09-C-369）在本机 `foundation-src`（`1fb01b72`）上编译，若通过就是一份新的 `dev` 收据；先读它的 `CLAIM.md` 与运行记录，确认版本差异是否改变命题。
+- 上一轮认定为缺 Mathlib 的那一条已在本轮补齐（CG001-C-127）。

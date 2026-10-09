@@ -2122,3 +2122,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | CG001-C-124 | 同一环境下 2 个负控制源都在预定点被内核拒绝（`WrongMetaSubtheoryAudit` 的 `assumption` 失败） | `NEGATIVE_CONTROL_REJECTED / GOAL_LOCAL_INDEXED` | run `NEG-01` | 不证明 ZFC 或 HoTT 的任何性质 |
 | CG001-C-125 | 16 个正源 165 条公理报告全部为“does not depend on any axioms”；stdout/stderr/exit 与源码哈希、二进制哈希一起固定 | `EVIDENCE_INTEGRITY_PINNED / GOAL_LOCAL_INDEXED` | run `-04` | 无公理不等于命题为真，只等于这些 Lean core 定理不依赖额外公理 |
 | CG001-C-126 | 八个工作树方向的形式化覆盖完整：dev-01 与 dev-09 的已并入包沿用既有 `dev` 收据（`4a3535d9`、`20261008-S7C-IMPORT-REPLAY.json`）；dev-02/03/04 由本包补齐；dev-06/07/08 无形式包判为不适用；dev-09 的 `external-foundation-incompleteness`（D09-C-369）判为本机不可重放，保持 `SOURCE_REPORTED_NOT_REPLAYED` | `COVERAGE_COMPLETE_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-04` + `dev` 既有收据 | dev-09 外部 Foundation 包的运行依赖一个已不存在的 `/tmp` 检出，缺的是本机 toolchain，不是它的正确性；不读成八条线的研究已完成；`GeometricCompletion.lean` 依赖 Mathlib，本包未含其构建树，其分支收据保持原样 |
+
+## CG-007 W9b：分支实分析控制在本机 Mathlib 上重放（2026-10-09，Codex 会话）
+
+Package 表：
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-GEOMETRIC-COMPLETION-001` | `CG001-C-127` | `formal/claude-cg001/godel-q-geometric-completion/GodelQ/GeometricCompletion.lean`（逐字节复制自 `origin/dev-03`，与 `origin/dev-04` 同路径文件逐字节相同）；命题全文与分支禁止外推见该包 `CLAIM.md` | `verification/runs/20261009-CG001-GODEL-Q-GEOMETRIC-COMPLETION-01/`；exit 0，stderr 0 B；8 条公理报告全为 propext、Classical.choice、Quot.sound；`--rerun` `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY_NOT_NEW_MATHEMATICS` |
+
+Claim 表：
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-127 | 分支的实分析控制 `GeometricCompletion.lean` 在本机 Mathlib `5ed29652` 与 pinned Lean 4.34.0、禁网沙盒下编译通过：几何部分和 `1-(1/2)^n` 在每个自然数阶段严格小于 1、永不到达 1、在实数拓扑中趋于 1；`hasLimitOutcome` 与 `hasFiniteStageEndpoint` 两个形式谓词对该具体序列不等价；闭区间 `[0,1]` 时间域中有终端参数 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY` | run `20261009-CG001-GODEL-Q-GEOMETRIC-COMPLETION-01` | 不读成“这些命题被独立复核”，数学内容与范围仍以分支自己的 `CLAIM.md` 为准；不读成几何完成性或芝诺问题被解决；不声称 Mathlib 本体进入 CG-007 其它包的 pin（仅本包含它，且本包不用 Foundation）；不是 HoTT 路径证明，也不是 ZFC 元理论陈述 |
+
+**这一节对 §36 的修正**：上一轮把 `GeometricCompletion.lean` 记为“本机 toolchain pin 未含 Mathlib 构建树，故不在覆盖包内”。本机 `/Volumes/D/HoTT-toolchain-cache/` 下有完整的 Mathlib `5ed29652` 构建（2329 个 olean，含 `Mathlib/Analysis/SpecificLimits/Normed.olean`）；CG-007 既有 pin 只列 8 个依赖包而不列 Mathlib 本体根，是 pin 覆盖面的选择，不是能力缺失。因此 §36 的该条保留意见被本节取代。
