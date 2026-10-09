@@ -41,6 +41,7 @@
 | 23 | 各线的层次（倒查骨架） | 全程 | 每条线末轮到分叉点；`python3 tools/gui_backtrace.py <线> [--from N --to M]` | 每层一个 SOP 或 /goal；终点多为推送或结案自述 | `Targets与Profile.md` §2 |
 | 24 | ZFC 元理论—子理论充分性的总门（C0–C6） | Ⅱ、R-无 | dev-01/0014–0020；dev-08/0123–0126 | dev-01 在分支上报 CORE_ADEQUACY_FAILURE_WITH_SCOPE；主干之后仍在做 C0R9–C0R11，两线没有合账 | `dev-docs/ZFC元理论子理论充分性最终闭环SOP.md` 003–004 片；`HoTT/formal/zfc-meta-subtheory-adequacy/` |
 | 25 | Pattern-First 找 Z0 与 H0 过程锚 | Ⅰ、Ⅳ | dev-06/0005–0010；dev-07/0003–0006 | 三张盲卡只找到“形成”站位；dev-06 #10 自我修正：要的是理论原生的逐层判定过程；dev-07 把 A/B 钉成硬门 | `origin/dev-06:dev-docs/H0-Z0模式P优先收敛SOP.md`；CG-005 设计 §3（Z0 = 矛盾搜索） |
+| 26 | 逐轮颗粒度：GPT 在第几轮判过什么、提交过什么哈希、门规与方法资产（判词 139 条、Git 谱系 52 条、方法 178 条等） | 全程；回答“GPT 当时判过什么” | 第一战役资产登记（全行阅读产生），不在本索引的主题表里 | ZCode 审计（2026-10-08，未提交文件 `audit/20261008-八线掌握度与路线保全审计-ZCode.md` K1）指出这批颗粒度只存在于第一战役产物与问答树中 | `audit/GUI-ASSET-RECOVERY/D3-资产登记v2-20261007.md`（619 条）、`D3-FILECHANGE-INDEX.md`、`D2-八线全程叙事-20261007.md`（其中 dev-02、dev-06 的父分支写错，机器树为 dev-08，见复盘 §9.6）；均已入库 |
 
 ## 2. 分叉之后的研究发起人原话（核心认知第 14 代的候选；S7-e）
 
