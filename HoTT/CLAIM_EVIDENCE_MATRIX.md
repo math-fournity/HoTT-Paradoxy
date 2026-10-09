@@ -1960,3 +1960,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-103 | `Sh := {σ ∣ 𝗭𝗙𝗖 ⊢ σᵗ}`（`σᵗ := arithTrln.translate σ`）：`Sh ⊢ σ ↔ 𝗭𝗙𝗖 ⊢ σᵗ`；`Sh` 一致；`𝗥₀ ⪯ Sh`；若 `[Sh.RE] [𝗜𝚺₁ ⪯ Sh]`，则 `𝗭𝗙𝗖 ⊬ arithTrln.translate (Sh.craig.consistent.val)` 且 `Sh ⊬ Sh.craig.consistent.val` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL` | run `20261008-CG001-GODEL-Q-ZFC-Z0-01`（`zfc_z0_conditional`）；负控制 `-NEG-ISIGMA1-01` | 两条前提未证；不推出 Z0 对 𝗭𝗙𝗖 成立；`Sh` 的一致性来自 Lean 元层 `Universe` 模型；不推出 `ZFC ⊢ ⊥` |
+
+## Claude CG-007 W1：图灵路线——不对 𝗭𝗙𝗖 做自指的观察力不完备（无哥德尔路线 (a)，2026-10-08）
+
+> 授权同上一 Claude 节（研究发起人 2026-10-07 全面授权；2026-10-08：“按照你的想法进行优先级安排，完成后续所有“形式化和机器证明”工作。”；会话 `d58e0c0d`）。本节只追加。
+> 工具链同 CG-006；记录 `formal/claude-cg001/godel-q-zfc-turing/LEAN_TOOLCHAIN.json`、`MATHLIB_CLOSURE.json`（1,889 个模块，聚合 `21197b0b…29c7`）。两个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 `.claude/goals/CG-001-targeted-overview/证据索引.md` §27。
+> 读法：机器证明（有范围）。源码末尾的 `run_cmd` 依赖检查核对：这些定理不依赖本项目的对角声明（含 C-99/C-100），依赖 Mathlib 的停机定理；停机定理本身经 Rice 定理用到递归定理。所以“无哥德尔”只指不对 𝗭𝗙𝗖 及其可证性做自指。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-TURING-001` | `CG001-C-104`、`CG001-C-105` | `formal/claude-cg001/godel-q-zfc-turing/GodelQ/Turing.lean`、`ZFC/TuringZFC.lean`、`ZFC/QualificationTuring.lean`（加 16 个与 `godel-q-zfc` 逐字节相同的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-GODEL-Q-ZFC-TURING-01/`；exit 0，stderr 0 B；87 条公理报告只有三条标准公理；依赖检查两行通过；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-001` | `CG001-C-104`（负控制） | `formal/claude-cg001/godel-q-zfc-turing/GodelQ/Negative/WrongTuringWithTruthObserver.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-01/`；exit 1，`re` 字段处被拒 | `NEGATIVE_CONTROL_REJECTED`：可靠但不可枚举的真理观察者没有漏点，“可枚举”这一前提确实被用到 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-104 | 任一可靠、可枚举的永不完成观察者 `O`：`¬ REPred (· ∈ O.Misses)`，`O.Misses.Infinite`，任意有限补丁之后同样成立；任一 `EffectiveTheory`：`¬ CompleteForNever`（证明不经过对角点），漏点不可枚举且无穷，漏点的每个有限时刻都被确认“尚未完成” | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-GODEL-Q-ZFC-TURING-01`（`qual_C104`）；负控制 `-NEG-TRUTH-01` | 停机问题的证明本身是对角论证；不推出任何理论不一致 |
+| CG001-C-105 | 对 Foundation 的 `𝗭𝗙𝗖`：`zfcMisses = {e ∣ 𝗭𝗙𝗖 ⊬ neverS ΦH ⌜e⌝ ∧ 𝗭𝗙𝗖 ⊬ haltsS ΦH ⌜e⌝}`；它不可枚举且无穷；对其中每个 e 与每个 k，`𝗭𝗙𝗖 ⊢ haltsS ΨN ⌜(e,k)⌝`；`¬ zfcEffective.CompleteForNever`；`Entailment.Incomplete 𝗭𝗙𝗖`；有限补丁之后漏点仍不可枚举、仍无穷 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-GODEL-Q-ZFC-TURING-01`（`qual_C105`） | 一致与 Σ1 可靠来自 Lean 元层 `Universe` 模型；补丁定理针对观察者，不是 𝗭𝗙𝗖 加公理后的演绎闭包；不推出 `ZFC ⊢ ⊥` |

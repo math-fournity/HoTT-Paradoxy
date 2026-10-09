@@ -1,0 +1,60 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-104"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-turing",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/Turing.lean",
+    "GodelQ/Negative/WrongTuringWithTruthObserver.lean"
+  ],
+  "completed_at_utc": "2026-10-09T00:30:32.291162+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 8.62463,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "cd2adb72d0739a015968de2442c12fab35c0b378a2cf47d025ec93b6a4156074"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the rejection shows the r.e. premise is used; it is not a claim about any theory"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261008-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-104: the truth observer (accepts exactly the never-halting processes) is sound but not r.e.; treating it as an r.e. observer in the miss theorem must be rejected at the missing re field",
+  "source_manifest": {
+    "bytes": 201028,
+    "path": "source-manifest.json",
+    "sha256": "dde99646b79d46caebb4ecb538c9c732f6fdddf99b84c6354b0a6a28d4265956"
+  },
+  "started_at_utc": "2026-10-09T00:30:23.666318+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 3263,
+    "path": "stdout.txt",
+    "sha256": "d5a1ac292074f3f98639bbbc75a34586eb231e1bc3187fb25f326471eccfbe13"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}
