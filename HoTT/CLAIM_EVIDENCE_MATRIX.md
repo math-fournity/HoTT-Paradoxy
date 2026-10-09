@@ -2073,3 +2073,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | CG001-C-117 | θ := `(codeOfPartrec' stopFun)/[‘1’, #0, #1]` 是 Σ1 的，ℕ 里恰是 `stopB`；`stopF e k := ∃ i ≤ k, θ e i` 在每个 𝗣𝗔⁻ 模型里单调；每个 𝗣𝗔⁻ 模型里 `arrF e ↔ ¬ haltsF e`；`remaining d n ≤ (1/2)^K ↔ K ≤ n ∧ ∀ i < K, ¬ DoneBy d i`；`Arrives d ↔ ∀ K ∃ N ∀ n ≥ N, remaining d n ≤ (1/2)^K`；ℕ 里 `arrF ⌜d⌝ ↔ Arrives d` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01`（`qual_C117`） | 𝗭𝗙𝗖 内部没有构造实数 |
 | CG001-C-118 | ∀ a，`arrS a ≠ neverS ΦS a ∧ 𝗭𝗙𝗖 ⊢ arrS a 🡘 neverS ΦS a`；`Universe ⊧ arrS ⌜d⌝ ↔ Arrives d`；`𝗭𝗙𝗖 ⊢ haltsS ΦS ⌜e⌝ ↔ Done e`；存在到达的跑者，𝗭𝗙𝗖 每一刻确认尚未停而 `𝗭𝗙𝗖 ⊬ arrS ⌜d⌝`；`¬ AGeneral`、`¬ OmegaClosed`；对角过程三句都不可证；`{d ∣ ¬ Adequate d ∧ 𝗭𝗙𝗖 ⊬ arrS ⌜d⌝}` 无穷且不可枚举 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01`（`qual_C118`）；负控制 `-NEG-01`、`-NEG-02` | 对旧的 ΦH 不声称；一致与可靠经 `Universe` |
+
+## Claude CG-007 W4b：翻译可计算；Z0 的影子形式不再带前提（2026-10-09）
+
+> 授权同上节。本节只追加。工具链同 W4a 节；导入闭包 1,893 个模块。三个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 §34。
+> 读法：机器证明（有范围）。支付 CG001-C-111 的阻塞引理；CG001-C-103 的两条前提都成为定理。结论是“𝗭𝗙𝗖 证明不了它的算术影子（经 Craig 公理化）一致性句的翻译”；读成“𝗭𝗙𝗖 证明不了 Con(𝗭𝗙𝗖)”还差证明的内部翻译（W8）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-001` | `CG001-C-119`、`CG001-C-120` | `formal/claude-cg001/godel-q-zfc-z0-translate/GodelQ/ZFC/InternalTranslate.lean`、`TranslateRE.lean`、`QualificationTranslate.lean`（加 21 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-01/`；exit 0，stderr 0 B；106 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-NEG-RE-001` | `CG001-C-120`（负控制） | `formal/claude-cg001/godel-q-zfc-z0-translate/GodelQ/Negative/WrongZ0WithoutRE.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-NEG-RE-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：没有内部翻译就没有 `Sh.RE`，C-110 一条不够 |
+| `MP-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-NEG-DOMAIN-001` | `CG001-C-119`（负控制） | `formal/claude-cg001/godel-q-zfc-z0-translate/GodelQ/Negative/WrongTranslateNoDomain.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-NEG-DOMAIN-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：量词情形核对了 ω 限制 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-119 | 在 𝗜𝚺₁ 的每个模型 V 中，`iVE`、`iT` 是 𝚺₁ 可定义的函数（`iVEDef`、`iTDef`），且对每个闭项 t、每个算术公式 φ：`iVE n ⌜t⌝ = ⌜varEqual t⌝`、`iT n ⌜φ⌝ = ⌜arithTrln.translate φ⌝`；ℕ 里 `iT 0 (encode σ) = encode σᵗ`；`Computable (fun σ : ArithmeticSentence ↦ arithTrln.translate σ)` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-01`（`qual_C119`）；负控制 `-NEG-DOMAIN-01` | `iT_quote` 是对具体公式的元层定理，不是 𝗜𝚺₁ 内部的一句断言 |
+| CG001-C-120 | `REPred (fun σ ↦ 𝗭𝗙𝗖 ⊢ σᵗ)`；`Sh.RE`；`𝗜𝚺₁ ⪯ Sh`；`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`；`Sh ⊬ Sh.craig.consistent`：都不带前提 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-01`（`qual_C120`）；负控制 `-NEG-RE-01` | 不是“𝗭𝗙𝗖 ⊬ Con(𝗭𝗙𝗖)”的内部形式（还差 𝗜𝚺₁ ⊢ Con(𝗭𝗙𝗖) → Con(Sh.craig)）；`Sh` 一致经 `Universe` |

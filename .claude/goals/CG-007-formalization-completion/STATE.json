@@ -3,15 +3,15 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W5",
-  "next_action": "W4b 翻译可计算：先翻查（gui_find translate Primrec subst varEqual）并读 Foundation 的 Semiformula 编码（PrimrecCoding.lean 的 nat_omega_rec' 用法）与 arithTrln 的定义（LK/Interpretation 的 DirectTranslation、translateRel、translateAux）；新包 godel-q-zfc-z0-translate：证明 Computable (arithTrln.translate)，四条子引理（代换在编码上原始递归、varEqual、translateRel、translateAux）；做成则 Sh.RE 与 Z0 的影子形式无条件（C-111 的前提付清）；若卡住，写明阻塞子引理并留最小可续状态，转 W8",
+  "phase": "W4b",
+  "next_action": "W8 内部化（修订的路线，方案 W8 一节与 CN-072 §4）：先翻查（gui_find HBL D3 可导性 Provability 内部化）；新包 godel-q-zfc-z0-full：显式可证性谓词 𝔅Z(x) := Provable 𝗭𝗙𝗖 (iT 0 x) 作为 Provability 𝗜𝚺₁ Sh；证 D1、D2；证 𝔅Z.con 与 𝗭𝗙𝗖.consistent 在 𝗜𝚺₁ 中等价；用 con_unprovable 得到在 𝔅Z.HBL3 下 𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ；D3（经翻译的形式化 Σ1 完全性）尝试，做不完就写成唯一阻塞引理并给 ℕ 中成立的正对照；然后 W9 发布",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-09T02:52:03-04:00",
-  "last_checkpoint": "2026-10-09T02:52:03-04:00",
-  "checkpoints": 8,
-  "compactions": 1,
-  "last_compaction": "2026-10-09T01:30:20-04:00"
+  "updated": "2026-10-09T09:27:03-04:00",
+  "last_checkpoint": "2026-10-09T09:27:03-04:00",
+  "checkpoints": 9,
+  "compactions": 2,
+  "last_compaction": "2026-10-09T08:48:39-04:00"
 }

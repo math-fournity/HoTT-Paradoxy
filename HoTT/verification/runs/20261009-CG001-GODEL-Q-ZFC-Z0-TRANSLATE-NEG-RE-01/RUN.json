@@ -1,0 +1,78 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-09",
+  "claim_ids": [
+    "CG001-C-120"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-translate",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/Negative/WrongZ0WithoutRE.lean"
+  ],
+  "completed_at_utc": "2026-10-09T13:06:12.749132+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 54.104414,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "7586b82da43d1ddb29241d84c45a476e9c4f90159cdb0b87d41624764f1e2f10"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the rejection shows the unconditional form rests on the new Sh.RE instance; it says nothing about whether ZFC proves the sentence"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-NEG-RE-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-NEG-RE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-120: without the internal translation (the file imports only Z0PA, so there is no Sh.RE instance) the hypothesis-free Z0 shadow statement must be rejected at the instance Theory.RE Sh; ISigma1 <= Sh (C-110) alone is not enough",
+  "source_manifest": {
+    "bytes": 204868,
+    "path": "source-manifest.json",
+    "sha256": "f29c0fa01194d2614d1dc60007fc8d9b07232a4451673141b58c1348fc6ad1ed"
+  },
+  "started_at_utc": "2026-10-09T13:05:18.644715+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 12952,
+    "path": "stdout.txt",
+    "sha256": "66ea5c808c597a5d0aa580e31c6e59560667591b0268cd67bc600058b09c5d5e"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}
