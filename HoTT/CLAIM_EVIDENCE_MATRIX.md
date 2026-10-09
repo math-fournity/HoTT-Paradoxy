@@ -1993,3 +1993,19 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 | CG001-C-106 | 第一可数空间中 `(∀ s, ArrivesAt s x → AttainsAt s x) ↔ Isolated x`；ℝ 中每一点不孤立（`zenoSeq x`）；格点值收敛序列最终等于极限；离散空间同样 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-ZENO-DENSITY-ATTAINMENT-01`（`qual_C106`）；负控制 `-NEG-DENSE-01` | 不证明现实时空量子化；不裁定哪一个“到达”是原任务的 |
 | CG001-C-107 | 量子化半步跑者（`quantStep m r = ⌊r/2·2ᵐ⌋/2ᵐ`）的闭式、格点性、恰在第 m+1 步完成、第 0 至 m 步与稠密跑者相同；`¬ ∃ g, ∀ s L, ArrivesAt s L → (g L ↔ AttainsAt s L)`，带粒度的判据存在；完成在 m → ∞ 的逐步极限里丢失，位置的累次极限都是 1 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上（`qual_C107`） | 量子化只用等距格点模型；推广而不替代 D01-C-370、C-371 |
 | CG001-C-108 | 稠密时间：阶段时刻严格递增、都 < 1、以 1 为极限；连续运动在 t = 1 ∈ [0,1] 取到 1（正控制）；t = 1 不是任何阶段；格点时间中严格递增序列无上界 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上（`qual_C108`） | 闭区间端点只作标准解完成的正控制，不替代原过程完成 |
+
+## Claude CG-007 W3：𝗭𝗙𝗖 解释 𝗣𝗔；Z0 只剩一条前提（2026-10-08）
+
+> 授权同上节。本节只追加。
+> 工具链同 CG-006；记录 `formal/claude-cg001/godel-q-zfc-z0-pa/LEAN_TOOLCHAIN.json`、`MATHLIB_CLOSURE.json`（1,893 个模块，聚合 `02b0e80f…5161`）。两个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 `.claude/goals/CG-001-targeted-overview/证据索引.md` §29。
+> 读法：机器证明（有范围）。C-103 的第二条前提 `𝗜𝚺₁ ⪯ Sh` 成为定理；Z0 只剩 `Sh.RE` 与内部化，本节不推出 Z0 对 𝗭𝗙𝗖 已成立。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-PA-001` | `CG001-C-109`、`CG001-C-110` | `formal/claude-cg001/godel-q-zfc-z0-pa/GodelQ/ZFC/OmegaLaws.lean`、`PAModel.lean`、`Z0PA.lean`、`QualificationZ0PA.lean`（加 17 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-GODEL-Q-ZFC-Z0-PA-01/`；exit 0，stderr 0 B；94 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-PA-NEG-RE-001` | `CG001-C-110`（负控制） | `formal/claude-cg001/godel-q-zfc-z0-pa/GodelQ/Negative/WrongZ0WithoutRE.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-Z0-PA-NEG-RE-01/`；exit 1，实例 `Theory.RE Sh` 找不到 | `NEGATIVE_CONTROL_REJECTED`：`Sh.RE` 仍是前提，没有被偷偷证明 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-109 | 对每个 `M ⊧ 𝗭𝗙𝗖`，`(arithTrln.Model M) ⊧* 𝗣𝗔`；`paInterp : 𝗭𝗙𝗖 ⊳ 𝗣𝗔`；`𝗣𝗔 ⊢ σ → 𝗭𝗙𝗖 ⊢ arithTrln.translate σ` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-GODEL-Q-ZFC-Z0-PA-01`（`qual_C109`） | 经典事实的形式化；完备性定理与模型在 Lean 元层 |
+| CG001-C-110 | `𝗣𝗔 ⪯ Sh`；`𝗜𝚺₁ ⪯ Sh`；在 `[Sh.RE]` 下 `𝗭𝗙𝗖 ⊬ arithTrln.translate (Sh.craig.consistent.val)` 且 `Sh ⊬ Sh.craig.consistent.val` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL_ON_ONE_EXPLICIT_HYPOTHESIS` | 同上（`qual_C110`）；负控制 `-NEG-RE-01` | `Sh.RE` 与内部化未证；不推出 Z0 对 𝗭𝗙𝗖 已成立；不推出 `ZFC ⊢ ⊥` |
