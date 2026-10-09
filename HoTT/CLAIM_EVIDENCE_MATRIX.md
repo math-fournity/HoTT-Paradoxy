@@ -2089,3 +2089,36 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | CG001-C-119 | 在 𝗜𝚺₁ 的每个模型 V 中，`iVE`、`iT` 是 𝚺₁ 可定义的函数（`iVEDef`、`iTDef`），且对每个闭项 t、每个算术公式 φ：`iVE n ⌜t⌝ = ⌜varEqual t⌝`、`iT n ⌜φ⌝ = ⌜arithTrln.translate φ⌝`；ℕ 里 `iT 0 (encode σ) = encode σᵗ`；`Computable (fun σ : ArithmeticSentence ↦ arithTrln.translate σ)` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-01`（`qual_C119`）；负控制 `-NEG-DOMAIN-01` | `iT_quote` 是对具体公式的元层定理，不是 𝗜𝚺₁ 内部的一句断言 |
 | CG001-C-120 | `REPred (fun σ ↦ 𝗭𝗙𝗖 ⊢ σᵗ)`；`Sh.RE`；`𝗜𝚺₁ ⪯ Sh`；`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`；`Sh ⊬ Sh.craig.consistent`：都不带前提 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-Z0-TRANSLATE-01`（`qual_C120`）；负控制 `-NEG-RE-01` | 不是“𝗭𝗙𝗖 ⊬ Con(𝗭𝗙𝗖)”的内部形式（还差 𝗜𝚺₁ ⊢ Con(𝗭𝗙𝗖) → Con(Sh.craig)）；`Sh` 一致经 `Universe` |
+
+## Claude CG-007 W8：Z0 的内部化只差一条引理；其余前提全部成为定理（2026-10-09）
+
+> 授权同上节。本节只追加。工具链同 W4a 节；导入闭包 1,893 个模块。一个主运行经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 §35。**接手说明**：本单元原由 Claude Opus 5.5 会话 d58e0c0d 推进，停在 `godel-q-zfc-z0-full` 包的开发构建（两处编译错误：`modus_ponens_sentence` 的理论参数、`FFL.Semantics.Iff.models_iff` 这个不存在的常数名）。Codex 会话修复这两处机械错误后完成本单元，未改动其数学设计。
+>
+> 读法：机器证明（有范围）。显式可证性谓词 `𝔅Z(x) := Provable 𝗭𝗙𝗼 (iT 0 x)` 成为 `Provability 𝗜𝚺₁ Sh`，D1、D2、一致性句等价、Σ1 层级与 D3 在 ℕ 中的正对照都是定理。把 C-120 读成“𝗭𝗙𝗼 证明不了 Con(𝗭𝗙𝗼)”所差的最后一步被固定成**一条** Lean 命题（`zfcTr_D3_internalize`，带未证标记，不是收据源）；它一旦成立，完整形式立即随之成立。本包没有负控制运行，理由见包 `CLAIM.md` §3。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-FULL-001` | `CG001-C-121`、`CG001-C-122` | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/Z0Full.lean`（加 21 个逐字节复制的依赖模块；命题全文 `CLAIM.md`；阻塞引理在 `GodelQ/ZFC/Z0Blocked.lean`，**不在**本运行源清单） | `verification/runs/20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01/`；exit 0，stderr 0 B，71.7 秒；112 条公理报告只有三条标准公理；30 个源文件哈希固定 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-121 | `TrProvable x := Provable 𝗭𝗙𝗼 (iT 0 x)`，其 Σ1 公式 `trProv`；`zfcTr : Provability 𝗜𝚺₁ Sh` 且 `V ⊧ zfcTr σ ↔ Provable 𝗭𝗙𝗼 ⌜σᵗ⌝`；D1（`iT_quote` + `internalize_provability`）；D2 = HBL2（`modus_ponens_sentence`）；`𝗜𝚺₁ ⊢ zfcTr.con 🡘 𝗭𝗙𝗼.consistent`；`zfcTr σ` 是 𝚺₁ 句；正对照：ℕ 中 D3 成立 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01`（`zfcTr`、`zfcTr_HBL2`、`zfcTr_con_iff`、`zfcTr_sigma1`、`zfcTr_D3_standard`） | 谓词是“𝗭𝗙𝗼 证明 x 的翻译”，不是 `Sh.craig` 那个经选择得到的 Σ1 句；D3 的正对照不覆盖非标准模型 |
+| CG001-C-122 | 给定阻塞引理 `zfcTr_D3_internalize`（𝗜𝚺₁ 的每个模型 V 中 `Provable 𝗭𝗙𝗸 ⌜σᵗ⌝ → Provable 𝗭𝗙𝗸 ⌜(zfcTr σ)ᵗ⌝`），则 `𝗭𝗙𝗸 ⊬ arithTrln.translate (𝗭𝗙𝗸.consistent)`，且 `Sh ⊬ 𝗭𝗙𝗸.consistent` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / CONDITIONAL_ON_BLOCKING_LEMMA` | run `20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01`（`zfc_z0_full_of_D3_internalize`，无未证标记，只以待证引理为显式前提） | 阻塞引理本身未证；不声称“𝗭𝗙𝗸 ⊬ Con(𝗭𝗙𝗸)”已证；不带前提的仍是 C-120 的影子形式 |
+
+## Claude CG-007 W9：八个 git worktree 的形式化资产在 `dev` 上全部有可重放收据（2026-10-09）
+
+> 授权：研究发起人 2026-10-08“按照你的想法进行优先级安排，完成后续所有‘形式化和机器证明’工作”，以及本轮“必须 Cover 所有值得保留的 8 个当初的 git worktree 留下的工作方向”。本节只追加。
+> 工具链：Lean 4 core v4.34.1（二进制与版本行按字节与 SHA-256 固定），**无 Mathlib、无项目库**；禁网沙盒内按绝对路径调用 pinned 二进制，不经过 elan 代理。18 个源逐个与 `origin/dev-02`、`origin/dev-03`、`origin/dev-04` 原件比对 SHA-256 后复制。
+> **身份**：本机重放与来源固定，不是新数学。所有定理在各自分支上已由 GPT 各线证明。逐线覆盖判定见包 `CLAIM.md` §1。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-BRANCH-FORMALIZATION-COVERAGE-001` | `CG001-C-123`、`CG001-C-125`、`CG001-C-126` | `formal/branch-formalization-coverage/GodelQ/`：16 个正源（`ObservationBoundary`、`MetaObservationConsistency`、`MetaSubtheoryAudit`、`CompletionPromotionTension`、`CompletionSubstitutionProfile`、`CommunityObservationPolicy`、`ActualPolicyWitness`、`ActualPolicyEvidenceFrontier`、`SepCompletionPromotion`、`SequentialCompletionContracts`、`UouCompletionPromotion`、`ActualQPolicy`、`ZFCObservationLanguage`、`ZFCCompletionPolicyUniformity`、`ZFCUnpaidCompletionPromotion`、`ZFCMembershipLanguageBoundary`；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-06/`；exit 0；165 条公理报告全部无公理 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY_NOT_NEW_MATHEMATICS` |
+| `MP-CG001-BRANCH-FORMALIZATION-COVERAGE-NEG-001` | `CG001-C-124`（负控制） | `formal/branch-formalization-coverage/GodelQ/WrongMetaSubtheoryAudit.lean`、`WrongCompletionPromotionTension.lean` | `verification/runs/20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-NEG-02/`；exit 1，`assumption` 失败 | `NEGATIVE_CONTROL_REJECTED`：受控反例确实在预定点被拒 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-123 | dev-02/03/04 三条线留在分支上的 16 个 Lean-core 正源，在 pinned Lean 4.34.1、禁网沙盒下全部编译通过，且每个文件与其分支原件逐字节相同 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY` | run `-04` | 不读成“这些命题被独立复核”；数学内容与范围仍以各分支 `CLAIM.md` 为准 |
+| CG001-C-124 | 同一环境下 2 个负控制源都在预定点被内核拒绝（`WrongMetaSubtheoryAudit` 的 `assumption` 失败） | `NEGATIVE_CONTROL_REJECTED / GOAL_LOCAL_INDEXED` | run `NEG-01` | 不证明 ZFC 或 HoTT 的任何性质 |
+| CG001-C-125 | 16 个正源 165 条公理报告全部为“does not depend on any axioms”；stdout/stderr/exit 与源码哈希、二进制哈希一起固定 | `EVIDENCE_INTEGRITY_PINNED / GOAL_LOCAL_INDEXED` | run `-04` | 无公理不等于命题为真，只等于这些 Lean core 定理不依赖额外公理 |
+| CG001-C-126 | 八个工作树方向的形式化覆盖完整：dev-01 与 dev-09 的已并入包沿用既有 `dev` 收据（`4a3535d9`、`20261008-S7C-IMPORT-REPLAY.json`）；dev-02/03/04 由本包补齐；dev-06/07/08 无形式包判为不适用；dev-09 的 `external-foundation-incompleteness`（D09-C-369）判为本机不可重放，保持 `SOURCE_REPORTED_NOT_REPLAYED` | `COVERAGE_COMPLETE_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-04` + `dev` 既有收据 | dev-09 外部 Foundation 包的运行依赖一个已不存在的 `/tmp` 检出，缺的是本机 toolchain，不是它的正确性；不读成八条线的研究已完成；`GeometricCompletion.lean` 依赖 Mathlib，本包未含其构建树，其分支收据保持原样 |

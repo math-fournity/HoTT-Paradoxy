@@ -1,0 +1,49 @@
+{
+  "claim_ids": [
+    "CG001-C-123",
+    "CG001-C-124",
+    "CG001-C-125",
+    "CG001-C-126"
+  ],
+  "completed_at_utc": "2026-10-09T16:57:50.749359+00:00",
+  "cwd": "/Users/aurolafly/.codex/worktrees/9276/HoTT_AI_HANDOFF_20260911",
+  "environment": {
+    "bytes": 538,
+    "path": "environment.txt",
+    "sha256": "81d8f3e28181de5135d98e51acb81639fe9fd16abcfce0dc9583b098188714c7"
+  },
+  "exit_code": 1,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "This run does not add new mathematics: all theorems were already proved on their own branches. It only re-executes them on dev's machine and pins the sources, binary and outputs.",
+    "The two negative controls (WrongMetaSubtheoryAudit, WrongCompletionPromotionTension) are expected to be REJECTED; this ACCEPT run covers only the 16 positive sources."
+  ],
+  "outcome_matches_expectation": false,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "proof_id": "MP-CG001-BRANCH-FORMALIZATION-COVERAGE-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG-007 W9 branch coverage: the 16 Lean-core formal sources left on GPT branches origin/dev-02, origin/dev-03 and origin/dev-04, compiled on this machine with the pinned Lean 4.34.1 binary inside a network-denied sandbox, so that every GPT-branch formal package now has a dev-visible receipt. Each source is byte-identical to its branch original.",
+  "source_manifest": {
+    "bytes": 4527,
+    "path": "source-manifest.json",
+    "sha256": "d36003a76b32462471ebec222e14a1866d743c8719fd018ca8d94ee87709d3d0"
+  },
+  "started_at_utc": "2026-10-09T16:57:50.749074+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 2325,
+    "path": "stderr.txt",
+    "sha256": "5c507e555032561783979da241eb02058c247df996f28c706c95d44c3b96d4b5"
+  },
+  "stdout": {
+    "bytes": 1685,
+    "path": "stdout.txt",
+    "sha256": "da62222040d6a8f890671802983990b5428c55d8470fa454015c5b360c798b9e"
+  }
+}

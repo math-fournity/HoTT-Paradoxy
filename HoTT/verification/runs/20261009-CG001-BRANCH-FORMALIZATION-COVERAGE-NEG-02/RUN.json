@@ -1,0 +1,60 @@
+{
+  "claim_ids": [
+    "CG001-C-124"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-007-formalization-completion/tools/capture_branch_run.py",
+    "--package",
+    "HoTT/formal/branch-formalization-coverage",
+    "--run-id",
+    "20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-NEG-02",
+    "--proof-id",
+    "MP-CG001-BRANCH-FORMALIZATION-COVERAGE-NEG-001",
+    "--expect",
+    "REJECT",
+    "--scope",
+    "Negative control for the branch coverage run: the two Lean-core negative-control sources from origin/dev-04 (WrongMetaSubtheoryAudit, WrongCompletionPromotionTension). They must be rejected by the kernel at the intended boundary, showing that the meta-promotion and promotion-tension theorems really use the bridge they assume."
+  ],
+  "completed_at_utc": "2026-10-09T17:40:29.407205+00:00",
+  "cwd": "/Users/aurolafly/.codex/worktrees/9276/HoTT_AI_HANDOFF_20260911",
+  "environment": {
+    "bytes": 538,
+    "path": "environment.txt",
+    "sha256": "81d8f3e28181de5135d98e51acb81639fe9fd16abcfce0dc9583b098188714c7"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "This run proves nothing about ZFC or HoTT; it is a controlled-counterexample check on the two GPT-branch negative-control sources."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "proof_id": "MP-CG001-BRANCH-FORMALIZATION-COVERAGE-NEG-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-NEG-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for the branch coverage run: the two Lean-core negative-control sources from origin/dev-04 (WrongMetaSubtheoryAudit, WrongCompletionPromotionTension). They must be rejected by the kernel at the intended boundary, showing that the meta-promotion and promotion-tension theorems really use the bridge they assume.",
+  "source_manifest": {
+    "bytes": 1123,
+    "path": "source-manifest.json",
+    "sha256": "8666d1d2d59ec68b9804c733249fbea02abf54e7a13fd0ac8e69f723954587ba"
+  },
+  "started_at_utc": "2026-10-09T17:40:29.406960+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 121,
+    "path": "stderr.txt",
+    "sha256": "8785889beded77d33b6240cb62d02de7d88ed441687fb56480927d1aa99b6f14"
+  },
+  "stdout": {
+    "bytes": 1646,
+    "path": "stdout.txt",
+    "sha256": "a4a44db477af0894a8f82d7d3c68d1127040bd49fec7e55a6626666a7f8d9605"
+  }
+}
