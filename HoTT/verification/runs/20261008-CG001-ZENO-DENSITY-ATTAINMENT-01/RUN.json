@@ -1,0 +1,62 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-106",
+    "CG001-C-107",
+    "CG001-C-108"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/zeno-density-attainment",
+    "GodelQ/Zeno/Attainment.lean",
+    "GodelQ/Zeno/Runners.lean",
+    "GodelQ/Zeno/QualificationZeno.lean"
+  ],
+  "completed_at_utc": "2026-10-09T00:46:34.873089+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 10.078759,
+  "environment": {
+    "bytes": 1087,
+    "path": "environment.txt",
+    "sha256": "173bde0aac570d0c34ea42321d0e9faf388c214101a87a48069f69867962d30e"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "no claim that physical space-time is quantized (that is the research sponsor's physical stance, KC-000004)",
+    "no claim that limit theory or ZFC is wrong; the result locates the exact premise (density) under which the two notions of arrival come apart",
+    "Mathlib theorems in Lean's type theory, not derivations in Foundation's ZFC",
+    "the circle paradox's prior M, zero-size points and reverse process are not addressed"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-ZENO-DENSITY-ATTAINMENT-001",
+  "run_id": "20261008-CG001-ZENO-DENSITY-ATTAINMENT-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Time-structure face of the without-Goedel route: in a first-countable space every sequence arriving at x in the limit attains x at a finite stage iff x is isolated; R has no isolated points (Zeno sequence at every point); grid-valued convergent sequences are eventually constant at the limit; the quantized half-step runner (grain 2^-m, floor to grid) has closed form, completes exactly at stage m+1 and agrees with the dense runner on stages 0..m; no decoder from the limit value to finite-stage attainment, a grain-aware decoder exists; completion is lost in the fine-grain limit while positions commute; dense time admits a supertask, the continuous endpoint t=1 is attained but is not a stage, and strictly increasing grid times are unbounded",
+  "source_manifest": {
+    "bytes": 200832,
+    "path": "source-manifest.json",
+    "sha256": "52546a6e35c477e0d9b1ab15a401b73dfff9f1f8ba7c404896ccc89e1891c1db"
+  },
+  "started_at_utc": "2026-10-09T00:46:24.794095+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 2117,
+    "path": "stdout.txt",
+    "sha256": "d8a7e512aa9e25a65df04a9c975037a8a74b72e5a2a3e9367a37b7ebd187b4a5"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib (classical: propext, Classical.choice, Quot.sound); real analysis and topology (sequences, limits, isolated points, uniformly spaced grids); no Foundation object theory; never HoTT paths"
+}

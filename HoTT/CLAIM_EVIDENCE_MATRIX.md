@@ -1976,3 +1976,20 @@ family-of-surreals 构造（Book 明言 UU-small families）与 Dedekind 线的�
 |---|---|---|---|---|
 | CG001-C-104 | 任一可靠、可枚举的永不完成观察者 `O`：`¬ REPred (· ∈ O.Misses)`，`O.Misses.Infinite`，任意有限补丁之后同样成立；任一 `EffectiveTheory`：`¬ CompleteForNever`（证明不经过对角点），漏点不可枚举且无穷，漏点的每个有限时刻都被确认“尚未完成” | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-GODEL-Q-ZFC-TURING-01`（`qual_C104`）；负控制 `-NEG-TRUTH-01` | 停机问题的证明本身是对角论证；不推出任何理论不一致 |
 | CG001-C-105 | 对 Foundation 的 `𝗭𝗙𝗖`：`zfcMisses = {e ∣ 𝗭𝗙𝗖 ⊬ neverS ΦH ⌜e⌝ ∧ 𝗭𝗙𝗖 ⊬ haltsS ΦH ⌜e⌝}`；它不可枚举且无穷；对其中每个 e 与每个 k，`𝗭𝗙𝗖 ⊢ haltsS ΨN ⌜(e,k)⌝`；`¬ zfcEffective.CompleteForNever`；`Entailment.Incomplete 𝗭𝗙𝗖`；有限补丁之后漏点仍不可枚举、仍无穷 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-GODEL-Q-ZFC-TURING-01`（`qual_C105`） | 一致与 Σ1 可靠来自 Lean 元层 `Universe` 模型；补丁定理针对观察者，不是 𝗭𝗙𝗖 加公理后的演绎闭包；不推出 `ZFC ⊢ ⊥` |
+
+## Claude CG-007 W2：取到与贴近——稠密性恰是芝诺缺口的前提（无哥德尔路线 (b)，时空结构一面，2026-10-08）
+
+> 授权同上节。本节只追加。
+> 工具链：Lean 4.34.0 + Mathlib `5ed29652…`（不用 Foundation 的对象理论）；记录 `formal/claude-cg001/zeno-density-attainment/LEAN_TOOLCHAIN.json`、`MATHLIB_CLOSURE.json`（1,681 个模块，聚合 `9deac388…630a`）。两个运行都经 `verify_cg001_run.py --rerun` 精确重放；目标内索引 `.claude/goals/CG-001-targeted-overview/证据索引.md` §28。
+> 读法：机器证明（有范围）。这些是 Mathlib 实分析与拓扑中的定理（子理论一侧），不是 Foundation 𝗭𝗙𝗖 中的推导；不证明现实时空量子化，不裁定哪一个“到达”是原任务的，只定位二者分开的确切前提。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-ZENO-DENSITY-ATTAINMENT-001` | `CG001-C-106`、`CG001-C-107`、`CG001-C-108` | `formal/claude-cg001/zeno-density-attainment/GodelQ/Zeno/Attainment.lean`、`Runners.lean`、`QualificationZeno.lean`（命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-ZENO-DENSITY-ATTAINMENT-01/`；exit 0，stderr 0 B；22 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-ZENO-DENSITY-ATTAINMENT-NEG-DENSE-001` | `CG001-C-106`（负控制） | `formal/claude-cg001/zeno-density-attainment/GodelQ/Negative/WrongDenseAttains.lean` | `verification/runs/20261008-CG001-ZENO-DENSITY-ATTAINMENT-NEG-DENSE-01/`；exit 1，`Isolated (1 : ℝ)` 无法证明 | `NEGATIVE_CONTROL_REJECTED`：“终点孤立”这一前提确实被用到 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-106 | 第一可数空间中 `(∀ s, ArrivesAt s x → AttainsAt s x) ↔ Isolated x`；ℝ 中每一点不孤立（`zenoSeq x`）；格点值收敛序列最终等于极限；离散空间同样 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261008-CG001-ZENO-DENSITY-ATTAINMENT-01`（`qual_C106`）；负控制 `-NEG-DENSE-01` | 不证明现实时空量子化；不裁定哪一个“到达”是原任务的 |
+| CG001-C-107 | 量子化半步跑者（`quantStep m r = ⌊r/2·2ᵐ⌋/2ᵐ`）的闭式、格点性、恰在第 m+1 步完成、第 0 至 m 步与稠密跑者相同；`¬ ∃ g, ∀ s L, ArrivesAt s L → (g L ↔ AttainsAt s L)`，带粒度的判据存在；完成在 m → ∞ 的逐步极限里丢失，位置的累次极限都是 1 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上（`qual_C107`） | 量子化只用等距格点模型；推广而不替代 D01-C-370、C-371 |
+| CG001-C-108 | 稠密时间：阶段时刻严格递增、都 < 1、以 1 为极限；连续运动在 t = 1 ∈ [0,1] 取到 1（正控制）；t = 1 不是任何阶段；格点时间中严格递增序列无上界 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上（`qual_C108`） | 闭区间端点只作标准解完成的正控制，不替代原过程完成 |
