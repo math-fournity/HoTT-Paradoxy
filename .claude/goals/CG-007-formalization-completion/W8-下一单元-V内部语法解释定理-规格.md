@@ -236,3 +236,83 @@ lemma induction1 (Γ : Polarity) {P : V → Prop} (hP : Γᴬ_[1]-Predicate P) {
 | 7 | 10 个 case 的组装 | `derivable_translateSeq` | 依赖 1–6 |
 
 第 1 条是最关键的瓶颈：**它一过，`axL`/`verumIntro`/`wk` 三支应当直接可做**。
+
+## 10. 第 1 条（公式保持）的进一步拆解（2026-10-10 晚）
+
+`iT.construction`（`InternalTranslate.lean:231`）的输出形状已核清：
+
+```lean
+rel n k R v := iTR n k R v
+nrel n k R v := neg ℒₛₑₜ (iTR n k R v)
+verum _ := ^⊤          falsum _ := ^⊥
+and _ _ _ y₁ y₂ := y₁ ^⋏ y₂          or _ _ _ y₁ y₂ := y₁ ^⋎ y₂
+all _ _ ys := ^∀ (imp ℒₛₑₜ domZero ys.[0])
+exs _ _ ys := ^∃ (domZero ^⋏ ys.[0])
+```
+
+所以用 `UformulaRec1.Construction.semiformula_result_induction` 证
+`IsSemiformula ℒₒᵣ n p → IsSemiformula ℒₛₑₜ n (iT n p)` 时，**八个支里六个是直接的**：
+
+| 支 | 目标 | 现成引理 |
+|---|---|---|
+| `verum` / `falsum` | `IsSemiformula ℒₛₑₜ n ^⊤` / `^⊥` | `IsSemiformula.verum` / `.falsum` ✅ |
+| `and` / `or` | `IsSemiformula ℒₛₑₜ n (y₁ ^⋏ y₂)` 等 | `IsSemiformula.and` / `.or`（`↔`）✅ |
+| `all` / `exs` | `IsSemiformula ℒₛₑₜ n (^∀ (imp domZero y))` 等 | `IsSemiformula.all` / `.exs` + `imp` 的公式性 ⚠️ |
+| **`rel` / `nrel`** | `IsSemiformula ℒₛₑₜ n (iTR n k R v)` | **要新拆**，见下 |
+
+`iTR` 的定义（`InternalTranslate.lean:198`）：
+
+```lean
+iTR n _k R v := qqAlls (imp ℒₛₑₜ (conjunct 2 n 0 (iVE n v.[0]) ^⋏ (conjunct 2 n 1 (iVE n v.[1]) ^⋏ ^⊤))
+                            (subst ℒₛₑₜ ?[^#0, ^#1] (cRel R))) 2
+```
+
+所以要证 `IsSemiformula ℒₛₑₜ n (iTR n 2 R v)`，还要再补四件：
+
+1. `iVE` 的公式性：`IsUTerm ℒₒᵣ n t → IsSemiformula ℒₛₑₜ n (iVE n t)`；
+2. `conjunct` 的公式性；
+3. `cRel R` 的公式性（`IsRel 2 R → IsSemiformula ℒₛₑₜ n (cRel R)`）；
+4. `subst ℒₛₑₜ ?[^#0,^#1]` 的公式性（Foundation 应有 `IsSemiformula.subst`-类引理，未核）。
+
+**结论**：第 1 条不是一条引理，而是**约 6 条**（8 个支 − 4 个直接可用的），其中 `rel` 支再拆成 4 条。
+这是第二层最厚的一块地基；做完它，`axL`/`verumIntro`/`wk` 三支才能开动。
+
+## 10. 第 1 条（公式保持）的进一步拆解（2026-10-10 晚）
+
+`iT.construction`（`InternalTranslate.lean:231`）的输出形状已核清：
+
+```lean
+rel n k R v := iTR n k R v
+nrel n k R v := neg ℒₛₑₜ (iTR n k R v)
+verum _ := ^⊤          falsum _ := ^⊥
+and _ _ _ y₁ y₂ := y₁ ^⋏ y₂          or _ _ _ y₁ y₂ := y₁ ^⋎ y₂
+all _ _ ys := ^∀ (imp ℒₛₑₜ domZero ys.[0])
+exs _ _ ys := ^∃ (domZero ^⋏ ys.[0])
+```
+
+所以用 `UformulaRec1.Construction.semiformula_result_induction` 证
+`IsSemiformula ℒₒᵣ n p → IsSemiformula ℒₛₑₜ n (iT n p)` 时，**八个支里六个是直接的**：
+
+| 支 | 目标 | 现成引理 |
+|---|---|---|
+| `verum` / `falsum` | `IsSemiformula ℒₛₑₜ n ^⊤` / `^⊥` | `IsSemiformula.verum` / `.falsum` ✅ |
+| `and` / `or` | `IsSemiformula ℒₛₑₜ n (y₁ ^⋏ y₂)` 等 | `IsSemiformula.and` / `.or`（`↔`）✅ |
+| `all` / `exs` | `IsSemiformula ℒₛₑₜ n (^∀ (imp domZero y))` 等 | `IsSemiformula.all` / `.exs` + `imp` 的公式性 ⚠️ |
+| **`rel` / `nrel`** | `IsSemiformula ℒₛₑₜ n (iTR n k R v)` | **要新拆**，见下 |
+
+`iTR` 的定义（`InternalTranslate.lean:198`）：
+
+```lean
+iTR n _k R v := qqAlls (imp ℒₛₑₜ (conjunct 2 n 0 (iVE n v.[0]) ^⋏ (conjunct 2 n 1 (iVE n v.[1]) ^⋏ ^⊤))
+                            (subst ℒₛₑₜ ?[^#0, ^#1] (cRel R))) 2
+```
+
+所以要证 `IsSemiformula ℒₛₑₜ n (iTR n 2 R v)`，还要再补四件：
+
+1. `iVE` 的公式性：`IsUTerm ℒₒᵣ n t → IsSemiformula ℒₛₑₜ n (iVE n t)`；
+2. `conjunct` 的公式性；
+3. `cRel R` 的公式性（`IsRel 2 R → IsSemiformula ℒₛₑₜ n (cRel R)`）；
+4. `subst ℒₛₑₜ ?[^#0,^#1]` 的公式性（Foundation 应有 `IsSemiformula.subst`-类引理，未核）。
+
+**结论**：第 1 条不是一条引理，而是**约 6 条**（8 个支 − 4 个直接可用的），其中 `rel` 支再拆成 4 条。
+这是第二层最厚的一块地基；做完它，`axL`/`verumIntro`/`wk` 三支才能开动。
