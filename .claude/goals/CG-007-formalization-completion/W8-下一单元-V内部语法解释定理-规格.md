@@ -316,3 +316,41 @@ iTR n _k R v := qqAlls (imp ℒₛₑₜ (conjunct 2 n 0 (iVE n v.[0]) ^⋏ (con
 
 **结论**：第 1 条不是一条引理，而是**约 6 条**（8 个支 − 4 个直接可用的），其中 `rel` 支再拆成 4 条。
 这是第二层最厚的一块地基；做完它，`axL`/`verumIntro`/`wk` 三支才能开动。
+
+### 10.1 复核：第 10 节里两条其实已有现成引理（2026-10-10 晚）
+
+本机 `#check` 实测：
+
+- `IsSemiformula.imp`（`↔` 形式）✅ —— `all`/`exs` 支不需要新引理；
+- `IsSemiformula.neg`（`→` 形式）✅ —— `nrel` 支不需要新引理；
+- `IsSemiformula.subst : IsSemiformula L n p → IsSemitermVec L n m w → IsSemiformula L m (subst L w p)` ✅
+  —— 第 10 节的第 4 条（`subst` 的公式性）**已有**；
+- `IsSemiformula.isUFormula` ✅
+
+**因此第 1 条实际只需新证 3 条**：
+
+1. `IsUTerm ℒₒᵣ n t → IsSemiformula ℒₛₑₜ n (iVE n t)`（`iVE` 的公式性）；
+2. `conjunct` 的公式性；
+3. `IsRel 2 R → IsSemiformula ℒₛₑₜ n (cRel R)`（`cRel` 的公式性）。
+
+`IsSemiformula.substs` / `.bShift` / `.isUTerm` 未在 `IsSemiformula` 命名空间下找到（可能名字不同），
+第 5 节里 `iT` 与 `substs1`/`shift`/`free` 的相容仍待核。
+
+### 10.1 复核：第 10 节里两条其实已有现成引理（2026-10-10 晚）
+
+本机 `#check` 实测：
+
+- `IsSemiformula.imp`（`↔` 形式）✅ —— `all`/`exs` 支不需要新引理；
+- `IsSemiformula.neg`（`→` 形式）✅ —— `nrel` 支不需要新引理；
+- `IsSemiformula.subst : IsSemiformula L n p → IsSemitermVec L n m w → IsSemiformula L m (subst L w p)` ✅
+  —— 第 10 节的第 4 条（`subst` 的公式性）**已有**；
+- `IsSemiformula.isUFormula` ✅
+
+**因此第 1 条实际只需新证 3 条**：
+
+1. `IsUTerm ℒₒᵣ n t → IsSemiformula ℒₛₑₜ n (iVE n t)`（`iVE` 的公式性）；
+2. `conjunct` 的公式性；
+3. `IsRel 2 R → IsSemiformula ℒₛₑₜ n (cRel R)`（`cRel` 的公式性）。
+
+`IsSemiformula.substs` / `.bShift` / `.isUTerm` 未在 `IsSemiformula` 命名空间下找到（可能名字不同），
+第 5 节里 `iT` 与 `substs1`/`shift`/`free` 的相容仍待核。
