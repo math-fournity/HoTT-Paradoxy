@@ -1,7 +1,7 @@
 # W8 下一单元：V 内部的语法解释定理（← 方向的精确任务规格）
 
-> 状态：`SPECIFIED_NOT_STARTED`。2026-10-10 由 WorkBuddy 会话（Agent 模式）写下。
-> 本文件只规定"要证什么、缺什么、按什么顺序做"，**不声称任何进展**。
+> 状态：`LAYER1_DONE_LAYER2_STARTED`。2026-10-10 由 WorkBuddy 会话（Agent 模式）写下，同日晚按用户"开始"执行了开工探针。
+> 本文件规定"要证什么、缺什么、按什么顺序做"。**第 1 层已确认无需新做；第 2 层已开工并定位到第一个必做子任务。**
 > 依据：`形式化追踪/01-有哥德尔路线/02-Z0-条件形式与剩余三步.md` 的末两节、`HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md` §4/§8。
 
 ## 1. 要证的命题
@@ -36,21 +36,55 @@ theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧
 
 ## 3. 缺的零件（按依赖顺序）
 
-**第 1 层：`arithTrln.translate` 的语法交换律**（Foundation 里只有语义版 `Model.eval_translate_iff` 等，没有语法版）
+**第 1 层：`arithTrln.translate` 的语法交换律 —— ✅ 已确认无需新做（2026-10-10 开工探针实测）**
 
-需要证明 `translate` 与下列运算交换（或给出其显式形状）：
-`neg`、`⋏`、`⋎`、`∀¹`（→ 相对化到 `domain`）、`∃¹`、`subst`、`shift`、`free`、`setShift`、`Rew.emb`。
+- `arithTrln.translate` 是 `→ˡᶜ`（`LogicalConnective.Hom`），所以 `⊤/⊥/⋏/⋎/∼/🡒` 的交换律**自动具备**
+  （`rfl` / `simp` 直接通过）。
+- 更重要的：**内部化**版本 `iT` 已经由项目自己的 `GodelQ/ZFC/InternalTranslate.lean` 做好，包含
+  `iT_rel` / `iT_nrel` / `iT_verum` / `iT_falsum` / `iT_and` / `iT_or` / `iT_all` / `iT_exs`，
+  以及正确性定理 `iT_quote : iT (n:V) ⌜φ⌝ = ⌜arithTrln.translate φ⌝`（对每个 `φ : Semisentence ℒₒᵣ n`）。
+- 第 2 层要用的"翻译沿公式结构"的地基因此**已经有了**，不必重写。
 
-这一层是纯语法、与 𝗭𝗙𝗖 无关，可以独立做、独立验收。
+**第 2 层：V 内部的推导翻译 —— 已开工，第一个必做子任务已定位**
 
-**第 2 层：推导翻译函数**（V 内部，原始递归）
+**不要显式构造"翻译推导"的函数。** 用 `Derivation Sh.craig` 的**归纳**，结论写成
+`∀ s, Derivable Sh.craig s → Derivable 𝗭𝗙𝗖 (sᵗ)`，逐规则消。归纳原理已确认可用：
 
-给出 `derivTranslate : V → V`，把一条 `Sh.craig` 推导编码送到一条 `𝗭𝗙𝗖` 推导编码，并证明：
-`Derivation Sh.craig d → Derivation 𝗭𝗙𝗖 (derivTranslate d)`，且 `fstIdx` 被送到对应翻译。
+```lean
+Fixpoint.Construction.induction (c := construction T) [StrongFinite V c]
+  (hP : {Γ := Γ.coe, rank := 1}-Predicate P)              -- P 必须是 Σ1 谓词
+  (hstep : ∀ C, (∀ x ∈ C, c.Fixpoint v x ∧ P x) → ∀ x, c.Φ v C x → P x)
+  : ∀ x, c.Fixpoint v x → P x
+```
 
-规则逐个处理（规则集见 `Syntax/Proof/Basic.lean` 的 `axLGraph`、`verumIntroGraph`、`andIntroGraph`、`orIntroGraph`、`allIntroGraph`、`exsIntroGraph`、`wkRuleGraph`、`shiftRuleGraph`、`cutRuleGraph`、`axmGraph`）：
-- `axm`：公理 `φ ∈ Sh.craig`。由 `mem_craig_codes_iff` 得 `φ = ρ.padding s` 且 `reWitness(s, ⌜ρ⌝)`，再由 `reWitness_spec` 与 `Sh.reCh` 的语义得 `zfcTr ρ`，即 V 手里**已有** `ρᵗ` 的一条 𝗭𝗙𝗖 推导；再用 `ρ.padding s = ρ ⋏ ⊤ ⋏ …` 在 𝗭𝗙𝗖 里把它接回来。**这是唯一用到 𝗭𝗙𝗖 的地方。**
-- 逻辑规则：由第 1 层 + `domain_nonempty` / `func_defined` 两条 `arithTrln` 义务得到。
+**V 内部推导只有 10 条规则**（`Bootstrapping/Syntax/Proof/Basic.lean:412` 的 `blueprint`，
+全部是 `{Γ := 𝚺, rank := 0}`）：
+
+| # | 规则图 | 形状 | 翻译支的要点 |
+|---|---|---|---|
+| 1 | `axLGraph` | `p ∈ s ∧ ∼p ∈ s` | 直接翻译（`translate` 保持 `∼`） |
+| 2 | `verumIntroGraph` | `⊤ ∈ s` | 直接翻译（`translate ⊤ = ⊤`） |
+| 3 | `andIntroGraph` | `⊢ p,s` 与 `⊢ q,s` ⟹ `⊢ p⋏q,s` | 直接翻译（保持 `⋏`） |
+| 4 | `orIntroGraph` | `⊢ p,q,s` ⟹ `⊢ p⋎q,s` | 直接翻译（保持 `⋎`） |
+| 5 | `allIntroGraph` | `⊢ free p, setShift s` ⟹ `⊢ s`（`^∀p ∈ s`） | **需处理相对化**：`translate(^∀p) = ∀(D → pᵗ)`，故要先由 `⊢ pᵗ(a)` 得 `⊢ D(a) → pᵗ(a)`，再一般化；本征变量/新鲜性条件要单独证 |
+| 6 | `exsIntroGraph` | `⊢ p[t], s` ⟹ `⊢ ^∃p, s` | **需处理项代入**：`translate(p[t])` 与 `translate(p)[?]` 的关系要单独证 |
+| 7 | `wkRuleGraph` | `⊢ s'` ⟹ `⊢ s`（`s' ⊆ s`） | 需 `s'ᵗ ⊆ sᵗ`（集合翻译的单调性） |
+| 8 | `shiftRuleGraph` | `setShift s = s` ⟹ `⊢ s` | 需翻译与 `setShift` 相容 |
+| 9 | `cutRuleGraph` | `⊢ p,s` 与 `⊢ ∼p,s` ⟹ `⊢ s` | 直接翻译（`cut`） |
+| 10 | `axmGraph` | `p ∈ s ∧ p ∈ T` | **唯一用到 𝗭𝗙𝗖 的地方**：由 `mem_craig_codes_iff` 得 `p = ρ.padding k` 且 `reWitness(k, ⌜ρ⌝)`；由 `reWitness_spec` + `Sh.reCh` 语义得 `zfcTr ρ`，即 V 手里**已有** `ρᵗ` 的一条 𝗭𝗙𝗖 推导；再用 `ρ.padding k = ρ ⋏ ⊤^k` 接回来 |
+
+**第一个必做子任务（也是所有支的公共前置）：sequent 翻译 `s ↦ sᵗ`**
+
+**这是本轮新发现的障碍。** sequent **不是树，是"码的指数和"**：
+`Sequent.quote Γ = ∑ φ ∈ Γ, Exp.exp ⌜φ⌝`（`Syntax/Proof/Coding.lean:24`），
+`bitSubsetDef` 也印证这是位集表示。所以"把 sequent 里每个公式换成它的翻译"**不是逐点操作**，
+必须：
+
+1. 给出一个 **Σ1 可定义**的 `translateSeq : V → V`（对 `s` 这个自然数做**强递归**），
+   满足 `bitTest (translateSeq s) ⌜φᵗ⌝ ↔ bitTest s ⌜φ⌝`，以及单元素情形 `translateSeq {φ} = {φᵗ}`；
+2. 证明它是 Σ1 谓词（`Fixpoint.Construction.induction` 要求 `P` 是 `{Γ := Γ.coe, rank := 1}-Predicate`）。
+
+`translateSeq` 一旦有，`P s := (derivable 𝗭𝗙𝗖).val/[translateSeq s]` 就是 Σ1 谓词，归纳可以开跑。
 
 **第 3 层：组装**
 
@@ -79,5 +113,68 @@ python3 -B /tmp/d3build/devbuild_ns.py /tmp/d3build/src/godel-q-zfc-z0-full <模
 ## 6. 停止条件
 
 - 若第 1 层做完后第 2 层被证明不可行（例如规则翻译需要 𝗭𝗙𝗖 内的归纳而 𝗜𝚺₁ 供不起），
+  照实写明卡点，把最小可续状态留在这个文件里，**不要**为了"完成"收窄命题。
+- 无论做到哪一层，`C-120` 的影子形式（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`）无条件成立，不受影响。
+
+---
+
+## 6. 追加（2026-10-10 晚，Codex 会话 01a120e6，本机实测）
+
+规格 §1(c) 只列了 `keyE` 的 `←` 方向。补一条**已经免费**的方向，让下一单元的范围更准：
+
+### → 方向已证，无需任何工作
+
+```lean
+theorem fwd (τ : ArithmeticSentence) :
+    𝗜𝚺₁ ⊢ (↑(zfcTr τ) 🡒 (↑(provabilityPred (Theory.craig Sh) (zfcTr τ)) : Sentence ℒₒᵣ)) :=
+  FFL.FirstOrder.Arithmetic.provable_sigma_one_complete (T := Sh.craig) (zfcTr_sigma1 τ)
+```
+
+**本机 exit 0，无 `sorry`。** 依据：`zfcTr τ` 是 Σ1 句（`GodelQ.Z0Full.zfcTr_sigma1` 已证），
+直接套 Foundation 的 `provable_sigma_one_complete`。这与规格 §2 表中的
+`T.standardProvability.HBL3` 无关（那条要 `ArithmeticTheory`），用的是
+`Bootstrapping.Arithmetic.provable_sigma_one_complete`（namespace 重开了 `Arithmetic`）。
+
+### 因此 `keyE` 的 `←` 方向单独承担了全部 D3
+
+规格 §4.2「不能只做 → 方向」的判断成立且可以更强：→ 方向**已经是定理**，
+所以下一单元从第一天起就只需要攻 `←` 方向，不必在两者间分配。
+
+### 可直接复用的已证零件（都在 `Z0-D3-攻关包-最小完整版/05-源码/Z0D3Skeleton.lean`，本机 exit 0）
+
+| 名字 | 内容 |
+|---|---|
+| `shCraig_iff` | `Sh.craig ⊢ σ ↔ Sh ⊢ σ`（五行，两个 `inferInstance` 方向） |
+| `models_provabilityPred_craig` | `V ⊧ provabilityPred Sh.craig σ ↔ Provable Sh.craig ⌜σ⌝` |
+| `step1` | `V ⊧ zfcTr σ ⊢ Provable Sh.craig ⌜zfcTr σ⌝`（一行，`sigma_one_complete (T := Sh.craig)`） |
+| `fwd` | 见上 |
+| `(Sh.craig : ArithmeticTheory).Δ₁` | `inferInstance`（来自 `Sh.RE`） |
+| `(Sh.craig.standardProvability).HBL3` | `inferInstance` |
+
+### 对规格 §3 第 2 层 `axm` 分支的一个补充观察
+
+规格 §4.1 说 `Sh.reCh ≠ trProv`、要先补“`codeOfREPred` 的一般 V 表示引理”。
+这个判断正确而且比规格写得更关键：`codeOfREPred_spec` 只在 ℕ 层，
+而 `axm` 分支要在 **V 内部** 用它，所以那是一条独立的、可先做可先验的子缺口。
+建议把它单列成第 1.5 层，配一个负控制（ℕ 层版本与 V 层版本不能互换）。
+
+## 7. 开工探针（2026-10-10，用户"开始"）
+
+同目录 `W8-开工探针.lean`：本机 Lean 4.34.0 + Foundation `1fb01b72` **编译通过（exit 0）**。
+它只做三件事：核对第 1 层已具备、列出 10 条规则图的精确名字与类型、核对归纳原理与 sequent 接口。
+**它不是收据源，也不证明任何命题。**
+
+实测确认的接口：
+
+- 10 条规则图全部是 `{Γ := 𝚺, rank := 0}.Semisentence k`（Σ0）：`axLGraph`(3)、`verumIntroGraph`(2)、
+  `andIntroGraph`(6)、`orIntroGraph`(5)、`allIntroGraph`(4)、`exsIntroGraph`(5)、`wkRuleGraph`(3)、
+  `shiftRuleGraph`(3)、`cutRuleGraph`(5)、`axmGraph`(3)。命名空间是 `FFL.FirstOrder.Arithmetic.Bootstrapping`。
+- `insertDef`/`bitSubsetDef`/`fstIdxDef` 是 Σ0；`fstIdx`/`setShift`/`free` 是 V 上的函数。
+- `Derivation T : V → Prop` 与 `Derivable T : V → Prop` 都要求 `[T.Δ₁]`（`Sh.craig.Δ₁` 已有）。
+- `Fixpoint.Construction.induction` 存在，且要求 `P` 是 `{Γ := Γ.coe, rank := 1}-Predicate`。
+
+## 8. 停止条件（未变）
+
+- 若 `translateSeq` 做出来之后某条规则支被证明不可行（例如第 5/6 支的本征变量或项代入条件在 𝗜𝚺₁ 里供不起），
   照实写明卡点，把最小可续状态留在这个文件里，**不要**为了"完成"收窄命题。
 - 无论做到哪一层，`C-120` 的影子形式（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`）无条件成立，不受影响。
