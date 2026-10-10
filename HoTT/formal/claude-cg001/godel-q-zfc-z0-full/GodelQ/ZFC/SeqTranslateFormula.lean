@@ -45,4 +45,24 @@ lemma isSemiformula_cFunc_zero : IsSemiformula ℒₛₑₜ 1 (cFunc 0 0) := by
   simpa using
     Sentence.quote_isSemiformula (L := ℒₛₑₜ) (arithTrln.func Language.ORing.Func.zero)
 
+/-- `shiftVec b n = [^#b, …, ^#(b+n-1)]` 是合法的 `n` 元项向量，层数 `b+n`。 -/
+lemma isSemitermVec_shiftVec (b : V) : ∀ (n : ℕ),
+    IsSemitermVec ℒₛₑₜ (n : V) (b + (n : V)) (shiftVec b (n : V))
+  | 0 => by simp
+  | n + 1 => by
+    push_cast
+    rw [shiftVec_succ, IsSemitermVec.cons_iff]
+    refine ⟨?_, ?_⟩
+    · rw [IsSemiterm.bvar]
+      calc b < (n : V) + b + 1 := lt_add_self_add_one b (n : V)
+        _ = b + ((n : V) + 1) := by ring
+    · have ih := isSemitermVec_shiftVec b n
+      have h := IsSemitermVec.termBShiftVec (L := ℒₛₑₜ) ih
+      simpa only [add_assoc] using h
+
+/-- 单元素项向量 `?[^#i]`。 -/
+lemma isSemitermVec_single_bvar {i n : V} (hi : i < n) :
+    IsSemitermVec ℒₛₑₜ 1 n ?[^#i] :=
+  IsSemitermVec.singleton.mpr (IsSemiterm.bvar.mpr hi)
+
 end GodelQ.SeqTranslate

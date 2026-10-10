@@ -379,3 +379,20 @@ Sentence.coe_quote_eq_quote (σ : Semisentence L n) : (↑(⌜σ⌝ : ℕ) : V) 
 **仍未做**：`conjunct` 的公式性、`iVE` 的公式性（`iVE.blueprint` 三支：`bvar`/`fvar`/`func`，
 后两支再分 `ve0`/`ve2`）、`iTR` 的公式性、以及第 1 条公式保持性本身。第 5 节那批
 （`iT` 与 `substs1`/`shift`/`free` 的相容）仍待核。
+
+### 11.1 又两条已证（同文件）
+
+| 引理 | 内容 | 状态 |
+|---|---|---|
+| `isSemitermVec_shiftVec` | `IsSemitermVec ℒₛₑₜ (n:V) (b + n) (shiftVec b n)`（对 `n : ℕ` 归纳） | ✅ 已证 |
+| `isSemitermVec_single_bvar` | `i < n → IsSemitermVec ℒₛₑₜ 1 n ?[^#i]` | ✅ 已证 |
+
+用的现成件：`IsSemitermVec.cons_iff`、`IsSemitermVec.singleton`、`IsSemitermVec.termBShiftVec`、
+`IsSemiterm.bvar`、`shiftVec_succ`，以及 **`lt_add_self_add_one (a b : V) : a < b + a + 1`**
+（`PeanoMinus.lean:14`，`omega` 在 𝗜𝚺₁ 模型上不работает，要用它）。
+
+`shiftVec` 的层级已核实：`shiftVec b n = [^#b, …, ^#(b+n-1)]`，故 `conjunct b n i y` 的层级是 `b + n`
+（这与 `iTR` 里 `conjunct 2 n 0 y` 出现在 `qqAlls … 2` 体内、层级 `n+2` 相符）。
+
+**下一步**：`isSemiformula_conjunct`（用 `IsSemiformula.subst` 两次 + `IsSemiformula.and`，
+向量 `^#i ∷ shiftVec b n` 由 `cons_iff` 拼），然后 `iVE` 三支、`iTR`、公式保持性。
