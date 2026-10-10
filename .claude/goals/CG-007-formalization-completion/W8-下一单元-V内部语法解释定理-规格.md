@@ -396,3 +396,28 @@ Sentence.coe_quote_eq_quote (σ : Semisentence L n) : (↑(⌜σ⌝ : ℕ) : V) 
 
 **下一步**：`isSemiformula_conjunct`（用 `IsSemiformula.subst` 两次 + `IsSemiformula.and`，
 向量 `^#i ∷ shiftVec b n` 由 `cons_iff` 拼），然后 `iVE` 三支、`iTR`、公式保持性。
+
+### 11.2 `shiftVec` 引理升级到 `n : V`：卡在 Σ1 谓词义务（2026-10-10 晚）
+
+`conjunct` 的 `n` 是**任意 V 元素**（`iTR` 里是层数参数），所以第 11.1 节的 `n : ℕ` 版本不够。
+V 上的归纳原理找到了：
+
+```lean
+ISigma1.sigma1_succ_induction : ({Γ := 𝚺, rank := 1}-Predicate P) → P 0 → (∀ x, P x → P (x+1)) → ∀ x, P x
+```
+
+（注意它要求 `V↓[ℒₒᵣ] ⊧* 𝗜𝚺⁺₁`，不是 `𝗜𝚺₁`。）
+
+**两个卡点**：
+
+1. **`definability` 处理不了部分应用**。第一个义务是
+   `{Γ := 𝚺, rank := 1}-Predicate fun n => IsSemitermVec ℒₛₑₜ n (b + n) (shiftVec b n)`，
+   它内部要证 `{Γ := 𝚺, rank := 1}.DefinableFunction fun v => shiftVec b (v 78)`
+   —— 即 `shiftVec` 固定第一个参数后的 1 元版本。`shiftVec_defined` 是 `𝚺ᴬ₁-Function₂`，
+   `definability` 没有把部分应用拼出来（`aesop` 到深度上限）。
+   **出路**：手写这个 Σ1 谓词实例——用 `IsSemitermVec.definable' 𝚺 0 : 𝚺ᴬ_[1]-Relation₃`
+   与 `shiftVec_defined` 的复合，或给 `definability` 一个局部 `have`。
+2. **心跳**：直接 `definability` 会在 `whnf` 上超时（默认 200000）；需要 `set_option maxHeartbeats`。
+
+`conjunct` 的公式性（`isSemiformula_conjunct`）在此之后即可拼装：
+`IsSemiformula.subst` 两次（向量分别是 `?[^#i]` 与 `^#i ∷ shiftVec b n`）+ `IsSemiformula.and`。
