@@ -178,3 +178,61 @@ theorem fwd (τ : ArithmeticSentence) :
 - 若 `translateSeq` 做出来之后某条规则支被证明不可行（例如第 5/6 支的本征变量或项代入条件在 𝗜𝚺₁ 里供不起），
   照实写明卡点，把最小可续状态留在这个文件里，**不要**为了"完成"收窄命题。
 - 无论做到哪一层，`C-120` 的影子形式（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`）无条件成立，不受影响。
+
+## 9. 第二层实际进度（2026-10-10，同日晚）
+
+### 9.1 已完成并编译通过
+
+`HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/SeqTranslate.lean`
+（**本机 exit 0，无 `sorry`**）：sequent 的翻译 `translateSeq : V → V`，把 sequent 里每个公式码
+换成它的翻译码。
+
+**做法照搬 `setShift`**：用 `sigma₁_replacement`，不是原先设想的"对 s 强递归"。
+
+```lean
+lemma translateSeq_existsUnique (s : V) :
+    ∃! t : V, ∀ y, y ∈ t ↔ ∃ x ∈ s, y = iT (0 : V) x :=
+  sigma₁_replacement (by definability) s
+noncomputable def translateSeq (s : V) : V := Classical.choose! (translateSeq_existsUnique s)
+instance translateSeq.defined : 𝚺ᴬ₁-Function₁[V] translateSeq via translateSeqGraph
+```
+
+已证的引理：`mem_translateSeq_iff`、`translateSeq_empty`、`translateSeq_insert`
+（`translateSeq (insert x s) = insert (iT 0 x) (translateSeq s)`）、`translateSeq_union`、
+`translateSeq_mono`。
+
+**这一步把第 2 层原定的"第一个必做子任务"关掉了。**
+
+### 9.2 另一个关键发现：归纳原理现成
+
+`Foundation/FirstOrder/Arithmetic/Bootstrapping/Syntax/Proof/Basic.lean:642` 的
+`Derivation.induction1` **把 10 条规则支逐条列成了假设**：
+
+```lean
+lemma induction1 (Γ : Polarity) {P : V → Prop} (hP : Γᴬ_[1]-Predicate P) {d}
+    (hd : Derivation T d)
+    (hAxL : ∀ s, IsFormulaSet L s → ∀ p ∈ s, neg L p ∈ s → P (axL s p))
+    (hVerumIntro : ∀ s, IsFormulaSet L s → ^⊤ ∈ s → P (verumIntro s))
+    (hAnd : ...) (hOr : ...) (hAll : ...) (hExs : ...)
+    (hWk : ...) (hShift : ...) (hCut : ...)
+    (hRoot : ∀ s, IsFormulaSet L s → ∀ p ∈ s, p ∈ T.Δ₁Class → P (axm s p)) : P d
+```
+
+所以第 2 层**完全落在"填 10 个 case"上**，归纳谓词取
+`P d := Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))`（Σ1，`by definability` 可过）。
+
+### 9.3 还缺什么（精确清单，按依赖顺序）
+
+**没有一条已证；`derivable_translateSeq` 尚未证明。**
+
+| # | 缺的引理 | 形状 | 备注 |
+|---|---|---|---|
+| 1 | **公式保持** | `IsSemiformula ℒₒᵣ n p → IsSemiformula ℒₛₑₜ n (iT n p)` | 每个 case 都要用（`Derivation.*` 构造子都要求 `IsFormulaSet`）。`InternalTranslate.lean` 里**没有**。可用 `UformulaRec1.Construction.semiformula_result_induction`（`Formula/Basic.lean:1578`）证；该原理覆盖 rel/nrel/verum/falsum/and/or/all/exs，**不含 neg/imp**（它们是从核心连接词派生的） |
+| 2 | `iT_neg` / `iT_imp` | `iT n (neg p) = neg (iT n p)` 等 | `axL`/`cut` 支要用；`InternalTranslate.lean` 里没有 |
+| 3 | `iT` 与 `shift` 的相容 | `iT n (shift p)` 与 `shift (iT n p)` 的关系 | `all`/`shift` 支要用。注意翻译会改变 de Bruijn 结构（每个量词多引入一个约束变量），不是平凡交换 |
+| 4 | `iT` 与 `substs1` 的相容 | `iT (substs1 t p)` 与 `substs1 (iT t) (iT p)` | `exs` 支要用 |
+| 5 | `iT` 与 `free` 的相容 | `(free p)ᵗ` 与 `free (pᵗ)` | `all` 支要用 |
+| 6 | **`axm` 支** | `derivable_translateSeq_of_axm` | 唯一用到 𝗭𝗙𝗖 的地方。需要 `codeOfREPred` 的**一般 V 表示引理**（`codeOfREPred_spec` 只在 ℕ 层）；拿到后由 `mem_craig_codes_iff` + `reWitness_spec` 得 `zfcTr ρ`，即 V 手里已有的 `ρᵗ` 的 ZFC 推导 |
+| 7 | 10 个 case 的组装 | `derivable_translateSeq` | 依赖 1–6 |
+
+第 1 条是最关键的瓶颈：**它一过，`axL`/`verumIntro`/`wk` 三支应当直接可做**。
