@@ -3,14 +3,14 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8 blocked-on-D3 / W9-coverage-complete / W9-release-pending-authorization",
-  "next_action": "(A) 攻 D3：为 godel-q-zfc-z0-full/GodelQ/ZFC/Z0Blocked.lean:zfcTr_D3_internalize 找机器证明，读 Foundation 的 Bootstrapping/DerivabilityCondition/{EquationalTheory,PeanoMinus,D3}.lean（共 1079 行）判断能否搬到翻译后的公式上；(B) 把 dev-09 的 external-foundation-incompleteness（D09-C-369）在本机 foundation-src（1fb01b72）上编译，这是八方向覆盖最后一条缺口；(C) W9 剩项：四种 CLAIMS 译文与 main 由 scripts/release/build_main_release.py 从 dev 生成并推送，需研究发起人授权。八方向覆盖已完成至 C-127：dev-02/03/04 的 16 个 Lean-core 正源（C-123–C-126）加 dev-03/dev-04 的 GeometricCompletion.lean（C-127）在本机都有可重放收据。",
+  "phase": "W8 blocked-on-keyE / W9-coverage-closed / W9-release-pending-authorization",
+  "next_action": "(A) 攻 keyE，Z0 完整形式的最后一道门：2026-10-10 本机实测发现 Foundation 已提供 Sh.craig 的完整 D3（(Sh.craig.standardProvability).HBL3 由 inferInstance 合成），缺口因此从“形式化 Σ1 完全性”收缩为一条句法等价 keyE : 𝗜𝚺₁ ⊢ zfcTr σ 🡘 provabilityPred Sh.craig σ；内部仍卡非标准 V 下的推导消去（Provable.sound 只在 ℕ 层），入口是读通 Foundation Bootstrapping/DerivabilityCondition/D3.lean（179 行）。骨架见 Z0-D3-攻关包-最小完整版/05-源码/Z0D3Skeleton.lean（本机 exit 0，5 条引理已证 + 1 条 gap）。(B) 已完成：dev-09 的 external-foundation-incompleteness（D09-C-369）已于 2026-10-10 在本机 Foundation 构建树 1fb01b72 上重放（CG001-C-387，run 20261010-CG001-FFL-INCOMPLETENESS-R3-REPLAY-01 与 -NEG-01）；pin 由 f3972f42 变为 1fb01b72（仅新增一个模块），是源码层等价的重放，不是原 /tmp 检出的逐字节重执行。八方向覆盖至此闭合（C-123–C-127 + C-387）。(C) W9 剩项：四种 CLAIMS 译文与 main 由 scripts/release/build_main_release.py 从 dev 生成并推送，需研究发起人授权。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-09T17:40:00-04:00",
+  "updated": "2026-10-10T15:51:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
   "checkpoints": 10,
   "compactions": 2,

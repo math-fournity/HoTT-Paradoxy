@@ -2138,3 +2138,23 @@ Claim 表：
 | CG001-C-127 | 分支的实分析控制 `GeometricCompletion.lean` 在本机 Mathlib `5ed29652` 与 pinned Lean 4.34.0、禁网沙盒下编译通过：几何部分和 `1-(1/2)^n` 在每个自然数阶段严格小于 1、永不到达 1、在实数拓扑中趋于 1；`hasLimitOutcome` 与 `hasFiniteStageEndpoint` 两个形式谓词对该具体序列不等价；闭区间 `[0,1]` 时间域中有终端参数 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY` | run `20261009-CG001-GODEL-Q-GEOMETRIC-COMPLETION-01` | 不读成“这些命题被独立复核”，数学内容与范围仍以分支自己的 `CLAIM.md` 为准；不读成几何完成性或芝诺问题被解决；不声称 Mathlib 本体进入 CG-007 其它包的 pin（仅本包含它，且本包不用 Foundation）；不是 HoTT 路径证明，也不是 ZFC 元理论陈述 |
 
 **这一节对 §36 的修正**：上一轮把 `GeometricCompletion.lean` 记为“本机 toolchain pin 未含 Mathlib 构建树，故不在覆盖包内”。本机 `/Volumes/D/HoTT-toolchain-cache/` 下有完整的 Mathlib `5ed29652` 构建（2329 个 olean，含 `Mathlib/Analysis/SpecificLimits/Normed.olean`）；CG-007 既有 pin 只列 8 个依赖包而不列 Mathlib 本体根，是 pin 覆盖面的选择，不是能力缺失。因此 §36 的该条保留意见被本节取代。
+
+## Claude CG-007 W9c：dev-09 外部 Foundation 第一不完备性包在本机重放（2026-10-10）
+
+> 授权同上节。本节只追加，把上一节 `CG001-C-126` 中判为“本机不可重放”的那一项补齐。
+> 工具链：Lean 4.34.0 + Mathlib `5ed29652` + Foundation 构建树 `1fb01b72`（导入闭包 1,432 个模块）；
+> 驱动复用 CG-006 冻结的 `zfc_lean_check.py`（禁网沙盒、绝对路径、编译前核对每个模块 SHA-256）。
+> **外部 pin 的诚实差异**：dev-09 钉 Foundation `f3972f42`，本机构建树是 `1fb01b72`（前者之子提交）。
+> 两者 diff 仅新增 `FirstOrder/SetTheory/TransitiveClosure.lean` 并在 `Foundation.lean` 加一行 import，
+> 未触碰 `FirstOrder.Incompleteness.First` 或其导入闭包；dev-09 钉的三个配置文件与 `f3972f42` 同名文件
+> SHA-256 逐字节一致。因此这是**源码层等价的本机重放**，不是原 `/tmp` checkout 的逐字节重执行。
+> **身份**：本机重放与来源固定，不是新数学。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-FL-FOUNDATION-INCOMPLETENESS-R3-REPLAY-001` | `D09-C-369` | `formal/claude-cg001/external-foundation-incompleteness/GodelQ/Qualification.lean`（与 `dev-09` 同名原件逐字节相同，仅换到 `GodelQ/` 子目录；命题全文 `CLAIM.md`） | `verification/runs/20261010-CG001-FFL-INCOMPLETENESS-R3-REPLAY-01/`；exit 0，stderr 0 B；四条 `#print axioms` 均只有 `[propext, Classical.choice, Quot.sound]`；`--rerun` `PASS_WITH_SCOPE / EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY_NOT_NEW_MATHEMATICS` |
+| `MP-FL-FOUNDATION-INCOMPLETENESS-R3-REPLAY-NEG-001` | `D09-C-369`（负控制） | `formal/claude-cg001/external-foundation-incompleteness/GodelQ/WrongMissingSoundness.lean`（与 `dev-09` 同名原件逐字节相同） | `verification/runs/20261010-CG001-FFL-INCOMPLETENESS-R3-REPLAY-NEG-01/`；exit 1，`failed to synthesize instance of type class T.SoundOnHierarchy 𝚺 1`；`--rerun --expect-rejected` `NEGATIVE_CONTROL_REJECTED_AS_EXPECTED` | `NEGATIVE_CONTROL_REJECTED`：受控反例在 soundness 前提缺失处被拒 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| D09-C-369 | 从 `SOURCE_REPORTED_NOT_REPLAYED` 变为**本机可重放**：`FFL.FirstOrder.Arithmetic` 的 `incomplete`、`incomplete_of_RE`、`exists_true_but_unprovable_sentence_of_sigma1sound`、`exists_true_but_unprovable_sentence_of_RE_of_sigma1sound` 四条声明在本机 Foundation 构建树上过核，内核公理只有三条标准公理；负控制证明 `T.SoundOnHierarchy 𝚺 1` 这一前提未被静默抹去 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY` | run `-01` 与 `-NEG-01` | 不读成原运行的逐字节重执行（见上节 pin 差异）；不把一阶算术不完备性读成 ZFC 对象语言结果（那是 CG001-C-95–C-102）；不减损算术强度、可表示性与 soundness 作为显式 theorem 前提的身份 |
