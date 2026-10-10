@@ -354,3 +354,28 @@ iTR n _k R v := qqAlls (imp ℒₛₑₜ (conjunct 2 n 0 (iVE n v.[0]) ^⋏ (con
 
 `IsSemiformula.substs` / `.bShift` / `.isUTerm` 未在 `IsSemiformula` 命名空间下找到（可能名字不同），
 第 5 节里 `iT` 与 `substs1`/`shift`/`free` 的相容仍待核。
+
+## 11. 第二层（三）：三条新引理已证（2026-10-10 晚，提交见下）
+
+新增 `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/SeqTranslateFormula.lean`
+（**本机 exit 0，无 `sorry`**）：
+
+| 引理 | 内容 | 状态 |
+|---|---|---|
+| `isSemiformula_cRel` | `IsSemiformula ℒₛₑₜ 2 (cRel R)` | ✅ 已证 |
+| `isSemiformula_cDomN` | `IsSemiformula ℒₛₑₜ 1 (↑cDomN : V)` | ✅ 已证 |
+| `isSemiformula_cFunc_zero` | `IsSemiformula ℒₛₑₜ 1 (cFunc 0 0)` | ✅ 已证（2 元情形同法） |
+
+**关键机制**（这是第 10.1 节三条为什么之前看着难的答案）：
+`cRelN`/`cDomN`/`cFuncN` 全都定义成 **ℕ 层**的引号（`⌜φ⌝ : ℕ`），而
+`Sentence.quote_isSemiformula` 说的是 **V 层**的引号（`⌜φ⌝ : V`）。桥接引理是
+
+```lean
+Sentence.coe_quote_eq_quote (σ : Semisentence L n) : (↑(⌜σ⌝ : ℕ) : V) = ⌜σ⌝   -- Formula/Coding.lean:440
+```
+
+搬过去之后 `Sentence.quote_isSemiformula` 直接可用。
+
+**仍未做**：`conjunct` 的公式性、`iVE` 的公式性（`iVE.blueprint` 三支：`bvar`/`fvar`/`func`，
+后两支再分 `ve0`/`ve2`）、`iTR` 的公式性、以及第 1 条公式保持性本身。第 5 节那批
+（`iT` 与 `substs1`/`shift`/`free` 的相容）仍待核。
