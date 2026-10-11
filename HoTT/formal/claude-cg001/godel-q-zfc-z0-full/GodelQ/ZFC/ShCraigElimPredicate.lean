@@ -52,6 +52,27 @@ noncomputable def pDef : 𝚺ᴬ₁.Semisentence 1 := .mkSigma
 instance p_defined : 𝚺ᴬ₁-Predicate (P (V := V)) via pDef :=
   .mk fun v => by simp [pDef, P]
 
+
+/-- **第二版归纳不变量（`Derivable` 版）**：推导 `d` 的结论 sequent 翻译后**可导**。
+
+与 `P` 的区别：`P` 说的是"可证"（`Provable`，作用在单公式上），
+`Q` 说的是"可导"（`Derivable`，作用在 sequent 上）。
+`induction1` 的 `hWk` 支要用 `Derivable.wk`（弱化），所以 `Q` 在那一支更直接；
+两版都可用，`Q` 更适合承接规则支。
+
+`Derivable T s ↔ Provable T φ`（当 `s = φ ⫽ ∅`）由
+`internal_provable_iff_internal_derivable` 给出，故两版可互相转换。 -/
+def Q (d : V) : Prop := Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq (V := V) (fstIdx d))
+
+/-- `Q` 的 Σ1 公式：`fstIdxDef` + `translateSeqGraph` + `derivable 𝗭𝗙𝗖` 的存在量化组合。 -/
+noncomputable def qDef : 𝚺ᴬ₁.Semisentence 1 := .mkSigma
+  “d. ∃ s, !fstIdxDef s d ∧ ∃ t, !translateSeqGraph t s ∧ !(derivable 𝗭𝗙𝗖) t”
+
+/-- **`Q` 是 Σ1 谓词**，同样可作 `induction1` 的 `hP`。 -/
+instance q_defined : 𝚺ᴬ₁-Predicate (Q (V := V)) via qDef :=
+  .mk fun v => by simp [qDef, Q]
+
 end GodelQ.ShCraigElimSetup
 
 #print axioms GodelQ.ShCraigElimSetup.p_defined
+#print axioms GodelQ.ShCraigElimSetup.q_defined
