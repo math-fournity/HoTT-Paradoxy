@@ -124,4 +124,53 @@ lemma split_or {p q s : V} (hp : IsFormula ℒₛₑₜ p) (hq : IsFormula ℒ�
       · simp [mem_bitInsert_iff]
       · simp [mem_bitInsert_iff]
 
+
+/-! ## 公式替换（2026-10-11 新增） -/
+
+/-! `replace_of_imp`：给定 `¬A ⋎ B` 可导与 `insert A S` 可导，得 `insert B S` 可导。
+
+证法：`cut A`。
+* (i) `insert A (insert B S)` ← `wk hd`；
+* (ii) `insert (neg A) (insert B S)` ← 从 `¬A ⋎ B` 经 **`split_or`**
+  得 `insert (neg A) (insert B ∅)`，再 `wk`。
+
+`split_or` 正好把 `¬A ⋎ B` 拆成 `¬A` 与 `B`——这是本引理的关键。 -/
+
+lemma replace_of_imp {A B S : V}
+    (hAB : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (neg ℒₛₑₜ A ^⋎ B) ∅))
+    (hA : IsFormula ℒₛₑₜ A) (hB : IsFormula ℒₛₑₜ B)
+    (hS : IsFormulaSet (L := ℒₛₑₜ) S)
+    (hd : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert A S)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert B S) := by
+  refine Derivable.cut A ?_ ?_
+  · -- insert A (insert B S) ← wk hd
+    refine Derivable.wk (s := insert A (insert B S)) (s' := insert A S) ?_ ?_ hd
+    · intro y hy
+      rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact hA
+      · rcases mem_bitInsert_iff.mp hy with rfl | hy
+        · exact hB
+        · exact hS y hy
+    · intro y hy
+      rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact mem_bitInsert_iff.mpr (Or.inl rfl)
+      · exact mem_bitInsert_iff.mpr (Or.inr (mem_bitInsert_iff.mpr (Or.inr hy)))
+  · -- insert (neg A) (insert B S) ← split_or hAB 再 wk
+    have h1 : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (neg ℒₛₑₜ A) (insert B ∅)) :=
+      split_or hA.neg hB hAB
+    refine Derivable.wk (s := insert (neg ℒₛₑₜ A) (insert B S))
+      (s' := insert (neg ℒₛₑₜ A) (insert B ∅)) ?_ ?_ h1
+    · intro y hy
+      rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact hA.neg
+      · rcases mem_bitInsert_iff.mp hy with rfl | hy
+        · exact hB
+        · exact hS y hy
+    · intro y hy
+      rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact mem_bitInsert_iff.mpr (Or.inl rfl)
+      · rcases mem_bitInsert_iff.mp hy with rfl | hy
+        · exact mem_bitInsert_iff.mpr (Or.inr (mem_bitInsert_iff.mpr (Or.inl rfl)))
+        · exact absurd hy (by simp)
+
 end GodelQ.ShCraigElimSetupQ
