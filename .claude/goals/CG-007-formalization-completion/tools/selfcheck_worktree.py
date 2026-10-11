@@ -144,7 +144,14 @@ def main() -> int:
     print("\n7. 未推送提交（本地分支保护）")
     n = run_git("rev-list", "--count", f"{EXPECT_BRANCH}", "--not", "dev")
     if n.isdigit() and int(n) > 0:
-        ok(f"{n} 个提交领先 dev", "仅本地；远端无此分支，push 需研究发起人授权")
+        up = run_git("rev-parse", "--abbrev-ref", "@{upstream}")
+        if up.startswith("origin/"):
+            ahead = run_git("rev-list", "--count", f"{up}..HEAD")
+            note = (f"已跟踪 {up}；{ahead} 个提交待推送" if ahead not in ("", "0")
+                    else f"已跟踪 {up}，与远端一致")
+        else:
+            note = "未设上游；push 需研究发起人授权"
+        ok(f"{n} 个提交领先 dev", note)
     else:
         print(f"  · 领先 dev 的提交数：{n or '未知'}")
 
