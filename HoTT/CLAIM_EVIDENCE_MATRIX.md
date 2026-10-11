@@ -2291,3 +2291,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 `ShCraigElim` 已证或部分证**：`hAll`/`hExs`/`hShift` 仍未接线（所需的 `iT`-`setShift`/`substs1` 相容律不存在）；`axm` 支未做；10 个支未全填；`zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-Z0-W8-BRANCHES-002` |
+
+### W8-U9：码层面 `neg` 对合律的完整组装（CG001-C-401，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-401 |
+| 形式命题 | `neg_neg_code`：`IsSemiformula ℒₒᵣ n p → neg ℒₒᵣ (neg ℒₒᵣ p) = p`（V 内任意公式码） |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/NegInvolution.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-NEGINVOL-CODE-01`（exit 0，stderr 0 B，公理报告只有三条标准公理） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 `iT`/`neg` 相容律的其余部分**：本文件只证对合律；`hAll`/`hExs`/`hShift` 所需的 `iT`-`setShift`/`substs1` 相容律仍不存在；`ShCraigElim` 10 个支未全填；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-NEGINVOL-CODE-001` |
