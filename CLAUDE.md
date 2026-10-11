@@ -1,5 +1,23 @@
 # Claude Code 项目指令
 
+## 〇、工作根（2026-10-11 研究发起人裁定：专用 worktree）
+
+**CG-007（Z0 D3）的开发在本 worktree 进行，不在 `dev` 主检出上做日常改动。**
+
+| 角色 | 全 PATH | 说明 |
+|---|---|---|
+| **开发工作根（写这里）** | `/Volumes/D/HoTT-worktrees/cg007-w8-d3` | 分支 `codex/cg007-w8-d3`。本文件所在目录即它。 |
+| 集成目标（保持干净） | `/Volumes/D/HoTT_AI_HANDOFF_20260911` | 分支 `dev`。候选通过验收并经研究发起人授权后才按精确路径回写。 |
+| 禁止写入 | `/Users/aurolafly/WorkBuddy/Worktrees/.../dev-f65ca154` 等 | 停在 `workbuddy/* @ 87b65dfd` 的旧快照，缺全部 W8 文件，只读。 |
+
+- 开工前先 `git rev-parse --show-toplevel` 与 `git rev-parse --abbrev-ref HEAD` 核对；若不是本 worktree / 不是
+  `codex/cg007-w8-d3`，先停下来校准再动手。
+- **本轮接管实测交接**：`.claude/goals/CG-007-formalization-completion/HANDOFF-2026-10-11-CODEX-W8-D3.md`
+  （全 PATH、两份 `iT_neg` 的真实编译报错、阶段 A 精确修法、F-011 收据五件事、环境陷阱、可复制提示词）。
+- **注意**：`形式化追踪/08-Codex接管-交接与下一步.md` 与 `形式化追踪/09-*` 把 `/Volumes/D/HoTT_AI_HANDOFF_20260911`
+  写成"canonical 工作根"，那是本裁定之前的说法；其方向判断仍可参考，**进度数字已被实编译推翻**，工作根按本节为准。
+- 编译缓存：`.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（`.gitignore` 排除、可重算）。
+
 ## 一、工作方式：实用主义（研究发起人 2026-10-08）
 
 【原话】“不要浪费时间在之前的GPT制造的复杂的项目治理框架上，我们要以实用主义的角度去看待这套框架，以认知闭包和任务方案为依托进行实用的任务文档维护！”
@@ -115,3 +133,5 @@
 - 2026-10-08（会话 d58e0c0d）：按研究发起人要求，问答树 SOP 改为按需读取（第二节）。本文件只保留触发条件与读取动作；`gui-qa-tree` Skill、启动提示词与闭包同步改写。
 - 2026-10-08（会话 d58e0c0d）：按研究发起人要求记下 P-DAG 已暂停（第一节第 5 条）。
 - 2026-10-08（会话 d58e0c0d）：按研究发起人要求建立 `形式化追踪/`，并新增第三节（形式化与机器证明追踪的工作意识与维护规则）。
+- 2026-10-11（Codex 接手会话）：按研究发起人裁定新增第〇节，把工作根从 `dev` 主检出改为专用 worktree
+  `/Volumes/D/HoTT-worktrees/cg007-w8-d3`（分支 `codex/cg007-w8-d3`）；`dev` 只作集成目标并保持干净。
