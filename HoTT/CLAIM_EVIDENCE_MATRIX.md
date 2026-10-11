@@ -2303,3 +2303,27 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 `iT`/`neg` 相容律的其余部分**：本文件只证对合律；`hAll`/`hExs`/`hShift` 所需的 `iT`-`setShift`/`substs1` 相容律仍不存在；`ShCraigElim` 10 个支未全填；`zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-Z0-NEGINVOL-CODE-001` |
+
+### W8-U10：`shift` 相容链（CG001-C-402，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-402 |
+| 形式命题 | `ShiftConjunct` 十六引理（`shift_subst_cDomN`、`termShiftVec_shiftVec`、`shift_conjunct`、`shift_qqAlls`、`shift_ve2` 等）；`IVeShift.iVE_shift`（项层 `iVE n (termShift t) = shift ℒₛₑₜ (iVE n t)`）与 `iVE_shift`、`iTR_shift`（原子层）；`ITShift.iT_shift`（`iT n (shift p) = shift ℒₛₑₜ (iT n p)`，九支全证、零 sorry） |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/{ShiftConjunct,IVeShift,ITShift}.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-W8-SHIFT-COMPAT-01`（exit 0，stderr 0 B，`iT_shift` 公理报告只有三条标准公理） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 `hAll`/`hExs`/`axm` 已接线**：`iT`-`free`/`substs1` 相容律与 V 层见证引号化未证；`ShCraigElim` 10 个支未全填；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-W8-SHIFT-COMPAT-001` |
+
+### W8-U11：`hShift` 接线与 `translateSeq`-`setShift` 相容（CG001-C-403，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-403 |
+| 形式命题 | `TranslateSeqShift.translateSeq_setShift`：`IsFormulaSet ℒₒᵣ s → translateSeq (setShift ℒₒᵣ s) = setShift ℒₛₑₜ (translateSeq s)`；`ShCraigElimBranches.hShift`：`shiftRule` 支（`Derivable.shift` + 上一条）；`ShCraigElimInduction` 的 `shiftRule` 接线 |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/{TranslateSeqShift,ShCraigElimBranches,ShCraigElimInduction}.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-W8-SHIFT-COMPAT-01`（同一收据：`hShift` 公理报告只有三条标准公理；`induction_setup_Q` 仍带 `sorryAx`，见禁止外推） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 `ShCraigElim` 已证或部分证**：`induction_setup_Q` 仍有 3 个未证标记（`allIntro`/`exsIntro`/`axm`），故它自身带 `sorryAx`；接线数 7/10 是**支**数，不是定理数；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-W8-SHIFT-COMPAT-001` |
