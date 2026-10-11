@@ -43,6 +43,37 @@
 **所以真正剩下的是层数记账，不是对合律本身。** 这与 `NegInvolution.lean` 里
 `Negation` 的 `allChanges` 默认值问题是同一类：都是"两个递归的层数参数不一致"。
 
+### 层数障碍的精确形状（本机进一步实测）
+
+`isSemiformula_iTR` 的签名是
+
+```lean
+lemma isSemiformula_iTR {n k R v : V} (hR : ℒₒᵣ.IsRel k R)
+    (hv : IsSemitermVec ℒₒᵣ k n v) : IsSemiformula ℒₛₑₜ n (iTR n k R v)
+```
+
+**注意 `n` 出现了三次**：它既是项向量的层数、又是输出公式的层数、还是 `iTR` 自己的参数。
+而 `iT_rel` 只给 `IsUTermVec ℒₒᵣ k v`（无层数），
+`IsUTermVec.isSemitermVec` 产出的层数是 `listMax (termBVVec ℒₒᵣ k v)`——
+即"项向量里出现的最大 bound variable 索引"。
+
+**要把它提到 `param` 需要 `listMax (termBVVec ℒₒᵣ k v) ≤ param`，
+而这个不等式在 `IsUTermVec` 下不成立**：项可以引用任意大的 bound var。
+（`IsUTerm` 只要求是良构的项，不限制它引用哪些变量。）
+
+**同时 `iTR` 真的依赖 `param`**：展开是
+`qqAlls (imp (conjunct 2 param 0 (iVE param v.[0]) ^⋏ …) …) 2`，
+`param` 出现在 `conjunct` 与 `iVE` 的参数位。所以也不能用
+`iTR listMax = iTR param` 绕过去。
+
+**结论**：`nrel` 支的完整证明需要
+`IsUFormula ℒₛₑₜ (iTR param k R v)`，而它的两条来路（`isSemiformula_iTR` 与
+`isSemiformula_iT` + `iT_rel`）都卡在同一个层数不等式上。
+下一步要么证那个不等式（在 `iT` 的调用语境下 `param` 确实足够大——
+因为 `induction1` 的支里 `param` 来自 `iT` 自己的层数记账），
+要么改用别的途径拿 `IsUFormula (iTR param k R v)`（如逐构造子拼，
+本机已验证 `iTR` 的展开式在 `IsUFormula` 层面结构正确）。
+
 ## 应当怎么处置
 
 * `NegInvolution.lean`（走 `semiformula_result_induction` 重建对合律）**不再是必要路线**——
