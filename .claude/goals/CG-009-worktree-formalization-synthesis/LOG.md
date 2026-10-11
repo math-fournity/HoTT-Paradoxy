@@ -61,3 +61,4 @@
 - 2026-10-11T16:2x [checkpoint F] hAll 精确障碍（读 9276 探针）：需 iT/subst 相容律 iT 0 (subst ?[^&0] σ) = subst ?[^&0] (iT 1 σ)（σ 层1）——与 shift 不同类（项 vs 公式代入）。已建 ITSubst.lean 骨架与 API 探明（substs_rel/nrel/verum/falsum/and/or/all 全在；substs_exs 不存在）。 → 下一步：攻 iT_subst（双结构归纳，照 iT_neg 模板）
 - 2026-10-11T17:0x [checkpoint F] ★ hAll_uncond 组装成功（用 all_m + replace_of_imp + free_imp_domZero），只差 hAB（算术蕴含式）。吸收 9276 的 SetupQTools（split_or + replace_of_imp，独立核验 exit 0）与 TranslateShiftCompat-a841872c（含 iT_shift 完整版，与我方双路互证）。
 - 2026-10-11T17:1x [checkpoint F] ★ 负面结果机器化：朴素 iVE/subst 等式律恒假（subst ?[^&0] 命中 eqAtom 自身 bvar0）。这印证 9276 的判断——hAB 必须是蕴含式（Σ1 范围）。三轮反例全部机器化。 → 下一步：hAB 需要 Σ1 完全性工具（Z0Full 或 Z0Shadow 里的路径）
+- 2026-10-11T17:2x [checkpoint F] 全链 38/38 从零重编译通过（ITShift/ITRShift/ITShiftFull/TShiftFull/TShiftBranches/HAllProof/HAllGuard/SetupQTools/ITSubstCounter）。hAB 三候选路径已从 9276 交接取得：①元层引理（局限：p 任意码）②对 p 结构归纳（难点：free 不是 UformulaRec1 构造）③改 iT 定义（需用户裁定）。 → 下一步：试路径②；若不成则如实报告并留给用户裁定路径③
