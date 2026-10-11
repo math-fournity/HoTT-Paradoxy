@@ -1,20 +1,20 @@
 # git-worktree 对话录：GUI 导出、trajectory 谱系与 worktree 导航
 
 > 资产属性：HUMAN_EDITED。<br>
-> 唯一 owner：本目录 README；范围：本目录九份 Codex GUI 对话导出的谱系、原始 trajectory locator 与 Git/worktree 证据导航。<br>
+> 唯一 owner：本目录 README；范围：本目录十份 Codex GUI 对话导出的谱系、原始 trajectory locator 与 Git/worktree 证据导航。<br>
 > 建立时间：2026-10-05。导出快照集最初由 Git commit 7b1f7f604d019508ed2d1ee982645937cad0bab8 纳入版本控制。<br>
 > 交接摘要更新：2026-10-07；下方对话内容仍是 2026-10-05 导出快照，不代表今天的实时分支状态。<br>
 > 证据边界：本文件不复制任何对话正文、工具输出、隐藏推理或补丁；它只保存未来审计所需的最小定位信息。它不作 HoTT、ZFC 或项目研究结论。
 
-本目录中的九份 Markdown 是 GUI 可见对话的简洁导出：保留用户和助手在 GUI 中可见的消息，以及每轮可见的改动文件胶囊。它们不是原始 JSONL trajectory，也不能取代原始 trajectory。
+本目录中的十份 Markdown 是 GUI 可见对话的简洁导出：保留用户和助手在 GUI 中可见的消息，以及每轮可见的改动文件胶囊。它们不是原始 JSONL trajectory，也不能取代原始 trajectory。
 
 这些文件具有共享的历史前缀：有些是同一 Codex 对话的 continuation rollover，有些是从同一父对话在不同 cutoff 处分叉出的新对话。若逐个从头阅读，会反复阅读同一段历史；若只按标题或当前 Git branch 猜测，又会把对话继承关系和 Git 历史混为一谈。本 README 的目的就是让未来审计者先定位关系，再只读需要的分支增量。
 
 ## 给接手 AI 的一分钟导航
 
-用户说明最初建立了 9 个 worktree、其中 8 个有效；本目录实际保存 8 份 dev-0x 导出（编号 01、02、03、04、06、07、08、09，这里没有 dev-05 文件），另加 1 份 CG-007/9276 独立会话导出，合计 **9 份**。九份合计 **12,084,414 bytes、138,951 行**；dev-0x 八份约 1.23–1.64 MB，新增的 CG-007/9276 一份约 0.84 MB，而且都包含共享祖先的可见对话。这个体积不是 token 估算，但足以说明：接手时先用下表和关系图，只有在需要核对原话、转折或助手当时的结案措辞时，才打开相应 GUI 导出。缺少 dev-05 导出不证明该分支不存在或没有工作。
+用户说明最初建立了 9 个 worktree、其中 8 个有效；本目录实际保存 8 份 dev-0x 导出（编号 01、02、03、04、06、07、08、09，这里没有 dev-05 文件），另加 2 份独立会话导出（CG-007/9276、WorkBuddy dev-f65ca154），合计 **10 份**。十份合计 **12,575,720 bytes、144,125 行**；dev-0x 八份约 1.23–1.64 MB，两份独立会话约 0.49–0.84 MB，而且都包含共享祖先的可见对话。这个体积不是 token 估算，但足以说明：接手时先用下表和关系图，只有在需要核对原话、转折或助手当时的结案措辞时，才打开相应 GUI 导出。缺少 dev-05 导出不证明该分支不存在或没有工作。
 
-CG-007/9276 这份**不属于**上面 8 个 dev-0x worktree 谱系：它是一个独立根会话（无逻辑父、无 cross-thread fork），运行在 `codex/9276-cg007-w8-d3` 分支的链接 worktree 上。它与 dev 主线在 Git 层面相关（同 repo、同一批 CG-007 提交），但在对话谱系上独立，因此单独成节，不进入下面的对话分叉关系图。
+另外两份**不属于**上面 8 个 dev-0x worktree 谱系：它们都是独立根会话（无逻辑父、无 cross-thread fork），分别运行在 `codex/9276-cg007-w8-d3` 与 `workbuddy/dev-f65ca154` 分支的链接 worktree 上。它们与 dev 主线在 Git 层面相关（同 repo、同一批 CG-007 提交），但在对话谱系上独立，因此各自成节，不进入下面的对话分叉关系图。
 
 下表的“对话终点”是导出中可见的最后状态，不是数学结论。资产路径若写成 `git show <ref>:<path>`，`<ref>` 指本仓库当时可见的本地分支或 remote-tracking ref；ref 可能前进。要重建某次分支保存的精确树，读对应导出末尾的 branch-save receipt，取其 **保存提交 OID** 后运行 `git show <OID>:<path>`；存在 snapshot manifest 时以 manifest 的 exact OID／文件哈希复核。后文的 segment-start OID 和 2026-10-05 current-attachment OID 只是运行期／查找目录快照，**不是**对话终点提交。分支保存回复中的验证自述仍需回到代码、`CLAIM.md`、实际 run 与矩阵复核。
 
@@ -29,6 +29,7 @@ CG-007/9276 这份**不属于**上面 8 个 dev-0x worktree 谱系：它是一�
 | [dev-07](<dev-07 - 20261004T162033Z-01a10700-dd83-7171-8601-127270b94e9e-a573664c5370-gui.md>) | dev-06 的 H0-Z0 Pattern-First 集成支线，围绕 A/B 同一政策门、P1/P2/P3 受控卡、PF-B2 过程锚修订和主线认知写回；用户随后要求把对话归档一并推送。 | 分支集成／推送已在对话内报告；它交付的是 Pattern-First 的受控结果与闭包材料，不是 H0→Z0 全链或 bare-ZFC 最终判词。 | `git show origin/dev-07:dev-docs/H0-Z0模式P优先收敛SOP.md`、`git show origin/dev-07:audit/20261004-H0-Z0-PATTERN-FIRST-CONVERGENCE-001-Master.md`。 |
 | [dev-09](<dev-09 - 20261005T051816Z-01a10843-afd2-7063-82f8-259c56f359e9-a79ef407f501-gui.md>) | Gödel-ZFC 收敛线：G0/R3 校准、G1/R4 片段、真实接受接口、fixed H0 候选、SameFullQ 对账，并保存 I-001 总合成与恢复闭包；分支以 merge 保留了原 dev-09 快照和 contributor tip。 | I-001 只判 `C2/C3`（已声明路线有界收束／形式目标仍未定义）；`C1` 正闭环不成立，不能推出 bare-ZFC 矛盾或 Gödel 定理。 | `git show origin/dev-09:audit/20261005-GODEL-ZFC-I-001-声明路线总合成.md`、`git show origin/dev-09:认知闭包/GODEL-ZFC-CONVERGENCE-001.md`。 |
 | [cg007-9276](<cg007-9276 - 20261011T143405Z-01a120e6-4f37-79c0-8651-49996aaf6d9b-48b02b702d4d-gui.md>) | CG-007（Z0 / D3 / `zfcTr_D3_internalize`）形式化攻关的接手与推进会话：先核对上一段 Claude 工作断点，再产出 D3 攻关／补充包、修订 `zfcTr-D3-plan`，并多次更正工作根与后续机器证明路线。**它是独立根会话，不属于 dev-0x 对话谱系。** | 导出末端（2026-10-11 13:58Z）仍在交接态：`SeqTranslateFormula.isSemiformula_iT` 已由 receipt 机器证，但 `iT_neg`、`neg_neg_code` 未编译，`Z0Blocked.zfcTr_D3_internalize` 仍是带 `sorry` 的显式缺口；所有提交只在本地分支 `codex/9276-cg007-w8-d3`，未 push。 | `git show codex/9276-cg007-w8-d3:形式化追踪/09-Codex接手-现状核验与下一步-20261011.md`、`.claude/goals/CG-007-formalization-completion/W8-路线图-20261011-Codex接手.md`；当前真值以 `dev` 分支 `AGENTS.md` 的「CG-007 工作根、Worktree 与构建缓存的硬性边界」为准。 |
+| [workbuddy-f65ca154](<workbuddy-f65ca154 - 20261011T150316Z-01a12930-5d56-7b00-af11-47ec9ca42439-e85fdb2e703f-gui.md>) | 同一 CG-007/D3 攻关在 WorkBuddy 链接 worktree 上的并行会话：用户希望它“在独立 worktree 中工作、不干扰 dev”，因此先核对工作目录与分支归属，再把工作根纪律写进该 worktree 的 `CLAUDE.md`，并给出交给 Claude Code 的交接提示词。**独立根会话，不属于 dev-0x 对话谱系。** | 导出末端（2026-10-11 13:55Z）停在交接态：该 worktree 在 `workbuddy/dev-f65ca154` @ `87b65dfd`，比 `dev` 少 5 个提交（差异是 `外部资料/` 补丁与 dev-notes 归档）；对话明确该 worktree 不是 CG-007 当前工作根，正式源码/收据应回 `dev`。 | 该 worktree 的 `CLAUDE.md` 第〇节；当前工作根真值以 `dev` 分支 `AGENTS.md` 的 CG-007 边界节为准。 |
 
 ### 两条研究入口与最终综合的待核问题
 
@@ -153,7 +154,7 @@ R00  01a0fb08-ef43-7210-9ea7-41e27c6aa32d
 
 ## 原始 trajectory 清单
 
-> 下面的 R00–R13 属于 dev-0x 的共享对话树。CG-007/9276 独立会话另用 R20–R22，见紧随其后的“CG-007/9276 独立会话”一节。
+> 下面的 R00–R13 属于 dev-0x 的共享对话树。两份独立会话另用 R20–R22（CG-007/9276）与 R30–R31（WorkBuddy dev-f65ca154），见紧随其后的各自章节。
 
 以下是用于上图与本目录导出的 raw JSONL 定位。SHA-256 是 2026-10-05 读取时的完整文件身份；重审前应重新计算，而不是只相信路径仍存在。
 
@@ -255,18 +256,6 @@ R22  CG-007/9276 session segment C（GUI 导出所选 rollout）
      physical bytes 35623862；mtime 2026-10-11T14:23:40Z
 ~~~
 
-### 新鲜度核验（2026-10-11）
-
-重新按同一标题运行 GUI 导出后，与目录内快照逐字节比较：
-
-| 会话 | 比较结果 |
-|---|---|
-| dev-01、dev-02、dev-03、dev-04、dev-06、dev-07、dev-09 | 与本次新导出**逐字完全一致** |
-| dev-08 | 新导出以旧快照为精确前缀，多出 4142 bytes；旧快照缺少 2026-10-05 之后的可见追加 |
-| cg007-9276 | 本次为该会话首次导出，无旧快照可比 |
-
-因此 dev-08 的目录快照不是该线程当前最后内容；需要完整最新版时，应另存新时间戳快照并在 README 记录 supersession，而不是就地覆盖旧快照。
-
 ### 本目录导出文件
 
 ~~~text
@@ -294,9 +283,64 @@ sha256 d785c08d3560d887175c09e00a85f9c0103c806a159e795a65223694795de416
 - 该会话产生的 D3 攻关包与补充包，部分留在 `外部资料/`，在 `dev` 主检出中仍是未跟踪文件；
 - 因此不要把这份导出末尾的“当前进度”当作 `dev` 主线现在的完成状态，也不要用它推断主线已证。
 
+## WorkBuddy dev-f65ca154 独立会话（🌟 003 - Deepseek V4.1 Flash）
+
+这一份同样是独立根会话，与 dev-0x 及 CG-007/9276 都没有对话父子关系。
+
+### 对话结构
+
+- 逻辑线程 `01a12930-5d56-7b00-af11-47ec9ca42439`，GUI 标题 `🌟 003 - Deepseek V4.1 Flash`；
+- 无 `forked_from_id`、无 cross-thread branch：独立根会话；
+- 同线程内部有 2 段 physical rollout，按时间顺序 A → B 串联。
+
+### 分叉与 cutoff
+
+| 边 | 父 rollout | 父 cutoff | 说明 |
+|---|---|---|---|
+| A → B | R30 | byte < 25004867；ordinal < 6036 | 同线程 rollover；B 是 GUI 导出所选 rollout |
+
+### 原始 trajectory 清单
+
+~~~text
+R30  WorkBuddy dev-f65ca154 session segment A
+     /Users/aurolafly/.codex/sessions/2026/10/11/rollout-2026-10-11T00-19-57-01a12930-5d56-7b00-af11-47ec9ca42439.jsonl
+     sha256 a150f0df36c244ed764cf2f3907b4e7674f026505150da9e8efda116f748cebc
+     physical bytes 25016338
+
+R31  WorkBuddy dev-f65ca154 session segment B（GUI 导出所选 rollout）
+     /Users/aurolafly/.codex/sessions/2026/10/11/rollout-2026-10-11T09-00-08-01a12930-5d56-7b00-af11-47ec9ca42439_01a12b0c-981d-7582-b66d-e530551285be.jsonl
+     sha256 f6ffbb567e7be435216195e1011543dbfd7635f0ae08603192aa2ce1f24b40f2
+     physical bytes 2760901
+~~~
+
+### 本目录导出文件
+
+~~~text
+workbuddy-f65ca154 - 20261011T150316Z-01a12930-5d56-7b00-af11-47ec9ca42439-e85fdb2e703f-gui.md
+sha256 89a8bb9252c4c2ccd4983ceb469dc64936677a44cd881cbc2f685603eea82650
+491306 bytes；5174 行；18 段 User、573 段 Codex
+~~~
+
+### Git 与 worktree 现场
+
+| 层级 | 事实 |
+|---|---|
+| at-run CWD（两段一致） | /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-f65ca154 |
+| segment-start snapshot | A 与 B 均为 workbuddy/dev-f65ca154 @ 87b65dfd6a692d194fc283e253616c70501d3d0b |
+| 当前 attachment（2026-10-11 核对） | 同一路径仍为 workbuddy/dev-f65ca154 @ 87b65dfd6a692d194fc283e253616c70501d3d0b；仅有未跟踪的 `.workbuddy-ai/` |
+| audit lineage status | PARTIAL（27 条 `GIT_CONTEXT_SIDECAR_MISSING_PHASE` 警告） |
+| audit Git execution-context status | NOT_APPLICABLE_NO_FILE_EDITS |
+
+### 与 `dev` 主线的关系
+
+- 这是 WorkBuddy 侧的并行 worktree，分支 `workbuddy/dev-f65ca154`，不是 `dev`；
+- 该 worktree 停在 `87b65dfd`，比 `dev` 少 5 个提交（差异主要是 `外部资料/` 补丁与 dev-notes 归档）；
+- 会话本身明确：CG-007 的正式源码与收据应回 `/Volumes/D/HoTT_AI_HANDOFF_20260911`（`dev`），此 worktree 只作独立工作现场；
+- 因此不要把这份导出末尾的交接内容当作 `dev` 主线的完成状态。
+
 ## Git branch 与 worktree 证据
 
-**本节只针对 dev-0x 的八份导出。** 它们的 audit-mode lineage status 都是 COMPLETE，Git execution-context status 都是 PARTIAL_MIXED_EVIDENCE。CG-007/9276 独立会话的 lineage 是 PARTIAL、Git 状态是 NOT_APPLICABLE_NO_FILE_EDITS，单列在上一节，不要混入本节结论。因此这里采用三个层级，且不跨层推断：
+**本节只针对 dev-0x 的八份导出。** 它们的 audit-mode lineage status 都是 COMPLETE，Git execution-context status 都是 PARTIAL_MIXED_EVIDENCE。两份独立会话（CG-007/9276、WorkBuddy dev-f65ca154）的 lineage 都是 PARTIAL、Git 状态都是 NOT_APPLICABLE_NO_FILE_EDITS，单列在上两节，不要混入本节结论。因此这里采用三个层级，且不跨层推断：
 
 1. segment-start Git snapshot：session_meta 中在该 physical rollout 开始时记录的 branch（若有）和 commit；
 2. at-run CWD：raw tool record / at-run hook 所记录的工作目录；
@@ -369,6 +413,7 @@ python3 /Users/aurolafly/.codex/governance-tools/trajectory_gui_ref_export.py --
 python3 /Users/aurolafly/.codex/governance-tools/trajectory_gui_ref_export.py --mode gui "🌟 07 - ZFC-2 ω 的完成性"
 python3 /Users/aurolafly/.codex/governance-tools/trajectory_gui_ref_export.py --mode gui "🌟 09 - 哥德尔"
 python3 /Users/aurolafly/.codex/governance-tools/trajectory_gui_ref_export.py --mode gui "🌟 001 - 004"
+python3 /Users/aurolafly/.codex/governance-tools/trajectory_gui_ref_export.py --mode gui "🌟 003 - Deepseek V4.1 Flash"
 ~~~
 
 重新生成分叉、raw locator、工具与 Git/worktree 面包屑时，才显式使用 audit 模式，例如：
@@ -389,19 +434,32 @@ shasum -a 256 /absolute/path/to/the/Rxx.jsonl
 
 ## 面向未来审计 AI 的最小工作流
 
-1. 先读本节 branch handoff table，选出要复用的成果和未决项；不要把九份 GUI export 当成启动必读。
+1. 先读本节 branch handoff table，选出要复用的成果和未决项；不要把十份 GUI export 当成启动必读。
 2. 读关系图与精确 fork table，确认 GUI 父子关系及双 exclusive cutoff；它们不是 Git commit graph。
 3. 沿 branch row 的 `git show <ref>:<path>` 检查本机 refs 中的 closure／manifest；若 ref 已前进，回到当时保存 OID 和 manifest 恢复精确 snapshot。
 4. 只在需要精确对话上下文时读对应 GUI export；需要原始分叉/操作证明时再运行 exact-title audit。
 5. 将结论分为 GUI 可见内容、raw lineage、at-run CWD、segment-start Git snapshot、完整 per-operation Git proof、当前 filesystem attachment；缺层时标 `UNKNOWN/PARTIAL`，数学判词回到 source/kernel/run/index。
 
+### 新鲜度核验（2026-10-11）
+
+重新按同一标题运行 GUI 导出后，与目录内快照逐字节比较：
+
+| 会话 | 比较结果 |
+|---|---|
+| dev-01、dev-02、dev-03、dev-04、dev-06、dev-07、dev-09 | 与本次新导出**逐字完全一致** |
+| dev-08 | 新导出以旧快照为精确前缀，多出 4142 bytes；旧快照缺少 2026-10-05 之后的可见追加 |
+| cg007-9276 | 本次为该会话首次导出，无旧快照可比 |
+| workbuddy-f65ca154 | 本次为该会话首次导出，无旧快照可比 |
+
+因此 dev-08 的目录快照不是该线程当前最后内容；需要完整最新版时，应另存新时间戳快照并在 README 记录 supersession，而不是就地覆盖旧快照。
+
 ## 本 README 的验证记录与更新清单
 
 - [x] 增加 8 条 GUI 对话的 handoff 摘要；各条明确区分了“对话末端自述”与需回到当前 owner、Git branch 和 proof/run 复核的事实。
-- [x] 增加第 9 条独立会话（CG-007/9276，标题 `🌟 001 - 004`）的 handoff 摘要、rollout 清单与 Git 现场；明确它不属于 dev-0x 对话谱系。
+- [x] 增加第 9 条独立会话（CG-007/9276，标题 `🌟 001 - 004`）与第 10 条独立会话（WorkBuddy dev-f65ca154，标题 `🌟 003 - Deepseek V4.1 Flash`）的 handoff 摘要、rollout 清单与 Git 现场；明确它们都不属于 dev-0x 对话谱系。
 - [x] 将两组研究入口标为非排他导航建议，并保留同一任务、来源 bridge、current owner 和数学结论之间的未决边界。
-- [x] 本目录九份 GUI export 全部列入。
-- [x] 八个 dev-0x 目标的 lineage audit 为 COMPLETE；CG-007/9276 独立会话为 PARTIAL（27 条缺失 sidecar 相位），已如实标注。
+- [x] 本目录十份 GUI export 全部列入。
+- [x] 八个 dev-0x 目标的 lineage audit 为 COMPLETE；两份独立会话均为 PARTIAL（各 27 条缺失 sidecar 相位），已如实标注。
 - [x] 每条 cross-thread 分叉都记录了逻辑父线程、物理父 rollout、双 exclusive cutoff 和 child branch-launch rollout。
 - [x] selected rollout 与 branch-launch rollout 不同的 dev-08、dev-04、dev-06 已显式区分。
 - [x] 每个 GUI export、raw trajectory locator、运行 CWD、segment-start Git snapshot 和当前 worktree 定位都分层记录。
