@@ -3,14 +3,14 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391) / W8-neg_neg_code DONE 2026-10-11 (commit 72e5a0e3) / W8-iT_neg DONE 2026-10-11 (commit 27bd0f96: assembled from the 8 proven branches in ShCraigElimNegFilled, exit 0, axioms = propext/Classical.choice/Quot.sound only) / W8-induction1 branches 6/10 DONE (commit c27cf517: hWk/hVerumIntro/hAxL/hAnd/hOr/hCut) / W8-remaining branches hAll/hExs/hShift (need iT-setShift/iT-substs1 compat, NOT YET PROVEN) and hRoot (axm) OPEN / W8-ShCraigElim + zfcTr_D3_internalize OPEN / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "本轮（Claude Code 会话，2026-10-11）闭合 STATE 点名的两个未编译缺口（neg_neg_code、iT_neg），并把 induction1 支从 2 支推到 6 支。**下一个单点已定位清楚**：hAll / hExs / hShift 三支要的是iT 与 shift/setShift/substs1 的**跨语言相容律** —— 本机探针核实它不是平凡交换：iT 0 (shift ℒₒᵣ p) 与 shift ℒₛₑₜ (iT 0 p) 的关系里，iTR 的 v.[i] 走 iVE 到 ℒₛₑₜ，而两条路都要在 fvar 上加一，顺序要对上。已探明一个可用的中间步骤：shift ℒₛₑₜ (eqAtom (^&x)) = eqAtom (^&(x+1))（eqAtom 是 ^rel 2 cEqN (^#0 ∷ · ∷ 0)，shift_rel + termShiftVec_cons₂ 应可关掉，探针里因缺 ℒₛₑₜ 的 IsUTermVec 实例而未完成）。建议下一步先写 ℒₛₑₜ 侧的 IsUTermVec 辅助引理（项目内 isUTermVec_bvs 是先例），再证 eqAtom 与 shift 的交换，最后拼 iT_shift / iT_substs1。三支齐后接进 ShCraigElimSetup.induction_setup，产出无 sorry 的 ShCraigElim，再 Z0Blocked.sorry 改为 exact bwd_of_shcraig_elim elim σ h，最后 capture_run.py 出收据。hRoot（axm 支）是唯一用到 𝗭𝗙𝗖 公理处，需读 Foundation CraigTrick.lean / Sh.craig。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写。",
+  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391) / W8-neg_neg_code DONE (72e5a0e3) / W8-iT_neg DONE (27bd0f96) / W8-induction1 branches 6/10 DONE (c27cf517: hWk/hVerumIntro/hAxL/hAnd/hOr/hCut) / W8-TranslateShiftCompat atomic layer DONE (615c24ff: shift_eqAtom_bvar + shift_eqAtom_fvar) / W8-remaining: iT_shift/iT_substs1 (func case needs resultVec-vs-termShiftVec compat), hAll/hExs/hShift, hRoot, ShCraigElim, zfcTr_D3_internalize ALL OPEN / W9-coverage-closed / W9-release-pending-authorization",
+  "next_action": "本轮新增 TranslateShiftCompat.lean（exit 0）：原子层的 iVE/shift 相容律已证——shift_eqAtom_bvar / shift_eqAtom_fvar。下一个单点：把相容律从原子层推到项层与公式层，即 iT_shift : iT n (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT n p)。路径：iVE 的 func 支用 iVE.construction.resultVec，需先证 resultVec 与 termShiftVec 的相容（vector 层，可能要沿 length 归纳）；bvar/fvar 支已由本文件的 atomic 引理给出。再证 iT_substs1（substs1 同理）。两条齐后填 hAll/hExs/hShift，接进 ShCraigElimSetup.induction_setup，产出无 sorry 的 ShCraigElim，再 Z0Blocked.sorry 改为 exact bwd_of_shcraig_elim elim σ h，最后 capture_run.py 出收据。hRoot（axm 支）是唯一用到 𝗭𝗙𝗖 公理处。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-11T13:40:00-04:00",
+  "updated": "2026-10-11T14:05:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
   "checkpoints": 10,
   "compactions": 2,
