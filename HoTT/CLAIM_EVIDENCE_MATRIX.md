@@ -2207,3 +2207,15 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-391 | 在 𝗜𝚺₁ 的每个模型 V 中：`iVE` 的三条计算规则从 fixpoint 语义抠出；`isSemiformula_iVE`（`IsSemiterm ℒₒᵣ n t → IsSemiformula ℒₛₑₜ (n+1) (iVE n t)`，用 `IsSemiterm.sigma1_induction`）；`isSemiformula_domZero`；`isSemiformula_iTR`；公式保持性主定理 `isSemiformula_iT`（`IsSemiformula ℒₒᵣ n p → IsSemiformula ℒₛₑₜ n (iT n p)`，用 `semiformula_result_induction` 加 `param = n` 护罩）。负控制：bvar 规则写错被内核拒绝 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01` 与 `-NEG-02` | **不读成 D3 已证或部分证**：`derivable_translateSeq`（10 个 case）未证；`iT` 与 `subst/shift/free/setShift/emb` 的相容未证；`axm` 支与 `codeOfREPred` 一般 V 表示引理未证；`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证；Z0 完整形式仍以 `zfcTr_D3_internalize` 为显式前提；C-120 影子形式不受影响 |
+
+### W8-U2：`ShCraigElim` 的归纳不变量是 Σ1 谓词（CG001-C-392，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-392 |
+| 形式命题 | `P d := Provable 𝗭𝗙𝗖 (translateSeq (fstIdx d))` 是 `𝚺ᴬ₁-Predicate`，可作 `Derivation.induction1` 的 `hP` |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimPredicate.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-SHCRAIG-PREDICATE-01`（exit 0，stderr 0 B，公理报告只有三条标准公理，`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 `ShCraigElim` 已证**：10 个规则支未填，`iT` 与 `setShift`/`substs1` 的相容性未证，`axm` 支未做；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-SHCRAIG-PREDICATE-001` |
