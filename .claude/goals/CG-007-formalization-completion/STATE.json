@@ -3,14 +3,14 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391: isSemiformula_iT + 9 lemmas, receipt 20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01) / W8-iT_neg BLOCKED (ShCraigElimNegLaw.iT_neg & NegInvolution.neg_neg_code UNCOMPILED as of 2026-10-11) / W8-derivable_translateSeq(10 cases) + ShCraigElim + axm + bridge + zfcTr_D3_internalize OPEN / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "D3 攻坚：第 2 层公式保持性主定理 isSemiformula_iT 已机器证（CG001-C-391，有收据）。但 STATE/HANDOFF 此前隐含假设 iT_neg 已好——实测 ShCraigElimNegLaw.iT_neg 与 NegInvolution.neg_neg_code 均未编译通过（IsUFormula.qqAlls 等命名不存在；neg_neg_code 卡 rel 支且带 sorryAx 噪声），是当前真缺口。下一个可独立验收的单点：封住 iT/neg 相容律——先修 NegInvolution.neg_neg_code（清 sorryAx 噪声、补原子支），再重写 ShCraigElimNegLaw.iT_neg（用 isUFormula_iTR + IsUFormula.all/imp/and/subst/rel，带 param=n 护罩），编译 exit 0 后出收据（capture_run.py + verify_cg001_run.py --rerun）。完成后依次是 hAxL/hCut/hShift、hAll/hExs/hShift 的 iT 与 subst/shift/free/setShift 相容、axm 支（需 codeOfREPred 一般 V 表示引理）、derivable_translateSeq 10 case 组装、bridge/keyE←、zfcTr_D3_internalize，最后 capture_run.py 出收据。C-120 影子形式无条件成立，不受影响。dev 领先 origin/dev 38 提交未 push；绝不碰外部资料/与并行会话未提交文件。",
+  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391) / W8-neg_neg_code DONE 2026-10-11 (Claude Code session, commit 72e5a0e3: neg_neg_code exit 0, 9 lemmas with only propext/Classical.choice/Quot.sound; root cause was that Foundation ALREADY has IsUFormula.neg_neg at Syntax/Formula/Functions.lean:127 — the earlier doc claim that only the meta-level Semiformula.neg_neg exists was WRONG) / W8-iT_neg branches nrel/all/exs STILL OPEN (blocked on isSemiformula_iTR IsSemitermVec bound whnf timeout + neg_imp_domZero rewrite order) / W8-derivable_translateSeq(10 cases) + ShCraigElim + axm + bridge + zfcTr_D3_internalize OPEN / W9-coverage-closed / W9-release-pending-authorization",
+  "next_action": "neg 律层已推进：neg_neg_code exit 0（提交 72e5a0e3）。下一个可独立验收的单点：完成 ShCraigElimNegFilled 的 nrel/all/exs 三支组装（5 支已证）。两处已知卡点：① isSemiformula_iTR 需要 IsSemitermVec ℒₒᵣ k n v，而 hv 是 IsUTermVec；用 IsUTermVec.isSemitermVec 会引入 listMax 项触发 whnf 心跳超时（200000 → 试 2000000）；② neg_imp_domZero（neg (imp domZero x) = domZero ⋏ neg x）的改写顺序：neg_or 是 @[simp]，rw 时需先 show 出 imp 的展开形。尝试稿留 /tmp/NegFilled.attempt-3branches.lean。完成后依次是 hAxL/hCut/hShift、hAll/hExs/hShift 的 iT 与 subst/shift/free/setShift 相容、axm 支、derivable_translateSeq 10 case 组装、bridge/keyE←、zfcTr_D3_internalize，最后出收据。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-11T06:50:00-04:00",
+  "updated": "2026-10-11T12:20:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
   "checkpoints": 10,
   "compactions": 2,
