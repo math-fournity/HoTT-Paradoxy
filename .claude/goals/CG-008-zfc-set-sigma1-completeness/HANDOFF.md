@@ -8,10 +8,16 @@
 ## 0. 一句话诚实状态
 
 **Z0 完整形式仍未机器证明；`Z0Blocked.lean:65` 的 `sorry` 仍在。**
-2026-10-11 两轮：P1 建成集合语言内部演算工具层并把缺口**等价归约**成内部演算形状；
-P2 建成 `Derivable` 编码层工具集、把缺口**定型**为集合语言的 `provable_internalize`、
-并证伪三条候选路线（含方向性的 Σ₁ 绝对性路线）。
+2026-10-11 三轮：P1 建成集合语言内部演算工具层并把缺口**等价归约**成内部演算形状；
+P2 建成 `Derivable` 编码层工具集、把缺口**定型**为集合语言的 `provable_internalize`
+（进而改述为 **`zfcTr.HBL3`**），并证伪/归约了**六条**候选路线。
 **归约与桥都是变换，不是证明。**
+
+**P2 的净结论**：缺口**没有缩小**，但**定位精度大幅提高**，
+且现在可以说明**为什么它不能被绕过**——两条剩余的路各被一条**数学必然**堵死
+（`Sh.Δ₁` 不可能成立 = G1；`HBL3` 只在同语言时可陈述）。
+补上缺口需要**扩展 Foundation 的抽象框架**（或为跨语言情形单开一条路），
+而不是填实例或补桥。
 
 ---
 
@@ -149,10 +155,27 @@ cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 &&
 |---|---|---|
 | 内部蕴含句 `⌜translate τ 🡒 translate (zfcTr τ)⌝` + modus ponens | 那**正是反射原理**，即哥德尔第二定理的内容，循环 | `CG008Probe4.lean` |
 | 载体重接到标准模型（把 `: V` 改写成 `: ℕ`） | 类型错误——Gödel 报价把载体类型编码进结果值 | `Z0Probe6/7.lean` |
-| `Sh.craig` / `Δ₁ Sh` 捷径 | `Theory.Δ₁ Sh` 不成立（`Sh` 是 r.e./Σ₁ 而非 Δ₁） | `Z0D3Attempt.lean` |
+| `Sh.craig` / `Δ₁ Sh` 捷径 | `Sh.Δ₁` **不可能**成立（见下） | `Z0D3Attempt.lean` |
 | 廉价传递 `Con(Sh.craig) ↔ Con(𝗭𝗙𝗖)` | 坍缩为同一 D3 缺口 | `Z0Final.lean` |
 | **Σ₁ 绝对性把 V 真降到 ℕ** | **方向反了**——`sigma_one_upward` 沿 `ι : M ↪ₛ N`，而 `natCastEmbedding : ℕ ↪ₛ V`；Σ₁ 只**向上**绝对 | `CG008Probe12.lean` |
 | `SoundOnHierarchy` 桥（`Absoluteness.lean:121-152`） | 定义在 `ArithmeticTheory` 上，且那是**反方向**（真⟹可证，靠可靠性） | `CG008Probe11.lean` |
+| **借 `standardProvability` 白送的 `HBL3`** | `Sh` 无 `Δ₁`；且 `Sh.standardProvability` **连提及都不行** | `CG008Probe15.lean` |
+| **走 `𝗭𝗙𝗖.standardProvability : Provability 𝗜𝚺₁ 𝗭𝗙𝗖`** | 结构**能建成**（`LORDefinable ℒₛₑₜ` 与 `𝗭𝗙𝗖.Δ₁` 都有），但 `HBL3` **连陈述都不行**：`D3` 要 `𝔅 σ : Sentence L`，而 `𝔅.pr : Sentence L → Sentence L₀` | `CG008Probe17-20.lean` |
+| **把 `sigma_one_provable_of_models` 的 `T` 换成 `𝗭𝗙𝗖`** | 归约回缺口本身（该引理要 `T : ArithmeticTheory`，且证明依赖 `term_complete`/`toNumVec`，`ℒₛₑₜ` 无常项） | `CG008Probe21.lean` |
+
+**两条数学必然**（不是工程缺口，不要试图「补实例」）：
+
+1. **`Sh.Δ₁` 不可能成立**——`Δ₁` 的 `mem_iff` 要精确刻画公理集；
+   而 `Sh` 的「公理」是 𝗭𝗙𝗖 的**定理**，其成员判定是 Σ₁、补是 Π₁。
+   若 `Sh.Δ₁` 成立 ⇒ 𝗭𝗙𝗖 定理集递归 ⇒ **与 G1 矛盾**。（`CG008Delta1Wall.lean`）
+2. **`HBL3` 只在 `L = L₀` 时可陈述**——`D3 : T₀ ⊢ 𝔅 σ 🡒 𝔅 (𝔅 σ)` 要
+   `𝔅 σ : Sentence L`，而 `𝔅.pr : Sentence L → Sentence L₀`。
+   注意 `HBL2` **是**多语言的（两边都落在 `L₀`），两者是独立的类，不可混同。
+   （`CG008Probe20.lean`）
+
+**跨语言墙的最终形式**：ZFC 的可证性谓词把 `ℒₛₑₜ` 句映到 `ℒₒᵣ` 句。
+这个跨语言性要么让 `Δ₁` 丢失（走 `zfcTr : Provability 𝗜𝚺₁ Sh` 那条路），
+要么让 `HBL3` 无法陈述（走 `𝗭𝗙𝗖.standardProvability` 那条路）。
 
 **已解除的障碍**（原判为卡点，实为换 API 来源）：
 - 集合语言的内部化演算辅助（`ZFCSetInternal.lean`）；
@@ -161,6 +184,7 @@ cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 &&
 **纠一处误诊**：`Z0Blocked.lean` 文档第 16-18 行否定的 `zfcTr_D3_syntactic`
 **不是**缺口的形状——缺口前提是「V 内部**有一条推导**」（Σ₁ 完全性），
 不是「该句为真」（反射原理）。这个区分是缺口不循环的原因（`CG008SetSigma1Complete.lean`）。
+（第二轮又进一步改述为 **`zfcTr.HBL3`**，见 `CG008HBL3.lean`。）
 
 ---
 
