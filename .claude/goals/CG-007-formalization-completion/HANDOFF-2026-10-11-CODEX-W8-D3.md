@@ -250,6 +250,22 @@ python3 -B $T/devbuild_ns.py $PKG GodelQ/ZFC/NegInvolution.lean GodelQ/ZFC/ShCra
 | Mathlib | `/Volumes/D/HoTT-toolchain-cache/astra-real-geometry-v4.34.0/mathlib4-*` |
 | 开发编译回路 | `.claude/goals/CG-007-formalization-completion/tools/devbuild_ns.py`（无沙箱，仅开发） |
 | 正式收据 | `.claude/goals/CG-007-formalization-completion/tools/capture_run.py`（带沙箱、拒 sorry） |
+| **自检** | `.claude/goals/CG-007-formalization-completion/tools/selfcheck_worktree.py`（只读；开工前先跑，确认工作根/闭包/工具链/缺口源码就位） |
+
+**开工第一条命令**（只读，约 1 秒）：
+
+```bash
+cd /Volumes/D/HoTT-worktrees/cg007-w8-d3
+python3 -B .claude/goals/CG-007-formalization-completion/tools/selfcheck_worktree.py
+# 期望最后一行：结果：全部就绪，可以在本 worktree 独立开工。
+```
+
+**收据回路的一个实测坑**（2026-10-11 干跑所得）：`capture_run.py` 的驱动在**全新临时目录**里从零编译，
+所以 `--source` 必须给出**完整的依赖链**（参照上一份成功收据 `RUN.json` 的 `command_argv[5:]`，
+本包约 26 个文件），只给目标文件会报
+`object file '.../SeqTranslateFormula.olean' ... does not exist` → `KERNEL_REJECTED`。
+另外 `--source` 是 `action="append"`：**每个文件一个 `--source`**，不能空格分隔成一条。
+`devbuild_ns.py` 没有这个问题（它用增量缓存）。
 
 **上下文目标类型**：`{V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]`。
 
