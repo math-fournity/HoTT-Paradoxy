@@ -2243,3 +2243,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 `hAxL`/`hCut` 已解锁**：两支需要**一般版本**（V 内任意公式码）；引号化版本不能直接用；`zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-Z0-SHCRAIG-NEG-001` |
+
+### W8-U5：`iT`/`neg` 相容律的五支（CG001-C-396，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-396 |
+| 形式命题 | `iT`/`neg` 相容律的归纳九支中 `verum`/`falsum`/`rel`/`and`/`or` 五支 |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimNegFilled.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-SHCRAIG-NEGFILLED-01`（exit 0，stderr 0 B，`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成相容律已证**：`nrel`/`all`/`exs` 三支未填；`hAxL`/`hCut`/`hShift` 仍被阻塞；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-SHCRAIG-NEGFILLED-001` |
