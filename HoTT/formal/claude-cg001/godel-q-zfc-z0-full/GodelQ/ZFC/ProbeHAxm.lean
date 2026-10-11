@@ -6,13 +6,14 @@ import Foundation.FirstOrder.Incompleteness.Second
 
 身份：开发探针。把 `axm` 支接完。
 
-已证两条：
+**已证三块**：
 - `zfc_provable_of_mem_craig`：`σ ∈ Sh.craig ⟹ 𝗭𝗙𝗖 ⊢ arithTrln.translate σ`
 - `iT_of_mem_delta1`：`⌜φ⌝ ∈ Sh.craig.Δ₁Class ⟹ ∃ σ ∈ Sh.craig, iT 0 ⌜φ⌝ = ⌜translate σ⌝`
+- `derivable_of_provable_mem`：`IsFormulaSet ℒₛₑₜ s → φ ∈ s → Provable 𝗭𝗙𝗖 φ → Derivable 𝗭𝗙𝗖 s`
 
-本文件补最后一步：从 `Provable 𝗭𝗙𝗖 ⌜translate σ⌝` 到
-`Derivable 𝗭𝗙𝗖 (translateSeq s)`（`⌜translate σ⌝ ∈ translateSeq s` 由 `p ∈ s` 给）。
-路线：`Provable.toDerivable` → `insert φ ∅` → `Derivable.wk` 弱化。
+**本文件补最后一环**：`axm` 支的 `p` 是裸 `V`，需把 `p ∈ Sh.craig.Δ₁Class`
+接到 `∃ φ, p = ⌜φ⌝`。V 层 `IsCraigAxiom` 的定义直接给出形状：
+`x = q ^⋏ qqVerums s`，而 `⌜σ.padding k⌝ = ⌜σ⌝ ^⋏ qqVerums k`（`quote_padding`）。
 **不是**收据源，**不是**数学主张。
 -/
 
@@ -26,13 +27,13 @@ namespace GodelQ.ProbeHAxm
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- 路线一：`σ ∈ Sh.craig ⟹ 𝗭𝗙𝗖 ⊢ translate σ`。 -/
+/-- 路线一。 -/
 lemma zfc_provable_of_mem_craig (σ : ArithmeticSentence) (h : σ ∈ Sh.craig) :
     𝗭𝗙𝗖 ⊢ arithTrln.translate σ := by
   rw [← Sh_provable_iff]
   exact (inferInstance : Sh.craig ⪯ Sh).pbl (Entailment.by_axm h)
 
-/-- 路线二：`⌜φ⌝ ∈ Sh.craig.Δ₁Class` 时 `iT 0 ⌜φ⌝` 是某个 `𝗭𝗙𝗖` 可证句的码。 -/
+/-- 路线二。 -/
 lemma iT_of_mem_delta1 (φ : ArithmeticSentence)
     (h : (⌜φ⌝ : V) ∈ Sh.craig.Δ₁Class) :
     ∃ σ : ArithmeticSentence, σ ∈ Sh.craig ∧ iT (0 : V) (⌜φ⌝ : V) = ⌜arithTrln.translate σ⌝ := by
@@ -44,7 +45,7 @@ lemma iT_of_mem_delta1 (φ : ArithmeticSentence)
   refine ⟨φ, hσ, ?_⟩
   rw [show (0 : V) = ((0 : ℕ) : V) by simp, iT_quote]
 
-/-- **最后一步**：从 `Provable 𝗭𝗙𝗖 φ` 到 `Derivable 𝗭𝗙𝗖 s`（当 `φ ∈ s` 且 `s` 是公式集）。 -/
+/-- 路线三：`Provable → Derivable` 弱化。 -/
 lemma derivable_of_provable_mem {φ s : V} (hs : IsFormulaSet ℒₛₑₜ s)
     (hφs : φ ∈ s) (hp : Provable 𝗭𝗙𝗖 φ) : Derivable 𝗭𝗙𝗖 s := by
   have hd : Derivable 𝗭𝗙𝗖 (insert φ (∅ : V)) := hp.toDerivable
@@ -54,5 +55,10 @@ lemma derivable_of_provable_mem {φ s : V} (hs : IsFormulaSet ℒₛₑₜ s)
   rcases hx with rfl | hx
   · exact hφs
   · exact absurd hx (by simp)
+
+/-- **最后一环判定**：V 层的 `Sh.IsCraigAxiom p` 给出的形状。 -/
+example (p : V) (h : Sh.IsCraigAxiom p) : ∃ s q : V, p = q ^⋏ qqVerums s := by
+  obtain ⟨s, q, hpq, _⟩ := h
+  exact ⟨s, q, hpq⟩
 
 end GodelQ.ProbeHAxm
