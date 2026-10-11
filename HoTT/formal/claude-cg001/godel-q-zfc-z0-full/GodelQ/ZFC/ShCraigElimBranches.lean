@@ -1,6 +1,7 @@
 import GodelQ.ZFC.ShCraigElimPredicate
 import GodelQ.ZFC.ShCraigElimNegLaw
 import GodelQ.ZFC.SeqTranslateFormula
+import GodelQ.ZFC.TranslateShiftCompat
 
 /-!
 # CG-007 · W8 第二层（五）：`induction1` 的规则支
@@ -87,7 +88,7 @@ open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Boots
 open FFL.Entailment ProvabilityAbstraction
 open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
 open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.Z0Full
-open GodelQ.SeqTranslate GodelQ.ShCraigElimSetup
+open GodelQ.SeqTranslate GodelQ.ShCraigElimSetup GodelQ.TranslateShiftCompat
 
 namespace GodelQ.ShCraigElimBranches
 
@@ -197,7 +198,35 @@ lemma hCut {s p d₁ d₂ : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
         (ShCraigElimNegLaw.iT_neg p hp).symm]
     simpa only [Q, hd₂, translateSeq_insert] using ih₂
 
-end GodelQ.ShCraigElimBranches
+/-- **`translateSeq` 与 `setShift` 交换**（需要 `s` 是公式集，才拿到 `IsSemiformula`）。
+
+逐元素用 `mem_translateSeq_iff` + `mem_setShift_iff`，公式性交给 `iT_shift`。 -/
+lemma translateSeq_setShift {s : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) :
+    translateSeq (setShift (L := ℒₒᵣ) s) = setShift (L := ℒₛₑₜ) (translateSeq s) := by
+  apply Arithmetic.mem_ext; intro y
+  simp only [mem_translateSeq_iff, mem_setShift_iff]
+  constructor
+  · rintro ⟨x, ⟨z, hz, rfl⟩, rfl⟩
+    exact ⟨iT 0 z, ⟨z, hz, rfl⟩, iT_shift (n := 0) z (hs z hz)⟩
+  · rintro ⟨w, ⟨z, hz, rfl⟩, rfl⟩
+    exact ⟨shift ℒₒᵣ z, ⟨z, hz, rfl⟩, (iT_shift (n := 0) z (hs z hz)).symm⟩
+
+/-- **`hShift` 支**：`s = setShift (fstIdx d)`，子推导在 `fstIdx d` 上。
+
+`Derivable.shift` 直接给 `Derivable 𝗭𝗙𝗖 (setShift (translateSeq (fstIdx d)))`，
+再用 `translateSeq_setShift` 换回 `translateSeq s`。 -/
+lemma hShift {s d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (h : s = setShift (L := ℒₒᵣ) (fstIdx d)) (ih : Q (V := V) d) :
+    Q (V := V) (shiftRule s d) := by
+  have hfs : IsFormulaSet (L := ℒₒᵣ) (fstIdx d) := by
+    rw [h] at hs
+    simpa using (IsFormulaSet.setShift_iff (L := ℒₒᵣ) (s := fstIdx d)).mp hs
+  simp only [Q, fstIdx_shiftRule, h]
+  rw [translateSeq_setShift hfs]
+  exact Derivable.shift ih
+
+
+
 
 #print axioms GodelQ.ShCraigElimBranches.isFormulaSet_translateSeq
 #print axioms GodelQ.ShCraigElimBranches.hWk
@@ -206,3 +235,33 @@ end GodelQ.ShCraigElimBranches
 #print axioms GodelQ.ShCraigElimBranches.hAnd
 #print axioms GodelQ.ShCraigElimBranches.hOr
 #print axioms GodelQ.ShCraigElimBranches.hCut
+#print axioms GodelQ.ShCraigElimBranches.translateSeq_setShift
+#print axioms GodelQ.ShCraigElimBranches.hShift
+
+/-! ## 2026-10-11 进展（二）：`hShift` 已填，2 支 → 7 支
+
+`iVE_shift`/`iT_shift`（`TranslateShiftCompat.lean`，全 0-sorry）一证，
+`translateSeq_setShift` 与 **`hShift`** 立刻通。
+
+**剩余两支的精确障碍**（本机核实）：`hAll`/`hExs` 要的不是 `iT`/`shift` 相容
+（已有），而是 **`free`/`substs1` 的相容**：
+
+* `hAll` 需要 `iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p))`
+  （因为 `iT 0 (^∀ p) = ^∀ imp domZero (iT 1 p)`，`all_m` 的 `q` 被强制成
+  `imp domZero (iT 1 p)`）。展开 `free L p = substs1 L ^&0 (shift L p)` 后
+  归结为一条**代入相容律**：`iT 0 (subst ℒₒᵣ ?[^&0] σ)` 与
+  `subst ℒₛₑₜ ?[^&0] (imp ℒₛₑₜ domZero (iT 1 σ))` 的关系（`σ` 层数 1）。
+* `hExs` 同形，用 `substs1 L t p`（`t` 是任意项），需 `iT` 与 `substs1` 的相容。
+
+**注意**：这与 `shift` 的相容**不同类**。`shift` 是「自由变量整体加一」，
+两条路都在 fvar 上加一，故能对上；`substs1` 是「把项塞进绑定位置」，
+`ℒₒᵣ` 侧塞的是**项**、`ℒₛₑₜ` 侧塞的是**公式**（`domZero` 的引入正是为此），
+所以 `iT` 必须把 `substs1` 的项论证翻译成公式论证——这是新的一类引理，
+Foundation 的 `DerivabilityCondition/EquationalTheory.lean` 里
+`Semiterm.shift_substs` 那套在这里不能照搬。
+
+**建议的下一步**：先证 `iT_substs1` 的项层地基
+（`iVE` 与 `subst` 在项上的相容，可能需要 `iVE_subst`），
+再证公式层的 `iT_substs1`，最后 `free` 的版本。 -/
+
+end GodelQ.ShCraigElimBranches
