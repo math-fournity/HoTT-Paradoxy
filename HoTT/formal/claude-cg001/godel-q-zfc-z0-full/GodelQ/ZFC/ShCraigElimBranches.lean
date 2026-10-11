@@ -471,12 +471,57 @@ subst ℒₛₑₜ ?[^&0] domZero = subst ℒₛₑₜ ?[^&0] cDomN             
 （`domZero_eq_cDomN` 仍然正确且有用：它说明 `domZero` 的**形状**是引号，
 没有 `domZero` 自己的额外绑定层；但它不意味着 `domZero` 对代入免疫。）
 
-**这使 `hAll` 的图景更清楚了**：`iT 1 p` 里每个 `all`/`exs` 都插入
-`imp domZero ·`，而这些 `domZero` 各含一个自由 `#0`；
-`free` 的 `subst ?[^&0]` 会把它们**全部**换成 `^&0`——
-这正是 `free ℒₛₑₜ X` 的语义（「把自由变量 0 提出来」），
-但对 `iT 0 (free ℒₒᵣ p)` 而言，`free` 是**在 iT 之前**做的，
-所以那些 `domZero` 还不存在，它们的 `#0` 也不会被改。**两者必然不同。**
+**第九轮更正（重要）**：我上面那句「`free` 会把所有 `domZero` 的 `#0` 换成 `^&0`」
+**是错的**。`substs_all` 的语义是**防捕获代入**：
+
+```
+substs_all : subst L w (^∀ p) = ^∀ subst L (qVec L w) p
+qVec L w = ^#0 ∷ termBShiftVec L (len w) w
+```
+
+在绑定层下，向量首分量被换成 `^#0`——即**新绑定变量 `#0` 不被替换**。
+所以 `subst ?[^&0]` 作用在 `^∀ (imp domZero Y)` 上时，`domZero` 里的 `#0`
+是**被 `^∀` 绑定的**，**不会被改**。
+
+只有**顶层**（不在任何绑定层下）的 `domZero`，其 `#0` 是自由的，才会被替换。
+`free_imp_domZero`（本轮已证）正是这个顶层情形：
+`free (imp domZero X) = imp (subst ?[^&0] domZero) (free X)`。
+
+**这对 `hAll` 的含义**：`all_m` 要的 `free ℒₛₑₜ q` 里 `q = imp domZero (iT 1 p)`
+是**顶层**的 `imp`，故其 `domZero` 确实被替换。而 `iT` 内部各绑定层下的
+`domZero` 不受影响。**这正是两边能对上的关键**——需要把
+`iT 0 (subst ?[^&0] σ)` 与 `subst ?[^&0] (iT 1 σ)` 逐层对齐，
+顶层的那一个 `domZero` 差异由 `free_imp_domZero` 显式携带。
+
+**第十轮：对齐所需的向量形状已实测确认**
+
+```
+qVec ℒₛₑₜ ?[^&0] = ^#0 ∷ ?[^&0]        ✅ 已证（exit 0）
+```
+
+（因 `termBShiftVec` 对 fvar 不动，`termBShiftVec 1 ?[^&0] = ?[^&0]`。）
+
+**手算验证了 bvar 支的一致性**：
+
+```
+iVE 0 (subst ?[^&0] ^#0)  = iVE 0 ^&0 = eqAtom ^&0 = ^rel 2 cEqN (?[^#0, ^&0])
+subst (qVec ?[^&0]) (iVE 1 ^#0) = subst (^#0 ∷ ^&0 ∷ 0) (eqAtom ^#1)
+                                = ^rel 2 cEqN (?[^#0, ^&0])          ✓ 相同
+```
+
+**关键点**：`qVec` 的首分量 `^#0` 恰好保护了 `eqAtom` 自己的绑定变量，
+而第二分量 `^&0` 替换掉 `eqAtom` 的参数 `^#1`——**这正是 `substs_all`
+用 `qVec` 而不是 `w` 的原因**，也是 `iT`/`subst` 相容律的**正确形状**：
+
+```
+iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ (qVec ℒₛₑₜ (iVE-像 w)) (iT (m+1) p)
+```
+
+（层数 `m → m+1` 因为 `iT` 的 `all`/`exs` 支插入绑定层；
+向量的每个分量要经 `iVE` 翻译成公式层的项。）
+
+**下一步**：按这个形状用 `semiformula_result_induction` 试证
+（先在 `rel` 支验证向量逐分量对齐），再回填 `hAll`/`hExs`。
 
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
