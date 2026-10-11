@@ -304,3 +304,23 @@ free (iT 1 ⌜ψ⌝) = free ⌜translate ψ⌝ = ⌜Rewriting.free (translate ψ
 **且**：即使证成，也只覆盖 `p = ⌜ψ⌝`（标准公式）；`hAll` 的 `p` 是 V 内任意码。
 （`induction1` 的 `d` 来自 `Derivation Sh.craig d`，其结论句 `zfcTr G` 是标准的，
 但 `allIntro` 支里的 `p` 本身不保证标准。）
+
+## 十八、继续吸收（17:5x）：9276 的 `provable_into_sequent`
+
+**核验**：从 9276 的 `ShCraigElimSetupQ.lean`（sha `0ab3d651`）提取 `provable_into_sequent`，
+独立编译 **exit 0**。
+
+```lean
+lemma provable_into_sequent {A B : V} (hB : IsFormulaSet (L := ℒₛₑₜ) B)
+    (hd : Derivable 𝗭𝗙𝗖 (insert A ∅)) : Derivable 𝗭𝗙𝗖 (insert A B)
+```
+
+**用途**（9276 定位）：`hRoot` 收尾的必需件——`Derivable.by_axm` 只接受**公理**，
+而 `Sh.craig` 的公理经翻译后只是**可证**（由 `Sh.craig ⪯ Sh`），
+所以要先把「可证」搬进目标 sequent。
+
+**hRoot 的剩余难点**（9276 精确化）：把 `p ∈ Sh.craig.Δ₁Class`
+（其 `mem_iff` 是 `CraigTrick.lean:311` 的复合式）化到 `Sh.craig` 成员，
+再经 `Sh.craig ⪯ Sh` + `iT_quote` + `provable_into_sequent` 收尾。
+技术障碍：`Theory.Δ₁.mem_iff` 接受元层 `Proposition`，而 `hRoot` 手里是 V 元素——
+需用 `Δ₁Class.defined` 实例的 `.iff`。
