@@ -57,3 +57,5 @@
 - 2026-10-11T14:40:00-04:00 [checkpoint F] ★★ 重大吸收：9276 证出 iVE_shift 全称版（sha 2002d386，0 sorry，16 定理公理全干净）——ishift 的最后障碍清除。本会话独立核验（从零拓扑编译 exit 0）后吸收。 → 下一步：完成 iT_shift（rel/nrel 两支）
 - 2026-10-11T14:50:00-04:00 [checkpoint F] iT_shift 七支过核（verum/falsum/and/or/all/exs + 骨架）。rel/nrel 组装中：iTR_shift 需要把 iVE n v.[j] 与 iVE n (termShift v.[j]) 通过 iVE_shift 对接，但层记账出现微妙点——IsUTermVec.isSemitermVec 给的层是 listMax (termBVVec ...)，而 iTR 的 n 是独立参数。 → 下一步：解决层对接（iVE 的层是局部传递的，func 支用 ve2 (p 0) k f w），或用层无关的 iVE_shift 变体
 - 2026-10-11T15:3x [checkpoint F] ★★ iTR_shift 与 iT_shift 完整证出（0 sorry、exit0、公理干净）。iT_shift 九支全过：rel/nrel 用 iTR_shift + shift_rel/shift_nrel + 层改写（h ▸ hv）；其余七支沿用既有。 → 下一步：tshift（GateBranches.tshift_of_ishift 已过核，只需把 ishift 前提换成 iT_shift 的实例）
+- 2026-10-11T16:1x [checkpoint F] ★ tshift + hShift_uncond 证出并提交。O2 无条件支达 7 支。 → 下一步：hAll/hExs
+- 2026-10-11T16:2x [checkpoint F] hAll 精确障碍（读 9276 探针）：需 iT/subst 相容律 iT 0 (subst ?[^&0] σ) = subst ?[^&0] (iT 1 σ)（σ 层1）——与 shift 不同类（项 vs 公式代入）。已建 ITSubst.lean 骨架与 API 探明（substs_rel/nrel/verum/falsum/and/or/all 全在；substs_exs 不存在）。 → 下一步：攻 iT_subst（双结构归纳，照 iT_neg 模板）
