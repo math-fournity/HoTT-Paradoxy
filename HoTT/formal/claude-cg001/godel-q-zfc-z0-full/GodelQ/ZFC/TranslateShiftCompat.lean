@@ -75,6 +75,45 @@ lemma shift_eqAtom_fvar (x : V) :
   rw [termShiftVec_cons₂ (IsUTerm.bvar (z := 0)) (IsUTerm.fvar x)]
   rw [termShift_bvar, termShift_fvar]
 
+/-! ## 与 `hAll`/`hExs`/`hShift` 的接口（2026-10-11 分析，尚未完成）
+
+三支最终要的是 `translateSeq` 与 `setShift` 的交换：
+
+```
+hShift : s = setShift (fstIdx d)  ⟹  Derivable 𝗭𝗙𝗖 (translateSeq s)
+ih     : Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))
+```
+
+由 `mem_translateSeq_iff`（`y ∈ translateSeq s ↔ ∃ x ∈ s, y = iT 0 x`）
+逐元素看，这归结为
+
+```
+iT 0 (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT 0 p)          -- 记作 iT_shift
+```
+
+而 `iT_shift` 的原子支（`iT_rel` + `shift_rel`）归结为
+
+```
+iTR 0 k R (termShiftVec ℒₒᵣ k v) = shift ℒₛₑₜ (iTR 0 k R v)
+```
+
+`iTR` 只用 `v.[0]`、`v.[1]` 且经 `iVE`，所以再归结为**项层**的
+
+```
+iVE n (termShift t) = shift ℒₛₑₜ (iVE n t)        -- 记作 iVE_shift
+```
+
+本文件的 `shift_eqAtom_bvar`/`shift_eqAtom_fvar` 正是 `iVE_shift` 的
+bvar/fvar 两支（`termShift_bvar`/`termShift_fvar` 分别对上
+`iVE_bvar` 的加一与 `iVE_fvar` 的不动）。剩下的 `func` 支要用
+`IsSemiterm.sigma1_induction`（`isSemiformula_iVE` 的先例），
+并处理 `iVE.construction.resultVec` 与 `termShiftVec` 的相容。
+
+**下一步顺序**：`iVE_shift`（用 sigma1_induction，func 支参照
+`isSemiformula_iVE` 的 `nth_resultVec` 写法）→ `iT_shift` → `translateSeq_setShift`
+→ `hShift` / `hAll` / `hExs`。`hExs` 另需 `iT_substs1`（同形）。
+-/
+
 end GodelQ.TranslateShiftCompat
 
 #print axioms GodelQ.TranslateShiftCompat.isUTermVec_eqAtom_vec
