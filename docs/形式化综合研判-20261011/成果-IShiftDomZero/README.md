@@ -324,3 +324,37 @@ lemma provable_into_sequent {A B : V} (hB : IsFormulaSet (L := ℒₛₑₜ) B)
 再经 `Sh.craig ⪯ Sh` + `iT_quote` + `provable_into_sequent` 收尾。
 技术障碍：`Theory.Δ₁.mem_iff` 接受元层 `Proposition`，而 `hRoot` 手里是 V 元素——
 需用 `Δ₁Class.defined` 实例的 `.iff`。
+
+## 十九、hRoot 的精确形状（本会话探明）
+
+`hRoot` 的目标：`p ∈ Sh.craig.Δ₁Class ⟹ Provable 𝗭𝗙𝗖 (iT 0 p)`。
+
+**解包**（`CraigTrick.lean:236` 的 `Theory.isCraigAxiom_quote_iff`）：
+```
+T.IsCraigAxiom ⌜φ⌝ ↔ ∃ ρ ∈ T.craig, φ = ρ
+```
+而 `T.craig` 的成员是 `ρ.padding k`（`ρ ∈ T`，`k : ℕ`）——
+所以 Craig 公理是 **`ρ.padding k`** 形式（`ρ` 是原理论的句子）。
+
+**可用零件**（本会话实测确认存在）：
+- `Sh_provable_iff : Sh ⊢ σ ↔ 𝗭𝗙𝗖 ⊢ arithTrln.translate σ`（`Z0Shadow.lean:44`）
+- `provable_iff_provable : Provable T ⌜φ⌝ ↔ T ⊢ φ`（Foundation）
+- `iT_quote : iT n ⌜φ⌝ = ⌜arithTrln.translate φ⌝`
+- `Entailment.padding_iff : 𝓢 ⊢ padding φ k 🡘 φ`
+- `Derivable.by_axm`（V 层公理规则）
+- `provable_into_sequent`（本会话吸收）
+
+**归约链**（`HRoot.lean` 已写出骨架）：
+```
+p = ⌜ρ.padding k⌝
+iT 0 p = ⌜translate (ρ.padding k)⌝          [iT_quote]
+需要 𝗭𝗙𝗖 ⊢ translate (ρ.padding k)
+  ← padding_iff 给 translate ρ ↔ translate (ρ.padding k)（需 translate 与 padding 相容）
+  ← Sh_provable_iff 逆用：ρ ∈ Sh ⟹ Sh ⊢ ρ ⟹ 𝗭𝗙𝗖 ⊢ translate ρ
+⟹ Provable 𝗭𝗙𝗖 (iT 0 p)                    [provable_iff_provable]
+```
+
+**剩余技术障碍**（与 9276 一致）：`Theory.Δ₁.mem_iff` 接受元层 `Proposition`，
+而 `hRoot` 手里是 V 元素 `p`——需用 `Δ₁Class.defined` 实例的 `.iff`（对任意 V 元素），
+并处理 `translate` 与 `padding` 的相容（`translate (padding φ k)` 的形状）。
+**这比 hAB 更接近完成**（零件齐全，无元层交换律缺失）。
