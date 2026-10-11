@@ -1,60 +1,64 @@
-# 接力：`ishift` 只剩 `iTR_shift` 的组装（给下一会话）
+# 接力：O2 的 hAll/hExs（给下一会话）
 
-> 2026-10-11 15:0x，CG-009 会话（elegant-mclaren）。**本文件不改共享文件、不改他人源码**。
+> 2026-10-11 16:0x，CG-009 会话（elegant-mclaren）。**本文件不改共享文件、不改他人源码**。
 
 ## 一句话
 
-**`ishift` 的最后障碍已由 9276 清除**（`iVE_shift` 全称版已证，本会话独立核验）。
-现在只剩 **`iTR_shift` 的组装**（把已证的零件拼起来），然后 `ishift`/`iT_shift`/`tshift` 连锁打通。
+**`iT_shift` / `tshift` / `hShift` 已证**（本会话）。剩余 `hAll`/`hExs` 需要**另一类**相容律
+——`free`/`substs1` 的相容（不是 `shift` 的），其归约结构已由 9276 实测打通，只缺一条代入律。
 
-## 已证清单（全部 exit 0、公理仅三条标准公理）
+## 已证清单（全部 exit 0、0 sorry、公理仅三条标准公理）
 
-### A. 9276 产出（本会话独立核验后吸收）
-文件：`成果-IShiftDomZero/TranslateShiftCompat-2002d386.lean`（sha `2002d386`，0 sorry，16 定理）
-- `iVE_shift`：**全称版** `iVE n (termShift t) = shift (iVE n t)` ← **关键解锁项**
-- `shift_conjunct`、`shift_qqAlls`、`shift_cRel`、`shift_cFunc`、`shift_cDomN`、
-  `shift_ve0`、`shift_ve2`、`shift_quote_sentence`、`shift_eqAtom_*`、`iVE_shift_bvar/fvar`、
-  `termShiftVec_shiftVec_V`、`nth_shiftVec`
+### 本会话新证（`成果-IShiftDomZero/`）
+| 定理 | 文件 | 内容 |
+|---|---|---|
+| **`iT_shift`** | `ITShift-FULL.lean` | `iT n (shift p) = shift (iT n p)`，九支全过 |
+| `iTR_shift` | `ITRShift.lean` | rel 支的原子（用 iVE_shift + 9276 的零件组装） |
+| **`tshift`** | `TShift.lean` | `translateSeq (setShift s) = setShift (translateSeq s)`（公式集版） |
+| **`hShift_uncond`** | `TShiftBranches.lean` | O2 的 hShift 支**无条件** |
+| `isFormulaSet_of_setShift_eq` | 同上 | `setShift s'` 是公式集 ⇒ `s'` 是公式集 |
+| `shift_domZero` / `shift_quote` / `ishift` 六支 / `shift_ve0` | 各文件 | 本会话早期成果 |
 
-### B. 本会话产出
-文件：`成果-IShiftDomZero/` 下各文件
-- `shift_domZero`（枢纽）、`shift_quote`（通用工具）
-- `ishift` 六支（verum/falsum/and/or/all/exs）
-- `iT_shift` 七支（`ITShift-7of9.lean`）——九支中除 rel/nrel 外全过核
+### 吸收自 9276（本会话独立核验）
+`TranslateShiftCompat-2002d386.lean`：`iVE_shift`（全称版）+ `shift_conjunct`/`shift_qqAlls`/
+`shift_cRel`/`shift_subst_cFunc`/`shift_ve0`/`shift_ve2`/`nth_shiftVec` 等 16 定理。
 
-## 剩余工作（精确）
+## 剩余：`hAll` / `hExs`（精确）
 
-### 1. `iTR_shift`（进行中，`ITRShift-inprogress.lean`）
+**9276 已实测打通归约结构**（其 `ShCraigElimBranches.lean` 第 267 行起的"第三轮"节）：
 
-目标：`iTR n 2 R (termShiftVec ℒₒᵣ 2 v) = shift (iTR n 2 R v)`（`hv : IsSemitermVec ℒₒᵣ 2 n v`）
+```
+hAll 目标：Derivable 𝗭𝗙𝗖 (translateSeq s)，其中 ^∀ p ∈ s
+  all_m (s) (p := imp ℒₛₑₜ domZero (iT 1 p))    -- q 被 iT_all 强制成此形
+    ├─ ^∀ (imp domZero (iT 1 p)) ∈ translateSeq s   ← mem_translateSeq_iff + iT_all ✅
+    └─ Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) (setShift (translateSeq s)))
+         ← 需把 ih 从 Derivable (insert (free ℒₒᵣ p) (setShift (fstIdx d))) 搬过来
+```
 
-**已完成的部分**（文件里已写、编译到只剩最后一步）：
-- `h0`/`h1`：`(termShiftVec 2 v).[i] = termShift v.[i]`（`nth_termShiftVec`）
-- `e0`/`e1`：两个 conjunct 分量用 `iVE_shift` + `shift_conjunct` 对接 ✅
-- `hA0`/`hA1`/`hA01`/`hA`/`hB`：各分量的公式性 ✅
+**两处不相容**：
+1. `setShift` 那半：`translateSeq_setShift` 已证 ✅（本会话 `tshift`）
+2. `insert` 那半：需 **`iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p))`**
+   ——展开 `free L p = substs1 L ^&0 (shift L p)` 后归结为一条**代入相容律**：
+   `iT 0 (subst ℒₒᵣ ?[^&0] σ)` 与 `subst ℒₛₑₜ ?[^&0] (imp domZero (iT 1 σ))` 的关系（σ 层数 1）。
 
-**剩余**：把 `shift` 从 `qqAlls` 外推到内（`shift_qqAlls` + `shift_or`/`shift_neg`/`shift_and`/`shift_cRel`）。
-编译错误在两处：
-- 第 56 行附近：`hbody` 的类型标注（`IsUFormula` 的组装）；
-- 第 66 行：`shift_qqAlls` 的 rewrite 未匹配（可能需先 `show` 出目标形状）。
+**`hExs` 同形**，用 `substs1 L t p`（t 任意项），需 `iT` 与 `substs1` 的相容。
 
-**提示**：照 9276 的 `shift_ve2`（同文件 331–390 行）的写法——
-它用 `show` 把目标显式写出，再用 `rw [shift_qqAlls hbody, shift_or …, shift_neg …, hsa, hsb]`。
+**为什么与 shift 不同类**：`shift` 是"自由变量整体加一"，两边都在 fvar 上加一；
+`substs1` 是"把项塞进绑定位置"——`ℒₒᵣ` 侧塞的是**项**、`ℒₛₑₜ` 侧塞的是**公式**
+（`domZero` 的引入正为此）。所以 `iT` 必须把项论证翻译成公式论证。
 
-### 2. 之后的连锁
+**建议路线**（9276 建议 + 本会话赞同）：
+1. 先证项层 `iVE` 与 `subst` 的相容（可能需要 `iVE_subst`）；
+2. 再证公式层 `iT_substs1`；
+3. 最后 `free` 版本 → `hAll`/`hExs`。
 
-`iTR_shift` → `iT_shift` 的 `rel`/`nrel` 两支（用 `iT_rel`/`iT_nrel` + `iTR_shift`）
-→ **`ishift` 完整** → `iT_shift` 完整 → `tshift`（`GateBranches.tshift_of_ishift` 已过核）
-→ `hShift` 支 → O2 只剩 `hAll`/`hExs`/`hAxm`。
+## 下游
 
-### 3. 注意
-
-- `hExs` 另需 `iT_substs1`（同形但用 `substs1`）——可仿 `iVE_shift` 写 `iVE_substs1`。
-- `iVE_shift` 的层参数与 `iTR` 的 `n` 必须**同一层**（用 `IsSemitermVec` 而非
-  `IsUTermVec`+`listMax`）——这是本会话踩过的坑，`isSemiformula_iTR` 是先例。
+`hAll`/`hExs` 完成 ⇒ O2 只剩 `hAxm`（O3 证书桥：`codeOfREPred` 的一般 V 表示引理，
+独立战线）⇒ `ShCraigElim` 十支全接 ⇒ `zfcTr_D3_internalize` ⇒ Z0 完整形式。
 
 ## 协作
 
-- 本会话与 9276 在同一战线**互补**：9276 出 `iVE_shift` 全链，本会话出 `shift_domZero`/
-  `shift_quote`/六支/七支。两边的零件都有防回退副本。
+- 9276 在同一战线，已出 `ShCraigElimBranches.lean` 的 hAll 归约结构分析与探针；
+  本会话已出 `iT_shift`/`tshift`/`hShift`。**互补**。
 - 引用任何"已证"前先独立重编译。
