@@ -2231,3 +2231,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 `ShCraigElim` 已证**：其余 8 支未填，`zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-Z0-SHCRAIG-BRANCHES-001` |
+
+### W8-U4：`iT`/`neg` 相容律的引号化版本（CG001-C-394，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-394 |
+| 形式命题 | `iT n ⌜∼φ⌝ = neg ℒₛₑₜ (iT n ⌜φ⌝)`（φ 为元层标准公式） |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimNeg.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-SHCRAIG-NEG-01`（exit 0，stderr 0 B，`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 `hAxL`/`hCut` 已解锁**：两支需要**一般版本**（V 内任意公式码）；引号化版本不能直接用；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-SHCRAIG-NEG-001` |
