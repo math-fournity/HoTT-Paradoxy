@@ -456,8 +456,34 @@ subst ?[^#0, s] (eqAtom t) = ^rel 2 cEqN (termSubstVec 2 ?[^#0,s] ?[^#0,t])
 2. **给 `hAll` 的 `P` 谓词加一条「层数对齐」的护罩**（类似 `iT_shift` 的 `param = n`），
    让向量长度在归纳假设里就对齐。
 
-**建议**：先试出路 1——它把问题从「公式相等」降级到「可导性传递」，
-而后者是 `Derivable` 的强项。
+**第八轮：`domZero` 的代入行为已完全算清（本机实测，两条引理 exit 0）**
+
+```
+termSubstVec ℒₛₑₜ 1 ?[^&0] ?[^#0] = ?[^&0]                        ✅ 已证
+subst ℒₛₑₜ ?[^&0] domZero = subst ℒₛₑₜ ?[^&0] cDomN              ✅ 已证
+```
+
+**重要更正**：`domZero` **不是**代入不变的！`cDomN = ⌜arithTrln.domain⌝`
+而 `arithTrln.domain : Semisentence ℒₛₑₜ 1` 层数是 **1**——它有一个**自由 bvar `#0`**
+（就是 `x ∈ ω` 里的那个 `x`）。所以 `subst ?[^&0] cDomN` 会把那个 `#0` 换成 `^&0`，
+与 `cDomN` 不同。
+
+（`domZero_eq_cDomN` 仍然正确且有用：它说明 `domZero` 的**形状**是引号，
+没有 `domZero` 自己的额外绑定层；但它不意味着 `domZero` 对代入免疫。）
+
+**这使 `hAll` 的图景更清楚了**：`iT 1 p` 里每个 `all`/`exs` 都插入
+`imp domZero ·`，而这些 `domZero` 各含一个自由 `#0`；
+`free` 的 `subst ?[^&0]` 会把它们**全部**换成 `^&0`——
+这正是 `free ℒₛₑₜ X` 的语义（「把自由变量 0 提出来」），
+但对 `iT 0 (free ℒₒᵣ p)` 而言，`free` 是**在 iT 之前**做的，
+所以那些 `domZero` 还不存在，它们的 `#0` 也不会被改。**两者必然不同。**
+
+**结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
+两者的语义本就不同。出路只有出路 1：
+**直接从 `ih` 用 `Derivable` 规则搭桥**，把
+`Derivable (insert (iT 0 (free ℒₒᵣ p)) S')` 变成
+`Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) S')`，
+中间用 `cut` + 两条公式的**互相可导性**（而不是相等）。
 
 **另记（对本包结构的观察）**：`iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ w (iT m p)`
 这个「同层数」形状是**不成立的**——`iT` 的 `all` 支插入 `domZero`，
