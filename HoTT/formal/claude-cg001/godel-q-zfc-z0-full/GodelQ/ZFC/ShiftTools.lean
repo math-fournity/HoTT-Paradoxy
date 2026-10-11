@@ -70,8 +70,49 @@ lemma shift_domZero : shift (L := ℒₛₑₜ) (domZero (V := V)) = domZero (V 
     (φ := (Rewriting.emb (ξ := ℕ) (arithTrln.domain/[#0]) : Semiproposition ℒₛₑₜ (0 + 1)))]
   rw [rew_shift_emb]
 
+/-- `shift` 与 `imp` 相容（`imp a b = neg a ⋎ b`）。 -/
+lemma shift_imp {p q : V} (hp : IsUFormula ℒₛₑₜ p) (hq : IsUFormula ℒₛₑₜ q) :
+    shift (L := ℒₛₑₜ) (imp ℒₛₑₜ p q) =
+      imp ℒₛₑₜ (shift (L := ℒₛₑₜ) p) (shift (L := ℒₛₑₜ) q) := by
+  rw [imp, imp, shift_or hp.neg hq]
+  congr 1
+  exact shift_neg hp.isSemiformula
+
+/-- `shift` 固定 `cFunc k f`（`Semisentence ℒₛₑₜ n` 的引号，任意 `k`）。 -/
+lemma shift_cFunc (k f : V) : shift (L := ℒₛₑₜ) (cFunc k f) = cFunc k f := by
+  rw [cFunc]
+  split_ifs
+  · rw [cFuncN]; split_ifs <;> exact shift_quote _
+  · rw [cFuncN]; split_ifs <;> exact shift_quote _
+  · rw [cFuncN]; split_ifs <;> exact shift_quote _
+  · rw [cFuncN]; split_ifs <;> exact shift_quote _
+
+/-- `shift` 固定 `subst [#0] (cFunc 0 f)`——闭代换。 -/
+lemma shift_subst_cFunc0 (f : V) :
+    shift (L := ℒₛₑₜ) (subst ℒₛₑₜ (^#0 ∷ 0) (cFunc (V := V) 0 f)) =
+      subst ℒₛₑₜ (^#0 ∷ 0) (cFunc (V := V) 0 f) := by
+  rw [shift_substs (L := ℒₛₑₜ) (n := 1) (m := 1) (p := cFunc (V := V) 0 f)
+    (isSemiformula_cFunc_arity0 f)
+    (isSemitermVec_single_bvar (n := 1) (by simp))]
+  congr 1
+  · rw [termShiftVec_cons₁ (IsUTerm.bvar (L := ℒₛₑₜ)), termShift_bvar]
+  · exact shift_cFunc 0 f
+
+/-- `shift` 固定 `ve0 k f`（func 支的 k=0 情形）。 -/
+lemma shift_ve0 (f : V) : shift (L := ℒₛₑₜ) (ve0 (V := V) 0 f) = ve0 (V := V) 0 f := by
+  rw [ve0]
+  rw [shift_imp IsUFormula.verum ?_]
+  · rw [shift_verum (L := ℒₛₑₜ), shift_subst_cFunc0]
+  · exact (IsSemiformula.subst (L := ℒₛₑₜ) (n := 1) (m := 1)
+      (isSemiformula_cFunc_arity0 f)
+      (isSemitermVec_single_bvar (n := 1) (by simp))).isUFormula
+
 end GodelQ.ShiftTools
 
 #print axioms GodelQ.ShiftTools.rew_shift_emb
 #print axioms GodelQ.ShiftTools.shift_quote
 #print axioms GodelQ.ShiftTools.shift_domZero
+#print axioms GodelQ.ShiftTools.shift_imp
+#print axioms GodelQ.ShiftTools.shift_cFunc
+#print axioms GodelQ.ShiftTools.shift_subst_cFunc0
+#print axioms GodelQ.ShiftTools.shift_ve0
