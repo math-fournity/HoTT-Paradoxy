@@ -1,0 +1,81 @@
+module
+
+public import Foundation.Propositional.Boolean.Basic
+public import Foundation.Propositional.Formula.NNFormula
+
+@[expose] public section
+
+namespace FFL.Propositional
+
+variable {α : Type*}
+
+open Tarski (Valuation)
+
+
+namespace NNFormula
+
+section val
+
+variable {F : Type*} [LogicalConnective F] [LogicalNeutral F]
+  [TildeInvolutive F] [LogicalNeutral.DeMorgan F] [LogicalConnective.DeMorgan F] (v : α → F) {a : α}
+
+def valAux : NNFormula α → F
+  | .atom a  => v a
+  | .natom a => ∼v a
+  | ⊤       => ⊤
+  | ⊥       => ⊥
+  | φ ⋏ ψ   => φ.valAux ⋏ ψ.valAux
+  | φ ⋎ ψ   => φ.valAux ⋎ ψ.valAux
+
+lemma valAux_neg (φ : NNFormula α) :
+    valAux v (∼φ) = ∼(valAux v φ) :=
+  by induction φ using rec' <;> simp [*, valAux]
+
+def val : NNFormula α →ˡᶜ F where
+  toTr := valAux v
+  map_top' := rfl
+  map_bot' := rfl
+  map_and' := fun _ _ => rfl
+  map_or' := fun _ _ => rfl
+  map_imply' := fun _ _ => by simp [LogicalConnective.DeMorgan.imply, valAux, ←neg_eq, valAux_neg]
+  map_neg' := fun _ => by simp [valAux_neg]
+
+@[simp] lemma val_atom : val v (atom a) = v a := rfl
+
+@[simp] lemma val_natom : val v (natom a) = ∼v a := rfl
+
+end val
+
+
+section semantics
+
+variable {v : Valuation α} {a : α}
+
+-- `Valuation α` is also the model type of `Formula.semantics` and the formula parameter of
+-- `Semantics` is an `outParam`, so an explicit priority is needed to pin down which of the two
+-- instances a valuation resolves to.
+instance (priority := high) semantics : Semantics (Valuation α) (NNFormula α) :=
+  ⟨fun v ↦ NNFormula.val v⟩
+
+lemma models_iff_val {v : Valuation α} {f : NNFormula α} : v ⊧ f ↔ NNFormula.val v f :=
+  iff_of_eq rfl
+
+instance : Semantics.Tarski (Valuation α) where
+  models_verum := by simp [models_iff_val]
+  models_falsum := by simp [models_iff_val]
+  models_and := by simp [models_iff_val]
+  models_or := by simp [models_iff_val]
+  models_not := by simp [models_iff_val]
+  models_imply := by simp [models_iff_val]
+
+@[simp] protected lemma models_atom : v ⊧ .atom a ↔ v a := iff_of_eq rfl
+
+@[simp] protected lemma models_natom : v ⊧ .natom a ↔ ¬v a := iff_of_eq rfl
+
+end semantics
+
+end NNFormula
+
+
+end FFL.Propositional
+end
