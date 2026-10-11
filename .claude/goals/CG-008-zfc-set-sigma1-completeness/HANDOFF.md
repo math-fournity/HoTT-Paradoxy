@@ -24,8 +24,14 @@
 cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 && python3 -B .claude/goals/CG-008-zfc-set-sigma1-completeness/tools/build_z0.py --no-pin-check --package HoTT/formal/claude-cg001/godel-q-zfc-z0-full GodelQ/ZFC/<file>.lean
 ```
 
-  本轮已把驱动从 `/tmp/build_z0.py` 复制进仓库（`tools/build_z0.py`，sha256 `d6a48f68b88aeae98ba2259bf7e5f93b373d03b5613302fb82a02d02a099cc1b`），
+  本轮已把驱动与构建顺序从 `/tmp` 复制进仓库（`tools/` 下）：
+  - `build_z0.py`（sha256 `d6a48f68b88aeae98ba2259bf7e5f93b373d03b5613302fb82a02d02a099cc1b`）
+  - `z0_build_order.txt`（探针用，26 文件，末位 `Z0Probe.lean`）
+  - `z0_receipt_build_order.txt`（收据用，25 文件，不含 `Z0Probe`）
+
   不再依赖 `/tmp`。中间探针加 `--no-forbidden-check`；**收据文件不加**。
+  另：2026-10-10 的独立复核报告已从 `/tmp` 保存到 `audit/20261010-keyE缺口审计-独立复核.md`
+  （该报告判定「缺口缩小到 `keyE`」是重新包装而非缩小，与本轮结论一致）。
 
 - **正式收据**（带 pin 校验 + 禁用标记检查 + 精确重放）：
 
