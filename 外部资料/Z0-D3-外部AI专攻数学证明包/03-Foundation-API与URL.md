@@ -16,7 +16,7 @@
 | `of_provability`（语义，搬不进非标准 V） | `Foundation/FirstOrder/LK/Interpretation.lean:443` | `https://raw.githubusercontent.com/FormalizedFormalLogic/Foundation/1fb01b72de546e1b50821fd05b1314a8d958583f/Foundation/FirstOrder/LK/Interpretation.lean` |
 
 > 注意：第三位 AI 曾把 `R0/Basic.lean` 写成 `Foundation/FirstOrder/Arithmetic/Bootstrapping/R0/Basic.lean`（404）。
-> 正确路径是 `Foundation/FirstOrder/SetTheory/R0/Basic.lean`（200）。但本包根本不用 R0，无关。
+> 正确路径是 `Foundation/FirstOrder/Arithmetic/R0/Basic.lean`（200，`find . -path '*R0*Basic.lean'` 实测唯一命中）。但本包根本不用 R0，无关。
 
 ## 全量源码
 - 本地：`/Volumes/D/HoTT-toolchain-cache/foundation-src/`（314 个 .lean）

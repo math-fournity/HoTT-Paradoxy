@@ -19,7 +19,9 @@
 
 ## 第三位 AI 的路径误写
 它把 `R0/Basic.lean` 写成 `Foundation/FirstOrder/Arithmetic/Bootstrapping/R0/Basic.lean`（GitHub 返回 404）。
-正确路径是 `Foundation/FirstOrder/SetTheory/R0/Basic.lean`（200）。但本包（Z0-D3）根本不用 R0，无关。
+正确路径是 `Foundation/FirstOrder/Arithmetic/R0/Basic.lean`（200，`find . -path '*R0*Basic.lean'` 在本机源码树唯一命中）。但本包（Z0-D3）根本不用 R0，无关。
+
+> 本地已补入正确路径的 `Foundation/FirstOrder/Arithmetic/R0/Basic.lean`。
 
 ## GitHub 取源
 - 仓库：`https://github.com/FormalizedFormalLogic/Foundation`
