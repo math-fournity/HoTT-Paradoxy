@@ -187,4 +187,23 @@ lemma replace_of_imp {A B S : V}
         · exact mem_bitInsert_iff.mpr (Or.inr (mem_bitInsert_iff.mpr (Or.inl rfl)))
         · exact absurd hy (by simp)
 
+
+/-! ## 可证公式入 sequent（2026-10-12 新增） -/
+
+/-- **「可证公式可入 sequent」**：`Derivable (A ⫽ ∅)` ⟹ `Derivable (A ⫽ B)`。 -/
+lemma provable_into_sequent {A B : V} (hB : IsFormulaSet (L := ℒₛₑₜ) B)
+    (hd : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert A ∅)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert A B) := by
+  have hA : IsFormula ℒₛₑₜ A := hd.isFormulaSet A (by simp)
+  have hf : IsFormulaSet (L := ℒₛₑₜ) (insert A B) := by
+    intro z hz
+    rcases mem_bitInsert_iff.mp hz with rfl | hz
+    · exact hA
+    · exact hB z (by simpa using hz)
+  refine Derivable.wk hf ?_ hd
+  intro z hz
+  rcases mem_bitInsert_iff.mp hz with rfl | hz
+  · exact mem_bitInsert_iff.mpr (Or.inl rfl)
+  · exact mem_bitInsert_iff.mpr (Or.inr (by simpa using hz))
+
 end GodelQ.ShCraigElimSetupQ
