@@ -144,3 +144,23 @@ exit 0、公理干净。剩 `rel` / `nrel` 两支，卡在：
    （用 1 + `shift_subst_domN3` + `shift_and`）；
 3. `shift (subst (^#2 ∷ …) (cFunc k f)) = 自身`——闭项，走 `shift_quote`；
 4. `shift_qqAlls` 或直接展开 `qqAlls` 的两层 `^∀`。
+
+## 十一、★ 重大吸收（14:4x）：`iVE_shift` 完整版（9276 证出，本会话独立核验）
+
+**9276 已证出 `iVE_shift` 全称版**——正是 `ishift` 的最后障碍。本会话独立核验：
+
+- 文件：`TranslateShiftCompat-2002d386.lean`（sha `2002d386cf4b48be`，15500 B，**0 sorry**）
+- **exit 0、`#print axioms` 全部仅三条标准公理**
+- 16 条定理：`isUTermVec_eqAtom_vec`、`shift_eqAtom_bvar/fvar`、`iVE_shift_bvar/fvar`、
+  `shift_quote_sentence`、`shift_cFunc`、`shift_cDomN`、`shift_cRel`、
+  `termShiftVec_shiftVec_V`、`shift_conjunct`、`shift_ve0`、`shift_qqAlls`、`shift_ve2`、
+  `iVE_shift_func`、**`iVE_shift`（全称版）**
+
+**这意味着**：`ishift` 的 `rel`/`nrel` 两支的障碍**已清除**。本会话据此推进：
+
+### 本会话新增：`iT_shift` 七支（`ITShift-7of9.lean`）
+`iT n (shift p) = shift (iT n p)` 的九支中 **verum/falsum/and/or/all/exs 六支 + 骨架**已过核；
+`rel`/`nrel` 两支的组装进行中（用 `iVE_shift` + 9276 的 `shift_conjunct`/`shift_cRel`/`shift_qqAlls`）。
+
+**下游链条现状**：`iVE_shift` ✅ → `iT_shift`（七支 ✅，`rel`/`nrel` 组装中）
+→ `tshift` → `hShift` 支 → O2 只剩 `hAll`/`hExs`/`hAxm`。
