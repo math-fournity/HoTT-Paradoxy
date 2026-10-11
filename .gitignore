@@ -27,6 +27,11 @@ tmp/
 # Reproducible from the pinned toolchain; never part of a receipt.
 .cg007-build/
 
+# CG-007 dev build cache actually produced by devbuild_ns.py (toolchain-pinned,
+# reproducible, not a receipt source). Mirrors .cg007-build/; the legacy /tmp path
+# is not written back. Never commit .olean/.ilean/_state.json from this tree.
+.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/
+
 # Generated export boxes are kept outside the Git tree unless explicitly
 # accepted as a source artifact.
 exchange/outbox/*.zip

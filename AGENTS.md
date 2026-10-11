@@ -37,6 +37,16 @@
 - `/Volumes/D/ALL-Markdown/aistudio-docs/` 按用户要求已移走且不恢复。`sources/local-gpt/HoTT_is_GONE_COMPLETE.md` 是有 hash 的历史 AI 产物，不是已经证明覆盖原目录的事实；覆盖结论必须标为 `NOT_PROVEN`，不得将旧 validator 的缺源 PASS 当成认证。
 - `private-audit/` 被忽略并按最小权限保存本机 Codex 原始 trajectory。它是只读审计输入，不进入公开提交；审计 LocalGPT 时必须使用 canonical `session_trajectory.py`，不能另写 inline trajectory parser，也不能从隐藏推理推断事实。
 
+### CG-007 工作根、Worktree 与构建缓存的硬性边界（2026-10-11 实测校正）
+
+CG-007（Z0 / D3 / `zfcTr_D3_internalize` 形式化攻关）有一批**链接 worktree**与**过期交接文档**，曾多次把接手会话带偏。下列事实以 `git` 与 Lean 编译为准，不以来源文档的文字为准：
+
+- **唯一工作根是 `/Volumes/D/HoTT_AI_HANDOFF_20260911`**（分支 `dev`）。开工先 `git rev-parse --show-toplevel && git branch --show-current`，确认它等于本目录且是 `dev`。
+- **所有 `/Users/aurolafly/WorkBuddy/Worktrees/...` 与 `/Users/aurolafly/.codex/worktrees/...` 下的 checkout 都是独立 worktree**：它们各自有独立分支（如 `workbuddy/dev-f65ca154`）或停在不同 HEAD（多为 `87b65dfd`），**不是** dev，也不会"落后 N 个提交"——是另一条分支。绝不向它们写任何 CG-007 源码或文档。
+- **构建缓存的真实位置**是仓库内的 `.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（存 `.olean`/`.ilean`/`_state.json`），由 `devbuild_ns.py` 生成、可重算、不进收据。它**未被** `.gitignore` 覆盖，属于未跟踪产物；AGENTS 正文提到的 `.cg007-build/` 是旧路径，已不再使用。`/tmp/d3build/` 是遗留开发副本，只作参考，不回写。
+- **交接文档声称"已证 / 已完成"不等于代码已编译**：例如 STATE.json / HANDOFF 曾声称 `ShCraigElimNegLaw.iT_neg`、`NegInvolution.neg_neg_code` 已证，但实测二者均**未编译通过**（前者 `IsUFormula.qqAlls` 等命名不存在、后者卡在 `rel` 支且带 `sorryAx` 噪声）。任何"已证"主张必须先核对：对应 `.lean` 能被 `devbuild_ns.py` 编译（exit 0、无 `sorry`），且最好有 `HoTT/verification/runs/<id>/` 正式收据。未核实前按 `UNVERIFIED_CLAIM` 处理，不得当作前置条件推进。
+- **CG-007 真实进度基准（2026-10-11 实测）**：`SeqTranslateFormula.isSemiformula_iT`（公式保持性主定理，9 支全过）已由 receipt `20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01` 机器证（CG001-C-391，exit 0）；`Z0Blocked.zfcTr_D3_internalize` 仍是带 `sorry` 的显式缺口。真正的下一块硬骨头是 `iT`/`neg` 相容律 `iT_neg`（`ShCraigElimNegLaw.lean`，未编译）及其上游 `neg` 码层面对合律 `NegInvolution.neg_neg_code`（未编译）。
+
 ## 启动闭包（每个新 Session、压缩恢复、跨目录接手）
 
 1. 先读本文件、`README.md`、`MEMORY.md`、`feature-list.md`、`rulings.md`，确认当前需求、当前状态、开放问题和来源边界。
