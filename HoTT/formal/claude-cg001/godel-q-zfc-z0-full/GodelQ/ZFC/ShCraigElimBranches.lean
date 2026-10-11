@@ -388,12 +388,45 @@ subst ℒₛₑₜ ?[^&0] (neg ℒₛₑₜ domZero) = neg ℒₛₑₜ domZero
   同类的还有 `free_quote`（`Coding.lean:127`）——
   **它正是 `free` 与引号的交换律**，是 `hAll` 收尾要用的那类引理。
 
-**下一步的准确清单**（按依赖顺序）：
-1. `subst_quote_const`：引号化句子上任意 `subst` 都是恒等（用 `typed_quote_substs`）；
-2. 由上得 `subst ℒₛₑₜ ?[^&0] domZero = domZero`（引理 2 收尾）；
-3. 用引理 2 得 `subst ?[^&0] (imp domZero X) = imp domZero (subst ?[^&0] X)`（护罩条件成立）；
-4. 证 `iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (imp domZero (iT 1 p))`（用 3 + `free_quote` 式的交换）；
-5. `hAll` = 护罩步（已实测可证）+ 4。
+## 2026-10-11 第六轮：**朴素代入律被证伪**，机制已弄清
+
+探针 `probes/W8-naive-subst-counterexample-20261011.lean` **实测出反例**：
+
+```
+subst ℒₛₑₜ ?[^&0] (iVE 1 ^#0)  = ^rel 2 cEqN (^&0 ∷ ^#1 ∷ 0)
+iVE 0 (^&0)                    = ^rel 2 cEqN (^#0 ∷ ^&0 ∷ 0)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 不同
+```
+
+**机制**：`iVE n ^#z = eqAtom ^#(z+1)`，而 `eqAtom t = ^rel 2 cEqN (?[^#0, t])`——
+`eqAtom` **自带一个 `#0` 绑定**（它编码的是 `#0 = t`）。所以
+
+* `iVE 1 ^#0` 里的 `#0` 是 `eqAtom` 自己的绑定变量，`subst ?[^&0]` 会把它改成 `^&0`；
+* 而 `iVE 0 ^&0` 的首分量仍是 `eqAtom` 自己的 `^#0`。
+
+两者因此**必然不同**。任何「`iT`/`subst` 交换」的朴素形状都是**假的**。
+
+**这对 `hAll` 的后果**：`hAll` 要证的目标
+`Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) (setShift (translateSeq s)))`
+里，`free ℒₛₑₜ X = substs1 ^&0 (shift X)` 作用在 `iT 1 p` 的**外**，
+而 `iT 1 p` 内部每个 `eqAtom` 都有自带的 `#0`——代入会穿透进去。
+所以**不能**走「先 `iT` 后 `subst`」的路。
+
+**正确方向（待核）**：应当走「先 `subst` 后 `iT`」，即证明
+
+```
+iT 0 (subst ℒₒᵣ w p) = subst' ℒₛₑₜ (iVE-像的向量) (iT 0 p)
+```
+
+其中 `subst'` 的向量必须**逐分量对齐** `iVE` 的输出（因为 `iT` 的绑定层数变化）。
+探针 `ProbeY` 已实测：正确的向量形状是 `^#0 ∷ termBShiftVec w`（即 `qVec` 的形状），
+而不是 `w` 本身——这正是 `substs_all` 用 `qVec L w` 的原因。
+
+**`domZero` 那一支已被 `domZero_eq_cDomN` 化解**（本轮已证）：
+`domZero` 是引号化句子、无绑定结构，故 `subst` 不动它。
+
+**下一步**：把 `iT`/`subst` 的正确形状用 `semiformula_result_induction` 试出来
+（先在 `rel` 支上验证向量对齐），再回填 `hAll`。
 
 **另记（对本包结构的观察）**：`iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ w (iT m p)`
 这个「同层数」形状是**不成立的**——`iT` 的 `all` 支插入 `domZero`，
