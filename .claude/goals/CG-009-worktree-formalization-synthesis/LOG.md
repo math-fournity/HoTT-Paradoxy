@@ -49,3 +49,6 @@
 - 2026-10-11T11:30:32-04:00 [checkpoint E] 第29轮：三根安静，无新资产；接力文件就位。 → 下一步：保持30分钟扫描节奏
 - 2026-10-11T11:37:42-04:00 [checkpoint E] ★iT_neg已被新工位证出（sha5f504b8d，exit0公理干净，未提交已备份）；印证本会话护罩处方。 → 下一步：核验该iT_neg的完整依赖集编译（新工位上下文）；继续扫描；把此进展同步到接力文件
 - 2026-10-11T11:38:40-04:00 [checkpoint E] ★吸收实证：GateBranchesU hAxL/hCut升级无条件（用新工位已证iT_neg）exit0公理干净。O2无条件6支。 → 下一步：继续扫描；若新工位证出tshift/hall/hexs则同样吸收
+- 2026-10-11T13:45:00-04:00 [checkpoint F] 本会话自研突破：shift_domZero（枢纽）+ shift_quote（工具）+ ishift 六支 + shift_ve0。全部 exit0 公理干净。 → 下一步：攻 func 支
+- 2026-10-11T13:38:00-04:00 [checkpoint F] 扫描捕获并独立核验吸收 9276 的 TranslateShiftCompat（iVE_shift bvar/fvar 两支，sha 966fb6a7 exit0）。两工位互补确认 func 支是唯一障碍。 → 下一步：攻 func 支
+- 2026-10-11T14:05:00-04:00 [checkpoint F] 提交并推送：15c1647e（188 文件）+ 归档与规程提交；远端 70b5e1fe。归档 /tmp 遗留独有内容；清理 /tmp（其中一次误用 rm -rf，零损失已核查并记录）。 → 下一步：攻 func 支
