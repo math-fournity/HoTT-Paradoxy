@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation DONE / W8-neg_neg_code DONE / W8-iT_neg DONE / W8-iVE_shift + iT_shift DONE (30 引理, 0-sorry) / W8-induction1 branches 7/10 + **Q 版 induction_setup 框架完成** (ShCraigElimSetupQ.lean) / W8-remaining: hAll/hExs (需新想法: iVE 的 eqAtom 自带 #0 与外层 subst 语义冲突, 三轮反例已证伪所有朴素形状) / hRoot (就是 D3: iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class) / ShCraigElim / zfcTr_D3_internalize / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "2026-10-11 后半轮成果：新增 ShCraigElimSetupQ.lean（Q 版 induction_setup，7 支接入，exit 0）；TranslateShiftCompat.lean 扩到 ~900 行；探针 20+ 份归档。关键发现：(a) induction_setup 的 P 谓词（Provable 层）有语义问题——Provable 要求结论 sequent 恰好单元素，而 translateSeq s 一般不是，故改用 Q（Derivable 层）；(b) hAll/hExs 需要新想法：iVE 的 eqAtom 自带绑定变量 #0，外层 subst 必然穿透改它，而 iT 在绑定层下用 substs_all 的保护语义——两种语义不可调和，三轮反例覆盖朴素/层数对齐/qVec 对齐三种形状；(c) hRoot 就是 D3 本身。induction1 路线已到自然边界：7/10 支 + 完整框架 + 3 支的精确障碍刻画。继续需要结构性决策（改 iT 定义 / 换路线 / 承认开放问题），超出继续填支的范围。C-120 影子形式无条件成立。",
+  "phase": "W8-layer2-formula-foundation DONE / W8-neg_neg_code DONE / W8-iT_neg DONE / W8-iVE_shift + iT_shift DONE / W8-domZero_eq_cDomN + free_imp_domZero DONE / W8-induction1 7/10 支 + Q 版 induction_setup 框架 DONE (ShCraigElimSetupQ.lean) / W8-replace_of_iff 证法结构已定（两处 Lean 细节未收尾） / W8-remaining: hAll/hExs (走 replace_of_iff 路线，前景明朗) / hRoot (就是 D3) / ShCraigElim / zfcTr_D3_internalize / W9-coverage-closed / W9-release-pending-authorization",
+  "next_action": "2026-10-11 本轮总成果：iVE_shift/iT_shift 全证（30 引理）；domZero_eq_cDomN；free_imp_domZero；hShift 支（7/10）；Q 版 induction_setup 框架（ShCraigElimSetupQ.lean，exit 0）；replace_of_iff 的完整证法已写出（cut A 两分支，结构已通，剩两处 Lean 细节：wk 的 s' 形状对齐 + IsFormulaSet 逐元素）。关键更正：induction_setup 的 P 谓词（Provable 层）有语义问题，必须用 Q（Derivable 层）。hAll/hExs 的正确路线是 replace_of_iff（A ↔ B 双向可导 ⟹ sequent 可替换），而非公式相等（三轮反例已证伪所有相等形状）。下一步：收尾 replace_of_iff，再证 hAll 需要的算术蕴含式（Σ1 完全性范围）。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写；本分支不合并 dev。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-11T21:00:00-04:00",
+  "updated": "2026-10-11T22:30:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
-  "checkpoints": 12,
+  "checkpoints": 13,
   "compactions": 2,
   "last_compaction": "2026-10-09T08:48:39-04:00"
 }
