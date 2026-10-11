@@ -1,5 +1,6 @@
 import GodelQ.ZFC.ShCraigElimPredicate
 import GodelQ.ZFC.SeqTranslateFormula
+import GodelQ.ZFC.ShCraigElimNegLaw
 
 /-!
 # CG-007 · W8 第二层（五）：`induction1` 的规则支
@@ -17,17 +18,20 @@ import GodelQ.ZFC.SeqTranslateFormula
 * `hWk`：弱化支。用 `Derivable.wk` + `translateSeq_mono` + 上一条。
 * `hVerumIntro`：`⊤ ∈ s` ⟹ `Derivable 𝗭𝗙𝗖 (translateSeq s)`。
   用 `Derivable.verum` + `iT_verum`。
+* `hAxL`：`p ∈ s` 且 `neg p ∈ s` ⟹ `Derivable 𝗭𝗙𝗖 (translateSeq s)`。
+  用 `Derivable.em`（`axL` 规则的 Derivable 版）+ **一般相容律**
+  `ShCraigElimNegLaw.iT_neg`（CG001-C-398，2026-10-11 证出）把 `iT 0 (neg p)`
+  换成 `neg (iT 0 p)`。
 
 ## 未填，以及为什么
 
-其余 9 个支。它们分成两类：
+其余 8 个支。它们分成两类：
 
 **（甲）需要 `iT` 与某个运算的相容律**（本机实测：这些相容律**尚不存在**）：
 
 | 支 | 需要的相容律 | 现状 |
 |---|---|---|
-| `hAxL` | `iT 0 (neg p) = neg ℒₛₑₜ (iT 0 p)`（**一般公式**，非引号化） | 不存在。`InternalTranslate.lean` 只有 `iT_nrel`（原子级 `^nrel k R v`），一般公式的否定要递归展开 blueprint |
-| `hCut` | 同上（`ih₂` 里出现 `iT 0 (neg p)`） | 同 `hAxL` |
+| `hCut` | 一般相容律 `iT 0 (neg p) = neg ℒₛₑₜ (iT 0 p)`（`ih₂` 里出现 `iT 0 (neg p)`） | ✅ 相容律**已证**（`iT_neg`，C-398）；**接线未做** |
 | `hAll` | `iT` 与 `setShift` 的相容 | 不存在 |
 | `hExs` | `iT` 与 `substs1` 的相容 | 不存在 |
 | `hShift` | 同 `hAll` | 不存在 |
@@ -42,6 +46,7 @@ import GodelQ.ZFC.SeqTranslateFormula
 **注意**：`iT_quote` 只对**引号化的**公式（`⌜φ⌝`，`φ` 是元层标准公式）给交换律；
 `induction1` 的支拿到的是 **V 内的任意公式码**（可能非标准），
 所以不能直接用 `iT_quote`。这是"V 内部"与"元层"的又一处分野。
+**一般版本已由 `ShCraigElimNegLaw.iT_neg` 给出**（2026-10-11，C-398）。
 -/
 
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
@@ -89,8 +94,73 @@ lemma hVerumIntro {s : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (hv : (^⊤ : V
   · exact isFormulaSet_translateSeq hs
   · exact mem_translateSeq_iff.mpr ⟨^⊤, hv, (iT_verum 0).symm⟩
 
+/-- **`hAxL` 支**：`p ∈ s` 且 `neg p ∈ s` ⟹ `Q (axL s p)`。
+
+`Q (axL s p)` 经 `fstIdx_axL` 化为 `Derivable 𝗭𝗙𝗖 (translateSeq s)`。
+`translateSeq s` 含 `iT 0 p`（由 `hp`）与 `iT 0 (neg p) = neg (iT 0 p)`
+（由 `hn` 与一般相容律 `iT_neg`），正是 `Derivable.em` 需要的两条。 -/
+lemma hAxL {s p : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (hp : p ∈ s) (hn : neg ℒₒᵣ p ∈ s) : Q (V := V) (axL s p) := by
+  simp only [Q, fstIdx_axL]
+  apply Derivable.em (isFormulaSet_translateSeq hs)
+  · exact mem_translateSeq_iff.mpr ⟨p, hp, rfl⟩
+  · refine mem_translateSeq_iff.mpr ⟨neg ℒₒᵣ p, hn, ?_⟩
+    exact (GodelQ.ShCraigElimNegLaw.iT_neg (n := 0) p (hs p hp)).symm
+
+/-- **`hAnd` 支**：`p ⋏ q ∈ s`，两条子推导分别给出 `insert p s` 与 `insert q s`。
+
+`translateSeq_insert` 把 `insert` 推进翻译，于是子推导的结论正好是
+`Derivable 𝗭𝗙𝗖 (insert (iT 0 p) (translateSeq s))` 的形状；
+结论 sequent 侧的 `p ⋏ q ∈ s` 经 `iT_and` 送到 `iT 0 p ^⋏ iT 0 q ∈ translateSeq s`。 -/
+lemma hAnd {s p q dp dq : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (h : p ^⋏ q ∈ s)
+    (ihp : Q (V := V) dp) (ihq : Q (V := V) dq)
+    (hdp : fstIdx dp = insert p s) (hdq : fstIdx dq = insert q s) :
+    Q (V := V) (andIntro s p q dp dq) := by
+  have hu : IsUFormula ℒₒᵣ (p ^⋏ q) := (hs (p ^⋏ q) h).isUFormula
+  have hp : IsUFormula ℒₒᵣ p := ((IsUFormula.and).mp hu).1
+  have hq : IsUFormula ℒₒᵣ q := ((IsUFormula.and).mp hu).2
+  simp only [Q, fstIdx_andIntro]
+  simp only [Q] at ihp ihq
+  rw [hdp] at ihp
+  rw [hdq] at ihq
+  simp only [translateSeq_insert] at ihp ihq
+  exact Derivable.and_m (mem_translateSeq_iff.mpr ⟨p ^⋏ q, h, (iT_and hp hq).symm⟩) ihp ihq
+
+/-- **`hOr` 支**：`p ⋎ q ∈ s`，子推导给出 `insert p (insert q s)`。 -/
+lemma hOr {s p q dpq : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (h : p ^⋎ q ∈ s)
+    (ih : Q (V := V) dpq) (hd : fstIdx dpq = insert p (insert q s)) :
+    Q (V := V) (orIntro s p q dpq) := by
+  have hu : IsUFormula ℒₒᵣ (p ^⋎ q) := (hs (p ^⋎ q) h).isUFormula
+  have hp : IsUFormula ℒₒᵣ p := ((IsUFormula.or).mp hu).1
+  have hq : IsUFormula ℒₒᵣ q := ((IsUFormula.or).mp hu).2
+  simp only [Q, fstIdx_orIntro]
+  simp only [Q] at ih
+  rw [hd] at ih
+  simp only [translateSeq_insert] at ih
+  exact Derivable.or_m (mem_translateSeq_iff.mpr ⟨p ^⋎ q, h, (iT_or hp hq).symm⟩) ih
+
+/-- **`hCut` 支**：`cutRule s p d₁ d₂`，两条子推导分别给出 `insert p s` 与 `insert (neg p) s`。
+
+第二条子推导翻译后含 `iT 0 (neg p)`，用一般相容律 `iT_neg` 换成 `neg (iT 0 p)`，
+正是 `Derivable.cut` 需要的形状。`p` 的公式性由调用方给出（来自子推导的 sequent 是公式集）。 -/
+lemma hCut {s p d₁ d₂ : V} (_hs : IsFormulaSet (L := ℒₒᵣ) s) (hp : IsSemiformula ℒₒᵣ 0 p)
+    (ih₁ : Q (V := V) d₁) (ih₂ : Q (V := V) d₂)
+    (h₁ : fstIdx d₁ = insert p s) (h₂ : fstIdx d₂ = insert (neg ℒₒᵣ p) s) :
+    Q (V := V) (cutRule s p d₁ d₂) := by
+  simp only [Q, fstIdx_cutRule]
+  simp only [Q] at ih₁ ih₂
+  rw [h₁] at ih₁
+  rw [h₂] at ih₂
+  simp only [translateSeq_insert] at ih₁ ih₂
+  rw [GodelQ.ShCraigElimNegLaw.iT_neg (n := 0) p hp] at ih₂
+  exact Derivable.cut (iT (0 : V) p) ih₁ ih₂
+
 end GodelQ.ShCraigElimBranches
 
 #print axioms GodelQ.ShCraigElimBranches.isFormulaSet_translateSeq
 #print axioms GodelQ.ShCraigElimBranches.hWk
 #print axioms GodelQ.ShCraigElimBranches.hVerumIntro
+#print axioms GodelQ.ShCraigElimBranches.hAxL
+#print axioms GodelQ.ShCraigElimBranches.hAnd
+#print axioms GodelQ.ShCraigElimBranches.hOr
+#print axioms GodelQ.ShCraigElimBranches.hCut

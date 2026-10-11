@@ -2279,3 +2279,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 D3 已证或部分证**：`hAxL`/`hCut`/`hShift` **尚未接线**到 `ShCraigElimSetup.induction_setup`；`ShCraigElim` 的 10 个支仍未填；`iT` 与 `substs1`/`shift`/`free`/`setShift`/`emb` 的相容未证；`axm` 支与 `codeOfREPred` 的一般 V 表示引理未证；`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |
 | 包 | `MP-CG001-Z0-W8-ITNEG-001` |
+
+### W8-U8：`ShCraigElim` 归纳的七个支（CG001-C-400，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-400 |
+| 形式命题 | `hAxL`：`IsFormulaSet ℒₒᵣ s → p ∈ s → neg ℒₒᵣ p ∈ s → Q (axL s p)`；`hAnd`：`p ⋏ q ∈ s` + 两条子推导 ⟹ `Q (andIntro s p q dp dq)`；`hOr`：`p ⋎ q ∈ s` + 子推导 ⟹ `Q (orIntro s p q dpq)`；`hCut`：两条子推导 `insert p s`/`insert (neg p) s` ⟹ `Q (cutRule s p d₁ d₂)`。连同 `isFormulaSet_translateSeq`/`hWk`/`hVerumIntro` 共七支 |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimBranches.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-W8-BRANCHES-02`（exit 0，stderr 0 B，七条引理公理报告只有三条标准公理） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 `ShCraigElim` 已证或部分证**：`hAll`/`hExs`/`hShift` 仍未接线（所需的 `iT`-`setShift`/`substs1` 相容律不存在）；`axm` 支未做；10 个支未全填；`zfcTr_D3_internalize` 仍未证 |
+| 包 | `MP-CG001-Z0-W8-BRANCHES-002` |
