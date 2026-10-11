@@ -1,155 +1,127 @@
 # 交接：CG-009 工位 `elegant-mclaren-767fb0` → 下一会话
 
-> 2026-10-11。分支 `claude/elegant-mclaren-767fb0`。
-> 本文件是**本工位的完整交接**：工作根、已证清单、剩余义务、可复用工具、陷阱与边界。
+> 2026-10-11 17:4x。分支 `claude/elegant-mclaren-767fb0`（已推送 origin）。
+> 本文件是本工位的**完整交接**：工作根、已证清单、剩余义务、可复用工具、陷阱与边界。
 
 ---
 
 ## 〇、三十秒摘要
 
-本会话把 Z0 缺口链条上的 **`ishift` 从"未开工"推进到"九支中六支已证"**，
-并证出**枢纽原子 `shift_domZero`** 与**通用工具 `shift_quote`**。
-剩余唯一障碍是 `iVE_shift` 的 `func` 支（与工位 9276 独立确认一致）。
-全部新定理 exit 0、0 sorry、`#print axioms` 仅 `[propext, Classical.choice, Quot.sound]`。
+本会话把 O2 从"`iT_neg` 已证"推进到 **8/10 支就绪**：
+**`iT_shift` 全证 → `tshift` → `hShift` 无条件**，并**组装完 `hAll`**（只差一条显式前提 `hAB`）。
+`hAB` 经本会话实测**确认为实质性研究缺口**（非工程长尾），三条路径的评估见 §三。
+全部新定理 exit 0、0 sorry、公理仅 `[propext, Classical.choice, Quot.sound]`。
 
 ---
 
 ## 一、工作根与开工闭包
 
 **工作根**：`/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0`
-（分支 `claude/elegant-mclaren-767fb0`；canonical `/Volumes/D/HoTT_AI_HANDOFF_20260911` 只读）。
+（分支 `claude/elegant-mclaren-767fb0`；canonical `/Volumes/D/HoTT_AI_HANDOFF_20260911` 只读；
+**不合并到 dev**）。
 
-**开工先核对**（其他会话会随时推进 HEAD）：
-```bash
-cd /Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0
-git rev-parse --show-toplevel --abbrev-ref HEAD
-git log --oneline -3
-```
+**开工先核对**：`git rev-parse --show-toplevel --abbrev-ref HEAD`；`git log --oneline -3`。
 
-**压缩/恢复后按序重读**（用 Read 读原文，不用摘要代替）：
+**压缩/恢复后按序重读**（用 Read 读原文）：
 1. 本文件；
-2. `docs/形式化综合研判-20261011/增量扫描日志.md` 末尾三轮（第 31–33 轮是本会话的）；
-3. `docs/形式化综合研判-20261011/接力-ISHIFT给下一会话.md`（技术细节）；
-4. `docs/形式化综合研判-20261011/成果-IShiftDomZero/README.md`（本会话成果清单）；
-5. `docs/形式化综合研判-20261011/综合研判-20261011.md`、`后续工作方案.md`。
+2. `docs/形式化综合研判-20261011/成果-IShiftDomZero/README.md`（成果与障碍图谱，§十二–§十五）；
+3. `docs/形式化综合研判-20261011/增量扫描日志.md` 末尾（第 31–33 轮）；
+4. `docs/形式化综合研判-20261011/接力-ISHIFT给下一会话.md`。
 
 ---
 
-## 二、本会话已证清单（全部机器核验）
+## 二、本会话已证清单（全部机器核验，38/38 从零重编译通过）
 
 ### 2.1 自研（`成果-IShiftDomZero/`）
 
 | 定理 | 文件 | 内容 |
 |---|---|---|
-| **`shift_domZero`** | `ShiftDomZero.lean` | **枢纽**：`shift domZero = domZero` |
-| `rew_shift_emb` | 同上 | Rewriting 层版本 |
-| **`shift_quote`** / `rew_shift_quote` | `ShiftQuote.lean` | **通用工具**：`shift` 固定任意 `Semisentence` 的引号 |
-| `shift_cFunc0` / `shift_subst_cFunc0` / `shift_ve0` | `ShiftVe0.lean` | `iVE` func 情形 **k=0** 支 |
-| `shift_imp` / `ishift_all` / `ishift_exs` | `IShiftAllExs.lean` | 量词支（IH@n+1 ⇒ 支@n） |
-| `ishift` **六支** | `IShiftFull-6of8.lean` | verum / falsum / and / or / all / exs |
+| `shift_domZero` | `ShiftDomZero.lean` | 枢纽：`shift domZero = domZero` |
+| `shift_quote` | `ShiftQuote.lean` | 通用工具：`shift` 固定任意句子引号 |
+| `ishift` 六支 | `IShiftFull-6of8.lean` | verum/falsum/and/or/all/exs |
+| `shift_ve0` | `ShiftVe0.lean` | iVE func 情形 k=0 |
+| **`iTR_shift`** | `ITRShift.lean` | `iTR n 2 R (termShiftVec 2 v) = shift (iTR n 2 R v)` |
+| **`iT_shift`** | `ITShift-FULL.lean` | `iT n (shift p) = shift (iT n p)`，**九支全过** |
+| **`tshift`** | `TShift.lean` | `translateSeq (setShift s) = setShift (translateSeq s)` |
+| **`hShift_uncond`** | `TShiftBranches.lean` | O2 的 hShift 支**无条件** |
+| `isFormulaSet_of_setShift_eq` | 同上 | `setShift s'` 公式集 ⇒ `s'` 公式集 |
+| `guard_step` | `HAllGuard.lean` | Derivable 层护罩步骤 |
+| `all_mem` | `HAllProof.lean` | `^∀ (imp domZero (iT 1 p)) ∈ translateSeq s` |
+| **`hAll_uncond`** | `HAllProof.lean` | **hAll 组装完成**，只差显式前提 `hAB` |
+| `naive_law_is_false_shape` | `ITSubstCounter.lean` | **机器证明**朴素 iVE/subst 等式律恒假 |
 
-### 2.2 吸收（来自工位 `9276-cg007-w8-d3`，本会话独立核验后吸收）
+### 2.2 吸收（独立核验后）
 
-`TranslateShiftCompat-966fb6a7.lean`（源：9276 的 commit `5ac2dd04`，已推送）：
-- `shift_eqAtom_bvar` / `shift_eqAtom_fvar`
-- `iVE_shift_bvar` / `iVE_shift_fvar`
-
-### 2.3 核验记录（本会话对他人成果的独立复算）
-
-- `cg007-w8-d3` 全包 **47 文件**从零拓扑编译 → 40/40 真实源码通过；
-  7 项失败全是预期失败（负控制 / 探针 / 已知带 sorry 的目标文件）。
-- `iT_neg` 已提交（`268dae2e`），sha `5f504b8d` 与我方防回退副本逐字节一致。
-- 证伪：9276 的 `NegInvolution` 改写版 exit 1（四处 Type mismatch + sorryAx）；
-  其 `ShCraigElimNegLaw` 6601 B 版 `IsUFormula.qqAlls` 不存在。
-
----
-
-## 三、剩余义务（精确）
-
-### 3.1 `iVE_shift` 的 `func` 支（唯一障碍）
-
-目标：`iVE n (termShift t) = shift (iVE n t)`，对 `t = ^func k f v`（`k ≠ 0`，即 `ve2`）。
-
-展开：
-```
-LHS: iVE n (^func k f (termShiftVec k v))
-   = ve2 n k f (resultVec ![n] k (termShiftVec k v))     [iVE_func]
-RHS: shift (ve2 n k f (resultVec ![n] k v))
-```
-`ve2 n k f w = qqAlls (imp (conjunct 3 n 0 w.[0] ^⋏ (conjunct 3 n 1 w.[1] ^⋏ ⊤))
-                          (subst (^#2 ∷ ?[^#0,^#1]) (cFunc k f))) 2`
-
-**需新证**（本机实测不存在）：
-1. `shift_conjunct`：`shift (conjunct 3 n i x) = conjunct 3 n i (shift x)`——用 `shift_and` 叠合；
-2. `shift` 固定 `subst (^#2 ∷ …) (cFunc k f)`——**闭项**，走 `shift_quote`（本会话工具）；
-3. `resultVec` 与 `termShiftVec` 点相容（`nth_resultVec` 逐分量 + 项级 IH）。
-
-**模板**：`SeqTranslateFormula.lean:266` 的 `isSemiformula_iVE`（用 `IsSemiterm.sigma1_induction`，
-func 支参照其 `nth_resultVec` 写法）。
-
-### 3.2 下游链条（`func` 支完成后）
-
-`iVE_shift` ⇒ `iT_shift`（`iT 0 (shift p) = shift (iT 0 p)`）
-⇒ `translateSeq_setShift` ⇒ `hShift` / `hAll` / `hExs` 三支
-⇒ `ShCraigElim` 十支全接 ⇒ `zfcTr_D3_internalize` ⇒ Z0 完整形式。
-
-- `tshift ⇐ ishift` 归约已过核：`GateBranches.tshift_of_ishift`（`成果-GateBranches/`）。
-- `hExs` 另需 `iT_substs1`（同形，用 `substs1`）。
-- `hAxm` 需 O3 证书桥（`codeOfREPred` 一般 V 表示引理）——独立战线。
+- `TranslateShiftCompat-a841872c.lean`（9276，837 行 0 sorry）：`iT_shift` 完整版（**与本会话双路互证**）、
+  `free_imp_domZero`、`domZero_eq_cDomN`、`shift_imp_domZero`、`shift_iTR` 等。
+- `SetupQTools.lean`（提取自 9276 的 `ShCraigElimSetupQ.lean`）：`split_or` + `replace_of_imp`。
 
 ---
 
-## 四、可复用工具（本会话新增）
+## 三、剩余义务：`hAB`（精确，本会话实测确认是研究缺口）
+
+### 形状
+```
+hAB : Derivable 𝗭𝗙𝗖 (insert (neg A ^⋎ B) ∅)
+  A := iT 0 (free ℒₒᵣ p)
+  B := free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p))
+```
+A、B 都是 ℒₛₑₜ **闭公式**。`hAll_uncond` 已把它隔离为唯一前提，其余全部就位。
+
+### 三条路径的实测评估
+
+| 路径 | 实测状态 |
+|---|---|
+| ① 元层引理 | 元层 `translate (free ψ) = free (translate ψ)` **不在 Foundation**；自证需处理 `translateRel` 的 `Rew.subst`/`Rew.emb` 交互（工作量 ≥ `iVE_shift`）。**且只对 `p = ⌜ψ⌝` 有效** |
+| ② 对 `p` 结构归纳 | `free` 不是 `UformulaRec1` 构造（用 `substs1`），无法套 `semiformula_result_induction` |
+| ③ 改 `iT` 定义（all/exs 用替换语义） | **接口级**：`iT` 被 C-390/C-391 等收据引用。**须研究发起人裁定** |
+
+### 相关负面结果（机器证明，防止重复尝试）
+`ITSubstCounter.lean`：`subst ?[^&0] (eqAtom ^&x) ≠ eqAtom ^&x`（替换命中 `eqAtom` 自身的 bvar0）。
+9276 另有两轮反例（其交接文档 §3）。**三轮反例现已全部机器化。**
+
+### `hExs` 同形（用 `substs1`）；`hRoot` 就是 D3 本身（9276 已定位其技术障碍）。
+
+---
+
+## 四、可复用工具
 
 | 工具 | 位置 | 用途 |
 |---|---|---|
-| `topobuild.py` | `.cg009-verification/round31/topobuild.py` | 从零拓扑编译 GodelQ 包（**逐文件删 olean，无缓存假命中**） |
-| `shift_quote` | `成果-IShiftDomZero/ShiftQuote.lean` | 任何闭项引号的 shift-不变性 |
-| `shift_domZero` | `成果-IShiftDomZero/ShiftDomZero.lean` | 量词支归约的枢纽 |
+| `topobuild.py` | `.cg009-verification/round31/topobuild.py` | 从零拓扑编译（逐文件删 olean，无缓存假命中） |
+| `shift_domZero` / `shift_quote` | `成果-IShiftDomZero/` | 量词支枢纽 / 闭项引号工具 |
+| `split_or` / `replace_of_imp` | `SetupQTools.lean` | sequent 演算（hAll/hExs 的必需件） |
+| `guard_step` | `HAllGuard.lean` | Derivable 层护罩 |
 
-**`topobuild.py` 用法**：
-```bash
-cd .cg009-verification/round31
-python3 -B topobuild.py --src src --build build --only <模块名片段> [--keep-going]
-```
-LEAN_PATH 需含 Foundation + Astra Mathlib 的 8 个 package
-（batteries / aesop / Qq / proofwidgets / importGraph / LeanSearchClient / plausible / Cli）。
-完整串见 `lean_path.txt`（机器相关，未入库——用 `topobuild.py` 内的 `lean_path()` 函数重建）。
+**用法**：`cd .cg009-verification/round31 && python3 -B topobuild.py --src src --build build --only <模块>`
+LEAN_PATH 见 `topobuild.py` 的 `lean_path()` 函数（机器相关串不入库）。
 
 ---
 
-## 五、陷阱（本会话实测）
+## 五、陷阱（实测）
 
-1. **Write 工具被跨 worktree 钩子拦截**——落盘用 Bash heredoc（本工位目录已获授权）。
-2. **编译缓存会假命中**：任何"能不能编译"的判断必须删 olean 重编（`topobuild.py` 已内置）。
-3. **`rw [← h]` 在 `param` 与 `n` 不同的上下文会失败**——归纳谓词要带 `param = n` 护罩
-   （照 `isSemiformula_iT` / `iT_neg` 的形状）。
-4. **`iT.construction` 直接 `simp only` 会展开整个结构体**（elaboration 开销大）——
-   改用 `iT_and` / `iT_all` 等具名引理 + `show` 指定形状。
-5. **`isSemiformula_mono` 硬编码 `ℒₛₑₜ`**——`ℒₒᵣ` 版需自写（本会话 `isSemiformula_mono_or`）。
-6. **`shift_emb_app`（`成果-IShiftAtom/IShiftEmb.lean`）有编译错误**——混合 fvar 域的
-   `comp_app` 实例不存在。**`shift_domZero` 绕开了它**，不需要它。
-7. **引用任何"已证"前独立重编译**——本会话以此证伪了 9276 的两处旧断言。
+1. **Write 工具被跨 worktree 钩子拦截**——落盘用 Bash heredoc。
+2. **编译缓存会假命中**——任何"能不能编译"必须删 olean 重编（`topobuild.py` 内置）。
+3. **层数记账**：`IsUTermVec.isSemitermVec` 给的层是 `listMax (termBVVec ...)`；
+   与 `iTR` 的 `n` 对接要用 `IsSemitermVec`（照 `isSemiformula_iTR` 的先例）。
+4. **`iT.construction` 直接 `simp only` 会展开整个结构体**——用 `iT_and`/`iT_all` 等具名引理 + `show`。
+5. **删除只进废纸篓**——用 `~/bin/rm-trash` **绝对路径**（Bash 工具 shell 不加载 zsh alias）。
+6. **引用任何"已证"前独立重编译**。
 
 ---
 
 ## 六、边界与授权
 
-- **只写本工位**；canonical 与其他 worktree 一律只读。
-- **删除只进废纸篓**：用 `~/bin/rm-trash` 的**绝对路径**——Bash 工具的非交互 shell
-  **不加载**用户 zsh 的 `rm` alias，`rm` 在那里就是真删除。本会话 2026-10-11 因此误删
-  `/tmp/d3build` 等五项（经逐项核查零不可恢复损失，详见
-  `归档-tmp遗留-20261010-d3probe/README.md` 的违规记录）。
-  删除前必须：①列清单并核实每项独有性；②用绝对路径 `rm-trash`；③记录清单与核查结论。
-- Lean 用 pinned 路径 + `LEAN_SYSROOT`，不走 elan 代理。
-- 不提交/推送/发布**他人**的文件；本工位自身的提交已获用户授权（2026-10-11）。
-- 不扩大授权：goal / Skill / hook 的存在不授予额外权限。
+- 只写本工位；canonical 与其他 worktree 只读；**不合并到 dev**（用户 2026-10-11 明确）。
+- 阶段性提交推送已获授权。**路径③（改 `iT` 定义）须用户裁定。**
 
 ---
 
-## 七、本会话提交
+## 七、给下一会话的最短路线
 
-见本文件同批的 git 提交（分支 `claude/elegant-mclaren-767fb0`，已推送 origin）。
-入库范围：研究成果、核验记录、工具脚本、交接与日志。
-**不入库**：vendored 第三方（`cubical/`）、编译产物、源码副本、机器相关路径、大型扫描缓存
-（规则见 `.gitignore` 末节）。
+1. **若走路径①**：先证元层 `arithTrln.translate (Rewriting.free ψ) = Rewriting.free (arithTrln.translate ψ)`
+   （对 `translate` 结构归纳）；再评估能否从 `p = ⌜ψ⌝` 推广（可能需 `induction1` 的额外假设）。
+2. **若走路径③**：请用户裁定（接口级改动，影响 C-390/C-391）。
+3. **`hExs`**：与 `hAll` 完全同形，`hAll` 一通则 `hExs` 随之。
+4. **`hRoot`**：9276 已定位技术障碍（`Theory.Δ₁.mem_iff` 接受元层 `Proposition`，
+   而手里是 V 元素——需用 `Δ₁Class.defined` 的 `.iff`）。

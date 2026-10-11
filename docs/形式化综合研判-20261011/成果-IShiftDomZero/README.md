@@ -206,3 +206,56 @@ A、B 都是 ℒₛₑₜ **闭公式**（层 0）——属 𝗭𝗖𝗙 内部�
 
 **这机器验证了 9276 的最终判断**：`hAll` 的剩余义务必须是**蕴含式**（Σ1 完全性范围），
 而非等式。三轮反例（9276 的两轮 + 本会话这一条）现已全部机器化。
+
+## 十四、hAB 的精确归约（本会话，路径①推进）
+
+**关键恒等式**（`HABKey.lean`，已定型）：
+```
+iT 0 (free ℒₒᵣ p) = subst ?[^&0] (iT 1 (shift ℒₒᵣ p))     [p 层 1]
+```
+若成立，则 `B = free (imp domZero (iT 1 p)) = imp (x∈ω) A`（用 `free_imp_domZero` + `iT_shift`），
+于是 `A → B` 由**排中律**立得——`hAB` 变成一条平凡的命题逻辑事实！
+
+**证明该恒等式的元层归约**（路径①）：
+- `free p = subst ?[^&0] (shift p)`（定义）
+- 对引号化 `φ = ⌜ψ⌝`：`subst ?[^&0] ⌜ψ⌝ = ⌜ψ[^&0]⌝`（`quote_substs'`），
+  `iT n ⌜ψ⌝ = ⌜translate ψ⌝`（`iT_quote`）
+- 故归结为**元层**：`translate (ψ[^&0]) = (translate ψ)[^&0]`（翻译与代入交换）
+
+**当前卡点**：Foundation 的 `DirectTranslation`（`LK/Interpretation.lean:15`）**没有** subst 相容引理
+（本机 grep 确认）。需自证——但它是对 `translate` 的结构归纳（`translate` 由
+`translateAux` 定义，各构造子有 `translate_rel`/`_all`/`_ex` 等 `rfl` 级引理），
+**比码层等式实质性地易**。这是下一会话的具体动作。
+
+**另注**：`HABKey` 只对 `p = ⌜ψ⌝`（元层标准公式）有效；`hAll` 里 `p` 是 V 内任意码。
+9276 已指出这个局限——但若把 `hAll` 的应用场景限制在标准公式（`induction1` 的 `d` 来自
+标准推导时），可能够用。**这一点需要用户或更深分析裁定。**
+
+## 十五、hAB 的完整障碍图谱（本会话实测，供裁定）
+
+### 已验证的事实
+
+1. **`A → B` 不是等式**：`A := iT 0 (free p)`、`B := free (imp domZero (iT 1 p))`。
+   若 `A = subst ?[^&0] (iT 1 (shift p))`（`HABKey.lean` 陈述的恒等式）成立，
+   则 `B = (x∈ω) → A`，`A → B` 由排中律立得。
+2. **该恒等式在原子支失败**：`iTR` 定义里的 `conjunct b n i y` 含
+   `subst ?[^#i] cDomN`——**自己的 bvar 0**。`subst ?[^&0]` 会命中它
+   （与 `ITSubstCounter.lean` 证明的反例同源）。
+3. **元层归约也不通**：Foundation 的 `DirectTranslation`（`LK/Interpretation.lean:15`）
+   **无** subst 相容引理；自证需处理 `translateRel` 的 `Rew.subst`/`Rew.emb` 交互，
+   工作量与 `iVE_shift` 同级或更大。
+
+### 三条路径的实测评估
+
+| 路径 | 状态（本会话实测） |
+|---|---|
+| ① 元层引理（`iT_quote` + `free_quote` → 元层 `translate (ψ[^&0]) = (translate ψ)[^&0]`） | 元层引理**不存在**，需自证；且只对 `p = ⌜ψ⌝` 有效，`hAll` 里 `p` 是任意码 |
+| ② 对 `p` 结构归纳 | `free` 不是 `UformulaRec1` 构造（它用 `substs1` = `subst`），无法直接套 `semiformula_result_induction` |
+| ③ 改 `iT` 定义（`all`/`exs` 支用替换语义而非保护语义） | **接口级改动**：`iT` 已被 C-390/C-391 等收据引用。**须研究发起人裁定** |
+
+### 结论
+
+**`hAll`/`hExs` 的剩余义务是本路线的实质性研究缺口**，不是工程长尾。
+`hAll_uncond` 已把它**精确隔离**为一条显式前提（`HAllProof.lean` 的 `hAB`），
+其余 9 支的组装、全部工具（`split_or`/`replace_of_imp`/`free_imp_domZero`）都已就位并机器核验。
+**这正是"接口级裁定点"**——路径③（改 `iT` 定义）或接受 `hAB` 为假设，需要用户决定。
