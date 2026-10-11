@@ -1,5 +1,7 @@
 import GodelQ.ZFC.ShiftTools
 import GodelQ.ZFC.TranslateShiftCompat
+import GodelQ.ZFC.ShiftConjunct
+import GodelQ.ZFC.IVeShift
 
 /-!
 # CG-007 · W8 第二层（十三）：`iT` 与 `shift` 的相容律 `iT_shift`
@@ -16,14 +18,11 @@ iT n (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT n p)
 
 ## 状态（2026-10-11）
 
-**七支已证**：`verum` / `falsum` / `and` / `or` / `all` / `exs`（本文件），
-外加 `rel`/`nrel` 两支所依赖的项层地基（`TranslateShiftCompat.lean` 的
-`iVE_shift_bvar`/`_fvar` 与 `ShiftTools.shift_ve0`）。
+**九支全证**（`verum` / `falsum` / `and` / `or` / `all` / `exs` / `rel` / `nrel` + 骨架）。
 
-**剩余两支**：`rel` / `nrel`——它们需要项层 `iVE_shift` 的 **func 支（`k ≠ 0`，即 `ve2`）**，
-其展开需 `shift_conjunct`（`conjunct` 是叠合，用 `shift_and` + 归纳）、
-`shift (subst (^#2 ∷ [#0,#1]) (cFunc k f)) = 自身`（闭代换，走 `shift_quote` 路线）、
-以及 `resultVec` 与 `termShiftVec` 的点相容（`nth_resultVec` 逐分量 + 项级 IH）。
+`rel`/`nrel` 走 `IVeShift.iTR_shift`（原子层主定理），后者依次用到：
+`ShiftConjunct.shift_conjunct`（合取块；参数序陷阱已解）、`shift_ve2`、
+`IVeShift.iVE_shift`（项层，func 支分 ve0/ve2）、`ShiftTools.shift_quote`。
 
 **来源**：骨架与量词支写法来自并行工位 `elegant-mclaren-767fb0` 的
 `IShiftFull-6of8.lean`（CG-009），本 worktree 独立重编译核验后吸收，
@@ -57,12 +56,19 @@ theorem iT_shift {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
   · intro p hp
     simpa [iT] using key hp (rfl : n = n)
   · definability
-  · -- rel（待补：需 iVE_shift 的 func 支）
+  · -- rel
     intro n param k R v hR hv h
-    sorry
-  · -- nrel（待补：同 rel）
+    rw [← h] at hv
+    rw [shift_rel hR hv.isUTerm, iT_rel hR hv.termShiftVec.isUTerm]
+    change iTR param k R (termShiftVec ℒₒᵣ k v) = shift ℒₛₑₜ (iTR param k R v)
+    exact GodelQ.IVeShift.iTR_shift hR hv
+  · -- nrel
     intro n param k R v hR hv h
-    sorry
+    rw [← h] at hv
+    rw [shift_nrel hR hv.isUTerm, iT_nrel hR hv.termShiftVec.isUTerm]
+    change neg ℒₛₑₜ (iTR param k R (termShiftVec ℒₒᵣ k v)) =
+      shift ℒₛₑₜ (neg ℒₛₑₜ (iTR param k R v))
+    rw [shift_neg (isSemiformula_iTR hR hv), GodelQ.IVeShift.iTR_shift hR hv]
   · -- verum
     intro n param h
     show iT param (shift (L := ℒₒᵣ) (^⊤ : V)) = shift (L := ℒₛₑₜ) (iT.construction.verum param)
