@@ -197,6 +197,14 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 并在 `CLAIM.md` 中说明它为什么是实的缺口、缺的是什么、由谁可以继续。CG-007 W8 的
 `GodelQ/ZFC/Z0Blocked.lean:zfcTr_D3_internalize` 是当前的样例。
 
+**/tmp 与仓库内开发边界**：核心代码、形式化源、治理文档与工作记录的**唯一副本**必须留在仓库内，
+绝不允许只存在于 `/tmp`（或任何系统可清理目录）。`/tmp` 下的构建副本、探针、草稿一旦丢失即无 Git 痕迹，
+属于不可接受的资产风险。`devbuild.py` / `lean_probe.py` 的编译缓存统一落在仓库内 `.cg007-build/`
+（已在 `.gitignore` 排除），开发探针统一落在 `.claude/goals/CG-007-formalization-completion/probes/`
+（身份为 `DEVELOPMENT_PROBE / NOT_A_RECEIPT / NOT_A_CLAIM`，不进任何收据源清单）。本会话已把原先只在
+`/tmp/d3build/src/...` 的探针原样搬入 `probes/` 并提交，作为该边界的实例；后续任何会话不得再退回
+"核心产物只在 /tmp" 的工作方式。
+
 **Claude 线与其目标包的边界**：Claude 会话的硬规则在根 `CLAUDE.md`（实用主义一节优先），
 其中保护真实与安全的几条对 Codex 同样适用，本文件不复制：
 
