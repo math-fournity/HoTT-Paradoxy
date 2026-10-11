@@ -184,3 +184,45 @@ Foundation 源 /Volumes/D/HoTT-toolchain-cache/foundation-src；olean 构建
 
 【八方向覆盖】均已闭合（形式化追踪/05-分支上的形式包/README.md），无需再处理；只攻 Z0 的 D3。
 ```
+
+
+---
+
+## 9. 2026-10-11 Codex 第二次复核：真实进度校正与网络完备版包
+
+> 本节由 Codex 在第二个 Session 接管时补写。它**校正**了上一节（§3–§8）与交接摘要里的乐观化描述，
+> 并登记一个可直接发给外部 AI 的最小攻关包。
+
+### 9.1 真实进度（dev 工作树实物核对，非摘要）
+
+- `ShCraigElimSetup.induction_setup` 的 10 个规则支**全部仍是 `sorry` 骨架**，尚未有任何一支被填。
+  即"已证 9 支"不成立；neg 律已证但**没接进归纳**，归纳 10 支一个都没填。
+- `ShCraigElimNegLaw.iT_neg`（一般 `iT`/`neg` 相容律，9 构造子支）确实 **0 sorry 已编译通过**；
+  但 `ShCraigElimBranches.lean` 的文档仍写"一般 `neg` 相容律尚不存在"——文档陈旧，需回改。
+- 归约链本身（C-390 `bwd_of_shcraig_elim` 等）已证、可收据；唯一实质缺口就是 `ShCraigElim` 归纳。
+
+### 9.2 给外部 AI 的包（最小、可网络自取）
+
+- `外部资料/Z0-D3-攻关包-网络完备版/`（本 Session 新建）：含 `START`/`GOAL`/`STATUS`/`ROUTES`/
+  `API` 五份说明 + `06-Foundation模块获取/`（`fetch_foundation.sh` 拉取 **167 个精确依赖模块**的
+  GitHub raw URL，commit `1fb01b72`）+ `07-项目模块/`（本 repo 当前 11 个关键 `.lean` 源作为基线）。
+  `STATUS.md` 如实写"10 个 sorry 骨架、neg 律已证未接"，不再乐观。
+- 之前的 `Z0-D3-攻关包-给外部AI/`（含 167 行 URL 清单）与 `Z0-D3-攻关包-最小完整版/`（含 308 个
+  Foundation 源打包）方向正确，但进度描述偏乐观；本 Session 的"网络完备版"是给外部 AI 的**修订版**。
+- 第三位 AI 反馈"缺 20 个 Foundation 模块"是误判：本机 Foundation 全量 308 个 `.lean` 已构建，167 行
+  URL 清单已含它点名的 D3/CraigTrick/Proof/Typed/Interpretation/R0。
+
+### 9.3 计划评审
+
+- `外部资料/zfcTr-D3-plan.md`：方向对、目标命题精确；§5 主推的"移植 ~1080 行 Σ1 完全性"已被后续工作
+  取代（缺口收窄为 `ShCraigElim` 归纳）。独立修订说明见 `外部资料/zfcTr-D3-plan-revision-codex-20261011.md`
+  与既有 `zfcTr-D3-plan-review-3/4/5-*.md`。
+
+### 9.4 下一步（按此顺序）
+
+1. 填 `andIntro`/`orIntro`（`iT_and`/`iT_or` + `Derivable.and_m`/`or_m`，类型链路已实测对得上）。
+2. 填 `axL`/`cutRule`（用已证 `iT_neg` 把 `iT (neg p)` 化成 `neg (iT p)`）。
+3. 照 `iT_neg` 模板写 `iT_setShift`/`iT_substs1`，填 `shiftRule`/`allIntro`/`exsIntro`（核心难点）。
+4. 读 `CraigTrick.lean` 填 `axm`（唯一用到 `𝗭𝗙𝗖` 公理的支）。
+5. 把 8 支接进 `induction_setup`，新增无 `sorry` 的 `ShCraigElim`；`Z0Blocked.lean` 的 `sorry` 改为引用它。
+6. 按 F-011 抓收据（`capture_run.py`）、`verify_cg001_run.py --rerun` 重放、更新索引与 `形式化追踪/`。

@@ -148,3 +148,44 @@ dev-09 的 D09-C-369 现在 `SOURCE_REPORTED_NOT_REPLAYED`。
 - **若 `keyE` 也卡住**，诚实的结论是：把它写成精确 Lean 命题放回 `Z0Blocked.lean`，
   在 `CLAIM.md` §4 说明它为什么是实的缺口，保持 `SOURCE_REPORTED_NOT_REPLAYED` 式的诚实。
   父目标（Z0 的影子形式 C-120 已无条件成立）不受影响。
+
+---
+
+## 9. 第三段（2026-10-11）：D3 攻坚第 1 层过半，`emb` 部分完成
+
+### 9.1 新收据（两条，均可 `--rerun` 精确重放）
+
+| run | 源 | 结果 |
+|---|---|---|
+| `20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01` | `GodelQ/ZFC/Z0Layer1.lean`（七条交换律）+ 24 个依赖模块 | exit 0，7 条公理报告只有 `[propext, Classical.choice, Quot.sound]`；`--rerun` `PASS_WITH_SCOPE / EXACT_EXIT_STDOUT_STDERR_MATCH` |
+| `20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-NEG-01` | 加 `GodelQ/ZFC/WrongZ0Layer1Overclaim.lean` | exit 1，内核**类型不匹配**；`--rerun --expect-rejected` `NEGATIVE_CONTROL_REJECTED_AS_EXPECTED` |
+
+编号 `CG001-C-388`。负控制的原文错误信息见 `形式化追踪/01-有哥德尔路线/02-Z0-条件形式与剩余三步.md`
+末节——它钉住"第 1 层不含可证性谓词信息"。
+
+### 9.2 阶段结论：规格 §3 第 1 层 11 项，7 项免费、1 项部分、3 项未开始
+
+- 免费 7 项：`neg ⋏ ⋎`（HomClass 实例）、`∀¹ ∃¹ rel nrel`（Foundation `rfl` 引理）。
+  规格把这一层列为"纯语法、可独立做独立验收"是对的，但它低估了现成程度。
+- `emb` 部分（`CG001-C-389`）：`emb_term`、`emb_vec` 已证；`emb_id` 8 例中 6 例已证；
+  `all`/`exs` 未证，卡点是 `Semiformula.rew Rew.emb (∀¹ φ)` 不归约成 `Rewriting.app` 形式，
+  因此 `Rewriting.app_all` 匹配不上（配 `Rew.q_emb` 应有戏，我没试完）。
+- `subst`/`shift`/`free`/`setShift` 未开始。
+
+### 9.3 一条重要机制事实（影响你如何安排 `emb` 的收据）
+
+`verify_cg001_run.py` 把 `sorry` 当作**源清单硬禁**——含未证标记的文件不但不能当正源，
+连"驱动拒绝型"的负收据也进不了（我试过，校验层报 `LEAN_FORBIDDEN_MARKER`）。
+所以 `emb` 的已证部分目前**只在开发构建中有证据**。要么证完 `all`/`exs`，
+要么接受它暂无收据（我已把 `emb_id` 拆到 `Z0Layer1Emb.lean`，让无未证标记的
+`Z0Layer1.lean` 保住 C-388 的收据）。
+
+### 9.4 文件清单（主检出 `/Volumes/D/...`，未提交）
+
+- `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/Z0Layer1.lean`（七条，无未证标记）
+- `.../GodelQ/ZFC/Z0Layer1Emb.lean`（`emb` 部分，带未证标记）
+- `.../GodelQ/ZFC/WrongZ0Layer1Overclaim.lean`（负控制）
+- `.../CLAIM-Z0-LAYER1.md`（命题全文）
+- `HoTT/verification/runs/20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01/` 与 `-NEG-01/`
+- `.claude/goals/CG-001-targeted-overview/证据索引.md` §38/§38b、`HoTT/CLAIM_EVIDENCE_MATRIX.md`
+  的 W8-L1 节、`形式化追踪/` 的 01 章末节与 99 日志、W8 规格的 `emb` 小节

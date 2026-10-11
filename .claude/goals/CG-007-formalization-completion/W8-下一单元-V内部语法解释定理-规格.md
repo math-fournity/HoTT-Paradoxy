@@ -421,3 +421,54 @@ ISigma1.sigma1_succ_induction : ({Γ := 𝚺, rank := 1}-Predicate P) → P 0 �
 
 `conjunct` 的公式性（`isSemiformula_conjunct`）在此之后即可拼装：
 `IsSemiformula.subst` 两次（向量分别是 `?[^#i]` 与 `^#i ∷ shiftVec b n`）+ `IsSemiformula.and`。
+
+### 第 1 层的实际完成情况（2026-10-10 深夜，`CG001-C-388`，收据已抓）
+
+规格 §3 第 1 层列了 11 项。实测结果：
+
+| 项 | 状态 | 依据 |
+|---|---|---|
+| `neg` | ✅ 免费 | `LogicalConnective.HomClass.map_neg`（`translate` 是 `→ˡᶜ Hom`） |
+| `⋏` | ✅ 免费 | `HomClass.map_and` |
+| `⋎` | ✅ 免费 | `HomClass.map_or` |
+| `∀¹`（→ 相对化） | ✅ 免费 | Foundation `DirectTranslation.translate_all`，**本身是 `rfl`** |
+| `∃¹` | ✅ 免费 | `DirectTranslation.translate_ex`，**`rfl`** |
+| `subst` | ❌ 未证 | 见下 |
+| `shift` | ❌ 未证 | 见下 |
+| `free` | ❌ 未证 | 见下 |
+| `setShift` | ❌ 未证 | 见下 |
+| `Rew.emb` | ❌ 未证 | **是真工作**：两侧语言不同（`ℒₒᵣ` → `ℒₛₑₜ`），需要 set 侧的 emb；Foundation 无现成引理 |
+| 原子 `rel`/`nrel` | ✅ 免费 | `DirectTranslation.translate_rel` / `translate_nrel`，**`rfl`** |
+
+收据：`20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01`（exit 0，7 条公理报告只有三条标准公理，
+`--rerun` `PASS_WITH_SCOPE / EXACT_EXIT_STDOUT_STDERR_MATCH`）与 `-NEG-01`
+（用第 1 层推 D3 被内核以**类型不匹配**拒绝，`--rerun --expect-rejected` 通过）。
+CLAIM：`HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM-Z0-LAYER1.md`。
+
+**对下一单元的意义**：规格 §3 第 1 层比预想的容易得多——7/11 是 Foundation 现成零件。
+真正剩下的是 `subst`/`shift`/`emb`（`free`/`setShift` 是前两者的推论）。建议先攻 `emb`，
+因为 `wkRule`/`shiftRule`/`cutRule` 都要它，而它是一个**自足的小命题**，可独立验收。
+
+### 第 1 层中 `emb` 一项的进展与卡点（2026-10-11，本机实测）
+
+规格 §3 第 1 层的其余 7 项已全部确认为免费（HomClass 实例或 Foundation `rfl` 引理），
+并已抓为收据 `20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01`（`--rerun` `PASS_WITH_SCOPE`）。
+
+`emb` 一项的分解结果：
+
+| 子引理 | 状态 | 说明 |
+|---|---|---|
+| `emb_term` | ✅ 已证 | `Rew.emb t = t`（`Empty` 上下文的项），`FirstOrder.Semiterm.rec` 三案：`bvar` 用 `Rew.map_bvar`，`fvar` 用 `isEmptyElim`，`func` 用 `Rew.func` + `funext` |
+| `emb_vec` | ✅ 已证 | `⇑Rew.id ∘ v = v`，`funext` |
+| `emb_id` | ◐ 8 例中 6 例 | `verum`/`falsum` 为 `rfl`；`rel`/`nrel` 需 `congr 1` + `funext` + `emb_term`；`and`/`or` 需把 IH 从 `emb` 形 `rw [Rew.emb_eq_id] at` 转成 `id` 形后 `simpa` |
+| `emb_id` 的 `all`/`exs` | ❌ 未证 | **卡点**：目标里的 `Semiformula.rew Rew.emb (∀¹ φ)` 不自动归约成 `Rewriting.app Rew.emb (∀¹ φ)`，所以 `Rewriting.app_all`（`app ω (∀¹ φ) = ∀¹ (app ω.q φ)`）匹配不上；配 `Rew.q_emb`（`emb.q = emb`）应可成，但 `rw [Rewriting.app_all]` 报 "Did not find an occurrence of the pattern" |
+| `emb_commute` | ❌ 依赖上一行 | `arithTrln.translate (rew Rew.emb φ) = rew Rew.emb (translate φ)`，两侧语言不同，需分别用各自语言的 `emb_id` |
+
+**一个财务性事实**：`Z0Layer1Emb.lean` 含 `sorry`，因此
+`verify_cg001_run.py` 把 `sorry` 视为**源清单硬禁**——它不是"驱动会拒绝所以可以抓个拒绝型收据"，
+而是连拒绝型收据都进不了。所以 `emb` 的已证部分目前**只在开发构建中有证据**。
+要把它变成收据，只有两条路：(a) 证完 `all`/`exs`；(b) 把 `emb_id` 从 `Z0Layer1.lean` 拆出去
+（已做：现在是 `Z0Layer1Emb.lean`），并接受它暂无收据。
+
+**对第 2 层的意义**：`wkRule`/`shiftRule`/`cutRule` 都要 `emb`。第 2 层开工前，
+`emb_id` 的 `all`/`exs` 两例是必须先付清的前置。
