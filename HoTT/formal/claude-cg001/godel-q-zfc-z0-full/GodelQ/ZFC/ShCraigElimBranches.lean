@@ -33,7 +33,7 @@ import GodelQ.ZFC.ShCraigElimNegLaw
 | `hAll` | `iT` 与 `setShift` 的相容 | **不存在**。`shift` 的构造原子支用 `^rel k R (termShiftVec L k v)`（改**项向量**），`iT` 的原子支用 `iTR n k R v`，而 `iTR` 依赖 `iVE n v.[0]`/`v.[1]`——**两者不同构**。要证 `iT n (shift p) = shift (iT n p)` 需展开 `iTR` 定义 + 项层归纳，Foundation 无现成引理，比 `iT_neg` 实质性地难 |
 | `hShift` | 同 `hAll` | 同上 |
 | `hExs` | `iT` 与 `substs1` 的相容 | **不存在**，同上量级 |
-| `axm` | `codeOfREPred` 的一般 **V** 表示引理 | **不存在**。`Sh.craig` 的公理是 `σ.padding s` 形状（`Theory.IsCraigAxiom`，V 内部刻画为 `∃ s p, x = p ^⋏ qqVerums s ∧ V ⊧/![s,p] T.reWitness.val`）；但把 `p ∈ Sh.craig.Δ₁Class` 接到 `iT` 上需要 `codeOfREPred_spec` 的 V 层版本——Foundation 的该引理只在 ℕ 层（`{x : ℕ}`），`mem_craig_codes_iff` 同样只在 ℕ 层。**这是 `axm` 支的实质缺口** |
+| `axm` | 把 `p ∈ Sh.craig.Δ₁Class` 接到 `iT 0 p` 的 `𝗭𝗙𝗖`-可证性 | **路线已找到（2026-10-11 探针实测）**：`σ ∈ Sh.craig ⟹ 𝗭𝗙𝗖 ⊢ translate σ` 已证（三步：`Sh.craig ⪯ Sh`——Foundation `CraigTrick.lean:321` 已有实例 → `Sh_provable_iff` → `Entailment.by_axm`）。再接 Foundation 的 `Δ₁Class.mem_iff_s`（`(⌜φ⌝ : V) ∈ T.Δ₁Class ↔ ∃ σ ∈ T, φ = σ`）与 `iT_quote` 即可。**不需要** V 层 `codeOfREPred`（早先判定有误）。剩余：类型与命名空间对齐 |
 
 **注意**：`iT_quote` 只对**引号化的**公式（`⌜φ⌝`，`φ` 是元层标准公式）给交换律；
 `induction1` 的支拿到的是 **V 内的任意公式码**（可能非标准），
