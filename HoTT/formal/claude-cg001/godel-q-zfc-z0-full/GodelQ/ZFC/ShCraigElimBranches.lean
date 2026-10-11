@@ -25,23 +25,15 @@ import GodelQ.ZFC.ShCraigElimNegLaw
 
 ## 未填，以及为什么
 
-其余 8 个支。它们分成两类：
+其余 3 个支（`hAll`/`hExs`/`hShift`）与 `axm` 支。**2026-10-11 更新**：
+`hAxL`/`hCut`/`hAnd`/`hOr` 已填（见上「已填」），下表随之更新。
 
-**（甲）需要 `iT` 与某个运算的相容律**（本机实测：这些相容律**尚不存在**）：
-
-| 支 | 需要的相容律 | 现状 |
+| 支 | 需要什么 | 现状（2026-10-11 实测） |
 |---|---|---|
-| `hCut` | 一般相容律 `iT 0 (neg p) = neg ℒₛₑₜ (iT 0 p)`（`ih₂` 里出现 `iT 0 (neg p)`） | ✅ 相容律**已证**（`iT_neg`，C-398）；**接线未做** |
-| `hAll` | `iT` 与 `setShift` 的相容 | 不存在 |
-| `hExs` | `iT` 与 `substs1` 的相容 | 不存在 |
-| `hShift` | 同 `hAll` | 不存在 |
-
-**（乙）只需已有零件**（应当可以直接填）：
-
-| 支 | 思路 |
-|---|---|
-| `hAnd` | 两条子推导 + `iT_and` |
-| `hOr` | 两条子推导 + `iT_or` |
+| `hAll` | `iT` 与 `setShift` 的相容 | **不存在**。`shift` 的构造原子支用 `^rel k R (termShiftVec L k v)`（改**项向量**），`iT` 的原子支用 `iTR n k R v`，而 `iTR` 依赖 `iVE n v.[0]`/`v.[1]`——**两者不同构**。要证 `iT n (shift p) = shift (iT n p)` 需展开 `iTR` 定义 + 项层归纳，Foundation 无现成引理，比 `iT_neg` 实质性地难 |
+| `hShift` | 同 `hAll` | 同上 |
+| `hExs` | `iT` 与 `substs1` 的相容 | **不存在**，同上量级 |
+| `axm` | `codeOfREPred` 的一般 **V** 表示引理 | **不存在**。`Sh.craig` 的公理是 `σ.padding s` 形状（`Theory.IsCraigAxiom`，V 内部刻画为 `∃ s p, x = p ^⋏ qqVerums s ∧ V ⊧/![s,p] T.reWitness.val`）；但把 `p ∈ Sh.craig.Δ₁Class` 接到 `iT` 上需要 `codeOfREPred_spec` 的 V 层版本——Foundation 的该引理只在 ℕ 层（`{x : ℕ}`），`mem_craig_codes_iff` 同样只在 ℕ 层。**这是 `axm` 支的实质缺口** |
 
 **注意**：`iT_quote` 只对**引号化的**公式（`⌜φ⌝`，`φ` 是元层标准公式）给交换律；
 `induction1` 的支拿到的是 **V 内的任意公式码**（可能非标准），
