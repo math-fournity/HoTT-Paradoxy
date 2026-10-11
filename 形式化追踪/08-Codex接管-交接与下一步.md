@@ -74,6 +74,25 @@ theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧
 GitHub 仓库：`https://github.com/FormalizedFormalLogic/Foundation`，固定 commit
 `1fb01b72de546e1b50821fd05b1314a8d958583f`。
 
+**`外部资料/Z0-D3-攻关包-给外部AI/`**（2026-10-11 新增，最小、自包含、可编译的"专攻数学证明"包）
+
+为纠正第三位 AI"缺 20 个模块、交不出骨架"的误判而建：Foundation 全量就在本机
+`/Volumes/D/HoTT-toolchain-cache/foundation-src/`（308 个 .lean，与 `1fb01b72` 一致），
+且本项目实际依赖闭包是 **167 个模块**（已由 import 传递闭包精确算出，见该目录
+`Foundation_fetch_list.txt` + `Foundation_modules_urls.txt`，每行一个可 `curl -O` 的 GitHub 原始地址）。
+该目录只放接续工作真正需要的材料，含 6 类文件：
+
+- `00-缺口精确定位.md`：目标定理 `ShCraigElim`、为什么是它、10 支现状、核心难点、排除的死路。
+- `01-README与复现环境.md`：环境、复现步骤、边界。
+- `02-API引用与源代码地址.md`：每个关键 Foundation API 的**本地路径 + GitHub 原始地址**（已实测 200）。
+- `03-九支归纳任务拆解.md`：8 个待填支的逐支目标 + 可用引理 + 卡点 + 本机实测的 `hAnd` 精确写法。
+- `04-编译与收据命令.md`：拓扑序编译、`capture_run.py` 收据、`verify_cg001_run.py --rerun` 重放、F-011 门禁。
+- `Foundation_fetch_list.txt` / `Foundation_modules_urls.txt`：167 个依赖模块的逐行清单与 URL。
+
+本机已实测：Lean 4.34.0 编译 `EnvProbe.lean`（import Z0Full）约 12 秒 exit 0；`iT_neg`
+（`ShCraigElimNegLaw.lean`，9 支全填无 sorry）已编译通过；`hAnd` 的 `iT_and + Derivable.and_m`
+链路类型完全对得上（唯一卡点 `fstIdx dp` 的归约由 `DerivationOf` 的 `.1` 提供）。**缺口可填，不是死路。**
+
 ## 5. 复现环境与工具（完整可用）
 
 - Lean 4.34.0：`/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0`
