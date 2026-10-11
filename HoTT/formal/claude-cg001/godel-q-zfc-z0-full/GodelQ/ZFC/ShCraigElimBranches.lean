@@ -425,8 +425,39 @@ iT 0 (subst ℒₒᵣ w p) = subst' ℒₛₑₜ (iVE-像的向量) (iT 0 p)
 **`domZero` 那一支已被 `domZero_eq_cDomN` 化解**（本轮已证）：
 `domZero` 是引号化句子、无绑定结构，故 `subst` 不动它。
 
-**下一步**：把 `iT`/`subst` 的正确形状用 `semiformula_result_induction` 试出来
-（先在 `rel` 支上验证向量对齐），再回填 `hAll`。
+**第七轮：向量长度不匹配是深层障碍（本机实测）**
+
+`substs_rel` 的形状是 `subst L w (^rel k R v) = ^rel k R (termSubstVec L k w v)`——
+它用**整个 `w`** 去替换 `v` 的每个分量。于是对 `eqAtom t = ^rel 2 cEqN ?[^#0, t]`：
+
+```
+subst ?[^#0, s] (eqAtom t) = ^rel 2 cEqN (termSubstVec 2 ?[^#0,s] ?[^#0,t])
+                            = ^rel 2 cEqN (^#0 ∷ (subst ?[^#0,s] t) ∷ 0)
+```
+
+**而 `t` 拿到的向量是长度 2 的 `?[^#0, s]`，不是长度 1 的 `?[s]`**。
+两者在 `t` 是 bvar 时给出**不同的结果**：
+
+* `subst ?[^#0, s] ^#1 = (?[^#0,s]).[1] = s` ✅
+* `subst ?[s] ^#1 = (?[s]).[1] = 0` ❌（越界）
+
+即 `iT 0 (subst ℒₒᵣ ?[^&0] σ)` 与 `subst ℒₛₑₜ ?[^&0] (iT 1 σ)` 的向量长度
+在**每一层绑定**上都会错位——`iT` 每遇到一个 `all`/`exs` 就插入一层，
+但 `eqAtom`/`ve2` 自带 2 层。**这是 `hAll`/`hExs` 的真正难点**，
+不是「缺一条交换律」那么简单。
+
+**可能的出路（待核）**：
+
+1. **不走 `subst` 交换，改走 `free` 的显式计算**：`hAll` 需要的其实只是
+   `free ℒₛₑₜ (imp domZero (iT 1 p))` 这个**具体公式**的可导性，
+   而不是它与 `iT 0 (free ℒₒᵣ p)` 的相等。可以试着直接从 `ih` 出发，
+   用 `Derivable` 的规则（`all_m` 的反向、`wk`、`cut`）搭桥，
+   完全避开 `subst` 交换律。
+2. **给 `hAll` 的 `P` 谓词加一条「层数对齐」的护罩**（类似 `iT_shift` 的 `param = n`），
+   让向量长度在归纳假设里就对齐。
+
+**建议**：先试出路 1——它把问题从「公式相等」降级到「可导性传递」，
+而后者是 `Derivable` 的强项。
 
 **另记（对本包结构的观察）**：`iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ w (iT m p)`
 这个「同层数」形状是**不成立的**——`iT` 的 `all` 支插入 `domZero`，
