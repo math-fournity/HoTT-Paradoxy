@@ -2225,9 +2225,9 @@ Claim 表：
 | 项 | 内容 |
 |---|---|
 | Claim | CG001-C-393 |
-| 形式命题 | `translateSeq` 保持 `IsFormulaSet`；`induction1` 的 `hWk`（弱化）支填完 |
+| 形式命题 | `translateSeq` 保持 `IsFormulaSet`；`induction1` 的 `hWk`（弱化）与 `hVerumIntro` 两支填完 |
 | 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimBranches.lean` |
 | 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-SHCRAIG-BRANCHES-01`（exit 0，stderr 0 B，`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`） |
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
-| 禁止外推 | **不读成 `ShCraigElim` 已证**：其余 9 支未填，`zfcTr_D3_internalize` 仍未证 |
+| 禁止外推 | **不读成 `ShCraigElim` 已证**：其余 8 支未填，`zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-Z0-SHCRAIG-BRANCHES-001` |

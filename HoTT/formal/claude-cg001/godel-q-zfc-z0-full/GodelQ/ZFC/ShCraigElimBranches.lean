@@ -15,6 +15,8 @@ import GodelQ.ZFC.SeqTranslateFormula
 * `isFormulaSet_translateSeq`：`translateSeq` 保持 `IsFormulaSet`
   （用 `isSemiformula_iT`，即 `SeqTranslateFormula.lean` 的主定理）。
 * `hWk`：弱化支。用 `Derivable.wk` + `translateSeq_mono` + 上一条。
+* `hVerumIntro`：`⊤ ∈ s` ⟹ `Derivable 𝗭𝗙𝗖 (translateSeq s)`。
+  用 `Derivable.verum` + `iT_verum`。
 
 ## 未填，以及为什么
 
@@ -25,6 +27,7 @@ import GodelQ.ZFC.SeqTranslateFormula
 | 支 | 需要的相容律 | 现状 |
 |---|---|---|
 | `hAxL` | `iT 0 (neg p) = neg ℒₛₑₜ (iT 0 p)`（**一般公式**，非引号化） | 不存在。`InternalTranslate.lean` 只有 `iT_nrel`（原子级 `^nrel k R v`），一般公式的否定要递归展开 blueprint |
+| `hCut` | 同上（`ih₂` 里出现 `iT 0 (neg p)`） | 同 `hAxL` |
 | `hAll` | `iT` 与 `setShift` 的相容 | 不存在 |
 | `hExs` | `iT` 与 `substs1` 的相容 | 不存在 |
 | `hShift` | 同 `hAll` | 不存在 |
@@ -33,10 +36,8 @@ import GodelQ.ZFC.SeqTranslateFormula
 
 | 支 | 思路 |
 |---|---|
-| `hVerumIntro` | `⊤ ∈ s` ⟹ `iT 0 ⊤ = ⊤ ∈ translateSeq s`，用 `iT_verum` + `Derivable.verum` |
 | `hAnd` | 两条子推导 + `iT_and` |
 | `hOr` | 两条子推导 + `iT_or` |
-| `hCut` | 直接翻译 |
 
 **注意**：`iT_quote` 只对**引号化的**公式（`⌜φ⌝`，`φ` 是元层标准公式）给交换律；
 `induction1` 的支拿到的是 **V 内的任意公式码**（可能非标准），
@@ -76,7 +77,20 @@ lemma hWk {s d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
   simp only [Q, fstIdx_wkRule]
   exact Derivable.wk (isFormulaSet_translateSeq hs) (translateSeq_mono h) ih
 
+
+/-- **`hVerumIntro` 支**：`⊤ ∈ s`。
+
+`iT 0 ⊤ = ⊤`（`iT_verum`），所以 `translateSeq s` 里含 `⊤`，
+由 `Derivable.verum` 得结论。 -/
+lemma hVerumIntro {s : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (hv : (^⊤ : V) ∈ s) :
+    Q (V := V) (verumIntro s) := by
+  simp only [Q, fstIdx_verumIntro]
+  apply Derivable.verum
+  · exact isFormulaSet_translateSeq hs
+  · exact mem_translateSeq_iff.mpr ⟨^⊤, hv, (iT_verum 0).symm⟩
+
 end GodelQ.ShCraigElimBranches
 
 #print axioms GodelQ.ShCraigElimBranches.isFormulaSet_translateSeq
 #print axioms GodelQ.ShCraigElimBranches.hWk
+#print axioms GodelQ.ShCraigElimBranches.hVerumIntro
