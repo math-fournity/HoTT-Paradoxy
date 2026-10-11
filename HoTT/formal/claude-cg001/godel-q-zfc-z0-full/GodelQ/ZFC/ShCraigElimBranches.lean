@@ -298,8 +298,30 @@ hAll 的目标：Derivable 𝗭𝗙𝗖 (translateSeq s)，其中 ^∀ p ∈ s
 对 fvar 都加一，故 `iT_shift` 能对上；`substs1` 是把**项**塞进绑定位置，
 `ℒₒᵣ` 侧塞的是项 `^&0`、`ℒₛₑₜ` 侧塞的是 `iVE` 的像（`eqAtom`），
 所以要先证一条**项层**的 `iVE_subst`（`iVE` 与 `termSubst` 的相容），
-再抬到公式层。`free` 的 `^&0` 是 fvar，`termSubst` 对 fvar 的处理与 bvar 不同，
-这一支要单独看。
+再抬到公式层。
+
+**2026-10-11 第四轮更正（读 Foundation 源码后）**：`Bootstrapping.subst` 只作用于
+**bvar**——`substs1 L t p = subst L ?[t] p` 是把 `t` 塞进 `p` 的 **bvar 0**，
+fvar 完全不动（`subst_fvar` 类引理）。所以 `substs1 L ^&0 p` 是
+「把**自由变量 0 这个项**塞进 bvar 0」，不是「塞进 fvar 0」。
+这改变了 `iVE_subst` 的形状：
+
+```
+iVE n (termSubst ℒₒᵣ ?[^&0] t)     -- ℒₒᵣ 侧：把 ^&0 塞进 t 的 bvar 0
+  vs.
+subst ℒₛₑₜ ?[^&0] (iVE n t)        -- ℒₛₑₜ 侧：把 ^&0 塞进 iVE n t 的 bvar 0
+```
+
+`iVE n t` 的结构是 `eqAtom`/`ve0`/`ve2` 的复合，bvar 在里面是被 `eqAtom` 包着的
+（`^#0` 是 `eqAtom` 自己的绑定变量，不是 `t` 的）。所以 `termSubst` 改的是 `t` 里
+**原来的** bvar，而 `subst ℒₛₑₜ ?[^&0]` 会连 `eqAtom` 自己的 `#0` 一起改——
+两者**不一致**。正确形状可能要先把 `subst` 的目标限制在 `iVE` 的「外层」
+（即用 `substs1` 在**公式层**的对应物），或者改用 `free1` 那类同时处理
+bvar 与 fvar 的代入。
+
+**结论**：这一支需要先把 `free` 与 `iT` 的接口想清楚，不能直接照搬 `shift` 的证法。
+`free1`（`subst L ?[^&0, ^#0] (shift L p)`）可能才是对的工具——
+它同时提供 fvar 与 bvar 的替换位。**这是下一步要核的第一件事。**
 
 **`hAll` 的护罩步（已实测可证）**：从
 `Derivable (insert A S)` 得 `Derivable (insert (imp B A) S)`——

@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391) / W8-neg_neg_code DONE (72e5a0e3) / W8-iT_neg DONE (27bd0f96) / W8-induction1 branches 6/10 DONE (c27cf517: hWk/hVerumIntro/hAxL/hAnd/hOr/hCut) / W8-TranslateShiftCompat atomic layer DONE (615c24ff: shift_eqAtom_bvar + shift_eqAtom_fvar) / W8-remaining: iT_shift/iT_substs1 (func case needs resultVec-vs-termShiftVec compat), hAll/hExs/hShift, hRoot, ShCraigElim, zfcTr_D3_internalize ALL OPEN / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "本轮新增 TranslateShiftCompat.lean（exit 0）：原子层的 iVE/shift 相容律已证——shift_eqAtom_bvar / shift_eqAtom_fvar。下一个单点：把相容律从原子层推到项层与公式层，即 iT_shift : iT n (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT n p)。路径：iVE 的 func 支用 iVE.construction.resultVec，需先证 resultVec 与 termShiftVec 的相容（vector 层，可能要沿 length 归纳）；bvar/fvar 支已由本文件的 atomic 引理给出。再证 iT_substs1（substs1 同理）。两条齐后填 hAll/hExs/hShift，接进 ShCraigElimSetup.induction_setup，产出无 sorry 的 ShCraigElim，再 Z0Blocked.sorry 改为 exact bwd_of_shcraig_elim elim σ h，最后 capture_run.py 出收据。hRoot（axm 支）是唯一用到 𝗭𝗙𝗖 公理处。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写。",
+  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391) / W8-neg_neg_code DONE (72e5a0e3) / W8-iT_neg DONE (27bd0f96) / W8-iVE_shift + iT_shift DONE (a3d9da66: 30 条引理, 0-sorry) / W8-induction1 branches 7/10 DONE (926b1e77: +hShift) / W8-remaining: hAll/hExs (需代入相容律 iT_substs1，与 shift 相容不同类), hRoot, ShCraigElim, zfcTr_D3_internalize ALL OPEN / W9-coverage-closed / W9-release-pending-authorization",
+  "next_action": "2026-10-11 本轮：TranslateShiftCompat.lean 从 147 行扩到 ~770 行，iVE_shift（含 func 支）与 iT_shift（全称）全部证成，0-sorry、只剩三条标准公理；translateSeq_setShift 与 hShift 立刻通（induction1 7/10）。下一个单点：hAll/hExs 需要的**代入相容律**（不是 shift 相容，后者已有）。精确形状：iT 0 (subst ℒₒᵣ ?[^&0] σ) 与 subst ℒₛₑₜ ?[^&0] (iT 1 σ) 的关系。已实测更正：Bootstrapping.subst 只作用于 bvar（fvar 不动），故 substs1 L ^&0 p 是把「fvar 0 这个项」塞进 bvar 0；而 iVE n t 的 bvar 被 eqAtom 包着，两侧的 subst 目标不一致——需先核 free1（subst ?[^&0, ^#0] (shift p)，同时提供 fvar 与 bvar 替换位）是否才是对的工具。hRoot（axm 支）需读 CraigTrick.lean 的 isCraigAxiom_quote_iff / mem_craig_codes_iff（已定位）。ShCraigElim 与 zfcTr_D3_internalize 仍未证。C-120 影子形式无条件成立。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-11T14:05:00-04:00",
+  "updated": "2026-10-11T18:30:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
-  "checkpoints": 10,
+  "checkpoints": 11,
   "compactions": 2,
   "last_compaction": "2026-10-09T08:48:39-04:00"
 }
