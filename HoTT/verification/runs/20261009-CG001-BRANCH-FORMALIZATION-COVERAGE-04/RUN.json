@@ -1,0 +1,47 @@
+{
+  "claim_ids": [
+    "CG001-C-123",
+    "CG001-C-124",
+    "CG001-C-125",
+    "CG001-C-126"
+  ],
+  "completed_at_utc": "2026-10-09T17:03:36.222239+00:00",
+  "cwd": "/Users/aurolafly/.codex/worktrees/9276/HoTT_AI_HANDOFF_20260911",
+  "environment": {
+    "bytes": 538,
+    "path": "environment.txt",
+    "sha256": "81d8f3e28181de5135d98e51acb81639fe9fd16abcfce0dc9583b098188714c7"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "This run does not add new mathematics: all theorems were already proved on their own branches. It only re-executes them on dev's machine and pins the sources, binary and outputs.",
+    "The two negative controls are captured in a separate REJECT run; they import their positive counterparts and therefore need their own compilation order."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "proof_id": "MP-CG001-BRANCH-FORMALIZATION-COVERAGE-001",
+  "run_id": "20261009-CG001-BRANCH-FORMALIZATION-COVERAGE-04",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG-007 W9 branch coverage: the 16 positive Lean-core formal sources left on GPT branches origin/dev-02, origin/dev-03 and origin/dev-04, compiled on this machine with the pinned Lean 4.34.1 binary inside a network-denied sandbox, so that every GPT-branch formal package now has a dev-visible receipt. Each source is byte-identical to its branch original.",
+  "source_manifest": {
+    "bytes": 4097,
+    "path": "source-manifest.json",
+    "sha256": "cb33dc75bc070ef3517b0ea035e5693a89bcffbbe001d1ba9ffff73b181fd043"
+  },
+  "started_at_utc": "2026-10-09T17:03:36.222057+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 648,
+    "path": "stderr.txt",
+    "sha256": "5155f2495096aa1b3e8742a85859897f2b0476100f01eeee044b374ad157048d"
+  },
+  "stdout": {
+    "bytes": 16584,
+    "path": "stdout.txt",
+    "sha256": "b5988a6f2ab5cf9944df6714d88ef458e6fddecc4b45e57056cbde399c102ae1"
+  }
+}
