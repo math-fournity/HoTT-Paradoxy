@@ -196,14 +196,28 @@ Foundation 源 /Volumes/D/HoTT-toolchain-cache/foundation-src；olean 构建
 ### 9.1 真实进度（dev 工作树实物核对，非摘要）
 
 - `ShCraigElimSetup.induction_setup` 的 10 个规则支**全部仍是 `sorry` 骨架**，尚未有任何一支被填。
-  即"已证 9 支"不成立；neg 律已证但**没接进归纳**，归纳 10 支一个都没填。
-- `ShCraigElimNegLaw.iT_neg`（一般 `iT`/`neg` 相容律，9 构造子支）确实 **0 sorry 已编译通过**；
-  但 `ShCraigElimBranches.lean` 的文档仍写"一般 `neg` 相容律尚不存在"——文档陈旧，需回改。
-- 归约链本身（C-390 `bwd_of_shcraig_elim` 等）已证、可收据；唯一实质缺口就是 `ShCraigElim` 归纳。
+  即"已证 9 支"不成立；归纳 10 支一个都没填。
+- **`ShCraigElimNegLaw.lean` 并未编译通过**（2026-10-11 第三个 Codex Session 用 `devbuild_ns.py`
+  实编译确认）：`iT_and`/`iT_or` 的 rewrite 模式匹配不上（目标里是 `iT (neg (p⋏q))`，而引理改写的是
+  `iT (p⋏q)`），且文件末尾 `#print axioms` 显示 `sorryAx`。因此"neg 律 0 sorry 已证"是**假的**，
+  它从未真正过核。修复要点见 `外部资料/Z0-D3-攻关包-Codex接管版/03-九支归纳任务拆解/ROUTES.md` §1。
+- `ShCraigElimBranches.lean` 的文档写"一般 `neg` 相容律尚不存在"属于未更新的乐观描述；实际该文件本身
+  也带 `sorry`（前述编译失败）。
+- 归约链本身（C-390 `bwd_of_shcraig_elim` 等）已证、可收据；唯一实质缺口就是 `ShCraigElim` 归纳的
+  10 支组装，其中 neg 律（被 hAxL/hCut/hShift 三支配）必须先修才能编译过。
+
+> 校正来源：第三个 Codex Session 在 `dev@1453e9ef`（后提交 `a8386be2`）落盘了
+> `外部资料/Z0-D3-攻关包-Codex接管版/`，其中 `01-目标与缺口/STATUS.md` 逐文件记录了本机实编译结果，
+> 直接推翻了本文件 §9.1 早先的"neg 律已证"与 §9 交接摘要的乐观描述。以该包 `STATUS.md` 为当前判据。
 
 ### 9.2 给外部 AI 的包（最小、可网络自取）
 
-- `外部资料/Z0-D3-攻关包-网络完备版/`（本 Session 新建）：含 `START`/`GOAL`/`STATUS`/`ROUTES`/
+- `外部资料/Z0-D3-攻关包-Codex接管版/`（2026-10-11 第三个 Codex Session 新建，**当前推荐包**）：
+  最小完备、离线可编译。含 00/01/02/03/04/07 六类说明 + 05-项目模块（目标包全量 43 .lean）+ 06-Foundation闭包
+  （Foundation 1fb01b72 全量 308 .lean，离线即用）。它以本机实编译为唯一判据，纠正了"neg 律已证"与
+  "缺模块"两处误传，并附对 `zfcTr-D3-plan.md` 的独立评审（`07-修订说明/REVISION.md`）。发给外部 AI 攻数学证明时，
+  本包即完备基础，无需它再找缺模块或猜 API。
+- `外部资料/Z0-D3-攻关包-网络完备版/`（上一 Session 新建）：含 `START`/`GOAL`/`STATUS`/`ROUTES`/
   `API` 五份说明 + `06-Foundation模块获取/`（`fetch_foundation.sh` 拉取 **167 个精确依赖模块**的
   GitHub raw URL，commit `1fb01b72`）+ `07-项目模块/`（本 repo 当前 11 个关键 `.lean` 源作为基线）。
   `STATUS.md` 如实写"10 个 sorry 骨架、neg 律已证未接"，不再乐观。
