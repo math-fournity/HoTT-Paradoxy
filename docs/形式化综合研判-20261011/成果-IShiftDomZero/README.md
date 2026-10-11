@@ -164,3 +164,45 @@ exit 0、公理干净。剩 `rel` / `nrel` 两支，卡在：
 
 **下游链条现状**：`iVE_shift` ✅ → `iT_shift`（七支 ✅，`rel`/`nrel` 组装中）
 → `tshift` → `hShift` 支 → O2 只剩 `hAll`/`hExs`/`hAxm`。
+
+## 十二、★ 重大进展（16:xx）：hAll 组装完成，只差一条算术蕴含式
+
+### 吸收自 9276（独立核验后）
+- `TranslateShiftCompat-a841872c.lean`（837 行，0 sorry，exit 0）：含 **`iT_shift` 完整版**
+  （与本会话的 `ITShift-FULL.lean` 独立得到同一结论——**双路互证**）、
+  `free_imp_domZero`、`domZero_eq_cDomN`、`shift_imp_domZero`、`shift_iTR` 等。
+- `SetupQTools.lean`：从 9276 的 `ShCraigElimSetupQ.lean` 提取的 **`split_or` + `replace_of_imp`**
+  （两条完整的 sequent 演算工具），本会话独立核验 exit 0。
+
+### 本会话新证
+| 定理 | 文件 | 内容 |
+|---|---|---|
+| `all_mem` | `HAllProof.lean` | `^∀ (imp domZero (iT 1 p)) ∈ translateSeq s` |
+| **`hAll_uncond`** | 同上 | O2 的 hAll 支，**只差 `hAB`**（算术蕴含式，显式前提） |
+| `guard_step` | `HAllGuard.lean` | Derivable 层护罩步骤（备用路线） |
+
+### 唯一剩余障碍（精确）
+
+```
+hAB : Derivable 𝗭𝗙𝗖 (insert (neg ℒₛₑₜ A ^⋎ B) ∅)
+  where A := iT 0 (free ℒₒᵣ p),  B := free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p))
+```
+
+A、B 都是 ℒₛₑₜ **闭公式**（层 0）——属 𝗭𝗖𝗙 内部可证性（Σ1 完全性范围）。
+9276 的三条候选路径见其交接文档；`free_imp_domZero` 是把它归约到"代入相容"的关键一步。
+
+`hExs` 同形（用 `substs1`）。
+
+## 十三、★ 负面结果（机器证明）：朴素的 iVE/subst 律不成立
+
+`ITSubstCounter.lean`（exit 0、公理干净）证明：
+
+- `subst_eqAtom_fvar_neq`：`subst ?[^&0] (eqAtom ^&x) = ^rel 2 cEqN [^&0, ^&x]`（**不是** `eqAtom ^&x`）
+- `naive_lhs`：`iVE 0 (termSubst ?[^&0] ^&x) = eqAtom ^&x`
+- **`naive_law_is_false_shape`**：两者**不同**
+
+**原因**：`subst ?[^&0]` 替换的是**被替换公式自身的 bvar 0**，而 `eqAtom t = ^rel 2 cEqN [#0, t]`
+的绑定变量恰在位置 0——替换会命中它。所以"`iVE` 与 `subst` 交换"的等式形状**恒假**。
+
+**这机器验证了 9276 的最终判断**：`hAll` 的剩余义务必须是**蕴含式**（Σ1 完全性范围），
+而非等式。三轮反例（9276 的两轮 + 本会话这一条）现已全部机器化。

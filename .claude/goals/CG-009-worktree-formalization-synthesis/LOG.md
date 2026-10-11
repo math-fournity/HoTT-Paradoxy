@@ -59,3 +59,5 @@
 - 2026-10-11T15:3x [checkpoint F] ★★ iTR_shift 与 iT_shift 完整证出（0 sorry、exit0、公理干净）。iT_shift 九支全过：rel/nrel 用 iTR_shift + shift_rel/shift_nrel + 层改写（h ▸ hv）；其余七支沿用既有。 → 下一步：tshift（GateBranches.tshift_of_ishift 已过核，只需把 ishift 前提换成 iT_shift 的实例）
 - 2026-10-11T16:1x [checkpoint F] ★ tshift + hShift_uncond 证出并提交。O2 无条件支达 7 支。 → 下一步：hAll/hExs
 - 2026-10-11T16:2x [checkpoint F] hAll 精确障碍（读 9276 探针）：需 iT/subst 相容律 iT 0 (subst ?[^&0] σ) = subst ?[^&0] (iT 1 σ)（σ 层1）——与 shift 不同类（项 vs 公式代入）。已建 ITSubst.lean 骨架与 API 探明（substs_rel/nrel/verum/falsum/and/or/all 全在；substs_exs 不存在）。 → 下一步：攻 iT_subst（双结构归纳，照 iT_neg 模板）
+- 2026-10-11T17:0x [checkpoint F] ★ hAll_uncond 组装成功（用 all_m + replace_of_imp + free_imp_domZero），只差 hAB（算术蕴含式）。吸收 9276 的 SetupQTools（split_or + replace_of_imp，独立核验 exit 0）与 TranslateShiftCompat-a841872c（含 iT_shift 完整版，与我方双路互证）。
+- 2026-10-11T17:1x [checkpoint F] ★ 负面结果机器化：朴素 iVE/subst 等式律恒假（subst ?[^&0] 命中 eqAtom 自身 bvar0）。这印证 9276 的判断——hAB 必须是蕴含式（Σ1 范围）。三轮反例全部机器化。 → 下一步：hAB 需要 Σ1 完全性工具（Z0Full 或 Z0Shadow 里的路径）
