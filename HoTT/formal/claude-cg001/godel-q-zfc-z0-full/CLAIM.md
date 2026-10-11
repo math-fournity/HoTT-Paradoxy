@@ -57,12 +57,63 @@ theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧
 - 因此这条引理是实的、可交给下一个工作单元或外部复核的精确缺口。它不是措辞问题：把 D3 写成别的形式也绕不过同一内容。
 - C-128 不取消这条缺口。它只证明：在 `Type` 宇宙上，缺口可以再收成“Σ1 算术证明编码沿 `arithTrln` 变成 𝗭𝗙𝗖 证明编码”。`Z0Blocked` 的 `Type*` 陈述比 C-122 实际消费的前提更强，C-128 不对它作声称。
 
+### 4.1 实证确认（2026-10-10 机器检验）：缺口为实，且现有 Foundation API 关不上
+
+本包在 2026-10-10 用本地驱动（去掉 `zfc_lean_check.py` 的 `sandbox-exec`，本环境禁止它；其余钉扎与禁用标记检查保留）对缺口做了两次机器检验：
+
+1. **基线重放（exit 0）**：把本包除 `Z0Blocked.lean`（`sorry`）与 `Z0Probe.lean`（既有错误）外的 25 个收据文件编译，全部 rc=0，`PINNED_INPUT_OK modules=1893`。这说明 Z0 装置中除 D3 之外的全部内容都在钉扎的 Foundation/Mathlib 上机器检验通过；缺口是孤立的，不是别处的连带错误（本地重放了 2026-10-09 收据 `20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01` 的源集）。
+2. **探针尝试（exit 1）**：新增诊断文件 `GodelQ/ZFC/Z0D3Attempt.lean`，直接 `exact internalize_provability (V := V) h` 试图关闭缺口，在 53 行得到类型不匹配：参数 `h` 的类型是 `Provable 𝗭𝗙𝗖 ⌜arithTrln.translate τ⌝`（前提句），但 `internalize_provability` 要的是 `𝗭𝗙𝗖 ⊢ arithTrln.translate (↑zfcTr τ)`（结论句）。前提句 `translate τ` 与结论句 `translate (zfcTr τ)` 是**两句不同的句子**；`internalize_provability {φ} : T ⊢ φ → Provable T ⌜φ⌝`（`D1.lean:27`，对一般 `T : Theory L` 且 `[T.Δ₁]`，故 ZFC 也满足）只能把**同一句** φ 重写，无法合成“包裹了 `iTDef` + `provable 𝗭𝗙𝗖`”的结论句。
+
+**被证伪的路线**（已用 Foundation 源码逐字核对）：
+
+- `provable_D3`（`StandardProvability.lean:71`）位于 `section arithmetic`（`variable {T U : ArithmeticTheory}`，第 60 行），要求 `T : ArithmeticTheory`；`𝗭𝗙𝗖` 是 `Theory ℒₛₑₜ`（集合论），故 `provable_D3 (T := 𝗭𝗙𝗖)` 是**类型错误**。先前“用 standardProvability 的 D3 经桥接关闭缺口”的假设被证伪。
+- `sigma_one_complete`（`D3.lean:170`）与 `provable_sigma_one_complete`（`StandardProvability.lean:64`）只对**算术理论**定义；Foundation 没有集合论版本的 Σ1 完全性。
+- `Z0Bridge.lean` 的 `bridge` 前提（C-128）本身就是同一个“内部化 Σ1 完全性”缺口的再收窄，并未给出证明。
+
+**结论**：缺口为**实**——它是 ZFC 的**内部化 Σ1 完全性 / HB-Löb 可导性条件 D3**（针对集合论可证性谓词 `Provable 𝗭𝗙𝗖 (iT 0 x)`）。它在数学上很可能可形式化（需要在 Foundation 中补出集合论可证性谓词的 Σ1 完全性），但**无法靠复用现有 Foundation API 完成**。因此本包不产出机器证明，不把 `𝗭𝗙𝗖 ⊬ Con(𝗭𝗙𝗖)` 作为已证数学结论交付。诊断证据见 `HoTT/verification/runs/20261010-CG001-Z0-D3-GAP-DIAGNOSTIC-01/`。
+
+### 4.1.1 补充（2026-10-11）：缺口精确到缺失的 `Theory.Δ₁ Sh` 实例 + 诚实降格重验证
+
+- **决定性探针 `GodelQ/Probe_d3final.lean`**（`#check Theory.Δ₁ Sh` vs `#check provable_D3 (T := Sh)`）：前者给出 `Theory.Δ₁ Sh : Type`（类**存在**），后者报 `error(lean.synthInstanceFailed): failed to synthesize instance of type class Theory.Δ₁ Sh`。说明 `zfcTr_D3_internalize` 经 `Sh_provable_iff`（`zfcTr σ ↔ provabilityPred Sh σ`）归约为 `provable_D3 (T := Sh)`，而该定理要求 `[Theory.Δ₁ Sh]`——即 **ZFC 的 Σ₁ 完全性**，在 Foundation（commit `1fb01b72`）中尚未形式化。这是 Z0 缺口的**精确 API 层定位**（CG-008 核心内容），不是措辞问题。
+- **诚实降格重验证（2026-10-11，本地驱动 `/tmp/build_z0.py`，去 sandbox-exec，保留钉扎与禁用标记检查）**：
+  - `GodelQ/ZFC/Z0Blocked.lean`（含精确 `sorry` 命题、禁用标记检查）：`## lean ... (rc=0)` + `warning: declaration uses 'sorry'`——精确命题类型可检查、缺口良定义；
+  - `GodelQ/ZFC/Z0Full.lean` / `GodelQ/ZFC/Z0Bridge.lean`（**启用**禁用标记检查，须无 `sorry`）：均 `rc=0`、无 `sorry`——收据文件干净，降格未给装置引入新错误。
+  - 捕获见 `HoTT/verification/runs/20261010-CG001-Z0-D3-GAP-DIAGNOSTIC-01/`（`stdout_reverify_Z0Bridge.txt` / `stdout_reverify_Z0Blocked.txt` / `stdout_probe_d3final.txt`）。
+- **状态不变**：不产出 Z0 机器证明收据；`zfcTr_D3_internalize` 保留 `sorry`；闭合需 CG-008 形式化 `Δ₁ Sh`（集合论 Σ₁ 完全性）或 `Z0Bridge.bridge`。
+
+### 4.1.2 补充（2026-10-11）：包内廉价传递尝试——坍缩为同一 D3 缺口，已诚实降格
+
+按前期方向评估，尝试「包内廉价传递」：从已无条件证明的影子形式
+`zfc_z0 : 𝗭𝗙𝗖 ⊬ arithTrln.translate (Sh.craig.consistent.val)`
+经一致性等价桥梁 `𝗜𝚺₁ ⊢ Sh.craig.consistent.val ↔ 𝗭𝗙𝗖.consistent`
+推出完整形式 `𝗭𝗙𝗖 ⊬ arithTrln.translate (𝗭𝗙𝗖.consistent)`，不碰 Foundation 本体。
+
+两次机器检验（本地驱动 `/tmp/build_z0.py`，去 sandbox-exec，保留钉扎与禁用标记检查）：
+
+1. **直接尝试（已证伪）**：用 `complete 𝗜𝚺₁` 证明该桥梁。Lean 无法闭合目标，
+   静默以 `sorry` 回填，`#print axioms` 报 `sorryAx`（2026-10-11 早期会话实测）。
+   桥梁不可证——它等于 ZFC 的 Σ₁ 内部化 / D3（`Theory.Δ₁ Sh` 缺失）。
+2. **条件形式尝试（诚实降格）**：把桥梁作为显式前提写 `zfc_z0_full_of_bridge`，
+   主体需 `cl_prover [e, hSh]` 在 `Sh` 内由 `Sh ⊢ (A ↔ B)`、`Sh ⊢ B` 推 `Sh ⊢ A`；
+   因 `e` 是经 `WeakerThan.pbl` 包裹的**抽象**前提，`cl_prover` 在 12 000 000
+   心跳预算下仍确定性超时（`build2.log`）。该条件定理数学正确，但当前 Foundation
+   的 `cl_prover` 对抽象等价比无法在合理预算内闭合。
+
+结论：廉价传递**不能**闭合 Z0，与 D3 / `Theory.Δ₁ Sh` 同一缺口；不保留任何伪造收据。
+诚实处置：`GodelQ/ZFC/Z0Final.lean` 现仅含 D3 链接条件定理 `zfc_z0_full_of_D3_cheap`
+（编译 rc=0，`#print axioms` 仅 `[propext, Classical.choice, Quot.sound]`，无 `sorryAx`），
+文件头注释完整记录上述负结果。证据见 `HoTT/verification/runs/2026-10-11-z0final-conditional/`
+（build1–build3.log：build1/build2 = 条件尝试 cl_prover 超时且无 sorryAx；build3 = 精简后 rc=0 干净编译）。
+
+**状态不变**：不产出 Z0 机器证明收据；完整形式仍阻塞于 CG-008（集合论 Σ₁ 完全性）。
+
 ## 5. 文件
 
 - 新文件：
   - `GodelQ/ZFC/Z0Full.lean`（𝔅Z、D1、D2、一致性句等价、Σ1 层级、正对照、完整形式的条件形式）；
   - `GodelQ/ZFC/Z0Blocked.lean`（唯一阻塞引理，带未证标记，**不是**任何运行的编译源）；
-  - `GodelQ/ZFC/Z0Bridge.lean`（C-128 的条件归约；是归约运行的编译源，不导入 `Z0Blocked.lean`）。
+  - `GodelQ/ZFC/Z0Bridge.lean`（C-128 的条件归约；是归约运行的编译源，不导入 `Z0Blocked.lean`）；
+  - `GodelQ/ZFC/Z0Final.lean`（2026-10-11 廉价传递诚实收尾：仅含 D3 链接条件定理 `zfc_z0_full_of_D3_cheap`，编译 rc=0、无 `sorryAx`；文件头记录「包内廉价传递坍缩为 D3」的负结果）。
 - 21 个依赖模块逐字节复制自 `../godel-q-zfc-z0-translate/GodelQ/`（复制时逐个 `cmp` 核对过）。
 
 ## 6. 运行
@@ -93,3 +144,68 @@ theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧
 `zfc_z0_full_of_sigma1_bridge` 把上面的逐点结论喂给 C-122 的 `zfc_z0_full_of_D3_internalize`，得到同一条完整形式：`𝗭𝗙𝗖 ⊬ arithTrln.translate (𝗭𝗙𝗖.consistent)`。
 
 这不是 D3 的证明。Foundation 的 `DirectInterpretation.of_provability` 只把外部推导经完备性变成另一条外部推导，不产生非标准模型 V 里的证明编码，所以填不上 `bridge`。`Z0Blocked.lean` 仍带未证标记，并且不进入本运行的源清单。
+
+## 9. CG-008（2026-10-11，worktree `dev-ef7e5239`）：头号障碍解除 + 路线陈述缺陷
+
+> **证明包**：`MP-CG001-GODEL-Q-ZFC-Z0-CG008-001`（状态仍为 OPEN / 未证）。
+> **目标包**：`.claude/goals/CG-008-zfc-set-sigma1-completeness/`。
+
+### 9.1 已解除：集合语言的内部化演算辅助（原判为「最可能卡住的一步」）
+
+`CG008_HANDOFF_2026-10-11.md` §4.2 与 `CG008_PROJECT.md` §5 风险登记都把
+「集合语言的内部化演算辅助（`eq_refl`/`eq_symm`/`subst_eq`/`K_intro`/`ball_intro`/`bexs_intro`/`ball_replace`）
+在 Foundation 里只为 `Term V ℒₒᵣ` 定义，需自建」列为 §4 路线的头号风险。**该判断过强。**
+
+读 `EquationalTheory.lean:36-70` 可见那套证明只依赖三样：`complete`（模型→元层推导）、
+`internal_provable_of_outer_provable`（`D1.lean:32`）、`TProof.specialize!`（`Typed.lean:462`）。
+后两者**只要求 `T : Theory L` + `[T.Δ₁]`**，与 `L` 无关；`K_intro`/`A_intro_left`/`A_intro_right`/
+`TProof.exs!` 来自 `Entailment.Minimal` 的 `InternalTheory V L` 实例，同样通用。
+唯一 ℒₒᵣ 专属的只有两处：`complete` 的来源（换 `SetTheory.complete`，`Misc.lean:269`）
+与等式记号 `≐`（硬接线 `ℒₒᵣ`；集合语言写 `Semiformula.rel Language.Eq.eq ![t, u]`）。
+
+**成果**：新文件 `GodelQ/ZFC/ZFCSetInternal.lean`，编译 `rc=0`，过 FORBIDDEN 检查（可进入收据）。
+含 13 条可复用引理：`set_outer_to_internal`、`set_complete_of_models`、`set_eq_refl`、
+`set_eq_symm`、`set_ne_symm`、`set_eq_uniform_trans`、`set_eq_trans`、`set_subst_eq`、
+`set_subst_mem`、`set_K_intro`、`set_A_intro_left`、`set_A_intro_right`、`set_exs_intro`，
+外加引号求值辅助 `eval_quote_mem`、`eval_quote_eq`。
+
+**写法要点**（编译实证）：`TProof.specialize!` 的结果形状是
+`Semiformula.subst w (⌜σ⌝ : Semiformula V L n)`；要让 `simpa` 化到 `setEq t u` 的具体形状，
+必须给中间 `have` 显式的 **typed** 类型标注（`∀¹ (setEq …) : Semiformula V ℒₛₑₜ k`），
+否则 Lean 把 `⌜σ⌝` elaborate 成 untyped 的 `FirstOrder.Semiformula`，`simpa` 接不上。
+
+### 9.2 新发现：§4 第 2 步的 `set_sigma_one_complete` 陈述有类型缺陷
+
+§4 写的 `set_sigma_one_complete {ψ} (hp : Hierarchy 𝚺 1 ψ) (hV : V↓[ℒₛₑₜ] ⊧ ψ) : …`
+前提取 `V↓[ℒₛₑₜ] ⊧ ψ`，但缺口的 `V` 只有 `[V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]`（**算术**模型）。
+探针 `GodelQ/ZFC/CG008Probe3.lean`（`rc=0`）查实：
+
+- `SetStructure V` 在这个上下文里**能被 `infer_instance` 合成**——所以**不报错**；
+- 但它合成到的是 `Arithmetic/Exponential/Bit.lean:28` 的
+  `instance : Membership V V := ⟨fun a i ↦ Bit i a⟩`（**二进制编码**，不是集合成员关系）。
+
+即拿 `SetStructure V` 去实例化 `V↓[ℒₛₑₜ] ⊧ ψ` 会得到**语义错误**的引理，且静默成功。
+**对照**：英文原版交接（GUI 导出第 1518 行起）写的是
+`set_sigma_one_complete {V} [SetStructure V] [Nonempty V] [V↓[ℒₛₑₜ] ⊧* 𝗭𝗙𝗖] …`——
+带 `[V↓[ℒₛₑₜ] ⊧* 𝗭𝗙𝗖]`。中文版 §4 丢掉了这个假设，而它正是关键：
+Σ₁ 完全性要的是「V 是 ZFC 的模型」。
+
+### 9.3 缺口的精确形状（本轮定型）
+
+`models_zfcTr_iff`（是 **↔**）给出缺口等价于：对任意 `V ⊨ 𝗜𝚺₁`，
+`Provable 𝗭𝗙𝗖 (⌜translate τ⌝ : V) → Provable 𝗭𝗙𝗖 (⌜translate (zfcTr τ)⌝ : V)`。
+
+两端都在 `Provable 𝗭𝗙𝗖 (⌜·⌝ : V)` 这一侧，说的是「V 内部有一个编码为 V 元素的 𝗭𝗙𝗖 推导」
+（`Provable T φ := ∃ d : V, Proof T d φ`，见证在 V 里），**与 `V↓[ℒₛₑₜ] ⊧ ·` 无关**。
+所以要在 V 的**内部演算层**做，不能在 V 的集合语义里做。
+
+两条已知的失败出口（均有编译实证）：
+1. **外部提取**：把 V 内部推导降成元层 `𝗭𝗙𝗖 ⊢ translate τ`——被载体墙挡住
+   （`Z0Probe7.lean`：`𝗭𝗙𝗖.internalize V ⊢ ⌜σ⌝` 不能改写成 `𝗭𝗙𝗖.internalize ℕ ⊢ ⌜σ⌝`）。
+2. **集合语义**：用 `V↓[ℒₛₑₜ] ⊧ ψ` 走 `set_sigma_one_complete`——V 不是 `SetStructure` 模型
+   （§9.2），且强制实例化会用错的 `∈`。
+
+**仍未证**。下一步需要的是 V 内部的 ZFC Σ₁ 完全性（在 `Provable` 的内部演算层构造证明码），
+而非语义层的完全性。Foundation 的 `Bootstrapping/` 目录下**没有**任何内部化解释机制
+（已用 `grep -rln "Interpretation\|interpret" FirstOrder/Arithmetic/Bootstrapping/` 确认为空），
+这是 CG-008 的实质工作量。

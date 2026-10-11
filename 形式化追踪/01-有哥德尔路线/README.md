@@ -25,7 +25,7 @@
 | 3 | 每一刻看得见、永远看不见；对角过程的两句都独立 | ✅ | C-99、C-100 |
 | 4 | 魔鬼交易；𝗭𝗙𝗖 + A = 𝗭𝗙𝗖 + P | ✅（跑者部分在旧接口 ΦH 上以“到达句”参数为条件；在新接口 ΦS 上无条件，C-118） | C-99、C-101、C-118；A ⟺ P 的闭包条件形式见 C-116 |
 | 5 | 与 Foundation 自带的不完备定理交叉核对 | ✅ | C-102 |
-| 6 | Z0：𝗭𝗙𝗖 证明不了自己的矛盾搜索永不停 | ◐ **影子形式不带前提 ✅**（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`，C-120）；**内部化：除一条引理外全部成为定理**（C-121、C-122） | C-103；C-109、C-110、C-111、C-119、C-120（影子形式无条件），[`godel-q-zfc-z0-translate/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-translate/CLAIM.md)；C-121、C-122 与唯一阻塞引理 [`godel-q-zfc-z0-full/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md)；见 [02 节](02-Z0-条件形式与剩余三步.md) |
+| 6 | Z0：𝗭𝗙𝗖 证明不了自己的矛盾搜索永不停 | ◐ **影子形式不带前提 ✅**（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`，C-120）；**内部化：除一条引理外全部成为定理**（C-121、C-122）；**该阻塞引理 2026-10-10 经机器检验确认是实缺口**（ZFC 内部化 Σ1 完全性，Foundation 无集合论版本，见 [`godel-q-zfc-z0-full/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md) §4.1） | C-103；C-109、C-110、C-111、C-119、C-120（影子形式无条件），[`godel-q-zfc-z0-translate/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-translate/CLAIM.md)；C-121、C-122 与唯一阻塞引理 [`godel-q-zfc-z0-full/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md)；见 [02 节](02-Z0-条件形式与剩余三步.md) |
 | 7 | 把跑者的“到达”句写成集合语言，并在 𝗭𝗙𝗖 中证明等价 | ✅（新的停机公式 ΦS；到达句是算术写法） | C-117、C-118，[`godel-q-zfc-runner-arrival/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-runner-arrival/CLAIM.md)；见 [03 节](03-跑者的到达句.md) |
 
 各条的细节见 [01 节](01-已证-过程观察的不完备.md)。
@@ -42,7 +42,7 @@
 
 1. ~~Z0 的前提 (a)：`𝗜𝚺₁ ⪯ Sh`~~：✅ 已证（C-109、C-110），得到全部 𝗣𝗔。
 2. ~~Z0 的前提 (b)~~：✅ 翻译可计算（C-119），`Sh.RE` 与 Z0 的影子形式无条件（C-120）。
-3. (c) 内部化：2026-10-09（CG-007 W8）把步骤 (c) 收窄成一条精确的 Lean 引理 `zfcTr_D3_internalize`——“𝗭𝗙𝗼 证明了 σ 的翻译，就能证明‘𝗭𝗙𝗸 证明了 σ 的翻译’这句话的翻译”。显式可证性谓词 `𝔅Z(x) := Provable 𝗭𝗙𝗸 (iT 0 x)` 下的 D1、D2、一致性句等价、Σ1 层级、以及 D3 在标准模型 ℕ 中的正对照都已成为定理；该引理一旦成立，完整形式 `𝗭𝗙𝗸 ⊬ (𝗭𝗙𝗸.consistent)ᵗ` 立即随之成立（C-122）。引理本身未证，见 [`godel-q-zfc-z0-full`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/)。
+3. (c) 内部化：2026-10-09（CG-007 W8）把步骤 (c) 收窄成一条精确的 Lean 引理 `zfcTr_D3_internalize`——“𝗭𝗙𝗼 证明了 σ 的翻译，就能证明‘𝗭𝗙𝗸 证明了 σ 的翻译’这句话的翻译”。显式可证性谓词 `𝔅Z(x) := Provable 𝗭𝗙𝗸 (iT 0 x)` 下的 D1、D2、一致性句等价、Σ1 层级、以及 D3 在标准模型 ℕ 中的正对照都已成为定理；该引理一旦成立，完整形式 `𝗭𝗙𝗸 ⊬ (𝗭𝗙𝗸.consistent)ᵗ` 立即随之成立（C-122）。引理本身未证，见 [`godel-q-zfc-z0-full`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/)。**2026-10-10 经机器检验确认该引理是实缺口**：诊断探针 `Z0D3Attempt.lean` 直接 `internalize_provability` 在 53 行类型不匹配（前提句 `translate τ` 与结论句 `translate (zfcTr τ)` 不同）；`provable_D3`/`sigma_one_complete` 仅服务算术理论、`𝗭𝗙𝗖` 是集合论故类型错误。缺口=ZFC 内部化 Σ1 完全性（集合论 D3），Foundation 无集合论版本，因此**不交付 Z0 为已证**；证据 `20261010-CG001-Z0-D3-GAP-DIAGNOSTIC-01/`，包 `CLAIM.md` §4.1。
 4. ~~跑者的到达句~~：✅ C-117、C-118（CG-007 W5）。实分析版（在 ℒₛₑₜ 中构造实数）没有做，见 [03 节](03-跑者的到达句.md)。
 5. ~~同一个 Q 并列进一个内核~~：✅ C-112、C-113（第 04 章）。
 6. ~~想法 T 的一般形式、P 的两侧~~：✅ C-114、C-116（第 07 章）。

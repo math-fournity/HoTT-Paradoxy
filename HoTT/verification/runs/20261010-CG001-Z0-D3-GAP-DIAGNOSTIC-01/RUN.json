@@ -1,0 +1,56 @@
+{
+  "run_id": "20261010-CG001-Z0-D3-GAP-DIAGNOSTIC-01",
+  "kind": "DIAGNOSTIC_NOT_A_PROOF_RECEIPT",
+  "purpose": "Empirically confirm that the Z0 blocking lemma `zfcTr_D3_internalize` is a REAL gap within Foundation: ZFC's internalized Σ1-completeness / Hilbert–Bernays–Löb derivability condition D3 for the set-theoretic provability predicate is not formalized for ZFC (a SetTheory), and the obvious reuse routes (`internalize_provability`, `provable_D3`) cannot close it.",
+  "governance": {
+    "gate": "MATH_PROOF_BEFORE_DELIVERY_V1 / F-011 (形式化线)",
+    "disposition": "未证明内容的处置: the blocking lemma stays with `sorry` in GodelQ/ZFC/Z0Blocked.lean (driver- and double-verifier-rejected as receipt source). This run is diagnostic evidence about the gap, NOT a machine proof of Z0. No MACHINE_PROVED claim is produced."
+  },
+  "toolchain": {
+    "lean": "4.34.0 (arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "foundation_source_commit": "1fb01b72",
+    "mathlib_lib": "5ed29652",
+    "closure_modules_pinned": 1893,
+    "closure_lean_options": {"autoImplicit": false}
+  },
+  "driver": "/tmp/build_z0.py — local drop-in of .claude/goals/CG-007-formalization-completion/tools/zfc_lean_check.py WITHOUT sandbox-exec (this macOS environment forbids /usr/bin/sandbox-exec). Compiles locally against the same pinned Foundation/Mathlib oleans; no network. Pin checks retained; forbidden-marker check disabled for the diagnostic probe only (its docstring mentions 'sorry' descriptively).",
+  "compiles": [
+    {
+      "name": "baseline_replay",
+      "sources": "25 receipt files of package godel-q-zfc-z0-full (Z0Blocked.lean with `sorry` and Z0Probe.lean with pre-existing errors excluded)",
+      "exit": 0,
+      "rc_all_sources": 0,
+      "pin_check": "PINNED_INPUT_OK modules=1893",
+      "interpretation": "Confirms the entire Z0 apparatus — steps (a) 𝗜𝚺₁ ⪯ Sh, (b) Sh.RE — and all premises of the abstract 2nd incompleteness theorem (D1, D2, consistency-sentence equivalence, Σ1 hierarchy, D3 positive control in ℕ) machine-check cleanly against the pinned closure. This locally replays the source set of the prior receipt 20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01."
+    },
+    {
+      "name": "probe_attempt",
+      "sources": "GodelQ/ZFC/Z0D3Attempt.lean",
+      "exit": 1,
+      "error": "Z0D3Attempt.lean:53:41: error: Application type mismatch: argument h has type `Provable 𝗭𝗙𝗖 ⌜arithTrln.translate τ⌝` but is expected to have type `𝗭𝗙𝗖 ⊢ arithTrln.translate (↑zfcTr τ)`",
+      "interpretation": "The premise sentence `arithTrln.translate τ` and the conclusion sentence `arithTrln.translate (zfcTr τ)` are DISTINCT. `internalize_provability {φ} : T ⊢ φ → Provable T ⌜φ⌝` (Foundation/.../Arithmetic/Bootstrapping/DerivabilityCondition/D1.lean:27) only echoes the SAME sentence φ; it cannot synthesize the wrapped 'provability-of-τ' sentence. This empirically demonstrates the gap cannot be closed by reusing `internalize_provability`."
+    }
+  ],
+  "route_refutations": [
+    {
+      "route": "provable_D3 from standardProvability (Foundation/.../Incompleteness/StandardProvability.lean:71)",
+      "verdict": "TYPE-INCORRECT for ZFC",
+      "reason": "provable_D3 lives inside `section arithmetic` with `variable {T U : ArithmeticTheory}` (lines 58–60); it requires T : ArithmeticTheory. 𝗭𝗙𝗖 is a Theory ℒₛₑₜ (SetTheory), so `provable_D3 (T := 𝗭𝗙𝗖)` is a type error. The earlier hypothesis that D3 could be bridged via standardProvability is refuted."
+    },
+    {
+      "route": "sigma_one_complete (Foundation/.../Arithmetic/Bootstrapping/DerivabilityCondition/D3.lean:170)",
+      "verdict": "ARITHMETIC-ONLY",
+      "reason": "sigma_one_complete and provable_sigma_one_complete (StandardProvability.lean:64) are defined for ArithmeticTheory only. There is no set-theoretic Σ1-completeness for ZFC's provability predicate in Foundation."
+    },
+    {
+      "route": "bridge premise in Z0Bridge.lean (CG001-C-128)",
+      "verdict": "ALSO UNPROVEN",
+      "reason": "The C-128 `bridge` premise (Σ1 proof-code along arithTrln → ZFC proof-code) is itself the same internalized Σ1-completeness gap, merely re-narrowed. It does not supply a proof of D3."
+    }
+  ],
+  "conclusion": "GAP_CONFIRMED_REAL_NOT_CLOSED_BY_EXISTING_FOUNDATION_API",
+  "gap_precise_form": "zfcTr_D3_internalize : ∀ (V : Type) [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] (τ : ArithmeticSentence), Provable 𝗭𝗙𝗖 ⌜arithTrln.translate τ⌝ → Provable 𝗭𝗙𝗖 ⌜arithTrln.translate (zfcTr τ)⌝",
+  "gap_mathematical_nature": "ZFC's internalized Σ1-completeness / HB-Löb derivability condition D3 for the SET-THEORETIC provability predicate `Provable 𝗭𝗙𝗖 (iT 0 x)`. It is plausibly formalizable in Foundation with substantial new work (formalizing Σ1-completeness of the set-theoretic provability predicate), but is NOT achievable by reusing existing Foundation API, and is therefore a real, unformalized gap here.",
+  "deliverable_status": "NO_MACHINE_PROOF_PRODUCED. Blocking lemma remains unproven (`sorry`) in GodelQ/ZFC/Z0Blocked.lean and is not delivered as a mathematical conclusion. Full Z0 (𝗭𝗙𝗖 ⊬ Con(𝗭𝗙𝗖)) remains open.",
+  "time_utc": "2026-10-10T21:05:00Z"
+}

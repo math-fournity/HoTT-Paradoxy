@@ -1,0 +1,85 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-008 line, Claude Code desktop session 77d1ad24, worktree dev-ef7e5239, 2026-10-11",
+  "claim_ids": [
+    "CG001-C-129"
+  ],
+  "command_argv": [
+    "/Users/aurolafly/miniconda3/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/ZFCSetSigma1.lean",
+    "GodelQ/ZFC/ZFCSetInternal.lean",
+    "GodelQ/ZFC/CG008Reduce.lean",
+    "GodelQ/ZFC/CG008SetComplete.lean",
+    "GodelQ/ZFC/CG008SetAll.lean"
+  ],
+  "completed_at_utc": "2026-10-11T18:22:09.482773+00:00",
+  "cwd": "/Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239",
+  "duration_seconds": 95.970397,
+  "environment": {
+    "bytes": 1051,
+    "path": "environment.txt",
+    "sha256": "6dd0044effd45f8a4a85525707ccc7c3219c0e51eb6961104bd42aa4a2dd81dc"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "zfcTr_D3_internalize is NOT proved; Z0Blocked.lean still carries its precise unproved marker and is NOT a source of this run.",
+    "The reduction CG008Reduce is an equivalence transform of the gap, not a proof of the gap.",
+    "No claim that ZFC proves its own contradiction, and no claim that ZFC's internalized Sigma1-completeness is formalized."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-Z0-CG008-001",
+  "run_id": "2026-10-11-CG001-CG008-SET-INTERNAL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG-008 P1: the set-language internal calculus layer (ZFCSetInternal.lean 13 lemmas + 2 quote-eval helpers), the gap-to-internal-calculus equivalence reduction (CG008Reduce.lean, 4 theorems), the Sigma-1 induction level analysis (CG008SetComplete.lean), and the universal / Levy-bounded-universal introduction (CG008SetAll.lean, 4 theorems). All compile rc=0 under the pinned toolchain with the forbidden-marker check ENABLED (no unproved markers).",
+  "source_manifest": {
+    "bytes": 206174,
+    "path": "source-manifest.json",
+    "sha256": "2514febaae3f17e44440b259fd0f9e2d928567804243f8ae1ad181d6e76bb64f"
+  },
+  "started_at_utc": "2026-10-11T18:20:33.511923+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 15024,
+    "path": "stdout.txt",
+    "sha256": "83d3ea3bc90bb39b622b4df5e2f3f0a2bebc97ac75f014dcde3f64e08f6ff412"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

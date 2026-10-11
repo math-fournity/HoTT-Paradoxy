@@ -1,0 +1,30 @@
+{
+  "package": "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+  "relevant_sources": [
+    {
+      "path": "GodelQ/ZFC/Z0Blocked.lean",
+      "role": "Canonical unproven-marker file holding the precise blocking lemma zfcTr_D3_internalize (with `sorry`). Not a receipt source.",
+      "status": "UNPROVEN"
+    },
+    {
+      "path": "GodelQ/ZFC/Z0Full.lean",
+      "role": "The Z0 apparatus minus D3: zfcTr : Provability 𝗜𝚺₁ Sh, D1, D2, consistency-sentence equivalence, Σ1 hierarchy, D3 positive control in ℕ, and zfc_z0_full_of_D3_internalize (conditional on the blocking lemma).",
+      "status": "MACHINE_CHECKED (prior receipt 20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01; locally replayed in this diagnostic's baseline_replay)"
+    },
+    {
+      "path": "GodelQ/ZFC/Z0Bridge.lean",
+      "role": "CG001-C-128 conditional re-narrowing (bridge premise). Not a proof of D3.",
+      "status": "MACHINE_CHECKED"
+    },
+    {
+      "path": "GodelQ/ZFC/Z0D3Attempt.lean",
+      "role": "Diagnostic probe. Attempts exact internalize_provability (V := V) h to close the gap; intentionally fails with a type mismatch at line 53, empirically proving the gap.",
+      "status": "DIAGNOSTIC (does not compile; not a receipt source)"
+    }
+  ],
+  "foundation_references": [
+    "Foundation/FirstOrder/Arithmetic/Bootstrapping/DerivabilityCondition/D1.lean:27 (internalize_provability)",
+    "Foundation/FirstOrder/Arithmetic/Bootstrapping/DerivabilityCondition/D3.lean:170 (sigma_one_complete, arithmetic-only)",
+    "Foundation/FirstOrder/Incompleteness/StandardProvability.lean:58-72 (provable_D3 inside section arithmetic; T : ArithmeticTheory required)"
+  ]
+}
