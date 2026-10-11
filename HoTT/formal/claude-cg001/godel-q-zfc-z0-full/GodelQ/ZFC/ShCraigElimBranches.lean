@@ -1,4 +1,5 @@
 import GodelQ.ZFC.ShCraigElimPredicate
+import GodelQ.ZFC.ShCraigElimNegLaw
 import GodelQ.ZFC.SeqTranslateFormula
 
 /-!
@@ -89,8 +90,62 @@ lemma hVerumIntro {s : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (hv : (^⊤ : V
   · exact isFormulaSet_translateSeq hs
   · exact mem_translateSeq_iff.mpr ⟨^⊤, hv, (iT_verum 0).symm⟩
 
+/-- **`hAxL` 支**：`p ∈ s` 且 `neg p ∈ s`。
+
+翻译后 `translateSeq s` 同时含 `iT 0 p` 与其否定：
+`iT 0 (neg p) = neg (iT 0 p)` 由 `ShCraigElimNegLaw.iT_neg` 给出
+（本机已证，exit 0）。于是 `Derivable.em` 直接给出结论。
+
+`iT_neg` 需要 `p` 是 `ℒₒᵣ` 的公式（层数 0）；`IsFormulaSet s` 提供它。 -/
+lemma hAxL {s p : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (hp : p ∈ s) (hn : neg ℒₒᵣ p ∈ s) :
+    Q (V := V) (axL s p) := by
+  simp only [Q, fstIdx_axL]
+  refine Derivable.em (isFormulaSet_translateSeq hs)
+    (iT 0 p) (mem_translateSeq_iff.mpr ⟨p, hp, rfl⟩) ?_
+  exact mem_translateSeq_iff.mpr
+    ⟨neg ℒₒᵣ p, hn, (ShCraigElimNegLaw.iT_neg p (hs p hp)).symm⟩
+
+/-- **`hAnd` 支**：`p ^⋏ q ∈ s`，两条子推导分别在 `insert p s`、`insert q s` 上。
+
+`iT 0 (p ⋏ q) = iT 0 p ⋏ iT 0 q`（`iT_and`），故 `translateSeq s` 里含该合取，
+用 `Derivable.and_m`。子推导的归纳假设给的是 `insert` 后的可导性，
+要先把 `translateSeq (insert p s)` 与 `insert (iT 0 p) (translateSeq s)` 对上
+（`translateSeq_insert`）。 -/
+lemma hAnd {s p q dp dq : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (hpq : (p ^⋏ q) ∈ s)
+    (hdp : fstIdx dp = insert p s) (hdq : fstIdx dq = insert q s)
+    (ihp : Q (V := V) dp) (ihq : Q (V := V) dq) :
+    Q (V := V) (andIntro s p q dp dq) := by
+  have hf : IsUFormula ℒₒᵣ (p ^⋏ q) := (hs (p ^⋏ q) hpq).isUFormula
+  have hfp : IsUFormula ℒₒᵣ p := IsUFormula.and.mp hf |>.1
+  have hfq : IsUFormula ℒₒᵣ q := IsUFormula.and.mp hf |>.2
+  simp only [Q, fstIdx_andIntro]
+  refine Derivable.and_m (mem_translateSeq_iff.mpr
+    ⟨p ^⋏ q, hpq, (iT_and hfp hfq).symm⟩) ?_ ?_
+  · simpa only [Q, hdp, translateSeq_insert] using ihp
+  · simpa only [Q, hdq, translateSeq_insert] using ihq
+
+/-- **`hOr` 支**：`p ^⋎ q ∈ s`，子推导在 `insert p (insert q s)` 上。
+
+`iT_or` 给 `iT 0 (p ⋎ q) = iT 0 p ⋎ iT 0 q`；`Derivable.or_m` 收尾。 -/
+lemma hOr {s p q d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (hpq : (p ^⋎ q) ∈ s) (hd : fstIdx d = insert p (insert q s))
+    (ih : Q (V := V) d) :
+    Q (V := V) (orIntro s p q d) := by
+  have hf : IsUFormula ℒₒᵣ (p ^⋎ q) := (hs (p ^⋎ q) hpq).isUFormula
+  have hfp : IsUFormula ℒₒᵣ p := IsUFormula.or.mp hf |>.1
+  have hfq : IsUFormula ℒₒᵣ q := IsUFormula.or.mp hf |>.2
+  simp only [Q, fstIdx_orIntro]
+  refine Derivable.or_m (mem_translateSeq_iff.mpr
+    ⟨p ^⋎ q, hpq, (iT_or hfp hfq).symm⟩) ?_
+  simpa only [Q, hd, translateSeq_insert] using ih
+
 end GodelQ.ShCraigElimBranches
 
 #print axioms GodelQ.ShCraigElimBranches.isFormulaSet_translateSeq
 #print axioms GodelQ.ShCraigElimBranches.hWk
 #print axioms GodelQ.ShCraigElimBranches.hVerumIntro
+#print axioms GodelQ.ShCraigElimBranches.hAxL
+#print axioms GodelQ.ShCraigElimBranches.hAnd
+#print axioms GodelQ.ShCraigElimBranches.hOr
