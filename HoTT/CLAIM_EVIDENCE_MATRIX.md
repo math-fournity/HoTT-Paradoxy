@@ -2255,3 +2255,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成相容律已证**：`nrel`/`all`/`exs` 三支未填；`hAxL`/`hCut`/`hShift` 仍被阻塞；`zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-Z0-SHCRAIG-NEGFILLED-001` |
+
+### W8-U6：码层面 `neg` 对合律的八支（CG001-C-397，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-397 |
+| 形式命题 | 码层面 `neg` 对合律 `neg (neg x) = x` 的八个构造子支 |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/NegInvolutionBranches.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-NEGINVOL-01`（exit 0，stderr 0 B，`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成对合律已证**：完整组装未完成（需补 `result_all`/`result_exs` 层数展开）；`iT`/`neg` 相容律的 `nrel`/`all`/`exs` 三支仍空 |
+| 包 | `MP-CG001-Z0-NEGINVOL-001` |
