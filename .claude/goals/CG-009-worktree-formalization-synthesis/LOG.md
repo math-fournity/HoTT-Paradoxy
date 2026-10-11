@@ -54,3 +54,5 @@
 - 2026-10-11T14:05:00-04:00 [checkpoint F] 提交并推送：15c1647e（188 文件）+ 归档与规程提交；远端 70b5e1fe。归档 /tmp 遗留独有内容；清理 /tmp（其中一次误用 rm -rf，零损失已核查并记录）。 → 下一步：攻 func 支
 - 2026-10-11T14:20:00-04:00 [checkpoint F] func 支第一块落盘：shift_subst_domN3（conjunct 的 domZero 部分在层3被 shift 固定，exit0 公理干净）。关键事实确认：shiftVec 全是 bvar；isSemitermVec_shiftVec 已存在（层数 b+n）。 → 下一步：证 termShiftVec 对 shiftVec 的恒等（需处理 termBShiftVec 与 termShiftVec 的差异）
 - 2026-10-11T14:25:00-04:00 [checkpoint F] 障碍精确化：termShiftVec 只有 1/2 元 cons 引理，无一般 n；shiftVec 构造用 termBShiftVec（绑定层移位，≠ termShiftVec）。func 支的第 2 块需要新证「termShiftVec 固定 shiftVec」或改用其他路径。 → 下一步：用 nth_ext' + 元素层论证（nth_termBShiftVec + termShift_bvar），或评估绕开
+- 2026-10-11T14:40:00-04:00 [checkpoint F] ★★ 重大吸收：9276 证出 iVE_shift 全称版（sha 2002d386，0 sorry，16 定理公理全干净）——ishift 的最后障碍清除。本会话独立核验（从零拓扑编译 exit 0）后吸收。 → 下一步：完成 iT_shift（rel/nrel 两支）
+- 2026-10-11T14:50:00-04:00 [checkpoint F] iT_shift 七支过核（verum/falsum/and/or/all/exs + 骨架）。rel/nrel 组装中：iTR_shift 需要把 iVE n v.[j] 与 iVE n (termShift v.[j]) 通过 iVE_shift 对接，但层记账出现微妙点——IsUTermVec.isSemitermVec 给的层是 listMax (termBVVec ...)，而 iTR 的 n 是独立参数。 → 下一步：解决层对接（iVE 的层是局部传递的，func 支用 ve2 (p 0) k f w），或用层无关的 iVE_shift 变体
