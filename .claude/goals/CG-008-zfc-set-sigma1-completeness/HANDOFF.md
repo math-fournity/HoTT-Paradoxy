@@ -303,7 +303,7 @@ CG008_HANDOFF.md | 立项交接（包内根目录）
 CG008_PROJECT.md | 立项书（包内根目录）
 CLAIM.md | 本包声明；§4.1.3 是本轮的更正
 /Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Incompleteness/ProvabilityAbstraction/Basic.lean | 抽象框架：Provability:25、HBL2:56、HBL3:62、FormalizedCompleteOn:87
-/Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Incompleteness/StandardProvability.lean | provable_D1:30、provable_D3:71、standardProvability:42、HBL3 实例:90
+/Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Incompleteness/StandardProvability.lean | provable_D1:33、provable_D2:37、provable_D3:71、standardProvability:42、HBL3 实例:90
 /Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Arithmetic/Bootstrapping/Syntax/Theory.lean | Δ₁ 的定义:16（mem_iff 双向）
 /Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Arithmetic/Bootstrapping/DerivabilityCondition/D1.lean | internalize_provability:27、Provable.complete:35（硬编码 ℕ）
 /Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Arithmetic/Bootstrapping/DerivabilityCondition/D3.lean | 要平移的算术机器；sigma_one_provable_of_models:162、provable_internalize:175
