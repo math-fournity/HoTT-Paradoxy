@@ -754,15 +754,43 @@ theorem iT_shift {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
     have h := key hp (rfl : n = n)
     simpa [iT] using h
 
+
+/-! ## `domZero` 的化简（2026-10-11 新增）
+
+**关键发现**：`domZero = subst ?[^#0] cDomN`，而 `subst_eq_self` 说
+「把 bvar `#i` 换成 `#i`」是恒等（当向量满足 `w.[i] = ^#i` 时）。
+故 `domZero` **就等于** `cDomN`——它是个引号化句子，没有任何绑定结构。
+
+这大幅简化了 `hAll`/`hExs`：`domZero` 不再是「需要小心处理的绑定层」，
+而是个常量。 -/
+
+/-- **`domZero = cDomN`**：定义域公式的码就是引号本身（代入 `#0 ↦ #0` 是恒等）。 -/
+lemma domZero_eq_cDomN : domZero (V := V) = ((cDomN : ℕ) : V) := by
+  show subst ℒₛₑₜ (?[^#0] : V) ((cDomN : ℕ) : V) = ((cDomN : ℕ) : V)
+  refine subst_eq_self (L := ℒₛₑₜ) (n := 1) (w := (?[^#0] : V))
+    (isSemiformula_cDomN)
+    (isSemitermVec_single_bvar (n := 1) (by simp)) ?_
+  intro i hi
+  have hz : i = 0 := by simpa using lt_one_iff_eq_zero.mp hi
+  subst hz
+  simp
+
 end GodelQ.TranslateShiftCompat
 
 #print axioms GodelQ.TranslateShiftCompat.iVE_shift
 #print axioms GodelQ.TranslateShiftCompat.shift_iTR
 #print axioms GodelQ.TranslateShiftCompat.shift_domZero
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_rel
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_nrel
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_and
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_or
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_all
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_exs
+#print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
 #print axioms GodelQ.TranslateShiftCompat.iT_shift
