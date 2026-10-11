@@ -520,8 +520,59 @@ iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ (qVec ℒₛₑₜ (iVE-像 w)) 
 （层数 `m → m+1` 因为 `iT` 的 `all`/`exs` 支插入绑定层；
 向量的每个分量要经 `iVE` 翻译成公式层的项。）
 
-**下一步**：按这个形状用 `semiformula_result_induction` 试证
-（先在 `rel` 支验证向量逐分量对齐），再回填 `hAll`/`hExs`。
+**第十一轮：`subst_eqAtom_qVec` 的精确条件已定，只差一条项层引理**
+
+探针 `probes/W8-termSubst-prefix-need-20261011.lean` 实测确认：
+`subst (^#0 ∷ s ∷ 0) (eqAtom t) = eqAtom (subst ?[s] t)` **不是无条件成立的**——
+`subst` 会把整个向量 `^#0 ∷ s ∷ 0` 交给 `t`，而 `?[s]` 只给一个分量。
+两者只在 **`t` 不含 bvar ≥ 2** 时一致（此时两边 `[0]=^#0`、`[1]=s` 都对得上）。
+
+**精确条件**：`termBV ℒₛₑₜ t ≤ 1`（等价于 `IsSemiterm ℒₛₑₜ 1 t`）。
+
+**缺的引理**（一条，项层）：
+
+```
+termSubst L w t 只依赖 w 的前 (termBV t + 1) 个分量
+```
+
+即 `(∀ i ≤ termBV t, w₁.[i] = w₂.[i]) → termSubst L w₁ t = termSubst L w₂ t`。
+这是 `termSubst` 的**有限依赖性**，沿 `t` 的结构归纳即可
+（`termSubst_bvar` 只取 `w.[z]`，`z < termBV t`；`func` 支交给向量归纳假设）。
+
+**证完后**：`subst_eqAtom_qVec`（条件版）→ `iVE_subst` 的 bvar 支
+→ 整个 `iT_subst` 相容律 → `hAll`/`hExs`。
+
+**第十二轮：向量首分量不匹配 —— 精确障碍（本机实测反例）**
+
+探针 `probes/W8-vector-first-component-20261011.lean` 直接算出：
+
+```
+termSubst ?[^&0] ^#0              = (?[^&0]).[0] = ^&0
+termSubst (^#0 ∷ ^&0 ∷ 0) ^#0     = (^#0 ∷ ^&0 ∷ 0).[0] = ^#0
+                                 ^^^^ 不同！
+```
+
+所以 `?[^&0]` 与 `^#0 ∷ ^&0 ∷ 0` 在 **bvar 0** 上给出不同结果——
+即 `subst ?[^&0]`（`free` 用的）与 `subst (qVec ?[^&0])`（`substs_all` 用的）
+**不是同一个运算**。前者替换 `#0`，后者保护 `#0`。
+
+**这对 `hAll` 是决定性的**：`free L p = substs1 L ^&0 (shift L p) = subst L ?[^&0] (shift L p)`
+用的是**替换** `#0` 的语义；而 `iT` 在 `all` 支内部用的是 `substs_all` 的
+**保护** `#0` 的语义。**两者在语义上就是不同的**，
+不是「缺一条交换律」能弥补的。
+
+**结论（对本支的重新评估）**：`hAll` 需要的等式
+`iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (imp domZero (iT 1 p))` **很可能是假的**——
+或至少不能由「`iT` 与 `free` 交换」得到。正确的做法可能是：
+
+* **不用 `all_m`**，改用 `Derivable` 的其他规则（`wk`/`cut`/`em`）直接构造
+  `Derivable (translateSeq s)`；
+* 或**改 `iT` 的定义**，让 `all` 支用「替换」语义而非「保护」语义——
+  但这会改变整个包的接口，代价大；
+* 或**承认这一支需要新的数学**，把它作为独立的开放问题记录下来。
+
+**下一步建议**：先花一轮**直接试着证 `hAll` 的目标**（不做任何交换律假设），
+看 `Derivable` 的规则能否直接给出——若不能，就把本支标为「需要新想法」。
 
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
