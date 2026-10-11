@@ -215,19 +215,24 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 `/tmp/d3build/src/...` 的探针原样搬入 `probes/` 并提交，作为该边界的实例；后续任何会话不得再退回
 "核心产物只在 /tmp" 的工作方式。
 
-**CG-007 W8（Z0 D3）工作根纪律与后续机器证明路线（2026-10-11 接手实测校正）**
+**CG-007 W8（Z0 D3）工作根纪律与后续机器证明路线（2026-10-11 用户裁定：专用 worktree）**
 
-- **工作根唯一真值**：所有 CG-007 源码、文档、收据都落在 `/Volumes/D/HoTT_AI_HANDOFF_20260911`
-  （分支 `dev`，HEAD `2e746c58`，领先 `origin/dev` 39 个提交、未 push）。该目录即 repo 主检出，
-  也是 `git rev-parse --show-toplevel` 的返回值。`/tmp` 下只放可重算的遗留构建副本，绝不接收成果。
-- **链接 worktree 一律视为陈旧、禁止写入 CG-007**：`/Users/aurolafly/WorkBuddy/Worktrees/.../dev-f65ca154`
-  等是 `dev` 的 git linked worktree，但停在 `workbuddy/dev-f65ca154` 分支、HEAD `87b65dfd`、落后 dev 39 个提交，
-  其 `HoTT/formal/.../GodelQ/ZFC/` 仍是 2026-10-10 的旧快照（缺 `SeqTranslateFormula.lean` 等全部 W8 文件），
-  也没有 `devbuild_ns` 入口。接到“当前目录 / 这个 worktree”式指令时，先 `git rev-parse --show-toplevel`
-  与 `git rev-parse HEAD` 比对；若不是 `dev @ 2e746c58`，则回到 D-volume，绝不向链接 worktree 写源码或文档。
+- **工作根：专用 worktree，不是 `dev` 主检出**。用户 2026-10-11 明确要求 CG-007 的推进在**独立 git
+  worktree** 中进行，不干扰 `dev` 上的既有内容。当前唯一工作根：
+  `/Volumes/D/HoTT-worktrees/cg007-w8-d3`（分支 `codex/cg007-w8-d3`，从 `dev @ fb073d5c` 建立）。
+  该目录即 `git rev-parse --show-toplevel` 的返回值。所有 CG-007 源码、文档、收据、探针都写这里。
+- **`dev` 主检出保持干净**：`/Volumes/D/HoTT_AI_HANDOFF_20260911` 是 canonical 集成目标，只由集成者
+  在候选通过验收后写回；日常证明开发绝不直接在 `dev` 上留 dirty 文件。回写 `dev` 前须显式取得用户授权，
+  按精确路径提取候选实物，在 `dev` 上原位重述被接受的变化。
+- **禁止写入的目录**：`/Users/aurolafly/WorkBuddy/Worktrees/.../dev-f65ca154` 等 WorkBuddy 链接 worktree
+  停在 `workbuddy/dev-f65ca154 @ 87b65dfd`（旧快照，缺 `SeqTranslateFormula.lean` 等全部 W8 文件，无
+  `devbuild_ns` 入口），一律只读、不写入。接到“当前目录”式指令时先 `git rev-parse --show-toplevel`
+  与 `git rev-parse HEAD` 比对，确认落在 `codex/cg007-w8-d3` 再动手。
 - **核心资产永不在 `/tmp`**：开发探针统一进 `.claude/goals/CG-007-formalization-completion/probes/`
   （身份 `DEVELOPMENT_PROBE / NOT_A_RECEIPT / NOT_A_CLAIM`，不进收据源）；编译缓存进仓库内
-  `.cg007-build/`（已被 `.gitignore` 排除）。`/tmp/d3build/` 只是遗留参考副本，不回写、不接收成果。
+  `.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（已被 `.gitignore` 排除、可重算）。
+  `/tmp/d3build/` 只是遗留参考副本，不回写、不接收成果。最新一轮接管实测交接见
+  `.claude/goals/CG-007-formalization-completion/HANDOFF-2026-10-11-CODEX-W8-D3.md`。
 - **后续机器证明路线（精确、按依赖、每步可独立验收）**：完整版见
   `.claude/goals/CG-007-formalization-completion/W8-路线图-20261011-Codex接手.md`，要点：
   1. 阶段 A 封 `iT`/`neg` 相容律：先修 `NegInvolution.neg_neg_code`（清 `sorryAx` 噪声、补原子支），

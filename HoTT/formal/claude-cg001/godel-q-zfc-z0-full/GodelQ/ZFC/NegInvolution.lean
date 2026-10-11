@@ -40,7 +40,6 @@ open FFL.Entailment ProvabilityAbstraction
 open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
 open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate
 open GodelQ.SeqTranslate
-open FFL.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Functions
 
 namespace GodelQ.NegInvolution
 
@@ -55,55 +54,23 @@ lemma isSemiformula_neg {n p : V} (hp : IsSemiformula ℒₒᵣ n p) :
 lemma isUFormula_neg {p : V} (hp : IsUFormula ℒₒᵣ p) : IsUFormula ℒₒᵣ (neg ℒₒᵣ p) :=
   hp.neg
 
+/-- `Negation.construction` 的 `rel` 支产出 `^nrel`（`rfl`）。 -/
+lemma negConstruction_rel (param k R v : V) :
+    Negation.construction.rel param k R v = (^nrel k R v : V) := rfl
+
+/-- `Negation.construction` 的 `nrel` 支产出 `^rel`（`rfl`）。 -/
+lemma negConstruction_nrel (param k R v : V) :
+    Negation.construction.nrel param k R v = (^rel k R v : V) := rfl
+
+/-- `Negation.construction` 的 `verum` 支产出 `^⊥`（`rfl`）。 -/
+lemma negConstruction_verum (param : V) : Negation.construction.verum param = (^⊥ : V) := rfl
+
+/-- `Negation.construction` 的 `falsum` 支产出 `^⊤`（`rfl`）。 -/
+lemma negConstruction_falsum (param : V) : Negation.construction.falsum param = (^⊤ : V) := rfl
+
 /-- **码层面的 `neg` 对合律**：`neg (neg p) = p`，对 V 内任意公式码成立。 -/
-theorem neg_neg_code : ∀ {n p : V}, IsSemiformula ℒₒᵣ n p → neg ℒₒᵣ (neg ℒₒᵣ p) = p := by
-  intro n p hp
-  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p →
-      neg ℒₒᵣ (Negation.construction.result ℒₒᵣ param p) = p :=
-    UformulaRec1.Construction.semiformula_result_induction
-      (V := V) (c := Negation.construction) (L := ℒₒᵣ)
-      (P := fun _param _n p q => neg ℒₒᵣ q = p)
-      (by definability)
-      (by intro n param k R v hR hv
-        show neg ℒₒᵣ (Negation.construction.rel param k R v) = (^rel k R v : V)
-        rw [← neg_nrel (L := ℒₒᵣ) hR (IsSemitermVec.isUTermVec n)]
-        congr 1
-        rfl)
-      (by intro n param k R v hR hv
-        show neg ℒₒᵣ (Negation.construction.nrel param k R v) = (^nrel k R v : V)
-        rw [← neg_rel (L := ℒₒᵣ) hR (IsSemitermVec.isUTermVec n)]
-        congr 1
-        rfl)
-      (by intro n param
-        show neg ℒₒᵣ (Negation.construction.verum param) = (^⊤ : V)
-        rw [← neg_falsum (L := ℒₒᵣ)]
-        congr 1
-        rfl)
-      (by intro n param
-        show neg ℒₒᵣ (Negation.construction.falsum param) = (^⊥ : V)
-        rw [← neg_verum (L := ℒₒᵣ)]
-        congr 1
-        rfl)
-      (by intro n param p q hp hq ihp ihq
-        show neg ℒₒᵣ (Negation.construction.result ℒₒᵣ param p ^⋎
-          Negation.construction.result ℒₒᵣ param q) = (p ^⋏ q : V)
-        rw [neg_or (L := ℒₒᵣ) (isSemiformula_neg hp).isUFormula
-          (isSemiformula_neg hq).isUFormula, ihp, ihq])
-      (by intro n param p q hp hq ihp ihq
-        show neg ℒₒᵣ (Negation.construction.result ℒₒᵣ param p ^⋏
-          Negation.construction.result ℒₒᵣ param q) = (p ^⋎ q : V)
-        rw [neg_and (L := ℒₒᵣ) (isSemiformula_neg hp).isUFormula
-          (isSemiformula_neg hq).isUFormula, ihp, ihq])
-      (by intro n param p hp ih
-        show neg ℒₒᵣ (^∃ (Negation.construction.result ℒₒᵣ param p)) = (^∀ p : V)
-        rw [neg_ex (L := ℒₒᵣ) (isSemiformula_neg hp).isUFormula]
-        exact congrArg (fun x => (^∀ x : V)) (ih 0 (by simp)))
-      (by intro n param p hp ih
-        show neg ℒₒᵣ (^∀ (Negation.construction.result ℒₒᵣ param p)) = (^∃ p : V)
-        rw [neg_all (L := ℒₒᵣ) (isSemiformula_neg hp).isUFormula]
-        exact congrArg (fun x => (^∃ x : V)) (ih 0 (by simp)))
-  · show neg ℒₒᵣ (neg ℒₒᵣ p) = p
-    exact key hp
+theorem neg_neg_code {n p : V} (hp : IsSemiformula ℒₒᵣ n p) : neg ℒₒᵣ (neg ℒₒᵣ p) = p :=
+  IsUFormula.neg_neg hp.isUFormula
 
 end GodelQ.NegInvolution
 
