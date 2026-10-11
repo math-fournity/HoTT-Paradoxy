@@ -37,11 +37,24 @@ import GodelQ.ZFC.SeqTranslateFormula
 | `termShift`（Foundation `Term/Functions.lean:210`） | `^#z` —— **不动** | `^&(x + 1)` —— **码加一** |
 
 `iVE` 加一是因为 `eqAtom` 引入一个绑定层（`iVE` 的输出在 `ℒₛₑₜ` 里多一层量词）；
-`termShift` 加一是算术侧的自由变量移位。两者作用于**不同的变量类**，
-所以 `iVE n (termShift t) ≠ termShift (iVE n t)` 在一般情形下**不成立**。
+`termShift` 加一是算术侧的自由变量移位。两者作用于**不同的变量类**。
 
-要证相容律，得先弄清在 `translateSeq (setShift s)` 这个具体位置上两者是否恰好对上
-（也许需要 `iT` 的 `rel` 支重新表述，或引入一个「双移位」辅助运算）。
+**更准确地说（2026-10-11 探针核实）**：要证的不是
+`iVE n (termShift t) = termShift (iVE n t)`（两边甚至不在同一个语言里——
+`termShift` 是 `ℒₒᵣ` 的项层运算，`iVE n t` 已经是 `ℒₛₑₜ` 的公式），而是
+
+```
+iT 0 (shift ℒₒᵣ p)  与  shift ℒₛₑₜ (iT 0 p)   的关系
+```
+
+这是一条**跨语言相容律**：`shift ℒₒᵣ` 先改 `ℒₒᵣ` 侧的项（fvar 加一），
+再经 `iVE` 到 `ℒₛₑₜ`；`shift ℒₛₑₜ` 则是先 `iT` 再改 `ℒₛₑₜ` 侧的公式。
+在 `iTR` 里 `v.[i]` 走 `iVE`，两条路都要在 fvar 上加一，顺序要对上。
+
+Foundation 在 `DerivabilityCondition/EquationalTheory.lean` 处理同类问题时
+用的是 `Semiterm.shift_substs` / `Semiterm.substs_substs` 这类**已备的交换律**；
+本包没有对应物，需要新写。
+
 **这一步尚未做**；不要在没弄清之前假定它平凡。
 
 ## 未填，以及为什么（2026-10-11 前的记载，保留）
