@@ -136,7 +136,12 @@ LEAN_PATH 需含 Foundation + Astra Mathlib 的 8 个 package
 ## 六、边界与授权
 
 - **只写本工位**；canonical 与其他 worktree 一律只读。
-- 删除只进废纸篓（`rm` 即 `rm-trash`）；Lean 用 pinned 路径 + `LEAN_SYSROOT`，不走 elan 代理。
+- **删除只进废纸篓**：用 `~/bin/rm-trash` 的**绝对路径**——Bash 工具的非交互 shell
+  **不加载**用户 zsh 的 `rm` alias，`rm` 在那里就是真删除。本会话 2026-10-11 因此误删
+  `/tmp/d3build` 等五项（经逐项核查零不可恢复损失，详见
+  `归档-tmp遗留-20261010-d3probe/README.md` 的违规记录）。
+  删除前必须：①列清单并核实每项独有性；②用绝对路径 `rm-trash`；③记录清单与核查结论。
+- Lean 用 pinned 路径 + `LEAN_SYSROOT`，不走 elan 代理。
 - 不提交/推送/发布**他人**的文件；本工位自身的提交已获用户授权（2026-10-11）。
 - 不扩大授权：goal / Skill / hook 的存在不授予额外权限。
 
