@@ -2158,3 +2158,52 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | D09-C-369 | 从 `SOURCE_REPORTED_NOT_REPLAYED` 变为**本机可重放**：`FFL.FirstOrder.Arithmetic` 的 `incomplete`、`incomplete_of_RE`、`exists_true_but_unprovable_sentence_of_sigma1sound`、`exists_true_but_unprovable_sentence_of_RE_of_sigma1sound` 四条声明在本机 Foundation 构建树上过核，内核公理只有三条标准公理；负控制证明 `T.SoundOnHierarchy 𝚺 1` 这一前提未被静默抹去 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / LOCAL_REPLAY` | run `-01` 与 `-NEG-01` | 不读成原运行的逐字节重执行（见上节 pin 差异）；不把一阶算术不完备性读成 ZFC 对象语言结果（那是 CG001-C-95–C-102）；不减损算术强度、可表示性与 soundness 作为显式 theorem 前提的身份 |
+
+## Claude CG-007 W8-L1：`arithTrln.translate` 的语法交换律（2026-10-10）
+
+> 授权：同上。本节只追加。工具链同 W4a；导入闭包 1,893 个模块。
+> **身份**：D3 攻坚计划（V 内部语法解释定理）的第 1 层。命题连接词与量词部分实质是 Foundation 现成
+> `LogicalConnective.HomClass` 实例的投影与 `rfl` 引理，不是新数学；本层**不出 D3**。
+> 负控制证明第 1 层不含可证性谓词的信息。`subst`/`shift`/`free`/`setShift`/`emb` 五项**未**证。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-001` | `CG001-C-388` | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/Z0Layer1.lean`（`map_and`、`map_or`、`map_neg`、`map_all`、`map_exs`、`map_rel`、`map_nrel`；加 24 个依赖模块逐字节相同；命题全文 `CLAIM-Z0-LAYER1.md`） | `verification/runs/20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01/`；exit 0，stderr 0 B；7 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE / EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-NEG-001` | `CG001-C-388`（负控制） | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/WrongZ0Layer1Overclaim.lean` | `verification/runs/20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-NEG-01/`；exit 1，内核类型不匹配 | `NEGATIVE_CONTROL_REJECTED`：用第 1 层推 D3 确实被拒 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-388 | `arithTrln.translate` 与 `⋏ ⋎ ∼`（HomClass）、`∀¹ ∃¹`（相对化，`fal`/`exs`）、`rel nrel` 七种运算的语法交换律全部成立，内核公理只有 `propext`、`Classical.choice`、`Quot.sound`；负控制：第 1 层不能推出 D3 的蕴含形状 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01` 与 `-NEG-01` | 不读成 D3 已证或部分证；`subst`/`shift`/`free`/`setShift`/`emb` 未证；Z0 完整形式仍以 `zfcTr_D3_internalize` 为显式前提 |
+
+
+| CG001-C-389 | `Rew.emb` 在 `Empty` 上下文的项（`emb_term`）与项向量（`emb_vec`）上是恒等（结构归纳）；`emb_id`（`Semiformula.rew Rew.emb φ = φ`）8 个构造子中已证 6 个（`verum falsum rel nrel and or`），`all`/`exs` 两例带未证标记，`emb_commute` 依赖它们故也未证 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED / PARTIAL` | `godel-q-zfc-z0-full/GodelQ/ZFC/Z0Layer1Emb.lean`，开发构建 `devbuild.py` exit 0（除 2 条 `sorry` warning 外无输出） | **不入收据**：`verify_cg001_run.py` 把 `sorry` 视为源清单硬禁，含未证标记的源无法产生任何可校验收据；已证部分（`emb_term`/`emb_vec`）只在开发构建中存在，要取得收据需先把 `all`/`exs` 两例证完或把它们隔离到不进源清单的文件 |
+
+### W8-U：Z0 D3 攻坚——宇宙层级障碍清除与 `bwd` 归约（CG001-C-390，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-390 |
+| 形式命题 | `models_zfcTr_iff'`（`V : Type*` 版）与 `bwd_of_shcraig_elim`（`bwd` 归约为一条消去 `ShCraigElim`） |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/Z0UniBridge.lean` |
+| 负控制 | 同目录 `GodelQ/ZFC/WrongZ0UniBridge.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-UNIBRIDGE-01`（exit 0，stderr 0 B，2 条公理报告只有三条标准公理，`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 负控制运行 | `HoTT/verification/runs/20261011-CG001-Z0-UNIBRIDGE-NEG-01`（exit 1，内核类型不匹配，`--rerun --expect-rejected` `NEGATIVE_CONTROL_REJECTED_AS_EXPECTED`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 D3 已证**：`ShCraigElim` 未证，`zfcTr_D3_internalize` 仍未证，Z0 完整形式仍以它为显式前提。C-120 影子形式不受影响 |
+| 包 | `MP-CG001-Z0-UNIBRIDGE-001` |
+
+
+### W8-L2：Z0 D3 攻坚第 2 层地基——公式保持性（CG001-C-391，2026-10-11）
+
+> 授权：同 W8-L1。本节只追加。工具链同 W8-L1；导入闭包 1,893 个模块。
+> **身份**：← 方向第 2 层「10 个 case 组装」的**公共地基**。`Derivation.*` 每个构造子都要求 `IsFormulaSet`，
+> 所以「翻译把公式码送到公式码」必须先有。本层**不**做 case 组装，**不**出 D3。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-001` | `CG001-C-391` | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/SeqTranslateFormula.lean`（`iVE_bvar`/`iVE_fvar`/`iVE_func`、`isSemiformula_iVE`、`isSemiformula_domZero`、`isSemiformula_iTR`、`isSemiformula_iT`；加 24 个依赖模块逐字节相同；命题全文 `GodelQ/ZFC/CLAIM-Z0-W8-LAYER2-FORMULA.md`） | `verification/runs/20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01/`；exit 0，stderr 0 B；`#print axioms` 全为三条标准公理；`--rerun` `PASS_WITH_SCOPE / EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-NEG-001` | `CG001-C-391`（负控制） | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/WrongIVELayer.lean` | `verification/runs/20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-NEG-02/`；exit 1，内核在 `eqAtom ^#(0+1) = eqAtom ^#0` 处拒绝；`--rerun --expect-rejected` `EXACT_EXIT_STDOUT_STDERR_MATCH` | `NEGATIVE_CONTROL_REJECTED`：`iVE` 计算规则非空转。`-NEG-01` 是驱动修正期（源清单漏文件），保留不淘汰 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-391 | 在 𝗜𝚺₁ 的每个模型 V 中：`iVE` 的三条计算规则从 fixpoint 语义抠出；`isSemiformula_iVE`（`IsSemiterm ℒₒᵣ n t → IsSemiformula ℒₛₑₜ (n+1) (iVE n t)`，用 `IsSemiterm.sigma1_induction`）；`isSemiformula_domZero`；`isSemiformula_iTR`；公式保持性主定理 `isSemiformula_iT`（`IsSemiformula ℒₒᵣ n p → IsSemiformula ℒₛₑₜ n (iT n p)`，用 `semiformula_result_induction` 加 `param = n` 护罩）。负控制：bvar 规则写错被内核拒绝 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01` 与 `-NEG-02` | **不读成 D3 已证或部分证**：`derivable_translateSeq`（10 个 case）未证；`iT` 与 `subst/shift/free/setShift/emb` 的相容未证；`axm` 支与 `codeOfREPred` 一般 V 表示引理未证；`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证；Z0 完整形式仍以 `zfcTr_D3_internalize` 为显式前提；C-120 影子形式不受影响 |

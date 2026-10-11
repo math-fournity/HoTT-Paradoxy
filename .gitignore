@@ -23,6 +23,10 @@ tmp/
 *.tmp
 *.partial
 
+# CG-007 incremental Lean build cache (devbuild.py / lean_probe.py).
+# Reproducible from the pinned toolchain; never part of a receipt.
+.cg007-build/
+
 # Generated export boxes are kept outside the Git tree unless explicitly
 # accepted as a source artifact.
 exchange/outbox/*.zip
