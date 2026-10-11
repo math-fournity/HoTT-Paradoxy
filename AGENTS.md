@@ -44,8 +44,10 @@ CG-007（Z0 / D3 / `zfcTr_D3_internalize` 形式化攻关）有一批**链接 wo
 - **工作根是专用 worktree `/Volumes/D/HoTT-worktrees/cg007-w8-d3`**（分支 `codex/cg007-w8-d3`），不是 `dev` 主检出。开工先 `git rev-parse --show-toplevel && git branch --show-current`，确认落在该 worktree 再动手。`/Volumes/D/HoTT_AI_HANDOFF_20260911`（分支 `dev`）是集成目标：保持干净，日常不在其上开发，回写须经用户授权。（本行原文写"唯一工作根是 dev 主检出"，是用户 2026-10-11 裁定之前的说法，已被本节末「CG-007 W8（Z0 D3）工作根纪律」取代。）
 - **所有 `/Users/aurolafly/WorkBuddy/Worktrees/...` 与 `/Users/aurolafly/.codex/worktrees/...` 下的 checkout 都是独立 worktree**：它们各自有独立分支（如 `workbuddy/dev-f65ca154`）或停在不同 HEAD（多为 `87b65dfd`）。其中 `87b65dfd` 经实测**是 `dev` 的祖先**（落后 47 个提交），属旧快照；也有停在无关分支上的。一律**绝不写入**任何 CG-007 源码或文档。
 - **构建缓存的真实位置**是仓库内的 `.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（存 `.olean`/`.ilean`/`_state.json`），由 `devbuild_ns.py` 生成、可重算、不进收据。它**已被** `.gitignore` 第 33 行排除，不随提交进入仓库；AGENTS 正文提到的 `.cg007-build/` 是旧路径，已不再使用。`/tmp/d3build/` 是遗留开发副本，只作参考，不回写。
-- **交接文档声称"已证 / 已完成"不等于代码已编译**：例如 STATE.json / HANDOFF 曾声称 `ShCraigElimNegLaw.iT_neg`、`NegInvolution.neg_neg_code` 已证，但实测二者均**未编译通过**（前者 `IsUFormula.qqAlls` 等命名不存在、后者卡在 `rel` 支且带 `sorryAx` 噪声）。任何"已证"主张必须先核对：对应 `.lean` 能被 `devbuild_ns.py` 编译（exit 0、无 `sorry`），且最好有 `HoTT/verification/runs/<id>/` 正式收据。未核实前按 `UNVERIFIED_CLAIM` 处理，不得当作前置条件推进。
-- **CG-007 真实进度基准（2026-10-11 实测）**：`SeqTranslateFormula.isSemiformula_iT`（公式保持性主定理，9 支全过）已由 receipt `20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01` 机器证（CG001-C-391，exit 0）；`Z0Blocked.zfcTr_D3_internalize` 仍是带 `sorry` 的显式缺口。真正的下一块硬骨头是 `iT`/`neg` 相容律 `iT_neg`（`ShCraigElimNegLaw.lean`，未编译）及其上游 `neg` 码层面对合律 `NegInvolution.neg_neg_code`（未编译）。
+- **交接文档声称"已证 / 已完成"不等于代码已编译**：例如 STATE.json / HANDOFF 曾声称 `ShCraigElimNegLaw.iT_neg`、`NegInvolution.neg_neg_code` 已证。任何"已证"主张必须先核对：对应 `.lean` 能被 `devbuild_ns.py` 编译（exit 0、无 `sorry`），且最好有 `HoTT/verification/runs/<id>/` 正式收据。未核实前按 `UNVERIFIED_CLAIM` 处理，不得当作前置条件推进。**本节自身也受此约束**——下面是 2026-10-11 清缓存强制重编译的实测结果，与本节早先版本不同：
+  - `NegInvolution.neg_neg_code`：**exit 0**，`#print axioms` 只有 `[propext, Classical.choice, Quot.sound]`。早先版本称它"卡 `rel` 支、带 `sorryAx` 噪声"——**已过时**。它**尚未出正式收据**，故仍按"已编译、未收据"对待，不要直接当收据引用。
+  - `ShCraigElimNegLaw.iT_neg`：**仍 exit 1**，但原因不是早先版本写的"`IsUFormula.qqAlls` 等命名不存在"（文件里已无此名）。真实报错是 `line 93/99` 两处 `Tactic rewrite failed: Did not find an occurrence of the pattern`，都在 `all`/`exs` 支：`ih` 的结论是 `iT (…allChanges/exsChanges…) (neg p) = neg (result …)`，而目标里是 `^∃ domZero ^⋏ iT …` / `^∀ imp ℒₛₑₜ domZero (iT …)`，两边形状对不上，`rw [← ih …]` 找不到可重写的出现。文件 99 行、0 个 `sorry`。
+- **CG-007 真实进度基准（2026-10-11 清缓存强制重编译实测）**：`SeqTranslateFormula.isSemiformula_iT`（公式保持性主定理，9 支全过）已由 receipt `20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01` 机器证（CG001-C-391，exit 0）；`NegInvolution.neg_neg_code` 已编译 exit 0、公理干净，**但尚未出收据**；`ShCraigElimNegLaw.iT_neg` 仍 exit 1（`all`/`exs` 两支 rewrite 形状不匹配）。`Z0Blocked.zfcTr_D3_internalize` 仍是带 `sorry` 的显式缺口。当前最硬的拦路石是 `iT_neg` 的 `all`/`exs` 两支。
 
 ## 启动闭包（每个新 Session、压缩恢复、跨目录接手）
 
@@ -235,9 +237,9 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
   `.claude/goals/CG-007-formalization-completion/HANDOFF-2026-10-11-CODEX-W8-D3.md`。
 - **后续机器证明路线（精确、按依赖、每步可独立验收）**：完整版见
   `.claude/goals/CG-007-formalization-completion/W8-路线图-20261011-Codex接手.md`，要点：
-  1. 阶段 A 封 `iT`/`neg` 相容律：先修 `NegInvolution.neg_neg_code`（清 `sorryAx` 噪声、补原子支），
-     再重写 `ShCraigElimNegLaw.iT_neg`（用 `isUFormula_iTR` + `IsUFormula.all/imp/and/subst/rel`，带
-     `param=n` 护罩），二者 exit 0 后出收据。不依赖此步的 `isSemiformula_iT`（CG001-C-391）已证。
+  1. 阶段 A 封 `iT`/`neg` 相容律：`NegInvolution.neg_neg_code` **已 exit 0**（只剩出收据这一步）；
+     `ShCraigElimNegLaw.iT_neg` 仍 exit 1，卡在 `all`/`exs` 两支的 `rw [← ih …]` 形状不匹配
+     （见上「交接文档声称已证…」条的精确报错）。不依赖此步的 `isSemiformula_iT`（CG001-C-391）已证。
   2. 阶段 B 填 `ShCraigElim` 剩余支：`hAxL/hCut`（用 iT_neg）、`hAnd/hOr/hWk/hVerumIntro`，
      以及 `hAll/hExs/hShift`（`iT` 与 `substs1/shift/free/setShift` 相容——非平凡，翻译多引约束变量、
      de Bruijn 结构变化）。

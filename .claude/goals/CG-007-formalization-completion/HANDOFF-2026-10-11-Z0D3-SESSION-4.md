@@ -10,6 +10,9 @@
 ## 位置与身份
 
 - **主检出（canonical）**：`/Volumes/D/HoTT_AI_HANDOFF_20260911`，分支 `dev`。
+  > ⚠️ **2026-10-11 起失效**：CG-007（Z0 D3）的开发工作根已改为专用 worktree
+  > `/Volumes/D/HoTT-worktrees/cg007-w8-d3`（分支 `codex/cg007-w8-d3`）；上列主检出只作集成目标并保持干净。
+  > 本文其余内容为裁定之前的记录，只可当历史参考。
   **每次动手前先 `git log --oneline -1`**——研究发起人会不定时把我的增量提交上去，
   我在本轮开始时 HEAD 是 `281ee5b4`，结束时已推进到 `273ac2e7`。
 - **我的探测 worktree**：`/Users/aurolafly/.codex/worktrees/9276/HoTT_AI_HANDOFF_20260911`。

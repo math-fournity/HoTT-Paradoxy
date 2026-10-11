@@ -5,6 +5,9 @@
 >
 > **写出者**：WorkBuddy 会话（Agent 模式），2026-10-10 16:00 – 2026-10-11 00:10（EDT），
 > 工作根与主检出都是 `/Volumes/D/HoTT_AI_HANDOFF_20260911`（分支 **`dev`**）。
+> ⚠️ **2026-10-11 起失效**：CG-007（Z0 D3）的开发工作根已改为专用 worktree
+> `/Volumes/D/HoTT-worktrees/cg007-w8-d3`（分支 `codex/cg007-w8-d3`）；主检出只作集成目标并保持干净。
+> 本行以下内容为裁定之前的记录，只可当历史参考。
 >
 > **接力链**：Claude Opus `d58e0c0d`（停在 `zfcTr_D3_internalize`）
 > → Codex `01a120e6` 第一轮（W4b–W9b，交接 `HANDOFF-TO-NEXT-SESSION.md`）
