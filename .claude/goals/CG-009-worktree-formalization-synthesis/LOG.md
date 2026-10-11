@@ -63,3 +63,4 @@
 - 2026-10-11T17:1x [checkpoint F] ★ 负面结果机器化：朴素 iVE/subst 等式律恒假（subst ?[^&0] 命中 eqAtom 自身 bvar0）。这印证 9276 的判断——hAB 必须是蕴含式（Σ1 范围）。三轮反例全部机器化。 → 下一步：hAB 需要 Σ1 完全性工具（Z0Full 或 Z0Shadow 里的路径）
 - 2026-10-11T17:2x [checkpoint F] 全链 38/38 从零重编译通过（ITShift/ITRShift/ITShiftFull/TShiftFull/TShiftBranches/HAllProof/HAllGuard/SetupQTools/ITSubstCounter）。hAB 三候选路径已从 9276 交接取得：①元层引理（局限：p 任意码）②对 p 结构归纳（难点：free 不是 UformulaRec1 构造）③改 iT 定义（需用户裁定）。 → 下一步：试路径②；若不成则如实报告并留给用户裁定路径③
 - 2026-10-11T17:4x [checkpoint F] hAB 三路径实测评估完成：①元层引理不存在需自证（且只对 p=⌜ψ⌝ 有效）；②free 非 UformulaRec1 构造挡路；③改 iT 定义属接口级须用户裁定。hAll_uncond 已把它隔离为唯一显式前提。 → 下一步：路径①的元层引理（translate/free 交换）或请用户裁定路径③
+- 2026-10-11T18:0x [checkpoint F] 路径①最终定位：free_quote 是类型化的 (⌜Rewriting.free φ⌝ : Formula V L) = Semiformula.free ⌜φ⌝；归约到元层 translate(free ψ) = free(translate ψ)。全 Foundation grep 确认无 translate/subst 或 translate/free 引理——需自证重写系统交换律（工作量≥iVE_shift）。且只覆盖标准 p。 → 下一步：此缺口须用户裁定路径③（改 iT 定义）或接受 hAB 为假设
