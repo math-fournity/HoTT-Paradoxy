@@ -8,14 +8,16 @@
 |---|---|---|
 | **开发工作根（写这里）** | `/Volumes/D/HoTT-worktrees/cg007-w8-d3` | 分支 `codex/cg007-w8-d3`。本文件所在目录即它。 |
 | 集成目标（保持干净） | `/Volumes/D/HoTT_AI_HANDOFF_20260911` | 分支 `dev`。候选通过验收并经研究发起人授权后才按精确路径回写。 |
-| 禁止写入 | `/Users/aurolafly/WorkBuddy/Worktrees/.../dev-f65ca154` 等 | 停在 `workbuddy/* @ 87b65dfd` 的旧快照，缺全部 W8 文件，只读。 |
+| 禁止写入 | `/Users/aurolafly/WorkBuddy/Worktrees/.../dev-f65ca154` 等 | 停在 `workbuddy/* @ 87b65dfd` 的旧快照（实测是 `dev` 的祖先、落后 47 个提交），缺 `SeqTranslateFormula`/`NegInvolution`/`ShCraigElimNegLaw` 三个 W8 文件，只读。 |
 
 - 开工前先 `git rev-parse --show-toplevel` 与 `git rev-parse --abbrev-ref HEAD` 核对；若不是本 worktree / 不是
   `codex/cg007-w8-d3`，先停下来校准再动手。
 - **本轮接管实测交接**：`.claude/goals/CG-007-formalization-completion/HANDOFF-2026-10-11-CODEX-W8-D3.md`
   （全 PATH、两份 `iT_neg` 的真实编译报错、阶段 A 精确修法、F-011 收据五件事、环境陷阱、可复制提示词）。
-- **注意**：`形式化追踪/08-Codex接管-交接与下一步.md` 与 `形式化追踪/09-*` 把 `/Volumes/D/HoTT_AI_HANDOFF_20260911`
-  写成"canonical 工作根"，那是本裁定之前的说法；其方向判断仍可参考，**进度数字已被实编译推翻**，工作根按本节为准。
+- **注意**：`形式化追踪/08-Codex接管-交接与下一步.md` 把 `/Volumes/D/HoTT_AI_HANDOFF_20260911`
+  写成"canonical 工作根"，那是本裁定之前的说法（已就地加失效注记）；其方向判断仍可参考，**进度数字已被实编译推翻**，
+  工作根按本节为准。`形式化追踪/09-*` 只存在于 `dev` 分支，**本 worktree 里没有这个文件**，不要按路径去找。
+- **本 worktree 内 `AGENTS.md` 不自动载入**（本目录有 `CLAUDE.md`，默认模式下它取代 `AGENTS.md`）；需要其规定时用 Read 显式读。
 - 编译缓存：`.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（`.gitignore` 排除、可重算）。
 
 ## 一、工作方式：实用主义（研究发起人 2026-10-08）
@@ -135,3 +137,7 @@
 - 2026-10-08（会话 d58e0c0d）：按研究发起人要求建立 `形式化追踪/`，并新增第三节（形式化与机器证明追踪的工作意识与维护规则）。
 - 2026-10-11（Codex 接手会话）：按研究发起人裁定新增第〇节，把工作根从 `dev` 主检出改为专用 worktree
   `/Volumes/D/HoTT-worktrees/cg007-w8-d3`（分支 `codex/cg007-w8-d3`）；`dev` 只作集成目标并保持干净。
+- 2026-10-11（Claude Code 会话 ff795e5e）：按研究发起人当日重申（"希望你在一个独立的 git worktree 中工作，
+  而不是回去写主仓库的各个分支"），消歧工作根路由：`AGENTS.md` 第 44 行原写"唯一工作根是 `dev` 主检出"，
+  与第 220 行的专用 worktree 裁定互斥，已改正；并更正 `AGENTS.md` 第 45/46 行、`形式化追踪/08-*` §1、
+  交接文档的过期数字与错误复现命令。本节第〇节未变。

@@ -16,7 +16,7 @@
 
 - 分支：`codex/cg007-w8-d3`，从 `dev @ fb073d5c` 建立（用户 2026-10-11 裁定：CG-007 在独立
   worktree 推进，不干扰 `dev` 主检出上的既有内容）。
-- 当前 HEAD：`35a8ee0c`（"move the work root into a dedicated worktree"），工作区干净。
+- 当前 HEAD：`b11e840b`（工作根路由 + 本交接定稿；动手前先 `git log --oneline -1` 复核），工作区干净。
 - `git rev-parse --show-toplevel` 应返回上面这个路径；不是就先停下来核对。
 - 编译缓存：`.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（`.gitignore` 排除、可重算，
   已随仓库复制过来，省掉约 60 秒冷启动）。
@@ -27,7 +27,7 @@
 /Volumes/D/HoTT_AI_HANDOFF_20260911
 ```
 
-- 分支 `dev`；`git rev-parse HEAD` → `5983e2fb`；`origin/dev` → `87b65dfd`；领先 44 个提交、**未 push**。
+- 分支 `dev`；`git rev-parse HEAD` → `2e06293b`（2026-10-11 09:54；动手前复核）；`origin/dev` → `87b65dfd`；领先 47 个提交、**未 push**。
 - 当前只有用户自己的 untracked：`外部资料/Z0-D3-*.zip` 与 `外部资料/zfcTr-D3-plan-revision.md`。
 - 候选通过验收后、并经用户授权，才按精确路径把实物提取回这里；不在 `dev` 上直接做日常证明开发。
 
@@ -38,7 +38,8 @@
 ```
 
 - 它是 `dev` 的 git linked worktree（`.git` 是文件，指向 `/Volumes/D/.../.git/worktrees/dev-f65ca154`），
-  停在分支 `workbuddy/dev-f65ca154`、HEAD `87b65dfd`，缺 `SeqTranslateFormula.lean` 等全部 W8 文件，
+  停在分支 `workbuddy/dev-f65ca154`、HEAD `87b65dfd`（实测是 `dev` 的祖先，落后 47 个提交），
+  缺 `SeqTranslateFormula.lean`、`NegInvolution.lean`、`ShCraigElimNegLaw.lean` 三个 W8 文件（`InternalTranslate.lean` 仍在），
   也没有 `devbuild_ns` 入口。**只读**。
 - 另外不要碰：`外部资料/`、`Z0-D3-攻关包-最小完整版/`（用户目录）、`sources/`、`private-audit/`、
   以及其它会话在 `形式化追踪/` 下的未提交改动。不 push / 不 tag / 不 publish。
@@ -73,7 +74,7 @@
 | 版本 | 位置 / SHA-256（前 16） | 实编译结果 |
 |---|---|---|
 | 我保存的开发版 | worktree `GodelQ/ZFC/ShCraigElimNegLaw.lean`，`c67f14288359221c` | exit 1 |
-| `dev` HEAD 版 | `git show HEAD:...`，`41935eb32aebdc87` | exit 1 |
+| `dev` 分支版 | `git show dev:...`（**本 worktree 里 `HEAD:` 拿到的是 worktree 版，必须写 `dev:`**），`41935eb32aebdc87` | exit 1 |
 
 **worktree 开发版（`c67f1428`）的报错**
 
@@ -304,7 +305,7 @@ python3 -B $T/devbuild_ns.py $PKG GodelQ/ZFC/NegInvolution.lean GodelQ/ZFC/ShCra
 ```text
 你是接手 CG-007 目标包 W8（Z0 D3）的新会话，目标是把 zfcTr_D3_internalize 这条唯一缺口证明落地并出正式收据。
 
-工作根（写这里）：/Volumes/D/HoTT-worktrees/cg007-w8-d3，分支 codex/cg007-w8-d3，当前 HEAD 35a8ee0c。
+工作根（写这里）：/Volumes/D/HoTT-worktrees/cg007-w8-d3，分支 codex/cg007-w8-d3，当前 HEAD b11e840b（动手前先 git log --oneline -1 复核）。
 动手前先跑 git -C /Volumes/D/HoTT-worktrees/cg007-w8-d3 rev-parse --show-toplevel 与 --abbrev-ref HEAD 核对；
 不是这个 worktree 就先停下来校准。
 dev 主检出 /Volumes/D/HoTT_AI_HANDOFF_20260911 是集成目标，必须保持干净，日常开发不要在上面留 dirty 文件；

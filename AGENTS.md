@@ -41,9 +41,9 @@
 
 CG-007（Z0 / D3 / `zfcTr_D3_internalize` 形式化攻关）有一批**链接 worktree**与**过期交接文档**，曾多次把接手会话带偏。下列事实以 `git` 与 Lean 编译为准，不以来源文档的文字为准：
 
-- **唯一工作根是 `/Volumes/D/HoTT_AI_HANDOFF_20260911`**（分支 `dev`）。开工先 `git rev-parse --show-toplevel && git branch --show-current`，确认它等于本目录且是 `dev`。
-- **所有 `/Users/aurolafly/WorkBuddy/Worktrees/...` 与 `/Users/aurolafly/.codex/worktrees/...` 下的 checkout 都是独立 worktree**：它们各自有独立分支（如 `workbuddy/dev-f65ca154`）或停在不同 HEAD（多为 `87b65dfd`），**不是** dev，也不会"落后 N 个提交"——是另一条分支。绝不向它们写任何 CG-007 源码或文档。
-- **构建缓存的真实位置**是仓库内的 `.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（存 `.olean`/`.ilean`/`_state.json`），由 `devbuild_ns.py` 生成、可重算、不进收据。它**未被** `.gitignore` 覆盖，属于未跟踪产物；AGENTS 正文提到的 `.cg007-build/` 是旧路径，已不再使用。`/tmp/d3build/` 是遗留开发副本，只作参考，不回写。
+- **工作根是专用 worktree `/Volumes/D/HoTT-worktrees/cg007-w8-d3`**（分支 `codex/cg007-w8-d3`），不是 `dev` 主检出。开工先 `git rev-parse --show-toplevel && git branch --show-current`，确认落在该 worktree 再动手。`/Volumes/D/HoTT_AI_HANDOFF_20260911`（分支 `dev`）是集成目标：保持干净，日常不在其上开发，回写须经用户授权。（本行原文写"唯一工作根是 dev 主检出"，是用户 2026-10-11 裁定之前的说法，已被本节末「CG-007 W8（Z0 D3）工作根纪律」取代。）
+- **所有 `/Users/aurolafly/WorkBuddy/Worktrees/...` 与 `/Users/aurolafly/.codex/worktrees/...` 下的 checkout 都是独立 worktree**：它们各自有独立分支（如 `workbuddy/dev-f65ca154`）或停在不同 HEAD（多为 `87b65dfd`）。其中 `87b65dfd` 经实测**是 `dev` 的祖先**（落后 47 个提交），属旧快照；也有停在无关分支上的。一律**绝不写入**任何 CG-007 源码或文档。
+- **构建缓存的真实位置**是仓库内的 `.claude/goals/CG-007-formalization-completion/tools/devbuild_ns/`（存 `.olean`/`.ilean`/`_state.json`），由 `devbuild_ns.py` 生成、可重算、不进收据。它**已被** `.gitignore` 第 33 行排除，不随提交进入仓库；AGENTS 正文提到的 `.cg007-build/` 是旧路径，已不再使用。`/tmp/d3build/` 是遗留开发副本，只作参考，不回写。
 - **交接文档声称"已证 / 已完成"不等于代码已编译**：例如 STATE.json / HANDOFF 曾声称 `ShCraigElimNegLaw.iT_neg`、`NegInvolution.neg_neg_code` 已证，但实测二者均**未编译通过**（前者 `IsUFormula.qqAlls` 等命名不存在、后者卡在 `rel` 支且带 `sorryAx` 噪声）。任何"已证"主张必须先核对：对应 `.lean` 能被 `devbuild_ns.py` 编译（exit 0、无 `sorry`），且最好有 `HoTT/verification/runs/<id>/` 正式收据。未核实前按 `UNVERIFIED_CLAIM` 处理，不得当作前置条件推进。
 - **CG-007 真实进度基准（2026-10-11 实测）**：`SeqTranslateFormula.isSemiformula_iT`（公式保持性主定理，9 支全过）已由 receipt `20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01` 机器证（CG001-C-391，exit 0）；`Z0Blocked.zfcTr_D3_internalize` 仍是带 `sorry` 的显式缺口。真正的下一块硬骨头是 `iT`/`neg` 相容律 `iT_neg`（`ShCraigElimNegLaw.lean`，未编译）及其上游 `neg` 码层面对合律 `NegInvolution.neg_neg_code`（未编译）。
 

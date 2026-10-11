@@ -7,6 +7,10 @@
 ## 1. 当前 git 位置（最重要）
 
 - **主检出（canonical 工作根）**：`/Volumes/D/HoTT_AI_HANDOFF_20260911`
+  > ⚠️ **2026-10-11 起本条已失效**：研究发起人裁定 CG-007（Z0 D3）的开发在专用 worktree
+  > `/Volumes/D/HoTT-worktrees/cg007-w8-d3`（分支 `codex/cg007-w8-d3`）进行；上列主检出只作集成目标并保持干净。
+  > 本节其余内容与全文进度数字均为裁定之前的说法，只可当方向参考。工作根以根 `CLAUDE.md` 第〇节与
+  > `AGENTS.md` 的「CG-007 W8 工作根纪律」小节为准。
 - **分支**：`dev`
 - **HEAD**：`f9a734a6`（`docs(CG-007 W8): pin down the layer-bookkeeping obstacle for the nrel branch`）
 - **每次动手前先 `git log --oneline -1`**：研究发起人会不定时提交增量，HEAD 会变。
