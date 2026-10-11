@@ -1,0 +1,51 @@
+# CG-009 检查点日志
+
+> 只由 goalx.py 追加；每行是一次检查点、绑定或状态变化。
+
+- 2026-10-11T06:26:35-04:00 [new] 创建目标包
+- 2026-10-11T06:28:43-04:00 [bind] session 82aeefc9-8417-4d7e-b02d-4641aedc4ac3
+- 2026-10-11T06:28:43-04:00 [checkpoint A] 先前审计已落盘；建立全worktree初筛快照与CG009单体闭包；只读无代理、不改其他工位。 → 下一步：深读活跃工位及其他新增形式化资产，核实类型、前提、运行与可吸收性
+- 2026-10-11T07:12:41-04:00 [checkpoint B] 38工位初筛完成；bd4295b5条件桥/Z0CraigBridge两编译超时、负控制exit1符合预期；ef7e5239锚点+条件收尾exit0；Cubical线未登记已列可集成登记；f65ca154无形式增量；9276快照已归位。 → 下一步：收尾：等 Z0CraigBridge 最终编译结果，更新研判 §4.1，写结论交付用户，按完成门核对后 close
+- 2026-10-11T07:15:28-04:00 [checkpoint C] 各分支调查总结.md 与 后续工作方案.md 已写完（38工位分档+6项P0-P3工作项）；可集成登记给integrator已备；只剩bridge最终编译结果。 → 下一步：等 Z0CraigBridge 最终编译（后台580s）→ 更新研判 §4.1 → 交付报告 → 完成门核对 → close
+- 2026-10-11T07:24:24-04:00 [checkpoint D] Cubical链10/10 exit0本机重放完成；BridgeLightProbe（hbl3_of_reverse_on_image隔离）exit0公理干净；三份主文档+可集成登记+探针备份+初筛JSON全部落盘。 → 下一步：完成门已全过；close COMPLETE 并交付用户
+- 2026-10-11T07:24:33-04:00 [status COMPLETE] 完成门5/5：审计归档、38工位初筛、活跃工位深读与独立核验、可吸收资产清单、综合研判+分支总结+工作方案+可集成登记全部交付。
+- 2026-10-11T08:25:36-04:00 [checkpoint E] 自研成果Z0LocalGate四条定理全部exit0（含闭环：最终Z0⇐单句消去）；P1-1三档条件桥全过核；NegInvolution已被他会话修好(exit0)；ShCraigElimNegLaw他会话迭代中(sorry已清，剩心跳)。 → 下一步：继续自己的方向：攻单句消去实例（elim@G）；同时按30分钟节奏扫描worktree增量
+- 2026-10-11T08:25:36-04:00 [status COMPLETE] 用户新目标（持续推进+持续扫描）接续；CG-009原五门已完成并交付，成果与扫描日志留存本worktree。
+- 2026-10-11T08:40:45-04:00 [checkpoint E] Z0LocalGate 扩至6条定理全exit0：新增 bwd_at_godel_of_elim_at_godel 与 zfc_z0_full_of_bwd_at_godel（最尖最小门：只欠bwd@G单句单方向实例）。Z0Probe6(ef7e5239)实测exit1，载体剥离非法再添机器证据。 → 下一步：继续自己的方向：bwd@G 的进一步收尖或探 G 的具体推导结构；按30分钟节奏扫描
+- 2026-10-11T08:44:58-04:00 [checkpoint E] 第5轮扫描：canonical NegLaw 08:42进入编辑中态(exit1,sorryAx回归,重构中)；ef7e5239三个探针均已核验归档；其余无变化。 → 下一步：等 ShCraigElimNegLaw 下一稳定版核验；继续自己方向：把 Z0LocalGate 的 keyE@image 单句实例作为下一战场分析
+- 2026-10-11T08:48:32-04:00 [checkpoint E] Z0LocalGate扩至12条定理全exit0：新增fwd_at_G、craig_D3_at_image（免费事实）、gate_of_elim_at_godel。整个剩余缺口=gateG单句蕴含。 → 下一步：继续：把缺口钉成单句蕴含gateG后的下一步分析（gateG的证明需要什么）；定时扫描
+- 2026-10-11T08:53:16-04:00 [checkpoint E] 第6轮：Z0LocalGate 12定理全过核（门格完成）；探针证实keyE@image正向不免费（精度修正，删错误定理）；剩余缺口=单句gateG。 → 下一步：扫下一轮增量（ShCraigElimNegLaw稳定版核验）；自己的方向：分析gateG证明结构（给定见证d的跨理论翻译所需引理清单）
+- 2026-10-11T09:00:19-04:00 [checkpoint E] Z0LocalGate终版14定理全过核：新增zfc_z0_full_of_gate_bot（⊥门）、elim_at_godel_of_gate（gateG⟺elim@G等价闭环）。整个剩余缺口=单句elim@G=单句gateG。 → 下一步：继续扫描轮次；自己的方向：把Z0LocalGate的14条定理整理进可集成登记（供integrator吸收）
+- 2026-10-11T09:24:28-04:00 [checkpoint E] 第9轮重大事实：canonical两活跃文件的修复迭代从未提交，工作树回退到1453e9ef失败版本（ShCraigElimNegLaw sha=41935eb3即最初审计版）；所有中间态进展描述降格。Z0LocalGate成果已复制保存不受影响。 → 下一步：继续扫描；自己的方向：Z0LocalGate可集成登记已备，等待下一轮增量
+- 2026-10-11T09:30:00-04:00 [checkpoint E] 第10轮：gateG_standard正对照过核（门在ℕ成立，困难全在非标准模型）；Z0LocalGate定稿sha=24ea1cb1,14定理全干净。canonical两文件确认为1453e9ef失败版本。 → 下一步：继续定时扫描；自己的方向：Z0LocalGate定稿(14定理)，下一步把可集成登记更新为最终sha并交付
+- 2026-10-11T09:36:25-04:00 [checkpoint E] 第11轮：修正Z0LocalGate README的过强表述（收缩的是陈述/接口，不是消去归纳工作量——诚实降格）；扫描无新变化。 → 下一步：自己的方向：为gateG写证明义务清单（给下一会话的精确施工图）；继续定时扫描
+- 2026-10-11T09:37:21-04:00 [checkpoint E] gateG证明义务清单落盘（O1护罩设计缺口、O2十规则、O3证书桥核心、O4翻译、O5组装；含病灶定位与第一批动作）。 → 下一步：继续定时扫描；自己的方向：验证义务清单O3候选2的小实验（G句上Craig公理结构）
+- 2026-10-11T09:42:57-04:00 [checkpoint E] 新成果GateBranches：hAnd+hOr两支过核(公理干净)，不依赖失败的ShCraigElimNegLaw。O2首批完成。 → 下一步：继续义务清单O2：试wkRule/verumIntro重写（不依赖NegLaw版）；定时扫描
+- 2026-10-11T09:44:42-04:00 [checkpoint E] GateBranches四支过核(hAnd/hOr/hWk/hVerumIntro)，独立于失败文件。O2进度4/10。 → 下一步：继续O2：写axL/cutRule的条件版本（以一般iT_neg为前提）；定时扫描
+- 2026-10-11T09:50:47-04:00 [checkpoint E] GateBranches扩至6支全过核：新增hAxL/hCut（条件于一般iT_neg）。O2进度6/10。 → 下一步：继续O2剩余三支（shiftRule/allIntro/exsIntro）或扫描；定时轮次
+- 2026-10-11T09:55:57-04:00 [checkpoint E] GateBranches扩至7支全过核：新增hShift（条件于translateSeq/setShift交换律）。O2进度7/10。 → 下一步：继续O2最后两支（allIntro/exsIntro条件版）；定时扫描
+- 2026-10-11T09:59:50-04:00 [checkpoint E] GateBranches扩至9支全过核：新增hAll/hExs条件版（以全称/存在规则翻译保持为显式前提）。O2进度9/10，只剩axm(O3)。 → 下一步：写axm支条件版（O3证书桥接口）；然后组装条件全链定理；定时扫描
+- 2026-10-11T10:03:51-04:00 [checkpoint E] GateBranches十支全部过核！O2的10条规则全覆盖（4无条件+6条件版）。下一步：用Derivation.induction1组装条件版消去定理。 → 下一步：写条件组装定理（induction1十支全接）；定时扫描
+- 2026-10-11T10:08:19-04:00 [checkpoint E] 里程碑：条件版ShCraigElim组装定理shCraigElim_of_obligations过核（公理干净）——五条显式义务+十规则归纳全接。 → 下一步：更新GateBranches README（含组装定理）；把GateBranches接到gateG/Z0（条件全链）；定时扫描
+- 2026-10-11T10:09:12-04:00 [checkpoint E] 条件收口elim_at_godel_of_obligations过核：五条义务⇒单句消去。GateBranches含11定理+2谓词全干净。 → 下一步：更新README与可集成登记；定时扫描；下一步审五条义务哪条最可攻
+- 2026-10-11T10:09:44-04:00 [checkpoint E] 里程碑完成：GateBranches 12声明全过核（十支+两条组装），五条义务精确化，条件全链到Z0闭合。 → 下一步：尝试攻tshift（第2优先级）；定时扫描
+- 2026-10-11T10:11:05-04:00 [checkpoint E] tshift_of_ishift过核：义务tshift归约到元素级iT/shift相容律。归约链又短一层。 → 下一步：攻ishift元素律（iT与shift在元素级相容）；定时扫描
+- 2026-10-11T10:13:54-04:00 [checkpoint E] tshift⇐ishift归约过核并写入义务清单（14声明全干净）。ishift结构分析完成（很可能为真，需双结构互归纳）。 → 下一步：继续定时扫描；下一步评估ishift双结构互归纳的可行性（写探针）
+- 2026-10-11T10:15:55-04:00 [checkpoint E] ishift原子义务精确形状落盘；本会话自研方向成果链完整（Z0LocalGate+GateBranches+两条归约），Z0剩余缺口=五条精确Lean义务。 → 下一步：交付总结；继续定时扫描轮次；若用户有新指示再转向
+- 2026-10-11T10:23:21-04:00 [checkpoint E] IShiftAtom三条原子律全过核（shift_eqAtom + iVE_termShift bvar/fvar）——tshift义务证明链打通原子层。 → 下一步：攻iVE的func情形（ve0/ve2与termShift的相容）；定时扫描
+- 2026-10-11T10:30:07-04:00 [checkpoint E] func情形障碍精确定位（V层引号whnf超时，工程问题，两条出路）；三份自研成果汇总（Z0LocalGate/GateBranches/IShiftAtom全过核）。 → 下一步：扫描轮次；若用户指示继续攻func或转向其他方向
+- 2026-10-11T10:41:35-04:00 [checkpoint E] 发现第39工位cg007-w8-d3：两条更正与我的核验一致；NegInvolution过核版在其处（canonical没有）可吸收；iT_neg病灶一致。 → 下一步：继续扫描新工位（cg007-w8-d3）的后续提交；若其出iT_neg修复则核验吸收
+- 2026-10-11T10:57:30-04:00 [checkpoint E] func情形四轮尝试遇elaboration障碍，出路两条已记录（Rew层组合引理或单列shift_cFunc子义务）。 → 下一步：扫描轮次；func子义务已单列；等待用户或新工位的下一步进展
+- 2026-10-11T11:00:35-04:00 [checkpoint E] shift_comp_emb过核(Rew层)；comp_app混合fvar域实例不存在(库结构障碍)已记录；给下一会话最短路线。 → 下一步：扫描轮次；func路线已精确化到typed_quote_shift+结构归纳
+- 2026-10-11T11:02:13-04:00 [checkpoint E] func情形判定为工程长尾，接力点明确化（4项净贡献）；自研成果全部固化（Z0LocalGate/GateBranches/IShiftAtom/IShiftEmb）。 → 下一步：回归扫描节奏；等待新工位/canonical的iT_neg或func进展再核验吸收
+- 2026-10-11T11:06:32-04:00 [checkpoint E] 重大：扫描发现9276层数记账判定是误判，NrelFixProbe机器证伪（bv_le直接给不等式）——iT_neg的nrel支有明确出路。 → 下一步：把这个证伪同步给新工位（若可）或至少留在追踪；继续扫描
+- 2026-10-11T11:09:06-04:00 [checkpoint E] NrelFix三条定理全过核：9276层数记账障碍被机器证伪（bv_le直接给不等式）；iT_neg的nrel支有明确出路。 → 下一步：继续扫描；把这个证伪经用户转达给攻iT_neg的会话
+- 2026-10-11T11:13:41-04:00 [checkpoint E] iT_neg修复实验边界记录：该文件须在新工位依赖上下文修；本会话贡献=两条精确处方+NrelFix证伪。 → 下一步：回归扫描；NrelFix处方留档；等新工位进展
+- 2026-10-11T11:15:24-04:00 [checkpoint E] 扫描两个新GUI导出（确认axm缺口与路线图）与附属目录；无新可吸收形式资产。 → 下一步：继续扫描节奏
+- 2026-10-11T11:16:18-04:00 [checkpoint E] 接力文件落盘（NrelFix证伪+两条修复处方）；两主根安静。 → 下一步：继续30分钟扫描节奏；接力文件已备
+- 2026-10-11T11:17:29-04:00 [checkpoint E] 独立实测新工位对话录探针exit1：缺param=n护罩（谓词需改形状）——直接省新工位一轮试错。 → 下一步：把护罩发现并入接力文件；继续扫描
+- 2026-10-11T11:27:29-04:00 [checkpoint E] 完整iT_neg组装实验：前七支可行，exs支卡点精确化（imp/neg_and双向改写+显式IsUFormula证据）；判定为工程长尾交新工位。 → 下一步：回归扫描节奏
+- 2026-10-11T11:29:32-04:00 [checkpoint E] 第40工位9276-cg007-w8-d3确认：两文件均已知失败版；接力文件价值确认。工位总数40。 → 下一步：继续扫描；两个新工位都在失败基线上，接力文件是主要贡献
+- 2026-10-11T11:30:32-04:00 [checkpoint E] 第29轮：三根安静，无新资产；接力文件就位。 → 下一步：保持30分钟扫描节奏
+- 2026-10-11T11:37:42-04:00 [checkpoint E] ★iT_neg已被新工位证出（sha5f504b8d，exit0公理干净，未提交已备份）；印证本会话护罩处方。 → 下一步：核验该iT_neg的完整依赖集编译（新工位上下文）；继续扫描；把此进展同步到接力文件
+- 2026-10-11T11:38:40-04:00 [checkpoint E] ★吸收实证：GateBranchesU hAxL/hCut升级无条件（用新工位已证iT_neg）exit0公理干净。O2无条件6支。 → 下一步：继续扫描；若新工位证出tshift/hall/hexs则同样吸收

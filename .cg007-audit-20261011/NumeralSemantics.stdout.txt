@@ -1,0 +1,8 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/NumeralSemantics.lean:26:0: warning: automatically included section variable(s) unused in theorem `GodelQ.ZFCNum.eval_numeralF_succ`:
+  [Nonempty V]
+  [V↓[ℒₛₑₜ] ⊧* 𝗭]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty V] [V↓[ℒₛₑₜ] ⊧* 𝗭] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'GodelQ.ZFCNum.eval_numeralF_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

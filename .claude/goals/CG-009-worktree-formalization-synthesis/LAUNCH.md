@@ -1,0 +1,1 @@
+执行CG-009：先记录Z0-D3审计，再只读检查用户点名的三个活跃worktree和全部登记worktree的新增方向、资产，独立核查值得吸收的源码与证据，写综合的形式化与机器证明当前未来工作形势研判。以GOAL.md完成门判断，只写本会话worktree；不改其他AI文件、不启动代理、不提交推送。开工/恢复/压缩后按GOAL闭包Read重读，git log检查更新，每自然单元checkpoint。完成条件：对话显示五门证据与实际状态，交付最终报告，goalx close CG-009 COMPLETE。

@@ -1,0 +1,174 @@
+PIN_CHECK: toolchain and 1893 compiled dependency module digests match
+REUSE_THIS_AUDIT_COMPILE GodelQ/ProcessObservation.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/EffectiveTheory.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/GodelZenoRunner.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/FoundationArith.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/SetLanguage.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/SchemaDelta1.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ReplacementDelta1.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ZFCDelta1.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/NumeralCode.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/NeverRE.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/OmegaArith.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/NumeralSemantics.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ArithInterp.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/R0Model.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Effective.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Soundness.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/OmegaLaws.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/PAModel.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Z0Shadow.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Z0PA.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ShRE.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/InternalTranslate.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/TranslateRE.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Z0Full.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Z0Bridge.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Z0Layer1.lean EXIT 0
+COMPILE GodelQ/ZFC/WrongZ0Layer1Overclaim.lean EXIT 1
+GodelQ/ZFC/WrongZ0Layer1Overclaim.lean:14:2: error: Type mismatch
+  GodelQ.Z0Layer1.map_all ⊤.all
+has type
+  arithTrln.translate ⊤.all.all = ∀_[arithTrln] arithTrln.translate ⊤.all
+but is expected to have type
+  𝗜𝚺₁ ⊢ ↑zfcTr σ 🡒 ↑zfcTr (↑zfcTr σ)
+ 
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/Z0UniBridge.lean EXIT 0
+COMPILE GodelQ/ZFC/WrongZ0UniBridge.lean EXIT 1
+GodelQ/ZFC/WrongZ0UniBridge.lean:30:2: error: Type mismatch
+  h
+has type
+  V↓[ℒₒᵣ] ⊧ ↑zfcTr σ
+but is expected to have type
+  Provable 𝗭𝗙𝗖 ⌜arithTrln.translate σ⌝
+ 
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/SeqTranslate.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/SeqTranslateFormula.lean EXIT 0
+COMPILE GodelQ/ZFC/WrongIVELayer.lean EXIT 1
+GodelQ/ZFC/WrongIVELayer.lean:22:46: error: unsolved goals
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+⊢ eqAtom ^#(0 + 1) = eqAtom ^#0
+ 
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ShCraigElimPredicate.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ShCraigElimBranches.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ShCraigElimNeg.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/ShCraigElimNegFilled.lean EXIT 0
+REUSE_THIS_AUDIT_COMPILE GodelQ/ZFC/NegInvolutionBranches.lean EXIT 0
+COMPILE GodelQ/ZFC/ShCraigElimNegLaw.lean EXIT 1
+GodelQ/ZFC/ShCraigElimNegLaw.lean:37:8: error(lean.unknownIdentifier): Unknown constant `FFL.FirstOrder.Arithmetic.Bootstrapping.IsUFormula.qqAlls`
+GodelQ/ZFC/ShCraigElimNegLaw.lean:38:2: error: No goals to be solved
+GodelQ/ZFC/ShCraigElimNegLaw.lean:81:18: error: Application type mismatch: The argument
+  hv
+has type
+  IsSemitermVec ℒₒᵣ k n v
+but is expected to have type
+  IsUTermVec ℒₒᵣ k ?m.166
+in the application
+  iT_rel hR hv
+GodelQ/ZFC/ShCraigElimNegLaw.lean:84:19: error: Application type mismatch: The argument
+  hv
+has type
+  IsSemitermVec ℒₒᵣ k n v
+but is expected to have type
+  IsUTermVec ℒₒᵣ k ?m.210
+in the application
+  iT_nrel hR hv
+GodelQ/ZFC/ShCraigElimNegLaw.lean:88:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?n ^⊤
+in the target expression
+  iT param (neg ℒₒᵣ ^⊤) = neg ℒₛₑₜ (iT.construction.verum param)
+
+case refine_4
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param : V
+⊢ iT param (neg ℒₒᵣ ^⊤) = neg ℒₛₑₜ (iT.construction.verum param)
+GodelQ/ZFC/ShCraigElimNegLaw.lean:91:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?n ^⊥
+in the target expression
+  iT param (neg ℒₒᵣ ^⊥) = neg ℒₛₑₜ (iT.construction.falsum param)
+
+case refine_5
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param : V
+⊢ iT param (neg ℒₒᵣ ^⊥) = neg ℒₛₑₜ (iT.construction.falsum param)
+GodelQ/ZFC/ShCraigElimNegLaw.lean:93:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?m.292 (p ^⋏ q)
+in the target expression
+  iT param (neg ℒₒᵣ (p ^⋏ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.and param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+
+case refine_6
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param p q : V
+hp : IsSemiformula ℒₒᵣ n p
+hq : IsSemiformula ℒₒᵣ n q
+ihp : iT param (neg ℒₒᵣ p) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+ihq : iT param (neg ℒₒᵣ q) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q)
+⊢ iT param (neg ℒₒᵣ (p ^⋏ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.and param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+GodelQ/ZFC/ShCraigElimNegLaw.lean:97:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?m.330 (p ^⋎ q)
+in the target expression
+  iT param (neg ℒₒᵣ (p ^⋎ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.or param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+
+case refine_7
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param p q : V
+hp : IsSemiformula ℒₒᵣ n p
+hq : IsSemiformula ℒₒᵣ n q
+ihp : iT param (neg ℒₒᵣ p) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+ihq : iT param (neg ℒₒᵣ q) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q)
+⊢ iT param (neg ℒₒᵣ (p ^⋎ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.or param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+GodelQ/ZFC/ShCraigElimNegLaw.lean:101:81: error: Failed to rewrite using equation theorems for `imp`
+GodelQ/ZFC/ShCraigElimNegLaw.lean:111:28: error: Function expected at
+  IsUFormula.imp
+but this term has type
+  IsUFormula ?m.492 (imp ?m.492 ?m.495 ?m.496) ↔ IsUFormula ?m.492 ?m.495 ∧ IsUFormula ?m.492 ?m.496
+
+Note: Expected a function because this term is being applied to the argument
+  (isSemiformula_domZero (n := n + 1)).isUFormula
+'GodelQ.ShCraigElimNegLaw.iT_neg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+ 
+COMPILE GodelQ/ZFC/Z0D3Skeleton.lean EXIT 0
+COMPILE GodelQ/ZFC/Z0Blocked.lean EXIT 1
+GodelQ/ZFC/Z0Blocked.lean:34:40: error(lean.unknownIdentifier): Unknown identifier `zfcTr`
+
+Note: It is not possible to treat `zfcTr` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+ 
+REPLAY 20261009-CG001-GODEL-Q-ZFC-Z0-FULL-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261009-CG001-GODEL-Q-ZFC-Z0-BRIDGE-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-NEG-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-UNIBRIDGE-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-UNIBRIDGE-NEG-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-NEG-02 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-SHCRAIG-PREDICATE-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-SHCRAIG-BRANCHES-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-SHCRAIG-NEG-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-SHCRAIG-NEGFILLED-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+REPLAY 20261011-CG001-Z0-NEGINVOL-01 EXIT_MATCH True STDOUT_MATCH True STDERR_MATCH True
+EXTRA_PROBE GodelQ/ZFC/ShCraigElimNegLaw.lean exit 1 sorry_warning False
+EXTRA_PROBE GodelQ/ZFC/Z0D3Skeleton.lean exit 0 sorry_warning False
+EXTRA_PROBE GodelQ/ZFC/Z0Blocked.lean exit 1 sorry_warning False
+SCRATCH /Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011

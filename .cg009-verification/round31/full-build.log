@@ -1,0 +1,60 @@
+[ 1/48] OK  GodelQ.ProcessObservation  'GodelQ.tower_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 2/48] OK  GodelQ.EffectiveTheory  'GodelQ.soundness_needed' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 3/48] OK  GodelQ.GodelZenoRunner  'GodelQ.zfc1_dichotomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 4/48] OK  GodelQ.FoundationArith  'GodelQ.foundation_crosscheck' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 5/48] OK  GodelQ.ZFC.OmegaArith  'GodelQ.ZFCArith.mul_mem_ω' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 6/48] OK  GodelQ.ZFC.ArithInterp  'GodelQ.ZFCArith.arithTrln' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 7/48] OK  GodelQ.ZFC.SetLanguage  'GodelQ.SetLang.finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 8/48] OK  GodelQ.ZFC.SchemaDelta1  'GodelQ.ZFCDelta1.Separation.delta1' depends on axioms: [propext, Classical.choice, Quot.sound]
+[ 9/48] OK  GodelQ.ZFC.ReplacementDelta1  'GodelQ.ZFCDelta1.Replacement.delta1' depends on axioms: [propext, Classical.choice, Quot.sound]
+[10/48] OK  GodelQ.ZFC.ZFCDelta1  'GodelQ.ZFCDelta1.ZFC.delta1' depends on axioms: [propext, Classical.choice, Quot.sound]
+[11/48] OK  GodelQ.ZFC.NumeralCode  'GodelQ.ZFCNum.numCode.defined' depends on axioms: [propext, Classical.choice, Quot.sound]
+[12/48] OK  GodelQ.ZFC.NeverRE  'GodelQ.ZFCNum.never_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+[13/48] OK  GodelQ.ZFC.NumeralSemantics  'GodelQ.ZFCNum.eval_numeralF_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+[14/48] OK  GodelQ.ZFC.R0Model  'GodelQ.ZFCArith.arithInterp' depends on axioms: [propext, Classical.choice, Quot.sound]
+[15/48] OK  GodelQ.ZFC.Effective  'GodelQ.ZFCEff.devils_bargain_zfc' depends on axioms: [propext, Classical.choice, Quot.sound]
+[16/48] OK  GodelQ.ZFC.OmegaLaws  'GodelQ.ZFCArith.mul_mem_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+[17/48] OK  GodelQ.ZFC.Soundness  'GodelQ.ZFCSound.godel_I_process_form_zfc_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+[18/48] OK  GodelQ.ZFC.PAModel  'GodelQ.ZFCArith.paInterp' depends on axioms: [propext, Classical.choice, Quot.sound]
+[19/48] OK  GodelQ.ZFC.Z0Shadow  'GodelQ.ZFCZ0.sh_z0_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+[20/48] OK  GodelQ.ZFC.Z0PA  'GodelQ.ZFCZ0.sh_z0_of_RE' depends on axioms: [propext, Classical.choice, Quot.sound]
+[21/48] OK  GodelQ.ZFC.ShRE  'GodelQ.ZFCZ0.zfc_z0_of_translate_computable' depends on axioms: [propext, Classical.choice, Quot.sound]
+[22/48] OK  GodelQ.ZFC.InternalTranslate  
+[23/48] OK  GodelQ.ZFC.TranslateRE  'GodelQ.ZFCZ0.sh_z0' depends on axioms: [propext, Classical.choice, Quot.sound]
+[24/48] OK  GodelQ.ZFC.Z0Full  'GodelQ.Z0Full.zfc_z0_full_of_D3_internalize' depends on axioms: [propext, Classical.choice, Quot.sound]
+[25/48] OK  GodelQ.ZFC.EnvProbe  Note: This linter can be disabled with `set_option linter.defProp false`
+[26/48] OK  GodelQ.ZFC.SeqTranslate  
+[27/48] OK  GodelQ.ZFC.SeqTranslateFormula  Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+[28/48] OK  GodelQ.ZFC.NegInvolution  'GodelQ.NegInvolution.neg_neg_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+[29/48] OK  GodelQ.ZFC.NegInvolutionBranches  'GodelQ.NegInvolutionBranches.neg_invol_exs' depends on axioms: [propext, Classical.choice, Quot.sound]
+[30/48] FAIL(1) GodelQ.ZFC.NegInvolution-9276  'GodelQ.NegInvolution.neg_neg_code' depends on axioms: [sorryAx]
+
+=== summary ===
+compiled 47/48 OK
+
+--- GodelQ.ZFC.NegInvolution-9276 (1) ---
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:48:31: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:48:31: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:53:26: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:57:32: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:57:32: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:59:28: error(lean.unknownIdentifier): Unknown identifier `V`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:59:28: error(lean.unknownIdentifier): Unknown identifier `V`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:59:28: error(lean.unknownIdentifier): Unknown identifier `V`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:62:12: error(lean.unknownIdentifier): Unknown identifier `V`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/round31/src/GodelQ/ZFC/NegInvolution-9276.lean:64:10: error: Tactic `aesop` failed, failed to prove the goal after exhaustive search.
+Initial goal:
+  n : sorry
+  p : sorry
+  hp : sorry
+  param✝ : sorry

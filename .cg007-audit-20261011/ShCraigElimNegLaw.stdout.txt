@@ -1,0 +1,91 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:37:8: error(lean.unknownIdentifier): Unknown constant `FFL.FirstOrder.Arithmetic.Bootstrapping.IsUFormula.qqAlls`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:38:2: error: No goals to be solved
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:81:18: error: Application type mismatch: The argument
+  hv
+has type
+  IsSemitermVec ℒₒᵣ k n v
+but is expected to have type
+  IsUTermVec ℒₒᵣ k ?m.166
+in the application
+  iT_rel hR hv
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:84:19: error: Application type mismatch: The argument
+  hv
+has type
+  IsSemitermVec ℒₒᵣ k n v
+but is expected to have type
+  IsUTermVec ℒₒᵣ k ?m.210
+in the application
+  iT_nrel hR hv
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:88:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?n ^⊤
+in the target expression
+  iT param (neg ℒₒᵣ ^⊤) = neg ℒₛₑₜ (iT.construction.verum param)
+
+case refine_4
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param : V
+⊢ iT param (neg ℒₒᵣ ^⊤) = neg ℒₛₑₜ (iT.construction.verum param)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:91:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?n ^⊥
+in the target expression
+  iT param (neg ℒₒᵣ ^⊥) = neg ℒₛₑₜ (iT.construction.falsum param)
+
+case refine_5
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param : V
+⊢ iT param (neg ℒₒᵣ ^⊥) = neg ℒₛₑₜ (iT.construction.falsum param)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:93:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?m.292 (p ^⋏ q)
+in the target expression
+  iT param (neg ℒₒᵣ (p ^⋏ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.and param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+
+case refine_6
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param p q : V
+hp : IsSemiformula ℒₒᵣ n p
+hq : IsSemiformula ℒₒᵣ n q
+ihp : iT param (neg ℒₒᵣ p) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+ihq : iT param (neg ℒₒᵣ q) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q)
+⊢ iT param (neg ℒₒᵣ (p ^⋏ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.and param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:97:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iT ?m.330 (p ^⋎ q)
+in the target expression
+  iT param (neg ℒₒᵣ (p ^⋎ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.or param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+
+case refine_7
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+n✝¹ param✝ n✝ p✝ n param p q : V
+hp : IsSemiformula ℒₒᵣ n p
+hq : IsSemiformula ℒₒᵣ n q
+ihp : iT param (neg ℒₒᵣ p) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+ihq : iT param (neg ℒₒᵣ q) = neg ℒₛₑₜ (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q)
+⊢ iT param (neg ℒₒᵣ (p ^⋎ q)) =
+    neg ℒₛₑₜ
+      (iT.construction.or param p q (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:101:81: error: Failed to rewrite using equation theorems for `imp`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg007-audit-20261011/src/GodelQ/ZFC/ShCraigElimNegLaw.lean:111:28: error: Function expected at
+  IsUFormula.imp
+but this term has type
+  IsUFormula ?m.492 (imp ?m.492 ?m.495 ?m.496) ↔ IsUFormula ?m.492 ?m.495 ∧ IsUFormula ?m.492 ?m.496
+
+Note: Expected a function because this term is being applied to the argument
+  (isSemiformula_domZero (n := n + 1)).isUFormula
+'GodelQ.ShCraigElimNegLaw.iT_neg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

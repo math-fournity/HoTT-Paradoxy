@@ -2,3 +2,25 @@ _build/
 *.agdai
 *.olean
 __pycache__/
+
+# --- CG-009 研究工位本地物（2026-10-11）：不入库 ---
+# vendored 第三方（cubical v0.9，带自己的 LICENSE）与 Agda 缓存
+.cg009-cubical/cubical/
+.cg009-cubical/xdg-data/
+.cg009-cubical/tmp/
+# 编译产物（可再生产）
+.cg009-verification/build/
+.cg009-verification/round31/build/
+.cg009-verification/round31-9276/build/
+.cg007-audit-20261011/build/
+# 大型机器扫描缓存（可由脚本重生成）
+.cg009-verification/inventory-*.json
+docs/形式化综合研判-20261011/worktree-inventory.json
+# 私有编译树的源码副本（是 cg007 包 / 9276 的逐字副本，非本工位资产）
+.cg009-verification/round31/src/
+.cg009-verification/round31-9276/src/
+.cg009-verification/src/
+.cg007-audit-20261011/src/
+# 机器相关路径（绝对路径不可移植）
+.cg009-verification/round31/lean_path.txt
+.cg009-verification/lean_path.txt
