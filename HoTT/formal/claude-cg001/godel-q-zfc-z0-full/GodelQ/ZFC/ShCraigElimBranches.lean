@@ -323,6 +323,84 @@ bvar 与 fvar 的代入。
 `free1`（`subst L ?[^&0, ^#0] (shift L p)`）可能才是对的工具——
 它同时提供 fvar 与 bvar 的替换位。**这是下一步要核的第一件事。**
 
+## 2026-10-11 第四轮末：两个候选形状，需要一次决定性检验
+
+读 Foundation 的**类型化**规则（`Proof/Typed.lean:271` 的 `all`）后确认：
+`all` 的源 sequent 是 `insert φ.free Γ.shift`，其中 `φ.free` 是**公式层**的
+`Semiformula.free`（`φ.shift.subst ![fvar 0]`），不是项层的。这说明
+Foundation 自己的设计里，`free` 与 `iT` 的交互**本来就该在公式层解决**。
+
+两个候选的代入相容律：
+
+```
+(A)  iT 0 (subst ℒₒᵣ ?[^&0] σ) = subst ℒₛₑₜ ?[^&0] (iT 1 σ)        -- 层数 0→1
+(B)  iT m (subst ℒₒᵣ w p)      = subst ℒₛₑₜ w (iT m p)             -- 同层数 m
+```
+
+**(B) 更可疑也更可能是对的**：`iT` 只在 `all`/`exs` 支改层数，而 `subst` 不改层数，
+所以「`iT` 与 `subst` 交换」应当是**同层数**的命题；`hAll` 里 `iT 1 σ` 的层数 1
+来自 `all` 的绑定层，不是来自 `subst`。
+
+但 (B) 有一个**直接的反例风险**：`iT m p` 的 `all` 支是 `^∀ (imp domZero (iT (m+1) p'))`，
+`subst w` 作用在它上面时会同时改 `domZero` 里的 `#0`——若 `w.[0] ≠ ^#0`，
+两侧就不一致。所以 (B) 需要 `w` 满足某种「首分量是 `^#0`」的条件，
+而 `substs1 L ^&0` 的 `w = ?[^&0]` 恰恰**不满足**（首分量是 `^&0`）。
+
+**这就是 `hAll` 的真正障碍**：`free` 用的是 `substs1 ^&0`（把 fvar 塞进 bvar），
+而 `iT` 在每个绑定层插入 `domZero`，两者对「首分量」的要求冲突。
+
+**下一步的决定性检验已执行（探针 `probes/W8-domZero-subst-probe-20261011.lean`）**，
+结论：**检验未通过，但失败点是技术性的、不是数学性的**。
+
+两个检验都归约到同一个待证式：
+
+```
+subst ℒₛₑₜ ?[^&0] (neg ℒₛₑₜ domZero) = neg ℒₛₑₜ domZero
+```
+
+即「`domZero` 的否定在 `subst ?[^&0]` 下不变」。证明卡在
+`substs_substs` 的 `rw` 找不到模式——因为 `?[^#0]` 与 `?[^&0]` 是**同长度的
+单元素向量**，`substs_substs` 的两侧形状在 `rw` 时不能自动对上
+（`termSubstVec ℒₛₑₜ 1 ?[^&0] ?[^#0]` 需要先化简成 `?[^&0]`）。
+这是 `rw` 的匹配问题，不是命题为假。
+
+**所以 `hAll` 的路仍然可行，只是要先补两条小引理**：
+
+1. `termSubstVec ℒₛₑₜ 1 ?[^&0] ?[^#0] = ?[^&0]`（`termSubstVec_cons` + `termSubst_bvar`
+   + `nth_adjoin_zero`，本机已试到只差化简）；
+2. `subst ℒₛₑₜ ?[^&0] domZero = domZero`（由上一条 + `substs_substs`）。
+
+补完后 `hAll` 的护罩步（`or_m` + `wk`，已实测可证）配上
+`free` 的相容律即可收尾。
+
+**2026-10-11 第五轮：两条小引理一条已证、一条归约到 Foundation 的现成工具**
+
+探针 `probes/W8-domZero-subst-partial-20261011.lean` 实测：
+
+* ✅ `termSubstVec ℒₛₑₜ 1 ?[^&0] ?[^#0] = ?[^&0]`
+  （`termSubstVec_cons` + `termSubst_bvar` + `simp`，**已 exit 0**）
+* ⬜ `subst ℒₛₑₜ ?[^&0] domZero = domZero` 归约到
+  `subst ℒₛₑₜ ?[^&0] cDomN = subst ℒₛₑₜ ?[^#0] cDomN`。
+  **两条都是恒等**（`cDomN` 是引号化句子，无自由 bvar），
+  工具在 Foundation：`typed_quote_substs`（`Formula/Coding.lean:109`）
+  与 `Semiformula.quote_def`（`Coding.lean:216`）——
+  把 `cDomN` 化到 `Semiproposition` 层再 `simp` 即可。
+  同类的还有 `free_quote`（`Coding.lean:127`）——
+  **它正是 `free` 与引号的交换律**，是 `hAll` 收尾要用的那类引理。
+
+**下一步的准确清单**（按依赖顺序）：
+1. `subst_quote_const`：引号化句子上任意 `subst` 都是恒等（用 `typed_quote_substs`）；
+2. 由上得 `subst ℒₛₑₜ ?[^&0] domZero = domZero`（引理 2 收尾）；
+3. 用引理 2 得 `subst ?[^&0] (imp domZero X) = imp domZero (subst ?[^&0] X)`（护罩条件成立）；
+4. 证 `iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (imp domZero (iT 1 p))`（用 3 + `free_quote` 式的交换）；
+5. `hAll` = 护罩步（已实测可证）+ 4。
+
+**另记（对本包结构的观察）**：`iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ w (iT m p)`
+这个「同层数」形状是**不成立的**——`iT` 的 `all` 支插入 `domZero`，
+而 `domZero` 里的 `#0` 会被 `subst w` 改到。所以 `iT`/`subst` 的相容律
+必须带「`w.[0] = ^#0`」之类的**护罩条件**（这正是 `free` 用 `substs1 ^&0`
+时 `w = ?[^&0]` 不满足、需要单独处理的原因）。**这是 hAll 的真正难点所在。**
+
 **`hAll` 的护罩步（已实测可证）**：从
 `Derivable (insert A S)` 得 `Derivable (insert (imp B A) S)`——
 用 `or_m` 在 `insert (imp B A) S` 上（因 `imp B A = neg B ^⋎ A` 是 `rfl`），
