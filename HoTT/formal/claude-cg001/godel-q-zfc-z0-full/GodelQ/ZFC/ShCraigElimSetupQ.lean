@@ -65,4 +65,63 @@ theorem induction_setup_Q (d : V) (hd : Derivation (V := V) (L := ℒₒᵣ) Sh.
     simp only [Q, fstIdx_axm]
     sorry
 
+
+/-! ## 单边 LK 的析取引理（2026-10-11 新增）
+
+`split_or`：`Derivable (insert (p ⋎ q) s) → Derivable (insert p (insert q s))`。
+这是单边 LK 的 ∨R 可逆性，用 `cut (p⋎q)` + `neg_or`（De Morgan）+ `and_m` + `em`。
+它是 `hAll` 收尾所需的 `replace_of_iff` 的零件之一。 -/
+
+/-- **析取分裂**。 -/
+lemma split_or {p q s : V} (hp : IsFormula ℒₛₑₜ p) (hq : IsFormula ℒₛₑₜ q)
+    (h : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (p ^⋎ q) s)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert p (insert q s)) := by
+  have hfs : IsFormulaSet (L := ℒₛₑₜ) (insert p (insert q s)) := by
+    intro y hy
+    simp only [mem_bitInsert_iff] at hy
+    rcases hy with rfl | rfl | hy
+    · exact hp
+    · exact hq
+    · exact h.isFormulaSet y (by simp [hy])
+  refine Derivable.cut (p ^⋎ q) ?_ ?_
+  · refine Derivable.wk (s := insert (p ^⋎ q) (insert p (insert q s)))
+      (s' := insert (p ^⋎ q) s) ?_ ?_ h
+    · intro y hy
+      simp only [mem_bitInsert_iff] at hy
+      rcases hy with rfl | hy
+      · exact IsSemiformula.or.mpr ⟨hp, hq⟩
+      · exact hfs y (by simp only [mem_bitInsert_iff] at hy ⊢; tauto)
+    · intro y hy
+      simp only [mem_bitInsert_iff] at hy ⊢
+      tauto
+  · have hneg : neg ℒₛₑₜ (p ^⋎ q) = neg ℒₛₑₜ p ^⋏ neg ℒₛₑₜ q :=
+      neg_or hp.isUFormula hq.isUFormula
+    rw [hneg]
+    refine Derivable.and_m (s := insert (neg ℒₛₑₜ p ^⋏ neg ℒₛₑₜ q) (insert p (insert q s)))
+      (p := neg ℒₛₑₜ p) (q := neg ℒₛₑₜ q) (by simp) ?_ ?_
+    · refine Derivable.em (s := insert (neg ℒₛₑₜ p) (insert (neg ℒₛₑₜ p ^⋏ neg ℒₛₑₜ q)
+          (insert p (insert q s)))) ?_ p ?_ ?_
+      · intro y hy
+        simp only [mem_bitInsert_iff] at hy
+        rcases hy with rfl | rfl | rfl | rfl | hy
+        · exact hp.neg
+        · exact IsSemiformula.and.mpr ⟨hp.neg, hq.neg⟩
+        · exact hp
+        · exact hq
+        · exact h.isFormulaSet y (by simp [hy])
+      · simp [mem_bitInsert_iff]
+      · simp [mem_bitInsert_iff]
+    · refine Derivable.em (s := insert (neg ℒₛₑₜ q) (insert (neg ℒₛₑₜ p ^⋏ neg ℒₛₑₜ q)
+          (insert p (insert q s)))) ?_ q ?_ ?_
+      · intro y hy
+        simp only [mem_bitInsert_iff] at hy
+        rcases hy with rfl | rfl | rfl | rfl | hy
+        · exact hq.neg
+        · exact IsSemiformula.and.mpr ⟨hp.neg, hq.neg⟩
+        · exact hp
+        · exact hq
+        · exact h.isFormulaSet y (by simp [hy])
+      · simp [mem_bitInsert_iff]
+      · simp [mem_bitInsert_iff]
+
 end GodelQ.ShCraigElimSetupQ
