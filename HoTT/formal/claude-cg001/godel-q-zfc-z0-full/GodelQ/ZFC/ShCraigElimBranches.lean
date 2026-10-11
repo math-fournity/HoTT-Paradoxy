@@ -763,9 +763,52 @@ hAll：目标 Derivable (translateSeq s)
    （可能更贴合「Craig 技巧的公理都是封闭句」这一事实）；
 3. **换 `translateSeq` 的定义**：让它对 `setShift`/`free` 的交互更友好。
 
-**当前可交付的状态**：`ShCraigElim` 的 `induction1` 路线已推进到
-**7/10 支 + 完整的 `Q` 版接装框架**，剩余 3 支的障碍已被**精确刻画**
-（不是笼统的「还差」）。这是本条路线在本轮能达到的最远点。
+## 第十九轮：`hRoot` 的诊断——它就是 D3 本身
+
+`hRoot` 支：`s` 是公式集，`p ∈ s`，`p ∈ Sh.craig.Δ₁Class`，
+目标 `Derivable (translateSeq s)`。走 `Derivable.by_axm` 需要：
+
+```
+IsFormulaSet ℒₛₑₜ (translateSeq s)   ✅ isFormulaSet_translateSeq
+iT 0 p ∈ translateSeq s              ✅ mem_translateSeq_iff
+iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class                 ⬜ ← 全部困难所在
+```
+
+最后一条**正是 D3 的实质**：`Sh.craig` 的公理（`σ.padding s` 形）
+经 `iT` 翻译后要落在 `𝗭𝗙𝗖.Δ₁Class`（或至少 𝗭𝗙𝗖 可证）。
+这就是 `Z0UniBridge.ShCraigElim` 的另一面——`hRoot` 支不是「填一个洞」，
+而是**把整条消去的实质集中在这一点上**。
+
+**这也解释了为什么 `hAll`/`hExs` 难**：三条支（`hAll`/`hExs`/`hRoot`）
+分别对应「∀ 翻译的绑定层」「∃ 翻译的绑定层」「Craig 公理的翻译」，
+都是**跨语言翻译**的实质困难，不是技术细节。
+
+---
+
+## 本轮（2026-10-11 后半）总结
+
+**新增可交付物**：
+* `ShCraigElimSetupQ.lean`——`Q` 版 `induction_setup`，7 支已接入（exit 0）；
+* `TranslateShiftCompat.lean` 扩到 ~900 行，新增 `domZero_eq_cDomN`、
+  `free_imp_domZero` 等引理；
+* 探针 20+ 份归档进 `probes/`，覆盖 `hAll` 的所有路线。
+
+**精确刻画的三条剩余支**：
+
+| 支 | 障碍 | 性质 |
+|---|---|---|
+| `hAll` | `iVE` 的 `eqAtom` 自带 `#0`，与外层 `subst` 的语义冲突 | 需新想法 |
+| `hExs` | 同 `hAll`（`substs1` 版） | 需新想法 |
+| `hRoot` | 就是 D3：`iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class` | 需新数学 |
+
+**已排除的路线**（三轮反例，不再重复尝试）：
+* 「`iT` 与 `free`/`subst` 逐层交换」——第十二、十五、十八轮已证伪；
+* 「`iT` 与 `free` 整体相等」——第十五轮已证伪（`domZero` 层数不同）。
+
+**结论**：`induction1` 这条路线在本轮已推进到**它的自然边界**——
+7/10 支 + 完整框架 + 3 支的精确障碍刻画。
+继续需要的是**结构性决策**（改 `iT` 定义 / 换路线 / 承认这是开放问题），
+超出「继续填支」的范围。
 
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
