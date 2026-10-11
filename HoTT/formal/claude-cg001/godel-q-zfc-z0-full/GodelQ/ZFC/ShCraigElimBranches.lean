@@ -262,6 +262,48 @@ Foundation 的 `DerivabilityCondition/EquationalTheory.lean` 里
 
 **建议的下一步**：先证 `iT_substs1` 的项层地基
 （`iVE` 与 `subst` 在项上的相容，可能需要 `iVE_subst`），
-再证公式层的 `iT_substs1`，最后 `free` 的版本。 -/
+再证公式层的 `iT_substs1`，最后 `free` 的版本。
+
+## 2026-10-11 第三轮：`hAll` 的结构已实测打通，缺一条代入律
+
+用探针（`probes/W8-hAll-guard-probe-20261011.lean`）实测确认了 `hAll` 的**完整归约结构**，
+只剩一条代入相容律未证：
+
+```
+hAll 的目标：Derivable 𝗭𝗙𝗖 (translateSeq s)，其中 ^∀ p ∈ s
+  all_m (s) (p := imp ℒₛₑₜ domZero (iT 1 p))       -- 注意 q 被 iT_all 强制成这个形状
+    ├─ ^∀ (imp domZero (iT 1 p)) ∈ translateSeq s   ← mem_translateSeq_iff + iT_all
+    └─ Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) (setShift (translateSeq s)))
+         ← 要先把 ih 从
+             Derivable (insert (free ℒₒᵣ p) (setShift (fstIdx d)))   -- ih 给的
+           搬到
+             Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) (setShift (translateSeq s)))
+```
+
+**两处不相容，都已定位**：
+
+1. **`setShift` 那半**：`translateSeq_setShift`（本文件，已证）把它们对上。✅
+2. **`insert` 那半**：`free ℒₛₑₜ (imp domZero (iT 1 p))` 与 `iT 0 (free ℒₒᵣ p)` 不同。
+   展开 `free L p = substs1 L ^&0 (shift L p)`：
+   * `free ℒₛₑₜ (imp domZero (iT 1 p))`
+     `= subst ℒₛₑₜ ?[^&0] (shift ℒₛₑₜ (imp domZero (iT 1 p)))`
+     `= subst ℒₛₑₜ ?[^&0] (imp (subst ?[^&0] cDomN) (iT 1 (shift ℒₒᵣ p)))`（用 `iT_shift`）
+   * `iT 0 (free ℒₒᵣ p) = iT 0 (subst ℒₒᵣ ?[^&0] (shift ℒₒᵣ p))`
+
+   两者要相等，需要**代入与 `iT` 的交换律**：
+   `iT 0 (subst ℒₒᵣ ?[^&0] σ) = subst ℒₛₑₜ ?[^&0] (iT 1 σ)`（`σ` 层数 1）。
+   这就是 `iT_substs1` 的核。
+
+**为什么它不同于 `shift` 的相容**：`shift` 是自由变量整体加一，`ℒₒᵣ`/`ℒₛₑₜ` 两侧
+对 fvar 都加一，故 `iT_shift` 能对上；`substs1` 是把**项**塞进绑定位置，
+`ℒₒᵣ` 侧塞的是项 `^&0`、`ℒₛₑₜ` 侧塞的是 `iVE` 的像（`eqAtom`），
+所以要先证一条**项层**的 `iVE_subst`（`iVE` 与 `termSubst` 的相容），
+再抬到公式层。`free` 的 `^&0` 是 fvar，`termSubst` 对 fvar 的处理与 bvar 不同，
+这一支要单独看。
+
+**`hAll` 的护罩步（已实测可证）**：从
+`Derivable (insert A S)` 得 `Derivable (insert (imp B A) S)`——
+用 `or_m` 在 `insert (imp B A) S` 上（因 `imp B A = neg B ^⋎ A` 是 `rfl`），
+再把 `insert A S ⊆ insert (imp B A) S` 用 `wk` 弱化（需 `IsFormula` 的 `A`、`B`）。 -/
 
 end GodelQ.ShCraigElimBranches
