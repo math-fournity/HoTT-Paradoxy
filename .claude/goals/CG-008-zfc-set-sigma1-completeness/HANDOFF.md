@@ -1,4 +1,4 @@
-# CG-008 交接文档 · 2026-10-11（P1 结束态）
+# CG-008 交接文档 · 2026-10-11（P2 结束态）
 
 > 自包含。承接者读完本文件 + `GOAL.md` §3 的闭包表即可接手。
 > 治理红线（F-011）不变：Foundation 只读；不碰 `sources/` 与 `private-audit/`；不 push `main`；不伪造收据。
@@ -8,8 +8,10 @@
 ## 0. 一句话诚实状态
 
 **Z0 完整形式仍未机器证明；`Z0Blocked.lean:65` 的 `sorry` 仍在。**
-本轮（2026-10-11）建成集合语言内部演算的工具层，把缺口**等价归约**成内部演算形状，
-并定位了构造路线的真正剩余障碍。**归约是等价变换，不是证明。**
+2026-10-11 两轮：P1 建成集合语言内部演算工具层并把缺口**等价归约**成内部演算形状；
+P2 建成 `Derivable` 编码层工具集、把缺口**定型**为集合语言的 `provable_internalize`、
+并证伪三条候选路线（含方向性的 Σ₁ 绝对性路线）。
+**归约与桥都是变换，不是证明。**
 
 ---
 
@@ -60,9 +62,19 @@ cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 &&
 | `GodelQ/ZFC/CG008Reduce.lean` | 缺口 → 内部演算形状的**等价归约**（4 条定理） | ✅ |
 | `GodelQ/ZFC/CG008SetComplete.lean` | Σ₁ 归纳的层次分析 | ✅ |
 | `GodelQ/ZFC/CG008SetAll.lean` | 全称引入 / 全称消去 / Lévy 有界全称引入 / 成员等号替换 | ✅ |
+| `GodelQ/ZFC/CG008Raw.lean` | typed ↔ 编码层的双向桥 | ✅ |
+| `GodelQ/ZFC/CG008RawSigma1.lean` | 17 条 typed 引理下沉为 14 条 `d_*` | ✅ |
+| `GodelQ/ZFC/CG008GapShape.lean` | 缺口的六步等价链（记录文件） | ✅ |
+| `GodelQ/ZFC/CG008ProofToProvable.lean` | 缺口「平凡一半」的机器化 | ✅ |
+| `GodelQ/ZFC/CG008SetProvInt.lean` | 算术 `provable_internalize` 路线的逐步核对 | ✅ |
+| `GodelQ/ZFC/CG008SetSigma1Complete.lean` | 缺口 = 集合语言 `provable_internalize` 的定型 | ✅ |
 | `GodelQ/ZFC/CG008Sigma1.lean` | 十情形工具清单 | 探针 |
 | `GodelQ/ZFC/CG008MemCase.lean` | 剩余障碍的精确分析 | 探针 |
-| `GodelQ/ZFC/CG008Probe1–5.lean` | 逐条查实的编译探针 | 探针（非收据） |
+| `GodelQ/ZFC/CG008Probe1–12.lean` | 逐条查实的编译探针（4、11、12 是三条证伪） | 探针（非收据） |
+
+**运行**：`2026-10-11-CG001-CG008-SET-INTERNAL-01`（P1）与
+`2026-10-11-CG001-CG008-DERIVABLE-LAYER-01`（P2），均 `KERNEL_ACCEPTED_WITH_SCOPE`
+/ `PASS_WITH_SCOPE` / `replay: EXACT_EXIT_STDOUT_STDERR_MATCH`。
 
 ---
 
@@ -119,18 +131,36 @@ cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 &&
 
 ## 4. 下一步（按可行性排序）
 
-1. **优先试「只做闭句版」**：缺口的 `⌜translate τ⌝` 恰好是闭句，所以绕开自由变量层可能够用。
-   即只对 `SetTheorySentence`（`n = 0`）做 Σ₁ 完全性，直接对 `SetTheorySentence` 的结构写归纳。
-2. 若闭句版可行，沿 `CG008Reduce.zfcTr_D3_internalize_iff_internal` 回到原缺口，
-   替换 `Z0Blocked.lean:65` 的 `sorry`。
-3. 若卡住，照实降格：把「需要集合语言 Σ₁ 完全性」写成精确的显式前提定理（仿 `Z0Bridge.lean`），
+**缺口的最终形状**（本轮定型，详见 `GodelQ/ZFC/CG008GapShape.lean` 的六步链）：
+它是**集合语言的 `provable_internalize`**——与算术版 `D3.lean:175` 逐字同形，
+只差 `T : ArithmeticTheory` → `T = 𝗭𝗙𝗖 : Theory ℒₛₑₜ`；
+最终落在 **V 内部对 Δ₁ 谓词 `Derivation` 的完全性**。
+
+**下一步候选**：
+1. **在 `Derivable` 编码层做**（`CG008Raw.lean` 的发现）：该层**没有「自由变量」概念**，
+   所以算术版 `toNumVec` 的障碍在那里可能不存在。
+   `CG008RawSigma1.lean` 的 14 条 `d_*` 已是该层的工具集。
+2. 若卡住，照实降格：把「需要集合语言 Σ₁ 完全性」写成精确的显式前提定理（仿 `Z0Bridge.lean`），
    写明卡点，不伪造收据。
 
-**已排除的路（有编译实证，不要重试）**：
-- 内部蕴含句 `⌜translate τ 🡒 translate (zfcTr τ)⌝` + modus ponens —— 那**正是反射原理**，
-  即哥德尔第二定理的内容，循环（`CG008Probe4.lean`）。
-- 载体重接到标准模型（`Z0Probe6/7.lean`）；`Sh.craig` 捷径（`Z0D3Attempt.lean`）；
-  廉价传递 `Con(Sh.craig) ↔ Con(𝗭𝗙𝗖)`（`Z0Final.lean`）。
+**已排除的路（都有编译实证，不要重试）**：
+
+| 路 | 为什么不行 | 证据 |
+|---|---|---|
+| 内部蕴含句 `⌜translate τ 🡒 translate (zfcTr τ)⌝` + modus ponens | 那**正是反射原理**，即哥德尔第二定理的内容，循环 | `CG008Probe4.lean` |
+| 载体重接到标准模型（把 `: V` 改写成 `: ℕ`） | 类型错误——Gödel 报价把载体类型编码进结果值 | `Z0Probe6/7.lean` |
+| `Sh.craig` / `Δ₁ Sh` 捷径 | `Theory.Δ₁ Sh` 不成立（`Sh` 是 r.e./Σ₁ 而非 Δ₁） | `Z0D3Attempt.lean` |
+| 廉价传递 `Con(Sh.craig) ↔ Con(𝗭𝗙𝗖)` | 坍缩为同一 D3 缺口 | `Z0Final.lean` |
+| **Σ₁ 绝对性把 V 真降到 ℕ** | **方向反了**——`sigma_one_upward` 沿 `ι : M ↪ₛ N`，而 `natCastEmbedding : ℕ ↪ₛ V`；Σ₁ 只**向上**绝对 | `CG008Probe12.lean` |
+| `SoundOnHierarchy` 桥（`Absoluteness.lean:121-152`） | 定义在 `ArithmeticTheory` 上，且那是**反方向**（真⟹可证，靠可靠性） | `CG008Probe11.lean` |
+
+**已解除的障碍**（原判为卡点，实为换 API 来源）：
+- 集合语言的内部化演算辅助（`ZFCSetInternal.lean`）；
+- 集合语言的全称引入（`CG008SetAll.lean`）。
+
+**纠一处误诊**：`Z0Blocked.lean` 文档第 16-18 行否定的 `zfcTr_D3_syntactic`
+**不是**缺口的形状——缺口前提是「V 内部**有一条推导**」（Σ₁ 完全性），
+不是「该句为真」（反射原理）。这个区分是缺口不循环的原因（`CG008SetSigma1Complete.lean`）。
 
 ---
 
@@ -140,6 +170,7 @@ cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 &&
 # 路径 | 用途
 最高指示-Claude版.md | 操作指令
 CG008_HANDOFF_2026-10-11.md | 上一轮交接（包内根目录）
+GodelQ/ZFC/CG008GapShape.lean | **缺口的六步等价链与本轮已排除的路（先读这个）**
 CG008_HANDOFF.md | 立项交接（包内根目录）
 CG008_PROJECT.md | 立项书（包内根目录）
 GodelQ/ZFC/Z0Blocked.lean | 待消除的精确 sorry（第 65 行）
