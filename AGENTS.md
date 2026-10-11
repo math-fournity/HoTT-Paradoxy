@@ -215,6 +215,39 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 `/tmp/d3build/src/...` 的探针原样搬入 `probes/` 并提交，作为该边界的实例；后续任何会话不得再退回
 "核心产物只在 /tmp" 的工作方式。
 
+**CG-007 W8（Z0 D3）工作根纪律与后续机器证明路线（2026-10-11 接手实测校正）**
+
+- **工作根唯一真值**：所有 CG-007 源码、文档、收据都落在 `/Volumes/D/HoTT_AI_HANDOFF_20260911`
+  （分支 `dev`，HEAD `2e746c58`，领先 `origin/dev` 39 个提交、未 push）。该目录即 repo 主检出，
+  也是 `git rev-parse --show-toplevel` 的返回值。`/tmp` 下只放可重算的遗留构建副本，绝不接收成果。
+- **链接 worktree 一律视为陈旧、禁止写入 CG-007**：`/Users/aurolafly/WorkBuddy/Worktrees/.../dev-f65ca154`
+  等是 `dev` 的 git linked worktree，但停在 `workbuddy/dev-f65ca154` 分支、HEAD `87b65dfd`、落后 dev 39 个提交，
+  其 `HoTT/formal/.../GodelQ/ZFC/` 仍是 2026-10-10 的旧快照（缺 `SeqTranslateFormula.lean` 等全部 W8 文件），
+  也没有 `devbuild_ns` 入口。接到“当前目录 / 这个 worktree”式指令时，先 `git rev-parse --show-toplevel`
+  与 `git rev-parse HEAD` 比对；若不是 `dev @ 2e746c58`，则回到 D-volume，绝不向链接 worktree 写源码或文档。
+- **核心资产永不在 `/tmp`**：开发探针统一进 `.claude/goals/CG-007-formalization-completion/probes/`
+  （身份 `DEVELOPMENT_PROBE / NOT_A_RECEIPT / NOT_A_CLAIM`，不进收据源）；编译缓存进仓库内
+  `.cg007-build/`（已被 `.gitignore` 排除）。`/tmp/d3build/` 只是遗留参考副本，不回写、不接收成果。
+- **后续机器证明路线（精确、按依赖、每步可独立验收）**：完整版见
+  `.claude/goals/CG-007-formalization-completion/W8-路线图-20261011-Codex接手.md`，要点：
+  1. 阶段 A 封 `iT`/`neg` 相容律：先修 `NegInvolution.neg_neg_code`（清 `sorryAx` 噪声、补原子支），
+     再重写 `ShCraigElimNegLaw.iT_neg`（用 `isUFormula_iTR` + `IsUFormula.all/imp/and/subst/rel`，带
+     `param=n` 护罩），二者 exit 0 后出收据。不依赖此步的 `isSemiformula_iT`（CG001-C-391）已证。
+  2. 阶段 B 填 `ShCraigElim` 剩余支：`hAxL/hCut`（用 iT_neg）、`hAnd/hOr/hWk/hVerumIntro`，
+     以及 `hAll/hExs/hShift`（`iT` 与 `substs1/shift/free/setShift` 相容——非平凡，翻译多引约束变量、
+     de Bruijn 结构变化）。
+  3. 阶段 C `axm` 支（唯一用到 `𝗭𝗙𝗖` 处）：需 `codeOfREPred` 的一般 V 表示引理（Foundation 的
+     `codeOfREPred_spec` 仅 ℕ 层）；由 `mem_craig_codes_iff + reWitness_spec` 得 `zfcTr ρ`，再用
+     `ρ.padding` 接回。
+  4. 阶段 D 组装：`derivable_translateSeq` 10 case（先搬 `probes/SeqTranslateDerivable.lean` 进包逐条修，
+     其构造子调用与辅助引理均为猜测、未编译）、`bridge`/`keyE ←`、`zfcTr_D3_internalize` 替换
+     `Z0Blocked.lean` 的 `sorry`。
+  5. 收据：`capture_run.py`（拒 sorry）+ `verify_cg001_run.py --rerun` + `HoTT/CLAIM_EVIDENCE_MATRIX.md`
+     + `形式化追踪/` + `LOG.md`/`STATE.json`，每步按精确路径提交。
+- **诚实边界**：只有“机器证 + 出正式收据”才算新收据；卡住就把精确 Lean 命题写回 `Z0Blocked.lean`
+  （带未证标记，自动不入收据）并在 `CLAIM.md` §4 说明实缺口。C-120 影子形式 `𝗭𝗙𝗜 ⊬ (Sh.craig.consistent)ᵗ`
+  已无条件成立，不受本缺口影响。绝不碰 `外部资料/` 与并行会话未提交文件。
+
 **Claude 线与其目标包的边界**：Claude 会话的硬规则在根 `CLAUDE.md`（实用主义一节优先），
 其中保护真实与安全的几条对 Codex 同样适用，本文件不复制：
 
