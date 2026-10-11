@@ -141,6 +141,24 @@ lemma hOr {s p q d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
     ⟨p ^⋎ q, hpq, (iT_or hfp hfq).symm⟩) ?_
   simpa only [Q, hd, translateSeq_insert] using ih
 
+/-- **`hCut` 支**：两条子推导分别在 `insert p s`、`insert (neg p) s` 上。
+
+`Derivable.cut` 直接给 `Derivable (translateSeq s)`——但它要的是
+`Derivable (insert (iT 0 p) (translateSeq s))` 与
+`Derivable (insert (neg (iT 0 p)) (translateSeq s))`。
+第二条的 `neg (iT 0 p)` 要换回 `iT 0 (neg p)`，仍用 `iT_neg`。 -/
+lemma hCut {s p d₁ d₂ : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (hp : IsSemiformula ℒₒᵣ 0 p)
+    (hd₁ : fstIdx d₁ = insert p s) (hd₂ : fstIdx d₂ = insert (neg ℒₒᵣ p) s)
+    (ih₁ : Q (V := V) d₁) (ih₂ : Q (V := V) d₂) :
+    Q (V := V) (cutRule s p d₁ d₂) := by
+  simp only [Q, fstIdx_cutRule]
+  refine Derivable.cut (iT 0 p) ?_ ?_
+  · simpa only [Q, hd₁, translateSeq_insert] using ih₁
+  · rw [show neg ℒₛₑₜ (iT 0 p) = iT 0 (neg ℒₒᵣ p) from
+        (ShCraigElimNegLaw.iT_neg p hp).symm]
+    simpa only [Q, hd₂, translateSeq_insert] using ih₂
+
 end GodelQ.ShCraigElimBranches
 
 #print axioms GodelQ.ShCraigElimBranches.isFormulaSet_translateSeq
@@ -149,3 +167,4 @@ end GodelQ.ShCraigElimBranches
 #print axioms GodelQ.ShCraigElimBranches.hAxL
 #print axioms GodelQ.ShCraigElimBranches.hAnd
 #print axioms GodelQ.ShCraigElimBranches.hOr
+#print axioms GodelQ.ShCraigElimBranches.hCut
