@@ -2267,3 +2267,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成对合律已证**：完整组装未完成（需补 `result_all`/`result_exs` 层数展开）；`iT`/`neg` 相容律的 `nrel`/`all`/`exs` 三支仍空 |
 | 包 | `MP-CG001-Z0-NEGINVOL-001` |
+
+### W8-U7：一般（V 内任意公式码）的 `iT`/`neg` 相容律（CG001-C-398，2026-10-11）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-398 |
+| 形式命题 | 一般相容律 `iT n (neg ℒₒᵣ p) = neg ℒₛₑₜ (iT n p)`（`IsSemiformula ℒₒᵣ n p`，V 内任意公式码），九个支全部证出 |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimNegLaw.lean` |
+| 主运行 | `HoTT/verification/runs/20261011-CG001-Z0-W8-ITNEG-01`（exit 0，stderr 0 B，`iT_neg` 公理报告只有三条标准公理） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 D3 已证或部分证**：`hAxL`/`hCut`/`hShift` **尚未接线**到 `ShCraigElimSetup.induction_setup`；`ShCraigElim` 的 10 个支仍未填；`iT` 与 `substs1`/`shift`/`free`/`setShift`/`emb` 的相容未证；`axm` 支与 `codeOfREPred` 的一般 V 表示引理未证；`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |
+| 包 | `MP-CG001-Z0-W8-ITNEG-001` |
