@@ -121,3 +121,26 @@ exit 0、公理干净。剩 `rel` / `nrel` 两支，卡在：
 
 **警告**：9276 该文件仍是**未跟踪**状态（不在 git 中）——若其清理工作树会丢失。
 本会话已防回退复制。
+
+## 十、追加（14:2x）：`ve2` 支的第一块——`shift_subst_domN3`
+
+**新证**：`shift_subst_domN3`（`Ve2ShiftPieces.lean`，sha 见文件）——
+`conjunct` 的 domZero 部分在**层 3** 下被 `shift` 固定：
+`shift (subst ?[^#i] cDomN) = subst ?[^#i] cDomN`（`i < 3`，即 ve2 的 `conjunct 3 …` 语境）。
+
+**为什么层 3**：`shift_substs` 要求 `IsSemitermVec ℒₛₑₜ 1 m ?[^#i]`，
+而 `isSemitermVec_single_bvar` 给的是 `IsSemitermVec ℒₛₑₜ 1 n ?[^#i]`（需 `i < n`）——
+`i ∈ {0,1,2}` 时取 `m = 3` 即可。这是**层数记账**的一个具体实例。
+
+**同时确认的关键事实**（供后续用）：
+- `shiftVec b n = [^#b, ^#(b+1), …, ^#(b+n-1)]`——**全是 bvar**；
+- `termShift` 对 bvar 恒等（`termShift_bvar`），故 `termShiftVec` 对 `shiftVec` 应为恒等；
+- 缺 `IsUTermVec.shiftVec`（本机实测不存在）——证 `termShiftVec 1 (shiftVec b n) = shiftVec b n` 需要它
+  （或用 `nth_ext'` + `nth_termBShiftVec` + `termShift_bvar` 逐元素，并同时构造 `IsUTermVec`）。
+
+**`ve2` 支剩余**：
+1. `termShiftVec 1 (shiftVec 3 n) = shiftVec 3 n`（上一条）；
+2. `shift_conjunct`：把 `conjunct 3 n i y` 的 shift 归结为 `conjunct 3 n i (shift y)`
+   （用 1 + `shift_subst_domN3` + `shift_and`）；
+3. `shift (subst (^#2 ∷ …) (cFunc k f)) = 自身`——闭项，走 `shift_quote`；
+4. `shift_qqAlls` 或直接展开 `qqAlls` 的两层 `^∀`。

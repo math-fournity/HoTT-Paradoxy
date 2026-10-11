@@ -52,3 +52,5 @@
 - 2026-10-11T13:45:00-04:00 [checkpoint F] 本会话自研突破：shift_domZero（枢纽）+ shift_quote（工具）+ ishift 六支 + shift_ve0。全部 exit0 公理干净。 → 下一步：攻 func 支
 - 2026-10-11T13:38:00-04:00 [checkpoint F] 扫描捕获并独立核验吸收 9276 的 TranslateShiftCompat（iVE_shift bvar/fvar 两支，sha 966fb6a7 exit0）。两工位互补确认 func 支是唯一障碍。 → 下一步：攻 func 支
 - 2026-10-11T14:05:00-04:00 [checkpoint F] 提交并推送：15c1647e（188 文件）+ 归档与规程提交；远端 70b5e1fe。归档 /tmp 遗留独有内容；清理 /tmp（其中一次误用 rm -rf，零损失已核查并记录）。 → 下一步：攻 func 支
+- 2026-10-11T14:20:00-04:00 [checkpoint F] func 支第一块落盘：shift_subst_domN3（conjunct 的 domZero 部分在层3被 shift 固定，exit0 公理干净）。关键事实确认：shiftVec 全是 bvar；isSemitermVec_shiftVec 已存在（层数 b+n）。 → 下一步：证 termShiftVec 对 shiftVec 的恒等（需处理 termBShiftVec 与 termShiftVec 的差异）
+- 2026-10-11T14:25:00-04:00 [checkpoint F] 障碍精确化：termShiftVec 只有 1/2 元 cons 引理，无一般 n；shiftVec 构造用 termBShiftVec（绑定层移位，≠ termShiftVec）。func 支的第 2 块需要新证「termShiftVec 固定 shiftVec」或改用其他路径。 → 下一步：用 nth_ext' + 元素层论证（nth_termBShiftVec + termShift_bvar），或评估绕开
