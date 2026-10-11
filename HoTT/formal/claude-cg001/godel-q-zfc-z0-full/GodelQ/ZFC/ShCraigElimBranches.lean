@@ -571,8 +571,82 @@ termSubst (^#0 ∷ ^&0 ∷ 0) ^#0     = (^#0 ∷ ^&0 ∷ 0).[0] = ^#0
   但这会改变整个包的接口，代价大；
 * 或**承认这一支需要新的数学**，把它作为独立的开放问题记录下来。
 
-**下一步建议**：先花一轮**直接试着证 `hAll` 的目标**（不做任何交换律假设），
-看 `Derivable` 的规则能否直接给出——若不能，就把本支标为「需要新想法」。
+**第十三轮：直接攻 `hAll` 的目标，发现 `IsFormulaSet` 缺口（本机实测）**
+
+探针 `probes/W8-hAll-formula-set-gap-20261011.lean` 实测：把 `ih` 的 sequent
+按 `hd` 展开成
+
+```
+translateSeq (fstIdx d) = insert (iT 0 (free ℒₒᵣ p)) (setShift ℒₛₑₜ (translateSeq (fstIdx dd)))
+```
+
+**这一步本身是通的**（`translateSeq_insert` + `translateSeq_setShift`），
+但 `translateSeq_setShift` 要求**源**是公式集：
+
+```
+translateSeq_setShift : IsFormulaSet ℒₒᵣ s → translateSeq (setShift ℒₒᵣ s) = setShift ℒₛₑₜ (translateSeq s)
+```
+
+而 `hAll` 支给我们的假设里**只有**
+`Derivable (translateSeq (fstIdx d))`——由 `Derivable.isFormulaSet` 得
+`IsFormulaSet ℒₛₑₜ (translateSeq (fstIdx d))`，即**像**是公式集；
+`IsFormulaSet ℒₒᵣ (fstIdx dd)`（**源**是公式集）**拿不到**。
+
+**这是一个独立的、更基本的缺口**：`induction1` 的 `hAll` 支的假设
+（`DerivationOf T dp (insert (free L p) (setShift L s))`）里
+**没有** `IsFormulaSet L s` 这一项，而 `translateSeq_setShift` 需要它。
+
+**可能的修法**：
+1. 给 `P`/`Q` 谓词**加强**：把 `IsFormulaSet ℒₒᵣ (fstIdx d)` 作为归纳不变量的一部分
+   （`induction1` 的 `P : V → Prop` 只作用在推导编码上，但可以改成
+   `fun d ↦ IsFormulaSet ℒₒᵣ (fstIdx d) ∧ Derivable ...`，只要保持 Σ1）；
+2. 或证明 `IsFormulaSet ℒₛₑₜ (translateSeq s) → IsFormulaSet ℒₒᵣ s`
+   （需要 `iT` 的单射性，可能比 1 更难）。
+
+**修法 1 更可行**：`IsFormulaSet` 是 Π1（`∀ p ∈ s, IsSemiformula ...`），
+与 `Derivable`（Σ1）合取后仍是 **Σ1**（`∃` 后可跟 Π1 有界量词），
+`induction1` 的 `hP` 应当仍能接受。**这是下一步该做的第一件事。**
+
+**第十四轮：`IsFormulaSet` 缺口已闭合（本机实测）**
+
+探针 `probes/W8-derivationOf-formulaSet-20261011.lean` 实测确认：
+
+```lean
+DerivationOf T d s → IsFormulaSet L s     -- 即 `DerivationOf.isFormulaSet`，直接可得 ✅
+IsFormulaSet L (insert (free L p) (setShift L s)) → IsFormulaSet L (setShift L s)   ✅
+IsFormulaSet L (setShift L s) → IsFormulaSet L s    -- `IsFormulaSet.setShift_iff`  ✅
+```
+
+**所以 `IsFormulaSet ℒₒᵣ (fstIdx d)` 根本不用加强归纳不变量**——
+`hAll` 支的假设里就有 `DerivationOf T d (insert (free L p) (setShift L s))`，
+`DerivationOf.isFormulaSet` 直接给出 `IsFormulaSet L (fstIdx d)`，
+再两步拆出 `IsFormulaSet L s`。**我第十三轮的「缺口」判断是错的**——
+`IsFormulaSet` 一直在手边，只是我没看 `DerivationOf` 的假设。
+
+**修正后的 `hAll` 归约链**（全部零件已就位）：
+
+```
+hAll：目标 Derivable (translateSeq s)
+  all_m 需要 ^∀ q ∈ translateSeq s，其中 q := imp domZero (iT 1 p)
+    ← mem_translateSeq_iff + iT_all ✅
+  all_m 需要 Derivable (insert (free ℒₛₑₜ q) (setShift (translateSeq s)))
+    ← ih : Derivable (translateSeq (fstIdx d))
+         = Derivable (insert (iT 0 (free ℒₒᵣ p)) (setShift (translateSeq s)))
+           [translateSeq_insert + translateSeq_setShift，**公式集由 DerivationOf.isFormulaSet 给**]
+    ← 需把 iT 0 (free ℒₒᵣ p) 换成 free ℒₛₑₜ (imp domZero (iT 1 p))
+       **这一条仍未证**（第十三/十二轮已证明朴素形状为假）
+```
+
+**所以 `hAll` 现在只剩一条待证等式**（其余全部已就位）：
+`iT 0 (free ℒₒᵣ p) ≡ free ℒₛₑₜ (imp domZero (iT 1 p))`（等价或互相可导）。
+
+**第十二轮的反例说明这条等式不能靠「`iT` 与 `free` 交换」得到**
+（`free` 用替换语义、`iT` 的绑定层用保护语义）。
+但**未必为假**——反例只说明「逐层交换」不对，两边**整体**可能仍相等
+（因为 `free` 只作用于顶层，而 `iT` 的 `domZero` 插入正好补偿）。
+
+**下一步**：对具体的 `p`（如 `p = ^rel 2 R ?[^#0, ^#0]`）手算两边，
+判定这条等式是否为真。这是决定 `hAll` 走「等式」还是「互相可导」的关键一步。
 
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
