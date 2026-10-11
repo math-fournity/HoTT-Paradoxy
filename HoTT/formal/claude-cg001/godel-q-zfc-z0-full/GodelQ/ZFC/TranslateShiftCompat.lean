@@ -114,8 +114,34 @@ bvar/fvar 两支（`termShift_bvar`/`termShift_fvar` 分别对上
 → `hShift` / `hAll` / `hExs`。`hExs` 另需 `iT_substs1`（同形）。
 -/
 
+/-! ## 项层的两支（bvar / fvar）
+
+`iVE_shift`（`iVE n (termShift t) = shift ℒₛₑₜ (iVE n t)`）的两支已可直接拼出；
+`func` 支仍需 `iVE.construction.resultVec` 与 `termShiftVec` 的相容，未做。 -/
+
+/-- **`iVE_shift` 的 bvar 支**：`iVE n (termShift ^#z) = shift ℒₛₑₜ (iVE n ^#z)`。
+
+`termShift` 不动 bvar，`iVE` 的 bvar 支给出 `eqAtom ^#(z+1)`，
+再用 `shift_eqAtom_bvar`。 -/
+lemma iVE_shift_bvar (n z : V) :
+    iVE n (termShift ℒₒᵣ (^#z : V)) = shift ℒₛₑₜ (iVE n (^#z : V)) := by
+  rw [termShift_bvar, iVE_bvar]
+  exact (shift_eqAtom_bvar (z + 1)).symm
+
+/-- **`iVE_shift` 的 fvar 支**：`iVE n (termShift ^&x) = shift ℒₛₑₜ (iVE n ^&x)`。
+
+`termShift` 把 fvar 码加一，`iVE` 的 fvar 支给出 `eqAtom ^&x`，
+再用 `shift_eqAtom_fvar`。 -/
+lemma iVE_shift_fvar (n x : V) :
+    iVE n (termShift ℒₒᵣ (^&x : V)) = shift ℒₛₑₜ (iVE n (^&x : V)) := by
+  rw [termShift_fvar]
+  simp only [iVE_fvar]
+  exact (shift_eqAtom_fvar x).symm
+
 end GodelQ.TranslateShiftCompat
 
 #print axioms GodelQ.TranslateShiftCompat.isUTermVec_eqAtom_vec
 #print axioms GodelQ.TranslateShiftCompat.shift_eqAtom_bvar
 #print axioms GodelQ.TranslateShiftCompat.shift_eqAtom_fvar
+#print axioms GodelQ.TranslateShiftCompat.iVE_shift_bvar
+#print axioms GodelQ.TranslateShiftCompat.iVE_shift_fvar
