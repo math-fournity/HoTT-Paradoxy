@@ -107,6 +107,71 @@ theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧
 
 **状态不变**：不产出 Z0 机器证明收据；完整形式仍阻塞于 CG-008（集合论 Σ₁ 完全性）。
 
+### 4.1.3 补充（2026-10-11，Claude 会话 77d1ad24，worktree `dev-ef7e5239`）：缺口改述为 `HBL3`，并证明它**不可能**靠补实例绕过
+
+§4.1.1 把缺口定位为「缺失的 `Theory.Δ₁ Sh` 实例」。**方向正确，但那条路不可能走通**——
+本轮机器查实了为什么。三条实质结果：
+
+**（一）缺口 = `zfcTr.HBL3`。** Foundation 有抽象可证性框架
+（`Incompleteness/ProvabilityAbstraction/Basic.lean:25-93`）：
+
+```lean
+structure Provability (T₀ : Theory L₀) (T : Theory L) where
+  prov : Semisentence L₀ 1
+  bew_def {σ} : T ⊢ σ → T₀ ⊢ prov/[⌜σ⌝]                        -- D1
+class HBL3 (𝔅 : Provability T₀ T) where
+  D3 {σ : Sentence L} : T₀ ⊢ 𝔅 σ 🡒 𝔅 (𝔅 σ)                    -- ← 缺口
+instance [∀ σ, 𝔅.FormalizedCompleteOn (𝔅 σ)] : 𝔅.HBL3 := ⟨by simp⟩
+```
+
+`zfcTr : Provability 𝗜𝚺₁ Sh` 已建成（`Z0Full.lean:60`，带 D1），
+`HBL3.D3` 经 `models_zfcTr_iff` 展开**正是** `zfcTr_D3_internalize`。
+故缺口 = 建成 `∀ σ, zfcTr.FormalizedCompleteOn (zfcTr σ)`。
+证据：`GodelQ/ZFC/CG008HBL3.lean`、`CG008Final.lean`。
+
+**（二）`Sh.Δ₁` 不可能成立——这是 G1 的必然，不是缺实例。**
+`Δ₁` 的字段（`Bootstrapping/Syntax/Theory.lean:16`）含
+`mem_iff : ∀ φ, ℕ ⊧/![⌜φ⌝] ch.val ↔ ∃ σ ∈ T, φ = σ`——**双向**，要精确刻画公理集。
+而 `Sh := {σ | 𝗭𝗙𝗖 ⊢ arithTrln.translate σ}` 的「公理」是 𝗭𝗙𝗖 的**定理**，
+其成员判定是 Σ₁（`provable 𝗭𝗙𝗖`）、补是 Π₁。
+**若 `Sh.Δ₁` 成立 ⇒ 𝗭𝗙𝗖 定理集递归 ⇒ 与 G1 矛盾。**
+证据：`GodelQ/ZFC/CG008Delta1Wall.lean`。
+
+**（三）跨语言墙：两条路各堵一半，堵的是同一件事。**
+
+| 路 | 结构 | 语言 | `Δ₁` | `HBL3` |
+|---|---|---|---|---|
+| 1 | `zfcTr : Provability 𝗜𝚺₁ Sh` | 同（`ℒₒᵣ`） | ❌ 不可能（见上） | ✅ 可陈述（缺口所在） |
+| 2 | `𝗭𝗙𝗖.standardProvability : Provability 𝗜𝚺₁ 𝗭𝗙𝗖` | 跨（`ℒₒᵣ`/`ℒₛₑₜ`） | ✅ 有 | ❌ **不可陈述** |
+
+路 2 的结构**能建成**（`Provability` 是多语言的；`ℒₒᵣ` 对任意 `Encodable` 有
+`GödelNumber`；`LORDefinable ℒₛₑₜ` 与 `𝗭𝗙𝗖.Δ₁` 都合成成功），
+但 `HBL3.D3` 要 `𝔅 σ : Sentence L`，而 `𝔅.pr : Sentence L → Sentence L₀`
+⇒ **`HBL3` 只在 `L = L₀` 时可陈述**（`HBL2` **是**多语言的——两边都落在 `L₀`——
+两者是独立的类，不可混同）。证据：`CG008Probe17-20.lean`。
+
+**结论**：ZFC 的可证性谓词把 `ℒₛₑₜ` 句映到 `ℒₒᵣ` 句；这个跨语言性要么让 `Δ₁` 丢失，
+要么让 `HBL3` 无法陈述。**补上缺口需要扩展 Foundation 的抽象框架**
+（或为跨语言情形单开一条路），**不是填一个 `Δ₁` 实例，也不是补一座报价桥**。
+本轮已把那个待补的位置**定义**出来：`GodelQ/ZFC/CG008CrossLanguage.lean` 的
+`CrossLanguageD3`（`∀ σ, T₀ ⊢ 𝔅 σ 🡒 𝔅' σ`，`𝔅' : Sentence L → Sentence L₀`），
+缺口是它的一个实例（`gap_is_cross_language_D3`）。
+
+**同时排除的其余路线**：Σ₁ 绝对性把 V 真降到 ℕ（方向反了，`sigma_one_upward` 沿
+`natCastEmbedding : ℕ ↪ₛ V`，`CG008Probe12.lean`）；`SoundOnHierarchy` 桥
+（定义在 `ArithmeticTheory` 上且方向相反，`CG008Probe11.lean`）；
+把 `sigma_one_provable_of_models` 的 `T` 换成 `𝗭𝗙𝗖`（归约回缺口本身，`CG008Probe21.lean`）。
+另**纠正**一处先前的自我误述：缺口是 **D3**（`□σ → □□σ`），
+**不是** Σ₁ 完全性（`σ → □σ`）——后者对任意 σ 可证会推出 `Con`，矛盾
+（`CG008Probe13.lean`）。
+
+**收据**：`HoTT/verification/runs/2026-10-11-CG001-CG008-HBL3-LOCATION-01`、
+`...-CROSS-LANGUAGE-WALL-01`、`...-DELTA1-NECESSITY-01`，三者均
+`KERNEL_ACCEPTED_WITH_SCOPE` / `PASS_WITH_SCOPE` / `replay: EXACT_EXIT_STDOUT_STDERR_MATCH`。
+
+**状态不变**：`zfcTr_D3_internalize` 仍未证；`Z0Blocked.lean:65` 的 `sorry` 仍在；
+缺口**没有缩小**，但已能说明**它为何绕不开**。
+
 ## 5. 文件
 
 - 新文件：
