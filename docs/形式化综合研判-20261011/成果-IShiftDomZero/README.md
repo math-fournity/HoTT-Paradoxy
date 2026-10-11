@@ -358,3 +358,29 @@ iT 0 p = ⌜translate (ρ.padding k)⌝          [iT_quote]
 而 `hRoot` 手里是 V 元素 `p`——需用 `Δ₁Class.defined` 实例的 `.iff`（对任意 V 元素），
 并处理 `translate` 与 `padding` 的相容（`translate (padding φ k)` 的形状）。
 **这比 hAB 更接近完成**（零件齐全，无元层交换律缺失）。
+
+## 二十、hRoot 的三个解包引理（本会话新证）
+
+`HRoot.lean`（三条引理全部 exit 0、公理干净）：
+
+```lean
+lemma mem_craig_iff_eval {p : V} :
+    p ∈ Sh.craig.Δ₁Class ↔ (Semiformula.Evalb ![p]) Sh.craig.Δ₁ch.val
+lemma mem_craig_quote_iff (φ : Sentence ℒₒᵣ) :
+    (⌜φ⌝ : V) ∈ Sh.craig.Δ₁Class ↔ φ ∈ Sh.craig
+lemma mem_craig_iff_padding {φ : Sentence ℒₒᵣ} :
+    φ ∈ Sh.craig ↔ ∃ σ s, ℕ ⊧/![s, ⌜σ⌝] Sh.reWitness.val ∧ φ = σ.padding s
+```
+
+**这三条把 `hRoot` 的 V 层成员关系完全解包**——9276 指出的"技术障碍"
+（`Δ₁Class.mem_iff` 接受元层 Proposition 而手里是 V 元素）**已用
+`Δ₁Class.defined.iff`（V 层版本）绕过**。
+
+**`hRoot_uncond` 的剩余**（`HRoot.lean` 中仍 sorry）：从解包后的
+`∃ σ s, reWitness(s,⌜σ⌝) ∧ φ = σ.padding s` 推出 `Provable 𝗭𝗙𝗖 (iT 0 φ)`：
+1. `iT 0 ⌜σ.padding s⌝ = ⌜translate (σ.padding s)⌝`（`iT_quote`）
+2. 需 `𝗭𝗙𝗖 ⊢ translate (σ.padding s)`——`padding_iff` 给 `translate σ ↔ translate (σ.padding s)`，
+   而 `σ ∈ Sh` 经 `Sh_provable_iff` 给 `𝗭𝗙𝗖 ⊢ translate σ`
+3. `provable_iff_provable` 收尾
+
+**这是 hRoot 的全部剩余**，零件齐全、无缺失的元层律。
