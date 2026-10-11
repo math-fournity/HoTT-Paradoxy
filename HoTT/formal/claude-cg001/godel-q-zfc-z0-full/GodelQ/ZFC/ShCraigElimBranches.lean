@@ -645,8 +645,45 @@ hAll：目标 Derivable (translateSeq s)
 但**未必为假**——反例只说明「逐层交换」不对，两边**整体**可能仍相等
 （因为 `free` 只作用于顶层，而 `iT` 的 `domZero` 插入正好补偿）。
 
-**下一步**：对具体的 `p`（如 `p = ^rel 2 R ?[^#0, ^#0]`）手算两边，
-判定这条等式是否为真。这是决定 `hAll` 走「等式」还是「互相可导」的关键一步。
+**第十五轮：等式为假（domZero 计数不同），且发现 Q/P 接口不一致**
+
+**(a) 等式为假**。对 `p = ^∀ (^rel 2 R ?[^#0, ^#1])`（层数 1、含一个 `all`）手算：
+
+```
+左边 iT 0 (free ℒₒᵣ p)：
+  free p 把自由 #0 换成 ^&0，p 的 all 还在
+  → ^∀ (imp domZero (iT 1 (free 的体)))            —— **一层** imp domZero
+右边 free ℒₛₑₜ (imp domZero (iT 1 p))：
+  iT 1 p = ^∀ (imp domZero (iT 2 体))
+  顶层再包一层 imp domZero
+  → 展开后                                        —— **两层** imp domZero
+```
+
+层数不同 ⟹ **两边不相等**。这解释了为什么 `hAll` 走「等式」的路不通。
+
+**(b) 更重要的发现：`Q`/`P` 接口不一致**。
+
+* `ShCraigElimSetup.induction_setup` 的目标谓词是 **`P d := Provable 𝗭𝗙𝗖 (translateSeq (fstIdx d))`**
+  （`ShCraigElimPredicate.lean:40`），其 `hP` 由 `p_defined` 提供；
+* 而本轮填的 `hAxL`/`hAnd`/…/`hShift` **全部证的是 `Q d := Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))`**
+  （`ShCraigElimPredicate.lean:65`）。
+
+两者由 `Provable.toDerivable` / `Derivable.toProvable`
+（`Basic.lean:947`，即 `internal_provable_iff_internal_derivable`）互转，
+**但它们对 sequent 的形状要求不同**：`Provable T φ` 是单公式，
+`Derivable T s` 是 sequent。`Derivable.toProvable` 要求 `s = φ ⫽ ∅`。
+
+**所以接进 `induction_setup` 时**，每个支的结论 sequent
+（如 `translateSeq s`）**不一定是单公式形**——需要先处理这一层。
+这是接装时必须先解决的一步，**比 `hAll`/`hExs` 更靠前**。
+
+**下一步（优先级调整）**：
+1. 先解决 `Q`/`P` 的接装（把已填的 7 支从 `Q` 转成 `P` 可用的形式）；
+2. 再攻 `hAll`/`hExs`——**不能再走等式**，需要考虑
+   「用 `Derivable` 规则直接从 `ih` 构造」或「改 `iT` 的 `all` 支定义」。
+
+**注意**：第 2 条若确认需要改 `iT` 定义，那是接口级改动，
+应先与研究发起人确认（本分支的 `iT` 已被 C-390/C-391 等收据引用）。
 
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
