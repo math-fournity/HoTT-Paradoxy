@@ -775,22 +775,63 @@ lemma domZero_eq_cDomN : domZero (V := V) = ((cDomN : ℕ) : V) := by
   subst hz
   simp
 
+
+/-! ## `free` 与 `imp domZero ·` 的交换（2026-10-11 新增）
+
+`hAll` 的目标里出现 `free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p))`。
+本条把它拆成「`domZero` 的代入像」与「`free` 的余部」——
+
+```
+free ℒₛₑₜ (imp domZero X) = imp (subst ?[^&0] domZero) (free ℒₛₑₜ X)
+```
+
+注意 `subst ?[^&0] domZero ≠ domZero`（`cDomN` 含自由 bvar `#0`），
+故这一项**不能**消掉，必须原样保留。 -/
+
+/-- **`free` 与 `imp domZero ·` 交换**：`free` 把 `imp` 的两个分量各自代入。 -/
+lemma free_imp_domZero {X : V} (hX : IsSemiformula ℒₛₑₜ 1 X) :
+    free ℒₛₑₜ (imp ℒₛₑₜ (domZero (V := V)) X)
+      = imp ℒₛₑₜ (subst ℒₛₑₜ (?[^&0] : V) (domZero (V := V)))
+          (free ℒₛₑₜ X) := by
+  show subst ℒₛₑₜ (?[^&0] : V) (shift ℒₛₑₜ (neg ℒₛₑₜ (domZero (V := V)) ^⋎ X))
+      = neg ℒₛₑₜ (subst ℒₛₑₜ (?[^&0] : V) (domZero (V := V)))
+        ^⋎ subst ℒₛₑₜ (?[^&0] : V) (shift ℒₛₑₜ X)
+  rw [Bootstrapping.shift_or (IsUFormula.neg (isSemiformula_domZero' (V := V)).isUFormula)
+        hX.isUFormula]
+  rw [Bootstrapping.shift_neg (n := 1) (isSemiformula_domZero' (V := V))]
+  rw [shift_domZero]
+  rw [substs_or (L := ℒₛₑₜ)
+        (IsUFormula.neg (isSemiformula_domZero' (V := V)).isUFormula)
+        hX.isUFormula.shift]
+  have hw : IsSemitermVec ℒₛₑₜ (1 : V) (1 : V) (?[^&0] : V) :=
+    IsSemitermVec.singleton.mpr (IsSemiterm.fvar 1 0)
+  have hneg := substs_neg (L := ℒₛₑₜ) (p := (domZero (V := V)))
+    (isSemiformula_domZero' (V := V)) hw
+  rw [hneg]
+
 end GodelQ.TranslateShiftCompat
 
 #print axioms GodelQ.TranslateShiftCompat.iVE_shift
 #print axioms GodelQ.TranslateShiftCompat.shift_iTR
 #print axioms GodelQ.TranslateShiftCompat.shift_domZero
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_rel
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_nrel
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_and
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_or
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_all
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift_exs
 #print axioms GodelQ.TranslateShiftCompat.domZero_eq_cDomN
+#print axioms GodelQ.TranslateShiftCompat.free_imp_domZero
 #print axioms GodelQ.TranslateShiftCompat.iT_shift
