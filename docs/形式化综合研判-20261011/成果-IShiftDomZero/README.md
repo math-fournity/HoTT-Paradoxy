@@ -276,3 +276,31 @@ iT 0 (free ℒₒᵣ p) = subst ?[^&0] (iT 1 (shift ℒₒᵣ p))     [p 层 1]
 域转换下的 `free` 语义**——与 `shift` 遇到的是同一族问题（本会话 `shift_domZero` 用
 `rew_eq_self_of` 绕过了它；但 `free` 改变域，绕不过去）。
 **这是本会话能给下一会话的最精确卡点描述。**
+
+## 十七、路径①的最终定位（本会话最后一段实测）
+
+**可用的桥**（Foundation `Formula/Coding.lean:125`）：
+```lean
+free_quote (φ : Semiproposition L 1) :
+    (⌜Rewriting.free φ⌝ : Formula V L) = Bootstrapping.Semiformula.free ⌜φ⌝
+```
+两侧都是**类型化**的 `Formula V L`（`= Semiformula V L 0`）。
+而 `Bootstrapping.Semiformula.free (p : V) : V := substs1 L ^&0 (shift L p)`。
+
+**归约链**（引号化 `p = ⌜ψ⌝` 的情形）：
+```
+iT 0 (free ⌜ψ⌝) = iT 0 ⌜Rewriting.free ψ⌝ = ⌜translate (Rewriting.free ψ)⌝
+free (iT 1 ⌜ψ⌝) = free ⌜translate ψ⌝ = ⌜Rewriting.free (translate ψ)⌝
+⟹ 需元层：translate (Rewriting.free ψ) = Rewriting.free (translate ψ)
+```
+
+**元层定理的难度**：`Rewriting.free` 由
+`LawfulSyntacticRewriting.app_subst_fbar_zero_comp_shift_eq_free`
+（即 `(shift φ)/[&0] = free φ`）定义；`translate` 是 `DirectTranslation.translate`，
+其 `translateRel` 用 `Rew.subst`/`Rew.emb` 与索引映射构造。
+**证明需要交换 `translateRel` 的 `Rew.subst` 与 `free` 的 `/[&0]`**——
+一条 Foundation 未提供的重写系统交换律。工作量与 `iVE_shift` 同级或更大。
+
+**且**：即使证成，也只覆盖 `p = ⌜ψ⌝`（标准公式）；`hAll` 的 `p` 是 V 内任意码。
+（`induction1` 的 `d` 来自 `Derivation Sh.craig d`，其结论句 `zfcTr G` 是标准的，
+但 `allIntro` 支里的 `p` 本身不保证标准。）
