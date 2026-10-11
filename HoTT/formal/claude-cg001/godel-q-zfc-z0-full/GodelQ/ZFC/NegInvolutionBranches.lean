@@ -55,6 +55,22 @@ lemma negConstruction_rel (param k R v : V) :
 lemma negConstruction_nrel (param k R v : V) :
     Negation.construction.nrel param k R v = (^rel k R v : V) := rfl
 
+/-- `Negation.construction` 的 `and` 支产出 `y₁ ^⋎ y₂`（`rfl`）。 -/
+lemma negConstruction_and (param p₁ p₂ y₁ y₂ : V) :
+    Negation.construction.and param p₁ p₂ y₁ y₂ = (y₁ ^⋎ y₂ : V) := rfl
+
+/-- `Negation.construction` 的 `or` 支产出 `y₁ ^⋏ y₂`（`rfl`）。 -/
+lemma negConstruction_or (param p₁ p₂ y₁ y₂ : V) :
+    Negation.construction.or param p₁ p₂ y₁ y₂ = (y₁ ^⋏ y₂ : V) := rfl
+
+/-- `Negation.construction` 的 `all` 支产出 `^∃ ys.[0]`（`rfl`）。 -/
+lemma negConstruction_all (param p₁ ys : V) :
+    Negation.construction.all param p₁ ys = (^∃ ys.[0] : V) := rfl
+
+/-- `Negation.construction` 的 `exs` 支产出 `^∀ ys.[0]`（`rfl`）。 -/
+lemma negConstruction_exs (param p₁ ys : V) :
+    Negation.construction.exs param p₁ ys = (^∀ ys.[0] : V) := rfl
+
 /-- **对合律的 `rel` 支**：`neg (nrel k R v) = rel k R v`。 -/
 lemma neg_invol_rel {k R v : V} (hR : (ℒₒᵣ).IsRel k R) (hv : IsUTermVec ℒₒᵣ k v) :
     neg ℒₒᵣ (^nrel k R v) = (^rel k R v : V) :=
