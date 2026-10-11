@@ -3,14 +3,14 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "读 HANDOFF-2026-10-11-Z0D3-SESSION-3.md（本轮交接，取代 2026-10-10 那份）与 W8-下一单元-V内部语法解释定理-规格.md（施工规格）+ W8-第二层进展-公式保持性地基.md。(A) 当前唯一数学推进路是 keyE 的 ← 方向，即一条 V 内部的语法解释定理；它已拆成三层，第 1 层基本免费（并行会话已收据化 CG001-C-388），第 2 层拆成「4 条引理 + 10 个 case」。第 2 层地基已证 9 条（GodelQ/ZFC/SeqTranslateFormula.lean，exit 0 无 sorry），下一个可独立验收的单点是 iVE 的三条计算规则（iVE n ^#z = eqAtom ^#(z+1) 等；InternalTranslate.lean 里只有可定义性、无化简），随后是 isSemiformula_iVE / isSemiformula_domZero / isSemiformula_iTR / 公式保持性主定理。两个关键机制：① definability 证部分应用需同时登记层级实例 Γᴬ_[m+1]-Function₂（照 Foundation 的 disjSeqSubst）；② semiformula_result_induction 的 param（输出层）与 n（输入层）独立量化，归纳谓词要带 param = n 护罩。真正未知量是 iT 与 substs1/shift/free 的相容、以及 axm 支所需的 codeOfREPred 一般 V 表示引理。(B) keyE 的 → 方向有路线（Derivable.of_ss、provable_standardProvability_imp_of_Δ₁Class_subset、Theory.reWitness_spec+mem_craig_codes_iff），可作并行支线。(C) 已完成：dev-09 的 external-foundation-incompleteness（D09-C-369）已于 2026-10-10 在本机 Foundation 构建树 1fb01b72 上重放（CG001-C-387，run 20261010-CG001-FFL-INCOMPLETENESS-R3-REPLAY-01 与 -NEG-01）；八方向覆盖闭合（C-123–C-127 + C-387）。(D) 待用户裁定：另一会话 2026-10-10 18:11–19:42 在主检出留下的未提交工作（Z0Layer1.lean 七条交换律 CG001-C-388 + 两条收据 + Z0Layer1Emb.lean 带两处 sorry 的 CG001-C-389 + 6 个治理文件的纯追加），归位时需把 证据索引.md 里重复的 ## 38. 改成 §40/§41。(E) W9 剩项：四种 CLAIMS 译文与 main 由 scripts/release/build_main_release.py 从 dev 生成并推送，需研究发起人授权。",
+  "phase": "W8-layer2-formula-foundation (lemma set #1-#5 proved; 10-case assembly and elimination still open) / W9-coverage-closed / W9-release-pending-authorization",
+  "next_action": "D3 攻坚第 2 层地基已完成（CG001-C-391：iVE 三条计算规则、isSemiformula_iVE/domZero/iTR、公式保持性主定理 isSemiformula_iT；主运行与负控制 -NEG-02 均精确重放）。并行会话的入口障碍清除（CG001-C-390：宇宙多态桥 + bwd 归约为一条消去 ShCraigElim）已在提交 7d6ad033 入库；第 1 层七条交换律（CG001-C-388）与其收据仍在工作区未提交。下一个可独立验收的单点：`derivable_translateSeq` 的 10 个 case 组装（施工图 /tmp/d3build/src/.../SeqTranslateDerivable.lean 从未编译，先搬进包再逐条修；辅助引理 translateSeq_isFormulaSet、fstIdx_axL 等不存在）；C-391 已把每个 case 都需要的 `IsFormulaSet` 地基铺好。之后依次是 iT 与 subst/shift/free/setShift 的相容、axm 支（需 codeOfREPred 的一般 V 表示引理）、组装 bridge / keyE 的 ← / zfcTr_D3_internalize，最后用 capture_run.py 出正式收据。C-120 影子形式无条件成立，不受影响。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-11T00:12:04-04:00",
+  "updated": "2026-10-11T01:30:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
   "checkpoints": 10,
   "compactions": 2,

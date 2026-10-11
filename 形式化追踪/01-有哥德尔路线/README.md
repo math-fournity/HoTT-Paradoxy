@@ -25,7 +25,7 @@
 | 3 | 每一刻看得见、永远看不见；对角过程的两句都独立 | ✅ | C-99、C-100 |
 | 4 | 魔鬼交易；𝗭𝗙𝗖 + A = 𝗭𝗙𝗖 + P | ✅（跑者部分在旧接口 ΦH 上以“到达句”参数为条件；在新接口 ΦS 上无条件，C-118） | C-99、C-101、C-118；A ⟺ P 的闭包条件形式见 C-116 |
 | 5 | 与 Foundation 自带的不完备定理交叉核对 | ✅ | C-102 |
-| 6 | Z0：𝗭𝗙𝗖 证明不了自己的矛盾搜索永不停 | ◐ **影子形式不带前提 ✅**（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`，C-120）；**内部化：除一条消去外全部成为定理**（C-121、C-122；入口障碍已清除，C-390） | C-103；C-109、C-110、C-111、C-119、C-120（影子形式无条件），[`godel-q-zfc-z0-translate/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-translate/CLAIM.md)；C-121、C-122 与唯一阻塞引理 [`godel-q-zfc-z0-full/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md)；C-390（宇宙多态桥 + `bwd` 归约）[`CLAIM-Z0-UNIBRIDGE.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM-Z0-UNIBRIDGE.md)；见 [02 节](02-Z0-条件形式与剩余三步.md) |
+| 6 | Z0：𝗭𝗙𝗖 证明不了自己的矛盾搜索永不停 | ◐ **影子形式不带前提 ✅**（`𝗭𝗙𝗖 ⊬ (Sh.craig.consistent)ᵗ`，C-120）；**内部化：除一条消去外全部成为定理**（C-121、C-122；入口障碍已清除 C-390；第 2 层公式保持性地基已证 C-391） | C-103；C-109、C-110、C-111、C-119、C-120（影子形式无条件），[`godel-q-zfc-z0-translate/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-translate/CLAIM.md)；C-121、C-122 与唯一阻塞引理 [`godel-q-zfc-z0-full/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md)；C-390（宇宙多态桥 + `bwd` 归约）[`CLAIM-Z0-UNIBRIDGE.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/CLAIM-Z0-UNIBRIDGE.md)；C-391（第 2 层公式保持性地基）[`CLAIM-Z0-W8-LAYER2-FORMULA.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/CLAIM-Z0-W8-LAYER2-FORMULA.md)；见 [02 节](02-Z0-条件形式与剩余三步.md) |
 | 7 | 把跑者的“到达”句写成集合语言，并在 𝗭𝗙𝗖 中证明等价 | ✅（新的停机公式 ΦS；到达句是算术写法） | C-117、C-118，[`godel-q-zfc-runner-arrival/CLAIM.md`](../../HoTT/formal/claude-cg001/godel-q-zfc-runner-arrival/CLAIM.md)；见 [03 节](03-跑者的到达句.md) |
 
 各条的细节见 [01 节](01-已证-过程观察的不完备.md)。
