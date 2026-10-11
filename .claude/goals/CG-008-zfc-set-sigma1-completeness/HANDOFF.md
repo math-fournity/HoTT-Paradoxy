@@ -25,11 +25,17 @@ cd /Users/aurolafly/WorkBuddy/Worktrees/HoTT_AI_HANDOFF_20260911/dev-ef7e5239 &&
 ```
 
   本轮已把驱动与构建顺序从 `/tmp` 复制进仓库（`tools/` 下）：
-  - `build_z0.py`（sha256 `d6a48f68b88aeae98ba2259bf7e5f93b373d03b5613302fb82a02d02a099cc1b`）
+  - `build_z0.py` — 驱动。**olean 缓存默认落在 `tools/../olean-cache/`**（本包内，已 gitignore），
+    不再写 `/tmp`；可用环境变量 `Z0_BUILD_DIR` 覆盖。
   - `z0_build_order.txt`（探针用，26 文件，末位 `Z0Probe.lean`）
   - `z0_receipt_build_order.txt`（收据用，25 文件，不含 `Z0Probe`）
+  - `prior-line-scaffolds/` — 先前 D3 攻坚线的试验脚手架（`compile_deps.sh`、`iter.sh`、
+    `probe.py`、`LEANPATH`、`claim.py`、`neg.py`、`handoff.py`），逐字节保存，见其 README。
 
   不再依赖 `/tmp`。中间探针加 `--no-forbidden-check`；**收据文件不加**。
+  **首次使用**（缓存为空）要按顺序跑完整依赖前缀，见 `z0_receipt_build_order.txt`；
+  之后增量编译只跑目标文件即可。
+
   另：2026-10-10 的独立复核报告已从 `/tmp` 保存到 `audit/20261010-keyE缺口审计-独立复核.md`
   （该报告判定「缺口缩小到 `keyE`」是重新包装而非缩小，与本轮结论一致）。
 

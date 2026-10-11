@@ -71,7 +71,11 @@ def main() -> int:
                 sys.stdout.write(f"## FORBIDDEN_SOURCE_MARKER:{rel}:{found}\n"); return 3
 
     options = [f"-D{k}={v}" for k, v in closure["lean_options"].items()]
-    build = Path(os.environ.get("Z0_BUILD_DIR", "/tmp/z0_build_lib"))
+    # Olean cache. Defaults to a durable sibling of this file rather than /tmp: the
+    # cache is what lets incremental compiles skip the 24-module dependency prefix,
+    # so losing it (a /tmp sweep) costs a full rebuild. Override with Z0_BUILD_DIR.
+    build = Path(os.environ.get("Z0_BUILD_DIR",
+                                Path(__file__).resolve().parent.parent / "olean-cache"))
     build.mkdir(parents=True, exist_ok=True)
     lean_path = ":".join([str(build)] + [str(p) for p in closure["lean_path"]])
     env = {"PATH": f"{prefix}/bin:/usr/bin:/bin", "LEAN_SYSROOT": str(prefix),
