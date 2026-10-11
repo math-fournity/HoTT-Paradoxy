@@ -78,14 +78,16 @@ lemma shift_imp {p q : V} (hp : IsUFormula ℒₛₑₜ p) (hq : IsUFormula ℒ�
   congr 1
   exact shift_neg hp.isSemiformula
 
-/-- `shift` 固定 `cFunc k f`（`Semisentence ℒₛₑₜ n` 的引号，任意 `k`）。 -/
-lemma shift_cFunc (k f : V) : shift (L := ℒₛₑₜ) (cFunc k f) = cFunc k f := by
-  rw [cFunc]
-  split_ifs
-  · rw [cFuncN]; split_ifs <;> exact shift_quote _
-  · rw [cFuncN]; split_ifs <;> exact shift_quote _
-  · rw [cFuncN]; split_ifs <;> exact shift_quote _
-  · rw [cFuncN]; split_ifs <;> exact shift_quote _
+/-- `shift` 固定 `cFunc 0 f`（0 元函数符号，numeral）。 -/
+lemma shift_cFunc0 (f : V) : shift (L := ℒₛₑₜ) (cFunc (V := V) 0 f) = cFunc (V := V) 0 f := by
+  simp only [cFunc, cFuncN, reduceIte]
+  split
+  · rw [Sentence.coe_quote_eq_quote]
+    exact shift_quote _
+  · split
+    · rename_i h; exact absurd h (by decide)
+    · rw [Sentence.coe_quote_eq_quote]
+      exact shift_quote _
 
 /-- `shift` 固定 `subst [#0] (cFunc 0 f)`——闭代换。 -/
 lemma shift_subst_cFunc0 (f : V) :
@@ -96,7 +98,7 @@ lemma shift_subst_cFunc0 (f : V) :
     (isSemitermVec_single_bvar (n := 1) (by simp))]
   congr 1
   · rw [termShiftVec_cons₁ (IsUTerm.bvar (L := ℒₛₑₜ)), termShift_bvar]
-  · exact shift_cFunc 0 f
+  · exact shift_cFunc0 f
 
 /-- `shift` 固定 `ve0 k f`（func 支的 k=0 情形）。 -/
 lemma shift_ve0 (f : V) : shift (L := ℒₛₑₜ) (ve0 (V := V) 0 f) = ve0 (V := V) 0 f := by
@@ -113,6 +115,6 @@ end GodelQ.ShiftTools
 #print axioms GodelQ.ShiftTools.shift_quote
 #print axioms GodelQ.ShiftTools.shift_domZero
 #print axioms GodelQ.ShiftTools.shift_imp
-#print axioms GodelQ.ShiftTools.shift_cFunc
+#print axioms GodelQ.ShiftTools.shift_cFunc0
 #print axioms GodelQ.ShiftTools.shift_subst_cFunc0
 #print axioms GodelQ.ShiftTools.shift_ve0
