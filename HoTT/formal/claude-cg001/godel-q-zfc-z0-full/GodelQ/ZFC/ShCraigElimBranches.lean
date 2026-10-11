@@ -19,7 +19,32 @@ import GodelQ.ZFC.SeqTranslateFormula
 * `hVerumIntro`：`⊤ ∈ s` ⟹ `Derivable 𝗭𝗙𝗖 (translateSeq s)`。
   用 `Derivable.verum` + `iT_verum`。
 
-## 未填，以及为什么
+## 2026-10-11 进展：2 支 → 6 支
+
+`hAxL`、`hAnd`、`hOr`、`hCut` 已填（各自 `#print axioms` 只有三条标准公理）。
+其中 **`hAxL`/`hCut` 正是本文档下面记为「所需相容律不存在」的两支**——
+`ShCraigElimNegLaw.iT_neg`（一般 `iT`/`neg` 相容律）一旦证成，两支即通。
+
+## 剩余三支的精确障碍（2026-10-11 本机核实）
+
+`hAll`/`hExs`/`hShift` 要的是 `iT` 与 `shift`/`setShift`/`substs1` 的相容律。
+本机读 Foundation 源码后确认：**这不是平凡的交换律**，原因在 `iVE` 与 `termShift`
+对绑定变量的处理不同：
+
+| 运算 | 对 `^#z`（bvar） | 对 `^&x`（fvar） |
+|---|---|---|
+| `iVE`（`InternalTranslate.lean:164`） | `eqAtom (^#(z + 1))` —— **码加一** | `eqAtom (^&x)` —— 不动 |
+| `termShift`（Foundation `Term/Functions.lean:210`） | `^#z` —— **不动** | `^&(x + 1)` —— **码加一** |
+
+`iVE` 加一是因为 `eqAtom` 引入一个绑定层（`iVE` 的输出在 `ℒₛₑₜ` 里多一层量词）；
+`termShift` 加一是算术侧的自由变量移位。两者作用于**不同的变量类**，
+所以 `iVE n (termShift t) ≠ termShift (iVE n t)` 在一般情形下**不成立**。
+
+要证相容律，得先弄清在 `translateSeq (setShift s)` 这个具体位置上两者是否恰好对上
+（也许需要 `iT` 的 `rel` 支重新表述，或引入一个「双移位」辅助运算）。
+**这一步尚未做**；不要在没弄清之前假定它平凡。
+
+## 未填，以及为什么（2026-10-11 前的记载，保留）
 
 其余 9 个支。它们分成两类：
 
