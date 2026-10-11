@@ -101,7 +101,51 @@ lemma iVE_shift {n : V} : ∀ t, IsSemiterm ℒₒᵣ n t →
             resultVec2_nth hv.isUTerm (by norm_num)]
           simp
 
+/-- `ℒₒᵣ` 的关系只有 2 元（等号、小于）。 -/
+lemma rel_arity_eq_two {k R : V} (hR : (ℒₒᵣ).IsRel k R) : k = 2 := by
+  rcases Arithmetic.isRel_iff_LOR.mp hR with h | h
+  · exact h.1
+  · exact h.1
+
+/-- **原子层主定理**：`iTR n k R (termShiftVec k v) = shift ℒₛₑₜ (iTR n k R v)`。
+
+`iTR` 只读 `v.[0]`、`v.[1]`（`k = 2`，由 `rel_arity_eq_two`）。两边 `iTR` 都展开后：
+分量用 `nth_termShiftVec` + `iVE_shift` 换名；外层走 `shift_qqAlls` + `shift_imp`
++ `shift_and_pair` + `shift_conjunct`；结论项走 `shift_subst_cRel_closed`。 -/
+lemma iTR_shift {n k R v : V} (hR : (ℒₒᵣ).IsRel k R) (hv : IsSemitermVec ℒₒᵣ k n v) :
+    iTR n k R (termShiftVec ℒₒᵣ k v) = shift ℒₛₑₜ (iTR n k R v) := by
+  have hk2 : k = 2 := rel_arity_eq_two hR
+  subst hk2
+  have h0 : IsSemiformula ℒₛₑₜ (n + 1) (iVE n v.[0]) :=
+    isSemiformula_iVE v.[0] (hv.nth (i := 0) (by norm_num))
+  have h1 : IsSemiformula ℒₛₑₜ (n + 1) (iVE n v.[1]) :=
+    isSemiformula_iVE v.[1] (hv.nth (i := 1) (by norm_num))
+  have hc0 : IsUFormula ℒₛₑₜ (conjunct 2 n 0 (iVE n v.[0])) :=
+    (isSemiformula_conjunct h0 (zero_lt_two_add n)).isUFormula
+  have hc1 : IsUFormula ℒₛₑₜ (conjunct 2 n 1 (iVE n v.[1])) :=
+    (isSemiformula_conjunct h1 (one_lt_two_add n)).isUFormula
+  have hA : IsUFormula ℒₛₑₜ
+      (conjunct 2 n 0 (iVE n v.[0]) ^⋏ (conjunct 2 n 1 (iVE n v.[1]) ^⋏ ^⊤)) :=
+    IsUFormula.and.mpr ⟨hc0, IsUFormula.and.mpr ⟨hc1, IsUFormula.verum⟩⟩
+  have hB : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) :=
+    (IsSemiformula.subst (isSemiformula_cRel R)
+      GodelQ.ShiftConjunct.isSemitermVec_v01).isUFormula
+  rw [iTR]
+  conv_rhs => rw [iTR]
+  rw [nth_termShiftVec hv.isUTerm (show (0 : V) < 2 by norm_num),
+    nth_termShiftVec hv.isUTerm (show (1 : V) < 2 by norm_num),
+    iVE_shift (n := n) v.[0] (hv.nth (i := 0) (by norm_num)),
+    iVE_shift (n := n) v.[1] (hv.nth (i := 1) (by norm_num)),
+    GodelQ.ShiftConjunct.shift_qqAlls (IsUFormula.imp.mpr ⟨hA, hB⟩),
+    GodelQ.ShiftTools.shift_imp hA hB,
+    GodelQ.ShiftConjunct.shift_and_pair hc0 hc1,
+    GodelQ.ShiftConjunct.shift_conjunct h0 (zero_lt_two_add n),
+    GodelQ.ShiftConjunct.shift_conjunct h1 (one_lt_two_add n),
+    GodelQ.ShiftConjunct.shift_subst_cRel_closed R]
+
 end GodelQ.IVeShift
 
 #print axioms GodelQ.IVeShift.resultVec2_nth
 #print axioms GodelQ.IVeShift.iVE_shift
+#print axioms GodelQ.IVeShift.rel_arity_eq_two
+#print axioms GodelQ.IVeShift.iTR_shift
