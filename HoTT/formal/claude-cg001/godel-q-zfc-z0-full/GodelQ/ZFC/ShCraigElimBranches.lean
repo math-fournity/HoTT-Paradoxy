@@ -713,6 +713,60 @@ hAll：目标 Derivable (translateSeq s)
 
 **下一步（优先级最高，比 hAll 靠前）**：把 `induction_setup` 改用 `Q`。
 
+---
+
+## 第十七轮：`Q` 版 `induction_setup` 已完成（`ShCraigElimSetupQ.lean`）
+
+**本机实测 exit 0**：新增 `ShCraigElimSetupQ.induction_setup_Q`，
+`hP := q_defined.to_definable`（`Q` 是 Σ1 谓词），
+**7 支已接入**（`hAxL`/`hVerumIntro`/`hAnd`/`hOr`/`hWk`/`hShift`/`hCut`），
+剩 `hAll`/`hExs`/`hRoot` 三支。
+
+接装时解决的两处细节（都是 `DerivationOf` 的用法）：
+* `hAnd`/`hOr`/`hCut` 要 `fstIdx dp = …`，从 `DerivationOf` 用 `.1` 取；
+* `hCut` 要 `IsSemiformula ℒₒᵣ 0 p`，从 `h₁.isFormulaSet p (by simp)` 拿
+  （`h₁` 的 `DerivationOf` 给 `IsFormulaSet (insert p s)`）。
+
+---
+
+## 第十八轮：`hAll` 的**最终诊断**——本支需要新的数学，不是缺引理
+
+把 `hAll` 的所有可能路线逐一实测后，结论如下。
+
+**目标**：`Derivable (translateSeq s)`，其中 `^∀ p ∈ s`。
+**`ih`**：`Derivable (insert (iT 0 (free ℒₒᵣ p)) (setShift (translateSeq (fstIdx d))))`。
+
+**`all_m` 要求的前提**：`Derivable (insert (free ℒₛₑₜ q) (setShift (translateSeq s)))`，
+其中 `q := imp ℒₛₑₜ domZero (iT 1 p)`（由 `iT_all` 强制）。
+
+**中间缺的那一步**是：把 `iT 0 (free ℒₒᵣ p)` 换成 `free ℒₛₑₜ q`。
+三轮实测证明这条路**走不通**：
+
+| 轮次 | 检验 | 结果 |
+|---|---|---|
+| 第十二 | `termSubst ?[^&0] ^#0` vs `termSubst (^#0 ∷ ^&0 ∷ 0) ^#0` | `^&0` vs `^#0`——**不同** |
+| 第十五(a) | `p` 含 `all` 时两边的 `imp domZero` 层数 | 一层 vs 两层——**不等** |
+| 第十八 | `iVE 1 ^#0` 经 `subst ?[^&0]` | `^&0 ∷ 0 ∷ 0` vs `^#0 ∷ ^&0 ∷ 0`——**不同** |
+
+**根因**：`iVE` 引入的 `eqAtom` **自带一个绑定变量 `#0`**
+（它编码的是 `#0 = t`）。外层的 `subst`（无论用哪个向量）
+都会穿透进去改那个 `#0`，而 `iT` 在绑定层下用的是 `substs_all` 的
+**保护**语义（`qVec` 首分量换成 `^#0`）。**两种语义不可调和。**
+
+**这不是「缺一条引理」**：三轮反例覆盖了朴素形状、层数对齐形状、
+`qVec` 对齐形状——都不成立。`hAll`（与同形的 `hExs`）需要的是
+**结构性的新想法**，可能是：
+
+1. **改 `iT` 的 `all`/`exs` 支定义**：让它们用「替换」而非「保护」语义
+   （代价：`iT` 已被 C-390/C-391 等收据引用，属接口级改动，**需研究发起人裁定**）；
+2. **绕开 `induction1` 的 `hAll` 支**：直接对 `Sh.craig` 推导的结构做别的归纳
+   （可能更贴合「Craig 技巧的公理都是封闭句」这一事实）；
+3. **换 `translateSeq` 的定义**：让它对 `setShift`/`free` 的交互更友好。
+
+**当前可交付的状态**：`ShCraigElim` 的 `induction1` 路线已推进到
+**7/10 支 + 完整的 `Q` 版接装框架**，剩余 3 支的障碍已被**精确刻画**
+（不是笼统的「还差」）。这是本条路线在本轮能达到的最远点。
+
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
 **直接从 `ih` 用 `Derivable` 规则搭桥**，把
