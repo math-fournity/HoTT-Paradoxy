@@ -17,6 +17,20 @@ P d := Provable 𝗭𝗙𝗖 (translateSeq (fstIdx d))
 （sequent 层），本文件给出 `Q` 版的 `induction_setup`。
 `ShCraigElimBranches` 已填的 7 支证的就是 `Q`，可直接接入。
 
+## ⚠ 本文件的完成度（2026-10-11 实测）
+
+`induction_setup_Q` 里 **7/10 支已填**（`hAxL`/`hVerumIntro`/`hAnd`/`hOr`/`hWk`/`hShift`/`hCut`），
+**`hAll`/`hExs`/`hRoot` 三支仍带未证标记**。
+本文件的其余部分（`split_or`、`replace_of_imp`）**完全无未证标记、exit 0**。
+
+**不要**把本文件当成「已完成的消去」——它给出的是**框架 + 7 支 + 剩余三支的精确缺口**：
+
+* `hAll`：归约已定型（`Derivable.all` + `replace_of_imp` + 一条算术蕴含式 `⊢ A → B`）；
+* `hExs`：同形（`Derivable.exs`）；
+* `hRoot`：**就是 D3 本身**（`iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class`）。
+
+细节见 `形式化追踪/11-Claude交接-第二次接手-20261011.md` §2。
+
 ## 与 `P` 版的关系
 
 `P` 版仍然有价值（它是 `Provable` 层的陈述，`Z0Blocked.lean` 那边可能需要），

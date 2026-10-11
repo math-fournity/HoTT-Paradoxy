@@ -13,6 +13,12 @@
 | `devbuild.py` | 增量编译，迭代用 | 否 |
 | `devbuild_ns.py` | 同上，无沙箱变体（宿主不允许嵌套沙箱时用） | 否 |
 | `lean_probe.py` | 单文件探针，快速验证一条引理能否 elaborate | 否 |
+| `devbuild_ns.py`（及同名 shell 包装 `devbuild_ns`） | 同上，2026-10-11 从 `/tmp/build_z0.py` 归档 | 否 |
+| `build_handoff_pkgs.py` | 生成 `外部资料/Z0-D3-外部AI专攻数学证明包` 等交付包（2026-10-11 从 `/tmp` 归档） | 否 |
+| `dep_chain.py` | 把 24 个模块的编译次序追加到攻关包的 `BUILD.md`（2026-10-11 从 `/tmp/chain.py` 归档） | 否 |
+
+> **规程**：任何在 `/tmp` 里写过、含结论或可复用的脚本，收工前必须归档到本目录；
+> 探针类归档到 `../probes/`。`/tmp` 会被系统清理，不能当仓库用。
 
 ## `devbuild.py`：迭代编译
 
