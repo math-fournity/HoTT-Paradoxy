@@ -1,24 +1,10 @@
 import GodelQ.ZFC.ShCraigElimBranches
+import Foundation.FirstOrder.Incompleteness.Second
 
 /-!
 # DEVELOPMENT_PROBE / NOT_A_RECEIPT / NOT_A_CLAIM
 
-身份：开发探针。`axm` 支的路线探索。
-
-## 已确认的两条路线（都可用，但接进 `axm` 支还需对上类型）
-
-**路线一**：`σ ∈ Sh.craig ⟹ 𝗭𝗙𝗖 ⊢ arithTrln.translate σ`。
-三步：`Sh.craig ⪯ Sh`（Foundation `CraigTrick.lean:321` 已有实例）
-→ `Sh_provable_iff`（本包 `Z0Shadow.lean:45`）→ `Entailment.by_axm`。
-
-**路线二**：`p = ⌜φ⌝` 且 `p ∈ Sh.craig.Δ₁Class` 时 `𝗭𝗙𝗖 ⊢ iT 0 p`。
-用 Foundation 的 `Δ₁Class.mem_iff_s`
-（`(⌜φ⌝ : V) ∈ T.Δ₁Class ↔ ∃ σ ∈ T, φ = σ`，在 `FFL.FirstOrder.Arithmetic.Bootstrapping`
-命名空间下）把 `Δ₁Class` 的成员转成 `T` 的成员，再接路线一 + `iT_quote`。
-
-## 未完成
-
-类型与命名空间对齐（`Entailment SetTheory V` 实例的引入路径、`mem_iff_s` 的完整限定名）。
+身份：开发探针。攻 `axm` 支。
 **不是**收据源，**不是**数学主张。
 -/
 
@@ -37,5 +23,28 @@ lemma zfc_provable_of_mem_craig (σ : ArithmeticSentence) (h : σ ∈ Sh.craig) 
     𝗭𝗙𝗖 ⊢ arithTrln.translate σ := by
   rw [← Sh_provable_iff]
   exact (inferInstance : Sh.craig ⪯ Sh).pbl (Entailment.by_axm h)
+
+/-- 路线二（第一步）：先把 `mem_iff_s` 转成 `Sh.craig` 的成员。 -/
+lemma mem_craig_of_mem_delta1 (φ : ArithmeticSentence)
+    (h : (⌜φ⌝ : V) ∈ Sh.craig.Δ₁Class) : ∃ σ : ArithmeticSentence, σ ∈ Sh.craig := by
+  have h' := (FFL.FirstOrder.Arithmetic.Bootstrapping.Δ₁Class.mem_iff_s
+    (T := Sh.craig) (φ := φ)).mp h
+  obtain ⟨σ, hσ, _⟩ := h'
+  exact ⟨σ, hσ⟩
+
+/-- **`axm` 支的核心**：`⌜φ⌝ ∈ Sh.craig.Δ₁Class` 时 `iT 0 ⌜φ⌝` 就是某个 `𝗭𝗙𝗖` 可证句的码。
+
+结论写成 `∃ σ : ArithmeticSentence, σ ∈ Sh.craig ∧ iT (0:V) (⌜φ⌝:V) = ⌜arithTrln.translate σ⌝`
+——把 `Entailment` 实例的搜索推给调用方，本引理只做码层的等式。 -/
+lemma iT_of_mem_delta1 (φ : ArithmeticSentence)
+    (h : (⌜φ⌝ : V) ∈ Sh.craig.Δ₁Class) :
+    ∃ σ : ArithmeticSentence, σ ∈ Sh.craig ∧ iT (0 : V) (⌜φ⌝ : V) = ⌜arithTrln.translate σ⌝ := by
+  have h' := (FFL.FirstOrder.Arithmetic.Bootstrapping.Δ₁Class.mem_iff_s
+    (T := Sh.craig) (φ := φ)).mp h
+  obtain ⟨σ, hσ, hφ⟩ := h'
+  have hφ' : φ = σ := Rewriting.emb_injective hφ
+  subst hφ'
+  refine ⟨φ, hσ, ?_⟩
+  rw [show (0 : V) = ((0 : ℕ) : V) by simp, iT_quote]
 
 end GodelQ.ProbeHAxm
