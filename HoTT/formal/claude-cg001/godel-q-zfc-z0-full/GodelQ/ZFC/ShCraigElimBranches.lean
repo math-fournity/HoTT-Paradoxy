@@ -685,6 +685,34 @@ hAll：目标 Derivable (translateSeq s)
 **注意**：第 2 条若确认需要改 `iT` 定义，那是接口级改动，
 应先与研究发起人确认（本分支的 `iT` 已被 C-390/C-391 等收据引用）。
 
+**第十六轮：`P` 谓词的语义问题已确认（本机实测）**
+
+`Provable T φ` 的签名是 `(T : Theory L) → V → Prop`——**它接受任意 `V`**，
+所以 `P d := Provable 𝗭𝗙𝗖 (translateSeq (fstIdx d))` **能通过类型检查**，
+但语义上把 `translateSeq s`（一个**集合**）当成了**单个公式**。
+
+**这不是编译错误，是语义错误**：`Provable` 的定义（`Basic.lean:539` 附近）
+是 `∃ d, Proof d φ`，而 `Proof d φ := DerivationOf T d {φ}`——
+它要求推导的结论 sequent **恰好是单元素集 `{φ}`**。
+`translateSeq s` 一般不是单元素集，故 `P d` 在 `s ≠ {φ}` 时**几乎必然为假**。
+
+**后果**：`induction_setup` 的 `P` 谓词**用错了**——
+正确的归纳不变量应当是 `Q d := Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))`
+（sequent 层），而这正是本轮填的 7 支所用的。
+
+**所以接装方案很明确**：
+1. 把 `induction_setup` 的 `hP` 从 `p_defined` 换成 **`q_defined`**
+   （`ShCraigElimPredicate.lean:72` 已经就位，`Q` 也是 Σ1 谓词）；
+2. 目标从 `P d` 改成 `Q d`；
+3. 各支直接用本轮已填的 `hAxL`/…/`hShift`（它们证的就是 `Q`）。
+
+**`ShCraigElim` 本身的结论**仍是「`Provable Sh.craig ⌜σ⌝ → Provable 𝗭𝗙𝗖 ⌜translate σ⌝」，
+其中两侧都是**单公式** `Provable`——这没问题，因为那一步不走 `induction1`。
+`induction1` 只用在**中间的**「`Derivable Sh.craig s → Derivable 𝗭𝗙𝗖 (translateSeq s)`」
+这一步，那一步用 `Q` 是对的。
+
+**下一步（优先级最高，比 hAll 靠前）**：把 `induction_setup` 改用 `Q`。
+
 **结论**：`hAll` 不能靠「`iT` 与 `free`/`subst` 交换」来证——
 两者的语义本就不同。出路只有出路 1：
 **直接从 `ih` 用 `Derivable` 规则搭桥**，把
