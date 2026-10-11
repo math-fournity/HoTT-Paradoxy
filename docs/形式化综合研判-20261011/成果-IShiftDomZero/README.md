@@ -259,3 +259,20 @@ iT 0 (free ℒₒᵣ p) = subst ?[^&0] (iT 1 (shift ℒₒᵣ p))     [p 层 1]
 `hAll_uncond` 已把它**精确隔离**为一条显式前提（`HAllProof.lean` 的 `hAB`），
 其余 9 支的组装、全部工具（`split_or`/`replace_of_imp`/`free_imp_domZero`）都已就位并机器核验。
 **这正是"接口级裁定点"**——路径③（改 `iT` 定义）或接受 `hAB` 为假设，需要用户决定。
+
+## 十六、路径①的精确技术卡点（本会话实测）
+
+尝试把 `hAB` 的引号化情形归约到元层 `translate (free ψ) = free (translate ψ)` 时，
+遇到**同一类结构障碍**：
+
+- `Semisentence L n = Semiformula L Empty n`（fvar 域 `Empty`），
+  而 `Rewriting.free : F (n+1) →ˡᶜ F n` 需要 `Rewriting L ℕ F ℕ F` 实例——
+  对 `Semisentence ℒₒᵣ` **不直接可得**（`Rewriting ?m ℕ (Semisentence ℒₒᵣ) ℕ (Semisentence ℒₒᵣ)`
+  实例合成失败）。
+- 需先走 `Rewriting.emb`（`Empty → ℕ` 提升，`shift_quote` 用的正是这条），
+  再谈 `free`——但 `free` 作用后域变回 `Empty`，形成往复。
+
+**结论**：路径① 不是"一条元层引理"，而是**需要先解决 `Semisentence`/`Semiproposition`
+域转换下的 `free` 语义**——与 `shift` 遇到的是同一族问题（本会话 `shift_domZero` 用
+`rew_eq_self_of` 绕过了它；但 `free` 改变域，绕不过去）。
+**这是本会话能给下一会话的最精确卡点描述。**
