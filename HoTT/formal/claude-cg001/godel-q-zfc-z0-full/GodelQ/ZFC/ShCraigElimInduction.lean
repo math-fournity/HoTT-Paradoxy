@@ -10,7 +10,7 @@ import GodelQ.ZFC.ShCraigElimBranches
 `Q` 也是 Σ1 谓词（`ShCraigElimSetup.q_defined`），故可以**用 `Q` 重开一份归纳**，
 把已证的支直接接进去。本文件就是这份归纳。
 
-## 已接线（6 支）
+## 已接线（7 支）
 
 | 支 | 用的引理 |
 |---|---|
@@ -20,17 +20,17 @@ import GodelQ.ZFC.ShCraigElimBranches
 | `orIntro` | `ShCraigElimBranches.hOr`（同上，`iT_or`） |
 | `wkRule` | `ShCraigElimBranches.hWk`（`Derivable.wk` + `translateSeq_mono`） |
 | `cutRule` | `ShCraigElimBranches.hCut`（用 `iT_neg`，C-398） |
+| `shiftRule` | `ShCraigElimBranches.hShift`（用 `iT_shift`，2026-10-11 证出） |
 
-## 待补（4 支）
+## 待补（3 支）
 
 | 支 | 缺什么 |
 |---|---|
-| `allIntro` | `iT` 与 `setShift` 的相容律；其 func 支卡在 `cFunc` 不是 `shift`-不变（见 `ShCraigElimBranches.lean` 的未填表） |
+| `allIntro` | `iT` 与 `free`/`setShift` 的相容律；`setShift` 半边已由 `translateSeq_setShift` 解决，还差 `free` 半边（`iT` 与 `substs1`/`free` 的相容） |
 | `exsIntro` | `iT` 与 `substs1` 的相容律，同上量级 |
-| `shiftRule` | 同 `allIntro` |
 | `axm` | 四块已证（`ProbeHAxm.lean` / `ProbeHAxm2.lean`）；最后一环需把 V 层 `reWitness` 见证认成引号化 |
 
-**本文件不是 `ShCraigElim`**：待补的 4 支填完、且整条消去与 `bwd_of_shcraig_elim`
+**本文件不是 `ShCraigElim`**：待补的 3 支填完、且整条消去与 `bwd_of_shcraig_elim`
 接上之后，才谈得上 `ShCraigElim`。`zfcTr_D3_internalize` 仍未证。
 -/
 
@@ -72,9 +72,9 @@ theorem induction_setup_Q (d : V) (hd : Derivation (V := V) (L := ℒₒᵣ) Sh.
   · -- wkRule
     intro s _hs _dd _h _hd _ih
     exact ShCraigElimBranches.hWk _hs _h _ih
-  · -- shiftRule（待补：同 allIntro）
-    intro s _hs _dd _h _hd _ih
-    sorry
+  · -- shiftRule
+    intro s hs _dd h _hd ih
+    exact ShCraigElimBranches.hShift hs h ih
   · -- cutRule
     intro s hs p d₁ d₂ h₁ h₂ ih₁ ih₂
     have hp : IsSemiformula ℒₒᵣ 0 p :=

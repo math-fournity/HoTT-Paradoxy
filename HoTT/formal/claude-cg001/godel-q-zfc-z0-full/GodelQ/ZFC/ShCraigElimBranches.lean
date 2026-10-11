@@ -1,6 +1,7 @@
 import GodelQ.ZFC.ShCraigElimPredicate
 import GodelQ.ZFC.SeqTranslateFormula
 import GodelQ.ZFC.ShCraigElimNegLaw
+import GodelQ.ZFC.TranslateSeqShift
 
 /-!
 # CG-007 · W8 第二层（五）：`induction1` 的规则支
@@ -147,6 +148,25 @@ lemma hCut {s p d₁ d₂ : V} (_hs : IsFormulaSet (L := ℒₒᵣ) s) (hp : IsS
   rw [GodelQ.ShCraigElimNegLaw.iT_neg (n := 0) p hp] at ih₂
   exact Derivable.cut (iT (0 : V) p) ih₁ ih₂
 
+/-- **`hShift` 支**：`shiftRule`。
+
+规则是：从 `d` 的结论 sequent `s'` 出发，结论 sequent 是 `setShift s'`。
+翻译后要证 `Derivable 𝗭𝗙𝗖 (translateSeq (setShift (fstIdx d)))`；
+用 `Derivable.shift`（它给 `setShift` 下的可证性）配 `translateSeq_setShift`
+（把 `translateSeq` 推进 `setShift`）。
+
+`translateSeq_setShift` 要求 `s'` 是公式集——由子推导给出
+（`Derivable.isFormulaSet` 取子推导的 `h.1`）。 -/
+lemma hShift {s d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
+    (h : s = setShift ℒₒᵣ (fstIdx d)) (ih : Q (V := V) d) :
+    Q (V := V) (shiftRule s d) := by
+  have hs' : IsFormulaSet (L := ℒₒᵣ) (fstIdx d) := by
+    rw [h, IsFormulaSet.setShift_iff] at hs
+    exact hs
+  simp only [Q, fstIdx_shiftRule, h]
+  rw [GodelQ.TranslateSeqShift.translateSeq_setShift hs']
+  exact Derivable.shift ih
+
 end GodelQ.ShCraigElimBranches
 
 #print axioms GodelQ.ShCraigElimBranches.isFormulaSet_translateSeq
@@ -156,3 +176,4 @@ end GodelQ.ShCraigElimBranches
 #print axioms GodelQ.ShCraigElimBranches.hAnd
 #print axioms GodelQ.ShCraigElimBranches.hOr
 #print axioms GodelQ.ShCraigElimBranches.hCut
+#print axioms GodelQ.ShCraigElimBranches.hShift
