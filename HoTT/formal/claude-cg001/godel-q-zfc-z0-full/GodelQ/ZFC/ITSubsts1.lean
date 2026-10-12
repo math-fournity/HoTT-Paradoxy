@@ -492,12 +492,84 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
           (by
             rw [qVec_qVec_a0 a]
             exact isSemitermVec_W' a)]
-      -- 注：`ve2` 支的右侧 `W` 分量是 `iVE 0 (termSubstVec 2 ?[^&0] v).[i]`，
-      -- 与 `subst_ve2` 要的 `iVE 0 (termSubst ?[^&0] v.[i])` 差一条
-      -- `nth_termSubstVec`（方向：`(termSubstVec …).[i] = termSubst … v.[i]`）；
-      -- 且 `iVE` 的**层参数**与 `IsSemiformula` 的**层**是两个东西，
-      -- 右侧目标是 `iVE 0`（层参数 0）而 `W` 的公式性在层 `0+1 = 1`。
-      -- 下一步：先用 `nth_termSubstVec` 把 `W` 换成逐点形态，再按层 `1` 给见证。
+      -- 右侧：`W` 的分量是 `iVE 0 (termSubstVec 2 ?[^&0] v).[i]`，
+      -- 先用 `nth_termSubstVec` 换成 `subst_ve2` 要的逐点形态（在 `iVE 0` 的参数里）
+      conv_rhs => rw [show (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v).[0] =
+          termSubst ℒₒᵣ (?[^&0] : V) v.[0] from nth_termSubstVec hv.isUTerm (by norm_num),
+        show (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v).[1] =
+          termSubst ℒₒᵣ (?[^&0] : V) v.[1] from nth_termSubstVec hv.isUTerm (by norm_num)]
+      rw [subst_ve2 (n := 0) (f := f) (w := (?[^#a] : V)) (m := a + (1 + 1 + 1))
+          (W := (?[iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0]),
+            iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1])] : V))
+          (by
+            have h0 : IsSemiterm ℒₒᵣ 0 (termSubst ℒₒᵣ (?[^&0] : V) v.[0]) := by
+              rw [← nth_termSubstVec hv.isUTerm (show (0 : V) < 2 by norm_num)]
+              exact hvt.nth (i := 0) (by norm_num)
+            rw [nth_adjoin_zero]
+            exact isSemiformula_iVE (V := V) (n := (0 : V))
+              (termSubst ℒₒᵣ (?[^&0] : V) v.[0]) h0)
+          (by
+            have h1 : IsSemiterm ℒₒᵣ 0 (termSubst ℒₒᵣ (?[^&0] : V) v.[1]) := by
+              rw [← nth_termSubstVec hv.isUTerm (show (1 : V) < 2 by norm_num)]
+              exact hvt.nth (i := 1) (by norm_num)
+            rw [nth_adjoin_one, nth_adjoin_zero]
+            exact isSemiformula_iVE (V := V) (n := (0 : V))
+              (termSubst ℒₒᵣ (?[^&0] : V) v.[1]) h1) hcf
+          (by
+            rw [qVec_qVec_a a]
+            rw [show (3 : V) + 0 = 3 by norm_num]
+            exact isSemitermVec_V' a)]
+      congr 1
+      rw [show (qVec ℒₛₑₜ (qVec ℒₛₑₜ (^#a ∷ ?[^&0] : V)) : V) =
+            (?[^#0, ^#1, ^#(a + 2), ^&0] : V) from qVec_qVec_a0 a,
+        show (qVec ℒₛₑₜ (qVec ℒₛₑₜ (?[^#a] : V)) : V) =
+            (?[^#0, ^#1, ^#(a + 2)] : V) from qVec_qVec_a a]
+      -- 先把三个 `(x ∷ y ∷ 0).[0/1]` 归一成 `x`／`y`
+      simp only [nth_adjoin_zero, nth_adjoin_one]
+      -- 目标里的向量是展开的 `∷` 形状；`isSemitermVec_W'` 给的是 `?[…]` 形状
+      have hWL : IsSemitermVec ℒₛₑₜ 4 (a + (1 + 1 + 1))
+          ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ ((^&0 : V) ∷ (0 : V))))) := by
+        rw [show ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ ((^&0 : V) ∷ (0 : V))))) =
+            (?[^#0, ^#1, ^#(a + 2), ^&0] : V) from rfl]
+        exact isSemitermVec_W' a
+      have hVL : IsSemitermVec ℒₛₑₜ 3 (a + (1 + 1 + 1))
+          ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ (0 : V)))) := by
+        rw [show ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ (0 : V)))) =
+            (?[^#0, ^#1, ^#(a + 2)] : V) from rfl]
+        exact isSemitermVec_V' a
+      -- 逐 `conjunct` 推过 `subst`（先把外层的 `⋏` 分开，再逐个用 `subst_conjunct`）
+      have hc0 : IsUFormula ℒₛₑₜ (conjunct 3 1 0 (iVE (1 : V) v.[0])) :=
+        (isSemiformula_conjunct (isSemiformula_iVE v.[0] hv0)
+          (zero_lt_three_add 1)).isUFormula
+      have hc1 : IsUFormula ℒₛₑₜ (conjunct 3 1 1 (iVE (1 : V) v.[1])) :=
+        (isSemiformula_conjunct (isSemiformula_iVE v.[1] hv1)
+          (one_lt_three_add 1)).isUFormula
+      have hd0 : IsUFormula ℒₛₑₜ
+          (conjunct 3 0 0 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0]))) :=
+        (isSemiformula_conjunct (isSemiformula_iVE _ (hvt.nth (i := 0) (by norm_num)))
+          (zero_lt_three_add 0)).isUFormula
+      have hd1 : IsUFormula ℒₛₑₜ
+          (conjunct 3 0 1 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1]))) :=
+        (isSemiformula_conjunct (isSemiformula_iVE _ (hvt.nth (i := 1) (by norm_num)))
+          (one_lt_three_add 0)).isUFormula
+      rw [substs_and hc0 (IsUFormula.and.mpr ⟨hc1, IsUFormula.verum⟩),
+        substs_and hc1 IsUFormula.verum,
+        substs_and hd0 (IsUFormula.and.mpr ⟨hd1, IsUFormula.verum⟩),
+        substs_and hd1 IsUFormula.verum,
+        subst_conjunct (n := 1) (y := iVE (1 : V) v.[0]) (hi := zero_lt_three_add 1)
+          (hw := isSemitermVec_W' a),
+        subst_conjunct (n := 1) (y := iVE (1 : V) v.[1]) (hi := one_lt_three_add 1)
+          (hw := isSemitermVec_W' a),
+        subst_conjunct (n := 0) (y := iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0]))
+          (hi := zero_lt_three_add 0) (hw := isSemitermVec_V' a),
+        subst_conjunct (n := 0) (y := iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1]))
+          (hi := one_lt_three_add 0) (hw := isSemitermVec_V' a)]
+      simp only [termSubstVec_W'_i (a := a) (i := 0) (by norm_num),
+        termSubstVec_W'_i (a := a) (i := 1) (by norm_num),
+        termSubstVec_V'_i (a := a) (i := 0) (by norm_num),
+        termSubstVec_V'_i (a := a) (i := 1) (by norm_num),
+        termSubstVec_W'_concl a, termSubstVec_V'_concl a]
+      trace_state
       sorry
 end GodelQ.ITSubsts1
 
