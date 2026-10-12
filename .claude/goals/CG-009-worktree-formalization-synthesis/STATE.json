@@ -4,27 +4,28 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "iVE_open 的 func 支：三条代入零件中 cDomN 已证（IVEOpenFunc8），\n剩 subst_QvecV_conjunct 与 subst_QvecV_subst_cFunc。\n注意层次：ve2 内部的 cFunc 代入向量 [^#2,^#0,^#1] 在 qqAlls 下要面对\nqVec²(QvecV (mm+2)) = QvecV (mm+4)（长度 mm+5），其 0/1/2 号槽是 ^#0/^#1/^#2，\n故合成向量仍是 [^#2,^#0,^#1]（mm+4 > 2 恒真）。\n然后 iVE_open 全 → iT 主律 → hAB → hAll/hExs → hRoot。",
+ "next_action": "iVE_open 的 func 支：cFunc 零件的核心恒等式已证（IVEOpenFunc10，层次 QvecV (mm+3)）。\n剩 conjunct 零件（shift_conjunct 的 subst 版）。\n结构：A_i = conjunct 3 n i y_i = subst ?[^#i] cDomN ^⋏ subst (^#i ∷ shiftVec 3 n) y_i，\n在 ve2 的 qqAlls 两层绑定下，外层 subst 的向量已是 QvecV (n+2)。\n需证两个分量的复合向量化简：\n  ① termSubstVec 1 (QvecV (n+2)) ?[^#i] = ?[^#i]  （i < n+2）\n  ② termSubstVec (n+2) (QvecV (n+2)) (^#i ∷ shiftVec 3 n) = ^#i ∷ shiftVec 3 n\n      —— ② 要求 shiftVec 3 n 的每一项 ^#(3+j) 满足 3+j < n+2，\n      **当 n ≥ 0 时 3+j 可达 n+2，这很可能不成立**——需要重新核对层次。\n然后 iVE_open 全 → iT 主律 → hAB → hAll/hExs → hRoot。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T11:30:00-04:00",
- "last_checkpoint": "2026-10-12T11:30:00-04:00",
- "checkpoints": 61,
+ "updated": "2026-10-12T15:05:00-04:00",
+ "last_checkpoint": "2026-10-12T15:05:00-04:00",
+ "checkpoints": 62,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
   "proven_this_session": [
    "shCraigElim_of_obligations'（O2 义务 5→3）",
    "QvecV / QvecVOr（Σ₁ 函数 + 层级实例）",
-   "索引律：nth_QvecVOr_lt/last、nth_QvecV_lt/last/succ、nth_QvecV_three、nth_QvecV",
+   "索引律：nth_QvecVOr_lt/last、nth_QvecV_lt/last/succ、nth_QvecV_three、nth_QvecV、two_lt_add_three",
    "eqAtom 层开口律：subst_QvecV_eqAtom_bvar_lt/bvar_last/fvar",
    "iVE 层：iVE_open_bvar_lt / bvar_last / fvar / iVE_open_bvar",
-   "向量工具：isSemitermVec_shiftVec3、isSemitermVec_cons_shiftVec3、nth_V",
+   "向量工具：isSemitermVec_shiftVec3、isSemitermVec_cons_shiftVec3、nth_V、isSemitermVec_two_zero_one",
    "func 支逐项展开：nth_left、nth_right、nth_right_ne_zero",
    "func 支向量恒等式：substVec_func_eq",
-   "cDomN 代入零件：subst_QvecV_cDomN_subst、termSubstVec_one_QvecV_single"
+   "cDomN 代入零件：subst_QvecV_cDomN_subst、termSubstVec_one_QvecV_single",
+   "**cFunc 恒等式：termSubstVec_three_QvecV_three（层次 QvecV (mm+3)）**"
   ],
   "absorbed_from_9276": [
    "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
