@@ -107,8 +107,7 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
     rw [qVec, show len (?[^&0] : V) = 1 from by simp]
     rw [show (1 : V) = 0 + 1 by norm_num,
       termBShiftVec_cons (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
-      termBShift_fvar]
-    rfl
+      termBShift_fvar, termBShiftVec_nil]
   -- `qVec² ?[^&0] = ?[^#0, ^#1, ^&0]`
   have hq2 : (qVec ℒₛₑₜ)^[(2:ℕ)] (?[^&0] : V) = (?[^#0, ^#1, ^&0] : V) := by
     rw [Function.iterate_succ_apply, e1, qVec,
@@ -116,12 +115,8 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
     rw [show (2 : V) = 0 + 1 + 1 by norm_num]
     rw [termBShiftVec_cons (IsUTerm.bvar (z := (0:V)))
       (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.fvar (x := (0:V))))]
-    rw [show (0 : V) + 1 = 1 by norm_num]
-    rw [termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V)))]
-    rw [termBShift_bvar, termBShift_fvar]
-    rfl
+    simp
   rw [hR, hq2]
-  norm_num at *
   sorry
   congr 1
   sorry
