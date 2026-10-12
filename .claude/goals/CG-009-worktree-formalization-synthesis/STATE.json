@@ -4,27 +4,27 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "★★ 重大更正：hAB 的开口律**差一层**（OpenLawCheck/OpenLawCheck2 机器核验）。\n   qVec²(QvecV m) = QvecV (m+2)，而 iTR 的 conjunct (b=2, n=m+1) 需读索引 m+2；\n   QvecV (m+2) 在索引 m+2 处是 ^&0 ⟹ 不够。m=0 实例已确证（QvecV 2 第二项是 ^#1，\n   而 conjunct 需要 ^#2）。\n★ 出路 2（最有希望）：外层向量改用 QvecV (m+1) —— 即 free 里的 ?[^&0] 换成\n   qVec ?[^&0]。下降两层得 QvecV (m+3)，对 iTR 的 b=2 正好够。\n   代价：hAB 陈述要回到 HABKey.iT_free_eq 重新对齐。\n★ 这推翻了本会话早先（15:00 前后）的'等式为真'判断——当时漏算了\n   termSubst w 会把索引再读一次 w.[z]。**旧的判断记录已标注更正。**\n★ 通用解锁器（仍然有效）：LayerMono.IsSemiterm.mono / IsSemitermVec.mono。\n★ 并行会话仍在同一 worktree 同一战线——改文件前先读当前内容，或换新文件名。",
+ "next_action": "【并行会话已推进】conjunct 两分量（IVEOpenFunc11）已独立核验通过。\n  termSubstVec_one_QvecV_three（域半）+ termSubstVec_cons_QvecV_three（^#i ∷ shiftVec 3 n）\n  —— 两者在 QvecV (n+3) 下都是恒等。\n【开口律状态】我在此处反复出错三次（记录已更正四版），最终推导见接力文档 §6：\n  定律为真；RHS 经 substs_substs 复合得 L ++ [^&0]，多出的末项承接 z = m 支。\n【剩余】把 conjunct 分量接进 ve2 的 func 支 → iVE_open 全 → iT_subst_open → hAB。\n【协作提醒】并行会话在同一 worktree 同一战线，推进很快（conjunct 两分量是它证的）。\n  改文件前先读当前内容；核验他人产出必用独立重编译（我以此发现过一次 sorryAx 假通过）。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T17:20:00-04:00",
- "last_checkpoint": "2026-10-12T17:20:00-04:00",
- "checkpoints": 65,
+ "updated": "2026-10-12T19:00:00-04:00",
+ "last_checkpoint": "2026-10-12T19:00:00-04:00",
+ "checkpoints": 66,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
   "proven_this_session": [
    "shCraigElim_of_obligations'（O2 义务 5→3）",
-   "QvecV / QvecVOr + 索引律（nth_QvecVOr_lt/last、nth_QvecV_lt/last/succ/three）",
-   "eqAtom 层与 iVE 层开口律（subst_QvecV_eqAtom_*、iVE_open_bvar_*、iVE_open_fvar）",
-   "func 支逐项展开（nth_left、nth_right、nth_right_ne_zero、termSubstVec_three_QvecV_three）",
-   "func 支向量恒等式 substVec_func_eq",
-   "**LayerMono.IsSemiterm.mono / IsSemitermVec.mono**（层数单调，通用解锁器）",
-   "**subst_QvecV_subst_cFunc**（cFunc 代入零件）",
-   "subst_QvecV_cDomN_subst（cDomN 零件）",
-   "**IVEOpenFunc13：b=2 vs b=3 的决定性区分（Lean 核验）**"
+   "QvecV / QvecVOr + 全套索引律",
+   "eqAtom 层与 iVE 层开口律（bvar 两支 + fvar）",
+   "func 支逐项展开（nth_left、nth_right、substVec_func_eq 等）",
+   "LayerMono.IsSemiterm.mono / IsSemitermVec.mono（层数单调，通用解锁器）",
+   "subst_QvecV_subst_cFunc、subst_QvecV_cDomN_subst",
+   "IVEOpenFunc13：b=2 vs b=3 的决定性区分",
+   "OpenLawCheck / OpenLawCheck2 / OpenLawCheck5：开口律的机器核验事实",
+   "IVEOpenFunc11：conjunct 两分量（独立核验通过）"
   ],
   "absorbed_from_9276": [
    "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
@@ -39,7 +39,7 @@
    "★ 2026-10-12 17:00：hAB 开口律**差一层**（机器核验 OpenLawCheck/OpenLawCheck2）。此前'等式为真'的判断有误：漏算 termSubst w 的二次索引读取。",
    "2026-10-12：func 支的 conjunct 需要 QvecV (m+4) 而非 (m+3)（b=3 的 ve2）；而 iTR 的 b=2 需要 QvecV (m+3)（比下降两层所得高一层）。"
   ],
-  "remaining": "核实出路 2（外层向量 QvecV (m+1)）→ 重新对齐 hAB 陈述 → iT_subst_open → hAll/hExs → hRoot",
+  "remaining": "conjunct 分量接进 ve2 → iVE_open.func → iVE_open 全 → iT_subst_open → hAB → hAll/hExs → hRoot",
   "verification": "verify-openhb.sh（并行会话提供）：17 文件从零重编译，clean 15 / FAIL 0 / SORRY 2（两个 sorry 都是同一处已文档化的 iVE_open.func）。"
  },
  "deliverables": {
