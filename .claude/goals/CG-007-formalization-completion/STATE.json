@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-induction1 7/10 / W8-hRoot 核心归约 DONE / W8-hAll 接口义务全部付清 / **W8-substs_qqAlls 证成 DONE**（打破重写死锁的递归引理）/ **W8-W 向量 DONE**（iT_free 的代入向量基建）/ W8-iT_free 原子情形已缩到唯一一处 imp 比较 / ShCraigElim / zfcTr_D3_internalize OPEN",
-  "next_action": "交接文档 形式化追踪/11-Claude交接-第二次接手-20261011.md §2.5。本分支 HEAD = 4cd60b30，已推送 origin/codex/9276-cg007-w8-d3。【本轮新证】substs_qqAlls（probes/W8-substs-qqAlls-PROVED-20261012，exit 0）：`subst w (qqAlls X k) = qqAlls (subst ((qVec L)^[k] w) X) k`——用 Nat 归纳，陈述里只有 k+1，绕开 numeral 死锁；收尾用 `congr 3`。另证 W 向量（probes/W8-W-vector-20261012）：W n = ?[^#0,…,^#(n-1),^&0]，W_succ 的长度参数是 n+1（不是 n）。【剩余】iT_free 原子情形已缩到唯一一处 imp 比较（probes/W8-iT-free-inner-only-20261012）：只剩把右侧 subst 用 substs_or/substs_neg 分配到 imp 两个分量，再逐项比 conjunct。【第五处更正，重要】`(qVec)^[2] ?[^&0] = ?[^#0,^#1,^&1]`——末分量是 ^&1 不是 ^&0（fvar 也推一格）。**先用探针列出 (qVec)^[k] ?[^&0] (k=0..3) 再动**。【累计】本轮 hAll 支共判错五处，全部已用探针纠正并写进文档 §2.5。C-120 影子形式无条件成立。dev 主检出是集成目标；本分支不合并 dev。",
+  "phase": "W8-induction1 7/10 / W8-hRoot 核心归约 DONE / W8-hAll 接口义务全部付清 / **W8-iT_free 原子情形归约到唯一子目标（Lean 打印）** / ShCraigElim / zfcTr_D3_internalize OPEN",
+  "next_action": "本分支 HEAD = c5bcf5df，已推送。【本轮重大进展】`iT_free : iT 0 (subst ?[^&0] p) = subst ?[^&0] (iT 1 p)` 的原子情形（`p = ^rel 2 R ?[^#0,^#0]`）已归约到 Lean 打印出的**单一子目标**：\n```\nneg ((subst ?[^#0] cDomN ⋏ subst (^#0 ∷ shiftVec 2 0) (iVE 0 ^&0)) ⋏ conjunct 2 0 1 (iVE 0 ^&0) ⋏ ⊤)\n  = neg (subst W ((subst ?[^#0] cDomN ⋏ subst (^#0 ∷ shiftVec 2 1) (iVE 1 ^#0)) ⋏ conjunct 2 1 1 (iVE 1 ^#0) ⋏ ⊤))\n```\n其中 `W = ?[^#0,^#1,^&0]`。\n【本轮机器验证的新引理】`subst_qqAlls`（subst 推过 n 层量词）、`W` 向量（原始递归）、`hStep`（subst 推过 imp）、`hiVE`（iVE 换名）、`hcR2`/`hcR3`（cRel 闭式）。\n【下一步】打通 `shiftVec 2 1` 与 `subst W (shiftVec 2 1)` 的对应：`shiftVec 2 1 = ?[^#1,^#2]`，`W` 把 `#2 ↦ ^&0`，得 `?[^#1,^&0]`；需证 `subst (^#0 ∷ shiftVec 2 0) X = subst W (subst (^#0 ∷ shiftVec 2 1) X)`。探针：`probes/W8-iT-free-end-20261012.lean`。\n【重要】本轮在 hAll 支先后判错多处，全部已用探针纠正并写进交接文档 §2.5——**直接采信探针，不要重推**。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-12T11:30:00-04:00",
+  "updated": "2026-10-12T12:00:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
-  "checkpoints": 18,
+  "checkpoints": 19,
   "compactions": 2,
   "last_compaction": "2026-10-09T08:48:39-04:00"
 }
