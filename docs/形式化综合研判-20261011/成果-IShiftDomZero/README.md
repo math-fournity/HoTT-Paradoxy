@@ -455,3 +455,23 @@ lemma translate_padding {ξ : Type*} (σ : Semiformula ℒₒᵣ ξ 0) (s : ℕ)
 - `Provable.{u_1,0}`（`V : Type u_1`）与 `provable_iff_provable` 的 `Provable.{0,_}` 宇宙不匹配；
 - `Sentence`（Empty）与 `Semiproposition`（ℕ）的 coercion 在最后一步的对齐。
 **数学内容已全部就位**（5 步归约链 + 全部零件已证/已核验）。
+
+## 二十五、hRoot 最后摩擦的精确性质（本会话终局分析）
+
+`provable_iff_provable : Provable T (⌜φ⌝ : ℕ) ↔ T ⊢ φ`——**定义在 ℕ 层**，
+而 `hRoot` 的目标是 `Provable 𝗭𝗙𝗖 (iT 0 p)`，其中 `V : Type u_1`（**任意模型**）。
+宇宙参数不匹配（`Provable.{u_1,0}` vs `Provable.{0,_}`）不是笔误，而是**实质区别**：
+- ℕ 层的 `Provable T ⌜φ⌝` 是元层的"T 证明了 φ"；
+- V 层的 `Provable 𝗭𝗙𝗖 x` 是"在 V 内存在 x 的推导编码"。
+
+**两者的桥**是 `Provable.sound`/`Provable.complete`（`D1.lean:36-41`），
+它们也定义在 `ℕ`（`T.internalize ℕ`）。**跨到任意 `V` 需要 `V ⊨ 𝗜𝚺₁` 的内部化**——
+这正是 `ShRE.lean`/`TranslateRE.lean` 做的事（`iT_encode` 等）。
+
+**所以 `hRoot` 的剩余不是"纯 API"**——我此前判断有误，现更正：
+它需要 V 层的 `Provable` 与元层可证性的桥，属于 `Z0UniBridge`/`ShCraigElim` 的**同一实质内容**
+（9276 也把它标为"hRoot 就是 D3 本身"）。
+
+**本会话的净贡献**（hRoot 线）：三个解包引理 + `translate_padding`（任意 fvar 域），
+把 hRoot 的**可证性部分**（Craig 公理 → translate σ 可证 → padding 后仍可证）完全打通，
+只剩 V/ℕ 层的 `Provable` 桥——而那是整条消去的核心难点，不是本分支的技术细节。
