@@ -60,24 +60,28 @@ lemma cFunc_isUFormula (k f : V) : Bootstrapping.IsUFormula ℒₛₑₜ (Transl
 -- `subst L w q`：`w : IsSemitermVec L n m w`，即 `len w = n` 且各分量在层 `n` 是项，
 -- 结果在层 `m`。取 `w = ?[^#0]`（`len = 1`）、`n = 1`、`m = 1`：
 -- 分量 `^#0` 需 `0 < 1`（成立）。所以公式的层数也必须是 1。
-lemma subst_singleton_isUFormula {q : V}
+lemma subst_singleton_isUFormula (z : V) {q : V}
     (hq : Bootstrapping.IsSemiformula ℒₛₑₜ 1 q) :
-    Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.subst ℒₛₑₜ (?[^#0] : V) q) := by
-  have hw : Bootstrapping.IsSemitermVec ℒₛₑₜ 1 1 (?[^#0] : V) := by
-    refine Bootstrapping.IsSemitermVec.iff.mpr ⟨?_, ?_⟩
-    · simp
-    · intro i hi
-      have hi0 : i = 0 := by
-        have hh := hi
-        simp at hh
-        exact hh
-      subst hi0
-      simpa using (Bootstrapping.IsSemiterm.bvar (L := ℒₛₑₜ) (n := 1) (z := 0)).mpr (by simp)
-  exact GodelQ.CG008SubstFormula.subst_isUFormula (n := 1) (m := 1) hw hq
+    Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.subst ℒₛₑₜ (?[^#z] : V) q) := by
+  -- `IsSemiformula.subst {n p m w}`：`hp : IsSemiformula L n p`、`hw : IsSemitermVec L n m w`。
+  -- `IsSemitermVec L n m w ↔ IsUTermVec L n w ∧ ∀ i < n, termBV w.[i] ≤ m`，
+  -- 即 n 是**长度**、m 是**约束变元上界**。
+  -- `?[^#z]` 长度 1（∴ n = 1，与 q 的层 1 对上）、约束变元 z（∴ m := z + 1）。
+  -- `?[^#z]` 的分量是 `^#z`，其 `termBV` 就是 `z`；取结果层 `z` 即可
+  -- `IsSemiterm.bvar` 要 `z < n`，所以结果层取 `z + 1`
+  have hw : Bootstrapping.IsSemitermVec ℒₛₑₜ 1 (z + 1) (?[^#z] : V) := by
+    refine Bootstrapping.IsSemitermVec.iff.mpr ⟨by simp, ?_⟩
+    intro i hi
+    have hi0 : i = 0 := by
+      have h := hi
+      simp at h
+      exact h
+    subst hi0
+    simpa using (Bootstrapping.IsSemiterm.bvar (L := ℒₛₑₜ) (n := z + 1) (z := z)).mpr (by simp)
+  exact (Bootstrapping.IsSemiformula.subst hq hw).isUFormula
 
--- 任意下标 `^#z` 的版本未证：`len ?[^#z]` 是 1，而 `IsSemitermVec L n m w` 要求 `len w = n`，
--- 所以层数固定为 1，`z` 必须满足 `z < 1`。**`conjunct` 的 `?[#i]` 用任意下标，与此不符**——
--- 这说明 `conjunct` 的层数论证需要另找形式（`?[#i]` 的层数实为 `i + 1`）。
+-- 结果在层 `z + 1`：`IsSemitermVec L 1 (z+1) ?[^#z]` 要 `^#z` 在层 `z+1` 是项，即 `z < z+1`。
+-- 长度固定为 1，故 `q` 必须恰在层 1（`cDomN` 正是）。这正是 `conjunct` 第一块要的。
 
 end GodelQ.CG008VeParts
 
