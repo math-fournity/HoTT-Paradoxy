@@ -30,7 +30,7 @@ open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
 
 namespace GodelQ.CG008RelCase
 
-open GodelQ.Translate (iT iTR iVE)
+open GodelQ.Translate (iT iTR iVE eqAtom)
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
@@ -115,23 +115,50 @@ example {p q : V} : Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.imp ℒ
 | `subst ?[#0,#1] (cRel R)` | `substs_*` 系列（`Functions.lean:476-485`）与 `subst` 归纳（`:503`） | ◐ 部分就位 |
 | `cRel R` | 关系符号的码——`IsRel` 的见证 | ◐ 需 `hR` |
 
-**结论**：`rel` 情形的装配**大部分零件就位**，
-剩 `conjunct`（本包定义的复合）与 `iVE`（项而非公式）两处。
+**结论**：`rel` 情形的装配**零件全部就位**——**我先前的「`iVE` 类型问题」是错的**。
 
-**注意 `iVE` 的类型问题**：`iVE n t` 是**项的码**，
-而 `IsUFormula` 是**公式**判定——所以 `conjunct` 里的 `iVE n v_i` 是**项**，
-`⋏` 的两边要求**公式**。
-**这说明 `rel` 情形还有一层「项 ⟹ 公式」的转换**（如 `eqAtom` 之类），
-**是本会话新发现的第四处技术细节**。
+## 更正：`iVE` 返回的是**公式**，不是项
 
-## 治理
+我先前写道：「`iVE n t` 是**项**的码，而 `conjunct` 的 `⋏` 两边要求**公式**，
+所以还需一层『项 ⟹ 公式』的转换」。**这是错的。**
 
-- Foundation 只读；本文件纯下游。
-- 本文件不含任何未证标记，可进入收据。
--/
+读 `iVE.construction`（`InternalTranslate.lean:163-167`）：
 
-/-- **查实 7**：`iVE` 是**项**的翻译（`InternalTranslate.lean:173`）——
-不是公式。 -/
+```lean
+bvar := fun _ z ↦ eqAtom (^#(z + 1))
+fvar := fun _ x ↦ eqAtom (^&x)
+func := fun p k f _ w ↦ if k = 0 then ve0 k f else ve2 (p 0) k f w
+```
+
+**每个分支都返回 `eqAtom …`**，而
+`eqAtom t = ^rel 2 (cEqN : V) ?[^#0, t]`（`:93`）——**一个原子公式的码**。
+
+**所以 `iVE n t` 本身就是公式**，`conjunct` 的 `⋏` 两边都合适。
+**「项 ⟹ 公式」的转换已经内建在 `iVE` 里了**（这正是它叫「变量等式」的原因，
+见 `:176` 的注释「`iVE n ⌜t⌝` 是 `varEqual t`（层数 n）的编码」）。
+
+## 装配清单（更正后）
+
+| 构件 | 引理 | 现状 |
+|---|---|---|
+| `qqAlls` | `isUFormula_qqAlls`（`Iteration.lean:515`） | ✅ 已查实 |
+| `imp` | `IsUFormula.imp`（`Functions.lean:185`） | ✅ 已查实 |
+| `⋏` | `IsUFormula.and` | ✅ 已有 |
+| `⊤` | `IsUFormula.verum` | ✅ 已有 |
+| `iVE n t` | **返回 `eqAtom`，即公式**——需 `IsUFormula (eqAtom t)` | ⚠️ 待建（但**无类型问题**） |
+| `conjunct b n i y` | `subst` 与 `⋏` 的复合（本包定义） | ⚠️ 待建 |
+| `subst ?[#0,#1] (cRel R)` | `substs_*` 系列 + `subst` 归纳（`:503`） | ◐ 部分就位 |
+| `cRel R` | 需 `hR` | ◐ 就位 |
+
+**净结论**：`rel` 情形的装配**无类型障碍**，
+剩两处要建：`IsUFormula (eqAtom t)` 与 `conjunct` 的复合性。 -/
+
+/-- **查实 7**：`iVE` 返回 `eqAtom` 的**结果**——即公式的码。 -/
 noncomputable example (n t : V) : V := iVE n t
+
+/-- **查实 8（更正的关键）**：`eqAtom t` 是**原子公式**——`^rel 2 cEqN ?[^#0, t]`。
+
+**所以 `iVE` 的输出是公式**，「项 ⟹ 公式」的转换内建其中。 -/
+noncomputable example (t : V) : V := eqAtom t
 
 end GodelQ.CG008RelCase
