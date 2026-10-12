@@ -134,7 +134,9 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
       -- 先 `substs_or` 分配 ⋎（顶层），`neg` 才暴露在顶层
       rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula,
         Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR hvec]
-  rw [hStep]
-  exact (show False by sorry)
+  -- 目标：`neg A_L ⋎ C = subst W (neg A_R ⋎ C)`。
+  -- `hStep.symm : neg (subst W A_R) ⋎ subst W C = subst W (neg A_R ⋎ C)`。
+  -- 所以只要证 `neg A_L ⋎ C = neg (subst W A_R) ⋎ subst W C`。
+  refine Eq.trans ?_ hStep.symm
 
 end GodelQ.ProbeStep
