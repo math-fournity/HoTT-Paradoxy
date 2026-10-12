@@ -39,22 +39,25 @@ theorem eqAtom_isUFormula (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
   · exact Bootstrapping.IsUTermVec.mkSeq₂_iff.mpr
       ⟨Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0), ht⟩
 
-/-! ## 卡点：`iVE` 没有 rank-1 实例
+/-! ## `iVE_isUFormula`：闸门已开
 
-`iVE_isUFormula` 需要 `IsUFormula ℒₛₑₜ (iVE n t)`，其 Σ₁ 闸门是
-`𝚺ᴬ₁-Predicate (fun t ↦ IsUFormula ℒₛₑₜ (iVE n t))`。
+`iVE` 的 rank-1 实例已在 `InternalTranslate.lean` 补齐（`iVE_definable'`），
+所以 `P t := IsUFormula ℒₛₑₜ (iVE n t)` 的 Σ₁ 闸门现在可过。 -/
 
-**实测**（本轮）：
-- `definability` 在该形状上 `whnf` 超时——它展不开 `iVEDef`（已标 `irreducible`）；
-- 显式复合需要 `iVE` 的 **rank-1** `Function₂` 实例，而包内只有 rank-0
-  （`iVE_defined : 𝚺ᴬ₁-Function₂ iVE`）；
-- 补 rank-1 实例的两次尝试（`DefinableFunction.of_sigmaOne`、
-  `DefinedFunction.to_definable`）都在 `Tarski.Structure ?m V` 上卡住元变量——
-  与 Foundation 的 `.definable'` 约定（`Term/Functions.lean:72`）形式相同但解析失败，
-  原因未查明。
+/-! ## 卡点：`ve0` 的 `cFunc` 码
 
-**所以 `iVE_isUFormula` 未证。** 本文件保留已证的两条零件。 -/
+`ve0 k f = imp ⊤ (subst ?[#0] (cFunc k f))`，`cFunc` 是**自然数码**（`cFuncN`）。
+要证 `IsUFormula` 需要：
+1. `cFunc k f` 是标准公式的码（`cFuncN` 的四分支各是 `⌜arithTrln.func …⌝`）；
+2. 该码经 `↑· : V` 后仍是公式（`coe_quote_eq_quote`）。
 
+**实测**：第 1 步的 `cFuncN` 是 `if` 套 `if`，`rw` 只展开外层；
+内层在部分分支（如 `h✝ : ¬f = 0` 时的 `cFuncN 0 1`）**保持未展开**，
+再 `rw [Translate.cFuncN]` 触发 `whnf` 超时。
+
+**单分支的 `coe_quote_eq_quote` 路线已单独验证成功**
+（`rw [coe_quote_eq_quote …]` 后 `exact quote_isUFormula _`，见本文件顶部 `cRel_isUFormula` 的同类用法），
+但**四分支统一处理**未成功。**所以 `ve0_isUFormula` 未证。** -/
 
 end GodelQ.CG008RelCase2
 

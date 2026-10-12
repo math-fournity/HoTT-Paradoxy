@@ -56,6 +56,11 @@ noncomputable def shiftVecDef : 𝚺ᴬ₁.Semisentence 3 :=
 instance shiftVec_defined : 𝚺ᴬ₁-Function₂ (shiftVec : V → V → V) via shiftVecDef := .mk
   fun v ↦ by simp [shiftVec.construction.result_defined_iff, shiftVecDef]; rfl
 
+
+instance shiftVec_definable : 𝚺ᴬ₁-Function₂ (shiftVec : V → V → V) := shiftVec_defined.to_definable
+
+instance shiftVec_definable' (Γ k) : Γᴬ_[k + 1]-Function₂ (shiftVec : V → V → V) :=
+  shiftVec_definable.of_sigmaOne
 end shiftVec
 
 /-! ## 固定公式的编码（常数） -/
@@ -111,6 +116,11 @@ instance cFunc_defined : 𝚺ᴬ₁-Function₂ (cFunc : V → V → V) via cFun
   simp only [cFuncDef, cFunc]
   by_cases hk : v 1 = 0 <;> by_cases hf : v 2 = 0 <;> simp [hk, hf, numeral_eq_natCast]
 
+
+instance cFunc_definable : 𝚺ᴬ₁-Function₂ (cFunc : V → V → V) := cFunc_defined.to_definable
+
+instance cFunc_definable' (Γ k) : Γᴬ_[k + 1]-Function₂ (cFunc : V → V → V) :=
+  cFunc_definable.of_sigmaOne
 /-- 合取项 `A_i = domain/[#i] ⋏ (y 换名：#0 ↦ #i，#(j+1) ↦ #(j+b))`。 -/
 noncomputable def conjunct (b n i y : V) : V :=
   (subst ℒₛₑₜ ?[^#i] (cDomN : V)) ^⋏ (subst ℒₛₑₜ (^#i ∷ shiftVec b n) y)
@@ -139,6 +149,11 @@ noncomputable def ve0Def : 𝚺ᴬ₁.Semisentence 3 := .mkSigma
 instance ve0_defined : 𝚺ᴬ₁-Function₂ (ve0 : V → V → V) via ve0Def := .mk fun v ↦ by
   simp [ve0Def, ve0]
 
+
+instance ve0_definable : 𝚺ᴬ₁-Function₂ (ve0 : V → V → V) := ve0_defined.to_definable
+
+instance ve0_definable' (Γ k) : Γᴬ_[k + 1]-Function₂ (ve0 : V → V → V) :=
+  ve0_definable.of_sigmaOne
 /-- 2 元函数符号：`∀∀ ((A₀ ⋏ (A₁ ⋏ ⊤)) 🡒 F_f[#2, #0, #1])`，`A_i` 由第 i 个参数的结果换名得到。 -/
 noncomputable def ve2 (n k f w : V) : V :=
   qqAlls (imp ℒₛₑₜ (conjunct 3 n 0 w.[0] ^⋏ (conjunct 3 n 1 w.[1] ^⋏ ^⊤))
@@ -155,6 +170,11 @@ noncomputable def ve2Def : 𝚺ᴬ₁.Semisentence 5 := .mkSigma
 instance ve2_defined : 𝚺ᴬ₁-Function₄ (ve2 : V → V → V → V → V) via ve2Def := .mk fun v ↦ by
   simp [ve2Def, ve2]
 
+
+instance ve2_definable : 𝚺ᴬ₁-Function₄ (ve2 : V → V → V → V → V) := ve2_defined.to_definable
+
+instance ve2_definable' (Γ k) : Γᴬ_[k + 1]-Function₄ (ve2 : V → V → V → V → V) :=
+  ve2_definable.of_sigmaOne
 noncomputable def iVE.blueprint : Language.TermRec.Blueprint 1 where
   bvar := .mkSigma “y z n. ∃ b, !qqBvarDef b (z + 1) ∧ !eqAtomDef y b”
   fvar := .mkSigma “y x n. ∃ b, !qqFvarDef b x ∧ !eqAtomDef y b”
@@ -180,6 +200,11 @@ noncomputable def iVEDef : 𝚺ᴬ₁.Semisentence 3 :=
 instance iVE_defined : 𝚺ᴬ₁-Function₂ (iVE : V → V → V) via iVEDef := .mk fun v ↦ by
   simp [iVEDef, iVE, iVE.construction.result_graphDef]; rfl
 
+
+instance iVE_definable : 𝚺ᴬ₁-Function₂ (iVE : V → V → V) := iVE_defined.to_definable
+
+instance iVE_definable' (Γ k) : Γᴬ_[k + 1]-Function₂ (iVE : V → V → V) :=
+  iVE_definable.of_sigmaOne
 /-! ## 内部原子翻译 `iTR n k R v` 与内部翻译 `iT n p` -/
 
 section iT
