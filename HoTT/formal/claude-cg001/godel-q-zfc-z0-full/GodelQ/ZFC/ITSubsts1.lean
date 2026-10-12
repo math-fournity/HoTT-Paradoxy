@@ -744,3 +744,93 @@ namespace GodelQ.ITSubsts1
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 end GodelQ.ITSubsts1
+
+namespace GodelQ.ITSubsts1
+
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+/-! ## 桥 `B(q)`：`iT` 与变量代换的相容律
+
+```
+subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)      -- q 层 1
+```
+
+归纳谓词带 `param = n` 护罩（照 `iT_shift` / `iT_neg` 的先例），
+九支：rel / nrel / verum / falsum / and / or / all / exs + 骨架。
+**原子支走 T1**（`iVE_subst_a0`）；**量词支**的关键是
+`iT` 给每个量词多引一个 `domZero`，而 `subst ?[^&0] domZero = domZero`。 -/
+
+/-- `subst ?[^&0] domZero = domZero`（`domZero = subst ?[^#0] cDomN`）。 -/
+lemma subst_domZero : subst ℒₛₑₜ (?[^&0] : V) (domZero : V) = domZero := by
+  rw [domZero]
+  rw [substs_substs (l := 1) (n := 1) (m := 1) (p := (cDomN : V)) isSemiformula_cDomN
+    (isSemitermVec_single_bvar (n := 1) (by norm_num))
+    (isSemitermVec_single_bvar (n := 1) (by norm_num))]
+  congr 1
+  rw [termSubstVec_a_n0]
+
+/-- **桥 `B(q)`**（`q` 层 1）：`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`。 -/
+theorem iT_substs1 {n : V} : ∀ q, IsSemiformula ℒₒᵣ n q →
+    subst ℒₛₑₜ (?[^&0] : V) (iT n q) = iT (n - 1) (subst ℒₒᵣ (?[^&0] : V) q) := by
+  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
+      subst ℒₛₑₜ (?[^&0] : V) (iT param p) =
+        iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p) :=
+    UformulaRec1.Construction.semiformula_result_induction
+      (V := V) (c := iT.construction) (L := ℒₒᵣ)
+      (P := fun param n p q => param = n →
+        subst ℒₛₑₜ (?[^&0] : V) (iT param p) =
+          iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p))
+      ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_
+  · intro q hq
+    simpa [iT] using key hq (rfl : n = n)
+  · definability
+  · -- rel
+    intro n param k R v hR hv h
+    rw [← h] at hv
+    rw [substs_rel hR hv.isUTerm, iT_rel hR (hv.termSubstVec (isSemitermVec_single_bvar (n := param) (by norm_num))).isUTerm]
+    rw [show (1 : V) - 1 = 0 by norm_num]
+    rw [iT_rel hR hv.isUTerm]
+    sorry
+  · -- nrel
+    intro n param k R v hR hv h
+    rw [← h] at hv
+    rw [substs_nrel hR hv.isUTerm, iT_nrel hR (hv.termSubstVec (isSemitermVec_single_bvar (n := param) (by norm_num))).isUTerm]
+    rw [show (1 : V) - 1 = 0 by norm_num]
+    rw [iT_nrel hR hv.isUTerm]
+    sorry
+  · -- verum
+    intro n param h
+    show subst ℒₛₑₜ (?[^&0] : V) (iT param ^⊤) = iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) ^⊤)
+    rw [iT_verum, substs_verum, substs_verum, iT_verum]
+  · -- falsum
+    intro n param h
+    show subst ℒₛₑₜ (?[^&0] : V) (iT param ^⊥) = iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) ^⊥)
+    rw [iT_falsum, substs_falsum, substs_falsum, iT_falsum]
+  · -- and
+    intro n param p q hp hq ihp ihq h
+    rw [← h] at hp hq
+    rw [subst_and hp.isUFormula hq.isUFormula]
+    rw [iT_and (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
+    show subst ℒₛₑₜ (?[^&0] : V) (iT param p) ^⋏ subst ℒₛₑₜ (?[^&0] : V) (iT param q) =
+      iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p) ^⋏ iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) q)
+    rw [iT_and (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
+    exact congrArg₂ (· ^⋏ ·) (ihp h) (ihq h)
+  · -- or
+    intro n param p q hp hq ihp ihq h
+    rw [← h] at hp hq
+    rw [subst_or hp.isUFormula hq.isUFormula]
+    rw [iT_or (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
+    show subst ℒₛₑₜ (?[^&0] : V) (iT param p) ^⋎ subst ℒₛₑₜ (?[^&0] : V) (iT param q) =
+      iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p) ^⋎ iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) q)
+    rw [iT_or (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
+    exact congrArg₂ (· ^⋎ ·) (ihp h) (ihq h)
+  · -- all
+    intro n param p hp ih h
+    rw [← h] at hp
+    sorry
+  · -- exs
+    intro n param p hp ih h
+    rw [← h] at hp
+    sorry
+
+end GodelQ.ITSubsts1
