@@ -21,4 +21,4 @@ theorem shiftVec_isUTermVec (b n : V) :
     rw [GodelQ.Translate.shiftVec_succ]
     exact hadj
 
-end GodelQ.CG008ShiftVec#print axioms GodelQ.CG008ShiftVec.shiftVec_isUTermVec
+end GodelQ.CG008ShiftVec
