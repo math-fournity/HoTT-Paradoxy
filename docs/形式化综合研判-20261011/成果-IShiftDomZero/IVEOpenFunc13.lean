@@ -1,0 +1,32 @@
+-- CG-009: settling the layer question for the `conjunct` piece (numeric probe).
+import GodelQ.ZFC.IVEOpenFunc10
+import GodelQ.ZFC.LayerMono
+
+open FFL FFL.FirstOrder FFL FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
+open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
+open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.SeqTranslate
+
+namespace GodelQ.IVEOpenFunc13
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2 GodelQ.IVEOpenFunc3 GodelQ.IVEOpenFunc4
+open GodelQ.IVEOpenFunc5 GodelQ.IVEOpenFunc6 GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFunc9
+open GodelQ.IVEOpenFunc10 GodelQ.LayerMono
+
+-- Concrete probe at m = 0: which vector layer fixes `^#i ∷ shiftVec 3 1`?
+-- `^#i ∷ shiftVec 3 1` has length 2, entries [^#i, ^#3].
+-- Under `subst`, descending 2 binders multiplies the vector by qVec twice.
+
+-- QvecV 3 has length 4, entries [^#0,^#1,^#2,^&0].
+-- So index 1 -> ^#1 (identity), index 3 -> ^&0.
+example : (QvecV (V := V) 3).[1] = (^#1 : V) := nth_QvecV_lt 3 1 (by norm_num)
+example : (QvecV (V := V) 3).[3] = (^&0 : V) := nth_QvecV_last 3
+
+-- The conjunct vector's second entry is ^#3 — and QvecV 3 maps index 3 to ^&0.
+-- Therefore `QvecV 3` (i.e. `QvecV (m+3)` at m=0) does NOT fix it.
+-- We need `QvecV 4`: length 5, entries [^#0,^#1,^#2,^#3,^&0] — index 3 is identity.
+example : (QvecV (V := V) 4).[3] = (^#3 : V) := nth_QvecV_lt 4 3 (by norm_num)
+
+end GodelQ.IVEOpenFunc13
+
