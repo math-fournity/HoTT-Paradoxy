@@ -9,7 +9,7 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 -- 用与 iT_shift 完全相同的机器试 correct-shape
 theorem iT_free_shape {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
-    iT n (free ℒₒᵣ p) = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ iT.construction (n + 1) p)) := by
+    iT n (free ℒₒᵣ p) = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ (n + 1) p)) := by
   have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
       iT param (free ℒₒᵣ p)
         = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero)
@@ -18,7 +18,7 @@ theorem iT_free_shape {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
       (V := V) (c := iT.construction) (L := ℒₒᵣ)
       (P := fun param n p q => param = n →
         iT param (free ℒₒᵣ p)
-          = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ iT.construction param p q)))
+          = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ param q)))
       (by definability)
       (by intro n param k R v hR hv h; subst h; sorry)
       (by intro n param k R v hR hv h; subst h; sorry)
