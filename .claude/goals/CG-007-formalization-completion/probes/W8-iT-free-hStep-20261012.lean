@@ -109,7 +109,7 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
   have hStep : subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
       (neg ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
-        ^⋎ subst ℒₛₜ (?[^#0, ^#1] : V) (cRel R))
+        ^⋎ subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
     = neg ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
         (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
@@ -117,7 +117,7 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
     := by
       rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
         Bootstrapping.substs_and (L := ℒₛₑₜ) hc0 hc1,
-        Bootstrapping.substs_or (L := ℒₛₜ) hAR.neg.isUFormula hsub.isUFormula]
+        Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula]
   rw [hStep]
   sorry
 
