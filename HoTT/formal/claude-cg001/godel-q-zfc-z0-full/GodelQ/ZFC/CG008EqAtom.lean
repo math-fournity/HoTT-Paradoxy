@@ -47,27 +47,31 @@ noncomputable example : ℕ := cEqN
 **需 `Language.IsRel` 的相应引理**（`SetLanguage.lean` 或 Foundation）。 -/
 example : Prop := (ℒₛₑₜ).IsRel 2 (cEqN : V)
 
-/-! ## 试证：`IsUFormula (eqAtom t)`
+/-! ## 装配：`IsUFormula (eqAtom t)` 的两块
 
-**先看 `iT_quote` 的 `rel` 情形怎么拿到 `IsUFormula`**——
-它用的是 `Sentence.quote_isUFormula`（对**元层**句子的报价），
-所以那条路对**内部码**不适用。
+**第一块**：`(ℒₛₑₜ).IsRel 2 (cEqN : V)`。
+**第二块**：`IsUTermVec ℒₛₑₜ 2 ?[^#0, t]`——
+由 `IsUTermVec` 的判定（`Term/Basic.lean:222`）：
 
-**本行直接由 `eqAtom` 的定义与 `IsUFormula.rel` 试。** -/
+```lean
+IsUTermVec L 2 (?[t₁, t₂] : V) ↔ IsUTerm L t₁ ∧ IsUTerm L t₂
+```
 
-/-- **试证**：`eqAtom t` 是公式。
+**所以第二块归约到 `IsUTerm ℒₛₑₜ ^#0 ∧ IsUTerm ℒₛₑₜ t`**——
+前半是**有界变量**（`^#0` 总是项），后半是**前提**。 -/
 
-**注意**：`?[^#0, t]` 是 `SemitermVec`（两个项），
-所以第二件要证 `IsUTermVec ℒₛₑₜ 2 ?[^#0, t]`。
-**而 `t` 是 V 内任意的数**——它未必是项的码！
+-- **查实 3**：`IsUTermVec` 对二元向量的判定（`Term/Basic.lean:222`）：
+--
+--   `IsUTermVec L 2 (?[t₁, t₂] : V) ↔ IsUTerm L t₁ ∧ IsUTerm L t₂`
+--
+-- **归约到两个分量的 `IsUTerm`**。（`?[…]` 是 `SemitermVec` 的记号，
+-- 需 `open scoped` 相应记号；本行以注释记录其类型。）
 
-**这就是新障碍**：`eqAtom t` 对**任意** `t : V` 未必是公式；
-只有当 `t` 是项的码时才成立。
-**所以 `IsUFormula (eqAtom t)` 不是无条件定理**，
-需要 `IsUTerm ℒₛₑₜ n t` 之类的前提。
+/-- **查实 4（要证的目标形状）**：`eqAtom t` 是公式，**前提是 `t` 是项**。
 
-**这与 `iVE` 的情形吻合**：`iVE n t` 的输入 `t` 是**算术项的码**，
-其 `IsUTerm` 性由归纳假设（`TermRec` 的归纳）保证。 -/
-example (t : V) : Prop := Bootstrapping.IsUTerm ℒₛₑₜ t → Bootstrapping.IsUFormula ℒₛₑₜ (eqAtom t)
+**两块**：`IsRel 2 cEqN`（`cEqN` 是 `Eq.eq` 的编码，应当可由 `Language.IsRel` 的
+引理给出）与 `IsUTermVec 2 ?[^#0, t]`（由查实 3 与 `^#0` 的项性给出）。 -/
+example (t : V) : Prop := Bootstrapping.IsUTerm ℒₛₑₜ t →
+    Bootstrapping.IsUFormula ℒₛₑₜ (eqAtom t)
 
 end GodelQ.CG008EqAtom
