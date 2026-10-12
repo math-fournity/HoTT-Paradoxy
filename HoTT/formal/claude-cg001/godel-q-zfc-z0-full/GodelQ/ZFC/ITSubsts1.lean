@@ -8,7 +8,7 @@ import GodelQ.ZFC.ShiftConjunct
 等价于先把 `q` 的自由变量换掉再以层 0 翻译：
 
 ```
-subst ℒₛₑₜ ?[^&0] (iT 1 q) = iT 0 (subst ℒₒᵣ ?[^&0] q)          -- 桥（本文件的目标）
+subst ℒₛₑₜ ?[^&0] (iT 1 q) = iT 0 (termSubst ℒₒᵣ ?[^&0] q)      -- 桥（本文件的目标）
 ```
 
 `q` 层 1。**机制**：`iVE m ^#z = eqAtom ^#(z+1)`——`iVE` 把 bvar 索引整体加一，
@@ -252,5 +252,76 @@ lemma iVE_subst_ve0 {a k f : V} {m : V} (ha : a < m)
     rw [subst_imp (n := 1) (m := m) (IsSemiformula.verum (n := 1)) hX1 hR, substs_verum]
     exact congrArg (imp ℒₛₑₜ ^⊤) (subst_ve0_body₁ hcf hR hb1)
   rw [eL, eR, termSubstVec_a0_n0, termSubstVec_a_n0]
+
+/-- 右式的直接形态：`subst ?[^#a] (iVE 0 (subst ?[^&0] t))` 对 `t = ^#0` 与 `t = ^&x`。 -/
+lemma rhs_bvar (a : V) :
+    subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) (^#0 : V))) =
+      (^rel 2 (↑cEqN) ?[^#a, ^&0] : V) := by
+  have h : termSubst ℒₒᵣ (?[^&0] : V) (^#0 : V) = (^&0 : V) := by
+    rw [termSubst_bvar, nth_adjoin_zero]
+  rw [h, iVE_fvar, subst_eqAtom_a (IsUTerm.fvar (0 : V))]
+  rw [termSubst_fvar]
+
+/-- 右式的直接形态（fvar 版）。 -/
+lemma rhs_fvar (a x : V) :
+    subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) (^&x : V))) =
+      (^rel 2 (↑cEqN) ?[^#a, ^&x] : V) := by
+  have h : termSubst ℒₒᵣ (?[^&0] : V) (^&x : V) = (^&x : V) := termSubst_fvar x
+  rw [h, iVE_fvar, subst_eqAtom_a (IsUTerm.fvar x)]
+  rw [termSubst_fvar]
+
+end GodelQ.ITSubsts1
+
+namespace GodelQ.ITSubsts1
+
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+/-- **T1**（`t` 层 1）：`subst (^#a ∷ ?[^&0]) (iVE 1 t) = subst ?[^#a] (iVE 0 (subst ?[^&0] t))`。
+
+`a` 是**项向量**的下标，要求 `a < m`（`m` 为层）。bvar/fvar 支直接算；
+func 支分 `k = 0`（`ve0`，见 `iVE_subst_ve0`）与 `k = 2`（`ve2`，绑定子）。 -/
+lemma iVE_subst_a0 {a : V} {m : V} (ha : a < m) : ∀ t, IsSemiterm ℒₒᵣ 1 t →
+    subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
+      subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)) := by
+  have h0 : (0 : V) < 1 := by norm_num
+  apply IsSemiterm.sigma1_induction (L := ℒₒᵣ) (n := (1 : V))
+    (P := fun t ↦ subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
+      subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)))
+  · definability
+  · -- bvar：`z < 1` ⇒ `z = 0`
+    intro z hz
+    have hz0 : z = 0 := lt_one_iff_eq_zero.mp hz
+    subst hz0
+    rw [iVE_bvar]
+    rw [show (^#(0 + 1) : V) = (^#1 : V) by norm_num]
+    rw [subst_eqAtom_a0 (IsUTerm.bvar (z := 1))]
+    rw [termSubst_bvar]
+    simp only [nth_adjoin_one, nth_adjoin_zero]
+    exact (rhs_bvar a).symm
+  · -- fvar
+    intro x
+    rw [iVE_fvar, subst_eqAtom_a0 (IsUTerm.fvar x), termSubst_fvar]
+    exact (rhs_fvar a x).symm
+  · -- func
+    intro k f v hkf hv ih
+    by_cases hk : k = 0
+    · subst hk
+      have hv0 : v = (0 : V) := by
+        have h : IsUTermVec ℒₒᵣ 0 v := hv.isUTerm
+        exact IsUTermVec.empty_iff.mp h
+      subst hv0
+      -- 体的层是 1；`subst` 在 `^func` 上就是 `termSubst`（项层），
+      -- 而 `termSubst ?[^&0] (^func 0 f 0) = ^func 0 f 0`（向量空，函数不变）。
+      have hsub0 : termSubst ℒₒᵣ (?[^&0] : V) (^func 0 f (0 : V)) = (^func 0 f (0 : V) : V) := by
+        rw [termSubst_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)), termSubstVec_nil]
+      rw [hsub0]
+      rw [iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)),
+        iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V))]
+      simp only [ite_true]
+      exact iVE_subst_ve0 ha (isSemiformula_cFunc_arity0 f)
+    · -- k = 2（`ℒₒᵣ` 只有 0 元与 2 元函数符号）
+      have hk2 := k_eq_two_of_func hkf hk
+      subst hk2
+      sorry
 
 end GodelQ.ITSubsts1
