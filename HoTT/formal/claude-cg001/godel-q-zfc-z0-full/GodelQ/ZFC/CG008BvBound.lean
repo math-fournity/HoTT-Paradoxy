@@ -36,7 +36,8 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 最后 `max_le` 拆成 `1 ≤ termBV t + 1` 与 `termBV t ≤ termBV t + 1`。
 **全程用 `≤` 不用 `=`**（`V` 无 `OrderedRing`，`max_eq_left` 要的 `0 ≤ x` 没有现成引理）。 -/
 theorem bv_eqAtom_le (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
-    Bootstrapping.bv ℒₛₑₜ (Translate.eqAtom t) ≤ Bootstrapping.termBV ℒₛₑₜ t + 1 := by
+    Bootstrapping.bv ℒₛₑₜ (Translate.eqAtom t)
+      ≤ Max.max (Bootstrapping.termBV ℒₛₑₜ t) 1 := by
   have hv : Bootstrapping.IsUTermVec ℒₛₑₜ 2 (?[^#0, t] : V) :=
     Bootstrapping.IsUTermVec.mkSeq₂_iff.mpr
       ⟨Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0), ht⟩
@@ -62,13 +63,13 @@ theorem bv_eqAtom_le (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
     subst this
     rw [GodelQ.CG008Bv2.nth_vec₂_zero]
     rw [Bootstrapping.termBV_bvar]
-    -- `1 ≤ termBV t + 1`
-    simpa using add_le_add_right (Arithmetic.zero_le (Bootstrapping.termBV ℒₛₑₜ t)) (1 : V)
+    -- `1 ≤ max (termBV t) 1`
+    simpa using le_max_right (Bootstrapping.termBV ℒₛₑₜ t) (1 : V)
   · -- `i = 1`
     subst hi1
     rw [GodelQ.CG008Bv2.nth_vec₂_one]
-    -- `termBV t ≤ termBV t + 1`
-    simpa using add_le_add_left (Arithmetic.zero_le (1 : V)) (Bootstrapping.termBV ℒₛₑₜ t)
+    -- `termBV t ≤ max (termBV t) 1`
+    exact le_max_left (Bootstrapping.termBV ℒₛₑₜ t) (1 : V)
 
 end GodelQ.CG008BvBound
 
