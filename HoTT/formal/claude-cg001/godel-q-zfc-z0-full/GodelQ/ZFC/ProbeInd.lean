@@ -1,0 +1,34 @@
+import GodelQ.ZFC.ShCraigElimSetupQ
+open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
+open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
+open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.Z0Full
+open GodelQ.SeqTranslate GodelQ.ShCraigElimSetup GodelQ.ShCraigElimBranches GodelQ.TranslateShiftCompat
+set_option maxHeartbeats 2000000
+namespace GodelQ.ProbeInd
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+-- 用与 iT_shift 完全相同的机器试 correct-shape
+theorem iT_free_shape {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
+    iT n (free ℒₒᵣ p) = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ iT.construction (n + 1) p)) := by
+  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
+      iT param (free ℒₒᵣ p)
+        = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero)
+            (free ℒₛₑₜ (iT.construction.result ℒₒᵣ param p)) :=
+    UformulaRec1.Construction.semiformula_result_induction
+      (V := V) (c := iT.construction) (L := ℒₒᵣ)
+      (P := fun param n p q => param = n →
+        iT param (free ℒₒᵣ p)
+          = imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ iT.construction param p q)))
+      (by definability)
+      (by intro n param k R v hR hv h; subst h; sorry)
+      (by intro n param k R v hR hv h; subst h; sorry)
+      (by intro n param h; subst h; sorry)
+      (by intro n param h; subst h; sorry)
+      (by intro n param p q hp hq ihp ihq h; subst h; sorry)
+      (by intro n param p q hp hq ihp ihq h; subst h; sorry)
+      (by intro n param p hp ih h; subst h; sorry)
+      (by intro n param p hp ih h; subst h; sorry)
+  intro n p hp
+  exact key hp rfl
+
+end GodelQ.ProbeInd
