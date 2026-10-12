@@ -1,4 +1,4 @@
-import GodelQ.ZFC.CG008Conjunct
+import GodelQ.ZFC.CG008ShiftProof
 
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
 open GodelQ.Translate
