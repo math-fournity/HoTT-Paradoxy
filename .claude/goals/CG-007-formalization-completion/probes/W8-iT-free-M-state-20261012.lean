@@ -109,6 +109,18 @@ theorem iT_free_atom {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
       (IsSemitermVec.doubleton.mpr
         ⟨IsSemiterm.bvar.mpr (by norm_num), IsSemiterm.bvar.mpr (by norm_num)⟩)
   have hC : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) := hC₀.isUFormula
+  have hA₂ : IsSemiformula ℒₛₑₜ (1 + 1)
+      (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+        (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)) :=
+    IsSemiformula.and.mpr
+      ⟨isSemiformula_conjunct (b := 2) (n := 1) (i := 0)
+        (isSemiformula_iVE (n := 1) (^#(0:V) : V)
+          (IsSemiterm.bvar.mpr (Arithmetic.zero_lt_one : (0:V) < 1))) (by norm_num),
+       IsSemiformula.and.mpr
+        ⟨isSemiformula_conjunct (b := 2) (n := 1) (i := 1)
+          (isSemiformula_iVE (n := 1) (^#(0:V) : V)
+            (IsSemiterm.bvar.mpr (Arithmetic.zero_lt_one : (0:V) < 1))) (by norm_num),
+         IsSemiformula.verum⟩⟩
   have hbody : IsUFormula ℒₛₑₜ
       (imp ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
@@ -146,7 +158,7 @@ theorem iT_free_atom {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
     Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 1) hA]
   congr 1
   · -- 第一条：`neg (conjunct 2 0 0 (iVE 0 ^&0) ⋏ …) = subst ?[^#0,^#1,^&0] (neg (conjunct 2 1 0 …))`
-    rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 1) hA]
+    rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 2) hA₂]
     congr 1
     -- 展开两侧的 `conjunct`
     simp only [conjunct]
