@@ -108,18 +108,32 @@ theorem zfc_z0_of_single_D3
 | `hnrel` | `IsUFormula.neg`（`Formula/Functions.lean:102`）已有 |
 | **`hall`/`hexs`** | **实质障碍**：`iT_all:560` 右边含 **`iT (n+1) p`**，归纳假设 `IsUFormula (iT 0 p)` 不直接适用 |
 
-**已排除的修法**：层数无关**谓词** `∀ n, IsUFormula (iT n p)`
+**层数问题已解决（第五轮）**：**换归纳原理即可**——
+Foundation **有层数感知的归纳** `IsSemiformula.sigma1_structural_induction`
+（`Formula/Basic.lean:1484`），谓词 `P : V → V → Prop` **吃层数**：
+
+```lean
+(hall : ∀ n p, IsSemiformula L (n + 1) p → P (n + 1) p → P n (^∀ p))
+```
+
+**归纳假设在层 `n+1`**——正是 `iT_all`（`iT n (^∀ p) = ^∀ (imp domZero (iT (n+1) p))`）
+所需。之前卡住是因为用了一元 `sigma1_succ_induction`（不吃层数）。
+
+**其闸门也过**：二元关系 `P n p := IsUFormula ℒₛₑₜ (iT n p)` 合成 `𝚺ᴬ₁-Relation`。
+
+**前提桥已有**：`IsUFormula.isSemiformula`（`:1350`）取 `n := bv L p`。
+
+**已排除的修法**（不必再试）：层数无关**谓词** `∀ n, IsUFormula (iT n p)`
 ——`∀ n` 推到 **Π₁**，而归纳原理要 **Σ₁**（`CG008LvlCheck`）。
 
-**当前靶子**：层数无关**引理**的**单向**形式
+**`rel`/`hnrel` 是唯一确需新建的零件**（已先查 Foundation 与本包，两处都无）：
+`IsUFormula (iTR n k R v)`。装配的两个关键步已查实：
+`isUFormula_qqAlls`（`Iteration.lean:515`，归约到 body）与
+`IsUFormula.imp`（`Functions.lean:185`）。
 
-```
-∀ p, IsUFormula ℒₒᵣ p → ∀ n : V, (IsUFormula ℒₛₑₜ (iT 0 p) → IsUFormula ℒₛₑₜ (iT n p))
-```
-
-**注意**：不能写成等式 `iT n p = iT 0 p`——层数确实进入 `iTR`
-（`conjunct 2 n i (iVE n v_i)`），所以两者的**码不同**；
-但「是不是公式」只与变量编号无关，故单向形式**可能**成立。
+**方法教训**：本会话**三次**断言某零件「缺失」而它其实在 Foundation 里
+（码到码函数、`IsUFormula → IsSemiformula` 桥、`Mono` 实例）。
+**声明「缺」之前先查 Foundation。**
 
 **不要重试**（都有编译实证）：见下节表格。
 
