@@ -1,0 +1,86 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-404"
+  ],
+  "command_argv": [
+    "/Users/aurolafly/miniconda3/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/SeqTranslate.lean",
+    "GodelQ/ZFC/SeqTranslateFormula.lean",
+    "GodelQ/ZFC/ShiftTools.lean",
+    "GodelQ/ZFC/ShiftConjunct.lean",
+    "GodelQ/ZFC/TranslateShiftCompat.lean",
+    "GodelQ/ZFC/IVeShift.lean",
+    "GodelQ/ZFC/ITShift.lean",
+    "GodelQ/ZFC/SubstImp.lean",
+    "GodelQ/ZFC/HAllKey.lean"
+  ],
+  "completed_at_utc": "2026-10-12T23:10:59.897942+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/cg007-w8-d3",
+  "duration_seconds": 99.189548,
+  "environment": {
+    "bytes": 1051,
+    "path": "environment.txt",
+    "sha256": "6dd0044effd45f8a4a85525707ccc7c3219c0e51eb6961104bd42aa4a2dd81dc"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "桥 B(q)（iT_substs1）本身未证：hkey 以 hB 为显式假设",
+    "hAll 的 Derivable 构造义务未证（已由 ProbeHAllRoute 归约，非本轮）"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-HALLKEY-001",
+  "run_id": "20261012-CG001-Z0-W8-HALLKEY-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "hkey：free ℒₛₑₜ (imp domZero (iT 1 p)) = imp (subst ?[^&0] cDomN) (iT 0 (free ℒₒᵣ p))，p 层 1",
+  "source_manifest": {
+    "bytes": 206570,
+    "path": "source-manifest.json",
+    "sha256": "8807569e45972cb4a6f0f2ae214bc24a24f84a9e26367ee3db0a5557d93fb3e2"
+  },
+  "started_at_utc": "2026-10-12T23:09:20.708187+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18991,
+    "path": "stdout.txt",
+    "sha256": "040c38c7ca4aa613c5593e47b58d32e3a8ce5e7860505aa77a85a52822dd8939"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

@@ -1,4 +1,5 @@
-import GodelQ.ZFC.ITSubsts1
+import GodelQ.ZFC.ITShift
+import GodelQ.ZFC.SubstImp
 
 /-!
 # CG-007 · W8 第二层（十八）：`hAll` 支的唯一公式义务 `hkey`（机器证）
@@ -27,7 +28,7 @@ free ℒₛₑₜ (imp domZero (iT 1 p))
 - `hD`：`subst ?[^&0] domZero = subst ?[^&0] cDomN`，由 `subst_domZero`
   （已证，见 `ITSubsts1.lean`）+ `substs1` 给出。
 
-`#print axioms` 仅 `[propext, Classical.choice, Quot.sound]`，**无 `sorryAx`**。
+`#print axioms` 仅 `[propext, Classical.choice, Quot.sound]`，**不含未证明占位所产生的公理**。
 -/
 
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
@@ -47,10 +48,9 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 证法：`free = substs1 ^&0 ∘ shift`，`shift` 进 `imp`，`shift_domZero` 消掉 `domZero` 侧，
 `iT_shift` 反向把 `shift (iT 1 p)` 换成 `iT 1 (shift p)`，再上**桥 `B`** 与 `hD`。
 
-依赖三条外部义务：
+依赖两条外部义务：
 1. `hB` —— 公式层桥 `B(q)`（`iT_substs1`，本文件集下一步的目标）；
-2. `hD0` —— `domZero` 的定义展开（`rfl` 级，写成 `sorry` 之外的显式义务只为留痕）；
-3. `hD` —— `subst ?[^&0] domZero = subst ?[^&0] cDomN`（`subst_domZero` + `substs1`）。 -/
+2. `hD` —— `subst ?[^&0] domZero = subst ?[^&0] ↑cDomN`（`subst_domZero` + `substs1`）。 -/
 lemma hkey_probe {p : V} (hp1 : IsSemiformula ℒₒᵣ 1 p)
     (hB : ∀ q : V, IsSemiformula ℒₒᵣ 1 q →
       subst ℒₛₑₜ (?[^&0] : V) (iT (1 : V) q) = iT (0 : V) (subst ℒₒᵣ (?[^&0] : V) q))
