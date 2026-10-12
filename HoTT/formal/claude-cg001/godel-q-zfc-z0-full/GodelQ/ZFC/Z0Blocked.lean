@@ -16,7 +16,7 @@ import GodelQ.ZFC.Z0Full
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
 open FFL.Entailment ProvabilityAbstraction
 open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
-open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate
+open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.Z0Full
 
 namespace GodelQ.Z0Blocked
 
@@ -31,7 +31,7 @@ Z0 的完整形式 `𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ` 立即随之�
 theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
     (τ : ArithmeticSentence)
     (h : Provable 𝗭𝗙𝗖 (⌜arithTrln.translate τ⌝ : V)) :
-    Provable 𝗭𝗙𝗖 (⌜arithTrln.translate (zfcTr τ)⌝ : V) := by
+    Provable 𝗭𝗙𝗖 (iT (0 : V) ((Z0Full.zfcTr τ : V) : V)) := by
   sorry
 
 end GodelQ.Z0Blocked
