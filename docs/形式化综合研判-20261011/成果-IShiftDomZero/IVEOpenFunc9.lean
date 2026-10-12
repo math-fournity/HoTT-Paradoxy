@@ -1,4 +1,7 @@
--- CG-009: the `cFunc` substitution piece of the func branch.
+-- CG-009: the ve2 body's substitution vector (a piece of the func branch).
+--
+-- `subst_QvecV_subst_cFunc` (the full cFunc piece) is NOT yet proved — see the
+-- handoff doc §3.2 for the exact route.
 import GodelQ.ZFC.IVEOpenFunc8
 
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
@@ -13,7 +16,8 @@ open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
 open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2 GodelQ.IVEOpenFunc3 GodelQ.IVEOpenFunc4
 open GodelQ.IVEOpenFunc5 GodelQ.IVEOpenFunc6 GodelQ.IVEOpenFunc8
 
-/-- The `ve2` body's vector `[^#2, ^#0, ^#1]` is a 3-term vector at layer `n` (`n ≥ 3`). -/
+/-- The `ve2` body's substitution vector `[^#2, ^#0, ^#1]` is a 3-term vector at
+    layer `n` (for `n ≥ 3`). -/
 lemma isSemitermVec_two_zero_one (n : V) (hn : 3 ≤ n) :
     IsSemitermVec ℒₛₑₜ 3 n ((^#2 : V) ∷ ?[^#0, ^#1]) := by
   have h2 : (2 : V) < n := lt_of_lt_of_le (by norm_num) hn
