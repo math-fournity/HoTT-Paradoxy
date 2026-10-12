@@ -57,6 +57,8 @@
 
 - **2026-10-12（续）`ve2` 支重构：426 秒 → 5.6 秒；左侧接入成功**：`ve2` 支原先写成 `iVE_subst_a0` 内的**内联大装配**，单次编译 **426 秒**且在 `whnf` 上 8,000,000 heartbeat 超时。照 `ShiftConjunct.shift_ve2` 的形状抽出独立引理 `subst_ve2`（把 `ve2` 的体只展开**一次**）后，**编译 5.6 秒**、exit 0。`ve2` 支内改为四步廉价归一（`termSubst_func` → `iVE_func`×2 → `resultVec_two_eq`×2）后调 `subst_ve2` 两次：**左侧（`n = 1`）已接入成功**，右侧（`n = 0`）剩一处。`isSemitermVec_mono` 已推广到任意语言。**残留的精确形状**：右侧 `W` 分量是 `iVE 0 (termSubstVec 2 ?[^&0] v).[i]`，`subst_ve2` 要 `iVE 0 (termSubst ?[^&0] v.[i])`——差一条 `nth_termSubstVec`；且 `iVE` 的**层参数**与 `IsSemiformula` 的**层**是两个独立的东西（右侧 `iVE 0` 的层参数是 0，而 `W` 分量的公式性在层 `0 + 1 = 1`）。文件整体 exit 0（1 个未证标记）。
 
+- **2026-10-12（再续）`ve2` 支右侧的根因找到：向量 `?[^&0]` 的层是 0，不是 1**：`ve2` 支右侧连续三轮失败的真正原因不是策略，是**层数写错**——`?[^&0]` 的 `termBV` 是 0（fvar 不含 bvar），却写成了层 1。改对之后右侧的两个 `isSemiformula_iVE (n := 0)` 见证立刻成形。**已接线**：`termSubst_vec` 归一 → `isSemiformula_iVE` ×2 → `subst_ve2` ×2（左右两侧）→ `qVec_qVec_a0`/`qVec_qVec_a` → `simp only [conjunct]`（四个合取块展开成 8 块）。**剩余**：8 块按三层 `substs_and` 摊平——前两块（`cDomN` 槽）两侧同形，后四块正是 **T1 在 `a := 0`/`a := 1` 的实例**（即归纳假设 `ih0`/`ih1`）。源代码注释里已画好这张 8 块对照表。
+
 
 4. ~~跑者的到达句~~：✅ C-117、C-118（CG-007 W5）。实分析版（在 ℒₛₑₜ 中构造实数）没有做，见 [03 节](03-跑者的到达句.md)。
 5. ~~同一个 Q 并列进一个内核~~：✅ C-112、C-113（第 04 章）。
