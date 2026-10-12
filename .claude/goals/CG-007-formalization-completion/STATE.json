@@ -3,16 +3,16 @@
  "id": "CG-007",
  "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
  "status": "ACTIVE",
- "phase": "W8-hAll：最后一步已机器定位——只需 `Derivable (A ⫽ X)` 换成 `Derivable (B ⫽ X)`（A = iT 0 (free ℒₒᵣ p)，B = free ℒₜ (iT 1 p)），走 replace_of_imp + 两条内部可证性 /W8-hRoot 核心归约 DONE / W8-hAll 骨架 100 余行 exit 0 只剩 1 sorry /ShCraigElim / zfcTr_D3_internalize OPEN",
- "next_action": "hAll 的最后一步（已 trace_state 定位）：\n  ih' : Derivable 𝗭𝗙𝗖 (iT 0 (free ℒₒᵣ p) ⫽ setShift ℒₜ (translateSeq s))\n  ⊢   : Derivable 𝗭𝗙𝗖 (free ℒₜ (iT 1 p) ⫽ setShift ℒₜ (translateSeq s))\n**只有主公式不同**。已试 replace_of_imp（本文件 ShCraigElimSetupQ 里已证），按 (hAB)(hA)(hB)(hS)(hd) 五参数 refine 的欠场是：\n  1. hA : IsFormula (iT 0 (free ℒₒᵣ p)) ← isSemiformula_iT + hfp\n  2. hB : IsFormula (free ℒₜ (iT 1 p)) ← isSemiformula_iT(1,p) + .free\n  3. hAB : Derivable 𝗭𝗙𝗖 (insert (neg A ^⋎ B) ∅) ← **真正剩余的一条**\n（iT_free 作为等式已机器判定为假，此处不需要它。）\n本分支 HEAD = 33dea22f，已推送。",
+ "phase": "全链 42 非探针模块 exit 0（逐个单模块强制重建收据）/ iT_free 已被并行会话机器二分定为真（iT 0 (free p) = free (iT 1 p)），我先前定位的「带护罩形状」是错的 /  hAll 剩余缺口 = iT_substs1 从原子情形沿 σ 结构归纳推广 / SHCraigElimBranches 0-sorry",
+ "next_action": "**本会话的确定性结论**：\n1. iT_free 的正确形状是 `iT 0 (free p) = free (iT 1 p)`（**可证**，路线 iT_substs1 + iT_shift）。\n   我在 e0f87a49 里定位的 `iT 0 (free p) = imp (subst ?[^&0] domZero) (free (iT 1 p))` 是**错的**\n   （verum 支已反驳）——那是我从 `free_imp_domZero` 形状外推的，未机器验证。已由并行会话 5375af19 纠正。\n2. `semiformula_result_induction` 的 `key` 类型里不能出现算术 `param+1`\n   （机器二分：shift/free/imp/subst 的任意组合都过，`param+1` 必挂）。\n   绕法：层数位移下推到 all/exs 支内部。\n3. **构建顺序陷阱**（我本轮误判过一次，记下来）：`devbuild_ns.py` 只编译**列出的**模块，\n   不编译其 import。按字母序喂模块会让 Z0Blocked 早于 Z0Full，报 `unknown identifier zfcTr`，\n   **看起来像源码错，实为缓存顺序错**。正确做法：先按 import 闭包拓扑排序，逐个单模块跑。\n   本会话据此重建了全部 44 个 olean。\n4. Z0Blocked 的 zfcTr_D3_internalize 仍然是唯一阻塞引理（1 sorry），这是既定的显式前提。\n\n下一步：把 iT_substs1_atom 沿 σ 归纳推广（rel/nrel 用 conjunct_rename，all/exs 用 substs_qqAlls）。",
  "bound_sessions": [
   "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
   "01a120e6-4f37-79c0-8651-49996aaf6d9b"
  ],
  "created": "2026-10-08T20:13:44-04:00",
- "updated": "2026-10-12T17:50:00-04:00",
+ "updated": "2026-10-12T19:45:00-04:00",
  "last_checkpoint": "2026-10-09T09:27:03-04:00",
- "checkpoints": 21,
+ "checkpoints": 22,
  "compactions": 2,
  "last_compaction": "2026-10-09T08:48:39-04:00"
 }
