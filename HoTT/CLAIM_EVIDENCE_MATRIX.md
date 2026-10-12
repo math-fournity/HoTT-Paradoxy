@@ -2267,3 +2267,19 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成对合律已证**：完整组装未完成（需补 `result_all`/`result_exs` 层数展开）；`iT`/`neg` 相容律的 `nrel`/`all`/`exs` 三支仍空 |
 | 包 | `MP-CG001-Z0-NEGINVOL-001` |
+
+## Claude CG-007 W8 第 2 层续：码层面对合律与一般 `iT`/`neg` 相容律（2026-10-12）
+
+> 承接本节上方的 `MP-CG001-Z0-NEGINVOL-001`（八支）与 `MP-CG001-Z0-SHCRAIG-NEGFILLED-001`（五支）：本单元把两条主律组装完成。
+> 读法：机器证明（有范围）。这是 D3 攻坚第 2 层的公共地基，不是 D3。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-Z0-W8-NEG-INVOLUTION-LAW-001` | `CG001-C-398`、`CG001-C-399` | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/NegInvolution.lean`（`neg_neg_code`）、`ShCraigElimNegLaw.lean`（`iT_neg`） | `verification/runs/20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01/`；exit 0，stderr 0 B，123 秒；132 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-Z0-W8-NEG-INVOLUTION-LAW-NEG-001` | `CG001-C-398`（负控制） | 同目录 `GodelQ/ZFC/WrongNegInvolutionAtom.lean` | `verification/runs/20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-NEG-01/`；exit 1，`unsolved goals` | `NEGATIVE_CONTROL_REJECTED`：`and` 支的德摩根侧不是空转 |
+| `MP-CG001-Z0-W8-NEG-INVOLUTION-LAW-NEG-002` | `CG001-C-399`（负控制） | 同目录 `GodelQ/ZFC/WrongITNegLevel.lean` | `verification/runs/20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-NEG-02/`；exit 1，`rewrite failed` | `NEGATIVE_CONTROL_REJECTED`：量词支的层数提升不是空转 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-398 | `neg ℒₒᵣ (neg ℒₒᵣ p) = p` 对 V 内任意公式码 `p`（任意层数）成立 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01`；负控制 `-NEG-01` | 不含 `iT` 与 `substs1`/`shift`/`free`/`setShift` 的相容 |
+| CG001-C-399 | `iT n (neg ℒₒᵣ p) = neg ℒₛₑₜ (iT n p)` 对 V 内任意公式码 `p`（任意层数）成立 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01`；负控制 `-NEG-02` | 不读成 D3 已证：`derivable_translateSeq`、`axm` 支、`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |

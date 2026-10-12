@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation DONE (CG001-C-391: isSemiformula_iT + 9 lemmas, receipt 20261011-CG001-Z0-W8-LAYER2-ISEMIFORMULA-IT-01) / W8-iT_neg BLOCKED (ShCraigElimNegLaw.iT_neg & NegInvolution.neg_neg_code UNCOMPILED as of 2026-10-11) / W8-derivable_translateSeq(10 cases) + ShCraigElim + axm + bridge + zfcTr_D3_internalize OPEN / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "D3 攻坚：第 2 层公式保持性主定理 isSemiformula_iT 已机器证（CG001-C-391，有收据）。但 STATE/HANDOFF 此前隐含假设 iT_neg 已好——实测 ShCraigElimNegLaw.iT_neg 与 NegInvolution.neg_neg_code 均未编译通过（IsUFormula.qqAlls 等命名不存在；neg_neg_code 卡 rel 支且带 sorryAx 噪声），是当前真缺口。下一个可独立验收的单点：封住 iT/neg 相容律——先修 NegInvolution.neg_neg_code（清 sorryAx 噪声、补原子支），再重写 ShCraigElimNegLaw.iT_neg（用 isUFormula_iTR + IsUFormula.all/imp/and/subst/rel，带 param=n 护罩），编译 exit 0 后出收据（capture_run.py + verify_cg001_run.py --rerun）。完成后依次是 hAxL/hCut/hShift、hAll/hExs/hShift 的 iT 与 subst/shift/free/setShift 相容、axm 支（需 codeOfREPred 一般 V 表示引理）、derivable_translateSeq 10 case 组装、bridge/keyE←、zfcTr_D3_internalize，最后 capture_run.py 出收据。C-120 影子形式无条件成立，不受影响。dev 领先 origin/dev 38 提交未 push；绝不碰外部资料/与并行会话未提交文件。",
+  "phase": "W8-layer2-compat-laws DONE (CG001-C-398: neg_neg_code; C-399: iT_neg; receipt 20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01 + two negative controls, all replayed exactly) / W8-derivable_translateSeq(10 cases) + axm + bridge + zfcTr_D3_internalize OPEN / W9-release-pending-authorization",
+  "next_action": "W8 第 2 层组装：把 ShCraigElimSetup.induction_setup 的 10 个 case 从 sorry 骨架填实（hWk/hVerumIntro/hAnd/hOr 用已证的 ShCraigElimBranches 与 ShCraigElimNegFilled；hAxL/hCut 用 C-399 的 iT_neg；hShift/hAll/hExs 还需先证 iT 与 substs1/shift/free/setShift 的相容）；然后 axm 支（需 codeOfREPred 的一般 V 表示引理）、keyE 两个方向、bridge、zfcTr_D3_internalize 替换 Z0Blocked.lean 的 sorry；最后 capture_run.py 出收据并更新证据索引/矩阵/追踪。若某支卡住，照实写明阻塞引理并留最小可续状态",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-11T06:50:00-04:00",
-  "last_checkpoint": "2026-10-09T09:27:03-04:00",
-  "checkpoints": 10,
+  "updated": "2026-10-12T17:09:40-04:00",
+  "last_checkpoint": "2026-10-12T17:09:40-04:00",
+  "checkpoints": 11,
   "compactions": 2,
   "last_compaction": "2026-10-09T08:48:39-04:00"
 }
