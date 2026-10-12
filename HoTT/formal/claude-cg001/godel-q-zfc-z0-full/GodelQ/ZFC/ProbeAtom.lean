@@ -90,7 +90,28 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
   rw [show (?[^&0, ^&0] : V) = (^&(0:V) : V) ∷ ((^&(0:V) : V) ∷ (0 : V)) from rfl,
     show (?[^#0, ^#0] : V) = (^#(0:V) : V) ∷ ((^#(0:V) : V) ∷ (0 : V)) from rfl]
   simp only [nth_adjoin_zero, nth_adjoin_one]
-  rw [key]
+  -- 把 `.[0]`/`.[1]` 换成具体项，让 key 能匹配
+  -- RHS 就是 `subst_qqAlls` 的直接应用对象。用 `rw` 的 **symm** 方向不行，
+  -- 因为目标左侧没有 `subst`。改用 `Eq.trans`：把 RHS 用 subst_qqAlls 展开。
+  have hR : subst ℒₛₑₜ (?[^&0] : V)
+      (qqAlls (imp ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
+        (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))) (2 : V))
+    = qqAlls (subst ℒₛₑₜ ((qVec ℒₛₑₜ)^[(2:ℕ)] (?[^&0] : V))
+        (imp ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
+          (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))) (2 : V) :=
+    subst_qqAlls hbody 2 (?[^&0] : V)
+  rw [hR]
+  rw [hq2]
+  show qqAlls (imp ℒₛₑₜ (conjunct 2 0 0 (iVE (0:V) (^&(0:V) : V)) ^⋏
+        (conjunct 2 0 1 (iVE (0:V) (^&(0:V) : V)) ^⋏ ^⊤))
+      (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))) (2:V)
+    = qqAlls (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
+        (imp ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
+          (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))) (2:V)
+  congr 1
   sorry
 
 end GodelQ.ProbeAtom
