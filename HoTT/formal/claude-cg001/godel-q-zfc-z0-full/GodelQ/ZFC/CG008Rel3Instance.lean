@@ -30,6 +30,17 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 example : 𝚺ᴬ₁-Predicate (fun r : V ↦ Bootstrapping.IsUFormula ℒₛₑₜ r) :=
   inferInstance
 
+/-- **泛化版**：对**任意** `L` 的三元实例。 -/
+example (L : Language) [L.Encodable] [L.LORDefinable] :
+    𝚺ᴬ₁-Relation₃ (fun _ _ r : V ↦ Bootstrapping.IsUFormula L r) := by
+  have hP : 𝚺ᴬ₁-Predicate (fun r : V ↦ Bootstrapping.IsUFormula L r) := inferInstance
+  have hf : 𝚺ᴬ₁.DefinableFunction (fun v : Fin 3 → V ↦ v 2) :=
+    Bounding.HierarchySymbol.DefinableFunction.var 2
+  have hcomp := Bounding.HierarchySymbol.DefinablePred.comp hP hf
+  apply Bounding.HierarchySymbol.Definable.of_iff hcomp
+  intro v
+  simp
+
 /- **查实 2（试建，未成）**：三元版本的**显式构造**。
 
 试借 `DefinablePred.comp` 与投影函数，**两处受阻**：
