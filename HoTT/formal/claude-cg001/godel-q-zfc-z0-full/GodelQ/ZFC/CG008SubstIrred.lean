@@ -1,6 +1,16 @@
 import GodelQ.ZFC.CG008Rel3Instance
 
 /-!
+> **【本文件已作废 — 2026-10-12】**
+> 其中的**诊断**（「卡在 Fixpoint 展开成本」）是**错的**。
+> 真因是**循环导入**（`CG008SubstFormula` ↔ `CG008Rel3Instance`），
+> 且 Foundation **已有** `IsSemiformula.subst`，**根本不必装配**。
+> 更正见 `CG008Correction2.lean` 与 `CG008SubstFormula.lean`。
+> 本文件仅作历史保留，**不作为结论**。
+-/
+
+
+/-!
 # CG-008 · 试修法 2：用 `irreducible` 阻止 `whnf` 展开
 
 ## 依据

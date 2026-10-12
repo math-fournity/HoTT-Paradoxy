@@ -1,4 +1,4 @@
-import GodelQ.ZFC.CG008SubstFormula
+import GodelQ.ZFC.CG008EqAtom
 
 /-!
 # CG-008 · 试建 `𝚺ᴬ₁-Relation₃ (fun _ _ r ↦ IsUFormula L r)`（修法 1）

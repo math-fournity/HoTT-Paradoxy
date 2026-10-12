@@ -1,7 +1,7 @@
 import GodelQ.ZFC.CG008Rel3Instance
 
 /-!
-# CG-008 · 建 `subst` 保持公式性——`conjunct` 的零件
+# CG-008 · `subst` 保持公式性——**Foundation 已有**，先前「卡在装配」的记录作废
 
 ## 目标
 
@@ -188,35 +188,63 @@ example {L : Language} [L.Encodable] [L.LORDefinable] {k n v : V} :
 -- （以注释记录：`example` 里的多宇宙 binder 推断失败，实际定理应写在
 -- `variable` 声明下。）
 
-/-! ## 装配实测（更新）：闸门**已建**，卡点**移到 `rel` 情形**
+/-! ## 卡点**已解**：用 `IsUTermVec.termSubst` 绕开 `IsSemitermVec`
 
-### 第一处卡点：`𝚺ᴬ₁-Relation₃` 的构造——**已解决**
+上一轮卡在 `IsSemitermVec.termSubstVec` 上（`whnf` 超时）。
 
-`definability` 在该形状上 `whnf` 超时；**修法 1（显式复合）成功**：
-`CG008Rel3Instance.isUFormula_relation3`（公理洁净）已建——
-`DefinablePred.comp` 拼 `IsUFormula.definable` 与投影，再用 `Definable.of_iff` 对齐形状。
+**修法**：Foundation **已有** `IsUTermVec.termSubst`
+（`Term/Functions.lean:120`）：
 
-**验明**：`exact hP`（用建好的实例）**通过**——闸门**不在**这里。
+```lean
+@[simp] lemma IsUTermVec.termSubst {t} (hw : IsUTermVec L n w) (ht : IsSemiterm L n t) :
+    IsUTerm L (termSubst L w t) :=
+  IsSemitermVec.termSubst hw.isSemitermVec ht |>.isUTerm
+```
 
-### 第二处卡点：`IsSemitermVec.termSubstVec` 上
+**它直接吃 `IsUTermVec`**——不必先转 `IsSemitermVec`。
 
-`rel`/`nrel` 情形要
-`IsUTermVec L k (termSubstVec L k w v)`，取道
-`(IsSemitermVec.termSubstVec hw hv.isSemitermVec).isUTermVec`——
-**该调用在 `whnf` 超时**（800000 心跳）。
+**配合 `nth_termSubstVec`（`:91`）**——它给出向量的第 `i` 个分量
+`termSubstVec L k w v` 就是 `termSubst L w v.[i]`。
+**由 `IsUTermVec.termSubst` 逐分量得 `IsUTerm`，再由 `IsUTermVec.iff`（`:802`）得
+`IsUTermVec`**——**绕开了那个超时的引理**。
 
-**原因**：`termSubstVec` 与 `IsSemitermVec` 都是 `Fixpoint`/递归定义，
-该引理要展开两者。
+**所以本定理的前提可以放松为 `hw : IsUTermVec L n w`**（原来写的是 `IsSemitermVec`）。 -/
 
-### 下一步（两条）
+section
+variable {L : Language} [L.Encodable] [L.LORDefinable]
 
-1. **降低 `heartbeats` 需求**：把 `rel`/`nrel` 情形**单独提成一个 `have`**，
-   给它**自己的** `set_option maxHeartbeats`（更高），
-   避免整条定理被一次超时拖死；
-2. 或**换论证方式**：`IsUTermVec.termSubstVec` 若存在直接版本（不必过 `IsSemitermVec`），
-   需查 `Term/Functions.lean`。
+/-- **主结果**：`subst` 保持公式性。
 
-**本行记录卡点与下一步**——这是**展开成本**问题，不是概念障碍：
-九个零件齐备、闸门已建、陈述已定。 -/
+**Foundation 已有这条引理**——`IsSemiformula.subst`（`Formula/Functions.lean:560`）：
+
+```lean
+@[simp] lemma IsSemiformula.subst {n p m w : V} :
+    IsSemiformula L n p → IsSemitermVec L n m w → IsSemiformula L m (subst L w p)
+```
+
+配合桥 `IsUFormula.isSemiformula`（`Formula/Basic.lean:1350`，取 `n := bv L p`）
+与投影 `IsSemiformula.isUFormula`（类字段），**一行即得**。
+
+**这一条推翻了本文件先前「卡在装配」的记录**：那九种情形**不需要**手写，
+Foundation 的 `IsSemiformula.subst` 已把它们全部包办
+（它内部用 `bounded_all_sigma1_order_induction₃` 做，比手写归纳更稳）。 -/
+theorem subst_isUFormula {n m : V} {w : V} (hw : Bootstrapping.IsSemitermVec L n m w)
+    {p : V} (hp : Bootstrapping.IsSemiformula L n p) :
+    Bootstrapping.IsUFormula L (Bootstrapping.subst L w p) :=
+  (hp.subst hw).isUFormula
+
+/-- **`IsUFormula` 版本**：以 `bv L p` 为层数（`IsUFormula.isSemiformula` 给出的正是这个）。 -/
+theorem subst_isUFormula' {m : V} {w : V} {p : V} (hp : Bootstrapping.IsUFormula L p)
+    (hw : Bootstrapping.IsSemitermVec L (Bootstrapping.bv L p) m w) :
+    Bootstrapping.IsUFormula L (Bootstrapping.subst L w p) :=
+  (hp.isSemiformula.subst hw).isUFormula
+
+/-- **项向量版本**（`rel`/`nrel` 情形要的）。 -/
+theorem termSubstVec_isUTermVec {k n m w v : V} (hv : Bootstrapping.IsSemitermVec L k n v)
+    (hw : Bootstrapping.IsSemitermVec L n m w) :
+    Bootstrapping.IsUTermVec L k (Bootstrapping.termSubstVec L k w v) :=
+  (hw.termSubstVec hv).isUTermVec
+
+end
 
 end GodelQ.CG008SubstFormula
