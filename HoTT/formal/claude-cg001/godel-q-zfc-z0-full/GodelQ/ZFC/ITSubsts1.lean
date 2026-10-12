@@ -415,3 +415,96 @@ lemma termSubstVec_V'_i_single {a i : V} (hi : i < 2) :
   termSubstVec_V'_i hi
 
 end GodelQ.ITSubsts1
+
+namespace GodelQ.ITSubsts1
+
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+/-- `termSubstVec 3 w ?[t₂, t₁, t₀] = ?[termSubst w t₂, termSubst w t₁, termSubst w t₀]`。 -/
+lemma termSubstVec_three {w t₂ t₁ t₀ : V} (h₂ : IsUTerm ℒₛₑₜ t₂) (h₁ : IsUTerm ℒₛₑₜ t₁)
+    (h₀ : IsUTerm ℒₛₑₜ t₀) :
+    termSubstVec ℒₛₑₜ 3 w (?[t₂, t₁, t₀] : V)
+      = (?[termSubst ℒₛₑₜ w t₂, termSubst ℒₛₑₜ w t₁, termSubst ℒₛₑₜ w t₀] : V) := by
+  rw [show (?[t₂, t₁, t₀] : V) = (t₂ ∷ (t₁ ∷ (t₀ ∷ (0 : V)))) from rfl]
+  rw [show (3 : V) = 2 + 1 by norm_num,
+    termSubstVec_cons h₂ (by
+      have := (IsUTermVec.adjoin₁_iff.mpr h₀).adjoin h₁
+      rw [show (1 : V) + 1 = 2 by norm_num] at this
+      exact this)]
+  rw [show (2 : V) = 1 + 1 by norm_num,
+    termSubstVec_cons h₁ (IsUTermVec.adjoin₁_iff.mpr h₀),
+    termSubstVec_cons₁ h₀]
+
+/-- `termSubstVec 3 W' ?[^#2, ^#0, ^#1] = ?[^#(a+2), ^#0, ^#1]`（结论项的向量）。 -/
+lemma termSubstVec_W'_concl (a : V) :
+    termSubstVec ℒₛₑₜ 3 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#2, ^#0, ^#1] : V)
+      = (?[^#(a + 2), ^#0, ^#1] : V) := by
+  rw [termSubstVec_three (IsUTerm.bvar (z := 2)) (IsUTerm.bvar (z := 0))
+    (IsUTerm.bvar (z := 1))]
+  rw [termSubst_bvar, termSubst_bvar, termSubst_bvar]
+  rw [show (?[^#0, ^#1, ^#(a + 2), ^&0] : V) =
+      ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ ((^&0 : V) ∷ (0 : V))))) from rfl]
+  rw [show (2 : V) = 1 + 1 by norm_num, nth_adjoin_succ]
+  rw [show (1 : V) = 0 + 1 by norm_num, nth_adjoin_succ]
+  rw [show (0 : V) + 1 = 1 by norm_num, nth_adjoin_one]
+  rw [nth_adjoin_zero, nth_adjoin_zero, nth_adjoin_zero]
+
+/-- `termSubstVec 3 V' ?[^#2, ^#0, ^#1] = ?[^#(a+2), ^#0, ^#1]`（结论项的向量，右侧）。 -/
+lemma termSubstVec_V'_concl (a : V) :
+    termSubstVec ℒₛₑₜ 3 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#2, ^#0, ^#1] : V)
+      = (?[^#(a + 2), ^#0, ^#1] : V) := by
+  rw [termSubstVec_three (IsUTerm.bvar (z := 2)) (IsUTerm.bvar (z := 0))
+    (IsUTerm.bvar (z := 1))]
+  rw [termSubst_bvar, termSubst_bvar, termSubst_bvar]
+  rw [show (?[^#0, ^#1, ^#(a + 2)] : V) =
+      ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ (0 : V)))) from rfl]
+  rw [show (2 : V) = 1 + 1 by norm_num, nth_adjoin_succ]
+  rw [show (1 : V) = 0 + 1 by norm_num, nth_adjoin_succ]
+  rw [show (0 : V) + 1 = 1 by norm_num, nth_adjoin_one]
+  rw [nth_adjoin_zero, nth_adjoin_zero, nth_adjoin_zero]
+
+/-- 结论项：`subst W' (subst (^#2 ∷ ?[^#0,^#1]) (cFunc 2 f)) = subst ?[^#(a+2),^#0,^#1] (cFunc 2 f)`。 -/
+lemma subst_concl_W' {a f : V} (hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f)) :
+    subst ℒₛₑₜ (?[^#0, ^#1, ^#(a + 2), ^&0] : V)
+        (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) =
+      subst ℒₛₑₜ (?[^#(a + 2), ^#0, ^#1] : V) (cFunc 2 f) := by
+  have hv3 : IsSemitermVec ℒₛₑₜ 3 3 (?[^#2, ^#0, ^#1] : V) := by
+    rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+      from rfl]
+    rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+    refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+    rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+    exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩
+  rw [substs_substs (l := 3) (n := 4) (m := a + (1 + 1 + 1)) (p := cFunc 2 f) hcf
+    (isSemitermVec_W' a) (by
+      rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+        from rfl]
+      rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+      refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+      rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+      exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩),
+    termSubstVec_W'_concl]
+
+/-- 结论项（右侧）。 -/
+lemma subst_concl_V' {a f : V} (hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f)) :
+    subst ℒₛₑₜ (?[^#0, ^#1, ^#(a + 2)] : V)
+        (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) =
+      subst ℒₛₑₜ (?[^#(a + 2), ^#0, ^#1] : V) (cFunc 2 f) := by
+  have hv3 : IsSemitermVec ℒₛₑₜ 3 3 (?[^#2, ^#0, ^#1] : V) := by
+    rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+      from rfl]
+    rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+    refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+    rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+    exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩
+  rw [substs_substs (l := 3) (n := 3) (m := a + (1 + 1 + 1)) (p := cFunc 2 f) hcf
+    (isSemitermVec_V' a) (by
+      rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+        from rfl]
+      rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+      refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+      rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+      exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩),
+    termSubstVec_V'_concl]
+
+end GodelQ.ITSubsts1
