@@ -1,4 +1,4 @@
-import GodelQ.ZFC.CG008Bv3
+import GodelQ.ZFC.CG008Vec2
 
 /-!
 # CG-008 · `bv (iVE n t) ≤ n + 1`——主定理
@@ -61,13 +61,13 @@ theorem bv_eqAtom_le (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
     have : i = 0 := by
       rw [lt_one_iff_eq_zero] at hi0; exact hi0
     subst this
-    rw [GodelQ.CG008Bv2.nth_vec₂_zero]
+    rw [GodelQ.CG008Vec2.nth_vec₂_zero]
     rw [Bootstrapping.termBV_bvar]
     -- `1 ≤ max (termBV t) 1`
     simpa using le_max_right (Bootstrapping.termBV ℒₛₑₜ t) (1 : V)
   · -- `i = 1`
     subst hi1
-    rw [GodelQ.CG008Bv2.nth_vec₂_one]
+    rw [GodelQ.CG008Vec2.nth_vec₂_one]
     -- `termBV t ≤ max (termBV t) 1`
     exact le_max_left (Bootstrapping.termBV ℒₛₑₜ t) (1 : V)
 

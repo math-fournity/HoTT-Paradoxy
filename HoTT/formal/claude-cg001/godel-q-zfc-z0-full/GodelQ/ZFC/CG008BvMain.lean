@@ -56,6 +56,17 @@ lemma isSemitermVec_conjunctVec' (b n i : V) (hi : i < b + n) :
         rwa [add_comm j' b, add_comm n b] at h
       exact Bootstrapping.IsSemiterm.bvar.mpr hb
 
+/-! ## 二·五、`eqAtom t` 是公式（**就地给**，`CG008RelCase2` 在循环另一侧） -/
+
+/-- `eqAtom t = ^rel 2 cEqN ?[^#0, t]` 是公式。 -/
+lemma eqAtom_isUFormula' (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
+    Bootstrapping.IsUFormula ℒₛₑₜ (Translate.eqAtom t) := by
+  rw [Translate.eqAtom]
+  refine Bootstrapping.IsUFormula.rel.mpr ⟨?_, ?_⟩
+  · exact Bootstrapping.codeIn_rel_quote (V := V) (L := ℒₛₑₜ) Language.Eq.eq
+  · exact Bootstrapping.IsUTermVec.mkSeq₂_iff.mpr
+      ⟨Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0), ht⟩
+
 /-! ## 三、`conjunct b n i y` 的层数 -/
 
 /-- `conjunct b n i y` 在层 `b + n` 是公式（`i < b + n` 时）。 -/
@@ -171,8 +182,8 @@ theorem isSemiformula_iVE {n t : V} (ht : Bootstrapping.IsSemiterm ℒₒᵣ n t
     intro z hz
     rw [Translate.iVE, Bootstrapping.Language.TermRec.Construction.result_bvar]
     refine Bootstrapping.isSemiformula_iff.mpr ⟨?_, ?_⟩
-    · exact (GodelQ.CG008RelCase2.eqAtom_isUFormula _
-        (Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := z + 1)))
+    · exact eqAtom_isUFormula' _
+        (Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := z + 1))
     · have h := GodelQ.CG008BvBound.bv_eqAtom_le (V := V) (^#(z + 1))
         (Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := z + 1))
       have hbv : Bootstrapping.termBV ℒₛₑₜ (^#(z + 1) : V) = z + 1 + 1 := by
@@ -191,7 +202,7 @@ theorem isSemiformula_iVE {n t : V} (ht : Bootstrapping.IsSemiterm ℒₒᵣ n t
     intro x
     rw [Translate.iVE, Bootstrapping.Language.TermRec.Construction.result_fvar]
     refine Bootstrapping.isSemiformula_iff.mpr ⟨?_, ?_⟩
-    · exact GodelQ.CG008RelCase2.eqAtom_isUFormula _
+    · exact eqAtom_isUFormula' _
         (Bootstrapping.IsUTerm.fvar (L := ℒₛₑₜ) x)
     · have h := GodelQ.CG008BvBound.bv_eqAtom_le (V := V) (^&x)
         (Bootstrapping.IsUTerm.fvar (L := ℒₛₑₜ) x)

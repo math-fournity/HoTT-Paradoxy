@@ -1,5 +1,6 @@
 import GodelQ.ZFC.CG008ShiftProof
 import GodelQ.ZFC.CG008IVE
+import GodelQ.ZFC.CG008Vec2
 
 /-!
 # CG-008 · `bv (iVE n t) ≤ n + 1`——用 `IsSemiterm.induction`
@@ -18,15 +19,13 @@ namespace GodelQ.CG008Bv2
 open GodelQ.ZFCArith GodelQ.Translate
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- 分量 0 与 1 的取值。 -/
-lemma nth_vec₂_zero (t : V) : (^#0 ∷ t ∷ (0 : V)).[0] = (^#0 : V) := by
-  rw [Arithmetic.nth_zero (V := V), Arithmetic.fstIdx_adjoin]
+/-- 分量 0 与 1 的取值。**已移到 `CG008Vec2.lean`**（那里不导入 `CG008IVE`，
+避免循环）；此处保留别名以便既有调用点不变。 -/
+lemma nth_vec₂_zero (t : V) : (^#0 ∷ t ∷ (0 : V)).[0] = (^#0 : V) :=
+  GodelQ.CG008Vec2.nth_vec₂_zero (V := V) t
 
-lemma nth_vec₂_one (t : V) : (^#0 ∷ t ∷ (0 : V)).[1] = t := by
-  have h1 : (1 : V) = (0 : V) + 1 := by norm_num
-  rw [h1, Arithmetic.nth_succ (V := V), Arithmetic.sndIdx_adjoin]
-  -- 剩 `(t ∷ 0).[0] = t`
-  rw [Arithmetic.nth_zero (V := V), Arithmetic.fstIdx_adjoin]
+lemma nth_vec₂_one (t : V) : (^#0 ∷ t ∷ (0 : V)).[1] = t :=
+  GodelQ.CG008Vec2.nth_vec₂_one (V := V) t
 
 -- **两条路线本轮都试到同一处**：
 -- * `bv_eqAtom_le`（`eqAtom` 的基例）走到 `nth_resultVec`/`nth_termBVVec` 的
