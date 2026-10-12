@@ -276,20 +276,23 @@ namespace GodelQ.ITSubsts1
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- **T1**（`t` 层 1）：`subst (^#a ∷ ?[^&0]) (iVE 1 t) = subst ?[^#a] (iVE 0 (subst ?[^&0] t))`。
+/-- **T1**（`t` 层 1）：`subst (^#a ∷ ?[^&0]) (iVE 1 t) = subst ?[^#a] (iVE 0 (termSubst ?[^&0] t))`。
 
-`a` 是**项向量**的下标，要求 `a < m`（`m` 为层）。bvar/fvar 支直接算；
-func 支分 `k = 0`（`ve0`，见 `iVE_subst_ve0`）与 `k = 2`（`ve2`，绑定子）。 -/
-lemma iVE_subst_a0 {a : V} {m : V} (ha : a < m) : ∀ t, IsSemiterm ℒₒᵣ 1 t →
+归纳谓词取 `∀ a < m, <T1 在 a>`——`ve2` 支对每个参数 `v.[i]` 要在 `a := i`
+处用归纳假设，故归纳必须对 `a` 全称（**有界**全称，`definability` 可接受）。
+
+`a < m` 里 `m` 是层。`ve2` 支的调用处取 `m := 3`（`W'` 长 4、层 3），
+`i ∈ {0,1}` 都有 `i < 3`。 -/
+lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < m →
     subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
       subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)) := by
-  have h0 : (0 : V) < 1 := by norm_num
   apply IsSemiterm.sigma1_induction (L := ℒₒᵣ) (n := (1 : V))
-    (P := fun t ↦ subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
-      subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)))
+    (P := fun t ↦ ∀ a : V, a < m →
+      subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
+        subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)))
   · definability
   · -- bvar：`z < 1` ⇒ `z = 0`
-    intro z hz
+    intro z hz a _
     have hz0 : z = 0 := lt_one_iff_eq_zero.mp hz
     subst hz0
     rw [iVE_bvar]
@@ -299,7 +302,7 @@ lemma iVE_subst_a0 {a : V} {m : V} (ha : a < m) : ∀ t, IsSemiterm ℒₒᵣ 1 
     simp only [nth_adjoin_one, nth_adjoin_zero]
     exact (rhs_bvar a).symm
   · -- fvar
-    intro x
+    intro x a _
     rw [iVE_fvar, subst_eqAtom_a0 (IsUTerm.fvar x), termSubst_fvar]
     exact (rhs_fvar a x).symm
   · -- func
@@ -310,18 +313,105 @@ lemma iVE_subst_a0 {a : V} {m : V} (ha : a < m) : ∀ t, IsSemiterm ℒₒᵣ 1 
         have h : IsUTermVec ℒₒᵣ 0 v := hv.isUTerm
         exact IsUTermVec.empty_iff.mp h
       subst hv0
-      -- 体的层是 1；`subst` 在 `^func` 上就是 `termSubst`（项层），
-      -- 而 `termSubst ?[^&0] (^func 0 f 0) = ^func 0 f 0`（向量空，函数不变）。
-      have hsub0 : termSubst ℒₒᵣ (?[^&0] : V) (^func 0 f (0 : V)) = (^func 0 f (0 : V) : V) := by
+      intro a ha
+      have hsub0 : termSubst ℒₒᵣ (?[^&0] : V) (^func 0 f (0 : V)) =
+          (^func 0 f (0 : V) : V) := by
         rw [termSubst_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)), termSubstVec_nil]
       rw [hsub0]
       rw [iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)),
         iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V))]
       simp only [ite_true]
       exact iVE_subst_ve0 ha (isSemiformula_cFunc_arity0 f)
-    · -- k = 2（`ℒₒᵣ` 只有 0 元与 2 元函数符号）
-      have hk2 := k_eq_two_of_func hkf hk
+    · have hk2 := k_eq_two_of_func hkf hk
       subst hk2
       sorry
+
+end GodelQ.ITSubsts1
+
+namespace GodelQ.ITSubsts1
+
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+/-! ## `ve2` 支的向量工具
+
+`W' := qVec (qVec (^#a ∷ ?[^&0])) = ?[^#0, ^#1, ^#(a+2), ^&0]`（长 4、层 3）。
+`ve2` 支里每个 `conjunct 3 1 i` 的 `y` 槽向量是 `^#i ∷ shiftVec 3 1 = ?[^#i, ^#3]`，
+在 `W'` 下逐分量变成 `?[^#i, ^&0]`——**这正是 T1 里那个向量的来源**。 -/
+
+/-- `W'` 的显式形态。 -/
+lemma W'_eq (a : V) :
+    qVec ℒₛₑₜ (qVec ℒₛₑₜ (^#a ∷ ?[^&0] : V)) = (?[^#0, ^#1, ^#(a + 2), ^&0] : V) :=
+  qVec_qVec_a0 a
+
+/-- `W'` 是长 4、层 `a+3` 的项向量。 -/
+lemma isSemitermVec_W' (a : V) :
+    IsSemitermVec ℒₛₑₜ 4 (a + (1 + 1 + 1)) (?[^#0, ^#1, ^#(a + 2), ^&0] : V) := by
+  rw [show (?[^#0, ^#1, ^#(a + 2), ^&0] : V) =
+    ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ ((^&0 : V) ∷ (0 : V))))) from rfl]
+  rw [show (4 : V) = 3 + 1 by norm_num, IsSemitermVec.cons_iff]
+  refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+  rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+  refine ⟨IsSemiterm.bvar.mpr (by
+    have h := one_lt_three_add a
+    rw [show (3 : V) + a = a + (1 + 1 + 1) by ring] at h
+    exact h), ?_⟩
+  rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+  refine ⟨IsSemiterm.bvar.mpr (by
+    have h := lt_add_self_add_one (a + 2) (0 : V)
+    have e1 : (0 : V) + (a + 2) + 1 = a + (1 + 1 + 1) := by ring
+    have e2 : a + 2 = a + (1 + 1) := by ring
+    rw [e1] at h
+    rw [e2] at h
+    exact h), by simp⟩
+
+/-- `V' := qVec (qVec ?[^#a]) = ?[^#0, ^#1, ^#(a+2)]`（长 3、层 `a+3`）。 -/
+lemma isSemitermVec_V' (a : V) :
+    IsSemitermVec ℒₛₑₜ 3 (a + (1 + 1 + 1)) (?[^#0, ^#1, ^#(a + 2)] : V) := by
+  rw [show (?[^#0, ^#1, ^#(a + 2)] : V) =
+    ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ (0 : V)))) from rfl]
+  rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+  refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+  rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+  refine ⟨IsSemiterm.bvar.mpr (by
+    have h := one_lt_three_add a
+    rw [show (3 : V) + a = a + (1 + 1 + 1) by ring] at h
+    exact h), by simp⟩
+
+/-- `termSubstVec 1 W' ?[^#i] = ?[^#i]`（`i < 2`）。 -/
+lemma termSubstVec_W'_i {a i : V} (hi : i < 2) :
+    termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#i] : V) = (?[^#i] : V) := by
+  rw [termSubstVec_cons₁ (IsUTerm.bvar (z := i)), termSubst_bvar]
+  rcases le_one_iff_eq_zero_or_one.mp (lt_two_iff_le_one.mp hi) with rfl | rfl
+  · rw [nth_adjoin_zero]
+  · rw [nth_adjoin_one, nth_adjoin_zero]
+
+/-- `termSubstVec 2 W' ?[^#i, ^#3] = ?[^#i, ^&0]`（`i < 2`）。 -/
+lemma termSubstVec_W'_i3 {a i : V} (hi : i < 2) :
+    termSubstVec ℒₛₑₜ 2 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#i, ^#3] : V)
+      = (?[^#i, ^&0] : V) := by
+  rw [termSubstVec_cons₂ (IsUTerm.bvar (z := i)) (IsUTerm.bvar (z := 3)),
+    termSubst_bvar, termSubst_bvar]
+  congr 1
+  · rcases le_one_iff_eq_zero_or_one.mp (lt_two_iff_le_one.mp hi) with rfl | rfl
+    · rw [nth_adjoin_zero]
+    · rw [nth_adjoin_one, nth_adjoin_zero]
+  · rw [show (?[^#0, ^#1, ^#(a + 2), ^&0] : V) =
+        ((^#0 : V) ∷ ((^#1 : V) ∷ ((^#(a + 2) : V) ∷ ((^&0 : V) ∷ (0 : V))))) from rfl]
+    rw [show (3 : V) = 2 + 1 by norm_num, nth_adjoin_succ]
+    rw [show (2 : V) = 1 + 1 by norm_num, nth_adjoin_succ]
+    rw [show (1 : V) = 0 + 1 by norm_num, nth_adjoin_succ, nth_adjoin_zero]
+
+/-- `termSubstVec 1 V' ?[^#i] = ?[^#i]`（`i < 2`）。 -/
+lemma termSubstVec_V'_i {a i : V} (hi : i < 2) :
+    termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#i] : V) = (?[^#i] : V) := by
+  rw [termSubstVec_cons₁ (IsUTerm.bvar (z := i)), termSubst_bvar]
+  rcases le_one_iff_eq_zero_or_one.mp (lt_two_iff_le_one.mp hi) with rfl | rfl
+  · rw [nth_adjoin_zero]
+  · rw [nth_adjoin_one, nth_adjoin_zero]
+
+/-- `termSubstVec 1 V' ?[^#i, 0]` 里第二分量不存在，故只需首分量：`?[^#i]`。 -/
+lemma termSubstVec_V'_i_single {a i : V} (hi : i < 2) :
+    termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#i] : V) = (?[^#i] : V) :=
+  termSubstVec_V'_i hi
 
 end GodelQ.ITSubsts1
