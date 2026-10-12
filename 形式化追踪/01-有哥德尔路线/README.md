@@ -55,6 +55,8 @@
 - **2026-10-12 `axm` 支的引号化版本已证**：`ShCraigElimAxm.lean`（exit 0，公理仅三条标准公理）给出 `zfc_provable_of_mem_craig`（`σ ∈ Sh.craig ⟹ 𝗭𝗙𝗖 ⊢ translate σ`）、`derivable_of_provable_mem`、`hAxm_quoted`（`p = ⌜σ⌝` 时 `Q (axm s p)`）。**范围**：`p` 必须是**引号**；从 `p ∈ Sh.craig.Δ₁Class` 到 `∃ σ, p = ⌜σ⌝` 这一步对**非标准** `p` 不成立（V 层 `Δ₁Class` 只给 `V ⊧/![p] Sh.craig.Δ₁ch`）。完整 `ShCraigElim` 需要补这一步。
 - **2026-10-12 五处实现陷阱（本轮实测，写进工作台备查）**：① `substs_substs` 的 `n` 是**向量长度**、`m` 是层，与 `IsSemitermVec` 定义序相反（这是 `shift_conjunct` 三次失败的同一根因）；② `subst_imp` 的参数序是 `(hp hq)`，而 `ve0` 的体是 `imp ⊤ body`，写反会静默匹配失败；③ `rw [show (2:V) = 1 + 1 by norm_num]` 产生 `0+1+1` 而非 `1+1`，与目标不匹配——`show` 的**字面量形状必须与目标逐字相同**；④ `IsUTermVec.empty` 无 `n` 参数、`IsUTermVec.empty_iff` 才做消去；⑤ `IsUTerm.fvar` 需 `(n) (x)` 两个参数，`IsSemiterm.fvar` 只需 `x`。
 
+- **2026-10-12（续）`ve2` 支重构：426 秒 → 5.6 秒；左侧接入成功**：`ve2` 支原先写成 `iVE_subst_a0` 内的**内联大装配**，单次编译 **426 秒**且在 `whnf` 上 8,000,000 heartbeat 超时。照 `ShiftConjunct.shift_ve2` 的形状抽出独立引理 `subst_ve2`（把 `ve2` 的体只展开**一次**）后，**编译 5.6 秒**、exit 0。`ve2` 支内改为四步廉价归一（`termSubst_func` → `iVE_func`×2 → `resultVec_two_eq`×2）后调 `subst_ve2` 两次：**左侧（`n = 1`）已接入成功**，右侧（`n = 0`）剩一处。`isSemitermVec_mono` 已推广到任意语言。**残留的精确形状**：右侧 `W` 分量是 `iVE 0 (termSubstVec 2 ?[^&0] v).[i]`，`subst_ve2` 要 `iVE 0 (termSubst ?[^&0] v.[i])`——差一条 `nth_termSubstVec`；且 `iVE` 的**层参数**与 `IsSemiformula` 的**层**是两个独立的东西（右侧 `iVE 0` 的层参数是 0，而 `W` 分量的公式性在层 `0 + 1 = 1`）。文件整体 exit 0（1 个未证标记）。
+
 
 4. ~~跑者的到达句~~：✅ C-117、C-118（CG-007 W5）。实分析版（在 ℒₛₑₜ 中构造实数）没有做，见 [03 节](03-跑者的到达句.md)。
 5. ~~同一个 Q 并列进一个内核~~：✅ C-112、C-113（第 04 章）。
