@@ -475,3 +475,39 @@ lemma translate_padding {ξ : Type*} (σ : Semiformula ℒₒᵣ ξ 0) (s : ℕ)
 **本会话的净贡献**（hRoot 线）：三个解包引理 + `translate_padding`（任意 fvar 域），
 把 hRoot 的**可证性部分**（Craig 公理 → translate σ 可证 → padding 后仍可证）完全打通，
 只剩 V/ℕ 层的 `Provable` 桥——而那是整条消去的核心难点，不是本分支的技术细节。
+
+## 二十六、★ 对 hAB 的重新评估（本会话最后一段，重要更正）
+
+### 之前的判断（§十三、§十五）需要细化
+
+我先前用 `ITSubstCounter.lean` 证明"朴素 iVE/subst 等式律恒假"——**那是对的**，
+但**结论范围被我夸大了**。精读 Foundation 后发现：
+
+**`qVec` 机制保护内层绑定变量**：
+```lean
+qVec w = ^#0 ∷ termBShiftVec L (len w) w      -- Term/Functions.lean:557
+substs_all : subst L w (^∀ p) = ^∀ (subst L (qVec L w) p)
+```
+`subst` 下降过绑定子时用 `qVec`——**前置一个新的 bvar 0 并把原有索引整体 +1**。
+所以在 `iTR`（`qqAlls(·, 2)`，两层绑定）的深度 2 处，`subst ?[^&0]` 落在索引 2，
+**不会命中 `iVE` 内部 `eqAtom` 的 bvar 0**。
+
+我的反例（`subst ?[^&0] (eqAtom ^&x) ≠ eqAtom ^&x`）是**无绑定子包裹**的情形——
+`eqAtom` 裸放时其 bvar 0 确实被命中。**但在 `iTR` 的实际结构里它被 `qqAlls` 包着。**
+
+### Foundation 提供的两条关键机制
+- `termSubstVec_qVec_qVec : termSubstVec (qVec w) (qVec v) = qVec (termSubstVec w v)`
+- `substs_qVec_bShift : termSubst (qVec w) (termBShift t) = termBShift (termSubst w t)`
+
+这两条正是"替换与替换交换"所需的机制——**hAB 的恒等式在 iTR 层可能真的成立**。
+
+### 修正后的判断
+- **不是**"朴素律恒假所以只能走蕴含式"；
+- **而是**"裸公式的律恒假，但 iTR 的绑定结构恰好使正确的律成立"——
+  正确的律应陈述为**带 qVec 的形式**（或直接在 iTR 层）。
+
+### 下一步（精确）
+证 `iTR_shift` 的类似物：`iTR 0 2 R (termSubstVec 2 ?[^&0] (termShiftVec 2 v))
+= subst ?[^&0] (shift (iTR 1 2 R v))`——
+需 `substs_all`/`substs_ex`（qVec）+ `substs_rel` + `termSubstVec_qVec_qVec` 的组合。
+**这是 hAB 的可行突破口**（此前被我误判为"只能走蕴含式"）。
