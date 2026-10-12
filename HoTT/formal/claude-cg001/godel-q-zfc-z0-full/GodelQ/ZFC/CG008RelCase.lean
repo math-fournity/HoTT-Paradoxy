@@ -52,4 +52,27 @@ noncomputable example (n k R v : V) : V := iTR n k R v
 **这是本会话第一次遇到确实需要新建的零件**（前两次都发现 Foundation 已有）。 -/
 example (n k R v : V) : Prop := Bootstrapping.IsUFormula ℒₛₑₜ (iTR n k R v)
 
+/-! ## 试建：`iTR` 的 `IsUFormula` 引理
+
+**由 `iTR` 的定义**（`InternalTranslate.lean:196`）：
+
+```
+iTR n _k R v = qqAlls (imp (conjunct 2 n 0 (iVE n v.[0]) ⋏ (conjunct 2 n 1 (iVE n v.[1]) ⋏ ⊤))
+    (subst ?[#0,#1] (cRel R))) 2
+```
+
+**要证 `IsUFormula`**，需各构件的公式性。**先查哪些构件的引理已有。** -/
+
+/-- **查实 3**：`cRel R` 是**关系符号的码**——`IsRel` 的见证。 -/
+example (R : V) : Prop := (ℒₛₑₜ).IsRel 2 R
+
+/-- **查实 4（要建的）**：`iTR n k R v` 是集合语言公式。
+
+**注意 `IsUFormula` 是 `Fixpoint` 定义**（`Formula/Basic.lean:284`），
+所以「是公式」的证明通常走 `IsUFormula.xxx.mpr` 构造器。
+
+**本行只固定目标**——实际构造需要逐层拼 `qqAlls`/`imp`/`conjunct` 的公式性，
+那是下一步的具体工作。 -/
+example (n k R v : V) : Prop := Bootstrapping.IsUFormula ℒₛₑₜ (iTR n k R v)
+
 end GodelQ.CG008RelCase
