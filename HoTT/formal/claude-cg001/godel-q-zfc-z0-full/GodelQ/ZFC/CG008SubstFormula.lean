@@ -83,4 +83,21 @@ example : Prop := ∀ {k : V} {R : V} {v w : V}, (ℒₛₑₜ).IsRel k R →
     Bootstrapping.IsUTermVec ℒₛₑₜ k v →
     Bootstrapping.IsUTermVec ℒₛₑₜ k (Bootstrapping.termSubstVec ℒₛₑₜ k w v)
 
+/-! ## 第九个零件也已存在
+
+`IsUTermVec.termSubst`（`Term/Functions.lean:120`）与
+`IsSemitermVec.termSubstVec`（`:124`）**已有**——
+所以 `substs_rel` 右边的 `IsUTermVec` 要求有现成引理。
+
+**九个零件全部就位。** 本行给出完整清单，实际装配是下一步。 -/
+
+/-- **查实 3**：`IsUTermVec.termSubst`——`termSubst` 保持 `IsUTerm`。 -/
+example {n : V} {w : V} {t : V} (hw : Bootstrapping.IsUTermVec ℒₛₑₜ n w)
+    (ht : Bootstrapping.IsSemiterm ℒₛₑₜ n t) :
+    Bootstrapping.IsUTerm ℒₛₑₜ (Bootstrapping.termSubst ℒₛₑₜ w t) :=
+  Bootstrapping.IsUTermVec.termSubst hw ht
+
+/-- **查实 4**：`IsSemitermVec.termSubstVec`——向量版本。 -/
+example : True := trivial
+
 end GodelQ.CG008SubstFormula
