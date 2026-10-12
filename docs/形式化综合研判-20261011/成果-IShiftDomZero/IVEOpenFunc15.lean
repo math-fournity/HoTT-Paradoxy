@@ -127,3 +127,126 @@ lemma subst_QvecV_conjunct_comm {mm i y : V} (hy : IsSemiformula ℒₛₑₜ (m
 end GodelQ.IVEOpenFunc15
 
 #print axioms GodelQ.IVEOpenFunc15.subst_QvecV_conjunct_comm
+
+namespace GodelQ.IVEOpenFunc15
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2 GodelQ.IVEOpenFunc3 GodelQ.IVEOpenFunc4
+open GodelQ.IVEOpenFunc5 GodelQ.IVEOpenFunc6 GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFunc9
+open GodelQ.IVEOpenFunc10 GodelQ.IVEOpenFunc11 GodelQ.IVEOpenFunc12
+
+/-- `subst (QvecV (mm+3)) (subst [^#2,^#0,^#1] (cFunc 2 f)) = subst [^#2,^#0,^#1] (cFunc 2 f)`。 -/
+lemma subst_QvecV_subst_cFunc' {mm f : V} :
+    subst ℒₛₑₜ (QvecV (V := V) (mm + 3))
+        (subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f)) =
+      subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f) := by
+  have hc : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f) :=
+    isSemiformula_cFunc_arity2 (by norm_num : (2 : V) ≠ 0) f
+  have hQ3 : IsSemitermVec ℒₛₑₜ (mm + 4) (mm + 4) (QvecV (V := V) (mm + 3)) :=
+    isSemitermVec_QvecV_three (n := mm)
+  have hv : IsSemitermVec ℒₛₑₜ 3 (mm + 4) ((^#2 : V) ∷ ?[^#0, ^#1]) := by
+    rw [show ((^#2 : V) ∷ ?[^#0, ^#1]) = (^#2 : V) ∷ (^#0 : V) ∷ (^#1 : V) ∷ (0 : V) from rfl]
+    have h := isSemitermVec_three_bvars (mm + 1)
+    have e : (3 : V) + (mm + 1) = mm + 4 := by ring
+    rw [e] at h
+    exact h
+  rw [show subst ℒₛₑₜ (QvecV (V := V) (mm + 3))
+        (subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f))
+      = subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 3 (QvecV (V := V) (mm + 3))
+          ((^#2 : V) ∷ ?[^#0, ^#1])) (cFunc 2 f) from
+    Bootstrapping.substs_substs (L := ℒₛₑₜ) (l := 3) (n := mm + 4) (m := mm + 4)
+      (p := cFunc 2 f) hc hQ3 hv]
+  rw [show ((^#2 : V) ∷ ?[^#0, ^#1]) = (^#2 : V) ∷ (^#0 : V) ∷ (^#1 : V) ∷ (0 : V) from rfl]
+  rw [GodelQ.IVEOpenFunc10.termSubstVec_three_QvecV_three (mm := mm)]
+
+end GodelQ.IVEOpenFunc15
+
+#print axioms GodelQ.IVEOpenFunc15.subst_QvecV_subst_cFunc'
+
+namespace GodelQ.IVEOpenFunc15
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2 GodelQ.IVEOpenFunc3 GodelQ.IVEOpenFunc4
+open GodelQ.IVEOpenFunc5 GodelQ.IVEOpenFunc6 GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFunc9
+open GodelQ.IVEOpenFunc10 GodelQ.IVEOpenFunc11 GodelQ.IVEOpenFunc12
+
+/-- **`ve2` 与 `subst (QvecV (mm+1))` 交换**（`k = 2` 支）。
+
+`w'.[i] = subst (QvecV (mm+1)) w.[i]`（逐分量），结论把外层代入推进两层绑定子。 -/
+lemma subst_QvecV_ve2 {mm f w w' : V} (hk : (2 : V) ≠ 0)
+    (hw0 : IsSemiformula ℒₛₑₜ (mm + 2) w.[0])
+    (hw1 : IsSemiformula ℒₛₑₜ (mm + 2) w.[1])
+    (hw'0 : subst ℒₛₑₜ (QvecV (V := V) (mm + 1)) w.[0] = w'.[0])
+    (hw'1 : subst ℒₛₑₜ (QvecV (V := V) (mm + 1)) w.[1] = w'.[1]) :
+    subst ℒₛₑₜ (QvecV (V := V) (mm + 1)) (ve2 (mm + 1) 2 f w) = ve2 (mm + 1) 2 f w' := by
+  have hc : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f) := isSemiformula_cFunc_arity2 hk f
+  have hB : IsUFormula ℒₛₑₜ
+      (subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f)) := by
+    rw [show ((^#2 : V) ∷ ?[^#0, ^#1]) = (^#2 : V) ∷ (^#0 : V) ∷ (^#1 : V) ∷ (0 : V) from rfl]
+    exact (IsSemiformula.subst (L := ℒₛₑₜ) (m := 3 + (mm + 1)) hc
+      (isSemitermVec_three_bvars (mm + 1))).isUFormula
+  have hw0' : IsSemiformula ℒₛₑₜ (mm + 1 + 1) w.[0] := by
+    have e : (mm + 1 + 1 : V) = mm + 2 := by ring
+    rwa [e]
+  have hw1' : IsSemiformula ℒₛₑₜ (mm + 1 + 1) w.[1] := by
+    have e : (mm + 1 + 1 : V) = mm + 2 := by ring
+    rwa [e]
+  have hA0 : IsSemiformula ℒₛₑₜ (3 + (mm + 1)) (conjunct 3 (mm + 1) 0 w.[0]) :=
+    isSemiformula_conjunct (b := 3) (n := mm + 1) (i := 0) hw0' (zero_lt_three_add (mm + 1))
+  have hA1 : IsSemiformula ℒₛₑₜ (3 + (mm + 1)) (conjunct 3 (mm + 1) 1 w.[1]) :=
+    isSemiformula_conjunct (b := 3) (n := mm + 1) (i := 1) hw1' (one_lt_three_add (mm + 1))
+  have hA01 : IsSemiformula ℒₛₑₜ (3 + (mm + 1)) (conjunct 3 (mm + 1) 1 w.[1] ^⋏ ^⊤) :=
+    IsSemiformula.and.mpr ⟨hA1, IsSemiformula.verum⟩
+  have hA : IsSemiformula ℒₛₑₜ (3 + (mm + 1))
+      (conjunct 3 (mm + 1) 0 w.[0] ^⋏ (conjunct 3 (mm + 1) 1 w.[1] ^⋏ ^⊤)) :=
+    IsSemiformula.and.mpr ⟨hA0, hA01⟩
+  -- 体内公式
+  have hbody : IsUFormula ℒₛₑₜ
+      (neg ℒₛₑₜ (conjunct 3 (mm + 1) 0 w.[0] ^⋏ (conjunct 3 (mm + 1) 1 w.[1] ^⋏ ^⊤))
+        ^⋎ subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f)) :=
+    IsUFormula.or.mpr ⟨hA.isUFormula.neg, hB⟩
+  -- 体内 = 目标体内的公式
+  have hinner : subst ℒₛₑₜ (QvecV (V := V) (mm + 3))
+      (neg ℒₛₑₜ (conjunct 3 (mm + 1) 0 w.[0] ^⋏ (conjunct 3 (mm + 1) 1 w.[1] ^⋏ ^⊤))
+        ^⋎ subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f))
+      = neg ℒₛₑₜ (conjunct 3 (mm + 1) 0 w'.[0] ^⋏ (conjunct 3 (mm + 1) 1 w'.[1] ^⋏ ^⊤))
+        ^⋎ subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f) := by
+    have hQ3' : IsSemitermVec ℒₛₑₜ (3 + (mm + 1)) (mm + 4) (QvecV (V := V) (mm + 3)) := by
+      have h := isSemitermVec_QvecV_three (n := mm)
+      have e : (3 : V) + (mm + 1) = mm + 4 := by ring
+      rw [e]
+      exact h
+    rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hA.isUFormula.neg hB,
+      Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3 + (mm + 1)) hA hQ3',
+      Bootstrapping.substs_and (L := ℒₛₑₜ) hA0.isUFormula hA01.isUFormula,
+      Bootstrapping.substs_and (L := ℒₛₑₜ) hA1.isUFormula IsUFormula.verum,
+      Bootstrapping.substs_verum (L := ℒₛₑₜ)]
+    have h0lt : (0 : V) < mm + 3 := by
+      have h := zero_lt_three_add mm
+      have e : (3 : V) + mm = mm + 3 := by ring
+      rwa [e] at h
+    have h1lt : (1 : V) < mm + 3 := by
+      have h := one_lt_three_add mm
+      have e : (3 : V) + mm = mm + 3 := by ring
+      rwa [e] at h
+    rw [subst_QvecV_conjunct_comm (mm := mm) (i := 0) hw0 h0lt,
+      subst_QvecV_conjunct_comm (mm := mm) (i := 1) hw1 h1lt,
+      hw'0, hw'1, subst_QvecV_subst_cFunc']
+  -- 目标体的公式性（供 substs_all 用）
+  rw [ve2]
+  show subst ℒₛₑₜ (QvecV (V := V) (mm + 1))
+      (qqAlls (neg ℒₛₑₜ (conjunct 3 (mm + 1) 0 w.[0] ^⋏ (conjunct 3 (mm + 1) 1 w.[1] ^⋏ ^⊤))
+        ^⋎ subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f)) 2) = _
+  rw [subst_QvecV_qqAlls_two (mm := mm) hbody]
+  rw [ve2]
+  rw [show imp ℒₛₑₜ (conjunct 3 (mm + 1) 0 w'.[0] ^⋏ (conjunct 3 (mm + 1) 1 w'.[1] ^⋏ ^⊤))
+        (subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f))
+      = neg ℒₛₑₜ (conjunct 3 (mm + 1) 0 w'.[0] ^⋏ (conjunct 3 (mm + 1) 1 w'.[1] ^⋏ ^⊤))
+        ^⋎ subst ℒₛₑₜ ((^#2 : V) ∷ ?[^#0, ^#1]) (cFunc 2 f) from rfl]
+  rw [hinner]
+
+end GodelQ.IVEOpenFunc15
+
+#print axioms GodelQ.IVEOpenFunc15.subst_QvecV_ve2
