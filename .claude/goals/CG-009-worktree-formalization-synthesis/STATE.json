@@ -4,38 +4,26 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "hAB 主律 iT_subst_open 的推进（已证到 iVE 层）：\n已证（全部 exit 0、公理仅三条标准公理）：\n  QvecV/QvecVOr（Σ₁ 函数，ℒₛₑₜ/ℒₒᵣ 两版，逐语言因 termBShiftVec 非定义相等）；\n  nth_QvecVOr_lt/last、nth_QvecV_lt/last（索引律）；\n  subst_QvecV_eqAtom_bvar_lt/bvar_last/fvar（eqAtom 层开口律）；\n  iVE_open_bvar_lt/bvar_last/fvar、iVE_open_bvar（iVE 层 bvar 支，含开口）。\n剩：iVE_open 的 func 支（ve0/ve2，需 conjunct/shiftVec 与 termSubstVec 相容）；\n然后 iT 层主律（rel 支需 iTR 在 qVec 下的相容律）、hExs（同形）、hRoot。",
+ "next_action": "hAB 开口律：func 支右侧逐项展开 nth_right（IVEOpenFunc3.lean）。\n做法与坑见 成果-IShiftDomZero/接力-hAB开口律-20261012.md §3.1：\nnth_termSubstVec → nth_V 拆 V.[j] → nth_QvecV_three 分三情形。\n新约束：j = 0 时需 i ≤ mm+3（来自 IsSemiterm.bvar）。\n然后 substVec_func_eq（nth_ext'）→ iVE_open.func → iT 主律。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T08:05:00-04:00",
- "last_checkpoint": "2026-10-12T08:05:00-04:00",
- "checkpoints": 58,
+ "updated": "2026-10-12T09:10:00-04:00",
+ "last_checkpoint": "2026-10-12T09:10:00-04:00",
+ "checkpoints": 59,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
   "proven_this_session": [
-   "iTR_shift",
-   "iT_shift (九支全过)",
-   "tshift",
-   "hShift_uncond",
-   "hAll_uncond (只差 hAB)",
-   "all_mem",
-   "guard_step",
-   "isFormulaSet_of_setShift_eq",
-   "shift_domZero",
-   "shift_quote",
-   "ishift 六支",
-   "shift_ve0",
-   "naive_law_is_false_shape (机器化反例)",
-   "mem_craig_iff_eval/quote_iff/padding",
-   "translate_padding (任意 fvar 域)",
-   "shCraigElim_of_obligations'（义务 5→3：iT_neg 与 tshift 消去）",
-   "QvecV/QvecVOr（内部 Σ₁ 函数）",
-   "nth_QvecVOr_lt / nth_QvecVOr_last / nth_QvecV_lt / nth_QvecV_last",
+   "shCraigElim_of_obligations'（义务 5→3）",
+   "QvecV / QvecVOr（Σ₁ 函数，逐语言两份）+ 层级实例",
+   "nth_QvecVOr_lt / nth_QvecVOr_last / nth_QvecV_lt / nth_QvecV_last / nth_QvecV / nth_QvecV_succ",
    "subst_QvecV_eqAtom_bvar_lt / bvar_last / fvar",
-   "iVE_open_bvar_lt / iVE_open_bvar_last / iVE_open_fvar / iVE_open_bvar"
+   "iVE_open_bvar_lt / iVE_open_bvar_last / iVE_open_fvar / iVE_open_bvar",
+   "nth_V（V = ^#i ∷ shiftVec 3 (mm+1) 的逐项式）",
+   "nth_left（func 支左侧逐项展开）",
+   "isSemitermVec_shiftVec3 / isSemitermVec_cons_shiftVec3"
   ],
   "absorbed_from_9276": [
    "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
@@ -49,7 +37,7 @@
    "义务数 5→3：iT_neg 与 tshift 已在 shCraigElim_of_obligations' 中消去（GateBranchesU2.lean，exit 0）。"
   ],
   "remaining": "iVE_open.func 支 → iVE_open 全 → iT 层主律 iT_subst_open（rel/nrel/all/exs） → 导出 iT 0 (free p) = subst ?[^&0] (iT 1 (shift p)) → 接 hAll_uncond → hExs 同形 → hRoot",
-  "verification": "42/42 从零重编译通过（exit 0，公理仅三条标准公理）"
+  "verification": "10 个新文件逐个用全新输出路径重编译，全部 exit 0、无 error、公理仅三条标准公理。（build/ 在挂载点上，删 olean 会被守卫拦下——换输出路径强制重编译。）"
  },
  "deliverables": {
   "branch": "claude/elegant-mclaren-767fb0 (pushed to origin, NOT merged to dev)",
