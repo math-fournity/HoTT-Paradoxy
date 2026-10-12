@@ -103,16 +103,68 @@ lemma iT_substs1_atom :
   rw [qVec_two]
   rw [show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl]
   rw [show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl]
-  rw [Bootstrapping.substs_or (L := ℒₛₑₜ) ?_ ?_]
-  · congr 1
-    · congr 1
-      exact conjunct_rename_first (by norm_num)
-    · exact conjunct_rename_second (by norm_num)
-  · exact (isSemiformula_conjunct (b := 2) (n := (1:V)) (i := (0:V))
-      (y := iVE (1:V) (^#0 : V))
-      (isSemiformula_iVE (n := (1:V)) (^#0) (IsSemiterm.bvar.mpr (by norm_num)))
-      (by norm_num)).isUFormula.neg
-  · exact isSemiformula_cRel_subst
-  sorry
+  -- 先分别算出两个 `IsUFormula`，再一次性 `rw`
+  have hA0 : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V))) :=
+    (IsSemiformula.subst (L := ℒₛₑₜ) (isSemiformula_iVE (n := (1:V)) (^#0)
+      (IsSemiterm.bvar.mpr (by norm_num)))
+      (by rw [IsSemitermVec.cons_iff]
+          exact ⟨IsSemiterm.bvar.mpr (by norm_num),
+            isSemitermVec_shiftVec_V (V := V) 2 1⟩)).isUFormula
+  have hA1 : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V))
+      ^⋏ ^⊤) := by
+    rw [IsUFormula.and]
+    exact ⟨hA0, IsUFormula.verum⟩
+  have hA : IsUFormula ℒₛₑₜ
+      (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V))
+        ^⋏ (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V)) ^⋏ ^⊤)) := by
+    rw [IsUFormula.and]
+    exact ⟨hA0, hA1⟩
+  -- 先消去 `.[0]`、`.[1]`
+  rw [show (?[^#0, ^#0] : V) = (^#0 : V) ∷ ((^#0 : V) ∷ (0:V)) from rfl,
+    show (?[^&0, ^&0] : V) = (^&0 : V) ∷ ((^&0 : V) ∷ (0:V)) from rfl]
+  simp only [nth_adjoin_zero, nth_adjoin_one]
+  rw [show (conjunct 2 1 0 (iVE (1:V) (^#0 : V)) ^⋏
+        (conjunct 2 1 1 (iVE (1:V) (^#0 : V)) ^⋏ ^⊤) : V)
+      = (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V)) ^⋏
+        (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V)) ^⋏ ^⊤)) from by
+    rw [conjunct, conjunct]
+    rfl]
+  rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hA.isUFormula.neg isSemiformula_cRel_subst]
+  congr 1
+  · -- `neg` 部分：两个 conjunct 的换名
+    congr 1
+    congr 1
+    · rw [show (conjunct 2 1 0 (iVE (1:V) (^#0 : V)) : V)
+          = subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V)) from by
+        rw [conjunct]; rfl]
+      rw [show (conjunct 2 1 1 (iVE (1:V) (^#0 : V)) ^⋏ ^⊤ : V)
+          = (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 1) (iVE (1:V) (^#0 : V)) ^⋏ ^⊤) from by
+        rw [conjunct]; rfl]
+      rw [show (conjunct 2 0 0 (iVE (0:V) (^&0 : V)) : V)
+          = subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 0) (iVE (0:V) (^&0 : V)) from by
+        rw [conjunct]; rfl]
+      rw [show (conjunct 2 0 1 (iVE (0:V) (^&0 : V)) ^⋏ ^⊤ : V)
+          = (subst ℒₛₑₜ (^#(0:V) ∷ shiftVec (V := V) 2 0) (iVE (0:V) (^&0 : V)) ^⋏ ^⊤) from by
+        rw [conjunct]; rfl]
+      rw [Bootstrapping.substs_and (L := ℒₛₑₜ) hA0 hA1]
+      rw [Bootstrapping.substs_and (L := ℒₛₑₜ) ?_ IsUFormula.verum]
+      · congr 1
+        exact conjunct_rename_second (i := (0:V)) (by norm_num)
+      · exact (IsSemiformula.subst (L := ℒₛₑₜ) (isSemiformula_iVE (n := (0:V)) (^&0)
+          (IsSemiterm.fvar (V := V) (0:V) 0))
+          (by rw [IsSemitermVec.cons_iff]
+              exact ⟨IsSemiterm.bvar.mpr (by norm_num),
+                isSemitermVec_shiftVec_V (V := V) 2 0⟩)).isUFormula
+  · -- `cRel` 部分：`subst ?[^#0,^#1,^&0] (subst ?[^#0,^#1] cRel) = subst ?[^#0,^#1] cRel`
+    congr 1
+    rw [show (?[^#0, ^#1] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ (0:V)) from rfl]
+    rw [show (?[^#0, ^#1, ^&0] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0:V))) from rfl]
+    rw [show (2:V) = 0 + 1 + 1 by norm_num,
+      termSubstVec_cons (IsUTerm.bvar (z := (0:V)))
+        (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.bvar (z := (1:V)))),
+      termSubstVec_cons (IsUTerm.bvar (z := (1:V))) IsUTermVec.empty, termSubstVec_nil,
+      termSubst_bvar, termSubst_bvar]
+    rw [show (?[^#0, ^#1, ^&0] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0:V))) from rfl]
+    simp
 
 end GodelQ.ProbeMD
