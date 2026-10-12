@@ -30,18 +30,29 @@ theorem listMax_vec₂_le {x y z : V} (hx : x ≤ z) (hy : y ≤ z) :
   rw [max_le_iff]
   exact ⟨hy, by positivity⟩
 
--- **`bv_eqAtom_le` 的组装未过**。三步零件都在：
--- ① `bv_rel`（`IsRel` 由 `isRel_quote_quote`，已过）；
--- ② `termBVVec_eqAtom`（`CG008BvZ`，已证）；
--- ③ `listMax_vec₂_le`（本文件，已证）。
--- **卡点**：组装时 `Translate.eqAtom` 展开出的**向量记法**（`?[...]` 或 `∷`）
--- 在 `termBVVec_cons` 的**隐式参数**位置再次触发 `Zero ?m`——
--- 该引理的 `k`/`t`/`ts` 是隐式的，Lean 要从记法推出的类型里找 `Zero`。
--- **下一步**：把 `termBVVec_cons` 的 `k`、`t`、`ts` **全部显式**给出
--- （本文件已试 `(k := …)` 单独给，仍歧义；需连 `t`、`ts` 一并给），
--- 或先在 `Adjoin.adjoin` 形式下证一条 `termBVVec_two` 辅助引理，
--- 让组装处只调用它、不再展开 `termBVVec_cons`。
+/-- **`termBVVec` 在二元向量上的取值**（显式 `Adjoin.adjoin` 形式，组装处只调它）。 -/
+theorem termBVVec_two (x y : V) (hx : Bootstrapping.IsUTerm ℒₛₑₜ x)
+    (hy : Bootstrapping.IsUTerm ℒₛₑₜ y) :
+    Bootstrapping.termBVVec ℒₛₑₜ 2 (Adjoin.adjoin x (Adjoin.adjoin y (0 : V)))
+      = Adjoin.adjoin (Bootstrapping.termBV ℒₛₑₜ x)
+          (Adjoin.adjoin (Bootstrapping.termBV ℒₛₑₜ y) (0 : V)) := by
+  rw [show (2 : V) = 0 + 1 + 1 by norm_num]
+  rw [Bootstrapping.termBVVec_cons (k := (0 : V) + 1) (t := x)
+    (ts := Adjoin.adjoin y (0 : V)) hx
+    (Bootstrapping.IsUTermVec.adjoin
+      (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ)) hy)]
+  rw [Bootstrapping.termBVVec_cons (k := (0 : V)) (t := y) (ts := (0 : V)) hy
+    (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ))]
+  rw [GodelQ.CG008BvZ.termBVVec_nil']
+
+-- **`bv_eqAtom_le` 的组装未过**，但**两个新零件已证**（`termBVVec_two`、`listMax_vec₂_le`）。
+-- **卡点**：组装处 `rw [termBVVec_two …]` 的**目标匹配**触发 `Zero ?m`——
+-- `termBVVec_two` 的左边 `Adjoin.adjoin x (Adjoin.adjoin y (0 : V))` 与
+-- `eqAtom` 展开后的向量在**记法/类型**上不同一（`rw` 要 `isDefEq`，从中找 `Zero`）。
+-- **下一步**：让 `termBVVec_two` 的左边用**与 `eqAtom` 展开完全相同的写法**
+-- （逐字复制 `Translate.eqAtom` 的定义右侧），或改用 `conv` 在目标内部精确改写。
 
 end GodelQ.CG008BvW
 
+#print axioms GodelQ.CG008BvW.termBVVec_two
 #print axioms GodelQ.CG008BvW.listMax_vec₂_le
