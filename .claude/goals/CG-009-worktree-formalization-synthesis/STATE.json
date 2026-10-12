@@ -4,14 +4,14 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "iVE_open 的 func 支：用 substVec_func_eq 把两条路径对接。\nve2 (mm+1) k f w 与 subst ℒₛₑₜ (QvecV (mm+2)) (ve2 (mm+2) k f w') 的\n相容——其中 w = iVE.construction.resultVec ℒₒᵣ ![mm+1] 2 v，\nw' = resultVec … (termSubstVec … v)。参照 TranslateShiftCompat.shift_ve2 的写法。\n然后 iVE_open 全 → iT 层主律（rel/nrel/all/exs）→ hAB → hAll/hExs → hRoot。",
+ "next_action": "iVE_open 的 func 支：三条代入零件中 cDomN 已证（IVEOpenFunc8），\n剩 subst_QvecV_conjunct 与 subst_QvecV_subst_cFunc。\n注意层次：ve2 内部的 cFunc 代入向量 [^#2,^#0,^#1] 在 qqAlls 下要面对\nqVec²(QvecV (mm+2)) = QvecV (mm+4)（长度 mm+5），其 0/1/2 号槽是 ^#0/^#1/^#2，\n故合成向量仍是 [^#2,^#0,^#1]（mm+4 > 2 恒真）。\n然后 iVE_open 全 → iT 主律 → hAB → hAll/hExs → hRoot。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T10:40:00-04:00",
- "last_checkpoint": "2026-10-12T10:40:00-04:00",
- "checkpoints": 60,
+ "updated": "2026-10-12T11:30:00-04:00",
+ "last_checkpoint": "2026-10-12T11:30:00-04:00",
+ "checkpoints": 61,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
@@ -23,7 +23,8 @@
    "iVE 层：iVE_open_bvar_lt / bvar_last / fvar / iVE_open_bvar",
    "向量工具：isSemitermVec_shiftVec3、isSemitermVec_cons_shiftVec3、nth_V",
    "func 支逐项展开：nth_left、nth_right、nth_right_ne_zero",
-   "**substVec_func_eq（func 支向量恒等式）**"
+   "func 支向量恒等式：substVec_func_eq",
+   "cDomN 代入零件：subst_QvecV_cDomN_subst、termSubstVec_one_QvecV_single"
   ],
   "absorbed_from_9276": [
    "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
@@ -37,7 +38,7 @@
    "义务数 5→3：iT_neg 与 tshift 已在 shCraigElim_of_obligations' 中消去（GateBranchesU2.lean，exit 0）。"
   ],
   "remaining": "iVE_open.func → iVE_open 全 → iT_subst_open（rel/nrel/all/exs） → hAB 码恒等式 → hAll_uncond / hExs → hRoot",
-  "verification": "10 个新文件逐个用全新输出路径重编译，全部 exit 0、无 error、公理仅三条标准公理。（build/ 在挂载点上，删 olean 会被守卫拦下——换输出路径强制重编译。）"
+  "verification": "14 个新文件逐个用全新输出路径（/tmp/cg009v2/）从零重编译：13 个 OK（exit 0、无 error、无 sorry、公理仅三条标准公理）；IVESubstOpen3 含一个已文档化的 sorry（iVE_open.func，未完成）。"
  },
  "deliverables": {
   "branch": "claude/elegant-mclaren-767fb0 (pushed to origin, NOT merged to dev)",
