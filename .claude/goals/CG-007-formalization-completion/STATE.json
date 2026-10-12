@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-formula-foundation DONE / W8-neg_neg_code DONE / W8-iT_neg DONE / W8-iVE_shift + iT_shift DONE / W8-domZero_eq_cDomN + free_imp_domZero DONE / W8-induction1 7/10 + **Q 版 induction_setup 框架** DONE / W8-split_or + replace_of_imp DONE / W8-hAll/hExs: 归约完全定型（Derivable.all + replace_of_imp + 一条算术蕴含式 ⊢ A → B）/ W8-hRoot (= D3 本身) / ShCraigElim / zfcTr_D3_internalize OPEN / W9-coverage-closed / W9-release-pending-authorization",
-  "next_action": "交接文档：形式化追踪/11-Claude交接-第二次接手-20261011.md（净结果版，取代 10- 号作为判据）。本次 33 个提交全部 exit 0 并已推送 origin/codex/9276-cg007-w8-d3。下一个单点：hAll 的算术蕴含式 ⊢ A → B（A := iT 0 (free ℒₒᵣ p)、B := free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p))，两者都是 ℒₛₑₜ 闭公式）。三条候选路径：① 元层引理（iT_quote + free_quote，局限：p 是任意码非 ⌜φ⌝）；② 对 p 结构归纳（难点：free 不是 UformulaRec1 构造）；③ 改 iT 定义（接口级，须研究发起人裁定）。hExs 同形；hRoot 就是 D3。不要重复尝试已被三轮反例证伪的「iT/free 交换」形状。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写；本分支不合并 dev。",
+  "phase": "W8-layer2-formula-foundation DONE / W8-iT_neg DONE / W8-iVE_shift + iT_shift DONE / W8-domZero_eq_cDomN + free_imp_domZero DONE / W8-induction1 7/10 + Q 版 induction_setup 框架 DONE / W8-split_or + replace_of_imp DONE / **W8-hRoot 核心归约 DONE（f2d7f8a0：derivable_of_mem_of_provable + hRoot_core，exit 0）** / W8-hRoot 剩余：p ∈ Sh.craig.Δ₁Class → Provable 𝗭𝗙𝗖 (iT 0 p)（难点 = codeOfREPred 的一般 V 表示引理） / W8-hAll：纸笔归约到 iT_rename（**未机器验证**，见交接文档 §2.5） / ShCraigElim / zfcTr_D3_internalize OPEN / W9-release-pending-authorization",
+  "next_action": "交接文档：形式化追踪/11-Claude交接-第二次接手-20261011.md（净结果版，取代 10- 号作为判据）。本分支 HEAD = d009b622，已推送 origin/codex/9276-cg007-w8-d3。【已机器验证】hRoot_core + derivable_of_mem_of_provable 在 ShCraigElimSetupQ.lean（exit 0）：hRoot 不再需要 iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class；只要 iT 0 p 内部可证，provable_into_sequent + wk 即得目标。剩余义务 = `p ∈ Sh.craig.Δ₁Class → Provable 𝗭𝗙𝗖 (iT 0 p)`，难点已定位到 Foundation 的 codeOfREPred 一般 V 表示引理（codeOfREPred_spec 只在 ℕ 层）。【纸笔未验证】hAll 归约到 iT_rename(k,j)：iT k (subst (wvec k j) p) = subst (wvec k j) (iT (k+1) p)，wvec k j = ?[^#0,…,^#(k-1), ^&j]（k+1 分量，= qVec^k ?[^&j]），p 层数 k+1。若成立，配合已证 iT_shift + free_imp_domZero，hAll 的蕴含式化为命题恒真式 A → (D → A)。原子支（k=0, p = ^rel 2 0 ?[^#0,^#0]）已逐项手算核对相等；文档 §2.5 给了完整算例。**下一位接手者务必先探针实测 iT_rename 再推进**；iT_shift 是同一台机器（semiformula_result_induction），可作范本。hExs 同形（多一层项翻译）。不要重复已被三轮反例证伪的「iT/free 交换」朴素形状。C-120 影子形式无条件成立。dev 主检出是集成目标，日常不写；本分支不合并 dev。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-12T01:00:00-04:00",
+  "updated": "2026-10-12T05:45:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
-  "checkpoints": 15,
+  "checkpoints": 16,
   "compactions": 2,
   "last_compaction": "2026-10-09T08:48:39-04:00"
 }
