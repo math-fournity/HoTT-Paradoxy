@@ -471,11 +471,12 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
       have hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f) := isSemiformula_cFunc_arity2 (by norm_num) f
       have hv0 : IsSemiterm ℒₒᵣ 1 v.[0] := hv.nth (i := 0) (by norm_num)
       have hv1 : IsSemiterm ℒₒᵣ 1 v.[1] := hv.nth (i := 1) (by norm_num)
-      have hvec1 : IsSemitermVec ℒₒᵣ 1 1 (?[^&0] : V) := by
+      -- 向量 `?[^&0]` 的**层是 0**（fvar 没有 bvar）——这正是 `iVE 0` 能成立的原因
+      have hvec1 : IsSemitermVec ℒₒᵣ 1 0 (?[^&0] : V) := by
         rw [IsSemitermVec.singleton]
-        exact IsSemiterm.fvar 1 (0 : V)
-      have hvt : IsSemitermVec ℒₒᵣ 2 1 (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v) :=
-        IsSemitermVec.termSubstVec (k := 2) (n := 1) (m := 1) (v := v)
+        exact IsSemiterm.fvar 0 (0 : V)
+      have hvt : IsSemitermVec ℒₒᵣ 2 0 (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v) :=
+        IsSemitermVec.termSubstVec (k := 2) (n := 1) (m := 0) (v := v)
           (w := (?[^&0] : V)) hvec1 hv
       -- 内层先展开（右侧的 `iVE 0` 参数里有 `termSubst`）
       rw [termSubst_func hkf hv.isUTerm]
