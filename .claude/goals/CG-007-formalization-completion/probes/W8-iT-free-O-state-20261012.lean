@@ -156,14 +156,13 @@ theorem iT_free_atom {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
       termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V))), termBShift_fvar]]
   rw [show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl]
   rw [show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl]
-  rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hA.neg hC,
-    Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 1) hA]
+  -- `substs_or` 把 `subst (imp = neg A ^⋎ C)` 拆成 `subst (neg A) ^⋎ subst C`；
+  -- 再用 `substs_neg` 处理左半。`n` 是 `neg` 里公式的层数 = `2 + 1 = 3`。
+  rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hA.neg hC]
+  rw [show (2 : V) + 1 = 3 by norm_num]
+  rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hA₂]
   congr 1
   · -- 第一条：`neg (conjunct 2 0 0 (iVE 0 ^&0) ⋏ …) = subst ?[^#0,^#1,^&0] (neg (conjunct 2 1 0 …))`
-    -- `substs_neg` 的 `n` 是被代入公式的层数；`hA₂` 在层 `2 + 1`，
-    -- 把目标里的 `2 + 1` 归一成 `3` 后 `rw` 才匹配
-    rw [show (2 : V) + 1 = 3 by norm_num]
-    rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hA₂]
     congr 1
     -- 展开两侧的 `conjunct`
     simp only [conjunct]
