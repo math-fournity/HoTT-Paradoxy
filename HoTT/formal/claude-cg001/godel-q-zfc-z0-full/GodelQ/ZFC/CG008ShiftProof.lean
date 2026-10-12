@@ -60,8 +60,46 @@ theorem conjunct_isUFormula (b n i y : V)
       (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
   · exact conjunct_snd_isUFormula b n i y hy
 
+/-- **`ve2 n k f w` 是公式**（`k ≠ 0`、`f` 是函数码、`w` 是结果向量）。
+
+`ve2 n k f w = qqAlls (imp (conjunct 3 n 0 w.[0] ⋏ (conjunct 3 n 1 w.[1] ⋏ ⊤))
+  (subst (^#2 ∷ ?[^#0, ^#1]) (cFunc k f))) 2`。
+
+- `qqAlls`：`isUFormula_qqAlls`；
+- `imp`：`IsUFormula.imp`；
+- `⋏`/`⊤`：`IsUFormula.and`/`IsUFormula.verum`；
+- 两个 `conjunct 3 n i w.[i]`：`conjunct_isUFormula`（层 `1 + 3 = 4`）；
+- `subst (^#2 ∷ ?[^#0, ^#1]) (cFunc k f)`：向量长度 2、分量 `^#2`/`^#0`/`^#1` 都是项。 -/
+theorem ve2_isUFormula (n k f w : V) (hk : k ≠ 0)
+    (hw : ∀ j : V, j < 2 → Bootstrapping.IsSemiformula ℒₛₑₜ (1 + n) w.[j])
+    (hv : Bootstrapping.IsUTermVec ℒₛₑₜ 2 (?[^#0, ^#1] : V)) :
+    Bootstrapping.IsUFormula ℒₛₑₜ (Translate.ve2 n k f w) := by
+  rw [Translate.ve2]
+  rw [Bootstrapping.isUFormula_qqAlls]
+  refine Bootstrapping.IsUFormula.imp.mpr ⟨?_, ?_⟩
+  · refine Bootstrapping.IsUFormula.and.mpr ⟨?_, ?_⟩
+    · exact conjunct_isUFormula 3 n 0 w.[0] (by simpa using hw 0 (by norm_num))
+    · refine Bootstrapping.IsUFormula.and.mpr ⟨?_, Bootstrapping.IsUFormula.verum⟩
+      exact conjunct_isUFormula 3 n 1 w.[1] (by simpa using hw 1 (by norm_num))
+  · -- `subst (^#2 ∷ ?[^#0, ^#1]) (cFunc k f)`：向量长度 2
+    have hvec : Bootstrapping.IsUTermVec ℒₛₑₜ 3 (^#2 ∷ (?[^#0, ^#1] : V)) := by
+      have hb : Bootstrapping.IsUTerm ℒₛₑₜ (^#2 : V) :=
+        Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 2)
+      have ht : Bootstrapping.IsUTermVec ℒₛₑₜ 2 (?[^#0, ^#1] : V) :=
+        Bootstrapping.IsUTermVec.mkSeq₂_iff.mpr
+          ⟨Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0),
+           Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 1)⟩
+      -- `adjoin` 给的是 `2 + 1`，要的是 `3`
+      have h : Bootstrapping.IsUTermVec ℒₛₑₜ (2 + 1) (^#2 ∷ (?[^#0, ^#1] : V)) :=
+        Bootstrapping.IsUTermVec.adjoin ht hb
+      rwa [show (2 : V) + 1 = 3 by norm_num] at h
+    exact (Bootstrapping.IsSemiformula.subst
+      (GodelQ.CG008Ve2.cFunc_isSemiformula_three hk)
+      (by simpa using hvec.isSemitermVec)).isUFormula
+
 end GodelQ.CG008ShiftProof
 
+#print axioms GodelQ.CG008ShiftProof.ve2_isUFormula
 #print axioms GodelQ.CG008ShiftProof.conjunct_isUFormula
 #print axioms GodelQ.CG008ShiftProof.isUTermVec_shiftVec
 #print axioms GodelQ.CG008ShiftProof.isUTermVec_conjunctVec
