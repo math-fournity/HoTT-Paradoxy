@@ -108,17 +108,18 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
     rw [show (1 : V) = 0 + 1 by norm_num,
       termBShiftVec_cons (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
       termBShift_fvar, termBShiftVec_nil]
-  -- `qVec² ?[^&0] = ?[^#0, ^#1, ^&0]`
+  -- `qVec² ?[^&0] = ?[^#0, ^#1, ^&0]`：把 e1 代入，再算一次 qVec
   have hq2 : (qVec ℒₛₑₜ)^[(2:ℕ)] (?[^&0] : V) = (?[^#0, ^#1, ^&0] : V) := by
-    rw [Function.iterate_succ_apply, e1, qVec,
-      show len ((^#0 : V) ∷ ((^&0 : V) ∷ (0 : V))) = 2 from by simp]
+    rw [Function.iterate_succ_apply, e1]
+    show qVec ℒₛₑₜ ((^#0 : V) ∷ ((^&0 : V) ∷ (0 : V))) = ?[^#0, ^#1, ^&0]
+    rw [qVec, show len ((^#0 : V) ∷ ((^&0 : V) ∷ (0 : V))) = 2 from by norm_num]
     rw [show (2 : V) = 0 + 1 + 1 by norm_num]
     rw [termBShiftVec_cons (IsUTerm.bvar (z := (0:V)))
       (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.fvar (x := (0:V))))]
     simp
   rw [hR, hq2]
-  sorry
   congr 1
-  sorry
+  -- 看剩余目标
+  exact (show False by sorry)
 
 end GodelQ.ProbeAtom
