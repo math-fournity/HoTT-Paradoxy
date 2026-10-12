@@ -100,4 +100,30 @@ example : (ℒₛₑₜ).IsRel 2 (cEqN : V) :=
   (Bootstrapping.isRel_quote_quote (V := V) (L := ℒₛₑₜ) (k := 2) (x := cEqN)).mpr
     ⟨Language.Eq.eq, rfl⟩
 
+/-! ## 装配：`IsUFormula (eqAtom t)` -/
+
+set_option maxHeartbeats 400000 in
+/-- **主结果**：`eqAtom t` 是公式，**前提是 `t` 是项**。
+
+由 `IsUFormula.rel`（`Formula/Basic.lean:322`）：
+`IsUFormula L (^rel k r v) ↔ L.IsRel k r ∧ IsUTermVec L k v`。
+
+- `L.IsRel 2 cEqN` ✅（`isRel_quote_quote`，上文已证）；
+- `IsUTermVec ℒₛₑₜ 2 ?[^#0, t]`——由 `IsUTermVec.mkSeq₂_iff` 归约到
+  `IsUTerm ℒₛₑₜ ^#0 ∧ IsUTerm ℒₛₑₜ t`，前半是**有界变量**（总是项），
+  后半是**前提**。 -/
+theorem eqAtom_isUFormula (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
+    Bootstrapping.IsUFormula ℒₛₑₜ (eqAtom t) := by
+  rw [eqAtom]
+  rw [Bootstrapping.IsUFormula.rel]
+  refine ⟨?_, ?_⟩
+  · exact (Bootstrapping.isRel_quote_quote (V := V) (L := ℒₛₑₜ) (k := 2) (x := cEqN)).mpr
+      ⟨Language.Eq.eq, rfl⟩
+  · -- `?[^#0, t]` 的两个分量：有界变量与前提
+    exact Bootstrapping.IsUTermVec.mkSeq₂_iff.mpr
+      ⟨Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0), ht⟩
+
+-- 公理洁净检查
+#print axioms GodelQ.CG008EqAtom.eqAtom_isUFormula
+
 end GodelQ.CG008EqAtom
