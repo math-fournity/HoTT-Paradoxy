@@ -1,4 +1,66 @@
-# CG-008 交接文档 · 2026-10-11（P2 五轮结束态）
+# CG-008 交接文档 · 2026-10-12（P3 结束态）
+
+> 自包含。承接者读完本文件 + `GOAL.md` §3 的闭包表即可接手。
+> 治理红线（F-011）不变：Foundation 只读；不碰 `sources/` 与 `private-audit/`；不 push `main`；不伪造收据。
+> **本分支不得合并到原 repo 的 `dev`**（研究发起人 2026-10-11 明令）。
+
+---
+
+## P3 增量（2026-10-12，本轮）
+
+**一句话**：把「缺口是什么」推进到「缺口**具体要造什么**」——
+所有路线都归约到**同一条内部桥**，而它需要一件 Foundation 里**不存在**的东西：
+**语法可计算的证明翻译**（从 𝗜𝚺₁ 推导到 𝗭𝗙𝗖 推导）。
+
+**四条语言无关的机制全部排除**（各有确切原因，不要再试）：
+
+| 机制 | 为什么不通 |
+|---|---|
+| `derivable_quote`（D1 引擎） | **方向相反**：元层推导 ⟹ 内部码；缺口要内部 ⟹ 内部 |
+| `T.craig.Δ₁` | `Sh.craig` **有** `Δ₁`（`CraigTrick.lean:311`），`provable_D3` 可用；但结论句是 `provable Sh.craig`，与 `zfcTr` 的桥**等价于缺口** |
+| `unprovable_flon`（抽象 G2） | 只需**单句** `FormalizedCompleteOn 𝐉`，但结论是 `flon`（形式化不矛盾律）**不是**一致性句；且 `Refutability.lean` 在 pinned build 里**未构建** |
+| `rosser_internalize` | 语言无关且内嵌 `Proof T`，但方向是**元层 ⟹ 内部**，与 D1 同形 |
+
+**一处自我更正**（`CG008Correction.lean`）：先前说「集合语义不在缺口的路径上」**过强**。
+缺口的**陈述**确实纯算术（V 是 `𝗜𝚺₁` 模型，两句都是 `Provable 𝗭𝗙𝗖 (⌜·⌝ : V)`），
+但 D3 的标准证法要**形式化 Σ₁ 完全性**，其算术版靠 `term_complete` + `toNumVec`
+把 V 的元素代换成**数字项**；`ℒₛₑₜ` 无常项使这一步无对偶。
+**故 P1 的 `hMem`/`hNMem` 分析是对的，它就是缺口的真正难点。**
+
+**缺口的三种更精确形式**（本轮新得）：
+
+1. **最具体**：`derivation 𝗭𝗙𝗖` 是**语言无关的 Δ₁ 不动点**（`Basic.lean:543`，只需 `[T.Δ₁]`），
+   故缺口 = **在 𝗜𝚺₁ 内对 `derivation 𝗭𝗙𝗖` 做归纳**；
+   `Fixpoint.induction` 是其**元层**版，Foundation 无内部版。
+2. **最锐利**：对算术理论 `T`，D3 **是** Σ₁ 完全性的推论（取 `σ := □σ₀`，而 `□σ₀` 是 Σ₁）；
+   缺口缺的**不是 D3 本身**，而是**跨语言可证性谓词的 Σ₁ 完全性**。
+3. **前提最弱**：抽象 G2 的 `con_unprovable` 依赖链只在**一个句子** `𝐆 := gödel 𝔅` 上
+   使用 `D3`，故 Z0 只需**一条实例**而非整族 `HBL3`（`CG008SingleD3.lean`）。
+
+**但单句实例经 `provable_sigma_one_complete (T := 𝗜𝚺₁)` 归约到同一条内部桥**
+（`CG008SingleD3Attack.lean`）。**前提确实减弱，要建的东西没变。**
+
+**那条桥的解剖**（`CG008BridgeAnatomy.lean`）：
+
+```
+桥：𝗜𝚺₁ ⊢ provabilityPred 𝗜𝚺₁ ψ 🡒 zfcTr ψ
+展开：∃ d : V, Proof 𝗜𝚺₁ d ⌜ψ⌝  ⟹  ∃ d' : V, Proof 𝗭𝗙𝗖 d' ⌜translate ψ⌝
+```
+
+**要在 V 内把 `d` 变成 `d'`——即语法可计算的证明翻译。**
+而 `paInterp`（`PAModel.lean:246`）的 `interpret_theory` **走 `SetTheory.complete`**
+（完备性定理，语义论证），只给**元层**结论，**不产生 V 内的编码**。
+`of_provability` 同理（`CG008InterpretationWall.lean`）。
+
+**所以缺口要的是**：一个语法可计算的证明翻译（𝗜𝚺₁ 推导 ⟹ 𝗭𝗙𝗖 推导）。
+**Foundation 里没有——算术侧没有，集合侧也没有。**
+
+**本轮收据**：`2026-10-12-CG001-CG008-MECHANISM-SURVEY-01`（74 源，`KERNEL_ACCEPTED_WITH_SCOPE`
+/ `PASS_WITH_SCOPE` / `replay: EXACT_EXIT_STDOUT_STDERR_MATCH`）；证据索引 §45。
+
+---
+
+# （以下为 2026-10-11 P2 结束态，保留）
 
 > 自包含。承接者读完本文件 + `GOAL.md` §3 的闭包表即可接手。
 > 治理红线（F-011）不变：Foundation 只读；不碰 `sources/` 与 `private-audit/`；不 push `main`；不伪造收据。
@@ -288,7 +350,10 @@ P2 换了一条通道（`Derivable` 编码层，没有「自由变量」概念�
 ```goal-x-closure
 # 路径 | 用途
 最高指示-Claude版.md | 操作指令
-GodelQ/ZFC/CG008Final.lean | **先读这个**：三重等价形状 + 卡点 + 为什么绕不开
+GodelQ/ZFC/CG008BridgeAnatomy.lean | **P3 先读这个**：所有路线归约到的那条桥 + 它要造什么
+GodelQ/ZFC/CG008SingleD3.lean | P3：抽象 G2 只需单句 D3（前提最弱形式）
+GodelQ/ZFC/CG008Correction.lean | P3：更正我自己的过强说法——P1 的障碍就是缺口难点
+GodelQ/ZFC/CG008Final.lean | 三重等价形状 + 卡点 + 为什么绕不开
 GodelQ/ZFC/CG008CrossLanguage.lean | **待补的位置**：CrossLanguageD3 的定义
 GodelQ/ZFC/CG008Delta1Wall.lean | Sh.Δ₁ 不可能成立 = G1（不要再试补 Δ₁ 实例）
 GodelQ/ZFC/CG008InterpretationWall.lean | of_provability 走完备性，给不出系统内编码
