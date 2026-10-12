@@ -196,4 +196,40 @@ lemma iT_all {n p : V} (hp : IsUFormula ℒₒᵣ p) :
 example : Prop := ∀ (p : V), Bootstrapping.IsUFormula ℒₒᵣ p →
     (Bootstrapping.IsUFormula ℒₛₑₜ (iT 0 p) ↔ ∀ n : V, Bootstrapping.IsUFormula ℒₛₑₜ (iT n p))
 
+/-! ## 试证辅助引理：**由归纳假设逐层传递**
+
+**想法**：不必证 `∀ n` 的等价，而是**在归纳里直接传递层数**——
+把 `P` 取成
+
+```
+P p := ∀ n : V, IsUFormula ℒₛₑₜ (iT n p)
+```
+
+**但已证这推到 Π₁**（`CG008LvlCheck`）。
+
+**另一条**：`P p := IsUFormula ℒₛₑₜ (iT 0 p)`，
+而在 `all` 情形**额外用一条「层数无关」引理**。
+
+**第三条（本行试的）**：观察 `iT_all` 的右边——
+`^∀ (imp domZero (iT (n+1) p))`——其 `IsUFormula` **只需 body 的 `IsUFormula`**，
+而 body 是 `imp domZero (iT (n+1) p)`，
+`imp` 保持 `IsUFormula` 且 `domZero` 是项。
+
+**所以真正需要的是**：`IsUFormula (iT (n+1) p)`。
+**若 `IsUFormula (iT n p)` 对 `n` 无关**，则由 `n = 0` 的情形给出。
+
+**本行固定「`iT` 的层数无关性」为靶子**，
+并给出它**若成立**则 `P x := IsUFormula ℒₛₑₜ (iT 0 x)` 足够的形式。 -/
+
+/-- **靶子（下一步）**：`iT` 的层数无关性。
+
+**注意**：`iT n p` 随 `n` **确实变化**（`all` 情形加一），
+所以「无关」不是指 `iT n p` 相等，而是指
+**`IsUFormula` 这个谓词对 `iT n p` 的判定不依赖 `n`**。
+
+**这需要 `iT` 的层数引理**——本行只固定形状。 -/
+example : Prop := ∀ (p : V), Bootstrapping.IsUFormula ℒₒᵣ p →
+    ∀ n : V, (Bootstrapping.IsUFormula ℒₛₑₜ (iT n p) ↔
+      Bootstrapping.IsUFormula ℒₛₑₜ (iT 0 p))
+
 end GodelQ.CG008ITQuoteProof
