@@ -493,6 +493,71 @@ qVec L w = ^#0 ∷ termBShiftVec L (len w) w
 `iT 0 (subst ?[^&0] σ)` 与 `subst ?[^&0] (iT 1 σ)` 逐层对齐，
 顶层的那一个 `domZero` 差异由 `free_imp_domZero` 显式携带。
 
+## 2026-10-12 第十七轮：`ih` 搬运已机器验证；`iT_free` 等式**被机器判定为假**
+
+**（a）`ih` 的搬运打通了**（`ShCraigElimSetupQ.lean` 的 `hAll` 支，已 exit 0 到
+只剩一条 `sorry`）。
+
+之前第十三/十四轮讨论的「`IsFormulaSet` 缺口」与「`translateSeq_setShift` 需要源公式集」
+都已闭合，实际写法只有三步：
+
+```lean
+have hfd2 : fstIdx _dd = insert (free ℒₒᵣ p) (setShift ℒₒᵣ s) := _hd.1
+have hs' := DerivationOf.isFormulaSet _hd
+have hss : IsFormulaSet (L := ℒₒᵣ) s := _hs
+have ih' : Derivable 𝗭𝗙𝗖 (insert (iT 0 (free ℒₒᵣ p)) (setShift ℒₜ (translateSeq s))) := by
+  have h1 : translateSeq (insert (free ℒₒᵣ p) (setShift ℒₒᵣ s))
+      = insert (iT 0 (free ℒₒᵣ p)) (translateSeq (setShift ℒₒᵣ s)) := translateSeq_insert
+  have h2 : translateSeq (setShift ℒₒᵣ s) = setShift ℒₜ (translateSeq s) :=
+      translateSeq_setShift hss
+  have hq : Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx _dd)) := _ih
+  rw [hfd2, h1, h2] at hq
+  exact hq
+```
+
+**两个 Lean 写法要点**（这轮才弄清）：
+* `rw [← hfd2]` 方向错了——`hfd2` 的 LHS 是 `fstIdx _dd`，目标里没有它。
+  正确做法是**正向**：先在 `have hq := _ih` 上 `rw [hfd2, h1, h2] at hq`，再 `exact hq`。
+* `DerivationOf T d s` **不是**独立函数，`.1` 直接给 `fstIdx d = s`；
+  `.isFormulaSet` 给 `IsFormulaSet L s`（不需要额外加强归纳不变量——第十四轮的结论正确）。
+
+**（b）`iT_free` 等式被机器判定为假**（探针
+`probes/W8-iT-free-NOT-equal-machine-verified-20261012.lean`）。
+
+取 `p = ^rel 2 cEqN ?[^#0, ^#1]`（层 1），两侧 `simp only` 归一化后：
+
+```
+LHS = ^rel 2 cEqN (iVE 0 ^&0 ∷ iVE 0 ^&1 ∷ 0)
+RHS = substs1 ℒₜ ^&0 (shift ℒₜ (imp ℒₜ domZero (^rel 2 cEqN (iVE 1 ^#0 ∷ iVE 1 ^#1 ∷ 0))))
+```
+
+**顶层构造子不同**（`^rel` vs `imp`），必然不相等。这比第十五轮的手算更强——
+是机器归一化后的确定性结论。
+
+**（c）但原子层的换名律是对的**（本轮同时验证，
+`probes/W8-qVec2-atomic-rename-20261012.lean`，exit 0）：
+
+```
+subst ?[^#0, ^#1, ^&0] (^rel 2 cEqN ?[^#0, ^#2]) = ^rel 2 cEqN ?[^#0, ^&0]
+```
+
+即：**逐层交换确实不成立**（第十二/十五轮），但**单层的换名在 `qVec²` 向量下是对的**。
+这两件事不矛盾——前者说整条交换律的形状不是 `iT m (subst w p) = subst w (iT m p)`，
+后者说原子支的代入行为可以精确计算。
+
+**（d）两处层数更正**（探针 `probes/W8-iVE-shape-level1-20261012.lean`）：
+
+* `iVE 1 ^#0 = ^rel 2 cEqN ?[^#0, ^#1]` —— **层 1，不是 3**。
+  先前把 `eqAtom` 的参数位 `#1` 误当成公式层数，导致所有 `IsSemitermVec` 的
+  `< 3` 界类型错误。正确说法是 `isSemiformula_iVE : IsSemiterm ℒₒᵣ n t → IsSemiformula ℒₜ (n+1) (iVE n t)`。
+* `conjunct 2 i 0 (iVE k t)` 的第二分量是 `subst (^#0 ∷ shiftVec 2 i) (iVE k t)`，
+  不是裸的 `iVE k t`。
+
+**下一步的岔路（需要研究发起人定）**：
+1. **不走等式**，从 `ih'` 出发用 `Derivable` 规则（`wk`/`cut`/`em`）直接构造目标；
+2. **改 `iT` 的 `all` 支语义**——这是接口级改动，`iT` 已被 C-390/C-391 等收据引用。
+
+
 **第十轮：对齐所需的向量形状已实测确认**
 
 ```
@@ -822,6 +887,34 @@ iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class                 ⬜ ← 全部困难所在
 而 `domZero` 里的 `#0` 会被 `subst w` 改到。所以 `iT`/`subst` 的相容律
 必须带「`w.[0] = ^#0`」之类的**护罩条件**（这正是 `free` 用 `substs1 ^&0`
 时 `w = ?[^&0]` 不满足、需要单独处理的原因）。**这是 hAll 的真正难点所在。**
+
+
+**2026-10-12 第十八轮更正（重要，推翻上一段）**：上一轮说「出路只有出路 1（互相可导）」，
+**这是错的**。同文件第十七轮末已经写下正确的下一步：
+
+> 用 `cut` + 两条公式的**互相可导性**（而不是相等）
+
+也就是说：不需要 `iT 0 (free ℒₒᵣ p) ≡ free ℒₛₑₜ (imp domZero (iT 1 p))`，
+只需要这两条公式在 𝗭𝗙𝗖 里**互相可导**（弱得多）。第十七轮的机器归一化只否证了**相等**，
+**没有否证互相可导**——这两件事强度差很远，我当时混淆了。
+
+`ih'` 已经给出了 `Derivable (insert (iT 0 (free ℒₒᵣ p)) S')`；
+要把它变成 `Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) S')`，
+走 `Derivable.cut` 配上两条方向的蕴含式即可，
+这两条蕴含式都可以是 `Provable 𝗭𝗙𝗖` 层的命题恒真式
+（`hRoot_core` 已给出「可证公式入 sequent」的搬运）。
+
+**所以 `hAll` 的剩余缺口精确地是两条内部可证性命题**：
+
+```
+(A) Provable 𝗭𝗙𝗖 (imp (iT 0 (free ℒₒᵣ p)) (free ℒₜ (imp domZero (iT 1 p))))
+(B) Provable 𝗭𝗙𝗖 (imp (free ℒₜ (imp domZero (iT 1 p))) (iT 0 (free ℒₒᵣ p)))
+```
+
+这两条是**语义命题**（翻译后的公式在 𝗭𝗙𝗖 中可导），不再是纯语法等式。
+已确认的护罩步（同文件上文）说明 `insert A S → insert (imp B A) S` 方向可证；
+`insert (imp B A) S → insert A S` 是 modus ponens 的 sequent 版
+（`replace_of_imp`，`ShCraigElimSetupQ.lean` 已证）。
 
 **`hAll` 的护罩步（已实测可证）**：从
 `Derivable (insert A S)` 得 `Derivable (insert (imp B A) S)`——
