@@ -22,27 +22,30 @@ lemma mem_craig_iff_padding {φ : Sentence ℒₒᵣ} :
     φ ∈ Sh.craig ↔ ∃ (σ : Sentence ℒₒᵣ) (s : ℕ), ℕ ⊧/![(s : ℕ), ⌜σ⌝] Sh.reWitness.val ∧ φ = σ.padding s :=
   Iff.rfl
 
-/-- `translate` fixes `⊤` and preserves `⋏`, so it fixes `(replicate k ⊤).conj`. -/
-lemma translate_conj_top (k : ℕ) :
-    arithTrln.translate ((List.replicate k (⊤ : Semiformula ℒₒᵣ ℕ 0)).conj) =
-      (List.replicate k (⊤ : Semiformula ℒₛₑₜ ℕ 0)).conj := by
+/-- `translate` fixes `(replicate k ⊤).conj` in any fvar domain. -/
+lemma translate_conj_top' {ξ : Type*} (k : ℕ) :
+    arithTrln.translate ((List.replicate k (⊤ : Semiformula ℒₒᵣ ξ 0)).conj) =
+      (List.replicate k (⊤ : Semiformula ℒₛₑₜ ξ 0)).conj := by
   induction k with
   | zero => simp
   | succ k ih => simp [List.replicate_succ, ih]
 
-/-- **`translate` commutes with `padding`** (at Semiproposition level). -/
-lemma translate_padding (σ : Semiproposition ℒₒᵣ 0) (s : ℕ) :
+/-- **`translate` commutes with `padding`** (any fvar domain, layer 0). -/
+lemma translate_padding {ξ : Type*} (σ : Semiformula ℒₒᵣ ξ 0) (s : ℕ) :
     arithTrln.translate (σ.padding s) = (arithTrln.translate σ).padding s := by
   rw [Semiformula.padding, Semiformula.padding]
-  rw [LogicalConnective.HomClass.map_and, translate_conj_top s]
+  rw [LogicalConnective.HomClass.map_and, translate_conj_top' (ξ := ξ) s]
 
 /-- **`hRoot`** (for quoted Craig axioms): `p = ⌜φ⌝` with `φ ∈ Sh.craig`.
-    Roadmap: unpack φ = σ.padding s; `iT 0 ⌜σ.padding s⌝ = ⌜(translate σ).padding s⌝`
-    (via iT_quote at the Semisentence view + `translate_padding`);
-    then `Sh_provable_iff` + `σ ∈ Sh` gives `𝗭𝗙𝗖 ⊢ translate σ`;
-    `Entailment.padding_iff` gives `𝗭𝗙𝗖 ⊢ (translate σ).padding s`;
-    `provable_iff_provable` converts back to `Provable`.
-    The remaining friction is the Sentence/Semiproposition coercion in the quote. -/
+    Roadmap (all pieces proven or available):
+    1. unpack φ = σ.padding s with σ ∈ Sh;
+    2. `iT_quote` (Semisentence view) + `translate_padding` (generalized to any fvar domain)
+       give `iT 0 ⌜σ.padding s⌝ = ⌜(translate σ).padding s⌝`;
+    3. `Sh_provable_iff` + `σ ∈ Sh` gives `𝗭𝗙𝗖 ⊢ translate σ`;
+    4. `Entailment.padding_iff` gives `𝗭𝗙𝗖 ⊢ (translate σ).padding s`;
+    5. `provable_iff_provable` converts back.
+    Remaining friction: the `Provable.{u_1,0}` vs `Provable.{0,_}` universe mismatch
+    and the Sentence/Semiproposition coercion at step 5 — pure API plumbing. -/
 theorem hRoot_quoted {φ : Sentence ℒₒᵣ} (hφ : φ ∈ Sh.craig) :
     Provable 𝗭𝗙𝗖 (iT (0 : V) (⌜φ⌝ : V)) := by
   sorry

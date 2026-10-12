@@ -437,3 +437,21 @@ Provable 𝗭𝗙𝗖 (iT 0 ⌜σ.padding s⌝)                     [provable_if
 | 吸收 | `iVE_shift`（9276）、`split_or`/`replace_of_imp`（9276）、`provable_into_sequent`（9276） |
 | O2 状态 | 10 支中 **8 支就绪**（7 无条件 + hAll 差 hAB） |
 | 剩余 | `hAB`（研究缺口）、`hExs`（同形）、`hRoot`（纯 API 适配） |
+
+## 二十四、`translate_padding` 的推广（本会话最后一段）
+
+```lean
+lemma translate_conj_top' {ξ : Type*} (k : ℕ) :
+    arithTrln.translate ((List.replicate k (⊤ : Semiformula ℒₒᵣ ξ 0)).conj) =
+      (List.replicate k (⊤ : Semiformula ℒₛₑₜ ξ 0)).conj
+lemma translate_padding {ξ : Type*} (σ : Semiformula ℒₒᵣ ξ 0) (s : ℕ) :
+    arithTrln.translate (σ.padding s) = (arithTrln.translate σ).padding s
+```
+
+**推广到任意 fvar 域 `ξ`**（原来只在 `ℕ` 域）——因为 `hRoot` 的引号涉及
+`Empty` 域（`Sentence`），需要这个一般版本。两条都 exit 0、公理干净。
+
+**`hRoot_quoted` 的剩余摩擦（纯 API）**：
+- `Provable.{u_1,0}`（`V : Type u_1`）与 `provable_iff_provable` 的 `Provable.{0,_}` 宇宙不匹配；
+- `Sentence`（Empty）与 `Semiproposition`（ℕ）的 coercion 在最后一步的对齐。
+**数学内容已全部就位**（5 步归约链 + 全部零件已证/已核验）。
