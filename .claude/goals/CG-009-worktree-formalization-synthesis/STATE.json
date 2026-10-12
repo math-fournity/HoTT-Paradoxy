@@ -4,29 +4,27 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "func 支三条代入零件：cFunc 与 cDomN(mm+3) 已证；剩 subst_QvecV_conjunct。\n★ 关键新工具：LayerMono.lean 的 IsSemiterm.mono / IsSemitermVec.mono\n（层数只是上界，可放松）——这是 substs_substs 实例化的通用解锁器。\n★ 层次规律：subst 每下降一层绑定子，向量层数 +1（qVec）。ve2 体内两层\nqqAlls ⇒ 看到的是 QvecV (mm+3)（长度 mm+4）。\n注意：并行的第二会话也在同一 worktree 写 IVEOpenFunc9.lean——\n改动前先读文件当前内容，或用新文件名。",
+ "next_action": "★ 路线 (a)（推荐）：iT_subst_open 走 iTR 层，绕开 ve2。\n  已证的关键区分（IVEOpenFunc13，Lean 核验）：\n    (QvecV (m+3)).[m+2] = ^#(m+2)  —— iTR 的 conjunct (b=2) 被固定\n    (QvecV (m+3)).[m+3] = ^&0      —— ve2 的 conjunct (b=3) 撞末槽\n  待证：subst_QvecV_shiftVec_two（b=2 版的 conjunct 代入律）\n  + termSubstVec_one_QvecV_three'（域半，b=2）\n  然后 iTR 层开口律 → iT_subst_open → hAB。\n★ 通用解锁器：LayerMono.IsSemiterm.mono / IsSemitermVec.mono。\n★ 并行会话仍在同一 worktree 同一战线工作——改文件前先读当前内容，或换新文件名。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T15:00:00-04:00",
- "last_checkpoint": "2026-10-12T15:00:00-04:00",
- "checkpoints": 63,
+ "updated": "2026-10-12T16:10:00-04:00",
+ "last_checkpoint": "2026-10-12T16:10:00-04:00",
+ "checkpoints": 64,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
   "proven_this_session": [
    "shCraigElim_of_obligations'（O2 义务 5→3）",
-   "QvecV / QvecVOr（Σ₁ 函数 + 层级实例）",
-   "索引律：nth_QvecVOr_lt/last、nth_QvecV_lt/last/succ、nth_QvecV_three、nth_QvecV",
-   "eqAtom 层开口律：subst_QvecV_eqAtom_bvar_lt/bvar_last/fvar",
-   "iVE 层：iVE_open_bvar_lt / bvar_last / fvar / iVE_open_bvar",
-   "向量工具：isSemitermVec_shiftVec3、cons_shiftVec3、nth_V、isSemitermVec_two_zero_one",
-   "func 支逐项展开：nth_left、nth_right、nth_right_ne_zero、termSubstVec_three_QvecV_three",
-   "func 支向量恒等式：substVec_func_eq",
+   "QvecV / QvecVOr + 索引律（nth_QvecVOr_lt/last、nth_QvecV_lt/last/succ/three）",
+   "eqAtom 层与 iVE 层开口律（subst_QvecV_eqAtom_*、iVE_open_bvar_*、iVE_open_fvar）",
+   "func 支逐项展开（nth_left、nth_right、nth_right_ne_zero、termSubstVec_three_QvecV_three）",
+   "func 支向量恒等式 substVec_func_eq",
    "**LayerMono.IsSemiterm.mono / IsSemitermVec.mono**（层数单调，通用解锁器）",
-   "**subst_QvecV_subst_cFunc**（cFunc 代入零件，完成）",
-   "subst_QvecV_cDomN_subst（cDomN 零件，完成）"
+   "**subst_QvecV_subst_cFunc**（cFunc 代入零件）",
+   "subst_QvecV_cDomN_subst（cDomN 零件）",
+   "**IVEOpenFunc13：b=2 vs b=3 的决定性区分（Lean 核验）**"
   ],
   "absorbed_from_9276": [
    "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
@@ -39,8 +37,8 @@
    "2026-10-12: hAB 等式 iT 0 (free p) = free (iT 1 p) 经逐项手工核验为**真**；此前记录的『需 iff 形式』过强——等式形式即可，关键在于 free 自身的代入也走 qVec²。",
    "义务数 5→3：iT_neg 与 tshift 已在 shCraigElim_of_obligations' 中消去（GateBranchesU2.lean，exit 0）。"
   ],
-  "remaining": "subst_QvecV_conjunct → iVE_open.func → iVE_open 全 → iT_subst_open → hAB → hAll/hExs → hRoot",
-  "verification": "14 个新文件逐个用全新输出路径（/tmp/cg009v2/）从零重编译：13 个 OK（exit 0、无 error、无 sorry、公理仅三条标准公理）；IVESubstOpen3 含一个已文档化的 sorry（iVE_open.func，未完成）。"
+  "remaining": "subst_QvecV_shiftVec_two（b=2 conjunct 代入律）→ iTR 层开口律 → iT_subst_open → hAB → hAll/hExs → hRoot",
+  "verification": "verify-openhb.sh（并行会话提供）：17 文件从零重编译，clean 15 / FAIL 0 / SORRY 2（两个 sorry 都是同一处已文档化的 iVE_open.func）。"
  },
  "deliverables": {
   "branch": "claude/elegant-mclaren-767fb0 (pushed to origin, NOT merged to dev)",
