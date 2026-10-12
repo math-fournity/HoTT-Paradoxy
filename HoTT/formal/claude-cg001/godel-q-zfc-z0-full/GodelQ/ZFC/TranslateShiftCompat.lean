@@ -849,12 +849,13 @@ lemma termSubst_congr {n w w' : V} (hww : ∀ i < n, w.[i] = w'.[i]) :
 `all`/`exs` 支是唯一实质：`qVec w` 的首分量恒为 `^#0`（两边自动一致），
 余下分量逐项由归纳假设与 `H` 给出。 -/
 lemma subst_congr_prefix : ∀ {n : V} (p : V), IsSemiformula ℒₛₑₜ n p →
-    ∀ {kl m w w' : V}, IsSemitermVec ℒₛₑₜ kl m w → IsSemitermVec ℒₛₑₜ kl m w' →
+    ∀ {k₁ k₂ m w w' : V}, n ≤ k₁ → n ≤ k₂ →
+    IsSemitermVec ℒₛₑₜ k₁ m w → IsSemitermVec ℒₛₑₜ k₂ m w' →
     (∀ i < n, w.[i] = w'.[i]) → subst ℒₛₑₜ w p = subst ℒₛₑₜ w' p := by
   intro n p hp
   apply IsSemiformula.pi1_structural_induction (L := ℒₛₑₜ) ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ hp
   · definability
-  · intro n k R v hR hv kl m w w' hw hw' H
+  · intro n k R v hR hv k₁ k₂ m w w' h1 h2 hw hw' H
     rw [Bootstrapping.substs_rel (L := ℒₛₑₜ) hR hv.isUTerm,
       Bootstrapping.substs_rel (L := ℒₛₑₜ) hR hv.isUTerm]
     congr 1
@@ -863,7 +864,7 @@ lemma subst_congr_prefix : ∀ {n : V} (p : V), IsSemiformula ℒₛₑₜ n p �
     intro i hi
     rw [nth_termSubstVec hv.isUTerm hi, nth_termSubstVec hv.isUTerm hi]
     exact termSubst_congr (n := n) H v.[i] (hv.nth hi)
-  · intro n k R v hR hv kl m w w' hw hw' H
+  · intro n k R v hR hv k₁ k₂ m w w' h1 h2 hw hw' H
     rw [Bootstrapping.substs_nrel (L := ℒₛₑₜ) hR hv.isUTerm,
       Bootstrapping.substs_nrel (L := ℒₛₑₜ) hR hv.isUTerm]
     congr 1
@@ -872,60 +873,46 @@ lemma subst_congr_prefix : ∀ {n : V} (p : V), IsSemiformula ℒₛₑₜ n p �
     intro i hi
     rw [nth_termSubstVec hv.isUTerm hi, nth_termSubstVec hv.isUTerm hi]
     exact termSubst_congr (n := n) H v.[i] (hv.nth hi)
-  · intro n kl m w w' _ _ _; simp
-  · intro n kl m w w' _ _ _; simp
-  · intro n p q hp hq ihp ihq kl m w w' hw hw' H
+  · intro n k₁ k₂ m w w' _ _ _ _ _; simp
+  · intro n k₁ k₂ m w w' _ _ _ _ _; simp
+  · intro n p q hp hq ihp ihq k₁ k₂ m w w' h1 h2 hw hw' H
     rw [Bootstrapping.substs_and (L := ℒₛₑₜ) hp.isUFormula hq.isUFormula,
       Bootstrapping.substs_and (L := ℒₛₑₜ) hp.isUFormula hq.isUFormula,
-      ihp hw hw' H, ihq hw hw' H]
-  · intro n p q hp hq ihp ihq kl m w w' hw hw' H
+      ihp h1 h2 hw hw' H, ihq h1 h2 hw hw' H]
+  · intro n p q hp hq ihp ihq k₁ k₂ m w w' h1 h2 hw hw' H
     rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hp.isUFormula hq.isUFormula,
       Bootstrapping.substs_or (L := ℒₛₑₜ) hp.isUFormula hq.isUFormula,
-      ihp hw hw' H, ihq hw hw' H]
-  · intro n p hp ih kl m w w' hw hw' H
+      ihp h1 h2 hw hw' H, ihq h1 h2 hw hw' H]
+  · intro n p hp ih k₁ k₂ m w w' h1 h2 hw hw' H
     rw [Bootstrapping.substs_all (L := ℒₛₑₜ) hp.isUFormula,
       Bootstrapping.substs_all (L := ℒₛₑₜ) hp.isUFormula]
     congr 1
-    refine ih hw.qVec hw'.qVec ?_
+    refine ih (add_le_add_iff_right (1:V) |>.mpr h1)
+      (add_le_add_iff_right (1:V) |>.mpr h2) hw.qVec hw'.qVec ?_
     intro i hi
     rcases zero_or_succ i with (rfl | ⟨j, rfl⟩)
     · simp [Bootstrapping.qVec]
     · have hj : j < n := by simpa using hi
+      have hj1 : j < k₁ := lt_of_lt_of_le hj h1
+      have hj2 : j < k₂ := lt_of_lt_of_le hj h2
       simp only [Bootstrapping.qVec, nth_adjoin_succ]
-      by_cases hjl : j < kl
-      · rw [show len w = kl from hw.lh, show len w' = kl from hw'.lh,
-          nth_termBShiftVec hw.isUTerm hjl, nth_termBShiftVec hw'.isUTerm hjl, H j hj]
-      · have h1 : (termBShiftVec ℒₛₑₜ kl w).[j] = 0 :=
-          nth_lt_len (by rw [len_termBShiftVec hw.isUTerm]; exact le_of_not_gt hjl)
-        have h2 : (termBShiftVec ℒₛₑₜ kl w').[j] = 0 :=
-          nth_lt_len (by rw [len_termBShiftVec hw'.isUTerm]; exact le_of_not_gt hjl)
-        rw [show (termBShiftVec ℒₛₑₜ (len w) w).[j] = (termBShiftVec ℒₛₑₜ kl w).[j] from by
-              rw [hw.lh],
-            show (termBShiftVec ℒₛₑₜ (len w') w').[j] = (termBShiftVec ℒₛₑₜ kl w').[j] from by
-              rw [hw'.lh],
-            h1, h2]
-  · intro n p hp ih kl m w w' hw hw' H
+      rw [show len w = k₁ from hw.lh, show len w' = k₂ from hw'.lh,
+        nth_termBShiftVec hw.isUTerm hj1, nth_termBShiftVec hw'.isUTerm hj2, H j hj]
+  · intro n p hp ih k₁ k₂ m w w' h1 h2 hw hw' H
     rw [Bootstrapping.substs_ex (L := ℒₛₑₜ) hp.isUFormula,
       Bootstrapping.substs_ex (L := ℒₛₑₜ) hp.isUFormula]
     congr 1
-    refine ih hw.qVec hw'.qVec ?_
+    refine ih (add_le_add_iff_right (1:V) |>.mpr h1)
+      (add_le_add_iff_right (1:V) |>.mpr h2) hw.qVec hw'.qVec ?_
     intro i hi
     rcases zero_or_succ i with (rfl | ⟨j, rfl⟩)
     · simp [Bootstrapping.qVec]
     · have hj : j < n := by simpa using hi
+      have hj1 : j < k₁ := lt_of_lt_of_le hj h1
+      have hj2 : j < k₂ := lt_of_lt_of_le hj h2
       simp only [Bootstrapping.qVec, nth_adjoin_succ]
-      by_cases hjl : j < kl
-      · rw [show len w = kl from hw.lh, show len w' = kl from hw'.lh,
-          nth_termBShiftVec hw.isUTerm hjl, nth_termBShiftVec hw'.isUTerm hjl, H j hj]
-      · have h1 : (termBShiftVec ℒₛₑₜ kl w).[j] = 0 :=
-          nth_lt_len (by rw [len_termBShiftVec hw.isUTerm]; exact le_of_not_gt hjl)
-        have h2 : (termBShiftVec ℒₛₑₜ kl w').[j] = 0 :=
-          nth_lt_len (by rw [len_termBShiftVec hw'.isUTerm]; exact le_of_not_gt hjl)
-        rw [show (termBShiftVec ℒₛₑₜ (len w) w).[j] = (termBShiftVec ℒₛₑₜ kl w).[j] from by
-              rw [hw.lh],
-            show (termBShiftVec ℒₛₑₜ (len w') w').[j] = (termBShiftVec ℒₛₑₜ kl w').[j] from by
-              rw [hw'.lh],
-            h1, h2]
+      rw [show len w = k₁ from hw.lh, show len w' = k₂ from hw'.lh,
+        nth_termBShiftVec hw.isUTerm hj1, nth_termBShiftVec hw'.isUTerm hj2, H j hj]
 
 end GodelQ.TranslateShiftCompat
 

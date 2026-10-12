@@ -4,7 +4,7 @@ open FFL.Entailment ProvabilityAbstraction
 open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
 open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.Z0Full
 open GodelQ.SeqTranslate GodelQ.ShCraigElimSetup GodelQ.ShCraigElimBranches GodelQ.TranslateShiftCompat
-set_option maxHeartbeats 800000
+set_option maxHeartbeats 20000000
 namespace GodelQ.ProbeHAll
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
