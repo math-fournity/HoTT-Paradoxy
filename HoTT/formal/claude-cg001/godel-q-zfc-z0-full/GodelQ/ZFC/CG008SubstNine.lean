@@ -56,14 +56,18 @@ example {n p : V} :
 
 /-- **主结果**：`subst` 保持 `IsUFormula`。
 
-**取 `n := bv L p`**（`IsUFormula.isSemiformula` 给的最小层），
-于是 `hw : IsSemitermVec L (bv L p) m w`——即 `w` 的分量的约束变元 ≤ `bv L p`。 -/
-theorem subst_isUFormula {m w p : V}
-    (hw : Bootstrapping.IsSemitermVec L (Bootstrapping.bv L p) m w) :
+**层数取任意 `n ≥ bv L p`**——`bv` 只是最小层，
+`IsSemiformula.subst` 只要求 `hw` 的层数覆盖 `p` 的层数。
+（先前写成 `bv L p` 本身反而不好用：`domZero` 等场合需要更粗的层。） -/
+theorem subst_isUFormula {n m w p : V}
+    (hbp : Bootstrapping.bv L p ≤ n)
+    (hw : Bootstrapping.IsSemitermVec L n m w) :
     Bootstrapping.IsUFormula L p →
     Bootstrapping.IsUFormula L (Bootstrapping.subst L w p) := by
   intro hp
-  have hs := Bootstrapping.IsUFormula.isSemiformula (L := L) hp
+  have hs : Bootstrapping.IsSemiformula L n p := by
+    refine Bootstrapping.isSemiformula_iff.mpr ⟨hp, ?_⟩
+    exact hbp
   have hsub := Bootstrapping.IsSemiformula.subst (L := L) hs hw
   exact (Bootstrapping.isSemiformula_iff.mp hsub).1
 
