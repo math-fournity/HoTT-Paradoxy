@@ -74,4 +74,30 @@ IsUTermVec L 2 (?[t₁, t₂] : V) ↔ IsUTerm L t₁ ∧ IsUTerm L t₂
 example (t : V) : Prop := Bootstrapping.IsUTerm ℒₛₑₜ t →
     Bootstrapping.IsUFormula ℒₛₑₜ (eqAtom t)
 
+/-! ## 两块都到位：`codeIn_rel_quote` 是 `@[simp]`
+
+`Language.lean:109`：
+
+```lean
+@[simp] lemma codeIn_rel_quote {k : ℕ} (r : L.Rel k) : L.IsRel (V := V) k ⌜r⌝
+```
+
+**`cEqN = Encodable.encode (Eq.eq : (ℒₛₑₜ).Rel 2)`**（`InternalTranslate.lean:83`），
+即 `cEqN = ⌜Eq.eq⌝`——**所以 `IsRel 2 cEqN` 由 `codeIn_rel_quote` 直接给出**。
+
+**这就是第一块。** 加上第二块（`IsUTermVec` 归约到 `IsUTerm ^#0 ∧ IsUTerm t`），
+`eqAtom` 的公式性**两块都就位**。 -/
+
+/-- **查实 5（第一块）**：`cEqN` 是 `Eq.eq` 的**编码**。 -/
+example : cEqN = Encodable.encode (Language.Eq.eq : (ℒₛₑₜ).Rel 2) := rfl
+
+/-- **查实 6（第一块）**：`(ℒₛₑₜ).IsRel 2 (cEqN : V)`。
+
+由 `isRel_quote_quote`（`Language.lean:100`）：
+`L.IsRel k x ↔ ∃ R : L.Rel k, Encodable.encode R = x`——
+取 `R := Eq.eq`、`x := cEqN` 即得。 -/
+example : (ℒₛₑₜ).IsRel 2 (cEqN : V) :=
+  (Bootstrapping.isRel_quote_quote (V := V) (L := ℒₛₑₜ) (k := 2) (x := cEqN)).mpr
+    ⟨Language.Eq.eq, rfl⟩
+
 end GodelQ.CG008EqAtom
