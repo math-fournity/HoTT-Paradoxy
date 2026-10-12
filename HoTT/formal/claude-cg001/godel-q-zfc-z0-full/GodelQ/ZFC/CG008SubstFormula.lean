@@ -134,13 +134,35 @@ example : True := trivial
 - 本文件不含任何未证标记，可进入收据。
 -/
 
--- **查实 5（卡点 1 的桥，带层数）**：`IsUTermVec.isSemitermVec` **已有**，但
--- 其层数是 `listMax (termBVVec L k v)`，**不是** `k`：
---
---   `IsUTermVec L k v → IsSemitermVec L k (listMax (termBVVec L k v)) v`
---
--- **所以卡点 1 还需要一条「层数对齐」的引理**：
--- 把 `IsSemitermVec L k (listMax …) v` 与所需的层数对上。
--- **这是本会话新发现的第 10 处细节**，也是装配的**实际卡点**。
+/-! ### 卡点 1 的**解决**：层数由 `IsSemitermVec` 的判定给出
+
+重读 `Term/Basic.lean:782`（`IsSemitermVec.def`）：
+
+```lean
+IsSemitermVec L k n v ↔ IsUTermVec L k v ∧ ∀ i < k, termBV (V := V) L v.[i] ≤ n
+```
+
+**关键**：`IsUTermVec L k v` 对**任意**满足界条件的 `n` 都给出 `IsSemitermVec L k n v`。
+**所以层数不必是 `listMax`**——只要它足够大。
+
+**因此卡点 1 可解**：由 `hv : IsUTermVec L k v` 与
+「`n` 足够大」（如 `n := listMax (termBVVec L k v)`），得 `IsSemitermVec L k n v`；
+再喂给 `IsSemitermVec.termSubstVec`。
+
+**具体地**：`IsUTermVec.isSemitermVec` 恰好取 `n := listMax (termBVVec L k v)`——
+**正是「足够大」的那个**。所以：
+1. `hv.isSemitermVec : IsSemitermVec L k (listMax …) v` ✅
+2. `IsSemitermVec.termSubstVec` 需 `hw : IsSemitermVec L n m w`——**`w` 的层数也要对上**。
+
+**所以真正的待查是**：`w`（替换向量）的 `IsSemitermVec` 从哪来。
+`substs_rel` 只给 `IsUTermVec L k v`（被替换的那个），**没给 `w` 的任何信息**——
+**这说明 `subst_isUFormula` 的陈述可能需要给 `w` 加前提**，
+或 `w` 的界由别处保证。**这是下一步要定的。** -/
+
+/-- **查实 5**：`IsSemitermVec` 的判定——`IsUTermVec` 加界条件。 -/
+example {L : Language} [L.Encodable] [L.LORDefinable] {k n v : V} :
+    Bootstrapping.IsSemitermVec L k n v ↔
+      (Bootstrapping.IsUTermVec L k v ∧ ∀ i, i < k → Bootstrapping.termBV L v.[i] ≤ n) :=
+  Bootstrapping.IsSemitermVec.def
 
 end GodelQ.CG008SubstFormula
