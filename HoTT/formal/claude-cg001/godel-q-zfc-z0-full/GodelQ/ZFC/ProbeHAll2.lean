@@ -99,8 +99,7 @@ lemma hAll {s p d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
     -- 走 Derivable.cut：cut 公式取 `imp (iT 0 (free ℒₒᵣ p)) (free ℒₛₑₜ (iT 1 p))`。
     -- 但 Derivable.cut 的签名要 (p) (¬p) 两支，形状不符。
     -- 直接试 Derivable.replace_of_imp 反方向的版本：
-    refine ShCraigElimSetupQ.replace_of_imp (V := V)
-      (A := iT (0:V) (free ℒₒᵣ p)) (B := free ℒₛₑₜ (iT (1:V) p))
-      (S := setShift ℒₛₑₜ (translateSeq s)) ?_ ?_ ?_ hfs'' ih'
-    · sorry
-    · sorry
+    -- 先建立全部零件，再 refine（避免 refine 阶段的大量 metavariable 搜索）
+    have hA : IsFormula ℒₛₑₜ (iT (0:V) (free ℒₒᵣ p)) :=
+      (isSemiformula_iT (V := V) (n := (0:V)) (free ℒₒᵣ p) hfp).free
+    sorry
