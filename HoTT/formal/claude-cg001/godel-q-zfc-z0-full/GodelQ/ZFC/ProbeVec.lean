@@ -122,7 +122,7 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
       have hb0 : IsSemiterm (V := V) ℒₛₑₜ 3 (^#(0:V) : V) := IsSemiterm.bvar.mpr (by norm_num)
       have hvec : IsSemitermVec (V := V) ℒₛₑₜ 3 3
           ((^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0 : V)))) := by
-        have h1 : IsSemitermVec (V := V) ℒₛₑₜ 1 3 ((^&(0:V) : V) ∷ (0 : V)) :=
+        have h1 : IsSemitermVec (V := V) ℒₛₑₜ (0 + 1) 3 ((^&(0:V) : V) ∷ (0 : V)) :=
           IsSemitermVec.adjoin (IsSemitermVec.empty (L := ℒₛₑₜ) (V := V) (3 : V)) hf
         have h2 : IsSemitermVec (V := V) ℒₛₑₜ 2 3
             ((^#(1:V) : V) ∷ ((^&(0:V) : V) ∷ (0 : V))) :=
@@ -131,10 +131,10 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
             ((^#(0:V) : V) ∷ ((^#(1:V) : V) ∷ ((^&(0:V) : V) ∷ (0 : V)))) :=
           IsSemitermVec.adjoin h2 hb0
         exact h3
-      rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR hvec]
-      rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula]
-      sorry
+      -- 先 `substs_or` 分配 ⋎（顶层），`neg` 才暴露在顶层
+      rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula,
+        Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR hvec]
   rw [hStep]
-  sorry
+  exact (show False by sorry)
 
 end GodelQ.ProbeStep
