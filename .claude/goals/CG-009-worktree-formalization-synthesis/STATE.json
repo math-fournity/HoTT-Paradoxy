@@ -4,26 +4,26 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "hAB 开口律：func 支右侧逐项展开 nth_right（IVEOpenFunc3.lean）。\n做法与坑见 成果-IShiftDomZero/接力-hAB开口律-20261012.md §3.1：\nnth_termSubstVec → nth_V 拆 V.[j] → nth_QvecV_three 分三情形。\n新约束：j = 0 时需 i ≤ mm+3（来自 IsSemiterm.bvar）。\n然后 substVec_func_eq（nth_ext'）→ iVE_open.func → iT 主律。",
+ "next_action": "iVE_open 的 func 支：用 substVec_func_eq 把两条路径对接。\nve2 (mm+1) k f w 与 subst ℒₛₑₜ (QvecV (mm+2)) (ve2 (mm+2) k f w') 的\n相容——其中 w = iVE.construction.resultVec ℒₒᵣ ![mm+1] 2 v，\nw' = resultVec … (termSubstVec … v)。参照 TranslateShiftCompat.shift_ve2 的写法。\n然后 iVE_open 全 → iT 层主律（rel/nrel/all/exs）→ hAB → hAll/hExs → hRoot。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T09:10:00-04:00",
- "last_checkpoint": "2026-10-12T09:10:00-04:00",
- "checkpoints": 59,
+ "updated": "2026-10-12T10:40:00-04:00",
+ "last_checkpoint": "2026-10-12T10:40:00-04:00",
+ "checkpoints": 60,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
   "proven_this_session": [
-   "shCraigElim_of_obligations'（义务 5→3）",
-   "QvecV / QvecVOr（Σ₁ 函数，逐语言两份）+ 层级实例",
-   "nth_QvecVOr_lt / nth_QvecVOr_last / nth_QvecV_lt / nth_QvecV_last / nth_QvecV / nth_QvecV_succ",
-   "subst_QvecV_eqAtom_bvar_lt / bvar_last / fvar",
-   "iVE_open_bvar_lt / iVE_open_bvar_last / iVE_open_fvar / iVE_open_bvar",
-   "nth_V（V = ^#i ∷ shiftVec 3 (mm+1) 的逐项式）",
-   "nth_left（func 支左侧逐项展开）",
-   "isSemitermVec_shiftVec3 / isSemitermVec_cons_shiftVec3"
+   "shCraigElim_of_obligations'（O2 义务 5→3）",
+   "QvecV / QvecVOr（Σ₁ 函数 + 层级实例）",
+   "索引律：nth_QvecVOr_lt/last、nth_QvecV_lt/last/succ、nth_QvecV_three、nth_QvecV",
+   "eqAtom 层开口律：subst_QvecV_eqAtom_bvar_lt/bvar_last/fvar",
+   "iVE 层：iVE_open_bvar_lt / bvar_last / fvar / iVE_open_bvar",
+   "向量工具：isSemitermVec_shiftVec3、isSemitermVec_cons_shiftVec3、nth_V",
+   "func 支逐项展开：nth_left、nth_right、nth_right_ne_zero",
+   "**substVec_func_eq（func 支向量恒等式）**"
   ],
   "absorbed_from_9276": [
    "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
@@ -36,7 +36,7 @@
    "2026-10-12: hAB 等式 iT 0 (free p) = free (iT 1 p) 经逐项手工核验为**真**；此前记录的『需 iff 形式』过强——等式形式即可，关键在于 free 自身的代入也走 qVec²。",
    "义务数 5→3：iT_neg 与 tshift 已在 shCraigElim_of_obligations' 中消去（GateBranchesU2.lean，exit 0）。"
   ],
-  "remaining": "iVE_open.func 支 → iVE_open 全 → iT 层主律 iT_subst_open（rel/nrel/all/exs） → 导出 iT 0 (free p) = subst ?[^&0] (iT 1 (shift p)) → 接 hAll_uncond → hExs 同形 → hRoot",
+  "remaining": "iVE_open.func → iVE_open 全 → iT_subst_open（rel/nrel/all/exs） → hAB 码恒等式 → hAll_uncond / hExs → hRoot",
   "verification": "10 个新文件逐个用全新输出路径重编译，全部 exit 0、无 error、公理仅三条标准公理。（build/ 在挂载点上，删 olean 会被守卫拦下——换输出路径强制重编译。）"
  },
  "deliverables": {
