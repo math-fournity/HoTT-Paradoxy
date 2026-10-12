@@ -4,14 +4,14 @@
  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
  "status": "ACTIVE",
  "phase": "F",
- "next_action": "【并行会话已推进】conjunct 两分量（IVEOpenFunc11）已独立核验通过。\n  termSubstVec_one_QvecV_three（域半）+ termSubstVec_cons_QvecV_three（^#i ∷ shiftVec 3 n）\n  —— 两者在 QvecV (n+3) 下都是恒等。\n【开口律状态】我在此处反复出错三次（记录已更正四版），最终推导见接力文档 §6：\n  定律为真；RHS 经 substs_substs 复合得 L ++ [^&0]，多出的末项承接 z = m 支。\n【剩余】把 conjunct 分量接进 ve2 的 func 支 → iVE_open 全 → iT_subst_open → hAB。\n【协作提醒】并行会话在同一 worktree 同一战线，推进很快（conjunct 两分量是它证的）。\n  改文件前先读当前内容；核验他人产出必用独立重编译（我以此发现过一次 sorryAx 假通过）。",
+ "next_action": "【权威状态】verify-openhb.sh: clean 22/23（FAIL 0, SORRY 1 = 已知的 iVE_open.func）。\n【并行会话】正在组装 IVEOpenFunc12.subst_QvecV_conjunct（conjunct 的代入律）。\n【我最后一次尝试】subst (QvecV m) domZero = domZero（all/exs 支的枢纽）——\n  卡在 subst_eq_self 要求 IsSemitermVec L n n w（层数=长度），而 QvecV m 是 (m+1,m+1)。\n  正确做法：先用 IsSemitermVec.mono 把 QvecV m 降到长度 1（需 m ≥ 1），\n  再套 subst_eq_self（需 H : ∀ i < 1, w.[i] = ^#i，即 w.[0] = ^#0，由 nth_QvecV_lt m 0 给）。\n【重要教训（本会话）】我在开口律核算上反复出错三次（记录已更正四版）；\n  教训：比较两侧必须**先做 substs_substs 复合**再逐项比。\n【协作】并行会话在同一 worktree 同一战线且推进更快——优先核验它的产出，\n  而非重复它的工作。核验必用独立重编译（我发现过两次 sorryAx 假通过）。",
  "bound_sessions": [
   "82aeefc9-8417-4d7e-b02d-4641aedc4ac3"
  ],
  "created": "2026-10-11T06:26:35-04:00",
- "updated": "2026-10-12T19:00:00-04:00",
- "last_checkpoint": "2026-10-12T19:00:00-04:00",
- "checkpoints": 66,
+ "updated": "2026-10-12T19:45:00-04:00",
+ "last_checkpoint": "2026-10-12T19:45:00-04:00",
+ "checkpoints": 67,
  "compactions": 0,
  "last_compaction": null,
  "current_front": {
@@ -39,7 +39,7 @@
    "★ 2026-10-12 17:00：hAB 开口律**差一层**（机器核验 OpenLawCheck/OpenLawCheck2）。此前'等式为真'的判断有误：漏算 termSubst w 的二次索引读取。",
    "2026-10-12：func 支的 conjunct 需要 QvecV (m+4) 而非 (m+3)（b=3 的 ve2）；而 iTR 的 b=2 需要 QvecV (m+3)（比下降两层所得高一层）。"
   ],
-  "remaining": "conjunct 分量接进 ve2 → iVE_open.func → iVE_open 全 → iT_subst_open → hAB → hAll/hExs → hRoot",
+  "remaining": "subst_QvecV_conjunct（并行会话在做）→ iVE_open.func → iVE_open 全 → iT_subst_open → hAB → hAll/hExs → hRoot",
   "verification": "verify-openhb.sh（并行会话提供）：17 文件从零重编译，clean 15 / FAIL 0 / SORRY 2（两个 sorry 都是同一处已文档化的 iVE_open.func）。"
  },
  "deliverables": {
