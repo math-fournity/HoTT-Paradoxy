@@ -75,4 +75,19 @@ example (x : V) : Prop := Bootstrapping.IsUFormula ℒₛₑₜ x
 example : Prop := ∀ x : V, Bootstrapping.IsUFormula ℒₒᵣ x →
     Bootstrapping.IsUFormula ℒₛₑₜ (iT 0 x)
 
+/-! ## 试证：给 `sigma1_succ_induction` 的八种情形
+
+**第一步：先把谓词写出来，并查它能否合成 `𝚺ᴬ₁-Predicate`。**
+
+`P x := IsUFormula ℒₛₑₜ (iT 0 x)`——**若这行能过**，
+则 `sigma1_succ_induction` 的 `hP` 前提就位。 -/
+
+/-- **查实 4（决定性）**：目标谓词能否合成 `𝚺ᴬ₁-Predicate`。
+
+**这是整条路的闸门**：`sigma1_succ_induction` 要 `hP : 𝚺ᴬ₁-Predicate P`。
+`iT` 是 Σ₁ 函数（`iTDef`），`IsUFormula` 是可定义谓词，
+**两者的复合应当是 Σ₁ 可定义**——本行让 Lean 实际去合成。 -/
+example : 𝚺ᴬ₁-Predicate (fun x : V ↦ Bootstrapping.IsUFormula ℒₛₑₜ (iT 0 x)) := by
+  definability
+
 end GodelQ.CG008ITQuoteProof
