@@ -54,30 +54,29 @@ open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2 GodelQ.IVEOpenFunc3 GodelQ.IVEOpenFu
 slot exactly when `i = mm + 3`, where it would become `^&0` instead of `^#i`.
 In the actual `ve2` use `i = 2` and `mm + 3 ≥ 3`, so the hypothesis is free. -/
 lemma nth_right (mm i j : V) (hi : i < mm + 4) (hi2 : i ≠ mm + 3)
-    (hj : j < (mm + 1) + 1) :
-    (termSubstVec ℒₛₑₜ ((mm + 1) + 1) (QvecV (V := V) (mm + 3))
+    (hj : j < mm + 2) :
+    (termSubstVec ℒₛₑₜ (mm + 2) (QvecV (V := V) (mm + 3))
       ((^#i : V) ∷ shiftVec 3 (mm + 1))).[j] =
       if j = 0 then (^#i : V) else if j = mm + 1 then ^&0 else ^#(j + 2) := by
-  have hj2 : j < mm + 2 := by
-    have e : (mm + 1) + 1 = mm + 2 := by ring
+  have hj1 : j < (mm + 1) + 1 := by
+    have e : (mm + 2 : V) = (mm + 1) + 1 := by ring
     rwa [e] at hj
-  rw [show ((mm + 1) + 1 : V) = mm + 2 by ring]
-  rw [nth_termSubstVec (isSemitermVec_cons_shiftVec3 mm i hi).isUTerm hj2]
+  rw [nth_termSubstVec (isSemitermVec_cons_shiftVec3 mm i hi).isUTerm hj]
   rw [show termSubst ℒₛₑₜ (QvecV (V := V) (mm + 3))
         (((^#i : V) ∷ shiftVec 3 (mm + 1)).[j])
       = termSubst ℒₛₑₜ (QvecV (V := V) (mm + 3))
         (if j = 0 then (^#i : V) else ^#(j + 2)) from by
-    rw [nth_V mm i j hj]]
+    rw [nth_V mm i j hj1]]
   by_cases h0 : j = 0
   · -- j = 0 : source is ^#i, an identity slot since i ≤ mm+3
     rw [if_pos h0, if_pos h0, termSubst_bvar,
       nth_QvecV_three mm i (lt_succ_iff_le.mp (by
         have e : (mm + 3) + 1 = mm + 4 := by ring
-        rwa [e])),
+        rw [e]; exact hi)),
       if_neg hi2]
   · -- j ≠ 0 : the source entry is ^#(j+2)
     rw [if_neg h0, if_neg h0]
-    exact nth_right_ne_zero h0 hj2
+    exact nth_right_ne_zero h0 hj
 
 end GodelQ.IVEOpenFunc5
 

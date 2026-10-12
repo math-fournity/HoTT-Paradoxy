@@ -42,3 +42,11 @@ end GodelQ.IVEOpenFunc3
 
 #print axioms GodelQ.IVEOpenFunc3.nth_QvecV_succ
 #print axioms GodelQ.IVEOpenFunc3.nth_left
+
+namespace GodelQ.IVEOpenFunc3
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2
+
+end GodelQ.IVEOpenFunc3
