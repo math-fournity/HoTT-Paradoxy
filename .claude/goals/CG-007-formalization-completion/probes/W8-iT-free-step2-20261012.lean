@@ -115,10 +115,14 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
       ^⋎ subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
     := by
-      rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
-        Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula,
-        Bootstrapping.substs_and (L := ℒₛₑₜ) hc0.isUFormula hc1.isUFormula]
-      rfl
+      -- `substs_neg` 需要两个参数：公式性 + 项向量性
+      have hvec : IsSemitermVec ℒₛₑₜ 3 3
+          ((^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0 : V)))) := by
+        rw [show ((^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0 : V)))) =
+          (?[^#0, ^#1, ^&0] : V) from rfl]
+        exact (isSemitermVec_two_bvars (n := 1)).adjoin (IsSemiterm.fvar (n := 3) 0)
+      rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR (by simpa using hvec)]
+      sorry
   rw [hStep]
   sorry
 
