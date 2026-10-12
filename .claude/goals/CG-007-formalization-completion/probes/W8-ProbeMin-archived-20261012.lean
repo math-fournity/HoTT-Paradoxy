@@ -8,12 +8,12 @@ namespace GodelQ.ProbeMin
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 theorem ctrl {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
-    iT n (free ℒₒᵣ p) = shift ℒₛₑₜ (iT n p) := by
+    iT n (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT n p) := by
   have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
-      iT param (free ℒₒᵣ p) = shift ℒₛₑₜ (iT n p) :=
+      iT param (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT n p) :=
     UformulaRec1.Construction.semiformula_result_induction
       (V := V) (c := iT.construction) (L := ℒₒᵣ)
-      (P := fun param n p q => param = n → iT param (free ℒₒᵣ p) = shift ℒₛₑₜ (iT.construction.result ℒₒᵣ param q))
+      (P := fun param n p q => param = n → iT param (shift ℒₒᵣ p) = shift ℒₜ (iT.construction.result ℒᵣ param q))
       (by definability)
       (by intro n param k R v hR hv h; subst h; sorry)
       (by intro n param k R v hR hv h; subst h; sorry)
