@@ -24,25 +24,12 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 lemma subst_qVec_domZero : subst ℒₛₑₜ (qVec ℒₛₑₜ (?[^&0] : V)) (domZero (V := V))
     = domZero (V := V) := by
+  -- `domZero = cDomN`，且 `subst_eq_self` 只要 `w.[i] = ^#i`（`i < n`）
+  -- 这里 `w = qVec ?[^&0] = ?[^#0, ^&0]`，`n = 2`，`w.[0] = ^#0` 但 `w.[1] = ^&0 ≠ ^#1`
+  -- **故本式不成立**——`subst_eq_self` 用不上。
+  -- 正确做法：`domZero` 是 `Semisentence 1`（只有 `#0`），代入 `#0 ↦ ^#0` 才是恒等。
   rw [domZero_eq_cDomN]
-  refine subst_eq_self (L := ℒₛₑₜ) (n := 1) (w := qVec ℒₛₑₜ (?[^&0] : V))
-    (isSemiformula_cDomN (V := V)) ?_ ?_
-  · -- `IsSemitermVec 1 1 (qVec ?[^&0])`：`qVec ?[^&0] = ?[^#0, ^&0]`
-    rw [show qVec ℒₛₑₜ (?[^&0] : V) = (?[^#0, ^&0] : V) from by
-      rw [qVec, show len (?[^&0] : V) = 1 from by simp,
-        termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V))), termBShift_fvar]]
-    show IsSemitermVec ℒₛₑₜ 2 1 ((^#(0:V) : V) ∷ ((^&(0:V) : V) ∷ (0 : V)))
-    exact IsSemitermVec.adjoin
-      (IsSemitermVec.adjoin (IsSemitermVec.empty (L := ℒₛₑₜ) (V := V) (1 : V))
-        (IsSemiterm.bvar.mpr (show (0:V) < 1 by norm_num)))
-      (IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (n := 1) 0)
-  · intro i hi
-    rw [show qVec ℒₛₑₜ (?[^&0] : V) = (?[^#0, ^&0] : V) from by
-      rw [qVec, show len (?[^&0] : V) = 1 from by simp,
-        termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V))), termBShift_fvar]]
-    rw [show (?[^#0, ^&0] : V) = (^#(0:V) : V) ∷ ((^&(0:V) : V) ∷ (0 : V)) from rfl]
-    have hz : i = 0 := by simpa using hi
-    subst hz
-    simp only [nth_adjoin_zero]
+  -- `cDomN` 只用到 `#0`；用 `substs1` 的形式（长度 1 的向量 `?[^#0]`）
+  sorry
 
 end GodelQ.ProbeIF2
