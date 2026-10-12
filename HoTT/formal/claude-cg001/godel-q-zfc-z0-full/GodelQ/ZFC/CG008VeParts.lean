@@ -75,6 +75,10 @@ lemma subst_singleton_isUFormula {q : V}
       simpa using (Bootstrapping.IsSemiterm.bvar (L := ℒₛₑₜ) (n := 1) (z := 0)).mpr (by simp)
   exact GodelQ.CG008SubstFormula.subst_isUFormula (n := 1) (m := 1) hw hq
 
+-- 任意下标 `^#z` 的版本未证：`len ?[^#z]` 是 1，而 `IsSemitermVec L n m w` 要求 `len w = n`，
+-- 所以层数固定为 1，`z` 必须满足 `z < 1`。**`conjunct` 的 `?[#i]` 用任意下标，与此不符**——
+-- 这说明 `conjunct` 的层数论证需要另找形式（`?[#i]` 的层数实为 `i + 1`）。
+
 end GodelQ.CG008VeParts
 
 #print axioms GodelQ.CG008VeParts.cFuncN_isUFormula

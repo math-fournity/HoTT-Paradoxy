@@ -39,8 +39,20 @@ lemma isSemitermVec_ve2vec : Bootstrapping.IsSemitermVec ℒₛₑₜ 3 3 (^#2 �
   · rw [Bootstrapping.IsSemitermVec.doubleton]
     exact ⟨by simp [Bootstrapping.IsSemiterm.bvar], by simp [Bootstrapping.IsSemiterm.bvar]⟩
 
--- `conjunct` 的公式性未证：两个 `subst` 分支的层数要与 `cDomN`（层 1）和 `y` 对齐，
--- 本轮两次尝试未过。见包内记录。
+/-- **`cDomN` 是公式的码**（层 1 的 `IsSemiformula`）。 -/
+lemma cDomN_isSemiformula :
+    Bootstrapping.IsSemiformula ℒₛₑₜ 1 ((Translate.cDomN : ℕ) : V) := by
+  rw [Translate.cDomN]
+  rw [FFL.FirstOrder.Sentence.coe_quote_eq_quote (V := V) (L := ℒₛₑₜ) (n := 1)]
+  simpa [Nat.cast_one] using
+    FFL.FirstOrder.Sentence.quote_isSemiformula (V := V) (L := ℒₛₑₜ) (n := 1) _
+
+-- `conjunct` 的公式性未证。`conjunct b n i y = (subst ?[#i] cDomN) ⋏ (subst (#i ∷ shiftVec b n) y)`。
+-- 本轮查清一处**层数事实**：`subst L w q` 要 `IsSemitermVec L n m w`，即 `len w = n`，
+-- 而 `?[^#i]` 的 `len` 是 **1**（一个分量），与 `i` 无关。所以第一块在层 1 可直接用
+-- `subst_singleton_isUFormula`；但该引理把替换向量的**下标**写死为 `^#0`，而这里要 `^#i`。
+-- 把下标参数化的尝试（层取 `z + 1`）因 `len ?[^#z] = 1 ≠ z + 1` 未过——
+-- **下一步**：`?[#i]` 的层数实为 `i + 1` 而非 `len`，需要用 `IsUTermVec` 的定义直接构造。
 
 end GodelQ.CG008Ve2
 
