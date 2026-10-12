@@ -94,4 +94,30 @@ example {n : ℕ} (φ : Semisentence ℒₒᵣ n) :
 example : Prop :=
   ∀ x : V, Bootstrapping.IsUFormula ℒₒᵣ x → Bootstrapping.IsUFormula ℒₛₑₜ (iT 0 x)
 
+/-! ## 关键工具：`ISigma1.sigma1_succ_induction` 是 **V 内部**的公式归纳
+
+读到的（`Syntax/Formula/Basic.lean:443`）：
+
+```lean
+lemma ISigma1.sigma1_succ_induction {P : V → Prop} (hP : 𝚺ᴬ₁-Predicate P)
+    (hrel : ∀ k r v, L.IsRel k r → IsUTermVec L k v → P (^rel k r v))
+    ... (hall : ∀ p, IsUFormula L p → P p → P (^∀ p)) ... :
+    ∀ p, IsUFormula L p → P p
+```
+
+**注意结论**：`∀ p, IsUFormula L p → P p`——**`p` 是 `V` 的元素**，
+**前提用 V 内的 `IsUFormula`**。**这正是「条件形式」所需的归纳原理。**
+
+**所以 `iT_quote` 的条件内部化是可行的**：
+取 `P p := iT 0 p = ⌜translate⌝` 之类，由 `sigma1_succ_induction` 逐结构验证。
+**但 `P` 要满足 `𝚺ᴬ₁-Predicate`**——这是本探针的待查项。 -/
+
+/-- **查实 4（关键工具）**：`sigma1_succ_induction` 是 **V 内部**的公式归纳，
+其结论是 `∀ p, IsUFormula L p → P p`（`p : V`，前提用 V 内的 `IsUFormula`）。
+
+**这正是「条件形式」所需的归纳原理。**
+（本行只以注释记录其类型；实例化需要逐条给出八个情形，
+那是本文件之后的实际工作。） -/
+example : True := trivial
+
 end GodelQ.CG008ITQuote
