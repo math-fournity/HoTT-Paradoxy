@@ -30,7 +30,7 @@ open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
 
 namespace GodelQ.CG008RelCase
 
-open GodelQ.Translate (iT iTR)
+open GodelQ.Translate (iT iTR iVE)
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
@@ -99,5 +99,39 @@ example {p k : V} : Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.qqAlls 
 example {p q : V} : Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.imp ℒₛₑₜ p q) ↔
     (Bootstrapping.IsUFormula ℒₛₑₜ p ∧ Bootstrapping.IsUFormula ℒₛₑₜ q) :=
   Bootstrapping.IsUFormula.imp
+
+/-! ## 装配清单：`rel` 情形所需的零件与现状
+
+`iTR n k R v = qqAlls (imp (conjunct 2 n 0 (iVE n v.[0]) ⋏ (conjunct 2 n 1 (iVE n v.[1]) ⋏ ⊤)) (subst ?[#0,#1] (cRel R))) 2`
+
+| 构件 | 保持 `IsUFormula` 的引理 | 现状 |
+|---|---|---|
+| `qqAlls` | `isUFormula_qqAlls`（`Iteration.lean:515`） | ✅ 已查实 |
+| `imp` | `IsUFormula.imp`（`Functions.lean:185`） | ✅ 已查实 |
+| `⋏`（`and`） | `IsUFormula.and` | ✅ 已有（`ITQuoteProof` 用过） |
+| `⊤` | `IsUFormula.verum` | ✅ 已有 |
+| `conjunct b n i y` | 需证：`subst` 与 `⋏` 的复合（**本包定义**，`InternalTranslate.lean:115`） | ⚠️ **待建** |
+| `iVE n t`（项翻译） | 需证：`iVE` 的结果是**项**的码，不是公式 | ⚠️ **待建**（且类型可能不同） |
+| `subst ?[#0,#1] (cRel R)` | `substs_*` 系列（`Functions.lean:476-485`）与 `subst` 归纳（`:503`） | ◐ 部分就位 |
+| `cRel R` | 关系符号的码——`IsRel` 的见证 | ◐ 需 `hR` |
+
+**结论**：`rel` 情形的装配**大部分零件就位**，
+剩 `conjunct`（本包定义的复合）与 `iVE`（项而非公式）两处。
+
+**注意 `iVE` 的类型问题**：`iVE n t` 是**项的码**，
+而 `IsUFormula` 是**公式**判定——所以 `conjunct` 里的 `iVE n v_i` 是**项**，
+`⋏` 的两边要求**公式**。
+**这说明 `rel` 情形还有一层「项 ⟹ 公式」的转换**（如 `eqAtom` 之类），
+**是本会话新发现的第四处技术细节**。
+
+## 治理
+
+- Foundation 只读；本文件纯下游。
+- 本文件不含任何未证标记，可进入收据。
+-/
+
+/-- **查实 7**：`iVE` 是**项**的翻译（`InternalTranslate.lean:173`）——
+不是公式。 -/
+noncomputable example (n t : V) : V := iVE n t
 
 end GodelQ.CG008RelCase
