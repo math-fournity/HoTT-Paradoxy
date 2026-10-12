@@ -95,7 +95,20 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
        hsub1.isUFormula⟩
   -- 目标此刻是：左体 = subst ?[^&0] (右体)，两边都形如 `^∀ (qqAlls · 1)`。
   -- 用 `congr` 剥掉两层 `^∀`/`qqAlls`，再比内层。
-  simp only [qqAlls_succ]
-  sorry
+  -- 用 generalizing 把内层体抽象出来，避免 rw 的模式匹配问题
+  refine Eq.trans ?_ (Eq.symm ?_)
+  · -- 左：^∀ (qqAlls LEFTBODY 1) = ^∀ (qqAlls (subst (qVec ?[^&0]) RIGHTBODY) 1)
+    congr 1
+    congr 1
+    -- 内层：subst ?[^&0] (imp A C) vs subst (qVec ?[^&0]) (imp B C)
+    rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hA.neg hC,
+      Bootstrapping.substs_or (L := ℒₛₑₜ) hB.neg hC2,
+      Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 1) hA,
+      Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 1) hB]
+    congr 1
+    · -- domZero 那项
+      sorry
+    · sorry
+  · sorry
 
 end GodelQ.ProbeRen4
