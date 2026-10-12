@@ -557,3 +557,30 @@ Foundation **没有**现成的 subst-numeral 引理（本机实测确认），
 
 **教训**：`qVec` 保护的是**公式内层绑定**，但 hAB 的错位发生在
 **项层替换 vs 公式层替换**——两者根本不同类。
+
+## 二十九、hAB 的正确工具已找到（本会话最后的实质发现）
+
+项目**自己**的模式（`Z0Full.lean:72-84`）证明 V 层可证性蕴含式的方法是：
+
+```lean
+complete 𝗜𝚺₁ _ fun (V : Type) _ _ ↦ by
+  rw [Semantics.Imp.models_imply, ..., LogicalConnective.HomClass.map_imply]
+  exact modus_ponens_sentence (T := 𝗭𝗙𝗖)
+```
+
+即：**先对任意 `V ⊨ 𝗜𝚺₁` 证语义蕴含，再由 `Arithmetic.complete` 提升**。
+
+对 hAB 而言，A 与 B 都是 ℒₛₑₜ 闭公式（`A := iT 0 (free p)`、`B := free (imp domZero (iT 1 p))`），
+它们**不是算术句**（在 ℒₒᵣ 上），所以要用 `SetTheory.complete`（ℒₛₑₜ 版）或
+`Derivable` 层的对应物。
+
+**但关键**：hAB 要的是 **`Derivable 𝗭𝗙𝗖 (insert (neg A ^⋎ B) ∅)`**（`Derivable` 层），
+不是 `Provable`。`Derivable` 的语义完全性工具是 `Provable.complete`（ℕ 层）——
+与 §3.2 的 V/ℕ 问题同源。
+
+**所以 hAB 的正确路线是**：
+1. 证语义蕴含 `V ⊨ A → V ⊨ B`（对任意 `V ⊨ 𝗭𝗙𝗖`）——这部分可能真的可做（A、B 语义等价）；
+2. 用 ℒₛₑₜ 的完全性把语义蕴含转成 `Provable`；
+3. 再用 `Provable` → `Derivable` 的桥（单元素 sequent）。
+
+**这是本会话能给下一会话的最完整路线**，也是我第三次判断修正后的最终结论。
