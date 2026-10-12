@@ -22,9 +22,10 @@ done
 OUT=$(mktemp -d /tmp/cg009verify.XXXXXX) || exit 1
 trap 'rm -rf "$OUT"' EXIT
 
-FILES="QvecV ITSubstOpen ITRSubstOpen IVESubstOpen IVESubstOpen2 IVESubstOpen3 \
+FILES="QvecV LayerMono ITSubstOpen ITRSubstOpen IVESubstOpen IVESubstOpen2 IVESubstOpen3 \
 IVEOpenFunc IVEOpenFunc2 IVEOpenFunc3 IVEOpenFunc4 IVEOpenFunc5 IVEOpenFunc6 \
-IVEOpenFunc8 IVEOpenFunc9 IVEOpenFunc10 IVEOpenFunc11 GateBranchesU2"
+IVEOpenFunc8 IVEOpenFunc9 IVEOpenFunc10 IVEOpenFunc11 IVEOpenFunc13 IVEOpenFunc14 \
+OpenLawCheck OpenLawCheck2 OpenLawCheck5 GateBranchesU2"
 
 ok=0; bad=0; sorry=0
 for f in $FILES; do
