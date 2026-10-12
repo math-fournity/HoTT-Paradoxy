@@ -103,23 +103,21 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
         (neg ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
           ^⋎ subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
-  -- 两侧都推 subst：`neg (subst _ A) ⋎ subst _ C`
-  have hC3 : IsSemiformula ℒₛₑₜ 3 (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) := hsub
-  rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
-    Bootstrapping.substs_and (L := ℒₛₑₜ) hc0 hc1]
-  -- 右侧：`subst W (neg A_R ⋎ C)`。**从右往左**改写。
+  -- 右侧 `subst W (neg A_R ⋎ C)`：
+  -- `substs_neg` 先剥掉 `neg`，再 `substs_and`/`substs_or` 分配。
+  -- 必须**先在 RHS 定位**（LHS 无 `subst`，rw 会失败）。
   have hStep : subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
       (neg ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
-        ^⋎ subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
+        ^⋎ subst ℒₛₜ (?[^#0, ^#1] : V) (cRel R))
     = neg ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
         (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
-      ^⋎ subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) := by
-    rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
-      Bootstrapping.substs_and (L := ℒₛₑₜ) hc0 hc1]
-    rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula]
-    rfl
+      ^⋎ subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
+    := by
+      rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
+        Bootstrapping.substs_and (L := ℒₛₑₜ) hc0 hc1,
+        Bootstrapping.substs_or (L := ℒₛₜ) hAR.neg.isUFormula hsub.isUFormula]
   rw [hStep]
   sorry
 
