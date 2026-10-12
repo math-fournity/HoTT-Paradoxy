@@ -28,6 +28,29 @@ lemma cRelN_zero_eq : (Translate.cRelN 0 : V) =
 lemma cRelN_one_eq : (Translate.cRelN 1 : V) =
     ((⌜(arithTrln.rel Language.ORing.Rel.lt : Semisentence ℒₛₑₜ 2)⌝ : ℕ) : V) := rfl
 
+/-- `IsSemiterm` 对层数单调。 -/
+lemma isSemiterm_mono {n m t : V} (h : Bootstrapping.IsSemiterm ℒₒᵣ n t) (hnm : n ≤ m) :
+    Bootstrapping.IsSemiterm ℒₒᵣ m t :=
+  ⟨h.isUTerm, le_trans h.bv hnm⟩
+
+/-- `IsSemitermVec` 对层数单调。 -/
+lemma isSemitermVec_mono {k n m v : V} (h : Bootstrapping.IsSemitermVec ℒₒᵣ k n v)
+    (hnm : n ≤ m) : Bootstrapping.IsSemitermVec ℒₒᵣ k m v :=
+  ⟨h.isUTermVec, fun hi ↦ le_trans (h.bv hi) hnm⟩
+
+-- **未完成（有意留下）**：`subst` 保持 `IsUFormula` 的**层数无关**版本。
+--
+-- Foundation 有层数无关的归纳原理
+-- `isUFormula_subst_ISigma1.sigma1_succ_induction`，其八情形里
+-- `rel`/`nrel` 需要 `IsUTermVec ℒₛₑₜ k (termSubstVec ℒₛₑₜ k w v)`，
+-- 而 `IsUTermVec` 在这里展开成 `Fixpoint` 形状（`∃ s, · ∈ limSeq`），
+-- 于是 `hv.2 i hi` 是 `IsUTerm` 的 `Fixpoint` 形式，投影不到 `.termSubst`。
+-- 要收尾需先搭一层 `IsUTerm` 的 `Fixpoint`↔结构 桥。
+--
+-- **但这条不在 `iT_isUFormula` 的路径上**：那里 `imp domZero ·` 由
+-- `IsUFormula.imp` 拆开，`domZero` 那半由
+-- `CG008VeParts.subst_singleton_isUFormula` 直接给。所以本轮先放这里。
+
 /-- `cRel R` 在层 2 是公式。 -/
 lemma cRel_isSemiformula (R : V) :
     Bootstrapping.IsSemiformula ℒₛₑₜ 2 (Translate.cRel R) := by
@@ -55,11 +78,12 @@ lemma cRel_isSemiformula (R : V) :
 于是 `imp A B` 在层 `2 + n`，`qqAlls · 2` 给出层 `n`。
 **但注意结论取 `n + 2`**（比 `n` 宽），因为 `qqAlls` 的层数下界在 `V` 上不便计算；
 `n + 2` 够用且由单调性免费。 -/
-theorem iTR_isSemiformula (n k R v : V) (hv : Bootstrapping.IsSemitermVec ℒₒᵣ 2 n v) :
+theorem iTR_isSemiformula (n k R v : V) (hk : (2 : V) ≤ k)
+    (hv : Bootstrapping.IsSemitermVec ℒₒᵣ k n v) :
     Bootstrapping.IsSemiformula ℒₛₑₜ (n + 2) (Translate.iTR n k R v) := by
-  -- 分量：`v.[0]`、`v.[1]` 在层 `n`
-  have h0 : Bootstrapping.IsSemiterm ℒₒᵣ n v.[0] := hv.nth (by norm_num)
-  have h1 : Bootstrapping.IsSemiterm ℒₒᵣ n v.[1] := hv.nth (by norm_num)
+  -- 分量：`v.[0]`、`v.[1]` 在层 `n`（只需 `2 ≤ k`）
+  have h0 : Bootstrapping.IsSemiterm ℒₒᵣ n v.[0] := hv.nth (lt_of_lt_of_le (by norm_num) hk)
+  have h1 : Bootstrapping.IsSemiterm ℒₒᵣ n v.[1] := hv.nth (lt_of_lt_of_le (by norm_num) hk)
   -- 两个 `conjunct 2 n i (iVE n v.[i])` 在层 `2 + n`
   have hc0 : Bootstrapping.IsSemiformula ℒₛₑₜ (2 + n)
       (Translate.conjunct 2 n 0 (Translate.iVE n v.[0])) :=
@@ -124,7 +148,18 @@ theorem iTR_isSemiformula (n k R v : V) (hv : Bootstrapping.IsSemitermVec ℒₒ
     rw [Bootstrapping.IsSemiformula.and]
     exact ⟨hmono hL hc1, Bootstrapping.IsSemiformula.verum⟩⟩
 
+/-- **`iTR` 的公式性（只吃 `IsUTermVec` + 层界）**：归纳里 `hv : IsUTermVec ℒₒᵣ k v`
+（不是 `IsSemitermVec`），所以给一条从 `IsUTermVec` + `termBV` 界出发的版本。 -/
+theorem iTR_isUFormula_of_le (n k R v : V) (hk : (2 : V) ≤ k)
+    (hv : Bootstrapping.IsUTermVec ℒₒᵣ k v)
+    (hle : ∀ i < k, Bootstrapping.termBV ℒₒᵣ v.[i] ≤ n) :
+    Bootstrapping.IsUFormula ℒₛₑₜ (Translate.iTR n k R v) := by
+  have hsv : Bootstrapping.IsSemitermVec ℒₒᵣ k n v :=
+    Bootstrapping.IsSemitermVec.def.mpr ⟨hv, fun i hi ↦ hle i hi⟩
+  exact (iTR_isSemiformula n k R v hk hsv).isUFormula
+
 end GodelQ.CG008ITR
 
 #print axioms GodelQ.CG008ITR.cRel_isSemiformula
+#print axioms GodelQ.CG008ITR.iTR_isUFormula_of_le
 #print axioms GodelQ.CG008ITR.iTR_isSemiformula
