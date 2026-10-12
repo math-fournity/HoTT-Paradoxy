@@ -206,4 +206,41 @@ lemma provable_into_sequent {A B : V} (hB : IsFormulaSet (L := ℒₛₑₜ) B)
   · exact mem_bitInsert_iff.mpr (Or.inl rfl)
   · exact mem_bitInsert_iff.mpr (Or.inr (by simpa using hz))
 
+/-! ## `hRoot` 的核心归约（2026-10-12 新增）
+
+`hRoot` 手里的假设是 `p ∈ s` 与 `p ∈ Sh.craig.Δ₁Class`，目标 `Derivable 𝗭𝗙𝗖 (translateSeq s)`。
+
+**关键简化**：走 `Derivable.by_axm` 需要 `iT 0 p ∈ 𝗭𝗙𝗖.Δ₁Class`，那是**错的方向**
+（`iT 0 p` 一般不是 `⌜φ⌝` 形）。正确的路是：只要 `iT 0 p` 在 V 内部**可证**，
+`insert (iT 0 p) ∅` 就可导，再由 `wk` 搬到 `translateSeq s` 上——**完全不需要 `𝗭𝗙𝗖.Δ₁Class`**。
+
+于是 `hRoot` 的剩余内容精确地变成一条**内部可证性**命题：
+
+```
+p ∈ Sh.craig.Δ₁Class → Provable 𝗭𝗙𝗖 (iT 0 p)
+```
+
+即「Craig 公理的翻译在 𝗭𝗙𝗖 中可证」，这条正是 `Sh.craig ⪯ Sh` 的内部化。 -/
+
+/-- **可证公式入 sequent**：`A` 在 V 内部可证，且 `A ∈ B`，则 `B` 可导。 -/
+lemma derivable_of_mem_of_provable {A B : V} (hB : IsFormulaSet (L := ℒₛₑₜ) B)
+    (hAB : A ∈ B) (hprov : Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 A) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 B := by
+  have hder : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert A ∅) :=
+    internal_provable_iff_internal_derivable.mp hprov
+  refine Derivable.wk (s := B) (s' := insert A ∅) hB ?_ hder
+  intro z hz
+  rcases mem_bitInsert_iff.mp hz with rfl | hz
+  · exact hAB
+  · exact absurd hz (Arithmetic.not_mem_empty z)
+
+/-- **`hRoot` 的核心**：`p ∈ s` 且 `iT 0 p` 内部可证 ⟹ `translateSeq s` 可导。
+
+于是 `hRoot` 支的剩余义务只有一条：`p ∈ Sh.craig.Δ₁Class → Provable 𝗭𝗙𝗖 (iT 0 p)`。 -/
+lemma hRoot_core {s p : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (hp : p ∈ s)
+    (hprov : Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (iT (0 : V) p)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq s) :=
+  derivable_of_mem_of_provable (ShCraigElimBranches.isFormulaSet_translateSeq hs)
+    (mem_translateSeq_iff.mpr ⟨p, hp, rfl⟩) hprov
+
 end GodelQ.ShCraigElimSetupQ
