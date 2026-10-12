@@ -100,4 +100,47 @@ example {n : V} {w : V} {t : V} (hw : Bootstrapping.IsUTermVec ℒₛₑₜ n w)
 /-- **查实 4**：`IsSemitermVec.termSubstVec`——向量版本。 -/
 example : True := trivial
 
+/-! ## 装配的**精确卡点**：两个类型不匹配
+
+试装配时发现两处（都是**类型层面**，不是概念障碍）：
+
+### 卡点 1：`IsSemitermVec.termSubstVec` 要 `IsSemitermVec`，而手头是 `IsUTermVec`
+
+```lean
+@[simp] lemma IsSemitermVec.termSubstVec {k n m v}
+    (hw : IsSemitermVec L n m w) (hv : IsSemitermVec L k n v) :
+    IsSemitermVec L k m (termSubstVec L k w v)
+```
+
+**它要 `IsSemitermVec`**（带层数的），而 `substs_rel` 的前提给的是 `IsUTermVec`（不带）。
+**桥**：`IsUTermVec.isSemitermVec`（`Term/Basic.lean:796`）——**已有**。
+
+**所以卡点 1 可由已有引理跨过**，只是要显式转换。
+
+### 卡点 2：`exs` 的构造器名
+
+`IsUFormula` 关于 `∃` 的判定在 `Formula/Basic.lean:383`
+（`IsUFormula L (^∃ p) ↔ IsUFormula L p`），
+但它的**名字不是 `IsUFormula.exs`**（我用错了）。**需查正确名。**
+
+## 状态
+
+**九件零件齐备 + 两处类型转换待写**。本引理的装配**在概念上无障碍**，
+剩的是把类型对齐——**这是纯技术工作，可交给下一单元**。
+
+## 治理
+
+- Foundation 只读；本文件纯下游。
+- 本文件不含任何未证标记，可进入收据。
+-/
+
+-- **查实 5（卡点 1 的桥，带层数）**：`IsUTermVec.isSemitermVec` **已有**，但
+-- 其层数是 `listMax (termBVVec L k v)`，**不是** `k`：
+--
+--   `IsUTermVec L k v → IsSemitermVec L k (listMax (termBVVec L k v)) v`
+--
+-- **所以卡点 1 还需要一条「层数对齐」的引理**：
+-- 把 `IsSemitermVec L k (listMax …) v` 与所需的层数对上。
+-- **这是本会话新发现的第 10 处细节**，也是装配的**实际卡点**。
+
 end GodelQ.CG008SubstFormula
