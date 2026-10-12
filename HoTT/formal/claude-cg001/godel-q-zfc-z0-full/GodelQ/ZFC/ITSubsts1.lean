@@ -464,7 +464,8 @@ lemma termSubstVec_V'_concl (a : V) :
 
 `a < m` 里 `m` 是层。`ve2` 支的调用处取 `m := 3`（`W'` 长 4、层 3），
 `i ∈ {0,1}` 都有 `i < 3`。 -/
-lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < m →
+lemma iVE_subst_a0 {m : V} (hm : (3 : V) ≤ m) :
+    ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < m →
     subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
       subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)) := by
   apply IsSemiterm.sigma1_induction (L := ℒₒᵣ) (n := (1 : V))
@@ -590,6 +591,10 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
         nth_termSubstVec hv.isUTerm (by norm_num)
       have hpt1 : (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v).[1] = termSubst ℒₒᵣ (?[^&0] : V) v.[1] :=
         nth_termSubstVec hv.isUTerm (by norm_num)
+      have ht0 : IsSemiterm ℒₒᵣ 0 (termSubst ℒₒᵣ (?[^&0] : V) v.[0]) := by
+        rw [← hpt0]; exact hvt.nth (i := 0) (by norm_num)
+      have ht1 : IsSemiterm ℒₒᵣ 0 (termSubst ℒₒᵣ (?[^&0] : V) v.[1]) := by
+        rw [← hpt1]; exact hvt.nth (i := 1) (by norm_num)
       have hd0 : IsUFormula ℒₛₑₜ
           (conjunct 3 0 0 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0]))) := by
         rw [← hpt0]
@@ -598,23 +603,46 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
           (conjunct 3 0 1 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1]))) := by
         rw [← hpt1]
         exact (isSemiformula_conjunct (isSemiformula_iVE (n := (0 : V)) _ (hvt.nth (i := 1) (by norm_num))) (one_lt_three_add 0)).isUFormula
-      rw [substs_and hc0 (IsUFormula.and.mpr ⟨hc1, IsUFormula.verum⟩),
-        substs_and hc1 IsUFormula.verum,
-        substs_and hd0 (IsUFormula.and.mpr ⟨hd1, IsUFormula.verum⟩),
-        substs_and hd1 IsUFormula.verum,
-        subst_conjunct (n := 1) (y := iVE (1 : V) v.[0]) (hi := zero_lt_three_add 1)
+      have ht0 : IsSemiterm ℒₒᵣ 0 (termSubst ℒₒᵣ (?[^&0] : V) v.[0]) := by
+        rw [← nth_termSubstVec (L := ℒₒᵣ) hv.isUTerm (show (0 : V) < 2 by norm_num)]
+        exact hvt.nth (i := 0) (by norm_num)
+      have ht1 : IsSemiterm ℒₒᵣ 0 (termSubst ℒₒᵣ (?[^&0] : V) v.[1]) := by
+        rw [← nth_termSubstVec (L := ℒₒᵣ) hv.isUTerm (show (1 : V) < 2 by norm_num)]
+        exact hvt.nth (i := 1) (by norm_num)
+      -- 把 `subst` 分到合取支（两层）
+      rw [substs_and hc0 (IsUFormula.and.mpr ⟨hc1, IsUFormula.verum⟩)]
+      rw [substs_and hc1 IsUFormula.verum]
+      rw [substs_and hd0 (IsUFormula.and.mpr ⟨hd1, IsUFormula.verum⟩)]
+      rw [substs_and hd1 IsUFormula.verum]
+      conv_lhs => rw [
+        subst_conjunct (n := 1) (y := iVE (1 : V) v.[0])
+          (hy := isSemiformula_iVE v.[0] hv0) (hi := zero_lt_three_add 1)
           (hw := isSemitermVec_W' a),
-        subst_conjunct (n := 1) (y := iVE (1 : V) v.[1]) (hi := one_lt_three_add 1)
-          (hw := isSemitermVec_W' a),
+        subst_conjunct (n := 1) (y := iVE (1 : V) v.[1])
+          (hy := isSemiformula_iVE v.[1] hv1) (hi := one_lt_three_add 1)
+          (hw := isSemitermVec_W' a)]
+      conv_rhs => rw [
         subst_conjunct (b := 3) (n := (0 : V))
           (y := iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0]))
+          (hy := isSemiformula_iVE (V := V) (n := (0 : V))
+            (termSubst ℒₒᵣ (?[^&0] : V) v.[0]) ht0)
           (hi := zero_lt_three_add 0)
           (hw := by rw [show (3 : V) + 0 = 3 by norm_num]; exact isSemitermVec_V' a),
         subst_conjunct (b := 3) (n := (0 : V))
           (y := iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1]))
+          (hy := isSemiformula_iVE (V := V) (n := (0 : V))
+            (termSubst ℒₒᵣ (?[^&0] : V) v.[1]) ht1)
           (hi := one_lt_three_add 0)
           (hw := by rw [show (3 : V) + 0 = 3 by norm_num]; exact isSemitermVec_V' a)]
-      -- `cDomN` 槽向量
+      -- `cDomN` 槽向量：`termSubstVec 1 W' ?[^#i]` / `termSubstVec 1 V' ?[^#i]`
+      have eC0 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#0] : V)
+          = (?[^#0] : V) := termSubstVec_W'_i (a := a) (i := 0) (by norm_num)
+      have eD0 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#0] : V)
+          = (?[^#0] : V) := termSubstVec_V'_i (a := a) (i := 0) (by norm_num)
+      have eC1 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#1] : V)
+          = (?[^#1] : V) := termSubstVec_W'_i (a := a) (i := 1) (by norm_num)
+      have eD1 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#1] : V)
+          = (?[^#1] : V) := termSubstVec_V'_i (a := a) (i := 1) (by norm_num)
       have eC0 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#0] : V)
           = (?[^#0] : V) := termSubstVec_W'_i (a := a) (i := 0) (by norm_num)
       have eC1 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2), ^&0] : V) (?[^#1] : V)
@@ -623,39 +651,42 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
           = (?[^#0] : V) := termSubstVec_V'_i (a := a) (i := 0) (by norm_num)
       have eD1 : termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#1] : V)
           = (?[^#1] : V) := termSubstVec_V'_i (a := a) (i := 1) (by norm_num)
-      -- `y` 槽向量
-      have eW : termSubstVec ℒₛₑₜ (1 + 1) (?[^#0, ^#1, ^#(a + 2), ^&0] : V)
+      have eW0 : termSubstVec ℒₛₑₜ (1 + 1) (?[^#0, ^#1, ^#(a + 2), ^&0] : V)
           (^#0 ∷ shiftVec 3 1) = (?[^#0, ^&0] : V) := by
         rw [show (^#0 ∷ shiftVec 3 1 : V) = (?[^#0, ^#3] : V) from by
           rw [show (1 : V) = 0 + 1 by norm_num, shiftVec_succ, shiftVec_zero,
             termBShiftVec_nil]]
         rw [show (1 : V) + 1 = 2 by norm_num]
         exact termSubstVec_W'_i3 (a := a) (i := 0) (by norm_num)
-      have eF0 : termSubstVec ℒₛₑₜ (1 + 1) (?[^#0, ^#1, ^#(a + 2), ^&0] : V)
+      have eV0 : termSubstVec ℒₛₑₜ (0 + 1) (?[^#0, ^#1, ^#(a + 2)] : V)
+          (^#0 ∷ shiftVec 3 0) = (?[^#0] : V) := by
+        rw [show (^#0 ∷ shiftVec 3 0 : V) = (?[^#0] : V) from by rw [shiftVec_zero]]
+        rw [show (0 : V) + 1 = 1 by norm_num]
+        exact termSubstVec_V'_i (a := a) (i := 0) (by norm_num)
+      have eW1 : termSubstVec ℒₛₑₜ (1 + 1) (?[^#0, ^#1, ^#(a + 2), ^&0] : V)
           (^#1 ∷ shiftVec 3 1) = (?[^#1, ^&0] : V) := by
         rw [show (^#1 ∷ shiftVec 3 1 : V) = (?[^#1, ^#3] : V) from by
           rw [show (1 : V) = 0 + 1 by norm_num, shiftVec_succ, shiftVec_zero,
             termBShiftVec_nil]]
         rw [show (1 : V) + 1 = 2 by norm_num]
         exact termSubstVec_W'_i3 (a := a) (i := 1) (by norm_num)
-      have eV : termSubstVec ℒₛₑₜ (0 + 1) (?[^#0, ^#1, ^#(a + 2)] : V)
-          (^#0 ∷ shiftVec 3 0) = (?[^#0] : V) := by
-        rw [show (^#0 ∷ shiftVec 3 0 : V) = (?[^#0] : V) from by rw [shiftVec_zero]]
-        rw [show (0 : V) + 1 = 1 by norm_num]
-        exact termSubstVec_V'_i (a := a) (i := 0) (by norm_num)
-      have eF1 : termSubstVec ℒₛₑₜ (0 + 1) (?[^#0, ^#1, ^#(a + 2)] : V)
+      have eV1 : termSubstVec ℒₛₑₜ (0 + 1) (?[^#0, ^#1, ^#(a + 2)] : V)
           (^#1 ∷ shiftVec 3 0) = (?[^#1] : V) := by
         rw [show (^#1 ∷ shiftVec 3 0 : V) = (?[^#1] : V) from by rw [shiftVec_zero]]
         rw [show (0 : V) + 1 = 1 by norm_num]
         exact termSubstVec_V'_i (a := a) (i := 1) (by norm_num)
-      rw [eC0, eC1, eD0, eD1, eW, eF0, eV, eF1,
-        termSubstVec_W'_concl a, termSubstVec_V'_concl a]
-      -- 两侧逐字同形，只差两个 `y` 槽的 T1 实例（`i = 0` 与 `i = 1`）
-      congr 1
-      congr 1
-      congr 1
-      · exact ih 0 (by norm_num) (0 : V) (by norm_num)
-      · exact ih 1 (by norm_num) (0 : V) (by norm_num)
+      -- 两侧逐字同形，只差两个 `y` 槽的 T1 实例（`a := 0` 与 `a := 1`）
+      refine congrArg₂ (imp ℒₛₑₜ) ?_ ?_
+      refine congrArg₂ (· ^⋏ ·) ?_ ?_
+      · rw [eC0, eD0, eW0, eV0]
+        refine congrArg₂ (· ^⋏ ·) rfl ?_
+        exact ih 0 (by norm_num) (0 : V) (lt_of_lt_of_le (by norm_num : (0 : V) < 3) hm)
+      · refine congrArg₂ (· ^⋏ ·) ?_ ?_
+        · rw [eC1, eD1, eW1, eV1]
+          refine congrArg₂ (· ^⋏ ·) rfl ?_
+          exact ih 1 (by norm_num) (1 : V) (lt_of_lt_of_le (by norm_num : (1 : V) < 3) hm)
+        · rw [substs_verum, substs_verum]
+      · rw [termSubstVec_W'_concl a, termSubstVec_V'_concl a]
 end GodelQ.ITSubsts1
 
 namespace GodelQ.ITSubsts1
