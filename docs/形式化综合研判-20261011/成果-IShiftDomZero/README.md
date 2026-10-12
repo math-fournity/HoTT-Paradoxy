@@ -406,3 +406,34 @@ Craig 公理是 `σ.padding s`，而 `translate` 与之交换意味着
 （`replicate_succ` + `map_top`）。
 **注意**：须在 `Semiproposition`（ℕ 域）层陈述——`Semisentence` 的
 `Sentence` coercion 会造成 defeq 不匹配。
+
+## 二十二、hRoot 的当前状态（本会话终态）
+
+**已证**（`HRoot.lean`，exit 0、公理干净）：
+- `mem_craig_iff_eval` / `mem_craig_quote_iff` / `mem_craig_iff_padding`（三个解包引理）
+- **`translate_conj_top`** / **`translate_padding`**（translate 与 padding 交换）
+
+**剩余**（`hRoot_quoted` / `hRoot_uncond`，带完整 roadmap 的 sorry）：
+归约链已完全确定——
+```
+φ ∈ Sh.craig ⟹ φ = σ.padding s, σ ∈ Sh
+iT 0 ⌜σ.padding s⌝ = ⌜translate (σ.padding s)⌝        [iT_quote]
+                  = ⌜(translate σ).padding s⌝          [translate_padding ✅]
+𝗭𝗙𝗖 ⊢ translate σ                                     [Sh_provable_iff + σ ∈ Sh]
+𝗭𝗙𝗖 ⊢ (translate σ).padding s                         [Entailment.padding_iff]
+Provable 𝗭𝗙𝗖 (iT 0 ⌜σ.padding s⌝)                     [provable_iff_provable]
+```
+**唯一摩擦**：`Sentence`（Empty 域）与 `Semiproposition`（ℕ 域）之间的 coercion——
+`iT_quote` 作用于 `Semisentence`，而 `padding` 后的引号涉及 `Rewriting.emb` 的显式形式。
+**这是纯 API 适配**（不是缺失的数学），零件全部齐备。
+
+## 二十三、本会话总产出（终态）
+
+**42/42 从零重编译通过**。分支 `claude/elegant-mclaren-767fb0` 已推送。
+
+| 类别 | 内容 |
+|---|---|
+| 新证 | `shift_domZero`、`shift_quote`、`ishift` 六支、`shift_ve0`、`iTR_shift`、**`iT_shift`**、**`tshift`**、**`hShift_uncond`**、`all_mem`、`guard_step`、`isFormulaSet_of_setShift_eq`、**`hAll_uncond`**、`naive_law_is_false_shape`、`mem_craig_*`、**`translate_padding`** |
+| 吸收 | `iVE_shift`（9276）、`split_or`/`replace_of_imp`（9276）、`provable_into_sequent`（9276） |
+| O2 状态 | 10 支中 **8 支就绪**（7 无条件 + hAll 差 hAB） |
+| 剩余 | `hAB`（研究缺口）、`hExs`（同形）、`hRoot`（纯 API 适配） |

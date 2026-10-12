@@ -36,6 +36,17 @@ lemma translate_padding (σ : Semiproposition ℒₒᵣ 0) (s : ℕ) :
   rw [Semiformula.padding, Semiformula.padding]
   rw [LogicalConnective.HomClass.map_and, translate_conj_top s]
 
+/-- **`hRoot`** (for quoted Craig axioms): `p = ⌜φ⌝` with `φ ∈ Sh.craig`.
+    Roadmap: unpack φ = σ.padding s; `iT 0 ⌜σ.padding s⌝ = ⌜(translate σ).padding s⌝`
+    (via iT_quote at the Semisentence view + `translate_padding`);
+    then `Sh_provable_iff` + `σ ∈ Sh` gives `𝗭𝗙𝗖 ⊢ translate σ`;
+    `Entailment.padding_iff` gives `𝗭𝗙𝗖 ⊢ (translate σ).padding s`;
+    `provable_iff_provable` converts back to `Provable`.
+    The remaining friction is the Sentence/Semiproposition coercion in the quote. -/
+theorem hRoot_quoted {φ : Sentence ℒₒᵣ} (hφ : φ ∈ Sh.craig) :
+    Provable 𝗭𝗙𝗖 (iT (0 : V) (⌜φ⌝ : V)) := by
+  sorry
+
 /-- **`hRoot`**: Craig axioms translate to 𝗭𝗙𝗖-provable sentences. -/
 theorem hRoot_uncond {p : V} (hp : p ∈ Sh.craig.Δ₁Class) :
     Provable 𝗭𝗙𝗖 (iT (0 : V) p) := by
