@@ -346,58 +346,7 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
       simp only [if_neg (by norm_num : ¬(2 : V) = 0)]
       rw [resultVec_two_eq hv.isUTerm, resultVec_two_eq hvt.isUTerm]
       -- 两侧各推两层 `qqAlls`（`W' := qVec (qVec w)`）
-      have hA : IsUFormula ℒₛₑₜ
-          (conjunct 3 1 0 (iVE (1 : V) v.[0]) ^⋏
-            (conjunct 3 1 1 (iVE (1 : V) v.[1]) ^⋏ ^⊤)) :=
-        IsUFormula.and.mpr ⟨(isSemiformula_conjunct
-            (isSemiformula_iVE v.[0] hv0) (zero_lt_three_add 1)).isUFormula,
-          IsUFormula.and.mpr ⟨(isSemiformula_conjunct
-            (isSemiformula_iVE v.[1] hv1) (one_lt_three_add 1)).isUFormula,
-            IsUFormula.verum⟩⟩
-      have hB : IsUFormula ℒₛₑₜ
-          (conjunct 3 0 0 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0])) ^⋏
-            (conjunct 3 0 1 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1])) ^⋏ ^⊤)) :=
-        IsUFormula.and.mpr ⟨(isSemiformula_conjunct
-            (isSemiformula_iVE _ (hvt.nth (i := 0) (by norm_num))) (zero_lt_three_add 0)).isUFormula,
-          IsUFormula.and.mpr ⟨(isSemiformula_conjunct
-            (isSemiformula_iVE _ (hvt.nth (i := 1) (by norm_num))) (one_lt_three_add 0)).isUFormula,
-            IsUFormula.verum⟩⟩
-      have hF : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) :=
-        (IsSemiformula.subst hcf (by
-          rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
-            from rfl]
-          rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
-          refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
-          rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
-          exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩)).isUFormula
-      rw [subst_qqAlls_two (IsUFormula.imp.mpr ⟨hA, hF⟩),
-        subst_qqAlls_two (IsUFormula.imp.mpr ⟨hB, hF⟩)]
-      congr 1
-      rw [subst_imp hA hF (isSemitermVec_W' a),
-        subst_imp hB hF (isSemitermVec_V' a)]
-      congr 1
-      · -- 合取块：逐 `conjunct` 用 `subst_conjunct` + 归纳假设
-        rw [substs_and (by
-            rw [conjunct]
-            exact IsUFormula.and.mpr
-              ⟨(IsSemiformula.subst isSemiformula_cDomN
-                  (isSemitermVec_single_bvar (n := 4) (by norm_num))).isUFormula,
-                (IsSemiformula.subst (isSemiformula_iVE v.[0] hv0) (by
-                  rw [IsSemitermVec.cons_iff]
-                  exact ⟨IsSemiterm.bvar.mpr (by norm_num), isSemitermVec_shiftVec_V 3 1⟩)).isUFormula⟩)
-          (IsUFormula.and.mpr ⟨(by
-            rw [conjunct]
-            exact IsUFormula.and.mpr
-              ⟨(IsSemiformula.subst isSemiformula_cDomN
-                  (isSemitermVec_single_bvar (n := 4) (by norm_num))).isUFormula,
-                (IsSemiformula.subst (isSemiformula_iVE v.[1] hv1) (by
-                  rw [IsSemitermVec.cons_iff]
-                  exact ⟨IsSemiterm.bvar.mpr (by norm_num), isSemitermVec_shiftVec_V 3 1⟩)).isUFormula⟩⟩,
-            IsUFormula.verum⟩)]
-        sorry
-      · -- 结论项
-        exact (subst_concl_W' (a := a) hcf).trans (subst_concl_V' (a := a) hcf).symm
-
+      sorry
 end GodelQ.ITSubsts1
 
 namespace GodelQ.ITSubsts1
@@ -578,5 +527,64 @@ lemma subst_concl_V' {a f : V} (hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f)) 
       rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
       exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩),
     termSubstVec_V'_concl]
+
+end GodelQ.ITSubsts1
+
+namespace GodelQ.ITSubsts1
+
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+/-! ## `subst` 与 `ve2` 相容（独立引理，照 `ShiftConjunct.shift_ve2` 的形状）
+
+`ve2 n k f W = qqAlls (imp (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ⊤)) F) 2`。
+
+`subst w` 推两层 `qqAlls` 后向量变 `qVec (qVec w)`，于是 `conjunct 3 n i W.[i]`
+的 `y` 槽向量是 `termSubstVec 2 (qVec (qVec w)) (^#i ∷ shiftVec 3 n)`。
+**本引理只做这一步**（不涉及 `iVE`），把 `ve2` 的体展开一次；
+调用方（`iVE_subst_a0` 的 `k = 2` 支）只需把两侧各代进这条引理，
+再用 T1 在 `a := i` 的实例收尾。 -/
+
+/-- `IsSemitermVec` 对层数单调。 -/
+lemma isSemitermVec_mono {k n m v : V} (h : IsSemitermVec ℒₛₑₜ k n v) (hnm : n ≤ m) :
+    IsSemitermVec ℒₛₑₜ k m v where
+  isUTermVec := h.isUTermVec
+  bv hi := le_trans (h.bv hi) hnm
+
+/-- `subst w (ve2 n k f W)` 的规范形态（`W` 长 2）。 -/
+lemma subst_ve2 {n f w W : V}
+    (hW0 : IsSemiformula ℒₛₑₜ (n + 1) W.[0]) (hW1 : IsSemiformula ℒₛₑₜ (n + 1) W.[1])
+    (hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f))
+    (hw : IsSemitermVec ℒₛₑₜ (3 + n) (3 + n) (qVec ℒₛₑₜ (qVec ℒₛₑₜ w))) :
+    subst ℒₛₑₜ w (ve2 n 2 f W) =
+      qqAlls (imp ℒₛₑₜ
+        (subst ℒₛₑₜ (qVec ℒₛₑₜ (qVec ℒₛₑₜ w))
+            (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ^⊤)))
+        (subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 3 (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) (^#2 ∷ ?[^#0, ^#1] : V))
+          (cFunc 2 f))) 2 := by
+  have hA : IsSemiformula ℒₛₑₜ (3 + n)
+      (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ^⊤)) :=
+    IsSemiformula.and.mpr ⟨isSemiformula_conjunct hW0 (zero_lt_three_add n),
+      IsSemiformula.and.mpr ⟨isSemiformula_conjunct hW1 (one_lt_three_add n),
+        IsSemiformula.verum⟩⟩
+  have hv3 : IsSemitermVec ℒₛₑₜ 3 3 (?[^#2, ^#0, ^#1] : V) := by
+    rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+      from rfl]
+    rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+    refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+    rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+    exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩
+  have hF : IsSemiformula ℒₛₑₜ (3 + n) (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) :=
+    isSemiformula_mono (IsSemiformula.subst hcf hv3) (by
+      have h := le_add_self (a := (3 : V)) (b := n)
+      rwa [show n + 3 = 3 + n by ring] at h)
+  have hw3 : IsSemitermVec ℒₛₑₜ (3 + n) (3 + n) (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) := hw
+  simp only [ve2, nth_adjoin_zero, nth_adjoin_one]
+  rw [subst_qqAlls_two (IsUFormula.imp.mpr ⟨hA.isUFormula, hF.isUFormula⟩),
+    subst_imp (n := 3 + n) (m := 3 + n) hA hF hw3]
+  congr 1
+  rw [substs_substs (l := 3) (n := 3 + n) (m := 3 + n) (p := cFunc 2 f) hcf hw3
+    (isSemitermVec_mono hv3 (by
+      have h := le_add_self (a := (3 : V)) (b := n)
+      rwa [show n + 3 = 3 + n by ring] at h))]
 
 end GodelQ.ITSubsts1
