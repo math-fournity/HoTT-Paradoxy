@@ -47,6 +47,16 @@ lemma cDomN_isSemiformula :
   simpa [Nat.cast_one] using
     FFL.FirstOrder.Sentence.quote_isSemiformula (V := V) (L := ℒₛₑₜ) (n := 1) _
 
+-- **`ve2_isUFormula` 未证**。`ve2 n k f w = qqAlls (imp (conjunct 3 n 0 w.[0] ⋏ (conjunct 3 n 1 w.[1] ⋏ ⊤))
+-- (subst (^#2 ∷ ?[^#0, ^#1]) (cFunc k f))) 2`。要证它是公式，需要：
+-- 1. `qqAlls`（`isUFormula_qqAlls`）✅、`imp`（`IsUFormula.imp`）✅、`⋏`（`IsUFormula.and`）✅、`⊤` ✅；
+-- 2. **`conjunct 3 n i w.[i]` 是公式**——第一块已证（`CG008Conj.conjunct_fst_isUFormula`），
+--    **第二块未证**（见 `CG008Conj` 的说明）；
+-- 3. **`subst (^#2 ∷ ?[^#0, ^#1]) (cFunc k f)`**：`cFunc` 在 `k ≠ 0` 时是层 3 的公式
+--    （`cFunc_isSemiformula_three` ✅），但替换向量的分量界是**算术界**——
+--    与 `conjunct` 第二块同一类障碍（`V` 的 `LT` 是裸的）。
+-- **所以 `ve2_isUFormula` 归结为两处**：`conjunct` 第二块 + 替换向量的算术界。
+
 -- `conjunct` 的公式性未证。`conjunct b n i y = (subst ?[#i] cDomN) ⋏ (subst (#i ∷ shiftVec b n) y)`。
 -- 本轮查清一处**层数事实**：`subst L w q` 要 `IsSemitermVec L n m w`，即 `len w = n`，
 -- 而 `?[^#i]` 的 `len` 是 **1**（一个分量），与 `i` 无关。所以第一块在层 1 可直接用
