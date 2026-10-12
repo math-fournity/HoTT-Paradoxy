@@ -2283,3 +2283,15 @@ Claim 表：
 |---|---|---|---|---|
 | CG001-C-398 | `neg ℒₒᵣ (neg ℒₒᵣ p) = p` 对 V 内任意公式码 `p`（任意层数）成立 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01`；负控制 `-NEG-01` | 不含 `iT` 与 `substs1`/`shift`/`free`/`setShift` 的相容 |
 | CG001-C-399 | `iT n (neg ℒₒᵣ p) = neg ℒₛₑₜ (iT n p)` 对 V 内任意公式码 `p`（任意层数）成立 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01`；负控制 `-NEG-02` | 不读成 D3 已证：`derivable_translateSeq`、`axm` 支、`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |
+
+## Claude CG-007 W8 第 2 层续二：`ShCraigElim` 归纳的四条新支（2026-10-12）
+
+> 承接上一节（C-398、C-399）。读法：机器证明（有范围）。这是 D3 攻坚第 2 层 10 个 case 组装的一部分，不是 D3。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-Z0-W8-SHCRAIG-BRANCHES-001` | `CG001-C-400` | `formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimFilled.lean`（`hAnd`、`hOr`、`hAxL`、`hCut`） | `verification/runs/20261012-CG001-Z0-W8-SHCRAIG-BRANCHES-01/`；exit 0，stderr 0 B，119 秒；136 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-400 | `induction1` 的四条规则支：`hAnd`（`iT_and`+`Derivable.and_m`）、`hOr`（`iT_or`+`Derivable.or_m`）、`hAxL`（`Derivable.em` 用 C-399）、`hCut`（`Derivable.cut` 枢轴 `iT 0 p`，用 C-399） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-SHCRAIG-BRANCHES-01` | 不读成 `ShCraigElim` 已证：`hAll`/`hExs`/`hShift`、`axm`、`derivable_translateSeq`、`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |
