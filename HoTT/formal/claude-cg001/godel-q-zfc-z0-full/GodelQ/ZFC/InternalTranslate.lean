@@ -287,6 +287,9 @@ instance iT_defined : 𝚺ᴬ₁-Function₂ (iT : V → V → V) via iTDef :=
 
 instance iT_definable : 𝚺ᴬ₁-Function₂ (iT : V → V → V) := iT_defined.to_definable
 
+instance iT_definable' (Γ k) : Γᴬ_[k + 1]-Function₂ (iT : V → V → V) :=
+  iT_definable.of_sigmaOne
+
 end iT
 
 /-! ## 正确性：内部翻译等于翻译的编码 -/

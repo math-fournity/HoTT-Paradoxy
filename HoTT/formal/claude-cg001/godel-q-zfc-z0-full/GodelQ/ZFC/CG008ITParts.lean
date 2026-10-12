@@ -52,73 +52,60 @@ set_option maxHeartbeats 3200000 in
 所以 `rel` 情形所需的 `IsSemitermVec ℒₒᵣ k n v` 拿不到。
 **层数必须在假设里**——与 `CG008IVE.lean` 头部记的更正同源。
 
-## 用层数感知的归纳
+## 用**层数感知**的归纳
 
-`semiformula_result_induction`（`Formula/Basic.lean:1578`）的谓词
-`P : V → V → V → V → Prop` **吃「计算参数」与「层数」两个独立变量**，
-所以取 `P param n p r := param = n → IsUFormula r`——
-**把两者相等这件事带在谓词里**，归纳步就能把 `IsSemitermVec L k n v`
-换成 `IsSemitermVec L k param v`。 -/
+`IsSemiformula.sigma1_structural_induction`（`Formula/Basic.lean:1484`）的谓词
+`P : V → V → Prop` **吃层数**，且 `hall` 的归纳假设在层 **`n + 1`**：
+`hall : IsSemiformula L (n+1) p → P (n+1) p → P n (^∀ p)`。
+这正是 `iT_all`（`iT n (^∀ p) = ^∀ (imp domZero (iT (n+1) p))`）所需——
+**一元 `sigma1_succ_induction` 不吃层数，所以先前卡住；换归纳原理即解决。** -/
 theorem iT_isUFormula (n p : V) (hp : Bootstrapping.IsSemiformula ℒₒᵣ n p) :
     Bootstrapping.IsUFormula ℒₛₑₜ (iT n p) := by
-  have hP : 𝚺ᴬ₁-Relation₄
-      (fun param n p r : V ↦ param = n → Bootstrapping.IsUFormula ℒₛₑₜ r) := by
-    have h1 : 𝚺ᴬ₁.Definable (fun v : Fin 4 → V ↦ v 0 = v 1) :=
-      Bounding.HierarchySymbol.DefinableRel.comp
-        (Bounding.HierarchySymbol.DefinableRel.eq (V := V))
-        (Bounding.HierarchySymbol.DefinableFunction.var 0)
-        (Bounding.HierarchySymbol.DefinableFunction.var 1)
-    have h2 : 𝚺ᴬ₁.Definable (fun v : Fin 4 → V ↦ Bootstrapping.IsUFormula ℒₛₑₜ (v 3)) :=
-      Bounding.HierarchySymbol.DefinablePred.comp
-        (inferInstance : 𝚺ᴬ₁-Predicate (fun r : V ↦ Bootstrapping.IsUFormula ℒₛₑₜ r))
-        (Bounding.HierarchySymbol.DefinableFunction.var 3)
-    have h3 := Bounding.HierarchySymbol.Definable.imp h1 h2
-    apply Bounding.HierarchySymbol.Definable.of_iff h3
-    intro v
-    simp
-  have key : ∀ {param n p : V}, Bootstrapping.IsSemiformula ℒₒᵣ n p →
-      param = n → Bootstrapping.IsUFormula ℒₛₑₜ (iT.construction.result ℒₒᵣ param p) := by
-    intro param n p hp'
-    refine iT.construction.semiformula_result_induction (L := ℒₒᵣ) hP ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ hp'
-    · -- rel：`IsSemitermVec L k n v` 经 `hpn` 换成层 `param`
-      intro n param k R v hR hv hpn
-      subst hpn
-      exact (GodelQ.CG008ITR.iTR_isSemiformula n k R v
+  have hP : 𝚺ᴬ₁-Relation (fun n r : V ↦ Bootstrapping.IsUFormula ℒₛₑₜ (iT n r)) := by
+    definability
+  refine Bootstrapping.IsSemiformula.sigma1_structural_induction (L := ℒₒᵣ) hP ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ hp
+  · -- rel：假设直接给 `IsSemitermVec L k n v`；用 `iT_rel` 换成 `iTR`
+    intro n k R v hR hv
+    rw [iT_rel hR hv.isUTermVec]
+    exact (GodelQ.CG008ITR.iTR_isSemiformula n k R v
+      (by rcases (Bootstrapping.Arithmetic.isRel_iff_LOR (V := V)).mp hR with ⟨h,-⟩ | ⟨h,-⟩ <;> rw [h])
+      hv).isUFormula
+  · -- nrel
+    intro n k R v hR hv
+    rw [iT_nrel hR hv.isUTermVec]
+    exact Bootstrapping.IsUFormula.neg
+      (GodelQ.CG008ITR.iTR_isSemiformula n k R v
         (by rcases (Bootstrapping.Arithmetic.isRel_iff_LOR (V := V)).mp hR with ⟨h,-⟩ | ⟨h,-⟩ <;> rw [h])
         hv).isUFormula
-    · -- nrel
-      intro n param k R v hR hv hpn
-      subst hpn
-      exact Bootstrapping.IsUFormula.neg
-        (GodelQ.CG008ITR.iTR_isSemiformula n k R v
-          (by rcases (Bootstrapping.Arithmetic.isRel_iff_LOR (V := V)).mp hR with ⟨h,-⟩ | ⟨h,-⟩ <;> rw [h])
-          hv).isUFormula
-    · intro n param hpn; exact Bootstrapping.IsUFormula.verum
-    · intro n param hpn; exact Bootstrapping.IsUFormula.falsum
-    · intro n param p q hp hq ihp ihq hpn
-      exact Bootstrapping.IsUFormula.and.mpr ⟨ihp hpn, ihq hpn⟩
-    · intro n param p q hp hq ihp ihq hpn
-      exact Bootstrapping.IsUFormula.or.mpr ⟨ihp hpn, ihq hpn⟩
-    · -- all：`iT n (^∀ p) = ^∀ (imp domZero (iT (n+1) p))`
-      intro n param p hp ih hpn
-      rw [iT.construction.result_all hp.isUFormula rfl]
-      simp only [Translate.iT.construction]
-      refine Bootstrapping.IsUFormula.all.mpr ?_
-      refine Bootstrapping.IsUFormula.imp.mpr ⟨?_, ?_⟩
-      · exact GodelQ.CG008VeParts.subst_singleton_isUFormula 0
-          (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
-      · exact ih 0 (by simp) (by rw [hpn])
-    · -- exs
-      intro n param p hp ih hpn
-      rw [iT.construction.result_exs hp.isUFormula rfl]
-      simp only [Translate.iT.construction]
-      refine Bootstrapping.IsUFormula.ex.mpr ?_
-      refine Bootstrapping.IsUFormula.and.mpr ⟨?_, ?_⟩
-      · exact GodelQ.CG008VeParts.subst_singleton_isUFormula 0
-          (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
-      · exact ih 0 (by simp) (by rw [hpn])
-  exact key hp rfl
+  · intro n
+    rw [iT_verum]
+    exact Bootstrapping.IsUFormula.verum
+  · intro n
+    rw [iT_falsum]
+    exact Bootstrapping.IsUFormula.falsum
+  · intro n p q hp hq ihp ihq
+    rw [iT_and hp.isUFormula hq.isUFormula]
+    exact Bootstrapping.IsUFormula.and.mpr ⟨ihp, ihq⟩
+  · intro n p q hp hq ihp ihq
+    rw [iT_or hp.isUFormula hq.isUFormula]
+    exact Bootstrapping.IsUFormula.or.mpr ⟨ihp, ihq⟩
+  · -- all：IH 在层 `n + 1`
+    intro n p hp ih
+    rw [iT_all hp.isUFormula]
+    refine Bootstrapping.IsUFormula.all.mpr ?_
+    refine Bootstrapping.IsUFormula.imp.mpr ⟨?_, ih⟩
+    exact GodelQ.CG008VeParts.subst_singleton_isUFormula 0
+      (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
+  · -- exs
+    intro n p hp ih
+    rw [iT_exs hp.isUFormula]
+    refine Bootstrapping.IsUFormula.ex.mpr ?_
+    refine Bootstrapping.IsUFormula.and.mpr ⟨?_, ih⟩
+    exact GodelQ.CG008VeParts.subst_singleton_isUFormula 0
+      (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
 
 end
 
 end GodelQ.CG008ITParts
+
+#print axioms GodelQ.CG008ITParts.iT_isUFormula
