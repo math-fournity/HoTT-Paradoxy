@@ -46,9 +46,10 @@ lemma conjunct_rename_first {i : V} (hi : i < 2) :
   have hcp : subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
         (subst ℒₛₑₜ (?[^#i] : V) (↑cDomN : V))
       = subst ℒₛₑₜ (?[^#0, ^#1] : V) (subst ℒₛₑₜ (?[^#i] : V) (↑cDomN : V)) :=
-    subst_congr_prefix (V := V) (n := (2:V)) (m := (2:V)) (kl := (3:V))
+    subst_congr_prefix (V := V) (n := (2:V)) (m := (2:V)) (k₁ := (3:V)) (k₂ := (2:V))
       (w := (?[^#0, ^#1, ^&0] : V)) (w' := (?[^#0, ^#1] : V))
-      (subst ℒₛₑₜ (?[^#i] : V) (↑cDomN : V)) hmid isSemitermVec_W3 isSemitermVec_W2
+      (subst ℒₛₑₜ (?[^#i] : V) (↑cDomN : V)) hmid (by norm_num) (by norm_num)
+      isSemitermVec_W3 isSemitermVec_W2
       (fun j hj ↦ by rw [W3_expand, W2_expand]; rcases lt_two_cases hj with rfl | rfl <;> simp)
   rw [hcp]
   have hss := Bootstrapping.substs_substs (L := ℒₛₑₜ) (l := (1:V)) (n := (2:V)) (m := (2:V))
