@@ -102,15 +102,27 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
           (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))) (2 : V) :=
     subst_qqAlls hbody 2 (?[^&0] : V)
-  rw [hR]
-  rw [hq2]
-  show qqAlls (imp ℒₛₑₜ (conjunct 2 0 0 (iVE (0:V) (^&(0:V) : V)) ^⋏
-        (conjunct 2 0 1 (iVE (0:V) (^&(0:V) : V)) ^⋏ ^⊤))
-      (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))) (2:V)
-    = qqAlls (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
-        (imp ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
-          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
-          (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))) (2:V)
+  -- `qVec w = ^#0 ∷ termBShiftVec (len w) w`，逐步算
+  have e1 : qVec ℒₛₑₜ (?[^&0] : V) = ((^#0 : V) ∷ ((^&0 : V) ∷ (0 : V))) := by
+    rw [qVec, show len (?[^&0] : V) = 1 from by simp]
+    rw [show (1 : V) = 0 + 1 by norm_num,
+      termBShiftVec_cons (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
+      termBShift_fvar]
+    rfl
+  -- `qVec² ?[^&0] = ?[^#0, ^#1, ^&0]`
+  have hq2 : (qVec ℒₛₑₜ)^[(2:ℕ)] (?[^&0] : V) = (?[^#0, ^#1, ^&0] : V) := by
+    rw [Function.iterate_succ_apply, e1, qVec,
+      show len ((^#0 : V) ∷ ((^&0 : V) ∷ (0 : V))) = 2 from by simp]
+    rw [show (2 : V) = 0 + 1 + 1 by norm_num]
+    rw [termBShiftVec_cons (IsUTerm.bvar (z := (0:V)))
+      (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.fvar (x := (0:V))))]
+    rw [show (0 : V) + 1 = 1 by norm_num]
+    rw [termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V)))]
+    rw [termBShift_bvar, termBShift_fvar]
+    rfl
+  rw [hR, hq2]
+  norm_num at *
+  sorry
   congr 1
   sorry
 
