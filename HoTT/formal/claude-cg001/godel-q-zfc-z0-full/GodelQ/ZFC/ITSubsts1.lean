@@ -276,82 +276,15 @@ namespace GodelQ.ITSubsts1
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- **T1**（`t` 层 1）：`subst (^#a ∷ ?[^&0]) (iVE 1 t) = subst ?[^#a] (iVE 0 (termSubst ?[^&0] t))`。
+/-! ## `subst` 与 `ve2` 相容（独立引理，照 `ShiftConjunct.shift_ve2` 的形状）
 
-归纳谓词取 `∀ a < m, <T1 在 a>`——`ve2` 支对每个参数 `v.[i]` 要在 `a := i`
-处用归纳假设，故归纳必须对 `a` 全称（**有界**全称，`definability` 可接受）。
+`ve2 n k f W = qqAlls (imp (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ⊤)) F) 2`。
 
-`a < m` 里 `m` 是层。`ve2` 支的调用处取 `m := 3`（`W'` 长 4、层 3），
-`i ∈ {0,1}` 都有 `i < 3`。 -/
-lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < m →
-    subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
-      subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)) := by
-  apply IsSemiterm.sigma1_induction (L := ℒₒᵣ) (n := (1 : V))
-    (P := fun t ↦ ∀ a : V, a < m →
-      subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
-        subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)))
-  · definability
-  · -- bvar：`z < 1` ⇒ `z = 0`
-    intro z hz a _
-    have hz0 : z = 0 := lt_one_iff_eq_zero.mp hz
-    subst hz0
-    rw [iVE_bvar]
-    rw [show (^#(0 + 1) : V) = (^#1 : V) by norm_num]
-    rw [subst_eqAtom_a0 (IsUTerm.bvar (z := 1))]
-    rw [termSubst_bvar]
-    simp only [nth_adjoin_one, nth_adjoin_zero]
-    exact (rhs_bvar a).symm
-  · -- fvar
-    intro x a _
-    rw [iVE_fvar, subst_eqAtom_a0 (IsUTerm.fvar x), termSubst_fvar]
-    exact (rhs_fvar a x).symm
-  · -- func
-    intro k f v hkf hv ih
-    by_cases hk : k = 0
-    · subst hk
-      have hv0 : v = (0 : V) := by
-        have h : IsUTermVec ℒₒᵣ 0 v := hv.isUTerm
-        exact IsUTermVec.empty_iff.mp h
-      subst hv0
-      intro a ha
-      have hsub0 : termSubst ℒₒᵣ (?[^&0] : V) (^func 0 f (0 : V)) =
-          (^func 0 f (0 : V) : V) := by
-        rw [termSubst_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)), termSubstVec_nil]
-      rw [hsub0]
-      rw [iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)),
-        iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V))]
-      simp only [ite_true]
-      exact iVE_subst_ve0 ha (isSemiformula_cFunc_arity0 f)
-    · -- k = 2：`ve2`，两层绑定子
-      have hk2 := k_eq_two_of_func hkf hk
-      subst hk2
-      intro a ha
-      -- 归纳假设在 `a := i` 处的两个实例
-      have ih0 := ih 0 (by norm_num) a ha
-      have ih1 := ih 1 (by norm_num) a ha
-      -- 体的公式性（两侧共用的结论项 `cFunc 2 f`）
-      have hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f) := isSemiformula_cFunc_arity2 (by norm_num) f
-      have hv0 : IsSemiterm ℒₒᵣ 1 v.[0] := hv.nth (i := 0) (by norm_num)
-      have hv1 : IsSemiterm ℒₒᵣ 1 v.[1] := hv.nth (i := 1) (by norm_num)
-      have hvec1 : IsSemitermVec ℒₒᵣ 1 1 (?[^&0] : V) := by
-        rw [IsSemitermVec.singleton]
-        exact IsSemiterm.fvar 1 (0 : V)
-      have hvt : IsSemitermVec ℒₒᵣ 2 1 (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v) :=
-        IsSemitermVec.termSubstVec (k := 2) (n := 1) (m := 1) (v := v)
-          (w := (?[^&0] : V)) hvec1 hv
-      -- 内层先展开（右侧的 `iVE 0` 参数里有 `termSubst`）
-      rw [termSubst_func hkf hv.isUTerm]
-      -- 两侧 `iVE` 展开
-      rw [iVE_func hkf hv.isUTerm, iVE_func hkf hvt.isUTerm]
-      simp only [if_neg (by norm_num : ¬(2 : V) = 0)]
-      rw [resultVec_two_eq hv.isUTerm, resultVec_two_eq hvt.isUTerm]
-      -- 两侧各推两层 `qqAlls`（`W' := qVec (qVec w)`）
-      sorry
-end GodelQ.ITSubsts1
-
-namespace GodelQ.ITSubsts1
-
-variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+`subst w` 推两层 `qqAlls` 后向量变 `qVec (qVec w)`，于是 `conjunct 3 n i W.[i]`
+的 `y` 槽向量是 `termSubstVec 2 (qVec (qVec w)) (^#i ∷ shiftVec 3 n)`。
+**本引理只做这一步**（不涉及 `iVE`），把 `ve2` 的体展开一次；
+调用方（`iVE_subst_a0` 的 `k = 2` 支）只需把两侧各代进这条引理，
+再用 T1 在 `a := i` 的实例收尾。 -/
 
 /-! ## `ve2` 支的向量工具
 
@@ -434,6 +367,142 @@ lemma termSubstVec_V'_i {a i : V} (hi : i < 2) :
 lemma termSubstVec_V'_i_single {a i : V} (hi : i < 2) :
     termSubstVec ℒₛₑₜ 1 (?[^#0, ^#1, ^#(a + 2)] : V) (?[^#i] : V) = (?[^#i] : V) :=
   termSubstVec_V'_i hi
+
+
+/-- `IsSemitermVec` 对层数单调（任意语言）。 -/
+lemma isSemitermVec_mono {L : Language} [L.Encodable] [L.LORDefinable]
+    {k n m v : V} (h : IsSemitermVec L k n v) (hnm : n ≤ m) :
+    IsSemitermVec L k m v where
+  isUTermVec := h.isUTermVec
+  bv hi := le_trans (h.bv hi) hnm
+
+/-- `subst w (ve2 n k f W)` 的规范形态（`W` 长 2）。 -/
+lemma subst_ve2 {n f w W m : V}
+    (hW0 : IsSemiformula ℒₛₑₜ (n + 1) W.[0]) (hW1 : IsSemiformula ℒₛₑₜ (n + 1) W.[1])
+    (hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f))
+    (hw : IsSemitermVec ℒₛₑₜ (3 + n) m (qVec ℒₛₑₜ (qVec ℒₛₑₜ w))) :
+    subst ℒₛₑₜ w (ve2 n 2 f W) =
+      qqAlls (imp ℒₛₑₜ
+        (subst ℒₛₑₜ (qVec ℒₛₑₜ (qVec ℒₛₑₜ w))
+            (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ^⊤)))
+        (subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 3 (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) (^#2 ∷ ?[^#0, ^#1] : V))
+          (cFunc 2 f))) 2 := by
+  have hA : IsSemiformula ℒₛₑₜ (3 + n)
+      (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ^⊤)) :=
+    IsSemiformula.and.mpr ⟨isSemiformula_conjunct hW0 (zero_lt_three_add n),
+      IsSemiformula.and.mpr ⟨isSemiformula_conjunct hW1 (one_lt_three_add n),
+        IsSemiformula.verum⟩⟩
+  have hv3 : IsSemitermVec ℒₛₑₜ 3 3 (?[^#2, ^#0, ^#1] : V) := by
+    rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+      from rfl]
+    rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+    refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+    rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+    exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩
+  have hF : IsSemiformula ℒₛₑₜ (3 + n) (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) :=
+    isSemiformula_mono (IsSemiformula.subst hcf hv3) (by
+      have h := le_add_self (a := (3 : V)) (b := n)
+      rwa [show n + 3 = 3 + n by ring] at h)
+  have hw3 : IsSemitermVec ℒₛₑₜ (3 + n) m (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) := hw
+  simp only [ve2, nth_adjoin_zero, nth_adjoin_one]
+  rw [subst_qqAlls_two (IsUFormula.imp.mpr ⟨hA.isUFormula, hF.isUFormula⟩),
+    subst_imp (n := 3 + n) (m := m) hA hF hw3]
+  congr 1
+  rw [substs_substs (l := 3) (n := 3 + n) (m := m) (p := cFunc 2 f) hcf hw3
+    (isSemitermVec_mono hv3 (by
+      have h := le_add_self (a := (3 : V)) (b := n)
+      rwa [show n + 3 = 3 + n by ring] at h))]
+
+
+/-- **T1**（`t` 层 1）：`subst (^#a ∷ ?[^&0]) (iVE 1 t) = subst ?[^#a] (iVE 0 (termSubst ?[^&0] t))`。
+
+归纳谓词取 `∀ a < m, <T1 在 a>`——`ve2` 支对每个参数 `v.[i]` 要在 `a := i`
+处用归纳假设，故归纳必须对 `a` 全称（**有界**全称，`definability` 可接受）。
+
+`a < m` 里 `m` 是层。`ve2` 支的调用处取 `m := 3`（`W'` 长 4、层 3），
+`i ∈ {0,1}` 都有 `i < 3`。 -/
+lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < m →
+    subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
+      subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)) := by
+  apply IsSemiterm.sigma1_induction (L := ℒₒᵣ) (n := (1 : V))
+    (P := fun t ↦ ∀ a : V, a < m →
+      subst ℒₛₑₜ (^#a ∷ ?[^&0] : V) (iVE (1 : V) t) =
+        subst ℒₛₑₜ (?[^#a] : V) (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) t)))
+  · definability
+  · -- bvar：`z < 1` ⇒ `z = 0`
+    intro z hz a _
+    have hz0 : z = 0 := lt_one_iff_eq_zero.mp hz
+    subst hz0
+    rw [iVE_bvar]
+    rw [show (^#(0 + 1) : V) = (^#1 : V) by norm_num]
+    rw [subst_eqAtom_a0 (IsUTerm.bvar (z := 1))]
+    rw [termSubst_bvar]
+    simp only [nth_adjoin_one, nth_adjoin_zero]
+    exact (rhs_bvar a).symm
+  · -- fvar
+    intro x a _
+    rw [iVE_fvar, subst_eqAtom_a0 (IsUTerm.fvar x), termSubst_fvar]
+    exact (rhs_fvar a x).symm
+  · -- func
+    intro k f v hkf hv ih
+    by_cases hk : k = 0
+    · subst hk
+      have hv0 : v = (0 : V) := by
+        have h : IsUTermVec ℒₒᵣ 0 v := hv.isUTerm
+        exact IsUTermVec.empty_iff.mp h
+      subst hv0
+      intro a ha
+      have hsub0 : termSubst ℒₒᵣ (?[^&0] : V) (^func 0 f (0 : V)) =
+          (^func 0 f (0 : V) : V) := by
+        rw [termSubst_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)), termSubstVec_nil]
+      rw [hsub0]
+      rw [iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V)),
+        iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V))]
+      simp only [ite_true]
+      exact iVE_subst_ve0 ha (isSemiformula_cFunc_arity0 f)
+    · -- k = 2：`ve2`，两层绑定子
+      have hk2 := k_eq_two_of_func hkf hk
+      subst hk2
+      intro a ha
+      -- 归纳假设在 `a := i` 处的两个实例
+      have ih0 := ih 0 (by norm_num) a ha
+      have ih1 := ih 1 (by norm_num) a ha
+      -- 体的公式性（两侧共用的结论项 `cFunc 2 f`）
+      have hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f) := isSemiformula_cFunc_arity2 (by norm_num) f
+      have hv0 : IsSemiterm ℒₒᵣ 1 v.[0] := hv.nth (i := 0) (by norm_num)
+      have hv1 : IsSemiterm ℒₒᵣ 1 v.[1] := hv.nth (i := 1) (by norm_num)
+      have hvec1 : IsSemitermVec ℒₒᵣ 1 1 (?[^&0] : V) := by
+        rw [IsSemitermVec.singleton]
+        exact IsSemiterm.fvar 1 (0 : V)
+      have hvt : IsSemitermVec ℒₒᵣ 2 1 (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v) :=
+        IsSemitermVec.termSubstVec (k := 2) (n := 1) (m := 1) (v := v)
+          (w := (?[^&0] : V)) hvec1 hv
+      -- 内层先展开（右侧的 `iVE 0` 参数里有 `termSubst`）
+      rw [termSubst_func hkf hv.isUTerm]
+      -- 两侧 `iVE` 展开
+      rw [iVE_func hkf hv.isUTerm, iVE_func hkf hvt.isUTerm]
+      simp only [if_neg (by norm_num : ¬(2 : V) = 0)]
+      rw [resultVec_two_eq hv.isUTerm, resultVec_two_eq hvt.isUTerm]
+      -- 左侧（`n = 1`，向量 `^#a ∷ ?[^&0]`）
+      rw [subst_ve2 (n := 1) (f := f) (w := (^#a ∷ ?[^&0] : V)) (m := a + (1 + 1 + 1))
+          (W := (?[iVE (1 : V) v.[0], iVE (1 : V) v.[1]] : V))
+          (by simpa using isSemiformula_iVE v.[0] hv0)
+          (by simpa using isSemiformula_iVE v.[1] hv1) hcf
+          (by
+            rw [qVec_qVec_a0 a]
+            exact isSemitermVec_W' a)]
+      -- 注：`ve2` 支的右侧 `W` 分量是 `iVE 0 (termSubstVec 2 ?[^&0] v).[i]`，
+      -- 与 `subst_ve2` 要的 `iVE 0 (termSubst ?[^&0] v.[i])` 差一条
+      -- `nth_termSubstVec`（方向：`(termSubstVec …).[i] = termSubst … v.[i]`）；
+      -- 且 `iVE` 的**层参数**与 `IsSemiformula` 的**层**是两个东西，
+      -- 右侧目标是 `iVE 0`（层参数 0）而 `W` 的公式性在层 `0+1 = 1`。
+      -- 下一步：先用 `nth_termSubstVec` 把 `W` 换成逐点形态，再按层 `1` 给见证。
+      sorry
+end GodelQ.ITSubsts1
+
+namespace GodelQ.ITSubsts1
+
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 end GodelQ.ITSubsts1
 
@@ -533,58 +602,5 @@ end GodelQ.ITSubsts1
 namespace GodelQ.ITSubsts1
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
-
-/-! ## `subst` 与 `ve2` 相容（独立引理，照 `ShiftConjunct.shift_ve2` 的形状）
-
-`ve2 n k f W = qqAlls (imp (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ⊤)) F) 2`。
-
-`subst w` 推两层 `qqAlls` 后向量变 `qVec (qVec w)`，于是 `conjunct 3 n i W.[i]`
-的 `y` 槽向量是 `termSubstVec 2 (qVec (qVec w)) (^#i ∷ shiftVec 3 n)`。
-**本引理只做这一步**（不涉及 `iVE`），把 `ve2` 的体展开一次；
-调用方（`iVE_subst_a0` 的 `k = 2` 支）只需把两侧各代进这条引理，
-再用 T1 在 `a := i` 的实例收尾。 -/
-
-/-- `IsSemitermVec` 对层数单调。 -/
-lemma isSemitermVec_mono {k n m v : V} (h : IsSemitermVec ℒₛₑₜ k n v) (hnm : n ≤ m) :
-    IsSemitermVec ℒₛₑₜ k m v where
-  isUTermVec := h.isUTermVec
-  bv hi := le_trans (h.bv hi) hnm
-
-/-- `subst w (ve2 n k f W)` 的规范形态（`W` 长 2）。 -/
-lemma subst_ve2 {n f w W : V}
-    (hW0 : IsSemiformula ℒₛₑₜ (n + 1) W.[0]) (hW1 : IsSemiformula ℒₛₑₜ (n + 1) W.[1])
-    (hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f))
-    (hw : IsSemitermVec ℒₛₑₜ (3 + n) (3 + n) (qVec ℒₛₑₜ (qVec ℒₛₑₜ w))) :
-    subst ℒₛₑₜ w (ve2 n 2 f W) =
-      qqAlls (imp ℒₛₑₜ
-        (subst ℒₛₑₜ (qVec ℒₛₑₜ (qVec ℒₛₑₜ w))
-            (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ^⊤)))
-        (subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 3 (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) (^#2 ∷ ?[^#0, ^#1] : V))
-          (cFunc 2 f))) 2 := by
-  have hA : IsSemiformula ℒₛₑₜ (3 + n)
-      (conjunct 3 n 0 W.[0] ^⋏ (conjunct 3 n 1 W.[1] ^⋏ ^⊤)) :=
-    IsSemiformula.and.mpr ⟨isSemiformula_conjunct hW0 (zero_lt_three_add n),
-      IsSemiformula.and.mpr ⟨isSemiformula_conjunct hW1 (one_lt_three_add n),
-        IsSemiformula.verum⟩⟩
-  have hv3 : IsSemitermVec ℒₛₑₜ 3 3 (?[^#2, ^#0, ^#1] : V) := by
-    rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
-      from rfl]
-    rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
-    refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
-    rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
-    exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩
-  have hF : IsSemiformula ℒₛₑₜ (3 + n) (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) :=
-    isSemiformula_mono (IsSemiformula.subst hcf hv3) (by
-      have h := le_add_self (a := (3 : V)) (b := n)
-      rwa [show n + 3 = 3 + n by ring] at h)
-  have hw3 : IsSemitermVec ℒₛₑₜ (3 + n) (3 + n) (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) := hw
-  simp only [ve2, nth_adjoin_zero, nth_adjoin_one]
-  rw [subst_qqAlls_two (IsUFormula.imp.mpr ⟨hA.isUFormula, hF.isUFormula⟩),
-    subst_imp (n := 3 + n) (m := 3 + n) hA hF hw3]
-  congr 1
-  rw [substs_substs (l := 3) (n := 3 + n) (m := 3 + n) (p := cFunc 2 f) hcf hw3
-    (isSemitermVec_mono hv3 (by
-      have h := le_add_self (a := (3 : V)) (b := n)
-      rwa [show n + 3 = 3 + n by ring] at h))]
 
 end GodelQ.ITSubsts1
