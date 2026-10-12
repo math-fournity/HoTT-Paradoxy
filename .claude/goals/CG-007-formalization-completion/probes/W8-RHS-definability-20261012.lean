@@ -9,7 +9,7 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 -- RHS 作为 (param, q) 的 Σ1 函数
 example : 𝚺ᴬ₁-Function₂ (fun param q : V =>
-    imp ℒₛₑₜ (subst ℒₛₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ param q))) := by
+    imp ℒₛₑₜ (subst ℒₛₑₜ ?[^&0] domZero) (free ℒₛₑₜ (iT.construction.result ℒₒᵣ param q))) := by
   definability
 
 end GodelQ.ProbeRHS
