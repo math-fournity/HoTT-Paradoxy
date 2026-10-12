@@ -130,8 +130,23 @@ example : 𝚺ᴬ₁-Relation (fun n p : V ↦ Bootstrapping.IsUFormula ℒₛ�
 
 **所以需要一条桥**：由 `IsUFormula p` 得 `IsSemiformula n p`（对某个 `n`）。
 
-**本行把这条桥固定为下一步的靶子**（Foundation 是否已提供待查）。 -/
+**本行把这条桥固定为靶子——而它**已经存在**（见查实 4）。 -/
 example : Prop := ∀ p : V, Bootstrapping.IsUFormula ℒₒᵣ p →
     ∃ n : V, Bootstrapping.IsSemiformula ℒₒᵣ n p
+
+/-- **查实 4（障碍 1 已解除）**：桥**已有**——`IsUFormula.isSemiformula`
+（`Formula/Basic.lean:1350`）：
+
+```lean
+@[simp] lemma IsUFormula.isSemiformula {p : V} (h : IsUFormula L p) :
+    IsSemiformula L (bv L p) p
+```
+
+**取 `n := bv L p` 即可**——`bv` 是「有界变量数」函数（Foundation 有，Σ₁ 可定义）。
+
+另有完整刻画（`:1330`）：`IsSemiformula L n p ↔ IsUFormula L p ∧ bv L p ≤ n`。 -/
+example {p : V} (h : Bootstrapping.IsUFormula ℒₒᵣ p) :
+    Bootstrapping.IsSemiformula ℒₒᵣ (Bootstrapping.bv ℒₒᵣ p) p :=
+  h.isSemiformula
 
 end GodelQ.CG008LvlInduction
