@@ -758,26 +758,58 @@ subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)      -- q 层 1
 归纳谓词带 `param = n` 护罩（照 `iT_shift` / `iT_neg` 的先例），
 九支：rel / nrel / verum / falsum / and / or / all / exs + 骨架。
 **原子支走 T1**（`iVE_subst_a0`）；**量词支**的关键是
-`iT` 给每个量词多引一个 `domZero`，而 `subst ?[^&0] domZero = domZero`。 -/
+`iT` 给每个量词多引一个 `domZero`，而 `subst (qVec w) domZero = domZero`
+（**注意不是** `subst ?[^&0] domZero = domZero`，后者是假命题）。 -/
 
 /-- `?[^&x]` 是任意语言、任意层的项向量（fvar 无 bvar）。 -/
 lemma isSemitermVec_fvar (L : Language) [L.Encodable] [L.LORDefinable] (n x : V) :
     IsSemitermVec L 1 n (?[^&x] : V) :=
   IsSemitermVec.singleton.mpr (IsSemiterm.fvar n x)
 
-/-- `subst ?[^&0] domZero = domZero`（`domZero = subst ?[^#0] cDomN`）。 -/
-lemma subst_domZero : subst ℒₛₑₜ (?[^&0] : V) (domZero : V) = domZero := by
-  rw [domZero]
-  rw [show subst ℒₛₑₜ (?[^&0] : V)
-        (subst ℒₛₑₜ (?[^#0] : V) (cDomN : V)) =
-      subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 1 (?[^&0] : V) (?[^#0] : V)) (cDomN : V)
-    from substs_substs (L := ℒₛₑₜ) (l := (1 : V)) (n := (1 : V)) (m := (1 : V))
-      (p := (cDomN : V)) (w := (?[^&0] : V)) (v := (?[^#0] : V))
-      isSemiformula_cDomN
-      (isSemitermVec_fvar ℒₛₑₜ (1 : V) (0 : V))
-      (isSemitermVec_single_bvar (i := (0 : V)) (n := (1 : V)) (by norm_num))]
-  rw [show termSubstVec ℒₛₑₜ 1 (?[^&0] : V) (?[^#0] : V) = (?[^&0] : V)
-    from termSubstVec_a_n0]
+lemma subst_qVec_domZero' {w : V} (hw : IsSemitermVec ℒₛₑₜ (len w) (1:V) w) :
+    subst ℒₛₑₜ (qVec ℒₛₑₜ w) (domZero (V := V)) = domZero (V := V) := by
+  rw [GodelQ.TranslateShiftCompat.domZero_eq_cDomN (V := V)]
+  have hd : IsSemiformula ℒₛₑₜ (1:V) ((cDomN : ℕ) : V) := isSemiformula_cDomN (V := V)
+  have hlen : (1:V) ≤ len (qVec ℒₛₑₜ w) := by
+    rw [Bootstrapping.qVec]; simp [len_adjoin]
+  have hW : IsSemitermVec ℒₛₑₜ (len (qVec ℒₛₑₜ w)) (2:V) (qVec ℒₛₑₜ w) := by
+    refine IsSemitermVec.iff.mpr ⟨rfl, fun j hj ↦ ?_⟩
+    have hj' : j < len (termBShiftVec ℒₛₑₜ (len w) w) + 1 := by
+      rw [← len_adjoin, ← Bootstrapping.qVec]; exact hj
+    rcases zero_or_succ j with (rfl | ⟨l, rfl⟩)
+    · rw [show (qVec ℒₛₑₜ w).[0] = (^#0 : V) from by
+        rw [Bootstrapping.qVec]; simp only [nth_adjoin_zero]]
+      exact IsSemiterm.bvar.mpr (by norm_num)
+    · have hl : l < len w := by
+        have h := (add_lt_add_iff_right (1:V)).mp hj'
+        rw [show len (termBShiftVec ℒₛₑₜ (len w) w) = len w from
+          len_termBShiftVec (V := V) (L := ℒₛₑₜ) (k := len w) (ts := w) hw.isUTerm] at h
+        exact h
+      have hq1 : (qVec ℒₛₑₜ w).[l + 1] = (termBShiftVec ℒₛₑₜ (len w) w).[l] := by
+        rw [Bootstrapping.qVec]; exact nth_adjoin_succ _ _ _
+      rw [hq1, nth_termBShiftVec (V := V) (L := ℒₛₑₜ) (k := len w) (ts := w) (i := l)
+        hw.isUTerm hl]
+      have hbv : termBV ℒₛₑₜ (termBShift ℒₛₑₜ w.[l]) ≤ (1:V) + 1 :=
+        (termBV_termBShift_le (L := ℒₛₑₜ) (hw.nth hl).isUTerm (1:V)).mpr (hw.nth hl).bv
+      exact ⟨(hw.nth hl).isUTerm.termBShift, by norm_num at hbv ⊢; exact hbv⟩
+  refine (GodelQ.TranslateShiftCompat.subst_congr_prefix (V := V) (n := (1:V)) (m := (2:V))
+    (k₁ := len (qVec ℒₛₑₜ w)) (k₂ := (1:V))
+    (w := (qVec ℒₛₑₜ w)) (w' := (?[^#0] : V)) ((cDomN : ℕ) : V) hd
+    hlen (by norm_num) hW
+    (IsSemitermVec.singleton.mpr (IsSemiterm.bvar.mpr (by norm_num)))
+    (fun j hj ↦ by
+      have hj0 : j = 0 := lt_one_iff_eq_zero.mp hj
+      subst hj0
+      rw [show (qVec ℒₛₑₜ w).[0] = (^#0 : V) from by
+        rw [Bootstrapping.qVec]; simp only [nth_adjoin_zero]]
+      rw [show (?[^#0] : V).[0] = (^#0 : V) from by simp only [nth_adjoin_zero]])).trans ?_
+  refine subst_eq_self (L := ℒₛₑₜ) (n := (1:V)) (w := (?[^#0] : V))
+    (p := ((cDomN : ℕ) : V)) hd
+    (isSemitermVec_single_bvar (n := (1:V)) (by norm_num)) ?_
+  intro i hi
+  have hz : i = 0 := lt_one_iff_eq_zero.mp hi
+  subst hz
+  simp
 
 /-- **桥 `B(q)`**（`q` 层 1）：`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`。 -/
 theorem iT_substs1 {n : V} : ∀ q, IsSemiformula ℒₒᵣ n q →
