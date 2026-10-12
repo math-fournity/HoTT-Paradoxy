@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-induction1 7/10 / W8-hRoot 核心归约 DONE / W8-hAll 接口义务全部付清 / **W8-iT_free 原子情形归约到唯一子目标（Lean 打印）** / ShCraigElim / zfcTr_D3_internalize OPEN",
-  "next_action": "本分支 HEAD = c5bcf5df，已推送。【本轮重大进展】`iT_free : iT 0 (subst ?[^&0] p) = subst ?[^&0] (iT 1 p)` 的原子情形（`p = ^rel 2 R ?[^#0,^#0]`）已归约到 Lean 打印出的**单一子目标**：\n```\nneg ((subst ?[^#0] cDomN ⋏ subst (^#0 ∷ shiftVec 2 0) (iVE 0 ^&0)) ⋏ conjunct 2 0 1 (iVE 0 ^&0) ⋏ ⊤)\n  = neg (subst W ((subst ?[^#0] cDomN ⋏ subst (^#0 ∷ shiftVec 2 1) (iVE 1 ^#0)) ⋏ conjunct 2 1 1 (iVE 1 ^#0) ⋏ ⊤))\n```\n其中 `W = ?[^#0,^#1,^&0]`。\n【本轮机器验证的新引理】`subst_qqAlls`（subst 推过 n 层量词）、`W` 向量（原始递归）、`hStep`（subst 推过 imp）、`hiVE`（iVE 换名）、`hcR2`/`hcR3`（cRel 闭式）。\n【下一步】打通 `shiftVec 2 1` 与 `subst W (shiftVec 2 1)` 的对应：`shiftVec 2 1 = ?[^#1,^#2]`，`W` 把 `#2 ↦ ^&0`，得 `?[^#1,^&0]`；需证 `subst (^#0 ∷ shiftVec 2 0) X = subst W (subst (^#0 ∷ shiftVec 2 1) X)`。探针：`probes/W8-iT-free-end-20261012.lean`。\n【重要】本轮在 hAll 支先后判错多处，全部已用探针纠正并写进交接文档 §2.5——**直接采信探针，不要重推**。",
+  "phase": "W8-induction1 7/10 / W8-hRoot 核心归约 DONE / **W8-hAll 支完整装配 DONE**（probes/W8-hAll-ASSEMBLED，exit 0，只剩 iT_free 一处 sorry）/ **W8-weaken_imp 证成 DONE**（hAll 的关键引理）/ W8-substs_qqAlls + W 向量 + keyL/keyR DONE / W8-iT_free 原子情形：全部构件已证，收尾待完成 / ShCraigElim / zfcTr_D3_internalize OPEN",
+  "next_action": "交接文档 §2.5。本分支 HEAD = 5ca79e8b，已推送。【本轮重大进展】hAll 支**完整装配**（probes/W8-hAll-ASSEMBLED-20261012，exit 0），只余一处 sorry = iT_free。装配路线七步全部机器验证。关键新证 weaken_imp：`Derivable (A ⫽ X) → Derivable ((D→A) ⫽ X)`，两行核心（D→A 就是 ¬D ⋎ A，Derivable.or 只需 wk 加一项）。【剩余】iT_free : iT 0 (free p) = free (iT 1 p)。原子情形的全部构件已证（keyL/keyR/substs_qqAlls/qVec²/向量化简），只剩把它们在层数上对齐（纯重写）。【累计】hAll 支判错六处，全部已用探针纠正并写进 §2.5。C-120 影子形式无条件成立。dev 主检出是集成目标；本分支不合并 dev。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-12T12:00:00-04:00",
+  "updated": "2026-10-12T14:30:00-04:00",
   "last_checkpoint": "2026-10-09T09:27:03-04:00",
-  "checkpoints": 19,
+  "checkpoints": 20,
   "compactions": 2,
   "last_compaction": "2026-10-09T08:48:39-04:00"
 }
