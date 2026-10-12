@@ -384,3 +384,25 @@ lemma mem_craig_iff_padding {φ : Sentence ℒₒᵣ} :
 3. `provable_iff_provable` 收尾
 
 **这是 hRoot 的全部剩余**，零件齐全、无缺失的元层律。
+
+## 二十一、★ 新证：`translate_padding`（hRoot 的关键零件）
+
+```lean
+lemma translate_conj_top (k : ℕ) :
+    arithTrln.translate ((List.replicate k ⊤).conj) = (List.replicate k ⊤).conj
+lemma translate_padding (σ : Semiproposition ℒₒᵣ 0) (s : ℕ) :
+    arithTrln.translate (σ.padding s) = (arithTrln.translate σ).padding s
+```
+
+**两条都 exit 0、公理干净**。这是 `hRoot` 归约链上的关键一步：
+Craig 公理是 `σ.padding s`，而 `translate` 与之交换意味着
+`iT 0 ⌜σ.padding s⌝ = ⌜(translate σ).padding s⌝`——把问题化为
+「`𝗭𝗙𝗖 ⊢ translate σ`」（由 `Sh_provable_iff` + `σ ∈ Sh` 得）
+加上 padding 保持可证性（`Entailment.padding_iff`）。
+
+**证明要点**：`padding φ k = φ ⋏ (List.replicate k ⊤).conj`；
+`translate` 是 `→ˡᶜ`（`LogicalConnective.HomClass`），
+`map_and` 给 `⋏` 的保持，`translate_conj_top` 由 `List.conj` 的归纳给
+（`replicate_succ` + `map_top`）。
+**注意**：须在 `Semiproposition`（ℕ 域）层陈述——`Semisentence` 的
+`Sentence` coercion 会造成 defeq 不匹配。
