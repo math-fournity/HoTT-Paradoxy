@@ -31,7 +31,7 @@ Z0 的完整形式 `𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ` 立即随之�
 theorem zfcTr_D3_internalize {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
     (τ : ArithmeticSentence)
     (h : Provable 𝗭𝗙𝗖 (⌜arithTrln.translate τ⌝ : V)) :
-    Provable 𝗭𝗙𝗖 (iT (0 : V) ((Z0Full.zfcTr τ : V) : V)) := by
+    Provable 𝗭𝗙𝗖 (⌜arithTrln.translate (zfcTr τ)⌝ : V) := by
   sorry
 
 end GodelQ.Z0Blocked
