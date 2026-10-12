@@ -240,7 +240,7 @@ lemma hShift {s d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
 
 /-! ## 2026-10-11 进展（二）：`hShift` 已填，2 支 → 7 支
 
-`iVE_shift`/`iT_shift`（`TranslateShiftCompat.lean`，全 0-sorry）一证，
+`iVE_shift`/`iT_shift`（`TranslateShiftCompat.lean`，无未证标记）一证，
 `translateSeq_setShift` 与 **`hShift`** 立刻通。
 
 **剩余两支的精确障碍**（本机核实）：`hAll`/`hExs` 要的不是 `iT`/`shift` 相容
@@ -496,7 +496,7 @@ qVec L w = ^#0 ∷ termBShiftVec L (len w) w
 ## 2026-10-12 第十七轮：`ih` 搬运已机器验证；`iT_free` 等式**被机器判定为假**
 
 **（a）`ih` 的搬运打通了**（`ShCraigElimSetupQ.lean` 的 `hAll` 支，已 exit 0 到
-只剩一条 `sorry`）。
+只剩一处未证标记）。
 
 之前第十三/十四轮讨论的「`IsFormulaSet` 缺口」与「`translateSeq_setShift` 需要源公式集」
 都已闭合，实际写法只有三步：
