@@ -165,4 +165,35 @@ noncomputable example (n p : V) : V := iT (n + 1) p
 example : Prop := ∀ p : V, Bootstrapping.IsUFormula ℒₒᵣ p →
     ∀ n : V, Bootstrapping.IsUFormula ℒₛₑₜ (iT n p)
 
+/-! ## 修正：`all`/`exs` 的层数问题**不需要**层数无关谓词
+
+重读 `iT_all`（`InternalTranslate.lean:560`）：
+
+```lean
+lemma iT_all {n p : V} (hp : IsUFormula ℒₒᵣ p) :
+    iT n (^∀ p) = ^∀ (imp ℒₛₑₜ domZero (iT (n + 1) p))
+```
+
+**关键**：`IsUFormula (^∀ ψ)` 只要求 **`IsUFormula ψ`**——
+而 `ψ = imp domZero (iT (n+1) p)`，
+**`imp` 保持 `IsUFormula`**，所以最终只需 `IsUFormula (iT (n+1) p)`。
+
+**所以归纳假设需要的是「`iT n p` 对**当前** `n` 成立」**，
+而不是「对 `iT 0 p` 成立」。
+
+**正确的谓词形状**：`P p := ∀ n : V, IsUFormula ℒₛₑₜ (iT n p)`——**但那推到 Π₁**（上一探针已证不可行）。
+
+**替代**：把归纳**逐层做**，或者用一条**层数无关的辅助引理**
+`iT_level : IsUFormula ℒₛₑₜ (iT n p) ↔ IsUFormula ℒₛₑₜ (iT 0 p)`——
+**若这条成立**，则 `P p := IsUFormula ℒₛₑₜ (iT 0 p)` 就够用（Σ₁ 可定义，闸门已过）。
+
+**本探针把这条辅助引理固定为下一步的靶子。** -/
+
+/-- **查实 5（下一步的靶子）**：层数无关的辅助引理。
+
+**若这条成立**，则 `CG008ITQuoteProof` 的谓词 `P x := IsUFormula ℒₛₑₜ (iT 0 x)`
+（Σ₁ 可定义，已过闸门）**就够用**——`all`/`exs` 情形可由它推出。 -/
+example : Prop := ∀ (p : V), Bootstrapping.IsUFormula ℒₒᵣ p →
+    (Bootstrapping.IsUFormula ℒₛₑₜ (iT 0 p) ↔ ∀ n : V, Bootstrapping.IsUFormula ℒₛₑₜ (iT n p))
+
 end GodelQ.CG008ITQuoteProof
