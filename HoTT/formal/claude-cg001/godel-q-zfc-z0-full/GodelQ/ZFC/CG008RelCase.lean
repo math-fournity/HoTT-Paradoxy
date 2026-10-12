@@ -75,4 +75,29 @@ example (R : V) : Prop := (ℒₛₑₜ).IsRel 2 R
 那是下一步的具体工作。 -/
 example (n k R v : V) : Prop := Bootstrapping.IsUFormula ℒₛₑₜ (iTR n k R v)
 
+/-! ## 试建（续）：`isUFormula_qqAlls` 把目标降到 body
+
+**关键引理**（`Formula/Iteration.lean:515`）：
+
+```lean
+@[simp] lemma isUFormula_qqAlls {p k : V} : IsUFormula L (qqAlls p k) ↔ IsUFormula L p
+```
+
+**所以 `IsUFormula (iTR n k R v)` 归约到 body 的 `IsUFormula`**，
+而 body 是 `imp (conjunct … ⋏ (conjunct … ⋏ ⊤)) (subst … (cRel R))`——
+`imp` 保持 `IsUFormula`（`Formula/Functions.lean:185`）。
+
+**剩下的**：`conjunct`、`iVE`、`cRel`、`subst` 各构件的公式性。
+**这是本会话第一次确需新建的零件**——本行固定这条链。 -/
+
+/-- **查实 5**：`isUFormula_qqAlls` 的**形状**——归约到 body。 -/
+example {p k : V} : Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.qqAlls p k) ↔
+    Bootstrapping.IsUFormula ℒₛₑₜ p :=
+  Bootstrapping.isUFormula_qqAlls
+
+/-- **查实 6**：`IsUFormula.imp` 保持公式性——`imp` 的两个参数都是公式即可。 -/
+example {p q : V} : Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.imp ℒₛₑₜ p q) ↔
+    (Bootstrapping.IsUFormula ℒₛₑₜ p ∧ Bootstrapping.IsUFormula ℒₛₑₜ q) :=
+  Bootstrapping.IsUFormula.imp
+
 end GodelQ.CG008RelCase
