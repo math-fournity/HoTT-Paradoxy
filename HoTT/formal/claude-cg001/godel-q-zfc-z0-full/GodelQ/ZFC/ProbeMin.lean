@@ -7,15 +7,13 @@ set_option maxHeartbeats 4000000
 namespace GodelQ.ProbeMin
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-example : True := by
-  trivial
-
--- 最小对照：NegLaw 形状能不能在这台机器里跑通（p 只用一次）
-have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
-      iT param (free ℒₒᵣ p) = free ℒₛₑₜ (iT.construction.result ℒₒᵣ param p) :=
+theorem ctrl {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
+    iT n (free ℒₒᵣ p) = shift ℒₛₑₜ (iT n p) := by
+  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
+      iT param (free ℒₒᵣ p) = shift ℒₛₑₜ (iT n p) :=
     UformulaRec1.Construction.semiformula_result_induction
       (V := V) (c := iT.construction) (L := ℒₒᵣ)
-      (P := fun param n p q => param = n → iT param (free ℒₒᵣ p) = free ℒₛₑₜ q)
+      (P := fun param n p q => param = n → iT param (free ℒₒᵣ p) = shift ℒₛₑₜ (iT.construction.result ℒₒᵣ param q))
       (by definability)
       (by intro n param k R v hR hv h; subst h; sorry)
       (by intro n param k R v hR hv h; subst h; sorry)
@@ -25,5 +23,7 @@ have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
       (by intro n param p q hp hq ihp ihq h; subst h; sorry)
       (by intro n param p hp ih h; subst h; sorry)
       (by intro n param p hp ih h; subst h; sorry)
+  intro p hp
+  exact key hp rfl
 
 end GodelQ.ProbeMin
