@@ -26,3 +26,15 @@ lemma termSubstVec_one_QvecV_three {m i : V} (hi : i < m + 2) :
 end GodelQ.IVEOpenFunc14
 
 #print axioms GodelQ.IVEOpenFunc14.termSubstVec_one_QvecV_three
+
+namespace GodelQ.IVEOpenFunc14
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc2 GodelQ.IVEOpenFunc3 GodelQ.IVEOpenFunc4
+open GodelQ.IVEOpenFunc5 GodelQ.IVEOpenFunc6 GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFunc9
+open GodelQ.IVEOpenFunc10 GodelQ.LayerMono
+
+end GodelQ.IVEOpenFunc14
+
+#print axioms GodelQ.IVEOpenFunc14.termSubstVec_one_QvecV_three
