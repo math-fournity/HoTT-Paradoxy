@@ -1,4 +1,5 @@
 import GodelQ.ZFC.CG008ShiftProof
+import GodelQ.ZFC.CG008Bv2
 
 /-!
 # CG-008 · `bv (iVE n t) ≤ n + 1`：Σ₁ 闸门
@@ -35,29 +36,11 @@ theorem bv_iVE_gate (n : V) :
   intro v
   simp
 
-set_option maxHeartbeats 3200000 in
-/-- **`bv (iVE n t) ≤ n + 1`**（`t` 是层 `n` 的半项）。
-
-**必须用 `IsSemiterm.induction`**（`Term/Basic.lean:912`）：它的 `bvar` 分支给 `z < n`，
-正是 `bv (eqAtom (^#(z+1))) = z + 2 ≤ n + 1` 所需；
-`IsUTerm.induction` 的 `bvar` 分支**不给**这个界。 -/
-theorem bv_iVE_le (n : V) : ∀ t : V, Bootstrapping.IsSemiterm ℒₒᵣ n t →
-    Bootstrapping.bv ℒₛₑₜ (Translate.iVE n t) ≤ n + 1 := by
-  intro t
-  apply Bootstrapping.IsSemiterm.induction 𝚺
-    (P := fun t ↦ Bootstrapping.bv ℒₛₑₜ (Translate.iVE n t) ≤ n + 1)
-  · exact bv_iVE_gate n
-  · -- bvar：`z < n` ⇒ `bv (eqAtom (^#(z+1))) ≤ n + 1`
-    intro z hz
-    rw [Translate.iVE, Bootstrapping.Language.TermRec.Construction.result_bvar]
-    -- `bv (eqAtom (^#(z+1))) = (z+1) + 1`，需 `≤ n + 1`
-    sorry
-  · -- fvar：`bv (eqAtom (^&x)) = 0 + 1 ≤ n + 1`
-    intro x
-    rw [Translate.iVE, Bootstrapping.Language.TermRec.Construction.result_fvar]
-    sorry
-  · -- func
-    intro k f v hkf hv ih
-    sorry
+-- **`bv_eqAtom_le` 未证**：`bv_rel` 已能应用（`IsRel` 由 `isRel_quote_quote` 给，
+-- 因 `cEqN = Encodable.encode Language.Eq.eq`），`listMaxss_le_iff` 已过，
+-- `nth_termBVVec` 已过，两条分量引理（`CG008Bv2.nth_vec₂_zero/one`）已证。
+-- **只剩最后一步的 `Zero ?m` 合成歧义**：目标里 `(^#0 ∷ t ∷ (0 : V)).[0]` 的
+-- `∷`/`nth` 记法在 `V` 上要一个 `Zero` 实例，而它应由 `ORingStructure` 提供——
+-- 疑需把 `∷` 写成 `adjoin` 的显式形式（`Vec.adjoin`）绕开记法的合成。
 
 end GodelQ.CG008Bv3
