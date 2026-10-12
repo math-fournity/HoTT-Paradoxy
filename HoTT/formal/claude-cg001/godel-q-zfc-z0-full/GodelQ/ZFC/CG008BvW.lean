@@ -45,12 +45,15 @@ theorem termBVVec_two (x y : V) (hx : Bootstrapping.IsUTerm ℒₛₑₜ x)
     (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ))]
   rw [GodelQ.CG008BvZ.termBVVec_nil']
 
--- **`bv_eqAtom_le` 的组装未过**，但**两个新零件已证**（`termBVVec_two`、`listMax_vec₂_le`）。
--- **卡点**：组装处 `rw [termBVVec_two …]` 的**目标匹配**触发 `Zero ?m`——
--- `termBVVec_two` 的左边 `Adjoin.adjoin x (Adjoin.adjoin y (0 : V))` 与
--- `eqAtom` 展开后的向量在**记法/类型**上不同一（`rw` 要 `isDefEq`，从中找 `Zero`）。
--- **下一步**：让 `termBVVec_two` 的左边用**与 `eqAtom` 展开完全相同的写法**
--- （逐字复制 `Translate.eqAtom` 的定义右侧），或改用 `conv` 在目标内部精确改写。
+-- **`bv_eqAtom_le` 的组装仍未过**。三个零件都是定理：
+-- `bv_rel` + `isRel_quote_quote`（`IsRel 2 cEqN`）、`termBVVec_two`、`listMax_vec₂_le`。
+-- **卡点已精确定位**：`rw [termBVVec_two …]` 在目标上匹配时，Lean 要从
+-- `Adjoin.adjoin` 的**记法**里合成 `Zero ?m`（`Adjoin V V` 实例本身是无条件的，
+-- 但 `rw` 的 `isDefEq` 会先把项展开成 `⟪·,·⟫ + 1` 再找 `0` 的实例）。
+-- **下一步（已试到的最接近的一条）**：`conv_lhs` 能过前两步
+-- （`rw [he]`、`rw [bv_rel]`），**第三步 `rw [termBVVec_two]` 触发该歧义**；
+-- 可行修法：把 `termBVVec_two` 的**左边写成 `⟪·,·⟫ + 1` 的展开形式**
+-- （与 `rw` 展开后的目标逐字相同），或在 `conv` 里用 `change` 先换成展开形式。
 
 end GodelQ.CG008BvW
 
