@@ -24,7 +24,8 @@ trap 'rm -rf "$OUT"' EXIT
 
 FILES="QvecV LayerMono ITSubstOpen ITRSubstOpen IVESubstOpen IVESubstOpen2 IVESubstOpen3 \
 IVEOpenFunc IVEOpenFunc2 IVEOpenFunc3 IVEOpenFunc4 IVEOpenFunc5 IVEOpenFunc6 \
-IVEOpenFunc8 IVEOpenFunc9 IVEOpenFunc10 IVEOpenFunc11 IVEOpenFunc13 IVEOpenFunc14 \
+IVEOpenFunc8 IVEOpenFunc9 IVEOpenFunc10 IVEOpenFunc11 IVEOpenFunc12 IVEOpenFunc13 IVEOpenFunc14 \
+IVEOpenFunc15 IVEOpenFunc16 IVEOpenFunc17 SubstDomZero IVEOpenFull \
 OpenLawCheck OpenLawCheck2 OpenLawCheck5 GateBranchesU2"
 
 ok=0; bad=0; sorry=0
@@ -34,7 +35,7 @@ for f in $FILES; do
   if grep -q '^src.*error' "$log"; then
     echo "FAIL  $f"; grep '^src.*error' "$log" | head -2; bad=$((bad+1))
   elif grep -q 'sorry' "$log"; then
-    echo "SORRY $f  (已文档化: iVE_open.func 未完成)"; sorry=$((sorry+1))
+    echo "SORRY $f"; sorry=$((sorry+1))
   else
     echo "OK    $f"; ok=$((ok+1))
   fi

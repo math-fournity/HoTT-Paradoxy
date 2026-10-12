@@ -26,27 +26,9 @@ lemma iVE_open_bvar {mm z : V} (hz : z < mm + 1) :
     rw [hzeq]
     exact iVE_open_bvar_last mm
 
+-- **注意**：完整的 `iVE_open` 在 `IVEOpenFull.lean`（func 支依赖本文件之后
+-- 才证成的零件，此处声明会循环 import）。本文件只保留 bvar 支。
+
 end GodelQ.IVESubstOpen3
 
 #print axioms GodelQ.IVESubstOpen3.iVE_open_bvar
-
-namespace GodelQ.IVESubstOpen3
-variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
-open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
-open GodelQ.IVESubstOpen2 GodelQ.TranslateShiftCompat
-
-/-- **The full `iVE` opening law.** -/
-theorem iVE_open : ∀ (mm : V) (t : V), IsSemiterm ℒₒᵣ (mm + 1) t →
-    iVE (mm + 1) (termSubst ℒₒᵣ (QvecVOr (V := V) mm) t) =
-      subst ℒₛₑₜ (QvecV (V := V) (mm + 1)) (iVE (mm + 1) t) := by
-  intro mm t
-  apply IsSemiterm.sigma1_induction (L := ℒₒᵣ) (n := mm + 1)
-    (P := fun t ↦ iVE (mm + 1) (termSubst ℒₒᵣ (QvecVOr (V := V) mm) t) =
-      subst ℒₛₑₜ (QvecV (V := V) (mm + 1)) (iVE (mm + 1) t))
-  · definability
-  · intro z hz; exact iVE_open_bvar hz
-  · intro x; exact iVE_open_fvar mm x
-  · intro k f v hkf hv ih
-    sorry
-
-end GodelQ.IVESubstOpen3
