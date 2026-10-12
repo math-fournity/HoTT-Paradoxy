@@ -1,38 +1,40 @@
 {
   "schema": "goal-x-state/v1",
   "id": "CG-009",
-  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll）",
+  "title": "跨 worktree 形式化资产审查 + O2 攻坚（iT_shift/tshift/hShift/hAll/hRoot）",
   "status": "ACTIVE",
   "phase": "F",
-  "next_action": "hAB（hAll 的唯一剩余前提）：三条路径已实测评估（元层引理需自证 translate/free 交换；结构归纳被 free 的非 UformulaRec1 性质挡住；改 iT 定义须用户裁定）。hExs 同形；hRoot 即 D3。",
+  "next_action": "hAB（hAll 唯一剩余前提）：qVec 保护机制已定位（iTR 的 qqAlls 两层绑定使 subst ?[^&0] 落在索引 2）——走 iTR 层 subst 律（substs_all/substs_ex + qVec 组合）。hExs 同形；hRoot 需 V/ℕ 层 Provable 桥（实质内容）。",
   "bound_sessions": ["82aeefc9-8417-4d7e-b02d-4641aedc4ac3"],
   "created": "2026-10-11T06:26:35-04:00",
-  "updated": "2026-10-11T17:45:00-04:00",
-  "last_checkpoint": "2026-10-11T17:45:00-04:00",
-  "checkpoints": 52,
+  "updated": "2026-10-11T18:55:00-04:00",
+  "last_checkpoint": "2026-10-11T18:55:00-04:00",
+  "checkpoints": 56,
   "compactions": 0,
   "last_compaction": null,
   "current_front": {
     "proven_this_session": [
-      "iTR_shift (rel 支的原子)",
-      "iT_shift 全证（九支）",
-      "tshift（公式集版）",
-      "hShift_uncond（O2 第 7 支无条件）",
-      "hAll_uncond（组装完成，只差 hAB）",
-      "all_mem / guard_step / isFormulaSet_of_setShift_eq",
-      "shift_domZero / shift_quote / ishift 六支 / shift_ve0",
-      "naive_law_is_false_shape（机器化反例）"
+      "iTR_shift", "iT_shift (九支全过)", "tshift", "hShift_uncond",
+      "hAll_uncond (只差 hAB)", "all_mem", "guard_step", "isFormulaSet_of_setShift_eq",
+      "shift_domZero", "shift_quote", "ishift 六支", "shift_ve0",
+      "naive_law_is_false_shape (机器化反例)",
+      "mem_craig_iff_eval/quote_iff/padding", "translate_padding (任意 fvar 域)"
     ],
     "absorbed_from_9276": [
-      "TranslateShiftCompat-a841872c（iT_shift 完整版——双路互证 + free_imp_domZero 等）",
-      "SetupQTools（split_or + replace_of_imp）"
+      "TranslateShiftCompat-a841872c (iT_shift 完整版——双路互证 + free_imp_domZero 等)",
+      "SetupQTools (split_or + replace_of_imp)",
+      "ProvableSeq (provable_into_sequent)"
     ],
-    "remaining": "hAB（算术蕴含式，研究缺口）→ hExs（同形）→ hRoot（=D3）→ ShCraigElim",
-    "verification": "38/38 从零重编译通过（exit 0，公理仅三条标准公理）"
+    "corrections": [
+      "hAB：从『只能走蕴含式』更正为『qVec 保护内层绑定，iTR 层有可行突破口』",
+      "hRoot：从『纯 API』更正为『V/ℕ 层 Provable 桥，属实质内容』"
+    ],
+    "remaining": "hAB (qVec 路线) → hExs (同形) → hRoot (V/ℕ 桥) → ShCraigElim",
+    "verification": "42/42 从零重编译通过（exit 0，公理仅三条标准公理）"
   },
   "deliverables": {
-    "branch": "claude/elegant-mclaren-767fb0 (pushed to origin)",
-    "results_dir": "docs/形式化综合研判-20261011/成果-IShiftDomZero/",
+    "branch": "claude/elegant-mclaren-767fb0 (pushed to origin, NOT merged to dev)",
+    "results_dir": "docs/形式化综合研判-20261011/成果-IShiftDomZero/ (25 files)",
     "handoff": "docs/形式化综合研判-20261011/交接-20261011-elegant-mclaren给下一会话.md",
     "relay": "docs/形式化综合研判-20261011/接力-ISHIFT给下一会话.md"
   }
