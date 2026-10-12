@@ -32,7 +32,7 @@ lemma weaken_imp {A D X : V} (hA : IsFormula ℒₛₑₜ A) (hD : IsFormula ℒ
 **归约**：
 * `iT 0 (^∀ p) = ^∀ (imp domZero (iT 1 p))`（`iT_all`），故 `translateSeq s` 含该全称；
 * `Derivable.all` 需要 `Derivable (insert (free q) (setShift (translateSeq s)))`，`q := imp domZero (iT 1 p)`；
-* `free q = D → iT 0 (free p)`（`free_imp_domZero` + `iT_free`），
+* ~~`free q = D → iT 0 (free p)`~~（`free_imp_domZero` + `iT_free`），
   `ih` 给 `Derivable (insert (iT 0 (free p)) (setShift (translateSeq s')))`，
   经 `weaken_imp` 得目标。 -/
 lemma hAll {s p d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
@@ -88,8 +88,31 @@ lemma hAll {s p d : V} (hs : IsFormulaSet (L := ℒₒᵣ) s)
     rw [domZero_eq_cDomN (V := V)]
     rw [show (0 : V) + 1 = 1 by norm_num]
     exact isSemiformula_cDomN (V := V)
-  · -- `Derivable (insert A X)`：即 `ih'`，但需把 `A` 换成 `iT 0 (free p)`
-    -- `iT_free`（**尚未证**）：`iT 0 (free p) = free (iT 1 p)`
+  · -- **2026-10-12 修正版**：不用 `iT_free` 等式（已证伪）。
+    -- 目标 `Derivable (insert (D → free (iT 1 p)) X)`。
+    -- 思路：`weaken_imp` 反向走不通（要 A 的自由性），改用
+    -- **两条公式的互相可导性**经 `Derivable.cut` 搬运：
+    --   (A) Provable 𝗭𝗙𝗖 (imp (iT 0 (free p)) (free (iT 1 p)))
+    --   (B) Provable 𝗭𝗙𝗖 (imp (free (iT 1 p)) (iT 0 (free p)))
+    -- 先测 (A)/(B) 是否为**命题恒真式**（若是，可直接由 𝗭𝗙𝗖 的公理模式给出）。
+    have hX := hfs''
+    have hA : IsFormula ℒₛₑₜ (iT (0:V) (free ℒₒᵣ p)) :=
+      (isSemiformula_iT (V := V) (n := (0:V)) (free ℒₒᵣ p) hpa.free.to_isSemiformula').free
     sorry
 
 end GodelQ.ProbeHAll
+
+
+/-! ## 2026-10-12 结论记录
+
+上面这一处 `sorry` 的门槛被之前的判定高估了。现已知：
+
+1. `iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (iT 1 p)` **作为等式为假**（机器归一化）。
+2. 本文件其余 100 余行全部 exit 0，包括：
+   * `weaken_imp`（`Derivable (A ⫽ X) → Derivable ((D→A) ⫽ X)`）✅
+   * `ih'` 的三步搬运 ✅
+   * `hmem`（`^∀ q ∈ translateSeq s`）✅
+   * `Derivable.all_m` 的两次 refine ✅
+   * `free_imp_domZero` 的改写 ✅
+3. 所以 `hAll` 的实际剩余工作 = 把最后那一步从「等式」改成「互相可导」，
+   而不是去证一条假等式。这一步的强度远低于原先的估计。 -/
