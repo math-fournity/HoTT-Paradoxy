@@ -6,6 +6,101 @@
 
 ---
 
+## P3 最终增量（2026-10-12）：**需求降到一条句子，缺口定位到一处**
+
+**一句话**：Z0 现在只需**一条 `D3` 实例**（不是整族模式），
+而那条实例的位置已精确到**一处**——**公理步的解释在 V 内的形式化**。
+
+### 主结果：`zfc_z0_of_single_D3`（`CG008Z0FromSingleD3.lean`）
+
+```lean
+theorem zfc_z0_of_single_D3
+    (hD3G : 𝗜𝚺₁ ⊢ zfcTr 𝐆 🡒 zfcTr (zfcTr 𝐆))          -- 𝐆 := gödel (T₀ := 𝗜𝚺₁) zfcTr
+    [Consistent Sh] :
+    𝗭𝗙𝗖 ⊬ arithTrln.translate (𝗭𝗙𝗖.consistent : ArithmeticSentence)
+```
+
+**对照** `Z0Full.zfc_z0_full`：它取 `[zfcTr.HBL3]`（**模式**），本定理取**一条实例**。
+**前提严格更弱**（`HBL3 ⟹ hD3G`，反之不然）。公理洁净。
+
+**怎么建的**：`CG008AbstractRedo`（抽象层重做 `formalized_unprovable_gödel`，
+把唯一用 `D3` 的那一步换成单句假设）+ `CG008Instantiate`（实例化到 `zfcTr`）
++ `CG008Z0FromSingleD3`（`consistent_of_existance_unprovable`、`gödel_iff_con`、
+`unprovable_gödel`、`con_unprovable` 四条在 `[𝔅.HBL2]` 下重做后实例化）。
+
+**关键实现教训**（两处，都记在文件里）：
+- `𝔅` 具体化成 `zfcTr` 时**证明**会炸（`isDefEq` 在定义上展开，`rc=-9`）；
+  **抽象层证明 + 最后实例化**是可行路线（实例化不判断新的相等）；
+- `D2` 的参数写显式（`σ := σ`、`τ := ⊥`）会触发 `∼` 与 `🡒 ⊥` 的展开而超时；
+  **保持隐式**（如 Foundation 原文）即可。
+
+### 缺口现在的位置（`CG008FinalAnalysis.lean`）
+
+经 P3 各轮收窄，缺口 = **一处**：
+
+| 部分 | 是否需要处理 |
+|---|---|
+| 十种推导规则里的**九种**（`∧`/`∨`/`∀`/`∃` 引入、弱化、移位、切割、`⊤` 引入、`¬`） | ❌ 图与理论无关 |
+| 推导的**形状**（`axm s p = ⟪s,9,p⟫+1`） | ❌ 纯语法，不含 `T` |
+| **公理步**（`p ∈ T.Δ₁Class`） | ✅ **唯一的理论依赖处** |
+
+**且 `Derivation.of_ss`（`Basic.lean:756`）沿公理集包含搬运推导、码不变**——
+所以逻辑规则部分**不需要任何变换**。
+
+**落差**：`paInterp.interpret_theory`（`LK/Interpretation.lean:407`）在**元层**给
+`∀ φ ∈ 𝗣𝗔, 𝗭𝗙𝗖 ⊢ translate φ`——但那是**元层的证明对象**；
+缺口要的是 **V 内的元素 `d'`**。
+
+**为什么是本质的**：V 可以是**非标准**模型，其 `φ ∈ 𝗣𝗔` 可能对应非标准公理，
+而 `interpret_theory` 是元层函数，只对**标准** `φ` 有定义。
+
+**所以缺口的精确内容**：**把 `𝗣𝗔`（或 `𝗜𝚺₁`）公理集的解释在 V 内形式化**——
+即 `Z0Bridge` 的 `bridge`，本会话所有路线最终都落到同一条桥。
+
+### 本轮的两处**更正**（都是我自己的过强说法）
+
+1. **`CG008CodeFunctions`**：`CG008BridgeAnatomy` 说「语法可计算的码变换**算术侧也没有**」
+   ——**错**。Foundation 的 `Syntax/Formula/Functions.lean` 提供 V 内部的**码到码函数**
+   （`shift`/`neg`/`subst`/`bv`/`fomulaComplexity`，对任意 `L` 含 `ℒₛₑₜ`），
+   并有 V 内部 **Σ₁ 归纳**（`isUFormula_subst_ISigma1.sigma1_succ_induction:488`）。
+2. **`CG008Correction`**：先前说「集合语义不在缺口的**路径**上」**过强**——
+   缺口的**陈述**确实纯算术，但 D3 的标准证法要**形式化 Σ₁ 完全性**，
+   其算术版靠 `toNumVec` 把 V 的元素代换成**数字项**，而 `ℒₛₑₜ` 无常项使这一步无对偶。
+
+### 本轮收据
+
+| 运行 | 源 | 内容 |
+|---|---|---|
+| `2026-10-12-CG001-CG008-MECHANISM-SURVEY-01` | 74 | 四条语言无关机制排查 + 单句归约 |
+| `2026-10-12-CG001-CG008-SINGLE-D3-Z0-01` | 82 | **Z0 从单条 `D3` 实例** |
+| `2026-10-12-CG001-CG008-GAP-LOCATED-01` | 88 | 缺口定位到一处 |
+
+三者均 `KERNEL_ACCEPTED_WITH_SCOPE` / `PASS_WITH_SCOPE` / `replay: EXACT_EXIT_STDOUT_STDERR_MATCH`。
+证据索引 §45–§47。
+
+### 下一步（给承接者）
+
+**唯一的靶子**：把 `interpret_theory` 的元层证明**在 V 内**变成**公理步的码**。
+
+**可试的具体方向**：
+1. `iT_quote`（`InternalTranslate.lean:611`）的**内部化版本**——
+   现在它是逐 `φ` 的元层定理（`iT n ⌜φ⌝ = ⌜translate φ⌝`）；
+   V 需要「对任意 `x`，`iT 0 x` 与翻译的关系」这样的**内部**陈述。
+2. `Fixpoint` 层的**公理步替换构造**——用 `Derivation.axm`（`Basic.lean:749`）
+   直接造公理步，其余规则由 `of_ss` 或原样保留。
+
+**不要重试**（都有编译实证）：见下节表格。
+
+---
+
+# （以下为 P2 结束态，保留）
+
+> 自包含。承接者读完本文件 + `GOAL.md` §3 的闭包表即可接手。
+> 治理红线（F-011）不变：Foundation 只读；不碰 `sources/` 与 `private-audit/`；不 push `main`；不伪造收据。
+> **本分支不得合并到原 repo 的 `dev`**（研究发起人 2026-10-11 明令）。
+
+---
+
 ## P3 增量（2026-10-12，本轮）
 
 **一句话**：把「缺口是什么」推进到「缺口**具体要造什么**」——
@@ -350,7 +445,11 @@ P2 换了一条通道（`Derivable` 编码层，没有「自由变量」概念�
 ```goal-x-closure
 # 路径 | 用途
 最高指示-Claude版.md | 操作指令
-GodelQ/ZFC/CG008BridgeAnatomy.lean | **P3 先读这个**：所有路线归约到的那条桥 + 它要造什么
+GodelQ/ZFC/CG008FinalAnalysis.lean | **P3 最终**：缺口定位到「公理步的解释在 V 内形式化」
+GodelQ/ZFC/CG008Z0FromSingleD3.lean | **P3 主结果**：Z0 从单条 D3 实例（前提严格更弱）
+GodelQ/ZFC/CG008OfSs.lean | P3：`Derivation.of_ss` 沿公理集包含搬运、码不变
+GodelQ/ZFC/CG008DerivationTransform.lean | P3：九种规则与理论无关，只有公理步依赖 T
+GodelQ/ZFC/CG008BridgeAnatomy.lean | 所有路线归约到的那条桥 + 它要造什么（P3 有更正）
 GodelQ/ZFC/CG008SingleD3.lean | P3：抽象 G2 只需单句 D3（前提最弱形式）
 GodelQ/ZFC/CG008Correction.lean | P3：更正我自己的过强说法——P1 的障碍就是缺口难点
 GodelQ/ZFC/CG008Final.lean | 三重等价形状 + 卡点 + 为什么绕不开
