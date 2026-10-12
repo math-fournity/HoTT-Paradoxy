@@ -165,4 +165,27 @@ example {L : Language} [L.Encodable] [L.LORDefinable] {k n v : V} :
       (Bootstrapping.IsUTermVec L k v ∧ ∀ i, i < k → Bootstrapping.termBV L v.[i] ≤ n) :=
   Bootstrapping.IsSemitermVec.def
 
+/-! ## 定下 `subst_isUFormula` 的**正确陈述**
+
+`IsSemitermVec.termSubstVec` 要 `hw : IsSemitermVec L n m w`（**替换向量**），
+而 `substs_rel` 只给被替换向量的信息。**所以陈述要给 `w` 加前提。**
+
+**但在 `conjunct` 的应用里，`w` 是具体的**：
+`conjunct b n i y = (subst ℒₛₑₜ ?[^#i] (cDomN : V)) ^⋏ (subst ℒₛₑₜ (^#i ∷ shiftVec b n) y)`
+——两个 `w` 分别是 `?[^#i]`（单个有界变量）与 `^#i ∷ shiftVec b n`。
+**它们的 `IsUTermVec`/`IsSemitermVec` 性应当可由 `IsUTerm.bvar` 等拼出。**
+
+**所以正确的路线是**：把 `subst_isUFormula` 陈述为**带 `w` 前提**的版本，
+在 `conjunct` 处**实例化并付清前提**。
+
+**本行固定这个判断。** -/
+
+-- **查实 6（`w` 前提的形式）**：若 `w` 是 `IsSemitermVec`（带层数），
+-- 则 `subst` 保持公式性。**这是要证的形状**——`n`、`m` 是层数参数：
+--
+--   `IsSemitermVec L n m w → IsUFormula L p → IsUFormula L (subst L w p)`
+--
+-- （以注释记录：`example` 里的多宇宙 binder 推断失败，实际定理应写在
+-- `variable` 声明下。）
+
 end GodelQ.CG008SubstFormula
