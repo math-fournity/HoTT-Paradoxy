@@ -22,12 +22,23 @@ example (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
       ⟨Language.Eq.eq, rfl⟩
   rw [Translate.eqAtom, Bootstrapping.bv_rel hR hv]
 
--- 第 2 步：`termBVVec_cons` 两次——**只剩最后一条 `termBVVec_nil` 的宇宙/实例对齐**。
--- `termBVVec_cons` 两次都过了（目标已化到 `termBV ^#0 ∷ termBV t ∷ termBVVec L 0 0`），
--- 但 `termBVVec_nil`（`Term/Basic.lean:721`）在本上下文里宇宙不匹配
--- （报 `Eq.{1}` vs `Eq.{u_1+1}`），其来源 `resultVec_nil`（`:613`）是多元的，
--- 但要用它需给出 `termBV.construction`（`termBV` 是 `Function`，无 `.construction` 字段）。
--- **下一步**：查 `termBV` 的 `Construction` 实例名（它由 `IsUTerm.BV` 段的 blueprint 给出），
--- 或直接用 `len_zero_iff_eq_nil`（`resultVec_nil` 的证明正是用它）。
+-- `termBVVec_nil` 的宇宙不匹配用 `len_zero_iff_eq_nil` 绕开。
+lemma termBVVec_nil' : Bootstrapping.termBVVec ℒₛₑₜ (0 : V) (0 : V) = (0 : V) := by
+  rw [← Arithmetic.len_zero_iff_eq_nil]
+  rw [Bootstrapping.len_termBVVec (k := (0 : V)) (v := (0 : V))
+    (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ))]
+
+/-- 第 2 步：`termBVVec ℒₛₑₜ 2 ?[^#0, t] = ?[termBV ^#0, termBV t]`。 -/
+theorem termBVVec_eqAtom (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
+    Bootstrapping.termBVVec ℒₛₑₜ 2 (?[^#0, t] : V)
+      = (?[Bootstrapping.termBV ℒₛₑₜ (^#0 : V), Bootstrapping.termBV ℒₛₑₜ t] : V) := by
+  rw [show (2 : V) = 0 + 1 + 1 by norm_num]
+  rw [Bootstrapping.termBVVec_cons
+    (Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0))
+    (Bootstrapping.IsUTermVec.adjoin
+      (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ)) ht)]
+  rw [Bootstrapping.termBVVec_cons ht
+    (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ))]
+  rw [termBVVec_nil']
 
 end GodelQ.CG008BvZ
