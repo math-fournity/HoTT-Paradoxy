@@ -119,7 +119,31 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
     simp
   rw [hR, hq2]
   congr 1
-  -- 看剩余目标
-  exact (show False by sorry)
+  -- RHS: subst ?[^#0,^#1,^&0] (imp A C) = imp (subst _ A) (subst _ C)
+  -- imp 定义成 ¬A ⋎ B，用 substs_neg / substs_or
+  have hAR : IsSemiformula ℒₛₑₜ 3
+      (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+        (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)) :=
+    IsSemiformula.and.mpr ⟨hc0, IsSemiformula.and.mpr ⟨hc1, IsSemiformula.verum⟩⟩
+  have hC : IsSemiformula ℒₛₑₜ 3 (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) := hsub
+  show imp ℒₛₑₜ (conjunct 2 0 0 (iVE (0:V) (^&(0:V) : V)) ^⋏
+        (conjunct 2 0 1 (iVE (0:V) (^&(0:V) : V)) ^⋏ ^⊤))
+      (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
+    = imp ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
+        (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
+      (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
+        (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))
+  rw [show imp ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
+        (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
+      (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))
+    = neg ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
+        (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
+      ^⋎ subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₜ (?[^#0, ^#1] : V) (cRel R)) from rfl]
+  rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
+    Bootstrapping.substs_and (L := ℒₛₑₜ) hc0 hc1]
+  sorry
 
 end GodelQ.ProbeAtom
