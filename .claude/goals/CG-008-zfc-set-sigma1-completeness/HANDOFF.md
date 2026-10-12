@@ -83,11 +83,43 @@ theorem zfc_z0_of_single_D3
 **唯一的靶子**：把 `interpret_theory` 的元层证明**在 V 内**变成**公理步的码**。
 
 **可试的具体方向**：
-1. `iT_quote`（`InternalTranslate.lean:611`）的**内部化版本**——
-   现在它是逐 `φ` 的元层定理（`iT n ⌜φ⌝ = ⌜translate φ⌝`）；
-   V 需要「对任意 `x`，`iT 0 x` 与翻译的关系」这样的**内部**陈述。
+
+1. **`iT_quote` 的内部化（已开工，见下）**——`CG008ITQuote.lean`、
+   `CG008ITQuoteProof.lean`、`CG008LvlCheck.lean`、`CG008LvlLemma.lean`。
 2. `Fixpoint` 层的**公理步替换构造**——用 `Derivation.axm`（`Basic.lean:749`）
    直接造公理步，其余规则由 `of_ss` 或原样保留。
+
+### `iT_quote` 这条线的现状（2026-10-12 第四轮）
+
+**已查实的**：
+- `iT` **本身不需内部化**——它已是 V 内函数（`iT.blueprint:217`）；
+  要内部化的是**定理** `iT_quote`；
+- **直接内部化不成立**：V 内 `x` 可**非标准码**，不对应任何元层 `φ`；
+  **正确形式是条件式**：`∀ x : V, IsUFormula ℒₒᵣ x → IsUFormula ℒₛₑₜ (iT 0 x)`；
+- **闸门已过**：`P x := IsUFormula ℒₛₑₜ (iT 0 x)` **合成 `𝚺ᴬ₁-Predicate`**；
+- **归纳已接通**：`Bootstrapping.IsUFormula.ISigma1.sigma1_succ_induction`
+  （`Formula/Basic.lean:443`）可用，八情形正确展开。
+
+**三个子目标待补**：
+
+| 子目标 | 需要什么 |
+|---|---|
+| `hrel` | `iTR` 把算术原子映成集合语言**公式**——需 `iTR` 的 `IsUFormula` 引理 |
+| `hnrel` | `IsUFormula.neg`（`Formula/Functions.lean:102`）已有 |
+| **`hall`/`hexs`** | **实质障碍**：`iT_all:560` 右边含 **`iT (n+1) p`**，归纳假设 `IsUFormula (iT 0 p)` 不直接适用 |
+
+**已排除的修法**：层数无关**谓词** `∀ n, IsUFormula (iT n p)`
+——`∀ n` 推到 **Π₁**，而归纳原理要 **Σ₁**（`CG008LvlCheck`）。
+
+**当前靶子**：层数无关**引理**的**单向**形式
+
+```
+∀ p, IsUFormula ℒₒᵣ p → ∀ n : V, (IsUFormula ℒₛₑₜ (iT 0 p) → IsUFormula ℒₛₑₜ (iT n p))
+```
+
+**注意**：不能写成等式 `iT n p = iT 0 p`——层数确实进入 `iTR`
+（`conjunct 2 n i (iVE n v_i)`），所以两者的**码不同**；
+但「是不是公式」只与变量编号无关，故单向形式**可能**成立。
 
 **不要重试**（都有编译实证）：见下节表格。
 
