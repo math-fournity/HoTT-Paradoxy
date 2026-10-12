@@ -138,5 +138,15 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
   -- `hStep.symm : neg (subst W A_R) ⋎ subst W C = subst W (neg A_R ⋎ C)`。
   -- 所以只要证 `neg A_L ⋎ C = neg (subst W A_R) ⋎ subst W C`。
   refine Eq.trans ?_ hStep.symm
+  -- `neg X ⋎ C` 形式；两侧都是 `neg _ ⋎ C`
+  congr 1
+  -- `conjunct b n i y = subst ?[^#i] cDomN ⋏ subst (^#i ∷ shiftVec b n) y`
+  rw [show conjunct (V := V) 2 0 0 (iVE (0:V) (^&(0:V) : V))
+      = (subst ℒₛₑₜ (?[^#0] : V) ((cDomN : ℕ) : V))
+        ^⋏ subst ℒₛₑₜ ((^#0 : V) ∷ (shiftVec (V := V) 2 0)) (iVE (0:V) (^&(0:V) : V)) from rfl,
+    show conjunct (V := V) 2 1 0 (iVE (1:V) (^#(0:V) : V))
+      = (subst ℒₛₑₜ (?[^#0] : V) ((cDomN : ℕ) : V))
+        ^⋏ subst ℒₛₑₜ ((^#0 : V) ∷ (shiftVec (V := V) 2 1)) (iVE (1:V) (^#(0:V) : V)) from rfl]
+  sorry
 
 end GodelQ.ProbeStep
