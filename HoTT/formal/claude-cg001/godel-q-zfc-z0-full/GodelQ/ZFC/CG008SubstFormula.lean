@@ -188,4 +188,39 @@ example {L : Language} [L.Encodable] [L.LORDefinable] {k n v : V} :
 -- （以注释记录：`example` 里的多宇宙 binder 推断失败，实际定理应写在
 -- `variable` 声明下。）
 
+/-! ## 装配实测：**卡在 `isDefEq`/`whnf` 超时**
+
+按正确陈述（带 `w` 前提）试装配，**两处超时**（即使 `maxHeartbeats` 提到 800000）：
+
+| 位置 | 报错 |
+|---|---|
+| `definability`（参数位置与提为 `have` 后**都是**） | `whnf` 超时 |
+| 整个定理 | `isDefEq` 超时 |
+
+**这与 `CG008RedoActual` 记录的 `zfcTr` 展开爆炸是同一类现象**：
+`subst` 是 `Fixpoint` 定义，`IsUFormula` 也是，
+所以 `𝚺ᴬ₁-Relation₃ (fun _ _ r ↦ IsUFormula L r)` 的**可定义性判定**要展开两者。
+
+**注意**：`IsUFormula L r` **不依赖**前两个参数，
+所以 `definability` 本应能简化——但它似乎仍试图展开 `IsUFormula` 的定义。
+
+## 可能的修法（下一步）
+
+1. **借 `IsUFormula.definable`**（Foundation 有：`Formula/Basic.lean` 的
+   `instance IsUFormula.definable`）**显式构造** `𝚺ᴬ₁-Relation₃`——
+   用「投影」：`P w p r := IsUFormula L r` 是 `IsUFormula` 与常函数的复合，
+   而复合的 `Definable` 有 `Bounding.HierarchySymbol.DefinablePred.comp` 等工具。
+2. 或**避开 `sigma1_succ_induction`**，直接用 `subst` 的
+   `uformula_result_induction`（`Formula/Basic.lean:1161`）做更细粒度的归纳。
+
+**本行记录卡点与两条修法**——这是本轮的实际终点，
+**不是**概念障碍（九零件齐备、陈述已定），而是**可定义性判定的展开成本**。
+
+## 治理
+
+- Foundation 只读；本文件纯下游。
+- 本文件不含任何未证标记，可进入收据。
+- **记录的是卡点与修法，不是证明。**
+-/
+
 end GodelQ.CG008SubstFormula
