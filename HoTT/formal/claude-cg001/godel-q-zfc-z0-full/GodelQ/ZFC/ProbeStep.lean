@@ -115,8 +115,8 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)))
       ^⋎ subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
     := by
-      rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula,
-        Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
+      rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
+        Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula hsub.isUFormula,
         Bootstrapping.substs_and (L := ℒₛₑₜ) hc0.isUFormula hc1.isUFormula]
       rfl
   rw [hStep]
