@@ -760,14 +760,24 @@ subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)      -- q 层 1
 **原子支走 T1**（`iVE_subst_a0`）；**量词支**的关键是
 `iT` 给每个量词多引一个 `domZero`，而 `subst ?[^&0] domZero = domZero`。 -/
 
+/-- `?[^&x]` 是任意语言、任意层的项向量（fvar 无 bvar）。 -/
+lemma isSemitermVec_fvar (L : Language) [L.Encodable] [L.LORDefinable] (n x : V) :
+    IsSemitermVec L 1 n (?[^&x] : V) :=
+  IsSemitermVec.singleton.mpr (IsSemiterm.fvar n x)
+
 /-- `subst ?[^&0] domZero = domZero`（`domZero = subst ?[^#0] cDomN`）。 -/
 lemma subst_domZero : subst ℒₛₑₜ (?[^&0] : V) (domZero : V) = domZero := by
   rw [domZero]
-  rw [substs_substs (l := 1) (n := 1) (m := 1) (p := (cDomN : V)) isSemiformula_cDomN
-    (isSemitermVec_single_bvar (n := 1) (by norm_num))
-    (isSemitermVec_single_bvar (n := 1) (by norm_num))]
-  congr 1
-  rw [termSubstVec_a_n0]
+  rw [show subst ℒₛₑₜ (?[^&0] : V)
+        (subst ℒₛₑₜ (?[^#0] : V) (cDomN : V)) =
+      subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 1 (?[^&0] : V) (?[^#0] : V)) (cDomN : V)
+    from substs_substs (L := ℒₛₑₜ) (l := (1 : V)) (n := (1 : V)) (m := (1 : V))
+      (p := (cDomN : V)) (w := (?[^&0] : V)) (v := (?[^#0] : V))
+      isSemiformula_cDomN
+      (isSemitermVec_fvar ℒₛₑₜ (1 : V) (0 : V))
+      (isSemitermVec_single_bvar (i := (0 : V)) (n := (1 : V)) (by norm_num))]
+  rw [show termSubstVec ℒₛₑₜ 1 (?[^&0] : V) (?[^#0] : V) = (?[^&0] : V)
+    from termSubstVec_a_n0]
 
 /-- **桥 `B(q)`**（`q` 层 1）：`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`。 -/
 theorem iT_substs1 {n : V} : ∀ q, IsSemiformula ℒₒᵣ n q →
@@ -787,14 +797,21 @@ theorem iT_substs1 {n : V} : ∀ q, IsSemiformula ℒₒᵣ n q →
   · -- rel
     intro n param k R v hR hv h
     rw [← h] at hv
-    rw [substs_rel hR hv.isUTerm, iT_rel hR (hv.termSubstVec (isSemitermVec_single_bvar (n := param) (by norm_num))).isUTerm]
-    rw [show (1 : V) - 1 = 0 by norm_num]
     rw [iT_rel hR hv.isUTerm]
-    sorry
+    conv_rhs => rw [substs_rel hR hv.isUTerm]
+    rw [h, show (n : V) - 1 = 0 by norm_num]
+    rw [iT_rel hR hv.isUTerm]
+    -- 原子层：走 T1（`iVE_subst_a0`）
+    rw [iTR, iTR]
+    congr 1
+    · -- 分量 0
+      rw [nth_termSubstVec hv.isUTerm (show (0 : V) < k by sorry)]
+      sorry
+    · sorry
   · -- nrel
     intro n param k R v hR hv h
     rw [← h] at hv
-    rw [substs_nrel hR hv.isUTerm, iT_nrel hR (hv.termSubstVec (isSemitermVec_single_bvar (n := param) (by norm_num))).isUTerm]
+    rw [substs_nrel hR hv.isUTerm, iT_nrel hR (hv.termSubstVec (isSemitermVec_fvar ℒₒᵣ param (0 : V))).isUTerm]
     rw [show (1 : V) - 1 = 0 by norm_num]
     rw [iT_nrel hR hv.isUTerm]
     sorry
