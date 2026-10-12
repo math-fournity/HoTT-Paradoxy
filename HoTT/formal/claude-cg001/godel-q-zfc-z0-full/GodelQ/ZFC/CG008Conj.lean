@@ -50,6 +50,15 @@ lemma conjunct_fst_isUFormula (i : V) :
   GodelQ.CG008SubstFormula.subst_isUFormula (n := 1) (m := i + 1)
     (isSemitermVec_single i) (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
 
+-- **`conjunct` 的第二块未证**。层数：替换向量 `#i ∷ shiftVec b n` 的长度是 `1 + n`
+-- （一个 `^#i` 加 `n` 个移位变量），所以 `subst_isUFormula` 要
+-- `IsSemiformula ℒₛₑₜ (1 + n) y`，且向量要满足 `IsSemitermVec ℒₛₑₜ (1+n) (1+n) …`——
+-- 后者需要**每个分量的 `termBV` ≤ `1 + n`**，而分量是 `^#i`、`^#b`、…、`^#(b+n-1)`，
+-- 即需要 `i ≤ 1 + n`、`b + n - 1 ≤ 1 + n` 这类**算术界**。
+-- 与第一块同理，`V` 的 `LT` 是裸的，这些界要经 `V ⊨ 𝗜𝚺₁` 的语义得到。
+-- **下一步**：按调用点（`iTR` 的 `conjunct 2 n 0/1`）把 `b`、`i` 的具体值代入，
+-- 届时的界是 `i ∈ {0,1}`、`b = 2`，比一般情形弱得多。
+
 end GodelQ.CG008Conj
 
 #print axioms GodelQ.CG008Conj.isSemitermVec_single
