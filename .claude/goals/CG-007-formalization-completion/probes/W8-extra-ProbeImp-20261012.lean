@@ -31,9 +31,9 @@ lemma weaken_imp {A D X : V} (hA : IsFormula ℒₛₑₜ A) (hD : IsFormula ℒ
     Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (imp ℒₛₑₜ D A) X) := by
   -- `imp D A = neg D ^⋎ A`
   show Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (neg ℒₛₑₜ D ^⋎ A) X)
-  refine Derivable.cut A ?_ ?_
+  refine Derivable.cut (T := 𝗭𝗙𝗖) A ?_ ?_
   · -- (i) `insert A (insert (D→A) X)` ← wk hd
-    refine Derivable.wk (s := insert A (insert (neg ℒₛₑₜ D ^⋎ A) X))
+    refine Derivable.wk (T := 𝗭𝗙𝗖) (s := insert A (insert (neg ℒₛₑₜ D ^⋎ A) X))
       (s' := insert A X) ?_ ?_ hd
     · intro y hy
       rcases mem_bitInsert_iff.mp hy with rfl | hy
@@ -45,17 +45,18 @@ lemma weaken_imp {A D X : V} (hA : IsFormula ℒₛₑₜ A) (hD : IsFormula ℒ
       rcases mem_bitInsert_iff.mp hy with rfl | hy
       · exact mem_bitInsert_iff.mpr (Or.inl rfl)
       · exact mem_bitInsert_iff.mpr (Or.inr (mem_bitInsert_iff.mpr (Or.inr hy)))
-  · -- (ii) `insert (neg A) (insert (D→A) X)` ← or (axL)
-    refine Derivable.or (s := insert (neg ℒₛₑₜ A) X) ?_
+  · -- (ii) `insert (neg A) (insert (neg D ^⋎ A) X)` ← or (axL)
+    refine Derivable.or (T := 𝗭𝗙𝗖)
+      (s := insert (neg ℒₛₑₜ A) X) (p := neg ℒₛₑₜ D) (q := A) ?_
     show Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
-      (insert (neg ℒₛₑₜ D) (insert A (insert (neg ℒₛₑₜ A) X)))
-    exact Derivable.axL (s := insert (neg ℒₛₑₜ D) (insert A (insert (neg ℒₛₑₜ A) X)))
+      (insert A (insert (neg ℒₛₑₜ D) (insert (neg ℒₛₑₜ A) X)))
+    exact Derivable.axL (T := 𝗭𝗙𝗖) (s := insert A (insert (neg ℒₛₑₜ D) (insert (neg ℒₛₑₜ A) X)))
       (by
         intro y hy
         rcases mem_bitInsert_iff.mp hy with rfl | hy
-        · exact hD.neg
+        · exact hA
         · rcases mem_bitInsert_iff.mp hy with rfl | hy
-          · exact hA
+          · exact hD.neg
           · rcases mem_bitInsert_iff.mp hy with rfl | hy
             · exact hA.neg
             · exact hX y hy)
