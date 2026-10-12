@@ -78,9 +78,9 @@ theorem ve2_isUFormula (n k f w : V) (hk : k ≠ 0)
   rw [Bootstrapping.isUFormula_qqAlls]
   refine Bootstrapping.IsUFormula.imp.mpr ⟨?_, ?_⟩
   · refine Bootstrapping.IsUFormula.and.mpr ⟨?_, ?_⟩
-    · exact conjunct_isUFormula 3 n 0 w.[0] (by simpa using hw 0 (by norm_num))
+    · exact conjunct_isUFormula 3 n 0 w.[0] (hw 0 (by norm_num))
     · refine Bootstrapping.IsUFormula.and.mpr ⟨?_, Bootstrapping.IsUFormula.verum⟩
-      exact conjunct_isUFormula 3 n 1 w.[1] (by simpa using hw 1 (by norm_num))
+      exact conjunct_isUFormula 3 n 1 w.[1] (hw 1 (by norm_num))
   · -- `subst (^#2 ∷ ?[^#0, ^#1]) (cFunc k f)`：向量长度 2
     have hvec : Bootstrapping.IsUTermVec ℒₛₑₜ 3 (^#2 ∷ (?[^#0, ^#1] : V)) := by
       have hb : Bootstrapping.IsUTerm ℒₛₑₜ (^#2 : V) :=

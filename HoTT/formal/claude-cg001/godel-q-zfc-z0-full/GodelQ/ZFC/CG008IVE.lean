@@ -1,5 +1,6 @@
 import GodelQ.ZFC.CG008Conj
 import GodelQ.ZFC.CG008RelCase2
+import GodelQ.ZFC.CG008ShiftProof
 
 /-!
 # CG-008 · `iVE_isUFormula`
@@ -51,9 +52,36 @@ theorem iVE_isUFormula {n t : V} (ht : Bootstrapping.IsUTerm ℒₒᵣ t) :
     · -- `k = 0`：结果是 `ve0 k f`
       exact GodelQ.CG008VeLevel.ve0_isUFormula hk
     · -- `k ≠ 0`：结果是 `ve2 n k f (结果向量)`
-      -- `ve2 n k f w = qqAlls (imp (conjunct 3 n 0 w.[0] ⋏ (conjunct 3 n 1 w.[1] ⋏ ⊤)) (subst …)) 2`
-      -- 需要 `conjunct`（未证）与替换向量（`isSemitermVec_ve2vec` 的推广，分量是**结果向量**而非 `^#`）
-      sorry
+      -- 两个参数：结果向量的分量在层 `1 + n` 是公式（由归纳假设 `ih`），
+      -- 以及 `?[^#0, ^#1]` 是项向量
+      -- `k ≠ 0` + `isFunc_iff_LOR` ⇒ `k = 2`
+      have hk2 : k = 2 := by
+        rcases (Bootstrapping.Arithmetic.isFunc_iff_LOR (V := V)).mp hkf with
+          ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩
+        · exact absurd h hk
+        · exact absurd h hk
+        · exact h
+        · exact h
+      refine GodelQ.CG008ShiftProof.ve2_isUFormula n k f _ hk ?_ ?_
+      · intro j hj
+        -- `w.[j]` 是 `resultVec` 的第 `j` 项，由 `nth_resultVec` 化成 `iVE n v.[j]`
+        show Bootstrapping.IsSemiformula ℒₛₑₜ (1 + n)
+          ((Language.TermRec.Construction.resultVec ℒₒᵣ Translate.iVE.construction
+            ![n] k v).[j])
+        rw [Bootstrapping.Language.TermRec.Construction.nth_resultVec
+          (L := ℒₒᵣ) (c := Translate.iVE.construction) (param := ![n])
+          (w := v) hv (i := j) (by rw [hk2]; exact hj)]
+        -- 层数升到 `1 + n`：`isSemiformula` 给的是 `bv (iVE n v.[j])`，
+        -- 需 `bv ≤ 1 + n`。用 `iT`/`iVE` 的层数刻画——**这一步是本分支的最后一环**，
+        -- 需要一条 `bv (iVE n t) ≤ n + 1` 的引理（对 `t` 归纳，与 `iVE` 的构造同步）。
+        exact Bootstrapping.isSemiformula_iff.mpr
+          ⟨ih j (by rw [hk2]; exact hj), by
+            -- 先固定目标形状
+            show Bootstrapping.bv ℒₛₑₜ (Translate.iVE n v.[j]) ≤ 1 + n
+            sorry⟩
+      · exact Bootstrapping.IsUTermVec.mkSeq₂_iff.mpr
+          ⟨Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 0),
+           Bootstrapping.IsUTerm.bvar (L := ℒₛₑₜ) (z := 1)⟩
 
 end GodelQ.CG008IVE
 
