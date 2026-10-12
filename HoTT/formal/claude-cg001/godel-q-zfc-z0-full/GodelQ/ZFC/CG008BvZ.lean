@@ -41,4 +41,11 @@ theorem termBVVec_eqAtom (t : V) (ht : Bootstrapping.IsUTerm ℒₛₑₜ t) :
     (Bootstrapping.IsUTermVec.empty (V := V) (L := ℒₛₑₜ))]
   rw [termBVVec_nil']
 
+-- **`bv_eqAtom_le` 未证**。前两步（`bv_rel`、`termBVVec_eqAtom`）已合成，
+-- 第三步 `listMaxss_le_iff` 逐分量也走到了最后：只剩 `nth_adjoin_*` 的
+-- **`Zero ?m` 合成歧义**（同一根因：`?[...]` 宏的末尾裸字面量与 `nth` 的下标）。
+-- **下一步**：把该分量步整体移到 `Adjoin.adjoin` 的显式形式下重写
+-- （本文件已验证该形式可用），或改用 `listMaxss_le_iff` 之外的分量提取方式
+-- （如 `nth_le_listMax`）。
+
 end GodelQ.CG008BvZ
