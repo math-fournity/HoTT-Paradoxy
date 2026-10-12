@@ -322,9 +322,81 @@ lemma iVE_subst_a0 {m : V} : ∀ t, IsSemiterm ℒₒᵣ 1 t → ∀ a : V, a < 
         iVE_func hkf (IsUTermVec.empty (L := ℒₒᵣ) (V := V))]
       simp only [ite_true]
       exact iVE_subst_ve0 ha (isSemiformula_cFunc_arity0 f)
-    · have hk2 := k_eq_two_of_func hkf hk
+    · -- k = 2：`ve2`，两层绑定子
+      have hk2 := k_eq_two_of_func hkf hk
       subst hk2
-      sorry
+      intro a ha
+      -- 归纳假设在 `a := i` 处的两个实例
+      have ih0 := ih 0 (by norm_num) a ha
+      have ih1 := ih 1 (by norm_num) a ha
+      -- 体的公式性（两侧共用的结论项 `cFunc 2 f`）
+      have hcf : IsSemiformula ℒₛₑₜ 3 (cFunc 2 f) := isSemiformula_cFunc_arity2 (by norm_num) f
+      have hv0 : IsSemiterm ℒₒᵣ 1 v.[0] := hv.nth (i := 0) (by norm_num)
+      have hv1 : IsSemiterm ℒₒᵣ 1 v.[1] := hv.nth (i := 1) (by norm_num)
+      have hvec1 : IsSemitermVec ℒₒᵣ 1 1 (?[^&0] : V) := by
+        rw [IsSemitermVec.singleton]
+        exact IsSemiterm.fvar 1 (0 : V)
+      have hvt : IsSemitermVec ℒₒᵣ 2 1 (termSubstVec ℒₒᵣ 2 (?[^&0] : V) v) :=
+        IsSemitermVec.termSubstVec (k := 2) (n := 1) (m := 1) (v := v)
+          (w := (?[^&0] : V)) hvec1 hv
+      -- 内层先展开（右侧的 `iVE 0` 参数里有 `termSubst`）
+      rw [termSubst_func hkf hv.isUTerm]
+      -- 两侧 `iVE` 展开
+      rw [iVE_func hkf hv.isUTerm, iVE_func hkf hvt.isUTerm]
+      simp only [if_neg (by norm_num : ¬(2 : V) = 0)]
+      rw [resultVec_two_eq hv.isUTerm, resultVec_two_eq hvt.isUTerm]
+      -- 两侧各推两层 `qqAlls`（`W' := qVec (qVec w)`）
+      have hA : IsUFormula ℒₛₑₜ
+          (conjunct 3 1 0 (iVE (1 : V) v.[0]) ^⋏
+            (conjunct 3 1 1 (iVE (1 : V) v.[1]) ^⋏ ^⊤)) :=
+        IsUFormula.and.mpr ⟨(isSemiformula_conjunct
+            (isSemiformula_iVE v.[0] hv0) (zero_lt_three_add 1)).isUFormula,
+          IsUFormula.and.mpr ⟨(isSemiformula_conjunct
+            (isSemiformula_iVE v.[1] hv1) (one_lt_three_add 1)).isUFormula,
+            IsUFormula.verum⟩⟩
+      have hB : IsUFormula ℒₛₑₜ
+          (conjunct 3 0 0 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0])) ^⋏
+            (conjunct 3 0 1 (iVE (0 : V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1])) ^⋏ ^⊤)) :=
+        IsUFormula.and.mpr ⟨(isSemiformula_conjunct
+            (isSemiformula_iVE _ (hvt.nth (i := 0) (by norm_num))) (zero_lt_three_add 0)).isUFormula,
+          IsUFormula.and.mpr ⟨(isSemiformula_conjunct
+            (isSemiformula_iVE _ (hvt.nth (i := 1) (by norm_num))) (one_lt_three_add 0)).isUFormula,
+            IsUFormula.verum⟩⟩
+      have hF : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (^#2 ∷ ?[^#0, ^#1] : V) (cFunc 2 f)) :=
+        (IsSemiformula.subst hcf (by
+          rw [show (?[^#2, ^#0, ^#1] : V) = ((^#2 : V) ∷ ((^#0 : V) ∷ ((^#1 : V) ∷ (0 : V))))
+            from rfl]
+          rw [show (3 : V) = 2 + 1 by norm_num, IsSemitermVec.cons_iff]
+          refine ⟨IsSemiterm.bvar.mpr (by norm_num), ?_⟩
+          rw [show (2 : V) = 1 + 1 by norm_num, IsSemitermVec.cons_iff]
+          exact ⟨IsSemiterm.bvar.mpr (by norm_num), by simp⟩)).isUFormula
+      rw [subst_qqAlls_two (IsUFormula.imp.mpr ⟨hA, hF⟩),
+        subst_qqAlls_two (IsUFormula.imp.mpr ⟨hB, hF⟩)]
+      congr 1
+      rw [subst_imp hA hF (isSemitermVec_W' a),
+        subst_imp hB hF (isSemitermVec_V' a)]
+      congr 1
+      · -- 合取块：逐 `conjunct` 用 `subst_conjunct` + 归纳假设
+        rw [substs_and (by
+            rw [conjunct]
+            exact IsUFormula.and.mpr
+              ⟨(IsSemiformula.subst isSemiformula_cDomN
+                  (isSemitermVec_single_bvar (n := 4) (by norm_num))).isUFormula,
+                (IsSemiformula.subst (isSemiformula_iVE v.[0] hv0) (by
+                  rw [IsSemitermVec.cons_iff]
+                  exact ⟨IsSemiterm.bvar.mpr (by norm_num), isSemitermVec_shiftVec_V 3 1⟩)).isUFormula⟩)
+          (IsUFormula.and.mpr ⟨(by
+            rw [conjunct]
+            exact IsUFormula.and.mpr
+              ⟨(IsSemiformula.subst isSemiformula_cDomN
+                  (isSemitermVec_single_bvar (n := 4) (by norm_num))).isUFormula,
+                (IsSemiformula.subst (isSemiformula_iVE v.[1] hv1) (by
+                  rw [IsSemitermVec.cons_iff]
+                  exact ⟨IsSemiterm.bvar.mpr (by norm_num), isSemitermVec_shiftVec_V 3 1⟩)).isUFormula⟩⟩,
+            IsUFormula.verum⟩)]
+        sorry
+      · -- 结论项
+        exact (subst_concl_W' (a := a) hcf).trans (subst_concl_V' (a := a) hcf).symm
 
 end GodelQ.ITSubsts1
 
