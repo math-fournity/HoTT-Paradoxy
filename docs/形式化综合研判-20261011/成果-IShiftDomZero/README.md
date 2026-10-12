@@ -511,3 +511,25 @@ substs_all : subst L w (^∀ p) = ^∀ (subst L (qVec L w) p)
 = subst ?[^&0] (shift (iTR 1 2 R v))`——
 需 `substs_all`/`substs_ex`（qVec）+ `substs_rel` + `termSubstVec_qVec_qVec` 的组合。
 **这是 hAB 的可行突破口**（此前被我误判为"只能走蕴含式"）。
+
+## 二十七、hAB 的突破口已定型（`ITRSubst-target.lean`）
+
+**目标引理**（陈述已过类型检查）：
+```lean
+lemma subst_cRel_under_binders (R : V) :
+    subst ?[^&0] (qqAlls (subst [#0,#1] (cRel R)) 2)
+      = qqAlls (subst (qVec ?[^&0]) (subst [#0,#1] (cRel R))) 2
+```
+
+**证明路径**（零件已确认存在）：
+- `qqAlls_succ : qqAlls p (k+1) = ^∀ (qqAlls p k)`——**归纳骨架**（照 9276 的 `shift_qqAlls`）
+- `substs_all : subst L w (^∀ p) = ^∀ (subst L (qVec L w) p)`——每层下降
+- `termSubstVec_qVec_qVec`——qVec 的嵌套律
+- `cRel R` 是闭项（numeral）——`subst` 对其无作用（需证，见下）
+
+**唯一待证的小件**：`subst w (cRel R) = cRel R`（闭项不受替换影响）。
+Foundation **没有**现成的 subst-numeral 引理（本机实测确认），
+需自证——但 `cRel R = ↑n` 是 numeral，路径应短。
+
+**这是本会话留给下一会话的精确突破口**：一旦 `subst_cRel` 与 qVec 归纳完成，
+`hAB` 的恒等式即成立，`hAll`/`hExs` 随之解锁。
