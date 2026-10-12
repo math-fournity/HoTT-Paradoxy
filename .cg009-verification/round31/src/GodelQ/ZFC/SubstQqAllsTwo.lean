@@ -20,8 +20,8 @@ namespace GodelQ.SubstQqAllsTwo
 /-- **The two-step `subst` / `qqAlls` descent.**
     Substituting under two nested universal quantifiers transforms the vector by
     two `qVec` steps: `subst w (qqAlls p 2) = qqAlls (subst (qVec² w) p) 2`. -/
-lemma subst_qqAlls_two {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] {w p : V}
-    (_hp : IsSemiformula ℒₛₑₜ 1 p) :
+lemma subst_qqAlls_two {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] {w p n : V}
+    (_hp : IsSemiformula ℒₛₑₜ n p) :
     subst ℒₛₑₜ w (qqAlls p (2 : V))
       = qqAlls (subst ℒₛₑₜ (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) p) (2 : V) := by
   have h0 : IsUFormula ℒₛₑₜ p := _hp.isUFormula
