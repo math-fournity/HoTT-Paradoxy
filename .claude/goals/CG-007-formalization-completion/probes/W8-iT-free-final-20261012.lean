@@ -87,8 +87,29 @@ example {R : V} (hR : (ℒₒᵣ).IsRel 2 R) :
           (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
           (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)))) (2 : V) :=
     subst_qqAlls hbody 2 (?[^&0] : V)
+  -- 先化简 `.[0]`/`.[1]`，让 `hR` 能匹配
+  simp only [nth_adjoin_zero, nth_adjoin_one]
+  have hAR : IsSemiformula ℒₛₑₜ 3
+      (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+        (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤)) :=
+    IsSemiformula.and.mpr ⟨hc0, IsSemiformula.and.mpr ⟨hc1, IsSemiformula.verum⟩⟩
   rw [hR, hq2]
   congr 1
+  -- `imp p q = neg p ^⋎ q`（definitional）：用 `show` 把目标写成 ⋎ 形式
+  show neg ℒₛₑₜ (conjunct 2 0 0 (iVE (0:V) (^&(0:V) : V)) ^⋏
+        (conjunct 2 0 1 (iVE (0:V) (^&(0:V) : V)) ^⋏ ^⊤))
+      ^⋎ subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)
+    = subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V)
+        (neg ℒₛₑₜ (conjunct 2 1 0 (iVE (1:V) (^#(0:V) : V)) ^⋏
+          (conjunct 2 1 1 (iVE (1:V) (^#(0:V) : V)) ^⋏ ^⊤))
+          ^⋎ subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
+  -- 两侧都推 subst：`neg (subst _ A) ⋎ subst _ C`
+  have hC3 : IsSemiformula ℒₛₑₜ 3 (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) := hsub
+  rw [Bootstrapping.substs_neg (L := ℒₛₑₜ) (n := 3) hAR,
+    Bootstrapping.substs_and (L := ℒₛₑₜ) hc0 hc1]
+  -- 现在右侧是 `neg (subst _ (conjunct ⋏)) ⋎ subst _ (subst _ C) = subst _ (neg A ⋎ C)`
+  rw [Bootstrapping.substs_or (L := ℒₛₑₜ) hAR.neg.isUFormula
+    (hsub.isUFormula)]
   sorry
 
 end GodelQ.ProbeAtom
