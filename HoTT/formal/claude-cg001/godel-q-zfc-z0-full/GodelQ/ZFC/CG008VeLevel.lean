@@ -38,7 +38,7 @@ lemma ve0_isUFormula {k f : V} (hk : k = 0) :
     Bootstrapping.IsUFormula ℒₛₑₜ (Translate.ve0 k f) := by
   rw [Translate.ve0]
   refine Bootstrapping.IsUFormula.imp.mpr ⟨Bootstrapping.IsUFormula.verum, ?_⟩
-  exact GodelQ.CG008VeParts.subst_singleton_isUFormula (cFunc_isSemiformula_one hk)
+  exact GodelQ.CG008VeParts.subst_singleton_isUFormula (V := V) 0 (cFunc_isSemiformula_one hk)
 
 end GodelQ.CG008VeLevel
 
