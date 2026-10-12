@@ -38,14 +38,20 @@ lemma cDomN_isSemiformula_le {n : V} (hn : 1 ≤ n) :
   rcases GodelQ.CG008Ve2.cDomN_isSemiformula (V := V) with ⟨hu, hbv⟩
   exact ⟨hu, le_trans hbv hn⟩
 
--- **`conjunct` 的第一块未证**：`subst ?[#i] cDomN` 要 `IsSemiformula ℒₛₑₜ (i+1) cDomN`，
--- 即需要 `1 ≤ i + 1`。但 `V` 的 `LT` 是**裸的**（`ORingStructure` 只 extends `LT α`，
--- 见 `Basic/Misc.lean:16`），没有 `OrderedRing`/`Preorder` 实例——
--- 所以 `1 ≤ i + 1` **不能**由 `add_le_add_right`/`omega` 直接得到。
--- 需要用 `V ⊧ 𝗜𝚺₁` 的语义（`V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁`）把 `≤` 与系统内的 `<` 连起来。
--- **这是下一步的具体工作**，不是概念障碍。
+/-- **`conjunct` 的第一块**：`subst ?[#i] cDomN` 是公式。
+
+**层数**：`subst_isUFormula` 的形状是
+`IsSemiformula L n p → IsSemitermVec L n m w → IsSemiformula L m (subst L w p)`。
+`?[^#i]` 给的是 `IsSemitermVec L 1 (i+1)`，所以 **`n = 1`**（不是 `i+1`！），
+而 `cDomN` 恰好在层 1 是 `IsSemiformula`（`cDomN_isSemiformula`）——
+**不需要 `1 ≤ i + 1`**。先前把 `n` 与 `m` 弄反了。 -/
+lemma conjunct_fst_isUFormula (i : V) :
+    Bootstrapping.IsUFormula ℒₛₑₜ (Bootstrapping.subst ℒₛₑₜ (?[^#i] : V) (Translate.cDomN : V)) :=
+  GodelQ.CG008SubstFormula.subst_isUFormula (n := 1) (m := i + 1)
+    (isSemitermVec_single i) (GodelQ.CG008Ve2.cDomN_isSemiformula (V := V))
 
 end GodelQ.CG008Conj
 
 #print axioms GodelQ.CG008Conj.isSemitermVec_single
 #print axioms GodelQ.CG008Conj.cDomN_isSemiformula_le
+#print axioms GodelQ.CG008Conj.conjunct_fst_isUFormula
