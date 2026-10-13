@@ -65,3 +65,18 @@ example : (QvecV (V := V) (2 : V)).[2] = (^&0 : V) := nth_QvecV_last 2
 -- (see `Ve2BinderProbe`), so it DOES read `w.[mm+3]`.
 -- ⇒ `QvecV (mm+3)` fails; `QvecV (mm+4)` is required, i.e. the outer vector in
 --   `iVE_open` must be `QvecV (mm+2)` so the two descents land on `QvecV (mm+4)`.
+
+/-- **The exact layer equation, settled.**
+    The body of `ve2 (mm+1) 2 f w` contains `conjunct 3 (mm+1) i _`.
+    `subst_QvecV_conjunct (n := mm+1)` needs the outer vector `QvecV ((mm+1)+3)`.
+    And `(mm+1)+3 = mm+4` — verified by the chain below.
+    Meanwhile `qVec^2 (QvecV (mm+1)) = QvecV (mm+3)`, which is ONE level short.
+    Hence the outer vector in `iVE_open`'s func branch must be `QvecV (mm+2)`,
+    so that two descents land on `QvecV (mm+4)`. -/
+example {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] {mm : V} :
+    (mm + 1) + 3 = mm + 4 := by ring
+
+/-- At `mm = 0`: the body conjunct is `conjunct 3 1 i _`, needing `QvecV 4`.
+    The descent of `QvecV 1` gives `QvecV 3` — one short. ✓ matches. -/
+example {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] :
+    (1 : V) + 3 = 4 := by ring
