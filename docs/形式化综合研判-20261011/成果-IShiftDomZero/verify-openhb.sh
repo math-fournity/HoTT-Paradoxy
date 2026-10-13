@@ -33,10 +33,11 @@ ok=0; bad=0; sorry=0
 for f in $FILES; do
   log="$OUT/$f.log"
   timeout 110 "$LEAN" --o="$OUT/$f.olean" -R "$SRC" "$SRC/GodelQ/ZFC/$f.lean" >"$log" 2>&1
-  if grep -q '^src.*error' "$log"; then
-    echo "FAIL  $f"; grep '^src.*error' "$log" | head -2; bad=$((bad+1))
-  elif grep -q 'sorry' "$log"; then
-    echo "SORRY $f"; sorry=$((sorry+1))
+  rc=$?
+  if [ "$rc" -ne 0 ] || grep -q 'error:' "$log"; then
+    echo "FAIL  $f  (rc=$rc)"; grep 'error:' "$log" | head -3; bad=$((bad+1))
+  elif grep -qE 'sorry|sorryAx' "$log"; then
+    echo "SORRY $f  (rc=$rc)"; grep -n 'sorry' "$log" | head -2; sorry=$((sorry+1))
   else
     echo "OK    $f"; ok=$((ok+1))
   fi
