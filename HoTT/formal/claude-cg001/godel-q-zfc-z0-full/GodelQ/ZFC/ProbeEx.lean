@@ -7,17 +7,13 @@ set_option maxHeartbeats 4000000
 namespace GodelQ.ProbeEx
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
--- hExs：^∃ p ∈ s，子推导在 substs1 ℒᵣ t p ⫽ s（**没有 setShift！**）
--- Derivable.exs 要 Derivable (substs1 ℒₜ ??? (iT 1 p) ⫽ s)
--- ih 给的是 Derivable (translateSeq (fstIdx dd))
---      = Derivable (insert (iT 0 (substs1 ℒᵣ t p)) (translateSeq s))
---
--- 所以 hExs 的核心等式是：
---   iT 0 (substs1 ℒᵣ t p) = substs1 ℒₜ ?? (iT 1 p)
--- 注意：hExs 没有 free、没有 setShift、没有 shift！比 hAll 简单。
+-- 先算 termSubst ?[^&0] ^#0
+example : termSubst ℒₒᵣ (?[^&0] : V) (^#(0:V) : V) = (^&(0:V) : V) := by
+  rw [show ((?[^&0] : V) = ((^&(0:V) : V) ∷ (0:V))) from rfl,
+    show ((^#(0:V) : V) = ((^#(0:V) : V) ∷ 0)) from rfl,
+    show (0:V) = ((0:ℕ):V) by norm_num,
+    termSubstVec_cons₂ (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
+    termSubstVec_nil, termSubst_fvar, termSubst_bvar]
+  rfl
 
-#check @iT_exs
-#check @substs1
-#check @iVE_subst_term
-#check @iVE
 end GodelQ.ProbeEx
