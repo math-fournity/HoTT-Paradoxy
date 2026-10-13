@@ -37,7 +37,7 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 装配方式照 `iTRDef`：每处函数应用展开成一个 `∃` 加它的图。 -/
 noncomputable def iTSetSuccDef : 𝚺ᴬ₁.Semisentence (2 + 3) := .mkSigma
-  “y ih n s k. (k ∈ s ∧ ∃ e, !iTDef e n k ∧ ∃ i, !insertDef i e ih ∧ y = i) ∨
+  “y ih k n s. (k ∈ s ∧ ∃ e, !iTDef e n k ∧ ∃ i, !insertDef i e ih ∧ y = i) ∨
     (k ∉ s ∧ y = ih)”
 
 /-- **三条零件的类型核对**（`succ` 公式用的就是它们）。 -/

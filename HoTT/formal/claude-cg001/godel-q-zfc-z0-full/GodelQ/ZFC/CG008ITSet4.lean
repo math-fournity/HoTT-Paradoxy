@@ -22,23 +22,40 @@ noncomputable def iTSet.blueprint : PR.Blueprint 2 where
   zero := .mkSigma “y n s. y = 0”
   succ := GodelQ.CG008ITSet3.iTSetSuccDef
 
--- **构造**：`zero := fun _ ↦ 0`，`succ` 用 Lean 的 `if`。
---
--- `succ_defined` 要证 `Evalb v ↑succ ↔ (if 式)`。**实质内容已证**：
--- `CG008ITSet3.iTSet_succ_graph` 正是这个 `↔` 的「`(if 式) ↔ (`∃`-串)」一半
--- （公理洁净）。照 `insert_defined`（`Bit.lean:319-320`）的形状，
--- `succ_defined` 应当是 `simp [iTSetSuccDef, iTSet_succ_graph]` 一行——
--- 那里能过是因为 `insert_graph` 的右边与 `Evalb` 展开后**同形**。
---
--- **剩下的一层**：把 `Evalb` 对 `(“#4 ∈ #3”)`/`⋏`/`⋎`/`∼`/`∃¹` 的展开
--- 与 `iTSetSuccDef` 的 `∃`-串对齐（`Evalb` 的逐项引理在
--- `Tarski/Basic.lean:254` 的 `Eval` 侧，是 `HomClass` 的 `map_*` 一族）。
---
--- **本文件停在蓝图**：`iTSet.blueprint` 已装配（类型核对通过）；
--- `iTSet.construction` 的两个 `_defined` 中 `zero_defined` 是 `simp`，
--- `succ_defined` 差上面这一层。
+open Classical in
+/-- **构造**：`zero := fun _ ↦ 0`，`succ` 用 Lean 的 `if`；
+`succ_defined` 照 `insert_defined`（`Bit.lean:319-320`）用 `simp`。 -/
+noncomputable def iTSet.construction : PR.Construction V iTSet.blueprint where
+  zero := fun _ ↦ 0
+  -- 照 `DisjSeqSubst.construction`（`Iteration.lean:181`）的约定：
+  -- `succ param k ih`——`k` 是索引、`ih` 是前一值；
+  -- 句子绑定 `“y ih k n s. …”` 即 `v 0 = y`、`v 1 = ih`、
+  -- `v 2`/`v 3` = 两个 param、`v 4` = `k`。
+  succ := fun param k ih ↦ if k ∈ param 1 then insert (Translate.iT (param 0) k) ih else ih
+  zero_defined := .mk fun v ↦ by simp [iTSet.blueprint]
+  succ_defined := .mk fun v ↦ by
+    simp [iTSet.blueprint, GodelQ.CG008ITSet3.iTSetSuccDef,
+      GodelQ.CG008ITSet3.iTSet_succ_graph]
 
--- **`iTSet n s`** 将是 `iTSet.construction.result ![n, s] (len s)`——
--- 待 `succ_defined` 收尾后即可定义。
+/-- **`iTSet n s`**：从 `0` 扫到 `len s`，把 `iT n` 逐元素作用上去。
+
+`iTSet n s = {iT n p | p ∈ s}`（位编码集合上的替换像）。 -/
+noncomputable def iTSet (n s : V) : V :=
+  iTSet.construction.result ![n, s] (Arithmetic.len s)
+
+-- **`iTSet` 的 Σ₁ 性**（收尾的形状）：照 `disjSeqSubstGraph`
+-- （`Iteration.lean:198-209`）——
+-- ```lean
+-- noncomputable def iTSetGraph : 𝚺ᴬ₁.Semisentence 4 :=
+--   iTSet.blueprint.resultDef |>.rew (Rew.subst ![#0, #3, #1, #2])
+-- instance iTSet.defined : 𝚺ᴬ₁-Function₃[V] iTSet via iTSetGraph :=
+--   .mk fun v ↦ by simp [construction.result_defined_iff, iTSetGraph, iTSet]
+-- ```
+-- **但 `iTSet` 只吃两个参数**（`n`、`s`），而递归位置是 **`len s`**——
+-- 一个 `s` 的**函数**，`rew`（只做变量重命名）表达不了。
+-- 所以 `iTSet` 的图要么 (a) 写成 `Function₂` 加一层 `len` 的复合
+-- （`DefinableFunction.comp`），要么 (b) 把递归位置也做成参数。
+-- **本文件停在 `iTSet` 的定义**：`construction`（含 `succ_defined`）已过，
+-- 图与实例属下一个工作单元。
 
 end GodelQ.CG008ITSet4
