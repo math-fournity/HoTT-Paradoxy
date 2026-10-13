@@ -80,10 +80,19 @@ def AllBlocker : Prop :=
     Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq (fstIdx dd)) →
     Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq s)
 
-/-- 同上，但结论写成 `Q` 的形状（`allIntro` 支的直接形式）。 -/
+/-- 同上，但结论写成 `Q` 的形状（`allIntro` 支的直接形式）。
+
+⚠ **2026-10-13 更正**：此前这一条**只有 `Q dd` 假设，丢掉了 `Derivation Sh.craig dd`**，
+于是它**过强**——`induction1` 的支里 `hd.2 : Derivation Sh.craig dd` 是现成的、
+且携带实质信息。缺了它，取 `p = ⊤` 时 `free ⊤ = ⊤`，
+`Q dd` 退化成「sequent 里有 `⊤`」，对**任意** `s` 无条件成立，
+blocker 便蕴含 `∀ s, ^∀ ⊤ ∈ s → Derivable (translateSeq s)`。
+机器证明见 `probes/W8-blockers-TOO-STRONG-20261013.lean`。
+现补回 `Derivation Sh.craig dd`，与 `induction1` 支手里的一致。 -/
 def AllBlockerQ : Prop :=
   ∀ {s p dd : V}, IsFormulaSet (L := ℒₒᵣ) s → ^∀ p ∈ (s : V) →
     fstIdx dd = insert (free ℒₒᵣ p) (setShift (L := ℒₒᵣ) s) →
+    Derivation (V := V) (L := ℒₒᵣ) Sh.craig dd →
     Q (V := V) dd → Q (V := V) (allIntro s p dd)
 
 /-- **`hExs` 的阻塞义务**（精确形状）。
@@ -97,11 +106,17 @@ def ExsBlocker : Prop :=
     Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq (fstIdx dd)) →
     Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq s)
 
-/-- 同上，但结论写成 `Q` 的形状（`exsIntro` 支的直接形式）。 -/
+/-- 同上，但结论写成 `Q` 的形状（`exsIntro` 支的直接形式）。
+
+⚠ **2026-10-13 更正**：与 `AllBlockerQ` 同一缺陷——丢了 `Derivation Sh.craig dd`。
+取 `p = ⊤` 时 `substs1 t ⊤ = ⊤`，`Q dd` 退化成「sequent 里有 `⊤`」，
+blocker 便蕴含 `∀ s, ^∃ ⊤ ∈ s → Derivable (translateSeq s)`。
+机器证明见 `probes/W8-blockers-TOO-STRONG-20261013.lean`。 -/
 def ExsBlockerQ : Prop :=
   ∀ {s p t dd : V}, IsFormulaSet (L := ℒₒᵣ) s → ^∃ p ∈ (s : V) →
     IsTerm ℒₒᵣ t →
     fstIdx dd = insert (substs1 ℒₒᵣ t p) s →
+    Derivation (V := V) (L := ℒₒᵣ) Sh.craig dd →
     Q (V := V) dd → Q (V := V) (exsIntro s p t dd)
 
 /-- **`hRoot` 的阻塞义务**（`axm` 支，**就是 D3 本身**）。
@@ -133,10 +148,10 @@ theorem induction_setup_Q_of_blockers (hAllB : AllBlockerQ (V := V))
   · exact fun s hs p q dd hpq hd ih ↦ ShCraigElimBranches.hOr hs hpq hd.1 ih
   · -- allIntro：交给 AllBlocker（`fstIdx (allIntro s p dd) = s`）
     intro s hs p dd hp hd ih
-    exact hAllB hs hp hd.1 ih
+    exact hAllB hs hp hd.1 hd.2 ih
   · -- exsIntro：交给 ExsBlocker（`fstIdx (exsIntro s p t dd) = s`）
     intro s hs p t dd hp ht hd ih
-    exact hExsB hs hp ht hd.1 ih
+    exact hExsB hs hp ht hd.1 hd.2 ih
   · exact fun s hs dd h hd ih ↦ ShCraigElimBranches.hWk hs h ih
   · exact fun s hs dd h hd ih ↦ ShCraigElimBranches.hShift hs h ih
   · intro s hs p d₁ d₂ h₁ h₂ ih₁ ih₂
