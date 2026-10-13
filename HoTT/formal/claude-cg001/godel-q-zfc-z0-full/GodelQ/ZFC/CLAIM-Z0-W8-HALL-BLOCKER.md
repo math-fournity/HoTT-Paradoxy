@@ -95,6 +95,32 @@ iT_substs1 : ∀ m p w, IsSemiformula ℒₒᵣ (m+1) p → IsSemitermVec ℒₒ
 * `subst_qVec_domZero'`、`len_qVec`、`subst_qVec_shrink`、`substs_qqAlls` 族
   （均入生产包，exit 0）——**与形状修正无关，仍然有效**。
 
+## 2.6 ✅ 2026-10-13 最终定位：§2.5 的方向**正确**（源码级确认）
+
+本文件 §2.5 写「右端向量应为 `qVec (iVE-像 w)`」，中间一度被撤回（§12.45），
+**现经源码级确认，§2.5 是对的**：
+
+**决定性证据**（`Term/Basic.lean:321`，`TermRec.result` 的 graph）：
+
+```
+"y t. (!(isUTerm L).pi t → !(β.graph L) t y ⋯) ∧ (¬!(isUTerm L).sigma t → y = 0)"
+```
+
+**`result L` 依赖 `IsUTerm L`**。故对 `ℒₒᵣ` 的函数符号码（如 `+`）：
+
+* `termBShift ℒₛₑₜ (^func 2 addIndex v)`：`addIndex` **不是 `ℒₛₑₜ` 的函数符号**
+  ⟹ `IsUTerm ℒₛₑₜ` 假 ⟹ `result` 走 `y = 0` 支；
+* `termBShift ℒₒᵣ (^func 2 addIndex v)`：正常计算。
+
+**⟹ `qVec ℒₒᵣ w ≠ qVec ℒₛₑₜ w`（一般 `w`）**。
+**`subst ℒₛₑₜ` 不能直接吃 `ℒₒᵣ` 的项向量**——必须经 `iVE` 转成 `ℒₛₑₜ` 的层。
+
+**边界**：`bvar`/`fvar` 上两语言一致（`IsUTerm.bvar`/`.fvar` 对任意 `L` 成立），
+故 `^#z`/`^&x` 的 `termBShift` 跨语言相同——
+**四条已证命题（§12.53）仅覆盖这些构造子，不能外推**。
+
+**这是 `iT_substs1` 真正难的原因**，也是 `iVE`/`iTR` 存在的原因。
+
 ## 3. 为什么它难——三条**机器确认的**结构性障碍
 
 ### 3.1 向量长度的三种含义混淆
