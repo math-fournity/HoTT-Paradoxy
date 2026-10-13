@@ -42,7 +42,7 @@ open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Boots
 open FFL.Entailment ProvabilityAbstraction
 open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
 open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.Z0Full
-open GodelQ.SeqTranslate GodelQ.ShCraigElimSetup
+open GodelQ.SeqTranslate GodelQ.ShCraigElimSetup GodelQ.TranslateShiftCompat
 
 namespace GodelQ.ShCraigElimSetupQ
 
@@ -187,6 +187,60 @@ lemma replace_of_imp {A B S : V}
         · exact mem_bitInsert_iff.mpr (Or.inr (mem_bitInsert_iff.mpr (Or.inl rfl)))
         · exact absurd hy (by simp)
 
+
+/-! ## `imp` 弱化（2026-10-12 新增）
+
+`imp_wk`：`insert X S` 可导 ⟹ `insert (D 🡒 X) S` 可导。
+
+单边 LK 里 `D 🡒 X = ¬D ⋎ X`：先把 `¬D` 弱化进 sequent，再用 `Derivable.or`。
+
+**为什么它是 `hAll` 的关键**：`hAll` 的 `all_m` 要 `free ℒₛₑₜ q`（`q = imp domZero (iT 1 p)`），
+而 `ih` 给的是 `iT 0 (free ℒₒᵣ p)`。此前几轮一直想把这两者证成**相等**——
+那需要 `iT` 与 `substs1` 的一般交换律，极难。但 `free_imp_domZero` 给出
+
+```
+free ℒₛₑₜ (imp domZero X) = imp (subst ?[^&0] domZero) (free ℒₛₑₜ X)
+```
+
+于是**只需**从 `free ℒₛₑₜ (iT 1 p)` 弱化到 `imp D (free ℒₛₑₜ (iT 1 p))`——
+这正是本引理，一步 `or` 即得，**不需要任何等式桥接**。 -/
+
+/-- **`imp` 弱化**：`insert X S` 可导 ⟹ `insert (D 🡒 X) S` 可导。 -/
+lemma imp_wk {D X S : V} (hD : IsFormula ℒₛₑₜ D) (hX : IsFormula ℒₛₑₜ X)
+    (hS : IsFormulaSet (L := ℒₛₑₜ) S)
+    (h : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert X S)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (imp ℒₛₑₜ D X) S) := by
+  show Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (neg ℒₛₑₜ D ^⋎ X) S)
+  refine Derivable.or (s := S) (p := neg ℒₛₑₜ D) (q := X) ?_
+  refine Derivable.wk (s := insert (neg ℒₛₑₜ D) (insert X S))
+    (s' := insert X S) ?_ ?_ h
+  · intro y hy
+    rcases mem_bitInsert_iff.mp hy with rfl | hy
+    · exact hD.neg
+    · rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact hX
+      · exact hS y hy
+  · intro y hy
+    exact mem_bitInsert_iff.mpr (Or.inr hy)
+
+/-- **`hAll` 的前提归约**：`all_m` 要的 `free ℒₛₑₜ (imp domZero Y)` 可由 `free ℒₛₑₜ Y` 得到。
+
+`all_m` 的前提是 `Derivable (insert (free ℒₛₑₜ q) (setShift (translateSeq s)))`，
+其中 `q = imp ℒₛₑₜ domZero (iT 1 p)`（由 `iT_all` 强制）。`free_imp_domZero` 把
+`free (imp domZero Y)` 拆成 `imp (subst ?[^&0] domZero) (free Y)`，再由 `imp_wk`
+从 `Derivable (insert (free Y) S)` 得到所要的 sequent。
+
+**关键**：本引理**不需要** `iT 0 (free ℒₒᵣ p)` 与 `free ℒₛₑₜ (iT 1 p)` 之间的任何**等式**——
+那正是此前几轮反复受阻之处（等式确实是假的）。所需的只是**一次 ∨ 弱化**。 -/
+lemma all_m_premise {Y S : V} (hY : IsSemiformula ℒₛₑₜ 1 Y)
+    (hS : IsFormulaSet (L := ℒₛₑₜ) S)
+    (h : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (free ℒₛₑₜ Y) S)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert (free ℒₛₑₜ (imp ℒₛₑₜ domZero Y)) S) := by
+  rw [free_imp_domZero hY]
+  have hD : IsFormula ℒₛₑₜ (subst ℒₛₑₜ (?[^&0] : V) (domZero (V := V))) :=
+    IsSemiformula.subst (L := ℒₛₑₜ) (n := (1:V)) (m := (0:V)) isSemiformula_domZero'
+      (IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (n := (0:V)) 0))
+  exact imp_wk hD hY.free hS h
 
 /-! ## 可证公式入 sequent（2026-10-12 新增） -/
 
