@@ -136,16 +136,58 @@ theorem standard_body_bridges (φ : ArithmeticSemiformula Empty 1)
     IsPrenexHierarchy 𝚺 1 (⌜φ⌝ : V) :=
   (isPrenexHierarchy_quote_iff (Γ := 𝚺) (s := 1) (V := V) (n := 1) φ).mpr hφ
 
-/-- **第二处差（手段的类型）**：`W_induction` 的元层证明经 `naturalNumber_induction`，
-其前提之一是 `indPred_definable`（`PAModel.lean:189`）——用 `ℒₛₑₜ` 的分离在 `M` 里取子集。
+/-! ## 三、**标准码那一半已经付清**（本轮新证）
 
-那给的是 **`M ⊨`**；而缺口要的是 **`Provable 𝗭𝗙𝗖`**（V 内的推导码）。
-本定义把「标准体那一半的推导码义务」写成一条命题，供后续工作单元攻。 -/
-def StandardBodyProvable : Prop :=
-  ∀ (φ : ArithmeticSemiformula Empty 1), ℬ[<, ℒₒᵣ].PrenexHierarchy 𝚺 1 φ →
-    Provable 𝗭𝗙𝗖 (Translate.iT 0 (qqAlls (indBodyVal (⌜φ⌝ : V)) 0))
+`AxStep_induction` 只对**非标准** `p` 才是墙。理由是一条一行推论：
+
+- 若 `p = ⌜σ⌝` 且 `p ∈ 𝗜𝚺₁.Δ₁Class`，则 Foundation 的
+  `Δ₁Class.mem_iff`（`Theory.lean:91`，`@[simp]`）直接给出 `σ ∈ 𝗜𝚺₁`；
+- 于是 `axStep_standard`（`CG008AxStep.lean:57`，已证）给出 `Provable 𝗭𝗙𝗖 (iT 0 ⌜σ⌝)`。
+
+**所以标准码不需任何新数学**——`AxStep_induction` 的实质内容**全在非标准码上**。 -/
+
+/-- **标准码的归纳义务已付清**：`⌜σ⌝` 在 `𝗜𝚺₁.Δ₁Class` 里时，
+`iT 0 ⌜σ⌝` 在 𝗭𝗙𝗖 中可证。
+
+这是 `axStep_standard` + `Δ₁Class.mem_iff` 的一行组合；
+写出来是为了标明 **`AxStep_induction` 的墙全在非标准码上**。 -/
+theorem axStep_standard_code (σ : Sentence ℒₒᵣ)
+    (h : (⌜σ⌝ : V) ∈ (𝗜𝚺₁ : ArithmeticTheory).Δ₁Class) :
+    Provable 𝗭𝗙𝗖 (Translate.iT 0 (⌜σ⌝ : V)) :=
+  axStep_standard (V := V) σ (Δ₁Class.mem_iff.mp h)
+
+/-- **墙的精确位置**：`AxStep_induction` 与「非标准码的义务」等价。
+
+「非标准码的义务」= 对所有 `p`，**若 `p` 不是任何 `⌜σ⌝`** 而仍满足
+`InductionR (IsPrenexHierarchy 𝚺 1) p`，则 `Provable 𝗭𝗙𝗖 (iT 0 p)`。
+
+**这就是全舰队唯一剩下的墙**——它已经把标准码排除在外了。 -/
+def NonstandardOnly : Prop :=
+  ∀ p : V, InductionR (IsPrenexHierarchy 𝚺 1) p →
+    (∀ σ : Sentence ℒₒᵣ, p ≠ ⌜σ⌝) → Provable 𝗭𝗙𝗖 (Translate.iT 0 p)
+
+/-- **`AxStep_induction` 分解为「标准（已付清）+ 非标准（墙）」**。
+
+标准支由 `axStep_standard_code` 付清（在 `p ∈ 𝗜𝚺₁.Δ₁Class` 的前提下），
+所以 `AxStep_induction` 的全部实质内容就是 `NonstandardOnly`。 -/
+theorem axStep_induction_reduces :
+    AxStep_induction (V := V) ↔
+      (∀ p : V, InductionR (IsPrenexHierarchy 𝚺 1) p →
+        (∃ σ : Sentence ℒₒᵣ, p = ⌜σ⌝) ∨ Provable 𝗭𝗙𝗖 (Translate.iT 0 p)) := by
+  constructor
+  · intro h p hp
+    by_cases hex : ∃ σ : Sentence ℒₒᵣ, p = ⌜σ⌝
+    · exact Or.inl hex
+    · exact Or.inr (h p hp)
+  · intro h p hp
+    rcases h p hp with (⟨σ, rfl⟩ | hprov)
+    · exact axStep_standard_code (V := V) σ
+        (InductionOnPrenexHierarchy.mem_Δ₁Class_iff.mpr (Or.inr hp))
+    · exact hprov
 
 end GodelQ.CG008InductionBody
 
 #print axioms GodelQ.CG008InductionBody.induction_body_is_prenex
 #print axioms GodelQ.CG008InductionBody.standard_body_bridges
+#print axioms GodelQ.CG008InductionBody.axStep_standard_code
+#print axioms GodelQ.CG008InductionBody.axStep_induction_reduces
