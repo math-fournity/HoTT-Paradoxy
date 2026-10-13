@@ -844,6 +844,103 @@ lemma termSubst_congr {n w w' : V} (hww : ∀ i < n, w.[i] = w'.[i]) :
     exact termSubstVec_congr hww hv ih
   · exact ht
 
+/-- **`termSubstVec` 的分量一致性**（语言多态版）。 -/
+lemma termSubstVec_congr' {L : Language} [L.Encodable] [L.LORDefinable] {n w w' : V}
+    (hww : ∀ i < n, w.[i] = w'.[i]) :
+    ∀ {k : V} {v : V}, IsSemitermVec L k n v →
+      (∀ i < k, termSubst L w v.[i] = termSubst L w' v.[i]) →
+      termSubstVec L k w v = termSubstVec L k w' v := by
+  intro k v hv ih
+  apply nth_ext' k (by rw [len_termSubstVec hv.isUTerm])
+    (by rw [len_termSubstVec hv.isUTerm])
+  intro i hi
+  rw [nth_termSubstVec hv.isUTerm hi, nth_termSubstVec hv.isUTerm hi]
+  exact ih i hi
+
+/-- **`termSubst` 只看前 `n` 个分量**（语言多态版）。 -/
+lemma termSubst_congr' {L : Language} [L.Encodable] [L.LORDefinable] {n w w' : V}
+    (hww : ∀ i < n, w.[i] = w'.[i]) :
+    ∀ t, IsSemiterm L n t → termSubst L w t = termSubst L w' t := by
+  intro t ht
+  apply IsSemiterm.sigma1_induction (L := L) (n := n)
+    (P := fun t ↦ termSubst L w t = termSubst L w' t)
+  · definability
+  · intro z hz; rw [termSubst_bvar, termSubst_bvar]; exact hww z hz
+  · intro x; rw [termSubst_fvar, termSubst_fvar]
+  · intro k f v hkf hv ih
+    rw [termSubst_func hkf hv.isUTerm, termSubst_func hkf hv.isUTerm]
+    congr 1
+    exact termSubstVec_congr' hww hv ih
+  · exact ht
+
+/-- **`subst` 只看前 `n` 个分量**（语言多态版；`ℒₛₑₜ` 版是 `subst_congr_prefix`）。 -/
+lemma subst_congr_prefix' {L : Language} [L.Encodable] [L.LORDefinable] :
+    ∀ {n : V} (p : V), IsSemiformula L n p →
+    ∀ {k₁ k₂ m w w' : V}, n ≤ k₁ → n ≤ k₂ →
+    IsSemitermVec L k₁ m w → IsSemitermVec L k₂ m w' →
+    (∀ i < n, w.[i] = w'.[i]) → subst L w p = subst L w' p := by
+  intro n p hp
+  apply IsSemiformula.pi1_structural_induction (L := L) ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ hp
+  · definability
+  · intro n k R v hR hv k₁ k₂ m w w' h1 h2 hw hw' H
+    rw [Bootstrapping.substs_rel (L := L) hR hv.isUTerm,
+      Bootstrapping.substs_rel (L := L) hR hv.isUTerm]
+    congr 1
+    apply nth_ext' k (by rw [len_termSubstVec hv.isUTerm])
+      (by rw [len_termSubstVec hv.isUTerm])
+    intro i hi
+    rw [nth_termSubstVec hv.isUTerm hi, nth_termSubstVec hv.isUTerm hi]
+    exact termSubst_congr' (n := n) H v.[i] (hv.nth hi)
+  · intro n k R v hR hv k₁ k₂ m w w' h1 h2 hw hw' H
+    rw [Bootstrapping.substs_nrel (L := L) hR hv.isUTerm,
+      Bootstrapping.substs_nrel (L := L) hR hv.isUTerm]
+    congr 1
+    apply nth_ext' k (by rw [len_termSubstVec hv.isUTerm])
+      (by rw [len_termSubstVec hv.isUTerm])
+    intro i hi
+    rw [nth_termSubstVec hv.isUTerm hi, nth_termSubstVec hv.isUTerm hi]
+    exact termSubst_congr' (n := n) H v.[i] (hv.nth hi)
+  · intro n k₁ k₂ m w w' _ _ _ _ _; simp
+  · intro n k₁ k₂ m w w' _ _ _ _ _; simp
+  · intro n p q hp hq ihp ihq k₁ k₂ m w w' h1 h2 hw hw' H
+    rw [Bootstrapping.substs_and (L := L) hp.isUFormula hq.isUFormula,
+      Bootstrapping.substs_and (L := L) hp.isUFormula hq.isUFormula,
+      ihp h1 h2 hw hw' H, ihq h1 h2 hw hw' H]
+  · intro n p q hp hq ihp ihq k₁ k₂ m w w' h1 h2 hw hw' H
+    rw [Bootstrapping.substs_or (L := L) hp.isUFormula hq.isUFormula,
+      Bootstrapping.substs_or (L := L) hp.isUFormula hq.isUFormula,
+      ihp h1 h2 hw hw' H, ihq h1 h2 hw hw' H]
+  · intro n p hp ih k₁ k₂ m w w' h1 h2 hw hw' H
+    rw [Bootstrapping.substs_all (L := L) hp.isUFormula,
+      Bootstrapping.substs_all (L := L) hp.isUFormula]
+    congr 1
+    refine ih (add_le_add_iff_right (1:V) |>.mpr h1)
+      (add_le_add_iff_right (1:V) |>.mpr h2) hw.qVec hw'.qVec ?_
+    intro i hi
+    rcases zero_or_succ i with (rfl | ⟨j, rfl⟩)
+    · simp [Bootstrapping.qVec]
+    · have hj : j < n := by simpa using hi
+      have hj1 : j < k₁ := lt_of_lt_of_le hj h1
+      have hj2 : j < k₂ := lt_of_lt_of_le hj h2
+      simp only [Bootstrapping.qVec, nth_adjoin_succ]
+      rw [show len w = k₁ from hw.lh, show len w' = k₂ from hw'.lh,
+        nth_termBShiftVec hw.isUTerm hj1, nth_termBShiftVec hw'.isUTerm hj2, H j hj]
+  · intro n p hp ih k₁ k₂ m w w' h1 h2 hw hw' H
+    rw [Bootstrapping.substs_ex (L := L) hp.isUFormula,
+      Bootstrapping.substs_ex (L := L) hp.isUFormula]
+    congr 1
+    refine ih (add_le_add_iff_right (1:V) |>.mpr h1)
+      (add_le_add_iff_right (1:V) |>.mpr h2) hw.qVec hw'.qVec ?_
+    intro i hi
+    rcases zero_or_succ i with (rfl | ⟨j, rfl⟩)
+    · simp [Bootstrapping.qVec]
+    · have hj : j < n := by simpa using hi
+      have hj1 : j < k₁ := lt_of_lt_of_le hj h1
+      have hj2 : j < k₂ := lt_of_lt_of_le hj h2
+      simp only [Bootstrapping.qVec, nth_adjoin_succ]
+      rw [show len w = k₁ from hw.lh, show len w' = k₂ from hw'.lh,
+        nth_termBShiftVec hw.isUTerm hj1, nth_termBShiftVec hw'.isUTerm hj2, H j hj]
+
 /-- **`subst` 只看前 `n` 个分量**：`w`、`w'` 前 `n` 个分量一致（`p` 层 `n`）⟹ 结果一致。
 
 `all`/`exs` 支是唯一实质：`qVec w` 的首分量恒为 `^#0`（两边自动一致），
