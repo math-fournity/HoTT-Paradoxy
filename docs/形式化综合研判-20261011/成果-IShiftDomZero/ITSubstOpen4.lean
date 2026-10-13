@@ -1,4 +1,13 @@
 -- CG-009: (★★) 的向量代数 —— qVec 的逐项展开 + VRel 的变换保持。
+--
+-- ## VRel 的参数化
+--
+-- `VRel m Vw Ww`：`len Vw = m+1`、`len Ww = m+2`，且
+--   (a) `∀ k ≤ m, Vw.[k] = Ww.[k]`
+--   (b) `Ww.[m+1] = ^&0`
+--
+-- rel 支：`Vw = ^#j ∷ shiftVec 2 m`（长 m+1）、`Ww = [^#j, ^#2, …, ^#(m+1), ^&0]`（长 m+2）。
+-- func 支：下降两层后 `Vw₁`、`Ww₁` 仍是同一形状（本文件的 `VRel_transform`）。
 import GodelQ.ZFC.ITSubstOpen3
 
 open FFL FFL.FirstOrder FFL FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
@@ -70,9 +79,48 @@ lemma nth_qVec_qVec_one {X : V} (hX : IsUTermVec ℒₛₑₜ (len X) X) :
   rw [nth_qVec_succ (X := qVec ℒₛₑₜ X) (k := 0) h1 h0]
   rw [nth_qVec_zero, termBShift_bvar]
 
+/-- `len (shiftVec 3 n) = n`。 -/
+lemma len_shiftVec_three' (n : V) : len (shiftVec 3 n) = n :=
+  (isSemitermVec_shiftVec_V 3 n).isUTerm.lh.symm
+
 /-- 向量关系（(★★) 的前提）。`len Vw = m+1`、`len Ww = m+2`；
     前 `m+1` 项相等，且 `Ww` 的末项是 `^&0`。 -/
 def VRel (m Vw Ww : V) : Prop :=
   (∀ k ≤ m, Vw.[k] = Ww.[k]) ∧ Ww.[m + 1] = ^&0
+
+-- 说明：`VRel_transform` 的完整证明需要大量 V 层算术（长度、索引的逐项核算）。
+-- 本文件先给出其**零件**（qVec 逐项 + 边界引理），完整证明见下一会话。
+-- 关键事实（已由 OpenLawCheck5 机器核验）：
+--   * qVec² 的索引 0/1 与 X 无关（^#0 / ^#1）
+--   * qVec² 在索引 j+2 处 = termBShift²(X.[j])
+--   * VRel m Vw Ww 的三条件在 qVec² + shiftVec 3 的复合下保持
+
+/-- 单调界：`k ≤ m` ⟹ `k < m + 2`。 -/
+lemma lt_add_two_of_le {k m : V} (hk : k ≤ m) : k < m + 2 :=
+  calc k ≤ m := hk
+    _ < m + 1 := lt_add_one m
+    _ < m + 2 := by
+        have h := lt_add_one (m + 1)
+        rwa [show (m + 1 : V) + 1 = m + 2 by ring] at h
+
+/-- 单调界：`k ≤ m + 1` ⟹ `k < m + 3`。 -/
+lemma lt_add_three_of_le {k m : V} (hk : k ≤ m + 1) : k < m + 3 :=
+  calc k ≤ m + 1 := hk
+    _ < m + 2 := by
+        have h := lt_add_one (m + 1)
+        rwa [show (m + 1 : V) + 1 = m + 2 by ring] at h
+    _ < m + 3 := by
+        have h := lt_add_one (m + 2)
+        rwa [show (m + 2 : V) + 1 = m + 3 by ring] at h
+
+/-- **VRel 的变换保持**（func 支的关键）。 -/
+lemma VRel_transform {m i Vw Ww : V}
+    (hV : IsUTermVec ℒₛₑₜ (len Vw) Vw) (hW : IsUTermVec ℒₛₑₜ (len Ww) Ww)
+    (hlV : len Vw = m + 1) (hlW : len Ww = m + 2)
+    (hi : i ≤ 1) (h : VRel m Vw Ww) :
+    VRel m
+      (termSubstVec ℒₛₑₜ (m + 1) (qVec ℒₛₑₜ (qVec ℒₛₑₜ Vw)) ((^#i : V) ∷ shiftVec 3 m))
+      (termSubstVec ℒₛₑₜ (m + 2) (qVec ℒₛₑₜ (qVec ℒₛₑₜ Ww)) ((^#i : V) ∷ shiftVec 3 (m + 1))) := by
+  sorry
 
 end GodelQ.ITSubstOpen4
