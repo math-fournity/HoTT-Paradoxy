@@ -49,7 +49,29 @@ theorem iT_subst_open (m : V) :
   · have hh := key hq (rfl : m + 1 = m + 1) (rfl : m + 1 = m + 1)
     simpa only [iT] using hh
   · definability
-  all_goals sorry
+  · -- rel（由 001-Flash 装配，此处略）
+    all_goals sorry
+  · -- nrel
+    all_goals sorry
+  · -- verum
+    intro n param h h1
+    -- 两侧都化到 `^⊤`：`iT` 的定义把 `iT p ^⊤` 算成 `verum p`
+    rw [show iT.construction.verum param = iT param ^⊤ from (iT_verum param).symm]
+    rw [Bootstrapping.substs_verum (L := ℒₒᵣ), iT_verum, iT_verum,
+      Bootstrapping.substs_verum (L := ℒₛₑₜ)]
+  · -- falsum
+    intro n param h h1
+    rw [show iT.construction.falsum param = iT param ^⊥ from (iT_falsum param).symm]
+    rw [Bootstrapping.substs_falsum (L := ℒₒᵣ), iT_falsum, iT_falsum,
+      Bootstrapping.substs_falsum (L := ℒₛₑₜ)]
+  · -- and
+    all_goals sorry
+  · -- or
+    all_goals sorry
+  · -- all
+    all_goals sorry
+  · -- exs
+    all_goals sorry
 
 end GodelQ.ITSubstOpenGen
 
