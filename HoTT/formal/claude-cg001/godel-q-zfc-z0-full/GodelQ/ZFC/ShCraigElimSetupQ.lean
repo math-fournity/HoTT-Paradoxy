@@ -242,6 +242,39 @@ lemma all_m_premise {Y S : V} (hY : IsSemiformula ℒₛₑₜ 1 Y)
       (IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (n := (0:V)) 0))
   exact imp_wk hD hY.free hS h
 
+/-! ## `hAll` 支的组装（2026-10-12 新增）
+
+`hAll` 的 `all_m` 有两条前提，本节的三个引理分别处理：
+
+| 前提 | 引理 |
+|---|---|
+| `^∀ (imp domZero (iT 1 p)) ∈ translateSeq s` | `hAll_mem`（`iT_all` + `mem_translateSeq_iff`） |
+| `Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) S)` | `all_m_premise`（`free_imp_domZero` + `imp_wk`） |
+
+`hAll_reduce` 把两者拼起来，并把 `hAll` 的**全部**剩余压成一条形状干净的假设
+`T = free ℒₛₑₜ (iT 1 p)`——即 `ih` 手里的 `iT 0 (free ℒₒᵣ p)` 要换成 `free ℒₛₑₜ (iT 1 p)`。
+**注意**：那一步**不需要等式**，只需要在 sequent 层可换（见 §11 的说明）。 -/
+
+/-- **`all_m` 的第二条前提的元素归属**：`^∀ (imp domZero (iT 1 p)) ∈ translateSeq s`。 -/
+lemma hAll_mem {p s : V} (hp : IsUFormula ℒₒᵣ p) (hs : ^∀ p ∈ (s : V)) :
+    (^∀ (imp ℒₛₑₜ (domZero (V := V)) (iT (1:V) p)) : V) ∈ translateSeq s :=
+  mem_translateSeq_iff.mpr ⟨(^∀ p : V), hs,
+    ((iT_all (n := (0:V)) hp).trans (by rw [show ((0:V) + 1) = (1:V) by norm_num])).symm⟩
+
+/-- **`hAll` 支的归约**：`all_m` 的全部前提组装完毕，剩余压到一条 `hT`。
+
+`ih` 给的是 `Derivable (insert T S)`，其中 `T` 应当是 `free ℒₛₑₜ (iT 1 p)`；
+本引理把它送到 `all_m` 要的 `free ℒₛₑₜ (imp domZero (iT 1 p))`。 -/
+lemma hAll_reduce {p S T : V}
+    (hp : IsSemiformula ℒₒᵣ 1 p)
+    (hS : IsFormulaSet (L := ℒₛₑₜ) S)
+    (hT : T = free ℒₛₑₜ (iT (1:V) p))
+    (ih : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (insert T S)) :
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (insert (free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT (1:V) p))) S) := by
+  subst hT
+  exact all_m_premise (isSemiformula_iT (n := (1:V)) p hp) hS ih
+
 /-! ## 可证公式入 sequent（2026-10-12 新增） -/
 
 /-- **「可证公式可入 sequent」**：`Derivable (A ⫽ ∅)` ⟹ `Derivable (A ⫽ B)`。 -/
