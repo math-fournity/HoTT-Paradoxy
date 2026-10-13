@@ -867,10 +867,42 @@ lemma qVec_two : (qVec ℒₛₑₜ)^[2] (?[^&0] : V) = (?[^#0, ^#1, ^&0] : V) :
 **注意 `domZero` 侧**：`subst (qVec w) domZero = domZero`
 （`subst_qVec_domZero'`，本文件已证）；**不是** `subst ?[^&0] domZero = domZero`
 （那是假命题——`cDomN` 层数 1，带自由 bvar `#0`）。 -/
-theorem iT_substs1_gen {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (1 : V) ≤ n →
+theorem iT_substs1_gen {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p →
     ∀ w, IsSemitermVec ℒₛₑₜ n n w → IsSemitermVec ℒₒᵣ n n w →
       subst ℒₛₑₜ w (iT n p) = iT (n - 1) (subst ℒₒᵣ w p) := by
-  sorry
+  -- `∀ w, …` 使谓词是 **Π1**（`IsSemitermVec` 出现在否定位置），
+  -- 故用 `pi1_structural_induction`；它让 `n` 始终等于公式自身的层数，
+  -- 量词支因此可以合法地把归纳假设用在 `qVec w` 上（层数 `n+1`）。
+  intro p hp
+  refine IsSemiformula.pi1_structural_induction (L := ℒₒᵣ)
+    (P := fun n p => ∀ w : V, IsSemitermVec ℒₛₑₜ n n w → IsSemitermVec ℒₒᵣ n n w →
+      subst ℒₛₑₜ w (iT n p) = iT (n - 1) (subst ℒₒᵣ w p))
+    ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ hp
+  · definability
+  · -- rel
+    intro n k r v hR hv w hwS hwR
+    sorry
+  · -- nrel
+    intro n k r v hR hv w hwS hwR
+    sorry
+  · -- verum
+    intro n w _ _
+    sorry
+  · -- falsum
+    intro n w _ _
+    sorry
+  · -- and
+    intro n p q hp hq ihp ihq w hwS hwR
+    sorry
+  · -- or
+    intro n p q hp hq ihp ihq w hwS hwR
+    sorry
+  · -- all
+    intro n p hp ih w hwS hwR
+    sorry
+  · -- exs
+    intro n p hp ih w hwS hwR
+    sorry
 
 /-- **桥 `B(q)`**（`hkey_probe` 需要的形状，`n = 1`）。 -/
 theorem iT_substs1 {q : V} (hq : IsSemiformula ℒₒᵣ 1 q) :
@@ -880,7 +912,7 @@ theorem iT_substs1 {q : V} (hq : IsSemiformula ℒₒᵣ 1 q) :
     IsSemitermVec.singleton.mpr (IsSemiterm.fvar (1:V) (0:V))
   have hwR : IsSemitermVec ℒₒᵣ (1:V) (1:V) (?[^&0] : V) :=
     IsSemitermVec.singleton.mpr (IsSemiterm.fvar (1:V) (0:V))
-  have h := iT_substs1_gen q hq (by norm_num) (?[^&0] : V) hwS hwR
+  have h := iT_substs1_gen q hq (?[^&0] : V) hwS hwR
   rwa [show (1 : V) - 1 = 0 by norm_num] at h
 
 end GodelQ.ITSubsts1
