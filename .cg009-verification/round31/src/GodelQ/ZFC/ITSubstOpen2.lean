@@ -114,27 +114,28 @@ lemma isSemitermVec_QvecV_one_low {m : V} :
     IsSemitermVec ℒₛₑₜ (m + 2) (m + 1) (QvecV (V := V) (m + 1)) := by
   refine IsSemitermVec.iff.mpr ⟨(len_QvecV (m + 1)).trans (by ring), ?_⟩
   intro i hi
+  -- `hi : i < m + 2`；`nth_QvecV (m+1)` 要求 `i ≤ m + 1`。
+  -- `m + 2` 与 `(m + 1) + 1` 不是定义相等，需先 ring 改写再用 `lt_succ_iff_le.mp`。
+  have hi' : i < (m + 1) + 1 := by
+    have e : (m : V) + 2 = (m + 1) + 1 := by ring
+    rwa [e] at hi
+  have hle : i ≤ m + 1 := lt_succ_iff_le.mp hi'
   rw [show (QvecV (V := V) (m + 1)).[i]
       = if i = m + 1 then (^&0 : V) else ^#i from
-    GodelQ.IVEOpenFunc.nth_QvecV (m + 1) i (lt_succ_iff_le.mp hi)]
+    GodelQ.IVEOpenFunc.nth_QvecV (m + 1) i hle]
   split
   · exact IsSemiterm.fvar (m + 1) 0
   · rename_i hne
-    exact IsSemiterm.bvar.mpr (lt_of_le_of_ne (lt_succ_iff_le.mp hi) hne)
+    exact IsSemiterm.bvar.mpr (lt_of_le_of_ne hle hne)
 
-/-- **两个复合向量相等**：`W_L := ^#j ∷ shiftVec 2 m`（长 `m+1`）与
-    `W_R := ^#j ∷ shiftVec 2 (m+1)`（长 `m+2`）复合 `QvecV (m+1)` 后同值。
-    因为 `W_R` 多出的末项 `^#(m+2)` 落在 `QvecV (m+1)` 的 `^&0` 槽上，不被读取。 -/
-lemma composite_eq {m j : V} :
-    termSubstVec ℒₛₑₜ (m + 2) ((^#j : V) ∷ shiftVec 2 m) (QvecV (V := V) (m + 1))
-      = termSubstVec ℒₛₑₜ (m + 2) ((^#j : V) ∷ shiftVec 2 (m + 1)) (QvecV (V := V) (m + 1)) := by
-  have h1 : IsSemitermVec ℒₛₑₜ (m + 1) (m + 2) ((^#j : V) ∷ shiftVec 2 m) := by
-    have h := isSemitermVec_shiftVec_cons (b := 2) (n := m) (i := j) (by
-      have e : (2 : V) + m = m + 2 := by ring
-      rw [e]; exact lt_add_one (m + 1) ▸ lt_of_lt_of_le (lt_add_one m) (by ring_nf; exact le_rfl))
-    rwa [show ((m : V) + 1) = m + 1 from rfl] at h
-  have h2 : IsSemitermVec ℒₛₑₜ (m + 1) (m + 2) (QvecV (V := V) (m + 1)) :=
-    LayerMono.IsSemitermVec.mono isSemitermVec_QvecV_one_low (le_of_eq (by ring : (m : V) + 1 = m + 1))
-  sorry
+-- 〔2026-10-13 删除〕原本此处有一条 `composite_eq`（两个复合向量相等）。
+-- 它有两个问题：(1) 缺少 `j` 的上界参数，`j` 无约束时 `j < 2 + m` 不可证；
+-- (2) 使用了 `▸` 于不等式（非法）。已确认 **0 处下游引用**（全 worktree grep），
+-- 且 `ITSubstOpen6.subst_iVE_open` 不依赖它。留着只会让下一个会话误判进度，
+-- 故删除。等价功能由 `ITSubstOpen7.termSubstVec_two_QvecV_doubleton` 覆盖。
+--
+-- 原命题（若日后需要，须补 `hj : j < m + 2` 参数）：
+--   termSubstVec ℒₛₑₜ (m + 2) ((^#j : V) ∷ shiftVec 2 m) (QvecV (m + 1))
+--     = termSubstVec ℒₛₑₜ (m + 2) ((^#j : V) ∷ shiftVec 2 (m + 1)) (QvecV (m + 1))
 
 end GodelQ.ITSubstOpen2
