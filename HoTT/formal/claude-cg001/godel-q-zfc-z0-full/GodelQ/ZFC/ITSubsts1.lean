@@ -972,7 +972,28 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
   · -- exs
     intro n param p hp ih h h1
     rw [← h] at hp
-    sorry
+    rw [Bootstrapping.substs_ex (L := ℒₒᵣ) hp.isUFormula]
+    rw [iT_exs (hp.subst (isSemitermVec_fvar ℒₒᵣ param (0:V))).isUFormula]
+    rw [UformulaRec1.Construction.result_exs (c := iT.construction) (L := ℒₒᵣ)
+      hp.isUFormula (rfl : iT.construction.exsSize param p = 1)]
+    change (^∃ (domZero ^⋏ iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) : V) =
+      subst ℒₛₑₜ (?[^&0] : V)
+        (^∃ (domZero ^⋏
+          ((UformulaRec1.Construction.result ℒₒᵣ iT.construction
+            (iT.construction.exsChanges param 0) p ∷ (0 : V)) : V).[0]))
+    rw [nth_adjoin_zero]
+    change (^∃ (domZero ^⋏ iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) : V) =
+      subst ℒₛₑₜ (?[^&0] : V)
+        (^∃ (domZero ^⋏ iT (iT.construction.exsChanges param 0) p))
+    rw [show iT.construction.exsChanges param 0 = param + 1 from rfl]
+    rw [substs_ex (L := ℒₛₑₜ)
+      (IsUFormula.and.mpr ⟨(isSemiformula_domZero (n := param)).isUFormula,
+        (isSemiformula_iT p hp).isUFormula⟩)]
+    congr 1
+    rw [substs_and (L := ℒₛₑₜ) (isSemiformula_domZero (n := param)).isUFormula
+      (isSemiformula_iT p hp).isUFormula]
+    rw [subst_qVec_domZero_gen (isSemitermVec_fvar ℒₛₑₜ (1:V) (0:V)) (by rfl)]
+    rw [show (0 : V) + 1 = param from by rw [h1]; norm_num]
 
 /-- **桥 `B(q)`**（`hkey_probe` 需要的形状，`n = 1`，方向取反）。 -/
 theorem iT_substs1' {q : V} (hq : IsSemiformula ℒₒᵣ 1 q) :
