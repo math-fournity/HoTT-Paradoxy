@@ -1012,6 +1012,54 @@ lemma subst_congr_prefix : ∀ {n : V} (p : V), IsSemiformula ℒₛₑₜ n p �
         nth_termBShiftVec hw.isUTerm hj1, nth_termBShiftVec hw'.isUTerm hj2, H j hj]
 
 
+/-! ## `subst` 推过 `qqAlls`（2026-10-12 新增）
+
+`qqAlls X k` 是 `k` 层 `^∀` 的叠置。`subst` 推过它时向量按 `qVec` 迭代：
+`subst w (qqAlls X k) = qqAlls (subst ((qVec L)^[k] w) X) k`。
+
+**写成 Nat 归纳**（陈述里只有 `k+1`，无字面量 `2`）绕开 numeral 死锁；
+收尾用 `congr 3`（一次剥掉 `^∀`/`qqAlls`/`subst` 三层参数，
+剩下的向量等式由 `iterate_succ_apply'` 定义相等闭合）。 -/
+lemma substs_qqAlls : ∀ (k : ℕ) (X w : V), IsUFormula ℒₛₑₜ X →
+    subst ℒₛₑₜ w (qqAlls X (k : V))
+      = qqAlls (subst ℒₛₑₜ ((qVec ℒₛₑₜ)^[k] w) X) (k : V) := by
+  intro k
+  induction k with
+  | zero => intro X w _; simp
+  | succ j ih =>
+    intro X w hX
+    rw [show ((j + 1 : ℕ) : V) = (j : V) + 1 by push_cast; ring]
+    rw [qqAlls_succ]
+    have hu : IsUFormula ℒₛₑₜ (qqAlls X (j : V)) := isUFormula_qqAlls.mpr hX
+    rw [Bootstrapping.substs_all (L := ℒₛₑₜ) hu]
+    rw [ih X (qVec ℒₛₑₜ w) hX]
+    rw [qqAlls_succ]
+    congr 3
+
+/-- `qVec² ?[^&0] = ?[^#0,^#1,^&0]`（`substs_qqAlls` 在 `k = 2` 时的向量）。 -/
+lemma qVec_two : (qVec ℒₛₑₜ)^[2] (?[^&0] : V) = (?[^#0, ^#1, ^&0] : V) := by
+  rw [Function.iterate_succ_apply', Function.iterate_one]
+  rw [show qVec ℒₛₑₜ (?[^&0] : V) = (?[^#0, ^&0] : V) from by
+    rw [Bootstrapping.qVec, show len (?[^&0] : V) = (1:V) from by simp]
+    rw [show (1:V) = 0 + 1 by norm_num,
+      termBShiftVec_cons (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
+      termBShift_fvar, termBShiftVec_nil]]
+  rw [Bootstrapping.qVec,
+    show len (?[^#0, ^&0] : V) = (2:V) from by simp [len_adjoin, len_nil]; norm_num]
+  rw [show (2:V) = 0 + 1 + 1 by norm_num,
+    termBShiftVec_cons (IsUTerm.bvar (z := (0:V)))
+      (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.fvar (x := (0:V)))),
+    termBShift_bvar, show (0:V) + 1 = 1 by norm_num,
+    termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V))), termBShift_fvar]
+
+/-- `subst` 推过 `qqAlls` 的 `k = 2` 特例（`substs_qqAlls` 的常用形态）。 -/
+lemma substs_qqAlls_two {X : V} (hX : IsUFormula ℒₛₑₜ X) :
+    subst ℒₛₑₜ (?[^&0] : V) (qqAlls X (2:V))
+      = qqAlls (subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) X) (2:V) := by
+  rw [show (2:V) = ((2:ℕ):V) by norm_num, substs_qqAlls 2 X (?[^&0] : V) hX]
+  congr 2
+  exact qVec_two
+
 /-! ## `conjunct` 的换名律（2026-10-12 新增）
 
 `conjunct_rename`：`subst W (conjunct 2 1 i (iVE 1 ^#0)) = conjunct 2 0 i (iVE 0 ^&0)`（`i < 2`），
