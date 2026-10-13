@@ -73,18 +73,21 @@ lemma subst_iVE_fvar_eq {m x Vw Ww : V}
 -- 关键零件：**引号化句子**（层 1）的代入只读向量的第 0 项。
 -- 写成两条引理以避免 elaboration 超时。
 
--- 下一步（(★★) 的完整归纳）：
---
--- * bvar 支：`ITSubstOpen3.subst_iVE_bvar_eq` ✅
--- * fvar 支：`subst_iVE_fvar_eq` ✅（本文件）
--- * func k=0 支：`ve0` 不含参数向量，内层 `subst ?[^#0] (cFunc 0 f)` 是**引号化句子**，
---   任何向量 X 代入只读 X.[0]（需要一条 `subst_quoted_reads_zero`：
---   `subst X (subst ?[^#0] c) = subst ?[X.[0]] c`，用 `substs_substs` + `termSubstVec_cons₁`）
--- * func k=2 支：`ve2` 下降两层 ⇒ `VRel_transform` 保持关系 ⇒ 对 `v.[i]` 用归纳假设
---
--- 谓词：`PPred`（本文件，definability ✅）。
+-- 零件：**引号化句子**（层 1）的代入只读向量的第 0 项。
+
+/-- `subst X (subst ?[^#0] c) = subst ?[X.[0]] c`（`c` 层 1，`X` 是项向量）。
+    **取 `IsSemitermVec` 形式**（层数由调用方给，避免 layer 摩擦）。 -/
+lemma subst_quoted_reads_zero {c X m : V} (hc : IsSemiformula ℒₛₑₜ 1 c)
+    (hX : IsSemitermVec ℒₛₑₜ (len X) m X) (hpos : (0 : V) < len X) :
+    subst ℒₛₑₜ X (subst ℒₛₑₜ (?[^#0] : V) c)
+      = subst ℒₛₑₜ (?[X.[0]] : V) c := by
+  have hw : IsSemitermVec ℒₛₑₜ 1 (len X) (?[^#0] : V) :=
+    isSemitermVec_single_bvar (n := len X) hpos
+  rw [show subst ℒₛₑₜ X (subst ℒₛₑₜ (?[^#0] : V) c)
+      = subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 1 X (?[^#0] : V)) c from
+    Bootstrapping.substs_substs (L := ℒₛₑₜ) (l := 1) (n := len X) (m := m)
+      (p := c) hc hX hw]
+  rw [show (?[^#0] : V) = (^#0 : V) ∷ (0 : V) from rfl,
+    termSubstVec_cons₁ (IsUTerm.bvar (z := 0)), termSubst_bvar]
 
 end GodelQ.ITSubstOpen5
-
-
-
