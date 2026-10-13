@@ -128,18 +128,67 @@ theorem induction_iff : InductionTranslationProvable (V := V) ↔ AxStep_inducti
 在**任意**模型 V（含非标准）中，「`p` 等于某个标准元素 `↑(encode σ)`」
 强制 `p` 就是那个标准码——**这就是有限部分在 V 内也成立的原因**。
 
-**剩下的纯 Lean 步骤**（`extract_standard_code`，形状如下）：把 `ofList` 的
-`ch` 求值成「∃ σ ∈ l, p = ⌜σ⌝」。它是列表归纳：`nil` 支是 `⊥`，`cons` 支是
-`⋎` + `singleton_toTDef_ch_val`。本文件把它**陈述**为一条定义
-（不声称已证），供后续工作单元直接攻。 -/
+**剩下的纯 Lean 步骤**：把 `ofList` 的 `ch` 求值成「∃ σ ∈ l, p = ⌜σ⌝」。
+它是列表归纳：`nil` 支是 `⊥`，`cons` 支是 `⋎` + `singleton_toTDef_ch_val`
+（后者把 `↑(encode σ)` 桥到 `⌜σ⌝`，经 `Sentence.quote_eq_encode`）。
 
-/-- **有限部分的提取引理**（陈述；后续单元的攻击目标）：
+**本文件已证**（`mem_ofList_ch`、`mem_ofFinite_ch`、`axStep_finite_proved`）——
+有限部分不再是「陈述」，是定理。 -/
 
-`ofList l` 的 `ch` 求值后就是「`p` 等于列表中某个 `⌜σ⌝`」。
-证毕后，`axStep_finite_proved` 由 `axStep_standard`（已证）直接给出。 -/
-def ExtractStandardCode : Prop :=
-  ∀ (l : List (Sentence ℒₒᵣ)) (p : V),
-    V ⊧/![p] (Theory.Δ₁.ofList (L := ℒₒᵣ) l).ch.val ↔ ∃ σ ∈ l, p = ⌜σ⌝
+/-- **有限部分的提取引理**：`ofList l` 的 `ch` 求值后就是「`p` 等于列表中某个 `⌜σ⌝`」。
+
+证明：列表归纳。`nil` 支是 `⊥`；`cons` 支是 `⋎`（`Δ₁.add` 的 `ch`），
+单例侧经 `singleton_toTDef_ch_val` + `Sentence.quote_eq_encode`。 -/
+theorem mem_ofList_ch (l : List (Sentence ℒₒᵣ)) (p : V) :
+    V ⊧/![p] (Theory.Δ₁.ofList (L := ℒₒᵣ) l).ch.val ↔ ∃ σ ∈ l, p = ⌜σ⌝ := by
+  induction l with
+  | nil =>
+    show Semiformula.Evalb ![p] (Theory.Δ₁.ofList (L := ℒₒᵣ) []).ch.val ↔ _
+    rw [show (Theory.Δ₁.ofList (L := ℒₒᵣ) []).ch.val =
+        (⊥ : ArithmeticSemiformula Empty 1) from rfl]
+    simp
+  | cons φ l ih =>
+    rw [show (Theory.Δ₁.ofList (L := ℒₒᵣ) (φ :: l)).ch.val =
+        ((Theory.Δ₁.singleton φ).ch ⋎ (Theory.Δ₁.ofList (L := ℒₒᵣ) l).ch).val from rfl,
+      Bounding.HierarchySymbol.Semiformula.val_or, LogicalConnective.HomClass.map_or]
+    have hA : V ⊧/![p] (Theory.Δ₁.singleton φ).ch.val ↔ p = (⌜φ⌝ : V) := by
+      rw [Theory.Δ₁.singleton_toTDef_ch_val]
+      simp [numeral_eq_natCast]
+      rw [Sentence.quote_eq_encode]
+    rw [hA]
+    constructor
+    · rintro (h | h)
+      · exact ⟨φ, List.mem_cons_self .., h⟩
+      · obtain ⟨σ, hσ, rfl⟩ := ih.mp h
+        exact ⟨σ, List.mem_cons_of_mem _ hσ, rfl⟩
+    · rintro ⟨σ, hσ, rfl⟩
+      rcases List.mem_cons.mp hσ with (rfl | hσ)
+      · left; rfl
+      · right; exact ih.mpr ⟨σ, hσ, rfl⟩
+
+/-- **`ofFinite` 的成员判定**：`ofFinite` 就是 `ofList` 经 `ofEq`，`ch` 不变。 -/
+theorem mem_ofFinite_ch (T : Theory ℒₒᵣ) (h : Set.Finite T) (p : V) :
+    V ⊧/![p] (Theory.Δ₁.ofFinite T h).ch.val ↔ ∃ σ ∈ T, p = ⌜σ⌝ := by
+  rw [show (Theory.Δ₁.ofFinite T h).ch =
+      (Theory.Δ₁.ofList (L := ℒₒᵣ) h.toFinset.toList).ch from rfl, mem_ofList_ch]
+  simp [Set.Finite.mem_toFinset]
+
+/-- **`𝗣𝗔⁻` 的 `Δ₁Class` 成员必是标准公理码**：由 `PeanoMinus.delta1`
+（`= Theory.Δ₁.ofFinite`，`Definability.lean:26`）与 §二的提取引理。 -/
+theorem mem_PAMinus_is_standard {p : V} (hp : p ∈ (𝗣𝗔⁻ : ArithmeticTheory).Δ₁Class) :
+    ∃ σ : Sentence ℒₒᵣ, σ ∈ (𝗣𝗔⁻ : ArithmeticTheory) ∧ p = ⌜σ⌝ := by
+  have hch : V ⊧/![p]
+      (Theory.Δ₁.ofFinite (𝗣𝗔⁻ : ArithmeticTheory) PeanoMinus.finite).ch.val := hp
+  obtain ⟨σ, hσ, hpσ⟩ := mem_ofFinite_ch (V := V) _ PeanoMinus.finite p |>.mp hch
+  exact ⟨σ, hσ, hpσ⟩
+
+/-- **有限部分已证**：`𝗣𝗔⁻` 的公理码经 `iT 0` 后在 𝗭𝗙𝗖 中可证。
+
+`σ ∈ 𝗣𝗔⁻ ⟹ σ ∈ 𝗜𝚺₁`（`𝗜𝚺₁ = 𝗣𝗔⁻ ∪ …`），故 `axStep_standard` 直接适用。 -/
+theorem axStep_finite_proved : AxStep_finite (V := V) := by
+  intro p hp
+  obtain ⟨σ, hσ, rfl⟩ := mem_PAMinus_is_standard (V := V) hp
+  exact axStep_standard (V := V) σ (Set.mem_union_left _ hσ)
 
 end GodelQ.CG008AxStepSplit
 
@@ -148,3 +197,6 @@ end GodelQ.CG008AxStepSplit
 #print axioms GodelQ.CG008AxStepSplit.axStep_to_induction
 #print axioms GodelQ.CG008AxStepSplit.axStep_iff_induction_given_finite
 #print axioms GodelQ.CG008AxStepSplit.induction_iff
+#print axioms GodelQ.CG008AxStepSplit.mem_ofList_ch
+#print axioms GodelQ.CG008AxStepSplit.mem_PAMinus_is_standard
+#print axioms GodelQ.CG008AxStepSplit.axStep_finite_proved
