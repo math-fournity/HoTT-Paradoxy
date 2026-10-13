@@ -14,11 +14,14 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 section
 variable (X : V) (hX : IsUFormula ℒₒᵣ X)
 
--- LHS 第一步：substs1 套在 ^∀ 上（substs_all）
+-- LHS 全链：substs_all → iT_all
 example : iT (0:V) (substs1 ℒₒᵣ (^&(0:V) : V) ((^∀ X) : V))
-    = iT (0:V) (((^∀ (subst ℒₒᵣ ((qVec ℒₒᵣ ((?[^&0] : V)) : V)) X)) : V) : V) := by
+    = ((^∀ (imp ℒₛₑₜ (domZero (V := V))
+        (iT (1:V) (subst ℒₒᵣ ((qVec ℒₒᵣ ((?[^&0] : V)) : V)) X)))) : V) := by
   show iT (0:V) (subst ℒₒᵣ ((?[^&0] : V)) ((^∀ X) : V)) = _
-  rw [Bootstrapping.substs_all hX]
+  rw [Bootstrapping.substs_all hX, iT_all]
+  · sorry
+  · sorry
 
 end
 
