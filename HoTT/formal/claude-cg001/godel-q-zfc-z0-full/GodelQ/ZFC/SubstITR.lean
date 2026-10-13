@@ -1,4 +1,4 @@
-import GodelQ.ZFC.ITSubsts1
+import GodelQ.ZFC.SubstImp
 
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
 open FFL.Entailment ProvabilityAbstraction
@@ -27,9 +27,31 @@ qqAlls (imp (conjunct 2 n 0 (iVE n v.[0]) ⋏ (conjunct 2 n 1 (iVE n v.[1]) ⋏ 
 （`subst_conjunct` ×4 + 归纳假设），留给调用方按需展开。
 -/
 
+
 namespace GodelQ.ITSubsts1
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+
+/-! ## 两条 helper（从在建的 `ITSubsts1.lean` 搬来，使本文件自包含）
+
+`subst_iTR` 只用到这两条；搬过来后本文件不再依赖在建文件，可以过 F-011 收据。 -/
+
+/-- `qqAlls p 2 = ^∀ (^∀ p)`。 -/
+lemma qqAlls_two (p : V) : qqAlls p 2 = (^∀ (^∀ p) : V) := by
+  rw [show (2 : V) = 1 + 1 by norm_num, qqAlls_succ,
+    show (1 : V) = 0 + 1 by norm_num, qqAlls_succ, qqAlls_zero]
+
+/-- `subst` 穿过两层 `qqAlls`：向量变 `qVec (qVec w)`。 -/
+lemma subst_qqAlls_two {p w : V} (hp : IsUFormula ℒₛₑₜ p) :
+    subst ℒₛₑₜ w (qqAlls p 2) = qqAlls (subst ℒₛₑₜ (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) p) 2 := by
+  rw [qqAlls_two p, substs_all (IsUFormula.all.mpr hp), substs_all hp, qqAlls_two]
+
+/-- 项向量的层单调。 -/
+lemma isSemitermVec_mono {L : Language} [L.Encodable] [L.LORDefinable]
+    {k n m v : V} (h : IsSemitermVec L k n v) (hnm : n ≤ m) :
+    IsSemitermVec L k m v where
+  isUTermVec := h.isUTermVec
+  bv hi := le_trans (h.bv hi) hnm
 
 /-- `subst` 穿过 `iTR`：照 `subst_ve2` 的形状。
 `iTR n R v = qqAlls (imp (conjunct 2 n 0 (iVE n v.[0]) ⋏ (conjunct 2 n 1 (iVE n v.[1]) ⋏ ⊤))
@@ -64,5 +86,7 @@ lemma subst_iTR {n R v m w : V} (h0 : IsSemiformula ℒₛₑₜ (n + 1) (iVE n 
     subst_imp (n := 2 + n) (m := m) hA hF hw2,
     substs_substs (l := 2) (n := 2 + n) (m := m) (p := cRel R)
       (isSemiformula_cRel R) hw2 hmono]
+
+#print axioms GodelQ.ITSubsts1.subst_iTR
 
 end GodelQ.ITSubsts1

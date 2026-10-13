@@ -1,0 +1,81 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-405"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/SeqTranslate.lean",
+    "GodelQ/ZFC/SeqTranslateFormula.lean",
+    "GodelQ/ZFC/ShiftTools.lean",
+    "GodelQ/ZFC/SubstImp.lean",
+    "GodelQ/ZFC/SubstITR.lean"
+  ],
+  "completed_at_utc": "2026-10-13T16:13:04.277564+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/cg007-w8-d3",
+  "duration_seconds": 84.189795,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "c15a93f25fdb1498979bce01bdb6b8f30c28e1a66bcf46a57b23221cdae12855"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "桥 iT_substs1 本身仍未证：本条只是它的原子支所需的核心引理"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-SUBSTITR-001",
+  "run_id": "20261013-CG001-Z0-W8-SUBSTITR-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "subst_iTR：subst w (iTR n 2 R v) = qqAlls (imp (subst (qVec (qVec w)) (conjunct 2 n 0 (iVE n v.[0]) ⋏ (conjunct 2 n 1 (iVE n v.[1]) ⋏ ⊤))) (subst (termSubstVec 2 (qVec (qVec w)) ?[^#0,^#1]) (cRel R))) 2",
+  "source_manifest": {
+    "bytes": 205740,
+    "path": "source-manifest.json",
+    "sha256": "d5d0bb8f9b2e9e88ae7e202d70e9c863344750a51ea50f2ef2e041cfb26e94a7"
+  },
+  "started_at_utc": "2026-10-13T16:11:40.079788+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 14825,
+    "path": "stdout.txt",
+    "sha256": "ad01d16e89a43fdf69e52ff1f49bb3a5d635e8be42a6a29aaca725922b423ce2"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

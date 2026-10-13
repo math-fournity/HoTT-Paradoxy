@@ -2339,3 +2339,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 `hAll` 已证**：`hB` 是显式假设，桥 `B(q)`（`iT_substs1`）本身仍未证（其项层子律 T1 已证，见 `ITSubsts1.lean` 的 `iVE_subst_a0`）；也**不读成 `Derivable` 侧已好**——`ProbeHAllRoute` 的 `Derivable` 构造义务本轮未重验；`ShCraigElim` 与 `zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-HALLKEY-001` |
+
+### W8-U13：桥 `iT_substs1` 原子支核心引理 `subst_iTR`（CG001-C-405，2026-10-13）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-405 |
+| 形式命题 | `GodelQ.ITSubsts1.subst_iTR`：`subst ℒₛₑₜ w (iTR n 2 R v) = qqAlls (imp ℒₛₑₜ (subst ℒₛₑₜ (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) (conjunct 2 n 0 (iVE n v.[0]) ^⋏ (conjunct 2 n 1 (iVE n v.[1]) ^⋏ ^⊤))) (subst ℒₛₑₜ (termSubstVec ℒₛₑₜ 2 (qVec ℒₛₑₜ (qVec ℒₛₑₜ w)) ?[^#0, ^#1]) (cRel R))) 2` |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/SubstITR.lean`（本轮把两条 helper 搬入使文件自包含）与 `GodelQ/ZFC/SubstImp.lean` |
+| 主运行 | `HoTT/verification/runs/20261013-CG001-Z0-W8-SUBSTITR-01`（`verify_cg001_run.py --rerun` = `PASS_WITH_SCOPE`，`EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成桥已证**：这是桥**一个支**所需的工具引理；桥 `iT_substs1` 本体（九支组装）仍未通（隔离实测 exit 1 / 15 error） |
+| 包 | `MP-CG001-SUBSTITR-001` |
