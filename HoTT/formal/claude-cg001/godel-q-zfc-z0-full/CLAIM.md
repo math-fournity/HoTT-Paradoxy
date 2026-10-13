@@ -356,3 +356,43 @@ narrow : ∀ Σ₁ 句 σ, Provable 𝗜𝚺₁ ⌜σ⌝ → Provable 𝗭𝗙�
 `hD3G`；`Z0Blocked.lean:65` 的未证标记仍在。
 缺口的最窄形式：**把 `PAModel.lean` 的模型论论证（`models_PA_W`/`W_induction`，
 目前是元层）在 V 内形式化**。**不交付 Z0 为已证。**
+
+## 11. CG-008 P3 第十四、十五轮（2026-10-12）：缺口的两处结构障碍
+
+### 11.1 归纳步：`Fixpoint.induction` 可用，缺口 = `AxStep`（`CG008FixpointProbe`、`CG008AxStep`）
+
+- **更正先前记录**：`CG008InternalInduction.lean` 记「Foundation 无 V 内部的推导归纳」——**错**。
+  `Fixpoint.Construction.induction` 的谓词只需 `Σ₁-Predicate`、量化的是 V 的集合 `C : Set V`，
+  **是 V 内部的**；且 `(Derivation.construction 𝗭𝗙𝗖).StrongFinite` **自动合成**。
+- **缺口 = 一条命题**：`AxStep : ∀ p ∈ 𝗜𝚺₁.Δ₁Class, Provable 𝗭𝗙𝗖 (iT 0 p)`
+  （`Derivation.blueprint` 十支里九支与 `T` 无关）。
+- **标准情形已证**（`axStep_standard`，公理洁净）。
+  **剩下的是非标准情形**。
+
+### 11.2 第四面墙：取公式集的像需要替换，而替换需要 ZF 语义（`CG008TransformShape`、`CG008SetTrans`）
+
+- `Derivation.of_ss` 的签名含 `{T U : Theory L}`——**同一个 `L`**，故缺口（`ℒₒᵣ` → `ℒₛₑₜ`）**不能**用它。
+- 九支搬运要翻译**公式集**，即取 `iTSet n s = {iT n p | p ∈ s}`。
+  取替换像需要替换公理，而 `replacement_rel_existsUnique` 要求
+  **`[SetStructure V] [Nonempty V] [V↓[ℒₛₑₜ] ⊧* 𝗭𝗙]`**。
+- **缺口的 V 只有 `[ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]`**（算术模型），
+  `ℒₛₑₜ` 的语义不在上下文里。**`iTSet` 取不出来——类型上不成立。**
+- `iT` 与 `⋏`/`⋎`/`∀`/`∃` 的交换律**齐备**（`CG008ITCommute`，Foundation 已有），
+  所以障碍**不在** `iT`，而在**替换公理**。
+
+### 11.3 墙的四个面
+
+| 面 | 文件 | 内容 |
+|---|---|---|
+| 解释墙 | `CG008InterpretationWall` | 解释在元层有，系统内没有（`of_provability` 走完备性，不构造证明对象） |
+| 跨语言墙 | `CG008CrossLanguage` | `HBL3` 只在同语言时可陈述 |
+| 语言墙 | `CG008TransformShape` | `of_ss` 同语言；缺口要跨语言 |
+| 替换墙 | `CG008SetTrans` | 取公式集的像要替换，替换要 ZF 语义，缺口上下文没有 |
+
+**一句话**：要证的是**算术谓词** `Provable 𝗭𝗙𝗖` 的性质
+（`derivation 𝗭𝗙𝗖` 是 `Δ₁` 不动点，只需 `𝗭𝗙𝗖.Δ₁`），
+但唯一已知的证法需要 **ZF 的语义**，而那个语义**不在 V 的假设里**。
+
+### 11.4 仍未证
+
+`hD3G`；`Z0Blocked.lean:65` 的未证标记仍在。**不交付 Z0 为已证。**
