@@ -893,7 +893,65 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
   · definability
   · -- rel
     intro n param k R v hR hv h h1
-    sorry
+    -- `k = 2`（算术语言只有 0 元与 2 元关系符号；`h1 : param = 1` 排除了 0 元）
+    have hk : k = (2:V) := by
+      rcases Arithmetic.isRel_iff_LOR.mp hR with hh | hh
+      · exact hh.1
+      · exact hh.1
+    subst hk
+    -- 两侧都展开成 `iTR`
+    rw [Bootstrapping.substs_rel (L := ℒₒᵣ) hR hv.isUTerm]
+    rw [iT_rel hR (hv.termSubstVec
+      (isSemitermVec_fvar ℒₒᵣ (2:V) (0:V))).isUTerm]
+    rw [iT_rel hR hv.isUTerm]
+    rw [iTR, iTR]
+    -- 分量展开
+    rw [show (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v).[0]
+          = termSubst ℒₒᵣ (?[^&0] : V) v.[0] from
+        nth_termSubstVec hv.isUTerm (by norm_num),
+      show (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v).[1]
+          = termSubst ℒₒᵣ (?[^&0] : V) v.[1] from
+        nth_termSubstVec hv.isUTerm (by norm_num)]
+    -- 右侧先推 `subst` 过 `qqAlls · 2`
+    have hYs : IsSemiformula ℒₛₑₜ (3:V)
+        (conjunct 2 param 0 (iVE param v.[0]) ^⋏
+          (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤)) :=
+      IsSemiformula.and.mpr
+        ⟨isSemiformula_conjunct (b := 2) (n := param) (i := (0:V))
+          (isSemiformula_iVE (n := param) v.[0] (hv.nth (by norm_num)))
+          (by rw [h1]; norm_num),
+         IsSemiformula.and.mpr
+          ⟨isSemiformula_conjunct (b := 2) (n := param) (i := (1:V))
+            (isSemiformula_iVE (n := param) v.[1] (hv.nth (by norm_num)))
+            (by rw [h1]; norm_num),
+           IsSemiformula.verum⟩⟩
+    have hX : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) :=
+      (IsSemiformula.subst (L := ℒₛₑₜ) (isSemiformula_cRel R)
+        (IsSemitermVec.doubleton.mpr
+          ⟨IsSemiterm.bvar.mpr (by norm_num), IsSemiterm.bvar.mpr (by norm_num)⟩)).isUFormula
+    rw [substs_qqAlls_two (IsUFormula.or.mpr ⟨hYs.isUFormula.neg, hX⟩)]
+    congr 1
+    -- 内层：`imp` 展成 `neg ⋎`，两侧分配
+    rw [show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl,
+      show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl]
+    rw [substs_or (L := ℒₛₑₜ) (w := (?[^#0, ^#1, ^&0] : V))
+      (p := neg ℒₛₑₜ (conjunct 2 param 0 (iVE param v.[0]) ^⋏
+        (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤)))
+      (q := subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) hYs.isUFormula.neg hX]
+    congr 1
+    · -- `neg` 分量：`substs_neg` + 逐合取块换名
+      rw [substs_neg (L := ℒₛₑₜ) (n := (3:V)) (m := (3:V))
+        (p := (conjunct 2 param 0 (iVE param v.[0]) ^⋏
+          (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤))) hYs
+        (isSemitermVec_W3_gen param)]
+      rw [substs_neg (L := ℒₛₑₜ) (n := (3:V)) (m := (2:V))
+        (p := (conjunct 2 (0:V) 0 (iVE (0:V) (termSubst ℒₒᵣ (?[^&0] : V) v.[0])) ^⋏
+          (conjunct 2 (0:V) 1 (iVE (0:V) (termSubst ℒₒᵣ (?[^&0] : V) v.[1])) ^⋏ ^⊤)))
+        ?_ isSemitermVec_W2]
+      congr 1
+      sorry
+    · -- `cRel` 分量：引号化，`subst` 不动
+      sorry
   · -- nrel
     intro n param k R v hR hv h h1
     sorry
