@@ -2335,7 +2335,7 @@ Claim 表：
 | Claim | CG001-C-404 |
 | 形式命题 | `GodelQ.HAllKey.hkey_probe`：`IsSemiformula ℒₒᵣ 1 p → (∀ q, IsSemiformula ℒₒᵣ 1 q → subst ℒₛₑₜ ?[^&0] (iT 1 q) = iT 0 (subst ℒₒᵣ ?[^&0] q)) → subst ℒₛₑₜ ?[^&0] domZero = subst ℒₛₑₜ ?[^&0] ↑cDomN → free ℒₛₑₜ (imp domZero (iT 1 p)) = imp (subst ℒₛₑₜ ?[^&0] (↑cDomN)) (iT 0 (free ℒₒᵣ p))` |
 | 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/HAllKey.lean`（`hkey_probe`）与 `GodelQ/ZFC/SubstImp.lean`（`subst_imp`，本轮从 `ITSubsts1.lean` 抽出） |
-| 主运行 | `HoTT/verification/runs/20261012-CG001-Z0-W8-HALLKEY-01`（`verify_cg001_run.py --rerun` = `PASS_WITH_SCOPE`，`EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 主运行 | `HoTT/verification/runs/20261013-CG001-Z0-W8-HALLKEY-02`（`verify_cg001_run.py --rerun` = `PASS_WITH_SCOPE`，`EXACT_EXIT_STDOUT_STDERR_MATCH`）。首拍 `20261012-CG001-Z0-W8-HALLKEY-01` 已被本目录内的重拍取代：它唯一的失效原因是依赖 `TranslateShiftCompat.lean` 被并行工位的 shift 工具整份替换（6 485 → 56 191 B），`hkey_probe` 自身源码逐字节未变，新树下重证仍为三条标准公理 |
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成 `hAll` 已证**：`hB` 是显式假设，桥 `B(q)`（`iT_substs1`）本身仍未证（其项层子律 T1 已证，见 `ITSubsts1.lean` 的 `iVE_subst_a0`）；也**不读成 `Derivable` 侧已好**——`ProbeHAllRoute` 的 `Derivable` 构造义务本轮未重验；`ShCraigElim` 与 `zfcTr_D3_internalize` 仍未证 |
 | 包 | `MP-CG001-HALLKEY-001` |
