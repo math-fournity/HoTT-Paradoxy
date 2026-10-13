@@ -1075,10 +1075,103 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
         (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤)))
       (q := subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) hYs.isUFormula.neg hX]
     congr 1
-    · -- `neg` 分量
-      sorry
-    · -- `cRel` 分量：引号化，`subst` 不动
-      sorry
+    · -- `neg` 分量：`substs_neg` + 两个合取块换名（`conjunct_rename_second_gen`）
+      rw [substs_neg (L := ℒₛₑₜ) (n := (3:V)) (m := (3:V))
+        (p := (conjunct 2 param 0 (iVE param v.[0]) ^⋏
+          (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤))) hYs
+        (isSemitermVec_W3)]
+      congr 1
+      rw [substs_and (L := ℒₛₑₜ)
+        (isSemiformula_conjunct (b := 2) (n := param) (i := (0:V))
+          (isSemiformula_iVE (n := param) v.[0] (hv.nth (by norm_num)))
+          (by rw [h1]; norm_num)).isUFormula
+        (IsUFormula.and.mpr
+          ⟨(isSemiformula_conjunct (b := 2) (n := param) (i := (1:V))
+            (isSemiformula_iVE (n := param) v.[1] (hv.nth (by norm_num)))
+            (by rw [h1]; norm_num)).isUFormula,
+           IsUFormula.verum⟩)]
+      congr 1
+      · -- 第一分量
+        rw [conjunct, conjunct]
+        congr 1
+        · -- `subst ?[^#0] cDomN` 在 W 下不动
+          exact (GodelQ.TranslateShiftCompat.subst_congr_prefix (V := V)
+            (n := (1:V)) (m := (2:V)) (k₁ := (3:V)) (k₂ := (1:V))
+            (w := (?[^#0, ^#1, ^&0] : V)) (w' := (?[^#0] : V))
+            (subst ℒₛₑₜ (?[^#0] : V) (↑cDomN : V))
+            (IsSemiformula.subst (L := ℒₛₑₜ) isSemiformula_cDomN
+              (isSemitermVec_single_bvar (n := (2:V)) (by norm_num)))
+            (by norm_num) (by norm_num) isSemitermVec_W3
+            (isSemitermVec_single_bvar (n := (1:V)) (by norm_num))
+            (fun j hj ↦ by
+              have hj0 : j = 0 := lt_one_iff_eq_zero.mp hj
+              subst hj0
+              rw [show (?[^#0, ^#1, ^&0] : V)
+                    = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0:V))) from rfl,
+                  show (?[^#0] : V) = ((^#0 : V) ∷ (0:V)) from rfl]
+              simp only [nth_adjoin_zero])).symm
+        · -- 第二分量：走 T1
+          rw [show (param : V) = 1 from h1]
+          rw [show shiftVec (V := V) 2 1 = (?[^#2] : V) from by
+            rw [show (1 : V) = 0 + 1 by norm_num, shiftVec_succ, shiftVec_zero,
+              termBShiftVec_nil]]
+          rw [show (?[^#0] : V) = ((^#0 : V) ∷ (0:V)) from rfl]
+          exact conjunct_rename_second_gen (i := (0:V)) (by norm_num)
+            (hv.nth (by norm_num))
+      · -- 第二块（`conjunct 2 param 1 … ^⋏ ⊤`）
+        rw [substs_and (L := ℒₛₑₜ)
+          (isSemiformula_conjunct (b := 2) (n := param) (i := (1:V))
+            (isSemiformula_iVE (n := param) v.[1] (hv.nth (by norm_num)))
+            (by rw [h1]; norm_num)).isUFormula
+          IsUFormula.verum,
+          substs_verum]
+        congr 1
+        rw [conjunct, conjunct]
+        congr 1
+        · exact (GodelQ.TranslateShiftCompat.subst_congr_prefix (V := V)
+            (n := (1:V)) (m := (2:V)) (k₁ := (3:V)) (k₂ := (1:V))
+            (w := (?[^#0, ^#1, ^&0] : V)) (w' := (?[^#1] : V))
+            (subst ℒₛₑₜ (?[^#1] : V) (↑cDomN : V))
+            (IsSemiformula.subst (L := ℒₛₑₜ) isSemiformula_cDomN
+              (isSemitermVec_single_bvar (n := (2:V)) (by norm_num)))
+            (by norm_num) (by norm_num) isSemitermVec_W3
+            (isSemitermVec_single_bvar (n := (1:V)) (by norm_num))
+            (fun j hj ↦ by
+              have hj0 : j = 0 := lt_one_iff_eq_zero.mp hj
+              subst hj0
+              rw [show (?[^#0, ^#1, ^&0] : V)
+                    = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0:V))) from rfl,
+                  show (?[^#1] : V) = ((^#1 : V) ∷ (0:V)) from rfl]
+              simp only [nth_adjoin_zero])).symm
+        · rw [show (param : V) = 1 from h1]
+          rw [show shiftVec (V := V) 2 1 = (?[^#2] : V) from by
+            rw [show (1 : V) = 0 + 1 by norm_num, shiftVec_succ, shiftVec_zero,
+              termBShiftVec_nil]]
+          rw [show (?[^#1] : V) = ((^#1 : V) ∷ (0:V)) from rfl]
+          exact conjunct_rename_second_gen (i := (1:V)) (by norm_num)
+            (hv.nth (by norm_num))
+    · -- `cRel` 分量：引号化句子，`subst` 不动
+      rw [show subst ℒₛₑₜ (?[^#0, ^#1, ^&0] : V) (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R))
+          = subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R) from by
+        have hid : subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R) = cRel R :=
+          subst_eq_self (L := ℒₛₑₜ) (n := (2:V)) (isSemiformula_cRel R)
+            (IsSemitermVec.doubleton.mpr
+              ⟨IsSemiterm.bvar.mpr (by norm_num), IsSemiterm.bvar.mpr (by norm_num)⟩)
+            (fun i hi ↦ by
+              rw [show (?[^#0, ^#1] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ (0:V)) from rfl]
+              rcases lt_two_cases hi with rfl | rfl <;> simp)
+        rw [hid]
+        exact (GodelQ.TranslateShiftCompat.subst_congr_prefix (V := V)
+          (n := (2:V)) (m := (2:V)) (k₁ := (3:V)) (k₂ := (2:V))
+          (w := (?[^#0, ^#1, ^&0] : V)) (w' := (?[^#0, ^#1] : V)) (cRel R)
+          (isSemiformula_cRel R) (by norm_num) (by norm_num) isSemitermVec_W3
+          (IsSemitermVec.doubleton.mpr
+            ⟨IsSemiterm.bvar.mpr (by norm_num), IsSemiterm.bvar.mpr (by norm_num)⟩)
+          (fun j hj ↦ by
+            rw [show (?[^#0, ^#1, ^&0] : V)
+                  = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0:V))) from rfl,
+                show (?[^#0, ^#1] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ (0:V)) from rfl]
+            rcases lt_two_cases hj with rfl | rfl <;> simp)).trans hid]
   · -- nrel
     intro n param k R v hR hv h h1
     sorry
