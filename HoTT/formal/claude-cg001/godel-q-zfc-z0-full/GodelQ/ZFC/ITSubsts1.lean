@@ -975,7 +975,7 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
   · definability
   · -- rel
     intro n param k R v hR hv h h1
-    -- `k = 2`（算术语言只有 0 元与 2 元关系符号；`h1 : param = 1` 排除了 0 元）
+    -- `k = 2`（算术语言只有 0 元与 2 元关系符号）
     have hk : k = (2:V) := by
       rcases Arithmetic.isRel_iff_LOR.mp hR with hh | hh
       · exact hh.1
@@ -983,12 +983,21 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     subst hk
     -- 两侧都展开成 `iTR`
     rw [Bootstrapping.substs_rel (L := ℒₒᵣ) hR hv.isUTerm]
-    have hvw : IsSemitermVec ℒₒᵣ (1:V) (2:V) (?[^&0] : V) :=
-      IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) (2:V) (0:V))
-    have hsub2 : IsUTermVec ℒₒᵣ (2:V) (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v) :=
-      (hv.termSubstVec hvw).isUTerm
-    rw [iT_rel hR hsub2]
-    rw [iT_rel hR hv.isUTerm]
+    -- `substs_rel` 产出的向量是 `termSubstVec 2 ?[^&0] v`；
+    -- `?[^&0]` 的层数 = `n`（= 原公式层数）
+    -- `hv` 的层是 `n`；右侧用层 `(1:V)`。`h : (1:V) = n`，故造一个层 `(1:V)` 的副本。
+    have hvp : IsSemitermVec ℒₒᵣ (2:V) param v := by rw [h]; exact hv
+    have hvw : IsSemitermVec ℒₒᵣ (1:V) param (?[^&0] : V) :=
+      IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) param (0:V))
+    have hsub2 : IsSemitermVec ℒₒᵣ (2:V) (1:V)
+        (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v) := by
+      have hv1 : IsSemitermVec ℒₒᵣ (2:V) (1:V) v := by
+        rwa [show param = (1:V) from h1] at hvp
+      exact IsSemitermVec.termSubstVec (k := (2:V)) (v := v) hvw hv1
+    rw [iT_rel hR hsub2.isUTerm]
+    rw [show param = (1:V) from h1]
+    change iTR 0 2 R (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v) =
+      subst ℒₛₑₜ (?[^&0] : V) (iTR (1:V) 2 R v)
     rw [iTR, iTR]
     -- 分量展开
     rw [show (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v).[0]
@@ -999,15 +1008,15 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
         nth_termSubstVec hv.isUTerm (by norm_num)]
     -- 右侧先推 `subst` 过 `qqAlls · 2`
     have hYs : IsSemiformula ℒₛₑₜ (3:V)
-        (conjunct 2 param 0 (iVE param v.[0]) ^⋏
-          (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤)) :=
+        (conjunct 2 (1:V) 0 (iVE (1:V) v.[0]) ^⋏
+          (conjunct 2 (1:V) 1 (iVE (1:V) v.[1]) ^⋏ ^⊤)) :=
       IsSemiformula.and.mpr
-        ⟨isSemiformula_conjunct (b := 2) (n := param) (i := (0:V))
-          (isSemiformula_iVE (n := param) v.[0] (hv.nth (by norm_num)))
+        ⟨isSemiformula_conjunct (b := 2) (n := (1:V)) (i := (0:V))
+          (isSemiformula_iVE (n := (1:V)) v.[0] (hvp.nth (by norm_num)))
           (by rw [h1]; norm_num),
          IsSemiformula.and.mpr
-          ⟨isSemiformula_conjunct (b := 2) (n := param) (i := (1:V))
-            (isSemiformula_iVE (n := param) v.[1] (hv.nth (by norm_num)))
+          ⟨isSemiformula_conjunct (b := 2) (n := (1:V)) (i := (1:V))
+            (isSemiformula_iVE (n := (1:V)) v.[1] (hvp.nth (by norm_num)))
             (by rw [h1]; norm_num),
            IsSemiformula.verum⟩⟩
     have hX : IsUFormula ℒₛₑₜ (subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) :=
@@ -1020,23 +1029,23 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     rw [show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl,
       show (imp ℒₛₑₜ _ _ : V) = (neg ℒₛₑₜ _ ^⋎ _ : V) from rfl]
     rw [substs_or (L := ℒₛₑₜ) (w := (?[^#0, ^#1, ^&0] : V))
-      (p := neg ℒₛₑₜ (conjunct 2 param 0 (iVE param v.[0]) ^⋏
-        (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤)))
+      (p := neg ℒₛₑₜ (conjunct 2 (1:V) 0 (iVE (1:V) v.[0]) ^⋏
+        (conjunct 2 (1:V) 1 (iVE (1:V) v.[1]) ^⋏ ^⊤)))
       (q := subst ℒₛₑₜ (?[^#0, ^#1] : V) (cRel R)) hYs.isUFormula.neg hX]
     congr 1
     · -- `neg` 分量：`substs_neg` + 两个合取块换名（`conjunct_rename_second_gen`）
       rw [substs_neg (L := ℒₛₑₜ) (n := (3:V)) (m := (3:V))
-        (p := (conjunct 2 param 0 (iVE param v.[0]) ^⋏
-          (conjunct 2 param 1 (iVE param v.[1]) ^⋏ ^⊤))) hYs
+        (p := (conjunct 2 (1:V) 0 (iVE (1:V) v.[0]) ^⋏
+          (conjunct 2 (1:V) 1 (iVE (1:V) v.[1]) ^⋏ ^⊤))) hYs
         (isSemitermVec_W3)]
       congr 1
       rw [substs_and (L := ℒₛₑₜ)
-        (isSemiformula_conjunct (b := 2) (n := param) (i := (0:V))
-          (isSemiformula_iVE (n := param) v.[0] (hv.nth (by norm_num)))
+        (isSemiformula_conjunct (b := 2) (n := (1:V)) (i := (0:V))
+          (isSemiformula_iVE (n := (1:V)) v.[0] (hvp.nth (by norm_num)))
           (by rw [h1]; norm_num)).isUFormula
         (IsUFormula.and.mpr
-          ⟨(isSemiformula_conjunct (b := 2) (n := param) (i := (1:V))
-            (isSemiformula_iVE (n := param) v.[1] (hv.nth (by norm_num)))
+          ⟨(isSemiformula_conjunct (b := 2) (n := (1:V)) (i := (1:V))
+            (isSemiformula_iVE (n := (1:V)) v.[1] (hvp.nth (by norm_num)))
             (by rw [h1]; norm_num)).isUFormula,
            IsUFormula.verum⟩)]
       congr 1
@@ -1060,17 +1069,17 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
                   show (?[^#0] : V) = ((^#0 : V) ∷ (0:V)) from rfl]
               simp only [nth_adjoin_zero])).symm
         · -- 第二分量：走 T1
-          rw [show (param : V) = 1 from h1]
+          rw [show ((1:V) : V) = 1 from h1]
           rw [show shiftVec (V := V) 2 1 = (?[^#2] : V) from by
             rw [show (1 : V) = 0 + 1 by norm_num, shiftVec_succ, shiftVec_zero,
               termBShiftVec_nil]]
           rw [show (?[^#0] : V) = ((^#0 : V) ∷ (0:V)) from rfl]
           exact conjunct_rename_second_gen (i := (0:V)) (by norm_num)
             (hv.nth (by norm_num))
-      · -- 第二块（`conjunct 2 param 1 … ^⋏ ⊤`）
+      · -- 第二块（`conjunct 2 (1:V) 1 … ^⋏ ⊤`）
         rw [substs_and (L := ℒₛₑₜ)
-          (isSemiformula_conjunct (b := 2) (n := param) (i := (1:V))
-            (isSemiformula_iVE (n := param) v.[1] (hv.nth (by norm_num)))
+          (isSemiformula_conjunct (b := 2) (n := (1:V)) (i := (1:V))
+            (isSemiformula_iVE (n := (1:V)) v.[1] (hvp.nth (by norm_num)))
             (by rw [h1]; norm_num)).isUFormula
           IsUFormula.verum,
           substs_verum]
@@ -1092,7 +1101,7 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
                     = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0:V))) from rfl,
                   show (?[^#1] : V) = ((^#1 : V) ∷ (0:V)) from rfl]
               simp only [nth_adjoin_zero])).symm
-        · rw [show (param : V) = 1 from h1]
+        · rw [show ((1:V) : V) = 1 from h1]
           rw [show shiftVec (V := V) 2 1 = (?[^#2] : V) from by
             rw [show (1 : V) = 0 + 1 by norm_num, shiftVec_succ, shiftVec_zero,
               termBShiftVec_nil]]
@@ -1172,7 +1181,23 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     rw [Bootstrapping.substs_all (L := ℒₒᵣ) hp.isUFormula]
     have hvw : IsSemitermVec ℒₒᵣ (1:V) (param + 1) (?[^&0] : V) :=
       IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) (param + 1) (0:V))
-    rw [iT_all (hp.subst hvw).isUFormula]
+    -- `qVec ?[^&0] = ?[^#0, ^&0]`（长度 2 = param + 1，因 param = 1）
+    have hqvS0 : IsSemitermVec ℒₛₑₜ (1:V) (param + 1) (?[^&0] : V) :=
+      IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (param + 1) (0:V))
+    have hqvS : IsSemitermVec ℒₛₑₜ (param + 1) (param + 1) (qVec ℒₛₑₜ (?[^&0] : V)) := by
+      have h := IsSemitermVec.qVec (k := (1:V)) hqvS0
+      rw [show (1:V) + 1 = param + 1 from by rw [h1]] at h
+      exact h
+    have hqv : qVec ℒₒᵣ (?[^&0] : V) = (?[^#0, ^&0] : V) := by
+      rw [Bootstrapping.qVec, show len (?[^&0] : V) = (1:V) from by simp]
+      rw [show (1:V) = 0 + 1 by norm_num,
+        termBShiftVec_cons (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
+        termBShift_fvar, termBShiftVec_nil]
+    have hvw' : IsSemitermVec ℒₒᵣ (param + 1) (param + 1) (qVec ℒₒᵣ (?[^&0] : V)) := by
+      rw [hqv, show (param : V) + 1 = 2 from by rw [h1]; norm_num]
+      exact IsSemitermVec.doubleton.mpr
+        ⟨IsSemiterm.bvar.mpr (by norm_num), IsSemiterm.fvar (L := ℒₒᵣ) (V := V) (2:V) (0:V)⟩
+    rw [iT_all (hp.subst hvw').isUFormula]
     -- 右：`result_all` 展开
     rw [UformulaRec1.Construction.result_all (c := iT.construction) (L := ℒₒᵣ)
       hp.isUFormula (rfl : iT.construction.allSize param p = 1)]
@@ -1192,7 +1217,15 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     congr 1
     -- 现在：`imp domZero (iT 1 (subst (qVec ?[^&0]) p))
     --        = imp (subst (qVec ?[^&0]) domZero) (iT param (subst (qVec ?[^&0]) p))`
-    show imp ℒₛₑₜ domZero (iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) =
+    rw [subst_imp (n := (param + 1)) (m := (param + 1 + 1))
+      (isSemiformula_domZero (n := param))
+      (isSemiformula_iT p hp)
+      (by
+        have h := hqvS
+        rw [show (param + 1 : V) = param + 1 + 1 from by omega] at h
+        exact h)]
+    show imp ℒₛₑₜ (subst ℒₛₑₜ (qVec ℒₛₑₜ (?[^&0] : V)) (domZero (V := V)))
+        (iT param (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) =
       imp ℒₛₑₜ (subst ℒₛₑₜ (qVec ℒₛₑₜ (?[^&0] : V)) (domZero (V := V)))
         (iT param (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p))
     rw [subst_qVec_domZero_gen (isSemitermVec_fvar ℒₛₑₜ (1:V) (0:V)) (by rfl)]
@@ -1204,7 +1237,10 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     rw [Bootstrapping.substs_ex (L := ℒₒᵣ) hp.isUFormula]
     have hvw : IsSemitermVec ℒₒᵣ (1:V) (param + 1) (?[^&0] : V) :=
       IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) (param + 1) (0:V))
-    rw [iT_exs (hp.subst hvw).isUFormula]
+    have hvw' : IsSemitermVec ℒₒᵣ (param + 1) (param + 1) (?[^&0] : V) := by
+      rw [h1]; exact IsSemitermVec.singleton.mpr
+        (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) (2:V) (0:V))
+    rw [iT_exs (hp.subst hvw').isUFormula]
     rw [UformulaRec1.Construction.result_exs (c := iT.construction) (L := ℒₒᵣ)
       hp.isUFormula (rfl : iT.construction.exsSize param p = 1)]
     change (^∃ (domZero ^⋏ iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) : V) =
