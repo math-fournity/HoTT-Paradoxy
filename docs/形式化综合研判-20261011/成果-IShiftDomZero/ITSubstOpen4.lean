@@ -53,9 +53,26 @@ lemma nth_cons_shiftVec3 {n i j : V} (hj : j < n + 1) :
     congr 1
     ring
 
-/-- 向量关系（(★★) 的前提）：前 `m` 项相等 + `Ww` 的**第 `m` 项**是 `^&0`。
-    其中 `len Vw = m`、`len Ww = m+1`。 -/
+lemma nth_qVec_qVec_zero (X : V) : (qVec ℒₛₑₜ (qVec ℒₛₑₜ X)).[0] = (^#0 : V) :=
+  nth_qVec_zero _
+
+/-- `qVec (qVec X)` 在索引 1 处 = `^#1`（与 `X` 无关）。 -/
+lemma nth_qVec_qVec_one {X : V} (hX : IsUTermVec ℒₛₑₜ (len X) X) :
+    (qVec ℒₛₑₜ (qVec ℒₛₑₜ X)).[1] = (^#1 : V) := by
+  have h1 : IsUTermVec ℒₛₑₜ (len (qVec ℒₛₑₜ X)) (qVec ℒₛₑₜ X) := by
+    have h := (IsSemitermVec.qVec (hX.isSemitermVec)).isUTerm
+    have e : (len X + 1 : V) = len (qVec ℒₛₑₜ X) := (len_qVec hX).symm
+    rwa [e] at h
+  have h0 : (0 : V) < len (qVec ℒₛₑₜ X) := by
+    rw [len_qVec hX]
+    exact lt_of_le_of_lt (zero_le) (lt_add_one (len X))
+  rw [show (1 : V) = 0 + 1 by norm_num]
+  rw [nth_qVec_succ (X := qVec ℒₛₑₜ X) (k := 0) h1 h0]
+  rw [nth_qVec_zero, termBShift_bvar]
+
+/-- 向量关系（(★★) 的前提）。`len Vw = m+1`、`len Ww = m+2`；
+    前 `m+1` 项相等，且 `Ww` 的末项是 `^&0`。 -/
 def VRel (m Vw Ww : V) : Prop :=
-  (∀ k < m, Vw.[k] = Ww.[k]) ∧ Ww.[m] = ^&0
+  (∀ k ≤ m, Vw.[k] = Ww.[k]) ∧ Ww.[m + 1] = ^&0
 
 end GodelQ.ITSubstOpen4
