@@ -75,6 +75,26 @@ iT_substs1 : ∀ σ, IsSemiformula ℒₒᵣ 1 σ →
     iT 0 (subst ℒₒᵣ ?[^&0] σ) = subst ℒₛₑₜ ?[^&0] (iT 1 σ)
 ```
 
+## 2.5 ⚠ 2026-10-13 更正：阻塞引理的**正确形状**（本会话最终定位）
+
+本文件 §2 最初写的 `iT_substs1` 形状（右端向量用 `w`）**不完整**。
+`ShCraigElimBranches.lean` §11 已给出正确形状——**右端向量是 `qVec (iVE-像 w)`**：
+
+```
+iT_substs1 : ∀ m p w, IsSemiformula ℒₒᵣ (m+1) p → IsSemitermVec ℒₒᵣ (len w) (m+1) w →
+    iT m (subst ℒₒᵣ w p) = subst ℒₛₑₜ (qVec ℒₛₑₜ (iVE-像 w)) (iT (m+1) p)
+```
+
+**为什么**：`iVE` 把 `ℒₒᵣ` 的项送到 `ℒₛₑₜ` 的**公式**（`eqAtom`），
+而 `subst ℒₛₑₜ` 要的是**项**——两者层次不同，`iVE-像 w` 是必需的中间物。
+
+**本会话已验证的部分**（探针 exit 0）：
+* `iT_substs1_gen` 的 4 支（`verum`/`falsum`/`and`/`or`）——
+  它们的证法**不依赖右端向量**，故在修正后的形状下**同样成立**；
+* 闸门问题（`all` 支是否为真）——**为真**，但 §12.41 的推演需按新向量重走；
+* `subst_qVec_domZero'`、`len_qVec`、`subst_qVec_shrink`、`substs_qqAlls` 族
+  （均入生产包，exit 0）——**与形状修正无关，仍然有效**。
+
 ## 3. 为什么它难——三条**机器确认的**结构性障碍
 
 ### 3.1 向量长度的三种含义混淆
