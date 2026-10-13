@@ -31,9 +31,35 @@ RHS 的 `conjunct` 用的是 `n=1` 与未代入的 `^#0`/`^#1`，要靠 `subst'`
 
 **先做一步可证的：LHS 的 `substs_rel` + `termSubstVec`。** -/
 
-example : substs1 ℒₒᵣ (^&(0:V) : V)
-      ((^rel (0+1+1) (↑cEqN) ((?[^#0, ^#(0+1)] : V))) : V)
-    = ((^rel (0+1+1) (↑cEqN) ((?[^&0, ^&0] : V))) : V) := by
+-- 第一步：substs1 → subst ?[^&0]（def-eq），再 substs_rel
+example : substs1 ℒₒᵣ (^&(0:V) : V))
+      ((^rel (0+1+1) (↑cEqN) ((?[^#0, ^#(0+1)] : V)) : V)
+    = ((^rel (0+1+1) (↑cEqN)
+        (termSubstVec ℒₒᵣ (0+1+1) ((?[^&0] : V)) ((?[^#0, ^#(0+1)] : V)))) : V) := by
+  have hR : (ℒₒᵣ).IsRel (0+1+1) (↑cEqN) := by
+    rw [show (0:V) + 1 + 1 = 2 by norm_num, cEqN]; exact codeIn_rel_quote _
+  have hv : IsUTermVec ℒₒᵣ (0+1+1) ((^#0 : V) ∷ ((^#(0+1) : V) ∷ (0 : V))) :=
+    IsUTermVec.adjoin (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.bvar (z := (0:V))))
+      (IsUTerm.bvar (z := (0+1:V)))
+  show subst ℒₒᵣ ((?[^&0] : V)) ((^rel (0+1+1) (↑cEqN) ((?[^#0, ^#(0+1)] : V))) : V)) = _
+  rw [Bootstrapping.substs_rel hR hv]
+
+-- 第二步：termSubstVec 逐分量算出来
+example : substs1 ℒₒᵣ (^&(0:V) : V))
+      ((^rel (0+1+1) (↑cEqN) ((?[^#0, ^#(0+1)] : V)) : V)
+    = ((^rel (0+1+1) (↑cEqN) ((?[^&0, ^&0] : V)) : V) := by
+  have hR : (ℒₒᵣ).IsRel (0+1+1) (↑cEqN) := by
+    rw [show (0:V) + 1 + 1 = 2 by norm_num, cEqN]; exact codeIn_rel_quote _
+  have hv : IsUTermVec ℒₒᵣ (0+1+1) ((^#0 : V) ∷ ((^#(0+1) : V) ∷ (0 : V))) :=
+    IsUTermVec.adjoin (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.bvar (z := (0:V))))
+      (IsUTerm.bvar (z := (0+1:V)))
+  show subst ℒₒᵣ ((?[^&0] : V)) ((^rel (0+1+1) (↑cEqN) ((?[^#0, ^#(0+1)] : V))) : V)) = _
+  rw [Bootstrapping.substs_rel hR hv]
+  congr 1
+  rw [show ((?[^#0, ^#(0+1)] : V)) = ((^#0 : V) ∷ ((^#(0+1) : V) ∷ (0 : V))) from rfl,
+    show (0 : V) + 1 + 1 = 2 by norm_num,
+    termSubstVec_cons₂ (IsUTerm.bvar (z := (0:V))) (IsUTerm.bvar (z := (0+1:V))),
+    termSubst_bvar, termSubst_bvar]
   sorry
 
 end GodelQ.ProbeHExsTP
