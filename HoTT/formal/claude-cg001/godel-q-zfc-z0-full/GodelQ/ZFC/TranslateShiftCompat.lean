@@ -1079,6 +1079,30 @@ lemma lt_two_cases {i : V} (hi : i < 2) : i = 0 ∨ i = 1 := by
   · exact Or.inr h1
   · exact Or.inl (lt_one_iff_eq_zero.mp h1)
 
+/-- **`iVE` 的 `resultVec` 两个分量**：`resultVec ℒₒᵣ ![n] 2 v = ?[iVE n v.[0], iVE n v.[1]]`。
+
+`iVE` 的 `func` 支（`ve2`）要对两个参数的结果换名，故需要这条把
+`resultVec` 显式化成二元组。 -/
+lemma iVE_resultVec_two {n v : V} (hv : IsUTermVec ℒₒᵣ (2:V) v) :
+    iVE.construction.resultVec ℒₒᵣ ![n] (2:V) v = ?[iVE n v.[0], iVE n v.[1]] := by
+  refine nth_ext' (2:V) ?_ ?_ ?_
+  · rw [iVE.construction.resultVec_lh ℒₒᵣ ![n] hv]
+  · rw [show (?[iVE n v.[0], iVE n v.[1]] : V)
+        = (iVE n v.[0] : V) ∷ ((iVE n v.[1] : V) ∷ (0:V)) from rfl]
+    simp only [len_adjoin, len_nil]; norm_num
+  · intro j hj
+    rcases lt_two_cases hj with rfl | rfl
+    · rw [iVE.construction.nth_resultVec ℒₒᵣ ![n] hv (show (0:V) < 2 by norm_num)]
+      show iVE n v.[0] = (?[iVE n v.[0], iVE n v.[1]] : V).[0]
+      rw [show (?[iVE n v.[0], iVE n v.[1]] : V)
+            = (iVE n v.[0] : V) ∷ ((iVE n v.[1] : V) ∷ (0:V)) from rfl]
+      simp only [nth_adjoin_zero]
+    · rw [iVE.construction.nth_resultVec ℒₒᵣ ![n] hv (show (1:V) < 2 by norm_num)]
+      show iVE n v.[1] = (?[iVE n v.[0], iVE n v.[1]] : V).[1]
+      rw [show (?[iVE n v.[0], iVE n v.[1]] : V)
+            = (iVE n v.[0] : V) ∷ ((iVE n v.[1] : V) ∷ (0:V)) from rfl]
+      simp only [nth_adjoin_one, nth_adjoin_zero]
+
 lemma W3_expand : (?[^#0, ^#1, ^&0] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ ((^&0 : V) ∷ (0 : V))) := rfl
 lemma W2_expand : (?[^#0, ^#1] : V) = (^#0 : V) ∷ ((^#1 : V) ∷ (0 : V)) := rfl
 
