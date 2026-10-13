@@ -99,12 +99,28 @@ open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
 open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFull GodelQ.LayerMono
 open GodelQ.ITSubstOpen3 GodelQ.ITSubstOpen4
 
--- k=0 支（待完成）：`ve0 0 f` 不含参数向量；内层是引号化句子，只读 `X.[0]`。
--- 零件已全部就位：`subst_quoted_reads_zero`（本文件）✅。
--- 剩余：把 `ve0` 展开后接 `substs_or`/`substs_neg`/`substs_falsum`，
--- 再用 `subst_quoted_reads_zero` 两次 + `h0`。注意 `ve0` 是 `noncomputable def`
--- 不是 abbrev，`rw [ve0]` 需要先 `show` 成展开形式。
+-- k=0 支：`ve0 0 f` 不含参数向量；内层是引号化句子，只读 `X.[0]`。
+-- 照 `TranslateShiftCompat.shift_ve0` 的结构。
+
+/-- k=0 支。 -/
+lemma subst_iVE_func_zero_eq {m f Vw Ww : V} (hkf : (ℒₒᵣ).IsFunc 0 f)
+    (hV : IsSemitermVec ℒₛₑₜ (len Vw) (m + 1) Vw)
+    (hW : IsSemitermVec ℒₛₑₜ (len Ww) (m + 2) Ww)
+    (hposV : (0 : V) < len Vw) (hposW : (0 : V) < len Ww)
+    (h0 : Vw.[0] = Ww.[0]) :
+    subst ℒₛₑₜ Vw (ve0 0 f) = subst ℒₛₑₜ Ww (ve0 0 f) := by
+  have hc : IsSemiformula ℒₛₑₜ 1 (cFunc 0 f) := isSemiformula_cFunc_arity0 f
+  have hv : IsSemitermVec ℒₛₑₜ 1 1 (?[^#0] : V) :=
+    isSemitermVec_single_bvar (n := 1) (by simp)
+  have hs : IsSemiformula ℒₛₑₜ 1 (subst ℒₛₑₜ ?[^#0] (cFunc 0 f)) :=
+    IsSemiformula.subst (L := ℒₛₑₜ) hc hv
+  -- 两侧都展开成 subst X (neg ⊤ ^⋎ subst ?[^#0] c)
+  simp only [ve0, imp]
+  simp only [Bootstrapping.substs_or (L := ℒₛₑₜ) (IsUFormula.neg IsUFormula.verum) hs.isUFormula]
+  -- 现在两侧都是 subst X (neg ⊤) ^⋎ subst ?[X.[0]] c；`neg ⊤ = ^⊥` 且 `subst _ ^⊥ = ^⊥`
+  rw [subst_quoted_reads_zero hc hV hposV, subst_quoted_reads_zero hc hW hposW, h0]
+  simp only [Bootstrapping.neg_verum (L := ℒₛₑₜ), Bootstrapping.substs_falsum (L := ℒₛₑₜ)]
 
 end GodelQ.ITSubstOpen5
 
-
+#print axioms GodelQ.ITSubstOpen5.subst_iVE_func_zero_eq
