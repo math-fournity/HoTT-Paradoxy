@@ -91,3 +91,20 @@ lemma subst_quoted_reads_zero {c X m : V} (hc : IsSemiformula ℒₛₑₜ 1 c)
     termSubstVec_cons₁ (IsUTerm.bvar (z := 0)), termSubst_bvar]
 
 end GodelQ.ITSubstOpen5
+
+namespace GodelQ.ITSubstOpen5
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFull GodelQ.LayerMono
+open GodelQ.ITSubstOpen3 GodelQ.ITSubstOpen4
+
+-- k=0 支（待完成）：`ve0 0 f` 不含参数向量；内层是引号化句子，只读 `X.[0]`。
+-- 零件已全部就位：`subst_quoted_reads_zero`（本文件）✅。
+-- 剩余：把 `ve0` 展开后接 `substs_or`/`substs_neg`/`substs_falsum`，
+-- 再用 `subst_quoted_reads_zero` 两次 + `h0`。注意 `ve0` 是 `noncomputable def`
+-- 不是 abbrev，`rw [ve0]` 需要先 `show` 成展开形式。
+
+end GodelQ.ITSubstOpen5
+
+
