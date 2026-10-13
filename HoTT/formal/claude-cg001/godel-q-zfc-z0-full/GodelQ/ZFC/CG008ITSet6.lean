@@ -41,10 +41,39 @@ noncomputable def iTSetGraph : 𝚺ᴬ₁.Semisentence 4 :=
 -- 两者**定义上相同**（`Evalb b = Eval b Empty.elim`，`Fin.cons` 就是 `![]`），
 -- 所以 `exact` 应当在把 `![]` 写成 `Fin.cons` 串后直接成立。
 --
--- **本文件停在「形状已对齐」**：左边只差 `Fin.cons` 与 `![]` 的记法转换。
--- 用 `Fin.cons` 显式写出右边的向量即可（`CG008ITSet6` 的下一版）。
+-- **收尾的精确位置**（本轮查实）：
+--
+-- 展开后左边是 `Eval (Semiterm.val v Empty.elim ∘ ![#0,#3,#1,#2]) Empty.elim resultDef`，
+-- 而 `result_defined_iff` 给的是 `Evalb ![v0,v3,v1,v2] resultDef`。
+-- **两者定义上相同**（`Evalb b = Eval b Empty.elim`；`Semiterm.val v Empty.elim ∘ ![…]`
+-- 逐项就是 `![v 0, v 3, v 1, v 2]`），但 Lean 的 `isDefEq` 不直接穿
+-- `Function.comp` + `Matrix.vecCons` 的这层。
+--
+-- **修法**（明确，纯机械）：用 `funext` 证两条向量的相等，
+-- 再 `rw` 它，然后 `exact result_defined_iff …`。
 
-/-- **`iTSet` 在 `len s` 处**（真正要用的那个）。 -/
-noncomputable def iTSetAll (n s : V) : V := iTSet n s (Arithmetic.len s)
+/-- **两条向量的相等**（收尾要的桥）。 -/
+theorem val_comp_vec (v : Fin (3 + 1) → V) :
+    (Semiterm.val (L := ℒₒᵣ) v Empty.elim ∘ ![#0, #3, #1, #2]) = ![v 0, v 3, v 1, v 2] := by
+  funext i
+  fin_cases i <;> simp [Function.comp_apply, Matrix.cons_val, Semiterm.val_bvar]
+
+/-- **`iTSet` 的 Σ₁ 实例**（用上面的桥）。 -/
+instance iTSet.defined : 𝚺ᴬ₁-Function₃[V] iTSet via iTSetGraph :=
+  .mk fun v ↦ by
+    simp only [iTSetGraph, iTSet,
+      Bounding.HierarchySymbol.Semiformula.val_rew, Semiformula.eval_substs,
+      Function.comp_apply]
+    rw [val_comp_vec]
+    exact PR.Construction.result_defined_iff
+      (c := GodelQ.CG008ITSet4.iTSet.construction)
+      (p := GodelQ.CG008ITSet4.iTSet.blueprint) ![v 0, v 3, v 1, v 2]
+
+instance iTSet.definable : 𝚺ᴬ₁-Function₃[V] iTSet := iTSet.defined.to_definable
+
+instance iTSet.definable' (Γ k) : Γᴬ_[k + 1]-Function₃[V] iTSet :=
+  iTSet.definable.of_sigmaOne
 
 end GodelQ.CG008ITSet6
+
+#print axioms GodelQ.CG008ITSet6.iTSet.defined
