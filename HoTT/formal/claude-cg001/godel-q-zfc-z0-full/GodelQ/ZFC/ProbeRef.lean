@@ -15,13 +15,14 @@ section
 variable (X : V) (hX : IsUFormula ℒₒᵣ X)
 
 -- LHS 全链：substs_all → iT_all
+-- 注意：substs_all 把 subst 推进 ^∀ 内，iT_all 需对**体**作用，
+-- 故要 IsUFormula (subst ... X)——用 IsUFormula.subst + IsSemitermVec
 example : iT (0:V) (substs1 ℒₒᵣ (^&(0:V) : V) ((^∀ X) : V))
     = ((^∀ (imp ℒₛₑₜ (domZero (V := V))
         (iT (1:V) (subst ℒₒᵣ ((qVec ℒₒᵣ ((?[^&0] : V)) : V)) X)))) : V) := by
   show iT (0:V) (subst ℒₒᵣ ((?[^&0] : V)) ((^∀ X) : V)) = _
-  rw [Bootstrapping.substs_all hX, iT_all]
-  · sorry
-  · sorry
+  rw [Bootstrapping.substs_all hX]
+  sorry
 
 end
 
