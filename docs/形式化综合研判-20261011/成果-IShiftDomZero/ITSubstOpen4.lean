@@ -124,3 +124,7 @@ lemma VRel_transform {m i Vw Ww : V}
   sorry
 
 end GodelQ.ITSubstOpen4
+
+-- 关键发现（2026-10-12）：V 层 `m + 1 + 1` **不是** definitionally `m + 2`
+-- （V 是任意模型，`2` 是字面量而非 `1+1` 的缩写）。所有涉及 `m+2`/`m+3` 的
+-- 目标都必须在假设里显式写出 `(m+1)+1` 形式，或用 `show ... by ring` 先转换。
