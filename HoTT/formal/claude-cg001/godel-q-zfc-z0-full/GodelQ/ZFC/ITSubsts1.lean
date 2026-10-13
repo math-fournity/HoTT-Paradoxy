@@ -811,75 +811,38 @@ lemma subst_qVec_domZero' {w : V} (hw : IsSemitermVec ℒₛₑₜ (len w) (1:V)
   subst hz
   simp
 
-/-- **桥 `B(q)`**（`q` 层 1）：`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`。 -/
-theorem iT_substs1 {n : V} : ∀ q, IsSemiformula ℒₒᵣ n q →
-    subst ℒₛₑₜ (?[^&0] : V) (iT n q) = iT (n - 1) (subst ℒₒᵣ (?[^&0] : V) q) := by
-  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n →
-      subst ℒₛₑₜ (?[^&0] : V) (iT param p) =
-        iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p) :=
-    UformulaRec1.Construction.semiformula_result_induction
-      (V := V) (c := iT.construction) (L := ℒₒᵣ)
-      (P := fun param n p q => param = n →
-        subst ℒₛₑₜ (?[^&0] : V) (iT param p) =
-          iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p))
-      ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_
-  · intro q hq
-    simpa [iT] using key hq (rfl : n = n)
-  · definability
-  · -- rel
-    intro n param k R v hR hv h
-    rw [← h] at hv
-    rw [iT_rel hR hv.isUTerm]
-    conv_rhs => rw [substs_rel hR hv.isUTerm]
-    rw [h, show (n : V) - 1 = 0 by norm_num]
-    rw [iT_rel hR hv.isUTerm]
-    -- 原子层：走 T1（`iVE_subst_a0`）
-    rw [iTR, iTR]
-    congr 1
-    · -- 分量 0
-      rw [nth_termSubstVec hv.isUTerm (show (0 : V) < k by sorry)]
-      sorry
-    · sorry
-  · -- nrel
-    intro n param k R v hR hv h
-    rw [← h] at hv
-    rw [substs_nrel hR hv.isUTerm, iT_nrel hR (hv.termSubstVec (isSemitermVec_fvar ℒₒᵣ param (0 : V))).isUTerm]
-    rw [show (1 : V) - 1 = 0 by norm_num]
-    rw [iT_nrel hR hv.isUTerm]
-    sorry
-  · -- verum
-    intro n param h
-    show subst ℒₛₑₜ (?[^&0] : V) (iT param ^⊤) = iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) ^⊤)
-    rw [iT_verum, substs_verum, substs_verum, iT_verum]
-  · -- falsum
-    intro n param h
-    show subst ℒₛₑₜ (?[^&0] : V) (iT param ^⊥) = iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) ^⊥)
-    rw [iT_falsum, substs_falsum, substs_falsum, iT_falsum]
-  · -- and
-    intro n param p q hp hq ihp ihq h
-    rw [← h] at hp hq
-    rw [subst_and hp.isUFormula hq.isUFormula]
-    rw [iT_and (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
-    show subst ℒₛₑₜ (?[^&0] : V) (iT param p) ^⋏ subst ℒₛₑₜ (?[^&0] : V) (iT param q) =
-      iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p) ^⋏ iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) q)
-    rw [iT_and (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
-    exact congrArg₂ (· ^⋏ ·) (ihp h) (ihq h)
-  · -- or
-    intro n param p q hp hq ihp ihq h
-    rw [← h] at hp hq
-    rw [subst_or hp.isUFormula hq.isUFormula]
-    rw [iT_or (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
-    show subst ℒₛₑₜ (?[^&0] : V) (iT param p) ^⋎ subst ℒₛₑₜ (?[^&0] : V) (iT param q) =
-      iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) p) ^⋎ iT (param - 1) (subst ℒₒᵣ (?[^&0] : V) q)
-    rw [iT_or (IsUFormula.subst (?[^&0] : V) hp.isUFormula) (IsUFormula.subst (?[^&0] : V) hq.isUFormula)]
-    exact congrArg₂ (· ^⋎ ·) (ihp h) (ihq h)
-  · -- all
-    intro n param p hp ih h
-    rw [← h] at hp
-    sorry
-  · -- exs
-    intro n param p hp ih h
-    rw [← h] at hp
-    sorry
+/-! ## 桥 `B(q)`：`iT` 与变量代换的相容律（一般向量版）
+
+```
+1 ≤ n → IsSemitermVec ℒₛₑₜ n n w → IsSemitermVec ℒₒᵣ n n w →
+  subst ℒₛₑₜ w (iT n p) = iT (n - 1) (subst ℒₒᵣ w p)
+```
+
+**为什么带 `∀ w`**：`hAll` 要的 `w = ?[^&0]` 长度是 1，而 `iT` 内部每个
+`all`/`exs` 支改层数、每个 `eqAtom`/`ve2` 自带 2 层绑定——向量长度必须
+随层数走，不能固定成 1。把 `w` 量化进来，量词支才能把 `w` 换成
+`qVec w`（`substs_all` 的防捕获向量）。
+
+`n = 1` 时即 `hkey_probe` 要的桥 `B(q)`：
+`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`。
+
+**注意 `domZero` 侧**：`subst (qVec w) domZero = domZero`
+（`subst_qVec_domZero'`，本文件已证）；**不是** `subst ?[^&0] domZero = domZero`
+（那是假命题——`cDomN` 层数 1，带自由 bvar `#0`）。 -/
+theorem iT_substs1_gen {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (1 : V) ≤ n →
+    ∀ w, IsSemitermVec ℒₛₑₜ n n w → IsSemitermVec ℒₒᵣ n n w →
+      subst ℒₛₑₜ w (iT n p) = iT (n - 1) (subst ℒₒᵣ w p) := by
+  sorry
+
+/-- **桥 `B(q)`**（`hkey_probe` 需要的形状，`n = 1`）。 -/
+theorem iT_substs1 {q : V} (hq : IsSemiformula ℒₒᵣ 1 q) :
+    subst ℒₛₑₜ (?[^&0] : V) (iT (1 : V) q) =
+      iT (0 : V) (subst ℒₒᵣ (?[^&0] : V) q) := by
+  have hwS : IsSemitermVec ℒₛₑₜ (1:V) (1:V) (?[^&0] : V) :=
+    IsSemitermVec.singleton.mpr (IsSemiterm.fvar (1:V) (0:V))
+  have hwR : IsSemitermVec ℒₒᵣ (1:V) (1:V) (?[^&0] : V) :=
+    IsSemitermVec.singleton.mpr (IsSemiterm.fvar (1:V) (0:V))
+  have h := iT_substs1_gen q hq (by norm_num) (?[^&0] : V) hwS hwR
+  rwa [show (1 : V) - 1 = 0 by norm_num] at h
 
 end GodelQ.ITSubsts1
