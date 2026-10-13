@@ -986,14 +986,16 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     -- `substs_rel` 产出的向量是 `termSubstVec 2 ?[^&0] v`；
     -- `?[^&0]` 的层数 = `n`（= 原公式层数）
     -- `hv` 的层是 `n`；右侧用层 `(1:V)`。`h : (1:V) = n`，故造一个层 `(1:V)` 的副本。
+    -- `termSubstVec` 要 `w` 的长度 = `v` 的层（都是 `n`）；`?[^&0]` 长度恒 1 ⟹ 用 `n = 1`
+    have hn1 : n = (1:V) := by rw [← h]; exact h1
+    -- 右侧用层 `param`；造一个层 `param` 的 `v` 副本供 `nth` 使用
     have hvp : IsSemitermVec ℒₒᵣ (2:V) param v := by rw [h]; exact hv
-    have hvw : IsSemitermVec ℒₒᵣ (1:V) param (?[^&0] : V) :=
-      IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) param (0:V))
-    have hsub2 : IsSemitermVec ℒₒᵣ (2:V) (1:V)
-        (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v) := by
-      have hv1 : IsSemitermVec ℒₒᵣ (2:V) (1:V) v := by
-        rwa [show param = (1:V) from h1] at hvp
-      exact IsSemitermVec.termSubstVec (k := (2:V)) (v := v) hvw hv1
+    have hvw : IsSemitermVec ℒₒᵣ n n (?[^&0] : V) := by
+      rw [hn1]
+      exact IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₒᵣ) (V := V) (1:V) (0:V))
+    have hsub2 : IsSemitermVec ℒₒᵣ (2:V) n
+        (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v) :=
+      IsSemitermVec.termSubstVec (k := (2:V)) (v := v) hvw hv
     rw [iT_rel hR hsub2.isUTerm]
     rw [show param = (1:V) from h1]
     change iTR 0 2 R (termSubstVec ℒₒᵣ (2:V) (?[^&0] : V) v) =
@@ -1185,9 +1187,10 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     have hqvS0 : IsSemitermVec ℒₛₑₜ (1:V) (param + 1) (?[^&0] : V) :=
       IsSemitermVec.singleton.mpr (IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (param + 1) (0:V))
     have hqvS : IsSemitermVec ℒₛₑₜ (param + 1) (param + 1) (qVec ℒₛₑₜ (?[^&0] : V)) := by
-      have h := IsSemitermVec.qVec (k := (1:V)) hqvS0
-      rw [show (1:V) + 1 = param + 1 from by rw [h1]] at h
-      exact h
+      rw [show param = (1:V) from h1]
+      exact IsSemitermVec.doubleton.mpr
+        ⟨IsSemiterm.bvar.mpr (by norm_num),
+         IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (2:V) (0:V)⟩
     have hqv : qVec ℒₒᵣ (?[^&0] : V) = (?[^#0, ^&0] : V) := by
       rw [Bootstrapping.qVec, show len (?[^&0] : V) = (1:V) from by simp]
       rw [show (1:V) = 0 + 1 by norm_num,
@@ -1221,9 +1224,10 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
       (isSemiformula_domZero (n := param))
       (isSemiformula_iT p hp)
       (by
-        have h := hqvS
-        rw [show (param + 1 : V) = param + 1 + 1 from by omega] at h
-        exact h)]
+        rw [show param = (1:V) from h1]
+        exact IsSemitermVec.doubleton.mpr
+          ⟨IsSemiterm.bvar.mpr (by norm_num),
+           IsSemiterm.fvar (L := ℒₛₑₜ) (V := V) (2:V) (0:V)⟩)]
     show imp ℒₛₑₜ (subst ℒₛₑₜ (qVec ℒₛₑₜ (?[^&0] : V)) (domZero (V := V)))
         (iT param (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) =
       imp ℒₛₑₜ (subst ℒₛₑₜ (qVec ℒₛₑₜ (?[^&0] : V)) (domZero (V := V)))
