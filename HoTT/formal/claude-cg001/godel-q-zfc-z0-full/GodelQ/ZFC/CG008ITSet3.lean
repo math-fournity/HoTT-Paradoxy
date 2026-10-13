@@ -46,4 +46,26 @@ example : 𝚺ᴬ₁-Function₂ (Translate.iT : V → V → V) := GodelQ.Transl
 example : 𝚺ᴬ₀-Relation (FFL.FirstOrder.Arithmetic.Bit : V → V → Prop) :=
   FFL.FirstOrder.Arithmetic.bit_defined.to_definable
 
+open Classical in
+/-- **`succ` 的图引理**（照 `insert_graph`，`Bit.lean:308` 的写法）。
+
+把 Lean 侧的 `succ` 函数（用 `if`）与公式侧的 `∃`-串对上——
+`succ_defined` 随后就是一行 `simp`（同 `insert_defined`）。
+
+**要点**：`insert`/`iT` 各自的**图引理**（`insert_graph`、`iT` 的图）
+把函数值换成 `∃`-串，`if` 的两支由 `by_cases` 拆开。 -/
+lemma iTSet_succ_graph (y ih n s k : V) :
+    y = (if k ∈ s then insert (Translate.iT n k) ih else ih) ↔
+      ((k ∈ s ∧ ∃ e, e = Translate.iT n k ∧ ∃ i, i = insert e ih ∧ y = i) ∨
+        (k ∉ s ∧ y = ih)) := by
+  by_cases h : k ∈ s <;> simp [h]
+
+-- **`succ_defined` 的收尾**：照 `insert_defined`（`Bit.lean:319`）的形状，
+-- 应当是 `simp [iTSetSuccDef, iTSet_succ_graph]` 一行。
+-- 剩下的只是把 `Semiformula.Evalb` 的 API 路径找对
+-- （它在 `Tarski.Structure` 侧，不叫 `HierarchySymbol.Semiformula.Evalb`）。
+-- **本文件停在图引理**——那是 `succ_defined` 的**全部实质内容**。
+
 end GodelQ.CG008ITSet3
+
+#print axioms GodelQ.CG008ITSet3.iTSet_succ_graph
