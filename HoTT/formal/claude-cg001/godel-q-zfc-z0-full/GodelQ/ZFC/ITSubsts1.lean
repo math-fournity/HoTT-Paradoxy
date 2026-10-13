@@ -811,6 +811,44 @@ lemma subst_qVec_domZero' {w : V} (hw : IsSemitermVec ℒₛₑₜ (len w) (1:V)
   subst hz
   simp
 
+/-! ## `subst` 推过 `qqAlls`（2026-10-12 新增）
+
+`subst` 每推过一层 `^∀`，向量就换成 `qVec w`——这是 `substs_all` 的防捕获机制，
+`iT` 的量词支要靠它把向量长度与层数对齐。 -/
+
+/-- `subst` 推过 `qqAlls · k`：向量迭代 `k` 次 `qVec`。 -/
+lemma substs_qqAlls : ∀ (k : ℕ) (X w : V), IsUFormula ℒₛₑₜ X →
+    subst ℒₛₑₜ w (qqAlls X (k : V))
+      = qqAlls (subst ℒₛₑₜ ((qVec ℒₛₑₜ)^[k] w) X) (k : V) := by
+  intro k
+  induction k with
+  | zero => intro X w _; simp
+  | succ j ih =>
+    intro X w hX
+    rw [show ((j + 1 : ℕ) : V) = (j : V) + 1 by push_cast; ring]
+    rw [qqAlls_succ]
+    have hu : IsUFormula ℒₛₑₜ (qqAlls X (j : V)) := isUFormula_qqAlls.mpr hX
+    rw [Bootstrapping.substs_all (L := ℒₛₑₜ) hu]
+    rw [ih X (qVec ℒₛₑₜ w) hX]
+    rw [qqAlls_succ]
+    congr 3
+
+/-- `qVec` 迭代两次作用在 `?[^&0]` 上给出 `[#0, #1, ^&0]`。 -/
+lemma qVec_two : (qVec ℒₛₑₜ)^[2] (?[^&0] : V) = (?[^#0, ^#1, ^&0] : V) := by
+  rw [Function.iterate_succ_apply', Function.iterate_one]
+  rw [show qVec ℒₛₑₜ (?[^&0] : V) = (?[^#0, ^&0] : V) from by
+    rw [Bootstrapping.qVec, show len (?[^&0] : V) = (1:V) from by simp]
+    rw [show (1:V) = 0 + 1 by norm_num,
+      termBShiftVec_cons (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
+      termBShift_fvar, termBShiftVec_nil]]
+  rw [Bootstrapping.qVec,
+    show len (?[^#0, ^&0] : V) = (2:V) from by simp [len_adjoin, len_nil]; norm_num]
+  rw [show (2:V) = 0 + 1 + 1 by norm_num,
+    termBShiftVec_cons (IsUTerm.bvar (z := (0:V)))
+      (IsUTermVec.adjoin IsUTermVec.empty (IsUTerm.fvar (x := (0:V)))),
+    termBShift_bvar, show (0:V) + 1 = 1 by norm_num,
+    termBShiftVec_cons₁ (IsUTerm.fvar (x := (0:V))), termBShift_fvar]
+
 /-! ## 桥 `B(q)`：`iT` 与变量代换的相容律（一般向量版）
 
 ```
