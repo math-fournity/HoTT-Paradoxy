@@ -10,7 +10,7 @@ import GodelQ.ZFC.CG008BvMain
 `iVE n t` 的层数**确实依赖 `n`**：`func` 分支走 `ve2 (p 0) k f w`，而
 `ve2` 内的 `conjunct 3 n i w.[i]` 要求 `w.[i]` 在层 `1 + n` 是公式——
 这只有知道 `v.[i]` 在层 `n` 时才成立。`IsUTerm t` **不给** `v.[i]` 的层，
-所以那条路上「`bv ≤ 1 + n`」这一步是**证不出来**的（先前记作最后一环的 sorry）。
+所以那条路上「`bv ≤ 1 + n`」这一步是**证不出来**的（先前记作最后一环的未证标记）。
 
 **正确的假设是 `IsSemiterm ℒₒᵣ n t`**（层 `n`），结论是层 `n + 1`。
 这正是 `CG008BvMain.isSemiformula_iVE` 所证的，且**严格更强**

@@ -274,3 +274,85 @@ instance [∀ σ, 𝔅.FormalizedCompleteOn (𝔅 σ)] : 𝔅.HBL3 := ⟨by simp
 而非语义层的完全性。Foundation 的 `Bootstrapping/` 目录下**没有**任何内部化解释机制
 （已用 `grep -rln "Interpretation\|interpret" FirstOrder/Arithmetic/Bootstrapping/` 确认为空），
 这是 CG-008 的实质工作量。
+
+## 10. CG-008 P3 第十至十三轮（2026-10-12）：`iVE`/`iT` 闭合，缺口锐化到最窄
+
+### 10.1 三处「陈述写错」，不是战术缺口
+
+`iVE_isUFormula` 与 `iT_isUFormula` 的 `sorry` 挂了多轮，被记作「装配问题」。
+**根因是陈述写错**：`iVE n t` 与 `iT n p` 把 `n` 用进了**项的分量层**
+（`conjunct 2 n 0 (iVE n v.[0])` 要求 `v.[0]` 在层 `n` 是项），
+而 `IsUTerm t` / `IsUFormula p` **不给**这个界。正确假设是
+`IsSemiterm ℒₒᵣ n t` / `IsSemiformula ℒₒᵣ n p`。
+
+**方法**：证层数，不证 `bv` 算术。`ve2` 外层是 `qqAlls · 2`（层减 2），
+故内层义务恰是 `3 + n`——与 `conjunct` 给出的**正好对上**；
+`IsSemiformula` 层数单调，所有差都免费。
+**`CG008Bv.lean` 记的「算术界障碍」从来不存在。**
+
+**归纳原理也选错了**：一元 `IsUFormula.ISigma1.sigma1_succ_induction` **不吃层数**，
+故 `all`/`exs` 卡住（`iT_all` 右边是 `iT (n+1) p`）。Foundation 有层数感知的
+`IsSemiformula.sigma1_structural_induction`（`Formula/Basic.lean:1484`），
+其 `hall` 的归纳假设**就在层 `n + 1`**。换掉即通。
+
+### 10.2 本轮已证（全部公理洁净，只报 `propext`/`Classical.choice`/`Quot.sound`）
+
+| 文件 | 引理 |
+|---|---|
+| `CG008BvBound.lean` | `bv_eqAtom_le` |
+| `CG008Vec2.lean` | `nth_vec₂_zero`、`nth_vec₂_one`（抽出以解导入循环） |
+| `CG008BvMain.lean` | `len_shiftVec`、`isSemiformula_mono`、`isSemiformula_conjunct`、**`isSemiformula_ve2`**、`isSemiformula_ve0`、**`isSemiformula_iVE`**、**`bv_iVE_le`** |
+| `CG008IVE.lean` | **`iVE_isUFormula`**、`iVE_isUFormula_of_isUTerm` |
+| `CG008ITR.lean` | `isSemiterm_mono`、`isSemitermVec_mono`、`cRel_isSemiformula`、**`iTR_isSemiformula`**、`iTR_isUFormula_of_le` |
+| `CG008ITParts.lean` | **`iT_isUFormula`**（八情形） |
+| `CG008ITQuoteClose.lean` | `iT_quote_internalized`、`iT_zero_isUFormula`、**`iT_quote_closed`** |
+| `InternalTranslate.lean`（改） | `iT_definable'`（rank 提升实例） |
+
+**`iT_quote` 线的三个子目标全部付清**：`CG008ITQuoteProof.lean` 曾把
+`hrel`/`hnrel`/`hall`+`hexs` 列为三个子目标并判定后者是「实质障碍」。
+**那不是障碍，是归纳原理选错**——`iT_isUFormula` 一次付清。
+
+### 10.3 缺口锐化（`CG008GapSharp.lean`）
+
+`hD3G` 的前提是 `Provable 𝗭𝗙𝗖 (⌜translate τ⌝ : V)`。由 `models_zfcTr_iff`
+这就是 `V ⊨ zfcTr τ`；而 `zfcTr τ` 是 Σ₁ 句，所以 **𝗜𝚺₁ 自己的 Σ₁ 完全性**
+（`sigma_one_complete`）给出
+
+```
+Provable 𝗜𝚺₁ (⌜zfcTr τ⌝ : V)        ← V 内部的一条 𝗜𝚺₁ 证明编码
+```
+
+**这个编码在缺口前提里从未被提到。** 缺口因此归约为
+
+```
+narrow : ∀ Σ₁ 句 σ, Provable 𝗜𝚺₁ ⌜σ⌝ → Provable 𝗭𝗙𝗖 ⌜translate σ⌝
+```
+
+即「内部化的解释保可证性」。
+
+### 10.4 但 `narrow` 不更弱（`CG008Circularity.lean`）
+
+把 `narrow` 用在 `σ := zfcTr τ`（这正是它的用法）上，它要求把
+「V 内一条 𝗜𝚺₁ 推导」变成「V 内一条 𝗭𝗙𝗖 推导」——**一次反射**，
+其一般形式蕴含 𝗜𝚺₁ 的 Σ₁ 可靠性，后者在 𝗜𝚺₁ 内不可证
+（否则 𝗜𝚺₁ ⊢ Con(𝗜𝚺₁)）。**单向归约，非等价。**
+
+### 10.5 三条「照搬」路线排除
+
+| 路线 | 断点 | 文件 |
+|---|---|---|
+| 照搬 `provable_D3` 的一行证明 | 它要 `provabilityPred T`（`T : ArithmeticTheory` + `T.Δ₁` + `𝗣𝗔⁻ ⪯ T`）；`zfcTr` 的「理论」是 `Sh` | `CG008D3Attempt2.lean` |
+| 给 `Sh` 造 `Δ₁` | `Sh` **是** `ArithmeticTheory`（即 `Theory ℒₒᵣ`），故 `provable_D3` 只差 `[Sh.Δ₁]`——但该实例**不可能**（否则 𝗭𝗙𝗖 定理集递归，与 G1 矛盾） | `CG008ShDelta1Try.lean` |
+| `standardProvability` | 它对任意 `Theory L` 可定义、`HBL2` 通用，但 `provable_D3` 要 `T : ArithmeticTheory` 而 `𝗭𝗙𝗖 : SetTheory` | `CG008SPProbe.lean` |
+
+### 10.6 交付形状（`CG008Z0Sharp.lean`）
+
+`zfc_z0_of_narrow_bridge`：**最窄前提 ⟹ 完整的 Z0**
+（`𝗭𝗙𝗖 ⊬ arithTrln.translate (𝗭𝗙𝗖.consistent)`），
+无未证标记、公理洁净。**以一条显式、精确陈述的未证前提为条件。**
+
+### 10.7 仍未证
+
+`hD3G`；`Z0Blocked.lean:65` 的未证标记仍在。
+缺口的最窄形式：**把 `PAModel.lean` 的模型论论证（`models_PA_W`/`W_induction`，
+目前是元层）在 V 内形式化**。**不交付 Z0 为已证。**
