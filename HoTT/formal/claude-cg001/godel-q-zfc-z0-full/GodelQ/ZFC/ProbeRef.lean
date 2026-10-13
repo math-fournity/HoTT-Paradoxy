@@ -7,32 +7,24 @@ set_option maxHeartbeats 4000000
 namespace GodelQ.ProbeRefute
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-! ### `all` 支判据：`qVec` 在这里长层数
+/-! ### `all` 支：两侧各展开一次
 
-取 `p = ^∀ X`（X 是层 1 公式）。候选：
+目标：证明 LHS 与 RHS 的**中间形状不同**。先各自用一条引理走一步，看 Lean 报什么。 -/
 
-```
-iT 0 (substs1 ℒᵣ ^&0 (^∀ X)) = substs1 ℒₜ (iVE 0 ^&0) (iT 0 (^∀ X))
-```
+section
+variable (X : V) (hX : IsUFormula ℒₒᵣ X)
 
-**LHS**：`substs1 ℒᵣ ^&0 p = subst ℒᵣ ?[^&0] p`，
-  用 `substs_all` 推过 `^∀`：`subst ?[^&0] (^∀ X) = ^∀ subst (qVec ℒᵣ ?[^&0]) X`
-  → `iT 0 (^∀ subst (qVec ?[^&0]) X)` → `iT_all` → `^∀ imp domZero (iT 1 ...)`
+-- LHS 第一步：substs1 套在 ^∀ 上
+example : iT (0:V) (substs1 ℒₒᵣ (^&(0:V) : V) ((^∀ X) : V))
+    = iT (0:V) (((^∀ (subst ℒₒᵣ ((qVec ℒₒᵣ ((?[^&0] : V)) : V)) X)) : V) : V) := by
+  sorry
 
-**RHS**：`iT 0 (^∀ X) = ^∀ imp domZero (iT 1 X)`（iT_all），
-  再 `substs1 ℒₜ X (^∀ ...)` → `substs_all` → `^∀ subst (qVec ℒₜ ?[X]) (imp domZero (iT 1 X))`
+-- RHS 第一步：substs1 套在 iT 的输出 ^∀ 上
+example : substs1 ℒₛₑₜ (iVE (0:V) (^&(0:V) : V)) (iT (0:V) ((^∀ X) : V))
+    = ((^∀ (subst ℒₛₑₜ ((qVec ℒₛₑₜ (((?[iVE 0 ^&0] : V)) : V)) : V))
+        (imp ℒₛₑₜ (domZero (V := V)) (iT (1:V) X))) : V) := by
+  sorry
 
-**两侧都有一个 `^∀`，但里面不同**：LHS 是 `imp domZero (iT 1 (subst (qVec ℒᵣ ?[^&0]) X))`，
-RHS 是 `subst (qVec ℒₜ ?[iVE 0 ^&0]) (imp domZero (iT 1 X))`。
+end
 
-**关键差别**：RHS 的 `subst (qVec ?[X])` 会作用到 `imp domZero (...)` 上——
-包括 `domZero`！而 LHS 的 `imp domZero` 是 `iT_all` **之后**才引入的，
-`subst` 在 `iT` **之前**就已经做完、够不到它。
-
-**这正是当年否掉朴素交换律的同一种语义错位**（`iT` 在绑定层下用保护语义，
-`substs1` 用替换语义）。`hExs` 的 `all` 支很可能**也要卡在这里**。 -/
-
-#check @iT_all
-#check @Bootstrapping.substs_all
-#check @iT_exs
 end GodelQ.ProbeRefute
