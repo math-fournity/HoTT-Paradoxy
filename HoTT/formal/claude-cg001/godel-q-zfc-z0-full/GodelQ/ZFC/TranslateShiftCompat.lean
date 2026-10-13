@@ -1065,6 +1065,31 @@ lemma subst_qVec_domZero' {w : V} (hw : IsSemitermVec ℒₛₑₜ (len w) (1:V)
   subst hz
   simp
 
+/-- **`len (qVec w) = len w + 1`**：保护层（首格 `^#0`）的代价。
+
+`qVec` 让向量长度比公式层数**多 1**——这是 `all`/`exs` 支
+「向量长度 ≥ 层数」的来源，也是 `subst_congr_prefix'`（只看前 `n` 格）
+之所以必要的原因。 -/
+lemma len_qVec {w : V} (hw : IsUTermVec ℒₛₑₜ (len w) w) :
+    len (qVec ℒₛₑₜ w) = len w + 1 := by
+  rw [show (qVec ℒₛₑₜ w) = (^#0 : V) ∷ termBShiftVec ℒₛₑₜ (len w) w from rfl]
+  rw [len_adjoin, len_termBShiftVec hw]
+
+/-- **`subst` 的结果不因向量变长而变**：`qVec w` 与 `w'` 前 `n` 格一致（`X` 层 `n`）⟹ 结果一致。
+
+**这是 `all`/`exs` 支的「缩向量」工具**：把长度 `len w + 1` 的 `qVec w`
+换成**长度恰为 `n`** 的 `w'`（前 `n` 格一致），
+从而让归纳假设的向量条件（长度 = 层数）成立。 -/
+lemma subst_qVec_shrink {n : V} {w w' X : V} (hX : IsSemiformula ℒₛₑₜ n X)
+    (huw : IsUTermVec ℒₛₑₜ (len w) w) (hn : n ≤ len w + 1)
+    (hw' : IsSemitermVec ℒₛₑₜ n n w')
+    (hq : IsSemitermVec ℒₛₑₜ (len (qVec ℒₛₑₜ w)) n (qVec ℒₛₑₜ w))
+    (H : ∀ i < n, (qVec ℒₛₑₜ w).[i] = w'.[i]) :
+    subst ℒₛₑₜ (qVec ℒₛₑₜ w) X = subst ℒₛₑₜ w' X :=
+  subst_congr_prefix' (L := ℒₛₑₜ) (n := n) (m := n)
+    (k₁ := len (qVec ℒₛₑₜ w)) (k₂ := n) X hX
+    (by rw [len_qVec huw]; exact hn) (le_refl n) hq hw' H
+
 /-! ## `subst` 推过 `qqAlls`（2026-10-12 新增）
 
 `qqAlls X k` 是 `k` 层 `^∀` 的叠置。`subst` 推过它时向量按 `qVec` 迭代：
