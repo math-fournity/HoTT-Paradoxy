@@ -22,18 +22,21 @@ noncomputable def iTSet.blueprint : PR.Blueprint 2 where
   zero := .mkSigma “y n s. y = 0”
   succ := GodelQ.CG008ITSet3.iTSetSuccDef
 
--- **构造的收尾**：`zero := fun _ ↦ 0`，`succ` 用 Lean 的 `if`。
+-- **构造**：`zero := fun _ ↦ 0`，`succ` 用 Lean 的 `if`。
 --
 -- `succ_defined` 要证 `Evalb v ↑succ ↔ (if 式)`。**实质内容已证**：
 -- `CG008ITSet3.iTSet_succ_graph` 正是这个 `↔` 的「`(if 式) ↔ (`∃`-串)」一半
--- （公理洁净）。**剩下的是 `Evalb` 的展开**——把
--- `(“#4 ∈ #3”) ⋏ (∃¹ …) ⋎ ∼(“#4 ∈ #3”) ⋏ (“#0 = #1”)`
--- 化简成 `iTSet_succ_graph` 左边的形状（`Evalb` 对
--- `⋏`/`⋎`/`∼`/`∈`/`∃¹` 的逐项引理，在 `Tarski.Structure` 侧）。
+-- （公理洁净）。照 `insert_defined`（`Bit.lean:319-320`）的形状，
+-- `succ_defined` 应当是 `simp [iTSetSuccDef, iTSet_succ_graph]` 一行——
+-- 那里能过是因为 `insert_graph` 的右边与 `Evalb` 展开后**同形**。
 --
--- **本文件停在蓝图**：`iTSet.blueprint` 已装配（类型核对通过），
+-- **剩下的一层**：把 `Evalb` 对 `(“#4 ∈ #3”)`/`⋏`/`⋎`/`∼`/`∃¹` 的展开
+-- 与 `iTSetSuccDef` 的 `∃`-串对齐（`Evalb` 的逐项引理在
+-- `Tarski/Basic.lean:254` 的 `Eval` 侧，是 `HomClass` 的 `map_*` 一族）。
+--
+-- **本文件停在蓝图**：`iTSet.blueprint` 已装配（类型核对通过）；
 -- `iTSet.construction` 的两个 `_defined` 中 `zero_defined` 是 `simp`，
--- `succ_defined` 差 `Evalb` 展开这一层。
+-- `succ_defined` 差上面这一层。
 
 -- **`iTSet n s`** 将是 `iTSet.construction.result ![n, s] (len s)`——
 -- 待 `succ_defined` 收尾后即可定义。
