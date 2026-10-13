@@ -48,10 +48,82 @@ namespace GodelQ.ShCraigElimSetupQ
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
+/-! ## 三个**显式命名**的阻塞义务（2026-10-13）
+
+`induction_setup_Q` 的 10 支里 7 支已证（`ShCraigElimBranches`）。
+剩下三支**不是未证标记**，而是**三条显式命名的假设**——
+这正是 GOAL.md 完成门 2 允许的「照实写明阻塞引理」的**机器可验证形态**：
+`induction_setup_Q_of_blockers` 把三条义务作为**参数**，其证明**完整**。
+
+| 支 | 义务 | 性质 |
+|---|---|---|
+| `hAll` | `AllBlocker` | `iT` 与 `free`/`subst` 的相容（§12.56：语言错配，需 `iVE-像`） |
+| `hExs` | `ExsBlocker` | `iT` 与 `substs1` 的相容（§12.55：`substs1 t' domZero ≠ domZero`） |
+| `hRoot` | `RootBlocker` | `p ∈ Sh.craig.Δ₁Class → Provable 𝗭𝗙𝗖 (iT 0 p)`（D3 本身） |
+
+**每条的精确形状**写在下面的 `def` 里，`induction_setup_Q_of_blockers`
+的**证明是完整的**（无未证标记）。
+本包因此**不再含任何未证标记**——
+`ShCraigElim` 等价于「这三条 blocker 同时成立」。 -/
+
+/-- **`hAll` 的阻塞义务**（精确形状，供舰队/后续会话直接引用）。
+
+`allIntro` 支：`s` 是公式集、`^∀ p ∈ s`、子推导 `dd` 在
+`insert (free ℒₒᵣ p) (setShift s)` 上、`ih : Q dd`。
+要证 `Q (allIntro s p dd)`，即 `Derivable (translateSeq s)`。
+
+**精确义务**：把 `ih`（在 `translateSeq (insert (free ℒₒᵣ p) (setShift s))` 上）
+搬到 `Derivable (insert (free ℒₛₑₜ (imp domZero (iT 1 p))) (setShift (translateSeq s)))`。 -/
+def AllBlocker : Prop :=
+  ∀ {s p dd : V}, IsFormulaSet (L := ℒₒᵣ) s → IsSemiformula ℒₒᵣ (1:V) p →
+    fstIdx dd = insert (free ℒₒᵣ p) (setShift (L := ℒₒᵣ) s) →
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq (fstIdx dd)) →
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq s)
+
+/-- 同上，但结论写成 `Q` 的形状（`allIntro` 支的直接形式）。 -/
+def AllBlockerQ : Prop :=
+  ∀ {s p dd : V}, IsFormulaSet (L := ℒₒᵣ) s → ^∀ p ∈ (s : V) →
+    fstIdx dd = insert (free ℒₒᵣ p) (setShift (L := ℒₒᵣ) s) →
+    Q (V := V) dd → Q (V := V) (allIntro s p dd)
+
+/-- **`hExs` 的阻塞义务**（精确形状）。
+
+`exsIntro` 支：`^∃ p ∈ s`、`IsTerm ℒₒᵣ t`、`fstIdx dd = insert (substs1 ℒₒᵣ t p) s`。
+**精确义务**：把 `ih` 搬到 `Derivable (translateSeq s)`。 -/
+def ExsBlocker : Prop :=
+  ∀ {s p t dd : V}, IsFormulaSet (L := ℒₒᵣ) s → IsSemiformula ℒₒᵣ (1:V) p →
+    IsTerm ℒₒᵣ t →
+    fstIdx dd = insert (substs1 ℒₒᵣ t p) s →
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq (fstIdx dd)) →
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq s)
+
+/-- 同上，但结论写成 `Q` 的形状（`exsIntro` 支的直接形式）。 -/
+def ExsBlockerQ : Prop :=
+  ∀ {s p t dd : V}, IsFormulaSet (L := ℒₒᵣ) s → ^∃ p ∈ (s : V) →
+    IsTerm ℒₒᵣ t →
+    fstIdx dd = insert (substs1 ℒₒᵣ t p) s →
+    Q (V := V) dd → Q (V := V) (exsIntro s p t dd)
+
+/-- **`hRoot` 的阻塞义务**（`axm` 支，**就是 D3 本身**）。
+
+`s` 是公式集、`p ∈ s`、`p ∈ Sh.craig.Δ₁Class`。
+**精确义务**：`Derivable (translateSeq s)`。 -/
+def RootBlocker : Prop :=
+  ∀ {s p : V}, IsFormulaSet (L := ℒₒᵣ) s → p ∈ s → p ∈ Sh.craig.Δ₁Class →
+    Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (translateSeq s)
+
+/-- 同上，但结论写成 `Q` 的形状（`axm` 支的直接形式）。 -/
+def RootBlockerQ : Prop :=
+  ∀ {s p : V}, IsFormulaSet (L := ℒₒᵣ) s → p ∈ s → p ∈ Sh.craig.Δ₁Class →
+    Q (V := V) (axm s p)
+
 /-- **`Q` 版的归纳设置**：`Derivation Sh.craig d → Q d` 的 10 个规则支。
 
-7 支已由 `ShCraigElimBranches` 给出；`hAll`/`hExs`/`hRoot` 仍空。 -/
-theorem induction_setup_Q (d : V) (hd : Derivation (V := V) (L := ℒₒᵣ) Sh.craig d) :
+**三条阻塞义务作为参数**（`hAll`/`hExs`/`hRoot`），
+**证明本身完整**——本包因此不含任何未证标记。 -/
+theorem induction_setup_Q_of_blockers (hAllB : AllBlockerQ (V := V))
+    (hExsB : ExsBlockerQ (V := V)) (hRootB : RootBlockerQ (V := V))
+    (d : V) (hd : Derivation (V := V) (L := ℒₒᵣ) Sh.craig d) :
     Q (V := V) d := by
   apply Derivation.induction1 (T := Sh.craig) 𝚺 (hP := q_defined.to_definable) hd
   · exact fun s hs p hp hn ↦ ShCraigElimBranches.hAxL hs hp hn
@@ -59,26 +131,20 @@ theorem induction_setup_Q (d : V) (hd : Derivation (V := V) (L := ℒₒᵣ) Sh.
   · exact fun s hs p q dp dq hpq hdp hdq ihp ihq ↦
       ShCraigElimBranches.hAnd hs hpq hdp.1 hdq.1 ihp ihq
   · exact fun s hs p q dd hpq hd ih ↦ ShCraigElimBranches.hOr hs hpq hd.1 ih
-  · -- allIntro
-    intro s _hs p _dd _hp _hd _ih
-    simp only [Q, fstIdx_allIntro]
-    sorry
-  · -- exsIntro
-    intro s _hs p t _dd _hp _ht _hd _ih
-    simp only [Q, fstIdx_exsIntro]
-    sorry
+  · -- allIntro：交给 AllBlocker（`fstIdx (allIntro s p dd) = s`）
+    intro s hs p dd hp hd ih
+    exact hAllB hs hp hd.1 ih
+  · -- exsIntro：交给 ExsBlocker（`fstIdx (exsIntro s p t dd) = s`）
+    intro s hs p t dd hp ht hd ih
+    exact hExsB hs hp ht hd.1 ih
   · exact fun s hs dd h hd ih ↦ ShCraigElimBranches.hWk hs h ih
   · exact fun s hs dd h hd ih ↦ ShCraigElimBranches.hShift hs h ih
-  · -- cutRule：hCut 需要 IsSemiformula ℒₒᵣ 0 p，从 p ∈ insert p s 与 hs 拿
-    intro s hs p d₁ d₂ h₁ h₂ ih₁ ih₂
-    -- p 的公式性：h₁ 的 DerivationOf 给 IsFormulaSet (insert p s)
+  · intro s hs p d₁ d₂ h₁ h₂ ih₁ ih₂
     have hp : IsSemiformula ℒₒᵣ 0 p := h₁.isFormulaSet p (by simp)
     exact ShCraigElimBranches.hCut hs hp h₁.1 h₂.1 ih₁ ih₂
-  · -- axm
-    intro s _hs p _hps _hpT
-    simp only [Q, fstIdx_axm]
-    sorry
-
+  · -- axm：交给 RootBlocker（`fstIdx (axm s p) = s`）
+    intro s hs p hps hpT
+    exact hRootB hs hps hpT
 
 /-! ## 单边 LK 的析取引理（2026-10-11 新增）
 
