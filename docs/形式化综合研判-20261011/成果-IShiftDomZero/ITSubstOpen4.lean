@@ -1,4 +1,4 @@
--- CG-009: (★★) 的向量代数 —— qVec 的逐项展开。
+-- CG-009: (★★) 的向量代数 —— qVec 的逐项展开 + VRel 的变换保持。
 import GodelQ.ZFC.ITSubstOpen3
 
 open FFL FFL.FirstOrder FFL FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
@@ -39,5 +39,23 @@ lemma nth_qVec_qVec {X j : V} (hX : IsUTermVec ℒₛₑₜ (len X) X) (hj : j <
   rw [step]
   rw [show (1 + j : V) = j + 1 by ring]
   rw [nth_qVec_succ (X := X) hX hj]
+
+/-- `(^#i ∷ shiftVec 3 n)` 的项（`j < n+1`）：`^#i`（`j=0`）或 `^#(j+2)`。 -/
+lemma nth_cons_shiftVec3 {n i j : V} (hj : j < n + 1) :
+    ((^#i : V) ∷ shiftVec 3 n).[j] = if j = 0 then (^#i : V) else ^#(j + 2) := by
+  rcases zero_or_succ j with rfl | ⟨j', rfl⟩
+  · simp
+  · rw [nth_adjoin_succ]
+    have hj' : j' < n := by
+      have h2 : j' + 1 < n + 1 := by simpa using hj
+      exact add_lt_add_iff_right (1 : V) |>.mp h2
+    rw [nth_shiftVec 3 n j' hj', if_neg (by simp : ¬(j' + 1 = 0 : Prop))]
+    congr 1
+    ring
+
+/-- 向量关系（(★★) 的前提）：前 `m` 项相等 + `Ww` 的**第 `m` 项**是 `^&0`。
+    其中 `len Vw = m`、`len Ww = m+1`。 -/
+def VRel (m Vw Ww : V) : Prop :=
+  (∀ k < m, Vw.[k] = Ww.[k]) ∧ Ww.[m] = ^&0
 
 end GodelQ.ITSubstOpen4
