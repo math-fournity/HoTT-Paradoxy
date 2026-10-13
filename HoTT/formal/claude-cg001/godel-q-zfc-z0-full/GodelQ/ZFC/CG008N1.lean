@@ -10,35 +10,43 @@ open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.Z0Full GodelQ.ZFCSetIn
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-! # `hEQ` 情形的**真实义务**
+/-! # `hEQ` 义务的最终定位：Foundation 的 `TProof` **整层都是闭句级**
 
-## 一个重要的反面观察
+## 三个负面观察（都机器核过源码）
 
-`∀¹ (setEq #0 t)` 对任意 `t : Semiterm V ℒₜ 1` **不是定理**：
-取 `t := #1`，它读作 `∀ x y, x = y`——假。
+**观察 1**：`∀¹ (setEq #0 t)` 对任意 `t : Semiterm V ℒₜ 1` **不是定理**
+（取 `t := #1` 读作 `∀ x y, x = y`）。**所以 `set_eq_refl` 那条路不能这样改。**
 
-**所以 `set_eq_refl` 那条路（`∀¹ (setEq #0 #0)` 再 `specialize!`）
-**不能**直接改成 `∀¹ (setEq #0 t)`。
+**观察 2**：`TProof` 命名空间里的每个定义（`Typed.lean:325-470`）
+都只谈 `φ : Formula V L = Semiformula V L 0`——**闭句**。
+`specialize` / `specialize₂!` / `specialize₃!` 收的 `t : Term V L` 也是**闭项**。
 
-## `hEQ` 到底要什么
+**所以要把 `set_eq_symm` 一类引理从闭项推广到 `Semiterm V ℒₜ n`，
+Foundation 的 `TProof` 层**没有对应 API**——不是缺一条引理，是缺一个层的搬运。**
 
-`setTheory_sigma₁_induction` 的 `hEQ` 给的是 `P n t₁ t₂`，
-其中 `t₁ t₂` 是**任意的**（同一层）。实例化 `P n φ ψ := (V ⊧ φ → Provable 𝗭𝗙𝗖 ⌜φ⌝)` 后，
-`hEQ` 的情形是：
+## hEQ 的真实义务（正题）
+
+实例化 `setTheory_sigma₁_induction` 的 `P := fun n phi psi ↦ (V ⊧ phi → Provable 𝗭𝗙𝗣 ⌜phi⌝)` 后，
+`hEQ` 情形是：
 
 ```
-    V ⊧ (.rel Eq.eq ![t₁, t₂]) → Provable 𝗭𝗙𝗖 ⌜(.rel Eq.eq ![t₁, t₂])⌝
+    V ⊧ (.rel Eq.eq ![t₁, t₂]) → Provable 𝗭𝗙𝗢 ⌜(.rel Eq.eq ![t₁, t₂])⌝
 ```
 
-即 **`V ⊧ t₁ = t₂` ⟹ ZFC 可证那条等式**。**前提是真的**，不是 `∀¹`。
+前提为**真**。要造的是「从 `V ⊧ t₁ = t₂` 生出 ZFC 推导」——
+即算术版 `term_complete` 的集合对偶，而那个对偶靠 `toNumVec`（数字项），
+`ℒₜ` 无数字项。
 
-**所以正确定位是：原子情形的义务带一个真前提**，
-这正是算术版 `term_complete` 的形状（`t.valb w` 是算出来的）。
-集合侧的对偶：从 `V ⊧ t₁ = t₂` 造出 ZFC 推导。
+## 净结论
+
+**三条独立证据都指向同一处**：`toNumVec`、`natCastEmbedding` 的 numeral 用法、
+`substNumerals`——Foundation 的「赋值/见证代入」工具**全部 ℒₒᵣ 专属**。
+**所以 C 的硬门槛 = 给 ℒₜ 造一个 `toNumVec` 的对偶**，
+而它在 Foundation 里不存在，且 `TProof` 层没有承载它的类型。
 
 **治理**：本文件只记查实，不含未证标记。 -/
 
-/-- **查实 1**：`∀¹ (setEq #0 #0)` 可证（`set_eq_refl` 的构造，闭项化后）。 -/
-noncomputable example : True := trivial
+/-- 查实：`Term V ℒₜ = Semiterm V ℒₜ 0`（`Typed.lean:51`）。 -/
+noncomputable example : (Bootstrapping.Term V ℒₛₑₜ) = (Bootstrapping.Semiterm V ℒₛₑₜ 0) := rfl
 
 end GodelQ.CG008N1
