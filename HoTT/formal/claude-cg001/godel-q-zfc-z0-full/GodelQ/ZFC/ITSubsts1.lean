@@ -890,17 +890,37 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     intro n param k R v hR hv h
     sorry
   · -- verum
-    intro n param h
-    sorry
+    intro n param h _
+    show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) ^⊤) = subst ℒₛₑₜ (?[^&0] : V) (iT.construction.verum param)
+    rw [substs_verum, iT_verum]
+    exact (substs_verum (L := ℒₛₑₜ) (?[^&0] : V)).symm
   · -- falsum
-    intro n param h
-    sorry
+    intro n param h _
+    show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) ^⊥) = subst ℒₛₑₜ (?[^&0] : V) (iT.construction.falsum param)
+    rw [substs_falsum, iT_falsum]
+    exact (substs_falsum (L := ℒₛₑₜ) (?[^&0] : V)).symm
   · -- and
-    intro n param p q hp hq ihp ihq h
-    sorry
+    intro n param p q hp hq ihp ihq h h1
+    rw [← h] at hp hq
+    show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) (p ^⋏ q)) =
+      subst ℒₛₑₜ (?[^&0] : V) (iT param p ^⋏ iT param q)
+    have hvec : IsSemitermVec ℒₒᵣ param param (?[^&0] : V) := by
+      subst h1; exact isSemitermVec_fvar ℒₒᵣ (1:V) (0:V)
+    rw [substs_and hp.isUFormula hq.isUFormula,
+      iT_and (hp.subst hvec).isUFormula (hq.subst hvec).isUFormula]
+    rw [substs_and (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
+    exact congrArg₂ (· ^⋏ ·) (ihp h h1) (ihq h h1)
   · -- or
-    intro n param p q hp hq ihp ihq h
-    sorry
+    intro n param p q hp hq ihp ihq h h1
+    rw [← h] at hp hq
+    show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) (p ^⋎ q)) =
+      subst ℒₛₑₜ (?[^&0] : V) (iT param p ^⋎ iT param q)
+    have hvec : IsSemitermVec ℒₒᵣ param param (?[^&0] : V) := by
+      subst h1; exact isSemitermVec_fvar ℒₒᵣ (1:V) (0:V)
+    rw [substs_or hp.isUFormula hq.isUFormula,
+      iT_or (hp.subst hvec).isUFormula (hq.subst hvec).isUFormula]
+    rw [substs_or (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
+    exact congrArg₂ (· ^⋎ ·) (ihp h h1) (ihq h h1)
   · -- all
     intro n param p hp ih h
     sorry
