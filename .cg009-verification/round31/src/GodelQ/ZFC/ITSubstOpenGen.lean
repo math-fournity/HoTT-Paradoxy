@@ -26,12 +26,30 @@ namespace GodelQ.ITSubstOpenGen
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- **一般开口律**（statement，含 m = 0）。 -/
+/-- **一般开口律**（statement，含 m = 0）。
+
+证明用 `semiformula_result_induction`（Σ1 谓词，带 `param = m+1` 护罩），
+照 `ITSubsts1.iT_substs1` 的模板：谓词把**层数**放在 `param` 里走，
+`iT` 的量词支把 `param ↦ param+1`，而 `subst` 推过 `qqAlls` 时向量变成
+`qVec (QvecVOr m) = QvecVOr (m+1)` —— **两者同步**，这就是定律为真的机制。 -/
 theorem iT_subst_open (m : V) :
     ∀ (q : V), IsSemiformula ℒₒᵣ (m + 1) q →
       iT m (subst ℒₒᵣ (QvecVOr (V := V) m) q) = subst ℒₛₑₜ (QvecV (V := V) m) (iT (m + 1) q) := by
   intro q hq
-  sorry
+  have key : ∀ {param n q : V}, IsSemiformula ℒₒᵣ n q → param = n → param = (m + 1) →
+      iT m (subst ℒₒᵣ (QvecVOr (V := V) m) q)
+        = subst ℒₛₑₜ (QvecV (V := V) m)
+            (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q) :=
+    UformulaRec1.Construction.semiformula_result_induction
+      (V := V) (c := iT.construction) (L := ℒₒᵣ)
+      (P := fun param n q r => param = n → param = (m + 1) →
+        iT m (subst ℒₒᵣ (QvecVOr (V := V) m) q)
+          = subst ℒₛₑₜ (QvecV (V := V) m) r)
+      ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_
+  · have hh := key hq (rfl : m + 1 = m + 1) (rfl : m + 1 = m + 1)
+    simpa only [iT] using hh
+  · definability
+  all_goals sorry
 
 end GodelQ.ITSubstOpenGen
 
