@@ -36,7 +36,7 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 表达 `k ∈ s → y = insert (iT n k) ih` 与 `k ∉ s → y = ih` 两支。
 
 装配方式照 `iTRDef`：每处函数应用展开成一个 `∃` 加它的图。 -/
-noncomputable def iTSetSuccDef : 𝚺ᴬ₁.Semisentence 6 := .mkSigma
+noncomputable def iTSetSuccDef : 𝚺ᴬ₁.Semisentence (2 + 3) := .mkSigma
   “y ih n s k. (k ∈ s ∧ ∃ e, !iTDef e n k ∧ ∃ i, !insertDef i e ih ∧ y = i) ∨
     (k ∉ s ∧ y = ih)”
 
@@ -60,11 +60,9 @@ lemma iTSet_succ_graph (y ih n s k : V) :
         (k ∉ s ∧ y = ih)) := by
   by_cases h : k ∈ s <;> simp [h]
 
--- **`succ_defined` 的收尾**：照 `insert_defined`（`Bit.lean:319`）的形状，
--- 应当是 `simp [iTSetSuccDef, iTSet_succ_graph]` 一行。
--- 剩下的只是把 `Semiformula.Evalb` 的 API 路径找对
--- （它在 `Tarski.Structure` 侧，不叫 `HierarchySymbol.Semiformula.Evalb`）。
--- **本文件停在图引理**——那是 `succ_defined` 的**全部实质内容**。
+-- **`succ_defined` 的收尾**：照 `insert_defined`（`Bit.lean:319`）的形状
+-- （`instance … via def := .mk fun v ↦ by simp […]`），应当是一行。
+-- 本文件停在图引理——那是全部实质内容。
 
 end GodelQ.CG008ITSet3
 
