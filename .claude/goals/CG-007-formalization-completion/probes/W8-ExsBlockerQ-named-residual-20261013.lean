@@ -32,7 +32,7 @@ def ExsBridge (V : Type*) [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] 
 /-- **`ExsBlockerQ` 由 `ExsBridge` 推出**（证明完整，无未证标记）。 -/
 theorem exsBlockerQ_of_bridge (hBr : ExsBridge V) :
     ShCraigElimSetupQ.ExsBlockerQ (V := V) := by
-  intro s p t dd hs hps ht hfd ih
+  intro s p t dd hs hps ht hfd hder ih
   unfold Q at ih ⊢
   rw [fstIdx_exsIntro]
   rw [hfd, translateSeq_insert] at ih
