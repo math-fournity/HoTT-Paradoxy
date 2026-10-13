@@ -766,16 +766,23 @@ lemma isSemitermVec_fvar (L : Language) [L.Encodable] [L.LORDefinable] (n x : V)
     IsSemitermVec L 1 n (?[^&x] : V) :=
   IsSemitermVec.singleton.mpr (IsSemiterm.fvar n x)
 
+/-- `subst ℒₒᵣ ?[^&0]` 保持层数（`subst` 不改层；`?[^&0]` 长度 1，故要求 `n = 1`）。 -/
+lemma isSemiformula_subst_fvar {n p : V} (hn : n = (1:V)) (hp : IsSemiformula ℒₒᵣ n p) :
+    IsSemiformula ℒₒᵣ n (subst ℒₒᵣ (?[^&0] : V) p) := by
+  subst hn
+  exact IsSemiformula.subst (L := ℒₒᵣ) (n := (1:V)) (m := (1:V)) hp
+    (isSemitermVec_fvar ℒₒᵣ (1:V) (0:V))
+
 /-- **`subst (qVec w) domZero = domZero`**（`w` 是**任意**项向量，层数任意）。
 
 `qVec w` 首分量恒为 `^#0`（`substs_all` 的防捕获位），保护 `domZero` 自己的 `#0`。 -/
-lemma subst_qVec_domZero_gen {w : V} (hw : IsSemitermVec ℒₛₑₜ (len w) (len w) w) :
+lemma subst_qVec_domZero_gen {w k : V} (hw : IsSemitermVec ℒₛₑₜ (len w) k w) (hk : k = len w) :
     subst ℒₛₑₜ (qVec ℒₛₑₜ w) (domZero (V := V)) = domZero (V := V) := by
   rw [GodelQ.TranslateShiftCompat.domZero_eq_cDomN (V := V)]
   have hd : IsSemiformula ℒₛₑₜ (1:V) ((cDomN : ℕ) : V) := isSemiformula_cDomN (V := V)
   have hlen : (1:V) ≤ len (qVec ℒₛₑₜ w) := by
     rw [Bootstrapping.qVec]; simp [len_adjoin]
-  have hW : IsSemitermVec ℒₛₑₜ (len (qVec ℒₛₑₜ w)) (len w + 1) (qVec ℒₛₑₜ w) := by
+  have hW : IsSemitermVec ℒₛₑₜ (len (qVec ℒₛₑₜ w)) (k + 1) (qVec ℒₛₑₜ w) := by
     refine IsSemitermVec.iff.mpr ⟨rfl, fun j hj ↦ ?_⟩
     have hj' : j < len (termBShiftVec ℒₛₑₜ (len w) w) + 1 := by
       rw [← len_adjoin, ← Bootstrapping.qVec]; exact hj
@@ -792,10 +799,10 @@ lemma subst_qVec_domZero_gen {w : V} (hw : IsSemitermVec ℒₛₑₜ (len w) (l
         rw [Bootstrapping.qVec]; exact nth_adjoin_succ _ _ _
       rw [hq1, nth_termBShiftVec (V := V) (L := ℒₛₑₜ) (k := len w) (ts := w) (i := l)
         hw.isUTerm hl]
-      have hbv : termBV ℒₛₑₜ (termBShift ℒₛₑₜ w.[l]) ≤ len w + 1 :=
-        (termBV_termBShift_le (L := ℒₛₑₜ) (hw.nth hl).isUTerm (len w)).mpr (hw.nth hl).bv
+      have hbv : termBV ℒₛₑₜ (termBShift ℒₛₑₜ w.[l]) ≤ k + 1 :=
+        (termBV_termBShift_le (L := ℒₛₑₜ) (hw.nth hl).isUTerm k).mpr (hw.nth hl).bv
       exact ⟨(hw.nth hl).isUTerm.termBShift, hbv⟩
-  refine (GodelQ.TranslateShiftCompat.subst_congr_prefix (V := V) (n := (1:V)) (m := (len w + 1))
+  refine (GodelQ.TranslateShiftCompat.subst_congr_prefix (V := V) (n := (1:V)) (m := (k + 1))
     (k₁ := len (qVec ℒₛₑₜ w)) (k₂ := (1:V))
     (w := (qVec ℒₛₑₜ w)) (w' := (?[^#0] : V)) ((cDomN : ℕ) : V) hd
     hlen (by norm_num) hW
@@ -869,33 +876,34 @@ iT 0 (subst ℒₒᵣ ?[^&0] σ) = subst ℒₛₑₜ ?[^&0] (iT 1 σ)      （�
 theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 →
     iT (0 : V) (subst ℒₒᵣ (?[^&0] : V) p)
       = subst ℒₛₑₜ (?[^&0] : V) (iT (1 : V) p) := by
-  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n → param = 1 →
+  have key : ∀ {param n p : V}, IsSemiformula ℒₒᵣ n p → param = n → param = (1:V) →
       iT (0 : V) (subst ℒₒᵣ (?[^&0] : V) p)
-        = subst ℒₛₑₜ (?[^&0] : V) (iT param p) :=
+        = subst ℒₛₑₜ (?[^&0] : V)
+            (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p) :=
     UformulaRec1.Construction.semiformula_result_induction
       (V := V) (c := iT.construction) (L := ℒₒᵣ)
-      (P := fun param n p q => param = n → param = 1 →
+      (P := fun param n p q => param = n → param = (1:V) →
         iT (0 : V) (subst ℒₒᵣ (?[^&0] : V) p)
           = subst ℒₛₑₜ (?[^&0] : V) q)
       ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_
   · intro p hp h1
-    have h := key hp (rfl : n = n) h1
-    subst h1
-    simpa [iT] using h
+    have hh := key hp (rfl : n = n) h1
+    rw [h1] at hh
+    simpa only [iT] using hh
   · definability
   · -- rel
-    intro n param k R v hR hv h
+    intro n param k R v hR hv h h1
     sorry
   · -- nrel
-    intro n param k R v hR hv h
+    intro n param k R v hR hv h h1
     sorry
   · -- verum
-    intro n param h _
+    intro n param h h1
     show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) ^⊤) = subst ℒₛₑₜ (?[^&0] : V) (iT.construction.verum param)
     rw [substs_verum, iT_verum]
     exact (substs_verum (L := ℒₛₑₜ) (?[^&0] : V)).symm
   · -- falsum
-    intro n param h _
+    intro n param h h1
     show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) ^⊥) = subst ℒₛₑₜ (?[^&0] : V) (iT.construction.falsum param)
     rw [substs_falsum, iT_falsum]
     exact (substs_falsum (L := ℒₛₑₜ) (?[^&0] : V)).symm
@@ -903,29 +911,39 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
     intro n param p q hp hq ihp ihq h h1
     rw [← h] at hp hq
     show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) (p ^⋏ q)) =
-      subst ℒₛₑₜ (?[^&0] : V) (iT param p ^⋏ iT param q)
-    have hvec : IsSemitermVec ℒₒᵣ param param (?[^&0] : V) := by
-      subst h1; exact isSemitermVec_fvar ℒₒᵣ (1:V) (0:V)
-    rw [substs_and hp.isUFormula hq.isUFormula,
-      iT_and (hp.subst hvec).isUFormula (hq.subst hvec).isUFormula]
+      subst ℒₛₑₜ (?[^&0] : V) (iT.construction.and param p q
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+    rw [substs_and hp.isUFormula hq.isUFormula]
+    conv_rhs => rw [show iT.construction.and param p q
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q)
+        = (iT param p ^⋏ iT param q) from rfl]
     rw [substs_and (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
+    rw [iT_and (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
     exact congrArg₂ (· ^⋏ ·) (ihp h h1) (ihq h h1)
   · -- or
     intro n param p q hp hq ihp ihq h h1
     rw [← h] at hp hq
     show iT (0:V) (subst ℒₒᵣ (?[^&0] : V) (p ^⋎ q)) =
-      subst ℒₛₑₜ (?[^&0] : V) (iT param p ^⋎ iT param q)
-    have hvec : IsSemitermVec ℒₒᵣ param param (?[^&0] : V) := by
-      subst h1; exact isSemitermVec_fvar ℒₒᵣ (1:V) (0:V)
-    rw [substs_or hp.isUFormula hq.isUFormula,
-      iT_or (hp.subst hvec).isUFormula (hq.subst hvec).isUFormula]
+      subst ℒₛₑₜ (?[^&0] : V) (iT.construction.or param p q
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q))
+    rw [substs_or hp.isUFormula hq.isUFormula]
+    conv_rhs => rw [show iT.construction.or param p q
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param p)
+        (UformulaRec1.Construction.result ℒₒᵣ iT.construction param q)
+        = (iT param p ^⋎ iT param q) from rfl]
     rw [substs_or (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
+    rw [iT_or (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
     exact congrArg₂ (· ^⋎ ·) (ihp h h1) (ihq h h1)
   · -- all
-    intro n param p hp ih h
+    intro n param p hp ih h h1
+    rw [← h] at hp
     sorry
   · -- exs
-    intro n param p hp ih h
+    intro n param p hp ih h h1
+    rw [← h] at hp
     sorry
 
 /-- **桥 `B(q)`**（`hkey_probe` 需要的形状，`n = 1`，方向取反）。 -/
