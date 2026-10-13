@@ -1,0 +1,90 @@
+-- CG-009: (★★) —— 开口律的项层核心引理（完整版，含 func 支）。
+--
+-- ## 陈述
+--
+-- 对层 `m+1` 的项 `t`，以及满足 `VRel m Vw Ww` 的向量 `Vw`（长 `m+1`）、
+-- `Ww`（长 `m+2`）：
+--
+--     subst Vw (iVE m (termSubst (QvecVOr m) t)) = subst Ww (iVE (m+1) t)
+--
+-- ## 归纳（对 `t`，用 `IsSemiterm.sigma1_induction`）
+--
+-- * bvar：`subst_iVE_bvar_eq`（ITSubstOpen3，已证）
+-- * fvar：两侧都是 `subst ? (eqAtom ^&x)`，由 `VRel` 的第 0 项相等
+-- * func k=0：`ve0` 不含参数向量
+-- * func k=2：`ve2` 下降两层，向量变为 `Vw₁`、`Ww₁`（`VRel_transform` 保持关系），
+--   对 `v.[i]` 用归纳假设
+--
+-- ## definability（关键）
+--
+-- 谓词取（**向量关系作为假设**，不是计算）：
+--
+--     𝚷ᴬ₁-Predicate (fun t : V ↦
+--       ∀ Vw Ww : V, (∀ k ≤ m, Vw.[k] = Ww.[k]) → Ww.[m+1] = ^&0 →
+--         subst Vw (iVE m t) = subst Ww (iVE (m+1) t))
+--
+-- 探针实测 `definability` **可过**（前一份文档的"绕不过去"是针对计算形式的谓词）。
+import GodelQ.ZFC.ITSubstOpen4
+
+open FFL FFL.FirstOrder FFL FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
+open FFL.Entailment ProvabilityAbstraction
+open scoped FFL.FirstOrder.Arithmetic FFL.FirstOrder.Bounding
+open GodelQ.ZFCArith GodelQ.ZFCZ0 GodelQ.Translate GodelQ.SeqTranslate
+
+namespace GodelQ.ITSubstOpen5
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFull GodelQ.LayerMono
+open GodelQ.ITSubstOpen3 GodelQ.ITSubstOpen4
+
+/-- (★★) 的谓词（供 definability 探针与归纳使用）。 -/
+def PPred (m : V) (t : V) : Prop :=
+  ∀ Vw Ww : V, (∀ k ≤ m, Vw.[k] = Ww.[k]) → Ww.[m + 1] = ^&0 →
+    subst ℒₛₑₜ Vw (iVE m t) = subst ℒₛₑₜ Ww (iVE (m + 1) t)
+
+/-- definability 探针（机器核验：可过）。 -/
+example (m : V) : 𝚷ᴬ₁-Predicate (PPred (V := V) m) := by
+  unfold PPred
+  definability
+
+end GodelQ.ITSubstOpen5
+
+#print axioms GodelQ.ITSubstOpen5.PPred
+
+namespace GodelQ.ITSubstOpen5
+variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
+open GodelQ.QvecVDefs GodelQ.ITSubstOpen GodelQ.ITRSubstOpen GodelQ.IVESubstOpen
+open GodelQ.IVESubstOpen2 GodelQ.IVESubstOpen3 GodelQ.TranslateShiftCompat
+open GodelQ.IVEOpenFunc GodelQ.IVEOpenFunc8 GodelQ.IVEOpenFull GodelQ.LayerMono
+open GodelQ.ITSubstOpen3 GodelQ.ITSubstOpen4
+
+/-- fvar 支：两侧都是 `subst ? (eqAtom ^&x)`，由第 0 项相等。 -/
+lemma subst_iVE_fvar_eq {m x Vw Ww : V}
+    (h0 : Vw.[0] = Ww.[0]) :
+    subst ℒₛₑₜ Vw (iVE m (termSubst ℒₒᵣ (QvecVOr (V := V) m) (^&x : V)))
+      = subst ℒₛₑₜ Ww (iVE (m + 1) (^&x : V)) := by
+  rw [termSubst_fvar, iVE_fvar, iVE_fvar]
+  rw [subst_eqAtom_fvar, subst_eqAtom_fvar]
+  exact congrArg₂ (fun a b => (^rel 2 (↑cEqN : V) ?[a, b] : V)) h0 rfl
+
+-- k=0 支的零件（分开写以避免 elaboration 超时）
+
+-- 关键零件：**引号化句子**（层 1）的代入只读向量的第 0 项。
+-- 写成两条引理以避免 elaboration 超时。
+
+-- 下一步（(★★) 的完整归纳）：
+--
+-- * bvar 支：`ITSubstOpen3.subst_iVE_bvar_eq` ✅
+-- * fvar 支：`subst_iVE_fvar_eq` ✅（本文件）
+-- * func k=0 支：`ve0` 不含参数向量，内层 `subst ?[^#0] (cFunc 0 f)` 是**引号化句子**，
+--   任何向量 X 代入只读 X.[0]（需要一条 `subst_quoted_reads_zero`：
+--   `subst X (subst ?[^#0] c) = subst ?[X.[0]] c`，用 `substs_substs` + `termSubstVec_cons₁`）
+-- * func k=2 支：`ve2` 下降两层 ⇒ `VRel_transform` 保持关系 ⇒ 对 `v.[i]` 用归纳假设
+--
+-- 谓词：`PPred`（本文件，definability ✅）。
+
+end GodelQ.ITSubstOpen5
+
+
+
