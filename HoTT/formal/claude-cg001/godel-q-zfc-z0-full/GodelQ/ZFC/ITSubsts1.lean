@@ -940,7 +940,35 @@ theorem iT_substs1 {n : V} : ∀ p, IsSemiformula ℒₒᵣ n p → (n : V) = 1 
   · -- all
     intro n param p hp ih h h1
     rw [← h] at hp
-    sorry
+    -- 目标：`iT 0 (subst ?[^&0] (^∀ p)) = subst ?[^&0] (result param (^∀ p))`
+    -- 左：`subst ℒₒᵣ` 推过 `^∀`，再 `iT_all`
+    rw [Bootstrapping.substs_all (L := ℒₒᵣ) hp.isUFormula]
+    rw [iT_all (hp.subst (isSemitermVec_fvar ℒₒᵣ param (0:V))).isUFormula]
+    -- 右：`result_all` 展开
+    rw [UformulaRec1.Construction.result_all (c := iT.construction) (L := ℒₒᵣ)
+      hp.isUFormula (rfl : iT.construction.allSize param p = 1)]
+    change (^∀ (imp ℒₛₑₜ domZero (iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p))) : V) =
+      subst ℒₛₑₜ (?[^&0] : V)
+        (^∀ (imp ℒₛₑₜ domZero
+          ((UformulaRec1.Construction.result ℒₒᵣ iT.construction
+            (iT.construction.allChanges param 0) p ∷ (0 : V)) : V).[0]))
+    rw [nth_adjoin_zero]
+    change (^∀ (imp ℒₛₑₜ domZero (iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p))) : V) =
+      subst ℒₛₑₜ (?[^&0] : V)
+        (^∀ (imp ℒₛₑₜ domZero (iT (iT.construction.allChanges param 0) p)))
+    rw [show iT.construction.allChanges param 0 = param + 1 from rfl]
+    rw [substs_all (L := ℒₛₑₜ)
+      (IsUFormula.imp.mpr ⟨(isSemiformula_domZero (n := param)).isUFormula,
+        (isSemiformula_iT p hp).isUFormula⟩)]
+    congr 1
+    -- 现在：`imp domZero (iT 1 (subst (qVec ?[^&0]) p))
+    --        = imp (subst (qVec ?[^&0]) domZero) (iT param (subst (qVec ?[^&0]) p))`
+    show imp ℒₛₑₜ domZero (iT (0 + 1) (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p)) =
+      imp ℒₛₑₜ (subst ℒₛₑₜ (qVec ℒₛₑₜ (?[^&0] : V)) (domZero (V := V)))
+        (iT param (subst ℒₒᵣ (qVec ℒₒᵣ (?[^&0] : V)) p))
+    rw [subst_qVec_domZero_gen (isSemitermVec_fvar ℒₛₑₜ (1:V) (0:V)) (by rfl)]
+    -- 现在：`imp domZero (iT (0+1) X) = imp domZero (iT param X)`，其中 `param = 1`
+    rw [show (0 : V) + 1 = param from by rw [h1]; norm_num]
   · -- exs
     intro n param p hp ih h h1
     rw [← h] at hp
