@@ -36,18 +36,31 @@ open GodelQ.IVEOpenFunc5 GodelQ.IVEOpenFunc6 GodelQ.IVEOpenFunc8 GodelQ.IVEOpenF
 open GodelQ.IVEOpenFunc10 GodelQ.IVEOpenFunc11 GodelQ.IVEOpenFunc12
 open GodelQ.QVec2Probe GodelQ.QVec2Probe2 GodelQ.Ve2BinderProbe
 
-/-- **`qVec² (QvecV (mm+1)) = QvecV (mm+3)`** — the descent vector for `ve2`. -/
+/-- **The descent vector**: `qVec^2 (QvecV (mm+1)) = QvecV (mm+3)`.
+    This is the vector `subst (QvecV (mm+1))` sees inside `ve2`'s two `qqAlls`
+    binders -- the number the func branch of `iVE_open` hinges on. -/
 lemma qVec2_QvecV (mm : V) :
     qVec ℒₛₑₜ (qVec ℒₛₑₜ (QvecV (V := V) (mm + 1))) = QvecV (V := V) (mm + 3) := by
   rw [qVec_QvecV, qVec_QvecV]
   congr 1
   ring
 
-/-- `QvecV (mm+3)` has length `mm+4` — so `subst_QvecV_conjunct`'s hypothesis
+/-- `QvecV (mm+3)` has length `mm+4` -- so `subst_QvecV_conjunct`'s hypothesis
     `i < mm+3` is exactly compatible with the conjunct's needs. -/
 example (mm : V) : len (QvecV (V := V) (mm + 3)) = mm + 4 := by
   have h := isSemitermVec_QvecV (V := V) (mm + 3)
   rw [show (mm + 3 : V) + 1 = mm + 4 by ring] at h
   exact h.lh
+
+/-!
+## Note on the func branch's layer (settled by `LayerCountProbe`)
+
+`ve2 (mm+1) 2 f w`'s body contains `conjunct 3 (mm+1) i _`, for which
+`subst_QvecV_conjunct` needs `QvecV ((mm+1)+3) = QvecV (mm+4)`.
+Two `qqAlls` descents of the outer `QvecV (mm+1)` land on `QvecV (mm+3)` --
+**one level short**.  So the outer vector in `iVE_open`'s func branch must be
+`QvecV (mm+2)`; see `LayerCountProbe.lean` for the concrete `mm = 0` count
+(`QvecV 4` fixes index 3, `QvecV 3` does not).
+-/
 
 end GodelQ.SubstQqAlls
