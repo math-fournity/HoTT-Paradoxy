@@ -6,7 +6,7 @@ import GodelQ.ZFC.SubstImp
 
 `ShCraigElim` 的 `hAll` 支归纳步需要把外层 free 变量收成 `^&0`。
 `ProbeHAllRoute.lean` 已把整条归纳步归约到一条公式恒等式 `hkey`
-（其余全是 `Derivable` 的칙构）。本文件证出 `hkey`。
+（其余全是 `Derivable` 的构造）。本文件证出 `hkey`。
 
 ```
 free ℒₛₑₜ (imp domZero (iT 1 p))
@@ -20,13 +20,22 @@ free ℒₛₑₜ (imp domZero (iT 1 p))
 4. **桥 `B`**（`iT_substs1`）把 `iT 1 (shift p)` 换成 `iT 0 (subst ?[^&0] (shift p))`，
    最后 `hD` 收尾 `domZero` 侧。
 
-**因此 `hAll` 支只剩桥 `B` 一条义务**（见 `ITSubsts1.lean` 的 `iT_substs1`）。
+**因此 `hAll` 支只剩桥 `B` 一条公式义务**（`ITSubsts1.lean` 的 `iT_substs1`，
+层 1 版 `iT_substs1'`）。
 
-## 本文件留下的两个显式义务
+## 本文件的两个显式参数
 
-- `hB`：桥 `B(q)`，即 `iT_substs1`——下一个工作单元；
-- `hD`：`subst ?[^&0] domZero = subst ?[^&0] cDomN`，由 `subst_domZero`
-  （已证，见 `ITSubsts1.lean`）+ `substs1` 给出。
+- `hB`：桥 `B(q)` = `GodelQ.ITSubsts1.iT_substs1'`；
+- `hD`：`subst ?[^&0] domZero = subst ?[^&0] ↑cDomN` = `GodelQ.ITSubsts1.subst_domZero`。
+
+两者都取自 `ITSubsts1.lean`。**该文件当前（2026-10-13 实测）编译尚未通过**
+（error 数已从 17 降到 6，重复声明已清零，见
+`HoTT/verification/runs/20261013-CG001-Z0-W8-BRIDGE-STATE-0*.txt`），
+所以本文件**有意不用 import 它**：`hB`/`hD` 保持为显式参数，
+桥一通就可以接线（`hkey` 因此独立于桥的编译状态而过核）。
+
+本文件只 import `ITShift` 与 `SubstImp`（`subst_imp` 从在建的 `ITSubsts1.lean`
+抽到 `SubstImp.lean`，正是为了这条"不 import 在建文件"的纪律）。
 
 `#print axioms` 仅 `[propext, Classical.choice, Quot.sound]`，**不含未证明占位所产生的公理**。
 -/

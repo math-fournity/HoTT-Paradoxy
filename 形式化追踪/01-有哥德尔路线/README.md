@@ -67,6 +67,17 @@
 - **2026-10-13 核验更正：桥 `iT_substs1` 编译实测 exit 1 / 10 处 error / 仍含 `sorryAx`**：同一文件的**工作副本 0 个文本 `sorry`**，但 `devbuild_ns.py` 实测 `## lean GodelQ/ZFC/ITSubsts1.lean (497.8s, exit 1)`，10 处 error；`#print axioms` 三个名字（`iT_substs1`、`iT_substs1'`、`conjunct_rename_second_gen`）都带 `sorryAx`。日志留档 `HoTT/verification/runs/20261013-CG001-Z0-W8-BRIDGE-STATE-01.txt`。**方法论教训**：**「文件里没有 `sorry` 这个词」不等于「证出了」**——把空着的支填进类型不匹配的见证，产出的是 error + `sorryAx`，比留着 `sorry` 更难诊断。进度判定一律以真实 kernel 运行为准。**协作状态**：该文件另有 Claude 会话在本 worktree 活跃重构（02:03 / 02:14 / 02:24 / 02:34 四次保存，16–22 个并发 lean 进程）；按项目规则未插手。
 
 
+- **2026-10-13 舰队协调：桥 `B(q)` 是四线共用的同一引理；`exsIntro` 裁决走可证蕴含路线**：
+  Master 逐字核对确认：本线的 `iT_substs1` ≖ 一般律 `iT_subst_open` 的 m=0 实例
+  （`QvecVOr 0 = QvecV 0 = ?[^&0]`）≖ iShift 的 `iT_free_eq` ≖ 9276 的 `iT_free` 中段
+  ≖ 本线 `hkey_probe` 的假设 `hB`。**全舰队（iShift 的 hAB、9276 的 hAll、本线的 hkey 接线）都在等这一座桥。**
+  结构发现（影响 all/exs 支）：m=0 桥的 all 支下降一层后，子目标 = 一般律在 **m=1**、层 2 子公式的实例
+  （`qVec (QvecVOr m) = QvecVOr (m+1)` 递归闭合）；公式深度无界 ⟹ **「all/exs 差一层」不是包装 bug，是承重现象**，m=0 无法在没有一般律（或等价归纳装置）下完成。
+  这与本线 10-12 记录（「原子支层齐，剩余是 T1 的层泛化版与量词支 +1 错位」）是同一结论的另一条推导路径。
+  **协调决定**：001-Step 升为一般律主承重线（∀m 含 0）；本线保留 m=0 装配作对照/验证；谁先完成全体采纳。
+  **`exsIntro` 裁决备案**：走**可证蕴含**路线 `ZFC ⊢ iT 0 (subst ?[t] p) → ∃x (x ∈ ω ∧ iT 1 p)`——
+  最终定理十支不变，中间引理形状属证明工程；若该形状使归纳结构不成立再升级研究发起人。**已报用户。**
+
 4. ~~跑者的到达句~~：✅ C-117、C-118（CG-007 W5）。实分析版（在 ℒₛₑₜ 中构造实数）没有做，见 [03 节](03-跑者的到达句.md)。
 5. ~~同一个 Q 并列进一个内核~~：✅ C-112、C-113（第 04 章）。
 6. ~~想法 T 的一般形式、P 的两侧~~：✅ C-114、C-116（第 07 章）。
