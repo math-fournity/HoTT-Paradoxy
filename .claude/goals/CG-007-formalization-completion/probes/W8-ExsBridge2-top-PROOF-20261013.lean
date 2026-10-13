@@ -7,9 +7,17 @@ import GodelQ.ZFC.ShCraigElimSetupQ
 而「ω 非空」由 `zero_mem_ω` 给出。再经 `tprovable_tquote_iff_provable_quote_sentence`
 的多态版接回 `Provable`。
 
-**本探针做第一步**（元层 `⊢`）。**当前状态**：`SetTheory.complete` 应用成功、
-`zero_mem_ω` 拿到、`eval_domainDef` 已定位，**只剩 `EvalAux` 层的 `⋏`/`⊤` 分解引理名**
-（`Semiformula.Eval.and` / `Eval.verum` 不存在，需查正确名字）。
+**本探针证出第一步（元层 `⊢`）——exit 0**：
+
+```
+theorem omega_nonempty_provable :
+    (𝗭𝗙𝗖 : SetTheory) ⊢ (∃¹ (domainDef ⋏ ⊤) : SetTheorySentence)
+```
+
+证法：`SetTheory.complete` → 取 `x = 0` → `eval_domainDef` + `zero_mem_ω` + `EvalAux` 展开。
+
+**意义**：这是语义路线在**具体情形**下的**首个落地定理**，
+证明「`complete` + 模型论证」这条链在本项目里**可用**。
 
 **重要**：这条证明**与反向引理无关**——`p = ⊤` 是**具体**的，
 `domainDef` 是 Foundation 里现成的 `SetTheorySemisentence`。
@@ -34,7 +42,17 @@ theorem omega_nonempty_provable :
   simp only [models_iff]
   -- 目标：存在 x 使 `x ∈ ω`；由 `zero_mem_ω` 给 `0 ∈ ω`
   refine ⟨0, ?_⟩
-  simp only [Semiformula.Eval.and, ZFCArith.eval_domainDef, SetTheory.zero_mem_ω,
-    iff_true, true_and, Semiformula.Eval.verum]
+  -- 目标是 `EvalAux (…) ![0] (domainDef ⋏ ⊤)`；
+  -- 用 `eval_domainDef`（它是 `Evalb` 层，即 `Eval` 的 `Empty.elim` 版）
+  have h0 : Semiformula.EvalAux (standardStructure M) Empty.elim ![(0 : M)]
+      (ZFCArith.domainDef) := (ZFCArith.eval_domainDef (V := M) 0).mpr SetTheory.zero_mem_ω
+  show Semiformula.EvalAux (standardStructure M) Empty.elim ![(0 : M)]
+      (ZFCArith.domainDef ⋏ ⊤)
+  rw [show (ZFCArith.domainDef ⋏ (⊤ : Semiformula ℒₛₑₜ Empty 1))
+        = Semiformula.and ZFCArith.domainDef ⊤ from rfl]
+  simp only [Semiformula.EvalAux]
+  exact ⟨h0, trivial⟩
 
 end ProbeBridge2TopProof
+
+#print axioms ProbeBridge2TopProof.omega_nonempty_provable
