@@ -7,13 +7,16 @@ set_option maxHeartbeats 4000000
 namespace GodelQ.ProbeEx
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
--- 先算 termSubst ?[^&0] ^#0
+-- 先算 termSubst ?[^&0] ^#0 —— 用 termSubst_bvar + nth
 example : termSubst ℒₒᵣ (?[^&0] : V) (^#(0:V) : V) = (^&(0:V) : V) := by
-  rw [show ((?[^&0] : V) = ((^&(0:V) : V) ∷ (0:V))) from rfl,
-    show ((^#(0:V) : V) = ((^#(0:V) : V) ∷ 0)) from rfl,
-    show (0:V) = ((0:ℕ):V) by norm_num,
-    termSubstVec_cons₂ (IsUTerm.fvar (x := (0:V))) IsUTermVec.empty,
-    termSubstVec_nil, termSubst_fvar, termSubst_bvar]
+  rw [termSubst_bvar, nth_cons_zero]
+  rfl
+
+-- 连带：iVE 0 (termSubst ?[^&0] ^#0) = eqAtom ^&0
+example : iVE (0:V) (termSubst ℒₒᵣ (?[^&0] : V) (^#(0:V) : V))
+    = eqAtom (^&(0:V) : V) := by
+  rw [show termSubst ℒₒᵣ (?[^&0] : V) (^#(0:V) : V) = (^&(0:V) : V) from by
+    rw [termSubst_bvar, nth_cons_zero]]
   rfl
 
 end GodelQ.ProbeEx
