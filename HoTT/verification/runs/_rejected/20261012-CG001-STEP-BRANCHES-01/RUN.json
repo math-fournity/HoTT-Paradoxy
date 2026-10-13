@@ -1,0 +1,88 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-STEP-BRANCHES"
+  ],
+  "command_argv": [
+    "/Users/aurolafly/miniconda3/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/SeqTranslate.lean",
+    "GodelQ/ZFC/ShCraigElimPredicate.lean",
+    "GodelQ/ZFC/SeqTranslateFormula.lean",
+    "GodelQ/ZFC/NegInvolution.lean",
+    "GodelQ/ZFC/ShCraigElimNegFilled.lean",
+    "GodelQ/ZFC/ShCraigElimNegLaw.lean",
+    "GodelQ/ZFC/TranslateShiftCompat.lean",
+    "GodelQ/ZFC/ShCraigElimBranches.lean"
+  ],
+  "completed_at_utc": "2026-10-12T23:31:39.066212+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/9276-cg007-w8-d3",
+  "duration_seconds": 1.384163,
+  "environment": {
+    "bytes": 1051,
+    "path": "environment.txt",
+    "sha256": "6dd0044effd45f8a4a85525707ccc7c3219c0e51eb6961104bd42aa4a2dd81dc"
+  },
+  "exit_code": 3,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "hAll/hExs/hRoot 三支仍未证（在 ShCraigElimSetupQ 里），本收据不含它们。"
+  ],
+  "outcome_matches_expectation": false,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-STEP-BRANCHES-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261012-CG001-STEP-BRANCHES-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "ShCraigElimBranches：induction1 的 7/10 支（hAxL/hVerumIntro/hAnd/hOr/hWk/hShift/hCut）在 Q 层全部无 sorry 证成；连同 import 闭包 32 个模块一起编译。",
+  "source_manifest": {
+    "bytes": 206827,
+    "path": "source-manifest.json",
+    "sha256": "b8ae1b2409d65cb49aadd332b00219094b3a258e82da43264bf4066ccbf2adc3"
+  },
+  "started_at_utc": "2026-10-12T23:31:37.681702+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 95,
+    "path": "stdout.txt",
+    "sha256": "ed1202cbe2a2891c7cb124563624e09e7260628bc9d58769f3cbe0c6ce884ed2"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}
