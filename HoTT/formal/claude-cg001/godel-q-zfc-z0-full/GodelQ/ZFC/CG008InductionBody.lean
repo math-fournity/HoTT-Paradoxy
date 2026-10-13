@@ -32,21 +32,42 @@ theorem W_induction (φ : Semiformula ℒₒᵣ ℕ 1) (f : ℕ → W M) … :
 其证明经 `naturalNumber_induction (indPred φ f)`——即 **ω 是最小归纳集**
 （`indPred_definable` 用**分离**把 `φ` 在 ω 上定义的子集取成集合）。
 
-**所以缺口的第二层结构是**：把这条论证在 V 内重做。其两步是
-1. **分离**：从 ω 取子集 `{x ∈ ω | iT 1 K 在 x 处成立}`——**V 内没有分离**
-   （V 只有 `[V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]`，没有集合论的公理）；
-2. **最小性**：ω 是最小归纳集——这是 `isω` 的定义内容（`Z/Z.lean:408`），
-   但那是 **`ℒₛₑₜ` 的语义**，不在 V 的假设里。
+**所以缺口的第二层结构是**：把这条论证在 V 内重做。
 
-**所以 `AxStep_induction` 的真正障碍不是「归纳」本身，而是「在算术模型 V 里没有集合」**：
-V 的「集合」是位编码（`Bit`），不是 ZFC 的集合。要在 V 内做分离，
-需要 V 自带某种集合论结构——而 V 只是 𝗜𝚺₁ 的模型。
+### 一处必须避免的误读（本文件写作时自己踩过）
+
+`Provable 𝗭𝗙𝗖 (iT 0 p)` **是算术命题**——它说「V 内有一个元素 `d`，
+`Proof 𝗭𝗙𝗖 d (iT 0 p)` 成立」，而 `Proof` 是 `𝚫ᴬ₁` 公式（`Proof/Basic.lean:551`）。
+**它不需要 V 有任何集合论结构。** 所以不能说「V 里没有集合，所以做不了」——
+那会把缺口归错因。V 是 𝗜𝚺₁ 的模型这件事**只影响 `V ⊨` 什么**，
+不影响 `Provable 𝗭𝗙𝗖` 是否在 V 内成立。
+
+**正确的读法**：要证的是「V 内有一条 𝗭𝗙𝗖 推导码，其结论是 `iT 0 p`」。
+`d` 可以是**非标准**的。所以问题不是「V 有没有集合」，
+而是「V 能不能**构造**出那个码」。
+
+### 与元层论证的两处真实差别
+
+`W_induction` 在元层做的事与 V 内要做的事，差别在**手段**不在**目标**：
+
+1. **量词范围**：`W_induction` 的 `φ` 是**元层**语法对象（每个 `φ` 都有对应的
+   `⌜φ⌝ : V`）；`AxStep_induction` 的 `K` 是 **V 的元素**——非标准时
+   **没有**对应的元层对象，所以 `W_induction` 无法对它实例化。
+2. **证明手段**：`W_induction` 经 `naturalNumber_induction`（ω 最小归纳集），
+   其 `indPred_definable` 用 `ℒₛₑₜ` 的**分离**在 `M` 里取子集——
+   **那是 `M ⊨ 𝗭𝗙𝗖` 的语义层**，与 `Provable 𝗭𝗙𝗖` 是两回事。
+   V 内要的是一条**推导码**，不是 `M` 里的一个集合。
+
+**所以障碍是**：把 `W_induction` 的**语义论证**转成 `Provable 𝗭𝗙𝗖` 的
+**推导码构造**。这一步的一般形式正是 `MinimalGap`（= 舰队 C）。
 
 ## 本文件做什么
 
-把这一层**机器化地固定**：给出 `AxStep_induction` 的体是翻译的性质
-（`induction_body_is_translate`，引用 `InductionR` 与 `IsPrenexHierarchy` 的定义），
-并把它与 `W_induction` 的元层论证并列，标明两者之间的差是「分离 + 最小性」。
+把这一层**机器化地固定**：
+- `induction_body_is_prenex`：体 `K` 受 `IsPrenexHierarchy 𝚺 1` 约束（不是任意码）；
+- `standard_body_bridges`：对**标准** `φ`，V 内的 `IsPrenexHierarchy 𝚺 1 ⌜φ⌝`
+  与元层的 `PrenexHierarchy` 经 `isPrenexHierarchy_quote_iff` 相连——
+  所以**标准体那一半不缺桥**，缺的是非标准体。
 
 ## 治理
 
@@ -90,7 +111,7 @@ theorem axStep_induction_iff :
       ∀ p : V, InductionR (IsPrenexHierarchy 𝚺 1) p → Provable 𝗭𝗙𝗖 (Translate.iT 0 p) :=
   Iff.rfl
 
-/-! ## 二、与 `PAModel.W_induction` 的并列（元层 vs V 内）
+/-! ## 二、与 `PAModel.W_induction` 的并列（语义论证 vs 推导码构造）
 
 `PAModel.lean:200` 的 `W_induction` 的陈述（元层，`M` 是 𝗭𝗙𝗖 的任意模型）：
 
@@ -103,8 +124,9 @@ theorem W_induction (φ : Semiformula ℒₒᵣ ℕ 1) (f : ℕ → W M)
 
 1. **量词范围**：`W_induction` 的 `φ` 是**元层**的 `Semiformula ℒₒᵣ ℕ 1`（标准语法对象）；
    `AxStep_induction` 的 `K` 是 **V 的元素**（非标准时无对应的元层对象）。
-2. **证明手段**：`W_induction` 经 `naturalNumber_induction`（ω 最小归纳集），
-   其 `indPred_definable` 用**分离**；V 内两者都没有。 -/
+2. **手段的类型**：`W_induction` 给的是 `M` 里的**语义满足**（经 `naturalNumber_induction`，
+   用 `ℒₛₑₜ` 的分离在 `M` 里取子集）；`AxStep_induction` 要的是 V 里的
+   **推导码**（`Provable 𝗭𝗙𝗖` 是 `𝚫ᴬ₁` 谓词，与 `M ⊨` 无关）。 -/
 
 /-- **第一处差（量词范围）**：元层的 `φ` 与 V 内的 `K` 通过 `⌜·⌝` 相连——
 对**标准**的 `φ`，`⌜φ⌝` 是 V 的元素，且 `IsPrenexHierarchy 𝚺 1 ⌜φ⌝` 当且仅当
@@ -114,12 +136,12 @@ theorem standard_body_bridges (φ : ArithmeticSemiformula Empty 1)
     IsPrenexHierarchy 𝚺 1 (⌜φ⌝ : V) :=
   (isPrenexHierarchy_quote_iff (Γ := 𝚺) (s := 1) (V := V) (n := 1) φ).mpr hφ
 
-/-- **第二处差（证明手段）**：`W_induction` 的元层证明依赖 `naturalNumber_induction`，
-其前提之一是 `indPred_definable`（`PAModel.lean:189`）——**用分离取子集**。
+/-- **第二处差（手段的类型）**：`W_induction` 的元层证明经 `naturalNumber_induction`，
+其前提之一是 `indPred_definable`（`PAModel.lean:189`）——用 `ℒₛₑₜ` 的分离在 `M` 里取子集。
 
-本文件把它固定成一条命题：V 内若要有这条论证，需要 V 自带「从 ω 取子集」的能力；
-而 V 只有 `[V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]`。 -/
-def NeedsSeparation : Prop :=
+那给的是 **`M ⊨`**；而缺口要的是 **`Provable 𝗭𝗙𝗖`**（V 内的推导码）。
+本定义把「标准体那一半的推导码义务」写成一条命题，供后续工作单元攻。 -/
+def StandardBodyProvable : Prop :=
   ∀ (φ : ArithmeticSemiformula Empty 1), ℬ[<, ℒₒᵣ].PrenexHierarchy 𝚺 1 φ →
     Provable 𝗭𝗙𝗖 (Translate.iT 0 (qqAlls (indBodyVal (⌜φ⌝ : V)) 0))
 
