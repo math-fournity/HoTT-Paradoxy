@@ -191,3 +191,31 @@ end GodelQ.CG008InductionBody
 #print axioms GodelQ.CG008InductionBody.standard_body_bridges
 #print axioms GodelQ.CG008InductionBody.axStep_standard_code
 #print axioms GodelQ.CG008InductionBody.axStep_induction_reduces
+
+/-! ## 四、缺什么 API：Foundation **没有**形式化的相对可解释性
+
+本会话查实（`grep -rn "Interpretability" Foundation/FirstOrder/` 无命中）：
+Foundation 有 `DirectInterpretation`（`LK/Interpretation.lean:404`，
+`T ⊳ U` 的关系），但**没有**「相对可解释性保可证性」的形式化——
+即没有
+
+```
+U ⊢ σ → T ⊢ (π.translate σ)    在 T 内形式化
+```
+
+的版本。它有的 `of_provability`（`:443`）是**元层**的：`U ⊢ σ → T ⊢ π.translate σ`。
+
+**这正是缺口的 API 缺口**：把 `of_provability` 从元层降进 V 内，
+需要 `T = 𝗭𝗙𝗖` 是**算术**理论（`provable_internalize`，`D3.lean:175`，要 `T : ArithmeticTheory`），
+而 `𝗭𝗙𝗖 : SetTheory`。
+
+### 墙的四句话
+
+1. 缺口 = `MinimalGap` = `AxStep_induction`（前两节的分解）；
+2. `AxStep_induction` 的墙**全在非标准码**上（`axStep_induction_reduces`，标准支已付清）；
+3. 非标准码没有元层对应物，所以 `W_induction`（`PAModel.lean:200`）**无法实例化**；
+4. 要的是 V 内的**推导码**，而 Foundation 唯一的「解释保可证性」是**元层**的
+   （`of_provability`），且 `provable_internalize` 的载体要求（`ArithmeticTheory`）
+   `𝗭𝗙𝗖` 不满足。
+
+**这四条没有一条是「技巧问题」**——它们是缺口的确切形状。 -/
