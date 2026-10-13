@@ -95,4 +95,43 @@ noncomputable example {sigma : SetTheorySentence}
     𝗭𝗙𝗖 ⊢ sigma :=
   set_complete_of_models sigma H
 
+
+/-! ### 舰队对表补入（012-Flash 情报，本会话已独立核验路径）
+
+**两个方向，一易一难**（012-Flash 探路，我核验了引理路径与签名）：
+
+**方向 1（易，已证于其探针）**：`p x → (codeOfREPred p).Evalb (M := V) ![(x:V)]`。
+走 `codeOfREPred_spec`（`NAT` 层）再抬到任意 `V ⊨ ` + IS1 + u`，用 Foundation 的
+`sigmaOne_upward_absolute`（`Arithmetic/Definability/Absoluteness.lean:78`，
+**本会话核实存在，签名 `phi.Evalb v → phi.Evalb (M := V) (Nat.cast ∘ v)`**）。
+
+**方向 2（难，且不能走同一条路）**：`V ⊧ Evalb → p x`。
+**是数学事实而非工程难度**：V 可非标准，`Evalb` 的见证可能非标准；
+`codeOfPartrec'_spec`（`R0/Representation.lean:271`）**`NAT`-only**；
+模型层 `code`/`code_uniq`（281–341）**只给唯一性**。
+
+**对 C 的方案的意义**：C 要的正是**方向 2 形状**的东西
+（从 V 手里的见证反推标准事实）。012-Flash 的建议：
+* 优先**绕开 `codeOfREPred`**，改用 `reWitness`/`reCh` 的 Σ₁ 定义——
+  **`reWitness_spec` 本身就是 V 层**的现成件
+  （`CraigTrick.lean:106`，签名 `V ⊧/e T.reCh.val ↔ ∃ w, V ⊧/(w :> e) T.reWitness.val`，
+  **本会话核实存在且确为 V 层**）；
+* 若坚持走 `codeOfREPred`，只剩 `codeAux` 的模型层归纳，代价高得多。
+
+**另一条提醒（012-Flash）**：`Sh.reCh.val` 与 `trProv` **内容相同、不是同一公式**，
+无论走哪条都要补一条「语义相同」的桥。 -/
+
+/-! ### 核验：方向 1 的抬升工具确实存在 -/
+
+/-- **查实**：`sigmaOne_upward_absolute`——Σ₁ 沿 `natCastEmbedding` 上升。 -/
+noncomputable example {k : ℕ} (phi : 𝚺ᴬ₁.Semisentence k)
+    (v : Fin k → ℕ) (h : phi.val.Evalb v) :
+    phi.val.Evalb (M := V) (Nat.cast ∘ v) :=
+  sigmaOne_upward_absolute (V := V) phi v h
+
+/-- **查实**：`reWitness_spec` 是 **V 层**的（不是 ℕ 层）。 -/
+noncomputable example (e : Fin 1 → V) :
+    V↓[ℒₒᵣ] ⊧/e Sh.reCh.val ↔ ∃ w, V↓[ℒₒᵣ] ⊧/(w :> e) Sh.reWitness.val :=
+  Theory.reWitness_spec Sh V e
+
 end GodelQ.CG008Attack
