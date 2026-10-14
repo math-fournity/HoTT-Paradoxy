@@ -70,7 +70,7 @@ HoTT/formal/claude-cg001/godel-q-zfc-z0/CLAIM.md | Z0 条件形式 C-103 与卡�
 | W5 | 跑者到达句 | ✅ C-117、C-118 |
 | W6 | 同一个 Q 进单一内核（Cubical Agda） | ✅ C-112、C-113 |
 | W7 | 想法 T、C6 提案、P 两侧 | ✅ C-114–C-116 |
-| W8 | Z0 (c) 内部化 | — |
+| W8 | Z0 (c) 内部化 | ✅ C-413–C-417（2026-10-14，012-Opus 独立 worktree `claude/012-opus-w8`，未并入 `dev`）：D3 由经翻译的形式化 Σ1 完全性证出，`𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ` 不带前提 |
 | W9 | 终局报告、译文、main 发布、关包 | — |
 
 ## 5. 工作循环
