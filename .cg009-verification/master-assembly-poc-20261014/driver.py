@@ -10,9 +10,10 @@ Evidence discipline: exit code + `#print axioms` from the logs.
 """
 import os, re, subprocess, sys, time
 
-ASM = "/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/master-assembly-poc-20261014"
-OUT = os.path.join(ASM, "build")
-SEED = "/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/master-verify-9276-20261014"
+# 路径全部可经环境变量覆盖，便于其他 worktree 复现（004-Flash 建议，2026-10-14）
+ASM = os.environ.get("ASM", "/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/master-assembly-poc-20261014")
+OUT = os.environ.get("ASM_OUT", os.path.join(ASM, "build"))
+SEED = os.environ.get("ASM_SEED", "/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/elegant-mclaren-767fb0/.cg009-verification/master-verify-9276-20261014")
 LEAN = "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean"
 ASTRA = "/Volumes/D/HoTT-toolchain-cache/astra-real-geometry-v4.34.0/mathlib4-5ed2965256430c3649e86755f9576b54eca72435"
 FOUNDATION = "/Volumes/D/HoTT-toolchain-cache/foundation-build-1fb01b72-v4.34.0/lib/lean"
