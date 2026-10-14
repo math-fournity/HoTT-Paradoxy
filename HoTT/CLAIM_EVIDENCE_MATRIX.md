@@ -2351,3 +2351,15 @@ Claim 表：
 | 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
 | 禁止外推 | **不读成桥已证**：这是桥**一个支**所需的工具引理；桥 `iT_substs1` 本体（九支组装）仍未通（隔离实测 exit 1 / 15 error） |
 | 包 | `MP-CG001-SUBSTITR-001` |
+
+### W8-U14：`axm` 支引号化版本 + `Z0Full` 条件形式（CG001-C-406，2026-10-14）
+
+| 项 | 内容 |
+|---|---|
+| Claim | CG001-C-406 |
+| 形式命题 | `ShCraigElimAxm.hAxm_quoted`（`p = ⌜σ⌝` 时的 `axm` 支）+ `Z0Full.zfc_z0_full [zfcTr.HBL3]`、`zfc_z0_full_of_D3_internalize`、`zfcTr_con_iff`、`zfcTr_sigma1`、`sh_z0_full`、正对照 `zfcTr_D3_standard` |
+| 源码 | `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/ShCraigElimAxm.lean`（75 行）与 `GodelQ/ZFC/Z0Full.lean`（145 行）；两文件均 0 个未证标记 |
+| 主运行 | `HoTT/verification/runs/20261014-CG001-Z0-AXM-Z0FULL-01`（`verify_cg001_run.py --rerun` = `PASS_WITH_SCOPE`，`EXACT_EXIT_STDOUT_STDERR_MATCH`） |
+| 证据等级 | `FORMAL_CHECKED_WITH_SCOPE`（本机、未提交） |
+| 禁止外推 | **不读成 Z0 已无条件证成**：`zfc_z0_full` 带 `[zfcTr.HBL3]` 类型类前提；`zfc_z0_full_of_D3_internalize` 以 `zfcTr_D3_internalize` 为前提——**D3 本身仍未证**。`axm` 的**一般（非引号）版本**也未证 |
+| 包 | `MP-CG001-AXM-Z0FULL-001` |
