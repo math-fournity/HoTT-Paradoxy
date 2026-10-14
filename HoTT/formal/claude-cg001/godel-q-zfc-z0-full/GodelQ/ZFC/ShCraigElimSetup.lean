@@ -17,6 +17,15 @@ import GodelQ.ZFC.SeqTranslate
 3. **每个支都化简到同一个形状**：`Provable 𝗭𝗙𝗖 (translateSeq s)`，
    即"结论 sequent 的翻译可证"。
 
+> ⚠ **2026-10-14 更正：本文件用的 `P` 版不变量已废弃，施工请改用 `Q` 版。**
+> 见 `9276-cg007-w8-d3` 工作副本的 `ShCraigElimSetupQ.lean` 文件头 :6-17：
+> `Provable T φ` 内部是 `∃ d, Proof d {φ}`，要求结论 sequent **恰好是单元素集**，
+> 而 `translateSeq s` 一般不是，故 `P d` 在 `s ≠ {φ}` 时几乎必然为假。
+> **活义务是 `Q d := Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))`（sequent 层）。**
+> 本文件保留原样只为留历史痕迹；**不要**从本文件的 `sorry` 支继续施工。
+> `hAll`/`hExs`/`hRoot` 三支的精确缺口见 `ShCraigElimSetupQ.lean` 与
+> `形式化追踪/01-有哥德尔路线/02-Z0-条件形式与剩余三步.md` 的 2026-10-14 节。
+
 ## 与 `Z0UniBridge` 的关系
 
 `ShCraigElim` 一旦成立，`Z0UniBridge.bwd_of_shcraig_elim`（C-390，已收据）
