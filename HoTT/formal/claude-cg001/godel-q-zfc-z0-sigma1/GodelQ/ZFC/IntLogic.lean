@@ -81,6 +81,51 @@ lemma fin1_fun_eq {α : Type*} (b : α) : (fun _ : Fin 1 ↦ b) = ![b] := by
 @[simp] lemma q_three_three {k : ℕ} (w : SemitermVec V L 3 k) : w.q 3 = (w 2).bShift :=
   SemitermVec.q_succ w 2
 
+@[simp] lemma q_four_one {k : ℕ} (w : SemitermVec V L 4 k) : w.q 1 = (w 0).bShift :=
+  SemitermVec.q_succ w 0
+
+@[simp] lemma q_four_two {k : ℕ} (w : SemitermVec V L 4 k) : w.q 2 = (w 1).bShift :=
+  SemitermVec.q_succ w 1
+
+@[simp] lemma q_four_three {k : ℕ} (w : SemitermVec V L 4 k) : w.q 3 = (w 2).bShift :=
+  SemitermVec.q_succ w 2
+
+@[simp] lemma q_four_four {k : ℕ} (w : SemitermVec V L 4 k) : w.q 4 = (w 3).bShift :=
+  SemitermVec.q_succ w 3
+
+@[simp] lemma q_five_one {k : ℕ} (w : SemitermVec V L 5 k) : w.q 1 = (w 0).bShift :=
+  SemitermVec.q_succ w 0
+
+@[simp] lemma q_five_two {k : ℕ} (w : SemitermVec V L 5 k) : w.q 2 = (w 1).bShift :=
+  SemitermVec.q_succ w 1
+
+@[simp] lemma q_five_three {k : ℕ} (w : SemitermVec V L 5 k) : w.q 3 = (w 2).bShift :=
+  SemitermVec.q_succ w 2
+
+@[simp] lemma q_five_four {k : ℕ} (w : SemitermVec V L 5 k) : w.q 4 = (w 3).bShift :=
+  SemitermVec.q_succ w 3
+
+@[simp] lemma q_five_five {k : ℕ} (w : SemitermVec V L 5 k) : w.q 5 = (w 4).bShift :=
+  SemitermVec.q_succ w 4
+
+@[simp] lemma q_six_one {k : ℕ} (w : SemitermVec V L 6 k) : w.q 1 = (w 0).bShift :=
+  SemitermVec.q_succ w 0
+
+@[simp] lemma q_six_two {k : ℕ} (w : SemitermVec V L 6 k) : w.q 2 = (w 1).bShift :=
+  SemitermVec.q_succ w 1
+
+@[simp] lemma q_six_three {k : ℕ} (w : SemitermVec V L 6 k) : w.q 3 = (w 2).bShift :=
+  SemitermVec.q_succ w 2
+
+@[simp] lemma q_six_four {k : ℕ} (w : SemitermVec V L 6 k) : w.q 4 = (w 3).bShift :=
+  SemitermVec.q_succ w 3
+
+@[simp] lemma q_six_five {k : ℕ} (w : SemitermVec V L 6 k) : w.q 5 = (w 4).bShift :=
+  SemitermVec.q_succ w 4
+
+@[simp] lemma q_six_six {k : ℕ} (w : SemitermVec V L 6 k) : w.q 6 = (w 5).bShift :=
+  SemitermVec.q_succ w 5
+
 @[simp] lemma q_single {k : ℕ} (t : Bootstrapping.Semiterm V L k) :
     (SemitermVec.q ![t] : SemitermVec V L 2 (k + 1)) = ![Bootstrapping.Semiterm.bvar 0, t.bShift] := by
   funext i; fin_cases i <;> rfl
