@@ -27,6 +27,18 @@ namespace GodelQ.ExsBridge2
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
+/-- **中间引理（项代换的 iT 相容）**：闭项代换与翻译交换。
+
+`substs1 t p = subst ?[t] p`（自由变量 0 ← t），而 `iT` 把自由变量 x 送到 `eqAtom ^&x`。
+闭项 t 的 `iVE 0 t` 是"t 的值 = #0"——见证的载体。
+
+这条是 ExsBridge2 的**实质内容**（`ShCraigElimBranches` 的备忘表里记为
+"`iT` 与 `substs1` 的相容 | 不存在"）。 -/
+lemma iT_substs1 (p t : V) (hp : IsUFormula ℒₒᵣ p) (ht : IsTerm ℒₒᵣ t) :
+    iT (0 : V) (substs1 ℒₒᵣ t p)
+      = subst ℒₛₑₜ (iVE (0 : V) t) (iT (1 : V) p) := by
+  sorry
+
 /-- **ExsBridge2**（一般 p、一般闭项 t）。 -/
 theorem exsBridge2 {p t : V} (hp : IsUFormula ℒₒᵣ p) (ht : IsTerm ℒₒᵣ t) :
     Provable 𝗭𝗙𝗖 (imp ℒₛₑₜ (iT (0 : V) (substs1 ℒₒᵣ t p))
