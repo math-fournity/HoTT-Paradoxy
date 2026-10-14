@@ -523,4 +523,83 @@ theorem rootBlockerQ_of_key (hk : RootKey (V := V)) :
   rw [fstIdx_axm]
   exact hRoot_core hs hps (hk hpT)
 
+/-! ## ★ `hExs` 的**精确剩余**：`ExsBridge2`（2026-10-13，004-Step 证；本提交移入生产包）
+
+与 `AllKey`/`RootKey` 同形，`ExsBlockerQ` 压成一条 `Provable`：
+
+```
+ExsBridge2 : ∀ p t, IsUFormula ℒₒᵣ p → IsTerm ℒₒᵣ t →
+    Provable 𝗭𝗙𝗖 (imp (iT 0 (substs1 ℒₒᵣ t p)) (^∃ (domZero ⋏ iT 1 p)))
+```
+
+即「`p[t] → ∃x(x ∈ ω ∧ p(x))`」。
+
+**旧形状 `ExsBridge`（`∀ T'` 量化）为假**：取 `T' = ^&0` 需 `⊢ ∀x (x ∈ ω)`——
+带自由变量的 `Provable φ` 在 LK 里等价于 `⊢ ∀x φ`。反例 `p = #0 = #0`、`t = ^&0`。
+**`ExsBridge2` 不要求单个见证项**，只要与 sequent 里的 ∃ 公式**同形**的蕴含。
+
+**归约**（`exsBlockerQ_of_bridge2`，证明完整）：
+桥给 `¬A ⋎ ∃` → `split_or` 拆成 `{¬A, ∃}` → `wk` 得 `Derivable (insert (¬A) S)`
+（**`∃ ∈ S` 是关键**）→ `cut A`。
+
+**出处**：`probes/W8-ExsBridge2-corrected-20261013.lean`（004-Step）。
+本提交把它移入生产包，使**三条 blocker 的剩余齐聚一处**（各一条 `Provable`）。 -/
+
+/-- **`hExs` 的精确剩余**：`p[t] → ∃x (x ∈ ω ∧ p(x))`。 -/
+def ExsBridge2 : Prop :=
+  ∀ {p t : V}, IsUFormula ℒₒᵣ p → IsTerm ℒₒᵣ t →
+    Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (imp ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p))
+        ((^∃ (domZero (V := V)) ^⋏ iT (0+1:V) p) : V))
+
+/-- **归约**：`ExsBridge2` ⟹ `ExsBlockerQ`（证明完整，exit 0，公理三条）。 -/
+theorem exsBlockerQ_of_bridge2 (hBr : ExsBridge2 (V := V)) :
+    ExsBlockerQ (V := V) := by
+  intro s p t dd hs hps ht hfd hder ih
+  unfold Q at ih ⊢
+  rw [fstIdx_exsIntro]
+  rw [hfd, translateSeq_insert] at ih
+  have hpex : IsSemiformula ℒₒᵣ (1:V) p := by
+    have h0 : IsFormula ℒₒᵣ (^∃ p) := hs (^∃ p) hps
+    simpa using (IsSemiformula.exs (L := ℒₒᵣ) (n := (0:V)) (p := p)).mp h0
+  have hp : IsUFormula ℒₒᵣ p := hpex.isUFormula
+  have hS : IsFormulaSet (L := ℒₛₑₜ) (translateSeq s) :=
+    ShCraigElimBranches.isFormulaSet_translateSeq hs
+  have hmem : ((^∃ (domZero (V := V)) ^⋏ iT (0+1:V) p) : V) ∈ translateSeq s :=
+    mem_translateSeq_iff.mpr ⟨(^∃ p : V), hps, (iT_exs (V := V) (n := (0:V)) hp).symm⟩
+  have hA : IsFormula ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p)) :=
+    isSemiformula_iT (n := (0:V)) (substs1 ℒₒᵣ t p)
+      (IsSemiformula.substs1 (L := ℒₒᵣ) (n := (0:V)) ht hpex)
+  have hE : IsFormula ℒₛₑₜ ((^∃ (domZero (V := V)) ^⋏ iT (0+1:V) p) : V) :=
+    (IsSemiformula.exs (L := ℒₛₑₜ) (n := (0:V))
+      (p := ((domZero (V := V)) ^⋏ iT (0+1:V) p))).mpr
+      (IsSemiformula.and.mpr
+        ⟨isSemiformula_domZero (V := V) (n := (0:V)),
+         isSemiformula_iT (n := (0+1:V)) p (by simpa using hpex)⟩)
+  have hW : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (insert (imp ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p))
+        ((^∃ (domZero (V := V)) ^⋏ iT (0+1:V) p) : V)) ∅) :=
+    internal_provable_iff_internal_derivable.mp (hBr hp ht)
+  have hsplit : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (insert (neg ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p)))
+        (insert ((^∃ (domZero (V := V)) ^⋏ iT (0+1:V) p) : V) ∅)) :=
+    split_or hA.neg hE hW
+  have hnegA : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (insert (neg ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p))) (translateSeq s)) := by
+    refine Derivable.wk
+      (s := insert (neg ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p))) (translateSeq s))
+      (s' := insert (neg ℒₛₑₜ (iT (0:V) (substs1 ℒₒᵣ t p)))
+        (insert ((^∃ (domZero (V := V)) ^⋏ iT (0+1:V) p) : V) ∅)) ?_ ?_ hsplit
+    · intro y hy
+      rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact hA.neg
+      · exact hS y hy
+    · intro y hy
+      rcases mem_bitInsert_iff.mp hy with rfl | hy
+      · exact mem_bitInsert_iff.mpr (Or.inl rfl)
+      · rcases mem_bitInsert_iff.mp hy with rfl | hy
+        · exact mem_bitInsert_iff.mpr (Or.inr hmem)
+        · exact absurd hy (Arithmetic.not_mem_empty y)
+  exact Derivable.cut (iT (0:V) (substs1 ℒₒᵣ t p)) ih hnegA
+
 end GodelQ.ShCraigElimSetupQ
