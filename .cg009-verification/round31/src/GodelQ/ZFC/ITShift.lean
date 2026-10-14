@@ -1,3 +1,15 @@
+-- ⚠️ **本文件已被取代，勿用作依赖。**
+--
+-- `iT_shift`（本文件的主题定理）在 `GodelQ.TranslateShiftCompat.iT_shift`（`TranslateShiftCompat.lean:687`）
+-- **已完整证成**：`iT n (shift ℒₒᵣ p) = shift ℒₛₑₜ (iT n p)`，公理干净。
+-- 本文件的 rel/nrel 两支（:39、:41）自 10-13 起即为 `sorry`，从未证出。
+--
+-- hAB / hAll 无条件链（`HABKey` → `HABElim` → `HAllUncond`）显式 open
+-- `TranslateShiftCompat`，**不经过本文件**。若你看到本文件的 sorry，
+-- 检查是不是走错了 import；正路是 `TranslateShiftCompat.iT_shift`。
+--
+-- 保留本文件仅为留档（它记录了 rel 支为何难：需要 iTR 与 shift 的相容，
+-- 而那正是 `ITRShift.iTR_shift` 独立解决的问题）。
 -- CG-009: iT_shift — iT 0 (shift p) = shift (iT 0 p), the element law for tshift/hShift.
 -- rel/nrel branches consume the just-verified iVE_shift (from 9276, independently verified).
 import GodelQ.ZFC.ShiftDomZeroProbe
