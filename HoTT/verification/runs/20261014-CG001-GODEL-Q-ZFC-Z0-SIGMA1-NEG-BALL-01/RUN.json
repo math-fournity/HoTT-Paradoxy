@@ -1,0 +1,86 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session 95a1a81b (012-Opus), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-14",
+  "claim_ids": [
+    "CG001-C-415"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-sigma1",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/IntLogic.lean",
+    "GodelQ/ZFC/SetNum.lean",
+    "GodelQ/ZFC/SetNumArith.lean",
+    "GodelQ/ZFC/TransTyped.lean",
+    "GodelQ/ZFC/TransTerm.lean",
+    "GodelQ/Negative/BallMergeOffByOne.lean"
+  ],
+  "completed_at_utc": "2026-10-14T20:44:49.222211+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 107.030895,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "c15a93f25fdb1498979bce01bdb6b8f30c28e1a66bcf46a57b23221cdae12855"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not test any other C-413 to C-417 statement; it only shows that the merge bound is tied to the hypotheses and that the script does not prove more."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for C-415: the ball_merge proof script, verbatim, with the conclusion numeral N_b replaced by N_{b+1}. The hypotheses cover only i < b, so the conclusion over N_{b+1} (which includes the b-th number) is not supported; the final step key b le_rfl yields the statement about N_b and must be rejected by elaboration.",
+  "source_manifest": {
+    "bytes": 206460,
+    "path": "source-manifest.json",
+    "sha256": "bfc9013a7b9352f08bf5b571627d737143fcc97b4811e2e4c95a40f9fab6be04"
+  },
+  "started_at_utc": "2026-10-14T20:43:02.191064+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 19654,
+    "path": "stdout.txt",
+    "sha256": "4ad34c0132dab675b91fec19df147fde182bc5abbd5417cfc0e3ad0430166fa1"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

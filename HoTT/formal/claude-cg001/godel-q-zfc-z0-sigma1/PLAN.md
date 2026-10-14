@@ -1,4 +1,11 @@
-# godel-q-zfc-z0-sigma1：工作计划（012-Opus，2026-10-14，未开工的部分）
+# godel-q-zfc-z0-sigma1：工作计划（012-Opus，2026-10-14）
+
+> **完成状态（2026-10-14 晚）**：§2b 的主路线全部做完并取得收据。
+> - 收据：`20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01`，PASS_WITH_SCOPE，精确重放；负控制 `-NEG-BALL-01`，按预期被拒绝。
+> - 命题：CG001-C-413–C-417，见 `CLAIM.md`。
+> - 结果：`zfc_z0_unconditional : 𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ`，不带未证前提。
+> - 文件：`TransTyped`、`TransTerm`、`TransBall`、`TransSigma1`、`Z0D3`。§2b 原计划的 `SetIntFacts.lean` 没有单独建，标准句分散在各文件里。
+> - 下面保留施工时的原文。
 
 > 本包在独立 worktree `/Volumes/D/HoTT-worktrees/012-opus-w8`（分支 `claude/012-opus-w8`，取自 dev `c491326e`）。
 > 现状：复制了依赖链（23 个模块，与 `godel-q-zfc-z0-translate` 逐字节相同，已核对）与 `dev` 的 `Z0Full.lean`，生成了固定记录（导入闭包 1,893 个模块，聚合 `02b0e80f…5161`）。依赖链加 `Z0Full.lean` 在本 worktree 编译通过（24 个模块全部 exit 0，`Z0Full` 的 8 条公理报告全为三条标准公理）。另有 `OpenTranslate.lean`（带自由变量的翻译正确性，C-410；与 `../godel-q-zfc-z0-freevar/` 中的同名文件逐字节相同，收据在那里），留作 D3 的部件。
