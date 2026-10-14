@@ -103,9 +103,13 @@ blocker 蕴含 `∀ s, ^∀ ⊤ ∈ s → Derivable (translateSeq s)`——**显
 
 | 支 | 义务 | 性质 |
 |---|---|---|
-| `hAll` | `AllBlockerQ` | `iT` 与 `free`/`subst` 相容（§3.4：语言错配，需 `iVE-像`） |
-| `hExs` | `ExsBlockerQ` | `iT` 与 `substs1` 相容；**已归约到 `ExsBridge2` 一条**（§2.1） |
-| `hRoot` | `RootBlockerQ` | = D3 本身（§1.4 已归约） |
+| `hAll` | `AllBlockerQ` ← `AllKey` ← **桥 B**（§2.2：链已闭合） |
+| `hExs` | `ExsBlockerQ` ← `ExsBridge2` **一条**（§2.1） |
+| `hRoot` | `RootBlockerQ` ← `RootKey`（= D3 本身，§1.4） |
+
+**三条的形状已统一**：各一条 `Provable` 层陈述，
+三条归约定理（`allBlockerQ_of_key`/`exsBlockerQ_of_bridge2`/`rootBlockerQ_of_key`）
+**全部 exit 0、公理三条、无 `sorryAx`**，均在生产包 `ShCraigElimSetupQ.lean` 内。
 
 ### 2.1 ★ `hExs` 的精确剩余：`ExsBridge2`（**唯一一条**）
 
@@ -125,6 +129,28 @@ ExsBridge2 : ∀ {p t}, IsUFormula ℒₒᵣ p → IsTerm ℒₒᵣ t →
 **归约已完整**（`exsBlockerQ_of_bridge2`，exit 0、公理干净）：
 桥给 `¬A ⋎ ∃` → `split_or` 拆成 `{¬A, ∃}` → `wk` 得 `Derivable (insert (¬A) S)`
 （**`∃ ∈ S` 是关键**）→ `cut A`。
+
+### 2.2 ★ `hAll` 的链**已闭合**：桥 B ⟹ `AllKey` ⟹ `AllBlockerQ`（2026-10-14）
+
+`allKey_of_bridge`（生产包，exit 0、公理三条）：层 1 的桥 `B` 推出 `AllKey`。
+
+```
+iT 0 (free ℒₒᵣ p) = subst ?[^&0] (iT 1 (shift ℒₒᵣ p))    -- 桥 B(q := shift ℒₒᵣ p)
+                  = subst ?[^&0] (shift ℒₛₑₜ (iT 1 p))    -- iT_shift（已证）
+                  = free ℒₛₑₜ (iT 1 p)                    -- free 的定义
+```
+再 `imp A A` 永真收尾。`AllKey` 只要**蕴含**，故等式一成立即可得。
+
+**桥 `B` 正是 003 线的 `iT_substs1'`**（层 1 版）：
+`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`。
+
+⟹ **桥 B → AllKey → AllBlockerQ → ShCraigElim**：`hAll` 的链闭合，桥一通即得。
+
+**⚠ 更正一处旧记录**（本文件 v4 及更早）：曾把 `hAll` 剩余记成
+`iT 0 (free p) = free (iT 1 p)` 并说「该等式已机器证伪」。
+**准确说法**：不带桥的**朴素版本**被证伪（`domZero` 计数不同）；
+**带桥的版本恰恰成立**（即 `allKey_of_bridge` 里的 `heq`）。
+旧措辞会让下游误以为这条路已死——**本版改回来**。
 
 ## 3. 为什么 `hAll` 难——三条**机器确认的**结构性障碍
 
