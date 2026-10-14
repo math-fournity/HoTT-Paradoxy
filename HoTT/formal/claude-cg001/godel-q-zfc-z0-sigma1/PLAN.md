@@ -1,20 +1,20 @@
 # godel-q-zfc-z0-sigma1：工作计划（012-Opus，2026-10-14，未开工的部分）
 
 > 本包在独立 worktree `/Volumes/D/HoTT-worktrees/012-opus-w8`（分支 `claude/012-opus-w8`，取自 dev `c491326e`）。
-> 现状：只复制了依赖链（23 个模块，与 `godel-q-zfc-z0-translate` 逐字节相同，已核对）并生成固定记录（导入闭包 1,893 个模块，聚合 `02b0e80f…5161`）。`Z0Full.lean` 尚未复制进来。
+> 现状：复制了依赖链（23 个模块，与 `godel-q-zfc-z0-translate` 逐字节相同，已核对）与 `dev` 的 `Z0Full.lean`，生成了固定记录（导入闭包 1,893 个模块，聚合 `02b0e80f…5161`）。依赖链加 `Z0Full.lean` 在本 worktree 编译通过（24 个模块全部 exit 0，`Z0Full` 的 8 条公理报告全为三条标准公理）。另有 `OpenTranslate.lean`（带自由变量的翻译正确性，C-410；与 `../godel-q-zfc-z0-freevar/` 中的同名文件逐字节相同，收据在那里），留作 D3 的部件。
 > 编译：`devbuild_ns.py`（`.claude/goals/CG-007-formalization-completion/tools/`），依赖链清单在本会话 scratchpad 的 `s1_chain.txt`。多参数命令用 bash（zsh 不分词）。
 
-## 1. 反例（待机器证明）
+## 1. 反例（✅ 已机器证明：`../godel-q-zfc-z0-freevar/`，CG001-C-410–C-412，2026-10-14）
 
 舰队钉住的 `ExsBridge2`：
 `IsUFormula p → IsTerm t → Provable 𝗭𝗙𝗖 (imp (iT 0 (substs1 t p)) (^∃ (domZero ^⋏ iT 1 p)))`。
 
-【判断，尚未机器证明】它在 V = ℕ 中为假，反例是 t = `^&0`，p = ⌜x < 0⌝：
+【证明，C-411】它在 V = ℕ 中为假，反例是 t = `^&0`，p = ⌜x < 0⌝：
 - 左边：翻译 `∀y₀y₁((y₀∈ω ∧ y₀=x) ∧ (y₁∈ω ∧ y₁=∅) ∧ ⊤ → y₀∈y₁)`；x 取 ω 时前件不可满足，所以为真。
 - 右边：∃y∈ω (y ∈ ∅) 为假。
 - 所以这个蕴含在 Universe 中、x = ω 时为假，𝗭𝗙𝗖 证明不了它。
 
-同一个例子也说明，舰队的主定理 `Derivation Sh.craig d → Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))` 在 ℕ 中为假：对 sequent {¬(&0 < 0)} 不成立。原因是翻译时自由变量没有加“∈ ω”的前提。
+同一个现象也说明，舰队的归纳不变量 `Derivation Sh.craig d → Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx d))` 在 ℕ 中为假【证明，C-412】：两步纯逻辑推导 `dCounter`（结论 `{∃x (x<0), ¬(&0<0)}`，∃ 引入以 &0 为见证）就让它失败。原因是翻译时自由变量没有加“∈ ω”的前提。（早先这里写的是 sequent `{¬(&0<0)}`；它要用理论公理才可导，机器证明改用了不需要公理的 `dCounter`。）
 
 所需工具（已核对存在）：
 - `Provable.sound2`（Proof/Coding.lean:413）：开公式的可证性在 ℕ 中给出 LK2 推导；

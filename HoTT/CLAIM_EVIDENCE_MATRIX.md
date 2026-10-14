@@ -2295,3 +2295,18 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-400 | `induction1` 的四条规则支：`hAnd`（`iT_and`+`Derivable.and_m`）、`hOr`（`iT_or`+`Derivable.or_m`）、`hAxL`（`Derivable.em` 用 C-399）、`hCut`（`Derivable.cut` 枢轴 `iT 0 p`，用 C-399） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-SHCRAIG-BRANCHES-01` | 不读成 `ShCraigElim` 已证：`hAll`/`hExs`/`hShift`、`axm`、`derivable_translateSeq`、`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |
+
+## Claude CG-007 W8（012-Opus）：自由变量不受 ω 限制——舰队的 `ExsBridge2` 与不变量 `Q` 在 ℕ 中为假（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。C-410 是正结果；C-411、C-412 是在 V = ℕ 中的反例，否定舰队在 W8 上采用的中间陈述，不否定 D3、Z0，也不否定舰队对句子陈述的 `ShCraigElim`。编号跳过 C-407–C-409（舰队分支已用到 C-406）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-FREEVAR-001` | `CG001-C-410`、`CG001-C-411`、`CG001-C-412` | `formal/claude-cg001/godel-q-zfc-z0-freevar/GodelQ/ZFC/OpenTranslate.lean`（`iVE_pquote`、`iT_pquote`）、`FreeVarCounter.lean`（`exsBridge2_false`、`dCounter_not_Q`、`q_invariant_false`、`exsBlockerQ_false`） | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-01/`；exit 0，stderr 0 B，84 秒；115 条公理报告全为 `[propext, Classical.choice, Quot.sound]`；精确重放 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-FREEVAR-NEG-OMEGA-001` | `CG001-C-411`、`CG001-C-412`（负控制） | 同目录 `GodelQ/Negative/WrongCounterInOmega.lean` | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-NEG-OMEGA-01/`；exit 1，`h0.right` 的类型是 `w 0 = ∅`，证明需要 `w 0 = ω` | `NEGATIVE_CONTROL_REJECTED`：反例依赖自由变量取 ω 以外的值，不是空洞成立 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-410 | 在 𝗜𝚺₁ 的每个模型中，`iVE n ⌜t⌝ = ⌜varEqual t⌝`、`iT n ⌜φ⌝ = ⌜translate φ⌝` 对带自由变量的项与公式成立；自由变量译为 `“#0 = &x”`，不带 ω 限制 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-01` | 对每个具体公式的元层定理，不是 𝗜𝚺₁ 内部对所有公式编码的断言 |
+| CG001-C-411 | V = ℕ 时，`∀ p t, IsUFormula p → IsTerm t → Provable 𝗭𝗙𝗖 (imp (iT 0 (substs1 t p)) (^∃ (domZero ^⋏ iT 1 p)))` 为假（舰队 round31 `ExsBridge2` 的陈述；p = ⌜#0 < 0⌝，t = `^&0`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01`；负控制 `-NEG-OMEGA-01` | 不涉及 D3、Z0；“𝗭𝗙𝗖 不可证”只由 Lean 元层模型 `Universe` 的可靠性得到 |
+| CG001-C-412 | V = ℕ 时，两步纯逻辑推导 `dCounter`（结论 `{∃x (x<0), ¬(&0<0)}`）是每个 Δ₁ 算术理论（特别是 `Sh.craig`）的推导，`¬ Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx dCounter))`；舰队的不变量 `Q` 不成立，`ExsBlockerQ`（`Q` 展开）为假 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01`；负控制 `-NEG-OMEGA-01` | 不否定舰队对句子陈述的 `ShCraigElim`；不否定带自由变量 ω 前提的改写不变量（未证）；不涉及 Z0 的真假 |

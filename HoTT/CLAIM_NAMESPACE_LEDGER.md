@@ -49,7 +49,7 @@ dev-03、dev-04 的 `zfc-observation-boundary` 包、dev-06、dev-07 没有使�
 
 ## 4. 归属更正
 
-共享编号 C-357、C-358 由 Codex 在主干（dev-08，2026-10-03）写成，却放在 `HoTT/formal/claude-cg001/observation-completion-bridge/` 与 `completion-reflection-failure/` 下，运行名带 `-CG001-`。它们不是 Claude 线的工作。Claude 线的编号形如 `CG001-C-NN`（目前到 CG001-C-400），与共享编号 C-357、C-358 是两套编号。为了收据稳定，路径与运行名不改。（CG-005 审计报告 A6、A7）
+共享编号 C-357、C-358 由 Codex 在主干（dev-08，2026-10-03）写成，却放在 `HoTT/formal/claude-cg001/observation-completion-bridge/` 与 `completion-reflection-failure/` 下，运行名带 `-CG001-`。它们不是 Claude 线的工作。Claude 线的编号形如 `CG001-C-NN`（`dev` 上目前到 CG001-C-401；舰队各分支已用到 C-406；012-Opus 的独立 worktree 用了 C-410–C-412，跳过 C-407–C-409 以免与未并入 `dev` 的编号相撞），与共享编号 C-357、C-358 是两套编号。为了收据稳定，路径与运行名不改。（CG-005 审计报告 A6、A7）
 
 ## 5. 分支的保存
 
