@@ -2310,3 +2310,20 @@ Claim 表：
 | CG001-C-410 | 在 𝗜𝚺₁ 的每个模型中，`iVE n ⌜t⌝ = ⌜varEqual t⌝`、`iT n ⌜φ⌝ = ⌜translate φ⌝` 对带自由变量的项与公式成立；自由变量译为 `“#0 = &x”`，不带 ω 限制 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-01` | 对每个具体公式的元层定理，不是 𝗜𝚺₁ 内部对所有公式编码的断言 |
 | CG001-C-411 | V = ℕ 时，`∀ p t, IsUFormula p → IsTerm t → Provable 𝗭𝗙𝗖 (imp (iT 0 (substs1 t p)) (^∃ (domZero ^⋏ iT 1 p)))` 为假（舰队 round31 `ExsBridge2` 的陈述；p = ⌜#0 < 0⌝，t = `^&0`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01`；负控制 `-NEG-OMEGA-01` | 不涉及 D3、Z0；“𝗭𝗙𝗖 不可证”只由 Lean 元层模型 `Universe` 的可靠性得到 |
 | CG001-C-412 | V = ℕ 时，两步纯逻辑推导 `dCounter`（结论 `{∃x (x<0), ¬(&0<0)}`）是每个 Δ₁ 算术理论（特别是 `Sh.craig`）的推导，`¬ Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx dCounter))`；舰队的不变量 `Q` 不成立，`ExsBlockerQ`（`Q` 展开）为假 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01`；负控制 `-NEG-OMEGA-01` | 不否定舰队对句子陈述的 `ShCraigElim`；不否定带自由变量 ω 前提的改写不变量（未证）；不涉及 Z0 的真假 |
+
+## Claude CG-007 W8（012-Opus）：经翻译的形式化 Σ1 完全性、D3 与不带前提的完整 Z0（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。C-417 是 W8 的目标定理：𝗭𝗙𝗖 证明不了“𝗭𝗙𝗖 一致”的翻译，不带未证前提；所需的 Con(𝗭𝗙𝗖) 由 Lean 元层的 `Universe` 模型（Foundation `zfc_consistent`）提供。编号接 C-410–C-412。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-001` | `CG001-C-413`–`CG001-C-417` | `formal/claude-cg001/godel-q-zfc-z0-sigma1/GodelQ/ZFC/`：`SetNum.lean`、`SetNumArith.lean`（数字层）、`TransTyped.lean`、`TransTerm.lean`（`term_ve`）、`TransBall.lean`（`ball_merge`）、`TransSigma1.lean`（`tr_sigma1_complete`）、`Z0D3.lean`（`zfcTr_D3`、`zfc_z0_unconditional`） | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01/`；exit 0，stderr 0 B，110 秒；138 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-001` | `CG001-C-415`（负控制） | 同目录 `GodelQ/Negative/BallMergeOffByOne.lean` | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-01/`；exit 1，`key b le_rfl` 给出关于 N_b 的结论，与要求的 N_{b+1} 不符 | `NEGATIVE_CONTROL_REJECTED`：合并的界由前提逐一支撑 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-413 | 在 𝗜𝚺₁ 的每个模型 V 中，对任意（可以非标准）的 a、b、d，𝗭𝗙𝗖（内化于 V）证明 Rayo 数字公式 N_a 的存在、属于 ω、唯一、相合；加法与乘法的两个方向；N_a(x) → N_{a+d+1}(y) → x ∈ y；b ≤ a、a ≠ b 时的否定形式 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01` | 对 𝗜𝚺₁ 的每个模型成立，不限于标准自然数 |
+| CG001-C-414 | 对每个标准算术项 t：在“e i 是第 w i 个数”的上下文中，𝗭𝗙𝗖 证明 t 的翻译值存在于 ω 中（ex），且任一满足变量等式的值都是第 t(w) 个数（ch）（`term_ve`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 对每个具体项的元层定理 |
+| CG001-C-415 | 若对每个 i < b 有 Γ ⊢ ∀x(N_i(x) → Φ(x))，则 Γ ⊢ ∀z ∀x(N_b(z) → x ∈ z → Φ(x))（`ball_merge`，V 中归纳） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-BALL-01` | b 可以非标准；Φ 可含自由变量 |
+| CG001-C-416 | 经翻译的形式化 Σ1 完全性：对每个 Σ1 算术公式 φ 与 w : Fin n → V，V ⊧/w φ ⟹ 在参数假设的上下文中 𝗭𝗙𝗖 证明 φ 的翻译；句子形式 V ⊧ σ ⟹ `𝗭𝗙𝗖.internalize V ⊢ ⌜σᵗ⌝`（`tr_sigma1_complete`、`tr_sigma1_provable`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 元层定理模式（对每个标准 Σ1 公式），不是 𝗜𝚺₁ 内部对所有公式编码的断言 |
+| CG001-C-417 | 对每个 V ⊧ 𝗜𝚺₁ 与 τ：`Provable 𝗭𝗙𝗖 ⌜τᵗ⌝ → Provable 𝗭𝗙𝗖 ⌜(zfcTr τ)ᵗ⌝`（`zfcTr_D3`）；于是 `𝗭𝗙𝗖 ⊬ arithTrln.translate 𝗭𝗙𝗖.consistent`（`zfc_z0_unconditional`），`zfc_z0_full_of_D3_internalize` 的前提已证 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 不推出 ZFC ⊢ ⊥；“不带前提”相对 Lean 元理论（Con(𝗭𝗙𝗖) 来自 Lean 元层 `Universe` 模型，不是 𝗭𝗙𝗖 内部可证的事）；一致性句与翻译限于 Foundation 的 `𝗭𝗙𝗖.consistent`（Δ1 公理化）与 `arithTrln` |
