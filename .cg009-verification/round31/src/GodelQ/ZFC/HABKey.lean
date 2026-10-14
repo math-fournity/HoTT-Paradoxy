@@ -3,6 +3,7 @@
 --   B := free (imp domZero (iT 1 p)) = imp (x∈ω) (subst ?[^&0] (iT 1 (shift p)))
 -- If A = subst ?[^&0] (iT 1 (shift p)), then B = (x∈ω) → A, so A → B is trivial.
 import GodelQ.ZFC.HAllProof
+import GodelQ.ZFC.ITSubstOpen9
 
 open FFL FFL.FirstOrder FFL.FirstOrder.Arithmetic FFL.FirstOrder.SetTheory Bootstrapping
 open FFL.Entailment ProvabilityAbstraction
@@ -21,10 +22,16 @@ theorem iT_free_eq (p : V) (hp : IsSemiformula ℒₒᵣ 1 p) :
       subst ℒₛₑₜ ?[^&0] (iT (1 : V) (shift (L := ℒₒᵣ) p)) := by
   show iT (0 : V) (subst ℒₒᵣ (?[^&0] : V) (shift (L := ℒₒᵣ) p)) =
     subst ℒₛₑₜ (?[^&0] : V) (iT (1 : V) (shift (L := ℒₒᵣ) p))
-  -- LHS: iT 0 of (bvar0 ↦ ^&0 substitution into shift p)
-  -- RHS: bvar0 ↦ ^&0 substitution into the translation of shift p
-  -- These agree because iT sends bvar z to the *bound* var of eqAtom (z+1), and
-  -- the substitution ?[^&0] targets bvar 0 — need the iT/subst interaction at bvar 0.
-  sorry
+  -- 这是 `iT_subst_open` 的 **m = 0 实例**（`QvecVOr 0 = QvecV 0 = ?[^&0]`）：
+  --   iT 0 (subst ℒₒᵣ (QvecVOr 0) q) = subst ℒₛₑₜ (QvecV 0) (iT (0+1) q),  q : 层 1
+  have h1 : IsSemiformula ℒₒᵣ ((0 : V) + 1) (shift (L := ℒₒᵣ) p) := by
+    rw [show (0 : V) + 1 = 1 from _root_.zero_add 1]
+    exact IsSemiformula.shift hp
+  have h := GodelQ.ITSubstOpen9.iT_subst_open (V := V) 0 (shift (L := ℒₒᵣ) p) h1
+  rw [GodelQ.QvecVDefs.QvecVOr_zero, GodelQ.QvecVDefs.QvecV_zero] at h
+  rw [show (0 : V) + 1 = 1 from _root_.zero_add 1] at h
+  exact h
 
 end GodelQ.HABKey
+
+#print axioms GodelQ.HABKey.iT_free_eq
