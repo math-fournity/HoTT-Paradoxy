@@ -487,4 +487,40 @@ theorem allBlockerQ_of_key (hk : AllKey (V := V)) :
     ShCraigElimSetupQ.hAll_reduce hp1 hS rfl hpre
   exact Derivable.all_m hmem hpre'
 
+/-! ## ★ `hRoot` 的**精确剩余**：一条内部可证性 `RootKey`（2026-10-14）
+
+与 `AllKey` 同形地，把 `RootBlockerQ` 压成一条 `Provable`：
+
+```
+RootKey : ∀ p, p ∈ Sh.craig.Δ₁Class → Provable 𝗭𝗙𝗖 (iT 0 p)
+```
+
+此前这一步只写在交接文档与探针里（`accept_root_via_reduction`，
+`probes/W8-blocker-acceptance-bench-20261013.lean`）——**没有进生产包**。
+这里把它固化成命名 `def` 并给出归约定理，使三条 blocker 的剩余**形状统一**：
+
+| 支 | 剩余 | 形状 |
+|---|---|---|
+| `hAll` | `AllKey` | `Provable (imp (iT 0 (free p)) (free (iT 1 p)))` |
+| `hExs` | `ExsBridge2`（003/004 线） | `Provable (imp (iT 0 (p[t])) (^∃ (domZero ⋏ iT 1 p)))` |
+| `hRoot` | `RootKey` | `p ∈ Sh.craig.Δ₁Class → Provable (iT 0 p)` |
+
+**`RootKey` 就是 D3 本身**（`Sh.craig ⪯ Sh` 的内化）——本归约**不解决 D3**，
+只是把义务搬到那一层、形状更小，且与另两条**可对接**。 -/
+
+/-- **`hRoot` 的精确剩余**：Craig 公理的翻译在 𝗭𝗙𝗖 中可证（= D3 的内化）。 -/
+def RootKey : Prop :=
+  ∀ {p : V}, p ∈ Sh.craig.Δ₁Class →
+    Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖 (iT (0 : V) p)
+
+/-- **归约**：`RootKey` ⟹ `RootBlockerQ`（证明完整，exit 0，公理三条）。
+
+证法一行：`hRoot_core hs hps (hk hpT)`。 -/
+theorem rootBlockerQ_of_key (hk : RootKey (V := V)) :
+    RootBlockerQ (V := V) := by
+  intro s p hs hps hpT
+  unfold Q
+  rw [fstIdx_axm]
+  exact hRoot_core hs hps (hk hpT)
+
 end GodelQ.ShCraigElimSetupQ
