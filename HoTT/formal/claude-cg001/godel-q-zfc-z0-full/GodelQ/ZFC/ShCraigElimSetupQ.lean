@@ -644,4 +644,39 @@ theorem allKey_of_bridge
   · simp
   · simp
 
+/-! ## ★ `ExsBridge2` 的 `p = ⊤` 情形（2026-10-14，已落地）
+
+`ExsBridge2` 取 `p = ⊤` 时：
+* `substs1 t ⊤ = ⊤`、`iT 0 ⊤ = ⊤` ⟹ 左端 `⊤`
+* `iT 1 ⊤ = ⊤` ⟹ 右端 `^∃ (domZero ⋏ ⊤)` =「ω 非空」
+
+故退化为 `Provable (imp ⊤ ω_nonempty)`，而 `imp ⊤ E` 由 `E` 经一次 ∨ 弱化即得
+——**用已入包的 `imp_wk`**（`insert X S` 可导 ⟹ `insert (D 🡒 X) S` 可导）。
+
+**⟹ `ExsBridge2` 的 `p = ⊤` 情形归约到 `Provable (^∃ (domZero ⋏ ⊤))`**，
+而后者正是 peer（004-Step）已证的 `omega_nonempty_provable`
+（`probes/W8-ExsBridge2-top-PROOF-20261013.lean`，exit 0）。
+
+**这条是 `ExsBridge2` 的第一个已证特例**——
+一般 `p` 仍未证（其 `p` 来自任意公式集，非标准模型里含非标准元，
+语义路线不适用，见 `CLAIM-Z0-W8-HALL-BLOCKER.md` §4）。 -/
+
+/-- **`ExsBridge2` 的 `p = ⊤` 情形由「ω 非空可证」推出**（用 `imp_wk`，exit 0）。 -/
+theorem exsBridge2_top_of_omega
+    (hω : Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      ((^∃ ((domZero (V := V)) ^⋏ (^⊤ : V)) : V))) :
+    Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (imp ℒₛₑₜ (^⊤ : V) ((^∃ ((domZero (V := V)) ^⋏ (^⊤ : V)) : V))) := by
+  apply Derivable.toProvable
+  exact imp_wk (D := (^⊤ : V))
+    (X := ((^∃ ((domZero (V := V)) ^⋏ (^⊤ : V)) : V)))
+    (S := (∅ : V))
+    IsSemiformula.verum
+    ((IsSemiformula.exs (L := ℒₛₑₜ) (n := (0:V))
+      (p := ((domZero (V := V)) ^⋏ (^⊤ : V)))).mpr
+      (IsSemiformula.and.mpr
+        ⟨isSemiformula_domZero (V := V) (n := (0:V)), IsSemiformula.verum⟩))
+    (by simp)
+    hω.toDerivable
+
 end GodelQ.ShCraigElimSetupQ
