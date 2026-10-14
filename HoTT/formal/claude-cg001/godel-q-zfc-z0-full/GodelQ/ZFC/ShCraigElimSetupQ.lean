@@ -602,4 +602,46 @@ theorem exsBlockerQ_of_bridge2 (hBr : ExsBridge2 (V := V)) :
         · exact absurd hy (Arithmetic.not_mem_empty y)
   exact Derivable.cut (iT (0:V) (substs1 ℒₒᵣ t p)) ih hnegA
 
+/-! ## ★ `AllKey` 由「`iT` 与 `subst` 的桥」推出（2026-10-14）
+
+`AllKey` 只要**蕴含**，但它可以由一条**等式**推出（`imp A A` 永真）：
+
+```
+iT 0 (free ℒₒᵣ p) = subst ?[^&0] (iT 1 (shift ℒₒᵣ p))    -- 桥 B(q := shift ℒₒᵣ p)
+                  = subst ?[^&0] (shift ℒₛₑₜ (iT 1 p))    -- iT_shift（已证）
+                  = free ℒₛₑₜ (iT 1 p)                    -- free 的定义
+```
+
+**桥 `B`** 正是 003 线的 `iT_substs1'`（层 1 版）：
+`subst ?[^&0] (iT 1 q) = iT 0 (subst ?[^&0] q)`，取 `q = shift ℒₒᵣ p`。
+
+**意义**：`hAll` 的 `AllKey` 与 003 线的桥**接上了**——
+桥一通，`AllKey` 即得（不必另证）。
+这也说明此前把 `hAll` 剩余记成
+`iT 0 (free p) = free (iT 1 p)` **并不荒谬**——
+那条等式**就是**由桥 + `iT_shift` 得到的；
+它「被证伪」指的是**不带桥的朴素版本**（`domZero` 计数不同）。 -/
+
+/-- **`AllKey` 由层 1 的桥推出**（证明完整，exit 0，公理三条）。 -/
+theorem allKey_of_bridge
+    (hB : ∀ {q : V}, IsSemiformula ℒₒᵣ (1:V) q →
+      subst ℒₛₑₜ (?[^&0] : V) (iT (1:V) q) =
+        iT (0:V) (subst ℒₒᵣ (?[^&0] : V) q)) :
+    AllKey (V := V) := by
+  intro p hp1
+  have heq : iT (0:V) (free ℒₒᵣ p) = free ℒₛₑₜ (iT (1:V) p) := by
+    rw [free, free]
+    change iT (0:V) (subst ℒₒᵣ (?[^&0] : V) (shift ℒₒᵣ p)) =
+      subst ℒₛₑₜ (?[^&0] : V) (shift ℒₛₑₜ (iT (1:V) p))
+    rw [← hB (q := shift ℒₒᵣ p) hp1.shift]
+    rw [← iT_shift (n := (1:V)) p hp1]
+  rw [heq]
+  apply Derivable.toProvable
+  apply Derivable.or (s := (∅ : V)) (p := neg ℒₛₑₜ (free ℒₛₑₜ (iT (1:V) p)))
+    (q := free ℒₛₑₜ (iT (1:V) p))
+  apply Derivable.em (p := free ℒₛₑₜ (iT (1:V) p))
+  · simp [(isSemiformula_iT (n := (1:V)) p hp1).free]
+  · simp
+  · simp
+
 end GodelQ.ShCraigElimSetupQ
