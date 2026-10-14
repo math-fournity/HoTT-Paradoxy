@@ -1307,6 +1307,36 @@ lemma conjunct_rename {i : V} (hi : i < 2) :
     conjunct_rename_first hi2, conjunct_rename_second hi2]
 
 
+/-! ## `qqVerums` 与 `iT` 的交换（2026-10-14 入生产包）
+
+`Theory.IsCraigAxiom (T := Sh)` 的 V 层展开里有 `qqVerums s`（`s` 个 `⊤` 的合取）。
+`iT_qqVerums` 说明它在 `iT` 下**不变**——这是 D3（`RootBlockerQ`）展开式里
+一个已验证零件。证法：对 `k : ℕ` 归纳，每步用 `qqVerums_succ` + `iT_and` + `iT_verum`
+（`qqVerums` 虽是 `V → V`，但由 `repeatVec` 的 `ℕ` 索引给出，故 `ℕ` 归纳足够）。 -/
+
+
+-- 辅助：`qqVerums k` 是合式公式
+lemma isUFormula_qqVerums : ∀ (k : ℕ), IsUFormula ℒₒᵣ (qqVerums (k : V)) := by
+  intro k
+  induction k with
+  | zero => simpa [qqVerums_zero] using IsUFormula.verum (L := ℒₒᵣ)
+  | succ j ih =>
+      rw [show ((j + 1 : ℕ) : V) = (j : V) + 1 by push_cast; ring, qqVerums_succ]
+      exact IsUFormula.and.mpr ⟨IsUFormula.verum (L := ℒₒᵣ), ih⟩
+
+-- 目标：`iT n (qqVerums k) = qqVerums k`
+theorem iT_qqVerums (n : V) : ∀ (k : ℕ), iT n (qqVerums (k : V)) = qqVerums (k : V) := by
+  intro k
+  induction k with
+  | zero => simp [qqVerums_zero, iT_verum]
+  | succ j ih =>
+      rw [show ((j + 1 : ℕ) : V) = (j : V) + 1 by push_cast; ring]
+      rw [qqVerums_succ]
+      rw [iT_and (V := V) (IsUFormula.verum (L := ℒₒᵣ)) (isUFormula_qqVerums j)]
+      rw [iT_verum, ih]
+
+#print axioms GodelQ.TranslateShiftCompat.iT_qqVerums
+
 end GodelQ.TranslateShiftCompat
 
 #print axioms GodelQ.TranslateShiftCompat.iVE_shift
