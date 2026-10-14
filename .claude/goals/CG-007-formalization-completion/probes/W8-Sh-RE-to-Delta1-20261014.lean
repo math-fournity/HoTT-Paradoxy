@@ -28,15 +28,14 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 namespace ProbeShRE
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
--- ① `𝚫ᴬ₁.Semisentence` 的构造方式
+-- ① `𝚫ᴬ₁.Semisentence`（Δ₁ 句子的类型）
 #check @𝚫ᴬ₁.Semisentence
-#check @HierarchySymbol.Semisentence.mkDelta
 
 -- ② 现成的 Δ₁ 构造路径：只有并集（各因子须已是 Δ₁）
 #check @Theory.Δ₁.instUnion
 
 -- ③ 结论：**没有**「RE ⟹ Δ₁」或「Σ₁ ⟹ Δ₁」的通用路径
-#check @ArithInterp.arithTrln
+#check @arithTrln
 #check @GodelQ.ZFCZ0.Sh
 
 /-- **结构性结论（本探针的发现）**：
