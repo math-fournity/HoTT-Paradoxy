@@ -411,4 +411,80 @@ lemma hRoot_core {s p : V} (hs : IsFormulaSet (L := ℒₒᵣ) s) (hp : p ∈ s)
   derivable_of_mem_of_provable (ShCraigElimBranches.isFormulaSet_translateSeq hs)
     (mem_translateSeq_iff.mpr ⟨p, hp, rfl⟩) hprov
 
+
+/-! ## ★ `hAll` 的**精确剩余**：一条内部可证性 `AllKey`（2026-10-13）
+
+`AllBlockerQ` 的 `ih` 给
+
+```
+Derivable (translateSeq (insert (free ℒₒᵣ p) (setShift s)))
+  = Derivable (insert (iT 0 (free ℒₒᵣ p)) (setShift (translateSeq s)))
+```
+
+目标 `Derivable (translateSeq s)`。走 `Derivable.all_m`（`q := imp domZero (iT 1 p)`）：
+
+| 前提 | 来源 |
+|---|---|
+| `^∀ q ∈ translateSeq s` | `hAll_mem`（已证） |
+| `Derivable (insert (free q) (setShift (translateSeq s)))` | `hAll_reduce` → 只要 `free (iT 1 p)` 版 |
+
+而 `free (iT 1 p)` 版由 `ih` 经 `replace_of_imp` 得到，**只要一条内部可证性**：
+
+```
+AllKey : Provable 𝗭𝗙𝗖 (imp (iT 0 (free ℒₒᵣ p)) (free ℒₛₑₜ (iT 1 p)))
+```
+
+**这把 `hAll` 从「一条等式」压成「一条内部可证性」**：
+* 与 `ExsBridge2` 同形（都是 `Provable (imp …)`）——**比等式弱**，故更可能为真；
+* **不要求 `p` 是引号形**，故不受非标准码反例影响
+  （见 `CLAIM-Z0-W8-HALL-BLOCKER.md` §4.6）。
+
+此前的记录把 `hAll` 的剩余写成
+`iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (iT 1 p)`——**那条等式已机器证伪**（`domZero` 计数不同）。
+**`AllKey` 是它的弱化版**：不要求两侧相等，只要求左侧**蕴含**右侧。 -/
+
+/-- **`hAll` 的精确剩余**：`iT 0 (free p)` → `free (iT 1 p)` 的内部可证性。
+
+这是 `hAll` 支**唯一**未证的部分（其余全部由 `ShCraigElimSetupQ.hAll_mem`/`ShCraigElimSetupQ.hAll_reduce`/`ShCraigElimSetupQ.replace_of_imp` 给出）。
+形状是 `Provable (imp …)`——**蕴含，不是等式**。 -/
+def AllKey : Prop :=
+  ∀ {p : V}, IsSemiformula ℒₒᵣ (1:V) p →
+    Provable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (imp ℒₛₑₜ (iT (0:V) (free ℒₒᵣ p)) (free ℒₛₑₜ (iT (1:V) p)))
+
+/-- **归约**：`AllKey` ⟹ `AllBlockerQ`（证明完整，exit 0，公理三条）。
+
+证法：`Derivable.all_m` 在 `translateSeq s` 上（`q := imp domZero (iT 1 p)`），
+两条前提分别由 `hAll_mem` 与（`hAll_reduce` ∘ `replace_of_imp`）给出。 -/
+theorem allBlockerQ_of_key (hk : AllKey (V := V)) :
+    AllBlockerQ (V := V) := by
+  intro s p dd hs hps hfd hder ih
+  unfold Q at ih ⊢
+  rw [fstIdx_allIntro]
+  rw [hfd, translateSeq_insert, ShCraigElimBranches.translateSeq_setShift hs] at ih
+  have hp1 : IsSemiformula ℒₒᵣ (1:V) p := by
+    have h0 : IsFormula ℒₒᵣ (^∀ p) := hs (^∀ p) hps
+    simpa using (IsSemiformula.all (L := ℒₒᵣ) (n := (0:V)) (p := p)).mp h0
+  have hpU : IsUFormula ℒₒᵣ p := hp1.isUFormula
+  let S : V := setShift (L := ℒₛₑₜ) (translateSeq (V := V) s)
+  have hS : IsFormulaSet (L := ℒₛₑₜ) S := by
+    intro y hy
+    rcases mem_setShift_iff.mp hy with ⟨z, hz, rfl⟩
+    exact (ShCraigElimBranches.isFormulaSet_translateSeq hs z hz).shift
+  have hmem : ((^∀ (imp ℒₛₑₜ (domZero (V := V)) (iT (1:V) p)) : V)) ∈ translateSeq s :=
+    ShCraigElimSetupQ.hAll_mem hpU hps
+  have hpre : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (insert (free ℒₛₑₜ (iT (1:V) p)) S) := by
+    have hAB : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+        (insert (imp ℒₛₑₜ (iT (0:V) (free ℒₒᵣ p)) (free ℒₛₑₜ (iT (1:V) p))) ∅) :=
+      internal_provable_iff_internal_derivable.mp (hk hp1)
+    exact ShCraigElimSetupQ.replace_of_imp hAB
+      (isSemiformula_iT (n := (0:V)) (free ℒₒᵣ p) hp1.free)
+      (isSemiformula_iT (n := (1:V)) p hp1).free
+      hS ih
+  have hpre' : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
+      (insert (free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT (1:V) p))) S) :=
+    ShCraigElimSetupQ.hAll_reduce hp1 hS rfl hpre
+  exact Derivable.all_m hmem hpre'
+
 end GodelQ.ShCraigElimSetupQ
