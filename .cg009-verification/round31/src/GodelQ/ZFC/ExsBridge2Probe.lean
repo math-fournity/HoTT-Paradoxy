@@ -39,4 +39,22 @@ example (x : V) (p : V) : substs1 ℒₒᵣ (^&x : V) p = subst ℒₒᵣ ((^&x 
 
 example (x : V) : iVE (0 : V) (^&x : V) = eqAtom (^&x : V) := iVE_fvar 0 x
 
+/-! ## 分水岭支：`a ∉ ω` 时 LHS 是否可真（004-Step 的问题）
+
+`Provable (imp A B)` 在 LK 里等价于 `⊢ →a (A → B)`——**自由变量被全称化**。
+所以真正的问题是：
+    是否 ∃ a, a ∉ ω ∧ A(a) 真 ∧ B 假？
+其中 `A(a) = iT 0 (substs1 (^&0) p)`（含 `^&0`，即那个 a），
+`B = ^∃ (domZero ⋏ iT 1 p)`（**不含** a，因为 ∃ 绑定了新变量）。
+
+若 B 与 a 无关，则"B 假"必须由 p 自身决定（如 `iT 1 p` 在 ω 上恒假）；
+若 p 使 B 假且 A 在某个 a 上真，则 **ExsBridge2 为假**。
+
+**本探针只固定 A 含 `^&0`、B 不含 `^&0` 这一结构事实**，
+具体的反例构造留给后续（需要 `p` 使 `iT 1 p` 在 ω 上恒假）。
+
+结构事实：`substs1 (^&0) p = subst ?[^&0] p`——把 p 的 bvar 0 换成自由变量 `^&0`。
+而 `iT 0 ·` 会把 p 里的 bvar 变成 `eqAtom` 的绑定变量——
+所以 `iT 0 (subst ?[^&0] p)` 里 `^&0` **自由出现**（未被任何绑定子捕获）。 -/
+
 end GodelQ.ExsBridge2Probe
