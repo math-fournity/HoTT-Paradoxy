@@ -27,7 +27,7 @@ IVEOpenFunc IVEOpenFunc2 IVEOpenFunc3 IVEOpenFunc4 IVEOpenFunc5 IVEOpenFunc6 \
 IVEOpenFunc8 IVEOpenFunc9 IVEOpenFunc10 IVEOpenFunc11 IVEOpenFunc12 IVEOpenFunc13 IVEOpenFunc14 \
 IVEOpenFunc15 IVEOpenFunc16 IVEOpenFunc17 SubstDomZero IVEOpenFull \
 ITSubstOpen2 ITSubstOpen3 ITSubstOpen4 ITSubstOpen5 ITSubstOpen6 ITSubstOpen7 ITSubstOpen8 \
-ITSubstOpen9 \
+ITSubstOpen9 HABKey HABElim HAllUncond \
 OpenLawCheck OpenLawCheck2 OpenLawCheck5 GateBranchesU2"
 
 ok=0; bad=0; sorry=0
