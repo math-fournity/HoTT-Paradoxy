@@ -27,24 +27,34 @@ namespace GodelQ.ExsBridge2
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- **中间引理（项代换的 iT 相容）**：`substs1` 与 `iT` 交换。
+/-! ## ⚠ 撤回：等式的"中间引理"是**假的**（2026-10-14 自查）
 
-`substs1 L t u = subst L ?[t] u` —— 把**绑定变量 0**（bvar）换成项 `t`。
-与一般律的 `QvecVOr m = ?[^&0]`（把 bvar 0 换成**自由**变量 `^&0`）是**不同的代入向量**，
-故一般律不覆盖它——这正是缺口所在。
+我最初写下：
+```
+lemma iT_substs1_term : iT 0 (substs1 t p) = subst ℒₛₑₜ (iVE 0 t) (iT 1 p)   ✗ 撤回
+```
+**它是错的，且与 `ITSubstCounter.lean` 已机器证伪的形状同型**：
 
-按 `iT_free_eq` 的先例，右侧应把 `t` 经 `iVE 0` 送到公式（`iVE 0 t` 描述"t 的值 = #0"），
-再代入 `iT 1 p`。
+* `subst (w p : V)` 的第一个参数 `w` 必须是**项向量**（`IsUTermVec`）；
+* 而 `iVE n t` 的输出是**公式**（`iVE_bvar` 给 `eqAtom ^#(z+1)`，`iVE_fvar` 给 `eqAtom ^&x`，
+  `iVE_func` 给 `ve2`——全是公式），**不是项向量**。
+* 故 `subst (iVE 0 t) ·` 在语义上是错的——把公式码当向量用。
 
-**命名说明**（Master 提醒）：本名与 003 线旧文件 `ITSubsts1.lean` 的 `iT_substs1` **同名不同命题**
-（旧的是 `?[^&0]` 自由变量版）。本文件用 `iT_substs1_term` 以区别。 -/
-lemma iT_substs1_term (p t : V) (hp : IsUFormula ℒₒᵣ p) (ht : IsTerm ℒₒᵣ t) :
-    iT (0 : V) (substs1 ℒₒᵣ t p)
-      = subst ℒₛₑₜ (iVE (0 : V) t) (iT (1 : V) p) := by
-  have hs1 : substs1 ℒₒᵣ t p = subst ℒₒᵣ (?[t] : V) p := rfl
-  rw [hs1]
-  trace_state
-  sorry
+`ITSubstCounter.naive_law_is_false_shape` 已把这一现象机器化：
+`iVE 0 (termSubst ?[^&0] ^&x) = eqAtom ^&x`，但 `subst ?[^&0] (iVE 1 ^&x) = ^rel 2 cEqN [^&0, ^&x]`——
+**两者不等**，因为代入打到了 `eqAtom` 自己的绑定变量上。
+
+**结论（与 `ITSubstCounter` 的结论一致）**：hExs 的剩余义务是**蕴含式**（Σ1 范围），
+**不是等式**。所以 `ExsBridge2` 的蕴含形状（本文件主体）**就是正确的最终形状**，
+不应再拆出等式版中间引理——那条路是死的。
+
+正确的分解方向是**直接证蕴含**：
+```
+iT 0 (substs1 t p)  ⟹  ^∃ (domZero ⋏ iT 1 p)
+```
+其内容 = "t 的值（由 `iVE 0 t` 描述）落在 ω 里，故存在见证"，
+走 `Derivable.exsIntro` + 闭项值的标准性（`IsTerm` ⟹ 标准形）。
+-/
 
 /-- **ExsBridge2**（一般 p、一般闭项 t）。 -/
 theorem exsBridge2 {p t : V} (hp : IsUFormula ℒₒᵣ p) (ht : IsTerm ℒₒᵣ t) :
