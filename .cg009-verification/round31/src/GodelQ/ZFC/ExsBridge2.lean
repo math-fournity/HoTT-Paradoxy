@@ -27,16 +27,23 @@ namespace GodelQ.ExsBridge2
 
 variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
-/-- **中间引理（项代换的 iT 相容）**：闭项代换与翻译交换。
+/-- **中间引理（项代换的 iT 相容）**：`substs1` 与 `iT` 交换。
 
-`substs1 t p = subst ?[t] p`（自由变量 0 ← t），而 `iT` 把自由变量 x 送到 `eqAtom ^&x`。
-闭项 t 的 `iVE 0 t` 是"t 的值 = #0"——见证的载体。
+`substs1 L t u = subst L ?[t] u` —— 把**绑定变量 0**（bvar）换成项 `t`。
+与一般律的 `QvecVOr m = ?[^&0]`（把 bvar 0 换成**自由**变量 `^&0`）是**不同的代入向量**，
+故一般律不覆盖它——这正是缺口所在。
 
-这条是 ExsBridge2 的**实质内容**（`ShCraigElimBranches` 的备忘表里记为
-"`iT` 与 `substs1` 的相容 | 不存在"）。 -/
-lemma iT_substs1 (p t : V) (hp : IsUFormula ℒₒᵣ p) (ht : IsTerm ℒₒᵣ t) :
+按 `iT_free_eq` 的先例，右侧应把 `t` 经 `iVE 0` 送到公式（`iVE 0 t` 描述"t 的值 = #0"），
+再代入 `iT 1 p`。
+
+**命名说明**（Master 提醒）：本名与 003 线旧文件 `ITSubsts1.lean` 的 `iT_substs1` **同名不同命题**
+（旧的是 `?[^&0]` 自由变量版）。本文件用 `iT_substs1_term` 以区别。 -/
+lemma iT_substs1_term (p t : V) (hp : IsUFormula ℒₒᵣ p) (ht : IsTerm ℒₒᵣ t) :
     iT (0 : V) (substs1 ℒₒᵣ t p)
       = subst ℒₛₑₜ (iVE (0 : V) t) (iT (1 : V) p) := by
+  have hs1 : substs1 ℒₒᵣ t p = subst ℒₒᵣ (?[t] : V) p := rfl
+  rw [hs1]
+  trace_state
   sorry
 
 /-- **ExsBridge2**（一般 p、一般闭项 t）。 -/
