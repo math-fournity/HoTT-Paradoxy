@@ -55,10 +55,7 @@ example : IsSemiformula ℒₛₑₜ (0:V) ((^∃ (domZero (V := V)) ^⋏ iT (0+
   · simpa using isSemiformula_domZero (V := V) (n := (0:V))
   · simpa using isSemiformula_iT (n := (1:V)) p0 p0_isSF
 
--- ★ V 层码的自由变量件：`termFreeAt`（Formula/Functions.lean:523）
---   「x 的第 m 个自由变量是 t」
-#check @termFreeAt
-#check @termFreeAtVec
+-- V 层的自由变量件（Formula/Functions.lean:523 有 termFreeAt，但命名空间待定）
 #check @IsTermFVFree
 
 /-- ★ **决定性语义论证**（本探针的核心结论，AI 推理，未证）：
