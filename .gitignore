@@ -32,6 +32,11 @@ tmp/
 # is not written back. Never commit .olean/.ilean/_state.json from this tree.
 .claude/goals/CG-007-formalization-completion/tools/devbuild_ns/
 
+# CG-007 independent-reproduction build output (verify/repro-build). Reproducible from the
+# pinned toolchain via verify/driver_repro.py; never part of a receipt. The receipt and the
+# driver ARE committed; the oleans/logs are not.
+.claude/goals/CG-007-formalization-completion/verify/repro-build/
+
 # Generated export boxes are kept outside the Git tree unless explicitly
 # accepted as a source artifact.
 exchange/outbox/*.zip
