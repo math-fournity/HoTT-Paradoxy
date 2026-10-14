@@ -128,3 +128,75 @@ elif grep -qE 'sorry|sorryAx' "$log"; then …SORRY…
 - **and/or/neg/verum/falsum**：`substs_and`/`substs_or`/`substs_neg` 直接组合。
 - **注意**：Master 已把一般律（∀m 含 0）派给 001-Step 主攻（m=0 的 all/exs
   会递归到 m=1）。接手前先与 Master 确认是否仍需要本线做。
+
+
+---
+
+# 2026-10-14 续篇：hAB 已消去，两线在 m=0 合流
+
+## §8 三个新定理（本树，40 文件 clean 40/40）
+
+| 定理 | 形状 | 意义 |
+|---|---|---|
+| `HABKey.iT_free_eq` | `iT 0 (free p) = subst ?[^&0] (iT 1 (shift p))` | `iT_subst_open` 的 m=0 实例，三行 |
+| `HABElim.hAB_derivable` | `Derivable (¬A ⋎ B) ∅` | **hAB 是已证定理，不再是前提** |
+| `HAllUncond.hAll_uncond'` | 四条前提 ⟹ `Q (allIntro s p d)` | **hAll 无条件** |
+
+提交：`965c63fa`、`97a8e09f`、`4ebe331d`。
+
+## §9 两线在 m=0 处**逐字相同**（交叉验证）
+
+Master 的 `MasterAssemblyProbe.bridgeB`：
+```
+subst ℒₛₑₜ ?[^&0] (iT 1 q) = iT 0 (subst ℒₒᵣ ?[^&0] q)
+```
+本树的 `HABKey.iT_free_eq`（取 `q := shift p`）取 `.symm` 后**完全相同**。
+
+Master 的 `allKey_of_bridge` 内部的 `heq`：
+```
+iT 0 (free ℒₒᵣ p) = free ℒₛₑₜ (iT 1 p)
+```
+本树的 `HABElim.free_iT`：
+```
+free ℒₛₑₜ (iT (1:V) p) = iT (0:V) (free (L := ℒₒᵣ) p)
+```
+**就是 `.symm`。** 两条独立路径导同一条引理。
+
+本线多走的一步：`hAB_derivable` 保留 `B = free (imp domZero (iT 1 p))` 原样，
+证的是 hAll 真正要的那条蕴含；Master 的路线用 `or` + `em` 直接收 `¬X ⋎ X`。
+**两条互补，任一条有坑可退回另一条。**
+
+## §10 本轮新踩的 API 坑（§3、§5 的补充）
+
+1. **`Derivable.or` 只合并 sequent 最前两个 insertion**，且 `s` 必须显式给。
+   隐式推导时 Lean 报 `expected Derivable (¬C ⫽ A ⫽ A ⫽ ∅)` ——
+   报错完全不指向「合并对象选错了」这个真因。
+   处方：先用 `em` 把要合并的两件**置顶**，再 `or (s := …) (p := …) (q := …)`。
+   （or 的前提参数名是 `hpq`，不是 `h`。）
+2. **`Derivable.em` 的参数要指向真正矛盾的那一对**：`em (hs) p (h : p ∈ s) (hn : ¬p ∈ s)`。
+   p 选错就报 `unsolved goals ⊢ ¬(¬A) = ¬A ∨ …`。
+3. **`IsSemitermVec.singleton` 的 `∅` 是「空项向量」**，不是 V 的空集；
+   `Type*` 上下文里裸写 `∅` 卡 `EmptyCollection ?m`。
+   处方：`(IsSemitermVec.singleton (L := …) (n := …)).mpr …`。
+4. **`^⋎` 是右结合**（`a ⋎ b ⋎ c = a ⋎ (b ⋎ c)`，definitional）。
+   我按 Mathlib 的 `∨` 惯例假设左结合，整条 or 链全部错位，白跑了半小时。
+   探针：`example (a b c : V) : a ^⋎ b ^⋎ c = a ^⋎ (b ^⋎ c) := by rfl`（通过）；
+   写成 `(a ⋎ b) ⋎ c` 则 `rfl` **失败**。
+
+## §11 ★ stale olean 会伪造 sorryAx（本轮最贵的坑）
+
+`.cg009-verification/round31/build/` 里的 olean 是**上次编译**的产物。
+`cg009c.sh` 只往 `/tmp/cg009o/` 写，**不刷新 build/**。
+于是：改了 `HABKey.lean` 后，单独编译它是干净的，
+但下游 `HABElim` 的 `#print axioms` 仍报 sorryAx —— 它读到的是旧 HABKey.olean。
+
+**诊断动线**：文件里 grep 不到 sorry ⟹ 逐层 `#print axioms` 定位到
+`HABKey.iT_free_eq` ⟹ 单独编译 HABKey 是干净的 ⟹ 判定缓存过期。
+**处方**：改了任何被 import 的文件后，先 `/tmp/cg009c-build.sh <该文件>` 刷新铃an，
+再编译下游。**`#print axioms` 的结论只在该文件 olean 与源码同代时可信。**
+
+## §12 下一步
+
+`ExsBridge` / `ExsBridge2`（hExs 支）是唯一剩下的量词规则缺口。
+`p = ⊤` 情形 Master 与 004-Step 已证（归约到 `omega_nonempty_provable`）；
+一般 `p` 未证——其 `p` 来自任意公式集，非标准模型里含非标准元，语义路线不适用。
