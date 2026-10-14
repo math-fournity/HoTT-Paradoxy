@@ -65,9 +65,38 @@ theorem iT_subst_open (m : V) :
     rw [Bootstrapping.substs_falsum (L := ℒₒᵣ), iT_falsum, iT_falsum,
       Bootstrapping.substs_falsum (L := ℒₛₑₜ)]
   · -- and
-    all_goals sorry
+    intro n param p q hp hq ihp ihq h h1
+    have hp' := ihp h h1
+    have hq' := ihq h h1
+    have hn : n = m + 1 := h.symm.trans h1
+    subst hn
+    -- LHS：subst 先推过 ^⋏，再展 iT
+    rw [Bootstrapping.substs_and (L := ℒₒᵣ) hp.isUFormula hq.isUFormula,
+      iT_and (IsSemiformula.subst (L := ℒₒᵣ) hp (isSemitermVec_QvecVOr m)).isUFormula
+             (IsSemiformula.subst (L := ℒₒᵣ) hq (isSemitermVec_QvecVOr m)).isUFormula]
+    -- RHS：result 形 → iT 形 → ^⋏ 形 → subst 推过
+    rw [show UformulaRec1.Construction.result ℒₒᵣ iT.construction param (p ^⋏ q)
+          = iT param (p ^⋏ q) from rfl,
+      iT_and hp.isUFormula hq.isUFormula,
+      Bootstrapping.substs_and (L := ℒₛₑₜ)
+        (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
+    rw [hp', hq']
   · -- or
-    all_goals sorry
+    intro n param p q hp hq ihp ihq h h1
+    have hp' := ihp h h1
+    have hq' := ihq h h1
+    have hn : n = m + 1 := h.symm.trans h1
+    subst hn
+    rw [Bootstrapping.substs_or (L := ℒₒᵣ) hp.isUFormula hq.isUFormula,
+      iT_or (IsSemiformula.subst (L := ℒₒᵣ) hp (isSemitermVec_QvecVOr m)).isUFormula
+            (IsSemiformula.subst (L := ℒₒᵣ) hq (isSemitermVec_QvecVOr m)).isUFormula]
+    rw [← iT.construction.result_or hp.isUFormula hq.isUFormula,
+      show UformulaRec1.Construction.result ℒₒᵣ iT.construction param (p ^⋎ q)
+          = iT param (p ^⋎ q) from rfl,
+      iT_or hp.isUFormula hq.isUFormula]
+    rw [Bootstrapping.substs_or (L := ℒₛₑₜ)
+      (isSemiformula_iT p hp).isUFormula (isSemiformula_iT q hq).isUFormula]
+    rw [hp', hq']
   · -- all
     all_goals sorry
   · -- exs
