@@ -101,6 +101,20 @@
   `∀ w` 版使谓词变 Π1 用不了）记在 `ITSubsts1.lean` 的提交信息里。
   接手：语法路线 001-Step/001-Flash（一般律 `iT_subst_open`，未证）、语义路线 004-Step。
 
+- **2026-10-14 `axm` 支引号化版本 + `Z0Full` 条件形式：独立编译核验并出收据（CG001-C-406）**：
+  应 Master 征询「Z0Full 还有哪些支带 sorry」，本机全链实测：
+  `ShCraigElimAxm.lean`（75 行）与 `Z0Full.lean`（145 行）**均 0 个未证标记、exit 0**。
+  `Z0Full` 七条：`zfcTr_con_iff`（影子一致性句与 `𝗭𝗙𝗖.consistent` 可证等价）、`zfcTr_sigma1`、
+  `sh_z0_full [zfcTr.HBL3]`、`zfc_z0_full [zfcTr.HBL3]`、`zfc_z0_full_of_D3_internalize`、
+  正对照 `zfcTr_D3_standard`（D3 在标准模型 ℕ 中成立）。
+  `ShCraigElimAxm` 三条：`zfc_provable_of_mem_craig`、`derivable_of_provable_mem`、`hAxm_quoted`。
+  收据 `20261014-CG001-Z0-AXM-Z0FULL-01`：`KERNEL_ACCEPTED_WITH_SCOPE`、exit 0、stderr 0 B、30 源文件、
+  `--rerun` `EXACT_EXIT_STDOUT_STDERR_MATCH`，公理全为三条标准公理。
+  **禁止外推**：`zfc_z0_full` 带 `[zfcTr.HBL3]` 类型类前提、`zfc_z0_full_of_D3_internalize`
+  以 `zfcTr_D3_internalize` 为前提——**D3 本身仍未证，缺口不在 Z0Full 而在 Z0Blocked**。
+  另：`hAxm_quoted` 是**引号化**版本；9276 的 `RootKey`（若对任意 `p`）是**更强**命题，
+  两者是**特例与一般**的关系，不是取代——**一般版本仍未证**。
+
 4. ~~跑者的到达句~~：✅ C-117、C-118（CG-007 W5）。实分析版（在 ℒₛₑₜ 中构造实数）没有做，见 [03 节](03-跑者的到达句.md)。
 5. ~~同一个 Q 并列进一个内核~~：✅ C-112、C-113（第 04 章）。
 6. ~~想法 T 的一般形式、P 的两侧~~：✅ C-114、C-116（第 07 章）。
