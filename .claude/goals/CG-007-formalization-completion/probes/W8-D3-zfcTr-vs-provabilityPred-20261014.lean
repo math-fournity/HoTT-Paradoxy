@@ -31,7 +31,6 @@ variable {V : Type*} [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁]
 
 -- ② `Sh` 的可证性 ⟶ `𝗭𝗙𝗂` 的可证性（外层的桥）
 #check @GodelQ.ZFCZ0.Sh_provable_iff
-#check @GodelQ.ZFCArith.internalize_provability
 
 -- ③ `provabilityPred`（它要 Δ₁，这正是障碍所在）
 #check @provabilityPred
