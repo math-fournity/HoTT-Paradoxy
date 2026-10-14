@@ -40,7 +40,13 @@ theorem hAll_uncond {s p d : V}
     (hp : (^∀ p : V) ∈ s)
     (hd : DerivationOf (L := ℒₒᵣ) Sh.craig d (insert (free (L := ℒₒᵣ) p) (setShift (L := ℒₒᵣ) s)))
     (ih : Q d)
-    -- the one remaining arithmetic implication (Σ1 completeness range)
+    -- ⚠ 2026-10-14 更正（012-Flash 报的注释风险，Master 落这一行）：
+    --   这句 "the one remaining arithmetic implication (Σ1 completeness range)" **已过时且误导**。
+    --   `hAB` **已由 `HABElim.hAB_derivable`（HABElim.lean:51）无条件闭合**——
+    --   它是**命题重言式**（`¬A ⋎ (¬C ⋎ A)`，排中律 + or + exchange），
+    --   **与 Σ1 完全性、D3、axmBridge 都无关**。
+    --   无条件版见 `HAllUncond.lean:27 hAll_uncond'`（四条前提，无 hAB）。
+    --   此处的 `hAB` 保留为**参数**是设计（让归约与桥解耦），调用方免费可取。
     (hAB : Derivable (V := V) (L := ℒₛₑₜ) 𝗭𝗙𝗖
       (insert (neg ℒₛₑₜ (iT (0 : V) (free (L := ℒₒᵣ) p))
         ^⋎ free ℒₛₑₜ (imp ℒₛₑₜ (domZero (V := V)) (iT (1 : V) p))) ∅)) :
