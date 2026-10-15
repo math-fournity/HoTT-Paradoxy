@@ -53,6 +53,7 @@
   - CG-001 的 `证据索引.md` 与 `verification/`；
   - 共享矩阵、编号账本；
   - `形式化追踪/`、`.claude/总索引/`、`.claude/思考与发现/`、`dev-notes/`（单文件提交）、本目标包。
+  - P4 起（研究发起人裁定 D5-2、D6-3）：`docs/`（H3a 的对照表）；`核心认知.md`、`核心认知.manifest.json` 与入核所需的来源文件和 curation（只经 `build_core_cognition.py`）；`scripts/release/` 的模板、清单与重放工具（H5）。
 - **禁止**：
   - 写主检出（`dev`）；
   - 改 `外部资料/` 与他人未提交的文件；
@@ -71,12 +72,17 @@
 .claude/goals/CG-010-remaining-formalization-alignment/方案.md | 剩余工作清单、顺序、每个单元的固定流程
 .claude/goals/CG-010-remaining-formalization-alignment/工作台.md | 做到哪了、最近的失败与决定
 形式化追踪/README.md | 各线进度与缺口表（第 1–12 行）
+.claude/goals/CG-010-remaining-formalization-alignment/待你裁定-人话版/10-裁定结果-20261015.md | 2026-10-15 全部裁定的唯一权威
+.claude/思考与发现/CN-081 - 评 GLM 的裁定产出：先认我自己的错，再说哪些对、哪些说过了头.md | 对 GLM 产出的评价：哪些照用、哪些更正（稠密不是 A 等五处）
 最高指示-Claude版.md | 研究的新单元、压缩后首次研究前重读（已随 .claude/rules 常驻）
 ```
 
 - **条件触发的回源**：
   - 研究发起人纠正原意，或问到 Q、P、A、B、ASK、UR、矛盾、反现实时：回读 `核心认知.md` 相应 KC 原文与 `dev-notes/0118`；
   - 做 R2：回读 `HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md` 原文三。
+  - 做 H3a：回读 `核心认知.md` 的 KC-000068（即 `main` 文首“ZFC Failure”）、`dev-notes/0118` 第 10、11 轮（10-14 那段原文），以及要引用的每个证明包的 `CLAIM.md`。
+  - 做 H4：回读 `待你裁定-人话版/11-会话GUI转录-20261015.md` 第 9、14、16 轮（逐字原文）与 `scripts/audit/build_core_cognition.py` 的用法、`scripts/audit/core-cognition-curation-v4.json`。
+  - 做 H5：回读 `scripts/release/main-release-spec.json`、`scripts/release/main-README.md`、`scripts/release/replay.py`，以及 `git show main:README.md` 的文首“ZFC Failure”一节。
 
 ## 4. 阶段与当前计划
 
@@ -86,6 +92,7 @@
 | P1 第一组 | R6、R1、R2、R3、R4、R5 的收据或记录 | 每项完成就写检查点 |
 | P2 第二组 | R9、R7、R8 的收据，或带精确剩余义务的 BLOCKED | 每项先评估再动手 |
 | P3 交付 | 第三组清单、追踪与总索引、给研究发起人的报告 | 研究发起人裁定后按新口径返工 |
+| P4 裁定后执行 | `方案.md` 第五组：H1 ✅、H2 ✅；H3a 逐句对照 → H3 内部文档 → H4 第 15 代核心认知 → H5 发布 | 研究发起人 2026-10-15【原话】“你立即开始做，直至全部做完”。只在三处停下等研究发起人：一段原话入不入核（H4）、中文 README 认不认可（H5）、推送与发布说“做”（H5） |
 
 ## 5. 工作循环
 
@@ -106,3 +113,4 @@
 ## 8. 版本记录
 
 - v1.0 2026-10-14：创建并填写，会话 95a1a81b（012-Opus）。
+- v1.1 2026-10-15：加 P4 与三处停点；闭包表加裁定档案与 CN-081；加 H3a、H4、H5 的条件回源；写入范围加 `docs/`、核心认知（经脚本）、`scripts/release/`。会话恢复后会话号变为 91beaf35，已重新绑定。
