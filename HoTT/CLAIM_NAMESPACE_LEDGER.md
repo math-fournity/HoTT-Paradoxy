@@ -49,7 +49,7 @@ dev-03、dev-04 的 `zfc-observation-boundary` 包、dev-06、dev-07 没有使�
 
 ## 4. 归属更正
 
-共享编号 C-357、C-358 由 Codex 在主干（dev-08，2026-10-03）写成，却放在 `HoTT/formal/claude-cg001/observation-completion-bridge/` 与 `completion-reflection-failure/` 下，运行名带 `-CG001-`。它们不是 Claude 线的工作。Claude 线的编号形如 `CG001-C-NN`（`dev` 上目前到 CG001-C-401；舰队各分支已用到 C-406；012-Opus 的独立 worktree 用了 C-410–C-428，跳过 C-407–C-409 以免与未并入 `dev` 的编号相撞；C-413–C-417 是 2026-10-14 的完整 Z0 包 `godel-q-zfc-z0-sigma1`，C-418–C-421 是同日的 `two-choices-lpo`，C-422 是同日的 `halting-without-lem`，C-423 是 10-15 的 `zeno-zfc-classical`（CG-010 R1），C-424 是同日的 `circle-paradox`（R2），C-425 是同日的 `two-choices-rational`（R3），C-426 是同日的 `two-choices-cubical`（R4），C-427 是同日的 `z0-omega-question`（R9），C-428 是同日的 `runner-arrival-rational`（R7），编号前都核对过全部分支与 worktree），与共享编号 C-357、C-358 是两套编号。为了收据稳定，路径与运行名不改。（CG-005 审计报告 A6、A7）
+共享编号 C-357、C-358 由 Codex 在主干（dev-08，2026-10-03）写成，却放在 `HoTT/formal/claude-cg001/observation-completion-bridge/` 与 `completion-reflection-failure/` 下，运行名带 `-CG001-`。它们不是 Claude 线的工作。Claude 线的编号形如 `CG001-C-NN`（`dev` 上目前到 CG001-C-401；舰队各分支已用到 C-406；012-Opus 的独立 worktree 用了 C-410–C-429，跳过 C-407–C-409 以免与未并入 `dev` 的编号相撞；C-413–C-417 是 2026-10-14 的完整 Z0 包 `godel-q-zfc-z0-sigma1`，C-418–C-421 是同日的 `two-choices-lpo`，C-422 是同日的 `halting-without-lem`，C-423 是 10-15 的 `zeno-zfc-classical`（CG-010 R1），C-424 是同日的 `circle-paradox`（R2），C-425 是同日的 `two-choices-rational`（R3），C-426 是同日的 `two-choices-cubical`（R4），C-427 是同日的 `z0-omega-question`（R9），C-428 是同日的 `runner-arrival-rational`（R7），C-429 是同日的 `zfc-con-pa-boundary`（R8，边界），编号前都核对过全部分支与 worktree），与共享编号 C-357、C-358 是两套编号。为了收据稳定，路径与运行名不改。（CG-005 审计报告 A6、A7）
 
 ## 5. 分支的保存
 
