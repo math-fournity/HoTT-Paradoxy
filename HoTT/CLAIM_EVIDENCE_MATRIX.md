@@ -2439,3 +2439,16 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-427 | `Done z0Code ↔ 𝗭𝗙𝗖 ⊢ ⊥`；`z0Q := processQ z0Code`：`z0Q.Done ↔ 𝗭𝗙𝗖 ⊢ ⊥`，`z0Q.Never`；∀ k，`𝗭𝗙𝗖 ⊢ haltsS ΨN ⌜(z0Code, k)⌝`；`(𝗭𝗙𝗖.consistent).Evalb ℕ ↔ z0Q.Never`；`𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ`（C-417）；P_fin 在 Z0 上被否定；`Arrives z0Code`；`zenoQ.Never ∧ z0Q.Never` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-Z0-OMEGA-QUESTION-01`；负控制 `-NEG-STAGES-01` | 一致性来自 Lean 元层 `Universe`；程序形式的第二不完备（𝗭𝗙𝗖 ⊬ `neverS ΦH ⌜z0Code⌝`）未证；“Z0 = 矛盾搜索”是读法；“相同”待定义 |
+
+## Claude CG-010 R7（012-Opus）：极限的有理数 ε–N 写法落到 𝗭𝗙𝗖（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖，算术指数 `Exp.exp`）；没有在 𝗭𝗙𝗖 内部构造实数。承接缺口表第 2 行。编号接 C-427。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-RUNNER-ARRIVAL-RATIONAL-001` | `CG001-C-428` | `formal/claude-cg001/runner-arrival-rational/GodelQ/ZFC/ArrivalRational.lean`（`arrRat_iff_arr`、`zfc_arrRat_iff_arr`、`zfc_arrRat_iff_never`、`universe_arrRatS_iff`、`zfc_runner_rat`、`zfc_arriveRatC`、`arrRat_encode_rat`、`arriveRatC_nat`）、`QualificationArrivalRational.lean`；23 个模块逐字节复制自 `godel-q-zfc-runner-arrival` | `verification/runs/20261015-CG001-RUNNER-ARRIVAL-RATIONAL-01/`；exit 0，stderr 0 B；144 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-001` | `CG001-C-428`（负控制） | 同目录 `GodelQ/Negative/WrongRationalStepZero.lean` | `verification/runs/20261015-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-STEP-01/`；exit 1，需要 `q ≤ n`，只有 `0 ≤ n` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-428 | 每个 𝗜𝚺₁ 模型里 `arrRatF e ↔ arrF e`；`𝗭𝗙𝗖 ⊢ arrRatS a 🡘 arrS a`、`𝗭𝗙𝗖 ⊢ arrRatS a 🡘 neverS ΦS a`；`Universe ⊧ arrRatS ⌜d⌝ ↔ Arrives d`；ℕ 中 `arrRatF ⌜d⌝` ↔ ∀ 正整数 p、q，∃N ∀n ≥ N，remaining d n < p/q；有到达的跑者使 `𝗭𝗙𝗖 ⊬ arrRatS ⌜d⌝`；`𝗭𝗙𝗖 ⊢ (arriveRatC)ᵗ`；ℕ 中 `arriveRatC` ↔ ∀ 正整数 p、q，∃N ∀n ≥ N，2⁻ⁿ < p/q | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-RUNNER-ARRIVAL-RATIONAL-01`；负控制 `-NEG-STEP-01` | 没有构造 ℝ；有理 ε 与实数 ε 的等价在元层；一致与可靠经 `Universe` |
