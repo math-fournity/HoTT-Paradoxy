@@ -2345,3 +2345,16 @@ Claim 表：
 | CG001-C-419 | 芝诺读数 `2ᵏ − 2^(k−n)` 于第 k 步落定（公式），落定值加 1 等于 2ᵏ，每一步都小于 2ᵏ，单调，不用 `Classical.choice`；桥（经典，Mathlib ℚ）：读数 = ⌊2ᵏ(1 − (1/2)ⁿ)⌋，有理数列单调、每步小于 1、从第 k 步起离 1 不超过 (1/2)ᵏ、柯西步为 k + 1 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 说的是极限这个数用不着 A；不说芝诺过程“走完”（那一面见 C-106–C-108、C-116 (1)(3)） |
 | CG001-C-420 | 每个停机搜索的开关 `haltBits e` 单调，经典地有落定的一步；不存在可计算的 F 对每个 e 交出落定的一步，也不存在可计算的 f 交出终值（Mathlib 停机定理） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-SETTLING-01` | 经典定理；说的是“交不出”，不是“不存在” |
 | CG001-C-421 | 经典逻辑里 LPO 是定理（来自排中律）；每个“会停”的陈述都有现成真假；停机集与偶数集同样作为集合存在；偶数可判定、停机不可判定 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 经典定理；“不存在辨别力”的读法是研究发起人的话与 AI 的解释 |
+
+## Claude CG-007（012-Opus）：判不全不靠排中律——图灵对角论证的逻辑核心（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接 CN-079 §3.1 的“判不全不靠排中律”（原先凭记忆）。构造一侧不依赖任何公理，由包内审计机器核对；Mathlib 实例一侧是经典的。编号接 C-421。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-HALTING-WITHOUT-LEM-001` | `CG001-C-422` | `formal/claude-cg001/halting-without-lem/GodelQ/Diagonal/`：`Core.lean`（只用 Lean 内核：`no_liar`、`no_never_recognizer`、`no_decider`、`recognizer_without_flip`）、`MathlibCodes.lean`（`code_flip`、`turing_codes`）、`QualificationDiag.lean`（命题对照与公理审计） | `verification/runs/20261014-CG001-HALTING-WITHOUT-LEM-01/`；exit 0，stderr 0 B；`qual_C422` 不依赖任何公理；审计 5 条“不依赖”、4 条对照“依赖”全部通过；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-HALTING-WITHOUT-LEM-NEG-001` | `CG001-C-422`（负控制） | 同目录 `GodelQ/Negative/WrongRecognizerWithoutFlip.lean` | `verification/runs/20261014-CG001-HALTING-WITHOUT-LEM-NEG-FLIP-01/`；exit 1，`hd d d` 是 `True ↔ ¬False`，不是 `P ↔ ¬P` | `NEGATIVE_CONTROL_REJECTED`：翻转程序是用到的前提 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-422 | 不依赖任何公理：`¬ (P ↔ ¬P)`；任何有翻转程序的编程系统里，没有程序恰好认出“永不停机”，也没有完全的停机判定器；去掉翻转程序，认出者可以存在。实例（经典）：Mathlib 的部分递归代码有翻转程序，于是那里两者都不存在 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-HALTING-WITHOUT-LEM-01`；负控制 `-NEG-FLIP-01` | “翻转程序存在”在 Mathlib 里的证明是经典的，本包不声称有完全不用选择公理的计算模型；不涉及理论的不完备性（Heyting 算术是文献）；“判不全是现实”的读法属 CN-079 |
