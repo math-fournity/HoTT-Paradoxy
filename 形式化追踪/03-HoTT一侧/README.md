@@ -19,6 +19,7 @@
 | C-83 | 教科书消解的对照：集合截断上第 1 问就停，与 `never` 对照 | ✅（第二平台重放待许可） | `HoTT/formal/claude-cg001/truncation-questioning/` |
 | C-73–C-76 | 总体逐级上升；宇宙在任何一层都不落定 | ✅ | `HoTT/formal/claude-cg001/totality-escalation/`、`universe-questioning/` |
 | C-426 | B 不靠 LPO：在不假定 LPO 的 `--safe` 检查单元里，`LimBit ↔ LPO` 与 C-78 同在，宇宙的回答流由证明落定；有限高度的汇集恰在自己那一层停（重证 C-79 (b)） | ✅（2026-10-15，012-Opus，CG-010 R4；未并入 `dev`） | `HoTT/formal/claude-cg001/two-choices-cubical/`（含 `REVISIONS.md`） |
+| C-430 | 对任意收集：单价且所有高度一次交出 ⟹ 追问永不停；高度有上限 ⟹ 停；编码相同是事实 ⟹ 第 1 问停；四个见证（宇宙、汇集、编号收集、成对收集）。**是合并**：`main` 第 4 节 09-30 已有同一消融，增量只有一般陈述与单价性的单独隔离 | ✅（2026-10-15，012-Opus，CG-010 H2；未并入 `dev`） | `HoTT/formal/claude-cg001/a-univalence-b/`（含 `REVISIONS.md`） |
 | C-357、C-358 | 粗完成不能反射回原问题的停机（GPT 写成，借用了 `-CG001-` 命名） | ✅（CG-005 重放） | `HoTT/formal/claude-cg001/completion-reflection-failure/`、`observation-completion-bridge/` |
 | C-360、C-365 | 截断后第一问“完成”，推不出原宇宙上有限停机；H0 的有限 trace | ✅ | `HoTT/formal/zfc-actual-q-policy/`、`HoTT/formal/zfc-h0-final-closure/` |
 | C-344–C-356 | Terra（GPT）对 H0 的 T1、T2 审计包；CG001-C-61 把其中的正控制在 Lean（UIP）里转写成立 | ✅（见各包 CLAIM） | `HoTT/formal/terra-t1-h0/`、`terra-t1-h0-interface/`、`terra-t1-h0-generic/`、`terra-t2-one-shot/` |
@@ -34,7 +35,7 @@
 
 ## 下一步
 
-没有进行中的工作。外部复核与第二平台重放，等研究发起人决定。
+没有进行中的工作。研究发起人 2026-10-15 提醒：HoTT 一侧 `main` 上已有机器证明；本线不再做新证明（CN-081）。外部复核与第二平台重放，等研究发起人决定。
 
 ## 线头
 

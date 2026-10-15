@@ -2465,3 +2465,18 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-429 | `𝗭𝗙𝗖 ⊢ (Con 𝗣𝗔)ᵗ ↔ ∀ M ⊧ 𝗭𝗙𝗖, W M ⊧ Con 𝗣𝗔`；每个 `W M ⊧* 𝗣𝗔`（C-109）；`Universe ⊧ (Con 𝗣𝗔)ᵗ`；`𝗭𝗙𝗖 ⊬ ∼(Con 𝗣𝗔)ᵗ`；`¬ ∀ V ⊧* 𝗣𝗔, V ⊧ Con 𝗣𝗔` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-ZFC-CON-PA-BOUNDARY-01`；负控制 `-NEG-01` | 没有证明 𝗭𝗙𝗖 ⊢ Con(𝗣𝗔)（BLOCKED）；标准模型一项依赖 Lean 元层 `Universe` |
+
+## Claude CG-010 H2（012-Opus）：B 的两个成因，A 与单价性一起让追问永不停（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接研究发起人 2026-10-15 的裁定 D4-1（“动作＋定理”）。**身份**：是合并，不是新发现；`main` 的 `README.md` 第 4 节已以消融形式公开同一内容（C-78 至 C-83），增量只有一般陈述与单价性的单独隔离（包内 `REVISIONS.md`、CN-081 §1.2）。“被告是 A”是裁定，不是定理。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-A-UNIVALENCE-B-001` | `CG001-C-430` | `formal/claude-cg001/a-univalence-b/AUnivalenceB.agda`（`UnivalentCollection.localGlobal`、`noFiniteLevel`、`neverWithBoth`、`boundedSettles`、`haltsWithBound`、`factStopsAtOne`、`neverNeedsUnbounded`、`neverNeedsStructure`、`universeNever`、`gatheringUnivalent`、`numberedNotUnivalent`、`pairedNever`、`qual-C430`；导入 `questioning-delay`、`pedometer-semantics`、`universe-questioning`） | `verification/runs/20261015-CG001-A-UNIVALENCE-B-01/`（macOS 工具链记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`）；exit 0，stderr 0 B；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-A-UNIVALENCE-B-NEG-001` | `CG001-C-430`（负控制） | 同目录 `WrongFactNever.agda` | `verification/runs/20261015-CG001-A-UNIVALENCE-B-NEG-01/`；exit 42，`just 1 != nothing` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-A-UNIVALENCE-B-NEG-002` | `CG001-C-430`（负控制） | 同目录 `WrongBoundedNever.agda` | `verification/runs/20261015-CG001-A-UNIVALENCE-B-NEG-02/`；exit 42，`just 2 != nothing` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-A-UNIVALENCE-B-NEG-003` | `CG001-C-430`（负控制） | 同目录 `WrongBWithoutUnivalence.agda` | `verification/runs/20261015-CG001-A-UNIVALENCE-B-NEG-03/`；exit 42，恒等等价不是单价性要的映射 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-430 | 对任意收集（编码加所指成员）：单价且所有高度一次交出 ⟹ 编码没有有限层，追问对每个判定器 `≡ never`；单价且成员高度以 k 为上限 ⟹ 编码在 k+1 层落定，追问停；编码相同是事实（编码成集合）⟹ 第 1 问停；倒过来读，永不停则两条都在。见证：宇宙（两条都在，永不停）；1+n 层落定者的汇集（只有单价性，恰在第 1+n 问停）；编号的 Eilenberg–MacLane 收集（只有 A，第 1 问停，且不单价）；成对收集 `Type × Bool`（所有高度、不单价，却永不停：去掉单价性须是相同换成事实） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-A-UNIVALENCE-B-01`；负控制 `-NEG-01` 至 `-NEG-03` | 不证 ZFC-1 ⟹ B；被告是 A 是裁定，定理对两条对称；`main` 第 4 节已有同一消融，本包是合并；局部—整体原理等是已知结果，不主张原创 |
