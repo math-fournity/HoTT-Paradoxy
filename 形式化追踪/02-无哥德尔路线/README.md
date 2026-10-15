@@ -25,12 +25,12 @@
 | CG001-C-422 | 图灵路线的构造性核心（2026-10-14，012-Opus）：任何有翻转程序的编程系统里，没有程序恰好认出“永不停机”，也没有完全的停机判定器；这一步不依赖任何公理（审计核对）；Mathlib 的部分递归代码有翻转程序（经典证明）。C-104、C-105 经 Mathlib 停机定理，是经典的；这一条说明“判不全”本身不靠排中律 | ✅ | [`halting-without-lem/`](../../HoTT/formal/claude-cg001/halting-without-lem/CLAIM.md)；运行 `20261014-CG001-HALTING-WITHOUT-LEM-01` 与负控制 |
 | D01-C-370 | 量子化半步 8→4→2→1→0：第 4 步完成，第 3 步未完成 | ✅ | `HoTT/formal/zfc-dense-quantized-motion/` |
 | D01-C-371 | 稠密与量子化前 0–3 阶段的余量相同；稠密在任何有限阶段都不完成 | ✅ | `HoTT/formal/zfc-dense-quantized-contract/` |
-| D01-C-369 | 应用充分性 `ApplicationAdequacy` | ◐ 条件定理 | `HoTT/formal/zfc-meta-subtheory-adequacy/` |
-| C-359–C-363 | `ZFCOneUse` 政策核；HoTT 截断反例；芝诺极限控制；Norton 的修订完成推不出严格完成；HoTT 完成合同缺口（`dev` 版） | ◐ 条件性政策演算（“ZFC”是命题变量） | `HoTT/formal/zfc-actual-q-policy/` |
+| D01-C-369 | 应用充分性 `ApplicationAdequacy` | ◐ 条件定理；**已被取代**（2026-10-15，见 [03 节](03-GPT条件式组件的取代关系.md)） | `HoTT/formal/zfc-meta-subtheory-adequacy/` |
+| C-359–C-363 | `ZFCOneUse` 政策核；HoTT 截断反例；芝诺极限控制；Norton 的修订完成推不出严格完成；HoTT 完成合同缺口（`dev` 版） | ◐ 条件性政策演算（“ZFC”是命题变量）；**已被取代或覆盖**（2026-10-15，见 [03 节](03-GPT条件式组件的取代关系.md)；C-359 经 B 运输的一半仍待“相同”的定义） | `HoTT/formal/zfc-actual-q-policy/` |
 | C-364 | 粗的标准解视图决定不了 OriginDone | ✅ 接口层 | `HoTT/formal/bare-zfc-q-precision/` |
 | C-365、C-366 | H0 的有限 trace；Foundation 的 Zermelo 模型中可以表示序数索引的序列（反控制：“集合论不能表示过程”不成立） | ✅ | `HoTT/formal/zfc-h0-final-closure/` |
 | C-367 | T-OBS：投影若压平了会改变判词的差异，就不存在解码器 | ✅ 抽象层 | `HoTT/formal/t-precision-observation/` |
-| C-370–C-374 | 规范过程审计及三条控制（细节见包内 CLAIM） | ◐ | `HoTT/formal/zfc-normative-process-audit/` |
+| C-370–C-374 | 规范过程审计及三条控制（细节见包内 CLAIM） | ◐；**已被取代**，作规范样例保留（2026-10-15，见 [03 节](03-GPT条件式组件的取代关系.md)） | `HoTT/formal/zfc-normative-process-audit/` |
 | C-375–C-378 | MSS 定义域与时间的控制；阶段顺序控制 | ✅ 表示层控制 | `HoTT/formal/zfc-mss-domain-time-control/`、`HoTT/formal/zfc-mss-phase-order-control/` |
 | 来源卡 | IEP（“旅行不需要最后一步”）、Norton、SEP、UOU 教材、Mizar SERIES_1；反控制：Kanovei–Lyubetskii、闭区间端点 | 来源层 | 终局报告 §7；`audit/` 下的来源卡 |
 
@@ -38,7 +38,7 @@ D01 的三个包已并入 `dev`（`4a3535d9`），并在本机重放。
 
 ## 为什么卡住
 
-【判断】见 [01 节](01-卡点与教训.md)。一句话：这一路把原过程完成交给外部来源去固定，于是桥也要由外部来源来付；付不出，就停在“形式目标未定义”。
+【判断】见 [01 节](01-卡点与教训.md)；GPT 时期条件式组件的取代关系见 [03 节](03-GPT条件式组件的取代关系.md)。一句话：这一路把原过程完成交给外部来源去固定，于是桥也要由外部来源来付；付不出，就停在“形式目标未定义”。
 
 ## 下一步
 
