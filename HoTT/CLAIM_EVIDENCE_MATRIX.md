@@ -2371,3 +2371,16 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-423 | 经典芝诺（`halvedC K n := K ≤ n`）：`𝗭𝗙𝗖 ⊢ (∀K ∃N ∀n (N ≤ n → K ≤ n))ᵗ`，`𝗭𝗙𝗖 ⊢ (¬∃n ∀K (K ≤ n))ᵗ`，`𝗭𝗙𝗖 ⊬ ∼(¬∃n ∀K (K ≤ n))ᵗ`；实数读法 (1/2)ⁿ ≤ (1/2)ᴷ ⟺ K ≤ n，(1/2)ⁿ → 0，(1/2)ⁿ > 0 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-ZENO-ZFC-CLASSICAL-01`；负控制 `-NEG-FINITE-01` | 第三项依赖 Lean 元层的一致性；不涉及“所有步之后那一刻”与实数在 ℒₛₑₜ 中的构造；“缺门不缺眼”是读法 |
+
+## Claude CG-010 R2（012-Opus）：圆环悖论本身（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Mathlib 拓扑，子理论一侧）。承接缺口表第 1 行与研究发起人原文三。编号接 C-423。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-CIRCLE-PARADOX-001` | `CG001-C-424` | `formal/claude-cg001/circle-paradox/GodelQ/Circle/CircleParadox.lean`（`one_step`、`farEnd_arrives`、`closing_never_attains`、`θ_eq_zenoSeq`、`range_bend_ne`、`range_bend_one`、`gap_infinite`、`zero_not_isolated`、`discrete_closing_attains`、`discreteGap_reaches_one`）、`QualificationCircle.lean` | `verification/runs/20261015-CG001-CIRCLE-PARADOX-01/`；exit 0，stderr 0 B；20 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-CIRCLE-PARADOX-NEG-001` | `CG001-C-424`（负控制） | 同目录 `GodelQ/Negative/WrongFiniteClosing.lean` | `verification/runs/20261015-CG001-CIRCLE-PARADOX-NEG-CLOSE-01/`；exit 1，`↑1 − ↑2⁻¹ = 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-424 | `AddCircle 1` 去掉 0 的 M 与 (0,1) 的 N 同胚，M 非空；合回的远端 ↑θₙ（θₙ = 1 − 2⁻⁽ⁿ⁺¹⁾ = `zenoSeq 1 (n+1)`）极限意义到达 0、却在任何有限阶段都不等于 0；每个有限阶段 `range (bend θₙ) ≠ M`，`range (bend 1) = M`；缺口无穷、长度大于 0；0 不孤立；`Fin m` 里逼近在有限阶段到达，逐格合拢在有限步只剩一点 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-CIRCLE-PARADOX-01`；负控制 `-NEG-CLOSE-01` | Mathlib 拓扑定理，不是 𝗭𝗙𝗖 定理；离散环是对照；只写出一种合回的参数化 |
