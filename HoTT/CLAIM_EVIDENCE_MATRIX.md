@@ -2426,3 +2426,16 @@ Claim 表：
 | C-361 | 已被取代（Mathlib → 真实 𝗭𝗙𝗖） | C-423、C-106–C-108 |
 | C-362 | 数学部分已被取代；Norton 分类仍是来源卡 | C-108、C-423 |
 | C-370–C-374 | 已被取代，作规范样例保留 | C-115、C-104、C-105、C-421 |
+
+## Claude CG-010 R9（012-Opus）：Z0 作为具体的 ω 追问（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖）。承接缺口表第 3 行（Z0 不再是参数）。编号接 C-426。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-Z0-OMEGA-QUESTION-001` | `CG001-C-427` | `formal/claude-cg001/z0-omega-question/GodelQ/ZFC/Z0OmegaQuestion.lean`（`exists_z0_code`、`z0Code_done_iff`、`z0Q_never`、`zfc_confirms_every_stage`、`consistent_true_iff_z0_never`、`z0_runner_arrives`）、`QualificationZ0Omega.lean`；32 个模块逐字节复制自 `godel-q-zfc-z0-sigma1`，`OmegaQuestion.lean` 逐字节复制自 `godel-q` | `verification/runs/20261015-CG001-Z0-OMEGA-QUESTION-01/`；exit 0，stderr 0 B；150 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-Z0-OMEGA-QUESTION-NEG-001` | `CG001-C-427`（负控制） | 同目录 `GodelQ/Negative/WrongStagesMakeNever.lean` | `verification/runs/20261015-CG001-Z0-OMEGA-QUESTION-NEG-STAGES-01/`；exit 1，类型不符 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-427 | `Done z0Code ↔ 𝗭𝗙𝗖 ⊢ ⊥`；`z0Q := processQ z0Code`：`z0Q.Done ↔ 𝗭𝗙𝗖 ⊢ ⊥`，`z0Q.Never`；∀ k，`𝗭𝗙𝗖 ⊢ haltsS ΨN ⌜(z0Code, k)⌝`；`(𝗭𝗙𝗖.consistent).Evalb ℕ ↔ z0Q.Never`；`𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ`（C-417）；P_fin 在 Z0 上被否定；`Arrives z0Code`；`zenoQ.Never ∧ z0Q.Never` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-Z0-OMEGA-QUESTION-01`；负控制 `-NEG-STAGES-01` | 一致性来自 Lean 元层 `Universe`；程序形式的第二不完备（𝗭𝗙𝗖 ⊬ `neverS ΦH ⌜z0Code⌝`）未证；“Z0 = 矛盾搜索”是读法；“相同”待定义 |
