@@ -1,0 +1,77 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-010 line, Claude Code desktop session 95a1a81b (012-Opus), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15",
+  "claim_ids": [
+    "CG001-C-423"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/zeno-zfc-classical",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/Zeno/ZenoClassicalZFC.lean",
+    "GodelQ/Zeno/ZenoReading.lean",
+    "GodelQ/Zeno/QualificationZenoZFC.lean"
+  ],
+  "completed_at_utc": "2026-10-15T03:59:01.615132+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 55.8128,
+  "environment": {
+    "bytes": 1019,
+    "path": "environment.txt",
+    "sha256": "79ea1f5662009d151e6a5d95d88737f3d723d2c6a3ccd81faf9e1cf07e9fff79"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not formalize the moment after all steps or continuity (C-106..C-108 in Mathlib) nor construct the reals in L_set (gap row 2).",
+    "Item (3) uses ZFC's consistency supplied by the Lean meta-level Universe model; it is not a fact provable inside ZFC.",
+    "The reading 'ZFC has the eyes but not the gate (ASK)' is an interpretation, not a theorem."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-ZENO-ZFC-CLASSICAL-001",
+  "run_id": "20261015-CG001-ZENO-ZFC-CLASSICAL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C-423: for the classical Zeno runner in arithmetic form (halvedC K n := K <= n), ZFC proves the translation of the limit-arrival sentence forall K exists N forall n (N <= n -> K <= n) and of the no-finite-arrival sentence not exists n forall K (K <= n); ZFC does not prove the negation of the latter (consistency from the Lean Universe model); real reading: (1/2)^n <= (1/2)^K iff K <= n, (1/2)^n -> 0, and (1/2)^n > 0. Proofs: both sentences hold in every PA-minus model; the omega of every ZFC model satisfies PA (C-109); completeness.",
+  "source_manifest": {
+    "bytes": 204511,
+    "path": "source-manifest.json",
+    "sha256": "0ec15c50fbbcc279c242736f9b9091ed5fe63af58d73b009b5494e1dc510cb3b"
+  },
+  "started_at_utc": "2026-10-15T03:58:05.802036+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 12108,
+    "path": "stdout.txt",
+    "sha256": "b21f801889d69a4afc3387340f95ebe33f4a061f47cec46b7e4c7f461a1017ae"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over L_set, arithmetic translation; never HoTT paths"
+}

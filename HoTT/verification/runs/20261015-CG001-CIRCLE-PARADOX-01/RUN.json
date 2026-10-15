@@ -1,0 +1,59 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-010 line, Claude Code desktop session 95a1a81b (012-Opus), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15",
+  "claim_ids": [
+    "CG001-C-424"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/circle-paradox",
+    "GodelQ/Zeno/Attainment.lean",
+    "GodelQ/Circle/CircleParadox.lean",
+    "GodelQ/Circle/QualificationCircle.lean"
+  ],
+  "completed_at_utc": "2026-10-15T04:08:37.334287+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 9.326526,
+  "environment": {
+    "bytes": 950,
+    "path": "environment.txt",
+    "sha256": "05b6fad5fdbdb8c399e7f17d558d02d46d9dd4645f1055339ae7d361bcbd4077"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "These are Mathlib topology theorems (sub-theory side), not ZFC theorems; reading them as 'ZFC's problem' needs the bridge in gap row 5 (CG-010 D3).",
+    "Quantized reality is the research sponsor's stance; the discrete ring is a control, not a physical claim.",
+    "Only one parametrization of closing is written out; other approaches fail likewise by non-isolation (C-106) but are not spelled out."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-CIRCLE-PARADOX-001",
+  "run_id": "20261015-CG001-CIRCLE-PARADOX-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C-424 (the research sponsor's circle paradox, original text three): in AddCircle 1 with the point 0 removed (M) and the open segment (0,1) (N): M and N are homeomorphic (unfolding is one step) and M is nonempty; closing by approach (far end at theta_n = 1 - 2^-(n+1), which equals zenoSeq 1 (n+1)) arrives at 0 in the limit but at no finite stage; the configuration at every finite stage is not M and at the limit stage (theta = 1) it is M; the gap at every finite stage is infinite and has positive length; 0 is not isolated on the circle; discrete control: in Fin m every approach attains its limit at a finite stage and a one-step-per-step closing reduces the gap to exactly the removed point after finitely many steps.",
+  "source_manifest": {
+    "bytes": 200772,
+    "path": "source-manifest.json",
+    "sha256": "3acffd24ccab46a0233288f5d71c49c42f57a98c0517d7da26012de236d7e507"
+  },
+  "started_at_utc": "2026-10-15T04:08:28.007546+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 1912,
+    "path": "stdout.txt",
+    "sha256": "18ac29ea467cc9effece0d1009e38d196782f2d5b06ace93596c36050978e99f"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib (classical); AddCircle topology; never HoTT paths"
+}

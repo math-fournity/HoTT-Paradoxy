@@ -1,0 +1,14 @@
+## lean GodelQ/Diagonal/Core.lean
+'GodelQ.Diagonal.no_liar' does not depend on any axioms
+'GodelQ.Diagonal.no_never_recognizer' does not depend on any axioms
+'GodelQ.Diagonal.no_decider' does not depend on any axioms
+'GodelQ.Diagonal.recognizer_without_flip' does not depend on any axioms
+## lean GodelQ/Negative/WrongRecognizerWithoutFlip.lean
+GodelQ/Negative/WrongRecognizerWithoutFlip.lean:22:18: error: Application type mismatch: The argument
+  hd d d
+has type
+  (fun x x_1 x_2 => True) d d d ↔ ¬(fun x x_1 => False) d d
+but is expected to have type
+  ?m.21 ↔ ¬?m.21
+in the application
+  no_liar ?m.21 (hd d d)

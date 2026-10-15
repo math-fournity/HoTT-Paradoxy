@@ -1,0 +1,65 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session 95a1a81b (012-Opus), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-14",
+  "claim_ids": [
+    "CG001-C-418",
+    "CG001-C-419",
+    "CG001-C-420",
+    "CG001-C-421"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/two-choices-lpo",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/TwoChoices/Core.lean",
+    "GodelQ/TwoChoices/Machines.lean",
+    "GodelQ/TwoChoices/Rational.lean",
+    "GodelQ/TwoChoices/QualificationTC.lean"
+  ],
+  "completed_at_utc": "2026-10-15T02:51:05.018513+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 7.725207,
+  "environment": {
+    "bytes": 1116,
+    "path": "environment.txt",
+    "sha256": "bebdb28586587d81f7cbaf62a9eb1c5c407a90541c7513f6374f6a9360ebc631"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not prove that LPO is unprovable without classical axioms (an independence result needing a model); the content of C-418 is that the equivalences are proved without Classical.choice.",
+    "Does not give a constructive machine proof of the real/rational monotone convergence theorem being equivalent to LPO: Mathlib's Q depends on Classical.choice (Rat.le_total, audited), so the rational side is only a classical bridge for the Zeno readings; the real form is cited literature (Mandelkern 1988 via Diener 2020).",
+    "Does not claim that ZFC is inconsistent or that classical mathematics is wrong; giving up ASK = LPO and A = LimBit/NatBMC are AI readings of the research sponsor's words.",
+    "Constructive here means: the kernel axioms used are at most propext and Quot.sound (Lean's Prop is impredicative and proof-irrelevant)."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-TWO-CHOICES-LPO-001",
+  "run_id": "20261014-CG001-TWO-CHOICES-LPO-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C-418: without Classical.choice (machine-asserted by a Lean.collectAxioms audit that fails compilation otherwise), LimBit (every monotone Boolean sequence has a settling step) <-> LPO, NatBMC (every bounded monotone natural-number sequence has a settling step) <-> LPO, and without boundedness the settling principle is false (x n = n). C-419: the Zeno reading zenoReading k n = 2^k - 2^(k-n) settles at step k (explicit formula), its settled value plus one is 2^k, every reading is below 2^k, and it is monotone, all without Classical.choice; bridge (classical, Mathlib Q): zenoReading k n = floor(2^k * (1 - (1/2)^n)), the rational Zeno sequence is monotone, below 1, within (1/2)^k of 1 from step k, and Cauchy with explicit step k+1. C-420 (classical): for every partial recursive code e the stage-halting bit sequence haltBits e is monotone and classically has a settling step, but no computable F gives a settling step for all e and no computable f gives the final value (Mathlib halting problem). C-421 (classical): LPO holds classically (from excluded middle), every halting statement is decided by excluded middle, the halting set and the even numbers both exist as sets, evenness is computable and halting is not.",
+  "source_manifest": {
+    "bytes": 201193,
+    "path": "source-manifest.json",
+    "sha256": "eea4eb07a51e88ebb23fabc03e669511da2ac339c846de15be8f819c8ed3f706"
+  },
+  "started_at_utc": "2026-10-15T02:50:57.293064+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 5577,
+    "path": "stdout.txt",
+    "sha256": "d9ad360661f0e9efebde34c0be3b124dcc0650d0f5968f39af730a8bab6cf4f3"
+  },
+  "theory_variant": "Lean 4 kernel; GodelQ/TwoChoices/Core.lean uses only Lean core (no Mathlib) and its theorems are machine-audited (Lean.collectAxioms) not to depend on Classical.choice; Machines.lean and Rational.lean use Mathlib (classical); never HoTT paths"
+}

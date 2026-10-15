@@ -2295,3 +2295,173 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-400 | `induction1` 的四条规则支：`hAnd`（`iT_and`+`Derivable.and_m`）、`hOr`（`iT_or`+`Derivable.or_m`）、`hAxL`（`Derivable.em` 用 C-399）、`hCut`（`Derivable.cut` 枢轴 `iT 0 p`，用 C-399） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261012-CG001-Z0-W8-SHCRAIG-BRANCHES-01` | 不读成 `ShCraigElim` 已证：`hAll`/`hExs`/`hShift`、`axm`、`derivable_translateSeq`、`keyE`、`bridge`、`zfcTr_D3_internalize` 均未证 |
+
+## Claude CG-007 W8（012-Opus）：自由变量不受 ω 限制——舰队的 `ExsBridge2` 与不变量 `Q` 在 ℕ 中为假（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。C-410 是正结果；C-411、C-412 是在 V = ℕ 中的反例，否定舰队在 W8 上采用的中间陈述，不否定 D3、Z0，也不否定舰队对句子陈述的 `ShCraigElim`。编号跳过 C-407–C-409（舰队分支已用到 C-406）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-FREEVAR-001` | `CG001-C-410`、`CG001-C-411`、`CG001-C-412` | `formal/claude-cg001/godel-q-zfc-z0-freevar/GodelQ/ZFC/OpenTranslate.lean`（`iVE_pquote`、`iT_pquote`）、`FreeVarCounter.lean`（`exsBridge2_false`、`dCounter_not_Q`、`q_invariant_false`、`exsBlockerQ_false`） | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-01/`；exit 0，stderr 0 B，84 秒；115 条公理报告全为 `[propext, Classical.choice, Quot.sound]`；精确重放 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-FREEVAR-NEG-OMEGA-001` | `CG001-C-411`、`CG001-C-412`（负控制） | 同目录 `GodelQ/Negative/WrongCounterInOmega.lean` | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-NEG-OMEGA-01/`；exit 1，`h0.right` 的类型是 `w 0 = ∅`，证明需要 `w 0 = ω` | `NEGATIVE_CONTROL_REJECTED`：反例依赖自由变量取 ω 以外的值，不是空洞成立 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-410 | 在 𝗜𝚺₁ 的每个模型中，`iVE n ⌜t⌝ = ⌜varEqual t⌝`、`iT n ⌜φ⌝ = ⌜translate φ⌝` 对带自由变量的项与公式成立；自由变量译为 `“#0 = &x”`，不带 ω 限制 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-GODEL-Q-ZFC-Z0-FREEVAR-01` | 对每个具体公式的元层定理，不是 𝗜𝚺₁ 内部对所有公式编码的断言 |
+| CG001-C-411 | V = ℕ 时，`∀ p t, IsUFormula p → IsTerm t → Provable 𝗭𝗙𝗖 (imp (iT 0 (substs1 t p)) (^∃ (domZero ^⋏ iT 1 p)))` 为假（舰队 round31 `ExsBridge2` 的陈述；p = ⌜#0 < 0⌝，t = `^&0`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01`；负控制 `-NEG-OMEGA-01` | 不涉及 D3、Z0；“𝗭𝗙𝗖 不可证”只由 Lean 元层模型 `Universe` 的可靠性得到 |
+| CG001-C-412 | V = ℕ 时，两步纯逻辑推导 `dCounter`（结论 `{∃x (x<0), ¬(&0<0)}`）是每个 Δ₁ 算术理论（特别是 `Sh.craig`）的推导，`¬ Derivable 𝗭𝗙𝗖 (translateSeq (fstIdx dCounter))`；舰队的不变量 `Q` 不成立，`ExsBlockerQ`（`Q` 展开）为假 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `-01`；负控制 `-NEG-OMEGA-01` | 不否定舰队对句子陈述的 `ShCraigElim`；不否定带自由变量 ω 前提的改写不变量（未证）；不涉及 Z0 的真假 |
+
+## Claude CG-007 W8（012-Opus）：经翻译的形式化 Σ1 完全性、D3 与不带前提的完整 Z0（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。C-417 是 W8 的目标定理：𝗭𝗙𝗖 证明不了“𝗭𝗙𝗖 一致”的翻译，不带未证前提；所需的 Con(𝗭𝗙𝗖) 由 Lean 元层的 `Universe` 模型（Foundation `zfc_consistent`）提供。编号接 C-410–C-412。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-001` | `CG001-C-413`–`CG001-C-417` | `formal/claude-cg001/godel-q-zfc-z0-sigma1/GodelQ/ZFC/`：`SetNum.lean`、`SetNumArith.lean`（数字层）、`TransTyped.lean`、`TransTerm.lean`（`term_ve`）、`TransBall.lean`（`ball_merge`）、`TransSigma1.lean`（`tr_sigma1_complete`）、`Z0D3.lean`（`zfcTr_D3`、`zfc_z0_unconditional`） | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01/`；exit 0，stderr 0 B，110 秒；138 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-001` | `CG001-C-415`（负控制） | 同目录 `GodelQ/Negative/BallMergeOffByOne.lean` | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-01/`；exit 1，`key b le_rfl` 给出关于 N_b 的结论，与要求的 N_{b+1} 不符 | `NEGATIVE_CONTROL_REJECTED`：合并的界由前提逐一支撑 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-413 | 在 𝗜𝚺₁ 的每个模型 V 中，对任意（可以非标准）的 a、b、d，𝗭𝗙𝗖（内化于 V）证明 Rayo 数字公式 N_a 的存在、属于 ω、唯一、相合；加法与乘法的两个方向；N_a(x) → N_{a+d+1}(y) → x ∈ y；b ≤ a、a ≠ b 时的否定形式 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01` | 对 𝗜𝚺₁ 的每个模型成立，不限于标准自然数 |
+| CG001-C-414 | 对每个标准算术项 t：在“e i 是第 w i 个数”的上下文中，𝗭𝗙𝗖 证明 t 的翻译值存在于 ω 中（ex），且任一满足变量等式的值都是第 t(w) 个数（ch）（`term_ve`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 对每个具体项的元层定理 |
+| CG001-C-415 | 若对每个 i < b 有 Γ ⊢ ∀x(N_i(x) → Φ(x))，则 Γ ⊢ ∀z ∀x(N_b(z) → x ∈ z → Φ(x))（`ball_merge`，V 中归纳） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-BALL-01` | b 可以非标准；Φ 可含自由变量 |
+| CG001-C-416 | 经翻译的形式化 Σ1 完全性：对每个 Σ1 算术公式 φ 与 w : Fin n → V，V ⊧/w φ ⟹ 在参数假设的上下文中 𝗭𝗙𝗖 证明 φ 的翻译；句子形式 V ⊧ σ ⟹ `𝗭𝗙𝗖.internalize V ⊢ ⌜σᵗ⌝`（`tr_sigma1_complete`、`tr_sigma1_provable`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 元层定理模式（对每个标准 Σ1 公式），不是 𝗜𝚺₁ 内部对所有公式编码的断言 |
+| CG001-C-417 | 对每个 V ⊧ 𝗜𝚺₁ 与 τ：`Provable 𝗭𝗙𝗖 ⌜τᵗ⌝ → Provable 𝗭𝗙𝗖 ⌜(zfcTr τ)ᵗ⌝`（`zfcTr_D3`）；于是 `𝗭𝗙𝗖 ⊬ arithTrln.translate 𝗭𝗙𝗖.consistent`（`zfc_z0_unconditional`），`zfc_z0_full_of_D3_internalize` 的前提已证 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 不推出 ZFC ⊢ ⊥；“不带前提”相对 Lean 元理论（Con(𝗭𝗙𝗖) 来自 Lean 元层 `Universe` 模型，不是 𝗭𝗙𝗖 内部可证的事）；一致性句与翻译限于 Foundation 的 `𝗭𝗙𝗖.consistent`（Δ1 公理化）与 `arithTrln` |
+
+## Claude CG-007（012-Opus）：两次选择是同一条原则；A 的结果机器交不出；芝诺的极限用不着 A（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接研究发起人 2026-10-14 的新表述（“放弃是一次选择，而A是第二次选择”）；“放弃 ASK = LPO”“A = `LimBit`、`NatBMC`”是 AI 的读法。C-418 与 C-419 的整数部分不依赖 `Classical.choice`，由包内公理审计机器断言；其余是经典的。编号接 C-417。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TWO-CHOICES-LPO-001` | `CG001-C-418`–`CG001-C-421` | `formal/claude-cg001/two-choices-lpo/GodelQ/TwoChoices/`：`Core.lean`（只用 Lean 内核：`limBit_iff_lpo`、`natBMC_iff_lpo`、`unbounded_settling_false`、芝诺读数）、`Machines.lean`（`no_computable_settling_point`、`no_computable_final_value`、`lpo_classical`、`computability_differs`）、`Rational.lean`（`zenoReading_eq_floor`、`zenoQ_cauchy`）、`QualificationTC.lean`（命题对照与公理审计） | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-01/`；exit 0，stderr 0 B，8 秒；`qual_C418`、`qual_C419` 只用 `propext`、`Quot.sound`；审计 12 条“不依赖 `Classical.choice`”、5 条对照“依赖”全部通过；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-001` | `CG001-C-418`（负控制） | 同目录 `GodelQ/Negative/WrongLPOForFree.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-FREE-01/`；exit 1，审计报出 `lpo_for_free` 依赖 `Classical.choice` | `NEGATIVE_CONTROL_REJECTED`：审计不是空的 |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-002` | `CG001-C-418`（负控制） | 同目录 `GodelQ/Negative/WrongSettlingUnbounded.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-UNBOUNDED-01/`；exit 1，`omega` 证不出上界 | `NEGATIVE_CONTROL_REJECTED`：“有界”是用到的前提 |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-003` | `CG001-C-420`（负控制） | 同目录 `GodelQ/Negative/WrongComputableSettling.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-SETTLING-01/`；exit 1，`DoneBy e m ↔ DoneBy e 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-418 | 不用 `Classical.choice`：`LimBit ↔ LPO`（每个单调开关序列都有落定的一步）；`NatBMC ↔ LPO`（每个有界单调自然数序列都有落定的一步）；去掉“有界”，单调序列的落定原则为假（`x n = n`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-TWO-CHOICES-LPO-01`；负控制 `-NEG-FREE-01`、`-NEG-UNBOUNDED-01` | 不是“LPO 构造性不可证”的独立性结果；只在 Σ1 这一层；实数形态（有界单调实数列都收敛 ⟺ LPO）是文献结果（Mandelkern 1988，经 Diener 2020 命题 1.2.1 核对），本包没有构造性机器证明 |
+| CG001-C-419 | 芝诺读数 `2ᵏ − 2^(k−n)` 于第 k 步落定（公式），落定值加 1 等于 2ᵏ，每一步都小于 2ᵏ，单调，不用 `Classical.choice`；桥（经典，Mathlib ℚ）：读数 = ⌊2ᵏ(1 − (1/2)ⁿ)⌋，有理数列单调、每步小于 1、从第 k 步起离 1 不超过 (1/2)ᵏ、柯西步为 k + 1 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 说的是极限这个数用不着 A；不说芝诺过程“走完”（那一面见 C-106–C-108、C-116 (1)(3)） |
+| CG001-C-420 | 每个停机搜索的开关 `haltBits e` 单调，经典地有落定的一步；不存在可计算的 F 对每个 e 交出落定的一步，也不存在可计算的 f 交出终值（Mathlib 停机定理） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-SETTLING-01` | 经典定理；说的是“交不出”，不是“不存在” |
+| CG001-C-421 | 经典逻辑里 LPO 是定理（来自排中律）；每个“会停”的陈述都有现成真假；停机集与偶数集同样作为集合存在；偶数可判定、停机不可判定 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 经典定理；“不存在辨别力”的读法是研究发起人的话与 AI 的解释 |
+
+## Claude CG-007（012-Opus）：判不全不靠排中律——图灵对角论证的逻辑核心（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接 CN-079 §3.1 的“判不全不靠排中律”（原先凭记忆）。构造一侧不依赖任何公理，由包内审计机器核对；Mathlib 实例一侧是经典的。编号接 C-421。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-HALTING-WITHOUT-LEM-001` | `CG001-C-422` | `formal/claude-cg001/halting-without-lem/GodelQ/Diagonal/`：`Core.lean`（只用 Lean 内核：`no_liar`、`no_never_recognizer`、`no_decider`、`recognizer_without_flip`）、`MathlibCodes.lean`（`code_flip`、`turing_codes`）、`QualificationDiag.lean`（命题对照与公理审计） | `verification/runs/20261014-CG001-HALTING-WITHOUT-LEM-01/`；exit 0，stderr 0 B；`qual_C422` 不依赖任何公理；审计 5 条“不依赖”、4 条对照“依赖”全部通过；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-HALTING-WITHOUT-LEM-NEG-001` | `CG001-C-422`（负控制） | 同目录 `GodelQ/Negative/WrongRecognizerWithoutFlip.lean` | `verification/runs/20261014-CG001-HALTING-WITHOUT-LEM-NEG-FLIP-01/`；exit 1，`hd d d` 是 `True ↔ ¬False`，不是 `P ↔ ¬P` | `NEGATIVE_CONTROL_REJECTED`：翻转程序是用到的前提 |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-422 | 不依赖任何公理：`¬ (P ↔ ¬P)`；任何有翻转程序的编程系统里，没有程序恰好认出“永不停机”，也没有完全的停机判定器；去掉翻转程序，认出者可以存在。实例（经典）：Mathlib 的部分递归代码有翻转程序，于是那里两者都不存在 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-HALTING-WITHOUT-LEM-01`；负控制 `-NEG-FLIP-01` | “翻转程序存在”在 Mathlib 里的证明是经典的，本包不声称有完全不用选择公理的计算模型；不涉及理论的不完备性（Heyting 算术是文献）；“判不全是现实”的读法属 CN-079 |
+
+## Claude CG-010 R1（012-Opus）：经典芝诺的两句落到 Foundation 的 𝗭𝗙𝗖（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接缺口表第 9 行与 CN-076 §6 第 1 条。编号接 C-422。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-ZENO-ZFC-CLASSICAL-001` | `CG001-C-423` | `formal/claude-cg001/zeno-zfc-classical/GodelQ/Zeno/`：`ZenoClassicalZFC.lean`（`models_arriveC`、`models_noFiniteC`、`zfc_arriveC`、`zfc_noFiniteC`、`zfc_not_finiteArrival`）、`ZenoReading.lean`（实数读法）、`QualificationZenoZFC.lean` | `verification/runs/20261015-CG001-ZENO-ZFC-CLASSICAL-01/`；exit 0，stderr 0 B，56 秒；92 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-ZENO-ZFC-CLASSICAL-NEG-001` | `CG001-C-423`（负控制） | 同目录 `GodelQ/Negative/WrongFiniteArrival.lean` | `verification/runs/20261015-CG001-ZENO-ZFC-CLASSICAL-NEG-FINITE-01/`；exit 1，`K = 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-423 | 经典芝诺（`halvedC K n := K ≤ n`）：`𝗭𝗙𝗖 ⊢ (∀K ∃N ∀n (N ≤ n → K ≤ n))ᵗ`，`𝗭𝗙𝗖 ⊢ (¬∃n ∀K (K ≤ n))ᵗ`，`𝗭𝗙𝗖 ⊬ ∼(¬∃n ∀K (K ≤ n))ᵗ`；实数读法 (1/2)ⁿ ≤ (1/2)ᴷ ⟺ K ≤ n，(1/2)ⁿ → 0，(1/2)ⁿ > 0 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-ZENO-ZFC-CLASSICAL-01`；负控制 `-NEG-FINITE-01` | 第三项依赖 Lean 元层的一致性；不涉及“所有步之后那一刻”与实数在 ℒₛₑₜ 中的构造；“缺门不缺眼”是读法 |
+
+## Claude CG-010 R2（012-Opus）：圆环悖论本身（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Mathlib 拓扑，子理论一侧）。承接缺口表第 1 行与研究发起人原文三。编号接 C-423。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-CIRCLE-PARADOX-001` | `CG001-C-424` | `formal/claude-cg001/circle-paradox/GodelQ/Circle/CircleParadox.lean`（`one_step`、`farEnd_arrives`、`closing_never_attains`、`θ_eq_zenoSeq`、`range_bend_ne`、`range_bend_one`、`gap_infinite`、`zero_not_isolated`、`discrete_closing_attains`、`discreteGap_reaches_one`）、`QualificationCircle.lean` | `verification/runs/20261015-CG001-CIRCLE-PARADOX-01/`；exit 0，stderr 0 B；20 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-CIRCLE-PARADOX-NEG-001` | `CG001-C-424`（负控制） | 同目录 `GodelQ/Negative/WrongFiniteClosing.lean` | `verification/runs/20261015-CG001-CIRCLE-PARADOX-NEG-CLOSE-01/`；exit 1，`↑1 − ↑2⁻¹ = 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-424 | `AddCircle 1` 去掉 0 的 M 与 (0,1) 的 N 同胚，M 非空；合回的远端 ↑θₙ（θₙ = 1 − 2⁻⁽ⁿ⁺¹⁾ = `zenoSeq 1 (n+1)`）极限意义到达 0、却在任何有限阶段都不等于 0；每个有限阶段 `range (bend θₙ) ≠ M`，`range (bend 1) = M`；缺口无穷、长度大于 0；0 不孤立；`Fin m` 里逼近在有限阶段到达，逐格合拢在有限步只剩一点 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-CIRCLE-PARADOX-01`；负控制 `-NEG-CLOSE-01` | Mathlib 拓扑定理，不是 𝗭𝗙𝗖 定理；离散环是对照；只写出一种合回的参数化 |
+
+## Claude CG-010 R3（012-Opus）：两次选择的有理数形态（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明；构造性由包内公理审计机器断言。承接缺口表第 12 行。编号接 C-424。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TWO-CHOICES-RATIONAL-001` | `CG001-C-425` | `formal/claude-cg001/two-choices-rational/GodelQ/TwoChoices/RationalConstructive.lean`（`bmcQ_of_lpo`、`limBit_of_bmcQ`、`bmcQ_iff_lpo`、`flr_mono`、`close_of_flr_eq`、`zenoQp_cauchy`、`zenoQp_to_one`、`zeno_modulus_zero_false`）、`QualificationRational.lean`；`Core.lean` 逐字节复制自 `two-choices-lpo` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-01/`；exit 0，stderr 0 B；审计 15 个常量不依赖 `Classical.choice`（实际公理 `propext`、`Quot.sound`），2 个对照依赖；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-NEG-001` | `CG001-C-425`（负控制） | 同目录 `GodelQ/Negative/WrongBMCQForFree.lean` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-NEG-FREE-01/`；exit 1，审计报出依赖 `Classical.choice` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-NEG-002` | `CG001-C-425`（负控制） | 同目录 `GodelQ/Negative/WrongZenoModulus.lean` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-NEG-MODULUS-01/`；exit 1，`omega` 证不出 `k + 1 ≤ m` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-425 | 自写有理数（`Int × Nat`，交叉相乘）上，不用 `Classical.choice`：`BMCQ ↔ LPO`、`BMCQ ↔ LimBit`（`BMCQ`：每个有界单调、分母为正的有理数列满足 ∀k∃N 的柯西形态）；芝诺位置 (2ⁿ − 1)/2ⁿ 分母为正、单调、有界、每步小于 1，柯西步与“离 1 小于 1/(k+1)”的步都是 k + 1，步数不能一律取 0 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TWO-CHOICES-RATIONAL-01`；负控制 `-NEG-FREE-01`、`-NEG-MODULUS-01` | 不是独立性结果；没有构造实数类型，柯西步是命题层的存在；“A = BMCQ”“放弃 ASK = LPO”是读法 |
+
+## Claude CG-010 R4（012-Opus）：两次选择进 HoTT 的内核；B 不靠 LPO（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接 CN-080 第 7 处的假说与缺口表第 10 行。编号接 C-425。(5)(6) 是 C-79 (b) 的重证；`CLAIM.md` 中“只有宇宙永远答不完”说过了头（C-81），见包内 `REVISIONS.md`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TWO-CHOICES-CUBICAL-001` | `CG001-C-426` | `formal/claude-cg001/two-choices-cubical/TwoChoicesCubical.agda`（`limBit↔LPO`、`noSettlingWithoutMonotone`、`UniverseAnswers.allNo`、`UniverseAnswers.settlesAtZero`、`Stage.stopsAtStage`、`stageJudge`、`universeRun100`、`setsGatheringRun`、`fourTypesGatheringRun`、`qual-C426`；导入 `same-q-univalent`、`questioning-delay`、`universe-questioning` 等） | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-01/`（macOS 工具链记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`）；exit 0，stderr 0 B；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-001` | `CG001-C-426`（负控制） | 同目录 `WrongUniverseSettles.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-01/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-002` | `CG001-C-426`（负控制） | 同目录 `WrongSetsGatheringEarly.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-02/`；exit 42，`nothing != just 1` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-003` | `CG001-C-426`（负控制） | 同目录 `WrongAltSettles.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-03/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-426 | Cubical Agda（`--safe`）：`LimBit ↔ LPO`（`OmegaQ`、`Monotone` 同 C-112）；不要求单调则落定原则为假；对每个判定器，宇宙上的追问 `≡ never`（C-78），回答流恒为 `false`、从第 0 阶段起落定；宇宙不在任何有限层（C-75）；`TypeOfHLevel ℓ-zero (suc m)` 上的追问恰在第 m+1 阶段答（C-79 (b) 的重证），每层有判定器；内核实跑三条 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TWO-CHOICES-CUBICAL-01`；负控制 `-NEG-01` 至 `-NEG-03` | LPO 在此不可证是元定理，未证；“宇宙层的 A”与归因（同 CN-046）是读法；永不停不专属于宇宙（C-81） |
+
+## Claude CG-010 R5（012-Opus）：GPT 时期条件式组件的取代关系（2026-10-15，记录）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。没有新证明。逐条的取代关系见 `形式化追踪/02-无哥德尔路线/03-GPT条件式组件的取代关系.md`。上方各行的收据与判词不变。
+
+| 组件 | 判定 | 取代它的结果 |
+|---|---|---|
+| D01-C-369 | 数学部分已被取代；来源卡仍属来源层 | C-116 (1)、C-106、C-108、C-423 |
+| C-359 | 𝗭𝗙𝗖 一侧已被取代；经 B 运输的一半仍以“同一个 Q”为前提（缺口表第 3 行） | C-90、C-94、C-101、C-118、C-116 (4)、C-417 |
+| C-360、C-363 | 已被覆盖（同内核同内容） | C-78、C-83、C-113 (c)、C-426 (3) |
+| C-361 | 已被取代（Mathlib → 真实 𝗭𝗙𝗖） | C-423、C-106–C-108 |
+| C-362 | 数学部分已被取代；Norton 分类仍是来源卡 | C-108、C-423 |
+| C-370–C-374 | 已被取代，作规范样例保留 | C-115、C-104、C-105、C-421 |
+
+## Claude CG-010 R9（012-Opus）：Z0 作为具体的 ω 追问（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖）。承接缺口表第 3 行（Z0 不再是参数）。编号接 C-426。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-Z0-OMEGA-QUESTION-001` | `CG001-C-427` | `formal/claude-cg001/z0-omega-question/GodelQ/ZFC/Z0OmegaQuestion.lean`（`exists_z0_code`、`z0Code_done_iff`、`z0Q_never`、`zfc_confirms_every_stage`、`consistent_true_iff_z0_never`、`z0_runner_arrives`）、`QualificationZ0Omega.lean`；32 个模块逐字节复制自 `godel-q-zfc-z0-sigma1`，`OmegaQuestion.lean` 逐字节复制自 `godel-q` | `verification/runs/20261015-CG001-Z0-OMEGA-QUESTION-01/`；exit 0，stderr 0 B；150 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-Z0-OMEGA-QUESTION-NEG-001` | `CG001-C-427`（负控制） | 同目录 `GodelQ/Negative/WrongStagesMakeNever.lean` | `verification/runs/20261015-CG001-Z0-OMEGA-QUESTION-NEG-STAGES-01/`；exit 1，类型不符 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-427 | `Done z0Code ↔ 𝗭𝗙𝗖 ⊢ ⊥`；`z0Q := processQ z0Code`：`z0Q.Done ↔ 𝗭𝗙𝗖 ⊢ ⊥`，`z0Q.Never`；∀ k，`𝗭𝗙𝗖 ⊢ haltsS ΨN ⌜(z0Code, k)⌝`；`(𝗭𝗙𝗖.consistent).Evalb ℕ ↔ z0Q.Never`；`𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ`（C-417）；P_fin 在 Z0 上被否定；`Arrives z0Code`；`zenoQ.Never ∧ z0Q.Never` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-Z0-OMEGA-QUESTION-01`；负控制 `-NEG-STAGES-01` | 一致性来自 Lean 元层 `Universe`；程序形式的第二不完备（𝗭𝗙𝗖 ⊬ `neverS ΦH ⌜z0Code⌝`）未证；“Z0 = 矛盾搜索”是读法；“相同”待定义 |
+
+## Claude CG-010 R7（012-Opus）：极限的有理数 ε–N 写法落到 𝗭𝗙𝗖（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖，算术指数 `Exp.exp`）；没有在 𝗭𝗙𝗖 内部构造实数。承接缺口表第 2 行。编号接 C-427。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-RUNNER-ARRIVAL-RATIONAL-001` | `CG001-C-428` | `formal/claude-cg001/runner-arrival-rational/GodelQ/ZFC/ArrivalRational.lean`（`arrRat_iff_arr`、`zfc_arrRat_iff_arr`、`zfc_arrRat_iff_never`、`universe_arrRatS_iff`、`zfc_runner_rat`、`zfc_arriveRatC`、`arrRat_encode_rat`、`arriveRatC_nat`）、`QualificationArrivalRational.lean`；23 个模块逐字节复制自 `godel-q-zfc-runner-arrival` | `verification/runs/20261015-CG001-RUNNER-ARRIVAL-RATIONAL-01/`；exit 0，stderr 0 B；144 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-001` | `CG001-C-428`（负控制） | 同目录 `GodelQ/Negative/WrongRationalStepZero.lean` | `verification/runs/20261015-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-STEP-01/`；exit 1，需要 `q ≤ n`，只有 `0 ≤ n` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-428 | 每个 𝗜𝚺₁ 模型里 `arrRatF e ↔ arrF e`；`𝗭𝗙𝗖 ⊢ arrRatS a 🡘 arrS a`、`𝗭𝗙𝗖 ⊢ arrRatS a 🡘 neverS ΦS a`；`Universe ⊧ arrRatS ⌜d⌝ ↔ Arrives d`；ℕ 中 `arrRatF ⌜d⌝` ↔ ∀ 正整数 p、q，∃N ∀n ≥ N，remaining d n < p/q；有到达的跑者使 `𝗭𝗙𝗖 ⊬ arrRatS ⌜d⌝`；`𝗭𝗙𝗖 ⊢ (arriveRatC)ᵗ`；ℕ 中 `arriveRatC` ↔ ∀ 正整数 p、q，∃N ∀n ≥ N，2⁻ⁿ < p/q | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-RUNNER-ARRIVAL-RATIONAL-01`；负控制 `-NEG-STEP-01` | 没有构造 ℝ；有理 ε 与实数 ε 的等价在元层；一致与可靠经 `Universe` |
+
+## Claude CG-010 R8（012-Opus）：𝗭𝗙𝗖 证 Con(𝗣𝗔) 落在哪条义务上（2026-10-15；R8 BLOCKED）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明的是归结与边界，**不是** 𝗭𝗙𝗖 ⊢ Con(𝗣𝗔) 本身；剩余义务见包内 `CLAIM.md` §4。编号接 C-428。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-ZFC-CON-PA-BOUNDARY-001` | `CG001-C-429` | `formal/claude-cg001/zfc-con-pa-boundary/GodelQ/ZFC/ConPABoundary.lean`（`zfc_conPA_iff`、`N_universe_iff_nat`、`nat_conPA`、`universe_conPA`、`zfc_not_refute_conPA`、`pa_model_refutes_conPA`）、`QualificationConPA.lean`；18 个模块逐字节复制自 `godel-q-zfc-runner-arrival` | `verification/runs/20261015-CG001-ZFC-CON-PA-BOUNDARY-01/`；exit 0，stderr 0 B；87 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-ZFC-CON-PA-BOUNDARY-NEG-001` | `CG001-C-429`（负控制） | 同目录 `GodelQ/Negative/WrongEveryPAModelCon.lean` | `verification/runs/20261015-CG001-ZFC-CON-PA-BOUNDARY-NEG-01/`；exit 1，`Theory.Consistent ℕ 𝗣𝗔` 不是 `Theory.Consistent V 𝗣𝗔` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-429 | `𝗭𝗙𝗖 ⊢ (Con 𝗣𝗔)ᵗ ↔ ∀ M ⊧ 𝗭𝗙𝗖, W M ⊧ Con 𝗣𝗔`；每个 `W M ⊧* 𝗣𝗔`（C-109）；`Universe ⊧ (Con 𝗣𝗔)ᵗ`；`𝗭𝗙𝗖 ⊬ ∼(Con 𝗣𝗔)ᵗ`；`¬ ∀ V ⊧* 𝗣𝗔, V ⊧ Con 𝗣𝗔` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-ZFC-CON-PA-BOUNDARY-01`；负控制 `-NEG-01` | 没有证明 𝗭𝗙𝗖 ⊢ Con(𝗣𝗔)（BLOCKED）；标准模型一项依赖 Lean 元层 `Universe` |
