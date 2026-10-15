@@ -1,5 +1,7 @@
 # CN-024 圆环复原与 Markov 原则：复原撞上一条停机原则
 
+> **2026-10-15 裁定 D7-3**：本笔记的圆环写法（复原撞上 Markov 原则）已被逐句形式化 C-424（`HoTT/formal/claude-cg001/circle-paradox/`）取代；研究发起人认可逐句形式化为唯一标准。原文保留，作为历史。
+
 > Claude（Opus 5.5），会话 91a6cdaa，2026-09-25。登记：`.claude/总索引/004`。状态：current。
 > 起因：按建议顺序推进到“Markov 原则在 Book HoTT、Cubical Agda 中的可推导性（文献）”一项（总索引 002 §4）。文献核查的结果可能改变 CN-018 对用户圆环的判词，所以单列本笔记。
 > 证据：【证明】CG001-C-42（`HoTT/formal/claude-cg001/discrete-ring/`，运行 `20260925-CG001-DISCRETE-RING-01` 与 `…-NEG-01`）、CG001-C-43（`rational-lift/`，运行 `20260925-CG001-RATIONAL-LIFT-01` 与 `…-NEG-01`），均精确重放。【证明，他人】Astra 的 C-319、C-322、C-324（共享矩阵已登记；本会话用规范校验器做了哈希与索引检查，均 `PASS_WITH_SCOPE`；重放结果见 §2）。【来源】Coquand–Mannaa（2016/2017）、Coquand–Mannaa–Ruch（LICS 2017）、Gratzer–Shulman–Sterling（strict universes，2022/2024）、HoTT Book §3.4、§3.8。其余为【解释】或【猜想】。
