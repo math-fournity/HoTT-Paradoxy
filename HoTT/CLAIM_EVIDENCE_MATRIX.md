@@ -2327,3 +2327,21 @@ Claim 表：
 | CG001-C-415 | 若对每个 i < b 有 Γ ⊢ ∀x(N_i(x) → Φ(x))，则 Γ ⊢ ∀z ∀x(N_b(z) → x ∈ z → Φ(x))（`ball_merge`，V 中归纳） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-BALL-01` | b 可以非标准；Φ 可含自由变量 |
 | CG001-C-416 | 经翻译的形式化 Σ1 完全性：对每个 Σ1 算术公式 φ 与 w : Fin n → V，V ⊧/w φ ⟹ 在参数假设的上下文中 𝗭𝗙𝗖 证明 φ 的翻译；句子形式 V ⊧ σ ⟹ `𝗭𝗙𝗖.internalize V ⊢ ⌜σᵗ⌝`（`tr_sigma1_complete`、`tr_sigma1_provable`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 元层定理模式（对每个标准 Σ1 公式），不是 𝗜𝚺₁ 内部对所有公式编码的断言 |
 | CG001-C-417 | 对每个 V ⊧ 𝗜𝚺₁ 与 τ：`Provable 𝗭𝗙𝗖 ⌜τᵗ⌝ → Provable 𝗭𝗙𝗖 ⌜(zfcTr τ)ᵗ⌝`（`zfcTr_D3`）；于是 `𝗭𝗙𝗖 ⊬ arithTrln.translate 𝗭𝗙𝗖.consistent`（`zfc_z0_unconditional`），`zfc_z0_full_of_D3_internalize` 的前提已证 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 不推出 ZFC ⊢ ⊥；“不带前提”相对 Lean 元理论（Con(𝗭𝗙𝗖) 来自 Lean 元层 `Universe` 模型，不是 𝗭𝗙𝗖 内部可证的事）；一致性句与翻译限于 Foundation 的 `𝗭𝗙𝗖.consistent`（Δ1 公理化）与 `arithTrln` |
+
+## Claude CG-007（012-Opus）：两次选择是同一条原则；A 的结果机器交不出；芝诺的极限用不着 A（2026-10-14）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接研究发起人 2026-10-14 的新表述（“放弃是一次选择，而A是第二次选择”）；“放弃 ASK = LPO”“A = `LimBit`、`NatBMC`”是 AI 的读法。C-418 与 C-419 的整数部分不依赖 `Classical.choice`，由包内公理审计机器断言；其余是经典的。编号接 C-417。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TWO-CHOICES-LPO-001` | `CG001-C-418`–`CG001-C-421` | `formal/claude-cg001/two-choices-lpo/GodelQ/TwoChoices/`：`Core.lean`（只用 Lean 内核：`limBit_iff_lpo`、`natBMC_iff_lpo`、`unbounded_settling_false`、芝诺读数）、`Machines.lean`（`no_computable_settling_point`、`no_computable_final_value`、`lpo_classical`、`computability_differs`）、`Rational.lean`（`zenoReading_eq_floor`、`zenoQ_cauchy`）、`QualificationTC.lean`（命题对照与公理审计） | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-01/`；exit 0，stderr 0 B，8 秒；`qual_C418`、`qual_C419` 只用 `propext`、`Quot.sound`；审计 12 条“不依赖 `Classical.choice`”、5 条对照“依赖”全部通过；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-001` | `CG001-C-418`（负控制） | 同目录 `GodelQ/Negative/WrongLPOForFree.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-FREE-01/`；exit 1，审计报出 `lpo_for_free` 依赖 `Classical.choice` | `NEGATIVE_CONTROL_REJECTED`：审计不是空的 |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-002` | `CG001-C-418`（负控制） | 同目录 `GodelQ/Negative/WrongSettlingUnbounded.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-UNBOUNDED-01/`；exit 1，`omega` 证不出上界 | `NEGATIVE_CONTROL_REJECTED`：“有界”是用到的前提 |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-003` | `CG001-C-420`（负控制） | 同目录 `GodelQ/Negative/WrongComputableSettling.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-SETTLING-01/`；exit 1，`DoneBy e m ↔ DoneBy e 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-418 | 不用 `Classical.choice`：`LimBit ↔ LPO`（每个单调开关序列都有落定的一步）；`NatBMC ↔ LPO`（每个有界单调自然数序列都有落定的一步）；去掉“有界”，单调序列的落定原则为假（`x n = n`） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-TWO-CHOICES-LPO-01`；负控制 `-NEG-FREE-01`、`-NEG-UNBOUNDED-01` | 不是“LPO 构造性不可证”的独立性结果；只在 Σ1 这一层；实数形态（有界单调实数列都收敛 ⟺ LPO）是文献结果（Mandelkern 1988，经 Diener 2020 命题 1.2.1 核对），本包没有构造性机器证明 |
+| CG001-C-419 | 芝诺读数 `2ᵏ − 2^(k−n)` 于第 k 步落定（公式），落定值加 1 等于 2ᵏ，每一步都小于 2ᵏ，单调，不用 `Classical.choice`；桥（经典，Mathlib ℚ）：读数 = ⌊2ᵏ(1 − (1/2)ⁿ)⌋，有理数列单调、每步小于 1、从第 k 步起离 1 不超过 (1/2)ᵏ、柯西步为 k + 1 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 说的是极限这个数用不着 A；不说芝诺过程“走完”（那一面见 C-106–C-108、C-116 (1)(3)） |
+| CG001-C-420 | 每个停机搜索的开关 `haltBits e` 单调，经典地有落定的一步；不存在可计算的 F 对每个 e 交出落定的一步，也不存在可计算的 f 交出终值（Mathlib 停机定理） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-SETTLING-01` | 经典定理；说的是“交不出”，不是“不存在” |
+| CG001-C-421 | 经典逻辑里 LPO 是定理（来自排中律）；每个“会停”的陈述都有现成真假；停机集与偶数集同样作为集合存在；偶数可判定、停机不可判定 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 经典定理；“不存在辨别力”的读法是研究发起人的话与 AI 的解释 |
