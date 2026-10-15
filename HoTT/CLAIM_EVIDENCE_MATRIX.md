@@ -2398,3 +2398,18 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-425 | 自写有理数（`Int × Nat`，交叉相乘）上，不用 `Classical.choice`：`BMCQ ↔ LPO`、`BMCQ ↔ LimBit`（`BMCQ`：每个有界单调、分母为正的有理数列满足 ∀k∃N 的柯西形态）；芝诺位置 (2ⁿ − 1)/2ⁿ 分母为正、单调、有界、每步小于 1，柯西步与“离 1 小于 1/(k+1)”的步都是 k + 1，步数不能一律取 0 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TWO-CHOICES-RATIONAL-01`；负控制 `-NEG-FREE-01`、`-NEG-MODULUS-01` | 不是独立性结果；没有构造实数类型，柯西步是命题层的存在；“A = BMCQ”“放弃 ASK = LPO”是读法 |
+
+## Claude CG-010 R4（012-Opus）：两次选择进 HoTT 的内核；B 不靠 LPO（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接 CN-080 第 7 处的假说与缺口表第 10 行。编号接 C-425。(5)(6) 是 C-79 (b) 的重证；`CLAIM.md` 中“只有宇宙永远答不完”说过了头（C-81），见包内 `REVISIONS.md`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TWO-CHOICES-CUBICAL-001` | `CG001-C-426` | `formal/claude-cg001/two-choices-cubical/TwoChoicesCubical.agda`（`limBit↔LPO`、`noSettlingWithoutMonotone`、`UniverseAnswers.allNo`、`UniverseAnswers.settlesAtZero`、`Stage.stopsAtStage`、`stageJudge`、`universeRun100`、`setsGatheringRun`、`fourTypesGatheringRun`、`qual-C426`；导入 `same-q-univalent`、`questioning-delay`、`universe-questioning` 等） | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-01/`（macOS 工具链记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`）；exit 0，stderr 0 B；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-001` | `CG001-C-426`（负控制） | 同目录 `WrongUniverseSettles.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-01/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-002` | `CG001-C-426`（负控制） | 同目录 `WrongSetsGatheringEarly.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-02/`；exit 42，`nothing != just 1` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-003` | `CG001-C-426`（负控制） | 同目录 `WrongAltSettles.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-03/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-426 | Cubical Agda（`--safe`）：`LimBit ↔ LPO`（`OmegaQ`、`Monotone` 同 C-112）；不要求单调则落定原则为假；对每个判定器，宇宙上的追问 `≡ never`（C-78），回答流恒为 `false`、从第 0 阶段起落定；宇宙不在任何有限层（C-75）；`TypeOfHLevel ℓ-zero (suc m)` 上的追问恰在第 m+1 阶段答（C-79 (b) 的重证），每层有判定器；内核实跑三条 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TWO-CHOICES-CUBICAL-01`；负控制 `-NEG-01` 至 `-NEG-03` | LPO 在此不可证是元定理，未证；“宇宙层的 A”与归因（同 CN-046）是读法；永不停不专属于宇宙（C-81） |
