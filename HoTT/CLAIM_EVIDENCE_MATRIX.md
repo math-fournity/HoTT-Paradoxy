@@ -2384,3 +2384,17 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-424 | `AddCircle 1` 去掉 0 的 M 与 (0,1) 的 N 同胚，M 非空；合回的远端 ↑θₙ（θₙ = 1 − 2⁻⁽ⁿ⁺¹⁾ = `zenoSeq 1 (n+1)`）极限意义到达 0、却在任何有限阶段都不等于 0；每个有限阶段 `range (bend θₙ) ≠ M`，`range (bend 1) = M`；缺口无穷、长度大于 0；0 不孤立；`Fin m` 里逼近在有限阶段到达，逐格合拢在有限步只剩一点 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-CIRCLE-PARADOX-01`；负控制 `-NEG-CLOSE-01` | Mathlib 拓扑定理，不是 𝗭𝗙𝗖 定理；离散环是对照；只写出一种合回的参数化 |
+
+## Claude CG-010 R3（012-Opus）：两次选择的有理数形态（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明；构造性由包内公理审计机器断言。承接缺口表第 12 行。编号接 C-424。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TWO-CHOICES-RATIONAL-001` | `CG001-C-425` | `formal/claude-cg001/two-choices-rational/GodelQ/TwoChoices/RationalConstructive.lean`（`bmcQ_of_lpo`、`limBit_of_bmcQ`、`bmcQ_iff_lpo`、`flr_mono`、`close_of_flr_eq`、`zenoQp_cauchy`、`zenoQp_to_one`、`zeno_modulus_zero_false`）、`QualificationRational.lean`；`Core.lean` 逐字节复制自 `two-choices-lpo` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-01/`；exit 0，stderr 0 B；审计 15 个常量不依赖 `Classical.choice`（实际公理 `propext`、`Quot.sound`），2 个对照依赖；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-NEG-001` | `CG001-C-425`（负控制） | 同目录 `GodelQ/Negative/WrongBMCQForFree.lean` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-NEG-FREE-01/`；exit 1，审计报出依赖 `Classical.choice` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-NEG-002` | `CG001-C-425`（负控制） | 同目录 `GodelQ/Negative/WrongZenoModulus.lean` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-NEG-MODULUS-01/`；exit 1，`omega` 证不出 `k + 1 ≤ m` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-425 | 自写有理数（`Int × Nat`，交叉相乘）上，不用 `Classical.choice`：`BMCQ ↔ LPO`、`BMCQ ↔ LimBit`（`BMCQ`：每个有界单调、分母为正的有理数列满足 ∀k∃N 的柯西形态）；芝诺位置 (2ⁿ − 1)/2ⁿ 分母为正、单调、有界、每步小于 1，柯西步与“离 1 小于 1/(k+1)”的步都是 k + 1，步数不能一律取 0 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TWO-CHOICES-RATIONAL-01`；负控制 `-NEG-FREE-01`、`-NEG-MODULUS-01` | 不是独立性结果；没有构造实数类型，柯西步是命题层的存在；“A = BMCQ”“放弃 ASK = LPO”是读法 |

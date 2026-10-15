@@ -1,6 +1,6 @@
-# 两次选择：放弃 ASK 与选择 A（CG001-C-418 至 C-421）
+# 两次选择：放弃 ASK 与选择 A（CG001-C-418 至 C-421，C-425）
 
-> 2026-10-14，本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。命题全文：[`two-choices-lpo/CLAIM.md`](../../HoTT/formal/claude-cg001/two-choices-lpo/CLAIM.md)。思考笔记：`.claude/思考与发现/CN-078`。
+> 2026-10-14，本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。命题全文：[`two-choices-lpo/CLAIM.md`](../../HoTT/formal/claude-cg001/two-choices-lpo/CLAIM.md)；有理数形态（2026-10-15，CG-010 R3）：[`two-choices-rational/CLAIM.md`](../../HoTT/formal/claude-cg001/two-choices-rational/CLAIM.md)。思考笔记：`.claude/思考与发现/CN-078`。
 
 ## 承接的原话
 
@@ -15,10 +15,11 @@
 | 内容 | 状态 | 证据 |
 |---|---|---|
 | 不用 `Classical.choice`：`LimBit ↔ LPO`、`NatBMC ↔ LPO`；去掉“有界”落定原则为假 | ✅ 机器证明，公理审计机器断言 | C-418，run `20261014-CG001-TWO-CHOICES-LPO-01`；负控制 `-NEG-FREE-01`、`-NEG-UNBOUNDED-01` |
-| 芝诺读数的落定步由公式给出（构造性）；与有理数位置一致，柯西步为公式（经典的桥） | ✅ | C-419 |
+| 芝诺读数的落定步由公式给出（构造性）；与有理数位置一致，柯西步为公式（经典的桥） | ✅ | C-419；有理数一侧的构造性版本见 C-425 (3)–(9) |
 | 停机搜索的终值经典地存在，机器交不出落定的一步与终值 | ✅（经典） | C-420；负控制 `-NEG-SETTLING-01` |
 | 经典逻辑对“会停”“永不停”一视同仁，又证得出可计算性的差别；LPO 在经典逻辑里是定理 | ✅（经典） | C-421 |
-| 实数形态：有界单调实数列都收敛 ⟺ LPO（构造性） | ○ 未机器证明；文献已核对 | Mandelkern 1988，经 Diener 2020 命题 1.2.1 核对。Mathlib 的 ℚ 依赖 `Classical.choice`（审计核对了 `Rat.le_total`），做它要一套不依赖选择公理的有理数 |
+| 实数形态：有界单调的有理数列都收敛（∀k∃N 的柯西形态）⟺ LPO，也 ⟺ `LimBit`（构造性） | ✅ 机器证明，公理审计机器断言（2026-10-15，CG-010 R3） | C-425，run `20261015-CG001-TWO-CHOICES-RATIONAL-01`；负控制 `-NEG-FREE-01`、`-NEG-MODULUS-01`。自写有理数（整数对，交叉相乘），因为 Mathlib 的 ℚ 依赖 `Classical.choice`。文献（Mandelkern 1988，经 Diener 2020 命题 1.2.1）对的是实数列、带可数选择的底座；本包没有构造实数类型，柯西步是命题层的存在 |
+| 芝诺位置 1 − 2⁻ⁿ（自写有理数）：柯西步与“离 1 小于 1/(k+1)”的步都是 k + 1，不用 LPO；步数不能一律取 0 | ✅（构造性） | C-425 (3)–(9) |
 | 研究发起人确认读法：“放弃 ASK = LPO”“A = `LimBit`、`NatBMC`” | 待确认 | CN-078 |
 
 ## 它在 R-合 里的位置【解释】
@@ -30,6 +31,6 @@
 ## 下一步与可能方向
 
 1. 等研究发起人确认读法（CN-078）。
-2. （可选）实数形态的构造性机器证明：在 Lean 内核里写一套最小的有理数（整数对，交叉相乘比较），证明有界单调有理数列的柯西性 ⟺ LPO，并用同一个审计核对。工作量中等。
-3. （可选）在 Cubical Agda 里重证 `LimBit ↔ LPO`，与 `same-q-univalent` 的 `OmegaQ` 接在同一个内核里。HoTT 的底座不含 LPO，所以这一条在 HoTT 一侧有直接意义。工作量小。
+2. ~~实数形态的构造性机器证明~~：✅ C-425（2026-10-15，CG-010 R3）。可再做的是实数类型本身（柯西列按“相差趋于 0”取商）与模的函数；不影响“两次选择是同一原则”这一读法的形式锚点。
+3. 在 Cubical Agda 里重证 `LimBit ↔ LPO`，与 `same-q-univalent` 的 `OmegaQ` 接在同一个内核里。HoTT 的底座不含 LPO，所以这一条在 HoTT 一侧有直接意义。工作量小。排在 CG-010 R4。
 4. 经典底座上两次选择可以分开：RCA₀ 有排中律而没有单调收敛，后者等价于 ACA₀（Simpson 第三章，凭记忆，未核对）。若要把“一次还是两次取决于底座”写成定理，要形式化二阶算术的子系统，工作量大；建议先只引用文献。
