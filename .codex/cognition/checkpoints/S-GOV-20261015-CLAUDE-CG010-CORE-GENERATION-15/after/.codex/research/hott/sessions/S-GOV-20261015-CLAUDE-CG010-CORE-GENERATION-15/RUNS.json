@@ -1,0 +1,45 @@
+{
+  "base_snapshot": "ff47624c7991daf7cb2793074d7e62c950d79e66866703a026c31dddca7c28cc",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261015-CLAUDE-CG010-CORE-GENERATION-15/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v15.json --transition-output audit/core-cognition-generation-15-transition-20261015.json --transition-from-ref ffb2c31192aaf8e4c416f8663e2c4dc78421024d --write",
+      "generation": "core-cognition-generation-14/75 -> core-cognition-generation-15/83",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=75 / remainder=0",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v15.json --transition audit/core-cognition-generation-15-transition-20261015.json",
+      "status": "PASS_WITH_SCOPE",
+      "tool": "scripts/audit/verify_core_cognition.py"
+    },
+    {
+      "command": "",
+      "status": "7 tests OK",
+      "tool": "scripts/audit/test_core_cognition.py"
+    },
+    {
+      "command": "repair_head()",
+      "status": "HEAD.tracked rebuilt for the pre-existing drift of 'MEMORY/001 - 当前执行队列.md' (CG-007 direct edits after revision 313); revision and latest_session unchanged",
+      "tool": "scripts/audit/prepare_claude_cg010_core_generation_15_checkpoint.py"
+    },
+    {
+      "command": "--output <payload>",
+      "status": "PREPARED",
+      "tool": "scripts/audit/prepare_claude_cg010_core_generation_15_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "note": "Core entry of the research sponsor's eight 10-14/10-15 units, with the letter-evolution registry pinned per generation.",
+  "push_policy": "not pushed; dev integration and push only on the research sponsor's word",
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20261015-CLAUDE-CG010-CORE-GENERATION-15",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_AND_LETTER_REGISTRY"
+}

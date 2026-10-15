@@ -256,6 +256,10 @@ def load_curation(root: Path, rel: Path, seen: set[Path] | None = None) -> tuple
     merged = dict(parent)
     for key in ("generation", "previous_generation_ref", "scope"):
         merged[key] = value.get(key)
+    # Generation 15 (2026-10-15): an optional AI-curated companion, the letter-evolution registry,
+    # pinned by hash per generation; a child that does not declare one inherits its parent's.
+    if "letter_registry" in value:
+        merged["letter_registry"] = value["letter_registry"]
     for key in ("sources", "message_decisions", "units"):
         additions = value.get(key, [])
         if not isinstance(additions, list):
@@ -270,8 +274,29 @@ def load_curation(root: Path, rel: Path, seen: set[Path] | None = None) -> tuple
     return merged, data
 
 
+def load_letter_registry(root: Path, curation: dict[str, object]) -> dict[str, object] | None:
+    """Verify the optional letter-evolution registry declared by the curation (generation 15).
+
+    The registry is an AI-curated companion to the core (current meanings of the research sponsor's
+    letters, their dated evolution and where they occur).  It is not user text and never enters the
+    core body; the core only points to it, and the manifest pins its hash.
+    """
+    spec = curation.get("letter_registry")
+    if spec is None:
+        return None
+    if not isinstance(spec, dict) or not isinstance(spec.get("path"), str) or not isinstance(spec.get("sha256"), str):
+        raise CoreBuildError("LETTER_REGISTRY_INVALID")
+    data = (root / spec["path"]).read_bytes()
+    actual = sha256(data)
+    if actual != spec["sha256"]:
+        raise CoreBuildError(f"LETTER_REGISTRY_HASH_MISMATCH:{spec['path']}:{actual}")
+    return {"path": spec["path"], "sha256": actual, "bytes": len(data),
+            "role": "AI_CURATED_COMPANION_NOT_USER_TEXT"}
+
+
 def build(root: Path, curation_rel: Path = DEFAULT_CURATION) -> tuple[dict[str, object], str, bytes, list[dict[str, object]]]:
     curation, curation_bytes = load_curation(root, curation_rel)
+    letter_registry = load_letter_registry(root, curation)
     source_specs = curation.get("sources")
     if not isinstance(source_specs, list) or len(source_specs) < 3:
         raise CoreBuildError("AT_LEAST_THREE_PRIMARY_SOURCES_REQUIRED")
@@ -430,12 +455,21 @@ def build(root: Path, curation_rel: Path = DEFAULT_CURATION) -> tuple[dict[str, 
         },
         "units": public_units,
     }
+    if letter_registry is not None:
+        manifest["letter_registry"] = letter_registry
 
     lines = [
         "# 核心认知", "",
         f"> 当前逻辑文档：`{curation['generation']}`；Schema：`core-cognition/v2`；共 `{len(units)}` 个按时间编号的用户原文语义单元。",
         "> 本文保留三份用户指定的历史 primary 提取，以及之后按哈希显式登记的一手用户输入中，用户本人关于悖论、HoTT 悖论挖掘、元数学及其直接研究方法的原文；不含 AI 回信、附件正文、一般治理操作或重复的继续指令。",
         "> 每个新 Session 与每次上下文压缩恢复后，都必须从第 1 行连续读到 EOF。`核心认知.manifest.json` 只负责来源、处置和哈希审计，不能替代本文正文。",
+    ]
+    if letter_registry is not None:
+        lines.append(
+            f"> 本代附字母演变登记表 `{letter_registry['path']}`：研究发起人用过的字母各自的现行意思、按时间引原文的演变与出现处。"
+            "它由 AI 整理、经研究发起人 2026-10-15 批准建立，不是原文；原文以本文为准，读旧条目时先查当时字母的意思。"
+        )
+    lines += [
         "", "## 0. 解释与证据边界", "",
         "这些文字是用户为突破模型训练先验、认知惯性和路径依赖而设计的上下文输入；它们决定研究问题意识，但不会因进入本文就自动成为已经证明的数学定理或物理事实。研究仍须分别核对 HoTT 规则、合法推演、计算/证明工具、现实解释和证据范围。",
         "",
