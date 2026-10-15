@@ -26,6 +26,8 @@
 | 芝诺的极限这个数用不着 A：读数的落定步由公式给出（构造性）；与有理数位置一致（经典的桥） | ✅（2026-10-14） | C-419 |
 | 两次选择的有理数形态：自写有理数，有界单调的有理数列都收敛 ⟺ LPO，不用 `Classical.choice`；芝诺位置的柯西步由公式 k + 1 给出 | ✅（2026-10-15，012-Opus，CG-010 R3） | C-425，[`two-choices-rational/CLAIM.md`](../../HoTT/formal/claude-cg001/two-choices-rational/CLAIM.md) |
 | 两次选择进 HoTT 的内核：Cubical Agda 里 `LimBit ↔ LPO`；与 C-78 同一 `--safe` 检查单元，B 不靠 LPO | ✅（2026-10-15，012-Opus，CG-010 R4） | C-426，[`two-choices-cubical/`](../../HoTT/formal/claude-cg001/two-choices-cubical/CLAIM.md)（读 `REVISIONS.md`） |
+| 终止检查是这道门：不设门的定义原则推出 `False` 与一切命题，良基递归有解，Lean 拒绝 `loop : False := loop`（研究发起人 10-14“算法合法的最根本的前提”的形式影子） | ✅（2026-10-15，012-Opus，CG-010 H3a） | C-431，[`termination-gate/`](../../HoTT/formal/claude-cg001/termination-gate/CLAIM.md) |
+| ZFC-1 的问题：研究发起人原话逐句对照（收敛的成品） | ✅（2026-10-15，012-Opus，CG-010 H3a） | [`docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md`](../../docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md) |
 | A 的结果机器交不出：停机搜索的终值经典地存在，交不出落定的一步与终值；经典逻辑对“会停”“永不停”一视同仁，又证得出可计算性的差别 | ✅（2026-10-14，经典） | C-420、C-421 |
 | 研究发起人确认“放弃 ASK = LPO”“A = `LimBit`、`NatBMC`”的读法 | 待确认 | CN-078 |
 

@@ -2480,3 +2480,16 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-430 | 对任意收集（编码加所指成员）：单价且所有高度一次交出 ⟹ 编码没有有限层，追问对每个判定器 `≡ never`；单价且成员高度以 k 为上限 ⟹ 编码在 k+1 层落定，追问停；编码相同是事实（编码成集合）⟹ 第 1 问停；倒过来读，永不停则两条都在。见证：宇宙（两条都在，永不停）；1+n 层落定者的汇集（只有单价性，恰在第 1+n 问停）；编号的 Eilenberg–MacLane 收集（只有 A，第 1 问停，且不单价）；成对收集 `Type × Bool`（所有高度、不单价，却永不停：去掉单价性须是相同换成事实） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-A-UNIVALENCE-B-01`；负控制 `-NEG-01` 至 `-NEG-03` | 不证 ZFC-1 ⟹ B；被告是 A 是裁定，定理对两条对称；`main` 第 4 节已有同一消融，本包是合并；局部—整体原理等是已知结果，不主张原创 |
+
+## Claude CG-010 H3a（012-Opus）：终止检查是这道门（2026-10-15）
+
+> 本机会话 91beaf35（012-Opus，恢复前 95a1a81b），独立 worktree `claude/012-opus-w8`。读法：机器证明，只用 Lean 内核，不依赖任何公理。承接研究发起人 10-14 原文“是否可停机、可计算……在算法设计中，更是一个算法合法的最根本的前提”（10-15 称“全文最实的落点”）。逐句对照全文见 `docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-TERMINATION-GATE-001` | `CG001-C-431` | `formal/claude-cg001/termination-gate/GodelQ/Gate/Core.lean`、`QualificationGate.lean`（`ungated_proves_false`、`ungated_proves_anything`、`ungated_data_empty`、`gated_has_solution`、`qual_C431`） | `verification/runs/20261015-CG001-TERMINATION-GATE-01/`；exit 0，stderr 0 B；审计公理清单为空；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TERMINATION-GATE-NEG-001` | `CG001-C-431`（负控制） | 同目录 `GodelQ/Negative/WrongLoop.lean` | `verification/runs/20261015-CG001-TERMINATION-GATE-NEG-01/`；exit 1，`fail to show termination` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-431 | 不设门的定义原则 `∀ α : Prop, (α → α) → α`（每个“x := f x”的递归定义都算数）推出 `False` 与一切命题；数据版推出空类型有元素；正控制：良基递归的定义方程有解；负控制：Lean 拒绝 `loop : False := loop` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TERMINATION-GATE-01`；负控制 `-NEG-01` | 不说经典数学或 ZFC 不一致；“门＝终止要求”是解释桥；终止检查保守，过了门比会停更严 |
