@@ -1,0 +1,81 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [
+    "Claude Code desktop session 95a1a81b (012-Opus), CG-010 handoff item H2 (ruling D4 of 2026-10-15), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15; capture tool capture_cg001_agda_macos_run.py (its audit_session string names its original session eadb3381)."
+  ],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-430"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/a-univalence-b",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/a-univalence-b/AUnivalenceB.agda"
+  ],
+  "completed_at_utc": "2026-10-15T14:03:48.843406+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 87.425724,
+  "environment": {
+    "bytes": 1071,
+    "path": "environment.txt",
+    "sha256": "a4da1d96858a4e476b6420bd7f00ff7009669516c8d828e8a41ad2f036b2b8f2"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/a-univalence-b",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not prove ZFC-1 => B; it proves the HoTT side of the ruled reading: A with univalence makes B, dropping either stops it. That the same act A works on both sides is an accepted reading, not a theorem.",
+    "That A (the ready-made collection) is the defendant is the research sponsor's ruling D4-2 of 2026-10-15, not a theorem; the theorem is symmetric between the two causes.",
+    "Uses higher inductive types (Eilenberg-MacLane spaces); the local-global looping principle and the level of univalent universes of n-types are standard HoTT results (not claimed as original)."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-A-UNIVALENCE-B-001",
+  "rejection_stage": null,
+  "run_id": "20261015-CG001-A-UNIVALENCE-B-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda, --safe, nothing assumed. C-430: for every collection (codes with the members they name): (1) univalent and every height handed over at once (AllHeights) give no finite h-level, so the questioning program of C-77 is never for every judge; (2) univalent with member heights bounded by k gives h-level k+1, so the questioning halts; (3) if code sameness is a fact (codes form a set) the questioning stops at question 1; (4) read backwards: never needs unbounded heights (when univalent) and non-fact sameness; witnesses: (5a) the universe meets both and never stops (C-75/C-78 re-derived through (1), kernel runs fuel 1000); (5b) the gathering of the (1+n)-types is univalent and bounded and stops exactly at question 1+n; (5c) the numbered Eilenberg-MacLane collection (codes N, members EM Z (1+n)) has every height but fact sameness, stops at question 1 and is not univalent; (6) the paired collection (codes Type x Bool) has every height, is not univalent, and never stops, so (3) needs fact sameness, not mere failure of univalence.",
+  "source_manifest": {
+    "bytes": 3492,
+    "path": "source-manifest.json",
+    "sha256": "3e10eb42263364e86618fdbbe918cd9cad1a40277ea2dee089b62d4341813d0b"
+  },
+  "started_at_utc": "2026-10-15T14:02:21.417682+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29261,
+    "path": "stdout.txt",
+    "sha256": "b4f1dadd099de2e3cadf70c51d41d738405101f14c966d7431ddca486a86f579"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
