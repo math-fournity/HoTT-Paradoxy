@@ -2358,3 +2358,16 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-422 | 不依赖任何公理：`¬ (P ↔ ¬P)`；任何有翻转程序的编程系统里，没有程序恰好认出“永不停机”，也没有完全的停机判定器；去掉翻转程序，认出者可以存在。实例（经典）：Mathlib 的部分递归代码有翻转程序，于是那里两者都不存在 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261014-CG001-HALTING-WITHOUT-LEM-01`；负控制 `-NEG-FLIP-01` | “翻转程序存在”在 Mathlib 里的证明是经典的，本包不声称有完全不用选择公理的计算模型；不涉及理论的不完备性（Heyting 算术是文献）；“判不全是现实”的读法属 CN-079 |
+
+## Claude CG-010 R1（012-Opus）：经典芝诺的两句落到 Foundation 的 𝗭𝗙𝗖（2026-10-15）
+
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接缺口表第 9 行与 CN-076 §6 第 1 条。编号接 C-422。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-ZENO-ZFC-CLASSICAL-001` | `CG001-C-423` | `formal/claude-cg001/zeno-zfc-classical/GodelQ/Zeno/`：`ZenoClassicalZFC.lean`（`models_arriveC`、`models_noFiniteC`、`zfc_arriveC`、`zfc_noFiniteC`、`zfc_not_finiteArrival`）、`ZenoReading.lean`（实数读法）、`QualificationZenoZFC.lean` | `verification/runs/20261015-CG001-ZENO-ZFC-CLASSICAL-01/`；exit 0，stderr 0 B，56 秒；92 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-ZENO-ZFC-CLASSICAL-NEG-001` | `CG001-C-423`（负控制） | 同目录 `GodelQ/Negative/WrongFiniteArrival.lean` | `verification/runs/20261015-CG001-ZENO-ZFC-CLASSICAL-NEG-FINITE-01/`；exit 1，`K = 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-423 | 经典芝诺（`halvedC K n := K ≤ n`）：`𝗭𝗙𝗖 ⊢ (∀K ∃N ∀n (N ≤ n → K ≤ n))ᵗ`，`𝗭𝗙𝗖 ⊢ (¬∃n ∀K (K ≤ n))ᵗ`，`𝗭𝗙𝗖 ⊬ ∼(¬∃n ∀K (K ≤ n))ᵗ`；实数读法 (1/2)ⁿ ≤ (1/2)ᴷ ⟺ K ≤ n，(1/2)ⁿ → 0，(1/2)ⁿ > 0 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-ZENO-ZFC-CLASSICAL-01`；负控制 `-NEG-FINITE-01` | 第三项依赖 Lean 元层的一致性；不涉及“所有步之后那一刻”与实数在 ℒₛₑₜ 中的构造；“缺门不缺眼”是读法 |
