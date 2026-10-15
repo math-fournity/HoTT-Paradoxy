@@ -1,0 +1,91 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [
+    "Claude Code desktop session 95a1a81b (012-Opus), CG-010 R4, worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15; capture tool capture_cg001_agda_macos_run.py (its audit_session string names its original session eadb3381). A first capture of the same run ids was discarded before commit because the replay verifier refuses the word 'postulate' in any Agda source (CLAIM.md section 8)."
+  ],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-426"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/two-choices-cubical",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/same-q-univalent",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/truncation-questioning",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/two-choices-cubical/TwoChoicesCubical.agda"
+  ],
+  "completed_at_utc": "2026-10-15T08:01:01.372242+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 88.436847,
+  "environment": {
+    "bytes": 1071,
+    "path": "environment.txt",
+    "sha256": "a4da1d96858a4e476b6420bd7f00ff7009669516c8d828e8a41ad2f036b2b8f2"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/two-choices-cubical",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/same-q-univalent",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/truncation-questioning",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "That LPO is unprovable in this kernel is a metatheorem (canonicity), not proved here; (3) shows that the check unit assumes no LPO (--safe on every source, and the replay verifier's source scan) and B still holds.",
+    "Reading the universe as the gathering of all finite stages given as a ready-made object, i.e. A at the universe level, and attributing B to univalence together with that gathering, are readings; the contrasts for univalence (C-80 in Lean, C-83) and for the finite stages (5) are proved separately, not as one independence result.",
+    "Does not formalize the arrow ZFC-1 => B (gap row 10); it gives the HoTT-side anchor of the candidate 'the same A on both sides'.",
+    "Bridge labels (choice, A, B, stage, gathering) prove no historical or physical fact."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-TWO-CHOICES-CUBICAL-001",
+  "rejection_stage": null,
+  "run_id": "20261015-CG001-TWO-CHOICES-CUBICAL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda, --safe, nothing assumed. C-426: (1) LimBit -> LPO and LPO -> LimBit on the omega-question type OmegaQ and Monotone of C-112 (the two choices are one principle in HoTT's kernel); (2) without monotonicity settling fails (the alternating question); (3) B without LPO: for every judge the questioning of the univalent universe Type is never (C-78, imported) and its answer stream is false at every stage, settled from stage 0, by proof; (4) the universe is at no finite h-level (C-75); (5) for every m and every judge the questioning of the gathering of the (m+1)-types answers exactly at stage m+1 (runFor m ... = just (suc m)), from C-76's two facts; (6) every finite stage has a judge (stageJudge). Kernel runs by refl: universe with fuel 100 gives nothing; the sets' gathering answers just 2; the 4-types' gathering answers just 4.",
+  "source_manifest": {
+    "bytes": 4118,
+    "path": "source-manifest.json",
+    "sha256": "5174e302bbd5f7d402e0cab3726ff688fa3433173e2cb5fe866619e48463482f"
+  },
+  "started_at_utc": "2026-10-15T07:59:32.935395+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29663,
+    "path": "stdout.txt",
+    "sha256": "f9a4ca4da4595df02512988bcc3f7199785210a3fbeae90054213b6dbacbc1f9"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

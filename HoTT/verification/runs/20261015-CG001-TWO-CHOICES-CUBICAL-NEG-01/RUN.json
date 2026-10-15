@@ -1,0 +1,88 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [
+    "Claude Code desktop session 95a1a81b (012-Opus), CG-010 R4, worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15; capture tool capture_cg001_agda_macos_run.py (its audit_session string names its original session eadb3381). A first capture of the same run ids was discarded before commit because the replay verifier refuses the word 'postulate' in any Agda source (CLAIM.md section 8)."
+  ],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-426"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/two-choices-cubical",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/same-q-univalent",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/truncation-questioning",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/two-choices-cubical/WrongUniverseSettles.agda"
+  ],
+  "completed_at_utc": "2026-10-15T08:02:27.521877+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 85.81721,
+  "environment": {
+    "bytes": 1071,
+    "path": "environment.txt",
+    "sha256": "a4da1d96858a4e476b6420bd7f00ff7009669516c8d828e8a41ad2f036b2b8f2"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/two-choices-cubical/WrongUniverseSettles.agda:19.27-31: error: [UnequalTerms]\nCubical.Data.Bool.false != true of type Cubical.Data.Bool.Bool\nwhen checking that the expression refl has type\nFromJudge.answers Type judgeU 1 ≡ true",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/two-choices-cubical",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/same-q-univalent",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/truncation-questioning",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT-worktrees/012-opus-w8/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Only stage 1 with judgeU is tried; the general statement is UniverseAnswers.allNo for every judge."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-TWO-CHOICES-CUBICAL-NEG-001",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20261015-CG001-TWO-CHOICES-CUBICAL-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for C-426: the universe's questioning gets an answer at stage 1, i.e. the answer stream of the univalent universe with judgeU (C-78) reads yes at stage 1, as it would if the universe were a set. Expected rejection: the kernel computes false != true. Positive counterparts: UniverseAnswers.allNo and universeRun100.",
+  "source_manifest": {
+    "bytes": 4330,
+    "path": "source-manifest.json",
+    "sha256": "f2016a98f08d63d9e7d39b4b1173ae3d7457890fe3902c3dff1e35cb79bb193d"
+  },
+  "started_at_utc": "2026-10-15T08:01:01.704667+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 30023,
+    "path": "stdout.txt",
+    "sha256": "a0f934f61a0660dc02bd6df12916ea9125ceafb0f6ac043784d19e7d532d5a40"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}
