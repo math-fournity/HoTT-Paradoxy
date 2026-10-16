@@ -58,6 +58,26 @@ HoTT/formal/claude-cg001/godel-q-zfc/CLAIM.md | 真实 𝗭𝗙𝗖 上已证的
 HoTT/formal/claude-cg001/godel-q-zfc-z0/CLAIM.md | Z0 条件形式 C-103 与卡点
 ```
 
+### 3A. WorkBuddy W8 窄任务闭包（2026-10-10）
+
+- 当前用户批准延续路线评审，并要求按根 `CLAUDE.md` 的实用主义持续维护/重读认知闭包。本轮只机器检查“显式反向桥前提 → D3 → 完整形式”的条件组装；不声称证明桥或完成 Z0，不启动 W9、子代理、提交或发布。
+- 当前工作根为本 WorkBuddy worktree，分支 `workbuddy/dev-bd4295b5`，接手 HEAD `87b65dfd6a692d194fc283e253616c70501d3d0b`；主检出只作来源，当前分支新增结果在集成前是 `CANDIDATE_NOT_CURRENT`。
+- 恢复顺序：根 `AGENTS.md` 的 WorkBuddy 节 → `CLAUDE.md` 第一节 → 本文件 → `方案.md` 的 W8/下一步 → `工作台.md` 最近 W8 段 → 追踪总览/01章/02节 → 下表源码、工具与证据。需要改变原意判断时另回读相关完整 KC 与扩展认知；启动/压缩后读 `核心认知.md` 全文。
+
+| 路径 | 当前必要认知 |
+|---|---|
+| `最高指示-Claude版.md` | 角色、五项对齐检查、来源与证明边界 |
+| `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/CLAIM.md` | 既有 C-121/C-122/C-128 与仍未证的 D3 |
+| `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/GodelQ/ZFC/{Z0Full,Z0Bridge,Z0PA,TranslateRE,Z0Shadow}.lean` | 显式谓词、Σ1、D1/D2、原条件归约、影子/PA/Craig 入口；花括号逐文件解析 |
+| `HoTT/formal/claude-cg001/godel-q-zfc-z0-full/{LEAN_TOOLCHAIN,MATHLIB_CLOSURE}.json` | pinned 环境、模块摘要与选项；不改既有 pins |
+| `/Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Incompleteness/{StandardProvability,Second,ProvabilityAbstraction/Basic}.lean` | D3、Craig 第二定理、mono'/ext' 的实际类型 |
+| `/Volumes/D/HoTT-toolchain-cache/foundation-src/Foundation/FirstOrder/Arithmetic/Bootstrapping/{DerivabilityCondition/D3,Syntax/CraigTrick,Syntax/Proof/Typed}.lean` | 任意模型的 Σ1 完全性、枚举表示边界、内部证明类型 |
+| `.claude/goals/CG-007-formalization-completion/tools/capture_run.py` | 正式捕获，源码必须含精确命题且无未证占位 |
+| `.claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py` | pin 检查、禁网运行、拒绝禁用标记；冻结不改 |
+| `.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py` | 先登记 proof/run/claim，再精确重放 |
+
+新增源码和本轮证据就绪后在本表补入精确路径；恢复不凭“条件组装已经完成”的摘要。
+
 ## 4. 阶段（细节见 `方案.md`）
 
 | 单元 | 内容 | 状态 |

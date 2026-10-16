@@ -2,6 +2,15 @@
 
 本文件是 `/Volumes/D/HoTT_AI_HANDOFF_20260911` 顶层新 repo 的项目级治理入口。它补充全局 `~/.codex/AGENTS.md`，不替代全局规则；若两者冲突，遵循更具体且不扩大授权的项目事实。项目目标是把 LocalGPT、WebGPT、Gemini 的历史工作、用户原始问题、理解章节和可验证产物组织成可持续的 HoTT 悖论/现实相对研究工作区。
 
+## WorkBuddy 当前工作方式：认知闭包与任务方案（2026-10-10）
+
+研究发起人本轮要求：“注意持续维护认知闭包和加载认知闭包，就像Claude Code在CLAUDE.md中指示的那样，你现在在腾讯Workbuddy中，可能你使用的是AGENTS.md。”
+
+- WorkBuddy 以本文件为启动入口，实际读取根 `CLAUDE.md` 第一节的实用主义规定；它对本宿主的程序性流程同样优先。使用现有任务的 `GOAL.md` 闭包表、`方案.md`、`工作台.md` 与源码/证据，不另建第二套当前真值，也不为接手重复全项目仪式。
+- 开工、跨 Session、压缩恢复、角色/目标变化时，实际重读任务闭包；关键源码、依赖、原意或证据变化时，补读受影响切片并更新原闭包表。哈希、旧摘要和“以前读过”不替代正文消费。
+- 当前 CG-007 W8 的窄任务与恢复入口见 `.claude/goals/CG-007-formalization-completion/GOAL.md` §3A；进度查 `形式化追踪/README.md`，证明内容与运行分别回包内 `CLAIM.md` 和 `HoTT/verification/runs/`。闭包维护本身不算数学进展。
+- 数学证明、来源只读、他人修改保护、禁止未授权子代理、提交/推送/发布边界均保留。WorkBuddy 分支上的候选证据不自动成为主检出 current truth；旧会话全面授权不自动继承为本宿主发布权限。
+
 ## Goal任务治理化、全Session认知与角色恢复
 
 标识：`GOAL_TASK_LOCAL_GOVERNANCE_V1` / `HIGHEST_DIRECTIVE_ROLE_LOADING_V1`。全局`repo-cognitive-closure`
