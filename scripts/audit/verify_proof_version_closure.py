@@ -34,6 +34,10 @@ INDEX_REL = "HoTT/CLAIM_EVIDENCE_MATRIX.md"
 RUN_ROOT = PurePosixPath("HoTT/verification/runs")
 AUDIT_TOOL_PROVENANCE_PATHS = {
     "scripts/audit/verify_formal_proof_run.py",
+    # Historical Agda captures record this writer for auditability, but the
+    # recorded proof command invokes the pinned Agda binary and sources, not
+    # this later-evolving capture program.
+    "scripts/audit/capture_agda_proof_run.py",
 }
 
 
