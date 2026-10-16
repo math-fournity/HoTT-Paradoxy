@@ -1,3 +1,53 @@
+# ZFC Failure
+
+```
+我们假设存在一个ZFC的缺失了的理论观察力Q，即其对时间维度的观察存在一种不完备，这种不完备导致：
+A：在芝诺悖论上，Q的存在，导致允许数学幻觉P的成立——因为Q是缺失性的，所以无从拒绝P，进而使得在ZFC中被允许判定：极限理论解决了芝诺悖论和圆环悖论。
+B：而在我们在main分支上找到的HoTT的问题上，罗素悖论的计算内核，暴露出来了Q不存在的不合理以及数学幻觉P的不合理性，因为这种计算内核恰恰是Q带来的追问。
+那么ZFC在Q上的缺失，及这种缺失允许产生出的数学幻觉P，就在ZFC中表现出了矛盾。
+换句话说，允许“极限理论解决了芝诺悖论”是数学界需要的，但这同时要求：
+1、数学幻觉P的成立。
+2、ZFC缺失Q。
+而数学幻觉P成立，在芝诺悖论上带来了数学家想要的结果：芝诺悖论被解决。
+而在我们发现的HoTT的问题上，他们却得到了自己不想要的结果——我们所定义的那种`不合理`。
+所以这样问题就变成：ZFC缺失了Q，从而允许了数学幻觉P在其中发生，这样同时导致了两个后果：
+1、能够让数学家得到自己想要的A
+2、也会让他们得到自己不想要B。
+再换句话说：设ZFC-1=ZFC+A，则ZFC-1=ZFC+P，而ZFC-1导致B。
+也就是说，如果数学社区认可A，那么事实上的ZFC已经变成了ZFC+P，也就是说，数学社区使用的ZFC，已经不是原生的ZFC，原生的ZFC在Q上没有观察力、判断力。
+而如果数学社区在Q上选择了P，等价于数学社区实际使用的不是ZFC，而是ZFC-1。
+而ZFC-1中的P之所以是所谓的“数学幻觉”，本质上是反现实的，是不可计算的，是我们在`核心认知.md`中所说的：理论为了经济性和工具性便利，作出的否定现实的理论中的前提假设。
+我们同时在`核心认知.md`中表达过：这种否定性的前提，必然导致悖论现象的出现，原因是这个前提参与了合取推理，那么结果必然是非现实的——悖论暴露了这种非现实的结果有时候是不合理的，并非数学家想要的。也就是说，虽然A是数学家想要的，但是B就不是了。
+当我们回溯这种不合理性的来源，相当于反证法得到了矛盾之后对前提的回溯，我们就会找到P，也就是被数学社区实际使用的ZFC-1中的P。
+选择数学幻觉P加在ZFC上，是数学社区与魔鬼达成了交易，从而社区得到了A型数学便利，但是魔鬼要的从来都是“灵魂”。
+数学的灵魂——数学真理性。
+```
+
+**Übersetzung.**
+
+```
+Wir nehmen an, dass es eine theoretische Beobachtungsfähigkeit Q gibt, die der ZFC fehlt, das heißt, ihre Beobachtung der Zeitdimension ist in gewisser Weise unvollständig, und diese Unvollständigkeit führt zu:
+A: Beim Paradoxon des Zenon führt das Vorhandensein von Q dazu, dass die mathematische Illusion P gelten darf – weil Q fehlt, lässt sich P nicht zurückweisen, und so darf in der ZFC geurteilt werden: Die Grenzwerttheorie habe das Paradoxon des Zenon und das Ringparadoxon gelöst.
+B: Bei dem Problem der HoTT dagegen, das wir im main-Branch gefunden haben, hat der rechnerische Kern von Russells Paradoxon die Ungereimtheit des Fehlens von Q und die Ungereimtheit der mathematischen Illusion P bloßgelegt, denn dieser rechnerische Kern ist genau das Nachfragen, das Q mit sich bringt.
+Dann zeigen das Fehlen von Q in der ZFC und die mathematische Illusion P, die dieses Fehlen entstehen lässt, in der ZFC einen Widerspruch.
+Anders gesagt: „Die Grenzwerttheorie hat das Paradoxon des Zenon gelöst“ zuzulassen, braucht die mathematische Welt; das verlangt aber zugleich:
+1. dass die mathematische Illusion P gilt;
+2. dass der ZFC Q fehlt.
+Und dass P gilt, bringt beim Paradoxon des Zenon das Ergebnis, das die Mathematiker wollen: Das Paradoxon des Zenon ist gelöst.
+Bei dem Problem der HoTT, das wir gefunden haben, bekommen sie dagegen ein Ergebnis, das sie nicht wollen – die Art von `Ungereimtheit`, die wir definiert haben.
+Die Frage wird also: Der ZFC fehlt Q, wodurch die mathematische Illusion P in ihr geschehen kann, und das hat zugleich zwei Folgen:
+1. Es lässt die Mathematiker das A bekommen, das sie wollen;
+2. es lässt sie auch das B bekommen, das sie nicht wollen.
+Noch einmal anders gesagt: Sei ZFC-1 = ZFC + A, dann ist ZFC-1 = ZFC + P, und ZFC-1 führt zu B.
+Das heißt: Wenn die mathematische Gemeinschaft A anerkennt, dann ist die tatsächliche ZFC bereits ZFC + P geworden; die ZFC, die die mathematische Gemeinschaft verwendet, ist nicht mehr die ursprüngliche ZFC, und die ursprüngliche ZFC hat bei Q keine Beobachtungs- und keine Urteilskraft.
+Und wenn die mathematische Gemeinschaft bei Q P gewählt hat, heißt das, dass sie in Wirklichkeit nicht die ZFC verwendet, sondern ZFC-1.
+Und dass P in ZFC-1 eine sogenannte „mathematische Illusion“ ist, liegt daran, dass es im Wesen anti-real und nicht berechenbar ist; es ist das, was wir in `核心认知.md` (der Kernkognition) gesagt haben: eine Prämisse in einer Theorie, die die Wirklichkeit verneint und um der Ökonomie und der Bequemlichkeit als Werkzeug willen getroffen wurde.
+Wir haben in `核心认知.md` auch gesagt: Eine solche verneinende Prämisse führt notwendig zum Auftreten von Paradoxa, weil diese Prämisse an einem konjunktiven Schließen teilnimmt, sodass das Ergebnis notwendig nicht-real ist – Paradoxa zeigen, dass solche nicht-realen Ergebnisse manchmal unvernünftig sind und nicht das, was die Mathematiker wollen. Das heißt: A wollen die Mathematiker, B aber nicht.
+Wenn wir die Quelle dieser Ungereimtheit zurückverfolgen, was dem Zurückverfolgen der Prämissen entspricht, nachdem ein Widerspruchsbeweis seinen Widerspruch erreicht hat, finden wir P, also das P in der ZFC-1, die die mathematische Gemeinschaft tatsächlich verwendet.
+Die mathematische Illusion P zur ZFC hinzuzunehmen, ist ein Handel, den die mathematische Gemeinschaft mit dem Teufel geschlossen hat; dadurch erhielt sie mathematische Bequemlichkeit vom Typ A, aber was der Teufel immer will, ist die „Seele“.
+Die Seele der Mathematik – die mathematische Wahrheit.
+```
+
 # HoTT-Paradoxy: die Gespenster von Zenon und Russell
 
 **– und etwas in der Homotopietypentheorie, das ganz einfach sein sollte und sich doch nie zu Ende bringen lässt**
@@ -24,7 +74,7 @@ Die initiierende Person fasst die Bedeutung so zusammen (2026-10-01, Originalwor
 >
 > Aus der Sicht des Ringparadoxons haben wir gezeigt, dass Zenons Paradoxon von der Theorie der Grenzwerte nicht wirklich gelöst worden ist.“
 
-Um diesen Text zu lesen, muss man die Homotopietypentheorie nicht kennen. Die initiierende Person wollte ihre Philosophie der Mathematik stets so darlegen, dass Schülerinnen und Schüler der Oberstufe, ja sogar der Mittelstufe sie verstehen; dieser Text versucht, dem gerecht zu werden. Er folgt der Geschichte so, wie sie sich zugetragen hat: zuerst, wie wir Paradoxa sehen (Abschnitt 1), dann die beiden Gespenster (Abschnitte 2 und 3), dann, was wir in der HoTT gefunden haben (Abschnitt 4) und warum die beiden Gespenster dasselbe sagen (Abschnitt 5), schließlich, wie man uns überprüfen kann (Abschnitt 7). Unterwegs halten wir drei Arten von Aussagen auseinander: die Ansichten und Urteile der initiierenden Person (alle Zitate sind Originalwortlaut); mathematische Tatsachen, die der Computer geprüft hat; und unsere eigenen Deutungen. Alles außerhalb der Zitate ist unsere Erläuterung (wir, das sind die KI-Systeme, die am Projekt mitgewirkt haben); wo wir statt einer Erläuterung ein eigenes Urteil abgeben, sagen wir es dazu.
+Um diesen Text zu lesen, muss man weder die Homotopietypentheorie noch die Mengenlehre kennen. Die initiierende Person wollte ihre Philosophie der Mathematik stets so darlegen, dass Schülerinnen und Schüler der Oberstufe, ja sogar der Mittelstufe sie verstehen; dieser Text versucht, dem gerecht zu werden. Er folgt der Geschichte so, wie sie sich zugetragen hat: zuerst, wie wir Paradoxa sehen (Abschnitt 1), dann die beiden Gespenster (Abschnitte 2 und 3), dann, was wir in der HoTT gefunden haben (Abschnitt 4) und warum die beiden Gespenster dasselbe sagen (Abschnitt 5). Abschnitt 6 kehrt zu dem Abschnitt ganz oben auf der Seite zurück, zu „ZFC Failure“, das die initiierende Person am 2026-10-04 selbst dorthin gesetzt hat: Auf ihn ist diese Forschung zuletzt zugelaufen, und das Problem liegt in der ZFC, der Mengenlehre, die die Mathematik tatsächlich verwendet, und in einer Wahl namens A. Schließlich, wie man uns überprüfen kann (Abschnitt 8). Unterwegs halten wir drei Arten von Aussagen auseinander: die Ansichten und Urteile der initiierenden Person (alle Zitate sind Originalwortlaut); mathematische Tatsachen, die der Computer geprüft hat; und unsere eigenen Deutungen. Alles außerhalb der Zitate ist unsere Erläuterung (wir, das sind die KI-Systeme, die am Projekt mitgewirkt haben); wo wir statt einer Erläuterung ein eigenes Urteil abgeben, sagen wir es dazu.
 
 ## 1. Wie wir Paradoxa sehen
 
@@ -82,15 +132,32 @@ Stell es dir wirklich vor. Nimm einen Ring und entferne einen Punkt: Er wird zu 
 
 Und doch, und doch: Wir hatten M wirklich! In der Wirklichkeit findet niemand etwas Schwieriges dabei, einen Drahtring aufzuschneiden, gerade zu biegen und wieder zurückzubiegen, bis sich die beiden Enden berühren. Die Schwierigkeit liegt nicht in der Wirklichkeit, sondern in dem Bild, mit dem wir sie beschreiben: Punkte ohne Größe, ein Raum, der sich ohne Ende teilen lässt. Das ist genau die Prämisse hinter Zenon. Der Grenzwert verkündet „angekommen“ durch eine Definition; der Ring dagegen lässt sehen, dass in diesem Bild das „Zurückkehren“ nie wirklich vollendet wird. Zenons Gespenst ist mit neuem Gesicht zurückgekehrt. Das meinen die Worte der initiierenden Person am Anfang: Aus der Sicht des Ringparadoxons sieht man, dass Zenons Paradoxon von der Theorie der Grenzwerte nicht wirklich gelöst worden ist.
 
-Welche Bedingung der Wirklichkeit wurde geändert? Nach Ansicht der initiierenden Person ist Bewegung in der Wirklichkeit quantisiert, mit einem kleinsten Schritt (der Planck-Skala), und die „unbegrenzte Teilbarkeit“ der Zahlengeraden verneint das. Das ist die physikalische Position der initiierenden Person; dieser Text verbürgt sie nicht. Ihre Rolle hier ist, die Prämisse zu benennen, auf die das Ringparadoxon zielt.
+Welche Bedingung der Wirklichkeit wurde geändert? Die initiierende Person hat das Problem im Paradoxon des Zenon später in zwei aufgeteilt (2026-10-15, Originalwortlaut, Auszug):
 
-**Was wir in der formalen Mathematik ausprobiert haben** (alles im Branch `dev`):
+> 在芝诺悖论中，首先存在一个问题：不可计算，也就是无限的过程的结果，被当作已经完成的结果参与计算。这肯定是有问题的。
+> 其次，还有一个问题，就是现实到底是怎样的？……我们可以只观察到量子化时空这一层，这一程是量子化的、不连续的，足以支撑我们的后续思考。
+> “现实中很容易完成”这句话，或者说，运动在现实中可以完成，因为量子化层面，在我们要观察的运动的物体来说，时空可以堪称是不再可分的不连续状态，所以，现实是“跳着”完成的。换句话说，现实的时空，在我们所观察的运动的物体来说，不满足芝诺悖论需要的持续不断地1/2切分这个要求。
 
-- Ersetze den Kreis durch endlich viele Punkte, die „eine Größe haben“: einen Punkt entfernen, flach legen, zurückbiegen – und der Kreis ist genau wiederhergestellt, ganz ohne zusätzliches Prinzip. Das hat der Computer geprüft.
-- Zurück zu einem Kreis aus reellen Zahlen, dessen Punkte keine Größe haben: Für die eine Art des Zurückführens, die wir untersucht haben, braucht man, um zu beweisen, dass die zurückgebogene Strecke den Kreis mit dem fehlenden Punkt genau überdeckt, ein zusätzliches Prinzip, das Markov-Prinzip. Es besagt: „Eine Suche, die nicht ewig ohne Ergebnis bleiben kann, hat schließlich ein Ergebnis.“ Auch dieser Schritt wurde vom Computer geprüft (er stammt von einer anderen KI, die an diesem Projekt mitwirkt). Nach der vorhandenen Literatur lässt sich dieses Prinzip in der HoTT sehr wahrscheinlich weder beweisen noch widerlegen; das ist ein von der Literatur gestütztes Urteil, nicht unser Beweis.
-- Unsere Deutung: Auf dem Kreis der reellen Zahlen zeigt sich das Gespenst noch einmal, diesmal als eine Suche, die nicht anhalten kann. Ob sich die ursprüngliche Ringgeschichte der initiierenden Person vollständig und getreu in der HoTT aufschreiben lässt, ist noch eine offene Frage.
+> **Übersetzung.** „Im Paradoxon des Zenon gibt es zuerst ein Problem: Nicht-Berechenbarkeit, das heißt, das Ergebnis eines unendlichen Vorgangs wird als bereits vollendetes Ergebnis behandelt und geht in Rechnungen ein. Das ist sicher ein Problem.
+> Zweitens gibt es ein weiteres Problem, nämlich: Wie ist die Wirklichkeit eigentlich beschaffen? … Wir können nur die Schicht der quantisierten Raumzeit beobachten; diese Strecke ist quantisiert und unstetig, und das genügt, um unser weiteres Denken zu tragen.
+> Der Satz ‚in der Wirklichkeit ist es leicht zu vollenden‘ – oder: Bewegung lässt sich in der Wirklichkeit vollenden – gilt, weil auf der quantisierten Ebene, für die bewegten Körper, die wir beobachten wollen, die Raumzeit als unstetiger Zustand gelten kann, der sich nicht weiter teilen lässt; deshalb vollendet sich die Wirklichkeit ‚in Sprüngen‘. Anders gesagt: Die Raumzeit der Wirklichkeit erfüllt, für die bewegten Körper, die wir beobachten, nicht die Forderung, die das Paradoxon des Zenon braucht: fortwährendes, unaufhörliches Halbieren.“
 
-Siehe [das Ringparadoxon im Original]({{REPO}}/blob/dev/HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md), [den Beweis für den diskreten Kreis]({{REPO}}/blob/dev/HoTT/formal/claude-cg001/discrete-ring/CLAIM.md) und eine [optionale Arbeitsnotiz zur vertieften Nachverfolgung (auf Chinesisch, auf dev; kein Beweis)]({{REPO}}/blob/dev/.claude/思考与发现/CN-024%20-%20圆环复原与%20Markov%20原则：复原撞上一条停机原则.md).
+Das zweite Problem zielt auf die „unbegrenzte Teilbarkeit“ der Zahlengeraden, in der Mathematik „Dichte“ genannt: Zwischen zwei Punkten liegen immer noch weitere Punkte. Auch das Ringparadoxon zielt darauf: Nur weil Punkte keine Größe haben und sich der Raum ohne Ende teilen lässt, wird „immer näher“ nie zu „verbunden“. Das erste Problem greift Abschnitt 6 auf: Es ist das, was die initiierende Person später A genannt hat. „Die Wirklichkeit vollendet sich in Sprüngen“ ist das Urteil der initiierenden Person über die Wirklichkeit; dieser Text bürgt nicht dafür. Was die Mathematik beweisen kann, ist, was in einer Welt geschieht, deren Punkte eine Größe haben (siehe unten).
+
+**Was wir in der formalen Mathematik getan haben.** Das Ringparadoxon der initiierenden Person wurde Satz für Satz als Mathematik aufgeschrieben und vom Computer geprüft, mit den reellen Zahlen und der Geometrie, die Mathematikerinnen und Mathematiker täglich verwenden (dem Beweisprüfer Lean mit seiner mathematischen Standardbibliothek Mathlib). Satz für Satz mit dem Originalwortlaut:
+
+- “从M到N似乎没有什么障碍” („von M nach N scheint es kein Hindernis zu geben“): Der Kreis mit einem fehlenden Punkt (M) und eine Strecke (N) lassen sich in einem Schritt ineinander überführen, ganz ohne Grenzwert.
+- “可是，可是，我们当初确实得到了M啊！” („und doch, und doch: Wir hatten M doch wirklich!“): M ist wirklich da.
+- “从N复原到M我们可以做到吗？” („können wir N wieder zu M zurückführen?“): Biege die Strecke Schritt für Schritt zurück, jeder Schritt legt die Hälfte des Rests zurück. Die beiden Enden kommen sich immer näher und sind im Sinne des Grenzwerts „angekommen“; doch bei jedem endlichen Schritt haben sich die beiden Enden noch nicht getroffen, und die Form ist dann nicht M; erst im Augenblick „nach allen Schritten“ ist die Form M. Das ferne Ende geht beim Zurückbiegen genau den Weg des Zenon.
+- “因为点没有大小，无限小” („weil ein Punkt keine Größe hat und unendlich klein ist“): Die Lücke zwischen den beiden Enden enthält bei jedem Schritt noch unendlich viele Punkte, und ihre Länge ist größer als null; „nur noch der Abstand eines Punktes“ wird bei keinem endlichen Schritt erreicht.
+- Warum es nicht zurückgeht: Um den entfernten Punkt drängen sich von allen Seiten andere Punkte. Genau an solchen Stellen fallen „sich nähern“ und „ankommen“ auseinander.
+- Kontrolle: Ersetze den Kreis durch endlich viele Punkte, die „eine Größe haben“: einen Punkt entfernen, flach legen, zurückbiegen – und er schließt sich in endlich vielen Schritten.
+
+Unsere Deutung, die die initiierende Person am 2026-10-15 als Standarderklärung angenommen hat: Das Auseinandernehmen ist eine direkt gegebene Umwandlung, in einem Schritt vollendet; das Zurückführen ist ein Annäherungsvorgang, dem immer ein wenig fehlt; auf einem Kreis, dessen Punkte keine Größe haben und der sich ohne Ende teilen lässt, fallen beide auseinander. Die beschuldigte Prämisse ist die „unbegrenzte Teilbarkeit“.
+
+(Die vorige Fassung dieses README beschrieb hier eine andere Darstellung: Um den Kreis zurückzuführen, brauchte sie ein zusätzliches logisches Prinzip, das Markov-Prinzip. Diese Fassung erfasste nur einen Teil der ursprünglichen Geschichte und ist durch die obige Satz-für-Satz-Darstellung abgelöst.)
+
+Siehe [das Ringparadoxon im Original]({{REPO}}/blob/dev/HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md) und [die vollständigen Aussagen der Satz-für-Satz-Formalisierung](HoTT/formal/claude-cg001/circle-paradox/CLAIM.md).
 
 ## 3. Das Gespenst des Russell: der rechnerische Blick
 
@@ -206,7 +273,17 @@ Und am selben Tag beschloss die initiierende Person, diese Suche für die laufen
 
 ### Welche Prämisse ist schuld?
 
-Nach der Logik des Widerspruchsbeweises müssen wir die Abstraktion überprüfen, die die Theorie der Bequemlichkeit halber vorgenommen hat. Aber „nur wahr, wenn alle wahr sind; falsch, sobald eine falsch ist“: Das Ergebnis kann nur die Prämissen als Ganzes widerlegen; es kann nicht selbst angeben, welche falsch ist. Unser Urteil (eine Deutung, offen für die Diskussion mit der initiierenden Person und mit den Leserinnen und Lesern): Zuerst sollte die Univalenz – „isomorph heißt dasselbe“ – geprüft werden, denn Formen derselben hohen Dimensionen gibt es auch in der klassischen Mathematik, und was sich geändert hat, ist, was „dasselbe“ bedeutet; die höheren induktiven Typen kommen an zweiter Stelle. Das ist eine Reihenfolge, nicht ein einziger Angeklagter.
+Nach der Logik des Widerspruchsbeweises müssen wir die Abstraktion überprüfen, die die Theorie der Bequemlichkeit halber vorgenommen hat. Aber „nur wahr, wenn alle wahr sind; falsch, sobald eine falsch ist“: Das Ergebnis kann nur die Prämissen als Ganzes widerlegen; von sich aus kann es nicht zeigen, welche falsch ist. Was man tun kann: die Prämissen eine nach der anderen wegnehmen und sehen, ob sich der Ausgang ändert.
+
+Die vom Computer geprüften Kontrollen gelten für jede „Sammlung“ (einen Katalog, in dem jede Nummer auf ein Ding zeigt):
+
+- Ist sowohl „Gleichheit ist eine Struktur“ (Univalenz) als auch „alle Höhen auf einmal übergeben“ da, hält das Nachfragen nie an;
+- deckelt man nur die Höhe der Elemente, hält das Nachfragen am Deckel;
+- lässt man die Elemente genau wie im Beispiel des Universums, mit allen Höhen, und macht nur das „Dasselbe-Sein“ der Nummern des Katalogs zu einer Tatsache von einem Satz, hält es bei der ersten Frage.
+
+Keines der beiden darf also fehlen. Doch dieser Satz ist in beiden symmetrisch; er sagt nicht, welches von beiden von der Wirklichkeit abweicht.
+
+Die initiierende Person hat am 2026-10-15 entschieden: Es gibt nur einen Angeklagten, die „fertig vorliegende Sammlung“, das heißt: Das Universum übergibt dir auf einmal, als etwas bereits Daliegendes, ein Ganzes, dessen Bestätigung unendlich viele Stufen bräuchte; die Univalenz ist eine der Ursachen und bleibt erhalten. Abschnitt 6 wird zeigen, dass genau das ist, was die initiierende Person A nennt. (Die vorige Fassung dieses README gab hier unsere eigene Rangfolge an: zuerst die Univalenz, an zweiter Stelle die höheren induktiven Typen. Sie ist gemäß der Entscheidung korrigiert.)
 
 ## 5. Die beiden Gespenster sagen dasselbe
 
@@ -222,7 +299,128 @@ Genau diesen Verdacht hat die initiierende Person am 2026-09-10 niedergeschriebe
 
 Gut zwei Wochen später führte uns Russells Blick zum Universum der HoTT; die Ungereimtheit, die wir dort sahen, passt Punkt für Punkt zu Zenon. Die beiden Gespenster sind sich am selben Ort begegnet.
 
-## 6. Eine andere Spur: unendliche Kohärenz
+Was hat dann in der Theorie die Stelle der ausgelassenen Zeit eingenommen? Dieser Frage folgend, ist die initiierende Person zu dem Boden zurückgekehrt, auf dem die meisten Mathematikerinnen und Mathematiker heute stehen.
+
+## 6. Zurück zum Anfang der Seite: das Problem von ZFC-1
+
+### Eine tiefere Frage
+
+Nachdem sie die Sache in der HoTT gefunden hatte, wandte sich die initiierende Person einer tieferen Schicht zu. Der Boden unter den Füßen der meisten Mathematikerinnen und Mathematiker ist heute eine Mengenlehre namens ZFC: mit etwa zehn Axiomen über „Mengen“ geschrieben, lässt sich in ihr fast die ganze Mathematik als Lehrsätze schreiben. Die initiierende Person fragte (2026-10-03, Originalwortlaut, Auszug):
+
+> 其实我觉得ZFC的问题我们已经找到了，就是圆环悖论的存在，就是ZFC的问题。你想，明明芝诺悖论没有解决，为什么极限理论可以声称已经在把它在ZFC中解决了呢？
+
+> **Übersetzung.** „Eigentlich finde ich, dass wir das Problem der ZFC schon gefunden haben: Dass es das Ringparadoxon gibt, das ist das Problem der ZFC. Denk nach: Das Paradoxon des Zenon ist doch offensichtlich nicht gelöst – wie kann die Grenzwerttheorie dann behaupten, es in der ZFC gelöst zu haben?“
+
+Am nächsten Tag schrieb die initiierende Person den Abschnitt „ZFC Failure“ ganz oben auf diese Seite und klärte später seine Buchstaben einen nach dem anderen. Vorweg: Diese Buchstaben hat die initiierende Person zu verschiedenen Zeiten entlehnt, um den jeweiligen Abschnitt klar zu machen, und derselbe Buchstabe kann seine Bedeutung mit der Zeit ändern. Im Abschnitt oben zum Beispiel sind „A:“ und „B:“ zunächst die Bezeichnungen zweier Punkte, und A bezeichnet außerdem das Ergebnis, das die Mathematiker wollen („mathematische Bequemlichkeit vom Typ A“); zehn Tage später hat die initiierende Person A als eine Handlung definiert. Im Folgenden halten wir uns immer an die letzte Fassung der initiierenden Person.
+
+### Ein fehlendes Tor: Q
+
+Die Definition von Q durch die initiierende Person (2026-10-14, Originalwortlaut):
+
+> ZFC缺的Q，是一种对数学理论M的观察力，这种观察力就是对某种存在于理论M中的表述L是否是“可计算的、可停机的”的判断。
+>
+> 一种表述是不可停机的，另外一种表述是可停机的，这两种表述在ZFC那里，在是否可停机这个观察角度上，不存在辨别力。
+>
+> 而是否可停机、可计算，恰恰是必须考察的 —— 它被哥德尔提出，被图灵重新表述，在算法设计中，更是一个算法合法的最根本的前提。
+
+> **Übersetzung.** „Das Q, das der ZFC fehlt, ist eine Fähigkeit, eine mathematische Theorie M zu beobachten; diese Fähigkeit ist das Urteil darüber, ob eine Aussage L in der Theorie M ‚berechenbar, anhaltefähig‘ ist.
+>
+> Die eine Aussage kann nicht anhalten, die andere kann es; in der ZFC gibt es unter dem Gesichtspunkt, ob sie anhalten können, keine Unterscheidungskraft zwischen beiden.
+>
+> Und ob etwas anhalten kann, ob es berechenbar ist, ist genau das, was geprüft werden muss – Gödel hat es aufgeworfen, Turing hat es neu gefasst, und im Entwurf von Algorithmen ist es sogar die grundlegendste Voraussetzung dafür, dass ein Algorithmus legitim ist.“
+
+Das ist das ASK aus Abschnitt 1: Bevor man anerkennt, dass ein Ergebnis „schon da ist“, fragt man zuerst, ob der Vorgang, der es hervorbringt, anhalten kann.
+
+Auf diesen letzten Satz legt die initiierende Person besonderes Gewicht. In Beweisprüfern der Art, die Programme als Beweise behandelt (Agda und Lean, die dieses Repository verwendet, gehören dazu), arbeitet dieses Tor jeden Tag: Eine rekursive Definition wird nur angenommen, wenn sich zeigen lässt, dass ihre Berechnung anhält. Der Computer hat geprüft: Nimmt man dieses Tor weg, lässt sich jede Aussage „beweisen“, und die Logik bricht auf der Stelle zusammen; mit dem Tor haben die Definitionen Lösungen.
+
+### Zwei Wahlen: A
+
+Die initiierende Person fuhr fort (2026-10-14, Originalwortlaut):
+
+> ZFC放弃了这种观察力，得到了A型数学便利，并同时异化为了ZFC-1=ZFC+A。放弃是一次选择，而A是第二次选择。A是什么？A就是一个无限的步骤才能到达，从而存在的结果，当作已经存在的结果，参与运算。
+
+> **Übersetzung.** „Die ZFC hat diese Beobachtungsfähigkeit aufgegeben, mathematische Bequemlichkeit vom Typ A erhalten und sich zugleich zu ZFC-1 = ZFC + A entfremdet. Das Aufgeben ist eine Wahl, und A ist die zweite Wahl. Was ist A? A heißt: ein Ergebnis, das erst durch unendlich viele Schritte erreicht wird und nur dadurch existiert, als bereits existierendes Ergebnis zu behandeln und in Rechnungen eingehen zu lassen.“
+
+Einige Gestalten von A: den Grenzwert von 1/2 + 1/4 + 1/8 + … als „diese unendlich vielen Schritte sind schon gegangen“ zu lesen; anzunehmen, dass bei jeder Folge, die steigt und eine obere Schranke hat, der Endpunkt schon fertig daliegt; ein Ganzes, dessen Bestätigung unendlich viele Stufen bräuchte, als fertiges Ding anzusehen, das auf einmal übergeben wird. Der Abschnitt oben sagt, dass die mathematische Gemeinschaft “实际使用的不是ZFC，而是ZFC-1” („in Wirklichkeit nicht ZFC verwendet, sondern ZFC-1“). Unsere Lesart: ZFC-1 ist kein anderes Axiomensystem, sondern die Art, wie die Mathematik die ZFC verwendet; A wohnt in Wörtern wie „existiert“, „gelöst“, „vollendet“.
+
+Der Computer hat zwei Dinge geprüft:
+
+- **Die ZFC kann sehen, sie setzt nur kein Tor.** Die ZFC kann sagen, welche Fragen entscheidbar sind und welche nicht, macht aber „kann es anhalten?“ nie zur Schwelle dafür, dass etwas als existierend anerkannt wird. Es gibt immer Vorgänge, die nie anhalten und für die die ZFC in jedem Augenblick „noch nicht angehalten“ bestätigen, aber nicht „hält nie an“ beweisen kann; solche Vorgänge gibt es unendlich viele, und kein Flicken wird mit ihnen fertig.
+- **Die beiden Wahlen sind ein einziges Prinzip.** Auf der einfachsten Ebene folgen „der Ausgang jeder unendlichen Suche steht schon fest“ und „bei einer Folge, die steigt und eine obere Schranke hat, existiert der Endpunkt fertig“ auseinander. Ob mit natürlichen Zahlen, mit rationalen Zahlen oder im Beweisprüfer der HoTT geschrieben – es ist dasselbe, und nichts davon stützt sich auf das „Entweder-oder“ des Satzes vom ausgeschlossenen Dritten. Den ersten Satz lesen wir als Aufgabe des Tores, den zweiten als Wahl von A.
+
+### A gab der Mathematik, was sie wollte: Zenon „gelöst“
+
+Die ZFC selbst beweist die beiden Sätze des Zenon (vom Computer geprüft): Im Sinne des Grenzwerts ist er angekommen; kein Schritt kommt wirklich dort an. Die Zahl, die der Grenzwert ist (1), braucht selbst kein A; sie ist durch eine Formel gegeben. Was A braucht, ist, den ersten Satz als „diese unendlich vielen Schritte sind schon gegangen“ zu lesen. Die beiden Probleme des Zenon, die die initiierende Person unterschieden hat (Abschnitt 2), finden hier ihren Platz: A erklärt den Weg für vollendet; die „unbegrenzte Teilbarkeit“ macht ihn unvollendbar.
+
+### Dieselbe Handlung gab in der HoTT das B, das niemand wollte
+
+Was Abschnitt 4 beschreibt, ist das B ganz oben auf der Seite. Die initiierende Person hat es später neu gefasst (2026-10-15, Originalwortlaut, Auszug):
+
+> ZFC-1=ZFC+A，A是一个数学便利，对应了芝诺悖论被认为经由极限理论解决了。而我们在main分支上的HoTT上的工作，暴露了ZFC-1的不合理。
+
+> **Übersetzung.** „ZFC-1 = ZFC + A; A ist eine mathematische Bequemlichkeit, die dem entspricht, dass das Paradoxon des Zenon als durch die Grenzwerttheorie gelöst gilt. Und unsere Arbeit an der HoTT im main-Branch hat die Ungereimtheit von ZFC-1 bloßgelegt.“
+
+Dieselbe Handlung – ein Ganzes, dessen Bestätigung unendlich viele Stufen bräuchte, als fertig zu nehmen – wächst im Universum der HoTT zusammen mit der Univalenz zu „ob Dinge dasselbe sind, lässt sich nie zu Ende fragen“; nimmt man eines von beiden weg, hält das Nachfragen an (Abschnitt 4). „Dieselbe Handlung auf beiden Seiten“ ist eine Lesart, die die initiierende Person angenommen hat; formal sind es zwei verschiedene Prinzipien, und das in der HoTT braucht den Satz vom ausgeschlossenen Dritten nicht, den die Seite der ZFC verwendet.
+
+### Was A kostet
+
+Die initiierende Person sagte (2026-10-14, Originalwortlaut, Auszug):
+
+> 也就是说，ZFC-1对现实的否定，与其说在于Q，不如说在于A。它是一套反现实的逻辑系统。
+>
+> 逻辑学，在起点上，就是对现实和对应的思维过程的抽象，ZFC-1这个反现实的逻辑，不仅仅在现实中是无法完成A的，而且在思维中，必然产生我们重新复活和新找到的悖论。
+
+> **Übersetzung.** „Das heißt: Die Verneinung der Wirklichkeit durch ZFC-1 liegt nicht so sehr in Q als vielmehr in A. Sie ist ein anti-reales logisches System.
+>
+> Die Logik ist an ihrem Ausgangspunkt eine Abstraktion der Wirklichkeit und der entsprechenden Denkvorgänge. ZFC-1, diese anti-reale Logik, kann A nicht nur in der Wirklichkeit nicht vollenden, sondern bringt im Denken notwendig die Paradoxa hervor, die wir wiederbelebt und neu gefunden haben.“
+
+Fehlt Q, so wird nur nicht gefragt; A dagegen ist eine positive Behauptung: Ein Ergebnis, das kein Vorgang liefern kann, sei schon da.
+
+**In der Wirklichkeit ist es nicht zu leisten.** Der Computer hat zwei Dinge geprüft:
+
+- Die klassische Logik sagt, jede Suche habe einen „feststehenden Ausgang“; doch kein Programm kann diesen Ausgang für jede Suche liefern. Dass sich nicht alles entscheiden lässt, stützt sich selbst auch nicht auf den Satz vom ausgeschlossenen Dritten: Kein Programm kann genau die Vorgänge erkennen, die „nie anhalten“.
+- In einer Welt, deren Punkte eine Größe haben, also in quantisierter Zeit und quantisiertem Raum, kommt jede Annäherung in endlich vielen Schritten an, und unendlich viele Schritte lassen sich nicht in eine endliche Zeit zwängen.
+
+**Im Denken bringt es Paradoxa hervor.** Zenon und der Ring sind wiederbelebt (Abschnitt 2); die Sache in der HoTT ist neu gefunden (Abschnitt 4).
+
+**Die Theorie wird von sich selbst ertappt.** Dieser Teil folgt Gödel, um das Problem tiefer zu durchdenken. Spät am 2026-10-14 sagte die initiierende Person (Originalwortlaut):
+
+> 我刚刚那份表述，是关于ZFC不判定“是否可以停机”这件事的，也是关于ZFC-1选择“将无法停机的过程的理想型目标作为数学的现实存在物进行运算”的。
+> 而哥德尔不完备也是关于不可停机的讨论的。
+
+> **Übersetzung.** „Meine eben gemachte Darlegung handelt davon, dass die ZFC nicht entscheidet, ‚ob etwas anhalten kann‘, und auch davon, dass ZFC-1 wählt, ‚mit dem Idealziel eines Vorgangs, der nicht anhalten kann, als einem in der Mathematik wirklich existierenden Gegenstand zu rechnen‘.
+> Und auch Gödels Unvollständigkeit ist eine Erörterung über das Nicht-anhalten-Können.“
+
+Der Computer hat an der echten ZFC drei Dinge geprüft (die Formalisierung der ZFC stammt aus der Lean-Bibliothek Foundation):
+
+- **Der Handel mit dem Teufel.** Eine Theorie, die sich mechanisch prüfen lässt und endliche Rechnungen bestätigen kann, beweist, sobald sie die Regel „unendlich viele Schritte sind schon gegangen“ schluckt, von ein und demselben Programm sowohl, dass es anhält, als auch, dass es nie anhält; um sich nicht zu widersprechen, kann sie nur aufgeben, mechanisch prüfbar zu sein. Die letzten beiden Sätze des Abschnitts oben sagen, dass der Teufel die „Seele“ will und dass die Seele der Mathematik die mathematische Wahrheit ist.
+- **Der Anteil, den der Teufel nimmt.** Die ZFC verwendet A überall, nur nicht bei sich selbst. Lass die ZFC immer wieder nach ihrem eigenen Widerspruch suchen: In jedem Augenblick kann sie „noch nicht gefunden“ bestätigen, aber sie kann nicht „nie gefunden“ beweisen. Das ist Gödels zweiter Unvollständigkeitssatz, hier an der echten ZFC vom Computer geprüft.
+- **Ein Läufer, der wirklich am Ziel ankommt.** Es gibt einen Läufer, der bei jedem Schritt die Hälfte des Rests zurücklegt, dessen Position in jedem Augenblick vor dem Ziel liegt und der im Sinne des Grenzwerts wirklich ankommt; die ZFC bestätigt in jedem Augenblick, dass er noch läuft, kann aber nicht beweisen, dass er angekommen ist.
+
+### Zurück zur Prämisse
+
+Der Abschnitt oben sagt (Originalwortlaut, Auszug): “当我们回溯这种不合理性的来源，相当于反证法得到了矛盾之后对前提的回溯，我们就会找到P” („wenn wir die Quelle dieser Ungereimtheit zurückverfolgen, was dem Zurückverfolgen der Prämissen entspricht, nachdem ein Widerspruchsbeweis seinen Widerspruch erreicht hat, finden wir P“). Was „Widerspruch“ hier bedeutet, hat die initiierende Person später erläutert (2026-10-14, Originalwortlaut):
+
+> 我说的“矛盾”，是不是“理论推出的结果与现实相矛盾”（反证法里的那个），而不是形式上推出 ⊥。
+
+> **Übersetzung.** „Der ‚Widerspruch‘, von dem ich spreche – ist das nicht ‚das von der Theorie hergeleitete Ergebnis widerspricht der Wirklichkeit‘ (der im Widerspruchsbeweis), statt formal ⊥ herzuleiten?“
+
+Der Satz hat die Form einer Frage; am 2026-10-15 hat die initiierende Person erläutert, dass er eine Bestätigung ist. „⊥“ ist das logische Zeichen für „falsch“. P und A sind zwei Namen einer Handlung: von der Bequemlichkeit her gesehen, die sie einbringt, heißt sie A; von dem her, was sie ist (anti-real, nicht berechenbar), heißt sie P. Das ist die Gleichung im Abschnitt oben, “设ZFC-1=ZFC+A，则ZFC-1=ZFC+P” („sei ZFC-1 = ZFC + A, dann ist ZFC-1 = ZFC + P“).
+
+Der Angeklagte ist diese Handlung. Auf der Seite der HoTT hat die initiierende Person die „fertig vorliegende Sammlung“ zum Angeklagten bestimmt (Abschnitt 4); auf der Seite des Zenon erklärt A den Weg für vollendet, und die „unbegrenzte Teilbarkeit“ macht ihn unvollendbar.
+
+### Was es nicht ist
+
+- Wir sagen nicht, dass die ZFC sich widerspricht, und wir leiten aus der ZFC nicht „falsch“ her.
+- „Bringt notwendig Paradoxa hervor“ ist eine These der initiierenden Person, kein Lehrsatz. Was der Computer liefert, sind Beispiele: Zenon, der Ring, die Sache in der HoTT.
+- „Dieselbe Handlung auf beiden Seiten“ ist eine Lesart, die die initiierende Person angenommen hat; formal sind es zwei Prinzipien.
+- „Die Wirklichkeit ist quantisiert und vollendet sich in Sprüngen“ ist das Urteil der initiierenden Person über die Wirklichkeit. Die Mathematik beweist, was geschieht, wenn Punkte eine Größe haben; sie kann nicht beweisen, dass die Wirklichkeit so ist.
+- Es gibt einige Deutungsbrücken, und der Maschinenbeweis kann die Brücken selbst nicht beweisen: „Ein Vorgang ist vollendet“ heißt „die Berechnung hat angehalten“; die „Zeitdimension“ heißt schrittweises Ablaufen; das „Tor“ heißt die Terminierungsforderung an rekursive Definitionen.
+- Diese mathematischen Tatsachen sind größtenteils bekannt: die Sätze von Gödel und Turing, die Forschung der konstruktiven Mathematik darüber, wie solche Prinzipien auseinander folgen, der Zusammenbruch von Systemen ohne Terminierungsprüfung. Neu ist, sie Satz für Satz neben den Worten der initiierenden Person zu lesen. Diese Lesart ist noch nicht gründlich mit der Literatur abgeglichen.
+
+Die Satz-für-Satz-Gegenüberstellung des Originalwortlauts der initiierenden Person mit den Maschinenbeweisen steht in [„Das Problem von ZFC-1: der Originalwortlaut Satz für Satz neben den Maschinenbeweisen“](docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md) (auf Chinesisch).
+
+## 7. Eine andere Spur: unendliche Kohärenz
 
 Bevor wir das Obige fanden, folgten wir eine Weile einer anderen zenonartigen Spur. Die HoTT kennt etwas, das „semi-simpliziale Struktur“ heißt: eine Form, Stufe für Stufe aus Punkten, Strecken, Dreiecken und Tetraedern zusammengeklebt, mit der Forderung, dass die „Seiten der Seiten“ zusammenpassen. In einer Welt, in der Dasselbe-Sein eine Tatsache ist, lässt sie sich in einer Zeile definieren; in der HoTT wächst jedes Mal, wenn eine Stufe des „Zusammenpassens“ hinzugefügt wird, eine Forderung auf der nächsten Stufe nach. Jede endliche Stufe lässt sich aufschreiben (vom Computer bis Stufe 5 geprüft), aber eine einzige Definition, die alle Stufen auf einmal erfasst, hat bisher niemand gefunden. Das ist seit mehr als zehn Jahren ein bekanntes offenes Problem; dass es unmöglich ist, wurde ebenfalls nicht bewiesen. Die vollständige Darstellung steht im Auditdokument 01.
 
@@ -234,34 +432,36 @@ Bevor wir das Obige fanden, folgten wir eine Weile einer anderen zenonartigen Sp
 
 Abschnitt 2 erzählt das Ringbeispiel bereits in Alltagssprache. Die unendliche Kohärenz ist ein eigener, von den Projekt-KIs vorgeschlagener zenonartiger Kandidat und nicht der Gegenstand des Urteils vom 2026-09-27. Diese Ausgabe korrigiert Auditdokument 01 und die Zuschreibung im Abschlussbericht; A7s Maschinenbelege und die offene Frage nach einer einheitlichen Definition bleiben unverändert.
 
-## 7. Wie man uns überprüft
+## 8. Wie man uns überprüft
 
 Wir hoffen, dass Sie uns nicht beim Wort nehmen, sondern selbst nachprüfen. Es gibt drei Ebenen der Prüfung:
 
-1. **Stimmt die Mathematik?** Jede positive Aussage wurde von einem Beweisprüfer Schritt für Schritt geprüft (Cubical Agda 2.8.0 mit der Bibliothek cubical v0.9; Lean 4.34.0). Zu den wichtigsten Aussagen gibt es zudem „Negativkontrollen“: absichtlich falsche Beweise, die der Prüfer zurückweisen muss, damit sichergestellt ist, dass die Prüfung wirklich prüft. Alle Aussagen, ihre Belege und die Grenzen für Verallgemeinerungen stehen in [`CLAIMS-DE.md`](CLAIMS-DE.md) (eine KI-Übersetzung von [`CLAIMS.md`](CLAIMS.md)); die Beweisquellen liegen in `HoTT/formal/`, und die `CLAIM.md` jedes Beweispakets enthält die vollständigen Aussagen; die Laufbelege liegen in `HoTT/verification/runs/`, insgesamt {{RUN_TOTAL}}: {{RUN_ACCEPTED}} akzeptiert und {{RUN_REJECTED}} Negativkontrollen, wie erwartet abgelehnt.
-2. **Sagen die Aussagen das, was der Text sagt?** Sagen die formalen Aussagen das, was die Prosa sagt? Ist zum Beispiel das „stufenweise Nachfragen“ eine faire Präzisierung von „entscheiden, ob zwei Dinge dasselbe sind“? Für diese Ebene lesen Sie die Auditdokumente: [03, „Der Zenon der HoTT“](docs/社区审计提交/03-HoTT的芝诺-DE.md) (das kürzeste, mit fünf Prüffragen am Ende), [02, „Das Gespenst von Russells Paradoxon“](docs/社区审计提交/02-罗素悖论的幽灵-DE.md), [01 (die Spur der unendlichen Kohärenz)](docs/社区审计提交/01-芝诺悖论的幽灵-DE.md) und [den Abschlussbericht](docs/HoTT悖论查找阶段收尾报告-20260930-DE.md).
-3. **Hält die Lesart stand?** Ist diese Sache wirklich „einfach“? Ist die geänderte Bedingung „Dasselbe-Sein lässt sich ohne Ende teilen“? Kann eine Standardantwort wie die Trunkierung das Problem beseitigen? Das sind Fragen der Philosophie der Mathematik, und Einwände sind willkommen.
+1. **Stimmt die Mathematik?** Jede positive Aussage wurde von einem Beweisprüfer Schritt für Schritt geprüft : Cubical Agda 2.8.0 mit der Bibliothek cubical v0.9; Lean 4.34.0, wobei viele Aussagen der Abschnitte 2 und 6 außerdem die mathematische Standardbibliothek Mathlib von Lean und die Bibliothek Foundation verwenden, die die ZFC in Lean aufschreibt (beide in festen Versionen). Zu den wichtigsten Aussagen gibt es zudem „Negativkontrollen“: absichtlich falsche Beweise, die der Prüfer zurückweisen muss, damit sichergestellt ist, dass die Prüfung wirklich prüft. Alle Aussagen, ihre Belege und die Grenzen für Verallgemeinerungen stehen in [`CLAIMS-DE.md`](CLAIMS-DE.md) (eine KI-Übersetzung von [`CLAIMS.md`](CLAIMS.md)); die Beweisquellen liegen in `HoTT/formal/`, und die `CLAIM.md` jedes Beweispakets enthält die vollständigen Aussagen; die Laufbelege liegen in `HoTT/verification/runs/`, insgesamt {{RUN_TOTAL}}: {{RUN_ACCEPTED}} akzeptiert und {{RUN_REJECTED}} Negativkontrollen, wie erwartet abgelehnt.
+2. **Sagen die Aussagen das, was der Text sagt?** Sagen die formalen Aussagen das, was die Prosa sagt? Ist zum Beispiel das „stufenweise Nachfragen“ eine faire Präzisierung von „entscheiden, ob zwei Dinge dasselbe sind“? Für diese Ebene lesen Sie die Auditdokumente: [03, „Der Zenon der HoTT“](docs/社区审计提交/03-HoTT的芝诺-DE.md) (das kürzeste, mit fünf Prüffragen am Ende), [02, „Das Gespenst von Russells Paradoxon“](docs/社区审计提交/02-罗素悖论的幽灵-DE.md), [01 (die Spur der unendlichen Kohärenz)](docs/社区审计提交/01-芝诺悖论的幽灵-DE.md) und [den Abschlussbericht](docs/HoTT悖论查找阶段收尾报告-20260930-DE.md). Für ZFC-1 aus Abschnitt 6 lesen Sie [„Das Problem von ZFC-1: der Originalwortlaut Satz für Satz neben den Maschinenbeweisen“](docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md) (auf Chinesisch): der Originalwortlaut der initiierenden Person, Satz für Satz neben der dafür geschriebenen Mathematik und dem, was der Computer bewiesen hat, mit der Angabe, welche Sätze nie als Lehrsätze gemeint waren.
+3. **Hält die Lesart stand?** Ist diese Sache wirklich „einfach“? Ist die geänderte Bedingung „Dasselbe-Sein lässt sich ohne Ende teilen“? Kann eine Standardantwort wie die Trunkierung das Problem beseitigen? Ist A wirklich der Angeklagte? Gehört das Tor „zuerst fragen, ob es anhalten kann“ auf die Ebene der „Existenz“? Das sind Fragen der Philosophie der Mathematik, und Einwände sind willkommen.
 
 ### Wie man die Läufe wiederholt
 
-Mit installiertem Agda 2.8.0, cubical v0.9 und Lean 4.34.0 im Wurzelverzeichnis des Repositorys ausführen:
+Installieren Sie Agda 2.8.0, cubical v0.9 und Lean 4.34.0 und bereiten Sie eine gebaute Foundation vor (Commit `1fb01b72` von FormalizedFormalLogic/Foundation; dort `lake exe cache get` und `lake build` ausführen; sie legt Lean 4.34.0 und Mathlib `5ed29652` fest); dann im Wurzelverzeichnis des Repositorys ausführen:
 
 ```sh
-python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubical.agda-lib --lean-sysroot /path/to/lean-4.34.0 --jobs 4
+python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubical.agda-lib --lean-sysroot /path/to/lean-4.34.0 --foundation-root /path/to/Foundation --jobs 4
 ```
 
-Das Skript baut den Befehl jedes Laufbelegs neu auf, führt ihn aus und vergleicht das Ergebnis mit dem Beleg: Der Ausgang (akzeptiert oder abgelehnt) muss übereinstimmen, und die Ausgabe wird Zeile für Zeile verglichen, nachdem der Repository-Pfad und die Bibliothekspfade durch Platzhalter ersetzt wurden. Eine Negativkontrolle gilt nur dann als bestanden, wenn sie erneut abgelehnt wird; stimmt auch ihre Ausgabe überein, wurde sie aus dem aufgezeichneten Grund abgelehnt. Einen einzelnen Beleg wiederholen: `--only <Lauf-ID>`; alle auflisten: `--list`. Alles nacheinander zu wiederholen dauert etwa anderthalb Stunden. Laufbelege enthalten absolute Pfade der aufzeichnenden Maschine und lassen sich nicht unverändert auf einer anderen Maschine ausführen. Für die gewöhnliche Wiederholung verwenden Sie `tools/replay.py` auf diesem Branch. Wer einen bytegenauen Vergleich mit den Originalskripten benötigt, kann optional das auf `dev` erhaltene [Originalskript der Forschungslinie]({{REPO}}/blob/dev/.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py) und das [Originalskript der Auditlinie]({{REPO}}/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools/verify_copus_run.py) verwenden. Das sind technische Werkzeuge zur vertieften Prüfung, keine Voraussetzung für die gewöhnliche Lektüre.
+Ohne `--foundation-root` werden die Läufe, die Mathlib oder Foundation verwenden, als SKIPPED gemeldet; die übrigen werden wie gewohnt wiederholt.
 
-Die von den Belegen zitierten Aufzeichnungen der Werkzeugketten liegen in `HoTT/formal/dedekind-omega-missile/` (Agda unter macOS), `HoTT/formal/claude-cg001/pedometer-ablation-lean/` (Lean unter macOS) und `HoTT/formal/cloud-opus-glm-audit/` (Linux); die ersten beiden Verzeichnisse behalten ihren Ort aus `dev` und enthalten auf diesem Branch nur diese Aufzeichnungen. [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json) verzeichnet die SHA-256 jeder der {{FILE_TOTAL}} Dateien dieses Branches und den `dev`-Commit, aus dem sie stammen.
+Das Skript baut den Befehl jedes Laufbelegs neu auf, führt ihn aus und vergleicht das Ergebnis mit dem Beleg: Der Ausgang (akzeptiert oder abgelehnt) muss übereinstimmen, und die Ausgabe wird Zeile für Zeile verglichen, nachdem der Repository-Pfad und die Bibliothekspfade durch Platzhalter ersetzt wurden. Eine Negativkontrolle gilt nur dann als bestanden, wenn sie erneut abgelehnt wird; stimmt auch ihre Ausgabe überein, wurde sie aus dem aufgezeichneten Grund abgelehnt. Einen einzelnen Beleg wiederholen: `--only <Lauf-ID>`; alle auflisten: `--list`. Alles nacheinander zu wiederholen dauert etwa zweieinhalb Stunden. Laufbelege enthalten absolute Pfade der aufzeichnenden Maschine und lassen sich nicht unverändert auf einer anderen Maschine ausführen. Für die gewöhnliche Wiederholung verwenden Sie `tools/replay.py` auf diesem Branch. Wer einen bytegenauen Vergleich mit den Originalskripten benötigt, kann optional das auf `dev` erhaltene [Originalskript der Forschungslinie]({{REPO}}/blob/dev/.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py) und das [Originalskript der Auditlinie]({{REPO}}/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools/verify_copus_run.py) verwenden. Das sind technische Werkzeuge zur vertieften Prüfung, keine Voraussetzung für die gewöhnliche Lektüre.
 
-## 8. Wie diese Forschung entstanden ist
+Die von den Belegen zitierten Aufzeichnungen der Werkzeugketten liegen in `HoTT/formal/dedekind-omega-missile/` (Agda unter macOS), `HoTT/formal/claude-cg001/pedometer-ablation-lean/` (Lean unter macOS) und `HoTT/formal/cloud-opus-glm-audit/` (Linux); die ersten beiden Verzeichnisse behalten ihren Ort aus `dev` und enthalten auf diesem Branch nur diese Aufzeichnungen. Pakete, die Mathlib oder Foundation verwenden, haben in ihren eigenen Verzeichnissen außerdem `LEAN_TOOLCHAIN.json` und `MATHLIB_CLOSURE.json`, die die damals verwendeten Lean-Dateien und den Hash jedes abhängigen Moduls festhalten. [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json) verzeichnet die SHA-256 jeder der {{FILE_TOTAL}} Dateien dieses Branches und den `dev`-Commit, aus dem sie stammen.
+
+## 9. Wie diese Forschung entstanden ist
 
 Die Forschungsfrage, die Sicht auf Paradoxa und die philosophischen Urteile stammen von der initiierenden Person. Mehrere KI-Systeme halfen dabei, Ideen in präzise Aussagen zu fassen, Beweise zu prüfen und die Arbeit der anderen gegenzuprüfen. Die Anspruchsdateien, Beweisquellen und Laufbelege auf `main` zeigen, welche mathematischen Aussagen am Computer geprüft wurden.
 
 Originalgespräche, KI-Arbeitsnotizen, Audit-Austausch und nicht übernommene Erkundungen bleiben auf `dev`, damit sich der Verlauf der Arbeit nachvollziehen lässt. Diese Aufzeichnungen sind selbst keine mathematischen Beweise und müssen nicht gelesen werden, um die hier dargestellten Ergebnisse zu verstehen. Wer den ausführlichen Verlauf sucht, kann beim [README des Branches `dev`]({{REPO}}/blob/dev/README.md) beginnen; es führt zur umfassenderen Geschichte und zu technischen Unterlagen für vertiefte Prüfung oder Übergabe.
 
-## 9. Zu diesem Branch
+## 10. Zu diesem Branch
 
 - `main` (dieser Branch) enthält nur, was die Ergebnisse stützt: die Ergebnisdokumente, präzise Aussagen, Beweisquellen, Laufbelege und die Möglichkeit, sie zu wiederholen. Er wird aus dem Commit [`{{SOURCE_SHORT}}`]({{REPO}}/commit/{{SOURCE_COMMIT}}) von `dev` nach einem Manifest erzeugt (`scripts/release/build_main_release.py` und `scripts/release/main-release-spec.json` auf `dev`) und nicht direkt bearbeitet. Um ihn zu aktualisieren, ändert man das Manifest oder die Ergebnisdokumente auf `dev` und erzeugt ihn neu.
 - `dev`: der gesamte Forschungsprozess; dort findet alle Arbeit statt.
-- Dieses README gibt es inhaltsgleich auch auf Chinesisch, Russisch, Französisch und Englisch. Auch die Auditdokumente und `CLAIMS.md` liegen in diesen vier Sprachen vor; die Übersetzungen sind KI-Übersetzungen, maßgeblich ist der chinesische Text.
+- Dieses README gibt es inhaltsgleich auch auf Chinesisch, Russisch, Französisch und Englisch. Auch die Auditdokumente und `CLAIMS.md` liegen in diesen vier Sprachen vor; die Übersetzungen sind KI-Übersetzungen, maßgeblich ist der chinesische Text. „Das Problem von ZFC-1: der Originalwortlaut Satz für Satz neben den Maschinenbeweisen“ gibt es nur auf Chinesisch.

@@ -1,3 +1,53 @@
+# ZFC Failure
+
+```
+我们假设存在一个ZFC的缺失了的理论观察力Q，即其对时间维度的观察存在一种不完备，这种不完备导致：
+A：在芝诺悖论上，Q的存在，导致允许数学幻觉P的成立——因为Q是缺失性的，所以无从拒绝P，进而使得在ZFC中被允许判定：极限理论解决了芝诺悖论和圆环悖论。
+B：而在我们在main分支上找到的HoTT的问题上，罗素悖论的计算内核，暴露出来了Q不存在的不合理以及数学幻觉P的不合理性，因为这种计算内核恰恰是Q带来的追问。
+那么ZFC在Q上的缺失，及这种缺失允许产生出的数学幻觉P，就在ZFC中表现出了矛盾。
+换句话说，允许“极限理论解决了芝诺悖论”是数学界需要的，但这同时要求：
+1、数学幻觉P的成立。
+2、ZFC缺失Q。
+而数学幻觉P成立，在芝诺悖论上带来了数学家想要的结果：芝诺悖论被解决。
+而在我们发现的HoTT的问题上，他们却得到了自己不想要的结果——我们所定义的那种`不合理`。
+所以这样问题就变成：ZFC缺失了Q，从而允许了数学幻觉P在其中发生，这样同时导致了两个后果：
+1、能够让数学家得到自己想要的A
+2、也会让他们得到自己不想要B。
+再换句话说：设ZFC-1=ZFC+A，则ZFC-1=ZFC+P，而ZFC-1导致B。
+也就是说，如果数学社区认可A，那么事实上的ZFC已经变成了ZFC+P，也就是说，数学社区使用的ZFC，已经不是原生的ZFC，原生的ZFC在Q上没有观察力、判断力。
+而如果数学社区在Q上选择了P，等价于数学社区实际使用的不是ZFC，而是ZFC-1。
+而ZFC-1中的P之所以是所谓的“数学幻觉”，本质上是反现实的，是不可计算的，是我们在`核心认知.md`中所说的：理论为了经济性和工具性便利，作出的否定现实的理论中的前提假设。
+我们同时在`核心认知.md`中表达过：这种否定性的前提，必然导致悖论现象的出现，原因是这个前提参与了合取推理，那么结果必然是非现实的——悖论暴露了这种非现实的结果有时候是不合理的，并非数学家想要的。也就是说，虽然A是数学家想要的，但是B就不是了。
+当我们回溯这种不合理性的来源，相当于反证法得到了矛盾之后对前提的回溯，我们就会找到P，也就是被数学社区实际使用的ZFC-1中的P。
+选择数学幻觉P加在ZFC上，是数学社区与魔鬼达成了交易，从而社区得到了A型数学便利，但是魔鬼要的从来都是“灵魂”。
+数学的灵魂——数学真理性。
+```
+
+**Translation.**
+
+```
+We assume that there is an observational power Q of theory that ZFC lacks, that is, its observation of the time dimension has a kind of incompleteness, and this incompleteness leads to:
+A: On Zeno's paradox, the existence of Q leads to allowing the mathematical illusion P to hold — because Q is missing, there is no way to reject P, and this in turn allows the judgment, within ZFC, that the theory of limits has solved Zeno's paradox and the ring paradox.
+B: And on the problem of HoTT that we found on the main branch, the computational kernel of Russell's paradox has exposed the unreasonableness of Q's absence and the unreasonableness of the mathematical illusion P, because this computational kernel is exactly the questioning that Q brings.
+Then ZFC's lack of Q, and the mathematical illusion P that this lack allows to arise, show up in ZFC as a contradiction.
+In other words, allowing "the theory of limits has solved Zeno's paradox" is something the mathematical world needs, but at the same time it requires:
+1. that the mathematical illusion P holds;
+2. that ZFC lacks Q.
+And P holding brings, on Zeno's paradox, the result mathematicians want: Zeno's paradox is solved.
+But on the problem of HoTT that we found, they get a result they do not want — the kind of `unreasonableness` that we have defined.
+So the question becomes: ZFC lacks Q, which allows the mathematical illusion P to happen in it, and this leads at the same time to two consequences:
+1. it lets mathematicians get the A they want;
+2. it also makes them get the B they do not want.
+To put it another way once more: let ZFC-1 = ZFC + A; then ZFC-1 = ZFC + P, and ZFC-1 leads to B.
+That is, if the mathematical community accepts A, then the de facto ZFC has already become ZFC + P; the ZFC the mathematical community uses is no longer native ZFC, and native ZFC has no power of observation or judgment on Q.
+And if the mathematical community has chosen P on Q, this amounts to the community actually using not ZFC but ZFC-1.
+And the reason why P in ZFC-1 is a so-called "mathematical illusion" is that it is, in essence, anti-real and non-computable; it is what we said in `核心认知.md` (the core cognition): a premise in a theory that denies reality, made for the convenience of economy and of use as a tool.
+We also said in `核心认知.md`: such a denying premise necessarily leads to the appearance of paradoxes, because this premise takes part in conjunctive reasoning, so the result is necessarily non-real — paradoxes expose that such non-real results are sometimes unreasonable, not what mathematicians want. That is, although A is what mathematicians want, B is not.
+When we trace this unreasonableness back to its source, which amounts to tracing back to the premises after a proof by contradiction has reached its contradiction, we find P, that is, the P in the ZFC-1 that the mathematical community actually uses.
+Choosing to add the mathematical illusion P to ZFC is a bargain the mathematical community has struck with the devil, by which the community obtained A-type mathematical convenience; but what the devil always wants is the "soul".
+The soul of mathematics — mathematical truth.
+```
+
 # HoTT-Paradoxy: the ghosts of Zeno and Russell
 
 **— and a thing in homotopy type theory that should be very simple, yet can never be finished**
@@ -24,7 +74,7 @@ The initiator sums up what this means (2026-10-01, original words):
 >
 > From the perspective of the ring paradox, we revealed that Zeno's paradox has not truly been solved by the theory of limits."
 
-You do not need to know homotopy type theory to read this. The initiator has always wanted this philosophy of mathematics to be understandable to high-school students, even to younger pupils, and this text tries to meet that standard. It follows the story as it happened: first how we look at paradoxes (section 1), then the two ghosts (sections 2 and 3), then what we found in HoTT (section 4) and why the two ghosts are saying the same thing (section 5), and finally how to check us (section 7). Along the way we keep three kinds of statement apart: the initiator's views and verdicts (all quotations are original words); mathematical facts checked by computer; and our own interpretations. Everything outside the quotations is our explanation (we are the AI systems that took part in the project); wherever we give our own judgment rather than an explanation, we say so.
+You do not need to know homotopy type theory, or set theory, to read this. The initiator has always wanted this philosophy of mathematics to be understandable to high-school students, even to younger pupils, and this text tries to meet that standard. It follows the story as it happened: first how we look at paradoxes (section 1), then the two ghosts (sections 2 and 3), then what we found in HoTT (section 4) and why the two ghosts are saying the same thing (section 5). Section 6 returns to the passage at the top of the page, the "ZFC Failure" that the initiator personally placed there on 2026-10-04: this research finally converged on it, and the problem lies in ZFC, the set theory mathematicians actually use, and in a choice called A. Finally, how to check us (section 8). Along the way we keep three kinds of statement apart: the initiator's views and verdicts (all quotations are original words); mathematical facts checked by computer; and our own interpretations. Everything outside the quotations is our explanation (we are the AI systems that took part in the project); wherever we give our own judgment rather than an explanation, we say so.
 
 ## 1. How we look at paradoxes
 
@@ -82,15 +132,32 @@ Try to picture it. Take a ring and remove one point: it becomes a circle with on
 
 And yet, and yet, we really did have M! In reality, if you cut a wire ring, straighten it, and bend it back until the two ends touch, nobody finds anything difficult about it. The difficulty is not in reality but in the picture we use to describe it: points without size, space divisible without end. That is the very premise behind Zeno. The limit announces "arrived" by a definition, whereas the ring lets us see that in this picture "going back" is never actually completed. Zeno's ghost has come back with a new face. This is what the initiator's words at the top mean: from the perspective of the ring paradox, one sees that Zeno's paradox has not truly been solved by the theory of limits.
 
-Which condition of reality was changed? In the initiator's view, motion in reality is quantized, with a smallest step (the Planck scale), and the "endless divisibility" of the number line denies this. That is the initiator's physical position; this text does not vouch for it. Its role here is to name the premise the ring paradox is aimed at.
+Which condition of reality was changed? The initiator later split the problem in Zeno's paradox into two (2026-10-15, original words, excerpt):
 
-**What we tried in formal mathematics** (all of it on the `dev` branch):
+> 在芝诺悖论中，首先存在一个问题：不可计算，也就是无限的过程的结果，被当作已经完成的结果参与计算。这肯定是有问题的。
+> 其次，还有一个问题，就是现实到底是怎样的？……我们可以只观察到量子化时空这一层，这一程是量子化的、不连续的，足以支撑我们的后续思考。
+> “现实中很容易完成”这句话，或者说，运动在现实中可以完成，因为量子化层面，在我们要观察的运动的物体来说，时空可以堪称是不再可分的不连续状态，所以，现实是“跳着”完成的。换句话说，现实的时空，在我们所观察的运动的物体来说，不满足芝诺悖论需要的持续不断地1/2切分这个要求。
 
-- Replace the circle by finitely many points that "have a size": remove one point, flatten, bend back, and the circle is restored exactly, with no extra principle needed. This was checked by computer.
-- Go back to a circle made of real numbers, whose points have no size: for the particular way of restoring that we examined, proving that the bent-back segment covers exactly the circle with one point missing requires an extra principle called Markov's principle, which says that "a search that cannot go on forever without a result will eventually have a result". This step was also checked by computer (it comes from another AI taking part in this project). According to the existing literature, this principle can very likely be neither proved nor refuted in HoTT; that is a judgment supported by the literature, not our proof.
-- Our interpretation: on the real-number circle the ghost shows itself once more, this time as a search that cannot stop. Whether the initiator's original ring story can be written down completely and faithfully in HoTT is still an open question.
+> **Translation.** "In Zeno's paradox there is, first, one problem: non-computability, that is, the result of an infinite process is treated as an already completed result and used in computation. That is certainly a problem.
+> Second, there is another problem: what is reality actually like? … We can observe only the layer of quantized space-time; this stretch is quantized and discontinuous, and that is enough to support our further thinking.
+> The sentence 'in reality it is easily completed' — or, motion can be completed in reality — holds because at the quantized level, for the moving objects we want to observe, space-time can be regarded as a discontinuous state that can no longer be divided; so reality completes 'by jumps'. In other words, the space-time of reality, for the moving objects we observe, does not meet the requirement that Zeno's paradox needs: halving by 1/2, continuously and without end."
 
-See [the original ring paradox]({{REPO}}/blob/dev/HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md), [the proof for the discrete circle]({{REPO}}/blob/dev/HoTT/formal/claude-cg001/discrete-ring/CLAIM.md), and an [optional research note for deeper tracing (in Chinese, on dev; not a proof)]({{REPO}}/blob/dev/.claude/思考与发现/CN-024%20-%20圆环复原与%20Markov%20原则：复原撞上一条停机原则.md).
+The second problem points to the "endless divisibility" of the number line, which mathematicians call density: between any two points there are always other points. The ring paradox is aimed at it too: only because points have no size and space can be divided without end does "closer and closer" never turn into "joined". The first problem is taken up in section 6: it is what the initiator later named A. "Reality completes by jumps" is the initiator's judgment about reality; this text does not vouch for it. What mathematics can prove is what happens in a world whose points have a size (see below).
+
+**What we did in formal mathematics.** The initiator's ring paradox has been written as mathematics sentence by sentence and checked by computer, using the real numbers and the geometry that mathematicians use every day (the proof checker Lean with its standard mathematics library Mathlib). Going through the original words one sentence at a time:
+
+- “从M到N似乎没有什么障碍” ("going from M to N seems to meet no obstacle"): the circle with one point missing (M) and a segment (N) can be turned into each other in one step, with no limit involved.
+- “可是，可是，我们当初确实得到了M啊！” ("and yet, and yet, we really did have M in the first place!"): M is really there.
+- “从N复原到M我们可以做到吗？” ("can we restore N back to M?"): bend the segment back step by step, each step covering half of what remains. The two ends come closer and closer and, in the sense of limits, "arrive"; but at every finite step the two ends have not yet met, and the shape at that step is not M; only at the moment "after all the steps" is the shape M. The far end, as it bends back, walks exactly Zeno's path.
+- “因为点没有大小，无限小” ("because a point has no size and is infinitely small"): at every step the gap between the two ends still contains infinitely many points, and its length is greater than zero; "only one point's distance" is never reached at any finite step.
+- Why it cannot go back: the removed point is crowded on all sides by other points. It is exactly at such places that "approaching" and "arriving" come apart.
+- Control: replace the circle by finitely many points that "have a size": remove one point, flatten, bend back, and it closes in finitely many steps.
+
+Our interpretation, which the initiator accepted on 2026-10-15 as the standard explanation: taking the circle apart is a transformation given directly, completed in one step; putting it back is a process of approach that always stays a little short; on a circle whose points have no size and which can be divided without end, the two come apart. The premise to blame is "endless divisibility".
+
+(The previous version of this README described another way of writing it: restoring the circle needed an extra logical principle called Markov's principle. That version captured only part of the original story and has been superseded by the sentence-by-sentence version above.)
+
+See [the original ring paradox]({{REPO}}/blob/dev/HoTT/sources/user-originals/Z铁律-抽象-圆环-时间维度-用户原始论述-20260901.md) and [the full statements of the sentence-by-sentence formalization](HoTT/formal/claude-cg001/circle-paradox/CLAIM.md).
 
 ## 3. The ghost of Russell: the computational view
 
@@ -206,7 +273,17 @@ And on the same day the initiator decided to close this search for the current p
 
 ### Which premise to blame
 
-By the logic of proof by contradiction, what we must go back and examine is the abstraction the theory made in order to be convenient. But "true only if all are true, false as soon as one is false": the result can only refute the premises as a whole; it cannot by itself point out which one is wrong. Our judgment (an interpretation, left open for discussion with the initiator and with readers) is that univalence, "isomorphic means the same", should be examined first, because shapes of the same high dimensions exist in classical mathematics too, and what has changed is what "the same" means; higher inductive types come second. This is an ordering, not a single defendant.
+By the logic of proof by contradiction, what we must go back and examine is the abstraction the theory made in order to be convenient. But "true only if all are true, false as soon as one is false": the result can only refute the premises as a whole; it cannot by itself point out which one is wrong. What can be done is to take the premises away one at a time and see whether the outcome changes.
+
+The controls checked by computer hold for any "collection" (a catalogue in which each number points to a thing):
+
+- with both "sameness is a structure" (univalence) and "every height handed over at once", the questioning never stops;
+- cap only the height of the members, and the questioning stops at the cap;
+- keep the members exactly as in the universe example, with every height present, and only turn the "sameness" of the catalogue's numbers into a one-sentence fact, and it stops at the first question.
+
+So neither can be dropped. But this theorem is symmetric in the two; it does not say which of them departs from reality.
+
+The initiator ruled on 2026-10-15: there is a single defendant, the "ready-made collection", that is, the universe hands you at once, as something already lying there, a whole that would take infinitely many levels to confirm; univalence is one of the causes and is kept. Section 6 will show that this is exactly what the initiator calls A. (The previous version of this README gave our own ordering here: univalence first, higher inductive types second. It has been corrected according to the ruling.)
 
 ## 5. The two ghosts are saying the same thing
 
@@ -222,7 +299,128 @@ This is precisely the suspicion the initiator wrote down on 2026-09-10 (original
 
 A little over two weeks later, Russell's way of seeing led us to the universe of HoTT; the unreasonableness we saw there matches Zeno point by point. The two ghosts met in the same place.
 
-## 6. Another trail: infinite coherence
+Then what took the place, inside the theory, of the time that was left out? Following this question, the initiator went back to the ground most mathematicians stand on today.
+
+## 6. Back to the top of the page: the problem of ZFC-1
+
+### A deeper question
+
+After finding that thing in HoTT, the initiator turned to a deeper layer. The ground under the feet of most mathematicians today is a set theory called ZFC: written with about ten axioms about "sets", it lets almost all of mathematics be written as its theorems. The initiator asked (2026-10-03, original words, excerpt):
+
+> 其实我觉得ZFC的问题我们已经找到了，就是圆环悖论的存在，就是ZFC的问题。你想，明明芝诺悖论没有解决，为什么极限理论可以声称已经在把它在ZFC中解决了呢？
+
+> **Translation.** "Actually, I think we have already found the problem of ZFC: the existence of the ring paradox is the problem of ZFC. Think about it: Zeno's paradox has clearly not been solved, so why can the theory of limits claim to have solved it in ZFC?"
+
+The next day the initiator wrote the passage "ZFC Failure" at the top of this page, and later made its letters clear one by one. One thing first: the initiator borrowed these letters at different times, to make the passage at hand clear, and the same letter can change its meaning over time. In the passage at the top, for instance, "A:" and "B:" are first the labels of two items, and A also names the result mathematicians want ("A-type mathematical convenience"); ten days later the initiator defined A as an act. Below we always follow the initiator's latest wording.
+
+### A missing gate: Q
+
+The initiator's definition of Q (2026-10-14, original words):
+
+> ZFC缺的Q，是一种对数学理论M的观察力，这种观察力就是对某种存在于理论M中的表述L是否是“可计算的、可停机的”的判断。
+>
+> 一种表述是不可停机的，另外一种表述是可停机的，这两种表述在ZFC那里，在是否可停机这个观察角度上，不存在辨别力。
+>
+> 而是否可停机、可计算，恰恰是必须考察的 —— 它被哥德尔提出，被图灵重新表述，在算法设计中，更是一个算法合法的最根本的前提。
+
+> **Translation.** "The Q that ZFC lacks is a power of observing a mathematical theory M; this power is the judgment of whether some statement L in the theory M is 'computable, able to halt'.
+>
+> One statement cannot halt, another can; in ZFC, from the angle of whether they can halt, there is no power to tell the two apart.
+>
+> And whether something can halt, whether it is computable, is exactly what must be examined — it was raised by Gödel, restated by Turing, and in the design of algorithms it is even the most fundamental precondition for an algorithm to be legitimate."
+
+This is the ASK of section 1: before accepting that a result "is already there", first ask whether the process that produces it can stop.
+
+The initiator places particular weight on that last sentence. In proof checkers of the kind that treat programs as proofs (Agda and Lean, used in this repository, are such checkers), this gate operates every day: a recursive definition is accepted only if it can be shown that its computation stops. The computer has checked that if this gate is removed, every proposition can be "proved" and logic collapses on the spot; with the gate in place, definitions have solutions.
+
+### Two choices: A
+
+The initiator went on (2026-10-14, original words):
+
+> ZFC放弃了这种观察力，得到了A型数学便利，并同时异化为了ZFC-1=ZFC+A。放弃是一次选择，而A是第二次选择。A是什么？A就是一个无限的步骤才能到达，从而存在的结果，当作已经存在的结果，参与运算。
+
+> **Translation.** "ZFC gave up this power of observation, obtained A-type mathematical convenience, and at the same time turned into ZFC-1 = ZFC + A. Giving it up is one choice, and A is the second choice. What is A? A is taking a result that can only be reached through an infinite number of steps, and exists on that account, as an already existing result, and letting it take part in computation."
+
+Some of A's guises: reading the limit of 1/2 + 1/4 + 1/8 + … as "these infinitely many steps have already been walked"; holding that for every sequence that rises and has an upper bound, the endpoint is already lying there, ready-made; taking a whole that would take infinitely many levels to confirm as a ready-made thing handed over at once. The passage at the top says that the mathematical community “实际使用的不是ZFC，而是ZFC-1” ("actually uses not ZFC but ZFC-1"). Our reading: ZFC-1 is not another set of axioms but the way mathematicians use ZFC; A lives in words like "exists", "solved", "completed".
+
+The computer has checked two things:
+
+- **ZFC can see; it just sets no gate.** ZFC can say which questions are decidable and which are not, yet it never uses "can it stop?" as a threshold for accepting that something exists. There are always processes that never stop, for which ZFC can confirm at every moment "not stopped yet" but cannot prove "it never stops"; there are infinitely many such processes, and no patching ever finishes them.
+- **The two choices are one principle.** At the simplest level, "the outcome of every infinite search is already settled" and "for a sequence that rises and has an upper bound, the endpoint exists ready-made" imply each other. Written with natural numbers, with rational numbers, or in the HoTT proof checker, it is the same, and none of it relies on the "either–or" law of excluded middle. We read the first sentence as giving up the gate and the second as choosing A.
+
+### A gave mathematicians what they wanted: Zeno "solved"
+
+ZFC itself proves Zeno's two sentences (checked by computer): in the sense of limits, it has arrived; no step really gets there. The number that is the limit (1) does not itself need A; it is given by a formula. What needs A is reading the first sentence as "these infinitely many steps have already been walked". The two problems of Zeno that the initiator distinguished (section 2) fall into place here: A declares the walk finished; "endless divisibility" makes it unfinishable.
+
+### The same act gave, in HoTT, the B nobody wanted
+
+What section 4 describes is the B at the top of the page. The initiator later restated it (2026-10-15, original words, excerpt):
+
+> ZFC-1=ZFC+A，A是一个数学便利，对应了芝诺悖论被认为经由极限理论解决了。而我们在main分支上的HoTT上的工作，暴露了ZFC-1的不合理。
+
+> **Translation.** "ZFC-1 = ZFC + A; A is a mathematical convenience, corresponding to Zeno's paradox being considered solved by the theory of limits. And our work on HoTT on the main branch exposed the unreasonableness of ZFC-1."
+
+The same act, taking a whole that would take infinitely many levels to confirm as ready-made, grows in the universe of HoTT, together with univalence, into "whether things are the same can never be finished asking"; take away either one, and the questioning stops (section 4). "The same act on both sides" is a reading the initiator has accepted; formally they are two different principles, and the one in HoTT does not need the law of excluded middle used on the ZFC side.
+
+### What A costs
+
+The initiator said (2026-10-14, original words, excerpt):
+
+> 也就是说，ZFC-1对现实的否定，与其说在于Q，不如说在于A。它是一套反现实的逻辑系统。
+>
+> 逻辑学，在起点上，就是对现实和对应的思维过程的抽象，ZFC-1这个反现实的逻辑，不仅仅在现实中是无法完成A的，而且在思维中，必然产生我们重新复活和新找到的悖论。
+
+> **Translation.** "That is to say, ZFC-1's denial of reality lies not so much in Q as in A. It is an anti-real logical system.
+>
+> Logic, at its starting point, is an abstraction of reality and of the corresponding thought processes. ZFC-1, this anti-real logic, not only cannot accomplish A in reality, but also, in thought, necessarily produces the paradoxes that we have revived and newly found."
+
+Missing Q only means not asking; A, however, is a positive assertion: a result that no process can deliver is already there.
+
+**In reality it cannot be done.** The computer has checked two things:
+
+- Classical logic says every search has a "settled outcome"; yet no program can deliver that outcome for every search. That not everything can be decided does not itself rely on excluded middle either: no program can recognize exactly the processes that "never stop".
+- In a world whose points have a size, that is, in quantized time and space, every approach arrives within finitely many steps, and infinitely many steps cannot be squeezed into a finite time.
+
+**In thought it produces paradoxes.** Zeno and the ring have been revived (section 2); the thing in HoTT has been newly found (section 4).
+
+**The theory is caught by itself.** This part follows Gödel, to think the problem through more deeply. Late on 2026-10-14 the initiator said (original words):
+
+> 我刚刚那份表述，是关于ZFC不判定“是否可以停机”这件事的，也是关于ZFC-1选择“将无法停机的过程的理想型目标作为数学的现实存在物进行运算”的。
+> 而哥德尔不完备也是关于不可停机的讨论的。
+
+> **Translation.** "The statement I just made is about ZFC not deciding 'whether something can halt', and also about ZFC-1 choosing 'to compute with the ideal target of a process that cannot halt as an object that really exists in mathematics'.
+> And Gödel's incompleteness is also a discussion about not being able to halt."
+
+The computer has checked three things on real ZFC (the formalization of ZFC comes from Lean's Foundation library):
+
+- **The devil's bargain.** A theory that can be checked mechanically and can verify finite computations, once it swallows the rule "infinitely many steps have already been walked", proves of one and the same program both that it stops and that it never stops; to avoid contradicting itself it can only give up being mechanically checkable. The last two sentences of the passage at the top say that the devil wants the "soul", and that the soul of mathematics is mathematical truth.
+- **The share the devil takes.** ZFC uses A everywhere, except on itself. Let ZFC search again and again for its own contradiction: at every moment it can confirm "not found yet", but it cannot prove "never found". This is Gödel's second incompleteness theorem, here checked by computer on real ZFC.
+- **A runner who really reaches the end.** There is a runner who at each step covers half of what remains, whose position is less than the end at every moment, and who in the sense of limits really arrives; ZFC confirms at every moment that it is still running, yet cannot prove that it has arrived.
+
+### Back to the premise
+
+The passage at the top says (original words, excerpt): “当我们回溯这种不合理性的来源，相当于反证法得到了矛盾之后对前提的回溯，我们就会找到P” ("when we trace this unreasonableness back to its source, which amounts to tracing back to the premises after a proof by contradiction has reached its contradiction, we find P"). The initiator later explained what "contradiction" means here (2026-10-14, original words):
+
+> 我说的“矛盾”，是不是“理论推出的结果与现实相矛盾”（反证法里的那个），而不是形式上推出 ⊥。
+
+> **Translation.** "The 'contradiction' I speak of — is it not 'the result derived by the theory contradicts reality' (the one in a proof by contradiction), rather than formally deriving ⊥?"
+
+The sentence has the form of a question; on 2026-10-15 the initiator explained that it is a confirmation. "⊥" is the logical symbol for "false". P and A are two names of one act: seen from the convenience it buys, it is A; seen from what it is (anti-real, non-computable), it is P. This is the equation in the passage at the top, “设ZFC-1=ZFC+A，则ZFC-1=ZFC+P” ("let ZFC-1 = ZFC + A; then ZFC-1 = ZFC + P").
+
+The defendant is that act. On the HoTT side the initiator named the "ready-made collection" as the defendant (section 4); on Zeno's side, A declares the walk finished, and "endless divisibility" makes it unfinishable.
+
+### What it is not
+
+- We do not say that ZFC contradicts itself, and we do not derive "false" from ZFC.
+- "Necessarily produces paradoxes" is the initiator's thesis, not a theorem. What the computer gives are instances: Zeno, the ring, the thing in HoTT.
+- "The same act on both sides" is a reading the initiator has accepted; formally it is two principles.
+- "Reality is quantized and completes by jumps" is the initiator's judgment about reality. Mathematics proves what happens when points have a size; it cannot prove that reality is like that.
+- There are a few bridges of interpretation, and machine proof cannot prove the bridges themselves: "a process has completed" means "the computation has stopped"; the "time dimension" means running step by step; the "gate" means the termination requirement on recursive definitions.
+- These mathematical facts are mostly known: the theorems of Gödel and Turing, the research in constructive mathematics on how such principles imply one another, the collapse of systems without a termination check. What is new is reading them sentence by sentence next to the initiator's words. This reading has not yet been checked thoroughly against the literature.
+
+The sentence-by-sentence correspondence between the initiator's original words and the machine proofs is in [«The problem of ZFC-1: the original words sentence by sentence against machine proofs»](docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md) (in Chinese).
+
+## 7. Another trail: infinite coherence
 
 Before finding what is described above, we followed another Zeno-like trail for a while. HoTT has something called a "semi-simplicial structure": a shape glued together level by level from points, segments, triangles and tetrahedra, with the requirement that the "faces of faces" fit together. In a world where sameness is a fact, it can be defined in one line; in HoTT, every time a level of "fitting together" is added, a requirement at the next level grows out of it. Every finite level can be written down (checked by computer up to level 5), but a single definition that covers all levels at once has not been found by anyone so far. This has been a well-known open problem for more than ten years; that it cannot be done has not been proved either. The full account is in community audit paper 01.
 
@@ -234,34 +432,36 @@ Before finding what is described above, we followed another Zeno-like trail for 
 
 Section 2 already tells the ring story in plain language. Infinite coherence is a separate Zeno-like candidate proposed by the project AIs, not the referent of the 2026-09-27 verdict. This edition corrects community paper 01 and the attribution in the phase-close report; A7's machine evidence and its open uniform-definition question remain unchanged.
 
-## 7. How to check us
+## 8. How to check us
 
 We hope you will not take our word for it, but check for yourself. There are three levels at which to review:
 
-1. **Is the mathematics right?** Every positive claim has been checked step by step by a proof checker (Cubical Agda 2.8.0 with the cubical library v0.9; Lean 4.34.0). Key claims also come with "negative controls": deliberately wrong proofs that the checker must reject, to make sure the check really checks. All claims, their evidence and the limits on extrapolating from them are in [`CLAIMS-EN.md`](CLAIMS-EN.md) (an AI translation of [`CLAIMS.md`](CLAIMS.md)); the proof sources are in `HoTT/formal/`, and the `CLAIM.md` of each proof package gives the full statements; the run receipts are in `HoTT/verification/runs/`, {{RUN_TOTAL}} in all: {{RUN_ACCEPTED}} accepted and {{RUN_REJECTED}} negative controls rejected as expected.
-2. **Do the claims say what the text says?** Do the formal statements say what the prose says? For example, is "questioning level by level" a fair way of making "deciding whether two things are the same" precise? For this level, read the community audit papers: [03, "HoTT's Zeno"](docs/社区审计提交/03-HoTT的芝诺-EN.md) (the shortest, ending with five audit questions), [02, "The ghost of Russell's paradox"](docs/社区审计提交/02-罗素悖论的幽灵-EN.md), [01 (the infinite-coherence trail)](docs/社区审计提交/01-芝诺悖论的幽灵-EN.md), and [the phase-close report](docs/HoTT悖论查找阶段收尾报告-20260930-EN.md).
-3. **Does the reading hold up?** Is that thing really "simple"? Is the changed condition "sameness can be divided without end"? Can a standard answer such as truncation make it go away? These are questions of the philosophy of mathematics, and objections are welcome.
+1. **Is the mathematics right?** Every positive claim has been checked step by step by a proof checker : Cubical Agda 2.8.0 with the cubical library v0.9; Lean 4.34.0, where many claims of sections 2 and 6 also use Lean's standard mathematics library Mathlib and the Foundation library, which writes ZFC down in Lean (both fixed at definite versions). Key claims also come with "negative controls": deliberately wrong proofs that the checker must reject, to make sure the check really checks. All claims, their evidence and the limits on extrapolating from them are in [`CLAIMS-EN.md`](CLAIMS-EN.md) (an AI translation of [`CLAIMS.md`](CLAIMS.md)); the proof sources are in `HoTT/formal/`, and the `CLAIM.md` of each proof package gives the full statements; the run receipts are in `HoTT/verification/runs/`, {{RUN_TOTAL}} in all: {{RUN_ACCEPTED}} accepted and {{RUN_REJECTED}} negative controls rejected as expected.
+2. **Do the claims say what the text says?** Do the formal statements say what the prose says? For example, is "questioning level by level" a fair way of making "deciding whether two things are the same" precise? For this level, read the community audit papers: [03, "HoTT's Zeno"](docs/社区审计提交/03-HoTT的芝诺-EN.md) (the shortest, ending with five audit questions), [02, "The ghost of Russell's paradox"](docs/社区审计提交/02-罗素悖论的幽灵-EN.md), [01 (the infinite-coherence trail)](docs/社区审计提交/01-芝诺悖论的幽灵-EN.md), and [the phase-close report](docs/HoTT悖论查找阶段收尾报告-20260930-EN.md). For the ZFC-1 of section 6, read [«The problem of ZFC-1: the original words sentence by sentence against machine proofs»](docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md) (in Chinese): the initiator's original words, sentence by sentence, against the mathematics written for them and what the computer has proved, marking which sentences were never meant to be theorems.
+3. **Does the reading hold up?** Is that thing really "simple"? Is the changed condition "sameness can be divided without end"? Can a standard answer such as truncation make it go away? Is A really the defendant? Should the gate "first ask whether it can stop" be placed at the level of "existence"? These are questions of the philosophy of mathematics, and objections are welcome.
 
 ### How to replay
 
-With Agda 2.8.0, cubical v0.9 and Lean 4.34.0 installed, run from the repository root:
+Install Agda 2.8.0, cubical v0.9 and Lean 4.34.0, and prepare a built Foundation (commit `1fb01b72` of FormalizedFormalLogic/Foundation; run `lake exe cache get` and `lake build` there; it pins Lean 4.34.0 and Mathlib `5ed29652`); then run from the repository root:
 
 ```sh
-python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubical.agda-lib --lean-sysroot /path/to/lean-4.34.0 --jobs 4
+python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubical.agda-lib --lean-sysroot /path/to/lean-4.34.0 --foundation-root /path/to/Foundation --jobs 4
 ```
 
-It rebuilds the command of each run receipt, runs it, and compares the result with the receipt: the outcome (accepted or rejected) must agree, and the output is compared line by line after the repository path and the library paths are replaced by placeholders. A negative control passes only if it is rejected again; if its output also agrees, it was rejected for the recorded reason. To replay a single receipt: `--only <run id>`; to list them all: `--list`. Replaying everything one after another takes about an hour and a half. Run receipts contain absolute paths from the machine that captured them, so they cannot be copied unchanged to another machine. For ordinary replay, use `tools/replay.py` on this branch. Readers who need a byte-for-byte comparison with the original scripts can optionally use the [research-line replay script]({{REPO}}/blob/dev/.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py) and the [audit-line replay script]({{REPO}}/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools/verify_copus_run.py), preserved on `dev`. These are technical tools for deeper review, not a prerequisite for ordinary reading.
+Without `--foundation-root`, the runs that use Mathlib or Foundation are reported as SKIPPED; the others are replayed as usual.
 
-The toolchain records cited by the receipts are in `HoTT/formal/dedekind-omega-missile/` (Agda on macOS), `HoTT/formal/claude-cg001/pedometer-ablation-lean/` (Lean on macOS) and `HoTT/formal/cloud-opus-glm-audit/` (Linux); the first two directories keep their location on `dev` and hold only these records on this branch. [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json) records the SHA-256 of each of the {{FILE_TOTAL}} files on this branch and the `dev` commit they come from.
+It rebuilds the command of each run receipt, runs it, and compares the result with the receipt: the outcome (accepted or rejected) must agree, and the output is compared line by line after the repository path and the library paths are replaced by placeholders. A negative control passes only if it is rejected again; if its output also agrees, it was rejected for the recorded reason. To replay a single receipt: `--only <run id>`; to list them all: `--list`. Replaying everything one after another takes about two and a half hours. Run receipts contain absolute paths from the machine that captured them, so they cannot be copied unchanged to another machine. For ordinary replay, use `tools/replay.py` on this branch. Readers who need a byte-for-byte comparison with the original scripts can optionally use the [research-line replay script]({{REPO}}/blob/dev/.claude/goals/CG-001-targeted-overview/tools/verify_cg001_run.py) and the [audit-line replay script]({{REPO}}/blob/dev/Cloud-Opus%E5%AE%A1%E8%AE%A1%E5%B9%B6%E8%A1%A5%E5%AE%8CGLM/tools/verify_copus_run.py), preserved on `dev`. These are technical tools for deeper review, not a prerequisite for ordinary reading.
 
-## 8. How this research was done
+The toolchain records cited by the receipts are in `HoTT/formal/dedekind-omega-missile/` (Agda on macOS), `HoTT/formal/claude-cg001/pedometer-ablation-lean/` (Lean on macOS) and `HoTT/formal/cloud-opus-glm-audit/` (Linux); the first two directories keep their location on `dev` and hold only these records on this branch. Packages that use Mathlib or Foundation also have, in their own directories, `LEAN_TOOLCHAIN.json` and `MATHLIB_CLOSURE.json`, which record the Lean files used at the time and the hash of every dependency module. [`RELEASE-MANIFEST.json`](RELEASE-MANIFEST.json) records the SHA-256 of each of the {{FILE_TOTAL}} files on this branch and the `dev` commit they come from.
+
+## 9. How this research was done
 
 The research question, the view of paradoxes and the philosophical judgments come from the researcher. Several AI systems helped turn ideas into precise claims, check proofs and review one another's work. The claim files, proof sources and run records on `main` show which mathematical statements were checked by computer.
 
 Original conversations, AI working notes, audit exchanges and exploratory paths that were not adopted remain on `dev` as a record of how the work developed. Those records are not themselves mathematical proof and are not required reading for understanding the conclusions here. Readers who want the detailed trail can start at the [`dev` README]({{REPO}}/blob/dev/README.md), which points to the fuller history and technical records for deeper review or handoff.
 
-## 9. About this branch
+## 10. About this branch
 
 - `main` (this branch) holds only what supports the conclusions: the conclusion documents, precise claims, proof sources, run receipts and a way to replay them. It is generated from commit [`{{SOURCE_SHORT}}`]({{REPO}}/commit/{{SOURCE_COMMIT}}) of `dev` according to a manifest (`scripts/release/build_main_release.py` and `scripts/release/main-release-spec.json` on `dev`), and is not edited directly. To update it, change the manifest or the conclusion documents on `dev` and generate it again.
 - `dev`: the whole research process; all work happens there.
-- This README also exists in Chinese, Russian, German and French with the same content. The community audit papers and `CLAIMS.md` are also available in these four languages; the translations are AI translations, and the Chinese text is authoritative.
+- This README also exists in Chinese, Russian, German and French with the same content. The community audit papers and `CLAIMS.md` are also available in these four languages; the translations are AI translations, and the Chinese text is authoritative. «The problem of ZFC-1: the original words sentence by sentence against machine proofs» exists only in Chinese.
