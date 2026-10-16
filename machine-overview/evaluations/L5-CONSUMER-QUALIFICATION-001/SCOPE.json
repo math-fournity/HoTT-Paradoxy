@@ -1,0 +1,74 @@
+{
+  "schema_version": "machine-overview-l5-consumer-scope/v1",
+  "audit_id": "L5-CONSUMER-QUALIFICATION-001",
+  "frozen_at_utc": "2026-09-13T20:00:00Z",
+  "purpose": "Determine whether a fixed real source supplies the exact joint interface needed to turn a generic self-reference boundary into a consumer-qualified HoTT mismatch.",
+  "criteria": [
+    {"id": "Q1", "name": "fixed_real_interface", "question": "Is a concrete versioned theory, tool or public interface fixed?"},
+    {"id": "Q2", "name": "code_and_proof_domain", "question": "Does its object domain contain the relevant code and proof objects rather than names alone?"},
+    {"id": "Q3", "name": "checker_correspondence", "question": "Is the proof predicate or checker tied to actual acceptance for the declared fragment?"},
+    {"id": "Q4", "name": "reflection_scope", "question": "Is soundness/reflection stated with exact assumptions, trust base and target scope?"},
+    {"id": "Q5", "name": "same_layer_self_application", "question": "Does quotation/self-application remain in the same claimed layer without an outer theory or host primitive?"},
+    {"id": "Q6", "name": "total_self_reliability_promise", "question": "Does the source actually promise total same-layer self-reliability, rather than checking, bounded search, restricted decision or relative correctness?"}
+  ],
+  "capabilities": [
+    {"id": "given_proof_check", "meaning": "check one supplied proof/term against a type or derivation relation"},
+    {"id": "bounded_proof_search", "meaning": "search within a declared finite fuel/grammar and return a checked result"},
+    {"id": "finite_truth_decision", "meaning": "decide truth or definitional equality only in an explicitly restricted fragment"},
+    {"id": "same_layer_total_self_reliability", "meaning": "the same system internally and totally certifies the soundness/completeness needed for its own proof predicate"}
+  ],
+  "external_cache_root": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001",
+  "sources": [
+    {
+      "source_id": "L5-S1-AGDA-REFLECTION-2.8.0",
+      "system": "Agda reflection",
+      "version": "2.8.0 documentation",
+      "relation_to_hott": "host interface used by Cubical Agda developments",
+      "artifacts": [
+        {"artifact_id": "A-AGDA-REFLECTION", "location": "external_cache", "kind": "html", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/agda-reflection-v2.8.0.html", "bytes": 122696, "sha256": "f3685288a16d5289e7e8e911405fc5c7d5d5f816c83b6759d482150a1866b835", "url": "https://agda.readthedocs.io/en/v2.8.0/language/reflection.html"}
+      ]
+    },
+    {
+      "source_id": "L5-S2-METAROCQ-9.1",
+      "system": "MetaRocq safe checker and quotation",
+      "version": "branch 9.1 at c8cd46054518193103c3bb33aa6e15c7f489e72c",
+      "relation_to_hott": "non-HoTT dependently typed comparison system with a real self-quotation program",
+      "artifacts": [
+        {"artifact_id": "A-METAROCQ-SITE", "location": "external_cache", "kind": "html", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/metarocq-site.html", "bytes": 23897, "sha256": "b0fdad21a17714383f44d369adb1ef6944a2bd8e718503486e3bed8a704ce425", "url": "https://metarocq.github.io/"},
+        {"artifact_id": "A-METAROCQ-QUOTATION", "location": "external_cache", "kind": "text", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/metarocq-quotation-c8cd4605.md", "bytes": 51635, "sha256": "7fe3eb27f0b21b4acdc1f0d47ce09c6d7d973076aceb6cff5d5042de1f2a4cd6", "url": "https://github.com/MetaRocq/metarocq/blob/9.1/quotation/theories/README.md"},
+        {"artifact_id": "A-METAROCQ-SELF-ERASURE", "location": "external_cache", "kind": "text", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/metarocq-self-erasure-c8cd4605.v", "bytes": 228, "sha256": "42f7a6e0718ce1ab05782858f31a7f3353f5a43d650f847efb85f484b671772c", "url": "https://github.com/MetaRocq/metarocq/blob/9.1/test-suite/self_erasure.v"}
+      ]
+    },
+    {
+      "source_id": "L5-S3-2LTT-v5",
+      "system": "Two-Level Type Theory and Applications",
+      "version": "arXiv:1705.03307v5 (2026-05-26)",
+      "relation_to_hott": "inner HoTT with an explicit outer metatheory",
+      "artifacts": [
+        {"artifact_id": "A-2LTT-ABS", "location": "external_cache", "kind": "html", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/2ltt-1705.03307.html", "bytes": 46812, "sha256": "5e33881d1df050b28c2a53d4bef125c54b9339da008be9c0497cea1ba77c4d46", "url": "https://arxiv.org/abs/1705.03307"}
+      ]
+    },
+    {
+      "source_id": "L5-S4-NBE-IN-TT-v4",
+      "system": "Normalisation by Evaluation for Type Theory, in Type Theory",
+      "version": "arXiv:1612.02462v4 (2017-10-20)",
+      "relation_to_hott": "type-theoretic internalisation comparison using a QIIT metalanguage",
+      "artifacts": [
+        {"artifact_id": "A-NBE-ABS", "location": "external_cache", "kind": "html", "path": "/Volumes/D/HoTT-machine-overview-cache/L5-CONSUMER-QUALIFICATION-001/nbe-1612.02462.html", "bytes": 42351, "sha256": "be1c5aa12826fecdb29d74400d7e69ea7c1a18b5de4fa78f6ea5bef0dfa75611", "url": "https://arxiv.org/abs/1612.02462"}
+      ]
+    },
+    {
+      "source_id": "L5-S5-ERCF3-LOCAL",
+      "system": "local ERCF-3 object syntax and repaired coding",
+      "version": "worktree HEAD 1aa1a6 plus current uncommitted proof assets",
+      "relation_to_hott": "current project experiment; no natural consumer",
+      "artifacts": [
+        {"artifact_id": "A-ERCF3-OBJECT", "location": "repo", "kind": "text", "path": "HoTT/formal/ercf3-t3/ObjectSyntax.agda", "bytes": 4358, "sha256": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d"},
+        {"artifact_id": "A-ERCF3-REPAIRED", "location": "repo", "kind": "text", "path": "HoTT/formal/ercf3-t3/RepairedSyntax.agda", "bytes": 3376, "sha256": "af8937a532ec2264af6b1618efc0c487c405e625f1155e652cac6c6d86b602b4"},
+        {"artifact_id": "A-ERCF3-REFLECTION", "location": "repo", "kind": "text", "path": "HoTT/formal/ercf3-t3/ReflectionSketch.agda", "bytes": 1734, "sha256": "72fd86aeabba192a552cbb5eccf3f39c3f943dc60bb1e14e59491cadb4755501"}
+      ]
+    }
+  ],
+  "selection_boundary": "Primary official/project sources chosen for their direct interfaces: Agda reflection, MetaRocq checker/quotation/self-erasure, HoTT-specific 2LTT, NBE-in-type-theory and the current ERCF-3 construction. This is not an exhaustive literature census.",
+  "semantic_limit": "A source qualifies only if Q1-Q6 are all PASS in the same fixed interface. Keyword or anchor presence never decides a criterion by itself."
+}

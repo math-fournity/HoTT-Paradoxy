@@ -1,0 +1,80 @@
+{
+  "claim_ids": [
+    "MP-CGI-SEMANTIC-CONSISTENCY-001",
+    "MP-CGI-PROOF-CORE-001",
+    "MP-CGI-PROOF-CLASSIFIER-001",
+    "MP-CGI-FORMAL-SYSTEM-INSTANCE-001"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT-machine-overview/HoTT/formal/cubical-godel-infrastructure",
+    "-i",
+    "/Volumes/D/HoTT-machine-overview/HoTT/formal/cubical-synthetic-incompleteness",
+    "HoTT/formal/cubical-godel-infrastructure/ProofSearchClassifier.agda"
+  ],
+  "completed_at_utc": "2026-09-14T09:28:32.007624+00:00",
+  "cwd": "/Volumes/D/HoTT-machine-overview",
+  "duration_seconds": 19.639912,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "linked_worktree": true,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_dirs": [
+    "HoTT/formal/cubical-godel-infrastructure",
+    "HoTT/formal/cubical-synthetic-incompleteness"
+  ],
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "d4eb969082114e9c7ef241c82c106a81a185bab1cf59bd78721872f14ca97fbf"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No total theoremhood decider is claimed; the classifier may have no successful stage.",
+    "No Universal theta or strong-separation instance is constructed.",
+    "No incompleteness theorem for this Hilbert calculus, exact HoTT calculus, HoTT-specific mechanism or reality correspondence is claimed."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "PF-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001",
+  "run_id": "20260914-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Machine-check Boolean semantic consistency of the exact K/S/MP calculus, per-code positive and negative proof-search soundness and completeness, cross-stage deterministic proof/refutation classification, and a concrete FormalSystem instance for the conditional synthetic-incompleteness interface.",
+  "source_manifest": {
+    "bytes": 4258,
+    "path": "source-manifest.json",
+    "sha256": "ba61876e4d2154aa62a7cafbf3edf439b594eb7b0979567a44582ab7739c57f9"
+  },
+  "started_at_utc": "2026-09-14T09:28:12.367712+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 11495,
+    "path": "stdout.txt",
+    "sha256": "3fadcb0839d171a3a4e56b2b20e49307eb9cb998c47be513b8704e84382d418d"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

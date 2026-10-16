@@ -1,0 +1,121 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001",
+  "revision": 1,
+  "research_relation": "m4_lite_native_rejection_task",
+  "purpose": "Test whether a symbolically proposed rule may turn one finite-precision observation into exact arrival, while requiring the native kernel to reject the unsupported lift.",
+  "source_basis": {
+    "kind": "AI-authored M4-lite negative task materialized after the design freeze",
+    "references": [
+      "machine-overview/evaluations/M4-LITE-L3-001/PROTOCOL.json role FINITE_TO_EXACT_NEGATIVE",
+      "the user's distinction between dense theoretical time and non-continuous motion/completion",
+      "/Volumes/D/HoTT独立答复/HoTT非现实性悖论机器统观完整方案/005 - 六条研究线与首轮实验.md"
+    ]
+  },
+  "answer_visibility": {
+    "class": "POST_FREEZE_SAME_DESIGNER_NEGATIVE_TASK_NOT_BLIND",
+    "engine_freeze": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+    "engine_freeze_sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e",
+    "calibration_answer_available_to_search": false,
+    "limitation": "The designing AI knew before authoring the grammar that the finite-to-exact rule was intended to be a native rejection control."
+  },
+  "input": {
+    "type_ref": "FiniteApproximation with an explicit precision and an empty ExactArrival type in a bounded control model",
+    "available_information": "one finite approximation witness; no convergence modulus, limit constructor, completion axiom or exact-arrival witness"
+  },
+  "environment": {
+    "reality_model": "a finite observation has been completed at a stated precision",
+    "theory_model": "a candidate symbolic rule claims to promote that finite observation to exact arrival",
+    "arrival_policy": "exact arrival is a distinct output type with no constructor in this bounded model",
+    "nondeterminism": "none",
+    "fairness": "not applicable"
+  },
+  "observation": {
+    "value": "finite precision is available; exact arrival is not thereby supplied",
+    "trace": "no infinite execution or dense continuum is modeled by the native control",
+    "time_structure": {
+      "reality": "finite observation/approximation only",
+      "theory": "a speculative finite-to-exact promotion rule",
+      "temporal_order": "no event ordering result is used; the distinction concerns approximation, limit and exact completion"
+    }
+  },
+  "completion": {
+    "kind": "exact_arrival_candidate",
+    "criterion_ref": "construct ExactArrival from FiniteApproximation without adding any other input"
+  },
+  "quantifiers": {
+    "instances": "the fixed minimal FiniteApproximation/ExactArrival control",
+    "realization": "symbolic candidate followed by expected native Cubical rejection"
+  },
+  "allowed_resources": "declared symbolic rules through depth 4 and the pinned native profile",
+  "prohibited_extra_information": "no limit constructor, convergence theorem, modulus, choice principle, postulate or external exact-arrival witness",
+  "assumptions": [
+    "ExactArrival is empty only in this explicit negative control model; this is not a theorem that physical motion never arrives",
+    "the task tests evidence discipline around an unsupported exact lift rather than a general analysis theorem"
+  ],
+  "obligations": [
+    "the symbolic engine must find the candidate and lose it when finite_to_exact_candidate is removed",
+    "the candidate proof must be preserved as a native rejection receipt",
+    "the independent finite witness and exact-emptiness controls must pass",
+    "the failed main proof must never receive a NATIVE_CHECKED status",
+    "hybrid feedback must remove the rejected rule and rerun within the remaining budget",
+    "the result must remain a bounded negative control rather than a physical or HoTT-wide impossibility claim"
+  ],
+  "known_positive_controls": [
+    {
+      "id": "FINITE-OBSERVATION-EXISTS",
+      "description": "a precision-zero FiniteApproximation is constructible",
+      "source": "machine-overview/formal/L3M4Support.agda"
+    },
+    {
+      "id": "EXACT-ARRIVAL-EMPTY-IN-CONTROL",
+      "description": "the fixed ExactArrival type eliminates to empty",
+      "source": "machine-overview/formal/L3M4Support.agda"
+    }
+  ],
+  "known_negative_controls": [
+    {
+      "id": "FINITE-IS-NOT-EXACT",
+      "description": "the finite approximation constructor cannot inhabit ExactArrival",
+      "expected": "NATIVE_TYPE_REJECTION"
+    },
+    {
+      "id": "CANDIDATE-LIFT-UNSUPPORTED",
+      "description": "the searched finiteToExactCandidate symbol has no native declaration",
+      "expected": "MAIN_NATIVE_REJECTION"
+    }
+  ],
+  "claim_refs": [],
+  "correspondence": {
+    "original_activity": "obtain a finite-precision observation without claiming exact limit attainment",
+    "theoryization_steps": [
+      "represent the finite observation explicitly",
+      "propose a new rule that promotes it to exact arrival",
+      "submit that proposal to the native kernel"
+    ],
+    "preserved_fields": [
+      "the same finite observation input",
+      "the exact-arrival output requirement",
+      "absence of a modulus or limit witness"
+    ],
+    "changed_fields": [
+      "the speculative rule would add an unsupported finite-to-exact capability if accepted"
+    ],
+    "observation_justification": "the exact-versus-approximate distinction is declared before search",
+    "declared_observation_kinds": ["finite_to_exact_candidate"],
+    "consumer_requirements": {
+      "finite_to_exact_candidate": {
+        "required_rules": ["finite_observation", "finite_to_exact_candidate"]
+      }
+    },
+    "preservation_label": "TASK_INPUT_PRESERVED_CANDIDATE_REQUIRES_NATIVE_DECISION",
+    "correspondence_status": "SPECULATIVE_EXACT_LIFT_ISOLATED",
+    "reality_correspondence": "BOUNDED_CONTROL_ONLY",
+    "reality_bridge_status": "NO_PHYSICAL_OR_GENERAL_LIMIT_INFERENCE",
+    "reality_bridge_detail": "The empty ExactArrival type is part of this negative control model and does not settle Zeno's paradox or physical continuity.",
+    "open_obligations": [
+      "a genuine analysis task would need an independently specified sequence, metric, modulus and limit notion",
+      "natural-use and physical-reality bridges remain outside this M4 task"
+    ]
+  }
+}

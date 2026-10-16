@@ -28,6 +28,159 @@ def mechanism_facts(witness: dict, grammar: dict) -> dict:
         used_rules = derived["used_rules"]
         required = set(grammar.get("mechanism_rules", []))
         classified = bool(required) and required.issubset(set(used_rules))
+        observation = grammar.get("observation_kind")
+        if observation != "continuous_phase_obstruction":
+            mechanisms = {
+                "path_coherence_positive": {
+                    "mechanism": (
+                        "The task asks for endpoint Path coherence from an internal f : I → A. "
+                        "The witness uses the declared interval-abstraction rule, so the generated Path "
+                        "is the requested output rather than an added completion obligation."
+                    ),
+                    "class": "PATH_COHERENCE_MATCHES_DECLARED_TASK",
+                    "detail": (
+                        "The task and the representation both request a Path between the two endpoints; "
+                        "no discrete event predicate is inferred from that Path."
+                    ),
+                },
+                "explicit_event_boundary": {
+                    "mechanism": (
+                        "The witness combines separately declared start, finish and apartness facts over "
+                        "an ordinary Stage carrier.  Exact completion remains an event-boundary observation "
+                        "and does not require treating Stage as the cubical dimension."
+                    ),
+                    "class": "EXPLICIT_EVENT_STRUCTURE_PRESERVES_BOUNDARY",
+                    "detail": (
+                        "The event structure is part of the frozen task input and supplies exactly the "
+                        "boundary distinctions consumed by the task."
+                    ),
+                },
+                "finite_to_exact_candidate": {
+                    "mechanism": (
+                        "The symbolic witness applies the declared speculative finite-to-exact rule to "
+                        "finite approximation evidence.  Symbolic typing alone does not establish that the "
+                        "rule has a native Cubical inhabitant."
+                    ),
+                    "class": "SPECULATIVE_FINITE_TO_EXACT_RULE_REQUIRES_NATIVE_CHECK",
+                    "detail": (
+                        "Finite approximation is pre-kept by the task, while exact arrival requires an "
+                        "additional rule whose validity is deliberately left to the native negative task."
+                    ),
+                },
+                "local_to_global_completion_boundary": {
+                    "mechanism": (
+                        "The witness starts from the declared stagewise truncated limit, applies the "
+                        "hypothetical recovery to obtain one compatible exact limit, and eliminates that "
+                        "result with the pinned exact-limit emptiness proof."
+                    ),
+                    "class": "LOCAL_EXISTENCE_DOES_NOT_SUPPLY_COMPATIBLE_GLOBAL",
+                    "detail": (
+                        "Each stage retains mere local existence, while the requested global object adds one "
+                        "cross-stage compatibility obligation that is not supplied by those local witnesses."
+                    ),
+                },
+                "identity_observation_boundary": {
+                    "mechanism": (
+                        "The witness maps the pinned SIP/ua identification through a proposed Bool observer "
+                        "and combines it with the observer's two endpoint specifications, forcing true ≡ false."
+                    ),
+                    "class": "SIP_IDENTIFICATION_BLOCKS_OUTSIDE_SIGNATURE_OBSERVATION",
+                    "detail": (
+                        "The structure identity preserves the declared signature.  Recovering the external "
+                        "Bool observation requires enriching that signature, as shown by the positive control."
+                    ),
+                },
+                "self_guarantee_diagonal_boundary": {
+                    "mechanism": (
+                        "The witness instantiates the proposed exact self-coding section at its diagonal "
+                        "predicate, evaluates the resulting function path at the decoded self, and obtains a "
+                        "Boolean fixed point of negation."
+                    ),
+                    "class": "EXACT_SELF_CODING_FORCES_BOOLEAN_FIXED_POINT",
+                    "detail": (
+                        "Checking one supplied proof remains available; the rejected strengthening is a total "
+                        "section for every Boolean predicate over the same domain."
+                    ),
+                },
+                "given_proof_check_capability": {
+                    "mechanism": (
+                        "The witness starts with one supplied derivation in the fixed ERCF-3 object syntax "
+                        "and passes that same derivation through the declared checker.  It performs no proof "
+                        "search, truth decision or self-reliability step."
+                    ),
+                    "class": "SUPPLIED_PROOF_CHECKED_WITHOUT_SEARCH",
+                    "detail": (
+                        "The proof object is already present before the checker runs; acceptance is not "
+                        "evidence that an unknown proof can be found or that all true formulas are decidable."
+                    ),
+                },
+                "bounded_proof_search_capability": {
+                    "mechanism": (
+                        "The witness executes the declared one-fuel search, checks its successful Boolean "
+                        "result, and packages the result with a derivation of the fixed K-formula."
+                    ),
+                    "class": "FUEL_BOUND_SEARCH_WITH_SOUND_FOUND_RESULT",
+                    "detail": (
+                        "Fuel is an explicit input and zero fuel is a negative control.  The result makes no "
+                        "claim about unbounded proof search or completeness for the object theory."
+                    ),
+                },
+                "finite_truth_decision_capability": {
+                    "mechanism": (
+                        "The witness evaluates one closed formula in the explicitly finite Boolean fragment "
+                        "and supplies the resulting equality certificate."
+                    ),
+                    "class": "FINITE_FRAGMENT_TRUTH_DECIDED",
+                    "detail": (
+                        "The evaluator is total only for the declared BFml fragment.  It is not a truth "
+                        "predicate or theoremhood decider for ERCF-3, HoTT or the host proof assistant."
+                    ),
+                },
+                "lob_self_certification_boundary": {
+                    "mechanism": (
+                        "The witness instantiates the internally certified reflection principle at bottom, "
+                        "uses the declared Löb rule to obtain boxed bottom, and applies reflection."
+                    ),
+                    "class": "LOB_PLUS_REFLECTION_PLUS_INTERNAL_CERTIFICATION_COLLAPSES",
+                    "detail": (
+                        "All three assumptions must belong to one qualified consumer with the stated scope. "
+                        "The source audit currently finds no HoTT consumer supplying that joint interface."
+                    ),
+                },
+                "compensation_coherence_conflict": {
+                    "mechanism": (
+                        "The witness applies the declared endpoint-apartness compensation to the declared Path "
+                        "compensation for the same endpoints.  Their individual outputs have incompatible joint "
+                        "coherence requirements."
+                    ),
+                    "class": "COMPENSATIONS_REQUIRE_INCOMPATIBLE_COHERENCE",
+                    "detail": (
+                        "A Path repair and an exact-apartness repair can be exhibited separately in the controls, "
+                        "but the same endpoints cannot carry both without contradiction."
+                    ),
+                },
+            }
+            selected = mechanisms.get(observation)
+            if selected is None:
+                classified = False
+                selected = {
+                    "mechanism": "The symbolic witness has no registered mechanism classification.",
+                    "class": "UNRESOLVED",
+                    "detail": "The observation kind is not registered by the correspondence derivation.",
+                }
+            return {
+                "context_summary": [f"symbolic rule: {rule_id}" for rule_id in used_rules],
+                "has_deadline": False,
+                "has_race": False,
+                "has_business_bind": False,
+                "has_plain_bind": False,
+                "mechanism": selected["mechanism"] if classified else "Required symbolic mechanism rules are absent.",
+                "compensation": {
+                    "class": selected["class"] if classified else "UNRESOLVED",
+                    "detail": selected["detail"] if classified else "Required symbolic mechanism rules are absent.",
+                },
+                "derived_witness": derived,
+            }
         return {
             "context_summary": [f"symbolic rule: {rule_id}" for rule_id in used_rules],
             "has_deadline": False,
@@ -199,24 +352,12 @@ def _derive_symbolic_correspondence_content(
          "status": "PASS" if facts["compensation"]["class"] != "UNRESOLVED" else "FAIL",
          "detail": facts["compensation"]["class"]},
     ]
-    preservation = (
-        "PRESERVED_ACROSS_DECLARED_ENDPOINT_OBSERVATION"
-        if all(item["status"] == "PASS" for item in checks) else "REVIEW_REQUIRED"
+    preservation_label = correspondence.get(
+        "preservation_label", "PRESERVED_ACROSS_DECLARED_ENDPOINT_OBSERVATION"
     )
-    return {
-        "derived_witness": derived,
-        "mechanism_summary": facts["mechanism"],
-        "context_summary": facts["context_summary"],
-        "mechanism_facts": {
-            "has_deadline": False,
-            "has_race": False,
-            "has_business_bind": False,
-            "has_plain_bind": False,
-            "used_rules": derived["used_rules"],
-            "compensation": facts["compensation"],
-        },
-        "review_checks": checks,
-        "checklist": [
+    preservation = preservation_label if all(item["status"] == "PASS" for item in checks) else "REVIEW_REQUIRED"
+    if observation == "continuous_phase_obstruction":
+        checklist = [
             {"item": "original activity and exact endpoint completion are declared before search",
              "status": "DECLARED", "evidence": [case["task"]["path"]]},
             {"item": "time structure is distinguished from temporal ordering",
@@ -230,12 +371,48 @@ def _derive_symbolic_correspondence_content(
             {"item": "reality bridge", "status": "MODEL_RELATIVE_AND_UNRESOLVED",
              "detail": "the finite-stage control is an explicit operational model; empirical physics is outside this run",
              "evidence": [case["task"]["path"]]},
-        ],
+        ]
+        correspondence_status = "MODEL_RELATIVE_THEORYIZATION_SPECIFIED"
+        reality_correspondence = "UNRESOLVED"
+    else:
+        native_contract = grammar.get("native_contract", {})
+        checklist = [
+            {"item": "original task and observation are declared before search",
+             "status": "DECLARED", "evidence": [case["task"]["path"]]},
+            {"item": "time structure is distinguished from temporal ordering",
+             "status": "DECLARED", "detail": time_structure, "evidence": [case["task"]["path"]]},
+            {"item": "the searched mechanism is localized to the declared symbolic rules",
+             "status": facts["compensation"]["class"], "detail": facts["compensation"]["detail"],
+             "evidence": [case["grammar"]["path"]]},
+            {"item": "native target scope", "status": "DECLARED_NATIVE_TARGET",
+             "detail": native_contract.get("target_scope"), "evidence": [case["grammar"]["path"]]},
+            {"item": "reality bridge", "status": correspondence.get(
+                "reality_bridge_status", "MODEL_RELATIVE_AND_UNRESOLVED"),
+             "detail": correspondence.get(
+                 "reality_bridge_detail", "the run checks a declared model; empirical reality is outside the kernel"),
+             "evidence": [case["task"]["path"]]},
+        ]
+        correspondence_status = correspondence.get("correspondence_status", "MODEL_RELATIVE_TASK_SPECIFIED")
+        reality_correspondence = correspondence.get("reality_correspondence", "UNRESOLVED")
+    return {
+        "derived_witness": derived,
+        "mechanism_summary": facts["mechanism"],
+        "context_summary": facts["context_summary"],
+        "mechanism_facts": {
+            "has_deadline": False,
+            "has_race": False,
+            "has_business_bind": False,
+            "has_plain_bind": False,
+            "used_rules": derived["used_rules"],
+            "compensation": facts["compensation"],
+        },
+        "review_checks": checks,
+        "checklist": checklist,
         "conclusion": {
-            "correspondence_status": "MODEL_RELATIVE_THEORYIZATION_SPECIFIED",
+            "correspondence_status": correspondence_status,
             "task_preservation": preservation,
             "task_preservation_basis": [item for item in checks],
-            "reality_correspondence": "UNRESOLVED",
+            "reality_correspondence": reality_correspondence,
             "research_relation": task.get("research_relation", "exploration"),
             "new_claim": False,
             "related_claims": case.get("claim_refs", []),

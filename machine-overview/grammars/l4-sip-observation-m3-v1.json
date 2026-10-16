@@ -1,0 +1,26 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L4-SIP-OBSERVATION-M3-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json", "sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46"},
+  "answer_visibility": "Known C-124 to C-128 calibration; no benchmark AST or witness ID is embedded.",
+  "propositions": ["structure_path", "observed_path", "left_spec", "right_spec", "true_false_path", "bottom", "reverse_structure_path"],
+  "goal": "bottom",
+  "observation_kind": "identity_observation_boundary",
+  "max_proof_depth": 4,
+  "rules": [
+    {"id": "sip_identification", "premises": [], "conclusion": "structure_path", "term_template": "SIP.C-124-identification", "semantic_source": "SIPRepresentation.C-124-identification"},
+    {"id": "map_observer", "premises": ["structure_path"], "conclusion": "observed_path", "term_template": "cong f ({0})", "semantic_source": "functions respect Path identity"},
+    {"id": "left_specification", "premises": [], "conclusion": "left_spec", "term_template": "hs", "semantic_source": "predeclared f s = true requirement"},
+    {"id": "right_specification", "premises": [], "conclusion": "right_spec", "term_template": "ht", "semantic_source": "predeclared f t = false requirement"},
+    {"id": "chain_observation", "premises": ["left_spec", "observed_path", "right_spec"], "conclusion": "true_false_path", "term_template": "sym ({0}) ∙ {1} ∙ {2}", "semantic_source": "Path composition"},
+    {"id": "bool_apart", "premises": ["true_false_path"], "conclusion": "bottom", "term_template": "SIP.C-125-obs-differs ({0})", "semantic_source": "SIPRepresentation.C-125-obs-differs"},
+    {"id": "path_sym_decoy", "premises": ["structure_path"], "conclusion": "reverse_structure_path", "term_template": "sym ({0})", "semantic_source": "Path symmetry decoy"}
+  ],
+  "mechanism_rules": ["sip_identification", "map_observer", "left_specification", "right_specification", "chain_observation", "bool_apart"],
+  "positive_control_goals": ["structure_path", "left_spec", "right_spec"],
+  "ablation": {"remove_rules": ["sip_identification"], "expected": "bottom becomes unreachable because no observer equality can be derived"},
+  "native_contract": {"renderer": "m3_l4_sip_observation_v1", "target_scope": "fixed SIPRepresentation.Str, s and t", "positive_controls": ["C-124 identification", "C-125 observation difference", "C-128 refined separation"], "negative_control": "coarse Str identity cannot inhabit refined Str' identity"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 4 over the fixed SIP instance."
+}

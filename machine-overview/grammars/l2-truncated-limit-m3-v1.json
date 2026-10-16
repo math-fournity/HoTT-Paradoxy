@@ -1,0 +1,24 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L2-TRUNCATED-LIMIT-M3-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json", "sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46"},
+  "answer_visibility": "Known C-114 to C-116 calibration; no benchmark AST or witness ID is embedded.",
+  "propositions": ["truncated_limit", "exact_limit", "bottom", "decoy_limit"],
+  "goal": "bottom",
+  "observation_kind": "local_to_global_completion_boundary",
+  "max_proof_depth": 4,
+  "rules": [
+    {"id": "stagewise_mere_limit", "premises": [], "conclusion": "truncated_limit", "term_template": "TL.C-115-limTrunc", "semantic_source": "TransitionLift.C-115-limTrunc"},
+    {"id": "hypothetical_recovery", "premises": ["truncated_limit"], "conclusion": "exact_limit", "term_template": "recover ({0})", "semantic_source": "the TaskSpec's assumed LimTruncA to LimA recovery"},
+    {"id": "exact_limit_empty", "premises": ["exact_limit"], "conclusion": "bottom", "term_template": "TL.C-114-LimA-empty ({0})", "semantic_source": "TransitionLift.C-114-LimA-empty"},
+    {"id": "truncated_identity_decoy", "premises": ["truncated_limit"], "conclusion": "truncated_limit", "term_template": "{0}", "semantic_source": "identity decoy"},
+    {"id": "decoy_seed", "premises": [], "conclusion": "decoy_limit", "term_template": "TL.C-115-limTrunc", "semantic_source": "unconsumed decoy"}
+  ],
+  "mechanism_rules": ["stagewise_mere_limit", "hypothetical_recovery", "exact_limit_empty"],
+  "positive_control_goals": ["truncated_limit", "decoy_limit"],
+  "ablation": {"remove_rules": ["hypothetical_recovery"], "expected": "bottom becomes unreachable while the truncated limit remains reachable"},
+  "native_contract": {"renderer": "m3_l2_truncated_limit_v1", "target_scope": "the fixed TransitionLift LimTruncA and LimA types", "positive_controls": ["C-115-limTrunc", "C-114-LimA-empty"], "negative_control": "LimTruncA witness cannot inhabit LimA"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 4; native target reuses one fixed existing machine-proof model."
+}

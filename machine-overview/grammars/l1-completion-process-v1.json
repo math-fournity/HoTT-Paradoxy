@@ -1,0 +1,110 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L1-COMPLETION-PROCESS-v1",
+  "family": "TASK-FAMILY-COMPLETION-PROCESS",
+  "premise_ref": "PREMISE-A-03 (PREMISE-001/005, AI-adjudicated pending external audit)",
+  "value_type": "Bool (Cubical.Data.Bool.Base)",
+  "include_omega": true,
+  "delay_index_max": 2,
+  "race_partner_index_max": 2,
+  "context_depth_max": 2,
+  "deadline_horizons": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "negative_control_policy": "choose the least declared horizon at or above both finite input indices; if none exists, report CONTROL_NOT_AVAILABLE_IN_GRAMMAR",
+  "reduction_guard": {
+    "never_drop_kinds": [
+      "bind"
+    ],
+    "never_drop_continuation_ids": [
+      "boundary_completion_consumer"
+    ],
+    "reason": "The bind is the declared completion-sensitive consumer and boundary_completion_consumer is its in-boundary branch; reduction must keep the task-declared consumer shape. Every parameter change is rechecked for grammar membership and separation."
+  },
+  "bind_continuations": [
+    {
+      "id": "boundary_completion_consumer",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "false": {
+          "kind": "ret",
+          "n": 2,
+          "value": false
+        }
+      }
+    },
+    {
+      "id": "completion_late_reporter",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 2,
+          "value": true
+        },
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      }
+    },
+    {
+      "id": "late_diverging_consumer",
+      "map": {
+        "true": {
+          "kind": "omega"
+        },
+        "false": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      }
+    },
+    {
+      "id": "deliver_business",
+      "map": {
+        "true": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "false": {
+          "kind": "omega"
+        }
+      }
+    },
+    {
+      "id": "const_omega",
+      "map": {
+        "true": {
+          "kind": "omega"
+        },
+        "false": {
+          "kind": "omega"
+        }
+      }
+    }
+  ],
+  "calibration_benchmark": null,
+  "out_of_envelope_declaration": {
+    "new_declared_constructs": [
+      "boundary_completion_consumer",
+      "completion_late_reporter",
+      "late_diverging_consumer"
+    ],
+    "proof_method": "within_grammar_witness of any witness binding these continuations against l1-v0/v1/v2 returns false with reason BIND_CONTINUATION: every input atom of this grammar lies within the old declared index bound (delay_index_max 2), so the new continuation map is the only failing dimension",
+    "shared_constructs_kept_for_calibration_continuity": [
+      "deliver_business",
+      "const_omega"
+    ]
+  },
+  "declared_bounds_note": "Complete enumeration of the finite constructor product: atoms = 1 + 2*(delay_index_max+1); contexts = non-empty well-typed op sequences up to context_depth_max with a deadline only as the final op; denominator is finite and closed. Horizon 3 exceeds the raw atom index bound on purpose: it is reachable only after a bind shift, which is exactly the completion-sensitive consumer's own processing time."
+}

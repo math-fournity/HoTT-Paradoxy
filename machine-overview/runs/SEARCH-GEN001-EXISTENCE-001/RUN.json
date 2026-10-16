@@ -1,0 +1,3355 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000000,
+    "max_contexts": 200000,
+    "max_witnesses": 20000
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "CASE-GEN001-EXISTENCE-001",
+  "case_identity_sha256": "b8691845f632ac2af462b54b386f72e338ed08818a684a08f06ef72ed654c3d3",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/CASE-GEN001-EXISTENCE-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-16T23:34:14.268054+00:00",
+  "controls": {
+    "negative": {
+      "context": {
+        "k": 1,
+        "kind": "deadline"
+      },
+      "control": "declared_deadline_does_not_separate_this_pair",
+      "expectation_met": true,
+      "expected": "NOT_SEPARATED",
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separated": false,
+      "status": "CHECKED"
+    },
+    "positive": {
+      "claim_ref": "C-71",
+      "context": {
+        "continuation": {
+          "false": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          },
+          "true": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        "kind": "bind"
+      },
+      "control": "bind_preserves_result_equivalence",
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "preserved": true,
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      }
+    }
+  },
+  "coordinator_version": "0.5.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/CASE-GEN001-EXISTENCE-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 15,
+    "untracked_entries": 2312,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 2327,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_deadline_kind": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "checks_planned": 4560,
+      "complete_within_declared_grammar": true,
+      "context_budget_exhausted": false,
+      "contexts": 380,
+      "contexts_examined": 380,
+      "delay_atoms": 7,
+      "grammar_violations": 0,
+      "pair_context_checks": 4560,
+      "separations_seen": 692,
+      "truncated": false,
+      "witness_capture_truncated": false,
+      "witnesses_captured": 692
+    },
+    "mutated_witness_count": 48,
+    "mutation": "remove the deadline operation from the declared grammar"
+  },
+  "inputs": {
+    "case_sha256": "1b1268980dea02480182fc15265d32d72cd7817c55f597c65ba387a886b51d36",
+    "grammar_path": "machine-overview/grammars/l1-existence-v1.json",
+    "grammar_sha256": "c2cc645ea7b23937f1d5c5f26d0388628c4c44dfbf0cf95b82c342cdf2572a0e",
+    "profile_sha256": "df231a4fcbeda94b7af8e010c4ea96d9247ad240bcdaedee0521b94df43fff92",
+    "task_path": "machine-overview/tasks/MS-TASK-GEN001-EXISTENCE-001.json",
+    "task_sha256": "76dfc299de3e23f60e6de6c85dd5bf31b855392d47b6aafc7a0930087f1e4248",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l1-existence-v1.json",
+        "sha256": "c2cc645ea7b23937f1d5c5f26d0388628c4c44dfbf0cf95b82c342cdf2572a0e"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l1-existence-v1.json",
+        "sha256": "df231a4fcbeda94b7af8e010c4ea96d9247ad240bcdaedee0521b94df43fff92"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-GEN001-EXISTENCE-001.json",
+        "sha256": "76dfc299de3e23f60e6de6c85dd5bf31b855392d47b6aafc7a0930087f1e4248"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L1-EXISTENCE-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "SEARCH-GEN001-EXISTENCE-001",
+  "runner": {
+    "bytes": 4532,
+    "path": "runner-manifest.json",
+    "sha256": "4d8b235a4c6562834117587395a3e2b2e3b59291adb2287f88538920621cd0d1"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-16T23:34:13.818301+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "checks_planned": 5280,
+    "complete_within_declared_grammar": true,
+    "context_budget_exhausted": false,
+    "contexts": 440,
+    "contexts_examined": 440,
+    "delay_atoms": 7,
+    "grammar_violations": 0,
+    "pair_context_checks": 5280,
+    "separations_seen": 916,
+    "truncated": false,
+    "witness_capture_truncated": false,
+    "witnesses_captured": 916
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "9a92083e109d41ff259ce8cef960422f14a37d1733cdff674c232395ef72c8b0",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "b8a1c20567d7b27debdfb414ce06c7348bbf8753520f85d322ba0920f90f7dfc",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0002"
+    },
+    {
+      "ast_sha256": "c054c6ab96cef1e958081398cbeff2fc6a7ebf4487e5cb5e3973da681ce38741",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0003"
+    },
+    {
+      "ast_sha256": "66edcd36dd910761fc8618bf59783f8631dff5897ea3a00d15f52ac9f8873049",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0004"
+    },
+    {
+      "ast_sha256": "d772f01224e0fa30bc7516dac33129fa607b597500ea7282c762fd4c80732298",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0005"
+    },
+    {
+      "ast_sha256": "149db19973fa607440c8cf662f1137dc3edaa755582e28dbb67ec94c38aace61",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0006"
+    },
+    {
+      "ast_sha256": "822aa3d772b0d7b95adf1098b1e099b15fe679a73eedeee6d282c90d6e6c238e",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0007"
+    },
+    {
+      "ast_sha256": "19b1f50f2f5bf2309079a2dff2df02a09b40edcedc794fe397b9a91d62d908ea",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0008"
+    },
+    {
+      "ast_sha256": "f69a2806560b3a1430ce7c6b3c1f0b9a96470f9d35cb0f6062230e9008e85dee",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0009"
+    },
+    {
+      "ast_sha256": "b66fb5974cfdb1a2e030187ab3d2161f548d81a552f2a1a6ae534d3d2a929617",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0010"
+    },
+    {
+      "ast_sha256": "dbe9b10ae3cfa4811145622f021f57d694428bd87eb0708e1772d72221cb802a",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0011"
+    },
+    {
+      "ast_sha256": "94d256e7ec82d4cd1e66d6199c9e955e535faa16a28b7f4589dcfd71e92fa139",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0012"
+    },
+    {
+      "ast_sha256": "e76eec9e97b7f1c2576dd0c955b808abcf528e893915494ab501bec5a42d62d2",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0013"
+    },
+    {
+      "ast_sha256": "34890468017167e93317754112013cf37c3a9cb563f42af35759b9110b7bb46e",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0014"
+    },
+    {
+      "ast_sha256": "3bf79dc943c62389d9106239b63c07383c46398602b4cec02c47d6ac88f1835a",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0015"
+    },
+    {
+      "ast_sha256": "b82fd7d0982c6864f5613742758238999b4641e71cbc132d9acc4a20259d09d0",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0016"
+    },
+    {
+      "ast_sha256": "4fd50538000942399655de85f9d06bdfc3a843c92fd56339d7ce426a23eee4b1",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0017"
+    },
+    {
+      "ast_sha256": "5c5fa7779adfbf6f1f53fbb15e1652e8c2c764d21fbf9054dbe37492e44a2304",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0018"
+    },
+    {
+      "ast_sha256": "c04c0783f0ec63d5b6607e633e0cb3a49fe057dfe87d7ca07a20283deb8a3c0d",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0019"
+    },
+    {
+      "ast_sha256": "6d3753bfba71e632e764a872b2fcc21abd54f6f4172e72602ffe2bb573b64678",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0020"
+    },
+    {
+      "ast_sha256": "9ce1259ea16c46552ff99930ada7ebcda19ec1cd6baeaaa03471d44f2532c0f5",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0021"
+    },
+    {
+      "ast_sha256": "e63b1093b3c91d94f78d9e0a74d76c03b16a6417615ac620617db91208e17254",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0022"
+    },
+    {
+      "ast_sha256": "47e184349bdfa7a079b3a67e554967d82d3728fa3c44083ac77d361f59ad77c8",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0023"
+    },
+    {
+      "ast_sha256": "4b9256e15241eb7f3ac99cd54e80f7eee3607730112c3a31cc569d4b6c09eb6b",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0024"
+    },
+    {
+      "ast_sha256": "c311606276673d1b4d7fa1eed640159f6355e142d9f8851a072f3a37b8d2b884",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0025"
+    },
+    {
+      "ast_sha256": "8ad330fa53fbcea6d9f343c464dd4fac21d523a053ebbdfd0dc1e8951dd88cb0",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0026"
+    },
+    {
+      "ast_sha256": "3a7d10a0d5a3b5441f0ba1eb8ba2760eacdf1535d9b80d39c23e23c9e86c866a",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0027"
+    },
+    {
+      "ast_sha256": "104afa0b28708fc1f3ab31c1746988743b66abad74ffc21e2fbc38a435253d8a",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0028"
+    },
+    {
+      "ast_sha256": "cc04d8302b0f02999a29828adb5d4c77fc84389ee31f4484945dc211af3135d0",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0029"
+    },
+    {
+      "ast_sha256": "41b3a6fdeb59aaf81217781f4ca1e8f18097c50974c3526574a0e82cf2e0008a",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0030"
+    },
+    {
+      "ast_sha256": "6f35023230cb2481fd5f2c6d9f58909c045c22674255ee38ae9169d63e980f08",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0031"
+    },
+    {
+      "ast_sha256": "aecf00d702fc26f5137483ee7cd197d36efbb482707826768a4234874890765e",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0032"
+    },
+    {
+      "ast_sha256": "30d27bddcd170e59c3ee2c52a7bb4db595edf371a4aa5a8f376278061415cd5e",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0033"
+    },
+    {
+      "ast_sha256": "a0717d420a8cf8aeeed6e3d4837d654a5dda2dbebd0890356ac4d35b4f25c471",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0034"
+    },
+    {
+      "ast_sha256": "6f1026379a540531968ca18933055900703088686af61cebec029adc5a0bed88",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0035"
+    },
+    {
+      "ast_sha256": "bb9601a8b1b35c226d121e64fce89434e654314f97c0ddc28b29de15c62dca78",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0036"
+    },
+    {
+      "ast_sha256": "92b7f06b171a68a126576b7825700af96a9f536df20bfd23cf775788829f4955",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0037"
+    },
+    {
+      "ast_sha256": "23170bb6f162c84a51b52b67550616f31e5e2b74d2723c2bf9c215a400a60696",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0038"
+    },
+    {
+      "ast_sha256": "8664fc46b6fb87be15530c312c510991fc8faa194c3b8622bfd1335afcde75c8",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0039"
+    },
+    {
+      "ast_sha256": "c3dc6b35157473d29bb2e5a3d51dc886b124d46ee79c409c1ff5510c6a4bbb62",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0040"
+    },
+    {
+      "ast_sha256": "c876558d7ee68dba1f1f7769de5f6b615953cbdfa26621d26f2ffa311dc8752d",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0041"
+    },
+    {
+      "ast_sha256": "98e5d1a3ca6eea73a36e5bf176dba08785e866b07b9d016c0e3c8846291b41b7",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0042"
+    },
+    {
+      "ast_sha256": "268de616f37ff40c9184f05780d4ee6ae3f6d762f1ff1e29b246ac4b8e46bcc6",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 2,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0043"
+    },
+    {
+      "ast_sha256": "2cfdd13ff0feb101d793eca42cc675167c5c845c8076fbed84d0370d37dece01",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0044"
+    },
+    {
+      "ast_sha256": "d19399c381719af45b1de44baf1e3b7bf62ea3e215bbc2a8df3d5ddc3166f6f8",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 2,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0045"
+    },
+    {
+      "ast_sha256": "51fb20cabaf64d48943ac9197e53577b8a71eb9f4a7b75b1ec37ee056d16a1c1",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0046"
+    },
+    {
+      "ast_sha256": "1df520cc59dd9c6bbea2ebd49d3f587ea9ca0067d95eea0dc9f1a8eb98580461",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 2,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0047"
+    },
+    {
+      "ast_sha256": "286989ae73a395840cf7d108e6b5cd7ad8bde84d9b1f8adc06734a261cc112d9",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            },
+            "true": {
+              "kind": "omega"
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0048"
+    },
+    {
+      "ast_sha256": "6f44caa3d4055497f1b200a1ed6a9fe9f72b344d6694a11cd371be38229fbb19",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 2,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0049"
+    },
+    {
+      "ast_sha256": "ef8cda3cea31536cc03ec5ca3daca25e3932c57b8479194cb771ed59e113e0cc",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 4
+      },
+      "witness_id": "WV-0050"
+    },
+    {
+      "ast_sha256": "4dae7ad01a2317adce1366c435d614b54895fb27c2879c349266cf0f7893250b",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 5
+      },
+      "witness_id": "WV-0051"
+    },
+    {
+      "ast_sha256": "f533d7bfcec494789983326ca80fa3ccb46bd75e0c8e2ed2d9a156aeca018f80",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 5
+      },
+      "witness_id": "WV-0052"
+    },
+    {
+      "ast_sha256": "280430f9508631b58ff04d26090a8f0a1f5318b303ac71e3d392845216badb1a",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 5
+      },
+      "witness_id": "WV-0053"
+    },
+    {
+      "ast_sha256": "0643184cf9e6d7c69fe6465b9abb7771181488a8c7f0cc5d07fd03d7b7b698dc",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 5
+      },
+      "witness_id": "WV-0054"
+    },
+    {
+      "ast_sha256": "63db1d0e15f074447a301df07d92be0167aca663083ddcbe0921f734e868b512",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 4,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 6
+      },
+      "witness_id": "WV-0055"
+    },
+    {
+      "ast_sha256": "d1f5477a61a3cf8cb024190094f852728c04e2a2e6ecf0e038372cdabf6bc64d",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 4,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 6
+      },
+      "witness_id": "WV-0056"
+    },
+    {
+      "ast_sha256": "b8522dedbef349ade54d85efef55f452eef74eec0053444b96a16b44731306f1",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 4,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 6
+      },
+      "witness_id": "WV-0057"
+    },
+    {
+      "ast_sha256": "7572736f8a76b6f2a464eff251bc6e24ad52b9ad888fc759ae3e1accca138087",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "left_observation": {
+        "kind": "ret",
+        "n": 4,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 2,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 3,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 6
+      },
+      "witness_id": "WV-0058"
+    }
+  ]
+}

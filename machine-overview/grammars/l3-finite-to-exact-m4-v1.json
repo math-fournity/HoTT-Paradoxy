@@ -1,0 +1,78 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L3-FINITE-TO-EXACT-M4-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {
+    "path": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+    "sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e"
+  },
+  "answer_visibility": "The same designing AI authored this explicit negative grammar after freeze. The expected native rejection is in the evaluation gold data, while no benchmark AST or witness ID is embedded.",
+  "propositions": [
+    "finite_approximation",
+    "refined_approximation",
+    "exact_arrival",
+    "path_decoy"
+  ],
+  "goal": "exact_arrival",
+  "observation_kind": "finite_to_exact_candidate",
+  "max_proof_depth": 4,
+  "rules": [
+    {
+      "id": "finite_observation",
+      "premises": [],
+      "conclusion": "finite_approximation",
+      "term_template": "finite",
+      "semantic_source": "the FiniteApproximation argument supplied by the native target"
+    },
+    {
+      "id": "finite_refine_decoy",
+      "premises": ["finite_approximation"],
+      "conclusion": "refined_approximation",
+      "term_template": "refineFinite ({0})",
+      "semantic_source": "speculative refinement decoy; never trusted without native checking"
+    },
+    {
+      "id": "refined_forget_decoy",
+      "premises": ["refined_approximation"],
+      "conclusion": "finite_approximation",
+      "term_template": "forgetRefinement ({0})",
+      "semantic_source": "speculative refinement decoy"
+    },
+    {
+      "id": "finite_to_exact_candidate",
+      "premises": ["finite_approximation"],
+      "conclusion": "exact_arrival",
+      "term_template": "finiteToExactCandidate ({0})",
+      "semantic_source": "candidate rule deliberately absent from the native profile"
+    },
+    {
+      "id": "exact_identity_decoy",
+      "premises": ["exact_arrival"],
+      "conclusion": "exact_arrival",
+      "term_template": "{0}",
+      "semantic_source": "identity rewrite decoy"
+    },
+    {
+      "id": "path_fact_decoy",
+      "premises": [],
+      "conclusion": "path_decoy",
+      "term_template": "segment-path",
+      "semantic_source": "unrelated path fact"
+    }
+  ],
+  "mechanism_rules": ["finite_observation", "finite_to_exact_candidate"],
+  "positive_control_goals": ["finite_approximation", "path_decoy"],
+  "ablation": {
+    "remove_rules": ["finite_to_exact_candidate"],
+    "expected": "exact_arrival becomes unreachable while finite approximation remains reachable"
+  },
+  "native_contract": {
+    "renderer": "l3_finite_to_exact_candidate_v1",
+    "target_scope": "the fixed FiniteApproximation → ExactArrival candidate in L3M4Support",
+    "positive_controls": ["finite approximation exists", "ExactArrival eliminates to empty"],
+    "negative_control": "FiniteApproximation's constructor cannot inhabit ExactArrival",
+    "expected_main_result": "NATIVE_REJECTION"
+  },
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Exhaustive proof-tree enumeration through depth 4. Symbolic well-typedness is relative to declared propositions and does not certify the candidate rule's native meaning."
+}

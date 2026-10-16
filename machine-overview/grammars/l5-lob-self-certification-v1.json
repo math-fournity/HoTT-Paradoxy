@@ -1,0 +1,24 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L5-LOB-SELF-CERTIFICATION-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json", "sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664"},
+  "answer_visibility": "Same-designer Loeb shape; no benchmark AST or witness ID is embedded.",
+  "propositions": ["certified_reflection_at_bottom", "boxed_bottom", "bottom", "given_check", "finite_truth"],
+  "goal": "bottom",
+  "observation_kind": "lob_self_certification_boundary",
+  "max_proof_depth": 4,
+  "rules": [
+    {"id": "certify_reflection", "premises": [], "conclusion": "certified_reflection_at_bottom", "term_template": "certify ⊥", "semantic_source": "the proposed internal certificate instantiated at bottom"},
+    {"id": "lob_at_bottom", "premises": ["certified_reflection_at_bottom"], "conclusion": "boxed_bottom", "term_template": "lob ⊥ ({0})", "semantic_source": "Loeb rule at bottom"},
+    {"id": "reflect_bottom", "premises": ["boxed_bottom"], "conclusion": "bottom", "term_template": "reflect ⊥ ({0})", "semantic_source": "reflection at bottom"},
+    {"id": "given_check_decoy", "premises": [], "conclusion": "given_check", "term_template": "L5.givenK", "semantic_source": "separate given-proof capability"},
+    {"id": "finite_truth_decoy", "premises": [], "conclusion": "finite_truth", "term_template": "L5.truthDecision", "semantic_source": "separate finite-truth capability"}
+  ],
+  "mechanism_rules": ["certify_reflection", "lob_at_bottom", "reflect_bottom"],
+  "positive_control_goals": ["certified_reflection_at_bottom", "boxed_bottom", "given_check", "finite_truth"],
+  "ablation": {"remove_rules": ["certify_reflection"], "expected": "boxed_bottom and bottom become unreachable"},
+  "native_contract": {"renderer": "l5_lob_self_certification_v1", "target_scope": "all Set-level Box modalities under the exact reflect/lob/certify conjunction", "positive_controls": ["given checking remains separate", "bounded search remains separate", "finite truth remains separate"], "negative_control": "reflection plus Loeb without certified reflection is ill-typed"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 4. The target is universe-symbolic but purely conditional and generic."
+}

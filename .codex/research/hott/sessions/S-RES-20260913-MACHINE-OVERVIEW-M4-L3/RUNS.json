@@ -1,0 +1,95 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260913-MACHINE-OVERVIEW-M4-L3",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "main_touched": false,
+  "new_math_claims": [],
+  "engine": {
+    "coordinator_version": "0.3.0",
+    "frozen_search_commit": "025938a07ef6ca9b74ca4874366ec1f97f06592e",
+    "search_sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20",
+    "design_freeze": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+    "freeze_sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e"
+  },
+  "m4_tasks": [
+    {
+      "task_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001",
+      "case": "machine-overview/cases/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L3-M4-PATH-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L3-M4-PATH-001/RUN.json",
+      "result": "NATIVE_CHECKED_EXPLORATION_CANDIDATE; 0/0/42(expected)/0; exact replay"
+    },
+    {
+      "task_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001",
+      "case": "machine-overview/cases/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L3-M4-EVENT-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L3-M4-EVENT-001/RUN.json",
+      "result": "NATIVE_CHECKED_EXPLORATION_CANDIDATE; 0/0/42(expected)/0; exact replay"
+    },
+    {
+      "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001",
+      "case": "machine-overview/cases/MS-TASK-L3-FINITE-TO-EXACT-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L3-M4-EXACT-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L3-M4-EXACT-001/RUN.json",
+      "result": "NATIVE_CHECK_FAILED as expected by M4 gold; main 42 / controls 0 / negative 42 / failed replay 42 exact"
+    }
+  ],
+  "m4_evaluation": {
+    "protocol": "machine-overview/evaluations/M4-LITE-L3-001/PROTOCOL.json",
+    "spec": "machine-overview/evaluations/M4-LITE-L3-001/SPEC.json",
+    "run": "machine-overview/evaluations/M4-LITE-L3-001/runs/20260913-M4-LITE-L3-001/RUN.json",
+    "report": "machine-overview/evaluations/M4-LITE-L3-001/REPORT.md",
+    "result": "M4_LITE_REPLAY_VALID; tasks 3; full/LLM/hybrid checks 194/41/46; expected decisions 3/3 each; false promotions 0"
+  },
+  "natural_consumer_audit": {
+    "scope": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/SCOPE.json",
+    "scope_correction": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/SCOPE-CORRECTION-001.json",
+    "retrieval_manifest": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/RETRIEVAL-MANIFEST.json",
+    "inventory": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/KEYWORD-INVENTORY.json",
+    "decisions": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/DECISIONS.json",
+    "assessment": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/ASSESSMENT.md",
+    "external_cache": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001",
+    "result": "NATURAL_CONSUMER_INVENTORY_VALID; 7 sources / 42 decision cells / 0 E1-E6 hits; bounded negative only"
+  },
+  "development_failures": [
+    {
+      "stage": "pre-freeze native adapter probe",
+      "result": "event Target failed because _×_ was not explicitly imported",
+      "disposition": "added Cubical.Data.Prod.Base imports before DESIGN-FREEZE; all three renderer roles then qualified"
+    },
+    {
+      "stage": "temporary probe command",
+      "result": "host rejected a command containing rm before execution",
+      "disposition": "used a fresh non-existing /tmp directory; no repository or cache mutation from the rejected command"
+    },
+    {
+      "stage": "NC-02 retrieval",
+      "result": "frozen cubical.rst URL returned HTTP 404",
+      "disposition": "GitHub tag/tree evidence located cubical.lagda.rst at the same commit; correction receipt preserves original failure"
+    },
+    {
+      "stage": "PDF extraction",
+      "result": "system pdftotext command unavailable",
+      "disposition": "used pinned bundled Python 3.12.14 and pypdf 6.10.0; recorded source and derived text hashes"
+    },
+    {
+      "stage": "natural audit unit tests",
+      "result": "initial direct test import path failed, then source_tree_hash symbol name was incorrect",
+      "disposition": "added explicit script path and used util.deterministic_tree before canonical inventory generation"
+    }
+  ],
+  "verification": {
+    "selftest": "49/49 PASS",
+    "workspace_validate": "VALID: 8 case revisions / 23 runs / 10 reviews / 0 errors / 1 registered interrupted legacy attempt",
+    "m4_replay": "PASS: deterministic sha256 199793e000ba3de879d0f85c225b20b876775ccfa34f5abac9829004c8a90028",
+    "natural_inventory_replay": "PASS: deterministic sha256 89972826f625e03a303d8de2985319dee7a5c9c44cd1e32bccc1039324aa81e5",
+    "natural_decisions": "PASS: 7 sources / 6 criteria / 42 cells / 0 hits",
+    "json_parse": "192 JSON files parsed",
+    "core_cognition_audit_verify": "PASS: 36 KC; ALIGNED 6 / DEEPENED 20 / TENSION 2 / NOT_TOUCHED 8",
+    "diff_check": "PASS"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

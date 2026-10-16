@@ -1,0 +1,243 @@
+{
+  "schema_version": "coq-synthetic-incompleteness-qualification/v1",
+  "evaluation_id": "COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001",
+  "generated_at_utc": "2026-09-14T10:51:52.995265+00:00",
+  "source": {
+    "repository": "https://github.com/uds-psl/coq-synthetic-incompleteness.git",
+    "commit": "cd7d8490f8542bfe85658c465bcb26b2ed163f53",
+    "branch": "csl",
+    "tracked_file_count": 807,
+    "tracked_total_bytes": 7423361,
+    "tracked_tree_sha256": "d9dd001b0dcfcab4d183b01f0eeed9d16d12c09b576507ea7fc45c87505680ca",
+    "local_path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness"
+  },
+  "source_manifest": {
+    "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/SOURCE-MANIFEST.json",
+    "bytes": 139099,
+    "sha256": "d07beb6c00b07a62c4637393d6c15274fd8f6e8795e83077c7dfa192a6e09221"
+  },
+  "container": {
+    "platform": "linux/amd64",
+    "host_architecture": "arm64",
+    "emulated": true,
+    "base_image": {
+      "reference": "coqorg/coq:8.15",
+      "id": "sha256:2a9a7f61666e503e3429696c641fc3af8cf3337f85988000373491aa80547098",
+      "repo_digests": [
+        "coqorg/coq@sha256:2a9a7f61666e503e3429696c641fc3af8cf3337f85988000373491aa80547098"
+      ],
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    "derived_image": {
+      "reference": "hott-coq-synthetic-incompleteness:cd7d849",
+      "id": "sha256:d4a84f07bbfe0bf3f2dce5b07e7fb43423ff64f990678a114ec6b080d131010b",
+      "repo_digests": [
+        "hott-coq-synthetic-incompleteness@sha256:d4a84f07bbfe0bf3f2dce5b07e7fb43423ff64f990678a114ec6b080d131010b"
+      ],
+      "architecture": "amd64",
+      "os": "linux",
+      "size_bytes": 1533425178
+    },
+    "dockerfile": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-docker/Dockerfile",
+      "bytes": 455,
+      "sha256": "140ad2c458f5725f21490de58fb42a62180d80f69d81662a445b855284e94323"
+    }
+  },
+  "environment": {
+    "stdout": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/environment.stdout.txt",
+      "bytes": 288,
+      "sha256": "50a78af9e949ca3012c3d00d80b475290f3e3a1e66a83a6b6ab9ad41173eaaf0"
+    },
+    "stderr": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/environment.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "build": {
+    "target": "FOL/Incompleteness/fol_incompleteness.vo",
+    "first": {
+      "schema_version": "coq-synthetic-incompleteness-build-attempt/v1",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--platform",
+        "linux/amd64",
+        "-v",
+        "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-build-cd7d849:/work",
+        "-w",
+        "/work",
+        "hott-coq-synthetic-incompleteness:cd7d849",
+        "bash",
+        "-lc",
+        "make FOL/Incompleteness/fol_incompleteness.vo"
+      ],
+      "cwd": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-build-cd7d849",
+      "exit_code": 0,
+      "duration_seconds": 600.1140872500255,
+      "stdout": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/build.stdout.txt",
+        "bytes": 11661,
+        "sha256": "5e3ba3594447061f409c2fdcca1b7f696b498b802a37a8f00978a705449509ff"
+      },
+      "stderr": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/build.stderr.txt",
+        "bytes": 966,
+        "sha256": "c70066e007198cd65c94f39cd956ce41b3fb79430355e4e9d02021c4ddf7020d"
+      },
+      "stable_artifacts": {
+        "count": 1284,
+        "bytes": 61429144,
+        "manifest_sha256": "6c2bd66c8547d75540bac15348291064348120f5d3a7342689f9402794d6b958",
+        "manifest": {
+          "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/BUILD-STABLE-ARTIFACT-MANIFEST.json",
+          "bytes": 220023,
+          "sha256": "b03955eecdf76d2f1463bc6ddb9731cc9a640977319b3218adfa7769131d57d8"
+        }
+      },
+      "aux_artifacts": {
+        "count": 321,
+        "bytes": 863365,
+        "manifest_sha256": "03e2e286d899f980fe46fe86e0fd1c2bc350c76b57c8104bae7a2c07ff315ad3",
+        "manifest": {
+          "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/BUILD-AUX-MANIFEST.json",
+          "bytes": 55587,
+          "sha256": "5c0161d70f10075b8ba822bc4699b162867917ae3dc23021b3be8509797c71f2"
+        }
+      },
+      "target": {
+        "path": "theories/FOL/Incompleteness/fol_incompleteness.vo",
+        "bytes": 95450,
+        "sha256": "e770c7bf44201f8e696cff4115452b3c02c22274604c787afccdf25edaee33e4"
+      }
+    },
+    "replay": {
+      "schema_version": "coq-synthetic-incompleteness-build-replay/v1",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--platform",
+        "linux/amd64",
+        "-v",
+        "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-replay-cd7d849:/work",
+        "-w",
+        "/work",
+        "hott-coq-synthetic-incompleteness:cd7d849",
+        "bash",
+        "-lc",
+        "make FOL/Incompleteness/fol_incompleteness.vo"
+      ],
+      "cwd": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-replay-cd7d849",
+      "exit_code": 0,
+      "duration_seconds": 600.1261013749754,
+      "stdout": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-replay-receipt-cd7d849/build.stdout.txt",
+        "bytes": 11661,
+        "sha256": "5e3ba3594447061f409c2fdcca1b7f696b498b802a37a8f00978a705449509ff"
+      },
+      "stderr": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-replay-receipt-cd7d849/build.stderr.txt",
+        "bytes": 966,
+        "sha256": "c70066e007198cd65c94f39cd956ce41b3fb79430355e4e9d02021c4ddf7020d"
+      },
+      "stable_artifacts": {
+        "count": 1284,
+        "bytes": 61429144,
+        "manifest_sha256": "6c2bd66c8547d75540bac15348291064348120f5d3a7342689f9402794d6b958",
+        "manifest": {
+          "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-replay-receipt-cd7d849/BUILD-STABLE-ARTIFACT-MANIFEST.json",
+          "bytes": 220023,
+          "sha256": "b03955eecdf76d2f1463bc6ddb9731cc9a640977319b3218adfa7769131d57d8"
+        }
+      },
+      "aux_artifacts": {
+        "count": 321,
+        "bytes": 863365,
+        "manifest_sha256": "111ea3e7d2aedd47e431b8e940221e489da8c69a3067b3da0f9fd8fae9b39d68",
+        "manifest": {
+          "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-replay-receipt-cd7d849/BUILD-AUX-MANIFEST.json",
+          "bytes": 55587,
+          "sha256": "5a9a60f14cfc9b4462c4f6e77166bcdf67eb9f9982ffdfad4c55cd26336f3cb3"
+        }
+      },
+      "target": {
+        "path": "theories/FOL/Incompleteness/fol_incompleteness.vo",
+        "bytes": 95450,
+        "sha256": "e770c7bf44201f8e696cff4115452b3c02c22274604c787afccdf25edaee33e4"
+      }
+    },
+    "comparison": {
+      "stdout_exact": true,
+      "stderr_exact": true,
+      "stable_artifact_paths_and_hashes_exact": true,
+      "aux_artifact_path_sets_equal": true,
+      "aux_artifact_hashes_exact": false,
+      "aux_nondeterministic_count": 319,
+      "target_exact": true
+    }
+  },
+  "qualification_probe": {
+    "schema_version": "coq-synthetic-incompleteness-qualification-probe/v1",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--platform",
+      "linux/amd64",
+      "-v",
+      "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-build-cd7d849:/work:ro",
+      "-v",
+      "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849:/qualification",
+      "-w",
+      "/work/theories",
+      "hott-coq-synthetic-incompleteness:cd7d849",
+      "coqc",
+      "-Q",
+      ".",
+      "Undecidability",
+      "/qualification/QUALIFICATION.v"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 5.952133999962825,
+    "stdout_bytes": 3142,
+    "stdout_sha256": "505b84bb69595703945b850b361115c510401066ce8162437d565eb1b18f441d",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/QUALIFICATION.v",
+      "bytes": 456,
+      "sha256": "0918153193095b77a6106af219b76d135a184037e27997e019d51b3877593ca5"
+    },
+    "stdout": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/qualification.stdout.txt",
+      "bytes": 3142,
+      "sha256": "505b84bb69595703945b850b361115c510401066ce8162437d565eb1b18f441d"
+    },
+    "stderr": {
+      "path": "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/coq-synthetic-incompleteness-qualification-cd7d849/qualification.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "checked_constants": [
+      "self_halting_diverge",
+      "recursively_separating_diverge",
+      "insep_essential_incompleteness",
+      "epf_mu_ctq",
+      "Q_incomplete"
+    ],
+    "print_assumptions": "Closed under the global context for all three requested constants; theorem parameters remain visible in their types."
+  },
+  "verdict": "NATIVE_COQ_BUILD_AND_CLEAN_REPLAY_PASS_WITH_SCOPE",
+  "scope": "The exact CSL 2023 source commit builds its fol_incompleteness.vo target under Coq 8.15.2 with the declared historical dependencies, and key theorem signatures load in a separate read-only qualification probe.",
+  "non_goals": [
+    "No Universal/EPF_mu, CTQ, Peirce or consistency premise is discharged by building the source.",
+    "No HoTT or Coq-HoTT calculus is instantiated.",
+    "No reality-relative nonreality conclusion is established.",
+    "Auxiliary .aux bytes are not deterministic across clean builds; .vo/.vos/.vok/.glob artifacts and build logs are exact."
+  ]
+}

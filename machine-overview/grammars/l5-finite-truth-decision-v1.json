@@ -1,0 +1,21 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L5-FINITE-TRUTH-DECISION-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json", "sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664"},
+  "answer_visibility": "Same-designer capability task; no benchmark AST or witness ID is embedded.",
+  "propositions": ["finite_truth_certificate", "general_truth_oracle"],
+  "goal": "finite_truth_certificate",
+  "observation_kind": "finite_truth_decision_capability",
+  "max_proof_depth": 2,
+  "rules": [
+    {"id": "finite_truth_certificate", "premises": [], "conclusion": "finite_truth_certificate", "term_template": "L5.truthDecision", "semantic_source": "total evaluation of the fixed BFml formula"},
+    {"id": "general_truth_decoy", "premises": [], "conclusion": "general_truth_oracle", "term_template": "L5.truthDecision", "semantic_source": "unconnected decoy; no promotion rule exists"}
+  ],
+  "mechanism_rules": ["finite_truth_certificate"],
+  "positive_control_goals": ["finite_truth_certificate"],
+  "ablation": {"remove_rules": ["finite_truth_certificate"], "expected": "the finite target becomes unreachable"},
+  "native_contract": {"renderer": "l5_finite_truth_decision_v1", "target_scope": "one closed formula in BFml", "positive_controls": ["truthFormula evaluates true", "falseFormula evaluates false"], "negative_control": "falseFormula cannot evaluate to true"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 2; BFml is the only semantic domain."
+}

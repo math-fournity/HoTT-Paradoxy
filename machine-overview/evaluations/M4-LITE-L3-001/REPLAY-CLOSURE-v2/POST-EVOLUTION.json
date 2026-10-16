@@ -1,0 +1,49 @@
+{
+  "schema_version": "machine-overview-m4-replay-post-evolution/v1",
+  "recorded_at_utc": "2026-09-13T19:30:56Z",
+  "change_context": "live coordinator expanded from 0.3.0 L3/M4 adapters to 0.4.0 M3 L2/L4/L5/L6 adapters after replay snapshots were closed",
+  "original_v1": {
+    "design_freeze": {
+      "path": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+      "bytes": 4850,
+      "sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e"
+    },
+    "run": {
+      "path": "machine-overview/evaluations/M4-LITE-L3-001/runs/20260913-M4-LITE-L3-001/RUN.json",
+      "bytes": 28347,
+      "sha256": "364476f3cca910ab6bd281afa4844d2ed3a92b303c40c5e7d203b0419ebda86a"
+    },
+    "post_evolution_command": "python3 machine-overview/m4_eval.py verify --run machine-overview/evaluations/M4-LITE-L3-001/runs/20260913-M4-LITE-L3-001/RUN.json",
+    "post_evolution_exit_code": 2,
+    "post_evolution_error": "PIN_CHANGED:freeze.adapter.1:machine-overview/machine_overview/__init__.py",
+    "interpretation": "expected live-path pin failure after version evolution; the original bytes and result remain historical evidence"
+  },
+  "replay_v2": {
+    "closure": {
+      "path": "machine-overview/evaluations/M4-LITE-L3-001/REPLAY-CLOSURE-v2/REPLAY-CLOSURE.json",
+      "bytes": 7075,
+      "sha256": "8a68aee50ba84343aa6ae9b72ae7755f8e42e35ae471b0bf5e32ecc0cfe241a6"
+    },
+    "spec": {
+      "path": "machine-overview/evaluations/M4-LITE-L3-001/SPEC-REPLAY-v2.json",
+      "bytes": 6864,
+      "sha256": "1e9c80e0e2ed8093e3de909a25ed0b71f93344fbe64ec3db8b8ac6984a67afd2"
+    },
+    "run": {
+      "path": "machine-overview/evaluations/M4-LITE-L3-001/runs/20260913-M4-LITE-L3-REPLAY-V2/RUN.json",
+      "bytes": 28607,
+      "sha256": "4b4d5945bd150435be88cc9e08a15f0ce6a7e428ce2366af6062de34d1cd96d9"
+    },
+    "post_evolution_command": "python3 machine-overview/m4_replay_closure.py verify --run machine-overview/evaluations/M4-LITE-L3-001/runs/20260913-M4-LITE-L3-REPLAY-V2/RUN.json",
+    "post_evolution_exit_code": 0,
+    "post_evolution_status": "M4_LITE_REPLAY_V2_VALID",
+    "deterministic_sha256": "199793e000ba3de879d0f85c225b20b876775ccfa34f5abac9829004c8a90028"
+  },
+  "current_live_version_source": {
+    "path": "machine-overview/machine_overview/__init__.py",
+    "bytes": 650,
+    "sha256": "b68fb35b7e8086682cf82c262d07f57aaec8d7caf5bb87ae02dfc596e0540b0d"
+  },
+  "conclusion": "V2_REPLAY_SURVIVES_LIVE_ADAPTER_EVOLUTION_WITH_IDENTICAL_SEMANTIC_DIGEST",
+  "claim_effect": "no mathematical or effectiveness claim changes; this closes evidence portability across coordinator adapter evolution"
+}

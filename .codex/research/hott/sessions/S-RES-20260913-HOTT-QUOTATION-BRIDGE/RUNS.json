@@ -1,0 +1,81 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260913-HOTT-QUOTATION-BRIDGE",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "main_touched": false,
+  "new_math_claims": [],
+  "previous_goal_turn": "PROGRESS",
+  "evaluation": {
+    "id": "HOTT-QUOTATION-BRIDGE-001",
+    "evaluator": "machine-overview/hott_quotation_bridge.py",
+    "scope": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/SCOPE.json",
+    "freeze": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/BRIDGE-FREEZE.json",
+    "freeze_sha256": "29131e2d54a316cf72c4d649aac3308e40e89e80f38cd017d7796863a62e4d96",
+    "decisions": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/DECISIONS.json",
+    "run": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/runs/20260913-HOTT-QUOTATION-BRIDGE-001/RUN.json",
+    "report": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/REPORT.md",
+    "sources": 6,
+    "artifacts": 12,
+    "anchors": 66,
+    "probes": 10,
+    "guard_erasure_consumers": 0,
+    "verdict": "GUARDED_FORCE_ERASURE_CONDITIONAL_COLLAPSE_WITH_DEFENSE",
+    "hott_bug_status": "NOT_ESTABLISHED",
+    "deterministic_sha256": "df5d3c04c53de827b4a1f2d7bc08e50cb4043bd98fb9a405b5bc2f53b60ef308"
+  },
+  "roles": {
+    "HOST_TC": "host type-checking computation; no TC A to A",
+    "SYNTAX_QUOTATION": "raw or typed proof code; no automatic reflection",
+    "TEMPORAL_LATER": "next-tick availability; no fixed-clock now eliminator"
+  },
+  "reflection_inventory": {
+    "cubical_tree_files": 1111,
+    "quoteTC": {"files": 3, "occurrences": 12},
+    "checkType": {"files": 6, "occurrences": 8},
+    "inferType": {"files": 7, "occurrences": 9},
+    "unquoteDecl": {"files": 33, "occurrences": 50},
+    "unquoteTC": {"files": 0, "occurrences": 0},
+    "guarded_tick_option": {"files": 0, "occurrences": 0},
+    "tick_binder": {"files": 0, "occurrences": 0}
+  },
+  "force_inventory": {
+    "evaluator": "machine-overview/force_consumer_inventory.py",
+    "receipt": "machine-overview/evaluations/HOTT-QUOTATION-BRIDGE-001/FORCE-CONSUMER-INVENTORY.json",
+    "tree_files": 6,
+    "matching_lines": 9,
+    "files_with_matches": 2,
+    "deterministic_sha256": "f8d7ad671b037211a593c28eaa85f7d2e15c9754c3cb303fa5249d83b57b8365"
+  },
+  "probe_results": [
+    {"id": "P01-TC-ROUNDTRIP", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P02-BAD-RUN-TC", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "replay": "EXACT"},
+    {"id": "P03-CUBICAL-REFLECTION-CONSUMER", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P04-AGDA-LATER-SOURCE", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P05-GUARDED-TICK-USE", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P06-GUARDED-FORCE-COLLAPSE", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P07-BAD-FIXED-FORCE", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "replay": "EXACT"},
+    {"id": "P08-CLOCK-QUANTIFIED-SHAPE", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P09-BAD-LOCAL-FROM-GLOBAL", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "replay": "EXACT"},
+    {"id": "P10-FORCING-TICKS-TOOLCHAIN", "exit": 42, "classification": "EXPECTED_TOOLCHAIN_VERSION_MISMATCH", "replay": "EXACT"}
+  ],
+  "development_failures": [
+    {"stage": "pre-freeze source qualification", "result": "three source byte counts were stale guesses", "disposition": "freeze failed before output; counts replaced with actual pinned bytes"},
+    {"stage": "pre-freeze design", "result": "scope attempted to pin its future freeze and created a self-reference", "disposition": "freeze pin moved to the post-freeze decisions input"},
+    {"stage": "pre-freeze scratch probes", "result": "module-name mismatch because scratch include directory was omitted", "disposition": "added exact -i path and reran"},
+    {"stage": "pre-freeze guarded source probe", "result": "InfectiveImport because command-line --guardedness was omitted", "disposition": "fixed declared command before freeze"},
+    {"stage": "pre-run source anchors", "result": "three OCR/code anchors did not match exact fixed bytes", "disposition": "used narrower exact anchors before the first run directory was created"}
+  ],
+  "verification": {
+    "bridge_replay": "PASS: 10/10 expectation met and exact recorded stdout/stderr",
+    "force_inventory": "PASS: 9 lines / 2 files / complete 6-file tree",
+    "focused_tests": "5/5 PASS",
+    "selftest": "60/60 PASS",
+    "workspace_validate": "VALID: 16 cases / 39 runs / 18 reviews / 0 errors / 1 registered interrupted legacy attempt",
+    "core_cognition_audit": "PASS: 36 KC; ALIGNED 3 / DEEPENED 30 / TENSION 2 / NOT_TOUCHED 1",
+    "diff_and_json": "PASS: git diff --check; 367 JSON files parsed"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

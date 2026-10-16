@@ -1,0 +1,69 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L3-PATH-POSITIVE-M4-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {
+    "path": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+    "sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e"
+  },
+  "answer_visibility": "The grammar was authored by the same AI after freeze. It contains typed rules and native term interpretations, no benchmark witness ID or expected AST.",
+  "propositions": [
+    "endpoint_path",
+    "reverse_endpoint_path",
+    "event_decoy"
+  ],
+  "goal": "endpoint_path",
+  "observation_kind": "path_coherence_positive",
+  "max_proof_depth": 4,
+  "rules": [
+    {
+      "id": "interval_eta",
+      "premises": [],
+      "conclusion": "endpoint_path",
+      "term_template": "(λ i → f i)",
+      "semantic_source": "Cubical Path abstraction for f : I → A"
+    },
+    {
+      "id": "path_sym",
+      "premises": ["endpoint_path"],
+      "conclusion": "reverse_endpoint_path",
+      "term_template": "sym ({0})",
+      "semantic_source": "Path symmetry"
+    },
+    {
+      "id": "path_sym_back",
+      "premises": ["reverse_endpoint_path"],
+      "conclusion": "endpoint_path",
+      "term_template": "sym ({0})",
+      "semantic_source": "Path symmetry"
+    },
+    {
+      "id": "path_identity_decoy",
+      "premises": ["endpoint_path"],
+      "conclusion": "endpoint_path",
+      "term_template": "{0}",
+      "semantic_source": "identity rewrite; search-space decoy"
+    },
+    {
+      "id": "event_fact_decoy",
+      "premises": [],
+      "conclusion": "event_decoy",
+      "term_template": "phase-start",
+      "semantic_source": "unrelated explicit-event fact"
+    }
+  ],
+  "mechanism_rules": ["interval_eta"],
+  "positive_control_goals": ["endpoint_path", "event_decoy"],
+  "ablation": {
+    "remove_rules": ["interval_eta"],
+    "expected": "endpoint_path becomes unreachable in the declared grammar"
+  },
+  "native_contract": {
+    "renderer": "l3_path_coherence_positive_v1",
+    "target_scope": "A : Type0; f : I → A",
+    "positive_controls": ["Segment endpoint path", "Stage endpoint apartness"],
+    "negative_control": "the same abstraction body is ill-typed for f : Stage → A"
+  },
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Exhaustive proof-tree enumeration through depth 4; the native theorem remains symbolic over arbitrary A : Type0."
+}

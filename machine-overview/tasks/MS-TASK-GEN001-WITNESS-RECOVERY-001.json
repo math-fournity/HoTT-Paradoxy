@@ -1,0 +1,122 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-GEN001-WITNESS-RECOVERY-001",
+  "revision": 1,
+  "gen001_unit": "GEN-001 BOUNDED_GENERATOR_ACCEPTANCE_UNIT",
+  "supply_registration": "SUPPLY-007 (PREMISE-001/007); human_supply executed by AI with audit layer, pending external audit; explicitly NOT user supply",
+  "purpose": "A delay-equivalent pair of computations differs only in arrival round. A race against a declared partner collapses the arrival distinction into a value distinction (the earlier arrival wins and keeps its value; otherwise the partner's value is delivered). A downstream process declared in advance completes only when the delivered value carries the original producer's witness. Find whether the declared downstream consumer completes the original activity on every result-equivalent pair after the race truncation.",
+  "research_relation": "exploration",
+  "source_basis": {
+    "kind": "AI-frozen new task family over the pinned existing delay model (GEN-001 supply, not user supply)",
+    "references": [
+      "PREMISE-001/006 shard entry PREMISE-E-02 (propositional truncation: witness not recoverable)",
+      "PREMISE-001/007 shard SUPPLY-007 (TASK-FAMILY-WITNESS-RECOVERABILITY)",
+      "Atria的方案/修订片/003 (GEN-001 nine-field task specification and role discipline)",
+      "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda (pinned delay model)"
+    ]
+  },
+  "input": {
+    "type_ref": "ground terms of Delay Bool: omega or ret n b with n <= 3 (declared grammar L1-WITNESS-RECOVERY-v1)",
+    "available_information": "only what the pinned model's constructors and operations expose"
+  },
+  "environment": {
+    "arrival_policy": "synchronous rounds; a race returns the earlier-arriving branch, left priority on ties",
+    "nondeterminism": "none inside the fragment (single-thread deterministic delay)",
+    "fairness": "race is synchronous with left priority on ties, as pinned"
+  },
+  "observation": {
+    "value": "Bool carried by ret",
+    "trace": "round index n is carried by ret but is invisible to delay equivalence",
+    "time_structure": "discrete synchronous rounds only; no continuity or physical-time claim"
+  },
+  "completion": {
+    "kind": "bounded",
+    "criterion_ref": "a declared deadline k observes arrival within k rounds; a declared bind continuation models a downstream process that completes on the true branch and diverges on the false branch"
+  },
+  "quantifiers": {
+    "instances": "finite (the declared grammar)",
+    "realization": "strategy"
+  },
+  "allowed_resources": "finite enumeration budget; one native kernel check per selected witness plus positive and negative controls",
+  "prohibited_extra_information": "the downstream consumer may not use information the original task was declared not to hold: no labels, no branch tags, no oracle. The race partner and the downstream continuation are declared consumers of the same original activity and are declared up front.",
+  "assumptions": [
+    "the fragment is the pinned delay model, not general partiality or general propositional truncation",
+    "the race models the truncation step only in the sense that it collapses an arrival-round distinction into a value distinction; this is a bounded modelling correspondence, not a claim that Delay Bool is HoTT's propositional truncation",
+    "the race partner and the downstream continuation are declared consumers of the same original activity",
+    "no physical-time or implementation claim is made"
+  ],
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "at least one witness must bind a continuation declared only in L1-WITNESS-RECOVERY-v1, proving the family is outside l1-v0/v1/v2",
+    "the separating consumer must be one of the declared consumers, not an oracle added after seeing a candidate",
+    "an exploration instance must not be upgraded into a new mathematical claim"
+  ],
+  "known_positive_controls": [
+    {
+      "id": "GEN001-RACE-TRUNCATION-SEPARATION",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 2,
+          "value": true
+        }
+      },
+      "context": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "kind": "bind",
+          "continuation": {
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": true
+            },
+            "false": {
+              "kind": "omega"
+            }
+          }
+        }
+      ],
+      "claim_refs": [],
+      "note": "expected separation: left survives the race and binds to a converging value; right loses the race and the downstream diverges. External benchmark only; the search is not given this answer."
+    }
+  ],
+  "known_negative_controls": [
+    {
+      "id": "deadline-same-horizon",
+      "description": "a deadline horizon at or above both round indices cannot separate the pair",
+      "expected": "NOT_SEPARATED"
+    }
+  ],
+  "claim_refs": [],
+  "correspondence": {
+    "original_activity": "a service whose value is produced by one of two result-equivalent producers; a race against a declared partner is applied, then a downstream process that needs the original producer's witness to complete",
+    "theoryization_steps": [
+      "model each producer as a single-thread deterministic delay",
+      "identify computations by delay equivalence, as pinned in the model (this is the truncation step: the arrival round, i.e. which producer won, is forgotten)",
+      "compose with the declared consumers (race partner, then the downstream continuation, and optionally a deadline)"
+    ],
+    "observation_justification": "all consumers are declared in the pinned model; the race reads only the round indices the model already carries, and the downstream continuation is part of the task declaration",
+    "preservation_claims": [
+      "the input domain, the value type and the delivery requirement are unchanged from the task declaration",
+      "only the declared consumers are applied; no extra branch information is exposed"
+    ],
+    "open_obligations": [
+      "the Delay Bool fragment is a bounded correspondent of the E-02 truncation premise, not HoTT's propositional truncation itself; a cubical-native truncation family remains a V2 candidate",
+      "a real consumer (E6-style) is out of scope for this bounded acceptance unit",
+      "the physical reading of time is not addressed by this fragment"
+    ]
+  }
+}

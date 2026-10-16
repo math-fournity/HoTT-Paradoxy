@@ -78,6 +78,70 @@ def exclusive_write(path: Path, data: bytes) -> None:
         os.fsync(handle.fileno())
 
 
+def qualify_project_git_root(root: Path) -> dict[str, object]:
+    """Accept either a primary checkout or a linked worktree at its exact root."""
+    completed = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(root),
+            "rev-parse",
+            "--show-toplevel",
+            "--git-dir",
+            "--git-common-dir",
+            "HEAD",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    lines = completed.stdout.splitlines()
+    if completed.returncode != 0 or len(lines) != 4:
+        raise CaptureError("PROJECT_GIT_ROOT_REQUIRED")
+    top = Path(lines[0]).resolve()
+    if top != root.resolve():
+        raise CaptureError("PROJECT_GIT_ROOT_REQUIRED")
+
+    def resolve_git_path(value: str) -> Path:
+        path = Path(value)
+        return (root / path).resolve() if not path.is_absolute() else path.resolve()
+
+    git_dir = resolve_git_path(lines[1])
+    git_common_dir = resolve_git_path(lines[2])
+    if not git_dir.exists() or not git_common_dir.is_dir():
+        raise CaptureError("PROJECT_GIT_LAYOUT_INVALID")
+    branch = subprocess.run(
+        ["git", "-C", str(root), "branch", "--show-current"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if branch.returncode != 0:
+        raise CaptureError("PROJECT_GIT_BRANCH_QUERY_FAILED")
+    return {
+        "worktree_root": str(top),
+        "git_dir": str(git_dir),
+        "git_common_dir": str(git_common_dir),
+        "head": lines[3],
+        "branch": branch.stdout.strip() or None,
+        "linked_worktree": git_dir != git_common_dir,
+    }
+
+
+def qualify_include_dirs(root: Path, source_parent: Path, values: list[str]) -> list[Path]:
+    """Return unique repository-contained Agda include directories."""
+    relative_dirs = [source_parent]
+    for value in values:
+        relative = safe_relative(value)
+        if relative not in relative_dirs:
+            relative_dirs.append(relative)
+    for relative in relative_dirs:
+        absolute = root / relative
+        if not absolute.is_dir() or absolute.is_symlink():
+            raise CaptureError(f"INCLUDE_DIR_MISSING_OR_SYMLINK:{relative.as_posix()}")
+    return relative_dirs
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=ROOT)
@@ -87,13 +151,16 @@ def main() -> int:
     parser.add_argument("--source", required=True)
     parser.add_argument("--toolchain", required=True)
     parser.add_argument("--manifest-file", action="append", default=[])
+    parser.add_argument("--include-dir", action="append", default=[])
     parser.add_argument("--scope", required=True)
     parser.add_argument("--non-goal", action="append", default=[])
     args = parser.parse_args()
 
     root = args.project_root.resolve()
-    if not (root / ".git").is_dir():
-        raise SystemExit("PROJECT_GIT_ROOT_REQUIRED")
+    try:
+        git_layout = qualify_project_git_root(root)
+    except CaptureError as exc:
+        raise SystemExit(str(exc)) from exc
     if not args.run_id or "/" in args.run_id or not all(c.isalnum() or c in "._-" for c in args.run_id):
         raise SystemExit("RUN_ID_INVALID")
     run_relative = RUN_ROOT / args.run_id
@@ -103,6 +170,10 @@ def main() -> int:
 
     source = safe_relative(args.source)
     toolchain_relative = safe_relative(args.toolchain)
+    try:
+        include_dirs = qualify_include_dirs(root, source.parent, args.include_dir)
+    except CaptureError as exc:
+        raise SystemExit(str(exc)) from exc
     manifest_paths = [source, toolchain_relative]
     for value in args.manifest_file:
         path = safe_relative(value)
@@ -147,7 +218,9 @@ def main() -> int:
         if path.is_symlink():
             raise SystemExit(f"RUNTIME_CACHE_SYMLINK:{key}")
 
-    source_parent = (root / source).parent
+    include_argv: list[str] = []
+    for relative in include_dirs:
+        include_argv.extend(["-i", str(root / relative)])
     env_command = [
         "/usr/bin/env",
         f"XDG_DATA_HOME={cache['xdg_data_home']}",
@@ -157,7 +230,7 @@ def main() -> int:
         "--ignore-interfaces",
         f"--library-file={root / library_registry}",
         "-l", f"cubical-{cubical['version']}",
-        "-i", str(source_parent),
+        *include_argv,
         source.as_posix(),
     ]
     version_command = env_command[:4] + [str(agda_binary), "--version"]
@@ -181,6 +254,7 @@ def main() -> int:
         "run_id": args.run_id,
         "files": source_rows,
         "external_dependencies": external,
+        "include_dirs": [relative.as_posix() for relative in include_dirs],
     }
     source_manifest_data = json_bytes(source_manifest)
     environment = "\n".join([
@@ -205,6 +279,7 @@ def main() -> int:
         "proof_assistant": "Cubical Agda",
         "proof_assistant_version": version.stdout.decode("utf-8", "replace").strip(),
         "theory_variant": toolchain["theory_variant"],
+        "include_dirs": [relative.as_posix() for relative in include_dirs],
         "command_argv": env_command,
         "cwd": str(root),
         "started_at_utc": started.isoformat(),
@@ -220,6 +295,7 @@ def main() -> int:
         "source_manifest": {"path": "source-manifest.json", "bytes": len(source_manifest_data), "sha256": sha(source_manifest_data)},
         "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
         "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "git": git_layout,
     }
 
     run_dir.mkdir(parents=True, exist_ok=False)

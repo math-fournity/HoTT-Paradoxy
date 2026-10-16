@@ -1,0 +1,189 @@
+{
+  "schema_version": "machine-overview-natural-consumer-retrieval/v1",
+  "audit_id": "L3-NATURAL-CONSUMER-AUDIT-001",
+  "retrieved_at_utc": "2026-09-13T18:36:59Z",
+  "scope": {
+    "path": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/SCOPE.json",
+    "bytes": 6261,
+    "sha256": "ce2930e07a223a187016f8c35c42ce9b9489c9f3e8824aa94860eddd9e186743"
+  },
+  "scope_correction": {
+    "path": "machine-overview/evaluations/L3-NATURAL-CONSUMER-AUDIT-001/SCOPE-CORRECTION-001.json",
+    "meaning": "NC-02 exact filename correction; source identity and seven-source roster unchanged"
+  },
+  "external_cache_root": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001",
+  "cache_policy": "Remote full texts and extracted page text remain outside Git. This manifest pins their bytes and hashes; the repository stores the bounded assessment and deterministic inventory, not redistributed full PDFs.",
+  "retrieval_tool": {
+    "name": "curl",
+    "options": ["-L", "--fail", "--retry 2", "--max-time 180"],
+    "headers_saved": true
+  },
+  "pdf_extraction": {
+    "python_version": "3.12.14",
+    "python_executable": "/Users/aurolafly/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "python_bytes": 18041888,
+    "python_sha256": "ac60cfe0268614638d0ffa35f3b0284fc7b3a11482723793455e17eeb278509e",
+    "library": "pypdf",
+    "library_version": "6.10.0",
+    "format": "one UTF-8 text file with deterministic ===== PDF_PAGE N ===== markers and pypdf page.extract_text output"
+  },
+  "sources": [
+    {
+      "source_id": "NC-01-HOTT-BOOK",
+      "scan_kind": "pdf_text",
+      "source_url": "https://hott.github.io/book/hott-online-82-g578b85c.pdf",
+      "resolved_version": "hott-online-82-g578b85c",
+      "artifact_file_type": "PDF 1.7",
+      "page_count": 492,
+      "artifact": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/hott-online-82-g578b85c.pdf",
+        "bytes": 3169950,
+        "sha256": "89bfbed17259573dcdc1c1f0e14347030aa42902baba7e0a395fcd7493594aac"
+      },
+      "derived_text": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/hott-online-82-g578b85c.pages.txt",
+        "bytes": 1157195,
+        "sha256": "2a28c9e788284dc31544da35b367d7c02f99a64c7d787129a627fab23445925a"
+      },
+      "headers": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/NC-01-HOTT-BOOK-v82.headers.txt",
+        "bytes": 687,
+        "sha256": "a493646579bba11cdc9bb8322030d400dc9f5058abfb091f1e7b1148e5604b44"
+      }
+    },
+    {
+      "source_id": "NC-02-AGDA-CUBICAL-MANUAL",
+      "scan_kind": "text",
+      "source_url": "https://raw.githubusercontent.com/agda/agda/3d04bacca842729f9c0869b9287256321b5f450f/doc/user-manual/language/cubical.lagda.rst",
+      "resolved_version": "Agda v2.8.0 commit 3d04bacca842729f9c0869b9287256321b5f450f; blob 4a19d76120a8116ad5d78190e16cf67820893f06",
+      "artifact": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/agda-cubical-3d04bacca842.lagda.rst",
+        "bytes": 39960,
+        "sha256": "a8398f0f1c378f626aa01d7047fabd6ac3545f5a080e84b1ca1a94c44c417051"
+      },
+      "headers": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/NC-02-AGDA-CUBICAL-MANUAL-corrected.headers.txt",
+        "bytes": 929,
+        "sha256": "60e1504f41c226ed42d9254645e9609fdfcaad7e1046bcb455d93cc3db1d73e2"
+      }
+    },
+    {
+      "source_id": "NC-03-CUBICAL-LIBRARY",
+      "scan_kind": "tree",
+      "source_url": "https://github.com/agda/cubical/tree/b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+      "resolved_version": "v0.9 tag commit b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+      "local_root": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical",
+      "tree_identity": {
+        "file_count": 1111,
+        "total_bytes": 7511145,
+        "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"
+      }
+    },
+    {
+      "source_id": "NC-04-CUBICAL-AGDA-PAPER",
+      "scan_kind": "pdf_text",
+      "source_url": "https://staff.math.su.se/anders.mortberg/papers/cubicalagda.pdf",
+      "resolved_version": "ICFP 2019 author PDF; DOI 10.1145/3341691",
+      "artifact_file_type": "PDF 1.5",
+      "page_count": 29,
+      "artifact": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/cubical-agda.pdf",
+        "bytes": 280462,
+        "sha256": "6338a2bffea24ec1eadf2703d9545b59a1a1b004aefe38e0e27d056763ff1a94"
+      },
+      "derived_text": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/cubical-agda.pages.txt",
+        "bytes": 101224,
+        "sha256": "7fb57e85b9ee3ee6e2e82a660e408b385ef9afa7b5b3cd21aa8d5677a7ad63c2"
+      },
+      "headers": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/NC-04-CUBICAL-AGDA-PAPER.headers.txt",
+        "bytes": 328,
+        "sha256": "cd0a5fdf10212491b3b3d17e5b0d58eb7c1b84e0fa682e171de73abbf952ada2"
+      }
+    },
+    {
+      "source_id": "NC-05-GUARDED-CUBICAL",
+      "scan_kind": "pdf_text",
+      "source_url": "https://arxiv.org/pdf/1611.09263v2",
+      "resolved_version": "arXiv:1611.09263v2",
+      "artifact_file_type": "PDF 1.5",
+      "page_count": 42,
+      "artifact": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/guarded-cubical-v2.pdf",
+        "bytes": 924549,
+        "sha256": "0a918d3a02b186f51e5b65363831c6347e061c525078cfc10999ba79ab2efe76"
+      },
+      "derived_text": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/guarded-cubical-v2.pages.txt",
+        "bytes": 102783,
+        "sha256": "f26937dc0e01f2110200502a3fc85131d41ea5caeafd0fee16101bfc468d3fde"
+      },
+      "headers": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/NC-05-GUARDED-CUBICAL.headers.txt",
+        "bytes": 689,
+        "sha256": "dfd18dc238156498d736ac088c5c1c22540b2f8d606709614b5f27d7a4428043"
+      }
+    },
+    {
+      "source_id": "NC-06-CLOCKED-CUBICAL",
+      "scan_kind": "pdf_text",
+      "source_url": "https://arxiv.org/pdf/2102.01969v3",
+      "resolved_version": "arXiv:2102.01969v3",
+      "artifact_file_type": "PDF 1.4",
+      "page_count": 29,
+      "artifact": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/clocked-cubical-v3.pdf",
+        "bytes": 627342,
+        "sha256": "6c48722bbee68bb41e8a8a637efd36743c4f386170d3dbeb373c5dfadf07caa2"
+      },
+      "derived_text": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/clocked-cubical-v3.pages.txt",
+        "bytes": 217461,
+        "sha256": "0746bcd4fa53772516a19b6f1a593999806c12d3bf4ba352ded01667502f7cf4"
+      },
+      "headers": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/NC-06-CLOCKED-CUBICAL.headers.txt",
+        "bytes": 692,
+        "sha256": "205076034ce0aea52b8beddcb176983938bf0c91add33aaea4c69ec6de1bf344"
+      }
+    },
+    {
+      "source_id": "NC-07-DIRECTED-HOTT",
+      "scan_kind": "pdf_text",
+      "source_url": "https://arxiv.org/pdf/1807.10566v1",
+      "resolved_version": "arXiv:1807.10566v1",
+      "artifact_file_type": "PDF 1.5",
+      "page_count": 17,
+      "artifact": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/directed-hott-v1.pdf",
+        "bytes": 466475,
+        "sha256": "fde982777230c09551fb25f1951df24fd0860a308dfcbfdfea2e922266139d4e"
+      },
+      "derived_text": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/directed-hott-v1.pages.txt",
+        "bytes": 41638,
+        "sha256": "d58c09b7c8159c948463d5c5ad2670885b7d3e21da35dac549f6df8886919b60"
+      },
+      "headers": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/NC-07-DIRECTED-HOTT.headers.txt",
+        "bytes": 688,
+        "sha256": "11875373efd3e910fcef71d3263666be56b650bb16980554b1f8e8e354bcf447"
+      }
+    }
+  ],
+  "retrieval_incidents": [
+    {
+      "source_id": "NC-01-HOTT-BOOK",
+      "result": "the stable entry returned a 128-byte HTML meta-refresh; the named target hott-online-82-g578b85c.pdf was fetched separately and is the audited artifact"
+    },
+    {
+      "source_id": "NC-02-AGDA-CUBICAL-MANUAL",
+      "result": "the scope's cubical.rst path returned 404; Git tree evidence resolved cubical.lagda.rst at the same pinned commit; see SCOPE-CORRECTION-001.json"
+    },
+    {
+      "source_id": "ALL_PDF_SOURCES",
+      "result": "system pdftotext was unavailable; page text was derived with the pinned bundled Python 3.12.14 and pypdf 6.10.0"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+ "schema_version": "machine-overview-grammar/v1",
+ "grammar_id": "L1-DIVISIBILITY-v1",
+ "family": "TASK-FAMILY-DIVISIBILITY-CONDITION-OR-CAPABILITY",
+ "premise_ref": "PREMISE-D-01 / PREMISE-E-04 / PREMISE-G-03 (PREMISE-001/006, AI-adjudicated pending external audit; the continuity triple registered as SUPPLY-004/006/008 in PREMISE-001/007)",
+ "value_type": "Bool (Cubical.Data.Bool.Base)",
+ "include_omega": true,
+ "delay_index_max": 2,
+ "race_partner_index_max": 2,
+ "context_depth_max": 2,
+ "deadline_horizons": [
+  0,
+  1,
+  2
+ ],
+ "negative_control_policy": "choose the least declared horizon at or above both finite input indices; if none exists, report CONTROL_NOT_AVAILABLE_IN_GRAMMAR",
+ "reduction_guard": {
+  "never_drop_kinds": [
+   "bind"
+  ],
+  "never_drop_continuation_ids": [
+   "divisibility_verdict_capability_is_unbounded"
+  ],
+  "reason": "The bind is the declared divisibility-verdict consumer and divisibility_verdict_capability_is_unbounded is its in-boundary branch; reduction must keep the task-declared verdict-consumer shape. Every parameter change is rechecked for grammar membership and separation."
+ },
+ "bind_continuations": [
+  {
+   "id": "divisibility_verdict_capability_is_unbounded",
+   "map": {
+    "true": {
+     "kind": "omega"
+    },
+    "false": {
+     "kind": "ret",
+     "n": 2,
+     "value": false
+    }
+   }
+  },
+  {
+   "id": "divisibility_verdict_no_object_for_condition",
+   "map": {
+    "true": {
+     "kind": "ret",
+     "n": 2,
+     "value": true
+    },
+    "false": {
+     "kind": "omega"
+    }
+   }
+  },
+  {
+   "id": "divisibility_verdict_same_frontier_opposite",
+   "map": {
+    "true": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "false": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   }
+  },
+  {
+   "id": "deliver_business",
+   "map": {
+    "true": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "false": {
+     "kind": "omega"
+    }
+   }
+  },
+  {
+   "id": "const_omega",
+   "map": {
+    "true": {
+     "kind": "omega"
+    },
+    "false": {
+     "kind": "omega"
+    }
+   }
+  }
+ ],
+ "calibration_benchmark": null,
+ "out_of_envelope_declaration": {
+  "new_declared_constructs": [
+   "divisibility_verdict_capability_is_unbounded",
+   "divisibility_verdict_no_object_for_condition",
+   "divisibility_verdict_same_frontier_opposite"
+  ],
+  "proof_method": "within_grammar_witness of any witness binding these continuations against l1-v0/v1/v2 returns false with reason BIND_CONTINUATION: every input atom of this grammar lies within the old declared index bound (delay_index_max 2), every race partner within race_partner_index_max 2 and every deadline horizon within {0,1,2}, so the new continuation map is the only failing dimension",
+  "shared_constructs_kept_for_calibration_continuity": [
+   "deliver_business",
+   "const_omega"
+  ]
+ },
+ "declared_bounds_note": "Complete enumeration of the finite constructor product: atoms = 1 + 2*(delay_index_max+1) = 7; contexts = non-empty well-typed op sequences up to context_depth_max with a deadline only as the final op; denominator is finite and closed. Bounds are deliberately aligned with the existing L1 index horizons (delay_index_max 2, partner 2, horizons {0,1,2}) so that an out-of-envelope witness fails the old grammars on exactly one dimension (BIND_CONTINUATION). DIVISIBILITY shape note: the three verdict continuations express the premise triple's shared omission shape (divisibility treated as an unbounded capability rather than a condition, so that 'not divisible under condition c' has no object in the system) in three genuinely distinct map shapes: divergence on the true branch (capability_is_unbounded: exercising infinite subdivisibility never completes in observation while the conditional limit is only admitted after the full capability spectrum is traversed), divergence on the false branch (no_object_for_condition: the capability verdict is always reachable but the conditional limit has no object), and same-delay/opposite-value at the resolution frontier (same_frontier_opposite: the theory renders opposite verdicts at one shared resolution limit where the reality task has a single answer). Structural consequence derived from the engine semantics, not assumed: because bind adds its own round on top of the continuation index, the two unbounded-capability continuations (inner index 2 or omega on both branches) cannot be separated by a deadline inside horizons {0,1,2} after a bind; only the frontier continuation (inner index 1) admits a bind-then-deadline separation. The pair members of every separating witness are delay-equivalent (the theory's identity criterion judges them the same), and separation must come from a race or deadline, never from the continuation alone, because bind always preserves delay equivalence."
+}

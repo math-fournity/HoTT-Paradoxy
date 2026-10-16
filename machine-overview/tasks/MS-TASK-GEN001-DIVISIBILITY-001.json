@@ -1,0 +1,135 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-GEN001-DIVISIBILITY-001",
+  "revision": 1,
+  "gen001_unit": "GEN-001 BOUNDED_GENERATOR_ACCEPTANCE_UNIT",
+  "supply_registration": "SUPPLY-004 / SUPPLY-006 / SUPPLY-008 (PREMISE-001/007); human_supply executed by AI with audit layer, pending external audit; explicitly NOT user supply",
+  "purpose": "The theory treats divisibility (density of the interval, extensibility of the truncation tower, iterability of higher equality) as an always-callable capability, so that the reality task 'this motion/interval conclusion must stop being subdivided because the measurement condition c does not allow finer resolution' has no object in the system. Two processes are identified by the theory's own identity criterion (delay equivalence forgets the arrival round), so the theory judges them the same already-completed value sequence. A declared verdict consumer then renders the theory's divisibility verdict: on input judged 'divisible' the capability is exercised without bound (the observation never completes) or the capability verdict always arrives late but still positive, and on input judged 'not divisible under condition c' the system either has no object at all or returns the opposite verdict at the very resolution limit where the reality task has one answer. Find whether the same identified pair yields an undecided/identical verdict under the bare definitional layer and a separated verdict once a declared race, deadline or frontier verdict consumer observes the erased round, so that a verification task whose correctness depends on 'is this resolution limit reached' is decided by the very round the identity criterion erased.",
+  "research_relation": "exploration",
+  "source_basis": {
+    "kind": "AI-frozen new task family over the pinned existing delay model (GEN-001 supply, not user supply)",
+    "references": [
+      "PREMISE-001/006 shard entry PREMISE-D-01 (interval density treated as given dense continuum; 'not divisible under condition c' has no object; falsifier: a cubical object naturally expressing conditional indivisibility)",
+      "PREMISE-001/006 shard entry PREMISE-E-04 (truncation tower extensibility treated as built-in capability; subdividing needs new measurement conditions; same shape as D-01)",
+      "PREMISE-001/006 shard entry PREMISE-G-03 (higher-equality iteration without bound; theory offers truncation as an option, not the constraint 'must truncate under condition c'; strongest corpus-induction risk, external audit priority)",
+      "PREMISE-001/007 shard SUPPLY-004 / SUPPLY-006 / SUPPLY-008 (TASK-FAMILY-DIVISIBILITY-CONDITION-OR-CAPABILITY, the continuity triple)",
+      "Atria的方案/修订片/003 (GEN-001 nine-field task specification and role discipline)",
+      "Atria的方案/修订片/011 (task-family design discipline: bounds alignment for unique BIND_CONTINUATION)",
+      "Atria的方案/修订片/012 (three-question disclosure: what is new, what is only a re-binding, what is not covered)",
+      "Atria的方案/修订片/013 (same-family collapse Q4 and direction-coverage declaration)",
+      "audit/PREMISE-001-STEP6-OMISSION-AUDIT-20260916.md (O-3: the triple registered as a same-family collapse risk, answered by this REPORT)",
+      "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda (pinned delay model; delay equivalence is the identity criterion)"
+    ]
+  },
+  "input": {
+    "type_ref": "ground terms of Delay Bool: omega or ret n b with n <= 2 (declared grammar L1-DIVISIBILITY-v1)",
+    "available_information": "only what the pinned model's constructors and operations expose"
+  },
+  "environment": {
+    "arrival_policy": "synchronous rounds; a bind adds its own processing rounds on top of the producer's arrival round; a race returns the earlier-arriving branch, left priority on ties",
+    "nondeterminism": "none inside the fragment (single-thread deterministic delay)",
+    "fairness": "synchronous rounds with left priority on ties, as pinned"
+  },
+  "observation": {
+    "value": "Bool carried by ret, and Optional Bool carried by a deadline observation",
+    "trace": "round index n is carried by ret and accumulated by bind, but is invisible to delay equivalence (the identity criterion)",
+    "time_structure": "discrete synchronous rounds only; no continuity or physical-time claim"
+  },
+  "completion": {
+    "kind": "bounded",
+    "criterion_ref": "a declared observation layer (race against a reference delay, or a bounded deadline) observes the composed process (pair member, then divisibility verdict consumer); the verdict consumer models the theory's capability-versus-condition verdict whose conclusion depends on which layer observed"
+  },
+  "quantifiers": {
+    "instances": "finite (the declared grammar)",
+    "realization": "strategy"
+  },
+  "allowed_resources": "finite enumeration budget; one native kernel check per selected witness plus positive and negative controls",
+  "prohibited_extra_information": "the verdict consumer may not use information the original task was declared not to hold: no labels, no branch tags, no oracle. The observation layer and the verdict consumer are declared consumers of the same original pair and are declared up front.",
+  "assumptions": [
+    "the fragment is the pinned delay model, not general interval theory, general truncation towers or general identity-type iterability",
+    "delay equivalence models the theory's identity criterion only in the bounded sense that it forgets the arrival round; this is a bounded modelling correspondence, not a claim that Delay Bool is HoTT's identity type or the cubical interval",
+    "the race and deadline model observation layers that see the erased round only as a bounded round comparison; the verdict consumers model capability-versus-condition renderers, not semantic divisibility in the full theory",
+    "no physical-time, measurement-device or quantum-discreteness claim is made; the reality condition c is modelled only as the bounded observation layer"
+  ],
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "at least one witness must bind a continuation declared only in L1-DIVISIBILITY-v1, proving the family is outside l1-v0/v1/v2",
+    "the separating observation layer and verdict consumer must be among the declared constructs, not an oracle added after seeing a candidate",
+    "an exploration instance must not be upgraded into a new mathematical claim",
+    "the REPORT must answer the three questions of 修订片 012 §2 and the same-family collapse question Q4 of 修订片 013 §2.1 for the D-01 / E-04 / G-03 triple, and must declare the direction coverage of the no-extrapolation paragraph"
+  ],
+  "known_positive_controls": [
+    {
+      "id": "GEN001-DIVISIBILITY-RACE-CAPABILITY-UNBOUNDED",
+      "pair": {"left": {"kind": "ret", "n": 1, "value": true}, "right": {"kind": "ret", "n": 2, "value": true}},
+      "context": [
+        {"kind": "race_left", "partner": {"kind": "ret", "n": 1, "value": false}},
+        {"kind": "bind", "continuation": {"true": {"kind": "omega"}, "false": {"kind": "ret", "n": 2, "value": false}}}
+      ],
+      "claim_refs": [],
+      "note": "expected separation completion_divergence: the identified pair is judged same by delay equivalence; racing both members against a reference arriving between them exposes the erased round as a value difference, and the capability-is-unbounded verdict consumer then diverges on the divisible member and completes on the not-divisible member."
+    },
+    {
+      "id": "GEN001-DIVISIBILITY-RACE-NO-OBJECT",
+      "pair": {"left": {"kind": "ret", "n": 1, "value": true}, "right": {"kind": "ret", "n": 2, "value": true}},
+      "context": [
+        {"kind": "race_left", "partner": {"kind": "ret", "n": 1, "value": false}},
+        {"kind": "bind", "continuation": {"true": {"kind": "ret", "n": 2, "value": true}, "false": {"kind": "omega"}}}
+      ],
+      "claim_refs": [],
+      "note": "expected separation completion_divergence (mirror of the above): the capability verdict is always reachable and late on the divisible member, while the conditional indivisibility has no object and never completes."
+    },
+    {
+      "id": "GEN001-DIVISIBILITY-RACE-FRONTIER-OPPOSITE",
+      "pair": {"left": {"kind": "ret", "n": 1, "value": true}, "right": {"kind": "ret", "n": 2, "value": true}},
+      "context": [
+        {"kind": "race_left", "partner": {"kind": "ret", "n": 1, "value": false}},
+        {"kind": "bind", "continuation": {"true": {"kind": "ret", "n": 1, "value": true}, "false": {"kind": "ret", "n": 1, "value": false}}}
+      ],
+      "claim_refs": [],
+      "note": "expected separation value_mismatch: the race exposes the erased round as a value difference and the frontier verdict consumer renders opposite verdicts at the same accumulated resolution limit."
+    },
+    {
+      "id": "GEN001-DIVISIBILITY-DEADLINE-FRONTIER",
+      "pair": {"left": {"kind": "ret", "n": 0, "value": true}, "right": {"kind": "ret", "n": 1, "value": true}},
+      "context": [
+        {"kind": "bind", "continuation": {"true": {"kind": "ret", "n": 1, "value": true}, "false": {"kind": "ret", "n": 1, "value": false}}},
+        {"kind": "deadline", "k": 2}
+      ],
+      "claim_refs": [],
+      "note": "expected separation deadline_observation: the frontier verdict consumer adds its own processing round, and the bounded deadline observes one member inside the resolution condition and the other outside, although the pair was identified by delay equivalence."
+    }
+  ],
+  "known_negative_controls": [
+    {
+      "id": "deadline-same-horizon",
+      "description": "a deadline horizon at or above both raw pair-member round indices cannot separate a delay-equivalent pair without a declared verdict consumer; this is the definitional layer judging the identified pair same",
+      "expected": "NOT_SEPARATED"
+    },
+    {
+      "id": "bare-bind-preserves-identity",
+      "description": "a bind of any declared continuation alone, with no race or deadline, cannot separate a delay-equivalent pair, because bind is congruent with respect to delay equivalence; the divisibility verdict consumer by itself never re-identifies what the identity criterion already identified",
+      "expected": "NOT_SEPARATED"
+    }
+  ],
+  "claim_refs": [],
+  "correspondence": {
+    "original_activity": "a verification task whose correctness depends on judging whether a resolution limit is reached, where the judgement depends on whether divisibility is treated as an unconditional capability or as a condition of the observation layer",
+    "theoryization_steps": [
+      "model each process as a single-thread deterministic delay, identified up to delay equivalence (this is the theory's step: the arrival round is forgotten and two result-equivalent processes are treated as the same already-completed value sequence)",
+      "model an observation layer as a declared race against a reference delay or a bounded deadline, which reads the accumulated round index the identity criterion erased",
+      "model the capability-versus-condition verdict as a declared bind continuation that renders the theory's divisibility verdict on the exposed input"
+    ],
+    "observation_justification": "the observation layer and the verdict consumer are declared in the pinned model; the race and deadline read only the round index the model already carries",
+    "preservation_claims": [
+      "the input domain, the value type and the completion requirement are unchanged from the task declaration",
+      "only the declared observation layers and verdict consumers are applied; no extra branch information is exposed"
+    ],
+    "open_obligations": [
+      "the Delay Bool fragment is a bounded correspondent of the D-01/E-04/G-03 divisibility-as-capability premise, not the cubical interval, the truncation tower or the identity type itself; a continuity/density family in a genuine interval model remains a V2 candidate",
+      "the family shares the race-truncation separation mechanism with the identity-observation, completion-process and witness-recovery families; cross-family independence is not proved and is registered as out-of-envelope ingress, not a conclusion",
+      "the three members D-01 / E-04 / G-03 are supplied as one triple because they share the omission shape 'divisibility as capability rather than condition'; whether the triple collapses to one acceptance unit is answered by the REPORT under 修订片 013 §2.1, not assumed here",
+      "the semantic reading of 'measurement condition c' and of physical divisibility in the full theory is not addressed by this fragment"
+    ]
+  }
+}

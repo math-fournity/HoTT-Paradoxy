@@ -1,0 +1,51 @@
+{
+  "schema_version": "machine-overview-profile/v2",
+  "profile_id": "L5-CONSUMER-QUALIFICATION-v1",
+  "theory_variant": "Agda 2.8.0 safe object syntax with a fixed Hilbert derivation interface, explicit bounded search, finite Boolean truth evaluation and a generic Loeb self-certification boundary",
+  "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+  "toolchain_sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+  "library_registry": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+  "library_registry_sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+  "native_include_dirs": [
+    "machine-overview/formal",
+    "HoTT/formal/ercf3-t3"
+  ],
+  "sources": [
+    {
+      "path": "machine-overview/formal/L5ConsumerSupport.agda",
+      "role": "four-way L5 capability separation and generic Loeb self-certification boundary",
+      "sha256": "b327ba44258a13fd064d7f588af95a20997afac0d27022a6c2b7c67fdfff3061",
+      "symbols": [
+        {"name": "checkGivenProof", "kind": "supplied-proof checker", "lines": [33, 37]},
+        {"name": "searchSoundAtOne", "kind": "one-fuel search soundness", "lines": [43, 54]},
+        {"name": "truthDecision", "kind": "finite-fragment truth decision", "lines": [69, 83]},
+        {"name": "NoGlobalSelfCertification", "kind": "generic Loeb/reflection boundary", "lines": [96, 106]}
+      ]
+    },
+    {
+      "path": "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+      "role": "fixed ERCF-3 object formulas and Hilbert derivation family used by the given-proof and bounded-search tasks",
+      "sha256": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d",
+      "symbols": [
+        {"name": "Fml", "kind": "object-language formula syntax", "lines": [28, 43]},
+        {"name": "⊢_", "kind": "Hilbert derivation family", "lines": [108, 124]}
+      ]
+    }
+  ],
+  "support_sources": [],
+  "coordinator_identity_note": "The symbolic engine searches four separately frozen capability grammars. Native Agda checks each exact target; source qualification is independent of the semantic consumer audit.",
+  "supported_operations": [
+    {"op": "check one supplied derivation", "source": "L5ConsumerSupport.checkGivenProof"},
+    {"op": "one-fuel proof search with a sound found result", "source": "L5ConsumerSupport.searchK/searchSoundAtOne"},
+    {"op": "truth decision for closed BFml", "source": "L5ConsumerSupport.evalB/truthDecision"},
+    {"op": "Loeb rule plus reflection plus internally certified reflection", "source": "L5ConsumerSupport.NoGlobalSelfCertification"}
+  ],
+  "unsupported": [
+    {"item": "unbounded proof search or theoremhood decision", "reason": "searchK is explicitly fuel-bounded and targets one fixed formula"},
+    {"item": "truth decision for ERCF-3, HoTT or Agda", "reason": "evalB covers only the finite BFml fragment"},
+    {"item": "an actual same-layer HoTT self-reliability consumer", "reason": "consumer qualification is a separate fixed-source audit and currently has no all-criteria hit"},
+    {"item": "Goedel incompleteness or an HoTT-specific bug", "reason": "the native self-certification target is a generic conditional boundary"}
+  ],
+  "revision_note": "First profile that prevents given-proof checking, bounded proof search, finite truth decision and self-reliability from being treated as one capability.",
+  "notes": "All native results remain exploration/calibration receipts outside HoTT/CLAIM_EVIDENCE_MATRIX.md."
+}

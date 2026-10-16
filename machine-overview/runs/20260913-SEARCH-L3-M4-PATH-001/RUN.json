@@ -1,0 +1,377 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001",
+  "case_identity_sha256": "b1848df4f26da908667707f9ac6859b2f275fa5e4aecbce829cac87da83727d3",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T18:25:12.472628+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "interval_eta"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "endpoint_path",
+        "event_decoy"
+      ],
+      "reachable": [
+        "endpoint_path",
+        "event_decoy"
+      ]
+    }
+  },
+  "coordinator_version": "0.3.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 6,
+    "untracked_entries": 36,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 42,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 5,
+      "rule_count": 4,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['interval_eta']"
+  },
+  "inputs": {
+    "case_sha256": "fa5560856427b65a86e94b5b5f7dec5f717dfe479c392c2db62901432300b772",
+    "grammar_path": "machine-overview/grammars/l3-path-positive-m4-v1.json",
+    "grammar_sha256": "5e76b6dfcfb1b8e640b2f35854eec018e3eaac7d62a54aa9dfc590135d0dc1ad",
+    "profile_sha256": "dc5b8de5768d8170ccacb9efb430d8bd1b41a504fb3cca9735cc3282e5a75852",
+    "task_path": "machine-overview/tasks/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001.json",
+    "task_sha256": "c0d76df85a527b91d131e9894d08a76dbce76a1ad5762eadcb09f8cba2ea8a8e",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l3-path-positive-m4-v1.json",
+        "sha256": "5e76b6dfcfb1b8e640b2f35854eec018e3eaac7d62a54aa9dfc590135d0dc1ad"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l3-m4-v1.json",
+        "sha256": "dc5b8de5768d8170ccacb9efb430d8bd1b41a504fb3cca9735cc3282e5a75852"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001.json",
+        "sha256": "c0d76df85a527b91d131e9894d08a76dbce76a1ad5762eadcb09f8cba2ea8a8e"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L3-CUBICAL-M4-TASKSET-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L3-M4-PATH-001",
+  "runner": {
+    "bytes": 4510,
+    "path": "runner-manifest.json",
+    "sha256": "61032b4618a9155aeae9b9c12023bd50537670c5fd1e559313a782102b86d912"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T18:25:12.470220+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 7,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 76,
+    "rule_count": 5,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "7e96a14d76183e976ee8081dab44ce1a67c03e29ea8fdde52499f06339f1921d",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [],
+        "rule": "interval_eta"
+      },
+      "proof_term": "(λ i → f i)",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 1,
+        "nodes": 1
+      },
+      "used_rules": [
+        "interval_eta"
+      ],
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "a6905c41623fd46b9d154281c6c1657584fdb863353fef1711e23934b4be7e60",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "interval_eta"
+          }
+        ],
+        "rule": "path_identity_decoy"
+      },
+      "proof_term": "(λ i → f i)",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 2,
+        "nodes": 2
+      },
+      "used_rules": [
+        "path_identity_decoy",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0002"
+    },
+    {
+      "ast_sha256": "b32a67949633b06da0a527d38f8dc5b6e2117fef6985149c93e7718dac9304c6",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "interval_eta"
+              }
+            ],
+            "rule": "path_identity_decoy"
+          }
+        ],
+        "rule": "path_identity_decoy"
+      },
+      "proof_term": "(λ i → f i)",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "path_identity_decoy",
+        "path_identity_decoy",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0003"
+    },
+    {
+      "ast_sha256": "c3cbd64d2bb61771a46dc8cc7c2c795838b49e1a214c6c823c59f187c31c4171",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "interval_eta"
+              }
+            ],
+            "rule": "path_sym"
+          }
+        ],
+        "rule": "path_sym_back"
+      },
+      "proof_term": "sym (sym ((λ i → f i)))",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "path_sym_back",
+        "path_sym",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0004"
+    },
+    {
+      "ast_sha256": "96090d7d3ae6c37797f7e9f682c92d620f819f9734775a6fa14a855a3dbb00a1",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "interval_eta"
+                  }
+                ],
+                "rule": "path_identity_decoy"
+              }
+            ],
+            "rule": "path_identity_decoy"
+          }
+        ],
+        "rule": "path_identity_decoy"
+      },
+      "proof_term": "(λ i → f i)",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "path_identity_decoy",
+        "path_identity_decoy",
+        "path_identity_decoy",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0005"
+    },
+    {
+      "ast_sha256": "d3e2ac6676afff39b8ac47e3f48717f52979feb4e1a9b0af8d8ce28d36547428",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "interval_eta"
+                  }
+                ],
+                "rule": "path_identity_decoy"
+              }
+            ],
+            "rule": "path_sym"
+          }
+        ],
+        "rule": "path_sym_back"
+      },
+      "proof_term": "sym (sym ((λ i → f i)))",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "path_sym_back",
+        "path_sym",
+        "path_identity_decoy",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0006"
+    },
+    {
+      "ast_sha256": "da8c9f1111f2a44ad39255201347664f7fb6750ae906f9cba5b127a9bc426dce",
+      "backend": "symbolic-horn-v1",
+      "goal": "endpoint_path",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "interval_eta"
+                  }
+                ],
+                "rule": "path_sym"
+              }
+            ],
+            "rule": "path_sym_back"
+          }
+        ],
+        "rule": "path_identity_decoy"
+      },
+      "proof_term": "sym (sym ((λ i → f i)))",
+      "separation_kind": "path_coherence_positive",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "path_identity_decoy",
+        "path_sym_back",
+        "path_sym",
+        "interval_eta"
+      ],
+      "witness_id": "WV-0007"
+    }
+  ]
+}

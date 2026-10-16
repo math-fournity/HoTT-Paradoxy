@@ -1,0 +1,24 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L6-COMPENSATION-COHERENCE-M3-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json", "sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46"},
+  "answer_visibility": "Known L3 Path/apartness core recast as an L6 composition calibration; no benchmark AST or witness ID is embedded.",
+  "propositions": ["path_evidence", "reverse_path", "bottom"],
+  "goal": "bottom",
+  "observation_kind": "compensation_coherence_conflict",
+  "max_proof_depth": 4,
+  "rules": [
+    {"id": "path_compensation", "premises": [], "conclusion": "path_evidence", "term_template": "path", "semantic_source": "the TaskSpec's declared Path compensation"},
+    {"id": "apart_compensation", "premises": ["path_evidence"], "conclusion": "bottom", "term_template": "apart ({0})", "semantic_source": "the TaskSpec's declared exact-apartness compensation"},
+    {"id": "path_sym_decoy", "premises": ["path_evidence"], "conclusion": "reverse_path", "term_template": "sym ({0})", "semantic_source": "Path symmetry decoy"},
+    {"id": "path_sym_back_decoy", "premises": ["reverse_path"], "conclusion": "path_evidence", "term_template": "sym ({0})", "semantic_source": "Path symmetry decoy"},
+    {"id": "path_identity_decoy", "premises": ["path_evidence"], "conclusion": "path_evidence", "term_template": "{0}", "semantic_source": "identity decoy"}
+  ],
+  "mechanism_rules": ["path_compensation", "apart_compensation"],
+  "positive_control_goals": ["path_evidence"],
+  "ablation": {"remove_rules": ["path_compensation"], "expected": "bottom becomes unreachable because no Path reaches apartness"},
+  "native_contract": {"renderer": "m3_l6_compensation_conflict_v1", "target_scope": "all Type0 endpoints x,y with both Path and apartness inputs", "positive_controls": ["Segment Path separately", "Stage apartness separately"], "negative_control": "Segment path cannot be reused as a Stage endpoint path"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 4; generic native target, known two-rule mechanism."
+}

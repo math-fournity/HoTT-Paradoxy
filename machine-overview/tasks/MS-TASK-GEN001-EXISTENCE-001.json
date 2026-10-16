@@ -1,0 +1,253 @@
+{
+ "schema_version": "machine-overview-task/v1",
+ "task_id": "MS-TASK-GEN001-EXISTENCE-001",
+ "revision": 1,
+ "gen001_unit": "GEN-001 BOUNDED_GENERATOR_ACCEPTANCE_UNIT",
+ "supply_registration": "SUPPLY-005 / SUPPLY-009 (PREMISE-001/007); human_supply executed by AI with audit layer, pending external audit; explicitly NOT user supply; LOWEST-CONFIDENCE pair of the premise batch (D-04 / G-05 are the two entries most likely to be overturned to 'realistic' by external audit)",
+ "purpose": "The theory treats existence (the Kan filling material exists; the cofibration is fillable by definition) as a constructively callable resource, so that 'there exists a filler' is read as 'a filler is in place', and the reality task 'the capacity / the fixture exists but is not available when needed, because existence-to-availability carries a supply process (design, manufacture, stock, queue)' has no object in the system. Two processes are identified by the theory's own identity criterion (delay equivalence forgets the arrival round), so the theory judges them the same already-completed value sequence. A declared verdict consumer then renders the theory's existence-versus-availability verdict: on input judged 'exists' the supply process is exercised without ever delivering an observable availability (the observation never completes) or the availability verdict is always reachable as a late negative, and on input judged 'not granted' the supply process either has no object at all and never completes, or the theory renders the opposite verdict at the very availability frontier where the reality task has one answer. Find whether the same identified pair yields an undecided/identical verdict under the bare definitional layer and a separated verdict once a declared race, deadline or frontier verdict consumer observes the erased round, so that a scheduling task whose correctness depends on 'is the resource available at this point' is decided by the very round the identity criterion erased.",
+ "research_relation": "exploration",
+ "source_basis": {
+  "kind": "AI-frozen new task family over the pinned existing delay model (GEN-001 supply, not user supply)",
+  "references": [
+   "PREMISE-001/006 shard entry PREMISE-D-04 (Kan filling: 'the filler exists' treated as 'the filler is in place'; falsifier: any 'exists != available' real scheduling task; strongest steelman: formal construction rule whose 'existence' is formal-layer constructibility; low confidence)",
+   "PREMISE-001/006 shard entry PREMISE-G-05 (all cofibrations fillable set as constructive availability: existence set to constructively callable, exists = in place; same shape as D-04; weakest formal-layer reason because fillability is a definitional condition; explicitly flagged as one of the two entries most likely to be overturned to 'realistic')",
+   "PREMISE-001/007 shard SUPPLY-005 / SUPPLY-009 (TASK-FAMILY-EXISTENCE-VERSUS-AVAILABILITY, merged low-confidence pair)",
+   "Atria的方案/修订片/003 (GEN-001 nine-field task specification and role discipline)",
+   "Atria的方案/修订片/011 (task-family design discipline: bounds alignment for unique BIND_CONTINUATION)",
+   "Atria的方案/修订片/012 (three-question disclosure: what is new, what is only a re-binding, what is not covered)",
+   "Atria的方案/修订片/013 (same-family collapse Q4 and direction-coverage declaration)",
+   "audit/PREMISE-001-STEP6-OMISSION-AUDIT-20260916.md (cross-family race-truncation mechanism overlap, five inputs accumulated)",
+   "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda (pinned delay model; delay equivalence is the identity criterion)"
+  ]
+ },
+ "input": {
+  "type_ref": "ground terms of Delay Bool: omega or ret n b with n <= 2 (declared grammar L1-EXISTENCE-v1)",
+  "available_information": "only what the pinned model's constructors and operations expose"
+ },
+ "environment": {
+  "arrival_policy": "synchronous rounds; a bind adds its own processing rounds on top of the producer's arrival round; a race returns the earlier-arriving branch, left priority on ties",
+  "nondeterminism": "none inside the fragment (single-thread deterministic delay)",
+  "fairness": "synchronous rounds with left priority on ties, as pinned"
+ },
+ "observation": {
+  "value": "Bool carried by ret, and Optional Bool carried by a deadline observation",
+  "trace": "round index n is carried by ret and accumulated by bind, but is invisible to delay equivalence (the identity criterion)",
+  "time_structure": "discrete synchronous rounds only; no continuity or physical-time claim"
+ },
+ "completion": {
+  "kind": "bounded",
+  "criterion_ref": "a declared observation layer (race against a reference delay, or a bounded deadline) observes the composed process (pair member, then existence-versus-availability verdict consumer); the verdict consumer models the theory's existence-as-constructive-availability verdict whose conclusion depends on which layer observed"
+ },
+ "quantifiers": {
+  "instances": "finite (the declared grammar)",
+  "realization": "strategy"
+ },
+ "allowed_resources": "finite enumeration budget; one native kernel check per selected witness plus positive and negative controls",
+ "prohibited_extra_information": "the verdict consumer may not use information the original task was declared not to hold: no labels, no branch tags, no oracle. The observation layer and the verdict consumer are declared consumers of the same original pair and are declared up front.",
+ "assumptions": [
+  "the fragment is the pinned delay model, not general Kan filling, general cofibration structure or general constructive existence",
+  "delay equivalence models the theory's identity criterion only in the bounded sense that it forgets the arrival round; this is a bounded modelling correspondence, not a claim that Delay Bool is HoTT's identity type or the cubical Kan composition structure",
+  "the race and deadline model observation layers that see the erased round only as a bounded round comparison; the verdict consumers model existence-versus-availability renderers, not semantic fillability in the full theory",
+  "no physical-time, manufacturing-process or resource-scheduling claim is made; the reality supply process is modelled only as the bounded observation layer"
+ ],
+ "obligations": [
+  "the verified statement must be a ground instance inside the declared grammar",
+  "at least one witness must bind a continuation declared only in L1-EXISTENCE-v1, proving the family is outside l1-v0/v1/v2 and the four preceding GEN-001 delay families",
+  "the separating observation layer and verdict consumer must be among the declared constructs, not an oracle added after seeing a candidate",
+  "an exploration instance must not be upgraded into a new mathematical claim",
+  "the REPORT must answer the three questions of 修订片 012 §2 and the same-family collapse question Q4 of 修订片 013 §2.1 for the D-04 / G-05 pair, and must declare the direction coverage of the no-extrapolation paragraph",
+  "the REPORT must explicitly record that D-04 / G-05 are the lowest-confidence pair of the premise batch and that the premise verdicts remain AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT and are not upgraded by this acceptance unit"
+ ],
+ "known_positive_controls": [
+  {
+   "id": "GEN001-EXISTENCE-RACE-EXISTS-NEVER-AVAILABLE",
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 2,
+     "value": true
+    }
+   },
+   "context": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "kind": "bind",
+     "continuation": {
+      "true": {
+       "kind": "omega"
+      },
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      }
+     }
+    }
+   ],
+   "claim_refs": [],
+   "note": "expected separation completion_divergence: the identified pair is judged same by delay equivalence; racing both members against a reference arriving between them exposes the erased round as a value difference, and the exists-but-never-available verdict consumer then diverges on the exists member and settles late-negative on the not-exists member."
+  },
+  {
+   "id": "GEN001-EXISTENCE-RACE-SUPPLY-WITHOUT-OBJECT",
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 2,
+     "value": true
+    }
+   },
+   "context": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "kind": "bind",
+     "continuation": {
+      "true": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      },
+      "false": {
+       "kind": "omega"
+      }
+     }
+    }
+   ],
+   "claim_refs": [],
+   "note": "expected separation completion_divergence (mirror of the above): the availability verdict is always reachable as a late negative on the exists member, while the not-granted member has no supply object and never completes."
+  },
+  {
+   "id": "GEN001-EXISTENCE-RACE-FRONTIER-OPPOSITE",
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 1,
+     "value": true
+    },
+    "right": {
+     "kind": "ret",
+     "n": 2,
+     "value": true
+    }
+   },
+   "context": [
+    {
+     "kind": "race_left",
+     "partner": {
+      "kind": "ret",
+      "n": 1,
+      "value": false
+     }
+    },
+    {
+     "kind": "bind",
+     "continuation": {
+      "true": {
+       "kind": "ret",
+       "n": 2,
+       "value": true
+      },
+      "false": {
+       "kind": "ret",
+       "n": 2,
+       "value": false
+      }
+     }
+    }
+   ],
+   "claim_refs": [],
+   "note": "expected separation value_mismatch: the race exposes the erased round as a value difference and the availability-frontier verdict consumer renders opposite verdicts at the same accumulated availability limit."
+  },
+  {
+   "id": "GEN001-EXISTENCE-DEADLINE-LATE-NEGATIVE",
+   "pair": {
+    "left": {
+     "kind": "ret",
+     "n": 0,
+     "value": false
+    },
+    "right": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "context": [
+    {
+     "kind": "bind",
+     "continuation": {
+      "true": {
+       "kind": "omega"
+      },
+      "false": {
+       "kind": "ret",
+       "n": 1,
+       "value": false
+      }
+     }
+    },
+    {
+     "kind": "deadline",
+     "k": 2
+    }
+   ],
+   "claim_refs": [],
+   "note": "expected separation deadline_observation: on the not-granted verdict the availability verdict consumer is late-negative, adding its own processing round; the bounded deadline observes the member whose accumulated availability index is 2 inside the window (k=2) and the other at index 3 outside it, although the pair was identified by delay equivalence. On the granted verdict both members diverge and the deadline observes none for both, so the separation is carried by the late-negative branch whose inner index 1 opens the deadline horizon."
+  }
+ ],
+ "known_negative_controls": [
+  {
+   "id": "deadline-same-horizon",
+   "description": "a deadline horizon at or above both raw pair-member round indices cannot separate a delay-equivalent pair without a declared verdict consumer; this is the definitional layer judging the identified pair same",
+   "expected": "NOT_SEPARATED"
+  },
+  {
+   "id": "bare-bind-preserves-identity",
+   "description": "a bind of any declared continuation alone, with no race or deadline, cannot separate a delay-equivalent pair, because bind is congruent with respect to delay equivalence; the existence verdict consumer by itself never re-identifies what the identity criterion already identified",
+   "expected": "NOT_SEPARATED"
+  }
+ ],
+ "claim_refs": [],
+ "correspondence": {
+  "original_activity": "a scheduling task whose correctness depends on judging whether a resource is available at a given point, where the judgement depends on whether existence is treated as constructive availability or as a premise that still requires a supply process",
+  "theoryization_steps": [
+   "model each process as a single-thread deterministic delay, identified up to delay equivalence (this is the theory's step: the arrival round is forgotten and two result-equivalent processes are treated as the same already-completed value sequence)",
+   "model an observation layer as a declared race against a reference delay or a bounded deadline, which reads the accumulated round index the identity criterion erased",
+   "model the existence-versus-availability verdict as a declared bind continuation that renders the theory's existence-as-constructive-availability verdict on the exposed input"
+  ],
+  "observation_justification": "the observation layer and the verdict consumer are declared in the pinned model; the race and deadline read only the round index the model already carries",
+  "preservation_claims": [
+   "the input domain, the value type and the completion requirement are unchanged from the task declaration",
+   "only the declared observation layers and verdict consumers are applied; no extra branch information is exposed"
+  ],
+  "open_obligations": [
+   "the Delay Bool fragment is a bounded correspondent of the D-04/G-05 existence-as-constructive-availability premise, not the cubical Kan composition structure or the cofibration definitional condition itself; a fillability family in a genuine cubical model remains a V2 candidate",
+   "the family shares the race-truncation separation mechanism with the identity-observation, completion-process, witness-recovery and divisibility families; cross-family independence is not proved and is registered as out-of-envelope ingress, not a conclusion",
+   "the two members D-04 / G-05 are supplied as one pair because they share the omission shape 'existence treated as constructive availability'; whether the pair collapses to one acceptance unit is answered by the REPORT under 修订片 013 §2.1, not assumed here",
+   "the semantic reading of 'supply process', 'capacity' and of constructive existence in the full theory is not addressed by this fragment"
+  ]
+ }
+}

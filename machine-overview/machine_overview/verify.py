@@ -28,7 +28,7 @@ import subprocess
 import time
 from pathlib import Path
 
-from .case import case_identity_sha256, validate_identifier
+from .case import case_identity_sha256, symbolic_renderer_id, validate_identifier
 from .model import (
     agda_bool,
     agda_nat,
@@ -54,6 +54,7 @@ from .util import (
 )
 
 OPTIONS = "{-# OPTIONS --safe --cubical --guardedness #-}"
+PLAIN_OPTIONS = "{-# OPTIONS --safe #-}"
 
 FORBIDDEN_MARKERS = (
     "postulate",
@@ -285,68 +286,466 @@ def negative_control_horizon(left: tuple, right: tuple, grammar: dict | None = N
 
 
 def _render_symbolic_target(case: dict, witness: dict, grammar: dict) -> str:
+    renderer = symbolic_renderer_id(grammar)
+    if renderer == "l3_interval_observable_v1":
+        return "\n".join([
+            OPTIONS,
+            "",
+            f"-- Symbolic L3 target for {case['case_id']} / {witness['witness_id']}.",
+            "-- I is tested as an activity-time carrier; no physical-time claim is made.",
+            "",
+            "module Target where",
+            "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "",
+            "NoSeparatedObservable : Type₁",
+            "NoSeparatedObservable =",
+            "  {A : Type₀} → (f : I → A) → ((f i0 ≡ f i1) → ⊥) → ⊥",
+            "",
+        ])
+    if renderer == "l3_path_coherence_positive_v1":
+        return "\n".join([
+            OPTIONS, "",
+            f"-- M4-lite Path-coherence target for {case['case_id']} / {witness['witness_id']}.",
+            "-- This is the positive task in which cubical Path coherence is the requested output.",
+            "", "module Target where", "",
+            "open import Cubical.Foundations.Prelude", "",
+            "PathCarrierCoherence : Type₁",
+            "PathCarrierCoherence = {A : Type₀} → (f : I → A) → f i0 ≡ f i1", "",
+        ])
+    if renderer == "l3_event_boundary_v1":
+        return "\n".join([
+            OPTIONS, "",
+            f"-- M4-lite explicit-event target for {case['case_id']} / {witness['witness_id']}.",
+            "-- The event carrier is distinct from cubical dimension and keeps exact endpoint observations.",
+            "", "module Target where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (false; true)",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "open import Cubical.Data.Prod.Base using (_×_)",
+            "open import L3M4Support", "",
+            "ExactEventBoundary : Type",
+            "ExactEventBoundary =",
+            "  (phase start ≡ false) × ((phase finish ≡ true) × ((phase start ≡ phase finish) → ⊥))", "",
+        ])
+    if renderer == "l3_finite_to_exact_candidate_v1":
+        return "\n".join([
+            OPTIONS, "",
+            f"-- M4-lite finite-to-exact candidate target for {case['case_id']} / {witness['witness_id']}.",
+            "-- The task asks whether finite approximation evidence alone supplies exact arrival.",
+            "", "module Target where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import L3M4Support", "",
+            "FiniteToExact : Type",
+            "FiniteToExact = FiniteApproximation → ExactArrival", "",
+        ])
+    if renderer == "m3_l2_truncated_limit_v1":
+        return "\n".join([
+            OPTIONS, "",
+            f"-- M3/L2 local-to-global target for {case['case_id']} / {witness['witness_id']}.",
+            "-- Stagewise mere existence is kept distinct from one compatible exact limit.",
+            "", "module Target where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "import TransitionLift as TL", "",
+            "NoTruncatedLimitRecovery : Type",
+            "NoTruncatedLimitRecovery = (TL.LimTruncA → TL.LimA) → ⊥", "",
+        ])
+    if renderer == "m3_l4_sip_observation_v1":
+        return "\n".join([
+            OPTIONS, "",
+            f"-- M3/L4 SIP observation target for {case['case_id']} / {witness['witness_id']}.",
+            "-- The observer asks for data outside the identified structure's signature.",
+            "", "module Target where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (Bool; false; true)",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "import SIPRepresentation as SIP", "",
+            "NoOutsideObservationRecovery : Type₁",
+            "NoOutsideObservationRecovery =",
+            "  (f : SIP.Str → Bool) → f SIP.s ≡ true → f SIP.t ≡ false → ⊥", "",
+        ])
+    if renderer == "m3_l5_self_guarantee_v1":
+        return "\n".join([
+            OPTIONS, "",
+            f"-- M3/L5 exact self-coding target for {case['case_id']} / {witness['witness_id']}.",
+            "-- The rejected strengthening is a section for every Bool predicate, not checking one proof.",
+            "", "module Target where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (Bool)",
+            "open import Cubical.Data.Empty.Base using (⊥)", "",
+            "NoExactSelfCoding : Type₁",
+            "NoExactSelfCoding =",
+            "  {A : Type₀} → (encode : A → A → Bool) → (decode : (A → Bool) → A)",
+            "  → ((p : A → Bool) → encode (decode p) ≡ p) → ⊥", "",
+        ])
+    if renderer == "l5_given_proof_check_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "",
+            f"-- L5 given-proof target for {case['case_id']} / {witness['witness_id']}.",
+            "-- The derivation is supplied before checking; no search or truth decision is claimed.",
+            "", "module Target where", "",
+            "import ObjectSyntax as OS",
+            "import L5ConsumerSupport as L5", "",
+            "GivenProofAccepted : Set",
+            "GivenProofAccepted = OS.⊢ L5.kFormula", "",
+        ])
+    if renderer == "l5_bounded_proof_search_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "",
+            f"-- L5 bounded-search target for {case['case_id']} / {witness['witness_id']}.",
+            "-- One unit of fuel and the found derivation are both part of the target.",
+            "", "module Target where", "",
+            "open import Agda.Builtin.Bool using (true)",
+            "open import Agda.Builtin.Equality using (_≡_)",
+            "open import Agda.Builtin.Nat using (zero; suc)",
+            "import ObjectSyntax as OS",
+            "import L5ConsumerSupport as L5", "",
+            "record BoundedProofSearchFound : Set where",
+            "  constructor bounded",
+            "  field",
+            "    search-result : L5.searchK (suc zero) ≡ true",
+            "    found-proof : OS.⊢ L5.kFormula", "",
+        ])
+    if renderer == "l5_finite_truth_decision_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "",
+            f"-- L5 finite-truth target for {case['case_id']} / {witness['witness_id']}.",
+            "-- The decision domain is the closed finite BFml fragment only.",
+            "", "module Target where", "",
+            "open import Agda.Builtin.Bool using (true)",
+            "open import Agda.Builtin.Equality using (_≡_)",
+            "import L5ConsumerSupport as L5", "",
+            "RestrictedTruthDecided : Set",
+            "RestrictedTruthDecided = L5.evalB L5.truthFormula ≡ true", "",
+        ])
+    if renderer == "l5_lob_self_certification_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "",
+            f"-- L5 Löb/self-certification target for {case['case_id']} / {witness['witness_id']}.",
+            "-- This is a generic joint-interface boundary, not a claim about a qualified HoTT consumer.",
+            "", "module Target where", "",
+            "open import L5ConsumerSupport using (⊥)", "",
+            "NoLobSelfCertification : Set₁",
+            "NoLobSelfCertification =",
+            "  {Box : Set → Set}",
+            "  → ((A : Set) → Box A → A)",
+            "  → ((A : Set) → Box (Box A → A) → Box A)",
+            "  → ((A : Set) → Box (Box A → A))",
+            "  → ⊥", "",
+        ])
     return "\n".join([
-        OPTIONS,
-        "",
-        f"-- Symbolic L3 target for {case['case_id']} / {witness['witness_id']}.",
-        "-- I is tested as an activity-time carrier; no physical-time claim is made.",
-        "",
-        "module Target where",
-        "",
+        OPTIONS, "",
+        f"-- M3/L6 compensation-composition target for {case['case_id']} / {witness['witness_id']}.",
+        "-- Path coherence and exact endpoint apartness are tested on the same endpoints.",
+        "", "module Target where", "",
         "open import Cubical.Foundations.Prelude",
-        "open import Cubical.Data.Empty.Base using (⊥)",
-        "",
-        "NoSeparatedObservable : Type₁",
-        "NoSeparatedObservable =",
-        "  {A : Type₀} → (f : I → A) → ((f i0 ≡ f i1) → ⊥) → ⊥",
-        "",
+        "open import Cubical.Data.Empty.Base using (⊥)", "",
+        "NoJointPathAndApart : Type₁",
+        "NoJointPathAndApart =",
+        "  {A : Type₀} {x y : A} → x ≡ y → ((x ≡ y) → ⊥) → ⊥", "",
     ])
 
 
 def _render_symbolic_proof(case: dict, witness: dict, grammar: dict) -> str:
+    renderer = symbolic_renderer_id(grammar)
+    if renderer == "m3_l5_self_guarantee_v1":
+        return "\n".join([
+            OPTIONS, "", f"-- Proof term synthesized from AST {witness['ast_sha256']}.", "",
+            "module Proof where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (Bool; not)",
+            "open import M3BreadthSupport",
+            "import Target", "",
+            "proof : Target.NoExactSelfCoding",
+            f"proof {{A = A}} encode decode section = {witness['proof_term']}",
+            "  where",
+            "  liar : A → Bool",
+            "  liar x = not (encode x x)",
+            "  self : A",
+            "  self = decode liar", "",
+        ])
+    if renderer in {
+        "l5_given_proof_check_v1",
+        "l5_bounded_proof_search_v1",
+        "l5_finite_truth_decision_v1",
+        "l5_lob_self_certification_v1",
+    }:
+        target_name = {
+            "l5_given_proof_check_v1": "GivenProofAccepted",
+            "l5_bounded_proof_search_v1": "BoundedProofSearchFound",
+            "l5_finite_truth_decision_v1": "RestrictedTruthDecided",
+            "l5_lob_self_certification_v1": "NoLobSelfCertification",
+        }[renderer]
+        imports = []
+        if renderer == "l5_lob_self_certification_v1":
+            imports.append("open import L5ConsumerSupport using (⊥)")
+        imports.append("import L5ConsumerSupport as L5")
+        if renderer == "l5_lob_self_certification_v1":
+            signature = (
+                f"proof {{Box = Box}} reflect lob certify = {witness['proof_term']}"
+            )
+        else:
+            signature = f"proof = {witness['proof_term']}"
+        return "\n".join([
+            PLAIN_OPTIONS, "", f"-- Proof term synthesized from AST {witness['ast_sha256']}.", "",
+            "module Proof where", "", *imports, "import Target", "",
+            f"proof : Target.{target_name}", signature, "",
+        ])
+    target_name = {
+        "l3_interval_observable_v1": "NoSeparatedObservable",
+        "l3_path_coherence_positive_v1": "PathCarrierCoherence",
+        "l3_event_boundary_v1": "ExactEventBoundary",
+        "l3_finite_to_exact_candidate_v1": "FiniteToExact",
+        "m3_l2_truncated_limit_v1": "NoTruncatedLimitRecovery",
+        "m3_l4_sip_observation_v1": "NoOutsideObservationRecovery",
+        "m3_l6_compensation_conflict_v1": "NoJointPathAndApart",
+    }[renderer]
+    signature = {
+        "l3_interval_observable_v1": f"proof f apart = {witness['proof_term']}",
+        "l3_path_coherence_positive_v1": f"proof f = {witness['proof_term']}",
+        "l3_event_boundary_v1": f"proof = {witness['proof_term']}",
+        "l3_finite_to_exact_candidate_v1": f"proof finite = {witness['proof_term']}",
+        "m3_l2_truncated_limit_v1": f"proof recover = {witness['proof_term']}",
+        "m3_l4_sip_observation_v1": f"proof f hs ht = {witness['proof_term']}",
+        "m3_l6_compensation_conflict_v1": f"proof path apart = {witness['proof_term']}",
+    }[renderer]
+    imports = ["open import Cubical.Foundations.Prelude"]
+    if renderer in {"l3_event_boundary_v1", "l3_finite_to_exact_candidate_v1"}:
+        imports.append("open import L3M4Support")
+    if renderer == "l3_event_boundary_v1":
+        imports.append("open import Cubical.Data.Prod.Base using (_,_)")
+    if renderer == "m3_l2_truncated_limit_v1":
+        imports.extend(["open import Cubical.Data.Empty.Base using (⊥)", "import TransitionLift as TL"])
+    if renderer == "m3_l4_sip_observation_v1":
+        imports.extend([
+            "open import Cubical.Data.Bool.Base using (Bool; false; true)",
+            "import SIPRepresentation as SIP",
+        ])
     return "\n".join([
-        OPTIONS,
-        "",
-        f"-- Proof term synthesized from AST {witness['ast_sha256']}.",
-        "",
-        "module Proof where",
-        "",
-        "open import Cubical.Foundations.Prelude",
-        "import Target",
-        "",
-        "proof : Target.NoSeparatedObservable",
-        f"proof f apart = {witness['proof_term']}",
-        "",
+        OPTIONS, "", f"-- Proof term synthesized from AST {witness['ast_sha256']}.", "",
+        "module Proof where", "", *imports, "import Target", "",
+        f"proof : Target.{target_name}", signature, "",
     ])
 
 
-def _render_symbolic_verify(witness: dict) -> str:
+def _render_symbolic_verify(witness: dict, grammar: dict) -> str:
+    renderer = symbolic_renderer_id(grammar)
+    target_name = {
+        "l3_interval_observable_v1": "NoSeparatedObservable",
+        "l3_path_coherence_positive_v1": "PathCarrierCoherence",
+        "l3_event_boundary_v1": "ExactEventBoundary",
+        "l3_finite_to_exact_candidate_v1": "FiniteToExact",
+        "m3_l2_truncated_limit_v1": "NoTruncatedLimitRecovery",
+        "m3_l4_sip_observation_v1": "NoOutsideObservationRecovery",
+        "m3_l5_self_guarantee_v1": "NoExactSelfCoding",
+        "m3_l6_compensation_conflict_v1": "NoJointPathAndApart",
+        "l5_given_proof_check_v1": "GivenProofAccepted",
+        "l5_bounded_proof_search_v1": "BoundedProofSearchFound",
+        "l5_finite_truth_decision_v1": "RestrictedTruthDecided",
+        "l5_lob_self_certification_v1": "NoLobSelfCertification",
+    }[renderer]
+    options = PLAIN_OPTIONS if renderer.startswith("l5_") else OPTIONS
     return "\n".join([
-        OPTIONS, "", "module Verify where", "",
+        options, "", "module Verify where", "",
         "open import Target", "open import Proof", "",
-        "check : NoSeparatedObservable", "check = proof", "",
+        f"check : {target_name}", "check = proof", "",
     ])
 
 
-def _render_symbolic_controls(witness: dict) -> str:
-    return "\n".join([
+def _render_symbolic_controls(witness: dict, grammar: dict) -> str:
+    renderer = symbolic_renderer_id(grammar)
+    if renderer == "l3_interval_observable_v1":
+        return "\n".join([
+            OPTIONS, "", "module Controls where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (Bool; false; true)",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "open import L3MotionSupport", "",
+            "check-stage-change : (phase start ≡ phase finish) → ⊥",
+            "check-stage-change = phase-changes", "",
+            "check-segment-motion : left ≡ right",
+            "check-segment-motion = segment-motion", "",
+        ])
+    if renderer == "m3_l2_truncated_limit_v1":
+        return "\n".join([
+            OPTIONS, "", "module Controls where", "",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "import TransitionLift as TL", "",
+            "check-local-limit : TL.LimTruncA", "check-local-limit = TL.C-115-limTrunc", "",
+            "check-exact-empty : TL.LimA → ⊥", "check-exact-empty = TL.C-114-LimA-empty", "",
+        ])
+    if renderer == "m3_l4_sip_observation_v1":
+        return "\n".join([
+            OPTIONS, "", "module Controls where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "import SIPRepresentation as SIP", "",
+            "check-identification : SIP.s ≡ SIP.t",
+            "check-identification = SIP.C-124-identification", "",
+            "check-outside-observation : SIP.observable-s ≡ SIP.observable-t → ⊥",
+            "check-outside-observation = SIP.C-125-obs-differs", "",
+            "check-refined-separation : SIP.s' ≡ SIP.t' → ⊥",
+            "check-refined-separation = SIP.C-128-no-identification", "",
+        ])
+    if renderer == "m3_l5_self_guarantee_v1":
+        return "\n".join([
+            OPTIONS, "", "module Controls where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (Bool; false; true; not)",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "open import M3BreadthSupport", "",
+            "check-given : true ≡ true → true ≡ true", "check-given = checkGiven", "",
+            "check-no-fixed : (b : Bool) → b ≡ not b → ⊥",
+            "check-no-fixed = notNoFixed", "",
+        ])
+    if renderer in {
+        "l5_given_proof_check_v1",
+        "l5_bounded_proof_search_v1",
+        "l5_finite_truth_decision_v1",
+        "l5_lob_self_certification_v1",
+    }:
+        return "\n".join([
+            PLAIN_OPTIONS, "", "module Controls where", "",
+            "open import Agda.Builtin.Bool using (false; true)",
+            "open import Agda.Builtin.Equality using (_≡_)",
+            "open import Agda.Builtin.Nat using (zero; suc)",
+            "import ObjectSyntax as OS",
+            "import L5ConsumerSupport as L5", "",
+            "check-given : OS.⊢ L5.kFormula", "check-given = L5.checkGivenProof L5.givenK", "",
+            "check-zero-fuel : L5.searchK zero ≡ false", "check-zero-fuel = L5.searchAtZero", "",
+            "check-one-fuel : L5.searchK (suc zero) ≡ true", "check-one-fuel = L5.searchAtOne", "",
+            "check-finite-true : L5.evalB L5.truthFormula ≡ true",
+            "check-finite-true = L5.truthDecision", "",
+            "check-finite-false : L5.evalB L5.falseFormula ≡ false",
+            "check-finite-false = L5.falseDecision", "",
+        ])
+    if renderer == "m3_l6_compensation_conflict_v1":
+        return "\n".join([
+            OPTIONS, "", "module Controls where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Empty.Base using (⊥)",
+            "import L3M4Support as L3", "",
+            "check-path-repair : L3.left ≡ L3.right",
+            "check-path-repair = L3.segment-path", "",
+            "check-apart-repair : L3.phase L3.start ≡ L3.phase L3.finish → ⊥",
+            "check-apart-repair = L3.phase-apart", "",
+        ])
+    common = [
         OPTIONS, "", "module Controls where", "",
         "open import Cubical.Foundations.Prelude",
-        "open import Cubical.Data.Bool.Base using (Bool; false; true)",
         "open import Cubical.Data.Empty.Base using (⊥)",
-        "open import L3MotionSupport", "",
-        "check-stage-change : (phase start ≡ phase finish) → ⊥",
-        "check-stage-change = phase-changes", "",
-        "check-segment-motion : left ≡ right",
-        "check-segment-motion = segment-motion", "",
-    ])
+        "open import Cubical.Data.Nat.Base using (zero)",
+        "open import L3M4Support", "",
+    ]
+    if renderer == "l3_path_coherence_positive_v1":
+        body = [
+            "check-segment-path : left ≡ right", "check-segment-path = segment-path", "",
+            "check-stage-apart : (phase start ≡ phase finish) → ⊥",
+            "check-stage-apart = phase-apart", "",
+        ]
+    elif renderer == "l3_event_boundary_v1":
+        body = [
+            "check-start : phase start ≡ false", "check-start = phase-start", "",
+            "check-finish : phase finish ≡ true", "check-finish = phase-finish", "",
+            "check-apart : (phase start ≡ phase finish) → ⊥", "check-apart = phase-apart", "",
+        ]
+        common.insert(5, "open import Cubical.Data.Bool.Base using (false; true)")
+    else:
+        body = [
+            "check-finite : FiniteApproximation", "check-finite = approximate zero", "",
+            "check-exact-empty : ExactArrival → ⊥", "check-exact-empty = exact-elim", "",
+        ]
+    return "\n".join([*common, *body])
 
 
-def _render_symbolic_falsify(witness: dict) -> str:
+def _render_symbolic_falsify(witness: dict, grammar: dict) -> str:
+    renderer = symbolic_renderer_id(grammar)
+    support = "L3MotionSupport" if renderer == "l3_interval_observable_v1" else "L3M4Support"
+    if renderer == "l3_finite_to_exact_candidate_v1":
+        return "\n".join([
+            OPTIONS, "", "module Falsify where", "",
+            "open import Cubical.Data.Nat.Base using (zero)",
+            "open import L3M4Support", "",
+            "-- Negative control: a finite approximation is not an ExactArrival constructor.",
+            "bad-exact-arrival : ExactArrival", "bad-exact-arrival = approximate zero", "",
+        ])
+    if renderer == "m3_l2_truncated_limit_v1":
+        return "\n".join([
+            OPTIONS, "", "module Falsify where", "",
+            "import TransitionLift as TL", "",
+            "-- Negative control: a truncated limit is not an exact compatible limit.",
+            "bad-exact-limit : TL.LimA", "bad-exact-limit = TL.C-115-limTrunc", "",
+        ])
+    if renderer == "m3_l4_sip_observation_v1":
+        return "\n".join([
+            OPTIONS, "", "module Falsify where", "",
+            "open import Cubical.Foundations.Prelude",
+            "import SIPRepresentation as SIP", "",
+            "-- Negative control: the coarse identification cannot identify the refined structures.",
+            "bad-refined-identification : SIP.s' ≡ SIP.t'",
+            "bad-refined-identification = SIP.C-124-identification", "",
+        ])
+    if renderer == "m3_l5_self_guarantee_v1":
+        return "\n".join([
+            OPTIONS, "", "module Falsify where", "",
+            "open import Cubical.Foundations.Prelude",
+            "open import Cubical.Data.Bool.Base using (false; not)", "",
+            "-- Negative control: false is not a fixed point of Boolean negation.",
+            "bad-fixed-point : false ≡ not false", "bad-fixed-point = refl", "",
+        ])
+    if renderer == "l5_given_proof_check_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "", "module Falsify where", "",
+            "import ObjectSyntax as OS",
+            "import L5ConsumerSupport as L5", "",
+            "-- Negative control: a K derivation is not a derivation of bottom.",
+            "bad : OS.⊢ OS.bot", "bad = L5.givenK", "",
+        ])
+    if renderer == "l5_bounded_proof_search_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "", "module Falsify where", "",
+            "open import Agda.Builtin.Bool using (true)",
+            "open import Agda.Builtin.Equality using (_≡_; refl)",
+            "open import Agda.Builtin.Nat using (zero)",
+            "import L5ConsumerSupport as L5", "",
+            "-- Negative control: zero fuel does not report success.",
+            "bad : L5.searchK zero ≡ true", "bad = refl", "",
+        ])
+    if renderer == "l5_finite_truth_decision_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "", "module Falsify where", "",
+            "open import Agda.Builtin.Bool using (true)",
+            "open import Agda.Builtin.Equality using (_≡_; refl)",
+            "import L5ConsumerSupport as L5", "",
+            "-- Negative control: the false literal does not evaluate to true.",
+            "bad : L5.evalB L5.falseFormula ≡ true", "bad = refl", "",
+        ])
+    if renderer == "l5_lob_self_certification_v1":
+        return "\n".join([
+            PLAIN_OPTIONS, "", "module Falsify where", "",
+            "open import L5ConsumerSupport using (⊥)", "",
+            "-- Negative control: reflection plus a Löb rule is missing the boxed",
+            "-- reflection premise; omitting internal certification must be rejected.",
+            "bad : {Box : Set → Set}",
+            "    → ((A : Set) → Box A → A)",
+            "    → ((A : Set) → Box (Box A → A) → Box A)",
+            "    → ⊥",
+            "bad reflect lob = reflect ⊥ (lob ⊥)", "",
+        ])
+    if renderer == "m3_l6_compensation_conflict_v1":
+        return "\n".join([
+            OPTIONS, "", "module Falsify where", "",
+            "open import Cubical.Foundations.Prelude",
+            "import L3M4Support as L3", "",
+            "-- Negative control: a Segment path cannot be reused as a Stage endpoint path.",
+            "bad-stage-path : L3.start ≡ L3.finish",
+            "bad-stage-path = L3.segment-path", "",
+        ])
     return "\n".join([
         OPTIONS, "", "module Falsify where", "",
-        "open import Cubical.Foundations.Prelude",
-        "open import L3MotionSupport", "",
+        "open import Cubical.Foundations.Prelude", f"open import {support}", "",
         "-- Negative control: Path abstraction cannot be applied to an ordinary two-stage index.",
         "bad-stage-path : {A : Type₀} (f : Stage → A) → f start ≡ f finish",
         "bad-stage-path f i = f i", "",
@@ -459,7 +858,7 @@ def render_proof(case: dict, witness: dict, grammar: dict | None = None) -> str:
 
 def render_verify(witness: dict, grammar: dict | None = None) -> str:
     if grammar and grammar.get("backend") == "symbolic-horn-v1":
-        return _render_symbolic_verify(witness)
+        return _render_symbolic_verify(witness, grammar)
     mode = observation_mode(witness["ops"])
     claim = "¬ (Target.left ≡ Target.right)" if mode == "deadline" else "¬ (Target.left ≈ Target.right)"
     lines = [
@@ -486,7 +885,7 @@ def render_verify(witness: dict, grammar: dict | None = None) -> str:
 
 def render_controls(witness: dict, grammar: dict | None = None) -> str:
     if grammar and grammar.get("backend") == "symbolic-horn-v1":
-        return _render_symbolic_controls(witness)
+        return _render_symbolic_controls(witness, grammar)
     mode = observation_mode(witness["ops"])
     claim = "¬ (Target.left ≡ Target.right)" if mode == "deadline" else "¬ (Target.left ≈ Target.right)"
     lines = [
@@ -516,7 +915,7 @@ def render_controls(witness: dict, grammar: dict | None = None) -> str:
 
 def render_falsify(witness: dict, grammar: dict | None = None) -> str:
     if grammar and grammar.get("backend") == "symbolic-horn-v1":
-        return _render_symbolic_falsify(witness)
+        return _render_symbolic_falsify(witness, grammar)
     return "\n".join([
         OPTIONS,
         "",

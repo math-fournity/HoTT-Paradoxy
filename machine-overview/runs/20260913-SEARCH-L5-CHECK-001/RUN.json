@@ -1,0 +1,161 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000000,
+    "max_contexts": 200000,
+    "max_witnesses": 20000
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L5-GIVEN-PROOF-CHECK-001",
+  "case_identity_sha256": "dc2225d325664934af507bfccb25911fea21f2fa509d9242f72fa8286d943cd5",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-GIVEN-PROOF-CHECK-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T20:13:11.119292+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "check_supplied_derivation"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "supplied_derivation"
+      ],
+      "reachable": [
+        "searched_derivation",
+        "supplied_derivation",
+        "truth_decision"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-GIVEN-PROOF-CHECK-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 519,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 531,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 3,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 3,
+      "rule_application_checks": 12,
+      "rule_count": 3,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['check_supplied_derivation']"
+  },
+  "inputs": {
+    "case_sha256": "574f115920801f02ebbedd41bedb4e2678ab2e8165c2d40a3b93bd16018b2f3b",
+    "grammar_path": "machine-overview/grammars/l5-given-proof-check-v1.json",
+    "grammar_sha256": "f643bf28af1c35e2d7a60733d2bb27dad09aadbdf886c56bc7c7dc2e89878d9e",
+    "profile_sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf",
+    "task_path": "machine-overview/tasks/MS-TASK-L5-GIVEN-PROOF-CHECK-001.json",
+    "task_sha256": "8b5d641bc895e1fa27eb2a8c44ee4a1704e55dfb04dda7f8d029ec34d1038f22",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l5-given-proof-check-v1.json",
+        "sha256": "f643bf28af1c35e2d7a60733d2bb27dad09aadbdf886c56bc7c7dc2e89878d9e"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l5-consumer-qualification-v1.json",
+        "sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L5-GIVEN-PROOF-CHECK-001.json",
+        "sha256": "8b5d641bc895e1fa27eb2a8c44ee4a1704e55dfb04dda7f8d029ec34d1038f22"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L5-CONSUMER-QUALIFICATION-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L5-CHECK-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "098584513b584fe5fd47d0cdd76109cf13aed024aff8c3056e630efb83d8538d"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T20:13:11.117255+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 1,
+    "proof_depth_bound": 3,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 3,
+    "rule_application_checks": 20,
+    "rule_count": 4,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "034a4efdc3880504f6399285ad2c3fbd1097888ca01e72ed3f3ff95f90c19755",
+      "backend": "symbolic-horn-v1",
+      "goal": "accepted_derivation",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "supply_derivation"
+          }
+        ],
+        "rule": "check_supplied_derivation"
+      },
+      "proof_term": "L5.checkGivenProof (L5.givenK)",
+      "separation_kind": "given_proof_check_capability",
+      "size": {
+        "depth": 2,
+        "nodes": 2
+      },
+      "used_rules": [
+        "check_supplied_derivation",
+        "supply_derivation"
+      ],
+      "witness_id": "WV-0001"
+    }
+  ]
+}

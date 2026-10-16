@@ -406,7 +406,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_explain)
 
     p = sub.add_parser("list", help="list cases, runs, reviews and reports (read-only)")
-    p.add_argument("--kind", choices=["case", "search", "verify", "review", "report"])
+    p.add_argument("--kind", choices=[
+        "case", "search", "verify", "review", "report", "evaluation",
+        "source-audit", "evaluation-report", "source-audit-report",
+    ])
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_list)
 
@@ -418,7 +421,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("query", help="filter indexed artifacts by text (read-only)")
     p.add_argument("text")
-    p.add_argument("--kind", choices=["case", "search", "verify", "review", "report"])
+    p.add_argument("--kind", choices=[
+        "case", "search", "verify", "review", "report", "evaluation",
+        "source-audit", "evaluation-report", "source-audit-report",
+    ])
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_query)
 

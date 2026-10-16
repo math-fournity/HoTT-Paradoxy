@@ -1,0 +1,87 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260913-MACHINE-OVERVIEW-L5-CONSUMER",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "main_touched": false,
+  "new_math_claims": [],
+  "coordinator": {
+    "version": "0.5.0",
+    "search_sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20",
+    "profile": "machine-overview/profiles/l5-consumer-qualification-v1.json",
+    "adapter_freeze": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json",
+    "adapter_freeze_sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664"
+  },
+  "consumer_audit": {
+    "scope": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/SCOPE.json",
+    "decisions": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/DECISIONS.json",
+    "run": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/runs/20260913-L5-CONSUMER-AUDIT-001/RUN.json",
+    "report": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/REPORT.md",
+    "sources": 5,
+    "artifacts": 9,
+    "anchors": 49,
+    "criteria_cells": 30,
+    "qualified_hits": 0,
+    "strongest_near_hit": "L5-S2-METAROCQ-9.1",
+    "verdict": "NO_QUALIFIED_CONSUMER_IN_FROZEN_SET",
+    "deterministic_sha256": "63a533a1374c54812bc75dcfba09fe7f8a85f135cf12e3c024aeff1e2be63e03"
+  },
+  "tasks": [
+    {
+      "capability": "given_proof_check",
+      "case": "machine-overview/cases/MS-TASK-L5-GIVEN-PROOF-CHECK-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L5-CHECK-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L5-CHECK-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L5-GIVEN-PROOF-CHECK-001-r1-20260913-SEARCH-L5-CHECK-001-WV-0001-034a4efd.json",
+      "report": "machine-overview/reports/MS-TASK-L5-GIVEN-PROOF-CHECK-001-r1-report.md",
+      "result": "20 checks / 1 witness / complete / order-independent / ablation zero / 0-0-42-0 exact replay"
+    },
+    {
+      "capability": "bounded_proof_search",
+      "case": "machine-overview/cases/MS-TASK-L5-BOUNDED-PROOF-SEARCH-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L5-BOUNDED-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L5-BOUNDED-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L5-BOUNDED-PROOF-SEARCH-001-r1-20260913-SEARCH-L5-BOUNDED-001-WV-0001-5b10f679.json",
+      "report": "machine-overview/reports/MS-TASK-L5-BOUNDED-PROOF-SEARCH-001-r1-report.md",
+      "result": "26 checks / 1 witness / complete / order-independent / ablation zero / 0-0-42-0 exact replay"
+    },
+    {
+      "capability": "finite_truth_decision",
+      "case": "machine-overview/cases/MS-TASK-L5-FINITE-TRUTH-DECISION-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L5-TRUTH-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L5-TRUTH-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L5-FINITE-TRUTH-DECISION-001-r1-20260913-SEARCH-L5-TRUTH-001-WV-0001-5c75d826.json",
+      "report": "machine-overview/reports/MS-TASK-L5-FINITE-TRUTH-DECISION-001-r1-report.md",
+      "result": "6 checks / 1 witness / complete / order-independent / ablation zero / 0-0-42-0 exact replay"
+    },
+    {
+      "capability": "same_layer_total_self_reliability",
+      "case": "machine-overview/cases/MS-TASK-L5-LOB-SELF-CERTIFICATION-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L5-LOB-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L5-LOB-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L5-LOB-SELF-CERTIFICATION-001-r1-20260913-SEARCH-L5-LOB-001-WV-0001-f3e60d5a.json",
+      "report": "machine-overview/reports/MS-TASK-L5-LOB-SELF-CERTIFICATION-001-r1-report.md",
+      "result": "33 checks / 1 witness / complete / order-independent / ablation zero / 0-0-42-0 exact replay / generic conditional boundary"
+    }
+  ],
+  "development_failures": [
+    {"stage": "pre-freeze support compile", "result": "CoInfectiveImport: cubical module imported ObjectSyntax without cubical-compatible/without-K", "disposition": "made L5 support and generated targets pure --safe Agda before freeze"},
+    {"stage": "external retrieval", "result": "arXiv export API returned HTTP 429", "disposition": "used fixed arXiv abstract HTML and the already frozen NBE v4 page"},
+    {"stage": "first verify CLI invocation", "result": "UNSAFE_IDENTIFIER because --search-run received a path", "disposition": "reran with the immutable run ID; no verify run directory was consumed"},
+    {"stage": "consumer audit pre-run anchor validation", "result": "two ERCF comment anchors crossed literal comment separators", "disposition": "narrowed to exact discriminating substrings before the first RUN.json was written"},
+    {"stage": "new L5 unit test", "result": "asserted JSON key order although deterministic JSON is sort_keys serialized", "disposition": "changed the semantic roster assertion to set equality; rerun 4/4 PASS"}
+  ],
+  "verification": {
+    "selftest": "55/55 PASS",
+    "workspace_validate": "VALID: 16 cases / 39 runs / 18 reviews / 0 errors / 1 registered interrupted legacy attempt",
+    "l5_searches": "4/4 complete, order-independent sets, key-rule ablation leaves zero goals",
+    "l5_native": "4/4 NATIVE_CHECKED_EXPLORATION_CANDIDATE; each 0/0/42(expected)/0 exact replay",
+    "l5_consumer_audit_replay": "L5_CONSUMER_AUDIT_VALID / NO_QUALIFIED_CONSUMER_IN_FROZEN_SET / sha256 63a533a1374c54812bc75dcfba09fe7f8a85f135cf12e3c024aeff1e2be63e03",
+    "m4_replay_v2": "PASS: deterministic sha256 199793e000ba3de879d0f85c225b20b876775ccfa34f5abac9829004c8a90028",
+    "core_cognition_audit": "PASS: 36 KC; ALIGNED 9 / DEEPENED 23 / TENSION 2 / NOT_TOUCHED 2",
+    "diff_and_json": "PASS: git diff --check; 342 JSON files parsed"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

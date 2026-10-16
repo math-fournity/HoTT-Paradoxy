@@ -1,4 +1,4 @@
-"""Rebuildable query projection over cases, runs, reviews and reports.
+"""Rebuildable query projection over cases, runs, reviews and result owners.
 
 The index is derived data: the receipts remain the authoritative artifacts.
 Read commands never write the projection unless a rebuild is explicitly asked
@@ -48,6 +48,43 @@ def build_index(root: Path) -> dict:
             "id": report.stem,
             "path": report.relative_to(root).as_posix(),
             "sha256": sha256_file(report),
+        })
+    evaluations = root / "evaluations"
+    for run_file in sorted(evaluations.glob("*/runs/*/RUN.json")):
+        run = read_json(run_file)
+        if run.get("schema_version") in {
+            "machine-overview-m4-lite-run/v1", "machine-overview-m4-replay-run/v2",
+        }:
+            entries.append({
+                "kind": "evaluation",
+                "id": run.get("run_id"),
+                "path": run_file.relative_to(root).as_posix(),
+                "sha256": sha256_file(run_file),
+                "status": run.get("status", "DESCRIPTIVE_M4_LITE"),
+            })
+    for decision_file in sorted(evaluations.glob("*/DECISIONS.json")):
+        decision = read_json(decision_file)
+        if decision.get("schema_version") == "machine-overview-natural-consumer-decisions/v1":
+            entries.append({
+                "kind": "source-audit",
+                "id": decision.get("audit_id"),
+                "path": decision_file.relative_to(root).as_posix(),
+                "sha256": sha256_file(decision_file),
+                "status": decision.get("status"),
+            })
+    for report in sorted(evaluations.glob("*/REPORT.md")):
+        entries.append({
+            "kind": "evaluation-report",
+            "id": report.parent.name,
+            "path": report.relative_to(root).as_posix(),
+            "sha256": sha256_file(report),
+        })
+    for assessment in sorted(evaluations.glob("*/ASSESSMENT.md")):
+        entries.append({
+            "kind": "source-audit-report",
+            "id": assessment.parent.name,
+            "path": assessment.relative_to(root).as_posix(),
+            "sha256": sha256_file(assessment),
         })
     return {
         "schema_version": "machine-overview-index/v1",

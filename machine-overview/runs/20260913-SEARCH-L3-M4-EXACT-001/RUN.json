@@ -1,0 +1,278 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L3-FINITE-TO-EXACT-001",
+  "case_identity_sha256": "f7f111cbbbae850c38e42a21268da58441bcffbf027ec861f73c6b2182730249",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-FINITE-TO-EXACT-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T18:25:29.056613+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "finite_to_exact_candidate"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "finite_approximation",
+        "path_decoy"
+      ],
+      "reachable": [
+        "finite_approximation",
+        "path_decoy"
+      ]
+    }
+  },
+  "coordinator_version": "0.3.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-FINITE-TO-EXACT-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 7,
+    "untracked_entries": 70,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 77,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 35,
+      "rule_count": 5,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['finite_to_exact_candidate']"
+  },
+  "inputs": {
+    "case_sha256": "eca5a02dfc26a9767597c33daf6430e53ca5c619b9408cf16052e84d2ae82b9b",
+    "grammar_path": "machine-overview/grammars/l3-finite-to-exact-m4-v1.json",
+    "grammar_sha256": "78327b45c97250eaa5a0794492bf31bda774b9d6046c679a3f6a475e2453225a",
+    "profile_sha256": "dc5b8de5768d8170ccacb9efb430d8bd1b41a504fb3cca9735cc3282e5a75852",
+    "task_path": "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json",
+    "task_sha256": "a00b77f7ce80ee8bbe13bfd95065809090427e2043ba9e2d9f346b07ed342933",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l3-finite-to-exact-m4-v1.json",
+        "sha256": "78327b45c97250eaa5a0794492bf31bda774b9d6046c679a3f6a475e2453225a"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l3-m4-v1.json",
+        "sha256": "dc5b8de5768d8170ccacb9efb430d8bd1b41a504fb3cca9735cc3282e5a75852"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json",
+        "sha256": "a00b77f7ce80ee8bbe13bfd95065809090427e2043ba9e2d9f346b07ed342933"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L3-CUBICAL-M4-TASKSET-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L3-M4-EXACT-001",
+  "runner": {
+    "bytes": 4510,
+    "path": "runner-manifest.json",
+    "sha256": "61995d10e287fd0aa6fdd3234cc142a202765e7a950bf572924e2cfca42cfaf0"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T18:25:29.054067+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 4,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 59,
+    "rule_count": 6,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "bdc25fd93a061e96ddffd725fbcf4682fd88411450bba178d9625c0f70eb7ad5",
+      "backend": "symbolic-horn-v1",
+      "goal": "exact_arrival",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "finite_observation"
+          }
+        ],
+        "rule": "finite_to_exact_candidate"
+      },
+      "proof_term": "finiteToExactCandidate (finite)",
+      "separation_kind": "finite_to_exact_candidate",
+      "size": {
+        "depth": 2,
+        "nodes": 2
+      },
+      "used_rules": [
+        "finite_to_exact_candidate",
+        "finite_observation"
+      ],
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "cae734e8568e9bb28e0a032126e90c362bf220c5c14dd1fa1cfd47b61072332c",
+      "backend": "symbolic-horn-v1",
+      "goal": "exact_arrival",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "finite_observation"
+              }
+            ],
+            "rule": "finite_to_exact_candidate"
+          }
+        ],
+        "rule": "exact_identity_decoy"
+      },
+      "proof_term": "finiteToExactCandidate (finite)",
+      "separation_kind": "finite_to_exact_candidate",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "exact_identity_decoy",
+        "finite_to_exact_candidate",
+        "finite_observation"
+      ],
+      "witness_id": "WV-0002"
+    },
+    {
+      "ast_sha256": "f871461bf25ac7dab365554f6da7785dbd42c7bb24ec4d8a67ca098f491f3040",
+      "backend": "symbolic-horn-v1",
+      "goal": "exact_arrival",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "finite_observation"
+                  }
+                ],
+                "rule": "finite_refine_decoy"
+              }
+            ],
+            "rule": "refined_forget_decoy"
+          }
+        ],
+        "rule": "finite_to_exact_candidate"
+      },
+      "proof_term": "finiteToExactCandidate (forgetRefinement (refineFinite (finite)))",
+      "separation_kind": "finite_to_exact_candidate",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "finite_to_exact_candidate",
+        "refined_forget_decoy",
+        "finite_refine_decoy",
+        "finite_observation"
+      ],
+      "witness_id": "WV-0003"
+    },
+    {
+      "ast_sha256": "5867c2476bef1a86e2cca707eb0e9947d339409a0f8f437f941bb0b1824cef1e",
+      "backend": "symbolic-horn-v1",
+      "goal": "exact_arrival",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "finite_observation"
+                  }
+                ],
+                "rule": "finite_to_exact_candidate"
+              }
+            ],
+            "rule": "exact_identity_decoy"
+          }
+        ],
+        "rule": "exact_identity_decoy"
+      },
+      "proof_term": "finiteToExactCandidate (finite)",
+      "separation_kind": "finite_to_exact_candidate",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "exact_identity_decoy",
+        "exact_identity_decoy",
+        "finite_to_exact_candidate",
+        "finite_observation"
+      ],
+      "witness_id": "WV-0004"
+    }
+  ]
+}

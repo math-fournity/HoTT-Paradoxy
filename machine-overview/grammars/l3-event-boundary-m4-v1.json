@@ -1,0 +1,86 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L3-EVENT-BOUNDARY-M4-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {
+    "path": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+    "sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e"
+  },
+  "answer_visibility": "The same designing AI authored the post-freeze rule set. No benchmark witness or expected AST is embedded.",
+  "propositions": [
+    "start_pending",
+    "finish_done",
+    "endpoint_apart",
+    "event_boundary",
+    "path_decoy",
+    "reverse_path_decoy"
+  ],
+  "goal": "event_boundary",
+  "observation_kind": "explicit_event_boundary",
+  "max_proof_depth": 4,
+  "rules": [
+    {
+      "id": "stage_start",
+      "premises": [],
+      "conclusion": "start_pending",
+      "term_template": "phase-start",
+      "semantic_source": "L3M4Support.phase-start"
+    },
+    {
+      "id": "stage_finish",
+      "premises": [],
+      "conclusion": "finish_done",
+      "term_template": "phase-finish",
+      "semantic_source": "L3M4Support.phase-finish"
+    },
+    {
+      "id": "stage_apart",
+      "premises": [],
+      "conclusion": "endpoint_apart",
+      "term_template": "phase-apart",
+      "semantic_source": "L3M4Support.phase-apart"
+    },
+    {
+      "id": "event_pack",
+      "premises": ["start_pending", "finish_done", "endpoint_apart"],
+      "conclusion": "event_boundary",
+      "term_template": "({0} , ({1} , {2}))",
+      "semantic_source": "product introduction for the three declared event-boundary facts"
+    },
+    {
+      "id": "path_decoy",
+      "premises": [],
+      "conclusion": "path_decoy",
+      "term_template": "segment-path",
+      "semantic_source": "unrelated geometric positive control"
+    },
+    {
+      "id": "path_decoy_sym",
+      "premises": ["path_decoy"],
+      "conclusion": "reverse_path_decoy",
+      "term_template": "sym ({0})",
+      "semantic_source": "Path symmetry decoy"
+    },
+    {
+      "id": "path_decoy_back",
+      "premises": ["reverse_path_decoy"],
+      "conclusion": "path_decoy",
+      "term_template": "sym ({0})",
+      "semantic_source": "Path symmetry decoy"
+    }
+  ],
+  "mechanism_rules": ["stage_start", "stage_finish", "stage_apart", "event_pack"],
+  "positive_control_goals": ["start_pending", "finish_done", "endpoint_apart", "path_decoy"],
+  "ablation": {
+    "remove_rules": ["event_pack"],
+    "expected": "event_boundary becomes unreachable while its three inputs remain reachable"
+  },
+  "native_contract": {
+    "renderer": "l3_event_boundary_v1",
+    "target_scope": "the fixed Stage/phase control and all three exact boundary facts",
+    "positive_controls": ["phase start", "phase finish", "endpoint apartness"],
+    "negative_control": "Stage cannot be used as the cubical dimension"
+  },
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Exhaustive proof-tree enumeration through depth 4 over a seven-rule grammar."
+}

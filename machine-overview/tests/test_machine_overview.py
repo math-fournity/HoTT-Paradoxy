@@ -164,6 +164,9 @@ class WorkspaceTest(unittest.TestCase):
             [entry["path"] for entry in first["entries"]],
             [entry["path"] for entry in second["entries"]],
         )
+        kinds = {entry["kind"] for entry in first["entries"]}
+        self.assertIn("evaluation", kinds)
+        self.assertIn("source-audit", kinds)
 
 
 class FailClosedTest(unittest.TestCase):
