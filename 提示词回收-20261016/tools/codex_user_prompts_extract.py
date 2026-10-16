@@ -43,6 +43,8 @@ INJECT_PREFIXES = (
     "<permissions",
     "<app-signal",
     "<external_codex_apps",
+    "<codex_internal_context",
+    "<recommended_plugins",
     "# Files pasted by the user:",  # handled separately below
 )
 DEFAULT_KEYWORDS = ("HoTT", "悖论", "芝诺", "ZFC", "形式化与机器证明")
