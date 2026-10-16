@@ -9,10 +9,11 @@ commit, never from the working tree, so the result is determined by (commit, spe
 * docs, proof packages, toolchain records and run receipts listed in scripts/release/main-release-spec.json;
 * a closure check: every source file named in an included receipt's source-manifest.json must be included and
   must have the recorded SHA-256 at the source commit, or the build fails;
-* CLAIMS.md, copied verbatim from three places on dev (two sections of HoTT/CLAIM_EVIDENCE_MATRIX.md, the
-  goal-local relay rows and the claim one-liners of the Claude master index), plus a generated run table;
-  CLAIMS-ZH.md is the same file; CLAIMS-RU/DE/FR/EN.md come from translation templates, each of which records the
-  SHA-256 of the Chinese sections it translates, and the build fails when that hash no longer matches;
+* CLAIMS.md, copied verbatim from places on dev (two sections of HoTT/CLAIM_EVIDENCE_MATRIX.md, the goal-local
+  relay rows, the claim one-liners of the Claude master index, and, for the ZFC side, the package rows of the
+  matrix with their one-liners), plus a generated run table; CLAIMS-ZH.md is the same file; CLAIMS-RU/DE/FR/EN.md
+  come from translation templates, each of which records the SHA-256 of the Chinese sections it translates, and
+  the build fails when that hash no longer matches;
 * translations of the community audit papers (`<name>-RU.md` etc. next to the Chinese original on dev), each with
   a header that records the SHA-256 of the Chinese original it translates; a stale translation fails the build.
   On main the Chinese originals get the same language bar as their translations; on dev they stay as they are;
@@ -142,7 +143,8 @@ def path_mentions(text: str) -> set[str]:
 
 
 def claims_body(commit: str, cs: dict) -> str:
-    """Sections 1-3 of CLAIMS.md: copied verbatim from dev; the CLAIMS translations translate exactly this text."""
+    """Sections 1-3 (and 4, the ZFC side, when the spec names it) of CLAIMS.md: copied verbatim from dev; the
+    CLAIMS translations translate exactly this text."""
     body = []
     titles = ["## 1. 罗素线与 UR：追问程序、邻近对照与截断对照", "## 2. Cloud-Opus 的审计与补完：宇宙塔的一般 n、高阶归纳类型证书、GLM 线与跨平台重放"]
     order_idx = [1, 0]  # the Claude section first, then the Cloud-Opus section
@@ -173,6 +175,30 @@ def claims_body(commit: str, cs: dict) -> str:
         "|---|---|---|",
         *table_rows(one_text, one["claims"]),
     ]
+    zfc = cs.get("zfc")
+    if zfc:
+        matrix_text = blob(commit, zfc["matrix_file"]).decode("utf-8")
+        zfc_one_text = blob(commit, zfc["one_liner_file"]).decode("utf-8")
+        body += [
+            "",
+            "## 4. ZFC-1 一侧：缺的门 Q、两次选择与 A、芝诺与圆环、B 的两个成因、哥德尔一路",
+            "",
+            f"> 研究发起人 2026-10-04 放在 `main` 文首的“ZFC Failure”与 2026-10-14 的表述，逐句对照见 `{zfc['correspondence']}`。"
+            f"4.1 的行逐字取自 `dev` 上 `{zfc['matrix_file']}` 中各包所在的节；4.2 的行逐字取自 `dev` 上的 Claude 总索引。"
+            "命题全文与禁止外推以各包的 `CLAIM.md` 为准。用到 Foundation 的 𝗭𝗙𝗖 的命题，说的是 Foundation 库里形式化的 𝗭𝗙𝗖。",
+            "",
+            "### 4.1 证明包与运行（逐字）",
+            "",
+            "| Package ID | Claim IDs | 源码 | 证据 | 判词 |",
+            "|---|---|---|---|---|",
+            *table_rows(matrix_text, zfc["proof_ids"]),
+            "",
+            "### 4.2 命题一句话（逐字）",
+            "",
+            "| 命题 | 一句话 | 包 |",
+            "|---|---|---|",
+            *table_rows(zfc_one_text, zfc["claims"]),
+        ]
     return "\n".join(body)
 
 
@@ -334,13 +360,16 @@ def main() -> int:
                 expected_bar,
                 "",
                 f"> 本文件由 `dev` 上的 `scripts/release/build_main_release.py` 从提交 `{commit[:8]}` 生成，不在本分支修改。第 1、2 节逐字取自 `dev` 上共享证据矩阵 "
-                "`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的两节（不含原标题行）；第 3 节逐字取自 `dev` 上的目标内索引草稿与 Claude 总索引；第 4 节由各运行的收据生成。"
-                "文中 `formal/…`、`verification/runs/…` 指本分支 `HoTT/` 下的同名路径；其余过程文件的路径在 `dev` 上（见 README 第 6 节）。"
+                "`HoTT/CLAIM_EVIDENCE_MATRIX.md` 的两节（不含原标题行）；第 3 节逐字取自 `dev` 上的目标内索引草稿与 Claude 总索引；"
+                + ("第 4 节（ZFC 一侧）逐字取自共享证据矩阵中各包的行与 Claude 总索引；第 5 节由各运行的收据生成。" if "zfc" in spec["claims_sources"]
+                   else "第 4 节由各运行的收据生成。")
+                + "文中 `formal/…`、`verification/runs/…` 指本分支 `HoTT/` 下的同名路径；其余过程文件的路径在 `dev` 上"
+                "（`RELEASE-MANIFEST.json` 的 `paths_mentioned_but_on_dev` 列出了正文提到的那些）。"
                 "另有俄、德、法、英文译本（AI 翻译，以本中文版为准）；`CLAIMS.md` 与 `CLAIMS-ZH.md` 相同。",
                 "",
                 body_text,
                 "",
-                "## 4. 运行清单",
+                "## 5. 运行清单" if "zfc" in spec["claims_sources"] else "## 4. 运行清单",
                 "",
                 run_table("zh"),
             ])

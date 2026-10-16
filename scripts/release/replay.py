@@ -17,11 +17,21 @@ recorded reason.
 
 Toolchain (versions used for the receipts):
 * Agda 2.8.0 with the cubical library v0.9 (Cubical Agda);
-* Lean 4.34.0, core only (no Mathlib).
+* Lean 4.34.0, core only (no Mathlib), for the runs captured by lean_check.py;
+* Lean 4.34.0 with compiled libraries, for the runs captured by zfc_lean_check.py or godelq_lean_check.py
+  (packages that import Mathlib or Foundation): FormalizedFormalLogic/Foundation at commit 1fb01b72, which pins
+  Lean 4.34.0 and Mathlib 5ed29652.  In a checkout of that commit run `lake exe cache get` (Mathlib's prebuilt
+  modules) and `lake build`; the receipts were made against the same commits, built on the capturing machine.
 Give the paths with options or environment variables:
   --agda / AGDA                 the agda executable
   --cubical-lib / CUBICAL_LIB   the file cubical.agda-lib of cubical v0.9
   --lean-sysroot / LEAN_SYSROOT the Lean toolchain prefix (it contains bin/lean and bin/leanchecker)
+  --foundation-root / FOUNDATION_ROOT
+                                a built Foundation checkout; its .lake/build/lib/lean and the
+                                .lake/packages/*/.lake/build/lib/lean of its dependencies (Mathlib among them)
+                                become the library path
+  --lean-lib DIR                a compiled library directory to add to the library path (repeatable), instead of
+                                or in addition to --foundation-root
 If your Agda keeps its data files in a non-default place, set XDG_DATA_HOME as you would for Agda itself.
 
 Usage (from anywhere; paths are resolved against the repository root):
@@ -78,7 +88,12 @@ def load_runs() -> list[dict]:
     return runs
 
 
+LIB_TOOLS = ("zfc_lean_check.py", "godelq_lean_check.py")
+
+
 def kind(record: dict) -> str:
+    if any(str(a).endswith(LIB_TOOLS) for a in record.get("command_argv") or []):
+        return "lean-lib"
     return "lean" if "lean" in str(record.get("proof_assistant", "")).lower() else "agda"
 
 
@@ -135,6 +150,35 @@ def lean_plan(record: dict) -> dict:
         sources.append(safe_relative(a))
         i += 1
     return {"sources": sources, "leanchecker": leanchecker, "recorded_root": str(record.get("cwd", "")).rstrip("/")}
+
+
+def lean_lib_plan(record: dict) -> dict:
+    """zfc_lean_check.py / godelq_lean_check.py: --package <dir> <sources relative to the package, in order>."""
+    argv = [str(a) for a in record["command_argv"]]
+    start = next(i for i, a in enumerate(argv) if a.endswith(LIB_TOOLS))
+    rest = argv[start + 1:]
+    package, sources, i = None, [], 0
+    while i < len(rest):
+        if rest[i] == "--package":
+            package = safe_relative(rest[i + 1])
+            i += 2
+            continue
+        sources.append(safe_relative(rest[i]))
+        i += 1
+    if package is None or not sources:
+        raise ValueError("LEAN_LIB_COMMAND_UNREADABLE")
+    return {"package": package, "sources": sources}
+
+
+def library_dirs(opts: argparse.Namespace) -> list[str]:
+    dirs = [Path(d) for d in (opts.lean_lib or [])]
+    if opts.foundation_root:
+        root = Path(opts.foundation_root)
+        dirs.append(root / ".lake/build/lib/lean")
+        packages = root / ".lake/packages"
+        if packages.is_dir():
+            dirs += sorted(p / ".lake/build/lib/lean" for p in packages.iterdir() if (p / ".lake/build/lib/lean").is_dir())
+    return [str(d.resolve()) for d in dirs if d.is_dir()]
 
 
 def normalize(text: str, roots: list[str]) -> list[str]:
@@ -211,6 +255,43 @@ def run_lean(record: dict, opts: argparse.Namespace, work: Path) -> tuple[int, s
     return 0, "".join(out), "".join(err)
 
 
+def run_lean_lib(record: dict, opts: argparse.Namespace, work: Path) -> tuple[int, str, str]:
+    """The steps of zfc_lean_check.py / godelq_lean_check.py with your own toolchain and libraries: compile the
+    sources in order inside the package directory into a temporary build directory, each step preceded by the
+    header line `## lean <source>`; stop at the first failure.  (The capture tools also checked the hashes of the
+    toolchain files and of every compiled library module, recorded in the package's LEAN_TOOLCHAIN.json and
+    MATHLIB_CLOSURE.json; your own build has other bytes, so that check is not repeated here.)"""
+    plan = lean_lib_plan(record)
+    prefix = Path(opts.lean_sysroot)
+    repo = work / "repo"
+    shutil.copytree(ROOT / "HoTT/formal", repo / "HoTT/formal")
+    package = repo / plan["package"]
+    closure = json.loads((package / "MATHLIB_CLOSURE.json").read_text(encoding="utf-8"))
+    options = [f"-D{k}={v}" for k, v in closure.get("lean_options", {}).items()]
+    for rel in plan["sources"]:
+        text = (package / rel).read_text(encoding="utf-8")
+        bad = [w for w in FORBIDDEN_LEAN if re.search(rf"\b{w}\b", text)]
+        bad += [p for p in FORBIDDEN_LEAN_PATTERNS if re.search(p, text, flags=re.MULTILINE)]
+        if bad:
+            return 99, f"LEAN_FORBIDDEN_MARKER:{rel}:{bad}\n", ""
+    build = work / "lean-build"
+    build.mkdir()
+    env = {"HOME": str(build), "PATH": f"{prefix}/bin:/usr/bin:/bin", "LEAN_SYSROOT": str(prefix),
+           "LEAN_PATH": ":".join([str(build)] + library_dirs(opts))}
+    out, err = [], []
+    for rel in plan["sources"]:
+        target = build / PurePosixPath(rel).with_suffix("")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        argv = [str(prefix / "bin/lean"), *options, "-R", ".", "-o", f"{target}.olean", "-i", f"{target}.ilean", rel]
+        r = subprocess.run(argv, cwd=package, env=env, capture_output=True, stdin=subprocess.DEVNULL,
+                           timeout=opts.timeout, check=False)
+        out.append(f"## lean {rel}\n" + r.stdout.decode("utf-8", "replace"))
+        err.append(r.stderr.decode("utf-8", "replace"))
+        if r.returncode != 0:
+            return r.returncode, "".join(out), "".join(err)
+    return 0, "".join(out), "".join(err)
+
+
 def replay_one(record: dict, opts: argparse.Namespace) -> dict:
     run_id = record["run_id"]
     k = kind(record)
@@ -220,10 +301,14 @@ def replay_one(record: dict, opts: argparse.Namespace) -> dict:
     if (k == "agda" and not (opts.agda and opts.cubical_lib)) or (k == "lean" and not opts.lean_sysroot):
         row.update(result="SKIPPED", reason="toolchain not given")
         return row
+    if k == "lean-lib" and not (opts.lean_sysroot and library_dirs(opts)):
+        row.update(result="SKIPPED", reason="Lean toolchain or Foundation/Mathlib build not given")
+        return row
     started = time.time()
     with tempfile.TemporaryDirectory(prefix="replay-") as tmp:
         try:
-            code, out, err = (run_agda if k == "agda" else run_lean)(record, opts, Path(tmp).resolve())
+            runner = {"agda": run_agda, "lean": run_lean, "lean-lib": run_lean_lib}[k]
+            code, out, err = runner(record, opts, Path(tmp).resolve())
         except subprocess.TimeoutExpired:
             row.update(result="FAIL", reason=f"timeout after {opts.timeout} s", seconds=round(time.time() - started, 1))
             return row
@@ -250,6 +335,10 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--agda", default=os.environ.get("AGDA"))
     ap.add_argument("--cubical-lib", default=os.environ.get("CUBICAL_LIB"))
     ap.add_argument("--lean-sysroot", default=os.environ.get("LEAN_SYSROOT"))
+    ap.add_argument("--foundation-root", default=os.environ.get("FOUNDATION_ROOT"),
+                    help="a built Foundation checkout (commit 1fb01b72); its library and its dependencies' libraries are used")
+    ap.add_argument("--lean-lib", action="append", default=[],
+                    help="a compiled Lean library directory to add to the library path; repeatable")
     ap.add_argument("--only", action="append", default=[], help="run ids containing this text (or a glob); repeatable")
     ap.add_argument("--jobs", type=int, default=1)
     ap.add_argument("--timeout", type=int, default=1800, help="seconds per run")

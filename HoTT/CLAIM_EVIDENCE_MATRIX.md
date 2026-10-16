@@ -2313,7 +2313,7 @@ Claim 表：
 
 ## Claude CG-007 W8（012-Opus）：经翻译的形式化 Σ1 完全性、D3 与不带前提的完整 Z0（2026-10-14）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。C-417 是 W8 的目标定理：𝗭𝗙𝗖 证明不了“𝗭𝗙𝗖 一致”的翻译，不带未证前提；所需的 Con(𝗭𝗙𝗖) 由 Lean 元层的 `Universe` 模型（Foundation `zfc_consistent`）提供。编号接 C-410–C-412。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（有范围）。C-417 是 W8 的目标定理：𝗭𝗙𝗖 证明不了“𝗭𝗙𝗖 一致”的翻译，不带未证前提；所需的 Con(𝗭𝗙𝗖) 由 Lean 元层的 `Universe` 模型（Foundation `zfc_consistent`）提供。编号接 C-410–C-412。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2330,7 +2330,7 @@ Claim 表：
 
 ## Claude CG-007（012-Opus）：两次选择是同一条原则；A 的结果机器交不出；芝诺的极限用不着 A（2026-10-14）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接研究发起人 2026-10-14 的新表述（“放弃是一次选择，而A是第二次选择”）；“放弃 ASK = LPO”“A = `LimBit`、`NatBMC`”是 AI 的读法。C-418 与 C-419 的整数部分不依赖 `Classical.choice`，由包内公理审计机器断言；其余是经典的。编号接 C-417。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（有范围）。承接研究发起人 2026-10-14 的新表述（“放弃是一次选择，而A是第二次选择”）；“放弃 ASK = LPO”“A = `LimBit`、`NatBMC`”是 AI 的读法。C-418 与 C-419 的整数部分不依赖 `Classical.choice`，由包内公理审计机器断言；其余是经典的。编号接 C-417。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2348,7 +2348,7 @@ Claim 表：
 
 ## Claude CG-007（012-Opus）：判不全不靠排中律——图灵对角论证的逻辑核心（2026-10-14）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接 CN-079 §3.1 的“判不全不靠排中律”（原先凭记忆）。构造一侧不依赖任何公理，由包内审计机器核对；Mathlib 实例一侧是经典的。编号接 C-421。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（有范围）。承接 CN-079 §3.1 的“判不全不靠排中律”（原先凭记忆）。构造一侧不依赖任何公理，由包内审计机器核对；Mathlib 实例一侧是经典的。编号接 C-421。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2361,7 +2361,7 @@ Claim 表：
 
 ## Claude CG-010 R1（012-Opus）：经典芝诺的两句落到 Foundation 的 𝗭𝗙𝗖（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（有范围）。承接缺口表第 9 行与 CN-076 §6 第 1 条。编号接 C-422。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（有范围）。承接缺口表第 9 行与 CN-076 §6 第 1 条。编号接 C-422。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2374,7 +2374,7 @@ Claim 表：
 
 ## Claude CG-010 R2（012-Opus）：圆环悖论本身（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Mathlib 拓扑，子理论一侧）。承接缺口表第 1 行与研究发起人原文三。编号接 C-423。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（Mathlib 拓扑，子理论一侧）。承接缺口表第 1 行与研究发起人原文三。编号接 C-423。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2387,7 +2387,7 @@ Claim 表：
 
 ## Claude CG-010 R3（012-Opus）：两次选择的有理数形态（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明；构造性由包内公理审计机器断言。承接缺口表第 12 行。编号接 C-424。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明；构造性由包内公理审计机器断言。承接缺口表第 12 行。编号接 C-424。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2401,7 +2401,7 @@ Claim 表：
 
 ## Claude CG-010 R4（012-Opus）：两次选择进 HoTT 的内核；B 不靠 LPO（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接 CN-080 第 7 处的假说与缺口表第 10 行。编号接 C-425。(5)(6) 是 C-79 (b) 的重证；`CLAIM.md` 中“只有宇宙永远答不完”说过了头（C-81），见包内 `REVISIONS.md`。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接 CN-080 第 7 处的假说与缺口表第 10 行。编号接 C-425。(5)(6) 是 C-79 (b) 的重证；`CLAIM.md` 中“只有宇宙永远答不完”说过了头（C-81），见包内 `REVISIONS.md`。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2429,7 +2429,7 @@ Claim 表：
 
 ## Claude CG-010 R9（012-Opus）：Z0 作为具体的 ω 追问（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖）。承接缺口表第 3 行（Z0 不再是参数）。编号接 C-426。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖）。承接缺口表第 3 行（Z0 不再是参数）。编号接 C-426。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2442,7 +2442,7 @@ Claim 表：
 
 ## Claude CG-010 R7（012-Opus）：极限的有理数 ε–N 写法落到 𝗭𝗙𝗖（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖，算术指数 `Exp.exp`）；没有在 𝗭𝗙𝗖 内部构造实数。承接缺口表第 2 行。编号接 C-427。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，2026-10-15 经合并提交 `cc7eea2b` 并入 `dev`。读法：机器证明（Foundation 的 𝗭𝗙𝗖，算术指数 `Exp.exp`）；没有在 𝗭𝗙𝗖 内部构造实数。承接缺口表第 2 行。编号接 C-427。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
@@ -2468,7 +2468,7 @@ Claim 表：
 
 ## Claude CG-010 H2（012-Opus）：B 的两个成因，A 与单价性一起让追问永不停（2026-10-15）
 
-> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，未并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接研究发起人 2026-10-15 的裁定 D4-1（“动作＋定理”）。**身份**：是合并，不是新发现；`main` 的 `README.md` 第 4 节已以消融形式公开同一内容（C-78 至 C-83），增量只有一般陈述与单价性的单独隔离（包内 `REVISIONS.md`、CN-081 §1.2）。“被告是 A”是裁定，不是定理。
+> 本机会话 95a1a81b（012-Opus），独立 worktree `claude/012-opus-w8`，其后并入 `dev`。读法：机器证明（Cubical Agda，`--safe`，什么都不假定）。承接研究发起人 2026-10-15 的裁定 D4-1（“动作＋定理”）。**身份**：是合并，不是新发现；`main` 的 `README.md` 第 4 节已以消融形式公开同一内容（C-78 至 C-83），增量只有一般陈述与单价性的单独隔离（包内 `REVISIONS.md`、CN-081 §1.2）。“被告是 A”是裁定，不是定理。
 
 | Package ID | Claim IDs | 源码 | 证据 | 判词 |
 |---|---|---|---|---|
