@@ -1,5 +1,585 @@
 {
-  "schema": "gui-lineage-kb/ledger/v1",
-  "note": "append-only run log. Master 与每个子代理完成一节后追加一行 JSON；键：{kind, agent, node, path, sha256, ts}；CONFLICT/UNKNOWN 用 {kind:NOTE, ...}。勿改旧行。",
-  "entries": []
+ "schema": "gui-lineage-kb/ledger/v1",
+ "note": "append-only run log. Master 与每个子代理完成一节后追加一行 JSON；键：{kind, agent, node, path, sha256, ts}；CONFLICT/UNKNOWN 用 {kind:NOTE, ...}。勿改旧行。",
+ "entries": [
+  {
+   "kind": "SCOPE_BUILT",
+   "agent": "master",
+   "node": "PRE-1",
+   "ts": "2026-10-09T05:05:40Z",
+   "path": [
+    "wflow-lineage/tools/build_scope.py",
+    "wflow-lineage/scope.json"
+   ],
+   "sha256": {
+    "build_scope.py": "387720e2e664aa9931965e18e033d3c82f77807e8a788f58c0e3aa170410ede5",
+    "scope.json": "9a859707750020ad4ed38e47affa3cc286bca70daf6640195451e1b6bae09317"
+   },
+   "state": "CLOSED",
+   "note": "开工前预处置：三套坐标（QA 块坐标轮号 / GUI 导出行号 / 裁决#3 轮数）合成 scope.json。同时更正原稿范畴错误：manifest unique_ranges 是文本级唯一性而非轮次归属（dev-03 自有轮 12282-12305 落在 SHARED 段，src dev-08 13148-13171），轮次归属改认 QA 树；manifest 只定前缀/自有边界。"
+  },
+  {
+   "kind": "CORPUS_GAP",
+   "agent": "master",
+   "node": "PRE-2",
+   "ts": "2026-10-09T05:05:40Z",
+   "path": [
+    "audit/GUI-SYNTH-REDO/qa/dev-08/0127.md"
+   ],
+   "sha256": {},
+   "state": "CLOSED",
+   "note": "R-9.1：dev-08 第 0127 轮（用户要求把 worktree 推到远程 dev-08）在 A 层 GUI 导出中无原文，导出止于 0126（末锚 18229/18458）。该轮只能以 QA 轮号锚定；非 agent 失职。"
+  },
+  {
+   "kind": "CORPUS_GAP",
+   "agent": "master",
+   "node": "PRE-3",
+   "ts": "2026-10-09T05:05:40Z",
+   "path": [
+    "audit/GUI-SYNTH-REDO/qa/_tree.json"
+   ],
+   "sha256": {},
+   "state": "CLOSED",
+   "note": "R-9.2：invisible_tails 记录 8 个 rollout 共 9 个 user_turns_not_visible（GUI 导出未渲染），任何 agent 均无法覆盖；AUDIT.md 须列为固有缺口。"
+  },
+  {
+   "kind": "UNKNOWN",
+   "agent": "master",
+   "node": "PRE-4",
+   "ts": "2026-10-09T05:05:40Z",
+   "path": [
+    "认知闭包/GUI-ASSET-RECOVERY-001.md"
+   ],
+   "sha256": {},
+   "state": "OPEN",
+   "note": "裁决#3 的 124 轮口径定义在 raw rollout（response_item/message role=user，剔机械前缀）上，冻结输入层内不可重算；本 workflow 因此只用其分线总数，逐轮身份一律用 QA 块坐标 round。若研究发起人要求逐轮的 124 口径身份（round ↔ 导出行号），需要把 ~/.codex/archived_sessions/ 的 raw rollout 纳入输入层——这超出本方案冻结的 A-E 五层，须用户裁定。建议：不扩层，用块坐标+总数并置。"
+  },
+  {
+   "kind": "GATE_TOOL",
+   "agent": "master",
+   "node": "PRE-5",
+   "ts": "2026-10-09T05:05:40Z",
+   "path": [
+    "wflow-lineage/tools/check_lineage.py"
+   ],
+   "sha256": {
+    "check_lineage.py": "586322f94bee92b33fa0c07fe9d4bc68b1c0c4f879d1888ef7d65ddc375f51d3"
+   },
+   "state": "CLOSED",
+   "note": "G1/G2/G6/G8 机械校验 + G3 抽样预检（--seed 默认 gui-lineage-audit-v1；不替代 N10 用新鲜种子的独立复跑）。已在空产物树与合成故障 fixture 上验证：列数不足/行号越界/行号错轮/未知 round/枚举非法/判词不逐字/断链/未结 OPEN 均被抓获。"
+  },
+  {
+   "kind": "PLAN_REVISED",
+   "agent": "master",
+   "node": "PRE-6",
+   "ts": "2026-10-09T05:05:40Z",
+   "path": [
+    "dev-docs/GUI研究脉络知识库提取workflow方案.md"
+   ],
+   "sha256": {
+    "GUI研究脉络知识库提取workflow方案.md": "3e6ea94f3e99dc34b514f9c916d4734ba65e95033eeaa4ab0e0e0f1088acfcab"
+   },
+   "state": "CLOSED",
+   "note": "方案 §1 加坐标系声明与 scope.json 说明；§2 更正范围权威、补分叉图（dev-04←dev-03#13、dev-07←dev-06#3）与两套轮数口径；§4 增 R-9 语料固有缺口；§5 G1/G2/G5 改为可执行口径并预登记 K4 撞号；§6 提示词改为先读 scope.json；新增 §0 预处置记录。未提交未推送，等用户指令。"
+  },
+  {
+   "kind": "DECISION",
+   "agent": "master",
+   "node": "PRE-4",
+   "ts": "2026-10-09T05:06:23Z",
+   "path": [
+    "wflow-lineage/scope.json"
+   ],
+   "sha256": {},
+   "state": "CLOSED",
+   "supersedes": "PRE-4 UNKNOWN",
+   "note": "轮次口径裁定（Master，2026-10-09）：逐轮身份一律用 QA 块坐标 round（来自 scope.json 每线 docs[]）；裁决#3 的 124 轮分线总数只作并列引用，不参与逐轮定位。理由：裁决#3 口径定义在 raw rollout 上，冻结输入层内不可重算；QA 块坐标是唯一在冻结层内可机械复现的逐轮身份。若研究发起人事后要求逐轮的 124 口径身份，须另行授权把 ~/.codex/archived_sessions/ 的 raw rollout 纳入输入层（超出本方案冻结的 A-E 五层），届时重跑 build_scope.py 增补轮号映射。G1/G7 按本裁定执行。"
+  },
+  {
+   "kind": "RUN_START",
+   "agent": "master",
+   "node": "N0",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/scope.json"
+   ],
+   "state": "CLOSED",
+   "note": "dynamic workflow 开工：工作根与分支头核验通过，build_scope.py 重建范围表成功（输入层未被改动）。八线自有轮合计 239（块坐标）；不可见用户轮 9 个（R-9.2）。"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-02线提取员",
+   "node": "N-dev-02",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-02/THREAD.md",
+    "wflow-lineage/lineage/dev-02/DISCOVERIES.tsv"
+   ],
+   "state": "CLOSED",
+   "note": "dev-02：覆盖 13/13 轮，THREAD 8 层，DISCOVERIES 129 行；关键转向：round 0004 研究发起人一句「所以，数学幻觉P到底是什么？你知道了吗？」（导出 L13432）逼出了 P(T): formalDone_T(s) ⟹ originDone_T(s) 的定型定义与弱/强 P 界线——此后全线不再问「极限理论是不是幻觉」，而改问「哪一份来源、在什么任务上把 Done_formal 当 Done_origin 又没付桥」，round 0005 的 TaskEquiv 降格、round 0006 的三层来源结构、round 0009 的 SOURCE_POLICY_UNDERDETERMINED_WITH_SCOPE 都由这一问派生。；待登记未知 7 条"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-08线提取员",
+   "node": "N-dev-08",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-08/THREAD.md",
+    "wflow-lineage/lineage/dev-08/DISCOVERIES.tsv"
+   ],
+   "state": "CLOSED",
+   "note": "dev-08：覆盖 127/127 轮，THREAD 9 层，DISCOVERIES 154 行；关键转向：关键转向是 #0112–#0114：用户先问「哥德尔如何证明了哥德尔不完备性？」（#0112 原话，GUI 导出 15555 行；实物只在分支 dev-notes/0109），再要求「神似，而不是形似」地借鉴哥德尔（#0113 原话，15690 行），GPT 据此把已暂停的总证明闭环改写成哥德尔式反射方案（GODEL-Q-REFLECTION-SOP，15901 行自述），最终由 CG-005/006 接手完成——转的原因是从「再写一个条件 fixture」的元层打磨，转向「把接受为完成的接口本身编码出来、检验它能否面对自己的编码」的对象层构造；分叉定义性的一次转向则是 #0075（用户判定「ZFC 的问题就是圆环悖论的存在」，10700 行原话），它把该线从锻刀元层拉进 A/B/Q 对象线，并成为 dev-03/dev-02/dev-06/dev-01/dev-09 五条支线的分叉点。；待登记未知 6 条"
+  },
+  {
+   "kind": "GATE_TOOL_FIXED",
+   "agent": "master",
+   "node": "PRE-7",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "两个 dev-08/dev-02 提取 agent 报告的 check_lineage.py 缺陷属实并由 Master 修复：G1 循环里 sorted(covered & own) 排在 own 赋值之前（UnboundLocalError），只在某线 THREAD.md 存在时触发，故空树预处置未暴露。修复=把 own = {d['doc'] for d in s['docs']} 提前；另增 G3_full 门（每个非 MISSING 判词必须在导出原文/该轮 QA 文档/D3 任一语料中逐字出现）。修复后 dev-08 127/127、dev-02 13/13 通过，384 个判词全部逐字命中。"
+  },
+  {
+   "kind": "CALIBER_NOTE",
+   "agent": "master",
+   "node": "PRE-8",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-02 agent 登记：round 0013 的 scope 锚是 codex_fallback（anchor_line=14161/anchor_block_end=14165），其用户原话「全部推送」在导出 L14154（UNIQUE 区间）早于锚点行；该行 export_line 因此留空、以 round 单锚定位。不影响 R1（至少其一可定位），但属坐标口径说明。"
+  },
+  {
+   "kind": "CONFLICT",
+   "agent": "master",
+   "node": "PRE-9",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-02 agent 登记：round 0009 的用户长文 L13919-13941 与父线 dev-08 L13868-13899 逐字节相同（manifest 判 SHARED，dev-08 的 0091/0092 亦含同文），GUI查阅索引 §2 只列 dev-02/0003。轮次归属按 QA 块坐标记 round 0009；文本去重与跨线归属需 N9 在 CROSS-FEED.md 处置、N10 核。"
+  },
+  {
+   "kind": "CALIBER_NOTE",
+   "agent": "master",
+   "node": "PRE-10",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-02 agent 登记：机械轮 0001/0002/0008（anchor_status=no_prose_mechanical_round，environment_context 与 external_codex_apps_open_page）无 prose 可摘，相关行 verdict_token 记 MISSING（D02-L8-003 分叉基座、D02-L3-012 round 0008），G3 抽样会跳过；round 0001/0002 摘到的逐字 token 是机械内容本身。"
+  },
+  {
+   "kind": "UNKNOWN",
+   "agent": "master",
+   "node": "PRE-11",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-02 agent 登记：generation-14 core curation 候选 KC-000063（D02-L7-039）状态 parked——canonical STATE/HEAD 有未提交 checkpoint 未覆盖，且 dev-02 与 dev-03 各有一份互相竞争的 v14 草稿（八线分叉后复盘 §9.2），未成为 current core。属研究状态登记，非本 workflow 的数学结论。"
+  },
+  {
+   "kind": "CONFLICT",
+   "agent": "master",
+   "node": "PRE-12",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-02 agent 登记（原文在停止通知中被截断）：C-359–C-365 与 canonical dev 上的同名 claim 撞号。即审计 K4 预登记项（C-359~C-365 同号异组、C-369 三义、C-370 起三组）。完整表述见 wflow-lineage/lineage/dev-02/THREAD.md 第 10 节；G5 按方案 §5 预登记处理。"
+  },
+  {
+   "kind": "LINE_PROVENANCE",
+   "agent": "master",
+   "node": "PRE-13",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-08 agent 自建机验结果（因当时的脚本缺陷，非官方输出）：G1 覆盖 127/127 无缺；G2 双锚/枚举/列数失败 0（154 行均 12 列）；G3 用默认种子 gui-lineage-audit-v1 抽 30/153 个判词逐字命中，未命中 0；G5 carried 行 artifact_ref 路径全部可解析。已由修复后的 check_lineage.py 复跑确认（G1/G2/G3_full/G5_mech 均 pass）。"
+  },
+  {
+   "kind": "CALIBER_NOTE",
+   "agent": "master",
+   "node": "PRE-14",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "OPEN",
+   "note": "dev-08 agent 登记（原文在停止通知中被截断）：与 scope.json 有关的口径分歧需 Master 登记。完整表述见 wflow-lineage/lineage/dev-08/THREAD.md 附录 C「本线读法与陷阱自记账」；N10 须逐条核该附录与 dev-02 THREAD 第 10 节。"
+  },
+  {
+   "kind": "LINE_PROVENANCE",
+   "agent": "master",
+   "node": "N-prov-dev-08",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage/dev-08/THREAD.md",
+    "wflow-lineage/lineage/dev-08/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-08/THREAD.md": "1a769aee3e02c8cbdfd3169c3c69e7938f5a8ba66be3deb0ebd92aa5596e17bf",
+    "wflow-lineage/lineage/dev-08/DISCOVERIES.tsv": "4009e9227e8285c1c82b76249f34c3c57067a05b5d85b53db174c2e30d78e9c1"
+   },
+   "state": "CLOSED",
+   "note": "dev-08 在上一个运行已完成并通过本运行机验，本运行不重派；此处补录产物 sha256 与交接登记。"
+  },
+  {
+   "kind": "LINE_PROVENANCE",
+   "agent": "master",
+   "node": "N-prov-dev-03",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage/dev-03/THREAD.md",
+    "wflow-lineage/lineage/dev-03/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-03/THREAD.md": "95fb1bbb01e393782a4424266a3a57aa9790261f1fd759a59751506601313fbe",
+    "wflow-lineage/lineage/dev-03/DISCOVERIES.tsv": "2a71b3f4dd61086d3da4c886df36cad1eec9ed0518b724276330a54721e8bf10"
+   },
+   "state": "CLOSED",
+   "note": "dev-03 在上一个运行已完成并通过本运行机验，本运行不重派；此处补录产物 sha256 与交接登记。"
+  },
+  {
+   "kind": "LINE_PROVENANCE",
+   "agent": "master",
+   "node": "N-prov-dev-02",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/lineage/dev-02/THREAD.md",
+    "wflow-lineage/lineage/dev-02/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-02/THREAD.md": "fd22b48c03ed3589f4f9c986aa930e29e1eaa41a54881bb1cc6cadf04b8ee23c",
+    "wflow-lineage/lineage/dev-02/DISCOVERIES.tsv": "eedac24bbfd2a4da8be74576ae6f3d3a668480e5ac1631a7f0608156ce2af3fb"
+   },
+   "state": "CLOSED",
+   "note": "dev-02 在上一个运行已完成并通过本运行机验，本运行不重派；此处补录产物 sha256 与交接登记。"
+  },
+  {
+   "kind": "RUN_START",
+   "agent": "master",
+   "node": "N0",
+   "ts": "workflow-start",
+   "path": [
+    "wflow-lineage/scope.json"
+   ],
+   "state": "CLOSED",
+   "note": "续作运行开工：工作根与分支头核验通过，build_scope.py 重建范围表成功（输入层未被改动）。八线自有轮合计 239（块坐标）；不可见用户轮 9 个（R-9.2）。据机验缺口派节点：dev-04、dev-01、dev-09、dev-06、dev-07；已补登记上一次运行的交接项 8 条。"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-06线提取员",
+   "node": "N-dev-06",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-06/THREAD.md",
+    "wflow-lineage/lineage/dev-06/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-06/THREAD.md": "235dab56969a4c15e4390b29846266518faf6640c363c4d3fe2f126eedc046bb",
+    "wflow-lineage/lineage/dev-06/DISCOVERIES.tsv": "7b3c32d400f3161ed993f65d4b2fbfd780d2f99cf70f817e38de57361095ef5b"
+   },
+   "state": "CLOSED",
+   "note": "dev-06：覆盖 13/13 轮，THREAD 8 层，DISCOVERIES 54 行；关键转向：round 0004 用户质问「你工作的时候，不维护认知文档，你干着干着就忘了啊，为什么认知闭包没有达到这个效果呢？」（导出 L14703），GPT 由此承认漏掉「认知事务」——即用户修正出现后未写回 current owner（判词 EXECUTION_DEVIATION / COGNITIVE_WRITEBACK_OMISSION，L14763），全线的靶点优先级随之从「追 MPIM/cubical-set 模型来源」转为「P-first 以固定 H0 逼问 ZFC 的显眼基础承诺」——这是本线唯一一次由治理失败直接改变研究下一动作的转向。；待登记未知 5 条"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-01线提取员",
+   "node": "N-dev-01",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-01/THREAD.md",
+    "wflow-lineage/lineage/dev-01/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-01/THREAD.md": "b38e8cb43bd9150bb3810ad36df5b9fb2951992e61e46722f847359ebe8df5c4",
+    "wflow-lineage/lineage/dev-01/DISCOVERIES.tsv": "09daae7de518fa289201794c11f6ba942cf98af8a754fa7e4d42e66825a328e7"
+   },
+   "state": "CLOSED",
+   "note": "dev-01：覆盖 21/21 轮，THREAD 10 层，DISCOVERIES 53 行；关键转向：第 13 轮（export L16284）研究发起人质问「所以你到底做到什么程度了？到底是不是一直在外围，没有进入问题的核心层？」，GPT 自认把 set.mm 的 proof acceptance 当作 ZFC 的观察接口是「最关键的偏航」（L16332），据此把核心靶重固定为 M/S/Q/FormalDone/OriginDone/P/Bridge 并在第 14 轮新建 ZFC-META-SUBTHEORY-ADEQUACY-SOP，最终在第 19 轮得到 CORE_ADEQUACY_FAILURE_WITH_SCOPE——此后同一 /goal 的身份从「F-050/T 分母收尾」改写为「核心合同下的有界充分性判词」。；待登记未知 7 条"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-09线提取员",
+   "node": "N-dev-09",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-09/THREAD.md",
+    "wflow-lineage/lineage/dev-09/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-09/THREAD.md": "4d669182d9270fccf12c01c088eb3f96c062d4be2b8d2dadba75e542745d71a7",
+    "wflow-lineage/lineage/dev-09/DISCOVERIES.tsv": "6f87a49d9a72a316d35c23ad28a63417b53aca8d846aa1d8502011f97b255dfe"
+   },
+   "state": "CLOSED",
+   "note": "dev-09：覆盖 16/16 轮，THREAD 9 层，DISCOVERIES 50 行；关键转向：关键转向在 0008：研究发起人以一句【原话】「为什么你没有全部做完再停下？」（export_line 16989）打断 GPT 刚把 T0 标为完成的做法，GPT 自认「这不是数学上的谨慎，而是我把研究程序做成了审批程序」（export_line 17000），把「每次只推进一个最小判别单元」从总停机条件降为验证粒度——正是这次调度语义纠正，才在同一轮内连续推出 C-368 条件性对角铰链、T-Meta/T-ZFC 的 set.mm 拒绝与四判词，并在 0011 直接促成 GODEL-ZFC-CONVERGENCE-SOP 与它的 LOCAL_CLOSED→SUCCESSOR_REQUIRED 铁律（export_line 17553）。相比之下，0003 的「神交哥德尔」想法 T 只是给本线定靶（T-OBS/T-DIAG/T-ZFC）。；待登记未知 6 条"
+  },
+  {
+   "kind": "GATE_TOOL_AMENDED",
+   "agent": "master",
+   "node": "PRE-15",
+   "ts": "workflow-midrun",
+   "path": [
+    "wflow-lineage/tools/check_lineage.py"
+   ],
+   "sha256": {
+    "check_lineage.py": "0db5c721f9bc2195a7d494f2063f1ba5e39b8d566e660085aeb20c06476a6c96"
+   },
+   "state": "CLOSED",
+   "note": "运行中期（第 2 阶段停滞窗口）由 Master 修订门禁，去除两处误报，避免补轮空跑与被诱使凑数：(1) G3_full 把 verdict_token 的字面量 (none)/(空)/无/none/NONE/-/— 视为“本行无判词”（等同 MISSING）而不判失败——dev-06 有 32 行是用户引话/自述/机械轮/审计资产，本就没有判词，原门禁误报 32 个“不逐字”；(2) G2 接受 round 写 -/—/(none) 的行（只要 export_line 可定位即满足 R1）——dev-09 有 2 行如此，原门禁误报“非自有轮”。修订后真实缺口：dev-06 3 行 export_line 越界 + 108 行 type/status 用枚举外自造词表（真违规，交补轮）；dev-04/dev-07 文件未生成。审计时须以本条目之后的机验结果为准。"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-07线提取员",
+   "node": "N-dev-07",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-07/THREAD.md",
+    "wflow-lineage/lineage/dev-07/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-07/THREAD.md": "09e1f22ef3fe28bbdd8cc4d732a3ac94c0802486684ae9c3e0657612abfcefb8",
+    "wflow-lineage/lineage/dev-07/DISCOVERIES.tsv": "246c4f35808017caa905a984f01a84ba61c958d23e2d7b59f103bffb7a943af1"
+   },
+   "state": "CLOSED",
+   "note": "dev-07：覆盖 8/8 轮，THREAD 6 层，DISCOVERIES 64 行；关键转向：round 0005 用户一句「你还在处理A和B的事情吗？你知道这里的A是什么？B是什么吗？」(导出 L14801) 把一条正在自由生长的「ω 完成性」线当场钉死：GPT 自述「我不能把 ω 这条线自己发展成一个『无穷总体』的独立故事」(L14806) 并把 ω 降级为 P_CANDIDATE_NOT_YET_A_B_BRIDGE (L14816)；随后 round 0006 固化为 AProjection+BProjection+SameQBridge 三项不可绕过硬门 (L14916-14922)，四站位全部因未付桥被筛掉，终点判词 ACTUAL_Z0_NOT_LOCATED / ACTUAL_SAME_Q_BRIDGE_NOT_LOCATED (L14940/L14941)。转向的理由全部引自用户原话或 GPT 自述，未引用任何外部解释。；待登记未知 5 条"
+  },
+  {
+   "kind": "LINE_DONE",
+   "agent": "dev-04线提取员",
+   "node": "N-dev-04",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/dev-04/THREAD.md",
+    "wflow-lineage/lineage/dev-04/DISCOVERIES.tsv"
+   ],
+   "sha256": {
+    "wflow-lineage/lineage/dev-04/THREAD.md": "2f97f4a047873c3e18b9f3675b4058ed1ae59e2e566c42bccf591bf74de9ebeb",
+    "wflow-lineage/lineage/dev-04/DISCOVERIES.tsv": "3ca5b0bc451fc3058df961fb27cccb9ead0359a28c6e9ed8b0fcf01c7f01b192"
+   },
+   "state": "CLOSED",
+   "note": "dev-04：覆盖 15/15 轮，THREAD 6 层，DISCOVERIES 114 行；关键转向：0007：研究发起人说「我们实际上已经处于ZFC问题查找工作的收尾阶段，也就是研究已经开始收敛了」（导出 L12715），GPT 据此把工作重心从「给 P 起一个漂亮定义」改为「P 是放大镜；靶是 ZFC 的理论观察力」（L12720/12752）——从无限扩展符号演算转为用 R1/R2/R3 门逐项检验来源是否支付同一任务 bridge，并把未支付的强边（R3／共同体统一 P／P→B）显式单列为收尾阶段留下的义务。这次转向直接决定了本线以 SOURCE_FRONTIER_REFINED / ZFC_Q_NOT_LOCATED 作为有界负结论收口，而不是「什么都没找到」。；待登记未知 7 条"
+  },
+  {
+   "kind": "CORRECTION",
+   "agent": "master",
+   "node": "N-corr",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage"
+   ],
+   "state": "CLOSED",
+   "note": "共执行 1 轮补修后进入综合阶段。"
+  },
+  {
+   "kind": "SYNTH_DONE",
+   "agent": "综合员",
+   "node": "N9",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/ROUTE-GRAPH.md",
+    "wflow-lineage/lineage/EVOLUTION.md",
+    "wflow-lineage/lineage/CROSS-FEED.md",
+    "wflow-lineage/lineage/KB-INDEX.md"
+   ],
+   "state": "CLOSED",
+   "note": "四个综合文件已写；CROSS-FEED 给出归宿的资产 619 条；并陈冲突 10 条、未知 13 条，交审计员处置。"
+  },
+  {
+   "kind": "REVISION",
+   "agent": "综合员",
+   "node": "N9-rev",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/KB-INDEX.md"
+   ],
+   "state": "CLOSED",
+   "note": "冷到访读者提出 7 个答不出、10 处含糊，综合员据此修订 KB-INDEX。"
+  },
+  {
+   "kind": "VERIFICATION",
+   "agent": "master",
+   "node": "PRE-16",
+   "ts": "workflow-midrun",
+   "path": [
+    "git-worktree对话录",
+    "HoTT/CLAIM_NAMESPACE_LEDGER.md",
+    ".codex/research/hott/STATE.json"
+   ],
+   "state": "CLOSED",
+   "note": "Master 对 G8 三笔未结登记的独立取证（供 N10 裁定时引用；不取代 PRE-9/PRE-11/PRE-12 的裁定）：(1) PRE-9 实质为真、数字不准：dev-02 的 23 行用户长文（L13919-13941，首行「所以关于：」，含代码围栏）在 dev-08 导出中逐行完全相同的真实位置是 L13871-L13893，不是登记写的 L13868-L13899（后者把 ## User 头与尾部也算进去，行数 23 vs 30、字符 985 vs 1032 因此不符）。跨线逐字重复的事实成立，归属仍按 QA 块坐标。(2) PRE-12 得到仓库自身证据确认：HoTT/CLAIM_NAMESPACE_LEDGER.md:45 明载 dev-02 分支版 D02-C-359~C-365 与 dev 同路径 7 个文件内容不同、8 个文件只在分支、5 个运行目录同名异内容，直接合并会形成双重真值，且其角色已由 CG-005 的 C-90/C-94 与 CG-006 的 C-99~C-101 在真实 ZFC 上取代。与 K4 预登记一致。(3) PRE-11 与当前盘上事实相反：KC-000063 已在 current core——STATE.current_core = core-cognition-generation-14、kc_count=75、curation=scripts/audit/core-cognition-curation-v14.json；git 提交 479e154c「checkpoint(CG-006): core generation 14 (KC-000063..075 ...) revision 312 -> 313」；MEMORY/003 的 S-GOV-20261008 亦登记。dev-02 agent 所称「未成为 current core / parked」应为读到 dev-02 分支侧或更早的 STATE。请 N10 按本条更正，勿把该说法写进 AUDIT.md 结论。"
+  },
+  {
+   "kind": "AUDIT_G5_FAIL",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "OPEN",
+   "note": "G5 FAIL（N10 独立审计）：644 个 carried 行中 68 行无 git 可验下游落点——40 行判词在下游层零逐字命中且无落点引用、28 行判词为空/机械标记却标 carried；按方案 §5 G5 应降级 parked 并登记而未降。扣除方案 §2 豁免的 dev-08 L0 共享前缀骨架层 22 行后，自有轮真实缺口 46 行（dev-01 8、dev-02 10、dev-06 22、dev-07 3、dev-08 6、dev-09 6、dev-03 1）。责任线：N9（为主，ROUTE-GRAPH §6 的「未找到落点 0 条」不实）＋各线 agent（status 判定）。明细见 AUDIT.md §2.5 与附录 A/B；最终处置（补证 or 降级）已转写 AUDIT.md §4.4 待研究发起人裁定，本条目留 OPEN 以如实反映 G8 现状。"
+  },
+  {
+   "kind": "AUDIT_G4_DEFECT",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "note": "G4 实质缺陷（N10 独立审计）：A-0293（C-357 ObservationCompletionBridge）与 A-0294（C-358 CompletionReflectionFailure）被 CROSS-FEED 以「撞号区（C-359~C-365）预登记」为由判 parked，属判据误用——C-357/C-358 不在撞号集 C-359~C-365/C-369/C-370 起之内。正确归宿应为 carried：八线分叉后复盘.md:150「这两条用了 Claude 线的 -CG001- 命名（A7），CG-005 已重放」；Targets与Profile.md:259（G-5）列为【证明】材料；GUI查阅索引 #15；实物 HoTT/formal/claude-cg001/{observation-completion-bridge,completion-reflection-failure}/*.agda 在本工作树存在；KB-INDEX §6.1 亦标「CG001 命名组…可用」。不影响 G4「未归宿数=0」，但需 N9 返工（AUDIT.md §8 F-2）。"
+  },
+  {
+   "kind": "AUDIT_CITATION_ERROR",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "note": "引用定位错（N10 独立审计，三处，均需 N9 返工）：(1) ROUTE-GRAPH R-3/C-a8、CROSS-FEED C-6 与 ROUTE-GRAPH §8 自证句引「八线分叉后复盘.md §36」——该文件不存在 §36（也不存在 §25），「H0 过程锚七字段」实际在复盘 L39（§1 dev-06【可吸收】）；(2) ROUTE-GRAPH S-1 与 KB-INDEX:255 引 dev-08/THREAD「附录 A.1」不存在（只有附录 A 机械轮清单/B 0127 轮/C 读法陷阱），L2–1162 归属父级的判定在 L0 段与附录 C 第 1 条；(3) ROUTE-GRAPH C-b5/R-5、dev-08 THREAD 附录 C 第 4 条、dev-01 THREAD 分叉点节称 dev-notes/0109「`dev` 上没有」与事实相反——git ls-tree -r --name-only dev 与本工作树 dev-notes/ 均有该文件（origin/dev-01、dev-08、dev-09 也都有）；真实缺口只是 dev-01 的 GUI 导出内 0 次命中（cutoff 在 L15556）。"
+  },
+  {
+   "kind": "AUDIT_PRE4_RESOLVED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-4 DECISION",
+   "note": "N10 裁断：ledger 中与 PRE-4 同名的 DECISION 条目（轮次口径裁定：逐轮身份一律 QA 块坐标 round、裁决#3 分线总数只并列引用）经独立复核成立——两套口径 239/124 与 scope.json、认知闭包/GUI-ASSET-RECOVERY-001.md §8、ledger ruling3 三方一致；八线 THREAD 与 KB-INDEX 均按该口径执行、无互换（G7 PASS 的证据）。G8 意义上的未结 UNKNOWN 由同 node 的另一条 PRE-4 承担，其转写见下条。"
+  },
+  {
+   "kind": "AUDIT_PRE9_RESOLVED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-9",
+   "note": "N10 裁断（含对 Master PRE-16 取证的独立复验）：PRE-9 的跨线归属按 QA 块坐标归 dev-02 round 0009 成立——轮次归属权威是 QA 树（方案 §1 坐标系声明 2），qa/dev-02/0009.md 与 qa/dev-08/0091.md、0092.md 都含该文本，故 dev-02/0009 是本线自有轮、无归属错误。跨线逐字重复的事实为真（dev-02 导出 L13149/L13924、dev-08 L13152/L13643/L13876）。Master PRE-16 指出登记行号区间不准，我复验为真：dev-02 L13919-13941（23 行，首行「所以关于：」）与 dev-08 L13871-L13893 逐行完全相同（23/23），登记写的 L13868-L13899 是 32 行（把 ## User 头与尾部算进去）。故：实质真、归属正确、行号区间应更正为 L13871-L13893。GUI查阅索引 §2 只列 dev-02/0003 是 CG-006 侧索引不全，非本库错误。"
+  },
+  {
+   "kind": "AUDIT_PRE11_RESOLVED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-11",
+   "note": "N10 裁断（在仓库证据中裁定，未转写遗留未知）：dev-02 agent 登记的「generation-14 候选 KC-000063 状态 parked、未成为 current core」与当前盘上事实相反，据 Master PRE-16 取证与我独立复验予以更正——①STATE.json current_core.generation=core-cognition-generation-14、kc_count=75、curation=scripts/audit/core-cognition-curation-v14.json；②git 提交 479e154c「checkpoint(CG-006): core generation 14 (KC-000063..075 …) revision 312→313」；③MEMORY/003 L232 的 S-GOV-20261008-CLAUDE-CG006-CORE-GENERATION-14 明写新增 KC-000063–KC-000075、62/62 PRESERVED_EXACT、remainder=0；④核心认知.md:583 确有 KC-000063 条目。结论：该 UNKNOWN 的实质已消解，不需要研究发起人裁定；dev-02 agent 读到的是分支侧或更早 STATE。"
+  },
+  {
+   "kind": "AUDIT_PRE12_RESOLVED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-12",
+   "note": "N10 裁断（撞号事实确认；编号动作转写 AUDIT.md §4.2）：撞号真实存在且有三方证据——①八线分叉后复盘.md:203 逐字「撞号：C-359 至 C-365（dev 与 dev-02）、C-369（三种含义）、C-370 起（dev-01、dev-09、dev 各指一组）。合并前必须先重新编号。」；②HoTT/CLAIM_NAMESPACE_LEDGER.md:45 逐字载 dev-02 分支版 D02-C-359 至 C-365「与 dev 同路径：7 个文件内容不同，8 个文件只在分支，另有 5 个运行目录同名异内容。直接合并会形成双重真值」，并记角色已由 CG-005 的 C-90、C-94 与 CG-006 的 C-99 至 C-101 在真实 ZFC 上取代；③dev 侧 C-359 在 HoTT/CLAIM_EVIDENCE_MATRIX.md:1778。方案 §5 G5 的预登记处置（无消歧记录的 15 条降级 parked）执行正确；有 D01-/D09- 前缀消歧记录的 10 条保留 carried 也有据（matrix L1914/L1915/L1916/L1931 实测存在）。留待研究发起人的只是重编号方案与合并动作（AUDIT.md §4.2）。"
+  },
+  {
+   "kind": "AUDIT_PRE4_UNKNOWN_TRANSFERRED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-4 UNKNOWN",
+   "note": "N10 裁断：本条（裁决#3 逐轮身份需 raw rollout、超出冻结 A–E 五层）超出独立审计员在冻结输入层内可裁定的范围，已转写进 W/wflow-lineage/lineage/AUDIT.md §4.1「遗留未知（待研究发起人裁定）」第 1 条，由研究发起人裁定是否授权把 ~/.codex/archived_sessions/ 的 raw rollout 纳入输入层（若纳入需重跑 build_scope.py 增补 round↔导出行号映射并复核全部 727 行）。已确认事实（不影响本库结论）：两套口径 239/124 分列不互换，G1/G2/G3/G4/G7 已用块坐标口径全部验过。"
+  },
+  {
+   "kind": "AUDIT_CALIBER_CONFIRMED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-8, PRE-10, PRE-14",
+   "note": "N10 裁断：三条 CALIBER_NOTE 经独立复核均成立、无需动作——PRE-8（dev-02 r0013 锚是 codex_fallback、anchor_line=14161 落在回答块，用户原话「全部推送」在 L14154 早于锚点，该行 export_line 留空以 round 单锚，R1 满足，我实测确认）；PRE-10（dev-02 机械轮 0001/0002/0008 无可摘 prose 判词、D02-L8-003 与 D02-L3-012 标 MISSING 属口径说明，确认成立；同类现象 dev-08 更隐蔽，另见 AUDIT.md §8 F-4）；PRE-14（dev-08 THREAD 附录 C 五条读法登记逐条实测成立：L2–1162 归属父级与 _tree.json archive-01a0fb73 parent_doc=10 一致、Q/P/A/B 段在 #0088/#0091/#0092 与 dev-02/dev-03/dev-04 复现、goal 续跑块锚点是 Codex 汇总块、#0112 原话在导出 L15557、判词字符串在 assets-ledger/D3 有登记）。"
+  },
+  {
+   "kind": "AUDIT_GATE_TOOL_CONFIRMED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "supersedes": "PRE-7, PRE-13",
+   "note": "N10 裁断（独立复算确认）：PRE-7 报告的 check_lineage.py 缺陷属实且修复有效——G1 循环 sorted(covered & own) 在 own 赋值前触发 UnboundLocalError 的问题由 dev-03 THREAD L126 第 1 项与 dev-08 的 PRE-13 记录在案；我以不 import 该脚本的独立实现跑同一口径，八线 239/239 全过、G2 727 行 0 失败，证明修复后缺陷不复存在。PRE-13（dev-08 自建机验结果）亦由我独立确认：G1 127/127、G2 154 行全 12 列 0 失败、G5_mech 类 0 不可解析、G3 抽样含 dev-08 8 个样本全部逐字命中。"
+  },
+  {
+   "kind": "AUDIT_N9_CONFLICTS_DISPOSED",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "note": "N10 裁断 N9 交审的 13 条两说并陈（CROSS-FEED §2.2 C-1…C-8、ROUTE-GRAPH §7 R-1…R-5）：9 条可裁定——C-2/C-3/R-1（分叉树以机器树为准：scope.json 八线 fork 与 qa/_tree.json forks 8/8 一致，D2 叙事「分支自 dev-01」已由八线复盘 §9.6 自判不宜当底稿）、C-4/R-2（各线远端 HEAD 为不同时点快照不矛盾，KB-INDEX §7.1 表我逐分支实测一致）、C-5（CG-005 已重放与并入 dev 前须重编号两说分层并存）、C-7/R-4（轮数口径按 PRE-4 DECISION，D2 的第三套计数作废：dev-07 导出实测 15,138 行，D2 写 15,139）、C-8（判词跨线同名按本导出行命中判定，我的 G3 抽样本身证实 6 个 token 有多次命中）、C-1（撞号区 15 条降级 parked 正确、10 条有消歧记录的 carried 有据）。4 条转写 AUDIT.md：C-1 的重编号动作并入 §4.2、C-6/R-3 转写 §4.3、R-5 的事实性错误（「dev 上没有 dev-notes/0109」）另见 AUDIT_CITATION_ERROR 条目。"
+  },
+  {
+   "kind": "AUDIT_LEDGER_NOTE_STALE",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "CLOSED",
+   "note": "N10 发现并更正：ledger N-dev-06 条目注记「DISCOVERIES 54 行」stale——补修轮后实际 55 行（我实测 55 行、全部 12 列；KB-INDEX §4 卡片写的 55 正确）。不影响任何门禁结论。"
+  },
+  {
+   "kind": "AUDIT_DONE",
+   "agent": "审计员",
+   "node": "N10",
+   "ts": "workflow",
+   "path": [
+    "W/wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "OPEN",
+   "note": "G1-G8：G1 覆盖=PASS G2 双锚=PASS G3 判词保真=PASS G4 不丢=PASS G5 传播图闭合=FAIL G6 链接=PASS G7 口径一致=PASS G8 零未申报未知=FAIL；G3 抽样 30/30 逐字命中（seed gui-lineage-audit-v1）；遗留未知 4 条。"
+  },
+  {
+   "kind": "FINAL_GATE",
+   "agent": "master",
+   "node": "N-final",
+   "ts": "workflow",
+   "path": [
+    "wflow-lineage/lineage/AUDIT.md"
+   ],
+   "state": "OPEN",
+   "note": "终门机验 exit=0，审计逐门 G1 覆盖=PASS G2 双锚=PASS G3 判词保真=PASS G4 不丢=PASS G5 传播图闭合=FAIL G6 链接=PASS G7 口径一致=PASS G8 零未申报未知=FAIL；未结缺口 0 项（未宣称完成，移交研究发起人裁定）。"
+  }
+ ]
 }
