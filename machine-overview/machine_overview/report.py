@@ -48,13 +48,15 @@ def _ops_text(ops: list[dict]) -> str:
 
 def _explain_symbolic_case(
     *, case: dict, case_path: Path, search_run: dict, search_run_path: Path,
-    verify_runs: list[tuple[dict, Path]], reviews: list[tuple[dict, Path]], output_path: Path,
+    verify_runs: list[tuple[dict, Path]], reviews: list[tuple[dict, Path]], grammar: dict,
+    output_path: Path,
 ) -> Path:
     statistics = search_run["statistics"]
     accepted_statuses = {
         "NATIVE_CHECKED_CALIBRATION_INSTANCE", "NATIVE_CHECKED_EXPLORATION_CANDIDATE",
     }
     accepted = [item for item in verify_runs if item[0].get("status") in accepted_statuses]
+    rejected = [item for item in verify_runs if item[0].get("status") not in accepted_statuses]
     lines = [
         f"# Machine-overview symbolic exploration report: {case['case_id']}", "",
         f"- generated_at_utc: {utc_now()}",
@@ -99,6 +101,21 @@ def _explain_symbolic_case(
                 f"status `{kernel['status']}`, expectation met `{kernel['expectation_met']}`"
             )
         lines.append("")
+    if rejected:
+        lines += ["## Native candidate rejections", ""]
+        for verify, verify_path in rejected:
+            lines += [
+                f"### `{verify['run_id']}` (witness {verify['witness_id']})", "",
+                f"- status: `{verify['status']}`; receipt: `{verify_path}`",
+                f"- target sha256: `{verify['target_text_hash']}`; source search: "
+                f"`{verify['source_search_run']['run_id']}`",
+            ]
+            for kernel in verify["kernel_runs"]:
+                lines.append(
+                    f"- kernel `{kernel['label']}`: exit {kernel['exit_code']}, "
+                    f"status `{kernel['status']}`, expectation met `{kernel['expectation_met']}`"
+                )
+            lines.append("")
     for review, review_path in reviews:
         lines += [
             f"## Correspondence review `{review['review_id']}`", "",
@@ -106,12 +123,20 @@ def _explain_symbolic_case(
             f"- task preservation: `{review['conclusion']['task_preservation']}`; "
             f"reality correspondence: `{review['conclusion']['reality_correspondence']}`", "",
         ]
+    lines += ["## Evidence boundaries", "",
+              "- The symbolic search composes declared typed rules; native Cubical Agda checks the generated "
+              "target, controls, expected rejection, and replay."]
+    if grammar.get("observation_kind") == "continuous_phase_obstruction":
+        lines.append(
+            "- The activity-time interpretation is an explicit model under test. The run does not establish "
+            "that standard HoTT identifies Path with physical time or that every temporal observable is continuous."
+        )
+    else:
+        lines.append(
+            "- The task is one bounded symbolic model. Its native result checks that model only; physical time, "
+            "natural-use adoption, novelty and general search effectiveness remain separate questions."
+        )
     lines += [
-        "## Evidence boundaries", "",
-        "- The symbolic search composes declared typed rules; native Cubical Agda checks the generated "
-        "Type₀ theorem target, controls, expected rejection, and replay.",
-        "- The activity-time interpretation is an explicit model under test. The run does not establish "
-        "that standard HoTT identifies Path with physical time or that every temporal observable is continuous.",
         "- This is an exploration receipt, not a registered mathematical claim. It does not enter "
         "`HoTT/CLAIM_EVIDENCE_MATRIX.md`.", "",
     ]
@@ -135,7 +160,7 @@ def explain_case(
         return _explain_symbolic_case(
             case=case, case_path=case_path, search_run=search_run,
             search_run_path=search_run_path, verify_runs=verify_runs,
-            reviews=reviews, output_path=output_path,
+            reviews=reviews, grammar=grammar, output_path=output_path,
         )
     witness_by_id = {item["witness_id"]: item for item in search_run["witnesses"]}
     statistics = search_run["statistics"]

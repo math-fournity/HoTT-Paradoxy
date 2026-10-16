@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--platform",
+    "linux/amd64",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-build-cc618472-replay-20260914a:/hott:ro",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/community-frameworks/Coq-HoTT-formal-probe-attempts/20260914-COQ-HOTT-TYPECLASS-RECURSION-001/P07-GENERIC-TYPECLASS-RECURSION/first:/probe",
+    "-w",
+    "/probe",
+    "rocq/rocq-prover:9.0",
+    "/usr/bin/timeout",
+    "5s",
+    "rocq",
+    "c",
+    "-q",
+    "/probe/GenericTypeclassRecursion.v"
+  ],
+  "cwd": "/Volumes/D/HoTT-machine-overview",
+  "network": "none",
+  "observation_limit_seconds": 5
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260914-NONTERMINATION-GODEL-MACHINE-OVERVIEW",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "main_touched": false,
+  "goal": "Systematically search for HoTT reality-relative nonreality paradoxes through nontermination and incompleteness while auditing the exact completeness of the search system.",
+  "plan": {
+    "path": "machine-overview/HOTT-NONTERMINATION-MACHINE-OVERVIEW-PLAN.md",
+    "version": "nontermination-machine-overview-plan/v1.11"
+  },
+  "new_math_claims": [
+    {"proof_id": "PF-CUBICAL-MACHINE-HALTING-001", "claims": 3},
+    {"proof_id": "PF-CUBICAL-GODEL-PROOF-CHECKER-001", "claims": 5},
+    {"proof_id": "PF-CUBICAL-GODEL-PROOF-SERIALIZATION-001", "claims": 3},
+    {"proof_id": "PF-CUBICAL-GODEL-FORMULA-BITCODE-001", "claims": 3},
+    {"proof_id": "PF-CUBICAL-GODEL-PROOF-BITCODE-001", "claims": 4},
+    {"proof_id": "PF-CUBICAL-GODEL-NAT-PROOF-CODE-001", "claims": 5},
+    {"proof_id": "PF-CUBICAL-SYNTHETIC-INCOMPLETENESS-001", "claims": 5},
+    {"proof_id": "PF-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001", "claims": 4},
+    {"proof_id": "PF-CUBICAL-CANDIDATE-COVERAGE-001", "claims": 5}
+  ],
+  "formal_runs": [
+    {"run_id": "20260914-CUBICAL-MACHINE-HALTING-001", "proof_id": "PF-CUBICAL-MACHINE-HALTING-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-GODEL-PROOF-CHECKER-001", "proof_id": "PF-CUBICAL-GODEL-PROOF-CHECKER-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-GODEL-PROOF-SERIALIZATION-001", "proof_id": "PF-CUBICAL-GODEL-PROOF-SERIALIZATION-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-GODEL-FORMULA-BITCODE-001", "proof_id": "PF-CUBICAL-GODEL-FORMULA-BITCODE-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-GODEL-PROOF-BITCODE-001", "proof_id": "PF-CUBICAL-GODEL-PROOF-BITCODE-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-GODEL-NAT-PROOF-CODE-001", "proof_id": "PF-CUBICAL-GODEL-NAT-PROOF-CODE-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-SYNTHETIC-INCOMPLETENESS-001", "proof_id": "PF-CUBICAL-SYNTHETIC-INCOMPLETENESS-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001", "proof_id": "PF-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001", "verification": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"},
+    {"run_id": "20260914-CUBICAL-CANDIDATE-COVERAGE-001", "proof_id": "PF-CUBICAL-CANDIDATE-COVERAGE-001", "verification": "PASS_WITH_SCOPE", "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH", "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH"}
+  ],
+  "author_coq_replay": {
+    "evaluation_id": "COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001",
+    "source_commit": "cd7d8490f8542bfe85658c465bcb26b2ed163f53",
+    "source_files": 807,
+    "source_bytes": 7423361,
+    "source_tree_sha256": "d9dd001b0dcfcab4d183b01f0eeed9d16d12c09b576507ea7fc45c87505680ca",
+    "coq_version": "8.15.2",
+    "builds": 2,
+    "target": "FOL/Incompleteness/fol_incompleteness.vo",
+    "target_bytes": 95450,
+    "target_sha256": "e770c7bf44201f8e696cff4115452b3c02c22274604c787afccdf25edaee33e4",
+    "stable_artifacts": 1284,
+    "stable_artifact_bytes": 61429144,
+    "stable_manifest_sha256": "6c2bd66c8547d75540bac15348291064348120f5d3a7342689f9402794d6b958",
+    "build_stdout_exact": true,
+    "build_stderr_exact": true,
+    "stable_artifacts_exact": true,
+    "aux_hashes_exact": false,
+    "aux_nondeterministic_count": 319,
+    "qualification": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "verifier": "COQ_SYNTHETIC_INCOMPLETENESS_REPLAY_VALID",
+    "report": "machine-overview/evaluations/COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001/REPORT.md"
+  },
+  "completeness_audit": {
+    "evaluation_id": "NONTERMINATION-OVERVIEW-COMPLETENESS-AUDIT-001",
+    "report": "machine-overview/evaluations/NONTERMINATION-OVERVIEW-COMPLETENESS-AUDIT-001/REPORT.md",
+    "verdict": "ARCHITECTURALLY_COMPLETE_RESEARCH_PROTOCOL / RELATIVELY_COMPLETE_IN_FROZEN_FINITE_SLICES / GLOBAL_DISCOVERY_COMPLETENESS_NOT_ESTABLISHED / EXACT_HOTT_AND_REALITY_BRIDGES_OPEN",
+    "levels": {
+      "COMP-1": "ACHIEVED_FOR_STRICT_V2_CASE_CHAIN",
+      "COMP-2": "MACHINE_PROVED_FOR_PF-CUBICAL-CANDIDATE-COVERAGE-001_AND_OPERATIONALLY_ACHIEVED_FOR_REGISTERED_COMPLETE_RUNS",
+      "COMP-3": "ACHIEVED_ONLY_FOR_NAMED_DENOMINATORS",
+      "COMP-4": "NOT_ESTABLISHED",
+      "COMP-5": "NOT_ESTABLISHED",
+      "COMP-6": "NOT_ESTABLISHED_AND_NOT_A_REALISTIC_TOTAL_ALGORITHM_TARGET"
+    }
+  },
+  "literature": {
+    "local_plan_snapshot_sha256": "a1d541e551f001bbb6c204ae673a583e00098dd0b69c2308e54738d488db2613",
+    "pdf_count": 5,
+    "pdf_manifest": "machine-overview/literature/PDF-MANIFEST.json",
+    "external_cache": "/Volumes/D/HoTT-machine-overview-cache/literature/",
+    "extraction_tool": "pypdf 6.10.0"
+  },
+  "development_failures": [
+    {"stage": "Agda concrete control", "result": "large unary natural proof code produced excessive normalization cost", "disposition": "replaced by minimum positive and invalid-zero controls; recorded as representation cost, not divergence"},
+    {"stage": "reflection evidence revision 2", "result": "probe root outside evaluator-qualified path", "disposition": "zero target probes; failure receipt retained"},
+    {"stage": "reflection evidence revision 3", "result": "Agda module names did not match relative paths", "disposition": "all module-resolution failures retained; corrected only in new revisions"},
+    {"stage": "author Coq environment", "result": "wrong image tag and current opam repository incompatibility with OCaml 4.07.1+flambda", "disposition": "failures retained; fixed with official coqorg image and opam-repository-archive"},
+    {"stage": "author Coq replay comparison", "result": "319 .aux hashes differ across clean worktrees", "disposition": "excluded auxiliary timing/path metadata from stable exact claim; stable kernel products remain exact"}
+  ],
+  "verification": {
+    "selftest": "94/94 PASS",
+    "workspace_validate": "VALID: 16 cases / 39 runs / 18 reviews / 0 errors / 1 registered interrupted legacy attempt",
+    "capture_tests": "4/4 PASS",
+    "godel_tests": "6/6 PASS",
+    "candidate_coverage_tests": "4/4 PASS",
+    "reflection_tests": "8/8 PASS",
+    "author_coq_tests": "4/4 PASS",
+    "formal_receipts": "9/9 PASS_WITH_SCOPE after claim-matrix evolution",
+    "generated_index": "104 entries; Coq replay, completeness audit and candidate-coverage reports indexed",
+    "core_cognition_audit": "PASS: 36 KC; ALIGNED 5 / DEEPENED 28 / TENSION 2 / NOT_TOUCHED 1"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

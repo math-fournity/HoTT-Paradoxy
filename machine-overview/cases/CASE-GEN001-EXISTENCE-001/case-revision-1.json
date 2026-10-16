@@ -1,0 +1,69 @@
+{
+  "assumptions": [
+    "the fragment is the pinned delay model, not general Kan filling, general cofibration structure or general constructive existence",
+    "delay equivalence models the theory's identity criterion only in the bounded sense that it forgets the arrival round; this is a bounded modelling correspondence, not a claim that Delay Bool is HoTT's identity type or the cubical Kan composition structure",
+    "the race and deadline model observation layers that see the erased round only as a bounded round comparison; the verdict consumers model existence-versus-availability renderers, not semantic fillability in the full theory",
+    "no physical-time, manufacturing-process or resource-scheduling claim is made; the reality supply process is modelled only as the bounded observation layer"
+  ],
+  "candidate_ast": {
+    "grammar_id": "L1-EXISTENCE-v1",
+    "produced_by": null,
+    "status": "PENDING_SEARCH"
+  },
+  "case_id": "CASE-GEN001-EXISTENCE-001",
+  "claim_refs": [],
+  "created_at_utc": "2026-09-16T23:33:48.945273+00:00",
+  "grammar": {
+    "path": "machine-overview/grammars/l1-existence-v1.json",
+    "sha256": "c2cc645ea7b23937f1d5c5f26d0388628c4c44dfbf0cf95b82c342cdf2572a0e"
+  },
+  "immutability": "content changes require a new revision file; this file is never edited",
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "at least one witness must bind a continuation declared only in L1-EXISTENCE-v1, proving the family is outside l1-v0/v1/v2 and the four preceding GEN-001 delay families",
+    "the separating observation layer and verdict consumer must be among the declared constructs, not an oracle added after seeing a candidate",
+    "an exploration instance must not be upgraded into a new mathematical claim",
+    "the REPORT must answer the three questions of 修订片 012 §2 and the same-family collapse question Q4 of 修订片 013 §2.1 for the D-04 / G-05 pair, and must declare the direction coverage of the no-extrapolation paragraph",
+    "the REPORT must explicitly record that D-04 / G-05 are the lowest-confidence pair of the premise batch and that the premise verdicts remain AI_ADJUDICATED_PENDING_EXTERNAL_AUDIT and are not upgraded by this acceptance unit"
+  ],
+  "parent_revision": null,
+  "profile": {
+    "path": "machine-overview/profiles/l1-existence-v1.json",
+    "sha256": "df231a4fcbeda94b7af8e010c4ea96d9247ad240bcdaedee0521b94df43fff92"
+  },
+  "revision": 1,
+  "schema_version": "machine-overview-case/v2",
+  "source_pins": [
+    {
+      "path": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "sha256": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc"
+    },
+    {
+      "path": "machine-overview/formal/MVSupport.agda",
+      "sha256": "07ddec584dc7f820ce19fb31bee2feedd5aef27c1142f555db1c80d10947a85a"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+      "role": "toolchain",
+      "sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+      "role": "library_registry",
+      "sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12"
+    }
+  ],
+  "state_axes": {
+    "execution": "queued",
+    "formal_legality": "unchecked",
+    "mathematical_evidence": "conjecture",
+    "reality_correspondence": "model_only",
+    "research_relation": "exploration",
+    "task_preservation": "unresolved"
+  },
+  "target_text_hash": null,
+  "task": {
+    "path": "machine-overview/tasks/MS-TASK-GEN001-EXISTENCE-001.json",
+    "sha256": "76dfc299de3e23f60e6de6c85dd5bf31b855392d47b6aafc7a0930087f1e4248"
+  }
+}

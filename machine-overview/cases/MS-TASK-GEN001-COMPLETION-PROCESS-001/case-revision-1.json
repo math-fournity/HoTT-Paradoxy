@@ -1,0 +1,67 @@
+{
+  "assumptions": [
+    "the fragment is the pinned delay model, not general Nat induction, general well-foundedness or general coinduction",
+    "the delay equivalence models the theory's identification of two result-equivalent counters only in the bounded sense that it forgets the arrival round; this is a bounded modelling correspondence, not a claim that Delay Bool is HoTT's Nat eliminator",
+    "the bind models the verification procedure's own processing steps only as a constant round shift, and the deadline models a declared termination boundary, not a physical deadline",
+    "no physical-time or implementation claim is made"
+  ],
+  "candidate_ast": {
+    "grammar_id": "L1-COMPLETION-PROCESS-v1",
+    "produced_by": null,
+    "status": "PENDING_SEARCH"
+  },
+  "case_id": "MS-TASK-GEN001-COMPLETION-PROCESS-001",
+  "claim_refs": [],
+  "created_at_utc": "2026-09-16T20:43:55.819579+00:00",
+  "grammar": {
+    "path": "machine-overview/grammars/l1-completion-process-v1.json",
+    "sha256": "97e13dca450193494ab49b0e2dba3fc3ba9a7a7dc60acf879d75d8e1ac66819a"
+  },
+  "immutability": "content changes require a new revision file; this file is never edited",
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "at least one witness must bind a continuation declared only in L1-COMPLETION-PROCESS-v1, proving the family is outside l1-v0/v1/v2",
+    "the separating consumer must be one of the declared consumers, not an oracle added after seeing a candidate",
+    "an exploration instance must not be upgraded into a new mathematical claim"
+  ],
+  "parent_revision": null,
+  "profile": {
+    "path": "machine-overview/profiles/l1-completion-process-v1.json",
+    "sha256": "ea0eac679feef0fb9da58b573a80db5ff4cbbc3441056926e3710d62500d27eb"
+  },
+  "revision": 1,
+  "schema_version": "machine-overview-case/v2",
+  "source_pins": [
+    {
+      "path": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "sha256": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc"
+    },
+    {
+      "path": "machine-overview/formal/MVSupport.agda",
+      "sha256": "07ddec584dc7f820ce19fb31bee2feedd5aef27c1142f555db1c80d10947a85a"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+      "role": "toolchain",
+      "sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07"
+    },
+    {
+      "path": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+      "role": "library_registry",
+      "sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12"
+    }
+  ],
+  "state_axes": {
+    "execution": "queued",
+    "formal_legality": "unchecked",
+    "mathematical_evidence": "conjecture",
+    "reality_correspondence": "model_only",
+    "research_relation": "exploration",
+    "task_preservation": "unresolved"
+  },
+  "target_text_hash": null,
+  "task": {
+    "path": "machine-overview/tasks/MS-TASK-GEN001-COMPLETION-PROCESS-001.json",
+    "sha256": "783103e57ed2460d94f0717d2fb7591ee23318f212732c192419e8dd686b1df3"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "command_argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--platform",
+    "linux/arm64",
+    "-e",
+    "Agda_datadir=/agda-source/src/data",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/out-arm64:/tool:ro",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks:/agda-source",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks:/guarded",
+    "-v",
+    "/Volumes/D/HoTT-machine-overview/machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes:/probes",
+    "-w",
+    "/guarded/src",
+    "sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b",
+    "/tool/agda-forcing-ticks-linux-arm64",
+    "--ignore-interfaces",
+    "--no-libraries",
+    "-i",
+    "/guarded/src",
+    "-i",
+    "/probes",
+    "/probes/OrdinaryTickPath.agda"
+  ],
+  "cwd": "/Volumes/D/HoTT-machine-overview"
+}

@@ -1,0 +1,81 @@
+self_halting_diverge
+     : forall theta : nat -> nat -> utils.part bool,
+       is_universal theta ->
+       forall f : nat -> utils.part bool,
+       (forall c : nat, utils.part_eval (f c) true <-> self_halting theta c) ->
+       exists c : nat, forall y : bool, ~ utils.part_eval (f c) y
+recursively_separating_diverge
+     : forall theta : nat -> nat -> utils.part bool,
+       is_universal theta ->
+       forall f : nat -> utils.part bool,
+       (forall (b : bool) (c : nat),
+        theta_self_return theta b c -> utils.part_eval (f c) b) ->
+       exists c : nat, forall y : bool, ~ utils.part_eval (f c) y
+insep_essential_incompleteness
+     : forall theta : nat -> nat -> utils.part bool,
+       is_universal theta ->
+       forall (S : Type) (neg : S -> S) (fs fs' : FS S neg),
+       extension fs' fs ->
+       forall r : nat -> S,
+       strongly_separates fs' (theta_self_return theta true)
+         (theta_self_return theta false) r ->
+       exists n : nat, independent fs (r n)
+epf_mu_ctq
+     : is_universal epf_mu.theta_mu -> CTQ
+where
+?pei : [ |- Core.peirce]
+Q_incomplete
+     : forall p : Core.peirce,
+       CTQ ->
+       forall T : Theories.theory,
+       Theories.subset_T (Axiomatisations.list_theory fol_utils.Qeq) T ->
+       Definitions.enumerable T ->
+       ~ Theories.tprv T Core.falsity ->
+       exists φ : Core.form,
+         Facts.bounded 0 φ /\
+         sigma1.Σ1 φ /\
+         ~ Theories.tprv T φ /\
+         ~ Theories.tprv T (Core.bin Core.FullSyntax.Impl φ Core.falsity)
+insep_essential_incompleteness :
+forall theta : nat -> nat -> utils.part bool,
+is_universal theta ->
+forall (S : Type) (neg : S -> S) (fs fs' : FS S neg),
+extension fs' fs ->
+forall r : nat -> S,
+strongly_separates fs' (theta_self_return theta true)
+  (theta_self_return theta false) r -> exists n : nat, independent fs (r n)
+
+insep_essential_incompleteness is not universe polymorphic
+Arguments insep_essential_incompleteness theta%function_scope 
+  theta_universal {S}%type_scope {neg}%function_scope 
+  fs fs' fs'_extension r%function_scope Hrepr
+insep_essential_incompleteness is opaque
+Expands to: Constant
+Undecidability.FOL.Incompleteness.abstract_incompleteness.insep_essential_incompleteness
+epf_mu_ctq : forall {pei : Core.peirce}, is_universal epf_mu.theta_mu -> CTQ
+
+epf_mu_ctq is not universe polymorphic
+Arguments epf_mu_ctq {pei} theta_mu_universal f
+epf_mu_ctq is opaque
+Expands to: Constant Undecidability.FOL.Incompleteness.ctq.epf_mu_ctq
+Q_incomplete :
+forall [p : Core.peirce],
+CTQ ->
+forall T : Theories.theory,
+Theories.subset_T (Axiomatisations.list_theory fol_utils.Qeq) T ->
+Definitions.enumerable T ->
+~ Theories.tprv T Core.falsity ->
+exists φ : Core.form,
+  Facts.bounded 0 φ /\
+  sigma1.Σ1 φ /\
+  ~ Theories.tprv T φ /\
+  ~ Theories.tprv T (Core.bin Core.FullSyntax.Impl φ Core.falsity)
+
+Q_incomplete is not universe polymorphic
+Arguments Q_incomplete [p] ctq [T] T_Q Tenum Tconsis
+Q_incomplete is opaque
+Expands to: Constant
+Undecidability.FOL.Incompleteness.fol_incompleteness.Q_incomplete
+Closed under the global context
+Closed under the global context
+Closed under the global context

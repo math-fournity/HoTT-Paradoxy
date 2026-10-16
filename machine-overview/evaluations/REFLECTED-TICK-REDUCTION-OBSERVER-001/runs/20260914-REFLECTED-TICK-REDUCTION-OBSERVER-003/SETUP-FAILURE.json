@@ -1,0 +1,15 @@
+{
+  "schema_version": "machine-overview-reflected-tick-setup-failure/v1",
+  "run_id": "20260914-REFLECTED-TICK-REDUCTION-OBSERVER-003",
+  "scope": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/SCOPE-REV3.json",
+  "freeze": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/FREEZE-REV3.json",
+  "decisions": "machine-overview/evaluations/REFLECTED-TICK-REDUCTION-OBSERVER-001/DECISIONS-REV3.json",
+  "stage": "NATIVE_INVOCATION_MODULE_RESOLUTION",
+  "status": "ALL_PROBES_REJECTED_BEFORE_TARGET_CHECK",
+  "error": "REFLECTED_TICK_PROBE_RESULT_INVALID",
+  "cause": "The immutable evaluator mounts the parent probes/ directory as the Agda include root. Revision-3 files were placed under probes/rev3/ but retained unqualified module names, so Agda required modules named rev3.<Name> and rejected every file before checking its target.",
+  "native_invocations": 20,
+  "target_semantic_results": 0,
+  "preserved_evidence": "Each probe/first and probe/replay directory retains command, stdout, stderr and result files. All 20 exits were 42 with module-path diagnostics.",
+  "disposition": "Preserved as a failed path/module qualification attempt. Revision 4 must use fresh top-level probe filenames whose module declarations match exactly."
+}

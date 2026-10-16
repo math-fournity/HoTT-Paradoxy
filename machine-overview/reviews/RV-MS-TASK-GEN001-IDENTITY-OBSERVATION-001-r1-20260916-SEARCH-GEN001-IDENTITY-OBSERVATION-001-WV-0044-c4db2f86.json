@@ -1,0 +1,180 @@
+{
+  "candidate_ast_sha256": "c4db2f86b7041bfeb798e1a24a5393ed49d8c37ecc5fb6b7f2de6cb3d73938d6",
+  "case_id": "MS-TASK-GEN001-IDENTITY-OBSERVATION-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-GEN001-IDENTITY-OBSERVATION-001/case-revision-1.json",
+  "case_revision": 1,
+  "case_sha256": "a30a0df962edc47abab7f3b150b3fd82dcb7c311da993567337c3fdc501cb93e",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-GEN001-IDENTITY-OBSERVATION-001.json",
+        "revision 1"
+      ],
+      "item": "original activity and completion criterion are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "evidence": [
+        "L1-IDENTITY-OBSERVATION-v1: supported_operations",
+        "machine-overview/profiles/l1-identity-observation-v1.json"
+      ],
+      "item": "the theoryization step is an operation of the pinned model",
+      "status": "SUPPORTED"
+    },
+    {
+      "detail": "the observation layer and the verdict consumer are declared in the pinned model; the race and deadline read only the round index the model already carries",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-GEN001-IDENTITY-OBSERVATION-001.json"
+      ],
+      "item": "the separating observation is declared in the task, not an oracle added later",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "The round index is part of the constructor already present in the frozen model; this is not recovery of n from a result quotient, and no quotient-level recovery is claimed.",
+      "evidence": [
+        "machine-overview/profiles/l1-identity-observation-v1.json"
+      ],
+      "item": "compensation class of the consumer",
+      "status": "READS_DECLARED_REPRESENTATION"
+    },
+    {
+      "detail": "the verified statement is a ground instance; no universal or physical claim is made",
+      "evidence": [
+        "machine-overview/grammars/l1-identity-observation-v1.json"
+      ],
+      "item": "quantifier scope of the claim",
+      "status": "FINITE_DECLARED_GRAMMAR_ONLY"
+    },
+    {
+      "detail": "the run is a model-level calibration instance; a real consumer would be a separate E6-style audit",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-GEN001-IDENTITY-OBSERVATION-001.json"
+      ],
+      "item": "reality bridge",
+      "status": "NOT_CLOSED_IN_M1"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "MODEL_ONLY_OPERATIONALLY_SPECIFIED",
+    "new_claim": false,
+    "open_obligations": [
+      "the Delay Bool fragment is a bounded correspondent of the B-01 definitional-equality premise, not HoTT's identity type or univalence itself; a propositional-equality or univalence family remains a V2 candidate",
+      "the family shares the race-truncation separation mechanism with the E-02 first chain and the A-03 completion-process family; cross-family independence is not proved and is registered as out-of-envelope ingress, not a conclusion",
+      "the semantic reading of 'observation layer' in the full theory is not addressed by this fragment"
+    ],
+    "reality_correspondence": "UNRESOLVED",
+    "related_claims": [],
+    "research_relation": "calibration",
+    "task_preservation": "REVIEW_REQUIRED",
+    "task_preservation_basis": [
+      {
+        "detail": [],
+        "id": "profile_qualified",
+        "status": "PASS"
+      },
+      {
+        "detail": null,
+        "id": "grammar_membership",
+        "status": "PASS"
+      },
+      {
+        "detail": "search run case revision 1 vs case revision 1",
+        "id": "case_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "full recomputed witness must equal the search-run record",
+        "id": "witness_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "deadline_observation",
+        "id": "declared_observation_kind",
+        "status": "FAIL"
+      },
+      {
+        "detail": "no consumer requirement declared for deadline_observation",
+        "id": "declared_consumer_present",
+        "status": "FAIL"
+      },
+      {
+        "detail": "READS_DECLARED_REPRESENTATION",
+        "id": "compensation_classified",
+        "status": "PASS"
+      }
+    ]
+  },
+  "context_summary": [
+    "bind(□, continuation)",
+    "deadline(1, □)"
+  ],
+  "created_at_utc": "2026-09-16T21:49:11.186201+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 15,
+    "untracked_entries": 2072,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 2087,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_facts": {
+    "compensation": {
+      "class": "READS_DECLARED_REPRESENTATION",
+      "detail": "The round index is part of the constructor already present in the frozen model; this is not recovery of n from a result quotient, and no quotient-level recovery is claimed."
+    },
+    "has_business_bind": false,
+    "has_deadline": true,
+    "has_plain_bind": true,
+    "has_race": false
+  },
+  "mechanism_summary": "The declared deadline consumer reads the round index n that the pinned constructor `ret n a` already carries. Result equivalence ≈ identifies `ret n a` with `ret m a`, so it cannot see the difference the deadline consumer reads.",
+  "review_checks": [
+    {
+      "detail": [],
+      "id": "profile_qualified",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "grammar_membership",
+      "status": "PASS"
+    },
+    {
+      "detail": "search run case revision 1 vs case revision 1",
+      "id": "case_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "full recomputed witness must equal the search-run record",
+      "id": "witness_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "deadline_observation",
+      "id": "declared_observation_kind",
+      "status": "FAIL"
+    },
+    {
+      "detail": "no consumer requirement declared for deadline_observation",
+      "id": "declared_consumer_present",
+      "status": "FAIL"
+    },
+    {
+      "detail": "READS_DECLARED_REPRESENTATION",
+      "id": "compensation_classified",
+      "status": "PASS"
+    }
+  ],
+  "review_id": "RV-MS-TASK-GEN001-IDENTITY-OBSERVATION-001-r1-20260916-SEARCH-GEN001-IDENTITY-OBSERVATION-001-WV-0044-c4db2f86",
+  "schema_version": "machine-overview-correspondence-review/v2",
+  "source_search_run": {
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260916-SEARCH-GEN001-IDENTITY-OBSERVATION-001/RUN.json",
+    "run_id": "20260916-SEARCH-GEN001-IDENTITY-OBSERVATION-001",
+    "sha256": "f6ec56733a7e449e65b9c03435200213b8029cc7823dfccaa3fe907ba4c541e9"
+  },
+  "witness_id": "WV-0044"
+}

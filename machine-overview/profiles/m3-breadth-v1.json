@@ -1,0 +1,70 @@
+{
+  "schema_version": "machine-overview-profile/v2",
+  "profile_id": "M3-CUBICAL-BREADTH-v1",
+  "theory_variant": "Cubical Agda 2.8.0/v0.9 with pinned transition-limit, SIP representation, Boolean diagonal and Path/apartness controls",
+  "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+  "toolchain_sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+  "library_registry": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+  "library_registry_sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+  "native_include_dirs": [
+    "machine-overview/formal",
+    "HoTT/formal/transition-lift",
+    "HoTT/formal/sip-representation"
+  ],
+  "sources": [
+    {
+      "path": "machine-overview/formal/M3BreadthSupport.agda",
+      "role": "independent L5 Boolean fixed-point boundary and given-proof positive checker",
+      "sha256": "777dc1f5ce3945ea46372e4af6065d106eb25bf3d6f0e5d520fe0db2447b646b",
+      "symbols": [
+        {"name": "notNoFixed", "kind": "boolean-diagonal-control", "lines": [14, 16]},
+        {"name": "checkGiven", "kind": "given-proof-check-positive-control", "lines": [18, 22]}
+      ]
+    },
+    {
+      "path": "machine-overview/formal/L3M4Support.agda",
+      "role": "independent L6 Path and exact-apartness controls",
+      "sha256": "be19607f3c7bb466e239489ad1488af386b462ccf2b6bf0417541b815f836536",
+      "symbols": [
+        {"name": "phase-apart", "kind": "exact-apartness-control", "lines": [29, 30]},
+        {"name": "segment-path", "kind": "path-coherence-control", "lines": [32, 34]}
+      ]
+    },
+    {
+      "path": "HoTT/formal/transition-lift/TransitionLift.agda",
+      "role": "existing machine-proof source for the L2 stagewise-truncation versus compatible-limit boundary",
+      "sha256": "58c763c7f40207939c8aa74af1472f90463a95e164ef880e2e43f636354f1c95",
+      "symbols": [
+        {"name": "LimA", "kind": "exact-compatible-limit", "lines": [172, 185]},
+        {"name": "LimTruncA", "kind": "stagewise-truncated-limit", "lines": [192, 204]}
+      ]
+    },
+    {
+      "path": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+      "role": "existing machine-proof source for the L4 SIP/ua outside-signature observation boundary",
+      "sha256": "517265f41a8949a3372bd08fa5aa4471d65eb1ed10759cb75603162d05b71e93",
+      "symbols": [
+        {"name": "Str", "kind": "coarse-pointed-structure", "lines": [24, 64]},
+        {"name": "C-124-identification", "kind": "sip-ua-identification", "lines": [44, 50]},
+        {"name": "C-127-no-recovery", "kind": "outside-observation-boundary", "lines": [60, 64]},
+        {"name": "C-128-no-identification", "kind": "refined-signature-positive-control", "lines": [81, 87]}
+      ]
+    }
+  ],
+  "support_sources": [],
+  "coordinator_identity_note": "The unchanged symbolic-horn engine composes task-declared rules; four native renderers check L2/L4/L5/L6 targets against pinned existing theorem sources or independent controls.",
+  "supported_operations": [
+    {"op": "stagewise propositional truncation and exact compatible limit", "source_lines": [172, 204]},
+    {"op": "SIP/ua identification and signature refinement", "source_lines": [24, 87]},
+    {"op": "Boolean negation diagonal fixed-point elimination", "source_lines": [14, 22]},
+    {"op": "generic Path/apartness composition", "source": "Cubical.Foundations.Prelude plus L3M4Support"}
+  ],
+  "unsupported": [
+    {"item": "general local-to-global theorem", "reason": "L2 reuses one fixed tower already proved in TransitionLift"},
+    {"item": "general SIP theorem or natural consumer", "reason": "L4 reuses one fixed pointed-structure instance"},
+    {"item": "Gödel incompleteness or total self-verification theorem", "reason": "L5 checks one exact Boolean diagonal precondition and keeps ERCF-3 gated"},
+    {"item": "general resource-sensitive compensation logic", "reason": "L6 checks one Path/apartness coherence conflict"}
+  ],
+  "revision_note": "First shared profile for one thin executable chain in each previously absent M3 line L2/L4/L5/L6.",
+  "notes": "All four cases are calibration or exploration instances with explicit forbidden extrapolations; none is a new HoTT bug claim."
+}

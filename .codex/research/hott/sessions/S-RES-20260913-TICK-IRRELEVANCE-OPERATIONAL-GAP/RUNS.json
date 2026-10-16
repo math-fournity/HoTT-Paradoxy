@@ -1,0 +1,95 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260913-TICK-IRRELEVANCE-OPERATIONAL-GAP",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "main_touched": false,
+  "new_math_claims": [],
+  "previous_goal_turn": "PROGRESS",
+  "evaluation": {
+    "id": "TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+    "evaluator": "machine-overview/tick_irrelevance_gap.py",
+    "scope": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/SCOPE.json",
+    "scope_sha256": "17c0ccc94e681e536e63e0deeec268aa30c8b3defb6e258a79aa64247d45b821",
+    "freeze": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/FREEZE.json",
+    "freeze_sha256": "df0cb0b1edb10b9ad18e18be4368733627cef0d0dea36b282ebe98c52d3e55f2",
+    "decisions": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/DECISIONS.json",
+    "run": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/runs/20260913-TICK-IRRELEVANCE-OPERATIONAL-GAP-001/RUN.json",
+    "report": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/REPORT.md",
+    "sources": 3,
+    "artifacts": 18,
+    "source_trees": 4,
+    "anchors": 54,
+    "probes": 9,
+    "candidate_signatures": 6,
+    "natural_usage_mismatches": 0,
+    "verdict": "EXTENSIONAL_TICK_IRRELEVANCE_WITH_METALEVEL_OPERATIONAL_SPLIT",
+    "candidate_scope": "REPRESENTATION_BOUNDARY",
+    "hott_bug_status": "NOT_ESTABLISHED",
+    "deterministic_sha256": "cf622133e8aa1260c1bfa68f475308c259caece65ce06529efb5cb6b8451a6a5"
+  },
+  "toolchain_build": {
+    "source_commit": "5bec849bec6c7aa40e068db99c5a1f5eab47a874",
+    "source_tree": "97fabad0b01ea385b5c810fdfb1d6c640bff9031",
+    "reported_version": "Agda version 2.6.3",
+    "binary_bytes": 161708104,
+    "binary_sha256": "31a5ea292d2aa9a58df49eafc5f08ded25bddbac6ce81f45caf4d2f065a6212f",
+    "image_id": "sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b",
+    "runtime_network": "none",
+    "build_receipt": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/BUILD-RECEIPT.json",
+    "build_receipt_sha256": "a8e6e73ecc74cb2a2039c765afeeba3d077f79e969e5bbd09e99ec0d8c614f01",
+    "successful_attempt": "BUILD-A8",
+    "trust_limit": "Legacy Cabal could not validate the current TUF root; HTTPS/curl plus secure=False and exact hashes identify local dependency bytes but do not certify publisher signatures."
+  },
+  "equality_search": {
+    "vertices": 4,
+    "assumptions": 3,
+    "directed_edges": 6,
+    "max_edges": 3,
+    "target_paths": 1,
+    "minimal_edge_count": 3,
+    "minimal_witness": "sym FORCING-OBSERVATION ; TICK-PATH-CONGRUENCE ; ORDINARY-OBSERVATION",
+    "order_independent": true,
+    "single_assumption_ablations": {
+      "FORCING-OBSERVATION": 0,
+      "TICK-PATH-CONGRUENCE": 0,
+      "ORDINARY-OBSERVATION": 0
+    }
+  },
+  "consumer_results": [
+    {"id": "TG-C1-FORCE-DELAY-DEFINITION", "classification": "PATH_ONLY", "promotion": false},
+    {"id": "TG-C2-LIFT-FWD", "classification": "NO_PROMOTION", "promotion": false},
+    {"id": "TG-C3-COMPILER-DIAMOND", "classification": "JUDGEMENTAL_COMPUTATION", "promotion": false},
+    {"id": "TG-C4-COMPILER-ORDINARY", "classification": "NO_PROMOTION", "promotion": false}
+  ],
+  "probe_results": [
+    {"id": "P01-INTERNAL-OBSERVER-COLLISION", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P02-BAD-PATH-RESPECTING-OBSERVER", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "diagnostic": "[CoverageIssue]", "replay": "EXACT"},
+    {"id": "P03-BAD-PATH-AS-REFL", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "diagnostic": "[UnequalTerms]", "replay": "EXACT"},
+    {"id": "P04-EXACT-CLOCKED-PRIMITIVES", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P05-DIAMOND-JUDGEMENTAL-UNFOLD", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P06-ORDINARY-TICK-PATH", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P07-BAD-ORDINARY-JUDGEMENTAL-UNFOLD", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "replay": "EXACT"},
+    {"id": "P08-FORCE-DELAY-PATH", "exit": 0, "classification": "KERNEL_ACCEPTED", "replay": "EXACT"},
+    {"id": "P09-BAD-FORCE-DELAY-AS-REFL", "exit": 42, "classification": "EXPECTED_TYPE_REJECTION", "replay": "EXACT"}
+  ],
+  "development_failures": [
+    {"stage": "build", "result": "wrong architecture image", "disposition": "stopped before build; preserved as BUILD-A1"},
+    {"stage": "build prerequisites", "result": "absent TMPDIR and old Cabal HTTPS/TUF failures", "disposition": "fixed environment and froze HTTPS-acquired bytes; preserved as BUILD-A2-A4"},
+    {"stage": "dependency freeze", "result": "unsupported v2-freeze target argument", "disposition": "corrected invocation; preserved as BUILD-A5"},
+    {"stage": "code generation", "result": "O1 LLVM exceeded 25 minutes on 440 MB bitcode", "disposition": "stopped irrelevant optimization and rebuilt O0; preserved as BUILD-A6"},
+    {"stage": "packaging", "result": "404/404 linked but list-bin copy syntax failed", "disposition": "copied unique executable directly and ran fresh-container smoke; BUILD-A7-A8"}
+  ],
+  "verification": {
+    "tick_gap_replay": "PASS: 9/9 expectation met and exact recorded stdout/stderr on independent rerun",
+    "focused_tests": "6/6 PASS",
+    "selftest": "66/66 PASS",
+    "workspace_validate": "VALID: 16 cases / 39 runs / 18 reviews / 0 errors / 1 registered interrupted legacy attempt",
+    "core_cognition_audit": "PASS: 36 KC; ALIGNED 3 / DEEPENED 30 / TENSION 2 / NOT_TOUCHED 1",
+    "supporting_replays": "PASS: quotation bridge 10/10 exact; force inventory 9 lines/2 files; L5 5-source audit; L3 7-source audit; M4 3-task replay",
+    "diff_index_json": "PASS: git diff --check; 2,584 repository JSON files parsed; generated index stable at 96 entries and query resolves the evaluation report"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

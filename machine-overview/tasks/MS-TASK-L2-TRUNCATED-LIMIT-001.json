@@ -1,0 +1,85 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L2-TRUNCATED-LIMIT-001",
+  "revision": 1,
+  "research_relation": "m3_existing_claim_calibration",
+  "purpose": "Exercise L2 by searching the fixed TransitionLift mechanism that separates stagewise mere existence from one compatible exact global limit.",
+  "source_basis": {
+    "kind": "post-freeze M3 calibration over existing machine-proved C-114 to C-116",
+    "references": [
+      "HoTT/formal/transition-lift/TransitionLift.agda",
+      "HoTT/formal/transition-lift/README.md",
+      "/Volumes/D/HoTT独立答复/HoTT非现实性悖论机器统观完整方案/005 - 六条研究线与首轮实验.md"
+    ]
+  },
+  "answer_visibility": {
+    "class": "POST_FREEZE_KNOWN_CALIBRATION_NOT_BLIND",
+    "engine_freeze": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json",
+    "engine_freeze_sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46",
+    "calibration_answer_available_to_search": true,
+    "limitation": "The existing theorem and mechanism were known to the designing AI. The run checks M3 coverage and evidence wiring, not theorem discovery."
+  },
+  "input": {
+    "type_ref": "the fixed tower A k = Sigma m, k <= m from TransitionLift",
+    "available_information": "a stagewise truncated limit and an assumed recovery function; no compatible exact limit is supplied"
+  },
+  "environment": {
+    "reality_model": "each finite stage has a locally available bound witness under propositional truncation",
+    "theory_model": "one exact family across all stages with adjacent compatibility",
+    "arrival_policy": "global completion requires a single compatible LimA object",
+    "nondeterminism": "local witnesses may vary by stage behind truncation",
+    "fairness": "not applicable"
+  },
+  "observation": {
+    "value": "stagewise mere inhabitance versus exact compatible global inhabitance",
+    "trace": "the stage index k is retained; compatibility links every successor stage to its predecessor",
+    "time_structure": {
+      "reality": "finite-stage local availability",
+      "theory": "one globally compatible limit object",
+      "temporal_order": "natural-number stages are ordered, but the obstruction is the cross-stage compatibility quantifier"
+    }
+  },
+  "completion": {
+    "kind": "compatible_global_object",
+    "criterion_ref": "recover LimA from LimTruncA without adding witness identity or compatibility data"
+  },
+  "quantifiers": {
+    "instances": "the one fixed TransitionLift tower",
+    "realization": "native Cubical Agda reconstruction of C-116 from C-114 and C-115"
+  },
+  "allowed_resources": "the pinned TransitionLift source plus declared symbolic rules through depth 4",
+  "prohibited_extra_information": "no choice of representatives, modulus, coherent witness family or new axiom",
+  "assumptions": [
+    "the tower and truncation are the existing fixed formal model",
+    "this is not a general local-to-global theorem and not a new claim"
+  ],
+  "obligations": [
+    "the witness must use the stagewise limit, hypothetical recovery and exact-limit emptiness rules",
+    "removing hypothetical_recovery must remove every goal witness",
+    "native positive controls must preserve both LimTruncA and the emptiness of LimA",
+    "the result must remain an existing-claim calibration"
+  ],
+  "known_positive_controls": [
+    {"id": "TRUNCATED-LIMIT-EXISTS", "description": "C-115-limTrunc inhabits LimTruncA", "source": "HoTT/formal/transition-lift/TransitionLift.agda", "claim_refs": ["C-115"]},
+    {"id": "EXACT-LIMIT-EMPTY", "description": "C-114-LimA-empty refutes LimA", "source": "HoTT/formal/transition-lift/TransitionLift.agda", "claim_refs": ["C-114"]}
+  ],
+  "known_negative_controls": [
+    {"id": "TRUNCATED-IS-NOT-EXACT", "description": "C-115-limTrunc cannot inhabit LimA", "expected": "NATIVE_TYPE_REJECTION"}
+  ],
+  "claim_refs": ["C-114", "C-115", "C-116"],
+  "correspondence": {
+    "original_activity": "obtain a witness at every finite stage",
+    "theoryization_steps": ["truncate each local witness", "ask for one exact compatible family across all stages"],
+    "preserved_fields": ["the fixed tower", "every stage index", "the exact global completion criterion"],
+    "changed_fields": ["the global target adds witness identity and cross-stage compatibility not present in the stagewise truncations"],
+    "observation_justification": "local and global completion are distinguished before search",
+    "declared_observation_kinds": ["local_to_global_completion_boundary"],
+    "consumer_requirements": {"local_to_global_completion_boundary": {"required_rules": ["stagewise_mere_limit", "hypothetical_recovery", "exact_limit_empty"]}},
+    "preservation_label": "FIXED_TOWER_AND_RECOVERY_TASK_PRESERVED",
+    "correspondence_status": "STAGEWISE_EXISTENCE_NOT_GLOBAL_COMPATIBILITY",
+    "reality_correspondence": "FORMAL_TOWER_ONLY",
+    "reality_bridge_status": "NO_PHYSICAL_TIME_INFERENCE",
+    "reality_bridge_detail": "The stage tower is a formal local/global control, not an empirical time process.",
+    "open_obligations": ["find a natural consumer before treating this existing mechanism as a new reality-relative paradox"]
+  }
+}

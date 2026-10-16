@@ -1,0 +1,146 @@
+{
+  "adapter_sources": [
+    {
+      "bytes": 5280,
+      "path": "machine-overview/freeze_breadth.py",
+      "sha256": "ac5ae0b072edbda7f1e6d94789bf8dce8a4663bdaf433770fbac3a01ab3e17c7"
+    },
+    {
+      "bytes": 12225,
+      "path": "machine-overview/m4_replay_closure.py",
+      "sha256": "a974458e5c6231fef1e17ea508becef8042e77aa61cbcebf581181b322e4eaf2"
+    },
+    {
+      "bytes": 650,
+      "path": "machine-overview/machine_overview/__init__.py",
+      "sha256": "b68fb35b7e8086682cf82c262d07f57aaec8d7caf5bb87ae02dfc596e0540b0d"
+    },
+    {
+      "bytes": 51085,
+      "path": "machine-overview/machine_overview/case.py",
+      "sha256": "5793b62e99f2141d8a69aad4f3b43052b61f539f643a7efef4509c6f76f2d01c"
+    },
+    {
+      "bytes": 28588,
+      "path": "machine-overview/machine_overview/correspondence.py",
+      "sha256": "08e2f6e4906743d18457222224f6b6471c2aa60638d8d3a63ee9a718a48fef32"
+    },
+    {
+      "bytes": 15085,
+      "path": "machine-overview/machine_overview/report.py",
+      "sha256": "553611f15f5232a631e2fa09604cd508f763c0308545f269324a542f6e3b088d"
+    },
+    {
+      "bytes": 56086,
+      "path": "machine-overview/machine_overview/verify.py",
+      "sha256": "ca66b10fa61f8ddafcc5f7eb4e7a096a87cc20d2b928df010d7c9194c1443ce4"
+    },
+    {
+      "bytes": 760,
+      "path": "machine-overview/formal/M3BreadthSupport.agda",
+      "sha256": "777dc1f5ce3945ea46372e4af6065d106eb25bf3d6f0e5d520fe0db2447b646b"
+    },
+    {
+      "bytes": 1402,
+      "path": "machine-overview/formal/L3M4Support.agda",
+      "sha256": "be19607f3c7bb466e239489ad1488af386b462ccf2b6bf0417541b815f836536"
+    },
+    {
+      "bytes": 4228,
+      "path": "machine-overview/profiles/m3-breadth-v1.json",
+      "sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb"
+    },
+    {
+      "bytes": 2998,
+      "path": "machine-overview/tests/test_m3_breadth.py",
+      "sha256": "1aa57c1a90ec4e9e1edecd4aafb3cefc2554098dbe34074a07a0d5e78ab3d9f5"
+    }
+  ],
+  "created_at_utc": "2026-09-13T19:19:24.313551+00:00",
+  "freeze_id": "M3-BREADTH-ADAPTER-FREEZE-001",
+  "future_inputs_absent_at_freeze": true,
+  "future_paths": [
+    "machine-overview/tasks/MS-TASK-L2-TRUNCATED-LIMIT-001.json",
+    "machine-overview/grammars/l2-truncated-limit-m3-v1.json",
+    "machine-overview/tasks/MS-TASK-L4-SIP-OBSERVATION-001.json",
+    "machine-overview/grammars/l4-sip-observation-m3-v1.json",
+    "machine-overview/tasks/MS-TASK-L5-SELF-GUARANTEE-001.json",
+    "machine-overview/grammars/l5-self-guarantee-m3-v1.json",
+    "machine-overview/tasks/MS-TASK-L6-COMPENSATION-COHERENCE-001.json",
+    "machine-overview/grammars/l6-compensation-coherence-m3-v1.json"
+  ],
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 228,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 240,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "interpretation": "This freeze proves only that the four configuration files were absent after adapters and controls qualified. The same AI designed their roles; no discovery-independence claim follows.",
+  "protocol": {
+    "bytes": 3634,
+    "path": "machine-overview/evaluations/M3-BREADTH-001/PROTOCOL.json",
+    "sha256": "e95fee4cb658d1651bc5c60108a49131810638796b77bbf20d2e80e1dda4562e"
+  },
+  "schema_version": "machine-overview-m3-breadth-freeze/v1",
+  "scope": "M3_BREADTH_CONFIGURATION_FREEZE / SAME_DESIGNER / NOT_NOVELTY_OR_EFFECTIVENESS_EVAL",
+  "search_baseline": {
+    "commit": "025938a07ef6ca9b74ca4874366ec1f97f06592e",
+    "live_match": true,
+    "path": "machine-overview/machine_overview/search.py",
+    "sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20"
+  },
+  "selftest": {
+    "command_argv": [
+      "/usr/local/bin/python3",
+      "machine-overview/mo.py",
+      "selftest"
+    ],
+    "exit_code": 0,
+    "stderr": {
+      "bytes": 7432,
+      "path": "machine-overview/evaluations/M3-BREADTH-001/selftest-stderr.txt",
+      "sha256": "e910bab47cfe1dc818bac028a28d87d3ee89eb060166b46f280ea49d01edcebc"
+    },
+    "stdout": {
+      "bytes": 0,
+      "path": "machine-overview/evaluations/M3-BREADTH-001/selftest-stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "task_roles_known_before_freeze": [
+    {
+      "expected_native": "ACCEPT",
+      "line": "L2",
+      "research_relation": "existing C-114 to C-116 calibration",
+      "role": "stagewise mere existence versus one compatible exact global object",
+      "task_id": "MS-TASK-L2-TRUNCATED-LIMIT-001"
+    },
+    {
+      "expected_native": "ACCEPT",
+      "line": "L4",
+      "research_relation": "existing C-124 to C-128 calibration",
+      "role": "SIP/ua identity versus observation outside the structure signature",
+      "task_id": "MS-TASK-L4-SIP-OBSERVATION-001"
+    },
+    {
+      "expected_native": "ACCEPT",
+      "line": "L5",
+      "research_relation": "generic diagonal precondition; not Gödel incompleteness or ERCF-3 completion",
+      "role": "checking one supplied proof versus an exact total self-coding section",
+      "task_id": "MS-TASK-L5-SELF-GUARANTEE-001"
+    },
+    {
+      "expected_native": "ACCEPT",
+      "line": "L6",
+      "research_relation": "known Path/apartness mechanism reused as a compensation-composition calibration",
+      "role": "Path-coherence repair and exact-apartness repair required on the same endpoints",
+      "task_id": "MS-TASK-L6-COMPENSATION-COHERENCE-001"
+    }
+  ]
+}

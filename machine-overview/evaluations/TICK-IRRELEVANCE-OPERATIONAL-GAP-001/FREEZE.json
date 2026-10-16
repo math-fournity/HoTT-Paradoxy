@@ -1,0 +1,326 @@
+{
+  "candidate_signature": {
+    "requirements": [
+      {
+        "id": "PATH_FORCE_DELAY",
+        "metric": "occurrences",
+        "minimum": 2,
+        "pattern_id": "force_delay_path",
+        "tree_id": "GUARDED-FORCING-SOURCE"
+      },
+      {
+        "id": "PATH_TICK_IRRELEVANCE",
+        "metric": "occurrences",
+        "minimum": 6,
+        "pattern_id": "tick_irrelevance_path",
+        "tree_id": "GUARDED-FORCING-SOURCE"
+      },
+      {
+        "id": "SOURCE_DIAMOND_ONLY",
+        "metric": "occurrences",
+        "minimum": 1,
+        "pattern_id": "diamond_only_comment",
+        "tree_id": "GUARDED-FORCING-SOURCE"
+      },
+      {
+        "id": "CHECKER_TICK_KINDS",
+        "metric": "occurrences",
+        "minimum": 15,
+        "pattern_id": "lock_kind_split",
+        "tree_id": "AGDA-FORCING-SOURCE"
+      },
+      {
+        "id": "CHECKER_DIAMOND_BRANCH",
+        "metric": "occurrences",
+        "minimum": 1,
+        "pattern_id": "diamond_reduction_branch",
+        "tree_id": "AGDA-FORCING-SOURCE"
+      },
+      {
+        "id": "CHECKER_PFIX_GUARD",
+        "metric": "occurrences",
+        "minimum": 2,
+        "pattern_id": "pfix_reduction_guard",
+        "tree_id": "AGDA-FORCING-SOURCE"
+      }
+    ]
+  },
+  "created_at_utc": "2026-09-13T23:19:21.313519+00:00",
+  "evaluator": {
+    "bytes": 40023,
+    "path": "machine-overview/tick_irrelevance_gap.py",
+    "sha256": "1f1c50da79c61f46d4269491aa56bed33c75927414560f8fcf8c3f7619a3e64c"
+  },
+  "freeze_id": "TICK-IRRELEVANCE-OPERATIONAL-GAP-FREEZE-001",
+  "future_paths": [
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/DECISIONS.json",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/REPORT.md",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/TickObserverBoundary.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOperationalObserver.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadTickPathRefl.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForcingTickComputation.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/OrdinaryTickPath.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOrdinaryTickRefl.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForceDelayPath.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadForceDelayRefl.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/runs/20260913-TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+    "machine-overview/tests/test_tick_irrelevance_gap.py",
+    ".codex/research/hott/sessions/S-RES-20260913-TICK-IRRELEVANCE-OPERATIONAL-GAP"
+  ],
+  "future_paths_absent": true,
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 849,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 861,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "interpretation": "Source identities, G1-G8, the equality-search grammar, probe purposes and expected result classes were frozen before final probe sources, decisions or run receipts existed. This is a same-designer pre-registration, not blind evaluation or novelty evidence.",
+  "natural_usage_gate": {
+    "required_conditions": [
+      "A fixed real implementation or application is named and source-pinned.",
+      "The same dfix/application task is compared at forcing and ordinary ticks.",
+      "The consumer explicitly uses Path equality as a license for same-step judgemental unfolding or current availability.",
+      "The promotion does not add a syntax observer, host checker, clock family or other qualifying data.",
+      "The consumer promises an operational result whose truth differs between the two tick forms.",
+      "The exact promotion is natively replayed or rejected by the pinned checker."
+    ],
+    "verdict_on_pass": "NATURAL_USAGE_MISMATCH"
+  },
+  "pre_checks": [
+    {
+      "command_argv": [
+        "/usr/local/bin/python3",
+        "machine-overview/mo.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "label": "selftest",
+      "stderr": {
+        "bytes": 8862,
+        "path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/pre-selftest-stderr.txt",
+        "sha256": "447eb8c980a2ee5a2d2831d2108e8296631e632360a43ec871b9ba1931ecbc57"
+      },
+      "stdout": {
+        "bytes": 0,
+        "path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/pre-selftest-stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command_argv": [
+        "/usr/local/bin/python3",
+        "machine-overview/mo.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "label": "validate",
+      "stderr": {
+        "bytes": 0,
+        "path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/pre-validate-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 5279,
+        "path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/pre-validate-stdout.txt",
+        "sha256": "7ae3b1ede96d7ce1e1fd07919cee3d717a59d464451aeb8780c8711ab5947753"
+      }
+    }
+  ],
+  "probe_plan": [
+    {
+      "expect": "ACCEPT",
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/TickObserverBoundary.agda",
+      "probe_id": "P01-INTERNAL-OBSERVER-COLLISION",
+      "purpose": "Native safe Cubical proof of the conditional observer collision plus constant/two-sorted positive controls.",
+      "runner": "host_agda"
+    },
+    {
+      "diagnostic": "[CoverageIssue]",
+      "expect": "TYPE_REJECTION",
+      "expected_exit": 42,
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOperationalObserver.agda",
+      "probe_id": "P02-BAD-PATH-RESPECTING-OBSERVER",
+      "purpose": "Directly define a Bool discriminator on a HIT whose constructors are joined by tirr.",
+      "runner": "host_agda"
+    },
+    {
+      "diagnostic": "[UnequalTerms]",
+      "expect": "TYPE_REJECTION",
+      "expected_exit": 42,
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadTickPathRefl.agda",
+      "probe_id": "P03-BAD-PATH-AS-REFL",
+      "purpose": "Check that a path constructor does not make distinct tick constructors judgementally equal.",
+      "runner": "host_agda"
+    },
+    {
+      "artifact_id": "TG-A-CLOCKED-PRIMITIVES",
+      "expect": "ACCEPT",
+      "probe_id": "P04-EXACT-CLOCKED-PRIMITIVES",
+      "purpose": "Compile the exact forcing-ticks Clocked.Primitives source with the exact branch checker.",
+      "runner": "forcing_agda"
+    },
+    {
+      "expect": "ACCEPT",
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForcingTickComputation.agda",
+      "probe_id": "P05-DIAMOND-JUDGEMENTAL-UNFOLD",
+      "purpose": "Use refl to observe dfix unfolding after forcing application at diamond.",
+      "runner": "forcing_agda"
+    },
+    {
+      "expect": "ACCEPT",
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/OrdinaryTickPath.agda",
+      "probe_id": "P06-ORDINARY-TICK-PATH",
+      "purpose": "Use pfix' to relate an ordinary-tick application to its unfolding by Path.",
+      "runner": "forcing_agda"
+    },
+    {
+      "diagnostic": "lineFix zeroAlg Agda.Primitive.Cubical.i0",
+      "expect": "TYPE_REJECTION",
+      "expected_exit": 42,
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOrdinaryTickRefl.agda",
+      "probe_id": "P07-BAD-ORDINARY-JUDGEMENTAL-UNFOLD",
+      "purpose": "Attempt to replace the ordinary-tick pfix Path with refl.",
+      "runner": "forcing_agda"
+    },
+    {
+      "expect": "ACCEPT",
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForceDelayPath.agda",
+      "probe_id": "P08-FORCE-DELAY-PATH",
+      "purpose": "Instantiate the exact force-delay Path between forcing result and ordinary-tick application.",
+      "runner": "forcing_agda"
+    },
+    {
+      "diagnostic": "zero != lineFix zeroAlg",
+      "expect": "TYPE_REJECTION",
+      "expected_exit": 42,
+      "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadForceDelayRefl.agda",
+      "probe_id": "P09-BAD-FORCE-DELAY-AS-REFL",
+      "purpose": "Attempt to replace force-delay by judgemental equality for the same dfix family.",
+      "runner": "forcing_agda"
+    }
+  ],
+  "questions": [
+    {
+      "id": "G1",
+      "question": "Does the fixed source distinguish ordinary and forcing ticks operationally?"
+    },
+    {
+      "id": "G2",
+      "question": "Does it construct Path-level tick irrelevance between applications?"
+    },
+    {
+      "id": "G3",
+      "question": "Does it keep Path equality distinct from judgemental unfolding/current reduction?"
+    },
+    {
+      "id": "G4",
+      "question": "Can the operational distinction be internalised as a path-respecting Bool observer without collapse?"
+    },
+    {
+      "id": "G5",
+      "question": "Do clock abstraction, residual contexts and forcing scope retain the timing qualification?"
+    },
+    {
+      "id": "G6",
+      "question": "Does a fixed implementation or library consumer promote Path equality to operational interchangeability?"
+    },
+    {
+      "id": "G7",
+      "question": "Is a natural-use reality mismatch established in the frozen source set?"
+    },
+    {
+      "id": "G8",
+      "question": "Can the exact theory/checker slice be replayed natively with pinned inputs?"
+    }
+  ],
+  "schema_version": "machine-overview-tick-operational-gap-freeze/v1",
+  "scope": {
+    "bytes": 18448,
+    "path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/SCOPE.json",
+    "sha256": "17c0ccc94e681e536e63e0deeec268aa30c8b3defb6e258a79aa64247d45b821"
+  },
+  "search_graph": {
+    "assumptions": [
+      {
+        "id": "FORCING-OBSERVATION",
+        "left": "observe(forcing)",
+        "meaning": "forcing tick triggers current unfolding",
+        "right": "true"
+      },
+      {
+        "id": "TICK-PATH-CONGRUENCE",
+        "left": "observe(forcing)",
+        "meaning": "cong observe tirr",
+        "right": "observe(ordinary)"
+      },
+      {
+        "id": "ORDINARY-OBSERVATION",
+        "left": "observe(ordinary)",
+        "meaning": "ordinary tick does not trigger current unfolding",
+        "right": "false"
+      }
+    ],
+    "max_edges": 3,
+    "required_assumptions": [
+      "FORCING-OBSERVATION",
+      "TICK-PATH-CONGRUENCE",
+      "ORDINARY-OBSERVATION"
+    ],
+    "target": {
+      "left": "true",
+      "right": "false"
+    },
+    "type": "Bool",
+    "vertices": [
+      "observe(forcing)",
+      "true",
+      "observe(ordinary)",
+      "false"
+    ]
+  },
+  "source_artifacts": 18,
+  "source_trees": [
+    {
+      "identity": {
+        "file_count": 6,
+        "total_bytes": 16309,
+        "tree_sha256": "da72c4efed4c77f6512dd0be6b8cfbc64339165eb2657f48be15a0211896b6cb"
+      },
+      "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src",
+      "tree_id": "GUARDED-FORCING-SOURCE"
+    },
+    {
+      "identity": {
+        "file_count": 414,
+        "total_bytes": 5621986,
+        "tree_sha256": "955a158a7e0dca4d77247ae9f1cddd4bbf8574fd36d241b25f119785667fcf5e"
+      },
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda",
+      "tree_id": "AGDA-FORCING-SOURCE"
+    },
+    {
+      "identity": {
+        "file_count": 36,
+        "total_bytes": 50366,
+        "tree_sha256": "93a139817c14764dc3514ca624c77d7be3322b0b6d775c4ac6a81979612164e7"
+      },
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/data/lib/prim",
+      "tree_id": "AGDA-FORCING-PRIMLIB"
+    },
+    {
+      "identity": {
+        "file_count": 1111,
+        "total_bytes": 7511145,
+        "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"
+      },
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical",
+      "tree_id": "CUBICAL-v0.9"
+    }
+  ]
+}

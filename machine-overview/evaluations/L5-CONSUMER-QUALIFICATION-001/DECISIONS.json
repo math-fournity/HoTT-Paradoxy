@@ -1,0 +1,113 @@
+{
+  "schema_version": "machine-overview-l5-consumer-decisions/v1",
+  "audit_id": "L5-CONSUMER-QUALIFICATION-001",
+  "adjudication_identity": "current Codex main-agent direct source reading; machine checks anchors and completeness, not semantic truth",
+  "sources": [
+    {
+      "source_id": "L5-S1-AGDA-REFLECTION-2.8.0",
+      "system": "Agda reflection",
+      "relation_to_hott": "host interface used by Cubical Agda developments",
+      "near_hit_rank": 2,
+      "classification": "HOST_TC_REFLECTION_INTERFACE_NOT_INTERNAL_SELF_CERTIFICATION",
+      "criteria": {
+        "Q1": {"status": "PASS", "detail": "Versioned Agda 2.8.0 language reference with a concrete TC interface.", "evidence": [{"artifact_id": "A-AGDA-REFLECTION", "anchors": ["The TC monad provides an interface to the Agda type checker using the following primitive operations:"]}]},
+        "Q2": {"status": "PASS", "detail": "Reflected Term values and quoted/unquoted values are explicit data handled by the TC interface.", "evidence": [{"artifact_id": "A-AGDA-REFLECTION", "anchors": ["Terms, sorts, patterns, and clauses are mutually recursive", "Quote a value, returning the corresponding Term."]}]},
+        "Q3": {"status": "PASS", "detail": "checkType and inferType are actual primitives of the host type checker for the supplied term/type task.", "evidence": [{"artifact_id": "A-AGDA-REFLECTION", "anchors": ["Infer the type of a given term", "Check a term against a given type."]}]},
+        "Q4": {"status": "FAIL", "detail": "The reviewed interface exposes host primitives; it does not internally prove the soundness or completeness of the Agda kernel.", "evidence": [{"artifact_id": "A-AGDA-REFLECTION", "anchors": ["The TC monad provides an interface to the Agda type checker"]}]},
+        "Q5": {"status": "PARTIAL", "detail": "Quotation and unquotation exist, but both return through the built-in TC monad rather than an object-level same-layer proof modality.", "evidence": [{"artifact_id": "A-AGDA-REFLECTION", "anchors": ["quoteTC", "unquoteTC", "TC monad"]}]},
+        "Q6": {"status": "FAIL", "detail": "The fixed reflection section claims term checking and metaprogram execution, not total same-layer self-reliability or all-truth decision.", "evidence": [{"artifact_id": "A-AGDA-REFLECTION", "anchors": ["Check a term against a given type.", "Compute the normal form of a term."]}]}
+      },
+      "capabilities": {
+        "given_proof_check": {"status": "INFRASTRUCTURE_PRIMITIVE", "scope": "checkType checks one reflected term against one supplied reflected type"},
+        "bounded_proof_search": {"status": "NOT_CLAIMED", "scope": "caller metaprograms may search, but this source gives no complete proof-search contract"},
+        "finite_truth_decision": {"status": "NOT_CLAIMED", "scope": "normalisation/type checking is not advertised as a truth decider"},
+        "same_layer_total_self_reliability": {"status": "NOT_CLAIMED", "scope": "kernel reliability remains outside the reflected object layer"}
+      }
+    },
+    {
+      "source_id": "L5-S2-METAROCQ-9.1",
+      "system": "MetaRocq safe checker and quotation",
+      "relation_to_hott": "non-HoTT dependently typed comparison system with a real self-quotation program",
+      "near_hit_rank": 1,
+      "classification": "STRONGEST_NEAR_HIT_LOB_QUOTATION_WITH_TYPED_LAYER_AND_NORMALIZATION_FENCES",
+      "criteria": {
+        "Q1": {"status": "PASS", "detail": "The 9.1 branch is fixed at an exact commit and exposes named safe-checker and quotation interfaces.", "evidence": [{"artifact_id": "A-METAROCQ-SITE", "anchors": ["Safe Checker", "MetaRocq SafeCheck"]}]},
+        "Q2": {"status": "PARTIAL", "detail": "Raw syntax quotation is implemented; quotation of a term bundled with its typing derivation is explicitly still in progress.", "evidence": [{"artifact_id": "A-METAROCQ-QUOTATION", "anchors": ["□T := Ast.term` (currently implemented)", "still in the works"]}]},
+        "Q3": {"status": "PASS", "detail": "The extracted safe checker is tied to PCUIC and claimed correct and complete relative to that specification.", "evidence": [{"artifact_id": "A-METAROCQ-SITE", "anchors": ["The checker is shown to be correct and complete w.r.t. the PCUIC specification."]}]},
+        "Q4": {"status": "PARTIAL", "detail": "Correctness scope is explicit, but the fuel-free checker relies on a postulate of strong normalization.", "evidence": [{"artifact_id": "A-METAROCQ-SITE", "anchors": ["This relies on a postulate of strong normalization", "correct and complete w.r.t. the PCUIC specification"]}]},
+        "Q5": {"status": "PARTIAL", "detail": "The project has real self-application and a cojoin aimed at Löb, while typed quotation is unfinished and the setting is PCUIC/Rocq rather than HoTT.", "evidence": [{"artifact_id": "A-METAROCQ-QUOTATION", "anchors": ["cojoin : □T → □□T", "sufficient for proving Löb's theorem"]}, {"artifact_id": "A-METAROCQ-SELF-ERASURE", "anchors": ["MetaRocq Fast Erase @typecheck_program."]}]},
+        "Q6": {"status": "FAIL", "detail": "The fixed sources do not promise total same-layer self-reliability; they advertise relative checker correctness, an explicit normalization postulate and unfinished typed quotation.", "evidence": [{"artifact_id": "A-METAROCQ-SITE", "anchors": ["postulate of strong normalization"]}, {"artifact_id": "A-METAROCQ-QUOTATION", "anchors": ["still in the works"]}]}
+      },
+      "capabilities": {
+        "given_proof_check": {"status": "CLAIMED_WITH_SCOPE", "scope": "fuel-free verified PCUIC checker, correct/complete relative to PCUIC under strong-normalization assumption"},
+        "bounded_proof_search": {"status": "NOT_CLAIMED", "scope": "quotation/typechecking is not an all-theorem proof search"},
+        "finite_truth_decision": {"status": "CLAIMED_WITH_SCOPE", "scope": "project site includes a verified tautology-checker example; this is a restricted checker"},
+        "same_layer_total_self_reliability": {"status": "NOT_CLAIMED", "scope": "Löb-oriented raw quotation is a near-hit; typed quotation and the required reflection package are not supplied"}
+      }
+    },
+    {
+      "source_id": "L5-S3-2LTT-v5",
+      "system": "Two-Level Type Theory and Applications",
+      "relation_to_hott": "inner HoTT with an explicit outer metatheory",
+      "near_hit_rank": 4,
+      "classification": "HOTT_METATHEORY_EXPLICITLY_MOVED_TO_OUTER_LEVEL",
+      "criteria": {
+        "Q1": {"status": "PASS", "detail": "A versioned primary paper fixes a two-level type theory with inner HoTT.", "evidence": [{"artifact_id": "A-2LTT-ABS", "anchors": ["Two-Level Type Theory and Applications", "the inner theory is homotopy type theory (HoTT)"]}]},
+        "Q2": {"status": "PARTIAL", "detail": "The paper fixes inner/outer theories but the abstract is not a concrete proof-checker interface.", "evidence": [{"artifact_id": "A-2LTT-ABS", "anchors": ["combines two different type theories"]}]},
+        "Q3": {"status": "NOT_APPLICABLE", "detail": "The audited source is a theory framework rather than an implemented checker acceptance contract.", "evidence": [{"artifact_id": "A-2LTT-ABS", "anchors": ["a framework which is suitable for formulating additional axioms"]}]},
+        "Q4": {"status": "PASS", "detail": "Its metatheoretic scope is explicit: inner HoTT and traditional outer type theory are distinct.", "evidence": [{"artifact_id": "A-2LTT-ABS", "anchors": ["inner and the outer type theory", "internalised meta-theory of the inner type theory"]}]},
+        "Q5": {"status": "FAIL", "detail": "The motivating HoTT metatheoretic results are stated to be inexpressible in HoTT itself and proved in the outer layer.", "evidence": [{"artifact_id": "A-2LTT-ABS", "anchors": ["Such results cannot be expressed in HoTT itself, but they can be formalised and proved in 2LTT"]}]},
+        "Q6": {"status": "FAIL", "detail": "The fixed source offers explicit level separation, not an inner-HoTT promise of total self-reliability.", "evidence": [{"artifact_id": "A-2LTT-ABS", "anchors": ["The outer theory is a traditional form of type theory"]}]}
+      },
+      "capabilities": {
+        "given_proof_check": {"status": "NOT_APPLICABLE", "scope": "no checker interface audited"},
+        "bounded_proof_search": {"status": "NOT_APPLICABLE", "scope": "no proof-search interface audited"},
+        "finite_truth_decision": {"status": "NOT_APPLICABLE", "scope": "no truth-decider interface audited"},
+        "same_layer_total_self_reliability": {"status": "NOT_CLAIMED", "scope": "metatheory is deliberately placed in the outer theory"}
+      }
+    },
+    {
+      "source_id": "L5-S4-NBE-IN-TT-v4",
+      "system": "Normalisation by Evaluation for Type Theory, in Type Theory",
+      "relation_to_hott": "type-theoretic internalisation comparison using a QIIT metalanguage",
+      "near_hit_rank": 5,
+      "classification": "RESTRICTED_META_THEOREM_IN_EXPLICIT_QIIT_METALANGUAGE",
+      "criteria": {
+        "Q1": {"status": "PASS", "detail": "The v4 primary paper and its stated construction are fixed.", "evidence": [{"artifact_id": "A-NBE-ABS", "anchors": ["Normalisation by Evaluation for Type Theory, in Type Theory"]}]},
+        "Q2": {"status": "PASS", "detail": "It uses a typed presentation of syntax rather than untyped preterms.", "evidence": [{"artifact_id": "A-NBE-ABS", "anchors": ["We use a typed presentation hence there are no preterms or realizers"]}]},
+        "Q3": {"status": "PARTIAL", "detail": "It proves a decision result for definitional equality; this is not an implementation acceptance contract for all propositions.", "evidence": [{"artifact_id": "A-NBE-ABS", "anchors": ["decidability of definitional equality"]}]},
+        "Q4": {"status": "PASS", "detail": "The claimed normalization/completeness/stability/decidability scope is explicit.", "evidence": [{"artifact_id": "A-NBE-ABS", "anchors": ["We prove normalisation, completeness, stability and decidability of definitional equality."]}]},
+        "Q5": {"status": "FAIL", "detail": "The construction is explicitly formulated in a metalanguage using quotient inductive types.", "evidence": [{"artifact_id": "A-NBE-ABS", "anchors": ["formulated in the metalanguage of type theory using quotient inductive types"]}]},
+        "Q6": {"status": "FAIL", "detail": "The result is a normalization/definitional-equality theorem with partial Agda formalization, not total same-layer self-reliability.", "evidence": [{"artifact_id": "A-NBE-ABS", "anchors": ["Most of the constructions were formalized in Agda."]}]}
+      },
+      "capabilities": {
+        "given_proof_check": {"status": "NOT_APPLICABLE", "scope": "the abstract describes a metatheoretic construction"},
+        "bounded_proof_search": {"status": "NOT_CLAIMED", "scope": "normalization does not search for arbitrary proofs"},
+        "finite_truth_decision": {"status": "CLAIMED_WITH_SCOPE", "scope": "decidability is for definitional equality in the formalized type theory"},
+        "same_layer_total_self_reliability": {"status": "NOT_CLAIMED", "scope": "construction resides in an explicit QIIT metalanguage"}
+      }
+    },
+    {
+      "source_id": "L5-S5-ERCF3-LOCAL",
+      "system": "local ERCF-3 object syntax and repaired coding",
+      "relation_to_hott": "current project experiment; no natural consumer",
+      "near_hit_rank": 3,
+      "classification": "LOCAL_SYNTAX_AND_CODING_READY_PROOF_REPRESENTABILITY_AND_REFLECTION_OPEN",
+      "criteria": {
+        "Q1": {"status": "PASS", "detail": "The current worktree fixes exact Agda modules and hashes.", "evidence": [{"artifact_id": "A-ERCF3-OBJECT", "anchors": ["module ObjectSyntax where"]}]},
+        "Q2": {"status": "PASS", "detail": "Fml and the Hilbert derivation family are explicit; repaired quotation and diagonal substitution are implemented.", "evidence": [{"artifact_id": "A-ERCF3-OBJECT", "anchors": ["data Fml : Set where", "data ⊢_ : Fml → Set where"]}, {"artifact_id": "A-ERCF3-REPAIRED", "anchors": ["diagonalize' : Fml → Fml"]}]},
+        "Q3": {"status": "PARTIAL", "detail": "Agda checks inhabitants of the derivation family, while object-level representability of that predicate remains open.", "evidence": [{"artifact_id": "A-ERCF3-OBJECT", "anchors": ["Prov φ = ⊢ φ"]}, {"artifact_id": "A-ERCF3-REPAIRED", "anchors": ["represent this substitution"]}]},
+        "Q4": {"status": "FAIL", "detail": "Reflection is only a named obligation and is explicitly not derived.", "evidence": [{"artifact_id": "A-ERCF3-REFLECTION", "anchors": ["We do not claim to derive", "single named obligation"]}]},
+        "Q5": {"status": "PARTIAL", "detail": "Repaired quotation and a diagonal instance exist, but same-layer proof-predicate representability and the fixed-point equation do not.", "evidence": [{"artifact_id": "A-ERCF3-REPAIRED", "anchors": ["quotation and the diagonal instance"]}, {"artifact_id": "A-ERCF3-REFLECTION", "anchors": ["What remains open"]}]},
+        "Q6": {"status": "FAIL", "detail": "The source explicitly leaves the fixed-point equation, proof-predicate representation and reflection open and has no real consumer promise.", "evidence": [{"artifact_id": "A-ERCF3-REFLECTION", "anchors": ["fixed-point equation", "exactly the gated ERCF-3 body"]}]}
+      },
+      "capabilities": {
+        "given_proof_check": {"status": "CLAIMED_WITH_SCOPE", "scope": "Agda checks supplied derivation inhabitants for the fixed Hilbert family"},
+        "bounded_proof_search": {"status": "NOT_CLAIMED", "scope": "no search procedure in the frozen ERCF-3 source set"},
+        "finite_truth_decision": {"status": "NOT_CLAIMED", "scope": "no object-language truth decider"},
+        "same_layer_total_self_reliability": {"status": "IN_PROGRESS", "scope": "coding is repaired; proof-predicate representation, reflection, fixed point and consumer remain open"}
+      }
+    }
+  ],
+  "review_boundary": "Each Q status is a source-bounded semantic adjudication. Failure or absence is limited to the fixed public interface/text and must not be generalized to all versions, all literature or all HoTT systems."
+}

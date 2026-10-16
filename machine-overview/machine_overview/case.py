@@ -29,11 +29,39 @@ from .util import (
 
 SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
 
+SYMBOLIC_NATIVE_RENDERERS = {
+    "l3_interval_observable_v1": "continuous_phase_obstruction",
+    "l3_path_coherence_positive_v1": "path_coherence_positive",
+    "l3_event_boundary_v1": "explicit_event_boundary",
+    "l3_finite_to_exact_candidate_v1": "finite_to_exact_candidate",
+    "m3_l2_truncated_limit_v1": "local_to_global_completion_boundary",
+    "m3_l4_sip_observation_v1": "identity_observation_boundary",
+    "m3_l5_self_guarantee_v1": "self_guarantee_diagonal_boundary",
+    "m3_l6_compensation_conflict_v1": "compensation_coherence_conflict",
+    "l5_given_proof_check_v1": "given_proof_check_capability",
+    "l5_bounded_proof_search_v1": "bounded_proof_search_capability",
+    "l5_finite_truth_decision_v1": "finite_truth_decision_capability",
+    "l5_lob_self_certification_v1": "lob_self_certification_boundary",
+}
+
 
 def validate_identifier(value: str, label: str) -> str:
     if not isinstance(value, str) or not SAFE_ID.match(value) or value in {".", ".."}:
         raise MachineOverviewError(f"UNSAFE_IDENTIFIER:{label}:{value}")
     return value
+
+
+def symbolic_renderer_id(grammar: dict) -> str:
+    native = grammar.get("native_contract")
+    renderer = native.get("renderer") if isinstance(native, dict) else None
+    if renderer not in SYMBOLIC_NATIVE_RENDERERS:
+        raise MachineOverviewError(f"SYMBOLIC_NATIVE_RENDERER_UNSUPPORTED:{renderer}")
+    expected_observation = SYMBOLIC_NATIVE_RENDERERS[renderer]
+    if grammar.get("observation_kind") != expected_observation:
+        raise MachineOverviewError(
+            f"SYMBOLIC_RENDERER_OBSERVATION_MISMATCH:{renderer}:{grammar.get('observation_kind')}"
+        )
+    return renderer
 
 
 def _rel(repo_root: Path, path: Path) -> str:
@@ -139,6 +167,7 @@ def validate_task_grammar_contract(task: dict, grammar: dict) -> None:
         raise MachineOverviewError("SYMBOLIC_OBSERVATION_NOT_DECLARED_BY_TASK")
     if task.get("research_relation") == "calibration":
         raise MachineOverviewError("SYMBOLIC_HOLDOUT_CANNOT_BE_CALIBRATION")
+    symbolic_renderer_id(grammar)
 
 
 def create_case(

@@ -1,0 +1,23 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L5-BOUNDED-PROOF-SEARCH-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json", "sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664"},
+  "answer_visibility": "Same-designer capability task; no benchmark AST or witness ID is embedded.",
+  "propositions": ["search_success", "checked_found_proof", "bounded_result", "unbounded_result"],
+  "goal": "bounded_result",
+  "observation_kind": "bounded_proof_search_capability",
+  "max_proof_depth": 4,
+  "rules": [
+    {"id": "execute_search", "premises": [], "conclusion": "search_success", "term_template": "L5.searchAtOne", "semantic_source": "one-fuel executable search"},
+    {"id": "validate_found_result", "premises": ["search_success"], "conclusion": "checked_found_proof", "term_template": "L5.searchSoundAtOne ({0})", "semantic_source": "soundness of this found result"},
+    {"id": "package_search_result", "premises": ["search_success", "checked_found_proof"], "conclusion": "bounded_result", "term_template": "Target.bounded ({0}) ({1})", "semantic_source": "target record packages fuel result and derivation"},
+    {"id": "unbounded_decoy", "premises": [], "conclusion": "unbounded_result", "term_template": "L5.givenK", "semantic_source": "no rule promotes this decoy to the bounded target"}
+  ],
+  "mechanism_rules": ["execute_search", "validate_found_result", "package_search_result"],
+  "positive_control_goals": ["search_success", "checked_found_proof"],
+  "ablation": {"remove_rules": ["execute_search"], "expected": "bounded_result becomes unreachable"},
+  "native_contract": {"renderer": "l5_bounded_proof_search_v1", "target_scope": "one fixed formula at one unit of fuel", "positive_controls": ["one fuel succeeds", "zero fuel fails", "found candidate checks"], "negative_control": "zero fuel cannot equal success"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 4; the theorem itself remains one-fuel and one-formula."
+}

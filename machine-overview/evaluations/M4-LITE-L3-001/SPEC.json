@@ -1,0 +1,156 @@
+{
+  "schema_version": "machine-overview-m4-lite-spec/v1",
+  "evaluation_id": "M4-LITE-L3-001",
+  "freeze": {
+    "path": "machine-overview/evaluations/M4-LITE-L3-001/DESIGN-FREEZE.json",
+    "bytes": 4850,
+    "sha256": "645f8385f061c9577ca99ddffa3573b7d8cad1445cd35105bacb1dd2e717e24e"
+  },
+  "budget": {
+    "max_witnesses": 500,
+    "max_checks": 5000,
+    "max_contexts": 4
+  },
+  "seed": 20260913,
+  "modes": [
+    {
+      "mode_id": "typed_enumeration",
+      "strategy": "full_typed_enumeration"
+    },
+    {
+      "mode_id": "llm_proposal",
+      "strategy": "declared_rule_subset"
+    },
+    {
+      "mode_id": "hybrid_feedback",
+      "strategy": "native_feedback"
+    }
+  ],
+  "proposal_provenance": {
+    "actor": "current Codex main agent",
+    "model_label": "GPT-6 / Astra Ultra as supplied by the active host and user context; not independently attested by this file",
+    "visibility": "same AI designed task roles, native adapters, TaskSpecs, grammars and rule subsets",
+    "selection_method": "choose rules whose declared premises form a backward chain to the task goal; retain the speculative finite-to-exact rule so native feedback is exercised",
+    "forbidden_inference": "The comparison cannot establish blind LLM advantage, training-data independence or general effectiveness."
+  },
+  "tasks": [
+    {
+      "task_id": "MS-TASK-L3-PATH-COHERENCE-POSITIVE-001",
+      "role": "PATH_COHERENCE_POSITIVE",
+      "expected_native_outcome": "ACCEPT",
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001.json",
+        "bytes": 5053,
+        "sha256": "c0d76df85a527b91d131e9894d08a76dbce76a1ad5762eadcb09f8cba2ea8a8e"
+      },
+      "grammar": {
+        "path": "machine-overview/grammars/l3-path-positive-m4-v1.json",
+        "bytes": 2420,
+        "sha256": "5e76b6dfcfb1b8e640b2f35854eec018e3eaac7d62a54aa9dfc590135d0dc1ad"
+      },
+      "case": {
+        "path": "machine-overview/cases/MS-TASK-L3-PATH-COHERENCE-POSITIVE-001/case-revision-1.json",
+        "bytes": 2674,
+        "sha256": "fa5560856427b65a86e94b5b5f7dec5f717dfe479c392c2db62901432300b772"
+      },
+      "search_run": {
+        "path": "machine-overview/runs/20260913-SEARCH-L3-M4-PATH-001/RUN.json",
+        "bytes": 10757,
+        "sha256": "eefffb515b272c8a0e4bf4b2c03cf56529edd3a3cbdd4d09b714fbb6889bd23a"
+      },
+      "verify_run": {
+        "path": "machine-overview/runs/20260913-VERIFY-L3-M4-PATH-001/RUN.json",
+        "bytes": 16170,
+        "sha256": "972eb34e728291ed29d96b308cd42e8b473b6412a10a599143304101d50bf5ff"
+      },
+      "mode_rules": {
+        "llm_proposal": {
+          "initial_rules": ["interval_eta"]
+        },
+        "hybrid_feedback": {
+          "initial_rules": ["interval_eta"],
+          "remove_after_native_rejection": []
+        }
+      }
+    },
+    {
+      "task_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001",
+      "role": "EXPLICIT_EVENT_BOUNDARY_POSITIVE",
+      "expected_native_outcome": "ACCEPT",
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001.json",
+        "bytes": 5516,
+        "sha256": "2d694adc5c8780d8ba92d30564c790309724bb0afa44b9403c39ed5b2e5eb9b8"
+      },
+      "grammar": {
+        "path": "machine-overview/grammars/l3-event-boundary-m4-v1.json",
+        "bytes": 2946,
+        "sha256": "780c04dd4f78ed88d1d015fa0a669b8d115ef78aeff4475c1f2c98d192cf1faa"
+      },
+      "case": {
+        "path": "machine-overview/cases/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001/case-revision-1.json",
+        "bytes": 2601,
+        "sha256": "02caf24733d0a06c943b3577ecf8662507a8819ebdf5e9d5e9e523ce756f1a60"
+      },
+      "search_run": {
+        "path": "machine-overview/runs/20260913-SEARCH-L3-M4-EVENT-001/RUN.json",
+        "bytes": 5596,
+        "sha256": "3e42aaf9344aab0fc12d22b25498dcb8af546035b092baa5322180e11ac9da3f"
+      },
+      "verify_run": {
+        "path": "machine-overview/runs/20260913-VERIFY-L3-M4-EVENT-001/RUN.json",
+        "bytes": 16473,
+        "sha256": "80638c36941e3455eb84699689fb7e2926c4057bca7763e11e5c7d459685783b"
+      },
+      "mode_rules": {
+        "llm_proposal": {
+          "initial_rules": ["stage_start", "stage_finish", "stage_apart", "event_pack"]
+        },
+        "hybrid_feedback": {
+          "initial_rules": ["stage_start", "stage_finish", "stage_apart", "event_pack"],
+          "remove_after_native_rejection": []
+        }
+      }
+    },
+    {
+      "task_id": "MS-TASK-L3-FINITE-TO-EXACT-001",
+      "role": "FINITE_TO_EXACT_NEGATIVE",
+      "expected_native_outcome": "REJECT",
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json",
+        "bytes": 6327,
+        "sha256": "a00b77f7ce80ee8bbe13bfd95065809090427e2043ba9e2d9f346b07ed342933"
+      },
+      "grammar": {
+        "path": "machine-overview/grammars/l3-finite-to-exact-m4-v1.json",
+        "bytes": 3137,
+        "sha256": "78327b45c97250eaa5a0794492bf31bda774b9d6046c679a3f6a475e2453225a"
+      },
+      "case": {
+        "path": "machine-overview/cases/MS-TASK-L3-FINITE-TO-EXACT-001/case-revision-1.json",
+        "bytes": 2833,
+        "sha256": "eca5a02dfc26a9767597c33daf6430e53ca5c619b9408cf16052e84d2ae82b9b"
+      },
+      "search_run": {
+        "path": "machine-overview/runs/20260913-SEARCH-L3-M4-EXACT-001/RUN.json",
+        "bytes": 8494,
+        "sha256": "59963025398f8814ca596833c698d11098b1066e3c5f4ea6128da8490e8349c7"
+      },
+      "verify_run": {
+        "path": "machine-overview/runs/20260913-VERIFY-L3-M4-EXACT-001/RUN.json",
+        "bytes": 16337,
+        "sha256": "a6da2723f9c6ef5eea6847e517ebc091b46531ad21e96b05cd85bd53578a2e5e"
+      },
+      "mode_rules": {
+        "llm_proposal": {
+          "initial_rules": ["finite_observation", "finite_to_exact_candidate"]
+        },
+        "hybrid_feedback": {
+          "initial_rules": ["finite_observation", "finite_to_exact_candidate"],
+          "remove_after_native_rejection": ["finite_to_exact_candidate"]
+        }
+      }
+    }
+  ],
+  "interpretation": "The task set measures deterministic behavior of a fixed symbolic engine under three declared rule selections. The same designer supplied the tasks and proposals, so results are descriptive and bounded."
+}

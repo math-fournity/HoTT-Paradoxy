@@ -1,0 +1,175 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001",
+  "case_identity_sha256": "8a7891b9aede3f1a185286c837b2d0b31cd1c7488eb1978f11583e9d987abd2c",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T18:25:17.840099+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "event_pack"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "start_pending",
+        "finish_done",
+        "endpoint_apart",
+        "path_decoy"
+      ],
+      "reachable": [
+        "endpoint_apart",
+        "finish_done",
+        "path_decoy",
+        "start_pending"
+      ]
+    }
+  },
+  "coordinator_version": "0.3.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 7,
+    "untracked_entries": 53,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 60,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 51,
+      "rule_count": 6,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['event_pack']"
+  },
+  "inputs": {
+    "case_sha256": "02caf24733d0a06c943b3577ecf8662507a8819ebdf5e9d5e9e523ce756f1a60",
+    "grammar_path": "machine-overview/grammars/l3-event-boundary-m4-v1.json",
+    "grammar_sha256": "780c04dd4f78ed88d1d015fa0a669b8d115ef78aeff4475c1f2c98d192cf1faa",
+    "profile_sha256": "dc5b8de5768d8170ccacb9efb430d8bd1b41a504fb3cca9735cc3282e5a75852",
+    "task_path": "machine-overview/tasks/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001.json",
+    "task_sha256": "2d694adc5c8780d8ba92d30564c790309724bb0afa44b9403c39ed5b2e5eb9b8",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l3-event-boundary-m4-v1.json",
+        "sha256": "780c04dd4f78ed88d1d015fa0a669b8d115ef78aeff4475c1f2c98d192cf1faa"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l3-m4-v1.json",
+        "sha256": "dc5b8de5768d8170ccacb9efb430d8bd1b41a504fb3cca9735cc3282e5a75852"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L3-EXPLICIT-EVENT-BOUNDARY-001.json",
+        "sha256": "2d694adc5c8780d8ba92d30564c790309724bb0afa44b9403c39ed5b2e5eb9b8"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L3-CUBICAL-M4-TASKSET-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L3-M4-EVENT-001",
+  "runner": {
+    "bytes": 4510,
+    "path": "runner-manifest.json",
+    "sha256": "16e4a137012944780d02f3df84a88bf9277e3e8b089069d91d26fac2897818fd"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T18:25:17.837587+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 1,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 59,
+    "rule_count": 7,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "450b7226e8ba0da8b670eecc1bd9b4053d080f6ab4fdce5416620ac5cb2c3b24",
+      "backend": "symbolic-horn-v1",
+      "goal": "event_boundary",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "stage_start"
+          },
+          {
+            "children": [],
+            "rule": "stage_finish"
+          },
+          {
+            "children": [],
+            "rule": "stage_apart"
+          }
+        ],
+        "rule": "event_pack"
+      },
+      "proof_term": "(phase-start , (phase-finish , phase-apart))",
+      "separation_kind": "explicit_event_boundary",
+      "size": {
+        "depth": 2,
+        "nodes": 4
+      },
+      "used_rules": [
+        "event_pack",
+        "stage_start",
+        "stage_finish",
+        "stage_apart"
+      ],
+      "witness_id": "WV-0001"
+    }
+  ]
+}

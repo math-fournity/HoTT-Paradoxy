@@ -1,0 +1,181 @@
+{
+  "candidate_ast_sha256": "cdc3c36545720a5a85c9b271d67a99c2a711ff814d917c1a17223733d45f98e2",
+  "case_id": "MS-TASK-GEN001-DIVISIBILITY-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-GEN001-DIVISIBILITY-001/case-revision-1.json",
+  "case_revision": 1,
+  "case_sha256": "db39f1346e53961ce0251a881ff666799bc217329c112aef59d466428bf0e8a1",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-GEN001-DIVISIBILITY-001.json",
+        "revision 1"
+      ],
+      "item": "original activity and completion criterion are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "evidence": [
+        "L1-DIVISIBILITY-v1: supported_operations",
+        "machine-overview/profiles/l1-divisibility-v1.json"
+      ],
+      "item": "the theoryization step is an operation of the pinned model",
+      "status": "SUPPORTED"
+    },
+    {
+      "detail": "the observation layer and the verdict consumer are declared in the pinned model; the race and deadline read only the round index the model already carries",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-GEN001-DIVISIBILITY-001.json"
+      ],
+      "item": "the separating observation is declared in the task, not an oracle added later",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "No extra information is added: the race consumer reads completion order exposed by the pinned operations.",
+      "evidence": [
+        "machine-overview/profiles/l1-divisibility-v1.json"
+      ],
+      "item": "compensation class of the consumer",
+      "status": "DECLARED_CONSUMER_READS_COMPLETION_ORDER"
+    },
+    {
+      "detail": "the verified statement is a ground instance; no universal or physical claim is made",
+      "evidence": [
+        "machine-overview/grammars/l1-divisibility-v1.json"
+      ],
+      "item": "quantifier scope of the claim",
+      "status": "FINITE_DECLARED_GRAMMAR_ONLY"
+    },
+    {
+      "detail": "the run is a model-level calibration instance; a real consumer would be a separate E6-style audit",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-GEN001-DIVISIBILITY-001.json"
+      ],
+      "item": "reality bridge",
+      "status": "NOT_CLOSED_IN_M1"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "MODEL_ONLY_OPERATIONALLY_SPECIFIED",
+    "new_claim": false,
+    "open_obligations": [
+      "the Delay Bool fragment is a bounded correspondent of the D-01/E-04/G-03 divisibility-as-capability premise, not the cubical interval, the truncation tower or the identity type itself; a continuity/density family in a genuine interval model remains a V2 candidate",
+      "the family shares the race-truncation separation mechanism with the identity-observation, completion-process and witness-recovery families; cross-family independence is not proved and is registered as out-of-envelope ingress, not a conclusion",
+      "the three members D-01 / E-04 / G-03 are supplied as one triple because they share the omission shape 'divisibility as capability rather than condition'; whether the triple collapses to one acceptance unit is answered by the REPORT under 修订片 013 §2.1, not assumed here",
+      "the semantic reading of 'measurement condition c' and of physical divisibility in the full theory is not addressed by this fragment"
+    ],
+    "reality_correspondence": "UNRESOLVED",
+    "related_claims": [],
+    "research_relation": "calibration",
+    "task_preservation": "REVIEW_REQUIRED",
+    "task_preservation_basis": [
+      {
+        "detail": [],
+        "id": "profile_qualified",
+        "status": "PASS"
+      },
+      {
+        "detail": null,
+        "id": "grammar_membership",
+        "status": "PASS"
+      },
+      {
+        "detail": "search run case revision 1 vs case revision 1",
+        "id": "case_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "full recomputed witness must equal the search-run record",
+        "id": "witness_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "completion_divergence",
+        "id": "declared_observation_kind",
+        "status": "FAIL"
+      },
+      {
+        "detail": "no consumer requirement declared for completion_divergence",
+        "id": "declared_consumer_present",
+        "status": "FAIL"
+      },
+      {
+        "detail": "DECLARED_CONSUMER_READS_COMPLETION_ORDER",
+        "id": "compensation_classified",
+        "status": "PASS"
+      }
+    ]
+  },
+  "context_summary": [
+    "race(□, partner)",
+    "bind(□, continuation)"
+  ],
+  "created_at_utc": "2026-09-16T23:04:47.846936+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 15,
+    "untracked_entries": 2289,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 2304,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_facts": {
+    "compensation": {
+      "class": "DECLARED_CONSUMER_READS_COMPLETION_ORDER",
+      "detail": "No extra information is added: the race consumer reads completion order exposed by the pinned operations."
+    },
+    "has_business_bind": false,
+    "has_deadline": false,
+    "has_plain_bind": true,
+    "has_race": true
+  },
+  "mechanism_summary": "The declared race context makes one side diverge while the other returns; ≈ cannot see completion order, so it identifies the two result-equivalent inputs.",
+  "review_checks": [
+    {
+      "detail": [],
+      "id": "profile_qualified",
+      "status": "PASS"
+    },
+    {
+      "detail": null,
+      "id": "grammar_membership",
+      "status": "PASS"
+    },
+    {
+      "detail": "search run case revision 1 vs case revision 1",
+      "id": "case_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "full recomputed witness must equal the search-run record",
+      "id": "witness_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "completion_divergence",
+      "id": "declared_observation_kind",
+      "status": "FAIL"
+    },
+    {
+      "detail": "no consumer requirement declared for completion_divergence",
+      "id": "declared_consumer_present",
+      "status": "FAIL"
+    },
+    {
+      "detail": "DECLARED_CONSUMER_READS_COMPLETION_ORDER",
+      "id": "compensation_classified",
+      "status": "PASS"
+    }
+  ],
+  "review_id": "RV-MS-TASK-GEN001-DIVISIBILITY-001-r1-SEARCH-GEN001-DIVISIBILITY-001-WV-0027-cdc3c365",
+  "schema_version": "machine-overview-correspondence-review/v2",
+  "source_search_run": {
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/SEARCH-GEN001-DIVISIBILITY-001/RUN.json",
+    "run_id": "SEARCH-GEN001-DIVISIBILITY-001",
+    "sha256": "e0ebce5391574f3128ec15b77055537022ddd169ee7fb784dfcc33956fc0e3d2"
+  },
+  "witness_id": "WV-0027"
+}

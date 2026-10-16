@@ -1,0 +1,170 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000000,
+    "max_contexts": 200000,
+    "max_witnesses": 20000
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L5-LOB-SELF-CERTIFICATION-001",
+  "case_identity_sha256": "4bba668bc403fb8dbeabf8214a9d606ee30bc01fa123b458a10f69e8227f76f8",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-LOB-SELF-CERTIFICATION-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T20:13:13.001325+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "certify_reflection"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": false,
+      "goals": [
+        "certified_reflection_at_bottom",
+        "boxed_bottom",
+        "given_check",
+        "finite_truth"
+      ],
+      "reachable": [
+        "certified_reflection_at_bottom",
+        "finite_truth",
+        "given_check"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-LOB-SELF-CERTIFICATION-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 570,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 582,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 10,
+      "rule_count": 4,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['certify_reflection']"
+  },
+  "inputs": {
+    "case_sha256": "f18529042a4771fd98325571ac9f5a665fbea9eb9e407b09901369ae7740047f",
+    "grammar_path": "machine-overview/grammars/l5-lob-self-certification-v1.json",
+    "grammar_sha256": "a8a87394516290bec16626400f306880f60bb4d49f5e97c671b7496afb103292",
+    "profile_sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf",
+    "task_path": "machine-overview/tasks/MS-TASK-L5-LOB-SELF-CERTIFICATION-001.json",
+    "task_sha256": "fda1b65390cd1884f68369b5635faf3c22e8ad80c30b8334e5968e78886bbf36",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l5-lob-self-certification-v1.json",
+        "sha256": "a8a87394516290bec16626400f306880f60bb4d49f5e97c671b7496afb103292"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l5-consumer-qualification-v1.json",
+        "sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L5-LOB-SELF-CERTIFICATION-001.json",
+        "sha256": "fda1b65390cd1884f68369b5635faf3c22e8ad80c30b8334e5968e78886bbf36"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L5-CONSUMER-QUALIFICATION-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L5-LOB-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "2b8547e922fef35890959a6aa878ef9c038cb7af1e19f4881e954b9d2908aa0e"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T20:13:12.999160+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 1,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 33,
+    "rule_count": 5,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "f3e60d5a935069305cdf2a8f75d9c9dafa76abe46349337b4fb80521b8d2330c",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "certify_reflection"
+              }
+            ],
+            "rule": "lob_at_bottom"
+          }
+        ],
+        "rule": "reflect_bottom"
+      },
+      "proof_term": "reflect ⊥ (lob ⊥ (certify ⊥))",
+      "separation_kind": "lob_self_certification_boundary",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "reflect_bottom",
+        "lob_at_bottom",
+        "certify_reflection"
+      ],
+      "witness_id": "WV-0001"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "claim_ids": [
+    "MP-CGI-TOKEN-BIT-ROUNDTRIP-001",
+    "MP-CGI-PROOF-BIT-ROUNDTRIP-001",
+    "MP-CGI-PROOF-BIT-CHECK-001",
+    "MP-CGI-PROOF-BIT-CONTROLS-001"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT-machine-overview/HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT-machine-overview/HoTT/formal/cubical-godel-infrastructure",
+    "HoTT/formal/cubical-godel-infrastructure/ProofBitCode.agda"
+  ],
+  "completed_at_utc": "2026-09-14T08:05:52.435128+00:00",
+  "cwd": "/Volumes/D/HoTT-machine-overview",
+  "duration_seconds": 19.365228,
+  "environment": {
+    "bytes": 893,
+    "path": "environment.txt",
+    "sha256": "1061ea91d5eb4211fc8f382f62a3d6d06d2b35266c273b1b13c22e40620d5593"
+  },
+  "exit_code": 0,
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "linked_worktree": true,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "sha256": "07e2fa4cbd71b2407502a841727bc8ccd8088c147ed12c4bd245505574eda791"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No natural-number packing or enumeration-completeness theorem is claimed.",
+    "No object-level representability, diagonal sentence or Goedel incompleteness theorem is claimed.",
+    "No HoTT-specific cause, contradiction or reality correspondence is claimed."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "PF-CUBICAL-GODEL-PROOF-BITCODE-001",
+  "run_id": "20260914-CUBICAL-GODEL-PROOF-BITCODE-001",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Machine-check finite self-delimiting Bool coding of formulas, proof tokens and postfix proof sequences; total decoding back to RawProof; checker commutation; derivation soundness/completeness; and fixed accept/reject controls.",
+  "source_manifest": {
+    "bytes": 3312,
+    "path": "source-manifest.json",
+    "sha256": "9df68faf3fe42b66592829c5c5ba85dac7cc6385dd471c6a479c11a3b60156be"
+  },
+  "started_at_utc": "2026-09-14T08:05:33.069900+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 10073,
+    "path": "stdout.txt",
+    "sha256": "68fc0c6429128d89d8dd5ac0d272c7ba76f5a9c6a95e41531120c5c035d0f7d6"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

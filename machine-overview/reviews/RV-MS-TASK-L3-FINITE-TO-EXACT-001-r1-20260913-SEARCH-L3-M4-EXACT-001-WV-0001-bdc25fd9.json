@@ -1,0 +1,220 @@
+{
+  "candidate_ast_sha256": "bdc25fd93a061e96ddffd725fbcf4682fd88411450bba178d9625c0f70eb7ad5",
+  "case_id": "MS-TASK-L3-FINITE-TO-EXACT-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L3-FINITE-TO-EXACT-001/case-revision-1.json",
+  "case_revision": 1,
+  "case_sha256": "eca5a02dfc26a9767597c33daf6430e53ca5c619b9408cf16052e84d2ae82b9b",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json"
+      ],
+      "item": "original task and observation are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "detail": {
+        "reality": "finite observation/approximation only",
+        "temporal_order": "no event ordering result is used; the distinction concerns approximation, limit and exact completion",
+        "theory": "a speculative finite-to-exact promotion rule"
+      },
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json"
+      ],
+      "item": "time structure is distinguished from temporal ordering",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "Finite approximation is pre-kept by the task, while exact arrival requires an additional rule whose validity is deliberately left to the native negative task.",
+      "evidence": [
+        "machine-overview/grammars/l3-finite-to-exact-m4-v1.json"
+      ],
+      "item": "the searched mechanism is localized to the declared symbolic rules",
+      "status": "SPECULATIVE_FINITE_TO_EXACT_RULE_REQUIRES_NATIVE_CHECK"
+    },
+    {
+      "detail": "the fixed FiniteApproximation → ExactArrival candidate in L3M4Support",
+      "evidence": [
+        "machine-overview/grammars/l3-finite-to-exact-m4-v1.json"
+      ],
+      "item": "native target scope",
+      "status": "DECLARED_NATIVE_TARGET"
+    },
+    {
+      "detail": "The empty ExactArrival type is part of this negative control model and does not settle Zeno's paradox or physical continuity.",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L3-FINITE-TO-EXACT-001.json"
+      ],
+      "item": "reality bridge",
+      "status": "NO_PHYSICAL_OR_GENERAL_LIMIT_INFERENCE"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "SPECULATIVE_EXACT_LIFT_ISOLATED",
+    "new_claim": false,
+    "open_obligations": [
+      "a genuine analysis task would need an independently specified sequence, metric, modulus and limit notion",
+      "natural-use and physical-reality bridges remain outside this M4 task"
+    ],
+    "reality_correspondence": "BOUNDED_CONTROL_ONLY",
+    "related_claims": [],
+    "research_relation": "m4_lite_native_rejection_task",
+    "task_preservation": "TASK_INPUT_PRESERVED_CANDIDATE_REQUIRES_NATIVE_DECISION",
+    "task_preservation_basis": [
+      {
+        "detail": [],
+        "id": "profile_qualified",
+        "status": "PASS"
+      },
+      {
+        "detail": "symbolic proof AST re-typechecked",
+        "id": "grammar_membership",
+        "status": "PASS"
+      },
+      {
+        "detail": "search run case revision 1 vs case revision 1",
+        "id": "case_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "full recomputed symbolic witness must equal the search-run record",
+        "id": "witness_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "finite_to_exact_candidate",
+        "id": "declared_observation_kind",
+        "status": "PASS"
+      },
+      {
+        "detail": [
+          "finite_observation",
+          "finite_to_exact_candidate"
+        ],
+        "id": "declared_symbolic_rules_present",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "reality": "finite observation/approximation only",
+          "temporal_order": "no event ordering result is used; the distinction concerns approximation, limit and exact completion",
+          "theory": "a speculative finite-to-exact promotion rule"
+        },
+        "id": "time_and_temporal_order_separated",
+        "status": "PASS"
+      },
+      {
+        "detail": [
+          "the same finite observation input",
+          "the exact-arrival output requirement",
+          "absence of a modulus or limit witness"
+        ],
+        "id": "preserved_task_fields_declared",
+        "status": "PASS"
+      },
+      {
+        "detail": "SPECULATIVE_FINITE_TO_EXACT_RULE_REQUIRES_NATIVE_CHECK",
+        "id": "compensation_classified",
+        "status": "PASS"
+      }
+    ]
+  },
+  "context_summary": [
+    "symbolic rule: finite_to_exact_candidate",
+    "symbolic rule: finite_observation"
+  ],
+  "created_at_utc": "2026-09-13T18:29:32.024037+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 7,
+    "untracked_entries": 190,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 197,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_facts": {
+    "compensation": {
+      "class": "SPECULATIVE_FINITE_TO_EXACT_RULE_REQUIRES_NATIVE_CHECK",
+      "detail": "Finite approximation is pre-kept by the task, while exact arrival requires an additional rule whose validity is deliberately left to the native negative task."
+    },
+    "has_business_bind": false,
+    "has_deadline": false,
+    "has_plain_bind": false,
+    "has_race": false,
+    "used_rules": [
+      "finite_to_exact_candidate",
+      "finite_observation"
+    ]
+  },
+  "mechanism_summary": "The symbolic witness applies the declared speculative finite-to-exact rule to finite approximation evidence.  Symbolic typing alone does not establish that the rule has a native Cubical inhabitant.",
+  "review_checks": [
+    {
+      "detail": [],
+      "id": "profile_qualified",
+      "status": "PASS"
+    },
+    {
+      "detail": "symbolic proof AST re-typechecked",
+      "id": "grammar_membership",
+      "status": "PASS"
+    },
+    {
+      "detail": "search run case revision 1 vs case revision 1",
+      "id": "case_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "full recomputed symbolic witness must equal the search-run record",
+      "id": "witness_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "finite_to_exact_candidate",
+      "id": "declared_observation_kind",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "finite_observation",
+        "finite_to_exact_candidate"
+      ],
+      "id": "declared_symbolic_rules_present",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "reality": "finite observation/approximation only",
+        "temporal_order": "no event ordering result is used; the distinction concerns approximation, limit and exact completion",
+        "theory": "a speculative finite-to-exact promotion rule"
+      },
+      "id": "time_and_temporal_order_separated",
+      "status": "PASS"
+    },
+    {
+      "detail": [
+        "the same finite observation input",
+        "the exact-arrival output requirement",
+        "absence of a modulus or limit witness"
+      ],
+      "id": "preserved_task_fields_declared",
+      "status": "PASS"
+    },
+    {
+      "detail": "SPECULATIVE_FINITE_TO_EXACT_RULE_REQUIRES_NATIVE_CHECK",
+      "id": "compensation_classified",
+      "status": "PASS"
+    }
+  ],
+  "review_id": "RV-MS-TASK-L3-FINITE-TO-EXACT-001-r1-20260913-SEARCH-L3-M4-EXACT-001-WV-0001-bdc25fd9",
+  "schema_version": "machine-overview-correspondence-review/v2",
+  "source_search_run": {
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260913-SEARCH-L3-M4-EXACT-001/RUN.json",
+    "run_id": "20260913-SEARCH-L3-M4-EXACT-001",
+    "sha256": "59963025398f8814ca596833c698d11098b1066e3c5f4ea6128da8490e8349c7"
+  },
+  "witness_id": "WV-0001"
+}

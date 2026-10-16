@@ -1,0 +1,208 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L2-TRUNCATED-LIMIT-001",
+  "case_identity_sha256": "be9e465f15a49e1a052841dfd0947fb86435ca0f032b3befcee378305c8374d7",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L2-TRUNCATED-LIMIT-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T19:23:12.315416+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "hypothetical_recovery"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "truncated_limit",
+        "decoy_limit"
+      ],
+      "reachable": [
+        "decoy_limit",
+        "truncated_limit"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L2-TRUNCATED-LIMIT-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 257,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 269,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 33,
+      "rule_count": 4,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['hypothetical_recovery']"
+  },
+  "inputs": {
+    "case_sha256": "1a4b2fda50638b758379a810f84ba1b0d54ee2bd5b0eb69fed0fd299557eb234",
+    "grammar_path": "machine-overview/grammars/l2-truncated-limit-m3-v1.json",
+    "grammar_sha256": "645fdfc3cd2d58c5bacf50a8f58051739d753c2e795fddd237f2543e395448d6",
+    "profile_sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb",
+    "task_path": "machine-overview/tasks/MS-TASK-L2-TRUNCATED-LIMIT-001.json",
+    "task_sha256": "88c7a41714f0f9468e4889244cb50e7678bef0892671bdb7681784e6686a6ee4",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l2-truncated-limit-m3-v1.json",
+        "sha256": "645fdfc3cd2d58c5bacf50a8f58051739d753c2e795fddd237f2543e395448d6"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/m3-breadth-v1.json",
+        "sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L2-TRUNCATED-LIMIT-001.json",
+        "sha256": "88c7a41714f0f9468e4889244cb50e7678bef0892671bdb7681784e6686a6ee4"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "M3-CUBICAL-BREADTH-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L2-M3-LIMIT-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "5e20b1b37fa8608c62a63380b3d439b673f1e8841707f4400bc159994898d579"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T19:23:12.312657+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 2,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 62,
+    "rule_count": 5,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "562c3e9090c7d4823f9198304a0365f318904908e42a0c589a16270b3ba8d414",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "stagewise_mere_limit"
+              }
+            ],
+            "rule": "hypothetical_recovery"
+          }
+        ],
+        "rule": "exact_limit_empty"
+      },
+      "proof_term": "TL.C-114-LimA-empty (recover (TL.C-115-limTrunc))",
+      "separation_kind": "local_to_global_completion_boundary",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "exact_limit_empty",
+        "hypothetical_recovery",
+        "stagewise_mere_limit"
+      ],
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "f7d7d449c44ffb3b4967357c196cd296b6955e246dca2d79e3a0472e278d3af4",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "stagewise_mere_limit"
+                  }
+                ],
+                "rule": "truncated_identity_decoy"
+              }
+            ],
+            "rule": "hypothetical_recovery"
+          }
+        ],
+        "rule": "exact_limit_empty"
+      },
+      "proof_term": "TL.C-114-LimA-empty (recover (TL.C-115-limTrunc))",
+      "separation_kind": "local_to_global_completion_boundary",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "exact_limit_empty",
+        "hypothetical_recovery",
+        "truncated_identity_decoy",
+        "stagewise_mere_limit"
+      ],
+      "witness_id": "WV-0002"
+    }
+  ]
+}

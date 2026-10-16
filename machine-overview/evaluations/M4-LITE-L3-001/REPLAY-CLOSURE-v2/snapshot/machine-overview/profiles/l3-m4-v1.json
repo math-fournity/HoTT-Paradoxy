@@ -1,0 +1,82 @@
+{
+  "schema_version": "machine-overview-profile/v2",
+  "profile_id": "L3-CUBICAL-M4-TASKSET-v1",
+  "theory_variant": "Cubical Agda native Path at Type0 plus explicit finite Stage and finite-approximation controls; no physical-time identification",
+  "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+  "toolchain_sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+  "library_registry": "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+  "library_registry_sha256": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+  "native_include_dirs": [
+    "machine-overview/formal"
+  ],
+  "sources": [
+    {
+      "path": "machine-overview/formal/L3M4Support.agda",
+      "role": "independent controls shared by the three M4-lite L3 tasks; contains no searched candidate proof",
+      "sha256": "be19607f3c7bb466e239489ad1488af386b462ccf2b6bf0417541b815f836536",
+      "symbols": [
+        {
+          "name": "data Stage",
+          "kind": "explicit-event-carrier",
+          "lines": [16, 17]
+        },
+        {
+          "name": "phase",
+          "kind": "exact-event-observation",
+          "lines": [19, 30]
+        },
+        {
+          "name": "data Segment",
+          "kind": "path-coherence-positive-control",
+          "lines": [32, 34]
+        },
+        {
+          "name": "data FiniteApproximation",
+          "kind": "finite-observation-control",
+          "lines": [39, 40]
+        },
+        {
+          "name": "data ExactArrival",
+          "kind": "exact-arrival-boundary-control",
+          "lines": [42, 45]
+        }
+      ]
+    }
+  ],
+  "support_sources": [],
+  "coordinator_identity_note": "The frozen symbolic-horn search remains unchanged from commit 025938a; task-specific native renderers check whether its symbolic witnesses inhabit the exact Cubical targets.",
+  "supported_operations": [
+    {
+      "op": "cubical interval endpoint Path abstraction",
+      "source": "pinned Cubical v0.9 tree via TOOLCHAIN.json"
+    },
+    {
+      "op": "ordinary Stage-indexed exact event observation",
+      "source_lines": [16, 30]
+    },
+    {
+      "op": "finite approximation witness with explicit precision",
+      "source_lines": [39, 48]
+    },
+    {
+      "op": "empty exact-arrival control for a bounded negative task",
+      "source_lines": [42, 45]
+    }
+  ],
+  "unsupported": [
+    {
+      "item": "physical spacetime continuity or discreteness",
+      "reason": "the Stage and approximation objects are declared model controls, not empirical claims"
+    },
+    {
+      "item": "finite approximation implies exact limit attainment",
+      "reason": "this is the candidate relation tested by the negative task rather than a profile rule"
+    },
+    {
+      "item": "all temporal activities are representable by cubical dimension",
+      "reason": "the positive Path task and explicit event task keep the two representations distinct"
+    }
+  ],
+  "revision_note": "Shared profile for the first three-task M4-lite evaluation after the 0.2.0 L3 slice.",
+  "notes": "Results are bounded task-set evidence. They do not establish a HoTT bug, natural-use adoption, physical truth, novelty or general search effectiveness."
+}

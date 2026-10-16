@@ -1,0 +1,203 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-GEN001-IDENTITY-OBSERVATION-001",
+  "revision": 1,
+  "gen001_unit": "GEN-001 BOUNDED_GENERATOR_ACCEPTANCE_UNIT",
+  "supply_registration": "SUPPLY-003 (PREMISE-001/007); human_supply executed by AI with audit layer, pending external audit; explicitly NOT user supply",
+  "purpose": "Two processes are identified by the theory's own identity criterion (delay equivalence forgets the arrival round), so the theory judges them the same already-completed value sequence. A declared observation layer, a race against a reference process or a bounded deadline, sees the erased round, and a declared verdict consumer then renders an explicit same/different judgement whose conclusion depends on the layer. Find whether the same identified pair yields an undecided/identical verdict under the definitional layer and a separated verdict under a purpose or availability layer, so that a verification task whose correctness depends on 'are these two the same' is decided by the very round the identity criterion erased.",
+  "research_relation": "exploration",
+  "source_basis": {
+    "kind": "AI-frozen new task family over the pinned existing delay model (GEN-001 supply, not user supply)",
+    "references": [
+      "PREMISE-001/005 shard entry PREMISE-B-01 (definitional equality decidable, semantic identity pushed outside the boundary)",
+      "PREMISE-001/007 shard SUPPLY-003 (TASK-FAMILY-IDENTITY-OBSERVATION-LAYER)",
+      "Atria的方案/修订片/003 (GEN-001 nine-field task specification and role discipline)",
+      "Atria的方案/修订片/011 (task-family design discipline: bounds alignment for unique BIND_CONTINUATION)",
+      "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda (pinned delay model; delay equivalence is the identity criterion)"
+    ]
+  },
+  "input": {
+    "type_ref": "ground terms of Delay Bool: omega or ret n b with n <= 2 (declared grammar L1-IDENTITY-OBSERVATION-v1)",
+    "available_information": "only what the pinned model's constructors and operations expose"
+  },
+  "environment": {
+    "arrival_policy": "synchronous rounds; a bind adds its own processing rounds on top of the producer's arrival round; a race returns the earlier-arriving branch, left priority on ties",
+    "nondeterminism": "none inside the fragment (single-thread deterministic delay)",
+    "fairness": "synchronous rounds with left priority on ties, as pinned"
+  },
+  "observation": {
+    "value": "Bool carried by ret, and Optional Bool carried by a deadline observation",
+    "trace": "round index n is carried by ret and accumulated by bind, but is invisible to delay equivalence (the identity criterion)",
+    "time_structure": "discrete synchronous rounds only; no continuity or physical-time claim"
+  },
+  "completion": {
+    "kind": "bounded",
+    "criterion_ref": "a declared observation layer (race against a reference delay, or a bounded deadline) observes the composed process (pair member, then verdict consumer); the verdict consumer models a verification procedure whose same/different conclusion depends on which layer observed"
+  },
+  "quantifiers": {
+    "instances": "finite (the declared grammar)",
+    "realization": "strategy"
+  },
+  "allowed_resources": "finite enumeration budget; one native kernel check per selected witness plus positive and negative controls",
+  "prohibited_extra_information": "the verdict consumer may not use information the original task was declared not to hold: no labels, no branch tags, no oracle. The observation layer and the verdict consumer are declared consumers of the same original pair and are declared up front.",
+  "assumptions": [
+    "the fragment is the pinned delay model, not general identity types, general univalence or general propositional-equality metatheory",
+    "delay equivalence models the theory's identity criterion only in the bounded sense that it forgets the arrival round; this is a bounded modelling correspondence, not a claim that Delay Bool is HoTT's identity type",
+    "the race and deadline model observation layers that see the erased round only as a bounded round comparison; the verdict consumers model layer-specific same/different renderers, not semantic identity in the full theory",
+    "no physical-time or implementation claim is made"
+  ],
+  "obligations": [
+    "the verified statement must be a ground instance inside the declared grammar",
+    "at least one witness must bind a continuation declared only in L1-IDENTITY-OBSERVATION-v1, proving the family is outside l1-v0/v1/v2",
+    "the separating observation layer and verdict consumer must be among the declared constructs, not an oracle added after seeing a candidate",
+    "an exploration instance must not be upgraded into a new mathematical claim"
+  ],
+  "known_positive_controls": [
+    {
+      "id": "GEN001-IDENTITY-RACE-VALUE-VERDICT",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 2,
+          "value": true
+        }
+      },
+      "context": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "kind": "bind",
+          "continuation": {
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "false": {
+              "kind": "ret",
+              "n": 1,
+              "value": false
+            }
+          }
+        }
+      ],
+      "claim_refs": [],
+      "note": "expected separation value_mismatch: the identified pair is judged same by delay equivalence; racing both members against a reference arriving strictly between them exposes the erased round as a value difference, and the definitional verdict consumer then renders different verdicts. External benchmark only; the search is not given this answer."
+    },
+    {
+      "id": "GEN001-IDENTITY-DEADLINE-VERDICT",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "context": [
+        {
+          "kind": "bind",
+          "continuation": {
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": true
+            },
+            "false": {
+              "kind": "ret",
+              "n": 2,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "deadline",
+          "k": 2
+        }
+      ],
+      "claim_refs": [],
+      "note": "expected separation deadline_observation: the purpose-layer verdict consumer adds its own processing rounds, and the deadline observes one member inside and the other outside, although the pair was identified by delay equivalence."
+    },
+    {
+      "id": "GEN001-IDENTITY-RACE-DIVERGENCE-VERDICT",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 2,
+          "value": true
+        }
+      },
+      "context": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "kind": "bind",
+          "continuation": {
+            "true": {
+              "kind": "omega"
+            },
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          }
+        }
+      ],
+      "claim_refs": [],
+      "note": "expected separation completion_divergence: the race exposes the erased round as a value difference and the never-on-true verdict consumer diverges on one member and completes on the other."
+    }
+  ],
+  "known_negative_controls": [
+    {
+      "id": "deadline-same-horizon",
+      "description": "a deadline horizon at or above both raw pair-member round indices cannot separate a delay-equivalent pair without a declared verdict consumer; this is the definitional layer judging the identified pair same",
+      "expected": "NOT_SEPARATED"
+    }
+  ],
+  "claim_refs": [],
+  "correspondence": {
+    "original_activity": "a verification task whose correctness depends on judging whether two processes are the same, where the judgement depends on which observation layer is used",
+    "theoryization_steps": [
+      "model each process as a single-thread deterministic delay, identified up to delay equivalence (this is the theory's step: the arrival round is forgotten and two result-equivalent processes are treated as the same already-completed value sequence)",
+      "model an observation layer as a declared race against a reference delay or a bounded deadline, which reads the accumulated round index the identity criterion erased",
+      "model the same/different verdict as a declared bind continuation that renders the layer's conclusion"
+    ],
+    "observation_justification": "the observation layer and the verdict consumer are declared in the pinned model; the race and deadline read only the round index the model already carries",
+    "preservation_claims": [
+      "the input domain, the value type and the completion requirement are unchanged from the task declaration",
+      "only the declared observation layers and verdict consumers are applied; no extra branch information is exposed"
+    ],
+    "open_obligations": [
+      "the Delay Bool fragment is a bounded correspondent of the B-01 definitional-equality premise, not HoTT's identity type or univalence itself; a propositional-equality or univalence family remains a V2 candidate",
+      "the family shares the race-truncation separation mechanism with the E-02 first chain and the A-03 completion-process family; cross-family independence is not proved and is registered as out-of-envelope ingress, not a conclusion",
+      "the semantic reading of 'observation layer' in the full theory is not addressed by this fragment"
+    ]
+  }
+}

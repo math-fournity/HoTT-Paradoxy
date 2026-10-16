@@ -1,0 +1,24 @@
+{
+  "schema_version": "machine-overview-grammar/v1",
+  "grammar_id": "L5-SELF-GUARANTEE-M3-v1",
+  "backend": "symbolic-horn-v1",
+  "engine_freeze": {"path": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json", "sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46"},
+  "answer_visibility": "Same-designer generic diagonal task; no benchmark AST or witness ID is embedded.",
+  "propositions": ["section_path", "fixed_equation", "bottom", "checked_proof"],
+  "goal": "bottom",
+  "observation_kind": "self_guarantee_diagonal_boundary",
+  "max_proof_depth": 4,
+  "rules": [
+    {"id": "section_at_liar", "premises": [], "conclusion": "section_path", "term_template": "section liar", "semantic_source": "the proposed exact section instantiated at the diagonal predicate"},
+    {"id": "evaluate_at_self", "premises": ["section_path"], "conclusion": "fixed_equation", "term_template": "cong (λ h → h self) ({0})", "semantic_source": "function Path evaluation at self"},
+    {"id": "boolean_no_fixed", "premises": ["fixed_equation"], "conclusion": "bottom", "term_template": "notNoFixed (encode self self) ({0})", "semantic_source": "M3BreadthSupport.notNoFixed"},
+    {"id": "given_proof_decoy", "premises": [], "conclusion": "checked_proof", "term_template": "givenProof", "semantic_source": "positive checker input, deliberately not a self-coding rule"},
+    {"id": "fixed_double_sym_decoy", "premises": ["fixed_equation"], "conclusion": "fixed_equation", "term_template": "sym (sym ({0}))", "semantic_source": "Path symmetry decoy"}
+  ],
+  "mechanism_rules": ["section_at_liar", "evaluate_at_self", "boolean_no_fixed"],
+  "positive_control_goals": ["section_path", "checked_proof"],
+  "ablation": {"remove_rules": ["section_at_liar"], "expected": "the diagonal fixed equation and bottom become unreachable"},
+  "native_contract": {"renderer": "m3_l5_self_guarantee_v1", "target_scope": "all Type0 A and exact sections encode(decode p)=p for Bool predicates", "positive_controls": ["checking a supplied true=true proof", "Boolean no-fixed-point eliminator"], "negative_control": "false cannot inhabit false = not false"},
+  "calibration_benchmark": null,
+  "declared_bounds_note": "Complete proof-tree enumeration through depth 4; the native target is universe-symbolic but only states a generic Boolean diagonal precondition."
+}

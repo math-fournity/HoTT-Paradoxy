@@ -1,0 +1,87 @@
+{
+  "schema_version": "machine-overview-session-runs/v1",
+  "session_id": "S-RES-20260913-MACHINE-OVERVIEW-M3-BREADTH",
+  "worktree": "/Volumes/D/HoTT-machine-overview",
+  "branch": "feat/machine-overview-m1",
+  "starting_head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "main_touched": false,
+  "new_math_claims": [],
+  "coordinator": {
+    "version": "0.4.0",
+    "search_baseline_commit": "025938a07ef6ca9b74ca4874366ec1f97f06592e",
+    "search_sha256": "b1aec11190571a6c58adf1404ec882ab23024178328209436b4f565c29d47e20",
+    "m3_adapter_freeze": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json",
+    "m3_adapter_freeze_sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46"
+  },
+  "m4_evolution_closure": {
+    "closure": "machine-overview/evaluations/M4-LITE-L3-001/REPLAY-CLOSURE-v2/REPLAY-CLOSURE.json",
+    "replay_spec": "machine-overview/evaluations/M4-LITE-L3-001/SPEC-REPLAY-v2.json",
+    "replay_run": "machine-overview/evaluations/M4-LITE-L3-001/runs/20260913-M4-LITE-L3-REPLAY-V2/RUN.json",
+    "post_evolution": "machine-overview/evaluations/M4-LITE-L3-001/REPLAY-CLOSURE-v2/POST-EVOLUTION.json",
+    "result": "v1 live pin fails after expected adapter evolution; v2 snapshot replay PASS with unchanged deterministic sha256 199793e000ba3de879d0f85c225b20b876775ccfa34f5abac9829004c8a90028"
+  },
+  "m3_lines": [
+    {
+      "line": "L2",
+      "case": "machine-overview/cases/MS-TASK-L2-TRUNCATED-LIMIT-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L2-M3-LIMIT-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L2-M3-LIMIT-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L2-TRUNCATED-LIMIT-001-r1-20260913-SEARCH-L2-M3-LIMIT-001-WV-0001-562c3e90.json",
+      "report": "machine-overview/reports/MS-TASK-L2-TRUNCATED-LIMIT-001-r1-report.md",
+      "result": "62 checks / 2 witnesses / complete / 0-0-42-0 exact replay / existing C-114 to C-116 calibration"
+    },
+    {
+      "line": "L4",
+      "case": "machine-overview/cases/MS-TASK-L4-SIP-OBSERVATION-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L4-M3-SIP-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L4-M3-SIP-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L4-SIP-OBSERVATION-001-r1-20260913-SEARCH-L4-M3-SIP-001-WV-0001-f7e15a7f.json",
+      "report": "machine-overview/reports/MS-TASK-L4-SIP-OBSERVATION-001-r1-report.md",
+      "result": "50 checks / 1 witness / complete / 0-0-42-0 exact replay / existing C-124 to C-128 calibration"
+    },
+    {
+      "line": "L5",
+      "case": "machine-overview/cases/MS-TASK-L5-SELF-GUARANTEE-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L5-M3-SELF-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L5-M3-SELF-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L5-SELF-GUARANTEE-001-r1-20260913-SEARCH-L5-M3-SELF-001-WV-0001-2ae6a0d6.json",
+      "report": "machine-overview/reports/MS-TASK-L5-SELF-GUARANTEE-001-r1-report.md",
+      "result": "44 checks / 2 witnesses / complete / 0-0-42-0 exact replay / generic exact-section diagonal precondition"
+    },
+    {
+      "line": "L6",
+      "case": "machine-overview/cases/MS-TASK-L6-COMPENSATION-COHERENCE-001/case-revision-1.json",
+      "search": "machine-overview/runs/20260913-SEARCH-L6-M3-COMP-001/RUN.json",
+      "verify": "machine-overview/runs/20260913-VERIFY-L6-M3-COMP-001/RUN.json",
+      "review": "machine-overview/reviews/RV-MS-TASK-L6-COMPENSATION-COHERENCE-001-r1-20260913-SEARCH-L6-M3-COMP-001-WV-0001-b2776ba8.json",
+      "report": "machine-overview/reports/MS-TASK-L6-COMPENSATION-COHERENCE-001-r1-report.md",
+      "result": "90 checks / 4 witnesses / complete / 0-0-42-0 exact replay / known Path-apartness recombination"
+    }
+  ],
+  "synthesis": "machine-overview/evaluations/M3-BREADTH-001/REPORT.md",
+  "development_failures": [
+    {
+      "stage": "pre-freeze renderer probe invocation",
+      "result": "zsh include flags were passed as one string and all modules reported ModuleNameDoesntMatchFileName",
+      "disposition": "reran with a zsh argument array; no renderer conclusion was drawn from the invalid first probe"
+    },
+    {
+      "stage": "pre-freeze L2 target probe",
+      "result": "Target Type was not in scope because Prelude was omitted",
+      "disposition": "added the Prelude import without changing the target; L2 Verify then passed before freeze"
+    }
+  ],
+  "verification": {
+    "selftest": "51/51 PASS",
+    "workspace_validate": "VALID: 12 case revisions / 31 runs / 14 reviews / 0 errors / 1 registered interrupted legacy attempt",
+    "m3_searches": "4/4 complete, order-independent sets, key-rule ablation leaves zero goals",
+    "m3_native": "4/4 NATIVE_CHECKED_EXPLORATION_CANDIDATE; each 0/0/42(expected)/0 exact replay",
+    "m4_replay_v2": "PASS: deterministic sha256 199793e000ba3de879d0f85c225b20b876775ccfa34f5abac9829004c8a90028",
+    "m4_v1_post_evolution": "EXPECTED FAIL: PIN_CHANGED live __init__.py",
+    "core_cognition_audit_verify": "PASS: 36 KC; ALIGNED 10 / DEEPENED 22 / TENSION 2 / NOT_TOUCHED 2",
+    "json_parse": "268 JSON files parsed",
+    "diff_check": "PASS: git diff --check and no trailing-space matches"
+  },
+  "checkpoint": "NOT_APPLIED_IN_ISOLATED_WORKTREE_M5_REQUIRED"
+}

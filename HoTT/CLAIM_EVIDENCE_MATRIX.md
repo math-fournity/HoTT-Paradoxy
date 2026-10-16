@@ -384,3 +384,163 @@ proof_run_root: HoTT/verification/runs
 | C-181 | 项层码级替换：`substCodeT k n c = codeT' (substT k n (dec c))` 满足 `(k n : Nat) (t : Tm) → substCodeT k n (codeT' t) ≡ codeT' (substT k n t)`——**在修复编码的像上，码级替换与语法级替换一致**（旧编码的对应义务要 C-157–C-159 的联合递归工程）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substCodeT`、`substCodeT-agrees`（用 C-176 的往返）；run `20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01`。 | `substCodeT` 经**解码器**定义（解码—替换—编码）；本主张不包含"对象理论可表示该替换"，也不重做旧 `substFixT` 义务。 |
 | C-182 | 公式层同型结论：`substCodeF k n c = codeF' (substF k n (decF c))` 满足 `(k n : Nat) (φ : Fml) → substCodeF k n (codeF' φ) ≡ codeF' (substF k n φ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `substCodeF`、`substCodeF-agrees`（用 C-180 的往返）；同一 run。 | 同上：不主张表示性；不涉及 `substF` 的量词/影子分支等结构性质（那些已在 T2 层机器化）。 |
 | C-183 | 引用与对角实例：`⌜ φ ⌝' = num (codeF' φ)` **单射**（`⌜-injective'`）；`diagonalize' φ = substF (codeF' φ) 0 φ` 是同一公式的替换实例（`refl`），且其码可由码级替换算出：`codeF' (diagonalize' φ) ≡ substCodeF (codeF' φ) 0 (codeF' φ)`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `⌜_⌝'`、`⌜-injective'`、`diagonalize'`、`diagonalize'-is-subst`、`diagonalize'-code`；同一 run。 | 这是对角引理所需的**形状**，不是对角不动点：不构造 `P`、不证明表示性或反射；对象层可表示性仍归门 B。 |
+
+## 追加登记：PF-CUBICAL-MACHINE-HALTING-001（对象机器的具体停机与发散，2026-09-14）
+
+> 本节按矩阵的追加合同置于文末，不改写既有 claim 行。精确命题、假设和禁止外推见
+> `HoTT/formal/cubical-machine-halting/CLAIM.md`；原生证明收据见
+> `HoTT/verification/runs/20260914-CUBICAL-MACHINE-HALTING-001/RUN.json`。
+> 本包达到具体对象机器的 `R1 certified divergence`，没有证明全称停机不可判定性、Gödel 不完备性、HoTT 特有原因或现实对应。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-MACHINE-HALTING-001` | `MP-CMH-HALTS-001`、`MP-CMH-DIVERGES-001`、`MP-CMH-NOT-HALTS-001` | `formal/cubical-machine-halting/MachineHalting.agda`；命题全文与边界在同目录 `CLAIM.md`；依赖由 run 的 `source-manifest.json` 固定 | `verification/runs/20260914-CUBICAL-MACHINE-HALTING-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0；复用 `formal/partiality-race-timeout/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONCRETE_OBJECT_MACHINE_HALTING_AND_DIVERGENCE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CMH-HALTS-001 | 对固定 `haltProgram` 与 `initial`，`Halts haltProgram initial` 有命题截断的有限步见证；见证步数为 `zero`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MachineHalting.halt-now`；run `20260914-CUBICAL-MACHINE-HALTING-001`。 | 只针对固定程序；不说明一般停机可判定。 |
+| MP-CMH-DIVERGES-001 | 对固定 `loopProgram` 与 `initial`，`Diverges loopProgram initial`，即 `(n : ℕ) → isFinal loopProgram (iterate n (step loopProgram) initial) ≡ false`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MachineHalting.loop-diverges`；同一 run。 | 这是具体程序的全称有限步不变量；不证明任意程序发散，也不证明 proof assistant 自身不完成。 |
+| MP-CMH-NOT-HALTS-001 | 对同一固定程序，`¬ Halts loopProgram initial`；任何截断的有限 halting witness 与 `loop-diverges` 的 Bool 不变量矛盾。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `MachineHalting.loop-not-halts`；同一 run；命题截断通过 `PT.rec isProp⊥` 消去。 | 不等于停机问题不可判定；没有 universal evaluator、编码、自应用或 diagonal reduction。 |
+
+## 追加登记：PF-CUBICAL-GODEL-PROOF-CHECKER-001（Gödel 路线的可检查证明关系，2026-09-14）
+
+> 精确命题、对象语言和剩余 Gödel 义务见 `HoTT/formal/cubical-godel-infrastructure/CLAIM.md`；原生证明收据见
+> `HoTT/verification/runs/20260914-CUBICAL-GODEL-PROOF-CHECKER-001/RUN.json`。
+> 本包只建立“给定 raw proof 的检查”与 indexed derivation 的双向连接，以及命题截断的 `Provable`；它没有证明 theoremhood 可判定或不可判定，也没有构造 Gödel 句。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-GODEL-PROOF-CHECKER-001` | `MP-CGI-EQUALITY-001`、`MP-CGI-CHECK-SOUND-001`、`MP-CGI-CHECK-COMPLETE-001`、`MP-CGI-TRUNCATED-PROVABILITY-001`、`MP-CGI-CONTROLS-001` | `formal/cubical-godel-infrastructure/MiniProofChecker.agda`；精确范围在同目录 `CLAIM.md`；依赖由 run 的 `source-manifest.json` 固定 | `verification/runs/20260914-CUBICAL-GODEL-PROOF-CHECKER-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0；复用 `formal/partiality-race-timeout/TOOLCHAIN.json` | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GODEL_INFRA_CHECKABLE_PROOF_RELATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CGI-EQUALITY-001 | 小型公式语言的 `eqNat`/`eqF` 具有 reflexivity 与 soundness：Bool checker 返回 `true` 时得到相应 Cubical Path。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `eqNat-refl`、`eqNat-sound`、`eqF-refl`、`eqF-sound`；run `20260914-CUBICAL-GODEL-PROOF-CHECKER-001`。 | 只覆盖该 `atom/bot/imp` 语法；不提供 Nat 编码或一般语法相等判定。 |
+| MP-CGI-CHECK-SOUND-001 | 若 `check p ≡ true`，则有 `⊢ conclusion p`；若 `checkAgainst p φ ≡ true`，则有 `⊢ φ`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `check-sound`、`checkAgainst-sound`；同一 run。 | 是“给定 proof tree”的健全检查，不是 proof search、theoremhood decider 或对象理论语义健全性。 |
+| MP-CGI-CHECK-COMPLETE-001 | 每个 indexed derivation 可擦除为 raw proof，结论保持且 checker 接受；`⊢ φ → Checked φ` 与 `Checked φ → ⊢ φ` 均有总函数。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `erase`、`conclusion-erase`、`check-erase`、`checkAgainst-erase`、`derives→checked`、`checked→derives`；同一 run。 | 不声称两个 proof types 在 Path 层等价；不提供 raw proof 的枚举或数值编码。 |
+| MP-CGI-TRUNCATED-PROVABILITY-001 | `Provable φ = ∥ Checked φ ∥₁`，并有 `⊢ φ → Provable φ` 与 `Provable φ → ∥ ⊢ φ ∥₁`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `derives→provable`、`provable→mereDerives`；同一 run；使用 Cubical propositional truncation。 | 命题截断的 mere existence 不给出 proof-search 算法，也不说明 `Provable φ` 可判定。 |
+| MP-CGI-CONTROLS-001 | 固定 K-axiom raw proof 被 `checkAgainst` 接受；固定前提不匹配的 modus-ponens raw tree 被 `check` 拒绝。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `kRaw-checks`、`badMp-rejected`；同一 run。 | 两个固定控制不证明 checker 对其它语法或理论完整。 |
+
+## 追加登记：PF-CUBICAL-GODEL-PROOF-SERIALIZATION-001（Gödel 路线的有限 proof 序列，2026-09-14）
+
+> 精确命题与 remaining numerical-coding obligation 见
+> `HoTT/formal/cubical-godel-infrastructure/SERIALIZATION_CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-GODEL-PROOF-SERIALIZATION-001/RUN.json`。
+> `List Token` 是有限顺序表示，但 Token 仍内嵌 `Fml`；本包不把它冒充自然数 Gödel code。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-GODEL-PROOF-SERIALIZATION-001` | `MP-CGI-SERIALIZE-ROUNDTRIP-001`、`MP-CGI-SERIALIZED-CHECK-001`、`MP-CGI-SERIALIZED-CONTROLS-001` | `formal/cubical-godel-infrastructure/ProofSerialization.agda`，依赖 `MiniProofChecker.agda`；精确范围见 `SERIALIZATION_CLAIM.md` | `verification/runs/20260914-CUBICAL-GODEL-PROOF-SERIALIZATION-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GODEL_INFRA_FINITE_PROOF_SERIALIZATION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CGI-SERIALIZE-ROUNDTRIP-001 | Postfix `emit`/stack `run` 满足任意 suffix/stack 的组合律，故 `decode (serialize p) ≡ just p`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `run-emit`、`decode-serialize`；run `20260914-CUBICAL-GODEL-PROOF-SERIALIZATION-001`。 | Token 仍含公式；不是 Nat coding、字节格式或一般 parser 定理。 |
+| MP-CGI-SERIALIZED-CHECK-001 | `checkSerialized (serialize p) φ ≡ checkAgainst p φ`；accepted serialized code 导出 `⊢ φ`，每个 `⊢ φ` 产生 accepted serialized code。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `checkSerialized-serialize`、`checkSerialized-sound`、`derives→serialized`、`serialized→derives`；同一 run。 | 不提供全部 proof codes 的 enumeration，也不使 theoremhood 可判定。 |
+| MP-CGI-SERIALIZED-CONTROLS-001 | 固定序列化 K proof 被接受；固定序列化 ill-matched MP proof 被拒绝。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `positiveCode-accepted`、`negativeCode-rejected`；同一 run。 | 两个固定控制不证明 numeric decoder、object-level representability 或 Gödel 定理。 |
+
+## 追加登记：PF-CUBICAL-GODEL-FORMULA-BITCODE-001（自定界公式位编码，2026-09-14）
+
+> 精确编码、parser theorem 与剩余 proof-code 义务见
+> `HoTT/formal/cubical-godel-infrastructure/FORMULA_BITCODE_CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-GODEL-FORMULA-BITCODE-001/RUN.json`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-GODEL-FORMULA-BITCODE-001` | `MP-CGI-FML-BIT-LENGTH-001`、`MP-CGI-FML-PARSER-001`、`MP-CGI-FML-BIT-ROUNDTRIP-001` | `formal/cubical-godel-infrastructure/FormulaBitCode.agda`，依赖 `MiniProofChecker.agda`、`ProofSerialization.agda`；范围见 `FORMULA_BITCODE_CLAIM.md` | `verification/runs/20260914-CUBICAL-GODEL-FORMULA-BITCODE-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GODEL_INFRA_SELF_DELIMITING_FORMULA_BITS` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CGI-FML-BIT-LENGTH-001 | `atom/bot/imp` 公式的 Bool 位编码长度精确等于 `STEPS`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `bits-length`（及 `LEN-++`、`LEN-unary`）；run `20260914-CUBICAL-GODEL-FORMULA-BITCODE-001`。 | 只覆盖该公式语法和具体编码；不声称 optimality 或 proof code 已完成。 |
+| MP-CGI-FML-PARSER-001 | 显式 continuation stack 的有限燃料 parser 对任意公式、pending stack、suffix 与剩余 fuel 满足精确 `parse-run`；atom 索引由 `index-run` 解析。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `index-run`、`parse-run`；同一 run。 | Parser theorem 使用该具体 Bool 文法；不表示对象理论内部能证明 parser 的算术性质。 |
+| MP-CGI-FML-BIT-ROUNDTRIP-001 | Prefix parser 保留任意 suffix；`decodeF (bitsF φ) ≡b φ` 且精确 code 的 parse flag 为 true。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parsePrefix-roundtrip`、`parsePrefix-exact`、`decodeF-roundtrip`、`decodeF-ok`；同一 run。 | 这是 finite Bool code，不是 ℕ Gödel numbering；Token/proof code、enumeration、representability 和 diagonal 仍开放。 |
+
+## 追加登记：PF-CUBICAL-GODEL-PROOF-BITCODE-001（自定界 proof 位编码，2026-09-14）
+
+> 精确 code architecture 与剩余 Nat-packing/representability 义务见
+> `HoTT/formal/cubical-godel-infrastructure/PROOF_BITCODE_CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-GODEL-PROOF-BITCODE-001/RUN.json`。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-GODEL-PROOF-BITCODE-001` | `MP-CGI-TOKEN-BIT-ROUNDTRIP-001`、`MP-CGI-PROOF-BIT-ROUNDTRIP-001`、`MP-CGI-PROOF-BIT-CHECK-001`、`MP-CGI-PROOF-BIT-CONTROLS-001` | `formal/cubical-godel-infrastructure/ProofBitCode.agda`，依赖本目录前三个包；范围见 `PROOF_BITCODE_CLAIM.md` | `verification/runs/20260914-CUBICAL-GODEL-PROOF-BITCODE-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GODEL_INFRA_SELF_DELIMITING_PROOF_BITS` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CGI-TOKEN-BIT-ROUNDTRIP-001 | 公式 payload 与 K/S/MP tagged token 的 parser 均保留 suffix 并还原原对象。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parseFormula-roundtrip`、`parseToken-emit`；run `20260914-CUBICAL-GODEL-PROOF-BITCODE-001`。 | 只覆盖具体二位 token tags 与 formula bit code；不声称一般序列化格式。 |
+| MP-CGI-PROOF-BIT-ROUNDTRIP-001 | 一元 token-count + tagged-token bit stream 可总解析；`decodeProofBits (proofBits p) ≡ just p`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parseTokens-emit`、`parseCount-roundtrip`、`decodeTokenList-roundtrip`、`decodeProofBits-roundtrip`；同一 run。 | 结果是 `List Bool` code，尚未 pack 为 ℕ，也未证明全部 bit strings 的枚举覆盖性质。 |
+| MP-CGI-PROOF-BIT-CHECK-001 | Bit checker 在编码像上与 raw checker 相同；accepted bit code 导出 indexed derivation，每个 indexed derivation 产生 accepted bit code。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `checkProofBits-roundtrip`、`bitChecked-sound`、`derives→bitChecked`；同一 run。 | “给定有限 code 可检查”不等于 proof search 或 theoremhood 可判定；对象层表示性仍未做。 |
+| MP-CGI-PROOF-BIT-CONTROLS-001 | 固定 K proof bits 被接受；固定 ill-matched MP proof bits 被拒绝。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `positiveBits-accepted`、`negativeBits-rejected`；同一 run。 | 固定控制不构成 Gödel/Rosser 句或不完备性证明。 |
+
+## 追加登记：PF-CUBICAL-GODEL-NAT-PROOF-CODE-001（自然数证明编码，2026-09-14）
+
+> 精确编码、定理范围与剩余可表示性义务见
+> `HoTT/formal/cubical-godel-infrastructure/NAT_PROOF_CODE_CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-GODEL-NAT-PROOF-CODE-001/RUN.json`。
+> 本包把前一包的自定界 proof bits 显式编码为自然数，并在自然数域上给出总 proof checker；它没有把该 checker 表示到对象语言内部。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-GODEL-NAT-PROOF-CODE-001` | `MP-CGI-PROOF-PREFIX-001`、`MP-CGI-BIT-NAT-ROUNDTRIP-001`、`MP-CGI-NAT-PROOF-ROUNDTRIP-001`、`MP-CGI-NAT-PROOF-CHECK-001`、`MP-CGI-NAT-PROOF-CONTROLS-001` | `formal/cubical-godel-infrastructure/NatProofCode.agda`，依赖本目录前四个包；范围见 `NAT_PROOF_CODE_CLAIM.md` | `verification/runs/20260914-CUBICAL-GODEL-NAT-PROOF-CODE-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0；stdout 保留一项仅涉及自定义 `≤-trans` 在 transport 输入上不计算的 Cubical Agda warning，本包未对 transport 使用该函数 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / GODEL_INFRA_NATURAL_PROOF_CODE_AND_TOTAL_CHECKER` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CGI-PROOF-PREFIX-001 | tagged proof-bit parser 对任意尾随位串保持已编码 proof 前缀；相应 checker 仍等于 raw checker。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `emitToken-append`、`emitTokens-append`、`tokenListBits-append`、`decodeTokenList-prefix`、`decodeProofBits-prefix`、`checkProofBits-prefix`；run `20260914-CUBICAL-GODEL-NAT-PROOF-CODE-001`。 | 只覆盖本项目的 self-delimiting proof-bit 文法；不声称任意序列化格式都前缀稳定。 |
+| MP-CGI-BIT-NAT-ROUNDTRIP-001 | 显式 `pack/parity/half` 编码逐位可逆；按位串长度抽取可还原原串，code 严格支配位长，多余 fuel 可分解为原前缀与有限 suffix。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `parity-code`、`half-code`、`unbits-code`、`codeBits-dominates`、`unbits-split`；同一 run。 | 这是 unary `ℕ` 中的数学编码；不声称其归约成本适合大型具体 proof code，也不提供对象层算术表示。 |
+| MP-CGI-NAT-PROOF-ROUNDTRIP-001 | `decodeProofNat (codeProof p) ≡ just p`，因而 `codeProof` 对 `RawProof` 单射；decoder 对每个自然数均为总函数。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `codeProof-roundtrip`、`codeProof-injective`；同一 run。 | 任意自然数不必是 canonical proof code；本结论不使 theoremhood 可判定。 |
+| MP-CGI-NAT-PROOF-CHECK-001 | `checkProofNat (codeProof p) φ ≡ checkAgainst p φ`；自然数码被接受可导出 `⊢ φ`，且每个 `⊢ φ` 都产生被接受的自然数码。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `checkProofNat-code`、`natChecked-sound`、`derives→natChecked`；同一 run。 | 这是外部元理论中的有效呈现；没有证明 object language 内部可表示该关系、其存在量化或 substitution-on-code。 |
+| MP-CGI-NAT-PROOF-CONTROLS-001 | 最小 K proof 的自然数码被接受；无效自然数码 `0` 被拒绝。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `tinyK-checks`、`positiveNatCode-accepted`、`negativeNatCode-rejected`；同一 run。 | 负控制只检查 malformed numeric input；encoded ill-matched MP 的拒绝已由前一 bit-code 包证明；固定控制不构成不完备性定理。 |
+
+## 追加登记：PF-CUBICAL-SYNTHETIC-INCOMPLETENESS-001（条件性 synthetic Gödel–Rosser 核，2026-09-14）
+
+> 精确接口、来源关系与未实例化义务见
+> `HoTT/formal/cubical-synthetic-incompleteness/CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-SYNTHETIC-INCOMPLETENESS-001/RUN.json`。
+> 本包把 universal partial function 与 strong separation 保持为显式参数；它证明条件性对角结论，不声称这些参数已由 HoTT 或当前小型 Hilbert calculus 实现。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-SYNTHETIC-INCOMPLETENESS-001` | `MP-CSI-PARTIAL-BOOL-001`、`MP-CSI-SEPARATOR-DIVERGENCE-001`、`MP-CSI-EFFECTIVE-SYSTEM-001`、`MP-CSI-INDEPENDENT-SENTENCE-001`、`MP-CSI-ESSENTIAL-INCOMPLETENESS-001` | `formal/cubical-synthetic-incompleteness/SyntheticIncompleteness.agda`；范围和文献对应见同目录 `CLAIM.md` | `verification/runs/20260914-CUBICAL-SYNTHETIC-INCOMPLETENESS-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；`--cubical --safe --guardedness`；exit 0、stderr 0 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / CONDITIONAL_SYNTHETIC_ESSENTIAL_INCOMPLETENESS_CORE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CSI-PARTIAL-BOOL-001 | `PartBool` 以有限 stage witness 表示确定性部分 Boolean 计算；`flipPart` 交换 true/false 成功结果并保持确定性。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `some-injective`、`mapFlip-success`、`runs-deterministic`、`flipPart`、`flip-runs-false`、`flip-runs-true`；run `20260914-CUBICAL-SYNTHETIC-INCOMPLETENESS-001`。 | 这只是 step-indexed interface；不证明所有部分函数都有自然数 code。 |
+| MP-CSI-SEPARATOR-DIVERGENCE-001 | 若 `θ` 满足显式 `Universal θ`，任何对 `θ x x` 的 true/false self-return 集合作正确分离的部分函数族，都在构造出的某个 `c` 上对两个 Boolean 结果均不完成；因此不存在 total separator。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `separator-diverges`、`no-total-separator`；同一 run。 | `Universal θ` 是参数而非本包构造的定理；不声称普通 Cubical Agda 满足 Church thesis。 |
+| MP-CSI-EFFECTIVE-SYSTEM-001 | `FormalSystem` 的部分 classifier 若与 proof/refutation 双向对应，则同一句及其 negation 不可同时 derivable。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `FormalSystem` 字段、`classifier-consistent`；同一 run。 | 该记录不是当前 `MiniProofChecker` 的已完成实例；它要求 proof/refutation 的部分分类器。 |
+| MP-CSI-INDEPENDENT-SENTENCE-001 | 在 `Universal θ` 与对两个 self-return 集合的 strong separation 下，可构造 `c`，使 represented sentence `r c` 及其 negation 都不可导；并推出该 system 不满足 data-bearing constructive completeness。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `synthetic-incompleteness`、`independent-refutes-complete`、`synthetic-not-complete`；同一 run。 | 不含 Robinson arithmetic、对象层表示性或 exact HoTT calculus 实例；条件前提未被消去。 |
+| MP-CSI-ESSENTIAL-INCOMPLETENESS-001 | strong separation 从 base system 沿 `Extends` 传给任一 extension；每个满足接口的 extension 因而有 represented independent sentence。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `strong-separation-extends`、`synthetic-essential-incompleteness`；同一 run。 | “essential” 只相对于同一句型/negation、显式 extension 与 base strong-separation；不自动覆盖任意理论扩张。 |
+
+## 追加登记：PF-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001（proof/refutation 部分分类器实例，2026-09-14）
+
+> 精确搜索语义、对象逻辑一致性与剩余实例义务见
+> `HoTT/formal/cubical-godel-infrastructure/PROOF_SEARCH_CLASSIFIER_CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001/RUN.json`。
+> 本包用新 `--include-dir` 捕获能力绑定 Gödel coding 目录与 synthetic-incompleteness 目录；两个 include 目录及全部决定性源文件都进入 run 记录。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001` | `MP-CGI-SEMANTIC-CONSISTENCY-001`、`MP-CGI-PROOF-CORE-001`、`MP-CGI-PROOF-CLASSIFIER-001`、`MP-CGI-FORMAL-SYSTEM-INSTANCE-001` | `formal/cubical-godel-infrastructure/ProofSearchClassifier.agda`；依赖同目录五个 coding/checker source 与 `formal/cubical-synthetic-incompleteness/SyntheticIncompleteness.agda`；范围见 `PROOF_SEARCH_CLASSIFIER_CLAIM.md` | `verification/runs/20260914-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；两个 exact include dirs；exit 0、stderr 0；stdout 保留 Nat code 依赖的一项 transport-computation warning | `MACHINE_PROVED_LOCAL_UNCOMMITTED / EFFECTIVE_PROOF_REFUTATION_CLASSIFIER_INSTANCE` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CGI-SEMANTIC-CONSISTENCY-001 | Boolean semantics 验证 K/S 对所有 valuation 有效且 MP 保真；因此 `bot` 不可导，任意 `φ` 与 `φ ⇒ bot` 不可同时导出。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `impK-valid`、`impS-valid`、`imp-mp-valid`、`derivation-valid`、`no-bot`、`no-proof-and-refutation`；run `20260914-CUBICAL-GODEL-PROOF-SEARCH-CLASSIFIER-001`。 | 只证明当前 K/S/MP calculus 的语法一致性；不证明任意扩张、算术或 HoTT 一致。 |
+| MP-CGI-PROOF-CORE-001 | Stage `n` 检查自然数码 `n` 对 `φ` 与 `negF φ`；true/false outcome 与对应 `checkProofNat` 接受逐向等价。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `proofCore`、`core-true→check`、`core-false→check-neg`、`check→core-true`、`check-neg→core-false`；同一 run。 | 一个 stage 只检查一个 code；无 outcome 不构成有限可判定的“不存在证明”。 |
+| MP-CGI-PROOF-CLASSIFIER-001 | 不同自然数 code 的成功 stages 不会给出相反 Boolean；`proofClassifier φ ⇓ true ↔ ⊢ φ`，`proofClassifier φ ⇓ false ↔ ⊢ negF φ`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `proofCore-deterministic`、`proofClassifier`、四个 runs/derivation direction lemmas；同一 run。 | 这是半搜索/部分分类器，不是 total theoremhood decider；独立句上预期没有任何成功 stage。 |
+| MP-CGI-FORMAL-SYSTEM-INSTANCE-001 | 当前 K/S/MP calculus 具体 inhabits `SyntheticIncompleteness.FormalSystem Fml negF`，并由 classifier interface 恢复 consistency。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `HilbertSystem`、`hilbert-consistent`；同一 run。 | 只消去 conditional synthetic theorem 的 effective-classifier 参数；`Universal θ` 与 strong separation 仍未实例化，所以尚无本 calculus 的不完备性结论。 |
+
+## 追加登记：PF-CUBICAL-CANDIDATE-COVERAGE-001（有界完成性候选的相对枚举完备与任务保持归约，2026-09-14）
+
+> 精确候选类、规范化语义与禁止外推见
+> `HoTT/formal/cubical-candidate-coverage/CLAIM.md`；run 见
+> `HoTT/verification/runs/20260914-CUBICAL-CANDIDATE-COVERAGE-001/RUN.json`。
+> 本包只把 `COMP-2` 和一个固定 deadline TaskSpec 的 reduction-preservation 做成机器定理；它不声称覆盖全体 HoTT 候选。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `PF-CUBICAL-CANDIDATE-COVERAGE-001` | `MP-CCC-RAW-ENUMERATION-001`、`MP-CCC-NORMALIZATION-SEMANTICS-001`、`MP-CCC-TASK-PRESERVATION-001`、`MP-CCC-REDUCED-COVERAGE-001`、`MP-CCC-CONTROLS-001` | `formal/cubical-candidate-coverage/CandidateCoverage.agda`，依赖 `formal/partiality-race-timeout/PartialityRaceTimeout.agda`；范围见同目录 `CLAIM.md` | `verification/runs/20260914-CUBICAL-CANDIDATE-COVERAGE-001/`；Agda 2.8.0-3d04bac；Cubical v0.9；两个 exact include dirs；exit 0、stderr 0；stdout 保留一项 `UnsupportedIndexedMatch` 诊断，限定 coverage proof 在 transported indexed input 上的 judgemental reduction，本包没有该类 consumer | `MACHINE_PROVED_LOCAL_UNCOMMITTED / BOUNDED_GRAMMAR_RELATIVE_COMPLETENESS_WITH_TASK_PRESERVING_REDUCTION` |
+
+| ID | 主张 | 裁决 | 直接依据 | 禁止外推 |
+|---|---|---|---|---|
+| MP-CCC-RAW-ENUMERATION-001 | 对每个 bound `n` 与每个 `r : Raw n`，都有 `r ∈ allRaw n`；即枚举覆盖精确声明的 `never / now false / now true / laterR` 有界 grammar。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `map-member`、`allRaw`、`allRaw-complete`；run `20260914-CUBICAL-CANDIDATE-COVERAGE-001`。 | 只覆盖 `Raw n`；不覆盖任意 HoTT term、consumer、无界语法或未来 grammar。关于 transported indexed input 的计算行为不在主张内。 |
+| MP-CCC-NORMALIZATION-SEMANTICS-001 | `normalize : Raw n → Delay Bool` 对每个 Boolean 保持 convergence evidence，并对每个 horizon 保持 independently defined raw/canonical deadline observation。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `normalization-preserves-convergence`、`deadline-zero-later`、`deadline-suc-later`、`normalization-preserves-deadline`；同一 run。 | 只证明 convergence 与 deadline；不声称保持任意 race、bind、quotient、HIT eliminator 或 proof-search semantics。 |
+| MP-CCC-TASK-PRESERVATION-001 | `reduceCandidate` 原样保存 TaskSpec 的 horizon 与 expected observation，并保持该候选的实际 deadline observation。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `horizon-preserved`、`expected-preserved`、`observation-preserved`；同一 run。 | TaskSpec 字段是形式对应数据；不是现实活动的经验性或哲学性保真证明。 |
+| MP-CCC-REDUCED-COVERAGE-001 | 对固定 bound/horizon/expected 与任意 `r : Raw n`，其 `reduceCandidate` 结果出现在 `canonicalSpace n k expected` 中。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `candidate-space-complete`、`canonicalSpace`、`reduced-space-complete`；同一 run。 | 这是一个精确小类到 canonical search denominator 的覆盖；不是所有非现实性候选到当前机器 grammar 的 `COMP-4` 定理。 |
+| MP-CCC-CONTROLS-001 | immediate/one-later candidates 均被枚举；deadline 0 对 one-later 返回 `none`、deadline 1 返回 `some true`；canonical divergence 返回 `none`；`laterR never` 规范化为 `ω`。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED` | `control-now-member`、`control-later-member`、`control-too-early`、`control-on-time`、`control-never`、`later-never-normalizes`；同一 run。 | 固定控制验证边界值和规范化折叠，不扩大候选类或证明 HoTT 专属性、通用停机不可判定、全局完备性与现实对应。 |

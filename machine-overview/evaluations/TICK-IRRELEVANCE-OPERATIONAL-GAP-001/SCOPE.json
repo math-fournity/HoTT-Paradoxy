@@ -1,0 +1,292 @@
+{
+  "schema_version": "machine-overview-tick-operational-gap-scope/v1",
+  "evaluation_id": "TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+  "freeze_id": "TICK-IRRELEVANCE-OPERATIONAL-GAP-FREEZE-001",
+  "theory_configuration": {
+    "paper": "Clocked Cubical Type Theory / Greatest HITs, arXiv:2102.01969v3",
+    "library": "agda/guarded forcing-ticks at cf0c438214cb10874ac1a7650f8d0d69677db57e",
+    "checker": "agda/agda forcing-ticks at 5bec849bec6c7aa40e068db99c5a1f5eab47a874",
+    "control": "Agda 2.8.0-3d04bac plus Cubical v0.9"
+  },
+  "operational_observation": {
+    "question": "Does application of this tick form make the fixed-point term unfold judgementally at the current type-checking step?",
+    "forcing_tick_value": true,
+    "ordinary_tick_value": false,
+    "scope": "The exact reduction relation implemented by the pinned forcing-ticks checker; this is not physical elapsed time.",
+    "internalisation_test": "Treat the observation as a path-respecting Bool-valued function on an internal tick type."
+  },
+  "questions": [
+    {"id": "G1", "question": "Does the fixed source distinguish ordinary and forcing ticks operationally?"},
+    {"id": "G2", "question": "Does it construct Path-level tick irrelevance between applications?"},
+    {"id": "G3", "question": "Does it keep Path equality distinct from judgemental unfolding/current reduction?"},
+    {"id": "G4", "question": "Can the operational distinction be internalised as a path-respecting Bool observer without collapse?"},
+    {"id": "G5", "question": "Do clock abstraction, residual contexts and forcing scope retain the timing qualification?"},
+    {"id": "G6", "question": "Does a fixed implementation or library consumer promote Path equality to operational interchangeability?"},
+    {"id": "G7", "question": "Is a natural-use reality mismatch established in the frozen source set?"},
+    {"id": "G8", "question": "Can the exact theory/checker slice be replayed natively with pinned inputs?"}
+  ],
+  "natural_usage_gate": {
+    "verdict_on_pass": "NATURAL_USAGE_MISMATCH",
+    "required_conditions": [
+      "A fixed real implementation or application is named and source-pinned.",
+      "The same dfix/application task is compared at forcing and ordinary ticks.",
+      "The consumer explicitly uses Path equality as a license for same-step judgemental unfolding or current availability.",
+      "The promotion does not add a syntax observer, host checker, clock family or other qualifying data.",
+      "The consumer promises an operational result whose truth differs between the two tick forms.",
+      "The exact promotion is natively replayed or rejected by the pinned checker."
+    ]
+  },
+  "allowed_external_roots": [
+    "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001",
+    "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001",
+    "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+    "/Volumes/D/HoTT-toolchain-cache"
+  ],
+  "sources": [
+    {
+      "source_id": "TG-S1-CCTT-PAPER-v3",
+      "role": "THEORY_SPECIFICATION",
+      "artifacts": [
+        {
+          "artifact_id": "TG-A-CCTT-PDF",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/clocked-cubical-v3.pdf",
+          "kind": "binary",
+          "bytes": 627342,
+          "sha256": "6c48722bbee68bb41e8a8a637efd36743c4f386170d3dbeb373c5dfadf07caa2"
+        },
+        {
+          "artifact_id": "TG-A-CCTT-TEXT",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/L3-NATURAL-CONSUMER-AUDIT-001/clocked-cubical-v3.pages.txt",
+          "kind": "text",
+          "bytes": 217461,
+          "sha256": "0746bcd4fa53772516a19b6f1a593999806c12d3bf4ba352ded01667502f7cf4"
+        }
+      ]
+    },
+    {
+      "source_id": "TG-S2-GUARDED-LIB-cf0c438",
+      "role": "REFERENCE_LIBRARY",
+      "artifacts": [
+        {
+          "artifact_id": "TG-A-GUARDED-README",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/README.md",
+          "kind": "text",
+          "bytes": 766,
+          "sha256": "7dc5d4c5895ad942cd9359694f894095cd1aeedc4ec1a383bb1d0ee3b1191e3f"
+        },
+        {
+          "artifact_id": "TG-A-CLOCKED-PRIMITIVES",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Primitives.agda",
+          "kind": "text",
+          "bytes": 3818,
+          "sha256": "a8b5da3aaeead0b003a0124bb73d5f69e6b88650bded728ea70073f4c7df9aaa"
+        },
+        {
+          "artifact_id": "TG-A-CLOCKED-LIFT",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Lift.agda",
+          "kind": "text",
+          "bytes": 5052,
+          "sha256": "41d141f53265d3d8f7427c22ea37fd492d0bc3f38ee1cd6cd4b6725b5f88230b"
+        },
+        {
+          "artifact_id": "TG-A-GUARDED-LATER",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Guarded/Later.agda",
+          "kind": "text",
+          "bytes": 2336,
+          "sha256": "f9b8569a331b629c0d01aa124405409d5129dd4c41fc6d872f8da1da8d98b4c0"
+        }
+      ]
+    },
+    {
+      "source_id": "TG-S3-AGDA-CHECKERS",
+      "role": "CHECKER_IMPLEMENTATION_AND_TOOLCHAINS",
+      "artifacts": [
+        {
+          "artifact_id": "TG-A-AGDA-CABAL",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/Agda.cabal",
+          "kind": "text",
+          "bytes": 47568,
+          "sha256": "7974412d265c647d3a282e1481b9b793c8cd915d32005ece4a5b399f08b2f16f"
+        },
+        {
+          "artifact_id": "TG-A-COMPILER-COMMON",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda/Syntax/Common.hs",
+          "kind": "text",
+          "bytes": 94167,
+          "sha256": "809806f7a8df7c466a2530c49459acb4182127ebf04ea87ce936cd8c8e035380"
+        },
+        {
+          "artifact_id": "TG-A-COMPILER-BUILTIN-VIEW",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda/TypeChecking/Monad/Builtin.hs",
+          "kind": "text",
+          "bytes": 35204,
+          "sha256": "da942ed60d085caf53a4084246bab8801fff38838fa34d6ecacef726826186b6"
+        },
+        {
+          "artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda/TypeChecking/Primitive/Cubical.hs",
+          "kind": "text",
+          "bytes": 123359,
+          "sha256": "15c8c9ef2b1d6691f353c94fe66be7fc0c47af179895074415b8b497d3a594da"
+        },
+        {
+          "artifact_id": "TG-A-CABAL-FREEZE",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/cabal.project.freeze",
+          "kind": "text",
+          "bytes": 6193,
+          "sha256": "f52b18684baf2e69f199767b197348e11650a82a9462889277035e1abc9c747a"
+        },
+        {
+          "artifact_id": "TG-A-CABAL-CONFIG",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/cabal-arm64/config",
+          "kind": "text",
+          "bytes": 5271,
+          "sha256": "43161f291aac82d3fd6c85760cdec0d52ee4368bde2f217d7f6c7cf7d751500a"
+        },
+        {
+          "artifact_id": "TG-A-HACKAGE-INDEX",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/cabal-arm64/packages/hackage.haskell.org/00-index.tar.gz",
+          "kind": "binary",
+          "bytes": 31751746,
+          "sha256": "10653cc66b714fbbf8188c4c20b219b0c063b2159c378aa59573de5a347f6cb3"
+        },
+        {
+          "artifact_id": "TG-A-CABAL-PLAN",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/build-arm64/dist-o0/cache/plan.json",
+          "kind": "text",
+          "bytes": 75795,
+          "sha256": "be0a8bae7a0a0d195c12f91fddff793db82124a85cadb42aa0820ea6b52a8862"
+        },
+        {
+          "artifact_id": "TG-A-BUILD-RECEIPT",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/BUILD-RECEIPT.json",
+          "kind": "text",
+          "bytes": 5352,
+          "sha256": "a8e6e73ecc74cb2a2039c765afeeba3d077f79e969e5bbd09e99ec0d8c614f01"
+        },
+        {
+          "artifact_id": "TG-A-FORCING-AGDA-BINARY",
+          "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/out-arm64/agda-forcing-ticks-linux-arm64",
+          "kind": "binary",
+          "bytes": 161708104,
+          "sha256": "31a5ea292d2aa9a58df49eafc5f08ded25bddbac6ce81f45caf4d2f065a6212f"
+        },
+        {
+          "artifact_id": "TG-A-HOST-TOOLCHAIN",
+          "path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "kind": "text",
+          "bytes": 2629,
+          "sha256": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07"
+        },
+        {
+          "artifact_id": "TG-A-HOST-AGDA-BINARY",
+          "path": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+          "kind": "binary",
+          "bytes": 102056440,
+          "sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e"
+        }
+      ]
+    }
+  ],
+  "trees": [
+    {
+      "tree_id": "GUARDED-FORCING-SOURCE",
+      "path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src",
+      "identity": {"file_count": 6, "total_bytes": 16309, "tree_sha256": "da72c4efed4c77f6512dd0be6b8cfbc64339165eb2657f48be15a0211896b6cb"}
+    },
+    {
+      "tree_id": "AGDA-FORCING-SOURCE",
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/full/Agda",
+      "identity": {"file_count": 414, "total_bytes": 5621986, "tree_sha256": "955a158a7e0dca4d77247ae9f1cddd4bbf8574fd36d241b25f119785667fcf5e"}
+    },
+    {
+      "tree_id": "AGDA-FORCING-PRIMLIB",
+      "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks/src/data/lib/prim",
+      "identity": {"file_count": 36, "total_bytes": 50366, "tree_sha256": "93a139817c14764dc3514ca624c77d7be3322b0b6d775c4ac6a81979612164e7"}
+    },
+    {
+      "tree_id": "CUBICAL-v0.9",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical",
+      "identity": {"file_count": 1111, "total_bytes": 7511145, "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81"}
+    }
+  ],
+  "toolchains": {
+    "host_agda": {"config_path": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"},
+    "forcing_agda": {
+      "binary": {
+        "path": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/out-arm64/agda-forcing-ticks-linux-arm64",
+        "bytes": 161708104,
+        "sha256": "31a5ea292d2aa9a58df49eafc5f08ded25bddbac6ce81f45caf4d2f065a6212f"
+      },
+      "compiler_root": "/Volumes/D/HoTT-machine-overview-cache/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/agda-forcing-ticks",
+      "guarded_root": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks",
+      "docker": {
+        "image": "sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b",
+        "platform": "linux/arm64",
+        "identity": {
+          "id": "sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b",
+          "architecture": "arm64",
+          "os": "linux",
+          "repo_digests": ["hott-agda-forcing-ticks-runtime@sha256:48ccd2705f82149c5a34de520ee19c08ed1f0134f99588171eb72e798e3b591b"]
+        }
+      }
+    }
+  },
+  "inventory_patterns": {
+    "force_delay_path": "\\bforce-delay\\b",
+    "tick_irrelevance_path": "\\b(?:tick-irr|ftirr|tirr)\\b",
+    "diamond_only_comment": "compute only on diamond ticks",
+    "lock_kind_split": "\\b(?:LockKind|ForcingTick)\\b",
+    "diamond_reduction_branch": "FTDia _k\\s+-> advanceCase' slk True",
+    "pfix_reduction_guard": "reducePFix (?:False|True)"
+  },
+  "candidate_signature": {
+    "requirements": [
+      {"id": "PATH_FORCE_DELAY", "tree_id": "GUARDED-FORCING-SOURCE", "pattern_id": "force_delay_path", "metric": "occurrences", "minimum": 2},
+      {"id": "PATH_TICK_IRRELEVANCE", "tree_id": "GUARDED-FORCING-SOURCE", "pattern_id": "tick_irrelevance_path", "metric": "occurrences", "minimum": 6},
+      {"id": "SOURCE_DIAMOND_ONLY", "tree_id": "GUARDED-FORCING-SOURCE", "pattern_id": "diamond_only_comment", "metric": "occurrences", "minimum": 1},
+      {"id": "CHECKER_TICK_KINDS", "tree_id": "AGDA-FORCING-SOURCE", "pattern_id": "lock_kind_split", "metric": "occurrences", "minimum": 15},
+      {"id": "CHECKER_DIAMOND_BRANCH", "tree_id": "AGDA-FORCING-SOURCE", "pattern_id": "diamond_reduction_branch", "metric": "occurrences", "minimum": 1},
+      {"id": "CHECKER_PFIX_GUARD", "tree_id": "AGDA-FORCING-SOURCE", "pattern_id": "pfix_reduction_guard", "metric": "occurrences", "minimum": 2}
+    ]
+  },
+  "search_graph": {
+    "type": "Bool",
+    "vertices": ["observe(forcing)", "true", "observe(ordinary)", "false"],
+    "assumptions": [
+      {"id": "FORCING-OBSERVATION", "left": "observe(forcing)", "right": "true", "meaning": "forcing tick triggers current unfolding"},
+      {"id": "TICK-PATH-CONGRUENCE", "left": "observe(forcing)", "right": "observe(ordinary)", "meaning": "cong observe tirr"},
+      {"id": "ORDINARY-OBSERVATION", "left": "observe(ordinary)", "right": "false", "meaning": "ordinary tick does not trigger current unfolding"}
+    ],
+    "target": {"left": "true", "right": "false"},
+    "max_edges": 3,
+    "required_assumptions": ["FORCING-OBSERVATION", "TICK-PATH-CONGRUENCE", "ORDINARY-OBSERVATION"]
+  },
+  "probe_plan": [
+    {"probe_id": "P01-INTERNAL-OBSERVER-COLLISION", "runner": "host_agda", "purpose": "Native safe Cubical proof of the conditional observer collision plus constant/two-sorted positive controls.", "expect": "ACCEPT", "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/TickObserverBoundary.agda"},
+    {"probe_id": "P02-BAD-PATH-RESPECTING-OBSERVER", "runner": "host_agda", "purpose": "Directly define a Bool discriminator on a HIT whose constructors are joined by tirr.", "expect": "TYPE_REJECTION", "diagnostic": "[CoverageIssue]", "expected_exit": 42, "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOperationalObserver.agda"},
+    {"probe_id": "P03-BAD-PATH-AS-REFL", "runner": "host_agda", "purpose": "Check that a path constructor does not make distinct tick constructors judgementally equal.", "expect": "TYPE_REJECTION", "diagnostic": "[UnequalTerms]", "expected_exit": 42, "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadTickPathRefl.agda"},
+    {"probe_id": "P04-EXACT-CLOCKED-PRIMITIVES", "runner": "forcing_agda", "purpose": "Compile the exact forcing-ticks Clocked.Primitives source with the exact branch checker.", "expect": "ACCEPT", "artifact_id": "TG-A-CLOCKED-PRIMITIVES"},
+    {"probe_id": "P05-DIAMOND-JUDGEMENTAL-UNFOLD", "runner": "forcing_agda", "purpose": "Use refl to observe dfix unfolding after forcing application at diamond.", "expect": "ACCEPT", "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForcingTickComputation.agda"},
+    {"probe_id": "P06-ORDINARY-TICK-PATH", "runner": "forcing_agda", "purpose": "Use pfix' to relate an ordinary-tick application to its unfolding by Path.", "expect": "ACCEPT", "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/OrdinaryTickPath.agda"},
+    {"probe_id": "P07-BAD-ORDINARY-JUDGEMENTAL-UNFOLD", "runner": "forcing_agda", "purpose": "Attempt to replace the ordinary-tick pfix Path with refl.", "expect": "TYPE_REJECTION", "diagnostic": "lineFix zeroAlg Agda.Primitive.Cubical.i0", "expected_exit": 42, "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOrdinaryTickRefl.agda"},
+    {"probe_id": "P08-FORCE-DELAY-PATH", "runner": "forcing_agda", "purpose": "Instantiate the exact force-delay Path between forcing result and ordinary-tick application.", "expect": "ACCEPT", "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForceDelayPath.agda"},
+    {"probe_id": "P09-BAD-FORCE-DELAY-AS-REFL", "runner": "forcing_agda", "purpose": "Attempt to replace force-delay by judgemental equality for the same dfix family.", "expect": "TYPE_REJECTION", "diagnostic": "zero != lineFix zeroAlg", "expected_exit": 42, "future_path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadForceDelayRefl.agda"}
+  ],
+  "future_paths": [
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/DECISIONS.json",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/REPORT.md",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/TickObserverBoundary.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOperationalObserver.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadTickPathRefl.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForcingTickComputation.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/OrdinaryTickPath.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOrdinaryTickRefl.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForceDelayPath.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadForceDelayRefl.agda",
+    "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/runs/20260913-TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+    "machine-overview/tests/test_tick_irrelevance_gap.py",
+    ".codex/research/hott/sessions/S-RES-20260913-TICK-IRRELEVANCE-OPERATIONAL-GAP"
+  ],
+  "scope_limit": "The evaluation covers the fixed paper, six-file reference library, exact 2021 checker branch, exact local builds and the declared probes/search grammar. It does not establish physical time, global literature absence, compiler correctness or a HoTT defect."
+}
