@@ -379,3 +379,7 @@ python3 tools/replay.py --agda /path/to/agda --cubical-lib /path/to/cubical/cubi
 - `main`（本分支）只放支撑结论的内容：结论文档、精确命题、证明源码、运行记录与重放方法。它由 `dev` 的提交 [`29741a5b`](https://github.com/math-fournity/HoTT-Paradoxy/commit/29741a5bc14404d875b39fb16d3a2fcb7d798085) 按清单生成（`dev` 上的 `scripts/release/build_main_release.py` 与 `scripts/release/main-release-spec.json`），不在本分支上直接修改。要更新，就在 `dev` 上改清单或结论文档，再重新生成。
 - `dev`：全部研究过程，所有工作都在那里进行。
 - 本说明另有俄、德、法、英文版本，内容相同。社区审计稿与 `CLAIMS.md` 也有这四种语言的译本；译本由 AI 翻译，以中文为准。《ZFC-1 的问题：原话逐句对照与机器证明》只有中文版。
+
+# 留给数学社区的思考题
+
+为什么壮哥说：数学文明的发展呈现“线性发展与非线性折返”的交错，是数学文明的内生性的必然。
