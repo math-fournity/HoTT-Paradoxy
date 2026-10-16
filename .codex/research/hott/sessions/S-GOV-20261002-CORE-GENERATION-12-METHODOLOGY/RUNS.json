@@ -1,0 +1,33 @@
+{
+  "base_snapshot": "6c83f533e1b3e81bc58d1868a1f6fe5e872aed7331a32c35f9752f97d6dc24be",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "status": "generation-12 built before payload preparation; no mathematical claim",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "status": "must pass against curation-v12 and generation-12 transition before checkpoint",
+      "tool": "scripts/audit/verify_core_cognition.py"
+    },
+    {
+      "status": "payload constructed and cognition_runtime dry-run must pass",
+      "tool": "audit/core-generation-12-methodology/prepare_checkpoint.py"
+    },
+    {
+      "status": "only CHECKPOINT_COMMITTED result proves application",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "new_math_claims": [],
+  "open": [
+    "future semantic use of core",
+    "P specification validation",
+    "all ZFC and other theory candidates",
+    "Goal7 / MO3-COVERAGE-C"
+  ],
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_METHOD_CONSOLIDATION"
+}
