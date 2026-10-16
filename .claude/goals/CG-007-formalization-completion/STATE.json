@@ -3,16 +3,16 @@
   "id": "CG-007",
   "title": "形式化收官：两条路线（R-有、R-无）与综合的全部机器证明，并发布 main",
   "status": "ACTIVE",
-  "phase": "W8-layer2-branches PARTIAL (C-398 neg involution, C-399 iT_neg, C-400 four ShCraigElim branches: hAnd/hOr/hAxL/hCut; all with receipts, replayed exactly) / W8-remaining: hAll/hExs/hShift need iT commuting with free/setShift/substs1 (not yet proved — the translated quantifier shifts the level by one) + axm + derivable_translateSeq + keyE + bridge + zfcTr_D3_internalize / W9-release-pending-authorization",
-  "next_action": "W8 第 2 层收尾：先证 iT 与 shift 的相容律（原子支 iTR 0 k R (termShiftVec k v) = shift (iTR 0 k R v)，需先摸清 qqAlls/shift 与 conjunct/subst 的交换；量词支层数错开一位），再写 hAll/hShift；hExs 需 iT 与 substs1 的相容；axm 支需 codeOfREPred 的一般 V 表示引理；然后 derivable_translateSeq 组装、keyE 两个方向、bridge、zfcTr_D3_internalize 替换 Z0Blocked.lean 的 sorry。每支卡住就照实写阻塞引理。C-120 影子形式不受影响",
+  "phase": "W8-layer2-branches: hRoot obligation pinned; quoted-input route excluded",
+  "next_action": "等 Master 派工。本线已无未入 git、别人不会做的活：hExs 属 001-Step、hRoot 已确认=D3（属四线共同，方向是 Theory.Δ₁ Sh 那一族）、双证 iT_subst_open 等 hExs 分水岭后再排。若 Master 无新派工，本线自行推进候选：读通 ITRSubstOpen.lean 与 QvecV.lean（风险评估里标为'下一个该读的'），把 iT_subst_open 的备用评估做完。",
   "bound_sessions": [
     "d58e0c0d-fdab-467e-aa11-6f0151221e2e",
     "01a120e6-4f37-79c0-8651-49996aaf6d9b"
   ],
   "created": "2026-10-08T20:13:44-04:00",
-  "updated": "2026-10-12T17:22:30-04:00",
-  "last_checkpoint": "2026-10-12T17:22:30-04:00",
-  "checkpoints": 12,
-  "compactions": 2,
-  "last_compaction": "2026-10-09T08:48:39-04:00"
+  "updated": "2026-10-14T05:52:39-04:00",
+  "last_checkpoint": "2026-10-14T05:52:39-04:00",
+  "checkpoints": 16,
+  "compactions": 3,
+  "last_compaction": "2026-10-13T12:42:08-04:00"
 }
