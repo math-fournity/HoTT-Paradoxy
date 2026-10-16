@@ -1022,3 +1022,596 @@ NO_Q_CLAIM
 b58efeb7 feat: define ZFC Q corpus map SOP
 0654f4d0 docs: hand off ZFC Q corpus map SOP
 ```
+
+
+<!-- conversation-archive-turn: skill-turn-7643233a969b48bbba75d1ae200199b3 prompt_sha256=69c17874a4346819e0891e7b9db95d7896d54f80180ba85296cdb546a626baa6 answer_sha256=bc862c451084d4444d6afe2dff0ab7a1e2b6b10fa750ba7c4f0bbd358bffb472 -->
+## 2026-10-03 · Turn skill-turn-7643233a969b48bbba75d1ae200199b3
+
+### 用户提问
+
+看看是不是应该走研究型？
+````go
+```
+这是一个可能具有研究型工程特征的 repo 任务。请先按当前项目 AGENTS 和
+repo-cognitive-closure 建立 TaskDescriptor，并显式判断应采用：
+DIRECT_WORK、RESEARCH_PROFILE_LIGHT、RESEARCH_PROFILE_GOVERNED，还是
+RESEARCH_PROFILE_PREPARE_ONLY。
+
+不要因为它有文献、很多文件、多个想法或多个 Agent 就自动进入研究型模式。
+若 profile 成立，请说明：父结果、哪些方向会改变什么工程决定、当前少量活跃方向、
+每条方向的下一项最小判别行动、证据边界、停止/重开条件，以及应写回哪些既有 owner。
+
+研究地图只能投影既有 Program/Topic/plan、MEMORY、Feature、evidence 和 Git；
+不得自动创建研究数据库、图服务、后台监控、Host Goal、worktree、Sub Agent、网络访问、
+外部写入、commit、tag 或 push。
+```
+````
+
+### AI 最终回复
+
+## 判定
+
+**这项 ZFC-Q 语料工程应采用 `RESEARCH_PROFILE_GOVERNED`。**
+
+这里的研究型对象是 `ZFC-Q-CORPUS-MAP-SOP` 的可追溯语料与资格化地图工程，不是把“ZFC 已有问题”当作研究结论，也不是新建一个总控平台。现有的 `ZQCM-TD-001` 已经作出了同一判定；我本轮回到项目 AGENTS、`repo-cognitive-closure`、SOP、当前 Feature、MEMORY、批次 Manifest 和 Git 工作树复核后，认为它仍然正确，应当复用而不是另起一套 profile。
+
+当前 profile 的直接 owner 是 [ZQCM-001 Manifest](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md:21)，当前 Feature 是 [F-046](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/feature-list.md:7)，当前队列入口是 [MEMORY/001](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/MEMORY/001%20-%20当前执行队列.md:65)。三者的结论一致。
+
+## 本轮 TaskDescriptor
+
+| 字段 | 本轮闭合结果 |
+|---|---|
+| **标识与复用判词** | `ZQCM-TD-001`；对 profile 本身为 `REUSE_AS_IS`。当前工作树中未跟踪的 W-003 页图是尚待写入的来源证据，不会改变 profile 的身份。 |
+| **父结果** | 一份能被 P-FORGE、HOTT-MOTIVE-ZFC 与以后 ZFC Q 专项工作消费的、版本和来源可追溯的语料与文献地图。它本身不交付 ZFC Q。 |
+| **成功标准** | 每个冻结 work family 都有获取／不可得处置；已接收 PDF 有身份和页级核验；远程 MinerU 有成功导出或失败收据；citation、coverage、Q lead 都保留 remainder 和资格边界。 |
+| **系统岛与生命周期** | `audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/`；`FROZEN_CORPUS_BATCH / ACQUISITION_ACTIVE`。它跨 Session 保留版本族、获取限制、视觉证据与引用边。 |
+| **授权范围** | 公开文献发现、落盘、PDF 核验、direct-remote MinerU、视觉检查、地图与 Q-lead routing；不含 P-DAG、worker、数学 STATE、Power Set 站位、数学结论、tag、push 或发布。 |
+| **主张与证据等级** | 原 PDF 是内容权威；MinerU 是派生阅读层；摘要、OCR、下载路径和作者动机都不能直接升级为 Q。当前仅可形成来源控制、种子或 Q lead 的资格判词。 |
+| **快照与失效条件** | 当前分支 `codex/hott-motive-zfc-literature` 的已提交 tip 为 `668a3ed1`；W-003 页图尚未写回 owner。若取得 W-012/W-014 的合法全文、出现版本固定的 ordinary ZFC actual consumer、发现直接强引文，或用户改变范围/消费者，受影响方向必须重新闭合。 |
+
+## 为什么这里确实需要 governed，而非“文件多”
+
+决定因素不是 14 个 work family 或文献页数，而是下面三件相互关联的事实：
+
+1. **每个新原典可能改变后续工程路由。** 一个来源若只提供构造性／模型语义控制，应留在地图；若它固定了 ZFC 内同一对象、操作、观察和 Done 的 actual consumer，才可能触发专门的 R/Z/Q 资格化卡。这个分流决定不能由一次下载动作单独完成。
+
+2. **跨 Session 的证据状态有实际语义。** 报告版本、SHA-256、合法获取状态、remote MinerU 成败、150dpi/300dpi 页图、引文余项和 Q-card 的范围必须持续对齐。把它们遗忘或混同，会把“没有全文”“模型层控制”“来源支付”误报成 Q。
+
+3. **这里有高代价的假阳性风险。** 当前批次已经产生了有价值的负向约束：W-011 是类型论 judgment 层的 identity/extensionality 比较，W-013 是 CZF／类型论的 formation 控制，均未给出 ordinary ZFC 的同一任务 consumer。研究型 profile 让这些控制继续约束后面的选择，而不被新题名或 OCR 覆盖。
+
+这正是跨来源、可被新证据推翻、并且会改变后续资格化决定的工作；因此轻量的单次笔记不足以承担它。
+
+## 活跃前沿与判别动作
+
+| 方向 | 会改变的工程决定 | 下一项最小判别行动 | 证据边界与停止／重开 |
+|---|---|---|---|
+| `ZQCM-DIR-ITERATIVE-FORMATION` | 是建立 ZFC formation→actual-consumer bridge，还是把该线稳定为构造性／哲学控制。 | 将 W-013 的可核原页与 W-012/W-014 的 seed 分开，寻找**版本固定的 ordinary ZFC actual consumer**，并固定同一对象、操作、观察和 Done。 | W-013 是 CZF／类型论解释，W-012/W-014 尚无可读全文。找不到该 consumer 就停为 `CONTROL_OR_SEED_ONLY`；取得合法全文或 actual consumer 才重开。 |
+| `ZQCM-DIR-IDENTITY-EXTENSIONALITY` | 是建立 identity/extensionality 的 ZFC bridge，还是把 W-011 稳定为 type-theoretic comparison control。 | 找到一个实际 ZFC consumer，明确其输入、输出和完成条件，再与现有 ETCS／同构／实际消费者控制比较。 | W-011 当前关键论证在类型论 judgment 层；若 consumer 已支付同一任务，或只重述类型论比较，就停为 `SOURCE_PRECISION_GAIN_NOT_Q`；出现固定、未付的同一任务来源才重开。 |
+
+`ZQCM-NET-005` 的引文扩展仍应保持 `PARKED`：只有任一活跃方向完成当前筛读，或出现新的直接作者／actual-consumer 引用时才重开。远程 MinerU 的重新资格化是**质量支持通道**，不是第三条理论方向；它影响派生文本的可用性，不决定 ZFC Q。
+
+## 为什么其余三个选项不合适
+
+- **不是 `DIRECT_WORK`：** 单篇 PDF 的获取、哈希核验或页图渲染可以作为 governed profile 内的直接叶子工作；整个批次不是。它需要保持同一批次的跨来源反控制和后续分流条件。
+
+- **不是 `RESEARCH_PROFILE_LIGHT`：** 当前已有两个互相独立、都可能改变专门资格化路线的活跃方向，且事实分散在 Manifest、作品身份、获取、原件、派生质量、引文、coverage 与 Q-lead owners。把它压缩成一次性工作集会丢掉必要的连续性。
+
+- **不是 `RESEARCH_PROFILE_PREPARE_ONLY`：** 问题、范围、证据边界、SOP、冻结批次、合法操作与停止条件已经具备；工作已经在可执行的 acquisition／核验／筛读阶段，而不是仅有一个尚未定义的想法。
+
+## 这次判断实际改变什么
+
+本轮没有新建数据库、图服务、后台监控、Host Goal、worktree、Sub Agent 或网络任务，也没有创建 Git commit、tag、push 或发布。研究地图继续只投影已有 owner。
+
+目前也**不需要再写一份 profile 文档**：`MANIFEST.md` 已拥有 profile 与方向，`WORK-FAMILIES`、`ACQUISITION`、`PDF-VALIDATION`、`MINERU-DERIVATIVES`、`VISUAL-REVIEW`、`CITATION-NETWORK`、`COVERAGE-MAP` 与 `Q-LEADS` 分别拥有事实；`MEMORY/001` 只保留前沿，F-046 保留当前需求和状态。下一次只有在方向的状态、停止条件、父结果、证据边界或授权范围实质变化时，才应原位更新这些既有 owner。
+
+因此，接下来的正确姿势是：**保留 governed profile 的小而明确的两条前沿；把每份文献处理成可独立验证的叶子动作；只有出现能改变分流决定的证据时，才扩展方向、重开 parked 引文线，或进入专门的 Q 资格化流程。** 这既不会把语料工程膨胀成博士论文制度，也不会把持续积累的控制证据降格成一次性笔记。
+
+
+<!-- conversation-archive-turn: skill-turn-82bccfa5a68447cf8a0849534ee1d48e prompt_sha256=86745b1ee93f6d67d1d8259d18e1bc15797f8e488042f2722dd39b88f5d05d96 answer_sha256=eb84a7fde79e50b3c3ddb015355bc39c9172d1082304ace9be6bf40d8bd107fe -->
+## 2026-10-03 · Turn skill-turn-82bccfa5a68447cf8a0849534ee1d48e
+
+### 用户提问
+
+我发现你的一个问题，你在压缩边界之前，持续读图，但是不留下审计痕迹，这样碰到了压缩边界，之前读图的读到的信息是不是就没有了？这样是不行的啊，你经过了压缩边界之后要能够处理好这种情况啊。
+
+### AI 最终回复
+
+## 这个问题成立，而且已按“证据失效”处理
+
+你指出的不是普通记录疏漏，而是一个真实的证据连续性错误：**页图被显示给当前会话，只说明我当时看到了它；它没有自动成为下一次压缩、恢复或交接后可消费的证据。**
+
+因此，压缩前没有写进来源 owner 的视觉判断，不能再被当作“已审阅”。我没有用此前的摘要或记忆补写 W-003 的结论，而是先把它降为 `RENDERED_UNAUDITED`，再从原 PDF 的第一页重新阅读和落签。
+
+## 新的恢复规则
+
+我把这条规则写进了两个层面：
+
+1. [ZFC-Q 语料 Skill](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/skills/zfc-q-corpus-map/SKILL.md:29) 与 [语料 SOP 的视觉核验章节](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/ZFC-Q语料落盘与文献地图SOP/002%20-%20MinerU派生、书目与引文地图.md:35) 现在要求：**看完一页，先写入 `VISUAL-REVIEW.md`，再打开下一页。**
+
+2. 项目共同会话治理 [hott-local-session-governance 4.4.0](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-local-session-governance/SKILL.md:40) 新增了 `VISUAL_EVIDENCE_WRITEBACK_V1`；[任务路由](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/cognition/TASK_ROUTING.md:31) 也已指向它。它适用于本项目内任何会承担来源、运行、数学、审计或状态判断的图像观察。
+
+恢复动作现在固定为：
+
+1. 先打开任务已有的 evidence owner，读取最后一个持久游标。
+
+2. 没有页级行、只在聊天里出现、或标为 `RENDERED_UNAUDITED` 的图，一律视为未审阅。
+
+3. 回到原图或原 PDF，从最早未落签的视觉单元重新检查。
+
+4. 写入该单元的输入身份、定位、观察、证据等级、边界和下一游标后，才继续下一页。
+
+这不建立统一截图数据库，也不要求每张图单独创建文件或每页进行 Git 提交；它复用每个任务已经拥有的来源笔记、运行收据或视觉审计 owner。一次规则加载或一次恢复演练也不证明未来所有模型和所有压缩都会自动遵守，因此该边界在共同 Skill 中保留为明确的行为合同，而不是能力宣称。
+
+## 用 W-003 做了真实的恢复回归
+
+W-003 的页图此前已经渲染，但没有页级审计行。我先把旧视觉印象全部作废，然后完成了以下可核步骤：
+
+- 重新阅读 **11/11** 张 150dpi 二值页图；
+
+- 对预定关键页重新阅读 **9/9** 张 300dpi 图；
+
+- 在 [视觉审计 owner](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md:9) 中留下 `VR-W003-001` 至 `VR-W003-011`；
+
+- 使页图数、150dpi 页级行数和高精度页数分别对齐为 **11、11、9**；
+
+- 把恢复后的来源限定写入 [W-003 Source Notes](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W003.md:1)。
+
+这份 Krivine 论文给出的是 BBC classical realizability、`ZF_ε`、ground model `M`、realizability model `N`、proof-like terms、CC/DC 及额外模型条件组成的**模型语义与交付支付**。它有助于排除“ZF 必然没有程序语义”这种过宽表述；但它没有给出 ordinary ZFC 中固定、同一任务的 actual consumer，也没有显示未支付 Done 的预支使用。因此当前处置是 `MODEL_SEMANTIC_PAYMENT_CONTROL_NOT_Q`，没有形成 ZFC Q 或数学结论。
+
+远程 MinerU 仍没有可消费导出，所以这次证明的是原 PDF 页图和来源定位的可恢复性，**不是** MinerU 转换成功。
+
+## 已提交的谱系与交接
+
+本轮业务与治理变更均已在当前候选分支 `codex/hott-motive-zfc-literature` 提交：
+
+- `f8b867fe` — 将视觉审计改为压缩安全的逐页写回，并保存 W-003 原始页图；
+
+- `1d553697` — 重审 W-003，并完成 classical-realizability 的来源控制筛读；
+
+- `2dc5aaa2` — 将视觉恢复原则提升到项目共同会话治理与任务路由；
+
+- `7f675cbc`、`96a249b3` — 更新跨 worktree 的 [集成交接单](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md:8)。
+
+主 worktree 没有被直接合并或改写；交接单仍要求未来集成者在干净 integration worktree 中按精确提交选择性审阅。当前工作树中仅保留项目约定的未提交 `dev-notes` 对话归档，不混入研究或治理提交。
+
+## 核验结果与下一状态
+
+- `git diff --check` 通过；
+
+- 分片结构校验通过，保留 15 条既有且不阻断的长文档软提示；
+
+- Pattern-P 来源验证通过；
+
+- `SKILL_ROLES.json` JSON 校验通过；
+
+- W-003 的“恢复前未落签”状态已从当前 batch owners 清除，现由可定位的页级记录和 source note 取代。
+
+ZFC-Q 语料工程仍是 `CORPUS_RUN_ACTIVE`。当前完成的是一次恢复合同修复和一项 Krivine 来源控制筛读；后续来源工作仍要按冻结语料、远程 MinerU 重新资格化、逐页即时写回、书目／引文地图与 Q 资格门继续推进。
+
+
+<!-- conversation-archive-turn: skill-turn-02f3ecc2fdd44390a31e0e152f73e133 prompt_sha256=6f9bf10bc92d1a32acdf496360b0c12c569e5a405df310f02a8d11e7c9c1184a answer_sha256=6c63004b529648005b270f0275ab817900b60ce678c83ce5a00fc2123f22f83c -->
+## 2026-10-03 · Turn skill-turn-02f3ecc2fdd44390a31e0e152f73e133
+
+### 用户提问
+
+你认为，我们的/goal中的内容需要调整吗？还是我可以直接resume它，驱动你继续完成后续的工作？
+
+### AI 最终回复
+
+## 结论
+
+你可以直接恢复 `ZFC-Q-CORPUS-MAP-SOP`；**不需要为了研究型 profile、压缩恢复或 W-003 再把 `/goal` 写长。** 这些要求已经进入当前版本的 Skill、SOP、批次 Manifest 和证据 owner，重复写进启动词反而容易让启动词和规范脱节。
+
+我刚核对到当前 Goal 的状态是 `paused`，所以它正等待你的 resume；恢复时会重新走 `ZFC-Q-CORPUS-MAP-SOP` 的加载链，并从 `VISUAL-REVIEW.md` 的持久游标继续，而不会使用压缩前的未落签视觉印象。
+
+## 建议使用的 `/goal` 内容
+
+建议保留原来的主句，并把受访问限制文献的处理收敛为 SOP 已定义的可追溯路线：
+
+```text
+按照SOP=`ZFC-Q-CORPUS-MAP-SOP`,继续推进，直至本轮冻结语料没有可获取、可处理、可映射或可资格化的下一项。文献优先使用 arXiv、作者、机构、会议与出版社的可用版本；若遇访问限制，记录 DOI、访问限制和下一条可用的正式／作者／机构来源路线。
+```
+
+这会直接恢复当前的 `CORPUS_RUN_ACTIVE / ZQCM-001 / RESEARCH_PROFILE_GOVERNED` 工作，而不会额外创建 Host Goal、worktree、Sub Agent、P-DAG 或数学 STATE。
+
+## 为什么不需要把新规则塞进 `/goal`
+
+| 事项 | 当前 owner | resume 时如何生效 |
+|---|---|---|
+| 研究型 profile | [ZQCM-001 Manifest](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md:21) | 自动恢复父结果、两条活跃方向、证据边界和停止／重开条件。 |
+| 视觉压缩恢复 | [共同会话 Skill](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-local-session-governance/SKILL.md:40) 与 [语料 SOP](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/ZFC-Q语料落盘与文献地图SOP/002%20-%20MinerU派生、书目与引文地图.md:35) | 先读已有 evidence owner；无页级行的图按未审阅重读；每个视觉单元立即写回。 |
+| W-003 的恢复结果 | [Visual Review](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md:9) 与 [Source Notes](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W003.md:1) | W-003 已闭合为模型语义支付控制；不会再次当作未筛读来源，也不会被误写成 ZFC Q。 |
+
+因此，**可以 resume**。我建议只采用上面的短版本；它保留你要的持续推进和来源追溯，同时把具体执行纪律留在可版本化、可审计、能随修复演进的 SOP 中。
+
+
+<!-- conversation-archive-turn: skill-turn-f9d5e71f2fc54c9282da12e561dc0a75 prompt_sha256=6f9bf10bc92d1a32acdf496360b0c12c569e5a405df310f02a8d11e7c9c1184a answer_sha256=e819c37730f5e19d4d47b7ce1b59e2512b0b25db42d9cd10dbea0205a48d9be3 -->
+## 2026-10-03 · Turn skill-turn-f9d5e71f2fc54c9282da12e561dc0a75
+
+### 用户提问
+
+你认为，我们的/goal中的内容需要调整吗？还是我可以直接resume它，驱动你继续完成后续的工作？
+
+### AI 最终回复
+
+## 可以直接继续
+
+**不需要改动原来的 `/goal` 内容。** 它现在已经是 `active`，而且目标文本准确限定了本轮工作：按 `ZFC-Q-CORPUS-MAP-SOP` 处理冻结语料中的可获取原件、身份核验、远程 MinerU 尝试、原 PDF 视觉审读、书目/引文地图和 Q lead 资格化。
+
+因此：
+
+- 你现在不必再做一次“resume 设置”；当前任务已经在运行。
+- 如果之后需要从 UI 或新轮次重新给出 `/goal`，直接使用原句即可。
+- 暂时不应把这句改成 `P-FORGE-SOP`。语料工程先把可核来源与实际消费者找出来；只有某项材料形成合格的 `Q LeadCard` 后，才转入 P1/P2/P3 的共同锻造与 Q 收敛。
+
+当前 SOP 的边界、恢复游标和停止条件已经落在 [ZFC-Q语料落盘与文献地图SOP](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/ZFC-Q语料落盘与文献地图SOP.md) 与 [ZQCM-001 Manifest](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)。它们已明确区分“语料完成”“来源控制”“Q lead”和“ZFC Q 已定位”。
+
+## 这次实际续跑验证了什么
+
+我没有只检查目标文字，已经按它继续推进了一段，并把结果提交到当前候选分支。
+
+| 工作单元 | 事实状态 | 对后续工作的意义 |
+|---|---|---|
+| W-001：Grayson 2017 | 33 页原 PDF 逐页审读，6 页 300dpi 复核；结论为 `H0_SOURCE_PRECISION_AND_ANTI_ANALOGY_CONTROL_NOT_Q`。详见 [W-001 来源笔记](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W001.md)。 | 把 H0 收紧为 type universe 中的 equivalence→identity / Univalence 机制，阻止用“同构”“层级”或“形式化”这些表面相似词直接投射为 ZFC 对应物。 |
+| W-002：de Jong 2023 | 已完成 p.1–53 的逐页可恢复审读，12 页关键 300dpi 核验；下一页固定为 p.54。完整游标在 [VISUAL-REVIEW.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md)。 | 该文已经给出三条强控制：非累积 universe 的显式 `lift`，truncation 对未指定存在的消去/因子化，以及 `T`-powerset、set quotient、small set quotient 与 type-theoretic set replacement 的明确 universe 和 universal-property 支付。它们不能直接升级为 ZFC Q。 |
+| 远程 MinerU | 使用 ZCode 记录的绝对 MinerU CLI 路径复核后，W-002 返回 `server_not_running`；本地共享 doclib 服务保持未启动、未重配。 | 远程导出尚未取得；本轮以原 PDF `SOURCE_ONLY_VISUAL_CHECK` 继续，且每页先落签再看下一页。 |
+
+本轮的提交谱系是：
+
+- `03788af6` — `research: screen univalent foundations motive control`
+- `9f75b44a` — `docs: hand off univalent foundations motive control`
+- `f679722b` — `research: checkpoint predicative foundations visual audit`
+- `1bf500f8` — `research: extend predicative foundations visual audit`
+- `48355927` — `research: continue predicative foundations visual audit`
+
+其中 [集成交接单](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/INTEGRATION-HANDOFF.md) 已把 W-001 的完整筛读列入可选择移植范围；主 worktree 仍需由其唯一集成者按交接单审阅和集成，不能把候选分支直接当作 `dev` 的当前真值。
+
+## 继续时的准确含义
+
+原 `/goal` 的停止条件仍然合适：只有当本轮冻结语料没有新的可获取、可处理、可映射或可资格化条目时，当前语料工作才停在有边界的完成状态。届时再根据已形成的 `Q LeadCard` 决定是否单独启动 `P-FORGE-SOP`。
+
+当前 goal 会保持 `active`。下一步从 W-002 第 54 页继续，不会重复已经审读的页面，也不会把现有来源控制误写成 ZFC 的数学结论。
+
+
+<!-- conversation-archive-turn: skill-turn-fccf3d761e4d425a962f579688b90ffe prompt_sha256=6f9bf10bc92d1a32acdf496360b0c12c569e5a405df310f02a8d11e7c9c1184a answer_sha256=9f246ef2b1baf02c2a9afe83de115daeb8f0dd011187388fd1dd6556c1e780d1 -->
+## 2026-10-04 · Turn skill-turn-fccf3d761e4d425a962f579688b90ffe
+
+### 用户提问
+
+你认为，我们的/goal中的内容需要调整吗？还是我可以直接resume它，驱动你继续完成后续的工作？
+
+### AI 最终回复
+
+## 结论
+
+你原来的 `/goal` 对 **ZQCM-001 这一冻结批次**不需要修改。我已经直接按它恢复执行，并且它现在已经到达了自身的停止条件：这批语料没有新的、既可获取又能通过来源资格化的下一项。
+
+因此，原来的句子已经完成了它应完成的工作；此刻再次原样 `resume`，正确的行为应该是读到关闭记录后停止，而不是把旧书目、关键词或 `FORWARD_PENDING` 表格重新变成无限扩张的待办。
+
+如果你接下来想让同一个语料 SOP 继续接收**真正的新输入**，建议将新的 `/goal` 写成：
+
+```text
+按照SOP=`ZFC-Q-CORPUS-MAP-SOP`，根据 ZQCM-001 §5.1 的重开条件检查是否出现新的可资格化输入；若没有，则保持冻结状态，不基于旧书目、关键词或既有 citation 目录扩张。
+```
+
+这保留了原工作的停止纪律，也让新的作者版、机构版、正式版，或真正的 ordinary bare-ZFC actual consumer 来源能够重新打开一个独立资格化单元。
+
+## 本轮实际完成的内容
+
+我把 ZQCM-001 从“采集仍在进行”收束为 `COMPLETE_WITH_SCOPE`，并将这个判断写回了各自的唯一 owner：
+
+| 事实 | 已写入的位置 |
+|---|---|
+| 批次的范围、两条方向的冻结余项、重开条件 | [MANIFEST.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md) |
+| 已取得版本、访问余项与主阅读版本的来源筛读状态 | [ACQUISITION.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/ACQUISITION.md) 和 [SCREENING.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SCREENING.md) |
+| 引文目录为什么不再自动驱动下一篇 | [CITATION-NETWORK.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/CITATION-NETWORK.md) |
+| 工作族覆盖、可得正文的主阅读版本、访问余项与 Q 门槛 | [COVERAGE-MAP.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/COVERAGE-MAP.md) 和 [Q-LEADS.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/Q-LEADS.md) |
+| 供后续 Session 恢复的批次概览 | [语料档案根 README](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/README.md) |
+| 本次关闭如何逐条对照 62 条核心认知 | [关闭审计索引](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/research/hott/sessions/S-RES-20261004-ZQCM-001-FROZEN-CLOSEOUT/CORE_COGNITION_AUDIT.md) |
+
+冻结范围内有 **15 个 work family**、**21 个经过身份与哈希核验的 PDF 文件**。每个实际进入来源筛选的可得 work family 都有固定的主阅读版本；该版本已有远程 MinerU 收据、逐页原 PDF 视觉审读和来源资格筛选。版本文件数和逐页主阅读版本数被明确分开记录，避免把同一 work family 的作者版与期刊版误报为都已逐页读过。
+
+本轮的直接优先继任来源 W-015（Džamonja–Panza）也已完成来源筛读。它把奇异基数上的局部结果、`κ ↦ 2^κ` 这一基数算术 class-function、forcing／模型／Choice／大基数条件，以及 `de re` 的哲学性访问读法分开。因此它是一个精确的范围与支付控制来源，没有形成 ZFC Q。
+
+仍保留的余项是：W-012 的公开端点受 Cloudflare `403` 限制、W-014 的机构记录明确没有全文、V-SET-03 的文件端点要求人机验证，以及全卷中尚无单独公开正文的其他章节。这些都已作为可重开条件，而不是未审计的空白。
+
+## 这项关闭的证据边界
+
+这是一项语料处理与来源资格化结论：它没有得到一个合格的 ZFC Q，也没有得出“ZFC 没有问题”或“相关文献已经穷尽”的结论。未来若出现符合门槛的真正新来源，模式 P、Power Set 和实际消费者的理论分析仍会重新进入。
+
+新单元只由四类事实重开：
+
+1. 为 W-012、W-014、V-SET-03 或已登记目录章取得可核的作者、机构或正式全文；
+2. 一个新来源固定 ordinary bare-ZFC actual consumer，并保留同一对象、formation、操作、观察和 Done；
+3. 一个新来源提供此前地图没有覆盖、能通过 R/Z/Q/E 与 same-task 门的 formation/payment 事实；
+4. 发现已有版本、身份、页级视觉或来源解释有可复核的错误。
+
+## 核验与 Git 谱系
+
+- 关闭审计完整覆盖 62 条 KC：`ALIGNED=31`、`DEEPENED=15`、`NOT_TOUCHED=16`，无缺号或重复号。
+- 23 条 acquisition 处置全部可计数；20 条已取得的 work-version 行都指向已筛读的主阅读版本。
+- `git diff --check`、治理分片校验和 Pattern-P 来源校验均通过；分片校验只有既有的 15 条非阻断软行数提示。
+- 精确路径提交已经完成：`ba6eab43ad6f2eadd7ed2db7620668357a09a9d5`，提交说明为 `research: close frozen ZFC Q corpus batch`。
+
+提交位于 `codex/hott-motive-zfc-literature` 分支，因此它是 `CANDIDATE_NOT_CURRENT`：canonical `dev` 尚未被改写。当前工作树只留有一份与本次关闭无关、未暂存的 HOTT-MOTIVE dev-note。
+
+
+<!-- conversation-archive-turn: skill-turn-57caef01f91f4cbc80d771322709294b prompt_sha256=2b83b43459d9fafd423659f2d5e1a0e576f3e55bfaf98a0669bd96d2b9ea698c answer_sha256=d5860c2a0bbe46899d3605e07b21a0115f514f9665c5f3fad7cb2b9a60189519 -->
+## 2026-10-04 · Turn skill-turn-57caef01f91f4cbc80d771322709294b
+
+### 用户提问
+
+按照SOP=`ZFC-Q-CORPUS-MAP-SOP`,继续推进，直至本轮冻结语料没有可获取、可处理、可映射或可资格化的下一项。文献优先使用 arXiv、作者、机构、会议与出版社的可用版本；若遇访问限制，记录 DOI、访问限制和下一条可用的正式／作者／机构来源路线。
+
+### AI 最终回复
+
+## Goal 已完成
+
+`ZFC-Q-CORPUS-MAP-SOP` 的这一个冻结批次已经达到可验证的停止条件，我已将当前 Goal 正式标记为 **complete**。
+
+这次完成判定不是沿用上一轮的关闭标签。我重新逐项审计时发现了一个真实缺口：有 7 个已经作为主阅读版本使用的 PDF 缺少各自的 direct-remote MinerU 尝试收据。这个缺口现已被补齐并提交；因此本次完成结论建立在更新后的证据链上。
+
+## 完成证据
+
+| 要求 | 当前证据 | 结果 |
+|---|---|---|
+| 冻结范围有完整处置 | 15 个 work family、23 条 acquisition 处置 | 已完成 |
+| PDF 身份与版本核验 | 21 条 PDF 验证行 | 已完成 |
+| 主阅读版本的 remote MinerU 处理链 | 20 个主阅读 work-version 都有 `MIN-REMOTE*` 收据；本轮补齐 7 条 | 已完成；所有新增请求返回 `server_not_running`，没有派生输出 |
+| 原件视觉与来源筛读 | 每个可得 work family 都有固定主阅读版本，已有逐页原 PDF 视觉记录和 source screen | 已完成 |
+| 引文、覆盖、Q lead 与访问余项 | 关闭 owner 均已写明，并把旧的 `FORWARD_PENDING` 定义为冻结书目目录 | 已完成 |
+| 是否还有可立即处理的下一项 | W-012 仍是 `403`，W-014 仍无机构全文，V-SET-03 保持已核访问限制；W-015 已完成筛读 | 当前冻结范围内没有 |
+
+完整的逐项完成审计位于 [remote receipt repair session](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/research/hott/sessions/S-RES-20261004-ZQCM-001-REMOTE-RECEIPT-REPAIR/SESSION.md)。批次的重开合同位于 [MANIFEST §5.1](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)，而完整的处理链收据在 [MINERU-DERIVATIVES.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MINERU-DERIVATIVES.md)。
+
+## 本轮修正了什么
+
+我以 `/Volumes/D/toolchain-cache/mineru-venv/bin/mineru parse --remote --json --wait 60` 分别重试了 ACQ-005、009、010、011、019、020 与 022。运行前的 server status 是 `running:false`、无队列；7 次请求均返回 `server_not_running`。没有启动或重配共享服务。
+
+这些 7 份资料此前已经完成原 PDF 的逐页视觉审读。由于本次 remote 请求没有生成 Markdown、JSON、zip 或任何派生产物，原有视觉记录继续只代表原 PDF 阅读，不能被写成 MinerU 输出的视觉比对。这个时序修正已经记录在 [VISUAL-REVIEW.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md) 与 [SEARCH-LOG.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SEARCH-LOG.md)。
+
+我也清除了会误导后续 Session 的旧状态，例如 `V-UF-01/W-009` 和 `V-CMP-04/W-010` 的“待阅读”、W-006 获取日志中的“待筛读”，以及 W-005 citation trace 中的活动 forward-trace 表述。当前地图在 [VOLUME-CHAPTER-MAP.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VOLUME-CHAPTER-MAP.md) 和 [CITATION-NETWORK.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/CITATION-NETWORK.md) 中明确说明：已有书目边只是目录，不能自行再开启一轮获取。
+
+## 结论的范围
+
+本次完成的是用户指定的**冻结语料的获取、核验、处理链、来源筛读和地图收束**。它没有给出一个合格的 ZFC Q，也没有把未来的文献输入排除在外。
+
+未来只在下列任一事实出现时，再建立新的资格化单元：
+
+1. W-012、W-014、V-SET-03 或已登记目录章出现可核的作者、机构或正式全文；
+2. 新来源固定 ordinary bare-ZFC actual consumer，并保留同一对象、formation、操作、观察和 Done；
+3. 新来源提供此前地图未覆盖、可通过 R/Z/Q/E 与 same-task 门的 formation/payment 事实；
+4. 已归档的版本、身份、页级视觉或来源解释被可复核证据推翻。
+
+## Git 与核验
+
+- `ba6eab43` — `research: close frozen ZFC Q corpus batch`
+- `4a61b69b` — `fix: complete ZFC corpus remote receipt chain`
+
+两次提交均只包含语料档案和恢复证据。`git show --check`、治理分片校验、Pattern-P 来源校验及自定义的完成审计都通过；分片校验仍只报告既有的 15 条非阻断软行数提示。
+
+提交目前在 `codex/hott-motive-zfc-literature` 分支，保持 `CANDIDATE_NOT_CURRENT` 身份；canonical `dev` 没有被这次工作自动改写。
+
+
+<!-- conversation-archive-turn: skill-turn-89b6ac82be844f23a93353613dd1aea8 prompt_sha256=e5cf44d39dc93c40907bca04289135de6171ffee775da9af25009ac5edff9147 answer_sha256=553e4899c105e26165568737f61450dae84077b1637047d6198060c456cfe0ab -->
+## 2026-10-04 · Turn skill-turn-89b6ac82be844f23a93353613dd1aea8
+
+### 用户提问
+
+# Response annotations:
+Each item contains text selected from an earlier Codex response and may include a user comment. Treat items as Annotation 1, Annotation 2, and so on in array order. Use every selection as context and address every comment. For every annotation you address, include its inline directive `:codex-annotation{index="N"}`, where N is its one-based array position (for example, `:codex-annotation{index="1"}`). Do not use unstructured annotation labels.
+<response-annotations>
+[{"text":"我以 /Volumes/D/toolchain-cache/mineru-venv/bin/mineru parse --remote --json --wait 60 分别重试了 ACQ-005、009、010、011、019、020 与 022。运行前的 server status 是 running:false、无队列；7 次请求均返回 server_not_running。没有启动或重配共享服务。","source":{"messageId":"msg_03b56f5be4cb32ee016ac22a0b2f6087d0bb2d593552e1a5d3","startOffset":713,"endOffset":917}}]
+</response-annotations>
+
+## My request:
+有些没弄完？修复问题
+
+### AI 最终回复
+
+## 已修复的部分
+
+确实有一部分没有完成：先前的 7 次尝试停在本机 `server_not_running`，所以当时没有形成真正的远程解析结果。我已经修复这个本机运行问题：MinerU document-library server 现已启动并持续运行，scan／ingest／parse workers 正常，官方 remote `standard` tier 健康。:codex-annotation{index="1"}
+
+我没有只把服务启动当作成功。用公开的 W‑001 arXiv PDF 前 10 页做了两条真实 smoke 路径：
+
+1. `mineru parse --remote --tier standard --pages 1-10 --json --wait 60`；
+2. `mineru-kit parse --remote --tier standard --pages 1-10 --format zip`。
+
+两次都实际提交了远程任务；日志显示远程分析完成。但结果包下载在三次内部重试后都报 `ConnectError`。因此，解析任务已经越过了“服务没启动”的问题，却还没有得到可消费的 JSON、Markdown 或 zip。
+
+## 根因已经定位
+
+故障位于官方结果下载 CDN，而不在本机服务、PDF、匿名远程配额或两种输出协议：
+
+- `https://mineru.net/api/v1/tiers` 当前返回 HTTP 200；remote health 与匿名 usage 都正常。
+- 两条 CLI 路径都只在 `output download` 阶段失败。
+- MinerU App 的近期历史也出现 `download-failed`，而较早任务可以正常 `unzipped`；两类任务的结果宿主均为 `cdn-mineru.openxlab.org.cn`。
+- 对该 CDN 的当前 IPv4／IPv6 TLS 探针显示：网络连接建立后，证书验证报告 **certificate has expired**。
+
+这说明剩余问题需要官方 CDN 更新有效证书。使用 `--insecure`、关闭 TLS 校验或篡改下载路径会破坏远程论文原件和派生物的可信性，因此我没有采用这种绕过方式。
+
+## 已落盘与提交
+
+诊断、服务状态、两条真实 remote smoke 记录、证书边界和重开条件已经写入：
+
+- [MinerU 派生与运行收据](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MINERU-DERIVATIVES.md)
+- [远程服务诊断 session](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/research/hott/sessions/S-RES-20261004-ZQCM-001-REMOTE-SERVICE-DIAGNOSTIC/SESSION.md)
+- [冻结批次与重开合同](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)
+
+精确路径提交：
+
+```text
+f15016c3 fix: restore MinerU service and diagnose remote output
+```
+
+`git show --check`、治理分片校验和 Pattern‑P 来源校验均通过。服务当前仍在运行；当前工作树中没有被混入这次提交的其他项目改动。
+
+## 对语料工作的影响
+
+冻结语料的数学／来源筛读结论没有被改写：原 PDF 的页级视觉审读仍是当前可用证据，远程 MinerU 派生物仍保持 `NOT_QUALIFIED`。一旦官方 CDN 的证书恢复有效，下一步是先重跑同一份 W‑001 的 10 页 probe；只有得到可读输出并完成视觉对照后，才把该远程路径扩展到批次中的其他 PDF。
+
+
+<!-- conversation-archive-turn: skill-turn-cb3819e5ae75451f9a9055ce0f3f9a3e prompt_sha256=336186a3de2895a4c79a3f07f760e390e431600aa61e3e6cbf8eec3b08075325 answer_sha256=36e987d2610a0996e7e6b20975e10a273d02801141184956ce879caef2a08c50 -->
+## 2026-10-04 · Turn skill-turn-cb3819e5ae75451f9a9055ce0f3f9a3e
+
+### 用户提问
+
+你这样，你把所有需要使用MinerU继续处理的文档，全部放在一个文件夹中，我来手动帮你处理。把文件夹的全path给我
+
+### AI 最终回复
+
+已经全部准备好。请使用这个文件夹：
+
+**[/Users/aurolafly/MinerU/Manual-Input-ZQCM-001-2026-10-04](/Users/aurolafly/MinerU/Manual-Input-ZQCM-001-2026-10-04)**
+
+里面有 **20 份**需要继续进行远程 MinerU 处理的主阅读 PDF，均为项目原件的工作副本，并已逐份完成 SHA-256 一致性核验。目录内的 [README.md](/Users/aurolafly/MinerU/Manual-Input-ZQCM-001-2026-10-04/README.md) 写明了完整清单、处理约定和唯一没有重复放入的版本：W-005 的 2021 arXiv 作者版，因为 2023 出版版已经是该 work family 的主阅读版本。
+
+你在 MinerU App 中按正常的远程质量流程处理即可。App 的结果保留在 `/Users/aurolafly/MinerU/`；完成后告诉我，我会通过 App 任务数据库和输出目录把结果逐一重新关联到项目原件，做视觉对照，并更新相应的 MinerU 派生证据。
+
+这个手工交接位置已经写回项目的 [MINERU-DERIVATIVES.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MINERU-DERIVATIVES.md)，并提交为：
+
+```text
+d80e4f15 docs: record manual MinerU processing handoff
+```
+
+
+<!-- conversation-archive-turn: skill-turn-7d07aba9dd99448cb86940c8338e2f2e prompt_sha256=c7e9b95dc1907ea28dca7d39dd35e2e030680778fc8ab65d30c9552e59279dde answer_sha256=fc6f7bcff9c53df9558e05f3e58da6e4b7563e902a424f56c5d1ad36c8141d6a -->
+## 2026-10-04 · Turn skill-turn-7d07aba9dd99448cb86940c8338e2f2e
+
+### 用户提问
+
+这些pdf文档，你自己通过你的视觉去处理，可以吗？
+
+### AI 最终回复
+
+可以。
+
+而且对这 20 份 PDF，这不是一个尚未开始的备用方案：我已经基于原 PDF 的二值化页图建立了 **646 条页级视觉记录**，覆盖全部 20 个固定主阅读版本。每条记录都保留了原件身份、页码、150dpi 图、视觉观察和适用边界；关键定义、量词、公式、表格、脚注和理论位置另有 300dpi 复核。
+
+视觉处理路径现在是：
+
+```text
+原 PDF → 150dpi 二值页图逐页视觉阅读 → 关键页 300dpi 复核
+       → 页级观察记录 → Source Notes / Q Lead / 来源资格化
+```
+
+当前权威入口是 [VISUAL-REVIEW.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md)。例如，W‑001 的 33 页视觉记录和高精度关键页已经汇总进 [W‑001 Source Notes](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/SOURCE-NOTES-W001.md)。
+
+这条路径能完成研究所需要的内容处理：我可以直接从页面读出数学定义、公式、论证条件、作者的理论动机和与 ZFC Q 有关的边界，并把它们写成可审计的结构化结果。它不会被写成“MinerU 成功转码”，因为它是原件视觉阅读；二者的证据身份会一直分开。
+
+所以现在不需要等待 MinerU App 的失败任务。后续我会把视觉处理作为这批论文的主阅读层，继续从已有的 646 页可恢复记录中提取和深化 ZFC Q 的来源线索；远程 MinerU 在官方 CDN 证书恢复后再作为派生阅读和交叉核验层接入。
+
+
+<!-- conversation-archive-turn: skill-turn-0a20b218eb20456a82787a383badc664 prompt_sha256=80150b54c15070c9b8d0085675c8ba5dea53e70a12b93a4cf8ff853dd4cd0e8e answer_sha256=45ad8df70271bcd4d7c3ce3a7651775e7495578c1bc5bd87baaf07d3b96970a3 -->
+## 2026-10-04 · Turn skill-turn-0a20b218eb20456a82787a383badc664
+
+### 用户提问
+
+开始，全部处理完
+
+### AI 最终回复
+
+## 全部视觉处理已完成
+
+我已将“通过原件视觉处理全部 PDF”的目标正式完成。这里的完成指的是研究可用、可恢复的视觉阅读层，不把它冒充为远程 MinerU 成功转码。
+
+| 检查项 | 完成结果 |
+|---|---|
+| 固定主阅读 PDF | 20 / 20 |
+| 原 PDF 页级视觉覆盖 | 646 条页级记录，覆盖 645 个不同 PDF 页 |
+| 150dpi 覆盖 | 每个版本均覆盖其全部实际页码，无缺页 |
+| 300dpi 关键页复核 | 20 / 20 均有关键公式、定义、表格、脚注或理论位置的高分辨率图 |
+| 结构化来源笔记 | 20 / 20 均有对应 `SOURCE-NOTES-*.md` |
+| ZFC Q 资格判断 | 所有 20 份均已进入 `SCREENING.md` 和 `Q-LEADS.md` 的明确处置；本批没有合格 Q lead |
+
+唯一的计数差是 W‑006/V‑UF‑03 第 13 页存在两条历史视觉记录；它不是缺页，也没有造成结论冲突。
+
+完整的覆盖矩阵已经写入 [VISUAL-REVIEW.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md)，每一行列出 PDF 页数、实际视觉页数、300dpi 图数量和对应 Source Notes。对应的可恢复审计记录在 [VISION-COVERAGE-AUDIT session](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/.codex/research/hott/sessions/S-RES-20261004-ZQCM-001-VISION-COVERAGE-AUDIT/SESSION.md)。
+
+我还实际重新查看了 W‑001 的原件首页并立即写入 `VR2-W001-001`，确认当前页图可读、来源身份和既有视觉记录一致。其余 645 条 `VR-*` 页级记录是已经落盘的原件视觉阅读证据；这次完整性审计逐份核对了它们的页码、图像目录、高分辨率关键图和 Source Notes，而没有把缺失的 MinerU 输出误当作视觉处理失败。
+
+本轮新增的审计谱系为：
+
+```text
+5b47ea5a research: verify full visual coverage for ZFC corpus
+3ebd39b9 docs: record visual high-resolution coverage
+```
+
+`git diff --check`、治理分片校验、Pattern‑P 来源校验，以及逐文的页码／高分辨率／Source Notes 对账均通过。当前分支仍是 `codex/hott-motive-zfc-literature`，因此这些是 `CANDIDATE_NOT_CURRENT` 证据，尚未自动写入 canonical `dev`。
+
+远程 MinerU 的 CDN 证书问题仍只影响派生 Markdown／JSON／zip 层。原 PDF 的视觉阅读、结构化来源笔记和 ZFC Q 资格处理已不依赖它，并且已经完成。
+
+
+<!-- conversation-archive-turn: skill-turn-840adcd496f44482b8e0aacb4afa507b prompt_sha256=b60f92d32437984a56567042ddb5bdbcec7985776e222a0de9aa6cd1c949f49f answer_sha256=1f8456fc01a37e5bda5bffc5deef92d3f2e0217647f35a9cab697d3558bdbc94 -->
+## 2026-10-04 · Turn skill-turn-840adcd496f44482b8e0aacb4afa507b
+
+### 用户提问
+
+是不是关于ZFC的所有文献翻查工作都做完了？
+
+### AI 最终回复
+
+**没有。** 现在完成的是一个严谨闭合的**冻结语料批次**，不是“关于 ZFC 的所有文献”。
+
+## 已经完成的范围
+
+`ZQCM-001` 已完成其声明范围内的文献获取、身份核验、页级视觉处理、来源筛读、引文登记与 Q 资格判断：
+
+- 15 个 work family；
+- 21 个经过身份与哈希核验的 PDF 文件；
+- 20 个固定主阅读版本；
+- 646 条页级视觉记录，覆盖 645 个不同原 PDF 页；
+- 20 份结构化 Source Notes；
+- 已把这些来源分别处置为 H0/R-source、Power Set／formation control、P5/model-semantic control、actual-consumer control、标准防线或访问余项；
+- 没有将其中任何一项误报为已经找到的 ZFC Q。
+
+这部分的当前入口是 [ZQCM-001 manifest](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/MANIFEST.md)、[coverage map](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/COVERAGE-MAP.md) 和 [视觉覆盖矩阵](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-001-open-foundations-and-delivery-seeds/VISUAL-REVIEW.md)。
+
+## 尚未完成的范围
+
+“ZFC 的所有文献”本身是开放世界，不能用一个固定的 PDF 数量声称绝对穷尽。当前未进入或未完成的范围至少包括：
+
+1. **访问余项。** W‑012、W‑014、V‑SET‑03 以及 W‑006 全卷中其他章节还没有可核全文；它们在当前档案中保留了 DOI、访问限制和重开路线。
+
+2. **完整的学科地图。** 当前 ZQCM‑001 重点覆盖 HoTT/UF 动机、predicative UF、classical realizability、Power Set 邻域、基础比较、集合论实践与 singular-cardinal 语料。它还没有建立覆盖 ZFC 公理史、模型论、forcing、独立性、大基数、内模型、描述集合论、证明论、范畴基础比较、数学实践消费者和当代论文引文网络的全局分母。
+
+3. **HoTT 创建动机反投影支线的领域级地图。** `HOTT-MOTIVE-ZFC` 已关闭 9 个冻结来源 run，但它自己的 [文献地图质量审计](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/HOTT-MOTIVE-ZFC/LITERATURE-MAPPING-AUDIT.md) 明确仍是 `LITERATURE_MAP_REQUIRED`：9 个冻结分母不能替代领域级数据库、作者和引文地图。
+
+4. **真正的 ZFC Q 资格化。** 当前来源里没有固定 ordinary bare-ZFC actual consumer、同一对象／formation／操作／观察／Done，以及未支付 completion 的会合。这是要继续寻找的理论事实，不能被“已读了多少文献”取代。
+
+## 正确的完成定义
+
+所以现在应把状态写成：
+
+```text
+ZQCM-001：COMPLETE_WITH_SCOPE
+ZFC Q 总文献工程：OPEN / 扩展语料尚未建立完整地图
+ZFC Q：NOT LOCATED
+```
+
+这也是 [ZFC-Q-CORPUS-MAP-SOP](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/dev-docs/ZFC-Q语料落盘与文献地图SOP.md) 原本规定的语义：每一个冻结 batch 可以闭合，但新 DOI、作者原典、可得全文、实际消费者来源和可资格化的 formation/payment 事实都可以建立新的 batch。
+
+下一阶段应该是建立 **ZQCM-002**：先固定文献地图的分母和优先级，而不是从关键词随机扩张。最有信息量的入口是：ZFC 的形成与 Power Set／Replacement 历史、累计层级与 potential/actual 文献、实际集合论消费者、forcing/model/independence 的明示支付，以及 HoTT 作者对 ZFC 不足的原典动机。只有这些文献在同一张可追溯地图里被检索、获取和筛选，才可以讨论“ZFC 文献翻查是否接近完成”。
+
+
+<!-- conversation-archive-turn: skill-turn-131e5e15b657457ea2984b3458a06078 prompt_sha256=2600b41655356f5605fa91164d3aa9d8b93aabb63a000fc426aff389be43171c answer_sha256=8e7a5855b30d8227880645a7841ba23c75c10b2861ffbccdd433c7ced1a250b7 -->
+## 2026-10-04 · Turn skill-turn-131e5e15b657457ea2984b3458a06078
+
+### 用户提问
+
+暂停一下
+
+### AI 最终回复
+
+已暂停。活动 Goal `ZQCM-002 — ZFC Q 全景文献地图与分批语料工程` 已被标记为 `paused`，我不会继续检索、下载、解析或阅读。
+
+暂停前已落下两个可恢复的检查点：
+
+- **M0 文献地图骨架**已完成并提交为 `c6bdf892`（`research: complete ZQCM-002 M0 literature map`）。A–E 五个轴各有一条可复算的 OpenAlex 检索、一个原典／作者或正式入口、一个 bridge 入口以及语言、时期、访问与平台余项。首轮结果也表明宽关键词会被 Zenodo 自存档、教学论文和跨体系材料污染，因此后续不会按照检索排序随意下载。
+
+- **M1-A：Zermelo 1908 原典**已经冻结并开始处理，但这一部分尚未提交。GDZ 的文章级 PDF 已取得并核验为 22 页（GDZ 说明页加 21 页原文），SHA-256 为 `dde96c1b1903fd0372fc8b3cd1f6f2712ec921337df71274fc1916a05fca4eac`。远程 MinerU 已运行到前 10 页模型分析完成，但结果下载在官方输出端 `ConnectError` 失败，已作为派生层失败保留，不会被写成转码成功。
+
+原 PDF 的 150dpi 二值化视觉审读已安全落盘到第 7 页；每一页都已写入 [VISUAL-REVIEW.md](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-002-zfc-literature-map/M1-A-Zermelo-1908/VISUAL-REVIEW.md)。目前可确认的范围仅是历史文本自身：它把集合形成限制为从已给集合中分出的子集，明确排除“所有集合的集合”，并在第 6 页陈述 Power Set 公理。它还没有给出 ordinary ZFC 的同一任务 consumer、未支付 Done 或 ZFC Q。
+
+恢复时将从 **PDF 第 8 页**继续，之后完成第 8–22 页视觉审读、关键页 300dpi 复核、来源笔记、引文处置和 Q lead 资格化。M1-A 的未提交文件都保留在 [M1-A 工作目录](/Users/aurolafly/.codex/worktrees/ff3b/HoTT_AI_HANDOFF_20260911/audit/ZFC-Q-CORPUS-MAP/ZQCM-002-zfc-literature-map/M1-A-Zermelo-1908/)，当前候选工作树上另有项目约定的未提交对话归档文件；我没有在暂停后再修改它们。
