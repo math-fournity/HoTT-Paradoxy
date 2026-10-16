@@ -142,7 +142,7 @@ Welche Bedingung der Wirklichkeit wurde geändert? Die initiierende Person hat d
 > Zweitens gibt es ein weiteres Problem, nämlich: Wie ist die Wirklichkeit eigentlich beschaffen? … Wir können nur die Schicht der quantisierten Raumzeit beobachten; diese Strecke ist quantisiert und unstetig, und das genügt, um unser weiteres Denken zu tragen.
 > Der Satz ‚in der Wirklichkeit ist es leicht zu vollenden‘ – oder: Bewegung lässt sich in der Wirklichkeit vollenden – gilt, weil auf der quantisierten Ebene, für die bewegten Körper, die wir beobachten wollen, die Raumzeit als unstetiger Zustand gelten kann, der sich nicht weiter teilen lässt; deshalb vollendet sich die Wirklichkeit ‚in Sprüngen‘. Anders gesagt: Die Raumzeit der Wirklichkeit erfüllt, für die bewegten Körper, die wir beobachten, nicht die Forderung, die das Paradoxon des Zenon braucht: fortwährendes, unaufhörliches Halbieren.“
 
-Das zweite Problem zielt auf die „unbegrenzte Teilbarkeit“ der Zahlengeraden, in der Mathematik „Dichte“ genannt: Zwischen zwei Punkten liegen immer noch weitere Punkte. Auch das Ringparadoxon zielt darauf: Nur weil Punkte keine Größe haben und sich der Raum ohne Ende teilen lässt, wird „immer näher“ nie zu „verbunden“. Das erste Problem greift Abschnitt 6 auf: Es ist das, was die initiierende Person später A genannt hat. „Die Wirklichkeit vollendet sich in Sprüngen“ ist das Urteil der initiierenden Person über die Wirklichkeit; dieser Text bürgt nicht dafür. Was die Mathematik beweisen kann, ist, was in einer Welt geschieht, deren Punkte eine Größe haben (siehe unten).
+Das zweite Problem zielt auf die „unbegrenzte Teilbarkeit“ der Zahlengeraden, in der Mathematik „Dichte“ genannt: Zwischen zwei Punkten liegen immer noch weitere Punkte. Auch das Ringparadoxon zielt darauf: Nur weil Punkte keine Größe haben und sich der Raum ohne Ende teilen lässt, wird „immer näher“ nie zu „verbunden“. Das erste Problem ist fast wörtlich die Definition von A, die die initiierende Person am 2026-10-14 gegeben hat; Abschnitt 6 greift es auf. „Die Wirklichkeit vollendet sich in Sprüngen“ ist das Urteil der initiierenden Person über die Wirklichkeit; dieser Text bürgt nicht dafür. Was die Mathematik beweisen kann, ist, was in einer Welt geschieht, deren Punkte eine Größe haben (siehe unten).
 
 **Was wir in der formalen Mathematik getan haben.** Das Ringparadoxon der initiierenden Person wurde Satz für Satz als Mathematik aufgeschrieben und vom Computer geprüft, mit den reellen Zahlen und der Geometrie, die Mathematikerinnen und Mathematiker täglich verwenden (dem Beweisprüfer Lean mit seiner mathematischen Standardbibliothek Mathlib). Satz für Satz mit dem Originalwortlaut:
 
@@ -299,7 +299,7 @@ Genau diesen Verdacht hat die initiierende Person am 2026-09-10 niedergeschriebe
 
 Gut zwei Wochen später führte uns Russells Blick zum Universum der HoTT; die Ungereimtheit, die wir dort sahen, passt Punkt für Punkt zu Zenon. Die beiden Gespenster sind sich am selben Ort begegnet.
 
-Was hat dann in der Theorie die Stelle der ausgelassenen Zeit eingenommen? Dieser Frage folgend, ist die initiierende Person zu dem Boden zurückgekehrt, auf dem die meisten Mathematikerinnen und Mathematiker heute stehen.
+Was hat dann in der Theorie die Stelle der ausgelassenen Zeit eingenommen? Abschnitt 6 kehrt zu dem Abschnitt ganz oben auf der Seite zurück und zu dem Boden, auf dem die meisten Mathematikerinnen und Mathematiker heute stehen.
 
 ## 6. Zurück zum Anfang der Seite: das Problem von ZFC-1
 
@@ -331,7 +331,7 @@ Die Definition von Q durch die initiierende Person (2026-10-14, Originalwortlaut
 
 Das ist das ASK aus Abschnitt 1: Bevor man anerkennt, dass ein Ergebnis „schon da ist“, fragt man zuerst, ob der Vorgang, der es hervorbringt, anhalten kann.
 
-Auf diesen letzten Satz legt die initiierende Person besonderes Gewicht. In Beweisprüfern der Art, die Programme als Beweise behandelt (Agda und Lean, die dieses Repository verwendet, gehören dazu), arbeitet dieses Tor jeden Tag: Eine rekursive Definition wird nur angenommen, wenn sich zeigen lässt, dass ihre Berechnung anhält. Der Computer hat geprüft: Nimmt man dieses Tor weg, lässt sich jede Aussage „beweisen“, und die Logik bricht auf der Stelle zusammen; mit dem Tor haben die Definitionen Lösungen.
+Auf diesen letzten Satz legt die initiierende Person besonderes Gewicht. In Beweisprüfern der Art, die Programme als Beweise behandelt (Agda und Lean, die dieses Repository verwendet, gehören dazu), arbeitet dieses Tor jeden Tag: Damit eine rekursive Definition als Beweis verwendet werden darf, muss gezeigt werden, dass ihre Berechnung anhält. Der Computer hat geprüft: Nimmt man dieses Tor weg, lässt sich jede Aussage „beweisen“, und die Logik bricht auf der Stelle zusammen; mit dem Tor haben die Definitionen Lösungen.
 
 ### Zwei Wahlen: A
 
@@ -341,16 +341,16 @@ Die initiierende Person fuhr fort (2026-10-14, Originalwortlaut):
 
 > **Übersetzung.** „Die ZFC hat diese Beobachtungsfähigkeit aufgegeben, mathematische Bequemlichkeit vom Typ A erhalten und sich zugleich zu ZFC-1 = ZFC + A entfremdet. Das Aufgeben ist eine Wahl, und A ist die zweite Wahl. Was ist A? A heißt: ein Ergebnis, das erst durch unendlich viele Schritte erreicht wird und nur dadurch existiert, als bereits existierendes Ergebnis zu behandeln und in Rechnungen eingehen zu lassen.“
 
-Einige Gestalten von A: den Grenzwert von 1/2 + 1/4 + 1/8 + … als „diese unendlich vielen Schritte sind schon gegangen“ zu lesen; anzunehmen, dass bei jeder Folge, die steigt und eine obere Schranke hat, der Endpunkt schon fertig daliegt; ein Ganzes, dessen Bestätigung unendlich viele Stufen bräuchte, als fertiges Ding anzusehen, das auf einmal übergeben wird. Der Abschnitt oben sagt, dass die mathematische Gemeinschaft “实际使用的不是ZFC，而是ZFC-1” („in Wirklichkeit nicht ZFC verwendet, sondern ZFC-1“). Unsere Lesart: ZFC-1 ist kein anderes Axiomensystem, sondern die Art, wie die Mathematik die ZFC verwendet; A wohnt in Wörtern wie „existiert“, „gelöst“, „vollendet“.
+Einige Gestalten von A: den Grenzwert von 1/2 + 1/4 + 1/8 + … als „diese unendlich vielen Schritte sind schon gegangen“ zu lesen; anzunehmen, dass bei jeder Folge, die steigt und eine obere Schranke hat, der Endpunkt schon fertig daliegt; ein Ganzes, dessen Bestätigung unendlich viele Stufen bräuchte, als fertiges Ding anzusehen, das auf einmal übergeben wird. (Dass wir all dies unter A einordnen, ist unsere Lesart; dass die „fertig vorliegende Sammlung“ A ist, ist die Entscheidung der initiierenden Person.) Der Abschnitt oben sagt, dass die mathematische Gemeinschaft “实际使用的不是ZFC，而是ZFC-1” („in Wirklichkeit nicht ZFC verwendet, sondern ZFC-1“). Unsere Lesart: ZFC-1 ist kein anderes Axiomensystem, sondern die Art, wie die Mathematik die ZFC verwendet; A wohnt in Wörtern wie „existiert“, „gelöst“, „vollendet“.
 
 Der Computer hat zwei Dinge geprüft:
 
-- **Die ZFC kann sehen, sie setzt nur kein Tor.** Die ZFC kann sagen, welche Fragen entscheidbar sind und welche nicht, macht aber „kann es anhalten?“ nie zur Schwelle dafür, dass etwas als existierend anerkannt wird. Es gibt immer Vorgänge, die nie anhalten und für die die ZFC in jedem Augenblick „noch nicht angehalten“ bestätigen, aber nicht „hält nie an“ beweisen kann; solche Vorgänge gibt es unendlich viele, und kein Flicken wird mit ihnen fertig.
+- **Die ZFC kann sehen, sie setzt nur kein Tor.** Die ZFC kann sagen, welche Fragen entscheidbar sind und welche nicht, macht aber „kann es anhalten?“ nie zur Schwelle dafür, dass etwas als existierend anerkannt wird (diese Hälfte ist in der klassischen Logik von Lean geprüft, eben der Logik, die die ZFC verwendet). Es gibt immer Vorgänge, die nie anhalten und für die die ZFC in jedem Augenblick „noch nicht angehalten“ bestätigen, aber nicht „hält nie an“ beweisen kann; solche Vorgänge gibt es unendlich viele, und kein Flicken wird mit ihnen fertig.
 - **Die beiden Wahlen sind ein einziges Prinzip.** Auf der einfachsten Ebene folgen „der Ausgang jeder unendlichen Suche steht schon fest“ und „bei einer Folge, die steigt und eine obere Schranke hat, existiert der Endpunkt fertig“ auseinander. Ob mit natürlichen Zahlen, mit rationalen Zahlen oder im Beweisprüfer der HoTT geschrieben – es ist dasselbe, und nichts davon stützt sich auf das „Entweder-oder“ des Satzes vom ausgeschlossenen Dritten. Den ersten Satz lesen wir als Aufgabe des Tores, den zweiten als Wahl von A.
 
 ### A gab der Mathematik, was sie wollte: Zenon „gelöst“
 
-Die ZFC selbst beweist die beiden Sätze des Zenon (vom Computer geprüft): Im Sinne des Grenzwerts ist er angekommen; kein Schritt kommt wirklich dort an. Die Zahl, die der Grenzwert ist (1), braucht selbst kein A; sie ist durch eine Formel gegeben. Was A braucht, ist, den ersten Satz als „diese unendlich vielen Schritte sind schon gegangen“ zu lesen. Die beiden Probleme des Zenon, die die initiierende Person unterschieden hat (Abschnitt 2), finden hier ihren Platz: A erklärt den Weg für vollendet; die „unbegrenzte Teilbarkeit“ macht ihn unvollendbar.
+Die ZFC selbst beweist die beiden Sätze des Zenon (vom Computer geprüft): Im Sinne des Grenzwerts ist er angekommen; kein Schritt kommt wirklich dort an. Die Zahl, die der Grenzwert ist (1), braucht selbst kein A; sie ist durch eine Formel gegeben. Unsere Lesart: Was A braucht, ist, den ersten Satz als „diese unendlich vielen Schritte sind schon gegangen“ zu lesen. Die beiden Probleme des Zenon, die die initiierende Person unterschieden hat (Abschnitt 2), finden damit ihren Platz: A erklärt den Weg für vollendet; die „unbegrenzte Teilbarkeit“ macht ihn unvollendbar.
 
 ### Dieselbe Handlung gab in der HoTT das B, das niemand wollte
 
@@ -374,7 +374,7 @@ Die initiierende Person sagte (2026-10-14, Originalwortlaut, Auszug):
 >
 > Die Logik ist an ihrem Ausgangspunkt eine Abstraktion der Wirklichkeit und der entsprechenden Denkvorgänge. ZFC-1, diese anti-reale Logik, kann A nicht nur in der Wirklichkeit nicht vollenden, sondern bringt im Denken notwendig die Paradoxa hervor, die wir wiederbelebt und neu gefunden haben.“
 
-Fehlt Q, so wird nur nicht gefragt; A dagegen ist eine positive Behauptung: Ein Ergebnis, das kein Vorgang liefern kann, sei schon da.
+So verstehen wir diese Worte: Fehlt Q, so wird nur nicht gefragt; A dagegen ist eine positive Behauptung, nämlich dass ein Ergebnis, das kein Vorgang liefern kann, schon da sei.
 
 **In der Wirklichkeit ist es nicht zu leisten.** Der Computer hat zwei Dinge geprüft:
 
@@ -394,7 +394,7 @@ Fehlt Q, so wird nur nicht gefragt; A dagegen ist eine positive Behauptung: Ein 
 Der Computer hat an der echten ZFC drei Dinge geprüft (die Formalisierung der ZFC stammt aus der Lean-Bibliothek Foundation):
 
 - **Der Handel mit dem Teufel.** Eine Theorie, die sich mechanisch prüfen lässt und endliche Rechnungen bestätigen kann, beweist, sobald sie die Regel „unendlich viele Schritte sind schon gegangen“ schluckt, von ein und demselben Programm sowohl, dass es anhält, als auch, dass es nie anhält; um sich nicht zu widersprechen, kann sie nur aufgeben, mechanisch prüfbar zu sein. Die letzten beiden Sätze des Abschnitts oben sagen, dass der Teufel die „Seele“ will und dass die Seele der Mathematik die mathematische Wahrheit ist.
-- **Der Anteil, den der Teufel nimmt.** Die ZFC verwendet A überall, nur nicht bei sich selbst. Lass die ZFC immer wieder nach ihrem eigenen Widerspruch suchen: In jedem Augenblick kann sie „noch nicht gefunden“ bestätigen, aber sie kann nicht „nie gefunden“ beweisen. Das ist Gödels zweiter Unvollständigkeitssatz, hier an der echten ZFC vom Computer geprüft.
+- **Der Anteil, den der Teufel nimmt** (diese Zuordnung ist unsere Lesart). Lass die ZFC immer wieder nach ihrem eigenen Widerspruch suchen: In jedem Augenblick kann sie „noch nicht gefunden“ bestätigen, aber sie kann nicht „nie gefunden“ beweisen. Das ist Gödels zweiter Unvollständigkeitssatz, hier an der echten ZFC vom Computer geprüft. Unsere Lesart: Die ZFC verwendet A überall, nur nicht bei sich selbst.
 - **Ein Läufer, der wirklich am Ziel ankommt.** Es gibt einen Läufer, der bei jedem Schritt die Hälfte des Rests zurücklegt, dessen Position in jedem Augenblick vor dem Ziel liegt und der im Sinne des Grenzwerts wirklich ankommt; die ZFC bestätigt in jedem Augenblick, dass er noch läuft, kann aber nicht beweisen, dass er angekommen ist.
 
 ### Zurück zur Prämisse
@@ -407,7 +407,7 @@ Der Abschnitt oben sagt (Originalwortlaut, Auszug): “当我们回溯这种不�
 
 Der Satz hat die Form einer Frage; am 2026-10-15 hat die initiierende Person erläutert, dass er eine Bestätigung ist. „⊥“ ist das logische Zeichen für „falsch“. P und A sind zwei Namen einer Handlung: von der Bequemlichkeit her gesehen, die sie einbringt, heißt sie A; von dem her, was sie ist (anti-real, nicht berechenbar), heißt sie P. Das ist die Gleichung im Abschnitt oben, “设ZFC-1=ZFC+A，则ZFC-1=ZFC+P” („sei ZFC-1 = ZFC + A, dann ist ZFC-1 = ZFC + P“).
 
-Der Angeklagte ist diese Handlung. Auf der Seite der HoTT hat die initiierende Person die „fertig vorliegende Sammlung“ zum Angeklagten bestimmt (Abschnitt 4); auf der Seite des Zenon erklärt A den Weg für vollendet, und die „unbegrenzte Teilbarkeit“ macht ihn unvollendbar.
+Das Zurückverfolgen im Abschnitt oben kommt bei dieser Handlung an. Auf der Seite der HoTT hat die initiierende Person die „fertig vorliegende Sammlung“ zum Angeklagten bestimmt (Abschnitt 4). Auf der Seite des Zenon gibt es zwei Prämissen: A erklärt den Weg für vollendet, und die „unbegrenzte Teilbarkeit“ macht ihn unvollendbar; warum der Ring nicht zurückgeht, führt die von der initiierenden Person angenommene Erklärung auf die zweite zurück (Abschnitt 2).
 
 ### Was es nicht ist
 

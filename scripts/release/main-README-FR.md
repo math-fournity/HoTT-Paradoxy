@@ -142,7 +142,7 @@ Quelle condition de la réalité a été modifiée ? La personne à l'origine du
 > Ensuite, il y a un autre problème : comment est réellement la réalité ? … Nous pouvons n'observer que la couche de l'espace-temps quantifié ; ce tronçon est quantifié et discontinu, et cela suffit à soutenir notre réflexion ultérieure.
 > La phrase “dans la réalité, c'est facile à achever” — autrement dit, le mouvement peut s'achever dans la réalité — tient parce qu'au niveau quantifié, pour les objets en mouvement que nous voulons observer, l'espace-temps peut être tenu pour un état discontinu qu'on ne peut plus diviser ; ainsi la réalité s'achève “par sauts”. Autrement dit, l'espace-temps de la réalité, pour les objets en mouvement que nous observons, ne satisfait pas à l'exigence dont le paradoxe de Zénon a besoin : couper par moitié, continuellement et sans fin. »
 
-Le second problème vise la « divisibilité sans fin » de la droite numérique, que les mathématiciens appellent la densité : entre deux points il y a toujours d'autres points. Le paradoxe de l'anneau la vise aussi : c'est seulement parce que les points n'ont pas de taille et que l'espace se divise sans fin que « de plus en plus près » ne devient jamais « rejoint ». Le premier problème est repris à la section 6 : c'est ce que la personne à l'origine du projet a plus tard nommé A. « La réalité s'achève par sauts » est le jugement de la personne à l'origine du projet sur la réalité ; ce texte ne s'en porte pas garant. Ce que les mathématiques peuvent prouver, c'est ce qui se passe dans un monde dont les points ont une taille (voir ci-dessous).
+Le second problème vise la « divisibilité sans fin » de la droite numérique, que les mathématiciens appellent la densité : entre deux points il y a toujours d'autres points. Le paradoxe de l'anneau la vise aussi : c'est seulement parce que les points n'ont pas de taille et que l'espace se divise sans fin que « de plus en plus près » ne devient jamais « rejoint ». Le premier problème est presque mot pour mot la définition de A que la personne à l'origine du projet a donnée le 2026-10-14 ; la section 6 le reprend. « La réalité s'achève par sauts » est le jugement de la personne à l'origine du projet sur la réalité ; ce texte ne s'en porte pas garant. Ce que les mathématiques peuvent prouver, c'est ce qui se passe dans un monde dont les points ont une taille (voir ci-dessous).
 
 **Ce que nous avons fait en mathématiques formelles.** Le paradoxe de l'anneau de la personne à l'origine du projet a été écrit en mathématiques phrase par phrase et vérifié par ordinateur, avec les nombres réels et la géométrie que les mathématiciens utilisent tous les jours (le vérificateur de preuves Lean et sa bibliothèque mathématique standard Mathlib). Phrase par phrase, face aux propos originaux :
 
@@ -299,7 +299,7 @@ C'est précisément le soupçon que la personne à l'origine du projet a mis par
 
 Un peu plus de deux semaines plus tard, le regard de Russell nous a conduits jusqu'à l'univers de HoTT ; le déraisonnable que nous y avons vu correspond point par point à Zénon. Les deux fantômes se sont rencontrés au même endroit.
 
-Qu'est-ce qui a alors pris, dans la théorie, la place du temps qui avait été laissé de côté ? En suivant cette question, la personne à l'origine du projet est revenue au sol sur lequel se tiennent aujourd'hui la plupart des mathématiciens.
+Qu'est-ce qui a alors pris, dans la théorie, la place du temps qui avait été laissé de côté ? La section 6 revient au passage tout en haut de la page, et au sol sur lequel se tiennent aujourd'hui la plupart des mathématiciens.
 
 ## 6. Retour en haut de la page : le problème de ZFC-1
 
@@ -331,7 +331,7 @@ La définition de Q par la personne à l'origine du projet (2026-10-14, propos o
 
 C'est l'ASK de la section 1 : avant d'admettre qu'un résultat « est déjà là », se demander d'abord si le processus qui le produit peut s'arrêter.
 
-La personne à l'origine du projet accorde un poids particulier à cette dernière phrase. Dans les vérificateurs de preuves du genre qui traite les programmes comme des preuves (Agda et Lean, utilisés dans ce dépôt, en font partie), cette porte fonctionne tous les jours : une définition récursive n'est acceptée que si l'on peut montrer que son calcul s'arrête. L'ordinateur a vérifié que, si l'on retire cette porte, toute proposition peut être « prouvée » et la logique s'effondre sur-le-champ ; avec la porte en place, les définitions ont des solutions.
+La personne à l'origine du projet accorde un poids particulier à cette dernière phrase. Dans les vérificateurs de preuves du genre qui traite les programmes comme des preuves (Agda et Lean, utilisés dans ce dépôt, en font partie), cette porte fonctionne tous les jours : pour qu'une définition récursive puisse servir de preuve, il faut montrer que son calcul s'arrête. L'ordinateur a vérifié que, si l'on retire cette porte, toute proposition peut être « prouvée » et la logique s'effondre sur-le-champ ; avec la porte en place, les définitions ont des solutions.
 
 ### Deux choix : A
 
@@ -341,16 +341,16 @@ La personne à l'origine du projet a poursuivi (2026-10-14, propos originaux) :
 
 > **Traduction.** « ZFC a abandonné cette puissance d'observation, a obtenu une commodité mathématique de type A, et s'est en même temps aliénée en ZFC-1 = ZFC + A. Abandonner est un choix, et A est le second choix. Qu'est-ce que A ? A, c'est prendre un résultat qu'on n'atteint qu'au bout d'une infinité d'étapes, et qui n'existe qu'à ce titre, pour un résultat déjà existant, et le faire entrer dans les calculs. »
 
-Quelques visages de A : lire la limite de 1/2 + 1/4 + 1/8 + … comme « cette infinité d'étapes a déjà été parcourue » ; tenir que, pour toute suite qui monte et qui a un majorant, le point final est déjà là, tout fait ; prendre un tout dont la confirmation demanderait une infinité de niveaux pour une chose toute faite livrée d'un coup. Le passage du haut dit que la communauté mathématique “实际使用的不是ZFC，而是ZFC-1” (« utilise en réalité non pas ZFC, mais ZFC-1 »). Notre lecture : ZFC-1 n'est pas un autre système d'axiomes, mais la manière dont les mathématiciens utilisent ZFC ; A habite des mots comme « existe », « résolu », « achevé ».
+Quelques visages de A : lire la limite de 1/2 + 1/4 + 1/8 + … comme « cette infinité d'étapes a déjà été parcourue » ; tenir que, pour toute suite qui monte et qui a un majorant, le point final est déjà là, tout fait ; prendre un tout dont la confirmation demanderait une infinité de niveaux pour une chose toute faite livrée d'un coup. (Ranger tout cela sous A est notre lecture ; que la « collection toute faite » soit A est la décision de la personne à l'origine du projet.) Le passage du haut dit que la communauté mathématique “实际使用的不是ZFC，而是ZFC-1” (« utilise en réalité non pas ZFC, mais ZFC-1 »). Notre lecture : ZFC-1 n'est pas un autre système d'axiomes, mais la manière dont les mathématiciens utilisent ZFC ; A habite des mots comme « existe », « résolu », « achevé ».
 
 L'ordinateur a vérifié deux choses :
 
-- **ZFC voit ; simplement, elle ne pose pas de porte.** ZFC sait dire quelles questions sont décidables et lesquelles ne le sont pas, mais elle ne fait jamais de « peut-il s'arrêter ? » le seuil pour admettre que quelque chose existe. Il y a toujours des processus qui ne s'arrêtent jamais, pour lesquels ZFC peut confirmer à chaque instant « pas encore arrêté », sans pouvoir prouver « il ne s'arrête jamais » ; de tels processus sont en nombre infini, et aucun rapiéçage n'en vient à bout.
+- **ZFC voit ; simplement, elle ne pose pas de porte.** ZFC sait dire quelles questions sont décidables et lesquelles ne le sont pas, mais elle ne fait jamais de « peut-il s'arrêter ? » le seuil pour admettre que quelque chose existe (cette moitié est vérifiée dans la logique classique de Lean, qui est justement la logique qu'utilise ZFC). Il y a toujours des processus qui ne s'arrêtent jamais, pour lesquels ZFC peut confirmer à chaque instant « pas encore arrêté », sans pouvoir prouver « il ne s'arrête jamais » ; de tels processus sont en nombre infini, et aucun rapiéçage n'en vient à bout.
 - **Les deux choix sont un seul principe.** Au niveau le plus simple, « l'issue de toute recherche infinie est déjà fixée » et « pour une suite qui monte et qui a un majorant, le point final existe tout fait » s'impliquent l'un l'autre. Écrit avec les entiers naturels, avec les nombres rationnels ou dans le vérificateur de preuves de HoTT, c'est la même chose, et rien de cela ne s'appuie sur le « ou bien… ou bien » du tiers exclu. Nous lisons la première phrase comme l'abandon de la porte et la seconde comme le choix de A.
 
 ### A a donné aux mathématiciens ce qu'ils voulaient : Zénon « résolu »
 
-ZFC prouve elle-même les deux phrases de Zénon (vérifié par ordinateur) : au sens des limites, il est arrivé ; aucune étape n'y parvient vraiment. Le nombre qu'est la limite (1) n'a pas lui-même besoin de A ; il est donné par une formule. Ce qui a besoin de A, c'est de lire la première phrase comme « cette infinité d'étapes a déjà été parcourue ». Les deux problèmes de Zénon que la personne à l'origine du projet a distingués (section 2) trouvent ici leur place : A déclare le chemin achevé ; la « divisibilité sans fin » le rend inachevable.
+ZFC prouve elle-même les deux phrases de Zénon (vérifié par ordinateur) : au sens des limites, il est arrivé ; aucune étape n'y parvient vraiment. Le nombre qu'est la limite (1) n'a pas lui-même besoin de A ; il est donné par une formule. Notre lecture : ce qui a besoin de A, c'est de lire la première phrase comme « cette infinité d'étapes a déjà été parcourue ». Les deux problèmes de Zénon que la personne à l'origine du projet a distingués (section 2) trouvent alors leur place : A déclare le chemin achevé ; la « divisibilité sans fin » le rend inachevable.
 
 ### Le même acte a donné, dans HoTT, le B dont personne ne voulait
 
@@ -374,7 +374,7 @@ La personne à l'origine du projet a dit (2026-10-14, propos originaux, extrait)
 >
 > La logique, à son point de départ, est une abstraction de la réalité et des processus de pensée correspondants. ZFC-1, cette logique anti-réelle, non seulement ne peut pas accomplir A dans la réalité, mais encore produit nécessairement, dans la pensée, les paradoxes que nous avons ressuscités et nouvellement trouvés. »
 
-Manquer de Q, c'est seulement ne pas demander ; A, en revanche, est une affirmation positive : un résultat qu'aucun processus ne peut livrer serait déjà là.
+Voici comment nous comprenons ces mots : manquer de Q, c'est seulement ne pas demander ; A, en revanche, est une affirmation positive, à savoir qu'un résultat qu'aucun processus ne peut livrer serait déjà là.
 
 **Dans la réalité, cela ne peut pas se faire.** L'ordinateur a vérifié deux choses :
 
@@ -394,7 +394,7 @@ Manquer de Q, c'est seulement ne pas demander ; A, en revanche, est une affirmat
 L'ordinateur a vérifié trois choses sur la vraie ZFC (la formalisation de ZFC provient de la bibliothèque Foundation de Lean) :
 
 - **Le marché avec le diable.** Une théorie qui peut être vérifiée mécaniquement et qui peut vérifier des calculs finis, dès qu'elle avale la règle « une infinité d'étapes a déjà été parcourue », prouve d'un seul et même programme à la fois qu'il s'arrête et qu'il ne s'arrête jamais ; pour ne pas se contredire, elle ne peut que renoncer à être vérifiable mécaniquement. Les deux dernières phrases du passage du haut disent que le diable veut l'« âme », et que l'âme des mathématiques est la vérité mathématique.
-- **La part que prend le diable.** ZFC utilise A partout, sauf sur elle-même. Laissez ZFC chercher encore et encore sa propre contradiction : à chaque instant elle peut confirmer « pas encore trouvée », mais elle ne peut pas prouver « jamais trouvée ». C'est le second théorème d'incomplétude de Gödel, vérifié ici par ordinateur sur la vraie ZFC.
+- **La part que prend le diable** (cette correspondance est notre lecture). Laissez ZFC chercher encore et encore sa propre contradiction : à chaque instant elle peut confirmer « pas encore trouvée », mais elle ne peut pas prouver « jamais trouvée ». C'est le second théorème d'incomplétude de Gödel, vérifié ici par ordinateur sur la vraie ZFC. Notre lecture : ZFC utilise A partout, sauf sur elle-même.
 - **Un coureur qui atteint vraiment le but.** Il existe un coureur qui, à chaque étape, couvre la moitié de ce qui reste, dont la position est à chaque instant en deçà du but, et qui, au sens des limites, arrive vraiment ; ZFC confirme à chaque instant qu'il court encore, mais ne peut pas prouver qu'il est arrivé.
 
 ### Retour à la prémisse
@@ -407,7 +407,7 @@ Le passage du haut dit (propos originaux, extrait) : “当我们回溯这种不
 
 La phrase a la forme d'une question ; le 2026-10-15, la personne à l'origine du projet a précisé qu'elle est une confirmation. « ⊥ » est le symbole logique du « faux ». P et A sont deux noms d'un même acte : vu de la commodité qu'il procure, c'est A ; vu de ce qu'il est (anti-réel, non calculable), c'est P. C'est l'équation du passage du haut, “设ZFC-1=ZFC+A，则ZFC-1=ZFC+P” (« posons ZFC-1 = ZFC + A ; alors ZFC-1 = ZFC + P »).
 
-L'accusé, c'est cet acte. Du côté de HoTT, la personne à l'origine du projet a désigné la « collection toute faite » comme accusé (section 4) ; du côté de Zénon, A déclare le chemin achevé, et la « divisibilité sans fin » le rend inachevable.
+La remontée du passage du haut aboutit à cet acte. Du côté de HoTT, la personne à l'origine du projet a désigné la « collection toute faite » comme accusé (section 4). Du côté de Zénon, il y a deux prémisses : A déclare le chemin achevé, et la « divisibilité sans fin » le rend inachevable ; pourquoi l'anneau ne peut pas revenir, l'explication acceptée par la personne à l'origine du projet l'attribue à la seconde (section 2).
 
 ### Ce que ce n'est pas
 

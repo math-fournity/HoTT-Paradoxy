@@ -142,7 +142,7 @@ Which condition of reality was changed? The initiator later split the problem in
 > Second, there is another problem: what is reality actually like? … We can observe only the layer of quantized space-time; this stretch is quantized and discontinuous, and that is enough to support our further thinking.
 > The sentence 'in reality it is easily completed' — or, motion can be completed in reality — holds because at the quantized level, for the moving objects we want to observe, space-time can be regarded as a discontinuous state that can no longer be divided; so reality completes 'by jumps'. In other words, the space-time of reality, for the moving objects we observe, does not meet the requirement that Zeno's paradox needs: halving by 1/2, continuously and without end."
 
-The second problem points to the "endless divisibility" of the number line, which mathematicians call density: between any two points there are always other points. The ring paradox is aimed at it too: only because points have no size and space can be divided without end does "closer and closer" never turn into "joined". The first problem is taken up in section 6: it is what the initiator later named A. "Reality completes by jumps" is the initiator's judgment about reality; this text does not vouch for it. What mathematics can prove is what happens in a world whose points have a size (see below).
+The second problem points to the "endless divisibility" of the number line, which mathematicians call density: between any two points there are always other points. The ring paradox is aimed at it too: only because points have no size and space can be divided without end does "closer and closer" never turn into "joined". The first problem is almost word for word the definition of A that the initiator gave on 2026-10-14; section 6 takes it up. "Reality completes by jumps" is the initiator's judgment about reality; this text does not vouch for it. What mathematics can prove is what happens in a world whose points have a size (see below).
 
 **What we did in formal mathematics.** The initiator's ring paradox has been written as mathematics sentence by sentence and checked by computer, using the real numbers and the geometry that mathematicians use every day (the proof checker Lean with its standard mathematics library Mathlib). Going through the original words one sentence at a time:
 
@@ -299,7 +299,7 @@ This is precisely the suspicion the initiator wrote down on 2026-09-10 (original
 
 A little over two weeks later, Russell's way of seeing led us to the universe of HoTT; the unreasonableness we saw there matches Zeno point by point. The two ghosts met in the same place.
 
-Then what took the place, inside the theory, of the time that was left out? Following this question, the initiator went back to the ground most mathematicians stand on today.
+Then what took the place, inside the theory, of the time that was left out? Section 6 returns to the passage at the top of the page, and to the ground most mathematicians stand on today.
 
 ## 6. Back to the top of the page: the problem of ZFC-1
 
@@ -331,7 +331,7 @@ The initiator's definition of Q (2026-10-14, original words):
 
 This is the ASK of section 1: before accepting that a result "is already there", first ask whether the process that produces it can stop.
 
-The initiator places particular weight on that last sentence. In proof checkers of the kind that treat programs as proofs (Agda and Lean, used in this repository, are such checkers), this gate operates every day: a recursive definition is accepted only if it can be shown that its computation stops. The computer has checked that if this gate is removed, every proposition can be "proved" and logic collapses on the spot; with the gate in place, definitions have solutions.
+The initiator places particular weight on that last sentence. In proof checkers of the kind that treat programs as proofs (Agda and Lean, used in this repository, are such checkers), this gate operates every day: for a recursive definition to be used as a proof, it must be shown that its computation stops. The computer has checked that if this gate is removed, every proposition can be "proved" and logic collapses on the spot; with the gate in place, definitions have solutions.
 
 ### Two choices: A
 
@@ -341,16 +341,16 @@ The initiator went on (2026-10-14, original words):
 
 > **Translation.** "ZFC gave up this power of observation, obtained A-type mathematical convenience, and at the same time turned into ZFC-1 = ZFC + A. Giving it up is one choice, and A is the second choice. What is A? A is taking a result that can only be reached through an infinite number of steps, and exists on that account, as an already existing result, and letting it take part in computation."
 
-Some of A's guises: reading the limit of 1/2 + 1/4 + 1/8 + … as "these infinitely many steps have already been walked"; holding that for every sequence that rises and has an upper bound, the endpoint is already lying there, ready-made; taking a whole that would take infinitely many levels to confirm as a ready-made thing handed over at once. The passage at the top says that the mathematical community “实际使用的不是ZFC，而是ZFC-1” ("actually uses not ZFC but ZFC-1"). Our reading: ZFC-1 is not another set of axioms but the way mathematicians use ZFC; A lives in words like "exists", "solved", "completed".
+Some of A's guises: reading the limit of 1/2 + 1/4 + 1/8 + … as "these infinitely many steps have already been walked"; holding that for every sequence that rises and has an upper bound, the endpoint is already lying there, ready-made; taking a whole that would take infinitely many levels to confirm as a ready-made thing handed over at once. (Filing all of these under A is our reading; that the "ready-made collection" is A is the initiator's ruling.) The passage at the top says that the mathematical community “实际使用的不是ZFC，而是ZFC-1” ("actually uses not ZFC but ZFC-1"). Our reading: ZFC-1 is not another set of axioms but the way mathematicians use ZFC; A lives in words like "exists", "solved", "completed".
 
 The computer has checked two things:
 
-- **ZFC can see; it just sets no gate.** ZFC can say which questions are decidable and which are not, yet it never uses "can it stop?" as a threshold for accepting that something exists. There are always processes that never stop, for which ZFC can confirm at every moment "not stopped yet" but cannot prove "it never stops"; there are infinitely many such processes, and no patching ever finishes them.
+- **ZFC can see; it just sets no gate.** ZFC can say which questions are decidable and which are not, yet it never uses "can it stop?" as a threshold for accepting that something exists (this half is checked in Lean's classical logic, which is the logic ZFC uses). There are always processes that never stop, for which ZFC can confirm at every moment "not stopped yet" but cannot prove "it never stops"; there are infinitely many such processes, and no patching ever finishes them.
 - **The two choices are one principle.** At the simplest level, "the outcome of every infinite search is already settled" and "for a sequence that rises and has an upper bound, the endpoint exists ready-made" imply each other. Written with natural numbers, with rational numbers, or in the HoTT proof checker, it is the same, and none of it relies on the "either–or" law of excluded middle. We read the first sentence as giving up the gate and the second as choosing A.
 
 ### A gave mathematicians what they wanted: Zeno "solved"
 
-ZFC itself proves Zeno's two sentences (checked by computer): in the sense of limits, it has arrived; no step really gets there. The number that is the limit (1) does not itself need A; it is given by a formula. What needs A is reading the first sentence as "these infinitely many steps have already been walked". The two problems of Zeno that the initiator distinguished (section 2) fall into place here: A declares the walk finished; "endless divisibility" makes it unfinishable.
+ZFC itself proves Zeno's two sentences (checked by computer): in the sense of limits, it has arrived; no step really gets there. The number that is the limit (1) does not itself need A; it is given by a formula. Our reading: what needs A is reading the first sentence as "these infinitely many steps have already been walked". The two problems of Zeno that the initiator distinguished (section 2) then fall into place: A declares the walk finished; "endless divisibility" makes it unfinishable.
 
 ### The same act gave, in HoTT, the B nobody wanted
 
@@ -374,7 +374,7 @@ The initiator said (2026-10-14, original words, excerpt):
 >
 > Logic, at its starting point, is an abstraction of reality and of the corresponding thought processes. ZFC-1, this anti-real logic, not only cannot accomplish A in reality, but also, in thought, necessarily produces the paradoxes that we have revived and newly found."
 
-Missing Q only means not asking; A, however, is a positive assertion: a result that no process can deliver is already there.
+This is how we understand these words: missing Q only means not asking; A, however, is a positive assertion, that a result no process can deliver is already there.
 
 **In reality it cannot be done.** The computer has checked two things:
 
@@ -394,7 +394,7 @@ Missing Q only means not asking; A, however, is a positive assertion: a result t
 The computer has checked three things on real ZFC (the formalization of ZFC comes from Lean's Foundation library):
 
 - **The devil's bargain.** A theory that can be checked mechanically and can verify finite computations, once it swallows the rule "infinitely many steps have already been walked", proves of one and the same program both that it stops and that it never stops; to avoid contradicting itself it can only give up being mechanically checkable. The last two sentences of the passage at the top say that the devil wants the "soul", and that the soul of mathematics is mathematical truth.
-- **The share the devil takes.** ZFC uses A everywhere, except on itself. Let ZFC search again and again for its own contradiction: at every moment it can confirm "not found yet", but it cannot prove "never found". This is Gödel's second incompleteness theorem, here checked by computer on real ZFC.
+- **The share the devil takes** (this correspondence is our reading). Let ZFC search again and again for its own contradiction: at every moment it can confirm "not found yet", but it cannot prove "never found". This is Gödel's second incompleteness theorem, here checked by computer on real ZFC. Our reading: ZFC uses A everywhere, except on itself.
 - **A runner who really reaches the end.** There is a runner who at each step covers half of what remains, whose position is less than the end at every moment, and who in the sense of limits really arrives; ZFC confirms at every moment that it is still running, yet cannot prove that it has arrived.
 
 ### Back to the premise
@@ -407,7 +407,7 @@ The passage at the top says (original words, excerpt): “当我们回溯这种�
 
 The sentence has the form of a question; on 2026-10-15 the initiator explained that it is a confirmation. "⊥" is the logical symbol for "false". P and A are two names of one act: seen from the convenience it buys, it is A; seen from what it is (anti-real, non-computable), it is P. This is the equation in the passage at the top, “设ZFC-1=ZFC+A，则ZFC-1=ZFC+P” ("let ZFC-1 = ZFC + A; then ZFC-1 = ZFC + P").
 
-The defendant is that act. On the HoTT side the initiator named the "ready-made collection" as the defendant (section 4); on Zeno's side, A declares the walk finished, and "endless divisibility" makes it unfinishable.
+Tracing back in the passage at the top arrives at this act. On the HoTT side the initiator named the "ready-made collection" as the defendant (section 4). On Zeno's side there are two premises: A declares the walk finished, and "endless divisibility" makes it unfinishable; why the ring cannot go back is attributed, in the explanation the initiator accepted, to the latter (section 2).
 
 ### What it is not
 
