@@ -1,0 +1,36 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-AUD-20261001-OPUS-TWO-GHOSTS-SEMANTICS",
+  "session_kind": "SOURCE_SEMANTIC_AUDIT",
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "checkpoint": {
+    "applied": false,
+    "reason": "The task records a source-semantic audit. It does not mutate STATE, a candidate lifecycle, a mathematical claim, or a current projection."
+  },
+  "source_checks": [
+    {
+      "command": "python3 -B .codex/tools/cognition_runtime.py plan --profile governance",
+      "status": "READ_ONLY_PLAN_COMPLETED",
+      "scope": "Four-set/shard inventory and STATE revision 293; query-first promotion remained empty."
+    },
+    {
+      "command": "rg exact-user-verdict and ghost/semantic terms across Cloud-Opus, .claude, docs and sources",
+      "status": "SOURCE_DISCOVERY_COMPLETED",
+      "scope": "Located downstream quotations and interpretation documents; no standalone raw 2026-09-27 user-message snapshot was located in the checked scope."
+    },
+    {
+      "command": "git log --all --format='%h %ad %s' --date=short -- <Cloud-Opus/community-audit paths>",
+      "status": "HISTORY_CHECK_COMPLETED",
+      "scope": "Confirmed the conditional Russell verdict on 2026-09-27, later public documents, and the 2026-09-30 phase-close/UR additions."
+    }
+  ],
+  "verification_planned_after_write": [
+    "python3 -B scripts/audit/verify_governance_shards.py",
+    "git diff --check"
+  ],
+  "notes": [
+    "This audit distinguishes source identity, AI interpretation, mathematical evidence, and later user clarification.",
+    "It does not verify the mathematics of Q, A7, or the HoTT proof packages anew."
+  ]
+}

@@ -19,6 +19,12 @@
 
 ## 历史停止点
 
+S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P：core generation-13/62 增加模式 P 的一遍匹配方法论。它指导发现态，不改变 Goal7、现有候选或数学状态。
+
+S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT：更正扩展认知第12片接入后的首屏分片数与历史/当前基线说明；core generation-12、Goal7和数学状态不变。
+
+S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY：core generation-12 将用户 2026-10-02 的后续理论级方法论纳入固定加载输入（KC-000056–KC-000061）。这改变未来选靶/发现的工作意识，不改变 Goal7、HoTT 阶段收尾或任何数学结论。
+
 S-GOV-20261001-CIRCLE-ZENO-ATTRIBUTION-UPDATE：用户对 2026-09-27“芝诺幽灵”所指作出明确说明：圆环悖论及仓库后续讨论、分析；A7 为独立 AI 候选。gen11/KC-000055；A7 数学状态、圆环技术开放状态与 Goal7 均不变。
 
 S-GOV-20260930-CLAUDE-PHASE-CLOSE-SOURCE-CORRECTION：阶段收尾之后的回源更正（宇宙一侧“没有有限层”的文献身份：HoTT Book 写为预计、尚未做出）；扩展认知 011、全景罗素结果行、社区稿 03 的哈希同步。
