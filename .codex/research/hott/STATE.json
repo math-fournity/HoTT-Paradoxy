@@ -5,15 +5,15 @@
     "MO3-COVERAGE-C"
   ],
   "current_core": {
-    "core_sha256": "3cd3326f4bb8578c6e4c4e9e14b1c1b6fa590f9a4c12d64f83e88eb37a5b07f8",
-    "curation": "scripts/audit/core-cognition-curation-v11.json",
-    "curation_sha256": "c7e274d3fcec7c5be2991842329cee3a053c5754b97c7e48122cb2b039a2dbf9",
-    "generation": "core-cognition-generation-11",
-    "kc_count": 55,
+    "core_sha256": "55d514b1a707b727a7aa6c00af6e6ff799d844eea04ff4b11927b5159e36d9ef",
+    "curation": "scripts/audit/core-cognition-curation-v13.json",
+    "curation_sha256": "41adf72e6215f5abd1498b0dc2af242e77b96d503914e2d99c91fcd50a40f8fd",
+    "generation": "core-cognition-generation-13",
+    "kc_count": 62,
     "manifest": "核心认知.manifest.json",
-    "manifest_sha256": "70d474fdf40d729d1f43381e7fa2ed208edf8423c40f33ccc707cc99b4fd3289",
+    "manifest_sha256": "8d39e7fcc9d704cee40798c93651b31e35cd08e5cf349f4a88851512879d4731",
     "path": "核心认知.md",
-    "transition": "audit/core-cognition-generation-11-transition-20261001.json"
+    "transition": "audit/core-cognition-generation-13-transition-20261002.json"
   },
   "execution_control": {
     "abx_record": "R-ABX-ACTION-20260921",
@@ -22,14 +22,14 @@
     "app_goal_completion_eligible": false,
     "app_goal_status_observed": "paused_at_resume_query; user explicitly continued; no resume tool mutation",
     "background_work": false,
-    "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261001-MAIN-DOCS-ALIGNMENT/result.json",
+    "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P/result.json",
     "completion_eligibility_scope": "All six Goal7 gates remain required; parent scope not sufficient yet; no C final seal or D pass.",
     "current_phase": "MO3_C_R1_PARENT_SCOPE_AND_SEMANTIC_REVIEW",
     "current_role": "RESEARCH_GENERATION",
     "delivery_seal_path": null,
     "domain_sop": "goal-7.md; compatible discipline goal-5.md",
     "historical_first_pass_status": "FIRST_PASS_COMPLETE_WITH_DECLARED_SCOPE; P47 priority REVIEW_REQUIRED by subsequent alignment audit",
-    "last_checkpoint_session": "S-GOV-20261001-MAIN-DOCS-ALIGNMENT",
+    "last_checkpoint_session": "S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P",
     "new_math_research_started": true,
     "next_minimal_verification": "R1/R2：Book第3章全章逻辑首遍，先最高指示全文、KC47/48及公开生成；由PAT/mere命题/截断/逻辑原则/选择/大小的真实消费者补父范围。C-BASE-02更宽iterator/W-Nat/相干/Cubical接口保显式待办，C342–343只精确子结果；不再打磨同义W/票据/编码例子。",
     "phase_1_result_record": "R-ASTRA-ASSUMPTION-INTEGRATION-20260921",
@@ -41,7 +41,7 @@
     "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
     "status": "MO3_C_PARENT_SCOPE_INCOMPLETE"
   },
-  "latest_session": "S-GOV-20261001-MAIN-DOCS-ALIGNMENT",
+  "latest_session": "S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P",
   "load_policy": {
     "fresh_model_behavior": "NOT_RUN",
     "full_set": [
@@ -1017,12 +1017,21 @@
         "scripts/audit/verify_core_cognition.py"
       ],
       "kind": "core_generation_migration",
-      "lifecycle_status": "CURRENT",
+      "lifecycle_status": "HISTORICAL",
       "path": "audit/core-cognition-generation-11-transition-20261001.json",
       "related_records": [
         "A-CLAUDE-CORE-GENERATION-10-001",
         "S-GOV-20261001-CIRCLE-ZENO-ATTRIBUTION-UPDATE"
       ],
+      "resolution": {
+        "evidence": [
+          "audit/core-cognition-generation-12-transition-20261002.json",
+          "核心认知.md",
+          "核心认知.manifest.json"
+        ],
+        "reason": "Generation-12 preserves all generation-11 units and advances STATE.current_core to the new curation, manifest and transition. The generation-11 migration remains historical evidence."
+      },
+      "revalidation": " S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY: superseded as current core by generation-12; source payloads remain preserved through the generation-12 transition.",
       "scope": "Incrementally preserve all 54 generation-10 direct-user units exactly and append KC-000055: the user's complete 2026-10-01 clarification that the 2026-09-27 Zeno-ghost referent is the circle paradox and the repository's subsequent discussion and analysis, not A7 infinite coherence. No mathematical theorem is added.",
       "source_hashes": {
         "audit/core-cognition-generation-11-transition-20261001.json": "359c4fb828cd6f709acb22c7b7433fef88da3f5e6a307caf963792f5e5474e59",
@@ -1032,6 +1041,81 @@
         "sources/prompts/Codex-圆环与芝诺幽灵所指的澄清-用户原文-20261001.md": "53e9c4f551f5809ba8f40ce0bc543294c5e3e371a45d015497fced057eb915cc",
         "核心认知.manifest.json": "70d474fdf40d729d1f43381e7fa2ed208edf8423c40f33ccc707cc99b4fd3289",
         "核心认知.md": "3cd3326f4bb8578c6e4c4e9e14b1c1b6fa590f9a4c12d64f83e88eb37a5b07f8"
+      },
+      "status": "superseded_by_generation_12"
+    },
+    "A-CODEX-CORE-GENERATION-12-001": {
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / COMPLETE_ADDITIVE_PRESERVING",
+      "full_sources": [
+        "核心认知.md",
+        "核心认知.manifest.json",
+        "scripts/audit/core-cognition-curation-v12.json",
+        "audit/core-cognition-generation-12-transition-20261002.json",
+        "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+        "scripts/audit/build_core_cognition.py",
+        "scripts/audit/verify_core_cognition.py",
+        "audit/core-generation-12-methodology/prepare_checkpoint.py"
+      ],
+      "kind": "core_generation_migration",
+      "lifecycle_status": "HISTORICAL",
+      "path": "audit/core-cognition-generation-12-transition-20261002.json",
+      "related_records": [
+        "A-CODEX-CORE-GENERATION-11-001",
+        "S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY"
+      ],
+      "resolution": {
+        "evidence": [
+          "audit/core-cognition-generation-13-transition-20261002.json",
+          "核心认知.md",
+          "核心认知.manifest.json"
+        ],
+        "reason": "Generation-13 preserves all generation-12 units and advances STATE.current_core to the new curation, manifest and transition."
+      },
+      "revalidation": "S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P: superseded as current core by generation-13; all generation-12 payloads remain mapped in the new transition.",
+      "scope": "Incrementally preserve all 55 generation-11 direct-user units exactly and append KC-000056–KC-000061: theory-level target selection, non-mandatory Fields entrance, controlled learned-knowledge heuristics, Russell pattern P first, obvious central commitment first, and permanent core loading. No mathematical theorem, ZFC hit, or new Goal is added.",
+      "source_hashes": {
+        "audit/core-cognition-generation-12-transition-20261002.json": "1235a6bc89bbbc791f1fae337c7f5430bf40ec0ca5b39a67f8eada17e4612079",
+        "audit/core-generation-12-methodology/prepare_checkpoint.py": "79c407cccb8a07fda391bf07237473bac12c2f6fe608b620f004aa3381834df8",
+        "scripts/audit/build_core_cognition.py": "e53233b094629f9c972544700d44dbcaf1862f320a273cd1421ab17d21a50ab9",
+        "scripts/audit/core-cognition-curation-v12.json": "b6a64dc10fb527c1aaab3e8ce3b504d81f12b931afe6904d36d77d56f400d319",
+        "scripts/audit/verify_core_cognition.py": "3c44a90ba8f8d0a9c3316fd3486873c93dc25403c195ef6c7c26c0b66968a6c5",
+        "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md": "1cc94f9fdae3bc3c38484fb76e40f98022fd356c83fa0d82c9827732cccd04fa",
+        "核心认知.manifest.json": "2276081dfb059a17c4e20af1b721c7f23effa86441d4318711baecb5baac795a",
+        "核心认知.md": "7d3f7748e203249b718880b3aca8783fd6606f4695a977007660d9913828c35f"
+      },
+      "status": "superseded_by_generation_13"
+    },
+    "A-CODEX-CORE-GENERATION-13-001": {
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / COMPLETE_ADDITIVE_PRESERVING",
+      "full_sources": [
+        "核心认知.md",
+        "核心认知.manifest.json",
+        "scripts/audit/core-cognition-curation-v13.json",
+        "audit/core-cognition-generation-13-transition-20261002.json",
+        "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+        "scripts/audit/build_core_cognition.py",
+        "scripts/audit/verify_core_cognition.py",
+        "audit/core-generation-13-onepass/prepare_checkpoint.py"
+      ],
+      "kind": "core_generation_migration",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/core-cognition-generation-13-transition-20261002.json",
+      "related_records": [
+        "A-CODEX-CORE-GENERATION-12-001",
+        "S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P"
+      ],
+      "scope": "Preserve all 61 generation-12 direct-user units exactly and append KC-000062: a correctly written pattern P is a conditional heuristic for matching the model's learned theory-X knowledge into a first-pass clue without exhaustive traversal. No performance theorem, neural-weight inspection, mathematical theorem, defect verdict, or Goal is added.",
+      "source_hashes": {
+        "audit/core-cognition-generation-13-transition-20261002.json": "dcfaae70de6269d03b42cf161054016d01a7dd0153fd6fe476c44846f6c650b3",
+        "audit/core-generation-13-onepass/prepare_checkpoint.py": "5369d0808c753286dd3fefdde233e191025c914553ca151b02843b7ac10afb6f",
+        "scripts/audit/build_core_cognition.py": "e53233b094629f9c972544700d44dbcaf1862f320a273cd1421ab17d21a50ab9",
+        "scripts/audit/core-cognition-curation-v13.json": "41adf72e6215f5abd1498b0dc2af242e77b96d503914e2d99c91fcd50a40f8fd",
+        "scripts/audit/verify_core_cognition.py": "3c44a90ba8f8d0a9c3316fd3486873c93dc25403c195ef6c7c26c0b66968a6c5",
+        "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md": "1b280968cc14702750d68de2b04314e3a017edfab08d67ec8d9ce425a94b184d",
+        "核心认知.manifest.json": "8d39e7fcc9d704cee40798c93651b31e35cd08e5cf349f4a88851512879d4731",
+        "核心认知.md": "55d514b1a707b727a7aa6c00af6e6ff799d844eea04ff4b11927b5159e36d9ef"
       },
       "status": "closed"
     },
@@ -7504,7 +7588,7 @@
       "kind": "integrated_direction_projection",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "方向追踪.md",
-      "projection_generation": "20261001-direction-295",
+      "projection_generation": "20261002-direction-onepass-298",
       "scope": "C Book1/2 and selected appendix source review plus exact encoded-pair proof; parent scope incomplete.",
       "semantic_status": "MO3_C_PARENT_SCOPE_INCOMPLETE",
       "status": "active"
@@ -7651,7 +7735,7 @@
       "kind": "integrated_outcome_panorama",
       "lifecycle_status": "ACTIVE_WORK",
       "path": "全景视野.md",
-      "projection_generation": "20261001-outcome-295",
+      "projection_generation": "20261002-outcome-onepass-298",
       "scope": "C Book1/2 and selected appendix source review plus exact encoded-pair proof; parent scope incomplete.",
       "semantic_status": "MO3_C_PARENT_SCOPE_INCOMPLETE",
       "status": "active"
@@ -15003,6 +15087,84 @@
       },
       "status": "complete"
     },
+    "S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT": {
+      "depends_on": [],
+      "evidence_status": "GOVERNANCE_CHECKPOINT_COMMITTED / VERIFIED_WITH_SCOPE / NO_NEW_MATH_CLAIM",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT/RUNS.json",
+        ".codex/cognition/checkpoints/S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT/result.json",
+        "扩展认知.md",
+        "扩展认知/012 - 后续理论靶、罗素模式 P 与工作意识.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT/SESSION.md",
+      "related_records": [
+        "S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY",
+        "A-CODEX-CORE-GENERATION-12-001"
+      ],
+      "scope": "Correct the fourth-document shard count and state its historical/current core baselines. No user source, core payload, theory candidate, mathematical result, or Goal changes.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY": {
+      "depends_on": [],
+      "evidence_status": "GOVERNANCE_CHECKPOINT_COMMITTED / VERIFIED_WITH_SCOPE / NO_NEW_MATH_CLAIM",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY/RUNS.json",
+        ".codex/cognition/checkpoints/S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY/result.json",
+        "sources/prompts/Codex-后续理论靶与罗素模式P-用户原文-20261002.md",
+        "scripts/audit/core-cognition-curation-v12.json",
+        "audit/core-cognition-generation-12-transition-20261002.json",
+        "audit/core-generation-12-methodology/prepare_checkpoint.py",
+        "A-CODEX-CORE-GENERATION-12-001",
+        "A-CODEX-CORE-GENERATION-11-001"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-12-METHODOLOGY/SESSION.md",
+      "related_records": [
+        "S-GOV-20261001-MAIN-DOCS-ALIGNMENT",
+        "A-CODEX-CORE-GENERATION-12-001",
+        "A-CODEX-CORE-GENERATION-11-001",
+        "I-DIRECTION-PORTFOLIO-20260912",
+        "I-OUTCOME-PANORAMA-20260912"
+      ],
+      "scope": "Apply core generation-12 and its explanatory/current-state integration. The work records methodology as enduring input; it does not start a new theory investigation, alter Goal7, or claim a mathematical result.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P": {
+      "depends_on": [],
+      "evidence_status": "GOVERNANCE_CHECKPOINT_COMMITTED / VERIFIED_WITH_SCOPE / NO_NEW_MATH_CLAIM",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P/RUNS.json",
+        ".codex/cognition/checkpoints/S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P/result.json",
+        "sources/prompts/Codex-模式P与一遍匹配-用户原文-20261002.md",
+        "scripts/audit/core-cognition-curation-v13.json",
+        "audit/core-cognition-generation-13-transition-20261002.json",
+        "audit/core-generation-13-onepass/prepare_checkpoint.py",
+        "A-CODEX-CORE-GENERATION-13-001",
+        "A-CODEX-CORE-GENERATION-12-001"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-GOV-20261002-CORE-GENERATION-13-ONEPASS-P/SESSION.md",
+      "related_records": [
+        "S-GOV-20261002-CORE-GEN12-ESSAY-ALIGNMENT",
+        "A-CODEX-CORE-GENERATION-13-001",
+        "A-CODEX-CORE-GENERATION-12-001"
+      ],
+      "scope": "Apply generation-13's direct-user refinement of P as a conditional one-pass pattern-matching heuristic. No mathematical result, candidate promotion, research Goal, or existing-status change.",
+      "source_hashes": {},
+      "status": "complete"
+    },
     "S-INTEGRATION-20260912-001": {
       "depends_on": [],
       "evidence_status": "VERIFIED_WITH_SCOPE",
@@ -19947,7 +20109,7 @@
     "A-KC-AUDIT-GAP-001",
     "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001"
   ],
-  "revision": 295,
+  "revision": 298,
   "schema_migration": {
     "from": "hott-working-state/v1",
     "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",

@@ -1,0 +1,69 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261002-STRUCTURAL-FOUNDATIONS-CHOICE-CARD",
+  "tier": "T2",
+  "role": "RESEARCH_GENERATION",
+  "status": "SOURCE_CARD_COMPLETE_WITH_SCOPE / THREE_CONSUMER_DEFENSE / DEPRIORITIZED_WITH_SCOPE",
+  "new_formal_runs": [],
+  "source_reads": [
+    {
+      "id": "SRC-ETCS-001",
+      "source": "Lawvere 2005 long version of 1964 ETCS",
+      "scope": "foundation positioning; isomorphism-invariant framing; Choice axiom and family-selection form",
+      "identity": "https://pages.jh.edu/rrynasi1/FoundationsOFMath/Literature/Lawvere2005AnElementaryTheoryOfTheCategoryOfSets%28LongVersion%29WithCommentary.pdf",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-CONTROL-001",
+      "source": "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda",
+      "scope": "Cubical control for unlabeled two-element uniform choice and labeled positive control",
+      "status": "EXISTING_PROJECT_SOURCE_READ"
+    },
+    {
+      "id": "SRC-CONSUMER-001",
+      "source": "audit/natural-consumer审计-20260912.md",
+      "scope": "bounded negative consumer audit; no universal claim about ETCS or all category theory",
+      "status": "EXISTING_BOUNDED_AUDIT_READ"
+    },
+    {
+      "id": "SRC-MODULI-001",
+      "source": "David Mumford, Picard Groups of Moduli Problems (1965)",
+      "scope": "visual inspection of scan pages 33–34 and 37: no universal family for all nonsingular curves; automorphism-free positive control; definite-model selection question; explicit maps required once nontrivial automorphisms are admitted",
+      "identity": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1965b--PicGpMod-EmeryScan.pdf",
+      "local_sha256": "89c8e381bda092274fadb954b438d94042d10aefa6101a4ae5a2f51a879f2f49",
+      "status": "PRIMARY_SOURCE_VISUALLY_INSPECTED_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-MATHLIB-ISO-001",
+      "source": "mathlib4 Mathlib/CategoryTheory/Iso.lean",
+      "scope": "IsIso has existential inverse; inv uses Classical.choose; source documents inverse uniqueness and proves map_inv",
+      "identity": "https://github.com/leanprover-community/mathlib4/blob/8e30cac82f69c18f6cbe88799bdc3ebd74cc592d/Mathlib/CategoryTheory/Iso.lean",
+      "commit": "8e30cac82f69c18f6cbe88799bdc3ebd74cc592d",
+      "local_sha256": "96adeae869a3725cb2ee1d3c37db216ae13f2fbebab87447fccb30f007fe8ef9",
+      "status": "VERSION_PINNED_SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-MATHLIB-SKELETON-001",
+      "source": "mathlib4 Mathlib/CategoryTheory/Skeletal.lean",
+      "scope": "skeleton as quotient of isomorphism classes; explicit noncomputable representative and iso choices; equivalence and natural-isomorphism coherence",
+      "identity": "https://github.com/leanprover-community/mathlib4/blob/8e30cac82f69c18f6cbe88799bdc3ebd74cc592d/Mathlib/CategoryTheory/Skeletal.lean",
+      "commit": "8e30cac82f69c18f6cbe88799bdc3ebd74cc592d",
+      "local_sha256": "5c56274abf5bf5a45e0557d2028a4858edb8b4c952e9d18cfa163897887fb77b",
+      "status": "VERSION_PINNED_SOURCE_READ_WITH_SCOPE"
+    }
+  ],
+  "reused_formal_evidence": [
+    {
+      "proof_id": "MP-NOCANONICAL-001",
+      "run_id": "20260913-MP-NOCANONICAL-001-02",
+      "recorded_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "use": "control only; not an ETCS theorem and not a new replay"
+    }
+  ],
+  "non_goals": [
+    "No claim that ETCS, category theory, or ZFC is inconsistent.",
+    "No new theorem, source/run/index closure, or machine proof was produced.",
+    "No claim that every structuralist consumer mishandles natural choice.",
+    "No Fields Medal linkage is required for this source card."
+  ]
+}
