@@ -62,4 +62,36 @@ B = `∃z (z ∈ω ∧ (iT 1 p) z)`。要使 B 恒假，需 `iT 1 p` 在 ω 上�
 即 p 的翻译在 ω 上的**下推封闭性**。**这不是平凡的。**
 -/
 
+/-! ## 关键观察：`exsBlockerQ_of_bridge2` 的归约结构与"不经桥"的可能
+
+读 9276 树的 `ShCraigElimSetupQ.lean:555+`（`exsBlockerQ_of_bridge2`），它的步骤是：
+1. `hmem`：`^∃(domZero ⋏ iT 1 p) ∈ translateSeq s` —— **这一条已经用 `iT_exs` 从
+   `^∃ p ∈ s` 拿到了！**（`mem_translateSeq_iff.mpr ⟨^∃ p, hps, (iT_exs hp).symm⟩`）
+2. `hW`：桥给 `Derivable (insert (imp A E) ∅)`  ← **唯一用到桥的一步**
+3. `hsplit`：`split_or` 拆成 `{neg A, E}`
+4. `hnegA`：`wk` 把 `{neg A, E}` 弱化成 `insert (neg A) (translateSeq s)`
+   —— **注意：这一步把 E 丢掉了**（目标 sequent 是 `translateSeq s`，
+   而 E 确实在 `translateSeq s` 里，由 `hmem` 保证）
+5. `cut A ih hnegA` 收尾
+
+**所以桥的唯一作用 = 第 2 步：从 `A` 推出 `E`。**
+
+而 `ih` 给的是 `Derivable (insert A (translateSeq s))`，
+目标 `Derivable (translateSeq s)`。
+
+**问题**：如果 `E ∈ translateSeq s`（第 1 步已证），
+那么 `insert E (translateSeq s) = translateSeq s`（E 已在里面）——
+能否绕过"从 A 推 E"，改用 **cut E**？
+
+    需要：Derivable (insert A (translateSeq s))   [ih]
+    需要：Derivable (insert (neg E) (translateSeq s))   <- 怎么来？
+    然后 cut E。
+
+`neg E` 不在 ih 里。**所以仍需"从 A 得 E"**——即 `imp A E` 可导。
+**这一步躲不开。**
+
+⟹ **结论：`exsBlockerQ_of_bridge2` 的归约是紧的，桥不可绕过。**
+（这也解释了为什么 `AllKey` 那边能用 `imp A A` 永真收尾、而这里不行：
+AllKey 的桥是等式、`imp A A` 免费；ExsBridge2 的桥是真的蕴含。）
+
 end GodelQ.ExsCounterHunt

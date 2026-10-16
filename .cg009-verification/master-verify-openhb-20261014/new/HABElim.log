@@ -1,0 +1,21 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/nice-lovelace-ab1147/.cg009-verification/round31/src/GodelQ/ZFC/HABElim.lean:80:35: error: Application type mismatch: The argument
+  IsSemiterm.fvar 1 0
+has type
+  IsSemiterm.{0, 0} ℒₛₑₜ 1 ^&0
+but is expected to have type
+  IsSemiterm.{u_1, 0} ℒₛₑₜ 0 ^&0
+in the application
+  IsSemitermVec.singleton.mpr (IsSemiterm.fvar 1 0)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/nice-lovelace-ab1147/.cg009-verification/round31/src/GodelQ/ZFC/HABElim.lean:54:73: error: unsolved goals
+V : Type u_1
+inst✝¹ : ORingStructure V
+inst✝ : V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁
+p : V
+hp : IsSemiformula ℒₒᵣ 1 p
+A : V := iT 0 (free ℒₒᵣ p)
+C : V := subst ℒₛₑₜ (^&0 ∷ 0) domZero
+hB : free ℒₛₑₜ (imp ℒₛₑₜ domZero (iT 1 p)) = imp ℒₛₑₜ C A
+hA : IsFormula ℒₛₑₜ A
+hC : IsFormula ℒₛₑₜ C
+⊢ Derivable 𝗭𝗙𝗖 (neg ℒₛₑₜ A ^⋎ neg ℒₛₑₜ C ^⋎ A ⫽ ∅)
+'GodelQ.HABElim.hAB_derivable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

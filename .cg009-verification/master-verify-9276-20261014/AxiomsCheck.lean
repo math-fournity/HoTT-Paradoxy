@@ -1,0 +1,6 @@
+import GodelQ.ZFC.ShCraigElimSetupQ
+#print axioms GodelQ.ShCraigElimSetupQ.allKey_of_bridge
+#print axioms GodelQ.ShCraigElimSetupQ.allBlockerQ_of_key
+#print axioms GodelQ.ShCraigElimSetupQ.exsBlockerQ_of_bridge2
+#print axioms GodelQ.ShCraigElimSetupQ.rootBlockerQ_of_key
+#print axioms GodelQ.ShCraigElimSetupQ.induction_setup_Q_of_blockers
