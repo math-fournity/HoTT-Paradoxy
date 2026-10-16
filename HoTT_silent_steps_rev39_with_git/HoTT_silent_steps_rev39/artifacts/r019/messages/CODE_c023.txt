@@ -1,0 +1,19 @@
+0001 | import subprocess
+0002 | from pathlib import Path
+0003 | 
+0004 | # 找到刚才写入的脚本并执行
+0005 | current_dir = Path.cwd()
+0006 | root_dir = current_dir
+0007 | for _ in range(5):
+0008 |     if (root_dir / 'AGENTS.md').exists():
+0009 |         break
+0010 |     root_dir = root_dir.parent
+0011 | else:
+0012 |     root_dir = Path('/mnt/data/HoTT_workspace_rev16')
+0013 | 
+0014 | script_path = root_dir / 'scripts' / 'governance' / 'r017_update_closure.py'
+0015 | 
+0016 | result = subprocess.run(['python', str(script_path)], capture_output=True, text=True)
+0017 | print(result.stdout)
+0018 | if result.stderr:
+0019 |     print("Error:", result.stderr)

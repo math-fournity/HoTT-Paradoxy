@@ -1,0 +1,122 @@
+{
+  "schema_version": "r031-positive-reflection/v1",
+  "source_sha256": "7e0468f5953833fabedddfbfdbef2acfe3c492b8bee6eeb8dbe211d0f14930e7",
+  "checker_sha256": "cbc2e0efadc9011d8e584269a42becbc73dcd66fa88f02cd8b6bf0861db4ae93",
+  "certificate": {
+    "schema": "r031-conditional-k4/v1",
+    "nodes": [
+      {
+        "rule": "hyp",
+        "formula": [
+          "box",
+          [
+            "imp",
+            [
+              "atom",
+              "P"
+            ],
+            [
+              "atom",
+              "P"
+            ]
+          ]
+        ]
+      },
+      {
+        "rule": "hyp",
+        "formula": [
+          "atom",
+          "P"
+        ]
+      },
+      {
+        "rule": "intro",
+        "hypothesis": 1,
+        "body": 1
+      },
+      {
+        "rule": "intro",
+        "hypothesis": 0,
+        "body": 2
+      }
+    ],
+    "conclusion": [
+      "imp",
+      [
+        "box",
+        [
+          "imp",
+          [
+            "atom",
+            "P"
+          ],
+          [
+            "atom",
+            "P"
+          ]
+        ]
+      ],
+      [
+        "imp",
+        [
+          "atom",
+          "P"
+        ],
+        [
+          "atom",
+          "P"
+        ]
+      ]
+    ]
+  },
+  "replay": {
+    "accepted": true,
+    "scope": "FINITE_RULE_REPLAY_WITH_DECLARED_THEOREM_PARAMETERS",
+    "nodes_checked": 4,
+    "conclusion": "(Box((P -> P)) -> (P -> P))",
+    "closed_theorem_parameters": [],
+    "trusted_rule_schemata": [
+      "intuitionistic implication introduction/elimination",
+      "K distribution",
+      "positive introspection (four)",
+      "necessitation ONLY with no local hypotheses"
+    ],
+    "parameter_proofs_checked": false,
+    "hott_kernel_verification": false,
+    "trace": [
+      {
+        "node": 0,
+        "rule": "hyp",
+        "conclusion": "Box((P -> P))",
+        "open_hypotheses": [
+          0
+        ],
+        "closed_theorem_parameters": []
+      },
+      {
+        "node": 1,
+        "rule": "hyp",
+        "conclusion": "P",
+        "open_hypotheses": [
+          1
+        ],
+        "closed_theorem_parameters": []
+      },
+      {
+        "node": 2,
+        "rule": "intro",
+        "conclusion": "(P -> P)",
+        "open_hypotheses": [],
+        "closed_theorem_parameters": []
+      },
+      {
+        "node": 3,
+        "rule": "intro",
+        "conclusion": "(Box((P -> P)) -> (P -> P))",
+        "open_hypotheses": [],
+        "closed_theorem_parameters": []
+      }
+    ]
+  },
+  "scope": "This one provable reflection instance does not certify uniform self-soundness."
+}

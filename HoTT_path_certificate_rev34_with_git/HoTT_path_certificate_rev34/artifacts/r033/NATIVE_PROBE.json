@@ -1,0 +1,37 @@
+{
+  "time_utc": "2026-09-11T12:02:42.217657+00:00",
+  "tools": {
+    "agda": null,
+    "lean": null,
+    "lake": null,
+    "coqc": null,
+    "rocq": null,
+    "ghc": null,
+    "apt-get": "/usr/bin/apt-get",
+    "curl": "/usr/local/bin/curl"
+  },
+  "commands": [
+    {
+      "argv": [
+        "curl",
+        "-I",
+        "--max-time",
+        "8",
+        "https://github.com/agda/agda/releases"
+      ],
+      "code": 6,
+      "stdout": "",
+      "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: github.com\n"
+    },
+    {
+      "argv": [
+        "apt-cache",
+        "policy",
+        "agda-bin"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

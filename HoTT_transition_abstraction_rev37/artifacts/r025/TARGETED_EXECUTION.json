@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "scripts/research/r025_diagonal_audit.py"
+  ],
+  "cwd": "/mnt/data/HoTT_Gemini_review_rev25",
+  "started_utc": "2026-09-11T07:18:17.131970+00:00",
+  "ended_utc": "2026-09-11T07:18:17.936438+00:00",
+  "duration_seconds": 0.8044501560000299,
+  "exit_code": 0,
+  "timeout": false,
+  "stdout": "{\n  \"schema_version\": \"r025-targeted-audit/v1\",\n  \"status\": \"PASS_FINITE_SCOPE\",\n  \"checks\": {\n    \"instruction_and_block_agreement\": {\n      \"instructions\": 133,\n      \"register_assignments\": 64,\n      \"cases\": 8512,\n      \"nonhalt_blocks\": 8320,\n      \"halt_blocks\": 192\n    },\n    \"prologue\": {\n      \"cases\": 153\n    },\n    \"postlude\": {\n      \"cases\": 42\n    },\n    \"nonreturn_trace_certificates\": {\n      \"accepted\": 12,\n      \"checked_with\": \"reference_step, not run status strings\"\n    },\n    \"T_convention\": {\n      \"n_0_to_5\": [\n        false,\n        false,\n        true,\n        true,\n        true,\n        true\n      ]\n    },\n    \"drop_terminal_absorption_countermodel\": {\n      \"trace\": [\n        \"start\",\n        \"returned\",\n        \"trap\",\n        \"trap\",\n        \"trap\"\n      ],\n      \"conclusion\": \"eventually a nonterminal fixed point alone does not exclude an earlier return\"\n    },\n    \"mutations_rejected\": {\n      \"count\": 6,\n      \"names\": [\n        \"inserted_return_in_trace\",\n        \"wrong_final_pc\",\n        \"changed_input\",\n        \"trap_replaced_by_halt\",\n        \"invalid_jump_redirected_to_return_postlude\",\n        \"return_register_shift_plus2_instead_of_plus3\"\n      ]\n    },\n    \"unknown_not_nonreturn_certificate\": {\n      \"status\": \"FUEL_EXHAUSTED_UNKNOWN\"\n    },\n    \"nonboolean_policy_not_necessary\": {\n      \"alternative\": \"non-Bool output goes to trap\",\n      \"cases\": [\n        {\n          \"source_output\": 0,\n          \"status\": \"HALTED\"\n        },\n        {\n          \"source_output\": 1,\n          \"status\": \"REPEATED_NONTERMINAL\"\n        },\n        {\n          \"source_output\": 2,\n          \"status\": \"REPEATED_NONTERMINAL\"\n        },\n        {\n          \"source_output\": 3,\n          \"status\": \"REPEATED_NONTERMINAL\"\n        }\n      ]\n    }\n  },\n  \"check_groups\": 9,\n  \"original_r024_source_sha256\": \"2384e9536feb77a5c9d7be7c1680d893bf317d562187c258ee74e9d592cde609\",\n  \"proof_assistant\": \"NOT_RUN\",\n  \"original_compiler_modified\": false,\n  \"claim_scope\": \"finite transition tests and checked concrete trap certificates; general simulation is paper only\"\n}\n",
+  "stderr": ""
+}

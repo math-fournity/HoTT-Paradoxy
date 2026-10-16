@@ -1,0 +1,24 @@
+0001 | import os
+0002 | from pathlib import Path
+0003 | 
+0004 | current_dir = Path.cwd()
+0005 | root_dir = current_dir
+0006 | for _ in range(5):
+0007 |     if (root_dir / 'AGENTS.md').exists():
+0008 |         break
+0009 |     root_dir = root_dir.parent
+0010 | else:
+0011 |     root_dir = Path('/mnt/data/HoTT_workspace_rev16')
+0012 | 
+0013 | # 查看认知闭包目录下的内容，排查为什么找不到
+0014 | closure_dir = root_dir / "认知闭包"
+0015 | print("Directory exists:", closure_dir.exists())
+0016 | if closure_dir.exists():
+0017 |     print("Files in directory:")
+0018 |     for f in closure_dir.iterdir():
+0019 |         print("-", f.name)
+0020 | else:
+0021 |     # 也许因为中文路径问题，或者之前解压的路径不同
+0022 |     print("Looking for root structure:")
+0023 |     for f in root_dir.iterdir():
+0024 |         print("-", f.name)

@@ -1,0 +1,201 @@
+{
+  "schema": "r027-targeted/v1",
+  "status": "PASS_FINITE_MODEL_SCOPE",
+  "counts": {
+    "labelled_models": 4330,
+    "fixed_nonreturning_traps": 2165,
+    "local_cases": 2165,
+    "globally_applicable_cases": 1324,
+    "return_forward_closed_models": 1715,
+    "exact_return_absorbing_models": 700
+  },
+  "violations": [],
+  "counterexamples": [
+    {
+      "name": "missing_reachability",
+      "step": [
+        0,
+        1
+      ],
+      "returned": [
+        true,
+        false
+      ],
+      "start": 0,
+      "trap": 1,
+      "orbit": [
+        0
+      ],
+      "trap_local_no_return": true,
+      "global_no_return": false
+    },
+    {
+      "name": "missing_return_persistence",
+      "step": [
+        1,
+        2,
+        2
+      ],
+      "returned": [
+        false,
+        true,
+        false
+      ],
+      "start": 0,
+      "trap": 2,
+      "orbit": [
+        0,
+        1,
+        2
+      ],
+      "trap_reachable": true,
+      "global_no_return": false
+    },
+    {
+      "name": "weak_induction_invariant",
+      "step": [
+        1,
+        2,
+        2
+      ],
+      "returned": [
+        false,
+        false,
+        true
+      ],
+      "start": 0,
+      "orbit": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "positive_control": {
+    "name": "return_predicate_persistent_without_state_absorption",
+    "step": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "returned": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "start": 3,
+    "trap": 2
+  },
+  "decidable_toy_oracle": [
+    {
+      "p": 0,
+      "x": 0,
+      "toy_H": true,
+      "oracle_value": true
+    },
+    {
+      "p": 0,
+      "x": 1,
+      "toy_H": true,
+      "oracle_value": true
+    },
+    {
+      "p": 0,
+      "x": 2,
+      "toy_H": true,
+      "oracle_value": true
+    },
+    {
+      "p": 0,
+      "x": 3,
+      "toy_H": true,
+      "oracle_value": true
+    },
+    {
+      "p": 1,
+      "x": 0,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 1,
+      "x": 1,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 1,
+      "x": 2,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 1,
+      "x": 3,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 2,
+      "x": 0,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 2,
+      "x": 1,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 2,
+      "x": 2,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 2,
+      "x": 3,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 3,
+      "x": 0,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 3,
+      "x": 1,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 3,
+      "x": 2,
+      "toy_H": false,
+      "oracle_value": false
+    },
+    {
+      "p": 3,
+      "x": 3,
+      "toy_H": false,
+      "oracle_value": false
+    }
+  ],
+  "groups": [
+    "local_fixedpoint",
+    "global_reachable_persistent_return",
+    "reachability_counterexample",
+    "return_persistence_counterexample",
+    "induction_strength_counterexample",
+    "weaker_persistence_positive_control",
+    "toy_oracle_not_intrinsically_uncomputable"
+  ],
+  "scope": "All labelled deterministic graphs of sizes1..4; not all programs, not kernel checking, no MP independence test",
+  "native_Lean": "NOT_RUN_BY_THIS_SCRIPT",
+  "native_HoTT": "NOT_RUN"
+}

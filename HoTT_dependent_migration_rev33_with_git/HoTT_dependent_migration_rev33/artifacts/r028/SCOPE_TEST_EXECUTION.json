@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "scripts/research/r028_scope_checks.py",
+    "--output",
+    "artifacts/r028/SCOPE_TEST_RESULTS.json"
+  ],
+  "cwd": "/mnt/data/HoTT_Gemini_review_rev28",
+  "started_utc": "2026-09-11T09:05:17.901755+00:00",
+  "ended_utc": "2026-09-11T09:05:19.100084+00:00",
+  "duration_seconds": 1.1982718780000141,
+  "exit_code": 0,
+  "timeout": false,
+  "stdout": "{\n  \"scope\": \"234 finite systems plus two explicit R024 runs; general theorem is paper proof\",\n  \"check_groups\": 5,\n  \"groups_passed\": 5,\n  \"finite_models\": [\n    {\n      \"states\": 1,\n      \"models\": 2,\n      \"satisfy_universal_reach_and_preservation\": 1\n    },\n    {\n      \"states\": 2,\n      \"models\": 16,\n      \"satisfy_universal_reach_and_preservation\": 3\n    },\n    {\n      \"states\": 3,\n      \"models\": 216,\n      \"satisfy_universal_reach_and_preservation\": 16\n    }\n  ],\n  \"model_total\": 234,\n  \"satisfying_total\": 20,\n  \"local_success_universal_failure\": {\n    \"step\": [\n      0,\n      1\n    ],\n    \"returned\": [\n      false,\n      true\n    ],\n    \"valid_local_initial\": 0,\n    \"counterexample_to_universal_initial\": 1\n  },\n  \"consistent_all_nonreturn_model\": {\n    \"step\": [\n      0,\n      0,\n      0\n    ],\n    \"returned\": [\n      false,\n      false,\n      false\n    ],\n    \"satisfies_peer_universal_hypothesis\": true\n  },\n  \"preservation_needed_countermodel\": {\n    \"step\": [\n      0,\n      0\n    ],\n    \"returned\": [\n      false,\n      true\n    ],\n    \"trace_from_returned\": [\n      1,\n      0\n    ]\n  },\n  \"r024_sha256\": \"2384e9536feb77a5c9d7be7c1680d893bf317d562187c258ee74e9d592cde609\",\n  \"source_sha256\": \"f660a96370f4446bf67c539f0c6bdb4f279b1b4a4c8c41bb6645cd0d9e5ca3d7\",\n  \"native_Lean_or_HoTT\": \"NOT_RUN\",\n  \"unbounded_proof_by_this_program\": false\n}\nActual R024 cases: [(0, 'RETURNED', 10), (1, 'NONRETURN_FIXED_POINT', 11)]\n",
+  "stderr": ""
+}

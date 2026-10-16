@@ -1,0 +1,31 @@
+test_01_default_path_resolves_from_script (hott_loader_tests.FullClosureLoadingTests.test_01_default_path_resolves_from_script) ... ok
+test_02_all_chunks_preserve_every_byte (hott_loader_tests.FullClosureLoadingTests.test_02_all_chunks_preserve_every_byte) ... ok
+test_03_second_invocation_returns_text_again (hott_loader_tests.FullClosureLoadingTests.test_03_second_invocation_returns_text_again) ... ok
+test_04_new_invocation_reads_changed_file (hott_loader_tests.FullClosureLoadingTests.test_04_new_invocation_reads_changed_file) ... ok
+test_05_changed_snapshot_rejects_continuation (hott_loader_tests.FullClosureLoadingTests.test_05_changed_snapshot_rejects_continuation) ... ok
+test_06_continuation_needs_snapshot_identity (hott_loader_tests.FullClosureLoadingTests.test_06_continuation_needs_snapshot_identity) ... ok
+test_07_missing_file_fails_closed (hott_loader_tests.FullClosureLoadingTests.test_07_missing_file_fails_closed) ... ok
+test_08_wrong_closure_id_is_rejected (hott_loader_tests.FullClosureLoadingTests.test_08_wrong_closure_id_is_rejected) ... ok
+test_09_oversized_line_is_not_sliced (hott_loader_tests.FullClosureLoadingTests.test_09_oversized_line_is_not_sliced) ... ok
+test_10_invalid_utf8_does_not_get_replaced (hott_loader_tests.FullClosureLoadingTests.test_10_invalid_utf8_does_not_get_replaced) ... ok
+test_11_eof_is_not_model_context_certificate (hott_loader_tests.FullClosureLoadingTests.test_11_eof_is_not_model_context_certificate) ... ok
+test_12_file_growth_has_no_fixed_2115_limit (hott_loader_tests.FullClosureLoadingTests.test_12_file_growth_has_no_fixed_2115_limit) ... ok
+test_13_invalid_start_range_is_rejected (hott_loader_tests.FullClosureLoadingTests.test_13_invalid_start_range_is_rejected) ... ok
+test_14_symlink_is_rejected (hott_loader_tests.FullClosureLoadingTests.test_14_symlink_is_rejected) ... ok
+test_15_unexpected_script_location_rejected (hott_loader_tests.FullClosureLoadingTests.test_15_unexpected_script_location_rejected) ... ok
+test_16_main_gate_precedes_research (hott_loader_tests.FullClosureLoadingTests.test_16_main_gate_precedes_research) ... ok
+test_17_recovery_documents_have_no_skip_exemption (hott_loader_tests.FullClosureLoadingTests.test_17_recovery_documents_have_no_skip_exemption) ... FAIL
+
+======================================================================
+FAIL: test_17_recovery_documents_have_no_skip_exemption (hott_loader_tests.FullClosureLoadingTests.test_17_recovery_documents_have_no_skip_exemption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ALL-Markdown-snapshot/.codex/skills/hott-paradox-research/checks/test_full_closure_loading.py", line 148, in test_17_recovery_documents_have_no_skip_exemption
+    self.assertIn("全文",text)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: '全文' not found in '# 本轮认知加载与研究闭包记录\n\n> TEMPLATE / NOT_EXECUTED。每次执行Skill都先完整加载 `认知闭包/2026-09-01-Z铁律最终定性-时间否定与朴素集合论-HoTT怀疑-认知闭包.md`；此记录即使写了“上次已加载”，也不是下一次执行的通行证。上下文压缩后从第1行重读。\n\n## 每次重新加载的指定文档\n\n本次读取开始时一律NOT_LOADED。\n完整正文实际进入当前上下文后，才可在当次连续执行内标LOADED_THIS_INVOCATION。\n覆盖范围、来源路径、版本、输出完整性；遇压缩或截断记录失效并重新从头加载。\n\n## 全量认识之后\n\n用户哲学内部重建；标准/外部比较；当前理论操作片段；候选证据链；\n关键未知是否影响当前步骤。该研究记录不替代完整第五闭包本身。\n'
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.051s
+
+FAILED (failures=1)

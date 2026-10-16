@@ -1,0 +1,201 @@
+{
+  "status": "PASS",
+  "scope": "Adversarial diagnostics of extracted code, not a HoTT proof",
+  "count": 32,
+  "passed": 32,
+  "cases": [
+    {
+      "id": "D01_old_python_output_reproduced",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D02_v2_python_output_reproduced",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D03_v3_python_output_reproduced",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D04_all_three_terminate_normally",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D05_old_has_no_type_checker",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D06_old_trunc_extracts_arbitrary_bool",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D07_v2_real_not",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D08_v2_ua_transport_typed_bool",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D09_v2_ua_transport_returns_ast",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D10_v2_refl_is_rejected_by_type_checker",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D11_v2_refl_transport_is_rejected_by_type_checker",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D12_v2_evaluator_nevertheless_handles_refl",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D13_v2_rejects_invalid_path_true",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D14_v2_rejects_ua_true_without_equivalence",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D15_v3_accepts_true_as_path_and_not_as_value",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D16_v3_accepts_none_transport_arguments",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D17_v3_accepts_uniquechoice_false_as_nat",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D18_v3_accepts_uniquechoice_none_as_nat",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D19_v3_proof_leaf_itself_not_checked",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D20_v3_ua_leaf_itself_not_checked",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D21_v3_invalid_ua_hidden_under_transport_is_accepted",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D22_v3_choice_infers_no_predicate_or_uniqueness",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D23_v3_choice_evaluator_returns_ast",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D24_v3_choice_calls_no_search",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D25_v3_transport_does_not_normalize_nested_app",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D26_claimed_infinite_search_returns_literal",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D27_claimed_infinite_search_only_three_sleeps",
+      "status": "PASS",
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "id": "D28_claimed_infinite_search_prints_three_steps",
+      "status": "PASS",
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "id": "D29_v3_no_nat_value_constructor",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D30_conjunction_denial_does_not_force_conclusion_false",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D31_forgetting_coordinate_does_not_force_wrong_output",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "id": "D32_no_actual_lean_run_in_recorded_code",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    }
+  ],
+  "patched_probe_note": "Only D26-D28 patched time.sleep for instrumentation; all three verbatim subprocess replays retained source sleeps."
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "hott-local-claims/v1",
+  "candidate_id": "C-LABEL-STREAM-001",
+  "task_version": "LABEL-STREAM/v1",
+  "full_business_gate": "NOT_PASSED",
+  "claims": [
+    {
+      "id": "P1",
+      "statement": "enc is an embedding; each fiber F_s is a mere proposition",
+      "status": "PAPER_DERIVATION_UNREVIEWED",
+      "assumptions": "Nat/Bool/Σ/Π/funext",
+      "limits": "No surjectivity or operational inverse follows."
+    },
+    {
+      "id": "P2",
+      "statement": "isEquiv(enc) iff Πs(Z(s)+First(s))",
+      "status": "PAPER_DERIVATION_UNREVIEWED",
+      "assumptions": "specified enc; finite least-witness search",
+      "limits": "Not an independence theorem for baseline HoTT; not arbitrary T≃C."
+    },
+    {
+      "id": "P3",
+      "statement": "tag extension over all C iff Πs(Z(s)+¬Z(s))",
+      "status": "PAPER_DERIVATION_UNREVIEWED",
+      "assumptions": "Bool elimination, finite witness factoring, funext",
+      "limits": "¬Z does not supply First without additional proof."
+    },
+    {
+      "id": "P4",
+      "statement": "finite-query sound tag recovery cannot return on enc(none)",
+      "status": "PAPER_DERIVATION_UNREVIEWED",
+      "assumptions": "deterministic finite ordinary computation and bit queries only",
+      "limits": "Does not cover code inspection, retained certificates or arbitrary physical models."
+    },
+    {
+      "id": "P5",
+      "statement": "any given equivalence T≃C makes the none-tag a singleton not finitely observable",
+      "status": "PAPER_DERIVATION_UNREVIEWED",
+      "assumptions": "full bijection and bare component-query interface",
+      "limits": "No claim that any specific full equivalence is obtained from the chosen constructive baseline."
+    },
+    {
+      "id": "P6",
+      "statement": "safe header and T≃Im(enc) provide positive controls",
+      "status": "PAPER_DERIVATION_UNREVIEWED",
+      "assumptions": "explicit tag bit; propositional truncation and unique choice",
+      "limits": "Cannot erase the supplied image witness and keep assuming its computational benefit."
+    },
+    {
+      "id": "TARGET",
+      "statement": "Default HoTT necessarily manufactures the user-target completion paradox",
+      "status": "OPEN_NOT_ESTABLISHED",
+      "assumptions": "still needs actual representation/interpretation commitments",
+      "limits": "Do not upgrade from these conditional results."
+    }
+  ],
+  "finite_checks": {
+    "groups": 10,
+    "status": "PASS_FINITE_SANITY_ONLY"
+  },
+  "machine_formalization": "NOT_RUN",
+  "originality": "NOT_CLAIMED; known mechanisms, no external closest-work search",
+  "external_review": "NOT_RUN",
+  "original_claim_matrix_modified": false
+}

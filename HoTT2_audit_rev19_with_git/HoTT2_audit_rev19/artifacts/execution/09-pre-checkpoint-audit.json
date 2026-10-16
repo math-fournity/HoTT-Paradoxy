@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "scripts/tools/audit_workspace.py",
+    "--out",
+    "artifacts/r016/PRE_CHECKPOINT_AUDIT.json"
+  ],
+  "cwd": "/mnt/data/HoTT_workspace_rev16",
+  "started_utc": "2026-09-10T14:24:12.078464+00:00",
+  "ended_utc": "2026-09-10T14:24:16.761194+00:00",
+  "duration_seconds": 4.682735115000014,
+  "exit_code": 0,
+  "timeout": false,
+  "stdout": "{\n  \"schema_version\": \"hott-workspace-audit/v1\",\n  \"recovered_payloads\": 68,\n  \"source_occurrences\": 300,\n  \"recovered_hash_mismatches\": [],\n  \"new_python_ast_parse_count\": 13,\n  \"credential_pattern_file_count\": 737,\n  \"credential_pattern_hits\": [],\n  \"credential_scope\": \"Only listed strong regex signals; not a comprehensive credential or semantic security certification\",\n  \"original_import_files\": 618,\n  \"protected_unchanged_count\": 611,\n  \"changed_import_paths\": [\n    \"AGENTS.md\"\n  ],\n  \"unexpected_original_changes\": [],\n  \"status\": \"PASS_DEFINED_SCOPE\",\n  \"recovered_code_executed_by_audit\": false\n}\n",
+  "stderr": ""
+}

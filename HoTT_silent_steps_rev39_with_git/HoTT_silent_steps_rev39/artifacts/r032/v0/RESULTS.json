@@ -1,0 +1,175 @@
+{
+  "changed_axiom": {
+    "source": {
+      "permit": [
+        "atom",
+        0
+      ],
+      "unused": [
+        "bot"
+      ]
+    },
+    "target": {
+      "permit": [
+        "atom",
+        1
+      ],
+      "unused": [
+        "atom",
+        1
+      ]
+    },
+    "certificate": {
+      "schema": "r032-certificate/v1",
+      "environment": {
+        "permit": [
+          "atom",
+          0
+        ],
+        "unused": [
+          "bot"
+        ]
+      },
+      "environment_hash": "b646ea3bd8440349129115b00b0539762408ce43dcc669027b3ccc0f1cb9d09c",
+      "goal": [
+        "atom",
+        0
+      ],
+      "proof": {
+        "rule": "axiom",
+        "label": "permit"
+      },
+      "support": [
+        "permit"
+      ]
+    },
+    "safe_rejection": "missing target realization for used axiom: permit",
+    "explicitly_unsafe_receipt_policy_accepts": true,
+    "countermodel": {
+      "P": false,
+      "Q": true,
+      "target_axioms_true": true,
+      "source_goal_false": true
+    }
+  },
+  "axiom_elimination_bridge": {
+    "source_certificate": {
+      "schema": "r032-certificate/v1",
+      "environment": {
+        "id": [
+          "imp",
+          [
+            "atom",
+            0
+          ],
+          [
+            "atom",
+            0
+          ]
+        ]
+      },
+      "environment_hash": "3518b664a4eacf4133821aadb1b1e475b9a4268c8be79ee0d6c72cbfee99b929",
+      "goal": [
+        "imp",
+        [
+          "atom",
+          0
+        ],
+        [
+          "atom",
+          0
+        ]
+      ],
+      "proof": {
+        "rule": "axiom",
+        "label": "id"
+      },
+      "support": [
+        "id"
+      ]
+    },
+    "target": {},
+    "bridge": {
+      "rule": "lam",
+      "domain": [
+        "atom",
+        0
+      ],
+      "body": {
+        "rule": "var",
+        "index": 0
+      }
+    },
+    "expanded_proof": {
+      "rule": "lam",
+      "domain": [
+        "atom",
+        0
+      ],
+      "body": {
+        "rule": "var",
+        "index": 0
+      }
+    },
+    "goal": [
+      "imp",
+      [
+        "atom",
+        0
+      ],
+      [
+        "atom",
+        0
+      ]
+    ]
+  },
+  "unused_changes_do_not_invalidate": {
+    "proof": {
+      "rule": "lam",
+      "domain": [
+        "atom",
+        0
+      ],
+      "body": {
+        "rule": "var",
+        "index": 0
+      }
+    },
+    "support": []
+  },
+  "proof_producing_reflection": {
+    "expanded": {
+      "rule": "app",
+      "function": {
+        "rule": "lam",
+        "domain": [
+          "atom",
+          0
+        ],
+        "body": {
+          "rule": "var",
+          "index": 0
+        }
+      },
+      "argument": {
+        "rule": "axiom",
+        "label": "p"
+      }
+    },
+    "checked_goal": [
+      "atom",
+      0
+    ]
+  },
+  "semantic_identity": {
+    "true": true,
+    "false": false
+  },
+  "limits": [
+    "finite implicational object fragment, not full HoTT",
+    "unsafe receipt policy is an explicit counter-design, not an allegation against a deployed system",
+    "Python realizer typing is not verified; native dependent interpreter source is separate",
+    "general preservation and completeness-of-bridges arguments are paper inductions, not inferred from tests"
+  ],
+  "source_sha256": "8e756dd821e94d004de54423bb39498ed06afd111ecedc7cc631665a1fa01107"
+}

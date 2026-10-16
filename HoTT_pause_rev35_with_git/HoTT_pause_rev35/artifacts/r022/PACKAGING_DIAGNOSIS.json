@@ -1,0 +1,18 @@
+{
+  "schema_version": "r022-packaging-diagnostic/v1",
+  "initial_commit": "595be74d303f5f095f9d6fb5d13cdff0a880a0cb",
+  "failure": "post-package snapshot mismatch",
+  "previous_snapshot": "f3c70d839d347ada6cd4e8a2e889b5b9744bffe9b8366524eafc1710f0f51654",
+  "current_snapshot": "5b98876d32e0011ccb50952d2c28150eb1cf2758d1542c1a5ed82efb51018725",
+  "changed_dynamic_documents": [
+    {
+      "path": "scripts/README.md",
+      "before": "01fbbcc4974795cb40c1f419727cb8ecded960a0d2384e759f640dcedb752e2c",
+      "after": "9b8be454f67b1f1372b1aa60ef480899994ff98b3e73ec191e1baa67a93a1080"
+    }
+  ],
+  "cause": "First packaging tool took a route fingerprint, then appended the scripts index before packaging. Byte-identical relocation had a different, correctly newer fingerprint.",
+  "remedy": "Preserve the failed attempt; finish all file edits first, then compare final frozen source route with relocated package.",
+  "mathematical_changes": false,
+  "source_letter_changed": false
+}

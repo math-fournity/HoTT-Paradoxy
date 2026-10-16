@@ -1,0 +1,133 @@
+{
+  "schema_version": "hott-r017-workspace-audit/v1",
+  "status": "PASS_DEFINED_SCOPE",
+  "baseline_git": "b07ac7ecc084a58be814995931b9706f955e4d95",
+  "inherited_files_checked": 785,
+  "changed_inherited_paths": [
+    ".codex/cognition/HEAD.json",
+    ".codex/research/hott/FRONTIER.md",
+    ".codex/research/hott/LESSONS.md",
+    ".codex/research/hott/RESUME.md",
+    ".codex/research/hott/STATE.json",
+    "AGENTS.md",
+    "DELIVERY_README.md",
+    "MEMORY.md",
+    "scripts/README.md"
+  ],
+  "protected_unchanged_inherited_count": 776,
+  "unexpected_inherited_changes": [],
+  "new_code_outside_scripts": [],
+  "new_files_count": 82,
+  "python_ast_parsed_count": 23,
+  "python_ast_paths": [
+    "scripts/research/r016_axiomatic_transport.py",
+    "scripts/research/r017_local_execution.py",
+    "scripts/session/finalize_delivery_docs.py",
+    "scripts/session/finalize_r017_record.py",
+    "scripts/session/finish_checkpoint.py",
+    "scripts/session/finish_r017_checkpoint.py",
+    "scripts/session/prepare_r016_evidence.py",
+    "scripts/session/prepare_r017_record.py",
+    "scripts/session/r017_cognition.py",
+    "scripts/session/read_required_pages.py",
+    "scripts/session/read_source.py",
+    "scripts/session/register_code_policy.py",
+    "scripts/session/register_scripts_only_policy.py",
+    "scripts/session/replay_r015.py",
+    "scripts/session/run_logged.py",
+    "scripts/tests/test_r016_axiomatic_transport.py",
+    "scripts/tests/test_r017_local_execution.py",
+    "scripts/tools/audit_r017.py",
+    "scripts/tools/audit_workspace.py",
+    "scripts/tools/package_workspace.py",
+    "scripts/tools/recover_code.py",
+    "scripts/tools/restore_checkpoint.py",
+    "scripts/tools/restore_rev16.py"
+  ],
+  "retained_recovered_payloads": 68,
+  "retained_source_occurrences": 300,
+  "recorded_script_invocations_checked": [
+    {
+      "path": "artifacts/r017/execution/01-tests.json",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/tests/test_r017_local_execution.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "path": "artifacts/r017/execution/04-finalize-record.json",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/session/finalize_r017_record.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "path": "artifacts/r017/execution/02-finite-model.json",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/research/r017_local_execution.py",
+        "--output",
+        "artifacts/r017/RESULTS.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "path": "artifacts/r017/execution/03-prepare-record.json",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/session/prepare_r017_record.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "path": "artifacts/r017/execution/05-checkpoint.json",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/session/finish_r017_checkpoint.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "path": "artifacts/r017/policy-execution.json",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/session/register_scripts_only_policy.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "tests_passed": 42,
+  "finite_counts": {
+    "base_programs": 256,
+    "fixed_inputs": 4,
+    "wrapper_inputs": 9,
+    "wrapper_runs": 9216,
+    "local_zero_certificates": 1024,
+    "halted_positive": 6746,
+    "reachable_spins": 1446,
+    "base_trace_certificates": 1446
+  },
+  "result_sha_matches_source": true,
+  "checkpoint_revision": 17,
+  "old_state_records_unmodified": true,
+  "stale_base_rejected": true,
+  "fresh_plan_documents": 134,
+  "fresh_plan_includes_r017_proof_and_scripts": true,
+  "full_cognition_gate": "NOT_PASSED",
+  "proof_assistant": "NOT_RUN",
+  "independent_review": "NOT_RUN",
+  "credential_signal_hits": [],
+  "credential_scan_scope": "Only listed strong regexes; no general secret guarantee",
+  "source_archive_unchanged": true,
+  "source_archive_sha256": "1f9502a5eb2280dd702891670b557cdfa98d652e2052233df4913033912be4f6",
+  "code_policy_scope": "Checks saved new script paths and recorded argv, not hidden interpreter history",
+  "scripts_executed_by_audit": "None; AST and byte reading only; local git read commands used"
+}

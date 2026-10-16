@@ -1,0 +1,1078 @@
+{
+  "schema_version": "r031-proof-certificate-replay/v1",
+  "source_sha256": "cbc2e0efadc9011d8e584269a42becbc73dcd66fa88f02cd8b6bf0861db4ae93",
+  "positive_certificates": {
+    "identity": {
+      "accepted": true,
+      "scope": "FINITE_RULE_REPLAY_WITH_DECLARED_THEOREM_PARAMETERS",
+      "nodes_checked": 2,
+      "conclusion": "(P -> P)",
+      "closed_theorem_parameters": [],
+      "trusted_rule_schemata": [
+        "intuitionistic implication introduction/elimination",
+        "K distribution",
+        "positive introspection (four)",
+        "necessitation ONLY with no local hypotheses"
+      ],
+      "parameter_proofs_checked": false,
+      "hott_kernel_verification": false,
+      "trace": [
+        {
+          "node": 0,
+          "rule": "hyp",
+          "conclusion": "P",
+          "open_hypotheses": [
+            0
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 1,
+          "rule": "intro",
+          "conclusion": "(P -> P)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        }
+      ]
+    },
+    "closed_necessitation": {
+      "accepted": true,
+      "scope": "FINITE_RULE_REPLAY_WITH_DECLARED_THEOREM_PARAMETERS",
+      "nodes_checked": 3,
+      "conclusion": "Box((P -> P))",
+      "closed_theorem_parameters": [],
+      "trusted_rule_schemata": [
+        "intuitionistic implication introduction/elimination",
+        "K distribution",
+        "positive introspection (four)",
+        "necessitation ONLY with no local hypotheses"
+      ],
+      "parameter_proofs_checked": false,
+      "hott_kernel_verification": false,
+      "trace": [
+        {
+          "node": 0,
+          "rule": "hyp",
+          "conclusion": "P",
+          "open_hypotheses": [
+            0
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 1,
+          "rule": "intro",
+          "conclusion": "(P -> P)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 2,
+          "rule": "nec",
+          "conclusion": "Box((P -> P))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        }
+      ]
+    },
+    "conditional_loeb_P": {
+      "accepted": true,
+      "scope": "FINITE_RULE_REPLAY_WITH_DECLARED_THEOREM_PARAMETERS",
+      "nodes_checked": 21,
+      "conclusion": "P",
+      "closed_theorem_parameters": [
+        "FP_backward",
+        "FP_forward",
+        "Reflection"
+      ],
+      "trusted_rule_schemata": [
+        "intuitionistic implication introduction/elimination",
+        "K distribution",
+        "positive introspection (four)",
+        "necessitation ONLY with no local hypotheses"
+      ],
+      "parameter_proofs_checked": false,
+      "hott_kernel_verification": false,
+      "trace": [
+        {
+          "node": 0,
+          "rule": "theorem",
+          "conclusion": "(G -> (Box(G) -> P))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 1,
+          "rule": "theorem",
+          "conclusion": "((Box(G) -> P) -> G)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward"
+          ]
+        },
+        {
+          "node": 2,
+          "rule": "theorem",
+          "conclusion": "(Box(P) -> P)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "Reflection"
+          ]
+        },
+        {
+          "node": 3,
+          "rule": "nec",
+          "conclusion": "Box((G -> (Box(G) -> P)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 4,
+          "rule": "K",
+          "conclusion": "(Box((G -> (Box(G) -> P))) -> (Box(G) -> Box((Box(G) -> P))))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 5,
+          "rule": "mp",
+          "conclusion": "(Box(G) -> Box((Box(G) -> P)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 6,
+          "rule": "K",
+          "conclusion": "(Box((Box(G) -> P)) -> (Box(Box(G)) -> Box(P)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 7,
+          "rule": "four",
+          "conclusion": "(Box(G) -> Box(Box(G)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 8,
+          "rule": "hyp",
+          "conclusion": "Box(G)",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 9,
+          "rule": "mp",
+          "conclusion": "Box((Box(G) -> P))",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 10,
+          "rule": "mp",
+          "conclusion": "(Box(Box(G)) -> Box(P))",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 11,
+          "rule": "mp",
+          "conclusion": "Box(Box(G))",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 12,
+          "rule": "mp",
+          "conclusion": "Box(P)",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 13,
+          "rule": "intro",
+          "conclusion": "(Box(G) -> Box(P))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 14,
+          "rule": "hyp",
+          "conclusion": "Box(G)",
+          "open_hypotheses": [
+            14
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 15,
+          "rule": "mp",
+          "conclusion": "Box(P)",
+          "open_hypotheses": [
+            14
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 16,
+          "rule": "mp",
+          "conclusion": "P",
+          "open_hypotheses": [
+            14
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 17,
+          "rule": "intro",
+          "conclusion": "(Box(G) -> P)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 18,
+          "rule": "mp",
+          "conclusion": "G",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward",
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 19,
+          "rule": "nec",
+          "conclusion": "Box(G)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward",
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 20,
+          "rule": "mp",
+          "conclusion": "P",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward",
+            "FP_forward",
+            "Reflection"
+          ]
+        }
+      ]
+    },
+    "conditional_loeb_BOTTOM": {
+      "accepted": true,
+      "scope": "FINITE_RULE_REPLAY_WITH_DECLARED_THEOREM_PARAMETERS",
+      "nodes_checked": 21,
+      "conclusion": "BOTTOM",
+      "closed_theorem_parameters": [
+        "FP_backward",
+        "FP_forward",
+        "Reflection"
+      ],
+      "trusted_rule_schemata": [
+        "intuitionistic implication introduction/elimination",
+        "K distribution",
+        "positive introspection (four)",
+        "necessitation ONLY with no local hypotheses"
+      ],
+      "parameter_proofs_checked": false,
+      "hott_kernel_verification": false,
+      "trace": [
+        {
+          "node": 0,
+          "rule": "theorem",
+          "conclusion": "(G -> (Box(G) -> BOTTOM))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 1,
+          "rule": "theorem",
+          "conclusion": "((Box(G) -> BOTTOM) -> G)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward"
+          ]
+        },
+        {
+          "node": 2,
+          "rule": "theorem",
+          "conclusion": "(Box(BOTTOM) -> BOTTOM)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "Reflection"
+          ]
+        },
+        {
+          "node": 3,
+          "rule": "nec",
+          "conclusion": "Box((G -> (Box(G) -> BOTTOM)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 4,
+          "rule": "K",
+          "conclusion": "(Box((G -> (Box(G) -> BOTTOM))) -> (Box(G) -> Box((Box(G) -> BOTTOM))))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 5,
+          "rule": "mp",
+          "conclusion": "(Box(G) -> Box((Box(G) -> BOTTOM)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 6,
+          "rule": "K",
+          "conclusion": "(Box((Box(G) -> BOTTOM)) -> (Box(Box(G)) -> Box(BOTTOM)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 7,
+          "rule": "four",
+          "conclusion": "(Box(G) -> Box(Box(G)))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 8,
+          "rule": "hyp",
+          "conclusion": "Box(G)",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 9,
+          "rule": "mp",
+          "conclusion": "Box((Box(G) -> BOTTOM))",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 10,
+          "rule": "mp",
+          "conclusion": "(Box(Box(G)) -> Box(BOTTOM))",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 11,
+          "rule": "mp",
+          "conclusion": "Box(Box(G))",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 12,
+          "rule": "mp",
+          "conclusion": "Box(BOTTOM)",
+          "open_hypotheses": [
+            8
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 13,
+          "rule": "intro",
+          "conclusion": "(Box(G) -> Box(BOTTOM))",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 14,
+          "rule": "hyp",
+          "conclusion": "Box(G)",
+          "open_hypotheses": [
+            14
+          ],
+          "closed_theorem_parameters": []
+        },
+        {
+          "node": 15,
+          "rule": "mp",
+          "conclusion": "Box(BOTTOM)",
+          "open_hypotheses": [
+            14
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward"
+          ]
+        },
+        {
+          "node": 16,
+          "rule": "mp",
+          "conclusion": "BOTTOM",
+          "open_hypotheses": [
+            14
+          ],
+          "closed_theorem_parameters": [
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 17,
+          "rule": "intro",
+          "conclusion": "(Box(G) -> BOTTOM)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 18,
+          "rule": "mp",
+          "conclusion": "G",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward",
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 19,
+          "rule": "nec",
+          "conclusion": "Box(G)",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward",
+            "FP_forward",
+            "Reflection"
+          ]
+        },
+        {
+          "node": 20,
+          "rule": "mp",
+          "conclusion": "BOTTOM",
+          "open_hypotheses": [],
+          "closed_theorem_parameters": [
+            "FP_backward",
+            "FP_forward",
+            "Reflection"
+          ]
+        }
+      ]
+    }
+  },
+  "negative_cases": [
+    {
+      "id": "missing_reflection_parameter",
+      "rejected": true,
+      "reason": "node 2: undeclared closed-theorem parameter"
+    },
+    {
+      "id": "local_reflection_illegally_necessitated",
+      "rejected": true,
+      "reason": "node 19: necessitation on an open derivation is forbidden"
+    },
+    {
+      "id": "direct_open_necessitation",
+      "rejected": true,
+      "reason": "node 1: necessitation on an open derivation is forbidden"
+    },
+    {
+      "id": "undischarged_assumption",
+      "rejected": true,
+      "reason": "certificate has undischarged hypotheses"
+    },
+    {
+      "id": "cyclic_reference",
+      "rejected": true,
+      "reason": "node 3: body must be an earlier integer index"
+    },
+    {
+      "id": "forward_reference",
+      "rejected": true,
+      "reason": "node 3: body must be an earlier integer index"
+    },
+    {
+      "id": "boolean_instead_of_reference",
+      "rejected": true,
+      "reason": "node 5: argument must be an earlier integer index"
+    },
+    {
+      "id": "modus_ponens_wrong_argument",
+      "rejected": true,
+      "reason": "node 5: modus ponens type mismatch"
+    },
+    {
+      "id": "forged_final_conclusion",
+      "rejected": true,
+      "reason": "claimed final conclusion differs from checked conclusion"
+    },
+    {
+      "id": "unlisted_theorem",
+      "rejected": true,
+      "reason": "node 2: undeclared closed-theorem parameter"
+    },
+    {
+      "id": "malformed_formula",
+      "rejected": true,
+      "reason": "unknown formula constructor or arity"
+    },
+    {
+      "id": "discharge_theorem_as_local_hypothesis",
+      "rejected": true,
+      "reason": "node 13: introduction must discharge an actual hypothesis node"
+    },
+    {
+      "id": "unimplemented_rule",
+      "rejected": true,
+      "reason": "node 3: unknown rule or mismatched fields"
+    },
+    {
+      "id": "unrecognized_certification_field",
+      "rejected": true,
+      "reason": "node 2: unknown rule or mismatched fields"
+    }
+  ],
+  "certificates": {
+    "identity": {
+      "certificate": {
+        "schema": "r031-conditional-k4/v1",
+        "nodes": [
+          {
+            "rule": "hyp",
+            "formula": [
+              "atom",
+              "P"
+            ]
+          },
+          {
+            "rule": "intro",
+            "hypothesis": 0,
+            "body": 0
+          }
+        ],
+        "conclusion": [
+          "imp",
+          [
+            "atom",
+            "P"
+          ],
+          [
+            "atom",
+            "P"
+          ]
+        ]
+      },
+      "closed_theorem_parameters": {}
+    },
+    "closed_necessitation": {
+      "certificate": {
+        "schema": "r031-conditional-k4/v1",
+        "nodes": [
+          {
+            "rule": "hyp",
+            "formula": [
+              "atom",
+              "P"
+            ]
+          },
+          {
+            "rule": "intro",
+            "hypothesis": 0,
+            "body": 0
+          },
+          {
+            "rule": "nec",
+            "body": 1
+          }
+        ],
+        "conclusion": [
+          "box",
+          [
+            "imp",
+            [
+              "atom",
+              "P"
+            ],
+            [
+              "atom",
+              "P"
+            ]
+          ]
+        ]
+      },
+      "closed_theorem_parameters": {}
+    },
+    "conditional_loeb_P": {
+      "certificate": {
+        "schema": "r031-conditional-k4/v1",
+        "nodes": [
+          {
+            "rule": "theorem",
+            "name": "FP_forward"
+          },
+          {
+            "rule": "theorem",
+            "name": "FP_backward"
+          },
+          {
+            "rule": "theorem",
+            "name": "Reflection"
+          },
+          {
+            "rule": "nec",
+            "body": 0
+          },
+          {
+            "rule": "K",
+            "a": [
+              "atom",
+              "G"
+            ],
+            "b": [
+              "imp",
+              [
+                "box",
+                [
+                  "atom",
+                  "G"
+                ]
+              ],
+              [
+                "atom",
+                "P"
+              ]
+            ]
+          },
+          {
+            "rule": "mp",
+            "function": 4,
+            "argument": 3
+          },
+          {
+            "rule": "K",
+            "a": [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ],
+            "b": [
+              "atom",
+              "P"
+            ]
+          },
+          {
+            "rule": "four",
+            "a": [
+              "atom",
+              "G"
+            ]
+          },
+          {
+            "rule": "hyp",
+            "formula": [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ]
+          },
+          {
+            "rule": "mp",
+            "function": 5,
+            "argument": 8
+          },
+          {
+            "rule": "mp",
+            "function": 6,
+            "argument": 9
+          },
+          {
+            "rule": "mp",
+            "function": 7,
+            "argument": 8
+          },
+          {
+            "rule": "mp",
+            "function": 10,
+            "argument": 11
+          },
+          {
+            "rule": "intro",
+            "hypothesis": 8,
+            "body": 12
+          },
+          {
+            "rule": "hyp",
+            "formula": [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ]
+          },
+          {
+            "rule": "mp",
+            "function": 13,
+            "argument": 14
+          },
+          {
+            "rule": "mp",
+            "function": 2,
+            "argument": 15
+          },
+          {
+            "rule": "intro",
+            "hypothesis": 14,
+            "body": 16
+          },
+          {
+            "rule": "mp",
+            "function": 1,
+            "argument": 17
+          },
+          {
+            "rule": "nec",
+            "body": 18
+          },
+          {
+            "rule": "mp",
+            "function": 17,
+            "argument": 19
+          }
+        ],
+        "conclusion": [
+          "atom",
+          "P"
+        ]
+      },
+      "closed_theorem_parameters": {
+        "FP_forward": [
+          "imp",
+          [
+            "atom",
+            "G"
+          ],
+          [
+            "imp",
+            [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ],
+            [
+              "atom",
+              "P"
+            ]
+          ]
+        ],
+        "FP_backward": [
+          "imp",
+          [
+            "imp",
+            [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ],
+            [
+              "atom",
+              "P"
+            ]
+          ],
+          [
+            "atom",
+            "G"
+          ]
+        ],
+        "Reflection": [
+          "imp",
+          [
+            "box",
+            [
+              "atom",
+              "P"
+            ]
+          ],
+          [
+            "atom",
+            "P"
+          ]
+        ]
+      }
+    },
+    "conditional_loeb_BOTTOM": {
+      "certificate": {
+        "schema": "r031-conditional-k4/v1",
+        "nodes": [
+          {
+            "rule": "theorem",
+            "name": "FP_forward"
+          },
+          {
+            "rule": "theorem",
+            "name": "FP_backward"
+          },
+          {
+            "rule": "theorem",
+            "name": "Reflection"
+          },
+          {
+            "rule": "nec",
+            "body": 0
+          },
+          {
+            "rule": "K",
+            "a": [
+              "atom",
+              "G"
+            ],
+            "b": [
+              "imp",
+              [
+                "box",
+                [
+                  "atom",
+                  "G"
+                ]
+              ],
+              [
+                "bottom"
+              ]
+            ]
+          },
+          {
+            "rule": "mp",
+            "function": 4,
+            "argument": 3
+          },
+          {
+            "rule": "K",
+            "a": [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ],
+            "b": [
+              "bottom"
+            ]
+          },
+          {
+            "rule": "four",
+            "a": [
+              "atom",
+              "G"
+            ]
+          },
+          {
+            "rule": "hyp",
+            "formula": [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ]
+          },
+          {
+            "rule": "mp",
+            "function": 5,
+            "argument": 8
+          },
+          {
+            "rule": "mp",
+            "function": 6,
+            "argument": 9
+          },
+          {
+            "rule": "mp",
+            "function": 7,
+            "argument": 8
+          },
+          {
+            "rule": "mp",
+            "function": 10,
+            "argument": 11
+          },
+          {
+            "rule": "intro",
+            "hypothesis": 8,
+            "body": 12
+          },
+          {
+            "rule": "hyp",
+            "formula": [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ]
+          },
+          {
+            "rule": "mp",
+            "function": 13,
+            "argument": 14
+          },
+          {
+            "rule": "mp",
+            "function": 2,
+            "argument": 15
+          },
+          {
+            "rule": "intro",
+            "hypothesis": 14,
+            "body": 16
+          },
+          {
+            "rule": "mp",
+            "function": 1,
+            "argument": 17
+          },
+          {
+            "rule": "nec",
+            "body": 18
+          },
+          {
+            "rule": "mp",
+            "function": 17,
+            "argument": 19
+          }
+        ],
+        "conclusion": [
+          "bottom"
+        ]
+      },
+      "closed_theorem_parameters": {
+        "FP_forward": [
+          "imp",
+          [
+            "atom",
+            "G"
+          ],
+          [
+            "imp",
+            [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ],
+            [
+              "bottom"
+            ]
+          ]
+        ],
+        "FP_backward": [
+          "imp",
+          [
+            "imp",
+            [
+              "box",
+              [
+                "atom",
+                "G"
+              ]
+            ],
+            [
+              "bottom"
+            ]
+          ],
+          [
+            "atom",
+            "G"
+          ]
+        ],
+        "Reflection": [
+          "imp",
+          [
+            "box",
+            [
+              "bottom"
+            ]
+          ],
+          [
+            "bottom"
+          ]
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "No proof of Goedel coding or fixed-point lemma for full HoTT.",
+    "No validation of external closed-theorem parameter derivations.",
+    "No LEM in the checked rule set.",
+    "No full HoTT consistency or physical-runtime claim.",
+    "Finite replay checks a concrete derivation; general theorem is separate."
+  ]
+}

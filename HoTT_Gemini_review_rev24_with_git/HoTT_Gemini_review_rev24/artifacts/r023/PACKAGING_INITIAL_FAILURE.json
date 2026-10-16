@@ -1,0 +1,59 @@
+{
+  "error": "letter_all_topics",
+  "type": "AssertionError",
+  "checks": [
+    {
+      "id": "inherited_head",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "no_remote",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "letter_txt_identical",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "letter_all_topics",
+      "status": "FAIL",
+      "detail": null
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_response_rev23",
+      "at_utc": "2026-09-11T06:24:36.639137+00:00",
+      "exit_code": 0,
+      "stdout": "d3ce0ec1b91da8f7c39b1252511f580e04b17db5\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "remote"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_response_rev23",
+      "at_utc": "2026-09-11T06:24:36.641186+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

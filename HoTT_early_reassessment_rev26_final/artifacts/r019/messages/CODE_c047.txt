@@ -1,0 +1,8 @@
+0001 | import subprocess
+0002 | import os
+0003 | 
+0004 | script_path = os.path.join(os.getcwd(), 'scripts', 'governance', 'r018_update_zlaw_closure.py')
+0005 | result = subprocess.run(['python3', script_path], capture_output=True, text=True)
+0006 | print(result.stdout)
+0007 | if result.stderr:
+0008 |     print("stderr:", result.stderr)

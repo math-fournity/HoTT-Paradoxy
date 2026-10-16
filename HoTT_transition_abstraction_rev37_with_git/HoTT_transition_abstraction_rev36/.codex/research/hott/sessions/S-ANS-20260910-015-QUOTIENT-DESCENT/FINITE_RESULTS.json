@@ -1,0 +1,66 @@
+{
+  "schema_version": "hott-r015-finite-checks/v1",
+  "status": "PASS_FINITE_SCOPE",
+  "groups": [
+    {
+      "id": "G1",
+      "name": "normal_form_idempotence_padding_answer",
+      "words": 2047,
+      "normal_classes": 1024,
+      "status": "PASS"
+    },
+    {
+      "id": "G2",
+      "name": "kernel_equals_normal_form_equality",
+      "words": 255,
+      "ordered_pairs": 65025,
+      "related_pairs": 749,
+      "status": "PASS"
+    },
+    {
+      "id": "G3",
+      "name": "all_small_invariant_tasks_descend",
+      "classes": 8,
+      "source_tables_examined": 32768,
+      "invariant_tasks": 256,
+      "distinct_quotient_tasks": 256,
+      "representatives": 15,
+      "evaluations": 3840,
+      "status": "PASS"
+    },
+    {
+      "id": "G4",
+      "name": "class_membership_query_solves_OR",
+      "representatives": 2047,
+      "queries_per_task": 1,
+      "status": "PASS"
+    },
+    {
+      "id": "G5",
+      "name": "nonempty_decidable_class_search_samples",
+      "inputs": 511,
+      "catalogue": 511,
+      "max_queries": 511,
+      "status": "PASS"
+    },
+    {
+      "id": "G6",
+      "name": "unique_canonical_image_witness_samples",
+      "words": 2047,
+      "finite_signatures": 1024,
+      "signature_length": 11,
+      "status": "PASS"
+    },
+    {
+      "id": "G7",
+      "name": "component_queries_are_not_membership_queries",
+      "query_sets": 5,
+      "status": "PASS_FINITE_EXAMPLES_ONLY"
+    }
+  ],
+  "group_count": 7,
+  "proof_assistant": "NOT_RUN",
+  "scope": "Finite-word normal-form model; not HIT implementation, not infinite-oracle exhaustive verification.",
+  "general_proofs": "Separate PROOF_NOTE.md; no unbounded theorem certified by these counts.",
+  "source_hash_proves_authenticity": false
+}

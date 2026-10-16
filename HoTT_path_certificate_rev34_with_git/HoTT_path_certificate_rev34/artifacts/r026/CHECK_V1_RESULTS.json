@@ -1,0 +1,444 @@
+{
+  "schema_version": "r026-targeted-checks/v1",
+  "status": "PASS_WITH_DECLARED_SCOPE",
+  "groups": {
+    "logic": {
+      "valuation_rows": [
+        {
+          "P": false,
+          "R": false,
+          "P_implies_R": true,
+          "modus_tollens": true
+        },
+        {
+          "P": false,
+          "R": true,
+          "P_implies_R": true,
+          "modus_tollens": true
+        },
+        {
+          "P": true,
+          "R": false,
+          "P_implies_R": false,
+          "modus_tollens": true
+        },
+        {
+          "P": true,
+          "R": true,
+          "P_implies_R": true,
+          "modus_tollens": true
+        }
+      ],
+      "missing_bridge_countermodel": {
+        "P": true,
+        "R": false,
+        "P_implies_R": false,
+        "modus_tollens": true
+      },
+      "joint_contract_countermodel": {
+        "P": true,
+        "Interpretation": false,
+        "Operation": true,
+        "R": false
+      },
+      "scope": "Complete four classical valuations of displayed schema; no ontology theorem."
+    },
+    "linear_resources": {
+      "accepted_derivations": [
+        {
+          "term": {
+            "constructor": "Lam",
+            "name": "f",
+            "domain": {
+              "constructor": "Arrow",
+              "domain": {
+                "constructor": "Atom",
+                "name": "A"
+              },
+              "codomain": {
+                "constructor": "Atom",
+                "name": "B"
+              }
+            },
+            "body": {
+              "constructor": "Lam",
+              "name": "g",
+              "domain": {
+                "constructor": "Arrow",
+                "domain": {
+                  "constructor": "Atom",
+                  "name": "B"
+                },
+                "codomain": {
+                  "constructor": "Atom",
+                  "name": "C"
+                }
+              },
+              "body": {
+                "constructor": "Lam",
+                "name": "x",
+                "domain": {
+                  "constructor": "Atom",
+                  "name": "A"
+                },
+                "body": {
+                  "constructor": "App",
+                  "function": {
+                    "constructor": "Var",
+                    "name": "g"
+                  },
+                  "argument": {
+                    "constructor": "App",
+                    "function": {
+                      "constructor": "Var",
+                      "name": "f"
+                    },
+                    "argument": {
+                      "constructor": "Var",
+                      "name": "x"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "target": {
+            "constructor": "Arrow",
+            "domain": {
+              "constructor": "Arrow",
+              "domain": {
+                "constructor": "Atom",
+                "name": "A"
+              },
+              "codomain": {
+                "constructor": "Atom",
+                "name": "B"
+              }
+            },
+            "codomain": {
+              "constructor": "Arrow",
+              "domain": {
+                "constructor": "Arrow",
+                "domain": {
+                  "constructor": "Atom",
+                  "name": "B"
+                },
+                "codomain": {
+                  "constructor": "Atom",
+                  "name": "C"
+                }
+              },
+              "codomain": {
+                "constructor": "Arrow",
+                "domain": {
+                  "constructor": "Atom",
+                  "name": "A"
+                },
+                "codomain": {
+                  "constructor": "Atom",
+                  "name": "C"
+                }
+              }
+            }
+          },
+          "check": {
+            "type": "Arrow(domain=Arrow(domain=Atom(name='A'), codomain=Atom(name='B')), codomain=Arrow(domain=Arrow(domain=Atom(name='B'), codomain=Atom(name='C')), codomain=Arrow(domain=Atom(name='A'), codomain=Atom(name='C'))))",
+            "uses": {},
+            "linear": true
+          }
+        },
+        {
+          "term": {
+            "constructor": "Pair",
+            "left": {
+              "constructor": "App",
+              "function": {
+                "constructor": "Var",
+                "name": "f"
+              },
+              "argument": {
+                "constructor": "Var",
+                "name": "a"
+              }
+            },
+            "right": {
+              "constructor": "App",
+              "function": {
+                "constructor": "Var",
+                "name": "g"
+              },
+              "argument": {
+                "constructor": "Var",
+                "name": "b"
+              }
+            }
+          },
+          "environment": {
+            "f": {
+              "constructor": "Arrow",
+              "domain": {
+                "constructor": "Atom",
+                "name": "A"
+              },
+              "codomain": {
+                "constructor": "Atom",
+                "name": "C"
+              }
+            },
+            "a": {
+              "constructor": "Atom",
+              "name": "A"
+            },
+            "g": {
+              "constructor": "Arrow",
+              "domain": {
+                "constructor": "Atom",
+                "name": "B"
+              },
+              "codomain": {
+                "constructor": "Atom",
+                "name": "C"
+              }
+            },
+            "b": {
+              "constructor": "Atom",
+              "name": "B"
+            }
+          },
+          "check": {
+            "type": "Tensor(left=Atom(name='C'), right=Atom(name='C'))",
+            "uses": {
+              "f": 1,
+              "a": 1,
+              "g": 1,
+              "b": 1
+            },
+            "linear": true
+          }
+        }
+      ],
+      "negative_controls": {
+        "duplicate": "A named resource is reused",
+        "discard": "A linear binder must be consumed exactly once",
+        "bad_argument": "Application domain mismatch",
+        "fake_target": "Claimed result type mismatch",
+        "missing_resource": "Unbound variable",
+        "untyped_payload": "Unknown syntax node",
+        "fake_type": "Malformed type outside the declared grammar",
+        "fake_environment": "Malformed type outside the declared grammar"
+      },
+      "contraction_without_linearity": "ACCEPTED",
+      "conservation_witness": {
+        "atom_weights": {
+          "A": 1,
+          "B": 3,
+          "C": 7
+        },
+        "closed_composition_weight": 0,
+        "closed_duplication_weight": 1
+      },
+      "two_distinct_tokens": [
+        "p",
+        "q"
+      ],
+      "one_token_two_redemptions": [
+        true,
+        false
+      ],
+      "scope": "Explicit multiplicative linear lambda fragment; not a linear HoTT kernel or general linear decidability result."
+    },
+    "identity_premises": {
+      "carrier": "Bool",
+      "A_equals_X": true,
+      "B_equals_X": true,
+      "a": 0,
+      "b": 1,
+      "c": 0,
+      "transport_p_a_equals_c": true,
+      "transport_q_b_equals_c": false,
+      "a_equals_b": false,
+      "formation_error": "With syntactically distinct A,B and only b:B, Id_A(a,b) has no supplied coercion.",
+      "scope": "Finite counterinstance to type-equality-implies-chosen-element-equality; does not model all univalence."
+    },
+    "discovery_and_statement": {
+      "successful_searches": [
+        {
+          "goal": "Arrow(domain=Atom(name='A'), codomain=Atom(name='A'))",
+          "discovered_term": {
+            "constructor": "Lam",
+            "name": "v0",
+            "domain": {
+              "constructor": "Atom",
+              "name": "A"
+            },
+            "body": {
+              "constructor": "Var",
+              "name": "v0"
+            }
+          },
+          "checked": {
+            "type": "Arrow(domain=Atom(name='A'), codomain=Atom(name='A'))",
+            "uses": {},
+            "linear": false
+          }
+        },
+        {
+          "goal": "Arrow(domain=Atom(name='A'), codomain=Arrow(domain=Atom(name='B'), codomain=Atom(name='A')))",
+          "discovered_term": {
+            "constructor": "Lam",
+            "name": "v0",
+            "domain": {
+              "constructor": "Atom",
+              "name": "A"
+            },
+            "body": {
+              "constructor": "Lam",
+              "name": "v1",
+              "domain": {
+                "constructor": "Atom",
+                "name": "B"
+              },
+              "body": {
+                "constructor": "Var",
+                "name": "v0"
+              }
+            }
+          },
+          "checked": {
+            "type": "Arrow(domain=Atom(name='A'), codomain=Arrow(domain=Atom(name='B'), codomain=Atom(name='A')))",
+            "uses": {},
+            "linear": false
+          }
+        },
+        {
+          "goal": "Arrow(domain=Arrow(domain=Atom(name='A'), codomain=Atom(name='B')), codomain=Arrow(domain=Arrow(domain=Atom(name='B'), codomain=Atom(name='C')), codomain=Arrow(domain=Atom(name='A'), codomain=Atom(name='C'))))",
+          "discovered_term": {
+            "constructor": "Lam",
+            "name": "v0",
+            "domain": {
+              "constructor": "Arrow",
+              "domain": {
+                "constructor": "Atom",
+                "name": "A"
+              },
+              "codomain": {
+                "constructor": "Atom",
+                "name": "B"
+              }
+            },
+            "body": {
+              "constructor": "Lam",
+              "name": "v1",
+              "domain": {
+                "constructor": "Arrow",
+                "domain": {
+                  "constructor": "Atom",
+                  "name": "B"
+                },
+                "codomain": {
+                  "constructor": "Atom",
+                  "name": "C"
+                }
+              },
+              "body": {
+                "constructor": "Lam",
+                "name": "v2",
+                "domain": {
+                  "constructor": "Atom",
+                  "name": "A"
+                },
+                "body": {
+                  "constructor": "App",
+                  "function": {
+                    "constructor": "Var",
+                    "name": "v1"
+                  },
+                  "argument": {
+                    "constructor": "App",
+                    "function": {
+                      "constructor": "Var",
+                      "name": "v0"
+                    },
+                    "argument": {
+                      "constructor": "Var",
+                      "name": "v2"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "checked": {
+            "type": "Arrow(domain=Arrow(domain=Atom(name='A'), codomain=Atom(name='B')), codomain=Arrow(domain=Arrow(domain=Atom(name='B'), codomain=Atom(name='C')), codomain=Arrow(domain=Atom(name='A'), codomain=Atom(name='C'))))",
+            "uses": {},
+            "linear": false
+          }
+        }
+      ],
+      "negative_search": "NO_WITNESS_WITHIN_BUDGET",
+      "finite_question_encodings": 160,
+      "question_answers_computed": 0,
+      "scope": "Toy propositional fragment demonstrates search distinct from checking, not a HoTT search completeness test."
+    },
+    "ambiguity_and_revision": {
+      "common_input": "Return the selected bit; intent not supplied",
+      "admissible_answers": {
+        "left": [
+          0
+        ],
+        "right": [
+          1
+        ]
+      },
+      "all_constant_selectors": [
+        {
+          "output": 0,
+          "correct_for": [
+            "left"
+          ]
+        },
+        {
+          "output": 1,
+          "correct_for": [
+            "right"
+          ]
+        }
+      ],
+      "robust_answers": [],
+      "clarification_result": [
+        1
+      ],
+      "stale_witness_counterexample": {
+        "old": [
+          0,
+          1
+        ],
+        "witness": 0,
+        "new": [
+          1
+        ]
+      },
+      "scope": "Finite semantic underspecification and spec-version counterexamples, not natural-language undecidability."
+    },
+    "motion_and_completion": {
+      "rational_motion_checks": 33,
+      "residual_prefix_steps": 64,
+      "strict_dyadic_accuracy_cases": 32,
+      "exact_final_finite_step_claim": "NOT_INFERRED",
+      "physical_spacetime_discreteness": "NOT_TESTED",
+      "scope": "Rational algebra and finite prefixes; general formulas justified in note, no historical/physical verdict."
+    }
+  },
+  "check_groups": 6,
+  "script_sha256": "80dfd0c8f459eba9e6d3946b4569f4b00e9cf217df964c5931c27d000e8475d9",
+  "native_hott_kernel": "NOT_RUN",
+  "native_proof_assistant": "NOT_AVAILABLE",
+  "shared_fragment_checker": "CUSTOM_PYTHON_RULE_CHECKER_NOT_NATIVE_HOTT",
+  "conclusions_not_certified": [
+    "HoTT inconsistency",
+    "all natural-language translation undecidable",
+    "physical time ontology",
+    "newness",
+    "independent review"
+  ]
+}
