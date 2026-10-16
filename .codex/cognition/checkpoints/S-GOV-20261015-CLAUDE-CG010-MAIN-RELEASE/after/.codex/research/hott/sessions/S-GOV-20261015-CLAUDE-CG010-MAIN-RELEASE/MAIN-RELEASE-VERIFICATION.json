@@ -1,0 +1,75 @@
+{
+  "build": {
+    "accepted": 69,
+    "paths_on_dev": 34,
+    "rejected_as_expected": 95,
+    "runs": 164,
+    "runs_without_unit": [],
+    "status": "BUILT",
+    "translation_checks": "all document and CLAIMS translation hashes current; no check relaxed",
+    "units": {
+      "A7": 45,
+      "UR": 84,
+      "ZFC1": 53
+    }
+  },
+  "changes_against_parent": {
+    "added": 631,
+    "claims": "CLAIMS gains section 1 rows for C-357/C-358 and section 4 (ZFC side); the run list becomes section 5; no existing claim row removed or changed",
+    "deleted": 0,
+    "modified": 26
+  },
+  "dev_commit_signature": "PASS",
+  "dev_source_commit": "29741a5bc14404d875b39fb16d3a2fcb7d798085",
+  "independent_rebuild": {
+    "source_commit": "29741a5bc14404d875b39fb16d3a2fcb7d798085",
+    "tree_diff_command": "diff -qr <independent-builder-output> <git archive 615b7c4f>",
+    "tree_diff_exit_code": 0
+  },
+  "main_commit": "615b7c4f39501a33051610844cc472c958daf94b",
+  "main_commit_signature": "PASS",
+  "main_parent": "f31277019c21eb497dc9923fbdf420c4920571ac",
+  "main_parent_note": "f3127701 is the research sponsor's own commit 'ZFC Failure 研究收敛' (2026-10-04); its README header is carried verbatim by the template on dev and stays at the top",
+  "main_release_tree_rebuilt_from_exact_dev_commit": true,
+  "main_tree": "fd611eb81c66cbfe3f213513755ca12f19bff9d8",
+  "manifest_file_count_excluding_manifest": 1333,
+  "manifest_sha256": "39a5ceff578388f15651a327733401f250b60d2fea76e1e053d24ae6a8fecbe5",
+  "math_proof_replay": {
+    "by_kind_expected_result": {
+      "agda/accepted/PASS": 46,
+      "agda/rejected/PASS": 60,
+      "lean-lib/accepted/PASS": 15,
+      "lean-lib/rejected/PASS": 26,
+      "lean/accepted/PASS": 8,
+      "lean/rejected/PASS": 9
+    },
+    "checkout": "independent rebuild of main from 29741a5b (identical to git archive 615b7c4f)",
+    "counts": {
+      "PASS": 164
+    },
+    "jobs": 4,
+    "report_file": "FULL-REPLAY.json",
+    "tool": "tools/replay.py of the published main (scripts/release/replay.py on dev at the source commit)",
+    "toolchain": {
+      "agda": "Agda 2.8.0 (/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64), cubical v0.9 (/Volumes/D/HoTT-toolchain-cache/cubical-v0.9)",
+      "lean": "Lean 4.34.0 (pinned toolchain prefix, called directly, not through elan)",
+      "lean_libraries": "Foundation 1fb01b72 built for Lean 4.34.0 (/Volumes/D/HoTT-toolchain-cache/foundation-build-1fb01b72-v4.34.0) and Mathlib 5ed29652 with its packages, given with --lean-lib"
+    },
+    "total": 164
+  },
+  "push": {
+    "dev": "cc7eea2b..29741a5b fast-forward",
+    "force": false,
+    "main": "f3127701..615b7c4f fast-forward"
+  },
+  "release_id": "main-20261015-zfc1-convergence",
+  "remote_refs": {
+    "refs/heads/dev": "29741a5bc14404d875b39fb16d3a2fcb7d798085",
+    "refs/heads/main": "615b7c4f39501a33051610844cc472c958daf94b"
+  },
+  "replay_before_push": "the 57 runs new to main: PASS 57 (41 Mathlib/Foundation, 16 Agda), same outcome class and same normalized stdout",
+  "schema_version": "main-release-verification/v1",
+  "self_review": ".claude/goals/CG-010-remaining-formalization-alignment/H5-发布自审-20261015.md",
+  "session_id": "S-GOV-20261015-CLAUDE-CG010-MAIN-RELEASE",
+  "tracked_file_count_including_manifest": 1334
+}

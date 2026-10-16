@@ -1,0 +1,53 @@
+{
+  "base_snapshot": "67ce334f7f8095bc2dd395f97a956750acbd3f1917539dd3a63c4a523f55b8c2",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261015-CLAUDE-CG010-MAIN-RELEASE/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--source 29741a5b --out <empty directory>",
+      "status": "BUILT / 1334 files / 164 runs / 69 accepted",
+      "tool": "scripts/release/build_main_release.py"
+    },
+    {
+      "command": "--lean-sysroot <Lean 4.34.0> --lean-lib <Foundation+Mathlib libraries> --only <41 runs>",
+      "status": "PASS 41 (before push)",
+      "tool": "scripts/release/replay.py"
+    },
+    {
+      "command": "--agda <Agda 2.8.0> --cubical-lib <cubical v0.9> --only <16 runs>",
+      "status": "PASS 16 (before push)",
+      "tool": "scripts/release/replay.py"
+    },
+    {
+      "command": "push origin 29741a5b:dev; commit-tree -S <build tree> -p f3127701; push origin main",
+      "status": "dev cc7eea2b..29741a5b; main f3127701..615b7c4f; remote tree equals build",
+      "tool": "git"
+    },
+    {
+      "command": "--source 29741a5b --out <fresh directory>; diff -qr <it> <git archive 615b7c4f>",
+      "status": "BUILT; diff exit 0",
+      "tool": "scripts/release/build_main_release.py + diff"
+    },
+    {
+      "command": "--jobs 4 --lean-lib <Foundation+Mathlib libraries> --json FULL-REPLAY.json (AGDA, CUBICAL_LIB, LEAN_SYSROOT set)",
+      "status": "164 runs: PASS 164",
+      "tool": "tools/replay.py (published main)"
+    },
+    {
+      "command": "--replay-report <FULL-REPLAY source> --output <payload>",
+      "status": "PREPARED",
+      "tool": "scripts/audit/prepare_claude_cg010_main_release_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "push_policy": "dev and main pushed on the research sponsor's goal of 2026-10-15; no force",
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20261015-CLAUDE-CG010-MAIN-RELEASE",
+  "session_kind": "GOVERNANCE_MAIN_RELEASE"
+}
