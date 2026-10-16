@@ -1,0 +1,81 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-006 line, Claude Code desktop session d58e0c0d, branch dev (worktree .claude/worktrees/cg006-dev), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-95",
+    "CG001-C-96",
+    "CG001-C-97",
+    "CG001-C-98",
+    "CG001-C-99",
+    "CG001-C-100",
+    "CG001-C-101",
+    "CG001-C-102"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/GodelQZFC.lean",
+    "GodelQ/ZFC/Qualification.lean"
+  ],
+  "completed_at_utc": "2026-10-08T13:49:21.601379+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.claude/worktrees/cg006-dev",
+  "duration_seconds": 40.758116,
+  "environment": {
+    "bytes": 1093,
+    "path": "environment.txt",
+    "sha256": "31ed29296f49fe00731fbf212d4cd10e0d30dbd04d3773d432a72aa93ae5487c"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not derive ZFC ⊢ ⊥ or the inconsistency of bare ZFC.",
+    "Consistency and Σ1-soundness are Lean meta-level facts via Foundation's Universe model, not ZFC-internal theorems.",
+    "Gödel's second incompleteness theorem for ZFC is not formalized here."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-001",
+  "run_id": "20261008-CG001-GODEL-Q-ZFC-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Foundation's 𝗭𝗙𝗖 (ℒₛₑₜ, LK) has a Δ1 presentation; the provable never-sentences are r.e.; 𝗭𝗙𝗖 interprets 𝗥₀; real ZFC is an EffectiveTheory; Gödel I process form with independence, devil's bargain, ZFC incompleteness, runner and ZFC+A=ZFC+P on 𝗭𝗙𝗖; S1 arithmetic grounding",
+  "source_manifest": {
+    "bytes": 203731,
+    "path": "source-manifest.json",
+    "sha256": "94143ead7454b075ec6b12e5aab6950bc0a6caf9611925320ca68190b24606a4"
+  },
+  "started_at_utc": "2026-10-08T13:48:40.843058+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 10994,
+    "path": "stdout.txt",
+    "sha256": "aa6dea3b79c2342ec3c0d9fbabde69cd43eb4397e698b141efebf23842cb7dbe"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

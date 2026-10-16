@@ -1,19 +1,21 @@
 <!-- translation:v1
 source: docs/社区审计提交/03-HoTT的芝诺.md
-source_sha256: 65a51aafc12510be00554ea09a561c147f8380e9d93fd49ab814df5f6d3ebd41
+source_sha256: bea7f03052d2e242a97b0a51e5dd22dc5371119668042a96f3181eba22b26c53
 language: de
-translator: Claude Opus 5.5 (AI), 2026-10-01
+translator: Claude Opus 5.5 (AI), 2026-10-01; version 2 changes 2026-10-15
 authority: the Chinese original is authoritative
 -->
 # Der Zenon der HoTT
 
 [中文](03-HoTT的芝诺.md) · [Русский](03-HoTT的芝诺-RU.md) · **Deutsch** · [Français](03-HoTT的芝诺-FR.md) · [English](03-HoTT的芝诺-EN.md)
 
-> *KI-Übersetzung (Claude Opus 5.5, 2026-10-01) des chinesischen Originals [`03-HoTT的芝诺.md`](03-HoTT的芝诺.md); maßgeblich ist das chinesische Original. Die Worte der Person, die das Projekt initiiert hat (im Folgenden: die initiierende Person), werden im chinesischen Original zitiert, jeweils gefolgt von einer gekennzeichneten Übersetzung; Code, Dateipfade und Kennungen sind unverändert.*
+> *KI-Übersetzung (Claude Opus 5.5, 2026-10-01; die Änderungen der Version 2: 2026-10-15) des chinesischen Originals [`03-HoTT的芝诺.md`](03-HoTT的芝诺.md); maßgeblich ist das chinesische Original. Die Worte der Person, die das Projekt initiiert hat (im Folgenden: die initiierende Person), werden im chinesischen Original zitiert, jeweils gefolgt von einer gekennzeichneten Übersetzung; Code, Dateipfade und Kennungen sind unverändert.*
 
 **Warum „dasselbe sein“ in ihrem Universum nie zur Ruhe kommt**
 
-Auditdokument für die Gemeinschaft · Version 1 · 2026-09-30 · Repository `math-fournity/HoTT-Paradoxy`
+Auditdokument für die Gemeinschaft · Version 2 · 2026-10-15 · Repository `math-fournity/HoTT-Paradoxy`
+
+Version 1 entstand am 2026-09-30. Version 2 ändert nur, was die Entscheidung der initiierenden Person vom 2026-10-15 verlangt: „welche Prämisse zu beschuldigen ist“ und die beiden damit verbundenen Stellen (die ersten zwei Punkte von „Was das zeigt“ und Auditfrage 3); unter „Belege“ kommt ein Theorem hinzu, das die Kontrollen zusammenfasst.
 
 > **Für wen**: für Leserinnen und Leser außerhalb der Mathematik, die bereit sind mitzudenken, und für Mathematikerinnen und Mathematiker, die bereit sind zu prüfen.
 >
@@ -68,9 +70,12 @@ Der Grenzwert erklärt „angekommen“ per Definition; die Trunkierung erklärt
 
 ## Was das zeigt
 
-- Bei Zenon ist der Angeklagte „die Position lässt sich ohne Ende unterteilen“; sein Gegenstück hier ist „**Gleichheit lässt sich ohne Ende unterteilen**“, gemeinsam hervorgebracht von Univalenz und höheren induktiven Typen.
-- Die Kontrollen trennen beides: Ersetzt man „Gleichheit ist eine Struktur“ durch „Gleichheit ist eine Tatsache“ (Lean), hält das Programm auf Stufe 1; behält man „Gleichheit ist eine Struktur“ und deckelt nur die Höhe, hält es am Deckel; nur wenn beides da ist, hält es nie an. Die Lean-Kontrolle ersetzt das ganze „Gleichheit ist eine Struktur“, nicht nur die Univalenz.
-- Nach dem Beweis durch Widerspruch ist die Abstraktion neu zu prüfen, die die Theorie vorgenommen hat, um bequem zu sein. Unser Urteil (eine Deutung, bedingt durch das, was die initiierende Person für das Einfache hält): Zuerst ist die Univalenz zu prüfen, also „isomorph heißt dasselbe“, denn Formen ebenso hoher Dimension gibt es auch in der klassischen Mathematik; was sich ändert, ist, was „dasselbe“ bedeutet. Die höheren induktiven Typen kommen an zweiter Stelle. Der Beweis durch Widerspruch widerlegt nur die Konjunktion beider; das ist eine Rangfolge, kein alleiniger Angeklagter.
+- Bei Zenon ist der Angeklagte „die Position lässt sich ohne Ende unterteilen“; sein Gegenstück hier ist „**Gleichheit lässt sich ohne Ende unterteilen**“. Es setzt sich aus zwei Dingen zusammen: Gleichheit ist eine Struktur (Univalenz), und das Universum übergibt Dinge jeder Höhe auf einmal (höhere induktive Typen liefern diese Höhen).
+- Die Kontrollen trennen beides: Ersetzt man „Gleichheit ist eine Struktur“ durch „Gleichheit ist eine Tatsache“ (Lean), hält das Programm auf Stufe 1; behält man „Gleichheit ist eine Struktur“ und deckelt nur die Höhe, hält es am Deckel; nur wenn beides da ist, hält es nie an. Die Lean-Kontrolle ersetzt das ganze „Gleichheit ist eine Struktur“, nicht nur die Univalenz. Später wurde diese Gruppe von Kontrollen als ein einziges Theorem für jede Sammlung geschrieben (C-430): Ist beides da, hält das Programm nie an; deckelt man die Höhe der Elemente, hält es am Deckel; lässt man die Elemente genau wie im Beispiel des Universums, mit allen Höhen, und macht nur die „Gleichheit“ der Nummerierung des Katalogs zu einer Tatsache, hält es auf Stufe 1.
+- Nach dem Beweis durch Widerspruch ist die Abstraktion neu zu prüfen, die die Theorie vorgenommen hat, um bequem zu sein. Das Theorem ist in beiden Dingen symmetrisch; es sagt nur, dass keines wegfallen darf. Welches davon die unrealistische Abstraktion ist, ist die Entscheidung der initiierenden Person vom 2026-10-15: Es gibt nur einen Angeklagten, die „**fertig vorliegende Sammlung**“: Das Universum übergibt auf einmal, als etwas bereits Daliegendes, ein Ganzes, dessen Bestätigung unendlich viele Stufen bräuchte. Die Univalenz ist eine der Ursachen und bleibt erhalten.
+  - Auf der Seite der Mengenlehre (ZFC) nennt die initiierende Person diese Handlung A (2026-10-14, Originalwortlaut): “A就是一个无限的步骤才能到达，从而存在的结果，当作已经存在的结果，参与运算。” Übersetzung: „A ist dies: Ein Ergebnis, das erst durch unendlich viele Schritte erreicht wird und nur dadurch existiert, wird als bereits existierendes Ergebnis behandelt und geht in Rechnungen ein.“
+  - Mit der „Richtung A“ am Anfang dieses Dokuments teilt es nur den Buchstaben; es ist nicht dasselbe. Das Phänomen dieses Dokuments gehört zur Richtung A (in der Realität vollendbar, in der Theorie nicht), der Angeklagte dagegen ist eine Handlung der Richtung B wie im Schwesterdokument 02 (noch nicht Festgelegtes als bereits geliefert behandeln).
+  - Version 1 dieses Dokuments gab hier unsere eigene Rangfolge an (zuerst die Univalenz prüfen, höhere induktive Typen an zweiter Stelle); sie ist gemäß der Entscheidung korrigiert.
 
 ## Was es nicht ist
 
@@ -83,6 +88,7 @@ Der Grenzwert erklärt „angekommen“ per Definition; die Trunkierung erklärt
 - Das Frageprogramm und das Nie-Anhalten auf dem Universum: `HoTT/formal/claude-cg001/questioning-delay/CLAIM.md` (C-77 bis C-79); die Lean-Kontrolle in der Welt der Tatsachen: C-80 in derselben `CLAIM.md`.
 - Das Nie-Anhalten auf einem gewöhnlichen Produkt und die gedeckelte Kontrolle: `HoTT/formal/claude-cg001/product-questioning/CLAIM.md` (C-81, C-82).
 - Die Trunkierungskontrolle: `HoTT/formal/claude-cg001/truncation-questioning/CLAIM.md` (C-83).
+- Die beiden Ursachen als ein Theorem für jede Sammlung, mit der Univalenz für sich isoliert: `HoTT/formal/claude-cg001/a-univalence-b/CLAIM.md` (C-430, 2026-10-15). Es fasst die obigen Kontrollen zusammen; es ist kein neues Phänomen.
 - Läufe und exakte Wiederholungen: `.claude/goals/CG-001-targeted-overview/证据索引.md` §20–§23; der letzte Abschnitt der gemeinsamen Belegmatrix des Projekts, `HoTT/CLAIM_EVIDENCE_MATRIX.md`, registriert dieselbe Gruppe von Aussagen. Rahmen: Cubical Agda 2.8.0 mit cubical 0.9 (C-80 in Lean 4.34.0); C-77 bis C-80 auf zwei Plattformen, Linux und macOS, übereinstimmend wiederholt; C-81 bis C-83 nur auf macOS wiederholt.
 - Der Originalwortlaut der initiierenden Person und die vollständige Lesart der KI: KC-000052 bis KC-000054 in `核心认知.md`; `扩展认知/011 - 本来应该很简单的事：UR 与芝诺的模式匹配.md`.
 
@@ -90,6 +96,6 @@ Der Grenzwert erklärt „angekommen“ per Definition; die Trunkierung erklärt
 
 1. **Mathematik**: Gelten die am Ende aufgeführten formalen Aussagen? Sagen sie, was der Text sagt? Insbesondere: die genaue Bedeutung von „das Frageprogramm ist gleich `never`“ (keine endliche Menge an Treibstoff liefert eine Antwort) und ihr Verhältnis zu „jede Stufe antwortet nein“.
 2. **Die Aufgabe**: „Ob zwei Dinge dasselbe sind, ist gewöhnlich die Sache eines einzigen Satzes“ – ist das eine faire Beschreibung der alltäglichen Logik und Mathematik? Ist es dasselbe, wenn man es als „Stufe für Stufe fragen, bis zu welcher Stufe die Gleichheit erledigt ist“ umsetzt?
-3. **Zuschreibung**: Ist die veränderte Bedingung „Gleichheit lässt sich ohne Ende unterteilen“? Was trägt mehr Verantwortung, die Univalenz oder die höheren induktiven Typen? Gibt es konkurrierende Zuschreibungen, an die wir nicht gedacht haben?
+3. **Zuschreibung**: Ist die veränderte Bedingung „Gleichheit lässt sich ohne Ende unterteilen“? Die initiierende Person hat die „fertig vorliegende Sammlung“ als Angeklagten benannt und die Univalenz als Ursache eingeordnet: Hält diese Zuschreibung stand? Gibt es konkurrierende Zuschreibungen, an die wir nicht gedacht haben?
 4. **Standardantworten**: Können die Trunkierung, Mathematik nur auf Mengenebene oder die Schichtung der Universen die Ungereimtheit hier beseitigen? Was kostet jede dieser Antworten?
 5. **Vorläufer**: Hat jemand diese mathematischen Tatsachen schon so gelesen? Außerdem: Dass ein einzelnes Universum mit höheren induktiven Typen für kein n ein n-Typ ist, war bei Abfassung des HoTT Book (2013) nicht bewiesen; ist es seither in der Literatur bewiesen worden?

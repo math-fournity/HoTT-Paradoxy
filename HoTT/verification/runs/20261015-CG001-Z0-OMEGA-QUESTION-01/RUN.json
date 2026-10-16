@@ -1,0 +1,92 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-010 line, Claude Code desktop session 95a1a81b (012-Opus), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15",
+  "claim_ids": [
+    "CG001-C-427"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/z0-omega-question",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/OmegaQuestion.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/IntLogic.lean",
+    "GodelQ/ZFC/SetNum.lean",
+    "GodelQ/ZFC/SetNumArith.lean",
+    "GodelQ/ZFC/TransTyped.lean",
+    "GodelQ/ZFC/TransTerm.lean",
+    "GodelQ/ZFC/TransBall.lean",
+    "GodelQ/ZFC/TransSigma1.lean",
+    "GodelQ/ZFC/Z0D3.lean",
+    "GodelQ/ZFC/Z0OmegaQuestion.lean",
+    "GodelQ/ZFC/QualificationZ0Omega.lean"
+  ],
+  "completed_at_utc": "2026-10-15T08:29:09.243118+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 106.898731,
+  "environment": {
+    "bytes": 1007,
+    "path": "environment.txt",
+    "sha256": "e11728b04646ec7431c10b9e2166f6de9d61cb08ee05559743d8b2c5a11c8404"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not prove ZFC |- falsum; (3) and (5) rest on ZFC's consistency from Lean's meta-level Universe model.",
+    "Does not prove the ZFC-internal equivalence of the code-form sentence neverS PhiH (z0Code) with Foundation's consistency sentence, so the code-form second incompleteness statement is not proved here.",
+    "Z0 = ZFC's search for its own contradiction is the reading used since CG-005; the research sponsor's original only says Z0 is H0's counterpart in ZFC; sameness of the Q (gap row 3, CG-010 D2) is not settled; the H0 side stays in Agda (cross-kernel correspondence).",
+    "z0Code is chosen by Classical.choose from an existence proof; only its specification is used."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-Z0-OMEGA-QUESTION-001",
+  "run_id": "20261015-CG001-Z0-OMEGA-QUESTION-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C-427: Z0 as a concrete omega-question in Lean. z0Code is a code (chosen from C-111's zfc_provable_re) with Done z0Code <-> ZFC proves falsum; z0Q := processQ z0Code (C-93's OmegaQuestion, same type as zenoQ). (1) Done z0Code <-> ZFC |- falsum; (2) z0Q.Done <-> ZFC |- falsum; (3) z0Q.Never (from Foundation's zfc_consistent); (4) for every k ZFC proves haltsS PsiN (z0Code, k) (not yet found by stage k); (5) Foundation's consistency sentence evaluates true in N iff z0Q.Never; (6) ZFC does not prove the translation of Foundation's consistency sentence (C-417 imported); (7) P_fin refuted on z0Q; (8) the Godel-Zeno runner driven by Z0 arrives; (9) zenoQ.Never and z0Q.Never in one type.",
+  "source_manifest": {
+    "bytes": 207318,
+    "path": "source-manifest.json",
+    "sha256": "a3db6222cd551276d4d494e02090846045272cc18eb117d746a8f12d69fadcee"
+  },
+  "started_at_utc": "2026-10-15T08:27:22.344043+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 31984,
+    "path": "stdout.txt",
+    "sha256": "2afa5d09d5142fc5ad7f0e37c56d3156af495fb4266c0f09670f5afeaa9862e4"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); ZFC is Foundation's first-order theory; never HoTT paths"
+}

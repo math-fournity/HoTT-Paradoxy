@@ -1,0 +1,77 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-104",
+    "CG001-C-105"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-turing",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/Turing.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/TuringZFC.lean",
+    "GodelQ/ZFC/QualificationTuring.lean"
+  ],
+  "completed_at_utc": "2026-10-09T00:30:23.112400+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 58.08862,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "cd2adb72d0739a015968de2442c12fab35c0b378a2cf47d025ec93b6a4156074"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "no claim that ZFC proves a contradiction",
+    "'without Goedel' means no self-reference about ZFC or its provability; the halting theorem itself is diagonal",
+    "ZFC consistency and Sigma1 soundness come from the Lean meta-level Universe model, not from inside ZFC",
+    "the finite-patch theorem is about the observer 'ZFC-provable or in F', not about the deductive closure of ZFC plus finitely many axioms"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-TURING-001",
+  "run_id": "20261008-CG001-GODEL-Q-ZFC-TURING-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Turing route on Foundation's real ZFC (L_set, LK): for every sound r.e. never-observer and every effective theory the set of missed never-halting processes is not r.e. and infinite, also after any finite patch; for ZFC the misses are exactly the processes whose never-halting sentence is independent of ZFC, they are not r.e. and infinite, ZFC proves every finite not-yet instance for each of them, and ZFC is incomplete; a run_cmd dependency check confirms these theorems avoid all GodelQ diagonal declarations (incl. C-99/C-100) and go through Mathlib's halting_problem_not_re (whose own proof reaches fixed_point₂ via rice)",
+  "source_manifest": {
+    "bytes": 204083,
+    "path": "source-manifest.json",
+    "sha256": "3f5c47acfed0a1d5ef83de39120ad69c24df0feef47b29a4913e75957ee12361"
+  },
+  "started_at_utc": "2026-10-09T00:29:25.023580+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 11812,
+    "path": "stdout.txt",
+    "sha256": "8b1764995be05c3069dc563677225535a0cd01abe083cf1c0be48d6d272619d9"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

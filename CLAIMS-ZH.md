@@ -2,7 +2,7 @@
 
 **中文** · [Русский](CLAIMS-RU.md) · [Deutsch](CLAIMS-DE.md) · [Français](CLAIMS-FR.md) · [English](CLAIMS-EN.md)
 
-> 本文件由 `dev` 上的 `scripts/release/build_main_release.py` 从提交 `72520807` 生成，不在本分支修改。第 1、2 节逐字取自 `dev` 上共享证据矩阵 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的两节（不含原标题行）；第 3 节逐字取自 `dev` 上的目标内索引草稿与 Claude 总索引；第 4 节由各运行的收据生成。文中 `formal/…`、`verification/runs/…` 指本分支 `HoTT/` 下的同名路径；其余过程文件的路径在 `dev` 上（见 README 第 6 节）。另有俄、德、法、英文译本（AI 翻译，以本中文版为准）；`CLAIMS.md` 与 `CLAIMS-ZH.md` 相同。
+> 本文件由 `dev` 上的 `scripts/release/build_main_release.py` 从提交 `29741a5b` 生成，不在本分支修改。第 1、2 节逐字取自 `dev` 上共享证据矩阵 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 的两节（不含原标题行）；第 3 节逐字取自 `dev` 上的目标内索引草稿与 Claude 总索引；第 4 节（ZFC 一侧）逐字取自共享证据矩阵中各包的行与 Claude 总索引；第 5 节由各运行的收据生成。文中 `formal/…`、`verification/runs/…` 指本分支 `HoTT/` 下的同名路径；其余过程文件的路径在 `dev` 上（`RELEASE-MANIFEST.json` 的 `paths_mentioned_but_on_dev` 列出了正文提到的那些）。另有俄、德、法、英文译本（AI 翻译，以本中文版为准）；`CLAIMS.md` 与 `CLAIMS-ZH.md` 相同。
 
 ## 1. 罗素线与 UR：追问程序、邻近对照与截断对照
 
@@ -39,6 +39,10 @@
 | `MP-CG001-TRUNCATION-QUESTIONING-001` | `CG001-C-83` | `formal/claude-cg001/truncation-questioning/TruncationQuestioning.agda`（命题全文 `CLAIM.md`；导入 `product-questioning`、`questioning-delay`、`pedometer-semantics`，经其导入 `universe-questioning`） | `verification/runs/20260930-CG001-TRUNCATION-QUESTIONING-01/`（**macOS** 工具链记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`）；exit 0，stderr 0 B；目标内精确重放一致 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEX_ONLY`（教科书消解的对照：对任意类型与判定器，追问程序在集合截断上第 1 问停，与 C-78、C-81 的 `never` 并列；代价：截断把宇宙里不同的自我认同合一，且不能解码回宇宙；只在 macOS 捕获与重放） |
 | `MP-CG001-TRUNCATION-QUESTIONING-NEG-001` | `CG001-C-83`（负控制） | `formal/claude-cg001/truncation-questioning/WrongTruncSilent.agda` | `verification/runs/20260930-CG001-TRUNCATION-QUESTIONING-NEG-01/`；exit 42，`just 1 != nothing` | `NEGATIVE_CONTROL_REJECTED` |
 | `MP-CG001-TRUNCATION-QUESTIONING-NEG-002` | `CG001-C-83`（负控制） | `formal/claude-cg001/truncation-questioning/WrongNotEqTrivial.agda` | `verification/runs/20260930-CG001-TRUNCATION-QUESTIONING-NEG-02/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-ZFC-HOTT-OBSERVATION-BRIDGE-001` | `C-357` | `formal/claude-cg001/observation-completion-bridge/ObservationCompletionBridge.agda`（命题全文 `CLAIM.md`；复用C-78/C-83的固定Cubical Agda依赖） | `verification/runs/20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02/`；macOS Agda 2.8.0 + cubical 0.9；exit 0，stderr 0 B；由统一捕获器记录全部本地导入根和12个固定源码文件 | `KERNEL_ACCEPTED_WITH_SCOPE`：原universe Q为`never`、截断Q第一步停、且无统一section三项的联合控制；不构成ZFC模型／验收定理。 |
+| `MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001` | `C-357`（负控制） | `formal/claude-cg001/observation-completion-bridge/WrongObservationCompletionBridge.agda` | `verification/runs/20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-02/`；exit 42，`Bool != A` | `NEGATIVE_CONTROL_REJECTED`：同层常值Bool不能承担每个原universe元素的统一恢复。 |
+| `MP-ZFC-HOTT-COMPLETION-REFLECTION-001` | `C-358` | `formal/claude-cg001/completion-reflection-failure/CompletionReflectionFailure.agda`（命题全文 `CLAIM.md`；复用固定C-78/C-83过程） | `verification/runs/20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-04/`；macOS Agda 2.8.0 + cubical 0.9；exit 0，stderr 0 B；统一捕获器固定6个本地导入根和11个源码文件 | `KERNEL_ACCEPTED_WITH_SCOPE`：截断Q在第一步完成，不能推出原universe Q存在有限halt witness；不构成ZFC模型／验收定理。 |
+| `MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001` | `C-358`（负控制） | `formal/claude-cg001/completion-reflection-failure/WrongCompletionReflection.agda` | `verification/runs/20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-NEG-03/`；exit 42，`nothing != just 1` | `NEGATIVE_CONTROL_REJECTED`：伪造的原Q fuel-0 halt不由截断完成推出。 |
 
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
@@ -54,6 +58,8 @@
 | CG001-C-81 | `productHasNoLevel : (m : ℕ) → ¬ isOfHLevel m Prod`（`Prod = (n : ℕ) → K n`，HoTT Book 例 8.8.6）；对任意判定器 `question Prod judge ≡ never`；判定器存在且唯一；`productKernelRuns1000`（`refl`）；问“有没有一层”燃料 0 答否 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20260930-CG001-PRODUCT-QUESTIONING-01`；负控制 `-NEG-01`、`-NEG-02` | 书中已知例子，不主张原创；只在 macOS 上捕获与重放；宇宙只作类型族的值域 |
 | CG001-C-82 | `Bounded b = (n : ℕ) → K b` 在 h-层 3+b 落定、2+b 不落定；对任意判定器 `runFor (suc b) (question (Bounded b) judge) ≡ just (suc (suc b))`，更少燃料得 `nothing` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20260930-CG001-PRODUCT-QUESTIONING-01`；负控制 `-NEG-03`、`-NEG-04` | 负控制只跑 b = 0；只在 macOS 上捕获与重放 |
 | CG001-C-83 | 对任意类型与判定器，追问程序在集合截断 `∥ X ∥₂` 上燃料 0 返回 1；截断宇宙的判定器存在且唯一（`refl` 实跑）；与宇宙、乘积本身的 `never` 并列；`notEqNotRefl`、`truncCollapses : cong ∣_∣₂ notEq ≡ refl`、`noDecoding` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20260930-CG001-TRUNCATION-QUESTIONING-01`；负控制 `-NEG-01`、`-NEG-02` | 不说截断错了；不裁定对截断发问与对宇宙发问是不是同一任务；只在 macOS 上捕获与重放 |
+| C-357 | 固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`满足`g ∣A∣₂ ≡ A`。三项由`coarseCompletionCreatesNoRestoration`同一Cubical Agda命题联结。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `MP-ZFC-HOTT-OBSERVATION-BRIDGE-001` / `20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02`；负控制 `MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001` / `-NEG-02` | 证明固定HoTT Q上的粗完成观察与无统一恢复控制；不形式化ZFC、单纯集模型、模型验收或AcceptanceContract，不说截断错误，也不证明ZFC时间观察力不完备、HoTT不一致或UR现实判词。 |
+| C-358 | 定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotReflectOriginalHalting`证明其否定：截断版阶段一完成不能推出原Q有有限halt witness。 | `KERNEL_ACCEPTED_WITH_SCOPE` | `MP-ZFC-HOTT-COMPLETION-REFLECTION-001` / `20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-04`；负控制 `MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001` / `-NEG-03` | 证明固定HoTT Q上的完成反射失败；不裁定两个问题是否同一任务，不形式化ZFC／模型／AcceptanceContract，也不证明ZFC时间观察力不完备、HoTT不一致或UR现实判词。 |
 
 ## 2. Cloud-Opus 的审计与补完：宇宙塔的一般 n、高阶归纳类型证书、GLM 线与跨平台重放
 
@@ -242,7 +248,123 @@
 | `CG001-C-70` | 各层是集合则 `Coh₂ᵢ` 成立；各层是群胚则 `Coh₂ᵢ` 是命题、`Coh₃` 对任何六边形数据成立；圆周上的 flat 形状六边形数据唯一且满足 `Coh₃` | wild-sst（`CLAIM-C70.md`） |
 | `CG001-C-72` | Lean 4（UIP）中宇宙是集合；沿 `Bool = Bool` 的 cast 是恒等；Bool 的自认同不能把 `true` 送到 `false` | universe-set-lean |
 
-## 4. 运行清单
+## 4. ZFC-1 一侧：缺的门 Q、两次选择与 A、芝诺与圆环、B 的两个成因、哥德尔一路
+
+> 研究发起人 2026-10-04 放在 `main` 文首的“ZFC Failure”与 2026-10-14 的表述，逐句对照见 `docs/ZFC-1的问题-原话逐句对照与机器证明-20261015.md`。4.1 的行逐字取自 `dev` 上 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 中各包所在的节；4.2 的行逐字取自 `dev` 上的 Claude 总索引。命题全文与禁止外推以各包的 `CLAIM.md` 为准。用到 Foundation 的 𝗭𝗙𝗖 的命题，说的是 Foundation 库里形式化的 𝗭𝗙𝗖。
+
+### 4.1 证明包与运行（逐字）
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-GODEL-Q-001` | `CG001-C-84`–`CG001-C-94` | `formal/claude-cg001/godel-q/GodelQ/`：`ProcessObservation`、`EffectiveTheory`、`GodelZenoRunner`、`ProvabilityLogic`、`OmegaQuestion`、`Qualification`（按序编译；命题全文 `CLAIM.md`） | `verification/runs/20261007-CG001-GODEL-Q-01/`；exit 0，stderr 0 B；公理只有 propext、Classical.choice、Quot.sound（C-92 无公理）；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-NEG-CONSISTENCY-001` | `CG001-C-90`（负控制） | `formal/claude-cg001/godel-q/GodelQ/Negative/WrongTheoryWithoutConsistency.lean` | `verification/runs/20261007-CG001-GODEL-Q-NEG-CONSISTENCY-01/`；exit 1，`consistent` 字段的目标 `False` 无法关闭 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-NEG-EFFECTIVENESS-001` | `CG001-C-90`（负控制） | `formal/claude-cg001/godel-q/GodelQ/Negative/WrongBargainWithoutEffectiveness.lean` | `verification/runs/20261007-CG001-GODEL-Q-NEG-EFFECTIVENESS-01/`；exit 1，`re_never` 无法关闭 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-NEG-GODEL-II-001` | `CG001-C-92`（负控制） | `formal/claude-cg001/godel-q/GodelQ/Negative/WrongConsistencyProvable.lean` | `verification/runs/20261007-CG001-GODEL-Q-NEG-GODEL-II-01/`；exit 1，目标化简为 `False` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-NEG-SOUNDNESS-001` | `CG001-C-85`（负控制） | `formal/claude-cg001/godel-q/GodelQ/Negative/WrongEscapeWithoutSoundness.lean` | `verification/runs/20261007-CG001-GODEL-Q-NEG-SOUNDNESS-01/`；exit 1，`sound` 字段的目标 `¬ Done e` 无法关闭 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-ZFC-001` | `CG001-C-95`–`CG001-C-102` | `formal/claude-cg001/godel-q-zfc/GodelQ/`：CG-005 的三个模块（逐字节复制）、`FoundationArith.lean`、`ZFC/` 下 14 个模块与 `ZFC/Qualification.lean`（按序编译；命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-GODEL-Q-ZFC-01/`；exit 0，stderr 0 B，约 41 秒；85 条公理报告全为三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-NEG-CONSISTENCY-001` | `CG001-C-99`（负控制） | `formal/claude-cg001/godel-q-zfc/GodelQ/Negative/WrongConsistencyWithBot.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-NEG-CONSISTENCY-01/`；exit 1，`Entailment.Consistent (insert ⊥ 𝗭𝗙𝗖)` 找不到 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-ZFC-NEG-DELTA1-001` | `CG001-C-97`（负控制） | `formal/claude-cg001/godel-q-zfc/GodelQ/Negative/WrongREWithoutDelta1.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-NEG-DELTA1-01/`；exit 1，`Theory.Δ₁ trueInUniverse` 找不到 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-ZFC-NEG-SOUNDNESS-001` | `CG001-C-100`（负控制） | `formal/claude-cg001/godel-q-zfc/GodelQ/Negative/WrongSoundnessWithoutModel.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-NEG-SOUNDNESS-01/`；exit 1，模型实例 `Universe↓[ℒₛₑₜ] ⊧* insert (haltsS ΦH a) 𝗭𝗙𝗖` 找不到 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-GODEL-Q-ZFC-TURING-001` | `CG001-C-104`、`CG001-C-105` | `formal/claude-cg001/godel-q-zfc-turing/GodelQ/Turing.lean`、`ZFC/TuringZFC.lean`、`ZFC/QualificationTuring.lean`（加 16 个与 `godel-q-zfc` 逐字节相同的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-GODEL-Q-ZFC-TURING-01/`；exit 0，stderr 0 B；87 条公理报告只有三条标准公理；依赖检查两行通过；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-001` | `CG001-C-104`（负控制） | `formal/claude-cg001/godel-q-zfc-turing/GodelQ/Negative/WrongTuringWithTruthObserver.lean` | `verification/runs/20261008-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-01/`；exit 1，`re` 字段处被拒 | `NEGATIVE_CONTROL_REJECTED`：可靠但不可枚举的真理观察者没有漏点，“可枚举”这一前提确实被用到 |
+| `MP-CG001-ZENO-DENSITY-ATTAINMENT-001` | `CG001-C-106`、`CG001-C-107`、`CG001-C-108` | `formal/claude-cg001/zeno-density-attainment/GodelQ/Zeno/Attainment.lean`、`Runners.lean`、`QualificationZeno.lean`（命题全文 `CLAIM.md`） | `verification/runs/20261008-CG001-ZENO-DENSITY-ATTAINMENT-01/`；exit 0，stderr 0 B；22 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-ZENO-DENSITY-ATTAINMENT-NEG-DENSE-001` | `CG001-C-106`（负控制） | `formal/claude-cg001/zeno-density-attainment/GodelQ/Negative/WrongDenseAttains.lean` | `verification/runs/20261008-CG001-ZENO-DENSITY-ATTAINMENT-NEG-DENSE-01/`；exit 1，`Isolated (1 : ℝ)` 无法证明 | `NEGATIVE_CONTROL_REJECTED`：“终点孤立”这一前提确实被用到 |
+| `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-001` | `CG001-C-117`、`CG001-C-118` | `formal/claude-cg001/godel-q-zfc-runner-arrival/GodelQ/ZFC/ArrivalArith.lean`、`ArrivalZFC.lean`、`QualificationArrival.lean`（加 21 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01/`；exit 0，stderr 0 B；139 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-001` | `CG001-C-118`（负控制） | `formal/claude-cg001/godel-q-zfc-runner-arrival/GodelQ/Negative/WrongArrivalOldPhi.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：等价依赖到达句与停机公式来自同一个 `stopF` |
+| `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-002` | `CG001-C-118`（负控制） | `formal/claude-cg001/godel-q-zfc-runner-arrival/GodelQ/Negative/WrongHaltingRunnerArrives.lean` | `verification/runs/20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-02/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：到达句区分停与不停 |
+| `MP-CG001-IDEA-T-C6-P-001` | `CG001-C-114`、`CG001-C-115`、`CG001-C-116` | `formal/claude-cg001/idea-t-c6-p/GodelQ/IdeaT.lean`、`C6Review.lean`、`PTwoSides.lean`、`QualificationW7.lean`（加 20 个逐字节复制的依赖模块；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-IDEA-T-C6-P-01/`；exit 0，stderr 0 B；144 条公理报告只有三条标准公理；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-IDEA-T-C6-P-NEG-001` | `CG001-C-114`（负控制） | `formal/claude-cg001/idea-t-c6-p/GodelQ/Negative/WrongLimitDecoder.lean` | `verification/runs/20261009-CG001-IDEA-T-C6-P-NEG-01/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：接口上的碰撞确实被用到 |
+| `MP-CG001-IDEA-T-C6-P-NEG-002` | `CG001-C-115`（负控制） | `formal/claude-cg001/idea-t-c6-p/GodelQ/Negative/WrongCompleteReview.lean` | `verification/runs/20261009-CG001-IDEA-T-C6-P-NEG-02/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：有效性确实被用到 |
+| `MP-CG001-IDEA-T-C6-P-NEG-003` | `CG001-C-116`（负控制） | `formal/claude-cg001/idea-t-c6-p/GodelQ/Negative/WrongRealP1.lean` | `verification/runs/20261009-CG001-IDEA-T-C6-P-NEG-03/`；exit 1 | `NEGATIVE_CONTROL_REJECTED`：语义 P₁ 的成立确实依赖量子化 |
+| `MP-CG001-SAME-Q-UNIVALENT-001` | `CG001-C-112`、`CG001-C-113` | `formal/claude-cg001/same-q-univalent/SameQ.agda`（导入 `pedometer-semantics`、`questioning-delay`、`truncation-questioning`、`product-questioning`、`universe-questioning`；命题全文 `CLAIM.md`） | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-01/`；exit 0；精确重放一致 | `KERNEL_ACCEPTED_WITH_SCOPE / GOAL_LOCAL_INDEXED` |
+| `MP-CG001-SAME-Q-UNIVALENT-NEG-001` | `CG001-C-113`（负控制） | `formal/claude-cg001/same-q-univalent/WrongH0Settles.agda` | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-NEG-01/`；exit 42，`nothing != just 1` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-SAME-Q-UNIVALENT-NEG-002` | `CG001-C-113`（负控制） | `formal/claude-cg001/same-q-univalent/WrongTruncUnsettled.agda` | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-NEG-02/`；exit 42，`true != false` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-SAME-Q-UNIVALENT-NEG-003` | `CG001-C-112`（负控制） | `formal/claude-cg001/same-q-univalent/WrongRunnerWithoutMonotone.agda` | `verification/runs/20261009-CG001-SAME-Q-UNIVALENT-NEG-03/`；exit 42，`alt k != not (alt k)` | `NEGATIVE_CONTROL_REJECTED`：单调前提确实被用到 |
+| `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-001` | `CG001-C-413`–`CG001-C-417` | `formal/claude-cg001/godel-q-zfc-z0-sigma1/GodelQ/ZFC/`：`SetNum.lean`、`SetNumArith.lean`（数字层）、`TransTyped.lean`、`TransTerm.lean`（`term_ve`）、`TransBall.lean`（`ball_merge`）、`TransSigma1.lean`（`tr_sigma1_complete`）、`Z0D3.lean`（`zfcTr_D3`、`zfc_z0_unconditional`） | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01/`；exit 0，stderr 0 B，110 秒；138 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-001` | `CG001-C-415`（负控制） | 同目录 `GodelQ/Negative/BallMergeOffByOne.lean` | `verification/runs/20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-01/`；exit 1，`key b le_rfl` 给出关于 N_b 的结论，与要求的 N_{b+1} 不符 | `NEGATIVE_CONTROL_REJECTED`：合并的界由前提逐一支撑 |
+| `MP-CG001-HALTING-WITHOUT-LEM-001` | `CG001-C-422` | `formal/claude-cg001/halting-without-lem/GodelQ/Diagonal/`：`Core.lean`（只用 Lean 内核：`no_liar`、`no_never_recognizer`、`no_decider`、`recognizer_without_flip`）、`MathlibCodes.lean`（`code_flip`、`turing_codes`）、`QualificationDiag.lean`（命题对照与公理审计） | `verification/runs/20261014-CG001-HALTING-WITHOUT-LEM-01/`；exit 0，stderr 0 B；`qual_C422` 不依赖任何公理；审计 5 条“不依赖”、4 条对照“依赖”全部通过；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-HALTING-WITHOUT-LEM-NEG-001` | `CG001-C-422`（负控制） | 同目录 `GodelQ/Negative/WrongRecognizerWithoutFlip.lean` | `verification/runs/20261014-CG001-HALTING-WITHOUT-LEM-NEG-FLIP-01/`；exit 1，`hd d d` 是 `True ↔ ¬False`，不是 `P ↔ ¬P` | `NEGATIVE_CONTROL_REJECTED`：翻转程序是用到的前提 |
+| `MP-CG001-TWO-CHOICES-LPO-001` | `CG001-C-418`–`CG001-C-421` | `formal/claude-cg001/two-choices-lpo/GodelQ/TwoChoices/`：`Core.lean`（只用 Lean 内核：`limBit_iff_lpo`、`natBMC_iff_lpo`、`unbounded_settling_false`、芝诺读数）、`Machines.lean`（`no_computable_settling_point`、`no_computable_final_value`、`lpo_classical`、`computability_differs`）、`Rational.lean`（`zenoReading_eq_floor`、`zenoQ_cauchy`）、`QualificationTC.lean`（命题对照与公理审计） | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-01/`；exit 0，stderr 0 B，8 秒；`qual_C418`、`qual_C419` 只用 `propext`、`Quot.sound`；审计 12 条“不依赖 `Classical.choice`”、5 条对照“依赖”全部通过；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-001` | `CG001-C-418`（负控制） | 同目录 `GodelQ/Negative/WrongLPOForFree.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-FREE-01/`；exit 1，审计报出 `lpo_for_free` 依赖 `Classical.choice` | `NEGATIVE_CONTROL_REJECTED`：审计不是空的 |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-003` | `CG001-C-420`（负控制） | 同目录 `GodelQ/Negative/WrongComputableSettling.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-SETTLING-01/`；exit 1，`DoneBy e m ↔ DoneBy e 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-LPO-NEG-002` | `CG001-C-418`（负控制） | 同目录 `GodelQ/Negative/WrongSettlingUnbounded.lean` | `verification/runs/20261014-CG001-TWO-CHOICES-LPO-NEG-UNBOUNDED-01/`；exit 1，`omega` 证不出上界 | `NEGATIVE_CONTROL_REJECTED`：“有界”是用到的前提 |
+| `MP-CG001-A-UNIVALENCE-B-001` | `CG001-C-430` | `formal/claude-cg001/a-univalence-b/AUnivalenceB.agda`（`UnivalentCollection.localGlobal`、`noFiniteLevel`、`neverWithBoth`、`boundedSettles`、`haltsWithBound`、`factStopsAtOne`、`neverNeedsUnbounded`、`neverNeedsStructure`、`universeNever`、`gatheringUnivalent`、`numberedNotUnivalent`、`pairedNever`、`qual-C430`；导入 `questioning-delay`、`pedometer-semantics`、`universe-questioning`） | `verification/runs/20261015-CG001-A-UNIVALENCE-B-01/`（macOS 工具链记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`）；exit 0，stderr 0 B；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-A-UNIVALENCE-B-NEG-001` | `CG001-C-430`（负控制） | 同目录 `WrongFactNever.agda` | `verification/runs/20261015-CG001-A-UNIVALENCE-B-NEG-01/`；exit 42，`just 1 != nothing` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-A-UNIVALENCE-B-NEG-002` | `CG001-C-430`（负控制） | 同目录 `WrongBoundedNever.agda` | `verification/runs/20261015-CG001-A-UNIVALENCE-B-NEG-02/`；exit 42，`just 2 != nothing` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-A-UNIVALENCE-B-NEG-003` | `CG001-C-430`（负控制） | 同目录 `WrongBWithoutUnivalence.agda` | `verification/runs/20261015-CG001-A-UNIVALENCE-B-NEG-03/`；exit 42，恒等等价不是单价性要的映射 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-CIRCLE-PARADOX-001` | `CG001-C-424` | `formal/claude-cg001/circle-paradox/GodelQ/Circle/CircleParadox.lean`（`one_step`、`farEnd_arrives`、`closing_never_attains`、`θ_eq_zenoSeq`、`range_bend_ne`、`range_bend_one`、`gap_infinite`、`zero_not_isolated`、`discrete_closing_attains`、`discreteGap_reaches_one`）、`QualificationCircle.lean` | `verification/runs/20261015-CG001-CIRCLE-PARADOX-01/`；exit 0，stderr 0 B；20 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-CIRCLE-PARADOX-NEG-001` | `CG001-C-424`（负控制） | 同目录 `GodelQ/Negative/WrongFiniteClosing.lean` | `verification/runs/20261015-CG001-CIRCLE-PARADOX-NEG-CLOSE-01/`；exit 1，`↑1 − ↑2⁻¹ = 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-RUNNER-ARRIVAL-RATIONAL-001` | `CG001-C-428` | `formal/claude-cg001/runner-arrival-rational/GodelQ/ZFC/ArrivalRational.lean`（`arrRat_iff_arr`、`zfc_arrRat_iff_arr`、`zfc_arrRat_iff_never`、`universe_arrRatS_iff`、`zfc_runner_rat`、`zfc_arriveRatC`、`arrRat_encode_rat`、`arriveRatC_nat`）、`QualificationArrivalRational.lean`；23 个模块逐字节复制自 `godel-q-zfc-runner-arrival` | `verification/runs/20261015-CG001-RUNNER-ARRIVAL-RATIONAL-01/`；exit 0，stderr 0 B；144 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-001` | `CG001-C-428`（负控制） | 同目录 `GodelQ/Negative/WrongRationalStepZero.lean` | `verification/runs/20261015-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-STEP-01/`；exit 1，需要 `q ≤ n`，只有 `0 ≤ n` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TERMINATION-GATE-001` | `CG001-C-431` | `formal/claude-cg001/termination-gate/GodelQ/Gate/Core.lean`、`QualificationGate.lean`（`ungated_proves_false`、`ungated_proves_anything`、`ungated_data_empty`、`gated_has_solution`、`qual_C431`） | `verification/runs/20261015-CG001-TERMINATION-GATE-01/`；exit 0，stderr 0 B；审计公理清单为空；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TERMINATION-GATE-NEG-001` | `CG001-C-431`（负控制） | 同目录 `GodelQ/Negative/WrongLoop.lean` | `verification/runs/20261015-CG001-TERMINATION-GATE-NEG-01/`；exit 1，`fail to show termination` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-001` | `CG001-C-426` | `formal/claude-cg001/two-choices-cubical/TwoChoicesCubical.agda`（`limBit↔LPO`、`noSettlingWithoutMonotone`、`UniverseAnswers.allNo`、`UniverseAnswers.settlesAtZero`、`Stage.stopsAtStage`、`stageJudge`、`universeRun100`、`setsGatheringRun`、`fourTypesGatheringRun`、`qual-C426`；导入 `same-q-univalent`、`questioning-delay`、`universe-questioning` 等） | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-01/`（macOS 工具链记录 `formal/dedekind-omega-missile/TOOLCHAIN.json`）；exit 0，stderr 0 B；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-001` | `CG001-C-426`（负控制） | 同目录 `WrongUniverseSettles.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-01/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-002` | `CG001-C-426`（负控制） | 同目录 `WrongSetsGatheringEarly.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-02/`；exit 42，`nothing != just 1` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-CUBICAL-NEG-003` | `CG001-C-426`（负控制） | 同目录 `WrongAltSettles.agda` | `verification/runs/20261015-CG001-TWO-CHOICES-CUBICAL-NEG-03/`；exit 42，`false != true` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-001` | `CG001-C-425` | `formal/claude-cg001/two-choices-rational/GodelQ/TwoChoices/RationalConstructive.lean`（`bmcQ_of_lpo`、`limBit_of_bmcQ`、`bmcQ_iff_lpo`、`flr_mono`、`close_of_flr_eq`、`zenoQp_cauchy`、`zenoQp_to_one`、`zeno_modulus_zero_false`）、`QualificationRational.lean`；`Core.lean` 逐字节复制自 `two-choices-lpo` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-01/`；exit 0，stderr 0 B；审计 15 个常量不依赖 `Classical.choice`（实际公理 `propext`、`Quot.sound`），2 个对照依赖；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-NEG-001` | `CG001-C-425`（负控制） | 同目录 `GodelQ/Negative/WrongBMCQForFree.lean` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-NEG-FREE-01/`；exit 1，审计报出依赖 `Classical.choice` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-TWO-CHOICES-RATIONAL-NEG-002` | `CG001-C-425`（负控制） | 同目录 `GodelQ/Negative/WrongZenoModulus.lean` | `verification/runs/20261015-CG001-TWO-CHOICES-RATIONAL-NEG-MODULUS-01/`；exit 1，`omega` 证不出 `k + 1 ≤ m` | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-Z0-OMEGA-QUESTION-001` | `CG001-C-427` | `formal/claude-cg001/z0-omega-question/GodelQ/ZFC/Z0OmegaQuestion.lean`（`exists_z0_code`、`z0Code_done_iff`、`z0Q_never`、`zfc_confirms_every_stage`、`consistent_true_iff_z0_never`、`z0_runner_arrives`）、`QualificationZ0Omega.lean`；32 个模块逐字节复制自 `godel-q-zfc-z0-sigma1`，`OmegaQuestion.lean` 逐字节复制自 `godel-q` | `verification/runs/20261015-CG001-Z0-OMEGA-QUESTION-01/`；exit 0，stderr 0 B；150 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-Z0-OMEGA-QUESTION-NEG-001` | `CG001-C-427`（负控制） | 同目录 `GodelQ/Negative/WrongStagesMakeNever.lean` | `verification/runs/20261015-CG001-Z0-OMEGA-QUESTION-NEG-STAGES-01/`；exit 1，类型不符 | `NEGATIVE_CONTROL_REJECTED` |
+| `MP-CG001-ZENO-ZFC-CLASSICAL-001` | `CG001-C-423` | `formal/claude-cg001/zeno-zfc-classical/GodelQ/Zeno/`：`ZenoClassicalZFC.lean`（`models_arriveC`、`models_noFiniteC`、`zfc_arriveC`、`zfc_noFiniteC`、`zfc_not_finiteArrival`）、`ZenoReading.lean`（实数读法）、`QualificationZenoZFC.lean` | `verification/runs/20261015-CG001-ZENO-ZFC-CLASSICAL-01/`；exit 0，stderr 0 B，56 秒；92 条公理报告只有三条标准公理；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-ZENO-ZFC-CLASSICAL-NEG-001` | `CG001-C-423`（负控制） | 同目录 `GodelQ/Negative/WrongFiniteArrival.lean` | `verification/runs/20261015-CG001-ZENO-ZFC-CLASSICAL-NEG-FINITE-01/`；exit 1，`K = 0` 未解 | `NEGATIVE_CONTROL_REJECTED` |
+
+### 4.2 命题一句话（逐字）
+
+| 命题 | 一句话 | 包 |
+|---|---|---|
+| `CG001-C-84` | 过程完成恰是某一有限阶段完成；阶段观察单调且可计算 | godel-q |
+| `CG001-C-85` | Kleene–罗素对角：任一可枚举接受集有 d 使“d 停机 ⟺ 被接受”（由 Kleene 第二递归定理构造）；任一可枚举可靠的永不完成观察者漏掉一个真的永不完成者 | godel-q |
+| `CG001-C-86` | 可枚举、可靠、完备不可兼得；“永不完成”不可枚举（两条独立证明） | godel-q |
+| `CG001-C-87` | 补丁塔：严格更大的可靠观察者仍有漏点 | godel-q |
+| `CG001-C-88` | 有效理论：一致 + Σ1 完全 ⟹ Π1 可靠；每次完成、每个有限时刻都被证明（Q 不是没有） | godel-q |
+| `CG001-C-89` | 哥德尔第一不完备的过程形式：有一个确实永不停的过程，理论每一刻都确认“尚未”，却证明不了“永不”（Q 不完备） | godel-q |
+| `CG001-C-90` | 魔鬼交易：ω 完成规则 P 与“有效 + 一致 + Σ1/Δ0 完全”不可兼得；P 要么不可计算，要么导致矛盾 | godel-q |
+| `CG001-C-91` | 哥德尔–芝诺跑者：每一刻都没到、极限存在、到达 ⟺ d 永不停；可枚举可靠的到达接受者确认不了某个确实到达的跑者；圆环读法同一；经典芝诺可确认 | godel-q |
+| `CG001-C-92` | HBL 前提下 Löb、哥德尔 II、自用 P 的崩塌、ZFC-1 严格更强；一致模型 | godel-q |
+| `CG001-C-93` | 同一个 ω 追问：芝诺、H0（参数）、Z0、跑者；P_fin 被否定；可观察性分界 | godel-q |
+| `CG001-C-94` | ZFC + A = ZFC + P：A_general ⟺ Q 完备；P ⟹ A_general；有效理论没有 A_general；具有 A_general 的理论要么不可枚举要么不一致 | godel-q |
+| `CG001-C-95` | Foundation 的 `𝗭𝗙𝗖` 有 Δ1 公理表示：分离、替换模式各有 Δ1 识别，`𝗕𝗦𝗧` 有限，`𝗔𝗖` 单句 | godel-q-zfc |
+| `CG001-C-96` | Rayo 数字公式的编码是内部原始递归（Σ1）且等于真实编码；𝗭 的每个模型中 `Num_n(z) ↔ z = ofNat n` | godel-q-zfc |
+| `CG001-C-97` | 对任意 Φ，𝗭𝗙𝗖 证明的 `¬∃z (Num_n(z) ∧ Φ(z))` 可枚举 | godel-q-zfc |
+| `CG001-C-98` | `𝗭𝗙𝗖 ⊳ 𝗥₀`；真实 r.e. 事实的数字句被 𝗭𝗙𝗖 证明（不用可靠性） | godel-q-zfc |
+| `CG001-C-99` | 真实 𝗭𝗙𝗖 是 EffectiveTheory；哥德尔 I 过程形式；魔鬼交易 | godel-q-zfc |
+| `CG001-C-100` | 数字句 Σ1 可靠（`Universe` 中 ω ≅ ℕ）；`provesHalts ↔ Done`；对角过程两句都独立；`Entailment.Incomplete 𝗭𝗙𝗖` | godel-q-zfc |
+| `CG001-C-101` | 跑者与 𝗭𝗙𝗖 + A = 𝗭𝗙𝗖 + P 落在 𝗭𝗙𝗖 上（以到达句的可证等价为参数，参数可满足） | godel-q-zfc |
+| `CG001-C-102` | S1：Δ1、扩张 𝗥₀、Σ1 可靠的算术理论上的过程形式与魔鬼交易；Foundation `incomplete_of_halting_problem` 交叉核对 | godel-q-zfc |
+| `CG001-C-104` | 图灵路线（抽象层）：可靠、可枚举的永不完成观察者与有效理论，漏掉的“永不完成”不可枚举且无穷，有限补丁补不完；有效理论的 Q 不完备，证明不经过对角点 | godel-q-zfc-turing |
+| `CG001-C-105` | 图灵路线落在真实 𝗭𝗙𝗖 上：漏点恰是“永不停机”句独立于 𝗭𝗙𝗖 的过程，不可枚举且无穷；𝗭𝗙𝗖 对每个漏点的每个有限时刻证明“尚未停机”；𝗭𝗙𝗖 不完全；不对 𝗭𝗙𝗖 做自指（依赖检查） | godel-q-zfc-turing |
+| `CG001-C-106` | 归因：第一可数空间中“极限到达必在有限阶段取到” ⟺ 终点孤立；ℝ 每点有芝诺式过程；格点上贴近即取到；离散空间同样 | zeno-density-attainment |
+| `CG001-C-107` | 量子化半步跑者（每个粒度）的闭式，第 m+1 步完成，前 m+1 步与稠密跑者相同；极限接口判不了“取到”；完成在稠密化的极限里丢失 | zeno-density-attainment |
+| `CG001-C-108` | 时间一侧：稠密时间有超任务，连续端点 t = 1 取到 1 却不是任何阶段；量子化时间里严格递增的阶段时刻无上界 | zeno-density-attainment |
+| `CG001-C-112` | 同一个 ω 追问的图式（Cubical Agda）：永不落定 ⟺ 搜索 ≡ never；P_fin 被否定；单调追问的减半跑者到达 ⟺ 永不落定（单调前提不可去）；判定器追问即搜索 | same-q-univalent |
+| `CG001-C-113` | 实例同在一个单价内核：芝诺；H0（原生，经 C-78，内核燃料 100 实跑）；截断宇宙对照（第 1 阶段停，跑者不到达）；Z0 为参数 | same-q-univalent |
+| `CG001-C-114` | 想法 T 的形式化（AI 提案）：接口压平维度 ⟹ 无可靠完备观察者；维度不可枚举 ⟹ 每个可靠可枚举观察者漏点不可枚举、无穷，可严格加细而仍漏；脚手架：可靠完备可枚举观察者存在 ⟺ 纤维恒定且可枚举；两种形式不同；实例 𝗭𝗙𝗖、芝诺极限接口 | idea-t-c6-p |
+| `CG001-C-115` | C6（定义是 AI 提案）：有效的审查都不完备；𝗭𝗙𝗖 留下标准解确实出错、它却证不了充分也证不了不充分的跑者；对任一可靠使用的 ℒₛₑₜ 公式，未被批判的错误无穷且列不全 | idea-t-c6-p |
+| `CG001-C-116` | P 的两侧：统一接受形式完成并宣称原完成被一个稠密实例否定（反现实）；统一接受恰为形式完成不可枚举（不可计算）；ℝ 每点语义 P₁ 不成立、格点成立；A ⟺ ω 规则 P ⟺ 无桥完成代换；有效理论没有 A，真值理论有而不可枚举 | idea-t-c6-p |
+| `CG001-C-117` | 到达句的算术层：Σ1 代码公式 θ；`stopF` 在每个 𝗣𝗔⁻ 模型里单调；𝗣𝗔⁻ 模型里 `arrF e ↔ ¬ haltsF e`；剩余距离 ≤ 2⁻ᴷ 恰是前 K 步都还没停；ℕ 里 `arrF ⌜d⌝` 逐字是 ε–N 写法，恰是跑者到达 | godel-q-zfc-runner-arrival |
+| `CG001-C-118` | 𝗭𝗙𝗖 逐个证明到达句 `arrS a`（不是 `neverS`）与永不停机句 `neverS ΦS a` 等价；`arrS` 在 `Universe` 里恰是到达；C-101 的跑者部分不再带参数；C-115 改用到达句后，未被批判的错误仍无穷且列不全 | godel-q-zfc-runner-arrival |
+| `CG001-C-413` | 𝗭 的每个模型 V 里，对任意（可以非标准的）a、b，数字公式 N_a 存在、属于 ω、唯一、相合，并与加法、乘法、序双向相容（`numF_*`） | godel-q-zfc-z0-sigma1 |
+| `CG001-C-414` | 标准算术项的翻译：在数字假设下，`Z V` 证明项值存在于 ω 中，且满足变量等式者就是该项值的数字（`term_ve`） | godel-q-zfc-z0-sigma1 |
+| `CG001-C-415` | 有界量词合并：对每个 i < b 证得 ∀x(N_i(x) → Φ(x))，就证得 ∀z∀x(N_b(z) → x ∈ z → Φ(x))（`ball_merge`） | godel-q-zfc-z0-sigma1 |
+| `CG001-C-416` | 经翻译的形式化 Σ1 完全性：V 中为真的 Σ1 句，它的翻译在 `Z V` 中可证（`tr_sigma1_complete`） | godel-q-zfc-z0-sigma1 |
+| `CG001-C-417` | 第三可推导性条件 `zfcTr_D3`；完整 Z0：`𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ`，不带未证前提（Con(𝗭𝗙𝗖) 由 Lean 元层的 `Universe` 模型提供） | godel-q-zfc-z0-sigma1 |
+| `CG001-C-418` | 两次选择是同一条原则：`LimBit ↔ LPO`、`NatBMC ↔ LPO`，不依赖 `Classical.choice`；去掉“有界”，落定原则不成立 | two-choices-lpo |
+| `CG001-C-419` | 芝诺读数在精度 2⁻ᵏ 上于第 k 步落定，由公式给出、不是搜索：芝诺的极限数用不着 A | two-choices-lpo |
+| `CG001-C-420` | A 的结果机器交不出：停机搜索的开关在经典逻辑里都有落定的一步，却没有可计算的 F 交出落定的一步，也没有可计算的 f 交出终值 | two-choices-lpo |
+| `CG001-C-421` | 经典逻辑不拿可计算性当门槛：LPO 由排中律得到；每个“会停”的陈述都有现成真假；停机集与偶数集同样是集合，一个不可判定、一个可判定 | two-choices-lpo |
+| `CG001-C-422` | 判不全不靠排中律：¬(P ↔ ¬P)；有翻转程序的编程系统里，没有程序恰好认出“永不停机”，也没有完全的停机判定器；构造一侧不依赖任何公理 | halting-without-lem |
+| `CG001-C-423` | 经典芝诺两句落到 Foundation 的 𝗭𝗙𝗖：𝗭𝗙𝗖 证明“极限意义上到达”与“没有哪一步余量为零”的翻译，证不出“有一步余量为零” | zeno-zfc-classical |
+| `CG001-C-424` | 圆环悖论逐句形式化（Mathlib 拓扑）：拆开是一步同胚；合回的远端是芝诺跑者，任何有限阶段形态都不是 M，缺口含无穷多点、长度大于 0，只在极限那一刻是 M；拿走的点不孤立；离散环有限步合上 | circle-paradox |
+| `CG001-C-425` | 两次选择的有理数形态：自写有理数上 `BMCQ ↔ LPO`、`BMCQ ↔ LimBit`，不依赖 `Classical.choice`；芝诺的柯西步由公式 k + 1 给出 | two-choices-rational |
+| `CG001-C-426` | 两次选择在 HoTT 内核里也是同一条原则（Cubical Agda `--safe`，`LimBit ↔ LPO`）；同一检查单元里 B 成立而不假定 LPO：宇宙上的追问 ≡ never | two-choices-cubical |
+| `CG001-C-427` | Z0 是 Lean 里具体的 ω 追问：完成 ⟺ 𝗭𝗙𝗖 ⊢ ⊥；永不落定；对每个 k，𝗭𝗙𝗖 证明“到第 k 步还没找到矛盾”，却证不出一致性句的翻译 | z0-omega-question |
+| `CG001-C-428` | 有理精度的 ε–N 到达句：𝗭𝗙𝗖 逐个证明它与 2⁻ᴷ 写法、与永不停机句等价；有到达的跑者，𝗭𝗙𝗖 证不出它的有理精度到达句；𝗭𝗙𝗖 证明经典芝诺的有理精度极限句 | runner-arrival-rational |
+| `CG001-C-430` | B 的两个成因（合并 `main` 第 4 节已有的消融）：对任意收集，单价且所有高度一次交出 ⟹ 追问 ≡ never；高度有上限 ⟹ 停；编码的相同是事实 ⟹ 第 1 问停；四个见证 | a-univalence-b |
+| `CG001-C-431` | 终止检查是这道门：不设门的定义原则 `∀ α, (α → α) → α` 推出 `False` 与一切命题；良基递归的定义方程有解；不依赖任何公理 | termination-gate |
+
+## 5. 运行清单
 
 | 运行 | 证明 | 命题 | 证明器 | 记录的结局 | 单元 |
 |---|---|---|---|---|---|
@@ -353,3 +475,60 @@
 | `20260930-CG001-TRUNCATION-QUESTIONING-01` | `MP-CG001-TRUNCATION-QUESTIONING-001` | CG001-C-83 | Cubical Agda | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | UR |
 | `20260930-CG001-TRUNCATION-QUESTIONING-NEG-01` | `MP-CG001-TRUNCATION-QUESTIONING-NEG-001` | CG001-C-83 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR |
 | `20260930-CG001-TRUNCATION-QUESTIONING-NEG-02` | `MP-CG001-TRUNCATION-QUESTIONING-NEG-002` | CG001-C-83 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR |
+| `20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-04` | `MP-ZFC-HOTT-COMPLETION-REFLECTION-001` | C-358 | Cubical Agda | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | UR |
+| `20261003-CG001-ZFC-HOTT-COMPLETION-REFLECTION-NEG-03` | `MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001` | C-358 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR |
+| `20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-02` | `MP-ZFC-HOTT-OBSERVATION-BRIDGE-001` | C-357 | Cubical Agda | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | UR |
+| `20261003-CG001-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-02` | `MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001` | C-357 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR |
+| `20261007-CG001-GODEL-Q-01` | `MP-CG001-GODEL-Q-001` | CG001-C-84、CG001-C-85、CG001-C-86、CG001-C-87、CG001-C-88、CG001-C-89、CG001-C-90、CG001-C-91、CG001-C-92、CG001-C-93、CG001-C-94 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261007-CG001-GODEL-Q-NEG-CONSISTENCY-01` | `MP-CG001-GODEL-Q-NEG-CONSISTENCY-001` | CG001-C-90 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261007-CG001-GODEL-Q-NEG-EFFECTIVENESS-01` | `MP-CG001-GODEL-Q-NEG-EFFECTIVENESS-001` | CG001-C-90 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261007-CG001-GODEL-Q-NEG-GODEL-II-01` | `MP-CG001-GODEL-Q-NEG-GODEL-II-001` | CG001-C-92 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261007-CG001-GODEL-Q-NEG-SOUNDNESS-01` | `MP-CG001-GODEL-Q-NEG-SOUNDNESS-001` | CG001-C-85 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261008-CG001-GODEL-Q-ZFC-01` | `MP-CG001-GODEL-Q-ZFC-001` | CG001-C-95、CG001-C-96、CG001-C-97、CG001-C-98、CG001-C-99、CG001-C-100、CG001-C-101、CG001-C-102 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261008-CG001-GODEL-Q-ZFC-NEG-CONSISTENCY-01` | `MP-CG001-GODEL-Q-ZFC-NEG-CONSISTENCY-001` | CG001-C-95、CG001-C-96、CG001-C-97、CG001-C-98、CG001-C-99、CG001-C-100、CG001-C-101、CG001-C-102 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261008-CG001-GODEL-Q-ZFC-NEG-DELTA1-01` | `MP-CG001-GODEL-Q-ZFC-NEG-DELTA1-001` | CG001-C-95、CG001-C-96、CG001-C-97、CG001-C-98、CG001-C-99、CG001-C-100、CG001-C-101、CG001-C-102 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261008-CG001-GODEL-Q-ZFC-NEG-SOUNDNESS-01` | `MP-CG001-GODEL-Q-ZFC-NEG-SOUNDNESS-001` | CG001-C-95、CG001-C-96、CG001-C-97、CG001-C-98、CG001-C-99、CG001-C-100、CG001-C-101、CG001-C-102 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261008-CG001-GODEL-Q-ZFC-TURING-01` | `MP-CG001-GODEL-Q-ZFC-TURING-001` | CG001-C-104、CG001-C-105 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261008-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-01` | `MP-CG001-GODEL-Q-ZFC-TURING-NEG-TRUTH-001` | CG001-C-104 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261008-CG001-ZENO-DENSITY-ATTAINMENT-01` | `MP-CG001-ZENO-DENSITY-ATTAINMENT-001` | CG001-C-106、CG001-C-107、CG001-C-108 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261008-CG001-ZENO-DENSITY-ATTAINMENT-NEG-DENSE-01` | `MP-CG001-ZENO-DENSITY-ATTAINMENT-NEG-DENSE-001` | CG001-C-106 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-01` | `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-001` | CG001-C-117、CG001-C-118 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-01` | `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-001` | CG001-C-118 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-02` | `MP-CG001-GODEL-Q-ZFC-RUNNER-ARRIVAL-NEG-002` | CG001-C-118 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-IDEA-T-C6-P-01` | `MP-CG001-IDEA-T-C6-P-001` | CG001-C-114、CG001-C-115、CG001-C-116 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261009-CG001-IDEA-T-C6-P-NEG-01` | `MP-CG001-IDEA-T-C6-P-NEG-001` | CG001-C-114 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-IDEA-T-C6-P-NEG-02` | `MP-CG001-IDEA-T-C6-P-NEG-002` | CG001-C-115 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-IDEA-T-C6-P-NEG-03` | `MP-CG001-IDEA-T-C6-P-NEG-003` | CG001-C-116 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-SAME-Q-UNIVALENT-01` | `MP-CG001-SAME-Q-UNIVALENT-001` | CG001-C-112、CG001-C-113 | Cubical Agda | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261009-CG001-SAME-Q-UNIVALENT-NEG-01` | `MP-CG001-SAME-Q-UNIVALENT-NEG-001` | CG001-C-113 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-SAME-Q-UNIVALENT-NEG-02` | `MP-CG001-SAME-Q-UNIVALENT-NEG-002` | CG001-C-113 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | ZFC1 |
+| `20261009-CG001-SAME-Q-UNIVALENT-NEG-03` | `MP-CG001-SAME-Q-UNIVALENT-NEG-003` | CG001-C-112 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | ZFC1 |
+| `20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-01` | `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-001` | CG001-C-413、CG001-C-414、CG001-C-415、CG001-C-416、CG001-C-417 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261014-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-01` | `MP-CG001-GODEL-Q-ZFC-Z0-SIGMA1-NEG-BALL-001` | CG001-C-415 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261014-CG001-HALTING-WITHOUT-LEM-01` | `MP-CG001-HALTING-WITHOUT-LEM-001` | CG001-C-422 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261014-CG001-HALTING-WITHOUT-LEM-NEG-FLIP-01` | `MP-CG001-HALTING-WITHOUT-LEM-NEG-001` | CG001-C-422 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261014-CG001-TWO-CHOICES-LPO-01` | `MP-CG001-TWO-CHOICES-LPO-001` | CG001-C-418、CG001-C-419、CG001-C-420、CG001-C-421 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261014-CG001-TWO-CHOICES-LPO-NEG-FREE-01` | `MP-CG001-TWO-CHOICES-LPO-NEG-001` | CG001-C-418 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261014-CG001-TWO-CHOICES-LPO-NEG-SETTLING-01` | `MP-CG001-TWO-CHOICES-LPO-NEG-003` | CG001-C-420 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261014-CG001-TWO-CHOICES-LPO-NEG-UNBOUNDED-01` | `MP-CG001-TWO-CHOICES-LPO-NEG-002` | CG001-C-418 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-A-UNIVALENCE-B-01` | `MP-CG001-A-UNIVALENCE-B-001` | CG001-C-430 | Cubical Agda | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | UR、ZFC1 |
+| `20261015-CG001-A-UNIVALENCE-B-NEG-01` | `MP-CG001-A-UNIVALENCE-B-NEG-001` | CG001-C-430 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR、ZFC1 |
+| `20261015-CG001-A-UNIVALENCE-B-NEG-02` | `MP-CG001-A-UNIVALENCE-B-NEG-002` | CG001-C-430 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR、ZFC1 |
+| `20261015-CG001-A-UNIVALENCE-B-NEG-03` | `MP-CG001-A-UNIVALENCE-B-NEG-003` | CG001-C-430 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR、ZFC1 |
+| `20261015-CG001-CIRCLE-PARADOX-01` | `MP-CG001-CIRCLE-PARADOX-001` | CG001-C-424 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261015-CG001-CIRCLE-PARADOX-NEG-CLOSE-01` | `MP-CG001-CIRCLE-PARADOX-NEG-001` | CG001-C-424 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-RUNNER-ARRIVAL-RATIONAL-01` | `MP-CG001-RUNNER-ARRIVAL-RATIONAL-001` | CG001-C-428 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261015-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-STEP-01` | `MP-CG001-RUNNER-ARRIVAL-RATIONAL-NEG-001` | CG001-C-428 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-TERMINATION-GATE-01` | `MP-CG001-TERMINATION-GATE-001` | CG001-C-431 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261015-CG001-TERMINATION-GATE-NEG-01` | `MP-CG001-TERMINATION-GATE-NEG-001` | CG001-C-431 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-TWO-CHOICES-CUBICAL-01` | `MP-CG001-TWO-CHOICES-CUBICAL-001` | CG001-C-426 | Cubical Agda | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | UR、ZFC1 |
+| `20261015-CG001-TWO-CHOICES-CUBICAL-NEG-01` | `MP-CG001-TWO-CHOICES-CUBICAL-NEG-001` | CG001-C-426 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR、ZFC1 |
+| `20261015-CG001-TWO-CHOICES-CUBICAL-NEG-02` | `MP-CG001-TWO-CHOICES-CUBICAL-NEG-002` | CG001-C-426 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR、ZFC1 |
+| `20261015-CG001-TWO-CHOICES-CUBICAL-NEG-03` | `MP-CG001-TWO-CHOICES-CUBICAL-NEG-003` | CG001-C-426 | Cubical Agda | 被拒（预期），exit 42，`KERNEL_REJECTED` | UR、ZFC1 |
+| `20261015-CG001-TWO-CHOICES-RATIONAL-01` | `MP-CG001-TWO-CHOICES-RATIONAL-001` | CG001-C-425 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261015-CG001-TWO-CHOICES-RATIONAL-NEG-FREE-01` | `MP-CG001-TWO-CHOICES-RATIONAL-NEG-001` | CG001-C-425 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-TWO-CHOICES-RATIONAL-NEG-MODULUS-01` | `MP-CG001-TWO-CHOICES-RATIONAL-NEG-002` | CG001-C-425 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-Z0-OMEGA-QUESTION-01` | `MP-CG001-Z0-OMEGA-QUESTION-001` | CG001-C-427 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261015-CG001-Z0-OMEGA-QUESTION-NEG-STAGES-01` | `MP-CG001-Z0-OMEGA-QUESTION-NEG-001` | CG001-C-427 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |
+| `20261015-CG001-ZENO-ZFC-CLASSICAL-01` | `MP-CG001-ZENO-ZFC-CLASSICAL-001` | CG001-C-423 | Lean 4 | 接受，exit 0，`KERNEL_ACCEPTED_WITH_SCOPE` | ZFC1 |
+| `20261015-CG001-ZENO-ZFC-CLASSICAL-NEG-FINITE-01` | `MP-CG001-ZENO-ZFC-CLASSICAL-NEG-001` | CG001-C-423 | Lean 4 | 被拒（预期），exit 1，`KERNEL_REJECTED` | ZFC1 |

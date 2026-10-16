@@ -1,19 +1,21 @@
 <!-- translation:v1
 source: docs/社区审计提交/03-HoTT的芝诺.md
-source_sha256: 65a51aafc12510be00554ea09a561c147f8380e9d93fd49ab814df5f6d3ebd41
+source_sha256: bea7f03052d2e242a97b0a51e5dd22dc5371119668042a96f3181eba22b26c53
 language: en
-translator: Claude Opus 5.5 (AI), 2026-10-01
+translator: Claude Opus 5.5 (AI), 2026-10-01; version 2 changes 2026-10-15
 authority: the Chinese original is authoritative
 -->
 # HoTT's Zeno
 
 [中文](03-HoTT的芝诺.md) · [Русский](03-HoTT的芝诺-RU.md) · [Deutsch](03-HoTT的芝诺-DE.md) · [Français](03-HoTT的芝诺-FR.md) · **English**
 
-> *AI translation (Claude Opus 5.5, 2026-10-01) of the Chinese original [`03-HoTT的芝诺.md`](03-HoTT的芝诺.md), which is authoritative. The words of the project's initiator are quoted in the original Chinese, each followed by a marked translation; code, file paths and identifiers are unchanged.*
+> *AI translation (Claude Opus 5.5, 2026-10-01; the changes of version 2, 2026-10-15) of the Chinese original [`03-HoTT的芝诺.md`](03-HoTT的芝诺.md), which is authoritative. The words of the project's initiator are quoted in the original Chinese, each followed by a marked translation; code, file paths and identifiers are unchanged.*
 
 **Why "being the same" never gets settled in its universe**
 
-Community audit paper · version 1 · 2026-09-30 · repository `math-fournity/HoTT-Paradoxy`
+Community audit paper · version 2 · 2026-10-15 · repository `math-fournity/HoTT-Paradoxy`
+
+Version 1 was written on 2026-09-30. Version 2 changes only what the initiator's ruling of 2026-10-15 requires: "which premise to blame" and the two places tied to it (the first two points of "What this shows" and audit question 3); under "Evidence" it adds one theorem that consolidates the controls.
 
 > **Who it is for**: readers outside mathematics who are willing to think along, and mathematicians who are willing to audit.
 >
@@ -68,9 +70,12 @@ A limit declares "arrived" by a definition; truncation declares "sameness is a f
 
 ## What this shows
 
-- In Zeno, the defendant is "position can be divided without end"; its counterpart here is "**sameness can be divided without end**", produced jointly by univalence and higher inductive types.
-- The controls separate the two: replace "sameness is a structure" by "sameness is a fact" (Lean), and the program stops at level 1; keep "sameness is a structure" and only cap the height, and it stops at the cap; only when both are present does it never stop. The Lean control replaces the whole of "sameness is a structure", not univalence alone.
-- By proof by contradiction, what must be re-examined is the abstraction the theory made in order to be convenient. Our judgment (an interpretation, conditional on the initiator's view of what the simple thing is): univalence, that is, "isomorphic means the same", should be examined first, because shapes of equally high dimensions also exist in classical mathematics; what changes is what "the same" means. Higher inductive types come second. A proof by contradiction refutes only the conjunction of the two; this is a ranking, not a sole defendant.
+- In Zeno, the defendant is "position can be divided without end"; its counterpart here is "**sameness can be divided without end**". It is made of two things together: sameness is a structure (univalence), and the universe hands over things of every height at once (higher inductive types supply those heights).
+- The controls separate the two: replace "sameness is a structure" by "sameness is a fact" (Lean), and the program stops at level 1; keep "sameness is a structure" and only cap the height, and it stops at the cap; only when both are present does it never stop. The Lean control replaces the whole of "sameness is a structure", not univalence alone. Later this set of controls was written as one theorem for every collection (C-430): with both present, the program never stops; cap the members' height, and it stops at the cap; keep the members exactly as in the universe example, with every height present, and only turn the "sameness" of the catalogue's numbering into a fact, and it stops at level 1.
+- By proof by contradiction, what must be re-examined is the abstraction the theory made in order to be convenient. The theorem is symmetric in the two things; it says only that neither can be dropped. Which of them is the unrealistic abstraction is the initiator's ruling of 2026-10-15: there is a single defendant, the "**ready-made collection**", that is, the universe hands over at once, as something already lying there, a whole that would take infinitely many levels to confirm. Univalence is one of the causes and is kept.
+  - On the side of set theory (ZFC) the initiator calls this act A (2026-10-14, original words): “A就是一个无限的步骤才能到达，从而存在的结果，当作已经存在的结果，参与运算。” Translation: "A is this: a result that can only be reached through an infinite number of steps, and exists on that account, is treated as an already existing result and takes part in computation."
+  - It only shares a letter with the "direction A" at the start of this paper; they are not the same thing. The phenomenon of this paper belongs to direction A (it can be completed in reality but not in the theory), while the defendant is an act of direction B, as in the sister paper 02 (treating what is not yet settled as already delivered).
+  - Version 1 of this paper gave our own ranking here (examine univalence first, higher inductive types second); it has been corrected according to the ruling.
 
 ## What this is not
 
@@ -83,6 +88,7 @@ A limit declares "arrived" by a definition; truncation declares "sameness is a f
 - The questioning program, and never stopping on the universe: `HoTT/formal/claude-cg001/questioning-delay/CLAIM.md` (C-77 to C-79); the Lean control in the world of facts: C-80 in the same `CLAIM.md`.
 - Never stopping on an ordinary product, and the capped control: `HoTT/formal/claude-cg001/product-questioning/CLAIM.md` (C-81, C-82).
 - The truncation control: `HoTT/formal/claude-cg001/truncation-questioning/CLAIM.md` (C-83).
+- The two causes written as one theorem for every collection, with univalence isolated on its own: `HoTT/formal/claude-cg001/a-univalence-b/CLAIM.md` (C-430, 2026-10-15). It consolidates the controls above; it is not a new phenomenon.
 - Runs and exact replays: `.claude/goals/CG-001-targeted-overview/证据索引.md` §20–§23; the last section of the project's shared evidence matrix `HoTT/CLAIM_EVIDENCE_MATRIX.md` registers the same batch of claims. Scope: Cubical Agda 2.8.0 with cubical 0.9 (C-80 in Lean 4.34.0); C-77 to C-80 were replayed consistently on two platforms, Linux and macOS; C-81 to C-83 were replayed only on macOS.
 - The initiator's original words and the AI's full reading of them: KC-000052 to KC-000054 in `核心认知.md`; `扩展认知/011 - 本来应该很简单的事：UR 与芝诺的模式匹配.md`.
 
@@ -90,6 +96,6 @@ A limit declares "arrived" by a definition; truncation declares "sameness is a f
 
 1. **Mathematics**: do the formal statements listed at the end hold? Do they say what the text says? In particular: the precise meaning of the questioning program "being equal to `never`" (no finite amount of fuel yields an answer), and its relation to "every level answers no".
 2. **The task**: "whether two things are the same is, in ordinary terms, a matter of one sentence": is this a fair description of everyday logic and mathematics? Is implementing it as "asking level by level up to which level sameness has been settled" the same thing?
-3. **Attribution**: is the changed condition "sameness can be divided without end"? Which bears more responsibility, univalence or higher inductive types? Are there competing attributions we have not thought of?
+3. **Attribution**: is the changed condition "sameness can be divided without end"? The initiator has named the "ready-made collection" as the defendant and listed univalence as a cause: does this attribution hold up? Are there competing attributions we have not thought of?
 4. **Standard responses**: can truncation, doing mathematics only at the level of sets, or the stratification of universes remove the unreasonableness here? What does each of them cost?
 5. **Precedents**: has anyone already read these mathematical facts this way? Also: that a single universe with higher inductive types is not an n-type for any n had not been proved when the HoTT Book was written (2013); has it been proved in the literature since?

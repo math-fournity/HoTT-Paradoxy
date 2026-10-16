@@ -1,0 +1,57 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude Code desktop session 91beaf35 (012-Opus; 95a1a81b before resume), CG-010 H3a, worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15",
+  "claim_ids": [
+    "CG001-C-431"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/termination-gate",
+    "GodelQ/Gate/Core.lean",
+    "GodelQ/Gate/QualificationGate.lean"
+  ],
+  "completed_at_utc": "2026-10-15T20:04:37.664464+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 2.09805,
+  "environment": {
+    "bytes": 979,
+    "path": "environment.txt",
+    "sha256": "e89d39325a66c712d238de510fe56bea55f20fab93b2098d0918d9dcc90bba51"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not claim that classical mathematics or ZFC is inconsistent; (1)-(3) refute the ungated principle, which is not a ZFC axiom.",
+    "Reading the termination requirement as the research sponsor's 'the most fundamental precondition of an algorithm's legitimacy' is an interpretation bridge, not a theorem."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-TERMINATION-GATE-001",
+  "run_id": "20261015-CG001-TERMINATION-GATE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Lean 4 kernel only, no axioms (audited). C-431: (1) the ungated definition principle forall alpha : Prop, (alpha -> alpha) -> alpha (every recursive definition x := f x counts, whether or not its computation halts) proves False; (2) it proves every proposition; (3) the data version forall alpha : Type, (alpha -> alpha) -> alpha gives an element of Empty; (4) positive control: for any well-founded relation and recursion functional, the defining equation has a solution (WellFounded.fix, WellFounded.fix_eq).",
+  "source_manifest": {
+    "bytes": 200568,
+    "path": "source-manifest.json",
+    "sha256": "b156d438bd9ca1b1d4a438e774972c13f0e3b52c62f31a7e5233a68a77bb7da0"
+  },
+  "started_at_utc": "2026-10-15T20:04:35.566153+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 610,
+    "path": "stdout.txt",
+    "sha256": "c1d0365051e5f853f73eed90c96b4125faa928212e8c3b4c0d496bfbb276c7f3"
+  },
+  "theory_variant": "Lean 4 kernel (v4.34.0), no Mathlib or Foundation imports in the sources; the audit command imports Lean."
+}

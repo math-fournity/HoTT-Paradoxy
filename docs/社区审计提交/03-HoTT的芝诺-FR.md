@@ -1,19 +1,21 @@
 <!-- translation:v1
 source: docs/社区审计提交/03-HoTT的芝诺.md
-source_sha256: 65a51aafc12510be00554ea09a561c147f8380e9d93fd49ab814df5f6d3ebd41
+source_sha256: bea7f03052d2e242a97b0a51e5dd22dc5371119668042a96f3181eba22b26c53
 language: fr
-translator: Claude Opus 5.5 (AI), 2026-10-01
+translator: Claude Opus 5.5 (AI), 2026-10-01; version 2 changes 2026-10-15
 authority: the Chinese original is authoritative
 -->
 # Le Zénon de HoTT
 
 [中文](03-HoTT的芝诺.md) · [Русский](03-HoTT的芝诺-RU.md) · [Deutsch](03-HoTT的芝诺-DE.md) · **Français** · [English](03-HoTT的芝诺-EN.md)
 
-> *Traduction par IA (Claude Opus 5.5, 2026-10-01) de l'original chinois [`03-HoTT的芝诺.md`](03-HoTT的芝诺.md), qui fait foi. Les propos de la personne à l'origine du projet sont cités dans l'original chinois, chacun suivi d'une traduction signalée ; le code, les chemins de fichiers et les identifiants sont inchangés.*
+> *Traduction par IA (Claude Opus 5.5, 2026-10-01 ; les changements de la version 2 : 2026-10-15) de l'original chinois [`03-HoTT的芝诺.md`](03-HoTT的芝诺.md), qui fait foi. Les propos de la personne à l'origine du projet sont cités dans l'original chinois, chacun suivi d'une traduction signalée ; le code, les chemins de fichiers et les identifiants sont inchangés.*
 
 **Pourquoi « être la même chose » ne se tranche jamais dans son univers**
 
-Document d'audit pour la communauté · version 1 · 2026-09-30 · dépôt `math-fournity/HoTT-Paradoxy`
+Document d'audit pour la communauté · version 2 · 2026-10-15 · dépôt `math-fournity/HoTT-Paradoxy`
+
+La version 1 date du 2026-09-30. La version 2 ne change que ce qu'exige la décision du 2026-10-15 de la personne à l'origine du projet : « quelle prémisse incriminer » et les deux passages qui y sont liés (les deux premiers points de « Ce que cela montre » et la question d'audit 3) ; elle ajoute sous « Preuves » un théorème qui rassemble les contrôles.
 
 > **À qui il s'adresse** : aux lecteurs non mathématiciens prêts à suivre le raisonnement, et aux mathématiciens prêts à l'auditer.
 >
@@ -68,9 +70,12 @@ La limite déclare « arrivé » par une définition ; la troncature déclare «
 
 ## Ce que cela montre
 
-- Chez Zénon, l'accusée est « la position peut être divisée sans fin » ; son pendant ici est « **l'identité peut être divisée sans fin** », produite conjointement par l'univalence et les types inductifs supérieurs.
-- Les contrôles séparent les deux : remplacez « l'identité est une structure » par « l'identité est un fait » (Lean), et le programme s'arrête au niveau 1 ; gardez « l'identité est une structure » et plafonnez seulement la hauteur, et il s'arrête au plafond ; ce n'est qu'avec les deux qu'il ne s'arrête jamais. Le contrôle Lean remplace tout « l'identité est une structure », pas seulement l'univalence.
-- Selon le raisonnement par l'absurde, ce qu'il faut réexaminer, c'est l'abstraction que la théorie a faite pour être commode. Notre jugement (une interprétation, conditionnelle à ce que la personne à l'origine du projet tient pour la chose simple) : il faut examiner en premier l'univalence, c'est-à-dire « isomorphe veut dire même », car des formes d'aussi haute dimension existent aussi en mathématiques classiques ; ce qui change, c'est ce que « même » veut dire. Les types inductifs supérieurs viennent en second. Le raisonnement par l'absurde ne réfute que la conjonction des deux ; c'est un classement, non un accusé unique.
+- Chez Zénon, l'accusée est « la position peut être divisée sans fin » ; son pendant ici est « **l'identité peut être divisée sans fin** ». Elle est faite de deux choses ensemble : l'identité est une structure (univalence), et l'univers livre d'un coup des choses de toutes les hauteurs (les types inductifs supérieurs fournissent ces hauteurs).
+- Les contrôles séparent les deux : remplacez « l'identité est une structure » par « l'identité est un fait » (Lean), et le programme s'arrête au niveau 1 ; gardez « l'identité est une structure » et plafonnez seulement la hauteur, et il s'arrête au plafond ; ce n'est qu'avec les deux qu'il ne s'arrête jamais. Le contrôle Lean remplace tout « l'identité est une structure », pas seulement l'univalence. Par la suite, ce groupe de contrôles a été écrit comme un seul théorème valable pour toute collection (C-430) : avec les deux, le programme ne s'arrête jamais ; plafonnez la hauteur des membres, et il s'arrête au plafond ; gardez les membres exactement comme dans l'exemple de l'univers, avec toutes les hauteurs, et faites seulement de l'« identité » de la numérotation du catalogue un fait, et il s'arrête au niveau 1.
+- Selon le raisonnement par l'absurde, ce qu'il faut réexaminer, c'est l'abstraction que la théorie a faite pour être commode. Le théorème est symétrique en ces deux choses ; il dit seulement qu'on ne peut retirer ni l'une ni l'autre. Laquelle est l'abstraction irréaliste, c'est la décision du 2026-10-15 de la personne à l'origine du projet : il n'y a qu'un seul accusé, la « **collection toute faite** », c'est-à-dire que l'univers livre d'un coup, comme quelque chose de déjà là, un tout dont la confirmation demanderait une infinité de niveaux. L'univalence est l'une des causes et elle est conservée.
+  - Du côté de la théorie des ensembles (ZFC), la personne à l'origine du projet appelle cet acte A (2026-10-14, propos originaux) : “A就是一个无限的步骤才能到达，从而存在的结果，当作已经存在的结果，参与运算。” Traduction : « A, c'est ceci : un résultat qu'on n'atteint qu'au bout d'une infinité d'étapes, et qui n'existe qu'à ce titre, est traité comme un résultat déjà existant et entre dans les calculs. »
+  - Il ne partage que la lettre avec la « direction A » du début de ce document ; ce n'est pas la même chose. Le phénomène de ce document relève de la direction A (réalisable dans la réalité, pas dans la théorie), tandis que l'accusé est un acte de la direction B, comme dans le document jumeau 02 (traiter comme déjà livré ce qui n'est pas encore fixé).
+  - La version 1 de ce document donnait ici notre propre classement (examiner d'abord l'univalence, les types inductifs supérieurs en second) ; il est corrigé conformément à la décision.
 
 ## Ce que ce n'est pas
 
@@ -83,6 +88,7 @@ La limite déclare « arrivé » par une définition ; la troncature déclare «
 - Le programme de questionnement, et le non-arrêt sur l'univers : `HoTT/formal/claude-cg001/questioning-delay/CLAIM.md` (C-77 à C-79) ; le contrôle Lean dans le monde des faits : C-80 dans le même `CLAIM.md`.
 - Le non-arrêt sur un produit ordinaire, et le contrôle plafonné : `HoTT/formal/claude-cg001/product-questioning/CLAIM.md` (C-81, C-82).
 - Le contrôle par troncature : `HoTT/formal/claude-cg001/truncation-questioning/CLAIM.md` (C-83).
+- Les deux causes écrites comme un seul théorème pour toute collection, l'univalence étant isolée à part : `HoTT/formal/claude-cg001/a-univalence-b/CLAIM.md` (C-430, 2026-10-15). Il rassemble les contrôles ci-dessus ; ce n'est pas un phénomène nouveau.
 - Exécutions et rejeux exacts : `.claude/goals/CG-001-targeted-overview/证据索引.md` §20–§23 ; la dernière section de la matrice de preuves partagée du projet, `HoTT/CLAIM_EVIDENCE_MATRIX.md`, enregistre le même lot d'énoncés. Périmètre : Cubical Agda 2.8.0 avec cubical 0.9 (C-80 dans Lean 4.34.0) ; C-77 à C-80 rejoués de façon concordante sur deux plateformes, Linux et macOS ; C-81 à C-83 rejoués seulement sur macOS.
 - Les propos originaux de la personne à l'origine du projet et la lecture complète qu'en fait l'IA : KC-000052 à KC-000054 dans `核心认知.md` ; `扩展认知/011 - 本来应该很简单的事：UR 与芝诺的模式匹配.md`.
 
@@ -90,6 +96,6 @@ La limite déclare « arrivé » par une définition ; la troncature déclare «
 
 1. **Mathématiques** : les énoncés formels listés à la fin sont-ils vrais ? Disent-ils ce que dit le texte ? En particulier : le sens précis de « le programme de questionnement est égal à `never` » (aucune quantité finie de carburant ne donne de réponse), et son rapport avec « chaque niveau répond non ».
 2. **La tâche** : « savoir si deux choses sont la même est, d'ordinaire, l'affaire d'une phrase » — est-ce une description équitable de la logique et des mathématiques ordinaires ? La mettre en œuvre comme « demander niveau par niveau jusqu'à quel niveau l'identité est tranchée », est-ce la même chose ?
-3. **Attribution** : la condition modifiée est-elle « l'identité peut être divisée sans fin » ? Qui porte le plus de responsabilité, l'univalence ou les types inductifs supérieurs ? Y a-t-il des attributions concurrentes auxquelles nous n'avons pas pensé ?
+3. **Attribution** : la condition modifiée est-elle « l'identité peut être divisée sans fin » ? La personne à l'origine du projet a désigné la « collection toute faite » comme accusé et rangé l'univalence parmi les causes : cette attribution tient-elle ? Y a-t-il des attributions concurrentes auxquelles nous n'avons pas pensé ?
 4. **Réponses standard** : la troncature, le fait de ne faire des mathématiques qu'au niveau des ensembles, ou la stratification des univers peuvent-ils supprimer le déraisonnable ici ? Que coûte chacune de ces réponses ?
 5. **Précédents** : quelqu'un a-t-il déjà lu ces faits mathématiques de cette manière ? Par ailleurs : qu'un univers unique avec types inductifs supérieurs ne soit un n-type pour aucun n n'était pas démontré quand le HoTT Book a été écrit (2013) ; l'a-t-il été depuis dans la littérature ?

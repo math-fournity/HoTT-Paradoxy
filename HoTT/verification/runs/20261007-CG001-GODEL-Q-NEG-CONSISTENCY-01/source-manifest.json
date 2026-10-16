@@ -1,0 +1,402 @@
+{
+  "external_dependencies": [
+    {
+      "bytes": 49968,
+      "label": "lean-bin/lean",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean",
+      "sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554"
+    },
+    {
+      "bytes": 179044704,
+      "label": "lean-lib/lean/libleanshared.dylib",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/libleanshared.dylib",
+      "sha256": "2c4cdca4a03ef56e2c37e3d1ecd202ae5310e146e41580c6036770965ea93ef6"
+    },
+    {
+      "bytes": 16736,
+      "label": "lean-lib/lean/libleanshared_1.dylib",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/libleanshared_1.dylib",
+      "sha256": "e44858e227323a23ce7416c5678415d2d022582b1627ad3690117ce73cd6345a"
+    },
+    {
+      "bytes": 16736,
+      "label": "lean-lib/lean/libleanshared_2.dylib",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/libleanshared_2.dylib",
+      "sha256": "be68927a4f282b99383e82af4d481b4ffe59f2a243aea20dae0e60b39c2ae182"
+    },
+    {
+      "bytes": 16736,
+      "label": "lean-lib/lean/libInit_shared.dylib",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/libInit_shared.dylib",
+      "sha256": "cb203e0bc0e6ab3250b2804d3e5398ad3a91544b5e049674532f73b7a062ef7f"
+    },
+    {
+      "bytes": 10072896,
+      "label": "lean-lib/lean/libLake_shared.dylib",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/libLake_shared.dylib",
+      "sha256": "60a94628397814203d86428fa6015f9d844c4c4c74cda8667e687a4ea5b5f5ac"
+    },
+    {
+      "bytes": 5888,
+      "label": "lean-lib/lean/Init.olean",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/Init.olean",
+      "sha256": "36f732d9cbfce0cbd1234dec6144186944c2580be32c13d942f8eb4b703d8f5c"
+    },
+    {
+      "bytes": 3397592,
+      "label": "lean-lib/lean/Init/Prelude.olean",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/Init/Prelude.olean",
+      "sha256": "582efca88f372de1718ec8549e2501e7d29808822518cb72535b34f53866ad91"
+    },
+    {
+      "bytes": 6216,
+      "label": "lean-lib/lean/Lean.olean",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/Lean.olean",
+      "sha256": "cd4620e2beb402a7131e4b760374ee02315a8b5708e99d7991df1f419ac28f40"
+    },
+    {
+      "bytes": 2064,
+      "label": "lean-lib/lean/Std.olean",
+      "local_path": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0/lib/lean/Std.olean",
+      "sha256": "eabd4376bb5a5f97af486a888976de9e577015303e041684b59afd7d52a2b70c"
+    },
+    {
+      "bytes": 8305,
+      "label": "mathlib-overlay-Mathlib/Computability/Halting.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Halting.ilean",
+      "sha256": "8f03ec4e63b8aab14b57e870060dd25844fe572468843a7bf5e93fd96961f702"
+    },
+    {
+      "bytes": 1696,
+      "label": "mathlib-overlay-Mathlib/Computability/Halting.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Halting.ir",
+      "sha256": "0406130adf90392ea6a0238fe3296d0ea991967c34187a3c5dbfa861f506b2d0"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Computability/Halting.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Halting.ir.sig",
+      "sha256": "9c6590fc641f6c36bba28d923ba7dfe1e57308f22611a43e5808312e33acdbe1"
+    },
+    {
+      "bytes": 15808,
+      "label": "mathlib-overlay-Mathlib/Computability/Halting.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Halting.olean",
+      "sha256": "46ce40b90b8b5aaecba2acbeb2a2de81da6c8d907be39649f567f0258f281b65"
+    },
+    {
+      "bytes": 53520,
+      "label": "mathlib-overlay-Mathlib/Computability/Halting.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Halting.olean.private",
+      "sha256": "0a78745b38e668d7ac9f210ff3fff0cccc6fd5ac10aad8b6e03a1a0125f4a682"
+    },
+    {
+      "bytes": 2736,
+      "label": "mathlib-overlay-Mathlib/Computability/Halting.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Halting.olean.server",
+      "sha256": "990077051115ea73e475d2ccfef72b140f66d5cc9dc4a3fb4c210a5b9cc6fa02"
+    },
+    {
+      "bytes": 89413,
+      "label": "mathlib-overlay-Mathlib/Computability/Partrec.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Partrec.ilean",
+      "sha256": "51ac0b1ad94c37aa4aa86a53489d8922dfa5f37212a3ec4f357f60bf812abd03"
+    },
+    {
+      "bytes": 8496,
+      "label": "mathlib-overlay-Mathlib/Computability/Partrec.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Partrec.ir",
+      "sha256": "4c1ea69ca6c43a31ec19705021245d60a70aded4023d8838f1898367ee3e5d80"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Computability/Partrec.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Partrec.ir.sig",
+      "sha256": "5ee3934df9884d617d3f6aae407d8e159b35a18a6a96f6d078b56a66576075d0"
+    },
+    {
+      "bytes": 252336,
+      "label": "mathlib-overlay-Mathlib/Computability/Partrec.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Partrec.olean",
+      "sha256": "6c4440edb5aa282ef9f40c28b0c312dff7c4878daa9fb21434872dc6c56b9c0c"
+    },
+    {
+      "bytes": 1010432,
+      "label": "mathlib-overlay-Mathlib/Computability/Partrec.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Partrec.olean.private",
+      "sha256": "77a59169b0d30893dbf8437ab73eafc2396f97f179daab9541157d91c2e7934e"
+    },
+    {
+      "bytes": 31888,
+      "label": "mathlib-overlay-Mathlib/Computability/Partrec.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Partrec.olean.server",
+      "sha256": "2ccf1ddc5102a68bbcfddb5bf82dd002786d474e0f542ab0c9a1c824065ea47c"
+    },
+    {
+      "bytes": 183286,
+      "label": "mathlib-overlay-Mathlib/Computability/PartrecCode.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/PartrecCode.ilean",
+      "sha256": "478cd2bc02e10e9f4796a80d89edc46c9bab8b93c0f61cbb9a271e98981d01ee"
+    },
+    {
+      "bytes": 123440,
+      "label": "mathlib-overlay-Mathlib/Computability/PartrecCode.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/PartrecCode.ir",
+      "sha256": "1e4b1a5f4dcd610f51ee7034958d78c2da680b5cc5e205abc0b2ee9844c98ba9"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Computability/PartrecCode.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/PartrecCode.ir.sig",
+      "sha256": "8b036225b56e98762d68d2afb4160a121ad0fef1787773d39189db758bc8862c"
+    },
+    {
+      "bytes": 439872,
+      "label": "mathlib-overlay-Mathlib/Computability/PartrecCode.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/PartrecCode.olean",
+      "sha256": "0d9f9e5b8f285665c2c7288f199a27dbbd81e8a536c797e720580a347119d9d3"
+    },
+    {
+      "bytes": 1714936,
+      "label": "mathlib-overlay-Mathlib/Computability/PartrecCode.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/PartrecCode.olean.private",
+      "sha256": "c70bc4c6dcdba92305af57da0693cd1bdd3af5b243491b87e76a4b9c6eb9c720"
+    },
+    {
+      "bytes": 21288,
+      "label": "mathlib-overlay-Mathlib/Computability/PartrecCode.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/PartrecCode.olean.server",
+      "sha256": "25088ebedb6689a92cfa92acce32ac6146b1c6c7142cb7045cfde44d8cc0f795"
+    },
+    {
+      "bytes": 100345,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/Basic.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/Basic.ilean",
+      "sha256": "466df27d90af8e9dea4c64fb9229ebaae62856dd95f27493158b1bb43bc80254"
+    },
+    {
+      "bytes": 14240,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/Basic.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/Basic.ir",
+      "sha256": "c5e8ea7bbfa01c1367c2eb84c4de292cbfbeddfaff48f1bac1de6bbf86d05d21"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/Basic.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/Basic.ir.sig",
+      "sha256": "3d643cfbbcf85d15f68dd0b051784d0617e4a15639b57b0f5fe83f3d97940990"
+    },
+    {
+      "bytes": 350408,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/Basic.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/Basic.olean",
+      "sha256": "4dc2880306560af251a25cc69c3eefcb1798f28f04c81102e382e569a688abbe"
+    },
+    {
+      "bytes": 816584,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/Basic.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/Basic.olean.private",
+      "sha256": "9de26208737faf75fc0a21f6f6bc7a363e3df710d4353854774beeaf7cc8a09a"
+    },
+    {
+      "bytes": 43176,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/Basic.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/Basic.olean.server",
+      "sha256": "9b38152240fad70ac88c3cd77c7dea5cafe26b2838c3af3ceaeac2a0655bfce2"
+    },
+    {
+      "bytes": 115324,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/List.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/List.ilean",
+      "sha256": "67a3576f2b91cdb177155a7b538fb40a69eacfaeaa3bdb9a49b07db634368385"
+    },
+    {
+      "bytes": 10976,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/List.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/List.ir",
+      "sha256": "ff51d177d10583ce60130622fd0e25697dc4eb88ccfe7c280d6cd83c439cc77d"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/List.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/List.ir.sig",
+      "sha256": "36d854cd801cd66edc02f4c07ceb0e98fe438f5cbd6e8f7534793f552afb58d9"
+    },
+    {
+      "bytes": 313744,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/List.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/List.olean",
+      "sha256": "31d49eb0f99201339133664ca1bcaf98868ce9d4f39eecf3ee488321ef19ec43"
+    },
+    {
+      "bytes": 1042144,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/List.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/List.olean.private",
+      "sha256": "aa1fc7cbfe7fa9d1ffc29d879aa2901b8d0c7e78e301a73117d86bb06ca6f4d7"
+    },
+    {
+      "bytes": 29064,
+      "label": "mathlib-overlay-Mathlib/Computability/Primrec/List.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/Primrec/List.olean.server",
+      "sha256": "2dd7ddc7a11346b778c759e4a785551a47e47f2c94491077ddff1d345de5dffc"
+    },
+    {
+      "bytes": 29303,
+      "label": "mathlib-overlay-Mathlib/Computability/RE.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/RE.ilean",
+      "sha256": "f1c45cdc8d63b287693bba6f26a009a69669f691e6d67df208ee2e70a02386ac"
+    },
+    {
+      "bytes": 1448,
+      "label": "mathlib-overlay-Mathlib/Computability/RE.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/RE.ir",
+      "sha256": "531b9f552e374a8f322bbb1ba1bc781d647ba47ec6b7d055fc7ef72a784d855a"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Computability/RE.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/RE.ir.sig",
+      "sha256": "61c8b66cc498e3527c8df7ddbc81579a55c5ddfb7f4dedea9accc00ad86aef44"
+    },
+    {
+      "bytes": 43440,
+      "label": "mathlib-overlay-Mathlib/Computability/RE.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/RE.olean",
+      "sha256": "6c0046ac24d426a4993e6da4914559b5d06ebdc8392869b16afb3376d41c24ae"
+    },
+    {
+      "bytes": 356752,
+      "label": "mathlib-overlay-Mathlib/Computability/RE.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/RE.olean.private",
+      "sha256": "12501f49cfa9deacf7374f8a2ff9164e5581ac34f644694314b86d963945ab89"
+    },
+    {
+      "bytes": 6944,
+      "label": "mathlib-overlay-Mathlib/Computability/RE.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Computability/RE.olean.server",
+      "sha256": "d9440f6ba7c744c74171f73d52fd766ffc15909f805036e711b5fded12fb8ec2"
+    },
+    {
+      "bytes": 8546,
+      "label": "mathlib-overlay-Mathlib/Data/Nat/PSub.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/Nat/PSub.ilean",
+      "sha256": "bb830aa771eb9b9e40f7bbb685c44b02aff4ed6427bc08b0c11d96d92f661ca9"
+    },
+    {
+      "bytes": 9744,
+      "label": "mathlib-overlay-Mathlib/Data/Nat/PSub.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/Nat/PSub.ir",
+      "sha256": "96420078ac6c9f5214112e06862a1d9737e515d47fbce4a65c15677546f0b42a"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Data/Nat/PSub.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/Nat/PSub.ir.sig",
+      "sha256": "726e0a0fed24a1d23271b4c9a8d9b9d2d29d07b3873f4c75b1a0583b55ae5195"
+    },
+    {
+      "bytes": 54184,
+      "label": "mathlib-overlay-Mathlib/Data/Nat/PSub.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/Nat/PSub.olean",
+      "sha256": "aad9c8f192ae65bfe689f4416a94cd0f4dc9763787f9b267eb41f67566f0f700"
+    },
+    {
+      "bytes": 86016,
+      "label": "mathlib-overlay-Mathlib/Data/Nat/PSub.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/Nat/PSub.olean.private",
+      "sha256": "a874c4b16a59e238cefbb2fda4b5080dab057c75f615acd2457db9426ee756c1"
+    },
+    {
+      "bytes": 5888,
+      "label": "mathlib-overlay-Mathlib/Data/Nat/PSub.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/Nat/PSub.olean.server",
+      "sha256": "853584eb2ee8ab41ffefdbf300947abfc1dfa1e17921109c2a6419de204b3e38"
+    },
+    {
+      "bytes": 46257,
+      "label": "mathlib-overlay-Mathlib/Data/PFun.ilean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/PFun.ilean",
+      "sha256": "4ac68aa9f38cf48343715db39dc1ced25116c29bd7a14a7ba12ad275ab8643e1"
+    },
+    {
+      "bytes": 50376,
+      "label": "mathlib-overlay-Mathlib/Data/PFun.ir",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/PFun.ir",
+      "sha256": "149cc889c4759168f6c4bceb80d5b5968f32731f557569d786988243a4688777"
+    },
+    {
+      "bytes": 176,
+      "label": "mathlib-overlay-Mathlib/Data/PFun.ir.sig",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/PFun.ir.sig",
+      "sha256": "02175bd17b36614b1dbc9b90cae76853d424f3621b283b7733e1f74e51154a57"
+    },
+    {
+      "bytes": 385608,
+      "label": "mathlib-overlay-Mathlib/Data/PFun.olean",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/PFun.olean",
+      "sha256": "8bedf935c256c97696e7c9ec21e7e4bc21f28647ac498bf0ce112d02acc25e78"
+    },
+    {
+      "bytes": 829168,
+      "label": "mathlib-overlay-Mathlib/Data/PFun.olean.private",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/PFun.olean.private",
+      "sha256": "a6e8c873d06900a8069715b94a4f8db8cdf7228c134bdb551a1b797d2aeb218e"
+    },
+    {
+      "bytes": 32664,
+      "label": "mathlib-overlay-Mathlib/Data/PFun.olean.server",
+      "local_path": "/Volumes/D/HoTT-toolchain-cache/godel-q-mathlib-ext-v4.34.0/lib/lean/Mathlib/Data/PFun.olean.server",
+      "sha256": "7605db8bd9fbe2e31d97f26038e9de6aae62235e2f2d434e7fd503f9b71a22e8"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 8090,
+      "path": "HoTT/formal/claude-cg001/godel-q/GodelQ/ProcessObservation.lean",
+      "sha256": "8e80fe3938d96fb3a4c919602c4cf945f9f76a523cc98f0fc730753625246db2"
+    },
+    {
+      "bytes": 9418,
+      "path": "HoTT/formal/claude-cg001/godel-q/GodelQ/EffectiveTheory.lean",
+      "sha256": "aad863a63ebc706afe947e47ef7127bb7f82e3061257f43ab4dddcd43d46240e"
+    },
+    {
+      "bytes": 573,
+      "path": "HoTT/formal/claude-cg001/godel-q/GodelQ/Negative/WrongTheoryWithoutConsistency.lean",
+      "sha256": "4bffab0393db0bebd0971872a9539e2f58ce6b74cd58b06feeea07ac22d44271"
+    },
+    {
+      "bytes": 11915,
+      "path": "HoTT/formal/claude-cg001/godel-q/CLAIM.md",
+      "sha256": "9b48f80812951ae84f494e351d20a85e8d209ebf44f7ba008b029cbe6bf8ecc9"
+    },
+    {
+      "bytes": 2782,
+      "path": "HoTT/formal/claude-cg001/godel-q/LEAN_TOOLCHAIN.json",
+      "sha256": "e9d112db3b23309f3b38b46532d677b3c6dac592cd3053f1a7236f60b6794b3a"
+    },
+    {
+      "bytes": 290211,
+      "path": "HoTT/formal/claude-cg001/godel-q/MATHLIB_CLOSURE.json",
+      "sha256": "97ab2cac97aaf8112684f049386804a7892d1a2dc64db6bc2b9738da166907da"
+    },
+    {
+      "bytes": 5778,
+      "path": ".claude/goals/CG-005-godel-q-synthesis/tools/godelq_lean_check.py",
+      "sha256": "aa2639f73183e3faf5a006316ddd59effc3028ccac88421c18db8c34b8be8410"
+    },
+    {
+      "bytes": 7437,
+      "path": ".claude/goals/CG-005-godel-q-synthesis/tools/make_godelq_pins.py",
+      "sha256": "3b3aff3ee047afefce0120a58d0fc3d1659e1a07ecad10a81876bfa8e5666429"
+    },
+    {
+      "bytes": 9371,
+      "path": ".claude/goals/CG-005-godel-q-synthesis/tools/capture_godelq_run.py",
+      "sha256": "a0509931d8043b77ba0d649dbd293454739277dbf2e33366fc03235a5d624134"
+    }
+  ],
+  "proof_id": "MP-CG001-GODEL-Q-NEG-CONSISTENCY-001",
+  "run_id": "20261007-CG001-GODEL-Q-NEG-CONSISTENCY-01",
+  "schema_version": "formal-proof-source-manifest/v1"
+}
